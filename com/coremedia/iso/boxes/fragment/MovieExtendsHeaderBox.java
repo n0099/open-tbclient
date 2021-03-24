@@ -4,33 +4,28 @@ import com.coremedia.iso.IsoTypeReader;
 import com.coremedia.iso.IsoTypeWriter;
 import com.googlecode.mp4parser.AbstractFullBox;
 import com.googlecode.mp4parser.RequiresParseDetailAspect;
+import g.a.a.a;
+import g.a.b.b.b;
 import java.nio.ByteBuffer;
-import org.aspectj.a.b.b;
-import org.aspectj.lang.a;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class MovieExtendsHeaderBox extends AbstractFullBox {
     public static final String TYPE = "mehd";
-    private static final /* synthetic */ a.InterfaceC1292a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC1292a ajc$tjp_1 = null;
-    private long fragmentDuration;
+    public static final /* synthetic */ a.InterfaceC1858a ajc$tjp_0 = null;
+    public static final /* synthetic */ a.InterfaceC1858a ajc$tjp_1 = null;
+    public long fragmentDuration;
 
     static {
         ajc$preClinit();
-    }
-
-    private static /* synthetic */ void ajc$preClinit() {
-        b bVar = new b("MovieExtendsHeaderBox.java", MovieExtendsHeaderBox.class);
-        ajc$tjp_0 = bVar.a("method-execution", bVar.d("1", "getFragmentDuration", "com.coremedia.iso.boxes.fragment.MovieExtendsHeaderBox", "", "", "", "long"), 65);
-        ajc$tjp_1 = bVar.a("method-execution", bVar.d("1", "setFragmentDuration", "com.coremedia.iso.boxes.fragment.MovieExtendsHeaderBox", "long", "fragmentDuration", "", "void"), 69);
     }
 
     public MovieExtendsHeaderBox() {
         super(TYPE);
     }
 
-    @Override // com.googlecode.mp4parser.AbstractBox
-    protected long getContentSize() {
-        return getVersion() == 1 ? 12 : 8;
+    public static /* synthetic */ void ajc$preClinit() {
+        b bVar = new b("MovieExtendsHeaderBox.java", MovieExtendsHeaderBox.class);
+        ajc$tjp_0 = bVar.g("method-execution", bVar.f("1", "getFragmentDuration", "com.coremedia.iso.boxes.fragment.MovieExtendsHeaderBox", "", "", "", "long"), 65);
+        ajc$tjp_1 = bVar.g("method-execution", bVar.f("1", "setFragmentDuration", "com.coremedia.iso.boxes.fragment.MovieExtendsHeaderBox", "long", "fragmentDuration", "", "void"), 69);
     }
 
     @Override // com.googlecode.mp4parser.AbstractBox
@@ -40,7 +35,7 @@ public class MovieExtendsHeaderBox extends AbstractFullBox {
     }
 
     @Override // com.googlecode.mp4parser.AbstractBox
-    protected void getContent(ByteBuffer byteBuffer) {
+    public void getContent(ByteBuffer byteBuffer) {
         writeVersionAndFlags(byteBuffer);
         if (getVersion() == 1) {
             IsoTypeWriter.writeUInt64(byteBuffer, this.fragmentDuration);
@@ -49,13 +44,18 @@ public class MovieExtendsHeaderBox extends AbstractFullBox {
         }
     }
 
+    @Override // com.googlecode.mp4parser.AbstractBox
+    public long getContentSize() {
+        return getVersion() == 1 ? 12 : 8;
+    }
+
     public long getFragmentDuration() {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_0, this, this));
+        RequiresParseDetailAspect.aspectOf().before(b.c(ajc$tjp_0, this, this));
         return this.fragmentDuration;
     }
 
     public void setFragmentDuration(long j) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.jx(j)));
+        RequiresParseDetailAspect.aspectOf().before(b.d(ajc$tjp_1, this, this, g.a.b.a.a.f(j)));
         this.fragmentDuration = j;
     }
 }

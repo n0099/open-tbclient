@@ -14,10 +14,7 @@ import android.view.animation.RotateAnimation;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import com.baidu.fsg.base.utils.ResUtils;
-import com.baidu.searchbox.v8engine.util.TimeUtils;
 import com.baidu.tieba.R;
-import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.tencent.connect.common.Constants;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -25,27 +22,27 @@ import java.io.InputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.regex.Pattern;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public final class i {
 
     /* renamed from: a  reason: collision with root package name */
-    private static SimpleDateFormat f3625a;
+    public static SimpleDateFormat f22955a;
 
     public static int a() {
         return Build.VERSION.SDK_INT;
     }
 
-    public static int a(Context context, float f) {
-        return (int) ((context.getResources().getDisplayMetrics().density * f) + 0.5f);
+    public static int a(Context context, float f2) {
+        return (int) ((f2 * context.getResources().getDisplayMetrics().density) + 0.5f);
     }
 
     public static int a(Context context, String str) {
-        return context.getResources().getIdentifier(str, ResUtils.ANIM, context.getPackageName());
+        return context.getResources().getIdentifier(str, "anim", context.getPackageName());
     }
 
     public static long a(Context context) {
         ActivityManager.MemoryInfo memoryInfo = new ActivityManager.MemoryInfo();
-        ((ActivityManager) context.getSystemService(PushConstants.INTENT_ACTIVITY_NAME)).getMemoryInfo(memoryInfo);
+        ((ActivityManager) context.getSystemService("activity")).getMemoryInfo(memoryInfo);
         return memoryInfo.availMem / 1024;
     }
 
@@ -54,18 +51,17 @@ public final class i {
     }
 
     public static Bitmap a(Drawable drawable) {
-        Bitmap bitmap;
+        Bitmap bitmap = null;
         if (drawable == null) {
             c.a("unknown resourse, drawable null!");
             return null;
         }
         try {
             bitmap = ((BitmapDrawable) drawable).getBitmap();
-        } catch (Exception e) {
+        } catch (Exception e2) {
             if (com.baidu.ufosdk.b.o <= 4) {
-                e.printStackTrace();
+                e2.printStackTrace();
             }
-            bitmap = null;
         }
         if (bitmap == null) {
             int intrinsicWidth = drawable.getIntrinsicWidth();
@@ -83,10 +79,10 @@ public final class i {
     }
 
     public static String a(long j) {
-        if (f3625a == null) {
-            f3625a = new SimpleDateFormat("MM-dd HH:mm");
+        if (f22955a == null) {
+            f22955a = new SimpleDateFormat("MM-dd HH:mm");
         }
-        return f3625a.format(new Date(j));
+        return f22955a.format(new Date(j));
     }
 
     public static void a(Context context, TextView textView) {
@@ -125,8 +121,8 @@ public final class i {
                     break;
                 }
                 byteArrayOutputStream.write(bArr, 0, read);
-            } catch (IOException e) {
-                c.a("stream2ByteArray fail", e);
+            } catch (IOException e2) {
+                c.a("stream2ByteArray fail", e2);
             }
         }
         byteArrayOutputStream.flush();
@@ -138,15 +134,15 @@ public final class i {
         RelativeLayout relativeLayout2 = new RelativeLayout(context);
         try {
             relativeLayout.setBackgroundDrawable(o.a(context, "ufo_loading_bg.9.png"));
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (Exception e2) {
+            e2.printStackTrace();
         }
         relativeLayout2.setLayoutParams(new RelativeLayout.LayoutParams(-2, -2));
         ProgressBar progressBar = new ProgressBar(context);
         try {
             progressBar.setIndeterminateDrawable(new BitmapDrawable(m.a(context, "ufo_loading_icon.png")));
-        } catch (Exception e2) {
-            e2.printStackTrace();
+        } catch (Exception e3) {
+            e3.printStackTrace();
         }
         LinearInterpolator linearInterpolator = new LinearInterpolator();
         RotateAnimation rotateAnimation = new RotateAnimation(0.0f, 360.0f, 1, 0.5f, 1, 0.5f);
@@ -176,10 +172,10 @@ public final class i {
     }
 
     public static String b(long j) {
-        if (f3625a == null) {
-            f3625a = new SimpleDateFormat("yy-MM-dd");
+        if (f22955a == null) {
+            f22955a = new SimpleDateFormat("yy-MM-dd");
         }
-        return f3625a.format(new Date(j));
+        return f22955a.format(new Date(j));
     }
 
     public static boolean b(String str) {
@@ -191,9 +187,9 @@ public final class i {
 
     public static String c(long j) {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MM-dd HH:mm");
-        f3625a = simpleDateFormat;
+        f22955a = simpleDateFormat;
         String format = simpleDateFormat.format(new Date(j));
-        f3625a = null;
+        f22955a = null;
         return format.split(" ")[1];
     }
 
@@ -205,6 +201,26 @@ public final class i {
     }
 
     public static String d(long j) {
-        return j / 1000000000 > 0 ? (((float) (j / 100000000)) / 10.0f) + "G" : j / TimeUtils.NANOS_PER_MS > 0 ? (((float) (j / 100000)) / 10.0f) + "M" : j / 1000 > 0 ? (((float) (j / 100)) / 10.0f) + "K" : j + "B";
+        StringBuilder sb;
+        String str;
+        if (j / 1000000000 > 0) {
+            sb = new StringBuilder();
+            sb.append(((float) (j / 100000000)) / 10.0f);
+            str = "G";
+        } else if (j / 1000000 > 0) {
+            sb = new StringBuilder();
+            sb.append(((float) (j / 100000)) / 10.0f);
+            str = "M";
+        } else if (j / 1000 > 0) {
+            sb = new StringBuilder();
+            sb.append(((float) (j / 100)) / 10.0f);
+            str = "K";
+        } else {
+            sb = new StringBuilder();
+            sb.append(j);
+            str = "B";
+        }
+        sb.append(str);
+        return sb.toString();
     }
 }

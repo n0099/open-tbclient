@@ -1,17 +1,19 @@
 package com.baidu.tieba.card.holder;
 
 import com.baidu.adp.widget.ListView.TypeAdapter;
-import com.baidu.tieba.card.b;
-/* loaded from: classes.dex */
+import d.b.i0.x.b;
+/* loaded from: classes4.dex */
 public class CardViewHolder<T extends b> extends TypeAdapter.ViewHolder {
-    protected T iDP;
+
+    /* renamed from: e  reason: collision with root package name */
+    public T f15282e;
 
     public CardViewHolder(T t) {
-        super(t.getView());
-        this.iDP = t;
+        super(t.m());
+        this.f15282e = t;
     }
 
-    public T cto() {
-        return this.iDP;
+    public T b() {
+        return this.f15282e;
     }
 }

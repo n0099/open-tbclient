@@ -1,0 +1,241 @@
+package com.baidu.wallet.base.nopassauth;
+
+import android.content.Context;
+import android.text.TextUtils;
+import com.baidu.apollon.armor.SafePay;
+import com.baidu.apollon.utils.SharedPreferencesUtils;
+import com.baidu.wallet.api.WalletLoginHelper;
+import com.baidu.wallet.core.beans.BeanConstants;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.UnsupportedEncodingException;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import javax.net.ssl.HostnameVerifier;
+import javax.net.ssl.HttpsURLConnection;
+import javax.net.ssl.SSLSession;
+/* loaded from: classes5.dex */
+public final class OtpTokenUtils {
+
+    /* renamed from: a  reason: collision with root package name */
+    public static final String f23678a = "OtpTokenUtils";
+
+    /* renamed from: b  reason: collision with root package name */
+    public static final String f23679b = "key_later_server_time";
+
+    /* renamed from: c  reason: collision with root package name */
+    public static long f23680c = 0;
+
+    /* renamed from: d  reason: collision with root package name */
+    public static int f23681d = 10;
+
+    public static InputStream a(HttpURLConnection httpURLConnection) {
+        try {
+            return httpURLConnection.getInputStream();
+        } catch (IOException unused) {
+            return httpURLConnection.getErrorStream();
+        }
+    }
+
+    public static String getEncryptTOtpCode(Context context, int i, String str, int i2) {
+        return !TextUtils.isEmpty(str) ? new c(str, i, 0L, i2).a(context) : "";
+    }
+
+    public static String getSN(String str) {
+        String[] split;
+        String decryptProxy = SafePay.getInstance().decryptProxy(str);
+        if (TextUtils.isEmpty(decryptProxy) || (split = decryptProxy.split("\\|")) == null || split.length != 9) {
+            return null;
+        }
+        return split[2];
+    }
+
+    public static String getSafeSavedData(String str, Context context) {
+        String passUid = WalletLoginHelper.getInstance().getPassUid();
+        String str2 = SafePay.getInstance().tokenDecrypt(str);
+        if (TextUtils.isEmpty(str2)) {
+            return "";
+        }
+        try {
+            byte[] bytes = str2.getBytes("UTF-8");
+            if (bytes.length >= 1) {
+                byte[] bArr = new byte[bytes.length - 1];
+                System.arraycopy(bytes, 0, bArr, 0, bytes.length - 1);
+                if (bytes[bytes.length - 1] == 1 && !TextUtils.isEmpty(passUid)) {
+                    bArr = xorArrayRepeat(bArr, passUid.getBytes("UTF-8"));
+                }
+                return new String(bArr, "UTF-8");
+            }
+            return "";
+        } catch (UnsupportedEncodingException e2) {
+            e2.printStackTrace();
+            return "";
+        }
+    }
+
+    public static String getSafeSavedDataByUnionId(String str, Context context) {
+        String unionId = WalletLoginHelper.getInstance().getUnionId();
+        String str2 = SafePay.getInstance().tokenDecrypt(str);
+        if (TextUtils.isEmpty(str2)) {
+            return "";
+        }
+        try {
+            byte[] bytes = str2.getBytes("UTF-8");
+            if (bytes.length >= 1) {
+                byte[] bArr = new byte[bytes.length - 1];
+                System.arraycopy(bytes, 0, bArr, 0, bytes.length - 1);
+                if (bytes[bytes.length - 1] == 1 && !TextUtils.isEmpty(unionId)) {
+                    bArr = xorArrayRepeat(bArr, unionId.getBytes("UTF-8"));
+                }
+                return new String(bArr, "UTF-8");
+            }
+            return "";
+        } catch (UnsupportedEncodingException e2) {
+            e2.printStackTrace();
+            return "";
+        }
+    }
+
+    public static long getmSyncWithServerTime(Context context) {
+        return ((Long) SharedPreferencesUtils.getParam(context, BeanConstants.PREFERENCES_NAME, f23679b, 0L)).longValue();
+    }
+
+    public static void setmSyncWithServerTime(Context context, long j) {
+        SharedPreferencesUtils.setParam(context, BeanConstants.PREFERENCES_NAME, f23679b, Long.valueOf(j));
+    }
+
+    public static long syncTime(long j) {
+        HttpsURLConnection httpsURLConnection;
+        HttpsURLConnection httpsURLConnection2 = null;
+        try {
+            try {
+                f23680c = 0L;
+                httpsURLConnection = (HttpsURLConnection) new URL("https://www.baidu.com/").openConnection();
+            } catch (Exception e2) {
+                e = e2;
+            }
+        } catch (Throwable th) {
+            th = th;
+        }
+        try {
+            httpsURLConnection.setDoOutput(true);
+            httpsURLConnection.setUseCaches(false);
+            httpsURLConnection.setRequestMethod("GET");
+            httpsURLConnection.setConnectTimeout(f23681d * 1000);
+            httpsURLConnection.setHostnameVerifier(new HostnameVerifier() { // from class: com.baidu.wallet.base.nopassauth.OtpTokenUtils.1
+                @Override // javax.net.ssl.HostnameVerifier
+                public boolean verify(String str, SSLSession sSLSession) {
+                    return "www.baidu.com".equals(str) || "m.baidu.com".equals(str);
+                }
+            });
+            httpsURLConnection.connect();
+            f23680c = httpsURLConnection.getDate() / 1000;
+            if (httpsURLConnection != null) {
+                try {
+                    InputStream a2 = a(httpsURLConnection);
+                    if (a2 != null) {
+                        a2.close();
+                    }
+                } catch (Exception e3) {
+                    e3.printStackTrace();
+                }
+                httpsURLConnection.disconnect();
+            }
+            return (System.currentTimeMillis() / 1000) - f23680c;
+        } catch (Exception e4) {
+            e = e4;
+            httpsURLConnection2 = httpsURLConnection;
+            e.printStackTrace();
+            if (httpsURLConnection2 != null) {
+                try {
+                    InputStream a3 = a(httpsURLConnection2);
+                    if (a3 != null) {
+                        a3.close();
+                    }
+                } catch (Exception e5) {
+                    e5.printStackTrace();
+                }
+                httpsURLConnection2.disconnect();
+            }
+            return j;
+        } catch (Throwable th2) {
+            th = th2;
+            httpsURLConnection2 = httpsURLConnection;
+            if (httpsURLConnection2 != null) {
+                try {
+                    InputStream a4 = a(httpsURLConnection2);
+                    if (a4 != null) {
+                        a4.close();
+                    }
+                } catch (Exception e6) {
+                    e6.printStackTrace();
+                }
+                httpsURLConnection2.disconnect();
+            }
+            throw th;
+        }
+    }
+
+    public static String toSafeSavedData(String str, Context context) {
+        byte[] a2;
+        String passUid = WalletLoginHelper.getInstance().getPassUid();
+        if (!TextUtils.isEmpty(str)) {
+            try {
+                if (TextUtils.isEmpty(passUid)) {
+                    a2 = a(str.getBytes("UTF-8"), false);
+                } else {
+                    a2 = a(xorArrayRepeat(str.getBytes("UTF-8"), passUid.getBytes("UTF-8")), true);
+                }
+                return SafePay.getInstance().tokenEncrypt(new String(a2, "UTF-8"));
+            } catch (UnsupportedEncodingException e2) {
+                e2.printStackTrace();
+            }
+        }
+        return str;
+    }
+
+    public static String toSafeSavedDataByUnionId(String str, Context context) {
+        byte[] a2;
+        String unionId = WalletLoginHelper.getInstance().getUnionId();
+        if (!TextUtils.isEmpty(str)) {
+            try {
+                if (TextUtils.isEmpty(unionId)) {
+                    a2 = a(str.getBytes("UTF-8"), false);
+                } else {
+                    a2 = a(xorArrayRepeat(str.getBytes("UTF-8"), unionId.getBytes("UTF-8")), true);
+                }
+                return SafePay.getInstance().tokenEncrypt(new String(a2, "UTF-8"));
+            } catch (UnsupportedEncodingException e2) {
+                e2.printStackTrace();
+            }
+        }
+        return str;
+    }
+
+    public static byte[] xorArrayRepeat(byte[] bArr, byte[] bArr2) {
+        byte[] bArr3 = new byte[bArr.length];
+        int length = bArr.length;
+        int i = 0;
+        int i2 = 0;
+        while (i < length) {
+            bArr3[i2] = (byte) (bArr[i] ^ bArr2[i2 % bArr2.length]);
+            i++;
+            i2++;
+        }
+        return bArr3;
+    }
+
+    public static byte[] a(byte[] bArr, boolean z) {
+        if (bArr == null || bArr.length == 0) {
+            return bArr;
+        }
+        byte[] bArr2 = new byte[bArr.length + 1];
+        int i = 0;
+        for (byte b2 : bArr) {
+            bArr2[i] = b2;
+            i++;
+        }
+        bArr2[bArr.length] = z ? (byte) 1 : (byte) 0;
+        return bArr2;
+    }
+}

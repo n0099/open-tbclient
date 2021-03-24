@@ -5,15 +5,15 @@ import android.content.Context;
 import com.baidu.mobads.interfaces.IXAdConstants4PDK;
 import com.baidu.mobads.vo.d;
 import java.util.HashMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class b extends d {
     public b(Context context, Activity activity, IXAdConstants4PDK.SlotType slotType) {
         super(context, activity, slotType);
-        this.b = this.i.replaceURLWithSupportProtocol("http://mobads.baidu.com/ads/index.htm");
+        this.f8625b = this.i.replaceURLWithSupportProtocol("http://mobads.baidu.com/ads/index.htm");
     }
 
     @Override // com.baidu.mobads.vo.d
-    protected HashMap<String, String> a() {
+    public HashMap<String, String> a() {
         return new HashMap<>();
     }
 

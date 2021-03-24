@@ -6,7 +6,7 @@ import androidx.annotation.DrawableRes;
 import androidx.annotation.Keep;
 @KsAdSdkDynamicApi
 @Keep
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public interface ICompletedRemoteView {
     @KsAdSdkDynamicApi
     @Keep

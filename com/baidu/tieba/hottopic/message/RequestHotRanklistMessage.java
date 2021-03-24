@@ -1,78 +1,78 @@
 package com.baidu.tieba.hottopic.message;
 
 import com.baidu.adp.framework.message.NetMessage;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
-import com.baidu.tbadk.util.v;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import d.b.h0.z0.w;
 import tbclient.CommonReq;
 import tbclient.TopicList.DataReq;
 import tbclient.TopicList.TopicListReqIdl;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class RequestHotRanklistMessage extends NetMessage {
-    private String call_from;
+    public String call_from;
 
     /* renamed from: common  reason: collision with root package name */
-    private CommonReq f3592common;
-    private long fid;
-    private String list_type;
-    private String need_tab_list;
+    public CommonReq f17618common;
+    public long fid;
+    public String list_type;
+    public String need_tab_list;
 
     public RequestHotRanklistMessage() {
-        super(1003078, CmdConfigSocket.CMD_HOT_TOPIC_RANKLIST);
-    }
-
-    public void setCommon(CommonReq commonReq) {
-        this.f3592common = commonReq;
-    }
-
-    public CommonReq getCommon() {
-        return this.f3592common;
-    }
-
-    public String getCallFrom() {
-        return this.call_from;
-    }
-
-    public void setCallFrom(String str) {
-        this.call_from = str;
-    }
-
-    public String getListType() {
-        return this.list_type;
-    }
-
-    public void setListType(String str) {
-        this.list_type = str;
-    }
-
-    public String getNeedTabList() {
-        return this.need_tab_list;
-    }
-
-    public void setNeedTabList(String str) {
-        this.need_tab_list = str;
-    }
-
-    public void setFid(long j) {
-        this.fid = j;
+        super(CmdConfigHttp.CMD_HOT_TOPIC_RANKLIST, 309289);
     }
 
     @Override // com.baidu.adp.framework.message.NetMessage
     public Object encode(boolean z) {
         try {
             DataReq.Builder builder = new DataReq.Builder();
-            builder.f8960common = getCommon();
+            builder.f68638common = getCommon();
             builder.call_from = getCallFrom();
             builder.list_type = getListType();
             builder.need_tab_list = getNeedTabList();
             builder.fid = Long.valueOf(this.fid);
             if (z) {
-                v.b(builder, true);
+                w.a(builder, true);
             }
             TopicListReqIdl.Builder builder2 = new TopicListReqIdl.Builder();
             builder2.data = builder.build(false);
             return builder2.build(false);
-        } catch (Exception e) {
+        } catch (Exception unused) {
             return null;
         }
+    }
+
+    public String getCallFrom() {
+        return this.call_from;
+    }
+
+    public CommonReq getCommon() {
+        return this.f17618common;
+    }
+
+    public String getListType() {
+        return this.list_type;
+    }
+
+    public String getNeedTabList() {
+        return this.need_tab_list;
+    }
+
+    public void setCallFrom(String str) {
+        this.call_from = str;
+    }
+
+    public void setCommon(CommonReq commonReq) {
+        this.f17618common = commonReq;
+    }
+
+    public void setFid(long j) {
+        this.fid = j;
+    }
+
+    public void setListType(String str) {
+        this.list_type = str;
+    }
+
+    public void setNeedTabList(String str) {
+        this.need_tab_list = str;
     }
 }

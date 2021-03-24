@@ -4,7 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.WorkerThread;
 import com.kwad.sdk.core.network.BaseResultData;
 import com.kwad.sdk.core.network.g;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public interface h<R extends g, T extends BaseResultData> {
     @WorkerThread
     void a(@NonNull R r);

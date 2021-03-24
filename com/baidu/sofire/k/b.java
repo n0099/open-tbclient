@@ -1,39 +1,27 @@
 package com.baidu.sofire.k;
 
-import android.content.ComponentName;
 import android.content.Context;
-import android.content.Intent;
-import android.content.ServiceConnection;
-import android.os.IBinder;
-import com.baidu.sofire.k.c;
-/* loaded from: classes4.dex */
-public final class b implements com.baidu.sofire.j.b {
+import android.database.Cursor;
+import android.net.Uri;
+import android.util.Log;
+/* loaded from: classes3.dex */
+public final class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private a f3559a;
+    public Context f11828a;
 
-    @Override // com.baidu.sofire.j.b
-    public final void a(Context context, com.baidu.sofire.j.c cVar) {
-        this.f3559a = new a(context, cVar);
-        final a aVar = this.f3559a;
-        aVar.c = new ServiceConnection() { // from class: com.baidu.sofire.k.a.1
-            @Override // android.content.ServiceConnection
-            public final synchronized void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-                aVar.b = c.a.a(iBinder);
-            }
-
-            @Override // android.content.ServiceConnection
-            public final void onServiceDisconnected(ComponentName componentName) {
-                aVar.b = null;
-            }
-        };
-        Intent intent = new Intent("com.uodis.opendevice.OPENIDS_SERVICE");
-        intent.setPackage("com.huawei.hwid");
-        aVar.f3557a.bindService(intent, aVar.c, 1);
+    public b(Context context) {
+        this.f11828a = context;
     }
 
-    @Override // com.baidu.sofire.j.b
-    public final String b() {
-        return this.f3559a.a();
+    public final String a() {
+        Cursor query = this.f11828a.getContentResolver().query(Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/OAID"), null, null, null, null);
+        if (query != null) {
+            r1 = query.moveToNext() ? query.getString(query.getColumnIndex("value")) : null;
+            query.close();
+        } else {
+            Log.d("VMS_IDLG_SDK_DB", "return cursor is null,return");
+        }
+        return r1;
     }
 }

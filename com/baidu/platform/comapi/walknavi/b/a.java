@@ -1,10 +1,16 @@
 package com.baidu.platform.comapi.walknavi.b;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f2902a = 0;
-    public static int b = 0;
-    public static int c = 19;
-    public static int d = 1;
+    public static int f9902a = 0;
+
+    /* renamed from: b  reason: collision with root package name */
+    public static int f9903b = 0;
+
+    /* renamed from: c  reason: collision with root package name */
+    public static int f9904c = 19;
+
+    /* renamed from: d  reason: collision with root package name */
+    public static int f9905d = 1;
 }

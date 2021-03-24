@@ -1,5 +1,5 @@
 package com.baidu.minivideo.plugin.capture.bean;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public class BaseDraftManager {
     public static final int DB_ADD = 1;
     public static final int DB_ADD_DRAFT_BACKUP = 7;

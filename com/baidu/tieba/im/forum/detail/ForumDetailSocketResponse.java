@@ -1,55 +1,50 @@
 package com.baidu.tieba.im.forum.detail;
 
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
 import com.squareup.wire.Wire;
 import java.util.List;
+import tbclient.Error;
 import tbclient.GetForumDetail.BzApplySwitch;
+import tbclient.GetForumDetail.DataRes;
 import tbclient.GetForumDetail.GetForumDetailResIdl;
 import tbclient.GetForumDetail.ManagerApplyInfo;
 import tbclient.GetForumDetail.ManagerElectionTab;
 import tbclient.PriManagerApplyInfo;
 import tbclient.RecommendForumInfo;
 import tbclient.SimpleThreadInfo;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class ForumDetailSocketResponse extends TbSocketReponsedMessage {
-    private ManagerApplyInfo applyInfo;
-    private BzApplySwitch bzApplySwitch;
-    private RecommendForumInfo forumInfo;
-    private int isBawuShow;
-    private boolean isComplaintShow;
-    private ManagerElectionTab managerElectionTab;
-    private PriManagerApplyInfo privateApplyInfo;
-    private List<SimpleThreadInfo> threadInfoList;
+    public ManagerApplyInfo applyInfo;
+    public BzApplySwitch bzApplySwitch;
+    public RecommendForumInfo forumInfo;
+    public int isBawuShow;
+    public boolean isComplaintShow;
+    public ManagerElectionTab managerElectionTab;
+    public PriManagerApplyInfo privateApplyInfo;
+    public List<SimpleThreadInfo> threadInfoList;
 
     public ForumDetailSocketResponse() {
-        super(CmdConfigSocket.CMD_FORUM_DETAIL);
+        super(303021);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.message.a
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
-        GetForumDetailResIdl getForumDetailResIdl = (GetForumDetailResIdl) new Wire(new Class[0]).parseFrom(bArr, GetForumDetailResIdl.class);
-        if (getForumDetailResIdl != null) {
-            if (getForumDetailResIdl.error != null) {
-                setError(getForumDetailResIdl.error.errorno.intValue());
-                setErrorString(getForumDetailResIdl.error.usermsg);
-            }
-            if (getForumDetailResIdl.data != null) {
-                this.forumInfo = getForumDetailResIdl.data.forum_info;
-                this.threadInfoList = getForumDetailResIdl.data.thread_list;
-                this.isBawuShow = getForumDetailResIdl.data.is_bawu_show.intValue();
-                this.isComplaintShow = getForumDetailResIdl.data.is_complaint_show.intValue() != 0;
-                this.applyInfo = getForumDetailResIdl.data.bz_apply_info;
-                this.privateApplyInfo = getForumDetailResIdl.data.pribz_apply_info;
-                this.managerElectionTab = getForumDetailResIdl.data.election_tab;
-                this.bzApplySwitch = getForumDetailResIdl.data.bz_apply_switch;
-            }
-        }
+    public ManagerApplyInfo getApplyInfo() {
+        return this.applyInfo;
+    }
+
+    public BzApplySwitch getBzApplySwitch() {
+        return this.bzApplySwitch;
     }
 
     public RecommendForumInfo getForumInfo() {
         return this.forumInfo;
+    }
+
+    public ManagerElectionTab getManagerElectionTab() {
+        return this.managerElectionTab;
+    }
+
+    public PriManagerApplyInfo getPrivateApplyInfo() {
+        return this.privateApplyInfo;
     }
 
     public List<SimpleThreadInfo> getThreadInfoList() {
@@ -64,19 +59,30 @@ public class ForumDetailSocketResponse extends TbSocketReponsedMessage {
         return this.isComplaintShow;
     }
 
-    public ManagerApplyInfo getApplyInfo() {
-        return this.applyInfo;
-    }
-
-    public PriManagerApplyInfo getPrivateApplyInfo() {
-        return this.privateApplyInfo;
-    }
-
-    public BzApplySwitch getBzApplySwitch() {
-        return this.bzApplySwitch;
-    }
-
-    public ManagerElectionTab getManagerElectionTab() {
-        return this.managerElectionTab;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tbadk.message.websockt.TbSocketReponsedMessage, com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
+    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
+        GetForumDetailResIdl getForumDetailResIdl = (GetForumDetailResIdl) new Wire(new Class[0]).parseFrom(bArr, GetForumDetailResIdl.class);
+        if (getForumDetailResIdl == null) {
+            return;
+        }
+        Error error = getForumDetailResIdl.error;
+        if (error != null) {
+            setError(error.errorno.intValue());
+            setErrorString(getForumDetailResIdl.error.usermsg);
+        }
+        DataRes dataRes = getForumDetailResIdl.data;
+        if (dataRes == null) {
+            return;
+        }
+        this.forumInfo = dataRes.forum_info;
+        this.threadInfoList = dataRes.thread_list;
+        this.isBawuShow = dataRes.is_bawu_show.intValue();
+        this.isComplaintShow = getForumDetailResIdl.data.is_complaint_show.intValue() != 0;
+        DataRes dataRes2 = getForumDetailResIdl.data;
+        this.applyInfo = dataRes2.bz_apply_info;
+        this.privateApplyInfo = dataRes2.pribz_apply_info;
+        this.managerElectionTab = dataRes2.election_tab;
+        this.bzApplySwitch = dataRes2.bz_apply_switch;
     }
 }

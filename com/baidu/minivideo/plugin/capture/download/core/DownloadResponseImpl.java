@@ -5,25 +5,28 @@ import com.baidu.minivideo.plugin.capture.download.base.DownloadResponse;
 import com.baidu.minivideo.plugin.capture.download.base.DownloadStatus;
 import com.baidu.minivideo.plugin.capture.download.base.DownloadStatusDelivery;
 import com.baidu.minivideo.plugin.capture.download.exception.DownloadException;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public class DownloadResponseImpl implements DownloadResponse {
-    private DownloadStatusDelivery mDelivery;
-    private DownloadStatus mDownloadStatus = new DownloadStatus();
+    public DownloadStatusDelivery mDelivery;
+    public DownloadStatus mDownloadStatus;
 
     public DownloadResponseImpl(DownloadStatusDelivery downloadStatusDelivery, DownloadCallback downloadCallback) {
         this.mDelivery = downloadStatusDelivery;
-        this.mDownloadStatus.setCallBack(downloadCallback);
+        DownloadStatus downloadStatus = new DownloadStatus();
+        this.mDownloadStatus = downloadStatus;
+        downloadStatus.setCallBack(downloadCallback);
     }
 
     @Override // com.baidu.minivideo.plugin.capture.download.base.DownloadResponse
-    public void onStarted() {
-        this.mDownloadStatus.setStatus(101);
-        this.mDownloadStatus.getCallBack().onStarted();
+    public void onConnectCanceled() {
+        this.mDownloadStatus.setStatus(107);
+        this.mDelivery.post(this.mDownloadStatus);
     }
 
     @Override // com.baidu.minivideo.plugin.capture.download.base.DownloadResponse
-    public void onConnecting() {
-        this.mDownloadStatus.setStatus(102);
+    public void onConnectFailed(DownloadException downloadException) {
+        this.mDownloadStatus.setException(downloadException);
+        this.mDownloadStatus.setStatus(108);
         this.mDelivery.post(this.mDownloadStatus);
     }
 
@@ -36,15 +39,34 @@ public class DownloadResponseImpl implements DownloadResponse {
     }
 
     @Override // com.baidu.minivideo.plugin.capture.download.base.DownloadResponse
-    public void onConnectFailed(DownloadException downloadException) {
+    public void onConnecting() {
+        this.mDownloadStatus.setStatus(102);
+        this.mDelivery.post(this.mDownloadStatus);
+    }
+
+    @Override // com.baidu.minivideo.plugin.capture.download.base.DownloadResponse
+    public void onDownloadCanceled() {
+        this.mDownloadStatus.setStatus(107);
+        this.mDelivery.post(this.mDownloadStatus);
+    }
+
+    @Override // com.baidu.minivideo.plugin.capture.download.base.DownloadResponse
+    public void onDownloadCompleted(String str) {
+        this.mDownloadStatus.setStatus(105);
+        this.mDownloadStatus.setSavedPath(str);
+        this.mDelivery.post(this.mDownloadStatus);
+    }
+
+    @Override // com.baidu.minivideo.plugin.capture.download.base.DownloadResponse
+    public void onDownloadFailed(DownloadException downloadException) {
         this.mDownloadStatus.setException(downloadException);
         this.mDownloadStatus.setStatus(108);
         this.mDelivery.post(this.mDownloadStatus);
     }
 
     @Override // com.baidu.minivideo.plugin.capture.download.base.DownloadResponse
-    public void onConnectCanceled() {
-        this.mDownloadStatus.setStatus(107);
+    public void onDownloadPaused() {
+        this.mDownloadStatus.setStatus(106);
         this.mDelivery.post(this.mDownloadStatus);
     }
 
@@ -58,28 +80,8 @@ public class DownloadResponseImpl implements DownloadResponse {
     }
 
     @Override // com.baidu.minivideo.plugin.capture.download.base.DownloadResponse
-    public void onDownloadCompleted(String str) {
-        this.mDownloadStatus.setStatus(105);
-        this.mDownloadStatus.setSavedPath(str);
-        this.mDelivery.post(this.mDownloadStatus);
-    }
-
-    @Override // com.baidu.minivideo.plugin.capture.download.base.DownloadResponse
-    public void onDownloadPaused() {
-        this.mDownloadStatus.setStatus(106);
-        this.mDelivery.post(this.mDownloadStatus);
-    }
-
-    @Override // com.baidu.minivideo.plugin.capture.download.base.DownloadResponse
-    public void onDownloadCanceled() {
-        this.mDownloadStatus.setStatus(107);
-        this.mDelivery.post(this.mDownloadStatus);
-    }
-
-    @Override // com.baidu.minivideo.plugin.capture.download.base.DownloadResponse
-    public void onDownloadFailed(DownloadException downloadException) {
-        this.mDownloadStatus.setException(downloadException);
-        this.mDownloadStatus.setStatus(108);
-        this.mDelivery.post(this.mDownloadStatus);
+    public void onStarted() {
+        this.mDownloadStatus.setStatus(101);
+        this.mDownloadStatus.getCallBack().onStarted();
     }
 }

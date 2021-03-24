@@ -1,11 +1,11 @@
 package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
-import com.baidu.adp.lib.f.b;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.coreExtra.data.WriteData;
-/* loaded from: classes.dex */
+import d.b.b.e.m.b;
+/* loaded from: classes3.dex */
 public class NewVcodeActivityConfig extends IntentConfig {
     public static final String IS_AD = "is_ad";
     public static final String NEED_FEED_BACK_BUTTON = "need_feed_back_button";
@@ -16,11 +16,12 @@ public class NewVcodeActivityConfig extends IntentConfig {
         super(context);
         setRequestCode(i);
         setIntentAction(IntentAction.ActivityForResult);
-        if (writeData != null) {
-            getIntent().putExtra("model", writeData);
-            getIntent().putExtra("is_ad", z);
-            getIntent().putExtra("page_type", b.toInt(str, 0));
+        if (writeData == null) {
+            return;
         }
+        getIntent().putExtra("model", writeData);
+        getIntent().putExtra("is_ad", z);
+        getIntent().putExtra("page_type", b.d(str, 0));
     }
 
     public void setHideFeedBackButton() {

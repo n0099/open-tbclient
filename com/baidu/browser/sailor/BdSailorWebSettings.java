@@ -8,17 +8,16 @@ import com.baidu.webkit.sdk.WebViewFactory;
 import com.baidu.webkit.sdk.WebViewFactoryProvider;
 import com.baidu.webkit.sdk.dumper.ZeusLogRecorder;
 import com.baidu.webkit.sdk.jschecker.BdJsCheckPolicy;
-/* loaded from: classes14.dex */
+/* loaded from: classes2.dex */
 public class BdSailorWebSettings implements INoProGuard {
-    private static boolean lastNightModeEnabled = false;
-    private static BdJsCheckPolicy sDefaultJsCheckPolicy;
-    private WebSettings mWebSettings;
+    public static boolean lastNightModeEnabled = false;
+    public static BdJsCheckPolicy sDefaultJsCheckPolicy;
+    public WebSettings mWebSettings;
 
-    /* loaded from: classes14.dex */
-    protected class BdSailorWebSettingsExt implements ISailorWebSettingsExt {
-        private static final String ENABLE_LOG_RECORD = "enable_log_record";
+    /* loaded from: classes2.dex */
+    public class BdSailorWebSettingsExt implements ISailorWebSettingsExt {
+        public static final String ENABLE_LOG_RECORD = "enable_log_record";
 
-        /* JADX INFO: Access modifiers changed from: protected */
         public BdSailorWebSettingsExt() {
         }
 
@@ -173,8 +172,8 @@ public class BdSailorWebSettings implements INoProGuard {
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebSettingsExt
-        public synchronized void setFastFlingDampFactorExt(float f) {
-            BdSailorWebSettings.this.mWebSettings.setFastFlingDampFactor(f);
+        public synchronized void setFastFlingDampFactorExt(float f2) {
+            BdSailorWebSettings.this.mWebSettings.setFastFlingDampFactor(f2);
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebSettingsExt
@@ -222,8 +221,8 @@ public class BdSailorWebSettings implements INoProGuard {
             BdSailorWebSettings.this.mWebSettings.setMagicFilterEnabledExt(z);
         }
 
-        /* JADX WARN: Code restructure failed: missing block: B:14:0x0055, code lost:
-            if (com.baidu.browser.sailor.BdSailorWebSettings.lastNightModeEnabled == r4) goto L32;
+        /* JADX WARN: Code restructure failed: missing block: B:27:0x006d, code lost:
+            if (com.baidu.browser.sailor.BdSailorWebSettings.lastNightModeEnabled == r5) goto L30;
          */
         @Override // com.baidu.browser.sailor.ISailorWebSettingsExt
         /*
@@ -252,8 +251,8 @@ public class BdSailorWebSettings implements INoProGuard {
             }
             try {
                 ZeusLogRecorder.getInstance().initAndUpload();
-            } catch (Exception e) {
-                e.printStackTrace();
+            } catch (Exception e2) {
+                e2.printStackTrace();
             }
         }
 
@@ -322,7 +321,6 @@ public class BdSailorWebSettings implements INoProGuard {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     public BdSailorWebSettings(WebSettings webSettings) {
         this.mWebSettings = webSettings;
     }
@@ -344,10 +342,11 @@ public class BdSailorWebSettings implements INoProGuard {
                 }
                 return null;
             }
-        } catch (UnsatisfiedLinkError e) {
-            e.printStackTrace();
+        } catch (UnsatisfiedLinkError e2) {
+            e2.printStackTrace();
         } catch (Throwable th) {
-            Log.e(Log.LOG_TAG, "setDefaultEnableJsPromptSailor error:" + th);
+            String str = Log.LOG_TAG;
+            Log.e(str, "setDefaultEnableJsPromptSailor error:" + th);
         }
         return null;
     }
@@ -365,12 +364,15 @@ public class BdSailorWebSettings implements INoProGuard {
             if (WebViewFactory.hasProvider()) {
                 return ((Boolean) WebViewFactory.getProvider().getStaticWebSeting(WebViewFactoryProvider.SETTING_SPDY)).booleanValue();
             }
-        } catch (UnsatisfiedLinkError e) {
-            e.printStackTrace();
+            return false;
+        } catch (UnsatisfiedLinkError e2) {
+            e2.printStackTrace();
+            return false;
         } catch (Throwable th) {
-            Log.e(Log.LOG_TAG, "getEnableSpdyExt error:" + th);
+            String str = Log.LOG_TAG;
+            Log.e(str, "getEnableSpdyExt error:" + th);
+            return false;
         }
-        return false;
     }
 
     public static boolean getGifOneFrameEnabledExt() {
@@ -378,12 +380,15 @@ public class BdSailorWebSettings implements INoProGuard {
             if (WebViewFactory.hasProvider()) {
                 return ((Boolean) WebViewFactory.getProvider().getStaticWebSeting(WebViewFactoryProvider.SETTING_GIF_FIRST_FRAME)).booleanValue();
             }
-        } catch (UnsatisfiedLinkError e) {
-            e.printStackTrace();
+            return false;
+        } catch (UnsatisfiedLinkError e2) {
+            e2.printStackTrace();
+            return false;
         } catch (Throwable th) {
-            Log.e(Log.LOG_TAG, "getGifOneFrameEnabledExt error:" + th);
+            String str = Log.LOG_TAG;
+            Log.e(str, "getGifOneFrameEnabledExt error:" + th);
+            return false;
         }
-        return false;
     }
 
     public static int getNetworkFlowExt() {
@@ -407,12 +412,15 @@ public class BdSailorWebSettings implements INoProGuard {
             if (WebViewFactory.hasProvider()) {
                 return ((Boolean) WebViewFactory.getProvider().getStaticWebSeting(WebViewFactoryProvider.SETTING_NA2_WEB_ENABLE)).booleanValue();
             }
-        } catch (UnsatisfiedLinkError e) {
-            e.printStackTrace();
+            return false;
+        } catch (UnsatisfiedLinkError e2) {
+            e2.printStackTrace();
+            return false;
         } catch (Throwable th) {
-            Log.e(Log.LOG_TAG, "getEnableSpdyExt error:" + th);
+            String str = Log.LOG_TAG;
+            Log.e(str, "getEnableSpdyExt error:" + th);
+            return false;
         }
-        return false;
     }
 
     public static void setDefaultEnableJsPromptSailor(boolean z) {
@@ -420,10 +428,11 @@ public class BdSailorWebSettings implements INoProGuard {
             if (WebViewFactory.hasProvider()) {
                 WebViewFactory.getProvider().setStaticWebSeting(WebViewFactoryProvider.SETTING_ENABLE_JS_PROMPT, new Boolean(z));
             }
-        } catch (UnsatisfiedLinkError e) {
-            e.printStackTrace();
+        } catch (UnsatisfiedLinkError e2) {
+            e2.printStackTrace();
         } catch (Throwable th) {
-            Log.e(Log.LOG_TAG, "setDefaultEnableJsPromptSailor error:" + th);
+            String str = Log.LOG_TAG;
+            Log.e(str, "setDefaultEnableJsPromptSailor error:" + th);
         }
     }
 
@@ -432,10 +441,11 @@ public class BdSailorWebSettings implements INoProGuard {
             if (WebViewFactory.hasProvider()) {
                 WebViewFactory.getProvider().setStaticWebSeting(WebViewFactoryProvider.SETTING_JS_CHECK_POLICY, bdJsCheckPolicy);
             }
-        } catch (UnsatisfiedLinkError e) {
-            e.printStackTrace();
+        } catch (UnsatisfiedLinkError e2) {
+            e2.printStackTrace();
         } catch (Throwable th) {
-            Log.e(Log.LOG_TAG, "setDefaultEnableJsPromptSailor error:" + th);
+            String str = Log.LOG_TAG;
+            Log.e(str, "setDefaultEnableJsPromptSailor error:" + th);
         }
     }
 
@@ -444,10 +454,11 @@ public class BdSailorWebSettings implements INoProGuard {
             if (WebViewFactory.hasProvider()) {
                 WebViewFactory.getProvider().setStaticWebSeting(WebViewFactoryProvider.SETTING_NA2_WEB_ENABLE, Boolean.valueOf(z));
             }
-        } catch (UnsatisfiedLinkError e) {
-            e.printStackTrace();
+        } catch (UnsatisfiedLinkError e2) {
+            e2.printStackTrace();
         } catch (Throwable th) {
-            Log.e(Log.LOG_TAG, "setDefaultEnableJsPromptSailor error:" + th);
+            String str = Log.LOG_TAG;
+            Log.e(str, "setDefaultEnableJsPromptSailor error:" + th);
         }
     }
 
@@ -462,10 +473,11 @@ public class BdSailorWebSettings implements INoProGuard {
             if (WebViewFactory.hasProvider()) {
                 WebViewFactory.getProvider().setStaticWebSeting(WebViewFactoryProvider.SETTING_SPDY, new Boolean(z));
             }
-        } catch (UnsatisfiedLinkError e) {
-            e.printStackTrace();
+        } catch (UnsatisfiedLinkError e2) {
+            e2.printStackTrace();
         } catch (Throwable th) {
-            Log.e(Log.LOG_TAG, "setEnableSpdyExt error:" + th);
+            String str = Log.LOG_TAG;
+            Log.e(str, "setEnableSpdyExt error:" + th);
         }
     }
 
@@ -474,10 +486,11 @@ public class BdSailorWebSettings implements INoProGuard {
             if (WebViewFactory.hasProvider()) {
                 WebViewFactory.getProvider().setStaticWebSeting(WebViewFactoryProvider.SETTING_GIF_FIRST_FRAME, new Boolean(z));
             }
-        } catch (UnsatisfiedLinkError e) {
-            e.printStackTrace();
+        } catch (UnsatisfiedLinkError e2) {
+            e2.printStackTrace();
         } catch (Throwable th) {
-            Log.e(Log.LOG_TAG, "setGifOneFrameEnabledExt error:" + th);
+            String str = Log.LOG_TAG;
+            Log.e(str, "setGifOneFrameEnabledExt error:" + th);
         }
     }
 
@@ -494,8 +507,9 @@ public class BdSailorWebSettings implements INoProGuard {
     }
 
     public boolean enableSmoothTransition() {
-        if (this.mWebSettings != null) {
-            return this.mWebSettings.enableSmoothTransition();
+        WebSettings webSettings = this.mWebSettings;
+        if (webSettings != null) {
+            return webSettings.enableSmoothTransition();
         }
         return false;
     }
@@ -517,16 +531,23 @@ public class BdSailorWebSettings implements INoProGuard {
     }
 
     public synchronized boolean getBlockNetworkImage() {
-        return this.mWebSettings != null ? this.mWebSettings.getBlockNetworkImage() : false;
+        if (this.mWebSettings != null) {
+            return this.mWebSettings.getBlockNetworkImage();
+        }
+        return false;
     }
 
     public synchronized boolean getBlockNetworkLoads() {
-        return this.mWebSettings != null ? this.mWebSettings.getBlockNetworkLoads() : false;
+        if (this.mWebSettings != null) {
+            return this.mWebSettings.getBlockNetworkLoads();
+        }
+        return false;
     }
 
     public boolean getBuiltInZoomControls() {
-        if (this.mWebSettings != null) {
-            return this.mWebSettings.getBuiltInZoomControls();
+        WebSettings webSettings = this.mWebSettings;
+        if (webSettings != null) {
+            return webSettings.getBuiltInZoomControls();
         }
         return false;
     }
@@ -548,11 +569,17 @@ public class BdSailorWebSettings implements INoProGuard {
     }
 
     public synchronized int getDefaultFixedFontSize() {
-        return this.mWebSettings != null ? this.mWebSettings.getDefaultFixedFontSize() : 1;
+        if (this.mWebSettings != null) {
+            return this.mWebSettings.getDefaultFixedFontSize();
+        }
+        return 1;
     }
 
     public synchronized int getDefaultFontSize() {
-        return this.mWebSettings != null ? this.mWebSettings.getDefaultFontSize() : 1;
+        if (this.mWebSettings != null) {
+            return this.mWebSettings.getDefaultFontSize();
+        }
+        return 1;
     }
 
     public synchronized String getDefaultTextEncodingName() {
@@ -564,15 +591,17 @@ public class BdSailorWebSettings implements INoProGuard {
     }
 
     public int getDisabledActionModeMenuItems() {
-        if (this.mWebSettings != null) {
-            return this.mWebSettings.getDisabledActionModeMenuItems();
+        WebSettings webSettings = this.mWebSettings;
+        if (webSettings != null) {
+            return webSettings.getDisabledActionModeMenuItems();
         }
         return 0;
     }
 
     public boolean getDisplayZoomControls() {
-        if (this.mWebSettings != null) {
-            return this.mWebSettings.getDisplayZoomControls();
+        WebSettings webSettings = this.mWebSettings;
+        if (webSettings != null) {
+            return webSettings.getDisplayZoomControls();
         }
         return false;
     }
@@ -614,12 +643,16 @@ public class BdSailorWebSettings implements INoProGuard {
     }
 
     public synchronized boolean getLoadsImagesAutomatically() {
-        return this.mWebSettings != null ? this.mWebSettings.getLoadsImagesAutomatically() : false;
+        if (this.mWebSettings != null) {
+            return this.mWebSettings.getLoadsImagesAutomatically();
+        }
+        return false;
     }
 
     public boolean getMediaPlaybackRequiresUserGesture() {
-        if (this.mWebSettings != null) {
-            return this.mWebSettings.getMediaPlaybackRequiresUserGesture();
+        WebSettings webSettings = this.mWebSettings;
+        if (webSettings != null) {
+            return webSettings.getMediaPlaybackRequiresUserGesture();
         }
         return true;
     }
@@ -633,8 +666,9 @@ public class BdSailorWebSettings implements INoProGuard {
     }
 
     public int getMixedContentMode() {
-        if (this.mWebSettings != null) {
-            return this.mWebSettings.getMixedContentMode();
+        WebSettings webSettings = this.mWebSettings;
+        if (webSettings != null) {
+            return webSettings.getMixedContentMode();
         }
         return 0;
     }
@@ -676,16 +710,17 @@ public class BdSailorWebSettings implements INoProGuard {
     }
 
     public boolean isGestrueBackForwardEnabled() {
-        if (this.mWebSettings != null) {
-            return this.mWebSettings.getBackForwardAnimationEnable();
+        WebSettings webSettings = this.mWebSettings;
+        if (webSettings != null) {
+            return webSettings.getBackForwardAnimationEnable();
         }
         return false;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public boolean isGestrueBackForwardEnabledInternal() {
-        if (this.mWebSettings != null) {
-            return this.mWebSettings.getBackForwardAnimationEnableInternal();
+        WebSettings webSettings = this.mWebSettings;
+        if (webSettings != null) {
+            return webSettings.getBackForwardAnimationEnableInternal();
         }
         return false;
     }
@@ -699,14 +734,16 @@ public class BdSailorWebSettings implements INoProGuard {
     }
 
     public void setAllowFileAccessFromFileURLs(boolean z) {
-        if (this.mWebSettings != null) {
-            this.mWebSettings.setAllowFileAccess(z);
+        WebSettings webSettings = this.mWebSettings;
+        if (webSettings != null) {
+            webSettings.setAllowFileAccess(z);
         }
     }
 
     public void setAllowUniversalAccessFromFileURLs(boolean z) {
-        if (this.mWebSettings != null) {
-            this.mWebSettings.setAllowUniversalAccessFromFileURLs(z);
+        WebSettings webSettings = this.mWebSettings;
+        if (webSettings != null) {
+            webSettings.setAllowUniversalAccessFromFileURLs(z);
         }
     }
 
@@ -723,15 +760,16 @@ public class BdSailorWebSettings implements INoProGuard {
     }
 
     public void setBackForwardGesture(boolean z) {
-        if (this.mWebSettings != null) {
-            this.mWebSettings.setBackForwardAnimationEnable(z);
+        WebSettings webSettings = this.mWebSettings;
+        if (webSettings != null) {
+            webSettings.setBackForwardAnimationEnable(z);
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public void setBackForwardGestureInternal(boolean z) {
-        if (this.mWebSettings != null) {
-            this.mWebSettings.setBackForwardAnimationEnableInternal(z);
+        WebSettings webSettings = this.mWebSettings;
+        if (webSettings != null) {
+            webSettings.setBackForwardAnimationEnableInternal(z);
         }
     }
 
@@ -748,8 +786,9 @@ public class BdSailorWebSettings implements INoProGuard {
     }
 
     public void setBuiltInZoomControls(boolean z) {
-        if (this.mWebSettings != null) {
-            this.mWebSettings.setBuiltInZoomControls(z);
+        WebSettings webSettings = this.mWebSettings;
+        if (webSettings != null) {
+            webSettings.setBuiltInZoomControls(z);
         }
     }
 
@@ -792,14 +831,16 @@ public class BdSailorWebSettings implements INoProGuard {
     }
 
     public void setDisabledActionModeMenuItems(int i) {
-        if (this.mWebSettings != null) {
-            this.mWebSettings.setDisabledActionModeMenuItems(i);
+        WebSettings webSettings = this.mWebSettings;
+        if (webSettings != null) {
+            webSettings.setDisabledActionModeMenuItems(i);
         }
     }
 
     public void setDisplayZoomControls(boolean z) {
-        if (this.mWebSettings != null) {
-            this.mWebSettings.setDisplayZoomControls(z);
+        WebSettings webSettings = this.mWebSettings;
+        if (webSettings != null) {
+            webSettings.setDisplayZoomControls(z);
         }
     }
 
@@ -842,8 +883,9 @@ public class BdSailorWebSettings implements INoProGuard {
     }
 
     public void setJsCallFullscreenEnable(boolean z) {
-        if (this.mWebSettings != null) {
-            this.mWebSettings.setJsCallFullscreenEnable(z);
+        WebSettings webSettings = this.mWebSettings;
+        if (webSettings != null) {
+            webSettings.setJsCallFullscreenEnable(z);
         }
     }
 
@@ -866,8 +908,9 @@ public class BdSailorWebSettings implements INoProGuard {
     }
 
     public void setMediaPlaybackRequiresUserGesture(boolean z) {
-        if (this.mWebSettings != null) {
-            this.mWebSettings.setMediaPlaybackRequiresUserGesture(z);
+        WebSettings webSettings = this.mWebSettings;
+        if (webSettings != null) {
+            webSettings.setMediaPlaybackRequiresUserGesture(z);
         }
     }
 
@@ -880,8 +923,9 @@ public class BdSailorWebSettings implements INoProGuard {
     }
 
     public void setMixedContentMode(int i) {
-        if (this.mWebSettings != null) {
-            this.mWebSettings.setMixedContentMode(i);
+        WebSettings webSettings = this.mWebSettings;
+        if (webSettings != null) {
+            webSettings.setMixedContentMode(i);
         }
     }
 
@@ -930,8 +974,9 @@ public class BdSailorWebSettings implements INoProGuard {
     }
 
     public void setSupportZoom(boolean z) {
-        if (this.mWebSettings != null) {
-            this.mWebSettings.setSupportZoom(z);
+        WebSettings webSettings = this.mWebSettings;
+        if (webSettings != null) {
+            webSettings.setSupportZoom(z);
         }
     }
 
@@ -947,7 +992,7 @@ public class BdSailorWebSettings implements INoProGuard {
         this.mWebSettings.setUserAgentString(str);
     }
 
-    protected void setWebSettings(WebSettings webSettings) {
+    public void setWebSettings(WebSettings webSettings) {
         if (webSettings != null) {
             this.mWebSettings = webSettings;
         }
@@ -958,8 +1003,9 @@ public class BdSailorWebSettings implements INoProGuard {
     }
 
     public void setZeusMutedEnable(boolean z) {
-        if (this.mWebSettings != null) {
-            this.mWebSettings.setZeusMutedEnable(z);
+        WebSettings webSettings = this.mWebSettings;
+        if (webSettings != null) {
+            webSettings.setZeusMutedEnable(z);
         }
     }
 
@@ -968,8 +1014,9 @@ public class BdSailorWebSettings implements INoProGuard {
     }
 
     public boolean supportZoom() {
-        if (this.mWebSettings != null) {
-            return this.mWebSettings.supportZoom();
+        WebSettings webSettings = this.mWebSettings;
+        if (webSettings != null) {
+            return webSettings.supportZoom();
         }
         return false;
     }

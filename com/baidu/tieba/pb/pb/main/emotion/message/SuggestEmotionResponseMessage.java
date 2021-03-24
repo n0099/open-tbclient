@@ -1,33 +1,37 @@
 package com.baidu.tieba.pb.pb.main.emotion.message;
 
+import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
 import com.baidu.tbadk.core.atomData.EmotionDetailActivityConfig;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tieba.face.data.EmotionImageData;
 import com.baidu.tieba.face.data.SingleBarEmotionRecommendData;
-import com.baidu.tieba.pb.pb.main.emotion.a.a;
+import d.b.i0.c2.k.e.y0.e.a;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class SuggestEmotionResponseMessage extends JsonHttpResponsedMessage {
-    private a mData;
+    public a mData;
 
     public SuggestEmotionResponseMessage(int i) {
         super(i);
     }
 
-    @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
-    public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
-        int statusCode = getStatusCode();
-        int error = getError();
-        if (statusCode == 200 && error == 0 && jSONObject != null && jSONObject != null) {
-            this.mData = new a();
-            this.mData.cV(parseImageData(jSONObject.optJSONArray("memes")));
-            this.mData.fp(parseHotWordsData(jSONObject.optJSONArray("topwords")));
-            this.mData.a(parseSingleForumRecommend(jSONObject.optJSONObject("forum_pkg")));
+    private List<String> parseHotWordsData(JSONArray jSONArray) {
+        ArrayList arrayList = new ArrayList();
+        if (jSONArray != null) {
+            for (int i = 0; i < jSONArray.length(); i++) {
+                try {
+                    arrayList.add(jSONArray.getJSONObject(i).optString("keyword"));
+                } catch (JSONException e2) {
+                    e2.printStackTrace();
+                }
+            }
         }
+        return arrayList;
     }
 
     private List<EmotionImageData> parseImageData(JSONArray jSONArray) {
@@ -47,36 +51,35 @@ public class SuggestEmotionResponseMessage extends JsonHttpResponsedMessage {
                 emotionImageData.setHeight(jSONObject.optInt("height"));
                 emotionImageData.setMemeContSign(jSONObject.optString("cont_sign"));
                 arrayList.add(emotionImageData);
-            } catch (JSONException e) {
-                e.printStackTrace();
-                return arrayList;
-            }
-        }
-        return arrayList;
-    }
-
-    private List<String> parseHotWordsData(JSONArray jSONArray) {
-        ArrayList arrayList = new ArrayList();
-        if (jSONArray != null) {
-            for (int i = 0; i < jSONArray.length(); i++) {
-                try {
-                    arrayList.add(jSONArray.getJSONObject(i).optString("keyword"));
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
+            } catch (JSONException e2) {
+                e2.printStackTrace();
             }
         }
         return arrayList;
     }
 
     private SingleBarEmotionRecommendData parseSingleForumRecommend(JSONObject jSONObject) {
-        if (jSONObject == null) {
-            return null;
+        if (jSONObject != null) {
+            SingleBarEmotionRecommendData singleBarEmotionRecommendData = new SingleBarEmotionRecommendData();
+            singleBarEmotionRecommendData.pkg_id = jSONObject.optString(IntentConfig.PKG_ID);
+            singleBarEmotionRecommendData.cover = jSONObject.optString(AlaLiveRoomActivityConfig.SDK_LIVE_COVER_KEY);
+            return singleBarEmotionRecommendData;
         }
-        SingleBarEmotionRecommendData singleBarEmotionRecommendData = new SingleBarEmotionRecommendData();
-        singleBarEmotionRecommendData.pkg_id = jSONObject.optString("pkg_id");
-        singleBarEmotionRecommendData.cover = jSONObject.optString("cover");
-        return singleBarEmotionRecommendData;
+        return null;
+    }
+
+    @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
+    public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
+        int statusCode = getStatusCode();
+        int error = getError();
+        if (statusCode != 200 || error != 0 || jSONObject == null || jSONObject == null) {
+            return;
+        }
+        a aVar = new a();
+        this.mData = aVar;
+        aVar.d(parseImageData(jSONObject.optJSONArray("memes")));
+        this.mData.e(parseHotWordsData(jSONObject.optJSONArray("topwords")));
+        this.mData.f(parseSingleForumRecommend(jSONObject.optJSONObject("forum_pkg")));
     }
 
     public a getData() {

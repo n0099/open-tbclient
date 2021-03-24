@@ -10,17 +10,17 @@ import androidx.core.internal.view.SupportMenu;
 import androidx.core.internal.view.SupportMenuItem;
 import androidx.core.internal.view.SupportSubMenu;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes5.dex */
+/* loaded from: classes.dex */
 public final class MenuWrapperFactory {
-    private MenuWrapperFactory() {
-    }
-
     public static Menu wrapSupportMenu(Context context, SupportMenu supportMenu) {
         return new MenuWrapperICS(context, supportMenu);
     }
 
     public static MenuItem wrapSupportMenuItem(Context context, SupportMenuItem supportMenuItem) {
-        return Build.VERSION.SDK_INT >= 16 ? new MenuItemWrapperJB(context, supportMenuItem) : new MenuItemWrapperICS(context, supportMenuItem);
+        if (Build.VERSION.SDK_INT >= 16) {
+            return new MenuItemWrapperJB(context, supportMenuItem);
+        }
+        return new MenuItemWrapperICS(context, supportMenuItem);
     }
 
     public static SubMenu wrapSupportSubMenu(Context context, SupportSubMenu supportSubMenu) {

@@ -2,13 +2,14 @@ package com.baidu.ar.plugin;
 
 import android.content.pm.PackageInfo;
 import android.util.Log;
+import com.baidu.ar.session.XRSessionAnchor;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.util.Arrays;
-/* loaded from: classes14.dex */
+/* loaded from: classes2.dex */
 public class PackageManagerHookHandler implements InvocationHandler {
-    private Object mBase;
-    private PluginPackageParser mPPP;
+    public Object mBase;
+    public PluginPackageParser mPPP;
 
     public PackageManagerHookHandler(Object obj, PluginPackageParser pluginPackageParser) {
         this.mBase = obj;
@@ -17,9 +18,9 @@ public class PackageManagerHookHandler implements InvocationHandler {
 
     @Override // java.lang.reflect.InvocationHandler
     public Object invoke(Object obj, Method method, Object[] objArr) throws Throwable {
-        if (method.getName().equals("getPackageInfo") && objArr[0] == "com.google.ar.core") {
+        if (method.getName().equals("getPackageInfo") && objArr[0] == XRSessionAnchor.apkinfo) {
             PackageInfo packageInfo = new PackageInfo();
-            packageInfo.packageName = "com.google.ar.core";
+            packageInfo.packageName = XRSessionAnchor.apkinfo;
             packageInfo.versionCode = 190128146;
             packageInfo.versionName = "1.7.190120000";
             if (this.mPPP != null) {

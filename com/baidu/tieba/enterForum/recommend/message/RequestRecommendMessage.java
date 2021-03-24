@@ -2,33 +2,33 @@ package com.baidu.tieba.enterForum.recommend.message;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.util.v;
+import d.b.h0.z0.w;
 import tbclient.CommonReq;
 import tbclient.Recommforum.DataReq;
 import tbclient.Recommforum.RecommforumReqIdl;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class RequestRecommendMessage extends NetMessage {
 
     /* renamed from: common  reason: collision with root package name */
-    private CommonReq f3584common;
+    public CommonReq f15488common;
 
     public RequestRecommendMessage() {
         super(CmdConfigHttp.CMD_RECOMMEND_FORUM, 309630);
     }
 
-    public void setCommon(CommonReq commonReq) {
-        this.f3584common = commonReq;
-    }
-
     @Override // com.baidu.adp.framework.message.NetMessage
-    protected Object encode(boolean z) {
+    public Object encode(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
-        builder.f8910common = this.f3584common;
+        builder.f68586common = this.f15488common;
         if (z) {
-            v.b(builder, true);
+            w.a(builder, true);
         }
         RecommforumReqIdl.Builder builder2 = new RecommforumReqIdl.Builder();
         builder2.data = builder.build(false);
         return builder2.build(false);
+    }
+
+    public void setCommon(CommonReq commonReq) {
+        this.f15488common = commonReq;
     }
 }

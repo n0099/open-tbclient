@@ -1,15 +1,15 @@
 package com.baidu.pano.platform.comjni;
 
 import android.graphics.Bitmap;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class JNIEngine {
-    public static native boolean addCustomMarkerByBitmap(String str, double d, double d2, double d3, Bitmap bitmap);
+    public static native boolean addCustomMarkerByBitmap(String str, double d2, double d3, double d4, Bitmap bitmap);
 
-    public static native boolean addCustomMarkerByText(String str, double d, double d2, double d3, String str2, float f, int i, int i2, int i3);
+    public static native boolean addCustomMarkerByText(String str, double d2, double d3, double d4, String str2, float f2, int i, int i2, int i3);
 
-    public static native boolean addCustomMarkerByURL(String str, double d, double d2, double d3, String str2, float f, float f2);
+    public static native boolean addCustomMarkerByURL(String str, double d2, double d3, double d4, String str2, float f2, float f3);
 
-    public static native void addPoiMarker(double d, double d2, double d3);
+    public static native void addPoiMarker(double d2, double d3, double d4);
 
     public static native void clearScene();
 
@@ -27,7 +27,7 @@ public class JNIEngine {
 
     public static native void pause();
 
-    public static native void procClickEvent(float f, float f2);
+    public static native void procClickEvent(float f2, float f3);
 
     public static native boolean removeAllCustomMarker();
 
@@ -37,7 +37,7 @@ public class JNIEngine {
 
     public static native void resume();
 
-    public static native double[] screenPt2Mercator(float f, float f2);
+    public static native double[] screenPt2Mercator(float f2, float f3);
 
     public static native boolean setArrowShow(boolean z);
 
@@ -49,27 +49,27 @@ public class JNIEngine {
 
     public static native void setArrowVisibility(boolean z);
 
-    public static native void setCameraFOV(float f);
+    public static native void setCameraFOV(float f2);
 
-    public static native void setCameraRotationByAngle(float f, float f2, float f3);
+    public static native void setCameraRotationByAngle(float f2, float f3, float f4);
 
-    public static native void setCameraRotationBySpace(float f, float f2);
+    public static native void setCameraRotationBySpace(float f2, float f3);
 
     public static native void setCumtomMarkerShow(boolean z);
 
-    public static native boolean setCustomMarkerAnchor(String str, float f, float f2);
+    public static native boolean setCustomMarkerAnchor(String str, float f2, float f3);
 
     public static native void setEntranceBitmap(Bitmap bitmap);
 
     public static native void setMarkerVisibility(boolean z);
 
-    public static native void setPanoramaByMercator(double d, double d2);
+    public static native void setPanoramaByMercator(double d2, double d3);
 
     public static native void setPanoramaByPid(String str);
 
     public static native void setPanoramaByUid(String str);
 
-    public static native void setPitchLimit(float f, float f2);
+    public static native void setPitchLimit(float f2, float f3);
 
     public static native void setPoiBitmap(Bitmap bitmap);
 
@@ -77,5 +77,5 @@ public class JNIEngine {
 
     public static native void setTexureLevel(int i);
 
-    public static native boolean showCertifyMarkerByText(String str, float f, int i, int i2, long j);
+    public static native boolean showCertifyMarkerByText(String str, float f2, int i, int i2, long j);
 }

@@ -7,15 +7,47 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.Nullable;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.tieba.R;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class ScanLoadingView extends LinearLayout {
-    private TBLottieAnimationView mMa;
+
+    /* renamed from: e  reason: collision with root package name */
+    public TBLottieAnimationView f20674e;
 
     public ScanLoadingView(Context context) {
         this(context, null);
+    }
+
+    public void a() {
+        TBLottieAnimationView tBLottieAnimationView = this.f20674e;
+        if (tBLottieAnimationView != null) {
+            tBLottieAnimationView.cancelAnimation();
+        }
+        setVisibility(8);
+    }
+
+    public final void b(Context context) {
+        LayoutInflater.from(context).inflate(R.layout.layout_scan_loading, (ViewGroup) this, true);
+        TBLottieAnimationView tBLottieAnimationView = (TBLottieAnimationView) findViewById(R.id.loading_anim);
+        this.f20674e = tBLottieAnimationView;
+        tBLottieAnimationView.loop(true);
+        this.f20674e.setFrame(0);
+        SkinManager.setLottieAnimation(this.f20674e, R.raw.scan_refresh);
+        SkinManager.setViewTextColor((TextView) findViewById(R.id.loading_text), R.color.CAM_X0108, 1);
+        setVisibility(8);
+    }
+
+    public void c() {
+        setVisibility(0);
+        TBLottieAnimationView tBLottieAnimationView = this.f20674e;
+        if (tBLottieAnimationView != null) {
+            if (tBLottieAnimationView.isAnimating()) {
+                this.f20674e.cancelAnimation();
+            }
+            this.f20674e.playAnimation();
+        }
     }
 
     public ScanLoadingView(Context context, @Nullable AttributeSet attributeSet) {
@@ -24,33 +56,6 @@ public class ScanLoadingView extends LinearLayout {
 
     public ScanLoadingView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        init(context);
-    }
-
-    private void init(Context context) {
-        LayoutInflater.from(context).inflate(R.layout.layout_scan_loading, (ViewGroup) this, true);
-        this.mMa = (TBLottieAnimationView) findViewById(R.id.loading_anim);
-        this.mMa.loop(true);
-        this.mMa.setFrame(0);
-        ap.a(this.mMa, R.raw.scan_refresh);
-        ap.setViewTextColor((TextView) findViewById(R.id.loading_text), R.color.CAM_X0108, 1);
-        setVisibility(8);
-    }
-
-    public void showLoading() {
-        setVisibility(0);
-        if (this.mMa != null) {
-            if (this.mMa.isAnimating()) {
-                this.mMa.cancelAnimation();
-            }
-            this.mMa.playAnimation();
-        }
-    }
-
-    public void hideLoading() {
-        if (this.mMa != null) {
-            this.mMa.cancelAnimation();
-        }
-        setVisibility(8);
+        b(context);
     }
 }

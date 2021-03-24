@@ -11,66 +11,80 @@ import com.bytedance.sdk.openadsdk.utils.u;
 import java.util.concurrent.CountDownLatch;
 /* loaded from: classes6.dex */
 public class a {
-    private static volatile a c;
+
+    /* renamed from: c  reason: collision with root package name */
+    public static volatile a f29800c;
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f4881a;
-    private IBinderPool b;
-    private CountDownLatch d;
-    private final Object e = new Object();
-    private long f = 0;
-    private ServiceConnection g = new ServiceConnection() { // from class: com.bytedance.sdk.openadsdk.multipro.aidl.a.1
+    public Context f29801a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public IBinderPool f29802b;
+
+    /* renamed from: d  reason: collision with root package name */
+    public CountDownLatch f29803d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public final Object f29804e = new Object();
+
+    /* renamed from: f  reason: collision with root package name */
+    public long f29805f = 0;
+
+    /* renamed from: g  reason: collision with root package name */
+    public ServiceConnection f29806g = new ServiceConnection() { // from class: com.bytedance.sdk.openadsdk.multipro.aidl.a.1
+        @Override // android.content.ServiceConnection
+        public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
+            a.this.f29802b = IBinderPool.Stub.asInterface(iBinder);
+            try {
+                a.this.f29802b.asBinder().linkToDeath(a.this.f29807h, 0);
+            } catch (RemoteException e2) {
+                u.c("MultiProcess", "onServiceConnected throws :", e2);
+            }
+            a.this.f29803d.countDown();
+            u.b("MultiProcess", "onServiceConnected - binderService consume time ：" + (System.currentTimeMillis() - a.this.f29805f));
+        }
+
         @Override // android.content.ServiceConnection
         public void onServiceDisconnected(ComponentName componentName) {
             u.c("MultiProcess", "BinderPool......onServiceDisconnected");
         }
-
-        @Override // android.content.ServiceConnection
-        public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-            a.this.b = IBinderPool.Stub.asInterface(iBinder);
-            try {
-                a.this.b.asBinder().linkToDeath(a.this.h, 0);
-            } catch (RemoteException e) {
-                u.c("MultiProcess", "onServiceConnected throws :", e);
-            }
-            a.this.d.countDown();
-            u.b("MultiProcess", "onServiceConnected - binderService consume time ：" + (System.currentTimeMillis() - a.this.f));
-        }
     };
-    private IBinder.DeathRecipient h = new IBinder.DeathRecipient() { // from class: com.bytedance.sdk.openadsdk.multipro.aidl.a.2
+
+    /* renamed from: h  reason: collision with root package name */
+    public IBinder.DeathRecipient f29807h = new IBinder.DeathRecipient() { // from class: com.bytedance.sdk.openadsdk.multipro.aidl.a.2
         @Override // android.os.IBinder.DeathRecipient
         public void binderDied() {
             u.d("MultiProcess", "binder died.");
-            a.this.b.asBinder().unlinkToDeath(a.this.h, 0);
-            a.this.b = null;
+            a.this.f29802b.asBinder().unlinkToDeath(a.this.f29807h, 0);
+            a.this.f29802b = null;
             a.this.a();
         }
     };
 
-    private a(Context context) {
-        this.f4881a = context.getApplicationContext();
+    public a(Context context) {
+        this.f29801a = context.getApplicationContext();
         a();
     }
 
     public static a a(Context context) {
-        if (c == null) {
+        if (f29800c == null) {
             synchronized (a.class) {
-                if (c == null) {
-                    c = new a(context);
+                if (f29800c == null) {
+                    f29800c = new a(context);
                 }
             }
         }
-        return c;
+        return f29800c;
     }
 
     public IBinder a(int i) {
         try {
-            if (this.b == null) {
-                return null;
+            if (this.f29802b != null) {
+                return this.f29802b.queryBinder(i);
             }
-            return this.b.queryBinder(i);
-        } catch (RemoteException e) {
-            e.printStackTrace();
+            return null;
+        } catch (RemoteException e2) {
+            e2.printStackTrace();
             return null;
         }
     }
@@ -78,13 +92,13 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     public synchronized void a() {
         u.c("MultiProcess", "BinderPool......connectBinderPoolService");
-        this.d = new CountDownLatch(1);
-        this.f4881a.bindService(new Intent(this.f4881a, BinderPoolService.class), this.g, 1);
-        this.f = System.currentTimeMillis();
+        this.f29803d = new CountDownLatch(1);
+        this.f29801a.bindService(new Intent(this.f29801a, BinderPoolService.class), this.f29806g, 1);
+        this.f29805f = System.currentTimeMillis();
         try {
-            this.d.await();
-        } catch (InterruptedException e) {
-            u.c("MultiProcess", "connectBinderPoolService throws: ", e);
+            this.f29803d.await();
+        } catch (InterruptedException e2) {
+            u.c("MultiProcess", "connectBinderPoolService throws: ", e2);
         }
     }
 }

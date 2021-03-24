@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import android.view.animation.DecelerateInterpolator;
 import androidx.annotation.NonNull;
 import androidx.core.view.animation.PathInterpolatorCompat;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class am {
     public static ValueAnimator a(final View view, int i, final int i2) {
         c(view, i);
@@ -145,7 +145,6 @@ public class am {
         return ofInt;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     public static void c(View view, int i) {
         ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
         layoutParams.height = i;
@@ -178,7 +177,6 @@ public class am {
         return ofInt;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     public static void d(final View view, int i) {
         ValueAnimator ofInt = ObjectAnimator.ofInt(i, 0);
         ofInt.setDuration(200L);

@@ -1,14 +1,47 @@
 package com.baidu.adp.lib.voice;
 
 import com.baidu.adp.lib.stats.BdStatisticsManager;
-import com.baidu.adp.lib.util.i;
-import com.baidu.live.adp.lib.util.BdErrorInfo;
+import d.b.b.e.p.h;
+import d.b.b.e.p.i;
 /* loaded from: classes.dex */
 public class Amrnb {
-    public static boolean bLoadLibrary;
-    private static Amrnb instance;
-    private int mEncoderContext = 0;
-    private int mDecoderContext = 0;
+    public static boolean bLoadLibrary = false;
+    public static Amrnb instance;
+    public int mEncoderContext = 0;
+    public int mDecoderContext = 0;
+
+    /* loaded from: classes.dex */
+    public static class a extends i {
+        @Override // d.b.b.e.p.i
+        public void a(boolean z) {
+            Amrnb.bLoadLibrary = z;
+            if (z) {
+                try {
+                    Amrnb.native_init();
+                    Amrnb.bLoadLibrary = true;
+                } catch (Throwable th) {
+                    Amrnb.bLoadLibrary = false;
+                    BdStatisticsManager bdStatisticsManager = BdStatisticsManager.getInstance();
+                    bdStatisticsManager.error("so", "initAmrnb", "", -9104, th.getClass().getName() + " " + th.getMessage(), new Object[0]);
+                }
+            }
+        }
+    }
+
+    static {
+        boolean k = h.f().k("amrnb", 2, new a());
+        bLoadLibrary = k;
+        if (k) {
+            try {
+                native_init();
+                bLoadLibrary = true;
+            } catch (Throwable th) {
+                bLoadLibrary = false;
+                BdStatisticsManager bdStatisticsManager = BdStatisticsManager.getInstance();
+                bdStatisticsManager.error("so", "initAmrnb", "", -9104, th.getClass().getName() + " " + th.getMessage(), new Object[0]);
+            }
+        }
+    }
 
     private native void _decoderDecode(byte[] bArr, short[] sArr);
 
@@ -22,42 +55,10 @@ public class Amrnb {
 
     private native void _encoderInit();
 
-    private final native void native_finalize();
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public static final native void native_init();
-
-    static {
-        bLoadLibrary = false;
-        bLoadLibrary = com.baidu.adp.lib.util.h.nI().a("amrnb", 2, new i() { // from class: com.baidu.adp.lib.voice.Amrnb.1
-            @Override // com.baidu.adp.lib.util.i
-            public void callback(boolean z) {
-                Amrnb.bLoadLibrary = z;
-                if (Amrnb.bLoadLibrary) {
-                    try {
-                        Amrnb.native_init();
-                        Amrnb.bLoadLibrary = true;
-                    } catch (Throwable th) {
-                        Amrnb.bLoadLibrary = false;
-                        BdStatisticsManager.getInstance().error("so", "initAmrnb", "", BdErrorInfo.ERR_AMRSO_INIT, th.getClass().getName() + " " + th.getMessage(), new Object[0]);
-                    }
-                }
-            }
-        });
-        if (bLoadLibrary) {
-            try {
-                native_init();
-                bLoadLibrary = true;
-            } catch (Throwable th) {
-                bLoadLibrary = false;
-                BdStatisticsManager.getInstance().error("so", "initAmrnb", "", BdErrorInfo.ERR_AMRSO_INIT, th.getClass().getName() + " " + th.getMessage(), new Object[0]);
-            }
-        }
-    }
-
     public static Amrnb getInstance() {
         Amrnb amrnb;
-        if (instance == null) {
+        Amrnb amrnb2 = instance;
+        if (amrnb2 == null) {
             synchronized (Amrnb.class) {
                 if (instance == null) {
                     instance = new Amrnb();
@@ -66,18 +67,28 @@ public class Amrnb {
             }
             return amrnb;
         }
-        return instance;
+        return amrnb2;
     }
 
-    protected void finalize() {
+    private final native void native_finalize();
+
+    public static final native void native_init();
+
+    public void decoderDecode(byte[] bArr, short[] sArr) {
         if (bLoadLibrary) {
-            native_finalize();
+            _decoderDecode(bArr, sArr);
         }
     }
 
-    public void encoderInit() {
+    public void decoderDeinit() {
         if (bLoadLibrary) {
-            _encoderInit();
+            _decoderDeinit();
+        }
+    }
+
+    public void decoderInit() {
+        if (bLoadLibrary) {
+            _decoderInit();
         }
     }
 
@@ -94,21 +105,15 @@ public class Amrnb {
         return 0;
     }
 
-    public void decoderInit() {
+    public void encoderInit() {
         if (bLoadLibrary) {
-            _decoderInit();
+            _encoderInit();
         }
     }
 
-    public void decoderDeinit() {
+    public void finalize() {
         if (bLoadLibrary) {
-            _decoderDeinit();
-        }
-    }
-
-    public void decoderDecode(byte[] bArr, short[] sArr) {
-        if (bLoadLibrary) {
-            _decoderDecode(bArr, sArr);
+            native_finalize();
         }
     }
 }

@@ -3,12 +3,17 @@ package com.baidu.tieba.tbadkCore;
 import android.text.TextUtils;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.tbadk.util.AdExtParam;
+import d.b.h0.g0.b.d;
+import d.b.h0.g0.b.g;
+import d.b.h0.z0.w;
+import d.b.i0.r2.a0.a;
+import d.b.i0.r2.b0.b;
 import java.util.HashMap;
 import tbclient.FrsPage.AdParam;
 import tbclient.FrsPage.DataReq;
 import tbclient.FrsPage.FrsPageReqIdl;
-/* loaded from: classes.dex */
-public class FrsRequestData extends OrmObject implements com.baidu.tbadk.mvc.b.e, com.baidu.tbadk.mvc.b.h {
+/* loaded from: classes5.dex */
+public class FrsRequestData extends OrmObject implements g, d {
     public static final String CATEGORY_ID_KEY = "categoryid";
     public static final int FRS_SMARTLOAD_TYPE_BY_REFRESH = 1;
     public static final int FRS_SMART_LOAD_TYPE_BY_MORE = 2;
@@ -22,290 +27,301 @@ public class FrsRequestData extends OrmObject implements com.baidu.tbadk.mvc.b.e
     public static final int IS_NOT_GOOD = 0;
     public static final int THREAD_NUM_LOAD = 30;
     public static final int THREAD_NUM_PAGE = 90;
-    private int categoryId;
-    private int cid;
-    private int ctime;
-    private int dataSize;
-    private int isGood;
-    private String kw;
-    private String lastId;
-    private int loadCount;
-    private long mLastClickTid;
-    private boolean needCache;
-    private int netError;
-    private String nxo;
-    private String nxp;
-    private int pn;
-    private int qType;
-    private int refreshCount;
-    private double scrDip;
-    private int scrH;
-    private int scrW;
-    private int stParam;
-    private String stType;
-    private int updateType;
-    private int withGroup;
-    private int rn = 90;
-    private int nxn = 30;
-    private String flX = "";
-    private int mSortType = -1;
-    private int fVT = 1;
-    private int nxq = 0;
-    private int callFrom = 0;
-    private HashMap<String, String> headers = null;
-    private long nxr = 0;
-    private int isDefaultNavTab = 0;
-    private String mSchemeUrl = "";
-    private int nxs = -1;
-    private String adFloorInfo = "";
+    public int C;
+    public int D;
+    public String E;
+    public String F;
 
-    public void setLastClickTid(long j) {
-        this.mLastClickTid = j;
+    /* renamed from: e  reason: collision with root package name */
+    public int f21315e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public boolean f21316f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public String f21317g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public int f21318h;
+    public int k;
+    public int l;
+    public int m;
+    public int n;
+    public int o;
+    public double p;
+    public int q;
+    public String r;
+    public String s;
+    public int t;
+    public int v;
+    public int w;
+    public int x;
+    public int y;
+    public long z;
+    public int i = 90;
+    public int j = 30;
+    public String u = "";
+    public int A = -1;
+    public int B = 1;
+    public int G = 0;
+    public int H = 0;
+    public HashMap<String, String> I = null;
+    public long J = 0;
+    public int K = 0;
+    public String L = "";
+    public int M = -1;
+    public String N = "";
+
+    public void A(int i) {
+        this.m = i;
     }
 
-    public void setSortType(int i) {
-        this.mSortType = i;
+    public void B(int i) {
+        this.w = i;
     }
 
-    public int getSortType() {
-        return this.mSortType;
+    public void C(int i) {
+        this.x = i;
     }
 
-    public String getKw() {
-        return this.kw;
+    public void D(int i) {
+        this.M = i;
     }
 
-    public void setKw(String str) {
-        this.kw = str;
+    public void E(long j) {
+        this.J = j;
     }
 
-    public int getPn() {
-        return this.pn;
+    public void F(int i) {
+        this.K = i;
     }
 
-    public void setPn(int i) {
-        this.pn = i;
+    public void G(int i) {
+        this.l = i;
     }
 
-    public void setWithGroup(int i) {
-        this.withGroup = i;
+    public void H(int i) {
+        this.G = i;
     }
 
-    public int getIsGood() {
-        return this.isGood;
+    public void I(String str) {
+        this.f21317g = str;
     }
 
-    public void setIsGood(int i) {
-        this.isGood = i;
+    public void J(long j) {
+        this.z = j;
     }
 
-    public int getCid() {
-        return this.cid;
+    public void K(String str) {
+        this.s = str;
     }
 
-    public void setCid(int i) {
-        this.cid = i;
+    public void L(int i) {
+        this.C = i;
     }
 
-    public void setScrW(int i) {
-        this.scrW = i;
+    public void M(int i) {
+        this.B = i;
     }
 
-    public void setScrH(int i) {
-        this.scrH = i;
+    public void N(int i) {
+        this.y = i;
     }
 
-    public void setScrDip(double d) {
-        this.scrDip = d;
+    public void O(String str) {
+        this.E = str;
     }
 
-    public void setqType(int i) {
-        this.qType = i;
+    public void P(String str) {
+        this.F = str;
     }
 
-    public void setCtime(int i) {
-        this.ctime = i;
+    public void Q(int i) {
+        this.D = i;
     }
 
-    public void setDataSize(int i) {
-        this.dataSize = i;
+    public void R(String str) {
+        this.L = str;
     }
 
-    public void setNetError(int i) {
-        this.netError = i;
+    public void S(double d2) {
+        this.p = d2;
     }
 
-    public int getLoadType() {
-        return this.fVT;
+    public void T(int i) {
+        this.o = i;
     }
 
-    public void setLoadType(int i) {
-        this.fVT = i;
+    public void U(int i) {
+        this.n = i;
     }
 
-    public boolean isNeedCache() {
-        return this.needCache;
+    public void V(int i) {
+        this.k = i;
     }
 
-    public void setNeedCache(boolean z) {
-        this.needCache = z;
+    public void W(String str) {
+        this.u = str;
     }
 
-    public int getUpdateType() {
-        return this.updateType;
+    public void X(int i) {
+        this.q = i;
     }
 
-    public void setUpdateType(int i) {
-        this.updateType = i;
-    }
-
-    public void setYuelaouLocate(String str) {
-        this.flX = str;
-    }
-
-    public void setLastId(String str) {
-        this.lastId = str;
-    }
-
-    public void setStType(String str) {
-        this.stType = str;
-    }
-
-    public int getCategoryId() {
-        return this.categoryId;
-    }
-
-    public void setCategoryId(int i) {
-        this.categoryId = i;
-    }
-
-    public void setLoadCount(int i) {
-        this.loadCount = i;
-    }
-
-    public void setRefreshCount(int i) {
-        this.refreshCount = i;
-    }
-
-    public void Tm(String str) {
-        this.nxo = str;
-    }
-
-    public void setObjSource(String str) {
-        this.nxp = str;
-    }
-
-    public void JB(int i) {
-        this.nxq = i;
-    }
-
-    public void setCallFrom(int i) {
-        this.callFrom = i;
-    }
-
-    public void JC(int i) {
-        this.isDefaultNavTab = i;
-    }
-
-    public void setSchemeUrl(String str) {
-        this.mSchemeUrl = str;
-    }
-
-    public void JD(int i) {
-        this.nxs = i;
-    }
-
-    @Override // com.baidu.tbadk.mvc.b.g
-    public HashMap<String, Object> bDn() {
-        return null;
-    }
-
-    @Override // com.baidu.tbadk.mvc.b.g
-    public HashMap<String, String> bDo() {
-        return this.headers;
-    }
-
-    public void gx(String str, String str2) {
-        if (this.headers == null) {
-            this.headers = new HashMap<>();
-        }
-        if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-            this.headers.put(str, str2);
-        }
-    }
-
-    @Override // com.baidu.tbadk.mvc.b.l
-    public Object lg(boolean z) {
+    @Override // d.b.h0.g0.b.i
+    public Object e(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
-        builder.kw = this.kw;
-        builder.pn = Integer.valueOf(this.pn);
-        builder.rn = Integer.valueOf(this.rn);
-        builder.rn_need = Integer.valueOf(this.nxn);
-        builder.with_group = Integer.valueOf(this.withGroup);
-        builder.is_good = Integer.valueOf(this.isGood);
-        builder.cid = Integer.valueOf(this.cid);
-        builder.scr_w = Integer.valueOf(this.scrW);
-        builder.scr_h = Integer.valueOf(this.scrH);
-        builder.scr_dip = Double.valueOf(this.scrDip);
-        builder.st_type = this.stType;
-        builder.q_type = Integer.valueOf(this.qType);
-        builder.st_param = Integer.valueOf(this.stParam);
-        builder.ctime = Integer.valueOf(this.ctime);
-        builder.data_size = Integer.valueOf(this.dataSize);
-        builder.net_error = Integer.valueOf(this.netError);
-        builder.lastids = this.lastId;
-        builder.category_id = Integer.valueOf(this.categoryId);
-        builder.yuelaou_locate = this.flX;
-        builder.sort_type = Integer.valueOf(this.mSortType);
-        builder.last_click_tid = Long.valueOf(this.mLastClickTid);
-        builder.app_pos = com.baidu.tieba.recapp.c.a.dEu().dEy();
-        builder.load_type = Integer.valueOf(this.fVT);
-        builder.obj_locate = this.nxo;
-        builder.obj_source = this.nxp;
-        builder.is_selection = Integer.valueOf(this.nxq);
-        builder.call_from = Integer.valueOf(this.callFrom);
-        builder.hot_thread_id = Long.valueOf(this.nxr);
+        builder.kw = this.f21317g;
+        builder.pn = Integer.valueOf(this.f21318h);
+        builder.rn = Integer.valueOf(this.i);
+        builder.rn_need = Integer.valueOf(this.j);
+        builder.with_group = Integer.valueOf(this.k);
+        builder.is_good = Integer.valueOf(this.l);
+        builder.cid = Integer.valueOf(this.m);
+        builder.scr_w = Integer.valueOf(this.n);
+        builder.scr_h = Integer.valueOf(this.o);
+        builder.scr_dip = Double.valueOf(this.p);
+        builder.st_type = this.r;
+        builder.q_type = Integer.valueOf(this.q);
+        builder.st_param = Integer.valueOf(this.v);
+        builder.ctime = Integer.valueOf(this.w);
+        builder.data_size = Integer.valueOf(this.x);
+        builder.net_error = Integer.valueOf(this.y);
+        builder.lastids = this.s;
+        builder.category_id = Integer.valueOf(this.t);
+        builder.yuelaou_locate = this.u;
+        builder.sort_type = Integer.valueOf(this.A);
+        builder.last_click_tid = Long.valueOf(this.z);
+        builder.app_pos = a.e().a();
+        builder.load_type = Integer.valueOf(this.B);
+        builder.obj_locate = this.E;
+        builder.obj_source = this.F;
+        builder.is_selection = Integer.valueOf(this.G);
+        builder.call_from = Integer.valueOf(this.H);
+        builder.hot_thread_id = Long.valueOf(this.J);
         AdParam.Builder builder2 = new AdParam.Builder();
-        builder2.refresh_count = Integer.valueOf(this.refreshCount);
-        builder2.load_count = Integer.valueOf(this.loadCount);
+        builder2.refresh_count = Integer.valueOf(this.D);
+        builder2.load_count = Integer.valueOf(this.C);
         builder2.yoga_lib_version = "";
         builder.ad_param = builder2.build(false);
-        builder.is_default_navtab = Integer.valueOf(this.isDefaultNavTab);
-        builder.ad_context_list = this.fVT == 1 ? "" : com.baidu.tieba.recapp.report.b.dEB().RX("FRS");
-        builder.up_schema = this.mSchemeUrl;
-        builder.default_sort_type = Integer.valueOf(this.nxs);
-        builder.ad_ext_params = AdExtParam.a.bEY().DO(this.adFloorInfo).bEZ();
-        com.baidu.tbadk.util.v.a(builder, true, false, true);
+        builder.is_default_navtab = Integer.valueOf(this.K);
+        builder.ad_context_list = this.B != 1 ? b.f().d("FRS") : "";
+        builder.up_schema = this.L;
+        builder.default_sort_type = Integer.valueOf(this.M);
+        AdExtParam.a b2 = AdExtParam.a.b();
+        b2.e(this.N);
+        builder.ad_ext_params = b2.a();
+        w.c(builder, true, false, true);
         FrsPageReqIdl.Builder builder3 = new FrsPageReqIdl.Builder();
         builder3.data = builder.build(false);
         return builder3.build(false);
     }
 
-    @Override // com.baidu.tbadk.mvc.b.e
-    public String bDk() {
-        return null;
-    }
-
-    public void hG(long j) {
-        this.nxr = j;
-    }
-
-    @Override // com.baidu.tbadk.mvc.b.e
-    public boolean bDl() {
-        return false;
-    }
-
-    @Override // com.baidu.tbadk.mvc.b.e
-    public boolean isNeedUid() {
-        return false;
-    }
-
-    @Override // com.baidu.tbadk.mvc.b.d
+    @Override // d.b.h0.g0.b.c
     public String getCacheKey() {
         return null;
     }
 
-    public void setAdFloorInfo(String str) {
-        this.adFloorInfo = str;
+    public int getCid() {
+        return this.m;
+    }
+
+    public int getPn() {
+        return this.f21318h;
+    }
+
+    public int getUpdateType() {
+        return this.f21315e;
+    }
+
+    public boolean isNeedCache() {
+        return this.f21316f;
+    }
+
+    @Override // d.b.h0.g0.b.d
+    public boolean isNeedUid() {
+        return false;
+    }
+
+    @Override // d.b.h0.g0.b.f
+    public HashMap<String, Object> k() {
+        return null;
+    }
+
+    @Override // d.b.h0.g0.b.f
+    public HashMap<String, String> p() {
+        return this.I;
+    }
+
+    @Override // d.b.h0.g0.b.d
+    public String q() {
+        return null;
+    }
+
+    @Override // d.b.h0.g0.b.d
+    public boolean r() {
+        return false;
+    }
+
+    public void s(String str, String str2) {
+        if (this.I == null) {
+            this.I = new HashMap<>();
+        }
+        if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
+            return;
+        }
+        this.I.put(str, str2);
+    }
+
+    public void setCallFrom(int i) {
+        this.H = i;
+    }
+
+    public void setNeedCache(boolean z) {
+        this.f21316f = z;
+    }
+
+    public void setPn(int i) {
+        this.f21318h = i;
+    }
+
+    public void setSortType(int i) {
+        this.A = i;
+    }
+
+    public void setStType(String str) {
+        this.r = str;
+    }
+
+    public void setUpdateType(int i) {
+        this.f21315e = i;
+    }
+
+    public int t() {
+        return this.t;
+    }
+
+    public int u() {
+        return this.l;
+    }
+
+    public String v() {
+        return this.f21317g;
+    }
+
+    public int w() {
+        return this.B;
+    }
+
+    public int x() {
+        return this.A;
+    }
+
+    public void y(String str) {
+        this.N = str;
+    }
+
+    public void z(int i) {
+        this.t = i;
     }
 }

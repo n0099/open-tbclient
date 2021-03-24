@@ -12,71 +12,96 @@ import com.baidu.smallgame.sdk.delegate.AREngineDelegate;
 import java.util.ArrayList;
 import java.util.List;
 @NotProguard
-/* loaded from: classes14.dex */
+/* loaded from: classes3.dex */
 public class MarioSDK {
-    private static final String TAG = "MarioSDK";
-    private AREngineDelegate mAREngineDelegate;
-    private b mMarioInitListener;
-    private V8Engine mV8Engine;
+    public static final String TAG = "MarioSDK";
+    public AREngineDelegate mAREngineDelegate;
+    public b mMarioInitListener;
+    public V8Engine mV8Engine;
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes3.dex */
+    public static class a {
+
+        /* renamed from: a  reason: collision with root package name */
+        public SurfaceHolder f11593a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public GLSurfaceView.Renderer f11594b;
+
+        /* renamed from: c  reason: collision with root package name */
+        public ArBridge.FirstFrameListener f11595c;
+
+        /* renamed from: d  reason: collision with root package name */
+        public int f11596d;
+
+        /* renamed from: e  reason: collision with root package name */
+        public List<DebugConsole> f11597e = new ArrayList();
+
+        /* renamed from: f  reason: collision with root package name */
+        public Context f11598f;
+
+        public void f(DebugConsole debugConsole) {
+            if (debugConsole == null) {
+                return;
+            }
+            this.f11597e.add(debugConsole);
+        }
+
+        public List<DebugConsole> g() {
+            return this.f11597e;
+        }
+
+        public void h(Context context) {
+            this.f11598f = context;
+        }
+
+        public void i(ArBridge.FirstFrameListener firstFrameListener) {
+            this.f11595c = firstFrameListener;
+        }
+
+        public void j(GLSurfaceView.Renderer renderer) {
+            this.f11594b = renderer;
+        }
+
+        public void k(SurfaceHolder surfaceHolder) {
+            this.f11593a = surfaceHolder;
+        }
+    }
+
+    /* loaded from: classes3.dex */
     public interface b {
-        void afD();
+        void a();
     }
 
-    public void setMarioInitListener(b bVar) {
-        this.mMarioInitListener = bVar;
-    }
-
-    private MarioSDK(V8Engine v8Engine, AREngineDelegate aREngineDelegate) {
+    public MarioSDK(V8Engine v8Engine, AREngineDelegate aREngineDelegate) {
         this.mV8Engine = v8Engine;
         this.mAREngineDelegate = aREngineDelegate;
     }
 
-    public V8Engine getV8Engine() {
-        return this.mV8Engine;
-    }
-
-    public AREngineDelegate getAREngineDelegate() {
-        return this.mAREngineDelegate;
-    }
-
-    public void resetV8Engine() {
-        this.mV8Engine = null;
-    }
-
-    public void resetAREngine() {
-        this.mAREngineDelegate = null;
-    }
-
-    public void reset() {
-        resetAREngine();
-        resetV8Engine();
-    }
-
-    public static MarioSDK initialize(Context context, V8EngineConfiguration v8EngineConfiguration, a aVar) {
-        return initialize(context, v8EngineConfiguration, aVar, null);
-    }
-
-    public static MarioSDK initialize(Context context, V8EngineConfiguration v8EngineConfiguration, a aVar, b bVar) {
-        V8Engine v8Engine;
-        AREngineDelegate aREngineDelegate = null;
-        try {
-            v8Engine = createV8Engine(context, v8EngineConfiguration);
-        } catch (Exception e) {
-            Log.e(TAG, "v8Engine init error", e);
-            v8Engine = null;
+    public static AREngineDelegate createAREngine(a aVar) {
+        if (aVar == null) {
+            return null;
         }
-        try {
-            aREngineDelegate = createAREngine(aVar);
-        } catch (Exception e2) {
-            Log.e(TAG, "AREngine init error", e2);
+        d.b.e0.a.a aVar2 = new d.b.e0.a.a();
+        if (aVar.f11593a != null) {
+            aVar2.q(aVar.f11593a);
         }
-        MarioSDK marioSDK = new MarioSDK(v8Engine, aREngineDelegate);
-        if (bVar != null) {
-            bVar.afD();
+        if (aVar.f11595c != null) {
+            aVar2.setFirstFrameListener(aVar.f11595c);
         }
-        return marioSDK;
+        aVar2.setRenderMode(aVar.f11596d);
+        if (aVar.f11598f != null) {
+            aVar2.p(aVar.f11598f);
+        }
+        if (aVar.f11594b != null) {
+            aVar2.setRenderer(aVar.f11594b);
+        }
+        if (aVar.g() != null) {
+            for (DebugConsole debugConsole : aVar.g()) {
+                aVar2.addDebugConsole(debugConsole);
+            }
+        }
+        return aVar2;
     }
 
     public static V8Engine createV8Engine(Context context, V8EngineConfiguration v8EngineConfiguration) {
@@ -105,70 +130,57 @@ public class MarioSDK {
             for (V8Engine.V8StatusListener v8StatusListener : v8EngineConfiguration.getV8StatusListeners()) {
                 v8Engine.addStatusHandler(v8StatusListener);
             }
-            return v8Engine;
         }
         return v8Engine;
     }
 
-    public static AREngineDelegate createAREngine(a aVar) {
-        if (aVar == null) {
-            return null;
-        }
-        com.baidu.smallgame.sdk.a aVar2 = new com.baidu.smallgame.sdk.a();
-        if (aVar.mSurfaceHolder != null) {
-            aVar2.c(aVar.mSurfaceHolder);
-        }
-        if (aVar.mFirstFrameListener != null) {
-            aVar2.setFirstFrameListener(aVar.mFirstFrameListener);
-        }
-        aVar2.setRenderMode(aVar.mRenderMode);
-        if (aVar.mContext != null) {
-            aVar2.setContext(aVar.mContext);
-        }
-        if (aVar.cBy != null) {
-            aVar2.setRenderer(aVar.cBy);
-        }
-        if (aVar.afC() != null) {
-            for (DebugConsole debugConsole : aVar.afC()) {
-                aVar2.addDebugConsole(debugConsole);
-            }
-        }
-        return aVar2;
+    public static MarioSDK initialize(Context context, V8EngineConfiguration v8EngineConfiguration, a aVar) {
+        return initialize(context, v8EngineConfiguration, aVar, null);
     }
 
-    /* loaded from: classes14.dex */
-    public static class a {
-        private List<DebugConsole> cBV = new ArrayList();
-        private GLSurfaceView.Renderer cBy;
-        private Context mContext;
-        private ArBridge.FirstFrameListener mFirstFrameListener;
-        private int mRenderMode;
-        private SurfaceHolder mSurfaceHolder;
+    public AREngineDelegate getAREngineDelegate() {
+        return this.mAREngineDelegate;
+    }
 
-        public void setContext(Context context) {
-            this.mContext = context;
-        }
+    public V8Engine getV8Engine() {
+        return this.mV8Engine;
+    }
 
-        public void c(SurfaceHolder surfaceHolder) {
-            this.mSurfaceHolder = surfaceHolder;
-        }
+    public void reset() {
+        resetAREngine();
+        resetV8Engine();
+    }
 
-        public void setRenderer(GLSurfaceView.Renderer renderer) {
-            this.cBy = renderer;
-        }
+    public void resetAREngine() {
+        this.mAREngineDelegate = null;
+    }
 
-        public void addDebugConsole(DebugConsole debugConsole) {
-            if (debugConsole != null) {
-                this.cBV.add(debugConsole);
-            }
-        }
+    public void resetV8Engine() {
+        this.mV8Engine = null;
+    }
 
-        public List<DebugConsole> afC() {
-            return this.cBV;
-        }
+    public void setMarioInitListener(b bVar) {
+        this.mMarioInitListener = bVar;
+    }
 
-        public void setFirstFrameListener(ArBridge.FirstFrameListener firstFrameListener) {
-            this.mFirstFrameListener = firstFrameListener;
+    public static MarioSDK initialize(Context context, V8EngineConfiguration v8EngineConfiguration, a aVar, b bVar) {
+        V8Engine v8Engine;
+        AREngineDelegate aREngineDelegate = null;
+        try {
+            v8Engine = createV8Engine(context, v8EngineConfiguration);
+        } catch (Exception e2) {
+            Log.e(TAG, "v8Engine init error", e2);
+            v8Engine = null;
         }
+        try {
+            aREngineDelegate = createAREngine(aVar);
+        } catch (Exception e3) {
+            Log.e(TAG, "AREngine init error", e3);
+        }
+        MarioSDK marioSDK = new MarioSDK(v8Engine, aREngineDelegate);
+        if (bVar != null) {
+            bVar.a();
+        }
+        return marioSDK;
     }
 }

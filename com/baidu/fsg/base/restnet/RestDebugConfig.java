@@ -1,13 +1,10 @@
 package com.baidu.fsg.base.restnet;
 
 import com.baidu.fsg.base.ApollonConstants;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public final class RestDebugConfig {
-    private static RestDebugConfig mInstance;
-    private boolean mIsQAEnv = false;
-
-    private RestDebugConfig() {
-    }
+    public static RestDebugConfig mInstance;
+    public boolean mIsQAEnv = false;
 
     public static synchronized RestDebugConfig getInstance() {
         RestDebugConfig restDebugConfig;
@@ -24,11 +21,11 @@ public final class RestDebugConfig {
         return this.mIsQAEnv;
     }
 
-    public void setQAEnv(boolean z) {
-        this.mIsQAEnv = z;
-    }
-
     public void setDebugOn(boolean z) {
         ApollonConstants.DEBUG = z;
+    }
+
+    public void setQAEnv(boolean z) {
+        this.mIsQAEnv = z;
     }
 }

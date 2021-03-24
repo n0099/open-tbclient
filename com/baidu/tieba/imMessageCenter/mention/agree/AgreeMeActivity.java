@@ -7,206 +7,232 @@ import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.j;
-import com.baidu.adp.lib.util.l;
 import com.baidu.adp.widget.ListView.BdListView;
-import com.baidu.adp.widget.ListView.n;
-import com.baidu.adp.widget.ListView.w;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PbActivityConfig;
 import com.baidu.tbadk.core.atomData.SubPbActivityConfig;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.ThreadCardUtils;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ar;
-import com.baidu.tbadk.core.util.az;
-import com.baidu.tbadk.core.util.y;
 import com.baidu.tieba.R;
-import com.baidu.tieba.imMessageCenter.mention.agree.a;
-import com.baidu.tieba.imMessageCenter.mention.agree.b;
+import d.b.b.e.p.j;
+import d.b.b.e.p.l;
+import d.b.b.j.e.n;
+import d.b.b.j.e.w;
+import d.b.i0.e1.b.o.a;
+import d.b.i0.e1.b.o.b;
 import java.util.ArrayList;
-/* loaded from: classes2.dex */
-public class AgreeMeActivity extends BaseActivity implements BdListView.e {
-    private b kUY;
-    private a kUZ;
-    private int mSkinType = 3;
-    private a.InterfaceC0776a kVa = new a.InterfaceC0776a() { // from class: com.baidu.tieba.imMessageCenter.mention.agree.AgreeMeActivity.1
-        @Override // com.baidu.tieba.imMessageCenter.mention.agree.a.InterfaceC0776a
-        public void cra() {
-            if (AgreeMeActivity.this.kUY != null) {
-                AgreeMeActivity.this.kUY.bRp();
+/* loaded from: classes4.dex */
+public class AgreeMeActivity extends BaseActivity implements BdListView.p {
+    public d.b.i0.e1.b.o.a mMainView;
+    public d.b.i0.e1.b.o.b mModel;
+    public int mSkinType = 3;
+    public a.e mViewCallback = new a();
+    public b.c mModelCallback = new b();
+    public w mItemClickListener = new c();
+
+    /* loaded from: classes4.dex */
+    public class a implements a.e {
+        public a() {
+        }
+
+        @Override // d.b.i0.e1.b.o.a.e
+        public void a() {
+            if (AgreeMeActivity.this.mModel != null) {
+                AgreeMeActivity.this.mModel.g();
             }
         }
 
-        @Override // com.baidu.tieba.imMessageCenter.mention.agree.a.InterfaceC0776a
-        public void cFR() {
-            if (AgreeMeActivity.this.kUY != null) {
-                AgreeMeActivity.this.kUY.cFR();
+        @Override // d.b.i0.e1.b.o.a.e
+        public void b() {
+            if (AgreeMeActivity.this.mModel != null) {
+                AgreeMeActivity.this.mModel.j();
             }
         }
-    };
-    private b.a kVb = new b.a() { // from class: com.baidu.tieba.imMessageCenter.mention.agree.AgreeMeActivity.2
-        @Override // com.baidu.tieba.imMessageCenter.mention.agree.b.a
-        public void at(ArrayList<n> arrayList) {
-            if (AgreeMeActivity.this.kUZ != null) {
-                AgreeMeActivity.this.kUZ.c(AgreeMeActivity.this.kUY.hasMore, arrayList);
-                AgreeMeActivity.this.hideLoadingView(AgreeMeActivity.this.kUZ.bRY());
-                AgreeMeActivity.this.hideNetRefreshView(AgreeMeActivity.this.kUZ.getRootView());
-                if (AgreeMeActivity.this.kUZ.gEz != null) {
-                    AgreeMeActivity.this.kUZ.gEz.setVisibility(0);
+    }
+
+    /* loaded from: classes4.dex */
+    public class b implements b.c {
+        public b() {
+        }
+
+        @Override // d.b.i0.e1.b.o.b.c
+        public void d(ArrayList<n> arrayList) {
+            if (AgreeMeActivity.this.mMainView != null) {
+                AgreeMeActivity.this.mMainView.k(AgreeMeActivity.this.mModel.f54474f, arrayList);
+                AgreeMeActivity agreeMeActivity = AgreeMeActivity.this;
+                agreeMeActivity.hideLoadingView(agreeMeActivity.mMainView.d());
+                AgreeMeActivity agreeMeActivity2 = AgreeMeActivity.this;
+                agreeMeActivity2.hideNetRefreshView(agreeMeActivity2.mMainView.f());
+                if (AgreeMeActivity.this.mMainView.f54463f != null) {
+                    AgreeMeActivity.this.mMainView.f54463f.setVisibility(0);
                 }
             }
         }
 
-        @Override // com.baidu.tieba.imMessageCenter.mention.agree.b.a
+        @Override // d.b.i0.e1.b.o.b.c
         public void onFailed(String str) {
-            com.baidu.tbadk.coreExtra.messageCenter.b.bxE().qt(0);
-            if (AgreeMeActivity.this.kUZ != null) {
-                AgreeMeActivity.this.kUZ.tn(false);
-                if (y.isEmpty(AgreeMeActivity.this.kUZ.getDatas())) {
-                    AgreeMeActivity.this.hideLoadingView(AgreeMeActivity.this.kUZ.bRY());
-                    AgreeMeActivity.this.showNetRefreshView(AgreeMeActivity.this.kUZ.getRootView(), AgreeMeActivity.this.getResources().getString(R.string.refresh_view_title_text), null, AgreeMeActivity.this.getResources().getString(R.string.refresh_view_button_text), true, AgreeMeActivity.this.getNetRefreshListener());
-                    AgreeMeActivity.this.setNetRefreshViewEmotionMarginTop(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds530));
-                    if (AgreeMeActivity.this.kUZ.gEz != null) {
-                        AgreeMeActivity.this.kUZ.gEz.setVisibility(8);
-                        return;
-                    }
+            d.b.h0.s.d.b.g0().Y(0);
+            if (AgreeMeActivity.this.mMainView == null) {
+                return;
+            }
+            AgreeMeActivity.this.mMainView.l(false);
+            if (ListUtils.isEmpty(AgreeMeActivity.this.mMainView.e())) {
+                AgreeMeActivity agreeMeActivity = AgreeMeActivity.this;
+                agreeMeActivity.hideLoadingView(agreeMeActivity.mMainView.d());
+                AgreeMeActivity agreeMeActivity2 = AgreeMeActivity.this;
+                agreeMeActivity2.showNetRefreshView(agreeMeActivity2.mMainView.f(), AgreeMeActivity.this.getResources().getString(R.string.refresh_view_title_text), null, AgreeMeActivity.this.getResources().getString(R.string.refresh_view_button_text), true, AgreeMeActivity.this.getNetRefreshListener());
+                AgreeMeActivity.this.setNetRefreshViewEmotionMarginTop(l.g(TbadkCoreApplication.getInst(), R.dimen.tbds530));
+                if (AgreeMeActivity.this.mMainView.f54463f != null) {
+                    AgreeMeActivity.this.mMainView.f54463f.setVisibility(8);
                     return;
                 }
-                AgreeMeActivity.this.hideLoadingView(AgreeMeActivity.this.kUZ.bRY());
-                AgreeMeActivity.this.showToast(str);
+                return;
             }
+            AgreeMeActivity agreeMeActivity3 = AgreeMeActivity.this;
+            agreeMeActivity3.hideLoadingView(agreeMeActivity3.mMainView.d());
+            AgreeMeActivity.this.showToast(str);
         }
-    };
-    private w kUU = new w() { // from class: com.baidu.tieba.imMessageCenter.mention.agree.AgreeMeActivity.3
-        @Override // com.baidu.adp.widget.ListView.w
-        public void a(View view, n nVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
-            if (nVar instanceof com.baidu.tieba.imMessageCenter.mention.base.a) {
-                com.baidu.tieba.imMessageCenter.mention.base.a aVar = (com.baidu.tieba.imMessageCenter.mention.base.a) nVar;
-                if (aVar.getType() == com.baidu.tieba.imMessageCenter.mention.base.a.kVl) {
-                    AgreeMeActivity.this.a(aVar);
+    }
+
+    /* loaded from: classes4.dex */
+    public class c implements w {
+        public c() {
+        }
+
+        @Override // d.b.b.j.e.w
+        public void f(View view, n nVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
+            if (nVar instanceof d.b.i0.e1.b.p.a) {
+                d.b.i0.e1.b.p.a aVar = (d.b.i0.e1.b.p.a) nVar;
+                if (aVar.getType() == d.b.i0.e1.b.p.a.x) {
+                    AgreeMeActivity.this.jumpPb(aVar);
                 } else {
-                    AgreeMeActivity.this.e(aVar);
+                    AgreeMeActivity.this.jumpToSubPb(aVar);
                 }
-                if (aVar.cZQ() != null) {
-                    ar aq = new ar(aVar.cZQ()).aq("obj_locate", 1);
-                    if (aVar.getType() == com.baidu.tieba.imMessageCenter.mention.base.a.kVm) {
-                        aq.aq("obj_type", 2);
+                if (aVar.w() != null) {
+                    StatisticItem param = new StatisticItem(aVar.w()).param("obj_locate", 1);
+                    if (aVar.getType() == d.b.i0.e1.b.p.a.y) {
+                        param.param("obj_type", 2);
                     } else {
-                        aq.aq("obj_type", 1);
+                        param.param("obj_type", 1);
                     }
-                    TiebaStatic.log(aq);
+                    TiebaStatic.log(param);
                 }
                 if (aVar != null) {
-                    ar arVar = new ar("c13784");
-                    arVar.v("uid", TbadkApplication.getCurrentAccountId());
-                    arVar.dR("tid", aVar.getThread_id());
-                    arVar.dR("fname", aVar.getFname());
-                    arVar.aq("obj_type", 2);
-                    TiebaStatic.log(arVar);
+                    StatisticItem statisticItem = new StatisticItem("c13784");
+                    statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
+                    statisticItem.param("tid", aVar.z());
+                    statisticItem.param("fname", aVar.j());
+                    statisticItem.param("obj_type", 2);
+                    TiebaStatic.log(statisticItem);
                 }
             }
         }
-    };
+    }
 
-    /* JADX INFO: Access modifiers changed from: protected */
+    /* JADX INFO: Access modifiers changed from: private */
+    public void jumpPb(d.b.i0.e1.b.p.a aVar) {
+        if (aVar == null) {
+            return;
+        }
+        if (ThreadCardUtils.isUgcThreadType(aVar.g())) {
+            PbActivityConfig createNormalCfg = new PbActivityConfig(this).createNormalCfg(aVar.z(), (String) null, 1, "mention");
+            createNormalCfg.setStartFrom(12);
+            createNormalCfg.setHighLightPostId(aVar.t());
+            createNormalCfg.setBjhData(aVar.g());
+            MessageManager.getInstance().sendMessage(new CustomMessage(2004001, createNormalCfg));
+            return;
+        }
+        PbActivityConfig createNormalCfg2 = new PbActivityConfig(this).createNormalCfg(aVar.z(), aVar.t(), 1, "mention");
+        createNormalCfg2.setStartFrom(12);
+        createNormalCfg2.setHighLightPostId(aVar.t());
+        createNormalCfg2.setBjhData(aVar.g());
+        MessageManager.getInstance().sendMessage(new CustomMessage(2004001, createNormalCfg2));
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void jumpToSubPb(d.b.i0.e1.b.p.a aVar) {
+        if (aVar == null) {
+            return;
+        }
+        String z = aVar.z();
+        String t = aVar.t();
+        String userName = aVar.v() == null ? "" : aVar.v().getUserName();
+        if (!TextUtils.isEmpty(aVar.u()) && !"0".equals(aVar.u())) {
+            SubPbActivityConfig createSubPbActivityConfig = new SubPbActivityConfig(getActivity()).createSubPbActivityConfig(z, aVar.u(), "mention", false, userName, false, aVar.u(), 0);
+            createSubPbActivityConfig.setKeyPageStartFrom(13);
+            createSubPbActivityConfig.setBjhData(aVar.g());
+            createSubPbActivityConfig.setHighLightPostId(t);
+            createSubPbActivityConfig.setKeyOriUgcTopPid(t);
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, createSubPbActivityConfig));
+            return;
+        }
+        SubPbActivityConfig createSubPbActivityConfig2 = new SubPbActivityConfig(getActivity()).createSubPbActivityConfig(z, t, "mention", false, userName, false, t, 0);
+        createSubPbActivityConfig2.setKeyPageStartFrom(13);
+        createSubPbActivityConfig2.setBjhData(aVar.g());
+        createSubPbActivityConfig2.setHighLightPostId(t);
+        createSubPbActivityConfig2.setKeyOriUgcTopPid("0");
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, createSubPbActivityConfig2));
+    }
+
+    @Override // com.baidu.tbadk.BaseActivity, d.b.h0.k0.a
+    public String getCurrentPageKey() {
+        return "a079";
+    }
+
+    @Override // com.baidu.tbadk.BaseActivity
+    public void onChangeSkinType(int i) {
+        if (this.mSkinType != i) {
+            this.mSkinType = i;
+            d.b.i0.e1.b.o.a aVar = this.mMainView;
+            if (aVar != null) {
+                aVar.c(i);
+            }
+        }
+    }
+
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         View inflate = getLayoutInflater().inflate(R.layout.agree_me_activity, (ViewGroup) null);
         setContentView(inflate);
-        this.kUZ = new a(getPageContext(), inflate);
-        this.kUZ.a(this.kVa);
-        this.kUZ.e(this.kUU);
-        this.kUY = new b(getPageContext(), this.kVb);
-        showLoadingView(this.kUZ.bRY());
-        this.kUZ.tn(false);
-        this.kUY.cOV();
+        d.b.i0.e1.b.o.a aVar = new d.b.i0.e1.b.o.a(getPageContext(), inflate);
+        this.mMainView = aVar;
+        aVar.j(this.mViewCallback);
+        this.mMainView.i(this.mItemClickListener);
+        this.mModel = new d.b.i0.e1.b.o.b(getPageContext(), this.mModelCallback);
+        showLoadingView(this.mMainView.d());
+        this.mMainView.l(false);
+        this.mModel.d();
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.kUZ != null) {
-            this.kUZ.onDestroy();
+        d.b.i0.e1.b.o.a aVar = this.mMainView;
+        if (aVar != null) {
+            aVar.h();
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i) {
-        if (this.mSkinType != i) {
-            this.mSkinType = i;
-            if (this.kUZ != null) {
-                this.kUZ.changeSkinType(i);
-            }
-        }
-    }
-
-    @Override // com.baidu.adp.widget.ListView.BdListView.e
-    public void onScrollToBottom() {
-        if (this.kUY != null) {
-            this.kUY.bRp();
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onNetRefreshButtonClicked() {
-        if (j.isNetWorkAvailable() && this.kUY != null && this.kUZ != null) {
-            hideNetRefreshView(this.kUZ.getRootView());
-            showLoadingView(this.kUZ.bRY(), true);
-            this.kUY.cOV();
+        d.b.i0.e1.b.o.a aVar;
+        if (!j.z() || this.mModel == null || (aVar = this.mMainView) == null) {
+            return;
         }
+        hideNetRefreshView(aVar.f());
+        showLoadingView(this.mMainView.d(), true);
+        this.mModel.d();
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(com.baidu.tieba.imMessageCenter.mention.base.a aVar) {
-        if (aVar != null) {
-            if (az.a(aVar.getBaijiahaoData())) {
-                PbActivityConfig createNormalCfg = new PbActivityConfig(this).createNormalCfg(aVar.getThread_id(), (String) null, 1, "mention");
-                createNormalCfg.setStartFrom(12);
-                createNormalCfg.setHighLightPostId(aVar.getPost_id());
-                createNormalCfg.setBjhData(aVar.getBaijiahaoData());
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, createNormalCfg));
-                return;
-            }
-            PbActivityConfig createNormalCfg2 = new PbActivityConfig(this).createNormalCfg(aVar.getThread_id(), aVar.getPost_id(), 1, "mention");
-            createNormalCfg2.setStartFrom(12);
-            createNormalCfg2.setHighLightPostId(aVar.getPost_id());
-            createNormalCfg2.setBjhData(aVar.getBaijiahaoData());
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, createNormalCfg2));
+    @Override // com.baidu.adp.widget.ListView.BdListView.p
+    public void onScrollToBottom() {
+        d.b.i0.e1.b.o.b bVar = this.mModel;
+        if (bVar != null) {
+            bVar.g();
         }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void e(com.baidu.tieba.imMessageCenter.mention.base.a aVar) {
-        if (aVar != null) {
-            String thread_id = aVar.getThread_id();
-            String post_id = aVar.getPost_id();
-            String userName = aVar.getReplyer() == null ? "" : aVar.getReplyer().getUserName();
-            if (TextUtils.isEmpty(aVar.cZP()) || "0".equals(aVar.cZP())) {
-                SubPbActivityConfig createSubPbActivityConfig = new SubPbActivityConfig(getActivity()).createSubPbActivityConfig(thread_id, post_id, "mention", false, userName, false, post_id, 0);
-                createSubPbActivityConfig.setKeyPageStartFrom(13);
-                createSubPbActivityConfig.setBjhData(aVar.getBaijiahaoData());
-                createSubPbActivityConfig.setHighLightPostId(post_id);
-                createSubPbActivityConfig.setKeyOriUgcTopPid("0");
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, createSubPbActivityConfig));
-                return;
-            }
-            SubPbActivityConfig createSubPbActivityConfig2 = new SubPbActivityConfig(getActivity()).createSubPbActivityConfig(thread_id, aVar.cZP(), "mention", false, userName, false, aVar.cZP(), 0);
-            createSubPbActivityConfig2.setKeyPageStartFrom(13);
-            createSubPbActivityConfig2.setBjhData(aVar.getBaijiahaoData());
-            createSubPbActivityConfig2.setHighLightPostId(post_id);
-            createSubPbActivityConfig2.setKeyOriUgcTopPid(post_id);
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, createSubPbActivityConfig2));
-        }
-    }
-
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.tbadk.m.a
-    public String getCurrentPageKey() {
-        return "a079";
     }
 }

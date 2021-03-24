@@ -9,11 +9,15 @@ import com.baidu.android.imsdk.utils.LogUtils;
 import java.util.ArrayList;
 import java.util.Iterator;
 import org.json.JSONArray;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class RetrieveMsgReceiver implements IMessageReceiveListener {
-    private static final String TAG = "RetrieveMsgReceiver";
-    private static volatile RetrieveMsgReceiver mInstance;
-    private Context mContext;
+    public static final String TAG = "RetrieveMsgReceiver";
+    public static volatile RetrieveMsgReceiver mInstance;
+    public Context mContext;
+
+    public RetrieveMsgReceiver(Context context) {
+        this.mContext = context;
+    }
 
     public static RetrieveMsgReceiver getInstance(Context context) {
         if (mInstance == null) {
@@ -24,10 +28,6 @@ public class RetrieveMsgReceiver implements IMessageReceiveListener {
             }
         }
         return mInstance;
-    }
-
-    private RetrieveMsgReceiver(Context context) {
-        this.mContext = context;
     }
 
     @Override // com.baidu.android.imsdk.chatmessage.IMessageReceiveListener
@@ -50,8 +50,8 @@ public class RetrieveMsgReceiver implements IMessageReceiveListener {
                                         RetrieveTaskManager.getInstance(this.mContext).dispatch(jSONArray.optJSONObject(i3));
                                     }
                                 }
-                            } catch (Exception e) {
-                                e.printStackTrace();
+                            } catch (Exception e2) {
+                                e2.printStackTrace();
                             }
                         }
                     }

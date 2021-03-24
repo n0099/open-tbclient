@@ -1,27 +1,16 @@
 package com.sina.weibo.wcfc.sobusiness;
 
 import android.content.Context;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class UtilitySo {
-    private static UtilitySo sInstance;
-
-    public native String calculateS(Context context, String str);
-
-    public native String generateCheckToken(Context context, String str, String str2);
-
-    public native String getDecryptionString(Context context, String str);
-
-    public native String getIValue(Context context, String str);
+    public static UtilitySo sInstance;
 
     static {
         try {
             System.loadLibrary("utility");
-        } catch (UnsatisfiedLinkError e) {
-            e.printStackTrace();
+        } catch (UnsatisfiedLinkError e2) {
+            e2.printStackTrace();
         }
-    }
-
-    private UtilitySo() {
     }
 
     public static synchronized UtilitySo getInstance() {
@@ -34,4 +23,12 @@ public class UtilitySo {
         }
         return utilitySo;
     }
+
+    public native String calculateS(Context context, String str);
+
+    public native String generateCheckToken(Context context, String str, String str2);
+
+    public native String getDecryptionString(Context context, String str);
+
+    public native String getIValue(Context context, String str);
 }

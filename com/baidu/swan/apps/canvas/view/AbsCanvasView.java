@@ -3,14 +3,28 @@ package com.baidu.swan.apps.canvas.view;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public abstract class AbsCanvasView extends View {
-    private boolean cMd;
-    private boolean cMe;
-    private boolean cMf;
+
+    /* renamed from: e  reason: collision with root package name */
+    public boolean f12117e;
 
     public AbsCanvasView(Context context) {
         this(context, null);
+    }
+
+    public boolean a() {
+        return this.f12117e;
+    }
+
+    public void setGesture(boolean z) {
+    }
+
+    public void setHide(boolean z) {
+    }
+
+    public void setInterceptTouchEvent(boolean z) {
+        this.f12117e = z;
     }
 
     public AbsCanvasView(Context context, AttributeSet attributeSet) {
@@ -19,24 +33,6 @@ public abstract class AbsCanvasView extends View {
 
     public AbsCanvasView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.cMd = false;
-        this.cMe = false;
-        this.cMf = false;
-    }
-
-    public boolean akX() {
-        return this.cMd;
-    }
-
-    public void setInterceptTouchEvent(boolean z) {
-        this.cMd = z;
-    }
-
-    public void setGesture(boolean z) {
-        this.cMe = z;
-    }
-
-    public void setHide(boolean z) {
-        this.cMf = z;
+        this.f12117e = false;
     }
 }

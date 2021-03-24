@@ -6,25 +6,24 @@ import java.util.concurrent.ExecutorService;
 public class j implements Executor {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile j f5108a;
-    private ExecutorService b = com.bytedance.sdk.openadsdk.j.e.a();
+    public static volatile j f30348a;
 
-    private j() {
-    }
+    /* renamed from: b  reason: collision with root package name */
+    public ExecutorService f30349b = com.bytedance.sdk.openadsdk.l.e.a();
 
     public static j a() {
-        if (f5108a == null) {
+        if (f30348a == null) {
             synchronized (j.class) {
-                if (f5108a == null) {
-                    f5108a = new j();
+                if (f30348a == null) {
+                    f30348a = new j();
                 }
             }
         }
-        return f5108a;
+        return f30348a;
     }
 
     @Override // java.util.concurrent.Executor
     public void execute(Runnable runnable) {
-        this.b.execute(runnable);
+        this.f30349b.execute(runnable);
     }
 }

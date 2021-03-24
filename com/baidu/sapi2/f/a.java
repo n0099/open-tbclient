@@ -14,14 +14,26 @@ import com.baidu.sapi2.utils.SapiUtils;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class a {
-    public static final String c = "SapiScheme";
-    public static final String d = "3.0.5";
-    public static final int e = 2;
-    public static final String f = "3.0.5";
-    public static final String g = "com.baidu.passport.securitycenter";
-    public static final String h = "baiduppscapp";
+
+    /* renamed from: c  reason: collision with root package name */
+    public static final String f11220c = "SapiScheme";
+
+    /* renamed from: d  reason: collision with root package name */
+    public static final String f11221d = "3.0.5";
+
+    /* renamed from: e  reason: collision with root package name */
+    public static final int f11222e = 2;
+
+    /* renamed from: f  reason: collision with root package name */
+    public static final String f11223f = "3.0.5";
+
+    /* renamed from: g  reason: collision with root package name */
+    public static final String f11224g = "com.baidu.passport.securitycenter";
+
+    /* renamed from: h  reason: collision with root package name */
+    public static final String f11225h = "baiduppscapp";
     public static final String i = "otp";
     public static final int j = 0;
     public static final int k = 1;
@@ -32,14 +44,17 @@ public class a {
     public static final String p = "achieve_sc_app_data";
 
     /* renamed from: a  reason: collision with root package name */
-    private SapiWebView.InvokeScAppCallback.InvokeScAppResult f3363a;
-    private b b;
+    public SapiWebView.InvokeScAppCallback.InvokeScAppResult f11226a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public b f11227b;
 
     public int a(Context context, String str, SapiWebView.InvokeScAppCallback invokeScAppCallback) {
-        PackageInfo packageInfo = null;
+        PackageInfo packageInfo;
         try {
-            packageInfo = context.getPackageManager().getPackageInfo(g, 0);
-        } catch (PackageManager.NameNotFoundException e2) {
+            packageInfo = context.getPackageManager().getPackageInfo(f11224g, 0);
+        } catch (PackageManager.NameNotFoundException unused) {
+            packageInfo = null;
         }
         if (packageInfo != null) {
             if (SapiUtils.versionCompareTo(packageInfo.versionName, str) < 0) {
@@ -54,27 +69,24 @@ public class a {
     }
 
     public void a(Activity activity, String str, String str2, List<PassNameValuePair> list, SapiWebView.InvokeScAppCallback.InvokeScAppResult invokeScAppResult) {
-        this.f3363a = invokeScAppResult;
+        this.f11226a = invokeScAppResult;
         a aVar = new a();
-        if (!aVar.a((Context) activity, g)) {
-            this.f3363a.setInvokeResult(a(b.b, b.d));
+        if (!aVar.a((Context) activity, f11224g)) {
+            this.f11226a.setInvokeResult(a(b.f11229b, b.f11231d));
             return;
         }
         try {
             aVar.a(activity, aVar.a(str, str2, list));
-        } catch (Exception e2) {
-            this.f3363a.setInvokeResult(a(b.f3364a, b.c));
+        } catch (Exception unused) {
+            this.f11226a.setInvokeResult(a(b.f11228a, b.f11230c));
         }
     }
 
     public void a(int i2, int i3, Intent intent) {
-        if (this.f3363a != null) {
-            String str = null;
-            if (intent != null) {
-                str = intent.getExtras().getString(p);
-            }
-            this.f3363a.setInvokeResult(str);
+        if (this.f11226a == null) {
+            return;
         }
+        this.f11226a.setInvokeResult(intent != null ? intent.getExtras().getString(p) : null);
     }
 
     private String a(String str, String str2, List<PassNameValuePair> list) {
@@ -91,17 +103,16 @@ public class a {
     }
 
     public boolean a(Context context, String str) {
-        if (context == null || TextUtils.isEmpty(str)) {
-            return false;
-        }
-        HashMap hashMap = new HashMap();
-        hashMap.putAll(SapiContext.getInstance().getAuthorizedPackages());
-        hashMap.putAll(SapiContext.getInstance().getSCAuthorizedPackages());
-        String packageSign = SapiUtils.getPackageSign(context, str);
-        if (!TextUtils.isEmpty(packageSign)) {
-            for (String str2 : hashMap.keySet()) {
-                if (str.matches(str2) && packageSign.equals(hashMap.get(str2))) {
-                    return true;
+        if (context != null && !TextUtils.isEmpty(str)) {
+            HashMap hashMap = new HashMap();
+            hashMap.putAll(SapiContext.getInstance().getAuthorizedPackages());
+            hashMap.putAll(SapiContext.getInstance().getSCAuthorizedPackages());
+            String packageSign = SapiUtils.getPackageSign(context, str);
+            if (!TextUtils.isEmpty(packageSign)) {
+                for (String str2 : hashMap.keySet()) {
+                    if (str.matches(str2) && packageSign.equals(hashMap.get(str2))) {
+                        return true;
+                    }
                 }
             }
         }
@@ -109,9 +120,10 @@ public class a {
     }
 
     private String a(int i2, String str) {
-        this.b = new b();
-        this.b.setResultCode(i2);
-        this.b.setResultMsg(str);
-        return this.b.a();
+        b bVar = new b();
+        this.f11227b = bVar;
+        bVar.setResultCode(i2);
+        this.f11227b.setResultMsg(str);
+        return this.f11227b.a();
     }
 }

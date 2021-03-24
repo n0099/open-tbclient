@@ -2,18 +2,20 @@ package com.baidu.tieba.im.message;
 
 import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.core.data.BlockPopInfoData;
 import com.squareup.wire.Wire;
+import d.b.i0.d1.w.b;
+import protobuf.BlockInfo;
 import protobuf.CommitPersonalMsg.CommitPersonalMsgResIdl;
-/* loaded from: classes.dex */
+import protobuf.CommitPersonalMsg.DataRes;
+/* loaded from: classes4.dex */
 public class ResponseCommitPersonalMessage extends ResponseCommitMessage {
     public static final int CANT_CHAT = 2230303;
-    private String toUserId;
-    private int toUserType;
+    public String toUserId;
+    public int toUserType;
 
     public ResponseCommitPersonalMessage() {
-        super(CmdConfigSocket.CMD_COMMIT_PERSONAL_MSG);
+        super(205001);
         this.toUserId = null;
         this.toUserType = 0;
     }
@@ -22,12 +24,12 @@ public class ResponseCommitPersonalMessage extends ResponseCommitMessage {
         return this.toUserId;
     }
 
-    public void setToUserId(String str) {
-        this.toUserId = str;
-    }
-
     public int getToUserType() {
         return this.toUserType;
+    }
+
+    public void setToUserId(String str) {
+        this.toUserId = str;
     }
 
     public void setToUserType(int i) {
@@ -35,28 +37,32 @@ public class ResponseCommitPersonalMessage extends ResponseCommitMessage {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.message.a
+    @Override // com.baidu.tieba.im.message.ResponseCommitMessage, com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
     public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         CommitPersonalMsgResIdl commitPersonalMsgResIdl = (CommitPersonalMsgResIdl) new Wire(new Class[0]).parseFrom(bArr, CommitPersonalMsgResIdl.class);
         setError(commitPersonalMsgResIdl.error.errorno.intValue());
         setErrorString(commitPersonalMsgResIdl.error.usermsg);
-        if (commitPersonalMsgResIdl.data == null) {
+        DataRes dataRes = commitPersonalMsgResIdl.data;
+        if (dataRes == null) {
             BdStatisticsManager.getInstance().error("im", 0L, (String) null, "comment", "personalchat_resdatanull");
             return;
         }
-        long longValue = commitPersonalMsgResIdl.data.msgId.longValue();
+        long longValue = dataRes.msgId.longValue();
         setToUserType(commitPersonalMsgResIdl.data.toUserType.intValue());
-        setMsgId(com.baidu.tieba.im.util.b.hd(longValue));
+        setMsgId(b.a(longValue));
         setRecordId(commitPersonalMsgResIdl.data.recordId.longValue());
         setGroupId(String.valueOf(commitPersonalMsgResIdl.data.groupId));
         setToUserId(String.valueOf(commitPersonalMsgResIdl.data.toUid));
-        if (commitPersonalMsgResIdl.data.blockInfo != null && !StringUtils.isNull(commitPersonalMsgResIdl.data.blockInfo.blockErrmsg)) {
-            BlockPopInfoData blockPopInfoData = new BlockPopInfoData();
-            blockPopInfoData.block_info = commitPersonalMsgResIdl.data.blockInfo.blockErrmsg;
-            blockPopInfoData.ahead_info = commitPersonalMsgResIdl.data.blockInfo.blockConfirm;
-            blockPopInfoData.ahead_url = commitPersonalMsgResIdl.data.blockInfo.blockDealurl;
-            blockPopInfoData.ok_info = commitPersonalMsgResIdl.data.blockInfo.blockCancel;
-            setBlockPopInfoData(blockPopInfoData);
+        BlockInfo blockInfo = commitPersonalMsgResIdl.data.blockInfo;
+        if (blockInfo == null || StringUtils.isNull(blockInfo.blockErrmsg)) {
+            return;
         }
+        BlockPopInfoData blockPopInfoData = new BlockPopInfoData();
+        BlockInfo blockInfo2 = commitPersonalMsgResIdl.data.blockInfo;
+        blockPopInfoData.block_info = blockInfo2.blockErrmsg;
+        blockPopInfoData.ahead_info = blockInfo2.blockConfirm;
+        blockPopInfoData.ahead_url = blockInfo2.blockDealurl;
+        blockPopInfoData.ok_info = blockInfo2.blockCancel;
+        setBlockPopInfoData(blockPopInfoData);
     }
 }

@@ -11,43 +11,42 @@ import com.baidu.searchbox.track.ui.TrackUI;
 import java.util.LinkedList;
 /* loaded from: classes3.dex */
 public class Track {
-    private static final int UI_TRACK_CAPACITY = 20;
-    private Object mLockListener;
-    private Object mLockTrackUI;
-    private EvictingDeque<TrackUI> mTrackUIDeque;
-    private LinkedList<OnTrackUIListener> mTrackUIListeners;
+    public static final int UI_TRACK_CAPACITY = 20;
+    public Object mLockListener;
+    public Object mLockTrackUI;
+    public EvictingDeque<TrackUI> mTrackUIDeque;
+    public LinkedList<OnTrackUIListener> mTrackUIListeners;
 
     /* loaded from: classes3.dex */
     public interface OnTrackUIListener {
         void onAddTrackUI(TrackUI trackUI);
     }
 
-    private Track() {
-        this.mLockTrackUI = new Object();
-        this.mLockListener = new Object();
-        this.mTrackUIDeque = EvictingDeque.create(20);
-        this.mTrackUIListeners = new LinkedList<>();
+    /* loaded from: classes3.dex */
+    public static final class TrackCreator {
+        public static final Track mTrace = new Track();
     }
 
     public static Track getInstance() {
         return TrackCreator.mTrace;
     }
 
-    public void startTrack(Context context) {
-        if (!TraceManager.getInstance().isRegistered()) {
-            TraceManager.getInstance().register(context);
+    public void addTrackUI(@NonNull TrackUI trackUI) {
+        if (trackUI != null) {
+            synchronized (this.mLockTrackUI) {
+                this.mTrackUIDeque.offerLast(trackUI);
+            }
+            return;
         }
+        throw new NullPointerException("trackUI should not be null");
     }
 
-    public void setOnFragmentTraceListener(@Nullable OnFragmentTraceListener onFragmentTraceListener) {
-        TraceManager.getInstance().setOnFragmentListener(onFragmentTraceListener);
-    }
-
-    public void setTrackUICapacity(int i) {
-        if (i < 0) {
-            throw new IllegalArgumentException("capacity should not < 0");
+    public void addTrackUIListener(@NonNull OnTrackUIListener onTrackUIListener) {
+        synchronized (this.mLockListener) {
+            if (!this.mTrackUIListeners.contains(onTrackUIListener)) {
+                this.mTrackUIListeners.add(onTrackUIListener);
+            }
         }
-        this.mTrackUIDeque.setCapacity(i);
     }
 
     public LinkedList<TrackUI> getAllTrackUIs() {
@@ -56,15 +55,6 @@ public class Track {
             linkedList = new LinkedList<>(this.mTrackUIDeque.getElements());
         }
         return linkedList;
-    }
-
-    public void addTrackUI(@NonNull TrackUI trackUI) {
-        if (trackUI == null) {
-            throw new NullPointerException("trackUI should not be null");
-        }
-        synchronized (this.mLockTrackUI) {
-            this.mTrackUIDeque.offerLast(trackUI);
-        }
     }
 
     @Nullable
@@ -76,16 +66,12 @@ public class Track {
         return peekLast;
     }
 
-    public boolean isForeground() {
-        return BdBoxActivityManager.isForeground();
+    public LinkedList<OnTrackUIListener> getTrackUIListeners() {
+        return this.mTrackUIListeners;
     }
 
-    public void addTrackUIListener(@NonNull OnTrackUIListener onTrackUIListener) {
-        synchronized (this.mLockListener) {
-            if (!this.mTrackUIListeners.contains(onTrackUIListener)) {
-                this.mTrackUIListeners.add(onTrackUIListener);
-            }
-        }
+    public boolean isForeground() {
+        return BdBoxActivityManager.isForeground();
     }
 
     public void removeTrackUIListener(@NonNull OnTrackUIListener onTrackUIListener) {
@@ -94,16 +80,29 @@ public class Track {
         }
     }
 
-    public LinkedList<OnTrackUIListener> getTrackUIListeners() {
-        return this.mTrackUIListeners;
+    public void setOnFragmentTraceListener(@Nullable OnFragmentTraceListener onFragmentTraceListener) {
+        TraceManager.getInstance().setOnFragmentListener(onFragmentTraceListener);
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes3.dex */
-    public static final class TrackCreator {
-        private static final Track mTrace = new Track();
-
-        private TrackCreator() {
+    public void setTrackUICapacity(int i) {
+        if (i >= 0) {
+            this.mTrackUIDeque.setCapacity(i);
+            return;
         }
+        throw new IllegalArgumentException("capacity should not < 0");
+    }
+
+    public void startTrack(Context context) {
+        if (TraceManager.getInstance().isRegistered()) {
+            return;
+        }
+        TraceManager.getInstance().register(context);
+    }
+
+    public Track() {
+        this.mLockTrackUI = new Object();
+        this.mLockListener = new Object();
+        this.mTrackUIDeque = EvictingDeque.create(20);
+        this.mTrackUIListeners = new LinkedList<>();
     }
 }

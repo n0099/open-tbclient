@@ -12,12 +12,55 @@ import androidx.annotation.Nullable;
 public class ShadowTextView extends TextView {
 
     /* renamed from: a  reason: collision with root package name */
-    private Paint f4586a;
-    private RectF b;
-    private int c;
+    public Paint f28828a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public RectF f28829b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public int f28830c;
 
     public ShadowTextView(Context context) {
         this(context, null);
+    }
+
+    private void a() {
+        setTextColor(-1);
+        Paint paint = new Paint();
+        this.f28828a = paint;
+        paint.setStyle(Paint.Style.FILL_AND_STROKE);
+        this.f28828a.setColor(Color.parseColor("#99333333"));
+        this.f28828a.setAntiAlias(true);
+        this.f28828a.setStrokeWidth(0.0f);
+        this.f28829b = new RectF();
+    }
+
+    @Override // android.widget.TextView, android.view.View
+    public void onDraw(Canvas canvas) {
+        RectF rectF = this.f28829b;
+        float f2 = rectF.bottom;
+        canvas.drawRoundRect(rectF, f2 / 2.0f, f2 / 2.0f, this.f28828a);
+        canvas.translate((this.f28829b.right / 2.0f) - (getPaint().measureText(getText().toString()) / 2.0f), 0.0f);
+        super.onDraw(canvas);
+    }
+
+    @Override // android.widget.TextView, android.view.View
+    public void onMeasure(int i, int i2) {
+        super.onMeasure(i, i2);
+        int measuredWidth = getMeasuredWidth();
+        int measuredHeight = getMeasuredHeight();
+        if (measuredWidth > 0 && measuredHeight > 0) {
+            int measureText = (int) getPaint().measureText("00");
+            this.f28830c = measureText;
+            if (measuredWidth < measureText) {
+                measuredWidth = measureText;
+            }
+            int i3 = measuredWidth + ((measuredHeight / 2) * 2);
+            setMeasuredDimension(i3, measuredHeight);
+            this.f28829b.set(0.0f, 0.0f, i3, measuredHeight);
+            return;
+        }
+        this.f28829b.set(0.0f, 0.0f, 0.0f, 0.0f);
     }
 
     public ShadowTextView(Context context, @Nullable AttributeSet attributeSet) {
@@ -26,42 +69,7 @@ public class ShadowTextView extends TextView {
 
     public ShadowTextView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.c = 0;
+        this.f28830c = 0;
         a();
-    }
-
-    private void a() {
-        setTextColor(-1);
-        this.f4586a = new Paint();
-        this.f4586a.setStyle(Paint.Style.FILL_AND_STROKE);
-        this.f4586a.setColor(Color.parseColor("#99333333"));
-        this.f4586a.setAntiAlias(true);
-        this.f4586a.setStrokeWidth(0.0f);
-        this.b = new RectF();
-    }
-
-    @Override // android.widget.TextView, android.view.View
-    protected void onMeasure(int i, int i2) {
-        super.onMeasure(i, i2);
-        int measuredWidth = getMeasuredWidth();
-        int measuredHeight = getMeasuredHeight();
-        if (measuredWidth > 0 && measuredHeight > 0) {
-            this.c = (int) getPaint().measureText("00");
-            if (measuredWidth < this.c) {
-                measuredWidth = this.c;
-            }
-            int i3 = measuredWidth + ((measuredHeight / 2) * 2);
-            setMeasuredDimension(i3, measuredHeight);
-            this.b.set(0.0f, 0.0f, i3, measuredHeight);
-            return;
-        }
-        this.b.set(0.0f, 0.0f, 0.0f, 0.0f);
-    }
-
-    @Override // android.widget.TextView, android.view.View
-    protected void onDraw(Canvas canvas) {
-        canvas.drawRoundRect(this.b, this.b.bottom / 2.0f, this.b.bottom / 2.0f, this.f4586a);
-        canvas.translate((this.b.right / 2.0f) - (getPaint().measureText(getText().toString()) / 2.0f), 0.0f);
-        super.onDraw(canvas);
     }
 }

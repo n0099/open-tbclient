@@ -1,30 +1,37 @@
 package com.baidu.ar.npc;
 
 import java.util.HashMap;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class d implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ String f1285a;
-    final /* synthetic */ HashMap b;
-    final /* synthetic */ int c;
-    final /* synthetic */ int d;
-    final /* synthetic */ ArBridge e;
+    public final /* synthetic */ String f4174a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    /* renamed from: b  reason: collision with root package name */
+    public final /* synthetic */ HashMap f4175b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public final /* synthetic */ int f4176c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public final /* synthetic */ int f4177d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public final /* synthetic */ ArBridge f4178e;
+
     public d(ArBridge arBridge, String str, HashMap hashMap, int i, int i2) {
-        this.e = arBridge;
-        this.f1285a = str;
-        this.b = hashMap;
-        this.c = i;
-        this.d = i2;
+        this.f4178e = arBridge;
+        this.f4174a = str;
+        this.f4175b = hashMap;
+        this.f4176c = i;
+        this.f4177d = i2;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.e.nativeDestroyCase();
-        this.e.setGLJniEnv();
-        this.e.nativeCreateCase(this.f1285a, this.e.getCaseId(), this.b, this.c, this.d);
+        this.f4178e.nativeDestroyCase();
+        this.f4178e.setGLJniEnv();
+        ArBridge arBridge = this.f4178e;
+        arBridge.nativeCreateCase(this.f4174a, arBridge.getCaseId(), this.f4175b, this.f4176c, this.f4177d);
     }
 }

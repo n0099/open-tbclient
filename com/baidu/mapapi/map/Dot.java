@@ -4,59 +4,61 @@ import android.os.Bundle;
 import com.baidu.mapapi.model.CoordUtil;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapapi.model.inner.GeoPoint;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public final class Dot extends Overlay {
 
     /* renamed from: a  reason: collision with root package name */
-    LatLng f2014a;
-    int b;
-    int c;
+    public LatLng f6837a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    /* renamed from: b  reason: collision with root package name */
+    public int f6838b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public int f6839c;
+
     public Dot() {
         this.type = com.baidu.mapsdkplatform.comapi.map.h.dot;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     @Override // com.baidu.mapapi.map.Overlay
     public Bundle a(Bundle bundle) {
         super.a(bundle);
-        GeoPoint ll2mc = CoordUtil.ll2mc(this.f2014a);
+        GeoPoint ll2mc = CoordUtil.ll2mc(this.f6837a);
         bundle.putDouble("location_x", ll2mc.getLongitudeE6());
         bundle.putDouble("location_y", ll2mc.getLatitudeE6());
-        bundle.putInt("radius", this.c);
-        Overlay.a(this.b, bundle);
+        bundle.putInt("radius", this.f6839c);
+        Overlay.a(this.f6838b, bundle);
         return bundle;
     }
 
     public LatLng getCenter() {
-        return this.f2014a;
+        return this.f6837a;
     }
 
     public int getColor() {
-        return this.b;
+        return this.f6838b;
     }
 
     public int getRadius() {
-        return this.c;
+        return this.f6839c;
     }
 
     public void setCenter(LatLng latLng) {
         if (latLng == null) {
             throw new IllegalArgumentException("dot center can not be null");
         }
-        this.f2014a = latLng;
+        this.f6837a = latLng;
         this.listener.b(this);
     }
 
     public void setColor(int i) {
-        this.b = i;
+        this.f6838b = i;
         this.listener.b(this);
     }
 
     public void setRadius(int i) {
         if (i > 0) {
-            this.c = i;
+            this.f6839c = i;
             this.listener.b(this);
         }
     }

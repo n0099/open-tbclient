@@ -3,32 +3,29 @@ package com.sdk.base.framework.a.c;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class g extends Handler {
-    private g() {
+    public g() {
         super(Looper.getMainLooper());
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ g(byte b) {
+    public /* synthetic */ g(byte b2) {
         this();
     }
 
     @Override // android.os.Handler
     public final void handleMessage(Message message) {
         f fVar = (f) message.obj;
-        switch (message.what) {
-            case 1:
-                c cVar = fVar.f7611a;
-                Object obj = fVar.b[0];
-                cVar.f.get();
+        int i = message.what;
+        if (i != 1) {
+            if (i != 2) {
                 return;
-            case 2:
-                fVar.f7611a.a((Object[]) fVar.b);
-                return;
-            default:
-                return;
+            }
+            fVar.f38436a.a((Object[]) fVar.f38437b);
+            return;
         }
+        c cVar = fVar.f38436a;
+        Object obj = fVar.f38437b[0];
+        cVar.f38431f.get();
     }
 }

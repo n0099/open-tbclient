@@ -6,26 +6,26 @@ import com.kwad.sdk.core.report.e;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.internal.api.SceneImpl;
 import com.kwad.sdk.utils.ao;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class a extends com.kwad.sdk.contentalliance.detail.photo.related.a.a implements View.OnClickListener {
     private void e() {
-        SceneImpl sceneImpl = ((AdTemplate) ((com.kwad.sdk.contentalliance.detail.photo.related.a.b) this.f6892a).i).mAdScene;
+        SceneImpl sceneImpl = ((AdTemplate) ((com.kwad.sdk.contentalliance.detail.photo.related.a.b) ((com.kwad.sdk.lib.widget.recycler.b.b) this).f36007a).i).mAdScene;
         if (sceneImpl == null) {
             return;
         }
-        com.kwad.sdk.contentalliance.detail.photo.related.a.a().a(((com.kwad.sdk.contentalliance.detail.photo.related.a.b) this.f6892a).f.g());
+        com.kwad.sdk.contentalliance.detail.photo.related.a.a().a(((com.kwad.sdk.contentalliance.detail.photo.related.a.b) ((com.kwad.sdk.lib.widget.recycler.b.b) this).f36007a).f36004f.g());
         RelatedVideoDetailParam relatedVideoDetailParam = new RelatedVideoDetailParam();
         relatedVideoDetailParam.mEntryScene = sceneImpl.entryScene;
-        relatedVideoDetailParam.mSelectedPosition = ((com.kwad.sdk.contentalliance.detail.photo.related.a.b) this.f6892a).h;
-        relatedVideoDetailParam.mSourcePhotoId = String.valueOf(com.kwad.sdk.core.response.b.c.z(((com.kwad.sdk.contentalliance.detail.photo.related.a.b) this.f6892a).f5725a));
-        com.kwad.sdk.contentalliance.related.a.a(((com.kwad.sdk.contentalliance.detail.photo.related.a.b) this.f6892a).d, 1000, relatedVideoDetailParam);
+        CallerContext callercontext = ((com.kwad.sdk.lib.widget.recycler.b.b) this).f36007a;
+        relatedVideoDetailParam.mSelectedPosition = ((com.kwad.sdk.contentalliance.detail.photo.related.a.b) callercontext).f36006h;
+        relatedVideoDetailParam.mSourcePhotoId = String.valueOf(com.kwad.sdk.core.response.b.c.z(((com.kwad.sdk.contentalliance.detail.photo.related.a.b) callercontext).f32479a));
+        com.kwad.sdk.contentalliance.related.a.a(((com.kwad.sdk.contentalliance.detail.photo.related.a.b) ((com.kwad.sdk.lib.widget.recycler.b.b) this).f36007a).f36002d, 1000, relatedVideoDetailParam);
     }
 
     private void f() {
-        e.a((AdTemplate) ((com.kwad.sdk.contentalliance.detail.photo.related.a.b) this.f6892a).i, 1, "related_video_list");
+        e.a((AdTemplate) ((com.kwad.sdk.contentalliance.detail.photo.related.a.b) ((com.kwad.sdk.lib.widget.recycler.b.b) this).f36007a).i, 1, "related_video_list");
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.lib.widget.recycler.b.b, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();

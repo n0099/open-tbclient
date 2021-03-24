@@ -3,8 +3,10 @@ package com.baidu.tieba.frs.commontab;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.mvc.message.MvcProtobufHttpResponsedMessage;
 import com.squareup.wire.Wire;
+import d.b.i0.p0.l1.d;
+import tbclient.Error;
 import tbclient.GeneralTabList.GeneralTabListResIdl;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class FrsCommonTabHttpResponseMessage extends MvcProtobufHttpResponsedMessage<d, GeneralTabListResIdl> {
     public FrsCommonTabHttpResponseMessage() {
         super(CmdConfigHttp.CMD_FRS_COMMON_TAB);
@@ -12,19 +14,21 @@ public class FrsCommonTabHttpResponseMessage extends MvcProtobufHttpResponsedMes
 
     /* JADX DEBUG: Return type fixed from 'java.lang.Class' to match base method */
     @Override // com.baidu.tbadk.mvc.message.MvcProtobufHttpResponsedMessage
-    protected Class<GeneralTabListResIdl> getProtobufResponseIdlClass() {
+    public Class<GeneralTabListResIdl> getProtobufResponseIdlClass() {
         return GeneralTabListResIdl.class;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tbadk.mvc.message.MvcProtobufHttpResponsedMessage, com.baidu.tbadk.message.http.TbHttpResponsedMessage, com.baidu.adp.framework.message.a
+    @Override // com.baidu.tbadk.mvc.message.MvcProtobufHttpResponsedMessage, com.baidu.tbadk.message.http.TbHttpResponsedMessage, com.baidu.adp.framework.message.HttpResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
     public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         d dVar = new d();
         GeneralTabListResIdl generalTabListResIdl = (GeneralTabListResIdl) new Wire(new Class[0]).parseFrom(bArr, GeneralTabListResIdl.class);
-        dVar.a(generalTabListResIdl.data);
-        if (generalTabListResIdl.error != null) {
-            if (generalTabListResIdl.error.errorno != null) {
-                setError(generalTabListResIdl.error.errorno.intValue());
+        dVar.b(generalTabListResIdl.data);
+        Error error = generalTabListResIdl.error;
+        if (error != null) {
+            Integer num = error.errorno;
+            if (num != null) {
+                setError(num.intValue());
             }
             setErrorString(generalTabListResIdl.error.usermsg);
         }

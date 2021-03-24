@@ -1,18 +1,14 @@
 package com.baidu.searchbox.v8engine.bean;
 
 import android.graphics.Bitmap;
-/* loaded from: classes14.dex */
+/* loaded from: classes3.dex */
 public class ImageBitmapBean {
-    private static final boolean DEBUG = false;
-    private static final String TAG = "ImageBitmapBean";
-    private int byteCount;
-    private Bitmap mBitmap;
-    private int mRefCount = 0;
-    private final String mSrc;
-
-    public Bitmap getBitmap() {
-        return this.mBitmap;
-    }
+    public static final boolean DEBUG = false;
+    public static final String TAG = "ImageBitmapBean";
+    public int byteCount;
+    public Bitmap mBitmap;
+    public int mRefCount = 0;
+    public final String mSrc;
 
     public ImageBitmapBean(String str, Bitmap bitmap) {
         this.mSrc = str;
@@ -20,17 +16,34 @@ public class ImageBitmapBean {
         this.byteCount = bitmap.getByteCount();
     }
 
-    public void increaseRefCount() {
-        this.mRefCount++;
-    }
-
     public void decreaseRefCount() {
         this.mRefCount--;
     }
 
+    public Bitmap getBitmap() {
+        return this.mBitmap;
+    }
+
+    public int getBitmapByteCount() {
+        return this.byteCount;
+    }
+
+    public int getRefCount() {
+        return this.mRefCount;
+    }
+
+    public String getSrc() {
+        return this.mSrc;
+    }
+
+    public void increaseRefCount() {
+        this.mRefCount++;
+    }
+
     public void reset() {
-        if (this.mBitmap != null) {
-            this.mBitmap.recycle();
+        Bitmap bitmap = this.mBitmap;
+        if (bitmap != null) {
+            bitmap.recycle();
             this.mBitmap = null;
         }
     }
@@ -41,18 +54,6 @@ public class ImageBitmapBean {
             return true;
         }
         return false;
-    }
-
-    public String getSrc() {
-        return this.mSrc;
-    }
-
-    public int getBitmapByteCount() {
-        return this.byteCount;
-    }
-
-    public int getRefCount() {
-        return this.mRefCount;
     }
 
     public String toString() {

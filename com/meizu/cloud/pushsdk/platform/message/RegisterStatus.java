@@ -1,12 +1,11 @@
 package com.meizu.cloud.pushsdk.platform.message;
 
-import com.meizu.cloud.pushsdk.constants.PushConstants;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class RegisterStatus extends BasicPushStatus {
-    private int expireTime;
-    private String pushId;
+    public int expireTime;
+    public String pushId;
 
     public RegisterStatus() {
     }
@@ -25,8 +24,8 @@ public class RegisterStatus extends BasicPushStatus {
 
     @Override // com.meizu.cloud.pushsdk.platform.message.BasicPushStatus
     public void parseValueData(JSONObject jSONObject) throws JSONException {
-        if (!jSONObject.isNull(PushConstants.KEY_PUSH_ID)) {
-            setPushId(jSONObject.getString(PushConstants.KEY_PUSH_ID));
+        if (!jSONObject.isNull("pushId")) {
+            setPushId(jSONObject.getString("pushId"));
         }
         if (jSONObject.isNull("expireTime")) {
             return;

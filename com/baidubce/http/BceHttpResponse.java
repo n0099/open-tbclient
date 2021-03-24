@@ -8,18 +8,22 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import okhttp3.Response;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class BceHttpResponse {
-    private InputStream content;
-    private Response httpResponse;
+    public InputStream content;
+    public Response httpResponse;
 
     public BceHttpResponse(Response response) throws IOException {
         this.httpResponse = response;
         try {
             this.content = response.body().byteStream();
-        } catch (Exception e) {
+        } catch (Exception unused) {
             this.content = null;
         }
+    }
+
+    public InputStream getContent() {
+        return this.content;
     }
 
     public String getHeader(String str) {
@@ -33,8 +37,8 @@ public class BceHttpResponse {
         }
         try {
             return Long.valueOf(header).longValue();
-        } catch (Exception e) {
-            BLog.error("Invalid " + str + ":" + header, (Throwable) e);
+        } catch (Exception e2) {
+            BLog.error("Invalid " + str + ":" + header, (Throwable) e2);
             return -1L;
         }
     }
@@ -46,26 +50,10 @@ public class BceHttpResponse {
         }
         try {
             return DateUtils.parseRfc822Date(header);
-        } catch (Exception e) {
-            BLog.error("Invalid " + str + ":" + header, (Throwable) e);
+        } catch (Exception e2) {
+            BLog.error("Invalid " + str + ":" + header, (Throwable) e2);
             return null;
         }
-    }
-
-    public InputStream getContent() {
-        return this.content;
-    }
-
-    public String getStatusText() {
-        return this.httpResponse.message();
-    }
-
-    public int getStatusCode() {
-        return this.httpResponse.code();
-    }
-
-    public Response getHttpResponse() {
-        return this.httpResponse;
     }
 
     public Map<String, String> getHeaders() {
@@ -75,5 +63,17 @@ public class BceHttpResponse {
             hashMap.put(headers.name(i), headers.value(i));
         }
         return hashMap;
+    }
+
+    public Response getHttpResponse() {
+        return this.httpResponse;
+    }
+
+    public int getStatusCode() {
+        return this.httpResponse.code();
+    }
+
+    public String getStatusText() {
+        return this.httpResponse.message();
     }
 }

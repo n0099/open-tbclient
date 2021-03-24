@@ -8,20 +8,31 @@ import com.baidu.mapapi.search.route.DrivingRouteLine;
 import com.baidu.mapapi.search.route.TransitRouteLine;
 import com.baidu.mapapi.search.route.WalkingRouteLine;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class RouteLine<T extends RouteStep> implements Parcelable {
 
     /* renamed from: a  reason: collision with root package name */
-    TYPE f2100a;
-    private RouteNode b;
-    private RouteNode c;
-    private String d;
-    private List<T> e;
-    private int f;
-    private int g;
+    public TYPE f7150a;
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    /* loaded from: classes4.dex */
+    /* renamed from: b  reason: collision with root package name */
+    public RouteNode f7151b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public RouteNode f7152c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public String f7153d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public List<T> f7154e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public int f7155f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public int f7156g;
+
+    /* loaded from: classes2.dex */
     public enum TYPE {
         DRIVESTEP(0),
         TRANSITSTEP(1),
@@ -30,44 +41,43 @@ public class RouteLine<T extends RouteStep> implements Parcelable {
         
 
         /* renamed from: a  reason: collision with root package name */
-        private int f2101a;
+        public int f7158a;
 
         TYPE(int i) {
-            this.f2101a = i;
+            this.f7158a = i;
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public int a() {
-            return this.f2101a;
+            return this.f7158a;
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     public RouteLine() {
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     public RouteLine(Parcel parcel) {
+        Object obj;
         int readInt = parcel.readInt();
-        this.b = (RouteNode) parcel.readValue(RouteNode.class.getClassLoader());
-        this.c = (RouteNode) parcel.readValue(RouteNode.class.getClassLoader());
-        this.d = parcel.readString();
-        switch (readInt) {
-            case 0:
-                this.e = parcel.createTypedArrayList(DrivingRouteLine.DrivingStep.CREATOR);
-                break;
-            case 1:
-                this.e = parcel.createTypedArrayList(TransitRouteLine.TransitStep.CREATOR);
-                break;
-            case 2:
-                this.e = parcel.createTypedArrayList(WalkingRouteLine.WalkingStep.CREATOR);
-                break;
-            case 3:
-                this.e = parcel.createTypedArrayList(BikingRouteLine.BikingStep.CREATOR);
-                break;
+        this.f7151b = (RouteNode) parcel.readValue(RouteNode.class.getClassLoader());
+        this.f7152c = (RouteNode) parcel.readValue(RouteNode.class.getClassLoader());
+        this.f7153d = parcel.readString();
+        if (readInt == 0) {
+            obj = DrivingRouteLine.DrivingStep.CREATOR;
+        } else if (readInt == 1) {
+            obj = TransitRouteLine.TransitStep.CREATOR;
+        } else if (readInt != 2) {
+            if (readInt == 3) {
+                obj = BikingRouteLine.BikingStep.CREATOR;
+            }
+            this.f7155f = parcel.readInt();
+            this.f7156g = parcel.readInt();
+        } else {
+            obj = WalkingRouteLine.WalkingStep.CREATOR;
         }
-        this.f = parcel.readInt();
-        this.g = parcel.readInt();
+        this.f7154e = parcel.createTypedArrayList(obj);
+        this.f7155f = parcel.readInt();
+        this.f7156g = parcel.readInt();
     }
 
     @Override // android.os.Parcelable
@@ -76,76 +86,72 @@ public class RouteLine<T extends RouteStep> implements Parcelable {
     }
 
     public List<T> getAllStep() {
-        return this.e;
+        return this.f7154e;
     }
 
     public int getDistance() {
-        return this.f;
+        return this.f7155f;
     }
 
     public int getDuration() {
-        return this.g;
+        return this.f7156g;
     }
 
     public RouteNode getStarting() {
-        return this.b;
+        return this.f7151b;
     }
 
     public RouteNode getTerminal() {
-        return this.c;
+        return this.f7152c;
     }
 
     public String getTitle() {
-        return this.d;
+        return this.f7153d;
     }
 
-    protected TYPE getType() {
-        return this.f2100a;
+    public TYPE getType() {
+        return this.f7150a;
     }
 
     public void setDistance(int i) {
-        this.f = i;
+        this.f7155f = i;
     }
 
     public void setDuration(int i) {
-        this.g = i;
+        this.f7156g = i;
     }
 
     public void setStarting(RouteNode routeNode) {
-        this.b = routeNode;
+        this.f7151b = routeNode;
     }
 
     public void setSteps(List<T> list) {
-        this.e = list;
+        this.f7154e = list;
     }
 
     public void setTerminal(RouteNode routeNode) {
-        this.c = routeNode;
+        this.f7152c = routeNode;
     }
 
     public void setTitle(String str) {
-        this.d = str;
+        this.f7153d = str;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     public void setType(TYPE type) {
-        this.f2100a = type;
+        this.f7150a = type;
     }
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        if (this.f2100a != null) {
-            parcel.writeInt(this.f2100a.a());
-        } else {
-            parcel.writeInt(10);
+        TYPE type = this.f7150a;
+        parcel.writeInt(type != null ? type.a() : 10);
+        parcel.writeValue(this.f7151b);
+        parcel.writeValue(this.f7152c);
+        parcel.writeString(this.f7153d);
+        if (this.f7150a != null) {
+            parcel.writeTypedList(this.f7154e);
         }
-        parcel.writeValue(this.b);
-        parcel.writeValue(this.c);
-        parcel.writeString(this.d);
-        if (this.f2100a != null) {
-            parcel.writeTypedList(this.e);
-        }
-        parcel.writeInt(this.f);
-        parcel.writeInt(this.g);
+        parcel.writeInt(this.f7155f);
+        parcel.writeInt(this.f7156g);
     }
 }

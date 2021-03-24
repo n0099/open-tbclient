@@ -1,7 +1,7 @@
 package com.baidu.android.imrtc.utils;
 
 import java.util.concurrent.atomic.AtomicLong;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class RtcConstants {
     public static final int ACTION_IM_RTC_ACK = 102;
     public static final int ACTION_IM_RTC_ANSWER = 84;
@@ -39,28 +39,28 @@ public class RtcConstants {
     public static final int IM_RTC_KICKED_OK = 1;
     public static final int IM_RTC_MEDIA_AUDIO = 1;
     public static final int IM_RTC_MEDIA_VIDEO = 2;
-    public static final int METHOD_IM_RTC_MSG = 230;
-    public static final int METHOD_IM_RTC_NOTIFY_MSG = 231;
-    public static final int RTC_HEART_BEAT_STATUS_IN_ROOM = 1;
-    public static final int RTC_HEART_BEAT_STATUS_NOT_IN_ROOM = 0;
-    public static final int RTC_SERVICE_ID = 5;
-    public static final int SUCCESS = 0;
-    public static boolean LOG_DEBUG = false;
-    public static int RTC_VERSION = 102060;
-    public static long RTC_HEART_BEAT_TIME = 10000;
-    public static int RTC_HEART_BEAT_RETRY_TIME = 3;
-    public static int RTC_HEART_BEAT_STATUS = 0;
-    public static volatile long RTC_TRACK_UPLOAD_DURATION = 300000;
     public static volatile AtomicLong IM_RTC_SDK_SEQ_ID = new AtomicLong(-1);
     public static volatile long IM_RTC_SERVER_SEQ_ID = -1;
+    public static boolean LOG_DEBUG = false;
+    public static final int METHOD_IM_RTC_MSG = 230;
+    public static final int METHOD_IM_RTC_NOTIFY_MSG = 231;
+    public static int RTC_HEART_BEAT_RETRY_TIME = 3;
+    public static int RTC_HEART_BEAT_STATUS = 0;
+    public static final int RTC_HEART_BEAT_STATUS_IN_ROOM = 1;
+    public static final int RTC_HEART_BEAT_STATUS_NOT_IN_ROOM = 0;
+    public static long RTC_HEART_BEAT_TIME = 10000;
+    public static final int RTC_SERVICE_ID = 5;
+    public static volatile long RTC_TRACK_UPLOAD_DURATION = 300000;
+    public static int RTC_VERSION = 102060;
+    public static final int SUCCESS = 0;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public enum RoomEventType {
         JOIN_ROOM(93),
         EXIT_ROOM(87),
         CALLEE_RING(83);
         
-        private final int value;
+        public final int value;
 
         RoomEventType(int i) {
             this.value = i;

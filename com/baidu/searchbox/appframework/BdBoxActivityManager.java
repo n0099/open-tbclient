@@ -4,17 +4,31 @@ import android.app.Activity;
 import com.baidu.searchbox.appframework.BdBoxActivityLifecycle;
 import java.lang.ref.WeakReference;
 import java.util.LinkedList;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class BdBoxActivityManager {
-    private static BdBoxActivityLifecycle sMainGlobalActivityLifecycle;
+    public static BdBoxActivityLifecycle sMainGlobalActivityLifecycle;
 
-    public static void setMainGlobalActivityLifecycle(BdBoxActivityLifecycle bdBoxActivityLifecycle) {
-        synchronized (BdBoxActivityLifecycle.class) {
-            if (sMainGlobalActivityLifecycle != null) {
-                throw new IllegalStateException("The main activity lifecycle has already been initialized.");
-            }
-            sMainGlobalActivityLifecycle = bdBoxActivityLifecycle;
+    public static void finishAllActivity() {
+        BdBoxActivityLifecycle bdBoxActivityLifecycle = sMainGlobalActivityLifecycle;
+        if (bdBoxActivityLifecycle != null) {
+            bdBoxActivityLifecycle.finishAllActivity();
         }
+    }
+
+    public static int getActivityCount() {
+        BdBoxActivityLifecycle bdBoxActivityLifecycle = sMainGlobalActivityLifecycle;
+        if (bdBoxActivityLifecycle != null) {
+            return bdBoxActivityLifecycle.getActivityCount();
+        }
+        return 0;
+    }
+
+    public static LinkedList<WeakReference<Activity>> getActivityStack() {
+        BdBoxActivityLifecycle bdBoxActivityLifecycle = sMainGlobalActivityLifecycle;
+        if (bdBoxActivityLifecycle != null) {
+            return bdBoxActivityLifecycle.getActivityStack();
+        }
+        return null;
     }
 
     public static BdBoxActivityLifecycle getMainGlobalActivityLifecycle() {
@@ -25,77 +39,79 @@ public class BdBoxActivityManager {
         return bdBoxActivityLifecycle;
     }
 
-    public static LinkedList<WeakReference<Activity>> getActivityStack() {
-        if (sMainGlobalActivityLifecycle != null) {
-            return sMainGlobalActivityLifecycle.getActivityStack();
-        }
-        return null;
-    }
-
-    public static int getActivityCount() {
-        if (sMainGlobalActivityLifecycle != null) {
-            return sMainGlobalActivityLifecycle.getActivityCount();
-        }
-        return 0;
-    }
-
-    public static boolean isActivityInStack(Class cls) {
-        return sMainGlobalActivityLifecycle != null && sMainGlobalActivityLifecycle.isActivityInStack(cls);
-    }
-
-    public static Activity getTopActivity() {
-        if (sMainGlobalActivityLifecycle != null) {
-            return sMainGlobalActivityLifecycle.getTopActivity();
-        }
-        return null;
-    }
-
     public static Activity getPenultimateActivity() {
-        if (sMainGlobalActivityLifecycle != null) {
-            return sMainGlobalActivityLifecycle.getPenultimateActivity();
+        BdBoxActivityLifecycle bdBoxActivityLifecycle = sMainGlobalActivityLifecycle;
+        if (bdBoxActivityLifecycle != null) {
+            return bdBoxActivityLifecycle.getPenultimateActivity();
         }
         return null;
     }
 
     public static Activity getRealTopActivity() {
-        if (sMainGlobalActivityLifecycle != null) {
-            return sMainGlobalActivityLifecycle.getRealTopActivity();
+        BdBoxActivityLifecycle bdBoxActivityLifecycle = sMainGlobalActivityLifecycle;
+        if (bdBoxActivityLifecycle != null) {
+            return bdBoxActivityLifecycle.getRealTopActivity();
         }
         return null;
     }
 
     public static Activity getSpecifiedActivity(Class cls) {
-        if (sMainGlobalActivityLifecycle != null) {
-            return sMainGlobalActivityLifecycle.getSpecifiedActivity(cls);
+        BdBoxActivityLifecycle bdBoxActivityLifecycle = sMainGlobalActivityLifecycle;
+        if (bdBoxActivityLifecycle != null) {
+            return bdBoxActivityLifecycle.getSpecifiedActivity(cls);
         }
         return null;
     }
 
-    public static void finishAllActivity() {
-        if (sMainGlobalActivityLifecycle != null) {
-            sMainGlobalActivityLifecycle.finishAllActivity();
+    public static Activity getTopActivity() {
+        BdBoxActivityLifecycle bdBoxActivityLifecycle = sMainGlobalActivityLifecycle;
+        if (bdBoxActivityLifecycle != null) {
+            return bdBoxActivityLifecycle.getTopActivity();
         }
+        return null;
+    }
+
+    public static boolean isActivityInStack(Class cls) {
+        BdBoxActivityLifecycle bdBoxActivityLifecycle = sMainGlobalActivityLifecycle;
+        return bdBoxActivityLifecycle != null && bdBoxActivityLifecycle.isActivityInStack(cls);
     }
 
     public static boolean isForeground() {
-        return sMainGlobalActivityLifecycle != null && sMainGlobalActivityLifecycle.isForeground();
+        BdBoxActivityLifecycle bdBoxActivityLifecycle = sMainGlobalActivityLifecycle;
+        return bdBoxActivityLifecycle != null && bdBoxActivityLifecycle.isForeground();
     }
 
     public static void registerGlobalLifeCycle(BdBoxActivityLifecycle.IActivityLifecycle iActivityLifecycle) {
-        if (iActivityLifecycle != null && sMainGlobalActivityLifecycle != null) {
-            sMainGlobalActivityLifecycle.registerGlobalLifeCycle(iActivityLifecycle);
+        BdBoxActivityLifecycle bdBoxActivityLifecycle;
+        if (iActivityLifecycle == null || (bdBoxActivityLifecycle = sMainGlobalActivityLifecycle) == null) {
+            return;
         }
+        bdBoxActivityLifecycle.registerGlobalLifeCycle(iActivityLifecycle);
     }
 
     public static void registerLifeCycle(BdBoxActivityLifecycle.IActivityLifecycle iActivityLifecycle) {
-        if (iActivityLifecycle != null && sMainGlobalActivityLifecycle != null) {
-            sMainGlobalActivityLifecycle.registerLifeCycle(iActivityLifecycle);
+        BdBoxActivityLifecycle bdBoxActivityLifecycle;
+        if (iActivityLifecycle == null || (bdBoxActivityLifecycle = sMainGlobalActivityLifecycle) == null) {
+            return;
+        }
+        bdBoxActivityLifecycle.registerLifeCycle(iActivityLifecycle);
+    }
+
+    public static void setMainGlobalActivityLifecycle(BdBoxActivityLifecycle bdBoxActivityLifecycle) {
+        synchronized (BdBoxActivityLifecycle.class) {
+            if (sMainGlobalActivityLifecycle == null) {
+                sMainGlobalActivityLifecycle = bdBoxActivityLifecycle;
+            } else {
+                throw new IllegalStateException("The main activity lifecycle has already been initialized.");
+            }
         }
     }
 
     public static void unregisterLifeCycle(BdBoxActivityLifecycle.IActivityLifecycle iActivityLifecycle) {
-        if (iActivityLifecycle != null && sMainGlobalActivityLifecycle != null) {
-            sMainGlobalActivityLifecycle.unregisterLifeCycle(iActivityLifecycle);
+        BdBoxActivityLifecycle bdBoxActivityLifecycle;
+        if (iActivityLifecycle == null || (bdBoxActivityLifecycle = sMainGlobalActivityLifecycle) == null) {
+            return;
         }
+        bdBoxActivityLifecycle.unregisterLifeCycle(iActivityLifecycle);
     }
 }

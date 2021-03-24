@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.widget.Toast;
-import com.baidu.j.a.a;
 import com.baidu.sapi2.CoreViewRouter;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.SapiJsCallBacks;
@@ -13,18 +12,20 @@ import com.baidu.sapi2.callback.GetTplStokenCallback;
 import com.baidu.sapi2.dto.SapiWebDTO;
 import com.baidu.sapi2.result.AccountRealNameResult;
 import com.baidu.sapi2.result.GetTplStokenResult;
+import d.b.a0.a.f;
+import d.b.a0.a.g;
 import java.util.ArrayList;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class AccountRealNameActivity extends BaseActivity {
     public static final String EXTRA_BDUSS = "EXTRA_BDUSS";
     public static final String EXTRA_CUSTOM_LINK = "EXTRA_CUSTOM_LINK";
     public static final String EXTRA_NEED_CB_KEY = "EXTRA_NEED_CB_KEY";
     public static final String EXTRA_SCENE = "EXTRA_SCENE";
-    private String p;
-    private String q;
-    private boolean r;
-    private String s;
-    private AccountRealNameResult t = new AccountRealNameResult();
+    public String p;
+    public String q;
+    public boolean r;
+    public String s;
+    public AccountRealNameResult t = new AccountRealNameResult();
 
     private void finishActivity() {
         if (CoreViewRouter.getInstance().getAccountRealNameCallback() != null) {
@@ -35,13 +36,11 @@ public class AccountRealNameActivity extends BaseActivity {
         CoreViewRouter.getInstance().release();
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.sapi2.activity.TitleActivity
     public SapiWebDTO getWebDTO() {
         return CoreViewRouter.getInstance().getRealNameDTO();
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.sapi2.activity.TitleActivity
     public void init() {
         super.init();
@@ -52,14 +51,12 @@ public class AccountRealNameActivity extends BaseActivity {
         this.s = intent.getStringExtra(EXTRA_CUSTOM_LINK);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.sapi2.activity.TitleActivity
     public void onBottomBackBtnClick() {
         super.onBottomBackBtnClick();
         a();
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.sapi2.activity.TitleActivity
     public void onClose() {
         super.onClose();
@@ -78,7 +75,7 @@ public class AccountRealNameActivity extends BaseActivity {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         try {
-            setContentView(a.f.layout_sapi_sdk_webview_with_title_bar);
+            setContentView(f.layout_sapi_sdk_webview_with_title_bar);
             init();
             setupViews();
         } catch (Throwable th) {
@@ -89,21 +86,18 @@ public class AccountRealNameActivity extends BaseActivity {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity
     public void onLeftBtnClick() {
         super.onLeftBtnClick();
-        if (!this.executeSubClassMethod) {
-            return;
+        if (this.executeSubClassMethod) {
+            a();
         }
-        a();
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity
     public void setupViews() {
         super.setupViews();
-        setTitleText(a.g.sapi_sdk_title_real_name);
+        setTitleText(g.sapi_sdk_title_real_name);
         this.sapiWebView.setOnNewBackCallback(new SapiWebView.OnNewBackCallback() { // from class: com.baidu.sapi2.activity.AccountRealNameActivity.1
             @Override // com.baidu.sapi2.SapiWebView.OnNewBackCallback
             public boolean onBack() {
@@ -149,9 +143,10 @@ public class AccountRealNameActivity extends BaseActivity {
                 public void onFailure(GetTplStokenResult getTplStokenResult) {
                     AccountRealNameActivity accountRealNameActivity = AccountRealNameActivity.this;
                     SapiWebView sapiWebView = accountRealNameActivity.sapiWebView;
-                    if (sapiWebView != null) {
-                        sapiWebView.loadAccountRealName(null, accountRealNameActivity.q, AccountRealNameActivity.this.r, AccountRealNameActivity.this.s);
+                    if (sapiWebView == null) {
+                        return;
                     }
+                    sapiWebView.loadAccountRealName(null, accountRealNameActivity.q, AccountRealNameActivity.this.r, AccountRealNameActivity.this.s);
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
@@ -166,7 +161,7 @@ public class AccountRealNameActivity extends BaseActivity {
             }, this.p, arrayList);
             return;
         }
-        Toast.makeText(this, getString(a.g.sapi_sdk_account_center_please_relogin), 1).show();
+        Toast.makeText(this, getString(g.sapi_sdk_account_center_please_relogin), 1).show();
         finishActivity();
     }
 

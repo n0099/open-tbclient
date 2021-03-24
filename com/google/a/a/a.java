@@ -4,52 +4,50 @@ import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcel;
 import android.os.RemoteException;
-/* loaded from: classes14.dex */
+/* loaded from: classes6.dex */
 public class a implements IInterface {
 
     /* renamed from: a  reason: collision with root package name */
-    private final IBinder f5255a;
-    private final String b;
+    public final IBinder f30872a;
 
-    /* JADX INFO: Access modifiers changed from: protected */
+    /* renamed from: b  reason: collision with root package name */
+    public final String f30873b;
+
     public a(IBinder iBinder, String str) {
-        this.f5255a = iBinder;
-        this.b = str;
+        this.f30872a = iBinder;
+        this.f30873b = str;
+    }
+
+    public final Parcel a() {
+        Parcel obtain = Parcel.obtain();
+        obtain.writeInterfaceToken(this.f30873b);
+        return obtain;
     }
 
     @Override // android.os.IInterface
     public IBinder asBinder() {
-        return this.f5255a;
+        return this.f30872a;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public final Parcel a() {
-        Parcel obtain = Parcel.obtain();
-        obtain.writeInterfaceToken(this.b);
-        return obtain;
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public final Parcel a(int i, Parcel parcel) throws RemoteException {
-        Parcel obtain = Parcel.obtain();
+    public final void b(int i, Parcel parcel) throws RemoteException {
         try {
-            try {
-                this.f5255a.transact(i, parcel, obtain, 0);
-                obtain.readException();
-                return obtain;
-            } catch (RuntimeException e) {
-                obtain.recycle();
-                throw e;
-            }
+            this.f30872a.transact(i, parcel, null, 1);
         } finally {
             parcel.recycle();
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public final void b(int i, Parcel parcel) throws RemoteException {
+    public final Parcel a(int i, Parcel parcel) throws RemoteException {
+        Parcel obtain = Parcel.obtain();
         try {
-            this.f5255a.transact(i, parcel, null, 1);
+            try {
+                this.f30872a.transact(i, parcel, obtain, 0);
+                obtain.readException();
+                return obtain;
+            } catch (RuntimeException e2) {
+                obtain.recycle();
+                throw e2;
+            }
         } finally {
             parcel.recycle();
         }

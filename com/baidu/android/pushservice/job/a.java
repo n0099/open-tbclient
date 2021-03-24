@@ -8,66 +8,72 @@ import android.content.Context;
 import android.os.Build;
 import android.os.SystemClock;
 import android.util.Log;
-import com.baidu.android.pushservice.h.a.b;
+import com.baidu.android.pushservice.i.a.b;
 @TargetApi(21)
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static C0070a f1230a;
-    private static boolean b;
+    public static C0057a f3409a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public static boolean f3410b;
 
     /* renamed from: com.baidu.android.pushservice.job.a$a  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
-    private static class C0070a {
+    /* loaded from: classes2.dex */
+    public static class C0057a {
 
         /* renamed from: a  reason: collision with root package name */
-        private final Context f1231a;
-        private final JobScheduler b;
-        private boolean c;
+        public final Context f3411a;
 
-        C0070a(Context context) {
-            this.f1231a = context;
-            this.b = (JobScheduler) this.f1231a.getSystemService("jobscheduler");
+        /* renamed from: b  reason: collision with root package name */
+        public final JobScheduler f3412b;
+
+        /* renamed from: c  reason: collision with root package name */
+        public boolean f3413c;
+
+        public C0057a(Context context) {
+            this.f3411a = context;
+            this.f3412b = (JobScheduler) context.getSystemService("jobscheduler");
         }
 
         private void a() {
-            this.c = false;
-            this.b.cancel(1);
+            this.f3413c = false;
+            this.f3412b.cancel(1);
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public void a(boolean z) {
-            if (z || this.c) {
+            if (z || this.f3413c) {
                 long j = 300000;
                 if (z) {
                     a();
                     j = 300000 - (SystemClock.elapsedRealtime() % 300000);
                 }
-                this.c = true;
-                JobInfo.Builder builder = new JobInfo.Builder(1, new ComponentName(this.f1231a.getPackageName(), PushJobService.class.getName()));
+                this.f3413c = true;
+                JobInfo.Builder builder = new JobInfo.Builder(1, new ComponentName(this.f3411a.getPackageName(), PushJobService.class.getName()));
                 builder.setMinimumLatency(j);
                 builder.setOverrideDeadline(j);
                 builder.setRequiredNetworkType(1);
                 builder.setPersisted(false);
-                this.b.schedule(builder.build());
+                this.f3412b.schedule(builder.build());
             }
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public void b() {
-            this.c = false;
-            this.b.cancelAll();
+            this.f3413c = false;
+            this.f3412b.cancelAll();
         }
     }
 
     public static synchronized void a(Context context) {
         synchronized (a.class) {
-            if (f1230a == null && Build.VERSION.SDK_INT >= 21) {
+            if (f3409a == null && Build.VERSION.SDK_INT >= 21) {
                 try {
-                    f1230a = new C0070a(context);
-                } catch (Exception e) {
-                    new b.c(context).a(Log.getStackTraceString(e)).a();
+                    f3409a = new C0057a(context);
+                } catch (Exception e2) {
+                    new b.c(context).a(Log.getStackTraceString(e2)).a();
                 }
             }
         }
@@ -75,31 +81,31 @@ public class a {
 
     public static synchronized void a(Context context, boolean z) {
         synchronized (a.class) {
-            if (f1230a != null) {
+            if (f3409a != null) {
                 try {
-                    b = true;
-                    f1230a.a(z);
-                } catch (Exception e) {
-                    new b.c(context).a(Log.getStackTraceString(e)).a();
+                    f3410b = true;
+                    f3409a.a(z);
+                } catch (Exception e2) {
+                    new b.c(context).a(Log.getStackTraceString(e2)).a();
                 }
             }
         }
     }
 
     public static boolean a() {
-        return b;
+        return f3410b;
     }
 
     public static synchronized void b(Context context) {
         synchronized (a.class) {
-            if (f1230a != null) {
+            if (f3409a != null) {
                 try {
-                    f1230a.b();
-                } catch (Exception e) {
-                    new b.c(context).a(Log.getStackTraceString(e)).a();
+                    f3409a.b();
+                } catch (Exception e2) {
+                    new b.c(context).a(Log.getStackTraceString(e2)).a();
                 }
-                f1230a = null;
-                b = false;
+                f3409a = null;
+                f3410b = false;
             }
         }
     }

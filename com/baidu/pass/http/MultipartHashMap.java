@@ -1,28 +1,34 @@
 package com.baidu.pass.http;
 
 import java.io.InputStream;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public class MultipartHashMap extends HttpHashMap implements com.baidu.pass.a {
     public a fileWrapper;
 
-    /* loaded from: classes5.dex */
-    static class a {
+    /* loaded from: classes2.dex */
+    public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f2839a;
-        public String b;
-        public String c;
-        public InputStream d;
+        public String f9745a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public String f9746b;
+
+        /* renamed from: c  reason: collision with root package name */
+        public String f9747c;
+
+        /* renamed from: d  reason: collision with root package name */
+        public InputStream f9748d;
 
         public a(String str, InputStream inputStream, String str2, String str3) {
-            this.f2839a = str;
-            this.d = inputStream;
-            this.b = str2;
-            this.c = str3;
+            this.f9745a = str;
+            this.f9748d = inputStream;
+            this.f9746b = str2;
+            this.f9747c = str3;
         }
 
         public String a() {
-            String str = this.b;
+            String str = this.f9746b;
             return str != null ? str : "nofilename";
         }
     }

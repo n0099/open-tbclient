@@ -1,58 +1,65 @@
 package com.xiaomi.push;
 
-import com.baidu.live.adp.lib.stats.BdStatsConstant;
-import com.baidu.live.tbadk.core.util.TiebaInitialize;
-import com.meizu.cloud.pushsdk.notification.model.TimeDisplaySetting;
-import org.json.JSONObject;
-/* loaded from: classes5.dex */
-public class cu {
+import java.util.ArrayList;
+import java.util.Iterator;
+/* loaded from: classes7.dex */
+public class cu extends co {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f8307a;
+    public co f40339a;
 
     /* renamed from: a  reason: collision with other field name */
-    private long f179a;
+    public final /* synthetic */ cs f205a;
 
-    /* renamed from: a  reason: collision with other field name */
-    private String f180a;
-    private long b;
-    private long c;
+    /* renamed from: b  reason: collision with root package name */
+    public final /* synthetic */ co f40340b;
 
-    public cu() {
-        this(0, 0L, 0L, null);
-    }
-
-    public cu(int i, long j, long j2, Exception exc) {
-        this.f8307a = i;
-        this.f179a = j;
-        this.c = j2;
-        this.b = System.currentTimeMillis();
-        if (exc != null) {
-            this.f180a = exc.getClass().getSimpleName();
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public cu(cs csVar, String str, co coVar) {
+        super(str);
+        this.f205a = csVar;
+        this.f40340b = coVar;
+        co coVar2 = this.f40340b;
+        this.f40339a = coVar2;
+        ((co) this).f191b = ((co) this).f191b;
+        if (coVar2 != null) {
+            this.f40329f = coVar2.f40329f;
         }
     }
 
-    public int a() {
-        return this.f8307a;
+    @Override // com.xiaomi.push.co
+    public synchronized ArrayList<String> a(boolean z) {
+        ArrayList<String> arrayList;
+        arrayList = new ArrayList<>();
+        if (this.f40339a != null) {
+            arrayList.addAll(this.f40339a.a(true));
+        }
+        synchronized (cs.f40335b) {
+            co coVar = cs.f40335b.get(((co) this).f191b);
+            if (coVar != null) {
+                Iterator<String> it = coVar.a(true).iterator();
+                while (it.hasNext()) {
+                    String next = it.next();
+                    if (arrayList.indexOf(next) == -1) {
+                        arrayList.add(next);
+                    }
+                }
+                arrayList.remove(((co) this).f191b);
+                arrayList.add(((co) this).f191b);
+            }
+        }
+        return arrayList;
     }
 
-    public cu a(JSONObject jSONObject) {
-        this.f179a = jSONObject.getLong(BdStatsConstant.StatsKey.COST);
-        this.c = jSONObject.getLong(TiebaInitialize.LogFields.SIZE);
-        this.b = jSONObject.getLong(TimeDisplaySetting.TIME_DISPLAY_SETTING);
-        this.f8307a = jSONObject.getInt("wt");
-        this.f180a = jSONObject.optString("expt");
-        return this;
+    @Override // com.xiaomi.push.co
+    public synchronized void a(String str, cn cnVar) {
+        if (this.f40339a != null) {
+            this.f40339a.a(str, cnVar);
+        }
     }
 
-    /* renamed from: a  reason: collision with other method in class */
-    public JSONObject m209a() {
-        JSONObject jSONObject = new JSONObject();
-        jSONObject.put(BdStatsConstant.StatsKey.COST, this.f179a);
-        jSONObject.put(TiebaInitialize.LogFields.SIZE, this.c);
-        jSONObject.put(TimeDisplaySetting.TIME_DISPLAY_SETTING, this.b);
-        jSONObject.put("wt", this.f8307a);
-        jSONObject.put("expt", this.f180a);
-        return jSONObject;
+    @Override // com.xiaomi.push.co
+    public boolean b() {
+        return false;
     }
 }

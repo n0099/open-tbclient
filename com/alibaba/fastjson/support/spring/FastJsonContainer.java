@@ -1,19 +1,10 @@
 package com.alibaba.fastjson.support.spring;
-/* loaded from: classes4.dex */
+/* loaded from: classes.dex */
 public class FastJsonContainer {
-    private PropertyPreFilters filters;
-    private Object value;
+    public PropertyPreFilters filters;
+    public Object value;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public FastJsonContainer(Object obj) {
-        this.value = obj;
-    }
-
-    public Object getValue() {
-        return this.value;
-    }
-
-    public void setValue(Object obj) {
         this.value = obj;
     }
 
@@ -21,7 +12,15 @@ public class FastJsonContainer {
         return this.filters;
     }
 
+    public Object getValue() {
+        return this.value;
+    }
+
     public void setFilters(PropertyPreFilters propertyPreFilters) {
         this.filters = propertyPreFilters;
+    }
+
+    public void setValue(Object obj) {
+        this.value = obj;
     }
 }

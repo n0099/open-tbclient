@@ -5,24 +5,24 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.LinearLayout;
 import androidx.annotation.Keep;
-import com.baidu.swan.apps.a;
+import d.b.g0.a.f;
 @Keep
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class SwanAppSelectPopView extends LinearLayout implements View.OnClickListener {
     public static final int SELECTION_PADDING = 22;
     public static final int SELECTION_TOP_DUR = 3000;
-    private View mCopyView;
-    private a mListener;
-    private int mPopBottomY;
-    private int mPopLeftX;
-    private int mPopRightX;
-    private int mPopTopY;
-    private int mPopX;
-    private int mPopY;
-    private View mSearchView;
-    private String mSelection;
+    public View mCopyView;
+    public a mListener;
+    public int mPopBottomY;
+    public int mPopLeftX;
+    public int mPopRightX;
+    public int mPopTopY;
+    public int mPopX;
+    public int mPopY;
+    public View mSearchView;
+    public String mSelection;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes3.dex */
     public interface a {
         void doSelectionCopy(String str);
 
@@ -33,87 +33,92 @@ public class SwanAppSelectPopView extends LinearLayout implements View.OnClickLi
         this(context, null);
     }
 
-    public SwanAppSelectPopView(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-    }
-
-    @Override // android.view.View
-    protected void onFinishInflate() {
-        super.onFinishInflate();
-        this.mCopyView = findViewById(a.f.btn_wv_copy);
-        this.mCopyView.setOnClickListener(this);
-        this.mSearchView = findViewById(a.f.btn_wv_search);
-        this.mSearchView.setOnClickListener(this);
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        if (view.equals(this.mCopyView)) {
-            if (this.mListener != null) {
-                this.mListener.doSelectionCopy(this.mSelection);
-            }
-        } else if (view.equals(this.mSearchView) && this.mListener != null) {
-            this.mListener.doSelectionSearch(this.mSelection);
-        }
-    }
-
-    public int getPopX() {
-        return this.mPopX;
-    }
-
-    public void setPopX(int i) {
-        this.mPopX = i;
-    }
-
-    public int getPopY() {
-        return this.mPopY;
-    }
-
-    public void setPopY(int i) {
-        this.mPopY = i;
+    public int getPopBottomY() {
+        return this.mPopBottomY;
     }
 
     public int getPopLeftX() {
         return this.mPopLeftX;
     }
 
-    public void setPopLeftX(int i) {
-        this.mPopLeftX = i;
-    }
-
     public int getPopRightX() {
         return this.mPopRightX;
-    }
-
-    public void setPopRightX(int i) {
-        this.mPopRightX = i;
     }
 
     public int getPopTopY() {
         return this.mPopTopY;
     }
 
-    public void setPopTopY(int i) {
-        this.mPopTopY = i;
+    public int getPopX() {
+        return this.mPopX;
     }
 
-    public int getPopBottomY() {
-        return this.mPopBottomY;
-    }
-
-    public void setPopBottomY(int i) {
-        this.mPopBottomY = i;
-    }
-
-    public void setSelection(String str) {
-        this.mSelection = str;
+    public int getPopY() {
+        return this.mPopY;
     }
 
     public String getSelection() {
         return this.mSelection;
     }
 
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        a aVar;
+        if (view.equals(this.mCopyView)) {
+            a aVar2 = this.mListener;
+            if (aVar2 != null) {
+                aVar2.doSelectionCopy(this.mSelection);
+            }
+        } else if (!view.equals(this.mSearchView) || (aVar = this.mListener) == null) {
+        } else {
+            aVar.doSelectionSearch(this.mSelection);
+        }
+    }
+
+    @Override // android.view.View
+    public void onFinishInflate() {
+        super.onFinishInflate();
+        View findViewById = findViewById(f.btn_wv_copy);
+        this.mCopyView = findViewById;
+        findViewById.setOnClickListener(this);
+        View findViewById2 = findViewById(f.btn_wv_search);
+        this.mSearchView = findViewById2;
+        findViewById2.setOnClickListener(this);
+    }
+
     public void setEventListener(a aVar) {
         this.mListener = aVar;
+    }
+
+    public void setPopBottomY(int i) {
+        this.mPopBottomY = i;
+    }
+
+    public void setPopLeftX(int i) {
+        this.mPopLeftX = i;
+    }
+
+    public void setPopRightX(int i) {
+        this.mPopRightX = i;
+    }
+
+    public void setPopTopY(int i) {
+        this.mPopTopY = i;
+    }
+
+    public void setPopX(int i) {
+        this.mPopX = i;
+    }
+
+    public void setPopY(int i) {
+        this.mPopY = i;
+    }
+
+    public void setSelection(String str) {
+        this.mSelection = str;
+    }
+
+    public SwanAppSelectPopView(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
     }
 }

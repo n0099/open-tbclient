@@ -3,13 +3,10 @@ package com.baidu.fsg.base.restnet.beans;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public final class BeanManager {
-    private static BeanManager mBeanMgr = null;
-    private final HashMap<String, ArrayList<ApollonBean>> mContextBeanList = new HashMap<>();
-
-    private BeanManager() {
-    }
+    public static BeanManager mBeanMgr;
+    public final HashMap<String, ArrayList<ApollonBean>> mContextBeanList = new HashMap<>();
 
     public static synchronized BeanManager getInstance() {
         BeanManager beanManager;
@@ -31,6 +28,17 @@ public final class BeanManager {
         arrayList.add(apollonBean);
     }
 
+    public synchronized void removeAllBeans(String str) {
+        ArrayList<ApollonBean> arrayList = this.mContextBeanList.get(str);
+        if (arrayList != null) {
+            Iterator<ApollonBean> it = arrayList.iterator();
+            while (it.hasNext()) {
+                it.next().destroyBean();
+            }
+            this.mContextBeanList.remove(str);
+        }
+    }
+
     public synchronized void removeBean(ApollonBean apollonBean) {
         for (String str : this.mContextBeanList.keySet()) {
             ArrayList<ApollonBean> arrayList = this.mContextBeanList.get(str);
@@ -46,17 +54,6 @@ public final class BeanManager {
                     break;
                 }
             }
-        }
-    }
-
-    public synchronized void removeAllBeans(String str) {
-        ArrayList<ApollonBean> arrayList = this.mContextBeanList.get(str);
-        if (arrayList != null) {
-            Iterator<ApollonBean> it = arrayList.iterator();
-            while (it.hasNext()) {
-                it.next().destroyBean();
-            }
-            this.mContextBeanList.remove(str);
         }
     }
 }

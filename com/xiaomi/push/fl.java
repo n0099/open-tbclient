@@ -1,271 +1,314 @@
 package com.xiaomi.push;
 
-import android.text.TextUtils;
-import com.xiaomi.mipush.sdk.Constants;
-import com.xiaomi.push.ek;
-import java.io.IOException;
-import java.io.UnsupportedEncodingException;
-import java.nio.ByteBuffer;
-/* loaded from: classes5.dex */
-public class fl {
-
-    /* renamed from: a  reason: collision with other field name */
-    private ek.a f339a;
-
-    /* renamed from: a  reason: collision with other field name */
-    String f340a;
-
-    /* renamed from: a  reason: collision with other field name */
-    private short f341a;
-
-    /* renamed from: b  reason: collision with other field name */
-    private byte[] f342b;
-    private static String b = gu.a(5) + Constants.ACCEPT_TIME_SEPARATOR_SERVER;
+import android.util.Pair;
+import com.xiaomi.push.service.XMPushService;
+import com.xiaomi.push.service.av;
+import java.io.Reader;
+import java.io.Writer;
+import java.util.Collection;
+import java.util.LinkedList;
+import java.util.Map;
+import java.util.concurrent.CancellationException;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.CopyOnWriteArrayList;
+import java.util.concurrent.atomic.AtomicInteger;
+/* loaded from: classes7.dex */
+public abstract class fl {
 
     /* renamed from: a  reason: collision with root package name */
-    private static long f8368a = 0;
+    public static final AtomicInteger f40507a = new AtomicInteger(0);
 
     /* renamed from: a  reason: collision with other field name */
-    private static final byte[] f338a = new byte[0];
+    public static boolean f388a;
 
-    public fl() {
-        this.f341a = (short) 2;
-        this.f342b = f338a;
-        this.f340a = null;
-        this.f339a = new ek.a();
-    }
+    /* renamed from: a  reason: collision with other field name */
+    public fm f391a;
 
-    fl(ek.a aVar, short s, byte[] bArr) {
-        this.f341a = (short) 2;
-        this.f342b = f338a;
-        this.f340a = null;
-        this.f339a = aVar;
-        this.f341a = s;
-        this.f342b = bArr;
-    }
+    /* renamed from: a  reason: collision with other field name */
+    public XMPushService f393a;
 
-    @Deprecated
-    public static fl a(gj gjVar, String str) {
-        fl flVar = new fl();
-        int i = 1;
-        try {
-            i = Integer.parseInt(gjVar.k());
-        } catch (Exception e) {
-            com.xiaomi.channel.commonutils.logger.b.m58a("Blob parse chid err " + e.getMessage());
+    /* renamed from: a  reason: collision with other field name */
+    public int f389a = 0;
+
+    /* renamed from: a  reason: collision with other field name */
+    public long f390a = -1;
+
+    /* renamed from: b  reason: collision with other field name */
+    public volatile long f398b = 0;
+
+    /* renamed from: c  reason: collision with other field name */
+    public volatile long f401c = 0;
+
+    /* renamed from: a  reason: collision with other field name */
+    public LinkedList<Pair<Integer, Long>> f396a = new LinkedList<>();
+
+    /* renamed from: a  reason: collision with other field name */
+    public final Collection<fo> f395a = new CopyOnWriteArrayList();
+
+    /* renamed from: a  reason: collision with other field name */
+    public final Map<fq, a> f397a = new ConcurrentHashMap();
+
+    /* renamed from: b  reason: collision with other field name */
+    public final Map<fq, a> f400b = new ConcurrentHashMap();
+
+    /* renamed from: a  reason: collision with other field name */
+    public fx f392a = null;
+
+    /* renamed from: a  reason: collision with other field name */
+    public String f394a = "";
+
+    /* renamed from: b  reason: collision with other field name */
+    public String f399b = "";
+
+    /* renamed from: c  reason: collision with root package name */
+    public int f40509c = 2;
+
+    /* renamed from: b  reason: collision with root package name */
+    public final int f40508b = f40507a.getAndIncrement();
+
+    /* renamed from: e  reason: collision with root package name */
+    public long f40511e = 0;
+
+    /* renamed from: d  reason: collision with root package name */
+    public long f40510d = 0;
+
+    /* loaded from: classes7.dex */
+    public static class a {
+
+        /* renamed from: a  reason: collision with root package name */
+        public fq f40512a;
+
+        /* renamed from: a  reason: collision with other field name */
+        public fy f402a;
+
+        public a(fq fqVar, fy fyVar) {
+            this.f40512a = fqVar;
+            this.f402a = fyVar;
         }
-        flVar.a(i);
-        flVar.a(gjVar.j());
-        flVar.c(gjVar.m());
-        flVar.b(gjVar.n());
-        flVar.a("XMLMSG", (String) null);
-        try {
-            flVar.a(gjVar.m320a().getBytes("utf8"), str);
-            if (TextUtils.isEmpty(str)) {
-                flVar.a((short) 3);
-            } else {
-                flVar.a((short) 2);
-                flVar.a("SECMSG", (String) null);
+
+        public void a(fa faVar) {
+            this.f40512a.a(faVar);
+        }
+
+        public void a(gc gcVar) {
+            fy fyVar = this.f402a;
+            if (fyVar == null || fyVar.a(gcVar)) {
+                this.f40512a.a(gcVar);
             }
-        } catch (UnsupportedEncodingException e2) {
-            com.xiaomi.channel.commonutils.logger.b.m58a("Blob setPayload err： " + e2.getMessage());
         }
-        return flVar;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static fl a(ByteBuffer byteBuffer) {
+    static {
+        f388a = false;
         try {
-            ByteBuffer slice = byteBuffer.slice();
-            short s = slice.getShort(0);
-            short s2 = slice.getShort(2);
-            int i = slice.getInt(4);
-            ek.a aVar = new ek.a();
-            aVar.a(slice.array(), slice.arrayOffset() + 8, (int) s2);
-            byte[] bArr = new byte[i];
-            slice.position(s2 + 8);
-            slice.get(bArr, 0, i);
-            return new fl(aVar, s, bArr);
-        } catch (Exception e) {
-            com.xiaomi.channel.commonutils.logger.b.m58a("read Blob err :" + e.getMessage());
-            throw new IOException("Malformed Input");
+            f388a = Boolean.getBoolean("smack.debugEnabled");
+        } catch (Exception unused) {
         }
+        fr.m312a();
     }
 
-    public static synchronized String d() {
-        String sb;
-        synchronized (fl.class) {
-            StringBuilder append = new StringBuilder().append(b);
-            long j = f8368a;
-            f8368a = 1 + j;
-            sb = append.append(Long.toString(j)).toString();
+    public fl(XMPushService xMPushService, fm fmVar) {
+        this.f391a = fmVar;
+        this.f393a = xMPushService;
+        m306b();
+    }
+
+    private String a(int i) {
+        return i == 1 ? "connected" : i == 0 ? "connecting" : i == 2 ? "disconnected" : "unknown";
+    }
+
+    /* renamed from: a  reason: collision with other method in class */
+    private void m299a(int i) {
+        synchronized (this.f396a) {
+            if (i == 1) {
+                this.f396a.clear();
+            } else {
+                this.f396a.add(new Pair<>(Integer.valueOf(i), Long.valueOf(System.currentTimeMillis())));
+                if (this.f396a.size() > 6) {
+                    this.f396a.remove(0);
+                }
+            }
         }
-        return sb;
     }
 
     public int a() {
-        return this.f339a.c();
+        return this.f389a;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public String m284a() {
-        return this.f339a.m245c();
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* renamed from: a  reason: collision with other method in class */
-    public ByteBuffer mo285a(ByteBuffer byteBuffer) {
-        if (byteBuffer == null) {
-            byteBuffer = ByteBuffer.allocate(c());
-        }
-        byteBuffer.putShort(this.f341a);
-        byteBuffer.putShort((short) this.f339a.a());
-        byteBuffer.putInt(this.f342b.length);
-        int position = byteBuffer.position();
-        this.f339a.a(byteBuffer.array(), byteBuffer.arrayOffset() + position, this.f339a.a());
-        byteBuffer.position(position + this.f339a.a());
-        byteBuffer.put(this.f342b);
-        return byteBuffer;
+    public long m300a() {
+        return this.f401c;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public short m286a() {
-        return this.f341a;
+    public fm m301a() {
+        return this.f391a;
     }
 
-    public void a(int i) {
-        this.f339a.a(i);
+    /* renamed from: a  reason: collision with other method in class */
+    public String m302a() {
+        return this.f391a.c();
     }
 
-    public void a(long j, String str, String str2) {
-        if (j != 0) {
-            this.f339a.a(j);
+    /* renamed from: a  reason: collision with other method in class */
+    public Map<fq, a> m303a() {
+        return this.f397a;
+    }
+
+    public void a(int i, int i2, Exception exc) {
+        int i3 = this.f40509c;
+        if (i != i3) {
+            com.xiaomi.channel.commonutils.logger.b.m51a(String.format("update the connection status. %1$s -> %2$s : %3$s ", a(i3), a(i), com.xiaomi.push.service.az.a(i2)));
         }
-        if (!TextUtils.isEmpty(str)) {
-            this.f339a.a(str);
+        if (bg.b(this.f393a)) {
+            m299a(i);
         }
-        if (TextUtils.isEmpty(str2)) {
+        if (i == 1) {
+            this.f393a.a(10);
+            if (this.f40509c != 0) {
+                com.xiaomi.channel.commonutils.logger.b.m51a("try set connected while not connecting.");
+            }
+            this.f40509c = i;
+            for (fo foVar : this.f395a) {
+                foVar.b(this);
+            }
+        } else if (i == 0) {
+            if (this.f40509c != 2) {
+                com.xiaomi.channel.commonutils.logger.b.m51a("try set connecting while not disconnected.");
+            }
+            this.f40509c = i;
+            for (fo foVar2 : this.f395a) {
+                foVar2.a(this);
+            }
+        } else if (i == 2) {
+            this.f393a.a(10);
+            int i4 = this.f40509c;
+            if (i4 == 0) {
+                for (fo foVar3 : this.f395a) {
+                    foVar3.a(this, exc == null ? new CancellationException("disconnect while connecting") : exc);
+                }
+            } else if (i4 == 1) {
+                for (fo foVar4 : this.f395a) {
+                    foVar4.a(this, i2, exc);
+                }
+            }
+            this.f40509c = i;
+        }
+    }
+
+    public void a(fo foVar) {
+        if (foVar == null || this.f395a.contains(foVar)) {
             return;
         }
-        this.f339a.b(str2);
+        this.f395a.add(foVar);
     }
 
-    public void a(String str) {
-        this.f339a.e(str);
-    }
-
-    public void a(String str, String str2) {
-        if (TextUtils.isEmpty(str)) {
-            throw new IllegalArgumentException("command should not be empty");
+    public void a(fq fqVar, fy fyVar) {
+        if (fqVar == null) {
+            throw new NullPointerException("Packet listener is null.");
         }
-        this.f339a.c(str);
-        this.f339a.a();
-        if (TextUtils.isEmpty(str2)) {
-            return;
-        }
-        this.f339a.d(str2);
+        this.f397a.put(fqVar, new a(fqVar, fyVar));
     }
 
-    public void a(short s) {
-        this.f341a = s;
+    public abstract void a(gc gcVar);
+
+    public abstract void a(av.b bVar);
+
+    public synchronized void a(String str) {
+        if (this.f40509c == 0) {
+            com.xiaomi.channel.commonutils.logger.b.m51a("setChallenge hash = " + bl.a(str).substring(0, 8));
+            this.f394a = str;
+            a(1, 0, null);
+        } else {
+            com.xiaomi.channel.commonutils.logger.b.m51a("ignore setChallenge because connection was disconnected");
+        }
     }
 
-    public void a(byte[] bArr, String str) {
-        if (TextUtils.isEmpty(str)) {
-            this.f339a.c(0);
-            this.f342b = bArr;
-            return;
-        }
-        this.f339a.c(1);
-        this.f342b = com.xiaomi.push.service.ay.a(com.xiaomi.push.service.ay.a(str, e()), bArr);
-    }
+    public abstract void a(String str, String str2);
+
+    public abstract void a(fa[] faVarArr);
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m287a() {
-        return this.f339a.j();
+    public boolean m304a() {
+        return false;
     }
 
-    /* renamed from: a  reason: collision with other method in class */
-    public byte[] m288a() {
-        return this.f342b;
-    }
-
-    /* renamed from: a  reason: collision with other method in class */
-    public byte[] m289a(String str) {
-        if (this.f339a.e() == 1) {
-            return com.xiaomi.push.service.ay.a(com.xiaomi.push.service.ay.a(str, e()), this.f342b);
-        }
-        if (this.f339a.e() == 0) {
-            return this.f342b;
-        }
-        com.xiaomi.channel.commonutils.logger.b.m58a("unknow cipher = " + this.f339a.e());
-        return this.f342b;
+    public synchronized boolean a(long j) {
+        return this.f40511e >= j;
     }
 
     public int b() {
-        return this.f339a.f();
+        return this.f40509c;
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public String m290b() {
-        return this.f339a.m247d();
+    public String m305b() {
+        return this.f391a.b();
     }
 
-    public void b(String str) {
-        this.f340a = str;
+    /* renamed from: b  reason: collision with other method in class */
+    public void m306b() {
+        String str;
+        if (this.f391a.m310a() && this.f392a == null) {
+            Class<?> cls = null;
+            try {
+                str = System.getProperty("smack.debuggerClass");
+            } catch (Throwable unused) {
+                str = null;
+            }
+            if (str != null) {
+                try {
+                    cls = Class.forName(str);
+                } catch (Exception e2) {
+                    e2.printStackTrace();
+                }
+            }
+            if (cls == null) {
+                this.f392a = new fj(this);
+                return;
+            }
+            try {
+                this.f392a = (fx) cls.getConstructor(fl.class, Writer.class, Reader.class).newInstance(this);
+            } catch (Exception e3) {
+                throw new IllegalArgumentException("Can't initialize the configured debugger!", e3);
+            }
+        }
     }
 
-    public int c() {
-        return this.f339a.b() + 8 + this.f342b.length;
+    public abstract void b(int i, Exception exc);
+
+    public abstract void b(fa faVar);
+
+    public void b(fo foVar) {
+        this.f395a.remove(foVar);
+    }
+
+    public void b(fq fqVar, fy fyVar) {
+        if (fqVar == null) {
+            throw new NullPointerException("Packet listener is null.");
+        }
+        this.f400b.put(fqVar, new a(fqVar, fyVar));
+    }
+
+    public abstract void b(boolean z);
+
+    /* renamed from: b  reason: collision with other method in class */
+    public boolean m307b() {
+        return this.f40509c == 0;
+    }
+
+    public synchronized void c() {
+        this.f40511e = System.currentTimeMillis();
     }
 
     /* renamed from: c  reason: collision with other method in class */
-    public String m291c() {
-        return this.f339a.m251f();
+    public boolean m308c() {
+        return this.f40509c == 1;
     }
 
-    public void c(String str) {
-        if (TextUtils.isEmpty(str)) {
-            return;
+    public void d() {
+        synchronized (this.f396a) {
+            this.f396a.clear();
         }
-        int indexOf = str.indexOf("@");
-        try {
-            long parseLong = Long.parseLong(str.substring(0, indexOf));
-            int indexOf2 = str.indexOf("/", indexOf);
-            String substring = str.substring(indexOf + 1, indexOf2);
-            String substring2 = str.substring(indexOf2 + 1);
-            this.f339a.a(parseLong);
-            this.f339a.a(substring);
-            this.f339a.b(substring2);
-        } catch (Exception e) {
-            com.xiaomi.channel.commonutils.logger.b.m58a("Blob parse user err " + e.getMessage());
-        }
-    }
-
-    public String e() {
-        String m249e = this.f339a.m249e();
-        if ("ID_NOT_AVAILABLE".equals(m249e)) {
-            return null;
-        }
-        if (this.f339a.g()) {
-            return m249e;
-        }
-        String d = d();
-        this.f339a.e(d);
-        return d;
-    }
-
-    public String f() {
-        return this.f340a;
-    }
-
-    public String g() {
-        if (this.f339a.b()) {
-            return Long.toString(this.f339a.a()) + "@" + this.f339a.a() + "/" + this.f339a.b();
-        }
-        return null;
-    }
-
-    public String toString() {
-        return "Blob [chid=" + a() + "; Id=" + e() + "; cmd=" + m284a() + "; type=" + ((int) m286a()) + "; from=" + g() + " ]";
     }
 }

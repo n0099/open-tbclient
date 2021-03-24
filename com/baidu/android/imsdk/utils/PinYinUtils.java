@@ -6,9 +6,9 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class PinYinUtils {
-    private static Comparator<PinYinObject> pyComparator = new Comparator<PinYinObject>() { // from class: com.baidu.android.imsdk.utils.PinYinUtils.1
+    public static Comparator<PinYinObject> pyComparator = new Comparator<PinYinObject>() { // from class: com.baidu.android.imsdk.utils.PinYinUtils.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Comparator
         public int compare(PinYinObject pinYinObject, PinYinObject pinYinObject2) {
@@ -16,19 +16,12 @@ public class PinYinUtils {
         }
     };
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public interface PinYinObject {
         String getPy();
     }
 
-    public static String getPy(String str) {
-        if (str == null) {
-            return null;
-        }
-        return !"".equals(str) ? getPinYin(str) : str;
-    }
-
-    private static String getPinYin(String str) {
+    public static String getPinYin(String str) {
         ArrayList<HanziToPinyin.Token> arrayList = HanziToPinyin.getInstance().get(str);
         StringBuilder sb = new StringBuilder();
         if (arrayList != null && arrayList.size() > 0) {
@@ -45,9 +38,17 @@ public class PinYinUtils {
         return sb.toString().toLowerCase();
     }
 
-    public static void sortByPinYin(List<? extends PinYinObject> list) {
-        if (list != null) {
-            Collections.sort(list, pyComparator);
+    public static String getPy(String str) {
+        if (str == null) {
+            return null;
         }
+        return "".equals(str) ? str : getPinYin(str);
+    }
+
+    public static void sortByPinYin(List<? extends PinYinObject> list) {
+        if (list == null) {
+            return;
+        }
+        Collections.sort(list, pyComparator);
     }
 }

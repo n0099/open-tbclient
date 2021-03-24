@@ -3,17 +3,14 @@ package com.kwad.sdk.core.video.a.a;
 import android.content.Context;
 import com.kwad.sdk.core.report.h;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class a extends com.kwad.sdk.core.report.c<c, b> {
 
     /* renamed from: a  reason: collision with root package name */
-    private static a f6261a = new a();
-
-    private a() {
-    }
+    public static a f34097a = new a();
 
     public static void a(final String str, final String str2) {
-        f6261a.a(new h<c>() { // from class: com.kwad.sdk.core.video.a.a.a.1
+        f34097a.a(new h<c>() { // from class: com.kwad.sdk.core.video.a.a.a.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.kwad.sdk.core.report.h
             /* renamed from: b */
@@ -24,7 +21,7 @@ public class a extends com.kwad.sdk.core.report.c<c, b> {
     }
 
     public static a c() {
-        return f6261a;
+        return f34097a;
     }
 
     @Override // com.kwad.sdk.core.report.c
@@ -33,7 +30,6 @@ public class a extends com.kwad.sdk.core.report.c<c, b> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.core.report.c
     /* renamed from: b */
     public b a(List list) {
@@ -41,7 +37,7 @@ public class a extends com.kwad.sdk.core.report.c<c, b> {
     }
 
     @Override // com.kwad.sdk.core.report.c
-    protected String b() {
+    public String b() {
         return "mplrep";
     }
 }

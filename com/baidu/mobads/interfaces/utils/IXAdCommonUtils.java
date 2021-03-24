@@ -6,7 +6,7 @@ import android.util.DisplayMetrics;
 import java.io.File;
 import java.util.List;
 import org.json.JSONArray;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public interface IXAdCommonUtils {
     public static final String APPSEC = "BaiduMobAd_APP_SEC";
     public static final String APPSID = "BaiduMobAd_APP_ID";

@@ -1,7 +1,7 @@
 package com.kwad.sdk.contentalliance.a;
 
 import android.content.Intent;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class d implements c {
     @Override // com.kwad.sdk.contentalliance.a.c
     public void a(int i, int i2, Intent intent) {

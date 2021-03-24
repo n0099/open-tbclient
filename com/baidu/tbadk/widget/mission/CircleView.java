@@ -5,76 +5,85 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.view.View;
-import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-/* loaded from: classes.dex */
+import d.b.b.e.p.l;
+/* loaded from: classes3.dex */
 public class CircleView extends View {
-    private static int fWr = 20;
-    private static int fWs = 13;
-    private static final int strokeWidth = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds3);
-    private float fWt;
-    private float fWu;
-    private float fWv;
-    private Paint paint;
+    public static int i = 20;
+    public static int j = 13;
+    public static final int k = l.g(TbadkCoreApplication.getInst(), R.dimen.tbds3);
+
+    /* renamed from: e  reason: collision with root package name */
+    public float f14225e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public float f14226f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public float f14227g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public Paint f14228h;
 
     public CircleView(Context context) {
         super(context);
-        init(context);
+        a(context);
     }
 
-    public CircleView(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        init(context);
+    public final void a(Context context) {
+        i = l.g(context, R.dimen.tbds94);
+        j = l.g(context, R.dimen.tbds94);
+        Paint paint = new Paint();
+        this.f14228h = paint;
+        paint.setColor(context.getResources().getColor(R.color.CAM_X0314));
+        this.f14228h.setAntiAlias(true);
+        this.f14228h.setStyle(Paint.Style.STROKE);
+        this.f14228h.setStrokeWidth(k);
     }
 
-    public CircleView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        init(context);
-    }
-
-    private void init(Context context) {
-        fWr = l.getDimens(context, R.dimen.tbds94);
-        fWs = l.getDimens(context, R.dimen.tbds94);
-        this.paint = new Paint();
-        this.paint.setColor(context.getResources().getColor(R.color.CAM_X0314));
-        this.paint.setAntiAlias(true);
-        this.paint.setStyle(Paint.Style.STROKE);
-        this.paint.setStrokeWidth(strokeWidth);
+    public void b() {
+        this.f14228h.setColor(getContext().getResources().getColor(R.color.CAM_X0314));
+        invalidate();
     }
 
     @Override // android.view.View
-    protected void onMeasure(int i, int i2) {
-        super.onMeasure(i, i2);
-        int mode = View.MeasureSpec.getMode(i);
-        int size = View.MeasureSpec.getSize(i);
-        int mode2 = View.MeasureSpec.getMode(i2);
-        int size2 = View.MeasureSpec.getSize(i2);
+    public void onDraw(Canvas canvas) {
+        super.onDraw(canvas);
+        canvas.drawCircle(this.f14225e, this.f14226f, this.f14227g, this.f14228h);
+    }
+
+    @Override // android.view.View
+    public void onMeasure(int i2, int i3) {
+        super.onMeasure(i2, i3);
+        int mode = View.MeasureSpec.getMode(i2);
+        int size = View.MeasureSpec.getSize(i2);
+        int mode2 = View.MeasureSpec.getMode(i3);
+        int size2 = View.MeasureSpec.getSize(i3);
         if (mode == Integer.MIN_VALUE && mode2 == Integer.MIN_VALUE) {
-            setMeasuredDimension(fWr, fWs);
+            setMeasuredDimension(i, j);
         } else if (mode == Integer.MIN_VALUE) {
-            setMeasuredDimension(fWr, size2);
+            setMeasuredDimension(i, size2);
         } else if (mode2 == Integer.MIN_VALUE) {
-            setMeasuredDimension(size, fWs);
+            setMeasuredDimension(size, j);
         }
     }
 
     @Override // android.view.View
-    protected void onSizeChanged(int i, int i2, int i3, int i4) {
-        super.onSizeChanged(i, i2, i3, i4);
-        this.fWt = i / 2.0f;
-        this.fWu = i2 / 2.0f;
-        this.fWv = (Math.min(i, i2) / 2.0f) - strokeWidth;
+    public void onSizeChanged(int i2, int i3, int i4, int i5) {
+        super.onSizeChanged(i2, i3, i4, i5);
+        this.f14225e = i2 / 2.0f;
+        this.f14226f = i3 / 2.0f;
+        this.f14227g = (Math.min(i2, i3) / 2.0f) - k;
     }
 
-    @Override // android.view.View
-    protected void onDraw(Canvas canvas) {
-        super.onDraw(canvas);
-        canvas.drawCircle(this.fWt, this.fWu, this.fWv, this.paint);
+    public CircleView(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        a(context);
     }
 
-    public void onChangeSkinType() {
-        this.paint.setColor(getContext().getResources().getColor(R.color.CAM_X0314));
-        invalidate();
+    public CircleView(Context context, AttributeSet attributeSet, int i2) {
+        super(context, attributeSet, i2);
+        a(context);
     }
 }

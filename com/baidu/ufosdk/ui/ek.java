@@ -1,20 +1,20 @@
 package com.baidu.ufosdk.ui;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public final class ek implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FeedbackInputActivity f3764a;
-    final /* synthetic */ ej b;
+    public final /* synthetic */ FeedbackInputActivity f23215a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    /* renamed from: b  reason: collision with root package name */
+    public final /* synthetic */ ej f23216b;
+
     public ek(ej ejVar, FeedbackInputActivity feedbackInputActivity) {
-        this.b = ejVar;
-        this.f3764a = feedbackInputActivity;
+        this.f23216b = ejVar;
+        this.f23215a = feedbackInputActivity;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
-        this.f3764a.n = false;
+        this.f23215a.n = false;
     }
 }

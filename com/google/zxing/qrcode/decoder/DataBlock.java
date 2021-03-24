@@ -1,86 +1,77 @@
 package com.google.zxing.qrcode.decoder;
 
 import com.google.zxing.qrcode.decoder.Version;
-/* loaded from: classes4.dex */
-final class DataBlock {
-    private final byte[] codewords;
-    private final int numDataCodewords;
+/* loaded from: classes6.dex */
+public final class DataBlock {
+    public final byte[] codewords;
+    public final int numDataCodewords;
 
-    private DataBlock(int i, byte[] bArr) {
+    public DataBlock(int i, byte[] bArr) {
         this.numDataCodewords = i;
         this.codewords = bArr;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public static DataBlock[] getDataBlocks(byte[] bArr, Version version, ErrorCorrectionLevel errorCorrectionLevel) {
-        if (bArr.length != version.getTotalCodewords()) {
-            throw new IllegalArgumentException();
-        }
-        Version.ECBlocks eCBlocksForLevel = version.getECBlocksForLevel(errorCorrectionLevel);
-        Version.ECB[] eCBlocks = eCBlocksForLevel.getECBlocks();
-        int i = 0;
-        for (Version.ECB ecb : eCBlocks) {
-            i += ecb.getCount();
-        }
-        DataBlock[] dataBlockArr = new DataBlock[i];
-        int i2 = 0;
-        for (Version.ECB ecb2 : eCBlocks) {
-            int i3 = 0;
-            while (i3 < ecb2.getCount()) {
-                int dataCodewords = ecb2.getDataCodewords();
-                dataBlockArr[i2] = new DataBlock(dataCodewords, new byte[eCBlocksForLevel.getECCodewordsPerBlock() + dataCodewords]);
-                i3++;
-                i2++;
+        if (bArr.length == version.getTotalCodewords()) {
+            Version.ECBlocks eCBlocksForLevel = version.getECBlocksForLevel(errorCorrectionLevel);
+            Version.ECB[] eCBlocks = eCBlocksForLevel.getECBlocks();
+            int i = 0;
+            for (Version.ECB ecb : eCBlocks) {
+                i += ecb.getCount();
             }
-        }
-        int length = dataBlockArr[0].codewords.length;
-        int length2 = dataBlockArr.length - 1;
-        while (length2 >= 0 && dataBlockArr[length2].codewords.length != length) {
-            length2--;
-        }
-        int i4 = length2 + 1;
-        int eCCodewordsPerBlock = length - eCBlocksForLevel.getECCodewordsPerBlock();
-        int i5 = 0;
-        int i6 = 0;
-        while (i5 < eCCodewordsPerBlock) {
-            int i7 = 0;
-            int i8 = i6;
-            while (i7 < i2) {
-                dataBlockArr[i7].codewords[i5] = bArr[i8];
-                i7++;
-                i8++;
+            DataBlock[] dataBlockArr = new DataBlock[i];
+            int i2 = 0;
+            for (Version.ECB ecb2 : eCBlocks) {
+                int i3 = 0;
+                while (i3 < ecb2.getCount()) {
+                    int dataCodewords = ecb2.getDataCodewords();
+                    dataBlockArr[i2] = new DataBlock(dataCodewords, new byte[eCBlocksForLevel.getECCodewordsPerBlock() + dataCodewords]);
+                    i3++;
+                    i2++;
+                }
             }
-            i5++;
-            i6 = i8;
-        }
-        int i9 = i4;
-        while (i9 < i2) {
-            dataBlockArr[i9].codewords[eCCodewordsPerBlock] = bArr[i6];
-            i9++;
-            i6++;
-        }
-        int length3 = dataBlockArr[0].codewords.length;
-        while (eCCodewordsPerBlock < length3) {
-            int i10 = 0;
-            int i11 = i6;
-            while (i10 < i2) {
-                dataBlockArr[i10].codewords[i10 < i4 ? eCCodewordsPerBlock : eCCodewordsPerBlock + 1] = bArr[i11];
-                i10++;
-                i11++;
+            int length = dataBlockArr[0].codewords.length;
+            int i4 = i - 1;
+            while (i4 >= 0 && dataBlockArr[i4].codewords.length != length) {
+                i4--;
             }
-            eCCodewordsPerBlock++;
-            i6 = i11;
+            int i5 = i4 + 1;
+            int eCCodewordsPerBlock = length - eCBlocksForLevel.getECCodewordsPerBlock();
+            int i6 = 0;
+            for (int i7 = 0; i7 < eCCodewordsPerBlock; i7++) {
+                int i8 = 0;
+                while (i8 < i2) {
+                    dataBlockArr[i8].codewords[i7] = bArr[i6];
+                    i8++;
+                    i6++;
+                }
+            }
+            int i9 = i5;
+            while (i9 < i2) {
+                dataBlockArr[i9].codewords[eCCodewordsPerBlock] = bArr[i6];
+                i9++;
+                i6++;
+            }
+            int length2 = dataBlockArr[0].codewords.length;
+            while (eCCodewordsPerBlock < length2) {
+                int i10 = 0;
+                while (i10 < i2) {
+                    dataBlockArr[i10].codewords[i10 < i5 ? eCCodewordsPerBlock : eCCodewordsPerBlock + 1] = bArr[i6];
+                    i10++;
+                    i6++;
+                }
+                eCCodewordsPerBlock++;
+            }
+            return dataBlockArr;
         }
-        return dataBlockArr;
+        throw new IllegalArgumentException();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public int getNumDataCodewords() {
-        return this.numDataCodewords;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
     public byte[] getCodewords() {
         return this.codewords;
+    }
+
+    public int getNumDataCodewords() {
+        return this.numDataCodewords;
     }
 }

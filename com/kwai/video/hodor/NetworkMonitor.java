@@ -9,50 +9,61 @@ import android.net.NetworkInfo;
 import android.telephony.TelephonyManager;
 import android.util.Pair;
 import com.baidu.android.util.devices.RomUtils;
+import com.baidu.apollon.statistics.g;
 import com.kwai.video.hodor.util.Timber;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class NetworkMonitor {
-    private static final int HodorMobileType_MOBILE_2G = 1;
-    private static final int HodorMobileType_MOBILE_3G = 2;
-    private static final int HodorMobileType_MOBILE_4G = 3;
-    private static final int HodorMobileType_MOBILE_5G = 4;
-    private static final int HodorMobileType_UNKNOWN = 0;
+    public static final int HodorMobileType_MOBILE_2G = 1;
+    public static final int HodorMobileType_MOBILE_3G = 2;
+    public static final int HodorMobileType_MOBILE_4G = 3;
+    public static final int HodorMobileType_MOBILE_5G = 4;
+    public static final int HodorMobileType_UNKNOWN = 0;
 
-    private static String emptyStringIfNull(String str) {
+    public static String emptyStringIfNull(String str) {
         return str == null ? "" : str;
     }
 
     public static Pair<Integer, String> getMobileType(Context context) {
+        int i;
+        String str;
         int networkType = ((TelephonyManager) context.getSystemService("phone")).getNetworkType();
         Timber.d("[NetworkMonitor.getMobileType]mobileType:%d", Integer.valueOf(networkType));
-        switch (networkType) {
-            case 1:
-            case 2:
-            case 4:
-            case 7:
-            case 11:
-                return Pair.create(1, "2G");
-            case 3:
-            case 5:
-            case 6:
-            case 8:
-            case 9:
-            case 10:
-            case 12:
-            case 14:
-            case 15:
-                return Pair.create(2, "3G");
-            case 13:
-                return Pair.create(3, "4G");
-            case 16:
-            case 17:
-            case 18:
-            case 19:
-            default:
-                return Pair.create(0, RomUtils.UNKNOWN);
-            case 20:
-                return Pair.create(4, "5G");
+        if (networkType != 20) {
+            switch (networkType) {
+                case 1:
+                case 2:
+                case 4:
+                case 7:
+                case 11:
+                    i = 1;
+                    str = "2G";
+                    break;
+                case 3:
+                case 5:
+                case 6:
+                case 8:
+                case 9:
+                case 10:
+                case 12:
+                case 14:
+                case 15:
+                    i = 2;
+                    str = g.f3873b;
+                    break;
+                case 13:
+                    i = 3;
+                    str = "4G";
+                    break;
+                default:
+                    i = 0;
+                    str = RomUtils.UNKNOWN;
+                    break;
+            }
+        } else {
+            i = 4;
+            str = "5G";
         }
+        return Pair.create(i, str);
     }
 
     public static void initNetworkChangeReceiver(Context context) {
@@ -93,7 +104,7 @@ public class NetworkMonitor {
         onNewActiveNetwork(activeNetworkInfo.isConnected(), activeNetworkInfo.getType() == 1, emptyStringIfNull(activeNetworkInfo.getTypeName()), emptyStringIfNull(activeNetworkInfo.getState().toString()), emptyStringIfNull(activeNetworkInfo.getExtraInfo()), ((Integer) mobileType.first).intValue());
     }
 
-    private static native void onNetworkInvalidated();
+    public static native void onNetworkInvalidated();
 
-    private static native void onNewActiveNetwork(boolean z, boolean z2, String str, String str2, String str3, @HodorMobileType int i);
+    public static native void onNewActiveNetwork(boolean z, boolean z2, String str, String str2, String str3, @HodorMobileType int i);
 }

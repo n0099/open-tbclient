@@ -1,21 +1,12 @@
 package com.baidu.tieba.route;
 
-import com.baidu.adp.framework.a.d;
+import com.baidu.adp.framework.cmdRouter.ICmdRouter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes7.dex */
-public final class StaticAutoGenerateUrlCollectorImpl implements d {
-    @Override // com.baidu.adp.framework.a.d
-    public Map<String, ArrayList<String>> getConfigRouterMap() {
-        HashMap hashMap = new HashMap();
-        ArrayList arrayList = new ArrayList();
-        arrayList.add("PbHistoryActivityConfig");
-        hashMap.put("com.baidu.tieba.myCollection.Static", arrayList);
-        return hashMap;
-    }
-
-    @Override // com.baidu.adp.framework.a.d
+/* loaded from: classes5.dex */
+public final class StaticAutoGenerateUrlCollectorImpl implements ICmdRouter {
+    @Override // com.baidu.adp.framework.cmdRouter.ICmdRouter
     public Map<String, String> getCmdRouterMap() {
         HashMap hashMap = new HashMap();
         new ArrayList();
@@ -27,6 +18,15 @@ public final class StaticAutoGenerateUrlCollectorImpl implements d {
         hashMap.put("2001011", "com.baidu.tieba.myCollection.Static");
         hashMap.put("2005016", "com.baidu.tieba.myCollection.Static");
         hashMap.put("2001120", "com.baidu.tieba.myCollection.Static");
+        return hashMap;
+    }
+
+    @Override // com.baidu.adp.framework.cmdRouter.ICmdRouter
+    public Map<String, ArrayList<String>> getConfigRouterMap() {
+        HashMap hashMap = new HashMap();
+        ArrayList arrayList = new ArrayList();
+        arrayList.add("PbHistoryActivityConfig");
+        hashMap.put("com.baidu.tieba.myCollection.Static", arrayList);
         return hashMap;
     }
 }

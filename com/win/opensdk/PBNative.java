@@ -5,53 +5,56 @@ import android.text.TextUtils;
 import android.view.View;
 import com.win.opensdk.core.Info;
 import java.util.List;
-/* loaded from: classes14.dex */
-public class PBNative {
+/* loaded from: classes7.dex */
+public class PBNative implements d {
 
     /* renamed from: a  reason: collision with root package name */
-    public dv f8103a;
-    public PBNativeListener b;
+    public p0 f39757a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public PBNativeListener f39758b;
 
     public PBNative(Context context, String str) {
-        this.f8103a = new dv(context, str);
-        this.f8103a.qlX = new cp(this);
+        p0 p0Var = new p0(context, str);
+        this.f39757a = p0Var;
+        p0Var.f40009f = new f(this);
     }
 
     public void destroy() {
         try {
-            if (this.f8103a != null) {
-                this.f8103a.a();
-                this.f8103a = null;
+            if (this.f39757a != null) {
+                this.f39757a.a();
+                this.f39757a = null;
             }
-            if (this.b != null) {
-                this.b = null;
+            if (this.f39758b != null) {
+                this.f39758b = null;
             }
-        } catch (Exception e) {
+        } catch (Exception unused) {
         }
     }
 
     public String getBody() {
-        dv dvVar = this.f8103a;
-        return (dvVar == null || !dvVar.b()) ? "" : dvVar.qkh.getDesc();
+        p0 p0Var = this.f39757a;
+        return (p0Var == null || !p0Var.b()) ? "" : p0Var.f40006c.getDesc();
     }
 
     public String getCallToAction() {
-        dv dvVar = this.f8103a;
-        return (dvVar == null || !dvVar.b()) ? "" : dvVar.qkh.getBtndesc();
+        p0 p0Var = this.f39757a;
+        return (p0Var == null || !p0Var.b()) ? "" : p0Var.f40006c.getBtndesc();
     }
 
     public String getHeadline() {
-        dv dvVar = this.f8103a;
-        return (dvVar == null || !dvVar.b()) ? "" : dvVar.qkh.getTitle();
+        p0 p0Var = this.f39757a;
+        return (p0Var == null || !p0Var.b()) ? "" : p0Var.f40006c.getTitle();
     }
 
     public String getIM() {
-        dv dvVar = this.f8103a;
-        if (dvVar != null) {
-            String image = dvVar.b() ? dvVar.qkh.getImage() : "";
+        p0 p0Var = this.f39757a;
+        if (p0Var != null) {
+            String image = p0Var.b() ? p0Var.f40006c.getImage() : "";
             if (TextUtils.isEmpty(image)) {
-                dv dvVar2 = this.f8103a;
-                return dvVar2.b() ? dvVar2.qkh.getIcon() : "";
+                p0 p0Var2 = this.f39757a;
+                return p0Var2.b() ? p0Var2.f40006c.getIcon() : "";
             }
             return image;
         }
@@ -59,71 +62,69 @@ public class PBNative {
     }
 
     public String getIcon() {
-        dv dvVar = this.f8103a;
-        return (dvVar == null || !dvVar.b()) ? "" : dvVar.qkh.getIcon();
+        p0 p0Var = this.f39757a;
+        return (p0Var == null || !p0Var.b()) ? "" : p0Var.f40006c.getIcon();
     }
 
     public int getMediaViewHeight() {
-        dv dvVar = this.f8103a;
-        if (dvVar == null || !dvVar.b()) {
+        p0 p0Var = this.f39757a;
+        if (p0Var == null || !p0Var.b()) {
             return 0;
         }
-        return dvVar.qkh.getH();
+        return p0Var.f40006c.getH();
     }
 
     public int getMediaViewWidth() {
-        dv dvVar = this.f8103a;
-        if (dvVar == null || !dvVar.b()) {
+        p0 p0Var = this.f39757a;
+        if (p0Var == null || !p0Var.b()) {
             return 0;
         }
-        return dvVar.qkh.getW();
+        return p0Var.f40006c.getW();
     }
 
     public String getPid() {
-        dv dvVar = this.f8103a;
-        return (dvVar == null || !dvVar.b()) ? "" : dvVar.qkh.getPid();
+        p0 p0Var = this.f39757a;
+        return (p0Var == null || !p0Var.b()) ? "" : p0Var.f40006c.getPid();
     }
 
     public boolean isD() {
-        dv dvVar = this.f8103a;
-        if (dvVar != null) {
-            Info info = dvVar.qkh;
-            if (info != null && info.getOpent() == 1) {
-                return true;
-            }
+        p0 p0Var = this.f39757a;
+        if (p0Var != null) {
+            Info info = p0Var.f40006c;
+            return info != null && info.getOpent() == 1;
         }
         return false;
     }
 
     public boolean isReady() {
-        dv dvVar = this.f8103a;
-        return dvVar != null && dvVar.b();
+        p0 p0Var = this.f39757a;
+        return p0Var != null && p0Var.b();
     }
 
     public void load() {
-        dq dqVar;
-        dv dvVar = this.f8103a;
-        if (dvVar == null || (dqVar = dvVar.qlI) == null) {
+        n1 n1Var;
+        p0 p0Var = this.f39757a;
+        if (p0Var == null || (n1Var = p0Var.f40005b) == null) {
             return;
         }
-        dqVar.b();
+        n1Var.b();
     }
 
     public void registerViewForInteraction(View view, PBMediaView pBMediaView) {
-        dv dvVar = this.f8103a;
-        if (dvVar != null) {
-            dvVar.a(view, pBMediaView);
+        p0 p0Var = this.f39757a;
+        if (p0Var != null) {
+            p0Var.a(view, pBMediaView);
         }
     }
 
     public void registerViewForInteraction(View view, PBMediaView pBMediaView, List list) {
-        dv dvVar = this.f8103a;
-        if (dvVar != null) {
-            dvVar.a(view, pBMediaView, list);
+        p0 p0Var = this.f39757a;
+        if (p0Var != null) {
+            p0Var.a(view, pBMediaView, list);
         }
     }
 
     public void setNativeListener(PBNativeListener pBNativeListener) {
-        this.b = pBNativeListener;
+        this.f39758b = pBNativeListener;
     }
 }

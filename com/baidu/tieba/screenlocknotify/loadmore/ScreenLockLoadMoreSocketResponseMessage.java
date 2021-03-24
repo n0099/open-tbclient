@@ -1,34 +1,41 @@
 package com.baidu.tieba.screenlocknotify.loadmore;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.squareup.wire.Wire;
+import d.b.i0.t2.e.a;
+import tbclient.Error;
+import tbclient.GetMoreMsg.DataRes;
 import tbclient.GetMoreMsg.GetMoreMsgResIdl;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class ScreenLockLoadMoreSocketResponseMessage extends SocketResponsedMessage {
-    private a loadMoreData;
+    public a loadMoreData;
 
     public ScreenLockLoadMoreSocketResponseMessage() {
-        super(CmdConfigSocket.CMD_SCREEN_LOCK_MESSAGE_MORE);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.message.a
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
-        GetMoreMsgResIdl getMoreMsgResIdl = (GetMoreMsgResIdl) new Wire(new Class[0]).parseFrom(bArr, GetMoreMsgResIdl.class);
-        if (getMoreMsgResIdl != null) {
-            if (getMoreMsgResIdl.error != null) {
-                setError(getMoreMsgResIdl.error.errorno.intValue());
-                setErrorString(getMoreMsgResIdl.error.errmsg);
-            }
-            if (getMoreMsgResIdl.data != null && getMoreMsgResIdl.data != null) {
-                this.loadMoreData = new a();
-                this.loadMoreData.a(getMoreMsgResIdl.data);
-            }
-        }
+        super(309420);
     }
 
     public a getData() {
         return this.loadMoreData;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
+    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
+        GetMoreMsgResIdl getMoreMsgResIdl = (GetMoreMsgResIdl) new Wire(new Class[0]).parseFrom(bArr, GetMoreMsgResIdl.class);
+        if (getMoreMsgResIdl == null) {
+            return;
+        }
+        Error error = getMoreMsgResIdl.error;
+        if (error != null) {
+            setError(error.errorno.intValue());
+            setErrorString(getMoreMsgResIdl.error.errmsg);
+        }
+        DataRes dataRes = getMoreMsgResIdl.data;
+        if (dataRes == null || dataRes == null) {
+            return;
+        }
+        a aVar = new a();
+        this.loadMoreData = aVar;
+        aVar.c(getMoreMsgResIdl.data);
     }
 }

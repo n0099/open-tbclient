@@ -11,19 +11,63 @@ import androidx.annotation.NonNull;
 import androidx.annotation.VisibleForTesting;
 import io.flutter.plugin.platform.SingleViewPresentation;
 import io.flutter.view.TextureRegistry;
-/* JADX INFO: Access modifiers changed from: package-private */
 @TargetApi(20)
-/* loaded from: classes14.dex */
+/* loaded from: classes7.dex */
 public class VirtualDisplayController {
-    private final AccessibilityEventsDelegate accessibilityEventsDelegate;
-    private final Context context;
-    private final int densityDpi;
-    private final View.OnFocusChangeListener focusChangeListener;
+    public final AccessibilityEventsDelegate accessibilityEventsDelegate;
+    public final Context context;
+    public final int densityDpi;
+    public final View.OnFocusChangeListener focusChangeListener;
     @VisibleForTesting
-    SingleViewPresentation presentation;
-    private Surface surface;
-    private final TextureRegistry.SurfaceTextureEntry textureEntry;
-    private VirtualDisplay virtualDisplay;
+    public SingleViewPresentation presentation;
+    public Surface surface;
+    public final TextureRegistry.SurfaceTextureEntry textureEntry;
+    public VirtualDisplay virtualDisplay;
+
+    @TargetApi(16)
+    /* loaded from: classes7.dex */
+    public static class OneTimeOnDrawListener implements ViewTreeObserver.OnDrawListener {
+        public Runnable mOnDrawRunnable;
+        public final View mView;
+
+        public OneTimeOnDrawListener(View view, Runnable runnable) {
+            this.mView = view;
+            this.mOnDrawRunnable = runnable;
+        }
+
+        public static void schedule(View view, Runnable runnable) {
+            view.getViewTreeObserver().addOnDrawListener(new OneTimeOnDrawListener(view, runnable));
+        }
+
+        @Override // android.view.ViewTreeObserver.OnDrawListener
+        public void onDraw() {
+            Runnable runnable = this.mOnDrawRunnable;
+            if (runnable == null) {
+                return;
+            }
+            runnable.run();
+            this.mOnDrawRunnable = null;
+            this.mView.post(new Runnable() { // from class: io.flutter.plugin.platform.VirtualDisplayController.OneTimeOnDrawListener.1
+                @Override // java.lang.Runnable
+                public void run() {
+                    OneTimeOnDrawListener.this.mView.getViewTreeObserver().removeOnDrawListener(OneTimeOnDrawListener.this);
+                }
+            });
+        }
+    }
+
+    public VirtualDisplayController(Context context, AccessibilityEventsDelegate accessibilityEventsDelegate, VirtualDisplay virtualDisplay, PlatformViewFactory platformViewFactory, Surface surface, TextureRegistry.SurfaceTextureEntry surfaceTextureEntry, View.OnFocusChangeListener onFocusChangeListener, int i, Object obj) {
+        this.context = context;
+        this.accessibilityEventsDelegate = accessibilityEventsDelegate;
+        this.textureEntry = surfaceTextureEntry;
+        this.focusChangeListener = onFocusChangeListener;
+        this.surface = surface;
+        this.virtualDisplay = virtualDisplay;
+        this.densityDpi = context.getResources().getDisplayMetrics().densityDpi;
+        SingleViewPresentation singleViewPresentation = new SingleViewPresentation(context, this.virtualDisplay.getDisplay(), platformViewFactory, accessibilityEventsDelegate, i, obj, onFocusChangeListener);
+        this.presentation = singleViewPresentation;
+        singleViewPresentation.show();
+    }
 
     public static VirtualDisplayController create(Context context, AccessibilityEventsDelegate accessibilityEventsDelegate, PlatformViewFactory platformViewFactory, TextureRegistry.SurfaceTextureEntry surfaceTextureEntry, int i, int i2, int i3, Object obj, View.OnFocusChangeListener onFocusChangeListener) {
         surfaceTextureEntry.surfaceTexture().setDefaultBufferSize(i, i2);
@@ -35,16 +79,53 @@ public class VirtualDisplayController {
         return new VirtualDisplayController(context, accessibilityEventsDelegate, createVirtualDisplay, platformViewFactory, surface, surfaceTextureEntry, onFocusChangeListener, i3, obj);
     }
 
-    private VirtualDisplayController(Context context, AccessibilityEventsDelegate accessibilityEventsDelegate, VirtualDisplay virtualDisplay, PlatformViewFactory platformViewFactory, Surface surface, TextureRegistry.SurfaceTextureEntry surfaceTextureEntry, View.OnFocusChangeListener onFocusChangeListener, int i, Object obj) {
-        this.context = context;
-        this.accessibilityEventsDelegate = accessibilityEventsDelegate;
-        this.textureEntry = surfaceTextureEntry;
-        this.focusChangeListener = onFocusChangeListener;
-        this.surface = surface;
-        this.virtualDisplay = virtualDisplay;
-        this.densityDpi = context.getResources().getDisplayMetrics().densityDpi;
-        this.presentation = new SingleViewPresentation(context, this.virtualDisplay.getDisplay(), platformViewFactory, accessibilityEventsDelegate, i, obj, onFocusChangeListener);
-        this.presentation.show();
+    public void dispose() {
+        PlatformView view = this.presentation.getView();
+        this.presentation.cancel();
+        this.presentation.detachState();
+        view.dispose();
+        this.virtualDisplay.release();
+        this.textureEntry.release();
+    }
+
+    public View getView() {
+        SingleViewPresentation singleViewPresentation = this.presentation;
+        if (singleViewPresentation == null) {
+            return null;
+        }
+        return singleViewPresentation.getView().getView();
+    }
+
+    public void onFlutterViewAttached(@NonNull View view) {
+        SingleViewPresentation singleViewPresentation = this.presentation;
+        if (singleViewPresentation == null || singleViewPresentation.getView() == null) {
+            return;
+        }
+        this.presentation.getView().onFlutterViewAttached(view);
+    }
+
+    public void onFlutterViewDetached() {
+        SingleViewPresentation singleViewPresentation = this.presentation;
+        if (singleViewPresentation == null || singleViewPresentation.getView() == null) {
+            return;
+        }
+        this.presentation.getView().onFlutterViewDetached();
+    }
+
+    public void onInputConnectionLocked() {
+        SingleViewPresentation singleViewPresentation = this.presentation;
+        if (singleViewPresentation == null || singleViewPresentation.getView() == null) {
+            return;
+        }
+        this.presentation.getView().onInputConnectionLocked();
+    }
+
+    public void onInputConnectionUnlocked() {
+        SingleViewPresentation singleViewPresentation = this.presentation;
+        if (singleViewPresentation == null || singleViewPresentation.getView() == null) {
+            return;
+        }
+        this.presentation.getView().onInputConnectionUnlocked();
     }
 
     public void resize(int i, int i2, final Runnable runnable) {
@@ -61,6 +142,7 @@ public class VirtualDisplayController {
                 OneTimeOnDrawListener.schedule(view, new Runnable() { // from class: io.flutter.plugin.platform.VirtualDisplayController.1.1
                     @Override // java.lang.Runnable
                     public void run() {
+                        AnonymousClass1 anonymousClass1 = AnonymousClass1.this;
                         view.postDelayed(runnable, 128L);
                     }
                 });
@@ -75,79 +157,5 @@ public class VirtualDisplayController {
         singleViewPresentation.show();
         this.presentation.cancel();
         this.presentation = singleViewPresentation;
-    }
-
-    public void dispose() {
-        PlatformView view = this.presentation.getView();
-        this.presentation.cancel();
-        this.presentation.detachState();
-        view.dispose();
-        this.virtualDisplay.release();
-        this.textureEntry.release();
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void onFlutterViewAttached(@NonNull View view) {
-        if (this.presentation != null && this.presentation.getView() != null) {
-            this.presentation.getView().onFlutterViewAttached(view);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void onFlutterViewDetached() {
-        if (this.presentation != null && this.presentation.getView() != null) {
-            this.presentation.getView().onFlutterViewDetached();
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void onInputConnectionLocked() {
-        if (this.presentation != null && this.presentation.getView() != null) {
-            this.presentation.getView().onInputConnectionLocked();
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void onInputConnectionUnlocked() {
-        if (this.presentation != null && this.presentation.getView() != null) {
-            this.presentation.getView().onInputConnectionUnlocked();
-        }
-    }
-
-    public View getView() {
-        if (this.presentation == null) {
-            return null;
-        }
-        return this.presentation.getView().getView();
-    }
-
-    @TargetApi(16)
-    /* loaded from: classes14.dex */
-    static class OneTimeOnDrawListener implements ViewTreeObserver.OnDrawListener {
-        Runnable mOnDrawRunnable;
-        final View mView;
-
-        static void schedule(View view, Runnable runnable) {
-            view.getViewTreeObserver().addOnDrawListener(new OneTimeOnDrawListener(view, runnable));
-        }
-
-        OneTimeOnDrawListener(View view, Runnable runnable) {
-            this.mView = view;
-            this.mOnDrawRunnable = runnable;
-        }
-
-        @Override // android.view.ViewTreeObserver.OnDrawListener
-        public void onDraw() {
-            if (this.mOnDrawRunnable != null) {
-                this.mOnDrawRunnable.run();
-                this.mOnDrawRunnable = null;
-                this.mView.post(new Runnable() { // from class: io.flutter.plugin.platform.VirtualDisplayController.OneTimeOnDrawListener.1
-                    @Override // java.lang.Runnable
-                    public void run() {
-                        OneTimeOnDrawListener.this.mView.getViewTreeObserver().removeOnDrawListener(OneTimeOnDrawListener.this);
-                    }
-                });
-            }
-        }
     }
 }

@@ -7,7 +7,6 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.BaseFragmentActivity;
@@ -21,113 +20,142 @@ import com.baidu.tbadk.data.NewsNotifyMessage;
 import com.baidu.tieba.myCollection.baseHistory.PbHistoryCacheModel;
 import com.baidu.tieba.myCollection.history.PbHistoryActivity;
 import com.baidu.tieba.myCollection.message.AlaMGetLiveStatusHttpResponseMessage;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class Static {
-    public static String Tag = "tag";
+
+    /* loaded from: classes4.dex */
+    public static class a implements CustomMessageTask.CustomRunnable<IntentConfig> {
+        @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+        public CustomResponsedMessage<?> run(CustomMessage<IntentConfig> customMessage) {
+            if (customMessage != null && customMessage.getData() != null) {
+                customMessage.getData().startActivity(CollectTabActivity.class);
+            }
+            return null;
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public static class b extends CustomMessageListener {
+        public b(int i) {
+            super(i);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            if (customResponsedMessage instanceof HistoryMessage) {
+                HistoryMessage historyMessage = (HistoryMessage) customResponsedMessage;
+                PbHistoryCacheModel pbHistoryCacheModel = new PbHistoryCacheModel(historyMessage.Activity);
+                d.b.i0.v1.h.a aVar = new d.b.i0.v1.h.a();
+                aVar.J(historyMessage.threadId);
+                aVar.B(historyMessage.forumName);
+                aVar.K(historyMessage.threadName);
+                aVar.H(historyMessage.postID);
+                aVar.C(historyMessage.isHostOnly);
+                aVar.I(historyMessage.isSquence);
+                aVar.L(historyMessage.threadType);
+                aVar.y(historyMessage.cartoonId);
+                aVar.z(historyMessage.chapterId);
+                aVar.D(historyMessage.isShareThread);
+                aVar.G(historyMessage.isManga);
+                aVar.F(historyMessage.liveId);
+                aVar.M(historyMessage.userName);
+                aVar.A(historyMessage.description);
+                pbHistoryCacheModel.w(aVar);
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public static class c implements CustomMessageTask.CustomRunnable<BaseActivity> {
+        @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+        public CustomResponsedMessage<d.b.h0.h.a> run(CustomMessage<BaseActivity> customMessage) {
+            return new CustomResponsedMessage<>(2001279, (customMessage == null || customMessage.getData() == null) ? null : new d.b.i0.v1.g.b(customMessage.getData()));
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public static class d implements CustomMessageTask.CustomRunnable<BaseFragmentActivity> {
+        @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+        public CustomResponsedMessage<d.b.h0.h.a> run(CustomMessage<BaseFragmentActivity> customMessage) {
+            return new CustomResponsedMessage<>(2921318, (customMessage == null || customMessage.getData() == null) ? null : new d.b.i0.v1.g.b(customMessage.getData()));
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public static class e extends CustomMessageListener {
+        public e(int i) {
+            super(i);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            if (customResponsedMessage instanceof BackgroundSwitchMessage) {
+                if (((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue()) {
+                    d.b.i0.v1.j.a.d().c();
+                } else if (TbadkCoreApplication.isLogin()) {
+                    d.b.i0.v1.j.a.d().f();
+                } else {
+                    d.b.i0.v1.j.a.d().c();
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public static class f extends CustomMessageListener {
+        public f(int i) {
+            super(i);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            if (TbadkCoreApplication.isLogin()) {
+                d.b.i0.v1.j.a.d().e();
+            } else {
+                d.b.i0.v1.j.a.d().c();
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public static class g extends CustomMessageListener {
+        public g(int i) {
+            super(i);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            if (customResponsedMessage == null || customResponsedMessage.getCmd() != 2001120 || !(customResponsedMessage instanceof NewsNotifyMessage) || ((NewsNotifyMessage) customResponsedMessage).getMsgBookmark() <= 0) {
+                return;
+            }
+            d.b.i0.v1.b.b().d();
+            d.b.i0.v1.b.b().e(true);
+        }
+    }
 
     static {
         TbadkCoreApplication.getInst().RegisterIntent(PbHistoryActivityConfig.class, PbHistoryActivity.class);
-        CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.START_EDITMARK, new CustomMessageTask.CustomRunnable<IntentConfig>() { // from class: com.baidu.tieba.myCollection.Static.1
-            @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-            public CustomResponsedMessage<?> run(CustomMessage<IntentConfig> customMessage) {
-                if (customMessage != null && customMessage.getData() != null) {
-                    customMessage.getData().startActivity(CollectTabActivity.class);
-                }
-                return null;
-            }
-        });
+        CustomMessageTask customMessageTask = new CustomMessageTask(2015005, new a());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
-        MessageManager.getInstance().registerListener(new CustomMessageListener(CmdConfigCustom.CMD_ADD_HISTORY) { // from class: com.baidu.tieba.myCollection.Static.2
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.adp.framework.listener.MessageListener
-            public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (customResponsedMessage instanceof HistoryMessage) {
-                    HistoryMessage historyMessage = (HistoryMessage) customResponsedMessage;
-                    PbHistoryCacheModel pbHistoryCacheModel = new PbHistoryCacheModel(historyMessage.Activity);
-                    com.baidu.tieba.myCollection.baseHistory.a aVar = new com.baidu.tieba.myCollection.baseHistory.a();
-                    aVar.setThreadId(historyMessage.threadId);
-                    aVar.setForumName(historyMessage.forumName);
-                    aVar.setThreadName(historyMessage.threadName);
-                    aVar.OU(historyMessage.postID);
-                    aVar.ul(historyMessage.isHostOnly);
-                    aVar.um(historyMessage.isSquence);
-                    aVar.setThreadType(historyMessage.threadType);
-                    aVar.setCartoonId(historyMessage.cartoonId);
-                    aVar.setChapterId(historyMessage.chapterId);
-                    aVar.setIsShareThread(historyMessage.isShareThread);
-                    aVar.setManga(historyMessage.isManga);
-                    aVar.setLiveId(historyMessage.liveId);
-                    aVar.setUserName(historyMessage.userName);
-                    aVar.setDescription(historyMessage.description);
-                    pbHistoryCacheModel.a((PbHistoryCacheModel) aVar);
-                }
-            }
-        });
-        CustomMessageTask customMessageTask2 = new CustomMessageTask(CmdConfigCustom.CMD_MARK_MANAGER, new CustomMessageTask.CustomRunnable<BaseActivity>() { // from class: com.baidu.tieba.myCollection.Static.3
-            @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-            public CustomResponsedMessage<com.baidu.tbadk.baseEditMark.a> run(CustomMessage<BaseActivity> customMessage) {
-                com.baidu.tieba.myCollection.baseEditMark.b bVar = null;
-                if (customMessage != null && customMessage.getData() != null) {
-                    bVar = new com.baidu.tieba.myCollection.baseEditMark.b(customMessage.getData());
-                }
-                return new CustomResponsedMessage<>(CmdConfigCustom.CMD_MARK_MANAGER, bVar);
-            }
-        });
+        MessageManager.getInstance().registerListener(new b(2001278));
+        CustomMessageTask customMessageTask2 = new CustomMessageTask(2001279, new c());
         customMessageTask2.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask2);
-        CustomMessageTask customMessageTask3 = new CustomMessageTask(CmdConfigCustom.CMD_MARK_MANAGER_1, new CustomMessageTask.CustomRunnable<BaseFragmentActivity>() { // from class: com.baidu.tieba.myCollection.Static.4
-            @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-            public CustomResponsedMessage<com.baidu.tbadk.baseEditMark.a> run(CustomMessage<BaseFragmentActivity> customMessage) {
-                com.baidu.tieba.myCollection.baseEditMark.b bVar = null;
-                if (customMessage != null && customMessage.getData() != null) {
-                    bVar = new com.baidu.tieba.myCollection.baseEditMark.b(customMessage.getData());
-                }
-                return new CustomResponsedMessage<>(CmdConfigCustom.CMD_MARK_MANAGER_1, bVar);
-            }
-        });
+        CustomMessageTask customMessageTask3 = new CustomMessageTask(2921318, new d());
         customMessageTask3.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask3);
         Context context = TbadkCoreApplication.getInst().getContext();
         if (context != null && TbadkCoreApplication.getInst().isMainProcess(false)) {
             context.registerReceiver(new CollectUpdateReceiver(), new IntentFilter(CollectUpdateReceiver.ACTION_NAME));
         }
-        MessageManager.getInstance().registerListener(new CustomMessageListener(CmdConfigCustom.CMD_BACKGROUND_SWTICH) { // from class: com.baidu.tieba.myCollection.Static.5
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.adp.framework.listener.MessageListener
-            public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (customResponsedMessage instanceof BackgroundSwitchMessage) {
-                    if (((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue()) {
-                        com.baidu.tieba.myCollection.a.a.dig().destroy();
-                    } else if (TbadkCoreApplication.isLogin()) {
-                        com.baidu.tieba.myCollection.a.a.dig().start();
-                    } else {
-                        com.baidu.tieba.myCollection.a.a.dig().destroy();
-                    }
-                }
-            }
-        });
-        MessageManager.getInstance().registerListener(new CustomMessageListener(CmdConfigCustom.METHOD_ACCOUNT_CHANGE) { // from class: com.baidu.tieba.myCollection.Static.6
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.adp.framework.listener.MessageListener
-            public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (TbadkCoreApplication.isLogin()) {
-                    com.baidu.tieba.myCollection.a.a.dig().restart();
-                } else {
-                    com.baidu.tieba.myCollection.a.a.dig().destroy();
-                }
-            }
-        });
-        MessageManager.getInstance().registerListener(new CustomMessageListener(CmdConfigCustom.CMD_MESSAGE_NOTIFY_LOCAL) { // from class: com.baidu.tieba.myCollection.Static.7
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.adp.framework.listener.MessageListener
-            public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001120 && (customResponsedMessage instanceof NewsNotifyMessage) && ((NewsNotifyMessage) customResponsedMessage).getMsgBookmark() > 0) {
-                    b.dhF().dhI();
-                    b.dhF().uf(true);
-                }
-            }
-        });
-        com.baidu.tieba.tbadkCore.a.a.c(CmdConfigHttp.CMD_ALA_LIVE_ROOM_CLOSED, TbConfig.URL_ALA_LIVE_ROOM_CLOSED, AlaMGetLiveStatusHttpResponseMessage.class, false, true, true, true);
+        MessageManager.getInstance().registerListener(new e(2001011));
+        MessageManager.getInstance().registerListener(new f(2005016));
+        MessageManager.getInstance().registerListener(new g(2001120));
+        d.b.i0.c3.d0.a.e(CmdConfigHttp.CMD_ALA_LIVE_ROOM_CLOSED, TbConfig.URL_ALA_LIVE_ROOM_CLOSED, AlaMGetLiveStatusHttpResponseMessage.class, false, true, true, true);
     }
 }

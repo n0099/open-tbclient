@@ -3,32 +3,44 @@ package com.ksad.lottie.model.a;
 import android.graphics.PointF;
 import androidx.annotation.Nullable;
 import com.ksad.lottie.a.b.o;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class l implements com.ksad.lottie.model.content.b {
 
     /* renamed from: a  reason: collision with root package name */
-    private final e f5376a;
-    private final m<PointF, PointF> b;
-    private final g c;
-    private final b d;
-    private final d e;
+    public final e f31458a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public final m<PointF, PointF> f31459b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public final g f31460c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public final b f31461d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public final d f31462e;
     @Nullable
-    private final b f;
+
+    /* renamed from: f  reason: collision with root package name */
+    public final b f31463f;
     @Nullable
-    private final b g;
+
+    /* renamed from: g  reason: collision with root package name */
+    public final b f31464g;
 
     public l() {
         this(new e(), new e(), new g(), new b(), new d(), new b(), new b());
     }
 
     public l(e eVar, m<PointF, PointF> mVar, g gVar, b bVar, d dVar, @Nullable b bVar2, @Nullable b bVar3) {
-        this.f5376a = eVar;
-        this.b = mVar;
-        this.c = gVar;
-        this.d = bVar;
-        this.e = dVar;
-        this.f = bVar2;
-        this.g = bVar3;
+        this.f31458a = eVar;
+        this.f31459b = mVar;
+        this.f31460c = gVar;
+        this.f31461d = bVar;
+        this.f31462e = dVar;
+        this.f31463f = bVar2;
+        this.f31464g = bVar3;
     }
 
     @Override // com.ksad.lottie.model.content.b
@@ -38,33 +50,33 @@ public class l implements com.ksad.lottie.model.content.b {
     }
 
     public e a() {
-        return this.f5376a;
+        return this.f31458a;
     }
 
     public m<PointF, PointF> b() {
-        return this.b;
+        return this.f31459b;
     }
 
     public g c() {
-        return this.c;
+        return this.f31460c;
     }
 
     public b d() {
-        return this.d;
+        return this.f31461d;
     }
 
     public d e() {
-        return this.e;
+        return this.f31462e;
     }
 
     @Nullable
     public b f() {
-        return this.f;
+        return this.f31463f;
     }
 
     @Nullable
     public b g() {
-        return this.g;
+        return this.f31464g;
     }
 
     public o h() {

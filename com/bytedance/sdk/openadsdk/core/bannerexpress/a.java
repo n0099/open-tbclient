@@ -12,75 +12,146 @@ import com.bytedance.sdk.openadsdk.AdSlot;
 import com.bytedance.sdk.openadsdk.TTNativeExpressAd;
 import com.bytedance.sdk.openadsdk.core.d.l;
 import com.bytedance.sdk.openadsdk.core.nativeexpress.NativeExpressView;
-import com.bytedance.sdk.openadsdk.utils.ak;
+import com.bytedance.sdk.openadsdk.utils.al;
 /* loaded from: classes6.dex */
-class a extends FrameLayout {
+public class a extends FrameLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    protected final Context f4366a;
-    protected NativeExpressView b;
-    protected NativeExpressView c;
-    protected l d;
-    protected AdSlot e;
-    protected TTNativeExpressAd.ExpressAdInteractionListener f;
-    protected TTNativeExpressAd.ExpressVideoAdListener g;
-    protected int h;
-    protected boolean i;
-    protected String j;
+    public final Context f28053a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public NativeExpressView f28054b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public NativeExpressView f28055c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public l f28056d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public AdSlot f28057e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public TTNativeExpressAd.ExpressAdInteractionListener f28058f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public TTNativeExpressAd.ExpressVideoAdListener f28059g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public int f28060h;
+    public boolean i;
+    public String j;
 
     public a(@NonNull Context context, l lVar, AdSlot adSlot) {
         super(context);
         this.j = "banner_ad";
-        this.f4366a = context;
-        this.d = lVar;
-        this.e = adSlot;
+        this.f28053a = context;
+        this.f28056d = lVar;
+        this.f28057e = adSlot;
         a();
     }
 
-    protected void a() {
-        this.b = new NativeExpressView(this.f4366a, this.d, this.e, this.j);
-        addView(this.b, new ViewGroup.LayoutParams(-1, -1));
-    }
-
-    public void a(l lVar, AdSlot adSlot) {
-        this.c = new NativeExpressView(this.f4366a, lVar, adSlot, this.j);
-        this.c.setExpressInteractionListener(new TTNativeExpressAd.ExpressAdInteractionListener() { // from class: com.bytedance.sdk.openadsdk.core.bannerexpress.a.1
-            @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
-            public void onAdClicked(View view, int i) {
-                if (a.this.f != null) {
-                    a.this.f.onAdClicked(a.this, i);
-                }
+    private ObjectAnimator b(NativeExpressView nativeExpressView) {
+        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(nativeExpressView, "translationX", getWidth(), 0.0f);
+        ofFloat.addListener(new Animator.AnimatorListener() { // from class: com.bytedance.sdk.openadsdk.core.bannerexpress.a.3
+            @Override // android.animation.Animator.AnimatorListener
+            public void onAnimationCancel(Animator animator) {
             }
 
-            @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
-            public void onAdShow(View view, int i) {
+            @Override // android.animation.Animator.AnimatorListener
+            public void onAnimationEnd(Animator animator) {
+                a aVar = a.this;
+                aVar.i = false;
+                aVar.g();
             }
 
-            @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
-            public void onRenderFail(View view, String str, int i) {
+            @Override // android.animation.Animator.AnimatorListener
+            public void onAnimationRepeat(Animator animator) {
             }
 
-            @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
-            public void onRenderSuccess(View view, float f, float f2) {
-                a.this.a(f, f2);
-                a.this.f();
+            @Override // android.animation.Animator.AnimatorListener
+            public void onAnimationStart(Animator animator) {
             }
         });
-        ak.a((View) this.c, 8);
-        addView(this.c, new ViewGroup.LayoutParams(-1, -1));
+        return ofFloat;
     }
 
-    public void setVideoAdListener(TTNativeExpressAd.ExpressVideoAdListener expressVideoAdListener) {
-        this.g = expressVideoAdListener;
+    /* JADX INFO: Access modifiers changed from: private */
+    public void g() {
+        NativeExpressView nativeExpressView = this.f28054b;
+        this.f28054b = this.f28055c;
+        this.f28055c = nativeExpressView;
+        if (nativeExpressView != null) {
+            removeView(nativeExpressView);
+            this.f28055c.k();
+            this.f28055c = null;
+        }
+    }
+
+    public void c() {
+        NativeExpressView nativeExpressView = this.f28055c;
+        if (nativeExpressView != null) {
+            nativeExpressView.h();
+        }
+    }
+
+    public void d() {
+        NativeExpressView nativeExpressView = this.f28054b;
+        if (nativeExpressView != null) {
+            removeView(nativeExpressView);
+            this.f28054b.k();
+            this.f28054b = null;
+        }
+        NativeExpressView nativeExpressView2 = this.f28055c;
+        if (nativeExpressView2 != null) {
+            removeView(nativeExpressView2);
+            this.f28055c.k();
+            this.f28055c = null;
+        }
+    }
+
+    public void e() {
+        NativeExpressView nativeExpressView = this.f28054b;
+        if (nativeExpressView != null) {
+            nativeExpressView.h();
+        }
+    }
+
+    public void f() {
+        try {
+            if (this.i || this.f28055c == null) {
+                return;
+            }
+            AnimatorSet animatorSet = new AnimatorSet();
+            animatorSet.play(a(this.f28054b)).with(b(this.f28055c));
+            animatorSet.setDuration(this.f28060h).start();
+            al.a((View) this.f28055c, 0);
+            this.i = true;
+        } catch (Throwable unused) {
+        }
+    }
+
+    public NativeExpressView getCurView() {
+        return this.f28054b;
+    }
+
+    public NativeExpressView getNextView() {
+        return this.f28055c;
+    }
+
+    public void setDuration(int i) {
+        this.f28060h = i;
     }
 
     public void setExpressInteractionListener(TTNativeExpressAd.ExpressAdInteractionListener expressAdInteractionListener) {
-        this.f = expressAdInteractionListener;
-        this.b.setExpressInteractionListener(new TTNativeExpressAd.ExpressAdInteractionListener() { // from class: com.bytedance.sdk.openadsdk.core.bannerexpress.a.2
+        this.f28058f = expressAdInteractionListener;
+        this.f28054b.setExpressInteractionListener(new TTNativeExpressAd.ExpressAdInteractionListener() { // from class: com.bytedance.sdk.openadsdk.core.bannerexpress.a.2
             @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
             public void onAdClicked(View view, int i) {
-                if (a.this.f != null) {
-                    a.this.f.onAdClicked(a.this, i);
+                a aVar = a.this;
+                TTNativeExpressAd.ExpressAdInteractionListener expressAdInteractionListener2 = aVar.f28058f;
+                if (expressAdInteractionListener2 != null) {
+                    expressAdInteractionListener2.onAdClicked(aVar, i);
                 }
             }
 
@@ -90,27 +161,75 @@ class a extends FrameLayout {
 
             @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
             public void onRenderFail(View view, String str, int i) {
-                if (a.this.f != null) {
-                    a.this.f.onRenderFail(a.this, str, i);
+                a aVar = a.this;
+                TTNativeExpressAd.ExpressAdInteractionListener expressAdInteractionListener2 = aVar.f28058f;
+                if (expressAdInteractionListener2 != null) {
+                    expressAdInteractionListener2.onRenderFail(aVar, str, i);
                 }
             }
 
             @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
-            public void onRenderSuccess(View view, float f, float f2) {
+            public void onRenderSuccess(View view, float f2, float f3) {
                 if (!(view instanceof NativeExpressView) || !((NativeExpressView) view).m()) {
-                    a.this.a(f, f2);
+                    a.this.a(f2, f3);
                 }
-                if (a.this.f != null) {
-                    a.this.f.onRenderSuccess(a.this, f, f2);
+                a aVar = a.this;
+                TTNativeExpressAd.ExpressAdInteractionListener expressAdInteractionListener2 = aVar.f28058f;
+                if (expressAdInteractionListener2 != null) {
+                    expressAdInteractionListener2.onRenderSuccess(aVar, f2, f3);
                 }
             }
         });
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void a(float f, float f2) {
-        int a2 = (int) ak.a(this.f4366a, f);
-        int a3 = (int) ak.a(this.f4366a, f2);
+    public void setVideoAdListener(TTNativeExpressAd.ExpressVideoAdListener expressVideoAdListener) {
+        this.f28059g = expressVideoAdListener;
+    }
+
+    public void a() {
+        NativeExpressView nativeExpressView = new NativeExpressView(this.f28053a, this.f28056d, this.f28057e, this.j);
+        this.f28054b = nativeExpressView;
+        addView(nativeExpressView, new ViewGroup.LayoutParams(-1, -1));
+    }
+
+    public void a(l lVar, AdSlot adSlot) {
+        NativeExpressView nativeExpressView = new NativeExpressView(this.f28053a, lVar, adSlot, this.j);
+        this.f28055c = nativeExpressView;
+        nativeExpressView.setExpressInteractionListener(new TTNativeExpressAd.ExpressAdInteractionListener() { // from class: com.bytedance.sdk.openadsdk.core.bannerexpress.a.1
+            @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
+            public void onAdClicked(View view, int i) {
+                a aVar = a.this;
+                TTNativeExpressAd.ExpressAdInteractionListener expressAdInteractionListener = aVar.f28058f;
+                if (expressAdInteractionListener != null) {
+                    expressAdInteractionListener.onAdClicked(aVar, i);
+                }
+            }
+
+            @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
+            public void onAdShow(View view, int i) {
+            }
+
+            @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
+            public void onRenderFail(View view, String str, int i) {
+            }
+
+            @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
+            public void onRenderSuccess(View view, float f2, float f3) {
+                a.this.a(f2, f3);
+                a.this.f();
+            }
+        });
+        al.a((View) this.f28055c, 8);
+        addView(this.f28055c, new ViewGroup.LayoutParams(-1, -1));
+    }
+
+    public boolean b() {
+        return this.f28055c != null;
+    }
+
+    public void a(float f2, float f3) {
+        int a2 = (int) al.a(this.f28053a, f2);
+        int a3 = (int) al.a(this.f28053a, f3);
         ViewGroup.LayoutParams layoutParams = getLayoutParams();
         if (layoutParams == null) {
             layoutParams = new ViewGroup.LayoutParams(a2, a3);
@@ -120,98 +239,7 @@ class a extends FrameLayout {
         setLayoutParams(layoutParams);
     }
 
-    public void e() {
-        if (this.b != null) {
-            this.b.h();
-        }
-    }
-
-    public void d() {
-        if (this.b != null) {
-            removeView(this.b);
-            this.b.k();
-            this.b = null;
-        }
-        if (this.c != null) {
-            removeView(this.c);
-            this.c.k();
-            this.c = null;
-        }
-    }
-
-    public NativeExpressView getCurView() {
-        return this.b;
-    }
-
-    public NativeExpressView getNextView() {
-        return this.c;
-    }
-
-    public void setDuration(int i) {
-        this.h = i;
-    }
-
     private ObjectAnimator a(NativeExpressView nativeExpressView) {
         return ObjectAnimator.ofFloat(nativeExpressView, "translationX", 0.0f, -getWidth());
-    }
-
-    private ObjectAnimator b(NativeExpressView nativeExpressView) {
-        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(nativeExpressView, "translationX", getWidth(), 0.0f);
-        ofFloat.addListener(new Animator.AnimatorListener() { // from class: com.bytedance.sdk.openadsdk.core.bannerexpress.a.3
-            @Override // android.animation.Animator.AnimatorListener
-            public void onAnimationStart(Animator animator) {
-            }
-
-            @Override // android.animation.Animator.AnimatorListener
-            public void onAnimationEnd(Animator animator) {
-                a.this.i = false;
-                a.this.g();
-            }
-
-            @Override // android.animation.Animator.AnimatorListener
-            public void onAnimationCancel(Animator animator) {
-            }
-
-            @Override // android.animation.Animator.AnimatorListener
-            public void onAnimationRepeat(Animator animator) {
-            }
-        });
-        return ofFloat;
-    }
-
-    public void c() {
-        if (this.c != null) {
-            this.c.h();
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void f() {
-        try {
-            if (!this.i && this.c != null) {
-                AnimatorSet animatorSet = new AnimatorSet();
-                animatorSet.play(a(this.b)).with(b(this.c));
-                animatorSet.setDuration(this.h).start();
-                ak.a((View) this.c, 0);
-                this.i = true;
-            }
-        } catch (Throwable th) {
-        }
-    }
-
-    public boolean b() {
-        return this.c != null;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void g() {
-        NativeExpressView nativeExpressView = this.b;
-        this.b = this.c;
-        this.c = nativeExpressView;
-        if (this.c != null) {
-            removeView(this.c);
-            this.c.k();
-            this.c = null;
-        }
     }
 }

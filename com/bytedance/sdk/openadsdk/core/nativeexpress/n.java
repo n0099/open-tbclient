@@ -11,14 +11,14 @@ public class n extends o {
 
     @Override // com.bytedance.sdk.openadsdk.core.nativeexpress.o, com.bytedance.sdk.openadsdk.core.nativeexpress.k
     public void a(Context context, com.bytedance.sdk.openadsdk.core.d.l lVar, AdSlot adSlot) {
-        this.d = "feed_video_middle_page";
-        if (lVar != null && lVar.R() != null) {
-            this.f4495a = new NativeExpressVideoView(context, lVar, adSlot, this.d);
+        this.f28543d = "feed_video_middle_page";
+        if (lVar != null && lVar.X() != null) {
+            this.f28540a = new NativeExpressVideoView(context, lVar, adSlot, this.f28543d);
         } else {
-            this.f4495a = new NativeExpressView(context, lVar, adSlot, this.d);
+            this.f28540a = new NativeExpressView(context, lVar, adSlot, this.f28543d);
         }
-        a(this.f4495a, this.c);
-        this.f4495a.setBackupListener(new c() { // from class: com.bytedance.sdk.openadsdk.core.nativeexpress.n.1
+        a(this.f28540a, this.f28542c);
+        this.f28540a.setBackupListener(new c() { // from class: com.bytedance.sdk.openadsdk.core.nativeexpress.n.1
             @Override // com.bytedance.sdk.openadsdk.core.nativeexpress.c
             public boolean a(NativeExpressView nativeExpressView, int i) {
                 return false;
@@ -26,15 +26,17 @@ public class n extends o {
         });
     }
 
-    @Override // com.bytedance.sdk.openadsdk.core.nativeexpress.l, com.bytedance.sdk.openadsdk.TTNativeExpressAd
-    public void setCanInterruptVideoPlay(boolean z) {
-        if (this.f4495a != null && (this.f4495a instanceof NativeExpressVideoView)) {
-            ((NativeExpressVideoView) this.f4495a).setCanInterruptVideoPlay(z);
-        }
-    }
-
     @Override // com.bytedance.sdk.openadsdk.core.nativeexpress.k, com.bytedance.sdk.openadsdk.core.nativeexpress.l, com.bytedance.sdk.openadsdk.TTNativeExpressAd
     public View getExpressAdView() {
-        return this.f4495a;
+        return this.f28540a;
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.core.nativeexpress.l, com.bytedance.sdk.openadsdk.TTNativeExpressAd
+    public void setCanInterruptVideoPlay(boolean z) {
+        NativeExpressView nativeExpressView = this.f28540a;
+        if (nativeExpressView == null || !(nativeExpressView instanceof NativeExpressVideoView)) {
+            return;
+        }
+        ((NativeExpressVideoView) nativeExpressView).setCanInterruptVideoPlay(z);
     }
 }

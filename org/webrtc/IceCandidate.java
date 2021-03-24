@@ -1,5 +1,5 @@
 package org.webrtc;
-/* loaded from: classes9.dex */
+/* loaded from: classes7.dex */
 public class IceCandidate {
     public final String sdp;
     public final int sdpMLineIndex;
@@ -14,7 +14,7 @@ public class IceCandidate {
     }
 
     @CalledByNative
-    IceCandidate(String str, int i, String str2, String str3) {
+    public IceCandidate(String str, int i, String str2, String str3) {
         this.sdpMid = str;
         this.sdpMLineIndex = i;
         this.sdp = str2;
@@ -22,12 +22,12 @@ public class IceCandidate {
     }
 
     @CalledByNative
-    String getSdp() {
+    public String getSdp() {
         return this.sdp;
     }
 
     @CalledByNative
-    String getSdpMid() {
+    public String getSdpMid() {
         return this.sdpMid;
     }
 

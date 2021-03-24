@@ -7,29 +7,22 @@ import com.kwai.filedownloader.c.a;
 import com.kwai.filedownloader.c.b;
 import com.kwai.filedownloader.message.MessageSnapshot;
 import com.kwai.filedownloader.services.FileDownloadServiceProxy;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class o extends com.kwai.filedownloader.services.a<a, com.kwai.filedownloader.c.b> {
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    /* loaded from: classes3.dex */
-    public static class a extends a.AbstractBinderC1175a {
-        protected a() {
-        }
-
+    /* loaded from: classes6.dex */
+    public static class a extends a.AbstractBinderC0442a {
         @Override // com.kwai.filedownloader.c.a
         public void a(MessageSnapshot messageSnapshot) {
             com.kwai.filedownloader.message.e.a().a(messageSnapshot);
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public o() {
         super(KsAdSDKImpl.getProxyRealClass(FileDownloadServiceProxy.SeparateProcessServiceProxy.class));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwai.filedownloader.services.a
     /* renamed from: a */
     public com.kwai.filedownloader.c.b b(IBinder iBinder) {
@@ -37,7 +30,6 @@ public class o extends com.kwai.filedownloader.services.a<a, com.kwai.filedownlo
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwai.filedownloader.services.a
     /* renamed from: a */
     public a b() {
@@ -45,7 +37,6 @@ public class o extends com.kwai.filedownloader.services.a<a, com.kwai.filedownlo
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwai.filedownloader.services.a
     /* renamed from: a  reason: avoid collision after fix types in other method */
     public void b(com.kwai.filedownloader.c.b bVar, a aVar) {
@@ -57,8 +48,8 @@ public class o extends com.kwai.filedownloader.services.a<a, com.kwai.filedownlo
         if (c()) {
             try {
                 return d().a(i);
-            } catch (RemoteException e) {
-                e.printStackTrace();
+            } catch (RemoteException e2) {
+                e2.printStackTrace();
                 return false;
             }
         }
@@ -71,8 +62,8 @@ public class o extends com.kwai.filedownloader.services.a<a, com.kwai.filedownlo
             try {
                 d().a(str, str2, z, i, i2, i3, z2, bVar, z3);
                 return true;
-            } catch (RemoteException e) {
-                e.printStackTrace();
+            } catch (RemoteException e2) {
+                e2.printStackTrace();
                 return false;
             }
         }
@@ -84,8 +75,8 @@ public class o extends com.kwai.filedownloader.services.a<a, com.kwai.filedownlo
         if (c()) {
             try {
                 return d().e(i);
-            } catch (RemoteException e) {
-                e.printStackTrace();
+            } catch (RemoteException e2) {
+                e2.printStackTrace();
                 return (byte) 0;
             }
         }
@@ -93,7 +84,6 @@ public class o extends com.kwai.filedownloader.services.a<a, com.kwai.filedownlo
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwai.filedownloader.services.a
     /* renamed from: b  reason: avoid collision after fix types in other method */
     public void a(com.kwai.filedownloader.c.b bVar, a aVar) {
@@ -105,8 +95,8 @@ public class o extends com.kwai.filedownloader.services.a<a, com.kwai.filedownlo
         if (c()) {
             try {
                 return d().f(i);
-            } catch (RemoteException e) {
-                e.printStackTrace();
+            } catch (RemoteException e2) {
+                e2.printStackTrace();
                 return false;
             }
         }

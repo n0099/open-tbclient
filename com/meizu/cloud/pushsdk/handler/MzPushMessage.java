@@ -1,18 +1,19 @@
 package com.meizu.cloud.pushsdk.handler;
 
 import android.text.TextUtils;
+import com.baidu.searchbox.aperf.bosuploader.ContentUtil;
 import com.meizu.cloud.pushsdk.c.f.e;
 import java.io.Serializable;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class MzPushMessage implements Serializable {
-    private static final String TAG = "MzPushMessage";
-    private String content;
-    private int notifyId;
-    private int pushType;
-    private String selfDefineContentString;
-    private String taskId;
-    private String title;
+    public static final String TAG = "MzPushMessage";
+    public String content;
+    public int notifyId;
+    public int pushType;
+    public String selfDefineContentString;
+    public String taskId;
+    public String title;
 
     public static MzPushMessage fromMessageV3(MessageV3 messageV3) {
         MzPushMessage mzPushMessage = new MzPushMessage();
@@ -25,16 +26,18 @@ public class MzPushMessage implements Serializable {
         return mzPushMessage;
     }
 
-    private static String selfDefineContentString(String str, Map<String, String> map) {
+    public static String selfDefineContentString(String str, Map<String, String> map) {
         if (TextUtils.isEmpty(str)) {
             if (map != null) {
-                String str2 = map.get("sk");
-                str = TextUtils.isEmpty(str2) ? e.a((Map) map).toString() : str2;
+                str = map.get(ContentUtil.RESULT_KEY_SK);
+                if (TextUtils.isEmpty(str)) {
+                    str = e.a((Map) map).toString();
+                }
             } else {
                 str = null;
             }
         }
-        com.meizu.cloud.a.a.e(TAG, "self json " + str);
+        d.j.a.a.a.b(TAG, "self json " + str);
         return str;
     }
 

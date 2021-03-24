@@ -4,22 +4,17 @@ import android.content.Context;
 import android.text.TextUtils;
 import com.sina.weibo.sdk.utils.LogUtil;
 import com.weibo.ssosdk.WeiboSsoSdk;
-import com.weibo.ssosdk.a;
-import com.weibo.ssosdk.b;
-/* loaded from: classes4.dex */
+import d.p.a.a;
+import d.p.a.b;
+import d.p.a.c;
+/* loaded from: classes6.dex */
 public final class WeiboSsoManager {
-    private static final String TAG = "WeiboSsoManager";
-    private String aid;
+    public static final String TAG = "WeiboSsoManager";
+    public String aid;
 
-    /* loaded from: classes4.dex */
-    private static class Instance {
-        private static final WeiboSsoManager instance = new WeiboSsoManager();
-
-        private Instance() {
-        }
-    }
-
-    private WeiboSsoManager() {
+    /* loaded from: classes6.dex */
+    public static class Instance {
+        public static final WeiboSsoManager instance = new WeiboSsoManager();
     }
 
     public static synchronized WeiboSsoManager getInstance() {
@@ -30,26 +25,21 @@ public final class WeiboSsoManager {
         return weiboSsoManager;
     }
 
-    public void init(Context context, String str) {
-        LogUtil.d(TAG, "init config");
-        b bVar = new b();
-        bVar.setContext(context);
-        bVar.setAppKey(str);
-        bVar.setFrom("1478195010");
-        bVar.abU("1000_0001");
-        WeiboSsoSdk.a(bVar);
-        initAid();
-    }
-
     private void initAid() {
         try {
-            this.aid = WeiboSsoSdk.eIT().uE();
-            if (TextUtils.isEmpty(this.aid)) {
-                this.aid = WeiboSsoSdk.eIT().eIU().uE();
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-            LogUtil.e(TAG, e.getMessage());
+            WeiboSsoSdk.i().m(new b() { // from class: com.sina.weibo.sdk.sso.WeiboSsoManager.1
+                @Override // d.p.a.b
+                public void handler(WeiboSsoSdk.d dVar) {
+                    if (dVar != null) {
+                        WeiboSsoManager.this.aid = dVar.a();
+                        return;
+                    }
+                    LogUtil.d(WeiboSsoManager.TAG, "VisitorLoginInfo is null.");
+                }
+            });
+        } catch (Exception e2) {
+            e2.printStackTrace();
+            LogUtil.e(TAG, e2.getMessage());
         }
     }
 
@@ -62,6 +52,20 @@ public final class WeiboSsoManager {
     }
 
     public String getMfp(Context context) {
-        return a.getMfp(context);
+        return a.n(context);
+    }
+
+    public void init(Context context, String str) {
+        LogUtil.d(TAG, "init config");
+        c cVar = new c();
+        cVar.j(context);
+        cVar.i(str);
+        cVar.k("1478195010");
+        cVar.l("1000_0001");
+        WeiboSsoSdk.j(cVar);
+        initAid();
+    }
+
+    public WeiboSsoManager() {
     }
 }

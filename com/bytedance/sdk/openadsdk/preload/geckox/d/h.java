@@ -7,24 +7,25 @@ import com.bytedance.sdk.openadsdk.preload.geckox.model.UpdatePackage;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class h extends k<UpdatePackage, Pair<Uri, UpdatePackage>> {
-    private int d = 0;
+
+    /* renamed from: d  reason: collision with root package name */
+    public int f30272d = 0;
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.bytedance.sdk.openadsdk.preload.b.k
     /* renamed from: a */
     public Pair<Uri, UpdatePackage> b() {
-        UpdatePackage g = g();
-        List<String> urlList = g.getPatch().getUrlList();
-        int i = this.d;
-        this.d = i + 1;
-        return new Pair<>(Uri.parse(urlList.get(i)), g);
+        UpdatePackage g2 = g();
+        List<String> urlList = g2.getPatch().getUrlList();
+        int i = this.f30272d;
+        this.f30272d = i + 1;
+        return new Pair<>(Uri.parse(urlList.get(i)), g2);
     }
 
     @Override // com.bytedance.sdk.openadsdk.preload.b.k
-    protected boolean a(Throwable th) {
+    public boolean a(Throwable th) {
         com.bytedance.sdk.openadsdk.preload.geckox.h.b.a("gecko-debug-tag", "patch update failed", th);
-        if (this.d >= g().getPatch().getUrlList().size()) {
+        if (this.f30272d >= g().getPatch().getUrlList().size()) {
             return false;
         }
         return (th instanceof com.bytedance.sdk.openadsdk.preload.geckox.b.a) || (th instanceof com.bytedance.sdk.openadsdk.preload.geckox.b.b);

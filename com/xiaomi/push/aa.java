@@ -3,38 +3,38 @@ package com.xiaomi.push;
 import android.os.Environment;
 import android.os.StatFs;
 import android.text.TextUtils;
+import android.util.Log;
 import com.baidu.down.statistic.ConfigSpeedStat;
 import java.io.File;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class aa {
     public static long a() {
         File externalStorageDirectory;
-        if (b() || (externalStorageDirectory = Environment.getExternalStorageDirectory()) == null || TextUtils.isEmpty(externalStorageDirectory.getPath())) {
-            return 0L;
+        if (!b() && (externalStorageDirectory = Environment.getExternalStorageDirectory()) != null && !TextUtils.isEmpty(externalStorageDirectory.getPath())) {
+            try {
+                StatFs statFs = new StatFs(externalStorageDirectory.getPath());
+                return statFs.getBlockSize() * (statFs.getAvailableBlocks() - 4);
+            } catch (Throwable unused) {
+            }
         }
-        try {
-            StatFs statFs = new StatFs(externalStorageDirectory.getPath());
-            return (statFs.getAvailableBlocks() - 4) * statFs.getBlockSize();
-        } catch (Throwable th) {
-            return 0L;
-        }
+        return 0L;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m128a() {
+    public static boolean m119a() {
         try {
             return Environment.getExternalStorageState().equals("removed");
-        } catch (Exception e) {
-            com.xiaomi.channel.commonutils.logger.b.a(e);
+        } catch (Exception e2) {
+            com.xiaomi.channel.commonutils.logger.b.a(e2);
             return true;
         }
     }
 
     public static boolean b() {
         try {
-            return !Environment.getExternalStorageState().equals("mounted");
-        } catch (Exception e) {
-            com.xiaomi.channel.commonutils.logger.b.a(e);
+            return true ^ Environment.getExternalStorageState().equals("mounted");
+        } catch (Exception e2) {
+            Log.e("XMPush-", "check SDCard is busy: " + e2);
             return true;
         }
     }
@@ -44,6 +44,6 @@ public class aa {
     }
 
     public static boolean d() {
-        return (b() || c() || m128a()) ? false : true;
+        return (b() || c() || m119a()) ? false : true;
     }
 }

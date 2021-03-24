@@ -11,43 +11,45 @@ import android.util.Log;
 import androidx.annotation.NonNull;
 import com.bumptech.glide.manager.ConnectivityMonitor;
 import com.bumptech.glide.util.Preconditions;
-/* loaded from: classes14.dex */
-final class DefaultConnectivityMonitor implements ConnectivityMonitor {
-    private static final String TAG = "ConnectivityMonitor";
-    private final BroadcastReceiver connectivityReceiver = new BroadcastReceiver() { // from class: com.bumptech.glide.manager.DefaultConnectivityMonitor.1
+/* loaded from: classes5.dex */
+public final class DefaultConnectivityMonitor implements ConnectivityMonitor {
+    public static final String TAG = "ConnectivityMonitor";
+    public final BroadcastReceiver connectivityReceiver = new BroadcastReceiver() { // from class: com.bumptech.glide.manager.DefaultConnectivityMonitor.1
         @Override // android.content.BroadcastReceiver
         public void onReceive(@NonNull Context context, Intent intent) {
-            boolean z = DefaultConnectivityMonitor.this.isConnected;
-            DefaultConnectivityMonitor.this.isConnected = DefaultConnectivityMonitor.this.isConnected(context);
+            DefaultConnectivityMonitor defaultConnectivityMonitor = DefaultConnectivityMonitor.this;
+            boolean z = defaultConnectivityMonitor.isConnected;
+            defaultConnectivityMonitor.isConnected = defaultConnectivityMonitor.isConnected(context);
             if (z != DefaultConnectivityMonitor.this.isConnected) {
-                if (Log.isLoggable(DefaultConnectivityMonitor.TAG, 3)) {
-                    Log.d(DefaultConnectivityMonitor.TAG, "connectivity changed, isConnected: " + DefaultConnectivityMonitor.this.isConnected);
+                if (Log.isLoggable("ConnectivityMonitor", 3)) {
+                    Log.d("ConnectivityMonitor", "connectivity changed, isConnected: " + DefaultConnectivityMonitor.this.isConnected);
                 }
-                DefaultConnectivityMonitor.this.listener.onConnectivityChanged(DefaultConnectivityMonitor.this.isConnected);
+                DefaultConnectivityMonitor defaultConnectivityMonitor2 = DefaultConnectivityMonitor.this;
+                defaultConnectivityMonitor2.listener.onConnectivityChanged(defaultConnectivityMonitor2.isConnected);
             }
         }
     };
-    private final Context context;
-    boolean isConnected;
-    private boolean isRegistered;
-    final ConnectivityMonitor.ConnectivityListener listener;
+    public final Context context;
+    public boolean isConnected;
+    public boolean isRegistered;
+    public final ConnectivityMonitor.ConnectivityListener listener;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public DefaultConnectivityMonitor(@NonNull Context context, @NonNull ConnectivityMonitor.ConnectivityListener connectivityListener) {
         this.context = context.getApplicationContext();
         this.listener = connectivityListener;
     }
 
     private void register() {
-        if (!this.isRegistered) {
-            this.isConnected = isConnected(this.context);
-            try {
-                this.context.registerReceiver(this.connectivityReceiver, new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE"));
-                this.isRegistered = true;
-            } catch (SecurityException e) {
-                if (Log.isLoggable(TAG, 5)) {
-                    Log.w(TAG, "Failed to register", e);
-                }
+        if (this.isRegistered) {
+            return;
+        }
+        this.isConnected = isConnected(this.context);
+        try {
+            this.context.registerReceiver(this.connectivityReceiver, new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE"));
+            this.isRegistered = true;
+        } catch (SecurityException e2) {
+            if (Log.isLoggable("ConnectivityMonitor", 5)) {
+                Log.w("ConnectivityMonitor", "Failed to register", e2);
             }
         }
     }
@@ -60,16 +62,20 @@ final class DefaultConnectivityMonitor implements ConnectivityMonitor {
     }
 
     @SuppressLint({"MissingPermission"})
-    boolean isConnected(@NonNull Context context) {
+    public boolean isConnected(@NonNull Context context) {
         try {
             NetworkInfo activeNetworkInfo = ((ConnectivityManager) Preconditions.checkNotNull((ConnectivityManager) context.getSystemService("connectivity"))).getActiveNetworkInfo();
             return activeNetworkInfo != null && activeNetworkInfo.isConnected();
-        } catch (RuntimeException e) {
-            if (Log.isLoggable(TAG, 5)) {
-                Log.w(TAG, "Failed to determine connectivity status when connectivity changed", e);
+        } catch (RuntimeException e2) {
+            if (Log.isLoggable("ConnectivityMonitor", 5)) {
+                Log.w("ConnectivityMonitor", "Failed to determine connectivity status when connectivity changed", e2);
             }
             return true;
         }
+    }
+
+    @Override // com.bumptech.glide.manager.LifecycleListener
+    public void onDestroy() {
     }
 
     @Override // com.bumptech.glide.manager.LifecycleListener
@@ -80,9 +86,5 @@ final class DefaultConnectivityMonitor implements ConnectivityMonitor {
     @Override // com.bumptech.glide.manager.LifecycleListener
     public void onStop() {
         unregister();
-    }
-
-    @Override // com.bumptech.glide.manager.LifecycleListener
-    public void onDestroy() {
     }
 }

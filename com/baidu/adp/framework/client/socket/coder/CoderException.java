@@ -1,13 +1,13 @@
 package com.baidu.adp.framework.client.socket.coder;
 
-import com.baidu.adp.framework.client.socket.h;
+import d.b.b.c.e.c.h;
 /* loaded from: classes.dex */
 public class CoderException extends Exception {
-    private static final long serialVersionUID = -4477017113691535623L;
-    private final int mErrorCode;
+    public static final long serialVersionUID = -4477017113691535623L;
+    public final int mErrorCode;
 
     public CoderException(int i) {
-        super(h.toErrorMsg(i));
+        super(h.i(i));
         this.mErrorCode = i;
     }
 

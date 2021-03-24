@@ -15,40 +15,53 @@ import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.View;
 import android.view.animation.LinearInterpolator;
-import com.baidu.ala.recorder.video.drawer.EncoderTextureDrawer;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes6.dex */
 public class TTCountdownView extends View {
-    private boolean A;
-    private AtomicBoolean B;
+    public boolean A;
+    public AtomicBoolean B;
 
     /* renamed from: a  reason: collision with root package name */
-    private int f4587a;
-    private int b;
-    private int c;
-    private int d;
-    private float e;
-    private float f;
-    private float g;
-    private int h;
-    private boolean i;
-    private float j;
-    private float k;
-    private float l;
-    private String m;
-    private boolean n;
-    private Paint o;
-    private Paint p;
-    private Paint q;
-    private Paint r;
-    private float s;
-    private float t;
-    private RectF u;
-    private a v;
-    private AnimatorSet w;
-    private ValueAnimator x;
-    private ValueAnimator y;
-    private ValueAnimator z;
+    public int f28831a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public int f28832b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public int f28833c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public int f28834d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public float f28835e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public float f28836f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public float f28837g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public int f28838h;
+    public boolean i;
+    public float j;
+    public float k;
+    public float l;
+    public String m;
+    public boolean n;
+    public Paint o;
+    public Paint p;
+    public Paint q;
+    public Paint r;
+    public float s;
+    public float t;
+    public RectF u;
+    public a v;
+    public AnimatorSet w;
+    public ValueAnimator x;
+    public ValueAnimator y;
+    public ValueAnimator z;
 
     /* loaded from: classes6.dex */
     public interface a {
@@ -63,67 +76,130 @@ public class TTCountdownView extends View {
         this(context, null);
     }
 
-    public TTCountdownView(Context context, AttributeSet attributeSet) {
-        this(context, attributeSet, 0);
-    }
-
-    public TTCountdownView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        this.f4587a = Color.parseColor("#fce8b6");
-        this.b = Color.parseColor("#f0f0f0");
-        this.c = Color.parseColor("#ffffff");
-        this.d = Color.parseColor("#7c7c7c");
-        this.e = 2.0f;
-        this.f = 12.0f;
-        this.g = 18.0f;
-        this.h = 270;
-        this.i = false;
-        this.j = 5.0f;
-        this.k = 5.0f;
-        this.l = 0.8f;
-        this.m = "跳过";
-        this.n = false;
-        this.s = 1.0f;
-        this.t = 1.0f;
-        this.A = false;
-        this.B = new AtomicBoolean(true);
-        this.e = a(2.0f);
-        this.g = a(18.0f);
-        this.f = b(12.0f);
-        this.h %= EncoderTextureDrawer.X264_WIDTH;
-        e();
-        f();
-    }
-
     private void e() {
-        this.o = new Paint(1);
-        this.o.setColor(this.f4587a);
-        this.o.setStrokeWidth(this.e);
+        Paint paint = new Paint(1);
+        this.o = paint;
+        paint.setColor(this.f28831a);
+        this.o.setStrokeWidth(this.f28835e);
         this.o.setAntiAlias(true);
         this.o.setStyle(Paint.Style.STROKE);
-        this.p = new Paint(1);
-        this.p.setColor(this.c);
+        Paint paint2 = new Paint(1);
+        this.p = paint2;
+        paint2.setColor(this.f28833c);
         this.p.setAntiAlias(true);
-        this.p.setStrokeWidth(this.e);
+        this.p.setStrokeWidth(this.f28835e);
         this.p.setStyle(Paint.Style.FILL);
-        this.q = new Paint(1);
-        this.q.setColor(this.b);
+        Paint paint3 = new Paint(1);
+        this.q = paint3;
+        paint3.setColor(this.f28832b);
         this.q.setAntiAlias(true);
-        this.q.setStrokeWidth(this.e / 2.0f);
+        this.q.setStrokeWidth(this.f28835e / 2.0f);
         this.q.setStyle(Paint.Style.STROKE);
-        this.r = new Paint(1);
-        this.r.setColor(this.d);
+        Paint paint4 = new Paint(1);
+        this.r = paint4;
+        paint4.setColor(this.f28834d);
         this.q.setAntiAlias(true);
-        this.r.setTextSize(this.f);
+        this.r.setTextSize(this.f28836f);
         this.r.setTextAlign(Paint.Align.CENTER);
     }
 
     private void f() {
-        this.u = new RectF(-this.g, -this.g, this.g, this.g);
+        float f2 = this.f28837g;
+        this.u = new RectF(-f2, -f2, f2, f2);
+    }
+
+    private int g() {
+        return (int) ((((this.f28835e / 2.0f) + this.f28837g) * 2.0f) + a(4.0f));
+    }
+
+    private ValueAnimator getArcAnim() {
+        ValueAnimator valueAnimator = this.y;
+        if (valueAnimator != null) {
+            valueAnimator.cancel();
+            this.y = null;
+        }
+        ValueAnimator ofFloat = ValueAnimator.ofFloat(this.s, 0.0f);
+        this.y = ofFloat;
+        ofFloat.setInterpolator(new LinearInterpolator());
+        this.y.setDuration(a(this.s, this.j) * 1000.0f);
+        this.y.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.bytedance.sdk.openadsdk.core.widget.TTCountdownView.3
+            @Override // android.animation.ValueAnimator.AnimatorUpdateListener
+            public void onAnimationUpdate(ValueAnimator valueAnimator2) {
+                TTCountdownView.this.s = ((Float) valueAnimator2.getAnimatedValue()).floatValue();
+                TTCountdownView.this.postInvalidate();
+            }
+        });
+        return this.y;
+    }
+
+    private ValueAnimator getNumAnim() {
+        ValueAnimator valueAnimator = this.x;
+        if (valueAnimator != null) {
+            valueAnimator.cancel();
+            this.x = null;
+        }
+        ValueAnimator ofFloat = ValueAnimator.ofFloat(this.t, 0.0f);
+        this.x = ofFloat;
+        ofFloat.setInterpolator(new LinearInterpolator());
+        this.x.setDuration(a(this.t, this.k) * 1000.0f);
+        this.x.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.bytedance.sdk.openadsdk.core.widget.TTCountdownView.2
+            @Override // android.animation.ValueAnimator.AnimatorUpdateListener
+            public void onAnimationUpdate(ValueAnimator valueAnimator2) {
+                TTCountdownView.this.t = ((Float) valueAnimator2.getAnimatedValue()).floatValue();
+                TTCountdownView.this.postInvalidate();
+            }
+        });
+        return this.x;
+    }
+
+    public float a(float f2, float f3) {
+        return f2 * f3;
+    }
+
+    public float a(float f2, int i) {
+        return i * f2;
+    }
+
+    public void c() {
+        try {
+            if (this.w == null || Build.VERSION.SDK_INT < 19) {
+                return;
+            }
+            this.w.pause();
+        } catch (Throwable unused) {
+        }
+    }
+
+    public void d() {
+        try {
+            if (this.w == null || Build.VERSION.SDK_INT < 19) {
+                return;
+            }
+            this.w.resume();
+        } catch (Throwable unused) {
+        }
+    }
+
+    public a getCountdownListener() {
+        return this.v;
     }
 
     @Override // android.view.View
-    protected void onMeasure(int i, int i2) {
+    public void onDetachedFromWindow() {
+        b();
+        super.onDetachedFromWindow();
+    }
+
+    @Override // android.view.View
+    public void onDraw(Canvas canvas) {
+        super.onDraw(canvas);
+        canvas.translate(getMeasuredWidth() / 2.0f, getMeasuredHeight() / 2.0f);
+        b(canvas);
+        a(canvas);
+    }
+
+    @Override // android.view.View
+    public void onMeasure(int i, int i2) {
         super.onMeasure(i, i2);
         int size = View.MeasureSpec.getSize(i);
         int mode = View.MeasureSpec.getMode(i);
@@ -138,16 +214,86 @@ public class TTCountdownView extends View {
         setMeasuredDimension(size, size2);
     }
 
-    private int g() {
-        return (int) ((((this.e / 2.0f) + this.g) * 2.0f) + a(4.0f));
+    @Override // android.view.View
+    public void onWindowFocusChanged(boolean z) {
+        super.onWindowFocusChanged(z);
+        this.B.set(z);
+        if (!this.B.get()) {
+            c();
+            a aVar = this.v;
+            if (aVar != null) {
+                aVar.c();
+                return;
+            }
+            return;
+        }
+        d();
+        a aVar2 = this.v;
+        if (aVar2 != null) {
+            aVar2.a();
+        }
     }
 
-    @Override // android.view.View
-    protected void onDraw(Canvas canvas) {
-        super.onDraw(canvas);
-        canvas.translate(getMeasuredWidth() / 2.0f, getMeasuredHeight() / 2.0f);
-        b(canvas);
-        a(canvas);
+    public void setCountDownTime(int i) {
+        float f2 = i;
+        this.k = f2;
+        this.j = f2;
+        b();
+    }
+
+    public void setCountdownListener(a aVar) {
+        this.v = aVar;
+        if (this.B.get() || aVar == null) {
+            return;
+        }
+        aVar.c();
+    }
+
+    public TTCountdownView(Context context, AttributeSet attributeSet) {
+        this(context, attributeSet, 0);
+    }
+
+    public TTCountdownView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        this.f28831a = Color.parseColor("#fce8b6");
+        this.f28832b = Color.parseColor("#f0f0f0");
+        this.f28833c = Color.parseColor("#ffffff");
+        this.f28834d = Color.parseColor("#7c7c7c");
+        this.f28835e = 2.0f;
+        this.f28836f = 12.0f;
+        this.f28837g = 18.0f;
+        this.f28838h = 270;
+        this.i = false;
+        this.j = 5.0f;
+        this.k = 5.0f;
+        this.l = 0.8f;
+        this.m = "跳过";
+        this.n = false;
+        this.s = 1.0f;
+        this.t = 1.0f;
+        this.A = false;
+        this.B = new AtomicBoolean(true);
+        this.f28835e = a(2.0f);
+        this.f28837g = a(18.0f);
+        this.f28836f = b(12.0f);
+        this.f28838h %= 360;
+        e();
+        f();
+    }
+
+    private void b(Canvas canvas) {
+        float f2;
+        canvas.save();
+        float a2 = a(this.s, 360);
+        if (this.i) {
+            f2 = this.f28838h - a2;
+        } else {
+            f2 = this.f28838h;
+        }
+        canvas.drawCircle(0.0f, 0.0f, this.f28837g, this.p);
+        canvas.drawCircle(0.0f, 0.0f, this.f28837g, this.q);
+        canvas.drawArc(this.u, f2, a2, false, this.o);
+        canvas.restore();
     }
 
     private void a(Canvas canvas) {
@@ -162,32 +308,19 @@ public class TTCountdownView extends View {
         if (TextUtils.isEmpty(str)) {
             str = "跳过";
         }
-        canvas.drawText(str, 0.0f, 0.0f - ((fontMetrics.descent + fontMetrics.ascent) / 2.0f), this.r);
-        canvas.restore();
-    }
-
-    private void b(Canvas canvas) {
-        float f;
-        canvas.save();
-        float a2 = a(this.s, EncoderTextureDrawer.X264_WIDTH);
-        if (this.i) {
-            f = this.h - a2;
-        } else {
-            f = this.h;
-        }
-        canvas.drawCircle(0.0f, 0.0f, this.g, this.p);
-        canvas.drawCircle(0.0f, 0.0f, this.g, this.q);
-        canvas.drawArc(this.u, f, a2, false, this.o);
+        canvas.drawText(str, 0.0f, 0.0f - ((fontMetrics.ascent + fontMetrics.descent) / 2.0f), this.r);
         canvas.restore();
     }
 
     public void a() {
-        if (this.w != null && this.w.isRunning()) {
+        AnimatorSet animatorSet = this.w;
+        if (animatorSet != null && animatorSet.isRunning()) {
             this.w.cancel();
             this.w = null;
         }
-        this.w = new AnimatorSet();
-        this.w.playTogether(getNumAnim(), getArcAnim());
+        AnimatorSet animatorSet2 = new AnimatorSet();
+        this.w = animatorSet2;
+        animatorSet2.playTogether(getNumAnim(), getArcAnim());
         this.w.setInterpolator(new LinearInterpolator());
         this.w.addListener(new AnimatorListenerAdapter() { // from class: com.bytedance.sdk.openadsdk.core.widget.TTCountdownView.1
             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
@@ -197,11 +330,14 @@ public class TTCountdownView extends View {
 
             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
-                if (TTCountdownView.this.A) {
-                    TTCountdownView.this.A = false;
-                } else if (TTCountdownView.this.v != null) {
-                    TTCountdownView.this.v.b();
+                if (!TTCountdownView.this.A) {
+                    if (TTCountdownView.this.v != null) {
+                        TTCountdownView.this.v.b();
+                        return;
+                    }
+                    return;
                 }
+                TTCountdownView.this.A = false;
             }
 
             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
@@ -209,62 +345,31 @@ public class TTCountdownView extends View {
             }
         });
         this.w.start();
-        if (!this.B.get()) {
-            c();
+        if (this.B.get()) {
+            return;
         }
-    }
-
-    private ValueAnimator getNumAnim() {
-        if (this.x != null) {
-            this.x.cancel();
-            this.x = null;
-        }
-        this.x = ValueAnimator.ofFloat(this.t, 0.0f);
-        this.x.setInterpolator(new LinearInterpolator());
-        this.x.setDuration(a(this.t, this.k) * 1000.0f);
-        this.x.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.bytedance.sdk.openadsdk.core.widget.TTCountdownView.2
-            @Override // android.animation.ValueAnimator.AnimatorUpdateListener
-            public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                TTCountdownView.this.t = ((Float) valueAnimator.getAnimatedValue()).floatValue();
-                TTCountdownView.this.postInvalidate();
-            }
-        });
-        return this.x;
-    }
-
-    private ValueAnimator getArcAnim() {
-        if (this.y != null) {
-            this.y.cancel();
-            this.y = null;
-        }
-        this.y = ValueAnimator.ofFloat(this.s, 0.0f);
-        this.y.setInterpolator(new LinearInterpolator());
-        this.y.setDuration(a(this.s, this.j) * 1000.0f);
-        this.y.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.bytedance.sdk.openadsdk.core.widget.TTCountdownView.3
-            @Override // android.animation.ValueAnimator.AnimatorUpdateListener
-            public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                TTCountdownView.this.s = ((Float) valueAnimator.getAnimatedValue()).floatValue();
-                TTCountdownView.this.postInvalidate();
-            }
-        });
-        return this.y;
+        c();
     }
 
     public void b() {
-        if (this.w != null) {
-            this.w.cancel();
+        AnimatorSet animatorSet = this.w;
+        if (animatorSet != null) {
+            animatorSet.cancel();
             this.w = null;
         }
-        if (this.z != null) {
-            this.z.cancel();
+        ValueAnimator valueAnimator = this.z;
+        if (valueAnimator != null) {
+            valueAnimator.cancel();
             this.z = null;
         }
-        if (this.x != null) {
-            this.x.cancel();
+        ValueAnimator valueAnimator2 = this.x;
+        if (valueAnimator2 != null) {
+            valueAnimator2.cancel();
             this.x = null;
         }
-        if (this.y != null) {
-            this.y.cancel();
+        ValueAnimator valueAnimator3 = this.y;
+        if (valueAnimator3 != null) {
+            valueAnimator3.cancel();
             this.y = null;
         }
         this.s = 1.0f;
@@ -272,79 +377,11 @@ public class TTCountdownView extends View {
         invalidate();
     }
 
-    @Override // android.view.View
-    protected void onDetachedFromWindow() {
-        b();
-        super.onDetachedFromWindow();
+    private float a(float f2) {
+        return TypedValue.applyDimension(1, f2, getResources().getDisplayMetrics());
     }
 
-    public float a(float f, float f2) {
-        return f * f2;
-    }
-
-    public float a(float f, int i) {
-        return i * f;
-    }
-
-    public void setCountDownTime(int i) {
-        float f = i;
-        this.k = f;
-        this.j = f;
-        b();
-    }
-
-    private float a(float f) {
-        return TypedValue.applyDimension(1, f, getResources().getDisplayMetrics());
-    }
-
-    private float b(float f) {
-        return TypedValue.applyDimension(2, f, getResources().getDisplayMetrics());
-    }
-
-    public a getCountdownListener() {
-        return this.v;
-    }
-
-    public void setCountdownListener(a aVar) {
-        this.v = aVar;
-        if (!this.B.get() && aVar != null) {
-            aVar.c();
-        }
-    }
-
-    @Override // android.view.View
-    public void onWindowFocusChanged(boolean z) {
-        super.onWindowFocusChanged(z);
-        this.B.set(z);
-        if (!this.B.get()) {
-            c();
-            if (this.v != null) {
-                this.v.c();
-                return;
-            }
-            return;
-        }
-        d();
-        if (this.v != null) {
-            this.v.a();
-        }
-    }
-
-    public void c() {
-        try {
-            if (this.w != null && Build.VERSION.SDK_INT >= 19) {
-                this.w.pause();
-            }
-        } catch (Throwable th) {
-        }
-    }
-
-    public void d() {
-        try {
-            if (this.w != null && Build.VERSION.SDK_INT >= 19) {
-                this.w.resume();
-            }
-        } catch (Throwable th) {
-        }
+    private float b(float f2) {
+        return TypedValue.applyDimension(2, f2, getResources().getDisplayMetrics());
     }
 }

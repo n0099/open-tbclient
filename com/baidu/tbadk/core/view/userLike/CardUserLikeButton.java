@@ -3,14 +3,49 @@ package com.baidu.tbadk.core.view.userLike;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
-import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-/* loaded from: classes.dex */
+import d.b.b.e.p.l;
+/* loaded from: classes3.dex */
 public class CardUserLikeButton extends EntelechyUserLikeButton {
     public CardUserLikeButton(Context context) {
         super(context);
+    }
+
+    @Override // com.baidu.tbadk.core.view.userLike.EntelechyUserLikeButton, com.baidu.tbadk.core.view.userLike.CommonUserLikeButton, d.b.h0.r.f0.q.b
+    public void a(boolean z, int i) {
+        this.f13638g = z;
+        setVisibility(0);
+        if (z) {
+            setClickable(false);
+            setText(this.f13636e);
+            setPadding(0, 0, 0, 0);
+        } else {
+            setClickable(true);
+            setText(this.f13637f);
+            setPadding(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds16), 0, TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds8), 0);
+        }
+        g(TbadkCoreApplication.getInst().getSkinType());
+    }
+
+    @Override // com.baidu.tbadk.core.view.userLike.EntelechyUserLikeButton, com.baidu.tbadk.core.view.userLike.CommonUserLikeButton
+    public void f() {
+        super.f();
+        setTextSize(0, l.g(getContext(), R.dimen.fontsize26));
+    }
+
+    @Override // com.baidu.tbadk.core.view.userLike.EntelechyUserLikeButton, com.baidu.tbadk.core.view.userLike.CommonUserLikeButton
+    public void g(int i) {
+        if (this.f13638g) {
+            setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
+            SkinManager.setViewTextColor(this, R.color.CAM_X0110, 1, i);
+            setBackgroundDrawable(null);
+            return;
+        }
+        setCompoundDrawablesWithIntrinsicBounds(SkinManager.getDrawable(i, R.drawable.pb_user_like_add_icon), (Drawable) null, (Drawable) null, (Drawable) null);
+        SkinManager.setViewTextColor(this, R.color.pb_like_user_select_color, 1, i);
+        SkinManager.setBackgroundResource(this, R.drawable.btn_focus_border_bg, i);
     }
 
     public CardUserLikeButton(Context context, AttributeSet attributeSet) {
@@ -19,41 +54,5 @@ public class CardUserLikeButton extends EntelechyUserLikeButton {
 
     public CardUserLikeButton(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.core.view.userLike.EntelechyUserLikeButton, com.baidu.tbadk.core.view.userLike.CommonUserLikeButton
-    public void init() {
-        super.init();
-        setTextSize(0, l.getDimens(getContext(), R.dimen.fontsize26));
-    }
-
-    @Override // com.baidu.tbadk.core.view.userLike.EntelechyUserLikeButton, com.baidu.tbadk.core.view.userLike.CommonUserLikeButton, com.baidu.tbadk.core.view.userLike.b
-    public void r(boolean z, int i) {
-        this.foT = z;
-        setVisibility(0);
-        if (z) {
-            setClickable(false);
-            setText(this.foR);
-            setPadding(0, 0, 0, 0);
-        } else {
-            setClickable(true);
-            setText(this.foS);
-            setPadding(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds16), 0, TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds8), 0);
-        }
-        onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-    }
-
-    @Override // com.baidu.tbadk.core.view.userLike.EntelechyUserLikeButton, com.baidu.tbadk.core.view.userLike.CommonUserLikeButton
-    public void onChangeSkinType(int i) {
-        if (this.foT) {
-            setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
-            ap.setViewTextColor(this, R.color.CAM_X0110, 1, i);
-            setBackgroundDrawable(null);
-            return;
-        }
-        setCompoundDrawablesWithIntrinsicBounds(ap.getDrawable(i, R.drawable.pb_user_like_add_icon), (Drawable) null, (Drawable) null, (Drawable) null);
-        ap.setViewTextColor(this, R.color.pb_like_user_select_color, 1, i);
-        ap.setBackgroundResource(this, R.drawable.btn_focus_border_bg, i);
     }
 }

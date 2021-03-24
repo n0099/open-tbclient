@@ -1,12 +1,20 @@
 package com.baidu.fsg.base.utils;
-/* loaded from: classes5.dex */
+
+import com.baidu.searchbox.track.ui.TrackUI;
+/* loaded from: classes2.dex */
 public class ExceptionUtils {
     public static String createStackTrackMessage(Exception exc) {
+        StackTraceElement[] stackTrace;
         StringBuffer stringBuffer = new StringBuffer();
         if (exc != null) {
-            stringBuffer.append(exc.getClass()).append(": ").append(exc.getMessage()).append("\n");
+            stringBuffer.append(exc.getClass());
+            stringBuffer.append(": ");
+            stringBuffer.append(exc.getMessage());
+            stringBuffer.append("\n");
             for (StackTraceElement stackTraceElement : exc.getStackTrace()) {
-                stringBuffer.append("\t").append(stackTraceElement.toString()).append("\n");
+                stringBuffer.append(TrackUI.SEPERATOR);
+                stringBuffer.append(stackTraceElement.toString());
+                stringBuffer.append("\n");
             }
         }
         return stringBuffer.toString();

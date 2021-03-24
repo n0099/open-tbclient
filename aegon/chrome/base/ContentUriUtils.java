@@ -12,11 +12,12 @@ import android.provider.DocumentsContract;
 import android.text.TextUtils;
 import android.webkit.MimeTypeMap;
 import androidx.annotation.Nullable;
+import com.baidu.mapsdkplatform.comapi.map.r;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public abstract class ContentUriUtils {
-    public static final /* synthetic */ boolean $assertionsDisabled = !ContentUriUtils.class.desiredAssertionStatus();
+    public static final /* synthetic */ boolean $assertionsDisabled = false;
 
     public static /* synthetic */ void $closeResource(Throwable th, AutoCloseable autoCloseable) {
         if (th == null) {
@@ -30,10 +31,6 @@ public abstract class ContentUriUtils {
         }
     }
 
-    static {
-        new Object();
-    }
-
     @CalledByNative
     public static boolean contentUriExists(String str) {
         AssetFileDescriptor assetFileDescriptor = getAssetFileDescriptor(str);
@@ -41,7 +38,7 @@ public abstract class ContentUriUtils {
         if (assetFileDescriptor != null) {
             try {
                 assetFileDescriptor.close();
-            } catch (IOException e) {
+            } catch (IOException unused) {
             }
         }
         return z;
@@ -49,16 +46,12 @@ public abstract class ContentUriUtils {
 
     @CalledByNative
     public static boolean delete(String str) {
-        Uri parse;
-        if (!$assertionsDisabled) {
-            if (!((str == null || (parse = Uri.parse(str)) == null || !"content".equals(parse.getScheme())) ? false : true)) {
-                throw new AssertionError();
-            }
-        }
         return ContextUtils.sApplicationContext.getContentResolver().delete(Uri.parse(str), null, null) > 0;
     }
 
     public static AssetFileDescriptor getAssetFileDescriptor(String str) {
+        StringBuilder sb;
+        String str2;
         ContentResolver contentResolver = ContextUtils.sApplicationContext.getContentResolver();
         Uri parse = Uri.parse(str);
         try {
@@ -72,28 +65,47 @@ public abstract class ContentUriUtils {
                         }
                         try {
                             openTypedAssetFileDescriptor.close();
-                        } catch (IOException e) {
+                        } catch (IOException unused) {
                         }
                         throw new SecurityException("Cannot open files with non-zero offset type.");
                     }
                 } else {
-                    ParcelFileDescriptor openFileDescriptor = contentResolver.openFileDescriptor(parse, "r");
+                    ParcelFileDescriptor openFileDescriptor = contentResolver.openFileDescriptor(parse, r.f7663a);
                     if (openFileDescriptor != null) {
                         return new AssetFileDescriptor(openFileDescriptor, 0L, -1L);
                     }
                 }
             } catch (FileNotFoundException e2) {
-                android.util.Log.w("ContentUriUtils", "Cannot find content uri: " + str, e2);
+                e = e2;
+                sb = new StringBuilder();
+                str2 = "Cannot find content uri: ";
+                sb.append(str2);
+                sb.append(str);
+                android.util.Log.w("ContentUriUtils", sb.toString(), e);
+                return null;
             }
         } catch (SecurityException e3) {
-            android.util.Log.w("ContentUriUtils", "Cannot open content uri: " + str, e3);
+            e = e3;
+            sb = new StringBuilder();
+            str2 = "Cannot open content uri: ";
+            sb.append(str2);
+            sb.append(str);
+            android.util.Log.w("ContentUriUtils", sb.toString(), e);
+            return null;
         } catch (Exception e4) {
-            android.util.Log.w("ContentUriUtils", "Unknown content uri: " + str, e4);
+            e = e4;
+            sb = new StringBuilder();
+            str2 = "Unknown content uri: ";
+            sb.append(str2);
+            sb.append(str);
+            android.util.Log.w("ContentUriUtils", sb.toString(), e);
+            return null;
         }
         return null;
     }
 
     public static String getDisplayName(Uri uri, Context context, String str) {
+        Cursor query;
         String[] streamTypes;
         String extensionFromMimeType;
         if (uri == null) {
@@ -101,26 +113,31 @@ public abstract class ContentUriUtils {
         }
         ContentResolver contentResolver = context.getContentResolver();
         try {
-            Cursor query = contentResolver.query(uri, null, null, null, null);
-            if (query == null || query.getCount() < 1) {
-                if (query != null) {
-                    $closeResource(null, query);
-                }
-                return "";
-            }
-            query.moveToFirst();
-            int columnIndex = query.getColumnIndex(str);
-            if (columnIndex == -1) {
+            query = contentResolver.query(uri, null, null, null, null);
+        } catch (NullPointerException unused) {
+        }
+        if (query == null || query.getCount() < 1) {
+            if (query != null) {
                 $closeResource(null, query);
-                return "";
             }
-            String string = query.getString(columnIndex);
-            String str2 = (!hasVirtualFlag(query) || (streamTypes = contentResolver.getStreamTypes(uri, "*/*")) == null || streamTypes.length <= 0 || (extensionFromMimeType = MimeTypeMap.getSingleton().getExtensionFromMimeType(streamTypes[0])) == null) ? string : string + "." + extensionFromMimeType;
-            $closeResource(null, query);
-            return str2;
-        } catch (NullPointerException e) {
             return "";
         }
+        query.moveToFirst();
+        int columnIndex = query.getColumnIndex(str);
+        if (columnIndex == -1) {
+            $closeResource(null, query);
+            return "";
+        }
+        String string = query.getString(columnIndex);
+        if (hasVirtualFlag(query) && (streamTypes = contentResolver.getStreamTypes(uri, "*/*")) != null && streamTypes.length > 0 && (extensionFromMimeType = MimeTypeMap.getSingleton().getExtensionFromMimeType(streamTypes[0])) != null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append(string);
+            sb.append(".");
+            sb.append(extensionFromMimeType);
+            string = sb.toString();
+        }
+        $closeResource(null, query);
+        return string;
     }
 
     @CalledByNative
@@ -143,22 +160,22 @@ public abstract class ContentUriUtils {
     }
 
     public static boolean isVirtualDocument(Uri uri) {
+        Cursor query;
         if (Build.VERSION.SDK_INT >= 19 && uri != null && DocumentsContract.isDocumentUri(ContextUtils.sApplicationContext, uri)) {
             try {
-                Cursor query = ContextUtils.sApplicationContext.getContentResolver().query(uri, null, null, null, null);
-                if (query == null || query.getCount() < 1) {
-                    if (query != null) {
-                        $closeResource(null, query);
-                    }
-                    return false;
+                query = ContextUtils.sApplicationContext.getContentResolver().query(uri, null, null, null, null);
+            } catch (NullPointerException unused) {
+            }
+            if (query == null || query.getCount() < 1) {
+                if (query != null) {
+                    $closeResource(null, query);
                 }
-                query.moveToFirst();
-                boolean hasVirtualFlag = hasVirtualFlag(query);
-                $closeResource(null, query);
-                return hasVirtualFlag;
-            } catch (NullPointerException e) {
                 return false;
             }
+            query.moveToFirst();
+            boolean hasVirtualFlag = hasVirtualFlag(query);
+            $closeResource(null, query);
+            return hasVirtualFlag;
         }
         return false;
     }
@@ -172,8 +189,8 @@ public abstract class ContentUriUtils {
                 return null;
             }
             return displayName;
-        } catch (Exception e) {
-            android.util.Log.w("ContentUriUtils", "Cannot open content uri: " + str, e);
+        } catch (Exception e2) {
+            android.util.Log.w("ContentUriUtils", "Cannot open content uri: " + str, e2);
             return null;
         }
     }

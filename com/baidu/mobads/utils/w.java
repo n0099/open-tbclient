@@ -2,23 +2,23 @@ package com.baidu.mobads.utils;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import com.baidu.webkit.internal.ETAG;
-/* loaded from: classes4.dex */
-class w extends com.baidu.mobads.f.a<String> {
+/* loaded from: classes2.dex */
+public class w extends com.baidu.mobads.f.a<String> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ Context f2497a;
-    final /* synthetic */ t c;
+    public final /* synthetic */ Context f8575a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    /* renamed from: c  reason: collision with root package name */
+    public final /* synthetic */ t f8576c;
+
     public w(t tVar, Context context) {
-        this.c = tVar;
-        this.f2497a = context;
+        this.f8576c = tVar;
+        this.f8575a = context;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX WARN: Code restructure failed: missing block: B:9:0x0037, code lost:
-        if (r1.length() <= 0) goto L10;
+    /* JADX WARN: Code restructure failed: missing block: B:10:0x0036, code lost:
+        if (r5.length() <= 0) goto L11;
      */
     @Override // com.baidu.mobads.f.a
     /* renamed from: d */
@@ -36,19 +36,19 @@ class w extends com.baidu.mobads.f.a<String> {
         String str8;
         try {
             str2 = t.j;
-            if (str2 == null && this.f2497a != null) {
+            if (str2 == null && this.f8575a != null) {
                 h commonUtils = XAdSDKFoundationFacade.getInstance().getCommonUtils();
-                String unused = t.j = this.f2497a.getSharedPreferences("__x_adsdk_agent_header__", 0).getString("guid", "");
+                String unused = t.j = this.f8575a.getSharedPreferences("__x_adsdk_agent_header__", 0).getString("guid", "");
                 str3 = t.j;
                 if (str3 != null) {
                     str8 = t.j;
                 }
-                String unused2 = t.j = commonUtils.md5(this.c.getMacAddress(this.f2497a) + ETAG.ITEM_SEPARATOR + this.c.getIMEI(this.f2497a) + ETAG.ITEM_SEPARATOR + ETAG.ITEM_SEPARATOR);
+                String unused2 = t.j = commonUtils.md5(this.f8576c.getMacAddress(this.f8575a) + "&" + this.f8576c.getIMEI(this.f8575a) + "&&");
                 str4 = t.j;
                 if (str4 != null) {
                     str6 = t.j;
                     if (str6.length() > 0) {
-                        SharedPreferences.Editor edit = this.f2497a.getSharedPreferences("__x_adsdk_agent_header__", 0).edit();
+                        SharedPreferences.Editor edit = this.f8575a.getSharedPreferences("__x_adsdk_agent_header__", 0).edit();
                         str7 = t.j;
                         edit.putString("guid", str7).commit();
                     }
@@ -57,8 +57,8 @@ class w extends com.baidu.mobads.f.a<String> {
                 str5 = t.j;
                 return str5;
             }
-        } catch (Throwable th) {
-            String unused4 = t.j = "";
+        } catch (Throwable unused4) {
+            String unused5 = t.j = "";
         }
         str = t.j;
         return str;

@@ -1,44 +1,39 @@
 package com.xiaomi.push.service;
 
 import android.content.Context;
-import com.xiaomi.push.gd;
-import com.xiaomi.push.ii;
+import com.xiaomi.push.fw;
+import com.xiaomi.push.ib;
 import com.xiaomi.push.service.XMPushService;
-/* loaded from: classes5.dex */
-final class u extends XMPushService.i {
+/* loaded from: classes7.dex */
+public final class u extends XMPushService.i {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ii f8582a;
+    public final /* synthetic */ ib f41064a;
 
     /* renamed from: a  reason: collision with other field name */
-    final /* synthetic */ XMPushService f931a;
+    public final /* synthetic */ XMPushService f974a;
 
-    /* renamed from: a  reason: collision with other field name */
-    final /* synthetic */ String f932a;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public u(int i, XMPushService xMPushService, ii iiVar, String str) {
+    public u(int i, XMPushService xMPushService, ib ibVar) {
         super(i);
-        this.f931a = xMPushService;
-        this.f8582a = iiVar;
-        this.f932a = str;
+        this.f974a = xMPushService;
+        this.f41064a = ibVar;
     }
 
     @Override // com.xiaomi.push.service.XMPushService.i
     public String a() {
-        return "send app absent ack message for message.";
+        return "send ack message for unrecognized new miui message.";
     }
 
     @Override // com.xiaomi.push.service.XMPushService.i
     public void a() {
         try {
-            ii a2 = p.a((Context) this.f931a, this.f8582a);
-            a2.m422a().a("absent_target_package", this.f932a);
-            w.a(this.f931a, a2);
-        } catch (gd e) {
-            com.xiaomi.channel.commonutils.logger.b.a(e);
-            this.f931a.a(10, e);
+            ib a2 = q.a((Context) this.f974a, this.f41064a);
+            a2.m431a().a("miui_message_unrecognized", "1");
+            y.a(this.f974a, a2);
+        } catch (fw e2) {
+            com.xiaomi.channel.commonutils.logger.b.a(e2);
+            this.f974a.a(10, e2);
         }
     }
 }

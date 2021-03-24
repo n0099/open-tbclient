@@ -12,8 +12,8 @@ public class b {
         try {
             closeable.close();
             return true;
-        } catch (IOException e) {
-            com.bytedance.sdk.openadsdk.preload.geckox.h.b.b("gecko-debug-tag", "close:", e);
+        } catch (IOException e2) {
+            com.bytedance.sdk.openadsdk.preload.geckox.h.b.b("gecko-debug-tag", "close:", e2);
             return false;
         }
     }
@@ -25,8 +25,8 @@ public class b {
         try {
             cursor.close();
             return true;
-        } catch (Exception e) {
-            com.bytedance.sdk.openadsdk.preload.geckox.h.b.b("gecko-debug-tag", "close:", e);
+        } catch (Exception e2) {
+            com.bytedance.sdk.openadsdk.preload.geckox.h.b.b("gecko-debug-tag", "close:", e2);
             return false;
         }
     }

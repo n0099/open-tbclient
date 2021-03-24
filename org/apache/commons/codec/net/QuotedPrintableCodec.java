@@ -9,17 +9,9 @@ import org.apache.commons.codec.EncoderException;
 import org.apache.commons.codec.StringDecoder;
 import org.apache.commons.codec.StringEncoder;
 @Deprecated
-/* loaded from: classes5.dex */
-public class QuotedPrintableCodec implements BinaryDecoder, BinaryEncoder, StringDecoder, StringEncoder {
+/* loaded from: classes7.dex */
+public class QuotedPrintableCodec implements BinaryEncoder, BinaryDecoder, StringEncoder, StringDecoder {
     public QuotedPrintableCodec() {
-        throw new RuntimeException("Stub!");
-    }
-
-    public QuotedPrintableCodec(String str) {
-        throw new RuntimeException("Stub!");
-    }
-
-    public static final byte[] encodeQuotedPrintable(BitSet bitSet, byte[] bArr) {
         throw new RuntimeException("Stub!");
     }
 
@@ -27,8 +19,7 @@ public class QuotedPrintableCodec implements BinaryDecoder, BinaryEncoder, Strin
         throw new RuntimeException("Stub!");
     }
 
-    @Override // org.apache.commons.codec.BinaryEncoder
-    public byte[] encode(byte[] bArr) {
+    public static final byte[] encodeQuotedPrintable(BitSet bitSet, byte[] bArr) {
         throw new RuntimeException("Stub!");
     }
 
@@ -37,12 +28,25 @@ public class QuotedPrintableCodec implements BinaryDecoder, BinaryEncoder, Strin
         throw new RuntimeException("Stub!");
     }
 
-    @Override // org.apache.commons.codec.StringEncoder
-    public String encode(String str) throws EncoderException {
+    @Override // org.apache.commons.codec.BinaryEncoder
+    public byte[] encode(byte[] bArr) {
+        throw new RuntimeException("Stub!");
+    }
+
+    public String getDefaultCharset() {
+        throw new RuntimeException("Stub!");
+    }
+
+    public QuotedPrintableCodec(String str) {
         throw new RuntimeException("Stub!");
     }
 
     public String decode(String str, String str2) throws DecoderException, UnsupportedEncodingException {
+        throw new RuntimeException("Stub!");
+    }
+
+    @Override // org.apache.commons.codec.StringEncoder
+    public String encode(String str) throws EncoderException {
         throw new RuntimeException("Stub!");
     }
 
@@ -58,10 +62,6 @@ public class QuotedPrintableCodec implements BinaryDecoder, BinaryEncoder, Strin
 
     @Override // org.apache.commons.codec.Decoder
     public Object decode(Object obj) throws DecoderException {
-        throw new RuntimeException("Stub!");
-    }
-
-    public String getDefaultCharset() {
         throw new RuntimeException("Stub!");
     }
 

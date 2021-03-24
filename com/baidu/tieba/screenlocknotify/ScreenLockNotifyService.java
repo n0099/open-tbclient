@@ -4,7 +4,8 @@ import android.app.Service;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.IBinder;
-/* loaded from: classes7.dex */
+import d.b.i0.t2.b;
+/* loaded from: classes5.dex */
 public class ScreenLockNotifyService extends Service {
     public b mLockReceiver = null;
 
@@ -23,18 +24,18 @@ public class ScreenLockNotifyService extends Service {
         intentFilter.addAction("android.intent.action.USER_PRESENT");
         try {
             registerReceiver(this.mLockReceiver, intentFilter);
-        } catch (Exception e) {
+        } catch (Exception unused) {
         }
-    }
-
-    @Override // android.app.Service
-    public void onStart(Intent intent, int i) {
-        super.onStart(intent, i);
     }
 
     @Override // android.app.Service
     public void onDestroy() {
         super.onDestroy();
         unregisterReceiver(this.mLockReceiver);
+    }
+
+    @Override // android.app.Service
+    public void onStart(Intent intent, int i) {
+        super.onStart(intent, i);
     }
 }

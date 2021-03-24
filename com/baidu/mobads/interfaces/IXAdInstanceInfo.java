@@ -4,8 +4,43 @@ import java.util.List;
 import java.util.Set;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public interface IXAdInstanceInfo {
+
+    /* loaded from: classes2.dex */
+    public enum CreativeType {
+        NONE("none"),
+        TEXT("text"),
+        STATIC_IMAGE("static_image"),
+        GIF("gif"),
+        RM("rich_media"),
+        HTML("html"),
+        HYBRID("hybrid"),
+        VIDEO("video");
+        
+
+        /* renamed from: a  reason: collision with root package name */
+        public final String f8349a;
+
+        CreativeType(String str) {
+            this.f8349a = str;
+        }
+
+        public static CreativeType parse(String str) {
+            CreativeType[] values;
+            for (CreativeType creativeType : values()) {
+                if (creativeType.f8349a.equalsIgnoreCase(str)) {
+                    return creativeType;
+                }
+            }
+            return null;
+        }
+
+        public String getValue() {
+            return this.f8349a;
+        }
+    }
+
     boolean getAPOOpen();
 
     String getAction();
@@ -338,38 +373,4 @@ public interface IXAdInstanceInfo {
     void setWifiTargeted(boolean z);
 
     void setWinurl(String str);
-
-    /* loaded from: classes4.dex */
-    public enum CreativeType {
-        NONE("none"),
-        TEXT("text"),
-        STATIC_IMAGE("static_image"),
-        GIF("gif"),
-        RM("rich_media"),
-        HTML("html"),
-        HYBRID("hybrid"),
-        VIDEO("video");
-        
-
-        /* renamed from: a  reason: collision with root package name */
-        private final String f2414a;
-
-        CreativeType(String str) {
-            this.f2414a = str;
-        }
-
-        public String getValue() {
-            return this.f2414a;
-        }
-
-        public static CreativeType parse(String str) {
-            CreativeType[] values;
-            for (CreativeType creativeType : values()) {
-                if (creativeType.f2414a.equalsIgnoreCase(str)) {
-                    return creativeType;
-                }
-            }
-            return null;
-        }
-    }
 }

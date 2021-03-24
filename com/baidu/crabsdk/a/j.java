@@ -1,16 +1,21 @@
 package com.baidu.crabsdk.a;
 
 import android.os.Handler;
-/* loaded from: classes5.dex */
+import d.b.n.a.g;
+/* loaded from: classes2.dex */
 public final class j {
-    private static k apS = new k("loop");
-    private static k apT = new k("writelog");
 
-    public static Handler ul() {
-        return apS.getHandler();
+    /* renamed from: a  reason: collision with root package name */
+    public static g f4658a = new g("loop");
+
+    /* renamed from: b  reason: collision with root package name */
+    public static g f4659b = new g("writelog");
+
+    public static Handler a() {
+        return f4658a.a();
     }
 
-    public static Handler um() {
-        return apT.getHandler();
+    public static Handler b() {
+        return f4659b.a();
     }
 }

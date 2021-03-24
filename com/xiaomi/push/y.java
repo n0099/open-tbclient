@@ -19,118 +19,109 @@ import java.util.Date;
 import java.util.zip.GZIPOutputStream;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class y {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String[] f8592a = {"jpg", "png", "bmp", "gif", "webp"};
+    public static final String[] f41075a = {"jpg", "png", "bmp", "gif", "webp"};
 
+    /* JADX WARN: Not initialized variable reg: 2, insn: 0x0062: MOVE  (r1 I:??[OBJECT, ARRAY]) = (r2 I:??[OBJECT, ARRAY]), block:B:22:0x0062 */
     public static String a(File file) {
         InputStreamReader inputStreamReader;
-        String str = null;
+        Closeable closeable;
         StringWriter stringWriter = new StringWriter();
+        Closeable closeable2 = null;
         try {
-            inputStreamReader = new InputStreamReader(new BufferedInputStream(new FileInputStream(file)));
             try {
+                inputStreamReader = new InputStreamReader(new BufferedInputStream(new FileInputStream(file)));
                 try {
                     char[] cArr = new char[2048];
                     while (true) {
                         int read = inputStreamReader.read(cArr);
                         if (read == -1) {
-                            break;
+                            String stringWriter2 = stringWriter.toString();
+                            a(inputStreamReader);
+                            a(stringWriter);
+                            return stringWriter2;
                         }
                         stringWriter.write(cArr, 0, read);
                     }
-                    str = stringWriter.toString();
-                    a(inputStreamReader);
-                    a(stringWriter);
-                } catch (IOException e) {
-                    e = e;
+                } catch (IOException e2) {
+                    e = e2;
                     com.xiaomi.channel.commonutils.logger.b.c("read file :" + file.getAbsolutePath() + " failure :" + e.getMessage());
                     a(inputStreamReader);
                     a(stringWriter);
-                    return str;
+                    return null;
                 }
             } catch (Throwable th) {
                 th = th;
-                a(inputStreamReader);
+                closeable2 = closeable;
+                a(closeable2);
                 a(stringWriter);
                 throw th;
             }
-        } catch (IOException e2) {
-            e = e2;
+        } catch (IOException e3) {
+            e = e3;
             inputStreamReader = null;
         } catch (Throwable th2) {
             th = th2;
-            inputStreamReader = null;
-            a(inputStreamReader);
+            a(closeable2);
             a(stringWriter);
             throw th;
         }
-        return str;
     }
 
     public static void a(Closeable closeable) {
         if (closeable != null) {
             try {
                 closeable.close();
-            } catch (Exception e) {
+            } catch (Exception unused) {
             }
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static void m593a(File file) {
-        if (!file.isDirectory()) {
-            if (file.exists()) {
-                file.delete();
-                return;
+    public static void m623a(File file) {
+        if (file.isDirectory()) {
+            for (File file2 : file.listFiles()) {
+                m623a(file2);
             }
+        } else if (!file.exists()) {
             return;
-        }
-        for (File file2 : file.listFiles()) {
-            m593a(file2);
         }
         file.delete();
     }
 
     public static void a(File file, File file2) {
-        Throwable th;
         ZipOutputStream zipOutputStream;
-        IOException iOException;
-        ZipOutputStream zipOutputStream2;
+        ZipOutputStream zipOutputStream2 = null;
         try {
-            zipOutputStream2 = new ZipOutputStream(new FileOutputStream(file, false));
             try {
-                a(zipOutputStream2, file2, null, null);
-                a(zipOutputStream2);
-            } catch (FileNotFoundException e) {
+                zipOutputStream = new ZipOutputStream(new FileOutputStream(file, false));
+            } catch (Throwable th) {
+                th = th;
+            }
+            try {
+                a(zipOutputStream, file2, null, null);
+                a(zipOutputStream);
+            } catch (FileNotFoundException unused) {
+                zipOutputStream2 = zipOutputStream;
                 a(zipOutputStream2);
             } catch (IOException e2) {
-                iOException = e2;
-                zipOutputStream = zipOutputStream2;
-                try {
-                    com.xiaomi.channel.commonutils.logger.b.m58a("zip file failure + " + iOException.getMessage());
-                    a(zipOutputStream);
-                } catch (Throwable th2) {
-                    th = th2;
-                    a(zipOutputStream);
-                    throw th;
-                }
-            } catch (Throwable th3) {
-                th = th3;
-                zipOutputStream = zipOutputStream2;
-                a(zipOutputStream);
+                e = e2;
+                zipOutputStream2 = zipOutputStream;
+                com.xiaomi.channel.commonutils.logger.b.m51a("zip file failure + " + e.getMessage());
+                a(zipOutputStream2);
+            } catch (Throwable th2) {
+                th = th2;
+                zipOutputStream2 = zipOutputStream;
+                a(zipOutputStream2);
                 throw th;
             }
-        } catch (FileNotFoundException e3) {
-            zipOutputStream2 = null;
-        } catch (IOException e4) {
-            iOException = e4;
-            zipOutputStream = null;
-        } catch (Throwable th4) {
-            th = th4;
-            zipOutputStream = null;
+        } catch (FileNotFoundException unused2) {
+            a(zipOutputStream2);
+        } catch (IOException e3) {
+            e = e3;
         }
     }
 
@@ -140,103 +131,98 @@ public class y {
             com.xiaomi.channel.commonutils.logger.b.c("mkdir " + file.getAbsolutePath());
             file.getParentFile().mkdirs();
         }
+        BufferedWriter bufferedWriter2 = null;
         try {
-            bufferedWriter = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file)));
             try {
-                try {
-                    bufferedWriter.write(str);
-                    a(bufferedWriter);
-                } catch (IOException e) {
-                    e = e;
-                    com.xiaomi.channel.commonutils.logger.b.c("write file :" + file.getAbsolutePath() + " failure :" + e.getMessage());
-                    a(bufferedWriter);
-                }
+                bufferedWriter = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file)));
             } catch (Throwable th) {
                 th = th;
-                a(bufferedWriter);
-                throw th;
             }
         } catch (IOException e2) {
             e = e2;
-            bufferedWriter = null;
+        }
+        try {
+            bufferedWriter.write(str);
+            a(bufferedWriter);
+        } catch (IOException e3) {
+            e = e3;
+            bufferedWriter2 = bufferedWriter;
+            com.xiaomi.channel.commonutils.logger.b.c("write file :" + file.getAbsolutePath() + " failure :" + e.getMessage());
+            a(bufferedWriter2);
         } catch (Throwable th2) {
             th = th2;
-            bufferedWriter = null;
-            a(bufferedWriter);
+            bufferedWriter2 = bufferedWriter;
+            a(bufferedWriter2);
             throw th;
         }
     }
 
     public static void a(ZipOutputStream zipOutputStream, File file, String str, FileFilter fileFilter) {
-        Throwable th;
-        FileInputStream fileInputStream;
-        IOException iOException;
-        FileInputStream fileInputStream2;
+        ZipEntry zipEntry;
+        String str2 = "";
         if (str == null) {
             str = "";
         }
+        FileInputStream fileInputStream = null;
         try {
-            if (file.isDirectory()) {
-                File[] listFiles = fileFilter != null ? file.listFiles(fileFilter) : file.listFiles();
-                zipOutputStream.putNextEntry(new ZipEntry(str + File.separator));
-                String str2 = TextUtils.isEmpty(str) ? "" : str + File.separator;
-                for (int i = 0; i < listFiles.length; i++) {
-                    a(zipOutputStream, listFiles[i], str2 + listFiles[i].getName(), null);
-                }
-                File[] listFiles2 = file.listFiles(new z());
-                if (listFiles2 != null) {
-                    for (File file2 : listFiles2) {
-                        a(zipOutputStream, file2, str2 + File.separator + file2.getName(), fileFilter);
+            try {
+                if (file.isDirectory()) {
+                    File[] listFiles = fileFilter != null ? file.listFiles(fileFilter) : file.listFiles();
+                    zipOutputStream.putNextEntry(new ZipEntry(str + File.separator));
+                    if (!TextUtils.isEmpty(str)) {
+                        str2 = str + File.separator;
                     }
-                }
-                fileInputStream2 = null;
-            } else {
-                if (TextUtils.isEmpty(str)) {
-                    zipOutputStream.putNextEntry(new ZipEntry(String.valueOf(new Date().getTime()) + DownloadDataConstants.DEFAULT_DL_TEXT_EXTENSION));
-                } else {
-                    zipOutputStream.putNextEntry(new ZipEntry(str));
-                }
-                fileInputStream2 = new FileInputStream(file);
-                try {
-                    byte[] bArr = new byte[1024];
-                    while (true) {
-                        int read = fileInputStream2.read(bArr);
-                        if (read == -1) {
-                            break;
+                    for (int i = 0; i < listFiles.length; i++) {
+                        a(zipOutputStream, listFiles[i], str2 + listFiles[i].getName(), null);
+                    }
+                    File[] listFiles2 = file.listFiles(new z());
+                    if (listFiles2 != null) {
+                        for (File file2 : listFiles2) {
+                            a(zipOutputStream, file2, str2 + File.separator + file2.getName(), fileFilter);
                         }
-                        zipOutputStream.write(bArr, 0, read);
                     }
-                } catch (IOException e) {
-                    iOException = e;
-                    fileInputStream = fileInputStream2;
+                } else {
+                    if (TextUtils.isEmpty(str)) {
+                        Date date = new Date();
+                        zipEntry = new ZipEntry(String.valueOf(date.getTime()) + DownloadDataConstants.DEFAULT_DL_TEXT_EXTENSION);
+                    } else {
+                        zipEntry = new ZipEntry(str);
+                    }
+                    zipOutputStream.putNextEntry(zipEntry);
+                    FileInputStream fileInputStream2 = new FileInputStream(file);
                     try {
-                        com.xiaomi.channel.commonutils.logger.b.d("zipFiction failed with exception:" + iOException.toString());
+                        byte[] bArr = new byte[1024];
+                        while (true) {
+                            int read = fileInputStream2.read(bArr);
+                            if (read == -1) {
+                                break;
+                            }
+                            zipOutputStream.write(bArr, 0, read);
+                        }
+                        fileInputStream = fileInputStream2;
+                    } catch (IOException e2) {
+                        e = e2;
+                        fileInputStream = fileInputStream2;
+                        com.xiaomi.channel.commonutils.logger.b.d("zipFiction failed with exception:" + e.toString());
                         a(fileInputStream);
-                        return;
-                    } catch (Throwable th2) {
-                        th = th2;
+                    } catch (Throwable th) {
+                        th = th;
+                        fileInputStream = fileInputStream2;
                         a(fileInputStream);
                         throw th;
                     }
-                } catch (Throwable th3) {
-                    th = th3;
-                    fileInputStream = fileInputStream2;
-                    a(fileInputStream);
-                    throw th;
                 }
+            } catch (IOException e3) {
+                e = e3;
             }
-            a(fileInputStream2);
-        } catch (IOException e2) {
-            iOException = e2;
-            fileInputStream = null;
-        } catch (Throwable th4) {
-            th = th4;
-            fileInputStream = null;
+            a(fileInputStream);
+        } catch (Throwable th2) {
+            th = th2;
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m594a(File file) {
+    public static boolean m624a(File file) {
         try {
             if (file.isDirectory()) {
                 return false;
@@ -265,54 +251,50 @@ public class y {
             byte[] byteArray = byteArrayOutputStream.toByteArray();
             byteArrayOutputStream.close();
             return byteArray;
-        } catch (Exception e) {
+        } catch (Exception unused) {
             return bArr;
         }
     }
 
     public static void b(File file, File file2) {
         FileOutputStream fileOutputStream;
-        FileInputStream fileInputStream;
         if (file.getAbsolutePath().equals(file2.getAbsolutePath())) {
             return;
         }
+        FileInputStream fileInputStream = null;
         try {
-            fileInputStream = new FileInputStream(file);
+            FileInputStream fileInputStream2 = new FileInputStream(file);
             try {
                 fileOutputStream = new FileOutputStream(file2);
-            } catch (Throwable th) {
-                th = th;
-                fileOutputStream = null;
-            }
-        } catch (Throwable th2) {
-            th = th2;
-            fileOutputStream = null;
-            fileInputStream = null;
-        }
-        try {
-            byte[] bArr = new byte[1024];
-            while (true) {
-                int read = fileInputStream.read(bArr);
-                if (read < 0) {
-                    break;
+                try {
+                    byte[] bArr = new byte[1024];
+                    while (true) {
+                        int read = fileInputStream2.read(bArr);
+                        if (read < 0) {
+                            fileInputStream2.close();
+                            fileOutputStream.close();
+                            return;
+                        }
+                        fileOutputStream.write(bArr, 0, read);
+                    }
+                } catch (Throwable th) {
+                    th = th;
+                    fileInputStream = fileInputStream2;
+                    if (fileInputStream != null) {
+                        fileInputStream.close();
+                    }
+                    if (fileOutputStream != null) {
+                        fileOutputStream.close();
+                    }
+                    throw th;
                 }
-                fileOutputStream.write(bArr, 0, read);
-            }
-            if (fileInputStream != null) {
-                fileInputStream.close();
-            }
-            if (fileOutputStream != null) {
-                fileOutputStream.close();
+            } catch (Throwable th2) {
+                th = th2;
+                fileOutputStream = null;
             }
         } catch (Throwable th3) {
             th = th3;
-            if (fileInputStream != null) {
-                fileInputStream.close();
-            }
-            if (fileOutputStream != null) {
-                fileOutputStream.close();
-            }
-            throw th;
+            fileOutputStream = null;
         }
     }
 }

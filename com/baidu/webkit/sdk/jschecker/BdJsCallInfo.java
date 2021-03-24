@@ -1,14 +1,14 @@
 package com.baidu.webkit.sdk.jschecker;
 
 import com.baidu.webkit.internal.INoProGuard;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public final class BdJsCallInfo implements INoProGuard {
-    private String mJsInterfaceName;
-    private String mJsMethodName;
-    private String mMethodDeclaration;
-    private boolean mPermissionChecked;
-    private String mUrl;
-    private String mWebViewFrameName;
+    public String mJsInterfaceName;
+    public String mJsMethodName;
+    public String mMethodDeclaration;
+    public boolean mPermissionChecked;
+    public String mUrl;
+    public String mWebViewFrameName;
 
     public final void finishPermissionCheck() {
         this.mPermissionChecked = true;

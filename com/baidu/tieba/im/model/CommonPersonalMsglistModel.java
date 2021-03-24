@@ -4,16 +4,15 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tieba.im.chat.MsglistActivity;
 import com.baidu.tieba.im.message.ResponseCommitPersonalMessage;
 import com.baidu.tieba.im.message.chat.ChatMessage;
-import com.baidu.tieba.im.util.c;
-/* loaded from: classes.dex */
+import d.b.i0.d1.w.c;
+/* loaded from: classes4.dex */
 public abstract class CommonPersonalMsglistModel extends MsglistModel {
-    private final CustomMessageListener mCustomListener;
-    protected UserData mUser;
+    public final CustomMessageListener mCustomListener;
+    public UserData mUser;
 
     public CommonPersonalMsglistModel() {
         this.mUser = null;
@@ -21,25 +20,57 @@ public abstract class CommonPersonalMsglistModel extends MsglistModel {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (customResponsedMessage != null) {
-                    if (customResponsedMessage.getCmd() == 2016012) {
-                        if (customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof SocketResponsedMessage)) {
-                            SocketResponsedMessage socketResponsedMessage = (SocketResponsedMessage) customResponsedMessage.getData();
-                            if (socketResponsedMessage.getCmd() == 205001 && (socketResponsedMessage instanceof ResponseCommitPersonalMessage)) {
-                                CommonPersonalMsglistModel.this.processMsgACK((ResponseCommitPersonalMessage) socketResponsedMessage);
-                            }
-                        }
-                    } else if (customResponsedMessage.getCmd() == 2001215 && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof ChatMessage)) {
-                        ChatMessage chatMessage = (ChatMessage) customResponsedMessage.getData();
-                        if (CommonPersonalMsglistModel.this.mUser != null && CommonPersonalMsglistModel.this.mUser.getUserId() != null) {
-                            if (CommonPersonalMsglistModel.this.mUser.getUserId().equals(String.valueOf(c.n(chatMessage)))) {
-                                CommonPersonalMsglistModel.this.sendMsgFail(chatMessage);
-                            }
-                        }
+                if (customResponsedMessage == null) {
+                    return;
+                }
+                if (customResponsedMessage.getCmd() == 2016012) {
+                    if (customResponsedMessage.getData() == null || !(customResponsedMessage.getData() instanceof SocketResponsedMessage)) {
+                        return;
+                    }
+                    SocketResponsedMessage socketResponsedMessage = (SocketResponsedMessage) customResponsedMessage.getData();
+                    if (socketResponsedMessage.getCmd() == 205001 && (socketResponsedMessage instanceof ResponseCommitPersonalMessage)) {
+                        CommonPersonalMsglistModel.this.processMsgACK((ResponseCommitPersonalMessage) socketResponsedMessage);
+                    }
+                } else if (customResponsedMessage.getCmd() == 2001215 && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof ChatMessage)) {
+                    ChatMessage chatMessage = (ChatMessage) customResponsedMessage.getData();
+                    UserData userData = CommonPersonalMsglistModel.this.mUser;
+                    if (userData == null || userData.getUserId() == null) {
+                        return;
+                    }
+                    if (CommonPersonalMsglistModel.this.mUser.getUserId().equals(String.valueOf(c.m(chatMessage)))) {
+                        CommonPersonalMsglistModel.this.sendMsgFail(chatMessage);
                     }
                 }
             }
         };
+    }
+
+    private void registerListener() {
+        MessageManager.getInstance().registerListener(2016012, this.mCustomListener);
+        MessageManager.getInstance().registerListener(2001215, this.mCustomListener);
+    }
+
+    private void unRegisterListener() {
+        MessageManager.getInstance().unRegisterListener(this.mCustomListener);
+    }
+
+    public UserData getUser() {
+        return this.mUser;
+    }
+
+    @Override // com.baidu.tieba.im.model.MsglistModel
+    public void onDestroy() {
+        super.onDestroy();
+        unRegisterListener();
+    }
+
+    public void setUser(UserData userData) {
+        this.mUser = userData;
+        if (userData != null) {
+            this.mId = userData.getUserIdLong();
+        } else {
+            this.mId = 0L;
+        }
     }
 
     public CommonPersonalMsglistModel(MsglistActivity msglistActivity) {
@@ -49,53 +80,29 @@ public abstract class CommonPersonalMsglistModel extends MsglistModel {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (customResponsedMessage != null) {
-                    if (customResponsedMessage.getCmd() == 2016012) {
-                        if (customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof SocketResponsedMessage)) {
-                            SocketResponsedMessage socketResponsedMessage = (SocketResponsedMessage) customResponsedMessage.getData();
-                            if (socketResponsedMessage.getCmd() == 205001 && (socketResponsedMessage instanceof ResponseCommitPersonalMessage)) {
-                                CommonPersonalMsglistModel.this.processMsgACK((ResponseCommitPersonalMessage) socketResponsedMessage);
-                            }
-                        }
-                    } else if (customResponsedMessage.getCmd() == 2001215 && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof ChatMessage)) {
-                        ChatMessage chatMessage = (ChatMessage) customResponsedMessage.getData();
-                        if (CommonPersonalMsglistModel.this.mUser != null && CommonPersonalMsglistModel.this.mUser.getUserId() != null) {
-                            if (CommonPersonalMsglistModel.this.mUser.getUserId().equals(String.valueOf(c.n(chatMessage)))) {
-                                CommonPersonalMsglistModel.this.sendMsgFail(chatMessage);
-                            }
-                        }
+                if (customResponsedMessage == null) {
+                    return;
+                }
+                if (customResponsedMessage.getCmd() == 2016012) {
+                    if (customResponsedMessage.getData() == null || !(customResponsedMessage.getData() instanceof SocketResponsedMessage)) {
+                        return;
+                    }
+                    SocketResponsedMessage socketResponsedMessage = (SocketResponsedMessage) customResponsedMessage.getData();
+                    if (socketResponsedMessage.getCmd() == 205001 && (socketResponsedMessage instanceof ResponseCommitPersonalMessage)) {
+                        CommonPersonalMsglistModel.this.processMsgACK((ResponseCommitPersonalMessage) socketResponsedMessage);
+                    }
+                } else if (customResponsedMessage.getCmd() == 2001215 && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof ChatMessage)) {
+                    ChatMessage chatMessage = (ChatMessage) customResponsedMessage.getData();
+                    UserData userData = CommonPersonalMsglistModel.this.mUser;
+                    if (userData == null || userData.getUserId() == null) {
+                        return;
+                    }
+                    if (CommonPersonalMsglistModel.this.mUser.getUserId().equals(String.valueOf(c.m(chatMessage)))) {
+                        CommonPersonalMsglistModel.this.sendMsgFail(chatMessage);
                     }
                 }
             }
         };
         registerListener();
-    }
-
-    @Override // com.baidu.tieba.im.model.MsglistModel
-    public void onDestroy() {
-        super.onDestroy();
-        unRegisterListener();
-    }
-
-    private void registerListener() {
-        MessageManager.getInstance().registerListener(CmdConfigCustom.MEMORY_COMMIT_MSG_ACK, this.mCustomListener);
-        MessageManager.getInstance().registerListener(CmdConfigCustom.CMD_UPLOAD_FAIL, this.mCustomListener);
-    }
-
-    private void unRegisterListener() {
-        MessageManager.getInstance().unRegisterListener(this.mCustomListener);
-    }
-
-    public void setUser(UserData userData) {
-        this.mUser = userData;
-        if (this.mUser != null) {
-            this.mId = this.mUser.getUserIdLong();
-        } else {
-            this.mId = 0L;
-        }
-    }
-
-    public UserData getUser() {
-        return this.mUser;
     }
 }

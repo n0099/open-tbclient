@@ -7,21 +7,21 @@ import java.util.Iterator;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class MPushMessage implements Serializable {
-    private static final String TAG = "MPushMessage";
-    private String clickType;
-    private String content;
-    private String isDiscard;
-    private String notifyType;
-    private String packageName;
-    private String pushType;
-    private String taskId;
-    private String title;
-    private Map<String, String> extra = new HashMap();
-    private Map<String, String> params = new HashMap();
+    public static final String TAG = "MPushMessage";
+    public String clickType;
+    public String content;
+    public String isDiscard;
+    public String notifyType;
+    public String packageName;
+    public String pushType;
+    public String taskId;
+    public String title;
+    public Map<String, String> extra = new HashMap();
+    public Map<String, String> params = new HashMap();
 
-    private static Map<String, String> getParamsMap(JSONObject jSONObject) {
+    public static Map<String, String> getParamsMap(JSONObject jSONObject) {
         HashMap hashMap = new HashMap();
         try {
             Iterator<String> keys = jSONObject.keys();
@@ -29,8 +29,8 @@ public class MPushMessage implements Serializable {
                 String next = keys.next();
                 hashMap.put(next, jSONObject.getString(next));
             }
-        } catch (JSONException e) {
-            e.printStackTrace();
+        } catch (JSONException e2) {
+            e2.printStackTrace();
         }
         return hashMap;
     }
@@ -62,21 +62,17 @@ public class MPushMessage implements Serializable {
                         if (jSONObject3 != null) {
                             mPushMessage.setParams(getParamsMap(jSONObject3));
                         }
-                        jSONObject.remove(PushConstants.PARAMS);
-                    } catch (JSONException e) {
-                        com.meizu.cloud.a.a.i(TAG, "parameter parse error message " + e.getMessage());
-                        if (0 != 0) {
-                            mPushMessage.setParams(getParamsMap(null));
-                        }
-                        jSONObject.remove(PushConstants.PARAMS);
+                    } catch (JSONException e2) {
+                        d.j.a.a.a.d(TAG, "parameter parse error message " + e2.getMessage());
                     }
+                    jSONObject.remove(PushConstants.PARAMS);
                 }
                 mPushMessage.setExtra(getParamsMap(jSONObject));
             }
-        } catch (JSONException e2) {
-            com.meizu.cloud.a.a.i(TAG, "parse push message error " + e2.getMessage());
+        } catch (JSONException e3) {
+            d.j.a.a.a.d(TAG, "parse push message error " + e3.getMessage());
         }
-        com.meizu.cloud.a.a.i(TAG, " parsePushMessage " + mPushMessage);
+        d.j.a.a.a.d(TAG, " parsePushMessage " + mPushMessage);
         return mPushMessage;
     }
 

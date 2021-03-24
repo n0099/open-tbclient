@@ -1,122 +1,110 @@
 package com.sdk.mobile.b;
 
 import android.content.Context;
-import android.os.Handler;
-import android.os.Looper;
 import com.baidu.android.imsdk.upload.action.IMTrack;
-import com.baidu.live.tbadk.pay.PayHelper;
+import com.baidu.walletfacesdk.LightInvokerImpl;
 import com.sdk.base.api.CallBack;
-import com.sdk.base.framework.a.i;
+import com.sdk.base.framework.a.j;
 import com.sdk.base.framework.bean.DataInfo;
 import com.sdk.base.framework.c.f;
-import com.sdk.base.framework.f.h.g;
+import com.sdk.base.framework.f.g.g;
 import com.tencent.connect.common.Constants;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class a<T> {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f7660a = a.class.getName();
-    private static Boolean b = Boolean.valueOf(f.b);
-    private CallBack<T> c;
-    private Context d;
-    private a<T>.e e;
-    private com.sdk.base.framework.a.f f;
-    private int g;
+    public static final String f38576a = "com.sdk.mobile.b.a";
 
-    /* loaded from: classes4.dex */
-    public final class e implements Runnable {
+    /* renamed from: b  reason: collision with root package name */
+    public static Boolean f38577b = Boolean.valueOf(f.f38519b);
 
-        /* renamed from: a  reason: collision with root package name */
-        private Handler f7668a = new Handler(Looper.getMainLooper());
-        private long b;
+    /* renamed from: c  reason: collision with root package name */
+    public CallBack<T> f38578c;
 
-        e(long j) {
-            this.b = j;
-        }
+    /* renamed from: d  reason: collision with root package name */
+    public Context f38579d;
 
-        public final void a() {
-            this.f7668a.postDelayed(this, this.b);
-        }
+    /* renamed from: e  reason: collision with root package name */
+    public e f38580e;
 
-        public final void b() {
-            this.f7668a.removeCallbacks(this);
-        }
+    /* renamed from: f  reason: collision with root package name */
+    public com.sdk.base.framework.a.f f38581f;
 
-        @Override // java.lang.Runnable
-        public final void run() {
-            if (a.this.f != null) {
-                com.sdk.base.framework.a.a.c.c(a.f7660a, "超时，已取消请求", a.b);
-                a.this.f.a();
-            }
-            a.this.a(1, PayHelper.STATUS_TIMEOUT_DESC, 101005, null, com.sdk.base.framework.f.g.a.b().a());
-        }
-    }
+    /* renamed from: g  reason: collision with root package name */
+    public int f38582g;
 
     public a(Context context, int i, CallBack<T> callBack) {
-        this.c = callBack;
-        this.d = context;
+        this.f38578c = callBack;
+        this.f38579d = context;
         i = i <= 0 ? 30 : i;
-        this.g = i;
-        this.e = new e(i * 1000);
-        this.e.a();
-        com.sdk.base.framework.f.g.a.a();
+        this.f38582g = i;
+        e eVar = new e(this, i * 1000);
+        this.f38580e = eVar;
+        eVar.a();
+        com.sdk.base.framework.f.f.a.a();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(int i, int i2, String str) {
-        String a2 = com.sdk.base.framework.f.g.a.b().a();
+        String a2 = com.sdk.base.framework.f.f.a.b().a();
         if (com.sdk.base.framework.a.a.c.a(a2).booleanValue()) {
-            a2 = com.sdk.base.framework.f.j.a.a(20);
+            a2 = com.sdk.base.framework.f.i.a.a(20);
         }
-        if (this.e != null) {
-            this.e.b();
+        e eVar = this.f38580e;
+        if (eVar != null) {
+            eVar.b();
         }
-        if (this.c != null) {
-            this.c.onFailed(i, i2, str, a2);
-            this.c = null;
+        CallBack<T> callBack = this.f38578c;
+        if (callBack != null) {
+            callBack.onFailed(i, i2, str, a2);
+            this.f38578c = null;
         }
-        com.sdk.base.framework.f.l.a.a(this.d, i2, str, a2, this.g);
+        com.sdk.base.framework.f.k.a.a(this.f38579d, i2, str, a2, this.f38582g);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(int i, String str, int i2, T t, String str2) {
-        String a2 = com.sdk.base.framework.a.a.c.a(str2).booleanValue() ? com.sdk.base.framework.f.j.a.a(20) : str2;
-        if (this.e != null) {
-            this.e.b();
+        if (com.sdk.base.framework.a.a.c.a(str2).booleanValue()) {
+            str2 = com.sdk.base.framework.f.i.a.a(20);
         }
-        if (this.c != null) {
-            this.c.onSuccess(i, str, i2, t, a2);
-            this.c = null;
+        e eVar = this.f38580e;
+        if (eVar != null) {
+            eVar.b();
         }
-        com.sdk.base.framework.f.l.a.a(this.d, i2, str, a2, this.g);
+        CallBack<T> callBack = this.f38578c;
+        if (callBack != null) {
+            callBack.onSuccess(i, str, i2, t, str2);
+            this.f38578c = null;
+        }
+        com.sdk.base.framework.f.k.a.a(this.f38579d, i2, str, str2, this.f38582g);
     }
 
     public final void a(int i) {
-        String b2 = com.sdk.base.framework.a.a.a.b(this.d, i, g.b.a());
-        if (com.sdk.base.framework.a.a.c.b(b2).booleanValue()) {
-            a(0, "成功", 100, com.sdk.base.framework.a.a.a.a(b2), com.sdk.base.framework.a.a.a.b(b2));
-        } else if (!com.sdk.base.framework.f.j.b.a(this.d)) {
+        String a2 = com.sdk.base.framework.a.a.a.a(this.f38579d, i, g.f38553a.a());
+        if (com.sdk.base.framework.a.a.c.b(a2).booleanValue()) {
+            a(0, "成功", 100, com.sdk.base.framework.a.a.a.a(a2), com.sdk.base.framework.a.a.a.b(a2));
+        } else if (!com.sdk.base.framework.f.i.b.a(this.f38579d)) {
             a(1, IMTrack.CrashBuilder.CRASH_TYPE_CATCH, "操作频繁请,稍后再试");
         } else {
             new com.sdk.mobile.a.a();
-            com.sdk.mobile.c.a aVar = new com.sdk.mobile.c.a(this.d, new b(this, i));
+            com.sdk.mobile.c.a aVar = new com.sdk.mobile.c.a(this.f38579d, new b(this, i));
             DataInfo dataInfo = new DataInfo();
-            dataInfo.putData("serviceType", Integer.valueOf(i));
+            dataInfo.putData(LightInvokerImpl.LIVENESS_SERVIVETYPE, Integer.valueOf(i));
             dataInfo.putData("privateIp", com.sdk.base.framework.f.a.a.a());
             dataInfo.putData("newVersion", Constants.VIA_REPORT_TYPE_SHARE_TO_QQ);
-            this.f = aVar.a(aVar.b, "/dro/netm/v1.0/qc", dataInfo, aVar.a(), 0, i.b);
+            this.f38581f = aVar.a(aVar.f38528b, "/dro/netm/v1.0/qc", dataInfo, aVar.a(), 0, j.f38481b);
         }
     }
 
     public final void a(String str) {
-        com.sdk.base.framework.a.a.a.a(this.d);
+        com.sdk.base.framework.a.a.a.a(this.f38579d);
         new com.sdk.mobile.a.a();
-        this.f = com.sdk.mobile.a.a.a(this.d, str, null, new d(this));
+        this.f38581f = com.sdk.mobile.a.a.a(this.f38579d, str, null, new d(this));
     }
 
     public final void a(String str, String str2) {
-        com.sdk.base.framework.a.a.a.b(this.d);
+        com.sdk.base.framework.a.a.a.b(this.f38579d);
         new com.sdk.mobile.a.a();
-        this.f = com.sdk.mobile.a.a.a(this.d, str, str2, new c(this));
+        this.f38581f = com.sdk.mobile.a.a.a(this.f38579d, str, str2, new c(this));
     }
 }

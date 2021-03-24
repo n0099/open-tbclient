@@ -5,71 +5,74 @@ import java.io.Writer;
 import java.util.Iterator;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes14.dex */
+/* loaded from: classes7.dex */
 public class g implements Iterable<String> {
 
     /* renamed from: a  reason: collision with root package name */
-    private ConcurrentLinkedQueue<String> f7956a;
-    private AtomicInteger b;
+    public ConcurrentLinkedQueue<String> f39215a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public AtomicInteger f39216b;
 
     public g() {
-        this.f7956a = null;
-        this.b = null;
-        this.f7956a = new ConcurrentLinkedQueue<>();
-        this.b = new AtomicInteger(0);
+        this.f39215a = null;
+        this.f39216b = null;
+        this.f39215a = new ConcurrentLinkedQueue<>();
+        this.f39216b = new AtomicInteger(0);
     }
 
     public int a(String str) {
         int length = str.length();
-        this.f7956a.add(str);
-        return this.b.addAndGet(length);
-    }
-
-    public void a(Writer writer, char[] cArr) throws IOException {
-        if (writer != null && cArr != null && cArr.length != 0) {
-            int length = cArr.length;
-            Iterator<String> it = iterator();
-            int i = 0;
-            int i2 = length;
-            while (it.hasNext()) {
-                String next = it.next();
-                int length2 = next.length();
-                int i3 = 0;
-                while (length2 > 0) {
-                    int i4 = i2 > length2 ? length2 : i2;
-                    next.getChars(i3, i3 + i4, cArr, i);
-                    i2 -= i4;
-                    i += i4;
-                    length2 -= i4;
-                    int i5 = i4 + i3;
-                    if (i2 == 0) {
-                        writer.write(cArr, 0, length);
-                        i = 0;
-                        i2 = length;
-                        i3 = i5;
-                    } else {
-                        i3 = i5;
-                    }
-                }
-            }
-            if (i > 0) {
-                writer.write(cArr, 0, i);
-            }
-            writer.flush();
-        }
-    }
-
-    public int a() {
-        return this.b.get();
+        this.f39215a.add(str);
+        return this.f39216b.addAndGet(length);
     }
 
     public void b() {
-        this.f7956a.clear();
-        this.b.set(0);
+        this.f39215a.clear();
+        this.f39216b.set(0);
     }
 
     @Override // java.lang.Iterable
     public Iterator<String> iterator() {
-        return this.f7956a.iterator();
+        return this.f39215a.iterator();
+    }
+
+    public void a(Writer writer, char[] cArr) throws IOException {
+        if (writer == null || cArr == null || cArr.length == 0) {
+            return;
+        }
+        int length = cArr.length;
+        Iterator<String> it = iterator();
+        int i = length;
+        int i2 = 0;
+        while (it.hasNext()) {
+            String next = it.next();
+            int length2 = next.length();
+            int i3 = 0;
+            while (length2 > 0) {
+                int i4 = i > length2 ? length2 : i;
+                int i5 = i3 + i4;
+                next.getChars(i3, i5, cArr, i2);
+                i -= i4;
+                i2 += i4;
+                length2 -= i4;
+                if (i == 0) {
+                    writer.write(cArr, 0, length);
+                    i = length;
+                    i3 = i5;
+                    i2 = 0;
+                } else {
+                    i3 = i5;
+                }
+            }
+        }
+        if (i2 > 0) {
+            writer.write(cArr, 0, i2);
+        }
+        writer.flush();
+    }
+
+    public int a() {
+        return this.f39216b.get();
     }
 }

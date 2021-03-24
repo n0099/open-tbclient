@@ -1,34 +1,34 @@
 package com.baidu.tieba.personExtra;
 
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
-import com.baidu.tbadk.core.data.bf;
-/* loaded from: classes7.dex */
+import d.b.h0.r.q.f1;
+/* loaded from: classes5.dex */
 public class ResponsePersonFriendByUidLocalMessage extends CustomResponsedMessage<String> {
-    private bf mData;
+    public f1 mData;
 
     public ResponsePersonFriendByUidLocalMessage() {
-        super(CmdConfigCustom.CMD_QUERY_PERSON_FRIEND_LOCAL_HISTORY);
+        super(2001182);
+    }
+
+    public f1 getPersonFriendData() {
+        return this.mData;
+    }
+
+    public void setPersonFriendData(f1 f1Var) {
+        this.mData = f1Var;
     }
 
     public ResponsePersonFriendByUidLocalMessage(int i) {
         super(i);
     }
 
-    public void setPersonFriendData(bf bfVar) {
-        this.mData = bfVar;
-    }
-
-    public bf getPersonFriendData() {
-        return this.mData;
-    }
-
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.message.CustomResponsedMessage, com.baidu.adp.framework.message.a
+    @Override // com.baidu.adp.framework.message.CustomResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
     public void decodeInBackGround(int i, String str) throws Exception {
         if (str != null) {
-            this.mData = new bf();
-            this.mData.parserJson(str);
+            f1 f1Var = new f1();
+            this.mData = f1Var;
+            f1Var.f(str);
         }
     }
 }

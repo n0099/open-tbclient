@@ -6,23 +6,37 @@ import com.bumptech.glide.load.engine.bitmap_recycle.ArrayPool;
 import com.bumptech.glide.load.resource.bitmap.RecyclableBufferedInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public final class InputStreamRewinder implements DataRewinder<InputStream> {
-    private static final int MARK_READ_LIMIT = 5242880;
-    private final RecyclableBufferedInputStream bufferedStream;
+    public static final int MARK_READ_LIMIT = 5242880;
+    public final RecyclableBufferedInputStream bufferedStream;
 
-    public InputStreamRewinder(InputStream inputStream, ArrayPool arrayPool) {
-        this.bufferedStream = new RecyclableBufferedInputStream(inputStream, arrayPool);
-        this.bufferedStream.mark(5242880);
+    /* loaded from: classes5.dex */
+    public static final class Factory implements DataRewinder.Factory<InputStream> {
+        public final ArrayPool byteArrayPool;
+
+        public Factory(ArrayPool arrayPool) {
+            this.byteArrayPool = arrayPool;
+        }
+
+        @Override // com.bumptech.glide.load.data.DataRewinder.Factory
+        @NonNull
+        public Class<InputStream> getDataClass() {
+            return InputStream.class;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.bumptech.glide.load.data.DataRewinder.Factory
+        @NonNull
+        public DataRewinder<InputStream> build(InputStream inputStream) {
+            return new InputStreamRewinder(inputStream, this.byteArrayPool);
+        }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX WARN: Can't rename method to resolve collision */
-    @Override // com.bumptech.glide.load.data.DataRewinder
-    @NonNull
-    public InputStream rewindAndGet() throws IOException {
-        this.bufferedStream.reset();
-        return this.bufferedStream;
+    public InputStreamRewinder(InputStream inputStream, ArrayPool arrayPool) {
+        RecyclableBufferedInputStream recyclableBufferedInputStream = new RecyclableBufferedInputStream(inputStream, arrayPool);
+        this.bufferedStream = recyclableBufferedInputStream;
+        recyclableBufferedInputStream.mark(5242880);
     }
 
     @Override // com.bumptech.glide.load.data.DataRewinder
@@ -34,25 +48,12 @@ public final class InputStreamRewinder implements DataRewinder<InputStream> {
         this.bufferedStream.fixMarkLimit();
     }
 
-    /* loaded from: classes14.dex */
-    public static final class Factory implements DataRewinder.Factory<InputStream> {
-        private final ArrayPool byteArrayPool;
-
-        public Factory(ArrayPool arrayPool) {
-            this.byteArrayPool = arrayPool;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.bumptech.glide.load.data.DataRewinder.Factory
-        @NonNull
-        public DataRewinder<InputStream> build(InputStream inputStream) {
-            return new InputStreamRewinder(inputStream, this.byteArrayPool);
-        }
-
-        @Override // com.bumptech.glide.load.data.DataRewinder.Factory
-        @NonNull
-        public Class<InputStream> getDataClass() {
-            return InputStream.class;
-        }
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX WARN: Can't rename method to resolve collision */
+    @Override // com.bumptech.glide.load.data.DataRewinder
+    @NonNull
+    public InputStream rewindAndGet() throws IOException {
+        this.bufferedStream.reset();
+        return this.bufferedStream;
     }
 }

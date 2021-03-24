@@ -11,50 +11,60 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private static Field f7441a;
-    private static Field b;
-    private static Field c;
-    private static Object d = new Object();
-    private static Map<String, Set<String>> e = new ConcurrentHashMap();
+    public static Field f37850a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public static Field f37851b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public static Field f37852c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public static Object f37853d = new Object();
+
+    /* renamed from: e  reason: collision with root package name */
+    public static Map<String, Set<String>> f37854e = new ConcurrentHashMap();
 
     static {
-        f7441a = null;
-        b = null;
         try {
-            f7441a = Notification.class.getDeclaredField("mFlymeNotification");
-            b = Class.forName("android.app.NotificationExt").getDeclaredField("internalApp");
-            b.setAccessible(true);
-            c = Notification.class.getDeclaredField("replyIntent");
-            c.setAccessible(true);
+            f37850a = Notification.class.getDeclaredField("mFlymeNotification");
+            Field declaredField = Class.forName("android.app.NotificationExt").getDeclaredField("internalApp");
+            f37851b = declaredField;
+            declaredField.setAccessible(true);
+            Field declaredField2 = Notification.class.getDeclaredField("replyIntent");
+            f37852c = declaredField2;
+            declaredField2.setAccessible(true);
         } catch (ClassNotFoundException e2) {
             e2.printStackTrace();
         } catch (NoSuchFieldException e3) {
-            com.meizu.cloud.a.a.e("NotificationUtils", "init NotificationUtils error " + e3.getMessage());
+            d.j.a.a.a.b("NotificationUtils", "init NotificationUtils error " + e3.getMessage());
         }
     }
 
     public static void a(Notification notification, PendingIntent pendingIntent) {
-        if (c != null) {
+        Field field = f37852c;
+        if (field != null) {
             try {
-                c.set(notification, pendingIntent);
+                field.set(notification, pendingIntent);
             } catch (IllegalAccessException e2) {
-                com.meizu.cloud.a.a.e("NotificationUtils", "setReplyIntent error " + e2.getMessage());
+                d.j.a.a.a.b("NotificationUtils", "setReplyIntent error " + e2.getMessage());
             }
         }
     }
 
     public static void a(Notification notification, boolean z) {
-        if (f7441a == null || b == null) {
+        Field field = f37850a;
+        if (field == null || f37851b == null) {
             return;
         }
         try {
-            b.set(f7441a.get(notification), Integer.valueOf(z ? 1 : 0));
+            f37851b.set(field.get(notification), Integer.valueOf(z ? 1 : 0));
         } catch (IllegalAccessException e2) {
-            com.meizu.cloud.a.a.e("NotificationUtils", "setInternalApp error " + e2.getMessage());
+            d.j.a.a.a.b("NotificationUtils", "setInternalApp error " + e2.getMessage());
         }
     }
 
@@ -68,11 +78,11 @@ public class b {
     public static void a(Context context, String str) {
         Set<String> set;
         NotificationManager notificationManager = (NotificationManager) context.getSystemService(ActionJsonData.TAG_NOTIFICATION);
-        if (notificationManager == null || TextUtils.isEmpty(str) || (set = e.get(str)) == null) {
+        if (notificationManager == null || TextUtils.isEmpty(str) || (set = f37854e.get(str)) == null) {
             return;
         }
         for (String str2 : set) {
-            com.meizu.cloud.a.a.i("NotificationUtils", "clear notifyId " + str2 + " notification");
+            d.j.a.a.a.d("NotificationUtils", "clear notifyId " + str2 + " notification");
             notificationManager.cancel(Integer.parseInt(str2));
         }
         set.clear();
@@ -81,9 +91,9 @@ public class b {
     public static void a(Context context, String str, int i) {
         NotificationManager notificationManager = (NotificationManager) context.getSystemService(ActionJsonData.TAG_NOTIFICATION);
         if (notificationManager != null) {
-            com.meizu.cloud.a.a.i("NotificationUtils", "clear clearNotification notifyId " + i);
+            d.j.a.a.a.d("NotificationUtils", "clear clearNotification notifyId " + i);
             notificationManager.cancel(i);
-            Set<String> set = e.get(str);
+            Set<String> set = f37854e.get(str);
             if (set != null) {
                 set.remove(String.valueOf(i));
             }
@@ -91,37 +101,34 @@ public class b {
     }
 
     public static boolean a(Context context, String str, String str2) {
-        boolean z;
-        synchronized (d) {
+        synchronized (f37853d) {
             if (TextUtils.isEmpty(str2)) {
-                z = false;
-            } else {
-                int i = com.meizu.cloud.pushsdk.util.b.i(context, str, str2);
-                com.meizu.cloud.a.a.e("NotificationUtils", "removeNotifyKey " + str2 + " notifyId " + i);
-                c(context, str, i);
-                z = com.meizu.cloud.pushsdk.util.b.j(context, str, str2);
+                return false;
             }
+            int i = com.meizu.cloud.pushsdk.util.b.i(context, str, str2);
+            d.j.a.a.a.b("NotificationUtils", "removeNotifyKey " + str2 + " notifyId " + i);
+            c(context, str, i);
+            return com.meizu.cloud.pushsdk.util.b.j(context, str, str2);
         }
-        return z;
     }
 
     public static void b(Context context, String str, int i) {
-        Set<String> set = e.get(str);
-        com.meizu.cloud.a.a.i("NotificationUtils", "store notifyId " + i);
+        Set<String> set = f37854e.get(str);
+        d.j.a.a.a.d("NotificationUtils", "store notifyId " + i);
         if (set != null) {
             set.add(String.valueOf(i));
             return;
         }
         HashSet hashSet = new HashSet();
         hashSet.add(String.valueOf(i));
-        e.put(str, hashSet);
+        f37854e.put(str, hashSet);
     }
 
     public static void c(Context context, String str, int i) {
-        Set<String> set = e.get(str);
+        Set<String> set = f37854e.get(str);
         if (set != null) {
             set.remove(String.valueOf(i));
-            com.meizu.cloud.a.a.i("NotificationUtils", "remove notifyId " + i);
+            d.j.a.a.a.d("NotificationUtils", "remove notifyId " + i);
         }
     }
 }

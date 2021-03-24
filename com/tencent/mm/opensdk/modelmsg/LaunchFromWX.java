@@ -4,14 +4,14 @@ import android.os.Bundle;
 import com.tencent.mm.opensdk.modelbase.BaseReq;
 import com.tencent.mm.opensdk.modelbase.BaseResp;
 import com.tencent.mm.opensdk.utils.Log;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class LaunchFromWX {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class Req extends BaseReq {
-        private static final int MESSAGE_ACTION_LENGTH_LIMIT = 2048;
-        private static final int MESSAGE_EXT_LENGTH_LIMIT = 2048;
-        private static final String TAG = "MicroMsg.SDK.LaunchFromWX.Req";
+        public static final int MESSAGE_ACTION_LENGTH_LIMIT = 2048;
+        public static final int MESSAGE_EXT_LENGTH_LIMIT = 2048;
+        public static final String TAG = "MicroMsg.SDK.LaunchFromWX.Req";
         public String country;
         public String lang;
         public String messageAction;
@@ -26,15 +26,19 @@ public class LaunchFromWX {
 
         @Override // com.tencent.mm.opensdk.modelbase.BaseReq
         public boolean checkArgs() {
-            if (this.messageAction != null && this.messageAction.length() > 2048) {
-                Log.e(TAG, "checkArgs fail, messageAction is too long");
-                return false;
-            } else if (this.messageExt == null || this.messageExt.length() <= 2048) {
-                return true;
+            String str;
+            String str2 = this.messageAction;
+            if (str2 == null || str2.length() <= 2048) {
+                String str3 = this.messageExt;
+                if (str3 == null || str3.length() <= 2048) {
+                    return true;
+                }
+                str = "checkArgs fail, messageExt is too long";
             } else {
-                Log.e(TAG, "checkArgs fail, messageExt is too long");
-                return false;
+                str = "checkArgs fail, messageAction is too long";
             }
+            Log.e(TAG, str);
+            return false;
         }
 
         @Override // com.tencent.mm.opensdk.modelbase.BaseReq
@@ -61,7 +65,7 @@ public class LaunchFromWX {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class Resp extends BaseResp {
         public Resp() {
         }
@@ -79,8 +83,5 @@ public class LaunchFromWX {
         public int getType() {
             return 6;
         }
-    }
-
-    private LaunchFromWX() {
     }
 }

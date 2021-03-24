@@ -15,13 +15,32 @@ import com.bytedance.sdk.openadsdk.utils.r;
 public class b extends WebChromeClient {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f4637a = WebChromeClient.class.getSimpleName();
-    private final x b;
-    private j c;
+    public static final String f29006a = WebChromeClient.class.getSimpleName();
+
+    /* renamed from: b  reason: collision with root package name */
+    public final x f29007b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public j f29008c;
 
     public b(x xVar, j jVar) {
-        this.b = xVar;
-        this.c = jVar;
+        this.f29007b = xVar;
+        this.f29008c = jVar;
+    }
+
+    private boolean a(@NonNull String str) {
+        try {
+            String str2 = f29006a;
+            Log.w(str2, "message:" + str);
+            Uri parse = Uri.parse(str);
+            if ("bytedance".equals(parse.getScheme().toLowerCase())) {
+                r.a(parse, this.f29007b);
+                return true;
+            }
+            return false;
+        } catch (Exception unused) {
+            return false;
+        }
     }
 
     @Override // android.webkit.WebChromeClient
@@ -33,36 +52,24 @@ public class b extends WebChromeClient {
     }
 
     @Override // android.webkit.WebChromeClient
-    public boolean onConsoleMessage(ConsoleMessage consoleMessage) {
-        if (consoleMessage == null || TextUtils.isEmpty(consoleMessage.message()) || !a(consoleMessage.message())) {
-            return super.onConsoleMessage(consoleMessage);
-        }
-        return true;
-    }
-
-    private boolean a(@NonNull String str) {
-        try {
-            Log.w(f4637a, "message:" + str);
-            Uri parse = Uri.parse(str);
-            if ("bytedance".equals(parse.getScheme().toLowerCase())) {
-                r.a(parse, this.b);
-                return true;
-            }
-        } catch (Exception e) {
-        }
-        return false;
-    }
-
-    @Override // android.webkit.WebChromeClient
     public void onProgressChanged(WebView webView, int i) {
         super.onProgressChanged(webView, i);
-        if (this.c != null) {
-            this.c.a(webView, i);
+        j jVar = this.f29008c;
+        if (jVar != null) {
+            jVar.a(webView, i);
         }
     }
 
     @Override // android.webkit.WebChromeClient
     public void onShowCustomView(View view, WebChromeClient.CustomViewCallback customViewCallback) {
         super.onShowCustomView(view, customViewCallback);
+    }
+
+    @Override // android.webkit.WebChromeClient
+    public boolean onConsoleMessage(ConsoleMessage consoleMessage) {
+        if (consoleMessage == null || TextUtils.isEmpty(consoleMessage.message()) || !a(consoleMessage.message())) {
+            return super.onConsoleMessage(consoleMessage);
+        }
+        return true;
     }
 }

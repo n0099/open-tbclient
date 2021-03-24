@@ -5,13 +5,14 @@ import com.baidu.searchbox.player.annotation.PublicMethod;
 import com.baidu.searchbox.player.event.SystemEventTrigger;
 import com.baidu.searchbox.player.event.VideoEvent;
 import com.baidu.searchbox.player.pool.SynchronizedFIFOPool;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class VideoSessionManager {
-    private SynchronizedFIFOPool<VideoSession> mSessionCache;
-    private SystemEventTrigger mSystemEventTrigger;
+    public SynchronizedFIFOPool<VideoSession> mSessionCache;
+    public SystemEventTrigger mSystemEventTrigger;
 
-    private VideoSessionManager() {
-        this.mSessionCache = new SynchronizedFIFOPool<>(10);
+    /* loaded from: classes3.dex */
+    public static final class Holder {
+        public static final VideoSessionManager mInstance = new VideoSessionManager();
     }
 
     @PublicMethod
@@ -20,8 +21,9 @@ public class VideoSessionManager {
     }
 
     private void setupSystemEventTrigger() {
-        this.mSystemEventTrigger = new SystemEventTrigger();
-        this.mSystemEventTrigger.registerReceiver();
+        SystemEventTrigger systemEventTrigger = new SystemEventTrigger();
+        this.mSystemEventTrigger = systemEventTrigger;
+        systemEventTrigger.registerReceiver();
     }
 
     private void triggerValidCheck() {
@@ -43,34 +45,32 @@ public class VideoSessionManager {
 
     @PublicMethod
     public void recycle(@NonNull VideoSession videoSession) {
-        if (this.mSystemEventTrigger != null) {
-            this.mSystemEventTrigger.unregister(videoSession.getMessenger());
+        SystemEventTrigger systemEventTrigger = this.mSystemEventTrigger;
+        if (systemEventTrigger != null) {
+            systemEventTrigger.unregister(videoSession.getMessenger());
         }
         this.mSessionCache.release((SynchronizedFIFOPool<VideoSession>) videoSession);
     }
 
     @PublicMethod
-    public void sendEventToAll(@NonNull VideoEvent videoEvent) {
-        if (this.mSystemEventTrigger != null) {
-            this.mSystemEventTrigger.triggerEvent(videoEvent);
-        }
-    }
-
-    @PublicMethod
     public void release() {
-        if (this.mSystemEventTrigger != null) {
-            this.mSystemEventTrigger.clear();
+        SystemEventTrigger systemEventTrigger = this.mSystemEventTrigger;
+        if (systemEventTrigger != null) {
+            systemEventTrigger.clear();
             this.mSystemEventTrigger.unregisterReceiver();
             this.mSystemEventTrigger = null;
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
-    public static final class Holder {
-        public static final VideoSessionManager mInstance = new VideoSessionManager();
-
-        private Holder() {
+    @PublicMethod
+    public void sendEventToAll(@NonNull VideoEvent videoEvent) {
+        SystemEventTrigger systemEventTrigger = this.mSystemEventTrigger;
+        if (systemEventTrigger != null) {
+            systemEventTrigger.triggerEvent(videoEvent);
         }
+    }
+
+    public VideoSessionManager() {
+        this.mSessionCache = new SynchronizedFIFOPool<>(10);
     }
 }

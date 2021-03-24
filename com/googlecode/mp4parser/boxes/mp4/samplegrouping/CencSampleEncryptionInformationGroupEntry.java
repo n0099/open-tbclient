@@ -5,24 +5,23 @@ import com.coremedia.iso.IsoTypeReader;
 import com.coremedia.iso.IsoTypeWriter;
 import java.nio.ByteBuffer;
 import java.util.Arrays;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class CencSampleEncryptionInformationGroupEntry extends GroupEntry {
-    static final /* synthetic */ boolean $assertionsDisabled;
+    public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static final String TYPE = "seig";
-    private int isEncrypted;
-    private byte ivSize;
-    private byte[] kid = new byte[16];
+    public int isEncrypted;
+    public byte ivSize;
+    public byte[] kid = new byte[16];
 
-    static {
-        $assertionsDisabled = !CencSampleEncryptionInformationGroupEntry.class.desiredAssertionStatus();
-    }
-
-    @Override // com.googlecode.mp4parser.boxes.mp4.samplegrouping.GroupEntry
-    public void parse(ByteBuffer byteBuffer) {
-        this.isEncrypted = IsoTypeReader.readUInt24(byteBuffer);
-        this.ivSize = (byte) IsoTypeReader.readUInt8(byteBuffer);
-        this.kid = new byte[16];
-        byteBuffer.get(this.kid);
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || CencSampleEncryptionInformationGroupEntry.class != obj.getClass()) {
+            return false;
+        }
+        CencSampleEncryptionInformationGroupEntry cencSampleEncryptionInformationGroupEntry = (CencSampleEncryptionInformationGroupEntry) obj;
+        return this.isEncrypted == cencSampleEncryptionInformationGroupEntry.isEncrypted && this.ivSize == cencSampleEncryptionInformationGroupEntry.ivSize && Arrays.equals(this.kid, cencSampleEncryptionInformationGroupEntry.kid);
     }
 
     @Override // com.googlecode.mp4parser.boxes.mp4.samplegrouping.GroupEntry
@@ -39,45 +38,42 @@ public class CencSampleEncryptionInformationGroupEntry extends GroupEntry {
         return this.isEncrypted;
     }
 
-    public void setEncrypted(int i) {
-        this.isEncrypted = i;
-    }
-
     public byte getIvSize() {
         return this.ivSize;
-    }
-
-    public void setIvSize(byte b) {
-        this.ivSize = b;
     }
 
     public byte[] getKid() {
         return this.kid;
     }
 
+    public int hashCode() {
+        int i = ((this.isEncrypted * 31) + this.ivSize) * 31;
+        byte[] bArr = this.kid;
+        return i + (bArr != null ? Arrays.hashCode(bArr) : 0);
+    }
+
+    @Override // com.googlecode.mp4parser.boxes.mp4.samplegrouping.GroupEntry
+    public void parse(ByteBuffer byteBuffer) {
+        this.isEncrypted = IsoTypeReader.readUInt24(byteBuffer);
+        this.ivSize = (byte) IsoTypeReader.readUInt8(byteBuffer);
+        byte[] bArr = new byte[16];
+        this.kid = bArr;
+        byteBuffer.get(bArr);
+    }
+
+    public void setEncrypted(int i) {
+        this.isEncrypted = i;
+    }
+
+    public void setIvSize(byte b2) {
+        this.ivSize = b2;
+    }
+
     public void setKid(byte[] bArr) {
-        if (!$assertionsDisabled && bArr.length != 16) {
-            throw new AssertionError();
-        }
         this.kid = bArr;
     }
 
     public String toString() {
         return "CencSampleEncryptionInformationGroupEntry{isEncrypted=" + this.isEncrypted + ", ivSize=" + ((int) this.ivSize) + ", kid=" + Hex.encodeHex(this.kid) + '}';
-    }
-
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null || getClass() != obj.getClass()) {
-            return false;
-        }
-        CencSampleEncryptionInformationGroupEntry cencSampleEncryptionInformationGroupEntry = (CencSampleEncryptionInformationGroupEntry) obj;
-        return this.isEncrypted == cencSampleEncryptionInformationGroupEntry.isEncrypted && this.ivSize == cencSampleEncryptionInformationGroupEntry.ivSize && Arrays.equals(this.kid, cencSampleEncryptionInformationGroupEntry.kid);
-    }
-
-    public int hashCode() {
-        return (this.kid != null ? Arrays.hashCode(this.kid) : 0) + (((this.isEncrypted * 31) + this.ivSize) * 31);
     }
 }

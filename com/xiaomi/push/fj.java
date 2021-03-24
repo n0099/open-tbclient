@@ -1,232 +1,164 @@
 package com.xiaomi.push;
 
-import com.baidu.android.imsdk.internal.Constants;
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
-/* loaded from: classes5.dex */
-public class fj implements ix<fj, Object>, Serializable, Cloneable {
-
-    /* renamed from: a  reason: collision with other field name */
-    public String f335a;
-
-    /* renamed from: a  reason: collision with other field name */
-    public List<fi> f336a;
-
-    /* renamed from: b  reason: collision with other field name */
-    public String f337b;
-
-    /* renamed from: a  reason: collision with other field name */
-    private static final jn f334a = new jn("StatsEvents");
+import com.xiaomi.push.du;
+import com.xiaomi.push.fl;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Map;
+/* loaded from: classes7.dex */
+public class fj implements fx {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final jf f8367a = new jf("", Constants.GZIP_CAST_TYPE, 1);
-    private static final jf b = new jf("", Constants.GZIP_CAST_TYPE, 2);
-    private static final jf c = new jf("", (byte) 15, 3);
+    public static boolean f40503a = false;
 
-    public fj() {
-    }
+    /* renamed from: a  reason: collision with other field name */
+    public fl f382a;
 
-    public fj(String str, List<fi> list) {
-        this();
-        this.f335a = str;
-        this.f336a = list;
-    }
+    /* renamed from: a  reason: collision with other field name */
+    public SimpleDateFormat f385a = new SimpleDateFormat("hh:mm:ss aaa");
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // java.lang.Comparable
-    /* renamed from: a */
-    public int compareTo(fj fjVar) {
-        int a2;
-        int a3;
-        int a4;
-        if (getClass().equals(fjVar.getClass())) {
-            int compareTo = Boolean.valueOf(m282a()).compareTo(Boolean.valueOf(fjVar.m282a()));
-            if (compareTo == 0) {
-                if (!m282a() || (a4 = iy.a(this.f335a, fjVar.f335a)) == 0) {
-                    int compareTo2 = Boolean.valueOf(b()).compareTo(Boolean.valueOf(fjVar.b()));
-                    if (compareTo2 == 0) {
-                        if (!b() || (a3 = iy.a(this.f337b, fjVar.f337b)) == 0) {
-                            int compareTo3 = Boolean.valueOf(c()).compareTo(Boolean.valueOf(fjVar.c()));
-                            if (compareTo3 == 0) {
-                                if (!c() || (a2 = iy.a(this.f336a, fjVar.f336a)) == 0) {
-                                    return 0;
-                                }
-                                return a2;
-                            }
-                            return compareTo3;
-                        }
-                        return a3;
-                    }
-                    return compareTo2;
-                }
-                return a4;
+    /* renamed from: a  reason: collision with other field name */
+    public a f381a = null;
+
+    /* renamed from: b  reason: collision with root package name */
+    public a f40504b = null;
+
+    /* renamed from: a  reason: collision with other field name */
+    public fo f383a = null;
+
+    /* renamed from: a  reason: collision with other field name */
+    public final String f384a = "[Slim] ";
+
+    /* loaded from: classes7.dex */
+    public class a implements fq, fy {
+
+        /* renamed from: a  reason: collision with other field name */
+        public String f386a;
+
+        /* renamed from: a  reason: collision with other field name */
+        public boolean f387a;
+
+        public a(boolean z) {
+            this.f387a = true;
+            this.f387a = z;
+            this.f386a = z ? " RCV " : " Sent ";
+        }
+
+        @Override // com.xiaomi.push.fq
+        public void a(fa faVar) {
+            StringBuilder sb;
+            String str;
+            if (fj.f40503a) {
+                sb = new StringBuilder();
+                sb.append("[Slim] ");
+                sb.append(fj.this.f385a.format(new Date()));
+                sb.append(this.f386a);
+                str = faVar.toString();
+            } else {
+                sb = new StringBuilder();
+                sb.append("[Slim] ");
+                sb.append(fj.this.f385a.format(new Date()));
+                sb.append(this.f386a);
+                sb.append(" Blob [");
+                sb.append(faVar.m283a());
+                sb.append(",");
+                sb.append(faVar.a());
+                sb.append(",");
+                sb.append(faVar.e());
+                str = "]";
             }
-            return compareTo;
-        }
-        return getClass().getName().compareTo(fjVar.getClass().getName());
-    }
-
-    public fj a(String str) {
-        this.f337b = str;
-        return this;
-    }
-
-    public void a() {
-        if (this.f335a == null) {
-            throw new jj("Required field 'uuid' was not present! Struct: " + toString());
-        }
-        if (this.f336a == null) {
-            throw new jj("Required field 'events' was not present! Struct: " + toString());
-        }
-    }
-
-    @Override // com.xiaomi.push.ix
-    public void a(ji jiVar) {
-        jiVar.m493a();
-        while (true) {
-            jf m489a = jiVar.m489a();
-            if (m489a.f8463a == 0) {
-                jiVar.f();
-                a();
+            sb.append(str);
+            com.xiaomi.channel.commonutils.logger.b.c(sb.toString());
+            if (faVar == null || faVar.a() != 99999) {
                 return;
             }
-            switch (m489a.f778a) {
-                case 1:
-                    if (m489a.f8463a == 11) {
-                        this.f335a = jiVar.m494a();
-                        break;
-                    } else {
-                        jl.a(jiVar, m489a.f8463a);
-                        break;
-                    }
-                case 2:
-                    if (m489a.f8463a == 11) {
-                        this.f337b = jiVar.m494a();
-                        break;
-                    } else {
-                        jl.a(jiVar, m489a.f8463a);
-                        break;
-                    }
-                case 3:
-                    if (m489a.f8463a == 15) {
-                        jg m490a = jiVar.m490a();
-                        this.f336a = new ArrayList(m490a.f779a);
-                        for (int i = 0; i < m490a.f779a; i++) {
-                            fi fiVar = new fi();
-                            fiVar.a(jiVar);
-                            this.f336a.add(fiVar);
-                        }
-                        jiVar.i();
-                        break;
-                    } else {
-                        jl.a(jiVar, m489a.f8463a);
-                        break;
-                    }
-                default:
-                    jl.a(jiVar, m489a.f8463a);
-                    break;
+            String m283a = faVar.m283a();
+            fa faVar2 = null;
+            if (!this.f387a) {
+                if ("BIND".equals(m283a)) {
+                    com.xiaomi.channel.commonutils.logger.b.m51a("build binded result for loopback.");
+                    du.d dVar = new du.d();
+                    dVar.a(true);
+                    dVar.c("login success.");
+                    dVar.b("success");
+                    dVar.a("success");
+                    fa faVar3 = new fa();
+                    faVar3.a(dVar.m262a(), (String) null);
+                    faVar3.a((short) 2);
+                    faVar3.a(99999);
+                    faVar3.a("BIND", (String) null);
+                    faVar3.a(faVar.e());
+                    faVar3.b(null);
+                    faVar3.c(faVar.g());
+                    faVar2 = faVar3;
+                } else if (!"UBND".equals(m283a) && "SECMSG".equals(m283a)) {
+                    fa faVar4 = new fa();
+                    faVar4.a(99999);
+                    faVar4.a("SECMSG", (String) null);
+                    faVar4.c(faVar.g());
+                    faVar4.a(faVar.e());
+                    faVar4.a(faVar.m285a());
+                    faVar4.b(faVar.f());
+                    faVar4.a(faVar.m288a(com.xiaomi.push.service.av.a().a(String.valueOf(99999), faVar.g()).f40967h), (String) null);
+                    faVar2 = faVar4;
+                }
             }
-            jiVar.g();
-        }
-    }
-
-    /* renamed from: a  reason: collision with other method in class */
-    public boolean m282a() {
-        return this.f335a != null;
-    }
-
-    /* renamed from: a  reason: collision with other method in class */
-    public boolean m283a(fj fjVar) {
-        if (fjVar == null) {
-            return false;
-        }
-        boolean m282a = m282a();
-        boolean m282a2 = fjVar.m282a();
-        if ((m282a || m282a2) && !(m282a && m282a2 && this.f335a.equals(fjVar.f335a))) {
-            return false;
-        }
-        boolean b2 = b();
-        boolean b3 = fjVar.b();
-        if ((b2 || b3) && !(b2 && b3 && this.f337b.equals(fjVar.f337b))) {
-            return false;
-        }
-        boolean c2 = c();
-        boolean c3 = fjVar.c();
-        return !(c2 || c3) || (c2 && c3 && this.f336a.equals(fjVar.f336a));
-    }
-
-    @Override // com.xiaomi.push.ix
-    public void b(ji jiVar) {
-        a();
-        jiVar.a(f334a);
-        if (this.f335a != null) {
-            jiVar.a(f8367a);
-            jiVar.a(this.f335a);
-            jiVar.b();
-        }
-        if (this.f337b != null && b()) {
-            jiVar.a(b);
-            jiVar.a(this.f337b);
-            jiVar.b();
-        }
-        if (this.f336a != null) {
-            jiVar.a(c);
-            jiVar.a(new jg((byte) 12, this.f336a.size()));
-            for (fi fiVar : this.f336a) {
-                fiVar.b(jiVar);
+            if (faVar2 != null) {
+                for (Map.Entry<fq, fl.a> entry : fj.this.f382a.m303a().entrySet()) {
+                    if (fj.this.f381a != entry.getKey()) {
+                        entry.getValue().a(faVar2);
+                    }
+                }
             }
-            jiVar.e();
-            jiVar.b();
         }
-        jiVar.c();
-        jiVar.m497a();
-    }
 
-    public boolean b() {
-        return this.f337b != null;
-    }
-
-    public boolean c() {
-        return this.f336a != null;
-    }
-
-    public boolean equals(Object obj) {
-        if (obj != null && (obj instanceof fj)) {
-            return m283a((fj) obj);
-        }
-        return false;
-    }
-
-    public int hashCode() {
-        return 0;
-    }
-
-    public String toString() {
-        StringBuilder sb = new StringBuilder("StatsEvents(");
-        sb.append("uuid:");
-        if (this.f335a == null) {
-            sb.append("null");
-        } else {
-            sb.append(this.f335a);
-        }
-        if (b()) {
-            sb.append(", ");
-            sb.append("operator:");
-            if (this.f337b == null) {
-                sb.append("null");
+        @Override // com.xiaomi.push.fq, com.xiaomi.push.fy
+        public void a(gc gcVar) {
+            StringBuilder sb;
+            String str;
+            if (fj.f40503a) {
+                sb = new StringBuilder();
+                sb.append("[Slim] ");
+                sb.append(fj.this.f385a.format(new Date()));
+                sb.append(this.f386a);
+                sb.append(" PKT ");
+                str = gcVar.m326a();
             } else {
-                sb.append(this.f337b);
+                sb = new StringBuilder();
+                sb.append("[Slim] ");
+                sb.append(fj.this.f385a.format(new Date()));
+                sb.append(this.f386a);
+                sb.append(" PKT [");
+                sb.append(gcVar.k());
+                sb.append(",");
+                sb.append(gcVar.j());
+                str = "]";
             }
+            sb.append(str);
+            com.xiaomi.channel.commonutils.logger.b.c(sb.toString());
         }
-        sb.append(", ");
-        sb.append("events:");
-        if (this.f336a == null) {
-            sb.append("null");
-        } else {
-            sb.append(this.f336a);
+
+        @Override // com.xiaomi.push.fq, com.xiaomi.push.fy
+        public boolean a(gc gcVar) {
+            return true;
         }
-        sb.append(")");
-        return sb.toString();
+    }
+
+    public fj(fl flVar) {
+        this.f382a = null;
+        this.f382a = flVar;
+        a();
+    }
+
+    private void a() {
+        this.f381a = new a(true);
+        this.f40504b = new a(false);
+        fl flVar = this.f382a;
+        a aVar = this.f381a;
+        flVar.a(aVar, aVar);
+        fl flVar2 = this.f382a;
+        a aVar2 = this.f40504b;
+        flVar2.b(aVar2, aVar2);
+        this.f383a = new fk(this);
     }
 }

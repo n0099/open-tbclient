@@ -5,13 +5,28 @@ import android.net.wifi.ScanResult;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import com.baidu.fsg.base.utils.LogUtil;
-import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public final class NetUtils {
-    private static final String TAG = "NetUtils";
+    public static final String TAG = "NetUtils";
+
+    public static JSONObject getConnectedWifi(Context context) {
+        WifiManager wifiManager;
+        WifiInfo connectionInfo;
+        if (context != null && (wifiManager = (WifiManager) context.getSystemService("wifi")) != null && wifiManager.isWifiEnabled() && (connectionInfo = wifiManager.getConnectionInfo()) != null) {
+            try {
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put("mac", connectionInfo.getBSSID());
+                jSONObject.put("rssi", connectionInfo.getRssi());
+                jSONObject.put("ssid", connectionInfo.getSSID());
+                return jSONObject;
+            } catch (Exception unused) {
+            }
+        }
+        return null;
+    }
 
     public static JSONObject getWifiSig(Context context, String str) {
         JSONObject jSONObject = new JSONObject();
@@ -23,8 +38,8 @@ public final class NetUtils {
                 jSONObject.put("wifi_scan", "");
                 return jSONObject;
             }
-        } catch (Exception e) {
-            LogUtil.e(TAG, BdStatsConstant.StatsType.ERROR, e);
+        } catch (Exception e2) {
+            LogUtil.e("NetUtils", "error", e2);
         }
         WifiInfo connectionInfo = wifiManager.getConnectionInfo();
         List<ScanResult> scanResults = wifiManager.getScanResults();
@@ -37,51 +52,27 @@ public final class NetUtils {
                 jSONObject.put("wifi_conn", jSONObject2);
             }
             if (scanResults != null && scanResults.size() > 0) {
-                JSONArray jSONArray = new JSONArray();
                 int i = 0;
+                JSONArray jSONArray = new JSONArray();
                 for (ScanResult scanResult : scanResults) {
                     JSONObject jSONObject3 = new JSONObject();
                     jSONObject3.put("mac", scanResult.BSSID);
                     jSONObject3.put("rssi", scanResult.level);
                     jSONObject3.put("ssid", scanResult.SSID);
                     jSONArray.put(jSONObject3);
-                    int i2 = i + 1;
-                    if (i2 >= 10) {
+                    i++;
+                    if (i >= 10) {
                         break;
                     }
-                    i = i2;
                 }
                 jSONObject.put("wifi_scan", jSONArray);
             } else {
                 jSONObject.put("wifi_scan", "");
             }
             return jSONObject;
-        } catch (Exception e2) {
-            LogUtil.e(TAG, BdStatsConstant.StatsType.ERROR, e2);
+        } catch (Exception e3) {
+            LogUtil.e("NetUtils", "error", e3);
             return null;
         }
-    }
-
-    public static JSONObject getConnectedWifi(Context context) {
-        if (context == null) {
-            return null;
-        }
-        WifiManager wifiManager = (WifiManager) context.getSystemService("wifi");
-        if (wifiManager == null || !wifiManager.isWifiEnabled()) {
-            return null;
-        }
-        WifiInfo connectionInfo = wifiManager.getConnectionInfo();
-        if (connectionInfo != null) {
-            try {
-                JSONObject jSONObject = new JSONObject();
-                jSONObject.put("mac", connectionInfo.getBSSID());
-                jSONObject.put("rssi", connectionInfo.getRssi());
-                jSONObject.put("ssid", connectionInfo.getSSID());
-                return jSONObject;
-            } catch (Exception e) {
-                return null;
-            }
-        }
-        return null;
     }
 }

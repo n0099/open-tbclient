@@ -2,7 +2,6 @@ package com.baidu.webkit.internal.daemon;
 
 import android.content.Context;
 import android.text.TextUtils;
-import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.webkit.internal.blink.WebSettingsGlobalBlink;
 import com.baidu.webkit.net.BdNet;
 import com.baidu.webkit.net.BdNetTask;
@@ -10,22 +9,22 @@ import com.baidu.webkit.net.INetListener;
 import com.baidu.webkit.sdk.Log;
 import com.baidu.webkit.sdk.WebKitFactory;
 import java.io.ByteArrayOutputStream;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class HttpDnsCacheForHost implements INetListener {
-    private static final String JSON_KEY_DATA = "data";
-    private static final String JSON_KEY_EXTINFO = "ext-info";
-    private static final String JSON_KEY_IP = "ip";
-    private static final String JSON_KEY_IPV6 = "ipv6";
-    private static final String JSON_KEY_IPV6_GROUP = "ipv6-group";
-    private static final String JSON_KEY_MSG = "msg";
-    private static final String LOG_TAG = "HttpDnsCacheForHost";
-    private static final String MSG_ERR = "error";
-    private static final String SERVER_URL = "https://180.76.76.112/v6/0010";
-    private static final String SERVER_URL_IPV6_ONLY = "https://[240c:4006::6666]/v6/0010";
-    private static final String TARGET_EXTERNALHOST = "?dn=";
+    public static final String JSON_KEY_DATA = "data";
+    public static final String JSON_KEY_EXTINFO = "ext-info";
+    public static final String JSON_KEY_IP = "ip";
+    public static final String JSON_KEY_IPV6 = "ipv6";
+    public static final String JSON_KEY_IPV6_GROUP = "ipv6-group";
+    public static final String JSON_KEY_MSG = "msg";
+    public static final String LOG_TAG = "HttpDnsCacheForHost";
+    public static final String MSG_ERR = "error";
+    public static final String SERVER_URL = "https://180.76.76.112/v6/0010";
+    public static final String SERVER_URL_IPV6_ONLY = "https://[240c:4006::6666]/v6/0010";
+    public static final String TARGET_EXTERNALHOST = "?dn=";
     public ByteArrayOutputStream mData = null;
-    private String mExternalHost;
-    private boolean mIpv6Only;
+    public String mExternalHost;
+    public boolean mIpv6Only;
 
     public static String transHttpsUrl(String str) {
         boolean z = true;
@@ -33,8 +32,8 @@ public class HttpDnsCacheForHost implements INetListener {
             if (WebSettingsGlobalBlink.GetCloudSettingsValue("https_dns") != null && WebSettingsGlobalBlink.GetCloudSettingsValue("https_dns").equals("false")) {
                 z = false;
             }
-            return z ? (str == null || !str.startsWith(SapiUtils.COOKIE_HTTPS_URL_PREFIX)) ? str.replace("http://", SapiUtils.COOKIE_HTTPS_URL_PREFIX) : str : (str == null || !str.startsWith("http://")) ? str.replace(SapiUtils.COOKIE_HTTPS_URL_PREFIX, "http://") : str;
-        } catch (Exception e) {
+            return z ? (str == null || !str.startsWith("https://")) ? str.replace("http://", "https://") : str : (str == null || !str.startsWith("http://")) ? str.replace("https://", "http://") : str;
+        } catch (Exception unused) {
             return str;
         }
     }
@@ -55,14 +54,10 @@ public class HttpDnsCacheForHost implements INetListener {
             bdNet.setEventListener(httpDnsCacheForHost);
             BdNetTask bdNetTask = new BdNetTask();
             bdNetTask.setNet(bdNet);
-            if (z) {
-                bdNetTask.setUrl(httpDnsCacheForHost.getUrlIpv6Only(WebKitFactory.getContext()));
-            } else {
-                bdNetTask.setUrl(httpDnsCacheForHost.getUrl(WebKitFactory.getContext()));
-            }
+            bdNetTask.setUrl(z ? httpDnsCacheForHost.getUrlIpv6Only(WebKitFactory.getContext()) : httpDnsCacheForHost.getUrl(WebKitFactory.getContext()));
             bdNet.start(bdNetTask, true);
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (Exception e2) {
+            e2.printStackTrace();
         }
     }
 
@@ -72,7 +67,7 @@ public class HttpDnsCacheForHost implements INetListener {
             Log.d(LOG_TAG, "urlNative!=null: " + httpDnsUrlIP);
         } else {
             Log.d(LOG_TAG, "urlNative==null ");
-            httpDnsUrlIP = SERVER_URL;
+            httpDnsUrlIP = "https://180.76.76.112/v6/0010";
         }
         if (this.mExternalHost != null) {
             httpDnsUrlIP = (httpDnsUrlIP + TARGET_EXTERNALHOST) + this.mExternalHost;
@@ -84,7 +79,9 @@ public class HttpDnsCacheForHost implements INetListener {
 
     public String getUrlIpv6Only(Context context) {
         String transHttpsUrl = transHttpsUrl(((SERVER_URL_IPV6_ONLY + TARGET_EXTERNALHOST) + this.mExternalHost) + "&type=ipv6&group=ipv6");
-        Log.d("cronet", "http_dns cloud url ipv6 " + transHttpsUrl);
+        StringBuilder sb = new StringBuilder("http_dns cloud url ipv6 ");
+        sb.append(transHttpsUrl);
+        Log.d("cronet", sb.toString());
         return transHttpsUrl;
     }
 
@@ -97,8 +94,8 @@ public class HttpDnsCacheForHost implements INetListener {
         Log.w(LOG_TAG, "onNetDownloadError  " + bdNetTask.getUrl());
         try {
             WebSettingsGlobalBlink.setHttpDnsDnFailed(this.mExternalHost);
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (Exception e2) {
+            e2.printStackTrace();
         }
     }
 
@@ -130,11 +127,12 @@ public class HttpDnsCacheForHost implements INetListener {
 
     @Override // com.baidu.webkit.net.INetListener
     public void onNetTaskComplete(BdNet bdNet, BdNetTask bdNetTask) {
-        if (this.mData == null) {
+        ByteArrayOutputStream byteArrayOutputStream = this.mData;
+        if (byteArrayOutputStream == null) {
             Log.w(LOG_TAG, "mData==null " + bdNetTask.getUrl());
             return;
         }
-        byte[] byteArray = this.mData.toByteArray();
+        byte[] byteArray = byteArrayOutputStream.toByteArray();
         Log.w(LOG_TAG, "onNetDownloadComplete " + byteArray.length);
         Log.w(LOG_TAG, "onNetDownloadComplete url " + bdNetTask.getUrl());
         try {
@@ -143,8 +141,8 @@ public class HttpDnsCacheForHost implements INetListener {
                 return;
             }
             WebSettingsGlobalBlink.setHttpDnsCache(str, 3);
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (Exception e2) {
+            e2.printStackTrace();
         }
     }
 

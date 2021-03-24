@@ -22,27 +22,26 @@ import com.kwad.sdk.core.imageloader.core.listener.SimpleImageLoadingListener;
 import com.kwad.sdk.core.imageloader.utils.ImageSizeUtils;
 import com.kwad.sdk.core.imageloader.utils.L;
 import com.kwad.sdk.core.imageloader.utils.MemoryCacheUtils;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class ImageLoader {
-    private static final String ERROR_INIT_CONFIG_WITH_NULL = "ImageLoader configuration can not be initialized with null";
-    private static final String ERROR_NOT_INIT = "ImageLoader must be init with configuration before using";
-    private static final String ERROR_WRONG_ARGUMENTS = "Wrong arguments were passed to displayImage() method (ImageView reference must not be null)";
-    static final String LOG_DESTROY = "Destroy ImageLoader";
-    static final String LOG_INIT_CONFIG = "Initialize ImageLoader with configuration";
-    static final String LOG_LOAD_IMAGE_FROM_MEMORY_CACHE = "Load image from memory cache [%s]";
-    public static final String TAG = ImageLoader.class.getSimpleName();
-    private static final String WARNING_RE_INIT_CONFIG = "Try to initialize ImageLoader which had already been initialized before. To re-init ImageLoader with new configuration call ImageLoader.destroy() at first.";
-    private static volatile ImageLoader instance;
-    private volatile ImageLoaderConfiguration configuration;
-    private ImageLoadingListener defaultListener = new SimpleImageLoadingListener();
-    private ImageLoaderEngine engine;
+    public static final String ERROR_INIT_CONFIG_WITH_NULL = "ImageLoader configuration can not be initialized with null";
+    public static final String ERROR_NOT_INIT = "ImageLoader must be init with configuration before using";
+    public static final String ERROR_WRONG_ARGUMENTS = "Wrong arguments were passed to displayImage() method (ImageView reference must not be null)";
+    public static final String LOG_DESTROY = "Destroy ImageLoader";
+    public static final String LOG_INIT_CONFIG = "Initialize ImageLoader with configuration";
+    public static final String LOG_LOAD_IMAGE_FROM_MEMORY_CACHE = "Load image from memory cache [%s]";
+    public static final String TAG = "ImageLoader";
+    public static final String WARNING_RE_INIT_CONFIG = "Try to initialize ImageLoader which had already been initialized before. To re-init ImageLoader with new configuration call ImageLoader.destroy() at first.";
+    public static volatile ImageLoader instance;
+    public volatile ImageLoaderConfiguration configuration;
+    public ImageLoadingListener defaultListener = new SimpleImageLoadingListener();
+    public ImageLoaderEngine engine;
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class SyncImageLoadingListener extends SimpleImageLoadingListener {
-        private Bitmap loadedImage;
+        public Bitmap loadedImage;
 
-        private SyncImageLoadingListener() {
+        public SyncImageLoadingListener() {
         }
 
         public Bitmap getLoadedBitmap() {
@@ -55,16 +54,13 @@ public class ImageLoader {
         }
     }
 
-    protected ImageLoader() {
-    }
-
     private void checkConfiguration() {
         if (this.configuration == null) {
             throw new IllegalStateException(ERROR_NOT_INIT);
         }
     }
 
-    private static Handler defineHandler(DisplayImageOptions displayImageOptions) {
+    public static Handler defineHandler(DisplayImageOptions displayImageOptions) {
         Handler handler = displayImageOptions.getHandler();
         if (displayImageOptions.isSyncLoading()) {
             return null;
@@ -157,32 +153,40 @@ public class ImageLoader {
         if (imageAware == null) {
             throw new IllegalArgumentException(ERROR_WRONG_ARGUMENTS);
         }
-        ImageLoadingListener imageLoadingListener2 = imageLoadingListener == null ? this.defaultListener : imageLoadingListener;
-        DisplayImageOptions displayImageOptions2 = displayImageOptions == null ? this.configuration.defaultDisplayImageOptions : displayImageOptions;
+        if (imageLoadingListener == null) {
+            imageLoadingListener = this.defaultListener;
+        }
+        ImageLoadingListener imageLoadingListener2 = imageLoadingListener;
+        if (displayImageOptions == null) {
+            displayImageOptions = this.configuration.defaultDisplayImageOptions;
+        }
         if (TextUtils.isEmpty(str)) {
             this.engine.cancelDisplayTaskFor(imageAware);
             imageLoadingListener2.onLoadingStarted(str, imageAware.getWrappedView());
-            if (displayImageOptions2.shouldShowImageForEmptyUri()) {
-                imageAware.setImageDrawable(displayImageOptions2.getImageForEmptyUri(this.configuration.resources));
+            if (displayImageOptions.shouldShowImageForEmptyUri()) {
+                imageAware.setImageDrawable(displayImageOptions.getImageForEmptyUri(this.configuration.resources));
             } else {
                 imageAware.setImageDrawable(null);
             }
             imageLoadingListener2.onLoadingComplete(str, imageAware.getWrappedView(), null);
             return;
         }
-        ImageSize defineTargetSizeForView = imageSize == null ? ImageSizeUtils.defineTargetSizeForView(imageAware, this.configuration.getMaxImageSize()) : imageSize;
-        String generateKey = MemoryCacheUtils.generateKey(str, defineTargetSizeForView);
+        if (imageSize == null) {
+            imageSize = ImageSizeUtils.defineTargetSizeForView(imageAware, this.configuration.getMaxImageSize());
+        }
+        ImageSize imageSize2 = imageSize;
+        String generateKey = MemoryCacheUtils.generateKey(str, imageSize2);
         this.engine.prepareDisplayTaskFor(imageAware, generateKey);
         imageLoadingListener2.onLoadingStarted(str, imageAware.getWrappedView());
         DecodedResult decodedResult = this.configuration.memoryCache.get(generateKey);
         if (decodedResult == null || !decodedResult.isDecoded()) {
-            if (displayImageOptions2.shouldShowImageOnLoading()) {
-                imageAware.setImageDrawable(displayImageOptions2.getImageOnLoading(this.configuration.resources));
-            } else if (displayImageOptions2.isResetViewBeforeLoading()) {
+            if (displayImageOptions.shouldShowImageOnLoading()) {
+                imageAware.setImageDrawable(displayImageOptions.getImageOnLoading(this.configuration.resources));
+            } else if (displayImageOptions.isResetViewBeforeLoading()) {
                 imageAware.setImageDrawable(null);
             }
-            LoadAndDisplayImageTask loadAndDisplayImageTask = new LoadAndDisplayImageTask(this.engine, new ImageLoadingInfo(str, imageAware, defineTargetSizeForView, generateKey, displayImageOptions2, imageLoadingListener2, imageLoadingProgressListener, this.engine.getLockForUri(str)), defineHandler(displayImageOptions2));
-            if (displayImageOptions2.isSyncLoading()) {
+            LoadAndDisplayImageTask loadAndDisplayImageTask = new LoadAndDisplayImageTask(this.engine, new ImageLoadingInfo(str, imageAware, imageSize2, generateKey, displayImageOptions, imageLoadingListener2, imageLoadingProgressListener, this.engine.getLockForUri(str)), defineHandler(displayImageOptions));
+            if (displayImageOptions.isSyncLoading()) {
                 loadAndDisplayImageTask.run();
                 return;
             } else {
@@ -191,13 +195,13 @@ public class ImageLoader {
             }
         }
         L.d(LOG_LOAD_IMAGE_FROM_MEMORY_CACHE, generateKey);
-        if (!displayImageOptions2.shouldPostProcess()) {
-            displayImageOptions2.getDisplayer().display(decodedResult, imageAware, LoadedFrom.MEMORY_CACHE);
+        if (!displayImageOptions.shouldPostProcess()) {
+            displayImageOptions.getDisplayer().display(decodedResult, imageAware, LoadedFrom.MEMORY_CACHE);
             imageLoadingListener2.onLoadingComplete(str, imageAware.getWrappedView(), decodedResult);
             return;
         }
-        ProcessAndDisplayImageTask processAndDisplayImageTask = new ProcessAndDisplayImageTask(this.engine, decodedResult, new ImageLoadingInfo(str, imageAware, defineTargetSizeForView, generateKey, displayImageOptions2, imageLoadingListener2, imageLoadingProgressListener, this.engine.getLockForUri(str)), defineHandler(displayImageOptions2));
-        if (displayImageOptions2.isSyncLoading()) {
+        ProcessAndDisplayImageTask processAndDisplayImageTask = new ProcessAndDisplayImageTask(this.engine, decodedResult, new ImageLoadingInfo(str, imageAware, imageSize2, generateKey, displayImageOptions, imageLoadingListener2, imageLoadingProgressListener, this.engine.getLockForUri(str)), defineHandler(displayImageOptions));
+        if (displayImageOptions.isSyncLoading()) {
             processAndDisplayImageTask.run();
         } else {
             this.engine.submit(processAndDisplayImageTask);
@@ -273,7 +277,10 @@ public class ImageLoader {
         if (imageSize == null) {
             imageSize = this.configuration.getMaxImageSize();
         }
-        displayImage(str, new NonViewAware(str, imageSize, ViewScaleType.CROP), displayImageOptions == null ? this.configuration.defaultDisplayImageOptions : displayImageOptions, imageLoadingListener, imageLoadingProgressListener);
+        if (displayImageOptions == null) {
+            displayImageOptions = this.configuration.defaultDisplayImageOptions;
+        }
+        displayImage(str, new NonViewAware(str, imageSize, ViewScaleType.CROP), displayImageOptions, imageLoadingListener, imageLoadingProgressListener);
     }
 
     public void loadImage(String str, ImageSize imageSize, ImageLoadingListener imageLoadingListener) {

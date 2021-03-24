@@ -1,23 +1,24 @@
 package com.xiaomi.mipush.sdk;
 
+import com.baidu.android.common.others.lang.StringUtil;
 import com.xiaomi.push.service.module.PushChannelRegion;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class PushConfiguration {
-    private boolean mGeoEnable;
-    private boolean mOpenCOSPush;
-    private boolean mOpenFCMPush;
-    private boolean mOpenFTOSPush;
-    private boolean mOpenHmsPush;
-    private PushChannelRegion mRegion;
+    public boolean mGeoEnable;
+    public boolean mOpenCOSPush;
+    public boolean mOpenFCMPush;
+    public boolean mOpenFTOSPush;
+    public boolean mOpenHmsPush;
+    public PushChannelRegion mRegion;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class PushConfigurationBuilder {
-        private boolean mGeoEnable;
-        private boolean mOpenCOSPush;
-        private boolean mOpenFCMPush;
-        private boolean mOpenFTOSPush;
-        private boolean mOpenHmsPush;
-        private PushChannelRegion mRegion;
+        public boolean mGeoEnable;
+        public boolean mOpenCOSPush;
+        public boolean mOpenFCMPush;
+        public boolean mOpenFTOSPush;
+        public boolean mOpenHmsPush;
+        public PushChannelRegion mRegion;
 
         public PushConfiguration build() {
             return new PushConfiguration(this);
@@ -57,7 +58,7 @@ public class PushConfiguration {
         this.mOpenFTOSPush = false;
     }
 
-    private PushConfiguration(PushConfigurationBuilder pushConfigurationBuilder) {
+    public PushConfiguration(PushConfigurationBuilder pushConfigurationBuilder) {
         this.mRegion = pushConfigurationBuilder.mRegion == null ? PushChannelRegion.China : pushConfigurationBuilder.mRegion;
         this.mOpenHmsPush = pushConfigurationBuilder.mOpenHmsPush;
         this.mOpenFCMPush = pushConfigurationBuilder.mOpenFCMPush;
@@ -108,11 +109,8 @@ public class PushConfiguration {
     public String toString() {
         StringBuffer stringBuffer = new StringBuffer("PushConfiguration{");
         stringBuffer.append("Region:");
-        if (this.mRegion == null) {
-            stringBuffer.append("null");
-        } else {
-            stringBuffer.append(this.mRegion.name());
-        }
+        PushChannelRegion pushChannelRegion = this.mRegion;
+        stringBuffer.append(pushChannelRegion == null ? StringUtil.NULL_STRING : pushChannelRegion.name());
         stringBuffer.append(",mOpenHmsPush:" + this.mOpenHmsPush);
         stringBuffer.append(",mOpenFCMPush:" + this.mOpenFCMPush);
         stringBuffer.append(",mOpenCOSPush:" + this.mOpenCOSPush);

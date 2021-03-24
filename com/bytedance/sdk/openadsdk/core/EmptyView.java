@@ -1,5 +1,6 @@
 package com.bytedance.sdk.openadsdk.core;
 
+import android.app.Activity;
 import android.content.Context;
 import android.os.Handler;
 import android.os.Looper;
@@ -7,25 +8,41 @@ import android.os.Message;
 import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.Nullable;
-import com.bytedance.sdk.openadsdk.utils.aj;
-import com.bytedance.sdk.openadsdk.utils.al;
+import com.bytedance.sdk.openadsdk.utils.ak;
+import com.bytedance.sdk.openadsdk.utils.am;
+import java.lang.ref.WeakReference;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes6.dex */
-public class EmptyView extends View implements al.a {
+public class EmptyView extends View implements am.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private boolean f4354a;
-    private boolean b;
-    private a c;
-    private View d;
-    private List<View> e;
+    public boolean f28007a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public boolean f28008b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public a f28009c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public View f28010d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public WeakReference<Activity> f28011e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public List<View> f28012f;
     @Nullable
-    private List<View> f;
-    private boolean g;
-    private int h;
-    private final Handler i;
-    private final AtomicBoolean j;
+
+    /* renamed from: g  reason: collision with root package name */
+    public List<View> f28013g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public boolean f28014h;
+    public int i;
+    public final Handler j;
+    public final AtomicBoolean k;
 
     /* loaded from: classes6.dex */
     public interface a {
@@ -40,26 +57,80 @@ public class EmptyView extends View implements al.a {
 
     public EmptyView(Context context, View view) {
         super(p.a());
-        this.i = new al(Looper.getMainLooper(), this);
-        this.j = new AtomicBoolean(true);
-        this.d = view;
+        this.j = new am(Looper.getMainLooper(), this);
+        this.k = new AtomicBoolean(true);
+        if (context instanceof Activity) {
+            this.f28011e = new WeakReference<>((Activity) context);
+        }
+        this.f28010d = view;
         setLayoutParams(new ViewGroup.LayoutParams(0, 0));
     }
 
-    @Override // android.view.View
-    public void onWindowFocusChanged(boolean z) {
-        super.onWindowFocusChanged(z);
-        if (this.c != null) {
-            this.c.a(z);
+    private void b() {
+        a aVar;
+        if (!this.k.getAndSet(false) || (aVar = this.f28009c) == null) {
+            return;
+        }
+        aVar.a();
+    }
+
+    private void c() {
+        a aVar;
+        if (this.k.getAndSet(true) || (aVar = this.f28009c) == null) {
+            return;
+        }
+        aVar.b();
+    }
+
+    private void d() {
+        if (!this.f28008b || this.f28007a) {
+            return;
+        }
+        this.f28007a = true;
+        this.j.sendEmptyMessage(1);
+    }
+
+    private void e() {
+        if (this.f28007a) {
+            this.j.removeCallbacksAndMessages(null);
+            this.f28007a = false;
         }
     }
 
+    private boolean f() {
+        Activity activity;
+        boolean a2 = ak.a();
+        WeakReference<Activity> weakReference = this.f28011e;
+        boolean z = (weakReference == null || (activity = weakReference.get()) == null || activity.isFinishing()) ? false : true;
+        boolean a3 = y.a(this.f28010d, 20, this.i);
+        if (!a2) {
+            a3 = true;
+        }
+        if (a2 || !z) {
+            return true;
+        }
+        return a3;
+    }
+
+    public void a() {
+        a(this.f28012f, null);
+        a(this.f28013g, null);
+    }
+
     @Override // android.view.View
-    protected void onAttachedToWindow() {
+    public void onAttachedToWindow() {
         super.onAttachedToWindow();
         d();
-        this.g = false;
+        this.f28014h = false;
         b();
+    }
+
+    @Override // android.view.View
+    public void onDetachedFromWindow() {
+        super.onDetachedFromWindow();
+        e();
+        this.f28014h = true;
+        c();
     }
 
     @Override // android.view.View
@@ -68,43 +139,45 @@ public class EmptyView extends View implements al.a {
         b();
     }
 
-    private void b() {
-        if (this.j.getAndSet(false) && this.c != null) {
-            this.c.a();
-        }
-    }
-
-    private void c() {
-        if (!this.j.getAndSet(true) && this.c != null) {
-            this.c.b();
-        }
-    }
-
-    @Override // android.view.View
-    protected void onDetachedFromWindow() {
-        super.onDetachedFromWindow();
-        e();
-        this.g = true;
-        c();
-    }
-
     @Override // android.view.View
     public void onStartTemporaryDetach() {
         super.onStartTemporaryDetach();
         c();
     }
 
+    @Override // android.view.View
+    public void onWindowFocusChanged(boolean z) {
+        super.onWindowFocusChanged(z);
+        a aVar = this.f28009c;
+        if (aVar != null) {
+            aVar.a(z);
+        }
+    }
+
+    public void setAdType(int i) {
+        this.i = i;
+    }
+
+    public void setCallback(a aVar) {
+        this.f28009c = aVar;
+    }
+
+    public void setNeedCheckingShow(boolean z) {
+        this.f28008b = z;
+        if (!z && this.f28007a) {
+            e();
+        } else if (!z || this.f28007a) {
+        } else {
+            d();
+        }
+    }
+
     public void setRefClickViews(List<View> list) {
-        this.e = list;
+        this.f28012f = list;
     }
 
     public void setRefCreativeViews(@Nullable List<View> list) {
-        this.f = list;
-    }
-
-    public void a() {
-        a(this.e, null);
-        a(this.f, null);
+        this.f28013g = list;
     }
 
     public void a(List<View> list, com.bytedance.sdk.openadsdk.core.a.c cVar) {
@@ -116,68 +189,31 @@ public class EmptyView extends View implements al.a {
         }
     }
 
-    private void d() {
-        if (this.b && !this.f4354a) {
-            this.f4354a = true;
-            this.i.sendEmptyMessage(1);
-        }
-    }
-
-    private void e() {
-        if (this.f4354a) {
-            this.i.removeCallbacksAndMessages(null);
-            this.f4354a = false;
-        }
-    }
-
-    public void setNeedCheckingShow(boolean z) {
-        this.b = z;
-        if (!z && this.f4354a) {
-            e();
-        } else if (z && !this.f4354a) {
-            d();
-        }
-    }
-
-    public void setCallback(a aVar) {
-        this.c = aVar;
-    }
-
-    public void setAdType(int i) {
-        this.h = i;
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.utils.al.a
+    @Override // com.bytedance.sdk.openadsdk.utils.am.a
     public void a(Message message) {
-        switch (message.what) {
-            case 1:
-                if (this.f4354a) {
-                    if (y.a(this.d, 20, this.h)) {
-                        e();
-                        this.i.sendEmptyMessageDelayed(2, 1000L);
-                        if (this.c != null) {
-                            this.c.a(this.d);
-                            return;
-                        }
-                        return;
-                    }
-                    this.i.sendEmptyMessageDelayed(1, 1000L);
+        int i = message.what;
+        if (i != 1) {
+            if (i != 2) {
+                return;
+            }
+            if (f()) {
+                this.j.sendEmptyMessageDelayed(2, 1000L);
+            } else if (this.f28014h) {
+            } else {
+                setNeedCheckingShow(true);
+            }
+        } else if (this.f28007a) {
+            if (y.a(this.f28010d, 20, this.i)) {
+                e();
+                this.j.sendEmptyMessageDelayed(2, 1000L);
+                a aVar = this.f28009c;
+                if (aVar != null) {
+                    aVar.a(this.f28010d);
                     return;
                 }
                 return;
-            case 2:
-                boolean a2 = aj.a();
-                if (y.a(this.d, 20, this.h) || !a2) {
-                    this.i.sendEmptyMessageDelayed(2, 1000L);
-                    return;
-                } else if (!this.g) {
-                    setNeedCheckingShow(true);
-                    return;
-                } else {
-                    return;
-                }
-            default:
-                return;
+            }
+            this.j.sendEmptyMessageDelayed(1, 1000L);
         }
     }
 }

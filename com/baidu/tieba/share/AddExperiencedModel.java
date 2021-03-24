@@ -5,71 +5,79 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.HttpMessageListener;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.adp.lib.f.b;
-import com.baidu.adp.lib.f.e;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.pb.data.ContriInfo;
-/* loaded from: classes.dex */
+import d.b.b.e.m.e;
+/* loaded from: classes5.dex */
 public class AddExperiencedModel extends BdBaseModel {
     public static final int DELAY_TIME = 2000;
     public static int MAX_ADD_ADVANCED = 6;
     public static int MAX_ADD_NORMAL = 3;
     public static String USELESS_FORUM_ID = "24981790";
-    private HttpMessageListener fbX;
-    private a nmv;
-    private ContriInfo nmw;
-    private Runnable nmx;
 
-    /* loaded from: classes.dex */
-    public interface a {
+    /* renamed from: e  reason: collision with root package name */
+    public c f21102e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public ContriInfo f21103f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public Runnable f21104g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public HttpMessageListener f21105h;
+
+    /* loaded from: classes5.dex */
+    public class a implements Runnable {
+        public a() {
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            if (AddExperiencedModel.this.f21102e != null) {
+                AddExperiencedModel.this.f21102e.a(AddExperiencedModel.this.f21103f);
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class b extends HttpMessageListener {
+        public b(int i, boolean z) {
+            super(i, z);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+            if (httpResponsedMessage != null && (httpResponsedMessage instanceof AddExperiencedResponseMessage)) {
+                AddExperiencedModel.this.f21103f = ((AddExperiencedResponseMessage) httpResponsedMessage).getContriInfo();
+                e.a().postDelayed(AddExperiencedModel.this.f21104g, 2000L);
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public interface c {
         void a(ContriInfo contriInfo);
     }
 
     public AddExperiencedModel(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.nmx = new Runnable() { // from class: com.baidu.tieba.share.AddExperiencedModel.1
-            @Override // java.lang.Runnable
-            public void run() {
-                if (AddExperiencedModel.this.nmv != null) {
-                    AddExperiencedModel.this.nmv.a(AddExperiencedModel.this.nmw);
-                }
-            }
-        };
-        this.fbX = new HttpMessageListener(1003332, true) { // from class: com.baidu.tieba.share.AddExperiencedModel.2
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.adp.framework.listener.MessageListener
-            public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-                if (httpResponsedMessage != null && (httpResponsedMessage instanceof AddExperiencedResponseMessage)) {
-                    AddExperiencedModel.this.nmw = ((AddExperiencedResponseMessage) httpResponsedMessage).getContriInfo();
-                    e.mA().postDelayed(AddExperiencedModel.this.nmx, 2000L);
-                }
-            }
-        };
+        this.f21104g = new a();
+        this.f21105h = new b(CmdConfigHttp.CMD_ADD_EXPERIENCED, true);
         registerTask();
-        registerListener(this.fbX);
+        registerListener(this.f21105h);
     }
 
-    private void registerTask() {
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003332, TbConfig.SERVER_ADDRESS + TbConfig.URL_ADD_EXPERIENCED);
-        tbHttpMessageTask.setResponsedClass(AddExperiencedResponseMessage.class);
-        MessageManager.getInstance().registerTask(tbHttpMessageTask);
-    }
-
-    public void gr(String str, String str2) {
-        HttpMessage httpMessage = new HttpMessage(1003332);
-        httpMessage.addParam("forum_id", str);
-        httpMessage.addParam("thread_id", str2);
-        sendMessage(httpMessage);
-    }
-
-    public static boolean SG(String str) {
-        return b.toLong(str, 0L) > 0 && !USELESS_FORUM_ID.equals(str);
+    public static boolean x(String str) {
+        return d.b.b.e.m.b.f(str, 0L) > 0 && !USELESS_FORUM_ID.equals(str);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
-    protected boolean LoadData() {
+    public boolean LoadData() {
         return false;
     }
 
@@ -79,6 +87,19 @@ public class AddExperiencedModel extends BdBaseModel {
     }
 
     public void onDestroy() {
-        e.mA().removeCallbacks(this.nmx);
+        e.a().removeCallbacks(this.f21104g);
+    }
+
+    public final void registerTask() {
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_ADD_EXPERIENCED, TbConfig.SERVER_ADDRESS + TbConfig.URL_ADD_EXPERIENCED);
+        tbHttpMessageTask.setResponsedClass(AddExperiencedResponseMessage.class);
+        MessageManager.getInstance().registerTask(tbHttpMessageTask);
+    }
+
+    public void w(String str, String str2) {
+        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_ADD_EXPERIENCED);
+        httpMessage.addParam("forum_id", str);
+        httpMessage.addParam("thread_id", str2);
+        sendMessage(httpMessage);
     }
 }

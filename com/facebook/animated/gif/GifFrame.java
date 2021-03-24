@@ -1,14 +1,19 @@
 package com.facebook.animated.gif;
 
 import android.graphics.Bitmap;
-import com.facebook.common.internal.d;
-import com.facebook.imagepipeline.animated.base.c;
+import com.facebook.common.internal.DoNotStrip;
+import com.facebook.imagepipeline.animated.base.AnimatedImageFrame;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
-/* loaded from: classes4.dex */
-public class GifFrame implements c {
-    @d
-    private long mNativeContext;
+/* loaded from: classes6.dex */
+public class GifFrame implements AnimatedImageFrame {
+    @DoNotStrip
+    public long mNativeContext;
+
+    @DoNotStrip
+    public GifFrame(long j) {
+        this.mNativeContext = j;
+    }
 
     private native void nativeDispose();
 
@@ -32,46 +37,54 @@ public class GifFrame implements c {
 
     private native void nativeRenderFrame(int i, int i2, Bitmap bitmap);
 
-    @d
-    GifFrame(long j) {
-        this.mNativeContext = j;
-    }
-
-    protected void finalize() {
-        nativeFinalize();
-    }
-
-    @Override // com.facebook.imagepipeline.animated.base.c
+    @Override // com.facebook.imagepipeline.animated.base.AnimatedImageFrame
     public void dispose() {
         nativeDispose();
     }
 
-    @Override // com.facebook.imagepipeline.animated.base.c
-    public void renderFrame(int i, int i2, Bitmap bitmap) {
-        nativeRenderFrame(i, i2, bitmap);
+    public void finalize() {
+        nativeFinalize();
     }
 
-    @Override // com.facebook.imagepipeline.animated.base.c
-    public int getWidth() {
-        return nativeGetWidth();
+    public int getDisposalMode() {
+        return nativeGetDisposalMode();
     }
 
-    @Override // com.facebook.imagepipeline.animated.base.c
+    @Override // com.facebook.imagepipeline.animated.base.AnimatedImageFrame
+    public int getDurationMs() {
+        return nativeGetDurationMs();
+    }
+
+    @Override // com.facebook.imagepipeline.animated.base.AnimatedImageFrame
     public int getHeight() {
         return nativeGetHeight();
     }
 
-    @Override // com.facebook.imagepipeline.animated.base.c
+    public int getTransparentPixelColor() {
+        return nativeGetTransparentPixelColor();
+    }
+
+    @Override // com.facebook.imagepipeline.animated.base.AnimatedImageFrame
+    public int getWidth() {
+        return nativeGetWidth();
+    }
+
+    @Override // com.facebook.imagepipeline.animated.base.AnimatedImageFrame
     public int getXOffset() {
         return nativeGetXOffset();
     }
 
-    @Override // com.facebook.imagepipeline.animated.base.c
+    @Override // com.facebook.imagepipeline.animated.base.AnimatedImageFrame
     public int getYOffset() {
         return nativeGetYOffset();
     }
 
-    public int erZ() {
-        return nativeGetDisposalMode();
+    public boolean hasTransparency() {
+        return nativeHasTransparency();
+    }
+
+    @Override // com.facebook.imagepipeline.animated.base.AnimatedImageFrame
+    public void renderFrame(int i, int i2, Bitmap bitmap) {
+        nativeRenderFrame(i, i2, bitmap);
     }
 }

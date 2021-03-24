@@ -6,114 +6,39 @@ import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
 import android.text.InputFilter;
 import android.widget.TextView;
-import com.baidu.adp.lib.util.l;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
+import d.b.b.e.p.l;
+import d.b.i0.p0.e1;
+import d.b.i0.p0.f1;
+import d.b.i0.p0.k2.d;
+import java.util.List;
 @SuppressLint({"ResourceAsColor"})
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class TabItemView extends TextView {
-    private d jJT;
-    private boolean jJU;
-    private int jJV;
-    private int mState;
-    public static int jJR = 0;
-    public static int jJS = 1;
-    public static int STATE_EXPANDED = 2;
+    public static int i = 0;
+    public static int j = 1;
+    public static int k = 2;
 
-    public TabItemView(Context context, d dVar, int i, boolean z) {
+    /* renamed from: e  reason: collision with root package name */
+    public d f16611e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public int f16612f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public boolean f16613g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public int f16614h;
+
+    public TabItemView(Context context, d dVar, int i2, boolean z) {
         super(context);
-        this.mState = jJR;
-        this.jJV = 0;
-        this.jJT = dVar;
-        this.jJU = z;
-        w(context, i);
-    }
-
-    private void w(Context context, int i) {
-        if (this.jJU) {
-            setPadding(0, l.getDimens(getContext(), R.dimen.tbds20), 0, 0);
-            setTextSize(0, l.getDimens(context, R.dimen.tbds42));
-        } else {
-            setGravity(17);
-        }
-        setSingleLine();
-        setFilters(new InputFilter[]{new InputFilter.LengthFilter(i)});
-        if (this.jJT != null) {
-            setText(this.jJT.name);
-        }
-        bus();
-    }
-
-    public void setState(int i) {
-        if (this.jJT != null && this.jJT.jJQ != null && this.jJT.jJQ.jmH != null && this.jJT.jJQ.jmH.size() > 0) {
-            int i2 = -l.getDimens(getContext(), R.dimen.tbds20);
-            if (!this.jJU) {
-                i2 = 0;
-            }
-            if (i == STATE_EXPANDED) {
-                Drawable drawable = ap.getDrawable(R.drawable.icon_toolbar_arrow_up);
-                drawable.setBounds(0, i2, drawable.getMinimumWidth(), drawable.getMinimumHeight() + i2);
-                setCompoundDrawables(null, null, drawable, null);
-            } else {
-                Drawable drawable2 = ap.getDrawable(R.drawable.icon_arrow_gray_down);
-                drawable2.setBounds(0, i2, drawable2.getMinimumWidth(), drawable2.getMinimumHeight() + i2);
-                setCompoundDrawables(null, null, drawable2, null);
-            }
-            setCompoundDrawablePadding(getContext().getResources().getDimensionPixelSize(R.dimen.tbds20));
-        }
-        if (this.jJU) {
-            ap.setViewTextColor(this, R.color.CAM_X0105, 1);
-        } else {
-            if (i == jJS || i == STATE_EXPANDED) {
-                if (this.jJV == 0) {
-                    ap.setViewTextColor(this, R.color.CAM_X0302, 1);
-                } else {
-                    ap.setViewTextColor(this, this.jJV, 1);
-                }
-            } else {
-                ap.setViewTextColor(this, R.color.CAM_X0106, 1);
-            }
-            setGravity(17);
-        }
-        this.mState = i;
-        invalidate();
-    }
-
-    public int getTabId() {
-        if (this.jJT == null) {
-            return -1;
-        }
-        return this.jJT.tabId;
-    }
-
-    public int getState() {
-        return this.mState;
-    }
-
-    public void bus() {
-        setState(this.mState);
-    }
-
-    @Override // android.widget.TextView, android.view.View
-    protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
-        int spaceWidth = getSpaceWidth();
-        if (spaceWidth >= 0) {
-            if (this.jJU) {
-                setPadding(0, l.getDimens(getContext(), R.dimen.ds16), spaceWidth, 0);
-            } else {
-                setPadding(0, 0, spaceWidth, 0);
-            }
-        }
-        super.onLayout(z, i, i2, i3, i4);
-    }
-
-    @Override // android.widget.TextView, android.view.View
-    protected void onDraw(Canvas canvas) {
-        int spaceWidth = getSpaceWidth();
-        if (spaceWidth >= 0) {
-            canvas.translate(spaceWidth / 2.0f, 0.0f);
-        }
-        super.onDraw(canvas);
+        this.f16612f = i;
+        this.f16614h = 0;
+        this.f16611e = dVar;
+        this.f16613g = z;
+        b(context, i2);
     }
 
     private int getSpaceWidth() {
@@ -123,14 +48,27 @@ public class TabItemView extends TextView {
             return -1;
         }
         float measureText = getPaint().measureText(getText().toString());
-        return getWidth() - ((drawable.getIntrinsicWidth() + ((int) measureText)) + getCompoundDrawablePadding());
+        return getWidth() - ((((int) measureText) + drawable.getIntrinsicWidth()) + getCompoundDrawablePadding());
     }
 
-    public String getUrl() {
-        if (this.jJT == null) {
-            return null;
+    public void a() {
+        setState(this.f16612f);
+    }
+
+    public final void b(Context context, int i2) {
+        if (this.f16613g) {
+            setPadding(0, l.g(getContext(), R.dimen.tbds20), 0, 0);
+            setTextSize(0, l.g(context, R.dimen.tbds42));
+        } else {
+            setGravity(17);
         }
-        return this.jJT.url;
+        setSingleLine();
+        setFilters(new InputFilter[]{new InputFilter.LengthFilter(i2)});
+        d dVar = this.f16611e;
+        if (dVar != null) {
+            setText(dVar.f57734a);
+        }
+        a();
     }
 
     public int getDrawableWidth() {
@@ -142,11 +80,92 @@ public class TabItemView extends TextView {
         return drawable.getIntrinsicWidth() + getCompoundDrawablePadding();
     }
 
-    public void setForNewFrame(boolean z) {
-        this.jJU = z;
+    public int getState() {
+        return this.f16612f;
     }
 
-    public void setSelectItemColorResId(int i) {
-        this.jJV = i;
+    public int getTabId() {
+        d dVar = this.f16611e;
+        if (dVar == null) {
+            return -1;
+        }
+        return dVar.f57735b;
+    }
+
+    public String getUrl() {
+        d dVar = this.f16611e;
+        if (dVar == null) {
+            return null;
+        }
+        return dVar.f57737d;
+    }
+
+    @Override // android.widget.TextView, android.view.View
+    public void onDraw(Canvas canvas) {
+        int spaceWidth = getSpaceWidth();
+        if (spaceWidth >= 0) {
+            canvas.translate(spaceWidth / 2.0f, 0.0f);
+        }
+        super.onDraw(canvas);
+    }
+
+    @Override // android.widget.TextView, android.view.View
+    public void onLayout(boolean z, int i2, int i3, int i4, int i5) {
+        int spaceWidth = getSpaceWidth();
+        if (spaceWidth >= 0) {
+            if (this.f16613g) {
+                setPadding(0, l.g(getContext(), R.dimen.ds16), spaceWidth, 0);
+            } else {
+                setPadding(0, 0, spaceWidth, 0);
+            }
+        }
+        super.onLayout(z, i2, i3, i4, i5);
+    }
+
+    public void setForNewFrame(boolean z) {
+        this.f16613g = z;
+    }
+
+    public void setSelectItemColorResId(int i2) {
+        this.f16614h = i2;
+    }
+
+    public void setState(int i2) {
+        f1 f1Var;
+        List<e1> list;
+        d dVar = this.f16611e;
+        if (dVar != null && (f1Var = dVar.f57736c) != null && (list = f1Var.f57495b) != null && list.size() > 0) {
+            int i3 = -l.g(getContext(), R.dimen.tbds20);
+            if (!this.f16613g) {
+                i3 = 0;
+            }
+            if (i2 == k) {
+                Drawable drawable = SkinManager.getDrawable(R.drawable.icon_toolbar_arrow_up);
+                drawable.setBounds(0, i3, drawable.getMinimumWidth(), drawable.getMinimumHeight() + i3);
+                setCompoundDrawables(null, null, drawable, null);
+            } else {
+                Drawable drawable2 = SkinManager.getDrawable(R.drawable.icon_arrow_gray_down);
+                drawable2.setBounds(0, i3, drawable2.getMinimumWidth(), drawable2.getMinimumHeight() + i3);
+                setCompoundDrawables(null, null, drawable2, null);
+            }
+            setCompoundDrawablePadding(getContext().getResources().getDimensionPixelSize(R.dimen.tbds20));
+        }
+        if (this.f16613g) {
+            SkinManager.setViewTextColor(this, R.color.CAM_X0105, 1);
+        } else {
+            if (i2 != j && i2 != k) {
+                SkinManager.setViewTextColor(this, R.color.CAM_X0106, 1);
+            } else {
+                int i4 = this.f16614h;
+                if (i4 == 0) {
+                    SkinManager.setViewTextColor(this, R.color.CAM_X0302, 1);
+                } else {
+                    SkinManager.setViewTextColor(this, i4, 1);
+                }
+            }
+            setGravity(17);
+        }
+        this.f16612f = i2;
+        invalidate();
     }
 }

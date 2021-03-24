@@ -6,55 +6,65 @@ import android.graphics.Paint;
 import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.view.View;
-import com.baidu.ala.recorder.video.drawer.EncoderTextureDrawer;
 import com.baidu.tieba.R;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class CircleView1080 extends View {
-    private int bLu;
-    private Paint eWC;
-    private RectF eWE;
-    private int mValue;
-    private int mWidth;
-    private static int eWz = EncoderTextureDrawer.X264_WIDTH;
-    private static int eWA = 100;
+    public static int j = 360;
+    public static int k = 100;
+
+    /* renamed from: e  reason: collision with root package name */
+    public int f13236e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public int f13237f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public Paint f13238g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public RectF f13239h;
+    public int i;
 
     public CircleView1080(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.mValue = 0;
-        init();
+        this.i = 0;
+        a();
+    }
+
+    public void a() {
+        this.f13236e = getResources().getDimensionPixelSize(R.dimen.tbds122);
+        this.f13237f = getResources().getDimensionPixelSize(R.dimen.tbds6);
+        Paint paint = new Paint();
+        this.f13238g = paint;
+        paint.setStrokeWidth(this.f13237f);
+        this.f13238g.setColor(getResources().getColor(R.color.CAM_X0111));
+        this.f13238g.setStyle(Paint.Style.STROKE);
+        this.f13238g.setAntiAlias(true);
+        this.f13238g.setStrokeCap(Paint.Cap.ROUND);
+        int i = this.f13237f;
+        int i2 = this.f13236e;
+        this.f13239h = new RectF(i / 2, i / 2, (i / 2) + i2, i2 + (i / 2));
+    }
+
+    @Override // android.view.View
+    public void onDraw(Canvas canvas) {
+        canvas.drawArc(this.f13239h, 270.0f, (j * this.i) / k, false, this.f13238g);
+    }
+
+    public void setProgress(int i) {
+        this.i = i;
+        invalidate();
     }
 
     public CircleView1080(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.mValue = 0;
-        init();
+        this.i = 0;
+        a();
     }
 
     public CircleView1080(Context context) {
         super(context);
-        this.mValue = 0;
-        init();
-    }
-
-    public void setProgress(int i) {
-        this.mValue = i;
-        invalidate();
-    }
-
-    public void init() {
-        this.mWidth = getResources().getDimensionPixelSize(R.dimen.tbds122);
-        this.bLu = getResources().getDimensionPixelSize(R.dimen.tbds6);
-        this.eWC = new Paint();
-        this.eWC.setStrokeWidth(this.bLu);
-        this.eWC.setColor(getResources().getColor(R.color.CAM_X0111));
-        this.eWC.setStyle(Paint.Style.STROKE);
-        this.eWC.setAntiAlias(true);
-        this.eWC.setStrokeCap(Paint.Cap.ROUND);
-        this.eWE = new RectF(this.bLu / 2, this.bLu / 2, this.mWidth + (this.bLu / 2), this.mWidth + (this.bLu / 2));
-    }
-
-    @Override // android.view.View
-    protected void onDraw(Canvas canvas) {
-        canvas.drawArc(this.eWE, 270.0f, (eWz * this.mValue) / eWA, false, this.eWC);
+        this.i = 0;
+        a();
     }
 }

@@ -3,18 +3,20 @@ package com.kwad.sdk.glide.load.b;
 import com.kwad.sdk.glide.load.b.j;
 import java.util.Collections;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public interface h {
     @Deprecated
 
     /* renamed from: a  reason: collision with root package name */
-    public static final h f6677a = new h() { // from class: com.kwad.sdk.glide.load.b.h.1
+    public static final h f35312a = new h() { // from class: com.kwad.sdk.glide.load.b.h.1
         @Override // com.kwad.sdk.glide.load.b.h
         public Map<String, String> a() {
             return Collections.emptyMap();
         }
     };
-    public static final h b = new j.a().a();
+
+    /* renamed from: b  reason: collision with root package name */
+    public static final h f35313b = new j.a().a();
 
     Map<String, String> a();
 }

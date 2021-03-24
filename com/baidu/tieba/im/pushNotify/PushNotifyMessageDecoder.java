@@ -2,17 +2,17 @@ package com.baidu.tieba.im.pushNotify;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.squareup.wire.Wire;
 import java.util.LinkedList;
+import java.util.List;
 import protobuf.PushNotify.PushNotifyResIdl;
 import protobuf.PushNotify.PusherMsg;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class PushNotifyMessageDecoder extends SocketResponsedMessage {
-    private LinkedList<PushNotifyMessage> mMsgList;
+    public LinkedList<PushNotifyMessage> mMsgList;
 
     public PushNotifyMessageDecoder() {
-        super(CmdConfigSocket.CMD_PUSH_NOTIFY);
+        super(202006);
         this.mMsgList = null;
     }
 
@@ -21,11 +21,12 @@ public class PushNotifyMessageDecoder extends SocketResponsedMessage {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.message.a
+    @Override // com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
     public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         BdLog.e("cmd is " + i);
         PushNotifyResIdl pushNotifyResIdl = (PushNotifyResIdl) new Wire(new Class[0]).parseFrom(bArr, PushNotifyResIdl.class);
-        int size = pushNotifyResIdl.multiMsg == null ? 0 : pushNotifyResIdl.multiMsg.size();
+        List<PusherMsg> list = pushNotifyResIdl.multiMsg;
+        int size = list == null ? 0 : list.size();
         this.mMsgList = new LinkedList<>();
         for (int i2 = 0; i2 < size; i2++) {
             PusherMsg pusherMsg = pushNotifyResIdl.multiMsg.get(i2);

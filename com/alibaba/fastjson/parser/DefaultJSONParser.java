@@ -19,8 +19,11 @@ import com.alibaba.fastjson.serializer.BeanContext;
 import com.alibaba.fastjson.serializer.IntegerCodec;
 import com.alibaba.fastjson.serializer.LongCodec;
 import com.alibaba.fastjson.serializer.StringCodec;
+import com.alibaba.fastjson.util.FieldInfo;
 import com.alibaba.fastjson.util.TypeUtils;
 import com.baidu.android.common.others.IStringUtil;
+import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.tieba.wallet.pay.WalletPayViewController;
 import java.io.Closeable;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
@@ -38,34 +41,150 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
-/* loaded from: classes4.dex */
+import kotlin.text.Typography;
+/* loaded from: classes.dex */
 public class DefaultJSONParser implements Closeable {
     public static final int NONE = 0;
     public static final int NeedToResolve = 1;
     public static final int TypeNameRedirect = 2;
-    private static final Set<Class<?>> primitiveClasses = new HashSet();
-    private String[] autoTypeAccept;
-    private boolean autoTypeEnable;
-    protected ParserConfig config;
-    protected ParseContext context;
-    private ParseContext[] contextArray;
-    private int contextArrayIndex;
-    private DateFormat dateFormat;
-    private String dateFormatPattern;
-    private List<ExtraProcessor> extraProcessors;
-    private List<ExtraTypeProvider> extraTypeProviders;
-    protected FieldTypeResolver fieldTypeResolver;
+    public static final Set<Class<?>> primitiveClasses = new HashSet();
+    public String[] autoTypeAccept;
+    public boolean autoTypeEnable;
+    public ParserConfig config;
+    public ParseContext context;
+    public ParseContext[] contextArray;
+    public int contextArrayIndex;
+    public DateFormat dateFormat;
+    public String dateFormatPattern;
+    public List<ExtraProcessor> extraProcessors;
+    public List<ExtraTypeProvider> extraTypeProviders;
+    public FieldTypeResolver fieldTypeResolver;
     public final Object input;
-    protected transient BeanContext lastBeanContext;
+    public transient BeanContext lastBeanContext;
     public final JSONLexer lexer;
     public int resolveStatus;
-    private List<ResolveTask> resolveTaskList;
+    public List<ResolveTask> resolveTaskList;
     public final SymbolTable symbolTable;
 
-    static {
-        for (Class<?> cls : new Class[]{Boolean.TYPE, Byte.TYPE, Short.TYPE, Integer.TYPE, Long.TYPE, Float.TYPE, Double.TYPE, Boolean.class, Byte.class, Short.class, Integer.class, Long.class, Float.class, Double.class, BigInteger.class, BigDecimal.class, String.class}) {
-            primitiveClasses.add(cls);
+    /* loaded from: classes.dex */
+    public static class ResolveTask {
+        public final ParseContext context;
+        public FieldDeserializer fieldDeserializer;
+        public ParseContext ownerContext;
+        public final String referenceValue;
+
+        public ResolveTask(ParseContext parseContext, String str) {
+            this.context = parseContext;
+            this.referenceValue = str;
         }
+    }
+
+    static {
+        Class<?>[] clsArr = {Boolean.TYPE, Byte.TYPE, Short.TYPE, Integer.TYPE, Long.TYPE, Float.TYPE, Double.TYPE, Boolean.class, Byte.class, Short.class, Integer.class, Long.class, Float.class, Double.class, BigInteger.class, BigDecimal.class, String.class};
+        for (int i = 0; i < 17; i++) {
+            primitiveClasses.add(clsArr[i]);
+        }
+    }
+
+    public DefaultJSONParser(String str) {
+        this(str, ParserConfig.getGlobalInstance(), JSON.DEFAULT_PARSER_FEATURE);
+    }
+
+    private void addContext(ParseContext parseContext) {
+        int i = this.contextArrayIndex;
+        this.contextArrayIndex = i + 1;
+        ParseContext[] parseContextArr = this.contextArray;
+        if (parseContextArr == null) {
+            this.contextArray = new ParseContext[8];
+        } else if (i >= parseContextArr.length) {
+            ParseContext[] parseContextArr2 = new ParseContext[(parseContextArr.length * 3) / 2];
+            System.arraycopy(parseContextArr, 0, parseContextArr2, 0, parseContextArr.length);
+            this.contextArray = parseContextArr2;
+        }
+        this.contextArray[i] = parseContext;
+    }
+
+    public final void accept(int i) {
+        JSONLexer jSONLexer = this.lexer;
+        if (jSONLexer.token() == i) {
+            jSONLexer.nextToken();
+            return;
+        }
+        throw new JSONException("syntax error, expect " + JSONToken.name(i) + ", actual " + JSONToken.name(jSONLexer.token()));
+    }
+
+    public void acceptType(String str) {
+        JSONLexer jSONLexer = this.lexer;
+        jSONLexer.nextTokenWithColon();
+        if (jSONLexer.token() == 4) {
+            if (str.equals(jSONLexer.stringVal())) {
+                jSONLexer.nextToken();
+                if (jSONLexer.token() == 16) {
+                    jSONLexer.nextToken();
+                    return;
+                }
+                return;
+            }
+            throw new JSONException("type not match error");
+        }
+        throw new JSONException("type not match error");
+    }
+
+    public void addResolveTask(ResolveTask resolveTask) {
+        if (this.resolveTaskList == null) {
+            this.resolveTaskList = new ArrayList(2);
+        }
+        this.resolveTaskList.add(resolveTask);
+    }
+
+    public void checkListResolve(Collection collection) {
+        if (this.resolveStatus == 1) {
+            if (collection instanceof List) {
+                ResolveTask lastResolveTask = getLastResolveTask();
+                lastResolveTask.fieldDeserializer = new ResolveFieldDeserializer(this, (List) collection, collection.size() - 1);
+                lastResolveTask.ownerContext = this.context;
+                setResolveStatus(0);
+                return;
+            }
+            ResolveTask lastResolveTask2 = getLastResolveTask();
+            lastResolveTask2.fieldDeserializer = new ResolveFieldDeserializer(collection);
+            lastResolveTask2.ownerContext = this.context;
+            setResolveStatus(0);
+        }
+    }
+
+    public void checkMapResolve(Map map, Object obj) {
+        if (this.resolveStatus == 1) {
+            ResolveFieldDeserializer resolveFieldDeserializer = new ResolveFieldDeserializer(map, obj);
+            ResolveTask lastResolveTask = getLastResolveTask();
+            lastResolveTask.fieldDeserializer = resolveFieldDeserializer;
+            lastResolveTask.ownerContext = this.context;
+            setResolveStatus(0);
+        }
+    }
+
+    @Override // java.io.Closeable, java.lang.AutoCloseable
+    public void close() {
+        JSONLexer jSONLexer = this.lexer;
+        try {
+            if (jSONLexer.isEnabled(Feature.AutoCloseSource) && jSONLexer.token() != 20) {
+                throw new JSONException("not close json text, token : " + JSONToken.name(jSONLexer.token()));
+            }
+        } finally {
+            jSONLexer.close();
+        }
+    }
+
+    public void config(Feature feature, boolean z) {
+        this.lexer.config(feature, z);
+    }
+
+    public ParserConfig getConfig() {
+        return this.config;
+    }
+
+    public ParseContext getContext() {
+        return this.context;
     }
 
     public String getDateFomartPattern() {
@@ -74,10 +193,710 @@ public class DefaultJSONParser implements Closeable {
 
     public DateFormat getDateFormat() {
         if (this.dateFormat == null) {
-            this.dateFormat = new SimpleDateFormat(this.dateFormatPattern, this.lexer.getLocale());
-            this.dateFormat.setTimeZone(this.lexer.getTimeZone());
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat(this.dateFormatPattern, this.lexer.getLocale());
+            this.dateFormat = simpleDateFormat;
+            simpleDateFormat.setTimeZone(this.lexer.getTimeZone());
         }
         return this.dateFormat;
+    }
+
+    public List<ExtraProcessor> getExtraProcessors() {
+        if (this.extraProcessors == null) {
+            this.extraProcessors = new ArrayList(2);
+        }
+        return this.extraProcessors;
+    }
+
+    public List<ExtraTypeProvider> getExtraTypeProviders() {
+        if (this.extraTypeProviders == null) {
+            this.extraTypeProviders = new ArrayList(2);
+        }
+        return this.extraTypeProviders;
+    }
+
+    public FieldTypeResolver getFieldTypeResolver() {
+        return this.fieldTypeResolver;
+    }
+
+    public String getInput() {
+        Object obj = this.input;
+        if (obj instanceof char[]) {
+            return new String((char[]) this.input);
+        }
+        return obj.toString();
+    }
+
+    public ResolveTask getLastResolveTask() {
+        List<ResolveTask> list = this.resolveTaskList;
+        return list.get(list.size() - 1);
+    }
+
+    public JSONLexer getLexer() {
+        return this.lexer;
+    }
+
+    public Object getObject(String str) {
+        for (int i = 0; i < this.contextArrayIndex; i++) {
+            if (str.equals(this.contextArray[i].toString())) {
+                return this.contextArray[i].object;
+            }
+        }
+        return null;
+    }
+
+    public int getResolveStatus() {
+        return this.resolveStatus;
+    }
+
+    public List<ResolveTask> getResolveTaskList() {
+        if (this.resolveTaskList == null) {
+            this.resolveTaskList = new ArrayList(2);
+        }
+        return this.resolveTaskList;
+    }
+
+    public SymbolTable getSymbolTable() {
+        return this.symbolTable;
+    }
+
+    public void handleResovleTask(Object obj) {
+        Object obj2;
+        FieldInfo fieldInfo;
+        List<ResolveTask> list = this.resolveTaskList;
+        if (list == null) {
+            return;
+        }
+        int size = list.size();
+        for (int i = 0; i < size; i++) {
+            ResolveTask resolveTask = this.resolveTaskList.get(i);
+            String str = resolveTask.referenceValue;
+            ParseContext parseContext = resolveTask.ownerContext;
+            Object obj3 = parseContext != null ? parseContext.object : null;
+            if (str.startsWith("$")) {
+                obj2 = getObject(str);
+                if (obj2 == null) {
+                    try {
+                        obj2 = JSONPath.eval(obj, str);
+                    } catch (JSONPathException unused) {
+                    }
+                }
+            } else {
+                obj2 = resolveTask.context.object;
+            }
+            FieldDeserializer fieldDeserializer = resolveTask.fieldDeserializer;
+            if (fieldDeserializer != null) {
+                if (obj2 != null && obj2.getClass() == JSONObject.class && (fieldInfo = fieldDeserializer.fieldInfo) != null && !Map.class.isAssignableFrom(fieldInfo.fieldClass)) {
+                    obj2 = JSONPath.eval(this.contextArray[0].object, str);
+                }
+                fieldDeserializer.setValue(obj3, obj2);
+            }
+        }
+    }
+
+    public boolean isEnabled(Feature feature) {
+        return this.lexer.isEnabled(feature);
+    }
+
+    public Object parse() {
+        return parse(null);
+    }
+
+    public <T> List<T> parseArray(Class<T> cls) {
+        ArrayList arrayList = new ArrayList();
+        parseArray((Class<?>) cls, (Collection) arrayList);
+        return arrayList;
+    }
+
+    public Object parseArrayWithType(Type type) {
+        if (this.lexer.token() == 8) {
+            this.lexer.nextToken();
+            return null;
+        }
+        Type[] actualTypeArguments = ((ParameterizedType) type).getActualTypeArguments();
+        if (actualTypeArguments.length == 1) {
+            Type type2 = actualTypeArguments[0];
+            if (type2 instanceof Class) {
+                ArrayList arrayList = new ArrayList();
+                parseArray((Class) type2, (Collection) arrayList);
+                return arrayList;
+            } else if (type2 instanceof WildcardType) {
+                WildcardType wildcardType = (WildcardType) type2;
+                Type type3 = wildcardType.getUpperBounds()[0];
+                if (Object.class.equals(type3)) {
+                    if (wildcardType.getLowerBounds().length == 0) {
+                        return parse();
+                    }
+                    throw new JSONException("not support type : " + type);
+                }
+                ArrayList arrayList2 = new ArrayList();
+                parseArray((Class) type3, (Collection) arrayList2);
+                return arrayList2;
+            } else {
+                if (type2 instanceof TypeVariable) {
+                    TypeVariable typeVariable = (TypeVariable) type2;
+                    Type[] bounds = typeVariable.getBounds();
+                    if (bounds.length == 1) {
+                        Type type4 = bounds[0];
+                        if (type4 instanceof Class) {
+                            ArrayList arrayList3 = new ArrayList();
+                            parseArray((Class) type4, (Collection) arrayList3);
+                            return arrayList3;
+                        }
+                    } else {
+                        throw new JSONException("not support : " + typeVariable);
+                    }
+                }
+                if (type2 instanceof ParameterizedType) {
+                    ArrayList arrayList4 = new ArrayList();
+                    parseArray((ParameterizedType) type2, arrayList4);
+                    return arrayList4;
+                }
+                throw new JSONException("TODO : " + type);
+            }
+        }
+        throw new JSONException("not support type " + type);
+    }
+
+    public void parseExtra(Object obj, String str) {
+        Object parseObject;
+        this.lexer.nextTokenWithColon();
+        List<ExtraTypeProvider> list = this.extraTypeProviders;
+        Type type = null;
+        if (list != null) {
+            for (ExtraTypeProvider extraTypeProvider : list) {
+                type = extraTypeProvider.getExtraType(obj, str);
+            }
+        }
+        if (type == null) {
+            parseObject = parse();
+        } else {
+            parseObject = parseObject(type);
+        }
+        if (obj instanceof ExtraProcessable) {
+            ((ExtraProcessable) obj).processExtra(str, parseObject);
+            return;
+        }
+        List<ExtraProcessor> list2 = this.extraProcessors;
+        if (list2 != null) {
+            for (ExtraProcessor extraProcessor : list2) {
+                extraProcessor.processExtra(obj, str, parseObject);
+            }
+        }
+        if (this.resolveStatus == 1) {
+            this.resolveStatus = 0;
+        }
+    }
+
+    public Object parseKey() {
+        if (this.lexer.token() == 18) {
+            String stringVal = this.lexer.stringVal();
+            this.lexer.nextToken(16);
+            return stringVal;
+        }
+        return parse(null);
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:117:0x0245, code lost:
+        r5.nextToken(16);
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:118:0x0250, code lost:
+        if (r5.token() != 13) goto L266;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:119:0x0252, code lost:
+        r5.nextToken(16);
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:120:0x0255, code lost:
+        r0 = r16.config.getDeserializer(r8);
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:121:0x025d, code lost:
+        if ((r0 instanceof com.alibaba.fastjson.parser.deserializer.JavaBeanDeserializer) == false) goto L262;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:122:0x025f, code lost:
+        r0 = (com.alibaba.fastjson.parser.deserializer.JavaBeanDeserializer) r0;
+        r2 = r0.createInstance(r16, r8);
+        r3 = r9.entrySet().iterator();
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:124:0x0271, code lost:
+        if (r3.hasNext() == false) goto L251;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:125:0x0273, code lost:
+        r4 = (java.util.Map.Entry) r3.next();
+        r5 = r4.getKey();
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:126:0x027f, code lost:
+        if ((r5 instanceof java.lang.String) == false) goto L250;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:127:0x0281, code lost:
+        r5 = r0.getFieldDeserializer((java.lang.String) r5);
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:128:0x0287, code lost:
+        if (r5 == null) goto L249;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:129:0x0289, code lost:
+        r5.setValue(r2, r4.getValue());
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:130:0x0291, code lost:
+        r2 = r11;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:131:0x0292, code lost:
+        if (r2 != null) goto L260;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:133:0x0296, code lost:
+        if (r8 != java.lang.Cloneable.class) goto L256;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:134:0x0298, code lost:
+        r2 = new java.util.HashMap();
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:136:0x02a4, code lost:
+        if ("java.util.Collections$EmptyMap".equals(r7) == false) goto L259;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:137:0x02a6, code lost:
+        r2 = java.util.Collections.emptyMap();
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:138:0x02ab, code lost:
+        r2 = r8.newInstance();
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:140:0x02b2, code lost:
+        return r2;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:141:0x02b3, code lost:
+        r0 = move-exception;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:143:0x02bb, code lost:
+        throw new com.alibaba.fastjson.JSONException("create instance error", r0);
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:144:0x02bc, code lost:
+        setResolveStatus(2);
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:145:0x02c2, code lost:
+        if (r16.context == null) goto L274;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:146:0x02c4, code lost:
+        if (r18 == null) goto L274;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:148:0x02c8, code lost:
+        if ((r18 instanceof java.lang.Integer) != false) goto L274;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:150:0x02d0, code lost:
+        if ((r16.context.fieldName instanceof java.lang.Integer) != false) goto L274;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:151:0x02d2, code lost:
+        popContext();
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:153:0x02d9, code lost:
+        if (r17.size() <= 0) goto L279;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:154:0x02db, code lost:
+        r0 = com.alibaba.fastjson.util.TypeUtils.cast((java.lang.Object) r17, (java.lang.Class<java.lang.Object>) r8, r16.config);
+        parseObject(r0);
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:156:0x02e7, code lost:
+        return r0;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:159:0x02f5, code lost:
+        return r16.config.getDeserializer(r8).deserialze(r16, r8, r18);
+     */
+    /* JADX WARN: Removed duplicated region for block: B:101:0x01eb A[Catch: all -> 0x05c3, TryCatch #0 {all -> 0x05c3, blocks: (B:18:0x0060, B:20:0x0064, B:23:0x006e, B:26:0x0081, B:30:0x009a, B:101:0x01eb, B:102:0x01f1, B:104:0x01fc, B:106:0x0204, B:110:0x0218, B:112:0x0226, B:115:0x0239, B:117:0x0245, B:119:0x0252, B:120:0x0255, B:122:0x025f, B:123:0x026d, B:125:0x0273, B:127:0x0281, B:129:0x0289, B:134:0x0298, B:135:0x029e, B:137:0x02a6, B:138:0x02ab, B:142:0x02b4, B:143:0x02bb, B:144:0x02bc, B:147:0x02c6, B:149:0x02ca, B:151:0x02d2, B:152:0x02d5, B:154:0x02db, B:157:0x02e8, B:113:0x022c, B:164:0x02fd, B:166:0x0305, B:168:0x030f, B:170:0x0320, B:172:0x0324, B:174:0x032c, B:177:0x0331, B:179:0x0335, B:199:0x0387, B:201:0x038f, B:204:0x0398, B:205:0x039d, B:181:0x033c, B:183:0x0344, B:185:0x0348, B:186:0x034b, B:187:0x0357, B:190:0x0360, B:192:0x0364, B:193:0x0367, B:195:0x036b, B:196:0x036f, B:197:0x037b, B:206:0x039e, B:207:0x03bc, B:209:0x03bf, B:211:0x03c3, B:213:0x03c9, B:215:0x03cf, B:216:0x03d2, B:220:0x03da, B:226:0x03ea, B:228:0x03f9, B:230:0x0404, B:231:0x040c, B:232:0x040f, B:244:0x043b, B:246:0x0446, B:250:0x0453, B:253:0x0463, B:254:0x0484, B:239:0x041f, B:241:0x0429, B:243:0x0438, B:242:0x042e, B:257:0x0489, B:259:0x0493, B:261:0x0499, B:262:0x049c, B:264:0x04a7, B:265:0x04ab, B:267:0x04b6, B:270:0x04bd, B:273:0x04c6, B:274:0x04cb, B:277:0x04d0, B:279:0x04d5, B:283:0x04de, B:285:0x04eb, B:287:0x04f1, B:290:0x04f7, B:292:0x04fd, B:294:0x0505, B:297:0x0514, B:300:0x051c, B:302:0x0520, B:303:0x0527, B:305:0x052c, B:306:0x052f, B:308:0x0537, B:311:0x0541, B:314:0x054b, B:315:0x0550, B:316:0x0555, B:317:0x0570, B:318:0x0571, B:320:0x0583, B:323:0x058a, B:326:0x0595, B:327:0x05b6, B:33:0x00ac, B:34:0x00ca, B:37:0x00cf, B:39:0x00da, B:41:0x00de, B:43:0x00e4, B:45:0x00ea, B:46:0x00ed, B:53:0x00fc, B:55:0x0104, B:58:0x0114, B:59:0x012c, B:60:0x012d, B:61:0x0132, B:72:0x0147, B:73:0x014d, B:75:0x0154, B:78:0x015e, B:81:0x0166, B:82:0x017e, B:76:0x0159, B:83:0x017f, B:84:0x0197, B:90:0x01a1, B:92:0x01a9, B:95:0x01ba, B:96:0x01da, B:97:0x01db, B:98:0x01e0, B:99:0x01e1, B:328:0x05b7, B:329:0x05bc, B:330:0x05bd, B:331:0x05c2), top: B:336:0x0060, inners: #1, #2 }] */
+    /* JADX WARN: Removed duplicated region for block: B:209:0x03bf A[Catch: all -> 0x05c3, TryCatch #0 {all -> 0x05c3, blocks: (B:18:0x0060, B:20:0x0064, B:23:0x006e, B:26:0x0081, B:30:0x009a, B:101:0x01eb, B:102:0x01f1, B:104:0x01fc, B:106:0x0204, B:110:0x0218, B:112:0x0226, B:115:0x0239, B:117:0x0245, B:119:0x0252, B:120:0x0255, B:122:0x025f, B:123:0x026d, B:125:0x0273, B:127:0x0281, B:129:0x0289, B:134:0x0298, B:135:0x029e, B:137:0x02a6, B:138:0x02ab, B:142:0x02b4, B:143:0x02bb, B:144:0x02bc, B:147:0x02c6, B:149:0x02ca, B:151:0x02d2, B:152:0x02d5, B:154:0x02db, B:157:0x02e8, B:113:0x022c, B:164:0x02fd, B:166:0x0305, B:168:0x030f, B:170:0x0320, B:172:0x0324, B:174:0x032c, B:177:0x0331, B:179:0x0335, B:199:0x0387, B:201:0x038f, B:204:0x0398, B:205:0x039d, B:181:0x033c, B:183:0x0344, B:185:0x0348, B:186:0x034b, B:187:0x0357, B:190:0x0360, B:192:0x0364, B:193:0x0367, B:195:0x036b, B:196:0x036f, B:197:0x037b, B:206:0x039e, B:207:0x03bc, B:209:0x03bf, B:211:0x03c3, B:213:0x03c9, B:215:0x03cf, B:216:0x03d2, B:220:0x03da, B:226:0x03ea, B:228:0x03f9, B:230:0x0404, B:231:0x040c, B:232:0x040f, B:244:0x043b, B:246:0x0446, B:250:0x0453, B:253:0x0463, B:254:0x0484, B:239:0x041f, B:241:0x0429, B:243:0x0438, B:242:0x042e, B:257:0x0489, B:259:0x0493, B:261:0x0499, B:262:0x049c, B:264:0x04a7, B:265:0x04ab, B:267:0x04b6, B:270:0x04bd, B:273:0x04c6, B:274:0x04cb, B:277:0x04d0, B:279:0x04d5, B:283:0x04de, B:285:0x04eb, B:287:0x04f1, B:290:0x04f7, B:292:0x04fd, B:294:0x0505, B:297:0x0514, B:300:0x051c, B:302:0x0520, B:303:0x0527, B:305:0x052c, B:306:0x052f, B:308:0x0537, B:311:0x0541, B:314:0x054b, B:315:0x0550, B:316:0x0555, B:317:0x0570, B:318:0x0571, B:320:0x0583, B:323:0x058a, B:326:0x0595, B:327:0x05b6, B:33:0x00ac, B:34:0x00ca, B:37:0x00cf, B:39:0x00da, B:41:0x00de, B:43:0x00e4, B:45:0x00ea, B:46:0x00ed, B:53:0x00fc, B:55:0x0104, B:58:0x0114, B:59:0x012c, B:60:0x012d, B:61:0x0132, B:72:0x0147, B:73:0x014d, B:75:0x0154, B:78:0x015e, B:81:0x0166, B:82:0x017e, B:76:0x0159, B:83:0x017f, B:84:0x0197, B:90:0x01a1, B:92:0x01a9, B:95:0x01ba, B:96:0x01da, B:97:0x01db, B:98:0x01e0, B:99:0x01e1, B:328:0x05b7, B:329:0x05bc, B:330:0x05bd, B:331:0x05c2), top: B:336:0x0060, inners: #1, #2 }] */
+    /* JADX WARN: Removed duplicated region for block: B:226:0x03ea A[Catch: all -> 0x05c3, TryCatch #0 {all -> 0x05c3, blocks: (B:18:0x0060, B:20:0x0064, B:23:0x006e, B:26:0x0081, B:30:0x009a, B:101:0x01eb, B:102:0x01f1, B:104:0x01fc, B:106:0x0204, B:110:0x0218, B:112:0x0226, B:115:0x0239, B:117:0x0245, B:119:0x0252, B:120:0x0255, B:122:0x025f, B:123:0x026d, B:125:0x0273, B:127:0x0281, B:129:0x0289, B:134:0x0298, B:135:0x029e, B:137:0x02a6, B:138:0x02ab, B:142:0x02b4, B:143:0x02bb, B:144:0x02bc, B:147:0x02c6, B:149:0x02ca, B:151:0x02d2, B:152:0x02d5, B:154:0x02db, B:157:0x02e8, B:113:0x022c, B:164:0x02fd, B:166:0x0305, B:168:0x030f, B:170:0x0320, B:172:0x0324, B:174:0x032c, B:177:0x0331, B:179:0x0335, B:199:0x0387, B:201:0x038f, B:204:0x0398, B:205:0x039d, B:181:0x033c, B:183:0x0344, B:185:0x0348, B:186:0x034b, B:187:0x0357, B:190:0x0360, B:192:0x0364, B:193:0x0367, B:195:0x036b, B:196:0x036f, B:197:0x037b, B:206:0x039e, B:207:0x03bc, B:209:0x03bf, B:211:0x03c3, B:213:0x03c9, B:215:0x03cf, B:216:0x03d2, B:220:0x03da, B:226:0x03ea, B:228:0x03f9, B:230:0x0404, B:231:0x040c, B:232:0x040f, B:244:0x043b, B:246:0x0446, B:250:0x0453, B:253:0x0463, B:254:0x0484, B:239:0x041f, B:241:0x0429, B:243:0x0438, B:242:0x042e, B:257:0x0489, B:259:0x0493, B:261:0x0499, B:262:0x049c, B:264:0x04a7, B:265:0x04ab, B:267:0x04b6, B:270:0x04bd, B:273:0x04c6, B:274:0x04cb, B:277:0x04d0, B:279:0x04d5, B:283:0x04de, B:285:0x04eb, B:287:0x04f1, B:290:0x04f7, B:292:0x04fd, B:294:0x0505, B:297:0x0514, B:300:0x051c, B:302:0x0520, B:303:0x0527, B:305:0x052c, B:306:0x052f, B:308:0x0537, B:311:0x0541, B:314:0x054b, B:315:0x0550, B:316:0x0555, B:317:0x0570, B:318:0x0571, B:320:0x0583, B:323:0x058a, B:326:0x0595, B:327:0x05b6, B:33:0x00ac, B:34:0x00ca, B:37:0x00cf, B:39:0x00da, B:41:0x00de, B:43:0x00e4, B:45:0x00ea, B:46:0x00ed, B:53:0x00fc, B:55:0x0104, B:58:0x0114, B:59:0x012c, B:60:0x012d, B:61:0x0132, B:72:0x0147, B:73:0x014d, B:75:0x0154, B:78:0x015e, B:81:0x0166, B:82:0x017e, B:76:0x0159, B:83:0x017f, B:84:0x0197, B:90:0x01a1, B:92:0x01a9, B:95:0x01ba, B:96:0x01da, B:97:0x01db, B:98:0x01e0, B:99:0x01e1, B:328:0x05b7, B:329:0x05bc, B:330:0x05bd, B:331:0x05c2), top: B:336:0x0060, inners: #1, #2 }] */
+    /* JADX WARN: Removed duplicated region for block: B:233:0x0413  */
+    /* JADX WARN: Removed duplicated region for block: B:246:0x0446 A[Catch: all -> 0x05c3, TryCatch #0 {all -> 0x05c3, blocks: (B:18:0x0060, B:20:0x0064, B:23:0x006e, B:26:0x0081, B:30:0x009a, B:101:0x01eb, B:102:0x01f1, B:104:0x01fc, B:106:0x0204, B:110:0x0218, B:112:0x0226, B:115:0x0239, B:117:0x0245, B:119:0x0252, B:120:0x0255, B:122:0x025f, B:123:0x026d, B:125:0x0273, B:127:0x0281, B:129:0x0289, B:134:0x0298, B:135:0x029e, B:137:0x02a6, B:138:0x02ab, B:142:0x02b4, B:143:0x02bb, B:144:0x02bc, B:147:0x02c6, B:149:0x02ca, B:151:0x02d2, B:152:0x02d5, B:154:0x02db, B:157:0x02e8, B:113:0x022c, B:164:0x02fd, B:166:0x0305, B:168:0x030f, B:170:0x0320, B:172:0x0324, B:174:0x032c, B:177:0x0331, B:179:0x0335, B:199:0x0387, B:201:0x038f, B:204:0x0398, B:205:0x039d, B:181:0x033c, B:183:0x0344, B:185:0x0348, B:186:0x034b, B:187:0x0357, B:190:0x0360, B:192:0x0364, B:193:0x0367, B:195:0x036b, B:196:0x036f, B:197:0x037b, B:206:0x039e, B:207:0x03bc, B:209:0x03bf, B:211:0x03c3, B:213:0x03c9, B:215:0x03cf, B:216:0x03d2, B:220:0x03da, B:226:0x03ea, B:228:0x03f9, B:230:0x0404, B:231:0x040c, B:232:0x040f, B:244:0x043b, B:246:0x0446, B:250:0x0453, B:253:0x0463, B:254:0x0484, B:239:0x041f, B:241:0x0429, B:243:0x0438, B:242:0x042e, B:257:0x0489, B:259:0x0493, B:261:0x0499, B:262:0x049c, B:264:0x04a7, B:265:0x04ab, B:267:0x04b6, B:270:0x04bd, B:273:0x04c6, B:274:0x04cb, B:277:0x04d0, B:279:0x04d5, B:283:0x04de, B:285:0x04eb, B:287:0x04f1, B:290:0x04f7, B:292:0x04fd, B:294:0x0505, B:297:0x0514, B:300:0x051c, B:302:0x0520, B:303:0x0527, B:305:0x052c, B:306:0x052f, B:308:0x0537, B:311:0x0541, B:314:0x054b, B:315:0x0550, B:316:0x0555, B:317:0x0570, B:318:0x0571, B:320:0x0583, B:323:0x058a, B:326:0x0595, B:327:0x05b6, B:33:0x00ac, B:34:0x00ca, B:37:0x00cf, B:39:0x00da, B:41:0x00de, B:43:0x00e4, B:45:0x00ea, B:46:0x00ed, B:53:0x00fc, B:55:0x0104, B:58:0x0114, B:59:0x012c, B:60:0x012d, B:61:0x0132, B:72:0x0147, B:73:0x014d, B:75:0x0154, B:78:0x015e, B:81:0x0166, B:82:0x017e, B:76:0x0159, B:83:0x017f, B:84:0x0197, B:90:0x01a1, B:92:0x01a9, B:95:0x01ba, B:96:0x01da, B:97:0x01db, B:98:0x01e0, B:99:0x01e1, B:328:0x05b7, B:329:0x05bc, B:330:0x05bd, B:331:0x05c2), top: B:336:0x0060, inners: #1, #2 }] */
+    /* JADX WARN: Removed duplicated region for block: B:297:0x0514 A[Catch: all -> 0x05c3, TryCatch #0 {all -> 0x05c3, blocks: (B:18:0x0060, B:20:0x0064, B:23:0x006e, B:26:0x0081, B:30:0x009a, B:101:0x01eb, B:102:0x01f1, B:104:0x01fc, B:106:0x0204, B:110:0x0218, B:112:0x0226, B:115:0x0239, B:117:0x0245, B:119:0x0252, B:120:0x0255, B:122:0x025f, B:123:0x026d, B:125:0x0273, B:127:0x0281, B:129:0x0289, B:134:0x0298, B:135:0x029e, B:137:0x02a6, B:138:0x02ab, B:142:0x02b4, B:143:0x02bb, B:144:0x02bc, B:147:0x02c6, B:149:0x02ca, B:151:0x02d2, B:152:0x02d5, B:154:0x02db, B:157:0x02e8, B:113:0x022c, B:164:0x02fd, B:166:0x0305, B:168:0x030f, B:170:0x0320, B:172:0x0324, B:174:0x032c, B:177:0x0331, B:179:0x0335, B:199:0x0387, B:201:0x038f, B:204:0x0398, B:205:0x039d, B:181:0x033c, B:183:0x0344, B:185:0x0348, B:186:0x034b, B:187:0x0357, B:190:0x0360, B:192:0x0364, B:193:0x0367, B:195:0x036b, B:196:0x036f, B:197:0x037b, B:206:0x039e, B:207:0x03bc, B:209:0x03bf, B:211:0x03c3, B:213:0x03c9, B:215:0x03cf, B:216:0x03d2, B:220:0x03da, B:226:0x03ea, B:228:0x03f9, B:230:0x0404, B:231:0x040c, B:232:0x040f, B:244:0x043b, B:246:0x0446, B:250:0x0453, B:253:0x0463, B:254:0x0484, B:239:0x041f, B:241:0x0429, B:243:0x0438, B:242:0x042e, B:257:0x0489, B:259:0x0493, B:261:0x0499, B:262:0x049c, B:264:0x04a7, B:265:0x04ab, B:267:0x04b6, B:270:0x04bd, B:273:0x04c6, B:274:0x04cb, B:277:0x04d0, B:279:0x04d5, B:283:0x04de, B:285:0x04eb, B:287:0x04f1, B:290:0x04f7, B:292:0x04fd, B:294:0x0505, B:297:0x0514, B:300:0x051c, B:302:0x0520, B:303:0x0527, B:305:0x052c, B:306:0x052f, B:308:0x0537, B:311:0x0541, B:314:0x054b, B:315:0x0550, B:316:0x0555, B:317:0x0570, B:318:0x0571, B:320:0x0583, B:323:0x058a, B:326:0x0595, B:327:0x05b6, B:33:0x00ac, B:34:0x00ca, B:37:0x00cf, B:39:0x00da, B:41:0x00de, B:43:0x00e4, B:45:0x00ea, B:46:0x00ed, B:53:0x00fc, B:55:0x0104, B:58:0x0114, B:59:0x012c, B:60:0x012d, B:61:0x0132, B:72:0x0147, B:73:0x014d, B:75:0x0154, B:78:0x015e, B:81:0x0166, B:82:0x017e, B:76:0x0159, B:83:0x017f, B:84:0x0197, B:90:0x01a1, B:92:0x01a9, B:95:0x01ba, B:96:0x01da, B:97:0x01db, B:98:0x01e0, B:99:0x01e1, B:328:0x05b7, B:329:0x05bc, B:330:0x05bd, B:331:0x05c2), top: B:336:0x0060, inners: #1, #2 }] */
+    /* JADX WARN: Removed duplicated region for block: B:302:0x0520 A[Catch: all -> 0x05c3, TryCatch #0 {all -> 0x05c3, blocks: (B:18:0x0060, B:20:0x0064, B:23:0x006e, B:26:0x0081, B:30:0x009a, B:101:0x01eb, B:102:0x01f1, B:104:0x01fc, B:106:0x0204, B:110:0x0218, B:112:0x0226, B:115:0x0239, B:117:0x0245, B:119:0x0252, B:120:0x0255, B:122:0x025f, B:123:0x026d, B:125:0x0273, B:127:0x0281, B:129:0x0289, B:134:0x0298, B:135:0x029e, B:137:0x02a6, B:138:0x02ab, B:142:0x02b4, B:143:0x02bb, B:144:0x02bc, B:147:0x02c6, B:149:0x02ca, B:151:0x02d2, B:152:0x02d5, B:154:0x02db, B:157:0x02e8, B:113:0x022c, B:164:0x02fd, B:166:0x0305, B:168:0x030f, B:170:0x0320, B:172:0x0324, B:174:0x032c, B:177:0x0331, B:179:0x0335, B:199:0x0387, B:201:0x038f, B:204:0x0398, B:205:0x039d, B:181:0x033c, B:183:0x0344, B:185:0x0348, B:186:0x034b, B:187:0x0357, B:190:0x0360, B:192:0x0364, B:193:0x0367, B:195:0x036b, B:196:0x036f, B:197:0x037b, B:206:0x039e, B:207:0x03bc, B:209:0x03bf, B:211:0x03c3, B:213:0x03c9, B:215:0x03cf, B:216:0x03d2, B:220:0x03da, B:226:0x03ea, B:228:0x03f9, B:230:0x0404, B:231:0x040c, B:232:0x040f, B:244:0x043b, B:246:0x0446, B:250:0x0453, B:253:0x0463, B:254:0x0484, B:239:0x041f, B:241:0x0429, B:243:0x0438, B:242:0x042e, B:257:0x0489, B:259:0x0493, B:261:0x0499, B:262:0x049c, B:264:0x04a7, B:265:0x04ab, B:267:0x04b6, B:270:0x04bd, B:273:0x04c6, B:274:0x04cb, B:277:0x04d0, B:279:0x04d5, B:283:0x04de, B:285:0x04eb, B:287:0x04f1, B:290:0x04f7, B:292:0x04fd, B:294:0x0505, B:297:0x0514, B:300:0x051c, B:302:0x0520, B:303:0x0527, B:305:0x052c, B:306:0x052f, B:308:0x0537, B:311:0x0541, B:314:0x054b, B:315:0x0550, B:316:0x0555, B:317:0x0570, B:318:0x0571, B:320:0x0583, B:323:0x058a, B:326:0x0595, B:327:0x05b6, B:33:0x00ac, B:34:0x00ca, B:37:0x00cf, B:39:0x00da, B:41:0x00de, B:43:0x00e4, B:45:0x00ea, B:46:0x00ed, B:53:0x00fc, B:55:0x0104, B:58:0x0114, B:59:0x012c, B:60:0x012d, B:61:0x0132, B:72:0x0147, B:73:0x014d, B:75:0x0154, B:78:0x015e, B:81:0x0166, B:82:0x017e, B:76:0x0159, B:83:0x017f, B:84:0x0197, B:90:0x01a1, B:92:0x01a9, B:95:0x01ba, B:96:0x01da, B:97:0x01db, B:98:0x01e0, B:99:0x01e1, B:328:0x05b7, B:329:0x05bc, B:330:0x05bd, B:331:0x05c2), top: B:336:0x0060, inners: #1, #2 }] */
+    /* JADX WARN: Removed duplicated region for block: B:305:0x052c A[Catch: all -> 0x05c3, TryCatch #0 {all -> 0x05c3, blocks: (B:18:0x0060, B:20:0x0064, B:23:0x006e, B:26:0x0081, B:30:0x009a, B:101:0x01eb, B:102:0x01f1, B:104:0x01fc, B:106:0x0204, B:110:0x0218, B:112:0x0226, B:115:0x0239, B:117:0x0245, B:119:0x0252, B:120:0x0255, B:122:0x025f, B:123:0x026d, B:125:0x0273, B:127:0x0281, B:129:0x0289, B:134:0x0298, B:135:0x029e, B:137:0x02a6, B:138:0x02ab, B:142:0x02b4, B:143:0x02bb, B:144:0x02bc, B:147:0x02c6, B:149:0x02ca, B:151:0x02d2, B:152:0x02d5, B:154:0x02db, B:157:0x02e8, B:113:0x022c, B:164:0x02fd, B:166:0x0305, B:168:0x030f, B:170:0x0320, B:172:0x0324, B:174:0x032c, B:177:0x0331, B:179:0x0335, B:199:0x0387, B:201:0x038f, B:204:0x0398, B:205:0x039d, B:181:0x033c, B:183:0x0344, B:185:0x0348, B:186:0x034b, B:187:0x0357, B:190:0x0360, B:192:0x0364, B:193:0x0367, B:195:0x036b, B:196:0x036f, B:197:0x037b, B:206:0x039e, B:207:0x03bc, B:209:0x03bf, B:211:0x03c3, B:213:0x03c9, B:215:0x03cf, B:216:0x03d2, B:220:0x03da, B:226:0x03ea, B:228:0x03f9, B:230:0x0404, B:231:0x040c, B:232:0x040f, B:244:0x043b, B:246:0x0446, B:250:0x0453, B:253:0x0463, B:254:0x0484, B:239:0x041f, B:241:0x0429, B:243:0x0438, B:242:0x042e, B:257:0x0489, B:259:0x0493, B:261:0x0499, B:262:0x049c, B:264:0x04a7, B:265:0x04ab, B:267:0x04b6, B:270:0x04bd, B:273:0x04c6, B:274:0x04cb, B:277:0x04d0, B:279:0x04d5, B:283:0x04de, B:285:0x04eb, B:287:0x04f1, B:290:0x04f7, B:292:0x04fd, B:294:0x0505, B:297:0x0514, B:300:0x051c, B:302:0x0520, B:303:0x0527, B:305:0x052c, B:306:0x052f, B:308:0x0537, B:311:0x0541, B:314:0x054b, B:315:0x0550, B:316:0x0555, B:317:0x0570, B:318:0x0571, B:320:0x0583, B:323:0x058a, B:326:0x0595, B:327:0x05b6, B:33:0x00ac, B:34:0x00ca, B:37:0x00cf, B:39:0x00da, B:41:0x00de, B:43:0x00e4, B:45:0x00ea, B:46:0x00ed, B:53:0x00fc, B:55:0x0104, B:58:0x0114, B:59:0x012c, B:60:0x012d, B:61:0x0132, B:72:0x0147, B:73:0x014d, B:75:0x0154, B:78:0x015e, B:81:0x0166, B:82:0x017e, B:76:0x0159, B:83:0x017f, B:84:0x0197, B:90:0x01a1, B:92:0x01a9, B:95:0x01ba, B:96:0x01da, B:97:0x01db, B:98:0x01e0, B:99:0x01e1, B:328:0x05b7, B:329:0x05bc, B:330:0x05bd, B:331:0x05c2), top: B:336:0x0060, inners: #1, #2 }] */
+    /* JADX WARN: Removed duplicated region for block: B:311:0x0541 A[Catch: all -> 0x05c3, TRY_ENTER, TryCatch #0 {all -> 0x05c3, blocks: (B:18:0x0060, B:20:0x0064, B:23:0x006e, B:26:0x0081, B:30:0x009a, B:101:0x01eb, B:102:0x01f1, B:104:0x01fc, B:106:0x0204, B:110:0x0218, B:112:0x0226, B:115:0x0239, B:117:0x0245, B:119:0x0252, B:120:0x0255, B:122:0x025f, B:123:0x026d, B:125:0x0273, B:127:0x0281, B:129:0x0289, B:134:0x0298, B:135:0x029e, B:137:0x02a6, B:138:0x02ab, B:142:0x02b4, B:143:0x02bb, B:144:0x02bc, B:147:0x02c6, B:149:0x02ca, B:151:0x02d2, B:152:0x02d5, B:154:0x02db, B:157:0x02e8, B:113:0x022c, B:164:0x02fd, B:166:0x0305, B:168:0x030f, B:170:0x0320, B:172:0x0324, B:174:0x032c, B:177:0x0331, B:179:0x0335, B:199:0x0387, B:201:0x038f, B:204:0x0398, B:205:0x039d, B:181:0x033c, B:183:0x0344, B:185:0x0348, B:186:0x034b, B:187:0x0357, B:190:0x0360, B:192:0x0364, B:193:0x0367, B:195:0x036b, B:196:0x036f, B:197:0x037b, B:206:0x039e, B:207:0x03bc, B:209:0x03bf, B:211:0x03c3, B:213:0x03c9, B:215:0x03cf, B:216:0x03d2, B:220:0x03da, B:226:0x03ea, B:228:0x03f9, B:230:0x0404, B:231:0x040c, B:232:0x040f, B:244:0x043b, B:246:0x0446, B:250:0x0453, B:253:0x0463, B:254:0x0484, B:239:0x041f, B:241:0x0429, B:243:0x0438, B:242:0x042e, B:257:0x0489, B:259:0x0493, B:261:0x0499, B:262:0x049c, B:264:0x04a7, B:265:0x04ab, B:267:0x04b6, B:270:0x04bd, B:273:0x04c6, B:274:0x04cb, B:277:0x04d0, B:279:0x04d5, B:283:0x04de, B:285:0x04eb, B:287:0x04f1, B:290:0x04f7, B:292:0x04fd, B:294:0x0505, B:297:0x0514, B:300:0x051c, B:302:0x0520, B:303:0x0527, B:305:0x052c, B:306:0x052f, B:308:0x0537, B:311:0x0541, B:314:0x054b, B:315:0x0550, B:316:0x0555, B:317:0x0570, B:318:0x0571, B:320:0x0583, B:323:0x058a, B:326:0x0595, B:327:0x05b6, B:33:0x00ac, B:34:0x00ca, B:37:0x00cf, B:39:0x00da, B:41:0x00de, B:43:0x00e4, B:45:0x00ea, B:46:0x00ed, B:53:0x00fc, B:55:0x0104, B:58:0x0114, B:59:0x012c, B:60:0x012d, B:61:0x0132, B:72:0x0147, B:73:0x014d, B:75:0x0154, B:78:0x015e, B:81:0x0166, B:82:0x017e, B:76:0x0159, B:83:0x017f, B:84:0x0197, B:90:0x01a1, B:92:0x01a9, B:95:0x01ba, B:96:0x01da, B:97:0x01db, B:98:0x01e0, B:99:0x01e1, B:328:0x05b7, B:329:0x05bc, B:330:0x05bd, B:331:0x05c2), top: B:336:0x0060, inners: #1, #2 }] */
+    /* JADX WARN: Removed duplicated region for block: B:354:0x0537 A[SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:355:0x044f A[SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public final Object parseObject(Map map, Object obj) {
+        Object parse;
+        boolean z;
+        Object decimalValue;
+        char current;
+        Object obj2;
+        Number decimalValue2;
+        Object obj3;
+        char current2;
+        Object obj4;
+        Object obj5;
+        Class<?> checkAutoType;
+        JSONLexer jSONLexer = this.lexer;
+        if (jSONLexer.token() == 8) {
+            jSONLexer.nextToken();
+            return null;
+        } else if (jSONLexer.token() == 13) {
+            jSONLexer.nextToken();
+            return map;
+        } else if (jSONLexer.token() != 12 && jSONLexer.token() != 16) {
+            throw new JSONException("syntax error, expect {, actual " + jSONLexer.tokenName() + StringUtil.ARRAY_ELEMENT_SEPARATOR + jSONLexer.info());
+        } else {
+            ParseContext parseContext = this.context;
+            try {
+                Map<String, Object> innerMap = map instanceof JSONObject ? ((JSONObject) map).getInnerMap() : map;
+                boolean z2 = false;
+                while (true) {
+                    jSONLexer.skipWhitespace();
+                    char current3 = jSONLexer.getCurrent();
+                    if (jSONLexer.isEnabled(Feature.AllowArbitraryCommas)) {
+                        while (current3 == ',') {
+                            jSONLexer.next();
+                            jSONLexer.skipWhitespace();
+                            current3 = jSONLexer.getCurrent();
+                        }
+                    }
+                    boolean z3 = true;
+                    if (current3 == '\"') {
+                        parse = jSONLexer.scanSymbol(this.symbolTable, Typography.quote);
+                        jSONLexer.skipWhitespace();
+                        if (jSONLexer.getCurrent() != ':') {
+                            throw new JSONException("expect ':' at " + jSONLexer.pos() + ", name " + parse);
+                        }
+                    } else if (current3 == '}') {
+                        jSONLexer.next();
+                        jSONLexer.resetStringPosition();
+                        jSONLexer.nextToken();
+                        if (!z2) {
+                            if (this.context != null && obj == this.context.fieldName && map == this.context.object) {
+                                parseContext = this.context;
+                            } else {
+                                ParseContext context = setContext(map, obj);
+                                if (parseContext == null) {
+                                    parseContext = context;
+                                }
+                            }
+                        }
+                        return map;
+                    } else if (current3 == '\'') {
+                        if (jSONLexer.isEnabled(Feature.AllowSingleQuotes)) {
+                            parse = jSONLexer.scanSymbol(this.symbolTable, '\'');
+                            jSONLexer.skipWhitespace();
+                            if (jSONLexer.getCurrent() != ':') {
+                                throw new JSONException("expect ':' at " + jSONLexer.pos());
+                            }
+                        } else {
+                            throw new JSONException("syntax error");
+                        }
+                    } else if (current3 == 26) {
+                        throw new JSONException("syntax error");
+                    } else {
+                        if (current3 == ',') {
+                            throw new JSONException("syntax error");
+                        }
+                        if ((current3 >= '0' && current3 <= '9') || current3 == '-') {
+                            jSONLexer.resetStringPosition();
+                            jSONLexer.scanNumber();
+                            try {
+                                if (jSONLexer.token() == 2) {
+                                    decimalValue = jSONLexer.integerValue();
+                                } else {
+                                    decimalValue = jSONLexer.decimalValue(true);
+                                }
+                                parse = decimalValue;
+                                if (jSONLexer.getCurrent() != ':') {
+                                    throw new JSONException("parse number key error" + jSONLexer.info());
+                                }
+                            } catch (NumberFormatException unused) {
+                                throw new JSONException("parse number key error" + jSONLexer.info());
+                            }
+                        } else {
+                            if (current3 != '{' && current3 != '[') {
+                                if (jSONLexer.isEnabled(Feature.AllowUnQuotedFieldNames)) {
+                                    parse = jSONLexer.scanSymbolUnQuoted(this.symbolTable);
+                                    jSONLexer.skipWhitespace();
+                                    char current4 = jSONLexer.getCurrent();
+                                    if (current4 != ':') {
+                                        throw new JSONException("expect ':' at " + jSONLexer.pos() + ", actual " + current4);
+                                    }
+                                } else {
+                                    throw new JSONException("syntax error");
+                                }
+                            }
+                            jSONLexer.nextToken();
+                            parse = parse();
+                            z = true;
+                            if (!z) {
+                                jSONLexer.next();
+                                jSONLexer.skipWhitespace();
+                            }
+                            current = jSONLexer.getCurrent();
+                            jSONLexer.resetStringPosition();
+                            if (parse != JSON.DEFAULT_TYPE_KEY && !jSONLexer.isEnabled(Feature.DisableSpecialKeyDetect)) {
+                                String scanSymbol = jSONLexer.scanSymbol(this.symbolTable, Typography.quote);
+                                if (!jSONLexer.isEnabled(Feature.IgnoreAutoType)) {
+                                    if (map != null && map.getClass().getName().equals(scanSymbol)) {
+                                        checkAutoType = map.getClass();
+                                        obj5 = null;
+                                    } else {
+                                        obj5 = null;
+                                        checkAutoType = this.config.checkAutoType(scanSymbol, null, jSONLexer.getFeatures());
+                                    }
+                                    if (checkAutoType != null) {
+                                        break;
+                                    }
+                                    innerMap.put(JSON.DEFAULT_TYPE_KEY, scanSymbol);
+                                } else {
+                                    obj5 = null;
+                                }
+                            } else if (parse != "$ref" && parseContext != null && !jSONLexer.isEnabled(Feature.DisableSpecialKeyDetect)) {
+                                jSONLexer.nextToken(4);
+                                if (jSONLexer.token() == 4) {
+                                    String stringVal = jSONLexer.stringVal();
+                                    jSONLexer.nextToken(13);
+                                    if ("@".equals(stringVal)) {
+                                        if (this.context != null) {
+                                            ParseContext parseContext2 = this.context;
+                                            Object obj6 = parseContext2.object;
+                                            if (!(obj6 instanceof Object[]) && !(obj6 instanceof Collection)) {
+                                                if (parseContext2.parent != null) {
+                                                    obj4 = parseContext2.parent.object;
+                                                }
+                                            }
+                                            obj4 = obj6;
+                                        }
+                                        obj4 = null;
+                                    } else if (IStringUtil.TOP_PATH.equals(stringVal)) {
+                                        if (parseContext.object != null) {
+                                            obj4 = parseContext.object;
+                                        } else {
+                                            addResolveTask(new ResolveTask(parseContext, stringVal));
+                                            setResolveStatus(1);
+                                            obj4 = null;
+                                        }
+                                    } else {
+                                        if ("$".equals(stringVal)) {
+                                            ParseContext parseContext3 = parseContext;
+                                            while (parseContext3.parent != null) {
+                                                parseContext3 = parseContext3.parent;
+                                            }
+                                            if (parseContext3.object != null) {
+                                                obj4 = parseContext3.object;
+                                            } else {
+                                                addResolveTask(new ResolveTask(parseContext3, stringVal));
+                                                setResolveStatus(1);
+                                            }
+                                        } else {
+                                            addResolveTask(new ResolveTask(parseContext, stringVal));
+                                            setResolveStatus(1);
+                                        }
+                                        obj4 = null;
+                                    }
+                                    if (jSONLexer.token() == 13) {
+                                        jSONLexer.nextToken(16);
+                                        return obj4;
+                                    }
+                                    throw new JSONException("syntax error");
+                                }
+                                throw new JSONException("illegal ref, " + JSONToken.name(jSONLexer.token()));
+                            } else {
+                                if (!z2) {
+                                    if (this.context != null && obj == this.context.fieldName && map == this.context.object) {
+                                        parseContext = this.context;
+                                    } else {
+                                        ParseContext context2 = setContext(map, obj);
+                                        if (parseContext == null) {
+                                            parseContext = context2;
+                                        }
+                                        z2 = true;
+                                    }
+                                }
+                                if (map.getClass() == JSONObject.class && parse == null) {
+                                    parse = StringUtil.NULL_STRING;
+                                }
+                                if (current != '\"') {
+                                    jSONLexer.scanString();
+                                    String stringVal2 = jSONLexer.stringVal();
+                                    Number number = stringVal2;
+                                    if (jSONLexer.isEnabled(Feature.AllowISO8601DateFormat)) {
+                                        JSONScanner jSONScanner = new JSONScanner(stringVal2);
+                                        Date date = stringVal2;
+                                        if (jSONScanner.scanISO8601DateIfMatch()) {
+                                            date = jSONScanner.getCalendar().getTime();
+                                        }
+                                        jSONScanner.close();
+                                        number = date;
+                                    }
+                                    innerMap.put(parse, number);
+                                    obj3 = number;
+                                } else if ((current >= '0' && current <= '9') || current == '-') {
+                                    jSONLexer.scanNumber();
+                                    if (jSONLexer.token() == 2) {
+                                        decimalValue2 = jSONLexer.integerValue();
+                                    } else {
+                                        decimalValue2 = jSONLexer.decimalValue(jSONLexer.isEnabled(Feature.UseBigDecimal));
+                                    }
+                                    innerMap.put(parse, decimalValue2);
+                                    obj3 = decimalValue2;
+                                } else if (current == '[') {
+                                    jSONLexer.nextToken();
+                                    Collection jSONArray = new JSONArray();
+                                    if (obj != null) {
+                                        obj.getClass();
+                                    }
+                                    if (obj == null) {
+                                        setContext(parseContext);
+                                    }
+                                    parseArray(jSONArray, parse);
+                                    Object[] objArr = jSONArray;
+                                    if (jSONLexer.isEnabled(Feature.UseObjectArray)) {
+                                        objArr = jSONArray.toArray();
+                                    }
+                                    innerMap.put(parse, objArr);
+                                    if (jSONLexer.token() == 13) {
+                                        jSONLexer.nextToken();
+                                        return map;
+                                    } else if (jSONLexer.token() != 16) {
+                                        throw new JSONException("syntax error");
+                                    }
+                                } else if (current == '{') {
+                                    jSONLexer.nextToken();
+                                    boolean z4 = obj != null && obj.getClass() == Integer.class;
+                                    Map jSONObject = new JSONObject(jSONLexer.isEnabled(Feature.OrderedField));
+                                    ParseContext context3 = !z4 ? setContext(parseContext, jSONObject, parse) : null;
+                                    if (this.fieldTypeResolver != null) {
+                                        Type resolve = this.fieldTypeResolver.resolve(map, parse != null ? parse.toString() : null);
+                                        if (resolve != null) {
+                                            obj2 = this.config.getDeserializer(resolve).deserialze(this, resolve, parse);
+                                            if (!z3) {
+                                                obj2 = parseObject(jSONObject, parse);
+                                            }
+                                            if (context3 != null && jSONObject != obj2) {
+                                                context3.object = map;
+                                            }
+                                            if (parse != null) {
+                                                checkMapResolve(map, parse.toString());
+                                            }
+                                            innerMap.put(parse, obj2);
+                                            if (z4) {
+                                                setContext(obj2, parse);
+                                            }
+                                            if (jSONLexer.token() != 13) {
+                                                jSONLexer.nextToken();
+                                                setContext(parseContext);
+                                                return map;
+                                            } else if (jSONLexer.token() != 16) {
+                                                throw new JSONException("syntax error, " + jSONLexer.tokenName());
+                                            } else if (z4) {
+                                                popContext();
+                                            } else {
+                                                setContext(parseContext);
+                                            }
+                                        }
+                                    }
+                                    obj2 = null;
+                                    z3 = false;
+                                    if (!z3) {
+                                    }
+                                    if (context3 != null) {
+                                        context3.object = map;
+                                    }
+                                    if (parse != null) {
+                                    }
+                                    innerMap.put(parse, obj2);
+                                    if (z4) {
+                                    }
+                                    if (jSONLexer.token() != 13) {
+                                    }
+                                } else {
+                                    jSONLexer.nextToken();
+                                    innerMap.put(parse, parse());
+                                    if (jSONLexer.token() == 13) {
+                                        jSONLexer.nextToken();
+                                        return map;
+                                    } else if (jSONLexer.token() != 16) {
+                                        throw new JSONException("syntax error, position at " + jSONLexer.pos() + ", name " + parse);
+                                    }
+                                }
+                                jSONLexer.skipWhitespace();
+                                current2 = jSONLexer.getCurrent();
+                                if (current2 == ',') {
+                                    if (current2 == '}') {
+                                        jSONLexer.next();
+                                        jSONLexer.resetStringPosition();
+                                        jSONLexer.nextToken();
+                                        setContext(obj3, parse);
+                                        return map;
+                                    }
+                                    throw new JSONException("syntax error, position at " + jSONLexer.pos() + ", name " + parse);
+                                }
+                                jSONLexer.next();
+                            }
+                        }
+                    }
+                    z = false;
+                    if (!z) {
+                    }
+                    current = jSONLexer.getCurrent();
+                    jSONLexer.resetStringPosition();
+                    if (parse != JSON.DEFAULT_TYPE_KEY) {
+                    }
+                    if (parse != "$ref") {
+                    }
+                    if (!z2) {
+                    }
+                    if (map.getClass() == JSONObject.class) {
+                        parse = StringUtil.NULL_STRING;
+                    }
+                    if (current != '\"') {
+                    }
+                    jSONLexer.skipWhitespace();
+                    current2 = jSONLexer.getCurrent();
+                    if (current2 == ',') {
+                    }
+                }
+            } finally {
+                setContext(parseContext);
+            }
+        }
+    }
+
+    public void popContext() {
+        if (this.lexer.isEnabled(Feature.DisableCircularReferenceDetect)) {
+            return;
+        }
+        this.context = this.context.parent;
+        int i = this.contextArrayIndex;
+        if (i <= 0) {
+            return;
+        }
+        int i2 = i - 1;
+        this.contextArrayIndex = i2;
+        this.contextArray[i2] = null;
+    }
+
+    public Object resolveReference(String str) {
+        if (this.contextArray == null) {
+            return null;
+        }
+        int i = 0;
+        while (true) {
+            ParseContext[] parseContextArr = this.contextArray;
+            if (i >= parseContextArr.length || i >= this.contextArrayIndex) {
+                break;
+            }
+            ParseContext parseContext = parseContextArr[i];
+            if (parseContext.toString().equals(str)) {
+                return parseContext.object;
+            }
+            i++;
+        }
+        return null;
+    }
+
+    public void setConfig(ParserConfig parserConfig) {
+        this.config = parserConfig;
+    }
+
+    public void setContext(ParseContext parseContext) {
+        if (this.lexer.isEnabled(Feature.DisableCircularReferenceDetect)) {
+            return;
+        }
+        this.context = parseContext;
+    }
+
+    public void setDateFomrat(DateFormat dateFormat) {
+        this.dateFormat = dateFormat;
     }
 
     public void setDateFormat(String str) {
@@ -85,32 +904,236 @@ public class DefaultJSONParser implements Closeable {
         this.dateFormat = null;
     }
 
-    public void setDateFomrat(DateFormat dateFormat) {
-        this.dateFormat = dateFormat;
+    public void setFieldTypeResolver(FieldTypeResolver fieldTypeResolver) {
+        this.fieldTypeResolver = fieldTypeResolver;
     }
 
-    public DefaultJSONParser(String str) {
-        this(str, ParserConfig.getGlobalInstance(), JSON.DEFAULT_PARSER_FEATURE);
+    public void setResolveStatus(int i) {
+        this.resolveStatus = i;
+    }
+
+    public void throwException(int i) {
+        throw new JSONException("syntax error, expect " + JSONToken.name(i) + ", actual " + JSONToken.name(this.lexer.token()));
     }
 
     public DefaultJSONParser(String str, ParserConfig parserConfig) {
         this(str, new JSONScanner(str, JSON.DEFAULT_PARSER_FEATURE), parserConfig);
     }
 
+    public Object parse(Object obj) {
+        JSONLexer jSONLexer = this.lexer;
+        int i = jSONLexer.token();
+        if (i == 2) {
+            Number integerValue = jSONLexer.integerValue();
+            jSONLexer.nextToken();
+            return integerValue;
+        } else if (i == 3) {
+            Number decimalValue = jSONLexer.decimalValue(jSONLexer.isEnabled(Feature.UseBigDecimal));
+            jSONLexer.nextToken();
+            return decimalValue;
+        } else if (i == 4) {
+            String stringVal = jSONLexer.stringVal();
+            jSONLexer.nextToken(16);
+            if (jSONLexer.isEnabled(Feature.AllowISO8601DateFormat)) {
+                JSONScanner jSONScanner = new JSONScanner(stringVal);
+                try {
+                    if (jSONScanner.scanISO8601DateIfMatch()) {
+                        return jSONScanner.getCalendar().getTime();
+                    }
+                } finally {
+                    jSONScanner.close();
+                }
+            }
+            return stringVal;
+        } else if (i != 12) {
+            if (i == 14) {
+                JSONArray jSONArray = new JSONArray();
+                parseArray(jSONArray, obj);
+                return jSONLexer.isEnabled(Feature.UseObjectArray) ? jSONArray.toArray() : jSONArray;
+            } else if (i == 18) {
+                if (WalletPayViewController.DEF_CHANNEL_TITLE.equals(jSONLexer.stringVal())) {
+                    jSONLexer.nextToken();
+                    return null;
+                }
+                throw new JSONException("syntax error, " + jSONLexer.info());
+            } else if (i != 26) {
+                switch (i) {
+                    case 6:
+                        jSONLexer.nextToken();
+                        return Boolean.TRUE;
+                    case 7:
+                        jSONLexer.nextToken();
+                        return Boolean.FALSE;
+                    case 8:
+                        jSONLexer.nextToken();
+                        return null;
+                    case 9:
+                        jSONLexer.nextToken(18);
+                        if (jSONLexer.token() == 18) {
+                            jSONLexer.nextToken(10);
+                            accept(10);
+                            long longValue = jSONLexer.integerValue().longValue();
+                            accept(2);
+                            accept(11);
+                            return new Date(longValue);
+                        }
+                        throw new JSONException("syntax error");
+                    default:
+                        switch (i) {
+                            case 20:
+                                if (jSONLexer.isBlankInput()) {
+                                    return null;
+                                }
+                                throw new JSONException("unterminated json string, " + jSONLexer.info());
+                            case 21:
+                                jSONLexer.nextToken();
+                                HashSet hashSet = new HashSet();
+                                parseArray(hashSet, obj);
+                                return hashSet;
+                            case 22:
+                                jSONLexer.nextToken();
+                                TreeSet treeSet = new TreeSet();
+                                parseArray(treeSet, obj);
+                                return treeSet;
+                            case 23:
+                                jSONLexer.nextToken();
+                                return null;
+                            default:
+                                throw new JSONException("syntax error, " + jSONLexer.info());
+                        }
+                }
+            } else {
+                byte[] bytesValue = jSONLexer.bytesValue();
+                jSONLexer.nextToken();
+                return bytesValue;
+            }
+        } else {
+            return parseObject(new JSONObject(jSONLexer.isEnabled(Feature.OrderedField)), obj);
+        }
+    }
+
     public DefaultJSONParser(String str, ParserConfig parserConfig, int i) {
         this(str, new JSONScanner(str, i), parserConfig);
+    }
+
+    public void parseArray(Class<?> cls, Collection collection) {
+        parseArray((Type) cls, collection);
+    }
+
+    public ParseContext setContext(Object obj, Object obj2) {
+        if (this.lexer.isEnabled(Feature.DisableCircularReferenceDetect)) {
+            return null;
+        }
+        return setContext(this.context, obj, obj2);
     }
 
     public DefaultJSONParser(char[] cArr, int i, ParserConfig parserConfig, int i2) {
         this(cArr, new JSONScanner(cArr, i, i2), parserConfig);
     }
 
+    public void parseArray(Type type, Collection collection) {
+        parseArray(type, collection, null);
+    }
+
     public DefaultJSONParser(JSONLexer jSONLexer) {
         this(jSONLexer, ParserConfig.getGlobalInstance());
     }
 
+    public void parseArray(Type type, Collection collection, Object obj) {
+        ObjectDeserializer deserializer;
+        int i = this.lexer.token();
+        if (i == 21 || i == 22) {
+            this.lexer.nextToken();
+            i = this.lexer.token();
+        }
+        if (i == 14) {
+            if (Integer.TYPE != type) {
+                if (String.class == type) {
+                    deserializer = StringCodec.instance;
+                    this.lexer.nextToken(4);
+                } else {
+                    deserializer = this.config.getDeserializer(type);
+                    this.lexer.nextToken(deserializer.getFastMatchToken());
+                }
+            } else {
+                deserializer = IntegerCodec.instance;
+                this.lexer.nextToken(2);
+            }
+            ParseContext parseContext = this.context;
+            setContext(collection, obj);
+            int i2 = 0;
+            while (true) {
+                try {
+                    if (this.lexer.isEnabled(Feature.AllowArbitraryCommas)) {
+                        while (this.lexer.token() == 16) {
+                            this.lexer.nextToken();
+                        }
+                    }
+                    if (this.lexer.token() == 15) {
+                        setContext(parseContext);
+                        this.lexer.nextToken(16);
+                        return;
+                    }
+                    Object obj2 = null;
+                    if (Integer.TYPE != type) {
+                        if (String.class == type) {
+                            if (this.lexer.token() == 4) {
+                                obj2 = this.lexer.stringVal();
+                                this.lexer.nextToken(16);
+                            } else {
+                                Object parse = parse();
+                                if (parse != null) {
+                                    obj2 = parse.toString();
+                                }
+                            }
+                            collection.add(obj2);
+                        } else {
+                            if (this.lexer.token() == 8) {
+                                this.lexer.nextToken();
+                            } else {
+                                obj2 = deserializer.deserialze(this, type, Integer.valueOf(i2));
+                            }
+                            collection.add(obj2);
+                            checkListResolve(collection);
+                        }
+                    } else {
+                        collection.add(IntegerCodec.instance.deserialze(this, null, null));
+                    }
+                    if (this.lexer.token() == 16) {
+                        this.lexer.nextToken(deserializer.getFastMatchToken());
+                    }
+                    i2++;
+                } catch (Throwable th) {
+                    setContext(parseContext);
+                    throw th;
+                }
+            }
+        } else {
+            throw new JSONException("exepct '[', but " + JSONToken.name(i) + StringUtil.ARRAY_ELEMENT_SEPARATOR + this.lexer.info());
+        }
+    }
+
+    public ParseContext setContext(ParseContext parseContext, Object obj, Object obj2) {
+        if (this.lexer.isEnabled(Feature.DisableCircularReferenceDetect)) {
+            return null;
+        }
+        ParseContext parseContext2 = new ParseContext(parseContext, obj, obj2);
+        this.context = parseContext2;
+        addContext(parseContext2);
+        return this.context;
+    }
+
     public DefaultJSONParser(JSONLexer jSONLexer, ParserConfig parserConfig) {
         this((Object) null, jSONLexer, parserConfig);
+    }
+
+    public final void accept(int i, int i2) {
+        JSONLexer jSONLexer = this.lexer;
+        if (jSONLexer.token() == i) {
+            jSONLexer.nextToken(i2);
+        } else {
+            throwException(i);
+        }
     }
 
     public DefaultJSONParser(Object obj, JSONLexer jSONLexer, ParserConfig parserConfig) {
@@ -137,423 +1160,317 @@ public class DefaultJSONParser implements Closeable {
         }
     }
 
-    public SymbolTable getSymbolTable() {
-        return this.symbolTable;
+    public Object[] parseArray(Type[] typeArr) {
+        Object cast;
+        Class<?> cls;
+        boolean z;
+        int i = 8;
+        if (this.lexer.token() == 8) {
+            this.lexer.nextToken(16);
+            return null;
+        }
+        int i2 = 14;
+        if (this.lexer.token() == 14) {
+            Object[] objArr = new Object[typeArr.length];
+            if (typeArr.length == 0) {
+                this.lexer.nextToken(15);
+                if (this.lexer.token() == 15) {
+                    this.lexer.nextToken(16);
+                    return new Object[0];
+                }
+                throw new JSONException("syntax error");
+            }
+            this.lexer.nextToken(2);
+            int i3 = 0;
+            while (i3 < typeArr.length) {
+                if (this.lexer.token() == i) {
+                    this.lexer.nextToken(16);
+                    cast = null;
+                } else {
+                    Type type = typeArr[i3];
+                    if (type != Integer.TYPE && type != Integer.class) {
+                        if (type == String.class) {
+                            if (this.lexer.token() == 4) {
+                                cast = this.lexer.stringVal();
+                                this.lexer.nextToken(16);
+                            } else {
+                                cast = TypeUtils.cast(parse(), type, this.config);
+                            }
+                        } else {
+                            if (i3 == typeArr.length - 1 && (type instanceof Class)) {
+                                Class cls2 = (Class) type;
+                                z = cls2.isArray();
+                                cls = cls2.getComponentType();
+                            } else {
+                                cls = null;
+                                z = false;
+                            }
+                            if (z && this.lexer.token() != i2) {
+                                ArrayList arrayList = new ArrayList();
+                                ObjectDeserializer deserializer = this.config.getDeserializer(cls);
+                                int fastMatchToken = deserializer.getFastMatchToken();
+                                if (this.lexer.token() != 15) {
+                                    while (true) {
+                                        arrayList.add(deserializer.deserialze(this, type, null));
+                                        if (this.lexer.token() != 16) {
+                                            break;
+                                        }
+                                        this.lexer.nextToken(fastMatchToken);
+                                    }
+                                    if (this.lexer.token() != 15) {
+                                        throw new JSONException("syntax error :" + JSONToken.name(this.lexer.token()));
+                                    }
+                                }
+                                cast = TypeUtils.cast(arrayList, type, this.config);
+                            } else {
+                                cast = this.config.getDeserializer(type).deserialze(this, type, Integer.valueOf(i3));
+                            }
+                        }
+                    } else if (this.lexer.token() == 2) {
+                        cast = Integer.valueOf(this.lexer.intValue());
+                        this.lexer.nextToken(16);
+                    } else {
+                        cast = TypeUtils.cast(parse(), type, this.config);
+                    }
+                }
+                objArr[i3] = cast;
+                if (this.lexer.token() == 15) {
+                    break;
+                } else if (this.lexer.token() == 16) {
+                    if (i3 == typeArr.length - 1) {
+                        this.lexer.nextToken(15);
+                    } else {
+                        this.lexer.nextToken(2);
+                    }
+                    i3++;
+                    i = 8;
+                    i2 = 14;
+                } else {
+                    throw new JSONException("syntax error :" + JSONToken.name(this.lexer.token()));
+                }
+            }
+            if (this.lexer.token() == 15) {
+                this.lexer.nextToken(16);
+                return objArr;
+            }
+            throw new JSONException("syntax error");
+        }
+        throw new JSONException("syntax error : " + this.lexer.tokenName());
     }
 
-    public String getInput() {
-        return this.input instanceof char[] ? new String((char[]) this.input) : this.input.toString();
-    }
-
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [592=10] */
-    /* JADX WARN: Code restructure failed: missing block: B:116:0x0277, code lost:
-        r10.nextToken(16);
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:117:0x0282, code lost:
-        if (r10.token() != 13) goto L282;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:118:0x0284, code lost:
-        r10.nextToken(16);
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:120:0x028a, code lost:
-        r1 = r13.config.getDeserializer(r6);
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:121:0x0292, code lost:
-        if ((r1 instanceof com.alibaba.fastjson.parser.deserializer.JavaBeanDeserializer) == false) goto L278;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:122:0x0294, code lost:
-        r1 = (com.alibaba.fastjson.parser.deserializer.JavaBeanDeserializer) r1;
-        r5 = r1.createInstance(r13, r6);
-        r8 = r2.entrySet().iterator();
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:124:0x02a6, code lost:
-        if (r8.hasNext() == false) goto L266;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:125:0x02a8, code lost:
-        r2 = (java.util.Map.Entry) r8.next();
-        r3 = r2.getKey();
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:126:0x02b4, code lost:
-        if ((r3 instanceof java.lang.String) == false) goto L265;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:127:0x02b6, code lost:
-        r3 = r1.getFieldDeserializer((java.lang.String) r3);
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:128:0x02bc, code lost:
-        if (r3 == null) goto L264;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:129:0x02be, code lost:
-        r3.setValue(r5, r2.getValue());
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:131:0x02c6, code lost:
-        r1 = move-exception;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:133:0x02cf, code lost:
-        throw new com.alibaba.fastjson.JSONException("create instance error", r1);
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:134:0x02d0, code lost:
-        r1 = r5;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:135:0x02d1, code lost:
-        if (r1 != null) goto L276;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:137:0x02d5, code lost:
-        if (r6 != java.lang.Cloneable.class) goto L272;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:138:0x02d7, code lost:
-        r1 = new java.util.HashMap();
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:139:0x02dc, code lost:
-        setContext(r4);
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:141:0x02e9, code lost:
-        if ("java.util.Collections$EmptyMap".equals(r7) == false) goto L275;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:142:0x02eb, code lost:
-        r1 = java.util.Collections.emptyMap();
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:143:0x02f0, code lost:
-        r1 = r6.newInstance();
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:146:0x02f6, code lost:
-        setResolveStatus(2);
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:147:0x02fb, code lost:
-        if (r13.context == null) goto L291;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:148:0x02fd, code lost:
-        if (r15 == null) goto L291;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:150:0x0301, code lost:
-        if ((r15 instanceof java.lang.Integer) != false) goto L291;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:152:0x0309, code lost:
-        if ((r13.context.fieldName instanceof java.lang.Integer) != false) goto L291;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:153:0x030b, code lost:
-        popContext();
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:155:0x0312, code lost:
-        if (r14.size() <= 0) goto L296;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:156:0x0314, code lost:
-        r14 = com.alibaba.fastjson.util.TypeUtils.cast((java.lang.Object) r14, (java.lang.Class<java.lang.Object>) r6, r13.config);
-        parseObject(r14);
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:324:0x0630, code lost:
-        r1 = null;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:381:?, code lost:
-        return r1;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:382:?, code lost:
-        return r14;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:383:?, code lost:
-        return r13.config.getDeserializer(r6).deserialze(r13, r6, r15);
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:48:0x00f9, code lost:
-        if (r4 != null) goto L381;
+    /* JADX WARN: Code restructure failed: missing block: B:86:0x0238, code lost:
+        return r11;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public final Object parseObject(Map map, Object obj) {
-        ParseContext parseContext;
-        Object parse;
-        boolean z;
-        Object obj2;
-        Object obj3;
-        JSONLexer jSONLexer = this.lexer;
-        if (jSONLexer.token() == 8) {
-            jSONLexer.nextToken();
-            return null;
-        } else if (jSONLexer.token() == 13) {
-            jSONLexer.nextToken();
-            return map;
-        } else if (jSONLexer.token() != 12 && jSONLexer.token() != 16) {
-            throw new JSONException("syntax error, expect {, actual " + jSONLexer.tokenName() + ", " + jSONLexer.info());
-        } else {
-            ParseContext parseContext2 = this.context;
+    public Object parse(PropertyProcessable propertyProcessable, Object obj) {
+        String scanSymbolUnQuoted;
+        int i = 0;
+        if (this.lexer.token() != 12) {
+            String str = "syntax error, expect {, actual " + this.lexer.tokenName();
+            if (obj instanceof String) {
+                str = (str + ", fieldName ") + obj;
+            }
+            String str2 = (str + StringUtil.ARRAY_ELEMENT_SEPARATOR) + this.lexer.info();
+            JSONArray jSONArray = new JSONArray();
+            parseArray(jSONArray, obj);
+            if (jSONArray.size() == 1) {
+                Object obj2 = jSONArray.get(0);
+                if (obj2 instanceof JSONObject) {
+                    return (JSONObject) obj2;
+                }
+            }
+            throw new JSONException(str2);
+        }
+        ParseContext parseContext = this.context;
+        while (true) {
             try {
-                Map<String, Object> innerMap = map instanceof JSONObject ? ((JSONObject) map).getInnerMap() : map;
-                boolean z2 = false;
-                while (true) {
-                    jSONLexer.skipWhitespace();
-                    char current = jSONLexer.getCurrent();
-                    if (jSONLexer.isEnabled(Feature.AllowArbitraryCommas)) {
-                        while (current == ',') {
-                            jSONLexer.next();
-                            jSONLexer.skipWhitespace();
-                            current = jSONLexer.getCurrent();
-                        }
-                    }
-                    boolean z3 = false;
-                    if (current == '\"') {
-                        parse = jSONLexer.scanSymbol(this.symbolTable, '\"');
-                        jSONLexer.skipWhitespace();
-                        if (jSONLexer.getCurrent() != ':') {
-                            throw new JSONException("expect ':' at " + jSONLexer.pos() + ", name " + parse);
-                        }
-                    } else if (current == '}') {
-                        jSONLexer.next();
-                        jSONLexer.resetStringPosition();
-                        jSONLexer.nextToken();
-                        if (!z2) {
-                            parseContext = (this.context != null && obj == this.context.fieldName && map == this.context.object) ? this.context : setContext(map, obj);
-                            setContext(parseContext);
-                            return map;
-                        }
-                        parseContext = parseContext2;
-                        setContext(parseContext);
-                        return map;
-                    } else if (current == '\'') {
-                        if (!jSONLexer.isEnabled(Feature.AllowSingleQuotes)) {
-                            throw new JSONException("syntax error");
-                        }
-                        parse = jSONLexer.scanSymbol(this.symbolTable, '\'');
-                        jSONLexer.skipWhitespace();
-                        if (jSONLexer.getCurrent() != ':') {
-                            throw new JSONException("expect ':' at " + jSONLexer.pos());
-                        }
-                    } else if (current == 26) {
-                        throw new JSONException("syntax error");
-                    } else {
-                        if (current == ',') {
-                            throw new JSONException("syntax error");
-                        }
-                        if ((current >= '0' && current <= '9') || current == '-') {
-                            jSONLexer.resetStringPosition();
-                            jSONLexer.scanNumber();
-                            try {
-                                Object integerValue = jSONLexer.token() == 2 ? jSONLexer.integerValue() : jSONLexer.decimalValue(true);
-                                if (jSONLexer.getCurrent() != ':') {
-                                    throw new JSONException("parse number key error" + jSONLexer.info());
-                                }
-                                parse = integerValue;
-                            } catch (NumberFormatException e) {
-                                throw new JSONException("parse number key error" + jSONLexer.info());
-                            }
-                        } else if (current == '{' || current == '[') {
-                            jSONLexer.nextToken();
-                            parse = parse();
-                            z3 = true;
-                        } else if (!jSONLexer.isEnabled(Feature.AllowUnQuotedFieldNames)) {
-                            throw new JSONException("syntax error");
-                        } else {
-                            parse = jSONLexer.scanSymbolUnQuoted(this.symbolTable);
-                            jSONLexer.skipWhitespace();
-                            char current2 = jSONLexer.getCurrent();
-                            if (current2 != ':') {
-                                throw new JSONException("expect ':' at " + jSONLexer.pos() + ", actual " + current2);
-                            }
-                        }
-                    }
-                    if (!z3) {
-                        jSONLexer.next();
-                        jSONLexer.skipWhitespace();
-                    }
-                    char current3 = jSONLexer.getCurrent();
-                    jSONLexer.resetStringPosition();
-                    if (parse == JSON.DEFAULT_TYPE_KEY && !jSONLexer.isEnabled(Feature.DisableSpecialKeyDetect)) {
-                        String scanSymbol = jSONLexer.scanSymbol(this.symbolTable, '\"');
-                        if (!jSONLexer.isEnabled(Feature.IgnoreAutoType)) {
-                            Class<?> checkAutoType = (map == null || !map.getClass().getName().equals(scanSymbol)) ? this.config.checkAutoType(scanSymbol, null, jSONLexer.getFeatures()) : map.getClass();
-                            if (checkAutoType != null) {
-                                break;
-                            }
-                            innerMap.put(JSON.DEFAULT_TYPE_KEY, scanSymbol);
-                        } else {
-                            continue;
-                        }
-                    } else if (parse == "$ref" && parseContext2 != null && !jSONLexer.isEnabled(Feature.DisableSpecialKeyDetect)) {
-                        jSONLexer.nextToken(4);
-                        if (jSONLexer.token() == 4) {
-                            String stringVal = jSONLexer.stringVal();
-                            jSONLexer.nextToken(13);
-                            Object obj4 = null;
-                            if ("@".equals(stringVal)) {
-                                if (this.context != null) {
-                                    ParseContext parseContext3 = this.context;
-                                    Object obj5 = parseContext3.object;
-                                    if ((obj5 instanceof Object[]) || (obj5 instanceof Collection)) {
-                                        obj4 = obj5;
-                                    } else if (parseContext3.parent != null) {
-                                        obj4 = parseContext3.parent.object;
-                                    }
-                                    obj3 = obj4;
-                                }
-                                obj3 = null;
-                            } else if (IStringUtil.TOP_PATH.equals(stringVal)) {
-                                if (parseContext2.object != null) {
-                                    obj3 = parseContext2.object;
-                                } else {
-                                    addResolveTask(new ResolveTask(parseContext2, stringVal));
-                                    setResolveStatus(1);
-                                    obj3 = null;
-                                }
-                            } else if ("$".equals(stringVal)) {
-                                ParseContext parseContext4 = parseContext2;
-                                while (parseContext4.parent != null) {
-                                    parseContext4 = parseContext4.parent;
-                                }
-                                if (parseContext4.object != null) {
-                                    obj4 = parseContext4.object;
-                                } else {
-                                    addResolveTask(new ResolveTask(parseContext4, stringVal));
-                                    setResolveStatus(1);
-                                }
-                                obj3 = obj4;
-                            } else {
-                                addResolveTask(new ResolveTask(parseContext2, stringVal));
-                                setResolveStatus(1);
-                                obj3 = null;
-                            }
-                            if (jSONLexer.token() != 13) {
-                                throw new JSONException("syntax error");
-                            }
-                            jSONLexer.nextToken(16);
-                            return obj3;
-                        }
-                        throw new JSONException("illegal ref, " + JSONToken.name(jSONLexer.token()));
-                    } else {
-                        if (z2) {
-                            z = z2;
-                        } else if (this.context != null && obj == this.context.fieldName && map == this.context.object) {
-                            parseContext2 = this.context;
-                            z = z2;
-                        } else {
-                            ParseContext context = setContext(map, obj);
-                            if (parseContext2 == null) {
-                                parseContext2 = context;
-                            }
-                            z = true;
-                        }
-                        String str = (map.getClass() == JSONObject.class && parse == null) ? "null" : parse;
-                        if (current3 == '\"') {
-                            jSONLexer.scanString();
-                            String stringVal2 = jSONLexer.stringVal();
-                            String str2 = stringVal2;
-                            if (jSONLexer.isEnabled(Feature.AllowISO8601DateFormat)) {
-                                JSONScanner jSONScanner = new JSONScanner(stringVal2);
-                                Date date = stringVal2;
-                                if (jSONScanner.scanISO8601DateIfMatch()) {
-                                    date = jSONScanner.getCalendar().getTime();
-                                }
-                                jSONScanner.close();
-                                str2 = date;
-                            }
-                            innerMap.put(str, str2);
-                            obj2 = str2;
-                        } else if ((current3 >= '0' && current3 <= '9') || current3 == '-') {
-                            jSONLexer.scanNumber();
-                            Number integerValue2 = jSONLexer.token() == 2 ? jSONLexer.integerValue() : jSONLexer.decimalValue(jSONLexer.isEnabled(Feature.UseBigDecimal));
-                            innerMap.put(str, integerValue2);
-                            obj2 = integerValue2;
-                        } else if (current3 == '[') {
-                            jSONLexer.nextToken();
-                            Collection jSONArray = new JSONArray();
-                            if (obj == null || obj.getClass() == Integer.class) {
-                            }
-                            if (obj == null) {
-                                setContext(parseContext2);
-                            }
-                            parseArray(jSONArray, str);
-                            Object[] objArr = jSONArray;
-                            if (jSONLexer.isEnabled(Feature.UseObjectArray)) {
-                                objArr = jSONArray.toArray();
-                            }
-                            innerMap.put(str, objArr);
-                            if (jSONLexer.token() == 13) {
-                                jSONLexer.nextToken();
-                                return map;
-                            } else if (jSONLexer.token() != 16) {
-                                throw new JSONException("syntax error");
-                            } else {
-                                z2 = z;
-                            }
-                        } else if (current3 == '{') {
-                            jSONLexer.nextToken();
-                            boolean z4 = obj != null && obj.getClass() == Integer.class;
-                            Map jSONObject = new JSONObject(jSONLexer.isEnabled(Feature.OrderedField));
-                            ParseContext context2 = !z4 ? setContext(parseContext2, jSONObject, str) : null;
-                            Object obj6 = null;
-                            boolean z5 = false;
-                            if (this.fieldTypeResolver != null) {
-                                Type resolve = this.fieldTypeResolver.resolve(map, str != null ? str.toString() : null);
-                                if (resolve != null) {
-                                    obj6 = this.config.getDeserializer(resolve).deserialze(this, resolve, str);
-                                    z5 = true;
-                                }
-                            }
-                            if (!z5) {
-                                obj6 = parseObject(jSONObject, str);
-                            }
-                            if (context2 != null && jSONObject != obj6) {
-                                context2.object = map;
-                            }
-                            if (str != null) {
-                                checkMapResolve(map, str.toString());
-                            }
-                            innerMap.put(str, obj6);
-                            if (z4) {
-                                setContext(obj6, str);
-                            }
-                            if (jSONLexer.token() == 13) {
-                                jSONLexer.nextToken();
-                                setContext(parseContext2);
-                                return map;
-                            } else if (jSONLexer.token() != 16) {
-                                throw new JSONException("syntax error, " + jSONLexer.tokenName());
-                            } else {
-                                if (z4) {
-                                    popContext();
-                                    z2 = z;
-                                } else {
-                                    setContext(parseContext2);
-                                    z2 = z;
-                                }
-                            }
-                        } else {
-                            jSONLexer.nextToken();
-                            innerMap.put(str, parse());
-                            if (jSONLexer.token() == 13) {
-                                jSONLexer.nextToken();
-                                return map;
-                            } else if (jSONLexer.token() != 16) {
-                                throw new JSONException("syntax error, position at " + jSONLexer.pos() + ", name " + str);
-                            } else {
-                                z2 = z;
-                            }
-                        }
-                        jSONLexer.skipWhitespace();
-                        char current4 = jSONLexer.getCurrent();
-                        if (current4 != ',') {
-                            if (current4 == '}') {
-                                jSONLexer.next();
-                                jSONLexer.resetStringPosition();
-                                jSONLexer.nextToken();
-                                setContext(obj2, str);
-                                return map;
-                            }
-                            throw new JSONException("syntax error, position at " + jSONLexer.pos() + ", name " + str);
-                        }
-                        jSONLexer.next();
-                        z2 = z;
+                this.lexer.skipWhitespace();
+                char current = this.lexer.getCurrent();
+                if (this.lexer.isEnabled(Feature.AllowArbitraryCommas)) {
+                    while (current == ',') {
+                        this.lexer.next();
+                        this.lexer.skipWhitespace();
+                        current = this.lexer.getCurrent();
                     }
                 }
+                if (current == '\"') {
+                    scanSymbolUnQuoted = this.lexer.scanSymbol(this.symbolTable, Typography.quote);
+                    this.lexer.skipWhitespace();
+                    if (this.lexer.getCurrent() != ':') {
+                        throw new JSONException("expect ':' at " + this.lexer.pos());
+                    }
+                } else if (current == '}') {
+                    this.lexer.next();
+                    this.lexer.resetStringPosition();
+                    this.lexer.nextToken(16);
+                    return propertyProcessable;
+                } else if (current == '\'') {
+                    if (this.lexer.isEnabled(Feature.AllowSingleQuotes)) {
+                        scanSymbolUnQuoted = this.lexer.scanSymbol(this.symbolTable, '\'');
+                        this.lexer.skipWhitespace();
+                        if (this.lexer.getCurrent() != ':') {
+                            throw new JSONException("expect ':' at " + this.lexer.pos());
+                        }
+                    } else {
+                        throw new JSONException("syntax error");
+                    }
+                } else if (this.lexer.isEnabled(Feature.AllowUnQuotedFieldNames)) {
+                    scanSymbolUnQuoted = this.lexer.scanSymbolUnQuoted(this.symbolTable);
+                    this.lexer.skipWhitespace();
+                    char current2 = this.lexer.getCurrent();
+                    if (current2 != ':') {
+                        throw new JSONException("expect ':' at " + this.lexer.pos() + ", actual " + current2);
+                    }
+                } else {
+                    throw new JSONException("syntax error");
+                }
+                this.lexer.next();
+                this.lexer.skipWhitespace();
+                this.lexer.getCurrent();
+                this.lexer.resetStringPosition();
+                Object obj3 = null;
+                if (scanSymbolUnQuoted == JSON.DEFAULT_TYPE_KEY && !this.lexer.isEnabled(Feature.DisableSpecialKeyDetect)) {
+                    Class<?> checkAutoType = this.config.checkAutoType(this.lexer.scanSymbol(this.symbolTable, Typography.quote), null, this.lexer.getFeatures());
+                    if (Map.class.isAssignableFrom(checkAutoType)) {
+                        this.lexer.nextToken(16);
+                        if (this.lexer.token() == 13) {
+                            this.lexer.nextToken(16);
+                            return propertyProcessable;
+                        }
+                    } else {
+                        ObjectDeserializer deserializer = this.config.getDeserializer(checkAutoType);
+                        this.lexer.nextToken(16);
+                        setResolveStatus(2);
+                        if (parseContext != null && !(obj instanceof Integer)) {
+                            popContext();
+                        }
+                        return (Map) deserializer.deserialze(this, checkAutoType, obj);
+                    }
+                } else {
+                    this.lexer.nextToken();
+                    if (i != 0) {
+                        setContext(parseContext);
+                    }
+                    Type type = propertyProcessable.getType(scanSymbolUnQuoted);
+                    if (this.lexer.token() == 8) {
+                        this.lexer.nextToken();
+                    } else {
+                        obj3 = parseObject(type, scanSymbolUnQuoted);
+                    }
+                    propertyProcessable.apply(scanSymbolUnQuoted, obj3);
+                    setContext(parseContext, obj3, scanSymbolUnQuoted);
+                    setContext(parseContext);
+                    int i2 = this.lexer.token();
+                    if (i2 == 20 || i2 == 15) {
+                        break;
+                    } else if (i2 == 13) {
+                        this.lexer.nextToken();
+                        return propertyProcessable;
+                    }
+                }
+                i++;
             } finally {
-                setContext(parseContext2);
+                setContext(parseContext);
             }
         }
     }
 
-    public ParserConfig getConfig() {
-        return this.config;
+    public final void parseArray(Collection collection) {
+        parseArray(collection, (Object) null);
     }
 
-    public void setConfig(ParserConfig parserConfig) {
-        this.config = parserConfig;
+    public final void parseArray(Collection collection, Object obj) {
+        Number decimalValue;
+        JSONLexer jSONLexer = this.lexer;
+        if (jSONLexer.token() == 21 || jSONLexer.token() == 22) {
+            jSONLexer.nextToken();
+        }
+        if (jSONLexer.token() == 14) {
+            jSONLexer.nextToken(4);
+            ParseContext parseContext = this.context;
+            setContext(collection, obj);
+            int i = 0;
+            while (true) {
+                try {
+                    if (jSONLexer.isEnabled(Feature.AllowArbitraryCommas)) {
+                        while (jSONLexer.token() == 16) {
+                            jSONLexer.nextToken();
+                        }
+                    }
+                    int i2 = jSONLexer.token();
+                    Number number = null;
+                    number = null;
+                    if (i2 == 2) {
+                        Number integerValue = jSONLexer.integerValue();
+                        jSONLexer.nextToken(16);
+                        number = integerValue;
+                    } else if (i2 == 3) {
+                        if (jSONLexer.isEnabled(Feature.UseBigDecimal)) {
+                            decimalValue = jSONLexer.decimalValue(true);
+                        } else {
+                            decimalValue = jSONLexer.decimalValue(false);
+                        }
+                        number = decimalValue;
+                        jSONLexer.nextToken(16);
+                    } else if (i2 == 4) {
+                        String stringVal = jSONLexer.stringVal();
+                        jSONLexer.nextToken(16);
+                        number = stringVal;
+                        if (jSONLexer.isEnabled(Feature.AllowISO8601DateFormat)) {
+                            JSONScanner jSONScanner = new JSONScanner(stringVal);
+                            Date date = stringVal;
+                            if (jSONScanner.scanISO8601DateIfMatch()) {
+                                date = jSONScanner.getCalendar().getTime();
+                            }
+                            jSONScanner.close();
+                            number = date;
+                        }
+                    } else if (i2 == 6) {
+                        Boolean bool = Boolean.TRUE;
+                        jSONLexer.nextToken(16);
+                        number = bool;
+                    } else if (i2 == 7) {
+                        Boolean bool2 = Boolean.FALSE;
+                        jSONLexer.nextToken(16);
+                        number = bool2;
+                    } else if (i2 == 8) {
+                        jSONLexer.nextToken(4);
+                    } else if (i2 == 12) {
+                        number = parseObject(new JSONObject(jSONLexer.isEnabled(Feature.OrderedField)), Integer.valueOf(i));
+                    } else if (i2 == 20) {
+                        throw new JSONException("unclosed jsonArray");
+                    } else {
+                        if (i2 == 23) {
+                            jSONLexer.nextToken(4);
+                        } else if (i2 == 14) {
+                            JSONArray jSONArray = new JSONArray();
+                            parseArray(jSONArray, Integer.valueOf(i));
+                            number = jSONArray;
+                            if (jSONLexer.isEnabled(Feature.UseObjectArray)) {
+                                number = jSONArray.toArray();
+                            }
+                        } else if (i2 != 15) {
+                            number = parse();
+                        } else {
+                            jSONLexer.nextToken(16);
+                            return;
+                        }
+                    }
+                    collection.add(number);
+                    checkListResolve(collection);
+                    if (jSONLexer.token() == 16) {
+                        jSONLexer.nextToken(4);
+                    }
+                    i++;
+                } finally {
+                    setContext(parseContext);
+                }
+            }
+        } else {
+            throw new JSONException("syntax error, expect [, actual " + JSONToken.name(jSONLexer.token()) + ", pos " + jSONLexer.pos() + ", fieldName " + obj);
+        }
     }
 
     public <T> T parseObject(Class<T> cls) {
@@ -583,186 +1500,10 @@ public class DefaultJSONParser implements Closeable {
         }
         try {
             return (T) this.config.getDeserializer(type).deserialze(this, type, obj);
-        } catch (JSONException e) {
-            throw e;
+        } catch (JSONException e2) {
+            throw e2;
         } catch (Throwable th) {
             throw new JSONException(th.getMessage(), th);
-        }
-    }
-
-    public <T> List<T> parseArray(Class<T> cls) {
-        ArrayList arrayList = new ArrayList();
-        parseArray((Class<?>) cls, (Collection) arrayList);
-        return arrayList;
-    }
-
-    public void parseArray(Class<?> cls, Collection collection) {
-        parseArray((Type) cls, collection);
-    }
-
-    public void parseArray(Type type, Collection collection) {
-        parseArray(type, collection, null);
-    }
-
-    public void parseArray(Type type, Collection collection, Object obj) {
-        ObjectDeserializer deserializer;
-        Object deserialze;
-        String obj2;
-        int i = this.lexer.token();
-        if (i == 21 || i == 22) {
-            this.lexer.nextToken();
-            i = this.lexer.token();
-        }
-        if (i != 14) {
-            throw new JSONException("exepct '[', but " + JSONToken.name(i) + ", " + this.lexer.info());
-        }
-        if (Integer.TYPE == type) {
-            deserializer = IntegerCodec.instance;
-            this.lexer.nextToken(2);
-        } else if (String.class == type) {
-            deserializer = StringCodec.instance;
-            this.lexer.nextToken(4);
-        } else {
-            deserializer = this.config.getDeserializer(type);
-            this.lexer.nextToken(deserializer.getFastMatchToken());
-        }
-        ParseContext parseContext = this.context;
-        setContext(collection, obj);
-        int i2 = 0;
-        while (true) {
-            try {
-                if (this.lexer.isEnabled(Feature.AllowArbitraryCommas)) {
-                    while (this.lexer.token() == 16) {
-                        this.lexer.nextToken();
-                    }
-                }
-                if (this.lexer.token() != 15) {
-                    if (Integer.TYPE == type) {
-                        collection.add(IntegerCodec.instance.deserialze(this, null, null));
-                    } else if (String.class == type) {
-                        if (this.lexer.token() == 4) {
-                            obj2 = this.lexer.stringVal();
-                            this.lexer.nextToken(16);
-                        } else {
-                            Object parse = parse();
-                            obj2 = parse == null ? null : parse.toString();
-                        }
-                        collection.add(obj2);
-                    } else {
-                        if (this.lexer.token() == 8) {
-                            this.lexer.nextToken();
-                            deserialze = null;
-                        } else {
-                            deserialze = deserializer.deserialze(this, type, Integer.valueOf(i2));
-                        }
-                        collection.add(deserialze);
-                        checkListResolve(collection);
-                    }
-                    if (this.lexer.token() == 16) {
-                        this.lexer.nextToken(deserializer.getFastMatchToken());
-                    }
-                    i2++;
-                } else {
-                    setContext(parseContext);
-                    this.lexer.nextToken(16);
-                    return;
-                }
-            } catch (Throwable th) {
-                setContext(parseContext);
-                throw th;
-            }
-        }
-    }
-
-    public Object[] parseArray(Type[] typeArr) {
-        Object cast;
-        Class<?> cls;
-        boolean z;
-        if (this.lexer.token() == 8) {
-            this.lexer.nextToken(16);
-            return null;
-        } else if (this.lexer.token() != 14) {
-            throw new JSONException("syntax error : " + this.lexer.tokenName());
-        } else {
-            Object[] objArr = new Object[typeArr.length];
-            if (typeArr.length == 0) {
-                this.lexer.nextToken(15);
-                if (this.lexer.token() != 15) {
-                    throw new JSONException("syntax error");
-                }
-                this.lexer.nextToken(16);
-                return new Object[0];
-            }
-            this.lexer.nextToken(2);
-            for (int i = 0; i < typeArr.length; i++) {
-                if (this.lexer.token() == 8) {
-                    this.lexer.nextToken(16);
-                    cast = null;
-                } else {
-                    Type type = typeArr[i];
-                    if (type == Integer.TYPE || type == Integer.class) {
-                        if (this.lexer.token() == 2) {
-                            cast = Integer.valueOf(this.lexer.intValue());
-                            this.lexer.nextToken(16);
-                        } else {
-                            cast = TypeUtils.cast(parse(), type, this.config);
-                        }
-                    } else if (type == String.class) {
-                        if (this.lexer.token() == 4) {
-                            cast = this.lexer.stringVal();
-                            this.lexer.nextToken(16);
-                        } else {
-                            cast = TypeUtils.cast(parse(), type, this.config);
-                        }
-                    } else {
-                        if (i == typeArr.length - 1 && (type instanceof Class)) {
-                            Class cls2 = (Class) type;
-                            z = cls2.isArray();
-                            cls = cls2.getComponentType();
-                        } else {
-                            cls = null;
-                            z = false;
-                        }
-                        if (z && this.lexer.token() != 14) {
-                            ArrayList arrayList = new ArrayList();
-                            ObjectDeserializer deserializer = this.config.getDeserializer(cls);
-                            int fastMatchToken = deserializer.getFastMatchToken();
-                            if (this.lexer.token() != 15) {
-                                while (true) {
-                                    arrayList.add(deserializer.deserialze(this, type, null));
-                                    if (this.lexer.token() != 16) {
-                                        break;
-                                    }
-                                    this.lexer.nextToken(fastMatchToken);
-                                }
-                                if (this.lexer.token() != 15) {
-                                    throw new JSONException("syntax error :" + JSONToken.name(this.lexer.token()));
-                                }
-                            }
-                            cast = TypeUtils.cast(arrayList, type, this.config);
-                        } else {
-                            cast = this.config.getDeserializer(type).deserialze(this, type, Integer.valueOf(i));
-                        }
-                    }
-                }
-                objArr[i] = cast;
-                if (this.lexer.token() == 15) {
-                    break;
-                } else if (this.lexer.token() != 16) {
-                    throw new JSONException("syntax error :" + JSONToken.name(this.lexer.token()));
-                } else {
-                    if (i == typeArr.length - 1) {
-                        this.lexer.nextToken(15);
-                    } else {
-                        this.lexer.nextToken(2);
-                    }
-                }
-            }
-            if (this.lexer.token() != 15) {
-                throw new JSONException("syntax error");
-            }
-            this.lexer.nextToken(16);
-            return objArr;
         }
     }
 
@@ -785,18 +1526,20 @@ public class DefaultJSONParser implements Closeable {
             }
             FieldDeserializer fieldDeserializer = javaBeanDeserializer != null ? javaBeanDeserializer.getFieldDeserializer(scanSymbol) : null;
             if (fieldDeserializer == null) {
-                if (!this.lexer.isEnabled(Feature.IgnoreNotMatch)) {
+                if (this.lexer.isEnabled(Feature.IgnoreNotMatch)) {
+                    this.lexer.nextTokenWithColon();
+                    parse();
+                    if (this.lexer.token() == 13) {
+                        this.lexer.nextToken();
+                        return;
+                    }
+                } else {
                     throw new JSONException("setter not found, class " + cls.getName() + ", property " + scanSymbol);
                 }
-                this.lexer.nextTokenWithColon();
-                parse();
-                if (this.lexer.token() == 13) {
-                    this.lexer.nextToken();
-                    return;
-                }
             } else {
-                Class<?> cls2 = fieldDeserializer.fieldInfo.fieldClass;
-                Type type = fieldDeserializer.fieldInfo.fieldType;
+                FieldInfo fieldInfo = fieldDeserializer.fieldInfo;
+                Class<?> cls2 = fieldInfo.fieldClass;
+                Type type = fieldInfo.fieldType;
                 if (cls2 == Integer.TYPE) {
                     this.lexer.nextTokenWithColon(2);
                     deserialze = IntegerCodec.instance.deserialze(this, type, null);
@@ -820,688 +1563,11 @@ public class DefaultJSONParser implements Closeable {
         }
     }
 
-    public Object parseArrayWithType(Type type) {
-        if (this.lexer.token() == 8) {
-            this.lexer.nextToken();
-            return null;
-        }
-        Type[] actualTypeArguments = ((ParameterizedType) type).getActualTypeArguments();
-        if (actualTypeArguments.length != 1) {
-            throw new JSONException("not support type " + type);
-        }
-        Type type2 = actualTypeArguments[0];
-        if (type2 instanceof Class) {
-            ArrayList arrayList = new ArrayList();
-            parseArray((Class) type2, (Collection) arrayList);
-            return arrayList;
-        } else if (type2 instanceof WildcardType) {
-            WildcardType wildcardType = (WildcardType) type2;
-            Type type3 = wildcardType.getUpperBounds()[0];
-            if (Object.class.equals(type3)) {
-                if (wildcardType.getLowerBounds().length == 0) {
-                    return parse();
-                }
-                throw new JSONException("not support type : " + type);
-            }
-            ArrayList arrayList2 = new ArrayList();
-            parseArray((Class) type3, (Collection) arrayList2);
-            return arrayList2;
-        } else {
-            if (type2 instanceof TypeVariable) {
-                TypeVariable typeVariable = (TypeVariable) type2;
-                Type[] bounds = typeVariable.getBounds();
-                if (bounds.length != 1) {
-                    throw new JSONException("not support : " + typeVariable);
-                }
-                Type type4 = bounds[0];
-                if (type4 instanceof Class) {
-                    ArrayList arrayList3 = new ArrayList();
-                    parseArray((Class) type4, (Collection) arrayList3);
-                    return arrayList3;
-                }
-            }
-            if (type2 instanceof ParameterizedType) {
-                ArrayList arrayList4 = new ArrayList();
-                parseArray((ParameterizedType) type2, arrayList4);
-                return arrayList4;
-            }
-            throw new JSONException("TODO : " + type);
-        }
-    }
-
-    public void acceptType(String str) {
-        JSONLexer jSONLexer = this.lexer;
-        jSONLexer.nextTokenWithColon();
-        if (jSONLexer.token() != 4) {
-            throw new JSONException("type not match error");
-        }
-        if (str.equals(jSONLexer.stringVal())) {
-            jSONLexer.nextToken();
-            if (jSONLexer.token() == 16) {
-                jSONLexer.nextToken();
-                return;
-            }
-            return;
-        }
-        throw new JSONException("type not match error");
-    }
-
-    public int getResolveStatus() {
-        return this.resolveStatus;
-    }
-
-    public void setResolveStatus(int i) {
-        this.resolveStatus = i;
-    }
-
-    public Object getObject(String str) {
-        for (int i = 0; i < this.contextArrayIndex; i++) {
-            if (str.equals(this.contextArray[i].toString())) {
-                return this.contextArray[i].object;
-            }
-        }
-        return null;
-    }
-
-    public void checkListResolve(Collection collection) {
-        if (this.resolveStatus == 1) {
-            if (collection instanceof List) {
-                ResolveTask lastResolveTask = getLastResolveTask();
-                lastResolveTask.fieldDeserializer = new ResolveFieldDeserializer(this, (List) collection, collection.size() - 1);
-                lastResolveTask.ownerContext = this.context;
-                setResolveStatus(0);
-                return;
-            }
-            ResolveTask lastResolveTask2 = getLastResolveTask();
-            lastResolveTask2.fieldDeserializer = new ResolveFieldDeserializer(collection);
-            lastResolveTask2.ownerContext = this.context;
-            setResolveStatus(0);
-        }
-    }
-
-    public void checkMapResolve(Map map, Object obj) {
-        if (this.resolveStatus == 1) {
-            ResolveFieldDeserializer resolveFieldDeserializer = new ResolveFieldDeserializer(map, obj);
-            ResolveTask lastResolveTask = getLastResolveTask();
-            lastResolveTask.fieldDeserializer = resolveFieldDeserializer;
-            lastResolveTask.ownerContext = this.context;
-            setResolveStatus(0);
-        }
-    }
-
     public Object parseObject(Map map) {
         return parseObject(map, (Object) null);
     }
 
     public JSONObject parseObject() {
         return (JSONObject) parseObject((Map) new JSONObject(this.lexer.isEnabled(Feature.OrderedField)));
-    }
-
-    public final void parseArray(Collection collection) {
-        parseArray(collection, (Object) null);
-    }
-
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r0v15, types: [java.lang.Boolean] */
-    /* JADX WARN: Type inference failed for: r0v16, types: [java.lang.Boolean] */
-    public final void parseArray(Collection collection, Object obj) {
-        Object[] objArr;
-        Number number;
-        JSONLexer jSONLexer = this.lexer;
-        if (jSONLexer.token() == 21 || jSONLexer.token() == 22) {
-            jSONLexer.nextToken();
-        }
-        if (jSONLexer.token() != 14) {
-            throw new JSONException("syntax error, expect [, actual " + JSONToken.name(jSONLexer.token()) + ", pos " + jSONLexer.pos() + ", fieldName " + obj);
-        }
-        jSONLexer.nextToken(4);
-        ParseContext parseContext = this.context;
-        setContext(collection, obj);
-        int i = 0;
-        while (true) {
-            try {
-                if (jSONLexer.isEnabled(Feature.AllowArbitraryCommas)) {
-                    while (jSONLexer.token() == 16) {
-                        jSONLexer.nextToken();
-                    }
-                }
-                switch (jSONLexer.token()) {
-                    case 2:
-                        Number integerValue = jSONLexer.integerValue();
-                        jSONLexer.nextToken(16);
-                        objArr = integerValue;
-                        break;
-                    case 3:
-                        if (jSONLexer.isEnabled(Feature.UseBigDecimal)) {
-                            number = jSONLexer.decimalValue(true);
-                        } else {
-                            number = jSONLexer.decimalValue(false);
-                        }
-                        jSONLexer.nextToken(16);
-                        objArr = number;
-                        break;
-                    case 4:
-                        String stringVal = jSONLexer.stringVal();
-                        jSONLexer.nextToken(16);
-                        objArr = stringVal;
-                        if (jSONLexer.isEnabled(Feature.AllowISO8601DateFormat)) {
-                            JSONScanner jSONScanner = new JSONScanner(stringVal);
-                            Date date = stringVal;
-                            if (jSONScanner.scanISO8601DateIfMatch()) {
-                                date = jSONScanner.getCalendar().getTime();
-                            }
-                            jSONScanner.close();
-                            objArr = date;
-                            break;
-                        }
-                        break;
-                    case 5:
-                    case 9:
-                    case 10:
-                    case 11:
-                    case 13:
-                    case 16:
-                    case 17:
-                    case 18:
-                    case 19:
-                    case 21:
-                    case 22:
-                    default:
-                        objArr = parse();
-                        break;
-                    case 6:
-                        ?? r0 = Boolean.TRUE;
-                        jSONLexer.nextToken(16);
-                        objArr = r0;
-                        break;
-                    case 7:
-                        ?? r02 = Boolean.FALSE;
-                        jSONLexer.nextToken(16);
-                        objArr = r02;
-                        break;
-                    case 8:
-                        jSONLexer.nextToken(4);
-                        objArr = null;
-                        break;
-                    case 12:
-                        objArr = parseObject(new JSONObject(jSONLexer.isEnabled(Feature.OrderedField)), Integer.valueOf(i));
-                        break;
-                    case 14:
-                        Collection jSONArray = new JSONArray();
-                        parseArray(jSONArray, Integer.valueOf(i));
-                        objArr = jSONArray;
-                        if (jSONLexer.isEnabled(Feature.UseObjectArray)) {
-                            objArr = jSONArray.toArray();
-                            break;
-                        }
-                        break;
-                    case 15:
-                        jSONLexer.nextToken(16);
-                        return;
-                    case 20:
-                        throw new JSONException("unclosed jsonArray");
-                    case 23:
-                        jSONLexer.nextToken(4);
-                        objArr = null;
-                        break;
-                }
-                collection.add(objArr);
-                checkListResolve(collection);
-                if (jSONLexer.token() == 16) {
-                    jSONLexer.nextToken(4);
-                }
-                i++;
-            } finally {
-                setContext(parseContext);
-            }
-        }
-    }
-
-    public ParseContext getContext() {
-        return this.context;
-    }
-
-    public List<ResolveTask> getResolveTaskList() {
-        if (this.resolveTaskList == null) {
-            this.resolveTaskList = new ArrayList(2);
-        }
-        return this.resolveTaskList;
-    }
-
-    public void addResolveTask(ResolveTask resolveTask) {
-        if (this.resolveTaskList == null) {
-            this.resolveTaskList = new ArrayList(2);
-        }
-        this.resolveTaskList.add(resolveTask);
-    }
-
-    public ResolveTask getLastResolveTask() {
-        return this.resolveTaskList.get(this.resolveTaskList.size() - 1);
-    }
-
-    public List<ExtraProcessor> getExtraProcessors() {
-        if (this.extraProcessors == null) {
-            this.extraProcessors = new ArrayList(2);
-        }
-        return this.extraProcessors;
-    }
-
-    public List<ExtraTypeProvider> getExtraTypeProviders() {
-        if (this.extraTypeProviders == null) {
-            this.extraTypeProviders = new ArrayList(2);
-        }
-        return this.extraTypeProviders;
-    }
-
-    public FieldTypeResolver getFieldTypeResolver() {
-        return this.fieldTypeResolver;
-    }
-
-    public void setFieldTypeResolver(FieldTypeResolver fieldTypeResolver) {
-        this.fieldTypeResolver = fieldTypeResolver;
-    }
-
-    public void setContext(ParseContext parseContext) {
-        if (!this.lexer.isEnabled(Feature.DisableCircularReferenceDetect)) {
-            this.context = parseContext;
-        }
-    }
-
-    public void popContext() {
-        if (!this.lexer.isEnabled(Feature.DisableCircularReferenceDetect)) {
-            this.context = this.context.parent;
-            if (this.contextArrayIndex > 0) {
-                this.contextArrayIndex--;
-                this.contextArray[this.contextArrayIndex] = null;
-            }
-        }
-    }
-
-    public ParseContext setContext(Object obj, Object obj2) {
-        if (this.lexer.isEnabled(Feature.DisableCircularReferenceDetect)) {
-            return null;
-        }
-        return setContext(this.context, obj, obj2);
-    }
-
-    public ParseContext setContext(ParseContext parseContext, Object obj, Object obj2) {
-        if (this.lexer.isEnabled(Feature.DisableCircularReferenceDetect)) {
-            return null;
-        }
-        this.context = new ParseContext(parseContext, obj, obj2);
-        addContext(this.context);
-        return this.context;
-    }
-
-    private void addContext(ParseContext parseContext) {
-        int i = this.contextArrayIndex;
-        this.contextArrayIndex = i + 1;
-        if (this.contextArray == null) {
-            this.contextArray = new ParseContext[8];
-        } else if (i >= this.contextArray.length) {
-            ParseContext[] parseContextArr = new ParseContext[(this.contextArray.length * 3) / 2];
-            System.arraycopy(this.contextArray, 0, parseContextArr, 0, this.contextArray.length);
-            this.contextArray = parseContextArr;
-        }
-        this.contextArray[i] = parseContext;
-    }
-
-    public Object parse() {
-        return parse(null);
-    }
-
-    public Object parseKey() {
-        if (this.lexer.token() == 18) {
-            String stringVal = this.lexer.stringVal();
-            this.lexer.nextToken(16);
-            return stringVal;
-        }
-        return parse(null);
-    }
-
-    public Object parse(Object obj) {
-        JSONLexer jSONLexer = this.lexer;
-        switch (jSONLexer.token()) {
-            case 2:
-                Number integerValue = jSONLexer.integerValue();
-                jSONLexer.nextToken();
-                return integerValue;
-            case 3:
-                Number decimalValue = jSONLexer.decimalValue(jSONLexer.isEnabled(Feature.UseBigDecimal));
-                jSONLexer.nextToken();
-                return decimalValue;
-            case 4:
-                String stringVal = jSONLexer.stringVal();
-                jSONLexer.nextToken(16);
-                if (jSONLexer.isEnabled(Feature.AllowISO8601DateFormat)) {
-                    JSONScanner jSONScanner = new JSONScanner(stringVal);
-                    try {
-                        if (jSONScanner.scanISO8601DateIfMatch()) {
-                            return jSONScanner.getCalendar().getTime();
-                        }
-                        return stringVal;
-                    } finally {
-                        jSONScanner.close();
-                    }
-                }
-                return stringVal;
-            case 5:
-            case 10:
-            case 11:
-            case 13:
-            case 15:
-            case 16:
-            case 17:
-            case 19:
-            case 24:
-            case 25:
-            default:
-                throw new JSONException("syntax error, " + jSONLexer.info());
-            case 6:
-                jSONLexer.nextToken();
-                return Boolean.TRUE;
-            case 7:
-                jSONLexer.nextToken();
-                return Boolean.FALSE;
-            case 8:
-                jSONLexer.nextToken();
-                return null;
-            case 9:
-                jSONLexer.nextToken(18);
-                if (jSONLexer.token() != 18) {
-                    throw new JSONException("syntax error");
-                }
-                jSONLexer.nextToken(10);
-                accept(10);
-                long longValue = jSONLexer.integerValue().longValue();
-                accept(2);
-                accept(11);
-                return new Date(longValue);
-            case 12:
-                return parseObject(new JSONObject(jSONLexer.isEnabled(Feature.OrderedField)), obj);
-            case 14:
-                JSONArray jSONArray = new JSONArray();
-                parseArray(jSONArray, obj);
-                if (jSONLexer.isEnabled(Feature.UseObjectArray)) {
-                    return jSONArray.toArray();
-                }
-                return jSONArray;
-            case 18:
-                if ("NaN".equals(jSONLexer.stringVal())) {
-                    jSONLexer.nextToken();
-                    return null;
-                }
-                throw new JSONException("syntax error, " + jSONLexer.info());
-            case 20:
-                if (jSONLexer.isBlankInput()) {
-                    return null;
-                }
-                throw new JSONException("unterminated json string, " + jSONLexer.info());
-            case 21:
-                jSONLexer.nextToken();
-                HashSet hashSet = new HashSet();
-                parseArray(hashSet, obj);
-                return hashSet;
-            case 22:
-                jSONLexer.nextToken();
-                TreeSet treeSet = new TreeSet();
-                parseArray(treeSet, obj);
-                return treeSet;
-            case 23:
-                jSONLexer.nextToken();
-                return null;
-            case 26:
-                byte[] bytesValue = jSONLexer.bytesValue();
-                jSONLexer.nextToken();
-                return bytesValue;
-        }
-    }
-
-    public void config(Feature feature, boolean z) {
-        this.lexer.config(feature, z);
-    }
-
-    public boolean isEnabled(Feature feature) {
-        return this.lexer.isEnabled(feature);
-    }
-
-    public JSONLexer getLexer() {
-        return this.lexer;
-    }
-
-    public final void accept(int i) {
-        JSONLexer jSONLexer = this.lexer;
-        if (jSONLexer.token() == i) {
-            jSONLexer.nextToken();
-            return;
-        }
-        throw new JSONException("syntax error, expect " + JSONToken.name(i) + ", actual " + JSONToken.name(jSONLexer.token()));
-    }
-
-    public final void accept(int i, int i2) {
-        JSONLexer jSONLexer = this.lexer;
-        if (jSONLexer.token() == i) {
-            jSONLexer.nextToken(i2);
-        } else {
-            throwException(i);
-        }
-    }
-
-    public void throwException(int i) {
-        throw new JSONException("syntax error, expect " + JSONToken.name(i) + ", actual " + JSONToken.name(this.lexer.token()));
-    }
-
-    @Override // java.io.Closeable, java.lang.AutoCloseable
-    public void close() {
-        JSONLexer jSONLexer = this.lexer;
-        try {
-            if (jSONLexer.isEnabled(Feature.AutoCloseSource) && jSONLexer.token() != 20) {
-                throw new JSONException("not close json text, token : " + JSONToken.name(jSONLexer.token()));
-            }
-        } finally {
-            jSONLexer.close();
-        }
-    }
-
-    public Object resolveReference(String str) {
-        if (this.contextArray == null) {
-            return null;
-        }
-        for (int i = 0; i < this.contextArray.length && i < this.contextArrayIndex; i++) {
-            ParseContext parseContext = this.contextArray[i];
-            if (parseContext.toString().equals(str)) {
-                return parseContext.object;
-            }
-        }
-        return null;
-    }
-
-    public void handleResovleTask(Object obj) {
-        Object obj2;
-        if (this.resolveTaskList != null) {
-            int size = this.resolveTaskList.size();
-            for (int i = 0; i < size; i++) {
-                ResolveTask resolveTask = this.resolveTaskList.get(i);
-                String str = resolveTask.referenceValue;
-                Object obj3 = null;
-                if (resolveTask.ownerContext != null) {
-                    obj3 = resolveTask.ownerContext.object;
-                }
-                if (str.startsWith("$")) {
-                    obj2 = getObject(str);
-                    if (obj2 == null) {
-                        try {
-                            obj2 = JSONPath.eval(obj, str);
-                        } catch (JSONPathException e) {
-                        }
-                    }
-                } else {
-                    obj2 = resolveTask.context.object;
-                }
-                FieldDeserializer fieldDeserializer = resolveTask.fieldDeserializer;
-                if (fieldDeserializer != null) {
-                    if (obj2 != null && obj2.getClass() == JSONObject.class && fieldDeserializer.fieldInfo != null && !Map.class.isAssignableFrom(fieldDeserializer.fieldInfo.fieldClass)) {
-                        obj2 = JSONPath.eval(this.contextArray[0].object, str);
-                    }
-                    fieldDeserializer.setValue(obj3, obj2);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public static class ResolveTask {
-        public final ParseContext context;
-        public FieldDeserializer fieldDeserializer;
-        public ParseContext ownerContext;
-        public final String referenceValue;
-
-        public ResolveTask(ParseContext parseContext, String str) {
-            this.context = parseContext;
-            this.referenceValue = str;
-        }
-    }
-
-    public void parseExtra(Object obj, String str) {
-        Object parseObject;
-        this.lexer.nextTokenWithColon();
-        Type type = null;
-        if (this.extraTypeProviders != null) {
-            for (ExtraTypeProvider extraTypeProvider : this.extraTypeProviders) {
-                type = extraTypeProvider.getExtraType(obj, str);
-            }
-        }
-        if (type == null) {
-            parseObject = parse();
-        } else {
-            parseObject = parseObject(type);
-        }
-        if (obj instanceof ExtraProcessable) {
-            ((ExtraProcessable) obj).processExtra(str, parseObject);
-            return;
-        }
-        if (this.extraProcessors != null) {
-            for (ExtraProcessor extraProcessor : this.extraProcessors) {
-                extraProcessor.processExtra(obj, str, parseObject);
-            }
-        }
-        if (this.resolveStatus == 1) {
-            this.resolveStatus = 0;
-        }
-    }
-
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1709=6] */
-    public Object parse(PropertyProcessable propertyProcessable, Object obj) {
-        String scanSymbolUnQuoted;
-        Object parseObject;
-        if (this.lexer.token() != 12) {
-            String str = "syntax error, expect {, actual " + this.lexer.tokenName();
-            if (obj instanceof String) {
-                str = (str + ", fieldName ") + obj;
-            }
-            String str2 = (str + ", ") + this.lexer.info();
-            JSONArray jSONArray = new JSONArray();
-            parseArray(jSONArray, obj);
-            if (jSONArray.size() == 1) {
-                Object obj2 = jSONArray.get(0);
-                if (obj2 instanceof JSONObject) {
-                    return (JSONObject) obj2;
-                }
-            }
-            throw new JSONException(str2);
-        }
-        ParseContext parseContext = this.context;
-        int i = 0;
-        while (true) {
-            try {
-                this.lexer.skipWhitespace();
-                char current = this.lexer.getCurrent();
-                if (this.lexer.isEnabled(Feature.AllowArbitraryCommas)) {
-                    while (current == ',') {
-                        this.lexer.next();
-                        this.lexer.skipWhitespace();
-                        current = this.lexer.getCurrent();
-                    }
-                }
-                if (current == '\"') {
-                    scanSymbolUnQuoted = this.lexer.scanSymbol(this.symbolTable, '\"');
-                    this.lexer.skipWhitespace();
-                    if (this.lexer.getCurrent() != ':') {
-                        throw new JSONException("expect ':' at " + this.lexer.pos());
-                    }
-                } else if (current == '}') {
-                    this.lexer.next();
-                    this.lexer.resetStringPosition();
-                    this.lexer.nextToken(16);
-                    return propertyProcessable;
-                } else if (current == '\'') {
-                    if (!this.lexer.isEnabled(Feature.AllowSingleQuotes)) {
-                        throw new JSONException("syntax error");
-                    }
-                    scanSymbolUnQuoted = this.lexer.scanSymbol(this.symbolTable, '\'');
-                    this.lexer.skipWhitespace();
-                    if (this.lexer.getCurrent() != ':') {
-                        throw new JSONException("expect ':' at " + this.lexer.pos());
-                    }
-                } else if (!this.lexer.isEnabled(Feature.AllowUnQuotedFieldNames)) {
-                    throw new JSONException("syntax error");
-                } else {
-                    scanSymbolUnQuoted = this.lexer.scanSymbolUnQuoted(this.symbolTable);
-                    this.lexer.skipWhitespace();
-                    char current2 = this.lexer.getCurrent();
-                    if (current2 != ':') {
-                        throw new JSONException("expect ':' at " + this.lexer.pos() + ", actual " + current2);
-                    }
-                }
-                String str3 = scanSymbolUnQuoted;
-                this.lexer.next();
-                this.lexer.skipWhitespace();
-                this.lexer.getCurrent();
-                this.lexer.resetStringPosition();
-                if (str3 != JSON.DEFAULT_TYPE_KEY || this.lexer.isEnabled(Feature.DisableSpecialKeyDetect)) {
-                    this.lexer.nextToken();
-                    if (i != 0) {
-                        setContext(parseContext);
-                    }
-                    Type type = propertyProcessable.getType(str3);
-                    if (this.lexer.token() == 8) {
-                        parseObject = null;
-                        this.lexer.nextToken();
-                    } else {
-                        parseObject = parseObject(type, str3);
-                    }
-                    propertyProcessable.apply(str3, parseObject);
-                    setContext(parseContext, parseObject, str3);
-                    setContext(parseContext);
-                    int i2 = this.lexer.token();
-                    if (i2 == 20 || i2 == 15) {
-                        break;
-                    } else if (i2 == 13) {
-                        this.lexer.nextToken();
-                        return propertyProcessable;
-                    }
-                } else {
-                    Class<?> checkAutoType = this.config.checkAutoType(this.lexer.scanSymbol(this.symbolTable, '\"'), null, this.lexer.getFeatures());
-                    if (!Map.class.isAssignableFrom(checkAutoType)) {
-                        ObjectDeserializer deserializer = this.config.getDeserializer(checkAutoType);
-                        this.lexer.nextToken(16);
-                        setResolveStatus(2);
-                        if (parseContext != null && !(obj instanceof Integer)) {
-                            popContext();
-                        }
-                        return (Map) deserializer.deserialze(this, checkAutoType, obj);
-                    }
-                    this.lexer.nextToken(16);
-                    if (this.lexer.token() == 13) {
-                        this.lexer.nextToken(16);
-                        return propertyProcessable;
-                    }
-                }
-                i++;
-            } finally {
-                setContext(parseContext);
-            }
-        }
-        return propertyProcessable;
     }
 }

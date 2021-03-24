@@ -7,70 +7,78 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-/* loaded from: classes2.dex */
-public class ConcernTipAdapter extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.concern.a.b, ConcernTipViewHolder> {
-    private static int kdB;
-    private static int kdC;
+import d.b.b.e.p.l;
+import d.b.b.j.e.a;
+import d.b.i0.z0.b.f.b;
+/* loaded from: classes4.dex */
+public class ConcernTipAdapter extends a<b, ConcernTipViewHolder> {
+    public static int m;
+    public static int n;
+
+    /* loaded from: classes4.dex */
+    public static class ConcernTipViewHolder extends TypeAdapter.ViewHolder {
+
+        /* renamed from: a  reason: collision with root package name */
+        public TextView f17024a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public View f17025b;
+
+        /* renamed from: c  reason: collision with root package name */
+        public int f17026c;
+
+        public ConcernTipViewHolder(View view) {
+            super(view);
+            this.f17026c = 3;
+            this.f17024a = (TextView) view.findViewById(R.id.concern_tip_txt);
+            this.f17025b = view.findViewById(R.id.concern_tip_top_line);
+        }
+
+        public void b(int i) {
+            if (this.f17026c != i) {
+                SkinManager.setBackgroundColor(a(), R.color.CAM_X0205);
+                SkinManager.setViewTextColor(this.f17024a, R.color.CAM_X0109);
+                SkinManager.setBackgroundResource(this.f17025b, R.color.CAM_X0205);
+            }
+        }
+    }
 
     public ConcernTipAdapter(Context context) {
-        super(context, com.baidu.tieba.homepage.concern.a.b.kdN);
-        kdB = com.baidu.adp.lib.util.l.getDimens(context, R.dimen.tbds102);
-        kdC = com.baidu.adp.lib.util.l.getDimens(context, R.dimen.tbds166);
+        super(context, b.j);
+        m = l.g(context, R.dimen.tbds102);
+        n = l.g(context, R.dimen.tbds166);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bR */
-    public ConcernTipViewHolder e(ViewGroup viewGroup) {
+    @Override // d.b.b.j.e.a
+    /* renamed from: h0 */
+    public ConcernTipViewHolder R(ViewGroup viewGroup) {
         View inflate = View.inflate(viewGroup.getContext(), R.layout.concern_tip_layout, null);
-        ap.setBackgroundColor(inflate, R.color.CAM_X0205);
+        SkinManager.setBackgroundColor(inflate, R.color.CAM_X0205);
         ConcernTipViewHolder concernTipViewHolder = new ConcernTipViewHolder(inflate);
-        ViewGroup.LayoutParams generateLayoutParamsByParent = generateLayoutParamsByParent(viewGroup);
-        generateLayoutParamsByParent.width = -1;
-        generateLayoutParamsByParent.height = -2;
-        inflate.setLayoutParams(generateLayoutParamsByParent);
+        ViewGroup.LayoutParams u = u(viewGroup);
+        u.width = -1;
+        u.height = -2;
+        inflate.setLayoutParams(u);
         return concernTipViewHolder;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.homepage.concern.a.b bVar, ConcernTipViewHolder concernTipViewHolder) {
-        concernTipViewHolder.kdD.setText(bVar.tipString);
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) concernTipViewHolder.kdD.getLayoutParams();
-        if (bVar.kdQ) {
-            layoutParams.height = kdC;
-            concernTipViewHolder.bSv.setVisibility(0);
-        } else if (bVar.kdR) {
-            layoutParams.height = kdB;
+    @Override // d.b.b.j.e.a
+    /* renamed from: i0 */
+    public View X(int i, View view, ViewGroup viewGroup, b bVar, ConcernTipViewHolder concernTipViewHolder) {
+        concernTipViewHolder.f17024a.setText(bVar.f62790f);
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) concernTipViewHolder.f17024a.getLayoutParams();
+        if (bVar.f62791g) {
+            layoutParams.height = n;
+            concernTipViewHolder.f17025b.setVisibility(0);
+        } else if (bVar.f62792h) {
+            layoutParams.height = m;
         }
-        concernTipViewHolder.kdD.setLayoutParams(layoutParams);
-        concernTipViewHolder.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-        return concernTipViewHolder.getView();
-    }
-
-    /* loaded from: classes2.dex */
-    public static class ConcernTipViewHolder extends TypeAdapter.ViewHolder {
-        private int aln;
-        public View bSv;
-        public TextView kdD;
-
-        public ConcernTipViewHolder(View view) {
-            super(view);
-            this.aln = 3;
-            this.kdD = (TextView) view.findViewById(R.id.concern_tip_txt);
-            this.bSv = view.findViewById(R.id.concern_tip_top_line);
-        }
-
-        protected void onChangeSkinType(int i) {
-            if (this.aln != i) {
-                ap.setBackgroundColor(getView(), R.color.CAM_X0205);
-                ap.setViewTextColor(this.kdD, R.color.CAM_X0109);
-                ap.setBackgroundResource(this.bSv, R.color.CAM_X0205);
-            }
-        }
+        concernTipViewHolder.f17024a.setLayoutParams(layoutParams);
+        concernTipViewHolder.b(TbadkCoreApplication.getInst().getSkinType());
+        return concernTipViewHolder.a();
     }
 }

@@ -1,33 +1,47 @@
 package com.kwad.sdk.pngencrypt;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    final k f6925a;
-    int b;
-    int c;
-    int d;
-    int e;
-    int f;
-    int g;
-    private int j;
-    private int k;
-    private boolean o;
-    private int i = 0;
-    private int l = -1;
-    private int m = -1;
-    private int n = 0;
-    int h = 0;
+    public final k f36173a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public int f36174b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public int f36175c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public int f36176d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public int f36177e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public int f36178f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public int f36179g;
+    public int j;
+    public int k;
+    public boolean o;
+    public int i = 0;
+    public int l = -1;
+    public int m = -1;
+    public int n = 0;
+
+    /* renamed from: h  reason: collision with root package name */
+    public int f36180h = 0;
 
     public e(k kVar) {
         this.o = false;
-        this.f6925a = kVar;
+        this.f36173a = kVar;
         this.o = false;
         a(1);
         c(0);
     }
 
-    static byte[] b(int i) {
+    public static byte[] b(int i) {
         switch (i) {
             case 1:
                 return new byte[]{8, 8, 0, 0};
@@ -50,71 +64,84 @@ public class e {
 
     private void c(int i) {
         this.l = i;
-        this.m = (this.b * i) + this.d;
-        if (this.m < 0 || this.m >= this.f6925a.b) {
+        int i2 = (i * this.f36174b) + this.f36176d;
+        this.m = i2;
+        if (i2 < 0 || i2 >= this.f36173a.f36185b) {
             throw new PngjException("bad row - this should not happen");
         }
     }
 
-    void a(int i) {
+    public void a(int i) {
+        int i2;
         if (this.i == i) {
             return;
         }
         this.i = i;
-        byte[] b = b(i);
-        this.c = b[0];
-        this.b = b[1];
-        this.e = b[2];
-        this.d = b[3];
-        this.j = this.f6925a.b > this.d ? (((this.f6925a.b + this.b) - 1) - this.d) / this.b : 0;
-        this.k = this.f6925a.f6927a > this.e ? (((this.f6925a.f6927a + this.c) - 1) - this.e) / this.c : 0;
-        if (this.k == 0) {
+        byte[] b2 = b(i);
+        this.f36175c = b2[0];
+        byte b3 = b2[1];
+        this.f36174b = b3;
+        this.f36177e = b2[2];
+        byte b4 = b2[3];
+        this.f36176d = b4;
+        int i3 = this.f36173a.f36185b;
+        this.j = i3 > b4 ? (((i3 + b3) - 1) - b4) / b3 : 0;
+        int i4 = this.f36173a.f36184a;
+        int i5 = this.f36177e;
+        if (i4 > i5) {
+            int i6 = this.f36175c;
+            i2 = (((i4 + i6) - 1) - i5) / i6;
+        } else {
+            i2 = 0;
+        }
+        this.k = i2;
+        if (i2 == 0) {
             this.j = 0;
         }
-        this.g = this.c * this.f6925a.d;
-        this.f = this.e * this.f6925a.d;
+        int i7 = this.f36175c;
+        int i8 = this.f36173a.f36187d;
+        this.f36179g = i7 * i8;
+        this.f36178f = this.f36177e * i8;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public boolean a() {
+        int i;
         this.n++;
-        if (this.j != 0 && this.l < this.j - 1) {
-            c(this.l + 1);
-        } else if (this.i == 7) {
-            this.o = true;
-            return false;
-        } else {
-            a(this.i + 1);
+        int i2 = this.j;
+        if (i2 == 0 || (i = this.l) >= i2 - 1) {
+            int i3 = this.i;
+            if (i3 == 7) {
+                this.o = true;
+                return false;
+            }
+            a(i3 + 1);
             if (this.j == 0) {
                 this.n--;
                 return a();
             }
             c(0);
+        } else {
+            c(i + 1);
         }
         return true;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public int b() {
         return this.l;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public int c() {
         return this.m;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public int d() {
         return this.i;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public int e() {
         return this.j;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public int f() {
         return this.k;
     }
@@ -124,6 +151,6 @@ public class e {
     }
 
     public int h() {
-        return ((this.f6925a.i * g()) + 7) / 8;
+        return ((this.f36173a.i * g()) + 7) / 8;
     }
 }

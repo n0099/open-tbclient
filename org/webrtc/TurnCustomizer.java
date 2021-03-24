@@ -1,7 +1,7 @@
 package org.webrtc;
-/* loaded from: classes9.dex */
+/* loaded from: classes7.dex */
 public class TurnCustomizer {
-    private long nativeTurnCustomizer;
+    public long nativeTurnCustomizer;
 
     public TurnCustomizer(long j) {
         this.nativeTurnCustomizer = j;
@@ -13,7 +13,7 @@ public class TurnCustomizer {
         }
     }
 
-    private static native void nativeFreeTurnCustomizer(long j);
+    public static native void nativeFreeTurnCustomizer(long j);
 
     public void dispose() {
         checkTurnCustomizerExists();
@@ -22,7 +22,7 @@ public class TurnCustomizer {
     }
 
     @CalledByNative
-    long getNativeTurnCustomizer() {
+    public long getNativeTurnCustomizer() {
         checkTurnCustomizerExists();
         return this.nativeTurnCustomizer;
     }

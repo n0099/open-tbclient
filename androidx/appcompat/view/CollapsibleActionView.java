@@ -1,5 +1,5 @@
 package androidx.appcompat.view;
-/* loaded from: classes5.dex */
+/* loaded from: classes.dex */
 public interface CollapsibleActionView {
     void onActionViewCollapsed();
 

@@ -1,98 +1,55 @@
 package com.xiaomi.push;
 
-import java.nio.ByteBuffer;
-/* loaded from: classes5.dex */
-public abstract class ji {
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+/* loaded from: classes7.dex */
+public class ji extends jl {
 
     /* renamed from: a  reason: collision with root package name */
-    protected js f8466a;
+    public InputStream f40883a;
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public ji(js jsVar) {
-        this.f8466a = jsVar;
+    /* renamed from: a  reason: collision with other field name */
+    public OutputStream f813a;
+
+    public ji() {
+        this.f40883a = null;
+        this.f813a = null;
     }
 
-    public abstract byte a();
+    public ji(OutputStream outputStream) {
+        this.f40883a = null;
+        this.f813a = null;
+        this.f813a = outputStream;
+    }
 
-    /* renamed from: a  reason: collision with other method in class */
-    public abstract double m486a();
+    @Override // com.xiaomi.push.jl
+    public int a(byte[] bArr, int i, int i2) {
+        InputStream inputStream = this.f40883a;
+        if (inputStream != null) {
+            try {
+                int read = inputStream.read(bArr, i, i2);
+                if (read >= 0) {
+                    return read;
+                }
+                throw new jm(4);
+            } catch (IOException e2) {
+                throw new jm(0, e2);
+            }
+        }
+        throw new jm(1, "Cannot read from null inputStream");
+    }
 
-    /* renamed from: a  reason: collision with other method in class */
-    public abstract int m487a();
-
-    /* renamed from: a  reason: collision with other method in class */
-    public abstract long m488a();
-
-    /* renamed from: a  reason: collision with other method in class */
-    public abstract jf m489a();
-
-    /* renamed from: a  reason: collision with other method in class */
-    public abstract jg m490a();
-
-    /* renamed from: a  reason: collision with other method in class */
-    public abstract jh m491a();
-
-    /* renamed from: a  reason: collision with other method in class */
-    public abstract jm m492a();
-
-    /* renamed from: a  reason: collision with other method in class */
-    public abstract jn m493a();
-
-    /* renamed from: a  reason: collision with other method in class */
-    public abstract String m494a();
-
-    /* renamed from: a  reason: collision with other method in class */
-    public abstract ByteBuffer m495a();
-
-    /* renamed from: a  reason: collision with other method in class */
-    public abstract short m496a();
-
-    /* renamed from: a  reason: collision with other method in class */
-    public abstract void m497a();
-
-    public abstract void a(byte b);
-
-    public abstract void a(int i);
-
-    public abstract void a(long j);
-
-    public abstract void a(jf jfVar);
-
-    public abstract void a(jg jgVar);
-
-    public abstract void a(jh jhVar);
-
-    public abstract void a(jn jnVar);
-
-    public abstract void a(String str);
-
-    public abstract void a(ByteBuffer byteBuffer);
-
-    public abstract void a(short s);
-
-    public abstract void a(boolean z);
-
-    /* renamed from: a  reason: collision with other method in class */
-    public abstract boolean m498a();
-
-    public abstract void b();
-
-    public abstract void c();
-
-    public abstract void d();
-
-    public abstract void e();
-
-    public abstract void f();
-
-    public abstract void g();
-
-    public abstract void h();
-
-    public abstract void i();
-
-    public abstract void j();
-
-    public void k() {
+    @Override // com.xiaomi.push.jl
+    public void a(byte[] bArr, int i, int i2) {
+        OutputStream outputStream = this.f813a;
+        if (outputStream == null) {
+            throw new jm(1, "Cannot write to null outputStream");
+        }
+        try {
+            outputStream.write(bArr, i, i2);
+        } catch (IOException e2) {
+            throw new jm(0, e2);
+        }
     }
 }

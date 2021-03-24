@@ -1,12 +1,12 @@
 package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
-import com.baidu.live.tbadk.core.util.TbEnum;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.baidu.tbadk.core.util.TbEnum;
 import com.baidu.tbadk.coreExtra.view.ImageUrlData;
 import java.util.ArrayList;
 import java.util.HashMap;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class GroupImageActivityConfig extends IntentConfig {
     public GroupImageActivityConfig(Context context, String str, ArrayList<String> arrayList, long j) {
         super(context);

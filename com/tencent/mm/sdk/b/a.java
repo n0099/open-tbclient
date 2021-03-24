@@ -3,16 +3,16 @@ package com.tencent.mm.sdk.b;
 import android.os.Build;
 import android.os.Looper;
 import android.os.Process;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class a {
-    private static int level = 6;
-    private static InterfaceC1257a n;
-    private static InterfaceC1257a o;
-    private static final String p;
+    public static int level = 6;
+    public static InterfaceC0513a n;
+    public static InterfaceC0513a o;
+    public static final String p;
 
     /* renamed from: com.tencent.mm.sdk.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
-    public interface InterfaceC1257a {
+    /* loaded from: classes7.dex */
+    public interface InterfaceC0513a {
         int b();
 
         void d(String str, String str2);
@@ -49,45 +49,50 @@ public final class a {
     }
 
     public static void a(String str, String str2, Object... objArr) {
-        if (o == null || o.b() > 4) {
+        InterfaceC0513a interfaceC0513a = o;
+        if (interfaceC0513a == null || interfaceC0513a.b() > 4) {
             return;
         }
-        String format = objArr == null ? str2 : String.format(str2, objArr);
-        if (format == null) {
-            format = "";
+        if (objArr != null) {
+            str2 = String.format(str2, objArr);
         }
-        InterfaceC1257a interfaceC1257a = o;
+        if (str2 == null) {
+            str2 = "";
+        }
+        InterfaceC0513a interfaceC0513a2 = o;
         Process.myPid();
         Thread.currentThread().getId();
         Looper.getMainLooper().getThread().getId();
-        interfaceC1257a.f(str, format);
+        interfaceC0513a2.f(str, str2);
     }
 
     public static void b(String str, String str2) {
-        if (o == null || o.b() > 2) {
+        InterfaceC0513a interfaceC0513a = o;
+        if (interfaceC0513a == null || interfaceC0513a.b() > 2) {
             return;
         }
         if (str2 == null) {
             str2 = "";
         }
-        InterfaceC1257a interfaceC1257a = o;
+        InterfaceC0513a interfaceC0513a2 = o;
         Process.myPid();
         Thread.currentThread().getId();
         Looper.getMainLooper().getThread().getId();
-        interfaceC1257a.d(str, str2);
+        interfaceC0513a2.d(str, str2);
     }
 
     public static void c(String str, String str2) {
-        if (o == null || o.b() > 1) {
+        InterfaceC0513a interfaceC0513a = o;
+        if (interfaceC0513a == null || interfaceC0513a.b() > 1) {
             return;
         }
         if (str2 == null) {
             str2 = "";
         }
-        InterfaceC1257a interfaceC1257a = o;
+        InterfaceC0513a interfaceC0513a2 = o;
         Process.myPid();
         Thread.currentThread().getId();
         Looper.getMainLooper().getThread().getId();
-        interfaceC1257a.e(str, str2);
+        interfaceC0513a2.e(str, str2);
     }
 }

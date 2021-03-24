@@ -11,10 +11,10 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class TrendListResultData extends BaseResultData implements com.kwad.sdk.core.b {
-    private static final String TAG = "FeedResultData";
-    private static final long serialVersionUID = -2356227162833699895L;
+    public static final String TAG = "FeedResultData";
+    public static final long serialVersionUID = -2356227162833699895L;
     @NonNull
     public List<TrendInfo> trends = new ArrayList();
 
@@ -48,8 +48,8 @@ public class TrendListResultData extends BaseResultData implements com.kwad.sdk.
                     this.trends.add(trendInfo);
                 }
             }
-        } catch (Exception e) {
-            com.kwad.sdk.core.d.a.a(e);
+        } catch (Exception e2) {
+            com.kwad.sdk.core.d.a.a(e2);
         }
     }
 

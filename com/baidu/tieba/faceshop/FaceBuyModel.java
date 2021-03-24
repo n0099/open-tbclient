@@ -5,121 +5,63 @@ import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.imsdk.internal.IMConnection;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.au;
-/* loaded from: classes8.dex */
+import com.baidu.tbadk.core.util.NetWork;
+import com.baidu.tieba.faceshop.FaceBuyQueryData;
+import d.b.b.e.p.k;
+/* loaded from: classes4.dex */
 public class FaceBuyModel extends BdBaseModel {
-    private b iWB;
-    private a iWC;
-    private int iWD;
 
-    public FaceBuyModel(Context context) {
-        super(null);
-        this.iWD = 3;
-        this.iWB = null;
-        this.iWC = null;
-    }
+    /* renamed from: e  reason: collision with root package name */
+    public c f15627e;
 
-    public void JR(String str) {
-        if (this.iWB == null) {
-            this.iWB = new b();
-            this.iWB.setPriority(3);
-            this.iWB.execute(str);
-        }
-    }
+    /* renamed from: f  reason: collision with root package name */
+    public b f15628f;
 
-    public void JS(String str) {
-        if (this.iWC == null) {
-            this.iWC = new a();
-            this.iWC.setPriority(3);
-            this.iWC.execute(str);
-        }
-    }
+    /* renamed from: g  reason: collision with root package name */
+    public int f15629g;
 
-    /* loaded from: classes8.dex */
-    private class b extends BdAsyncTask<Object, FaceBuyData, FaceBuyData> {
-        private com.baidu.tbadk.core.util.aa cnM;
+    /* loaded from: classes4.dex */
+    public class b extends BdAsyncTask<Object, FaceBuyQueryData, FaceBuyQueryData> {
 
-        private b() {
+        /* renamed from: a  reason: collision with root package name */
+        public NetWork f15630a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public volatile boolean f15631b;
+
+        public b() {
+            this.f15631b = false;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: t */
-        public FaceBuyData doInBackground(Object... objArr) {
-            String obj = objArr[0].toString();
-            try {
-                this.cnM = new com.baidu.tbadk.core.util.aa(TbConfig.SERVER_ADDRESS + TbConfig.BUY_FACE_PACKAGE_URL);
-                this.cnM.addPostData("pid", obj);
-                return (FaceBuyData) OrmObject.objectWithJsonStr(this.cnM.postNetData(), FaceBuyData.class);
-            } catch (Exception e) {
-                BdLog.detailException(e);
-                return null;
-            }
-        }
-
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public void cancel() {
-            super.cancel(true);
-            if (this.cnM != null) {
-                this.cnM.cancelNetConnect();
-            }
-            FaceBuyModel.this.iWB = null;
-            FaceBuyModel.this.mLoadDataCallBack.callback(null);
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX INFO: Access modifiers changed from: protected */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: a */
-        public void onPostExecute(FaceBuyData faceBuyData) {
-            super.onPostExecute(faceBuyData);
-            FaceBuyModel.this.iWB = null;
-            FaceBuyModel.this.mLoadDataCallBack.callback(faceBuyData);
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    private class a extends BdAsyncTask<Object, FaceBuyQueryData, FaceBuyQueryData> {
-        private com.baidu.tbadk.core.util.aa cnM;
-        private volatile boolean mCanceled;
-
-        private a() {
-            this.mCanceled = false;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX INFO: Access modifiers changed from: protected */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: s */
+        /* renamed from: b */
         public FaceBuyQueryData doInBackground(Object... objArr) {
-            int i = 0;
-            FaceBuyQueryData faceBuyQueryData = null;
+            FaceBuyQueryData.BuyResult buyResult;
             String obj = objArr[0].toString();
-            if (!au.isEmpty(obj)) {
-                this.cnM = new com.baidu.tbadk.core.util.aa(TbConfig.SERVER_ADDRESS + TbConfig.QUERY_BUY_RESULT_URL);
-                this.cnM.addPostData("order_id", obj);
-                while (!this.mCanceled && i < FaceBuyModel.this.iWD) {
-                    faceBuyQueryData = (FaceBuyQueryData) OrmObject.objectWithJsonStr(this.cnM.postNetData(), FaceBuyQueryData.class);
-                    if (faceBuyQueryData != null && faceBuyQueryData.buy_result != null) {
-                        if (faceBuyQueryData.buy_result.status == 2) {
+            FaceBuyQueryData faceBuyQueryData = null;
+            if (!k.isEmpty(obj)) {
+                NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.QUERY_BUY_RESULT_URL);
+                this.f15630a = netWork;
+                netWork.addPostData("order_id", obj);
+                for (int i = 0; !this.f15631b && i < FaceBuyModel.this.f15629g; i++) {
+                    faceBuyQueryData = (FaceBuyQueryData) OrmObject.objectWithJsonStr(this.f15630a.postNetData(), FaceBuyQueryData.class);
+                    if (faceBuyQueryData != null && (buyResult = faceBuyQueryData.buy_result) != null) {
+                        if (buyResult.status == 2) {
                             break;
                         }
                         try {
-                            Thread.sleep(IMConnection.RETRY_DELAY_TIMES);
-                        } catch (InterruptedException e) {
-                            BdLog.detailException(e);
-                        }
-                        i++;
-                    } else {
-                        try {
-                            Thread.sleep(IMConnection.RETRY_DELAY_TIMES);
+                            Thread.sleep(3000L);
                         } catch (InterruptedException e2) {
                             BdLog.detailException(e2);
                         }
-                        i++;
+                    } else {
+                        try {
+                            Thread.sleep(3000L);
+                        } catch (InterruptedException e3) {
+                            BdLog.detailException(e3);
+                        }
                     }
                 }
             }
@@ -127,38 +69,110 @@ public class FaceBuyModel extends BdBaseModel {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: a */
+        /* renamed from: c */
         public void onPostExecute(FaceBuyQueryData faceBuyQueryData) {
             super.onPostExecute(faceBuyQueryData);
-            FaceBuyModel.this.iWC = null;
-            this.mCanceled = true;
-            FaceBuyModel.this.mLoadDataCallBack.callback(faceBuyQueryData);
+            FaceBuyModel.this.f15628f = null;
+            this.f15631b = true;
+            FaceBuyModel.this.mLoadDataCallBack.c(faceBuyQueryData);
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             super.cancel(true);
-            if (this.cnM != null) {
-                this.cnM.cancelNetConnect();
+            NetWork netWork = this.f15630a;
+            if (netWork != null) {
+                netWork.cancelNetConnect();
             }
-            FaceBuyModel.this.iWC = null;
-            FaceBuyModel.this.mLoadDataCallBack.callback(null);
+            FaceBuyModel.this.f15628f = null;
+            FaceBuyModel.this.mLoadDataCallBack.c(null);
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class c extends BdAsyncTask<Object, FaceBuyData, FaceBuyData> {
+
+        /* renamed from: a  reason: collision with root package name */
+        public NetWork f15633a;
+
+        public c() {
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: b */
+        public FaceBuyData doInBackground(Object... objArr) {
+            String obj = objArr[0].toString();
+            try {
+                NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.BUY_FACE_PACKAGE_URL);
+                this.f15633a = netWork;
+                netWork.addPostData("pid", obj);
+                return (FaceBuyData) OrmObject.objectWithJsonStr(this.f15633a.postNetData(), FaceBuyData.class);
+            } catch (Exception e2) {
+                BdLog.detailException(e2);
+                return null;
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: c */
+        public void onPostExecute(FaceBuyData faceBuyData) {
+            super.onPostExecute(faceBuyData);
+            FaceBuyModel.this.f15627e = null;
+            FaceBuyModel.this.mLoadDataCallBack.c(faceBuyData);
+        }
+
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void cancel() {
+            super.cancel(true);
+            NetWork netWork = this.f15633a;
+            if (netWork != null) {
+                netWork.cancelNetConnect();
+            }
+            FaceBuyModel.this.f15627e = null;
+            FaceBuyModel.this.mLoadDataCallBack.c(null);
+        }
+    }
+
+    public FaceBuyModel(Context context) {
+        super(null);
+        this.f15629g = 3;
+        this.f15627e = null;
+        this.f15628f = null;
+    }
+
+    public void A(String str) {
+        if (this.f15628f == null) {
+            b bVar = new b();
+            this.f15628f = bVar;
+            bVar.setPriority(3);
+            this.f15628f.execute(str);
         }
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
-    protected boolean LoadData() {
+    public boolean LoadData() {
         return false;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        if (this.iWB != null) {
-            this.iWB.cancel();
+        c cVar = this.f15627e;
+        if (cVar != null) {
+            cVar.cancel();
             return true;
         }
         return true;
+    }
+
+    public void z(String str) {
+        if (this.f15627e == null) {
+            c cVar = new c();
+            this.f15627e = cVar;
+            cVar.setPriority(3);
+            this.f15627e.execute(str);
+        }
     }
 }

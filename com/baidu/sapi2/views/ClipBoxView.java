@@ -16,66 +16,79 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.LinearInterpolator;
 import com.baidu.sapi2.utils.SapiUtils;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class ClipBoxView extends View {
     public static int G = 0;
     public static int H = 1;
-    private static final int I = 1;
-    private static final int J = 20;
-    private static final int K = 4;
-    private static final int L = -1;
-    private static final int M = 1;
-    private static final int N = 2;
-    private static final int O = 3;
-    private static final int P = 4;
-    private static final int Q = 5;
-    private static final int R = 6;
-    private static final int S = 7;
-    private static final int T = 8;
-    private static final float U = 50.0f;
-    private static final float V = 50.0f;
-    private static final float W = 1.01f;
-    private static final float a0 = 0.99f;
-    private static ClipBoxView b0;
-    private float A;
-    private float B;
-    private float C;
+    public static final int I = 1;
+    public static final int J = 20;
+    public static final int K = 4;
+    public static final int L = -1;
+    public static final int M = 1;
+    public static final int N = 2;
+    public static final int O = 3;
+    public static final int P = 4;
+    public static final int Q = 5;
+    public static final int R = 6;
+    public static final int S = 7;
+    public static final int T = 8;
+    public static final float U = 50.0f;
+    public static final float V = 50.0f;
+    public static final float W = 1.01f;
+    public static final float a0 = 0.99f;
+    public static ClipBoxView b0;
+    public float A;
+    public float B;
+    public float C;
     public boolean D;
     public int E;
     public boolean F;
 
     /* renamed from: a  reason: collision with root package name */
-    private Paint f3469a;
-    private Paint b;
-    private int c;
-    private int d;
-    private RectF e;
-    private RectF f;
-    private float g;
-    private float h;
-    private int i;
-    private int j;
-    private int k;
-    private int l;
-    private int m;
-    private float n;
-    private ValueAnimator o;
-    private float p;
-    private float q;
-    private float r;
-    private float s;
-    private boolean t;
-    private float u;
-    private float v;
-    private float w;
-    private float x;
-    private float y;
-    private float z;
+    public Paint f11530a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
+    /* renamed from: b  reason: collision with root package name */
+    public Paint f11531b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public int f11532c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public int f11533d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public RectF f11534e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public RectF f11535f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public float f11536g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public float f11537h;
+    public int i;
+    public int j;
+    public int k;
+    public int l;
+    public int m;
+    public float n;
+    public ValueAnimator o;
+    public float p;
+    public float q;
+    public float r;
+    public float s;
+    public boolean t;
+    public float u;
+    public float v;
+    public float w;
+    public float x;
+    public float y;
+    public float z;
+
+    /* loaded from: classes2.dex */
     public class a implements ValueAnimator.AnimatorUpdateListener {
-        a() {
+        public a() {
         }
 
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
@@ -98,62 +111,60 @@ public class ClipBoxView extends View {
         if (a(motionEvent)) {
             return true;
         }
-        switch (this.l) {
-            case 1:
-                float x = motionEvent.getX() - this.e.left;
-                float y = motionEvent.getY();
-                RectF rectF = this.e;
-                float f = rectF.top;
-                float f2 = (x + (y - f)) / 2.0f;
-                b(rectF.left + f2, f2 + f, rectF.right, rectF.bottom);
-                return true;
-            case 2:
-                float x2 = this.e.right - motionEvent.getX();
-                float y2 = motionEvent.getY();
-                RectF rectF2 = this.e;
-                float f3 = rectF2.top;
-                float f4 = (x2 + (y2 - f3)) / 2.0f;
-                b(rectF2.left, f3 + f4, rectF2.right - f4, rectF2.bottom);
-                return true;
-            case 3:
-                float x3 = motionEvent.getX();
-                RectF rectF3 = this.e;
-                float y3 = ((x3 - rectF3.left) + (rectF3.bottom - motionEvent.getY())) / 2.0f;
-                RectF rectF4 = this.e;
-                b(rectF4.left + y3, rectF4.top, rectF4.right, rectF4.bottom - y3);
-                return true;
-            case 4:
-                float x4 = ((this.e.right - motionEvent.getX()) + (this.e.bottom - motionEvent.getY())) / 2.0f;
-                RectF rectF5 = this.e;
-                b(rectF5.left, rectF5.top, rectF5.right - x4, rectF5.bottom - x4);
-                return true;
-            default:
-                return false;
+        int i = this.l;
+        if (i == 1) {
+            float x = motionEvent.getX() - this.f11534e.left;
+            float y = motionEvent.getY();
+            RectF rectF = this.f11534e;
+            float f2 = rectF.top;
+            float f3 = (x + (y - f2)) / 2.0f;
+            b(rectF.left + f3, f2 + f3, rectF.right, rectF.bottom);
+        } else if (i == 2) {
+            float x2 = this.f11534e.right - motionEvent.getX();
+            float y2 = motionEvent.getY();
+            RectF rectF2 = this.f11534e;
+            float f4 = rectF2.top;
+            float f5 = (x2 + (y2 - f4)) / 2.0f;
+            b(rectF2.left, f4 + f5, rectF2.right - f5, rectF2.bottom);
+        } else if (i == 3) {
+            float x3 = motionEvent.getX();
+            RectF rectF3 = this.f11534e;
+            float y3 = ((x3 - rectF3.left) + (rectF3.bottom - motionEvent.getY())) / 2.0f;
+            RectF rectF4 = this.f11534e;
+            b(rectF4.left + y3, rectF4.top, rectF4.right, rectF4.bottom - y3);
+        } else if (i != 4) {
+            return false;
+        } else {
+            float x4 = ((this.f11534e.right - motionEvent.getX()) + (this.f11534e.bottom - motionEvent.getY())) / 2.0f;
+            RectF rectF5 = this.f11534e;
+            b(rectF5.left, rectF5.top, rectF5.right - x4, rectF5.bottom - x4);
         }
+        return true;
     }
 
     @TargetApi(11)
     private void d() {
         setLayerType(1, null);
-        this.f3469a = new Paint();
-        this.b = new Paint();
-        this.f3469a.setColor(-1);
-        this.f3469a.setStyle(Paint.Style.STROKE);
-        this.f3469a.setStrokeWidth(SapiUtils.dip2px(getContext(), 1.0f));
-        this.f3469a.setAntiAlias(true);
-        this.b.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.CLEAR));
-        this.b.setAntiAlias(true);
-        this.c = SapiUtils.dip2px(getContext(), 20.0f);
-        this.d = SapiUtils.dip2px(getContext(), 4.0f);
+        this.f11530a = new Paint();
+        this.f11531b = new Paint();
+        this.f11530a.setColor(-1);
+        this.f11530a.setStyle(Paint.Style.STROKE);
+        this.f11530a.setStrokeWidth(SapiUtils.dip2px(getContext(), 1.0f));
+        this.f11530a.setAntiAlias(true);
+        this.f11531b.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.CLEAR));
+        this.f11531b.setAntiAlias(true);
+        this.f11532c = SapiUtils.dip2px(getContext(), 20.0f);
+        this.f11533d = SapiUtils.dip2px(getContext(), 4.0f);
         this.i = SapiUtils.dip2px(getContext(), this.i);
         this.k = SapiUtils.dip2px(getContext(), this.k);
         this.m = SapiUtils.dip2px(getContext(), this.m);
-        this.e = new RectF();
-        this.f = new RectF();
+        this.f11534e = new RectF();
+        this.f11535f = new RectF();
         this.E = H;
         this.F = true;
-        this.o = ValueAnimator.ofFloat(0.0f, 1.0f);
-        this.o.setInterpolator(new LinearInterpolator());
+        ValueAnimator ofFloat = ValueAnimator.ofFloat(0.0f, 1.0f);
+        this.o = ofFloat;
+        ofFloat.setInterpolator(new LinearInterpolator());
         this.o.addUpdateListener(new a());
     }
 
@@ -167,7 +178,7 @@ public class ClipBoxView extends View {
 
     public Rect getmFrameRectF() {
         Rect rect = new Rect();
-        RectF rectF = this.e;
+        RectF rectF = this.f11534e;
         rect.left = (int) rectF.left;
         rect.right = (int) rectF.right;
         rect.top = (int) rectF.top;
@@ -176,10 +187,10 @@ public class ClipBoxView extends View {
     }
 
     @Override // android.view.View
-    protected void onDraw(Canvas canvas) {
+    public void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         int argb = Color.argb(180, 0, 0, 0);
-        this.f3469a.setStrokeWidth(SapiUtils.dip2px(getContext(), 1.0f));
+        this.f11530a.setStrokeWidth(SapiUtils.dip2px(getContext(), 1.0f));
         canvas.drawColor(argb);
         b(canvas);
         if (this.n == 1.0f) {
@@ -187,7 +198,7 @@ public class ClipBoxView extends View {
             this.D = false;
             this.n = 0.0f;
         }
-        canvas.drawRect(this.e, this.b);
+        canvas.drawRect(this.f11534e, this.f11531b);
         if (this.D) {
             a(canvas);
         }
@@ -195,95 +206,105 @@ public class ClipBoxView extends View {
     }
 
     @Override // android.view.View
-    protected void onSizeChanged(int i, int i2, int i3, int i4) {
+    public void onSizeChanged(int i, int i2, int i3, int i4) {
         super.onSizeChanged(i, i2, i3, i4);
         int i5 = this.i;
-        this.j = (i2 - (i - (i5 * 2))) / 2;
-        RectF rectF = this.e;
-        rectF.left = i5;
-        rectF.top = this.j;
-        rectF.right = rectF.left + (i - (i5 * 2));
-        rectF.bottom = (i - (i5 * 2)) + rectF.top;
+        int i6 = i - (i5 * 2);
+        int i7 = (i2 - i6) / 2;
+        this.j = i7;
+        RectF rectF = this.f11534e;
+        float f2 = i5;
+        rectF.left = f2;
+        float f3 = i7;
+        rectF.top = f3;
+        float f4 = i6;
+        rectF.right = f2 + f4;
+        rectF.bottom = f3 + f4;
     }
 
-    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
+    /* JADX WARN: Code restructure failed: missing block: B:6:0x000f, code lost:
+        if (r0 != 3) goto L6;
+     */
     @Override // android.view.View
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        switch (motionEvent.getAction()) {
-            case 0:
-                this.D = true;
-                this.f.set(motionEvent.getX() - this.c, motionEvent.getY() - this.c, motionEvent.getX() + this.c, motionEvent.getY() + this.c);
-                RectF rectF = this.f;
-                RectF rectF2 = this.e;
-                if (rectF.contains(rectF2.left, rectF2.top)) {
-                    this.l = 1;
-                    return true;
+        int action = motionEvent.getAction();
+        if (action != 0) {
+            if (action != 1) {
+                if (action == 2) {
+                    if (this.E == G) {
+                        return b(motionEvent);
+                    }
+                    return c(motionEvent);
                 }
-                RectF rectF3 = this.f;
-                RectF rectF4 = this.e;
-                if (rectF3.contains(rectF4.right, rectF4.top)) {
-                    this.l = 2;
-                    return true;
-                }
-                RectF rectF5 = this.f;
-                RectF rectF6 = this.e;
-                if (rectF5.contains(rectF6.left, rectF6.bottom)) {
-                    this.l = 3;
-                    return true;
-                }
-                RectF rectF7 = this.f;
-                RectF rectF8 = this.e;
-                if (rectF7.contains(rectF8.right, rectF8.bottom)) {
-                    this.l = 4;
-                    return true;
-                }
-                RectF rectF9 = this.f;
-                RectF rectF10 = this.e;
-                float f = rectF10.left;
-                float f2 = rectF10.top;
-                if (rectF9.intersect(f, f2, rectF10.right, f2)) {
-                    this.l = 5;
-                    return true;
-                }
-                RectF rectF11 = this.f;
-                RectF rectF12 = this.e;
-                float f3 = rectF12.left;
-                if (rectF11.intersect(f3, rectF12.top, f3, rectF12.bottom)) {
-                    this.l = 6;
-                    return true;
-                }
-                RectF rectF13 = this.f;
-                RectF rectF14 = this.e;
-                float f4 = rectF14.right;
-                if (rectF13.intersect(f4, rectF14.top, f4, rectF14.bottom)) {
-                    this.l = 7;
-                    return true;
-                }
-                RectF rectF15 = this.f;
-                RectF rectF16 = this.e;
-                float f5 = rectF16.left;
-                float f6 = rectF16.bottom;
-                if (rectF15.intersect(f5, f6, rectF16.right, f6)) {
-                    this.l = 8;
-                    return true;
-                }
-                return false;
-            case 1:
-            case 3:
-                int i = this.l;
-                if (i >= 1 && i <= 4 && this.F) {
-                    a();
-                } else {
-                    this.D = false;
-                    invalidate();
-                }
-                this.l = -1;
-                break;
-            case 2:
-                if (this.E == G) {
-                    return b(motionEvent);
-                }
-                return c(motionEvent);
+            }
+            int i = this.l;
+            if (i >= 1 && i <= 4 && this.F) {
+                a();
+            } else {
+                this.D = false;
+                invalidate();
+            }
+            this.l = -1;
+            return false;
+        }
+        this.D = true;
+        this.f11535f.set(motionEvent.getX() - this.f11532c, motionEvent.getY() - this.f11532c, motionEvent.getX() + this.f11532c, motionEvent.getY() + this.f11532c);
+        RectF rectF = this.f11535f;
+        RectF rectF2 = this.f11534e;
+        if (rectF.contains(rectF2.left, rectF2.top)) {
+            this.l = 1;
+            return true;
+        }
+        RectF rectF3 = this.f11535f;
+        RectF rectF4 = this.f11534e;
+        if (rectF3.contains(rectF4.right, rectF4.top)) {
+            this.l = 2;
+            return true;
+        }
+        RectF rectF5 = this.f11535f;
+        RectF rectF6 = this.f11534e;
+        if (rectF5.contains(rectF6.left, rectF6.bottom)) {
+            this.l = 3;
+            return true;
+        }
+        RectF rectF7 = this.f11535f;
+        RectF rectF8 = this.f11534e;
+        if (rectF7.contains(rectF8.right, rectF8.bottom)) {
+            this.l = 4;
+            return true;
+        }
+        RectF rectF9 = this.f11535f;
+        RectF rectF10 = this.f11534e;
+        float f2 = rectF10.left;
+        float f3 = rectF10.top;
+        if (rectF9.intersect(f2, f3, rectF10.right, f3)) {
+            this.l = 5;
+            return true;
+        }
+        RectF rectF11 = this.f11535f;
+        RectF rectF12 = this.f11534e;
+        float f4 = rectF12.left;
+        if (rectF11.intersect(f4, rectF12.top, f4, rectF12.bottom)) {
+            this.l = 6;
+            return true;
+        }
+        RectF rectF13 = this.f11535f;
+        RectF rectF14 = this.f11534e;
+        float f5 = rectF14.right;
+        if (rectF13.intersect(f5, rectF14.top, f5, rectF14.bottom)) {
+            this.l = 7;
+            return true;
+        }
+        RectF rectF15 = this.f11535f;
+        RectF rectF16 = this.f11534e;
+        float f6 = rectF16.left;
+        float f7 = rectF16.bottom;
+        if (rectF15.intersect(f6, f7, rectF16.right, f7)) {
+            this.l = 8;
+            return true;
         }
         return false;
     }
@@ -297,44 +318,43 @@ public class ClipBoxView extends View {
             case 1:
                 float x = motionEvent.getX();
                 float y = motionEvent.getY();
-                RectF rectF = this.e;
+                RectF rectF = this.f11534e;
                 b(x, y, rectF.right, rectF.bottom);
-                break;
+                return true;
             case 2:
-                b(this.e.left, motionEvent.getY(), motionEvent.getX(), this.e.bottom);
-                break;
+                b(this.f11534e.left, motionEvent.getY(), motionEvent.getX(), this.f11534e.bottom);
+                return true;
             case 3:
                 float x2 = motionEvent.getX();
-                RectF rectF2 = this.e;
+                RectF rectF2 = this.f11534e;
                 b(x2, rectF2.top, rectF2.right, motionEvent.getY());
-                break;
+                return true;
             case 4:
-                RectF rectF3 = this.e;
+                RectF rectF3 = this.f11534e;
                 b(rectF3.left, rectF3.top, motionEvent.getX(), motionEvent.getY());
-                break;
+                return true;
             case 5:
-                float f = this.e.left;
+                float f2 = this.f11534e.left;
                 float y2 = motionEvent.getY();
-                RectF rectF4 = this.e;
-                b(f, y2, rectF4.right, rectF4.bottom);
-                break;
+                RectF rectF4 = this.f11534e;
+                b(f2, y2, rectF4.right, rectF4.bottom);
+                return true;
             case 6:
                 float x3 = motionEvent.getX();
-                RectF rectF5 = this.e;
+                RectF rectF5 = this.f11534e;
                 b(x3, rectF5.top, rectF5.right, rectF5.bottom);
-                break;
+                return true;
             case 7:
-                RectF rectF6 = this.e;
-                b(rectF6.left, rectF6.top, motionEvent.getX(), this.e.bottom);
-                break;
+                RectF rectF6 = this.f11534e;
+                b(rectF6.left, rectF6.top, motionEvent.getX(), this.f11534e.bottom);
+                return true;
             case 8:
-                RectF rectF7 = this.e;
+                RectF rectF7 = this.f11534e;
                 b(rectF7.left, rectF7.top, rectF7.right, motionEvent.getY());
-                break;
+                return true;
             default:
                 return false;
         }
-        return true;
     }
 
     public ClipBoxView(Context context, AttributeSet attributeSet, int i) {
@@ -361,144 +381,153 @@ public class ClipBoxView extends View {
     }
 
     public void a(Canvas canvas) {
-        RectF rectF = this.e;
-        float f = rectF.left;
-        float f2 = rectF.top;
-        float f3 = rectF.right;
-        float f4 = rectF.bottom;
-        float f5 = (f4 - f2) / 3.0f;
-        float f6 = f2 + f5;
-        canvas.drawLine(f, f6, f3, f6, this.f3469a);
-        float f7 = f2 + (f5 * 2.0f);
-        canvas.drawLine(f, f7, f3, f7, this.f3469a);
-        float f8 = (f3 - f) / 3.0f;
-        float f9 = f + f8;
-        canvas.drawLine(f9, f2, f9, f4, this.f3469a);
-        float f10 = f + (f8 * 2.0f);
-        canvas.drawLine(f10, f2, f10, f4, this.f3469a);
+        RectF rectF = this.f11534e;
+        float f2 = rectF.left;
+        float f3 = rectF.top;
+        float f4 = rectF.right;
+        float f5 = rectF.bottom;
+        float f6 = (f5 - f3) / 3.0f;
+        float f7 = f3 + f6;
+        canvas.drawLine(f2, f7, f4, f7, this.f11530a);
+        float f8 = f3 + (f6 * 2.0f);
+        canvas.drawLine(f2, f8, f4, f8, this.f11530a);
+        float f9 = (f4 - f2) / 3.0f;
+        float f10 = f2 + f9;
+        canvas.drawLine(f10, f3, f10, f5, this.f11530a);
+        float f11 = f2 + (f9 * 2.0f);
+        canvas.drawLine(f11, f3, f11, f5, this.f11530a);
     }
 
-    private void a(float f, float f2, float f3, float f4) {
+    private void a(float f2, float f3, float f4, float f5) {
         ZoomImageView zoomImageView = ZoomImageView.getInstance();
         if (zoomImageView != null) {
             RectF matrixRectF = zoomImageView.getMatrixRectF();
-            f = Math.max(Math.max(this.m, f), matrixRectF.left);
-            f2 = Math.max(Math.max(this.m, f2), matrixRectF.top);
-            f3 = Math.min(Math.min(getWidth() - this.m, f3), matrixRectF.right);
-            f4 = Math.min(Math.min(getHeight() - this.m, f4), matrixRectF.bottom);
+            f2 = Math.max(Math.max(this.m, f2), matrixRectF.left);
+            f3 = Math.max(Math.max(this.m, f3), matrixRectF.top);
+            f4 = Math.min(Math.min(getWidth() - this.m, f4), matrixRectF.right);
+            f5 = Math.min(Math.min(getHeight() - this.m, f5), matrixRectF.bottom);
         }
-        this.q = this.u - f2;
-        this.s = f4 - this.v;
-        this.p = this.w - f;
-        this.r = f3 - this.x;
-        this.e.set(f, f2, f3, f4);
+        this.q = this.u - f3;
+        this.s = f5 - this.v;
+        this.p = this.w - f2;
+        this.r = f4 - this.x;
+        this.f11534e.set(f2, f3, f4, f5);
     }
 
-    private void a(float f, float f2, float f3, float f4, float f5) {
-        float f6;
-        float f7;
-        float f8;
-        float f9;
-        ZoomImageView zoomImageView = ZoomImageView.getInstance();
-        if (zoomImageView != null) {
-            RectF matrixRectF = zoomImageView.getMatrixRectF();
-            f9 = Math.max(Math.max(this.m, f), matrixRectF.left);
-            f8 = Math.max(Math.max(this.m, f2), matrixRectF.top);
-            f7 = Math.min(Math.min(getWidth() - this.m, f3), matrixRectF.right);
-            f6 = Math.min(Math.min(getHeight() - this.m, f4), matrixRectF.bottom);
-        } else {
-            f6 = f4;
-            f7 = f3;
-            f8 = f2;
-            f9 = f;
+    private void b(float f2, float f3, float f4, float f5) {
+        if (f5 - f3 < 50.0f) {
+            RectF rectF = this.f11534e;
+            float f6 = rectF.top;
+            f5 = rectF.bottom;
+            f3 = f6;
         }
-        float f10 = f7 - f9;
-        float f11 = f6 - f8;
-        float f12 = f10 / f11;
-        if (f12 > f5) {
-            while (f12 / f5 > W) {
-                f7 -= 1.0f;
-                f9 += 1.0f;
-                f12 = (f7 - f9) / f11;
-            }
-        } else {
-            while (f12 / f5 < a0) {
-                f6 -= 1.0f;
-                f8 += 1.0f;
-                f12 = f10 / (f6 - f8);
-            }
-        }
-        this.q = this.u - f8;
-        this.s = f6 - this.v;
-        this.p = this.w - f9;
-        this.r = f7 - this.x;
-        this.e.set(f9, f8, f7, f6);
-    }
-
-    private void b(float f, float f2, float f3, float f4) {
         if (f4 - f2 < 50.0f) {
-            RectF rectF = this.e;
-            f2 = rectF.top;
-            f4 = rectF.bottom;
+            RectF rectF2 = this.f11534e;
+            float f7 = rectF2.left;
+            f4 = rectF2.right;
+            f2 = f7;
         }
-        if (f3 - f < 50.0f) {
-            RectF rectF2 = this.e;
-            f = rectF2.left;
-            f3 = rectF2.right;
-        }
-        a(f, f2, f3, f4);
+        a(f2, f3, f4, f5);
         invalidate();
+    }
+
+    private void c(Canvas canvas) {
+        this.f11530a.setStrokeWidth(this.f11533d);
+        RectF rectF = this.f11534e;
+        float f2 = rectF.left;
+        float f3 = rectF.top;
+        canvas.drawLine(f2 - this.k, f3, f2 + this.f11532c, f3, this.f11530a);
+        RectF rectF2 = this.f11534e;
+        float f4 = rectF2.left;
+        float f5 = rectF2.top;
+        canvas.drawLine(f4, f5, f4, f5 + this.f11532c, this.f11530a);
+        RectF rectF3 = this.f11534e;
+        float f6 = rectF3.right;
+        float f7 = rectF3.top;
+        canvas.drawLine(f6 + this.k, f7, f6 - this.f11532c, f7, this.f11530a);
+        RectF rectF4 = this.f11534e;
+        float f8 = rectF4.right;
+        float f9 = rectF4.top;
+        canvas.drawLine(f8, f9, f8, f9 + this.f11532c, this.f11530a);
+        RectF rectF5 = this.f11534e;
+        float f10 = rectF5.left;
+        float f11 = rectF5.bottom;
+        canvas.drawLine(f10 - this.k, f11, f10 + this.f11532c, f11, this.f11530a);
+        RectF rectF6 = this.f11534e;
+        float f12 = rectF6.left;
+        float f13 = rectF6.bottom;
+        canvas.drawLine(f12, f13, f12, f13 - this.f11532c, this.f11530a);
+        RectF rectF7 = this.f11534e;
+        float f14 = rectF7.right;
+        float f15 = rectF7.bottom;
+        canvas.drawLine(f14 + this.k, f15, f14 - this.f11532c, f15, this.f11530a);
+        RectF rectF8 = this.f11534e;
+        float f16 = rectF8.right;
+        float f17 = rectF8.bottom;
+        canvas.drawLine(f16, f17, f16, f17 - this.f11532c, this.f11530a);
     }
 
     private void b(Canvas canvas) {
         if (this.t) {
-            RectF rectF = this.e;
-            float f = this.w;
-            float f2 = this.n;
-            rectF.left = f - (this.p * f2);
-            rectF.top = this.u - (this.q * f2);
-            rectF.right = this.x + (this.r * f2);
-            rectF.bottom = this.v + (f2 * this.s);
-            canvas.drawRect(rectF, this.f3469a);
+            RectF rectF = this.f11534e;
+            float f2 = this.w;
+            float f3 = this.n;
+            rectF.left = f2 - (this.p * f3);
+            rectF.top = this.u - (this.q * f3);
+            rectF.right = this.x + (this.r * f3);
+            rectF.bottom = this.v + (f3 * this.s);
+            canvas.drawRect(rectF, this.f11530a);
             return;
         }
-        canvas.drawRect(this.e, this.f3469a);
+        canvas.drawRect(this.f11534e, this.f11530a);
     }
 
-    private void c(Canvas canvas) {
-        this.f3469a.setStrokeWidth(this.d);
-        RectF rectF = this.e;
-        float f = rectF.left;
-        float f2 = rectF.top;
-        canvas.drawLine(f - this.k, f2, f + this.c, f2, this.f3469a);
-        RectF rectF2 = this.e;
-        float f3 = rectF2.left;
-        float f4 = rectF2.top;
-        canvas.drawLine(f3, f4, f3, f4 + this.c, this.f3469a);
-        RectF rectF3 = this.e;
-        float f5 = rectF3.right;
-        float f6 = rectF3.top;
-        canvas.drawLine(this.k + f5, f6, f5 - this.c, f6, this.f3469a);
-        RectF rectF4 = this.e;
-        float f7 = rectF4.right;
-        float f8 = rectF4.top;
-        canvas.drawLine(f7, f8, f7, f8 + this.c, this.f3469a);
-        RectF rectF5 = this.e;
-        float f9 = rectF5.left;
-        float f10 = rectF5.bottom;
-        canvas.drawLine(f9 - this.k, f10, f9 + this.c, f10, this.f3469a);
-        RectF rectF6 = this.e;
-        float f11 = rectF6.left;
-        float f12 = rectF6.bottom;
-        canvas.drawLine(f11, f12, f11, f12 - this.c, this.f3469a);
-        RectF rectF7 = this.e;
-        float f13 = rectF7.right;
-        float f14 = rectF7.bottom;
-        canvas.drawLine(this.k + f13, f14, f13 - this.c, f14, this.f3469a);
-        RectF rectF8 = this.e;
-        float f15 = rectF8.right;
-        float f16 = rectF8.bottom;
-        canvas.drawLine(f15, f16, f15, f16 - this.c, this.f3469a);
+    private void a(float f2, float f3, float f4, float f5, float f6) {
+        ZoomImageView zoomImageView = ZoomImageView.getInstance();
+        if (zoomImageView != null) {
+            RectF matrixRectF = zoomImageView.getMatrixRectF();
+            f2 = Math.max(Math.max(this.m, f2), matrixRectF.left);
+            f3 = Math.max(Math.max(this.m, f3), matrixRectF.top);
+            f4 = Math.min(Math.min(getWidth() - this.m, f4), matrixRectF.right);
+            f5 = Math.min(Math.min(getHeight() - this.m, f5), matrixRectF.bottom);
+        }
+        float f7 = f4 - f2;
+        float f8 = f5 - f3;
+        float f9 = f7 / f8;
+        if (f9 > f6) {
+            while (f9 / f6 > 1.01f) {
+                f4 -= 1.0f;
+                f2 += 1.0f;
+                f9 = (f4 - f2) / f8;
+            }
+        } else {
+            while (f9 / f6 < 0.99f) {
+                f5 -= 1.0f;
+                f3 += 1.0f;
+                f9 = f7 / (f5 - f3);
+            }
+        }
+        this.q = this.u - f3;
+        this.s = f5 - this.v;
+        this.p = this.w - f2;
+        this.r = f4 - this.x;
+        this.f11534e.set(f2, f3, f4, f5);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void c() {
+        ZoomImageView zoomImageView = ZoomImageView.getInstance();
+        if (!this.t || zoomImageView == null || zoomImageView.getScale() > 12.0f) {
+            return;
+        }
+        float f2 = ((this.y - 1.0f) / 20.0f) + 1.0f;
+        zoomImageView.f11588e.postTranslate(this.B / 20.0f, this.C / 20.0f);
+        Matrix matrix = zoomImageView.f11588e;
+        RectF rectF = this.f11534e;
+        matrix.postScale(f2, f2, (rectF.left + rectF.right) / 2.0f, (rectF.top + rectF.bottom) / 2.0f);
+        RectF rectF2 = this.f11534e;
+        zoomImageView.a((rectF2.left + rectF2.right) / 2.0f, (rectF2.top + rectF2.bottom) / 2.0f);
+        zoomImageView.setImageMatrix(zoomImageView.f11588e);
     }
 
     @TargetApi(11)
@@ -506,38 +535,47 @@ public class ClipBoxView extends View {
         int i;
         int i2;
         int width = getWidth() - (this.i * 2);
-        RectF rectF = this.e;
-        float f = rectF.right;
-        float f2 = rectF.left;
-        float f3 = width;
-        if (f - f2 < f3) {
-            this.u = rectF.top;
-            this.v = rectF.bottom;
-            this.w = f2;
-            this.x = f;
-            float f4 = (this.x - this.w) / (this.v - this.u);
-            this.z = f3 / (f - f2);
-            RectF rectF2 = this.e;
-            this.A = (getHeight() - (this.m * 2)) / (rectF2.bottom - rectF2.top);
-            this.y = Math.min(this.z, this.A);
-            float f5 = this.y;
-            float f6 = f5 - 1.0f <= 1.0f ? f5 - 1.0f : 1.0f;
-            RectF rectF3 = this.e;
-            this.B = ((getWidth() / 2) - ((rectF3.right + rectF3.left) / 2.0f)) * f6;
-            RectF rectF4 = this.e;
-            float f7 = rectF4.top;
-            float f8 = rectF4.bottom;
-            this.C = f6 * ((getHeight() / 2) - ((f7 + f8) / 2.0f));
-            float f9 = rectF4.left;
-            float f10 = this.y;
-            rectF4.left = f9 / f10;
-            rectF4.top = f7 / f10;
-            rectF4.right *= f10;
-            rectF4.bottom = f8 * f10;
+        RectF rectF = this.f11534e;
+        float f2 = rectF.right;
+        float f3 = rectF.left;
+        float f4 = f2 - f3;
+        float f5 = width;
+        if (f4 < f5) {
+            float f6 = rectF.top;
+            this.u = f6;
+            float f7 = rectF.bottom;
+            this.v = f7;
+            this.w = f3;
+            this.x = f2;
+            float f8 = (f2 - f3) / (f7 - f6);
+            this.z = f5 / f4;
+            RectF rectF2 = this.f11534e;
+            float height = (getHeight() - (this.m * 2)) / (rectF2.bottom - rectF2.top);
+            this.A = height;
+            float min = Math.min(this.z, height);
+            this.y = min;
+            float f9 = min - 1.0f;
+            float f10 = f9 <= 1.0f ? f9 : 1.0f;
+            RectF rectF3 = this.f11534e;
+            this.B = ((getWidth() / 2) - ((rectF3.left + rectF3.right) / 2.0f)) * f10;
+            RectF rectF4 = this.f11534e;
+            float f11 = rectF4.top;
+            float f12 = rectF4.bottom;
+            this.C = ((getHeight() / 2) - ((f11 + f12) / 2.0f)) * f10;
+            float f13 = rectF4.left;
+            float f14 = this.y;
+            float f15 = f13 / f14;
+            rectF4.left = f15;
+            float f16 = f11 / f14;
+            rectF4.top = f16;
+            float f17 = rectF4.right * f14;
+            rectF4.right = f17;
+            float f18 = f12 * f14;
+            rectF4.bottom = f18;
             if (this.E == G) {
-                a(rectF4.left, rectF4.top, rectF4.right, rectF4.bottom, f4);
+                a(f15, f16, f17, f18, f8);
             } else {
-                a(this.i, this.j, i + width, width + i2);
+                a(this.i, this.j, i + width, i2 + width);
             }
             this.o.setDuration(500L).start();
             this.t = true;
@@ -547,26 +585,13 @@ public class ClipBoxView extends View {
         invalidate();
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void c() {
-        ZoomImageView zoomImageView = ZoomImageView.getInstance();
-        if (!this.t || zoomImageView == null || zoomImageView.getScale() > 12.0f) {
-            return;
-        }
-        float f = ((this.y - 1.0f) / 20.0f) + 1.0f;
-        zoomImageView.e.postTranslate(this.B / 20.0f, this.C / 20.0f);
-        Matrix matrix = zoomImageView.e;
-        RectF rectF = this.e;
-        matrix.postScale(f, f, (rectF.left + rectF.right) / 2.0f, (rectF.bottom + rectF.top) / 2.0f);
-        RectF rectF2 = this.e;
-        zoomImageView.a((rectF2.left + rectF2.right) / 2.0f, (rectF2.bottom + rectF2.top) / 2.0f);
-        zoomImageView.setImageMatrix(zoomImageView.e);
-    }
-
     private boolean a(MotionEvent motionEvent) {
         int width = getWidth() - (this.i * 2);
-        RectF rectF = this.e;
-        float f = width;
-        return rectF.right - rectF.left >= f && rectF.bottom - rectF.top >= f && (motionEvent.getX() < ((float) this.i) || motionEvent.getX() > ((float) (this.i + width)) || motionEvent.getY() < ((float) this.j) || motionEvent.getY() > ((float) (width + this.j)));
+        RectF rectF = this.f11534e;
+        float f2 = width;
+        if (rectF.right - rectF.left < f2 || rectF.bottom - rectF.top < f2) {
+            return false;
+        }
+        return motionEvent.getX() < ((float) this.i) || motionEvent.getX() > ((float) (this.i + width)) || motionEvent.getY() < ((float) this.j) || motionEvent.getY() > ((float) (this.j + width));
     }
 }

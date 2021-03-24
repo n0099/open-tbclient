@@ -3,36 +3,18 @@ package androidx.core.graphics;
 import android.graphics.PointF;
 import androidx.annotation.NonNull;
 import androidx.core.util.Preconditions;
-/* loaded from: classes14.dex */
+/* loaded from: classes.dex */
 public final class PathSegment {
-    private final PointF mEnd;
-    private final float mEndFraction;
-    private final PointF mStart;
-    private final float mStartFraction;
+    public final PointF mEnd;
+    public final float mEndFraction;
+    public final PointF mStart;
+    public final float mStartFraction;
 
-    public PathSegment(@NonNull PointF pointF, float f, @NonNull PointF pointF2, float f2) {
+    public PathSegment(@NonNull PointF pointF, float f2, @NonNull PointF pointF2, float f3) {
         this.mStart = (PointF) Preconditions.checkNotNull(pointF, "start == null");
-        this.mStartFraction = f;
+        this.mStartFraction = f2;
         this.mEnd = (PointF) Preconditions.checkNotNull(pointF2, "end == null");
-        this.mEndFraction = f2;
-    }
-
-    @NonNull
-    public PointF getStart() {
-        return this.mStart;
-    }
-
-    public float getStartFraction() {
-        return this.mStartFraction;
-    }
-
-    @NonNull
-    public PointF getEnd() {
-        return this.mEnd;
-    }
-
-    public float getEndFraction() {
-        return this.mEndFraction;
+        this.mEndFraction = f3;
     }
 
     public boolean equals(Object obj) {
@@ -46,8 +28,30 @@ public final class PathSegment {
         return false;
     }
 
+    @NonNull
+    public PointF getEnd() {
+        return this.mEnd;
+    }
+
+    public float getEndFraction() {
+        return this.mEndFraction;
+    }
+
+    @NonNull
+    public PointF getStart() {
+        return this.mStart;
+    }
+
+    public float getStartFraction() {
+        return this.mStartFraction;
+    }
+
     public int hashCode() {
-        return (((((this.mStartFraction != 0.0f ? Float.floatToIntBits(this.mStartFraction) : 0) + (this.mStart.hashCode() * 31)) * 31) + this.mEnd.hashCode()) * 31) + (this.mEndFraction != 0.0f ? Float.floatToIntBits(this.mEndFraction) : 0);
+        int hashCode = this.mStart.hashCode() * 31;
+        float f2 = this.mStartFraction;
+        int floatToIntBits = (((hashCode + (f2 != 0.0f ? Float.floatToIntBits(f2) : 0)) * 31) + this.mEnd.hashCode()) * 31;
+        float f3 = this.mEndFraction;
+        return floatToIntBits + (f3 != 0.0f ? Float.floatToIntBits(f3) : 0);
     }
 
     public String toString() {

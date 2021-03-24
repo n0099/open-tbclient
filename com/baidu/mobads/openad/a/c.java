@@ -7,11 +7,11 @@ import com.baidu.mobads.utils.q;
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class c implements IOAdEventDispatcher {
 
     /* renamed from: a  reason: collision with root package name */
-    protected Map<String, ArrayList<IOAdEventListener>> f2435a;
+    public Map<String, ArrayList<IOAdEventListener>> f8399a;
 
     public c() {
         removeAllListeners();
@@ -19,68 +19,74 @@ public class c implements IOAdEventDispatcher {
 
     @Override // com.baidu.mobads.openad.interfaces.event.IOAdEventDispatcher
     public void addEventListener(String str, IOAdEventListener iOAdEventListener) {
-        if (str != null && iOAdEventListener != null) {
-            removeEventListener(str, iOAdEventListener);
-            ArrayList<IOAdEventListener> arrayList = this.f2435a.get(str);
-            if (arrayList == null) {
-                arrayList = new ArrayList<>();
-                this.f2435a.put(str, arrayList);
+        if (str == null || iOAdEventListener == null) {
+            return;
+        }
+        removeEventListener(str, iOAdEventListener);
+        ArrayList<IOAdEventListener> arrayList = this.f8399a.get(str);
+        if (arrayList == null) {
+            arrayList = new ArrayList<>();
+            this.f8399a.put(str, arrayList);
+        }
+        arrayList.add(iOAdEventListener);
+    }
+
+    @Override // com.baidu.mobads.openad.interfaces.event.IOAdEventDispatcher
+    public void dispatchEvent(IOAdEvent iOAdEvent) {
+        if (iOAdEvent == null) {
+            return;
+        }
+        try {
+            iOAdEvent.setTarget(this);
+            ArrayList<IOAdEventListener> arrayList = this.f8399a.get(iOAdEvent.getType());
+            if (arrayList != null) {
+                int size = arrayList.size();
+                IOAdEventListener[] iOAdEventListenerArr = new IOAdEventListener[size];
+                arrayList.toArray(iOAdEventListenerArr);
+                for (int i = 0; i < size; i++) {
+                    IOAdEventListener iOAdEventListener = iOAdEventListenerArr[i];
+                    if (iOAdEventListener != null) {
+                        iOAdEventListener.run(iOAdEvent);
+                    }
+                }
             }
-            arrayList.add(iOAdEventListener);
+        } catch (Exception e2) {
+            q.a().e(e2);
         }
     }
 
     @Override // com.baidu.mobads.openad.interfaces.event.IOAdEventDispatcher
     public boolean hasEventListener(String str) {
-        ArrayList<IOAdEventListener> arrayList = this.f2435a.get(str);
+        ArrayList<IOAdEventListener> arrayList = this.f8399a.get(str);
         return (arrayList == null || arrayList.isEmpty()) ? false : true;
     }
 
     @Override // com.baidu.mobads.openad.interfaces.event.IOAdEventDispatcher
+    public void removeAllListeners() {
+        this.f8399a = new ConcurrentHashMap();
+    }
+
+    @Override // com.baidu.mobads.openad.interfaces.event.IOAdEventDispatcher
     public void removeEventListener(String str, IOAdEventListener iOAdEventListener) {
-        if (str != null && iOAdEventListener != null) {
-            try {
-                ArrayList<IOAdEventListener> arrayList = this.f2435a.get(str);
-                if (arrayList != null && arrayList.size() > 0) {
-                    arrayList.remove(iOAdEventListener);
-                    if (arrayList.isEmpty()) {
-                        this.f2435a.remove(str);
-                    }
-                }
-            } catch (Exception e) {
-                q.a().e(e);
+        if (str == null || iOAdEventListener == null) {
+            return;
+        }
+        try {
+            ArrayList<IOAdEventListener> arrayList = this.f8399a.get(str);
+            if (arrayList == null || arrayList.size() <= 0) {
+                return;
             }
+            arrayList.remove(iOAdEventListener);
+            if (arrayList.isEmpty()) {
+                this.f8399a.remove(str);
+            }
+        } catch (Exception e2) {
+            q.a().e(e2);
         }
     }
 
     @Override // com.baidu.mobads.openad.interfaces.event.IOAdEventDispatcher
     public void removeEventListeners(String str) {
-        this.f2435a.remove(str);
-    }
-
-    @Override // com.baidu.mobads.openad.interfaces.event.IOAdEventDispatcher
-    public void removeAllListeners() {
-        this.f2435a = new ConcurrentHashMap();
-    }
-
-    @Override // com.baidu.mobads.openad.interfaces.event.IOAdEventDispatcher
-    public void dispatchEvent(IOAdEvent iOAdEvent) {
-        if (iOAdEvent != null) {
-            try {
-                iOAdEvent.setTarget(this);
-                ArrayList<IOAdEventListener> arrayList = this.f2435a.get(iOAdEvent.getType());
-                if (arrayList != null) {
-                    IOAdEventListener[] iOAdEventListenerArr = new IOAdEventListener[arrayList.size()];
-                    arrayList.toArray(iOAdEventListenerArr);
-                    for (IOAdEventListener iOAdEventListener : iOAdEventListenerArr) {
-                        if (iOAdEventListener != null) {
-                            iOAdEventListener.run(iOAdEvent);
-                        }
-                    }
-                }
-            } catch (Exception e) {
-                q.a().e(e);
-            }
-        }
+        this.f8399a.remove(str);
     }
 }

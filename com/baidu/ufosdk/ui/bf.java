@@ -1,31 +1,31 @@
 package com.baidu.ufosdk.ui;
 
 import android.view.View;
-/* loaded from: classes7.dex */
-final class bf implements View.OnClickListener {
+/* loaded from: classes5.dex */
+public final class bf implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FeedbackInputActivity f3679a;
+    public final /* synthetic */ FeedbackInputActivity f23081a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public bf(FeedbackInputActivity feedbackInputActivity) {
-        this.f3679a = feedbackInputActivity;
+        this.f23081a = feedbackInputActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public final void onClick(View view) {
         try {
-            if (com.baidu.ufosdk.b.d.c(this.f3679a.getApplicationContext())) {
-                this.f3679a.b.setVisibility(8);
-                this.f3679a.k.setVisibility(0);
-                if (this.f3679a.e != null && this.f3679a.e.length() > 0) {
-                    this.f3679a.l.execute(new bg(this));
-                }
-            } else {
+            if (!com.baidu.ufosdk.b.d.c(this.f23081a.getApplicationContext())) {
                 com.baidu.ufosdk.f.c.b("Network is not avaiable!");
+                return;
             }
-        } catch (Exception e) {
-            e.printStackTrace();
+            this.f23081a.f23015b.setVisibility(8);
+            this.f23081a.k.setVisibility(0);
+            if (this.f23081a.f23018e == null || this.f23081a.f23018e.length() <= 0) {
+                return;
+            }
+            this.f23081a.l.execute(new bg(this));
+        } catch (Exception e2) {
+            e2.printStackTrace();
         }
     }
 }

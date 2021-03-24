@@ -12,38 +12,50 @@ import com.baidu.searchbox.player.interfaces.IVideoEventInterceptor;
 import com.baidu.searchbox.player.layer.ILayer;
 import com.baidu.searchbox.player.message.IMessenger;
 import com.baidu.searchbox.player.pool.IPoolItem;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class VideoSession implements IPoolItem {
-    private ControlEventTrigger mControlEventTrigger;
-    private IMessenger mCourier;
-    private StringBuilder mDesc;
-    private PlayerEventTrigger mPlayerEventTrigger;
-    private VideoKernelState mState;
-    private BDVideoPlayer mTargetPlayer;
+    public ControlEventTrigger mControlEventTrigger;
+    public IMessenger mCourier;
+    public StringBuilder mDesc;
+    public PlayerEventTrigger mPlayerEventTrigger;
+    public VideoKernelState mState;
+    public BDVideoPlayer mTargetPlayer;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public VideoSession() {
         init();
     }
 
     private void init() {
-        this.mCourier = BDPlayerConfig.getMessengerFactory().createMessenger(this);
-        this.mState = new VideoKernelState(this.mCourier);
-        this.mPlayerEventTrigger = new PlayerEventTrigger();
-        this.mPlayerEventTrigger.register(this.mCourier);
-        this.mControlEventTrigger = new ControlEventTrigger();
-        this.mControlEventTrigger.register(this.mCourier);
+        IMessenger createMessenger = BDPlayerConfig.getMessengerFactory().createMessenger(this);
+        this.mCourier = createMessenger;
+        this.mState = new VideoKernelState(createMessenger);
+        PlayerEventTrigger playerEventTrigger = new PlayerEventTrigger();
+        this.mPlayerEventTrigger = playerEventTrigger;
+        playerEventTrigger.register(this.mCourier);
+        ControlEventTrigger controlEventTrigger = new ControlEventTrigger();
+        this.mControlEventTrigger = controlEventTrigger;
+        controlEventTrigger.register(this.mCourier);
     }
 
+    public void bind(@NonNull BDVideoPlayer bDVideoPlayer) {
+        this.mTargetPlayer = bDVideoPlayer;
+    }
+
+    @NonNull
     @PublicMethod
-    public void syncSession(@NonNull VideoSession videoSession) {
-        this.mTargetPlayer = videoSession.getTargetPlayer();
-        this.mState.stateChangeNotify(videoSession.getStatus());
+    public ControlEventTrigger getControlEventTrigger() {
+        return this.mControlEventTrigger;
     }
 
     @PublicMethod
     public IMessenger getMessenger() {
         return this.mCourier;
+    }
+
+    @NonNull
+    @PublicMethod
+    public PlayerEventTrigger getPlayerEventTrigger() {
+        return this.mPlayerEventTrigger;
     }
 
     @NonNull
@@ -59,13 +71,13 @@ public final class VideoSession implements IPoolItem {
     }
 
     @PublicMethod
-    public boolean isPause() {
-        return this.mState.isPause();
+    public BDVideoPlayer getTargetPlayer() {
+        return this.mTargetPlayer;
     }
 
     @PublicMethod
-    public boolean isPlaying() {
-        return this.mState.isPlaying();
+    public boolean isBindPlayer() {
+        return this.mTargetPlayer != null;
     }
 
     @PublicMethod
@@ -79,8 +91,13 @@ public final class VideoSession implements IPoolItem {
     }
 
     @PublicMethod
-    public boolean isStop() {
-        return this.mState.isStop();
+    public boolean isPause() {
+        return this.mState.isPause();
+    }
+
+    @PublicMethod
+    public boolean isPlaying() {
+        return this.mState.isPlaying();
     }
 
     @PublicMethod
@@ -93,62 +110,9 @@ public final class VideoSession implements IPoolItem {
         return this.mState.isPreparing();
     }
 
-    @NonNull
     @PublicMethod
-    public PlayerEventTrigger getPlayerEventTrigger() {
-        return this.mPlayerEventTrigger;
-    }
-
-    @NonNull
-    @PublicMethod
-    public ControlEventTrigger getControlEventTrigger() {
-        return this.mControlEventTrigger;
-    }
-
-    @PublicMethod
-    public void sendEvent(VideoEvent videoEvent) {
-        if (this.mCourier != null) {
-            this.mCourier.notifyEvent(videoEvent);
-        }
-    }
-
-    @PublicMethod
-    public void setInterceptor(IVideoEventInterceptor iVideoEventInterceptor) {
-        if (this.mCourier != null) {
-            this.mCourier.setInterceptor(iVideoEventInterceptor);
-        }
-    }
-
-    @PublicMethod
-    public void registerLayer(@NonNull ILayer iLayer, int i) {
-        if (this.mCourier != null) {
-            this.mCourier.register(i, iLayer);
-        }
-    }
-
-    @PublicMethod
-    public void unregisterLayer(@NonNull ILayer iLayer) {
-        if (this.mCourier != null) {
-            this.mCourier.unregister(iLayer);
-        }
-    }
-
-    public void bind(@NonNull BDVideoPlayer bDVideoPlayer) {
-        this.mTargetPlayer = bDVideoPlayer;
-    }
-
-    public void unbind() {
-        this.mTargetPlayer = null;
-    }
-
-    @PublicMethod
-    public boolean isBindPlayer() {
-        return this.mTargetPlayer != null;
-    }
-
-    @PublicMethod
-    public BDVideoPlayer getTargetPlayer() {
-        return this.mTargetPlayer;
+    public boolean isStop() {
+        return this.mState.isStop();
     }
 
     @Override // com.baidu.searchbox.player.pool.IPoolItem
@@ -159,29 +123,87 @@ public final class VideoSession implements IPoolItem {
     @Override // com.baidu.searchbox.player.pool.IPoolItem
     public void onRelease() {
         unbind();
-        if (this.mCourier != null) {
-            this.mCourier.release();
+        IMessenger iMessenger = this.mCourier;
+        if (iMessenger != null) {
+            iMessenger.release();
             this.mCourier = null;
         }
         this.mPlayerEventTrigger.clear();
         this.mControlEventTrigger.clear();
     }
 
-    @Override // com.baidu.searchbox.player.pool.IPoolItem
-    public boolean verify(@NonNull String str) {
-        return false;
+    @PublicMethod
+    public void registerLayer(@NonNull ILayer iLayer, int i) {
+        IMessenger iMessenger = this.mCourier;
+        if (iMessenger != null) {
+            iMessenger.register(i, iLayer);
+        }
+    }
+
+    @PublicMethod
+    public void sendEvent(VideoEvent videoEvent) {
+        IMessenger iMessenger = this.mCourier;
+        if (iMessenger != null) {
+            iMessenger.notifyEvent(videoEvent);
+        }
+    }
+
+    @PublicMethod
+    public void setInterceptor(IVideoEventInterceptor iVideoEventInterceptor) {
+        IMessenger iMessenger = this.mCourier;
+        if (iMessenger != null) {
+            iMessenger.setInterceptor(iVideoEventInterceptor);
+        }
+    }
+
+    @PublicMethod
+    public void syncSession(@NonNull VideoSession videoSession) {
+        this.mTargetPlayer = videoSession.getTargetPlayer();
+        this.mState.stateChangeNotify(videoSession.getStatus());
     }
 
     public String toString() {
         if (BDPlayerConfig.isDebug()) {
-            if (this.mDesc == null) {
+            StringBuilder sb = this.mDesc;
+            if (sb == null) {
                 this.mDesc = new StringBuilder();
-            } else if (this.mDesc.length() > 0) {
-                this.mDesc.delete(0, this.mDesc.length());
+            } else if (sb.length() > 0) {
+                StringBuilder sb2 = this.mDesc;
+                sb2.delete(0, sb2.length());
             }
-            this.mDesc.append("VideoSession【TargetPlayer :").append(this.mTargetPlayer).append("，Courier :").append(this.mCourier).append("，VideoKernelState :").append(this.mState).append("，PlayerEventTrigger :").append(this.mPlayerEventTrigger).append("，ControlEventTrigger :").append(this.mControlEventTrigger).append("，hash :").append(hashCode()).append("】");
+            StringBuilder sb3 = this.mDesc;
+            sb3.append("VideoSession【TargetPlayer :");
+            sb3.append(this.mTargetPlayer);
+            sb3.append("，Courier :");
+            sb3.append(this.mCourier);
+            sb3.append("，VideoKernelState :");
+            sb3.append(this.mState);
+            sb3.append("，PlayerEventTrigger :");
+            sb3.append(this.mPlayerEventTrigger);
+            sb3.append("，ControlEventTrigger :");
+            sb3.append(this.mControlEventTrigger);
+            sb3.append("，hash :");
+            sb3.append(hashCode());
+            sb3.append("】");
             return this.mDesc.toString();
         }
         return super.toString();
+    }
+
+    public void unbind() {
+        this.mTargetPlayer = null;
+    }
+
+    @PublicMethod
+    public void unregisterLayer(@NonNull ILayer iLayer) {
+        IMessenger iMessenger = this.mCourier;
+        if (iMessenger != null) {
+            iMessenger.unregister(iLayer);
+        }
+    }
+
+    @Override // com.baidu.searchbox.player.pool.IPoolItem
+    public boolean verify(@NonNull String str) {
+        return false;
     }
 }

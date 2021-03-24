@@ -2,10 +2,10 @@ package com.bun.miitmdid.supplier;
 
 import android.text.TextUtils;
 import com.baidu.android.util.devices.RomUtils;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class b {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public enum a {
         UNSUPPORT(-1, "unsupport"),
         HUA_WEI(0, "HUAWEI"),
@@ -18,10 +18,10 @@ public class b {
         SAMSUNG(7, "samsung"),
         MEIZU(8, RomUtils.MANUFACTURER_MEIZU),
         ALPS(9, "alps"),
-        NUBIA(10, RomUtils.MANUFACTURER_NUBIA);
+        NUBIA(10, "nubia");
         
-        private int m;
-        private String n;
+        public int m;
+        public String n;
 
         a(int i, String str) {
             this.m = i;

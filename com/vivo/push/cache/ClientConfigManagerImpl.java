@@ -5,16 +5,16 @@ import android.text.TextUtils;
 import com.vivo.push.util.p;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes14.dex */
+/* loaded from: classes7.dex */
 public class ClientConfigManagerImpl implements e {
-    private static final Object SLOCK = new Object();
-    private static final String TAG = "ClientConfigManager";
-    private static volatile ClientConfigManagerImpl sClientConfigManagerImpl;
-    private a mAppConfigSettings;
-    private Context mContext;
-    private f mPushConfigSettings;
+    public static final Object SLOCK = new Object();
+    public static final String TAG = "ClientConfigManager";
+    public static volatile ClientConfigManagerImpl sClientConfigManagerImpl;
+    public a mAppConfigSettings;
+    public Context mContext;
+    public f mPushConfigSettings;
 
-    private ClientConfigManagerImpl(Context context) {
+    public ClientConfigManagerImpl(Context context) {
         this.mContext = context.getApplicationContext();
         this.mAppConfigSettings = new a(this.mContext);
         this.mPushConfigSettings = new f(this.mContext);
@@ -31,105 +31,51 @@ public class ClientConfigManagerImpl implements e {
         return sClientConfigManagerImpl;
     }
 
-    public boolean isEnablePush() {
-        prepareAppConfig();
-        com.vivo.push.model.a c = this.mAppConfigSettings.c(this.mContext.getPackageName());
-        if (c != null) {
-            return "1".equals(c.b());
-        }
-        return true;
-    }
-
     private void prepareAppConfig() {
-        if (this.mAppConfigSettings == null) {
+        a aVar = this.mAppConfigSettings;
+        if (aVar == null) {
             this.mAppConfigSettings = new a(this.mContext);
         } else {
-            this.mAppConfigSettings.c();
+            aVar.c();
         }
+    }
+
+    private f preparePushConfigSettings() {
+        f fVar = this.mPushConfigSettings;
+        if (fVar == null) {
+            this.mPushConfigSettings = new f(this.mContext);
+        } else {
+            fVar.c();
+        }
+        return this.mPushConfigSettings;
     }
 
     public void clearPush() {
         this.mAppConfigSettings.d();
     }
 
-    @Override // com.vivo.push.cache.e
-    public boolean isInBlackList(long j) {
-        String[] split;
-        String c = preparePushConfigSettings().c("BL");
-        if (TextUtils.isEmpty(c)) {
-            return false;
-        }
-        for (String str : c.split(",")) {
-            try {
-                if (!TextUtils.isEmpty(str) && Long.parseLong(str) == j) {
-                    return true;
-                }
-            } catch (NumberFormatException e) {
-                e.printStackTrace();
-            }
-        }
-        return false;
+    public Set<String> getBlackEventList() {
+        return null;
     }
 
     public int getNotifyStyle() {
         try {
-            String c = preparePushConfigSettings().c("DPL");
-            if (TextUtils.isEmpty(c)) {
-                return 0;
+            String c2 = preparePushConfigSettings().c("DPL");
+            if (!TextUtils.isEmpty(c2)) {
+                try {
+                    return Integer.parseInt(c2);
+                } catch (NumberFormatException e2) {
+                    e2.printStackTrace();
+                }
             }
-            try {
-                return Integer.parseInt(c);
-            } catch (NumberFormatException e) {
-                e.printStackTrace();
-                return 0;
-            }
-        } catch (NumberFormatException e2) {
-            e2.printStackTrace();
-            return 0;
+        } catch (NumberFormatException e3) {
+            e3.printStackTrace();
         }
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:14:? A[RETURN, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:7:0x001a A[ORIG_RETURN, RETURN] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public boolean isCancleBroadcastReceiver() {
-        int parseInt;
-        String c = preparePushConfigSettings().c("PSM");
-        if (!TextUtils.isEmpty(c)) {
-            try {
-                parseInt = Integer.parseInt(c);
-            } catch (NumberFormatException e) {
-                e.printStackTrace();
-            }
-            return (parseInt & 4) == 0;
-        }
-        parseInt = 0;
-        if ((parseInt & 4) == 0) {
-        }
-    }
-
-    private f preparePushConfigSettings() {
-        if (this.mPushConfigSettings == null) {
-            this.mPushConfigSettings = new f(this.mContext);
-        } else {
-            this.mPushConfigSettings.c();
-        }
-        return this.mPushConfigSettings;
+        return 0;
     }
 
     public String getSuitTag() {
         return preparePushConfigSettings().c("CSPT");
-    }
-
-    public boolean isDebug() {
-        this.mAppConfigSettings.c();
-        return a.a(this.mAppConfigSettings.b());
-    }
-
-    public boolean isDebug(int i) {
-        return a.a(i);
     }
 
     public String getValueByKey(String str) {
@@ -144,11 +90,10 @@ public class ClientConfigManagerImpl implements e {
         HashSet hashSet = new HashSet();
         String valueByKey = getValueByKey("WLL");
         if (!TextUtils.isEmpty(valueByKey)) {
-            String[] split = valueByKey.split(",");
-            for (String str : split) {
+            for (String str : valueByKey.split(",")) {
                 try {
                     hashSet.add(Long.valueOf(Long.parseLong(str)));
-                } catch (Exception e) {
+                } catch (Exception unused) {
                 }
             }
         }
@@ -156,7 +101,60 @@ public class ClientConfigManagerImpl implements e {
         return hashSet;
     }
 
-    public Set<String> getBlackEventList() {
-        return null;
+    /* JADX WARN: Removed duplicated region for block: B:11:0x001f A[RETURN] */
+    /* JADX WARN: Removed duplicated region for block: B:13:0x0021 A[RETURN] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public boolean isCancleBroadcastReceiver() {
+        int parseInt;
+        String c2 = preparePushConfigSettings().c("PSM");
+        if (!TextUtils.isEmpty(c2)) {
+            try {
+                parseInt = Integer.parseInt(c2);
+            } catch (NumberFormatException e2) {
+                e2.printStackTrace();
+            }
+            return (parseInt & 4) == 0;
+        }
+        parseInt = 0;
+        if ((parseInt & 4) == 0) {
+        }
+    }
+
+    public boolean isDebug() {
+        this.mAppConfigSettings.c();
+        return a.a(this.mAppConfigSettings.b());
+    }
+
+    public boolean isEnablePush() {
+        prepareAppConfig();
+        com.vivo.push.model.a c2 = this.mAppConfigSettings.c(this.mContext.getPackageName());
+        if (c2 != null) {
+            return "1".equals(c2.b());
+        }
+        return true;
+    }
+
+    @Override // com.vivo.push.cache.e
+    public boolean isInBlackList(long j) {
+        String[] split;
+        String c2 = preparePushConfigSettings().c("BL");
+        if (!TextUtils.isEmpty(c2)) {
+            for (String str : c2.split(",")) {
+                try {
+                    if (!TextUtils.isEmpty(str) && Long.parseLong(str) == j) {
+                        return true;
+                    }
+                } catch (NumberFormatException e2) {
+                    e2.printStackTrace();
+                }
+            }
+        }
+        return false;
+    }
+
+    public boolean isDebug(int i) {
+        return a.a(i);
     }
 }

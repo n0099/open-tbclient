@@ -1,25 +1,25 @@
 package org.apache.commons.base;
 
 import java.util.Comparator;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class StringEncoderComparator implements Comparator {
-    private final StringEncoder stringEncoder;
+    public final StringEncoder stringEncoder;
 
     @Deprecated
-    private StringEncoderComparator() {
+    public StringEncoderComparator() {
         this.stringEncoder = null;
-    }
-
-    public StringEncoderComparator(StringEncoder stringEncoder) {
-        this.stringEncoder = stringEncoder;
     }
 
     @Override // java.util.Comparator
     public int compare(Object obj, Object obj2) {
         try {
             return ((Comparable) this.stringEncoder.encode(obj)).compareTo((Comparable) this.stringEncoder.encode(obj2));
-        } catch (EncoderException e) {
+        } catch (EncoderException unused) {
             return 0;
         }
+    }
+
+    public StringEncoderComparator(StringEncoder stringEncoder) {
+        this.stringEncoder = stringEncoder;
     }
 }

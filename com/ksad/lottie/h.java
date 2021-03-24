@@ -1,5 +1,5 @@
 package com.ksad.lottie;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public interface h<T> {
     void a(T t);
 }

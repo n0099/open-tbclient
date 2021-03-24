@@ -5,13 +5,28 @@ import android.util.AttributeSet;
 import android.widget.ImageView;
 import com.baidu.tbadk.widget.TbClipImageView;
 import com.baidu.tieba.R;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class RoundTbImageView extends TbClipImageView {
-    private int mDefaultBgId;
-    private int mDefaultId;
+    public int x0;
+    public int y0;
 
     public RoundTbImageView(Context context) {
         this(context, null, 0);
+    }
+
+    public final void G() {
+        setDrawerType(1);
+        setIsRound(true);
+        setConrers(15);
+        setGifIconSupport(false);
+        setDrawBorder(false);
+        setBorderSurroundContent(false);
+        setDefaultBgResource(this.y0);
+        setDefaultResource(this.x0);
+        setAutoChangeStyle(true);
+        setScaleType(ImageView.ScaleType.CENTER_CROP);
+        setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
+        setPlaceHolder(1);
     }
 
     public RoundTbImageView(Context context, AttributeSet attributeSet) {
@@ -20,23 +35,8 @@ public class RoundTbImageView extends TbClipImageView {
 
     public RoundTbImageView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.mDefaultId = R.drawable.transparent_bg;
-        this.mDefaultBgId = R.color.CAM_X0209;
-        init();
-    }
-
-    private void init() {
-        setDrawerType(1);
-        setIsRound(true);
-        setConrers(15);
-        setGifIconSupport(false);
-        setDrawBorder(false);
-        setBorderSurroundContent(false);
-        setDefaultBgResource(this.mDefaultBgId);
-        setDefaultResource(this.mDefaultId);
-        setAutoChangeStyle(true);
-        setScaleType(ImageView.ScaleType.CENTER_CROP);
-        setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
-        setPlaceHolder(1);
+        this.x0 = R.drawable.transparent_bg;
+        this.y0 = R.color.CAM_X0209;
+        G();
     }
 }

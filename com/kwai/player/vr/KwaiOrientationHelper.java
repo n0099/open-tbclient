@@ -3,96 +3,95 @@ package com.kwai.player.vr;
 import android.hardware.SensorManager;
 import android.opengl.Matrix;
 import android.util.Log;
-import com.baidu.ala.recorder.video.drawer.EncoderTextureDrawer;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class KwaiOrientationHelper {
-    private static final String TAG = "KwaiOrientationHelper";
+    public static final String TAG = "KwaiOrientationHelper";
     public static final int UIDeviceOrientationFaceDown = 5;
     public static final int UIDeviceOrientationFaceUp = 4;
     public static final int UIDeviceOrientationLandscapeLeft = 2;
     public static final int UIDeviceOrientationLandscapeRight = 3;
     public static final int UIDeviceOrientationPortrait = 1;
     public static final int UIDeviceOrientationUnknown = 0;
-    private static final float mNear = 0.7f;
-    private int mDegrees;
-    private float mDeltaX;
-    private float mDeltaY;
-    private float mEyeX;
-    private float mEyeY;
-    private float mEyeZ;
-    private float mLookX;
-    private float mLookY;
-    private float mNearScale;
-    private float[] mViewMatrix = new float[16];
-    private float[] mProjectionMatrix = new float[16];
-    private float[] mMVPMatrix = new float[16];
-    private float[] mWorldRotationMatrix = new float[16];
-    private float[] mWorldRotationInvertMatrix = new float[16];
-    private float[] mCurrentRotationPost = new float[16];
-    private float[] mSensorMatrix = new float[16];
-    private float[] mTempMatrix = new float[16];
-    private float[] mCameraMatrix = new float[16];
-    private float[] mModelMatrix = new float[16];
-    private float[] mStartFromSensorTransformation = new float[3];
-    private float[] mOrientation = new float[3];
-    private float mscale = 0.5f;
-    private float mLookZ = -1.0f;
-    private boolean mProjectionValidate = false;
-    private boolean mPositionValidate = true;
-    private boolean mModelValidate = true;
-    private float mRatio = 1.5f;
-    private int mViewportWidth = 0;
-    private int mViewportHeight = 0;
-    private int mRotation = 0;
-    private float threshold = 40.0f;
-    private int mDeviceorientation = 0;
-    private boolean mWorldRotationMatrixInvalidate = true;
+    public static final float mNear = 0.7f;
+    public int mDegrees;
+    public float mDeltaX;
+    public float mDeltaY;
+    public float mEyeX;
+    public float mEyeY;
+    public float mEyeZ;
+    public float mLookX;
+    public float mLookY;
+    public float mNearScale;
+    public float[] mViewMatrix = new float[16];
+    public float[] mProjectionMatrix = new float[16];
+    public float[] mMVPMatrix = new float[16];
+    public float[] mWorldRotationMatrix = new float[16];
+    public float[] mWorldRotationInvertMatrix = new float[16];
+    public float[] mCurrentRotationPost = new float[16];
+    public float[] mSensorMatrix = new float[16];
+    public float[] mTempMatrix = new float[16];
+    public float[] mCameraMatrix = new float[16];
+    public float[] mModelMatrix = new float[16];
+    public float[] mStartFromSensorTransformation = new float[3];
+    public float[] mOrientation = new float[3];
+    public float mscale = 0.5f;
+    public float mLookZ = -1.0f;
+    public boolean mProjectionValidate = false;
+    public boolean mPositionValidate = true;
+    public boolean mModelValidate = true;
+    public float mRatio = 1.5f;
+    public int mViewportWidth = 0;
+    public int mViewportHeight = 0;
+    public int mRotation = 0;
+    public float threshold = 40.0f;
+    public int mDeviceorientation = 0;
+    public boolean mWorldRotationMatrixInvalidate = true;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class Builder {
-        private float mEyeX = 0.0f;
-        private float mEyeY = 0.0f;
-        private float mEyeZ = 0.0f;
-        private float mLookX = 0.0f;
-        private float mLookY = 0.0f;
-        private float mNearScale = 1.0f;
+        public float mEyeX = 0.0f;
+        public float mEyeY = 0.0f;
+        public float mEyeZ = 0.0f;
+        public float mLookX = 0.0f;
+        public float mLookY = 0.0f;
+        public float mNearScale = 1.0f;
 
         public KwaiOrientationHelper build() {
             return new KwaiOrientationHelper(this);
         }
 
-        public Builder setEyeX(float f) {
-            this.mEyeX = f;
+        public Builder setEyeX(float f2) {
+            this.mEyeX = f2;
             return this;
         }
 
-        public Builder setEyeY(float f) {
-            this.mEyeY = f;
+        public Builder setEyeY(float f2) {
+            this.mEyeY = f2;
             return this;
         }
 
-        public Builder setEyeZ(float f) {
-            this.mEyeZ = f;
+        public Builder setEyeZ(float f2) {
+            this.mEyeZ = f2;
             return this;
         }
 
-        public Builder setLookX(float f) {
-            this.mLookX = f;
+        public Builder setLookX(float f2) {
+            this.mLookX = f2;
             return this;
         }
 
-        public Builder setLookY(float f) {
-            this.mLookY = f;
+        public Builder setLookY(float f2) {
+            this.mLookY = f2;
             return this;
         }
 
-        public Builder setNearScale(float f) {
-            this.mNearScale = f;
+        public Builder setNearScale(float f2) {
+            this.mNearScale = f2;
             return this;
         }
     }
 
-    protected KwaiOrientationHelper(Builder builder) {
+    public KwaiOrientationHelper(Builder builder) {
         this.mEyeX = 0.0f;
         this.mEyeY = 0.0f;
         this.mEyeZ = 0.0f;
@@ -125,8 +124,9 @@ public class KwaiOrientationHelper {
 
     private void updateModelMatrix() {
         Matrix.setIdentityM(this.mModelMatrix, 0);
-        if (this.mStartFromSensorTransformation != null) {
-            Matrix.rotateM(this.mModelMatrix, 0, -this.mStartFromSensorTransformation[0], 0.0f, 1.0f, 0.0f);
+        float[] fArr = this.mStartFromSensorTransformation;
+        if (fArr != null) {
+            Matrix.rotateM(this.mModelMatrix, 0, -fArr[0], 0.0f, 1.0f, 0.0f);
             Matrix.rotateM(this.mModelMatrix, 0, this.mStartFromSensorTransformation[2], 0.0f, 1.0f, 0.0f);
         }
         Matrix.rotateM(this.mModelMatrix, 0, 0.0f, 0.0f, 0.0f, 1.0f);
@@ -177,11 +177,26 @@ public class KwaiOrientationHelper {
         Matrix.setIdentityM(this.mWorldRotationInvertMatrix, 0);
     }
 
+    /* JADX WARN: Code restructure failed: missing block: B:44:0x00af, code lost:
+        if (r1 > 0) goto L19;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:48:0x00b8, code lost:
+        if (r1 > 0) goto L19;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:51:0x00be, code lost:
+        if (r1 > 0) goto L19;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:52:0x00c0, code lost:
+        r1 = 360 - r1;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:53:0x00c3, code lost:
+        r1 = -r1;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     public void calDegrees() {
         MDQuaternion mDQuaternion = new MDQuaternion();
-        if (mDQuaternion == null) {
-            return;
-        }
         SensorManager.getOrientation(this.mWorldRotationMatrix, this.mOrientation);
         mDQuaternion.fromMatrix(this.mWorldRotationMatrix);
         float pitch = mDQuaternion.getPitch();
@@ -204,43 +219,19 @@ public class KwaiOrientationHelper {
             Log.d(TAG, "mdevice orientation " + this.mDeviceorientation);
         }
         int i2 = (int) yaw;
-        switch (this.mDeviceorientation) {
-            case 1:
-            case 2:
-            case 3:
-                if (i2 <= 0) {
-                    i2 = -i2;
-                    break;
-                } else {
-                    i2 = 360 - i2;
-                    break;
+        int i3 = this.mDeviceorientation;
+        if (i3 != 1 && i3 != 2 && i3 != 3) {
+            if (i3 == 4) {
+                if (isNearValue(0.0f, roll)) {
                 }
-            case 4:
+                i2 = 180 - i2;
+            } else if (i3 == 5) {
                 if (!isNearValue(0.0f, roll)) {
-                    i2 = 180 - i2;
-                    break;
-                } else if (i2 <= 0) {
-                    i2 = -i2;
-                    break;
-                } else {
-                    i2 = 360 - i2;
-                    break;
                 }
-            case 5:
-                if (!isNearValue(0.0f, roll)) {
-                    if (i2 <= 0) {
-                        i2 = -i2;
-                        break;
-                    } else {
-                        i2 = 360 - i2;
-                        break;
-                    }
-                } else {
-                    i2 = 180 - i2;
-                    break;
-                }
+                i2 = 180 - i2;
+            }
         }
-        this.mDegrees = i2 % EncoderTextureDrawer.X264_WIDTH;
+        this.mDegrees = i2 % 360;
     }
 
     public float getDeltaX() {
@@ -258,8 +249,16 @@ public class KwaiOrientationHelper {
         return this.mMVPMatrix;
     }
 
-    protected float getNear() {
-        return this.mRatio < 1.0f ? this.mNearScale * mNear * this.mscale : this.mNearScale * mNear;
+    public float getNear() {
+        float f2;
+        float f3 = 0.7f;
+        if (this.mRatio < 1.0f) {
+            f2 = this.mNearScale * 0.7f;
+            f3 = this.mscale;
+        } else {
+            f2 = this.mNearScale;
+        }
+        return f2 * f3;
     }
 
     public int getOrientaionDegrees() {
@@ -290,12 +289,12 @@ public class KwaiOrientationHelper {
         return this.mWorldRotationInvertMatrix;
     }
 
-    public boolean isNearValue(float f, float f2) {
-        return Math.abs(f - f2) < this.threshold;
+    public boolean isNearValue(float f2, float f3) {
+        return Math.abs(f2 - f3) < this.threshold;
     }
 
-    public boolean isNearValueABS(float f, float f2) {
-        return isNearValue(Math.abs(f), Math.abs(f2));
+    public boolean isNearValueABS(float f2, float f3) {
+        return isNearValue(Math.abs(f2), Math.abs(f3));
     }
 
     public void reset() {
@@ -305,14 +304,14 @@ public class KwaiOrientationHelper {
         this.mWorldRotationMatrixInvalidate = true;
     }
 
-    public void setDelta(float f, float f2) {
-        this.mDeltaX = f;
-        this.mDeltaY = f2;
+    public void setDelta(float f2, float f3) {
+        this.mDeltaX = f2;
+        this.mDeltaY = f3;
         this.mWorldRotationMatrixInvalidate = true;
     }
 
-    public void setNearScale(float f) {
-        this.mNearScale = f;
+    public void setNearScale(float f2) {
+        this.mNearScale = f2;
         this.mProjectionValidate = true;
     }
 
@@ -325,13 +324,14 @@ public class KwaiOrientationHelper {
     public void setViewport(int i, int i2) {
         this.mViewportWidth = i;
         this.mViewportHeight = i2;
-        this.mRatio = (this.mViewportWidth * 1.0f) / this.mViewportHeight;
+        this.mRatio = (i * 1.0f) / i2;
         this.mProjectionValidate = true;
         Log.d(TAG, "KwaiOrientationHelper setViewport width:" + i + " height:" + i2);
     }
 
-    protected void updateProjection() {
-        Matrix.frustumM(getProjectionMatrix(), 0, (-this.mRatio) / 2.0f, this.mRatio / 2.0f, -0.5f, 0.5f, getNear(), 500.0f);
+    public void updateProjection() {
+        float f2 = this.mRatio;
+        Matrix.frustumM(getProjectionMatrix(), 0, (-f2) / 2.0f, f2 / 2.0f, -0.5f, 0.5f, getNear(), 500.0f);
     }
 
     public void updateSensorMatrix(float[] fArr) {

@@ -1,10 +1,12 @@
 package com.kuaishou.aegon.httpdns;
-/* loaded from: classes3.dex */
-final /* synthetic */ class d implements Runnable {
-    private final ResolveFinishedInfo pZh;
+/* loaded from: classes6.dex */
+public final /* synthetic */ class d implements Runnable {
 
-    private d(ResolveFinishedInfo resolveFinishedInfo) {
-        this.pZh = resolveFinishedInfo;
+    /* renamed from: a  reason: collision with root package name */
+    public final ResolveFinishedInfo f31622a;
+
+    public d(ResolveFinishedInfo resolveFinishedInfo) {
+        this.f31622a = resolveFinishedInfo;
     }
 
     public static Runnable a(ResolveFinishedInfo resolveFinishedInfo) {
@@ -13,6 +15,6 @@ final /* synthetic */ class d implements Runnable {
 
     @Override // java.lang.Runnable
     public void run() {
-        HttpDnsResolver.sLogger.onResolveFinish(this.pZh);
+        HttpDnsResolver.sLogger.onResolveFinish(this.f31622a);
     }
 }

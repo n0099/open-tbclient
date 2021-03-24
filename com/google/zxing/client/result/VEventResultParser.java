@@ -4,14 +4,38 @@ import com.baidu.browser.sailor.BdSailorConfig;
 import com.baidu.webkit.sdk.WebView;
 import com.google.zxing.Result;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class VEventResultParser extends ResultParser {
+    public static String matchSingleVCardPrefixedField(CharSequence charSequence, String str, boolean z) {
+        List<String> matchSingleVCardPrefixedField = VCardResultParser.matchSingleVCardPrefixedField(charSequence, str, z, false);
+        if (matchSingleVCardPrefixedField == null || matchSingleVCardPrefixedField.isEmpty()) {
+            return null;
+        }
+        return matchSingleVCardPrefixedField.get(0);
+    }
+
+    public static String[] matchVCardPrefixedField(CharSequence charSequence, String str, boolean z) {
+        List<List<String>> matchVCardPrefixedField = VCardResultParser.matchVCardPrefixedField(charSequence, str, z, false);
+        if (matchVCardPrefixedField == null || matchVCardPrefixedField.isEmpty()) {
+            return null;
+        }
+        int size = matchVCardPrefixedField.size();
+        String[] strArr = new String[size];
+        for (int i = 0; i < size; i++) {
+            strArr[i] = matchVCardPrefixedField.get(i).get(0);
+        }
+        return strArr;
+    }
+
+    public static String stripMailto(String str) {
+        return str != null ? (str.startsWith(WebView.SCHEME_MAILTO) || str.startsWith("MAILTO:")) ? str.substring(7) : str : str;
+    }
+
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.zxing.client.result.ResultParser
     public CalendarParsedResult parse(Result result) {
         double parseDouble;
-        double parseDouble2;
-        String massagedText = getMassagedText(result);
+        String massagedText = ResultParser.getMassagedText(result);
         if (massagedText.indexOf("BEGIN:VEVENT") < 0) {
             return null;
         }
@@ -32,56 +56,21 @@ public final class VEventResultParser extends ResultParser {
         }
         String matchSingleVCardPrefixedField6 = matchSingleVCardPrefixedField("DESCRIPTION", massagedText, true);
         String matchSingleVCardPrefixedField7 = matchSingleVCardPrefixedField(BdSailorConfig.SAILOR_BASE_GEO, massagedText, true);
+        double d2 = Double.NaN;
         if (matchSingleVCardPrefixedField7 == null) {
             parseDouble = Double.NaN;
-            parseDouble2 = Double.NaN;
         } else {
             int indexOf = matchSingleVCardPrefixedField7.indexOf(59);
             if (indexOf < 0) {
                 return null;
             }
             try {
-                parseDouble = Double.parseDouble(matchSingleVCardPrefixedField7.substring(0, indexOf));
-                parseDouble2 = Double.parseDouble(matchSingleVCardPrefixedField7.substring(indexOf + 1));
-            } catch (NumberFormatException e) {
+                d2 = Double.parseDouble(matchSingleVCardPrefixedField7.substring(0, indexOf));
+                parseDouble = Double.parseDouble(matchSingleVCardPrefixedField7.substring(indexOf + 1));
+            } catch (NumberFormatException | IllegalArgumentException unused) {
                 return null;
             }
         }
-        try {
-            return new CalendarParsedResult(matchSingleVCardPrefixedField, matchSingleVCardPrefixedField2, matchSingleVCardPrefixedField3, matchSingleVCardPrefixedField4, matchSingleVCardPrefixedField5, stripMailto, matchVCardPrefixedField, matchSingleVCardPrefixedField6, parseDouble, parseDouble2);
-        } catch (IllegalArgumentException e2) {
-            return null;
-        }
-    }
-
-    private static String matchSingleVCardPrefixedField(CharSequence charSequence, String str, boolean z) {
-        List<String> matchSingleVCardPrefixedField = VCardResultParser.matchSingleVCardPrefixedField(charSequence, str, z, false);
-        if (matchSingleVCardPrefixedField == null || matchSingleVCardPrefixedField.isEmpty()) {
-            return null;
-        }
-        return matchSingleVCardPrefixedField.get(0);
-    }
-
-    private static String[] matchVCardPrefixedField(CharSequence charSequence, String str, boolean z) {
-        List<List<String>> matchVCardPrefixedField = VCardResultParser.matchVCardPrefixedField(charSequence, str, z, false);
-        if (matchVCardPrefixedField == null || matchVCardPrefixedField.isEmpty()) {
-            return null;
-        }
-        int size = matchVCardPrefixedField.size();
-        String[] strArr = new String[size];
-        for (int i = 0; i < size; i++) {
-            strArr[i] = matchVCardPrefixedField.get(i).get(0);
-        }
-        return strArr;
-    }
-
-    private static String stripMailto(String str) {
-        if (str != null) {
-            if (str.startsWith(WebView.SCHEME_MAILTO) || str.startsWith("MAILTO:")) {
-                return str.substring(7);
-            }
-            return str;
-        }
-        return str;
+        return new CalendarParsedResult(matchSingleVCardPrefixedField, matchSingleVCardPrefixedField2, matchSingleVCardPrefixedField3, matchSingleVCardPrefixedField4, matchSingleVCardPrefixedField5, stripMailto, matchVCardPrefixedField, matchSingleVCardPrefixedField6, d2, parseDouble);
     }
 }

@@ -1,5 +1,5 @@
 package com.baidu.mapapi.search.poi;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class PoiCitySearchOption {
     public String mCity = null;
     public String mKeyword = null;

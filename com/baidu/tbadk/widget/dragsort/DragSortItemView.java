@@ -4,38 +4,37 @@ import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class DragSortItemView extends ViewGroup {
-    private int mGravity;
+
+    /* renamed from: e  reason: collision with root package name */
+    public int f14117e;
 
     public DragSortItemView(Context context) {
         super(context);
-        this.mGravity = 48;
+        this.f14117e = 48;
         setLayoutParams(new AbsListView.LayoutParams(-1, -2));
     }
 
-    public void setGravity(int i) {
-        this.mGravity = i;
-    }
-
     public int getGravity() {
-        return this.mGravity;
+        return this.f14117e;
     }
 
     @Override // android.view.ViewGroup, android.view.View
-    protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
+    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
         View childAt = getChildAt(0);
-        if (childAt != null) {
-            if (this.mGravity == 48) {
-                childAt.layout(0, 0, getMeasuredWidth(), childAt.getMeasuredHeight());
-            } else {
-                childAt.layout(0, getMeasuredHeight() - childAt.getMeasuredHeight(), getMeasuredWidth(), getMeasuredHeight());
-            }
+        if (childAt == null) {
+            return;
+        }
+        if (this.f14117e == 48) {
+            childAt.layout(0, 0, getMeasuredWidth(), childAt.getMeasuredHeight());
+        } else {
+            childAt.layout(0, getMeasuredHeight() - childAt.getMeasuredHeight(), getMeasuredWidth(), getMeasuredHeight());
         }
     }
 
     @Override // android.view.View
-    protected void onMeasure(int i, int i2) {
+    public void onMeasure(int i, int i2) {
         int size = View.MeasureSpec.getSize(i2);
         int size2 = View.MeasureSpec.getSize(i);
         int mode = View.MeasureSpec.getMode(i2);
@@ -47,14 +46,13 @@ public class DragSortItemView extends ViewGroup {
         if (childAt.isLayoutRequested()) {
             measureChild(childAt, i, View.MeasureSpec.makeMeasureSpec(0, 0));
         }
-        if (mode == 0) {
-            ViewGroup.LayoutParams layoutParams = getLayoutParams();
-            if (layoutParams.height > 0) {
-                size = layoutParams.height;
-            } else {
-                size = childAt.getMeasuredHeight();
-            }
+        if (mode == 0 && (size = getLayoutParams().height) <= 0) {
+            size = childAt.getMeasuredHeight();
         }
         setMeasuredDimension(size2, size);
+    }
+
+    public void setGravity(int i) {
+        this.f14117e = i;
     }
 }

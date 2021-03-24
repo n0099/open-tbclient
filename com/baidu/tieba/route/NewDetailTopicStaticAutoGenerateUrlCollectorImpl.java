@@ -1,29 +1,30 @@
 package com.baidu.tieba.route;
 
-import com.baidu.adp.framework.a.d;
+import com.baidu.adp.framework.cmdRouter.ICmdRouter;
+import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes7.dex */
-public final class NewDetailTopicStaticAutoGenerateUrlCollectorImpl implements d {
-    @Override // com.baidu.adp.framework.a.d
-    public Map<String, ArrayList<String>> getConfigRouterMap() {
-        HashMap hashMap = new HashMap();
-        ArrayList arrayList = new ArrayList();
-        arrayList.add("TopicDetailActivityConfig");
-        arrayList.add("http://tieba.baidu.com/mo/q/newtopic/detail");
-        arrayList.add("https://tieba.baidu.com/mo/q/newtopic/detail");
-        arrayList.add("com.baidu.tieba://deeplink?jump=new_hot_topic_list");
-        hashMap.put("com.baidu.tieba.newdetail.NewDetailTopicStatic", arrayList);
-        return hashMap;
-    }
-
-    @Override // com.baidu.adp.framework.a.d
+/* loaded from: classes5.dex */
+public final class NewDetailTopicStaticAutoGenerateUrlCollectorImpl implements ICmdRouter {
+    @Override // com.baidu.adp.framework.cmdRouter.ICmdRouter
     public Map<String, String> getCmdRouterMap() {
         HashMap hashMap = new HashMap();
         new ArrayList();
         hashMap.put("2002001", "com.baidu.tieba.newdetail.NewDetailTopicStatic");
         hashMap.put("3001000", "com.baidu.tieba.newdetail.NewDetailTopicStatic");
+        return hashMap;
+    }
+
+    @Override // com.baidu.adp.framework.cmdRouter.ICmdRouter
+    public Map<String, ArrayList<String>> getConfigRouterMap() {
+        HashMap hashMap = new HashMap();
+        ArrayList arrayList = new ArrayList();
+        arrayList.add("TopicDetailActivityConfig");
+        arrayList.add(UrlSchemaHelper.HTTP_JUMP_TOPIC_DETAIL);
+        arrayList.add(UrlSchemaHelper.HTTPS_JUMP_TOPIC_DETAIL);
+        arrayList.add(UrlSchemaHelper.SCHEMA_TYPE_DEEPLINK_TOPIC);
+        hashMap.put("com.baidu.tieba.newdetail.NewDetailTopicStatic", arrayList);
         return hashMap;
     }
 }

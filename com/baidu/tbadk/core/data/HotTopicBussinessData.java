@@ -2,9 +2,9 @@ package com.baidu.tbadk.core.data;
 
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import java.io.Serializable;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class HotTopicBussinessData extends OrmObject implements Serializable {
-    private static final long serialVersionUID = 1827556427330154557L;
+    public static final long serialVersionUID = 1827556427330154557L;
     public long mFollowNum;
     public String mForumAbstract;
     public String mForumAvatar;
@@ -38,6 +38,30 @@ public class HotTopicBussinessData extends OrmObject implements Serializable {
         this.mIsGlobalBlock = i;
     }
 
+    public String getForumAvatar() {
+        return this.mForumAvatar;
+    }
+
+    public long getForumId() {
+        return this.mForumId;
+    }
+
+    public String getForumName() {
+        return this.mForumName;
+    }
+
+    public void setForumAvatar(String str) {
+        this.mForumAvatar = str;
+    }
+
+    public void setForumId(long j) {
+        this.mForumId = j;
+    }
+
+    public void setForumName(String str) {
+        this.mForumName = str;
+    }
+
     public HotTopicBussinessData(long j, String str, String str2, int i) {
         this.mForumId = 0L;
         this.mForumName = null;
@@ -64,29 +88,5 @@ public class HotTopicBussinessData extends OrmObject implements Serializable {
         this.mFollowNum = 0L;
         this.mIsLiked = false;
         this.mIsGlobalBlock = 0;
-    }
-
-    public long getForumId() {
-        return this.mForumId;
-    }
-
-    public void setForumId(long j) {
-        this.mForumId = j;
-    }
-
-    public String getForumName() {
-        return this.mForumName;
-    }
-
-    public void setForumName(String str) {
-        this.mForumName = str;
-    }
-
-    public String getForumAvatar() {
-        return this.mForumAvatar;
-    }
-
-    public void setForumAvatar(String str) {
-        this.mForumAvatar = str;
     }
 }

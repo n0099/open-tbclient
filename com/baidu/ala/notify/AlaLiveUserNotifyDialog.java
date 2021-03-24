@@ -14,18 +14,19 @@ import android.widget.TextView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
-/* loaded from: classes9.dex */
+import com.google.protobuf.CodedInputStream;
+/* loaded from: classes2.dex */
 public class AlaLiveUserNotifyDialog extends Dialog {
-    private RelativeLayout alaNotifyContentPanel;
-    private TextView alaNotifyDescription;
-    private TextView btnKnow;
-    private ImageView ivHeadWrapper;
-    private View.OnClickListener mOnClickListener;
-    private View mRootView;
-    private AlaLiveUserNotifyData mUserNotifyData;
-    private View overUserPortraitBg;
-    private FrameLayout portraitLayout;
-    private HeadImageView userPortrait;
+    public RelativeLayout alaNotifyContentPanel;
+    public TextView alaNotifyDescription;
+    public TextView btnKnow;
+    public ImageView ivHeadWrapper;
+    public View.OnClickListener mOnClickListener;
+    public View mRootView;
+    public AlaLiveUserNotifyData mUserNotifyData;
+    public View overUserPortraitBg;
+    public FrameLayout portraitLayout;
+    public HeadImageView userPortrait;
 
     public AlaLiveUserNotifyDialog(Activity activity) {
         super(activity);
@@ -37,16 +38,10 @@ public class AlaLiveUserNotifyDialog extends Dialog {
         };
     }
 
-    @Override // android.app.Dialog
-    protected void onCreate(Bundle bundle) {
-        if (Build.VERSION.SDK_INT >= 19) {
-            getWindow().addFlags(67108864);
-            getWindow().addFlags(134217728);
-        }
-        super.onCreate(bundle);
-        getWindow().requestFeature(1);
-        initView();
-        initDialog();
+    private void bindDataToView() {
+        this.userPortrait.W(this.mUserNotifyData.getAnchorPortrait(), 12, false);
+        this.alaNotifyDescription.setText(this.mUserNotifyData.getMessageContent());
+        onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
     private void initDialog() {
@@ -58,8 +53,9 @@ public class AlaLiveUserNotifyDialog extends Dialog {
     }
 
     private void initView() {
-        this.mRootView = getLayoutInflater().inflate(R.layout.ala_notify_detail_layout, (ViewGroup) null);
-        setContentView(this.mRootView);
+        View inflate = getLayoutInflater().inflate(R.layout.ala_notify_detail_layout, (ViewGroup) null);
+        this.mRootView = inflate;
+        setContentView(inflate);
         this.alaNotifyContentPanel = (RelativeLayout) this.mRootView.findViewById(R.id.ala_notify_content_panel);
         this.alaNotifyDescription = (TextView) this.mRootView.findViewById(R.id.ala_notify_description);
         this.btnKnow = (TextView) this.mRootView.findViewById(R.id.btnKnow);
@@ -71,21 +67,6 @@ public class AlaLiveUserNotifyDialog extends Dialog {
         this.userPortrait.setIsRound(true);
         this.userPortrait.setScaleType(ImageView.ScaleType.CENTER_CROP);
         this.btnKnow.setOnClickListener(this.mOnClickListener);
-    }
-
-    public void show(AlaLiveUserNotifyData alaLiveUserNotifyData) {
-        if (alaLiveUserNotifyData != null) {
-            this.mUserNotifyData = alaLiveUserNotifyData;
-            setCanceledOnTouchOutside(false);
-            show();
-            bindDataToView();
-        }
-    }
-
-    private void bindDataToView() {
-        this.userPortrait.startLoad(this.mUserNotifyData.getAnchorPortrait(), 12, false);
-        this.alaNotifyDescription.setText(this.mUserNotifyData.getMessageContent());
-        onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
     public void onChangeSkinType(int i) {
@@ -102,5 +83,27 @@ public class AlaLiveUserNotifyDialog extends Dialog {
         this.btnKnow.setTextColor(getContext().getResources().getColor(R.color.CAM_X0302));
         this.portraitLayout.setBackgroundResource(R.drawable.white_oval_shape);
         this.overUserPortraitBg.setVisibility(8);
+    }
+
+    @Override // android.app.Dialog
+    public void onCreate(Bundle bundle) {
+        if (Build.VERSION.SDK_INT >= 19) {
+            getWindow().addFlags(CodedInputStream.DEFAULT_SIZE_LIMIT);
+            getWindow().addFlags(134217728);
+        }
+        super.onCreate(bundle);
+        getWindow().requestFeature(1);
+        initView();
+        initDialog();
+    }
+
+    public void show(AlaLiveUserNotifyData alaLiveUserNotifyData) {
+        if (alaLiveUserNotifyData == null) {
+            return;
+        }
+        this.mUserNotifyData = alaLiveUserNotifyData;
+        setCanceledOnTouchOutside(false);
+        show();
+        bindDataToView();
     }
 }

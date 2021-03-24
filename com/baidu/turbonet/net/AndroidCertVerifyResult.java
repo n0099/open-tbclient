@@ -10,42 +10,48 @@ import java.util.List;
 @JNINamespace
 /* loaded from: classes5.dex */
 public class AndroidCertVerifyResult {
-    private final List<X509Certificate> mCertificateChain;
-    private final boolean mIsIssuedByKnownRoot;
-    private final int mStatus;
+
+    /* renamed from: a  reason: collision with root package name */
+    public final int f22666a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public final boolean f22667b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public final List<X509Certificate> f22668c;
 
     public AndroidCertVerifyResult(int i, boolean z, List<X509Certificate> list) {
-        this.mStatus = i;
-        this.mIsIssuedByKnownRoot = z;
-        this.mCertificateChain = new ArrayList(list);
-    }
-
-    public AndroidCertVerifyResult(int i) {
-        this.mStatus = i;
-        this.mIsIssuedByKnownRoot = false;
-        this.mCertificateChain = Collections.emptyList();
-    }
-
-    @CalledByNative
-    public int getStatus() {
-        return this.mStatus;
-    }
-
-    @CalledByNative
-    public boolean isIssuedByKnownRoot() {
-        return this.mIsIssuedByKnownRoot;
+        this.f22666a = i;
+        this.f22667b = z;
+        this.f22668c = new ArrayList(list);
     }
 
     @CalledByNative
     public byte[][] getCertificateChainEncoded() {
-        byte[][] bArr = new byte[this.mCertificateChain.size()];
-        for (int i = 0; i < this.mCertificateChain.size(); i++) {
+        byte[][] bArr = new byte[this.f22668c.size()];
+        for (int i = 0; i < this.f22668c.size(); i++) {
             try {
-                bArr[i] = this.mCertificateChain.get(i).getEncoded();
-            } catch (CertificateEncodingException e) {
+                bArr[i] = this.f22668c.get(i).getEncoded();
+            } catch (CertificateEncodingException unused) {
                 return new byte[0];
             }
         }
         return bArr;
+    }
+
+    @CalledByNative
+    public int getStatus() {
+        return this.f22666a;
+    }
+
+    @CalledByNative
+    public boolean isIssuedByKnownRoot() {
+        return this.f22667b;
+    }
+
+    public AndroidCertVerifyResult(int i) {
+        this.f22666a = i;
+        this.f22667b = false;
+        this.f22668c = Collections.emptyList();
     }
 }

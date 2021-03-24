@@ -1,38 +1,32 @@
 package com.coremedia.iso.boxes;
 
-import com.baidu.live.adp.lib.util.FieldUtil;
 import com.coremedia.iso.IsoTypeReader;
 import com.coremedia.iso.IsoTypeWriter;
 import com.googlecode.mp4parser.AbstractBox;
 import com.googlecode.mp4parser.RequiresParseDetailAspect;
+import g.a.a.a;
+import g.a.b.b.b;
 import java.nio.ByteBuffer;
-import org.aspectj.a.b.b;
-import org.aspectj.lang.a;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class TrackReferenceTypeBox extends AbstractBox {
     public static final String TYPE1 = "hint";
     public static final String TYPE2 = "cdsc";
-    private static final /* synthetic */ a.InterfaceC1292a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC1292a ajc$tjp_1 = null;
-    private long[] trackIds;
+    public static final /* synthetic */ a.InterfaceC1858a ajc$tjp_0 = null;
+    public static final /* synthetic */ a.InterfaceC1858a ajc$tjp_1 = null;
+    public long[] trackIds;
 
     static {
         ajc$preClinit();
-    }
-
-    private static /* synthetic */ void ajc$preClinit() {
-        b bVar = new b("TrackReferenceTypeBox.java", TrackReferenceTypeBox.class);
-        ajc$tjp_0 = bVar.a("method-execution", bVar.d("1", "getTrackIds", "com.coremedia.iso.boxes.TrackReferenceTypeBox", "", "", "", "[J"), 40);
-        ajc$tjp_1 = bVar.a("method-execution", bVar.d("1", "toString", "com.coremedia.iso.boxes.TrackReferenceTypeBox", "", "", "", FieldUtil.TYPE_STRING), 65);
     }
 
     public TrackReferenceTypeBox(String str) {
         super(str);
     }
 
-    public long[] getTrackIds() {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_0, this, this));
-        return this.trackIds;
+    public static /* synthetic */ void ajc$preClinit() {
+        b bVar = new b("TrackReferenceTypeBox.java", TrackReferenceTypeBox.class);
+        ajc$tjp_0 = bVar.g("method-execution", bVar.f("1", "getTrackIds", "com.coremedia.iso.boxes.TrackReferenceTypeBox", "", "", "", "[J"), 40);
+        ajc$tjp_1 = bVar.g("method-execution", bVar.f("1", "toString", "com.coremedia.iso.boxes.TrackReferenceTypeBox", "", "", "", "java.lang.String"), 65);
     }
 
     @Override // com.googlecode.mp4parser.AbstractBox
@@ -45,21 +39,27 @@ public class TrackReferenceTypeBox extends AbstractBox {
     }
 
     @Override // com.googlecode.mp4parser.AbstractBox
-    protected void getContent(ByteBuffer byteBuffer) {
+    public void getContent(ByteBuffer byteBuffer) {
         for (long j : this.trackIds) {
             IsoTypeWriter.writeUInt32(byteBuffer, j);
         }
     }
 
     @Override // com.googlecode.mp4parser.AbstractBox
-    protected long getContentSize() {
+    public long getContentSize() {
         return this.trackIds.length * 4;
     }
 
+    public long[] getTrackIds() {
+        RequiresParseDetailAspect.aspectOf().before(b.c(ajc$tjp_0, this, this));
+        return this.trackIds;
+    }
+
     public String toString() {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this));
+        RequiresParseDetailAspect.aspectOf().before(b.c(ajc$tjp_1, this, this));
         StringBuilder sb = new StringBuilder();
-        sb.append("TrackReferenceTypeBox[type=").append(getType());
+        sb.append("TrackReferenceTypeBox[type=");
+        sb.append(getType());
         for (int i = 0; i < this.trackIds.length; i++) {
             sb.append(";trackId");
             sb.append(i);

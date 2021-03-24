@@ -2,8 +2,8 @@ package com.xiaomi.clientreport.data;
 
 import android.content.Context;
 import android.text.TextUtils;
-import com.xiaomi.push.bj;
-/* loaded from: classes5.dex */
+import com.xiaomi.push.bq;
+/* loaded from: classes7.dex */
 public class Config {
     public static final boolean DEFAULT_EVENT_ENCRYPTED = true;
     public static final long DEFAULT_EVENT_UPLOAD_FREQUENCY = 86400;
@@ -11,23 +11,23 @@ public class Config {
     public static final long DEFAULT_MAX_FILE_LENGTH = 1048576;
     public static final long DEFAULT_PERF_UPLOAD_FREQUENCY = 86400;
     public static final boolean DEFAULT_PERF_UPLOAD_SWITCH_OPEN = false;
-    private String mAESKey;
-    private boolean mEventEncrypted;
-    private long mEventUploadFrequency;
-    private boolean mEventUploadSwitchOpen;
-    private long mMaxFileLength;
-    private long mPerfUploadFrequency;
-    private boolean mPerfUploadSwitchOpen;
+    public String mAESKey;
+    public boolean mEventEncrypted;
+    public long mEventUploadFrequency;
+    public boolean mEventUploadSwitchOpen;
+    public long mMaxFileLength;
+    public long mPerfUploadFrequency;
+    public boolean mPerfUploadSwitchOpen;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class Builder {
-        private int mEventEncrypted = -1;
-        private int mEventUploadSwitchOpen = -1;
-        private int mPerfUploadSwitchOpen = -1;
-        private String mAESKey = null;
-        private long mMaxFileLength = -1;
-        private long mEventUploadFrequency = -1;
-        private long mPerfUploadFrequency = -1;
+        public int mEventEncrypted = -1;
+        public int mEventUploadSwitchOpen = -1;
+        public int mPerfUploadSwitchOpen = -1;
+        public String mAESKey = null;
+        public long mMaxFileLength = -1;
+        public long mEventUploadFrequency = -1;
+        public long mPerfUploadFrequency = -1;
 
         public Config build(Context context) {
             return new Config(context, this);
@@ -69,7 +69,7 @@ public class Config {
         }
     }
 
-    private Config() {
+    public Config() {
         this.mEventEncrypted = true;
         this.mEventUploadSwitchOpen = false;
         this.mPerfUploadSwitchOpen = false;
@@ -78,7 +78,7 @@ public class Config {
         this.mPerfUploadFrequency = 86400L;
     }
 
-    private Config(Context context, Builder builder) {
+    public Config(Context context, Builder builder) {
         this.mEventEncrypted = true;
         this.mEventUploadSwitchOpen = false;
         this.mPerfUploadSwitchOpen = false;
@@ -87,21 +87,12 @@ public class Config {
         this.mPerfUploadFrequency = 86400L;
         if (builder.mEventEncrypted == 0) {
             this.mEventEncrypted = false;
-        } else if (builder.mEventEncrypted == 1) {
+        } else {
+            int unused = builder.mEventEncrypted;
             this.mEventEncrypted = true;
-        } else {
-            this.mEventEncrypted = true;
         }
-        if (TextUtils.isEmpty(builder.mAESKey)) {
-            this.mAESKey = bj.a(context);
-        } else {
-            this.mAESKey = builder.mAESKey;
-        }
-        if (builder.mMaxFileLength > -1) {
-            this.mMaxFileLength = builder.mMaxFileLength;
-        } else {
-            this.mMaxFileLength = 1048576L;
-        }
+        this.mAESKey = !TextUtils.isEmpty(builder.mAESKey) ? builder.mAESKey : bq.a(context);
+        this.mMaxFileLength = builder.mMaxFileLength > -1 ? builder.mMaxFileLength : 1048576L;
         if (builder.mEventUploadFrequency > -1) {
             this.mEventUploadFrequency = builder.mEventUploadFrequency;
         } else {
@@ -112,16 +103,12 @@ public class Config {
         } else {
             this.mPerfUploadFrequency = 86400L;
         }
-        if (builder.mEventUploadSwitchOpen == 0) {
-            this.mEventUploadSwitchOpen = false;
-        } else if (builder.mEventUploadSwitchOpen == 1) {
+        if (builder.mEventUploadSwitchOpen != 0 && builder.mEventUploadSwitchOpen == 1) {
             this.mEventUploadSwitchOpen = true;
         } else {
             this.mEventUploadSwitchOpen = false;
         }
-        if (builder.mPerfUploadSwitchOpen == 0) {
-            this.mPerfUploadSwitchOpen = false;
-        } else if (builder.mPerfUploadSwitchOpen == 1) {
+        if (builder.mPerfUploadSwitchOpen != 0 && builder.mPerfUploadSwitchOpen == 1) {
             this.mPerfUploadSwitchOpen = true;
         } else {
             this.mPerfUploadSwitchOpen = false;
@@ -129,7 +116,7 @@ public class Config {
     }
 
     public static Config defaultConfig(Context context) {
-        return getBuilder().setEventEncrypted(true).setAESKey(bj.a(context)).setMaxFileLength(1048576L).setEventUploadSwitchOpen(false).setEventUploadFrequency(86400L).setPerfUploadSwitchOpen(false).setPerfUploadFrequency(86400L).build(context);
+        return getBuilder().setEventEncrypted(true).setAESKey(bq.a(context)).setMaxFileLength(1048576L).setEventUploadSwitchOpen(false).setEventUploadFrequency(86400L).setPerfUploadSwitchOpen(false).setPerfUploadFrequency(86400L).build(context);
     }
 
     public static Builder getBuilder() {

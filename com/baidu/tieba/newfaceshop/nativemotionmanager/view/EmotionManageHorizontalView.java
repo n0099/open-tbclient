@@ -14,303 +14,239 @@ import android.widget.TextView;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.l;
-import com.baidu.adp.lib.voice.h;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.EmotionPackageDetailActivityConfig;
-import com.baidu.tbadk.core.dialog.a;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.bh;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
-import com.baidu.tbadk.core.util.y;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.faceshop.EmotionPackageData;
 import com.baidu.tieba.horizonalList.widget.AdapterView;
 import com.baidu.tieba.horizonalList.widget.HListView;
 import com.baidu.tieba.newfaceshop.NewFaceGroupDownloadModel;
+import com.kwad.sdk.core.imageloader.utils.StorageUtils;
+import d.b.b.e.p.l;
+import d.b.b.e.q.h;
+import d.b.h0.r.s.a;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes4.dex */
 public class EmotionManageHorizontalView extends LinearLayout implements View.OnClickListener {
-    private View hjV;
-    private NewFaceGroupDownloadModel iWa;
-    private HListView jaZ;
-    private EmotionPackageData jae;
-    private View lFR;
-    private TextView lFS;
-    private View lFT;
-    private TextView lFU;
-    private ImageView lFV;
-    private View lFW;
-    private a lFX;
-    private TbPageContext mPageContext;
-    private PermissionJudgePolicy mPermissionJudgement;
-    private TextView mTitle;
-    private ViewGroup rootView;
 
-    public EmotionManageHorizontalView(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity());
-        this.mPageContext = tbPageContext;
-        initView();
-    }
+    /* renamed from: e  reason: collision with root package name */
+    public HListView f19313e;
 
-    private void initView() {
-        this.rootView = (ViewGroup) LayoutInflater.from(getContext()).inflate(R.layout.emotion_manage_grid_item_layout, this);
-        this.jaZ = (HListView) this.rootView.findViewById(R.id.emotion_manage_item_grid);
-        this.hjV = this.rootView.findViewById(R.id.emotion_manage_item_line);
-        this.mTitle = (TextView) this.rootView.findViewById(R.id.emotion_manage_title);
-        this.lFR = this.rootView.findViewById(R.id.emotion_manage_item_undownload_header);
-        this.lFR.setVisibility(8);
-        this.lFS = (TextView) this.rootView.findViewById(R.id.emotion_manage_undownload_total_title);
-        this.lFT = this.rootView.findViewById(R.id.emotion_manage_item_grid_cover);
-        this.lFT.setVisibility(8);
-        this.lFU = (TextView) this.rootView.findViewById(R.id.emotion_manage_download);
-        this.lFU.setVisibility(8);
-        this.lFU.setOnClickListener(this);
-        this.lFV = (ImageView) this.rootView.findViewById(R.id.emotion_manage_del);
-        this.lFV.setVisibility(8);
-        this.lFV.setOnClickListener(this);
-        this.lFW = this.rootView.findViewById(R.id.emotion_manage_del_container);
-        this.lFW.setOnClickListener(this);
-        setOnClickListener(this);
-        this.jaZ.setDividerWidth(getContext().getResources().getDimensionPixelSize(R.dimen.ds20));
-        this.jaZ.setOnItemClickListener(new AdapterView.c() { // from class: com.baidu.tieba.newfaceshop.nativemotionmanager.view.EmotionManageHorizontalView.1
-            @Override // com.baidu.tieba.horizonalList.widget.AdapterView.c
-            public void a(AdapterView<?> adapterView, View view, int i, long j) {
-                if (EmotionManageHorizontalView.this.jae != null) {
-                    EmotionManageHorizontalView.this.mPageContext.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new EmotionPackageDetailActivityConfig(EmotionManageHorizontalView.this.mPageContext.getPageActivity(), EmotionManageHorizontalView.this.jae.id, 0)));
-                }
-            }
-        });
-        this.jaZ.setSelector(this.mPageContext.getResources().getDrawable(R.drawable.transparent_bg));
-        this.lFX = new a(this.mPageContext);
-        this.jaZ.setAdapter((ListAdapter) this.lFX);
-        onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-    }
+    /* renamed from: f  reason: collision with root package name */
+    public TextView f19314f;
 
-    public HListView getListView() {
-        return this.jaZ;
-    }
+    /* renamed from: g  reason: collision with root package name */
+    public View f19315g;
 
-    public void onChangeSkinType(int i) {
-        if (this.rootView != null) {
-            ap.setBackgroundColor(this.rootView, R.color.CAM_X0201, i);
-        }
-        if (this.hjV != null) {
-            ap.setBackgroundColor(this.hjV, R.color.CAM_X0204, i);
-        }
-        if (this.lFR != null) {
-            ap.setBackgroundColor(this.lFR, R.color.CAM_X0204, i);
-        }
-        if (this.mTitle != null) {
-            ap.setViewTextColor(this.mTitle, R.color.CAM_X0105, i);
-        }
-        if (this.lFS != null) {
-            ap.setViewTextColor(this.lFS, R.color.CAM_X0107, i);
-        }
-        if (this.lFU != null) {
-            ap.setViewTextColor(this.lFU, R.color.CAM_X0302, i);
-            ap.setBackgroundResource(this.lFU, R.drawable.bg_emotion_download, i);
-        }
-        if (this.lFV != null) {
-            ap.setImageResource(this.lFV, R.drawable.emotion_manage_del_selector, i);
-        }
-        if (this.lFT != null) {
-            ap.setViewTextColor(this.lFT, R.color.white_alpha70, i);
-        }
-    }
+    /* renamed from: h  reason: collision with root package name */
+    public TextView f19316h;
+    public View i;
+    public ViewGroup j;
+    public TextView k;
+    public ImageView l;
+    public View m;
+    public View n;
+    public f o;
+    public EmotionPackageData p;
+    public TbPageContext q;
+    public NewFaceGroupDownloadModel r;
+    public PermissionJudgePolicy s;
 
-    private void a(EmotionPackageData emotionPackageData, int i) {
-        if (emotionPackageData != null) {
-            if (emotionPackageData.isUndownloadheader) {
-                this.lFR.setVisibility(0);
-                this.lFS.setText(String.format(h.getString(R.string.emotion_manage_net_number), Integer.valueOf(i)));
-            } else {
-                this.lFR.setVisibility(8);
-            }
-            djw();
+    /* loaded from: classes4.dex */
+    public class a implements AdapterView.d {
+        public a() {
         }
-    }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void djv() {
-        if (this.lFU != null) {
-            this.lFU.setText(R.string.emotion_single_thread_downloaded);
-            ap.setViewTextColor(this.lFU, R.color.CAM_X0109);
-            this.lFU.setBackgroundDrawable(null);
-            this.lFU.setEnabled(false);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void djw() {
-        if (this.lFU != null) {
-            this.lFU.setText(R.string.emotion_manage_download);
-            ap.setViewTextColor(this.lFU, R.color.CAM_X0302);
-            ap.setBackgroundResource(this.lFU, R.drawable.bg_emotion_download);
-            this.lFU.setEnabled(true);
-        }
-    }
-
-    public void setData(EmotionPackageData emotionPackageData, int i) {
-        this.jae = emotionPackageData;
-        if (this.jae != null) {
-            this.lFX.setData(this.jae.pics, emotionPackageData.typeofemotion);
-            this.mTitle.setText(this.jae.name);
-            if (emotionPackageData.ishasdownload) {
-                this.lFT.setVisibility(8);
-                this.lFU.setVisibility(8);
-                if (com.baidu.tieba.newfaceshop.nativemotionmanager.a.djh().bLg()) {
-                    this.lFV.setVisibility(0);
-                } else {
-                    this.lFV.setVisibility(8);
-                }
-            } else {
-                this.lFV.setVisibility(8);
-                this.lFU.setVisibility(0);
-                this.lFT.setVisibility(0);
-            }
-            a(emotionPackageData, i);
-        }
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        if (this.jae != null) {
-            if (view.getId() == R.id.emotion_manage_download && view.isShown()) {
-                cyO();
-            } else if ((view.getId() == R.id.emotion_manage_del_container || view.getId() == R.id.emotion_manage_del) && this.lFV.isShown()) {
-                if (this.jae != null) {
-                    showDialog(this.jae.id);
-                }
-            } else {
-                djx();
-            }
-        }
-    }
-
-    private void showDialog(final int i) {
-        if (this.mPageContext != null) {
-            String string = h.getString(R.string.emotion_manage_dialog_title);
-            String string2 = h.getString(R.string.emotion_manage_dialog_ok);
-            String string3 = h.getString(R.string.emotion_manage_dialog_cancel);
-            com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.mPageContext.getPageActivity());
-            aVar.AB(string);
-            aVar.a(string2, new a.b() { // from class: com.baidu.tieba.newfaceshop.nativemotionmanager.view.EmotionManageHorizontalView.2
-                @Override // com.baidu.tbadk.core.dialog.a.b
-                public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
-                    aVar2.dismiss();
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_DEL_MY_EMOTION_PACKAGE, Integer.valueOf(i)));
-                }
-            });
-            aVar.b(string3, new a.b() { // from class: com.baidu.tieba.newfaceshop.nativemotionmanager.view.EmotionManageHorizontalView.3
-                @Override // com.baidu.tbadk.core.dialog.a.b
-                public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
-                    aVar2.dismiss();
-                }
-            });
-            aVar.d(new DialogInterface.OnCancelListener() { // from class: com.baidu.tieba.newfaceshop.nativemotionmanager.view.EmotionManageHorizontalView.4
-                @Override // android.content.DialogInterface.OnCancelListener
-                public void onCancel(DialogInterface dialogInterface) {
-                }
-            });
-            aVar.b(this.mPageContext).bqz();
-        }
-    }
-
-    private void djx() {
-        this.mPageContext.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new EmotionPackageDetailActivityConfig(this.mPageContext.getPageActivity(), this.jae.id, 0)));
-    }
-
-    private void cyO() {
-        if (bh.checkUpIsLogin(this.mPageContext.getPageActivity())) {
-            if (com.baidu.tieba.newfaceshop.d.diF().diI()) {
-                l.showToast(this.mPageContext.getPageActivity(), R.string.face_group_is_syncing);
+        @Override // com.baidu.tieba.horizonalList.widget.AdapterView.d
+        public void a(AdapterView<?> adapterView, View view, int i, long j) {
+            if (EmotionManageHorizontalView.this.p == null) {
                 return;
             }
-            Activity pageActivity = this.mPageContext.getPageActivity();
-            if (this.mPermissionJudgement == null) {
-                this.mPermissionJudgement = new PermissionJudgePolicy();
-            }
-            this.mPermissionJudgement.clearRequestPermissionList();
-            this.mPermissionJudgement.appendRequestPermission(pageActivity, "android.permission.WRITE_EXTERNAL_STORAGE");
-            if (!this.mPermissionJudgement.startRequestPermission(pageActivity) && this.jae != null && this.jae.id >= 0) {
-                if (this.iWa == null) {
-                    this.iWa = new NewFaceGroupDownloadModel();
-                }
-                this.lFU.setEnabled(false);
-                this.iWa.a(Integer.toString(this.jae.id), true, new com.baidu.tieba.newfaceshop.a.b() { // from class: com.baidu.tieba.newfaceshop.nativemotionmanager.view.EmotionManageHorizontalView.5
-                    @Override // com.baidu.tieba.newfaceshop.a.b
-                    public void onSuccess(String str) {
-                        l.showToast(EmotionManageHorizontalView.this.mPageContext.getPageActivity(), R.string.down_state_success);
-                        EmotionManageHorizontalView.this.djv();
-                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_REFRESH_MY_EMOTION_PACKAGE));
-                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_REFRESH_SINGLE_THREAD_EMOTION_PACKAGE));
-                    }
-
-                    @Override // com.baidu.tieba.newfaceshop.a.b
-                    public void onProgress(int i) {
-                        if (i > 0 && i < 100) {
-                            l.showLongToast(EmotionManageHorizontalView.this.mPageContext.getPageActivity(), h.getString(R.string.package_downloading_progress));
-                        } else if (i >= 100) {
-                            l.showLongToast(EmotionManageHorizontalView.this.mPageContext.getPageActivity(), R.string.down_state_success);
-                        }
-                    }
-
-                    @Override // com.baidu.tieba.newfaceshop.a.b
-                    public void onFail(String str) {
-                        l.showToast(EmotionManageHorizontalView.this.mPageContext.getPageActivity(), R.string.download_error);
-                        EmotionManageHorizontalView.this.djw();
-                    }
-                });
-            }
+            EmotionManageHorizontalView.this.q.sendMessage(new CustomMessage(2002001, new EmotionPackageDetailActivityConfig(EmotionManageHorizontalView.this.q.getPageActivity(), EmotionManageHorizontalView.this.p.id, 0)));
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes8.dex */
-    public static class a extends BaseAdapter {
-        private TbPageContext eWx;
-        private List<EmotionPackageData.SingleEmotionData> mDatas = new ArrayList();
-        private int lFZ = 0;
-        private boolean showCover = false;
+    /* loaded from: classes4.dex */
+    public class b implements a.e {
 
-        public a(TbPageContext tbPageContext) {
-            this.eWx = tbPageContext;
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ int f19318e;
+
+        public b(int i) {
+            this.f19318e = i;
         }
 
-        public void setData(List<EmotionPackageData.SingleEmotionData> list, int i) {
-            if (!y.isEmpty(list)) {
-                this.lFZ = i;
-                this.mDatas.clear();
-                if (list.size() > 8) {
-                    this.mDatas.addAll(list.subList(0, 8));
-                    this.showCover = true;
-                } else {
-                    this.mDatas.addAll(list);
-                    this.showCover = false;
-                }
-                notifyDataSetChanged();
+        @Override // d.b.h0.r.s.a.e
+        public void onClick(d.b.h0.r.s.a aVar) {
+            aVar.dismiss();
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921311, Integer.valueOf(this.f19318e)));
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class c implements a.e {
+        public c() {
+        }
+
+        @Override // d.b.h0.r.s.a.e
+        public void onClick(d.b.h0.r.s.a aVar) {
+            aVar.dismiss();
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class d implements DialogInterface.OnCancelListener {
+        public d() {
+        }
+
+        @Override // android.content.DialogInterface.OnCancelListener
+        public void onCancel(DialogInterface dialogInterface) {
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class e implements d.b.i0.x1.e.b {
+        public e() {
+        }
+
+        @Override // d.b.i0.x1.e.b
+        public void onFail(String str) {
+            l.K(EmotionManageHorizontalView.this.q.getPageActivity(), R.string.download_error);
+            EmotionManageHorizontalView.this.m();
+        }
+
+        @Override // d.b.i0.x1.e.b
+        public void onProgress(int i) {
+            if (i > 0 && i < 100) {
+                l.I(EmotionManageHorizontalView.this.q.getPageActivity(), h.a(R.string.package_downloading_progress));
+            } else if (i >= 100) {
+                l.H(EmotionManageHorizontalView.this.q.getPageActivity(), R.string.down_state_success);
             }
+        }
+
+        @Override // d.b.i0.x1.e.b
+        public void onSuccess(String str) {
+            l.K(EmotionManageHorizontalView.this.q.getPageActivity(), R.string.down_state_success);
+            EmotionManageHorizontalView.this.l();
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921054));
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921314));
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public static class f extends BaseAdapter {
+
+        /* renamed from: f  reason: collision with root package name */
+        public TbPageContext f19324f;
+
+        /* renamed from: e  reason: collision with root package name */
+        public List<EmotionPackageData.SingleEmotionData> f19323e = new ArrayList();
+
+        /* renamed from: g  reason: collision with root package name */
+        public int f19325g = 0;
+
+        /* renamed from: h  reason: collision with root package name */
+        public boolean f19326h = false;
+
+        /* loaded from: classes4.dex */
+        public static class a {
+
+            /* renamed from: a  reason: collision with root package name */
+            public View f19327a;
+
+            /* renamed from: b  reason: collision with root package name */
+            public TbImageView f19328b;
+
+            /* renamed from: c  reason: collision with root package name */
+            public TextView f19329c;
+
+            /* renamed from: d  reason: collision with root package name */
+            public View f19330d;
+
+            public a(View view) {
+                this.f19327a = view;
+                view.setEnabled(false);
+                this.f19328b = (TbImageView) this.f19327a.findViewById(R.id.emotion_img);
+                this.f19329c = (TextView) this.f19327a.findViewById(R.id.emotion_single_bar_icon);
+                View findViewById = this.f19327a.findViewById(R.id.emotion_cover_view);
+                this.f19330d = findViewById;
+                findViewById.setVisibility(8);
+            }
+
+            public void a(EmotionPackageData.SingleEmotionData singleEmotionData, int i, boolean z, int i2) {
+                if (singleEmotionData == null) {
+                    return;
+                }
+                if (!TextUtils.isEmpty(singleEmotionData.thumbnail)) {
+                    this.f19328b.setDefaultResource(R.drawable.img_default_100);
+                    this.f19328b.W(singleEmotionData.thumbnail, 10, false);
+                }
+                if (i2 == 0) {
+                    if (i == 0) {
+                        this.f19329c.setVisibility(8);
+                    }
+                    if (i == 1) {
+                        this.f19329c.setVisibility(0);
+                        SkinManager.setBackgroundResource(this.f19329c, R.drawable.emotion_pic_mine);
+                    }
+                    if (i == 2) {
+                        this.f19329c.setVisibility(0);
+                        SkinManager.setBackgroundResource(this.f19329c, R.drawable.emotion_pic_single_bar);
+                    }
+                } else {
+                    this.f19329c.setVisibility(8);
+                }
+                if (i2 == 7 && z) {
+                    this.f19330d.setVisibility(0);
+                } else {
+                    this.f19330d.setVisibility(8);
+                }
+            }
+        }
+
+        public f(TbPageContext tbPageContext) {
+            this.f19324f = tbPageContext;
+        }
+
+        public void a(List<EmotionPackageData.SingleEmotionData> list, int i) {
+            if (ListUtils.isEmpty(list)) {
+                return;
+            }
+            this.f19325g = i;
+            this.f19323e.clear();
+            if (list.size() > 8) {
+                this.f19323e.addAll(list.subList(0, 8));
+                this.f19326h = true;
+            } else {
+                this.f19323e.addAll(list);
+                this.f19326h = false;
+            }
+            notifyDataSetChanged();
         }
 
         @Override // android.widget.Adapter
         public int getCount() {
-            if (this.mDatas == null) {
+            List<EmotionPackageData.SingleEmotionData> list = this.f19323e;
+            if (list == null) {
                 return 0;
             }
-            return this.mDatas.size();
+            return list.size();
         }
 
         @Override // android.widget.Adapter
         public Object getItem(int i) {
-            if (this.mDatas == null) {
+            List<EmotionPackageData.SingleEmotionData> list = this.f19323e;
+            if (list == null) {
                 return null;
             }
-            return this.mDatas.get(i);
+            return list.get(i);
         }
 
         @Override // android.widget.Adapter
@@ -320,64 +256,214 @@ public class EmotionManageHorizontalView extends LinearLayout implements View.On
 
         @Override // android.widget.Adapter
         public View getView(int i, View view, ViewGroup viewGroup) {
-            C0822a c0822a;
+            a aVar;
             if (view == null) {
-                view = LayoutInflater.from(this.eWx.getPageActivity()).inflate(R.layout.emotion_item_layout, (ViewGroup) null);
-                C0822a c0822a2 = new C0822a(view);
-                view.setTag(c0822a2);
-                c0822a = c0822a2;
+                view = LayoutInflater.from(this.f19324f.getPageActivity()).inflate(R.layout.emotion_item_layout, (ViewGroup) null);
+                aVar = new a(view);
+                view.setTag(aVar);
             } else {
-                c0822a = (C0822a) view.getTag();
+                aVar = (a) view.getTag();
             }
-            c0822a.a(this.mDatas.get(i), this.lFZ, this.showCover, i);
+            aVar.a(this.f19323e.get(i), this.f19325g, this.f19326h, i);
             return view;
         }
+    }
 
-        /* renamed from: com.baidu.tieba.newfaceshop.nativemotionmanager.view.EmotionManageHorizontalView$a$a  reason: collision with other inner class name */
-        /* loaded from: classes8.dex */
-        static class C0822a {
-            private TextView akX;
-            private TbImageView jbe;
-            private View jbf;
-            private View mView;
+    public EmotionManageHorizontalView(TbPageContext tbPageContext) {
+        super(tbPageContext.getPageActivity());
+        this.q = tbPageContext;
+        i();
+    }
 
-            public C0822a(View view) {
-                this.mView = view;
-                this.mView.setEnabled(false);
-                this.jbe = (TbImageView) this.mView.findViewById(R.id.emotion_img);
-                this.akX = (TextView) this.mView.findViewById(R.id.emotion_single_bar_icon);
-                this.jbf = this.mView.findViewById(R.id.emotion_cover_view);
-                this.jbf.setVisibility(8);
-            }
-
-            public void a(EmotionPackageData.SingleEmotionData singleEmotionData, int i, boolean z, int i2) {
-                if (singleEmotionData != null) {
-                    if (!TextUtils.isEmpty(singleEmotionData.thumbnail)) {
-                        this.jbe.setDefaultResource(R.drawable.img_default_100);
-                        this.jbe.startLoad(singleEmotionData.thumbnail, 10, false);
-                    }
-                    if (i2 == 0) {
-                        if (i == 0) {
-                            this.akX.setVisibility(8);
-                        }
-                        if (i == 1) {
-                            this.akX.setVisibility(0);
-                            ap.setBackgroundResource(this.akX, R.drawable.emotion_pic_mine);
-                        }
-                        if (i == 2) {
-                            this.akX.setVisibility(0);
-                            ap.setBackgroundResource(this.akX, R.drawable.emotion_pic_single_bar);
-                        }
-                    } else {
-                        this.akX.setVisibility(8);
-                    }
-                    if (i2 == 7 && z) {
-                        this.jbf.setVisibility(0);
-                    } else {
-                        this.jbf.setVisibility(8);
-                    }
-                }
-            }
+    public final void e(EmotionPackageData emotionPackageData, int i) {
+        if (emotionPackageData == null) {
+            return;
         }
+        if (emotionPackageData.isUndownloadheader) {
+            this.f19315g.setVisibility(0);
+            this.f19316h.setText(String.format(h.a(R.string.emotion_manage_net_number), Integer.valueOf(i)));
+        } else {
+            this.f19315g.setVisibility(8);
+        }
+        m();
+    }
+
+    public final void f() {
+        this.q.sendMessage(new CustomMessage(2002001, new EmotionPackageDetailActivityConfig(this.q.getPageActivity(), this.p.id, 0)));
+    }
+
+    public HListView getListView() {
+        return this.f19313e;
+    }
+
+    public final void h() {
+        EmotionPackageData emotionPackageData;
+        if (ViewHelper.checkUpIsLogin(this.q.getPageActivity())) {
+            if (d.b.i0.x1.d.m().o()) {
+                l.K(this.q.getPageActivity(), R.string.face_group_is_syncing);
+                return;
+            }
+            Activity pageActivity = this.q.getPageActivity();
+            if (this.s == null) {
+                this.s = new PermissionJudgePolicy();
+            }
+            this.s.clearRequestPermissionList();
+            this.s.appendRequestPermission(pageActivity, StorageUtils.EXTERNAL_STORAGE_PERMISSION);
+            if (this.s.startRequestPermission(pageActivity) || (emotionPackageData = this.p) == null || emotionPackageData.id < 0) {
+                return;
+            }
+            if (this.r == null) {
+                this.r = new NewFaceGroupDownloadModel();
+            }
+            this.k.setEnabled(false);
+            this.r.s(Integer.toString(this.p.id), Boolean.TRUE, new e());
+        }
+    }
+
+    public final void i() {
+        ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(getContext()).inflate(R.layout.emotion_manage_grid_item_layout, this);
+        this.j = viewGroup;
+        this.f19313e = (HListView) viewGroup.findViewById(R.id.emotion_manage_item_grid);
+        this.m = this.j.findViewById(R.id.emotion_manage_item_line);
+        this.f19314f = (TextView) this.j.findViewById(R.id.emotion_manage_title);
+        View findViewById = this.j.findViewById(R.id.emotion_manage_item_undownload_header);
+        this.f19315g = findViewById;
+        findViewById.setVisibility(8);
+        this.f19316h = (TextView) this.j.findViewById(R.id.emotion_manage_undownload_total_title);
+        View findViewById2 = this.j.findViewById(R.id.emotion_manage_item_grid_cover);
+        this.i = findViewById2;
+        findViewById2.setVisibility(8);
+        TextView textView = (TextView) this.j.findViewById(R.id.emotion_manage_download);
+        this.k = textView;
+        textView.setVisibility(8);
+        this.k.setOnClickListener(this);
+        ImageView imageView = (ImageView) this.j.findViewById(R.id.emotion_manage_del);
+        this.l = imageView;
+        imageView.setVisibility(8);
+        this.l.setOnClickListener(this);
+        View findViewById3 = this.j.findViewById(R.id.emotion_manage_del_container);
+        this.n = findViewById3;
+        findViewById3.setOnClickListener(this);
+        setOnClickListener(this);
+        this.f19313e.setDividerWidth(getContext().getResources().getDimensionPixelSize(R.dimen.ds20));
+        this.f19313e.setOnItemClickListener(new a());
+        this.f19313e.setSelector(this.q.getResources().getDrawable(R.drawable.transparent_bg));
+        f fVar = new f(this.q);
+        this.o = fVar;
+        this.f19313e.setAdapter((ListAdapter) fVar);
+        j(TbadkCoreApplication.getInst().getSkinType());
+    }
+
+    public void j(int i) {
+        ViewGroup viewGroup = this.j;
+        if (viewGroup != null) {
+            SkinManager.setBackgroundColor(viewGroup, R.color.CAM_X0201, i);
+        }
+        View view = this.m;
+        if (view != null) {
+            SkinManager.setBackgroundColor(view, R.color.CAM_X0204, i);
+        }
+        View view2 = this.f19315g;
+        if (view2 != null) {
+            SkinManager.setBackgroundColor(view2, R.color.CAM_X0204, i);
+        }
+        TextView textView = this.f19314f;
+        if (textView != null) {
+            SkinManager.setViewTextColor(textView, R.color.CAM_X0105, i);
+        }
+        TextView textView2 = this.f19316h;
+        if (textView2 != null) {
+            SkinManager.setViewTextColor(textView2, R.color.CAM_X0107, i);
+        }
+        TextView textView3 = this.k;
+        if (textView3 != null) {
+            SkinManager.setViewTextColor(textView3, R.color.CAM_X0302, i);
+            SkinManager.setBackgroundResource(this.k, R.drawable.bg_emotion_download, i);
+        }
+        ImageView imageView = this.l;
+        if (imageView != null) {
+            SkinManager.setImageResource(imageView, R.drawable.emotion_manage_del_selector, i);
+        }
+        View view3 = this.i;
+        if (view3 != null) {
+            SkinManager.setViewTextColor(view3, R.color.white_alpha70, i);
+        }
+    }
+
+    public final void k(int i) {
+        if (this.q == null) {
+            return;
+        }
+        String a2 = h.a(R.string.emotion_manage_dialog_title);
+        String a3 = h.a(R.string.emotion_manage_dialog_ok);
+        String a4 = h.a(R.string.emotion_manage_dialog_cancel);
+        d.b.h0.r.s.a aVar = new d.b.h0.r.s.a(this.q.getPageActivity());
+        aVar.setMessage(a2);
+        aVar.setPositiveButton(a3, new b(i));
+        aVar.setNegativeButton(a4, new c());
+        aVar.setOnCalcelListener(new d());
+        aVar.create(this.q).show();
+    }
+
+    public final void l() {
+        TextView textView = this.k;
+        if (textView == null) {
+            return;
+        }
+        textView.setText(R.string.emotion_single_thread_downloaded);
+        SkinManager.setViewTextColor(this.k, R.color.CAM_X0109);
+        this.k.setBackgroundDrawable(null);
+        this.k.setEnabled(false);
+    }
+
+    public final void m() {
+        TextView textView = this.k;
+        if (textView == null) {
+            return;
+        }
+        textView.setText(R.string.emotion_manage_download);
+        SkinManager.setViewTextColor(this.k, R.color.CAM_X0302);
+        SkinManager.setBackgroundResource(this.k, R.drawable.bg_emotion_download);
+        this.k.setEnabled(true);
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        if (this.p == null) {
+            return;
+        }
+        if (view.getId() == R.id.emotion_manage_download && view.isShown()) {
+            h();
+        } else if ((view.getId() == R.id.emotion_manage_del_container || view.getId() == R.id.emotion_manage_del) && this.l.isShown()) {
+            EmotionPackageData emotionPackageData = this.p;
+            if (emotionPackageData != null) {
+                k(emotionPackageData.id);
+            }
+        } else {
+            f();
+        }
+    }
+
+    public void setData(EmotionPackageData emotionPackageData, int i) {
+        this.p = emotionPackageData;
+        if (emotionPackageData == null) {
+            return;
+        }
+        this.o.a(emotionPackageData.pics, emotionPackageData.typeofemotion);
+        this.f19314f.setText(this.p.name);
+        if (emotionPackageData.ishasdownload) {
+            this.i.setVisibility(8);
+            this.k.setVisibility(8);
+            if (d.b.i0.x1.h.a.b().a()) {
+                this.l.setVisibility(0);
+            } else {
+                this.l.setVisibility(8);
+            }
+        } else {
+            this.l.setVisibility(8);
+            this.k.setVisibility(0);
+            this.i.setVisibility(0);
+        }
+        e(emotionPackageData, i);
     }
 }

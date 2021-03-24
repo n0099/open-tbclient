@@ -4,7 +4,7 @@ import java.io.UnsupportedEncodingException;
 import java.nio.ByteBuffer;
 import java.nio.charset.Charset;
 import org.apache.commons.base.Charsets;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class CodecStringUtils {
     public static boolean equals(CharSequence charSequence, CharSequence charSequence2) {
         if (charSequence == charSequence2) {
@@ -19,14 +19,7 @@ public class CodecStringUtils {
         return charSequence.length() == charSequence2.length() && org.apache.commons.base.binary4util.CharSequenceUtils.regionMatches(charSequence, false, 0, charSequence2, 0, charSequence.length());
     }
 
-    private static byte[] getBytes(String str, Charset charset) {
-        if (str == null) {
-            return null;
-        }
-        return str.getBytes(charset);
-    }
-
-    private static ByteBuffer getByteBuffer(String str, Charset charset) {
+    public static ByteBuffer getByteBuffer(String str, Charset charset) {
         if (str == null) {
             return null;
         }
@@ -35,6 +28,13 @@ public class CodecStringUtils {
 
     public static ByteBuffer getByteBufferUtf8(String str) {
         return getByteBuffer(str, Charsets.UTF_8);
+    }
+
+    public static byte[] getBytes(String str, Charset charset) {
+        if (str == null) {
+            return null;
+        }
+        return str.getBytes(charset);
     }
 
     public static byte[] getBytesIso8859_1(String str) {
@@ -47,8 +47,8 @@ public class CodecStringUtils {
         }
         try {
             return str.getBytes(str2);
-        } catch (UnsupportedEncodingException e) {
-            throw newIllegalStateException(str2, e);
+        } catch (UnsupportedEncodingException e2) {
+            throw newIllegalStateException(str2, e2);
         }
     }
 
@@ -72,26 +72,15 @@ public class CodecStringUtils {
         return getBytes(str, Charsets.UTF_8);
     }
 
-    private static IllegalStateException newIllegalStateException(String str, UnsupportedEncodingException unsupportedEncodingException) {
+    public static IllegalStateException newIllegalStateException(String str, UnsupportedEncodingException unsupportedEncodingException) {
         return new IllegalStateException(str + ": " + unsupportedEncodingException);
     }
 
-    private static String newString(byte[] bArr, Charset charset) {
+    public static String newString(byte[] bArr, Charset charset) {
         if (bArr == null) {
             return null;
         }
         return new String(bArr, charset);
-    }
-
-    public static String newString(byte[] bArr, String str) {
-        if (bArr == null) {
-            return null;
-        }
-        try {
-            return new String(bArr, str);
-        } catch (UnsupportedEncodingException e) {
-            throw newIllegalStateException(str, e);
-        }
     }
 
     public static String newStringIso8859_1(byte[] bArr) {
@@ -116,5 +105,16 @@ public class CodecStringUtils {
 
     public static String newStringUtf8(byte[] bArr) {
         return newString(bArr, Charsets.UTF_8);
+    }
+
+    public static String newString(byte[] bArr, String str) {
+        if (bArr == null) {
+            return null;
+        }
+        try {
+            return new String(bArr, str);
+        } catch (UnsupportedEncodingException e2) {
+            throw newIllegalStateException(str, e2);
+        }
     }
 }

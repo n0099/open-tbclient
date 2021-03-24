@@ -4,22 +4,22 @@ import android.content.SharedPreferences;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class i extends a<String> {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile String[] f6020a;
+    public static volatile String[] f33456a;
 
     public i(String str, String str2) {
         super(str, str2);
-        f6020a = null;
+        f33456a = null;
     }
 
     private void a(String str) {
         if (TextUtils.isEmpty(str)) {
             return;
         }
-        f6020a = str.split(",");
+        f33456a = str.split(",");
     }
 
     @Override // com.kwad.sdk.core.config.item.a
@@ -47,10 +47,10 @@ public class i extends a<String> {
 
     public boolean a(long j) {
         String[] strArr;
-        if (f6020a == null) {
+        if (f33456a == null) {
             return false;
         }
-        for (String str : f6020a) {
+        for (String str : f33456a) {
             if (str != null && String.valueOf(j).equals(str.trim())) {
                 return true;
             }

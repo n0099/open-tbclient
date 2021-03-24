@@ -7,200 +7,244 @@ import com.kwai.video.ksvodplayerkit.d;
 import com.kwai.video.kwaiplayer_debug_tools.debuginfo.KwaiPlayerDebugInfoView;
 import com.kwai.video.player.IKwaiMediaPlayer;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class k implements d {
 
     /* renamed from: a  reason: collision with root package name */
-    private g f7308a;
-    private Context b;
-    private Surface c;
-    private SurfaceHolder d;
-    private l h;
-    private d.InterfaceC1184d i;
-    private d.b j;
-    private d.c k;
-    private b l;
-    private d.e m;
-    private d.a n;
-    private KwaiPlayerDebugInfoView o;
-    private boolean e = true;
-    private float f = -1.0f;
-    private float g = -1.0f;
-    private float p = -1.0f;
+    public g f37366a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public Context f37367b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public Surface f37368c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public SurfaceHolder f37369d;
+
+    /* renamed from: h  reason: collision with root package name */
+    public l f37373h;
+    public d.InterfaceC0451d i;
+    public d.b j;
+    public d.c k;
+    public b l;
+    public d.e m;
+    public d.a n;
+    public KwaiPlayerDebugInfoView o;
+
+    /* renamed from: e  reason: collision with root package name */
+    public boolean f37370e = true;
+
+    /* renamed from: f  reason: collision with root package name */
+    public float f37371f = -1.0f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public float f37372g = -1.0f;
+    public float p = -1.0f;
 
     public k(Context context) {
-        this.b = context;
+        this.f37367b = context;
     }
 
     public int a() {
-        if (this.f7308a != null) {
-            return this.f7308a.a();
+        g gVar = this.f37366a;
+        if (gVar != null) {
+            return gVar.a();
         }
         return -1;
     }
 
-    public void a(float f) {
-        this.p = f;
-        if (this.f7308a != null) {
-            this.f7308a.a(this.p);
+    public void a(float f2) {
+        this.p = f2;
+        g gVar = this.f37366a;
+        if (gVar != null) {
+            gVar.a(f2);
         }
     }
 
-    public void a(float f, float f2) {
-        this.f = f;
-        this.g = f2;
-        if (this.f7308a != null) {
-            this.f7308a.a(f, f2);
+    public void a(float f2, float f3) {
+        this.f37371f = f2;
+        this.f37372g = f3;
+        g gVar = this.f37366a;
+        if (gVar != null) {
+            gVar.a(f2, f3);
         }
     }
 
     public void a(long j) {
-        if (this.f7308a != null) {
-            this.f7308a.a(j);
+        g gVar = this.f37366a;
+        if (gVar != null) {
+            gVar.a(j);
         }
     }
 
     public void a(Surface surface) {
-        this.c = surface;
-        if (this.f7308a != null) {
-            this.f7308a.a(surface);
+        this.f37368c = surface;
+        g gVar = this.f37366a;
+        if (gVar != null) {
+            gVar.a(surface);
         }
     }
 
     public void a(b bVar) {
         this.l = bVar;
-        if (this.f7308a != null) {
-            this.f7308a.a(bVar);
+        g gVar = this.f37366a;
+        if (gVar != null) {
+            gVar.a(bVar);
         }
     }
 
     public void a(d.a aVar) {
         this.n = aVar;
-        if (this.f7308a != null) {
-            this.f7308a.a(aVar);
+        g gVar = this.f37366a;
+        if (gVar != null) {
+            gVar.a(aVar);
         }
     }
 
     public void a(d.b bVar) {
         this.j = bVar;
-        if (this.f7308a != null) {
-            this.f7308a.a(bVar);
+        g gVar = this.f37366a;
+        if (gVar != null) {
+            gVar.a(bVar);
         }
     }
 
     public void a(d.c cVar) {
         this.k = cVar;
-        if (this.f7308a != null) {
-            this.f7308a.a(cVar);
+        g gVar = this.f37366a;
+        if (gVar != null) {
+            gVar.a(cVar);
         }
     }
 
-    public void a(d.InterfaceC1184d interfaceC1184d) {
-        this.i = interfaceC1184d;
-        if (this.f7308a != null) {
-            this.f7308a.a(interfaceC1184d);
+    public void a(d.InterfaceC0451d interfaceC0451d) {
+        this.i = interfaceC0451d;
+        g gVar = this.f37366a;
+        if (gVar != null) {
+            gVar.a(interfaceC0451d);
         }
     }
 
     public void a(d.e eVar) {
         this.m = eVar;
-        if (this.f7308a != null) {
-            this.f7308a.a(eVar);
+        g gVar = this.f37366a;
+        if (gVar != null) {
+            gVar.a(eVar);
         }
     }
 
     public void a(d.f fVar) {
-        if (this.f7308a != null) {
-            this.f7308a.a(fVar);
+        g gVar = this.f37366a;
+        if (gVar != null) {
+            gVar.a(fVar);
         }
-        this.f7308a = null;
+        this.f37366a = null;
     }
 
     public void a(l lVar) {
-        this.h = lVar;
-        if (this.f7308a != null) {
-            this.f7308a.a(lVar);
+        this.f37373h = lVar;
+        g gVar = this.f37366a;
+        if (gVar != null) {
+            gVar.a(lVar);
         }
     }
 
     public void a(String str, Map<String, String> map) {
-        KSVodPlayerBuilder kSVodPlayerBuilder = new KSVodPlayerBuilder(this.b);
+        KSVodPlayerBuilder kSVodPlayerBuilder = new KSVodPlayerBuilder(this.f37367b);
         kSVodPlayerBuilder.a(map);
         kSVodPlayerBuilder.a(false);
         kSVodPlayerBuilder.a(str);
-        this.f7308a = kSVodPlayerBuilder.b();
-        this.f7308a.b(true);
-        if (this.c != null) {
-            this.f7308a.a(this.c);
+        g b2 = kSVodPlayerBuilder.b();
+        this.f37366a = b2;
+        b2.b(true);
+        Surface surface = this.f37368c;
+        if (surface != null) {
+            this.f37366a.a(surface);
         }
-        if (this.d != null) {
-            this.f7308a.a(this.d);
+        SurfaceHolder surfaceHolder = this.f37369d;
+        if (surfaceHolder != null) {
+            this.f37366a.a(surfaceHolder);
         }
-        if (this.f != -1.0f && this.g != -1.0f) {
-            this.f7308a.a(this.f, this.g);
+        float f2 = this.f37371f;
+        if (f2 != -1.0f) {
+            float f3 = this.f37372g;
+            if (f3 != -1.0f) {
+                this.f37366a.a(f2, f3);
+            }
         }
-        this.f7308a.a(this.e);
-        if (this.h != null) {
-            this.f7308a.a(this.h);
+        this.f37366a.a(this.f37370e);
+        l lVar = this.f37373h;
+        if (lVar != null) {
+            this.f37366a.a(lVar);
         }
-        if (this.p != -1.0f) {
-            this.f7308a.a(this.p);
+        float f4 = this.p;
+        if (f4 != -1.0f) {
+            this.f37366a.a(f4);
         }
-        this.f7308a.a(this.i);
-        this.f7308a.a(this.k);
-        this.f7308a.a(this.j);
-        this.f7308a.a(this.m);
-        this.f7308a.a(this.l);
-        this.f7308a.a(this.n);
-        if (this.o != null) {
-            this.f7308a.a(this.o);
+        this.f37366a.a(this.i);
+        this.f37366a.a(this.k);
+        this.f37366a.a(this.j);
+        this.f37366a.a(this.m);
+        this.f37366a.a(this.l);
+        this.f37366a.a(this.n);
+        KwaiPlayerDebugInfoView kwaiPlayerDebugInfoView = this.o;
+        if (kwaiPlayerDebugInfoView != null) {
+            this.f37366a.a(kwaiPlayerDebugInfoView);
         }
     }
 
     public void a(boolean z) {
-        this.e = z;
-        if (this.f7308a != null) {
-            this.f7308a.a(z);
+        this.f37370e = z;
+        g gVar = this.f37366a;
+        if (gVar != null) {
+            gVar.a(z);
         }
     }
 
     public boolean b() {
-        if (this.f7308a != null) {
-            return this.f7308a.b();
+        g gVar = this.f37366a;
+        if (gVar != null) {
+            return gVar.b();
         }
         return false;
     }
 
     public long c() {
-        if (this.f7308a != null) {
-            return this.f7308a.c();
+        g gVar = this.f37366a;
+        if (gVar != null) {
+            return gVar.c();
         }
         return 0L;
     }
 
     public long d() {
-        if (this.f7308a != null) {
-            return this.f7308a.d();
+        g gVar = this.f37366a;
+        if (gVar != null) {
+            return gVar.d();
         }
         return 0L;
     }
 
     public void e() {
-        if (this.f7308a != null) {
-            this.f7308a.e();
+        g gVar = this.f37366a;
+        if (gVar != null) {
+            gVar.e();
         }
     }
 
     public IKwaiMediaPlayer f() {
-        if (this.f7308a != null) {
-            return this.f7308a.h();
+        g gVar = this.f37366a;
+        if (gVar != null) {
+            return gVar.h();
         }
         return null;
     }
 
     public void g() {
-        if (this.f7308a != null) {
-            this.f7308a.f();
+        g gVar = this.f37366a;
+        if (gVar != null) {
+            gVar.f();
         }
     }
 }

@@ -1,12 +1,12 @@
 package org.apache.http.params;
 @Deprecated
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public interface HttpParams {
     HttpParams copy();
 
     boolean getBooleanParameter(String str, boolean z);
 
-    double getDoubleParameter(String str, double d);
+    double getDoubleParameter(String str, double d2);
 
     int getIntParameter(String str, int i);
 
@@ -22,7 +22,7 @@ public interface HttpParams {
 
     HttpParams setBooleanParameter(String str, boolean z);
 
-    HttpParams setDoubleParameter(String str, double d);
+    HttpParams setDoubleParameter(String str, double d2);
 
     HttpParams setIntParameter(String str, int i);
 

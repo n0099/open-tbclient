@@ -1,14 +1,14 @@
 package com.kwai.video.ksvodplayerkit;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class R {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static final class raw {
         public static final int kwaiplayer_fragment_shader = com.kwad.sdk.R.raw.kwaiplayer_fragment_shader;
         public static final int kwaiplayer_vertex_shader = com.kwad.sdk.R.raw.kwaiplayer_vertex_shader;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static final class string {
         public static final int a_cache = com.kwad.sdk.R.string.a_cache;
         public static final int a_delay = com.kwad.sdk.R.string.a_delay;

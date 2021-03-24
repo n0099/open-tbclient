@@ -8,19 +8,31 @@ import com.baidu.mobads.utils.XAdSDKFoundationFacade;
 import java.net.URL;
 import java.util.Observable;
 import java.util.Observer;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class o implements Observer {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f2397a;
-    private URL b;
-    private String c;
-    private final e d;
-    private a e;
-    private SharedPreferences f;
-    private SharedPreferences.OnSharedPreferenceChangeListener g;
+    public Context f8297a;
 
-    /* loaded from: classes4.dex */
+    /* renamed from: b  reason: collision with root package name */
+    public URL f8298b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public String f8299c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public final e f8300d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public a f8301e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public SharedPreferences f8302f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public SharedPreferences.OnSharedPreferenceChangeListener f8303g;
+
+    /* loaded from: classes2.dex */
     public interface a {
         void a(e eVar);
 
@@ -28,36 +40,39 @@ public class o implements Observer {
     }
 
     public o(Context context, URL url, e eVar, a aVar) {
-        this.b = null;
-        this.c = null;
-        this.g = new p(this);
-        this.b = url;
-        this.d = eVar;
-        a(context, aVar);
-    }
-
-    public o(Context context, String str, e eVar, a aVar) {
-        this.b = null;
-        this.c = null;
-        this.g = new p(this);
-        this.c = str;
-        this.d = eVar;
+        this.f8298b = null;
+        this.f8299c = null;
+        this.f8303g = new p(this);
+        this.f8298b = url;
+        this.f8300d = eVar;
         a(context, aVar);
     }
 
     private void a(Context context, a aVar) {
-        this.f2397a = context;
-        this.e = aVar;
-        this.f = this.f2397a.getSharedPreferences("__xadsdk_downloaded__version__", 0);
-        this.f.registerOnSharedPreferenceChangeListener(this.g);
+        this.f8297a = context;
+        this.f8301e = aVar;
+        SharedPreferences sharedPreferences = context.getSharedPreferences("__xadsdk_downloaded__version__", 0);
+        this.f8302f = sharedPreferences;
+        sharedPreferences.registerOnSharedPreferenceChangeListener(this.f8303g);
+    }
+
+    @Override // java.util.Observer
+    public void update(Observable observable, Object obj) {
+        IOAdDownloader iOAdDownloader = (IOAdDownloader) observable;
+        if (iOAdDownloader.getState() == IOAdDownloader.DownloadStatus.COMPLETED) {
+            this.f8301e.a(new e(this.f8300d, iOAdDownloader.getOutputPath(), Boolean.TRUE));
+        }
+        if (iOAdDownloader.getState() == IOAdDownloader.DownloadStatus.ERROR) {
+            this.f8301e.b(new e(this.f8300d, iOAdDownloader.getOutputPath(), Boolean.FALSE));
+        }
     }
 
     public void a(String str, String str2) {
-        IOAdDownloader createSimpleFileDownloader = XAdSDKFoundationFacade.getInstance().getDownloaderManager(this.f2397a).createSimpleFileDownloader(this.c != null ? new URL(this.c) : this.b, str, str2, false);
+        IOAdDownloader createSimpleFileDownloader = XAdSDKFoundationFacade.getInstance().getDownloaderManager(this.f8297a).createSimpleFileDownloader(this.f8299c != null ? new URL(this.f8299c) : this.f8298b, str, str2, false);
         createSimpleFileDownloader.addObserver(this);
         createSimpleFileDownloader.start();
-        SharedPreferences.Editor edit = this.f.edit();
-        edit.putString("version", this.d.toString());
+        SharedPreferences.Editor edit = this.f8302f.edit();
+        edit.putString("version", this.f8300d.toString());
         if (Build.VERSION.SDK_INT >= 9) {
             edit.apply();
         } else {
@@ -65,14 +80,12 @@ public class o implements Observer {
         }
     }
 
-    @Override // java.util.Observer
-    public void update(Observable observable, Object obj) {
-        IOAdDownloader iOAdDownloader = (IOAdDownloader) observable;
-        if (iOAdDownloader.getState() == IOAdDownloader.DownloadStatus.COMPLETED) {
-            this.e.a(new e(this.d, iOAdDownloader.getOutputPath(), true));
-        }
-        if (iOAdDownloader.getState() == IOAdDownloader.DownloadStatus.ERROR) {
-            this.e.b(new e(this.d, iOAdDownloader.getOutputPath(), false));
-        }
+    public o(Context context, String str, e eVar, a aVar) {
+        this.f8298b = null;
+        this.f8299c = null;
+        this.f8303g = new p(this);
+        this.f8299c = str;
+        this.f8300d = eVar;
+        a(context, aVar);
     }
 }

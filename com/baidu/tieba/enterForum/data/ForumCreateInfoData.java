@@ -2,35 +2,43 @@ package com.baidu.tieba.enterForum.data;
 
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import tbclient.ForumCreateInfo;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class ForumCreateInfoData extends OrmObject {
-    private int iJC = 0;
-    private int iJD = 0;
-    private int iJE = 0;
-    private String iJF = null;
 
-    public boolean cvp() {
-        return this.iJC != 0;
+    /* renamed from: e  reason: collision with root package name */
+    public int f15371e = 0;
+
+    /* renamed from: f  reason: collision with root package name */
+    public int f15372f = 0;
+
+    /* renamed from: g  reason: collision with root package name */
+    public int f15373g = 0;
+
+    /* renamed from: h  reason: collision with root package name */
+    public String f15374h = null;
+
+    public String s() {
+        return this.f15374h;
     }
 
-    public boolean cvq() {
-        return this.iJD != 0;
+    public int t() {
+        return this.f15373g;
     }
 
-    public int cvr() {
-        return this.iJE;
+    public boolean u() {
+        return this.f15372f != 0;
     }
 
-    public String cvs() {
-        return this.iJF;
+    public boolean v() {
+        return this.f15371e != 0;
     }
 
-    public void a(ForumCreateInfo forumCreateInfo) {
+    public void w(ForumCreateInfo forumCreateInfo) {
         if (forumCreateInfo != null) {
-            this.iJC = forumCreateInfo.is_show_create.intValue();
-            this.iJD = forumCreateInfo.is_can_create.intValue();
-            this.iJE = forumCreateInfo.can_create_errno.intValue();
-            this.iJF = forumCreateInfo.can_create_errdata;
+            this.f15371e = forumCreateInfo.is_show_create.intValue();
+            this.f15372f = forumCreateInfo.is_can_create.intValue();
+            this.f15373g = forumCreateInfo.can_create_errno.intValue();
+            this.f15374h = forumCreateInfo.can_create_errdata;
         }
     }
 }

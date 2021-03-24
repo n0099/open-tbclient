@@ -3,64 +3,56 @@ package com.baidu.fsg.base.utils;
 import android.util.Base64;
 import java.lang.Character;
 import java.net.URLEncoder;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public final class EncodeUtils {
-    private EncodeUtils() {
+    public static boolean a(char c2) {
+        return (c2 & 255) != c2;
     }
 
-    public static String gbk2utf8(String str) {
-        return unicodeToUtf8(gbk2Unicode(str));
-    }
-
-    public static String utf82gbk(String str) {
-        return unicode2GBK(utf8ToUnicode(str));
+    public static String encodeCommParms(String str) {
+        try {
+            try {
+                return URLEncoder.encode(new String(Base64.encode(str.getBytes(), 0)), "utf-8");
+            } catch (Exception e2) {
+                LogUtil.e("EncodeUtils", "encodeCommParms failed", e2);
+                return "";
+            }
+        } catch (Throwable unused) {
+            return "";
+        }
     }
 
     public static String gbk2Unicode(String str) {
         StringBuffer stringBuffer = new StringBuffer();
         for (int i = 0; i < str.length(); i++) {
             char charAt = str.charAt(i);
-            if (!a(charAt)) {
-                stringBuffer.append(charAt);
-            } else {
+            if (a(charAt)) {
                 stringBuffer.append("\\u" + Integer.toHexString(charAt));
+            } else {
+                stringBuffer.append(charAt);
             }
         }
         return stringBuffer.toString();
+    }
+
+    public static String gbk2utf8(String str) {
+        return unicodeToUtf8(gbk2Unicode(str));
     }
 
     public static String unicode2GBK(String str) {
-        int i = 0;
         StringBuffer stringBuffer = new StringBuffer();
         int length = str.length();
+        int i = 0;
         while (i < length) {
-            if (i >= length - 1 || !"\\u".equals(str.substring(i, i + 2))) {
-                stringBuffer.append(str.charAt(i));
-                i++;
-            } else {
-                stringBuffer.append((char) Integer.parseInt(str.substring(i + 2, i + 6), 16));
-                i += 6;
+            if (i < length - 1) {
+                int i2 = i + 2;
+                if ("\\u".equals(str.substring(i, i2))) {
+                    i += 6;
+                    stringBuffer.append((char) Integer.parseInt(str.substring(i2, i), 16));
+                }
             }
-        }
-        return stringBuffer.toString();
-    }
-
-    private static boolean a(char c) {
-        return (c & 255) != c;
-    }
-
-    public static String utf8ToUnicode(String str) {
-        char[] charArray = str.toCharArray();
-        StringBuffer stringBuffer = new StringBuffer();
-        for (int i = 0; i < str.length(); i++) {
-            Character.UnicodeBlock of = Character.UnicodeBlock.of(charArray[i]);
-            if (of == Character.UnicodeBlock.BASIC_LATIN) {
-                stringBuffer.append(charArray[i]);
-            } else if (of == Character.UnicodeBlock.HALFWIDTH_AND_FULLWIDTH_FORMS) {
-                stringBuffer.append((char) (charArray[i] - 65248));
-            } else {
-                stringBuffer.append(("\\u" + Integer.toHexString((short) charArray[i])).toLowerCase());
-            }
+            stringBuffer.append(str.charAt(i));
+            i++;
         }
         return stringBuffer.toString();
     }
@@ -94,24 +86,30 @@ public final class EncodeUtils {
                             case '9':
                                 i4 = ((i4 << 4) + charAt3) - 48;
                                 break;
-                            case 'A':
-                            case 'B':
-                            case 'C':
-                            case 'D':
-                            case 'E':
-                            case 'F':
-                                i4 = (((i4 << 4) + 10) + charAt3) - 65;
-                                break;
-                            case 'a':
-                            case 'b':
-                            case 'c':
-                            case 'd':
-                            case 'e':
-                            case 'f':
-                                i4 = (((i4 << 4) + 10) + charAt3) - 97;
-                                break;
                             default:
-                                throw new IllegalArgumentException("Malformed   \\uxxxx   encoding.");
+                                switch (charAt3) {
+                                    case 'A':
+                                    case 'B':
+                                    case 'C':
+                                    case 'D':
+                                    case 'E':
+                                    case 'F':
+                                        i4 = (((i4 << 4) + 10) + charAt3) - 65;
+                                        break;
+                                    default:
+                                        switch (charAt3) {
+                                            case 'a':
+                                            case 'b':
+                                            case 'c':
+                                            case 'd':
+                                            case 'e':
+                                            case 'f':
+                                                i4 = (((i4 << 4) + 10) + charAt3) - 97;
+                                                break;
+                                            default:
+                                                throw new IllegalArgumentException("Malformed   \\uxxxx   encoding.");
+                                        }
+                                }
                         }
                         i3++;
                         i = i5;
@@ -137,16 +135,24 @@ public final class EncodeUtils {
         return stringBuffer.toString();
     }
 
-    public static String encodeCommParms(String str) {
-        String str2 = "";
-        try {
-            try {
-                str2 = URLEncoder.encode(new String(Base64.encode(str.getBytes(), 0)), "utf-8");
-            } catch (Exception e) {
-                LogUtil.e("EncodeUtils", "encodeCommParms failed", e);
+    public static String utf82gbk(String str) {
+        return unicode2GBK(utf8ToUnicode(str));
+    }
+
+    public static String utf8ToUnicode(String str) {
+        char[] charArray = str.toCharArray();
+        StringBuffer stringBuffer = new StringBuffer();
+        for (int i = 0; i < str.length(); i++) {
+            Character.UnicodeBlock of = Character.UnicodeBlock.of(charArray[i]);
+            if (of == Character.UnicodeBlock.BASIC_LATIN) {
+                stringBuffer.append(charArray[i]);
+            } else if (of == Character.UnicodeBlock.HALFWIDTH_AND_FULLWIDTH_FORMS) {
+                stringBuffer.append((char) (charArray[i] - 65248));
+            } else {
+                String hexString = Integer.toHexString((short) charArray[i]);
+                stringBuffer.append(("\\u" + hexString).toLowerCase());
             }
-        } catch (Throwable th) {
         }
-        return str2;
+        return stringBuffer.toString();
     }
 }

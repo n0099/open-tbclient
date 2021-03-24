@@ -13,39 +13,189 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.SvgManager;
-import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
-/* loaded from: classes.dex */
-public class FollowUserSpinnerBtn extends LinearLayout implements com.baidu.tbadk.core.view.userLike.b {
-    private int backgroundColor;
-    private String content;
-    private Drawable drawable;
-    private boolean isOpen;
-    private ImageView jRo;
-    private a mFc;
-    private FrameLayout oaf;
-    private FrameLayout oag;
-    private Paint oah;
-    private int oai;
-    private boolean oaj;
-    private boolean oak;
-    private Path path;
-    private RectF rectF;
-    private TextView title;
-    private static final int oad = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds224);
-    private static final int oae = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds58);
-    private static final int amr = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds26);
+import d.b.b.e.p.l;
+/* loaded from: classes5.dex */
+public class FollowUserSpinnerBtn extends LinearLayout implements d.b.h0.r.f0.q.b {
+    public static final int t = l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds224);
+    public static final int u = l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds58);
+    public static final int v = l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds26);
 
-    /* loaded from: classes.dex */
-    public interface a {
-        void av(boolean z, boolean z2);
+    /* renamed from: e  reason: collision with root package name */
+    public FrameLayout f22072e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public FrameLayout f22073f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public TextView f22074g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public ImageView f22075h;
+    public Paint i;
+    public int j;
+    public int k;
+    public RectF l;
+    public Path m;
+    public String n;
+    public Drawable o;
+    public boolean p;
+    public boolean q;
+    public boolean r;
+    public b s;
+
+    /* loaded from: classes5.dex */
+    public class a implements View.OnClickListener {
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ b f22076e;
+
+        public a(b bVar) {
+            this.f22076e = bVar;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            b bVar = this.f22076e;
+            if (bVar != null) {
+                bVar.a(!FollowUserSpinnerBtn.this.p, false);
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public interface b {
+        void a(boolean z, boolean z2);
     }
 
     public FollowUserSpinnerBtn(Context context) {
         this(context, null);
+    }
+
+    @Override // d.b.h0.r.f0.q.b
+    public void a(boolean z, int i) {
+        i(z);
+    }
+
+    @Override // d.b.h0.r.f0.q.b
+    public void b(View view) {
+    }
+
+    @Override // d.b.h0.r.f0.q.b
+    public void c(View.OnClickListener onClickListener) {
+        setOnClickListener(onClickListener);
+    }
+
+    @Override // d.b.h0.r.f0.q.b
+    public void d(boolean z, int i, boolean z2) {
+        a(z, i);
+    }
+
+    @Override // android.view.View
+    public void draw(Canvas canvas) {
+        this.l.set(0.0f, 0.0f, getWidth(), getHeight());
+        this.m.reset();
+        this.m.addRoundRect(this.l, getHeight() / 2, getHeight() / 2, Path.Direction.CW);
+        canvas.clipPath(this.m);
+        super.draw(canvas);
+        if (this.r) {
+            this.i.setColor(SkinManager.getColor(this.j));
+            float right = this.f22072e.getRight();
+            canvas.drawLine(right, this.f22075h.getTop(), right, this.f22075h.getBottom(), this.i);
+        }
+    }
+
+    @Override // d.b.h0.r.f0.q.b
+    public void e(int i) {
+    }
+
+    public final void g(Context context) {
+        LayoutInflater.from(context).inflate(R.layout.follow_user_spinner_btn_layout, this);
+        setOrientation(0);
+        this.f22072e = (FrameLayout) findViewById(R.id.leftBox);
+        this.f22073f = (FrameLayout) findViewById(R.id.rightBox);
+        this.f22074g = (TextView) findViewById(R.id.title);
+        this.f22075h = (ImageView) findViewById(R.id.arrow);
+        Paint paint = new Paint(1);
+        this.i = paint;
+        paint.setStyle(Paint.Style.STROKE);
+        this.i.setStrokeCap(Paint.Cap.ROUND);
+        this.i.setStrokeWidth(l.g(context, R.dimen.tbds3));
+        this.l = new RectF();
+        this.m = new Path();
+        this.j = R.color.CAM_X0105;
+        Drawable pureDrawable = SvgManager.getInstance().getPureDrawable(R.drawable.icon_pure_unfold12_svg, this.j, null);
+        this.o = pureDrawable;
+        this.f22075h.setImageDrawable(pureDrawable);
+    }
+
+    public ImageView getArrow() {
+        return this.f22075h;
+    }
+
+    public void h(int i) {
+        setBackgroundColor(SkinManager.getColor(this.k));
+        SkinManager.setViewTextColor(this.f22074g, this.j);
+        Drawable pureDrawable = SvgManager.getInstance().getPureDrawable(R.drawable.icon_pure_unfold12_svg, this.j, null);
+        this.o = pureDrawable;
+        this.f22075h.setImageDrawable(pureDrawable);
+        invalidate();
+    }
+
+    public void i(boolean z) {
+        b bVar;
+        if (z) {
+            this.n = getResources().getString(R.string.followed);
+            this.j = R.color.CAM_X0101;
+            this.k = R.color.CAM_X0904;
+        } else {
+            this.n = getResources().getString(R.string.attention);
+            this.j = R.color.CAM_X0105;
+            this.k = R.color.CAM_X0901;
+        }
+        this.f22074g.setText(this.n);
+        requestLayout();
+        h(0);
+        if (this.r && !this.q && z && !this.p && (bVar = this.s) != null) {
+            bVar.a(true, true);
+        }
+        this.q = false;
+    }
+
+    public void setFirstUpdate(boolean z) {
+        this.q = z;
+    }
+
+    public void setOpen(boolean z) {
+        this.p = z;
+    }
+
+    public void setOpenListener(b bVar) {
+        this.s = bVar;
+        this.f22073f.setOnClickListener(new a(bVar));
+    }
+
+    public void setShowPullBtn(boolean z) {
+        this.r = z;
+        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f22074g.getLayoutParams();
+        if (z) {
+            this.f22073f.setVisibility(0);
+            layoutParams.leftMargin = u;
+            layoutParams.rightMargin = v;
+            layoutParams.gravity = 16;
+            layoutParams.width = -2;
+        } else {
+            this.f22073f.setVisibility(8);
+            layoutParams.leftMargin = 0;
+            layoutParams.rightMargin = 0;
+            layoutParams.gravity = 17;
+            layoutParams.width = t;
+        }
+        this.f22074g.setLayoutParams(layoutParams);
+        requestLayout();
     }
 
     public FollowUserSpinnerBtn(Context context, AttributeSet attributeSet) {
@@ -54,133 +204,7 @@ public class FollowUserSpinnerBtn extends LinearLayout implements com.baidu.tbad
 
     public FollowUserSpinnerBtn(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.oaj = true;
-        init(context);
-    }
-
-    private void init(Context context) {
-        LayoutInflater.from(context).inflate(R.layout.follow_user_spinner_btn_layout, this);
-        setOrientation(0);
-        this.oaf = (FrameLayout) findViewById(R.id.leftBox);
-        this.oag = (FrameLayout) findViewById(R.id.rightBox);
-        this.title = (TextView) findViewById(R.id.title);
-        this.jRo = (ImageView) findViewById(R.id.arrow);
-        this.oah = new Paint(1);
-        this.oah.setStyle(Paint.Style.STROKE);
-        this.oah.setStrokeCap(Paint.Cap.ROUND);
-        this.oah.setStrokeWidth(l.getDimens(context, R.dimen.tbds3));
-        this.rectF = new RectF();
-        this.path = new Path();
-        this.oai = R.color.CAM_X0105;
-        this.drawable = SvgManager.bsU().a(R.drawable.icon_pure_unfold12_svg, this.oai, (SvgManager.SvgResourceStateType) null);
-        this.jRo.setImageDrawable(this.drawable);
-    }
-
-    @Override // android.view.View
-    public void draw(Canvas canvas) {
-        this.rectF.set(0.0f, 0.0f, getWidth(), getHeight());
-        this.path.reset();
-        this.path.addRoundRect(this.rectF, getHeight() / 2, getHeight() / 2, Path.Direction.CW);
-        canvas.clipPath(this.path);
-        super.draw(canvas);
-        if (this.oak) {
-            this.oah.setColor(ap.getColor(this.oai));
-            float right = this.oaf.getRight();
-            canvas.drawLine(right, this.jRo.getTop(), right, this.jRo.getBottom(), this.oah);
-        }
-    }
-
-    public void aM(boolean z) {
-        if (z) {
-            this.content = getResources().getString(R.string.followed);
-            this.oai = R.color.CAM_X0101;
-            this.backgroundColor = R.color.CAM_X0904;
-        } else {
-            this.content = getResources().getString(R.string.attention);
-            this.oai = R.color.CAM_X0105;
-            this.backgroundColor = R.color.CAM_X0901;
-        }
-        this.title.setText(this.content);
-        requestLayout();
-        onChangeSkinType(0);
-        if (this.oak && !this.oaj && z && !this.isOpen && this.mFc != null) {
-            this.mFc.av(true, true);
-        }
-        this.oaj = false;
-    }
-
-    @Override // com.baidu.tbadk.core.view.userLike.b
-    public void r(boolean z, int i) {
-        aM(z);
-    }
-
-    @Override // com.baidu.tbadk.core.view.userLike.b
-    public void b(boolean z, int i, boolean z2) {
-        r(z, i);
-    }
-
-    @Override // com.baidu.tbadk.core.view.userLike.b
-    public void qc(int i) {
-    }
-
-    @Override // com.baidu.tbadk.core.view.userLike.b
-    public void bG(View view) {
-    }
-
-    @Override // com.baidu.tbadk.core.view.userLike.b
-    public void i(View.OnClickListener onClickListener) {
-        setOnClickListener(onClickListener);
-    }
-
-    public void setOpenListener(final a aVar) {
-        this.mFc = aVar;
-        this.oag.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.view.FollowUserSpinnerBtn.1
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
-                if (aVar != null) {
-                    aVar.av(!FollowUserSpinnerBtn.this.isOpen, false);
-                }
-            }
-        });
-    }
-
-    public void onChangeSkinType(int i) {
-        setBackgroundColor(ap.getColor(this.backgroundColor));
-        ap.setViewTextColor(this.title, this.oai);
-        this.drawable = SvgManager.bsU().a(R.drawable.icon_pure_unfold12_svg, this.oai, (SvgManager.SvgResourceStateType) null);
-        this.jRo.setImageDrawable(this.drawable);
-        invalidate();
-    }
-
-    public void setFirstUpdate(boolean z) {
-        this.oaj = z;
-    }
-
-    public void setOpen(boolean z) {
-        this.isOpen = z;
-    }
-
-    public void setShowPullBtn(boolean z) {
-        this.oak = z;
-        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.title.getLayoutParams();
-        if (z) {
-            this.oag.setVisibility(0);
-            layoutParams.leftMargin = oae;
-            layoutParams.rightMargin = amr;
-            layoutParams.gravity = 16;
-            layoutParams.width = -2;
-        } else {
-            this.oag.setVisibility(8);
-            layoutParams.leftMargin = 0;
-            layoutParams.rightMargin = 0;
-            layoutParams.gravity = 17;
-            layoutParams.width = oad;
-        }
-        this.title.setLayoutParams(layoutParams);
-        requestLayout();
-    }
-
-    public ImageView getArrow() {
-        return this.jRo;
+        this.q = true;
+        g(context);
     }
 }

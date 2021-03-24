@@ -6,29 +6,34 @@ import com.kwai.filedownloader.a;
 import com.kwai.filedownloader.services.c;
 import java.io.File;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class q {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final Object f7236a = new Object();
-    private static final Object c = new Object();
-    private v b;
-    private u d;
+    public static final Object f37091a = new Object();
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes3.dex */
+    /* renamed from: c  reason: collision with root package name */
+    public static final Object f37092c = new Object();
+
+    /* renamed from: b  reason: collision with root package name */
+    public v f37093b;
+
+    /* renamed from: d  reason: collision with root package name */
+    public u f37094d;
+
+    /* loaded from: classes6.dex */
     public static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private static final q f7237a = new q();
+        public static final q f37095a = new q();
     }
 
     public static q a() {
-        return a.f7237a;
+        return a.f37095a;
     }
 
     public static void a(Context context, c.a aVar) {
-        if (com.kwai.filedownloader.f.d.f7212a) {
+        if (com.kwai.filedownloader.f.d.f37011a) {
             com.kwai.filedownloader.f.d.c(q.class, "init Downloader with params: %s %s", context, aVar);
         }
         if (context == null) {
@@ -71,7 +76,6 @@ public class q {
             File file2 = new File(str);
             if (file2.exists()) {
                 file2.delete();
-                return true;
             }
             return true;
         }
@@ -89,28 +93,27 @@ public class q {
         return m.a().c();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public v d() {
-        if (this.b == null) {
-            synchronized (f7236a) {
-                if (this.b == null) {
-                    this.b = new aa();
+        if (this.f37093b == null) {
+            synchronized (f37091a) {
+                if (this.f37093b == null) {
+                    this.f37093b = new aa();
                 }
             }
         }
-        return this.b;
+        return this.f37093b;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public u e() {
-        if (this.d == null) {
-            synchronized (c) {
-                if (this.d == null) {
-                    this.d = new y();
-                    a((e) this.d);
+        if (this.f37094d == null) {
+            synchronized (f37092c) {
+                if (this.f37094d == null) {
+                    y yVar = new y();
+                    this.f37094d = yVar;
+                    a(yVar);
                 }
             }
         }
-        return this.d;
+        return this.f37094d;
     }
 }

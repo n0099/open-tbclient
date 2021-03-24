@@ -8,14 +8,6 @@ import com.baidu.searchbox.player.annotation.PublicMethod;
 public class BdActivityUtils {
     @PublicMethod
     @SuppressLint({"SourceLockedOrientationActivity"})
-    public static void requestPortrait(@Nullable Activity activity) {
-        if (activity != null) {
-            activity.setRequestedOrientation(1);
-        }
-    }
-
-    @PublicMethod
-    @SuppressLint({"SourceLockedOrientationActivity"})
     public static void requestLandscape(@Nullable Activity activity, boolean z) {
         if (activity != null) {
             if (z) {
@@ -24,6 +16,14 @@ public class BdActivityUtils {
                 activity.setRequestedOrientation(0);
             }
             activity.getWindow().setFlags(1024, 1024);
+        }
+    }
+
+    @PublicMethod
+    @SuppressLint({"SourceLockedOrientationActivity"})
+    public static void requestPortrait(@Nullable Activity activity) {
+        if (activity != null) {
+            activity.setRequestedOrientation(1);
         }
     }
 }

@@ -5,9 +5,9 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class PowerMonitor {
-    public static final /* synthetic */ boolean $assertionsDisabled = !PowerMonitor.class.desiredAssertionStatus();
+    public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static PowerMonitor sInstance;
     public boolean mIsBatteryPower;
 
@@ -39,11 +39,8 @@ public class PowerMonitor {
     public static native void nativeOnBatteryChargingChanged();
 
     public static void onBatteryChargingChanged(Intent intent) {
-        boolean z = true;
-        if (!$assertionsDisabled && sInstance == null) {
-            throw new AssertionError();
-        }
         int intExtra = intent.getIntExtra("plugged", -1);
+        boolean z = true;
         sInstance.mIsBatteryPower = (intExtra == 2 || intExtra == 1) ? false : false;
         nativeOnBatteryChargingChanged();
     }

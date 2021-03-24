@@ -6,23 +6,29 @@ import android.os.Build;
 import com.meizu.cloud.pushsdk.c.f.e;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private static String f7417a = b.class.getSimpleName();
-    private HashMap<String, String> b;
-    private HashMap<String, Object> c;
-    private HashMap<String, String> d;
+    public static String f37765a = "b";
 
-    /* loaded from: classes4.dex */
+    /* renamed from: b  reason: collision with root package name */
+    public HashMap<String, String> f37766b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public HashMap<String, Object> f37767c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public HashMap<String, String> f37768d;
+
+    /* loaded from: classes6.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private Context f7418a = null;
+        public Context f37769a = null;
 
         public a a(Context context) {
-            this.f7418a = context;
+            this.f37769a = context;
             return this;
         }
 
@@ -31,32 +37,32 @@ public class b {
         }
     }
 
-    private b(a aVar) {
-        this.b = new HashMap<>();
-        this.c = new HashMap<>();
-        this.d = new HashMap<>();
+    public b(a aVar) {
+        this.f37766b = new HashMap<>();
+        this.f37767c = new HashMap<>();
+        this.f37768d = new HashMap<>();
         d();
         e();
         f();
         g();
-        if (aVar.f7418a != null) {
-            a(aVar.f7418a);
+        if (aVar.f37769a != null) {
+            a(aVar.f37769a);
         }
-        com.meizu.cloud.pushsdk.c.f.c.c(f7417a, "Subject created successfully.", new Object[0]);
+        com.meizu.cloud.pushsdk.c.f.c.c(f37765a, "Subject created successfully.", new Object[0]);
     }
 
     private void a(String str, Object obj) {
         if ((str == null || obj == null || str.isEmpty()) && (!(obj instanceof String) || ((String) obj).isEmpty())) {
             return;
         }
-        this.c.put(str, obj);
+        this.f37767c.put(str, obj);
     }
 
     private void a(String str, String str2) {
         if (str == null || str2 == null || str.isEmpty() || str2.isEmpty()) {
             return;
         }
-        this.d.put(str, str2);
+        this.f37768d.put(str, str2);
     }
 
     private void d() {
@@ -76,7 +82,7 @@ public class b {
     }
 
     public Map<String, Object> a() {
-        return this.c;
+        return this.f37767c;
     }
 
     public void a(Context context) {
@@ -85,31 +91,31 @@ public class b {
     }
 
     public Map<String, String> b() {
-        return this.d;
+        return this.f37768d;
     }
 
     public void b(Context context) {
-        Location c = e.c(context);
-        if (c == null) {
-            com.meizu.cloud.pushsdk.c.f.c.a(f7417a, "Location information not available.", new Object[0]);
+        Location c2 = e.c(context);
+        if (c2 == null) {
+            com.meizu.cloud.pushsdk.c.f.c.a(f37765a, "Location information not available.", new Object[0]);
             return;
         }
-        a("la", Double.valueOf(c.getLatitude()));
-        a("lt", Double.valueOf(c.getLongitude()));
-        a("al", Double.valueOf(c.getAltitude()));
-        a("lla", Float.valueOf(c.getAccuracy()));
-        a("speed", Float.valueOf(c.getSpeed()));
-        a("br", Float.valueOf(c.getBearing()));
+        a("la", Double.valueOf(c2.getLatitude()));
+        a("lt", Double.valueOf(c2.getLongitude()));
+        a("al", Double.valueOf(c2.getAltitude()));
+        a("lla", Float.valueOf(c2.getAccuracy()));
+        a("speed", Float.valueOf(c2.getSpeed()));
+        a("br", Float.valueOf(c2.getBearing()));
     }
 
     public Map<String, String> c() {
-        return this.b;
+        return this.f37766b;
     }
 
     public void c(Context context) {
-        String b = e.b(context);
-        if (b != null) {
-            a("ca", b);
+        String b2 = e.b(context);
+        if (b2 != null) {
+            a("ca", b2);
         }
     }
 }

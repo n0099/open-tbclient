@@ -9,21 +9,37 @@ import android.widget.CompoundButton;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import java.lang.reflect.Field;
-/* loaded from: classes14.dex */
+/* loaded from: classes.dex */
 public final class CompoundButtonCompat {
-    private static final String TAG = "CompoundButtonCompat";
-    private static Field sButtonDrawableField;
-    private static boolean sButtonDrawableFieldFetched;
+    public static final String TAG = "CompoundButtonCompat";
+    public static Field sButtonDrawableField;
+    public static boolean sButtonDrawableFieldFetched;
 
-    private CompoundButtonCompat() {
-    }
-
-    public static void setButtonTintList(@NonNull CompoundButton compoundButton, @Nullable ColorStateList colorStateList) {
-        if (Build.VERSION.SDK_INT >= 21) {
-            compoundButton.setButtonTintList(colorStateList);
-        } else if (compoundButton instanceof TintableCompoundButton) {
-            ((TintableCompoundButton) compoundButton).setSupportButtonTintList(colorStateList);
+    @Nullable
+    public static Drawable getButtonDrawable(@NonNull CompoundButton compoundButton) {
+        if (Build.VERSION.SDK_INT >= 23) {
+            return compoundButton.getButtonDrawable();
         }
+        if (!sButtonDrawableFieldFetched) {
+            try {
+                Field declaredField = CompoundButton.class.getDeclaredField("mButtonDrawable");
+                sButtonDrawableField = declaredField;
+                declaredField.setAccessible(true);
+            } catch (NoSuchFieldException e2) {
+                Log.i(TAG, "Failed to retrieve mButtonDrawable field", e2);
+            }
+            sButtonDrawableFieldFetched = true;
+        }
+        Field field = sButtonDrawableField;
+        if (field != null) {
+            try {
+                return (Drawable) field.get(compoundButton);
+            } catch (IllegalAccessException e3) {
+                Log.i(TAG, "Failed to get button drawable via reflection", e3);
+                sButtonDrawableField = null;
+            }
+        }
+        return null;
     }
 
     @Nullable
@@ -37,14 +53,6 @@ public final class CompoundButtonCompat {
         return null;
     }
 
-    public static void setButtonTintMode(@NonNull CompoundButton compoundButton, @Nullable PorterDuff.Mode mode) {
-        if (Build.VERSION.SDK_INT >= 21) {
-            compoundButton.setButtonTintMode(mode);
-        } else if (compoundButton instanceof TintableCompoundButton) {
-            ((TintableCompoundButton) compoundButton).setSupportButtonTintMode(mode);
-        }
-    }
-
     @Nullable
     public static PorterDuff.Mode getButtonTintMode(@NonNull CompoundButton compoundButton) {
         if (Build.VERSION.SDK_INT >= 21) {
@@ -56,28 +64,19 @@ public final class CompoundButtonCompat {
         return null;
     }
 
-    @Nullable
-    public static Drawable getButtonDrawable(@NonNull CompoundButton compoundButton) {
-        if (Build.VERSION.SDK_INT >= 23) {
-            return compoundButton.getButtonDrawable();
+    public static void setButtonTintList(@NonNull CompoundButton compoundButton, @Nullable ColorStateList colorStateList) {
+        if (Build.VERSION.SDK_INT >= 21) {
+            compoundButton.setButtonTintList(colorStateList);
+        } else if (compoundButton instanceof TintableCompoundButton) {
+            ((TintableCompoundButton) compoundButton).setSupportButtonTintList(colorStateList);
         }
-        if (!sButtonDrawableFieldFetched) {
-            try {
-                sButtonDrawableField = CompoundButton.class.getDeclaredField("mButtonDrawable");
-                sButtonDrawableField.setAccessible(true);
-            } catch (NoSuchFieldException e) {
-                Log.i(TAG, "Failed to retrieve mButtonDrawable field", e);
-            }
-            sButtonDrawableFieldFetched = true;
+    }
+
+    public static void setButtonTintMode(@NonNull CompoundButton compoundButton, @Nullable PorterDuff.Mode mode) {
+        if (Build.VERSION.SDK_INT >= 21) {
+            compoundButton.setButtonTintMode(mode);
+        } else if (compoundButton instanceof TintableCompoundButton) {
+            ((TintableCompoundButton) compoundButton).setSupportButtonTintMode(mode);
         }
-        if (sButtonDrawableField != null) {
-            try {
-                return (Drawable) sButtonDrawableField.get(compoundButton);
-            } catch (IllegalAccessException e2) {
-                Log.i(TAG, "Failed to get button drawable via reflection", e2);
-                sButtonDrawableField = null;
-            }
-        }
-        return null;
     }
 }

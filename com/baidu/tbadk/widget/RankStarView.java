@@ -10,126 +10,243 @@ import android.view.View;
 import androidx.annotation.ColorRes;
 import androidx.annotation.DrawableRes;
 import androidx.annotation.Nullable;
-import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tieba.R;
-/* loaded from: classes.dex */
+import d.b.b.e.p.l;
+/* loaded from: classes3.dex */
 public class RankStarView extends View {
-    private int aln;
-    private int fPS;
-    private float fPT;
-    private int fPU;
-    private int fPV;
-    private int fPW;
-    private int fPX;
-    private int fPY;
-    private int fPZ;
-    private int fQa;
-    private Drawable fQb;
-    private Drawable fQc;
-    private Rect fQd;
-    private Rect fQe;
-    private boolean fQf;
-    private a fQg;
 
-    /* loaded from: classes.dex */
+    /* renamed from: e  reason: collision with root package name */
+    public int f14073e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public float f14074f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public int f14075g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public int f14076h;
+    public int i;
+    public int j;
+    public int k;
+    public int l;
+    public int m;
+    public Drawable n;
+    public Drawable o;
+    public Rect p;
+    public Rect q;
+    public boolean r;
+    public int s;
+    public a t;
+
+    /* loaded from: classes3.dex */
     public interface a {
-        void au(float f);
+        void a(float f2);
     }
 
     public RankStarView(Context context) {
         super(context);
-        this.fPS = 5;
-        this.fPX = R.drawable.icon_pure_evaluation_star24_n;
-        this.fPY = R.color.CAM_X0112;
-        this.fPZ = R.drawable.icon_pure_evaluation_star24_n;
-        this.fQa = R.color.CAM_X0305;
-        this.aln = 3;
-        init(context);
+        this.f14073e = 5;
+        this.j = R.drawable.icon_pure_evaluation_star24_n;
+        this.k = R.color.CAM_X0112;
+        this.l = R.drawable.icon_pure_evaluation_star24_n;
+        this.m = R.color.CAM_X0305;
+        this.s = 3;
+        d(context);
     }
 
-    public RankStarView(Context context, @Nullable AttributeSet attributeSet) {
-        super(context, attributeSet);
-        this.fPS = 5;
-        this.fPX = R.drawable.icon_pure_evaluation_star24_n;
-        this.fPY = R.color.CAM_X0112;
-        this.fPZ = R.drawable.icon_pure_evaluation_star24_n;
-        this.fQa = R.color.CAM_X0305;
-        this.aln = 3;
-        init(context);
-    }
-
-    public RankStarView(Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        this.fPS = 5;
-        this.fPX = R.drawable.icon_pure_evaluation_star24_n;
-        this.fPY = R.color.CAM_X0112;
-        this.fPZ = R.drawable.icon_pure_evaluation_star24_n;
-        this.fQa = R.color.CAM_X0305;
-        this.aln = 3;
-        init(context);
-    }
-
-    private void init(Context context) {
-        this.fPV = l.getDimens(context, R.dimen.tbds63);
-        this.fQd = new Rect(0, 0, 0, 0);
-        this.fQe = new Rect(0, 0, 0, 0);
-        bvc();
-    }
-
-    public void setIsHalfStar(boolean z) {
-        this.fQf = z;
-    }
-
-    public void setStarCount(float f) {
-        if (f < 0.0f) {
-            f = 0.0f;
+    public final void a(Canvas canvas) {
+        float f2;
+        if (this.n == null || this.o == null) {
+            return;
         }
-        if (f > this.fPS) {
-            f = this.fPS;
+        int paddingLeft = getPaddingLeft();
+        int i = 0;
+        while (true) {
+            f2 = this.f14074f;
+            if (i >= f2) {
+                break;
+            }
+            Drawable drawable = this.o;
+            int paddingTop = getPaddingTop();
+            int i2 = this.f14076h;
+            drawable.setBounds(paddingLeft, paddingTop, paddingLeft + i2, i2 + getPaddingTop());
+            this.o.draw(canvas);
+            paddingLeft += this.f14075g + this.f14076h;
+            i++;
         }
-        if (this.fPT != f) {
-            this.fPT = f;
-            invalidate();
+        if (f2 - ((int) f2) <= 0.0f) {
+            for (int i3 = (int) f2; i3 < this.f14073e; i3++) {
+                Drawable drawable2 = this.n;
+                int paddingTop2 = getPaddingTop();
+                int i4 = this.f14076h;
+                drawable2.setBounds(paddingLeft, paddingTop2, paddingLeft + i4, i4 + getPaddingTop());
+                this.n.draw(canvas);
+                paddingLeft += this.f14075g + this.f14076h;
+            }
+            return;
         }
-        if (this.fQg != null) {
-            this.fQg.au(f);
+        int i5 = (int) f2;
+        while (true) {
+            i5++;
+            if (i5 >= this.f14073e) {
+                return;
+            }
+            Drawable drawable3 = this.n;
+            int paddingTop3 = getPaddingTop();
+            int i6 = this.f14076h;
+            drawable3.setBounds(paddingLeft, paddingTop3, paddingLeft + i6, i6 + getPaddingTop());
+            this.n.draw(canvas);
+            paddingLeft += this.f14075g + this.f14076h;
         }
+    }
+
+    public final void b(Canvas canvas) {
+        float f2;
+        int i;
+        int i2;
+        int paddingLeft = getPaddingLeft();
+        int i3 = 0;
+        while (true) {
+            f2 = this.f14074f;
+            if (i3 >= ((int) f2)) {
+                break;
+            }
+            Drawable drawable = this.o;
+            int paddingTop = getPaddingTop();
+            int i4 = this.f14076h;
+            drawable.setBounds(paddingLeft, paddingTop, paddingLeft + i4, i4 + getPaddingTop());
+            this.o.draw(canvas);
+            paddingLeft += this.f14075g + this.f14076h;
+            i3++;
+        }
+        if (f2 - ((int) f2) >= 0.5d) {
+            Drawable drawable2 = this.o;
+            int paddingTop2 = getPaddingTop();
+            int i5 = this.f14076h;
+            drawable2.setBounds(paddingLeft, paddingTop2, paddingLeft + i5, i5 + getPaddingTop());
+            this.o.draw(canvas);
+            i = this.f14075g;
+            i2 = this.f14076h;
+        } else if (f2 - ((int) f2) > 0.0f) {
+            Drawable drawable3 = this.o;
+            int paddingTop3 = getPaddingTop();
+            int i6 = this.f14076h;
+            drawable3.setBounds(paddingLeft, paddingTop3, paddingLeft + i6, i6 + getPaddingTop());
+            canvas.save();
+            Rect rect = this.p;
+            int paddingTop4 = getPaddingTop();
+            int i7 = this.f14076h;
+            rect.set(paddingLeft, paddingTop4, (i7 / 2) + paddingLeft, i7 + getPaddingTop());
+            canvas.clipRect(this.p);
+            this.o.draw(canvas);
+            canvas.restore();
+            Drawable drawable4 = this.n;
+            int paddingTop5 = getPaddingTop();
+            int i8 = this.f14076h;
+            drawable4.setBounds(paddingLeft, paddingTop5, paddingLeft + i8, i8 + getPaddingTop());
+            canvas.save();
+            int paddingTop6 = getPaddingTop();
+            int i9 = this.f14076h;
+            this.q.set((this.f14076h / 2) + paddingLeft, paddingTop6, paddingLeft + i9, i9 + getPaddingTop());
+            canvas.clipRect(this.q);
+            this.n.draw(canvas);
+            canvas.restore();
+            i = this.f14075g;
+            i2 = this.f14076h;
+        } else {
+            Drawable drawable5 = this.n;
+            int paddingTop7 = getPaddingTop();
+            int i10 = this.f14076h;
+            drawable5.setBounds(paddingLeft, paddingTop7, paddingLeft + i10, i10 + getPaddingTop());
+            this.n.draw(canvas);
+            i = this.f14075g;
+            i2 = this.f14076h;
+        }
+        int i11 = paddingLeft + i + i2;
+        int i12 = (int) this.f14074f;
+        while (true) {
+            i12++;
+            if (i12 >= this.f14073e) {
+                return;
+            }
+            Drawable drawable6 = this.n;
+            int paddingTop8 = getPaddingTop();
+            int i13 = this.f14076h;
+            drawable6.setBounds(i11, paddingTop8, i11 + i13, i13 + getPaddingTop());
+            this.n.draw(canvas);
+            i11 += this.f14075g + this.f14076h;
+        }
+    }
+
+    public boolean c() {
+        return this.f14074f != 0.0f;
+    }
+
+    public final void d(Context context) {
+        this.f14076h = l.g(context, R.dimen.tbds63);
+        this.p = new Rect(0, 0, 0, 0);
+        this.q = new Rect(0, 0, 0, 0);
+        f();
+    }
+
+    public void e(int i) {
+        if (this.s != i) {
+            this.s = i;
+            f();
+        }
+    }
+
+    public void f() {
+        this.n = SvgManager.getInstance().getPureDrawable(this.j, this.k, null);
+        this.o = SvgManager.getInstance().getPureDrawable(this.l, this.m, null);
     }
 
     public int getStarCount() {
-        if (this.fPT == 0.0f) {
+        float f2 = this.f14074f;
+        if (f2 == 0.0f) {
             return 0;
         }
-        return ((int) this.fPT) + 1;
+        double d2 = f2;
+        Double.isNaN(d2);
+        return d2 % 1.0d == 0.0d ? (int) f2 : ((int) f2) + 1;
     }
 
-    public boolean bGk() {
-        return this.fPT != 0.0f;
-    }
-
-    public void setStarSpacing(int i) {
-        this.fPU = i;
-    }
-
-    public void setStarResource(@DrawableRes int i, @ColorRes int i2, @DrawableRes int i3, @ColorRes int i4) {
-        this.fPX = i;
-        this.fPY = i2;
-        this.fPZ = i3;
-        this.fQa = i4;
-        bvc();
-    }
-
-    public void onChangeSkinType(int i) {
-        if (this.aln != i) {
-            this.aln = i;
-            bvc();
+    @Override // android.view.View
+    public void onDraw(Canvas canvas) {
+        if (this.n == null || this.o == null) {
+            return;
+        }
+        if (this.r) {
+            b(canvas);
+        } else {
+            a(canvas);
         }
     }
 
-    public void bvc() {
-        this.fQb = SvgManager.bsU().a(this.fPX, this.fPY, (SvgManager.SvgResourceStateType) null);
-        this.fQc = SvgManager.bsU().a(this.fPZ, this.fQa, (SvgManager.SvgResourceStateType) null);
+    @Override // android.view.View
+    public void onMeasure(int i, int i2) {
+        super.onMeasure(i, i2);
+        int mode = View.MeasureSpec.getMode(i);
+        int mode2 = View.MeasureSpec.getMode(i2);
+        int size = View.MeasureSpec.getSize(i);
+        int size2 = View.MeasureSpec.getSize(i2);
+        if (mode2 == 1073741824) {
+            this.f14076h = (size2 - getPaddingBottom()) - getPaddingTop();
+        } else {
+            size2 = this.f14076h + getPaddingBottom() + getPaddingTop();
+        }
+        int i3 = this.f14076h;
+        int i4 = this.f14073e;
+        int i5 = (i3 * i4) + (this.f14075g * (i4 - 1));
+        this.i = i5;
+        if (mode != 1073741824) {
+            size = getPaddingRight() + i5 + getPaddingLeft();
+        } else if (size < i5) {
+            this.i = (size - getPaddingLeft()) - getPaddingRight();
+        }
+        setMeasuredDimension(size, size2);
     }
 
     @Override // android.view.View
@@ -137,117 +254,71 @@ public class RankStarView extends View {
         boolean onTouchEvent = super.onTouchEvent(motionEvent);
         if (motionEvent != null && onTouchEvent) {
             int x = (int) motionEvent.getX();
-            if (x < getPaddingLeft() - 10 || x > this.fPW + getPaddingLeft() + 10) {
+            if (x < getPaddingLeft() - 10 || x > this.i + getPaddingLeft() + 10) {
                 return true;
             }
-            setStarCount((((x - getPaddingLeft()) * 1.0f) / this.fPW) * this.fPS);
-            return onTouchEvent;
+            setStarCount((((x - getPaddingLeft()) * 1.0f) / this.i) * this.f14073e);
         }
         return onTouchEvent;
     }
 
-    @Override // android.view.View
-    protected void onMeasure(int i, int i2) {
-        super.onMeasure(i, i2);
-        int mode = View.MeasureSpec.getMode(i);
-        int mode2 = View.MeasureSpec.getMode(i2);
-        int size = View.MeasureSpec.getSize(i);
-        int size2 = View.MeasureSpec.getSize(i2);
-        if (mode2 == 1073741824) {
-            this.fPV = (size2 - getPaddingBottom()) - getPaddingTop();
-        } else {
-            size2 = this.fPV + getPaddingBottom() + getPaddingTop();
-        }
-        this.fPW = (this.fPV * this.fPS) + (this.fPU * (this.fPS - 1));
-        if (mode != 1073741824) {
-            size = this.fPW + getPaddingLeft() + getPaddingRight();
-        } else if (size < this.fPW) {
-            this.fPW = (size - getPaddingLeft()) - getPaddingRight();
-        }
-        setMeasuredDimension(size, size2);
-    }
-
-    @Override // android.view.View
-    protected void onDraw(Canvas canvas) {
-        if (this.fQb != null && this.fQc != null) {
-            if (this.fQf) {
-                P(canvas);
-            } else {
-                Q(canvas);
-            }
-        }
-    }
-
-    private void P(Canvas canvas) {
-        int i;
-        int paddingLeft = getPaddingLeft();
-        for (int i2 = 0; i2 < ((int) this.fPT); i2++) {
-            this.fQc.setBounds(paddingLeft, getPaddingTop(), this.fPV + paddingLeft, this.fPV + getPaddingTop());
-            this.fQc.draw(canvas);
-            paddingLeft += this.fPU + this.fPV;
-        }
-        if (this.fPT - ((int) this.fPT) >= 0.5d) {
-            this.fQc.setBounds(paddingLeft, getPaddingTop(), this.fPV + paddingLeft, this.fPV + getPaddingTop());
-            this.fQc.draw(canvas);
-            i = this.fPU + this.fPV + paddingLeft;
-        } else if (this.fPT - ((int) this.fPT) > 0.0f) {
-            this.fQc.setBounds(paddingLeft, getPaddingTop(), this.fPV + paddingLeft, this.fPV + getPaddingTop());
-            canvas.save();
-            this.fQd.set(paddingLeft, getPaddingTop(), (this.fPV / 2) + paddingLeft, this.fPV + getPaddingTop());
-            canvas.clipRect(this.fQd);
-            this.fQc.draw(canvas);
-            canvas.restore();
-            this.fQb.setBounds(paddingLeft, getPaddingTop(), this.fPV + paddingLeft, this.fPV + getPaddingTop());
-            canvas.save();
-            this.fQe.set((this.fPV / 2) + paddingLeft, getPaddingTop(), this.fPV + paddingLeft, this.fPV + getPaddingTop());
-            canvas.clipRect(this.fQe);
-            this.fQb.draw(canvas);
-            canvas.restore();
-            i = this.fPU + this.fPV + paddingLeft;
-        } else {
-            this.fQb.setBounds(paddingLeft, getPaddingTop(), this.fPV + paddingLeft, this.fPV + getPaddingTop());
-            this.fQb.draw(canvas);
-            i = this.fPU + this.fPV + paddingLeft;
-        }
-        int i3 = i;
-        for (int i4 = ((int) this.fPT) + 1; i4 < this.fPS; i4++) {
-            this.fQb.setBounds(i3, getPaddingTop(), this.fPV + i3, this.fPV + getPaddingTop());
-            this.fQb.draw(canvas);
-            i3 += this.fPU + this.fPV;
-        }
-    }
-
-    private void Q(Canvas canvas) {
-        if (this.fQb != null && this.fQc != null) {
-            int paddingLeft = getPaddingLeft();
-            for (int i = 0; i < this.fPT; i++) {
-                this.fQc.setBounds(paddingLeft, getPaddingTop(), this.fPV + paddingLeft, this.fPV + getPaddingTop());
-                this.fQc.draw(canvas);
-                paddingLeft += this.fPU + this.fPV;
-            }
-            if (this.fPT - ((int) this.fPT) > 0.0f) {
-                int i2 = (int) this.fPT;
-                while (true) {
-                    i2++;
-                    if (i2 < this.fPS) {
-                        this.fQb.setBounds(paddingLeft, getPaddingTop(), this.fPV + paddingLeft, this.fPV + getPaddingTop());
-                        this.fQb.draw(canvas);
-                        paddingLeft += this.fPU + this.fPV;
-                    } else {
-                        return;
-                    }
-                }
-            } else {
-                for (int i3 = (int) this.fPT; i3 < this.fPS; i3++) {
-                    this.fQb.setBounds(paddingLeft, getPaddingTop(), this.fPV + paddingLeft, this.fPV + getPaddingTop());
-                    this.fQb.draw(canvas);
-                    paddingLeft += this.fPU + this.fPV;
-                }
-            }
-        }
+    public void setIsHalfStar(boolean z) {
+        this.r = z;
     }
 
     public void setStarChangListener(a aVar) {
-        this.fQg = aVar;
+        this.t = aVar;
+    }
+
+    public void setStarCount(float f2) {
+        if (f2 < 0.0f) {
+            f2 = 0.0f;
+        }
+        int i = this.f14073e;
+        if (f2 > i) {
+            f2 = i;
+        }
+        if (this.f14074f != f2) {
+            this.f14074f = f2;
+            invalidate();
+        }
+        a aVar = this.t;
+        if (aVar != null) {
+            aVar.a(f2);
+        }
+    }
+
+    public void setStarResource(@DrawableRes int i, @ColorRes int i2, @DrawableRes int i3, @ColorRes int i4) {
+        this.j = i;
+        this.k = i2;
+        this.l = i3;
+        this.m = i4;
+        f();
+    }
+
+    public void setStarSpacing(int i) {
+        this.f14075g = i;
+    }
+
+    public RankStarView(Context context, @Nullable AttributeSet attributeSet) {
+        super(context, attributeSet);
+        this.f14073e = 5;
+        this.j = R.drawable.icon_pure_evaluation_star24_n;
+        this.k = R.color.CAM_X0112;
+        this.l = R.drawable.icon_pure_evaluation_star24_n;
+        this.m = R.color.CAM_X0305;
+        this.s = 3;
+        d(context);
+    }
+
+    public RankStarView(Context context, @Nullable AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        this.f14073e = 5;
+        this.j = R.drawable.icon_pure_evaluation_star24_n;
+        this.k = R.color.CAM_X0112;
+        this.l = R.drawable.icon_pure_evaluation_star24_n;
+        this.m = R.color.CAM_X0305;
+        this.s = 3;
+        d(context);
     }
 }

@@ -1,64 +1,95 @@
 package com.xiaomi.push;
-
-import android.content.Context;
-import android.text.TextUtils;
-import com.xiaomi.push.service.XMPushService;
-import java.io.File;
-/* loaded from: classes5.dex */
-public class hh implements XMPushService.l {
-
-    /* renamed from: a  reason: collision with root package name */
-    private static boolean f8414a = false;
+/* loaded from: classes7.dex */
+public enum hh {
+    DeviceInfo(1),
+    AppInstallList(2),
+    AppActiveList(3),
+    Bluetooth(4),
+    Location(5),
+    Account(6),
+    WIFI(7),
+    Cellular(8),
+    TopApp(9),
+    BroadcastAction(10),
+    BroadcastActionAdded(11),
+    BroadcastActionRemoved(12),
+    BroadcastActionReplaced(13),
+    BroadcastActionDataCleared(14),
+    BroadcastActionRestarted(15),
+    BroadcastActionChanged(16),
+    AppPermission(17),
+    WifiDevicesMac(18),
+    ActivityActiveTimeStamp(19),
+    DeviceBaseInfo(20),
+    DeviceInfoV2(21),
+    Battery(22),
+    Storage(23),
+    AppIsInstalled(24);
+    
 
     /* renamed from: a  reason: collision with other field name */
-    private int f433a;
+    public final int f473a;
 
-    /* renamed from: a  reason: collision with other field name */
-    private Context f434a;
-    private boolean b;
-
-    public hh(Context context) {
-        this.f434a = context;
+    hh(int i) {
+        this.f473a = i;
     }
 
-    private String a(String str) {
-        return "com.xiaomi.xmsf".equals(str) ? "1000271" : this.f434a.getSharedPreferences("pref_registered_pkg_names", 0).getString(str, null);
-    }
-
-    private void a(Context context) {
-        this.b = com.xiaomi.push.service.ak.a(context).a(hr.TinyDataUploadSwitch.a(), true);
-        this.f433a = com.xiaomi.push.service.ak.a(context).a(hr.TinyDataUploadFrequency.a(), 7200);
-        this.f433a = Math.max(60, this.f433a);
-    }
-
-    public static void a(boolean z) {
-        f8414a = z;
-    }
-
-    private boolean a() {
-        return Math.abs((System.currentTimeMillis() / 1000) - this.f434a.getSharedPreferences("mipush_extra", 4).getLong("last_tiny_data_upload_timestamp", -1L)) > ((long) this.f433a);
-    }
-
-    private boolean a(hl hlVar) {
-        if (!az.b(this.f434a) || hlVar == null || TextUtils.isEmpty(a(this.f434a.getPackageName())) || !new File(this.f434a.getFilesDir(), "tiny_data.data").exists() || f8414a) {
-            return false;
+    public static hh a(int i) {
+        switch (i) {
+            case 1:
+                return DeviceInfo;
+            case 2:
+                return AppInstallList;
+            case 3:
+                return AppActiveList;
+            case 4:
+                return Bluetooth;
+            case 5:
+                return Location;
+            case 6:
+                return Account;
+            case 7:
+                return WIFI;
+            case 8:
+                return Cellular;
+            case 9:
+                return TopApp;
+            case 10:
+                return BroadcastAction;
+            case 11:
+                return BroadcastActionAdded;
+            case 12:
+                return BroadcastActionRemoved;
+            case 13:
+                return BroadcastActionReplaced;
+            case 14:
+                return BroadcastActionDataCleared;
+            case 15:
+                return BroadcastActionRestarted;
+            case 16:
+                return BroadcastActionChanged;
+            case 17:
+                return AppPermission;
+            case 18:
+                return WifiDevicesMac;
+            case 19:
+                return ActivityActiveTimeStamp;
+            case 20:
+                return DeviceBaseInfo;
+            case 21:
+                return DeviceInfoV2;
+            case 22:
+                return Battery;
+            case 23:
+                return Storage;
+            case 24:
+                return AppIsInstalled;
+            default:
+                return null;
         }
-        return !com.xiaomi.push.service.ak.a(this.f434a).a(hr.ScreenOnOrChargingTinyDataUploadSwitch.a(), false) || i.m394a(this.f434a) || i.m397b(this.f434a);
     }
 
-    @Override // com.xiaomi.push.service.XMPushService.l
-    /* renamed from: a  reason: collision with other method in class */
-    public void mo345a() {
-        a(this.f434a);
-        if (this.b && a()) {
-            com.xiaomi.channel.commonutils.logger.b.m58a("TinyData TinyDataCacheProcessor.pingFollowUpAction ts:" + System.currentTimeMillis());
-            hl a2 = hk.a(this.f434a).a();
-            if (!a(a2)) {
-                com.xiaomi.channel.commonutils.logger.b.m58a("TinyData TinyDataCacheProcessor.pingFollowUpAction !canUpload(uploader) ts:" + System.currentTimeMillis());
-                return;
-            }
-            f8414a = true;
-            hi.a(this.f434a, a2);
-        }
+    public int a() {
+        return this.f473a;
     }
 }

@@ -14,9 +14,77 @@ import com.bumptech.glide.load.model.ModelLoader;
 import com.bumptech.glide.signature.ObjectKey;
 import java.io.File;
 import java.io.FileNotFoundException;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public final class MediaStoreFileLoader implements ModelLoader<Uri, File> {
-    private final Context context;
+    public final Context context;
+
+    /* loaded from: classes5.dex */
+    public static final class Factory implements ModelLoaderFactory<Uri, File> {
+        public final Context context;
+
+        public Factory(Context context) {
+            this.context = context;
+        }
+
+        @Override // com.bumptech.glide.load.model.ModelLoaderFactory
+        @NonNull
+        public ModelLoader<Uri, File> build(MultiModelLoaderFactory multiModelLoaderFactory) {
+            return new MediaStoreFileLoader(this.context);
+        }
+
+        @Override // com.bumptech.glide.load.model.ModelLoaderFactory
+        public void teardown() {
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static class FilePathFetcher implements DataFetcher<File> {
+        public static final String[] PROJECTION = {"_data"};
+        public final Context context;
+        public final Uri uri;
+
+        public FilePathFetcher(Context context, Uri uri) {
+            this.context = context;
+            this.uri = uri;
+        }
+
+        @Override // com.bumptech.glide.load.data.DataFetcher
+        public void cancel() {
+        }
+
+        @Override // com.bumptech.glide.load.data.DataFetcher
+        public void cleanup() {
+        }
+
+        @Override // com.bumptech.glide.load.data.DataFetcher
+        @NonNull
+        public Class<File> getDataClass() {
+            return File.class;
+        }
+
+        @Override // com.bumptech.glide.load.data.DataFetcher
+        @NonNull
+        public DataSource getDataSource() {
+            return DataSource.LOCAL;
+        }
+
+        @Override // com.bumptech.glide.load.data.DataFetcher
+        public void loadData(@NonNull Priority priority, @NonNull DataFetcher.DataCallback<? super File> dataCallback) {
+            Cursor query = this.context.getContentResolver().query(this.uri, PROJECTION, null, null, null);
+            if (query != null) {
+                try {
+                    r0 = query.moveToFirst() ? query.getString(query.getColumnIndexOrThrow("_data")) : null;
+                } finally {
+                    query.close();
+                }
+            }
+            if (TextUtils.isEmpty(r0)) {
+                dataCallback.onLoadFailed(new FileNotFoundException("Failed to find file path for: " + this.uri));
+                return;
+            }
+            dataCallback.onDataReady(new File(r0));
+        }
+    }
 
     public MediaStoreFileLoader(Context context) {
         this.context = context;
@@ -32,74 +100,5 @@ public final class MediaStoreFileLoader implements ModelLoader<Uri, File> {
     @Override // com.bumptech.glide.load.model.ModelLoader
     public boolean handles(@NonNull Uri uri) {
         return MediaStoreUtil.isMediaStoreUri(uri);
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes14.dex */
-    public static class FilePathFetcher implements DataFetcher<File> {
-        private static final String[] PROJECTION = {"_data"};
-        private final Context context;
-        private final Uri uri;
-
-        FilePathFetcher(Context context, Uri uri) {
-            this.context = context;
-            this.uri = uri;
-        }
-
-        @Override // com.bumptech.glide.load.data.DataFetcher
-        public void loadData(@NonNull Priority priority, @NonNull DataFetcher.DataCallback<? super File> dataCallback) {
-            Cursor query = this.context.getContentResolver().query(this.uri, PROJECTION, null, null, null);
-            if (query != null) {
-                try {
-                    r3 = query.moveToFirst() ? query.getString(query.getColumnIndexOrThrow("_data")) : null;
-                } finally {
-                    query.close();
-                }
-            }
-            if (TextUtils.isEmpty(r3)) {
-                dataCallback.onLoadFailed(new FileNotFoundException("Failed to find file path for: " + this.uri));
-            } else {
-                dataCallback.onDataReady(new File(r3));
-            }
-        }
-
-        @Override // com.bumptech.glide.load.data.DataFetcher
-        public void cleanup() {
-        }
-
-        @Override // com.bumptech.glide.load.data.DataFetcher
-        public void cancel() {
-        }
-
-        @Override // com.bumptech.glide.load.data.DataFetcher
-        @NonNull
-        public Class<File> getDataClass() {
-            return File.class;
-        }
-
-        @Override // com.bumptech.glide.load.data.DataFetcher
-        @NonNull
-        public DataSource getDataSource() {
-            return DataSource.LOCAL;
-        }
-    }
-
-    /* loaded from: classes14.dex */
-    public static final class Factory implements ModelLoaderFactory<Uri, File> {
-        private final Context context;
-
-        public Factory(Context context) {
-            this.context = context;
-        }
-
-        @Override // com.bumptech.glide.load.model.ModelLoaderFactory
-        @NonNull
-        public ModelLoader<Uri, File> build(MultiModelLoaderFactory multiModelLoaderFactory) {
-            return new MediaStoreFileLoader(this.context);
-        }
-
-        @Override // com.bumptech.glide.load.model.ModelLoaderFactory
-        public void teardown() {
-        }
     }
 }

@@ -2,10 +2,10 @@ package com.baidu.tieba.barselect.model;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.util.v;
+import d.b.h0.z0.w;
 import tbclient.Search.DataReq;
 import tbclient.Search.SearchReqIdl;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class CandidateSearchReqMsg extends NetMessage {
     public int applyId;
     public long fid;
@@ -15,12 +15,12 @@ public class CandidateSearchReqMsg extends NetMessage {
     }
 
     @Override // com.baidu.adp.framework.message.NetMessage
-    protected Object encode(boolean z) {
+    public Object encode(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
         builder.apply_id = Integer.valueOf(this.applyId);
         builder.fid = Long.valueOf(this.fid);
         if (z) {
-            v.b(builder, true);
+            w.a(builder, true);
         }
         SearchReqIdl.Builder builder2 = new SearchReqIdl.Builder();
         builder2.data = builder.build(false);

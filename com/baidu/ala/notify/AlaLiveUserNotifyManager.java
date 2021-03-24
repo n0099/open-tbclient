@@ -8,38 +8,45 @@ import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.ala.AlaConfig;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.y;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public class AlaLiveUserNotifyManager {
-    private static AlaLiveUserNotifyManager mInstance;
-    private ArrayList<AlaLiveUserNotifyData> dataList;
-    private ArrayList<AlaLiveNotifyListener> listeners;
-    private BdUniqueId mCurTag;
-    private HttpMessageListener mGetUserNotifyListener = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_GET_USER_NOTIFY) { // from class: com.baidu.ala.notify.AlaLiveUserNotifyManager.1
+    public static AlaLiveUserNotifyManager mInstance;
+    public ArrayList<AlaLiveUserNotifyData> dataList;
+    public ArrayList<AlaLiveNotifyListener> listeners;
+    public BdUniqueId mCurTag;
+    public HttpMessageListener mGetUserNotifyListener = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_GET_USER_NOTIFY) { // from class: com.baidu.ala.notify.AlaLiveUserNotifyManager.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if ((httpResponsedMessage instanceof AlaLiveGetUserNotifyResponsedMessage) && httpResponsedMessage.getOrginalMessage().getTag() == AlaLiveUserNotifyManager.this.mCurTag) {
                 AlaLiveGetUserNotifyResponsedMessage alaLiveGetUserNotifyResponsedMessage = (AlaLiveGetUserNotifyResponsedMessage) httpResponsedMessage;
-                if (y.getCount(alaLiveGetUserNotifyResponsedMessage.getDataList()) > 0) {
+                if (ListUtils.getCount(alaLiveGetUserNotifyResponsedMessage.getDataList()) > 0) {
                     if (AlaLiveUserNotifyManager.this.dataList == null) {
                         AlaLiveUserNotifyManager.this.dataList = new ArrayList();
                     }
                     AlaLiveUserNotifyManager.this.dataList.addAll(alaLiveGetUserNotifyResponsedMessage.getDataList());
                     AlaLiveUserNotifyManager.this.notifyMsg();
-                } else if (!y.isEmpty(AlaLiveUserNotifyManager.this.dataList)) {
+                } else if (ListUtils.isEmpty(AlaLiveUserNotifyManager.this.dataList)) {
+                } else {
                     AlaLiveUserNotifyManager.this.notifyMsg();
                 }
             }
         }
     };
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public interface AlaLiveNotifyListener {
         void onCallBack();
+    }
+
+    public AlaLiveUserNotifyManager() {
+        registerGetUserNotifyTask();
+        this.mCurTag = BdUniqueId.gen();
+        MessageManager.getInstance().registerListener(this.mGetUserNotifyListener);
     }
 
     public static AlaLiveUserNotifyManager getInstance() {
@@ -53,13 +60,21 @@ public class AlaLiveUserNotifyManager {
         return mInstance;
     }
 
-    private AlaLiveUserNotifyManager() {
-        registerGetUserNotifyTask();
-        this.mCurTag = BdUniqueId.gen();
-        MessageManager.getInstance().registerListener(this.mGetUserNotifyListener);
+    /* JADX INFO: Access modifiers changed from: private */
+    public void notifyMsg() {
+        if (ListUtils.isEmpty(this.listeners)) {
+            return;
+        }
+        Iterator<AlaLiveNotifyListener> it = this.listeners.iterator();
+        while (it.hasNext()) {
+            AlaLiveNotifyListener next = it.next();
+            if (next != null) {
+                next.onCallBack();
+            }
+        }
     }
 
-    private static void registerGetUserNotifyTask() {
+    public static void registerGetUserNotifyTask() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(AlaCmdConfigHttp.CMD_ALA_GET_USER_NOTIFY, TbConfig.SERVER_ADDRESS + AlaConfig.ALA_GET_USER_NOTIFY_URL);
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedAddCommenParam(true);
@@ -69,44 +84,34 @@ public class AlaLiveUserNotifyManager {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public void sendGetUserNotifyRequest() {
-        HttpMessage httpMessage = new HttpMessage(AlaCmdConfigHttp.CMD_ALA_GET_USER_NOTIFY);
-        httpMessage.addParam("num", 10);
-        httpMessage.setTag(this.mCurTag);
-        MessageManager.getInstance().sendMessage(httpMessage);
-    }
-
     public void addNotifyListener(AlaLiveNotifyListener alaLiveNotifyListener) {
         if (this.listeners == null) {
             this.listeners = new ArrayList<>();
         }
-        if (!this.listeners.contains(alaLiveNotifyListener)) {
-            this.listeners.add(alaLiveNotifyListener);
+        if (this.listeners.contains(alaLiveNotifyListener)) {
+            return;
         }
-    }
-
-    public void removeNotifyListener(AlaLiveNotifyListener alaLiveNotifyListener) {
-        if (this.listeners != null) {
-            this.listeners.remove(alaLiveNotifyListener);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void notifyMsg() {
-        if (!y.isEmpty(this.listeners)) {
-            Iterator<AlaLiveNotifyListener> it = this.listeners.iterator();
-            while (it.hasNext()) {
-                AlaLiveNotifyListener next = it.next();
-                if (next != null) {
-                    next.onCallBack();
-                }
-            }
-        }
+        this.listeners.add(alaLiveNotifyListener);
     }
 
     public ArrayList<AlaLiveUserNotifyData> getNotifyDataList() {
         ArrayList<AlaLiveUserNotifyData> arrayList = new ArrayList<>(this.dataList);
         this.dataList.clear();
         return arrayList;
+    }
+
+    public void removeNotifyListener(AlaLiveNotifyListener alaLiveNotifyListener) {
+        ArrayList<AlaLiveNotifyListener> arrayList = this.listeners;
+        if (arrayList == null) {
+            return;
+        }
+        arrayList.remove(alaLiveNotifyListener);
+    }
+
+    public void sendGetUserNotifyRequest() {
+        HttpMessage httpMessage = new HttpMessage(AlaCmdConfigHttp.CMD_ALA_GET_USER_NOTIFY);
+        httpMessage.addParam("num", 10);
+        httpMessage.setTag(this.mCurTag);
+        MessageManager.getInstance().sendMessage(httpMessage);
     }
 }

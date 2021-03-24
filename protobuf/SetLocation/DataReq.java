@@ -2,7 +2,7 @@ package protobuf.SetLocation;
 
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public final class DataReq extends Message {
     public static final String DEFAULT_LAT = "";
     public static final String DEFAULT_LNG = "";
@@ -14,33 +14,7 @@ public final class DataReq extends Message {
     @ProtoField(tag = 1, type = Message.Datatype.INT64)
     public final Long toUid;
 
-    private DataReq(Builder builder, boolean z) {
-        super(builder);
-        if (z) {
-            if (builder.toUid == null) {
-                this.toUid = DEFAULT_TOUID;
-            } else {
-                this.toUid = builder.toUid;
-            }
-            if (builder.lng == null) {
-                this.lng = "";
-            } else {
-                this.lng = builder.lng;
-            }
-            if (builder.lat == null) {
-                this.lat = "";
-                return;
-            } else {
-                this.lat = builder.lat;
-                return;
-            }
-        }
-        this.toUid = builder.toUid;
-        this.lng = builder.lng;
-        this.lat = builder.lat;
-    }
-
-    /* loaded from: classes2.dex */
+    /* loaded from: classes7.dex */
     public static final class Builder extends Message.Builder<DataReq> {
         public String lat;
         public String lng;
@@ -51,11 +25,12 @@ public final class DataReq extends Message {
 
         public Builder(DataReq dataReq) {
             super(dataReq);
-            if (dataReq != null) {
-                this.toUid = dataReq.toUid;
-                this.lng = dataReq.lng;
-                this.lat = dataReq.lat;
+            if (dataReq == null) {
+                return;
             }
+            this.toUid = dataReq.toUid;
+            this.lng = dataReq.lng;
+            this.lat = dataReq.lat;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -63,5 +38,34 @@ public final class DataReq extends Message {
         public DataReq build(boolean z) {
             return new DataReq(this, z);
         }
+    }
+
+    public DataReq(Builder builder, boolean z) {
+        super(builder);
+        if (z) {
+            Long l = builder.toUid;
+            if (l == null) {
+                this.toUid = DEFAULT_TOUID;
+            } else {
+                this.toUid = l;
+            }
+            String str = builder.lng;
+            if (str == null) {
+                this.lng = "";
+            } else {
+                this.lng = str;
+            }
+            String str2 = builder.lat;
+            if (str2 == null) {
+                this.lat = "";
+                return;
+            } else {
+                this.lat = str2;
+                return;
+            }
+        }
+        this.toUid = builder.toUid;
+        this.lng = builder.lng;
+        this.lat = builder.lat;
     }
 }

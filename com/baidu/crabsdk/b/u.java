@@ -7,105 +7,114 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView;
+import com.baidu.crabsdk.c.b;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import org.json.JSONArray;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public final class u {
-    private static com.baidu.crabsdk.c.b<List> aqL = new com.baidu.crabsdk.c.b<>(com.baidu.crabsdk.a.g);
-    private static String bv = "";
-    private static String bc = "";
-    private static int aqM = 0;
-    private static int aqN = 0;
 
-    private static WebView J(View view) {
+    /* renamed from: a  reason: collision with root package name */
+    public static b<List> f4702a = new b<>(com.baidu.crabsdk.a.f4640g);
+
+    /* renamed from: b  reason: collision with root package name */
+    public static String f4703b = "";
+
+    /* renamed from: c  reason: collision with root package name */
+    public static String f4704c = "";
+
+    /* renamed from: d  reason: collision with root package name */
+    public static int f4705d = 0;
+
+    /* renamed from: e  reason: collision with root package name */
+    public static int f4706e = 0;
+
+    public static String a() {
+        return f4702a.size() > 0 ? new JSONArray((Collection) f4702a).toString() : "";
+    }
+
+    public static boolean b() {
+        return a().length() > 0;
+    }
+
+    public static WebView c(View view) {
         if (view instanceof ViewGroup) {
             ViewGroup viewGroup = (ViewGroup) view;
             for (int i = 0; i < viewGroup.getChildCount(); i++) {
                 View childAt = viewGroup.getChildAt(i);
-                if (childAt.getVisibility() == 0) {
-                    if (!(childAt.getLocalVisibleRect(new Rect(0, 0, aqM, aqN)))) {
-                        continue;
-                    } else if (childAt instanceof WebView) {
+                if (childAt.getVisibility() == 0 && childAt.getLocalVisibleRect(new Rect(0, 0, f4705d, f4706e))) {
+                    if (childAt instanceof WebView) {
                         return (WebView) childAt;
-                    } else {
-                        WebView J = J(childAt);
-                        if (J != null) {
-                            return J;
-                        }
+                    }
+                    WebView c2 = c(childAt);
+                    if (c2 != null) {
+                        return c2;
                     }
                 }
             }
+            return null;
         }
         return null;
     }
 
-    public static String U() {
-        return aqL.size() > 0 ? new JSONArray((Collection) aqL).toString() : "";
-    }
-
-    public static boolean V() {
-        return U().length() > 0;
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:20:0x005a A[Catch: Exception -> 0x00d0, TryCatch #0 {Exception -> 0x00d0, blocks: (B:16:0x004a, B:18:0x0054, B:20:0x005a, B:22:0x0066), top: B:27:0x004a }] */
+    /* JADX WARN: Removed duplicated region for block: B:21:0x005b A[Catch: Exception -> 0x00c9, TryCatch #0 {Exception -> 0x00c9, blocks: (B:16:0x0049, B:18:0x0053, B:21:0x005b, B:23:0x0067), top: B:27:0x0049 }] */
     /* JADX WARN: Removed duplicated region for block: B:29:? A[RETURN, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static void urlRecordEvent(MotionEvent motionEvent, Activity activity) {
-        WebView J;
+    public static void d(MotionEvent motionEvent, Activity activity) {
+        WebView c2;
         if (activity == null) {
             return;
         }
-        if (aqM == 0 || aqN == 0) {
+        if (f4705d == 0 || f4706e == 0) {
             DisplayMetrics displayMetrics = new DisplayMetrics();
             activity.getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
-            aqN = displayMetrics.heightPixels;
-            aqM = displayMetrics.widthPixels;
+            f4706e = displayMetrics.heightPixels;
+            f4705d = displayMetrics.widthPixels;
         }
-        switch (motionEvent.getAction()) {
-            case 0:
-                String name = activity.getClass().getName();
-                if (!name.equals(bc)) {
-                    com.baidu.crabsdk.c.a.v("***** !tempName.equals(activityName) *****");
-                    bc = name;
-                    aqL.clear();
-                }
-                if (activity != null) {
-                    try {
-                        View decorView = activity.getWindow().getDecorView();
-                        if (decorView != null) {
-                            J = J(decorView);
-                            if (J == null) {
-                                String url = J.getUrl();
-                                if (url.equals(bv)) {
-                                    return;
-                                }
-                                com.baidu.crabsdk.c.a.v("-------- !tempUrl.equals(mUrl) --------");
-                                bv = url;
-                                ArrayList arrayList = new ArrayList();
-                                arrayList.add(Integer.valueOf((int) (System.currentTimeMillis() / 1000)));
-                                arrayList.add(J.getTitle());
-                                arrayList.add(bv);
-                                com.baidu.crabsdk.c.a.v("title:" + J.getTitle() + "; url:" + bv);
-                                aqL.add(arrayList);
-                                com.baidu.crabsdk.c.a.v("###### jsonArray.toString() : " + U());
-                                return;
-                            }
+        if (motionEvent.getAction() != 0) {
+            return;
+        }
+        String name = activity.getClass().getName();
+        if (!name.equals(f4704c)) {
+            com.baidu.crabsdk.c.a.c("***** !tempName.equals(activityName) *****");
+            f4704c = name;
+            f4702a.clear();
+        }
+        if (activity != null) {
+            try {
+                View decorView = activity.getWindow().getDecorView();
+                if (decorView != null) {
+                    c2 = c(decorView);
+                    if (c2 == null) {
+                        String url = c2.getUrl();
+                        if (url.equals(f4703b)) {
                             return;
                         }
-                    } catch (Exception e) {
-                        com.baidu.crabsdk.c.a.w("createUrlRecord error!!");
+                        com.baidu.crabsdk.c.a.c("-------- !tempUrl.equals(mUrl) --------");
+                        f4703b = url;
+                        ArrayList arrayList = new ArrayList();
+                        arrayList.add(Integer.valueOf((int) (System.currentTimeMillis() / 1000)));
+                        arrayList.add(c2.getTitle());
+                        arrayList.add(f4703b);
+                        com.baidu.crabsdk.c.a.c("title:" + c2.getTitle() + "; url:" + f4703b);
+                        f4702a.add(arrayList);
+                        StringBuilder sb = new StringBuilder("###### jsonArray.toString() : ");
+                        sb.append(a());
+                        com.baidu.crabsdk.c.a.c(sb.toString());
                         return;
                     }
+                    return;
                 }
-                J = null;
-                if (J == null) {
-                }
-            default:
+            } catch (Exception unused) {
+                com.baidu.crabsdk.c.a.d("createUrlRecord error!!");
                 return;
+            }
+        }
+        c2 = null;
+        if (c2 == null) {
         }
     }
 }

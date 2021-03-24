@@ -1,22 +1,36 @@
 package com.xiaomi.push;
-/* loaded from: classes5.dex */
-public class jj extends jc {
+/* loaded from: classes7.dex */
+public class jj extends jl {
 
     /* renamed from: a  reason: collision with root package name */
-    protected int f8467a;
+    public int f40884a;
 
-    public jj() {
-        this.f8467a = 0;
+    /* renamed from: a  reason: collision with other field name */
+    public it f814a;
+
+    public jj(int i) {
+        this.f814a = new it(i);
     }
 
-    public jj(int i, String str) {
-        super(str);
-        this.f8467a = 0;
-        this.f8467a = i;
+    @Override // com.xiaomi.push.jl
+    public int a(byte[] bArr, int i, int i2) {
+        byte[] m497a = this.f814a.m497a();
+        if (i2 > this.f814a.a() - this.f40884a) {
+            i2 = this.f814a.a() - this.f40884a;
+        }
+        if (i2 > 0) {
+            System.arraycopy(m497a, this.f40884a, bArr, i, i2);
+            this.f40884a += i2;
+        }
+        return i2;
     }
 
-    public jj(String str) {
-        super(str);
-        this.f8467a = 0;
+    @Override // com.xiaomi.push.jl
+    public void a(byte[] bArr, int i, int i2) {
+        this.f814a.write(bArr, i, i2);
+    }
+
+    public int a_() {
+        return this.f814a.size();
     }
 }

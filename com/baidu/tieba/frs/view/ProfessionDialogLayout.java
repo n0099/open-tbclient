@@ -8,84 +8,103 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.Nullable;
-import com.baidu.adp.lib.util.l;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-/* loaded from: classes2.dex */
+import d.b.b.e.p.l;
+/* loaded from: classes4.dex */
 public class ProfessionDialogLayout extends LinearLayout {
-    private View.OnClickListener jUf;
-    private View.OnClickListener jUg;
-    private Context mContext;
+
+    /* renamed from: e  reason: collision with root package name */
+    public View.OnClickListener f16786e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public View.OnClickListener f16787f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public Context f16788g;
+
+    /* loaded from: classes4.dex */
+    public class a implements View.OnClickListener {
+        public a() {
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            if (ProfessionDialogLayout.this.f16787f != null) {
+                ProfessionDialogLayout.this.f16787f.onClick(view);
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class b implements View.OnClickListener {
+        public b() {
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            if (ProfessionDialogLayout.this.f16786e != null) {
+                ProfessionDialogLayout.this.f16786e.onClick(view);
+            }
+        }
+    }
 
     public ProfessionDialogLayout(Context context) {
         super(context);
-        init(context);
+        c(context);
+    }
+
+    private void setImageAttribute(TbImageView tbImageView) {
+        int k;
+        int g2 = l.g(this.f16788g, R.dimen.ds40);
+        if (UtilHelper.getRealScreenOrientation(this.f16788g) == 2) {
+            k = l.i(this.f16788g);
+        } else {
+            k = l.k(this.f16788g);
+        }
+        int i = k - (g2 * 2);
+        ViewGroup.LayoutParams layoutParams = tbImageView.getLayoutParams();
+        layoutParams.width = -1;
+        layoutParams.height = (i * 558) / 992;
+        tbImageView.setLayoutParams(layoutParams);
+        tbImageView.setRadius(l.g(this.f16788g, R.dimen.ds16));
+        tbImageView.setConrers(3);
+        tbImageView.setIsBitmapPic(true);
+    }
+
+    public final void c(Context context) {
+        this.f16788g = context;
+        LayoutInflater.from(context).inflate(R.layout.profession_dialog_layout, this);
+        setOrientation(1);
+        TbImageView tbImageView = (TbImageView) findViewById(R.id.img_bg);
+        SkinManager.setViewTextColor((TextView) findViewById(R.id.desc_1), R.color.CAM_X0107);
+        SkinManager.setViewTextColor((TextView) findViewById(R.id.desc_2), R.color.CAM_X0107);
+        SkinManager.setViewTextColor((TextView) findViewById(R.id.button), R.color.CAM_X0302);
+        setImageAttribute(tbImageView);
+        SkinManager.setImageResource(tbImageView, R.drawable.img_frs_professinal_popup);
+        TbImageView tbImageView2 = (TbImageView) findViewById(R.id.close_btn);
+        SkinManager.setImageResource(tbImageView2, R.drawable.icon_prefession_popup_close_n);
+        tbImageView2.setOnClickListener(new a());
+        findViewById(R.id.button).setOnClickListener(new b());
+    }
+
+    public void setButtonClickListener(View.OnClickListener onClickListener) {
+        this.f16786e = onClickListener;
+    }
+
+    public void setCloseViewClickListener(View.OnClickListener onClickListener) {
+        this.f16787f = onClickListener;
     }
 
     public ProfessionDialogLayout(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        init(context);
+        c(context);
     }
 
     public ProfessionDialogLayout(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        init(context);
-    }
-
-    private void init(Context context) {
-        this.mContext = context;
-        LayoutInflater.from(context).inflate(R.layout.profession_dialog_layout, this);
-        setOrientation(1);
-        TbImageView tbImageView = (TbImageView) findViewById(R.id.img_bg);
-        ap.setViewTextColor((TextView) findViewById(R.id.desc_1), R.color.CAM_X0107);
-        ap.setViewTextColor((TextView) findViewById(R.id.desc_2), R.color.CAM_X0107);
-        ap.setViewTextColor((TextView) findViewById(R.id.button), R.color.CAM_X0302);
-        setImageAttribute(tbImageView);
-        ap.setImageResource(tbImageView, R.drawable.img_frs_professinal_popup);
-        TbImageView tbImageView2 = (TbImageView) findViewById(R.id.close_btn);
-        ap.setImageResource(tbImageView2, R.drawable.icon_prefession_popup_close_n);
-        tbImageView2.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.view.ProfessionDialogLayout.1
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
-                if (ProfessionDialogLayout.this.jUg != null) {
-                    ProfessionDialogLayout.this.jUg.onClick(view);
-                }
-            }
-        });
-        findViewById(R.id.button).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.view.ProfessionDialogLayout.2
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
-                if (ProfessionDialogLayout.this.jUf != null) {
-                    ProfessionDialogLayout.this.jUf.onClick(view);
-                }
-            }
-        });
-    }
-
-    public void setButtonClickListener(View.OnClickListener onClickListener) {
-        this.jUf = onClickListener;
-    }
-
-    public void setCloseViewClickListener(View.OnClickListener onClickListener) {
-        this.jUg = onClickListener;
-    }
-
-    private void setImageAttribute(TbImageView tbImageView) {
-        int equipmentWidth;
-        int dimens = l.getDimens(this.mContext, R.dimen.ds40);
-        if (UtilHelper.getRealScreenOrientation(this.mContext) == 2) {
-            equipmentWidth = l.getEquipmentHeight(this.mContext) - (dimens * 2);
-        } else {
-            equipmentWidth = l.getEquipmentWidth(this.mContext) - (dimens * 2);
-        }
-        ViewGroup.LayoutParams layoutParams = tbImageView.getLayoutParams();
-        layoutParams.width = -1;
-        layoutParams.height = (equipmentWidth * 558) / 992;
-        tbImageView.setLayoutParams(layoutParams);
-        tbImageView.setRadius(l.getDimens(this.mContext, R.dimen.ds16));
-        tbImageView.setConrers(3);
-        tbImageView.setIsBitmapPic(true);
+        c(context);
     }
 }

@@ -1,42 +1,64 @@
 package io.reactivex.internal.util;
 
-import io.reactivex.u;
+import f.a.o;
+import f.a.t.b;
+import f.a.x.b.a;
+import g.d.c;
+import g.d.d;
 import java.io.Serializable;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public enum NotificationLite {
     COMPLETE;
 
-    /* loaded from: classes6.dex */
-    static final class ErrorNotification implements Serializable {
-        private static final long serialVersionUID = -8759979445933046293L;
-        final Throwable e;
+    /* loaded from: classes7.dex */
+    public static final class DisposableNotification implements Serializable {
+        public static final long serialVersionUID = -7482590109178395495L;
 
-        ErrorNotification(Throwable th) {
-            this.e = th;
+        /* renamed from: d  reason: collision with root package name */
+        public final b f68093d;
+
+        public DisposableNotification(b bVar) {
+            this.f68093d = bVar;
         }
 
         public String toString() {
-            return "NotificationLite.Error[" + this.e + "]";
+            return "NotificationLite.Disposable[" + this.f68093d + "]";
         }
+    }
 
-        public int hashCode() {
-            return this.e.hashCode();
+    /* loaded from: classes7.dex */
+    public static final class ErrorNotification implements Serializable {
+        public static final long serialVersionUID = -8759979445933046293L;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final Throwable f68094e;
+
+        public ErrorNotification(Throwable th) {
+            this.f68094e = th;
         }
 
         public boolean equals(Object obj) {
             if (obj instanceof ErrorNotification) {
-                return io.reactivex.internal.functions.a.equals(this.e, ((ErrorNotification) obj).e);
+                return a.a(this.f68094e, ((ErrorNotification) obj).f68094e);
             }
             return false;
         }
+
+        public int hashCode() {
+            return this.f68094e.hashCode();
+        }
+
+        public String toString() {
+            return "NotificationLite.Error[" + this.f68094e + "]";
+        }
     }
 
-    /* loaded from: classes6.dex */
-    static final class SubscriptionNotification implements Serializable {
-        private static final long serialVersionUID = -1322257508628817540L;
-        final org.a.d s;
+    /* loaded from: classes7.dex */
+    public static final class SubscriptionNotification implements Serializable {
+        public static final long serialVersionUID = -1322257508628817540L;
+        public final d s;
 
-        SubscriptionNotification(org.a.d dVar) {
+        public SubscriptionNotification(d dVar) {
             this.s = dVar;
         }
 
@@ -45,80 +67,12 @@ public enum NotificationLite {
         }
     }
 
-    /* loaded from: classes6.dex */
-    static final class DisposableNotification implements Serializable {
-        private static final long serialVersionUID = -7482590109178395495L;
-        final io.reactivex.disposables.b d;
-
-        DisposableNotification(io.reactivex.disposables.b bVar) {
-            this.d = bVar;
-        }
-
-        public String toString() {
-            return "NotificationLite.Disposable[" + this.d + "]";
-        }
-    }
-
-    public static <T> Object next(T t) {
-        return t;
-    }
-
-    public static Object complete() {
-        return COMPLETE;
-    }
-
-    public static Object error(Throwable th) {
-        return new ErrorNotification(th);
-    }
-
-    public static Object subscription(org.a.d dVar) {
-        return new SubscriptionNotification(dVar);
-    }
-
-    public static Object disposable(io.reactivex.disposables.b bVar) {
-        return new DisposableNotification(bVar);
-    }
-
-    public static boolean isComplete(Object obj) {
-        return obj == COMPLETE;
-    }
-
-    public static boolean isError(Object obj) {
-        return obj instanceof ErrorNotification;
-    }
-
-    public static boolean isSubscription(Object obj) {
-        return obj instanceof SubscriptionNotification;
-    }
-
-    public static boolean isDisposable(Object obj) {
-        return obj instanceof DisposableNotification;
-    }
-
-    /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: java.lang.Object */
-    /* JADX WARN: Multi-variable type inference failed */
-    public static <T> T getValue(Object obj) {
-        return obj;
-    }
-
-    public static Throwable getError(Object obj) {
-        return ((ErrorNotification) obj).e;
-    }
-
-    public static org.a.d getSubscription(Object obj) {
-        return ((SubscriptionNotification) obj).s;
-    }
-
-    public static io.reactivex.disposables.b getDisposable(Object obj) {
-        return ((DisposableNotification) obj).d;
-    }
-
-    public static <T> boolean accept(Object obj, org.a.c<? super T> cVar) {
+    public static <T> boolean accept(Object obj, c<? super T> cVar) {
         if (obj == COMPLETE) {
             cVar.onComplete();
             return true;
         } else if (obj instanceof ErrorNotification) {
-            cVar.onError(((ErrorNotification) obj).e);
+            cVar.onError(((ErrorNotification) obj).f68094e);
             return true;
         } else {
             cVar.onNext(obj);
@@ -126,25 +80,12 @@ public enum NotificationLite {
         }
     }
 
-    public static <T> boolean accept(Object obj, u<? super T> uVar) {
-        if (obj == COMPLETE) {
-            uVar.onComplete();
-            return true;
-        } else if (obj instanceof ErrorNotification) {
-            uVar.onError(((ErrorNotification) obj).e);
-            return true;
-        } else {
-            uVar.onNext(obj);
-            return false;
-        }
-    }
-
-    public static <T> boolean acceptFull(Object obj, org.a.c<? super T> cVar) {
+    public static <T> boolean acceptFull(Object obj, c<? super T> cVar) {
         if (obj == COMPLETE) {
             cVar.onComplete();
             return true;
         } else if (obj instanceof ErrorNotification) {
-            cVar.onError(((ErrorNotification) obj).e);
+            cVar.onError(((ErrorNotification) obj).f68094e);
             return true;
         } else if (obj instanceof SubscriptionNotification) {
             cVar.onSubscribe(((SubscriptionNotification) obj).s);
@@ -155,24 +96,91 @@ public enum NotificationLite {
         }
     }
 
-    public static <T> boolean acceptFull(Object obj, u<? super T> uVar) {
-        if (obj == COMPLETE) {
-            uVar.onComplete();
-            return true;
-        } else if (obj instanceof ErrorNotification) {
-            uVar.onError(((ErrorNotification) obj).e);
-            return true;
-        } else if (obj instanceof DisposableNotification) {
-            uVar.onSubscribe(((DisposableNotification) obj).d);
-            return false;
-        } else {
-            uVar.onNext(obj);
-            return false;
-        }
+    public static Object complete() {
+        return COMPLETE;
+    }
+
+    public static Object disposable(b bVar) {
+        return new DisposableNotification(bVar);
+    }
+
+    public static Object error(Throwable th) {
+        return new ErrorNotification(th);
+    }
+
+    public static b getDisposable(Object obj) {
+        return ((DisposableNotification) obj).f68093d;
+    }
+
+    public static Throwable getError(Object obj) {
+        return ((ErrorNotification) obj).f68094e;
+    }
+
+    public static d getSubscription(Object obj) {
+        return ((SubscriptionNotification) obj).s;
+    }
+
+    /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: java.lang.Object */
+    /* JADX WARN: Multi-variable type inference failed */
+    public static <T> T getValue(Object obj) {
+        return obj;
+    }
+
+    public static boolean isComplete(Object obj) {
+        return obj == COMPLETE;
+    }
+
+    public static boolean isDisposable(Object obj) {
+        return obj instanceof DisposableNotification;
+    }
+
+    public static boolean isError(Object obj) {
+        return obj instanceof ErrorNotification;
+    }
+
+    public static boolean isSubscription(Object obj) {
+        return obj instanceof SubscriptionNotification;
+    }
+
+    public static <T> Object next(T t) {
+        return t;
+    }
+
+    public static Object subscription(d dVar) {
+        return new SubscriptionNotification(dVar);
     }
 
     @Override // java.lang.Enum
     public String toString() {
         return "NotificationLite.Complete";
+    }
+
+    public static <T> boolean accept(Object obj, o<? super T> oVar) {
+        if (obj == COMPLETE) {
+            oVar.onComplete();
+            return true;
+        } else if (obj instanceof ErrorNotification) {
+            oVar.onError(((ErrorNotification) obj).f68094e);
+            return true;
+        } else {
+            oVar.onNext(obj);
+            return false;
+        }
+    }
+
+    public static <T> boolean acceptFull(Object obj, o<? super T> oVar) {
+        if (obj == COMPLETE) {
+            oVar.onComplete();
+            return true;
+        } else if (obj instanceof ErrorNotification) {
+            oVar.onError(((ErrorNotification) obj).f68094e);
+            return true;
+        } else if (obj instanceof DisposableNotification) {
+            oVar.onSubscribe(((DisposableNotification) obj).f68093d);
+            return false;
+        } else {
+            oVar.onNext(obj);
+            return false;
+        }
     }
 }

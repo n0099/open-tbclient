@@ -1,7 +1,7 @@
 package com.baidu.webkit.sdk;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class MimeTypeMap {
-    private static final MimeTypeMap sMimeTypeMap = new MimeTypeMap();
+    public static final MimeTypeMap sMimeTypeMap = new MimeTypeMap();
 
     public static String getFileExtensionFromUrl(String str) {
         return WebViewFactory.getProvider().getMimeTypeMap().getFileExtensionFromUrlImpl(str);

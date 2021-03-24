@@ -7,7 +7,7 @@ import android.os.IBinder;
 import androidx.core.app.NotificationCompat;
 import com.baidu.adp.base.BdBaseService;
 import com.baidu.tieba.R;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class ALaKeepAliveService extends BdBaseService {
     public static final String KEY_CONTENT_TEXT = "content_text";
     public static final String KEY_CONTENT_TITLE = "content_title";
@@ -15,17 +15,23 @@ public class ALaKeepAliveService extends BdBaseService {
     public static final String KEY_TICKER = "ticker";
 
     public static void startService(Context context, String str, String str2, String str3, int i) {
-        if (context != null) {
-            Intent intent = new Intent(context, ALaKeepAliveService.class);
-            intent.setPackage(context.getPackageName());
-            intent.putExtra(KEY_CONTENT_TITLE, str);
-            intent.putExtra(KEY_CONTENT_TEXT, str2);
-            intent.putExtra(KEY_TICKER, str3);
-            if (i != 0) {
-                intent.putExtra(KEY_NOTIFICATION_ID, i);
-            }
-            context.startService(intent);
+        if (context == null) {
+            return;
         }
+        Intent intent = new Intent(context, ALaKeepAliveService.class);
+        intent.setPackage(context.getPackageName());
+        intent.putExtra(KEY_CONTENT_TITLE, str);
+        intent.putExtra(KEY_CONTENT_TEXT, str2);
+        intent.putExtra(KEY_TICKER, str3);
+        if (i != 0) {
+            intent.putExtra(KEY_NOTIFICATION_ID, i);
+        }
+        context.startService(intent);
+    }
+
+    @Override // android.app.Service
+    public IBinder onBind(Intent intent) {
+        return null;
     }
 
     @Override // com.baidu.adp.base.BdBaseService, android.app.Service
@@ -47,10 +53,5 @@ public class ALaKeepAliveService extends BdBaseService {
             startForeground(intExtra, builder.build());
         }
         return super.onStartCommand(intent, i, i2);
-    }
-
-    @Override // android.app.Service
-    public IBinder onBind(Intent intent) {
-        return null;
     }
 }

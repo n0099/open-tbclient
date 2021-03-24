@@ -9,13 +9,12 @@ import com.baidu.webkit.net.BdNetTask;
 import com.baidu.webkit.net.INetListener;
 import com.baidu.webkit.sdk.Log;
 import com.baidu.webkit.sdk.WebKitFactory;
-import com.baidubce.http.Headers;
 import java.util.HashMap;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class SessionMonitorNetWorker implements INoProGuard, INetListener {
-    private static final String LOG_TAG = "ZeusMonitorEngine";
-    private static boolean mLogSdkInit;
+    public static final String LOG_TAG = "ZeusMonitorEngine";
+    public static boolean mLogSdkInit;
 
     private String getUploadUrl() {
         return WebSettingsGlobalBlink.getSessionUploadUrl();
@@ -31,36 +30,37 @@ public class SessionMonitorNetWorker implements INoProGuard, INetListener {
         String str2 = uploadUrl + str;
         if (bArr != null) {
             try {
-                if (bArr.length > 0) {
-                    HashMap hashMap = new HashMap();
-                    BdNet bdNet = new BdNet(WebKitFactory.getContext());
-                    BdNetTask bdNetTask = new BdNetTask();
-                    bdNetTask.setMethod(BdNet.HttpMethod.METHOD_POST);
-                    bdNetTask.setNet(bdNet);
-                    bdNetTask.setUrl(str2);
-                    bdNetTask.setContent(bArr);
-                    hashMap.put(HTTP.CONN_DIRECTIVE, HTTP.CONN_KEEP_ALIVE);
-                    hashMap.put(Headers.CACHE_CONTROL, "no-cache");
-                    if (WebSettingsGlobalBlink.isSessionDataEnable() && ((GetCloudSettingsValue = WebSettingsGlobalBlink.GetCloudSettingsValue("gzip_support")) == null || !GetCloudSettingsValue.equals("false"))) {
-                        hashMap.put("Content-Type", "application/x-gzip");
-                    }
-                    if (WebKitFactory.getCurEngine() != 1) {
-                        hashMap.put("Kernel-Status", "0");
-                    }
-                    bdNetTask.setHeaders(hashMap);
-                    if (!z) {
-                        bdNet.setEventListener(this);
-                    }
-                    bdNet.start(bdNetTask, false);
-                    if (z) {
-                        return;
-                    }
-                    synchronized (bdNetTask) {
-                        bdNetTask.wait();
-                    }
+                if (bArr.length <= 0) {
+                    return;
                 }
-            } catch (Exception e) {
-                Log.d(LOG_TAG, "upload error " + e);
+                HashMap hashMap = new HashMap();
+                BdNet bdNet = new BdNet(WebKitFactory.getContext());
+                BdNetTask bdNetTask = new BdNetTask();
+                bdNetTask.setMethod(BdNet.HttpMethod.METHOD_POST);
+                bdNetTask.setNet(bdNet);
+                bdNetTask.setUrl(str2);
+                bdNetTask.setContent(bArr);
+                hashMap.put(HTTP.CONN_DIRECTIVE, HTTP.CONN_KEEP_ALIVE);
+                hashMap.put("Cache-Control", "no-cache");
+                if (WebSettingsGlobalBlink.isSessionDataEnable() && ((GetCloudSettingsValue = WebSettingsGlobalBlink.GetCloudSettingsValue("gzip_support")) == null || !GetCloudSettingsValue.equals("false"))) {
+                    hashMap.put("Content-Type", "application/x-gzip");
+                }
+                if (WebKitFactory.getCurEngine() != 1) {
+                    hashMap.put("Kernel-Status", "0");
+                }
+                bdNetTask.setHeaders(hashMap);
+                if (!z) {
+                    bdNet.setEventListener(this);
+                }
+                bdNet.start(bdNetTask, false);
+                if (z) {
+                    return;
+                }
+                synchronized (bdNetTask) {
+                    bdNetTask.wait();
+                }
+            } catch (Exception e2) {
+                Log.d(LOG_TAG, "upload error " + e2);
             }
         }
     }

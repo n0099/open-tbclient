@@ -2,7 +2,7 @@ package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class YoungsterPasswordActivityConfig extends IntentConfig {
     public static final String KEY_YOUNGSTER_PASSWORD_FROM = "key_youngster_password_from";
     public static final String KEY_YOUNGSTER_PASSWORD_INPUT = "key_youngster_password_input";
@@ -15,15 +15,15 @@ public class YoungsterPasswordActivityConfig extends IntentConfig {
         super(context);
     }
 
-    public void setYoungsterPasswordPageType(int i) {
-        getIntent().putExtra(KEY_YOUNGSTER_PASSWORD_PAGE_TYPE, i);
+    public void setKeyYoungsterPasswordFrom(int i) {
+        getIntent().putExtra(KEY_YOUNGSTER_PASSWORD_FROM, i);
     }
 
     public void setKeyYoungsterPasswordInput(String str) {
         getIntent().putExtra(KEY_YOUNGSTER_PASSWORD_INPUT, str);
     }
 
-    public void setKeyYoungsterPasswordFrom(int i) {
-        getIntent().putExtra(KEY_YOUNGSTER_PASSWORD_FROM, i);
+    public void setYoungsterPasswordPageType(int i) {
+        getIntent().putExtra(KEY_YOUNGSTER_PASSWORD_PAGE_TYPE, i);
     }
 }

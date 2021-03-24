@@ -6,7 +6,7 @@ import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class PbSearchEmotionActivityConfig extends IntentConfig {
     public static final String AUTHOR_SHOW_NAME = "author_show_name";
     public static final String CURRENT_QUERY_WORD = "current_query_word";
@@ -26,8 +26,9 @@ public class PbSearchEmotionActivityConfig extends IntentConfig {
         if (str2 != null) {
             getIntent().putExtra(AUTHOR_SHOW_NAME, str2);
         }
-        if (list2 != null && (list2 instanceof ArrayList)) {
-            getIntent().putStringArrayListExtra(KEEP_IMG_CACHE_LIST, (ArrayList) list2);
+        if (list2 == null || !(list2 instanceof ArrayList)) {
+            return;
         }
+        getIntent().putStringArrayListExtra(KEEP_IMG_CACHE_LIST, (ArrayList) list2);
     }
 }

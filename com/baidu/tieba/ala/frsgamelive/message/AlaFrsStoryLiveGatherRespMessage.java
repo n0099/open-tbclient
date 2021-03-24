@@ -1,18 +1,18 @@
 package com.baidu.tieba.ala.frsgamelive.message;
 
 import com.baidu.ala.AlaCmdConfigHttp;
-import com.baidu.tbadk.core.data.cb;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
+import d.b.h0.r.q.a2;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes4.dex */
 public class AlaFrsStoryLiveGatherRespMessage extends JsonHttpResponsedMessage {
-    private boolean hasMore;
-    private int liveCount;
-    private List<cb> liveList;
-    private List<cb> recommandList;
+    public boolean hasMore;
+    public int liveCount;
+    public List<a2> liveList;
+    public List<a2> recommandList;
 
     public AlaFrsStoryLiveGatherRespMessage() {
         super(AlaCmdConfigHttp.CMD_ALA_FRS_STORY_LIVE_GATHER);
@@ -36,9 +36,9 @@ public class AlaFrsStoryLiveGatherRespMessage extends JsonHttpResponsedMessage {
             for (int i2 = 0; i2 < length; i2++) {
                 JSONObject optJSONObject2 = optJSONArray.optJSONObject(i2);
                 if (optJSONObject2 != null) {
-                    cb cbVar = new cb();
-                    cbVar.parserJson(optJSONObject2);
-                    this.liveList.add(cbVar);
+                    a2 a2Var = new a2();
+                    a2Var.P2(optJSONObject2);
+                    this.liveList.add(a2Var);
                 }
             }
         }
@@ -48,27 +48,27 @@ public class AlaFrsStoryLiveGatherRespMessage extends JsonHttpResponsedMessage {
             for (int i3 = 0; i3 < length2; i3++) {
                 JSONObject optJSONObject3 = optJSONArray2.optJSONObject(i3);
                 if (optJSONObject3 != null) {
-                    cb cbVar2 = new cb();
-                    cbVar2.parserJson(optJSONObject3);
-                    this.recommandList.add(cbVar2);
+                    a2 a2Var2 = new a2();
+                    a2Var2.P2(optJSONObject3);
+                    this.recommandList.add(a2Var2);
                 }
             }
         }
     }
 
-    public List<cb> getLiveList() {
+    public int getLiveCount() {
+        return this.liveCount;
+    }
+
+    public List<a2> getLiveList() {
         return this.liveList;
     }
 
-    public List<cb> getRecommandList() {
+    public List<a2> getRecommandList() {
         return this.recommandList;
     }
 
     public boolean hasMore() {
         return this.hasMore;
-    }
-
-    public int getLiveCount() {
-        return this.liveCount;
     }
 }

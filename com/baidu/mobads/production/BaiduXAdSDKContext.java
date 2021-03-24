@@ -1,11 +1,11 @@
 package com.baidu.mobads.production;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class BaiduXAdSDKContext {
-    protected static Boolean isRemoteLoadSuccess = false;
+    public static Boolean isRemoteLoadSuccess = Boolean.FALSE;
     public static com.baidu.mobads.g.g mApkLoader;
 
     public static void exit() {
         mApkLoader = null;
-        isRemoteLoadSuccess = false;
+        isRemoteLoadSuccess = Boolean.FALSE;
     }
 }

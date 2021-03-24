@@ -6,13 +6,12 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Build;
 import android.text.TextUtils;
-import com.baidu.android.pushservice.i.m;
+import com.baidu.android.pushservice.j.m;
 import com.baidu.browser.sailor.platform.BdSailorPlatform;
-import com.baidu.webkit.internal.GlobalConstants;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public class BasicPushNotificationBuilder extends PushNotificationBuilder {
     private void readObject(ObjectInputStream objectInputStream) throws IOException, ClassNotFoundException {
         this.mStatusbarIcon = objectInputStream.readInt();
@@ -37,16 +36,23 @@ public class BasicPushNotificationBuilder extends PushNotificationBuilder {
         objectOutputStream.writeInt(this.mStatusbarIcon);
         objectOutputStream.writeInt(this.mNotificationFlags);
         objectOutputStream.writeInt(this.mNotificationDefaults);
+        int i = 0;
         if (this.mNotificationsound != null) {
             objectOutputStream.writeBoolean(true);
             objectOutputStream.writeObject(this.mNotificationsound);
         } else {
             objectOutputStream.writeBoolean(false);
         }
-        if (this.mVibratePattern != null) {
-            objectOutputStream.writeInt(this.mVibratePattern.length);
-            for (int i = 0; i < this.mVibratePattern.length; i++) {
-                objectOutputStream.writeLong(this.mVibratePattern[i]);
+        long[] jArr = this.mVibratePattern;
+        if (jArr != null) {
+            objectOutputStream.writeInt(jArr.length);
+            while (true) {
+                long[] jArr2 = this.mVibratePattern;
+                if (i >= jArr2.length) {
+                    break;
+                }
+                objectOutputStream.writeLong(jArr2[i]);
+                i++;
             }
         } else {
             objectOutputStream.writeInt(0);
@@ -61,36 +67,38 @@ public class BasicPushNotificationBuilder extends PushNotificationBuilder {
     @Override // com.baidu.android.pushservice.PushNotificationBuilder
     @SuppressLint({"NewApi"})
     public Notification construct(Context context) {
+        int i;
         Notification.Builder builder = new Notification.Builder(context);
-        if (this.mNotificationDefaults != 0) {
-            builder.setDefaults(this.mNotificationDefaults);
+        int i2 = this.mNotificationDefaults;
+        if (i2 != 0) {
+            builder.setDefaults(i2);
         }
-        if (this.mNotificationsound != null) {
-            builder.setSound(Uri.parse(this.mNotificationsound));
+        String str = this.mNotificationsound;
+        if (str != null) {
+            builder.setSound(Uri.parse(str));
         }
-        if (this.mVibratePattern != null) {
-            builder.setVibrate(this.mVibratePattern);
+        long[] jArr = this.mVibratePattern;
+        if (jArr != null) {
+            builder.setVibrate(jArr);
         }
-        if (this.mStatusbarIcon != 0) {
-            builder.setSmallIcon(this.mStatusbarIcon);
-        } else {
-            int i = 0;
-            if (context.getPackageName().equals(GlobalConstants.SEARCHBOX_PACKAGE_NAME) || context.getPackageName().equals(BdSailorPlatform.LITE_PACKAGE_NAME) || context.getPackageName().equals("com.baidu.push.qa")) {
+        int i3 = this.mStatusbarIcon;
+        if (i3 == 0) {
+            i3 = 0;
+            if (context.getPackageName().equals("com.baidu.searchbox") || context.getPackageName().equals(BdSailorPlatform.LITE_PACKAGE_NAME) || context.getPackageName().equals("com.baidu.push.qa")) {
                 try {
-                    i = context.getResources().getIdentifier(Build.VERSION.SDK_INT >= 21 ? "notification_icon_m" : "icon_statusbar", "drawable", context.getPackageName());
-                } catch (Throwable th) {
+                    i3 = context.getResources().getIdentifier(Build.VERSION.SDK_INT >= 21 ? "notification_icon_m" : "icon_statusbar", "drawable", context.getPackageName());
+                } catch (Throwable unused) {
                 }
             }
-            if (i == 0) {
-                builder.setSmallIcon(context.getApplicationInfo().icon);
-            } else {
-                builder.setSmallIcon(i);
+            if (i3 == 0) {
+                i3 = context.getApplicationInfo().icon;
             }
         }
+        builder.setSmallIcon(i3);
         builder.setContentTitle(this.mNotificationTitle);
         builder.setContentText(this.mNotificationText);
-        if (Build.VERSION.SDK_INT >= 21 && this.mColor != 0) {
-            builder.setColor(this.mColor);
+        if (Build.VERSION.SDK_INT >= 21 && (i = this.mColor) != 0) {
+            builder.setColor(i);
         }
         if (m.p(context)) {
             if (TextUtils.isEmpty(this.mChannelId)) {
@@ -99,16 +107,16 @@ public class BasicPushNotificationBuilder extends PushNotificationBuilder {
             if (TextUtils.isEmpty(this.mChannelName)) {
                 this.mChannelName = "云推送";
             }
-            com.baidu.android.pushservice.i.h.a(context, this.mChannelId, this.mChannelName);
+            com.baidu.android.pushservice.j.h.a(context, this.mChannelId, this.mChannelName);
             builder.setChannelId(this.mChannelId);
         }
         Notification build = Build.VERSION.SDK_INT >= 16 ? builder.build() : builder.getNotification();
         if (build != null) {
-            if (this.mNotificationFlags != 0) {
-                build.flags = this.mNotificationFlags;
-            } else {
-                build.flags |= 16;
+            int i4 = this.mNotificationFlags;
+            if (i4 == 0) {
+                i4 = build.flags | 16;
             }
+            build.flags = i4;
         }
         return build;
     }

@@ -1,12 +1,9 @@
 package com.baidu.webkit.sdk.performance;
 
 import com.baidu.webkit.sdk.WebView;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class ZeusPerformance {
-    private ZeusPerformanceTiming mTiming;
-
-    protected ZeusPerformance() {
-    }
+    public ZeusPerformanceTiming mTiming;
 
     public PagePerformanceTiming pageTiming(WebView webView) {
         if (webView == null || webView.getWebViewProvider() == null) {

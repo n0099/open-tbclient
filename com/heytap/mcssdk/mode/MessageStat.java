@@ -2,22 +2,22 @@ package com.heytap.mcssdk.mode;
 
 import android.text.TextUtils;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class MessageStat {
-    private static final String APP_PACKAGE = "appPackage";
-    private static final String EVENT_ID = "eventID";
-    private static final String EVENT_TIME = "eventTime";
-    private static final String GLOBAL_ID = "globalID";
-    private static final String MESSAGE_TYPE = "messageType";
-    private static final String PROPERTY = "property";
-    private static final String TASK_ID = "taskID";
-    private String mAppPackage;
-    private String mEventId;
-    private long mEventTime;
-    private String mGlobalId;
-    private String mProperty;
-    private String mTaskID;
-    private int mType;
+    public static final String APP_PACKAGE = "appPackage";
+    public static final String EVENT_ID = "eventID";
+    public static final String EVENT_TIME = "eventTime";
+    public static final String GLOBAL_ID = "globalID";
+    public static final String MESSAGE_TYPE = "messageType";
+    public static final String PROPERTY = "property";
+    public static final String TASK_ID = "taskID";
+    public String mAppPackage;
+    public String mEventId;
+    public long mEventTime;
+    public String mGlobalId;
+    public String mProperty;
+    public String mTaskID;
+    public int mType;
 
     public MessageStat() {
         this.mType = 4096;
@@ -51,16 +51,16 @@ public class MessageStat {
         MessageStat messageStat = new MessageStat();
         try {
             JSONObject jSONObject = new JSONObject(str);
-            messageStat.setType(jSONObject.optInt(MESSAGE_TYPE, 0));
+            messageStat.setType(jSONObject.optInt("messageType", 0));
             messageStat.setAppPackage(jSONObject.optString("appPackage"));
-            messageStat.setEventId(jSONObject.optString(EVENT_ID));
+            messageStat.setEventId(jSONObject.optString("eventID"));
             messageStat.setGlobalId(jSONObject.optString("globalID", ""));
             messageStat.setTaskID(jSONObject.optString("taskID", ""));
             messageStat.setProperty(jSONObject.optString(PROPERTY, ""));
             messageStat.setEventTime(jSONObject.optLong(EVENT_TIME, System.currentTimeMillis()));
             return messageStat;
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (Exception e2) {
+            e2.printStackTrace();
             return null;
         }
     }
@@ -128,8 +128,8 @@ public class MessageStat {
     public String toJsonObject() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.putOpt(MESSAGE_TYPE, Integer.valueOf(this.mType));
-            jSONObject.putOpt(EVENT_ID, this.mEventId);
+            jSONObject.putOpt("messageType", Integer.valueOf(this.mType));
+            jSONObject.putOpt("eventID", this.mEventId);
             jSONObject.putOpt("appPackage", this.mAppPackage);
             jSONObject.putOpt(EVENT_TIME, Long.valueOf(this.mEventTime));
             if (!TextUtils.isEmpty(this.mGlobalId)) {
@@ -141,8 +141,8 @@ public class MessageStat {
             if (!TextUtils.isEmpty(this.mProperty)) {
                 jSONObject.putOpt(PROPERTY, this.mProperty);
             }
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (Exception e2) {
+            e2.printStackTrace();
         }
         return jSONObject.toString();
     }

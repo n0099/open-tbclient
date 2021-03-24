@@ -2,25 +2,27 @@ package com.baidu.swan.apps.view;
 
 import android.os.Bundle;
 import android.widget.TextView;
-import com.baidu.swan.apps.a;
-import com.baidu.swan.apps.ao.ak;
 import com.baidu.swan.apps.res.widget.dialog.BaseActivityDialog;
-/* loaded from: classes8.dex */
+import d.b.g0.a.f;
+import d.b.g0.a.i2.k0;
+import d.b.g0.a.k;
+/* loaded from: classes3.dex */
 public class SwanAppErrorDialog extends BaseActivityDialog {
-    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private TextView dCO;
+    public static final boolean DEBUG = k.f45050a;
+    public static final String TAG = "SwanAppErrorDialog";
+    public TextView mMessage;
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.swan.apps.res.widget.dialog.BaseActivityDialog, android.app.Activity
-    public void onCreate(Bundle bundle) {
-        int releaseFixedOrientation = ak.releaseFixedOrientation(this);
-        super.onCreate(bundle);
-        ak.fixedOrientation(this, releaseFixedOrientation);
-        this.dCO = (TextView) findViewById(a.f.dialog_message);
-        this.dCO.setGravity(17);
+    public static BaseActivityDialog.c newBuilder() {
+        return new BaseActivityDialog.c(SwanAppErrorDialog.class);
     }
 
-    public static BaseActivityDialog.a aPa() {
-        return new BaseActivityDialog.a(SwanAppErrorDialog.class);
+    @Override // com.baidu.swan.apps.res.widget.dialog.BaseActivityDialog, android.app.Activity
+    public void onCreate(Bundle bundle) {
+        int V = k0.V(this);
+        super.onCreate(bundle);
+        k0.h(this, V);
+        TextView textView = (TextView) findViewById(f.dialog_message);
+        this.mMessage = textView;
+        textView.setGravity(17);
     }
 }

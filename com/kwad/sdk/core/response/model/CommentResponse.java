@@ -9,15 +9,16 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class CommentResponse extends BaseResultData implements com.kwad.sdk.core.b, Serializable {
-    private static final long serialVersionUID = 7438022026198734874L;
+    public static final long serialVersionUID = 7438022026198734874L;
     public long commentCount;
     public List<PhotoComment> rootComments = new ArrayList();
 
     @Override // com.kwad.sdk.core.network.BaseResultData
     public boolean isDataEmpty() {
-        return this.rootComments == null || this.rootComments.isEmpty();
+        List<PhotoComment> list = this.rootComments;
+        return list == null || list.isEmpty();
     }
 
     @Override // com.kwad.sdk.core.network.BaseResultData
@@ -40,8 +41,8 @@ public class CommentResponse extends BaseResultData implements com.kwad.sdk.core
                     }
                 }
             }
-        } catch (Exception e) {
-            com.kwad.sdk.core.d.a.a(e);
+        } catch (Exception e2) {
+            com.kwad.sdk.core.d.a.a(e2);
         }
     }
 

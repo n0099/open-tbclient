@@ -2,7 +2,6 @@ package com.baidu.sapi2.activity;
 
 import android.os.Bundle;
 import android.text.TextUtils;
-import com.baidu.j.a.a;
 import com.baidu.sapi2.CoreViewRouter;
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.SapiContext;
@@ -13,13 +12,14 @@ import com.baidu.sapi2.dto.PassNameValuePair;
 import com.baidu.sapi2.dto.SapiWebDTO;
 import com.baidu.sapi2.dto.WebLoginDTO;
 import com.baidu.sapi2.result.NormalizeGuestAccountResult;
-import com.baidu.sapi2.utils.b;
+import com.baidu.sapi2.utils.c;
 import com.baidu.sapi2.utils.enums.SocialType;
+import d.b.a0.a.f;
 import java.util.ArrayList;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class NormalizeGuestAccountActivity extends BaseActivity {
     public static final String EXTRA_BDUSS = "EXTRA_BDUSS";
-    private NormalizeGuestAccountResult p = new NormalizeGuestAccountResult() { // from class: com.baidu.sapi2.activity.NormalizeGuestAccountActivity.1
+    public NormalizeGuestAccountResult p = new NormalizeGuestAccountResult() { // from class: com.baidu.sapi2.activity.NormalizeGuestAccountActivity.1
         @Override // com.baidu.sapi2.result.NormalizeGuestAccountResult
         public void finishActivity() {
             super.finishActivity();
@@ -27,30 +27,26 @@ public class NormalizeGuestAccountActivity extends BaseActivity {
             CoreViewRouter.getInstance().release();
         }
     };
-    private String q;
-    private SocialType r;
+    public String q;
+    public SocialType r;
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.sapi2.activity.TitleActivity
     public SapiWebDTO getWebDTO() {
         return CoreViewRouter.getInstance().getNormalizeGuestAccountDTO();
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.sapi2.activity.TitleActivity
     public void init() {
         super.init();
         this.p.activity = this;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.sapi2.activity.TitleActivity
     public void onBottomBackBtnClick() {
         super.onBottomBackBtnClick();
         a();
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.sapi2.activity.TitleActivity
     public void onClose() {
         super.onClose();
@@ -63,7 +59,7 @@ public class NormalizeGuestAccountActivity extends BaseActivity {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         try {
-            setContentView(a.f.layout_sapi_sdk_webview_with_title_bar);
+            setContentView(f.layout_sapi_sdk_webview_with_title_bar);
             this.q = getIntent().getStringExtra("EXTRA_BDUSS");
             SapiAccount accountFromBduss = SapiContext.getInstance().getAccountFromBduss(this.q);
             if (!TextUtils.isEmpty(this.q) && accountFromBduss != null) {
@@ -83,19 +79,17 @@ public class NormalizeGuestAccountActivity extends BaseActivity {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity
     public void onLeftBtnClick() {
         super.onLeftBtnClick();
-        if (!this.executeSubClassMethod) {
-            return;
+        if (this.executeSubClassMethod) {
+            a();
         }
-        a();
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity
     public void setupViews() {
+        String str;
         super.setupViews();
         this.sapiWebView.setOnBackCallback(new SapiWebView.OnBackCallback() { // from class: com.baidu.sapi2.activity.NormalizeGuestAccountActivity.2
             @Override // com.baidu.sapi2.SapiWebView.OnBackCallback
@@ -109,7 +103,6 @@ public class NormalizeGuestAccountActivity extends BaseActivity {
                 NormalizeGuestAccountActivity.this.onClose();
             }
         });
-        String str = "";
         ArrayList arrayList = new ArrayList();
         NormalizeGuestAccountDTO normalizeGuestAccountDTO = CoreViewRouter.getInstance().getNormalizeGuestAccountDTO();
         if (normalizeGuestAccountDTO != null) {
@@ -117,6 +110,8 @@ public class NormalizeGuestAccountActivity extends BaseActivity {
                 arrayList.add(new PassNameValuePair("extrajson", WebLoginDTO.getStatExtraDecode(normalizeGuestAccountDTO.statExtra)));
             }
             str = normalizeGuestAccountDTO.description;
+        } else {
+            str = "";
         }
         this.sapiWebView.setNormalizeGuestAccountCallback(new SapiJsCallBacks.NormalizeGuestAccountCallback() { // from class: com.baidu.sapi2.activity.NormalizeGuestAccountActivity.4
             @Override // com.baidu.sapi2.SapiJsCallBacks.NormalizeGuestAccountCallback
@@ -133,9 +128,10 @@ public class NormalizeGuestAccountActivity extends BaseActivity {
                 NormalizeGuestAccountActivity.this.p.setResultCode(0);
                 NormalizeGuestAccountActivity.this.p.setResultMsg("成功");
                 NormalizeGuestAccountActivity.this.c();
-                new b().a(b.e);
+                new c().a(c.f11445e);
             }
         }, str);
+        setNewLoginTitleAndSetStyleChangeCallBack();
         this.sapiWebView.loadNormalizeGuestAccount(arrayList, this.q, this.r);
     }
 

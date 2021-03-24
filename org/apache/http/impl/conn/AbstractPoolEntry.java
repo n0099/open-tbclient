@@ -9,15 +9,14 @@ import org.apache.http.conn.routing.RouteTracker;
 import org.apache.http.params.HttpParams;
 import org.apache.http.protocol.HttpContext;
 @Deprecated
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public abstract class AbstractPoolEntry {
-    protected final ClientConnectionOperator connOperator;
-    protected final OperatedClientConnection connection;
-    protected volatile HttpRoute route;
-    protected volatile Object state;
-    protected volatile RouteTracker tracker;
+    public final ClientConnectionOperator connOperator;
+    public final OperatedClientConnection connection;
+    public volatile HttpRoute route;
+    public volatile Object state;
+    public volatile RouteTracker tracker;
 
-    /* JADX INFO: Access modifiers changed from: protected */
     public AbstractPoolEntry(ClientConnectionOperator clientConnectionOperator, HttpRoute httpRoute) {
         throw new RuntimeException("Stub!");
     }
@@ -26,7 +25,7 @@ public abstract class AbstractPoolEntry {
         throw new RuntimeException("Stub!");
     }
 
-    public void setState(Object obj) {
+    public void layerProtocol(HttpContext httpContext, HttpParams httpParams) throws IOException {
         throw new RuntimeException("Stub!");
     }
 
@@ -34,7 +33,11 @@ public abstract class AbstractPoolEntry {
         throw new RuntimeException("Stub!");
     }
 
-    public void tunnelTarget(boolean z, HttpParams httpParams) throws IOException {
+    public void setState(Object obj) {
+        throw new RuntimeException("Stub!");
+    }
+
+    public void shutdownEntry() {
         throw new RuntimeException("Stub!");
     }
 
@@ -42,11 +45,7 @@ public abstract class AbstractPoolEntry {
         throw new RuntimeException("Stub!");
     }
 
-    public void layerProtocol(HttpContext httpContext, HttpParams httpParams) throws IOException {
-        throw new RuntimeException("Stub!");
-    }
-
-    protected void shutdownEntry() {
+    public void tunnelTarget(boolean z, HttpParams httpParams) throws IOException {
         throw new RuntimeException("Stub!");
     }
 }

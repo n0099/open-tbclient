@@ -13,16 +13,26 @@ import com.baidu.mapapi.animation.SingleScaleAnimation;
 import com.baidu.mapapi.animation.Transformation;
 import com.baidu.mapapi.map.Marker;
 import java.util.ArrayList;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class d extends c {
 
     /* renamed from: a  reason: collision with root package name */
-    private Animator f2189a = null;
-    private long b = 0;
-    private Interpolator c = null;
-    private Animation.AnimationListener d = null;
-    private int e = 0;
-    private ArrayList<Animation> f = new ArrayList<>();
+    public Animator f7483a = null;
+
+    /* renamed from: b  reason: collision with root package name */
+    public long f7484b = 0;
+
+    /* renamed from: c  reason: collision with root package name */
+    public Interpolator f7485c = null;
+
+    /* renamed from: d  reason: collision with root package name */
+    public Animation.AnimationListener f7486d = null;
+
+    /* renamed from: e  reason: collision with root package name */
+    public int f7487e = 0;
+
+    /* renamed from: f  reason: collision with root package name */
+    public ArrayList<Animation> f7488f = new ArrayList<>();
 
     @TargetApi(11)
     private ObjectAnimator b(Marker marker, Animation animation) {
@@ -47,10 +57,11 @@ public class d extends c {
     @Override // com.baidu.mapsdkplatform.comapi.a.c
     @TargetApi(11)
     public void a() {
-        if (this.f2189a == null) {
+        Animator animator = this.f7483a;
+        if (animator == null) {
             return;
         }
-        this.f2189a.start();
+        animator.start();
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.a.c
@@ -62,12 +73,12 @@ public class d extends c {
         if (j < 0) {
             j = 0;
         }
-        this.b = j;
+        this.f7484b = j;
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.a.c
     @TargetApi(11)
-    protected void a(Animator animator) {
+    public void a(Animator animator) {
         if (animator == null) {
             return;
         }
@@ -76,63 +87,61 @@ public class d extends c {
 
     @Override // com.baidu.mapsdkplatform.comapi.a.c
     public void a(Interpolator interpolator) {
-        this.c = interpolator;
+        this.f7485c = interpolator;
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.a.c
     public void a(Animation.AnimationListener animationListener) {
-        this.d = animationListener;
+        this.f7486d = animationListener;
     }
 
     public void a(Animation animation) {
-        if (this.f.contains(animation)) {
+        if (this.f7488f.contains(animation)) {
             return;
         }
-        this.f.add(animation);
+        this.f7488f.add(animation);
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.a.c
     @TargetApi(11)
     public void a(Marker marker, Animation animation) {
-        ObjectAnimator b;
-        this.f2189a = new AnimatorSet();
-        ArrayList<Animation> arrayList = this.f;
+        ObjectAnimator b2;
+        this.f7483a = new AnimatorSet();
+        ArrayList<Animation> arrayList = this.f7488f;
         ArrayList arrayList2 = new ArrayList();
         arrayList2.clear();
-        int i = 0;
-        while (true) {
-            int i2 = i;
-            if (i2 >= arrayList.size()) {
-                break;
+        for (int i = 0; i < arrayList.size(); i++) {
+            Animation animation2 = arrayList.get(i);
+            if (animation2 != null && (b2 = b(marker, animation2)) != null) {
+                arrayList2.add(b2);
             }
-            Animation animation2 = arrayList.get(i2);
-            if (animation2 != null && (b = b(marker, animation2)) != null) {
-                arrayList2.add(b);
-            }
-            i = i2 + 1;
         }
-        if (this.b != 0) {
-            this.f2189a.setDuration(this.b);
+        long j = this.f7484b;
+        if (j != 0) {
+            this.f7483a.setDuration(j);
         }
-        if (this.c != null) {
-            this.f2189a.setInterpolator(this.c);
+        Interpolator interpolator = this.f7485c;
+        if (interpolator != null) {
+            this.f7483a.setInterpolator(interpolator);
         }
         if (arrayList2.size() != 0) {
-            if (this.e == 0) {
-                ((AnimatorSet) this.f2189a).playTogether(arrayList2);
-            } else if (this.e == 1) {
-                ((AnimatorSet) this.f2189a).playSequentially(arrayList2);
+            int i2 = this.f7487e;
+            if (i2 == 0) {
+                ((AnimatorSet) this.f7483a).playTogether(arrayList2);
+            } else if (i2 == 1) {
+                ((AnimatorSet) this.f7483a).playSequentially(arrayList2);
             }
         }
-        a(this.f2189a);
+        a(this.f7483a);
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.a.c
     @TargetApi(11)
     public void b() {
-        if (this.f2189a != null) {
-            this.f2189a.cancel();
-            this.f2189a = null;
+        Animator animator = this.f7483a;
+        if (animator != null) {
+            animator.cancel();
+            this.f7483a = null;
         }
     }
 
@@ -142,6 +151,6 @@ public class d extends c {
 
     @Override // com.baidu.mapsdkplatform.comapi.a.c
     public void c(int i) {
-        this.e = i;
+        this.f7487e = i;
     }
 }

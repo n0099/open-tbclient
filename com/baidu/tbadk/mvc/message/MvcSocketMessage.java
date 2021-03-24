@@ -1,13 +1,13 @@
 package com.baidu.tbadk.mvc.message;
 
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
-import com.baidu.tbadk.mvc.b.j;
-import com.baidu.tbadk.mvc.b.l;
-/* loaded from: classes.dex */
-public class MvcSocketMessage<T extends l, D extends j> extends TbSocketMessage {
-    private boolean isNeedCache;
-    private T requestData;
-    private Class<D> responseDataClass;
+import d.b.h0.g0.b.h;
+import d.b.h0.g0.b.i;
+/* loaded from: classes3.dex */
+public class MvcSocketMessage<T extends i, D extends h> extends TbSocketMessage {
+    public boolean isNeedCache;
+    public T requestData;
+    public Class<D> responseDataClass;
 
     public MvcSocketMessage(T t, int i) {
         super(i);
@@ -16,24 +16,16 @@ public class MvcSocketMessage<T extends l, D extends j> extends TbSocketMessage 
     }
 
     @Override // com.baidu.tbadk.message.websockt.TbSocketMessage
-    protected Object encode() {
-        return this.requestData.lg(false);
+    public Object encode() {
+        return this.requestData.e(false);
     }
 
     public T getRequestData() {
         return this.requestData;
     }
 
-    public void setRequestData(T t) {
-        this.requestData = t;
-    }
-
     public Class<D> getResponseDataClass() {
         return this.responseDataClass;
-    }
-
-    public void setResponseDataClass(Class<D> cls) {
-        this.responseDataClass = cls;
     }
 
     public boolean isNeedCache() {
@@ -42,5 +34,13 @@ public class MvcSocketMessage<T extends l, D extends j> extends TbSocketMessage 
 
     public void setNeedCache(boolean z) {
         this.isNeedCache = z;
+    }
+
+    public void setRequestData(T t) {
+        this.requestData = t;
+    }
+
+    public void setResponseDataClass(Class<D> cls) {
+        this.responseDataClass = cls;
     }
 }

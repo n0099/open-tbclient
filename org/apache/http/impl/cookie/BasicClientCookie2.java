@@ -3,10 +3,20 @@ package org.apache.http.impl.cookie;
 import java.util.Date;
 import org.apache.http.cookie.SetCookie2;
 @Deprecated
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class BasicClientCookie2 extends BasicClientCookie implements SetCookie2 {
     public BasicClientCookie2(String str, String str2) {
         super(null, null);
+        throw new RuntimeException("Stub!");
+    }
+
+    @Override // org.apache.http.impl.cookie.BasicClientCookie
+    public Object clone() throws CloneNotSupportedException {
+        throw new RuntimeException("Stub!");
+    }
+
+    @Override // org.apache.http.impl.cookie.BasicClientCookie, org.apache.http.cookie.Cookie
+    public String getCommentURL() {
         throw new RuntimeException("Stub!");
     }
 
@@ -15,13 +25,13 @@ public class BasicClientCookie2 extends BasicClientCookie implements SetCookie2 
         throw new RuntimeException("Stub!");
     }
 
-    @Override // org.apache.http.cookie.SetCookie2
-    public void setPorts(int[] iArr) {
+    @Override // org.apache.http.impl.cookie.BasicClientCookie, org.apache.http.cookie.Cookie
+    public boolean isExpired(Date date) {
         throw new RuntimeException("Stub!");
     }
 
     @Override // org.apache.http.impl.cookie.BasicClientCookie, org.apache.http.cookie.Cookie
-    public String getCommentURL() {
+    public boolean isPersistent() {
         throw new RuntimeException("Stub!");
     }
 
@@ -35,18 +45,8 @@ public class BasicClientCookie2 extends BasicClientCookie implements SetCookie2 
         throw new RuntimeException("Stub!");
     }
 
-    @Override // org.apache.http.impl.cookie.BasicClientCookie, org.apache.http.cookie.Cookie
-    public boolean isPersistent() {
-        throw new RuntimeException("Stub!");
-    }
-
-    @Override // org.apache.http.impl.cookie.BasicClientCookie, org.apache.http.cookie.Cookie
-    public boolean isExpired(Date date) {
-        throw new RuntimeException("Stub!");
-    }
-
-    @Override // org.apache.http.impl.cookie.BasicClientCookie
-    public Object clone() throws CloneNotSupportedException {
+    @Override // org.apache.http.cookie.SetCookie2
+    public void setPorts(int[] iArr) {
         throw new RuntimeException("Stub!");
     }
 }

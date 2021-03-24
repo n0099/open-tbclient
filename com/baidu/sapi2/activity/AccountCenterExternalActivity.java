@@ -11,23 +11,25 @@ import com.baidu.sapi2.dto.AccountCenterDTO;
 import com.baidu.sapi2.dto.WebLoginDTO;
 import com.baidu.sapi2.result.AccountCenterResult;
 import com.baidu.sapi2.utils.Log;
-/* loaded from: classes3.dex */
+import com.google.protobuf.CodedInputStream;
+/* loaded from: classes2.dex */
 public class AccountCenterExternalActivity extends AccountCenterActivity {
+    public static final String EXTRA_EXTERNAL_IS_ACCOUNT_CENTER_TITLEBAR = "extra_external_is_account_center_titlebar";
     public static final String EXTRA_EXTERNAL_URL = "extra_external_url";
-    private static final String G = AccountCenterExternalActivity.class.getSimpleName();
-    private String F;
+    public static final String G = AccountCenterExternalActivity.class.getSimpleName();
+    public String F;
 
     public void finishActivity() {
         super.finish();
     }
 
     @Override // com.baidu.sapi2.activity.AccountCenterActivity
-    protected void loadAccountCenter(String str) {
-        this.F = getIntent().getStringExtra("extra_external_url");
-        this.sapiWebView.loadUrl(this.F);
+    public void loadAccountCenter(String str) {
+        String stringExtra = getIntent().getStringExtra("extra_external_url");
+        this.F = stringExtra;
+        this.sapiWebView.loadUrl(stringExtra);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.sapi2.activity.AccountCenterActivity, com.baidu.sapi2.activity.BaseActivity, android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
@@ -37,7 +39,6 @@ public class AccountCenterExternalActivity extends AccountCenterActivity {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.sapi2.activity.AccountCenterActivity, com.baidu.sapi2.activity.TitleActivity
     public void onBottomBackBtnClick() {
         a();
@@ -45,6 +46,10 @@ public class AccountCenterExternalActivity extends AccountCenterActivity {
 
     @Override // com.baidu.sapi2.activity.AccountCenterActivity, com.baidu.sapi2.activity.SlideActiviy, com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
+        Intent intent = getIntent();
+        if (intent != null) {
+            this.mIsAccountCenterTitleBar = intent.getBooleanExtra(EXTRA_EXTERNAL_IS_ACCOUNT_CENTER_TITLEBAR, false);
+        }
         super.onCreate(bundle);
         Log.d(G, "AccountCenterExternalActivity onCreate");
         this.sapiWebView.setOnNewBackCallback(new SapiWebView.OnNewBackCallback() { // from class: com.baidu.sapi2.activity.AccountCenterExternalActivity.1
@@ -63,12 +68,12 @@ public class AccountCenterExternalActivity extends AccountCenterActivity {
         this.sapiWebView.setOnSlidePageFinishCallback(new SapiWebView.OnSlidePageFinishCallback() { // from class: com.baidu.sapi2.activity.AccountCenterExternalActivity.3
             @Override // com.baidu.sapi2.SapiWebView.OnSlidePageFinishCallback
             public void onFinish(String str) {
-                if ("accountCenter".equals(str)) {
-                    Intent intent = new Intent(AccountCenterExternalActivity.this, AccountCenterActivity.class);
-                    intent.setFlags(67108864);
-                    AccountCenterExternalActivity.this.startActivity(intent);
+                if (SlideActiviy.ACCOUNT_CENTER_PAGE_NAME.equals(str)) {
+                    Intent intent2 = new Intent(AccountCenterExternalActivity.this, AccountCenterActivity.class);
+                    intent2.setFlags(CodedInputStream.DEFAULT_SIZE_LIMIT);
+                    AccountCenterExternalActivity.this.startActivity(intent2);
                 }
-                if ("quit".equals(str)) {
+                if (SlideActiviy.SLIDE_ACTION_QUIT.equals(str)) {
                     AccountCenterExternalActivity.this.b();
                 }
             }
@@ -99,29 +104,28 @@ public class AccountCenterExternalActivity extends AccountCenterActivity {
                     accountCenterCallback.onFinish(accountCenterResult);
                     return;
                 }
-                Intent intent = new Intent(AccountCenterExternalActivity.this, LoginActivity.class);
-                intent.putExtra(BaseActivity.EXTRA_PARAM_BUSINESS_FROM, 2003);
+                Intent intent2 = new Intent(AccountCenterExternalActivity.this, LoginActivity.class);
+                intent2.putExtra(BaseActivity.EXTRA_PARAM_BUSINESS_FROM, 2003);
                 int i = result.switchAccountType;
                 if (i == 1) {
-                    intent.putExtra("username", result.userName);
+                    intent2.putExtra("username", result.userName);
                 } else if (i == 2) {
                     if (result.loginType == 0) {
-                        intent.putExtra(LoginActivity.EXTRA_LOGIN_TYPE, WebLoginDTO.EXTRA_LOGIN_WITH_USERNAME);
+                        intent2.putExtra(LoginActivity.EXTRA_LOGIN_TYPE, WebLoginDTO.EXTRA_LOGIN_WITH_USERNAME);
                     } else {
-                        intent.putExtra(LoginActivity.EXTRA_LOGIN_TYPE, WebLoginDTO.EXTRA_LOGIN_WITH_SMS);
+                        intent2.putExtra(LoginActivity.EXTRA_LOGIN_TYPE, WebLoginDTO.EXTRA_LOGIN_WITH_SMS);
                     }
-                    intent.putExtra(LoginActivity.EXTRA_LOGIN_FINISH_AFTER_SUC, true);
+                    intent2.putExtra(LoginActivity.EXTRA_LOGIN_FINISH_AFTER_SUC, true);
                     if (!TextUtils.isEmpty(result.displayName)) {
-                        intent.putExtra("username", result.displayName);
+                        intent2.putExtra("username", result.displayName);
                     }
-                    intent.putExtra(LoginActivity.EXTRA_PARAM_ENCRYPTED_UID, result.encryptedUid);
+                    intent2.putExtra(LoginActivity.EXTRA_PARAM_ENCRYPTED_UID, result.encryptedUid);
                 }
-                AccountCenterExternalActivity.this.startActivityForResult(intent, 1004);
+                AccountCenterExternalActivity.this.startActivityForResult(intent2, 1004);
             }
         });
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.sapi2.activity.AccountCenterActivity, com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity
     public void onLeftBtnClick() {
         a();
@@ -135,8 +139,8 @@ public class AccountCenterExternalActivity extends AccountCenterActivity {
     /* JADX INFO: Access modifiers changed from: private */
     public void b() {
         Intent intent = new Intent(this, AccountCenterActivity.class);
-        intent.setFlags(67108864);
-        intent.putExtra("action", "quit");
+        intent.setFlags(CodedInputStream.DEFAULT_SIZE_LIMIT);
+        intent.putExtra("action", SlideActiviy.SLIDE_ACTION_QUIT);
         PendingIntent.getActivity(getApplicationContext(), 0, intent, 134217728);
         startActivity(intent);
     }

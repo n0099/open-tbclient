@@ -1,40 +1,36 @@
 package com.xiaomi.mipush.sdk;
-
-import android.content.Context;
-import android.database.ContentObserver;
-import android.os.Handler;
-import com.xiaomi.push.az;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
-public class as extends ContentObserver {
+/* loaded from: classes7.dex */
+public /* synthetic */ class as {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ aq f8220a;
+    public static final /* synthetic */ int[] f40171a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public as(aq aqVar, Handler handler) {
-        super(handler);
-        this.f8220a = aqVar;
-    }
-
-    @Override // android.database.ContentObserver
-    public void onChange(boolean z) {
-        Context context;
-        Integer num;
-        Context context2;
-        Context context3;
-        aq aqVar = this.f8220a;
-        context = this.f8220a.f50a;
-        aqVar.f54a = Integer.valueOf(com.xiaomi.push.service.aw.a(context).a());
-        num = this.f8220a.f54a;
-        if (num.intValue() != 0) {
-            context2 = this.f8220a.f50a;
-            context2.getContentResolver().unregisterContentObserver(this);
-            context3 = this.f8220a.f50a;
-            if (az.b(context3)) {
-                this.f8220a.m95c();
-            }
+    static {
+        int[] iArr = new int[at.values().length];
+        f40171a = iArr;
+        try {
+            iArr[at.DISABLE_PUSH.ordinal()] = 1;
+        } catch (NoSuchFieldError unused) {
+        }
+        try {
+            f40171a[at.ENABLE_PUSH.ordinal()] = 2;
+        } catch (NoSuchFieldError unused2) {
+        }
+        try {
+            f40171a[at.UPLOAD_HUAWEI_TOKEN.ordinal()] = 3;
+        } catch (NoSuchFieldError unused3) {
+        }
+        try {
+            f40171a[at.UPLOAD_FCM_TOKEN.ordinal()] = 4;
+        } catch (NoSuchFieldError unused4) {
+        }
+        try {
+            f40171a[at.UPLOAD_COS_TOKEN.ordinal()] = 5;
+        } catch (NoSuchFieldError unused5) {
+        }
+        try {
+            f40171a[at.UPLOAD_FTOS_TOKEN.ordinal()] = 6;
+        } catch (NoSuchFieldError unused6) {
         }
     }
 }

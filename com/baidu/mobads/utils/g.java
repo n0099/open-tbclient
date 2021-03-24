@@ -6,8 +6,8 @@ import android.graphics.BitmapFactory;
 import android.util.Base64;
 import com.baidu.mobads.interfaces.utils.IXAdBitmapUtils;
 import java.io.ByteArrayOutputStream;
-/* loaded from: classes4.dex */
-class g implements IXAdBitmapUtils {
+/* loaded from: classes2.dex */
+public class g implements IXAdBitmapUtils {
     @Override // com.baidu.mobads.interfaces.utils.IXAdBitmapUtils
     @TargetApi(8)
     public String bitmap2tring(Bitmap bitmap) {
@@ -15,7 +15,7 @@ class g implements IXAdBitmapUtils {
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
             bitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
             return Base64.encodeToString(byteArrayOutputStream.toByteArray(), 0);
-        } catch (Exception e) {
+        } catch (Exception unused) {
             return "";
         }
     }
@@ -26,7 +26,7 @@ class g implements IXAdBitmapUtils {
         try {
             byte[] decode = Base64.decode(str, 0);
             return BitmapFactory.decodeByteArray(decode, 0, decode.length);
-        } catch (Exception e) {
+        } catch (Exception unused) {
             return null;
         }
     }

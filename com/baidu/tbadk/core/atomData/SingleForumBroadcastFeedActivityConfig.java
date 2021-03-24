@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.atomData;
 import android.content.Context;
 import android.content.Intent;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class SingleForumBroadcastFeedActivityConfig extends IntentConfig {
     public static final String KEY_SOURCE = "key_source";
     public static final String KEY_UID = "key_uid";
@@ -18,10 +18,10 @@ public class SingleForumBroadcastFeedActivityConfig extends IntentConfig {
         intent.putExtra("forum_name", str2);
     }
 
-    public void setSource(byte b) {
+    public void setSource(byte b2) {
         Intent intent = getIntent();
         if (intent != null) {
-            intent.putExtra(KEY_SOURCE, b);
+            intent.putExtra(KEY_SOURCE, b2);
         }
     }
 }

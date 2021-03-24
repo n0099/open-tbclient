@@ -1,9 +1,9 @@
 package com.googlecode.mp4parser.h264;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class BTree {
-    private BTree one;
-    private Object value;
-    private BTree zero;
+    public BTree one;
+    public Object value;
+    public BTree zero;
 
     public void addString(String str, Object obj) {
         BTree bTree;
@@ -26,7 +26,10 @@ public class BTree {
     }
 
     public BTree down(int i) {
-        return i == 0 ? this.zero : this.one;
+        if (i == 0) {
+            return this.zero;
+        }
+        return this.one;
     }
 
     public Object getValue() {

@@ -1,73 +1,30 @@
 package com.baidu.sofire.d;
-
-import com.baidu.sofire.i.e;
-import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f3524a;
-    public String b;
-    public String c;
-    public String d;
-    public String e;
+    public int f11717a;
 
-    public static String a(a aVar) {
-        JSONObject jSONObject = new JSONObject();
-        try {
-            jSONObject.put("0", aVar.f3524a);
-            jSONObject.put("1", aVar.c);
-            jSONObject.put("2", aVar.d);
-            jSONObject.put("3", aVar.e);
-            jSONObject.put("4", aVar.b);
-        } catch (Throwable th) {
-            e.a();
-        }
-        return jSONObject.toString();
-    }
+    /* renamed from: b  reason: collision with root package name */
+    public String f11718b;
 
-    public static a a(String str) {
-        a aVar = new a();
-        try {
-            JSONObject jSONObject = new JSONObject(str);
-            aVar.f3524a = jSONObject.optString("0");
-            aVar.c = jSONObject.optString("1");
-            aVar.d = jSONObject.optString("2");
-            aVar.e = jSONObject.optString("3");
-            aVar.b = jSONObject.optString("4");
-            return aVar;
-        } catch (Exception e) {
-            e.a();
-            return null;
-        }
-    }
+    /* renamed from: c  reason: collision with root package name */
+    public int f11719c;
 
-    public final int hashCode() {
-        return (((this.e == null ? 0 : this.e.hashCode()) + (((this.d == null ? 0 : this.d.hashCode()) + 31) * 31)) * 31) + (this.b != null ? this.b.hashCode() : 0);
-    }
+    /* renamed from: d  reason: collision with root package name */
+    public String f11720d;
 
-    public final boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj != null && getClass() == obj.getClass()) {
-            a aVar = (a) obj;
-            if (this.d == null) {
-                if (aVar.d != null) {
-                    return false;
-                }
-            } else if (!this.d.equals(aVar.d)) {
-                return false;
-            }
-            if (this.e == null) {
-                if (aVar.e != null) {
-                    return false;
-                }
-            } else if (!this.e.equals(aVar.e)) {
-                return false;
-            }
-            return this.b == null ? aVar.b == null : this.b.equals(aVar.b);
-        }
-        return false;
-    }
+    /* renamed from: e  reason: collision with root package name */
+    public long f11721e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public int f11722f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public int f11723g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public int f11724h;
+    public int i;
+    public String j;
 }

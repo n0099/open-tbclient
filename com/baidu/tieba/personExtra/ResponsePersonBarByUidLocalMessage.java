@@ -1,31 +1,32 @@
 package com.baidu.tieba.personExtra;
 
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
-/* loaded from: classes7.dex */
+import d.b.i0.g2.b;
+/* loaded from: classes5.dex */
 public class ResponsePersonBarByUidLocalMessage extends CustomResponsedMessage<String> {
-    private b mData;
+    public b mData;
 
     public ResponsePersonBarByUidLocalMessage() {
-        super(CmdConfigCustom.CMD_QUERY_PERSON_BAR_LOCAL_HISTORY);
-    }
-
-    public ResponsePersonBarByUidLocalMessage(int i) {
-        super(i);
-    }
-
-    public void setPersonBarData(b bVar) {
-        this.mData = bVar;
+        super(2001183);
     }
 
     public b getPersonBarData() {
         return this.mData;
     }
 
+    public void setPersonBarData(b bVar) {
+        this.mData = bVar;
+    }
+
+    public ResponsePersonBarByUidLocalMessage(int i) {
+        super(i);
+    }
+
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.message.CustomResponsedMessage, com.baidu.adp.framework.message.a
+    @Override // com.baidu.adp.framework.message.CustomResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
     public void decodeInBackGround(int i, String str) throws Exception {
-        this.mData = new b();
-        this.mData.parserJson(str);
+        b bVar = new b();
+        this.mData = bVar;
+        bVar.n(str);
     }
 }

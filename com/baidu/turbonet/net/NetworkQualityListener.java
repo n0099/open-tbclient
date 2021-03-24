@@ -3,14 +3,16 @@ package com.baidu.turbonet.net;
 import java.util.concurrent.Executor;
 /* loaded from: classes5.dex */
 public abstract class NetworkQualityListener {
-    private final Executor mExecutor;
 
-    public abstract void onNetworkQualityObservation(int i);
+    /* renamed from: a  reason: collision with root package name */
+    public final Executor f22785a;
 
-    public Executor getExecutor() {
-        return this.mExecutor;
+    public Executor a() {
+        return this.f22785a;
     }
 
-    public void Xh(String str) {
+    public abstract void b(int i);
+
+    public void c(String str) {
     }
 }

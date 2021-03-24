@@ -6,9 +6,10 @@ import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdStyleInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.core.response.model.PhotoInfo;
+import com.kwad.sdk.internal.api.SceneImpl;
 import com.kwad.sdk.live.mode.LiveInfo;
 import com.kwad.sdk.utils.ag;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class c {
     @NonNull
     public static LiveInfo A(@NonNull AdTemplate adTemplate) {
@@ -16,13 +17,14 @@ public class c {
     }
 
     public static boolean B(@NonNull AdTemplate adTemplate) {
-        return adTemplate.mAdScene != null && adTemplate.mAdScene.getPageScene() == 2;
+        SceneImpl sceneImpl = adTemplate.mAdScene;
+        return sceneImpl != null && sceneImpl.getPageScene() == 2;
     }
 
     public static boolean C(@NonNull AdTemplate adTemplate) {
         AdStyleInfo q = b.q(adTemplate);
         AdInfo j = j(adTemplate);
-        return (q.playEndInfo.showLandingPage == 1) && !a.y(j) && !(!ag.a(a.C(j))) && (!ag.a(a.B(j)));
+        return (q.playEndInfo.showLandingPage == 1) && !a.y(j) && !(ag.a(a.C(j)) ^ true) && (ag.a(a.B(j)) ^ true);
     }
 
     public static String D(@NonNull AdTemplate adTemplate) {

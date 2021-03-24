@@ -3,80 +3,100 @@ package com.baidu.mapapi.map;
 import android.os.Bundle;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapapi.model.LatLngBounds;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public final class GroundOverlayOptions extends OverlayOptions {
 
     /* renamed from: a  reason: collision with root package name */
-    int f2019a;
-    Bundle c;
-    private BitmapDescriptor d;
-    private LatLng e;
-    private int f;
-    private int g;
-    private LatLngBounds j;
-    private float h = 0.5f;
-    private float i = 0.5f;
-    private float k = 1.0f;
-    boolean b = true;
+    public int f6861a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    /* renamed from: c  reason: collision with root package name */
+    public Bundle f6863c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public BitmapDescriptor f6864d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public LatLng f6865e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public int f6866f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public int f6867g;
+    public LatLngBounds j;
+
+    /* renamed from: h  reason: collision with root package name */
+    public float f6868h = 0.5f;
+    public float i = 0.5f;
+    public float k = 1.0f;
+
+    /* renamed from: b  reason: collision with root package name */
+    public boolean f6862b = true;
+
     @Override // com.baidu.mapapi.map.OverlayOptions
     public Overlay a() {
+        LatLngBounds latLngBounds;
+        int i;
+        LatLng latLng;
+        int i2;
         GroundOverlay groundOverlay = new GroundOverlay();
-        groundOverlay.x = this.b;
-        groundOverlay.w = this.f2019a;
-        groundOverlay.y = this.c;
-        if (this.d == null) {
-            throw new IllegalStateException("when you add ground overlay, you must set the image");
-        }
-        groundOverlay.b = this.d;
-        if (this.j != null || this.e == null) {
-            if (this.e != null || this.j == null) {
+        groundOverlay.x = this.f6862b;
+        groundOverlay.w = this.f6861a;
+        groundOverlay.y = this.f6863c;
+        BitmapDescriptor bitmapDescriptor = this.f6864d;
+        if (bitmapDescriptor != null) {
+            groundOverlay.f6854b = bitmapDescriptor;
+            if (this.j == null && (latLng = this.f6865e) != null) {
+                int i3 = this.f6866f;
+                if (i3 <= 0 || (i2 = this.f6867g) <= 0) {
+                    throw new IllegalArgumentException("when you add ground overlay, the width and height must greater than 0");
+                }
+                groundOverlay.f6855c = latLng;
+                groundOverlay.f6858f = this.f6868h;
+                groundOverlay.f6859g = this.i;
+                groundOverlay.f6856d = i3;
+                groundOverlay.f6857e = i2;
+                i = 2;
+            } else if (this.f6865e != null || (latLngBounds = this.j) == null) {
                 throw new IllegalStateException("when you add ground overlay, you must set one of position or bounds");
+            } else {
+                groundOverlay.f6860h = latLngBounds;
+                i = 1;
             }
-            groundOverlay.h = this.j;
-            groundOverlay.f2018a = 1;
-        } else if (this.f <= 0 || this.g <= 0) {
-            throw new IllegalArgumentException("when you add ground overlay, the width and height must greater than 0");
-        } else {
-            groundOverlay.c = this.e;
-            groundOverlay.f = this.h;
-            groundOverlay.g = this.i;
-            groundOverlay.d = this.f;
-            groundOverlay.e = this.g;
-            groundOverlay.f2018a = 2;
+            groundOverlay.f6853a = i;
+            groundOverlay.i = this.k;
+            return groundOverlay;
         }
-        groundOverlay.i = this.k;
-        return groundOverlay;
+        throw new IllegalStateException("when you add ground overlay, you must set the image");
     }
 
-    public GroundOverlayOptions anchor(float f, float f2) {
-        if (f >= 0.0f && f <= 1.0f && f2 >= 0.0f && f2 <= 1.0f) {
-            this.h = f;
-            this.i = f2;
+    public GroundOverlayOptions anchor(float f2, float f3) {
+        if (f2 >= 0.0f && f2 <= 1.0f && f3 >= 0.0f && f3 <= 1.0f) {
+            this.f6868h = f2;
+            this.i = f3;
         }
         return this;
     }
 
     public GroundOverlayOptions dimensions(int i) {
-        this.f = i;
-        this.g = Integer.MAX_VALUE;
+        this.f6866f = i;
+        this.f6867g = Integer.MAX_VALUE;
         return this;
     }
 
     public GroundOverlayOptions dimensions(int i, int i2) {
-        this.f = i;
-        this.g = i2;
+        this.f6866f = i;
+        this.f6867g = i2;
         return this;
     }
 
     public GroundOverlayOptions extraInfo(Bundle bundle) {
-        this.c = bundle;
+        this.f6863c = bundle;
         return this;
     }
 
     public float getAnchorX() {
-        return this.h;
+        return this.f6868h;
     }
 
     public float getAnchorY() {
@@ -88,19 +108,20 @@ public final class GroundOverlayOptions extends OverlayOptions {
     }
 
     public Bundle getExtraInfo() {
-        return this.c;
+        return this.f6863c;
     }
 
     public int getHeight() {
-        return this.g == Integer.MAX_VALUE ? (int) ((this.f * this.d.f2010a.getHeight()) / this.d.f2010a.getWidth()) : this.g;
+        int i = this.f6867g;
+        return i == Integer.MAX_VALUE ? (int) ((this.f6866f * this.f6864d.f6822a.getHeight()) / this.f6864d.f6822a.getWidth()) : i;
     }
 
     public BitmapDescriptor getImage() {
-        return this.d;
+        return this.f6864d;
     }
 
     public LatLng getPosition() {
-        return this.e;
+        return this.f6865e;
     }
 
     public float getTransparency() {
@@ -108,55 +129,55 @@ public final class GroundOverlayOptions extends OverlayOptions {
     }
 
     public int getWidth() {
-        return this.f;
+        return this.f6866f;
     }
 
     public int getZIndex() {
-        return this.f2019a;
+        return this.f6861a;
     }
 
     public GroundOverlayOptions image(BitmapDescriptor bitmapDescriptor) {
-        if (bitmapDescriptor == null) {
-            throw new IllegalArgumentException("image can not be null");
+        if (bitmapDescriptor != null) {
+            this.f6864d = bitmapDescriptor;
+            return this;
         }
-        this.d = bitmapDescriptor;
-        return this;
+        throw new IllegalArgumentException("image can not be null");
     }
 
     public boolean isVisible() {
-        return this.b;
+        return this.f6862b;
     }
 
     public GroundOverlayOptions position(LatLng latLng) {
-        if (latLng == null) {
-            throw new IllegalArgumentException("position can not be null");
+        if (latLng != null) {
+            this.f6865e = latLng;
+            return this;
         }
-        this.e = latLng;
-        return this;
+        throw new IllegalArgumentException("position can not be null");
     }
 
     public GroundOverlayOptions positionFromBounds(LatLngBounds latLngBounds) {
-        if (latLngBounds == null) {
-            throw new IllegalArgumentException("bounds can not be null");
+        if (latLngBounds != null) {
+            this.j = latLngBounds;
+            return this;
         }
-        this.j = latLngBounds;
-        return this;
+        throw new IllegalArgumentException("bounds can not be null");
     }
 
-    public GroundOverlayOptions transparency(float f) {
-        if (f <= 1.0f && f >= 0.0f) {
-            this.k = f;
+    public GroundOverlayOptions transparency(float f2) {
+        if (f2 <= 1.0f && f2 >= 0.0f) {
+            this.k = f2;
         }
         return this;
     }
 
     public GroundOverlayOptions visible(boolean z) {
-        this.b = z;
+        this.f6862b = z;
         return this;
     }
 
     public GroundOverlayOptions zIndex(int i) {
-        this.f2019a = i;
+        this.f6861a = i;
         return this;
     }
 }

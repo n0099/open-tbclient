@@ -1,7 +1,6 @@
 package com.bytedance.sdk.openadsdk.preload.geckox;
 
 import android.text.TextUtils;
-import com.baidu.searchbox.config.DefaultSharedPrefsWrapper;
 import com.bytedance.sdk.openadsdk.preload.b.d;
 import com.bytedance.sdk.openadsdk.preload.geckox.model.CheckRequestBodyModel;
 import com.bytedance.sdk.openadsdk.preload.geckox.statistic.c;
@@ -16,119 +15,141 @@ import java.util.concurrent.LinkedBlockingQueue;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private final List<String> f5050a = new ArrayList();
-    private com.bytedance.sdk.openadsdk.preload.geckox.e.b b = new com.bytedance.sdk.openadsdk.preload.geckox.e.b();
-    private Queue<String> c = new LinkedBlockingQueue();
-    private b d;
-    private File e;
+    public final List<String> f30178a = new ArrayList();
 
-    private a(b bVar) {
-        this.d = bVar;
-        this.e = bVar.m();
-        this.e.mkdirs();
-        c.a(this, this.d);
+    /* renamed from: b  reason: collision with root package name */
+    public com.bytedance.sdk.openadsdk.preload.geckox.e.b f30179b = new com.bytedance.sdk.openadsdk.preload.geckox.e.b();
+
+    /* renamed from: c  reason: collision with root package name */
+    public Queue<String> f30180c = new LinkedBlockingQueue();
+
+    /* renamed from: d  reason: collision with root package name */
+    public b f30181d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public File f30182e;
+
+    public a(b bVar) {
+        this.f30181d = bVar;
+        File m = bVar.m();
+        this.f30182e = m;
+        m.mkdirs();
+        c.a(this, this.f30181d);
     }
 
     public static a a(b bVar) {
-        if (bVar == null) {
-            throw new IllegalArgumentException("config == null");
-        }
-        List<String> e = bVar.e();
-        if (e == null || e.isEmpty()) {
+        if (bVar != null) {
+            List<String> e2 = bVar.e();
+            if (e2 != null && !e2.isEmpty()) {
+                g.a(bVar.a());
+                return new a(bVar);
+            }
             throw new IllegalArgumentException("access key empty");
         }
-        g.a(bVar.a());
-        return new a(bVar);
-    }
-
-    public void a(Map<String, List<CheckRequestBodyModel.TargetChannel>> map) {
-        a(DefaultSharedPrefsWrapper.SP_FILE_DEFAULT, null, map, null);
-    }
-
-    public void a(final String str, final Map<String, Map<String, Object>> map, final Map<String, List<CheckRequestBodyModel.TargetChannel>> map2, final com.bytedance.sdk.openadsdk.preload.geckox.e.a aVar) {
-        if (TextUtils.isEmpty(str)) {
-            throw new IllegalArgumentException("groupType == null");
-        }
-        if (!a()) {
-            throw new IllegalArgumentException("deployments keys not in local keys");
-        }
-        if (!b(map2)) {
-            throw new IllegalArgumentException("target keys not in deployments keys");
-        }
-        this.d.g().execute(new Runnable() { // from class: com.bytedance.sdk.openadsdk.preload.geckox.a.1
-            @Override // java.lang.Runnable
-            public void run() {
-                com.bytedance.sdk.openadsdk.preload.geckox.a.a.b bVar;
-                com.bytedance.sdk.openadsdk.preload.geckox.h.b.a("gecko-debug-tag", "start check update...", str);
-                if (a.this.d.b() != null) {
-                    com.bytedance.sdk.openadsdk.preload.geckox.a.a.b a2 = a.this.d.b().a();
-                    a2.a(a.this.d.b(), a.this.d.m(), a.this.d.e());
-                    bVar = a2;
-                } else {
-                    bVar = null;
-                }
-                try {
-                    try {
-                        com.bytedance.sdk.openadsdk.preload.geckox.h.b.a("gecko-debug-tag", "update finished", com.bytedance.sdk.openadsdk.preload.geckox.j.a.a(aVar, a.this.e, a.this.d, a.this.b, map, map2, str).a((com.bytedance.sdk.openadsdk.preload.b.b<Object>) str));
-                        if (aVar != null) {
-                            aVar.a();
-                        }
-                        if (bVar != null) {
-                            bVar.a();
-                        }
-                        com.bytedance.sdk.openadsdk.preload.geckox.h.b.a("gecko-debug-tag", "all channel update finished");
-                    } catch (Exception e) {
-                        com.bytedance.sdk.openadsdk.preload.geckox.h.b.a("gecko-debug-tag", "Gecko update failed:", e);
-                        if (aVar != null) {
-                            aVar.a();
-                        }
-                        if (bVar != null) {
-                            bVar.a();
-                        }
-                        com.bytedance.sdk.openadsdk.preload.geckox.h.b.a("gecko-debug-tag", "all channel update finished");
-                    }
-                    a.this.b();
-                } catch (Throwable th) {
-                    if (aVar != null) {
-                        aVar.a();
-                    }
-                    if (bVar != null) {
-                        bVar.a();
-                    }
-                    com.bytedance.sdk.openadsdk.preload.geckox.h.b.a("gecko-debug-tag", "all channel update finished");
-                    throw th;
-                }
-            }
-        });
+        throw new IllegalArgumentException("config == null");
     }
 
     private boolean b(Map<String, List<CheckRequestBodyModel.TargetChannel>> map) {
-        if (map == null || map.isEmpty()) {
-            return true;
-        }
-        List<String> e = this.d.e();
-        for (Map.Entry<String, List<CheckRequestBodyModel.TargetChannel>> entry : map.entrySet()) {
-            boolean z = false;
-            for (String str : e) {
-                z = TextUtils.equals(str, entry.getKey()) ? true : z;
-            }
-            if (!z) {
-                return false;
+        if (map != null && !map.isEmpty()) {
+            List<String> e2 = this.f30181d.e();
+            for (Map.Entry<String, List<CheckRequestBodyModel.TargetChannel>> entry : map.entrySet()) {
+                boolean z = false;
+                for (String str : e2) {
+                    if (TextUtils.equals(str, entry.getKey())) {
+                        z = true;
+                    }
+                }
+                if (!z) {
+                    return false;
+                }
             }
         }
         return true;
     }
 
+    /* JADX INFO: Access modifiers changed from: private */
+    public void b() {
+        ArrayList arrayList = new ArrayList();
+        arrayList.addAll(this.f30181d.e());
+        a(com.bytedance.sdk.openadsdk.preload.geckox.c.b.a().b().a(new com.bytedance.sdk.openadsdk.preload.geckox.k.a.a(arrayList)), 100);
+    }
+
+    public void a(Map<String, List<CheckRequestBodyModel.TargetChannel>> map) {
+        a("default", null, map, null);
+    }
+
+    public void a(final String str, final Map<String, Map<String, Object>> map, final Map<String, List<CheckRequestBodyModel.TargetChannel>> map2, final com.bytedance.sdk.openadsdk.preload.geckox.e.a aVar) {
+        if (!TextUtils.isEmpty(str)) {
+            if (a()) {
+                if (b(map2)) {
+                    this.f30181d.g().execute(new Runnable() { // from class: com.bytedance.sdk.openadsdk.preload.geckox.a.1
+                        @Override // java.lang.Runnable
+                        public void run() {
+                            com.bytedance.sdk.openadsdk.preload.geckox.a.a.b bVar;
+                            com.bytedance.sdk.openadsdk.preload.geckox.h.b.a("gecko-debug-tag", "start check update...", str);
+                            if (a.this.f30181d.b() != null) {
+                                bVar = a.this.f30181d.b().a();
+                                bVar.a(a.this.f30181d.b(), a.this.f30181d.m(), a.this.f30181d.e());
+                            } else {
+                                bVar = null;
+                            }
+                            try {
+                                try {
+                                    com.bytedance.sdk.openadsdk.preload.geckox.h.b.a("gecko-debug-tag", "update finished", com.bytedance.sdk.openadsdk.preload.geckox.j.a.a(aVar, a.this.f30182e, a.this.f30181d, a.this.f30179b, map, map2, str).a((com.bytedance.sdk.openadsdk.preload.b.b<Object>) str));
+                                    com.bytedance.sdk.openadsdk.preload.geckox.e.a aVar2 = aVar;
+                                    if (aVar2 != null) {
+                                        aVar2.a();
+                                    }
+                                    if (bVar != null) {
+                                        bVar.a();
+                                    }
+                                    com.bytedance.sdk.openadsdk.preload.geckox.h.b.a("gecko-debug-tag", "all channel update finished");
+                                } catch (Exception e2) {
+                                    com.bytedance.sdk.openadsdk.preload.geckox.h.b.a("gecko-debug-tag", "Gecko update failed:", e2);
+                                    com.bytedance.sdk.openadsdk.preload.geckox.e.a aVar3 = aVar;
+                                    if (aVar3 != null) {
+                                        aVar3.a();
+                                    }
+                                    if (bVar != null) {
+                                        bVar.a();
+                                    }
+                                    com.bytedance.sdk.openadsdk.preload.geckox.h.b.a("gecko-debug-tag", "all channel update finished");
+                                }
+                                a.this.b();
+                            } catch (Throwable th) {
+                                com.bytedance.sdk.openadsdk.preload.geckox.e.a aVar4 = aVar;
+                                if (aVar4 != null) {
+                                    aVar4.a();
+                                }
+                                if (bVar != null) {
+                                    bVar.a();
+                                }
+                                com.bytedance.sdk.openadsdk.preload.geckox.h.b.a("gecko-debug-tag", "all channel update finished");
+                                throw th;
+                            }
+                        }
+                    });
+                    return;
+                }
+                throw new IllegalArgumentException("target keys not in deployments keys");
+            }
+            throw new IllegalArgumentException("deployments keys not in local keys");
+        }
+        throw new IllegalArgumentException("groupType == null");
+    }
+
     private boolean a() {
-        List<String> d = this.d.d();
-        List<String> e = this.d.e();
-        if (d == null || d.isEmpty() || e == null || e.isEmpty()) {
+        List<String> d2 = this.f30181d.d();
+        List<String> e2 = this.f30181d.e();
+        if (d2 == null || d2.isEmpty() || e2 == null || e2.isEmpty()) {
             return false;
         }
-        for (String str : e) {
+        for (String str : e2) {
             boolean z = false;
-            for (String str2 : d) {
-                z = TextUtils.equals(str, str2) ? true : z;
+            for (String str2 : d2) {
+                if (TextUtils.equals(str, str2)) {
+                    z = true;
+                }
             }
             if (!z) {
                 return false;
@@ -138,21 +159,14 @@ public final class a {
     }
 
     public void a(Class<? extends d<?, ?>> cls, com.bytedance.sdk.openadsdk.preload.b.b.a aVar) {
-        this.b.a(cls, aVar);
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void b() {
-        ArrayList arrayList = new ArrayList();
-        arrayList.addAll(this.d.e());
-        a(com.bytedance.sdk.openadsdk.preload.geckox.c.b.a().b().a(new com.bytedance.sdk.openadsdk.preload.geckox.k.a.a(arrayList)), 100);
+        this.f30179b.a(cls, aVar);
     }
 
     private void a(String str, int i) {
-        if (this.d.o() != null && this.d.o().a()) {
-            this.d.o().a(str, i);
-        } else if (this.c.size() < 10) {
-            this.c.add(str);
+        if (this.f30181d.o() != null && this.f30181d.o().a()) {
+            this.f30181d.o().a(str, i);
+        } else if (this.f30180c.size() < 10) {
+            this.f30180c.add(str);
         }
     }
 }

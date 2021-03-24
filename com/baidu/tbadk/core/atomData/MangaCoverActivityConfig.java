@@ -2,7 +2,7 @@ package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class MangaCoverActivityConfig extends IntentConfig {
     public static final String FORUM_ID = "forum_id";
     public static final String FROM = "from";
@@ -16,12 +16,12 @@ public class MangaCoverActivityConfig extends IntentConfig {
         super(context);
     }
 
+    public void setFrom(int i) {
+        getIntent().putExtra("from", i);
+    }
+
     public MangaCoverActivityConfig(Context context, long j) {
         super(context);
         getIntent().putExtra("forum_id", j);
-    }
-
-    public void setFrom(int i) {
-        getIntent().putExtra("from", i);
     }
 }

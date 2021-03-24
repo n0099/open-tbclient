@@ -2,50 +2,45 @@ package com.baidu.rtc;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import com.baidu.rtc.logreport.SLIReportInterface;
+import com.baidu.rtc.logreport.StuckDataCalculator;
 import org.webrtc.SurfaceViewRenderer;
 import org.webrtc.VideoFrame;
 import org.webrtc.VideoSink;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public class RTCVideoView extends SurfaceViewRenderer {
-    private boolean cwE;
-    private volatile boolean cwM;
-    private VideoSink cwN;
-    private Runnable cwO;
-    private com.baidu.rtc.b.f stuckDataCalculator;
+    public boolean isEnableSLIDataReport;
+    public volatile boolean mExtSinkNeedRender;
+    public VideoSink mExtVideoSink;
+    public Runnable mOnFirstFrameEvent;
+    public StuckDataCalculator stuckDataCalculator;
 
-    /* loaded from: classes9.dex */
-    public interface a extends VideoSink {
+    /* loaded from: classes2.dex */
+    public interface ExtVideoSink extends VideoSink {
     }
 
     public RTCVideoView(Context context) {
         super(context);
-        this.cwM = false;
-        this.stuckDataCalculator = new com.baidu.rtc.b.f(600);
-        this.cwE = false;
-        this.cwO = null;
-        this.cwN = null;
+        this.mExtSinkNeedRender = false;
+        this.stuckDataCalculator = new StuckDataCalculator(600);
+        this.isEnableSLIDataReport = false;
+        this.mOnFirstFrameEvent = null;
+        this.mExtVideoSink = null;
     }
 
     public RTCVideoView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.cwM = false;
-        this.stuckDataCalculator = new com.baidu.rtc.b.f(600);
-        this.cwE = false;
-        this.cwO = null;
-        this.cwN = null;
-    }
-
-    public boolean aeS() {
-        return false;
-    }
-
-    public void b(l lVar) {
+        this.mExtSinkNeedRender = false;
+        this.stuckDataCalculator = new StuckDataCalculator(600);
+        this.isEnableSLIDataReport = false;
+        this.mOnFirstFrameEvent = null;
+        this.mExtVideoSink = null;
     }
 
     @Override // org.webrtc.SurfaceViewRenderer
     public void clearImage() {
         this.stuckDataCalculator.reset();
-        if (this.cwN != null) {
+        if (this.mExtVideoSink != null) {
             return;
         }
         super.clearImage();
@@ -53,61 +48,69 @@ public class RTCVideoView extends SurfaceViewRenderer {
 
     @Override // org.webrtc.SurfaceViewRenderer, org.webrtc.VideoSink
     public void onFrame(VideoFrame videoFrame) {
-        if (this.cwE) {
-            this.stuckDataCalculator.afx();
+        if (this.isEnableSLIDataReport) {
+            this.stuckDataCalculator.calculateStuck();
         }
-        if (this.cwO != null) {
-            this.cwO.run();
-            this.cwO = null;
+        Runnable runnable = this.mOnFirstFrameEvent;
+        if (runnable != null) {
+            runnable.run();
+            this.mOnFirstFrameEvent = null;
         }
-        if (this.cwN != null) {
-            if (!this.cwM) {
-                this.cwN.onFrame(videoFrame);
+        if (this.mExtVideoSink != null) {
+            if (!this.mExtSinkNeedRender) {
+                this.mExtVideoSink.onFrame(videoFrame);
                 return;
             }
-            this.cwN.onFrame(l.a(videoFrame));
+            this.mExtVideoSink.onFrame(RTCVideoFrame.newfromVideoFrame(videoFrame));
         }
-        if (aeS()) {
-            b(l.a(videoFrame));
+        if (onlyforVideoCallbackdata()) {
+            onRTCVideoFrame(RTCVideoFrame.newfromVideoFrame(videoFrame));
         } else {
             super.onFrame(videoFrame);
         }
     }
 
+    public void onRTCVideoFrame(RTCVideoFrame rTCVideoFrame) {
+    }
+
+    public boolean onlyforVideoCallbackdata() {
+        return false;
+    }
+
     @Override // org.webrtc.SurfaceViewRenderer
     public void setEnableHardwareScaler(boolean z) {
-        if (this.cwN != null) {
+        if (this.mExtVideoSink != null) {
             return;
         }
         super.setEnableHardwareScaler(z);
     }
 
     public void setEnableSLIDataReport(boolean z) {
-        this.cwE = z;
+        this.isEnableSLIDataReport = z;
     }
 
-    public void setExtVideoSink(a aVar) {
-        this.cwN = aVar;
+    public void setExtVideoSink(ExtVideoSink extVideoSink) {
+        this.mExtVideoSink = extVideoSink;
     }
 
     public void setExtVideoSink(VideoSink videoSink, boolean z) {
-        this.cwN = videoSink;
-        this.cwM = z;
+        this.mExtVideoSink = videoSink;
+        this.mExtSinkNeedRender = z;
     }
 
     public void setFirstFrameEventListener(Runnable runnable) {
-        this.cwO = runnable;
+        this.mOnFirstFrameEvent = runnable;
     }
 
     @Override // org.webrtc.SurfaceViewRenderer
     public void setMirror(boolean z) {
-        if (this.cwN != null) {
+        if (this.mExtVideoSink != null) {
             return;
         }
         super.setMirror(z);
     }
 
-    public void setStuckEventListener(com.baidu.rtc.b.e eVar) {
-        this.stuckDataCalculator.setStuckEventListener(eVar);
+    public void setStuckEventListener(SLIReportInterface sLIReportInterface) {
+        this.stuckDataCalculator.setStuckEventListener(sLIReportInterface);
     }
 }

@@ -1,8 +1,8 @@
 package com.baidu.tbadk.switchs;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class PraiseSwitch extends BaseNormalSwitch {
-    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, com.baidu.adp.lib.featureSwitch.a
-    protected String getName() {
+    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, d.b.b.e.f.a
+    public String getName() {
         return "praise_android";
     }
 }

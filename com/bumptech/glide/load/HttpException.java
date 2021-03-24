@@ -2,14 +2,18 @@ package com.bumptech.glide.load;
 
 import androidx.annotation.Nullable;
 import java.io.IOException;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public final class HttpException extends IOException {
     public static final int UNKNOWN = -1;
-    private static final long serialVersionUID = 1;
-    private final int statusCode;
+    public static final long serialVersionUID = 1;
+    public final int statusCode;
 
     public HttpException(int i) {
         this("Http request failed with status code: " + i, i);
+    }
+
+    public int getStatusCode() {
+        return this.statusCode;
     }
 
     public HttpException(String str) {
@@ -23,9 +27,5 @@ public final class HttpException extends IOException {
     public HttpException(String str, int i, @Nullable Throwable th) {
         super(str, th);
         this.statusCode = i;
-    }
-
-    public int getStatusCode() {
-        return this.statusCode;
     }
 }

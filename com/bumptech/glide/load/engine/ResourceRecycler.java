@@ -3,28 +3,14 @@ package com.bumptech.glide.load.engine;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
-/* loaded from: classes14.dex */
-class ResourceRecycler {
-    private final Handler handler = new Handler(Looper.getMainLooper(), new ResourceRecyclerCallback());
-    private boolean isRecycling;
+/* loaded from: classes5.dex */
+public class ResourceRecycler {
+    public final Handler handler = new Handler(Looper.getMainLooper(), new ResourceRecyclerCallback());
+    public boolean isRecycling;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public synchronized void recycle(Resource<?> resource, boolean z) {
-        if (this.isRecycling || z) {
-            this.handler.obtainMessage(1, resource).sendToTarget();
-        } else {
-            this.isRecycling = true;
-            resource.recycle();
-            this.isRecycling = false;
-        }
-    }
-
-    /* loaded from: classes14.dex */
-    private static final class ResourceRecyclerCallback implements Handler.Callback {
-        static final int RECYCLE_RESOURCE = 1;
-
-        ResourceRecyclerCallback() {
-        }
+    /* loaded from: classes5.dex */
+    public static final class ResourceRecyclerCallback implements Handler.Callback {
+        public static final int RECYCLE_RESOURCE = 1;
 
         @Override // android.os.Handler.Callback
         public boolean handleMessage(Message message) {
@@ -34,5 +20,14 @@ class ResourceRecycler {
             }
             return false;
         }
+    }
+
+    public synchronized void recycle(Resource<?> resource, boolean z) {
+        if (!this.isRecycling && !z) {
+            this.isRecycling = true;
+            resource.recycle();
+            this.isRecycling = false;
+        }
+        this.handler.obtainMessage(1, resource).sendToTarget();
     }
 }

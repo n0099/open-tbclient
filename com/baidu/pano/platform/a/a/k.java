@@ -2,35 +2,37 @@ package com.baidu.pano.platform.a.a;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class k extends ByteArrayOutputStream {
 
     /* renamed from: a  reason: collision with root package name */
-    private final b f2696a;
+    public final b f9340a;
 
     public k(b bVar, int i) {
-        this.f2696a = bVar;
-        this.buf = this.f2696a.a(Math.max(i, 256));
+        this.f9340a = bVar;
+        ((ByteArrayOutputStream) this).buf = bVar.a(Math.max(i, 256));
+    }
+
+    private void a(int i) {
+        int i2 = ((ByteArrayOutputStream) this).count;
+        if (i2 + i <= ((ByteArrayOutputStream) this).buf.length) {
+            return;
+        }
+        byte[] a2 = this.f9340a.a((i2 + i) * 2);
+        System.arraycopy(((ByteArrayOutputStream) this).buf, 0, a2, 0, ((ByteArrayOutputStream) this).count);
+        this.f9340a.a(((ByteArrayOutputStream) this).buf);
+        ((ByteArrayOutputStream) this).buf = a2;
     }
 
     @Override // java.io.ByteArrayOutputStream, java.io.OutputStream, java.io.Closeable, java.lang.AutoCloseable
     public void close() throws IOException {
-        this.f2696a.a(this.buf);
-        this.buf = null;
+        this.f9340a.a(((ByteArrayOutputStream) this).buf);
+        ((ByteArrayOutputStream) this).buf = null;
         super.close();
     }
 
     public void finalize() {
-        this.f2696a.a(this.buf);
-    }
-
-    private void a(int i) {
-        if (this.count + i > this.buf.length) {
-            byte[] a2 = this.f2696a.a((this.count + i) * 2);
-            System.arraycopy(this.buf, 0, a2, 0, this.count);
-            this.f2696a.a(this.buf);
-            this.buf = a2;
-        }
+        this.f9340a.a(((ByteArrayOutputStream) this).buf);
     }
 
     @Override // java.io.ByteArrayOutputStream, java.io.OutputStream

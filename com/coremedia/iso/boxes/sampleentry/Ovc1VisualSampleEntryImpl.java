@@ -8,32 +8,14 @@ import com.googlecode.mp4parser.util.CastUtils;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.channels.WritableByteChannel;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class Ovc1VisualSampleEntryImpl extends AbstractSampleEntry {
     public static final String TYPE = "ovc1";
-    private byte[] vc1Content;
+    public byte[] vc1Content;
 
     public Ovc1VisualSampleEntryImpl() {
         super(TYPE);
         this.vc1Content = new byte[0];
-    }
-
-    public byte[] getVc1Content() {
-        return this.vc1Content;
-    }
-
-    public void setVc1Content(byte[] bArr) {
-        this.vc1Content = bArr;
-    }
-
-    @Override // com.coremedia.iso.boxes.sampleentry.AbstractSampleEntry, com.googlecode.mp4parser.AbstractContainerBox, com.coremedia.iso.boxes.Box
-    public void parse(DataSource dataSource, ByteBuffer byteBuffer, long j, BoxParser boxParser) throws IOException {
-        ByteBuffer allocate = ByteBuffer.allocate(CastUtils.l2i(j));
-        dataSource.read(allocate);
-        allocate.position(6);
-        this.dataReferenceIndex = IsoTypeReader.readUInt16(allocate);
-        this.vc1Content = new byte[allocate.remaining()];
-        allocate.get(this.vc1Content);
     }
 
     @Override // com.coremedia.iso.boxes.sampleentry.AbstractSampleEntry, com.googlecode.mp4parser.AbstractContainerBox, com.coremedia.iso.boxes.Box
@@ -48,6 +30,29 @@ public class Ovc1VisualSampleEntryImpl extends AbstractSampleEntry {
 
     @Override // com.googlecode.mp4parser.AbstractContainerBox, com.coremedia.iso.boxes.Box
     public long getSize() {
-        return ((this.largeBox || ((long) (this.vc1Content.length + 16)) >= 4294967296L) ? 16 : 8) + this.vc1Content.length + 8;
+        int i = 16;
+        if (!this.largeBox && this.vc1Content.length + 16 < 4294967296L) {
+            i = 8;
+        }
+        return i + this.vc1Content.length + 8;
+    }
+
+    public byte[] getVc1Content() {
+        return this.vc1Content;
+    }
+
+    @Override // com.coremedia.iso.boxes.sampleentry.AbstractSampleEntry, com.googlecode.mp4parser.AbstractContainerBox, com.coremedia.iso.boxes.Box
+    public void parse(DataSource dataSource, ByteBuffer byteBuffer, long j, BoxParser boxParser) throws IOException {
+        ByteBuffer allocate = ByteBuffer.allocate(CastUtils.l2i(j));
+        dataSource.read(allocate);
+        allocate.position(6);
+        this.dataReferenceIndex = IsoTypeReader.readUInt16(allocate);
+        byte[] bArr = new byte[allocate.remaining()];
+        this.vc1Content = bArr;
+        allocate.get(bArr);
+    }
+
+    public void setVc1Content(byte[] bArr) {
+        this.vc1Content = bArr;
     }
 }

@@ -5,52 +5,66 @@ import com.baidu.mapapi.map.BitmapDescriptor;
 import com.baidu.mapapi.map.BitmapDescriptorFactory;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public final class DisplayOptions {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f2150a = DisplayOptions.class.getSimpleName();
-    private View A;
-    private View B;
-    private View C;
-    private boolean k;
-    private boolean l;
-    private int e = 6;
-    private int i = 7;
-    private int m = 8;
-    private int q = 10;
-    private int t = 5;
-    private boolean D = true;
-    private boolean E = true;
-    private int F = 6;
-    private boolean G = true;
-    private boolean H = true;
-    private int I = 7;
-    private boolean J = true;
-    private boolean K = true;
-    private int L = 8;
-    private int M = 50;
-    private int N = 50;
-    private int O = 50;
-    private int P = 50;
-    private BitmapDescriptor b = BitmapDescriptorFactory.fromAssetWithDpi("SDK_Default_Icon_Start.png");
-    private boolean c = true;
-    private boolean d = true;
-    private BitmapDescriptor f = BitmapDescriptorFactory.fromAssetWithDpi("SDK_Default_Icon_End.png");
-    private boolean g = true;
-    private boolean h = true;
-    private BitmapDescriptor j = BitmapDescriptorFactory.fromAssetWithDpi("SDK_Default_Icon_Car.png");
-    private BitmapDescriptor n = BitmapDescriptorFactory.fromAssetWithDpi("SDK_Default_Icon_Passenger.png");
-    private boolean o = true;
-    private boolean p = true;
-    private boolean r = true;
-    private boolean s = true;
-    private BitmapDescriptor u = BitmapDescriptorFactory.fromAsset("SDK_Default_Traffic_Texture_Smooth.png");
-    private BitmapDescriptor v = BitmapDescriptorFactory.fromAsset("SDK_Default_Traffic_Texture_Slow.png");
-    private BitmapDescriptor w = BitmapDescriptorFactory.fromAsset("SDK_Default_Traffic_Texture_Congestion.png");
-    private BitmapDescriptor x = BitmapDescriptorFactory.fromAsset("SDK_Default_Traffic_Texture_SevereCongestion.png");
-    private BitmapDescriptor y = BitmapDescriptorFactory.fromAsset("SDK_Default_Route_Texture_Bule_Arrow.png");
-    private int z = 22;
+    public static final String f7340a = "DisplayOptions";
+    public View A;
+    public View B;
+    public View C;
+    public boolean k;
+    public boolean l;
+
+    /* renamed from: e  reason: collision with root package name */
+    public int f7344e = 6;
+    public int i = 7;
+    public int m = 8;
+    public int q = 10;
+    public int t = 5;
+    public boolean D = true;
+    public boolean E = true;
+    public int F = 6;
+    public boolean G = true;
+    public boolean H = true;
+    public int I = 7;
+    public boolean J = true;
+    public boolean K = true;
+    public int L = 8;
+    public int M = 50;
+    public int N = 50;
+    public int O = 50;
+    public int P = 50;
+
+    /* renamed from: b  reason: collision with root package name */
+    public BitmapDescriptor f7341b = BitmapDescriptorFactory.fromAssetWithDpi("SDK_Default_Icon_Start.png");
+
+    /* renamed from: c  reason: collision with root package name */
+    public boolean f7342c = true;
+
+    /* renamed from: d  reason: collision with root package name */
+    public boolean f7343d = true;
+
+    /* renamed from: f  reason: collision with root package name */
+    public BitmapDescriptor f7345f = BitmapDescriptorFactory.fromAssetWithDpi("SDK_Default_Icon_End.png");
+
+    /* renamed from: g  reason: collision with root package name */
+    public boolean f7346g = true;
+
+    /* renamed from: h  reason: collision with root package name */
+    public boolean f7347h = true;
+    public BitmapDescriptor j = BitmapDescriptorFactory.fromAssetWithDpi("SDK_Default_Icon_Car.png");
+    public BitmapDescriptor n = BitmapDescriptorFactory.fromAssetWithDpi("SDK_Default_Icon_Passenger.png");
+    public boolean o = true;
+    public boolean p = true;
+    public boolean r = true;
+    public boolean s = true;
+    public BitmapDescriptor u = BitmapDescriptorFactory.fromAsset("SDK_Default_Traffic_Texture_Smooth.png");
+    public BitmapDescriptor v = BitmapDescriptorFactory.fromAsset("SDK_Default_Traffic_Texture_Slow.png");
+    public BitmapDescriptor w = BitmapDescriptorFactory.fromAsset("SDK_Default_Traffic_Texture_Congestion.png");
+    public BitmapDescriptor x = BitmapDescriptorFactory.fromAsset("SDK_Default_Traffic_Texture_SevereCongestion.png");
+    public BitmapDescriptor y = BitmapDescriptorFactory.fromAsset("SDK_Default_Route_Texture_Bule_Arrow.png");
+    public int z = 22;
 
     public DisplayOptions() {
         this.k = true;
@@ -76,7 +90,7 @@ public final class DisplayOptions {
     }
 
     public BitmapDescriptor getEndPositionIcon() {
-        return this.f;
+        return this.f7345f;
     }
 
     public View getEndPositionInfoWindowView() {
@@ -124,7 +138,7 @@ public final class DisplayOptions {
     }
 
     public BitmapDescriptor getStartPositionIcon() {
-        return this.b;
+        return this.f7341b;
     }
 
     public View getStartPositionInfoWindowView() {
@@ -136,7 +150,7 @@ public final class DisplayOptions {
     }
 
     public int getStartPositionMarkerZIndex() {
-        return this.e;
+        return this.f7344e;
     }
 
     public List<BitmapDescriptor> getTrafficTextureList() {
@@ -166,11 +180,11 @@ public final class DisplayOptions {
     }
 
     public boolean isShowEndPositionMarker() {
-        return this.g;
+        return this.f7346g;
     }
 
     public boolean isShowEndPositionMarkerInSpan() {
-        return this.h;
+        return this.f7347h;
     }
 
     public boolean isShowPassengerIcon() {
@@ -194,19 +208,19 @@ public final class DisplayOptions {
     }
 
     public boolean isShowStartPositionMarker() {
-        return this.c;
+        return this.f7342c;
     }
 
     public boolean isShowStartPositionMarkerInSpan() {
-        return this.d;
+        return this.f7343d;
     }
 
     public DisplayOptions setCarIcon(BitmapDescriptor bitmapDescriptor) {
-        if (bitmapDescriptor == null) {
-            throw new IllegalArgumentException("CarIcon descriptor is null");
+        if (bitmapDescriptor != null) {
+            this.j = bitmapDescriptor;
+            return this;
         }
-        this.j = bitmapDescriptor;
-        return this;
+        throw new IllegalArgumentException("CarIcon descriptor is null");
     }
 
     public DisplayOptions setCarInfoWindowView(View view) {
@@ -231,19 +245,19 @@ public final class DisplayOptions {
     }
 
     public DisplayOptions setCongestionTrafficTexture(BitmapDescriptor bitmapDescriptor) {
-        if (bitmapDescriptor == null) {
-            throw new IllegalArgumentException("CongestionTrafficTexture descriptor is null");
+        if (bitmapDescriptor != null) {
+            this.w = bitmapDescriptor;
+            return this;
         }
-        this.w = bitmapDescriptor;
-        return this;
+        throw new IllegalArgumentException("CongestionTrafficTexture descriptor is null");
     }
 
     public DisplayOptions setEndPositionIcon(BitmapDescriptor bitmapDescriptor) {
-        if (bitmapDescriptor == null) {
-            throw new IllegalArgumentException("EndPositionIcon descriptor is null");
+        if (bitmapDescriptor != null) {
+            this.f7345f = bitmapDescriptor;
+            return this;
         }
-        this.f = bitmapDescriptor;
-        return this;
+        throw new IllegalArgumentException("EndPositionIcon descriptor is null");
     }
 
     public DisplayOptions setEndPositionInfoWindowView(View view) {
@@ -269,7 +283,8 @@ public final class DisplayOptions {
 
     public DisplayOptions setMapViewPadding(int i, int i2, int i3, int i4) {
         if (i < 0 || i3 < 0 || i2 < 0 || i4 < 0) {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f2150a, "Padding param is invalid. paddingLeft = " + i + "; paddingRight = " + i3 + "; paddingTop = " + i2 + "; paddingBottom = " + i4);
+            String str = f7340a;
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(str, "Padding param is invalid. paddingLeft = " + i + "; paddingRight = " + i3 + "; paddingTop = " + i2 + "; paddingBottom = " + i4);
         }
         if (i < 0) {
             i = 30;
@@ -279,7 +294,10 @@ public final class DisplayOptions {
             i2 = 30;
         }
         this.O = i2;
-        this.N = i3 >= 0 ? i3 : 30;
+        if (i3 < 0) {
+            i3 = 30;
+        }
+        this.N = i3;
         if (i4 < 0) {
             i4 = 50;
         }
@@ -288,11 +306,11 @@ public final class DisplayOptions {
     }
 
     public DisplayOptions setPassengerIcon(BitmapDescriptor bitmapDescriptor) {
-        if (bitmapDescriptor == null) {
-            throw new IllegalArgumentException("PassengerIcon descriptor is null");
+        if (bitmapDescriptor != null) {
+            this.n = bitmapDescriptor;
+            return this;
         }
-        this.n = bitmapDescriptor;
-        return this;
+        throw new IllegalArgumentException("PassengerIcon descriptor is null");
     }
 
     public DisplayOptions setPassengerMarkerZIndex(int i) {
@@ -304,13 +322,15 @@ public final class DisplayOptions {
     }
 
     public DisplayOptions setRouteLineWidth(int i) {
-        if (i < 5) {
-            this.z = 5;
-        } else if (i > 40) {
-            this.z = 40;
-        } else {
-            this.z = i;
+        int i2 = 5;
+        if (i >= 5) {
+            i2 = 40;
+            if (i <= 40) {
+                this.z = i;
+                return this;
+            }
         }
+        this.z = i2;
         return this;
     }
 
@@ -323,35 +343,35 @@ public final class DisplayOptions {
     }
 
     public DisplayOptions setSevereCongestionTrafficTexture(BitmapDescriptor bitmapDescriptor) {
-        if (bitmapDescriptor == null) {
-            throw new IllegalArgumentException("SevereCongestionTrafficTexture descriptor is null");
+        if (bitmapDescriptor != null) {
+            this.x = bitmapDescriptor;
+            return this;
         }
-        this.x = bitmapDescriptor;
-        return this;
+        throw new IllegalArgumentException("SevereCongestionTrafficTexture descriptor is null");
     }
 
     public DisplayOptions setSlowTrafficTexture(BitmapDescriptor bitmapDescriptor) {
-        if (bitmapDescriptor == null) {
-            throw new IllegalArgumentException("SlowTrafficTexture descriptor is null");
+        if (bitmapDescriptor != null) {
+            this.v = bitmapDescriptor;
+            return this;
         }
-        this.v = bitmapDescriptor;
-        return this;
+        throw new IllegalArgumentException("SlowTrafficTexture descriptor is null");
     }
 
     public DisplayOptions setSmoothTrafficTexture(BitmapDescriptor bitmapDescriptor) {
-        if (bitmapDescriptor == null) {
-            throw new IllegalArgumentException("SmoothTrafficTexture descriptor is null");
+        if (bitmapDescriptor != null) {
+            this.u = bitmapDescriptor;
+            return this;
         }
-        this.u = bitmapDescriptor;
-        return this;
+        throw new IllegalArgumentException("SmoothTrafficTexture descriptor is null");
     }
 
     public DisplayOptions setStartPositionIcon(BitmapDescriptor bitmapDescriptor) {
-        if (bitmapDescriptor == null) {
-            throw new IllegalArgumentException("StartPositionIcon descriptor is null");
+        if (bitmapDescriptor != null) {
+            this.f7341b = bitmapDescriptor;
+            return this;
         }
-        this.b = bitmapDescriptor;
-        return this;
+        throw new IllegalArgumentException("StartPositionIcon descriptor is null");
     }
 
     public DisplayOptions setStartPositionInfoWindowView(View view) {
@@ -371,16 +391,16 @@ public final class DisplayOptions {
         if (i <= 1) {
             i = 2;
         }
-        this.e = i;
+        this.f7344e = i;
         return this;
     }
 
     public DisplayOptions setUnknownTrafficTexture(BitmapDescriptor bitmapDescriptor) {
-        if (bitmapDescriptor == null) {
-            throw new IllegalArgumentException("UnknownTrafficTexture descriptor is null");
+        if (bitmapDescriptor != null) {
+            this.y = bitmapDescriptor;
+            return this;
         }
-        this.y = bitmapDescriptor;
-        return this;
+        throw new IllegalArgumentException("UnknownTrafficTexture descriptor is null");
     }
 
     public DisplayOptions showCarIcon(boolean z) {
@@ -404,12 +424,12 @@ public final class DisplayOptions {
     }
 
     public DisplayOptions showEndPositionIcon(boolean z) {
-        this.g = z;
+        this.f7346g = z;
         return this;
     }
 
     public DisplayOptions showEndPositionIconInSpan(boolean z) {
-        this.h = z;
+        this.f7347h = z;
         return this;
     }
 
@@ -444,12 +464,12 @@ public final class DisplayOptions {
     }
 
     public DisplayOptions showStartPositionIcon(boolean z) {
-        this.c = z;
+        this.f7342c = z;
         return this;
     }
 
     public DisplayOptions showStartPositionIconInSpan(boolean z) {
-        this.d = z;
+        this.f7343d = z;
         return this;
     }
 

@@ -1,21 +1,17 @@
 package com.baidu.cyberplayer.sdk.extractor;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static a f1421a = null;
+    public static a f4929a;
 
-    private a() {
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
     public static synchronized a a() {
         a aVar;
         synchronized (a.class) {
-            if (f1421a == null) {
-                f1421a = new a();
+            if (f4929a == null) {
+                f4929a = new a();
             }
-            aVar = f1421a;
+            aVar = f4929a;
         }
         return aVar;
     }

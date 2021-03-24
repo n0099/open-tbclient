@@ -12,54 +12,254 @@ import android.view.SurfaceView;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
-import com.baidu.tbadk.core.util.o;
-import com.baidu.tieba.video.record.g;
-import com.faceunity.a.d;
+import com.baidu.rtc.PeerConnectionClient;
+import com.baidu.tbadk.core.util.FileHelper;
+import d.b.i0.p3.j.d.c;
+import d.b.i0.p3.m.g;
+import d.b.i0.p3.m.h;
+import d.b.i0.s1.k;
+import d.e.b.d;
 import java.io.File;
 import java.io.IOException;
-/* loaded from: classes7.dex */
-public class VideoPreviewView extends SurfaceView implements Camera.PreviewCallback, SurfaceHolder.Callback, g {
-    private MediaRecorder cKJ;
-    private SurfaceHolder mSurfaceHolder;
-    private com.baidu.tieba.l.g nAz;
-    private g.a nSB;
-    private h nSw;
-    private boolean nVN;
-    private boolean nVO;
-    private boolean nVP;
-    private int previewHeight;
-    private int previewWidth;
+/* loaded from: classes5.dex */
+public class VideoPreviewView extends SurfaceView implements SurfaceHolder.Callback, g, Camera.PreviewCallback {
+
+    /* renamed from: e  reason: collision with root package name */
+    public h f21894e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public SurfaceHolder f21895f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public MediaRecorder f21896g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public boolean f21897h;
+    public boolean i;
+    public boolean j;
+    public g.a k;
+    public d.b.i0.s1.g l;
+
+    /* loaded from: classes5.dex */
+    public class a implements MediaRecorder.OnErrorListener {
+        public a() {
+        }
+
+        @Override // android.media.MediaRecorder.OnErrorListener
+        public void onError(MediaRecorder mediaRecorder, int i, int i2) {
+            if (mediaRecorder != null) {
+                try {
+                    mediaRecorder.reset();
+                } catch (IllegalStateException e2) {
+                    e2.printStackTrace();
+                } catch (Exception e3) {
+                    e3.printStackTrace();
+                }
+            }
+            if (VideoPreviewView.this.l != null) {
+                d.b.i0.s1.g gVar = VideoPreviewView.this.l;
+                gVar.c(28, "what-->" + i + "  extra-->" + i2);
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class b extends BdAsyncTask<Void, Void, String> {
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ byte[] f21899a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public final /* synthetic */ int f21900b;
+
+        /* renamed from: c  reason: collision with root package name */
+        public final /* synthetic */ int f21901c;
+
+        public b(byte[] bArr, int i, int i2) {
+            this.f21899a = bArr;
+            this.f21900b = i;
+            this.f21901c = i2;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: b */
+        public String doInBackground(Void... voidArr) {
+            Bitmap bitmap = null;
+            try {
+                bitmap = c.b(this.f21899a, this.f21900b, this.f21901c);
+                if (this.f21900b > this.f21901c) {
+                    Bitmap h2 = c.h(bitmap, 90.0f);
+                    if (bitmap != null && !bitmap.isRecycled() && h2 != null) {
+                        bitmap.recycle();
+                        bitmap = h2;
+                    }
+                }
+                return FileHelper.saveFileAsPic(d.b.i0.p3.c.f58892f, "pic_" + System.currentTimeMillis(), bitmap, 80, Bitmap.CompressFormat.JPEG);
+            } finally {
+                if (bitmap != null && !bitmap.isRecycled()) {
+                    bitmap.recycle();
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void onPostExecute(String str) {
+            if (VideoPreviewView.this.k != null) {
+                VideoPreviewView.this.k.a(!TextUtils.isEmpty(str), str);
+            }
+        }
+    }
 
     public VideoPreviewView(Context context, h hVar) {
         super(context);
-        this.previewWidth = 720;
-        this.previewHeight = 960;
-        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_GET_VIDEO_PLATFORM_FACTORY, com.baidu.tieba.l.k.class);
-        com.baidu.tieba.l.k kVar = runTask != null ? (com.baidu.tieba.l.k) runTask.getData() : null;
+        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921309, k.class);
+        k kVar = runTask != null ? (k) runTask.getData() : null;
         if (kVar != null) {
-            this.nAz = kVar.dho();
+            this.l = kVar.get();
         }
-        this.nSw = hVar;
+        this.f21894e = hVar;
         getHolder().addCallback(this);
     }
 
-    @Override // android.view.SurfaceHolder.Callback
-    public void surfaceCreated(SurfaceHolder surfaceHolder) {
-        this.mSurfaceHolder = surfaceHolder;
-        dUb();
-        this.nVO = true;
-    }
-
-    private void dUb() {
-        Handler mainHandler = this.nSw.getMainHandler();
-        mainHandler.sendMessage(mainHandler.obtainMessage(1));
-    }
-
-    public void onResume() {
-        if (this.nVO) {
-            dUb();
+    @Override // d.b.i0.p3.m.g
+    public void a(Camera camera) {
+        if (this.f21897h || camera == null) {
+            return;
         }
+        this.f21897h = true;
+        try {
+            camera.setPreviewDisplay(this.f21895f);
+            camera.setPreviewCallback(this);
+        } catch (IOException e2) {
+            e2.printStackTrace();
+            d.b.i0.s1.g gVar = this.l;
+            if (gVar != null) {
+                gVar.c(27, d.b.i0.s1.a.a(e2));
+            }
+        }
+        camera.startPreview();
+    }
+
+    @Override // d.b.i0.p3.m.g
+    public void b(Camera camera) {
+        if (camera == null) {
+            return;
+        }
+        MediaRecorder mediaRecorder = new MediaRecorder();
+        this.f21896g = mediaRecorder;
+        mediaRecorder.reset();
+        try {
+            camera.unlock();
+        } catch (Throwable th) {
+            th.printStackTrace();
+        }
+        this.f21896g.setCamera(camera);
+        this.f21896g.setOnErrorListener(new a());
+        SurfaceHolder surfaceHolder = this.f21895f;
+        if (surfaceHolder != null) {
+            this.f21896g.setPreviewDisplay(surfaceHolder.getSurface());
+        }
+        this.f21896g.setVideoSource(1);
+        this.f21896g.setAudioSource(1);
+        this.f21896g.setOutputFormat(2);
+        this.f21896g.setVideoEncoder(2);
+        this.f21896g.setAudioEncoder(3);
+        this.f21896g.setAudioSamplingRate(48000);
+        this.f21896g.setAudioChannels(1);
+        this.f21896g.setVideoEncodingBitRate(2097152);
+        this.f21896g.setVideoFrameRate(20);
+        if (this.f21894e.k) {
+            this.f21896g.setOrientationHint(270);
+        } else {
+            this.f21896g.setOrientationHint(90);
+        }
+        this.f21896g.setVideoSize(1280, PeerConnectionClient.HD_VIDEO_HEIGHT);
+        File file = new File(d.b.i0.p3.c.f58889c);
+        if (!FileHelper.CheckTempDir(file.getAbsolutePath())) {
+            file.mkdirs();
+        }
+        this.f21896g.setOutputFile(this.f21894e.o());
+        try {
+            this.f21896g.prepare();
+            this.f21896g.start();
+        } catch (Throwable th2) {
+            th2.printStackTrace();
+            d.b.i0.s1.g gVar = this.l;
+            if (gVar != null) {
+                gVar.c(28, d.b.i0.s1.a.a(th2));
+            }
+        }
+    }
+
+    @Override // d.b.i0.p3.m.g
+    public void c(Camera camera) {
+        if (this.f21897h) {
+            this.f21897h = false;
+        }
+    }
+
+    @Override // d.b.i0.p3.m.g
+    public void d(Camera camera) {
+        MediaRecorder mediaRecorder = this.f21896g;
+        if (mediaRecorder != null) {
+            try {
+                mediaRecorder.stop();
+                this.f21896g.release();
+            } catch (Exception e2) {
+                e2.printStackTrace();
+                d.b.i0.s1.g gVar = this.l;
+                if (gVar != null) {
+                    gVar.c(29, d.b.i0.s1.a.a(e2));
+                }
+            }
+        }
+    }
+
+    @Override // d.b.i0.p3.m.g
+    public void e(g.a aVar) {
+        this.k = aVar;
+        this.j = true;
+    }
+
+    public void h() {
+        if (this.i) {
+            j();
+        }
+    }
+
+    public final void i(byte[] bArr, int i, int i2) {
+        new b(bArr, i, i2).execute(new Void[0]);
+    }
+
+    public final void j() {
+        Handler n = this.f21894e.n();
+        n.sendMessage(n.obtainMessage(1));
+    }
+
+    @Override // android.hardware.Camera.PreviewCallback
+    public void onPreviewFrame(byte[] bArr, Camera camera) {
+        if (this.j) {
+            if (bArr != null) {
+                Camera.Size previewSize = camera.getParameters().getPreviewSize();
+                i(bArr, previewSize.width, previewSize.height);
+            }
+            this.j = false;
+        }
+    }
+
+    @Override // android.view.View
+    public boolean onTouchEvent(MotionEvent motionEvent) {
+        return this.f21894e.r(motionEvent, getParent());
+    }
+
+    @Override // d.b.i0.p3.m.g
+    public void setOnEncoderStatusUpdateListener(d.InterfaceC1804d interfaceC1804d) {
+    }
+
+    @Override // d.b.i0.p3.m.g
+    public void setPreviewSize(int i, int i2) {
     }
 
     @Override // android.view.SurfaceHolder.Callback
@@ -67,173 +267,13 @@ public class VideoPreviewView extends SurfaceView implements Camera.PreviewCallb
     }
 
     @Override // android.view.SurfaceHolder.Callback
+    public void surfaceCreated(SurfaceHolder surfaceHolder) {
+        this.f21895f = surfaceHolder;
+        j();
+        this.i = true;
+    }
+
+    @Override // android.view.SurfaceHolder.Callback
     public void surfaceDestroyed(SurfaceHolder surfaceHolder) {
-    }
-
-    @Override // com.baidu.tieba.video.record.g
-    public void e(Camera camera) {
-        if (!this.nVN && camera != null) {
-            this.nVN = true;
-            try {
-                camera.setPreviewDisplay(this.mSurfaceHolder);
-                camera.setPreviewCallback(this);
-            } catch (IOException e) {
-                e.printStackTrace();
-                if (this.nAz != null) {
-                    this.nAz.bK(27, com.baidu.tieba.l.a.o(e));
-                }
-            }
-            camera.startPreview();
-        }
-    }
-
-    @Override // com.baidu.tieba.video.record.g
-    public void f(Camera camera) {
-        if (camera != null) {
-            this.cKJ = new MediaRecorder();
-            this.cKJ.reset();
-            try {
-                camera.unlock();
-            } catch (Throwable th) {
-                th.printStackTrace();
-            }
-            this.cKJ.setCamera(camera);
-            this.cKJ.setOnErrorListener(new MediaRecorder.OnErrorListener() { // from class: com.baidu.tieba.video.record.VideoPreviewView.1
-                @Override // android.media.MediaRecorder.OnErrorListener
-                public void onError(MediaRecorder mediaRecorder, int i, int i2) {
-                    if (mediaRecorder != null) {
-                        try {
-                            mediaRecorder.reset();
-                        } catch (IllegalStateException e) {
-                            e.printStackTrace();
-                        } catch (Exception e2) {
-                            e2.printStackTrace();
-                        }
-                    }
-                    if (VideoPreviewView.this.nAz != null) {
-                        VideoPreviewView.this.nAz.bK(28, "what-->" + i + "  extra-->" + i2);
-                    }
-                }
-            });
-            if (this.mSurfaceHolder != null) {
-                this.cKJ.setPreviewDisplay(this.mSurfaceHolder.getSurface());
-            }
-            this.cKJ.setVideoSource(1);
-            this.cKJ.setAudioSource(1);
-            this.cKJ.setOutputFormat(2);
-            this.cKJ.setVideoEncoder(2);
-            this.cKJ.setAudioEncoder(3);
-            this.cKJ.setAudioSamplingRate(48000);
-            this.cKJ.setAudioChannels(1);
-            this.cKJ.setVideoEncodingBitRate(2097152);
-            this.cKJ.setVideoFrameRate(20);
-            if (this.nSw.mFrontCamera) {
-                this.cKJ.setOrientationHint(270);
-            } else {
-                this.cKJ.setOrientationHint(90);
-            }
-            this.cKJ.setVideoSize(1280, 720);
-            File file = new File(com.baidu.tieba.video.c.nMR);
-            if (!o.CheckTempDir(file.getAbsolutePath())) {
-                file.mkdirs();
-            }
-            this.cKJ.setOutputFile(this.nSw.dUd());
-            try {
-                this.cKJ.prepare();
-                this.cKJ.start();
-            } catch (Throwable th2) {
-                th2.printStackTrace();
-                if (this.nAz != null) {
-                    this.nAz.bK(28, com.baidu.tieba.l.a.o(th2));
-                }
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.video.record.g
-    public void g(Camera camera) {
-        if (this.cKJ != null) {
-            try {
-                this.cKJ.stop();
-                this.cKJ.release();
-            } catch (Exception e) {
-                e.printStackTrace();
-                if (this.nAz != null) {
-                    this.nAz.bK(29, com.baidu.tieba.l.a.o(e));
-                }
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.video.record.g
-    public void h(Camera camera) {
-        if (this.nVN) {
-            this.nVN = false;
-        }
-    }
-
-    @Override // com.baidu.tieba.video.record.g
-    public void setPreviewSize(int i, int i2) {
-    }
-
-    @Override // android.view.View
-    public boolean onTouchEvent(MotionEvent motionEvent) {
-        return this.nSw.b(motionEvent, getParent());
-    }
-
-    @Override // android.hardware.Camera.PreviewCallback
-    public void onPreviewFrame(byte[] bArr, Camera camera) {
-        if (this.nVP) {
-            if (bArr != null) {
-                Camera.Size previewSize = camera.getParameters().getPreviewSize();
-                t(bArr, previewSize.width, previewSize.height);
-            }
-            this.nVP = false;
-        }
-    }
-
-    @Override // com.baidu.tieba.video.record.g
-    public void a(g.a aVar) {
-        this.nSB = aVar;
-        this.nVP = true;
-    }
-
-    @Override // com.baidu.tieba.video.record.g
-    public void setOnEncoderStatusUpdateListener(d.c cVar) {
-    }
-
-    private void t(final byte[] bArr, final int i, final int i2) {
-        new BdAsyncTask<Void, Void, String>() { // from class: com.baidu.tieba.video.record.VideoPreviewView.2
-            /* JADX DEBUG: Method merged with bridge method */
-            /* JADX INFO: Access modifiers changed from: protected */
-            @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-            public String doInBackground(Void... voidArr) {
-                Bitmap bitmap = null;
-                try {
-                    bitmap = com.baidu.tieba.video.editvideo.b.c.s(bArr, i, i2);
-                    if (i > i2) {
-                        Bitmap rotateBitmap = com.baidu.tieba.video.editvideo.b.c.rotateBitmap(bitmap, 90.0f);
-                        if (bitmap != null && !bitmap.isRecycled() && rotateBitmap != null) {
-                            bitmap.recycle();
-                            bitmap = rotateBitmap;
-                        }
-                    }
-                    return o.saveFileAsPic(com.baidu.tieba.video.c.nMU, "pic_" + System.currentTimeMillis(), bitmap, 80, Bitmap.CompressFormat.JPEG);
-                } finally {
-                    if (bitmap != null && !bitmap.isRecycled()) {
-                        bitmap.recycle();
-                    }
-                }
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            /* JADX INFO: Access modifiers changed from: protected */
-            @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-            public void onPostExecute(String str) {
-                if (VideoPreviewView.this.nSB != null) {
-                    VideoPreviewView.this.nSB.O(!TextUtils.isEmpty(str), str);
-                }
-            }
-        }.execute(new Void[0]);
     }
 }

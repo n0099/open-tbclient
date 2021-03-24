@@ -2,7 +2,7 @@ package protobuf;
 
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public final class GroupPermission extends Message {
     public static final String DEFAULT_CREATENORMALTIP = "";
     public static final String DEFAULT_CREATEOFFICIALTIP = "";
@@ -35,75 +35,7 @@ public final class GroupPermission extends Message {
     public static final Integer DEFAULT_CANCREATEOFFICIALNUM = 0;
     public static final Integer DEFAULT_CANCREATEPERSONALNUM = 0;
 
-    private GroupPermission(Builder builder, boolean z) {
-        super(builder);
-        if (z) {
-            if (builder.isForumManager == null) {
-                this.isForumManager = DEFAULT_ISFORUMMANAGER;
-            } else {
-                this.isForumManager = builder.isForumManager;
-            }
-            if (builder.canCreateNormal == null) {
-                this.canCreateNormal = DEFAULT_CANCREATENORMAL;
-            } else {
-                this.canCreateNormal = builder.canCreateNormal;
-            }
-            if (builder.canCreateOfficial == null) {
-                this.canCreateOfficial = DEFAULT_CANCREATEOFFICIAL;
-            } else {
-                this.canCreateOfficial = builder.canCreateOfficial;
-            }
-            if (builder.canCreatePersonal == null) {
-                this.canCreatePersonal = DEFAULT_CANCREATEPERSONAL;
-            } else {
-                this.canCreatePersonal = builder.canCreatePersonal;
-            }
-            if (builder.createNormalTip == null) {
-                this.createNormalTip = "";
-            } else {
-                this.createNormalTip = builder.createNormalTip;
-            }
-            if (builder.createOfficialTip == null) {
-                this.createOfficialTip = "";
-            } else {
-                this.createOfficialTip = builder.createOfficialTip;
-            }
-            if (builder.createPersonalTip == null) {
-                this.createPersonalTip = "";
-            } else {
-                this.createPersonalTip = builder.createPersonalTip;
-            }
-            if (builder.canCreateNormalNum == null) {
-                this.canCreateNormalNum = DEFAULT_CANCREATENORMALNUM;
-            } else {
-                this.canCreateNormalNum = builder.canCreateNormalNum;
-            }
-            if (builder.canCreateOfficialNum == null) {
-                this.canCreateOfficialNum = DEFAULT_CANCREATEOFFICIALNUM;
-            } else {
-                this.canCreateOfficialNum = builder.canCreateOfficialNum;
-            }
-            if (builder.canCreatePersonalNum == null) {
-                this.canCreatePersonalNum = DEFAULT_CANCREATEPERSONALNUM;
-                return;
-            } else {
-                this.canCreatePersonalNum = builder.canCreatePersonalNum;
-                return;
-            }
-        }
-        this.isForumManager = builder.isForumManager;
-        this.canCreateNormal = builder.canCreateNormal;
-        this.canCreateOfficial = builder.canCreateOfficial;
-        this.canCreatePersonal = builder.canCreatePersonal;
-        this.createNormalTip = builder.createNormalTip;
-        this.createOfficialTip = builder.createOfficialTip;
-        this.createPersonalTip = builder.createPersonalTip;
-        this.canCreateNormalNum = builder.canCreateNormalNum;
-        this.canCreateOfficialNum = builder.canCreateOfficialNum;
-        this.canCreatePersonalNum = builder.canCreatePersonalNum;
-    }
-
-    /* loaded from: classes2.dex */
+    /* loaded from: classes7.dex */
     public static final class Builder extends Message.Builder<GroupPermission> {
         public Integer canCreateNormal;
         public Integer canCreateNormalNum;
@@ -121,18 +53,19 @@ public final class GroupPermission extends Message {
 
         public Builder(GroupPermission groupPermission) {
             super(groupPermission);
-            if (groupPermission != null) {
-                this.isForumManager = groupPermission.isForumManager;
-                this.canCreateNormal = groupPermission.canCreateNormal;
-                this.canCreateOfficial = groupPermission.canCreateOfficial;
-                this.canCreatePersonal = groupPermission.canCreatePersonal;
-                this.createNormalTip = groupPermission.createNormalTip;
-                this.createOfficialTip = groupPermission.createOfficialTip;
-                this.createPersonalTip = groupPermission.createPersonalTip;
-                this.canCreateNormalNum = groupPermission.canCreateNormalNum;
-                this.canCreateOfficialNum = groupPermission.canCreateOfficialNum;
-                this.canCreatePersonalNum = groupPermission.canCreatePersonalNum;
+            if (groupPermission == null) {
+                return;
             }
+            this.isForumManager = groupPermission.isForumManager;
+            this.canCreateNormal = groupPermission.canCreateNormal;
+            this.canCreateOfficial = groupPermission.canCreateOfficial;
+            this.canCreatePersonal = groupPermission.canCreatePersonal;
+            this.createNormalTip = groupPermission.createNormalTip;
+            this.createOfficialTip = groupPermission.createOfficialTip;
+            this.createPersonalTip = groupPermission.createPersonalTip;
+            this.canCreateNormalNum = groupPermission.canCreateNormalNum;
+            this.canCreateOfficialNum = groupPermission.canCreateOfficialNum;
+            this.canCreatePersonalNum = groupPermission.canCreatePersonalNum;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -140,5 +73,83 @@ public final class GroupPermission extends Message {
         public GroupPermission build(boolean z) {
             return new GroupPermission(this, z);
         }
+    }
+
+    public GroupPermission(Builder builder, boolean z) {
+        super(builder);
+        if (z) {
+            Integer num = builder.isForumManager;
+            if (num == null) {
+                this.isForumManager = DEFAULT_ISFORUMMANAGER;
+            } else {
+                this.isForumManager = num;
+            }
+            Integer num2 = builder.canCreateNormal;
+            if (num2 == null) {
+                this.canCreateNormal = DEFAULT_CANCREATENORMAL;
+            } else {
+                this.canCreateNormal = num2;
+            }
+            Integer num3 = builder.canCreateOfficial;
+            if (num3 == null) {
+                this.canCreateOfficial = DEFAULT_CANCREATEOFFICIAL;
+            } else {
+                this.canCreateOfficial = num3;
+            }
+            Integer num4 = builder.canCreatePersonal;
+            if (num4 == null) {
+                this.canCreatePersonal = DEFAULT_CANCREATEPERSONAL;
+            } else {
+                this.canCreatePersonal = num4;
+            }
+            String str = builder.createNormalTip;
+            if (str == null) {
+                this.createNormalTip = "";
+            } else {
+                this.createNormalTip = str;
+            }
+            String str2 = builder.createOfficialTip;
+            if (str2 == null) {
+                this.createOfficialTip = "";
+            } else {
+                this.createOfficialTip = str2;
+            }
+            String str3 = builder.createPersonalTip;
+            if (str3 == null) {
+                this.createPersonalTip = "";
+            } else {
+                this.createPersonalTip = str3;
+            }
+            Integer num5 = builder.canCreateNormalNum;
+            if (num5 == null) {
+                this.canCreateNormalNum = DEFAULT_CANCREATENORMALNUM;
+            } else {
+                this.canCreateNormalNum = num5;
+            }
+            Integer num6 = builder.canCreateOfficialNum;
+            if (num6 == null) {
+                this.canCreateOfficialNum = DEFAULT_CANCREATEOFFICIALNUM;
+            } else {
+                this.canCreateOfficialNum = num6;
+            }
+            Integer num7 = builder.canCreatePersonalNum;
+            if (num7 == null) {
+                this.canCreatePersonalNum = DEFAULT_CANCREATEPERSONALNUM;
+                return;
+            } else {
+                this.canCreatePersonalNum = num7;
+                return;
+            }
+        }
+        this.isForumManager = builder.isForumManager;
+        this.canCreateNormal = builder.canCreateNormal;
+        this.canCreateOfficial = builder.canCreateOfficial;
+        this.canCreatePersonal = builder.canCreatePersonal;
+        this.createNormalTip = builder.createNormalTip;
+        this.createOfficialTip = builder.createOfficialTip;
+        this.createPersonalTip = builder.createPersonalTip;
+        this.canCreateNormalNum = builder.canCreateNormalNum;
+        this.canCreateOfficialNum = builder.canCreateOfficialNum;
+        this.canCreatePersonalNum = builder.canCreatePersonalNum;
     }
 }

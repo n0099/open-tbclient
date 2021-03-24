@@ -2,20 +2,10 @@ package com.bumptech.glide.load.engine.bitmap_recycle;
 
 import android.graphics.Bitmap;
 import androidx.annotation.NonNull;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class BitmapPoolAdapter implements BitmapPool {
     @Override // com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool
-    public long getMaxSize() {
-        return 0L;
-    }
-
-    @Override // com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool
-    public void setSizeMultiplier(float f) {
-    }
-
-    @Override // com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool
-    public void put(Bitmap bitmap) {
-        bitmap.recycle();
+    public void clearMemory() {
     }
 
     @Override // com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool
@@ -31,7 +21,17 @@ public class BitmapPoolAdapter implements BitmapPool {
     }
 
     @Override // com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool
-    public void clearMemory() {
+    public long getMaxSize() {
+        return 0L;
+    }
+
+    @Override // com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool
+    public void put(Bitmap bitmap) {
+        bitmap.recycle();
+    }
+
+    @Override // com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool
+    public void setSizeMultiplier(float f2) {
     }
 
     @Override // com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool

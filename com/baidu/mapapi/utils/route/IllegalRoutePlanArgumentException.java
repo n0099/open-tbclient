@@ -1,5 +1,5 @@
 package com.baidu.mapapi.utils.route;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class IllegalRoutePlanArgumentException extends RuntimeException {
     public IllegalRoutePlanArgumentException() {
     }

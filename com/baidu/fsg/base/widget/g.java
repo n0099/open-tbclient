@@ -3,33 +3,31 @@ package com.baidu.fsg.base.widget;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageButton;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public class g implements View.OnTouchListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ SafeKeyBoardPopupWindow f1593a;
+    public final /* synthetic */ SafeKeyBoardPopupWindow f5513a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public g(SafeKeyBoardPopupWindow safeKeyBoardPopupWindow) {
-        this.f1593a = safeKeyBoardPopupWindow;
+        this.f5513a = safeKeyBoardPopupWindow;
     }
 
     @Override // android.view.View.OnTouchListener
     public boolean onTouch(View view, MotionEvent motionEvent) {
         ImageButton imageButton;
         if (motionEvent.getAction() == 0) {
-            this.f1593a.d();
+            this.f5513a.d();
             return false;
         } else if (motionEvent.getAction() == 1) {
-            this.f1593a.c();
+            this.f5513a.c();
             return false;
         } else if (motionEvent.getAction() == 2) {
-            imageButton = this.f1593a.k;
-            if (!imageButton.isPressed()) {
-                this.f1593a.c();
+            imageButton = this.f5513a.k;
+            if (imageButton.isPressed()) {
                 return false;
             }
+            this.f5513a.c();
             return false;
         } else {
             return false;

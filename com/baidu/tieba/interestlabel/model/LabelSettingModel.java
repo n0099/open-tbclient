@@ -3,81 +3,113 @@ package com.baidu.tieba.interestlabel.model;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.adp.lib.util.j;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.R;
-import com.baidu.tieba.interestlabel.b.b;
 import com.baidu.tieba.interestlabel.message.RequestGetLabelMessage;
 import com.baidu.tieba.interestlabel.message.RequestSubLabelMessage;
 import com.baidu.tieba.interestlabel.message.ResponseHttpGetLabelMessage;
 import com.baidu.tieba.interestlabel.message.ResponseHttpSubLabelMessage;
 import com.baidu.tieba.interestlabel.message.ResponseSocketGetLabelMessage;
 import com.baidu.tieba.interestlabel.message.ResponseSocketSubLabelMessage;
+import d.b.b.e.p.j;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class LabelSettingModel extends BdBaseModel {
-    private a kZV;
-    private com.baidu.adp.framework.listener.a laf;
-    private com.baidu.adp.framework.listener.a lag;
-    private b mLabelDataSet;
-    private TbPageContext<?> mPageContext;
+
+    /* renamed from: e  reason: collision with root package name */
+    public TbPageContext<?> f18484e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public d.b.i0.g1.c.a f18485f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public d.b.i0.g1.b.b f18486g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public d.b.b.c.g.a f18487h;
+    public d.b.b.c.g.a i;
+
+    /* loaded from: classes4.dex */
+    public class a extends d.b.b.c.g.a {
+        public a(int i, int i2) {
+            super(i, i2);
+        }
+
+        @Override // d.b.b.c.g.a
+        public void onMessage(ResponsedMessage<?> responsedMessage) {
+            if (responsedMessage == null || responsedMessage.getOrginalMessage() == null) {
+                return;
+            }
+            if (((responsedMessage instanceof ResponseHttpGetLabelMessage) || (responsedMessage instanceof ResponseSocketGetLabelMessage)) && LabelSettingModel.this.unique_id == responsedMessage.getOrginalMessage().getTag() && LabelSettingModel.this.f18485f != null) {
+                LabelSettingModel.this.f18485f.callback(LabelRequestEnum.GET_LABEL, responsedMessage.getError() == 0 ? LabelSettingModel.this.f18486g : null, responsedMessage.getError());
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class b extends d.b.b.c.g.a {
+        public b(int i, int i2) {
+            super(i, i2);
+        }
+
+        @Override // d.b.b.c.g.a
+        public void onMessage(ResponsedMessage<?> responsedMessage) {
+            if (responsedMessage == null || responsedMessage.getOrginalMessage() == null) {
+                return;
+            }
+            if (((responsedMessage instanceof ResponseHttpSubLabelMessage) || (responsedMessage instanceof ResponseSocketSubLabelMessage)) && LabelSettingModel.this.unique_id == responsedMessage.getOrginalMessage().getTag()) {
+                if (responsedMessage.getError() != 0 && !StringUtils.isNull(responsedMessage.getErrorString())) {
+                    LabelSettingModel.this.f18484e.showToast(responsedMessage.getErrorString());
+                }
+                if (LabelSettingModel.this.f18485f == null) {
+                    return;
+                }
+                LabelSettingModel.this.f18485f.callback(LabelRequestEnum.SUB_LABEL, null, responsedMessage.getError());
+            }
+        }
+    }
 
     public LabelSettingModel(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
-        this.laf = new com.baidu.adp.framework.listener.a(1003333, CmdConfigSocket.CMD_GET_INTEREST_LABEL_LIST) { // from class: com.baidu.tieba.interestlabel.model.LabelSettingModel.1
-            @Override // com.baidu.adp.framework.listener.a
-            public void onMessage(ResponsedMessage<?> responsedMessage) {
-                if (responsedMessage != null && responsedMessage.getOrginalMessage() != null) {
-                    if (((responsedMessage instanceof ResponseHttpGetLabelMessage) || (responsedMessage instanceof ResponseSocketGetLabelMessage)) && LabelSettingModel.this.unique_id == responsedMessage.getOrginalMessage().getTag() && LabelSettingModel.this.kZV != null) {
-                        LabelSettingModel.this.kZV.a(LabelRequestEnum.GET_LABEL, responsedMessage.getError() == 0 ? LabelSettingModel.this.mLabelDataSet : null, responsedMessage.getError());
-                    }
-                }
-            }
-        };
-        this.lag = new com.baidu.adp.framework.listener.a(1003334, CmdConfigSocket.CMD_SUB_INTEREST_LABEL_LIST) { // from class: com.baidu.tieba.interestlabel.model.LabelSettingModel.2
-            @Override // com.baidu.adp.framework.listener.a
-            public void onMessage(ResponsedMessage<?> responsedMessage) {
-                if (responsedMessage != null && responsedMessage.getOrginalMessage() != null) {
-                    if (((responsedMessage instanceof ResponseHttpSubLabelMessage) || (responsedMessage instanceof ResponseSocketSubLabelMessage)) && LabelSettingModel.this.unique_id == responsedMessage.getOrginalMessage().getTag()) {
-                        if (responsedMessage.getError() != 0 && !StringUtils.isNull(responsedMessage.getErrorString())) {
-                            LabelSettingModel.this.mPageContext.showToast(responsedMessage.getErrorString());
-                        }
-                        if (LabelSettingModel.this.kZV != null) {
-                            LabelSettingModel.this.kZV.a(LabelRequestEnum.SUB_LABEL, null, responsedMessage.getError());
-                        }
-                    }
-                }
-            }
-        };
-        this.mPageContext = tbPageContext;
-        this.mLabelDataSet = new b();
-        registerListener(this.laf);
-        registerListener(this.lag);
+        this.f18487h = new a(CmdConfigHttp.CMD_GET_INTEREST_LABEL_LIST, 309467);
+        this.i = new b(CmdConfigHttp.CMD_SUB_INTEREST_LABEL_LIST, 309468);
+        this.f18484e = tbPageContext;
+        this.f18486g = new d.b.i0.g1.b.b();
+        registerListener(this.f18487h);
+        registerListener(this.i);
     }
 
-    public void a(a aVar) {
-        this.kZV = aVar;
+    @Override // com.baidu.adp.base.BdBaseModel
+    public boolean LoadData() {
+        return true;
     }
 
-    public void daY() {
-        if (!j.isNetworkAvailableForImmediately()) {
-            if (this.kZV != null) {
-                this.kZV.a(LabelRequestEnum.GET_LABEL, null, -1);
+    @Override // com.baidu.adp.base.BdBaseModel
+    public boolean cancelLoadData() {
+        cancelMessage();
+        return false;
+    }
+
+    public void x() {
+        if (!j.A()) {
+            d.b.i0.g1.c.a aVar = this.f18485f;
+            if (aVar != null) {
+                aVar.callback(LabelRequestEnum.GET_LABEL, null, -1);
                 return;
             }
             return;
         }
         RequestGetLabelMessage requestGetLabelMessage = new RequestGetLabelMessage();
         requestGetLabelMessage.setFrom(1);
-        requestGetLabelMessage.setLabelDataSet(this.mLabelDataSet);
+        requestGetLabelMessage.setLabelDataSet(this.f18486g);
         requestGetLabelMessage.setTag(this.unique_id);
         sendMessage(requestGetLabelMessage);
     }
 
-    public void eE(List<Integer> list) {
-        if (!j.isNetworkAvailableForImmediately()) {
-            this.mPageContext.showToast(R.string.neterror);
+    public void y(List<Integer> list) {
+        if (!j.A()) {
+            this.f18484e.showToast(R.string.neterror);
             return;
         }
         RequestSubLabelMessage requestSubLabelMessage = new RequestSubLabelMessage();
@@ -86,14 +118,7 @@ public class LabelSettingModel extends BdBaseModel {
         sendMessage(requestSubLabelMessage);
     }
 
-    @Override // com.baidu.adp.base.BdBaseModel
-    protected boolean LoadData() {
-        return true;
-    }
-
-    @Override // com.baidu.adp.base.BdBaseModel
-    public boolean cancelLoadData() {
-        cancelMessage();
-        return false;
+    public void z(d.b.i0.g1.c.a aVar) {
+        this.f18485f = aVar;
     }
 }

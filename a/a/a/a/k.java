@@ -1,55 +1,27 @@
 package a.a.a.a;
 
-import android.os.SystemClock;
-import java.util.HashMap;
-import java.util.Map;
-/* loaded from: classes4.dex */
-public class k {
-    public static long b;
-    public static long c;
-    public static long d;
-    public static long e;
-    public static long f;
-    public static long g;
-    public static long h;
-    public static long i;
-    public static final a zO = new a();
+import a.a.a.a.s.e;
+import android.app.Activity;
+import android.content.Context;
+import android.view.ViewGroup;
+import com.fun.ad.sdk.FunAdSlot;
+import com.fun.ad.sdk.FunNativeAd;
+import com.fun.ad.sdk.FunNativeAdInflater;
+/* loaded from: classes.dex */
+public interface k {
+    void a();
 
-    /* loaded from: classes4.dex */
-    public static class a {
+    void a(l lVar);
 
-        /* renamed from: a  reason: collision with root package name */
-        public boolean f967a;
-        public long b;
-        public long c;
-        public long e;
-        public long g;
-        public long d = -1;
-        public long f = -1;
-        public final Map<String, Long> h = new HashMap();
-        public final Map<String, Long> i = new HashMap();
+    void a(Context context, FunAdSlot funAdSlot);
 
-        public synchronized boolean a() {
-            boolean z = false;
-            synchronized (this) {
-                if (!this.f967a) {
-                    if (this.d >= 0 && this.f >= 0) {
-                        z = true;
-                    }
-                    this.f967a = z;
-                }
-            }
-            return z;
-        }
-    }
+    boolean a(Activity activity, ViewGroup viewGroup, String str, FunNativeAdInflater funNativeAdInflater);
 
-    public static void a() {
-        b = System.currentTimeMillis();
-        f = SystemClock.currentThreadTimeMillis();
-    }
+    e.a b();
 
-    public static void b() {
-        e = System.currentTimeMillis();
-        i = SystemClock.currentThreadTimeMillis();
-    }
+    boolean c();
+
+    a.a.a.a.u.p d();
+
+    FunNativeAd getNativeAd(Context context, String str);
 }

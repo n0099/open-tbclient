@@ -1,45 +1,54 @@
 package com.baidu.tieba.im.push;
 
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.ax;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.im.message.ResponsePullMessage;
 import com.baidu.tieba.im.util.MessageUtils;
 import com.squareup.wire.Wire;
+import d.b.h0.r.q.x0;
 import java.util.LinkedList;
+import protobuf.PushMessage.DataRes;
 import protobuf.PushMessage.PushMessageResIdl;
+import protobuf.PushMessage.PushMsg;
 import protobuf.PushMsgInfo;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class PushResponseMessage extends ResponsePullMessage {
-    private ax notificationData;
+    public x0 notificationData;
 
     public PushResponseMessage() {
-        super(CmdConfigSocket.CMD_PUSH_MESSAGE);
+        super(202009);
+    }
+
+    public x0 getNotificationData() {
+        return this.notificationData;
     }
 
     @Override // com.baidu.tieba.im.message.ResponsePullMessage
-    protected boolean isPulledMessage() {
+    public boolean isPulledMessage() {
         return false;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.message.ResponsePullMessage, com.baidu.adp.framework.message.a
+    @Override // com.baidu.tieba.im.message.ResponsePullMessage, com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
     public void decodeInBackGround(int i, byte[] bArr) throws Exception {
+        PushMsg pushMsg;
+        PushMsgInfo pushMsgInfo;
         PushMessageResIdl pushMessageResIdl = (PushMessageResIdl) new Wire(new Class[0]).parseFrom(bArr, PushMessageResIdl.class);
-        if (pushMessageResIdl.data != null && pushMessageResIdl.data.msgs != null && pushMessageResIdl.data.msgs.data != null && pushMessageResIdl.data.msgs.data.msgInfo != null) {
-            TiebaStatic.eventStat(TbadkCoreApplication.getInst().getApp().getApplicationContext(), "push_content_receive", null);
-            setGroupMsg(new LinkedList());
-            PushMsgInfo pushMsgInfo = pushMessageResIdl.data.msgs.data;
-            if ((pushMsgInfo.msgInfo.size() == 1 && pushMsgInfo.msgInfo.get(0).msgId.longValue() == 0 && pushMsgInfo.groupType.intValue() == 30) ? false : true) {
-                MessageUtils.generatePushData(getGroupMsg(), 30, pushMsgInfo.msgInfo, pushMsgInfo.groupId);
-            } else {
-                this.notificationData = MessageUtils.generatePushNotifyData(pushMsgInfo.msgInfo.get(0));
-            }
+        DataRes dataRes = pushMessageResIdl.data;
+        if (dataRes == null || (pushMsg = dataRes.msgs) == null || (pushMsgInfo = pushMsg.data) == null || pushMsgInfo.msgInfo == null) {
+            return;
         }
-    }
-
-    public ax getNotificationData() {
-        return this.notificationData;
+        TiebaStatic.eventStat(TbadkCoreApplication.getInst().getApp().getApplicationContext(), "push_content_receive", null);
+        setGroupMsg(new LinkedList());
+        PushMsgInfo pushMsgInfo2 = pushMessageResIdl.data.msgs.data;
+        boolean z = true;
+        if (pushMsgInfo2.msgInfo.size() == 1 && pushMsgInfo2.msgInfo.get(0).msgId.longValue() == 0 && pushMsgInfo2.groupType.intValue() == 30) {
+            z = false;
+        }
+        if (z) {
+            MessageUtils.generatePushData(getGroupMsg(), 30, pushMsgInfo2.msgInfo, pushMsgInfo2.groupId);
+        } else {
+            this.notificationData = MessageUtils.generatePushNotifyData(pushMsgInfo2.msgInfo.get(0));
+        }
     }
 }

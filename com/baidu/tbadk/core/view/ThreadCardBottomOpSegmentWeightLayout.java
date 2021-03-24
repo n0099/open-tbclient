@@ -8,69 +8,63 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import com.baidu.tbadk.core.view.AgreeView;
 import com.baidu.tieba.R;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class ThreadCardBottomOpSegmentWeightLayout extends ThreadCommentAndPraiseInfoLayout {
-    private AgreeView.a flr;
+    public AgreeView.d k0;
+
+    /* loaded from: classes3.dex */
+    public class a implements AgreeView.d {
+        public a() {
+        }
+
+        @Override // com.baidu.tbadk.core.view.AgreeView.d
+        public void a(View view, boolean z) {
+            ThreadCardBottomOpSegmentWeightLayout.this.S(z);
+        }
+    }
 
     public ThreadCardBottomOpSegmentWeightLayout(Context context) {
         super(context);
-        this.flr = new AgreeView.a() { // from class: com.baidu.tbadk.core.view.ThreadCardBottomOpSegmentWeightLayout.1
-            @Override // com.baidu.tbadk.core.view.AgreeView.a
-            public void f(View view, boolean z) {
-                ThreadCardBottomOpSegmentWeightLayout.this.kd(z);
-            }
-        };
+        this.k0 = new a();
+    }
+
+    @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
+    public void J() {
+        this.f13492h.setVisibilityListener(this.k0);
+        this.f13492h.j(true);
+    }
+
+    public final void S(boolean z) {
+        if (T()) {
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f13492h.getLayoutParams();
+            float f2 = z ? 1.0f : 2.0f;
+            layoutParams.width = 0;
+            layoutParams.weight = f2;
+            layoutParams.leftMargin = 0;
+            layoutParams.rightMargin = 0;
+            this.f13492h.setLayoutParams(layoutParams);
+        }
+    }
+
+    public final boolean T() {
+        boolean q = this.f13492h.q();
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f13492h.getLayoutParams();
+        return (layoutParams.weight == (q ? 1.0f : 2.0f) && layoutParams.width == 0) ? false : true;
+    }
+
+    @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
+    public View i(Context context) {
+        return LayoutInflater.from(context).inflate(R.layout.weight_thread_comment_and_praise_info_layout, (ViewGroup) this, true);
+    }
+
+    @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
+    public void p(View view) {
+        super.p(view);
+        this.f13492h.setResourceId(R.raw.lottie_card_agree, R.raw.lottie_disagree);
     }
 
     public ThreadCardBottomOpSegmentWeightLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.flr = new AgreeView.a() { // from class: com.baidu.tbadk.core.view.ThreadCardBottomOpSegmentWeightLayout.1
-            @Override // com.baidu.tbadk.core.view.AgreeView.a
-            public void f(View view, boolean z) {
-                ThreadCardBottomOpSegmentWeightLayout.this.kd(z);
-            }
-        };
-    }
-
-    @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
-    protected View fc(Context context) {
-        return LayoutInflater.from(context).inflate(R.layout.weight_thread_comment_and_praise_info_layout, (ViewGroup) this, true);
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
-    public void am(View view) {
-        super.am(view);
-        this.flv.setResourceId(R.raw.lottie_card_agree, R.raw.lottie_disagree);
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
-    public void ain() {
-        this.flv.setVisibilityListener(this.flr);
-        this.flv.jS(true);
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void kd(boolean z) {
-        if (buE()) {
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.flv.getLayoutParams();
-            float f = z ? 1.0f : 2.0f;
-            layoutParams.width = 0;
-            layoutParams.weight = f;
-            layoutParams.leftMargin = 0;
-            layoutParams.rightMargin = 0;
-            this.flv.setLayoutParams(layoutParams);
-        }
-    }
-
-    private boolean buE() {
-        boolean btQ = this.flv.btQ();
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.flv.getLayoutParams();
-        int i = layoutParams.width;
-        if (layoutParams.weight != (btQ ? 1.0f : 2.0f) || i != 0) {
-            return true;
-        }
-        return false;
+        this.k0 = new a();
     }
 }

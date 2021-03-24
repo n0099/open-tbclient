@@ -2,46 +2,56 @@ package com.baidu.pano.platform.c;
 
 import android.view.animation.DecelerateInterpolator;
 import android.view.animation.Interpolator;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private float[] f2719a = {0.0f, 0.0f};
-    private long b = -1;
-    private long c = 250;
-    private Interpolator d = new DecelerateInterpolator();
-    private EnumC0278a e = EnumC0278a.None;
+    public float[] f9422a = {0.0f, 0.0f};
+
+    /* renamed from: b  reason: collision with root package name */
+    public long f9423b = -1;
+
+    /* renamed from: c  reason: collision with root package name */
+    public long f9424c = 250;
+
+    /* renamed from: d  reason: collision with root package name */
+    public Interpolator f9425d = new DecelerateInterpolator();
+
+    /* renamed from: e  reason: collision with root package name */
+    public EnumC0114a f9426e = EnumC0114a.None;
 
     /* renamed from: com.baidu.pano.platform.c.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public enum EnumC0278a {
+    /* loaded from: classes2.dex */
+    public enum EnumC0114a {
         None,
         Running
     }
 
     public float a() {
-        float f = 0.0f;
         long currentTimeMillis = System.currentTimeMillis();
-        if (this.b == -1) {
-            this.b = currentTimeMillis;
+        if (this.f9423b == -1) {
+            this.f9423b = currentTimeMillis;
         }
-        float f2 = (((float) (currentTimeMillis - this.b)) * 1.0f) / ((float) this.c);
-        if (f2 < 0.0f) {
-            this.e = EnumC0278a.None;
-        } else if (f2 > 1.0f) {
-            this.e = EnumC0278a.None;
-            f = 1.0f;
+        float f2 = 1.0f;
+        float f3 = (((float) (currentTimeMillis - this.f9423b)) * 1.0f) / ((float) this.f9424c);
+        if (f3 < 0.0f) {
+            this.f9426e = EnumC0114a.None;
+            f2 = 0.0f;
+        } else if (f3 > 1.0f) {
+            this.f9426e = EnumC0114a.None;
         } else {
-            f = this.d.getInterpolation(f2);
-            this.e = EnumC0278a.Running;
+            f2 = this.f9425d.getInterpolation(f3);
+            this.f9426e = EnumC0114a.Running;
         }
-        return (f * this.f2719a[1]) + this.f2719a[0];
+        float[] fArr = this.f9422a;
+        return fArr[0] + (f2 * fArr[1]);
     }
 
-    public void a(float f, float f2) {
-        this.f2719a[0] = f;
-        this.f2719a[1] = f2 - f;
-        this.b = -1L;
-        this.e = EnumC0278a.Running;
+    public void a(float f2, float f3) {
+        float[] fArr = this.f9422a;
+        fArr[0] = f2;
+        fArr[1] = f3 - f2;
+        this.f9423b = -1L;
+        this.f9426e = EnumC0114a.Running;
     }
 }

@@ -7,24 +7,38 @@ import com.meizu.cloud.pushsdk.handler.MessageV3;
 import com.meizu.cloud.pushsdk.handler.MzPushMessage;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f7432a;
-    private String b = String.valueOf(-1);
-    private String c = "";
-    private String d = "";
-    private int e = -1;
-    private String f = "";
+    public int f37817a;
 
-    /* loaded from: classes4.dex */
+    /* renamed from: b  reason: collision with root package name */
+    public String f37818b = String.valueOf(-1);
+
+    /* renamed from: c  reason: collision with root package name */
+    public String f37819c = "";
+
+    /* renamed from: d  reason: collision with root package name */
+    public String f37820d = "";
+
+    /* renamed from: e  reason: collision with root package name */
+    public int f37821e = -1;
+
+    /* renamed from: f  reason: collision with root package name */
+    public String f37822f = "";
+
+    /* loaded from: classes6.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f7433a;
-        public String b;
-        String c;
+        public String f37823a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public String f37824b;
+
+        /* renamed from: c  reason: collision with root package name */
+        public String f37825c;
 
         public a(String str) {
             if (TextUtils.isEmpty(str)) {
@@ -32,131 +46,122 @@ public class e {
             }
             try {
                 JSONObject jSONObject = new JSONObject(str);
-                if (jSONObject != null) {
-                    if (!jSONObject.isNull("code")) {
-                        a(jSONObject.getString("code"));
-                    }
-                    if (!jSONObject.isNull("message")) {
-                        b(jSONObject.getString("message"));
-                    }
-                    if (jSONObject.isNull("value")) {
-                        return;
-                    }
-                    c(jSONObject.getString("value"));
+                if (!jSONObject.isNull("code")) {
+                    a(jSONObject.getString("code"));
                 }
-            } catch (JSONException e) {
-                com.meizu.cloud.a.a.e("SecurityMessage", "covert json error " + e.getMessage());
+                if (!jSONObject.isNull("message")) {
+                    b(jSONObject.getString("message"));
+                }
+                if (jSONObject.isNull("value")) {
+                    return;
+                }
+                c(jSONObject.getString("value"));
+            } catch (JSONException e2) {
+                d.j.a.a.a.b("SecurityMessage", "covert json error " + e2.getMessage());
             }
         }
 
         public String a() {
-            return this.c;
+            return this.f37825c;
         }
 
         public void a(String str) {
-            this.f7433a = str;
+            this.f37823a = str;
         }
 
         public void b(String str) {
-            this.b = str;
+            this.f37824b = str;
         }
 
         public void c(String str) {
-            this.c = str;
+            this.f37825c = str;
         }
 
         public String toString() {
-            return "PublicKeyStatus{code='" + this.f7433a + "', message='" + this.b + "', publicKey='" + this.c + "'}";
+            return "PublicKeyStatus{code='" + this.f37823a + "', message='" + this.f37824b + "', publicKey='" + this.f37825c + "'}";
         }
     }
 
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[INVOKE]}, finally: {[INVOKE, MOVE_EXCEPTION, CONSTRUCTOR, CONST_STR, INVOKE, MOVE_EXCEPTION, IF] complete} */
+    /* JADX DEBUG: Another duplicated slice has different insns count: {[INVOKE]}, finally: {[INVOKE, IF] complete} */
     public static String a(MessageV3 messageV3) {
-        String str = null;
+        JSONObject jSONObject;
         String notificationMessage = messageV3.getNotificationMessage();
-        if (!TextUtils.isEmpty(notificationMessage)) {
+        String str = null;
+        try {
             try {
-                try {
-                    JSONObject jSONObject = new JSONObject(notificationMessage).getJSONObject("data");
-                    if (!jSONObject.isNull("extra")) {
-                        JSONObject jSONObject2 = jSONObject.getJSONObject("extra");
-                        if (!jSONObject2.isNull("se")) {
-                            str = jSONObject2.getString("se");
+                if (!TextUtils.isEmpty(notificationMessage)) {
+                    try {
+                        JSONObject jSONObject2 = new JSONObject(notificationMessage).getJSONObject("data");
+                        if (!jSONObject2.isNull("extra")) {
+                            JSONObject jSONObject3 = jSONObject2.getJSONObject("extra");
+                            if (!jSONObject3.isNull("se")) {
+                                str = jSONObject3.getString("se");
+                            }
+                        }
+                    } catch (JSONException e2) {
+                        d.j.a.a.a.b("SecurityMessage", "parse notification message error " + e2.getMessage());
+                        if (TextUtils.isEmpty(null)) {
+                            jSONObject = new JSONObject(notificationMessage);
                         }
                     }
                     if (TextUtils.isEmpty(str)) {
-                        try {
-                            str = new JSONObject(notificationMessage).getString("se");
-                        } catch (Exception e) {
-                        }
-                    }
-                } catch (JSONException e2) {
-                    com.meizu.cloud.a.a.e("SecurityMessage", "parse notification message error " + e2.getMessage());
-                    if (TextUtils.isEmpty(null)) {
-                        try {
-                            str = new JSONObject(notificationMessage).getString("se");
-                        } catch (Exception e3) {
-                        }
+                        jSONObject = new JSONObject(notificationMessage);
+                        jSONObject.getString("se");
                     }
                 }
             } catch (Throwable th) {
                 if (TextUtils.isEmpty(null)) {
                     try {
                         new JSONObject(notificationMessage).getString("se");
-                    } catch (Exception e4) {
+                    } catch (Exception unused) {
                     }
                 }
                 throw th;
             }
+        } catch (Exception unused2) {
         }
-        com.meizu.cloud.a.a.i("SecurityMessage", "encrypt message " + str);
+        d.j.a.a.a.d("SecurityMessage", "encrypt message " + str);
         return str;
     }
 
     public static boolean a(String str, MessageV3 messageV3) {
-        e e = e(str);
-        com.meizu.cloud.a.a.e("SecurityMessage", "securityMessage " + e);
-        if (System.currentTimeMillis() / 1000 > e.a()) {
-            com.meizu.cloud.a.a.e("SecurityMessage", "message expire");
-            return false;
-        } else if (!messageV3.getTitle().contains(e.c())) {
-            com.meizu.cloud.a.a.e("SecurityMessage", "invalid title");
-            return false;
-        } else if (!messageV3.getContent().contains(e.d())) {
-            com.meizu.cloud.a.a.e("SecurityMessage", "invalid content");
-            return false;
-        } else if (!String.valueOf(-1).equals(e.b()) && !e.b().equals(messageV3.getTaskId())) {
-            com.meizu.cloud.a.a.e("SecurityMessage", "invalid taskId");
-            return false;
-        } else if (e.e() == -1) {
-            com.meizu.cloud.a.a.e("SecurityMessage", "invalid click type");
-            return false;
-        } else {
-            switch (e.e()) {
-                case 1:
-                    if (!messageV3.getActivity().contains(e.f())) {
-                        com.meizu.cloud.a.a.e("SecurityMessage", "invalid click activity");
-                        return false;
-                    }
-                    break;
-                case 2:
-                    if (!messageV3.getWebUrl().contains(e.f())) {
-                        com.meizu.cloud.a.a.e("SecurityMessage", "invalid web url");
-                        return false;
-                    }
-                    break;
-                case 3:
-                    if (!MzPushMessage.fromMessageV3(messageV3).getSelfDefineContentString().contains(e.f())) {
-                        com.meizu.cloud.a.a.e("SecurityMessage", "invalid self define");
-                        return false;
-                    }
-                    break;
+        String str2;
+        e e2 = e(str);
+        d.j.a.a.a.b("SecurityMessage", "securityMessage " + e2);
+        if (System.currentTimeMillis() / 1000 > e2.a()) {
+            str2 = "message expire";
+        } else if (!messageV3.getTitle().contains(e2.c())) {
+            str2 = "invalid title";
+        } else if (!messageV3.getContent().contains(e2.d())) {
+            str2 = "invalid content";
+        } else if (!String.valueOf(-1).equals(e2.b()) && !e2.b().equals(messageV3.getTaskId())) {
+            str2 = "invalid taskId";
+        } else if (e2.e() != -1) {
+            int e3 = e2.e();
+            if (e3 == 1) {
+                if (!messageV3.getActivity().contains(e2.f())) {
+                    str2 = "invalid click activity";
+                }
+                return true;
+            } else if (e3 == 2) {
+                if (!messageV3.getWebUrl().contains(e2.f())) {
+                    str2 = "invalid web url";
+                }
+                return true;
+            } else {
+                if (e3 == 3 && !MzPushMessage.fromMessageV3(messageV3).getSelfDefineContentString().contains(e2.f())) {
+                    str2 = "invalid self define";
+                }
+                return true;
             }
-            return true;
+        } else {
+            str2 = "invalid click type";
         }
+        d.j.a.a.a.b("SecurityMessage", str2);
+        return false;
     }
 
-    private static e e(String str) {
+    public static e e(String str) {
         e eVar = new e();
         try {
             JSONObject jSONObject = new JSONObject(str);
@@ -178,61 +183,61 @@ public class e {
             if (!jSONObject.isNull("pm")) {
                 eVar.d(jSONObject.getString("pm"));
             }
-        } catch (Exception e) {
-            com.meizu.cloud.a.a.e("SecurityMessage", "parse decryptSign error " + e.getMessage());
+        } catch (Exception e2) {
+            d.j.a.a.a.b("SecurityMessage", "parse decryptSign error " + e2.getMessage());
         }
         return eVar;
     }
 
     public int a() {
-        return this.f7432a;
+        return this.f37817a;
     }
 
     public void a(int i) {
-        this.f7432a = i;
+        this.f37817a = i;
     }
 
     public void a(String str) {
-        this.b = str;
+        this.f37818b = str;
     }
 
     public String b() {
-        return this.b;
+        return this.f37818b;
     }
 
     public void b(int i) {
-        this.e = i;
+        this.f37821e = i;
     }
 
     public void b(String str) {
-        this.c = str;
+        this.f37819c = str;
     }
 
     public String c() {
-        return this.c;
+        return this.f37819c;
     }
 
     public void c(String str) {
-        this.d = str;
+        this.f37820d = str;
     }
 
     public String d() {
-        return this.d;
+        return this.f37820d;
     }
 
     public void d(String str) {
-        this.f = str;
+        this.f37822f = str;
     }
 
     public int e() {
-        return this.e;
+        return this.f37821e;
     }
 
     public String f() {
-        return this.f;
+        return this.f37822f;
     }
 
     public String toString() {
-        return "SecurityMessage{timestamp=" + this.f7432a + ", taskId='" + this.b + "', title='" + this.c + "', content='" + this.d + "', clickType=" + this.e + ", params='" + this.f + "'}";
+        return "SecurityMessage{timestamp=" + this.f37817a + ", taskId='" + this.f37818b + "', title='" + this.f37819c + "', content='" + this.f37820d + "', clickType=" + this.f37821e + ", params='" + this.f37822f + "'}";
     }
 }

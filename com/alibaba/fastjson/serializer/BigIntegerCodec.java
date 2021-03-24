@@ -7,9 +7,19 @@ import com.alibaba.fastjson.util.TypeUtils;
 import java.io.IOException;
 import java.lang.reflect.Type;
 import java.math.BigInteger;
-/* loaded from: classes4.dex */
-public class BigIntegerCodec implements ObjectDeserializer, ObjectSerializer {
+/* loaded from: classes.dex */
+public class BigIntegerCodec implements ObjectSerializer, ObjectDeserializer {
     public static final BigIntegerCodec instance = new BigIntegerCodec();
+
+    @Override // com.alibaba.fastjson.parser.deserializer.ObjectDeserializer
+    public <T> T deserialze(DefaultJSONParser defaultJSONParser, Type type, Object obj) {
+        return (T) deserialze(defaultJSONParser);
+    }
+
+    @Override // com.alibaba.fastjson.parser.deserializer.ObjectDeserializer
+    public int getFastMatchToken() {
+        return 2;
+    }
 
     @Override // com.alibaba.fastjson.serializer.ObjectSerializer
     public void write(JSONSerializer jSONSerializer, Object obj, Object obj2, Type type, int i) throws IOException {
@@ -19,11 +29,6 @@ public class BigIntegerCodec implements ObjectDeserializer, ObjectSerializer {
         } else {
             serializeWriter.write(((BigInteger) obj).toString());
         }
-    }
-
-    @Override // com.alibaba.fastjson.parser.deserializer.ObjectDeserializer
-    public <T> T deserialze(DefaultJSONParser defaultJSONParser, Type type, Object obj) {
-        return (T) deserialze(defaultJSONParser);
     }
 
     public static <T> T deserialze(DefaultJSONParser defaultJSONParser) {
@@ -38,10 +43,5 @@ public class BigIntegerCodec implements ObjectDeserializer, ObjectSerializer {
             return null;
         }
         return (T) TypeUtils.castToBigInteger(parse);
-    }
-
-    @Override // com.alibaba.fastjson.parser.deserializer.ObjectDeserializer
-    public int getFastMatchToken() {
-        return 2;
     }
 }

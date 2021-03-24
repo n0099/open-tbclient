@@ -3,78 +3,77 @@ package com.baidu.ufosdk.ui;
 import android.content.Context;
 import android.widget.LinearLayout;
 import java.util.ArrayList;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public final class a {
-    private Context c;
-    private d e;
-    private int f = 0;
+
+    /* renamed from: c  reason: collision with root package name */
+    public Context f23040c;
+
+    /* renamed from: e  reason: collision with root package name */
+    public d f23042e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public int f23043f = 0;
 
     /* renamed from: a  reason: collision with root package name */
-    private ArrayList f3646a = new ArrayList();
-    private ArrayList b = new ArrayList();
-    private ArrayList d = new ArrayList();
+    public ArrayList f23038a = new ArrayList();
+
+    /* renamed from: b  reason: collision with root package name */
+    public ArrayList f23039b = new ArrayList();
+
+    /* renamed from: d  reason: collision with root package name */
+    public ArrayList f23041d = new ArrayList();
 
     public a(ArrayList arrayList, Context context, d dVar) {
-        this.c = context;
-        this.e = dVar;
+        this.f23040c = context;
+        this.f23042e = dVar;
         a(arrayList);
     }
 
     private void a(ArrayList arrayList) {
-        for (int i = 0; i < arrayList.size(); i++) {
-            if ((i + 1) % 2 == 1) {
-                this.f3646a.add(arrayList.get(i));
-            } else {
-                this.b.add(arrayList.get(i));
-            }
+        int i = 0;
+        while (i < arrayList.size()) {
+            int i2 = i + 1;
+            (i2 % 2 == 1 ? this.f23038a : this.f23039b).add(arrayList.get(i));
+            i = i2;
         }
     }
 
     public final LinearLayout a() {
-        LinearLayout linearLayout = new LinearLayout(this.c);
+        LinearLayout linearLayout = new LinearLayout(this.f23040c);
         linearLayout.setOrientation(1);
         linearLayout.setBackgroundColor(-1);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -1);
-        layoutParams.setMargins(com.baidu.ufosdk.f.i.a(this.c, 15.0f), com.baidu.ufosdk.f.i.a(this.c, 2.0f), com.baidu.ufosdk.f.i.a(this.c, 15.0f), com.baidu.ufosdk.f.i.a(this.c, 14.0f));
-        int i = 0;
-        while (true) {
-            int i2 = i;
-            if (i2 >= this.f3646a.size()) {
-                return linearLayout;
-            }
-            e eVar = new e(this.c);
+        layoutParams.setMargins(com.baidu.ufosdk.f.i.a(this.f23040c, 15.0f), com.baidu.ufosdk.f.i.a(this.f23040c, 2.0f), com.baidu.ufosdk.f.i.a(this.f23040c, 15.0f), com.baidu.ufosdk.f.i.a(this.f23040c, 14.0f));
+        for (int i = 0; i < this.f23038a.size(); i++) {
+            e eVar = new e(this.f23040c);
             eVar.a();
-            eVar.a((String) this.f3646a.get(i2));
+            eVar.a((String) this.f23038a.get(i));
             eVar.a(com.baidu.ufosdk.b.U);
             linearLayout.addView(eVar, layoutParams);
             eVar.setOnClickListener(new b(this, eVar));
-            i = i2 + 1;
         }
+        return linearLayout;
     }
 
     public final LinearLayout b() {
-        LinearLayout linearLayout = new LinearLayout(this.c);
+        LinearLayout linearLayout = new LinearLayout(this.f23040c);
         linearLayout.setOrientation(1);
         linearLayout.setBackgroundColor(-1);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -1);
-        layoutParams.setMargins(com.baidu.ufosdk.f.i.a(this.c, 5.0f), com.baidu.ufosdk.f.i.a(this.c, 2.0f), com.baidu.ufosdk.f.i.a(this.c, 15.0f), com.baidu.ufosdk.f.i.a(this.c, 14.0f));
-        int i = 0;
-        while (true) {
-            int i2 = i;
-            if (i2 >= this.b.size()) {
-                return linearLayout;
-            }
-            e eVar = new e(this.c);
+        layoutParams.setMargins(com.baidu.ufosdk.f.i.a(this.f23040c, 5.0f), com.baidu.ufosdk.f.i.a(this.f23040c, 2.0f), com.baidu.ufosdk.f.i.a(this.f23040c, 15.0f), com.baidu.ufosdk.f.i.a(this.f23040c, 14.0f));
+        for (int i = 0; i < this.f23039b.size(); i++) {
+            e eVar = new e(this.f23040c);
             eVar.a();
-            eVar.a((String) this.b.get(i2));
+            eVar.a((String) this.f23039b.get(i));
             eVar.a(com.baidu.ufosdk.b.U);
             linearLayout.addView(eVar, layoutParams);
             eVar.setOnClickListener(new c(this, eVar));
-            i = i2 + 1;
         }
+        return linearLayout;
     }
 
     public final ArrayList c() {
-        return this.d;
+        return this.f23041d;
     }
 }

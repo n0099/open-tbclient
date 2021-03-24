@@ -1,146 +1,153 @@
 package io.reactivex.subjects;
 
-import io.reactivex.w;
-import io.reactivex.y;
+import f.a.q;
+import f.a.r;
+import f.a.t.b;
+import f.a.x.b.a;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes6.dex */
-public final class SingleSubject<T> extends w<T> implements y<T> {
-    static final SingleDisposable[] qtL = new SingleDisposable[0];
-    static final SingleDisposable[] qtM = new SingleDisposable[0];
-    Throwable error;
-    T value;
-    final AtomicBoolean once = new AtomicBoolean();
-    final AtomicReference<SingleDisposable<T>[]> observers = new AtomicReference<>(qtL);
+/* loaded from: classes7.dex */
+public final class SingleSubject<T> extends q<T> implements r<T> {
+    public static final SingleDisposable[] i = new SingleDisposable[0];
+    public static final SingleDisposable[] j = new SingleDisposable[0];
 
-    SingleSubject() {
-    }
+    /* renamed from: g  reason: collision with root package name */
+    public T f68112g;
 
-    @Override // io.reactivex.y
-    public void onSubscribe(io.reactivex.disposables.b bVar) {
-        if (this.observers.get() == qtM) {
-            bVar.dispose();
+    /* renamed from: h  reason: collision with root package name */
+    public Throwable f68113h;
+
+    /* renamed from: f  reason: collision with root package name */
+    public final AtomicBoolean f68111f = new AtomicBoolean();
+
+    /* renamed from: e  reason: collision with root package name */
+    public final AtomicReference<SingleDisposable<T>[]> f68110e = new AtomicReference<>(i);
+
+    /* loaded from: classes7.dex */
+    public static final class SingleDisposable<T> extends AtomicReference<SingleSubject<T>> implements b {
+        public static final long serialVersionUID = -7650903191002190468L;
+        public final r<? super T> actual;
+
+        public SingleDisposable(r<? super T> rVar, SingleSubject<T> singleSubject) {
+            this.actual = rVar;
+            lazySet(singleSubject);
         }
-    }
 
-    @Override // io.reactivex.y
-    public void onSuccess(T t) {
-        io.reactivex.internal.functions.a.n(t, "onSuccess called with null. Null values are generally not allowed in 2.x operators and sources.");
-        if (this.once.compareAndSet(false, true)) {
-            this.value = t;
-            for (SingleDisposable<T> singleDisposable : this.observers.getAndSet(qtM)) {
-                singleDisposable.actual.onSuccess(t);
+        @Override // f.a.t.b
+        public void dispose() {
+            SingleSubject<T> andSet = getAndSet(null);
+            if (andSet != null) {
+                andSet.d(this);
             }
         }
-    }
 
-    @Override // io.reactivex.y
-    public void onError(Throwable th) {
-        io.reactivex.internal.functions.a.n(th, "onError called with null. Null values are generally not allowed in 2.x operators and sources.");
-        if (this.once.compareAndSet(false, true)) {
-            this.error = th;
-            for (SingleDisposable<T> singleDisposable : this.observers.getAndSet(qtM)) {
-                singleDisposable.actual.onError(th);
-            }
-            return;
+        @Override // f.a.t.b
+        public boolean isDisposed() {
+            return get() == null;
         }
-        io.reactivex.d.a.onError(th);
     }
 
     /* JADX DEBUG: Type inference failed for r0v2. Raw type applied. Possible types: T, ? super T */
-    @Override // io.reactivex.w
-    protected void b(y<? super T> yVar) {
-        SingleDisposable<T> singleDisposable = new SingleDisposable<>(yVar, this);
-        yVar.onSubscribe(singleDisposable);
-        if (a(singleDisposable)) {
+    @Override // f.a.q
+    public void b(r<? super T> rVar) {
+        SingleDisposable<T> singleDisposable = new SingleDisposable<>(rVar, this);
+        rVar.onSubscribe(singleDisposable);
+        if (c(singleDisposable)) {
             if (singleDisposable.isDisposed()) {
-                b(singleDisposable);
+                d(singleDisposable);
                 return;
             }
             return;
         }
-        Throwable th = this.error;
+        Throwable th = this.f68113h;
         if (th != null) {
-            yVar.onError(th);
+            rVar.onError(th);
         } else {
-            yVar.onSuccess((T) this.value);
+            rVar.onSuccess((T) this.f68112g);
         }
     }
 
-    boolean a(SingleDisposable<T> singleDisposable) {
+    public boolean c(SingleDisposable<T> singleDisposable) {
         SingleDisposable<T>[] singleDisposableArr;
         SingleDisposable<T>[] singleDisposableArr2;
         do {
-            singleDisposableArr = this.observers.get();
-            if (singleDisposableArr == qtM) {
+            singleDisposableArr = this.f68110e.get();
+            if (singleDisposableArr == j) {
                 return false;
             }
             int length = singleDisposableArr.length;
             singleDisposableArr2 = new SingleDisposable[length + 1];
             System.arraycopy(singleDisposableArr, 0, singleDisposableArr2, 0, length);
             singleDisposableArr2[length] = singleDisposable;
-        } while (!this.observers.compareAndSet(singleDisposableArr, singleDisposableArr2));
+        } while (!this.f68110e.compareAndSet(singleDisposableArr, singleDisposableArr2));
         return true;
     }
 
-    void b(SingleDisposable<T> singleDisposable) {
+    /* JADX DEBUG: Multi-variable search result rejected for r2v2, resolved type: java.util.concurrent.atomic.AtomicReference<io.reactivex.subjects.SingleSubject$SingleDisposable<T>[]> */
+    /* JADX WARN: Multi-variable type inference failed */
+    public void d(SingleDisposable<T> singleDisposable) {
         SingleDisposable<T>[] singleDisposableArr;
-        SingleDisposable<T>[] singleDisposableArr2;
+        SingleDisposable[] singleDisposableArr2;
         do {
-            singleDisposableArr = this.observers.get();
+            singleDisposableArr = this.f68110e.get();
             int length = singleDisposableArr.length;
-            if (length != 0) {
-                int i = -1;
-                int i2 = 0;
-                while (true) {
-                    if (i2 >= length) {
-                        break;
-                    } else if (singleDisposableArr[i2] == singleDisposable) {
-                        i = i2;
-                        break;
-                    } else {
-                        i2++;
-                    }
-                }
-                if (i >= 0) {
-                    if (length == 1) {
-                        singleDisposableArr2 = qtL;
-                    } else {
-                        singleDisposableArr2 = new SingleDisposable[length - 1];
-                        System.arraycopy(singleDisposableArr, 0, singleDisposableArr2, 0, i);
-                        System.arraycopy(singleDisposableArr, i + 1, singleDisposableArr2, i, (length - i) - 1);
-                    }
-                } else {
-                    return;
-                }
-            } else {
+            if (length == 0) {
                 return;
             }
-        } while (!this.observers.compareAndSet(singleDisposableArr, singleDisposableArr2));
+            int i2 = -1;
+            int i3 = 0;
+            while (true) {
+                if (i3 >= length) {
+                    break;
+                } else if (singleDisposableArr[i3] == singleDisposable) {
+                    i2 = i3;
+                    break;
+                } else {
+                    i3++;
+                }
+            }
+            if (i2 < 0) {
+                return;
+            }
+            if (length == 1) {
+                singleDisposableArr2 = i;
+            } else {
+                SingleDisposable[] singleDisposableArr3 = new SingleDisposable[length - 1];
+                System.arraycopy(singleDisposableArr, 0, singleDisposableArr3, 0, i2);
+                System.arraycopy(singleDisposableArr, i2 + 1, singleDisposableArr3, i2, (length - i2) - 1);
+                singleDisposableArr2 = singleDisposableArr3;
+            }
+        } while (!this.f68110e.compareAndSet(singleDisposableArr, singleDisposableArr2));
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
-    public static final class SingleDisposable<T> extends AtomicReference<SingleSubject<T>> implements io.reactivex.disposables.b {
-        private static final long serialVersionUID = -7650903191002190468L;
-        final y<? super T> actual;
-
-        SingleDisposable(y<? super T> yVar, SingleSubject<T> singleSubject) {
-            this.actual = yVar;
-            lazySet(singleSubject);
-        }
-
-        @Override // io.reactivex.disposables.b
-        public void dispose() {
-            SingleSubject<T> andSet = getAndSet(null);
-            if (andSet != null) {
-                andSet.b(this);
+    @Override // f.a.r
+    public void onError(Throwable th) {
+        a.b(th, "onError called with null. Null values are generally not allowed in 2.x operators and sources.");
+        if (this.f68111f.compareAndSet(false, true)) {
+            this.f68113h = th;
+            for (SingleDisposable<T> singleDisposable : this.f68110e.getAndSet(j)) {
+                singleDisposable.actual.onError(th);
             }
+            return;
         }
+        f.a.a0.a.f(th);
+    }
 
-        @Override // io.reactivex.disposables.b
-        public boolean isDisposed() {
-            return get() == null;
+    @Override // f.a.r
+    public void onSubscribe(b bVar) {
+        if (this.f68110e.get() == j) {
+            bVar.dispose();
+        }
+    }
+
+    @Override // f.a.r
+    public void onSuccess(T t) {
+        a.b(t, "onSuccess called with null. Null values are generally not allowed in 2.x operators and sources.");
+        if (this.f68111f.compareAndSet(false, true)) {
+            this.f68112g = t;
+            for (SingleDisposable<T> singleDisposable : this.f68110e.getAndSet(j)) {
+                singleDisposable.actual.onSuccess(t);
+            }
         }
     }
 }

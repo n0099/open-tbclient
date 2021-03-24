@@ -5,7 +5,7 @@ import java.util.Collections;
 import java.util.Set;
 import java.util.WeakHashMap;
 import java.util.concurrent.Executor;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class PostTask {
     public static final Object sLock;
     public static Set<TaskRunner> sPreNativeTaskRunners;
@@ -24,14 +24,15 @@ public class PostTask {
     }
 
     public static Executor getPrenativeThreadPoolExecutor() {
-        Executor executor;
         synchronized (sLock) {
-            executor = sPrenativeThreadPoolExecutorOverride != null ? sPrenativeThreadPoolExecutorOverride : sPrenativeThreadPoolExecutor;
+            if (sPrenativeThreadPoolExecutorOverride != null) {
+                return sPrenativeThreadPoolExecutorOverride;
+            }
+            return sPrenativeThreadPoolExecutor;
         }
-        return executor;
     }
 
-    public static native void nativePostDelayedTask(boolean z, int i, boolean z2, boolean z3, byte b, byte[] bArr, Runnable runnable, long j);
+    public static native void nativePostDelayedTask(boolean z, int i, boolean z2, boolean z3, byte b2, byte[] bArr, Runnable runnable, long j);
 
     @CalledByNative
     public static void onNativeSchedulerReady() {
@@ -53,11 +54,10 @@ public class PostTask {
 
     public static void postDelayedTask(TaskTraits taskTraits, Runnable runnable, long j) {
         synchronized (sLock) {
-            if (sPreNativeTaskRunners != null || taskTraits.mIsChoreographerFrame) {
-                sTaskExecutors[taskTraits.mExtensionId].postDelayedTask(taskTraits, runnable, j);
-            } else {
+            if (sPreNativeTaskRunners == null && !taskTraits.mIsChoreographerFrame) {
                 nativePostDelayedTask(taskTraits.mPrioritySetExplicitly, taskTraits.mPriority, taskTraits.mMayBlock, taskTraits.mUseThreadPool, taskTraits.mExtensionId, taskTraits.mExtensionData, runnable, j);
             }
+            sTaskExecutors[taskTraits.mExtensionId].postDelayedTask(taskTraits, runnable, j);
         }
     }
 }

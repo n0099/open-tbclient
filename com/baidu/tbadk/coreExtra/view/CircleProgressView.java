@@ -6,73 +6,86 @@ import android.graphics.Paint;
 import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.view.View;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class CircleProgressView extends View {
-    private Paint backgroundPaint;
-    private int currentProgress;
-    private Paint foregroundPaint;
-    private RectF oval;
-    private float strokeWidth;
+
+    /* renamed from: e  reason: collision with root package name */
+    public Paint f13744e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public Paint f13745f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public float f13746g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public int f13747h;
+    public RectF i;
 
     public CircleProgressView(Context context) {
         super(context);
-        this.strokeWidth = 5.0f;
-        initVariable();
+        this.f13746g = 5.0f;
+        a();
     }
 
-    public CircleProgressView(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        this.strokeWidth = 5.0f;
-        initVariable();
+    public final void a() {
+        this.i = new RectF(0.0f, 0.0f, 0.0f, 0.0f);
+        Paint paint = new Paint();
+        this.f13744e = paint;
+        paint.setAntiAlias(true);
+        this.f13744e.setDither(true);
+        this.f13744e.setStyle(Paint.Style.STROKE);
+        this.f13744e.setStrokeCap(Paint.Cap.ROUND);
+        this.f13744e.setStrokeWidth(this.f13746g);
+        Paint paint2 = new Paint();
+        this.f13745f = paint2;
+        paint2.setAntiAlias(true);
+        this.f13745f.setDither(true);
+        this.f13745f.setStyle(Paint.Style.STROKE);
+        this.f13745f.setStrokeCap(Paint.Cap.ROUND);
+        this.f13745f.setStrokeWidth(this.f13746g);
     }
 
-    private void initVariable() {
-        this.oval = new RectF(0.0f, 0.0f, 0.0f, 0.0f);
-        this.foregroundPaint = new Paint();
-        this.foregroundPaint.setAntiAlias(true);
-        this.foregroundPaint.setDither(true);
-        this.foregroundPaint.setStyle(Paint.Style.STROKE);
-        this.foregroundPaint.setStrokeCap(Paint.Cap.ROUND);
-        this.foregroundPaint.setStrokeWidth(this.strokeWidth);
-        this.backgroundPaint = new Paint();
-        this.backgroundPaint.setAntiAlias(true);
-        this.backgroundPaint.setDither(true);
-        this.backgroundPaint.setStyle(Paint.Style.STROKE);
-        this.backgroundPaint.setStrokeCap(Paint.Cap.ROUND);
-        this.backgroundPaint.setStrokeWidth(this.strokeWidth);
+    @Override // android.view.View
+    public void onDraw(Canvas canvas) {
+        if (this.f13747h >= 0) {
+            RectF rectF = this.i;
+            float f2 = this.f13746g;
+            rectF.left = f2;
+            rectF.top = f2;
+            rectF.right = getWidth() - this.f13746g;
+            this.i.bottom = getHeight() - this.f13746g;
+            canvas.drawArc(this.i, 0.0f, 360.0f, false, this.f13745f);
+            canvas.drawArc(this.i, -90.0f, (this.f13747h / 100) * 360.0f, false, this.f13744e);
+        }
     }
 
     public void setCircleBackgroundColor(int i) {
-        this.backgroundPaint.setColor(i);
+        this.f13745f.setColor(i);
         postInvalidate();
     }
 
     public void setCircleForegroundColor(int i) {
-        this.foregroundPaint.setColor(i);
+        this.f13744e.setColor(i);
+        postInvalidate();
+    }
+
+    public void setProgress(int i) {
+        this.f13747h = i;
         postInvalidate();
     }
 
     public void setWidth(int i) {
-        this.strokeWidth = i;
-        this.backgroundPaint.setStrokeWidth(i);
-        this.foregroundPaint.setStrokeWidth(i);
+        float f2 = i;
+        this.f13746g = f2;
+        this.f13745f.setStrokeWidth(f2);
+        this.f13744e.setStrokeWidth(f2);
         postInvalidate();
     }
 
-    @Override // android.view.View
-    protected void onDraw(Canvas canvas) {
-        if (this.currentProgress >= 0) {
-            this.oval.left = this.strokeWidth;
-            this.oval.top = this.strokeWidth;
-            this.oval.right = getWidth() - this.strokeWidth;
-            this.oval.bottom = getHeight() - this.strokeWidth;
-            canvas.drawArc(this.oval, 0.0f, 360.0f, false, this.backgroundPaint);
-            canvas.drawArc(this.oval, -90.0f, 360.0f * (this.currentProgress / 100), false, this.foregroundPaint);
-        }
-    }
-
-    public void setProgress(int i) {
-        this.currentProgress = i;
-        postInvalidate();
+    public CircleProgressView(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        this.f13746g = 5.0f;
+        a();
     }
 }

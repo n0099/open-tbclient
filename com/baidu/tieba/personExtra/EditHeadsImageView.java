@@ -5,52 +5,55 @@ import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.util.AttributeSet;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.widget.DragImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.compatible.CompatibleUtile;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class EditHeadsImageView extends DragImageView {
-    private int bLq;
-    private int bLr;
-    private float bLs;
-    private float bLt;
-    private int bLv;
+    public int s0;
+    public int t0;
+    public float u0;
+    public int v0;
+    public float w0;
 
     public EditHeadsImageView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.bLq = 0;
-        this.bLr = 0;
-        this.bLs = 0.42857143f;
-        this.bLv = 0;
-        this.bLt = 1.0f;
-        init();
+        this.s0 = 0;
+        this.t0 = 0;
+        this.u0 = 0.42857143f;
+        this.v0 = 0;
+        this.w0 = 1.0f;
+        w0();
     }
 
-    public EditHeadsImageView(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        this.bLq = 0;
-        this.bLr = 0;
-        this.bLs = 0.42857143f;
-        this.bLv = 0;
-        this.bLt = 1.0f;
-        init();
+    @Override // com.baidu.tbadk.widget.DragImageView, android.widget.ImageView, android.view.View
+    public void onDraw(Canvas canvas) {
+        canvas.save();
+        canvas.drawColor(this.v0);
+        super.onDraw(canvas);
+        canvas.restore();
     }
 
-    public EditHeadsImageView(Context context) {
-        super(context);
-        this.bLq = 0;
-        this.bLr = 0;
-        this.bLs = 0.42857143f;
-        this.bLv = 0;
-        this.bLt = 1.0f;
-        init();
+    @Override // com.baidu.tbadk.widget.DragImageView, android.view.View
+    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
+        super.onLayout(z, i, i2, i3, i4);
+        float width = this.w0 * getWidth();
+        if (width > getHeight()) {
+            width = getHeight();
+        }
+        float f2 = (i4 - i2) - width;
+        float f3 = this.u0;
+        int i5 = (int) (f2 * f3);
+        this.s0 = i5;
+        int i6 = (int) (f2 * (1.0f - f3));
+        this.t0 = i6;
+        setOffset(0, i5, 0, i6);
     }
 
-    private void init() {
-        this.bLv = getResources().getColor(R.color.common_color_10226);
-        setDrawingCacheEnabled(true);
-        setImageMode(1);
-        CompatibleUtile.getInstance().noneViewGpu(this);
+    public void setCutImageHeightScale(float f2) {
+        this.w0 = f2;
+        invalidate();
     }
 
     @Override // com.baidu.tbadk.widget.DragImageView, android.widget.ImageView
@@ -58,47 +61,47 @@ public class EditHeadsImageView extends DragImageView {
         super.setImageBitmap(bitmap);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.widget.DragImageView, android.view.View
-    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
-        super.onLayout(z, i, i2, i3, i4);
-        float width = this.bLt * getWidth();
-        if (width > getHeight()) {
-            width = getHeight();
-        }
-        this.bLq = (int) (((i4 - i2) - width) * this.bLs);
-        this.bLr = (int) (((i4 - i2) - width) * (1.0f - this.bLs));
-        setOffset(0, this.bLq, 0, this.bLr);
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.widget.DragImageView, android.widget.ImageView, android.view.View
-    public void onDraw(Canvas canvas) {
-        canvas.save();
-        canvas.drawColor(this.bLv);
-        super.onDraw(canvas);
-        canvas.restore();
-    }
-
-    public Bitmap dg(boolean z) {
+    public Bitmap v0(boolean z) {
         Bitmap bitmap = null;
         try {
             Bitmap visableBitmap = getVisableBitmap();
             if (visableBitmap != null) {
-                Bitmap createBitmap = Bitmap.createBitmap(visableBitmap, 0, this.bLq, getWidth(), (getHeight() - this.bLr) - this.bLq);
-                bitmap = z ? Bitmap.createScaledBitmap(createBitmap, 960, 960, false) : createBitmap;
+                Bitmap createBitmap = Bitmap.createBitmap(visableBitmap, 0, this.s0, getWidth(), (getHeight() - this.t0) - this.s0);
+                bitmap = z ? Bitmap.createScaledBitmap(createBitmap, TbConfig.HEAD_IMG_SIZE, TbConfig.HEAD_IMG_SIZE, false) : createBitmap;
                 if (bitmap != createBitmap) {
                     createBitmap.recycle();
                 }
             }
-        } catch (Exception e) {
-            BdLog.e(e.toString());
+        } catch (Exception e2) {
+            BdLog.e(e2.toString());
         }
         return bitmap;
     }
 
-    public void setCutImageHeightScale(float f) {
-        this.bLt = f;
-        invalidate();
+    public final void w0() {
+        this.v0 = getResources().getColor(R.color.common_color_10226);
+        setDrawingCacheEnabled(true);
+        setImageMode(1);
+        CompatibleUtile.getInstance().noneViewGpu(this);
+    }
+
+    public EditHeadsImageView(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        this.s0 = 0;
+        this.t0 = 0;
+        this.u0 = 0.42857143f;
+        this.v0 = 0;
+        this.w0 = 1.0f;
+        w0();
+    }
+
+    public EditHeadsImageView(Context context) {
+        super(context);
+        this.s0 = 0;
+        this.t0 = 0;
+        this.u0 = 0.42857143f;
+        this.v0 = 0;
+        this.w0 = 1.0f;
+        w0();
     }
 }

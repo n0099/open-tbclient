@@ -6,7 +6,7 @@ import com.baidu.fsg.base.restnet.beans.IBeanResponse;
 import com.baidu.fsg.base.utils.JsonUtils;
 import java.io.Serializable;
 import org.json.JSONException;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public class UploadContrastPortraitModel implements IBeanResponse, Serializable {
     public String authsid;
     public String callbackkey;
@@ -18,7 +18,7 @@ public class UploadContrastPortraitModel implements IBeanResponse, Serializable 
     public String need_confirm;
     public int recordvideo;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes2.dex */
     public static class ConfirmBean implements NoProguard, Serializable {
         public String cancel_msg;
         public String confirm_msg;
@@ -27,41 +27,41 @@ public class UploadContrastPortraitModel implements IBeanResponse, Serializable 
         public String title_tips;
     }
 
-    public ConfirmBean getConfirmBean() {
-        try {
-            return (ConfirmBean) JsonUtils.fromJson(this.need_confirm, ConfirmBean.class);
-        } catch (JSONException e) {
-            e.printStackTrace();
-            return null;
-        }
-    }
-
     @Override // com.baidu.fsg.base.restnet.beans.IBeanResponse
     public boolean checkResponseValidity() {
         return true;
     }
 
-    @Override // com.baidu.fsg.base.restnet.beans.IBeanResponse
-    public void storeResponse(Context context) {
+    public ConfirmBean getConfirmBean() {
+        try {
+            return (ConfirmBean) JsonUtils.fromJson(this.need_confirm, ConfirmBean.class);
+        } catch (JSONException e2) {
+            e2.printStackTrace();
+            return null;
+        }
     }
 
     public boolean isContrastPass() {
         return 1 == this.contrastres;
     }
 
-    public boolean isGotoRecordvideo() {
-        return 1 == this.recordvideo;
+    public boolean isFinish() {
+        return this.finish == 1;
     }
 
     public boolean isGotoDXMRecordvideo() {
         return 1 == this.dxm_recordvideo;
     }
 
+    public boolean isGotoRecordvideo() {
+        return 1 == this.recordvideo;
+    }
+
     public boolean isProcessPass() {
         return 1 == this.finalres;
     }
 
-    public boolean isFinish() {
-        return this.finish == 1;
+    @Override // com.baidu.fsg.base.restnet.beans.IBeanResponse
+    public void storeResponse(Context context) {
     }
 }

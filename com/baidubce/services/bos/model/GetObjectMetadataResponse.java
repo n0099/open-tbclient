@@ -1,7 +1,7 @@
 package com.baidubce.services.bos.model;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class GetObjectMetadataResponse extends BosResponse {
-    private ObjectMetadata objectMetadata = new ObjectMetadata();
+    public ObjectMetadata objectMetadata = new ObjectMetadata();
 
     public ObjectMetadata getObjectMetadata() {
         return this.objectMetadata;

@@ -17,9 +17,75 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.TimeZone;
-/* loaded from: classes4.dex */
-public class DateCodec extends AbstractDateDeserializer implements ObjectDeserializer, ObjectSerializer {
+/* loaded from: classes.dex */
+public class DateCodec extends AbstractDateDeserializer implements ObjectSerializer, ObjectDeserializer {
     public static final DateCodec instance = new DateCodec();
+
+    /* JADX DEBUG: Multi-variable search result rejected for r7v0, resolved type: java.lang.Object */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r4v19, types: [java.util.Calendar, T] */
+    /* JADX WARN: Type inference failed for: r4v24, types: [java.util.Calendar, T] */
+    @Override // com.alibaba.fastjson.parser.deserializer.AbstractDateDeserializer
+    public <T> T cast(DefaultJSONParser defaultJSONParser, Type type, Object obj, Object obj2) {
+        if (obj2 == 0) {
+            return null;
+        }
+        if (obj2 instanceof Date) {
+            return obj2;
+        }
+        if (obj2 instanceof Number) {
+            return (T) new Date(((Number) obj2).longValue());
+        }
+        if (obj2 instanceof String) {
+            String str = (String) obj2;
+            if (str.length() == 0) {
+                return null;
+            }
+            JSONScanner jSONScanner = new JSONScanner(str);
+            try {
+                if (jSONScanner.scanISO8601DateIfMatch(false)) {
+                    ?? r4 = (T) jSONScanner.getCalendar();
+                    return type == Calendar.class ? r4 : (T) r4.getTime();
+                }
+                jSONScanner.close();
+                if (str.length() == defaultJSONParser.getDateFomartPattern().length() || (str.length() == 22 && defaultJSONParser.getDateFomartPattern().equals("yyyyMMddHHmmssSSSZ"))) {
+                    try {
+                        return (T) defaultJSONParser.getDateFormat().parse(str);
+                    } catch (ParseException unused) {
+                    }
+                }
+                if (str.startsWith("/Date(") && str.endsWith(")/")) {
+                    str = str.substring(6, str.length() - 2);
+                }
+                if ("0000-00-00".equals(str) || "0000-00-00T00:00:00".equalsIgnoreCase(str) || "0001-01-01T00:00:00+08:00".equalsIgnoreCase(str)) {
+                    return null;
+                }
+                int lastIndexOf = str.lastIndexOf(Constants.METHOD_IM_FRIEND_GROUP_QUERY_MEMBER);
+                if (lastIndexOf > 20) {
+                    TimeZone timeZone = TimeZone.getTimeZone(str.substring(lastIndexOf + 1));
+                    if (!"GMT".equals(timeZone.getID())) {
+                        JSONScanner jSONScanner2 = new JSONScanner(str.substring(0, lastIndexOf));
+                        try {
+                            if (jSONScanner2.scanISO8601DateIfMatch(false)) {
+                                ?? r42 = (T) jSONScanner2.getCalendar();
+                                r42.setTimeZone(timeZone);
+                                return type == Calendar.class ? r42 : (T) r42.getTime();
+                            }
+                        } finally {
+                        }
+                    }
+                }
+                return (T) new Date(Long.parseLong(str));
+            } finally {
+            }
+        }
+        throw new JSONException("parse error");
+    }
+
+    @Override // com.alibaba.fastjson.parser.deserializer.ObjectDeserializer
+    public int getFastMatchToken() {
+        return 2;
+    }
 
     @Override // com.alibaba.fastjson.serializer.ObjectSerializer
     public void write(JSONSerializer jSONSerializer, Object obj, Object obj2, Type type, int i) throws IOException {
@@ -53,7 +119,7 @@ public class DateCodec extends AbstractDateDeserializer implements ObjectDeseria
             serializeWriter.writeFieldName(JSON.DEFAULT_TYPE_KEY);
             jSONSerializer.write(obj.getClass().getName());
             serializeWriter.writeFieldValue(',', "val", ((Date) obj).getTime());
-            serializeWriter.write(Constants.METHOD_IM_FRIEND_GROUP_ASSIGN);
+            serializeWriter.write(125);
         } else {
             long time = castToDate.getTime();
             if (serializeWriter.isEnabled(SerializerFeature.UseISO8601DateFormat)) {
@@ -118,77 +184,5 @@ public class DateCodec extends AbstractDateDeserializer implements ObjectDeseria
             }
             serializeWriter.writeLong(time);
         }
-    }
-
-    /* JADX DEBUG: Multi-variable search result rejected for r9v0, resolved type: java.lang.Object */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r9v11, types: [java.util.Calendar, T] */
-    /* JADX WARN: Type inference failed for: r9v8, types: [java.util.Calendar, T] */
-    @Override // com.alibaba.fastjson.parser.deserializer.AbstractDateDeserializer
-    public <T> T cast(DefaultJSONParser defaultJSONParser, Type type, Object obj, Object obj2) {
-        if (obj2 == 0) {
-            return null;
-        }
-        if (!(obj2 instanceof Date)) {
-            if (obj2 instanceof Number) {
-                return (T) new Date(((Number) obj2).longValue());
-            }
-            if (obj2 instanceof String) {
-                String str = (String) obj2;
-                if (str.length() == 0) {
-                    return null;
-                }
-                JSONScanner jSONScanner = new JSONScanner(str);
-                try {
-                    if (jSONScanner.scanISO8601DateIfMatch(false)) {
-                        ?? r9 = (T) jSONScanner.getCalendar();
-                        if (type != Calendar.class) {
-                            return (T) r9.getTime();
-                        }
-                        return r9;
-                    }
-                    jSONScanner.close();
-                    if (str.length() == defaultJSONParser.getDateFomartPattern().length() || (str.length() == 22 && defaultJSONParser.getDateFomartPattern().equals("yyyyMMddHHmmssSSSZ"))) {
-                        try {
-                            return (T) defaultJSONParser.getDateFormat().parse(str);
-                        } catch (ParseException e) {
-                        }
-                    }
-                    if (str.startsWith("/Date(") && str.endsWith(")/")) {
-                        str = str.substring(6, str.length() - 2);
-                    }
-                    if ("0000-00-00".equals(str) || "0000-00-00T00:00:00".equalsIgnoreCase(str) || "0001-01-01T00:00:00+08:00".equalsIgnoreCase(str)) {
-                        return null;
-                    }
-                    int lastIndexOf = str.lastIndexOf(Constants.METHOD_IM_FRIEND_GROUP_QUERY_MEMBER);
-                    if (lastIndexOf > 20) {
-                        TimeZone timeZone = TimeZone.getTimeZone(str.substring(lastIndexOf + 1));
-                        if (!"GMT".equals(timeZone.getID())) {
-                            JSONScanner jSONScanner2 = new JSONScanner(str.substring(0, lastIndexOf));
-                            try {
-                                if (jSONScanner2.scanISO8601DateIfMatch(false)) {
-                                    ?? r92 = (T) jSONScanner2.getCalendar();
-                                    r92.setTimeZone(timeZone);
-                                    if (type != Calendar.class) {
-                                        return (T) r92.getTime();
-                                    }
-                                    return r92;
-                                }
-                            } finally {
-                            }
-                        }
-                    }
-                    return (T) new Date(Long.parseLong(str));
-                } finally {
-                }
-            }
-            throw new JSONException("parse error");
-        }
-        return obj2;
-    }
-
-    @Override // com.alibaba.fastjson.parser.deserializer.ObjectDeserializer
-    public int getFastMatchToken() {
-        return 2;
     }
 }

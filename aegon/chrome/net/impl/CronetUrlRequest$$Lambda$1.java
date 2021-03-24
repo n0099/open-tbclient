@@ -1,9 +1,9 @@
 package aegon.chrome.net.impl;
-/* loaded from: classes3.dex */
-final /* synthetic */ class CronetUrlRequest$$Lambda$1 implements SafeNativeFunctionCaller$Supplier {
-    private final CronetUrlRequest arg$1;
+/* loaded from: classes.dex */
+public final /* synthetic */ class CronetUrlRequest$$Lambda$1 implements SafeNativeFunctionCaller$Supplier {
+    public final CronetUrlRequest arg$1;
 
-    private CronetUrlRequest$$Lambda$1(CronetUrlRequest cronetUrlRequest) {
+    public CronetUrlRequest$$Lambda$1(CronetUrlRequest cronetUrlRequest) {
         this.arg$1 = cronetUrlRequest;
     }
 

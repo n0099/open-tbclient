@@ -2,18 +2,63 @@ package com.google.android.material.shape;
 
 import com.google.android.material.internal.Experimental;
 @Experimental("The shapes API is currently experimental and subject to change")
-/* loaded from: classes14.dex */
+/* loaded from: classes6.dex */
 public class ShapePathModel {
-    private static final CornerTreatment DEFAULT_CORNER_TREATMENT = new CornerTreatment();
-    private static final EdgeTreatment DEFAULT_EDGE_TREATMENT = new EdgeTreatment();
-    private CornerTreatment topLeftCorner = DEFAULT_CORNER_TREATMENT;
-    private CornerTreatment topRightCorner = DEFAULT_CORNER_TREATMENT;
-    private CornerTreatment bottomRightCorner = DEFAULT_CORNER_TREATMENT;
-    private CornerTreatment bottomLeftCorner = DEFAULT_CORNER_TREATMENT;
-    private EdgeTreatment topEdge = DEFAULT_EDGE_TREATMENT;
-    private EdgeTreatment rightEdge = DEFAULT_EDGE_TREATMENT;
-    private EdgeTreatment bottomEdge = DEFAULT_EDGE_TREATMENT;
-    private EdgeTreatment leftEdge = DEFAULT_EDGE_TREATMENT;
+    public static final CornerTreatment DEFAULT_CORNER_TREATMENT = new CornerTreatment();
+    public static final EdgeTreatment DEFAULT_EDGE_TREATMENT = new EdgeTreatment();
+    public EdgeTreatment bottomEdge;
+    public CornerTreatment bottomLeftCorner;
+    public CornerTreatment bottomRightCorner;
+    public EdgeTreatment leftEdge;
+    public EdgeTreatment rightEdge;
+    public EdgeTreatment topEdge;
+    public CornerTreatment topLeftCorner;
+    public CornerTreatment topRightCorner;
+
+    public ShapePathModel() {
+        CornerTreatment cornerTreatment = DEFAULT_CORNER_TREATMENT;
+        this.topLeftCorner = cornerTreatment;
+        this.topRightCorner = cornerTreatment;
+        this.bottomRightCorner = cornerTreatment;
+        this.bottomLeftCorner = cornerTreatment;
+        EdgeTreatment edgeTreatment = DEFAULT_EDGE_TREATMENT;
+        this.topEdge = edgeTreatment;
+        this.rightEdge = edgeTreatment;
+        this.bottomEdge = edgeTreatment;
+        this.leftEdge = edgeTreatment;
+    }
+
+    public EdgeTreatment getBottomEdge() {
+        return this.bottomEdge;
+    }
+
+    public CornerTreatment getBottomLeftCorner() {
+        return this.bottomLeftCorner;
+    }
+
+    public CornerTreatment getBottomRightCorner() {
+        return this.bottomRightCorner;
+    }
+
+    public EdgeTreatment getLeftEdge() {
+        return this.leftEdge;
+    }
+
+    public EdgeTreatment getRightEdge() {
+        return this.rightEdge;
+    }
+
+    public EdgeTreatment getTopEdge() {
+        return this.topEdge;
+    }
+
+    public CornerTreatment getTopLeftCorner() {
+        return this.topLeftCorner;
+    }
+
+    public CornerTreatment getTopRightCorner() {
+        return this.topRightCorner;
+    }
 
     public void setAllCorners(CornerTreatment cornerTreatment) {
         this.topLeftCorner = cornerTreatment;
@@ -27,6 +72,18 @@ public class ShapePathModel {
         this.topEdge = edgeTreatment;
         this.rightEdge = edgeTreatment;
         this.bottomEdge = edgeTreatment;
+    }
+
+    public void setBottomEdge(EdgeTreatment edgeTreatment) {
+        this.bottomEdge = edgeTreatment;
+    }
+
+    public void setBottomLeftCorner(CornerTreatment cornerTreatment) {
+        this.bottomLeftCorner = cornerTreatment;
+    }
+
+    public void setBottomRightCorner(CornerTreatment cornerTreatment) {
+        this.bottomRightCorner = cornerTreatment;
     }
 
     public void setCornerTreatments(CornerTreatment cornerTreatment, CornerTreatment cornerTreatment2, CornerTreatment cornerTreatment3, CornerTreatment cornerTreatment4) {
@@ -43,67 +100,23 @@ public class ShapePathModel {
         this.bottomEdge = edgeTreatment4;
     }
 
-    public CornerTreatment getTopLeftCorner() {
-        return this.topLeftCorner;
-    }
-
-    public void setTopLeftCorner(CornerTreatment cornerTreatment) {
-        this.topLeftCorner = cornerTreatment;
-    }
-
-    public CornerTreatment getTopRightCorner() {
-        return this.topRightCorner;
-    }
-
-    public void setTopRightCorner(CornerTreatment cornerTreatment) {
-        this.topRightCorner = cornerTreatment;
-    }
-
-    public CornerTreatment getBottomRightCorner() {
-        return this.bottomRightCorner;
-    }
-
-    public void setBottomRightCorner(CornerTreatment cornerTreatment) {
-        this.bottomRightCorner = cornerTreatment;
-    }
-
-    public CornerTreatment getBottomLeftCorner() {
-        return this.bottomLeftCorner;
-    }
-
-    public void setBottomLeftCorner(CornerTreatment cornerTreatment) {
-        this.bottomLeftCorner = cornerTreatment;
-    }
-
-    public EdgeTreatment getTopEdge() {
-        return this.topEdge;
-    }
-
-    public void setTopEdge(EdgeTreatment edgeTreatment) {
-        this.topEdge = edgeTreatment;
-    }
-
-    public EdgeTreatment getRightEdge() {
-        return this.rightEdge;
+    public void setLeftEdge(EdgeTreatment edgeTreatment) {
+        this.leftEdge = edgeTreatment;
     }
 
     public void setRightEdge(EdgeTreatment edgeTreatment) {
         this.rightEdge = edgeTreatment;
     }
 
-    public EdgeTreatment getBottomEdge() {
-        return this.bottomEdge;
+    public void setTopEdge(EdgeTreatment edgeTreatment) {
+        this.topEdge = edgeTreatment;
     }
 
-    public void setBottomEdge(EdgeTreatment edgeTreatment) {
-        this.bottomEdge = edgeTreatment;
+    public void setTopLeftCorner(CornerTreatment cornerTreatment) {
+        this.topLeftCorner = cornerTreatment;
     }
 
-    public EdgeTreatment getLeftEdge() {
-        return this.leftEdge;
-    }
-
-    public void setLeftEdge(EdgeTreatment edgeTreatment) {
-        this.leftEdge = edgeTreatment;
+    public void setTopRightCorner(CornerTreatment cornerTreatment) {
+        this.topRightCorner = cornerTreatment;
     }
 }

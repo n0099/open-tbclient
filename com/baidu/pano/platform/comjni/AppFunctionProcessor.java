@@ -6,46 +6,22 @@ import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.text.TextUtils;
+import com.baidu.down.retry.HttpRetryStatistic;
 import com.baidu.pano.platform.c.c;
 import com.baidu.pano.platform.c.d;
 import com.baidu.pano.platform.c.f;
 import com.baidu.pano.platform.c.g;
 import com.baidu.pano.platform.c.h;
 import com.baidu.pano.platform.c.i;
-import com.baidu.webkit.internal.ETAG;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class AppFunctionProcessor {
-    public static Object doGetSync(Object obj, String str) {
-        if (obj == null) {
-            return null;
-        }
-        g.a("url:" + str);
-        if (isPanoramaRequest(str)) {
-            str = str + ETAG.ITEM_SEPARATOR + f.a((Context) obj).toString();
-        }
-        g.a("finalUrl:" + str);
-        return c.a((Context) obj).a(str);
-    }
-
-    public static Object FileGet(String str) {
-        return null;
-    }
-
-    public static Object ImageFunction(byte[] bArr) {
-        Bitmap byte2Bitmap = byte2Bitmap(bArr);
-        if (byte2Bitmap != null) {
-            return byte2Bitmap;
-        }
-        return null;
-    }
-
-    public static Object DrawText(Object obj, String str, float f, int i, int i2, int i3) {
+    public static Object DrawText(Object obj, String str, float f2, int i, int i2, int i3) {
         int measureText;
         if (obj == null) {
             return null;
         }
         Context context = (Context) obj;
-        int a2 = h.a(f, context);
+        int a2 = h.a(f2, context);
         int a3 = h.a(d.a(i3), context);
         int a4 = h.a(d.b(i3), context);
         int a5 = h.a(d.c(i3), context);
@@ -67,8 +43,8 @@ public class AppFunctionProcessor {
             return createBitmap;
         }
         int i4 = indexOf + 1;
-        int i5 = 2;
         int measureText2 = (int) paint.measureText(str.substring(0, indexOf));
+        int i5 = 2;
         while (true) {
             int indexOf2 = str.indexOf(10, i4);
             if (indexOf2 <= 0) {
@@ -98,50 +74,78 @@ public class AppFunctionProcessor {
                 break;
             }
             String substring = str.substring(i7, indexOf3);
-            int measureText4 = ((int) paint.measureText(substring)) + a3 + a5;
-            i7 = indexOf3 + 1;
             paint.setStyle(Paint.Style.FILL);
             paint.setColor(i);
-            canvas.drawText(substring, ((i6 - measureText4) / 2) + a3, ((i8 * ceil) - fontMetrics2.ascent) + a4, paint);
+            canvas.drawText(substring, ((i6 - ((((int) paint.measureText(substring)) + a3) + a5)) / 2) + a3, ((i8 * ceil) - fontMetrics2.ascent) + a4, paint);
             i8++;
+            createBitmap2 = createBitmap2;
+            i7 = indexOf3 + 1;
         }
+        Bitmap bitmap = createBitmap2;
         if (i7 != str.length()) {
             String substring2 = str.substring(i7, str.length());
-            int measureText5 = a5 + ((int) paint.measureText(substring2)) + a3;
             paint.setStyle(Paint.Style.FILL);
             paint.setColor(i);
-            canvas.drawText(substring2, a3 + ((i6 - measureText5) / 2), ((i8 * ceil) - fontMetrics2.ascent) + a4, paint);
-        }
-        return createBitmap2;
-    }
-
-    private static Bitmap byte2Bitmap(byte[] bArr) {
-        Bitmap bitmap = null;
-        BitmapFactory.Options options = new BitmapFactory.Options();
-        options.inSampleSize = 1;
-        options.inPreferredConfig = Bitmap.Config.ARGB_8888;
-        for (int i = 1; i <= 4; i++) {
-            try {
-                bitmap = BitmapFactory.decodeByteArray(bArr, 0, bArr.length, options);
-            } catch (OutOfMemoryError e) {
-                switch (i) {
-                    case 1:
-                    case 2:
-                    case 3:
-                        options.inSampleSize++;
-                        System.gc();
-                        break;
-                }
-            }
-            return bitmap;
+            canvas.drawText(substring2, ((i6 - ((((int) paint.measureText(substring2)) + a3) + a5)) / 2) + a3, ((i8 * ceil) - fontMetrics2.ascent) + a4, paint);
         }
         return bitmap;
     }
 
-    private static boolean isPanoramaRequest(String str) {
+    public static Object FileGet(String str) {
+        return null;
+    }
+
+    public static Object ImageFunction(byte[] bArr) {
+        Bitmap byte2Bitmap = byte2Bitmap(bArr);
+        if (byte2Bitmap != null) {
+            return byte2Bitmap;
+        }
+        return null;
+    }
+
+    public static Bitmap byte2Bitmap(byte[] bArr) {
+        Bitmap bitmap;
+        BitmapFactory.Options options = new BitmapFactory.Options();
+        options.inSampleSize = 1;
+        options.inPreferredConfig = Bitmap.Config.ARGB_8888;
+        int i = 1;
+        while (true) {
+            bitmap = null;
+            if (i > 4) {
+                break;
+            }
+            try {
+                bitmap = BitmapFactory.decodeByteArray(bArr, 0, bArr.length, options);
+                break;
+            } catch (OutOfMemoryError unused) {
+                if (i == 1 || i == 2 || i == 3) {
+                    options.inSampleSize++;
+                    System.gc();
+                } else if (i == 4) {
+                    return null;
+                }
+                i++;
+            }
+        }
+        return bitmap;
+    }
+
+    public static Object doGetSync(Object obj, String str) {
+        if (obj == null) {
+            return null;
+        }
+        g.a(HttpRetryStatistic.RETRY_URL + str);
+        if (isPanoramaRequest(str)) {
+            str = str + "&" + f.a((Context) obj).toString();
+        }
+        g.a("finalUrl:" + str);
+        return c.a((Context) obj).a(str);
+    }
+
+    public static boolean isPanoramaRequest(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        return str.contains(i.b) || str.contains(i.f2727a) || str.contains(i.f) || str.contains(i.e) || str.contains(i.d) || str.contains(i.c);
+        return str.contains(i.f9458b) || str.contains(i.f9457a) || str.contains(i.f9462f) || str.contains(i.f9461e) || str.contains(i.f9460d) || str.contains(i.f9459c);
     }
 }

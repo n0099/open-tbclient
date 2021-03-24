@@ -9,45 +9,51 @@ import java.util.List;
 import java.util.Locale;
 import java.util.TimeZone;
 import java.util.regex.Pattern;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class m {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final byte[] f7354a = new byte[0];
-    public static final String[] b = new String[0];
-    public static final Charset c = Charset.forName("UTF-8");
-    public static final TimeZone d = TimeZone.getTimeZone("GMT");
-    private static final Pattern e = Pattern.compile("([0-9a-fA-F]*:[0-9a-fA-F:.]*)|([\\d.]+)");
+    public static final byte[] f37564a = new byte[0];
+
+    /* renamed from: b  reason: collision with root package name */
+    public static final String[] f37565b = new String[0];
+
+    /* renamed from: c  reason: collision with root package name */
+    public static final Charset f37566c = Charset.forName("UTF-8");
+
+    /* renamed from: d  reason: collision with root package name */
+    public static final TimeZone f37567d = TimeZone.getTimeZone("GMT");
+
+    /* renamed from: e  reason: collision with root package name */
+    public static final Pattern f37568e = Pattern.compile("([0-9a-fA-F]*:[0-9a-fA-F:.]*)|([\\d.]+)");
 
     public static int a(String str, int i, int i2) {
-        for (int i3 = i; i3 < i2; i3++) {
-            switch (str.charAt(i3)) {
-                case '\t':
-                case '\n':
-                case '\f':
-                case '\r':
-                case ' ':
-                default:
-                    return i3;
+        while (i < i2) {
+            char charAt = str.charAt(i);
+            if (charAt != '\t' && charAt != '\n' && charAt != '\f' && charAt != '\r' && charAt != ' ') {
+                return i;
             }
+            i++;
         }
         return i2;
     }
 
     public static int a(String str, int i, int i2, char c2) {
-        for (int i3 = i; i3 < i2; i3++) {
-            if (str.charAt(i3) == c2) {
-                return i3;
+        while (i < i2) {
+            if (str.charAt(i) == c2) {
+                return i;
             }
+            i++;
         }
         return i2;
     }
 
     public static int a(String str, int i, int i2, String str2) {
-        for (int i3 = i; i3 < i2; i3++) {
-            if (str2.indexOf(str.charAt(i3)) != -1) {
-                return i3;
+        while (i < i2) {
+            if (str2.indexOf(str.charAt(i)) != -1) {
+                return i;
             }
+            i++;
         }
         return i2;
     }
@@ -62,7 +68,7 @@ public class m {
                 return null;
             }
             return lowerCase;
-        } catch (IllegalArgumentException e2) {
+        } catch (IllegalArgumentException unused) {
             return null;
         }
     }
@@ -83,33 +89,25 @@ public class m {
                 closeable.close();
             } catch (RuntimeException e2) {
                 throw e2;
-            } catch (Exception e3) {
+            } catch (Exception unused) {
             }
         }
     }
 
     public static int b(String str, int i, int i2) {
         for (int i3 = i2 - 1; i3 >= i; i3--) {
-            switch (str.charAt(i3)) {
-                case '\t':
-                case '\n':
-                case '\f':
-                case '\r':
-                case ' ':
-                default:
-                    return i3 + 1;
+            char charAt = str.charAt(i3);
+            if (charAt != '\t' && charAt != '\n' && charAt != '\f' && charAt != '\r' && charAt != ' ') {
+                return i3 + 1;
             }
         }
         return i;
     }
 
-    private static boolean b(String str) {
+    public static boolean b(String str) {
         for (int i = 0; i < str.length(); i++) {
             char charAt = str.charAt(i);
-            if (charAt <= 31 || charAt >= 127) {
-                return true;
-            }
-            if (" #%/:?@[\\]".indexOf(charAt) != -1) {
+            if (charAt <= 31 || charAt >= 127 || " #%/:?@[\\]".indexOf(charAt) != -1) {
                 return true;
             }
         }

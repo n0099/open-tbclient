@@ -2,8 +2,9 @@ package com.baidu.mapapi.search.core;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.mapapi.model.LatLng;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class PoiInfo implements Parcelable {
     public static final Parcelable.Creator<PoiInfo> CREATOR = new g();
     public String address;
@@ -25,7 +26,7 @@ public class PoiInfo implements Parcelable {
     public POITYPE type;
     public String uid;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public enum POITYPE {
         POINT(0),
         BUS_STATION(1),
@@ -35,35 +36,37 @@ public class PoiInfo implements Parcelable {
         
 
         /* renamed from: a  reason: collision with root package name */
-        private int f2098a;
+        public int f7147a;
 
         POITYPE(int i) {
-            this.f2098a = i;
+            this.f7147a = i;
         }
 
         public static POITYPE fromInt(int i) {
-            switch (i) {
-                case 0:
-                    return POINT;
-                case 1:
-                    return BUS_STATION;
-                case 2:
+            if (i != 0) {
+                if (i != 1) {
+                    if (i != 2) {
+                        if (i != 3) {
+                            if (i != 4) {
+                                return null;
+                            }
+                            return SUBWAY_LINE;
+                        }
+                        return SUBWAY_STATION;
+                    }
                     return BUS_LINE;
-                case 3:
-                    return SUBWAY_STATION;
-                case 4:
-                    return SUBWAY_LINE;
-                default:
-                    return null;
+                }
+                return BUS_STATION;
             }
+            return POINT;
         }
 
         public int getInt() {
-            return this.f2098a;
+            return this.f7147a;
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class ParentPoiInfo implements Parcelable {
         public static final Parcelable.Creator<ParentPoiInfo> CREATOR = new h();
         public String parentPoiAddress;
@@ -77,7 +80,6 @@ public class PoiInfo implements Parcelable {
         public ParentPoiInfo() {
         }
 
-        /* JADX INFO: Access modifiers changed from: protected */
         public ParentPoiInfo(Parcel parcel) {
             this.parentPoiName = parcel.readString();
             this.parentPoiTag = parcel.readString();
@@ -164,7 +166,6 @@ public class PoiInfo implements Parcelable {
     public PoiInfo() {
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     public PoiInfo(Parcel parcel) {
         this.name = parcel.readString();
         this.uid = parcel.readString();
@@ -337,40 +338,63 @@ public class PoiInfo implements Parcelable {
 
     public String toString() {
         StringBuffer stringBuffer = new StringBuffer("PoiInfo: ");
-        stringBuffer.append("name = ").append(this.name);
-        stringBuffer.append("; uid = ").append(this.uid);
-        stringBuffer.append("; address = ").append(this.address);
-        stringBuffer.append("; province = ").append(this.province);
-        stringBuffer.append("; city = ").append(this.city);
-        stringBuffer.append("; area = ").append(this.area);
-        stringBuffer.append("; street_id = ").append(this.street_id);
-        stringBuffer.append("; phoneNum = ").append(this.phoneNum);
-        stringBuffer.append("; postCode = ").append(this.postCode);
-        stringBuffer.append("; detail = ").append(this.detail);
+        stringBuffer.append("name = ");
+        stringBuffer.append(this.name);
+        stringBuffer.append("; uid = ");
+        stringBuffer.append(this.uid);
+        stringBuffer.append("; address = ");
+        stringBuffer.append(this.address);
+        stringBuffer.append("; province = ");
+        stringBuffer.append(this.province);
+        stringBuffer.append("; city = ");
+        stringBuffer.append(this.city);
+        stringBuffer.append("; area = ");
+        stringBuffer.append(this.area);
+        stringBuffer.append("; street_id = ");
+        stringBuffer.append(this.street_id);
+        stringBuffer.append("; phoneNum = ");
+        stringBuffer.append(this.phoneNum);
+        stringBuffer.append("; postCode = ");
+        stringBuffer.append(this.postCode);
+        stringBuffer.append("; detail = ");
+        stringBuffer.append(this.detail);
         stringBuffer.append("; location = ");
-        if (this.location != null) {
-            stringBuffer.append(this.location.toString());
+        LatLng latLng = this.location;
+        if (latLng != null) {
+            stringBuffer.append(latLng.toString());
         } else {
-            stringBuffer.append("null");
+            stringBuffer.append(StringUtil.NULL_STRING);
         }
-        stringBuffer.append("; hasCaterDetails = ").append(this.hasCaterDetails);
-        stringBuffer.append("; isPano = ").append(this.isPano);
+        stringBuffer.append("; hasCaterDetails = ");
+        stringBuffer.append(this.hasCaterDetails);
+        stringBuffer.append("; isPano = ");
+        stringBuffer.append(this.isPano);
         stringBuffer.append("; poiDetailInfo = ");
-        if (this.poiDetailInfo != null) {
-            stringBuffer.append(this.poiDetailInfo.toString());
+        PoiDetailInfo poiDetailInfo = this.poiDetailInfo;
+        if (poiDetailInfo != null) {
+            stringBuffer.append(poiDetailInfo.toString());
         } else {
-            stringBuffer.append("null");
+            stringBuffer.append(StringUtil.NULL_STRING);
         }
-        stringBuffer.append("; direction = ").append(this.direction);
-        stringBuffer.append("; distance = ").append(this.distance);
+        stringBuffer.append("; direction = ");
+        stringBuffer.append(this.direction);
+        stringBuffer.append("; distance = ");
+        stringBuffer.append(this.distance);
         if (this.parentPoiInfo != null) {
-            stringBuffer.append("; parentPoiAddress = ").append(this.parentPoiInfo.getParentPoiAddress());
-            stringBuffer.append("; parentPoiDirection = ").append(this.parentPoiInfo.getParentPoiDirection());
-            stringBuffer.append("; parentPoiDistance = ").append(this.parentPoiInfo.getParentPoiDistance());
-            stringBuffer.append("; parentPoiName = ").append(this.parentPoiInfo.getParentPoiName());
-            stringBuffer.append("; parentPoiTag = ").append(this.parentPoiInfo.getParentPoiTag());
-            stringBuffer.append("; parentPoiUid = ").append(this.parentPoiInfo.getParentPoiUid());
-            stringBuffer.append("; parentPoiLocation = ").append(this.parentPoiInfo.getParentPoiLocation());
+            stringBuffer.append("; parentPoiAddress = ");
+            stringBuffer.append(this.parentPoiInfo.getParentPoiAddress());
+            stringBuffer.append("; parentPoiDirection = ");
+            stringBuffer.append(this.parentPoiInfo.getParentPoiDirection());
+            stringBuffer.append("; parentPoiDistance = ");
+            stringBuffer.append(this.parentPoiInfo.getParentPoiDistance());
+            stringBuffer.append("; parentPoiName = ");
+            stringBuffer.append(this.parentPoiInfo.getParentPoiName());
+            stringBuffer.append("; parentPoiTag = ");
+            stringBuffer.append(this.parentPoiInfo.getParentPoiTag());
+            stringBuffer.append("; parentPoiUid = ");
+            stringBuffer.append(this.parentPoiInfo.getParentPoiUid());
+            stringBuffer.append("; parentPoiLocation = ");
+            stringBuffer.append(this.parentPoiInfo.getParentPoiLocation());
         }
         return stringBuffer.toString();
     }

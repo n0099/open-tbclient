@@ -2,9 +2,10 @@ package com.baidu.tbadk.util;
 
 import androidx.annotation.Keep;
 import com.google.gson.Gson;
+import d.b.h0.z0.d;
 import java.util.HashMap;
 @Keep
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class AdExtParam {
     public static final String KEY_AD_CONTEXT_LIST = "ad_context_list";
     public static final String KEY_FLOOR_INFO = "floor_info";
@@ -14,56 +15,56 @@ public class AdExtParam {
     public static final String KEY_SHOUBAI_CUID = "shoubai_cuid";
     public static final String KEY_THREAD_COUNT = "pre_ad_thread_count";
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes3.dex */
     public static class a {
-        private HashMap fNP;
 
-        private a() {
-        }
+        /* renamed from: a  reason: collision with root package name */
+        public HashMap f14029a;
 
-        public static a bEY() {
+        public static a b() {
             a aVar = new a();
-            aVar.fNP = new HashMap();
-            aVar.fNP.put(AdExtParam.KEY_IADEX, d.bFf());
+            HashMap hashMap = new HashMap();
+            aVar.f14029a = hashMap;
+            hashMap.put(AdExtParam.KEY_IADEX, d.e());
             return aVar;
         }
 
-        public a rD(int i) {
-            this.fNP.put(AdExtParam.KEY_REQUEST_TYPE, Integer.valueOf(i));
-            return this;
-        }
-
-        public a rE(int i) {
-            this.fNP.put(AdExtParam.KEY_THREAD_COUNT, Integer.valueOf(i));
-            return this;
-        }
-
-        public a DL(String str) {
-            this.fNP.put(AdExtParam.KEY_SHOUBAI_CUID, str);
-            return this;
-        }
-
-        public a DM(String str) {
-            this.fNP.put(AdExtParam.KEY_AD_CONTEXT_LIST, str);
-            return this;
-        }
-
-        public a DN(String str) {
-            this.fNP.put("forum_name", str);
-            return this;
-        }
-
-        public a DO(String str) {
-            this.fNP.put(AdExtParam.KEY_FLOOR_INFO, str);
-            return this;
-        }
-
-        public String bEZ() {
+        public String a() {
             try {
-                return new Gson().toJson(this.fNP);
-            } catch (Exception e) {
+                return new Gson().toJson(this.f14029a);
+            } catch (Exception unused) {
                 return "";
             }
+        }
+
+        public a c(String str) {
+            this.f14029a.put(AdExtParam.KEY_AD_CONTEXT_LIST, str);
+            return this;
+        }
+
+        public a d(String str) {
+            this.f14029a.put(AdExtParam.KEY_SHOUBAI_CUID, str);
+            return this;
+        }
+
+        public a e(String str) {
+            this.f14029a.put(AdExtParam.KEY_FLOOR_INFO, str);
+            return this;
+        }
+
+        public a f(String str) {
+            this.f14029a.put("forum_name", str);
+            return this;
+        }
+
+        public a g(int i) {
+            this.f14029a.put(AdExtParam.KEY_THREAD_COUNT, Integer.valueOf(i));
+            return this;
+        }
+
+        public a h(int i) {
+            this.f14029a.put(AdExtParam.KEY_REQUEST_TYPE, Integer.valueOf(i));
+            return this;
         }
     }
 }

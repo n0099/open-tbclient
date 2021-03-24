@@ -8,38 +8,43 @@ import android.view.WindowManager;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class u {
 
     /* renamed from: a  reason: collision with root package name */
-    private static Method f7153a;
-    private static Method b;
-    private static Field c;
-    private static int d;
+    public static Method f36793a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public static Method f36794b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public static Field f36795c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public static int f36796d;
 
     static {
-        d = 0;
         try {
-            f7153a = Activity.class.getMethod("setStatusBarDarkIcon", Integer.TYPE);
-        } catch (NoSuchMethodException e) {
-            e.printStackTrace();
-        }
-        try {
-            b = Activity.class.getMethod("setStatusBarDarkIcon", Boolean.TYPE);
+            f36793a = Activity.class.getMethod("setStatusBarDarkIcon", Integer.TYPE);
         } catch (NoSuchMethodException e2) {
             e2.printStackTrace();
         }
         try {
-            c = WindowManager.LayoutParams.class.getField("statusBarColor");
-        } catch (NoSuchFieldException e3) {
+            f36794b = Activity.class.getMethod("setStatusBarDarkIcon", Boolean.TYPE);
+        } catch (NoSuchMethodException e3) {
             e3.printStackTrace();
         }
         try {
-            d = View.class.getField("SYSTEM_UI_FLAG_LIGHT_STATUS_BAR").getInt(null);
-        } catch (IllegalAccessException e4) {
+            f36795c = WindowManager.LayoutParams.class.getField("statusBarColor");
+        } catch (NoSuchFieldException e4) {
             e4.printStackTrace();
-        } catch (NoSuchFieldException e5) {
+        }
+        try {
+            f36796d = View.class.getField("SYSTEM_UI_FLAG_LIGHT_STATUS_BAR").getInt(null);
+        } catch (IllegalAccessException e5) {
             e5.printStackTrace();
+        } catch (NoSuchFieldException e6) {
+            e6.printStackTrace();
         }
     }
 
@@ -47,8 +52,9 @@ public class u {
         a(activity, z, true);
     }
 
-    private static void a(Activity activity, boolean z, boolean z2) {
-        if (b == null) {
+    public static void a(Activity activity, boolean z, boolean z2) {
+        Method method = f36794b;
+        if (method == null) {
             if (z2) {
                 a(activity.getWindow(), z);
                 return;
@@ -56,32 +62,33 @@ public class u {
             return;
         }
         try {
-            b.invoke(activity, Boolean.valueOf(z));
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        } catch (InvocationTargetException e2) {
+            method.invoke(activity, Boolean.valueOf(z));
+        } catch (IllegalAccessException e2) {
             e2.printStackTrace();
+        } catch (InvocationTargetException e3) {
+            e3.printStackTrace();
         }
     }
 
-    private static void a(View view, boolean z) {
+    public static void a(View view, boolean z) {
         int systemUiVisibility = view.getSystemUiVisibility();
-        int i = z ? d | systemUiVisibility : (d ^ (-1)) & systemUiVisibility;
+        int i = z ? f36796d | systemUiVisibility : (f36796d ^ (-1)) & systemUiVisibility;
         if (i != systemUiVisibility) {
             view.setSystemUiVisibility(i);
         }
     }
 
-    private static void a(Window window, int i) {
+    public static void a(Window window, int i) {
         WindowManager.LayoutParams attributes = window.getAttributes();
-        if (c != null) {
+        Field field = f36795c;
+        if (field != null) {
             try {
-                if (c.getInt(attributes) != i) {
-                    c.set(attributes, Integer.valueOf(i));
+                if (field.getInt(attributes) != i) {
+                    f36795c.set(attributes, Integer.valueOf(i));
                     window.setAttributes(attributes);
                 }
-            } catch (IllegalAccessException e) {
-                e.printStackTrace();
+            } catch (IllegalAccessException e2) {
+                e2.printStackTrace();
             }
         }
     }
@@ -98,7 +105,7 @@ public class u {
         }
     }
 
-    private static boolean a(WindowManager.LayoutParams layoutParams, String str, boolean z) {
+    public static boolean a(WindowManager.LayoutParams layoutParams, String str, boolean z) {
         try {
             Field declaredField = layoutParams.getClass().getDeclaredField(str);
             declaredField.setAccessible(true);
@@ -111,15 +118,19 @@ public class u {
                 declaredField2.setInt(layoutParams, i3);
                 return true;
             }
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        } catch (IllegalArgumentException e2) {
+            return false;
+        } catch (IllegalAccessException e2) {
             e2.printStackTrace();
-        } catch (NoSuchFieldException e3) {
+            return false;
+        } catch (IllegalArgumentException e3) {
             e3.printStackTrace();
+            return false;
+        } catch (NoSuchFieldException e4) {
+            e4.printStackTrace();
+            return false;
         } catch (Throwable th) {
             th.printStackTrace();
+            return false;
         }
-        return false;
     }
 }

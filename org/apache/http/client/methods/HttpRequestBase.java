@@ -8,21 +8,25 @@ import org.apache.http.conn.ClientConnectionRequest;
 import org.apache.http.conn.ConnectionReleaseTrigger;
 import org.apache.http.message.AbstractHttpMessage;
 @Deprecated
-/* loaded from: classes5.dex */
-public abstract class HttpRequestBase extends AbstractHttpMessage implements AbortableHttpRequest, HttpUriRequest {
-    public abstract String getMethod();
-
+/* loaded from: classes7.dex */
+public abstract class HttpRequestBase extends AbstractHttpMessage implements HttpUriRequest, AbortableHttpRequest {
     public HttpRequestBase() {
         throw new RuntimeException("Stub!");
     }
 
-    @Override // org.apache.http.HttpMessage
-    public ProtocolVersion getProtocolVersion() {
+    @Override // org.apache.http.client.methods.HttpUriRequest, org.apache.http.client.methods.AbortableHttpRequest
+    public void abort() {
         throw new RuntimeException("Stub!");
     }
 
-    @Override // org.apache.http.client.methods.HttpUriRequest
-    public URI getURI() {
+    public Object clone() throws CloneNotSupportedException {
+        throw new RuntimeException("Stub!");
+    }
+
+    public abstract String getMethod();
+
+    @Override // org.apache.http.HttpMessage
+    public ProtocolVersion getProtocolVersion() {
         throw new RuntimeException("Stub!");
     }
 
@@ -31,7 +35,13 @@ public abstract class HttpRequestBase extends AbstractHttpMessage implements Abo
         throw new RuntimeException("Stub!");
     }
 
-    public void setURI(URI uri) {
+    @Override // org.apache.http.client.methods.HttpUriRequest
+    public URI getURI() {
+        throw new RuntimeException("Stub!");
+    }
+
+    @Override // org.apache.http.client.methods.HttpUriRequest
+    public boolean isAborted() {
         throw new RuntimeException("Stub!");
     }
 
@@ -45,17 +55,7 @@ public abstract class HttpRequestBase extends AbstractHttpMessage implements Abo
         throw new RuntimeException("Stub!");
     }
 
-    @Override // org.apache.http.client.methods.AbortableHttpRequest, org.apache.http.client.methods.HttpUriRequest
-    public void abort() {
-        throw new RuntimeException("Stub!");
-    }
-
-    @Override // org.apache.http.client.methods.HttpUriRequest
-    public boolean isAborted() {
-        throw new RuntimeException("Stub!");
-    }
-
-    public Object clone() throws CloneNotSupportedException {
+    public void setURI(URI uri) {
         throw new RuntimeException("Stub!");
     }
 }

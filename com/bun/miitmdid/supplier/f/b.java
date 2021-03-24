@@ -4,14 +4,14 @@ import android.content.Context;
 import com.bun.miitmdid.supplier.InnerIdSupplier;
 import com.bun.miitmdid.utils.SupplierListener;
 import com.bun.miitmdid.utils.sysParamters;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class b implements InnerIdSupplier {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f3881a;
+    public Context f27114a;
 
     public b(Context context) {
-        this.f3881a = context;
+        this.f27114a = context;
     }
 
     @Override // com.bun.miitmdid.supplier.InnerIdSupplier
@@ -23,8 +23,8 @@ public class b implements InnerIdSupplier {
                     if (supplierListener != null) {
                         supplierListener.OnSupport(b.this.isSupported(), b.this);
                     }
-                } catch (Exception e) {
-                    com.bun.miitmdid.utils.a.a("buniasuplier", "exception", e);
+                } catch (Exception e2) {
+                    com.bun.miitmdid.utils.a.a("buniasuplier", "exception", e2);
                 }
             }
         }).start();
@@ -38,8 +38,8 @@ public class b implements InnerIdSupplier {
     @Override // com.bun.miitmdid.supplier.IdSupplier
     public String getAAID() {
         try {
-            return a.a(this.f3881a, sysParamters.g());
-        } catch (Exception e) {
+            return a.a(this.f27114a, sysParamters.g());
+        } catch (Exception unused) {
             return "";
         }
     }
@@ -47,8 +47,8 @@ public class b implements InnerIdSupplier {
     @Override // com.bun.miitmdid.supplier.IdSupplier
     public String getOAID() {
         try {
-            return a.b(this.f3881a);
-        } catch (Exception e) {
+            return a.b(this.f27114a);
+        } catch (Exception unused) {
             return "";
         }
     }
@@ -61,8 +61,8 @@ public class b implements InnerIdSupplier {
     @Override // com.bun.miitmdid.supplier.IdSupplier
     public String getVAID() {
         try {
-            return a.b(this.f3881a, sysParamters.g());
-        } catch (Exception e) {
+            return a.b(this.f27114a, sysParamters.g());
+        } catch (Exception unused) {
             return "";
         }
     }
@@ -70,8 +70,8 @@ public class b implements InnerIdSupplier {
     @Override // com.bun.miitmdid.supplier.IdSupplier
     public boolean isSupported() {
         try {
-            return a.a(this.f3881a);
-        } catch (Exception e) {
+            return a.a(this.f27114a);
+        } catch (Exception unused) {
             return false;
         }
     }

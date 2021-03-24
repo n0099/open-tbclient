@@ -5,14 +5,82 @@ import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcel;
 import android.os.RemoteException;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public interface ICommonPermissionListener extends IInterface {
-    void onDenied(String str) throws RemoteException;
 
-    void onGranted() throws RemoteException;
+    /* loaded from: classes5.dex */
+    public static class Default implements ICommonPermissionListener {
+        @Override // android.os.IInterface
+        public IBinder asBinder() {
+            return null;
+        }
 
-    /* loaded from: classes6.dex */
+        @Override // com.bytedance.sdk.openadsdk.ICommonPermissionListener
+        public void onDenied(String str) throws RemoteException {
+        }
+
+        @Override // com.bytedance.sdk.openadsdk.ICommonPermissionListener
+        public void onGranted() throws RemoteException {
+        }
+    }
+
+    /* loaded from: classes5.dex */
     public static abstract class Stub extends Binder implements ICommonPermissionListener {
+
+        /* loaded from: classes5.dex */
+        public static class a implements ICommonPermissionListener {
+
+            /* renamed from: a  reason: collision with root package name */
+            public static ICommonPermissionListener f27269a;
+
+            /* renamed from: b  reason: collision with root package name */
+            public IBinder f27270b;
+
+            public a(IBinder iBinder) {
+                this.f27270b = iBinder;
+            }
+
+            @Override // android.os.IInterface
+            public IBinder asBinder() {
+                return this.f27270b;
+            }
+
+            @Override // com.bytedance.sdk.openadsdk.ICommonPermissionListener
+            public void onDenied(String str) throws RemoteException {
+                Parcel obtain = Parcel.obtain();
+                Parcel obtain2 = Parcel.obtain();
+                try {
+                    obtain.writeInterfaceToken("com.bytedance.sdk.openadsdk.ICommonPermissionListener");
+                    obtain.writeString(str);
+                    if (!this.f27270b.transact(2, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
+                        Stub.getDefaultImpl().onDenied(str);
+                    } else {
+                        obtain2.readException();
+                    }
+                } finally {
+                    obtain2.recycle();
+                    obtain.recycle();
+                }
+            }
+
+            @Override // com.bytedance.sdk.openadsdk.ICommonPermissionListener
+            public void onGranted() throws RemoteException {
+                Parcel obtain = Parcel.obtain();
+                Parcel obtain2 = Parcel.obtain();
+                try {
+                    obtain.writeInterfaceToken("com.bytedance.sdk.openadsdk.ICommonPermissionListener");
+                    if (!this.f27270b.transact(1, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
+                        Stub.getDefaultImpl().onGranted();
+                    } else {
+                        obtain2.readException();
+                    }
+                } finally {
+                    obtain2.recycle();
+                    obtain.recycle();
+                }
+            }
+        }
+
         public Stub() {
             attachInterface(this, "com.bytedance.sdk.openadsdk.ICommonPermissionListener");
         }
@@ -28,6 +96,18 @@ public interface ICommonPermissionListener extends IInterface {
             return new a(iBinder);
         }
 
+        public static ICommonPermissionListener getDefaultImpl() {
+            return a.f27269a;
+        }
+
+        public static boolean setDefaultImpl(ICommonPermissionListener iCommonPermissionListener) {
+            if (a.f27269a != null || iCommonPermissionListener == null) {
+                return false;
+            }
+            a.f27269a = iCommonPermissionListener;
+            return true;
+        }
+
         @Override // android.os.IInterface
         public IBinder asBinder() {
             return this;
@@ -35,68 +115,27 @@ public interface ICommonPermissionListener extends IInterface {
 
         @Override // android.os.Binder
         public boolean onTransact(int i, Parcel parcel, Parcel parcel2, int i2) throws RemoteException {
-            switch (i) {
-                case 1:
-                    parcel.enforceInterface("com.bytedance.sdk.openadsdk.ICommonPermissionListener");
-                    onGranted();
-                    parcel2.writeNoException();
-                    return true;
-                case 2:
-                    parcel.enforceInterface("com.bytedance.sdk.openadsdk.ICommonPermissionListener");
-                    onDenied(parcel.readString());
-                    parcel2.writeNoException();
-                    return true;
-                case 1598968902:
-                    parcel2.writeString("com.bytedance.sdk.openadsdk.ICommonPermissionListener");
-                    return true;
-                default:
+            if (i == 1) {
+                parcel.enforceInterface("com.bytedance.sdk.openadsdk.ICommonPermissionListener");
+                onGranted();
+                parcel2.writeNoException();
+                return true;
+            } else if (i != 2) {
+                if (i != 1598968902) {
                     return super.onTransact(i, parcel, parcel2, i2);
-            }
-        }
-
-        /* loaded from: classes6.dex */
-        private static class a implements ICommonPermissionListener {
-
-            /* renamed from: a  reason: collision with root package name */
-            private IBinder f4066a;
-
-            a(IBinder iBinder) {
-                this.f4066a = iBinder;
-            }
-
-            @Override // android.os.IInterface
-            public IBinder asBinder() {
-                return this.f4066a;
-            }
-
-            @Override // com.bytedance.sdk.openadsdk.ICommonPermissionListener
-            public void onGranted() throws RemoteException {
-                Parcel obtain = Parcel.obtain();
-                Parcel obtain2 = Parcel.obtain();
-                try {
-                    obtain.writeInterfaceToken("com.bytedance.sdk.openadsdk.ICommonPermissionListener");
-                    this.f4066a.transact(1, obtain, obtain2, 0);
-                    obtain2.readException();
-                } finally {
-                    obtain2.recycle();
-                    obtain.recycle();
                 }
-            }
-
-            @Override // com.bytedance.sdk.openadsdk.ICommonPermissionListener
-            public void onDenied(String str) throws RemoteException {
-                Parcel obtain = Parcel.obtain();
-                Parcel obtain2 = Parcel.obtain();
-                try {
-                    obtain.writeInterfaceToken("com.bytedance.sdk.openadsdk.ICommonPermissionListener");
-                    obtain.writeString(str);
-                    this.f4066a.transact(2, obtain, obtain2, 0);
-                    obtain2.readException();
-                } finally {
-                    obtain2.recycle();
-                    obtain.recycle();
-                }
+                parcel2.writeString("com.bytedance.sdk.openadsdk.ICommonPermissionListener");
+                return true;
+            } else {
+                parcel.enforceInterface("com.bytedance.sdk.openadsdk.ICommonPermissionListener");
+                onDenied(parcel.readString());
+                parcel2.writeNoException();
+                return true;
             }
         }
     }
+
+    void onDenied(String str) throws RemoteException;
+
+    void onGranted() throws RemoteException;
 }

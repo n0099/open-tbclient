@@ -1,5 +1,5 @@
 package aegon.chrome.net;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public abstract class UploadDataSink {
     public abstract void onReadError(Exception exc);
 

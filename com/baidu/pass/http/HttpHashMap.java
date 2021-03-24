@@ -2,28 +2,28 @@ package com.baidu.pass.http;
 
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public class HttpHashMap implements com.baidu.pass.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private Map<String, String> f2837a = new HashMap();
+    public Map<String, String> f9743a = new HashMap();
 
     public void doSign(String str) {
     }
 
     public String get(String str) {
-        return this.f2837a.get(str);
+        return this.f9743a.get(str);
     }
 
     public Map getMap() {
-        return this.f2837a;
+        return this.f9743a;
     }
 
     public void put(String str, String str2) {
-        this.f2837a.put(str, str2);
+        this.f9743a.put(str, str2);
     }
 
     public void putAll(Map<? extends String, ? extends String> map) {
-        this.f2837a.putAll(map);
+        this.f9743a.putAll(map);
     }
 }

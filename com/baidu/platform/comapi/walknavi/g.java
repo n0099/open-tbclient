@@ -1,17 +1,16 @@
 package com.baidu.platform.comapi.walknavi;
-/* loaded from: classes4.dex */
-class g implements com.baidu.platform.comapi.wnplatform.c.c {
+/* loaded from: classes2.dex */
+public class g implements com.baidu.platform.comapi.wnplatform.c.c {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ f f2960a;
+    public final /* synthetic */ f f10054a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public g(f fVar) {
-        this.f2960a = fVar;
+        this.f10054a = fVar;
     }
 
     @Override // com.baidu.platform.comapi.wnplatform.c.c
     public void a() {
-        this.f2960a.f2953a.s();
+        this.f10054a.f10043a.s();
     }
 }

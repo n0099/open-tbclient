@@ -8,189 +8,198 @@ import android.view.VelocityTracker;
 import android.widget.FrameLayout;
 import android.widget.OverScroller;
 import com.baidu.sapi2.ecommerce.callback.AddressManageCallback;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class WebViewContainer extends FrameLayout {
-    private GestureDetector mGestureDetector;
-    private OverScroller mScroller;
-    private int mStyle;
-    private float ncd;
-    private float nce;
-    private VelocityTracker ncf;
-    private OnScrollChangedCallback ncg;
-    private int nch;
-    private int topMargin;
 
-    /* loaded from: classes7.dex */
+    /* renamed from: e  reason: collision with root package name */
+    public OverScroller f20886e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public float f20887f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public float f20888g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public GestureDetector f20889h;
+    public VelocityTracker i;
+    public OnScrollChangedCallback j;
+    public int k;
+    public int l;
+    public int m;
+
+    /* loaded from: classes5.dex */
     public interface OnScrollChangedCallback {
         void onScroll(int i, int i2);
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public static class YScrollDetector extends GestureDetector.SimpleOnGestureListener {
-        private final WebViewContainer nci;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final WebViewContainer f20890e;
 
         public YScrollDetector(WebViewContainer webViewContainer) {
-            this.nci = webViewContainer;
+            this.f20890e = webViewContainer;
         }
 
         @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
         public boolean onDown(MotionEvent motionEvent) {
-            this.nci.nce = motionEvent.getRawY();
+            this.f20890e.f20888g = motionEvent.getRawY();
             return false;
         }
 
         @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
-        public boolean onScroll(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
-            if (Math.abs(f2) <= Math.abs(f) || this.nci == null) {
-                return false;
+        public boolean onScroll(MotionEvent motionEvent, MotionEvent motionEvent2, float f2, float f3) {
+            WebViewContainer webViewContainer;
+            if (Math.abs(f3) > Math.abs(f2) && (webViewContainer = this.f20890e) != null) {
+                if (f3 > 0.0f) {
+                    return webViewContainer.k > 0;
+                } else if (webViewContainer.k < this.f20890e.l) {
+                    return this.f20890e.k > 0 || this.f20890e.m != 1;
+                }
             }
-            if (f2 > 0.0f) {
-                return this.nci.topMargin > 0;
-            } else if (this.nci.topMargin < this.nci.nch) {
-                return this.nci.topMargin > 0 || this.nci.mStyle != 1;
-            } else {
-                return false;
-            }
+            return false;
         }
     }
 
     public WebViewContainer(Context context) {
         super(context);
-        this.topMargin = 0;
-        this.nch = 0;
-        this.mStyle = 1;
-        init(context);
+        this.k = 0;
+        this.l = 0;
+        this.m = 1;
+        g(context);
     }
 
-    public WebViewContainer(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        this.topMargin = 0;
-        this.nch = 0;
-        this.mStyle = 1;
-        init(context);
+    @Override // android.view.View
+    public void computeScroll() {
+        if (this.f20886e.computeScrollOffset()) {
+            int e2 = e(this.f20886e.getCurrY());
+            scrollBy(0, e2);
+            this.f20888g -= e2;
+            invalidate();
+        }
     }
 
-    public WebViewContainer(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        this.topMargin = 0;
-        this.nch = 0;
-        this.mStyle = 1;
-        init(context);
+    public final int e(int i) {
+        int i2 = this.k;
+        int i3 = i2 - i;
+        if (i3 < 0) {
+            this.k = 0;
+            return i2;
+        }
+        int i4 = this.l;
+        if (i3 > i4) {
+            int i5 = i2 - i4;
+            this.k = i4;
+            return i5;
+        }
+        this.k = i2 - i;
+        return i;
     }
 
-    private void init(Context context) {
-        this.mScroller = new OverScroller(context);
-        this.mGestureDetector = new GestureDetector(context, new YScrollDetector(this));
+    public final void f(int i) {
+        OverScroller overScroller = this.f20886e;
+        if (overScroller == null) {
+            return;
+        }
+        overScroller.fling(0, (int) this.f20888g, 0, i, 0, 0, AddressManageCallback.VoiceRecognitionResult.ERROR_CODE_VOICE_RECOGNITION_CANCEL, 10000);
+        invalidate();
+    }
+
+    public final void g(Context context) {
+        this.f20886e = new OverScroller(context);
+        this.f20889h = new GestureDetector(context, new YScrollDetector(this));
     }
 
     @Override // android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        if (this.mStyle == 2) {
+        if (this.m == 2) {
             return false;
         }
-        if (this.topMargin > ((int) motionEvent.getY()) || !this.mGestureDetector.onTouchEvent(motionEvent)) {
-            return false;
-        }
-        if (getParent() != null) {
-            getParent().requestDisallowInterceptTouchEvent(true);
-        }
-        return true;
-    }
-
-    @Override // android.view.View
-    public boolean onTouchEvent(MotionEvent motionEvent) {
-        if (this.mStyle == 2) {
-            return false;
-        }
-        if (this.topMargin <= ((int) motionEvent.getY())) {
-            super.onTouchEvent(motionEvent);
-            if (this.ncf == null) {
-                this.ncf = VelocityTracker.obtain();
-            }
-            this.ncf.addMovement(motionEvent);
-            switch (motionEvent.getAction()) {
-                case 0:
-                    if (!this.mScroller.isFinished()) {
-                        this.mScroller.abortAnimation();
-                        break;
-                    }
-                    break;
-                case 1:
-                    this.ncf.computeCurrentVelocity(1000);
-                    int yVelocity = (int) this.ncf.getYVelocity();
-                    if (Math.abs(yVelocity) > 2000 && ((yVelocity > 0 && this.topMargin < this.nch) || (yVelocity < 0 && this.topMargin > 0))) {
-                        Io(-yVelocity);
-                    }
-                    this.ncf.recycle();
-                    this.ncf = null;
-                    break;
-                case 2:
-                    this.ncd = motionEvent.getRawY();
-                    int Ip = Ip((int) (this.nce - this.ncd));
-                    scrollBy(0, Ip);
-                    this.nce -= Ip;
-                    break;
+        if (this.k <= ((int) motionEvent.getY()) && this.f20889h.onTouchEvent(motionEvent)) {
+            if (getParent() != null) {
+                getParent().requestDisallowInterceptTouchEvent(true);
             }
             return true;
         }
         return false;
     }
 
-    private void Io(int i) {
-        if (this.mScroller != null) {
-            this.mScroller.fling(0, (int) this.nce, 0, i, 0, 0, AddressManageCallback.VoiceRecognitionResult.ERROR_CODE_VOICE_RECOGNITION_CANCEL, 10000);
-            invalidate();
-        }
-    }
-
-    private int Ip(int i) {
-        int i2 = this.topMargin - i;
-        if (i2 < 0) {
-            int i3 = this.topMargin;
-            this.topMargin = 0;
-            return i3;
-        } else if (i2 > this.nch) {
-            int i4 = this.topMargin - this.nch;
-            this.topMargin = this.nch;
-            return i4;
-        } else {
-            this.topMargin -= i;
-            return i;
-        }
-    }
-
     @Override // android.view.View
-    public void computeScroll() {
-        if (this.mScroller.computeScrollOffset()) {
-            int Ip = Ip(this.mScroller.getCurrY());
-            scrollBy(0, Ip);
-            this.nce -= Ip;
-            invalidate();
-        }
-    }
-
-    @Override // android.view.View
-    protected void onScrollChanged(int i, int i2, int i3, int i4) {
+    public void onScrollChanged(int i, int i2, int i3, int i4) {
         super.onScrollChanged(i, i2, i3, i4);
-        if (this.ncg != null) {
-            this.ncg.onScroll(i - i3, i2 - i4);
+        OnScrollChangedCallback onScrollChangedCallback = this.j;
+        if (onScrollChangedCallback != null) {
+            onScrollChangedCallback.onScroll(i - i3, i2 - i4);
         }
+    }
+
+    @Override // android.view.View
+    public boolean onTouchEvent(MotionEvent motionEvent) {
+        if (this.m == 2) {
+            return false;
+        }
+        if (this.k > ((int) motionEvent.getY())) {
+            return false;
+        }
+        super.onTouchEvent(motionEvent);
+        if (this.i == null) {
+            this.i = VelocityTracker.obtain();
+        }
+        this.i.addMovement(motionEvent);
+        int action = motionEvent.getAction();
+        if (action != 0) {
+            if (action == 1) {
+                this.i.computeCurrentVelocity(1000);
+                int yVelocity = (int) this.i.getYVelocity();
+                if (Math.abs(yVelocity) > 2000 && ((yVelocity > 0 && this.k < this.l) || (yVelocity < 0 && this.k > 0))) {
+                    f(-yVelocity);
+                }
+                this.i.recycle();
+                this.i = null;
+            } else if (action == 2) {
+                float rawY = motionEvent.getRawY();
+                this.f20887f = rawY;
+                int e2 = e((int) (this.f20888g - rawY));
+                scrollBy(0, e2);
+                this.f20888g -= e2;
+            }
+        } else if (!this.f20886e.isFinished()) {
+            this.f20886e.abortAnimation();
+        }
+        return true;
     }
 
     public void setOnScrollChangeListener(OnScrollChangedCallback onScrollChangedCallback) {
-        this.ncg = onScrollChangedCallback;
-    }
-
-    public void setTopMargin(int i) {
-        this.topMargin = i;
-    }
-
-    public void setTopLimit(int i) {
-        this.nch = i;
+        this.j = onScrollChangedCallback;
     }
 
     public void setStyle(int i) {
-        this.mStyle = i;
+        this.m = i;
+    }
+
+    public void setTopLimit(int i) {
+        this.l = i;
+    }
+
+    public void setTopMargin(int i) {
+        this.k = i;
+    }
+
+    public WebViewContainer(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        this.k = 0;
+        this.l = 0;
+        this.m = 1;
+        g(context);
+    }
+
+    public WebViewContainer(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        this.k = 0;
+        this.l = 0;
+        this.m = 1;
+        g(context);
     }
 }

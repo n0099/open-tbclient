@@ -2,7 +2,7 @@ package org.apache.http.client;
 
 import java.io.IOException;
 @Deprecated
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class ClientProtocolException extends IOException {
     public ClientProtocolException() {
         throw new RuntimeException("Stub!");

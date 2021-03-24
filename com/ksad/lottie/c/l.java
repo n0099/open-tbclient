@@ -7,65 +7,65 @@ import androidx.annotation.IntRange;
 import com.kwai.video.player.KsMediaMeta;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class l implements aj<com.ksad.lottie.model.content.c> {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f5333a;
+    public int f31339a;
 
     public l(int i) {
-        this.f5333a = i;
+        this.f31339a = i;
     }
 
     @IntRange(from = 0, to = KsMediaMeta.AV_CH_LAYOUT_7POINT1_WIDE_BACK)
-    private int a(double d, double[] dArr, double[] dArr2) {
+    private int a(double d2, double[] dArr, double[] dArr2) {
+        double d3;
         int i = 1;
         while (true) {
-            int i2 = i;
-            if (i2 >= dArr.length) {
-                return (int) (dArr2[dArr2.length - 1] * 255.0d);
+            if (i >= dArr.length) {
+                d3 = dArr2[dArr2.length - 1];
+                break;
             }
-            double d2 = dArr[i2 - 1];
-            double d3 = dArr[i2];
-            if (dArr[i2] >= d) {
-                return (int) (com.ksad.lottie.d.e.a(dArr2[i2 - 1], dArr2[i2], (d - d2) / (d3 - d2)) * 255.0d);
+            int i2 = i - 1;
+            double d4 = dArr[i2];
+            double d5 = dArr[i];
+            if (dArr[i] >= d2) {
+                d3 = com.ksad.lottie.d.e.a(dArr2[i2], dArr2[i], (d2 - d4) / (d5 - d4));
+                break;
             }
-            i = i2 + 1;
+            i++;
         }
+        return (int) (d3 * 255.0d);
     }
 
     private void a(com.ksad.lottie.model.content.c cVar, List<Float> list) {
-        int i;
-        int i2 = this.f5333a * 4;
-        if (list.size() <= i2) {
+        int i = this.f31339a * 4;
+        if (list.size() <= i) {
             return;
         }
-        int size = (list.size() - i2) / 2;
+        int size = (list.size() - i) / 2;
         double[] dArr = new double[size];
         double[] dArr2 = new double[size];
-        int i3 = 0;
-        int i4 = i2;
-        while (i4 < list.size()) {
-            if (i4 % 2 == 0) {
-                dArr[i3] = list.get(i4).floatValue();
-                i = i3;
+        int i2 = 0;
+        while (i < list.size()) {
+            if (i % 2 == 0) {
+                dArr[i2] = list.get(i).floatValue();
             } else {
-                dArr2[i3] = list.get(i4).floatValue();
-                i = i3 + 1;
+                dArr2[i2] = list.get(i).floatValue();
+                i2++;
             }
-            i4++;
-            i3 = i;
+            i++;
         }
-        for (int i5 = 0; i5 < cVar.c(); i5++) {
-            int i6 = cVar.b()[i5];
-            cVar.b()[i5] = Color.argb(a(cVar.a()[i5], dArr, dArr2), Color.red(i6), Color.green(i6), Color.blue(i6));
+        for (int i3 = 0; i3 < cVar.c(); i3++) {
+            int i4 = cVar.b()[i3];
+            cVar.b()[i3] = Color.argb(a(cVar.a()[i3], dArr, dArr2), Color.red(i4), Color.green(i4), Color.blue(i4));
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.ksad.lottie.c.aj
     /* renamed from: a */
-    public com.ksad.lottie.model.content.c b(JsonReader jsonReader, float f) {
+    public com.ksad.lottie.model.content.c b(JsonReader jsonReader, float f2) {
         ArrayList arrayList = new ArrayList();
         boolean z = jsonReader.peek() == JsonToken.BEGIN_ARRAY;
         if (z) {
@@ -77,29 +77,29 @@ public class l implements aj<com.ksad.lottie.model.content.c> {
         if (z) {
             jsonReader.endArray();
         }
-        if (this.f5333a == -1) {
-            this.f5333a = arrayList.size() / 4;
+        if (this.f31339a == -1) {
+            this.f31339a = arrayList.size() / 4;
         }
-        float[] fArr = new float[this.f5333a];
-        int[] iArr = new int[this.f5333a];
-        int i = 0;
+        int i = this.f31339a;
+        float[] fArr = new float[i];
+        int[] iArr = new int[i];
         int i2 = 0;
-        for (int i3 = 0; i3 < this.f5333a * 4; i3++) {
-            int i4 = i3 / 4;
-            double floatValue = arrayList.get(i3).floatValue();
-            switch (i3 % 4) {
-                case 0:
-                    fArr[i4] = (float) floatValue;
-                    break;
-                case 1:
-                    i2 = (int) (floatValue * 255.0d);
-                    break;
-                case 2:
-                    i = (int) (floatValue * 255.0d);
-                    break;
-                case 3:
-                    iArr[i4] = Color.argb(255, i2, i, (int) (floatValue * 255.0d));
-                    break;
+        int i3 = 0;
+        for (int i4 = 0; i4 < this.f31339a * 4; i4++) {
+            int i5 = i4 / 4;
+            double floatValue = arrayList.get(i4).floatValue();
+            int i6 = i4 % 4;
+            if (i6 == 0) {
+                fArr[i5] = (float) floatValue;
+            } else if (i6 == 1) {
+                Double.isNaN(floatValue);
+                i2 = (int) (floatValue * 255.0d);
+            } else if (i6 == 2) {
+                Double.isNaN(floatValue);
+                i3 = (int) (floatValue * 255.0d);
+            } else if (i6 == 3) {
+                Double.isNaN(floatValue);
+                iArr[i5] = Color.argb(255, i2, i3, (int) (floatValue * 255.0d));
             }
         }
         com.ksad.lottie.model.content.c cVar = new com.ksad.lottie.model.content.c(fArr, iArr);

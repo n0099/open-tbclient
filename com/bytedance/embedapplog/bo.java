@@ -1,40 +1,77 @@
 package com.bytedance.embedapplog;
 
-import android.content.Context;
-import android.content.Intent;
+import android.os.Binder;
 import android.os.IBinder;
-import com.bytedance.embedapplog.bp;
-import com.bytedance.embedapplog.c;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes6.dex */
-public final class bo extends ax<c> {
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public bo() {
-        super("com.samsung.android.deviceidservice");
-    }
+import android.os.IInterface;
+import android.os.Parcel;
+/* loaded from: classes5.dex */
+public interface bo extends IInterface {
 
-    @Override // com.bytedance.embedapplog.ax
-    protected bp.b<c, String> eol() {
-        return new bp.b<c, String>() { // from class: com.bytedance.embedapplog.bo.1
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.bytedance.embedapplog.bp.b
-            /* renamed from: a */
-            public c e(IBinder iBinder) {
-                return c.a.a(iBinder);
+    /* loaded from: classes5.dex */
+    public static abstract class a extends Binder implements bo {
+
+        /* renamed from: com.bytedance.embedapplog.bo$a$a  reason: collision with other inner class name */
+        /* loaded from: classes5.dex */
+        public static class C0289a implements bo {
+
+            /* renamed from: a  reason: collision with root package name */
+            public IBinder f27154a;
+
+            public C0289a(IBinder iBinder) {
+                this.f27154a = iBinder;
             }
 
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.bytedance.embedapplog.bp.b
-            public String a(c cVar) {
-                return cVar.a();
+            @Override // com.bytedance.embedapplog.bo
+            public String a(String str, String str2, String str3) {
+                Parcel obtain = Parcel.obtain();
+                Parcel obtain2 = Parcel.obtain();
+                try {
+                    obtain.writeInterfaceToken("com.heytap.openid.IOpenID");
+                    obtain.writeString(str);
+                    obtain.writeString(str2);
+                    obtain.writeString(str3);
+                    this.f27154a.transact(1, obtain, obtain2, 0);
+                    obtain2.readException();
+                    return obtain2.readString();
+                } finally {
+                    obtain2.recycle();
+                    obtain.recycle();
+                }
             }
-        };
+
+            @Override // android.os.IInterface
+            public IBinder asBinder() {
+                return this.f27154a;
+            }
+        }
+
+        public static bo a(IBinder iBinder) {
+            if (iBinder == null) {
+                return null;
+            }
+            IInterface queryLocalInterface = iBinder.queryLocalInterface("com.heytap.openid.IOpenID");
+            if (queryLocalInterface != null && (queryLocalInterface instanceof bo)) {
+                return (bo) queryLocalInterface;
+            }
+            return new C0289a(iBinder);
+        }
+
+        @Override // android.os.Binder
+        public boolean onTransact(int i, Parcel parcel, Parcel parcel2, int i2) {
+            if (i != 1) {
+                if (i != 1598968902) {
+                    return super.onTransact(i, parcel, parcel2, i2);
+                }
+                parcel2.writeString("com.heytap.openid.IOpenID");
+                return true;
+            }
+            parcel.enforceInterface("com.heytap.openid.IOpenID");
+            String a2 = a(parcel.readString(), parcel.readString(), parcel.readString());
+            parcel2.writeNoException();
+            parcel2.writeString(a2);
+            return true;
+        }
     }
 
-    @Override // com.bytedance.embedapplog.ax
-    protected Intent c(Context context) {
-        Intent intent = new Intent();
-        intent.setClassName("com.samsung.android.deviceidservice", "com.samsung.android.deviceidservice.DeviceIdService");
-        return intent;
-    }
+    String a(String str, String str2, String str3);
 }

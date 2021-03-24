@@ -7,68 +7,69 @@ import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class b {
-    private static volatile b e;
+
+    /* renamed from: e  reason: collision with root package name */
+    public static volatile b f36762e;
 
     /* renamed from: a  reason: collision with root package name */
-    private g f7140a;
-    private List<WeakReference<g.a>> b = new ArrayList();
-    private boolean c = false;
-    private boolean d = false;
+    public g f36763a;
 
-    private b() {
+    /* renamed from: b  reason: collision with root package name */
+    public List<WeakReference<g.a>> f36764b = new ArrayList();
+
+    /* renamed from: c  reason: collision with root package name */
+    public boolean f36765c = false;
+
+    /* renamed from: d  reason: collision with root package name */
+    public boolean f36766d = false;
+
+    public b() {
         a(KsAdSDKImpl.get().getContext());
     }
 
     public static b a() {
-        if (e == null) {
+        if (f36762e == null) {
             synchronized (b.class) {
-                if (e == null) {
-                    e = new b();
+                if (f36762e == null) {
+                    f36762e = new b();
                 }
             }
         }
-        return e;
+        return f36762e;
     }
 
     private void a(Context context) {
-        this.c = false;
-        this.f7140a = new g(context);
-        this.f7140a.a(new g.a() { // from class: com.kwad.sdk.utils.b.1
+        this.f36765c = false;
+        g gVar = new g(context);
+        this.f36763a = gVar;
+        gVar.a(new g.a() { // from class: com.kwad.sdk.utils.b.1
             @Override // com.kwad.sdk.utils.g.a
             public void a() {
-                Iterator it = b.this.b.iterator();
+                g.a aVar;
+                Iterator it = b.this.f36764b.iterator();
                 while (it.hasNext()) {
                     WeakReference weakReference = (WeakReference) it.next();
-                    if (weakReference == null) {
+                    if (weakReference == null || (aVar = (g.a) weakReference.get()) == null) {
                         it.remove();
                     } else {
-                        g.a aVar = (g.a) weakReference.get();
-                        if (aVar != null) {
-                            aVar.a();
-                        } else {
-                            it.remove();
-                        }
+                        aVar.a();
                     }
                 }
-                b.this.d = true;
+                b.this.f36766d = true;
             }
 
             @Override // com.kwad.sdk.utils.g.a
             public void b() {
-                Iterator it = b.this.b.iterator();
+                g.a aVar;
+                Iterator it = b.this.f36764b.iterator();
                 while (it.hasNext()) {
                     WeakReference weakReference = (WeakReference) it.next();
-                    if (weakReference == null) {
+                    if (weakReference == null || (aVar = (g.a) weakReference.get()) == null) {
                         it.remove();
                     } else {
-                        g.a aVar = (g.a) weakReference.get();
-                        if (aVar != null) {
-                            aVar.b();
-                        } else {
-                            it.remove();
-                        }
+                        aVar.b();
                     }
                 }
             }
@@ -76,33 +77,31 @@ public class b {
     }
 
     public void a(g.a aVar) {
-        this.b.add(new WeakReference<>(aVar));
+        this.f36764b.add(new WeakReference<>(aVar));
     }
 
     public void a(boolean z) {
-        if (this.f7140a == null) {
+        if (this.f36763a == null) {
             return;
         }
-        if (z || !this.c) {
-            this.f7140a.a();
-            this.c = true;
-            this.d = false;
+        if (z || !this.f36765c) {
+            this.f36763a.a();
+            this.f36765c = true;
+            this.f36766d = false;
         }
     }
 
     public void b(g.a aVar) {
-        Iterator<WeakReference<g.a>> it = this.b.iterator();
+        Iterator<WeakReference<g.a>> it = this.f36764b.iterator();
         while (it.hasNext()) {
             WeakReference<g.a> next = it.next();
-            if (next == null) {
-                it.remove();
-            } else if (next.get() == aVar) {
+            if (next == null || next.get() == aVar) {
                 it.remove();
             }
         }
     }
 
     public boolean b() {
-        return this.d;
+        return this.f36766d;
     }
 }

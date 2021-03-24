@@ -1,8 +1,10 @@
 package a.a.a.a.v.f;
-/* loaded from: classes4.dex */
-public final class a implements com.fun.openid.sdk.c {
-    @Override // com.fun.openid.sdk.c
-    public void bc(String str) {
+
+import com.fun.openid.sdk.OnGetOaidListener;
+/* loaded from: classes.dex */
+public final class a implements OnGetOaidListener {
+    @Override // com.fun.openid.sdk.OnGetOaidListener
+    public void onGetOaid(String str) {
         c.m = str;
         a.a.a.a.v.d.a("Got oaid:%s", str);
     }

@@ -7,42 +7,69 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.swan.apps.SwanAppLauncherActivity;
-import com.baidu.swan.apps.a;
-import com.baidu.swan.apps.ao.u;
-import com.baidu.swan.apps.res.widget.b.d;
-import com.baidu.swan.apps.res.widget.dialog.g;
-/* loaded from: classes8.dex */
+import d.b.g0.a.h;
+import d.b.g0.a.i2.u;
+import d.b.g0.a.k;
+import d.b.g0.a.q1.b.b.g;
+import d.b.g0.a.q1.b.f.d;
+/* loaded from: classes3.dex */
 public class SwanAppAdbDebugActivity extends Activity {
-    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
+    public static final boolean DEBUG = k.f45050a;
+    public static final String TAG = "SwanAppAdbDebugActivity";
+
+    /* loaded from: classes3.dex */
+    public class a implements DialogInterface.OnClickListener {
+        public a() {
+        }
+
+        @Override // android.content.DialogInterface.OnClickListener
+        public void onClick(DialogInterface dialogInterface, int i) {
+            SwanAppAdbDebugActivity.this.finish();
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class b implements DialogInterface.OnClickListener {
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ Intent f12130e;
+
+        public b(Intent intent) {
+            this.f12130e = intent;
+        }
+
+        @Override // android.content.DialogInterface.OnClickListener
+        public void onClick(DialogInterface dialogInterface, int i) {
+            this.f12130e.setClass(SwanAppAdbDebugActivity.this, SwanAppLauncherActivity.class);
+            SwanAppAdbDebugActivity.this.startActivity(this.f12130e);
+            SwanAppAdbDebugActivity.this.finish();
+        }
+    }
 
     @Override // android.app.Activity
-    protected void onCreate(Bundle bundle) {
+    public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         if (DEBUG) {
-            Log.d("SwanAppAdbDebugActivity", "ADB Debug onCreate");
+            Log.d(TAG, "ADB Debug onCreate");
         }
-        if (!u.M(this)) {
-            final Intent intent = getIntent();
-            if (TextUtils.isEmpty(intent.getStringExtra("adb_debug_path"))) {
-                d.u(this, a.h.aiapps_adb_debug_lack_path).aIv();
-                if (DEBUG) {
-                    Log.d("SwanAppAdbDebugActivity", "ADB Debug lack of app path");
-                }
-                finish();
+        if (u.a(this)) {
+            return;
+        }
+        Intent intent = getIntent();
+        if (TextUtils.isEmpty(intent.getStringExtra("adb_debug_path"))) {
+            d.e(this, h.aiapps_adb_debug_lack_path).C();
+            if (DEBUG) {
+                Log.d(TAG, "ADB Debug lack of app path");
             }
-            new g.a(this).f(getString(a.h.aiapps_adb_debug)).rE(getString(a.h.aiapps_adb_debug_alert)).a(new com.baidu.swan.apps.view.c.a()).gT(false).c(a.h.aiapps_confirm, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.console.debugger.adbdebug.SwanAppAdbDebugActivity.2
-                @Override // android.content.DialogInterface.OnClickListener
-                public void onClick(DialogInterface dialogInterface, int i) {
-                    intent.setClass(SwanAppAdbDebugActivity.this, SwanAppLauncherActivity.class);
-                    SwanAppAdbDebugActivity.this.startActivity(intent);
-                    SwanAppAdbDebugActivity.this.finish();
-                }
-            }).d(a.h.aiapps_adb_debug_close, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.console.debugger.adbdebug.SwanAppAdbDebugActivity.1
-                @Override // android.content.DialogInterface.OnClickListener
-                public void onClick(DialogInterface dialogInterface, int i) {
-                    SwanAppAdbDebugActivity.this.finish();
-                }
-            }).aIa();
+            finish();
         }
+        g.a aVar = new g.a(this);
+        aVar.V(getString(h.aiapps_adb_debug));
+        aVar.y(getString(h.aiapps_adb_debug_alert));
+        aVar.n(new d.b.g0.a.j2.g.a());
+        aVar.m(false);
+        aVar.O(h.aiapps_confirm, new b(intent));
+        aVar.C(h.aiapps_adb_debug_close, new a());
+        aVar.X();
     }
 }

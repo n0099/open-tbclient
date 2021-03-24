@@ -4,39 +4,41 @@ import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import java.io.Serializable;
 import org.json.JSONObject;
 import tbclient.LikeForumInfo;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class MyLikeForum extends OrmObject implements Serializable {
-    private static final long serialVersionUID = 1;
-    private long mForumId;
-    private String mForumName;
+    public static final long serialVersionUID = 1;
+    public long mForumId;
+    public String mForumName;
+
+    public long getForumId() {
+        return this.mForumId;
+    }
 
     public String getForumName() {
         return this.mForumName;
     }
 
-    public void setForumName(String str) {
-        this.mForumName = str;
+    public void parseJson(JSONObject jSONObject) {
+        if (jSONObject == null) {
+            return;
+        }
+        this.mForumId = jSONObject.optLong("forum_id");
+        this.mForumName = jSONObject.optString("forum_name");
     }
 
-    public long getForumId() {
-        return this.mForumId;
+    public void parserProtobuf(LikeForumInfo likeForumInfo) {
+        if (likeForumInfo == null) {
+            return;
+        }
+        this.mForumId = likeForumInfo.forum_id.longValue();
+        this.mForumName = likeForumInfo.forum_name;
     }
 
     public void setForumId(long j) {
         this.mForumId = j;
     }
 
-    public void parseJson(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            this.mForumId = jSONObject.optLong("forum_id");
-            this.mForumName = jSONObject.optString("forum_name");
-        }
-    }
-
-    public void parserProtobuf(LikeForumInfo likeForumInfo) {
-        if (likeForumInfo != null) {
-            this.mForumId = likeForumInfo.forum_id.longValue();
-            this.mForumName = likeForumInfo.forum_name;
-        }
+    public void setForumName(String str) {
+        this.mForumName = str;
     }
 }

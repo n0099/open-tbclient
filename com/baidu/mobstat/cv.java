@@ -1,20 +1,21 @@
 package com.baidu.mobstat;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class cv extends cy implements ct {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f2661a = "*";
+    public String f9191a = "*";
 
     @Override // com.baidu.mobstat.ct
     public void a(String str) throws IllegalArgumentException {
-        if (str == null) {
-            throw new IllegalArgumentException("http resource descriptor must not be null");
+        if (str != null) {
+            this.f9191a = str;
+            return;
         }
-        this.f2661a = str;
+        throw new IllegalArgumentException("http resource descriptor must not be null");
     }
 
     @Override // com.baidu.mobstat.cs
     public String a() {
-        return this.f2661a;
+        return this.f9191a;
     }
 }

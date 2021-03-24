@@ -5,7 +5,9 @@ import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import com.baidu.android.util.devices.RomUtils;
-/* loaded from: classes6.dex */
+import com.baidu.apollon.statistics.g;
+import com.baidu.tieba.imageProblem.httpNet.CDNIPDirectConnect;
+/* loaded from: classes2.dex */
 public final class NetworkUtils {
     public static final int NETWORK_2G = 2;
     public static final int NETWORK_3G = 3;
@@ -32,19 +34,16 @@ public final class NetworkUtils {
     public static final int NETWORK_UNKNOW = 0;
     public static final int NETWORK_WIFI = 1;
 
-    private NetworkUtils() {
-    }
-
     @TargetApi(3)
     public static String getNetworkClass(Context context) {
         NetworkInfo activeNetworkInfo;
         try {
             activeNetworkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo();
-        } catch (Throwable th) {
+        } catch (Throwable unused) {
         }
         if (activeNetworkInfo != null && activeNetworkInfo.isConnected()) {
             if (activeNetworkInfo.getType() == 1) {
-                return "WIFI";
+                return CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING;
             }
             if (activeNetworkInfo.getType() == 0) {
                 switch (activeNetworkInfo.getSubtype()) {
@@ -63,7 +62,7 @@ public final class NetworkUtils {
                     case 12:
                     case 14:
                     case 15:
-                        return "3G";
+                        return g.f3873b;
                     case 13:
                         return "4G";
                     default:
@@ -77,10 +76,7 @@ public final class NetworkUtils {
 
     public static boolean isNetworkAvailable(Context context) {
         ConnectivityManager connectivityManager;
-        if (context != null && (connectivityManager = (ConnectivityManager) context.getSystemService("connectivity")) != null) {
-            NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
-            return activeNetworkInfo != null && activeNetworkInfo.isAvailable();
-        }
-        return false;
+        NetworkInfo activeNetworkInfo;
+        return (context == null || (connectivityManager = (ConnectivityManager) context.getSystemService("connectivity")) == null || (activeNetworkInfo = connectivityManager.getActiveNetworkInfo()) == null || !activeNetworkInfo.isAvailable()) ? false : true;
     }
 }

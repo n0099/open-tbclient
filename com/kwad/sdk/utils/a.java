@@ -6,16 +6,17 @@ import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.text.TextUtils;
+import com.baidu.tbadk.commonReceiver.PackageChangedReceiver;
 import com.kwad.sdk.utils.InstalledAppInfoManager;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class a extends BroadcastReceiver {
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
         if (intent == null) {
             return;
         }
-        if (!TextUtils.equals("android.intent.action.PACKAGE_ADDED", intent.getAction())) {
-            if (!TextUtils.equals("android.intent.action.PACKAGE_REMOVED", intent.getAction()) || intent.getData() == null) {
+        if (!TextUtils.equals(PackageChangedReceiver.ACTION_INSTALL, intent.getAction())) {
+            if (!TextUtils.equals(PackageChangedReceiver.ACTION_UNINSTALL, intent.getAction()) || intent.getData() == null) {
                 return;
             }
             String schemeSpecificPart = intent.getData().getSchemeSpecificPart();
@@ -31,10 +32,11 @@ public class a extends BroadcastReceiver {
             try {
                 PackageManager packageManager = context.getPackageManager();
                 PackageInfo packageInfo = packageManager.getPackageInfo(schemeSpecificPart2, 0);
-                if (packageInfo != null) {
-                    com.kwad.sdk.core.report.e.a(InstalledAppInfoManager.a(InstalledAppInfoManager.a(packageInfo, packageManager)), 1);
-                    com.kwad.sdk.core.d.a.a("APPInstalledChangerReceiver", "installed packageName :" + schemeSpecificPart2);
+                if (packageInfo == null) {
+                    return;
                 }
+                com.kwad.sdk.core.report.e.a(InstalledAppInfoManager.a(InstalledAppInfoManager.a(packageInfo, packageManager)), 1);
+                com.kwad.sdk.core.d.a.a("APPInstalledChangerReceiver", "installed packageName :" + schemeSpecificPart2);
             } catch (Throwable th) {
                 com.kwad.sdk.core.d.a.b(th);
             }

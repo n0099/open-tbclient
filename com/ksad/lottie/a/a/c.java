@@ -8,37 +8,51 @@ import androidx.annotation.Nullable;
 import com.ksad.lottie.a.b.a;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
-public class c implements d, l, a.InterfaceC1084a {
+/* loaded from: classes6.dex */
+public class c implements d, l, a.InterfaceC0351a {
 
     /* renamed from: a  reason: collision with root package name */
-    private final Matrix f5310a;
-    private final Path b;
-    private final RectF c;
-    private final String d;
-    private final List<b> e;
-    private final com.ksad.lottie.f f;
+    public final Matrix f31200a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public final Path f31201b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public final RectF f31202c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public final String f31203d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public final List<b> f31204e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public final com.ksad.lottie.f f31205f;
     @Nullable
-    private List<l> g;
+
+    /* renamed from: g  reason: collision with root package name */
+    public List<l> f31206g;
     @Nullable
-    private com.ksad.lottie.a.b.o h;
+
+    /* renamed from: h  reason: collision with root package name */
+    public com.ksad.lottie.a.b.o f31207h;
 
     public c(com.ksad.lottie.f fVar, com.ksad.lottie.model.layer.a aVar, com.ksad.lottie.model.content.j jVar) {
         this(fVar, aVar, jVar.a(), a(fVar, aVar, jVar.b()), a(jVar.b()));
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public c(com.ksad.lottie.f fVar, com.ksad.lottie.model.layer.a aVar, String str, List<b> list, @Nullable com.ksad.lottie.model.a.l lVar) {
-        this.f5310a = new Matrix();
-        this.b = new Path();
-        this.c = new RectF();
-        this.d = str;
-        this.f = fVar;
-        this.e = list;
+        this.f31200a = new Matrix();
+        this.f31201b = new Path();
+        this.f31202c = new RectF();
+        this.f31203d = str;
+        this.f31205f = fVar;
+        this.f31204e = list;
         if (lVar != null) {
-            this.h = lVar.h();
-            this.h.a(aVar);
-            this.h.a(this);
+            com.ksad.lottie.a.b.o h2 = lVar.h();
+            this.f31207h = h2;
+            h2.a(aVar);
+            this.f31207h.a(this);
         }
         ArrayList arrayList = new ArrayList();
         for (int size = list.size() - 1; size >= 0; size--) {
@@ -53,72 +67,64 @@ public class c implements d, l, a.InterfaceC1084a {
     }
 
     @Nullable
-    static com.ksad.lottie.model.a.l a(List<com.ksad.lottie.model.content.b> list) {
-        int i = 0;
-        while (true) {
-            int i2 = i;
-            if (i2 >= list.size()) {
-                return null;
-            }
-            com.ksad.lottie.model.content.b bVar = list.get(i2);
+    public static com.ksad.lottie.model.a.l a(List<com.ksad.lottie.model.content.b> list) {
+        for (int i = 0; i < list.size(); i++) {
+            com.ksad.lottie.model.content.b bVar = list.get(i);
             if (bVar instanceof com.ksad.lottie.model.a.l) {
                 return (com.ksad.lottie.model.a.l) bVar;
             }
-            i = i2 + 1;
         }
+        return null;
     }
 
-    private static List<b> a(com.ksad.lottie.f fVar, com.ksad.lottie.model.layer.a aVar, List<com.ksad.lottie.model.content.b> list) {
+    public static List<b> a(com.ksad.lottie.f fVar, com.ksad.lottie.model.layer.a aVar, List<com.ksad.lottie.model.content.b> list) {
         ArrayList arrayList = new ArrayList(list.size());
-        int i = 0;
-        while (true) {
-            int i2 = i;
-            if (i2 >= list.size()) {
-                return arrayList;
-            }
-            b a2 = list.get(i2).a(fVar, aVar);
+        for (int i = 0; i < list.size(); i++) {
+            b a2 = list.get(i).a(fVar, aVar);
             if (a2 != null) {
                 arrayList.add(a2);
             }
-            i = i2 + 1;
         }
+        return arrayList;
     }
 
-    @Override // com.ksad.lottie.a.b.a.InterfaceC1084a
+    @Override // com.ksad.lottie.a.b.a.InterfaceC0351a
     public void a() {
-        this.f.invalidateSelf();
+        this.f31205f.invalidateSelf();
     }
 
     @Override // com.ksad.lottie.a.a.d
     public void a(Canvas canvas, Matrix matrix, int i) {
-        this.f5310a.set(matrix);
-        if (this.h != null) {
-            this.f5310a.preConcat(this.h.d());
-            i = (int) ((((this.h.a().e().intValue() / 100.0f) * i) / 255.0f) * 255.0f);
+        this.f31200a.set(matrix);
+        com.ksad.lottie.a.b.o oVar = this.f31207h;
+        if (oVar != null) {
+            this.f31200a.preConcat(oVar.d());
+            i = (int) ((((this.f31207h.a().e().intValue() / 100.0f) * i) / 255.0f) * 255.0f);
         }
-        for (int size = this.e.size() - 1; size >= 0; size--) {
-            b bVar = this.e.get(size);
+        for (int size = this.f31204e.size() - 1; size >= 0; size--) {
+            b bVar = this.f31204e.get(size);
             if (bVar instanceof d) {
-                ((d) bVar).a(canvas, this.f5310a, i);
+                ((d) bVar).a(canvas, this.f31200a, i);
             }
         }
     }
 
     @Override // com.ksad.lottie.a.a.d
     public void a(RectF rectF, Matrix matrix) {
-        this.f5310a.set(matrix);
-        if (this.h != null) {
-            this.f5310a.preConcat(this.h.d());
+        this.f31200a.set(matrix);
+        com.ksad.lottie.a.b.o oVar = this.f31207h;
+        if (oVar != null) {
+            this.f31200a.preConcat(oVar.d());
         }
-        this.c.set(0.0f, 0.0f, 0.0f, 0.0f);
-        for (int size = this.e.size() - 1; size >= 0; size--) {
-            b bVar = this.e.get(size);
+        this.f31202c.set(0.0f, 0.0f, 0.0f, 0.0f);
+        for (int size = this.f31204e.size() - 1; size >= 0; size--) {
+            b bVar = this.f31204e.get(size);
             if (bVar instanceof d) {
-                ((d) bVar).a(this.c, this.f5310a);
+                ((d) bVar).a(this.f31202c, this.f31200a);
                 if (rectF.isEmpty()) {
-                    rectF.set(this.c);
+                    rectF.set(this.f31202c);
                 } else {
-                    rectF.set(Math.min(rectF.left, this.c.left), Math.min(rectF.top, this.c.top), Math.max(rectF.right, this.c.right), Math.max(rectF.bottom, this.c.bottom));
+                    rectF.set(Math.min(rectF.left, this.f31202c.left), Math.min(rectF.top, this.f31202c.top), Math.max(rectF.right, this.f31202c.right), Math.max(rectF.bottom, this.f31202c.bottom));
                 }
             }
         }
@@ -126,57 +132,51 @@ public class c implements d, l, a.InterfaceC1084a {
 
     @Override // com.ksad.lottie.a.a.b
     public void a(List<b> list, List<b> list2) {
-        ArrayList arrayList = new ArrayList(list.size() + this.e.size());
+        ArrayList arrayList = new ArrayList(list.size() + this.f31204e.size());
         arrayList.addAll(list);
-        for (int size = this.e.size() - 1; size >= 0; size--) {
-            b bVar = this.e.get(size);
-            bVar.a(arrayList, this.e.subList(0, size));
+        for (int size = this.f31204e.size() - 1; size >= 0; size--) {
+            b bVar = this.f31204e.get(size);
+            bVar.a(arrayList, this.f31204e.subList(0, size));
             arrayList.add(bVar);
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public List<l> b() {
-        if (this.g == null) {
-            this.g = new ArrayList();
-            int i = 0;
-            while (true) {
-                int i2 = i;
-                if (i2 >= this.e.size()) {
-                    break;
-                }
-                b bVar = this.e.get(i2);
+        if (this.f31206g == null) {
+            this.f31206g = new ArrayList();
+            for (int i = 0; i < this.f31204e.size(); i++) {
+                b bVar = this.f31204e.get(i);
                 if (bVar instanceof l) {
-                    this.g.add((l) bVar);
+                    this.f31206g.add((l) bVar);
                 }
-                i = i2 + 1;
             }
         }
-        return this.g;
+        return this.f31206g;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public Matrix c() {
-        if (this.h != null) {
-            return this.h.d();
+        com.ksad.lottie.a.b.o oVar = this.f31207h;
+        if (oVar != null) {
+            return oVar.d();
         }
-        this.f5310a.reset();
-        return this.f5310a;
+        this.f31200a.reset();
+        return this.f31200a;
     }
 
     @Override // com.ksad.lottie.a.a.l
     public Path d() {
-        this.f5310a.reset();
-        if (this.h != null) {
-            this.f5310a.set(this.h.d());
+        this.f31200a.reset();
+        com.ksad.lottie.a.b.o oVar = this.f31207h;
+        if (oVar != null) {
+            this.f31200a.set(oVar.d());
         }
-        this.b.reset();
-        for (int size = this.e.size() - 1; size >= 0; size--) {
-            b bVar = this.e.get(size);
+        this.f31201b.reset();
+        for (int size = this.f31204e.size() - 1; size >= 0; size--) {
+            b bVar = this.f31204e.get(size);
             if (bVar instanceof l) {
-                this.b.addPath(((l) bVar).d(), this.f5310a);
+                this.f31201b.addPath(((l) bVar).d(), this.f31200a);
             }
         }
-        return this.b;
+        return this.f31201b;
     }
 }

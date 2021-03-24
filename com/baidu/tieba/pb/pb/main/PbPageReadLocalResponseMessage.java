@@ -2,70 +2,73 @@ package com.baidu.tieba.pb.pb.main;
 
 import android.content.Context;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
+import d.b.i0.c2.h.e;
 import tbclient.PbPage.PbPageResIdl;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class PbPageReadLocalResponseMessage extends CustomResponsedMessage<Object> {
-    private Context context;
-    private boolean markCache;
-    private com.baidu.tieba.pb.data.f pbData;
-    private String postId;
-    private int updateType;
+    public Context context;
+    public boolean markCache;
+    public e pbData;
+    public String postId;
+    public int updateType;
 
-    public int getUpdateType() {
-        return this.updateType;
+    public PbPageReadLocalResponseMessage() {
+        super(2004003);
     }
 
-    public void setUpdateType(int i) {
-        this.updateType = i;
+    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
+        if (bArr == null) {
+            return;
+        }
+        PbPageResIdl pbPageResIdl = (PbPageResIdl) PbPageRequestMessage.WIRE.parseFrom(bArr, PbPageResIdl.class);
+        setError(pbPageResIdl.error.errorno.intValue());
+        setErrorString(pbPageResIdl.error.usermsg);
+        if (getError() == 0 && pbPageResIdl.data != null) {
+            e eVar = new e();
+            this.pbData = eVar;
+            eVar.j0(1);
+            try {
+                this.pbData.i0(pbPageResIdl.data, this.context);
+                if (!this.pbData.d0()) {
+                    this.pbData = null;
+                } else if (!isMarkCache() || this.pbData.t() == null || this.pbData.t().equals(this.postId)) {
+                } else {
+                    this.pbData = null;
+                }
+            } catch (Exception unused) {
+            }
+        }
     }
 
-    public com.baidu.tieba.pb.data.f getPbData() {
+    public e getPbData() {
         return this.pbData;
     }
 
-    public void setPbData(com.baidu.tieba.pb.data.f fVar) {
-        this.pbData = fVar;
-    }
-
-    public void setPostId(String str) {
-        this.postId = str;
+    public int getUpdateType() {
+        return this.updateType;
     }
 
     public boolean isMarkCache() {
         return this.markCache;
     }
 
-    public void setMarkCache(boolean z) {
-        this.markCache = z;
-    }
-
-    public PbPageReadLocalResponseMessage() {
-        super(CmdConfigCustom.PB_PAGE_CACHE_CMD);
-    }
-
     public void setContext(Context context) {
         this.context = context;
     }
 
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
-        if (bArr != null) {
-            PbPageResIdl pbPageResIdl = (PbPageResIdl) PbPageRequestMessage.WIRE.parseFrom(bArr, PbPageResIdl.class);
-            setError(pbPageResIdl.error.errorno.intValue());
-            setErrorString(pbPageResIdl.error.usermsg);
-            if (getError() == 0 && pbPageResIdl.data != null) {
-                this.pbData = new com.baidu.tieba.pb.data.f();
-                this.pbData.Fx(1);
-                try {
-                    this.pbData.a(pbPageResIdl.data, this.context);
-                    if (!this.pbData.isValid()) {
-                        this.pbData = null;
-                    } else if (isMarkCache() && this.pbData.bka() != null && !this.pbData.bka().equals(this.postId)) {
-                        this.pbData = null;
-                    }
-                } catch (Exception e) {
-                }
-            }
-        }
+    public void setMarkCache(boolean z) {
+        this.markCache = z;
+    }
+
+    public void setPbData(e eVar) {
+        this.pbData = eVar;
+    }
+
+    public void setPostId(String str) {
+        this.postId = str;
+    }
+
+    public void setUpdateType(int i) {
+        this.updateType = i;
     }
 }

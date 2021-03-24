@@ -5,230 +5,256 @@ import java.io.InputStream;
 import java.io.InterruptedIOException;
 /* loaded from: classes5.dex */
 public class PipedInputStreamAndroid25 extends InputStream {
-    static final /* synthetic */ boolean $assertionsDisabled;
-    protected byte[] buffer;
-    Thread oTu;
-    Thread oTv;
-    boolean oTs = false;
-    volatile boolean oTt = false;
-    boolean connected = false;
-    protected int in = -1;
-    protected int oTw = 0;
 
-    static {
-        $assertionsDisabled = !PipedInputStreamAndroid25.class.desiredAssertionStatus();
+    /* renamed from: h  reason: collision with root package name */
+    public Thread f22798h;
+    public Thread i;
+    public byte[] j;
+
+    /* renamed from: e  reason: collision with root package name */
+    public boolean f22795e = false;
+
+    /* renamed from: f  reason: collision with root package name */
+    public volatile boolean f22796f = false;
+
+    /* renamed from: g  reason: collision with root package name */
+    public boolean f22797g = false;
+    public int k = -1;
+    public int l = 0;
+
+    public PipedInputStreamAndroid25(PipedOutputStreamAndroid25 pipedOutputStreamAndroid25, int i) throws IOException {
+        q(i);
+        p(pipedOutputStreamAndroid25);
     }
 
-    public PipedInputStreamAndroid25() {
-        Nb(1024);
-    }
-
-    private void Nb(int i) {
-        if (i <= 0) {
-            throw new IllegalArgumentException("Pipe Size <= 0");
+    @Override // java.io.InputStream
+    public synchronized int available() throws IOException {
+        if (this.k < 0) {
+            return 0;
         }
-        this.buffer = new byte[i];
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public synchronized void Nc(int i) throws IOException {
-        egO();
-        this.oTv = Thread.currentThread();
-        if (this.in == this.oTw) {
-            egP();
-        }
-        if (this.in < 0) {
-            this.in = 0;
-            this.oTw = 0;
-        }
-        byte[] bArr = this.buffer;
-        int i2 = this.in;
-        this.in = i2 + 1;
-        bArr[i2] = (byte) (i & 255);
-        if (this.in >= this.buffer.length) {
-            this.in = 0;
+        if (this.k == this.l) {
+            return this.j.length;
+        } else if (this.k > this.l) {
+            return this.k - this.l;
+        } else {
+            return (this.k + this.j.length) - this.l;
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public synchronized void u(byte[] bArr, int i, int i2) throws IOException {
-        int i3;
-        egO();
-        this.oTv = Thread.currentThread();
-        int i4 = i2;
-        while (i4 > 0) {
-            if (this.in == this.oTw) {
-                egP();
-            }
-            if (this.oTw < this.in) {
-                i3 = this.buffer.length - this.in;
-            } else if (this.in >= this.oTw) {
-                i3 = 0;
-            } else if (this.in == -1) {
-                this.oTw = 0;
-                this.in = 0;
-                i3 = this.buffer.length - this.in;
-            } else {
-                i3 = this.oTw - this.in;
-            }
-            if (i3 > i4) {
-                i3 = i4;
-            }
-            if (!$assertionsDisabled && i3 <= 0) {
-                throw new AssertionError();
-            }
-            System.arraycopy(bArr, i, this.buffer, this.in, i3);
-            i4 -= i3;
-            i += i3;
-            this.in = i3 + this.in;
-            if (this.in >= this.buffer.length) {
-                this.in = 0;
-            }
+    @Override // java.io.InputStream, java.io.Closeable, java.lang.AutoCloseable
+    public void close() throws IOException {
+        this.f22796f = true;
+        synchronized (this) {
+            this.k = -1;
         }
     }
 
-    private void egO() throws IOException {
-        if (!this.connected) {
-            throw new IOException("Pipe not connected");
-        }
-        if (this.oTs || this.oTt) {
-            throw new IOException("Pipe closed");
-        }
-        if (this.oTu != null && !this.oTu.isAlive()) {
-            throw new IOException("Read end dead");
-        }
-    }
-
-    private void egP() throws IOException {
-        while (this.in == this.oTw) {
-            egO();
+    public final void n() throws IOException {
+        while (this.k == this.l) {
+            o();
             notifyAll();
             try {
                 wait(1000L);
-            } catch (InterruptedException e) {
+            } catch (InterruptedException unused) {
                 Thread.currentThread().interrupt();
                 throw new InterruptedIOException();
             }
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public synchronized void egQ() {
-        this.oTs = true;
-        notifyAll();
+    public final void o() throws IOException {
+        if (this.f22797g) {
+            if (!this.f22795e && !this.f22796f) {
+                Thread thread = this.f22798h;
+                if (thread != null && !thread.isAlive()) {
+                    throw new IOException("Read end dead");
+                }
+                return;
+            }
+            throw new IOException("Pipe closed");
+        }
+        throw new IOException("Pipe not connected");
+    }
+
+    public void p(PipedOutputStreamAndroid25 pipedOutputStreamAndroid25) throws IOException {
+        pipedOutputStreamAndroid25.c(this);
+    }
+
+    public final void q(int i) {
+        if (i > 0) {
+            this.j = new byte[i];
+            return;
+        }
+        throw new IllegalArgumentException("Pipe Size <= 0");
+    }
+
+    public synchronized void r(int i) throws IOException {
+        o();
+        this.i = Thread.currentThread();
+        if (this.k == this.l) {
+            n();
+        }
+        if (this.k < 0) {
+            this.k = 0;
+            this.l = 0;
+        }
+        byte[] bArr = this.j;
+        int i2 = this.k;
+        int i3 = i2 + 1;
+        this.k = i3;
+        bArr[i2] = (byte) (i & 255);
+        if (i3 >= this.j.length) {
+            this.k = 0;
+        }
     }
 
     @Override // java.io.InputStream
     public synchronized int read() throws IOException {
-        int i = -1;
-        synchronized (this) {
-            if (!this.connected) {
-                throw new IOException("Pipe not connected");
-            }
-            if (this.oTt) {
-                throw new IOException("Pipe closed");
-            }
-            if (this.oTv != null && !this.oTv.isAlive() && !this.oTs && this.in < 0) {
-                throw new IOException("Write end dead");
-            }
-            this.oTu = Thread.currentThread();
-            int i2 = 2;
-            while (true) {
-                if (this.in < 0) {
-                    if (this.oTs) {
-                        break;
-                    } else if (this.oTv != null && !this.oTv.isAlive() && i2 - 1 < 0) {
+        if (this.f22797g) {
+            if (!this.f22796f) {
+                if (this.i != null && !this.i.isAlive() && !this.f22795e && this.k < 0) {
+                    throw new IOException("Write end dead");
+                }
+                this.f22798h = Thread.currentThread();
+                int i = 2;
+                while (this.k < 0) {
+                    if (this.f22795e) {
+                        return -1;
+                    }
+                    if (this.i != null && !this.i.isAlive() && i - 1 < 0) {
                         throw new IOException("Pipe broken");
-                    } else {
-                        notifyAll();
-                        try {
-                            wait(1000L);
-                        } catch (InterruptedException e) {
-                            Thread.currentThread().interrupt();
-                            throw new InterruptedIOException();
-                        }
                     }
-                } else {
-                    byte[] bArr = this.buffer;
-                    int i3 = this.oTw;
-                    this.oTw = i3 + 1;
-                    i = bArr[i3] & 255;
-                    if (this.oTw >= this.buffer.length) {
-                        this.oTw = 0;
-                    }
-                    if (this.in == this.oTw) {
-                        this.in = -1;
+                    notifyAll();
+                    try {
+                        wait(1000L);
+                    } catch (InterruptedException unused) {
+                        Thread.currentThread().interrupt();
+                        throw new InterruptedIOException();
                     }
                 }
+                byte[] bArr = this.j;
+                int i2 = this.l;
+                int i3 = i2 + 1;
+                this.l = i3;
+                int i4 = bArr[i2] & 255;
+                if (i3 >= this.j.length) {
+                    this.l = 0;
+                }
+                if (this.k == this.l) {
+                    this.k = -1;
+                }
+                return i4;
+            }
+            throw new IOException("Pipe closed");
+        }
+        throw new IOException("Pipe not connected");
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:20:0x003f  */
+    /* JADX WARN: Removed duplicated region for block: B:35:0x0053 A[SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:37:0x000a A[SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public synchronized void s(byte[] bArr, int i, int i2) throws IOException {
+        int i3;
+        int i4;
+        int i5;
+        int i6;
+        o();
+        this.i = Thread.currentThread();
+        while (i2 > 0) {
+            if (this.k == this.l) {
+                n();
+            }
+            if (this.l < this.k) {
+                i4 = this.j.length;
+                i5 = this.k;
+            } else {
+                if (this.k >= this.l) {
+                    i3 = 0;
+                } else if (this.k == -1) {
+                    this.l = 0;
+                    this.k = 0;
+                    i3 = this.j.length - 0;
+                } else {
+                    i4 = this.l;
+                    i5 = this.k;
+                }
+                if (i3 > i2) {
+                    i3 = i2;
+                }
+                System.arraycopy(bArr, i, this.j, this.k, i3);
+                i2 -= i3;
+                i += i3;
+                i6 = this.k + i3;
+                this.k = i6;
+                if (i6 < this.j.length) {
+                    this.k = 0;
+                }
+            }
+            i3 = i4 - i5;
+            if (i3 > i2) {
+            }
+            System.arraycopy(bArr, i, this.j, this.k, i3);
+            i2 -= i3;
+            i += i3;
+            i6 = this.k + i3;
+            this.k = i6;
+            if (i6 < this.j.length) {
             }
         }
-        return i;
+    }
+
+    public synchronized void t() {
+        this.f22795e = true;
+        notifyAll();
+    }
+
+    public PipedInputStreamAndroid25() {
+        q(1024);
     }
 
     @Override // java.io.InputStream
     public synchronized int read(byte[] bArr, int i, int i2) throws IOException {
         int length;
-        int i3 = 0;
-        synchronized (this) {
-            if (bArr == null) {
-                throw new NullPointerException();
-            }
+        if (bArr != null) {
             if (i < 0 || i2 < 0 || i2 > bArr.length - i) {
                 throw new IndexOutOfBoundsException();
             }
-            if (i2 != 0) {
-                int read = read();
-                if (read < 0) {
-                    i3 = -1;
+            if (i2 == 0) {
+                return 0;
+            }
+            int read = read();
+            if (read < 0) {
+                return -1;
+            }
+            bArr[i] = (byte) read;
+            int i3 = 1;
+            while (this.k >= 0 && i2 > 1) {
+                if (this.k > this.l) {
+                    length = Math.min(this.j.length - this.l, this.k - this.l);
                 } else {
-                    bArr[i] = (byte) read;
-                    i3 = 1;
-                    while (this.in >= 0 && i2 > 1) {
-                        if (this.in > this.oTw) {
-                            length = Math.min(this.buffer.length - this.oTw, this.in - this.oTw);
-                        } else {
-                            length = this.buffer.length - this.oTw;
-                        }
-                        if (length > i2 - 1) {
-                            length = i2 - 1;
-                        }
-                        System.arraycopy(this.buffer, this.oTw, bArr, i + i3, length);
-                        this.oTw += length;
-                        i3 += length;
-                        i2 -= length;
-                        if (this.oTw >= this.buffer.length) {
-                            this.oTw = 0;
-                        }
-                        if (this.in == this.oTw) {
-                            this.in = -1;
-                        }
-                    }
+                    length = this.j.length - this.l;
+                }
+                int i4 = i2 - 1;
+                if (length > i4) {
+                    length = i4;
+                }
+                System.arraycopy(this.j, this.l, bArr, i + i3, length);
+                int i5 = this.l + length;
+                this.l = i5;
+                i3 += length;
+                i2 -= length;
+                if (i5 >= this.j.length) {
+                    this.l = 0;
+                }
+                if (this.k == this.l) {
+                    this.k = -1;
                 }
             }
+            return i3;
         }
-        return i3;
-    }
-
-    @Override // java.io.InputStream
-    public synchronized int available() throws IOException {
-        int length;
-        if (this.in < 0) {
-            length = 0;
-        } else if (this.in == this.oTw) {
-            length = this.buffer.length;
-        } else if (this.in > this.oTw) {
-            length = this.in - this.oTw;
-        } else {
-            length = (this.in + this.buffer.length) - this.oTw;
-        }
-        return length;
-    }
-
-    @Override // java.io.InputStream, java.io.Closeable, java.lang.AutoCloseable
-    public void close() throws IOException {
-        this.oTt = true;
-        synchronized (this) {
-            this.in = -1;
-        }
+        throw new NullPointerException();
     }
 }

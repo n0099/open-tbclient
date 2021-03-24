@@ -4,16 +4,16 @@ import android.graphics.Bitmap;
 import android.os.Bundle;
 import com.tencent.mm.sdk.b.a;
 import java.io.ByteArrayOutputStream;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class WXMediaMessage {
     public static final String ACTION_WXAPPMESSAGE = "com.tencent.mm.sdk.openapi.Intent.ACTION_WXAPPMESSAGE";
-    private static final int DESCRIPTION_LENGTH_LIMIT = 1024;
-    private static final int MEDIA_TAG_NAME_LENGTH_LIMIT = 64;
-    private static final int MESSAGE_ACTION_LENGTH_LIMIT = 2048;
-    private static final int MESSAGE_EXT_LENGTH_LIMIT = 2048;
-    private static final String TAG = "MicroMsg.SDK.WXMediaMessage";
-    private static final int THUMB_LENGTH_LIMIT = 32768;
-    private static final int TITLE_LENGTH_LIMIT = 512;
+    public static final int DESCRIPTION_LENGTH_LIMIT = 1024;
+    public static final int MEDIA_TAG_NAME_LENGTH_LIMIT = 64;
+    public static final int MESSAGE_ACTION_LENGTH_LIMIT = 2048;
+    public static final int MESSAGE_EXT_LENGTH_LIMIT = 2048;
+    public static final String TAG = "MicroMsg.SDK.WXMediaMessage";
+    public static final int THUMB_LENGTH_LIMIT = 32768;
+    public static final int TITLE_LENGTH_LIMIT = 512;
     public String description;
     public IMediaObject mediaObject;
     public String mediaTagName;
@@ -23,7 +23,7 @@ public final class WXMediaMessage {
     public byte[] thumbData;
     public String title;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class Builder {
         public static final String KEY_IDENTIFIER = "_wxobject_identifier_";
 
@@ -37,31 +37,31 @@ public final class WXMediaMessage {
             wXMediaMessage.messageAction = bundle.getString("_wxobject_message_action");
             wXMediaMessage.messageExt = bundle.getString("_wxobject_message_ext");
             String pathOldToNew = pathOldToNew(bundle.getString("_wxobject_identifier_"));
-            if (pathOldToNew == null || pathOldToNew.length() <= 0) {
-                return wXMediaMessage;
+            if (pathOldToNew != null && pathOldToNew.length() > 0) {
+                try {
+                    IMediaObject iMediaObject = (IMediaObject) Class.forName(pathOldToNew).newInstance();
+                    wXMediaMessage.mediaObject = iMediaObject;
+                    iMediaObject.unserialize(bundle);
+                    return wXMediaMessage;
+                } catch (Exception e2) {
+                    e2.printStackTrace();
+                    a.a("MicroMsg.SDK.WXMediaMessage", "get media object from bundle failed: unknown ident " + pathOldToNew + ", ex = " + e2.getMessage());
+                }
             }
-            try {
-                wXMediaMessage.mediaObject = (IMediaObject) Class.forName(pathOldToNew).newInstance();
-                wXMediaMessage.mediaObject.unserialize(bundle);
-                return wXMediaMessage;
-            } catch (Exception e) {
-                e.printStackTrace();
-                a.a(WXMediaMessage.TAG, "get media object from bundle failed: unknown ident " + pathOldToNew + ", ex = " + e.getMessage());
-                return wXMediaMessage;
-            }
+            return wXMediaMessage;
         }
 
-        private static String pathNewToOld(String str) {
+        public static String pathNewToOld(String str) {
             if (str == null || str.length() == 0) {
-                a.a(WXMediaMessage.TAG, "pathNewToOld fail, newPath is null");
+                a.a("MicroMsg.SDK.WXMediaMessage", "pathNewToOld fail, newPath is null");
                 return str;
             }
             return str.replace("com.tencent.mm.sdk.modelmsg", "com.tencent.mm.sdk.openapi");
         }
 
-        private static String pathOldToNew(String str) {
+        public static String pathOldToNew(String str) {
             if (str == null || str.length() == 0) {
-                a.a(WXMediaMessage.TAG, "pathOldToNew fail, oldPath is null");
+                a.a("MicroMsg.SDK.WXMediaMessage", "pathOldToNew fail, oldPath is null");
                 return str;
             }
             return str.replace("com.tencent.mm.sdk.openapi", "com.tencent.mm.sdk.modelmsg");
@@ -73,8 +73,9 @@ public final class WXMediaMessage {
             bundle.putString("_wxobject_title", wXMediaMessage.title);
             bundle.putString("_wxobject_description", wXMediaMessage.description);
             bundle.putByteArray("_wxobject_thumbdata", wXMediaMessage.thumbData);
-            if (wXMediaMessage.mediaObject != null) {
-                bundle.putString("_wxobject_identifier_", pathNewToOld(wXMediaMessage.mediaObject.getClass().getName()));
+            IMediaObject iMediaObject = wXMediaMessage.mediaObject;
+            if (iMediaObject != null) {
+                bundle.putString("_wxobject_identifier_", pathNewToOld(iMediaObject.getClass().getName()));
                 wXMediaMessage.mediaObject.serialize(bundle);
             }
             bundle.putString("_wxobject_mediatagname", wXMediaMessage.mediaTagName);
@@ -84,7 +85,7 @@ public final class WXMediaMessage {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public interface IMediaObject {
         public static final int TYPE_APPDATA = 7;
         public static final int TYPE_EMOJI = 8;
@@ -114,42 +115,55 @@ public final class WXMediaMessage {
         this.mediaObject = iMediaObject;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public final boolean checkArgs() {
-        if (getType() == 8 && (this.thumbData == null || this.thumbData.length == 0)) {
-            a.a(TAG, "checkArgs fail, thumbData should not be null when send emoji");
-            return false;
-        } else if (this.thumbData != null && this.thumbData.length > 32768) {
-            a.a(TAG, "checkArgs fail, thumbData is invalid");
-            return false;
-        } else if (this.title != null && this.title.length() > 512) {
-            a.a(TAG, "checkArgs fail, title is invalid");
-            return false;
-        } else if (this.description != null && this.description.length() > 1024) {
-            a.a(TAG, "checkArgs fail, description is invalid");
-            return false;
-        } else if (this.mediaObject == null) {
-            a.a(TAG, "checkArgs fail, mediaObject is null");
-            return false;
-        } else if (this.mediaTagName != null && this.mediaTagName.length() > 64) {
-            a.a(TAG, "checkArgs fail, mediaTagName is too long");
-            return false;
-        } else if (this.messageAction != null && this.messageAction.length() > 2048) {
-            a.a(TAG, "checkArgs fail, messageAction is too long");
-            return false;
-        } else if (this.messageExt == null || this.messageExt.length() <= 2048) {
-            return this.mediaObject.checkArgs();
+        String str;
+        byte[] bArr;
+        if (getType() == 8 && ((bArr = this.thumbData) == null || bArr.length == 0)) {
+            str = "checkArgs fail, thumbData should not be null when send emoji";
         } else {
-            a.a(TAG, "checkArgs fail, messageExt is too long");
-            return false;
+            byte[] bArr2 = this.thumbData;
+            if (bArr2 == null || bArr2.length <= 32768) {
+                String str2 = this.title;
+                if (str2 == null || str2.length() <= 512) {
+                    String str3 = this.description;
+                    if (str3 != null && str3.length() > 1024) {
+                        str = "checkArgs fail, description is invalid";
+                    } else if (this.mediaObject == null) {
+                        str = "checkArgs fail, mediaObject is null";
+                    } else {
+                        String str4 = this.mediaTagName;
+                        if (str4 == null || str4.length() <= 64) {
+                            String str5 = this.messageAction;
+                            if (str5 == null || str5.length() <= 2048) {
+                                String str6 = this.messageExt;
+                                if (str6 == null || str6.length() <= 2048) {
+                                    return this.mediaObject.checkArgs();
+                                }
+                                str = "checkArgs fail, messageExt is too long";
+                            } else {
+                                str = "checkArgs fail, messageAction is too long";
+                            }
+                        } else {
+                            str = "checkArgs fail, mediaTagName is too long";
+                        }
+                    }
+                } else {
+                    str = "checkArgs fail, title is invalid";
+                }
+            } else {
+                str = "checkArgs fail, thumbData is invalid";
+            }
         }
+        a.a("MicroMsg.SDK.WXMediaMessage", str);
+        return false;
     }
 
     public final int getType() {
-        if (this.mediaObject == null) {
+        IMediaObject iMediaObject = this.mediaObject;
+        if (iMediaObject == null) {
             return 0;
         }
-        return this.mediaObject.type();
+        return iMediaObject.type();
     }
 
     public final void setThumbImage(Bitmap bitmap) {
@@ -158,9 +172,9 @@ public final class WXMediaMessage {
             bitmap.compress(Bitmap.CompressFormat.JPEG, 85, byteArrayOutputStream);
             this.thumbData = byteArrayOutputStream.toByteArray();
             byteArrayOutputStream.close();
-        } catch (Exception e) {
-            e.printStackTrace();
-            a.a(TAG, "put thumb failed");
+        } catch (Exception e2) {
+            e2.printStackTrace();
+            a.a("MicroMsg.SDK.WXMediaMessage", "put thumb failed");
         }
     }
 }

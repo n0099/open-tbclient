@@ -7,203 +7,237 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.AccountData;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
+import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ar;
 import com.baidu.tbadk.editortools.DLauncher;
-import com.baidu.tbadk.editortools.g;
-import com.baidu.tbadk.editortools.h;
 import com.baidu.tbadk.editortools.view.CommonTabHost;
 import com.baidu.tieba.R;
+import d.b.h0.w.g;
+import d.b.h0.w.h;
 import java.util.LinkedList;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class PrivilegeDeskView extends CommonTabHost {
-    private LinkedList<h> fCO;
-    private int lvl;
-    private DLauncher lvm;
-    private DLauncher lvn;
-    private CustomMessageListener lvo;
-    private CustomMessageListener lvp;
-    private View.OnClickListener lvq;
-    private View.OnClickListener lvr;
-    private Context mContext;
+    public LinkedList<h> q;
+    public int r;
+    public DLauncher s;
+    public DLauncher t;
+    public Context u;
+    public CustomMessageListener v;
+    public CustomMessageListener w;
+    public View.OnClickListener x;
+    public View.OnClickListener y;
+
+    /* loaded from: classes3.dex */
+    public class a extends CustomMessageListener {
+        public a(int i) {
+            super(i);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            if (customResponsedMessage == null || customResponsedMessage.getData() == null || !(customResponsedMessage.getData() instanceof Boolean)) {
+                return;
+            }
+            if (((Boolean) customResponsedMessage.getData()).booleanValue()) {
+                PrivilegeDeskView.this.s.c(" ");
+            } else {
+                PrivilegeDeskView.this.s.e();
+            }
+            PrivilegeDeskView.this.y();
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class b extends CustomMessageListener {
+        public b(int i) {
+            super(i);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            if (customResponsedMessage == null || !(customResponsedMessage.getData() instanceof Boolean)) {
+                return;
+            }
+            if (((Boolean) customResponsedMessage.getData()).booleanValue()) {
+                PrivilegeDeskView.this.t.c(" ");
+            } else {
+                PrivilegeDeskView.this.t.e();
+            }
+            PrivilegeDeskView.this.y();
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class c implements View.OnClickListener {
+        public c() {
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            PrivilegeDeskView.this.hide();
+            PrivilegeDeskView.this.d(new d.b.h0.w.a(1, 16, null));
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class d implements View.OnClickListener {
+        public d() {
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            PrivilegeDeskView.this.hide();
+            PrivilegeDeskView.this.d(new d.b.h0.w.a(1, 12, null));
+        }
+    }
 
     public PrivilegeDeskView(Context context) {
         super(context);
-        this.lvl = 0;
-        this.lvo = new CustomMessageListener(CmdConfigCustom.CMD_TAIL_TOOL_RED_DOT) { // from class: com.baidu.tieba.memberCenter.tail.privilegetool.PrivilegeDeskView.1
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.adp.framework.listener.MessageListener
-            public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof Boolean)) {
-                    if (((Boolean) customResponsedMessage.getData()).booleanValue()) {
-                        PrivilegeDeskView.this.lvm.CP(" ");
-                    } else {
-                        PrivilegeDeskView.this.lvm.bBi();
-                    }
-                    PrivilegeDeskView.this.dgz();
+        this.r = 0;
+        this.v = new a(2001344);
+        this.w = new b(2001353);
+        this.x = new c();
+        this.y = new d();
+        u(context);
+        d.b.i0.q1.h.e.a aVar = new d.b.i0.q1.h.e.a(context, 1);
+        s(new d.b.i0.q1.b.b(context));
+        t(aVar);
+        this.u = context;
+    }
+
+    @Override // com.baidu.tbadk.editortools.view.CommonTabHost, d.b.h0.w.n
+    public void init() {
+        setShowDelete(false);
+        d.b.i0.q1.h.d.a aVar = new d.b.i0.q1.h.d.a();
+        aVar.C(this.q);
+        k(aVar);
+        w();
+        v();
+    }
+
+    @Override // com.baidu.tbadk.editortools.view.CommonTabHost, d.b.h0.w.b
+    public void onAction(d.b.h0.w.a aVar) {
+        super.onAction(aVar);
+        if (aVar == null) {
+            return;
+        }
+        if (aVar.f51523a == 2) {
+            Object obj = aVar.f51525c;
+            if (obj == null) {
+                this.r--;
+            } else if (obj instanceof String) {
+                String str = (String) obj;
+                if (TextUtils.isEmpty(str)) {
+                    this.r--;
+                } else if (TextUtils.isEmpty(str.trim())) {
+                    this.r++;
+                } else {
+                    this.r += d.b.b.e.m.b.d(str, 1);
                 }
             }
-        };
-        this.lvp = new CustomMessageListener(CmdConfigCustom.CMD_BUBBLE_TOOL_RED_DOT) { // from class: com.baidu.tieba.memberCenter.tail.privilegetool.PrivilegeDeskView.2
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.adp.framework.listener.MessageListener
-            public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean)) {
-                    if (((Boolean) customResponsedMessage.getData()).booleanValue()) {
-                        PrivilegeDeskView.this.lvn.CP(" ");
-                    } else {
-                        PrivilegeDeskView.this.lvn.bBi();
-                    }
-                    PrivilegeDeskView.this.dgz();
-                }
+            if (this.r > 0) {
+                d(new d.b.h0.w.a(2, 18, " "));
+            } else {
+                d(new d.b.h0.w.a(2, 18, null));
             }
-        };
-        this.lvq = new View.OnClickListener() { // from class: com.baidu.tieba.memberCenter.tail.privilegetool.PrivilegeDeskView.3
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
-                PrivilegeDeskView.this.hide();
-                PrivilegeDeskView.this.b(new com.baidu.tbadk.editortools.a(1, 16, null));
-            }
-        };
-        this.lvr = new View.OnClickListener() { // from class: com.baidu.tieba.memberCenter.tail.privilegetool.PrivilegeDeskView.4
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
-                PrivilegeDeskView.this.hide();
-                PrivilegeDeskView.this.b(new com.baidu.tbadk.editortools.a(1, 12, null));
-            }
-        };
-        gB(context);
-        com.baidu.tieba.memberCenter.tail.tool.a aVar = new com.baidu.tieba.memberCenter.tail.tool.a(context, 1);
-        a(new com.baidu.tieba.memberCenter.a.b(context));
-        a(aVar);
-        this.mContext = context;
-    }
-
-    private void a(com.baidu.tieba.memberCenter.a.b bVar) {
-        this.lvn = (DLauncher) g.a(getContext(), bVar, 6);
-        this.lvn.setOnClickListener(this.lvr);
-        this.fCO.add(this.lvn);
-    }
-
-    private void a(com.baidu.tieba.memberCenter.tail.tool.a aVar) {
-        this.lvm = (DLauncher) g.a(getContext(), aVar, 6);
-        this.lvm.setOnClickListener(this.lvq);
-        this.fCO.add(this.lvm);
-    }
-
-    private void gB(Context context) {
-        setBackgroundColorId(R.color.CAM_X0206);
-        setToolId(18);
-        this.fCO = new LinkedList<>();
+        }
+        if (aVar.f51523a == 1) {
+            TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_FUNCTION_PANEL_CLIKED).param("obj_locate", 2));
+        }
     }
 
     @Override // android.view.ViewGroup, android.view.View
-    protected void onAttachedToWindow() {
+    public void onAttachedToWindow() {
         super.onAttachedToWindow();
-        MessageManager.getInstance().registerListener(this.lvo);
-        MessageManager.getInstance().registerListener(this.lvp);
-        dgz();
+        MessageManager.getInstance().registerListener(this.v);
+        MessageManager.getInstance().registerListener(this.w);
+        y();
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tbadk.editortools.view.CommonTabHost, d.b.h0.w.n
+    public void onChangeSkinType(int i) {
+        super.onChangeSkinType(i);
+        this.s.onChangeSkinType(i);
+        this.t.onChangeSkinType(i);
+    }
+
     @Override // com.baidu.tbadk.editortools.view.CommonTabHost, android.view.ViewGroup, android.view.View
     public void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        MessageManager.getInstance().unRegisterListener(this.lvo);
-        MessageManager.getInstance().unRegisterListener(this.lvp);
+        MessageManager.getInstance().unRegisterListener(this.v);
+        MessageManager.getInstance().unRegisterListener(this.w);
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void dgz() {
-        String text = this.lvm.getText();
-        String text2 = this.lvn.getText();
-        boolean z = false;
-        if (text != null && !text.equals("")) {
-            z = true;
-            b(new com.baidu.tbadk.editortools.a(2, 18, " "));
-            b(new com.baidu.tbadk.editortools.a(2, 16, " "));
-        } else if (text2 != null && !text2.equals("")) {
-            b(new com.baidu.tbadk.editortools.a(2, 18, " "));
+    public final void s(d.b.i0.q1.b.b bVar) {
+        DLauncher dLauncher = (DLauncher) g.a(getContext(), bVar, 6);
+        this.t = dLauncher;
+        dLauncher.setOnClickListener(this.y);
+        this.q.add(this.t);
+    }
+
+    public final void t(d.b.i0.q1.h.e.a aVar) {
+        DLauncher dLauncher = (DLauncher) g.a(getContext(), aVar, 6);
+        this.s = dLauncher;
+        dLauncher.setOnClickListener(this.x);
+        this.q.add(this.s);
+    }
+
+    public final void u(Context context) {
+        setBackgroundColorId(R.color.CAM_X0206);
+        setToolId(18);
+        this.q = new LinkedList<>();
+    }
+
+    public final void v() {
+        if (!StringUtils.isNull(TbadkCoreApplication.getInst().getDefaultBubble())) {
+            this.t.c(" ");
         } else {
-            b(new com.baidu.tbadk.editortools.a(2, 18, null));
+            this.t.e();
         }
-        tY(z);
+        y();
     }
 
-    private void tY(boolean z) {
+    public final void w() {
+        AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
+        if (currentAccountObj == null) {
+            return;
+        }
+        if (currentAccountObj.getIsSelectTail()) {
+            this.s.c(" ");
+        } else {
+            this.s.e();
+        }
+        y();
+    }
+
+    public final void x(boolean z) {
         AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
         if (currentAccountObj != null) {
             currentAccountObj.setIsSelectTail(z);
         }
     }
 
-    @Override // com.baidu.tbadk.editortools.view.CommonTabHost, com.baidu.tbadk.editortools.n
-    public void init() {
-        setShowDelete(false);
-        a aVar = new a();
-        aVar.g(this.fCO);
-        b(aVar);
-        dgB();
-        dgA();
-    }
-
-    private void dgA() {
-        if (!StringUtils.isNull(TbadkCoreApplication.getInst().getDefaultBubble())) {
-            this.lvn.CP(" ");
+    public final void y() {
+        boolean z;
+        String text = this.s.getText();
+        String text2 = this.t.getText();
+        if (text != null && !text.equals("")) {
+            z = true;
+            d(new d.b.h0.w.a(2, 18, " "));
+            d(new d.b.h0.w.a(2, 16, " "));
         } else {
-            this.lvn.bBi();
-        }
-        dgz();
-    }
-
-    private void dgB() {
-        AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
-        if (currentAccountObj != null) {
-            if (currentAccountObj.getIsSelectTail()) {
-                this.lvm.CP(" ");
+            if (text2 != null && !text2.equals("")) {
+                d(new d.b.h0.w.a(2, 18, " "));
             } else {
-                this.lvm.bBi();
+                d(new d.b.h0.w.a(2, 18, null));
             }
-            dgz();
+            z = false;
         }
-    }
-
-    @Override // com.baidu.tbadk.editortools.view.CommonTabHost, com.baidu.tbadk.editortools.b
-    public void a(com.baidu.tbadk.editortools.a aVar) {
-        super.a(aVar);
-        if (aVar != null) {
-            if (aVar.code == 2) {
-                if (aVar.data == null) {
-                    this.lvl--;
-                } else if (aVar.data instanceof String) {
-                    String str = (String) aVar.data;
-                    if (TextUtils.isEmpty(str)) {
-                        this.lvl--;
-                    } else if (TextUtils.isEmpty(str.trim())) {
-                        this.lvl++;
-                    } else {
-                        this.lvl = com.baidu.adp.lib.f.b.toInt(str, 1) + this.lvl;
-                    }
-                }
-                if (this.lvl > 0) {
-                    b(new com.baidu.tbadk.editortools.a(2, 18, " "));
-                } else {
-                    b(new com.baidu.tbadk.editortools.a(2, 18, null));
-                }
-            }
-            if (aVar.code == 1) {
-                TiebaStatic.log(new ar("c12612").aq("obj_locate", 2));
-            }
-        }
-    }
-
-    @Override // com.baidu.tbadk.editortools.view.CommonTabHost, com.baidu.tbadk.editortools.n
-    public void onChangeSkinType(int i) {
-        super.onChangeSkinType(i);
-        this.lvm.onChangeSkinType(i);
-        this.lvn.onChangeSkinType(i);
+        x(z);
     }
 }

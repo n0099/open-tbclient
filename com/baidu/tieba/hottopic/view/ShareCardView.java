@@ -7,86 +7,95 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.k;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.hottopic.data.ShareFromTopicMsgData;
-/* loaded from: classes7.dex */
+import d.b.b.e.p.k;
+/* loaded from: classes4.dex */
 public class ShareCardView extends LinearLayout {
-    private TbImageView fIH;
-    private EditText jTj;
-    private TextView kAm;
-    private ShareFromTopicMsgData kAn;
-    private LinearLayout mRootView;
-    private TextView title;
 
-    public EditText getChatMsgView() {
-        return this.jTj;
-    }
+    /* renamed from: e  reason: collision with root package name */
+    public LinearLayout f17672e;
 
-    public void aP(String str, boolean z) {
-        if (this.fIH != null) {
-            this.fIH.startLoad(str, z ? 17 : 18, false);
-        }
-    }
+    /* renamed from: f  reason: collision with root package name */
+    public EditText f17673f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public TbImageView f17674g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public TextView f17675h;
+    public TextView i;
+    public ShareFromTopicMsgData j;
 
     public ShareCardView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        initUI(context);
+        b(context);
     }
 
-    public ShareCardView(Context context) {
-        super(context);
-        initUI(context);
+    public void a() {
+        this.f17672e.setFocusable(true);
+        this.f17672e.setFocusableInTouchMode(true);
+        this.f17672e.requestFocus();
     }
 
-    private void initUI(Context context) {
+    public final void b(Context context) {
         LayoutInflater.from(context).inflate(R.layout.thread_to_group_share_view, this);
         setOrientation(1);
-        this.mRootView = (LinearLayout) findViewById(R.id.share_content);
-        this.title = (TextView) findViewById(R.id.share_title_view);
-        this.jTj = (EditText) findViewById(R.id.chat_msg);
-        this.fIH = (TbImageView) findViewById(R.id.chat_group_img);
-        this.kAm = (TextView) findViewById(R.id.chat_group_desc);
-        ap.setViewTextColor(this.title, R.color.CAM_X0105, 1);
-        ap.setViewTextColor(this.jTj, R.color.CAM_X0105, 2);
-        ap.setViewTextColor(this.kAm, R.color.CAM_X0106, 1);
-        this.jTj.setHintTextColor(ap.getColor(R.color.CAM_X0110));
-        this.jTj.setPadding(context.getResources().getDimensionPixelSize(R.dimen.ds20), 0, 0, 0);
-        cNu();
+        this.f17672e = (LinearLayout) findViewById(R.id.share_content);
+        this.i = (TextView) findViewById(R.id.share_title_view);
+        this.f17673f = (EditText) findViewById(R.id.chat_msg);
+        this.f17674g = (TbImageView) findViewById(R.id.chat_group_img);
+        this.f17675h = (TextView) findViewById(R.id.chat_group_desc);
+        SkinManager.setViewTextColor(this.i, R.color.CAM_X0105, 1);
+        SkinManager.setViewTextColor(this.f17673f, R.color.CAM_X0105, 2);
+        SkinManager.setViewTextColor(this.f17675h, R.color.CAM_X0106, 1);
+        this.f17673f.setHintTextColor(SkinManager.getColor(R.color.CAM_X0110));
+        this.f17673f.setPadding(context.getResources().getDimensionPixelSize(R.dimen.ds20), 0, 0, 0);
+        a();
     }
 
-    public void cNu() {
-        this.mRootView.setFocusable(true);
-        this.mRootView.setFocusableInTouchMode(true);
-        this.mRootView.requestFocus();
+    public void c(String str, boolean z) {
+        TbImageView tbImageView = this.f17674g;
+        if (tbImageView != null) {
+            tbImageView.W(str, z ? 17 : 18, false);
+        }
+    }
+
+    public final void d() {
+        this.i.setText(this.j.getTitle());
+        BdLog.e("mData.getImageUrl()的图片URL" + this.j.getImageUrl());
+        this.f17674g.setTag(this.j.getImageUrl());
+        BdLog.e("mData.getContent()的Content" + this.j.getContent());
+        this.f17675h.setText(this.j.getContent());
+    }
+
+    public EditText getChatMsgView() {
+        return this.f17673f;
     }
 
     public String getLeaveMsg() {
-        if (this.jTj != null) {
-            return k.charSequence2String(this.jTj.getText(), null);
+        EditText editText = this.f17673f;
+        if (editText != null) {
+            return k.charSequence2String(editText.getText(), null);
         }
         return null;
     }
 
+    public void setData(ShareFromTopicMsgData shareFromTopicMsgData) {
+        this.j = shareFromTopicMsgData;
+        d();
+    }
+
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.widget.LinearLayout, android.view.ViewGroup
     public LinearLayout.LayoutParams generateDefaultLayoutParams() {
         return new LinearLayout.LayoutParams(-1, -2);
     }
 
-    public void setData(ShareFromTopicMsgData shareFromTopicMsgData) {
-        this.kAn = shareFromTopicMsgData;
-        updateUI();
-    }
-
-    private void updateUI() {
-        this.title.setText(this.kAn.getTitle());
-        BdLog.e("mData.getImageUrl()的图片URL" + this.kAn.getImageUrl());
-        this.fIH.setTag(this.kAn.getImageUrl());
-        BdLog.e("mData.getContent()的Content" + this.kAn.getContent());
-        this.kAm.setText(this.kAn.getContent());
+    public ShareCardView(Context context) {
+        super(context);
+        b(context);
     }
 }

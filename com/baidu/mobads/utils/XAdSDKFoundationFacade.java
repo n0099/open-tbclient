@@ -18,98 +18,57 @@ import com.baidu.mobads.interfaces.utils.IXAdURIUitls;
 import com.baidu.mobads.interfaces.utils.IXAdViewUtils;
 import com.baidu.mobads.openad.interfaces.download.IOAdDownloaderManager;
 import java.util.HashMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class XAdSDKFoundationFacade {
-    private static final XAdSDKFoundationFacade o = new XAdSDKFoundationFacade();
+    public static final XAdSDKFoundationFacade o = new XAdSDKFoundationFacade();
 
     /* renamed from: a  reason: collision with root package name */
-    private m f2479a;
-    private Context p;
-    private IXAdContainerFactory q;
-    private IBase64 c = new a();
-    private IXAdLogger d = q.a();
-    private s b = new s();
-    private IXAdViewUtils e = new ab();
-    private IXAdBitmapUtils f = new g();
-    private IXAdURIUitls g = new aa();
-    private IXAdSystemUtils k = t.a();
-    private h l = new h();
-    private IXAdIOUtils h = new p();
-    private r i = new r();
-    private IXAdActivityUtils j = new f();
-    private l m = new l();
-    private IXAdErrorCode n = new com.baidu.mobads.d.b(this.d);
+    public m f8516a;
+    public Context p;
+    public IXAdContainerFactory q;
+
+    /* renamed from: c  reason: collision with root package name */
+    public IBase64 f8518c = new a();
+
+    /* renamed from: d  reason: collision with root package name */
+    public IXAdLogger f8519d = q.a();
+
+    /* renamed from: b  reason: collision with root package name */
+    public s f8517b = new s();
+
+    /* renamed from: e  reason: collision with root package name */
+    public IXAdViewUtils f8520e = new ab();
+
+    /* renamed from: f  reason: collision with root package name */
+    public IXAdBitmapUtils f8521f = new g();
+
+    /* renamed from: g  reason: collision with root package name */
+    public IXAdURIUitls f8522g = new aa();
+    public IXAdSystemUtils k = t.a();
+    public h l = new h();
+
+    /* renamed from: h  reason: collision with root package name */
+    public IXAdIOUtils f8523h = new p();
+    public r i = new r();
+    public IXAdActivityUtils j = new f();
+    public l m = new l();
+    public IXAdErrorCode n = new com.baidu.mobads.d.b(this.f8519d);
 
     public static XAdSDKFoundationFacade getInstance() {
         return o;
     }
 
-    private XAdSDKFoundationFacade() {
-    }
-
-    public void initializeApplicationContext(Context context) {
-        if (this.p == null) {
-            this.p = context;
-        }
-        this.f2479a = new m(this.p);
-    }
-
-    public void initializeAdContainerFactory(IXAdContainerFactory iXAdContainerFactory) {
-        if (iXAdContainerFactory == null) {
-            this.q = iXAdContainerFactory;
+    public void downloadApp(IXAdInstanceInfo iXAdInstanceInfo) {
+        try {
+            IXAdLogger iXAdLogger = this.f8519d;
+            iXAdLogger.i("download apk in proxy: " + iXAdInstanceInfo.getAppName());
+        } catch (Exception unused) {
+            Log.e("", "");
         }
     }
 
-    public m getAdCreativeCacheManager() {
-        return this.f2479a;
-    }
-
-    public IXAdContainerFactory getAdContainerFactory() {
-        return this.q;
-    }
-
-    public Context getApplicationContext() {
-        return this.p;
-    }
-
-    public IBase64 getBase64() {
-        return this.c;
-    }
-
-    public IXAdLogger getAdLogger() {
-        return this.d;
-    }
-
-    public s getAdResource() {
-        return this.b;
-    }
-
-    public IXAdBitmapUtils getBitmapUtils() {
-        return this.f;
-    }
-
-    public IXAdURIUitls getURIUitls() {
-        return this.g;
-    }
-
-    public IXAdViewUtils getViewUtils() {
-        return this.e;
-    }
-
-    public IXAdIOUtils getIoUtils() {
-        return this.h;
-    }
-
-    public r getPackageUtils() {
-        return this.i;
-    }
-
-    public h getCommonUtils() {
-        return this.l;
-    }
-
-    public IXAdSystemUtils getSystemUtils() {
-        return this.k;
+    public void downloadAppSilence(IXAdInstanceInfo iXAdInstanceInfo) {
+        downloadApp(iXAdInstanceInfo);
     }
 
     public IXAdActivityUtils getActivityUtils() {
@@ -120,49 +79,103 @@ public class XAdSDKFoundationFacade {
         return this.m;
     }
 
-    public IXAdErrorCode getErrorCode() {
-        return this.n;
+    public IXAdContainerFactory getAdContainerFactory() {
+        return this.q;
+    }
+
+    public m getAdCreativeCacheManager() {
+        return this.f8516a;
+    }
+
+    public IXAdLogger getAdLogger() {
+        return this.f8519d;
+    }
+
+    public s getAdResource() {
+        return this.f8517b;
+    }
+
+    public Context getApplicationContext() {
+        return this.p;
+    }
+
+    public IBase64 getBase64() {
+        return this.f8518c;
+    }
+
+    public IXAdBitmapUtils getBitmapUtils() {
+        return this.f8521f;
+    }
+
+    public h getCommonUtils() {
+        return this.l;
     }
 
     public IOAdDownloaderManager getDownloaderManager(Context context) {
         return com.baidu.mobads.openad.download.a.a(context);
     }
 
-    public IOAdDownloaderManager getDownloaderManager() {
-        return com.baidu.mobads.openad.download.a.a(getApplicationContext());
+    public IXAdErrorCode getErrorCode() {
+        return this.n;
     }
 
-    public void setMobileConfirmed(String str) {
-        this.d.i("setMobileConfirmed in proxy: " + str);
+    public Intent getInstallIntent(String str) {
+        return getPackageUtils().a(getApplicationContext(), str);
     }
 
-    public void makeRequest(String str) {
-        com.baidu.mobads.openad.b.b bVar = new com.baidu.mobads.openad.b.b(str, "");
-        bVar.e = 1;
-        new com.baidu.mobads.openad.b.a().a(bVar);
+    public IXAdIOUtils getIoUtils() {
+        return this.f8523h;
+    }
+
+    public r getPackageUtils() {
+        return this.i;
     }
 
     public String getProxyVer() {
         return XAdSDKProxyVersion.RELEASE_TAG;
     }
 
-    public void downloadApp(IXAdInstanceInfo iXAdInstanceInfo) {
-        try {
-            this.d.i("download apk in proxy: " + iXAdInstanceInfo.getAppName());
-        } catch (Exception e) {
-            Log.e("", "");
+    public IXAdSystemUtils getSystemUtils() {
+        return this.k;
+    }
+
+    public IXAdURIUitls getURIUitls() {
+        return this.f8522g;
+    }
+
+    public IXAdViewUtils getViewUtils() {
+        return this.f8520e;
+    }
+
+    public void initializeAdContainerFactory(IXAdContainerFactory iXAdContainerFactory) {
+        if (iXAdContainerFactory == null) {
+            this.q = iXAdContainerFactory;
         }
     }
 
-    public void downloadAppSilence(IXAdInstanceInfo iXAdInstanceInfo) {
-        downloadApp(iXAdInstanceInfo);
+    public void initializeApplicationContext(Context context) {
+        if (this.p == null) {
+            this.p = context;
+        }
+        this.f8516a = new m(this.p);
+    }
+
+    public void makeRequest(String str) {
+        com.baidu.mobads.openad.b.b bVar = new com.baidu.mobads.openad.b.b(str, "");
+        bVar.f8413e = 1;
+        new com.baidu.mobads.openad.b.a().a(bVar);
     }
 
     public void sendLog(String str, HashMap<String, String> hashMap) {
         com.baidu.mobads.b.a.a().a(getApplicationContext(), str, (IXAdInstanceInfo) null, (IXAdProdInfo) null, hashMap);
     }
 
-    public Intent getInstallIntent(String str) {
-        return getPackageUtils().a(getApplicationContext(), str);
+    public void setMobileConfirmed(String str) {
+        IXAdLogger iXAdLogger = this.f8519d;
+        iXAdLogger.i("setMobileConfirmed in proxy: " + str);
+    }
+
+    public IOAdDownloaderManager getDownloaderManager() {
+        return com.baidu.mobads.openad.download.a.a(getApplicationContext());
     }
 }

@@ -13,225 +13,243 @@ import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.recapp.t;
-/* loaded from: classes.dex */
+import d.b.b.e.p.l;
+import d.b.i0.r2.t;
+/* loaded from: classes2.dex */
 public class McnVideoAdView extends FrameLayout {
-    private static final int cjC = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds626);
-    private static final int cjD = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds156);
-    private static final int cjE = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds112);
-    private com.baidu.mcn.a cjA;
-    private a cjB;
-    private ViewParent cjF;
-    private TbImageView cju;
-    private TextView cjv;
-    private TextView cjw;
-    private Animation cjx;
-    private Animation cjy;
-    private boolean cjz;
-    private boolean isShowing;
-    private Context mContext;
-    private final Handler mHandler;
-    private float mLastX;
-    private float mLastY;
+    public static final int r = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds626);
+    public static final int s = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds156);
+    public static final int t = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds112);
 
-    /* loaded from: classes.dex */
-    public interface a {
-        void a(com.baidu.mcn.a aVar);
+    /* renamed from: e  reason: collision with root package name */
+    public Context f7919e;
 
-        void b(com.baidu.mcn.a aVar);
+    /* renamed from: f  reason: collision with root package name */
+    public TbImageView f7920f;
 
-        void c(com.baidu.mcn.a aVar);
+    /* renamed from: g  reason: collision with root package name */
+    public TextView f7921g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public TextView f7922h;
+    public Animation i;
+    public Animation j;
+    public float k;
+    public float l;
+    public boolean m;
+    public d.b.v.a n;
+    public c o;
+    public final Handler p;
+    public ViewParent q;
+
+    /* loaded from: classes2.dex */
+    public class a implements Animation.AnimationListener {
+        public a() {
+        }
+
+        @Override // android.view.animation.Animation.AnimationListener
+        public void onAnimationEnd(Animation animation) {
+            McnVideoAdView.this.j();
+        }
+
+        @Override // android.view.animation.Animation.AnimationListener
+        public void onAnimationRepeat(Animation animation) {
+        }
+
+        @Override // android.view.animation.Animation.AnimationListener
+        public void onAnimationStart(Animation animation) {
+        }
+    }
+
+    /* loaded from: classes2.dex */
+    public class b implements Runnable {
+        public b() {
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            if (McnVideoAdView.this.q != null) {
+                McnVideoAdView.this.q.requestDisallowInterceptTouchEvent(false);
+                McnVideoAdView.this.q = null;
+            }
+        }
+    }
+
+    /* loaded from: classes2.dex */
+    public interface c {
+        void a(d.b.v.a aVar);
+
+        void b(d.b.v.a aVar);
+
+        void c(d.b.v.a aVar);
     }
 
     public McnVideoAdView(Context context) {
         super(context);
-        this.isShowing = false;
-        this.cjz = false;
-        this.mHandler = new Handler();
-        this.mContext = context;
-        init();
+        this.m = false;
+        this.p = new Handler();
+        this.f7919e = context;
+        h();
     }
 
-    public McnVideoAdView(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        this.isShowing = false;
-        this.cjz = false;
-        this.mHandler = new Handler();
-        this.mContext = context;
-        init();
+    private void setData(d.b.v.a aVar) {
+        if (aVar == null) {
+            return;
+        }
+        this.n = aVar;
+        this.f7920f.W(aVar.f64789a, 10, false);
+        if (!StringUtils.isNull(aVar.f64790b)) {
+            this.f7921g.setText(aVar.f64790b);
+        }
+        if (StringUtils.isNull(aVar.f64791c)) {
+            return;
+        }
+        this.f7922h.setText(aVar.f64791c);
     }
 
-    public McnVideoAdView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        this.isShowing = false;
-        this.cjz = false;
-        this.mHandler = new Handler();
-        this.mContext = context;
-        init();
+    public final void d() {
+        this.p.postDelayed(new b(), 500L);
     }
 
-    private void init() {
-        LayoutInflater.from(this.mContext).inflate(R.layout.mcn_video_ad_layout, this);
-        this.cju = (TbImageView) findViewById(R.id.id_mcn_video_ad_image);
-        this.cjv = (TextView) findViewById(R.id.id_mcn_video_ad_title);
-        this.cjw = (TextView) findViewById(R.id.id_mcn_video_ad_jump_btn);
-        this.cju.setConrers(5);
-        this.cju.setDefaultResource(R.drawable.mcn_video_ad_default_img_bg);
-        this.cju.setDefaultBgResource(R.drawable.mcn_video_ad_default_img_bg);
-        this.cju.setRadius(l.getDimens(this.mContext, R.dimen.tbds20));
-        this.cjx = AnimationUtils.loadAnimation(this.mContext, R.anim.mcn_video_ad_open_anim);
-        this.cjy = AnimationUtils.loadAnimation(this.mContext, R.anim.mcn_video_ad_close_anim);
-        this.cjy.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.mcn.McnVideoAdView.1
-            @Override // android.view.animation.Animation.AnimationListener
-            public void onAnimationStart(Animation animation) {
-            }
-
-            @Override // android.view.animation.Animation.AnimationListener
-            public void onAnimationEnd(Animation animation) {
-                McnVideoAdView.this.removeView();
-            }
-
-            @Override // android.view.animation.Animation.AnimationListener
-            public void onAnimationRepeat(Animation animation) {
-            }
-        });
+    public final void e() {
+        d.b.v.a aVar;
+        String str;
+        Context context = this.f7919e;
+        if (context == null || (aVar = this.n) == null || (str = aVar.f64792d) == null) {
+            return;
+        }
+        t.d(context, str, null, null);
+        c cVar = this.o;
+        if (cVar != null) {
+            cVar.c(this.n);
+        }
     }
 
-    private void setData(com.baidu.mcn.a aVar) {
-        if (aVar != null) {
-            this.cjA = aVar;
-            this.cju.startLoad(aVar.cjj, 10, false);
-            if (!StringUtils.isNull(aVar.cjk)) {
-                this.cjv.setText(aVar.cjk);
-            }
-            if (!StringUtils.isNull(aVar.cjl)) {
-                this.cjw.setText(aVar.cjl);
-            }
+    public void f() {
+        if (this.j != null) {
+            clearAnimation();
+            startAnimation(this.j);
+        }
+    }
+
+    public void g() {
+        j();
+    }
+
+    public final void h() {
+        LayoutInflater.from(this.f7919e).inflate(R.layout.mcn_video_ad_layout, this);
+        this.f7920f = (TbImageView) findViewById(R.id.id_mcn_video_ad_image);
+        this.f7921g = (TextView) findViewById(R.id.id_mcn_video_ad_title);
+        this.f7922h = (TextView) findViewById(R.id.id_mcn_video_ad_jump_btn);
+        this.f7920f.setConrers(5);
+        this.f7920f.setDefaultResource(R.drawable.mcn_video_ad_default_img_bg);
+        this.f7920f.setDefaultBgResource(R.drawable.mcn_video_ad_default_img_bg);
+        this.f7920f.setRadius(l.g(this.f7919e, R.dimen.tbds20));
+        this.i = AnimationUtils.loadAnimation(this.f7919e, R.anim.mcn_video_ad_open_anim);
+        Animation loadAnimation = AnimationUtils.loadAnimation(this.f7919e, R.anim.mcn_video_ad_close_anim);
+        this.j = loadAnimation;
+        loadAnimation.setAnimationListener(new a());
+    }
+
+    public boolean i() {
+        return this.m;
+    }
+
+    public final void j() {
+        if (getParent() == null || !(getParent() instanceof ViewGroup)) {
+            return;
+        }
+        ((ViewGroup) getParent()).removeView(this);
+        this.m = false;
+    }
+
+    public void k() {
+        j();
+        this.m = false;
+        this.n = null;
+    }
+
+    public void l(d.b.v.a aVar, ViewGroup viewGroup) {
+        m(aVar, viewGroup);
+        if (this.i != null) {
+            clearAnimation();
+            startAnimation(this.i);
+        }
+    }
+
+    public void m(d.b.v.a aVar, ViewGroup viewGroup) {
+        this.m = true;
+        setData(aVar);
+        viewGroup.removeView(this);
+        viewGroup.addView(this);
+        if (viewGroup instanceof FrameLayout) {
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(r, s);
+            layoutParams.gravity = 85;
+            layoutParams.bottomMargin = t;
+            setLayoutParams(layoutParams);
+        } else if (viewGroup instanceof RelativeLayout) {
+            RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(r, s);
+            layoutParams2.addRule(11);
+            layoutParams2.addRule(12);
+            layoutParams2.setMargins(0, 0, 0, t);
+            setLayoutParams(layoutParams2);
+        }
+        c cVar = this.o;
+        if (cVar != null) {
+            cVar.a(aVar);
         }
     }
 
     @Override // android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        switch (motionEvent.getAction()) {
-            case 0:
-                this.mLastX = motionEvent.getX();
-                this.mLastY = motionEvent.getY();
-                this.cjF = getParent();
-                if (this.cjF != null) {
-                    this.cjF.requestDisallowInterceptTouchEvent(true);
-                    break;
-                }
-                break;
-            case 1:
-                abw();
-                if (Math.abs(motionEvent.getX() - this.mLastX) < 5.0f && Math.abs(motionEvent.getY() - this.mLastY) < 5.0f) {
-                    abx();
-                    break;
-                }
-                break;
-            case 2:
-                if (motionEvent.getX() - this.mLastX > 10.0f && this.isShowing) {
-                    this.cjz = true;
-                    dismiss();
-                    if (this.cjB != null) {
-                        this.cjB.c(this.cjA);
-                        break;
-                    }
-                }
-                break;
-            case 3:
-                abw();
-                break;
+        int action = motionEvent.getAction();
+        if (action == 0) {
+            this.k = motionEvent.getX();
+            this.l = motionEvent.getY();
+            ViewParent parent = getParent();
+            this.q = parent;
+            if (parent != null) {
+                parent.requestDisallowInterceptTouchEvent(true);
+            }
+        } else if (action == 1) {
+            d();
+            if (Math.abs(motionEvent.getX() - this.k) < 5.0f && Math.abs(motionEvent.getY() - this.l) < 5.0f) {
+                e();
+            }
+        } else if (action != 2) {
+            if (action == 3) {
+                d();
+            }
+        } else if (motionEvent.getX() - this.k > 10.0f && this.m) {
+            f();
+            c cVar = this.o;
+            if (cVar != null) {
+                cVar.b(this.n);
+            }
         }
         return true;
     }
 
-    private void abw() {
-        this.mHandler.postDelayed(new Runnable() { // from class: com.baidu.mcn.McnVideoAdView.2
-            @Override // java.lang.Runnable
-            public void run() {
-                if (McnVideoAdView.this.cjF != null) {
-                    McnVideoAdView.this.cjF.requestDisallowInterceptTouchEvent(false);
-                    McnVideoAdView.this.cjF = null;
-                }
-            }
-        }, 500L);
+    public void setIMcnStatListener(c cVar) {
+        this.o = cVar;
     }
 
-    private void abx() {
-        if (this.mContext != null && this.cjA != null && this.cjA.cjm != null) {
-            t.i(this.mContext, this.cjA.cjm, null, null);
-            if (this.cjB != null) {
-                this.cjB.b(this.cjA);
-            }
-        }
+    public McnVideoAdView(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        this.m = false;
+        this.p = new Handler();
+        this.f7919e = context;
+        h();
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void removeView() {
-        if (getParent() != null && (getParent() instanceof ViewGroup)) {
-            ((ViewGroup) getParent()).removeView(this);
-            this.isShowing = false;
-        }
-    }
-
-    public void a(com.baidu.mcn.a aVar, ViewGroup viewGroup) {
-        b(aVar, viewGroup);
-        if (this.cjx != null) {
-            clearAnimation();
-            startAnimation(this.cjx);
-        }
-    }
-
-    public void dismiss() {
-        if (this.cjy != null) {
-            clearAnimation();
-            startAnimation(this.cjy);
-        }
-    }
-
-    public boolean isShowing() {
-        return this.isShowing;
-    }
-
-    public void reset() {
-        removeView();
-        this.isShowing = false;
-        this.cjz = false;
-        this.cjA = null;
-    }
-
-    public void b(com.baidu.mcn.a aVar, ViewGroup viewGroup) {
-        this.isShowing = true;
-        setData(aVar);
-        viewGroup.removeView(this);
-        viewGroup.addView(this);
-        if (viewGroup instanceof FrameLayout) {
-            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(cjC, cjD);
-            layoutParams.gravity = 85;
-            layoutParams.bottomMargin = cjE;
-            setLayoutParams(layoutParams);
-        } else if (viewGroup instanceof RelativeLayout) {
-            RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(cjC, cjD);
-            layoutParams2.addRule(11);
-            layoutParams2.addRule(12);
-            layoutParams2.setMargins(0, 0, 0, cjE);
-            setLayoutParams(layoutParams2);
-        }
-        if (this.cjB != null) {
-            this.cjB.a(aVar);
-        }
-    }
-
-    public void abv() {
-        removeView();
-    }
-
-    public void setIMcnStatListener(a aVar) {
-        this.cjB = aVar;
+    public McnVideoAdView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        this.m = false;
+        this.p = new Handler();
+        this.f7919e = context;
+        h();
     }
 }

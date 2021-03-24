@@ -6,15 +6,15 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public final class g {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final Map<Class, e> f6911a = new ConcurrentHashMap();
+    public static final Map<Class, e> f36080a = new ConcurrentHashMap();
 
     @Nullable
     public static <T extends e> T a(Class<T> cls) {
-        T t = (T) f6911a.get(cls);
+        T t = (T) f36080a.get(cls);
         if (t != null) {
             return t;
         }
@@ -26,16 +26,17 @@ public final class g {
                         return null;
                     }
                 });
-                f6911a.put(cls, t2);
+                f36080a.put(cls, t2);
                 return t2;
             }
-        } catch (Exception e) {
-            e.printStackTrace();
+            return null;
+        } catch (Exception e2) {
+            e2.printStackTrace();
+            return null;
         }
-        return null;
     }
 
     public static void a(Class cls, e eVar) {
-        f6911a.put(cls, eVar);
+        f36080a.put(cls, eVar);
     }
 }

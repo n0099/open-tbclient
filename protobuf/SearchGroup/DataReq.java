@@ -2,25 +2,11 @@ package protobuf.SearchGroup;
 
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes7.dex */
+/* loaded from: classes.dex */
 public final class DataReq extends Message {
     public static final Long DEFAULT_GROUPID = 0L;
     @ProtoField(tag = 1, type = Message.Datatype.INT64)
     public final Long groupId;
-
-    private DataReq(Builder builder, boolean z) {
-        super(builder);
-        if (z) {
-            if (builder.groupId == null) {
-                this.groupId = DEFAULT_GROUPID;
-                return;
-            } else {
-                this.groupId = builder.groupId;
-                return;
-            }
-        }
-        this.groupId = builder.groupId;
-    }
 
     /* loaded from: classes7.dex */
     public static final class Builder extends Message.Builder<DataReq> {
@@ -31,9 +17,10 @@ public final class DataReq extends Message {
 
         public Builder(DataReq dataReq) {
             super(dataReq);
-            if (dataReq != null) {
-                this.groupId = dataReq.groupId;
+            if (dataReq == null) {
+                return;
             }
+            this.groupId = dataReq.groupId;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -41,5 +28,20 @@ public final class DataReq extends Message {
         public DataReq build(boolean z) {
             return new DataReq(this, z);
         }
+    }
+
+    public DataReq(Builder builder, boolean z) {
+        super(builder);
+        if (z) {
+            Long l = builder.groupId;
+            if (l == null) {
+                this.groupId = DEFAULT_GROUPID;
+                return;
+            } else {
+                this.groupId = l;
+                return;
+            }
+        }
+        this.groupId = builder.groupId;
     }
 }

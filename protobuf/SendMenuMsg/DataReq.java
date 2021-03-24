@@ -2,7 +2,7 @@ package protobuf.SendMenuMsg;
 
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes7.dex */
+/* loaded from: classes.dex */
 public final class DataReq extends Message {
     public static final String DEFAULT_FORUM_ID = "";
     public static final Integer DEFAULT_RID = 0;
@@ -13,32 +13,6 @@ public final class DataReq extends Message {
     public final Integer rid;
     @ProtoField(tag = 2, type = Message.Datatype.INT64)
     public final Long user_id;
-
-    private DataReq(Builder builder, boolean z) {
-        super(builder);
-        if (z) {
-            if (builder.rid == null) {
-                this.rid = DEFAULT_RID;
-            } else {
-                this.rid = builder.rid;
-            }
-            if (builder.user_id == null) {
-                this.user_id = DEFAULT_USER_ID;
-            } else {
-                this.user_id = builder.user_id;
-            }
-            if (builder.forum_id == null) {
-                this.forum_id = "";
-                return;
-            } else {
-                this.forum_id = builder.forum_id;
-                return;
-            }
-        }
-        this.rid = builder.rid;
-        this.user_id = builder.user_id;
-        this.forum_id = builder.forum_id;
-    }
 
     /* loaded from: classes7.dex */
     public static final class Builder extends Message.Builder<DataReq> {
@@ -51,11 +25,12 @@ public final class DataReq extends Message {
 
         public Builder(DataReq dataReq) {
             super(dataReq);
-            if (dataReq != null) {
-                this.rid = dataReq.rid;
-                this.user_id = dataReq.user_id;
-                this.forum_id = dataReq.forum_id;
+            if (dataReq == null) {
+                return;
             }
+            this.rid = dataReq.rid;
+            this.user_id = dataReq.user_id;
+            this.forum_id = dataReq.forum_id;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -63,5 +38,34 @@ public final class DataReq extends Message {
         public DataReq build(boolean z) {
             return new DataReq(this, z);
         }
+    }
+
+    public DataReq(Builder builder, boolean z) {
+        super(builder);
+        if (z) {
+            Integer num = builder.rid;
+            if (num == null) {
+                this.rid = DEFAULT_RID;
+            } else {
+                this.rid = num;
+            }
+            Long l = builder.user_id;
+            if (l == null) {
+                this.user_id = DEFAULT_USER_ID;
+            } else {
+                this.user_id = l;
+            }
+            String str = builder.forum_id;
+            if (str == null) {
+                this.forum_id = "";
+                return;
+            } else {
+                this.forum_id = str;
+                return;
+            }
+        }
+        this.rid = builder.rid;
+        this.user_id = builder.user_id;
+        this.forum_id = builder.forum_id;
     }
 }

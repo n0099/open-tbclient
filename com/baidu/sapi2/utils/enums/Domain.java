@@ -1,44 +1,54 @@
 package com.baidu.sapi2.utils.enums;
 
 import com.baidu.sapi2.utils.SapiUtils;
-import com.baidu.sapi2.utils.f;
-/* loaded from: classes3.dex */
+import com.baidu.sapi2.utils.h;
+/* loaded from: classes2.dex */
 public enum Domain {
-    DOMAIN_ONLINE("aHR0cDovL3Bhc3Nwb3J0LmJhaWR1LmNvbQ==", f.b, f.c, f.d, f.e),
-    DOMAIN_QA(f.f, f.g, f.h, f.i, "aHR0cDovL3Bhc3Nwb3J0LmJhaWR1LmNvbQ==");
+    DOMAIN_ONLINE("aHR0cDovL3Bhc3Nwb3J0LmJhaWR1LmNvbQ==", h.f11509b, h.f11510c, h.f11511d, h.f11512e),
+    DOMAIN_QA(h.f11513f, h.f11514g, h.f11515h, h.i, "aHR0cDovL3Bhc3Nwb3J0LmJhaWR1LmNvbQ==");
     
 
     /* renamed from: a  reason: collision with root package name */
-    private String f3453a;
-    private String b;
-    private String c;
-    private String d;
-    private String e;
-    private boolean f;
+    public String f11470a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public String f11471b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public String f11472c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public String f11473d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public String f11474e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public boolean f11475f;
 
     Domain(String str, String str2, String str3, String str4, String str5) {
-        this.f3453a = f.a(str);
-        this.b = f.a(str2);
-        this.c = f.a(str3);
-        this.d = f.a(str4);
-        this.e = f.a(str5);
+        this.f11470a = h.a(str);
+        this.f11471b = h.a(str2);
+        this.f11472c = h.a(str3);
+        this.f11473d = h.a(str4);
+        this.f11474e = h.a(str5);
     }
 
     public Domain forceHttps(boolean z) {
-        this.f = z;
+        this.f11475f = z;
         return this;
     }
 
     public String getConfigHttpsUrl() {
-        return this.d;
+        return this.f11473d;
     }
 
     public String getDeviceUrl() {
-        return this.c;
+        return this.f11472c;
     }
 
     public String getPortraitUrl() {
-        return this.e;
+        return this.f11474e;
     }
 
     public String getURL() {
@@ -46,18 +56,24 @@ public enum Domain {
     }
 
     public String getUrlDomain() {
-        return getURL().replace("http://", "").replace(SapiUtils.COOKIE_HTTPS_URL_PREFIX, "").replaceAll("(:[0-9]{1,4})?", "");
+        return getURL().replace("http://", "").replace("https://", "").replaceAll("(:[0-9]{1,4})?", "");
     }
 
     public String getWap() {
-        return (!(equals(DOMAIN_ONLINE) && SapiUtils.getDefaultHttpsEnabled()) && (equals(DOMAIN_ONLINE) || !this.f)) ? this.b : this.b.replace("http://", SapiUtils.COOKIE_HTTPS_URL_PREFIX);
+        if ((equals(DOMAIN_ONLINE) && SapiUtils.getDefaultHttpsEnabled()) || (!equals(DOMAIN_ONLINE) && this.f11475f)) {
+            return this.f11471b.replace("http://", "https://");
+        }
+        return this.f11471b;
     }
 
     public String getWapDomain() {
-        return getWap().replace("http://", "").replace(SapiUtils.COOKIE_HTTPS_URL_PREFIX, "").replaceAll("(:[0-9]{1,4})?", "");
+        return getWap().replace("http://", "").replace("https://", "").replaceAll("(:[0-9]{1,4})?", "");
     }
 
     public String getURL(boolean z) {
-        return (!(equals(DOMAIN_ONLINE) && z) && (equals(DOMAIN_ONLINE) || !this.f)) ? this.f3453a : this.f3453a.replace("http://", SapiUtils.COOKIE_HTTPS_URL_PREFIX);
+        if ((equals(DOMAIN_ONLINE) && z) || (!equals(DOMAIN_ONLINE) && this.f11475f)) {
+            return this.f11470a.replace("http://", "https://");
+        }
+        return this.f11470a;
     }
 }

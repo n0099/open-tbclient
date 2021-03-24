@@ -1,12 +1,13 @@
 package com.baidu.tieba.frs.tab;
 
+import d.b.i0.p0.k2.d;
 import java.util.Collection;
 import java.util.LinkedList;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class TabData extends LinkedList<d> {
     public static final int TYPE_TAB_LOCATE_1 = 1;
     public static final int TYPE_TAB_LOCATE_2 = 2;
-    private static final long serialVersionUID = -5491033066240609561L;
+    public static final long serialVersionUID = -5491033066240609561L;
 
     @Override // java.util.AbstractCollection, java.util.Collection, java.util.List
     public boolean containsAll(Collection<?> collection) {
@@ -22,7 +23,7 @@ public class TabData extends LinkedList<d> {
                     return false;
                 }
             }
-        } catch (Throwable th) {
+        } catch (Throwable unused) {
         }
         return super.containsAll(collection);
     }

@@ -6,55 +6,54 @@ import android.os.Process;
 import com.baidu.turbonet.base.annotations.CalledByNative;
 /* loaded from: classes5.dex */
 public class ThreadUtils {
-    static final /* synthetic */ boolean $assertionsDisabled;
-    private static final Object sLock;
-    private static Handler sUiThreadHandler;
-    private static boolean sWillOverride;
 
-    static {
-        $assertionsDisabled = !ThreadUtils.class.desiredAssertionStatus();
-        sLock = new Object();
-        sWillOverride = false;
-        sUiThreadHandler = null;
-    }
+    /* renamed from: a  reason: collision with root package name */
+    public static final Object f22660a = new Object();
 
-    private static Handler getUiThreadHandler() {
+    /* renamed from: b  reason: collision with root package name */
+    public static boolean f22661b = false;
+
+    /* renamed from: c  reason: collision with root package name */
+    public static Handler f22662c;
+
+    public static Handler a() {
         Handler handler;
-        synchronized (sLock) {
-            if (sUiThreadHandler == null) {
-                if (sWillOverride) {
+        synchronized (f22660a) {
+            if (f22662c == null) {
+                if (!f22661b) {
+                    f22662c = new Handler(Looper.getMainLooper());
+                } else {
                     throw new RuntimeException("Did not yet override the UI thread");
                 }
-                sUiThreadHandler = new Handler(Looper.getMainLooper());
             }
-            handler = sUiThreadHandler;
+            handler = f22662c;
         }
         return handler;
     }
 
-    public static void runOnUiThread(Runnable runnable) {
-        if (runningOnUiThread()) {
+    public static void b(Runnable runnable) {
+        a().post(runnable);
+    }
+
+    public static void c(Runnable runnable) {
+        if (d()) {
             runnable.run();
         } else {
-            getUiThreadHandler().post(runnable);
+            a().post(runnable);
         }
     }
 
-    public static void u(Runnable runnable) {
-        getUiThreadHandler().post(runnable);
+    public static boolean d() {
+        return a().getLooper() == Looper.myLooper();
     }
 
-    public static boolean runningOnUiThread() {
-        return getUiThreadHandler().getLooper() == Looper.myLooper();
+    @CalledByNative
+    public static boolean isThreadPriorityAudio(int i) {
+        return Process.getThreadPriority(i) == -16;
     }
 
     @CalledByNative
     public static void setThreadPriorityAudio(int i) {
         Process.setThreadPriority(i, -16);
-    }
-
-    @CalledByNative
-    private static boolean isThreadPriorityAudio(int i) {
-        return Process.getThreadPriority(i) == -16;
     }
 }

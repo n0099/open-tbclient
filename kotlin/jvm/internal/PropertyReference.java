@@ -1,28 +1,11 @@
 package kotlin.jvm.internal;
-/* loaded from: classes14.dex */
-public abstract class PropertyReference extends CallableReference implements kotlin.reflect.j {
+
+import kotlin.SinceKotlin;
+import kotlin.reflect.KCallable;
+import kotlin.reflect.KProperty;
+/* loaded from: classes7.dex */
+public abstract class PropertyReference extends CallableReference implements KProperty {
     public PropertyReference() {
-    }
-
-    public PropertyReference(Object obj) {
-        super(obj);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // kotlin.jvm.internal.CallableReference
-    public kotlin.reflect.j getReflected() {
-        return (kotlin.reflect.j) super.getReflected();
-    }
-
-    @Override // kotlin.reflect.j
-    public boolean isLateinit() {
-        return getReflected().isLateinit();
-    }
-
-    @Override // kotlin.reflect.j
-    public boolean isConst() {
-        return getReflected().isConst();
     }
 
     public boolean equals(Object obj) {
@@ -31,8 +14,8 @@ public abstract class PropertyReference extends CallableReference implements kot
         }
         if (obj instanceof PropertyReference) {
             PropertyReference propertyReference = (PropertyReference) obj;
-            return getOwner().equals(propertyReference.getOwner()) && getName().equals(propertyReference.getName()) && getSignature().equals(propertyReference.getSignature()) && p.l(getBoundReceiver(), propertyReference.getBoundReceiver());
-        } else if (obj instanceof kotlin.reflect.j) {
+            return getOwner().equals(propertyReference.getOwner()) && getName().equals(propertyReference.getName()) && getSignature().equals(propertyReference.getSignature()) && Intrinsics.areEqual(getBoundReceiver(), propertyReference.getBoundReceiver());
+        } else if (obj instanceof KProperty) {
             return obj.equals(compute());
         } else {
             return false;
@@ -43,8 +26,35 @@ public abstract class PropertyReference extends CallableReference implements kot
         return (((getOwner().hashCode() * 31) + getName().hashCode()) * 31) + getSignature().hashCode();
     }
 
+    @Override // kotlin.reflect.KProperty
+    @SinceKotlin(version = "1.1")
+    public boolean isConst() {
+        return getReflected().isConst();
+    }
+
+    @Override // kotlin.reflect.KProperty
+    @SinceKotlin(version = "1.1")
+    public boolean isLateinit() {
+        return getReflected().isLateinit();
+    }
+
     public String toString() {
-        kotlin.reflect.b compute = compute();
-        return compute != this ? compute.toString() : "property " + getName() + " (Kotlin reflection is not available)";
+        KCallable compute = compute();
+        if (compute != this) {
+            return compute.toString();
+        }
+        return "property " + getName() + Reflection.REFLECTION_NOT_AVAILABLE;
+    }
+
+    @SinceKotlin(version = "1.1")
+    public PropertyReference(Object obj) {
+        super(obj);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // kotlin.jvm.internal.CallableReference
+    @SinceKotlin(version = "1.1")
+    public KProperty getReflected() {
+        return (KProperty) super.getReflected();
     }
 }

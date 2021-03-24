@@ -8,7 +8,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class LcUpdateDialogActivityConfig extends IntentConfig {
     public static final String KEY_LC_UPDATE_APKMD5RSA = "key_lc_update_apkmd5rsa";
     public static final String KEY_LC_UPDATE_DATA = "key_lc_update_data";

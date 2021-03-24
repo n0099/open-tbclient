@@ -1,15 +1,16 @@
 package aegon.chrome.base;
 
 import java.util.Locale;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class Log {
     public static void e(String str, String str2, Object... objArr) {
         String formatLog = formatLog(str2, objArr);
         Throwable throwableToLog = getThrowableToLog(objArr);
+        String normalizeTag = normalizeTag(str);
         if (throwableToLog != null) {
-            android.util.Log.e(normalizeTag(str), formatLog, throwableToLog);
+            android.util.Log.e(normalizeTag, formatLog, throwableToLog);
         } else {
-            android.util.Log.e(normalizeTag(str), formatLog);
+            android.util.Log.e(normalizeTag, formatLog);
         }
     }
 
@@ -31,10 +32,11 @@ public class Log {
     public static void i(String str, String str2, Object... objArr) {
         String formatLog = formatLog(str2, objArr);
         Throwable throwableToLog = getThrowableToLog(objArr);
+        String normalizeTag = normalizeTag(str);
         if (throwableToLog != null) {
-            android.util.Log.i(normalizeTag(str), formatLog, throwableToLog);
+            android.util.Log.i(normalizeTag, formatLog, throwableToLog);
         } else {
-            android.util.Log.i(normalizeTag(str), formatLog);
+            android.util.Log.i(normalizeTag, formatLog);
         }
     }
 
@@ -42,6 +44,7 @@ public class Log {
         if (str.startsWith("cr_")) {
             return str;
         }
-        return "cr_" + str.substring(str.startsWith("cr.") ? 3 : 0, str.length());
+        int i = str.startsWith("cr.") ? 3 : 0;
+        return "cr_" + str.substring(i, str.length());
     }
 }

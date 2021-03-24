@@ -7,193 +7,209 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.text.TextUtils;
 import com.baidu.fsg.base.utils.LogUtil;
-/* loaded from: classes5.dex */
-class i extends SQLiteOpenHelper {
+/* loaded from: classes2.dex */
+public class i extends SQLiteOpenHelper {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f1536a = "logsender";
-    private static final String d = "rim_stat_event";
-    private static final String e = "rim_stat_event.db";
-    private static final int f = 1;
-    private static final String g = "CREATE TABLE IF NOT EXISTS rim_stat_event(en VARCHAR(64) not null ,extra1 VARCHAR(64)  ,extra2 VARCHAR(64)  ,extra3 VARCHAR(64),extra4 VARCHAR(64)  ,extra5 VARCHAR(64) ,et BIGINT,ev TEXT,extra6 TEXT,extra7 TEXT,extra8 TEXT,extra9 TEXT,eg VARCHAR(20) default(null),lk VARCHAR(10) default(null),nu INTEGER PRIMARY KEY autoincrement)";
-    private static i i;
-    private SQLiteDatabase b;
-    private final byte[] c;
-    private int h;
+    public static final String f5306a = "logsender";
 
-    private i(Context context, String str, SQLiteDatabase.CursorFactory cursorFactory, int i2) {
+    /* renamed from: d  reason: collision with root package name */
+    public static final String f5307d = "rim_stat_event";
+
+    /* renamed from: e  reason: collision with root package name */
+    public static final String f5308e = "rim_stat_event.db";
+
+    /* renamed from: f  reason: collision with root package name */
+    public static final int f5309f = 1;
+
+    /* renamed from: g  reason: collision with root package name */
+    public static final String f5310g = "CREATE TABLE IF NOT EXISTS rim_stat_event(en VARCHAR(64) not null ,extra1 VARCHAR(64)  ,extra2 VARCHAR(64)  ,extra3 VARCHAR(64),extra4 VARCHAR(64)  ,extra5 VARCHAR(64) ,et BIGINT,ev TEXT,extra6 TEXT,extra7 TEXT,extra8 TEXT,extra9 TEXT,eg VARCHAR(20) default(null),lk VARCHAR(10) default(null),nu INTEGER PRIMARY KEY autoincrement)";
+    public static i i;
+
+    /* renamed from: b  reason: collision with root package name */
+    public SQLiteDatabase f5311b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public final byte[] f5312c;
+
+    /* renamed from: h  reason: collision with root package name */
+    public int f5313h;
+
+    public i(Context context, String str, SQLiteDatabase.CursorFactory cursorFactory, int i2) {
         super(context, str, cursorFactory, i2);
-        this.c = new byte[0];
-        this.h = 200;
-        this.b = getWritableDatabase();
+        this.f5312c = new byte[0];
+        this.f5313h = 200;
+        this.f5311b = getWritableDatabase();
     }
 
     public static synchronized i a(Context context) {
         i iVar;
         synchronized (i.class) {
             if (i == null) {
-                i = new i(context, e, null, 1);
+                i = new i(context, f5308e, null, 1);
             }
             iVar = i;
         }
         return iVar;
     }
 
-    public void a(h hVar) {
-        synchronized (this.c) {
-            if (hVar != null) {
-                if (!TextUtils.isEmpty(hVar.p)) {
-                    ContentValues contentValues = new ContentValues();
-                    contentValues.put(h.f1535a, hVar.p);
-                    contentValues.put("et", Long.valueOf(hVar.q));
-                    contentValues.put("ev", hVar.r);
-                    contentValues.put(h.d, hVar.s);
-                    contentValues.put(h.e, hVar.t);
-                    try {
-                        this.b.insert(d, null, contentValues);
-                    } catch (Exception e2) {
-                    }
-                    LogUtil.d(f1536a, "插入一条数据" + hVar.p);
-                }
-            }
-        }
-    }
-
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [116=4, 117=4] */
-    public int a() {
-        int i2 = 0;
-        synchronized (this.c) {
-            Cursor rawQuery = this.b.rawQuery("SELECT COUNT(*) FROM rim_stat_event", null);
-            if (rawQuery != null) {
-                try {
-                } catch (Exception e2) {
-                    if (rawQuery != null) {
-                        rawQuery.close();
-                    }
-                } catch (Throwable th) {
-                    if (rawQuery != null) {
-                        rawQuery.close();
-                    }
-                    throw th;
-                }
-                if (rawQuery.moveToFirst()) {
-                    i2 = rawQuery.getInt(0);
-                    if (rawQuery != null) {
-                        rawQuery.close();
-                    }
-                } else if (rawQuery != null) {
-                    rawQuery.close();
-                }
-            }
-        }
-        return i2;
-    }
-
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [154=5, 155=4] */
-    /* JADX WARN: Removed duplicated region for block: B:21:0x0089 A[Catch: all -> 0x008e, TryCatch #4 {, blocks: (B:9:0x0016, B:10:0x0019, B:34:0x009e, B:35:0x00a1, B:21:0x0089, B:22:0x008c, B:30:0x0096, B:19:0x0084), top: B:45:0x0005 }] */
+    /* JADX WARN: Removed duplicated region for block: B:33:0x0099 A[Catch: all -> 0x0094, TryCatch #1 {all -> 0x0094, blocks: (B:9:0x0013, B:10:0x0016, B:18:0x007b, B:33:0x0099, B:34:0x009b, B:24:0x0089, B:25:0x008c, B:28:0x0090), top: B:40:0x0005 }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public h[] b() {
-        Cursor cursor;
         h[] hVarArr;
-        int i2 = 0;
-        synchronized (this.c) {
+        h[] hVarArr2;
+        Cursor rawQuery;
+        synchronized (this.f5312c) {
+            Cursor cursor = null;
             try {
-                cursor = this.b.rawQuery("select * from rim_stat_event", null);
                 try {
-                    try {
-                    } catch (Throwable th) {
-                        th = th;
-                        if (cursor != null) {
-                            cursor.close();
-                        }
-                        throw th;
-                    }
-                } catch (Exception e2) {
-                    hVarArr = null;
+                    rawQuery = this.f5311b.rawQuery("select * from rim_stat_event", null);
+                } finally {
                 }
-            } catch (Exception e3) {
+            } catch (Exception unused) {
                 hVarArr = null;
-                cursor = null;
+            } catch (Throwable th) {
+                th = th;
+            }
+            try {
+            } catch (Exception unused2) {
+                hVarArr = null;
+                cursor = rawQuery;
+                if (cursor != null) {
+                    cursor.close();
+                }
+                hVarArr2 = hVarArr;
+                if (hVarArr2 == null) {
+                }
+                return hVarArr2;
             } catch (Throwable th2) {
                 th = th2;
-                cursor = null;
-            }
-            if (cursor == null) {
-                hVarArr = new h[0];
+                cursor = rawQuery;
                 if (cursor != null) {
                     cursor.close();
                 }
-            } else {
-                hVarArr = new h[cursor.getCount()];
-                while (true) {
-                    try {
-                        int i3 = i2;
-                        if (!cursor.moveToNext()) {
-                            break;
-                        }
-                        h hVar = new h();
-                        hVar.p = cursor.getString(cursor.getColumnIndex(h.f1535a));
-                        hVar.q = cursor.getLong(cursor.getColumnIndex("et"));
-                        hVar.r = cursor.getString(cursor.getColumnIndex("ev"));
-                        hVar.s = cursor.getString(cursor.getColumnIndex(h.d));
-                        hVar.t = cursor.getString(cursor.getColumnIndex(h.e));
-                        hVar.u = cursor.getInt(cursor.getColumnIndex(h.f));
-                        i2 = i3 + 1;
-                        hVarArr[i3] = hVar;
-                    } catch (Exception e4) {
-                        if (cursor != null) {
-                            cursor.close();
-                        }
-                        if (hVarArr == null) {
-                        }
-                        return hVarArr;
-                    }
-                }
-                if (cursor != null) {
-                    cursor.close();
-                }
-                if (hVarArr == null) {
-                    hVarArr = new h[0];
-                }
+                throw th;
             }
+            if (rawQuery == null) {
+                h[] hVarArr3 = new h[0];
+                if (rawQuery != null) {
+                    rawQuery.close();
+                }
+                return hVarArr3;
+            }
+            hVarArr2 = new h[rawQuery.getCount()];
+            int i2 = 0;
+            while (rawQuery.moveToNext()) {
+                h hVar = new h();
+                hVar.p = rawQuery.getString(rawQuery.getColumnIndex("en"));
+                hVar.q = rawQuery.getLong(rawQuery.getColumnIndex("et"));
+                hVar.r = rawQuery.getString(rawQuery.getColumnIndex("ev"));
+                hVar.s = rawQuery.getString(rawQuery.getColumnIndex("eg"));
+                hVar.t = rawQuery.getString(rawQuery.getColumnIndex("lk"));
+                hVar.u = rawQuery.getInt(rawQuery.getColumnIndex("nu"));
+                int i3 = i2 + 1;
+                hVarArr2[i2] = hVar;
+                i2 = i3;
+            }
+            if (rawQuery != null) {
+                rawQuery.close();
+            }
+            if (hVarArr2 == null) {
+                hVarArr2 = new h[0];
+            }
+            return hVarArr2;
         }
-        return hVarArr;
     }
 
-    public void a(h[] hVarArr) {
-        synchronized (this.c) {
-            if (hVarArr != null) {
-                if (hVarArr.length != 0) {
-                    LogUtil.d(f1536a, "=====removeEvents-begin=====size=" + hVarArr.length);
-                    for (h hVar : hVarArr) {
-                        if (hVar != null) {
-                            this.b.delete(d, "nu=" + hVar.u, null);
-                        }
-                    }
-                    LogUtil.d(f1536a, "=====removeEvents-end=====");
-                    return;
-                }
-            }
-            LogUtil.d(f1536a, "=====removeEvents=====size=0");
+    public void finalize() throws Throwable {
+        SQLiteDatabase sQLiteDatabase = this.f5311b;
+        if (sQLiteDatabase != null && sQLiteDatabase.isOpen()) {
+            this.f5311b.close();
         }
+        this.f5311b = null;
+        super.finalize();
     }
 
     @Override // android.database.sqlite.SQLiteOpenHelper
     public void onCreate(SQLiteDatabase sQLiteDatabase) {
-        sQLiteDatabase.execSQL(g);
+        sQLiteDatabase.execSQL(f5310g);
     }
 
     @Override // android.database.sqlite.SQLiteOpenHelper
     public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i2, int i3) {
     }
 
-    protected void finalize() throws Throwable {
-        if (this.b != null && this.b.isOpen()) {
-            this.b.close();
+    public void a(h hVar) {
+        synchronized (this.f5312c) {
+            if (hVar != null) {
+                if (!TextUtils.isEmpty(hVar.p)) {
+                    ContentValues contentValues = new ContentValues();
+                    contentValues.put("en", hVar.p);
+                    contentValues.put("et", Long.valueOf(hVar.q));
+                    contentValues.put("ev", hVar.r);
+                    contentValues.put("eg", hVar.s);
+                    contentValues.put("lk", hVar.t);
+                    try {
+                        this.f5311b.insert(f5307d, null, contentValues);
+                    } catch (Exception unused) {
+                    }
+                    LogUtil.d("logsender", "插入一条数据" + hVar.p);
+                }
+            }
         }
-        this.b = null;
-        super.finalize();
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:15:0x0022, code lost:
+        if (r1 != null) goto L19;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public int a() {
+        synchronized (this.f5312c) {
+            Cursor rawQuery = this.f5311b.rawQuery("SELECT COUNT(*) FROM rim_stat_event", null);
+            if (rawQuery == null) {
+                return 0;
+            }
+            try {
+                if (rawQuery.moveToFirst()) {
+                    int i2 = rawQuery.getInt(0);
+                    if (rawQuery != null) {
+                        rawQuery.close();
+                    }
+                    return i2;
+                }
+            } catch (Exception unused) {
+                if (rawQuery != null) {
+                    rawQuery.close();
+                }
+                return 0;
+            } catch (Throwable th) {
+                if (rawQuery != null) {
+                    rawQuery.close();
+                }
+                throw th;
+            }
+        }
+    }
+
+    public void a(h[] hVarArr) {
+        synchronized (this.f5312c) {
+            if (hVarArr != null) {
+                if (hVarArr.length != 0) {
+                    LogUtil.d("logsender", "=====removeEvents-begin=====size=" + hVarArr.length);
+                    for (h hVar : hVarArr) {
+                        if (hVar != null) {
+                            this.f5311b.delete(f5307d, "nu=" + hVar.u, null);
+                        }
+                    }
+                    LogUtil.d("logsender", "=====removeEvents-end=====");
+                    return;
+                }
+            }
+            LogUtil.d("logsender", "=====removeEvents=====size=0");
+        }
     }
 }

@@ -1,7 +1,7 @@
 package com.baidu.sapi2.httpwrap;
 
 import android.os.Looper;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class BinaryHttpHandlerWrap extends HttpHandlerWrap {
     public String[] allowedContentTypes;
 
@@ -9,7 +9,7 @@ public class BinaryHttpHandlerWrap extends HttpHandlerWrap {
         super(looper);
     }
 
-    protected void onSuccess(int i, byte[] bArr) {
+    public void onSuccess(int i, byte[] bArr) {
     }
 
     public BinaryHttpHandlerWrap(Looper looper, String[] strArr) {

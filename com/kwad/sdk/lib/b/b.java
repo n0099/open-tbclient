@@ -9,45 +9,57 @@ import com.kwad.sdk.core.network.BaseResultData;
 import com.kwad.sdk.core.network.i;
 import com.kwad.sdk.core.network.j;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public abstract class b<MODEL, PAGE extends BaseResultData> extends a<PAGE, MODEL> {
-    private Handler c = new Handler(Looper.getMainLooper());
-    private boolean d;
-    private boolean e;
-    private boolean f;
-    private i<com.kwad.sdk.core.network.g, PAGE> g;
-    private PAGE h;
+
+    /* renamed from: c  reason: collision with root package name */
+    public Handler f35948c = new Handler(Looper.getMainLooper());
+
+    /* renamed from: d  reason: collision with root package name */
+    public boolean f35949d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public boolean f35950e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public boolean f35951f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public i<com.kwad.sdk.core.network.g, PAGE> f35952g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public PAGE f35953h;
 
     /* JADX INFO: Access modifiers changed from: private */
     @MainThread
     public void a(int i, String str) {
         com.kwad.sdk.core.d.a.c("BasePageList", "onError: errorCode" + i + "--errorMsg:" + str);
         boolean n = n();
-        this.d = a(i);
-        this.e = false;
-        this.f = false;
-        this.g = null;
-        this.b.a(n, i, str);
+        this.f35949d = a(i);
+        this.f35950e = false;
+        this.f35951f = false;
+        this.f35952g = null;
+        this.f35947b.a(n, i, str);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     @MainThread
     public void a(PAGE page, boolean z) {
         boolean n = n();
-        this.d = b((b<MODEL, PAGE>) page);
-        a((b<MODEL, PAGE>) page, this.f6873a);
-        this.h = page;
-        this.b.b(n, z);
-        this.e = false;
-        this.f = false;
-        this.g = null;
+        this.f35949d = b((b<MODEL, PAGE>) page);
+        a((b<MODEL, PAGE>) page, this.f35946a);
+        this.f35953h = page;
+        this.f35947b.b(n, z);
+        this.f35950e = false;
+        this.f35951f = false;
+        this.f35952g = null;
     }
 
-    protected abstract i<com.kwad.sdk.core.network.g, PAGE> a();
+    public abstract i<com.kwad.sdk.core.network.g, PAGE> a();
 
-    protected abstract List<MODEL> a(PAGE page);
+    public abstract List<MODEL> a(PAGE page);
 
-    protected void a(PAGE page, List<MODEL> list) {
+    public void a(PAGE page, List<MODEL> list) {
         if (n()) {
             list.clear();
         }
@@ -58,37 +70,38 @@ public abstract class b<MODEL, PAGE extends BaseResultData> extends a<PAGE, MODE
         list.addAll(a2);
     }
 
-    protected boolean a(int i) {
+    public boolean a(int i) {
         return true;
     }
 
-    protected boolean b() {
+    public boolean b() {
         return false;
     }
 
-    protected boolean b(PAGE page) {
+    public boolean b(PAGE page) {
         return true;
     }
 
-    protected PAGE d() {
+    public PAGE d() {
         return null;
     }
 
     @Override // com.kwad.sdk.lib.b.c
     public final void h() {
-        if (this.g != null) {
-            this.g.e();
+        i<com.kwad.sdk.core.network.g, PAGE> iVar = this.f35952g;
+        if (iVar != null) {
+            iVar.e();
         }
         i();
     }
 
     public final void i() {
-        this.b.a();
+        this.f35947b.a();
     }
 
     @Override // com.kwad.sdk.lib.b.c
     public final boolean j() {
-        return this.d;
+        return this.f35949d;
     }
 
     @Override // com.kwad.sdk.lib.b.c
@@ -98,34 +111,35 @@ public abstract class b<MODEL, PAGE extends BaseResultData> extends a<PAGE, MODE
     }
 
     public void l() {
-        this.f = true;
+        this.f35951f = true;
     }
 
     @Override // com.kwad.sdk.lib.b.c
     public void m() {
-        final PAGE d;
-        if (this.e) {
+        final PAGE d2;
+        if (this.f35950e) {
             return;
         }
-        if (this.d || this.f) {
-            this.e = true;
-            if (n() && b() && (d = d()) != null) {
-                this.b.a(n(), true);
-                this.c.post(new Runnable() { // from class: com.kwad.sdk.lib.b.b.1
+        if (this.f35949d || this.f35951f) {
+            this.f35950e = true;
+            if (n() && b() && (d2 = d()) != null) {
+                this.f35947b.a(n(), true);
+                this.f35948c.post(new Runnable() { // from class: com.kwad.sdk.lib.b.b.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        b.this.a((b) d, true);
+                        b.this.a((b) d2, true);
                     }
                 });
                 return;
             }
-            this.g = a();
-            if (this.g != null) {
-                this.b.a(n(), false);
-                this.g.a(new j<com.kwad.sdk.core.network.g, PAGE>() { // from class: com.kwad.sdk.lib.b.b.2
+            i<com.kwad.sdk.core.network.g, PAGE> a2 = a();
+            this.f35952g = a2;
+            if (a2 != null) {
+                this.f35947b.a(n(), false);
+                this.f35952g.a(new j<com.kwad.sdk.core.network.g, PAGE>() { // from class: com.kwad.sdk.lib.b.b.2
                     @Override // com.kwad.sdk.core.network.j, com.kwad.sdk.core.network.h
                     public void a(@NonNull com.kwad.sdk.core.network.g gVar, final int i, final String str) {
-                        b.this.c.post(new Runnable() { // from class: com.kwad.sdk.lib.b.b.2.2
+                        b.this.f35948c.post(new Runnable() { // from class: com.kwad.sdk.lib.b.b.2.2
                             @Override // java.lang.Runnable
                             public void run() {
                                 b.this.a(i, str);
@@ -135,7 +149,7 @@ public abstract class b<MODEL, PAGE extends BaseResultData> extends a<PAGE, MODE
 
                     @Override // com.kwad.sdk.core.network.j, com.kwad.sdk.core.network.h
                     public void a(@NonNull com.kwad.sdk.core.network.g gVar, @NonNull final PAGE page) {
-                        b.this.c.post(new Runnable() { // from class: com.kwad.sdk.lib.b.b.2.1
+                        b.this.f35948c.post(new Runnable() { // from class: com.kwad.sdk.lib.b.b.2.1
                             @Override // java.lang.Runnable
                             public void run() {
                                 b.this.a((b) page, false);
@@ -145,14 +159,14 @@ public abstract class b<MODEL, PAGE extends BaseResultData> extends a<PAGE, MODE
                 });
                 return;
             }
-            this.d = false;
-            this.e = false;
-            this.f = false;
+            this.f35949d = false;
+            this.f35950e = false;
+            this.f35951f = false;
         }
     }
 
     public final boolean n() {
-        return this.h == null || this.f;
+        return this.f35953h == null || this.f35951f;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -160,6 +174,6 @@ public abstract class b<MODEL, PAGE extends BaseResultData> extends a<PAGE, MODE
     @Nullable
     /* renamed from: o */
     public PAGE p() {
-        return this.h;
+        return this.f35953h;
     }
 }

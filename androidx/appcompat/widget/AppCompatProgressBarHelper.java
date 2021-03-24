@@ -14,36 +14,26 @@ import android.graphics.drawable.shapes.Shape;
 import android.util.AttributeSet;
 import android.widget.ProgressBar;
 import androidx.core.graphics.drawable.WrappedDrawable;
-/* loaded from: classes5.dex */
-class AppCompatProgressBarHelper {
-    private static final int[] TINT_ATTRS = {16843067, 16843068};
-    private Bitmap mSampleTile;
-    private final ProgressBar mView;
+/* loaded from: classes.dex */
+public class AppCompatProgressBarHelper {
+    public static final int[] TINT_ATTRS = {16843067, 16843068};
+    public Bitmap mSampleTile;
+    public final ProgressBar mView;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public AppCompatProgressBarHelper(ProgressBar progressBar) {
         this.mView = progressBar;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void loadFromAttributes(AttributeSet attributeSet, int i) {
-        TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(this.mView.getContext(), attributeSet, TINT_ATTRS, i, 0);
-        Drawable drawableIfKnown = obtainStyledAttributes.getDrawableIfKnown(0);
-        if (drawableIfKnown != null) {
-            this.mView.setIndeterminateDrawable(tileifyIndeterminate(drawableIfKnown));
-        }
-        Drawable drawableIfKnown2 = obtainStyledAttributes.getDrawableIfKnown(1);
-        if (drawableIfKnown2 != null) {
-            this.mView.setProgressDrawable(tileify(drawableIfKnown2, false));
-        }
-        obtainStyledAttributes.recycle();
+    private Shape getDrawableShape() {
+        return new RoundRectShape(new float[]{5.0f, 5.0f, 5.0f, 5.0f, 5.0f, 5.0f, 5.0f, 5.0f}, null, null);
     }
 
     private Drawable tileify(Drawable drawable, boolean z) {
         if (drawable instanceof WrappedDrawable) {
-            Drawable wrappedDrawable = ((WrappedDrawable) drawable).getWrappedDrawable();
-            if (wrappedDrawable != null) {
-                ((WrappedDrawable) drawable).setWrappedDrawable(tileify(wrappedDrawable, z));
+            WrappedDrawable wrappedDrawable = (WrappedDrawable) drawable;
+            Drawable wrappedDrawable2 = wrappedDrawable.getWrappedDrawable();
+            if (wrappedDrawable2 != null) {
+                wrappedDrawable.setWrappedDrawable(tileify(wrappedDrawable2, z));
             }
         } else if (drawable instanceof LayerDrawable) {
             LayerDrawable layerDrawable = (LayerDrawable) drawable;
@@ -89,12 +79,20 @@ class AppCompatProgressBarHelper {
         return drawable;
     }
 
-    private Shape getDrawableShape() {
-        return new RoundRectShape(new float[]{5.0f, 5.0f, 5.0f, 5.0f, 5.0f, 5.0f, 5.0f, 5.0f}, null, null);
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
     public Bitmap getSampleTime() {
         return this.mSampleTile;
+    }
+
+    public void loadFromAttributes(AttributeSet attributeSet, int i) {
+        TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(this.mView.getContext(), attributeSet, TINT_ATTRS, i, 0);
+        Drawable drawableIfKnown = obtainStyledAttributes.getDrawableIfKnown(0);
+        if (drawableIfKnown != null) {
+            this.mView.setIndeterminateDrawable(tileifyIndeterminate(drawableIfKnown));
+        }
+        Drawable drawableIfKnown2 = obtainStyledAttributes.getDrawableIfKnown(1);
+        if (drawableIfKnown2 != null) {
+            this.mView.setProgressDrawable(tileify(drawableIfKnown2, false));
+        }
+        obtainStyledAttributes.recycle();
     }
 }

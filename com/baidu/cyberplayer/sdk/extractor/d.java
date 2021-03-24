@@ -10,18 +10,18 @@ import com.baidu.cyberplayer.sdk.remote.e;
 import com.baidu.cyberplayer.sdk.remote.g;
 import java.io.FileDescriptor;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class d extends ExtractorProvider {
 
     /* renamed from: a  reason: collision with root package name */
-    private com.baidu.cyberplayer.sdk.remote.a f1424a;
+    public com.baidu.cyberplayer.sdk.remote.a f4933a;
 
     public d(com.baidu.cyberplayer.sdk.remote.a aVar) {
-        this.f1424a = aVar;
+        this.f4933a = aVar;
     }
 
     public static ExtractorProvider a() {
-        com.baidu.cyberplayer.sdk.remote.a a2 = a.AbstractBinderC0108a.a(g.a().b());
+        com.baidu.cyberplayer.sdk.remote.a a2 = a.AbstractBinderC0072a.a(g.a().b());
         if (a2 != null) {
             return new d(a2);
         }
@@ -29,25 +29,27 @@ public class d extends ExtractorProvider {
     }
 
     private void a(Uri uri, Map<String, String> map) {
-        if (this.f1424a == null) {
+        com.baidu.cyberplayer.sdk.remote.a aVar = this.f4933a;
+        if (aVar == null) {
             return;
         }
         try {
-            this.f1424a.a(new e(uri, map));
-        } catch (RemoteException e) {
-            e.printStackTrace();
+            aVar.a(new e(uri, map));
+        } catch (RemoteException e2) {
+            e2.printStackTrace();
         }
     }
 
     @Override // com.baidu.cyberplayer.sdk.extractor.ExtractorProvider
     public Bundle getMediaMeta() {
-        if (this.f1424a == null) {
+        com.baidu.cyberplayer.sdk.remote.a aVar = this.f4933a;
+        if (aVar == null) {
             return null;
         }
         try {
-            return this.f1424a.a();
-        } catch (RemoteException e) {
-            e.printStackTrace();
+            return aVar.a();
+        } catch (RemoteException e2) {
+            e2.printStackTrace();
             return null;
         }
     }
@@ -55,16 +57,19 @@ public class d extends ExtractorProvider {
     @Override // com.baidu.cyberplayer.sdk.extractor.ExtractorProvider
     public void release() {
         CyberLog.i("RemoteExtractorProxy", "release");
-        try {
-        } catch (RemoteException e) {
-            e.printStackTrace();
-        } finally {
-            this.f1424a = null;
-        }
-        if (this.f1424a == null) {
+        com.baidu.cyberplayer.sdk.remote.a aVar = this.f4933a;
+        if (aVar == null) {
             return;
         }
-        this.f1424a.b();
+        try {
+            try {
+                aVar.b();
+            } catch (RemoteException e2) {
+                e2.printStackTrace();
+            }
+        } finally {
+            this.f4933a = null;
+        }
     }
 
     @Override // com.baidu.cyberplayer.sdk.extractor.ExtractorProvider
@@ -88,13 +93,14 @@ public class d extends ExtractorProvider {
 
     @Override // com.baidu.cyberplayer.sdk.extractor.ExtractorProvider
     public void setOption(int i, String str, long j) {
-        if (this.f1424a == null) {
+        com.baidu.cyberplayer.sdk.remote.a aVar = this.f4933a;
+        if (aVar == null) {
             return;
         }
         try {
-            this.f1424a.a(i, str, j);
-        } catch (RemoteException e) {
-            e.printStackTrace();
+            aVar.a(i, str, j);
+        } catch (RemoteException e2) {
+            e2.printStackTrace();
         }
     }
 }

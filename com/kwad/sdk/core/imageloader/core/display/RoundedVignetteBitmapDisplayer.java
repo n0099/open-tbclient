@@ -12,20 +12,19 @@ import com.kwad.sdk.core.imageloader.core.decode.DecodedResult;
 import com.kwad.sdk.core.imageloader.core.display.RoundedBitmapDisplayer;
 import com.kwad.sdk.core.imageloader.core.imageaware.ImageAware;
 import com.kwad.sdk.core.imageloader.core.imageaware.ImageViewAware;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class RoundedVignetteBitmapDisplayer extends RoundedBitmapDisplayer {
 
-    /* loaded from: classes3.dex */
-    protected static class RoundedVignetteDrawable extends RoundedBitmapDisplayer.RoundedDrawable {
-        RoundedVignetteDrawable(Bitmap bitmap, int i, int i2) {
+    /* loaded from: classes6.dex */
+    public static class RoundedVignetteDrawable extends RoundedBitmapDisplayer.RoundedDrawable {
+        public RoundedVignetteDrawable(Bitmap bitmap, int i, int i2) {
             super(bitmap, i, i2);
         }
 
-        /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.kwad.sdk.core.imageloader.core.display.RoundedBitmapDisplayer.RoundedDrawable, android.graphics.drawable.Drawable
         public void onBoundsChange(Rect rect) {
             super.onBoundsChange(rect);
-            RadialGradient radialGradient = new RadialGradient(this.mRect.centerX(), (this.mRect.centerY() * 1.0f) / 0.7f, this.mRect.centerX() * 1.3f, new int[]{0, 0, 2130706432}, new float[]{0.0f, 0.7f, 1.0f}, Shader.TileMode.CLAMP);
+            RadialGradient radialGradient = new RadialGradient(this.mRect.centerX(), (this.mRect.centerY() * 1.0f) / 0.7f, 1.3f * this.mRect.centerX(), new int[]{0, 0, 2130706432}, new float[]{0.0f, 0.7f, 1.0f}, Shader.TileMode.CLAMP);
             Matrix matrix = new Matrix();
             matrix.setScale(1.0f, 0.7f);
             radialGradient.setLocalMatrix(matrix);

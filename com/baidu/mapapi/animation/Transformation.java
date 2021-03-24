@@ -4,8 +4,9 @@ import android.graphics.Point;
 import android.view.animation.Interpolator;
 import com.baidu.mapapi.animation.Animation;
 import com.baidu.mapapi.model.LatLng;
+import com.baidu.mapsdkplatform.comapi.a.c;
 import com.baidu.mapsdkplatform.comapi.a.l;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class Transformation extends Animation {
     public Transformation(Point... pointArr) {
         if (pointArr == null || pointArr.length == 0) {
@@ -46,10 +47,17 @@ public class Transformation extends Animation {
     }
 
     public void setRepeatMode(Animation.RepeatMode repeatMode) {
+        c cVar;
+        int i;
         if (repeatMode == Animation.RepeatMode.RESTART) {
-            this.bdAnimation.a(1);
-        } else if (repeatMode == Animation.RepeatMode.REVERSE) {
-            this.bdAnimation.a(2);
+            cVar = this.bdAnimation;
+            i = 1;
+        } else if (repeatMode != Animation.RepeatMode.REVERSE) {
+            return;
+        } else {
+            cVar = this.bdAnimation;
+            i = 2;
         }
+        cVar.a(i);
     }
 }

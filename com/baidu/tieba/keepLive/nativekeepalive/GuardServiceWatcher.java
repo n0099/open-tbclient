@@ -4,9 +4,9 @@ import android.app.Service;
 import android.content.Intent;
 import android.os.IBinder;
 import com.baidu.adp.framework.client.socket.link.BdSocketLinkService;
-import com.baidu.live.tbadk.core.util.CommonStatisticKey;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.lcs.a;
+import d.b.h0.c0.a;
 /* loaded from: classes.dex */
 public class GuardServiceWatcher extends Service {
     @Override // android.app.Service
@@ -15,19 +15,19 @@ public class GuardServiceWatcher extends Service {
     }
 
     @Override // android.app.Service
-    public int onStartCommand(Intent intent, int i, int i2) {
-        try {
-            TiebaStatic.log(CommonStatisticKey.KEY_KEEP_LIVE);
-            a.d(0, 0, 0, 1, 5);
-            BdSocketLinkService.startService(false, "restart");
-            return 2;
-        } catch (Throwable th) {
-            return 2;
-        }
+    public void onCreate() {
+        super.onCreate();
     }
 
     @Override // android.app.Service
-    public void onCreate() {
-        super.onCreate();
+    public int onStartCommand(Intent intent, int i, int i2) {
+        try {
+            TiebaStatic.log(CommonStatisticKey.KEY_KEEP_LIVE);
+            a.b(0, 0, 0, 1, 5);
+            BdSocketLinkService.startService(false, "restart");
+            return 2;
+        } catch (Throwable unused) {
+            return 2;
+        }
     }
 }

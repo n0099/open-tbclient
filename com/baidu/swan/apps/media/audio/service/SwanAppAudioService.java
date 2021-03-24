@@ -15,28 +15,468 @@ import com.baidu.swan.apps.IAudioListener;
 import com.baidu.swan.apps.IAudioService;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import java.lang.ref.WeakReference;
-/* loaded from: classes8.dex */
-public final class SwanAppAudioService extends Service implements com.baidu.swan.apps.media.audio.service.a {
-    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static final int INVALID_DURATION = -1;
-    private static final int INVALID_ERROR_CODE = -1;
-    private static final String TAG = "SwanAppAudioService";
-    private b<IAudioListener> mCallback = new b<>();
-    private Binder mBinder = new AudioServiceStub(this);
-    private Handler mMainHandler = new Handler(Looper.getMainLooper());
+/* loaded from: classes3.dex */
+public final class SwanAppAudioService extends Service implements d.b.g0.a.b1.c.f.a {
+    public static final boolean DEBUG = d.b.g0.a.k.f45050a;
+    public static final int INVALID_DURATION = -1;
+    public static final int INVALID_ERROR_CODE = -1;
+    public static final String TAG = "SwanAppAudioService";
+    public u<IAudioListener> mCallback = new u<>(this, null);
+    public Binder mBinder = new AudioServiceStub(this);
+    public Handler mMainHandler = new Handler(Looper.getMainLooper());
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes8.dex */
-    public interface a<E extends IAudioListener> {
-        void a(E e) throws RemoteException;
+    /* loaded from: classes3.dex */
+    public static class AudioServiceStub extends IAudioService.Stub {
+        public WeakReference<SwanAppAudioService> mAudioService;
+
+        public AudioServiceStub(SwanAppAudioService swanAppAudioService) {
+            this.mAudioService = new WeakReference<>(swanAppAudioService);
+        }
+
+        @Override // com.baidu.swan.apps.IAudioService
+        public int getDuration() throws RemoteException {
+            if (this.mAudioService.get() != null) {
+                return this.mAudioService.get().getDuration();
+            }
+            return -1;
+        }
+
+        @Override // com.baidu.swan.apps.IAudioService
+        public boolean isPlaying() throws RemoteException {
+            if (this.mAudioService.get() != null) {
+                return this.mAudioService.get().isPlaying();
+            }
+            return false;
+        }
+
+        @Override // com.baidu.swan.apps.IAudioService
+        public void pause() throws RemoteException {
+            if (this.mAudioService.get() != null) {
+                this.mAudioService.get().pause();
+            }
+        }
+
+        @Override // com.baidu.swan.apps.IAudioService
+        public void play() throws RemoteException {
+            if (this.mAudioService.get() != null) {
+                this.mAudioService.get().play();
+            }
+        }
+
+        @Override // com.baidu.swan.apps.IAudioService
+        public void registerListener(IAudioListener iAudioListener) throws RemoteException {
+            if (this.mAudioService.get() != null) {
+                this.mAudioService.get().mCallback.register(iAudioListener);
+            }
+        }
+
+        @Override // com.baidu.swan.apps.IAudioService
+        public void release() throws RemoteException {
+            if (this.mAudioService.get() != null) {
+                this.mAudioService.get().release();
+            }
+        }
+
+        @Override // com.baidu.swan.apps.IAudioService
+        public void seek(int i) throws RemoteException {
+            if (this.mAudioService.get() != null) {
+                this.mAudioService.get().seek(i);
+            }
+        }
+
+        @Override // com.baidu.swan.apps.IAudioService
+        public void setParams(String str) throws RemoteException {
+            if (this.mAudioService.get() != null) {
+                this.mAudioService.get().setParams(str);
+            }
+        }
+
+        @Override // com.baidu.swan.apps.IAudioService
+        public void stop() throws RemoteException {
+            if (this.mAudioService.get() != null) {
+                this.mAudioService.get().stop();
+            }
+        }
+
+        @Override // com.baidu.swan.apps.IAudioService
+        public void unregisterListener(IAudioListener iAudioListener) throws RemoteException {
+            WeakReference<SwanAppAudioService> weakReference = this.mAudioService;
+            if (weakReference != null) {
+                weakReference.get().mCallback.unregister(iAudioListener);
+            }
+        }
     }
 
-    @Override // android.app.Service
-    public void onCreate() {
-        super.onCreate();
-        if (DEBUG) {
-            Log.d(TAG, MissionEvent.MESSAGE_CREATE);
+    /* loaded from: classes3.dex */
+    public class a implements t {
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ String f12262a;
+
+        public a(String str) {
+            this.f12262a = str;
         }
+
+        @Override // com.baidu.swan.apps.media.audio.service.SwanAppAudioService.t
+        public void a(IAudioListener iAudioListener) throws RemoteException {
+            iAudioListener.onChangeSrc(this.f12262a);
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class b implements t {
+        public b() {
+        }
+
+        @Override // com.baidu.swan.apps.media.audio.service.SwanAppAudioService.t
+        public void a(IAudioListener iAudioListener) throws RemoteException {
+            iAudioListener.onEnded();
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class c implements t {
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ int f12265a;
+
+        public c(int i) {
+            this.f12265a = i;
+        }
+
+        @Override // com.baidu.swan.apps.media.audio.service.SwanAppAudioService.t
+        public void a(IAudioListener iAudioListener) throws RemoteException {
+            iAudioListener.onError(this.f12265a);
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class d implements t {
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ int f12267a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public final /* synthetic */ int f12268b;
+
+        public d(int i, int i2) {
+            this.f12267a = i;
+            this.f12268b = i2;
+        }
+
+        @Override // com.baidu.swan.apps.media.audio.service.SwanAppAudioService.t
+        public void a(IAudioListener iAudioListener) throws RemoteException {
+            iAudioListener.onTimeUpdate(this.f12267a, this.f12268b);
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class e implements t {
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ int f12270a;
+
+        public e(int i) {
+            this.f12270a = i;
+        }
+
+        @Override // com.baidu.swan.apps.media.audio.service.SwanAppAudioService.t
+        public void a(IAudioListener iAudioListener) throws RemoteException {
+            iAudioListener.onDownloadProgress(this.f12270a);
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class f implements t {
+        public f() {
+        }
+
+        @Override // com.baidu.swan.apps.media.audio.service.SwanAppAudioService.t
+        public void a(IAudioListener iAudioListener) throws RemoteException {
+            iAudioListener.onPrev();
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class g implements t {
+        public g() {
+        }
+
+        @Override // com.baidu.swan.apps.media.audio.service.SwanAppAudioService.t
+        public void a(IAudioListener iAudioListener) throws RemoteException {
+            iAudioListener.onNext();
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class h implements t {
+        public h() {
+        }
+
+        @Override // com.baidu.swan.apps.media.audio.service.SwanAppAudioService.t
+        public void a(IAudioListener iAudioListener) throws RemoteException {
+            iAudioListener.onSeeking();
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class i implements t {
+        public i() {
+        }
+
+        @Override // com.baidu.swan.apps.media.audio.service.SwanAppAudioService.t
+        public void a(IAudioListener iAudioListener) throws RemoteException {
+            iAudioListener.onSeekEnd();
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public static /* synthetic */ class j {
+
+        /* renamed from: a  reason: collision with root package name */
+        public static final /* synthetic */ int[] f12276a;
+
+        static {
+            int[] iArr = new int[BgMusicPlayState.values().length];
+            f12276a = iArr;
+            try {
+                iArr[BgMusicPlayState.READY.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
+            }
+            try {
+                f12276a[BgMusicPlayState.PLAY.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
+            }
+            try {
+                f12276a[BgMusicPlayState.REPLAY.ordinal()] = 3;
+            } catch (NoSuchFieldError unused3) {
+            }
+            try {
+                f12276a[BgMusicPlayState.PAUSE.ordinal()] = 4;
+            } catch (NoSuchFieldError unused4) {
+            }
+            try {
+                f12276a[BgMusicPlayState.STOP.ordinal()] = 5;
+            } catch (NoSuchFieldError unused5) {
+            }
+            try {
+                f12276a[BgMusicPlayState.END.ordinal()] = 6;
+            } catch (NoSuchFieldError unused6) {
+            }
+            try {
+                f12276a[BgMusicPlayState.INTERRUPT.ordinal()] = 7;
+            } catch (NoSuchFieldError unused7) {
+            }
+            try {
+                f12276a[BgMusicPlayState.LOADING.ordinal()] = 8;
+            } catch (NoSuchFieldError unused8) {
+            }
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class k implements Runnable {
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ String f12277e;
+
+        public k(String str) {
+            this.f12277e = str;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            d.b.g0.a.w0.a.e().a(this.f12277e, SwanAppAudioService.this);
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class l implements Runnable {
+        public l() {
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            d.b.g0.a.w0.a.e().play();
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class m implements Runnable {
+        public m() {
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            d.b.g0.a.w0.a.e().pause();
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class n implements Runnable {
+        public n() {
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            d.b.g0.a.w0.a.e().stop();
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class o implements Runnable {
+        public o() {
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            SwanAppAudioService.this.notifyEventOnStop();
+            SwanAppAudioService.this.stopSelf();
+            d.b.g0.a.w0.a.e().onRelease();
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class p implements t {
+        public p() {
+        }
+
+        @Override // com.baidu.swan.apps.media.audio.service.SwanAppAudioService.t
+        public void a(IAudioListener iAudioListener) throws RemoteException {
+            iAudioListener.onCanPlay();
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class q implements t {
+        public q() {
+        }
+
+        @Override // com.baidu.swan.apps.media.audio.service.SwanAppAudioService.t
+        public void a(IAudioListener iAudioListener) throws RemoteException {
+            iAudioListener.onPlay();
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class r implements t {
+        public r() {
+        }
+
+        @Override // com.baidu.swan.apps.media.audio.service.SwanAppAudioService.t
+        public void a(IAudioListener iAudioListener) throws RemoteException {
+            iAudioListener.onPause();
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class s implements t {
+        public s() {
+        }
+
+        @Override // com.baidu.swan.apps.media.audio.service.SwanAppAudioService.t
+        public void a(IAudioListener iAudioListener) throws RemoteException {
+            iAudioListener.onStop();
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public interface t<E extends IAudioListener> {
+        void a(E e2) throws RemoteException;
+    }
+
+    /* loaded from: classes3.dex */
+    public class u<E extends IAudioListener> extends RemoteCallbackList<IAudioListener> {
+        public u() {
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // android.os.RemoteCallbackList
+        /* renamed from: a */
+        public void onCallbackDied(IAudioListener iAudioListener) {
+            if (SwanAppAudioService.DEBUG) {
+                Log.d(SwanAppAudioService.TAG, "onCallbackDied: " + iAudioListener.getClass().getName());
+            }
+            SwanAppAudioService.this.stop();
+        }
+
+        public /* synthetic */ u(SwanAppAudioService swanAppAudioService, k kVar) {
+            this();
+        }
+    }
+
+    private void handleAudioEvent(@NonNull t tVar) {
+        try {
+            try {
+                int beginBroadcast = this.mCallback.beginBroadcast();
+                for (int i2 = 0; i2 < beginBroadcast; i2++) {
+                    tVar.a(this.mCallback.getBroadcastItem(i2));
+                }
+            } catch (RemoteException e2) {
+                if (DEBUG) {
+                    e2.printStackTrace();
+                }
+            }
+        } finally {
+            this.mCallback.finishBroadcast();
+        }
+    }
+
+    private void handleStateChanged(BgMusicPlayState bgMusicPlayState) {
+        int i2 = j.f12276a[bgMusicPlayState.ordinal()];
+        if (i2 == 1) {
+            notifyEventOnCanPlay();
+        } else if (i2 == 2) {
+            notifyEventOnPlay();
+        } else if (i2 == 4) {
+            notifyEventOnPause();
+        } else if (i2 == 5) {
+            notifyEventOnStop();
+        } else if (i2 != 6) {
+        } else {
+            notifyEventOnEnded();
+        }
+    }
+
+    private void notifyEventOnCanPlay() {
+        handleAudioEvent(new p());
+    }
+
+    private void notifyEventOnEnded() {
+        handleAudioEvent(new b());
+    }
+
+    private void notifyEventOnError(int i2) {
+        handleAudioEvent(new c(i2));
+    }
+
+    private void notifyEventOnPause() {
+        handleAudioEvent(new r());
+    }
+
+    private void notifyEventOnPlay() {
+        handleAudioEvent(new q());
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void notifyEventOnStop() {
+        handleAudioEvent(new s());
+    }
+
+    private void notifyOnChangeSrc(String str) {
+        handleAudioEvent(new a(str));
+    }
+
+    public int getDuration() {
+        return d.b.g0.a.w0.a.e().getDuration();
+    }
+
+    public boolean isDestroyed() {
+        return false;
+    }
+
+    public boolean isPlaying() {
+        return d.b.g0.a.w0.a.e().isPlaying();
     }
 
     @Override // android.app.Service
@@ -49,12 +489,11 @@ public final class SwanAppAudioService extends Service implements com.baidu.swan
     }
 
     @Override // android.app.Service
-    public boolean onUnbind(Intent intent) {
+    public void onCreate() {
+        super.onCreate();
         if (DEBUG) {
-            Log.d(TAG, "onUnbind");
-            return false;
+            Log.d(TAG, MissionEvent.MESSAGE_CREATE);
         }
-        return false;
     }
 
     @Override // android.app.Service
@@ -68,155 +507,54 @@ public final class SwanAppAudioService extends Service implements com.baidu.swan
         super.onDestroy();
     }
 
-    private void handleStateChanged(BgMusicPlayState bgMusicPlayState) {
-        switch (bgMusicPlayState) {
-            case READY:
-                notifyEventOnCanPlay();
-                return;
-            case PLAY:
-                notifyEventOnPlay();
-                return;
-            case REPLAY:
-            case INTERRUPT:
-            case LOADING:
-            default:
-                return;
-            case PAUSE:
-                notifyEventOnPause();
-                return;
-            case STOP:
-                notifyEventOnStop();
-                return;
-            case END:
-                notifyEventOnEnded();
-                return;
-        }
+    public void onError(int i2) {
+        notifyEventOnError(i2);
     }
 
-    public void setParams(final String str) {
-        this.mMainHandler.post(new Runnable() { // from class: com.baidu.swan.apps.media.audio.service.SwanAppAudioService.1
-            @Override // java.lang.Runnable
-            public void run() {
-                com.baidu.swan.apps.t.a.axz().a(str, SwanAppAudioService.this);
-            }
-        });
+    @Override // d.b.g0.a.b1.c.f.a
+    public void onGetCurrentSong(String str) {
+        notifyOnChangeSrc(str);
     }
 
-    public void play() {
-        this.mMainHandler.post(new Runnable() { // from class: com.baidu.swan.apps.media.audio.service.SwanAppAudioService.12
-            @Override // java.lang.Runnable
-            public void run() {
-                com.baidu.swan.apps.t.a.axz().play();
-            }
-        });
+    @Override // d.b.g0.a.b1.c.f.a
+    public void onGetDownloadProgress(int i2) {
+        handleAudioEvent(new e(i2));
     }
 
-    public void pause() {
-        this.mMainHandler.post(new Runnable() { // from class: com.baidu.swan.apps.media.audio.service.SwanAppAudioService.13
-            @Override // java.lang.Runnable
-            public void run() {
-                com.baidu.swan.apps.t.a.axz().pause();
-            }
-        });
+    @Override // d.b.g0.a.b1.c.f.a
+    public void onGetDuration(int i2) {
     }
 
-    public void stop() {
-        this.mMainHandler.post(new Runnable() { // from class: com.baidu.swan.apps.media.audio.service.SwanAppAudioService.14
-            @Override // java.lang.Runnable
-            public void run() {
-                com.baidu.swan.apps.t.a.axz().stop();
-            }
-        });
+    @Override // d.b.g0.a.b1.c.f.a
+    public void onGetPosition(int i2, int i3) {
+        handleAudioEvent(new d(i2, i3));
     }
 
-    public void seek(int i) {
-        com.baidu.swan.apps.t.a.axz().seek(i);
+    @Override // d.b.g0.a.b1.c.f.a
+    public void onInvokeFailed() {
+        notifyEventOnError(-1);
     }
 
-    public int getDuration() {
-        return com.baidu.swan.apps.t.a.axz().getDuration();
+    public void onNext() {
+        handleAudioEvent(new g());
     }
 
-    public boolean isPlaying() {
-        return com.baidu.swan.apps.t.a.axz().isPlaying();
+    public void onPlayModeChange(int i2) {
     }
 
-    public void release() {
-        this.mMainHandler.post(new Runnable() { // from class: com.baidu.swan.apps.media.audio.service.SwanAppAudioService.15
-            @Override // java.lang.Runnable
-            public void run() {
-                SwanAppAudioService.this.notifyEventOnStop();
-                SwanAppAudioService.this.stopSelf();
-                com.baidu.swan.apps.t.a.axz().onRelease();
-            }
-        });
+    public void onPrev() {
+        handleAudioEvent(new f());
     }
 
-    private void notifyEventOnCanPlay() {
-        handleAudioEvent(new a() { // from class: com.baidu.swan.apps.media.audio.service.SwanAppAudioService.16
-            @Override // com.baidu.swan.apps.media.audio.service.SwanAppAudioService.a
-            public void a(IAudioListener iAudioListener) throws RemoteException {
-                iAudioListener.onCanPlay();
-            }
-        });
+    public void onSeekEnd() {
+        handleAudioEvent(new i());
     }
 
-    private void notifyEventOnPlay() {
-        handleAudioEvent(new a() { // from class: com.baidu.swan.apps.media.audio.service.SwanAppAudioService.17
-            @Override // com.baidu.swan.apps.media.audio.service.SwanAppAudioService.a
-            public void a(IAudioListener iAudioListener) throws RemoteException {
-                iAudioListener.onPlay();
-            }
-        });
+    public void onSeeking() {
+        handleAudioEvent(new h());
     }
 
-    private void notifyEventOnPause() {
-        handleAudioEvent(new a() { // from class: com.baidu.swan.apps.media.audio.service.SwanAppAudioService.18
-            @Override // com.baidu.swan.apps.media.audio.service.SwanAppAudioService.a
-            public void a(IAudioListener iAudioListener) throws RemoteException {
-                iAudioListener.onPause();
-            }
-        });
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void notifyEventOnStop() {
-        handleAudioEvent(new a() { // from class: com.baidu.swan.apps.media.audio.service.SwanAppAudioService.19
-            @Override // com.baidu.swan.apps.media.audio.service.SwanAppAudioService.a
-            public void a(IAudioListener iAudioListener) throws RemoteException {
-                iAudioListener.onStop();
-            }
-        });
-    }
-
-    private void notifyOnChangeSrc(final String str) {
-        handleAudioEvent(new a() { // from class: com.baidu.swan.apps.media.audio.service.SwanAppAudioService.2
-            @Override // com.baidu.swan.apps.media.audio.service.SwanAppAudioService.a
-            public void a(IAudioListener iAudioListener) throws RemoteException {
-                iAudioListener.onChangeSrc(str);
-            }
-        });
-    }
-
-    private void notifyEventOnEnded() {
-        handleAudioEvent(new a() { // from class: com.baidu.swan.apps.media.audio.service.SwanAppAudioService.3
-            @Override // com.baidu.swan.apps.media.audio.service.SwanAppAudioService.a
-            public void a(IAudioListener iAudioListener) throws RemoteException {
-                iAudioListener.onEnded();
-            }
-        });
-    }
-
-    private void notifyEventOnError(final int i) {
-        handleAudioEvent(new a() { // from class: com.baidu.swan.apps.media.audio.service.SwanAppAudioService.4
-            @Override // com.baidu.swan.apps.media.audio.service.SwanAppAudioService.a
-            public void a(IAudioListener iAudioListener) throws RemoteException {
-                iAudioListener.onError(i);
-            }
-        });
-    }
-
-    @Override // com.baidu.swan.apps.media.audio.service.a
+    @Override // d.b.g0.a.b1.c.f.a
     public void onStateChanged(BgMusicPlayState bgMusicPlayState) {
         if (DEBUG) {
             Log.d(TAG, "onStateChanged() " + bgMusicPlayState);
@@ -224,197 +562,36 @@ public final class SwanAppAudioService extends Service implements com.baidu.swan
         handleStateChanged(bgMusicPlayState);
     }
 
-    @Override // com.baidu.swan.apps.media.audio.service.a
-    public void onGetDuration(int i) {
-    }
-
-    @Override // com.baidu.swan.apps.media.audio.service.a
-    public void onGetPosition(final int i, final int i2) {
-        handleAudioEvent(new a() { // from class: com.baidu.swan.apps.media.audio.service.SwanAppAudioService.5
-            @Override // com.baidu.swan.apps.media.audio.service.SwanAppAudioService.a
-            public void a(IAudioListener iAudioListener) throws RemoteException {
-                iAudioListener.onTimeUpdate(i, i2);
-            }
-        });
-    }
-
-    @Override // com.baidu.swan.apps.media.audio.service.a
-    public void onGetDownloadProgress(final int i) {
-        handleAudioEvent(new a() { // from class: com.baidu.swan.apps.media.audio.service.SwanAppAudioService.6
-            @Override // com.baidu.swan.apps.media.audio.service.SwanAppAudioService.a
-            public void a(IAudioListener iAudioListener) throws RemoteException {
-                iAudioListener.onDownloadProgress(i);
-            }
-        });
-    }
-
-    @Override // com.baidu.swan.apps.media.audio.service.a
-    public void onGetCurrentSong(String str) {
-        notifyOnChangeSrc(str);
-    }
-
-    public void onPlayModeChange(int i) {
-    }
-
-    @Override // com.baidu.swan.apps.media.audio.service.a
-    public void onInvokeFailed() {
-        notifyEventOnError(-1);
-    }
-
-    public boolean isDestroyed() {
+    @Override // android.app.Service
+    public boolean onUnbind(Intent intent) {
+        if (DEBUG) {
+            Log.d(TAG, "onUnbind");
+            return false;
+        }
         return false;
     }
 
-    public void onPrev() {
-        handleAudioEvent(new a() { // from class: com.baidu.swan.apps.media.audio.service.SwanAppAudioService.7
-            @Override // com.baidu.swan.apps.media.audio.service.SwanAppAudioService.a
-            public void a(IAudioListener iAudioListener) throws RemoteException {
-                iAudioListener.onPrev();
-            }
-        });
+    public void pause() {
+        this.mMainHandler.post(new m());
     }
 
-    public void onNext() {
-        handleAudioEvent(new a() { // from class: com.baidu.swan.apps.media.audio.service.SwanAppAudioService.8
-            @Override // com.baidu.swan.apps.media.audio.service.SwanAppAudioService.a
-            public void a(IAudioListener iAudioListener) throws RemoteException {
-                iAudioListener.onNext();
-            }
-        });
+    public void play() {
+        this.mMainHandler.post(new l());
     }
 
-    public void onSeeking() {
-        handleAudioEvent(new a() { // from class: com.baidu.swan.apps.media.audio.service.SwanAppAudioService.9
-            @Override // com.baidu.swan.apps.media.audio.service.SwanAppAudioService.a
-            public void a(IAudioListener iAudioListener) throws RemoteException {
-                iAudioListener.onSeeking();
-            }
-        });
+    public void release() {
+        this.mMainHandler.post(new o());
     }
 
-    public void onSeekEnd() {
-        handleAudioEvent(new a() { // from class: com.baidu.swan.apps.media.audio.service.SwanAppAudioService.10
-            @Override // com.baidu.swan.apps.media.audio.service.SwanAppAudioService.a
-            public void a(IAudioListener iAudioListener) throws RemoteException {
-                iAudioListener.onSeekEnd();
-            }
-        });
+    public void seek(int i2) {
+        d.b.g0.a.w0.a.e().seek(i2);
     }
 
-    public void onError(int i) {
-        notifyEventOnError(i);
+    public void setParams(String str) {
+        this.mMainHandler.post(new k(str));
     }
 
-    /* loaded from: classes8.dex */
-    static class AudioServiceStub extends IAudioService.Stub {
-        private WeakReference<SwanAppAudioService> mAudioService;
-
-        AudioServiceStub(SwanAppAudioService swanAppAudioService) {
-            this.mAudioService = new WeakReference<>(swanAppAudioService);
-        }
-
-        @Override // com.baidu.swan.apps.IAudioService
-        public void setParams(String str) throws RemoteException {
-            if (this.mAudioService.get() != null) {
-                this.mAudioService.get().setParams(str);
-            }
-        }
-
-        @Override // com.baidu.swan.apps.IAudioService
-        public int getDuration() throws RemoteException {
-            if (this.mAudioService.get() != null) {
-                return this.mAudioService.get().getDuration();
-            }
-            return -1;
-        }
-
-        @Override // com.baidu.swan.apps.IAudioService
-        public void play() throws RemoteException {
-            if (this.mAudioService.get() != null) {
-                this.mAudioService.get().play();
-            }
-        }
-
-        @Override // com.baidu.swan.apps.IAudioService
-        public void pause() throws RemoteException {
-            if (this.mAudioService.get() != null) {
-                this.mAudioService.get().pause();
-            }
-        }
-
-        @Override // com.baidu.swan.apps.IAudioService
-        public void stop() throws RemoteException {
-            if (this.mAudioService.get() != null) {
-                this.mAudioService.get().stop();
-            }
-        }
-
-        @Override // com.baidu.swan.apps.IAudioService
-        public void seek(int i) throws RemoteException {
-            if (this.mAudioService.get() != null) {
-                this.mAudioService.get().seek(i);
-            }
-        }
-
-        @Override // com.baidu.swan.apps.IAudioService
-        public boolean isPlaying() throws RemoteException {
-            if (this.mAudioService.get() != null) {
-                return this.mAudioService.get().isPlaying();
-            }
-            return false;
-        }
-
-        @Override // com.baidu.swan.apps.IAudioService
-        public void release() throws RemoteException {
-            if (this.mAudioService.get() != null) {
-                this.mAudioService.get().release();
-            }
-        }
-
-        @Override // com.baidu.swan.apps.IAudioService
-        public void registerListener(IAudioListener iAudioListener) throws RemoteException {
-            if (this.mAudioService.get() != null) {
-                this.mAudioService.get().mCallback.register(iAudioListener);
-            }
-        }
-
-        @Override // com.baidu.swan.apps.IAudioService
-        public void unregisterListener(IAudioListener iAudioListener) throws RemoteException {
-            if (this.mAudioService != null) {
-                this.mAudioService.get().mCallback.unregister(iAudioListener);
-            }
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes8.dex */
-    public class b<E extends IAudioListener> extends RemoteCallbackList<IAudioListener> {
-        private b() {
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // android.os.RemoteCallbackList
-        /* renamed from: b */
-        public void onCallbackDied(IAudioListener iAudioListener) {
-            if (SwanAppAudioService.DEBUG) {
-                Log.d(SwanAppAudioService.TAG, "onCallbackDied: " + iAudioListener.getClass().getName());
-            }
-            SwanAppAudioService.this.stop();
-        }
-    }
-
-    private void handleAudioEvent(@NonNull a aVar) {
-        try {
-            int beginBroadcast = this.mCallback.beginBroadcast();
-            for (int i = 0; i < beginBroadcast; i++) {
-                aVar.a(this.mCallback.getBroadcastItem(i));
-            }
-        } catch (RemoteException e) {
-            if (DEBUG) {
-                e.printStackTrace();
-            }
-        } finally {
-            this.mCallback.finishBroadcast();
-        }
+    public void stop() {
+        this.mMainHandler.post(new n());
     }
 }

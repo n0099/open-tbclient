@@ -3,11 +3,11 @@ package com.google.zxing.aztec;
 import com.google.zxing.ResultPoint;
 import com.google.zxing.common.BitMatrix;
 import com.google.zxing.common.DetectorResult;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class AztecDetectorResult extends DetectorResult {
-    private final boolean compact;
-    private final int nbDatablocks;
-    private final int nbLayers;
+    public final boolean compact;
+    public final int nbDatablocks;
+    public final int nbLayers;
 
     public AztecDetectorResult(BitMatrix bitMatrix, ResultPoint[] resultPointArr, boolean z, int i, int i2) {
         super(bitMatrix, resultPointArr);
@@ -16,12 +16,12 @@ public final class AztecDetectorResult extends DetectorResult {
         this.nbLayers = i2;
     }
 
-    public int getNbLayers() {
-        return this.nbLayers;
-    }
-
     public int getNbDatablocks() {
         return this.nbDatablocks;
+    }
+
+    public int getNbLayers() {
+        return this.nbLayers;
     }
 
     public boolean isCompact() {

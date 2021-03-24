@@ -7,22 +7,27 @@ import org.apache.http.io.SessionOutputBuffer;
 import org.apache.http.params.HttpParams;
 import org.apache.http.util.CharArrayBuffer;
 @Deprecated
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public abstract class AbstractSessionOutputBuffer implements SessionOutputBuffer {
     public AbstractSessionOutputBuffer() {
         throw new RuntimeException("Stub!");
     }
 
-    protected void init(OutputStream outputStream, int i, HttpParams httpParams) {
+    @Override // org.apache.http.io.SessionOutputBuffer
+    public void flush() throws IOException {
         throw new RuntimeException("Stub!");
     }
 
-    protected void flushBuffer() throws IOException {
+    public void flushBuffer() throws IOException {
         throw new RuntimeException("Stub!");
     }
 
     @Override // org.apache.http.io.SessionOutputBuffer
-    public void flush() throws IOException {
+    public HttpTransportMetrics getMetrics() {
+        throw new RuntimeException("Stub!");
+    }
+
+    public void init(OutputStream outputStream, int i, HttpParams httpParams) {
         throw new RuntimeException("Stub!");
     }
 
@@ -32,17 +37,12 @@ public abstract class AbstractSessionOutputBuffer implements SessionOutputBuffer
     }
 
     @Override // org.apache.http.io.SessionOutputBuffer
-    public void write(byte[] bArr) throws IOException {
-        throw new RuntimeException("Stub!");
-    }
-
-    @Override // org.apache.http.io.SessionOutputBuffer
-    public void write(int i) throws IOException {
-        throw new RuntimeException("Stub!");
-    }
-
-    @Override // org.apache.http.io.SessionOutputBuffer
     public void writeLine(String str) throws IOException {
+        throw new RuntimeException("Stub!");
+    }
+
+    @Override // org.apache.http.io.SessionOutputBuffer
+    public void write(byte[] bArr) throws IOException {
         throw new RuntimeException("Stub!");
     }
 
@@ -52,7 +52,7 @@ public abstract class AbstractSessionOutputBuffer implements SessionOutputBuffer
     }
 
     @Override // org.apache.http.io.SessionOutputBuffer
-    public HttpTransportMetrics getMetrics() {
+    public void write(int i) throws IOException {
         throw new RuntimeException("Stub!");
     }
 }

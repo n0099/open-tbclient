@@ -3,6 +3,7 @@ package com.baidu.cyberplayer.sdk.loader;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.text.TextUtils;
+import com.baidu.clientupdate.download.DownloadManager;
 import com.baidu.cyberplayer.sdk.CyberLog;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import com.baidu.cyberplayer.sdk.SDKVersion;
@@ -16,33 +17,44 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Map;
-/* loaded from: classes4.dex */
-public class a implements a.InterfaceC0106a {
-    private static ClassLoader l = null;
-    private static a m = null;
-    private volatile int h;
+/* loaded from: classes2.dex */
+public class a implements a.InterfaceC0070a {
+    public static ClassLoader l;
+    public static a m;
+
+    /* renamed from: h  reason: collision with root package name */
+    public volatile int f4983h;
 
     /* renamed from: a  reason: collision with root package name */
-    private long f1436a = 0;
-    private int b = 0;
-    private Context c = null;
-    private String d = SDKVersion.VERSION;
-    private String e = null;
-    private String f = null;
-    private String g = null;
-    private Map<String, String> i = null;
-    private ArrayList<String> j = null;
-    private CyberPlayerManager.InstallListener k = null;
+    public long f4976a = 0;
 
-    private a() {
-    }
+    /* renamed from: b  reason: collision with root package name */
+    public int f4977b = 0;
+
+    /* renamed from: c  reason: collision with root package name */
+    public Context f4978c = null;
+
+    /* renamed from: d  reason: collision with root package name */
+    public String f4979d = SDKVersion.VERSION;
+
+    /* renamed from: e  reason: collision with root package name */
+    public String f4980e = null;
+
+    /* renamed from: f  reason: collision with root package name */
+    public String f4981f = null;
+
+    /* renamed from: g  reason: collision with root package name */
+    public String f4982g = null;
+    public Map<String, String> i = null;
+    public ArrayList<String> j = null;
+    public CyberPlayerManager.InstallListener k = null;
 
     private synchronized int a(String str, int i) {
         String string = d().getString(str, null);
         if (!TextUtils.isEmpty(string)) {
             try {
                 i = Integer.parseInt(string);
-            } catch (NumberFormatException e) {
+            } catch (NumberFormatException unused) {
             }
         }
         return i;
@@ -60,25 +72,32 @@ public class a implements a.InterfaceC0106a {
     }
 
     private void a(int i) {
-        if (this.k != null) {
-            this.k.onInstallProgress(this.h, i);
+        CyberPlayerManager.InstallListener installListener = this.k;
+        if (installListener != null) {
+            installListener.onInstallProgress(this.f4983h, i);
         }
     }
 
     private void a(int i, String str) {
-        if (this.k != null) {
-            this.k.onInstallError(this.h, i, str);
+        CyberPlayerManager.InstallListener installListener = this.k;
+        if (installListener != null) {
+            installListener.onInstallError(this.f4983h, i, str);
         }
     }
 
     private void a(String str) {
+        String str2;
+        String str3;
         if (e() && !TextUtils.isEmpty(str)) {
             com.baidu.cyberplayer.sdk.a.a aVar = new com.baidu.cyberplayer.sdk.a.a();
             if (str.startsWith("model_")) {
-                aVar.a(this.g, str, this.f, this);
+                str2 = this.f4982g;
+                str3 = this.f4981f;
             } else {
-                aVar.a(this.g, str, this.e, this);
+                str2 = this.f4982g;
+                str3 = this.f4980e;
             }
+            aVar.a(str2, str, str3, this);
         }
     }
 
@@ -97,44 +116,51 @@ public class a implements a.InterfaceC0106a {
         if (TextUtils.isEmpty(cfgValue) || !new File(cfgValue).exists()) {
             return;
         }
-        String a2 = com.baidu.cyberplayer.sdk.a.a.a(cfgValue, this.f);
+        String a2 = com.baidu.cyberplayer.sdk.a.a.a(cfgValue, this.f4981f);
         if (TextUtils.isEmpty(a2)) {
             return;
         }
-        this.d = a2;
+        this.f4979d = a2;
     }
 
     private void c() {
-        CyberLog.d("CyberCoreLoader", "tryLoadCore:" + this.h);
-        if (d.a(this.h)) {
+        StringBuilder sb;
+        ClassLoader classLoader;
+        CyberLog.d("CyberCoreLoader", "tryLoadCore:" + this.f4983h);
+        if (d.a(this.f4983h)) {
             return;
         }
         if (!d.g()) {
-            this.d = CyberCfgManager.getInstance().getCfgValue("update_core_ver", SDKVersion.VERSION);
+            this.f4979d = CyberCfgManager.getInstance().getCfgValue("update_core_ver", SDKVersion.VERSION);
             b();
-            File file = new File(this.e, "cyber-media-dex_" + this.d + ".jar");
+            File file = new File(this.f4980e, "cyber-media-dex_" + this.f4979d + ".jar");
             if (file.exists()) {
                 CyberLog.d("CyberCoreLoader", "try load from extend:" + file.getAbsolutePath());
-                l = new CyberClassLoader(file.getAbsolutePath(), new File(this.e), null, this.c.getClassLoader());
-            } else if (!this.d.equals(SDKVersion.VERSION)) {
-                a(n.o() + "_cyber-media-dex_" + this.d + ".zip");
+                classLoader = new CyberClassLoader(file.getAbsolutePath(), new File(this.f4980e), null, this.f4978c.getClassLoader());
+            } else if (!this.f4979d.equals(SDKVersion.VERSION)) {
+                sb = new StringBuilder();
+                sb.append(n.o());
+                sb.append("_cyber-media-dex_");
+                sb.append(this.f4979d);
+                sb.append(".zip");
+                a(sb.toString());
                 return;
             } else {
-                l = this.c.getClassLoader();
+                classLoader = this.f4978c.getClassLoader();
             }
+            l = classLoader;
             try {
-                d.a(this.c, l, this.f);
+                d.a(this.f4978c, l, this.f4981f);
                 Dlna.init(l);
-            } catch (Exception e) {
+            } catch (Exception unused) {
                 l = null;
-                a(n.o() + "_cyber-media-dex_" + this.d + ".zip");
-                return;
+                sb = new StringBuilder();
             }
         }
         try {
-            if (d.a(this.h, this.i)) {
+            if (d.a(this.f4983h, this.i)) {
                 g();
-                CyberLog.d("CyberCoreLoader", "load success curVer:" + d.a() + " installType:" + this.h);
+                CyberLog.d("CyberCoreLoader", "load success curVer:" + d.a() + " installType:" + this.f4983h);
             }
         } catch (FileNotFoundException e2) {
             CyberLog.d("CyberCoreLoader", "FileNotFoundException:" + e2.getMessage());
@@ -148,7 +174,7 @@ public class a implements a.InterfaceC0106a {
     }
 
     private SharedPreferences d() {
-        return this.c.getSharedPreferences("video_cfg", 0);
+        return this.f4978c.getSharedPreferences("video_cfg", 0);
     }
 
     private boolean e() {
@@ -157,12 +183,13 @@ public class a implements a.InterfaceC0106a {
             a(-4, "cancel download isSFSwitchEnabled");
             return false;
         }
-        this.b = a("success-download-core-count", 0);
-        if (this.b >= 12) {
+        int a2 = a("success-download-core-count", 0);
+        this.f4977b = a2;
+        if (a2 >= 12) {
             CyberLog.w("CyberCoreLoader", "Achieve max success download time:12");
             a(-1, "Achieve max success download time");
             return false;
-        } else if (n.e() < 20971520) {
+        } else if (n.e() < DownloadManager.MIN_LEFT_SIZE) {
             a(-1, "storagespace not enough " + n.e());
             return false;
         } else {
@@ -171,69 +198,74 @@ public class a implements a.InterfaceC0106a {
     }
 
     private boolean f() {
-        String g = n.g();
-        return g.contains("armv7-neon") || g.contains("AArch64") || g.contains("arm64");
+        String g2 = n.g();
+        return g2.contains("armv7-neon") || g2.contains("AArch64") || g2.contains("arm64");
     }
 
     private void g() {
-        if (this.k != null) {
-            this.k.onInstallSuccess(this.h, d.a());
+        CyberPlayerManager.InstallListener installListener = this.k;
+        if (installListener != null) {
+            installListener.onInstallSuccess(this.f4983h, d.a());
         }
     }
 
     public synchronized void a(String str, int i, Map<String, String> map, CyberPlayerManager.InstallListener installListener) {
-        this.h = i;
+        this.f4983h = i;
         this.i = map;
-        if (f()) {
-            CyberLog.d("CyberCoreLoader", "InstallTask:" + i + " start");
-            CyberCfgManager.getInstance().init();
-            this.g = c.a().a(str);
-            this.k = installListener;
-            this.c = CyberPlayerManager.getApplicationContext();
-            String d = n.d();
-            if (!d.equals(b("success-download-core-time", null))) {
-                a("success-download-core-count", Integer.toString(0));
-                a("success-download-core-time", d);
+        if (!f()) {
+            if (installListener != null) {
+                a(-5, "cpu not support:" + n.g());
             }
-            this.f = n.b();
-            this.e = this.f + File.separator + "libs";
-            c();
-            CyberLog.d("CyberCoreLoader", "InstallTask:" + i + " end");
-        } else if (installListener != null) {
-            a(-5, "cpu not support:" + n.g());
+            return;
         }
+        CyberLog.d("CyberCoreLoader", "InstallTask:" + i + " start");
+        CyberCfgManager.getInstance().init();
+        this.f4982g = c.a().a(str);
+        this.k = installListener;
+        this.f4978c = CyberPlayerManager.getApplicationContext();
+        String d2 = n.d();
+        if (!d2.equals(b("success-download-core-time", null))) {
+            a("success-download-core-count", Integer.toString(0));
+            a("success-download-core-time", d2);
+        }
+        this.f4981f = n.b();
+        this.f4980e = this.f4981f + File.separator + "libs";
+        c();
+        CyberLog.d("CyberCoreLoader", "InstallTask:" + i + " end");
     }
 
-    @Override // com.baidu.cyberplayer.sdk.a.a.InterfaceC0106a
+    @Override // com.baidu.cyberplayer.sdk.a.a.InterfaceC0070a
     public void a(String str, long j) {
     }
 
-    @Override // com.baidu.cyberplayer.sdk.a.a.InterfaceC0106a
+    @Override // com.baidu.cyberplayer.sdk.a.a.InterfaceC0070a
     public void a(String str, long j, int i, String str2) {
         CyberLog.d("CyberCoreLoader", "srcUrl:" + str + " detail:" + str2);
         if (i != -1) {
-            this.b++;
-            a("success-download-core-count", Integer.toString(this.b));
+            int i2 = this.f4977b + 1;
+            this.f4977b = i2;
+            a("success-download-core-count", Integer.toString(i2));
         }
         a(i, str2);
     }
 
-    @Override // com.baidu.cyberplayer.sdk.a.a.InterfaceC0106a
+    @Override // com.baidu.cyberplayer.sdk.a.a.InterfaceC0070a
     public void a(String str, long j, long j2) {
         Long valueOf = Long.valueOf(System.currentTimeMillis());
-        if (valueOf.longValue() - this.f1436a > 500) {
-            float f = (((float) j) / ((float) j2)) * 99.0f;
-            a((int) f);
-            this.f1436a = valueOf.longValue();
-            CyberLog.d("CyberCoreLoader", "onDownloading:" + ((int) f) + "%");
+        if (valueOf.longValue() - this.f4976a > 500) {
+            int i = (int) ((((float) j) / ((float) j2)) * 99.0f);
+            a(i);
+            this.f4976a = valueOf.longValue();
+            CyberLog.d("CyberCoreLoader", "onDownloading:" + i + "%");
         }
     }
 
-    @Override // com.baidu.cyberplayer.sdk.a.a.InterfaceC0106a
+    @Override // com.baidu.cyberplayer.sdk.a.a.InterfaceC0070a
     public void a(String str, long j, ArrayList<String> arrayList) {
         this.j = arrayList;
-        this.b++;
-        a("success-download-core-count", Integer.toString(this.b));
+        int i = this.f4977b + 1;
+        this.f4977b = i;
+        a("success-download-core-count", Integer.toString(i));
         CyberLog.d("CyberCoreLoader", "onDownloadSuccess:" + this.j);
         c();
     }

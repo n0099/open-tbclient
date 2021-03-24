@@ -1,218 +1,141 @@
 package rx.subjects;
 
+import h.d;
+import h.e;
+import h.j;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicReference;
-import rx.d;
 import rx.functions.Actions;
 import rx.internal.operators.NotificationLite;
-import rx.j;
-import rx.subscriptions.e;
-/* loaded from: classes4.dex */
-final class SubjectSubscriptionManager<T> extends AtomicReference<a<T>> implements d.a<T> {
-    private static final long serialVersionUID = 6035251036011671568L;
-    boolean active;
-    volatile Object latest;
-    rx.functions.b<b<T>> onAdded;
-    rx.functions.b<b<T>> onStart;
-    rx.functions.b<b<T>> onTerminated;
+/* loaded from: classes7.dex */
+public final class SubjectSubscriptionManager<T> extends AtomicReference<b<T>> implements d.a<T> {
+    public static final long serialVersionUID = 6035251036011671568L;
+    public boolean active;
+    public volatile Object latest;
+    public h.n.b<c<T>> onAdded;
+    public h.n.b<c<T>> onStart;
+    public h.n.b<c<T>> onTerminated;
 
-    @Override // rx.functions.b
-    public /* bridge */ /* synthetic */ void call(Object obj) {
-        call((j) ((j) obj));
-    }
+    /* loaded from: classes7.dex */
+    public class a implements h.n.a {
 
-    public SubjectSubscriptionManager() {
-        super(a.qFM);
-        this.active = true;
-        this.onStart = Actions.eMF();
-        this.onAdded = Actions.eMF();
-        this.onTerminated = Actions.eMF();
-    }
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ c f68285e;
 
-    public void call(j<? super T> jVar) {
-        b<T> bVar = new b<>(jVar);
-        addUnsubscriber(jVar, bVar);
-        this.onStart.call(bVar);
-        if (!jVar.isUnsubscribed() && add(bVar) && jVar.isUnsubscribed()) {
-            remove(bVar);
+        public a(c cVar) {
+            this.f68285e = cVar;
+        }
+
+        @Override // h.n.a
+        public void call() {
+            SubjectSubscriptionManager.this.remove(this.f68285e);
         }
     }
 
-    void addUnsubscriber(j<? super T> jVar, final b<T> bVar) {
-        jVar.add(e.l(new rx.functions.a() { // from class: rx.subjects.SubjectSubscriptionManager.1
-            @Override // rx.functions.a
-            public void call() {
-                SubjectSubscriptionManager.this.remove(bVar);
-            }
-        }));
-    }
+    /* loaded from: classes7.dex */
+    public static final class b<T> {
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void setLatest(Object obj) {
-        this.latest = obj;
-    }
+        /* renamed from: c  reason: collision with root package name */
+        public static final c[] f68287c;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public Object getLatest() {
-        return this.latest;
-    }
+        /* renamed from: d  reason: collision with root package name */
+        public static final b f68288d;
 
-    b<T>[] observers() {
-        return get().qFJ;
-    }
+        /* renamed from: e  reason: collision with root package name */
+        public static final b f68289e;
 
-    boolean add(b<T> bVar) {
-        a<T> aVar;
-        do {
-            aVar = get();
-            if (aVar.terminated) {
-                this.onTerminated.call(bVar);
-                return false;
-            }
-        } while (!compareAndSet(aVar, aVar.b(bVar)));
-        this.onAdded.call(bVar);
-        return true;
-    }
+        /* renamed from: a  reason: collision with root package name */
+        public final boolean f68290a;
 
-    void remove(b<T> bVar) {
-        a<T> aVar;
-        a<T> c;
-        do {
-            aVar = get();
-            if (aVar.terminated || (c = aVar.c(bVar)) == aVar) {
-                return;
-            }
-        } while (!compareAndSet(aVar, c));
-    }
+        /* renamed from: b  reason: collision with root package name */
+        public final c[] f68291b;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public b<T>[] next(Object obj) {
-        setLatest(obj);
-        return get().qFJ;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public b<T>[] terminate(Object obj) {
-        setLatest(obj);
-        this.active = false;
-        return get().terminated ? a.qFK : getAndSet(a.qFL).qFJ;
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    /* loaded from: classes4.dex */
-    public static final class a<T> {
-        static final b[] qFK = new b[0];
-        static final a qFL = new a(true, qFK);
-        static final a qFM = new a(false, qFK);
-        final b[] qFJ;
-        final boolean terminated;
-
-        public a(boolean z, b[] bVarArr) {
-            this.terminated = z;
-            this.qFJ = bVarArr;
+        static {
+            c[] cVarArr = new c[0];
+            f68287c = cVarArr;
+            f68288d = new b(true, cVarArr);
+            f68289e = new b(false, f68287c);
         }
 
-        public a b(b bVar) {
-            int length = this.qFJ.length;
-            b[] bVarArr = new b[length + 1];
-            System.arraycopy(this.qFJ, 0, bVarArr, 0, length);
-            bVarArr[length] = bVar;
-            return new a(this.terminated, bVarArr);
+        public b(boolean z, c[] cVarArr) {
+            this.f68290a = z;
+            this.f68291b = cVarArr;
         }
 
-        public a c(b bVar) {
-            b[] bVarArr;
-            int i;
-            b[] bVarArr2 = this.qFJ;
-            int length = bVarArr2.length;
-            if (length == 1 && bVarArr2[0] == bVar) {
-                return qFM;
+        public b a(c cVar) {
+            c[] cVarArr = this.f68291b;
+            int length = cVarArr.length;
+            c[] cVarArr2 = new c[length + 1];
+            System.arraycopy(cVarArr, 0, cVarArr2, 0, length);
+            cVarArr2[length] = cVar;
+            return new b(this.f68290a, cVarArr2);
+        }
+
+        public b b(c cVar) {
+            c[] cVarArr = this.f68291b;
+            int length = cVarArr.length;
+            if (length == 1 && cVarArr[0] == cVar) {
+                return f68289e;
             }
-            if (length != 0) {
-                b[] bVarArr3 = new b[length - 1];
-                int i2 = 0;
-                int i3 = 0;
-                while (i2 < length) {
-                    b bVar2 = bVarArr2[i2];
-                    if (bVar2 == bVar) {
-                        i = i3;
-                    } else if (i3 != length - 1) {
-                        i = i3 + 1;
-                        bVarArr3[i3] = bVar2;
-                    } else {
+            if (length == 0) {
+                return this;
+            }
+            int i = length - 1;
+            c[] cVarArr2 = new c[i];
+            int i2 = 0;
+            for (c cVar2 : cVarArr) {
+                if (cVar2 != cVar) {
+                    if (i2 == i) {
                         return this;
                     }
+                    cVarArr2[i2] = cVar2;
                     i2++;
-                    i3 = i;
                 }
-                if (i3 == 0) {
-                    return qFM;
-                }
-                if (i3 < length - 1) {
-                    bVarArr = new b[i3];
-                    System.arraycopy(bVarArr3, 0, bVarArr, 0, i3);
-                } else {
-                    bVarArr = bVarArr3;
-                }
-                return new a(this.terminated, bVarArr);
             }
-            return this;
+            if (i2 == 0) {
+                return f68289e;
+            }
+            if (i2 < i) {
+                c[] cVarArr3 = new c[i2];
+                System.arraycopy(cVarArr2, 0, cVarArr3, 0, i2);
+                cVarArr2 = cVarArr3;
+            }
+            return new b(this.f68290a, cVarArr2);
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    /* loaded from: classes4.dex */
-    public static final class b<T> implements rx.e<T> {
-        final j<? super T> actual;
-        boolean emitting;
-        boolean fastPath;
-        boolean first = true;
-        List<Object> queue;
+    /* loaded from: classes7.dex */
+    public static final class c<T> implements e<T> {
 
-        public b(j<? super T> jVar) {
-            this.actual = jVar;
+        /* renamed from: e  reason: collision with root package name */
+        public final j<? super T> f68292e;
+
+        /* renamed from: f  reason: collision with root package name */
+        public boolean f68293f = true;
+
+        /* renamed from: g  reason: collision with root package name */
+        public boolean f68294g;
+
+        /* renamed from: h  reason: collision with root package name */
+        public List<Object> f68295h;
+        public boolean i;
+
+        public c(j<? super T> jVar) {
+            this.f68292e = jVar;
         }
 
-        @Override // rx.e
-        public void onNext(T t) {
-            this.actual.onNext(t);
-        }
-
-        @Override // rx.e
-        public void onError(Throwable th) {
-            this.actual.onError(th);
-        }
-
-        @Override // rx.e
-        public void onCompleted() {
-            this.actual.onCompleted();
-        }
-
-        /* JADX INFO: Access modifiers changed from: package-private */
-        public void cl(Object obj) {
-            if (!this.fastPath) {
-                synchronized (this) {
-                    this.first = false;
-                    if (this.emitting) {
-                        if (this.queue == null) {
-                            this.queue = new ArrayList();
-                        }
-                        this.queue.add(obj);
-                        return;
-                    }
-                    this.fastPath = true;
-                }
+        public void a(Object obj) {
+            if (obj != null) {
+                NotificationLite.a(this.f68292e, obj);
             }
-            NotificationLite.a(this.actual, obj);
         }
 
-        /* JADX INFO: Access modifiers changed from: package-private */
-        public void cm(Object obj) {
+        public void b(Object obj) {
             synchronized (this) {
-                if (this.first && !this.emitting) {
-                    this.first = false;
-                    this.emitting = obj != null;
+                if (this.f68293f && !this.f68294g) {
+                    this.f68293f = false;
+                    this.f68294g = obj != null;
                     if (obj != null) {
                         c(null, obj);
                     }
@@ -220,41 +143,38 @@ final class SubjectSubscriptionManager<T> extends AtomicReference<a<T>> implemen
             }
         }
 
-        /* JADX WARN: Removed duplicated region for block: B:11:0x001a  */
+        /* JADX WARN: Removed duplicated region for block: B:30:0x0038  */
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
-        void c(List<Object> list, Object obj) {
+        public void c(List<Object> list, Object obj) {
             boolean z = true;
-            boolean z2 = false;
-            boolean z3 = true;
+            boolean z2 = true;
             while (true) {
                 if (list != null) {
                     try {
                         for (Object obj2 : list) {
-                            accept(obj2);
+                            a(obj2);
                         }
                     } catch (Throwable th) {
                         th = th;
-                        if (!z2) {
-                            synchronized (this) {
-                                this.emitting = false;
-                            }
+                        z = false;
+                        if (!z) {
                         }
                         throw th;
                     }
                 }
-                if (z3) {
-                    accept(obj);
-                    z3 = false;
+                if (z2) {
+                    a(obj);
+                    z2 = false;
                 }
                 try {
                     synchronized (this) {
                         try {
-                            list = this.queue;
-                            this.queue = null;
+                            list = this.f68295h;
+                            this.f68295h = null;
                             if (list == null) {
-                                this.emitting = false;
+                                this.f68294g = false;
                                 return;
                             }
                         } catch (Throwable th2) {
@@ -269,18 +189,122 @@ final class SubjectSubscriptionManager<T> extends AtomicReference<a<T>> implemen
                     throw th;
                 } catch (Throwable th4) {
                     th = th4;
-                    z2 = z;
-                    if (!z2) {
+                    if (!z) {
+                        synchronized (this) {
+                            this.f68294g = false;
+                        }
                     }
                     throw th;
                 }
             }
         }
 
-        void accept(Object obj) {
-            if (obj != null) {
-                NotificationLite.a(this.actual, obj);
+        public void d(Object obj) {
+            if (!this.i) {
+                synchronized (this) {
+                    this.f68293f = false;
+                    if (this.f68294g) {
+                        if (this.f68295h == null) {
+                            this.f68295h = new ArrayList();
+                        }
+                        this.f68295h.add(obj);
+                        return;
+                    }
+                    this.i = true;
+                }
             }
+            NotificationLite.a(this.f68292e, obj);
+        }
+
+        @Override // h.e
+        public void onCompleted() {
+            this.f68292e.onCompleted();
+        }
+
+        @Override // h.e
+        public void onError(Throwable th) {
+            this.f68292e.onError(th);
+        }
+
+        @Override // h.e
+        public void onNext(T t) {
+            this.f68292e.onNext(t);
+        }
+    }
+
+    public SubjectSubscriptionManager() {
+        super(b.f68289e);
+        this.active = true;
+        this.onStart = Actions.a();
+        this.onAdded = Actions.a();
+        this.onTerminated = Actions.a();
+    }
+
+    public boolean add(c<T> cVar) {
+        b<T> bVar;
+        do {
+            bVar = get();
+            if (bVar.f68290a) {
+                this.onTerminated.call(cVar);
+                return false;
+            }
+        } while (!compareAndSet(bVar, bVar.a(cVar)));
+        this.onAdded.call(cVar);
+        return true;
+    }
+
+    public void addUnsubscriber(j<? super T> jVar, c<T> cVar) {
+        jVar.add(h.u.e.a(new a(cVar)));
+    }
+
+    @Override // h.n.b
+    public /* bridge */ /* synthetic */ void call(Object obj) {
+        call((j) ((j) obj));
+    }
+
+    public Object getLatest() {
+        return this.latest;
+    }
+
+    public c<T>[] next(Object obj) {
+        setLatest(obj);
+        return get().f68291b;
+    }
+
+    public c<T>[] observers() {
+        return get().f68291b;
+    }
+
+    public void remove(c<T> cVar) {
+        b<T> bVar;
+        b<T> b2;
+        do {
+            bVar = get();
+            if (bVar.f68290a || (b2 = bVar.b(cVar)) == bVar) {
+                return;
+            }
+        } while (!compareAndSet(bVar, b2));
+    }
+
+    public void setLatest(Object obj) {
+        this.latest = obj;
+    }
+
+    public c<T>[] terminate(Object obj) {
+        setLatest(obj);
+        this.active = false;
+        if (get().f68290a) {
+            return b.f68287c;
+        }
+        return getAndSet(b.f68288d).f68291b;
+    }
+
+    public void call(j<? super T> jVar) {
+        c<T> cVar = new c<>(jVar);
+        addUnsubscriber(jVar, cVar);
+        this.onStart.call(cVar);
+        if (!jVar.isUnsubscribed() && add(cVar) && jVar.isUnsubscribed()) {
+            remove(cVar);
         }
     }
 }

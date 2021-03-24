@@ -5,33 +5,31 @@ import android.util.Log;
 import androidx.annotation.Nullable;
 import java.io.Closeable;
 import java.io.IOException;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public final class Closeables {
-    private static final String TAG = "Closeables";
+    public static final String TAG = "Closeables";
 
-    private Closeables() {
+    public static void close(@Nullable Closeable closeable, boolean z) throws IOException {
+        if (closeable == null) {
+            return;
+        }
+        try {
+            closeable.close();
+        } catch (IOException e2) {
+            if (z) {
+                Log.d(TAG, "IOException thrown while closing Closeable.", e2);
+                return;
+            }
+            throw e2;
+        }
     }
 
     public static void closeSafely(@Nullable Closeable closeable) {
         if (closeable != null) {
             try {
                 closeable.close();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    public static void close(@Nullable Closeable closeable, boolean z) throws IOException {
-        if (closeable != null) {
-            try {
-                closeable.close();
-            } catch (IOException e) {
-                if (z) {
-                    Log.d(TAG, "IOException thrown while closing Closeable.", e);
-                    return;
-                }
-                throw e;
+            } catch (Exception e2) {
+                e2.printStackTrace();
             }
         }
     }
@@ -39,11 +37,12 @@ public final class Closeables {
     public static void closeSafely(Cursor cursor) {
         if (cursor != null) {
             try {
-                if (!cursor.isClosed()) {
-                    cursor.close();
+                if (cursor.isClosed()) {
+                    return;
                 }
-            } catch (Exception e) {
-                e.printStackTrace();
+                cursor.close();
+            } catch (Exception e2) {
+                e2.printStackTrace();
             }
         }
     }

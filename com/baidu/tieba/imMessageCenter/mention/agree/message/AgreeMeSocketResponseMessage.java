@@ -1,52 +1,59 @@
 package com.baidu.tieba.imMessageCenter.mention.agree.message;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.imMessageCenter.mention.base.a;
 import com.squareup.wire.Wire;
+import d.b.i0.e1.b.p.a;
 import java.util.ArrayList;
 import tbclient.AgreeList;
 import tbclient.AgreeMe.AgreeMeResIdl;
-/* loaded from: classes2.dex */
+import tbclient.AgreeMe.DataRes;
+import tbclient.Error;
+/* loaded from: classes4.dex */
 public class AgreeMeSocketResponseMessage extends SocketResponsedMessage {
     public ArrayList<a> datas;
     public boolean hasMore;
 
     public AgreeMeSocketResponseMessage() {
-        super(CmdConfigSocket.CMD_AGREE_ME);
+        super(309593);
         this.datas = new ArrayList<>();
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.message.a
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
-        AgreeMeResIdl agreeMeResIdl = (AgreeMeResIdl) new Wire(new Class[0]).parseFrom(bArr, AgreeMeResIdl.class);
-        if (agreeMeResIdl != null) {
-            if (agreeMeResIdl.error != null && agreeMeResIdl.error.errorno != null) {
-                setError(agreeMeResIdl.error.errorno.intValue());
-            }
-            if (agreeMeResIdl.error != null && agreeMeResIdl.error.usermsg != null && agreeMeResIdl.error.usermsg.length() > 0) {
-                setErrorString(agreeMeResIdl.error.usermsg);
-            }
-            if (getError() == 0 && agreeMeResIdl.data != null) {
-                this.hasMore = agreeMeResIdl.data.has_more.intValue() == 1;
-                for (AgreeList agreeList : agreeMeResIdl.data.agree_list) {
-                    if (agreeList != null) {
-                        a aVar = new a();
-                        aVar.a(agreeList);
-                        this.datas.add(aVar);
-                    }
-                }
-            }
-        }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public void afterDispatchInBackGround(int i, byte[] bArr) {
         if (!hasError() && (getOrginalMessage().getExtra() instanceof AgreeMeRequestMessage) && ((AgreeMeRequestMessage) getOrginalMessage().getExtra()).id == 0) {
-            com.baidu.tbadk.core.c.a.bqt().dE("tb_user_agreeme", TbadkCoreApplication.getCurrentAccountName()).asyncSetForever("agree_me_cache_key", bArr);
+            d.b.h0.r.r.a.f().e("tb_user_agreeme", TbadkCoreApplication.getCurrentAccountName()).a("agree_me_cache_key", bArr);
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
+    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
+        DataRes dataRes;
+        String str;
+        Integer num;
+        AgreeMeResIdl agreeMeResIdl = (AgreeMeResIdl) new Wire(new Class[0]).parseFrom(bArr, AgreeMeResIdl.class);
+        if (agreeMeResIdl == null) {
+            return;
+        }
+        Error error = agreeMeResIdl.error;
+        if (error != null && (num = error.errorno) != null) {
+            setError(num.intValue());
+        }
+        Error error2 = agreeMeResIdl.error;
+        if (error2 != null && (str = error2.usermsg) != null && str.length() > 0) {
+            setErrorString(agreeMeResIdl.error.usermsg);
+        }
+        if (getError() == 0 && (dataRes = agreeMeResIdl.data) != null) {
+            this.hasMore = dataRes.has_more.intValue() == 1;
+            for (AgreeList agreeList : agreeMeResIdl.data.agree_list) {
+                if (agreeList != null) {
+                    a aVar = new a();
+                    aVar.G(agreeList);
+                    this.datas.add(aVar);
+                }
+            }
         }
     }
 }

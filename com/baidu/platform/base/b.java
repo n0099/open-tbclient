@@ -2,35 +2,37 @@ package com.baidu.platform.base;
 
 import com.baidu.mapapi.http.AsyncHttpClient;
 import com.baidu.mapapi.http.HttpClient;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class b extends HttpClient.ProtoResultCallback {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ d f2864a;
-    final /* synthetic */ Object b;
-    final /* synthetic */ a c;
+    public final /* synthetic */ d f9812a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    /* renamed from: b  reason: collision with root package name */
+    public final /* synthetic */ Object f9813b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public final /* synthetic */ a f9814c;
+
     public b(a aVar, d dVar, Object obj) {
-        this.c = aVar;
-        this.f2864a = dVar;
-        this.b = obj;
+        this.f9814c = aVar;
+        this.f9812a = dVar;
+        this.f9813b = obj;
     }
 
     @Override // com.baidu.mapapi.http.HttpClient.ProtoResultCallback
     public void onFailed(HttpClient.HttpStateError httpStateError) {
-        this.c.a(httpStateError, this.f2864a, this.b);
+        this.f9814c.a(httpStateError, this.f9812a, this.f9813b);
     }
 
     @Override // com.baidu.mapapi.http.HttpClient.ProtoResultCallback
     public void onSuccess(String str) {
         AsyncHttpClient asyncHttpClient;
-        this.c.a(str);
-        a aVar = this.c;
-        d dVar = this.f2864a;
-        Object obj = this.b;
-        asyncHttpClient = this.c.b;
+        this.f9814c.a(str);
+        a aVar = this.f9814c;
+        d dVar = this.f9812a;
+        Object obj = this.f9813b;
+        asyncHttpClient = aVar.f9808b;
         aVar.a(str, dVar, obj, asyncHttpClient, this);
     }
 }

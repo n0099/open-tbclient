@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class FrsArActivityConfig extends IntentConfig {
     public static final String AR_ID = "ar_id";
     public static final String AR_TYPE = "ar_type";
@@ -15,11 +15,12 @@ public class FrsArActivityConfig extends IntentConfig {
         super(context);
         Intent intent = getIntent();
         intent.putExtra("name", str);
-        intent.putExtra("ar_id", str2);
-        intent.putExtra("ar_type", str3);
+        intent.putExtra(AR_ID, str2);
+        intent.putExtra(AR_TYPE, str3);
         intent.putExtra(TITLE_SHARE, str4);
-        if (!(getContext() instanceof Activity)) {
-            intent.addFlags(268435456);
+        if (getContext() instanceof Activity) {
+            return;
         }
+        intent.addFlags(268435456);
     }
 }

@@ -1,27 +1,19 @@
 package a.a.a.a;
-
-import a.a.a.a.a.e;
-import android.app.Activity;
-import android.content.Context;
-import android.view.ViewGroup;
-import com.fun.ad.sdk.FunAdSlot;
-import com.fun.ad.sdk.FunNativeAd;
-import com.fun.ad.sdk.FunNativeAdInflater;
-/* loaded from: classes4.dex */
+/* loaded from: classes.dex */
 public interface l {
     void a();
 
-    void a(m mVar);
+    void a(int i, String str);
 
-    boolean a(Activity activity, ViewGroup viewGroup, String str, FunNativeAdInflater funNativeAdInflater);
+    void b();
 
-    void b(Context context, FunAdSlot funAdSlot);
+    void onAdClicked();
 
-    boolean c();
+    void onAdClose();
 
-    FunNativeAd getNativeAd(Context context, String str);
+    void onAdShow();
 
-    e.a hq();
+    void onError(int i, String str);
 
-    a.a.a.a.c.p hr();
+    void onLoaded();
 }

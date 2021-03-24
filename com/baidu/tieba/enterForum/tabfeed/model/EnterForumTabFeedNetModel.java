@@ -8,221 +8,317 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.adp.lib.util.l;
-import com.baidu.adp.widget.ListView.n;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.ErrorData;
-import com.baidu.tbadk.core.data.bj;
-import com.baidu.tbadk.core.data.bv;
-import com.baidu.tbadk.core.data.ca;
-import com.baidu.tbadk.core.data.cb;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.au;
-import com.baidu.tbadk.core.util.av;
-import com.baidu.tbadk.core.util.y;
-import com.baidu.tieba.enterForum.tabfeed.b;
-import com.baidu.tieba.enterForum.tabfeed.b.a;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.core.util.TbImageHelper;
 import com.baidu.tieba.enterForum.tabfeed.message.TabFeedListHttpResponsedMessage;
 import com.baidu.tieba.enterForum.tabfeed.message.TabFeedListRequestMessage;
 import com.baidu.tieba.enterForum.tabfeed.message.TabFeedListSocketResponsedMessage;
 import com.baidu.tieba.homepage.GetMyPostHttpResponseMessage;
 import com.baidu.tieba.homepage.GetMyPostSocketResponseMessage;
 import com.baidu.tieba.homepage.RequestGetMyPostNetMessage;
+import d.b.b.e.p.l;
+import d.b.b.j.e.n;
+import d.b.h0.r.q.a2;
+import d.b.h0.r.q.j1;
+import d.b.h0.r.q.u1;
+import d.b.h0.r.q.z1;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Iterator;
 import org.json.JSONObject;
+import tbclient.GetMyPost.DataRes;
 import tbclient.GetMyPost.GetMyPostResIdl;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class EnterForumTabFeedNetModel extends BdBaseModel {
-    private boolean gec;
-    private int iQM;
-    private int iQN;
-    private b iQO;
-    private int iQP;
-    private HashMap<String, Integer> iQQ;
-    private com.baidu.tieba.enterForum.tabfeed.b.b iQR;
-    private a iQS;
-    private cb iQT;
-    private CustomMessageListener iQU;
-    private CustomMessageListener iQV;
-    private CustomMessageListener iQW;
-    private final com.baidu.adp.framework.listener.a iQX;
-    private boolean isLoading;
-    private com.baidu.adp.framework.listener.a netMessageListener;
-    private String tabCode;
-    private String tabName;
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(a aVar, boolean z) {
-        if (aVar != null && this.iQR != null) {
-            ArrayList<n> cxo = aVar.cxo();
-            this.iQR.gec = this.gec;
-            if (!this.gec) {
-                this.iQM++;
+    /* renamed from: e  reason: collision with root package name */
+    public boolean f15529e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public int f15530f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public String f15531g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public String f15532h;
+    public int i;
+    public boolean j;
+    public d.b.i0.i0.l.b k;
+    public int l;
+    public HashMap<String, Integer> m;
+    public d.b.i0.i0.l.d.b n;
+    public d.b.i0.i0.l.d.a o;
+    public a2 p;
+    public d.b.b.c.g.a q;
+    public CustomMessageListener r;
+    public CustomMessageListener s;
+    public CustomMessageListener t;
+    public final d.b.b.c.g.a u;
+
+    /* loaded from: classes4.dex */
+    public class a extends d.b.b.c.g.a {
+        public a(int i, int i2) {
+            super(i, i2);
+        }
+
+        @Override // d.b.b.c.g.a
+        public void onMessage(ResponsedMessage<?> responsedMessage) {
+            d.b.i0.i0.l.d.a aVar;
+            EnterForumTabFeedNetModel.this.f15529e = false;
+            if (responsedMessage == null || EnterForumTabFeedNetModel.this.n == null || EnterForumTabFeedNetModel.this.n.f55707b == null) {
+                return;
+            }
+            if (responsedMessage instanceof TabFeedListHttpResponsedMessage) {
+                aVar = ((TabFeedListHttpResponsedMessage) responsedMessage).enterForumTabFeedData;
             } else {
-                this.iQR.refreshCount = z ? y.getCount(cxo) : -1;
-                e(cxo, aVar.cxp());
+                aVar = responsedMessage instanceof TabFeedListSocketResponsedMessage ? ((TabFeedListSocketResponsedMessage) responsedMessage).enterForumTabFeedData : null;
             }
-            if (this.iQP + y.getCount(cxo) > this.iQN) {
-                this.iQR.iQK = cxw();
+            EnterForumTabFeedNetModel.this.o = aVar;
+            EnterForumTabFeedNetModel.this.mErrorCode = responsedMessage.getError();
+            EnterForumTabFeedNetModel.this.mErrorString = responsedMessage.getErrorString();
+            ErrorData errorData = new ErrorData();
+            errorData.setError_code(EnterForumTabFeedNetModel.this.mErrorCode);
+            errorData.setError_msg(EnterForumTabFeedNetModel.this.mErrorString);
+            if (EnterForumTabFeedNetModel.this.mErrorCode != 0 || aVar == null) {
+                EnterForumTabFeedNetModel.this.k.onServerError(errorData);
+                return;
             }
-            ArrayList<n> am = am(switchThreadDataToThreadCardInfo(cxo));
-            if (this.gec) {
-                this.iQR.iQJ.addAll(0, am);
-                this.iQR.iQK = 0;
-            } else {
-                this.iQR.iQJ.addAll(am);
-                this.iQR.hasMore = !y.isEmpty(cxo);
+            if (aVar != null && EnterForumTabFeedNetModel.this.p != null) {
+                aVar.e().add(0, EnterForumTabFeedNetModel.this.p);
+                if (EnterForumTabFeedNetModel.this.m != null && EnterForumTabFeedNetModel.this.m.containsKey(EnterForumTabFeedNetModel.this.p.w1())) {
+                    EnterForumTabFeedNetModel.this.m.remove(EnterForumTabFeedNetModel.this.p.w1());
+                }
+                EnterForumTabFeedNetModel.this.p = null;
             }
-            this.iQR.amh = aVar.cxs();
-            this.iQR.iQL = aVar.cxr();
-            this.iQR.iQI = aVar.cxq();
-            if (this.iQO != null) {
-                this.iQO.a(this.iQR);
+            EnterForumTabFeedNetModel.this.P(aVar, true);
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class b extends CustomMessageListener {
+        public b(int i) {
+            super(i);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            EnterForumTabFeedNetModel.this.J(customResponsedMessage);
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class c extends CustomMessageListener {
+        public c(int i) {
+            super(i);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            EnterForumTabFeedNetModel.this.J(customResponsedMessage);
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class d implements Comparator<u1> {
+        public d(EnterForumTabFeedNetModel enterForumTabFeedNetModel) {
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // java.util.Comparator
+        /* renamed from: a */
+        public int compare(u1 u1Var, u1 u1Var2) {
+            int i = u1Var.f50895g;
+            int i2 = u1Var2.f50895g;
+            if (i == i2) {
+                return 0;
+            }
+            return i > i2 ? 1 : -1;
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class e extends CustomMessageListener {
+        public e(int i) {
+            super(i);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            String str;
+            if (customResponsedMessage == null || !(customResponsedMessage.getData() instanceof j1)) {
+                return;
+            }
+            j1 j1Var = (j1) customResponsedMessage.getData();
+            if (j1Var.f50822a == 2 && (str = j1Var.f50823b) != null && str.equals(EnterForumTabFeedNetModel.this.f15531g)) {
+                int k = l.k(TbadkCoreApplication.getInst());
+                int i = l.i(TbadkCoreApplication.getInst());
+                float f2 = TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density;
+                int i2 = TbImageHelper.getInstance().isShowBigImage() ? 2 : 1;
+                RequestGetMyPostNetMessage requestGetMyPostNetMessage = new RequestGetMyPostNetMessage();
+                requestGetMyPostNetMessage.setTag(EnterForumTabFeedNetModel.this.getUniqueId());
+                requestGetMyPostNetMessage.setParams(d.b.b.e.m.b.f(j1Var.f50824c, 0L), 0L, 0L, k, i, f2, i2);
+                requestGetMyPostNetMessage.setBFrom("push");
+                MessageManager.getInstance().sendMessage(requestGetMyPostNetMessage);
             }
         }
     }
 
-    public EnterForumTabFeedNetModel(TbPageContext tbPageContext, b bVar, BdUniqueId bdUniqueId) {
+    /* loaded from: classes4.dex */
+    public class f extends d.b.b.c.g.a {
+        public f(int i, int i2) {
+            super(i, i2);
+        }
+
+        @Override // d.b.b.c.g.a
+        public void onMessage(ResponsedMessage<?> responsedMessage) {
+            GetMyPostResIdl responseData;
+            DataRes dataRes;
+            if (responsedMessage instanceof GetMyPostHttpResponseMessage) {
+                responseData = ((GetMyPostHttpResponseMessage) responsedMessage).getResponseData();
+            } else {
+                responseData = responsedMessage instanceof GetMyPostSocketResponseMessage ? ((GetMyPostSocketResponseMessage) responsedMessage).getResponseData() : null;
+            }
+            if (responseData == null || (dataRes = responseData.data) == null || dataRes.thread_info == null) {
+                return;
+            }
+            a2 a2Var = new a2();
+            a2Var.Q2(responseData.data.thread_info);
+            EnterForumTabFeedNetModel.this.p = a2Var;
+            if (EnterForumTabFeedNetModel.this.o != null) {
+                EnterForumTabFeedNetModel.this.Q();
+            }
+        }
+    }
+
+    public EnterForumTabFeedNetModel(TbPageContext tbPageContext, d.b.i0.i0.l.b bVar, BdUniqueId bdUniqueId) {
         super(tbPageContext);
-        this.isLoading = false;
-        this.iQM = 1;
-        this.gec = true;
-        this.netMessageListener = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_TAB_FEED_LIST, 309651) { // from class: com.baidu.tieba.enterForum.tabfeed.model.EnterForumTabFeedNetModel.1
-            @Override // com.baidu.adp.framework.listener.a
-            public void onMessage(ResponsedMessage<?> responsedMessage) {
-                a aVar;
-                EnterForumTabFeedNetModel.this.isLoading = false;
-                if (responsedMessage != null && EnterForumTabFeedNetModel.this.iQR != null && EnterForumTabFeedNetModel.this.iQR.iQJ != null) {
-                    if (responsedMessage instanceof TabFeedListHttpResponsedMessage) {
-                        aVar = ((TabFeedListHttpResponsedMessage) responsedMessage).enterForumTabFeedData;
-                    } else {
-                        aVar = responsedMessage instanceof TabFeedListSocketResponsedMessage ? ((TabFeedListSocketResponsedMessage) responsedMessage).enterForumTabFeedData : null;
-                    }
-                    EnterForumTabFeedNetModel.this.iQS = aVar;
-                    EnterForumTabFeedNetModel.this.mErrorCode = responsedMessage.getError();
-                    EnterForumTabFeedNetModel.this.mErrorString = responsedMessage.getErrorString();
-                    ErrorData errorData = new ErrorData();
-                    errorData.setError_code(EnterForumTabFeedNetModel.this.mErrorCode);
-                    errorData.setError_msg(EnterForumTabFeedNetModel.this.mErrorString);
-                    if (EnterForumTabFeedNetModel.this.mErrorCode != 0 || aVar == null) {
-                        EnterForumTabFeedNetModel.this.iQO.a(errorData);
-                        return;
-                    }
-                    if (aVar != null && EnterForumTabFeedNetModel.this.iQT != null) {
-                        aVar.cxo().add(0, EnterForumTabFeedNetModel.this.iQT);
-                        if (EnterForumTabFeedNetModel.this.iQQ != null && EnterForumTabFeedNetModel.this.iQQ.containsKey(EnterForumTabFeedNetModel.this.iQT.getTid())) {
-                            EnterForumTabFeedNetModel.this.iQQ.remove(EnterForumTabFeedNetModel.this.iQT.getTid());
-                        }
-                        EnterForumTabFeedNetModel.this.iQT = null;
-                    }
-                    EnterForumTabFeedNetModel.this.a(aVar, true);
-                }
-            }
-        };
-        this.iQU = new CustomMessageListener(CmdConfigCustom.NEG_FEED_BACK_DELETE) { // from class: com.baidu.tieba.enterForum.tabfeed.model.EnterForumTabFeedNetModel.2
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.adp.framework.listener.MessageListener
-            public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                EnterForumTabFeedNetModel.this.g(customResponsedMessage);
-            }
-        };
-        this.iQV = new CustomMessageListener(CmdConfigCustom.CMD_THREAD_NOT_EXIST_WHEN_ENTER_PB) { // from class: com.baidu.tieba.enterForum.tabfeed.model.EnterForumTabFeedNetModel.3
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.adp.framework.listener.MessageListener
-            public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                EnterForumTabFeedNetModel.this.g(customResponsedMessage);
-            }
-        };
-        this.iQW = new CustomMessageListener(2921453) { // from class: com.baidu.tieba.enterForum.tabfeed.model.EnterForumTabFeedNetModel.5
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.adp.framework.listener.MessageListener
-            public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof bj)) {
-                    bj bjVar = (bj) customResponsedMessage.getData();
-                    if (bjVar.eQG == 2 && bjVar.tabName != null && bjVar.tabName.equals(EnterForumTabFeedNetModel.this.tabName)) {
-                        int equipmentWidth = l.getEquipmentWidth(TbadkCoreApplication.getInst());
-                        int equipmentHeight = l.getEquipmentHeight(TbadkCoreApplication.getInst());
-                        float f = TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density;
-                        int i = av.bsV().bsW() ? 2 : 1;
-                        RequestGetMyPostNetMessage requestGetMyPostNetMessage = new RequestGetMyPostNetMessage();
-                        requestGetMyPostNetMessage.setTag(EnterForumTabFeedNetModel.this.getUniqueId());
-                        requestGetMyPostNetMessage.setParams(com.baidu.adp.lib.f.b.toLong(bjVar.tid, 0L), 0L, 0L, equipmentWidth, equipmentHeight, f, i);
-                        requestGetMyPostNetMessage.setBFrom("push");
-                        MessageManager.getInstance().sendMessage(requestGetMyPostNetMessage);
-                    }
-                }
-            }
-        };
-        this.iQX = new com.baidu.adp.framework.listener.a(1003010, CmdConfigSocket.CMD_GET_MY_POST) { // from class: com.baidu.tieba.enterForum.tabfeed.model.EnterForumTabFeedNetModel.6
-            @Override // com.baidu.adp.framework.listener.a
-            public void onMessage(ResponsedMessage<?> responsedMessage) {
-                GetMyPostResIdl getMyPostResIdl = null;
-                if (responsedMessage instanceof GetMyPostHttpResponseMessage) {
-                    getMyPostResIdl = ((GetMyPostHttpResponseMessage) responsedMessage).getResponseData();
-                } else if (responsedMessage instanceof GetMyPostSocketResponseMessage) {
-                    getMyPostResIdl = ((GetMyPostSocketResponseMessage) responsedMessage).getResponseData();
-                }
-                if (getMyPostResIdl != null && getMyPostResIdl.data != null && getMyPostResIdl.data.thread_info != null) {
-                    cb cbVar = new cb();
-                    cbVar.a(getMyPostResIdl.data.thread_info);
-                    EnterForumTabFeedNetModel.this.iQT = cbVar;
-                    if (EnterForumTabFeedNetModel.this.iQS != null) {
-                        EnterForumTabFeedNetModel.this.refresh();
-                    }
-                }
-            }
-        };
+        this.f15529e = false;
+        this.f15530f = 1;
+        this.j = true;
+        this.q = new a(CmdConfigHttp.CMD_TAB_FEED_LIST, 309651);
+        this.r = new b(2016488);
+        this.s = new c(2016553);
+        this.t = new e(2921453);
+        this.u = new f(CmdConfigHttp.CMD_GET_MY_POST, 303111);
         setUniqueId(bdUniqueId);
-        this.netMessageListener.getHttpMessageListener().setSelfListener(true);
-        this.netMessageListener.getSocketMessageListener().setSelfListener(true);
-        registerListener(this.netMessageListener);
-        this.iQQ = new HashMap<>();
-        this.iQR = new com.baidu.tieba.enterForum.tabfeed.b.b();
-        this.iQO = bVar;
-        this.iQN = com.baidu.tbadk.core.sharedPref.b.brR().getInt("home_page_max_thread_count", 300);
-        registerListener(this.iQU);
-        registerListener(this.iQV);
-        this.iQX.setTag(getUniqueId());
-        if (this.iQX.getHttpMessageListener() != null) {
-            this.iQX.getHttpMessageListener().setSelfListener(true);
+        this.q.getHttpMessageListener().setSelfListener(true);
+        this.q.getSocketMessageListener().setSelfListener(true);
+        registerListener(this.q);
+        this.m = new HashMap<>();
+        this.n = new d.b.i0.i0.l.d.b();
+        this.k = bVar;
+        this.i = d.b.h0.r.d0.b.i().j("home_page_max_thread_count", 300);
+        registerListener(this.r);
+        registerListener(this.s);
+        this.u.setTag(getUniqueId());
+        if (this.u.getHttpMessageListener() != null) {
+            this.u.getHttpMessageListener().setSelfListener(true);
         }
-        if (this.iQX.getSocketMessageListener() != null) {
-            this.iQX.getSocketMessageListener().setSelfListener(true);
+        if (this.u.getSocketMessageListener() != null) {
+            this.u.getSocketMessageListener().setSelfListener(true);
         }
-        registerListener(this.iQX);
+        registerListener(this.u);
     }
 
-    public void cxu() {
-        registerListener(this.iQW);
-    }
-
-    public void destory() {
-        MessageManager.getInstance().unRegisterListener(this.netMessageListener);
-    }
-
-    public void eR(String str, String str2) {
-        this.tabCode = str;
-        this.tabName = str2;
-    }
-
-    private ArrayList<n> am(ArrayList<n> arrayList) {
-        boolean z;
-        if (arrayList != null && arrayList.size() != 0) {
-            boolean z2 = true;
-            Iterator<n> it = arrayList.iterator();
-            while (true) {
-                z = z2;
-                if (!it.hasNext()) {
-                    break;
+    public final int I() {
+        int i;
+        a2 a2Var;
+        d.b.i0.i0.l.d.b bVar = this.n;
+        if (bVar != null && bVar.f55707b != null) {
+            int i2 = this.j ? this.l - 60 : 30;
+            int i3 = i2 + 30;
+            if (i2 >= 0 && i2 <= (i = this.l) && i3 >= 0 && i3 <= i && i3 >= i2) {
+                int i4 = -1;
+                int i5 = 0;
+                int i6 = -1;
+                while (true) {
+                    if (i5 >= this.n.f55707b.size()) {
+                        break;
+                    }
+                    n nVar = this.n.f55707b.get(i5);
+                    if (nVar instanceof z1) {
+                        if (i6 == -1 && ((z1) nVar).position > i2) {
+                            i6 = i5;
+                        } else if (((z1) nVar).position > i3) {
+                            i4 = i5;
+                            break;
+                        }
+                        if (i6 > 0 && (a2Var = ((z1) nVar).w) != null) {
+                            this.m.remove(a2Var.w1());
+                        }
+                    }
+                    i5++;
                 }
-                z2 = !(it.next() instanceof bv) ? false : z;
+                if (i6 < i4 && i4 >= 0 && i6 >= 0) {
+                    ArrayList<n> arrayList = new ArrayList<>();
+                    arrayList.addAll(this.n.f55707b.subList(0, i6));
+                    ArrayList<n> arrayList2 = this.n.f55707b;
+                    arrayList.addAll(arrayList2.subList(i4, arrayList2.size()));
+                    this.n.f55707b = arrayList;
+                    return i4 - i6;
+                }
+            }
+        }
+        return 0;
+    }
+
+    public final void J(CustomResponsedMessage<?> customResponsedMessage) {
+        d.b.i0.i0.l.d.b bVar;
+        z1 z1Var;
+        a2 a2Var;
+        if (customResponsedMessage == null || !(customResponsedMessage.getData() instanceof JSONObject) || this.l <= 0 || (bVar = this.n) == null || ListUtils.isEmpty(bVar.f55707b)) {
+            return;
+        }
+        String optString = ((JSONObject) customResponsedMessage.getData()).optString("tid");
+        if (StringUtils.isNull(optString) || !this.m.containsKey(optString)) {
+            return;
+        }
+        Iterator<n> it = this.n.f55707b.iterator();
+        int i = 0;
+        int i2 = -1;
+        int i3 = -1;
+        int i4 = -1;
+        while (it.hasNext()) {
+            n next = it.next();
+            if ((next instanceof z1) && (a2Var = (z1Var = (z1) next).w) != null) {
+                if (i2 >= 0) {
+                    if (z1Var.position != i2) {
+                        break;
+                    }
+                    it.remove();
+                    i4 = i;
+                } else if (StringHelper.equals(optString, a2Var.w1())) {
+                    i2 = z1Var.position;
+                    it.remove();
+                    i3 = i;
+                }
+            }
+            i++;
+        }
+        if (i3 < i4) {
+            this.k.p(i3, i4);
+        }
+    }
+
+    public final ArrayList<n> K(ArrayList<n> arrayList) {
+        if (arrayList != null && arrayList.size() != 0) {
+            boolean z = true;
+            Iterator<n> it = arrayList.iterator();
+            while (it.hasNext()) {
+                if (!(it.next() instanceof u1)) {
+                    z = false;
+                }
             }
             if (z) {
                 arrayList.clear();
@@ -231,179 +327,249 @@ public class EnterForumTabFeedNetModel extends BdBaseModel {
         return arrayList;
     }
 
-    private void e(ArrayList<n> arrayList, ArrayList<bv> arrayList2) {
-        cxv();
-        if (!y.isEmpty(arrayList) && !y.isEmpty(arrayList2)) {
-            Collections.sort(arrayList2, new Comparator<bv>() { // from class: com.baidu.tieba.enterForum.tabfeed.model.EnterForumTabFeedNetModel.4
-                /* JADX DEBUG: Method merged with bridge method */
-                @Override // java.util.Comparator
-                /* renamed from: a */
-                public int compare(bv bvVar, bv bvVar2) {
-                    if (bvVar.eRe == bvVar2.eRe) {
-                        return 0;
-                    }
-                    return bvVar.eRe > bvVar2.eRe ? 1 : -1;
-                }
-            });
-            int i = 0;
-            Iterator<bv> it = arrayList2.iterator();
-            while (true) {
-                int i2 = i;
-                if (it.hasNext()) {
-                    bv next = it.next();
-                    int i3 = next.eRe + i2;
-                    if (!TextUtils.isEmpty(next.res_image) && !TextUtils.isEmpty(next.res_link) && next.eRe != 0 && i3 <= arrayList.size()) {
-                        arrayList.add(i3, next);
-                        i = i2 + 1;
-                    } else {
-                        return;
-                    }
-                } else {
-                    return;
-                }
-            }
+    public boolean L() {
+        d.b.i0.i0.l.d.b bVar = this.n;
+        if (bVar == null) {
+            return false;
         }
-    }
-
-    private void cxv() {
-        if (!y.isEmpty(this.iQR.iQJ)) {
-            int i = 0;
-            Iterator<n> it = this.iQR.iQJ.iterator();
-            while (true) {
-                int i2 = i;
-                if (it.hasNext()) {
-                    if (it.next() instanceof bv) {
-                        it.remove();
-                    }
-                    i = i2 + 1;
-                    if (i > 93) {
-                        return;
-                    }
-                } else {
-                    return;
-                }
-            }
-        }
-    }
-
-    private int cxw() {
-        int i;
-        if (this.iQR == null || this.iQR.iQJ == null) {
-            return 0;
-        }
-        if (!this.gec) {
-            i = 30;
-        } else {
-            i = this.iQP - 60;
-        }
-        int i2 = i + 30;
-        if (i < 0 || i > this.iQP || i2 < 0 || i2 > this.iQP || i2 < i) {
-            return 0;
-        }
-        int i3 = 0;
-        int i4 = -1;
-        while (true) {
-            if (i3 >= this.iQR.iQJ.size()) {
-                i3 = -1;
-                break;
-            }
-            n nVar = this.iQR.iQJ.get(i3);
-            if (nVar instanceof ca) {
-                if (i4 == -1 && ((ca) nVar).position > i) {
-                    i4 = i3;
-                } else if (((ca) nVar).position > i2) {
-                    break;
-                }
-                if (i4 > 0 && ((ca) nVar).eLr != null) {
-                    this.iQQ.remove(((ca) nVar).eLr.getTid());
-                }
-            }
-            i3++;
-            i4 = i4;
-        }
-        if (i4 >= i3 || i3 < 0 || i4 < 0) {
-            return 0;
-        }
-        ArrayList<n> arrayList = new ArrayList<>();
-        arrayList.addAll(this.iQR.iQJ.subList(0, i4));
-        arrayList.addAll(this.iQR.iQJ.subList(i3, this.iQR.iQJ.size()));
-        this.iQR.iQJ = arrayList;
-        return i3 - i4;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void g(CustomResponsedMessage<?> customResponsedMessage) {
-        int i;
-        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof JSONObject) && this.iQP > 0 && this.iQR != null && !y.isEmpty(this.iQR.iQJ)) {
-            String optString = ((JSONObject) customResponsedMessage.getData()).optString("tid");
-            if (!StringUtils.isNull(optString) && this.iQQ.containsKey(optString)) {
-                Iterator<n> it = this.iQR.iQJ.iterator();
-                int i2 = 0;
-                int i3 = -1;
-                int i4 = -1;
-                int i5 = -1;
-                while (it.hasNext()) {
-                    n next = it.next();
-                    if ((next instanceof ca) && ((ca) next).eLr != null) {
-                        if (i5 >= 0) {
-                            if (((ca) next).position != i5) {
-                                break;
-                            }
-                            it.remove();
-                            i = i2;
-                        } else if (au.equals(optString, ((ca) next).eLr.getTid())) {
-                            i5 = ((ca) next).position;
-                            it.remove();
-                            i = i3;
-                            i4 = i2;
-                        }
-                        i2++;
-                        i3 = i;
-                    }
-                    i = i3;
-                    i2++;
-                    i3 = i;
-                }
-                if (i4 < i3) {
-                    this.iQO.cj(i4, i3);
-                }
-            }
-        }
-    }
-
-    public void bRp() {
-        if (!this.isLoading) {
-            this.gec = false;
-            xQ(2);
-        }
-    }
-
-    public void refresh() {
-        if (!this.isLoading) {
-            this.gec = true;
-            xQ(1);
-        }
-    }
-
-    private void xQ(int i) {
-        TabFeedListRequestMessage tabFeedListRequestMessage = new TabFeedListRequestMessage();
-        tabFeedListRequestMessage.loadType = i;
-        tabFeedListRequestMessage.tabCode = this.tabCode;
-        tabFeedListRequestMessage.tabName = this.tabName;
-        if (i == 2) {
-            tabFeedListRequestMessage.pn = this.iQM + 1;
-        } else if (i == 1) {
-            tabFeedListRequestMessage.pn = 1;
-        } else {
-            return;
-        }
-        this.isLoading = true;
-        sendMessage(tabFeedListRequestMessage);
+        return !ListUtils.isEmpty(bVar.f55707b);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
-    protected boolean LoadData() {
+    public boolean LoadData() {
         return false;
+    }
+
+    public final void M(ArrayList<n> arrayList, ArrayList<u1> arrayList2) {
+        S();
+        if (ListUtils.isEmpty(arrayList) || ListUtils.isEmpty(arrayList2)) {
+            return;
+        }
+        Collections.sort(arrayList2, new d(this));
+        int i = 0;
+        Iterator<u1> it = arrayList2.iterator();
+        while (it.hasNext()) {
+            u1 next = it.next();
+            int i2 = next.f50895g + i;
+            if (TextUtils.isEmpty(next.f50893e) || TextUtils.isEmpty(next.f50894f) || next.f50895g == 0 || i2 > arrayList.size()) {
+                return;
+            }
+            arrayList.add(i2, next);
+            i++;
+        }
+    }
+
+    public final void N(int i) {
+        TabFeedListRequestMessage tabFeedListRequestMessage = new TabFeedListRequestMessage();
+        tabFeedListRequestMessage.loadType = i;
+        tabFeedListRequestMessage.tabCode = this.f15532h;
+        tabFeedListRequestMessage.tabName = this.f15531g;
+        if (i == 2) {
+            tabFeedListRequestMessage.pn = this.f15530f + 1;
+        } else if (i != 1) {
+            return;
+        } else {
+            tabFeedListRequestMessage.pn = 1;
+        }
+        this.f15529e = true;
+        sendMessage(tabFeedListRequestMessage);
+    }
+
+    public void O() {
+        if (this.f15529e) {
+            return;
+        }
+        this.j = false;
+        N(2);
+    }
+
+    public final void P(d.b.i0.i0.l.d.a aVar, boolean z) {
+        if (aVar == null || this.n == null) {
+            return;
+        }
+        ArrayList<n> e2 = aVar.e();
+        d.b.i0.i0.l.d.b bVar = this.n;
+        boolean z2 = this.j;
+        bVar.f55713h = z2;
+        if (!z2) {
+            this.f15530f++;
+        } else {
+            bVar.f55711f = z ? ListUtils.getCount(e2) : -1;
+            M(e2, aVar.d());
+        }
+        if (this.l + ListUtils.getCount(e2) > this.i) {
+            this.n.f55710e = I();
+        }
+        ArrayList<n> U = U(e2);
+        K(U);
+        if (this.j) {
+            this.n.f55707b.addAll(0, U);
+            this.n.f55710e = 0;
+        } else {
+            this.n.f55707b.addAll(U);
+            this.n.f55708c = !ListUtils.isEmpty(e2);
+        }
+        this.n.f55709d = aVar.f();
+        this.n.f55712g = aVar.b();
+        this.n.f55706a = aVar.c();
+        d.b.i0.i0.l.b bVar2 = this.k;
+        if (bVar2 != null) {
+            bVar2.l0(this.n);
+        }
+    }
+
+    public void Q() {
+        if (this.f15529e) {
+            return;
+        }
+        this.j = true;
+        N(1);
+    }
+
+    public void R() {
+        registerListener(this.t);
+    }
+
+    public final void S() {
+        if (ListUtils.isEmpty(this.n.f55707b)) {
+            return;
+        }
+        int i = 0;
+        Iterator<n> it = this.n.f55707b.iterator();
+        while (it.hasNext()) {
+            if (it.next() instanceof u1) {
+                it.remove();
+            }
+            i++;
+            if (i > 93) {
+                return;
+            }
+        }
+    }
+
+    public void T(String str, String str2) {
+        this.f15532h = str;
+        this.f15531g = str2;
+    }
+
+    public final ArrayList<n> U(ArrayList<n> arrayList) {
+        int i = this.l;
+        ArrayList<n> arrayList2 = new ArrayList<>();
+        Iterator<n> it = arrayList.iterator();
+        while (it.hasNext()) {
+            n next = it.next();
+            if (next instanceof u1) {
+                arrayList2.add(next);
+            } else if (next instanceof a2) {
+                a2 a2Var = (a2) next;
+                if (!this.m.containsKey(a2Var.w1())) {
+                    this.m.put(a2Var.w1(), 0);
+                    a2Var.X1 = true;
+                    int[] p0 = a2Var.p0();
+                    if (a2Var.getType() == a2.H2) {
+                        z1 z1Var = new z1();
+                        z1Var.w = a2Var;
+                        z1Var.position = i;
+                        z1Var.f50953e = true;
+                        arrayList2.add(z1Var);
+                        z1 z1Var2 = new z1();
+                        z1Var2.w = a2Var;
+                        z1Var2.position = i;
+                        if (a2Var.P1()) {
+                            z1Var2.j = true;
+                        } else if (a2Var.V2() == 1) {
+                            z1Var2.f50956h = true;
+                            z1Var2.x = p0[0];
+                            z1Var2.y = p0[1];
+                        } else if (a2Var.V2() >= 2) {
+                            z1Var2.i = true;
+                        } else {
+                            z1Var2.f50954f = true;
+                        }
+                        arrayList2.add(z1Var2);
+                        if (a2Var.y0() != null) {
+                            z1 z1Var3 = new z1();
+                            z1Var3.r = true;
+                            z1Var3.w = a2Var;
+                            z1Var3.position = i;
+                            arrayList2.add(z1Var3);
+                        }
+                        if (!ListUtils.isEmpty(a2Var.G0()) || !ListUtils.isEmpty(a2Var.l0())) {
+                            z1 z1Var4 = new z1();
+                            z1Var4.w = a2Var;
+                            z1Var4.position = i;
+                            if (ListUtils.getCount(a2Var.G0()) + ListUtils.getCount(a2Var.l0()) == 1) {
+                                z1Var4.t = true;
+                            } else if (ListUtils.getCount(a2Var.G0()) + ListUtils.getCount(a2Var.l0()) > 1) {
+                                z1Var4.u = true;
+                            }
+                            arrayList2.add(z1Var4);
+                        }
+                        z1 z1Var5 = new z1();
+                        z1Var5.q = true;
+                        z1Var5.w = a2Var;
+                        z1Var5.position = i;
+                        arrayList2.add(z1Var5);
+                        z1 z1Var6 = new z1();
+                        z1Var6.k = true;
+                        z1Var6.w = a2Var;
+                        z1Var6.position = i;
+                        arrayList2.add(z1Var6);
+                    } else if (a2Var.getType() == a2.e3) {
+                        z1 z1Var7 = new z1();
+                        z1Var7.w = a2Var;
+                        z1Var7.position = i;
+                        z1Var7.f50953e = true;
+                        arrayList2.add(z1Var7);
+                        z1 z1Var8 = new z1();
+                        z1Var8.w = a2Var;
+                        z1Var8.position = i;
+                        z1Var8.m = true;
+                        arrayList2.add(z1Var8);
+                        if (a2Var.y0() != null) {
+                            z1 z1Var9 = new z1();
+                            z1Var9.r = true;
+                            z1Var9.w = a2Var;
+                            z1Var9.position = i;
+                            arrayList2.add(z1Var9);
+                        }
+                        if (!ListUtils.isEmpty(a2Var.G0()) || !ListUtils.isEmpty(a2Var.l0())) {
+                            z1 z1Var10 = new z1();
+                            z1Var10.w = a2Var;
+                            z1Var10.position = i;
+                            if (ListUtils.getCount(a2Var.G0()) + ListUtils.getCount(a2Var.l0()) == 1) {
+                                z1Var10.t = true;
+                            } else if (ListUtils.getCount(a2Var.G0()) + ListUtils.getCount(a2Var.l0()) > 1) {
+                                z1Var10.u = true;
+                            }
+                            arrayList2.add(z1Var10);
+                        }
+                        z1 z1Var11 = new z1();
+                        z1Var11.q = true;
+                        z1Var11.w = a2Var;
+                        z1Var11.position = i;
+                        arrayList2.add(z1Var11);
+                        z1 z1Var12 = new z1();
+                        z1Var12.k = true;
+                        z1Var12.w = a2Var;
+                        z1Var12.position = i;
+                        arrayList2.add(z1Var12);
+                    } else if (a2Var.getType() == a2.W2 && a2Var.O1()) {
+                        a2Var.position = i;
+                        arrayList2.add(a2Var);
+                    } else {
+                        z1 z1Var13 = new z1();
+                        z1Var13.w = a2Var;
+                        z1Var13.position = i;
+                        arrayList2.add(z1Var13);
+                    }
+                    i++;
+                }
+            }
+        }
+        this.l = i;
+        d.b.h0.b.f.a.d(arrayList2);
+        return arrayList2;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -415,135 +581,10 @@ public class EnterForumTabFeedNetModel extends BdBaseModel {
     @Override // com.baidu.adp.base.BdBaseModel
     public void cancelMessage() {
         super.cancelMessage();
-        this.isLoading = false;
+        this.f15529e = false;
     }
 
-    public boolean hasData() {
-        return (this.iQR == null || y.isEmpty(this.iQR.iQJ)) ? false : true;
-    }
-
-    private ArrayList<n> switchThreadDataToThreadCardInfo(ArrayList<n> arrayList) {
-        int i = this.iQP;
-        ArrayList<n> arrayList2 = new ArrayList<>();
-        Iterator<n> it = arrayList.iterator();
-        int i2 = i;
-        while (it.hasNext()) {
-            n next = it.next();
-            if (next instanceof bv) {
-                arrayList2.add(next);
-            } else if (next instanceof cb) {
-                cb cbVar = (cb) next;
-                if (!this.iQQ.containsKey(cbVar.getTid())) {
-                    this.iQQ.put(cbVar.getTid(), 0);
-                    cbVar.eVj = true;
-                    int[] imageWidthAndHeight = cbVar.getImageWidthAndHeight();
-                    if (cbVar.getType() == cb.eRN) {
-                        ca caVar = new ca();
-                        caVar.eLr = cbVar;
-                        caVar.position = i2;
-                        caVar.eRs = true;
-                        arrayList2.add(caVar);
-                        ca caVar2 = new ca();
-                        caVar2.eLr = cbVar;
-                        caVar2.position = i2;
-                        if (cbVar.bpP()) {
-                            caVar2.eRx = true;
-                        } else if (cbVar.boZ() == 1) {
-                            caVar2.eRv = true;
-                            caVar2.eRK = imageWidthAndHeight[0];
-                            caVar2.eRL = imageWidthAndHeight[1];
-                        } else if (cbVar.boZ() >= 2) {
-                            caVar2.eRw = true;
-                        } else {
-                            caVar2.eRt = true;
-                        }
-                        arrayList2.add(caVar2);
-                        if (cbVar.bpY() != null) {
-                            ca caVar3 = new ca();
-                            caVar3.eRF = true;
-                            caVar3.eLr = cbVar;
-                            caVar3.position = i2;
-                            arrayList2.add(caVar3);
-                        }
-                        if (!y.isEmpty(cbVar.bqb()) || !y.isEmpty(cbVar.bqc())) {
-                            ca caVar4 = new ca();
-                            caVar4.eLr = cbVar;
-                            caVar4.position = i2;
-                            if (y.getCount(cbVar.bqb()) + y.getCount(cbVar.bqc()) == 1) {
-                                caVar4.eRH = true;
-                            } else if (y.getCount(cbVar.bqb()) + y.getCount(cbVar.bqc()) > 1) {
-                                caVar4.eRI = true;
-                            }
-                            arrayList2.add(caVar4);
-                        }
-                        ca caVar5 = new ca();
-                        caVar5.eRE = true;
-                        caVar5.eLr = cbVar;
-                        caVar5.position = i2;
-                        arrayList2.add(caVar5);
-                        ca caVar6 = new ca();
-                        caVar6.eRy = true;
-                        caVar6.eLr = cbVar;
-                        caVar6.position = i2;
-                        arrayList2.add(caVar6);
-                        i2++;
-                    } else if (cbVar.getType() == cb.eSl) {
-                        ca caVar7 = new ca();
-                        caVar7.eLr = cbVar;
-                        caVar7.position = i2;
-                        caVar7.eRs = true;
-                        arrayList2.add(caVar7);
-                        ca caVar8 = new ca();
-                        caVar8.eLr = cbVar;
-                        caVar8.position = i2;
-                        caVar8.eRA = true;
-                        arrayList2.add(caVar8);
-                        if (cbVar.bpY() != null) {
-                            ca caVar9 = new ca();
-                            caVar9.eRF = true;
-                            caVar9.eLr = cbVar;
-                            caVar9.position = i2;
-                            arrayList2.add(caVar9);
-                        }
-                        if (!y.isEmpty(cbVar.bqb()) || !y.isEmpty(cbVar.bqc())) {
-                            ca caVar10 = new ca();
-                            caVar10.eLr = cbVar;
-                            caVar10.position = i2;
-                            if (y.getCount(cbVar.bqb()) + y.getCount(cbVar.bqc()) == 1) {
-                                caVar10.eRH = true;
-                            } else if (y.getCount(cbVar.bqb()) + y.getCount(cbVar.bqc()) > 1) {
-                                caVar10.eRI = true;
-                            }
-                            arrayList2.add(caVar10);
-                        }
-                        ca caVar11 = new ca();
-                        caVar11.eRE = true;
-                        caVar11.eLr = cbVar;
-                        caVar11.position = i2;
-                        arrayList2.add(caVar11);
-                        ca caVar12 = new ca();
-                        caVar12.eRy = true;
-                        caVar12.eLr = cbVar;
-                        caVar12.position = i2;
-                        arrayList2.add(caVar12);
-                        i2++;
-                    } else if (cbVar.getType() == cb.eSc && cbVar.bmz()) {
-                        cbVar.position = i2;
-                        arrayList2.add(cbVar);
-                        i2++;
-                    } else {
-                        ca caVar13 = new ca();
-                        caVar13.eLr = cbVar;
-                        caVar13.position = i2;
-                        arrayList2.add(caVar13);
-                        i2++;
-                    }
-                }
-            }
-            i2 = i2;
-        }
-        this.iQP = i2;
-        com.baidu.tbadk.a.a.a.bj(arrayList2);
-        return arrayList2;
+    public void destory() {
+        MessageManager.getInstance().unRegisterListener(this.q);
     }
 }

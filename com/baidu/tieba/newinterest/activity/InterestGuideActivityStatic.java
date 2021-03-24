@@ -1,23 +1,12 @@
 package com.baidu.tieba.newinterest.activity;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
-/* loaded from: classes7.dex */
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.InterestGuideActivityConfig;
+import d.b.i0.y1.e.b;
+/* loaded from: classes4.dex */
 public class InterestGuideActivityStatic {
     static {
-        CustomMessageTask customMessageTask = new CustomMessageTask(2921454, new CustomMessageTask.CustomRunnable<IntentConfig>() { // from class: com.baidu.tieba.newinterest.activity.InterestGuideActivityStatic.1
-            @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-            public CustomResponsedMessage<?> run(CustomMessage<IntentConfig> customMessage) {
-                if (customMessage != null && customMessage.getData() != null) {
-                    customMessage.getData().startActivity(InterestGuideActivity.class);
-                }
-                return null;
-            }
-        });
-        customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
-        MessageManager.getInstance().registerTask(customMessageTask);
+        TbadkCoreApplication.getInst().RegisterIntent(InterestGuideActivityConfig.class, InterestGuideActivity.class);
+        b.l();
     }
 }

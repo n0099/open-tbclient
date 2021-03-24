@@ -8,23 +8,29 @@ import android.widget.EditText;
 import android.widget.TextView;
 import java.util.List;
 import java.util.Map;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public final class aa implements TextWatcher {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ EditText f3647a;
-    final /* synthetic */ String b;
-    final /* synthetic */ FeedbackEditActivity c;
+    public final /* synthetic */ EditText f23044a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    /* renamed from: b  reason: collision with root package name */
+    public final /* synthetic */ String f23045b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public final /* synthetic */ FeedbackEditActivity f23046c;
+
     public aa(FeedbackEditActivity feedbackEditActivity, EditText editText, String str) {
-        this.c = feedbackEditActivity;
-        this.f3647a = editText;
-        this.b = str;
+        this.f23046c = feedbackEditActivity;
+        this.f23044a = editText;
+        this.f23045b = str;
     }
 
+    /* JADX WARN: Incorrect condition in loop: B:9:0x004b */
     @Override // android.text.TextWatcher
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     public final void afterTextChanged(Editable editable) {
         String str;
         String str2;
@@ -37,47 +43,41 @@ public final class aa implements TextWatcher {
         EditText editText;
         Button button2;
         List list4;
-        Button button3;
-        this.c.ad = this.f3647a.getText().toString();
-        str = this.c.ad;
+        this.f23046c.ad = this.f23044a.getText().toString();
+        str = this.f23046c.ad;
         Log.d("editcontent", str);
-        Map map = this.c.f3639a;
-        String str5 = this.b;
-        str2 = this.c.ad;
+        FeedbackEditActivity feedbackEditActivity = this.f23046c;
+        Map map = feedbackEditActivity.f22988a;
+        String str5 = this.f23045b;
+        str2 = feedbackEditActivity.ad;
         map.put(str5, str2);
-        str3 = this.c.ad;
+        str3 = this.f23046c.ad;
         if (str3 != null) {
-            str4 = this.c.ad;
+            str4 = this.f23046c.ad;
             if (str4.trim().length() != 0) {
-                int i = 0;
-                while (true) {
-                    int i2 = i;
-                    list = this.c.z;
-                    if (i2 >= list.size()) {
-                        return;
-                    }
-                    list2 = this.c.z;
-                    if (list2.get(i2) != null) {
-                        list4 = this.c.z;
-                        if (((TextView) list4.get(i2)).getText().toString().trim().length() == 0) {
-                            button3 = this.c.V;
-                            button3.setTextColor(com.baidu.ufosdk.b.y);
-                            return;
+                for (int i = 0; i < list.size(); i++) {
+                    list2 = this.f23046c.z;
+                    if (list2.get(i) != null) {
+                        list4 = this.f23046c.z;
+                        if (((TextView) list4.get(i)).getText().toString().trim().length() == 0) {
                         }
                     }
-                    list3 = this.c.z;
-                    if (i2 == list3.size() - 1) {
-                        editText = this.c.m;
+                    list3 = this.f23046c.z;
+                    if (i == list3.size() - 1) {
+                        editText = this.f23046c.m;
                         if (editText.getText().toString().trim().length() >= 4) {
-                            button2 = this.c.V;
-                            button2.setTextColor(com.baidu.ufosdk.f.i.a(com.baidu.ufosdk.b.v, com.baidu.ufosdk.b.y, com.baidu.ufosdk.b.v, com.baidu.ufosdk.b.v));
+                            button2 = this.f23046c.V;
+                            int i2 = com.baidu.ufosdk.b.v;
+                            int i3 = com.baidu.ufosdk.b.y;
+                            int i4 = com.baidu.ufosdk.b.v;
+                            button2.setTextColor(com.baidu.ufosdk.f.i.a(i2, i3, i4, i4));
                         }
                     }
-                    i = i2 + 1;
                 }
+                return;
             }
         }
-        button = this.c.V;
+        button = this.f23046c.V;
         button.setTextColor(com.baidu.ufosdk.b.y);
     }
 

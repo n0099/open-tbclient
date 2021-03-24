@@ -6,47 +6,47 @@ import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.newdetail.adapter.a;
-import com.baidu.tieba.newdetail.adapter.b;
+import d.b.i0.w1.d.a;
+import d.b.i0.w1.d.b;
 import java.util.ArrayList;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class HotTopicDetailSpecialLayout extends BdTypeRecyclerView {
-    private int kiZ;
+    public int A;
 
     public HotTopicDetailSpecialLayout(Context context) {
         super(context);
-        this.kiZ = 3;
-        initView();
+        this.A = 3;
+        G();
     }
 
-    public HotTopicDetailSpecialLayout(Context context, @Nullable AttributeSet attributeSet) {
-        super(context, attributeSet);
-        this.kiZ = 3;
-        initView();
+    public void F(TbPageContext tbPageContext) {
+        ArrayList arrayList = new ArrayList();
+        arrayList.add(new a(tbPageContext));
+        arrayList.add(new b(tbPageContext));
+        a(arrayList);
     }
 
-    public HotTopicDetailSpecialLayout(Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        this.kiZ = 3;
-        initView();
-    }
-
-    private void initView() {
+    public final void G() {
         setLayoutManager(new LinearLayoutManager(getContext()));
         setOverScrollMode(2);
     }
 
-    public void y(TbPageContext tbPageContext) {
-        ArrayList arrayList = new ArrayList();
-        arrayList.add(new a(tbPageContext));
-        arrayList.add(new b(tbPageContext));
-        addAdapters(arrayList);
+    public void H(int i) {
+        if (this.A != i) {
+            getListAdapter().notifyDataSetChanged();
+            this.A = i;
+        }
     }
 
-    public void onChangeSkinType(int i) {
-        if (this.kiZ != i) {
-            getListAdapter().notifyDataSetChanged();
-            this.kiZ = i;
-        }
+    public HotTopicDetailSpecialLayout(Context context, @Nullable AttributeSet attributeSet) {
+        super(context, attributeSet);
+        this.A = 3;
+        G();
+    }
+
+    public HotTopicDetailSpecialLayout(Context context, @Nullable AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        this.A = 3;
+        G();
     }
 }

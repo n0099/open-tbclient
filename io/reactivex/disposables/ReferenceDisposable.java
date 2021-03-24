@@ -1,27 +1,31 @@
 package io.reactivex.disposables;
 
+import f.a.t.b;
+import f.a.x.b.a;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes6.dex */
-abstract class ReferenceDisposable<T> extends AtomicReference<T> implements b {
-    private static final long serialVersionUID = 6537757548749041217L;
+/* loaded from: classes7.dex */
+public abstract class ReferenceDisposable<T> extends AtomicReference<T> implements b {
+    public static final long serialVersionUID = 6537757548749041217L;
 
-    protected abstract void onDisposed(T t);
-
-    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ReferenceDisposable(T t) {
-        super(io.reactivex.internal.functions.a.n(t, "value is null"));
+        super(t);
+        a.b(t, "value is null");
     }
 
-    @Override // io.reactivex.disposables.b
+    @Override // f.a.t.b
     public final void dispose() {
         T andSet;
-        if (get() != null && (andSet = getAndSet(null)) != null) {
-            onDisposed(andSet);
+        if (get() == null || (andSet = getAndSet(null)) == null) {
+            return;
         }
+        onDisposed(andSet);
     }
 
-    @Override // io.reactivex.disposables.b
+    @Override // f.a.t.b
     public final boolean isDisposed() {
         return get() == null;
     }
+
+    public abstract void onDisposed(T t);
 }

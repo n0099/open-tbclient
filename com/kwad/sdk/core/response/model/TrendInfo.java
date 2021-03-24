@@ -10,20 +10,22 @@ import java.util.Comparator;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class TrendInfo implements com.kwad.sdk.core.b, Serializable {
     public static Comparator<TrendInfo> mTrendsComparator = new Comparator<TrendInfo>() { // from class: com.kwad.sdk.core.response.model.TrendInfo.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Comparator
         /* renamed from: a */
         public int compare(TrendInfo trendInfo, TrendInfo trendInfo2) {
-            if (trendInfo.rank == trendInfo2.rank) {
+            int i = trendInfo.rank;
+            int i2 = trendInfo2.rank;
+            if (i == i2) {
                 return 0;
             }
-            return trendInfo.rank > trendInfo2.rank ? 1 : -1;
+            return i > i2 ? 1 : -1;
         }
     };
-    private static final long serialVersionUID = 8690126962689904212L;
+    public static final long serialVersionUID = 8690126962689904212L;
     public String coverUrl;
     public String iconUrl;
     public String name;
@@ -42,23 +44,18 @@ public class TrendInfo implements com.kwad.sdk.core.b, Serializable {
                 trendInfo.parseJson(new JSONObject(jSONArray.optString(i)));
                 arrayList.add(trendInfo);
             }
-        } catch (Exception e) {
-            com.kwad.sdk.core.d.a.a(e);
+        } catch (Exception e2) {
+            com.kwad.sdk.core.d.a.a(e2);
         }
         return arrayList;
     }
 
     public static String toString(@NonNull List<TrendInfo> list) {
         JSONArray jSONArray = new JSONArray();
-        int i = 0;
-        while (true) {
-            int i2 = i;
-            if (i2 >= list.size()) {
-                return jSONArray.toString();
-            }
-            jSONArray.put(list.get(i2).toJson().toString());
-            i = i2 + 1;
+        for (int i = 0; i < list.size(); i++) {
+            jSONArray.put(list.get(i).toJson().toString());
         }
+        return jSONArray.toString();
     }
 
     public boolean equals(@Nullable Object obj) {

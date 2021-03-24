@@ -6,51 +6,50 @@ import android.os.Build;
 import android.os.Process;
 import android.text.TextUtils;
 import com.baidu.searchbox.process.ipc.IPCLibConfig;
-import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes.dex */
 public final class ProcessUtils {
-    private static final String AI_APPS_PROCESS_SUFFIX = ":swan";
-    private static final String CMD_LINE_NAME = "/proc/self/cmdline";
-    private static final boolean DEBUG = false;
-    private static final int PROCESS_NAME_LENGTH = 500;
-    private static final String TAG = "ProcessUtils";
-    private static boolean sIsMainProcess;
-    private static String sMainProcessName;
-    private static String sProcessName;
+    public static final String AI_APPS_PROCESS_SUFFIX = ":swan";
+    public static final String CMD_LINE_NAME = "/proc/self/cmdline";
+    public static final boolean DEBUG = false;
+    public static final int PROCESS_NAME_LENGTH = 500;
+    public static final String TAG = "ProcessUtils";
+    public static boolean sIsMainProcess;
+    public static String sMainProcessName;
+    public static String sProcessName;
 
     static {
         Context context = IPCLibConfig.sAppContext;
         sMainProcessName = context.getApplicationInfo().processName;
-        sProcessName = getProcessNameFromFile();
-        if (TextUtils.isEmpty(sProcessName)) {
+        String processNameFromFile = getProcessNameFromFile();
+        sProcessName = processNameFromFile;
+        if (TextUtils.isEmpty(processNameFromFile)) {
             sProcessName = getProcessNameFromAm(context);
         }
         sIsMainProcess = checkIsMainProcess(sProcessName);
     }
 
-    public static boolean isMainProcess() {
-        return sIsMainProcess;
-    }
-
-    public static boolean isSwanProcess() {
-        return !TextUtils.isEmpty(sProcessName) && sProcessName.contains(AI_APPS_PROCESS_SUFFIX);
-    }
-
-    public static String getMainProcessName() {
-        return sMainProcessName;
+    public static boolean checkIsMainProcess(String str) {
+        if (TextUtils.equals(str, sMainProcessName)) {
+            return true;
+        }
+        return str.startsWith(sMainProcessName) && !str.contains(":");
     }
 
     public static String getCurProcessName() {
         return sProcessName;
     }
 
-    private static String getProcessNameFromAm(Context context) {
+    public static String getMainProcessName() {
+        return sMainProcessName;
+    }
+
+    public static String getProcessNameFromAm(Context context) {
         int myPid = Process.myPid();
-        List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) context.getSystemService(PushConstants.INTENT_ACTIVITY_NAME)).getRunningAppProcesses();
+        List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) context.getSystemService("activity")).getRunningAppProcesses();
         if (runningAppProcesses == null) {
             return null;
         }
@@ -62,66 +61,53 @@ public final class ProcessUtils {
         return null;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [138=4] */
-    private static String getProcessNameFromFile() {
-        Throwable th;
+    public static String getProcessNameFromFile() {
         FileInputStream fileInputStream;
-        FileInputStream fileInputStream2;
         String str = null;
+        str = null;
+        str = null;
+        FileInputStream fileInputStream2 = null;
         try {
-            fileInputStream2 = new FileInputStream(new File(CMD_LINE_NAME));
-        } catch (Exception e) {
-            fileInputStream2 = null;
+            try {
+                fileInputStream = new FileInputStream(new File(CMD_LINE_NAME));
+            } catch (IOException e2) {
+                e2.printStackTrace();
+            }
+            try {
+                byte[] bArr = new byte[500];
+                str = new String(bArr, 0, fileInputStream.read(bArr)).trim();
+                fileInputStream.close();
+            } catch (Exception unused) {
+                if (fileInputStream != null) {
+                    fileInputStream.close();
+                }
+                return str;
+            } catch (Throwable th) {
+                th = th;
+                fileInputStream2 = fileInputStream;
+                if (fileInputStream2 != null) {
+                    try {
+                        fileInputStream2.close();
+                    } catch (IOException e3) {
+                        e3.printStackTrace();
+                    }
+                }
+                throw th;
+            }
+        } catch (Exception unused2) {
+            fileInputStream = null;
         } catch (Throwable th2) {
             th = th2;
-            fileInputStream = null;
-        }
-        try {
-            byte[] bArr = new byte[500];
-            str = new String(bArr, 0, fileInputStream2.read(bArr)).trim();
-            if (fileInputStream2 != null) {
-                try {
-                    fileInputStream2.close();
-                } catch (IOException e2) {
-                    e2.printStackTrace();
-                }
-            }
-        } catch (Exception e3) {
-            if (fileInputStream2 != null) {
-                try {
-                    fileInputStream2.close();
-                } catch (IOException e4) {
-                    e4.printStackTrace();
-                }
-            }
-            return str;
-        } catch (Throwable th3) {
-            th = th3;
-            fileInputStream = fileInputStream2;
-            if (fileInputStream != null) {
-                try {
-                    fileInputStream.close();
-                } catch (IOException e5) {
-                    e5.printStackTrace();
-                }
-            }
-            throw th;
         }
         return str;
     }
 
-    public static boolean checkIsMainProcess(String str) {
-        if (TextUtils.equals(str, sMainProcessName)) {
-            return true;
-        }
-        return str.startsWith(sMainProcessName) && !str.contains(":");
-    }
-
     public static boolean is64Bit() {
-        if (Build.VERSION.SDK_INT >= 23) {
+        int i = Build.VERSION.SDK_INT;
+        if (i >= 23) {
             return Process.is64Bit();
         }
-        if (Build.VERSION.SDK_INT >= 21) {
+        if (i >= 21) {
             String[] strArr = Build.SUPPORTED_64_BIT_ABIS;
             if (strArr.length > 0) {
                 return Build.CPU_ABI.equals(strArr[0]);
@@ -129,5 +115,13 @@ public final class ProcessUtils {
             return false;
         }
         return false;
+    }
+
+    public static boolean isMainProcess() {
+        return sIsMainProcess;
+    }
+
+    public static boolean isSwanProcess() {
+        return !TextUtils.isEmpty(sProcessName) && sProcessName.contains(":swan");
     }
 }

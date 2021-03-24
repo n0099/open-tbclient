@@ -11,13 +11,17 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import com.kwad.sdk.R;
 import com.kwad.sdk.utils.ag;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class g extends LinearLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    private ImageView f5684a;
-    private TextView b;
-    private View.OnClickListener c;
+    public ImageView f32365a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public TextView f32366b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public View.OnClickListener f32367c;
 
     public g(Context context) {
         this(context, null);
@@ -25,32 +29,33 @@ public class g extends LinearLayout {
 
     public g(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f5684a = null;
-        this.b = null;
+        this.f32365a = null;
+        this.f32366b = null;
         a();
     }
 
     private void a() {
         LayoutInflater.from(getContext()).inflate(R.layout.ksad_content_alliance_photo_comment_button_2, (ViewGroup) this, true);
-        this.f5684a = (ImageView) findViewById(R.id.ksad_photo_comment_button);
-        b.a(this.f5684a, new View.OnClickListener() { // from class: com.kwad.sdk.contentalliance.detail.photo.f.g.1
+        ImageView imageView = (ImageView) findViewById(R.id.ksad_photo_comment_button);
+        this.f32365a = imageView;
+        b.a(imageView, new View.OnClickListener() { // from class: com.kwad.sdk.contentalliance.detail.photo.f.g.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (g.this.c != null) {
-                    g.this.c.onClick(g.this);
+                if (g.this.f32367c != null) {
+                    g.this.f32367c.onClick(g.this);
                 }
             }
         });
-        this.b = (TextView) findViewById(R.id.ksad_photo_comment_count_text);
+        this.f32366b = (TextView) findViewById(R.id.ksad_photo_comment_count_text);
     }
 
     public void setCommentCount(long j) {
-        this.b.setText(ag.a(j, "评论"));
+        this.f32366b.setText(ag.a(j, "评论"));
     }
 
     @Override // android.view.View
     public void setOnClickListener(@Nullable View.OnClickListener onClickListener) {
         super.setOnClickListener(onClickListener);
-        this.c = onClickListener;
+        this.f32367c = onClickListener;
     }
 }

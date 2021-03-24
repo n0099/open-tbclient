@@ -1,14 +1,13 @@
 package com.baidu.pass.biometrics.face.liveness.result;
 
 import android.text.TextUtils;
-import com.baidu.android.util.io.BaseJsonData;
+import com.baidu.pass.biometrics.R;
 import com.baidu.pass.biometrics.base.debug.Log;
 import com.baidu.pass.biometrics.base.result.PassBiometricResult;
 import com.baidu.pass.biometrics.base.utils.ResUtils;
-import com.baidu.pass.biometrics.face.R;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes14.dex */
+/* loaded from: classes2.dex */
 public class PassFaceRecogResult extends PassBiometricResult {
     public static final int ERROR_CODE_CONTRAST_FAIL = -302;
     public static final int ERROR_CODE_FACE_SDK_INIT_FAIL = -303;
@@ -42,8 +41,8 @@ public class PassFaceRecogResult extends PassBiometricResult {
     public JSONObject toJSONObject() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put(BaseJsonData.TAG_ERRNO, getResultCode());
-            jSONObject.put(BaseJsonData.TAG_ERRMSG, getResultMsg());
+            jSONObject.put("errno", getResultCode());
+            jSONObject.put("errmsg", getResultMsg());
             if (this.resultCode == 0) {
                 if (!TextUtils.isEmpty(this.callbackkey)) {
                     jSONObject.put("credentialKey", this.callbackkey);
@@ -52,8 +51,8 @@ public class PassFaceRecogResult extends PassBiometricResult {
                     jSONObject.put("authsid", this.authSid);
                 }
             }
-        } catch (JSONException e) {
-            Log.e(e);
+        } catch (JSONException e2) {
+            Log.e(e2);
         }
         return jSONObject;
     }

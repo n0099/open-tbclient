@@ -2,34 +2,42 @@ package com.kwad.sdk.contentalliance.detail.video;
 
 import androidx.annotation.NonNull;
 import com.kwad.sdk.core.response.model.VideoPlayerStatus;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f5747a;
-    public VideoPlayerStatus b;
-    public c c;
+    public String f32540a;
 
-    /* loaded from: classes3.dex */
+    /* renamed from: b  reason: collision with root package name */
+    public VideoPlayerStatus f32541b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public c f32542c;
+
+    /* loaded from: classes6.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private String f5748a;
-        private VideoPlayerStatus b;
-        private c c;
+        public String f32543a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public VideoPlayerStatus f32544b;
+
+        /* renamed from: c  reason: collision with root package name */
+        public c f32545c;
 
         public a a(@NonNull c cVar) {
-            this.c = cVar;
+            this.f32545c = cVar;
             return this;
         }
 
         public a a(VideoPlayerStatus videoPlayerStatus) {
-            this.b = videoPlayerStatus;
+            this.f32544b = videoPlayerStatus;
             return this;
         }
 
         public a a(String str) {
-            this.f5748a = str;
+            this.f32543a = str;
             return this;
         }
 
@@ -38,13 +46,13 @@ public class d {
         }
     }
 
-    private d(a aVar) {
-        this.c = new c();
-        this.f5747a = aVar.f5748a;
-        this.b = aVar.b;
-        if (aVar.c != null) {
-            this.c.f5746a = aVar.c.f5746a;
-            this.c.b = aVar.c.b;
+    public d(a aVar) {
+        this.f32542c = new c();
+        this.f32540a = aVar.f32543a;
+        this.f32541b = aVar.f32544b;
+        if (aVar.f32545c != null) {
+            this.f32542c.f32538a = aVar.f32545c.f32538a;
+            this.f32542c.f32539b = aVar.f32545c.f32539b;
         }
     }
 }

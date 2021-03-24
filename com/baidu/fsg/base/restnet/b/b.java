@@ -3,13 +3,11 @@ package com.baidu.fsg.base.restnet.b;
 import android.content.Context;
 import android.os.Build;
 import android.text.TextUtils;
-import com.baidu.fsg.base.ApollonConstants;
 import com.baidu.fsg.base.restnet.RestMultipartEntity;
 import com.baidu.fsg.base.restnet.RestRequestCallbacker;
 import com.baidu.fsg.base.utils.LogUtil;
 import com.baidu.mobstat.Config;
-import com.baidu.webkit.internal.ETAG;
-import com.baidubce.http.Headers;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import java.io.BufferedInputStream;
 import java.io.DataOutputStream;
 import java.io.File;
@@ -24,82 +22,182 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import javax.net.ssl.HttpsURLConnection;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public class b implements com.baidu.fsg.base.restnet.rest.b {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f1504a = "appcache";
-    private static final int b = 2;
-    private Context c;
-    private String d;
-    private e e;
-    private URLConnection f;
-    private boolean g;
-    private boolean h;
+    public static final String f5180a = "appcache";
+
+    /* renamed from: b  reason: collision with root package name */
+    public static final int f5181b = 2;
+
+    /* renamed from: c  reason: collision with root package name */
+    public Context f5182c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public String f5183d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public e f5184e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public URLConnection f5185f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public boolean f5186g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public boolean f5187h;
 
     public b(Context context, String str, boolean z) {
-        this.h = false;
-        this.c = context.getApplicationContext();
-        this.d = str;
-        this.h = z;
+        this.f5187h = false;
+        this.f5182c = context.getApplicationContext();
+        this.f5183d = str;
+        this.f5187h = z;
+    }
+
+    private com.baidu.fsg.base.restnet.rest.e b(URL url) throws IOException, KeyManagementException, NoSuchAlgorithmException, KeyStoreException {
+        URL url2 = new URL(a(url.toString()));
+        URLConnection openConnection = url2.openConnection();
+        this.f5185f = openConnection;
+        a(openConnection);
+        return a(url2, this.f5185f, "GET");
+    }
+
+    private boolean c() {
+        if (this.f5184e != null) {
+            RestRequestCallbacker.IRestRequestCallback requestCallback = RestRequestCallbacker.getRequestCallback();
+            String k = this.f5184e.k();
+            return (TextUtils.isEmpty(k) || requestCallback == null || !requestCallback.isSpecialUrl(k)) ? false : true;
+        }
+        return false;
+    }
+
+    private void d() {
+        try {
+            Class.forName("android.net.http.HttpResponseCache").getMethod("install", File.class, Long.TYPE).invoke(null, new File(this.f5182c.getDir("appcache", 0), "com/baidu/fsg/base/restnet/http"), Long.valueOf((long) Config.FULL_TRACE_LOG_LIMIT));
+        } catch (Exception unused) {
+        }
+    }
+
+    private void e() {
+        try {
+            Class.forName("android.net.http.HttpResponseCache").getMethod(IntentConfig.CLOSE, new Class[0]).invoke(null, new Object[0]);
+        } catch (Exception unused) {
+        }
     }
 
     @Override // com.baidu.fsg.base.restnet.rest.b
     public com.baidu.fsg.base.restnet.rest.e a(com.baidu.fsg.base.restnet.rest.d dVar) throws KeyManagementException, NoSuchAlgorithmException, KeyStoreException, IOException {
-        this.e = (e) dVar;
+        this.f5184e = (e) dVar;
         URL url = new URL(dVar.d());
-        LogUtil.v(ApollonConstants.APOLLON_REST_TAG, "con url: " + url + ", host: " + dVar.b().c("Host"));
-        if (this.e.i()) {
+        LogUtil.v("apollon_rest", "con url: " + url + ", host: " + dVar.b().c("Host"));
+        if (this.f5184e.i()) {
             return a(url);
         }
-        if (this.e.j()) {
+        if (this.f5184e.j()) {
             return b(url);
         }
         return null;
     }
 
+    private void b() {
+        ((HttpsURLConnection) this.f5185f).setHostnameVerifier(new c(this));
+    }
+
+    private void b(URLConnection uRLConnection) {
+        DataOutputStream dataOutputStream;
+        e eVar = this.f5184e;
+        if (eVar != null) {
+            String l = eVar.l();
+            RestMultipartEntity a2 = this.f5184e.a();
+            uRLConnection.setDoOutput(true);
+            uRLConnection.setDoInput(true);
+            if (a2 != null) {
+                ((HttpURLConnection) uRLConnection).setFixedLengthStreamingMode((int) a2.getContentLength());
+                uRLConnection.setRequestProperty("Content-Type", "multipart/form-data;boundary=" + a2.getBoundary());
+            }
+            DataOutputStream dataOutputStream2 = null;
+            try {
+                try {
+                    try {
+                        dataOutputStream = new DataOutputStream(uRLConnection.getOutputStream());
+                    } catch (IOException e2) {
+                        e2.printStackTrace();
+                    }
+                } catch (IOException e3) {
+                    e = e3;
+                }
+            } catch (Throwable th) {
+                th = th;
+            }
+            try {
+                dataOutputStream.writeBytes(l);
+                if (a2 != null) {
+                    a2.writeTo(dataOutputStream);
+                }
+                dataOutputStream.flush();
+                dataOutputStream.close();
+            } catch (IOException e4) {
+                e = e4;
+                dataOutputStream2 = dataOutputStream;
+                e.printStackTrace();
+                if (dataOutputStream2 != null) {
+                    dataOutputStream2.close();
+                }
+            } catch (Throwable th2) {
+                th = th2;
+                dataOutputStream2 = dataOutputStream;
+                if (dataOutputStream2 != null) {
+                    try {
+                        dataOutputStream2.close();
+                    } catch (IOException e5) {
+                        e5.printStackTrace();
+                    }
+                }
+                throw th;
+            }
+        }
+    }
+
     @Override // com.baidu.fsg.base.restnet.rest.b
     public void a() {
-        if (this.f != null) {
-            if (this.f instanceof HttpsURLConnection) {
-                ((HttpsURLConnection) this.f).disconnect();
-            } else if (this.f instanceof HttpURLConnection) {
-                ((HttpURLConnection) this.f).disconnect();
+        URLConnection uRLConnection = this.f5185f;
+        if (uRLConnection != null) {
+            if (uRLConnection instanceof HttpsURLConnection) {
+                ((HttpsURLConnection) uRLConnection).disconnect();
+            } else if (uRLConnection instanceof HttpURLConnection) {
+                ((HttpURLConnection) uRLConnection).disconnect();
             }
-            this.f = null;
+            this.f5185f = null;
         }
-        if (this.h) {
+        if (this.f5187h) {
             e();
         }
     }
 
     private com.baidu.fsg.base.restnet.rest.e a(URL url) throws IOException, KeyManagementException, NoSuchAlgorithmException, KeyStoreException {
-        this.f = url.openConnection();
-        a(this.f);
-        b(this.f);
-        return a(url, this.f, "POST");
-    }
-
-    private com.baidu.fsg.base.restnet.rest.e b(URL url) throws IOException, KeyManagementException, NoSuchAlgorithmException, KeyStoreException {
-        URL url2 = new URL(a(url.toString()));
-        this.f = url2.openConnection();
-        a(this.f);
-        return a(url2, this.f, "GET");
+        URLConnection openConnection = url.openConnection();
+        this.f5185f = openConnection;
+        a(openConnection);
+        b(this.f5185f);
+        return a(url, this.f5185f, "POST");
     }
 
     private com.baidu.fsg.base.restnet.rest.e a(URL url, URLConnection uRLConnection, String str) throws IOException, KeyManagementException, NoSuchAlgorithmException, KeyStoreException {
-        int responseCode = ((HttpURLConnection) uRLConnection).getResponseCode();
+        HttpURLConnection httpURLConnection = (HttpURLConnection) uRLConnection;
+        int responseCode = httpURLConnection.getResponseCode();
         Map<String, List<String>> headerFields = uRLConnection.getHeaderFields();
-        return new f(new BufferedInputStream(uRLConnection.getInputStream()), responseCode, ((HttpURLConnection) uRLConnection).getResponseMessage(), headerFields);
+        return new f(new BufferedInputStream(uRLConnection.getInputStream()), responseCode, httpURLConnection.getResponseMessage(), headerFields);
     }
 
     private void a(URLConnection uRLConnection) {
-        if (this.g) {
-            uRLConnection.setConnectTimeout(this.e.h() > 0 ? this.e.h() : 30000);
-            uRLConnection.setReadTimeout(this.e.h() > 0 ? this.e.h() : 30000);
+        if (this.f5186g) {
+            uRLConnection.setConnectTimeout(this.f5184e.h() > 0 ? this.f5184e.h() : 30000);
+            uRLConnection.setReadTimeout(this.f5184e.h() > 0 ? this.f5184e.h() : 30000);
         } else {
-            uRLConnection.setConnectTimeout(this.e.h() > 0 ? this.e.h() : 30000);
-            uRLConnection.setReadTimeout(this.e.h() > 0 ? this.e.h() : 30000);
+            uRLConnection.setConnectTimeout(this.f5184e.h() > 0 ? this.f5184e.h() : 30000);
+            uRLConnection.setReadTimeout(this.f5184e.h() > 0 ? this.f5184e.h() : 30000);
         }
         if (Integer.parseInt(Build.VERSION.SDK) < 8) {
             System.setProperty("http.keepAlive", "false");
@@ -110,127 +208,34 @@ public class b implements com.baidu.fsg.base.restnet.rest.b {
         }
         if (c()) {
             uRLConnection.setRequestProperty("User-Agent", "");
-            uRLConnection.setRequestProperty(Headers.ACCEPT_ENCODING, "");
+            uRLConnection.setRequestProperty("Accept-Encoding", "");
         } else {
-            uRLConnection.setRequestProperty("User-Agent", this.d);
-            for (Map.Entry<String, List<String>> entry : this.e.b().entrySet()) {
+            uRLConnection.setRequestProperty("User-Agent", this.f5183d);
+            for (Map.Entry<String, List<String>> entry : this.f5184e.b().entrySet()) {
                 uRLConnection.setRequestProperty(entry.getKey(), (String) Collections.unmodifiableList(entry.getValue()).get(0));
             }
-            if (this.h) {
+            if (this.f5187h) {
                 d();
             }
         }
-        if ((this.f instanceof HttpsURLConnection) && !com.baidu.fsg.base.c.a().a()) {
-            b();
-        }
-    }
-
-    private void b() {
-        ((HttpsURLConnection) this.f).setHostnameVerifier(new c(this));
-    }
-
-    private boolean c() {
-        if (this.e != null) {
-            RestRequestCallbacker.IRestRequestCallback requestCallback = RestRequestCallbacker.getRequestCallback();
-            String k = this.e.k();
-            return (TextUtils.isEmpty(k) || requestCallback == null || !requestCallback.isSpecialUrl(k)) ? false : true;
-        }
-        return false;
-    }
-
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [331=4] */
-    /* JADX WARN: Removed duplicated region for block: B:37:0x0076 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    private void b(URLConnection uRLConnection) {
-        DataOutputStream dataOutputStream;
-        if (this.e == null) {
+        if (!(this.f5185f instanceof HttpsURLConnection) || com.baidu.fsg.base.c.a().a()) {
             return;
         }
-        String l = this.e.l();
-        RestMultipartEntity a2 = this.e.a();
-        uRLConnection.setDoOutput(true);
-        uRLConnection.setDoInput(true);
-        if (a2 != null) {
-            ((HttpURLConnection) uRLConnection).setFixedLengthStreamingMode((int) a2.getContentLength());
-            uRLConnection.setRequestProperty("Content-Type", "multipart/form-data;boundary=" + a2.getBoundary());
-        }
-        try {
-            dataOutputStream = new DataOutputStream(uRLConnection.getOutputStream());
-            try {
-                try {
-                    dataOutputStream.writeBytes(l);
-                    if (a2 != null) {
-                        a2.writeTo(dataOutputStream);
-                    }
-                    dataOutputStream.flush();
-                    if (dataOutputStream != null) {
-                        try {
-                            dataOutputStream.close();
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                } catch (IOException e2) {
-                    e = e2;
-                    e.printStackTrace();
-                    if (dataOutputStream != null) {
-                        try {
-                            dataOutputStream.close();
-                        } catch (IOException e3) {
-                            e3.printStackTrace();
-                        }
-                    }
-                }
-            } catch (Throwable th) {
-                th = th;
-                if (dataOutputStream != null) {
-                    try {
-                        dataOutputStream.close();
-                    } catch (IOException e4) {
-                        e4.printStackTrace();
-                    }
-                }
-                throw th;
-            }
-        } catch (IOException e5) {
-            e = e5;
-            dataOutputStream = null;
-        } catch (Throwable th2) {
-            th = th2;
-            dataOutputStream = null;
-            if (dataOutputStream != null) {
-            }
-            throw th;
-        }
+        b();
     }
 
     private String a(String str) {
-        if (this.e != null) {
-            String l = this.e.l();
-            if (!TextUtils.isEmpty(l)) {
-                if (str.contains("?")) {
-                    return str + ETAG.ITEM_SEPARATOR + l;
-                }
-                return str + "?" + l;
+        e eVar = this.f5184e;
+        if (eVar != null) {
+            String l = eVar.l();
+            if (TextUtils.isEmpty(l)) {
+                return str;
             }
-            return str;
+            if (str.contains("?")) {
+                return str + "&" + l;
+            }
+            return str + "?" + l;
         }
         return str;
-    }
-
-    private void d() {
-        try {
-            Class.forName("android.net.http.HttpResponseCache").getMethod(Config.INPUT_INSTALLED_PKG, File.class, Long.TYPE).invoke(null, new File(this.c.getDir("appcache", 0), "com/baidu/fsg/base/restnet/http"), 10485760L);
-        } catch (Exception e) {
-        }
-    }
-
-    private void e() {
-        try {
-            Class.forName("android.net.http.HttpResponseCache").getMethod("close", new Class[0]).invoke(null, new Object[0]);
-        } catch (Exception e) {
-        }
     }
 }

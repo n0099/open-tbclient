@@ -3,13 +3,9 @@ package org.apache.commons.codec.language;
 import org.apache.commons.codec.EncoderException;
 import org.apache.commons.codec.StringEncoder;
 @Deprecated
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class Metaphone implements StringEncoder {
     public Metaphone() {
-        throw new RuntimeException("Stub!");
-    }
-
-    public String metaphone(String str) {
         throw new RuntimeException("Stub!");
     }
 
@@ -18,8 +14,7 @@ public class Metaphone implements StringEncoder {
         throw new RuntimeException("Stub!");
     }
 
-    @Override // org.apache.commons.codec.StringEncoder
-    public String encode(String str) {
+    public int getMaxCodeLen() {
         throw new RuntimeException("Stub!");
     }
 
@@ -27,11 +22,16 @@ public class Metaphone implements StringEncoder {
         throw new RuntimeException("Stub!");
     }
 
-    public int getMaxCodeLen() {
+    public String metaphone(String str) {
         throw new RuntimeException("Stub!");
     }
 
     public void setMaxCodeLen(int i) {
+        throw new RuntimeException("Stub!");
+    }
+
+    @Override // org.apache.commons.codec.StringEncoder
+    public String encode(String str) {
         throw new RuntimeException("Stub!");
     }
 }

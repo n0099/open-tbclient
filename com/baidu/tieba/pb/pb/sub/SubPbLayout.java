@@ -9,43 +9,56 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.y;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.pb.pb.sub.b;
 import com.baidu.tieba.tbadkCore.data.PostData;
+import d.b.b.e.p.l;
+import d.b.h0.b.d;
+import d.b.h0.r.u.c;
+import d.b.i0.c2.k.g.b;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class SubPbLayout extends ViewGroup {
-    private TextView bSF;
-    private PostData fmC;
-    private b lRe;
-    private boolean lRf;
-    private View mRootView;
-    private View.OnClickListener mjO;
-    private View.OnLongClickListener mjP;
-    private View.OnTouchListener mjQ;
-    private int mjR;
-    private final Queue<a> mjS;
-    private RelativeLayout mjT;
-    private ViewGroup.MarginLayoutParams mjU;
-    SparseArray<Object> mjV;
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
-    public static class a {
-        int position;
-        View view;
+    /* renamed from: e  reason: collision with root package name */
+    public View.OnClickListener f19936e;
 
-        private a(int i, View view) {
-            this.position = i;
-            this.view = view;
+    /* renamed from: f  reason: collision with root package name */
+    public View.OnLongClickListener f19937f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public View.OnTouchListener f19938g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public d.b.i0.c2.k.g.b f19939h;
+    public int i;
+    public PostData j;
+    public View k;
+    public final Queue<b> l;
+    public RelativeLayout m;
+    public TextView n;
+    public boolean o;
+    public ViewGroup.MarginLayoutParams p;
+    public SparseArray<Object> q;
+
+    /* loaded from: classes5.dex */
+    public static class b {
+
+        /* renamed from: a  reason: collision with root package name */
+        public int f19940a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public View f19941b;
+
+        public b(int i, View view) {
+            this.f19940a = i;
+            this.f19941b = view;
         }
     }
 
@@ -53,234 +66,170 @@ public class SubPbLayout extends ViewGroup {
         this(context, null);
     }
 
-    public SubPbLayout(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        this.mjR = 0;
-        this.mRootView = null;
-        this.mjS = new LinkedList();
-        this.lRf = false;
-        this.mjU = new ViewGroup.MarginLayoutParams(-1, -2);
-        this.mjT = new RelativeLayout(context);
-        this.mjT.setId(R.id.pb_floor_reply_more);
-        this.bSF = new TextView(context);
-        this.bSF.setPadding(0, l.getDimens(context, R.dimen.tbds_3), 0, l.getDimens(context, R.dimen.tbds12));
-        this.bSF.setTextSize(0, TbConfig.getContentSizeOfLzl());
-        if (this.lRf) {
-            ap.setViewTextColor(this.bSF, R.color.CAM_X0304);
-            this.bSF.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
-        } else {
-            ap.setViewTextColor(this.bSF, R.color.CAM_X0108);
-            this.bSF.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, ap.getDrawable(R.drawable.icon_pb_comment_more_n), (Drawable) null);
-            this.bSF.setCompoundDrawablePadding((int) TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.tbds4));
-        }
-        this.mjT.addView(this.bSF);
-        addView(this.mjT, -1, -2);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.view.ViewGroup
+    /* renamed from: a */
+    public ViewGroup.MarginLayoutParams generateDefaultLayoutParams() {
+        return new ViewGroup.MarginLayoutParams(-2, -2);
     }
 
-    public void setChildOnClickListener(View.OnClickListener onClickListener) {
-        this.mjO = onClickListener;
-    }
-
-    public void setChildOnLongClickListener(View.OnLongClickListener onLongClickListener) {
-        this.mjP = onLongClickListener;
-    }
-
-    public void setChildOnTouchListener(View.OnTouchListener onTouchListener) {
-        this.mjQ = onTouchListener;
-    }
-
-    public void setSubPbAdapter(b bVar) {
-        this.lRe = bVar;
-    }
-
-    public void setShowChildComment(boolean z) {
-        this.lRf = z;
-    }
-
-    public void setData(PostData postData, View view) {
-        this.fmC = postData;
-        requestLayout();
-        this.mRootView = view;
-    }
-
-    @Override // android.view.View
-    protected void onMeasure(int i, int i2) {
-        ArrayList<PostData> dNL;
-        if (this.lRe == null || this.fmC == null || this.fmC.dNL() == null) {
-            setMeasuredDimension(0, 0);
-            return;
-        }
-        int size = View.MeasureSpec.getSize(i);
-        if (this.fmC.dNK()) {
-            dNL = this.fmC.dNH();
-        } else {
-            dNL = this.fmC.dNL();
-        }
-        setMeasuredDimension(size, dc(y.getCount(dNL), size) + q(dNL, size) + 0 + getPaddingBottom() + getPaddingTop());
-    }
-
-    private int q(List<PostData> list, int i) {
-        SparseArray sparseArray;
-        int bjk = com.baidu.tbadk.a.d.bjk();
-        if (this.fmC.dOa() == 1 || this.fmC.dOa() == 3) {
-            this.mjR = 0;
-            return 0;
-        } else if (y.getCount(list) != 0) {
-            int count = y.getCount(list);
-            this.mjR = count;
-            if (!this.fmC.dNK()) {
-                if (count <= bjk) {
-                    this.mjR = count;
-                } else {
-                    this.mjR = bjk;
-                }
-            }
-            int i2 = 0;
-            int i3 = 0;
-            while (i2 < this.mjR) {
-                View childAt = getChildAt(i2);
-                if (childAt == null || childAt.equals(this.mjT)) {
-                    childAt = this.lRe.createView();
-                    childAt.setPadding(0, 0, 0, 0);
-                    this.mjS.offer(new a(i2, childAt));
-                }
-                View view = childAt;
-                view.setOnClickListener(this.mjO);
-                if (!this.lRf) {
-                    view.setOnLongClickListener(this.mjP);
-                }
-                view.setOnTouchListener(this.mjQ);
-                view.setClickable(true);
-                view.setVisibility(0);
-                SparseArray sparseArray2 = (SparseArray) view.getTag();
-                if (sparseArray2 == null) {
-                    SparseArray sparseArray3 = new SparseArray();
-                    view.setTag(sparseArray3);
-                    sparseArray = sparseArray3;
-                } else {
-                    sparseArray = sparseArray2;
-                }
-                if (sparseArray.get(R.id.tag_load_sub_data) != this.fmC) {
-                    sparseArray.put(R.id.tag_load_sub_data, this.fmC);
-                }
-                sparseArray.put(R.id.tag_load_sub_view, this.mRootView);
-                sparseArray.put(R.id.tag_is_subpb, true);
-                if (list.get(i2) != null && list.get(i2).bnS() != null) {
-                    if (sparseArray.get(R.id.tag_load_sub_reply_data) != list.get(i2)) {
-                        sparseArray.put(R.id.tag_load_sub_reply_data, list.get(i2));
-                    }
-                    sparseArray.put(R.id.tag_photo_username, list.get(i2).bnS().getUserName());
-                    sparseArray.put(R.id.tag_photo_userid, list.get(i2).bnS().getUserId());
-                    sparseArray.put(R.id.tag_clip_board, list.get(i2));
-                }
-                if (this.mjV != null) {
-                    sparseArray.put(-1, this.mjV.get(-1));
-                    sparseArray.put(-2, this.mjV.get(-2));
-                    sparseArray.put(-3, this.mjV.get(-3));
-                    sparseArray.put(-4, this.mjV.get(-4));
-                }
-                b.C0847b c0847b = (b.C0847b) sparseArray.get(R.id.tag_holder);
-                this.lRe.a(c0847b, list.get(i2), this.fmC.dNS() > list.size() || list.size() - i2 > 1, i2 == 0, false);
-                c0847b.lSH.setPadding(0, 0, 0, l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds7));
-                this.bSF.setTextSize(0, TbConfig.getContentSizeOfLzl());
-                view.measure(((i - getPaddingLeft()) - getPaddingRight()) + 1073741824, 0);
-                i2++;
-                i3 += view.getMeasuredHeight();
-            }
-            return i3;
-        } else {
-            return 0;
-        }
-    }
-
-    private int dc(int i, int i2) {
+    public final int b(int i, int i2) {
         String format;
-        if (i > 0 && (this.fmC.dOa() == 1 || this.fmC.dOa() == 3 || this.fmC.dNS() > this.mjR)) {
-            if (this.lRf) {
-                format = String.format(TbadkCoreApplication.getInst().getApp().getString(R.string.sub_pb_load_all_more), Integer.valueOf(this.fmC.dNS()));
+        if (i > 0 && (this.j.B() == 1 || this.j.B() == 3 || this.j.M() > this.i)) {
+            if (this.o) {
+                format = String.format(TbadkCoreApplication.getInst().getApp().getString(R.string.sub_pb_load_all_more), Integer.valueOf(this.j.M()));
             } else {
-                format = String.format(TbadkCoreApplication.getInst().getApp().getString(R.string.sub_pb_load_more), Integer.valueOf(this.fmC.dNS()));
+                format = String.format(TbadkCoreApplication.getInst().getApp().getString(R.string.sub_pb_load_more), Integer.valueOf(this.j.M()));
             }
-            this.bSF.setText(format);
-            this.mjT.setOnClickListener(this.mjO);
-            SparseArray sparseArray = (SparseArray) this.mjT.getTag();
+            this.n.setText(format);
+            this.m.setOnClickListener(this.f19936e);
+            SparseArray sparseArray = (SparseArray) this.m.getTag();
             if (sparseArray == null) {
                 sparseArray = new SparseArray();
-                this.mjT.setTag(sparseArray);
+                this.m.setTag(sparseArray);
             }
-            sparseArray.put(R.id.tag_load_sub_data, this.fmC);
-            sparseArray.put(R.id.tag_load_sub_view, this.mRootView);
-            this.mjT.setVisibility(0);
-            this.mjT.measure(((i2 - getPaddingLeft()) - getPaddingRight()) + 1073741824, 0);
+            sparseArray.put(R.id.tag_load_sub_data, this.j);
+            sparseArray.put(R.id.tag_load_sub_view, this.k);
+            this.m.setVisibility(0);
+            this.m.measure(((i2 - getPaddingLeft()) - getPaddingRight()) + 1073741824, 0);
         } else {
-            this.mjT.setVisibility(8);
+            this.m.setVisibility(8);
         }
-        if (this.mjT.getVisibility() == 0) {
-            return this.mjT.getMeasuredHeight();
+        if (this.m.getVisibility() == 0) {
+            return this.m.getMeasuredHeight();
         }
         return 0;
     }
 
-    @Override // android.view.ViewGroup, android.view.View
-    protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
-        int i5;
-        int i6 = 0;
-        if (this.fmC != null && this.fmC.dNL() != null) {
-            int size = this.mjS.size();
-            for (int i7 = 0; i7 < size; i7++) {
-                a poll = this.mjS.poll();
-                if (poll.view.getParent() == null) {
-                    addViewInLayout(poll.view, poll.position, this.mjU, true);
-                }
+    public final int c(List<PostData> list, int i) {
+        if (this.j.B() != 1 && this.j.B() != 3) {
+            if (ListUtils.getCount(list) == 0) {
+                return 0;
             }
-            int paddingLeft = getPaddingLeft();
-            int paddingTop = getPaddingTop();
-            int i8 = this.mjR;
-            while (i6 < i8) {
-                View childAt = getChildAt(i6);
-                if (childAt == null) {
-                    i5 = paddingTop;
+            int count = ListUtils.getCount(list);
+            this.i = count;
+            if (!this.j.Z()) {
+                if (count <= 4) {
+                    this.i = count;
                 } else {
-                    ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) childAt.getLayoutParams();
-                    if (marginLayoutParams == null) {
-                        marginLayoutParams = generateDefaultLayoutParams();
+                    this.i = 4;
+                }
+            }
+            int i2 = 0;
+            int i3 = 0;
+            while (i2 < this.i) {
+                View childAt = getChildAt(i2);
+                if (childAt == null || childAt.equals(this.m)) {
+                    childAt = this.f19939h.b();
+                    childAt.setPadding(0, 0, 0, 0);
+                    this.l.offer(new b(i2, childAt));
+                }
+                childAt.setOnClickListener(this.f19936e);
+                if (!this.o) {
+                    childAt.setOnLongClickListener(this.f19937f);
+                }
+                childAt.setOnTouchListener(this.f19938g);
+                childAt.setClickable(true);
+                childAt.setVisibility(0);
+                SparseArray sparseArray = (SparseArray) childAt.getTag();
+                if (sparseArray == null) {
+                    sparseArray = new SparseArray();
+                    childAt.setTag(sparseArray);
+                }
+                Object obj = sparseArray.get(R.id.tag_load_sub_data);
+                PostData postData = this.j;
+                if (obj != postData) {
+                    sparseArray.put(R.id.tag_load_sub_data, postData);
+                }
+                sparseArray.put(R.id.tag_load_sub_view, this.k);
+                sparseArray.put(R.id.tag_is_subpb, Boolean.TRUE);
+                if (list.get(i2) != null && list.get(i2).s() != null) {
+                    if (sparseArray.get(R.id.tag_load_sub_reply_data) != list.get(i2)) {
+                        sparseArray.put(R.id.tag_load_sub_reply_data, list.get(i2));
                     }
-                    int i9 = paddingTop + marginLayoutParams.topMargin;
-                    int measuredWidth = marginLayoutParams.leftMargin + paddingLeft + childAt.getMeasuredWidth();
-                    int measuredHeight = childAt.getMeasuredHeight() + i9;
-                    childAt.layout(marginLayoutParams.leftMargin + paddingLeft, i9, measuredWidth, measuredHeight);
-                    i5 = marginLayoutParams.bottomMargin + measuredHeight;
+                    sparseArray.put(R.id.tag_photo_username, list.get(i2).s().getUserName());
+                    sparseArray.put(R.id.tag_photo_userid, list.get(i2).s().getUserId());
+                    sparseArray.put(R.id.tag_clip_board, list.get(i2));
                 }
-                i6++;
-                paddingTop = i5;
-            }
-            if (this.mjT.getVisibility() == 0) {
-                ViewGroup.MarginLayoutParams marginLayoutParams2 = (ViewGroup.MarginLayoutParams) this.mjT.getLayoutParams();
-                int i10 = paddingTop + marginLayoutParams2.topMargin;
-                this.mjT.layout(marginLayoutParams2.leftMargin + paddingLeft, i10, marginLayoutParams2.leftMargin + paddingLeft + this.mjT.getMeasuredWidth(), this.mjT.getMeasuredHeight() + i10);
-            }
-            int childCount = getChildCount();
-            for (int i11 = this.mjR; i11 < childCount; i11++) {
-                View childAt2 = getChildAt(i11);
-                if (childAt2 != null && childAt2 != this.mjT) {
-                    childAt2.setVisibility(8);
+                SparseArray<Object> sparseArray2 = this.q;
+                if (sparseArray2 != null) {
+                    sparseArray.put(-1, sparseArray2.get(-1));
+                    sparseArray.put(-2, this.q.get(-2));
+                    sparseArray.put(-3, this.q.get(-3));
+                    sparseArray.put(-4, this.q.get(-4));
                 }
+                b.C1166b c1166b = (b.C1166b) sparseArray.get(R.id.tag_holder);
+                this.f19939h.c(c1166b, list.get(i2), this.j.M() > list.size() || list.size() - i2 > 1, i2 == 0, false);
+                c1166b.f53064e.setPadding(0, 0, 0, l.g(TbadkCoreApplication.getInst(), R.dimen.tbds7));
+                if (d.x()) {
+                    f();
+                } else {
+                    e();
+                }
+                childAt.measure(((i - getPaddingLeft()) - getPaddingRight()) + 1073741824, 0);
+                i3 += childAt.getMeasuredHeight();
+                i2++;
+            }
+            return i3;
+        }
+        this.i = 0;
+        return 0;
+    }
+
+    public void d() {
+        if (d.x()) {
+            f();
+        } else {
+            e();
+        }
+        TextView textView = this.n;
+        if (textView != null) {
+            if (this.o) {
+                textView.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
+            } else {
+                textView.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SkinManager.getDrawable(R.drawable.icon_pb_comment_more_n), (Drawable) null);
             }
         }
     }
 
     @Override // android.view.ViewGroup, android.view.View
-    protected void dispatchDraw(Canvas canvas) {
+    public void dispatchDraw(Canvas canvas) {
         long drawingTime = getDrawingTime();
-        if (this.fmC != null && this.fmC.dNL() != null) {
-            int i = this.mjR;
-            for (int i2 = 0; i2 < i; i2++) {
-                if (i < getChildCount()) {
-                    drawChild(canvas, getChildAt(i2), drawingTime);
-                }
+        PostData postData = this.j;
+        if (postData == null || postData.L() == null) {
+            return;
+        }
+        int i = this.i;
+        for (int i2 = 0; i2 < i; i2++) {
+            if (i < getChildCount()) {
+                drawChild(canvas, getChildAt(i2), drawingTime);
             }
-            if (this.mjT.getVisibility() == 0) {
-                drawChild(canvas, this.mjT, drawingTime);
+        }
+        if (this.m.getVisibility() == 0) {
+            drawChild(canvas, this.m, drawingTime);
+        }
+    }
+
+    public final void e() {
+        TextView textView = this.n;
+        if (textView != null) {
+            textView.setTextSize(0, TbConfig.getContentSizeOfLzl());
+            if (this.o) {
+                c.a(this.n).n(R.color.CAM_X0304);
+            } else {
+                c.a(this.n).n(R.color.CAM_X0108);
+            }
+        }
+    }
+
+    public final void f() {
+        TextView textView = this.n;
+        if (textView != null) {
+            textView.setTextSize(0, TbConfig.getTestContentSizeOfLzl());
+            if (this.o) {
+                c.a(this.n).n(R.color.CAM_X0318);
+            } else {
+                c.a(this.n).n(R.color.CAM_X0108);
             }
         }
     }
@@ -290,27 +239,126 @@ public class SubPbLayout extends ViewGroup {
         return new ViewGroup.MarginLayoutParams(getContext(), attributeSet);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.view.ViewGroup
-    /* renamed from: dto */
-    public ViewGroup.MarginLayoutParams generateDefaultLayoutParams() {
-        return new ViewGroup.MarginLayoutParams(-2, -2);
-    }
-
-    public void onChangeSkinType() {
-        if (this.bSF != null) {
-            if (this.lRf) {
-                ap.setViewTextColor(this.bSF, R.color.CAM_X0304);
-                this.bSF.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
-                return;
+    @Override // android.view.ViewGroup, android.view.View
+    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
+        PostData postData = this.j;
+        if (postData == null || postData.L() == null) {
+            return;
+        }
+        int size = this.l.size();
+        for (int i5 = 0; i5 < size; i5++) {
+            b poll = this.l.poll();
+            if (poll.f19941b.getParent() == null) {
+                addViewInLayout(poll.f19941b, poll.f19940a, this.p, true);
             }
-            this.bSF.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, ap.getDrawable(R.drawable.icon_pb_comment_more_n), (Drawable) null);
-            ap.setViewTextColor(this.bSF, R.color.CAM_X0108);
+        }
+        int paddingLeft = getPaddingLeft();
+        int paddingTop = getPaddingTop();
+        int i6 = this.i;
+        for (int i7 = 0; i7 < i6; i7++) {
+            View childAt = getChildAt(i7);
+            if (childAt != null) {
+                ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) childAt.getLayoutParams();
+                if (marginLayoutParams == null) {
+                    marginLayoutParams = generateDefaultLayoutParams();
+                }
+                int i8 = marginLayoutParams.leftMargin;
+                int i9 = paddingLeft + i8;
+                int i10 = paddingTop + marginLayoutParams.topMargin;
+                int measuredWidth = i8 + paddingLeft + childAt.getMeasuredWidth();
+                int measuredHeight = childAt.getMeasuredHeight() + i10;
+                childAt.layout(i9, i10, measuredWidth, measuredHeight);
+                paddingTop = measuredHeight + marginLayoutParams.bottomMargin;
+            }
+        }
+        if (this.m.getVisibility() == 0) {
+            ViewGroup.MarginLayoutParams marginLayoutParams2 = (ViewGroup.MarginLayoutParams) this.m.getLayoutParams();
+            RelativeLayout relativeLayout = this.m;
+            int i11 = marginLayoutParams2.leftMargin;
+            int i12 = paddingTop + marginLayoutParams2.topMargin;
+            relativeLayout.layout(paddingLeft + i11, i12, paddingLeft + i11 + relativeLayout.getMeasuredWidth(), this.m.getMeasuredHeight() + i12);
+        }
+        int childCount = getChildCount();
+        for (int i13 = this.i; i13 < childCount; i13++) {
+            View childAt2 = getChildAt(i13);
+            if (childAt2 != null && childAt2 != this.m) {
+                childAt2.setVisibility(8);
+            }
         }
     }
 
+    @Override // android.view.View
+    public void onMeasure(int i, int i2) {
+        PostData postData;
+        ArrayList<PostData> L;
+        if (this.f19939h != null && (postData = this.j) != null && postData.L() != null) {
+            int size = View.MeasureSpec.getSize(i);
+            if (this.j.Z()) {
+                L = this.j.w();
+            } else {
+                L = this.j.L();
+            }
+            setMeasuredDimension(size, c(L, size) + 0 + b(ListUtils.getCount(L), size) + getPaddingBottom() + getPaddingTop());
+            return;
+        }
+        setMeasuredDimension(0, 0);
+    }
+
+    public void setChildOnClickListener(View.OnClickListener onClickListener) {
+        this.f19936e = onClickListener;
+    }
+
+    public void setChildOnLongClickListener(View.OnLongClickListener onLongClickListener) {
+        this.f19937f = onLongClickListener;
+    }
+
+    public void setChildOnTouchListener(View.OnTouchListener onTouchListener) {
+        this.f19938g = onTouchListener;
+    }
+
+    public void setData(PostData postData, View view) {
+        this.j = postData;
+        requestLayout();
+        this.k = view;
+    }
+
     public void setDefaultTag(SparseArray<Object> sparseArray) {
-        this.mjV = sparseArray;
+        this.q = sparseArray;
+    }
+
+    public void setShowChildComment(boolean z) {
+        this.o = z;
+    }
+
+    public void setSubPbAdapter(d.b.i0.c2.k.g.b bVar) {
+        this.f19939h = bVar;
+    }
+
+    public SubPbLayout(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        this.i = 0;
+        this.k = null;
+        this.l = new LinkedList();
+        this.o = false;
+        this.p = new ViewGroup.MarginLayoutParams(-1, -2);
+        RelativeLayout relativeLayout = new RelativeLayout(context);
+        this.m = relativeLayout;
+        relativeLayout.setId(R.id.pb_floor_reply_more);
+        TextView textView = new TextView(context);
+        this.n = textView;
+        textView.setPadding(0, l.g(context, R.dimen.tbds_3), 0, l.g(context, R.dimen.tbds12));
+        if (d.x()) {
+            f();
+        } else {
+            e();
+        }
+        if (this.o) {
+            this.n.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
+        } else {
+            this.n.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SkinManager.getDrawable(R.drawable.icon_pb_comment_more_n), (Drawable) null);
+            this.n.setCompoundDrawablePadding((int) TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.tbds4));
+        }
+        this.m.addView(this.n);
+        addView(this.m, -1, -2);
     }
 }

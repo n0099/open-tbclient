@@ -3,12 +3,12 @@ package com.baidu.tieba.pbextra.emotion.model;
 import android.text.TextUtils;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class EmotionCheckUegResponseMessage extends JsonHttpResponsedMessage {
-    private String msg;
-    private String status;
-    public static String STATUS_OK = "1";
     public static String STATUS_FAIL = "2";
+    public static String STATUS_OK = "1";
+    public String msg;
+    public String status;
 
     public EmotionCheckUegResponseMessage(int i) {
         super(i);
@@ -20,19 +20,20 @@ public class EmotionCheckUegResponseMessage extends JsonHttpResponsedMessage {
         int error = getError();
         if (statusCode == 200 && error == 0 && jSONObject != null) {
             String optString = jSONObject.optString("data");
-            if (!TextUtils.isEmpty(optString)) {
-                JSONObject jSONObject2 = new JSONObject(optString);
-                this.status = jSONObject2.optString("status");
-                this.msg = jSONObject2.optString("words");
+            if (TextUtils.isEmpty(optString)) {
+                return;
             }
+            JSONObject jSONObject2 = new JSONObject(optString);
+            this.status = jSONObject2.optString("status");
+            this.msg = jSONObject2.optString("words");
         }
-    }
-
-    public String getStatus() {
-        return this.status;
     }
 
     public String getMsg() {
         return this.msg;
+    }
+
+    public String getStatus() {
+        return this.status;
     }
 }

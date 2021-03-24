@@ -1,7 +1,7 @@
 package aegon.chrome.base;
 
 import aegon.chrome.base.annotations.CalledByNative;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class JNIUtils {
     public static ClassLoader sJniClassLoader;
     public static Boolean sSelectiveJniRegistrationEnabled;
@@ -19,7 +19,7 @@ public class JNIUtils {
     @CalledByNative
     public static boolean isSelectiveJniRegistrationEnabled() {
         if (sSelectiveJniRegistrationEnabled == null) {
-            sSelectiveJniRegistrationEnabled = false;
+            sSelectiveJniRegistrationEnabled = Boolean.FALSE;
         }
         return sSelectiveJniRegistrationEnabled.booleanValue();
     }

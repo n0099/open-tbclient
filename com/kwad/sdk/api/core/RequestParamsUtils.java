@@ -1,20 +1,16 @@
 package com.kwad.sdk.api.core;
 
 import android.text.TextUtils;
-import com.xiaomi.mipush.sdk.Constants;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public final class RequestParamsUtils {
-    private static final String USER_AGENT = getUserAgentParams() + "ksad-android-3.3.9";
+    public static final String USER_AGENT = getUserAgentParams() + "ksad-android-3.3.9";
     public static final String USER_AGENT_KEY = "User-Agent";
-
-    private RequestParamsUtils() {
-    }
 
     public static String getUserAgent() {
         return USER_AGENT;
     }
 
-    private static String getUserAgentParams() {
+    public static String getUserAgentParams() {
         String property = System.getProperty("http.agent");
         if (TextUtils.isEmpty(property)) {
             return property;
@@ -29,7 +25,7 @@ public final class RequestParamsUtils {
                 stringBuffer.append(charAt);
             }
         }
-        stringBuffer.append(Constants.ACCEPT_TIME_SEPARATOR_SERVER);
+        stringBuffer.append("-");
         return stringBuffer.toString();
     }
 }

@@ -1,14 +1,15 @@
 package com.baidu.tbadk.util;
 
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class CheckBaiduSimResponseMessage extends JsonHttpResponsedMessage {
     public boolean isBaiduSim;
     public boolean isSuc;
 
     public CheckBaiduSimResponseMessage() {
-        super(1003392);
+        super(CmdConfigHttp.CMD_CHECK_BAIDU_SIM);
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage

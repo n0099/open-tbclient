@@ -1,191 +1,193 @@
 package com.baidu.tieba.tbadkCore;
 
 import com.baidu.adp.framework.message.NetMessage;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.squareup.wire.Message;
+import d.b.h0.z0.w;
+import d.b.i0.r2.a0.a;
 import tbclient.FrsPage.DataReq;
 import tbclient.FrsPage.FrsPageReqIdl;
-/* loaded from: classes.dex */
+/* loaded from: classes5.dex */
 public class FRSPageRequestMessage extends NetMessage {
-    private int callFrom;
-    private int categoryId;
-    private int cid;
-    private int ctime;
-    private int dataSize;
-    private int isGood;
-    private String kw;
-    private String lastId;
-    private boolean needCache;
-    private int netError;
-    private int pn;
-    private int qType;
-    private int rn;
-    private double scrDip;
-    private int scrH;
-    private int scrW;
-    private int stParam;
-    private String stType;
-    private int updateType;
-    private int withGroup;
+    public int callFrom;
+    public int categoryId;
+    public int cid;
+    public int ctime;
+    public int dataSize;
+    public int isGood;
+    public String kw;
+    public String lastId;
+    public boolean needCache;
+    public int netError;
+    public int pn;
+    public int qType;
+    public int rn;
+    public double scrDip;
+    public int scrH;
+    public int scrW;
+    public int stParam;
+    public String stType;
+    public int updateType;
+    public int withGroup;
 
     public FRSPageRequestMessage() {
-        super(1001703, CmdConfigSocket.CMD_FRS_PAGE);
-    }
-
-    public boolean isNeedCache() {
-        return this.needCache;
-    }
-
-    public void setNeedCache(boolean z) {
-        this.needCache = z;
-    }
-
-    public int getUpdateType() {
-        return this.updateType;
-    }
-
-    public void setUpdateType(int i) {
-        this.updateType = i;
-    }
-
-    public String getLastId() {
-        return this.lastId;
-    }
-
-    public void setLastId(String str) {
-        this.lastId = str;
-    }
-
-    public String getStType() {
-        return this.stType;
-    }
-
-    public void setStType(String str) {
-        this.stType = str;
-    }
-
-    public String getKw() {
-        return this.kw;
-    }
-
-    public void setKw(String str) {
-        this.kw = str;
-    }
-
-    public int getPn() {
-        return this.pn;
-    }
-
-    public void setPn(int i) {
-        this.pn = i;
-    }
-
-    public int getRn() {
-        return this.rn;
-    }
-
-    public void setRn(int i) {
-        this.rn = i;
-    }
-
-    public int getWithGroup() {
-        return this.withGroup;
-    }
-
-    public void setWithGroup(int i) {
-        this.withGroup = i;
-    }
-
-    public int getIsGood() {
-        return this.isGood;
-    }
-
-    public void setIsGood(int i) {
-        this.isGood = i;
-    }
-
-    public int getCid() {
-        return this.cid;
-    }
-
-    public void setCid(int i) {
-        this.cid = i;
-    }
-
-    public int getScrW() {
-        return this.scrW;
-    }
-
-    public void setScrW(int i) {
-        this.scrW = i;
-    }
-
-    public int getScrH() {
-        return this.scrH;
-    }
-
-    public void setScrH(int i) {
-        this.scrH = i;
-    }
-
-    public double getScrDip() {
-        return this.scrDip;
-    }
-
-    public void setScrDip(double d) {
-        this.scrDip = d;
-    }
-
-    public int getqType() {
-        return this.qType;
-    }
-
-    public void setqType(int i) {
-        this.qType = i;
-    }
-
-    public int getStParam() {
-        return this.stParam;
-    }
-
-    public void setStParam(int i) {
-        this.stParam = i;
-    }
-
-    public int getCtime() {
-        return this.ctime;
-    }
-
-    public void setCtime(int i) {
-        this.ctime = i;
-    }
-
-    public int getDataSize() {
-        return this.dataSize;
-    }
-
-    public void setDataSize(int i) {
-        this.dataSize = i;
-    }
-
-    public int getNetError() {
-        return this.netError;
-    }
-
-    public void setNetError(int i) {
-        this.netError = i;
+        super(CmdConfigHttp.FRS_HTTP_CMD, 301001);
     }
 
     public int getCategoryId() {
         return this.categoryId;
     }
 
-    public void setCategoryId(int i) {
-        this.categoryId = i;
+    public int getCid() {
+        return this.cid;
+    }
+
+    public int getCtime() {
+        return this.ctime;
+    }
+
+    public int getDataSize() {
+        return this.dataSize;
+    }
+
+    public int getIsGood() {
+        return this.isGood;
+    }
+
+    public String getKw() {
+        return this.kw;
+    }
+
+    public String getLastId() {
+        return this.lastId;
+    }
+
+    public int getNetError() {
+        return this.netError;
+    }
+
+    public int getPn() {
+        return this.pn;
+    }
+
+    public int getRn() {
+        return this.rn;
+    }
+
+    public double getScrDip() {
+        return this.scrDip;
+    }
+
+    public int getScrH() {
+        return this.scrH;
+    }
+
+    public int getScrW() {
+        return this.scrW;
+    }
+
+    public int getStParam() {
+        return this.stParam;
+    }
+
+    public String getStType() {
+        return this.stType;
+    }
+
+    public int getUpdateType() {
+        return this.updateType;
+    }
+
+    public int getWithGroup() {
+        return this.withGroup;
+    }
+
+    public int getqType() {
+        return this.qType;
+    }
+
+    public boolean isNeedCache() {
+        return this.needCache;
     }
 
     public void setCallFrom(int i) {
         this.callFrom = i;
+    }
+
+    public void setCategoryId(int i) {
+        this.categoryId = i;
+    }
+
+    public void setCid(int i) {
+        this.cid = i;
+    }
+
+    public void setCtime(int i) {
+        this.ctime = i;
+    }
+
+    public void setDataSize(int i) {
+        this.dataSize = i;
+    }
+
+    public void setIsGood(int i) {
+        this.isGood = i;
+    }
+
+    public void setKw(String str) {
+        this.kw = str;
+    }
+
+    public void setLastId(String str) {
+        this.lastId = str;
+    }
+
+    public void setNeedCache(boolean z) {
+        this.needCache = z;
+    }
+
+    public void setNetError(int i) {
+        this.netError = i;
+    }
+
+    public void setPn(int i) {
+        this.pn = i;
+    }
+
+    public void setRn(int i) {
+        this.rn = i;
+    }
+
+    public void setScrDip(double d2) {
+        this.scrDip = d2;
+    }
+
+    public void setScrH(int i) {
+        this.scrH = i;
+    }
+
+    public void setScrW(int i) {
+        this.scrW = i;
+    }
+
+    public void setStParam(int i) {
+        this.stParam = i;
+    }
+
+    public void setStType(String str) {
+        this.stType = str;
+    }
+
+    public void setUpdateType(int i) {
+        this.updateType = i;
+    }
+
+    public void setWithGroup(int i) {
+        this.withGroup = i;
+    }
+
+    public void setqType(int i) {
+        this.qType = i;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -210,8 +212,8 @@ public class FRSPageRequestMessage extends NetMessage {
         builder.lastids = this.lastId;
         builder.category_id = Integer.valueOf(this.categoryId);
         builder.call_from = Integer.valueOf(this.callFrom);
-        builder.app_pos = com.baidu.tieba.recapp.c.a.dEu().dEy();
-        com.baidu.tbadk.util.v.a(builder, true, false, true);
+        builder.app_pos = a.e().a();
+        w.c(builder, true, false, true);
         FrsPageReqIdl.Builder builder2 = new FrsPageReqIdl.Builder();
         builder2.data = builder.build(false);
         return builder2.build(false);

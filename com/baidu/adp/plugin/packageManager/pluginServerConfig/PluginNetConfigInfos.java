@@ -7,13 +7,13 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class PluginNetConfigInfos extends OrmObject implements Serializable {
-    private static final long serialVersionUID = 2500429455834004772L;
-    private String config_version;
-    private List<PluginConfig> plugin_config = new ArrayList();
+    public static final long serialVersionUID = 2500429455834004772L;
+    public String config_version;
+    public List<PluginConfig> plugin_config = new ArrayList();
 
     /* loaded from: classes.dex */
     public static class Newest extends OrmObject implements Serializable {
-        private static final long serialVersionUID = 8713611233991534353L;
+        public static final long serialVersionUID = 8713611233991534353L;
         public String version = null;
         public int version_code = 0;
         public String change_log = null;
@@ -27,7 +27,7 @@ public class PluginNetConfigInfos extends OrmObject implements Serializable {
 
     /* loaded from: classes.dex */
     public static class PluginConfig extends OrmObject implements Serializable {
-        private static final long serialVersionUID = -5184076118455114028L;
+        public static final long serialVersionUID = -5184076118455114028L;
         public int enable;
         public int[] enable_version_code;
         public String package_name = null;
@@ -44,14 +44,6 @@ public class PluginNetConfigInfos extends OrmObject implements Serializable {
         public int can_forbidden = 0;
     }
 
-    public String getConfig_version() {
-        return this.config_version;
-    }
-
-    public List<PluginConfig> getConfigs() {
-        return this.plugin_config;
-    }
-
     public static PluginNetConfigInfos parse(String str) {
         if (str == null) {
             return null;
@@ -60,36 +52,35 @@ public class PluginNetConfigInfos extends OrmObject implements Serializable {
     }
 
     public void addOrUpdateConfig(PluginConfig pluginConfig) {
-        if (this.plugin_config != null && this.plugin_config.size() != 0 && pluginConfig != null) {
-            int i = 0;
-            while (true) {
-                int i2 = i;
-                if (i2 < this.plugin_config.size()) {
-                    PluginConfig pluginConfig2 = this.plugin_config.get(i2);
-                    if (pluginConfig2 == null || TextUtils.isEmpty(pluginConfig2.package_name) || !pluginConfig2.package_name.equals(pluginConfig.package_name)) {
-                        i = i2 + 1;
-                    } else {
-                        this.plugin_config.set(i2, pluginConfig2);
-                        return;
-                    }
-                } else {
-                    this.plugin_config.add(pluginConfig);
-                    return;
-                }
+        List<PluginConfig> list = this.plugin_config;
+        if (list == null || list.size() == 0 || pluginConfig == null) {
+            return;
+        }
+        for (int i = 0; i < this.plugin_config.size(); i++) {
+            PluginConfig pluginConfig2 = this.plugin_config.get(i);
+            if (pluginConfig2 != null && !TextUtils.isEmpty(pluginConfig2.package_name) && pluginConfig2.package_name.equals(pluginConfig.package_name)) {
+                this.plugin_config.set(i, pluginConfig2);
+                return;
             }
         }
+        this.plugin_config.add(pluginConfig);
+    }
+
+    public String getConfig_version() {
+        return this.config_version;
+    }
+
+    public List<PluginConfig> getConfigs() {
+        return this.plugin_config;
     }
 
     public PluginConfig getPluginConfig(String str) {
-        if (TextUtils.isEmpty(str)) {
-            return null;
-        }
-        if (this.plugin_config == null || this.plugin_config.size() == 0) {
-            return null;
-        }
-        for (PluginConfig pluginConfig : this.plugin_config) {
-            if (pluginConfig != null && !TextUtils.isEmpty(pluginConfig.package_name) && pluginConfig.package_name.equals(str)) {
-                return pluginConfig;
+        List<PluginConfig> list;
+        if (!TextUtils.isEmpty(str) && (list = this.plugin_config) != null && list.size() != 0) {
+            for (PluginConfig pluginConfig : this.plugin_config) {
+                if (pluginConfig != null && !TextUtils.isEmpty(pluginConfig.package_name) && pluginConfig.package_name.equals(str)) {
+                    return pluginConfig;
+                }
             }
         }
         return null;

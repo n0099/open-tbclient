@@ -1,10 +1,10 @@
 package com.googlecode.mp4parser.util;
 
 import android.util.Log;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class AndroidLogger extends Logger {
-    private static final String TAG = "isoparser";
-    String name;
+    public static final String TAG = "isoparser";
+    public String name;
 
     public AndroidLogger(String str) {
         this.name = str;
@@ -16,12 +16,12 @@ public class AndroidLogger extends Logger {
     }
 
     @Override // com.googlecode.mp4parser.util.Logger
-    public void logWarn(String str) {
-        Log.w(TAG, String.valueOf(this.name) + ":" + str);
+    public void logError(String str) {
+        Log.e(TAG, String.valueOf(this.name) + ":" + str);
     }
 
     @Override // com.googlecode.mp4parser.util.Logger
-    public void logError(String str) {
-        Log.e(TAG, String.valueOf(this.name) + ":" + str);
+    public void logWarn(String str) {
+        Log.w(TAG, String.valueOf(this.name) + ":" + str);
     }
 }

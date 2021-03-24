@@ -5,29 +5,31 @@ import android.content.res.TypedArray;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ScrollView;
-import com.baidu.poly.b;
-/* loaded from: classes14.dex */
+import d.b.c0.j;
+/* loaded from: classes2.dex */
 public class MaxHeightScrollView extends ScrollView {
-    private float cqF;
+
+    /* renamed from: e  reason: collision with root package name */
+    public float f10431e;
 
     public MaxHeightScrollView(Context context) {
         this(context, null);
-    }
-
-    private void a(Context context, AttributeSet attributeSet) {
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, b.i.MaxHeightScrollView);
-        this.cqF = obtainStyledAttributes.getFloat(b.i.MaxHeightScrollView_heightRatio, -1.0f);
-        obtainStyledAttributes.recycle();
     }
 
     private int getScreenHeight() {
         return getContext().getResources().getDisplayMetrics().heightPixels;
     }
 
+    public final void a(Context context, AttributeSet attributeSet) {
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, j.MaxHeightScrollView);
+        this.f10431e = obtainStyledAttributes.getFloat(j.MaxHeightScrollView_heightRatio, -1.0f);
+        obtainStyledAttributes.recycle();
+    }
+
     @Override // android.widget.ScrollView, android.widget.FrameLayout, android.view.View
-    protected void onMeasure(int i, int i2) {
-        if (this.cqF > 0.0f) {
-            i2 = View.MeasureSpec.makeMeasureSpec((int) Math.min(getScreenHeight() * this.cqF, View.MeasureSpec.getSize(i2)), Integer.MIN_VALUE);
+    public void onMeasure(int i, int i2) {
+        if (this.f10431e > 0.0f) {
+            i2 = View.MeasureSpec.makeMeasureSpec((int) Math.min(getScreenHeight() * this.f10431e, View.MeasureSpec.getSize(i2)), Integer.MIN_VALUE);
         }
         super.onMeasure(i, i2);
     }

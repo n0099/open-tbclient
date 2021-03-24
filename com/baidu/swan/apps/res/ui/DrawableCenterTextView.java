@@ -15,47 +15,177 @@ import android.util.AttributeSet;
 import android.util.Pair;
 import android.view.MotionEvent;
 import android.widget.TextView;
-import com.baidu.swan.apps.ao.ah;
-/* loaded from: classes8.dex */
+import d.b.g0.a.i2.h0;
+/* loaded from: classes3.dex */
 public class DrawableCenterTextView extends TextView {
-    private float dxA;
-    private boolean dxB;
-    private GradientDrawable dxq;
-    private Paint dxr;
-    private Pair<Object, Object> dxs;
-    private Object dxt;
-    private Object dxu;
-    private int dxv;
-    private boolean dxw;
-    private boolean dxx;
-    private boolean dxy;
-    private boolean dxz;
-    private float mCornerRadius;
-    private Path mRoundPath;
+
+    /* renamed from: e  reason: collision with root package name */
+    public GradientDrawable f12455e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public Paint f12456f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public Pair<Object, Object> f12457g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public Object f12458h;
+    public Object i;
+    public int j;
+    public boolean k;
+    public boolean l;
+    public boolean m;
+    public boolean n;
+    public float o;
+    public float p;
+    public boolean q;
 
     public DrawableCenterTextView(Context context) {
         this(context, null);
     }
 
-    public DrawableCenterTextView(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        this.dxq = new GradientDrawable();
-        this.dxr = null;
-        this.mRoundPath = new Path();
-        this.dxs = null;
-        this.dxz = false;
-        this.mCornerRadius = -1.0f;
-        this.dxA = 0.0f;
+    public final void a() {
+        if (this.f12455e == null) {
+            return;
+        }
+        int[] iArr = {getWidth(), getHeight()};
+        if (this.q) {
+            iArr[0] = (int) (getWidth() * this.p);
+            iArr[1] = getHeight();
+        }
+        int width = getWidth() / 2;
+        this.f12455e.setBounds(width - (iArr[0] / 2), 0, width + (iArr[0] / 2), getHeight());
     }
 
-    @Override // android.widget.TextView, android.view.View
-    protected void onDraw(Canvas canvas) {
-        q(canvas);
-        p(canvas);
-        super.onDraw(canvas);
+    public void b(int i) {
+        this.o = i;
     }
 
-    private void p(Canvas canvas) {
+    public void c(Drawable drawable, int i, int i2, int i3) {
+        if (drawable != null && i > -1 && i <= 3) {
+            if (i2 <= 0 || i3 <= 0) {
+                i2 = drawable.getIntrinsicWidth();
+                i3 = drawable.getIntrinsicHeight();
+            }
+            drawable.setBounds(0, 0, i2, i3);
+            if (i == 0) {
+                setCompoundDrawables(drawable, null, null, null);
+            } else if (i == 1) {
+                setCompoundDrawables(null, drawable, null, null);
+            } else if (i == 2) {
+                setCompoundDrawables(null, null, drawable, null);
+            } else if (i != 3) {
+            } else {
+                setCompoundDrawables(null, null, null, drawable);
+            }
+        }
+    }
+
+    public final void d() {
+        if (this.f12456f == null) {
+            Paint paint = new Paint();
+            this.f12456f = paint;
+            paint.setColor(0);
+            this.f12456f.setStyle(Paint.Style.STROKE);
+            this.f12456f.setAntiAlias(true);
+            this.f12456f.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
+        }
+    }
+
+    public final boolean e() {
+        return this.k && this.f12457g != null;
+    }
+
+    public final void f(Canvas canvas) {
+        if (e()) {
+            float f2 = this.o;
+            if (f2 >= 0.0f) {
+                this.f12455e.setCornerRadius(f2);
+            } else {
+                this.f12455e.setCornerRadius(4.0f);
+            }
+            if (this.l) {
+                int e2 = h0.e(getContext(), 0.5f);
+                Object obj = this.f12458h;
+                if (obj instanceof String) {
+                    this.f12455e.setStroke(e2, Color.parseColor(obj.toString()));
+                } else if (obj instanceof Integer) {
+                    this.f12455e.setStroke(e2, getResources().getColor(Integer.valueOf(this.f12458h.toString()).intValue()));
+                }
+            }
+            if (this.n) {
+                Object obj2 = this.f12457g.second;
+                if (obj2 instanceof String) {
+                    this.f12455e.setColor(Color.parseColor(obj2.toString()));
+                } else if (obj2 instanceof Integer) {
+                    this.f12455e.setColor(getResources().getColor(Integer.valueOf(this.f12457g.second.toString()).intValue()));
+                }
+            } else {
+                Object obj3 = this.f12457g.first;
+                if (obj3 instanceof String) {
+                    this.f12455e.setColor(Color.parseColor(obj3.toString()));
+                } else if (obj3 instanceof Integer) {
+                    this.f12455e.setColor(getResources().getColor(Integer.valueOf(this.f12457g.first.toString()).intValue()));
+                }
+            }
+            canvas.save();
+            if (this.q) {
+                a();
+            } else {
+                this.f12455e.setBounds(0, 0, getWidth(), getHeight());
+            }
+            this.f12455e.draw(canvas);
+            if (this.m) {
+                g(canvas);
+            }
+            canvas.restore();
+        }
+    }
+
+    public final void g(Canvas canvas) {
+        float f2;
+        float f3;
+        float f4;
+        float width = getWidth();
+        float height = getHeight();
+        Paint paint = new Paint();
+        paint.setStrokeWidth(h0.e(getContext(), 0.5f));
+        Object obj = this.i;
+        if (obj instanceof String) {
+            paint.setColor(Color.parseColor(obj.toString()));
+        } else if (obj instanceof Integer) {
+            paint.setColor(getResources().getColor(Integer.valueOf(this.i.toString()).intValue()));
+        }
+        int i = this.j;
+        float f5 = 0.0f;
+        if (i == 0) {
+            f2 = height;
+            f3 = 0.0f;
+            f4 = 0.0f;
+        } else if (i != 1) {
+            if (i == 2) {
+                f4 = width;
+                f2 = height;
+                f5 = getWidth();
+            } else if (i != 3) {
+                f4 = width;
+                f2 = height;
+            } else {
+                f4 = width;
+                f2 = height;
+                f3 = getHeight();
+            }
+            f3 = 0.0f;
+        } else {
+            f4 = width;
+            f3 = 0.0f;
+            f2 = 0.0f;
+        }
+        canvas.drawLine(f5, f3, f4, f2, paint);
+    }
+
+    public final void h(Canvas canvas) {
+        Drawable drawable;
         int i;
         int i2;
         int i3;
@@ -64,252 +194,126 @@ public class DrawableCenterTextView extends TextView {
         int i6;
         int i7;
         Drawable[] compoundDrawables = getCompoundDrawables();
-        Drawable drawable = null;
+        int i8 = 0;
         if (compoundDrawables != null) {
             i = 0;
             while (i < compoundDrawables.length) {
-                if (compoundDrawables[i] == null) {
-                    i++;
-                } else {
+                if (compoundDrawables[i] != null) {
                     drawable = compoundDrawables[i];
                     break;
                 }
+                i++;
             }
         }
+        drawable = null;
         i = -1;
-        int textViewWidth = ah.getTextViewWidth(this);
-        int textViewHeight = ah.getTextViewHeight(this);
+        int v = h0.v(this);
+        int u = h0.u(this);
         int compoundDrawablePadding = getCompoundDrawablePadding();
         if (drawable != null) {
             Rect bounds = drawable.getBounds();
-            i3 = bounds.right - bounds.left;
-            i2 = bounds.bottom - bounds.top;
+            i2 = bounds.right - bounds.left;
+            i3 = bounds.bottom - bounds.top;
         } else {
             i2 = 0;
             i3 = 0;
         }
         if (i == 0 || i == 2) {
-            i4 = textViewWidth + i3 + compoundDrawablePadding;
+            i4 = i2 + v + compoundDrawablePadding;
             i5 = 0;
-        } else if (i == 1 || i == 3) {
-            i5 = i2 + textViewHeight + compoundDrawablePadding;
-            i4 = 0;
         } else {
-            i5 = 0;
+            i5 = (i == 1 || i == 3) ? u + i3 + compoundDrawablePadding : 0;
             i4 = 0;
         }
         int width = (getWidth() - getPaddingLeft()) - getPaddingRight();
         int height = (getHeight() - getPaddingTop()) - getPaddingBottom();
-        switch (i) {
-            case 0:
-                setGravity(19);
-                i7 = width - i4;
-                i6 = 0;
-                break;
-            case 1:
+        if (i == 0) {
+            setGravity(19);
+            i6 = width - i4;
+        } else {
+            if (i == 1) {
                 setGravity(49);
-                i6 = height - i5;
-                i7 = 0;
-                break;
-            case 2:
+                i7 = height - i5;
+            } else if (i == 2) {
                 setGravity(21);
-                i7 = i4 - width;
-                i6 = 0;
-                break;
-            case 3:
-                setGravity(81);
-                i6 = i5 - height;
+                i8 = i4 - width;
                 i7 = 0;
-                break;
-            default:
+            } else if (i != 3) {
                 setGravity(19);
-                i7 = width - textViewWidth;
-                i6 = 0;
-                break;
-        }
-        canvas.translate(i7 / 2, i6 / 2);
-    }
-
-    private void q(Canvas canvas) {
-        if (aGN()) {
-            if (this.mCornerRadius >= 0.0f) {
-                this.dxq.setCornerRadius(this.mCornerRadius);
+                i6 = width - v;
             } else {
-                this.dxq.setCornerRadius(4.0f);
+                setGravity(81);
+                i7 = i5 - height;
             }
-            if (this.dxx) {
-                int dip2px = ah.dip2px(getContext(), 0.5f);
-                if (this.dxt instanceof String) {
-                    this.dxq.setStroke(dip2px, Color.parseColor(this.dxt.toString()));
-                } else if (this.dxt instanceof Integer) {
-                    this.dxq.setStroke(dip2px, getResources().getColor(Integer.valueOf(this.dxt.toString()).intValue()));
-                }
-            }
-            if (this.dxz) {
-                if (this.dxs.second instanceof String) {
-                    this.dxq.setColor(Color.parseColor(this.dxs.second.toString()));
-                } else if (this.dxs.second instanceof Integer) {
-                    this.dxq.setColor(getResources().getColor(Integer.valueOf(this.dxs.second.toString()).intValue()));
-                }
-            } else if (this.dxs.first instanceof String) {
-                this.dxq.setColor(Color.parseColor(this.dxs.first.toString()));
-            } else if (this.dxs.first instanceof Integer) {
-                this.dxq.setColor(getResources().getColor(Integer.valueOf(this.dxs.first.toString()).intValue()));
-            }
-            canvas.save();
-            if (this.dxB) {
-                aGL();
-            } else {
-                this.dxq.setBounds(0, 0, getWidth(), getHeight());
-            }
-            this.dxq.draw(canvas);
-            if (this.dxy) {
-                r(canvas);
-            }
-            canvas.restore();
+            canvas.translate(i8 / 2, i7 / 2);
         }
+        i8 = i6;
+        i7 = 0;
+        canvas.translate(i8 / 2, i7 / 2);
     }
 
-    private void r(Canvas canvas) {
-        float height;
-        float f;
-        float width = getWidth();
-        float height2 = getHeight();
-        Paint paint = new Paint();
-        paint.setStrokeWidth(ah.dip2px(getContext(), 0.5f));
-        if (this.dxu instanceof String) {
-            paint.setColor(Color.parseColor(this.dxu.toString()));
-        } else if (this.dxu instanceof Integer) {
-            paint.setColor(getResources().getColor(Integer.valueOf(this.dxu.toString()).intValue()));
-        }
-        switch (this.dxv) {
-            case 0:
-                width = 0.0f;
-                height = 0.0f;
-                f = 0.0f;
-                break;
-            case 1:
-                height2 = 0.0f;
-                height = 0.0f;
-                f = 0.0f;
-                break;
-            case 2:
-                f = getWidth();
-                height = 0.0f;
-                break;
-            case 3:
-                height = getHeight();
-                f = 0.0f;
-                break;
-            default:
-                height = 0.0f;
-                f = 0.0f;
-                break;
-        }
-        canvas.drawLine(f, height, width, height2, paint);
-    }
-
-    public void setAnimationPercent(float f) {
-        if (this.dxA != f) {
-            this.dxA = f;
-            postInvalidate();
-        }
-    }
-
-    public void setAnimationModeActive(boolean z) {
-        this.dxB = z;
-    }
-
-    private void aGL() {
-        if (this.dxq != null) {
-            int[] iArr = {getWidth(), getHeight()};
-            if (this.dxB) {
-                iArr[0] = (int) (getWidth() * this.dxA);
-                iArr[1] = getHeight();
-            }
-            int width = getWidth() / 2;
-            this.dxq.setBounds(width - (iArr[0] / 2), 0, (iArr[0] / 2) + width, getHeight());
-        }
-    }
-
-    @Override // android.widget.TextView
-    public void setShadowLayer(float f, float f2, float f3, int i) {
-        aGM();
-        RectF rectF = new RectF(f, f, f, f);
-        rectF.offset(f2, f3);
-        setPadding(rectF.left < 0.0f ? 0 : (int) (rectF.left + 0.5f), rectF.top < 0.0f ? 0 : (int) (rectF.top + 0.5f), rectF.right < 0.0f ? 0 : (int) (rectF.right + 0.5f), rectF.bottom >= 0.0f ? (int) (rectF.bottom + 0.5f) : 0);
-        this.dxr.setShadowLayer(f, f2, f3, i);
-    }
-
-    private void aGM() {
-        if (this.dxr == null) {
-            this.dxr = new Paint();
-            this.dxr.setColor(0);
-            this.dxr.setStyle(Paint.Style.STROKE);
-            this.dxr.setAntiAlias(true);
-            this.dxr.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
-        }
-    }
-
-    public void a(Drawable drawable, int i, int i2, int i3) {
-        if (drawable != null && i > -1 && i <= 3) {
-            if (i2 <= 0 || i3 <= 0) {
-                i2 = drawable.getIntrinsicWidth();
-                i3 = drawable.getIntrinsicHeight();
-            }
-            drawable.setBounds(0, 0, i2, i3);
-            switch (i) {
-                case 0:
-                    setCompoundDrawables(drawable, null, null, null);
-                    return;
-                case 1:
-                    setCompoundDrawables(null, drawable, null, null);
-                    return;
-                case 2:
-                    setCompoundDrawables(null, null, drawable, null);
-                    return;
-                case 3:
-                    setCompoundDrawables(null, null, null, drawable);
-                    return;
-                default:
-                    return;
-            }
-        }
-    }
-
-    public void iy(int i) {
-        this.mCornerRadius = i;
-    }
-
-    private boolean aGN() {
-        return this.dxw && this.dxs != null;
+    @Override // android.widget.TextView, android.view.View
+    public void onDraw(Canvas canvas) {
+        f(canvas);
+        h(canvas);
+        super.onDraw(canvas);
     }
 
     @Override // android.widget.TextView, android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        switch (motionEvent.getAction()) {
-            case 0:
-                if (aGN()) {
-                    this.dxz = true;
+        int action = motionEvent.getAction();
+        if (action != 0) {
+            if (action != 1) {
+                if (action == 3 && e()) {
+                    this.n = false;
                     invalidate();
-                    break;
                 }
-                break;
-            case 1:
-                if (aGN()) {
-                    this.dxz = false;
-                    invalidate();
-                    break;
-                }
-                break;
-            case 3:
-                if (aGN()) {
-                    this.dxz = false;
-                    invalidate();
-                    break;
-                }
-                break;
+            } else if (e()) {
+                this.n = false;
+                invalidate();
+            }
+        } else if (e()) {
+            this.n = true;
+            invalidate();
         }
         return super.onTouchEvent(motionEvent);
+    }
+
+    public void setAnimationModeActive(boolean z) {
+        this.q = z;
+    }
+
+    public void setAnimationPercent(float f2) {
+        if (this.p != f2) {
+            this.p = f2;
+            postInvalidate();
+        }
+    }
+
+    @Override // android.widget.TextView
+    public void setShadowLayer(float f2, float f3, float f4, int i) {
+        d();
+        RectF rectF = new RectF(f2, f2, f2, f2);
+        rectF.offset(f3, f4);
+        float f5 = rectF.left;
+        int i2 = f5 < 0.0f ? 0 : (int) (f5 + 0.5f);
+        float f6 = rectF.right;
+        int i3 = f6 < 0.0f ? 0 : (int) (f6 + 0.5f);
+        float f7 = rectF.top;
+        int i4 = f7 < 0.0f ? 0 : (int) (f7 + 0.5f);
+        float f8 = rectF.bottom;
+        setPadding(i2, i4, i3, f8 >= 0.0f ? (int) (f8 + 0.5f) : 0);
+        this.f12456f.setShadowLayer(f2, f3, f4, i);
+    }
+
+    public DrawableCenterTextView(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        this.f12455e = new GradientDrawable();
+        this.f12456f = null;
+        new Path();
+        this.f12457g = null;
+        this.n = false;
+        this.o = -1.0f;
+        this.p = 0.0f;
     }
 }

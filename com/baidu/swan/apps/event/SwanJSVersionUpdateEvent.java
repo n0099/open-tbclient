@@ -2,25 +2,40 @@ package com.baidu.swan.apps.event;
 
 import android.util.Log;
 import androidx.annotation.Keep;
-import com.baidu.swan.apps.b;
 import com.baidu.swan.apps.swancore.model.SwanCoreVersion;
+import com.baidu.tbadk.core.data.SmallTailInfo;
+import d.b.g0.a.b2.b;
+import d.b.g0.a.k;
+import d.b.g0.a.w0.a;
 @Keep
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class SwanJSVersionUpdateEvent {
-    private static final boolean DEBUG = b.DEBUG;
-    private static final String TAG = "SwanJSVersionUpdateEven";
-    private final long mVersionNum;
-    private final String mVersionString;
+    public static final boolean DEBUG = k.f45050a;
+    public static final String TAG = "SwanJSVersionUpdateEven";
+    public final long mVersionNum;
+    public final String mVersionString;
 
-    private SwanJSVersionUpdateEvent() {
-        SwanCoreVersion jD = com.baidu.swan.apps.swancore.b.jD(0);
-        if (jD != null) {
-            this.mVersionNum = jD.swanCoreVersion;
-            this.mVersionString = com.baidu.swan.apps.swancore.b.cY(this.mVersionNum);
+    public SwanJSVersionUpdateEvent() {
+        SwanCoreVersion e2 = b.e(0);
+        if (e2 != null) {
+            long j = e2.swanCoreVersion;
+            this.mVersionNum = j;
+            this.mVersionString = b.q(j);
             return;
         }
         this.mVersionNum = 0L;
         this.mVersionString = null;
+    }
+
+    public static void sendEvent(long j) {
+        SwanJSVersionUpdateEvent swanJSVersionUpdateEvent = new SwanJSVersionUpdateEvent();
+        if (swanJSVersionUpdateEvent.mVersionString == null) {
+            return;
+        }
+        a.A().a(swanJSVersionUpdateEvent);
+        if (DEBUG) {
+            Log.d(TAG, "send SwanJSVersionUpdateEvent, downVersion:" + j + ", getVersion:" + swanJSVersionUpdateEvent.getVersionString() + "(" + swanJSVersionUpdateEvent.getVersionNum() + SmallTailInfo.EMOTION_SUFFIX);
+        }
     }
 
     public long getVersionNum() {
@@ -29,15 +44,5 @@ public class SwanJSVersionUpdateEvent {
 
     public String getVersionString() {
         return this.mVersionString;
-    }
-
-    public static void sendEvent(long j) {
-        SwanJSVersionUpdateEvent swanJSVersionUpdateEvent = new SwanJSVersionUpdateEvent();
-        if (swanJSVersionUpdateEvent.mVersionString != null) {
-            com.baidu.swan.apps.t.a.axI().a(swanJSVersionUpdateEvent);
-            if (DEBUG) {
-                Log.d(TAG, "send SwanJSVersionUpdateEvent, downVersion:" + j + ", getVersion:" + swanJSVersionUpdateEvent.getVersionString() + "(" + swanJSVersionUpdateEvent.getVersionNum() + ")");
-            }
-        }
     }
 }

@@ -11,21 +11,23 @@ import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import com.baidu.cyberplayer.sdk.CyberLog;
 import com.baidu.cyberplayer.sdk.Keep;
-import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class DpNetworkUtils {
     public static String a(Context context) {
         WifiInfo connectionInfo;
         int rssi;
-        NetworkInfo b = b(context);
-        if (b != null) {
-            int type = b.getType();
+        NetworkInfo b2 = b(context);
+        if (b2 != null) {
+            int type = b2.getType();
             if (type == 0) {
-                String extraInfo = b.getExtraInfo();
+                String extraInfo = b2.getExtraInfo();
                 return TextUtils.isEmpty(extraInfo) ? "Disconnect" : extraInfo;
             } else if (type == 1) {
                 WifiManager wifiManager = (WifiManager) context.getSystemService("wifi");
-                return (wifiManager == null || (connectionInfo = wifiManager.getConnectionInfo()) == null || (rssi = connectionInfo.getRssi()) <= -127) ? "Disconnect" : "wifi:" + rssi;
+                if (wifiManager == null || (connectionInfo = wifiManager.getConnectionInfo()) == null || (rssi = connectionInfo.getRssi()) <= -127) {
+                    return "Disconnect";
+                }
+                return "wifi:" + rssi;
             } else {
                 return "N/A";
             }
@@ -33,15 +35,15 @@ public class DpNetworkUtils {
         return "Disconnect";
     }
 
-    private static boolean a() {
+    public static boolean a() {
         return Build.VERSION.SDK_INT >= 23;
     }
 
-    private static boolean a(Context context, String str) {
+    public static boolean a(Context context, String str) {
         return str != null && context.checkPermission(str, Process.myPid(), Process.myUid()) == 0;
     }
 
-    private static NetworkInfo b(Context context) {
+    public static NetworkInfo b(Context context) {
         if (context == null) {
             return null;
         }
@@ -50,32 +52,44 @@ public class DpNetworkUtils {
             if (connectivityManager != null) {
                 return connectivityManager.getActiveNetworkInfo();
             }
-        } catch (Exception e) {
+        } catch (Exception unused) {
         }
         return null;
     }
 
-    private static boolean c(Context context) {
-        if (a()) {
-            if (context != null) {
-                try {
-                    boolean z = a(context, "android.permission.CALL_PHONE") || a(context, "android.permission.MODIFY_PHONE_STATE") || a(context, "android.permission.READ_PHONE_STATE") || a(context, "android.permission.PROCESS_OUTGOING_CALLS");
-                    if (Build.VERSION.SDK_INT >= 16) {
-                        if (!z) {
-                            if (!a(context, "android.permission.READ_CALL_LOG")) {
-                                return false;
-                            }
-                        }
-                        return true;
-                    }
-                    return z;
-                } catch (Throwable th) {
-                    return false;
-                }
-            }
+    /* JADX WARN: Removed duplicated region for block: B:21:0x0036  */
+    /* JADX WARN: Removed duplicated region for block: B:31:? A[RETURN, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static boolean c(Context context) {
+        boolean z;
+        boolean z2 = true;
+        if (!a()) {
+            return true;
+        }
+        if (context == null) {
             return false;
         }
-        return true;
+        try {
+            if (!a(context, "android.permission.CALL_PHONE") && !a(context, "android.permission.MODIFY_PHONE_STATE") && !a(context, "android.permission.READ_PHONE_STATE") && !a(context, "android.permission.PROCESS_OUTGOING_CALLS")) {
+                z = false;
+                if (Build.VERSION.SDK_INT < 16) {
+                    if (!z) {
+                        if (!a(context, "android.permission.READ_CALL_LOG")) {
+                            z2 = false;
+                        }
+                    }
+                    return z2;
+                }
+                return z;
+            }
+            z = true;
+            if (Build.VERSION.SDK_INT < 16) {
+            }
+        } catch (Throwable unused) {
+            return false;
+        }
     }
 
     @Keep
@@ -83,21 +97,18 @@ public class DpNetworkUtils {
         int i;
         TelephonyManager telephonyManager;
         String subscriberId;
-        int i2;
-        int i3 = 2;
-        NetworkInfo b = b(context);
-        if (b == null) {
+        NetworkInfo b2 = b(context);
+        int i2 = 3;
+        if (b2 == null || b2.getState() != NetworkInfo.State.CONNECTED) {
             i = 0;
-        } else if (b.getState() != NetworkInfo.State.CONNECTED) {
-            i = 0;
-        } else if (b.getType() == 0) {
-            switch (b.getSubtype()) {
+        } else if (b2.getType() == 0) {
+            switch (b2.getSubtype()) {
                 case 1:
                 case 2:
                 case 4:
                 case 7:
                 case 11:
-                    i2 = 2;
+                    i = 2;
                     break;
                 case 3:
                 case 5:
@@ -108,35 +119,39 @@ public class DpNetworkUtils {
                 case 12:
                 case 14:
                 case 15:
-                    i2 = 3;
+                    i = 3;
                     break;
                 case 13:
-                    i2 = 4;
+                    i = 4;
                     break;
                 default:
-                    i2 = 1;
+                    i = 1;
                     break;
             }
-            i = i2;
         } else {
-            i = b.getType() == 1 ? 100 : b.getType() == 9 ? 101 : 999;
+            i = b2.getType() == 1 ? 100 : b2.getType() == 9 ? 101 : 999;
         }
+        int i3 = 99;
         try {
             if (!c(context) || (telephonyManager = (TelephonyManager) context.getSystemService("phone")) == null || (subscriberId = telephonyManager.getSubscriberId()) == null) {
-                i3 = 0;
-            } else if (subscriberId.startsWith("46000") || subscriberId.startsWith("46002") || subscriberId.startsWith("46007") || subscriberId.startsWith("46008")) {
-                i3 = 1;
-            } else if (subscriberId.startsWith("46001") || subscriberId.startsWith("46006") || subscriberId.startsWith("46009")) {
-                i3 = 3;
-            } else if (!subscriberId.startsWith("46003") && !subscriberId.startsWith("46005")) {
-                if (!subscriberId.startsWith("460011")) {
-                    i3 = 99;
+                i2 = 0;
+            } else {
+                if (!subscriberId.startsWith("46000") && !subscriberId.startsWith("46002") && !subscriberId.startsWith("46007") && !subscriberId.startsWith("46008")) {
+                    if (!subscriberId.startsWith("46001") && !subscriberId.startsWith("46006") && !subscriberId.startsWith("46009")) {
+                        if (!subscriberId.startsWith("46003") && !subscriberId.startsWith("46005")) {
+                            if (!subscriberId.startsWith("460011")) {
+                                i2 = 99;
+                            }
+                        }
+                        i2 = 2;
+                    }
                 }
+                i2 = 1;
             }
+            i3 = i2;
         } catch (Throwable th) {
             CyberLog.e("DpNetworkUtils", "network changed: " + th);
-            i3 = 99;
         }
-        return i + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + i3;
+        return i + "_" + i3;
     }
 }

@@ -1,7 +1,6 @@
 package com.baidu.down.request.task;
 
 import android.content.Context;
-import android.support.v4.media.session.PlaybackStateCompat;
 import com.baidu.down.common.DownConstants;
 import com.baidu.down.common.TaskMsg;
 import com.baidu.down.common.intercepter.IIntercepter;
@@ -12,9 +11,10 @@ import java.io.File;
 import java.io.RandomAccessFile;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public abstract class AbstractTask implements DownConstants, Comparable<AbstractTask> {
     public static final int DF_SEG_SIZE = 524288;
+    public static int DF_SEG_WRITE_SIZE = 524288;
     public static final int MODE_HTTPCLIENT_COMMON = 0;
     public static final int MODE_HTTPCLIENT_MULTISRC = 1;
     public static final int MODE_MULTISRC_MASK = 1;
@@ -28,6 +28,8 @@ public abstract class AbstractTask implements DownConstants, Comparable<Abstract
     public static final int URL_TYPE_DEFAULT = 0;
     public static final int URL_TYPE_FASTEST = 2;
     public static final int URL_TYPE_NOT_MEASURE = 1;
+    public static int bufferSize = 16384;
+    public static long minSegLen = 524288;
     public RandomAccessFile fout;
     public boolean isReplace;
     public Context mContext;
@@ -50,9 +52,6 @@ public abstract class AbstractTask implements DownConstants, Comparable<Abstract
     public String mTj;
     public boolean needThumbnail;
     public boolean needWriteDb;
-    public static int DF_SEG_WRITE_SIZE = 524288;
-    public static int bufferSize = 16384;
-    public static long minSegLen = PlaybackStateCompat.ACTION_SET_SHUFFLE_MODE_ENABLED;
     public int mMaxThread = 2;
     public int mMaxTestIpCount = 2;
     public int mThreadCount = 0;
@@ -80,8 +79,12 @@ public abstract class AbstractTask implements DownConstants, Comparable<Abstract
     public boolean mLengthRec = false;
     public String mDownloadUri = "";
     public String mStrRedownload = "";
-    private int mPriority = 3;
+    public int mPriority = 3;
     public Context myContext = null;
+
+    public AbstractTask(int i) {
+        this.mTaskType = i;
+    }
 
     public abstract String getDefaultUrl();
 
@@ -89,47 +92,17 @@ public abstract class AbstractTask implements DownConstants, Comparable<Abstract
 
     public abstract String getNoMeasuredUrl(boolean z);
 
-    public abstract void pause();
-
-    public abstract void pend();
-
-    public abstract void start();
-
-    public abstract void stop(boolean z);
-
-    public AbstractTask(int i) {
-        this.mTaskType = i;
+    public int getPriority() {
+        return this.mPriority;
     }
 
     public String getTaskKey() {
         return this.mUri + this.mDownloadId;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // java.lang.Comparable
-    public int compareTo(AbstractTask abstractTask) {
-        if (this.mPriority > abstractTask.mPriority) {
-            return -1;
-        }
-        if (this.mPriority == abstractTask.mPriority) {
-            if (this.mLastNotifyBytes > 0 && this.mTotalLength > 0 && this.mLastNotifySpeed > 0 && abstractTask.mLastNotifyBytes > 0 && abstractTask.mTotalLength > 0 && abstractTask.mLastNotifySpeed > 0) {
-                long j = (this.mTotalLength - this.mLastNotifyBytes) / this.mLastNotifySpeed;
-                long j2 = (abstractTask.mTotalLength - abstractTask.mLastNotifyBytes) / abstractTask.mLastNotifySpeed;
-                if (j > j2) {
-                    return 1;
-                }
-                return j >= j2 ? 0 : -1;
-            } else if (this.mTotalLength != 0 || this.mSizeB <= 0 || abstractTask.mTotalLength != 0 || abstractTask.mSizeB <= 0) {
-                return 0;
-            } else {
-                if (this.mSizeB > abstractTask.mSizeB) {
-                    return 1;
-                }
-                return this.mSizeB >= abstractTask.mSizeB ? 0 : -1;
-            }
-        }
-        return 1;
-    }
+    public abstract void pause();
+
+    public abstract void pend();
 
     public void setPriority(int i) {
         if (i < 1) {
@@ -140,15 +113,67 @@ public abstract class AbstractTask implements DownConstants, Comparable<Abstract
         this.mPriority = i;
     }
 
-    public int getPriority() {
-        return this.mPriority;
-    }
-
     public void setTaskmsg(TaskMsg taskMsg) {
         this.mTaskmsg = taskMsg;
     }
 
+    public abstract void start();
+
+    public abstract void stop(boolean z);
+
     public String toString() {
         return "[mUri=" + this.mUri + "][mDownloadId=" + this.mDownloadId + "][status=" + this.mStatus + "]";
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // java.lang.Comparable
+    public int compareTo(AbstractTask abstractTask) {
+        int i = this.mPriority;
+        int i2 = abstractTask.mPriority;
+        if (i > i2) {
+            return -1;
+        }
+        if (i == i2) {
+            long j = this.mLastNotifyBytes;
+            if (j > 0) {
+                long j2 = this.mTotalLength;
+                if (j2 > 0) {
+                    long j3 = this.mLastNotifySpeed;
+                    if (j3 > 0) {
+                        long j4 = abstractTask.mLastNotifyBytes;
+                        if (j4 > 0) {
+                            long j5 = abstractTask.mTotalLength;
+                            if (j5 > 0) {
+                                long j6 = abstractTask.mLastNotifySpeed;
+                                if (j6 > 0) {
+                                    long j7 = (j2 - j) / j3;
+                                    long j8 = (j5 - j4) / j6;
+                                    if (j7 > j8) {
+                                        return 1;
+                                    }
+                                    return j7 < j8 ? -1 : 0;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            if (this.mTotalLength == 0) {
+                long j9 = this.mSizeB;
+                if (j9 > 0 && abstractTask.mTotalLength == 0) {
+                    long j10 = abstractTask.mSizeB;
+                    if (j10 > 0) {
+                        if (j9 > j10) {
+                            return 1;
+                        }
+                        if (j9 < j10) {
+                            return -1;
+                        }
+                    }
+                }
+            }
+            return 0;
+        }
+        return 1;
     }
 }

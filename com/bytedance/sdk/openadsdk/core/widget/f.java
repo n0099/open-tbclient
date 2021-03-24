@@ -14,145 +14,99 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.ViewCompat;
 import com.bytedance.sdk.openadsdk.core.p;
-import com.bytedance.sdk.openadsdk.utils.ac;
+import com.bytedance.sdk.openadsdk.utils.ad;
 /* loaded from: classes6.dex */
 public class f extends Drawable {
     @ColorInt
 
     /* renamed from: a  reason: collision with root package name */
-    private int f4617a;
+    public int f28920a;
     @ColorInt
-    private int b;
+
+    /* renamed from: b  reason: collision with root package name */
+    public int f28921b;
     @Nullable
-    private int[] c;
+
+    /* renamed from: c  reason: collision with root package name */
+    public int[] f28922c;
     @Nullable
-    private float[] d;
+
+    /* renamed from: d  reason: collision with root package name */
+    public float[] f28923d;
     @Nullable
-    private LinearGradient e;
-    private int f;
-    private int g;
-    private int h;
-    private int i;
+
+    /* renamed from: e  reason: collision with root package name */
+    public LinearGradient f28924e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public int f28925f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public int f28926g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public int f28927h;
+    public int i;
     @Nullable
-    private RectF j;
+    public RectF j;
     @Nullable
-    private Paint k;
-
-    public f(@ColorInt int i, @Nullable int[] iArr, @Nullable float[] fArr, @ColorInt int i2, @Nullable LinearGradient linearGradient, int i3, int i4, int i5, int i6) {
-        this.f4617a = i;
-        this.c = iArr;
-        this.d = fArr;
-        this.b = i2;
-        this.e = linearGradient;
-        this.f = i3;
-        this.g = i4;
-        this.h = i5;
-        this.i = i6;
-    }
-
-    @Override // android.graphics.drawable.Drawable
-    public void draw(@NonNull Canvas canvas) {
-        if (this.j == null) {
-            Rect bounds = getBounds();
-            this.j = new RectF((bounds.left + this.g) - this.h, (bounds.top + this.g) - this.i, (bounds.right - this.g) - this.h, (bounds.bottom - this.g) - this.i);
-        }
-        if (this.k == null) {
-            a();
-        }
-        canvas.drawRoundRect(this.j, this.f, this.f, this.k);
-    }
-
-    @Override // android.graphics.drawable.Drawable
-    public void setAlpha(int i) {
-        if (this.k != null) {
-            this.k.setAlpha(i);
-        }
-    }
-
-    @Override // android.graphics.drawable.Drawable
-    public void setColorFilter(@Nullable ColorFilter colorFilter) {
-        if (this.k != null) {
-            this.k.setColorFilter(colorFilter);
-        }
-    }
-
-    @Override // android.graphics.drawable.Drawable
-    public int getOpacity() {
-        return -3;
-    }
-
-    private void a() {
-        LinearGradient linearGradient;
-        this.k = new Paint();
-        this.k.setAntiAlias(true);
-        this.k.setShadowLayer(this.g, this.h, this.i, this.b);
-        if (this.j != null && this.c != null && this.c.length > 1) {
-            boolean z = this.d != null && this.d.length > 0 && this.d.length == this.c.length;
-            Paint paint = this.k;
-            if (this.e == null) {
-                linearGradient = new LinearGradient(this.j.left, 0.0f, this.j.right, 0.0f, this.c, z ? this.d : null, Shader.TileMode.CLAMP);
-            } else {
-                linearGradient = this.e;
-            }
-            paint.setShader(linearGradient);
-            return;
-        }
-        this.k.setColor(this.f4617a);
-    }
-
-    public static void a(View view, a aVar) {
-        if (view != null && aVar != null) {
-            view.setLayerType(1, null);
-            ViewCompat.setBackground(view, aVar.a());
-        }
-    }
+    public Paint k;
 
     /* loaded from: classes6.dex */
     public static class a {
-        private int[] c;
+
+        /* renamed from: c  reason: collision with root package name */
+        public int[] f28930c;
         @Nullable
-        private float[] d;
-        private LinearGradient e;
-        private int h;
-        private int i;
+
+        /* renamed from: d  reason: collision with root package name */
+        public float[] f28931d;
+
+        /* renamed from: e  reason: collision with root package name */
+        public LinearGradient f28932e;
+
+        /* renamed from: h  reason: collision with root package name */
+        public int f28935h;
+        public int i;
         @ColorInt
 
         /* renamed from: a  reason: collision with root package name */
-        private int f4618a = ac.j(p.a(), "tt_ssxinmian8");
+        public int f28928a = ad.j(p.a(), "tt_ssxinmian8");
         @ColorInt
-        private int b = ac.j(p.a(), "tt_ssxinxian3");
-        private int f = 10;
-        private int g = 16;
+
+        /* renamed from: b  reason: collision with root package name */
+        public int f28929b = ad.j(p.a(), "tt_ssxinxian3");
+
+        /* renamed from: f  reason: collision with root package name */
+        public int f28933f = 10;
+
+        /* renamed from: g  reason: collision with root package name */
+        public int f28934g = 16;
 
         public a() {
-            this.h = 0;
+            this.f28935h = 0;
             this.i = 0;
-            this.h = 0;
+            this.f28935h = 0;
             this.i = 0;
         }
 
         public a a(@ColorInt int i) {
-            this.f4618a = i;
+            this.f28928a = i;
             return this;
         }
 
         public a b(@ColorInt int i) {
-            this.b = i;
-            return this;
-        }
-
-        public a a(@Nullable int[] iArr) {
-            this.c = iArr;
+            this.f28929b = i;
             return this;
         }
 
         public a c(int i) {
-            this.f = i;
+            this.f28933f = i;
             return this;
         }
 
         public a d(int i) {
-            this.h = i;
+            this.f28935h = i;
             return this;
         }
 
@@ -161,8 +115,94 @@ public class f extends Drawable {
             return this;
         }
 
-        public f a() {
-            return new f(this.f4618a, this.c, this.d, this.b, this.e, this.f, this.g, this.h, this.i);
+        public a a(@Nullable int[] iArr) {
+            this.f28930c = iArr;
+            return this;
         }
+
+        public f a() {
+            return new f(this.f28928a, this.f28930c, this.f28931d, this.f28929b, this.f28932e, this.f28933f, this.f28934g, this.f28935h, this.i);
+        }
+    }
+
+    public f(@ColorInt int i, @Nullable int[] iArr, @Nullable float[] fArr, @ColorInt int i2, @Nullable LinearGradient linearGradient, int i3, int i4, int i5, int i6) {
+        this.f28920a = i;
+        this.f28922c = iArr;
+        this.f28923d = fArr;
+        this.f28921b = i2;
+        this.f28924e = linearGradient;
+        this.f28925f = i3;
+        this.f28926g = i4;
+        this.f28927h = i5;
+        this.i = i6;
+    }
+
+    private void a() {
+        int[] iArr;
+        Paint paint = new Paint();
+        this.k = paint;
+        boolean z = true;
+        paint.setAntiAlias(true);
+        this.k.setShadowLayer(this.f28926g, this.f28927h, this.i, this.f28921b);
+        if (this.j != null && (iArr = this.f28922c) != null && iArr.length > 1) {
+            float[] fArr = this.f28923d;
+            z = (fArr == null || fArr.length <= 0 || fArr.length != iArr.length) ? false : false;
+            Paint paint2 = this.k;
+            LinearGradient linearGradient = this.f28924e;
+            if (linearGradient == null) {
+                RectF rectF = this.j;
+                linearGradient = new LinearGradient(rectF.left, 0.0f, rectF.right, 0.0f, this.f28922c, z ? this.f28923d : null, Shader.TileMode.CLAMP);
+            }
+            paint2.setShader(linearGradient);
+            return;
+        }
+        this.k.setColor(this.f28920a);
+    }
+
+    @Override // android.graphics.drawable.Drawable
+    public void draw(@NonNull Canvas canvas) {
+        if (this.j == null) {
+            Rect bounds = getBounds();
+            int i = bounds.left;
+            int i2 = this.f28926g;
+            int i3 = this.f28927h;
+            int i4 = this.i;
+            this.j = new RectF((i + i2) - i3, (bounds.top + i2) - i4, (bounds.right - i2) - i3, (bounds.bottom - i2) - i4);
+        }
+        if (this.k == null) {
+            a();
+        }
+        RectF rectF = this.j;
+        int i5 = this.f28925f;
+        canvas.drawRoundRect(rectF, i5, i5, this.k);
+    }
+
+    @Override // android.graphics.drawable.Drawable
+    public int getOpacity() {
+        return -3;
+    }
+
+    @Override // android.graphics.drawable.Drawable
+    public void setAlpha(int i) {
+        Paint paint = this.k;
+        if (paint != null) {
+            paint.setAlpha(i);
+        }
+    }
+
+    @Override // android.graphics.drawable.Drawable
+    public void setColorFilter(@Nullable ColorFilter colorFilter) {
+        Paint paint = this.k;
+        if (paint != null) {
+            paint.setColorFilter(colorFilter);
+        }
+    }
+
+    public static void a(View view, a aVar) {
+        if (view == null || aVar == null) {
+            return;
+        }
+        view.setLayerType(1, null);
+        ViewCompat.setBackground(view, aVar.a());
     }
 }

@@ -7,53 +7,62 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.au;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
-/* loaded from: classes7.dex */
+import d.b.b.e.p.k;
+/* loaded from: classes5.dex */
 public class PersonIntroductionActivity extends BaseActivity {
-    private ImageView hUz;
-    private View.OnClickListener mClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.personPolymeric.header.PersonIntroductionActivity.1
+    public static final String PERSON_INTRODUCTION = "person_introduction";
+    public ImageView mBackImg;
+    public View.OnClickListener mClickListener = new a();
+    public TextView mIntroView;
+    public NavigationBar mNavigationBar;
+    public View mRootView;
+
+    /* loaded from: classes5.dex */
+    public class a implements View.OnClickListener {
+        public a() {
+        }
+
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             PersonIntroductionActivity.this.finish();
         }
-    };
-    private TextView mEn;
-    private NavigationBar mNavigationBar;
-    private View mRootView;
-
-    public static void ba(Context context, String str) {
-        if (!au.isEmpty(str) && context != null) {
-            Intent intent = new Intent();
-            intent.setClass(context, PersonIntroductionActivity.class);
-            intent.putExtra("person_introduction", str);
-            context.startActivity(intent);
-        }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
+    public static void startPersonIntroductionActivity(Context context, String str) {
+        if (k.isEmpty(str) || context == null) {
+            return;
+        }
+        Intent intent = new Intent();
+        intent.setClass(context, PersonIntroductionActivity.class);
+        intent.putExtra(PERSON_INTRODUCTION, str);
+        context.startActivity(intent);
+    }
+
+    @Override // com.baidu.tbadk.BaseActivity
+    public void onChangeSkinType(int i) {
+        super.onChangeSkinType(i);
+        this.mNavigationBar.onChangeSkinType(getPageContext(), i);
+        SkinManager.setViewTextColor(this.mIntroView, R.color.CAM_X0105, 1, i);
+        SkinManager.setBackgroundResource(this.mRootView, R.color.CAM_X0201, i);
+    }
+
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.person_introduction_layout);
         this.mRootView = findViewById(R.id.person_intro_root_view);
-        this.mNavigationBar = (NavigationBar) findViewById(R.id.view_navigation_bar);
-        this.mNavigationBar.setCenterTextTitle(getResources().getString(R.string.person_introduction_title));
-        this.hUz = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, R.layout.view_topbar_icon, (View.OnClickListener) null);
-        this.hUz.setOnClickListener(this.mClickListener);
-        ap.setImageResource(this.hUz, R.drawable.selector_topbar_return_black);
-        this.mEn = (TextView) findViewById(R.id.person_intro);
-        this.mEn.setText(getIntent().getStringExtra("person_introduction"));
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i) {
-        super.onChangeSkinType(i);
-        this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-        ap.setViewTextColor(this.mEn, R.color.CAM_X0105, 1, i);
-        ap.setBackgroundResource(this.mRootView, R.color.CAM_X0201, i);
+        NavigationBar navigationBar = (NavigationBar) findViewById(R.id.view_navigation_bar);
+        this.mNavigationBar = navigationBar;
+        navigationBar.setCenterTextTitle(getResources().getString(R.string.person_introduction_title));
+        ImageView imageView = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, R.layout.view_topbar_icon, (View.OnClickListener) null);
+        this.mBackImg = imageView;
+        imageView.setOnClickListener(this.mClickListener);
+        SkinManager.setImageResource(this.mBackImg, R.drawable.selector_topbar_return_black);
+        TextView textView = (TextView) findViewById(R.id.person_intro);
+        this.mIntroView = textView;
+        textView.setText(getIntent().getStringExtra(PERSON_INTRODUCTION));
     }
 }

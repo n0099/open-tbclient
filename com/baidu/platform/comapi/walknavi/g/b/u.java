@@ -4,15 +4,14 @@ import android.content.Context;
 import com.baidu.mapapi.NetworkUtil;
 import com.baidu.platform.comapi.walknavi.g.b.c;
 import com.baidu.tieba.R;
-/* loaded from: classes4.dex */
-class u implements Runnable {
+/* loaded from: classes2.dex */
+public class u implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ t f2991a;
+    public final /* synthetic */ t f10116a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public u(t tVar) {
-        this.f2991a = tVar;
+        this.f10116a = tVar;
     }
 
     @Override // java.lang.Runnable
@@ -20,18 +19,20 @@ class u implements Runnable {
         Context context;
         Context context2;
         Context context3;
-        context = this.f2991a.b.l;
+        context = this.f10116a.f10115b.l;
         if (!NetworkUtil.isWifiState(context)) {
-            context2 = this.f2991a.b.l;
+            context2 = this.f10116a.f10115b.l;
             if (context2 != null) {
-                c cVar = this.f2991a.b;
-                String str = this.f2991a.f2990a;
-                context3 = this.f2991a.b.l;
+                t tVar = this.f10116a;
+                c cVar = tVar.f10115b;
+                String str = tVar.f10114a;
+                context3 = cVar.l;
                 cVar.a(str, com.baidu.platform.comapi.wnplatform.o.a.a.b(context3, R.drawable.res_0x7f08001d_ic_icon_mask_guide_travel_svg__0), 4);
                 return;
             }
             return;
         }
-        this.f2991a.b.a(this.f2991a.f2990a, (c.d) null);
+        t tVar2 = this.f10116a;
+        tVar2.f10115b.a(tVar2.f10114a, (c.d) null);
     }
 }

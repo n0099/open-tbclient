@@ -16,13 +16,14 @@ import com.baidu.searchbox.process.ipc.delegate.activity.ActivityResultConsumer;
 import com.baidu.searchbox.process.ipc.delegate.activity.ActivityResultDispatcher;
 import com.baidu.searchbox.process.ipc.delegate.activity.ActivityResultDispatcherHolder;
 import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
-import rx.d;
-import rx.j;
-/* loaded from: classes5.dex */
+import h.d;
+import h.j;
+/* loaded from: classes3.dex */
 public final class DelegateUtils implements DelegateDef {
     public static Handler sMainHandler = new Handler(Looper.getMainLooper());
 
-    private DelegateUtils() {
+    public static void callOnMainWithActivity(@NonNull Activity activity, @NonNull Class<? extends ProcessDelegateBaseActivity> cls, @NonNull Class<? extends ActivityDelegation> cls2, @NonNull DelegateListener delegateListener) {
+        callOnMainWithActivity(activity, cls, cls2, null, delegateListener);
     }
 
     @NonNull
@@ -36,31 +37,36 @@ public final class DelegateUtils implements DelegateDef {
                 return new DelegateResult(1, cls, null, null);
             }
             return new DelegateResult(call.getInt(DelegateDef.EXTRA_RESULT_CODE), cls, null, call.getBundle(DelegateDef.EXTRA_RESULT));
-        } catch (IllegalArgumentException e) {
+        } catch (IllegalArgumentException unused) {
             return new DelegateResult(1, cls, null, null);
-        } catch (SecurityException e2) {
+        } catch (SecurityException unused2) {
             return new DelegateResult(1, cls, null, null);
         }
-    }
-
-    @NonNull
-    public static d<DelegateResult> safeCallOnMainWithContentProvider(@NonNull final Context context, @NonNull final Class<? extends ProviderDelegation> cls, @Nullable final Bundle bundle) {
-        return d.a((d.a) new d.a<DelegateResult>() { // from class: com.baidu.searchbox.process.ipc.delegate.DelegateUtils.1
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // rx.functions.b
-            public void call(j<? super DelegateResult> jVar) {
-                jVar.onNext(DelegateUtils.callOnMainWithContentProvider(context, cls, bundle));
-                jVar.onCompleted();
-            }
-        });
     }
 
     public static void callOnMainWithContentProviderASync(@NonNull Class<? extends ProviderDelegation> cls, @Nullable Bundle bundle, @NonNull DelegateListener delegateListener) {
         notifyResult(delegateListener, new DelegateResult(1, cls, bundle).addDesc("agent is not implement"));
     }
 
-    public static void callOnMainWithActivity(@NonNull Activity activity, @NonNull Class<? extends ProcessDelegateBaseActivity> cls, @NonNull Class<? extends ActivityDelegation> cls2, @NonNull DelegateListener delegateListener) {
-        callOnMainWithActivity(activity, cls, cls2, null, delegateListener);
+    public static void notifyResult(final DelegateListener delegateListener, final DelegateResult delegateResult) {
+        sMainHandler.post(new Runnable() { // from class: com.baidu.searchbox.process.ipc.delegate.DelegateUtils.3
+            @Override // java.lang.Runnable
+            public void run() {
+                DelegateListener.this.onDelegateCallBack(delegateResult);
+            }
+        });
+    }
+
+    @NonNull
+    public static d<DelegateResult> safeCallOnMainWithContentProvider(@NonNull final Context context, @NonNull final Class<? extends ProviderDelegation> cls, @Nullable final Bundle bundle) {
+        return d.c(new d.a<DelegateResult>() { // from class: com.baidu.searchbox.process.ipc.delegate.DelegateUtils.1
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // h.n.b
+            public void call(j<? super DelegateResult> jVar) {
+                jVar.onNext(DelegateUtils.callOnMainWithContentProvider(context, cls, bundle));
+                jVar.onCompleted();
+            }
+        });
     }
 
     public static void callOnMainWithActivity(@NonNull Activity activity, @NonNull Class<? extends ProcessDelegateBaseActivity> cls, @NonNull final Class<? extends ActivityDelegation> cls2, @Nullable final Bundle bundle, @NonNull final DelegateListener delegateListener) {
@@ -86,26 +92,18 @@ public final class DelegateUtils implements DelegateDef {
                         return false;
                     }
                     if (-1 != i) {
-                        DelegateUtils.notifyResult(delegateListener, new DelegateResult(3, cls2, bundle).addDesc("activity resultCode = " + i));
+                        DelegateListener delegateListener2 = delegateListener;
+                        DelegateResult delegateResult = new DelegateResult(3, cls2, bundle);
+                        DelegateUtils.notifyResult(delegateListener2, delegateResult.addDesc("activity resultCode = " + i));
                         return true;
                     }
-                    DelegateResult delegateResult = new DelegateResult(intent.getIntExtra(DelegateDef.EXTRA_RESULT_CODE, 0), cls2, bundle, intent.getBundleExtra(DelegateDef.EXTRA_RESULT));
-                    delegateResult.addDesc(intent.getStringExtra(DelegateDef.EXTRA_RESULT_DESC));
-                    DelegateUtils.notifyResult(delegateListener, delegateResult);
+                    DelegateResult delegateResult2 = new DelegateResult(intent.getIntExtra(DelegateDef.EXTRA_RESULT_CODE, 0), cls2, bundle, intent.getBundleExtra(DelegateDef.EXTRA_RESULT));
+                    delegateResult2.addDesc(intent.getStringExtra(DelegateDef.EXTRA_RESULT_DESC));
+                    DelegateUtils.notifyResult(delegateListener, delegateResult2);
                     return true;
                 }
             });
             resultDispatcher.startActivityForResult(new Intent(activity, cls).putExtra(DelegateDef.EXTRA_DELEGATION_NAME, name).putExtra("extra_params", bundle));
         }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public static void notifyResult(final DelegateListener delegateListener, final DelegateResult delegateResult) {
-        sMainHandler.post(new Runnable() { // from class: com.baidu.searchbox.process.ipc.delegate.DelegateUtils.3
-            @Override // java.lang.Runnable
-            public void run() {
-                DelegateListener.this.onDelegateCallBack(delegateResult);
-            }
-        });
     }
 }

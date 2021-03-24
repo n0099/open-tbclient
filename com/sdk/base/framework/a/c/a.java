@@ -1,36 +1,41 @@
 package com.sdk.base.framework.a.c;
-/* loaded from: classes4.dex */
-final class a<T> {
+/* loaded from: classes6.dex */
+public final class a<T> {
 
     /* renamed from: a  reason: collision with root package name */
-    a<T> f7607a;
-    private boolean b = false;
-    private k<?> c;
+    public a<T> f38416a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    /* renamed from: b  reason: collision with root package name */
+    public boolean f38417b = false;
+
+    /* renamed from: c  reason: collision with root package name */
+    public k<?> f38418c;
+
     public a(T t) {
         a(t);
     }
 
     public final int a() {
-        return this.c.f7615a;
+        return this.f38418c.f38443a;
     }
 
     public final void a(T t) {
         if (t == null) {
-            this.c = null;
+            this.f38418c = null;
         } else if (!(t instanceof k)) {
-            this.c = new k<>(b.f7608a, t);
+            this.f38418c = new k<>(b.f38419a, t);
         } else {
-            this.c = (k) t;
-            this.b = true;
+            this.f38418c = (k) t;
+            this.f38417b = true;
         }
     }
 
+    /* JADX WARN: Type inference failed for: r0v0, types: [T, com.sdk.base.framework.a.c.k<?>, com.sdk.base.framework.a.c.k] */
     public final T b() {
-        if (this.c == null) {
+        ?? r0 = (T) this.f38418c;
+        if (r0 == 0) {
             return null;
         }
-        return this.b ? (T) this.c : (T) this.c.b;
+        return this.f38417b ? r0 : (T) r0.f38444b;
     }
 }

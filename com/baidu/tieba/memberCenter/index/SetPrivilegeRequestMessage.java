@@ -1,19 +1,20 @@
 package com.baidu.tieba.memberCenter.index;
 
 import com.baidu.adp.framework.message.HttpMessage;
-/* loaded from: classes8.dex */
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+/* loaded from: classes3.dex */
 public class SetPrivilegeRequestMessage extends HttpMessage {
-    private int propsID;
+    public int propsID;
 
     public SetPrivilegeRequestMessage() {
-        super(1003152);
-    }
-
-    public void setPropsID(int i) {
-        this.propsID = i;
+        super(CmdConfigHttp.CMD_SET_PRIVILEGE);
     }
 
     public int getPropsID() {
         return this.propsID;
+    }
+
+    public void setPropsID(int i) {
+        this.propsID = i;
     }
 }

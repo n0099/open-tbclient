@@ -7,7 +7,7 @@ import android.os.Handler;
 import android.view.View;
 import android.webkit.ValueCallback;
 import android.webkit.WebStorage;
-import com.baidu.mobstat.Config;
+import android.webkit.WebView;
 import io.flutter.plugin.common.BinaryMessenger;
 import io.flutter.plugin.common.MethodCall;
 import io.flutter.plugin.common.MethodChannel;
@@ -17,22 +17,22 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes14.dex */
-public class FlutterWebView implements MethodChannel.MethodCallHandler, PlatformView {
-    private static final String JS_CHANNEL_NAMES_FIELD = "javascriptChannelNames";
-    private final FlutterWebViewClient flutterWebViewClient;
-    private final MethodChannel methodChannel;
-    private final Handler platformThreadHandler;
-    private final InputAwareWebView webView;
+/* loaded from: classes7.dex */
+public class FlutterWebView implements PlatformView, MethodChannel.MethodCallHandler {
+    public static final String JS_CHANNEL_NAMES_FIELD = "javascriptChannelNames";
+    public final FlutterWebViewClient flutterWebViewClient;
+    public final MethodChannel methodChannel;
+    public final Handler platformThreadHandler;
+    public final InputAwareWebView webView;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     @TargetApi(17)
     public FlutterWebView(Context context, BinaryMessenger binaryMessenger, int i, Map<String, Object> map, View view) {
         DisplayListenerProxy displayListenerProxy = new DisplayListenerProxy();
         DisplayManager displayManager = (DisplayManager) context.getSystemService("display");
         displayListenerProxy.onPreWebViewInitialization(displayManager);
-        this.webView = new InputAwareWebView(context, view);
-        this.webView.setOnScrollChangedCallback(new InputAwareWebView.OnScrollChangedCallback() { // from class: io.flutter.plugins.webviewflutter.FlutterWebView.1
+        InputAwareWebView inputAwareWebView = new InputAwareWebView(context, view);
+        this.webView = inputAwareWebView;
+        inputAwareWebView.setOnScrollChangedCallback(new InputAwareWebView.OnScrollChangedCallback() { // from class: io.flutter.plugins.webviewflutter.FlutterWebView.1
             @Override // io.flutter.plugins.webviewflutter.InputAwareWebView.OnScrollChangedCallback
             public void onScroll(int i2, int i3, int i4, int i5) {
                 HashMap hashMap = new HashMap();
@@ -44,8 +44,9 @@ public class FlutterWebView implements MethodChannel.MethodCallHandler, Platform
         this.platformThreadHandler = new Handler(context.getMainLooper());
         this.webView.getSettings().setDomStorageEnabled(true);
         this.webView.getSettings().setJavaScriptCanOpenWindowsAutomatically(true);
-        this.methodChannel = new MethodChannel(binaryMessenger, "plugins.flutter.io/webview_" + i);
-        this.methodChannel.setMethodCallHandler(this);
+        MethodChannel methodChannel = new MethodChannel(binaryMessenger, "plugins.flutter.io/webview_" + i);
+        this.methodChannel = methodChannel;
+        methodChannel.setMethodCallHandler(this);
         this.flutterWebViewClient = new FlutterWebViewClient(this.methodChannel);
         applySettings((Map) map.get("settings"));
         if (map.containsKey(JS_CHANNEL_NAMES_FIELD)) {
@@ -60,19 +61,196 @@ public class FlutterWebView implements MethodChannel.MethodCallHandler, Platform
         }
     }
 
+    private void addJavaScriptChannels(MethodCall methodCall, MethodChannel.Result result) {
+        registerJavaScriptChannelNames((List) methodCall.arguments);
+        result.success(null);
+    }
+
+    private void applySettings(Map<String, Object> map) {
+        for (String str : map.keySet()) {
+            char c2 = 65535;
+            switch (str.hashCode()) {
+                case -1151668596:
+                    if (str.equals("jsMode")) {
+                        c2 = 0;
+                        break;
+                    }
+                    break;
+                case -1069908877:
+                    if (str.equals("debuggingEnabled")) {
+                        c2 = 2;
+                        break;
+                    }
+                    break;
+                case 311430650:
+                    if (str.equals("userAgent")) {
+                        c2 = 4;
+                        break;
+                    }
+                    break;
+                case 858297331:
+                    if (str.equals("hasNavigationDelegate")) {
+                        c2 = 1;
+                        break;
+                    }
+                    break;
+                case 1670862916:
+                    if (str.equals("gestureNavigationEnabled")) {
+                        c2 = 3;
+                        break;
+                    }
+                    break;
+            }
+            if (c2 == 0) {
+                updateJsMode(((Integer) map.get(str)).intValue());
+            } else if (c2 == 1) {
+                this.webView.setWebViewClient(this.flutterWebViewClient.createWebViewClient(((Boolean) map.get(str)).booleanValue()));
+            } else if (c2 == 2) {
+                WebView.setWebContentsDebuggingEnabled(((Boolean) map.get(str)).booleanValue());
+            } else if (c2 == 3) {
+                continue;
+            } else if (c2 == 4) {
+                updateUserAgent((String) map.get(str));
+            } else {
+                throw new IllegalArgumentException("Unknown WebView setting: " + str);
+            }
+        }
+    }
+
+    private void canGoBack(MethodChannel.Result result) {
+        result.success(Boolean.valueOf(this.webView.canGoBack()));
+    }
+
+    private void canGoForward(MethodChannel.Result result) {
+        result.success(Boolean.valueOf(this.webView.canGoForward()));
+    }
+
+    private void clearCache(MethodChannel.Result result) {
+        this.webView.clearCache(true);
+        WebStorage.getInstance().deleteAllData();
+        result.success(null);
+    }
+
+    private void currentUrl(MethodChannel.Result result) {
+        result.success(this.webView.getUrl());
+    }
+
+    @TargetApi(19)
+    private void evaluateJavaScript(MethodCall methodCall, final MethodChannel.Result result) {
+        String str = (String) methodCall.arguments;
+        if (str != null) {
+            this.webView.evaluateJavascript(str, new ValueCallback<String>() { // from class: io.flutter.plugins.webviewflutter.FlutterWebView.2
+                /* JADX DEBUG: Method merged with bridge method */
+                @Override // android.webkit.ValueCallback
+                public void onReceiveValue(String str2) {
+                    result.success(str2);
+                }
+            });
+            return;
+        }
+        throw new UnsupportedOperationException("JavaScript string cannot be null");
+    }
+
+    private void getScrollX(MethodChannel.Result result) {
+        result.success(Integer.valueOf(this.webView.getScrollX()));
+    }
+
+    private void getScrollY(MethodChannel.Result result) {
+        result.success(Integer.valueOf(this.webView.getScrollY()));
+    }
+
+    private void getTitle(MethodChannel.Result result) {
+        result.success(this.webView.getTitle());
+    }
+
+    private void goBack(MethodChannel.Result result) {
+        if (this.webView.canGoBack()) {
+            this.webView.goBack();
+        }
+        result.success(null);
+    }
+
+    private void goForward(MethodChannel.Result result) {
+        if (this.webView.canGoForward()) {
+            this.webView.goForward();
+        }
+        result.success(null);
+    }
+
+    private void loadUrl(MethodCall methodCall, MethodChannel.Result result) {
+        Map map = (Map) methodCall.arguments;
+        String str = (String) map.get("url");
+        Map<String, String> map2 = (Map) map.get("headers");
+        if (map2 == null) {
+            map2 = Collections.emptyMap();
+        }
+        this.webView.loadUrl(str, map2);
+        result.success(null);
+    }
+
+    private void registerJavaScriptChannelNames(List<String> list) {
+        for (String str : list) {
+            this.webView.addJavascriptInterface(new JavaScriptChannel(this.methodChannel, str, this.platformThreadHandler), str);
+        }
+    }
+
+    private void reload(MethodChannel.Result result) {
+        this.webView.reload();
+        result.success(null);
+    }
+
+    private void removeJavaScriptChannels(MethodCall methodCall, MethodChannel.Result result) {
+        for (String str : (List) methodCall.arguments) {
+            this.webView.removeJavascriptInterface(str);
+        }
+        result.success(null);
+    }
+
+    private void scrollBy(MethodCall methodCall, MethodChannel.Result result) {
+        Map map = (Map) methodCall.arguments;
+        this.webView.scrollBy(((Integer) map.get("x")).intValue(), ((Integer) map.get("y")).intValue());
+        result.success(null);
+    }
+
+    private void scrollTo(MethodCall methodCall, MethodChannel.Result result) {
+        Map map = (Map) methodCall.arguments;
+        this.webView.scrollTo(((Integer) map.get("x")).intValue(), ((Integer) map.get("y")).intValue());
+        result.success(null);
+    }
+
+    private void updateAutoMediaPlaybackPolicy(int i) {
+        this.webView.getSettings().setMediaPlaybackRequiresUserGesture(i != 1);
+    }
+
+    private void updateJsMode(int i) {
+        if (i == 0) {
+            this.webView.getSettings().setJavaScriptEnabled(false);
+        } else if (i == 1) {
+            this.webView.getSettings().setJavaScriptEnabled(true);
+        } else {
+            throw new IllegalArgumentException("Trying to set unknown JavaScript mode: " + i);
+        }
+    }
+
+    private void updateSettings(MethodCall methodCall, MethodChannel.Result result) {
+        applySettings((Map) methodCall.arguments);
+        result.success(null);
+    }
+
+    private void updateUserAgent(String str) {
+        this.webView.getSettings().setUserAgentString(str);
+    }
+
+    @Override // io.flutter.plugin.platform.PlatformView
+    public void dispose() {
+        this.methodChannel.setMethodCallHandler(null);
+        this.webView.dispose();
+        this.webView.destroy();
+    }
+
     @Override // io.flutter.plugin.platform.PlatformView
     public View getView() {
         return this.webView;
-    }
-
-    @Override // io.flutter.plugin.platform.PlatformView
-    public void onInputConnectionUnlocked() {
-        this.webView.unlockInputConnection();
-    }
-
-    @Override // io.flutter.plugin.platform.PlatformView
-    public void onInputConnectionLocked() {
-        this.webView.lockInputConnection();
     }
 
     @Override // io.flutter.plugin.platform.PlatformView
@@ -85,115 +263,146 @@ public class FlutterWebView implements MethodChannel.MethodCallHandler, Platform
         this.webView.setContainerView(null);
     }
 
+    @Override // io.flutter.plugin.platform.PlatformView
+    public void onInputConnectionLocked() {
+        this.webView.lockInputConnection();
+    }
+
+    @Override // io.flutter.plugin.platform.PlatformView
+    public void onInputConnectionUnlocked() {
+        this.webView.unlockInputConnection();
+    }
+
+    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
     @Override // io.flutter.plugin.common.MethodChannel.MethodCallHandler
     public void onMethodCall(MethodCall methodCall, MethodChannel.Result result) {
+        char c2;
         String str = methodCall.method;
-        char c = 65535;
         switch (str.hashCode()) {
             case -1990164468:
                 if (str.equals("updateSettings")) {
-                    c = 1;
+                    c2 = 1;
                     break;
                 }
+                c2 = 65535;
                 break;
             case -1707388194:
                 if (str.equals("addJavascriptChannels")) {
-                    c = '\t';
+                    c2 = '\t';
                     break;
                 }
+                c2 = 65535;
                 break;
             case -1331417355:
                 if (str.equals("getScrollX")) {
-                    c = 15;
+                    c2 = 15;
                     break;
                 }
+                c2 = 65535;
                 break;
             case -1331417354:
                 if (str.equals("getScrollY")) {
-                    c = 16;
+                    c2 = 16;
                     break;
                 }
+                c2 = 65535;
                 break;
             case -1241591313:
                 if (str.equals("goBack")) {
-                    c = 4;
+                    c2 = 4;
                     break;
                 }
+                c2 = 65535;
                 break;
             case -1088982730:
                 if (str.equals("currentUrl")) {
-                    c = 7;
+                    c2 = 7;
                     break;
                 }
+                c2 = 65535;
                 break;
             case -1067273523:
                 if (str.equals("canGoForward")) {
-                    c = 3;
+                    c2 = 3;
                     break;
                 }
+                c2 = 65535;
                 break;
             case -934641255:
                 if (str.equals("reload")) {
-                    c = 6;
+                    c2 = 6;
                     break;
                 }
+                c2 = 65535;
                 break;
             case -759238347:
                 if (str.equals("clearCache")) {
-                    c = 11;
+                    c2 = 11;
                     break;
                 }
+                c2 = 65535;
                 break;
             case -402165756:
                 if (str.equals("scrollBy")) {
-                    c = 14;
+                    c2 = 14;
                     break;
                 }
+                c2 = 65535;
                 break;
             case -402165208:
                 if (str.equals("scrollTo")) {
-                    c = '\r';
+                    c2 = '\r';
                     break;
                 }
+                c2 = 65535;
                 break;
             case -318289731:
                 if (str.equals("goForward")) {
-                    c = 5;
+                    c2 = 5;
                     break;
                 }
+                c2 = 65535;
                 break;
             case -317054497:
                 if (str.equals("canGoBack")) {
-                    c = 2;
+                    c2 = 2;
                     break;
                 }
+                c2 = 65535;
                 break;
             case 336631465:
                 if (str.equals("loadUrl")) {
-                    c = 0;
+                    c2 = 0;
                     break;
                 }
+                c2 = 65535;
                 break;
             case 651673601:
                 if (str.equals("removeJavascriptChannels")) {
-                    c = '\n';
+                    c2 = '\n';
                     break;
                 }
+                c2 = 65535;
                 break;
             case 1937913574:
                 if (str.equals("evaluateJavascript")) {
-                    c = '\b';
+                    c2 = '\b';
                     break;
                 }
+                c2 = 65535;
                 break;
             case 1966196898:
                 if (str.equals("getTitle")) {
-                    c = '\f';
+                    c2 = '\f';
                     break;
                 }
+                c2 = 65535;
+                break;
+            default:
+                c2 = 65535;
                 break;
         }
-        switch (c) {
+        switch (c2) {
             case 0:
                 loadUrl(methodCall, result);
                 return;
@@ -249,201 +458,5 @@ public class FlutterWebView implements MethodChannel.MethodCallHandler, Platform
                 result.notImplemented();
                 return;
         }
-    }
-
-    private void loadUrl(MethodCall methodCall, MethodChannel.Result result) {
-        Map map = (Map) methodCall.arguments;
-        String str = (String) map.get("url");
-        Map<String, String> map2 = (Map) map.get("headers");
-        if (map2 == null) {
-            map2 = Collections.emptyMap();
-        }
-        this.webView.loadUrl(str, map2);
-        result.success(null);
-    }
-
-    private void canGoBack(MethodChannel.Result result) {
-        result.success(Boolean.valueOf(this.webView.canGoBack()));
-    }
-
-    private void canGoForward(MethodChannel.Result result) {
-        result.success(Boolean.valueOf(this.webView.canGoForward()));
-    }
-
-    private void goBack(MethodChannel.Result result) {
-        if (this.webView.canGoBack()) {
-            this.webView.goBack();
-        }
-        result.success(null);
-    }
-
-    private void goForward(MethodChannel.Result result) {
-        if (this.webView.canGoForward()) {
-            this.webView.goForward();
-        }
-        result.success(null);
-    }
-
-    private void reload(MethodChannel.Result result) {
-        this.webView.reload();
-        result.success(null);
-    }
-
-    private void currentUrl(MethodChannel.Result result) {
-        result.success(this.webView.getUrl());
-    }
-
-    private void updateSettings(MethodCall methodCall, MethodChannel.Result result) {
-        applySettings((Map) methodCall.arguments);
-        result.success(null);
-    }
-
-    @TargetApi(19)
-    private void evaluateJavaScript(MethodCall methodCall, final MethodChannel.Result result) {
-        String str = (String) methodCall.arguments;
-        if (str == null) {
-            throw new UnsupportedOperationException("JavaScript string cannot be null");
-        }
-        this.webView.evaluateJavascript(str, new ValueCallback<String>() { // from class: io.flutter.plugins.webviewflutter.FlutterWebView.2
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // android.webkit.ValueCallback
-            public void onReceiveValue(String str2) {
-                result.success(str2);
-            }
-        });
-    }
-
-    private void addJavaScriptChannels(MethodCall methodCall, MethodChannel.Result result) {
-        registerJavaScriptChannelNames((List) methodCall.arguments);
-        result.success(null);
-    }
-
-    private void removeJavaScriptChannels(MethodCall methodCall, MethodChannel.Result result) {
-        for (String str : (List) methodCall.arguments) {
-            this.webView.removeJavascriptInterface(str);
-        }
-        result.success(null);
-    }
-
-    private void clearCache(MethodChannel.Result result) {
-        this.webView.clearCache(true);
-        WebStorage.getInstance().deleteAllData();
-        result.success(null);
-    }
-
-    private void getTitle(MethodChannel.Result result) {
-        result.success(this.webView.getTitle());
-    }
-
-    private void scrollTo(MethodCall methodCall, MethodChannel.Result result) {
-        Map map = (Map) methodCall.arguments;
-        this.webView.scrollTo(((Integer) map.get(Config.EVENT_HEAT_X)).intValue(), ((Integer) map.get("y")).intValue());
-        result.success(null);
-    }
-
-    private void scrollBy(MethodCall methodCall, MethodChannel.Result result) {
-        Map map = (Map) methodCall.arguments;
-        this.webView.scrollBy(((Integer) map.get(Config.EVENT_HEAT_X)).intValue(), ((Integer) map.get("y")).intValue());
-        result.success(null);
-    }
-
-    private void getScrollX(MethodChannel.Result result) {
-        result.success(Integer.valueOf(this.webView.getScrollX()));
-    }
-
-    private void getScrollY(MethodChannel.Result result) {
-        result.success(Integer.valueOf(this.webView.getScrollY()));
-    }
-
-    private void applySettings(Map<String, Object> map) {
-        for (String str : map.keySet()) {
-            char c = 65535;
-            switch (str.hashCode()) {
-                case -1151668596:
-                    if (str.equals("jsMode")) {
-                        c = 0;
-                        break;
-                    }
-                    break;
-                case -1069908877:
-                    if (str.equals("debuggingEnabled")) {
-                        c = 2;
-                        break;
-                    }
-                    break;
-                case 311430650:
-                    if (str.equals("userAgent")) {
-                        c = 4;
-                        break;
-                    }
-                    break;
-                case 858297331:
-                    if (str.equals("hasNavigationDelegate")) {
-                        c = 1;
-                        break;
-                    }
-                    break;
-                case 1670862916:
-                    if (str.equals("gestureNavigationEnabled")) {
-                        c = 3;
-                        break;
-                    }
-                    break;
-            }
-            switch (c) {
-                case 0:
-                    updateJsMode(((Integer) map.get(str)).intValue());
-                    break;
-                case 1:
-                    this.webView.setWebViewClient(this.flutterWebViewClient.createWebViewClient(((Boolean) map.get(str)).booleanValue()));
-                    break;
-                case 2:
-                    boolean booleanValue = ((Boolean) map.get(str)).booleanValue();
-                    InputAwareWebView inputAwareWebView = this.webView;
-                    InputAwareWebView.setWebContentsDebuggingEnabled(booleanValue);
-                    break;
-                case 3:
-                    break;
-                case 4:
-                    updateUserAgent((String) map.get(str));
-                    break;
-                default:
-                    throw new IllegalArgumentException("Unknown WebView setting: " + str);
-            }
-        }
-    }
-
-    private void updateJsMode(int i) {
-        switch (i) {
-            case 0:
-                this.webView.getSettings().setJavaScriptEnabled(false);
-                return;
-            case 1:
-                this.webView.getSettings().setJavaScriptEnabled(true);
-                return;
-            default:
-                throw new IllegalArgumentException("Trying to set unknown JavaScript mode: " + i);
-        }
-    }
-
-    private void updateAutoMediaPlaybackPolicy(int i) {
-        this.webView.getSettings().setMediaPlaybackRequiresUserGesture(i != 1);
-    }
-
-    private void registerJavaScriptChannelNames(List<String> list) {
-        for (String str : list) {
-            this.webView.addJavascriptInterface(new JavaScriptChannel(this.methodChannel, str, this.platformThreadHandler), str);
-        }
-    }
-
-    private void updateUserAgent(String str) {
-        this.webView.getSettings().setUserAgentString(str);
-    }
-
-    @Override // io.flutter.plugin.platform.PlatformView
-    public void dispose() {
-        this.methodChannel.setMethodCallHandler(null);
-        this.webView.dispose();
-        this.webView.destroy();
     }
 }

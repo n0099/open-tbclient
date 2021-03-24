@@ -1,5 +1,5 @@
 package com.baidu.fsg.base.restnet.beans.business.core;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public final class PassUtil {
     public static final String NORMALIZE_URL = "normalize_url";
     public static final String PASS_ACCOUNT = "pass_account";
@@ -20,9 +20,6 @@ public final class PassUtil {
     public static final String PASS_USER_NAEME = "pass_user_name";
     public static final int TYPE_COMPLETED = 1;
     public static final int TYPE_VERIFY = 2;
-    private static long mCreateTime = 0;
-    private static Object object = new Object();
-
-    private PassUtil() {
-    }
+    public static long mCreateTime;
+    public static Object object = new Object();
 }

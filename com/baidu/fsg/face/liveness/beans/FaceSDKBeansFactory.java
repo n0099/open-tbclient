@@ -5,7 +5,7 @@ import com.baidu.fsg.base.NoProguard;
 import com.baidu.fsg.base.restnet.beans.ApollonBean;
 import com.baidu.fsg.base.restnet.beans.BeanManager;
 import com.baidu.fsg.base.restnet.beans.IBeanFactory;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public class FaceSDKBeansFactory implements NoProguard, IBeanFactory {
     public static final int CONFIG_URL = 4;
     public static final int FACE_DETECT_BEAN = 8;
@@ -21,64 +21,68 @@ public class FaceSDKBeansFactory implements NoProguard, IBeanFactory {
     public static final int VIDEO_UPLOAD_BEAN = 11;
 
     /* renamed from: a  reason: collision with root package name */
-    private static FaceSDKBeansFactory f1749a;
-
-    private FaceSDKBeansFactory() {
-    }
+    public static FaceSDKBeansFactory f5877a;
 
     public static FaceSDKBeansFactory getInstance() {
-        if (f1749a == null) {
-            f1749a = new FaceSDKBeansFactory();
+        if (f5877a == null) {
+            f5877a = new FaceSDKBeansFactory();
         }
-        return f1749a;
+        return f5877a;
     }
 
+    /* JADX WARN: Removed duplicated region for block: B:21:0x004f  */
     @Override // com.baidu.fsg.base.restnet.beans.IBeanFactory
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     public ApollonBean getBean(Context context, int i, String str) {
-        ApollonBean dVar;
-        switch (i) {
-            case 1:
-                dVar = new i(context);
-                break;
-            case 2:
-                dVar = new g(context);
-                break;
-            case 3:
-            case 4:
-            default:
-                dVar = null;
-                break;
-            case 5:
-                dVar = new j(context);
-                break;
-            case 6:
-                dVar = new h(context);
-                break;
-            case 7:
-                dVar = new m(context);
-                break;
-            case 8:
-                dVar = new e(context);
-                break;
-            case 9:
-                dVar = new o(context);
-                break;
-            case 10:
-                dVar = new n(context);
-                break;
-            case 11:
-                dVar = new a(context);
-                break;
-            case 12:
-                dVar = new k(context);
-                break;
-            case 13:
-                dVar = new d(context);
-                break;
+        ApollonBean iVar;
+        ApollonBean apollonBean;
+        if (i == 1) {
+            iVar = new i(context);
+        } else if (i != 2) {
+            switch (i) {
+                case 5:
+                    iVar = new j(context);
+                    break;
+                case 6:
+                    iVar = new h(context);
+                    break;
+                case 7:
+                    iVar = new m(context);
+                    break;
+                case 8:
+                    iVar = new e(context);
+                    break;
+                case 9:
+                    iVar = new o(context);
+                    break;
+                case 10:
+                    iVar = new n(context);
+                    break;
+                case 11:
+                    iVar = new a(context);
+                    break;
+                case 12:
+                    iVar = new k(context);
+                    break;
+                case 13:
+                    iVar = new d(context);
+                    break;
+                default:
+                    apollonBean = null;
+                    break;
+            }
+            if (apollonBean != null) {
+                BeanManager.getInstance().addBean(str, apollonBean);
+            }
+            return apollonBean;
+        } else {
+            iVar = new g(context);
         }
-        if (dVar != null) {
-            BeanManager.getInstance().addBean(str, dVar);
+        apollonBean = iVar;
+        if (apollonBean != null) {
         }
-        return dVar;
+        return apollonBean;
     }
 }

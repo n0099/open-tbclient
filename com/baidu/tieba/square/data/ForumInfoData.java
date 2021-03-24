@@ -3,9 +3,9 @@ package com.baidu.tieba.square.data;
 import com.baidu.tbadk.core.util.AbstractImageProvider;
 import java.io.Serializable;
 import java.util.ArrayList;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class ForumInfoData extends AbstractImageProvider implements Serializable {
-    private static final long serialVersionUID = 1;
+    public static final long serialVersionUID = 1;
     public String forum_name = "";
     public int forum_id = 0;
     public String avatar = "";
@@ -15,7 +15,7 @@ public class ForumInfoData extends AbstractImageProvider implements Serializable
     public int is_like = 0;
     public int mbr_inter_rank = 0;
 
-    @Override // com.baidu.tbadk.core.util.AbstractImageProvider
+    @Override // com.baidu.tbadk.core.util.AbstractImageProvider, com.baidu.tbadk.core.util.ImageProvider
     public ArrayList<String> getForumPhotoUrl() {
         ArrayList<String> arrayList = new ArrayList<>();
         arrayList.add(this.avatar);

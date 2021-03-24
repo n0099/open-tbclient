@@ -9,16 +9,102 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import androidx.core.view.MotionEventCompat;
 import androidx.customview.widget.ViewDragHelper;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class EmotionEditLayout extends FrameLayout {
-    private float iUE;
-    private ViewDragHelper mDragHelper;
-    private float mtr;
-    private float mts;
-    private long mtt;
+
+    /* renamed from: e  reason: collision with root package name */
+    public ViewDragHelper f20200e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public float f20201f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public float f20202g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public float f20203h;
+    public long i;
+
+    /* loaded from: classes5.dex */
+    public class a extends ViewDragHelper.Callback {
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ EmotionEditText f20204a;
+
+        public a(EmotionEditText emotionEditText) {
+            this.f20204a = emotionEditText;
+        }
+
+        @Override // androidx.customview.widget.ViewDragHelper.Callback
+        public int clampViewPositionHorizontal(View view, int i, int i2) {
+            return Math.min(Math.max(i, EmotionEditLayout.this.getPaddingLeft()), EmotionEditLayout.this.getWidth() - this.f20204a.getWidth());
+        }
+
+        @Override // androidx.customview.widget.ViewDragHelper.Callback
+        public int clampViewPositionVertical(View view, int i, int i2) {
+            return Math.min(Math.max(i, EmotionEditLayout.this.getPaddingTop()), EmotionEditLayout.this.getHeight() - this.f20204a.getHeight());
+        }
+
+        @Override // androidx.customview.widget.ViewDragHelper.Callback
+        public void onViewCaptured(View view, int i) {
+            super.onViewCaptured(view, i);
+            if (view instanceof EmotionEditText) {
+                EmotionEditLayout.this.i = System.currentTimeMillis();
+                EmotionEditLayout.this.f20202g = view.getX();
+                EmotionEditLayout.this.f20203h = view.getY();
+                this.f20204a.m();
+            }
+        }
+
+        @Override // androidx.customview.widget.ViewDragHelper.Callback
+        public void onViewReleased(View view, float f2, float f3) {
+            super.onViewReleased(view, f2, f3);
+            if (view instanceof EmotionEditText) {
+                float x = view.getX();
+                float y = view.getY();
+                float abs = Math.abs(x - EmotionEditLayout.this.f20202g);
+                float abs2 = Math.abs(y - EmotionEditLayout.this.f20203h);
+                if (abs < EmotionEditLayout.this.f20201f && abs2 < EmotionEditLayout.this.f20201f && System.currentTimeMillis() - EmotionEditLayout.this.i < 300) {
+                    this.f20204a.u();
+                }
+                FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
+                layoutParams.setMargins(view.getLeft(), view.getTop(), 0, 0);
+                this.f20204a.setLayoutParams(layoutParams);
+            }
+        }
+
+        @Override // androidx.customview.widget.ViewDragHelper.Callback
+        public boolean tryCaptureView(View view, int i) {
+            boolean z = view == this.f20204a;
+            if (view instanceof ImageView) {
+                this.f20204a.m();
+            }
+            return z;
+        }
+    }
 
     public EmotionEditLayout(Context context) {
         this(context, null);
+    }
+
+    public void h(EmotionEditText emotionEditText) {
+        this.f20200e = ViewDragHelper.create(this, 1.0f, new a(emotionEditText));
+    }
+
+    @Override // android.view.ViewGroup
+    public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
+        int actionMasked = MotionEventCompat.getActionMasked(motionEvent);
+        if (actionMasked != 3 && actionMasked != 1) {
+            return this.f20200e.shouldInterceptTouchEvent(motionEvent);
+        }
+        this.f20200e.cancel();
+        return false;
+    }
+
+    @Override // android.view.View
+    public boolean onTouchEvent(MotionEvent motionEvent) {
+        this.f20200e.processTouchEvent(motionEvent);
+        return true;
     }
 
     public EmotionEditLayout(Context context, AttributeSet attributeSet) {
@@ -27,73 +113,6 @@ public class EmotionEditLayout extends FrameLayout {
 
     public EmotionEditLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.iUE = ViewConfiguration.get(getContext()).getScaledTouchSlop();
-    }
-
-    public void a(final EmotionEditText emotionEditText) {
-        this.mDragHelper = ViewDragHelper.create(this, 1.0f, new ViewDragHelper.Callback() { // from class: com.baidu.tieba.pbextra.emotion.view.EmotionEditLayout.1
-            @Override // androidx.customview.widget.ViewDragHelper.Callback
-            public boolean tryCaptureView(View view, int i) {
-                boolean z = view == emotionEditText;
-                if (view instanceof ImageView) {
-                    emotionEditText.dwr();
-                }
-                return z;
-            }
-
-            @Override // androidx.customview.widget.ViewDragHelper.Callback
-            public int clampViewPositionHorizontal(View view, int i, int i2) {
-                return Math.min(Math.max(i, EmotionEditLayout.this.getPaddingLeft()), EmotionEditLayout.this.getWidth() - emotionEditText.getWidth());
-            }
-
-            @Override // androidx.customview.widget.ViewDragHelper.Callback
-            public int clampViewPositionVertical(View view, int i, int i2) {
-                return Math.min(Math.max(i, EmotionEditLayout.this.getPaddingTop()), EmotionEditLayout.this.getHeight() - emotionEditText.getHeight());
-            }
-
-            @Override // androidx.customview.widget.ViewDragHelper.Callback
-            public void onViewCaptured(View view, int i) {
-                super.onViewCaptured(view, i);
-                if (view instanceof EmotionEditText) {
-                    EmotionEditLayout.this.mtt = System.currentTimeMillis();
-                    EmotionEditLayout.this.mtr = view.getX();
-                    EmotionEditLayout.this.mts = view.getY();
-                    emotionEditText.dwr();
-                }
-            }
-
-            @Override // androidx.customview.widget.ViewDragHelper.Callback
-            public void onViewReleased(View view, float f, float f2) {
-                super.onViewReleased(view, f, f2);
-                if (view instanceof EmotionEditText) {
-                    float x = view.getX();
-                    float y = view.getY();
-                    float abs = Math.abs(x - EmotionEditLayout.this.mtr);
-                    float abs2 = Math.abs(y - EmotionEditLayout.this.mts);
-                    if (abs < EmotionEditLayout.this.iUE && abs2 < EmotionEditLayout.this.iUE && System.currentTimeMillis() - EmotionEditLayout.this.mtt < 300) {
-                        emotionEditText.dws();
-                    }
-                    FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
-                    layoutParams.setMargins(view.getLeft(), view.getTop(), 0, 0);
-                    emotionEditText.setLayoutParams(layoutParams);
-                }
-            }
-        });
-    }
-
-    @Override // android.view.ViewGroup
-    public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        int actionMasked = MotionEventCompat.getActionMasked(motionEvent);
-        if (actionMasked == 3 || actionMasked == 1) {
-            this.mDragHelper.cancel();
-            return false;
-        }
-        return this.mDragHelper.shouldInterceptTouchEvent(motionEvent);
-    }
-
-    @Override // android.view.View
-    public boolean onTouchEvent(MotionEvent motionEvent) {
-        this.mDragHelper.processTouchEvent(motionEvent);
-        return true;
+        this.f20201f = ViewConfiguration.get(getContext()).getScaledTouchSlop();
     }
 }

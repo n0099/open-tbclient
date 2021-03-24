@@ -4,19 +4,18 @@ import android.graphics.drawable.Drawable;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.bumptech.glide.load.engine.Resource;
-/* loaded from: classes14.dex */
-final class NonOwnedDrawableResource extends DrawableResource<Drawable> {
-    /* JADX INFO: Access modifiers changed from: package-private */
+/* loaded from: classes5.dex */
+public final class NonOwnedDrawableResource extends DrawableResource<Drawable> {
+    public NonOwnedDrawableResource(Drawable drawable) {
+        super(drawable);
+    }
+
     @Nullable
     public static Resource<Drawable> newInstance(@Nullable Drawable drawable) {
         if (drawable != null) {
             return new NonOwnedDrawableResource(drawable);
         }
         return null;
-    }
-
-    private NonOwnedDrawableResource(Drawable drawable) {
-        super(drawable);
     }
 
     /* JADX DEBUG: Type inference failed for r0v1. Raw type applied. Possible types: java.lang.Class<?>, java.lang.Class<android.graphics.drawable.Drawable> */

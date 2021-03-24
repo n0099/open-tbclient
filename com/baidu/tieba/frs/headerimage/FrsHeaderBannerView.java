@@ -8,91 +8,102 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.util.bf;
+import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-/* loaded from: classes2.dex */
+import d.b.b.e.p.l;
+/* loaded from: classes4.dex */
 public class FrsHeaderBannerView extends LinearLayout implements View.OnClickListener {
-    private TbImageView jFP;
-    private TextView jFQ;
-    private View jFR;
-    private View jFS;
-    private String jFT;
-    private TbPageContext mPageContext;
-    private TextView titleText;
+
+    /* renamed from: e  reason: collision with root package name */
+    public TbImageView f16528e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public TextView f16529f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public TextView f16530g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public View f16531h;
+    public View i;
+    public String j;
+    public TbPageContext k;
 
     public FrsHeaderBannerView(Context context) {
         super(context);
-        init();
+        a();
     }
 
-    public FrsHeaderBannerView(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        init();
-    }
-
-    public FrsHeaderBannerView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        init();
-    }
-
-    public void init() {
-        View inflate = LayoutInflater.from(getContext()).inflate(R.layout.frs_header_banner, (ViewGroup) this, true);
-        this.jFR = inflate.findViewById(R.id.frs_header_title_container);
-        this.jFP = (TbImageView) inflate.findViewById(R.id.frs_head_image);
-        this.titleText = (TextView) inflate.findViewById(R.id.frs_header_title);
-        this.jFQ = (TextView) inflate.findViewById(R.id.frs_header_title_lable);
-        this.jFS = inflate.findViewById(R.id.frs_image_header_contianer);
-        this.jFP.setOnClickListener(this);
-        this.jFR.setOnClickListener(this);
-        this.jFS.setOnClickListener(this);
-        this.jFP.setDefaultResource(0);
-        this.jFP.setRadius(l.getDimens(getContext(), R.dimen.tbds20));
-        this.jFP.setConrers(15);
-        this.jFP.setPlaceHolder(2);
-        this.jFQ.setText(getContext().getString(R.string.frs_header_image_lable));
-        this.mPageContext = getTbPageContext();
-    }
-
-    public void setTitle(String str) {
-        if (this.titleText != null && this.jFQ != null) {
-            if (!TextUtils.isEmpty(str)) {
-                this.titleText.setText(str);
-                this.jFQ.setVisibility(0);
-                this.titleText.setVisibility(0);
-                return;
-            }
-            this.jFQ.setVisibility(8);
-            this.titleText.setVisibility(8);
+    private TbPageContext getTbPageContext() {
+        TbPageContext tbPageContext = this.k;
+        if (tbPageContext != null) {
+            return tbPageContext;
         }
+        Context context = getContext();
+        if (context instanceof BaseActivity) {
+            this.k = ((BaseActivity) context).getPageContext();
+        } else if (context instanceof BaseFragmentActivity) {
+            this.k = ((BaseFragmentActivity) context).getPageContext();
+        }
+        return this.k;
     }
 
-    public void setSchemaUrl(String str) {
-        this.jFT = str;
+    public void a() {
+        View inflate = LayoutInflater.from(getContext()).inflate(R.layout.frs_header_banner, (ViewGroup) this, true);
+        this.f16531h = inflate.findViewById(R.id.frs_header_title_container);
+        this.f16528e = (TbImageView) inflate.findViewById(R.id.frs_head_image);
+        this.f16529f = (TextView) inflate.findViewById(R.id.frs_header_title);
+        this.f16530g = (TextView) inflate.findViewById(R.id.frs_header_title_lable);
+        this.i = inflate.findViewById(R.id.frs_image_header_contianer);
+        this.f16528e.setOnClickListener(this);
+        this.f16531h.setOnClickListener(this);
+        this.i.setOnClickListener(this);
+        this.f16528e.setDefaultResource(0);
+        this.f16528e.setRadius(l.g(getContext(), R.dimen.tbds20));
+        this.f16528e.setConrers(15);
+        this.f16528e.setPlaceHolder(2);
+        this.f16530g.setText(getContext().getString(R.string.frs_header_image_lable));
+        this.k = getTbPageContext();
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         TbPageContext<?> tbPageContext = getTbPageContext();
-        if (!TextUtils.isEmpty(this.jFT) && tbPageContext != null) {
-            bf.bsY().a(tbPageContext, new String[]{this.jFT}, true);
+        if (TextUtils.isEmpty(this.j) || tbPageContext == null) {
+            return;
         }
+        UrlManager.getInstance().dealOneLink(tbPageContext, new String[]{this.j}, true);
     }
 
-    private TbPageContext getTbPageContext() {
-        if (this.mPageContext != null) {
-            return this.mPageContext;
+    public void setSchemaUrl(String str) {
+        this.j = str;
+    }
+
+    public void setTitle(String str) {
+        if (this.f16529f == null || this.f16530g == null) {
+            return;
         }
-        Context context = getContext();
-        if (context instanceof BaseActivity) {
-            this.mPageContext = ((BaseActivity) context).getPageContext();
-        } else if (context instanceof BaseFragmentActivity) {
-            this.mPageContext = ((BaseFragmentActivity) context).getPageContext();
+        if (!TextUtils.isEmpty(str)) {
+            this.f16529f.setText(str);
+            this.f16530g.setVisibility(0);
+            this.f16529f.setVisibility(0);
+            return;
         }
-        return this.mPageContext;
+        this.f16530g.setVisibility(8);
+        this.f16529f.setVisibility(8);
+    }
+
+    public FrsHeaderBannerView(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        a();
+    }
+
+    public FrsHeaderBannerView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        a();
     }
 }

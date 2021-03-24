@@ -3,27 +3,34 @@ package com.tencent.mm.opensdk.modelmsg;
 import android.os.Bundle;
 import com.tencent.mm.opensdk.modelmsg.WXMediaMessage;
 import com.tencent.mm.opensdk.utils.Log;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class WXVideoObject implements WXMediaMessage.IMediaObject {
-    private static final int LENGTH_LIMIT = 10240;
-    private static final String TAG = "MicroMsg.SDK.WXVideoObject";
+    public static final int LENGTH_LIMIT = 10240;
+    public static final String TAG = "MicroMsg.SDK.WXVideoObject";
     public String videoLowBandUrl;
     public String videoUrl;
 
     @Override // com.tencent.mm.opensdk.modelmsg.WXMediaMessage.IMediaObject
     public boolean checkArgs() {
-        if ((this.videoUrl == null || this.videoUrl.length() == 0) && (this.videoLowBandUrl == null || this.videoLowBandUrl.length() == 0)) {
-            Log.e(TAG, "both arguments are null");
-            return false;
-        } else if (this.videoUrl != null && this.videoUrl.length() > LENGTH_LIMIT) {
-            Log.e(TAG, "checkArgs fail, videoUrl is too long");
-            return false;
-        } else if (this.videoLowBandUrl == null || this.videoLowBandUrl.length() <= LENGTH_LIMIT) {
-            return true;
+        String str;
+        String str2;
+        String str3 = this.videoUrl;
+        if ((str3 == null || str3.length() == 0) && ((str = this.videoLowBandUrl) == null || str.length() == 0)) {
+            str2 = "both arguments are null";
         } else {
-            Log.e(TAG, "checkArgs fail, videoLowBandUrl is too long");
-            return false;
+            String str4 = this.videoUrl;
+            if (str4 == null || str4.length() <= 10240) {
+                String str5 = this.videoLowBandUrl;
+                if (str5 == null || str5.length() <= 10240) {
+                    return true;
+                }
+                str2 = "checkArgs fail, videoLowBandUrl is too long";
+            } else {
+                str2 = "checkArgs fail, videoUrl is too long";
+            }
         }
+        Log.e("MicroMsg.SDK.WXVideoObject", str2);
+        return false;
     }
 
     @Override // com.tencent.mm.opensdk.modelmsg.WXMediaMessage.IMediaObject

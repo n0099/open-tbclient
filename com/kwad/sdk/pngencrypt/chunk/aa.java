@@ -1,7 +1,6 @@
 package com.kwad.sdk.pngencrypt.chunk;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public abstract class aa extends PngChunk {
-    /* JADX INFO: Access modifiers changed from: protected */
     public aa(String str, com.kwad.sdk.pngencrypt.k kVar) {
         super(str, kVar);
     }
@@ -11,13 +10,22 @@ public abstract class aa extends PngChunk {
             return true;
         }
         if (obj != null && getClass() == obj.getClass()) {
-            aa aaVar = (aa) obj;
-            return this.f6917a == null ? aaVar.f6917a == null : this.f6917a.equals(aaVar.f6917a);
+            String str = this.f36119a;
+            String str2 = ((aa) obj).f36119a;
+            if (str == null) {
+                if (str2 != null) {
+                    return false;
+                }
+            } else if (!str.equals(str2)) {
+                return false;
+            }
+            return true;
         }
         return false;
     }
 
     public int hashCode() {
-        return (this.f6917a == null ? 0 : this.f6917a.hashCode()) + 31;
+        String str = this.f36119a;
+        return 31 + (str == null ? 0 : str.hashCode());
     }
 }

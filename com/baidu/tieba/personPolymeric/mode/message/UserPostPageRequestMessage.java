@@ -3,136 +3,136 @@ package com.baidu.tieba.personPolymeric.mode.message;
 import UserPost.DataReq;
 import UserPost.UserPostReqIdl;
 import com.baidu.adp.framework.message.NetMessage;
-import com.baidu.adp.lib.f.b;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
-import com.baidu.tbadk.util.v;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.personPolymeric.mode.PersonPostModel;
 import com.squareup.wire.Message;
+import d.b.b.e.m.b;
+import d.b.h0.z0.w;
 import tbclient.User;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class UserPostPageRequestMessage extends NetMessage {
-    private int from;
-    private boolean isHost;
-    private boolean isReset;
-    private boolean isThread;
-    private int is_view_card;
-    private PersonPostModel.a mCallback;
-    private boolean needContent;
-    private int pn;
-    private int q_type;
-    private int rn;
-    private double scr_dip;
-    private int scr_h;
-    private int scr_w;
-    private int sub_type;
-    private User threadUser;
-    private String uid;
+    public int from;
+    public boolean isHost;
+    public boolean isReset;
+    public boolean isThread;
+    public int is_view_card;
+    public PersonPostModel.c mCallback;
+    public boolean needContent;
+    public int pn;
+    public int q_type;
+    public int rn;
+    public double scr_dip;
+    public int scr_h;
+    public int scr_w;
+    public int sub_type;
+    public User threadUser;
+    public String uid;
 
     public UserPostPageRequestMessage() {
-        super(1001503, CmdConfigSocket.CMD_USER_POST_PAGE);
+        super(CmdConfigHttp.USER_POST_HTTP_CMD, 303002);
     }
 
-    public boolean isHost() {
-        return this.isHost;
-    }
-
-    public void setHost(boolean z) {
-        this.isHost = z;
+    public PersonPostModel.c getCallback() {
+        return this.mCallback;
     }
 
     public int getFrom() {
         return this.from;
     }
 
-    public void setFrom(int i) {
-        this.from = i;
-    }
-
-    public PersonPostModel.a getCallback() {
-        return this.mCallback;
-    }
-
-    public void setCallback(PersonPostModel.a aVar) {
-        this.mCallback = aVar;
-    }
-
-    public boolean isThread() {
-        return this.isThread;
-    }
-
-    public void setThread(boolean z) {
-        this.isThread = z;
-    }
-
-    public boolean isReset() {
-        return this.isReset;
-    }
-
-    public void setReset(boolean z) {
-        this.isReset = z;
-    }
-
-    public String getUid() {
-        return this.uid;
-    }
-
-    public void setUid(String str) {
-        this.uid = str;
-    }
-
     public int getPn() {
         return this.pn;
-    }
-
-    public void setPn(int i) {
-        this.pn = i;
-    }
-
-    public void setRn(int i) {
-        this.rn = i;
-    }
-
-    public void setNeedContent(boolean z) {
-        this.needContent = z;
-    }
-
-    public void set_scr_w(int i) {
-        this.scr_w = i;
-    }
-
-    public void set_scr_h(int i) {
-        this.scr_h = i;
-    }
-
-    public void set_scr_dip(double d) {
-        this.scr_dip = d;
-    }
-
-    public void set_q_type(int i) {
-        this.q_type = i;
-    }
-
-    public void set_sub_type(int i) {
-        this.sub_type = i;
-    }
-
-    public void set_is_view_card(int i) {
-        this.is_view_card = i;
-    }
-
-    public void setThreadUser(User user) {
-        this.threadUser = user;
     }
 
     public User getThreadUser() {
         return this.threadUser;
     }
 
+    public String getUid() {
+        return this.uid;
+    }
+
+    public boolean isHost() {
+        return this.isHost;
+    }
+
+    public boolean isReset() {
+        return this.isReset;
+    }
+
+    public boolean isThread() {
+        return this.isThread;
+    }
+
+    public void setCallback(PersonPostModel.c cVar) {
+        this.mCallback = cVar;
+    }
+
+    public void setFrom(int i) {
+        this.from = i;
+    }
+
+    public void setHost(boolean z) {
+        this.isHost = z;
+    }
+
+    public void setNeedContent(boolean z) {
+        this.needContent = z;
+    }
+
+    public void setPn(int i) {
+        this.pn = i;
+    }
+
+    public void setReset(boolean z) {
+        this.isReset = z;
+    }
+
+    public void setRn(int i) {
+        this.rn = i;
+    }
+
+    public void setThread(boolean z) {
+        this.isThread = z;
+    }
+
+    public void setThreadUser(User user) {
+        this.threadUser = user;
+    }
+
+    public void setUid(String str) {
+        this.uid = str;
+    }
+
+    public void set_is_view_card(int i) {
+        this.is_view_card = i;
+    }
+
+    public void set_q_type(int i) {
+        this.q_type = i;
+    }
+
+    public void set_scr_dip(double d2) {
+        this.scr_dip = d2;
+    }
+
+    public void set_scr_h(int i) {
+        this.scr_h = i;
+    }
+
+    public void set_scr_w(int i) {
+        this.scr_w = i;
+    }
+
+    public void set_sub_type(int i) {
+        this.sub_type = i;
+    }
+
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.NetMessage
     public Message encode(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
-        builder.uid = Long.valueOf(b.toLong(this.uid, 0L));
+        builder.uid = Long.valueOf(b.f(this.uid, 0L));
         builder.pn = Integer.valueOf(this.pn);
         builder.rn = Integer.valueOf(this.rn);
         builder.is_thread = Integer.valueOf(this.isThread ? 1 : 0);
@@ -144,7 +144,7 @@ public class UserPostPageRequestMessage extends NetMessage {
         builder.subtype = Integer.valueOf(this.sub_type);
         builder.is_view_card = Integer.valueOf(this.is_view_card);
         if (z) {
-            v.b(builder, true);
+            w.a(builder, true);
         }
         UserPostReqIdl.Builder builder2 = new UserPostReqIdl.Builder();
         builder2.data = builder.build(false);

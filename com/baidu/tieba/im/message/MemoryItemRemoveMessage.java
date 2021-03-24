@@ -1,17 +1,20 @@
 package com.baidu.tieba.im.message;
 
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class MemoryItemRemoveMessage extends CustomResponsedMessage<a> {
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public static class a {
-        public int customGroupType;
-        public String id;
+
+        /* renamed from: a  reason: collision with root package name */
+        public int f18047a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public String f18048b;
     }
 
     public MemoryItemRemoveMessage(a aVar) {
-        super(CmdConfigCustom.MEMORY_REMOVE_ITEM, aVar);
+        super(2016015, aVar);
     }
 }

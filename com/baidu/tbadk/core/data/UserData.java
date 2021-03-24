@@ -2,40 +2,38 @@ package com.baidu.tbadk.core.data;
 
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.util.ImageInfo;
+import com.baidu.tbadk.core.util.ImageProvider;
 import com.baidu.tbadk.core.util.PreLoadImageInfo;
+import com.baidu.tbadk.core.util.PreLoadImageProvider;
 import com.baidu.tbadk.core.view.TbCheckBox;
 import com.baidu.tbadk.data.IconData;
 import java.util.ArrayList;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
-public class UserData extends com.baidu.tbadk.data.UserData implements com.baidu.tbadk.core.util.ah, com.baidu.tbadk.core.util.w, TbCheckBox.b {
+/* loaded from: classes3.dex */
+public class UserData extends com.baidu.tbadk.data.UserData implements TbCheckBox.c, ImageProvider, PreLoadImageProvider {
     public static final int TYPE_COMMON_ATTENTION = 1;
     public static final int TYPE_NORMAL_USER = 0;
     public static final int TYPE_OHTER_ATTENTION = 2;
     public static final int TYPE_OTHER_TITLE = 0;
     public static final String TYPE_USER = "type_user";
     public static final String TYPE_USER_NICKNAME_LEFT_DAYS = "type_user_nickname_left_days";
-    private static final long serialVersionUID = -2636990595209169859L;
+    public static final long serialVersionUID = -2636990595209169859L;
     public boolean isLastNewFan;
     public boolean isNewFan;
     public int mAttentionType;
-    private boolean mIsChecked;
+    public boolean mIsChecked;
 
     public UserData() {
         this.mIsChecked = false;
         this.mAttentionType = 2;
     }
 
-    public UserData(long j, String str, String str2, int i) {
-        super(j, str, str2, i);
-        this.mIsChecked = false;
-        this.mAttentionType = 2;
+    @Override // com.baidu.tbadk.core.util.ImageProvider
+    public ArrayList<String> getForumPhotoUrl() {
+        return null;
     }
 
-    public boolean isSupportImageSize() {
-        return false;
-    }
-
+    @Override // com.baidu.tbadk.core.util.ImageProvider
     public ArrayList<String> getImageUrl() {
         ArrayList<IconData> iconInfo = getIconInfo();
         ArrayList<IconData> tShowInfoNew = getTShowInfoNew();
@@ -52,31 +50,7 @@ public class UserData extends com.baidu.tbadk.data.UserData implements com.baidu
         return arrayList;
     }
 
-    public ArrayList<ImageInfo> getImagesWithEmotions() {
-        return null;
-    }
-
-    public ArrayList<String> getPhotoUrl() {
-        ArrayList<String> arrayList = new ArrayList<>();
-        arrayList.add(getPortrait());
-        return arrayList;
-    }
-
-    public ArrayList<String> getForumPhotoUrl() {
-        return null;
-    }
-
-    @Override // com.baidu.tbadk.core.view.TbCheckBox.b
-    public boolean isChecked() {
-        return this.mIsChecked;
-    }
-
-    @Override // com.baidu.tbadk.core.view.TbCheckBox.b
-    public void setChecked(boolean z) {
-        this.mIsChecked = z;
-    }
-
-    @Override // com.baidu.tbadk.core.util.ah
+    @Override // com.baidu.tbadk.core.util.PreLoadImageProvider
     public ArrayList<PreLoadImageInfo> getImages() {
         ArrayList<PreLoadImageInfo> arrayList = new ArrayList<>();
         PreLoadImageInfo preLoadImageInfo = new PreLoadImageInfo();
@@ -86,21 +60,59 @@ public class UserData extends com.baidu.tbadk.data.UserData implements com.baidu
         return arrayList;
     }
 
+    @Override // com.baidu.tbadk.core.util.ImageProvider
+    public ArrayList<ImageInfo> getImagesWithEmotions() {
+        return null;
+    }
+
+    @Override // com.baidu.tbadk.core.util.ImageProvider
+    public ArrayList<String> getPhotoUrl() {
+        ArrayList<String> arrayList = new ArrayList<>();
+        arrayList.add(getPortrait());
+        return arrayList;
+    }
+
+    @Override // com.baidu.tbadk.core.view.TbCheckBox.c
+    public boolean isChecked() {
+        return this.mIsChecked;
+    }
+
+    @Override // com.baidu.tbadk.core.util.ImageProvider
+    public boolean isSupportImageSize() {
+        return false;
+    }
+
     @Override // com.baidu.tbadk.data.UserData, com.baidu.tbadk.data.MetaData
     public void parserJson(JSONObject jSONObject) {
         super.parserJson(jSONObject);
         try {
-            this.isNewFan = jSONObject.optInt("is_new") == 1;
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
+            boolean z = true;
+            if (jSONObject.optInt("is_new") != 1) {
+                z = false;
+            }
+            this.isNewFan = z;
+        } catch (Exception e2) {
+            BdLog.e(e2.getMessage());
         }
     }
 
-    @Override // com.baidu.tbadk.data.MetaData, com.baidu.tbadk.core.view.userLike.a
+    @Override // com.baidu.tbadk.core.view.TbCheckBox.c
+    public void setChecked(boolean z) {
+        this.mIsChecked = z;
+    }
+
+    @Override // com.baidu.tbadk.data.MetaData, d.b.h0.r.f0.q.a
     public void setIsLike(boolean z) {
         super.setIsLike(z);
-        if (!z) {
-            setHave_attention(0);
+        if (z) {
+            return;
         }
+        setHave_attention(0);
+    }
+
+    public UserData(long j, String str, String str2, int i) {
+        super(j, str, str2, i);
+        this.mIsChecked = false;
+        this.mAttentionType = 2;
     }
 }

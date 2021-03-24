@@ -4,12 +4,21 @@ import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tieba.payment.data.PayResultData;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes4.dex */
 public class ResponsePaymentPayMessage extends JsonHttpResponsedMessage {
-    private PayResultData payResultData;
+    public PayResultData payResultData;
 
     public ResponsePaymentPayMessage(int i) {
         super(i);
+    }
+
+    @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
+    public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
+        JSONObject optJSONObject;
+        if (getStatusCode() != 200 || jSONObject == null || (optJSONObject = jSONObject.optJSONObject("data")) == null) {
+            return;
+        }
+        this.payResultData = (PayResultData) OrmObject.objectWithJson(optJSONObject, PayResultData.class);
     }
 
     public PayResultData getPayRequestDataData() {
@@ -18,13 +27,5 @@ public class ResponsePaymentPayMessage extends JsonHttpResponsedMessage {
 
     public void setPayRequestData(PayResultData payResultData) {
         this.payResultData = payResultData;
-    }
-
-    @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
-    public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
-        JSONObject optJSONObject;
-        if (getStatusCode() == 200 && jSONObject != null && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
-            this.payResultData = (PayResultData) OrmObject.objectWithJson(optJSONObject, PayResultData.class);
-        }
     }
 }

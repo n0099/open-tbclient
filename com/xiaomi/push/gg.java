@@ -2,179 +2,217 @@ package com.xiaomi.push;
 
 import android.os.Bundle;
 import android.os.Parcelable;
-import android.text.TextUtils;
+import com.baidu.tbadk.core.data.SmallTailInfo;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
-import java.util.Set;
-/* loaded from: classes5.dex */
-public class gg implements gk {
+/* loaded from: classes7.dex */
+public class gg {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f8384a;
+    public int f40579a;
 
     /* renamed from: a  reason: collision with other field name */
-    private List<gg> f387a;
+    public String f432a;
 
     /* renamed from: a  reason: collision with other field name */
-    private String[] f388a;
-    private String b;
+    public List<fz> f433a;
 
-    /* renamed from: b  reason: collision with other field name */
-    private String[] f389b;
-    private String c;
+    /* renamed from: b  reason: collision with root package name */
+    public String f40580b;
 
-    public gg(String str, String str2, String[] strArr, String[] strArr2) {
-        this.f388a = null;
-        this.f389b = null;
-        this.f387a = null;
-        this.f8384a = str;
-        this.b = str2;
-        this.f388a = strArr;
-        this.f389b = strArr2;
-    }
+    /* renamed from: c  reason: collision with root package name */
+    public String f40581c;
 
-    public gg(String str, String str2, String[] strArr, String[] strArr2, String str3, List<gg> list) {
-        this.f388a = null;
-        this.f389b = null;
-        this.f387a = null;
-        this.f8384a = str;
-        this.b = str2;
-        this.f388a = strArr;
-        this.f389b = strArr2;
-        this.c = str3;
-        this.f387a = list;
-    }
+    /* renamed from: d  reason: collision with root package name */
+    public String f40582d;
 
-    public static gg a(Bundle bundle) {
-        ArrayList arrayList;
-        String string = bundle.getString("ext_ele_name");
-        String string2 = bundle.getString("ext_ns");
-        String string3 = bundle.getString("ext_text");
-        Bundle bundle2 = bundle.getBundle("attributes");
-        Set<String> keySet = bundle2.keySet();
-        String[] strArr = new String[keySet.size()];
-        String[] strArr2 = new String[keySet.size()];
-        int i = 0;
-        for (String str : keySet) {
-            strArr[i] = str;
-            strArr2[i] = bundle2.getString(str);
-            i++;
+    /* loaded from: classes7.dex */
+    public static class a {
+
+        /* renamed from: a  reason: collision with root package name */
+        public static final a f40583a = new a("internal-server-error");
+
+        /* renamed from: b  reason: collision with root package name */
+        public static final a f40584b = new a("forbidden");
+
+        /* renamed from: c  reason: collision with root package name */
+        public static final a f40585c = new a("bad-request");
+
+        /* renamed from: d  reason: collision with root package name */
+        public static final a f40586d = new a("conflict");
+
+        /* renamed from: e  reason: collision with root package name */
+        public static final a f40587e = new a("feature-not-implemented");
+
+        /* renamed from: f  reason: collision with root package name */
+        public static final a f40588f = new a("gone");
+
+        /* renamed from: g  reason: collision with root package name */
+        public static final a f40589g = new a("item-not-found");
+
+        /* renamed from: h  reason: collision with root package name */
+        public static final a f40590h = new a("jid-malformed");
+        public static final a i = new a("not-acceptable");
+        public static final a j = new a("not-allowed");
+        public static final a k = new a("not-authorized");
+        public static final a l = new a("payment-required");
+        public static final a m = new a("recipient-unavailable");
+        public static final a n = new a("redirect");
+        public static final a o = new a("registration-required");
+        public static final a p = new a("remote-server-error");
+        public static final a q = new a("remote-server-not-found");
+        public static final a r = new a("remote-server-timeout");
+        public static final a s = new a("resource-constraint");
+        public static final a t = new a("service-unavailable");
+        public static final a u = new a("subscription-required");
+        public static final a v = new a("undefined-condition");
+        public static final a w = new a("unexpected-request");
+        public static final a x = new a("request-timeout");
+
+        /* renamed from: a  reason: collision with other field name */
+        public String f434a;
+
+        public a(String str) {
+            this.f434a = str;
         }
-        if (bundle.containsKey("children")) {
-            Parcelable[] parcelableArray = bundle.getParcelableArray("children");
-            arrayList = new ArrayList(parcelableArray.length);
+
+        public String toString() {
+            return this.f434a;
+        }
+    }
+
+    public gg(int i, String str, String str2, String str3, String str4, List<fz> list) {
+        this.f433a = null;
+        this.f40579a = i;
+        this.f432a = str;
+        this.f40581c = str2;
+        this.f40580b = str3;
+        this.f40582d = str4;
+        this.f433a = list;
+    }
+
+    public gg(Bundle bundle) {
+        this.f433a = null;
+        this.f40579a = bundle.getInt("ext_err_code");
+        if (bundle.containsKey("ext_err_type")) {
+            this.f432a = bundle.getString("ext_err_type");
+        }
+        this.f40580b = bundle.getString("ext_err_cond");
+        this.f40581c = bundle.getString("ext_err_reason");
+        this.f40582d = bundle.getString("ext_err_msg");
+        Parcelable[] parcelableArray = bundle.getParcelableArray("ext_exts");
+        if (parcelableArray != null) {
+            this.f433a = new ArrayList(parcelableArray.length);
             for (Parcelable parcelable : parcelableArray) {
-                arrayList.add(a((Bundle) parcelable));
+                fz a2 = fz.a((Bundle) parcelable);
+                if (a2 != null) {
+                    this.f433a.add(a2);
+                }
             }
-        } else {
-            arrayList = null;
         }
-        return new gg(string, string2, strArr, strArr2, string3, arrayList);
     }
 
-    public static Parcelable[] a(List<gg> list) {
-        return a((gg[]) list.toArray(new gg[list.size()]));
+    public gg(a aVar) {
+        this.f433a = null;
+        a(aVar);
+        this.f40582d = null;
     }
 
-    public static Parcelable[] a(gg[] ggVarArr) {
-        if (ggVarArr == null) {
-            return null;
-        }
-        Parcelable[] parcelableArr = new Parcelable[ggVarArr.length];
-        for (int i = 0; i < ggVarArr.length; i++) {
-            parcelableArr[i] = ggVarArr[i].m315a();
-        }
-        return parcelableArr;
+    private void a(a aVar) {
+        this.f40580b = aVar.f434a;
     }
 
     public Bundle a() {
         Bundle bundle = new Bundle();
-        bundle.putString("ext_ele_name", this.f8384a);
-        bundle.putString("ext_ns", this.b);
-        bundle.putString("ext_text", this.c);
-        Bundle bundle2 = new Bundle();
-        if (this.f388a != null && this.f388a.length > 0) {
-            for (int i = 0; i < this.f388a.length; i++) {
-                bundle2.putString(this.f388a[i], this.f389b[i]);
-            }
+        String str = this.f432a;
+        if (str != null) {
+            bundle.putString("ext_err_type", str);
         }
-        bundle.putBundle("attributes", bundle2);
-        if (this.f387a != null && this.f387a.size() > 0) {
-            bundle.putParcelableArray("children", a(this.f387a));
+        bundle.putInt("ext_err_code", this.f40579a);
+        String str2 = this.f40581c;
+        if (str2 != null) {
+            bundle.putString("ext_err_reason", str2);
+        }
+        String str3 = this.f40580b;
+        if (str3 != null) {
+            bundle.putString("ext_err_cond", str3);
+        }
+        String str4 = this.f40582d;
+        if (str4 != null) {
+            bundle.putString("ext_err_msg", str4);
+        }
+        List<fz> list = this.f433a;
+        if (list != null) {
+            Bundle[] bundleArr = new Bundle[list.size()];
+            int i = 0;
+            for (fz fzVar : this.f433a) {
+                Bundle a2 = fzVar.a();
+                if (a2 != null) {
+                    bundleArr[i] = a2;
+                    i++;
+                }
+            }
+            bundle.putParcelableArray("ext_exts", bundleArr);
         }
         return bundle;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public Parcelable m315a() {
-        return a();
-    }
-
-    /* renamed from: a  reason: collision with other method in class */
-    public String m316a() {
-        return this.f8384a;
-    }
-
-    public String a(String str) {
-        if (str == null) {
-            throw new IllegalArgumentException();
-        }
-        if (this.f388a != null) {
-            for (int i = 0; i < this.f388a.length; i++) {
-                if (str.equals(this.f388a[i])) {
-                    return this.f389b[i];
-                }
-            }
-        }
-        return null;
-    }
-
-    /* renamed from: a  reason: collision with other method in class */
-    public void m317a(String str) {
-        if (TextUtils.isEmpty(str)) {
-            this.c = str;
-        } else {
-            this.c = gu.a(str);
-        }
-    }
-
-    public String b() {
-        return this.b;
-    }
-
-    public String c() {
-        return !TextUtils.isEmpty(this.c) ? gu.b(this.c) : this.c;
-    }
-
-    @Override // com.xiaomi.push.gk
-    public String d() {
+    public String m328a() {
         StringBuilder sb = new StringBuilder();
-        sb.append("<").append(this.f8384a);
-        if (!TextUtils.isEmpty(this.b)) {
-            sb.append(" ").append("xmlns=").append("\"").append(this.b).append("\"");
+        sb.append("<error code=\"");
+        sb.append(this.f40579a);
+        sb.append("\"");
+        if (this.f432a != null) {
+            sb.append(" type=\"");
+            sb.append(this.f432a);
+            sb.append("\"");
         }
-        if (this.f388a != null && this.f388a.length > 0) {
-            for (int i = 0; i < this.f388a.length; i++) {
-                if (!TextUtils.isEmpty(this.f389b[i])) {
-                    sb.append(" ").append(this.f388a[i]).append("=\"").append(gu.a(this.f389b[i])).append("\"");
-                }
-            }
+        if (this.f40581c != null) {
+            sb.append(" reason=\"");
+            sb.append(this.f40581c);
+            sb.append("\"");
         }
-        if (!TextUtils.isEmpty(this.c)) {
-            sb.append(">").append(this.c).append("</").append(this.f8384a).append(">");
-        } else if (this.f387a == null || this.f387a.size() <= 0) {
-            sb.append("/>");
-        } else {
-            sb.append(">");
-            for (gg ggVar : this.f387a) {
-                sb.append(ggVar.d());
-            }
-            sb.append("</").append(this.f8384a).append(">");
+        sb.append(">");
+        if (this.f40580b != null) {
+            sb.append("<");
+            sb.append(this.f40580b);
+            sb.append(" xmlns=\"urn:ietf:params:xml:ns:xmpp-stanzas\"/>");
         }
+        if (this.f40582d != null) {
+            sb.append("<text xml:lang=\"en\" xmlns=\"urn:ietf:params:xml:ns:xmpp-stanzas\">");
+            sb.append(this.f40582d);
+            sb.append("</text>");
+        }
+        for (fz fzVar : m329a()) {
+            sb.append(fzVar.d());
+        }
+        sb.append("</error>");
         return sb.toString();
     }
 
+    /* renamed from: a  reason: collision with other method in class */
+    public synchronized List<fz> m329a() {
+        if (this.f433a == null) {
+            return Collections.emptyList();
+        }
+        return Collections.unmodifiableList(this.f433a);
+    }
+
     public String toString() {
-        return d();
+        StringBuilder sb = new StringBuilder();
+        String str = this.f40580b;
+        if (str != null) {
+            sb.append(str);
+        }
+        sb.append("(");
+        sb.append(this.f40579a);
+        sb.append(SmallTailInfo.EMOTION_SUFFIX);
+        if (this.f40582d != null) {
+            sb.append(" ");
+            sb.append(this.f40582d);
+        }
+        return sb.toString();
     }
 }

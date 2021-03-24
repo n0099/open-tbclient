@@ -2,183 +2,240 @@ package com.kwad.sdk.core.imageloader.utils;
 
 import android.graphics.Bitmap;
 import androidx.annotation.IntRange;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import java.lang.reflect.Array;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class BlurUtils {
     public static Bitmap stackBlur(Bitmap bitmap, @IntRange(from = 1, to = 180) int i, boolean z) {
+        Bitmap bitmap2;
+        int i2;
+        int i3;
+        int[] iArr;
+        int[] iArr2;
+        int i4 = i;
         Bitmap copy = z ? bitmap : bitmap.copy(bitmap.getConfig(), true);
-        if (i < 1) {
+        if (i4 < 1) {
             return null;
         }
         int width = copy.getWidth();
         int height = copy.getHeight();
-        int[] iArr = new int[width * height];
-        copy.getPixels(iArr, 0, width, 0, 0, width, height);
-        int i2 = width - 1;
-        int i3 = height - 1;
-        int i4 = width * height;
-        int i5 = i + i + 1;
-        int[] iArr2 = new int[i4];
-        int[] iArr3 = new int[i4];
-        int[] iArr4 = new int[i4];
-        int[] iArr5 = new int[Math.max(width, height)];
-        int i6 = (i5 + 1) >> 1;
-        int i7 = i6 * i6;
-        int[] iArr6 = new int[i7 * 256];
-        for (int i8 = 0; i8 < i7 * 256; i8++) {
-            iArr6[i8] = i8 / i7;
+        int i5 = width * height;
+        int[] iArr3 = new int[i5];
+        copy.getPixels(iArr3, 0, width, 0, 0, width, height);
+        int i6 = width - 1;
+        int i7 = height - 1;
+        int i8 = i4 + i4 + 1;
+        int[] iArr4 = new int[i5];
+        int[] iArr5 = new int[i5];
+        int[] iArr6 = new int[i5];
+        int[] iArr7 = new int[Math.max(width, height)];
+        int i9 = (i8 + 1) >> 1;
+        int i10 = i9 * i9;
+        int i11 = i10 * 256;
+        int[] iArr8 = new int[i11];
+        for (int i12 = 0; i12 < i11; i12++) {
+            iArr8[i12] = i12 / i10;
         }
-        int[][] iArr7 = (int[][]) Array.newInstance(Integer.TYPE, i5, 3);
-        int i9 = i + 1;
-        int i10 = 0;
-        int i11 = 0;
-        int i12 = 0;
+        int[][] iArr9 = (int[][]) Array.newInstance(int.class, i8, 3);
+        int i13 = i4 + 1;
+        int i14 = 0;
+        int i15 = 0;
+        int i16 = 0;
         while (true) {
-            int i13 = i10;
-            if (i13 >= height) {
+            bitmap2 = copy;
+            if (i14 >= height) {
                 break;
             }
-            int i14 = 0;
-            int i15 = 0;
-            int i16 = 0;
-            int i17 = 0;
+            int i17 = height;
             int i18 = 0;
             int i19 = 0;
             int i20 = 0;
             int i21 = 0;
             int i22 = 0;
-            for (int i23 = -i; i23 <= i; i23++) {
-                int i24 = iArr[Math.min(i2, Math.max(i23, 0)) + i12];
-                int[] iArr8 = iArr7[i23 + i];
-                iArr8[0] = (16711680 & i24) >> 16;
-                iArr8[1] = (65280 & i24) >> 8;
-                iArr8[2] = i24 & 255;
-                int abs = i9 - Math.abs(i23);
-                i22 += iArr8[0] * abs;
-                i21 += iArr8[1] * abs;
-                i20 += abs * iArr8[2];
-                if (i23 > 0) {
-                    i16 += iArr8[0];
-                    i15 += iArr8[1];
-                    i14 += iArr8[2];
+            int i23 = 0;
+            int i24 = 0;
+            int i25 = 0;
+            int i26 = -i4;
+            int i27 = 0;
+            while (true) {
+                i3 = i7;
+                iArr = iArr7;
+                if (i26 > i4) {
+                    break;
+                }
+                int i28 = iArr3[i15 + Math.min(i6, Math.max(i26, 0))];
+                int[] iArr10 = iArr9[i26 + i4];
+                iArr10[0] = (i28 & ItemTouchHelper.ACTION_MODE_DRAG_MASK) >> 16;
+                iArr10[1] = (i28 & 65280) >> 8;
+                iArr10[2] = i28 & 255;
+                int abs = i13 - Math.abs(i26);
+                i27 += iArr10[0] * abs;
+                i18 += iArr10[1] * abs;
+                i19 += iArr10[2] * abs;
+                if (i26 > 0) {
+                    i23 += iArr10[0];
+                    i24 += iArr10[1];
+                    i25 += iArr10[2];
                 } else {
-                    i19 += iArr8[0];
-                    i18 += iArr8[1];
-                    i17 += iArr8[2];
+                    i20 += iArr10[0];
+                    i21 += iArr10[1];
+                    i22 += iArr10[2];
                 }
+                i26++;
+                i7 = i3;
+                iArr7 = iArr;
             }
-            int i25 = i;
-            for (int i26 = 0; i26 < width; i26++) {
-                iArr2[i12] = iArr6[i22];
-                iArr3[i12] = iArr6[i21];
-                iArr4[i12] = iArr6[i20];
-                int i27 = i22 - i19;
-                int i28 = i21 - i18;
-                int i29 = i20 - i17;
-                int[] iArr9 = iArr7[((i25 - i) + i5) % i5];
-                int i30 = i19 - iArr9[0];
-                int i31 = i18 - iArr9[1];
-                int i32 = i17 - iArr9[2];
-                if (i13 == 0) {
-                    iArr5[i26] = Math.min(i26 + i + 1, i2);
+            int i29 = i4;
+            int i30 = i27;
+            int i31 = 0;
+            while (i31 < width) {
+                iArr4[i15] = iArr8[i30];
+                iArr5[i15] = iArr8[i18];
+                iArr6[i15] = iArr8[i19];
+                int i32 = i30 - i20;
+                int i33 = i18 - i21;
+                int i34 = i19 - i22;
+                int[] iArr11 = iArr9[((i29 - i4) + i8) % i8];
+                int i35 = i20 - iArr11[0];
+                int i36 = i21 - iArr11[1];
+                int i37 = i22 - iArr11[2];
+                if (i14 == 0) {
+                    iArr2 = iArr8;
+                    iArr[i31] = Math.min(i31 + i4 + 1, i6);
+                } else {
+                    iArr2 = iArr8;
                 }
-                int i33 = iArr[iArr5[i26] + i11];
-                iArr9[0] = (16711680 & i33) >> 16;
-                iArr9[1] = (65280 & i33) >> 8;
-                iArr9[2] = i33 & 255;
-                int i34 = i16 + iArr9[0];
-                int i35 = i15 + iArr9[1];
-                int i36 = i14 + iArr9[2];
-                i22 = i27 + i34;
-                i21 = i28 + i35;
-                i20 = i29 + i36;
-                i25 = (i25 + 1) % i5;
-                int[] iArr10 = iArr7[i25 % i5];
-                i19 = i30 + iArr10[0];
-                i18 = i31 + iArr10[1];
-                i17 = i32 + iArr10[2];
-                i16 = i34 - iArr10[0];
-                i15 = i35 - iArr10[1];
-                i14 = i36 - iArr10[2];
-                i12++;
+                int i38 = iArr3[i16 + iArr[i31]];
+                iArr11[0] = (i38 & ItemTouchHelper.ACTION_MODE_DRAG_MASK) >> 16;
+                iArr11[1] = (i38 & 65280) >> 8;
+                iArr11[2] = i38 & 255;
+                int i39 = i23 + iArr11[0];
+                int i40 = i24 + iArr11[1];
+                int i41 = i25 + iArr11[2];
+                i30 = i32 + i39;
+                i18 = i33 + i40;
+                i19 = i34 + i41;
+                i29 = (i29 + 1) % i8;
+                int[] iArr12 = iArr9[i29 % i8];
+                i20 = i35 + iArr12[0];
+                i21 = i36 + iArr12[1];
+                i22 = i37 + iArr12[2];
+                i23 = i39 - iArr12[0];
+                i24 = i40 - iArr12[1];
+                i25 = i41 - iArr12[2];
+                i15++;
+                i31++;
+                iArr8 = iArr2;
             }
-            i10 = i13 + 1;
-            i11 += width;
+            i16 += width;
+            i14++;
+            copy = bitmap2;
+            height = i17;
+            i7 = i3;
+            iArr7 = iArr;
         }
-        for (int i37 = 0; i37 < width; i37++) {
-            int i38 = (-i) * width;
-            int i39 = 0;
-            int i40 = 0;
-            int i41 = 0;
-            int i42 = 0;
-            int i43 = 0;
-            int i44 = 0;
-            int i45 = 0;
-            int i46 = 0;
+        int i42 = i7;
+        int[] iArr13 = iArr7;
+        int i43 = height;
+        int[] iArr14 = iArr8;
+        int i44 = 0;
+        while (i44 < width) {
+            int i45 = -i4;
+            int i46 = i8;
+            int[] iArr15 = iArr3;
             int i47 = 0;
-            for (int i48 = -i; i48 <= i; i48++) {
-                int max = Math.max(0, i38) + i37;
-                int[] iArr11 = iArr7[i48 + i];
-                iArr11[0] = iArr2[max];
-                iArr11[1] = iArr3[max];
-                iArr11[2] = iArr4[max];
-                int abs2 = i9 - Math.abs(i48);
-                i47 += iArr2[max] * abs2;
-                i46 += iArr3[max] * abs2;
-                i45 += iArr4[max] * abs2;
-                if (i48 > 0) {
-                    i41 += iArr11[0];
-                    i40 += iArr11[1];
-                    i39 += iArr11[2];
-                } else {
-                    i44 += iArr11[0];
-                    i43 += iArr11[1];
-                    i42 += iArr11[2];
-                }
-                if (i48 < i3) {
-                    i38 += width;
-                }
-            }
+            int i48 = 0;
             int i49 = 0;
-            int i50 = i39;
-            int i51 = i;
-            int i52 = i37;
-            while (i49 < height) {
-                iArr[i52] = ((-16777216) & iArr[i52]) | (iArr6[i47] << 16) | (iArr6[i46] << 8) | iArr6[i45];
-                int i53 = i47 - i44;
-                int i54 = i46 - i43;
-                int i55 = i45 - i42;
-                int[] iArr12 = iArr7[((i51 - i) + i5) % i5];
-                int i56 = i44 - iArr12[0];
-                int i57 = i43 - iArr12[1];
-                int i58 = i42 - iArr12[2];
-                if (i37 == 0) {
-                    iArr5[i49] = Math.min(i49 + i9, i3) * width;
+            int i50 = 0;
+            int i51 = 0;
+            int i52 = 0;
+            int i53 = 0;
+            int i54 = i45;
+            int i55 = i45 * width;
+            int i56 = 0;
+            int i57 = 0;
+            while (true) {
+                i2 = width;
+                if (i54 > i4) {
+                    break;
                 }
-                int i59 = iArr5[i49] + i37;
-                iArr12[0] = iArr2[i59];
-                iArr12[1] = iArr3[i59];
-                iArr12[2] = iArr4[i59];
-                int i60 = i41 + iArr12[0];
-                int i61 = i40 + iArr12[1];
-                int i62 = i50 + iArr12[2];
-                i47 = i53 + i60;
-                i46 = i54 + i61;
-                i45 = i55 + i62;
-                i51 = (i51 + 1) % i5;
-                int[] iArr13 = iArr7[i51];
-                i44 = i56 + iArr13[0];
-                i43 = i57 + iArr13[1];
-                i42 = i58 + iArr13[2];
-                i41 = i60 - iArr13[0];
-                int i63 = i61 - iArr13[1];
-                i50 = i62 - iArr13[2];
-                i52 += width;
-                i49++;
-                i40 = i63;
+                int max = Math.max(0, i55) + i44;
+                int[] iArr16 = iArr9[i54 + i4];
+                iArr16[0] = iArr4[max];
+                iArr16[1] = iArr5[max];
+                iArr16[2] = iArr6[max];
+                int abs2 = i13 - Math.abs(i54);
+                i56 += iArr4[max] * abs2;
+                i57 += iArr5[max] * abs2;
+                i47 += iArr6[max] * abs2;
+                if (i54 > 0) {
+                    i51 += iArr16[0];
+                    i52 += iArr16[1];
+                    i53 += iArr16[2];
+                } else {
+                    i48 += iArr16[0];
+                    i49 += iArr16[1];
+                    i50 += iArr16[2];
+                }
+                int i58 = i42;
+                if (i54 < i58) {
+                    i55 += i2;
+                }
+                i54++;
+                i42 = i58;
+                width = i2;
             }
+            int i59 = i42;
+            int i60 = i4;
+            int i61 = i44;
+            int i62 = i57;
+            int i63 = i43;
+            int i64 = i56;
+            int i65 = 0;
+            while (i65 < i63) {
+                iArr15[i61] = (iArr15[i61] & (-16777216)) | (iArr14[i64] << 16) | (iArr14[i62] << 8) | iArr14[i47];
+                int i66 = i64 - i48;
+                int i67 = i62 - i49;
+                int i68 = i47 - i50;
+                int[] iArr17 = iArr9[((i60 - i4) + i46) % i46];
+                int i69 = i48 - iArr17[0];
+                int i70 = i49 - iArr17[1];
+                int i71 = i50 - iArr17[2];
+                if (i44 == 0) {
+                    iArr13[i65] = Math.min(i65 + i13, i59) * i2;
+                }
+                int i72 = iArr13[i65] + i44;
+                iArr17[0] = iArr4[i72];
+                iArr17[1] = iArr5[i72];
+                iArr17[2] = iArr6[i72];
+                int i73 = i51 + iArr17[0];
+                int i74 = i52 + iArr17[1];
+                int i75 = i53 + iArr17[2];
+                i64 = i66 + i73;
+                i62 = i67 + i74;
+                i47 = i68 + i75;
+                i60 = (i60 + 1) % i46;
+                int[] iArr18 = iArr9[i60];
+                i48 = i69 + iArr18[0];
+                i49 = i70 + iArr18[1];
+                i50 = i71 + iArr18[2];
+                i51 = i73 - iArr18[0];
+                i52 = i74 - iArr18[1];
+                i53 = i75 - iArr18[2];
+                i61 += i2;
+                i65++;
+                i4 = i;
+            }
+            i44++;
+            i4 = i;
+            i42 = i59;
+            i43 = i63;
+            i8 = i46;
+            iArr3 = iArr15;
+            width = i2;
         }
-        copy.setPixels(iArr, 0, width, 0, 0, width, height);
-        return copy;
+        int i76 = width;
+        bitmap2.setPixels(iArr3, 0, i76, 0, 0, i76, i43);
+        return bitmap2;
     }
 }

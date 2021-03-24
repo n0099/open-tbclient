@@ -6,15 +6,15 @@ import android.text.TextUtils;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.meizu.cloud.pushsdk.platform.a.b;
 import com.meizu.cloud.pushsdk.util.MzSystemUtils;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class PushManager {
-    static final String KEY_PUSH_ID = "pushId";
-    static final String PUSH_ID_PREFERENCE_NAME = "com.meizu.flyme.push";
+    public static final String KEY_PUSH_ID = "pushId";
+    public static final String PUSH_ID_PREFERENCE_NAME = "com.meizu.flyme.push";
     public static final String TAG = "3.8.3";
 
     public static void checkNotificationMessage(Context context) {
         String appVersionName = MzSystemUtils.getAppVersionName(context, "com.meizu.cloud");
-        com.meizu.cloud.a.a.i(TAG, context.getPackageName() + " checkNotificationMessage cloudVersion_name " + appVersionName);
+        d.j.a.a.a.d(TAG, context.getPackageName() + " checkNotificationMessage cloudVersion_name " + appVersionName);
         if (TextUtils.isEmpty(appVersionName) || !appVersionName.startsWith("6")) {
             return;
         }
@@ -28,7 +28,7 @@ public class PushManager {
         if (MzSystemUtils.isBrandMeizu(context)) {
             b.a(context).a(str, str2, context.getPackageName(), str3);
         } else {
-            com.meizu.cloud.a.a.e(TAG, "please invoke checkPush on meizu device Build-in FlymeOS");
+            d.j.a.a.a.b(TAG, "please invoke checkPush on meizu device Build-in FlymeOS");
         }
     }
 
@@ -36,7 +36,7 @@ public class PushManager {
         if (MzSystemUtils.isBrandMeizu(context)) {
             b.a(context).d(str, str2, context.getPackageName(), str3);
         } else {
-            com.meizu.cloud.a.a.e(TAG, "please invoke checkSubScribeAlias on meizu device Build-in FlymeOS");
+            d.j.a.a.a.b(TAG, "please invoke checkSubScribeAlias on meizu device Build-in FlymeOS");
         }
     }
 
@@ -44,7 +44,7 @@ public class PushManager {
         if (MzSystemUtils.isBrandMeizu(context)) {
             b.a(context).c(str, str2, context.getPackageName(), str3);
         } else {
-            com.meizu.cloud.a.a.e(TAG, "please invoke checkSubScribeTags on meizu device Build-in FlymeOS");
+            d.j.a.a.a.b(TAG, "please invoke checkSubScribeTags on meizu device Build-in FlymeOS");
         }
     }
 
@@ -61,8 +61,8 @@ public class PushManager {
     }
 
     public static String getPushId(Context context) {
-        int b = com.meizu.cloud.pushsdk.util.b.b(context, context.getPackageName());
-        if (b == 0 || System.currentTimeMillis() / 1000 <= b) {
+        int b2 = com.meizu.cloud.pushsdk.util.b.b(context, context.getPackageName());
+        if (b2 == 0 || System.currentTimeMillis() / 1000 <= b2) {
             return com.meizu.cloud.pushsdk.util.b.a(context, context.getPackageName());
         }
         return null;
@@ -70,40 +70,40 @@ public class PushManager {
 
     @Deprecated
     public static void register(Context context) {
-        com.meizu.cloud.a.a.iu(context);
+        d.j.a.a.a.e(context);
         if (!MzSystemUtils.isBrandMeizu(context)) {
-            com.meizu.cloud.a.a.e(TAG, "please invoke register on meizu device Build-in FlymeOS");
+            d.j.a.a.a.b(TAG, "please invoke register on meizu device Build-in FlymeOS");
             return;
         }
+        String str = "com.meizu.cloud";
         String appVersionName = MzSystemUtils.getAppVersionName(context, "com.meizu.cloud");
-        com.meizu.cloud.a.a.i(TAG, context.getPackageName() + " start register cloudVersion_name " + appVersionName);
+        d.j.a.a.a.d(TAG, context.getPackageName() + " start register cloudVersion_name " + appVersionName);
         Intent intent = new Intent(PushConstants.MZ_PUSH_ON_START_PUSH_REGISTER);
-        if ("com.meizu.cloud".equals(MzSystemUtils.getMzPushServicePackageName(context))) {
-            intent.setClassName("com.meizu.cloud", "com.meizu.cloud.pushsdk.pushservice.MzPushService");
-            intent.putExtra("sender", context.getPackageName());
-        } else if (!TextUtils.isEmpty(appVersionName) && MzSystemUtils.compareVersion(appVersionName, "4.5.7")) {
-            com.meizu.cloud.a.a.e(TAG, "flyme 4.x start register cloud versionName " + appVersionName);
+        if (!"com.meizu.cloud".equals(MzSystemUtils.getMzPushServicePackageName(context))) {
+            if (!TextUtils.isEmpty(appVersionName) && MzSystemUtils.compareVersion(appVersionName, "4.5.7")) {
+                d.j.a.a.a.b(TAG, "flyme 4.x start register cloud versionName " + appVersionName);
+            } else if (TextUtils.isEmpty(appVersionName) || !appVersionName.startsWith("3")) {
+                d.j.a.a.a.b(TAG, context.getPackageName() + " start register ");
+                str = context.getPackageName();
+            } else {
+                d.j.a.a.a.b(TAG, "flyme 3.x start register cloud versionName " + appVersionName);
+                intent.setAction(PushConstants.REQUEST_REGISTRATION_INTENT);
+            }
             intent.setPackage("com.meizu.cloud");
             intent.putExtra("sender", context.getPackageName());
-        } else if (TextUtils.isEmpty(appVersionName) || !appVersionName.startsWith("3")) {
-            com.meizu.cloud.a.a.e(TAG, context.getPackageName() + " start register ");
-            intent.setClassName(context.getPackageName(), "com.meizu.cloud.pushsdk.pushservice.MzPushService");
-            intent.putExtra("sender", context.getPackageName());
-        } else {
-            com.meizu.cloud.a.a.e(TAG, "flyme 3.x start register cloud versionName " + appVersionName);
-            intent.setAction(PushConstants.REQUEST_REGISTRATION_INTENT);
-            intent.setPackage("com.meizu.cloud");
-            intent.putExtra("sender", context.getPackageName());
+            context.startService(intent);
         }
+        intent.setClassName(str, "com.meizu.cloud.pushsdk.pushservice.MzPushService");
+        intent.putExtra("sender", context.getPackageName());
         context.startService(intent);
     }
 
     public static void register(Context context, String str, String str2) {
-        com.meizu.cloud.a.a.iu(context);
+        d.j.a.a.a.e(context);
         if (MzSystemUtils.isBrandMeizu(context)) {
             b.a(context).a(str, str2, context.getPackageName());
         } else {
-            com.meizu.cloud.a.a.e(TAG, "please invoke register on meizu device Build-in FlymeOS");
+            d.j.a.a.a.b(TAG, "please invoke register on meizu device Build-in FlymeOS");
         }
     }
 
@@ -111,7 +111,7 @@ public class PushManager {
         if (MzSystemUtils.isBrandMeizu(context)) {
             b.a(context).c(str, str2, context.getPackageName(), str3, str4);
         } else {
-            com.meizu.cloud.a.a.e(TAG, "please invoke subScribeAlias on meizu device Build-in FlymeOS");
+            d.j.a.a.a.b(TAG, "please invoke subScribeAlias on meizu device Build-in FlymeOS");
         }
     }
 
@@ -119,7 +119,7 @@ public class PushManager {
         if (MzSystemUtils.isBrandMeizu(context)) {
             b.a(context).a(str, str2, context.getPackageName(), str3, str4);
         } else {
-            com.meizu.cloud.a.a.e(TAG, "please invoke subScribeTags on meizu device Build-in FlymeOS");
+            d.j.a.a.a.b(TAG, "please invoke subScribeTags on meizu device Build-in FlymeOS");
         }
     }
 
@@ -127,7 +127,7 @@ public class PushManager {
         if (MzSystemUtils.isBrandMeizu(context)) {
             b.a(context).a(str, str2, context.getPackageName(), str3, i, z);
         } else {
-            com.meizu.cloud.a.a.e(TAG, "please invoke switchPush on meizu device Build-in FlymeOS");
+            d.j.a.a.a.b(TAG, "please invoke switchPush on meizu device Build-in FlymeOS");
         }
     }
 
@@ -135,34 +135,35 @@ public class PushManager {
         if (MzSystemUtils.isBrandMeizu(context)) {
             b.a(context).a(str, str2, context.getPackageName(), str3, z);
         } else {
-            com.meizu.cloud.a.a.e(TAG, "please invoke switchPush on meizu device Build-in FlymeOS");
+            d.j.a.a.a.b(TAG, "please invoke switchPush on meizu device Build-in FlymeOS");
         }
     }
 
     @Deprecated
     public static void unRegister(Context context) {
         if (!MzSystemUtils.isBrandMeizu(context)) {
-            com.meizu.cloud.a.a.e(TAG, "please invoke unRegister on meizu device Build-in FlymeOS");
+            d.j.a.a.a.b(TAG, "please invoke unRegister on meizu device Build-in FlymeOS");
             return;
         }
+        String str = "com.meizu.cloud";
         String appVersionName = MzSystemUtils.getAppVersionName(context, "com.meizu.cloud");
-        com.meizu.cloud.a.a.e(TAG, context.getPackageName() + " start unRegister cloud versionName " + appVersionName);
+        d.j.a.a.a.b(TAG, context.getPackageName() + " start unRegister cloud versionName " + appVersionName);
         Intent intent = new Intent(PushConstants.MZ_PUSH_ON_STOP_PUSH_REGISTER);
-        if ("com.meizu.cloud".equals(MzSystemUtils.getMzPushServicePackageName(context))) {
-            intent.setClassName("com.meizu.cloud", "com.meizu.cloud.pushsdk.pushservice.MzPushService");
-            intent.putExtra("sender", context.getPackageName());
-        } else if (!TextUtils.isEmpty(appVersionName) && MzSystemUtils.compareVersion(appVersionName, "4.5.7")) {
+        if (!"com.meizu.cloud".equals(MzSystemUtils.getMzPushServicePackageName(context))) {
+            if (TextUtils.isEmpty(appVersionName) || !MzSystemUtils.compareVersion(appVersionName, "4.5.7")) {
+                if (TextUtils.isEmpty(appVersionName) || !appVersionName.startsWith("3")) {
+                    d.j.a.a.a.b(TAG, context.getPackageName() + " start unRegister ");
+                    str = context.getPackageName();
+                } else {
+                    intent.setAction(PushConstants.REQUEST_UNREGISTRATION_INTENT);
+                }
+            }
             intent.setPackage("com.meizu.cloud");
             intent.putExtra("sender", context.getPackageName());
-        } else if (TextUtils.isEmpty(appVersionName) || !appVersionName.startsWith("3")) {
-            com.meizu.cloud.a.a.e(TAG, context.getPackageName() + " start unRegister ");
-            intent.setClassName(context.getPackageName(), "com.meizu.cloud.pushsdk.pushservice.MzPushService");
-            intent.putExtra("sender", context.getPackageName());
-        } else {
-            intent.setAction(PushConstants.REQUEST_UNREGISTRATION_INTENT);
-            intent.setPackage("com.meizu.cloud");
-            intent.putExtra("sender", context.getPackageName());
+            context.startService(intent);
         }
+        intent.setClassName(str, "com.meizu.cloud.pushsdk.pushservice.MzPushService");
+        intent.putExtra("sender", context.getPackageName());
         context.startService(intent);
     }
 
@@ -170,7 +171,7 @@ public class PushManager {
         if (MzSystemUtils.isBrandMeizu(context)) {
             b.a(context).b(str, str2, context.getPackageName());
         } else {
-            com.meizu.cloud.a.a.e(TAG, "please invoke unRegister on meizu device Build-in FlymeOS");
+            d.j.a.a.a.b(TAG, "please invoke unRegister on meizu device Build-in FlymeOS");
         }
     }
 
@@ -178,7 +179,7 @@ public class PushManager {
         if (MzSystemUtils.isBrandMeizu(context)) {
             b.a(context).d(str, str2, context.getPackageName(), str3, str4);
         } else {
-            com.meizu.cloud.a.a.e(TAG, "please invoke unSubScribeAlias on meizu device Build-in FlymeOS");
+            d.j.a.a.a.b(TAG, "please invoke unSubScribeAlias on meizu device Build-in FlymeOS");
         }
     }
 
@@ -186,7 +187,7 @@ public class PushManager {
         if (MzSystemUtils.isBrandMeizu(context)) {
             b.a(context).b(str, str2, context.getPackageName(), str3);
         } else {
-            com.meizu.cloud.a.a.e(TAG, "please invoke unSubScribeAllTags on meizu device Build-in FlymeOS");
+            d.j.a.a.a.b(TAG, "please invoke unSubScribeAllTags on meizu device Build-in FlymeOS");
         }
     }
 
@@ -194,7 +195,7 @@ public class PushManager {
         if (MzSystemUtils.isBrandMeizu(context)) {
             b.a(context).b(str, str2, context.getPackageName(), str3, str4);
         } else {
-            com.meizu.cloud.a.a.e(TAG, "please invoke unSubScribeTags on meizu device Build-in FlymeOS");
+            d.j.a.a.a.b(TAG, "please invoke unSubScribeTags on meizu device Build-in FlymeOS");
         }
     }
 }

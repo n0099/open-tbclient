@@ -10,6 +10,7 @@ import com.baidu.fsg.base.restnet.RestNameValuePair;
 import com.baidu.fsg.base.restnet.RestResponseEntity;
 import com.baidu.fsg.base.restnet.RestRuntimeException;
 import com.baidu.fsg.base.restnet.beans.ApollonBean;
+import com.baidu.fsg.base.restnet.beans.IBeanResponseCallback;
 import com.baidu.fsg.base.restnet.beans.business.core.PayUtils;
 import com.baidu.fsg.base.restnet.beans.business.core.utils.BdWalletUtils;
 import com.baidu.fsg.base.restnet.beans.business.core.utils.NetUtils;
@@ -21,7 +22,6 @@ import com.baidu.fsg.base.utils.LogUtil;
 import com.baidu.fsg.base.utils.Md5Utils;
 import com.baidu.fsg.base.utils.NetworkUtils;
 import com.baidu.fsg.base.utils.PhoneUtils;
-import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import java.net.SocketTimeoutException;
 import java.security.cert.CertificateException;
 import java.util.ArrayList;
@@ -31,118 +31,39 @@ import java.util.UUID;
 import javax.net.ssl.SSLPeerUnverifiedException;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public abstract class NetworkBean extends ApollonBean {
-    private static final boolean DEBUG = false;
-    private static final String PARAM_APPID = "appid";
-    private static final String PARAM_CUID_2 = "cuid_2";
-    private static final String PARAM_ENCODE = "encode";
-    private static final String PARAM_FKWCP = "fk_wcp";
-    private static final String PARAM_IMEI_NEW = "wimei";
-    private static final String PARAM_IMSI_NEW = "wimsi";
-    private static final String PARAM_LOCATION = "wloc";
-    private static final String PARAM_MOBILE_IP = "wmip";
-    private static final String PARAM_NETTYPE = "nettype";
-    private static final String PARAM_SIM_PHONE_NUM = "wpn";
-    private static final String PARAM_SIM_SERIAL_NUM = "wssn";
-    private static final String PARAM_UA = "ua";
-    private static final String PARAM_WIFI_SSID = "wssid";
-    private static final String REQID = "reqid";
-    private static final String SING_SHA1 = "s1";
-    private static final String SP_PARAMETER = "sp_params";
-    private static final String TAG = "NetworkBean";
-    protected String reqId;
-    private String spParameter;
-
-    public abstract List<RestNameValuePair> generateRequestParam();
-
-    public abstract boolean needNonce();
-
-    public void setSpParameter(String str) {
-        this.spParameter = str;
-    }
+    public static final boolean DEBUG = false;
+    public static final String PARAM_APPID = "appid";
+    public static final String PARAM_CUID_2 = "cuid_2";
+    public static final String PARAM_ENCODE = "encode";
+    public static final String PARAM_FKWCP = "fk_wcp";
+    public static final String PARAM_IMEI_NEW = "wimei";
+    public static final String PARAM_IMSI_NEW = "wimsi";
+    public static final String PARAM_LOCATION = "wloc";
+    public static final String PARAM_MOBILE_IP = "wmip";
+    public static final String PARAM_NETTYPE = "nettype";
+    public static final String PARAM_SIM_PHONE_NUM = "wpn";
+    public static final String PARAM_SIM_SERIAL_NUM = "wssn";
+    public static final String PARAM_UA = "ua";
+    public static final String PARAM_WIFI_SSID = "wssid";
+    public static final String REQID = "reqid";
+    public static final String SING_SHA1 = "s1";
+    public static final String SP_PARAMETER = "sp_params";
+    public static final String TAG = "NetworkBean";
+    public String reqId;
+    public String spParameter;
 
     public NetworkBean(Context context) {
         super(context);
         this.spParameter = "";
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.fsg.base.restnet.beans.ApollonBean
-    public List<RestNameValuePair> getRequestParams() {
-        return appendUriParameter(this.mContext, generateRequestParam());
-    }
-
-    @Override // com.baidu.fsg.base.restnet.beans.ApollonBean
-    protected void handleCommonErrors(Exception exc) {
-        LogUtil.d(TAG, "execBean. exception = " + exc);
-        if (exc instanceof RestRuntimeException) {
-            if (this.mRspCallback != null) {
-                if (((RestRuntimeException) exc).contains(SocketTimeoutException.class)) {
-                    this.mRspCallback.onBeanExecFailure(getBeanId(), -5, BeanConstants.rim_timeout_error);
-                } else if (((RestRuntimeException) exc).contains(SSLPeerUnverifiedException.class) || ((RestRuntimeException) exc).contains(CertificateException.class)) {
-                    this.mRspCallback.onBeanExecFailure(getBeanId(), -16, BeanConstants.rim_ssl);
-                } else if (((RestRuntimeException) exc).contains(IllegalArgumentException.class)) {
-                    if (this.mRspCallback != null) {
-                        this.mRspCallback.onBeanExecFailure(getBeanId(), -2, BeanConstants.rim_resolve_error);
-                    }
-                } else {
-                    this.mRspCallback.onBeanExecFailure(getBeanId(), -15, BeanConstants.rim_resolve_error);
-                }
-            }
-        } else if (exc instanceof IllegalArgumentException) {
-            if (this.mRspCallback != null) {
-                this.mRspCallback.onBeanExecFailure(getBeanId(), -2, BeanConstants.rim_resolve_error);
-            }
-        } else {
-            exc.printStackTrace();
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.fsg.base.restnet.beans.ApollonBean
-    public <T> void handleResponseHeaders(RestResponseEntity<T> restResponseEntity) {
-    }
-
-    private List<RestNameValuePair> appendUriParameter(Context context, List<RestNameValuePair> list) {
-        if (list == null) {
-            list = new ArrayList<>();
-        }
-        appendCertification(context, list);
-        this.reqId = Md5Utils.toMD5(PhoneUtils.getCUID2(context) + System.currentTimeMillis() + UUID.randomUUID());
-        list.add(new RestNameValuePair(REQID, PayUtils.encrypt(PayUtils.KEY_PHONE_NUMBER, this.reqId)));
-        list.add(new RestNameValuePair(SP_PARAMETER, PayUtils.encrypt(PayUtils.KEY_PHONE_NUMBER, this.spParameter)));
-        list.add(new RestNameValuePair(SING_SHA1, RimArmor.getInstance().encryptProxy(getAppSignatureSha1(context, context.getPackageName()))));
-        if (needNonce()) {
-            try {
-                list.add(new RestNameValuePair("nonce", PayUtils.getNonce(this.mContext, list)));
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-        return list;
-    }
-
-    private static String getAppSignatureSha1(Context context, String str) {
-        try {
-            PackageInfo packageInfo = context.getPackageManager().getPackageInfo(str, 64);
-            if (packageInfo != null && packageInfo.signatures != null) {
-                return Crypto.sha1(packageInfo.signatures[0].toByteArray());
-            }
-        } catch (PackageManager.NameNotFoundException e) {
-            e.printStackTrace();
-        } catch (Exception e2) {
-            e2.printStackTrace();
-        }
-        return "";
-    }
-
     private void appendCertification(Context context, List<RestNameValuePair> list) {
-        boolean z;
         if ("gbk".equals(getEncode())) {
-            list.add(new RestNameValuePair(PARAM_ENCODE, "gbk"));
+            list.add(new RestNameValuePair("encode", "gbk"));
         } else {
-            list.add(new RestNameValuePair(PARAM_ENCODE, "utf-8"));
+            list.add(new RestNameValuePair("encode", "utf-8"));
         }
         list.add(new RestNameValuePair("ua", BussinessUtils.getUA(context)));
         String hostAppId = ChannelUtils.getHostAppId();
@@ -153,52 +74,136 @@ public abstract class NetworkBean extends ApollonBean {
         }
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put(PARAM_CUID_2, PayUtils.encrypt(PayUtils.KEY_PHONE_NUMBER, PhoneUtils.getCUID2(context)));
-            jSONObject.put(PARAM_FKWCP, PayUtils.encrypt(PayUtils.KEY_PHONE_NUMBER, (((("fp=" + BdWalletUtils.getDeviceFP(this.mContext)) + "&lastModify=" + BdWalletUtils.getFPFileLastModified(this.mContext)) + "&cpuInfo=" + PhoneUtils.getSystemCPUInfo().getCpuPath() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + PhoneUtils.getNumCores()) + "&diskCapacity=" + PhoneUtils.getTotalInternalMemorySize()) + "&upTime=" + (SystemClock.elapsedRealtime() / 1000)));
-            jSONObject.put(PARAM_NETTYPE, PayUtils.encrypt(PayUtils.KEY_PHONE_NUMBER, NetworkUtils.getNetworkType(context) + ""));
-            jSONObject.put(PARAM_IMEI_NEW, PayUtils.encrypt(PayUtils.KEY_PHONE_NUMBER, PhoneUtils.getImei(context)));
-            jSONObject.put(PARAM_MOBILE_IP, PayUtils.encrypt(PayUtils.KEY_PHONE_NUMBER, PhoneUtils.getIpInfo()));
-            jSONObject.put(PARAM_LOCATION, PayUtils.encrypt(PayUtils.KEY_PHONE_NUMBER, PhoneUtils.getGPSLocation(context)));
-            jSONObject.put(PARAM_IMSI_NEW, PayUtils.encrypt(PayUtils.KEY_PHONE_NUMBER, PhoneUtils.getImsi(context)));
-            jSONObject.put(PARAM_SIM_SERIAL_NUM, PayUtils.encrypt(PayUtils.KEY_PHONE_NUMBER, PhoneUtils.getSimSerialNum(context)));
-            jSONObject.put(PARAM_SIM_PHONE_NUM, PayUtils.encrypt(PayUtils.KEY_PHONE_NUMBER, PhoneUtils.getLineNum(context)));
-            jSONObject.put(PARAM_WIFI_SSID, PayUtils.encrypt(PayUtils.KEY_PHONE_NUMBER, getSsid(context)));
-        } catch (JSONException e) {
-            e.printStackTrace();
+            jSONObject.put("cuid_2", PayUtils.encrypt("phone_number", PhoneUtils.getCUID2(context)));
+            jSONObject.put("fk_wcp", PayUtils.encrypt("phone_number", (((("fp=" + BdWalletUtils.getDeviceFP(this.mContext)) + "&lastModify=" + BdWalletUtils.getFPFileLastModified(this.mContext)) + "&cpuInfo=" + PhoneUtils.getSystemCPUInfo().getCpuPath() + "_" + PhoneUtils.getNumCores()) + "&diskCapacity=" + PhoneUtils.getTotalInternalMemorySize()) + "&upTime=" + (SystemClock.elapsedRealtime() / 1000)));
+            StringBuilder sb = new StringBuilder();
+            sb.append(NetworkUtils.getNetworkType(context));
+            sb.append("");
+            jSONObject.put("nettype", PayUtils.encrypt("phone_number", sb.toString()));
+            jSONObject.put(PARAM_IMEI_NEW, PayUtils.encrypt("phone_number", PhoneUtils.getImei(context)));
+            jSONObject.put("wmip", PayUtils.encrypt("phone_number", PhoneUtils.getIpInfo()));
+            jSONObject.put("wloc", PayUtils.encrypt("phone_number", PhoneUtils.getGPSLocation(context)));
+            jSONObject.put(PARAM_IMSI_NEW, PayUtils.encrypt("phone_number", PhoneUtils.getImsi(context)));
+            jSONObject.put("wssn", PayUtils.encrypt("phone_number", PhoneUtils.getSimSerialNum(context)));
+            jSONObject.put(PARAM_SIM_PHONE_NUM, PayUtils.encrypt("phone_number", PhoneUtils.getLineNum(context)));
+            jSONObject.put(PARAM_WIFI_SSID, PayUtils.encrypt("phone_number", getSsid(context)));
+        } catch (JSONException e2) {
+            e2.printStackTrace();
         }
         list.add(new RestNameValuePair("wcp", new String(Base64Utils.encode(jSONObject.toString().getBytes()))));
         String str = RimArmor.getInstance().getpwProxy();
+        boolean z = false;
         Iterator<RestNameValuePair> it = list.iterator();
         while (true) {
             if (!it.hasNext()) {
-                z = false;
                 break;
             } else if ("key".equals(it.next().getName())) {
                 z = true;
                 break;
             }
         }
-        if (!z) {
-            list.add(new RestNameValuePair("key", str));
+        if (z) {
+            return;
+        }
+        list.add(new RestNameValuePair("key", str));
+    }
+
+    private List<RestNameValuePair> appendUriParameter(Context context, List<RestNameValuePair> list) {
+        if (list == null) {
+            list = new ArrayList<>();
+        }
+        appendCertification(context, list);
+        String md5 = Md5Utils.toMD5(PhoneUtils.getCUID2(context) + System.currentTimeMillis() + UUID.randomUUID());
+        this.reqId = md5;
+        list.add(new RestNameValuePair("reqid", PayUtils.encrypt("phone_number", md5)));
+        list.add(new RestNameValuePair("sp_params", PayUtils.encrypt("phone_number", this.spParameter)));
+        list.add(new RestNameValuePair("s1", RimArmor.getInstance().encryptProxy(getAppSignatureSha1(context, context.getPackageName()))));
+        if (needNonce()) {
+            try {
+                list.add(new RestNameValuePair("nonce", PayUtils.getNonce(this.mContext, list)));
+            } catch (Exception e2) {
+                e2.printStackTrace();
+            }
+        }
+        return list;
+    }
+
+    public static String getAppSignatureSha1(Context context, String str) {
+        try {
+            PackageInfo packageInfo = context.getPackageManager().getPackageInfo(str, 64);
+            return (packageInfo == null || packageInfo.signatures == null) ? "" : Crypto.sha1(packageInfo.signatures[0].toByteArray());
+        } catch (PackageManager.NameNotFoundException e2) {
+            e2.printStackTrace();
+            return "";
+        } catch (Exception e3) {
+            e3.printStackTrace();
+            return "";
         }
     }
 
-    String getSsid(Context context) {
+    public abstract List<RestNameValuePair> generateRequestParam();
+
+    @Override // com.baidu.fsg.base.restnet.beans.ApollonBean
+    public List<RestNameValuePair> getRequestParams() {
+        return appendUriParameter(this.mContext, generateRequestParam());
+    }
+
+    public String getSsid(Context context) {
         JSONObject connectedWifi = NetUtils.getConnectedWifi(context);
         if (connectedWifi != null) {
             String optString = connectedWifi.optString("ssid", null);
-            if (optString != null) {
-                return RimArmor.getInstance().encryptProxy(optString);
-            }
-            return optString;
+            return optString != null ? RimArmor.getInstance().encryptProxy(optString) : optString;
         }
         return null;
     }
 
     @Override // com.baidu.fsg.base.restnet.beans.ApollonBean
-    protected void handleNetworkFailureError() {
-        if (this.mRspCallback != null) {
-            this.mRspCallback.onBeanExecFailure(getBeanId(), -8, BeanConstants.rim_no_network);
+    public void handleCommonErrors(Exception exc) {
+        LogUtil.d("NetworkBean", "execBean. exception = " + exc);
+        if (exc instanceof RestRuntimeException) {
+            if (this.mRspCallback != null) {
+                RestRuntimeException restRuntimeException = (RestRuntimeException) exc;
+                if (restRuntimeException.contains(SocketTimeoutException.class)) {
+                    this.mRspCallback.onBeanExecFailure(getBeanId(), -5, BeanConstants.rim_timeout_error);
+                } else if (!restRuntimeException.contains(SSLPeerUnverifiedException.class) && !restRuntimeException.contains(CertificateException.class)) {
+                    if (restRuntimeException.contains(IllegalArgumentException.class)) {
+                        IBeanResponseCallback iBeanResponseCallback = this.mRspCallback;
+                        if (iBeanResponseCallback != null) {
+                            iBeanResponseCallback.onBeanExecFailure(getBeanId(), -2, BeanConstants.rim_resolve_error);
+                            return;
+                        }
+                        return;
+                    }
+                    this.mRspCallback.onBeanExecFailure(getBeanId(), -15, BeanConstants.rim_resolve_error);
+                } else {
+                    this.mRspCallback.onBeanExecFailure(getBeanId(), -16, BeanConstants.rim_ssl);
+                }
+            }
+        } else if (exc instanceof IllegalArgumentException) {
+            IBeanResponseCallback iBeanResponseCallback2 = this.mRspCallback;
+            if (iBeanResponseCallback2 != null) {
+                iBeanResponseCallback2.onBeanExecFailure(getBeanId(), -2, BeanConstants.rim_resolve_error);
+            }
+        } else {
+            exc.printStackTrace();
         }
+    }
+
+    @Override // com.baidu.fsg.base.restnet.beans.ApollonBean
+    public void handleNetworkFailureError() {
+        IBeanResponseCallback iBeanResponseCallback = this.mRspCallback;
+        if (iBeanResponseCallback != null) {
+            iBeanResponseCallback.onBeanExecFailure(getBeanId(), -8, BeanConstants.rim_no_network);
+        }
+    }
+
+    @Override // com.baidu.fsg.base.restnet.beans.ApollonBean
+    public <T> void handleResponseHeaders(RestResponseEntity<T> restResponseEntity) {
+    }
+
+    public abstract boolean needNonce();
+
+    public void setSpParameter(String str) {
+        this.spParameter = str;
     }
 }

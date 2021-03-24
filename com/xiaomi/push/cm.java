@@ -1,20 +1,22 @@
 package com.xiaomi.push;
-/* loaded from: classes5.dex */
-class cm {
 
-    /* renamed from: a  reason: collision with root package name */
-    public int f8303a;
-
-    /* renamed from: a  reason: collision with other field name */
-    public String f168a;
-    public String b;
-
-    public cm() {
-    }
-
-    public cm(int i, String str, String str2) {
-        this.f8303a = i;
-        this.f168a = str;
-        this.b = str2;
+import android.os.Build;
+import android.system.Os;
+import java.io.File;
+/* loaded from: classes7.dex */
+public class cm {
+    public static long a(String str) {
+        if (Build.VERSION.SDK_INT >= 21) {
+            try {
+                if (new File(str).exists()) {
+                    return Os.stat(str).st_size;
+                }
+                return 0L;
+            } catch (Exception e2) {
+                com.xiaomi.channel.commonutils.logger.b.a(e2);
+                return 0L;
+            }
+        }
+        return 0L;
     }
 }

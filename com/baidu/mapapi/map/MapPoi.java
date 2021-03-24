@@ -3,34 +3,40 @@ package com.baidu.mapapi.map;
 import com.baidu.mapapi.model.CoordUtil;
 import com.baidu.mapapi.model.LatLng;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public final class MapPoi {
-    private static final String d = MapPoi.class.getSimpleName();
+
+    /* renamed from: d  reason: collision with root package name */
+    public static final String f6896d = "MapPoi";
 
     /* renamed from: a  reason: collision with root package name */
-    String f2028a;
-    LatLng b;
-    String c;
+    public String f6897a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    /* renamed from: b  reason: collision with root package name */
+    public LatLng f6898b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public String f6899c;
+
     public void a(JSONObject jSONObject) {
-        this.f2028a = jSONObject.optString("tx");
-        if (this.f2028a != null && !this.f2028a.equals("")) {
-            this.f2028a = this.f2028a.replaceAll("\\\\", "").replaceAll("/?[a-zA-Z]{1,10};", "").replaceAll("<[^>]*>", "").replaceAll("[(/>)<]", "");
+        String optString = jSONObject.optString("tx");
+        this.f6897a = optString;
+        if (optString != null && !optString.equals("")) {
+            this.f6897a = this.f6897a.replaceAll("\\\\", "").replaceAll("/?[a-zA-Z]{1,10};", "").replaceAll("<[^>]*>", "").replaceAll("[(/>)<]", "");
         }
-        this.b = CoordUtil.decodeNodeLocation(jSONObject.optString("geo"));
-        this.c = jSONObject.optString("ud");
+        this.f6898b = CoordUtil.decodeNodeLocation(jSONObject.optString("geo"));
+        this.f6899c = jSONObject.optString("ud");
     }
 
     public String getName() {
-        return this.f2028a;
+        return this.f6897a;
     }
 
     public LatLng getPosition() {
-        return this.b;
+        return this.f6898b;
     }
 
     public String getUid() {
-        return this.c;
+        return this.f6899c;
     }
 }

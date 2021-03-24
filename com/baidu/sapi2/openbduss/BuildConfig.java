@@ -1,5 +1,5 @@
 package com.baidu.sapi2.openbduss;
-/* loaded from: classes14.dex */
+/* loaded from: classes2.dex */
 public final class BuildConfig {
     @Deprecated
     public static final String APPLICATION_ID = "com.baidu.sapi2.openbduss";
@@ -8,5 +8,5 @@ public final class BuildConfig {
     public static final String FLAVOR = "";
     public static final String LIBRARY_PACKAGE_NAME = "com.baidu.sapi2.openbduss";
     public static final int VERSION_CODE = 1;
-    public static final String VERSION_NAME = "1.0";
+    public static final String VERSION_NAME = "9.2.9.8";
 }

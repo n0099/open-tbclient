@@ -1,102 +1,56 @@
 package com.baidu.sapi2.utils;
+/* loaded from: classes2.dex */
+public interface g {
+    public static final String A = "/v3/ucenter/contacts/upload";
+    public static final String B = "/v3/ucenter/contacts/get";
+    public static final String C = "/v3/login/api/authopenbduss";
+    public static final String D = "/v3/login/api/ability";
+    public static final String E = "/v3/login/onekeylogin";
+    public static final String F = "/v6/changeAccount";
+    public static final String G = "/v6/faceLoginRegular";
+    public static final String H = "/v3/api/device/app";
+    public static final String I = "/v3/api/login/sharev3app";
+    public static final String J = "/face_cert";
 
-import android.content.Context;
-import android.content.res.Resources;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.webkit.WebView;
-import android.widget.AbsoluteLayout;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.ProgressBar;
-import android.widget.TextView;
-import com.baidu.j.a.a;
-import com.baidu.sapi2.SapiAccountManager;
-import com.baidu.sapi2.SapiWebView;
-/* loaded from: classes3.dex */
-public class g {
+    /* renamed from: a  reason: collision with root package name */
+    public static final String f11500a = "/v2/sapi/login";
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
-    public static class a implements View.OnClickListener {
+    /* renamed from: b  reason: collision with root package name */
+    public static final String f11501b = "/v2/sapi/center/getuinfo";
 
-        /* renamed from: a  reason: collision with root package name */
-        final /* synthetic */ WebView f3462a;
-        final /* synthetic */ View b;
+    /* renamed from: c  reason: collision with root package name */
+    public static final String f11502c = "/cgi-bin/genimage?";
 
-        /* renamed from: com.baidu.sapi2.utils.g$a$a  reason: collision with other inner class name */
-        /* loaded from: classes3.dex */
-        class RunnableC0338a implements Runnable {
-            RunnableC0338a() {
-            }
+    /* renamed from: d  reason: collision with root package name */
+    public static final String f11503d = "/phoenix/account/ssologin";
 
-            @Override // java.lang.Runnable
-            public void run() {
-                a.this.b.setVisibility(4);
-                a.this.f3462a.reload();
-            }
-        }
+    /* renamed from: e  reason: collision with root package name */
+    public static final String f11504e = "/phoenix/account/ssologin";
 
-        a(WebView webView, View view) {
-            this.f3462a = webView;
-            this.b = view;
-        }
+    /* renamed from: f  reason: collision with root package name */
+    public static final String f11505f = "/phoenix/account/startlogin";
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
-            this.f3462a.post(new RunnableC0338a());
-        }
-    }
+    /* renamed from: g  reason: collision with root package name */
+    public static final String f11506g = "/phoenix/account/afterauth";
 
-    public static void a(Context context, SapiWebView sapiWebView, boolean z) {
-        a(context, sapiWebView);
-        d(context, sapiWebView);
-        if (z) {
-            c(context, sapiWebView);
-        } else {
-            b(context, sapiWebView);
-        }
-    }
-
-    private static void b(Context context, SapiWebView sapiWebView) {
-        try {
-            ProgressBar progressBar = new ProgressBar(context, null, 16842872);
-            progressBar.setLayoutParams(new AbsoluteLayout.LayoutParams(-1, SapiUtils.dip2px(context, 2.0f), 0, 0));
-            progressBar.setBackgroundColor(context.getResources().getColor(a.b.sapi_sdk_dark_mode_color));
-            sapiWebView.setProgressBar(progressBar);
-        } catch (Throwable th) {
-            Log.e(th);
-        }
-    }
-
-    private static void c(Context context, SapiWebView sapiWebView) {
-        sapiWebView.setWebviewLoadingView(new com.baidu.sapi2.views.b(context));
-    }
-
-    private static void d(Context context, SapiWebView sapiWebView) {
-        sapiWebView.setTimeoutView(a(context, (WebView) sapiWebView));
-    }
-
-    private static void a(Context context, SapiWebView sapiWebView) {
-        sapiWebView.setNoNetworkView(a(context, (WebView) sapiWebView));
-    }
-
-    public static View a(Context context, WebView webView) {
-        View inflate = ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(a.f.layout_sapi_sdk_loading_timeout, (ViewGroup) null);
-        Button button = (Button) inflate.findViewById(a.e.btn_retry);
-        if (SapiAccountManager.getInstance().getConfignation().isDarkMode && inflate != null) {
-            ((LinearLayout) inflate.findViewById(a.e.sapi_sdk_loading_timeout_bg_layout)).setBackgroundColor(context.getResources().getColor(a.b.sapi_sdk_dark_mode_color));
-            ((TextView) inflate.findViewById(a.e.sapi_sdk_loading_timeout_tv)).setTextColor(context.getResources().getColor(a.b.sapi_sdk_dark_mode_no_network_tv_color));
-            ((ImageView) inflate.findViewById(a.e.sapi_sdk_loading_timeout_iv)).setImageResource(a.d.sapi_sdk_icon_connection_failed_dark);
-            button.setBackgroundResource(a.d.sapi_sdk_btn_gray);
-            Resources resources = context.getResources();
-            if (resources != null) {
-                button.setTextColor(resources.getColorStateList(a.b.sapi_sdk_text_white));
-            }
-        }
-        button.setOnClickListener(new a(webView, inflate));
-        return inflate;
-    }
+    /* renamed from: h  reason: collision with root package name */
+    public static final String f11507h = "/phoenix/account/finishbind";
+    public static final String i = "/v2/sapi/qrlogin";
+    public static final String j = "/v2/api/getqrcode";
+    public static final String k = "/channel/unicast";
+    public static final String l = "/v2/api/bdusslogin";
+    public static final String m = "/v3/login/main/qrbdusslogin";
+    public static final String n = "/v2/sapi/center/filluname";
+    public static final String o = "/v2/sapi/getdpass";
+    public static final String p = "/static/appsapi/conf/android-conf.txt";
+    public static final String q = "/static/appsapi/conf/android-conf.txt";
+    public static final String r = "/v2/sapi/bdussexchangeaccesstoken";
+    public static final String s = "/v3/login/api/auth/";
+    public static final String t = "/static/appsapi/img/default_portrait.png";
+    public static final String u = "/phoenix/account/guidetouristnormalize";
+    public static final String v = "/v3/security/sapi/faceCheck";
+    public static final String w = "/v3/security/faceloginswitchresult";
+    public static final String x = "/v3/security/sapi/faceLoginStatus";
+    public static final String y = "https://openapi.baidu.com/oauth/2.0/token";
+    public static final String z = "/v3/security/sapi/appFaceCheck";
 }

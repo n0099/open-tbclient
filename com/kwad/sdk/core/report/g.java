@@ -4,21 +4,20 @@ import android.content.Context;
 import androidx.annotation.NonNull;
 import com.kwad.sdk.core.config.c;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class g extends c<ReportAction, f> {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile boolean f6247a = false;
-    private static g b = new g();
+    public static volatile boolean f34040a = false;
 
-    private g() {
-    }
+    /* renamed from: b  reason: collision with root package name */
+    public static g f34041b = new g();
 
     public static void a(@NonNull a aVar) {
         if (aVar == null) {
             return;
         }
-        if (b(aVar.c)) {
+        if (b(aVar.f33995c)) {
             c(aVar);
         } else {
             b(aVar);
@@ -29,7 +28,7 @@ public class g extends c<ReportAction, f> {
         if (aVar == null) {
             return;
         }
-        b.a(new h<ReportAction>() { // from class: com.kwad.sdk.core.report.g.1
+        f34041b.a(new h<ReportAction>() { // from class: com.kwad.sdk.core.report.g.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.kwad.sdk.core.report.h
             /* renamed from: b */
@@ -39,19 +38,19 @@ public class g extends c<ReportAction, f> {
         });
     }
 
-    private static boolean b(long j) {
+    public static boolean b(long j) {
         return c.a.ae.a(j);
     }
 
     public static g c() {
-        return b;
+        return f34041b;
     }
 
     public static void c(final a aVar) {
         if (aVar == null) {
             return;
         }
-        b.b(new h<ReportAction>() { // from class: com.kwad.sdk.core.report.g.2
+        f34041b.b(new h<ReportAction>() { // from class: com.kwad.sdk.core.report.g.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.kwad.sdk.core.report.h
             /* renamed from: b */
@@ -63,7 +62,7 @@ public class g extends c<ReportAction, f> {
 
     @Override // com.kwad.sdk.core.report.c
     public void a(Context context) {
-        if (f6247a) {
+        if (f34040a) {
             return;
         }
         super.a(context);
@@ -74,11 +73,10 @@ public class g extends c<ReportAction, f> {
         if (a2 == 2) {
             a(l.a(context));
         }
-        f6247a = true;
+        f34040a = true;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.core.report.c
     /* renamed from: b */
     public f a(List<ReportAction> list) {
@@ -86,7 +84,7 @@ public class g extends c<ReportAction, f> {
     }
 
     @Override // com.kwad.sdk.core.report.c
-    protected String b() {
+    public String b() {
         return "barep";
     }
 }

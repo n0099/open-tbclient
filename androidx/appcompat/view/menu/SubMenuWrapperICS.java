@@ -7,31 +7,21 @@ import android.view.SubMenu;
 import android.view.View;
 import androidx.annotation.RestrictTo;
 import androidx.core.internal.view.SupportSubMenu;
-/* JADX INFO: Access modifiers changed from: package-private */
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes5.dex */
+/* loaded from: classes.dex */
 public class SubMenuWrapperICS extends MenuWrapperICS implements SubMenu {
-    /* JADX INFO: Access modifiers changed from: package-private */
     public SubMenuWrapperICS(Context context, SupportSubMenu supportSubMenu) {
         super(context, supportSubMenu);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // androidx.appcompat.view.menu.BaseWrapper
-    public SupportSubMenu getWrappedObject() {
-        return (SupportSubMenu) this.mWrappedObject;
+    @Override // android.view.SubMenu
+    public void clearHeader() {
+        getWrappedObject().clearHeader();
     }
 
     @Override // android.view.SubMenu
-    public SubMenu setHeaderTitle(int i) {
-        getWrappedObject().setHeaderTitle(i);
-        return this;
-    }
-
-    @Override // android.view.SubMenu
-    public SubMenu setHeaderTitle(CharSequence charSequence) {
-        getWrappedObject().setHeaderTitle(charSequence);
-        return this;
+    public MenuItem getItem() {
+        return getMenuItemWrapper(getWrappedObject().getItem());
     }
 
     @Override // android.view.SubMenu
@@ -41,8 +31,8 @@ public class SubMenuWrapperICS extends MenuWrapperICS implements SubMenu {
     }
 
     @Override // android.view.SubMenu
-    public SubMenu setHeaderIcon(Drawable drawable) {
-        getWrappedObject().setHeaderIcon(drawable);
+    public SubMenu setHeaderTitle(int i) {
+        getWrappedObject().setHeaderTitle(i);
         return this;
     }
 
@@ -53,13 +43,26 @@ public class SubMenuWrapperICS extends MenuWrapperICS implements SubMenu {
     }
 
     @Override // android.view.SubMenu
-    public void clearHeader() {
-        getWrappedObject().clearHeader();
+    public SubMenu setIcon(int i) {
+        getWrappedObject().setIcon(i);
+        return this;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // androidx.appcompat.view.menu.BaseWrapper
+    public SupportSubMenu getWrappedObject() {
+        return (SupportSubMenu) this.mWrappedObject;
     }
 
     @Override // android.view.SubMenu
-    public SubMenu setIcon(int i) {
-        getWrappedObject().setIcon(i);
+    public SubMenu setHeaderIcon(Drawable drawable) {
+        getWrappedObject().setHeaderIcon(drawable);
+        return this;
+    }
+
+    @Override // android.view.SubMenu
+    public SubMenu setHeaderTitle(CharSequence charSequence) {
+        getWrappedObject().setHeaderTitle(charSequence);
         return this;
     }
 
@@ -67,10 +70,5 @@ public class SubMenuWrapperICS extends MenuWrapperICS implements SubMenu {
     public SubMenu setIcon(Drawable drawable) {
         getWrappedObject().setIcon(drawable);
         return this;
-    }
-
-    @Override // android.view.SubMenu
-    public MenuItem getItem() {
-        return getMenuItemWrapper(getWrappedObject().getItem());
     }
 }

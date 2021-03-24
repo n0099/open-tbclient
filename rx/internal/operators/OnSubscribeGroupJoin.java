@@ -1,170 +1,206 @@
 package rx.internal.operators;
 
+import h.d;
+import h.e;
+import h.j;
+import h.k;
+import h.n.f;
+import h.n.g;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import rx.d;
 import rx.subjects.PublishSubject;
 import rx.subscriptions.RefCountSubscription;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements d.a<R> {
-    final rx.functions.f<? super T2, ? extends rx.d<D2>> qAa;
-    final rx.functions.g<? super T1, ? super rx.d<T2>, ? extends R> qAb;
-    final rx.d<T1> qzX;
-    final rx.d<T2> qzY;
-    final rx.functions.f<? super T1, ? extends rx.d<D1>> qzZ;
 
-    @Override // rx.functions.b
-    public /* bridge */ /* synthetic */ void call(Object obj) {
-        call((rx.j) ((rx.j) obj));
-    }
+    /* renamed from: e  reason: collision with root package name */
+    public final d<T1> f68153e;
 
-    public void call(rx.j<? super R> jVar) {
-        ResultManager resultManager = new ResultManager(new rx.b.e(jVar));
-        jVar.add(resultManager);
-        resultManager.init();
-    }
+    /* renamed from: f  reason: collision with root package name */
+    public final d<T2> f68154f;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
-    public final class ResultManager extends HashMap<Integer, rx.e<T2>> implements rx.k {
-        private static final long serialVersionUID = -3035156013812425335L;
-        boolean leftDone;
-        int leftIds;
-        boolean rightDone;
-        int rightIds;
-        final rx.j<? super R> subscriber;
-        final Map<Integer, T2> rightMap = new HashMap();
-        final rx.subscriptions.b group = new rx.subscriptions.b();
-        final RefCountSubscription cancel = new RefCountSubscription(this.group);
+    /* renamed from: g  reason: collision with root package name */
+    public final f<? super T1, ? extends d<D1>> f68155g;
 
-        public ResultManager(rx.j<? super R> jVar) {
-            this.subscriber = jVar;
-        }
+    /* renamed from: h  reason: collision with root package name */
+    public final f<? super T2, ? extends d<D2>> f68156h;
+    public final g<? super T1, ? super d<T2>, ? extends R> i;
 
-        public void init() {
-            b bVar = new b();
-            d dVar = new d();
-            this.group.add(bVar);
-            this.group.add(dVar);
-            OnSubscribeGroupJoin.this.qzX.a((rx.j<? super T1>) bVar);
-            OnSubscribeGroupJoin.this.qzY.a((rx.j<? super T2>) dVar);
-        }
+    /* loaded from: classes7.dex */
+    public final class ResultManager extends HashMap<Integer, e<T2>> implements k {
+        public static final long serialVersionUID = -3035156013812425335L;
+        public boolean leftDone;
+        public int leftIds;
+        public boolean rightDone;
+        public int rightIds;
+        public final j<? super R> subscriber;
+        public final Map<Integer, T2> rightMap = new HashMap();
+        public final h.u.b group = new h.u.b();
+        public final RefCountSubscription cancel = new RefCountSubscription(this.group);
 
-        @Override // rx.k
-        public void unsubscribe() {
-            this.cancel.unsubscribe();
-        }
+        /* loaded from: classes7.dex */
+        public final class a extends j<D1> {
 
-        @Override // rx.k
-        public boolean isUnsubscribed() {
-            return this.cancel.isUnsubscribed();
-        }
+            /* renamed from: e  reason: collision with root package name */
+            public final int f68157e;
 
-        Map<Integer, rx.e<T2>> leftMap() {
-            return this;
-        }
+            /* renamed from: f  reason: collision with root package name */
+            public boolean f68158f = true;
 
-        void errorAll(Throwable th) {
-            ArrayList<rx.e> arrayList;
-            synchronized (this) {
-                arrayList = new ArrayList(leftMap().values());
-                leftMap().clear();
-                this.rightMap.clear();
-            }
-            for (rx.e eVar : arrayList) {
-                eVar.onError(th);
-            }
-            this.subscriber.onError(th);
-            this.cancel.unsubscribe();
-        }
-
-        void errorMain(Throwable th) {
-            synchronized (this) {
-                leftMap().clear();
-                this.rightMap.clear();
-            }
-            this.subscriber.onError(th);
-            this.cancel.unsubscribe();
-        }
-
-        void complete(List<rx.e<T2>> list) {
-            if (list != null) {
-                for (rx.e<T2> eVar : list) {
-                    eVar.onCompleted();
-                }
-                this.subscriber.onCompleted();
-                this.cancel.unsubscribe();
-            }
-        }
-
-        /* JADX INFO: Access modifiers changed from: package-private */
-        /* loaded from: classes4.dex */
-        public final class b extends rx.j<T1> {
-            b() {
+            public a(int i) {
+                this.f68157e = i;
             }
 
-            @Override // rx.e
-            public void onNext(T1 t1) {
-                int i;
-                ArrayList<Object> arrayList;
-                try {
-                    PublishSubject eNS = PublishSubject.eNS();
-                    rx.b.d dVar = new rx.b.d(eNS);
-                    synchronized (ResultManager.this) {
-                        ResultManager resultManager = ResultManager.this;
-                        i = resultManager.leftIds;
-                        resultManager.leftIds = i + 1;
-                        ResultManager.this.leftMap().put(Integer.valueOf(i), dVar);
-                    }
-                    rx.d a2 = rx.d.a((d.a) new a(eNS, ResultManager.this.cancel));
-                    a aVar = new a(i);
-                    ResultManager.this.group.add(aVar);
-                    OnSubscribeGroupJoin.this.qzZ.call(t1).a((rx.j<? super D1>) aVar);
-                    R n = OnSubscribeGroupJoin.this.qAb.n(t1, a2);
-                    synchronized (ResultManager.this) {
-                        arrayList = new ArrayList(ResultManager.this.rightMap.values());
-                    }
-                    ResultManager.this.subscriber.onNext(n);
-                    for (Object obj : arrayList) {
-                        dVar.onNext(obj);
-                    }
-                } catch (Throwable th) {
-                    rx.exceptions.a.a(th, this);
-                }
-            }
-
-            @Override // rx.e
+            @Override // h.e
             public void onCompleted() {
-                ArrayList arrayList = null;
+                e<T2> remove;
+                if (this.f68158f) {
+                    this.f68158f = false;
+                    synchronized (ResultManager.this) {
+                        remove = ResultManager.this.leftMap().remove(Integer.valueOf(this.f68157e));
+                    }
+                    if (remove != null) {
+                        remove.onCompleted();
+                    }
+                    ResultManager.this.group.b(this);
+                }
+            }
+
+            @Override // h.e
+            public void onError(Throwable th) {
+                ResultManager.this.errorMain(th);
+            }
+
+            @Override // h.e
+            public void onNext(D1 d1) {
+                onCompleted();
+            }
+        }
+
+        /* loaded from: classes7.dex */
+        public final class b extends j<T1> {
+            public b() {
+            }
+
+            @Override // h.e
+            public void onCompleted() {
+                ArrayList arrayList;
                 synchronized (ResultManager.this) {
                     ResultManager.this.leftDone = true;
                     if (ResultManager.this.rightDone) {
                         arrayList = new ArrayList(ResultManager.this.leftMap().values());
                         ResultManager.this.leftMap().clear();
                         ResultManager.this.rightMap.clear();
+                    } else {
+                        arrayList = null;
                     }
                 }
                 ResultManager.this.complete(arrayList);
             }
 
-            @Override // rx.e
+            @Override // h.e
             public void onError(Throwable th) {
                 ResultManager.this.errorAll(th);
             }
+
+            @Override // h.e
+            public void onNext(T1 t1) {
+                int i;
+                ArrayList<Object> arrayList;
+                try {
+                    PublishSubject L = PublishSubject.L();
+                    h.q.d dVar = new h.q.d(L);
+                    synchronized (ResultManager.this) {
+                        ResultManager resultManager = ResultManager.this;
+                        i = resultManager.leftIds;
+                        resultManager.leftIds = i + 1;
+                        ResultManager.this.leftMap().put(Integer.valueOf(i), dVar);
+                    }
+                    h.d c2 = h.d.c(new a(L, ResultManager.this.cancel));
+                    a aVar = new a(i);
+                    ResultManager.this.group.a(aVar);
+                    OnSubscribeGroupJoin.this.f68155g.call(t1).J(aVar);
+                    R a2 = OnSubscribeGroupJoin.this.i.a(t1, c2);
+                    synchronized (ResultManager.this) {
+                        arrayList = new ArrayList(ResultManager.this.rightMap.values());
+                    }
+                    ResultManager.this.subscriber.onNext(a2);
+                    for (Object obj : arrayList) {
+                        dVar.onNext(obj);
+                    }
+                } catch (Throwable th) {
+                    h.m.a.f(th, this);
+                }
+            }
         }
 
-        /* JADX INFO: Access modifiers changed from: package-private */
-        /* loaded from: classes4.dex */
-        public final class d extends rx.j<T2> {
-            d() {
+        /* loaded from: classes7.dex */
+        public final class c extends j<D2> {
+
+            /* renamed from: e  reason: collision with root package name */
+            public final int f68161e;
+
+            /* renamed from: f  reason: collision with root package name */
+            public boolean f68162f = true;
+
+            public c(int i) {
+                this.f68161e = i;
             }
 
-            @Override // rx.e
+            @Override // h.e
+            public void onCompleted() {
+                if (this.f68162f) {
+                    this.f68162f = false;
+                    synchronized (ResultManager.this) {
+                        ResultManager.this.rightMap.remove(Integer.valueOf(this.f68161e));
+                    }
+                    ResultManager.this.group.b(this);
+                }
+            }
+
+            @Override // h.e
+            public void onError(Throwable th) {
+                ResultManager.this.errorMain(th);
+            }
+
+            @Override // h.e
+            public void onNext(D2 d2) {
+                onCompleted();
+            }
+        }
+
+        /* loaded from: classes7.dex */
+        public final class d extends j<T2> {
+            public d() {
+            }
+
+            @Override // h.e
+            public void onCompleted() {
+                ArrayList arrayList;
+                synchronized (ResultManager.this) {
+                    ResultManager.this.rightDone = true;
+                    if (ResultManager.this.leftDone) {
+                        arrayList = new ArrayList(ResultManager.this.leftMap().values());
+                        ResultManager.this.leftMap().clear();
+                        ResultManager.this.rightMap.clear();
+                    } else {
+                        arrayList = null;
+                    }
+                }
+                ResultManager.this.complete(arrayList);
+            }
+
+            @Override // h.e
+            public void onError(Throwable th) {
+                ResultManager.this.errorAll(th);
+            }
+
+            @Override // h.e
             public void onNext(T2 t2) {
                 int i;
-                ArrayList<rx.e> arrayList;
+                ArrayList<e> arrayList;
                 try {
                     synchronized (ResultManager.this) {
                         ResultManager resultManager = ResultManager.this;
@@ -173,157 +209,137 @@ public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements d.a<R> {
                         ResultManager.this.rightMap.put(Integer.valueOf(i), t2);
                     }
                     c cVar = new c(i);
-                    ResultManager.this.group.add(cVar);
-                    OnSubscribeGroupJoin.this.qAa.call(t2).a((rx.j<? super D2>) cVar);
+                    ResultManager.this.group.a(cVar);
+                    OnSubscribeGroupJoin.this.f68156h.call(t2).J(cVar);
                     synchronized (ResultManager.this) {
                         arrayList = new ArrayList(ResultManager.this.leftMap().values());
                     }
-                    for (rx.e eVar : arrayList) {
+                    for (e eVar : arrayList) {
                         eVar.onNext(t2);
                     }
                 } catch (Throwable th) {
-                    rx.exceptions.a.a(th, this);
+                    h.m.a.f(th, this);
                 }
-            }
-
-            @Override // rx.e
-            public void onCompleted() {
-                ArrayList arrayList = null;
-                synchronized (ResultManager.this) {
-                    ResultManager.this.rightDone = true;
-                    if (ResultManager.this.leftDone) {
-                        arrayList = new ArrayList(ResultManager.this.leftMap().values());
-                        ResultManager.this.leftMap().clear();
-                        ResultManager.this.rightMap.clear();
-                    }
-                }
-                ResultManager.this.complete(arrayList);
-            }
-
-            @Override // rx.e
-            public void onError(Throwable th) {
-                ResultManager.this.errorAll(th);
             }
         }
 
-        /* loaded from: classes4.dex */
-        final class a extends rx.j<D1> {
-            final int id;
-            boolean once = true;
+        public ResultManager(j<? super R> jVar) {
+            this.subscriber = jVar;
+        }
 
-            public a(int i) {
-                this.id = i;
-            }
-
-            @Override // rx.e
-            public void onCompleted() {
-                rx.e<T2> remove;
-                if (this.once) {
-                    this.once = false;
-                    synchronized (ResultManager.this) {
-                        remove = ResultManager.this.leftMap().remove(Integer.valueOf(this.id));
-                    }
-                    if (remove != null) {
-                        remove.onCompleted();
-                    }
-                    ResultManager.this.group.a(this);
+        public void complete(List<e<T2>> list) {
+            if (list != null) {
+                for (e<T2> eVar : list) {
+                    eVar.onCompleted();
                 }
-            }
-
-            @Override // rx.e
-            public void onError(Throwable th) {
-                ResultManager.this.errorMain(th);
-            }
-
-            @Override // rx.e
-            public void onNext(D1 d1) {
-                onCompleted();
+                this.subscriber.onCompleted();
+                this.cancel.unsubscribe();
             }
         }
 
-        /* loaded from: classes4.dex */
-        final class c extends rx.j<D2> {
-            final int id;
-            boolean once = true;
-
-            public c(int i) {
-                this.id = i;
+        public void errorAll(Throwable th) {
+            ArrayList<e> arrayList;
+            synchronized (this) {
+                arrayList = new ArrayList(leftMap().values());
+                leftMap().clear();
+                this.rightMap.clear();
             }
-
-            @Override // rx.e
-            public void onCompleted() {
-                if (this.once) {
-                    this.once = false;
-                    synchronized (ResultManager.this) {
-                        ResultManager.this.rightMap.remove(Integer.valueOf(this.id));
-                    }
-                    ResultManager.this.group.a(this);
-                }
+            for (e eVar : arrayList) {
+                eVar.onError(th);
             }
+            this.subscriber.onError(th);
+            this.cancel.unsubscribe();
+        }
 
-            @Override // rx.e
-            public void onError(Throwable th) {
-                ResultManager.this.errorMain(th);
+        public void errorMain(Throwable th) {
+            synchronized (this) {
+                leftMap().clear();
+                this.rightMap.clear();
             }
+            this.subscriber.onError(th);
+            this.cancel.unsubscribe();
+        }
 
-            @Override // rx.e
-            public void onNext(D2 d2) {
-                onCompleted();
-            }
+        public void init() {
+            b bVar = new b();
+            d dVar = new d();
+            this.group.a(bVar);
+            this.group.a(dVar);
+            OnSubscribeGroupJoin.this.f68153e.J(bVar);
+            OnSubscribeGroupJoin.this.f68154f.J(dVar);
+        }
+
+        @Override // h.k
+        public boolean isUnsubscribed() {
+            return this.cancel.isUnsubscribed();
+        }
+
+        public Map<Integer, e<T2>> leftMap() {
+            return this;
+        }
+
+        @Override // h.k
+        public void unsubscribe() {
+            this.cancel.unsubscribe();
         }
     }
 
-    /* loaded from: classes4.dex */
-    static final class a<T> implements d.a<T> {
-        final RefCountSubscription qAd;
-        final rx.d<T> qAe;
+    /* loaded from: classes7.dex */
+    public static final class a<T> implements d.a<T> {
 
-        @Override // rx.functions.b
-        public /* bridge */ /* synthetic */ void call(Object obj) {
-            call((rx.j) ((rx.j) obj));
-        }
+        /* renamed from: e  reason: collision with root package name */
+        public final RefCountSubscription f68165e;
 
-        public a(rx.d<T> dVar, RefCountSubscription refCountSubscription) {
-            this.qAd = refCountSubscription;
-            this.qAe = dVar;
-        }
+        /* renamed from: f  reason: collision with root package name */
+        public final d<T> f68166f;
 
-        public void call(rx.j<? super T> jVar) {
-            rx.k eNX = this.qAd.eNX();
-            C1300a c1300a = new C1300a(jVar, eNX);
-            c1300a.add(eNX);
-            this.qAe.a((rx.j) c1300a);
-        }
-
-        /* JADX INFO: Access modifiers changed from: package-private */
         /* renamed from: rx.internal.operators.OnSubscribeGroupJoin$a$a  reason: collision with other inner class name */
-        /* loaded from: classes4.dex */
-        public final class C1300a extends rx.j<T> {
-            private final rx.k qAf;
-            final rx.j<? super T> subscriber;
+        /* loaded from: classes7.dex */
+        public final class C1893a extends j<T> {
 
-            public C1300a(rx.j<? super T> jVar, rx.k kVar) {
+            /* renamed from: e  reason: collision with root package name */
+            public final j<? super T> f68167e;
+
+            /* renamed from: f  reason: collision with root package name */
+            public final k f68168f;
+
+            public C1893a(a aVar, j<? super T> jVar, k kVar) {
                 super(jVar);
-                this.subscriber = jVar;
-                this.qAf = kVar;
+                this.f68167e = jVar;
+                this.f68168f = kVar;
             }
 
-            @Override // rx.e
-            public void onNext(T t) {
-                this.subscriber.onNext(t);
-            }
-
-            @Override // rx.e
-            public void onError(Throwable th) {
-                this.subscriber.onError(th);
-                this.qAf.unsubscribe();
-            }
-
-            @Override // rx.e
+            @Override // h.e
             public void onCompleted() {
-                this.subscriber.onCompleted();
-                this.qAf.unsubscribe();
+                this.f68167e.onCompleted();
+                this.f68168f.unsubscribe();
             }
+
+            @Override // h.e
+            public void onError(Throwable th) {
+                this.f68167e.onError(th);
+                this.f68168f.unsubscribe();
+            }
+
+            @Override // h.e
+            public void onNext(T t) {
+                this.f68167e.onNext(t);
+            }
+        }
+
+        public a(d<T> dVar, RefCountSubscription refCountSubscription) {
+            this.f68165e = refCountSubscription;
+            this.f68166f = dVar;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // h.n.b
+        /* renamed from: a */
+        public void call(j<? super T> jVar) {
+            k a2 = this.f68165e.a();
+            C1893a c1893a = new C1893a(this, jVar, a2);
+            c1893a.add(a2);
+            this.f68166f.J(c1893a);
         }
     }
 }

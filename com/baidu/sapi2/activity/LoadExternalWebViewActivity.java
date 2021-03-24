@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import com.baidu.fsg.base.BaiduRimConstants;
-import com.baidu.j.a.a;
 import com.baidu.sapi2.CoreViewRouter;
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.SapiContext;
@@ -19,8 +18,9 @@ import com.baidu.sapi2.result.ExtendSysWebViewMethodResult;
 import com.baidu.sapi2.result.OneKeyLoginResult;
 import com.baidu.sapi2.shell.listener.AuthorizationListener;
 import com.baidu.sapi2.utils.enums.AccountType;
+import d.b.a0.a.f;
 import java.util.ArrayList;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class LoadExternalWebViewActivity extends BaseActivity {
     public static final String EXTRA_BUSINESS_FROM = "business_from";
     public static final String EXTRA_BUSINESS_FROM_ONE_KEY_LOGIN = "business_from_one_key_login";
@@ -29,15 +29,15 @@ public class LoadExternalWebViewActivity extends BaseActivity {
     public static final String EXTRA_EXTERNAL_URL = "extra_external_url";
     public static final String RESULT_BUSINESS_TYPE_ACCOUNT_FREEZE = "business_account_freeze";
     public static final String RESULT_BUSINESS_TYPE_PRE_SET_UNAME = "business_pre_set_username";
-    private static final int t = 2001;
-    private String p;
-    private String q;
-    private String r;
-    private AuthorizationListener s = new AuthorizationListener() { // from class: com.baidu.sapi2.activity.LoadExternalWebViewActivity.1
+    public static final int t = 2001;
+    public String p;
+    public String q;
+    public String r;
+    public AuthorizationListener s = new AuthorizationListener() { // from class: com.baidu.sapi2.activity.LoadExternalWebViewActivity.1
         @Override // com.baidu.sapi2.shell.listener.AuthorizationListener
         public void onFailed(int i, String str) {
             if ("business_from_one_key_login".equals(LoadExternalWebViewActivity.this.r)) {
-                new OneKeyLoginSdkCall().a(CoreViewRouter.getInstance().getOneKeyLoginCallback(), -103, null);
+                new OneKeyLoginSdkCall().loadOneKeyLoginFail(CoreViewRouter.getInstance().getOneKeyLoginCallback(), -103, null);
             }
             LoadExternalWebViewActivity.this.setResult(0);
             LoadExternalWebViewActivity.this.finish();
@@ -71,13 +71,11 @@ public class LoadExternalWebViewActivity extends BaseActivity {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.sapi2.activity.TitleActivity
     public SapiWebDTO getWebDTO() {
         return CoreViewRouter.getInstance().getWebLoginDTO();
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.sapi2.activity.TitleActivity
     public void init() {
         super.init();
@@ -90,7 +88,6 @@ public class LoadExternalWebViewActivity extends BaseActivity {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.sapi2.activity.BaseActivity, android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
@@ -101,14 +98,12 @@ public class LoadExternalWebViewActivity extends BaseActivity {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.sapi2.activity.TitleActivity
     public void onBottomBackBtnClick() {
         super.onBottomBackBtnClick();
         a();
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.sapi2.activity.TitleActivity
     public void onClose() {
         super.onClose();
@@ -119,7 +114,7 @@ public class LoadExternalWebViewActivity extends BaseActivity {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         try {
-            setContentView(a.f.layout_sapi_sdk_webview_with_title_bar);
+            setContentView(f.layout_sapi_sdk_webview_with_title_bar);
             init();
             setupViews();
         } catch (Throwable th) {
@@ -128,14 +123,12 @@ public class LoadExternalWebViewActivity extends BaseActivity {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity
     public void onLeftBtnClick() {
         super.onLeftBtnClick();
-        if (!this.executeSubClassMethod) {
-            return;
+        if (this.executeSubClassMethod) {
+            a();
         }
-        a();
     }
 
     @Override // com.baidu.sapi2.activity.TitleActivity, android.app.Activity
@@ -143,7 +136,6 @@ public class LoadExternalWebViewActivity extends BaseActivity {
         super.onRequestPermissionsResult(i, strArr, iArr);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity
     public void setupViews() {
         super.setupViews();

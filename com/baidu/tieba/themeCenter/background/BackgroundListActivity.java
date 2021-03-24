@@ -2,118 +2,141 @@ package com.baidu.tieba.themeCenter.background;
 
 import android.os.Bundle;
 import com.baidu.adp.widget.ListView.BdListView;
-import com.baidu.live.tbadk.pagestayduration.PageStayDurationConstants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.view.f;
 import com.baidu.tieba.themeCenter.background.BackgroundListModel;
+import d.b.h0.r.f0.f;
+import d.b.i0.i3.e.d;
+import d.b.i0.i3.e.f;
+import d.b.i0.i3.h.e;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes5.dex */
 public class BackgroundListActivity extends BaseActivity<BackgroundListActivity> {
-    private TbPageContext<?> mPageContext;
-    d nIT;
-    private BackgroundListModel nJs;
-    private f nJt;
-    private BackgroundListModel.a nJu = new BackgroundListModel.a() { // from class: com.baidu.tieba.themeCenter.background.BackgroundListActivity.1
-        @Override // com.baidu.tieba.themeCenter.background.BackgroundListModel.a
-        public void a(int i, String str, com.baidu.tieba.themeCenter.dressCenter.e eVar, List<DressItemData> list) {
-            BackgroundListActivity.this.nJt.bRO();
-            BackgroundListActivity.this.hideLoadingView(BackgroundListActivity.this.nJt.getRootView());
+    public d mItemController;
+    public BackgroundListModel mModel;
+    public TbPageContext<?> mPageContext;
+    public f mView;
+    public BackgroundListModel.c mCallback = new a();
+    public BdListView.p mScrollToBottomListener = new b();
+    public final f.g mOnPullRefreshListener = new c();
+
+    /* loaded from: classes5.dex */
+    public class a implements BackgroundListModel.c {
+        public a() {
+        }
+
+        @Override // com.baidu.tieba.themeCenter.background.BackgroundListModel.c
+        public void a(int i, String str, e eVar, List<DressItemData> list) {
+            BackgroundListActivity.this.mView.j();
+            BackgroundListActivity backgroundListActivity = BackgroundListActivity.this;
+            backgroundListActivity.hideLoadingView(backgroundListActivity.mView.c());
             if (i == 0) {
-                BackgroundListActivity.this.nJt.a(eVar, list, BackgroundListActivity.this.nJs.dRw());
+                BackgroundListActivity.this.mView.i(eVar, list, BackgroundListActivity.this.mModel.L());
                 return;
             }
             BackgroundListActivity.this.showToast(str);
-            BackgroundListActivity.this.nJt.cAU();
+            BackgroundListActivity.this.mView.h();
         }
-    };
-    private BdListView.e gDl = new BdListView.e() { // from class: com.baidu.tieba.themeCenter.background.BackgroundListActivity.2
-        @Override // com.baidu.adp.widget.ListView.BdListView.e
-        public void onScrollToBottom() {
-            if (BackgroundListActivity.this.nJs != null) {
-                BackgroundListActivity.this.nJs.dRv();
-            }
-        }
-    };
-    private final f.c gJi = new f.c() { // from class: com.baidu.tieba.themeCenter.background.BackgroundListActivity.3
-        @Override // com.baidu.tbadk.core.view.f.c
-        public void onListPullRefresh(boolean z) {
-            if (BackgroundListActivity.this.nJs != null) {
-                BackgroundListActivity.this.nJs.LoadData();
-            }
-        }
-    };
+    }
 
-    /* JADX INFO: Access modifiers changed from: protected */
+    /* loaded from: classes5.dex */
+    public class b implements BdListView.p {
+        public b() {
+        }
+
+        @Override // com.baidu.adp.widget.ListView.BdListView.p
+        public void onScrollToBottom() {
+            if (BackgroundListActivity.this.mModel != null) {
+                BackgroundListActivity.this.mModel.s();
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class c implements f.g {
+        public c() {
+        }
+
+        @Override // d.b.h0.r.f0.f.g
+        public void onListPullRefresh(boolean z) {
+            if (BackgroundListActivity.this.mModel != null) {
+                BackgroundListActivity.this.mModel.LoadData();
+            }
+        }
+    }
+
+    @Override // com.baidu.tbadk.BaseActivity, d.b.h0.k0.a
+    public String getCurrentPageKey() {
+        return "b008";
+    }
+
+    @Override // com.baidu.tbadk.BaseActivity
+    public d.b.h0.k0.d getPageStayDurationItem() {
+        d.b.h0.k0.d pageStayDurationItem = super.getPageStayDurationItem();
+        if (pageStayDurationItem != null) {
+            pageStayDurationItem.f50238a = true;
+        }
+        return pageStayDurationItem;
+    }
+
+    public int getPropId() {
+        return this.mItemController.a();
+    }
+
+    @Override // com.baidu.tbadk.BaseActivity
+    public void onChangeSkinType(int i) {
+        super.onChangeSkinType(i);
+        d.b.i0.i3.e.f fVar = this.mView;
+        if (fVar != null) {
+            fVar.d();
+        }
+    }
+
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         TbadkCoreApplication.getInst().setThemeWebviewOpen(false);
         this.mPageContext = getPageContext();
-        this.nJs = new BackgroundListModel(this);
-        this.nJs.a(this.nJu);
-        this.nIT = new d(this.mPageContext, this.nJs.getUniqueId());
-        this.nIT.setFrom(0);
-        this.nJt = new f(this, this.nIT);
-        this.nJt.a(this.gDl, this.gJi);
-        showLoadingView(this.nJt.getRootView());
-        this.nJs.LoadData();
+        BackgroundListModel backgroundListModel = new BackgroundListModel(this);
+        this.mModel = backgroundListModel;
+        backgroundListModel.N(this.mCallback);
+        d dVar = new d(this.mPageContext, this.mModel.getUniqueId());
+        this.mItemController = dVar;
+        dVar.c(0);
+        d.b.i0.i3.e.f fVar = new d.b.i0.i3.e.f(this, this.mItemController);
+        this.mView = fVar;
+        fVar.g(this.mScrollToBottomListener, this.mOnPullRefreshListener);
+        showLoadingView(this.mView.c());
+        this.mModel.LoadData();
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
+    public void onDestroy() {
+        super.onDestroy();
+        BackgroundListModel backgroundListModel = this.mModel;
+        if (backgroundListModel != null) {
+            backgroundListModel.destroy();
+        }
+    }
+
+    @Override // com.baidu.tbadk.BaseActivity
+    public void onNetRefreshButtonClicked() {
+        d.b.i0.i3.e.f fVar;
+        if (this.mModel == null || (fVar = this.mView) == null) {
+            return;
+        }
+        showLoadingView(fVar.c());
+        this.mModel.LoadData();
+    }
+
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
         if (TbadkCoreApplication.getInst().getThemeWebviewOpen()) {
             TbadkCoreApplication.getInst().setThemeWebviewOpen(false);
-            showLoadingView(this.nJt.getRootView());
-            this.nJs.LoadData();
+            showLoadingView(this.mView.c());
+            this.mModel.LoadData();
         }
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i) {
-        super.onChangeSkinType(i);
-        if (this.nJt != null) {
-            this.nJt.bzq();
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
-    public void onDestroy() {
-        super.onDestroy();
-        if (this.nJs != null) {
-            this.nJs.destroy();
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.BaseActivity
-    public void onNetRefreshButtonClicked() {
-        if (this.nJs != null && this.nJt != null) {
-            showLoadingView(this.nJt.getRootView());
-            this.nJs.LoadData();
-        }
-    }
-
-    public int getPropId() {
-        return this.nIT.getPropId();
-    }
-
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.tbadk.m.a
-    public String getCurrentPageKey() {
-        return PageStayDurationConstants.PageName.BACKGROUND_ALL;
-    }
-
-    @Override // com.baidu.tbadk.BaseActivity
-    public com.baidu.tbadk.m.d getPageStayDurationItem() {
-        com.baidu.tbadk.m.d pageStayDurationItem = super.getPageStayDurationItem();
-        if (pageStayDurationItem != null) {
-            pageStayDurationItem.isRouteStat = true;
-        }
-        return pageStayDurationItem;
     }
 }

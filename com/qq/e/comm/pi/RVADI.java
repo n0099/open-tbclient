@@ -1,9 +1,11 @@
 package com.qq.e.comm.pi;
 
 import android.app.Activity;
+import com.qq.e.ads.rewardvideo.ServerSideVerificationOptions;
+import com.qq.e.comm.compliance.ApkDownloadComplianceInterface;
 import com.qq.e.comm.constants.LoadAdParams;
-/* loaded from: classes4.dex */
-public interface RVADI {
+/* loaded from: classes6.dex */
+public interface RVADI extends ApkDownloadComplianceInterface {
     String getAdNetWorkName();
 
     int getECPM();
@@ -21,6 +23,8 @@ public interface RVADI {
     void loadAD();
 
     void setLoadAdParams(LoadAdParams loadAdParams);
+
+    void setServerSideVerificationOptions(ServerSideVerificationOptions serverSideVerificationOptions);
 
     void setVolumeOn(boolean z);
 

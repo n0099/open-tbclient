@@ -2,10 +2,8 @@ package com.kwad.sdk.crash.c;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.kwad.sdk.crash.e;
 import com.kwad.sdk.crash.utils.g;
-import com.xiaomi.mipush.sdk.Constants;
 import java.io.File;
 import java.io.FileFilter;
 import java.io.IOException;
@@ -13,27 +11,41 @@ import java.util.UUID;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public abstract class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f6376a = UUID.randomUUID().toString();
-    public static File b;
-    protected e c;
-    protected AtomicInteger d = new AtomicInteger();
-    protected File e;
-    protected File f;
-    protected File g;
-    protected File h;
-    protected File i;
-    protected com.kwad.sdk.crash.report.c j;
+    public static final String f34439a = UUID.randomUUID().toString();
+
+    /* renamed from: b  reason: collision with root package name */
+    public static File f34440b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public e f34441c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public AtomicInteger f34442d = new AtomicInteger();
+
+    /* renamed from: e  reason: collision with root package name */
+    public File f34443e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public File f34444f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public File f34445g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public File f34446h;
+    public File i;
+    public com.kwad.sdk.crash.report.c j;
 
     public static void a(File file) {
-        b = file;
-        if (b.exists()) {
+        f34440b = file;
+        if (file.exists()) {
             return;
         }
-        b.mkdirs();
+        f34440b.mkdirs();
     }
 
     public final com.kwad.sdk.crash.report.c a() {
@@ -41,22 +53,24 @@ public abstract class b {
     }
 
     public void a(File file, e eVar, com.kwad.sdk.crash.report.c cVar) {
-        this.e = file;
-        if (!this.e.exists()) {
-            this.e.mkdirs();
+        this.f34443e = file;
+        if (!file.exists()) {
+            this.f34443e.mkdirs();
         }
-        this.f = new File(this.e, f6376a + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.d + ".dump");
-        this.g = new File(this.e, f6376a + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.d + BdStatsConstant.StatsFile.LOG_FILE_SUFFIX);
-        this.h = new File(this.e, f6376a + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.d + ".jtrace");
-        this.c = eVar;
+        File file2 = this.f34443e;
+        this.f34444f = new File(file2, f34439a + "-" + this.f34442d + ".dump");
+        File file3 = this.f34443e;
+        this.f34445g = new File(file3, f34439a + "-" + this.f34442d + ".log");
+        File file4 = this.f34443e;
+        this.f34446h = new File(file4, f34439a + "-" + this.f34442d + ".jtrace");
+        this.f34441c = eVar;
         this.j = cVar;
     }
 
-    protected abstract void a(@NonNull File[] fileArr, @Nullable CountDownLatch countDownLatch);
+    public abstract void a(@NonNull File[] fileArr, @Nullable CountDownLatch countDownLatch);
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public void b() {
-        File[] listFiles = this.e.listFiles(new FileFilter() { // from class: com.kwad.sdk.crash.c.b.1
+        File[] listFiles = this.f34443e.listFiles(new FileFilter() { // from class: com.kwad.sdk.crash.c.b.1
             @Override // java.io.FileFilter
             public boolean accept(File file) {
                 return file.getName().endsWith(".dump");
@@ -69,25 +83,25 @@ public abstract class b {
         a(listFiles, countDownLatch);
         try {
             countDownLatch.await(1L, TimeUnit.SECONDS);
-        } catch (InterruptedException e) {
-            com.kwad.sdk.core.d.a.b(e);
+        } catch (InterruptedException e2) {
+            com.kwad.sdk.core.d.a.b(e2);
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public void b(File file) {
-        if (b == null) {
+        File file2 = f34440b;
+        if (file2 == null) {
             return;
         }
-        if (!b.exists()) {
-            b.mkdirs();
+        if (!file2.exists()) {
+            f34440b.mkdirs();
         }
         try {
-            g.a(file.getParentFile().getParentFile(), b);
-        } catch (IOException e) {
-            com.kwad.sdk.core.d.a.b(e);
+            g.a(file.getParentFile().getParentFile(), f34440b);
+        } catch (IOException e2) {
+            com.kwad.sdk.core.d.a.b(e2);
         }
     }
 
-    protected abstract int c();
+    public abstract int c();
 }

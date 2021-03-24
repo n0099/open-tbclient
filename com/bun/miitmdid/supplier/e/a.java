@@ -8,160 +8,177 @@ import android.os.IBinder;
 import android.os.RemoteException;
 import android.util.Log;
 import com.zui.deviceidservice.a;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class a {
-    private static String c = "OpenDeviceId library";
-    private static boolean d = false;
+
+    /* renamed from: c  reason: collision with root package name */
+    public static String f27104c = "OpenDeviceId library";
+
+    /* renamed from: d  reason: collision with root package name */
+    public static boolean f27105d = false;
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f3879a;
-    private ServiceConnection poA;
-    private com.bun.miitmdid.supplier.c.a poB;
-    private com.zui.deviceidservice.a poz;
+    public Context f27106a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public com.zui.deviceidservice.a f27107b;
+
+    /* renamed from: e  reason: collision with root package name */
+    public ServiceConnection f27108e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public com.bun.miitmdid.supplier.c.a f27109f;
 
     public a(Context context, com.bun.miitmdid.supplier.c.a aVar) {
-        this.f3879a = null;
+        this.f27106a = null;
         if (context == null) {
             throw new NullPointerException("Context can not be null.");
         }
-        this.f3879a = context;
-        this.poB = aVar;
-        this.poA = new ServiceConnection() { // from class: com.bun.miitmdid.supplier.e.a.1
+        this.f27106a = context;
+        this.f27109f = aVar;
+        this.f27108e = new ServiceConnection() { // from class: com.bun.miitmdid.supplier.e.a.1
             @Override // android.content.ServiceConnection
             public synchronized void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-                a.this.poz = a.AbstractBinderC1274a.a(iBinder);
-                if (a.this.poB != null) {
-                    a.this.poB.a(true);
+                a.this.f27107b = a.AbstractBinderC0523a.a(iBinder);
+                if (a.this.f27109f != null) {
+                    a.this.f27109f.a(true);
                 }
                 a.this.a("Service onServiceConnected");
             }
 
             @Override // android.content.ServiceConnection
             public void onServiceDisconnected(ComponentName componentName) {
-                a.this.poz = null;
+                a.this.f27107b = null;
                 a.this.a("Service onServiceDisconnected");
             }
         };
         Intent intent = new Intent();
         intent.setClassName("com.zui.deviceidservice", "com.zui.deviceidservice.DeviceidService");
-        if (this.f3879a.bindService(intent, this.poA, 1)) {
+        if (this.f27106a.bindService(intent, this.f27108e, 1)) {
             a("bindService Successful!");
             return;
         }
         a("bindService Failed!");
-        if (this.poB != null) {
-            this.poB.a();
+        com.bun.miitmdid.supplier.c.a aVar2 = this.f27109f;
+        if (aVar2 != null) {
+            aVar2.a();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(String str) {
-        if (d) {
-            Log.i(c, str);
+        if (f27105d) {
+            Log.i(f27104c, str);
         }
     }
 
     private void b(String str) {
-        if (d) {
-            Log.e(c, str);
+        if (f27105d) {
+            Log.e(f27104c, str);
         }
     }
 
     public String a() {
-        if (this.f3879a == null) {
+        if (this.f27106a == null) {
             b("Context is null.");
             throw new IllegalArgumentException("Context is null, must be new OpenDeviceId first");
         }
         try {
-            if (this.poz != null) {
-                return this.poz.a();
+            if (this.f27107b != null) {
+                return this.f27107b.a();
             }
-        } catch (RemoteException e) {
+            return null;
+        } catch (RemoteException e2) {
             b("getOAID error, RemoteException!");
-            e.printStackTrace();
+            e2.printStackTrace();
+            return null;
         }
-        return null;
     }
 
     public String b() {
-        if (this.f3879a == null) {
+        if (this.f27106a == null) {
             b("Context is null.");
             throw new IllegalArgumentException("Context is null, must be new OpenDeviceId first");
         }
         try {
-            if (this.poz != null) {
-                return this.poz.b();
+            if (this.f27107b != null) {
+                return this.f27107b.b();
             }
-        } catch (RemoteException e) {
+            return null;
+        } catch (RemoteException e2) {
             b("getUDID error, RemoteException!");
-            e.printStackTrace();
+            e2.printStackTrace();
+            return null;
         }
-        return null;
     }
 
     public boolean c() {
         try {
-            if (this.poz != null) {
+            if (this.f27107b != null) {
                 a("Device support opendeviceid");
-                return this.poz.c();
+                return this.f27107b.c();
             }
             return false;
-        } catch (RemoteException e) {
+        } catch (RemoteException unused) {
             b("isSupport error, RemoteException!");
             return false;
         }
     }
 
     public String d() {
-        if (this.f3879a == null) {
+        Context context = this.f27106a;
+        if (context == null) {
             a("Context is null.");
             throw new IllegalArgumentException("Context is null, must be new OpenDeviceId first");
         }
-        String packageName = this.f3879a.getPackageName();
+        String packageName = context.getPackageName();
         a("liufeng, getVAID package：" + packageName);
         if (packageName == null || packageName.equals("")) {
             a("input package is null!");
-        } else {
-            try {
-                if (this.poz != null) {
-                    return this.poz.a(packageName);
-                }
-            } catch (RemoteException e) {
-                b("getVAID error, RemoteException!");
-                e.printStackTrace();
-            }
+            return null;
         }
-        return null;
+        try {
+            if (this.f27107b != null) {
+                return this.f27107b.a(packageName);
+            }
+            return null;
+        } catch (RemoteException e2) {
+            b("getVAID error, RemoteException!");
+            e2.printStackTrace();
+            return null;
+        }
     }
 
     public String e() {
-        if (this.f3879a == null) {
+        Context context = this.f27106a;
+        if (context == null) {
             a("Context is null.");
             throw new IllegalArgumentException("Context is null, must be new OpenDeviceId first");
         }
-        String packageName = this.f3879a.getPackageName();
+        String packageName = context.getPackageName();
         a("liufeng, getAAID package：" + packageName);
         if (packageName == null || packageName.equals("")) {
             a("input package is null!");
-        } else {
-            try {
-                if (this.poz != null) {
-                    return this.poz.b(packageName);
-                }
-            } catch (RemoteException e) {
-                b("getAAID error, RemoteException!");
-            }
+            return null;
         }
-        return null;
+        try {
+            if (this.f27107b != null) {
+                return this.f27107b.b(packageName);
+            }
+            return null;
+        } catch (RemoteException unused) {
+            b("getAAID error, RemoteException!");
+            return null;
+        }
     }
 
     public void f() {
         try {
-            this.f3879a.unbindService(this.poA);
+            this.f27106a.unbindService(this.f27108e);
             a("unBind Service successful");
-        } catch (IllegalArgumentException e) {
+        } catch (IllegalArgumentException unused) {
             b("unBind Service exception");
         }
-        this.poz = null;
+        this.f27107b = null;
     }
 }

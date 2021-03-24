@@ -1,23 +1,21 @@
 package com.baidu.lbsapi.auth;
 
 import java.util.List;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class f implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ e f1878a;
+    public final /* synthetic */ e f6330a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public f(e eVar) {
-        this.f1878a = eVar;
+        this.f6330a = eVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         List list;
-        e eVar = this.f1878a;
-        list = this.f1878a.b;
+        e eVar = this.f6330a;
+        list = eVar.f6328b;
         eVar.a(list);
     }
 }

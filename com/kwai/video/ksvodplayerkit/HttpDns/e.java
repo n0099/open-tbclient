@@ -2,35 +2,36 @@ package com.kwai.video.ksvodplayerkit.HttpDns;
 
 import android.text.TextUtils;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    private b f7266a;
+    public b f37209a;
 
-    /* loaded from: classes3.dex */
-    private static final class a {
+    /* loaded from: classes6.dex */
+    public static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private static final e f7267a = new e();
+        public static final e f37210a = new e();
     }
 
-    private e() {
-        this.f7266a = new c();
+    public e() {
+        this.f37209a = new c();
     }
 
     public static e a() {
-        return a.f7267a;
+        return a.f37210a;
     }
 
     public List<f> a(String str) {
-        return this.f7266a.b(str);
+        return this.f37209a.b(str);
     }
 
     public void b(String str) {
-        if (TextUtils.isEmpty(str) || this.f7266a == null) {
+        b bVar;
+        if (TextUtils.isEmpty(str) || (bVar = this.f37209a) == null) {
             return;
         }
-        this.f7266a.a(str);
+        bVar.a(str);
     }
 }

@@ -6,12 +6,34 @@ import java.net.URLDecoder;
 import java.net.URLEncoder;
 import java.util.List;
 @Deprecated
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class URLEncodedUtils {
     public static final String CONTENT_TYPE = "application/x-www-form-urlencoded";
-    private static String DEFAULT_CONTENT_CHARSET = "ISO-8859-1";
-    private static final String NAME_VALUE_SEPARATOR = "=";
-    private static final String PARAMETER_SEPARATOR = "&";
+    public static String DEFAULT_CONTENT_CHARSET = "ISO-8859-1";
+    public static final String NAME_VALUE_SEPARATOR = "=";
+    public static final String PARAMETER_SEPARATOR = "&";
+
+    public static String decode(String str, String str2) {
+        if (str2 == null) {
+            try {
+                str2 = DEFAULT_CONTENT_CHARSET;
+            } catch (UnsupportedEncodingException e2) {
+                throw new IllegalArgumentException(e2);
+            }
+        }
+        return URLDecoder.decode(str, str2);
+    }
+
+    public static String encode(String str, String str2) {
+        if (str2 == null) {
+            try {
+                str2 = DEFAULT_CONTENT_CHARSET;
+            } catch (UnsupportedEncodingException e2) {
+                throw new IllegalArgumentException(e2);
+            }
+        }
+        return URLEncoder.encode(str, str2);
+    }
 
     public static String format(List<? extends NameValuePair> list, String str) {
         StringBuilder sb = new StringBuilder();
@@ -27,27 +49,5 @@ public class URLEncodedUtils {
             sb.append(encode2);
         }
         return sb.toString();
-    }
-
-    private static String decode(String str, String str2) {
-        if (str2 == null) {
-            try {
-                str2 = DEFAULT_CONTENT_CHARSET;
-            } catch (UnsupportedEncodingException e) {
-                throw new IllegalArgumentException(e);
-            }
-        }
-        return URLDecoder.decode(str, str2);
-    }
-
-    private static String encode(String str, String str2) {
-        if (str2 == null) {
-            try {
-                str2 = DEFAULT_CONTENT_CHARSET;
-            } catch (UnsupportedEncodingException e) {
-                throw new IllegalArgumentException(e);
-            }
-        }
-        return URLEncoder.encode(str, str2);
     }
 }

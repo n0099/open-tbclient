@@ -2,14 +2,15 @@ package com.yxcorp.kuaishou.addfp.a.b.b;
 
 import android.os.IBinder;
 import android.os.Parcel;
-/* loaded from: classes3.dex */
+import com.uodis.opendevice.aidl.OpenDeviceIdentifierService;
+/* loaded from: classes7.dex */
 public final class e implements d {
 
     /* renamed from: a  reason: collision with root package name */
-    private IBinder f8599a;
+    public IBinder f41091a;
 
     public e(IBinder iBinder) {
-        this.f8599a = iBinder;
+        this.f41091a = iBinder;
     }
 
     @Override // com.yxcorp.kuaishou.addfp.a.b.b.d
@@ -18,17 +19,14 @@ public final class e implements d {
         Parcel obtain = Parcel.obtain();
         Parcel obtain2 = Parcel.obtain();
         try {
-            obtain.writeInterfaceToken("com.uodis.opendevice.aidl.OpenDeviceIdentifierService");
-            this.f8599a.transact(1, obtain, obtain2, 0);
+            obtain.writeInterfaceToken(OpenDeviceIdentifierService.Stub.DESCRIPTOR);
+            this.f41091a.transact(1, obtain, obtain2, 0);
             obtain2.readException();
             str = obtain2.readString();
-        } catch (Throwable th) {
+        } finally {
             try {
-                com.yxcorp.kuaishou.addfp.android.b.b.a(th);
-                str = "";
+                return str;
             } finally {
-                obtain2.recycle();
-                obtain.recycle();
             }
         }
         return str;
@@ -36,6 +34,6 @@ public final class e implements d {
 
     @Override // android.os.IInterface
     public final IBinder asBinder() {
-        return this.f8599a;
+        return this.f41091a;
     }
 }

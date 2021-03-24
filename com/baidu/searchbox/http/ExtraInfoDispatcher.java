@@ -3,29 +3,34 @@ package com.baidu.searchbox.http;
 import com.baidu.searchbox.http.callback.ExtraInfoCallback;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public final class ExtraInfoDispatcher {
-    private List<ExtraInfoCallback> mExtraCallbacks = new CopyOnWriteArrayList();
+    public List<ExtraInfoCallback> mExtraCallbacks = new CopyOnWriteArrayList();
 
     public void addCallback(ExtraInfoCallback extraInfoCallback) {
-        if (!this.mExtraCallbacks.contains(extraInfoCallback) && this.mExtraCallbacks != null) {
-            this.mExtraCallbacks.add(extraInfoCallback);
+        List<ExtraInfoCallback> list;
+        if (this.mExtraCallbacks.contains(extraInfoCallback) || (list = this.mExtraCallbacks) == null) {
+            return;
         }
-    }
-
-    public void removeCallback(ExtraInfoCallback extraInfoCallback) {
-        if (extraInfoCallback != null && this.mExtraCallbacks != null) {
-            this.mExtraCallbacks.remove(extraInfoCallback);
-        }
+        list.add(extraInfoCallback);
     }
 
     public void clearCallback() {
-        if (this.mExtraCallbacks != null) {
-            this.mExtraCallbacks.clear();
+        List<ExtraInfoCallback> list = this.mExtraCallbacks;
+        if (list != null) {
+            list.clear();
         }
     }
 
     public List<ExtraInfoCallback> getAllCallbacks() {
         return this.mExtraCallbacks;
+    }
+
+    public void removeCallback(ExtraInfoCallback extraInfoCallback) {
+        List<ExtraInfoCallback> list;
+        if (extraInfoCallback == null || (list = this.mExtraCallbacks) == null) {
+            return;
+        }
+        list.remove(extraInfoCallback);
     }
 }

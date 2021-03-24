@@ -3,16 +3,21 @@ package com.baidu.tieba.video.cloudmusic;
 import android.media.MediaPlayer;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tieba.video.cloudmusic.data.CloudMusicData;
 import java.io.IOException;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class MusicPlayer {
-    private static MusicPlayer nNP = null;
-    private MediaPlayer nNO;
-    private MusicPlayerState nNQ = MusicPlayerState.WAIT;
 
-    /* loaded from: classes7.dex */
+    /* renamed from: c  reason: collision with root package name */
+    public static MusicPlayer f21715c;
+
+    /* renamed from: a  reason: collision with root package name */
+    public MediaPlayer f21716a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public MusicPlayerState f21717b = MusicPlayerState.WAIT;
+
+    /* loaded from: classes5.dex */
     public enum MusicPlayerState {
         WAIT,
         PAUSE,
@@ -22,78 +27,91 @@ public class MusicPlayer {
         ERROR
     }
 
-    /* loaded from: classes7.dex */
-    public interface a {
-        void dSx();
+    /* loaded from: classes5.dex */
+    public class a implements MediaPlayer.OnPreparedListener {
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ CloudMusicData.MusicTagList.MusicList f21718e;
+
+        public a(CloudMusicData.MusicTagList.MusicList musicList) {
+            this.f21718e = musicList;
+        }
+
+        @Override // android.media.MediaPlayer.OnPreparedListener
+        public void onPrepared(MediaPlayer mediaPlayer) {
+            d.b.i0.p3.i.h.a.b().d(this.f21718e);
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921307));
+            MusicPlayer.this.f21716a.setLooping(true);
+            MusicPlayer.this.f21716a.start();
+            MusicPlayer.this.f21717b = MusicPlayerState.PREPARED;
+        }
     }
 
-    private MusicPlayer() {
+    /* loaded from: classes5.dex */
+    public interface b {
+        void a();
     }
 
-    public static synchronized MusicPlayer dSz() {
+    public static synchronized MusicPlayer c() {
         MusicPlayer musicPlayer;
         synchronized (MusicPlayer.class) {
-            if (nNP == null) {
-                nNP = new MusicPlayer();
+            if (f21715c == null) {
+                f21715c = new MusicPlayer();
             }
-            musicPlayer = nNP;
+            musicPlayer = f21715c;
         }
         return musicPlayer;
     }
 
-    public void a(String str, final CloudMusicData.MusicTagList.MusicList musicList, a aVar) {
-        if (this.nNQ != MusicPlayerState.PAUSE) {
-            if (this.nNO == null) {
-                this.nNO = new MediaPlayer();
-                this.nNO.setAudioStreamType(3);
-            }
-            try {
-                this.nNO.reset();
-                this.nNO.setDataSource(str);
-                this.nNO.prepare();
-                this.nNQ = MusicPlayerState.WAIT;
-                this.nNO.setOnPreparedListener(new MediaPlayer.OnPreparedListener() { // from class: com.baidu.tieba.video.cloudmusic.MusicPlayer.1
-                    @Override // android.media.MediaPlayer.OnPreparedListener
-                    public void onPrepared(MediaPlayer mediaPlayer) {
-                        com.baidu.tieba.video.cloudmusic.data.a.dSC().a(musicList);
-                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_ON_CLOUD_MUSIC_PLAY));
-                        MusicPlayer.this.nNO.setLooping(true);
-                        MusicPlayer.this.nNO.start();
-                        MusicPlayer.this.nNQ = MusicPlayerState.PREPARED;
-                    }
-                });
-            } catch (IOException e) {
-                e.printStackTrace();
-                this.nNQ = MusicPlayerState.ERROR;
-                if (aVar != null) {
-                    aVar.dSx();
-                }
+    public void d() {
+        MediaPlayer mediaPlayer = this.f21716a;
+        if (mediaPlayer != null && mediaPlayer.isPlaying()) {
+            this.f21716a.pause();
+        }
+        this.f21717b = MusicPlayerState.PAUSE;
+    }
+
+    public void e(String str, CloudMusicData.MusicTagList.MusicList musicList, b bVar) {
+        if (this.f21717b == MusicPlayerState.PAUSE) {
+            return;
+        }
+        if (this.f21716a == null) {
+            MediaPlayer mediaPlayer = new MediaPlayer();
+            this.f21716a = mediaPlayer;
+            mediaPlayer.setAudioStreamType(3);
+        }
+        try {
+            this.f21716a.reset();
+            this.f21716a.setDataSource(str);
+            this.f21716a.prepare();
+            this.f21717b = MusicPlayerState.WAIT;
+            this.f21716a.setOnPreparedListener(new a(musicList));
+        } catch (IOException e2) {
+            e2.printStackTrace();
+            this.f21717b = MusicPlayerState.ERROR;
+            if (bVar != null) {
+                bVar.a();
             }
         }
     }
 
-    public void dSA() {
-        if (this.nNO != null && this.nNO.isPlaying()) {
-            this.nNO.pause();
-        }
-        this.nNQ = MusicPlayerState.PAUSE;
-    }
-
-    public void dSB() {
-        if (this.nNO != null) {
-            this.nNO.start();
-            this.nNO.seekTo(0);
-        }
-        this.nNQ = MusicPlayerState.RESUME;
-    }
-
-    public void bfV() {
-        if (this.nNO != null) {
-            if (this.nNO.isPlaying()) {
-                this.nNO.stop();
+    public void f() {
+        MediaPlayer mediaPlayer = this.f21716a;
+        if (mediaPlayer != null) {
+            if (mediaPlayer.isPlaying()) {
+                this.f21716a.stop();
             }
-            this.nNO.release();
-            this.nNO = null;
+            this.f21716a.release();
+            this.f21716a = null;
         }
+    }
+
+    public void g() {
+        MediaPlayer mediaPlayer = this.f21716a;
+        if (mediaPlayer != null) {
+            mediaPlayer.start();
+            this.f21716a.seekTo(0);
+        }
+        this.f21717b = MusicPlayerState.RESUME;
     }
 }

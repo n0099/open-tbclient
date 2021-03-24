@@ -1,13 +1,13 @@
 package com.baidu.searchbox.cloudcontrol.data;
 
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class CloudControlResponseInfo {
-    private Object mCheckData;
-    private CloudControlErrorBean mCloudControlErrorBean;
-    private JSONObject mOption;
-    private JSONObject mServiceData;
-    private String mServiceName;
+    public Object mCheckData;
+    public CloudControlErrorBean mCloudControlErrorBean;
+    public JSONObject mOption;
+    public JSONObject mServiceData;
+    public String mServiceName;
 
     public CloudControlResponseInfo(String str, JSONObject jSONObject, JSONObject jSONObject2, Object obj, CloudControlErrorBean cloudControlErrorBean) {
         this.mServiceName = str;
@@ -17,23 +17,23 @@ public class CloudControlResponseInfo {
         this.mCloudControlErrorBean = cloudControlErrorBean;
     }
 
-    public String getServiceName() {
-        return this.mServiceName;
-    }
-
-    public JSONObject getServiceData() {
-        return this.mServiceData;
-    }
-
-    public JSONObject getOption() {
-        return this.mOption;
-    }
-
     public Object getCheckData() {
         return this.mCheckData;
     }
 
     public CloudControlErrorBean getCloudControlErrorBean() {
         return this.mCloudControlErrorBean;
+    }
+
+    public JSONObject getOption() {
+        return this.mOption;
+    }
+
+    public JSONObject getServiceData() {
+        return this.mServiceData;
+    }
+
+    public String getServiceName() {
+        return this.mServiceName;
     }
 }

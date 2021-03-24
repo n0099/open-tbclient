@@ -7,17 +7,23 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.atomic.AtomicLong;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class c implements d {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f7413a;
-    private AtomicLong b = new AtomicLong(0);
-    private Map<Long, byte[]> c = new ConcurrentHashMap();
-    private List<Long> d = new CopyOnWriteArrayList();
+    public int f37748a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public AtomicLong f37749b = new AtomicLong(0);
+
+    /* renamed from: c  reason: collision with root package name */
+    public Map<Long, byte[]> f37750c = new ConcurrentHashMap();
+
+    /* renamed from: d  reason: collision with root package name */
+    public List<Long> f37751d = new CopyOnWriteArrayList();
 
     public c(int i) {
-        this.f7413a = i;
+        this.f37748a = i;
     }
 
     @Override // com.meizu.cloud.pushsdk.c.d.d
@@ -32,33 +38,36 @@ public class c implements d {
 
     @Override // com.meizu.cloud.pushsdk.c.d.d
     public boolean a(long j) {
-        return this.d.remove(Long.valueOf(j)) && this.c.remove(Long.valueOf(j)) != null;
+        return this.f37751d.remove(Long.valueOf(j)) && this.f37750c.remove(Long.valueOf(j)) != null;
     }
 
     public long b(com.meizu.cloud.pushsdk.c.a.a aVar) {
         byte[] a2 = a.a(aVar.a());
-        long andIncrement = this.b.getAndIncrement();
-        this.d.add(Long.valueOf(andIncrement));
-        this.c.put(Long.valueOf(andIncrement), a2);
+        long andIncrement = this.f37749b.getAndIncrement();
+        this.f37751d.add(Long.valueOf(andIncrement));
+        this.f37750c.put(Long.valueOf(andIncrement), a2);
         return andIncrement;
     }
 
     @Override // com.meizu.cloud.pushsdk.c.d.d
     public long c() {
-        return this.d.size();
+        return this.f37751d.size();
     }
 
     @Override // com.meizu.cloud.pushsdk.c.d.d
     public com.meizu.cloud.pushsdk.c.b.b d() {
         LinkedList linkedList = new LinkedList();
         ArrayList arrayList = new ArrayList();
-        int c = (int) c();
-        int i = c > this.f7413a ? this.f7413a : c;
-        for (int i2 = 0; i2 < i; i2++) {
-            Long l = this.d.get(i2);
+        int c2 = (int) c();
+        int i = this.f37748a;
+        if (c2 > i) {
+            c2 = i;
+        }
+        for (int i2 = 0; i2 < c2; i2++) {
+            Long l = this.f37751d.get(i2);
             if (l != null) {
                 com.meizu.cloud.pushsdk.c.a.c cVar = new com.meizu.cloud.pushsdk.c.a.c();
-                cVar.a(a.a(this.c.get(l)));
+                cVar.a(a.a(this.f37750c.get(l)));
                 com.meizu.cloud.pushsdk.c.f.c.c("MemoryStore", " current key " + l + " payload " + cVar, new Object[0]);
                 linkedList.add(l);
                 arrayList.add(cVar);

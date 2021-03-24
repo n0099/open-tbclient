@@ -9,225 +9,37 @@ import java.io.Serializable;
 import java.util.List;
 /* loaded from: classes.dex */
 public class AccountData implements Serializable {
-    private static final long serialVersionUID = 4126203103788833116L;
-    private String bjhAvatar;
-    private boolean isBigV;
-    private int liveLevel;
-    private String mDisplayName;
-    private int mGodType;
-    private boolean mIsSelectTail;
-    private int mMemberCloseAdIsOpen;
-    private int mMemberCloseAdVipClose;
-    private String mMemberIconUrl;
-    private int mMemberType;
-    private int mNewGodStatus;
-    private int mSex;
-    private List<IconData> mUserIcons;
-    private UserVipInfoData mVipInfo;
-    private String nameShow;
-    private String personalBgUrl;
-    private String portrait;
-    private String uk;
-    private String mID = null;
-    private String mAccount = null;
-    private String mPassword = null;
-    private String BDUSS = null;
-    private String mTbs = null;
-    private String mStoken = null;
-    private int mIsActive = 0;
-    private long mTime = 0;
-    private long mPersonalGid = 0;
-
-    public String getID() {
-        return this.mID;
-    }
-
-    public void setID(String str) {
-        this.mID = str;
-    }
-
-    public void setStoken(String str) {
-        this.mStoken = str;
-    }
-
-    public String getStoken() {
-        return this.mStoken;
-    }
+    public static final long serialVersionUID = 4126203103788833116L;
+    public String bjhAvatar;
+    public boolean isBigV;
+    public int liveLevel;
+    public String mDisplayName;
+    public int mGodType;
+    public boolean mIsSelectTail;
+    public int mMemberCloseAdIsOpen;
+    public int mMemberCloseAdVipClose;
+    public String mMemberIconUrl;
+    public int mMemberType;
+    public int mNewGodStatus;
+    public int mSex;
+    public List<IconData> mUserIcons;
+    public UserVipInfoData mVipInfo;
+    public String nameShow;
+    public String personalBgUrl;
+    public String portrait;
+    public String uk;
+    public String mID = null;
+    public String mAccount = null;
+    public String mPassword = null;
+    public String BDUSS = null;
+    public String mTbs = null;
+    public String mStoken = null;
+    public int mIsActive = 0;
+    public long mTime = 0;
+    public long mPersonalGid = 0;
 
     public String getAccount() {
         return this.mAccount;
-    }
-
-    public void setAccount(String str) {
-        this.mAccount = str;
-    }
-
-    public String getPassword() {
-        return this.mPassword;
-    }
-
-    public String getDisplayName() {
-        return this.mDisplayName;
-    }
-
-    public void setDisplayName(String str) {
-        this.mDisplayName = str;
-    }
-
-    public void setPassword(String str) {
-        this.mPassword = str;
-    }
-
-    public int getMemberType() {
-        return this.mMemberType;
-    }
-
-    public void setMemberType(int i) {
-        this.mMemberType = i;
-    }
-
-    public void setVipInfo(UserVipInfoData userVipInfoData) {
-        this.mVipInfo = userVipInfoData;
-    }
-
-    public UserVipInfoData getVipInfo() {
-        return this.mVipInfo;
-    }
-
-    public String getBDUSS() {
-        return this.BDUSS;
-    }
-
-    public void setBDUSS(String str) {
-        this.BDUSS = str;
-    }
-
-    public int getIsActive() {
-        return this.mIsActive;
-    }
-
-    public void setIsActive(int i) {
-        this.mIsActive = i;
-    }
-
-    public List<IconData> getUserIcons() {
-        return this.mUserIcons;
-    }
-
-    public void setUserIcons(List<IconData> list) {
-        this.mUserIcons = list;
-    }
-
-    public void setTbs(String str) {
-        this.mTbs = str;
-    }
-
-    public String getTbs() {
-        return this.mTbs;
-    }
-
-    public void setTime(long j) {
-        this.mTime = j;
-    }
-
-    public long getTime() {
-        return this.mTime;
-    }
-
-    public String getPortrait() {
-        return this.portrait;
-    }
-
-    public void setPortrait(String str) {
-        this.portrait = str;
-    }
-
-    public long getPersonalGid() {
-        return this.mPersonalGid;
-    }
-
-    public void setPersonalGid(long j) {
-        this.mPersonalGid = j;
-    }
-
-    public int getSex() {
-        return this.mSex;
-    }
-
-    public void setSex(int i) {
-        this.mSex = i;
-    }
-
-    public String getMemberIconUrl() {
-        return this.mMemberIconUrl;
-    }
-
-    public void setMemberIconUrl(String str) {
-        this.mMemberIconUrl = str;
-    }
-
-    public void setMemberCloseAdIsOpen(int i) {
-        this.mMemberCloseAdIsOpen = i;
-    }
-
-    public void setMemberCloseAdVipClose(int i) {
-        this.mMemberCloseAdVipClose = i;
-    }
-
-    public int getMemberCloseAdIsOpen() {
-        return this.mMemberCloseAdIsOpen;
-    }
-
-    public boolean isMemberCloseAdIsOpen() {
-        return this.mMemberCloseAdIsOpen == 1;
-    }
-
-    public int getMemberCloseAdVipClose() {
-        return this.mMemberCloseAdVipClose;
-    }
-
-    public boolean getIsSelectTail() {
-        return this.mIsSelectTail;
-    }
-
-    public void setIsSelectTail(boolean z) {
-        this.mIsSelectTail = z;
-    }
-
-    public int getGodType() {
-        return this.mGodType;
-    }
-
-    public void setGodType(int i) {
-        this.mGodType = i;
-    }
-
-    public String getPersonalBgUrl() {
-        return this.personalBgUrl;
-    }
-
-    public void setPersonalBgUrl(String str) {
-        this.personalBgUrl = str;
-    }
-
-    public int getLiveLevel() {
-        return this.liveLevel;
-    }
-
-    public void setLiveLevel(int i) {
-        this.liveLevel = i;
-    }
-
-    public boolean isBigV() {
-        return this.isBigV;
-    }
-
-    public void setIsBigV(boolean z) {
-        this.isBigV = z;
-    }
-
-    public void setNameShow(String str) {
-        this.nameShow = str;
     }
 
     public String getAccountNameShow() {
@@ -244,26 +56,217 @@ public class AccountData implements Serializable {
     }
 
     public String getAvatar() {
-        return !TextUtils.isEmpty(this.bjhAvatar) ? this.bjhAvatar : this.portrait;
+        if (!TextUtils.isEmpty(this.bjhAvatar)) {
+            return this.bjhAvatar;
+        }
+        return this.portrait;
     }
 
-    public void setBjhAvatar(String str) {
-        this.bjhAvatar = str;
+    public String getBDUSS() {
+        return this.BDUSS;
+    }
+
+    public String getDisplayName() {
+        return this.mDisplayName;
+    }
+
+    public int getGodType() {
+        return this.mGodType;
+    }
+
+    public String getID() {
+        return this.mID;
+    }
+
+    public int getIsActive() {
+        return this.mIsActive;
+    }
+
+    public boolean getIsSelectTail() {
+        return this.mIsSelectTail;
+    }
+
+    public int getLiveLevel() {
+        return this.liveLevel;
+    }
+
+    public int getMemberCloseAdIsOpen() {
+        return this.mMemberCloseAdIsOpen;
+    }
+
+    public int getMemberCloseAdVipClose() {
+        return this.mMemberCloseAdVipClose;
+    }
+
+    public String getMemberIconUrl() {
+        return this.mMemberIconUrl;
+    }
+
+    public int getMemberType() {
+        return this.mMemberType;
     }
 
     public int getNewGodStatus() {
         return this.mNewGodStatus;
     }
 
-    public void setNewGodStatus(int i) {
-        this.mNewGodStatus = i;
+    public String getPassword() {
+        return this.mPassword;
+    }
+
+    public String getPersonalBgUrl() {
+        return this.personalBgUrl;
+    }
+
+    public long getPersonalGid() {
+        return this.mPersonalGid;
+    }
+
+    public String getPortrait() {
+        return this.portrait;
+    }
+
+    public int getSex() {
+        return this.mSex;
+    }
+
+    public String getStoken() {
+        return this.mStoken;
+    }
+
+    public String getTbs() {
+        return this.mTbs;
+    }
+
+    public long getTime() {
+        return this.mTime;
     }
 
     public String getUk() {
         return this.uk;
     }
 
+    public List<IconData> getUserIcons() {
+        return this.mUserIcons;
+    }
+
+    public UserVipInfoData getVipInfo() {
+        return this.mVipInfo;
+    }
+
+    public boolean isBigV() {
+        return this.isBigV;
+    }
+
+    public boolean isMemberCloseAdIsOpen() {
+        return this.mMemberCloseAdIsOpen == 1;
+    }
+
+    public void setAccount(String str) {
+        this.mAccount = str;
+    }
+
+    public void setBDUSS(String str) {
+        this.BDUSS = str;
+    }
+
+    public void setBjhAvatar(String str) {
+        this.bjhAvatar = str;
+    }
+
+    public void setDisplayName(String str) {
+        this.mDisplayName = str;
+    }
+
+    public void setGodType(int i) {
+        this.mGodType = i;
+    }
+
+    public void setID(String str) {
+        this.mID = str;
+    }
+
+    public void setIsActive(int i) {
+        this.mIsActive = i;
+    }
+
+    public void setIsBigV(boolean z) {
+        this.isBigV = z;
+    }
+
+    public void setIsSelectTail(boolean z) {
+        this.mIsSelectTail = z;
+    }
+
+    public void setLiveLevel(int i) {
+        this.liveLevel = i;
+    }
+
+    public void setMemberCloseAdIsOpen(int i) {
+        this.mMemberCloseAdIsOpen = i;
+    }
+
+    public void setMemberCloseAdVipClose(int i) {
+        this.mMemberCloseAdVipClose = i;
+    }
+
+    public void setMemberIconUrl(String str) {
+        this.mMemberIconUrl = str;
+    }
+
+    public void setMemberType(int i) {
+        this.mMemberType = i;
+    }
+
+    public void setNameShow(String str) {
+        this.nameShow = str;
+    }
+
+    public void setNewGodStatus(int i) {
+        this.mNewGodStatus = i;
+    }
+
+    public void setPassword(String str) {
+        this.mPassword = str;
+    }
+
+    public void setPersonalBgUrl(String str) {
+        this.personalBgUrl = str;
+    }
+
+    public void setPersonalGid(long j) {
+        this.mPersonalGid = j;
+    }
+
+    public void setPortrait(String str) {
+        this.portrait = str;
+    }
+
+    public void setSex(int i) {
+        this.mSex = i;
+    }
+
+    public void setStoken(String str) {
+        this.mStoken = str;
+    }
+
+    public void setTbs(String str) {
+        this.mTbs = str;
+    }
+
+    public void setTime(long j) {
+        this.mTime = j;
+    }
+
     public void setUk(String str) {
         this.uk = str;
+    }
+
+    public void setUserIcons(List<IconData> list) {
+        this.mUserIcons = list;
+    }
+
+    public void setVipInfo(UserVipInfoData userVipInfoData) {
+        this.mVipInfo = userVipInfoData;
     }
 }

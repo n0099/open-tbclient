@@ -4,15 +4,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class SignAllForumActivityConfig extends IntentConfig {
     public SignAllForumActivityConfig(Context context) {
         super(context);
-    }
-
-    public SignAllForumActivityConfig(Context context, boolean z) {
-        super(context);
-        getIntent().putExtra("member_buy_show", z);
     }
 
     public void setUri(Uri uri) {
@@ -20,5 +15,10 @@ public class SignAllForumActivityConfig extends IntentConfig {
         if (intent != null) {
             intent.putExtra(IntentConfig.KEY_URI, uri);
         }
+    }
+
+    public SignAllForumActivityConfig(Context context, boolean z) {
+        super(context);
+        getIntent().putExtra(IntentConfig.MEMBER_BUY_SHOW, z);
     }
 }

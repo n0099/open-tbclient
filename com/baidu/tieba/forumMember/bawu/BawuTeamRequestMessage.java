@@ -1,26 +1,26 @@
 package com.baidu.tieba.forumMember.bawu;
 
 import com.baidu.adp.framework.message.NetMessage;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
-import com.baidu.tbadk.util.v;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import d.b.h0.z0.w;
 import tbclient.GetBawuInfo.DataReq;
 import tbclient.GetBawuInfo.GetBawuInfoReqIdl;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class BawuTeamRequestMessage extends NetMessage {
-    private long forumId;
+    public long forumId;
 
     public BawuTeamRequestMessage() {
-        super(1001705, CmdConfigSocket.CMD_BAWU_TEAM_INFO);
+        super(CmdConfigHttp.BAWU_TEAM_INFO_CMD, 301007);
     }
 
     @Override // com.baidu.adp.framework.message.NetMessage
-    protected Object encode(boolean z) {
+    public Object encode(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
         builder.forum_id = Long.valueOf(this.forumId);
         GetBawuInfoReqIdl.Builder builder2 = new GetBawuInfoReqIdl.Builder();
         builder2.data = builder.build(false);
         if (z) {
-            v.b(builder, true);
+            w.a(builder, true);
         }
         return builder2.build(false);
     }

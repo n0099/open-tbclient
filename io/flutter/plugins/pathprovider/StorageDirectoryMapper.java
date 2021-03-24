@@ -2,12 +2,8 @@ package io.flutter.plugins.pathprovider;
 
 import android.os.Build;
 import android.os.Environment;
-/* loaded from: classes6.dex */
-class StorageDirectoryMapper {
-    StorageDirectoryMapper() {
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
+/* loaded from: classes7.dex */
+public class StorageDirectoryMapper {
     public static String androidType(Integer num) throws IllegalArgumentException {
         if (num == null) {
             return null;

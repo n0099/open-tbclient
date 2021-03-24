@@ -4,62 +4,66 @@ import android.annotation.SuppressLint;
 import android.text.TextUtils;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.tieba.addresslist.QuickSearchActivity;
-import com.baidu.tieba.addresslist.b.a;
+import d.b.i0.q.d.a;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class QuickSearchModel extends BdBaseModel<QuickSearchActivity> {
-    private a glI;
-    private byte[] glJ;
+
+    /* renamed from: e  reason: collision with root package name */
+    public a f14636e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public byte[] f14637f;
 
     public QuickSearchModel(QuickSearchActivity quickSearchActivity) {
         super(quickSearchActivity.getPageContext());
-        this.glJ = new byte[0];
-        this.glI = a.bLW();
-    }
-
-    @SuppressLint({"DefaultLocale"})
-    public List<com.baidu.tbadk.coreExtra.relationship.a> Fn(String str) {
-        synchronized (this.glJ) {
-            ArrayList arrayList = new ArrayList();
-            if (TextUtils.isEmpty(str)) {
-                return arrayList;
-            }
-            List<com.baidu.tbadk.coreExtra.relationship.a> bLX = this.glI.bLX();
-            if (bLX == null) {
-                return arrayList;
-            }
-            for (com.baidu.tbadk.coreExtra.relationship.a aVar : bLX) {
-                String userName = aVar.getUserName();
-                String quanpin = aVar.getQuanpin();
-                if (!TextUtils.isEmpty(userName) && userName.toLowerCase().startsWith(str.toLowerCase())) {
-                    arrayList.add(aVar);
-                } else if (!TextUtils.isEmpty(quanpin) && quanpin.toLowerCase().startsWith(str.toLowerCase())) {
-                    arrayList.add(aVar);
-                }
-            }
-            for (com.baidu.tbadk.coreExtra.relationship.a aVar2 : bLX) {
-                String userName2 = aVar2.getUserName();
-                String quanpin2 = aVar2.getQuanpin();
-                if (!arrayList.contains(aVar2)) {
-                    if (!TextUtils.isEmpty(userName2) && userName2.toLowerCase().contains(str.toLowerCase())) {
-                        arrayList.add(aVar2);
-                    } else if (!TextUtils.isEmpty(quanpin2) && quanpin2.toLowerCase().contains(str.toLowerCase())) {
-                        arrayList.add(aVar2);
-                    }
-                }
-            }
-            return arrayList;
-        }
+        this.f14637f = new byte[0];
+        this.f14636e = a.d();
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
-    protected boolean LoadData() {
+    public boolean LoadData() {
         return false;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
         return false;
+    }
+
+    @SuppressLint({"DefaultLocale"})
+    public List<d.b.h0.s.f.a> s(String str) {
+        synchronized (this.f14637f) {
+            ArrayList arrayList = new ArrayList();
+            if (TextUtils.isEmpty(str)) {
+                return arrayList;
+            }
+            List<d.b.h0.s.f.a> c2 = this.f14636e.c();
+            if (c2 == null) {
+                return arrayList;
+            }
+            for (d.b.h0.s.f.a aVar : c2) {
+                String f2 = aVar.f();
+                String d2 = aVar.d();
+                if (!TextUtils.isEmpty(f2) && f2.toLowerCase().startsWith(str.toLowerCase())) {
+                    arrayList.add(aVar);
+                } else if (!TextUtils.isEmpty(d2) && d2.toLowerCase().startsWith(str.toLowerCase())) {
+                    arrayList.add(aVar);
+                }
+            }
+            for (d.b.h0.s.f.a aVar2 : c2) {
+                String f3 = aVar2.f();
+                String d3 = aVar2.d();
+                if (!arrayList.contains(aVar2)) {
+                    if (!TextUtils.isEmpty(f3) && f3.toLowerCase().contains(str.toLowerCase())) {
+                        arrayList.add(aVar2);
+                    } else if (!TextUtils.isEmpty(d3) && d3.toLowerCase().contains(str.toLowerCase())) {
+                        arrayList.add(aVar2);
+                    }
+                }
+            }
+            return arrayList;
+        }
     }
 }

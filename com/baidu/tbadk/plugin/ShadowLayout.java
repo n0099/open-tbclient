@@ -8,67 +8,79 @@ import android.util.AttributeSet;
 import android.widget.FrameLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class ShadowLayout extends FrameLayout {
-    private int dyL;
-    private int fMA;
-    private int fMB;
-    private int fMC;
-    private int fMz;
-    private int mShadowRadius;
-    private Paint paint;
-    private RectF rectF;
+
+    /* renamed from: e  reason: collision with root package name */
+    public Paint f13996e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public RectF f13997f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public int f13998g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public int f13999h;
+    public int i;
+    public int j;
+    public int k;
+    public int l;
 
     public ShadowLayout(@NonNull Context context) {
         super(context);
-        rX();
+        a();
     }
 
-    public ShadowLayout(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        super(context, attributeSet);
-        rX();
-    }
-
-    public ShadowLayout(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        rX();
-    }
-
-    private void rX() {
+    public final void a() {
         setWillNotDraw(false);
         setLayerType(1, null);
-        this.fMz = getContext().getResources().getDimensionPixelSize(R.dimen.tbds20);
-        setPadding(this.fMz, this.fMz, this.fMz, this.fMz);
-        this.fMC = getContext().getResources().getDimensionPixelSize(R.dimen.tbds25);
-        this.mShadowRadius = getContext().getResources().getDimensionPixelSize(R.dimen.tbds10);
-        this.fMA = getContext().getResources().getDimensionPixelSize(R.dimen.tbds2);
-        this.fMB = getContext().getResources().getDimensionPixelSize(R.dimen.tbds5);
-        this.dyL = ap.getColor(R.color.plugin_button_shadow_blue);
-        this.paint = new Paint();
-        this.paint.setColor(0);
-        this.paint.setShadowLayer(this.mShadowRadius, this.fMA, this.fMB, this.dyL);
-        this.rectF = new RectF();
+        int dimensionPixelSize = getContext().getResources().getDimensionPixelSize(R.dimen.tbds20);
+        this.f13998g = dimensionPixelSize;
+        setPadding(dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize);
+        this.l = getContext().getResources().getDimensionPixelSize(R.dimen.tbds25);
+        this.f13999h = getContext().getResources().getDimensionPixelSize(R.dimen.tbds10);
+        this.i = getContext().getResources().getDimensionPixelSize(R.dimen.tbds2);
+        this.j = getContext().getResources().getDimensionPixelSize(R.dimen.tbds5);
+        this.k = SkinManager.getColor(R.color.plugin_button_shadow_blue);
+        Paint paint = new Paint();
+        this.f13996e = paint;
+        paint.setColor(0);
+        this.f13996e.setShadowLayer(this.f13999h, this.i, this.j, this.k);
+        this.f13997f = new RectF();
     }
 
-    public void setShadowColor(int i) {
-        this.dyL = ap.getColor(i);
-        bEz();
-    }
-
-    private void bEz() {
-        this.paint.setShadowLayer(this.mShadowRadius, this.fMA, this.fMB, this.dyL);
+    public final void b() {
+        this.f13996e.setShadowLayer(this.f13999h, this.i, this.j, this.k);
         postInvalidate();
     }
 
     @Override // android.view.View
-    protected void onDraw(Canvas canvas) {
+    public void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        this.rectF.left = getPaddingLeft();
-        this.rectF.right = getWidth() - getPaddingRight();
-        this.rectF.bottom = getHeight() - getPaddingBottom();
-        this.rectF.top = getPaddingTop();
-        canvas.drawRoundRect(this.rectF, this.fMC, this.fMC, this.paint);
+        this.f13997f.left = getPaddingLeft();
+        this.f13997f.right = getWidth() - getPaddingRight();
+        this.f13997f.bottom = getHeight() - getPaddingBottom();
+        this.f13997f.top = getPaddingTop();
+        RectF rectF = this.f13997f;
+        int i = this.l;
+        canvas.drawRoundRect(rectF, i, i, this.f13996e);
+    }
+
+    public void setShadowColor(int i) {
+        this.k = SkinManager.getColor(i);
+        b();
+    }
+
+    public ShadowLayout(@NonNull Context context, @Nullable AttributeSet attributeSet) {
+        super(context, attributeSet);
+        a();
+    }
+
+    public ShadowLayout(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        a();
     }
 }

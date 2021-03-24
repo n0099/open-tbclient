@@ -11,92 +11,102 @@ import com.kwad.sdk.lib.widget.recycler.c;
 import com.kwad.sdk.lib.widget.recycler.d;
 import com.kwad.sdk.utils.p;
 import com.kwad.sdk.utils.v;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class a extends com.kwad.sdk.lib.a.a.a<AdTemplate, b<?, AdTemplate>> {
 
     /* renamed from: a  reason: collision with root package name */
-    private d f5863a;
-    private c<AdTemplate, ?> c;
-    private com.kwad.sdk.lib.b.c<?, AdTemplate> d;
-    private KSProfilePageLoadingView e;
-    private com.kwad.sdk.contentalliance.widget.d f;
-    private KSPageLoadingView.a g = new KSPageLoadingView.a() { // from class: com.kwad.sdk.contentalliance.profile.tabvideo.b.a.1
+    public d f32922a;
+
+    /* renamed from: c  reason: collision with root package name */
+    public c<AdTemplate, ?> f32923c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public com.kwad.sdk.lib.b.c<?, AdTemplate> f32924d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public KSProfilePageLoadingView f32925e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public com.kwad.sdk.contentalliance.widget.d f32926f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public KSPageLoadingView.a f32927g = new KSPageLoadingView.a() { // from class: com.kwad.sdk.contentalliance.profile.tabvideo.b.a.1
         @Override // com.kwad.sdk.contentalliance.widget.KSPageLoadingView.a
         public void a() {
-            if (a.this.d != null) {
-                a.this.d.k();
+            if (a.this.f32924d != null) {
+                a.this.f32924d.k();
             }
         }
     };
-    private f h = new g() { // from class: com.kwad.sdk.contentalliance.profile.tabvideo.b.a.2
+
+    /* renamed from: h  reason: collision with root package name */
+    public f f32928h = new g() { // from class: com.kwad.sdk.contentalliance.profile.tabvideo.b.a.2
         @Override // com.kwad.sdk.lib.b.g, com.kwad.sdk.lib.b.f
         public void a(boolean z, int i, String str) {
-            a.this.e.a();
+            a.this.f32925e.a();
             if (z) {
-                if (a.this.c.i()) {
-                    if (v.a(a.this.e.getContext())) {
-                        a.this.e.d();
+                if (a.this.f32923c.i()) {
+                    if (v.a(a.this.f32925e.getContext())) {
+                        a.this.f32925e.d();
                     } else {
-                        a.this.e.c();
+                        a.this.f32925e.c();
                     }
                 }
-            } else if (com.kwad.sdk.core.network.f.f6187a.k == i) {
+            } else if (com.kwad.sdk.core.network.f.f33868a.k == i) {
                 p.a(a.this.o());
             } else {
                 p.b(a.this.o());
             }
-            a.this.f.a(a.this.d.j());
+            a.this.f32926f.a(a.this.f32924d.j());
         }
 
         @Override // com.kwad.sdk.lib.b.g, com.kwad.sdk.lib.b.f
         public void a(boolean z, boolean z2) {
             if (!z) {
-                a.this.f.a();
-            } else if (a.this.c.i()) {
-                a.this.e.b();
+                a.this.f32926f.a();
+            } else if (a.this.f32923c.i()) {
+                a.this.f32925e.b();
             }
         }
 
         @Override // com.kwad.sdk.lib.b.g, com.kwad.sdk.lib.b.f
         public void b(boolean z, boolean z2) {
-            a.this.e.a();
+            a.this.f32925e.a();
             if (z) {
-                if (a.this.c.i()) {
-                    a.this.e.d();
-                } else if (!a.this.f5863a.d(a.this.f)) {
-                    a.this.f5863a.c(a.this.f);
+                if (a.this.f32923c.i()) {
+                    a.this.f32925e.d();
+                } else if (!a.this.f32922a.d(a.this.f32926f)) {
+                    a.this.f32922a.c(a.this.f32926f);
                 }
             }
-            a.this.f.a(a.this.d.j());
+            a.this.f32926f.a(a.this.f32924d.j());
         }
     };
 
-    /* JADX DEBUG: Type inference failed for r0v1. Raw type applied. Possible types: com.kwad.sdk.lib.b.c<PAGE, MODEL>, com.kwad.sdk.lib.b.c<?, com.kwad.sdk.core.response.model.AdTemplate> */
-    /* JADX DEBUG: Type inference failed for r0v5. Raw type applied. Possible types: com.kwad.sdk.lib.widget.recycler.c<MODEL, ?>, com.kwad.sdk.lib.widget.recycler.c<com.kwad.sdk.core.response.model.AdTemplate, ?> */
-    /* JADX INFO: Access modifiers changed from: protected */
+    /* JADX DEBUG: Type inference failed for r0v1. Raw type applied. Possible types: com.kwad.sdk.lib.widget.recycler.c<MODEL, ?>, com.kwad.sdk.lib.widget.recycler.c<com.kwad.sdk.core.response.model.AdTemplate, ?> */
     @Override // com.kwad.sdk.lib.a.a.a, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        this.d = this.b.g;
-        this.f5863a = this.b.i;
-        this.c = this.b.h;
-        this.d.a(this.h);
-        this.e.setRetryClickListener(this.g);
+        CallerContext callercontext = ((com.kwad.sdk.lib.a.a.a) this).f35901b;
+        com.kwad.sdk.lib.b.c cVar = callercontext.f35905g;
+        this.f32924d = cVar;
+        this.f32922a = callercontext.i;
+        this.f32923c = callercontext.f35906h;
+        cVar.a(this.f32928h);
+        this.f32925e.setRetryClickListener(this.f32927g);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.mvp.Presenter
     public void b_() {
         super.b_();
-        this.d.b(this.h);
-        this.e.setRetryClickListener(null);
+        this.f32924d.b(this.f32928h);
+        this.f32925e.setRetryClickListener(null);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.mvp.Presenter
     public void c() {
         super.c();
-        this.e = (KSProfilePageLoadingView) b(R.id.ksad_page_loading);
-        this.f = new com.kwad.sdk.contentalliance.widget.d(o(), false);
+        this.f32925e = (KSProfilePageLoadingView) b(R.id.ksad_page_loading);
+        this.f32926f = new com.kwad.sdk.contentalliance.widget.d(o(), false);
     }
 }

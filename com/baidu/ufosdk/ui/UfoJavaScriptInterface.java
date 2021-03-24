@@ -3,8 +3,7 @@ package com.baidu.ufosdk.ui;
 import android.content.Context;
 import android.content.Intent;
 import android.webkit.WebView;
-import org.apache.http.HttpHost;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class UfoJavaScriptInterface {
     public static void clickOnAndroid(WebView webView, String str) {
         if (com.baidu.ufosdk.f.h.a()) {
@@ -14,7 +13,7 @@ public class UfoJavaScriptInterface {
         Context context = webView.getContext();
         Intent intent = new Intent();
         intent.setClass(context, FeedbackHotActivity.class);
-        if (!str.contains(HttpHost.DEFAULT_SCHEME_NAME)) {
+        if (!str.contains("http")) {
             str = "http://" + str;
         }
         intent.putExtra("hoturl", str);

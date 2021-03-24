@@ -1,111 +1,89 @@
 package kotlin.sequences;
 
+import androidx.exifinterface.media.ExifInterface;
+import com.baidu.down.request.task.ProgressInfo;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
 import java.util.Iterator;
-import kotlin.coroutines.experimental.jvm.internal.CoroutineImpl;
-import kotlin.h;
-import kotlin.jvm.internal.p;
-@kotlin.e
-/* loaded from: classes14.dex */
-final class SequencesKt___SequencesKt$zipWithNext$2 extends CoroutineImpl implements kotlin.jvm.a.c<kotlin.coroutines.experimental.f<? super R>, kotlin.coroutines.experimental.b<? super h>, Object> {
-    final /* synthetic */ kotlin.jvm.a.c $transform;
-    Object L$0;
-    Object L$1;
-    Object L$2;
-    Object L$3;
-    private kotlin.coroutines.experimental.f p$;
-    final /* synthetic */ c receiver$0;
+import kotlin.Metadata;
+import kotlin.ResultKt;
+import kotlin.Unit;
+import kotlin.coroutines.Continuation;
+import kotlin.coroutines.intrinsics.IntrinsicsKt__IntrinsicsKt;
+import kotlin.coroutines.jvm.internal.DebugMetadata;
+import kotlin.coroutines.jvm.internal.RestrictedSuspendLambda;
+import kotlin.jvm.functions.Function2;
+@Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0012\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002\"\u0004\b\u0001\u0010\u0003*\b\u0012\u0004\u0012\u0002H\u00030\u0004H\u008a@¢\u0006\u0004\b\u0005\u0010\u0006"}, d2 = {"<anonymous>", "", ExifInterface.GPS_DIRECTION_TRUE, "R", "Lkotlin/sequences/SequenceScope;", "invoke", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;"}, k = 3, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+@DebugMetadata(c = "kotlin.sequences.SequencesKt___SequencesKt$zipWithNext$2", f = "_Sequences.kt", i = {0, 0, 0, 0}, l = {1702}, m = "invokeSuspend", n = {"$this$result", "iterator", ProgressInfo.JSON_KEY_CURRENT, UnitedSchemeConstants.UNITED_SCHEME_NEXT}, s = {"L$0", "L$1", "L$2", "L$3"})
+/* loaded from: classes7.dex */
+public final class SequencesKt___SequencesKt$zipWithNext$2 extends RestrictedSuspendLambda implements Function2<SequenceScope<? super R>, Continuation<? super Unit>, Object> {
+    public final /* synthetic */ Sequence $this_zipWithNext;
+    public final /* synthetic */ Function2 $transform;
+    public Object L$0;
+    public Object L$1;
+    public Object L$2;
+    public Object L$3;
+    public int label;
+    public SequenceScope p$;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    SequencesKt___SequencesKt$zipWithNext$2(c cVar, kotlin.jvm.a.c cVar2, kotlin.coroutines.experimental.b bVar) {
-        super(2, bVar);
-        this.receiver$0 = cVar;
-        this.$transform = cVar2;
+    public SequencesKt___SequencesKt$zipWithNext$2(Sequence sequence, Function2 function2, Continuation continuation) {
+        super(2, continuation);
+        this.$this_zipWithNext = sequence;
+        this.$transform = function2;
     }
 
-    @Override // kotlin.coroutines.experimental.jvm.internal.CoroutineImpl
-    public /* bridge */ /* synthetic */ kotlin.coroutines.experimental.b create(Object obj, kotlin.coroutines.experimental.b bVar) {
-        return create((kotlin.coroutines.experimental.f) obj, (kotlin.coroutines.experimental.b<? super h>) bVar);
-    }
-
-    public final kotlin.coroutines.experimental.b<h> create(kotlin.coroutines.experimental.f<? super R> fVar, kotlin.coroutines.experimental.b<? super h> bVar) {
-        p.p(fVar, "$receiver");
-        p.p(bVar, "continuation");
-        SequencesKt___SequencesKt$zipWithNext$2 sequencesKt___SequencesKt$zipWithNext$2 = new SequencesKt___SequencesKt$zipWithNext$2(this.receiver$0, this.$transform, bVar);
-        sequencesKt___SequencesKt$zipWithNext$2.p$ = fVar;
+    @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
+    public final Continuation<Unit> create(Object obj, Continuation<?> continuation) {
+        SequencesKt___SequencesKt$zipWithNext$2 sequencesKt___SequencesKt$zipWithNext$2 = new SequencesKt___SequencesKt$zipWithNext$2(this.$this_zipWithNext, this.$transform, continuation);
+        sequencesKt___SequencesKt$zipWithNext$2.p$ = (SequenceScope) obj;
         return sequencesKt___SequencesKt$zipWithNext$2;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // kotlin.jvm.a.c
-    public final Object invoke(kotlin.coroutines.experimental.f<? super R> fVar, kotlin.coroutines.experimental.b<? super h> bVar) {
-        p.p(fVar, "$receiver");
-        p.p(bVar, "continuation");
-        return ((SequencesKt___SequencesKt$zipWithNext$2) create((kotlin.coroutines.experimental.f) fVar, bVar)).doResume(h.qtQ, null);
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object, java.lang.Object] */
+    @Override // kotlin.jvm.functions.Function2
+    public final Object invoke(Object obj, Continuation<? super Unit> continuation) {
+        return ((SequencesKt___SequencesKt$zipWithNext$2) create(obj, continuation)).invokeSuspend(Unit.INSTANCE);
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:15:0x0031  */
-    /* JADX WARN: Removed duplicated region for block: B:23:0x0062  */
-    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:22:0x005f -> B:13:0x002b). Please submit an issue!!! */
-    @Override // kotlin.coroutines.experimental.jvm.internal.CoroutineImpl
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public final Object doResume(Object obj, Throwable th) {
-        Object obj2;
+    @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
+    public final Object invokeSuspend(Object obj) {
+        SequenceScope sequenceScope;
+        Object next;
         Iterator it;
-        kotlin.coroutines.experimental.f fVar;
-        Object obj3;
-        Iterator it2;
-        Object eKY = kotlin.coroutines.experimental.a.a.eKY();
-        switch (this.label) {
-            case 0:
-                if (th == null) {
-                    kotlin.coroutines.experimental.f fVar2 = this.p$;
-                    it2 = this.receiver$0.iterator();
-                    if (it2.hasNext()) {
-                        obj3 = it2.next();
-                        fVar = fVar2;
-                        break;
-                    } else {
-                        return h.qtQ;
-                    }
-                } else {
-                    throw th;
-                }
-            case 1:
-                obj2 = this.L$3;
-                Object obj4 = this.L$2;
-                Iterator it3 = (Iterator) this.L$1;
-                kotlin.coroutines.experimental.f fVar3 = (kotlin.coroutines.experimental.f) this.L$0;
-                if (th == null) {
-                    it = it3;
-                    fVar = fVar3;
-                    obj3 = obj2;
-                    it2 = it;
-                    break;
-                } else {
-                    throw th;
-                }
-            default:
-                throw new IllegalStateException("call to 'resume' before 'invoke' with coroutine");
-        }
-        if (!it2.hasNext()) {
-            obj2 = it2.next();
-            Object invoke = this.$transform.invoke(obj3, obj2);
-            this.L$0 = fVar;
-            this.L$1 = it2;
-            this.L$2 = obj3;
-            this.L$3 = obj2;
-            this.label = 1;
-            if (fVar.a(invoke, this) == eKY) {
-                return eKY;
-            }
-            it = it2;
-            obj3 = obj2;
-            it2 = it;
+        Object coroutine_suspended = IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED();
+        int i = this.label;
+        if (i == 0) {
+            ResultKt.throwOnFailure(obj);
+            SequenceScope sequenceScope2 = this.p$;
+            Iterator it2 = this.$this_zipWithNext.iterator();
             if (!it2.hasNext()) {
-                return h.qtQ;
+                return Unit.INSTANCE;
             }
+            sequenceScope = sequenceScope2;
+            next = it2.next();
+            it = it2;
+        } else if (i != 1) {
+            throw new IllegalStateException("call to 'resume' before 'invoke' with coroutine");
+        } else {
+            Object obj2 = this.L$3;
+            it = (Iterator) this.L$1;
+            sequenceScope = (SequenceScope) this.L$0;
+            ResultKt.throwOnFailure(obj);
+            next = obj2;
         }
+        while (it.hasNext()) {
+            Object next2 = it.next();
+            Object invoke = this.$transform.invoke(next, next2);
+            this.L$0 = sequenceScope;
+            this.L$1 = it;
+            this.L$2 = next;
+            this.L$3 = next2;
+            this.label = 1;
+            if (sequenceScope.yield(invoke, this) == coroutine_suspended) {
+                return coroutine_suspended;
+            }
+            next = next2;
+        }
+        return Unit.INSTANCE;
     }
 }

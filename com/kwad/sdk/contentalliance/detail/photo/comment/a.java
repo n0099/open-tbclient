@@ -2,7 +2,7 @@ package com.kwad.sdk.contentalliance.detail.photo.comment;
 
 import android.content.Context;
 import android.widget.RelativeLayout;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public abstract class a extends RelativeLayout {
     public a(Context context) {
         super(context);

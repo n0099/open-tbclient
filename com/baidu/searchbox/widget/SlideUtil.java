@@ -14,16 +14,47 @@ import android.os.Build;
 import android.text.TextUtils;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
-/* loaded from: classes14.dex */
+/* loaded from: classes3.dex */
 public class SlideUtil {
-    public static void convertToTranslucent(Activity activity, OnTranslucentListener onTranslucentListener) {
+    public static void convertActivityToTranslucentAfterL(Activity activity, OnTranslucentListener onTranslucentListener) {
+        Class<?>[] declaredClasses;
         try {
-            if (Build.VERSION.SDK_INT >= 21) {
-                convertActivityToTranslucentAfterL(activity, onTranslucentListener);
-            } else {
-                convertActivityToTranslucentBeforeL(activity, onTranslucentListener);
+            Method declaredMethod = Activity.class.getDeclaredMethod("getActivityOptions", new Class[0]);
+            declaredMethod.setAccessible(true);
+            Object invoke = declaredMethod.invoke(activity, new Object[0]);
+            Class<?> cls = null;
+            for (Class<?> cls2 : Activity.class.getDeclaredClasses()) {
+                if (cls2.getSimpleName().contains("TranslucentConversionListener")) {
+                    cls = cls2;
+                }
             }
-        } catch (Throwable th) {
+            Object newProxyInstance = Proxy.newProxyInstance(Activity.class.getClassLoader(), new Class[]{cls}, new TranslucentInvocationHandler(onTranslucentListener));
+            Method declaredMethod2 = Activity.class.getDeclaredMethod("convertToTranslucent", cls, ActivityOptions.class);
+            declaredMethod2.setAccessible(true);
+            declaredMethod2.invoke(activity, newProxyInstance, invoke);
+        } catch (Throwable unused) {
+            if (onTranslucentListener != null) {
+                onTranslucentListener.onTranslucent(false);
+            }
+        }
+    }
+
+    public static void convertActivityToTranslucentBeforeL(Activity activity, OnTranslucentListener onTranslucentListener) {
+        Class<?>[] declaredClasses;
+        try {
+            Class<?> cls = null;
+            for (Class<?> cls2 : Activity.class.getDeclaredClasses()) {
+                if (cls2.getSimpleName().contains("TranslucentConversionListener")) {
+                    cls = cls2;
+                }
+            }
+            Method declaredMethod = Activity.class.getDeclaredMethod("convertToTranslucent", cls);
+            declaredMethod.setAccessible(true);
+            declaredMethod.invoke(activity, null);
+            if (onTranslucentListener != null) {
+                onTranslucentListener.onTranslucent(true);
+            }
+        } catch (Throwable unused) {
             if (onTranslucentListener != null) {
                 onTranslucentListener.onTranslucent(false);
             }
@@ -46,55 +77,14 @@ public class SlideUtil {
         }
     }
 
-    private static void convertActivityToTranslucentBeforeL(Activity activity, OnTranslucentListener onTranslucentListener) {
-        Class<?> cls = null;
+    public static void convertToTranslucent(Activity activity, OnTranslucentListener onTranslucentListener) {
         try {
-            Class<?>[] declaredClasses = Activity.class.getDeclaredClasses();
-            int length = declaredClasses.length;
-            int i = 0;
-            while (i < length) {
-                Class<?> cls2 = declaredClasses[i];
-                if (!cls2.getSimpleName().contains("TranslucentConversionListener")) {
-                    cls2 = cls;
-                }
-                i++;
-                cls = cls2;
+            if (Build.VERSION.SDK_INT >= 21) {
+                convertActivityToTranslucentAfterL(activity, onTranslucentListener);
+            } else {
+                convertActivityToTranslucentBeforeL(activity, onTranslucentListener);
             }
-            Method declaredMethod = Activity.class.getDeclaredMethod("convertToTranslucent", cls);
-            declaredMethod.setAccessible(true);
-            declaredMethod.invoke(activity, null);
-            if (onTranslucentListener != null) {
-                onTranslucentListener.onTranslucent(true);
-            }
-        } catch (Throwable th) {
-            if (onTranslucentListener != null) {
-                onTranslucentListener.onTranslucent(false);
-            }
-        }
-    }
-
-    private static void convertActivityToTranslucentAfterL(Activity activity, OnTranslucentListener onTranslucentListener) {
-        try {
-            Method declaredMethod = Activity.class.getDeclaredMethod("getActivityOptions", new Class[0]);
-            declaredMethod.setAccessible(true);
-            Object invoke = declaredMethod.invoke(activity, new Object[0]);
-            Class<?>[] declaredClasses = Activity.class.getDeclaredClasses();
-            Class<?> cls = null;
-            int length = declaredClasses.length;
-            int i = 0;
-            while (i < length) {
-                Class<?> cls2 = declaredClasses[i];
-                if (!cls2.getSimpleName().contains("TranslucentConversionListener")) {
-                    cls2 = cls;
-                }
-                i++;
-                cls = cls2;
-            }
-            Object newProxyInstance = Proxy.newProxyInstance(Activity.class.getClassLoader(), new Class[]{cls}, new TranslucentInvocationHandler(onTranslucentListener));
-            Method declaredMethod2 = Activity.class.getDeclaredMethod("convertToTranslucent", cls, ActivityOptions.class);
-            declaredMethod2.setAccessible(true);
-            declaredMethod2.invoke(activity, newProxyInstance, invoke);
-        } catch (Throwable th) {
+        } catch (Throwable unused) {
             if (onTranslucentListener != null) {
                 onTranslucentListener.onTranslucent(false);
             }
@@ -103,16 +93,13 @@ public class SlideUtil {
 
     public static Drawable getImageFromFile(Context context, String str) {
         Bitmap decodeFile;
-        Drawable bitmapDrawable;
         if (context == null || TextUtils.isEmpty(str) || (decodeFile = BitmapFactory.decodeFile(str)) == null) {
             return null;
         }
         byte[] ninePatchChunk = decodeFile.getNinePatchChunk();
         if (NinePatch.isNinePatchChunk(ninePatchChunk)) {
-            bitmapDrawable = new NinePatchDrawable(context.getResources(), decodeFile, ninePatchChunk, new Rect(), null);
-        } else {
-            bitmapDrawable = new BitmapDrawable(context.getResources(), decodeFile);
+            return new NinePatchDrawable(context.getResources(), decodeFile, ninePatchChunk, new Rect(), null);
         }
-        return bitmapDrawable;
+        return new BitmapDrawable(context.getResources(), decodeFile);
     }
 }

@@ -6,75 +6,78 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.ala.atomdata.AlaNewSquareSubListActivityConfig;
 import com.baidu.ala.data.AlaSquareTabInfo;
 import com.baidu.tbadk.BaseActivity;
+import d.b.i0.t.d.g.c.a;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes4.dex */
 public class AlaNewSquareSubListActivity extends BaseActivity<AlaNewSquareSubListActivity> {
-    private String gEU;
-    private String gJu;
-    private a gKE;
-    private AlaSquareTabInfo gKF;
-    private String gKG;
-    private List<String> gKH;
+    public a mAlaNewSquareSubListController;
+    public String mBitmapRatio;
+    public String mEntryName;
+    public String mLableName;
+    public List<String> mSubTypeList;
+    public AlaSquareTabInfo mTabInfo;
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
-    public void onCreate(Bundle bundle) {
-        super.onCreate(bundle);
-        this.gKE = new a(getPageContext(), true);
-        if (getIntent() != null) {
-            N(getIntent());
-        } else {
-            finish();
-        }
-    }
-
-    private void N(Intent intent) {
-        this.gKF = (AlaSquareTabInfo) intent.getParcelableExtra(AlaNewSquareSubListActivityConfig.ALA_SQUARE_SUB_LIST_ACTIVITY_ENTRY_DATA);
-        this.gEU = intent.getStringExtra(AlaNewSquareSubListActivityConfig.ALA_SQUARE_SUB_LIST_ACTIVITY_ENTRY_NAME);
-        this.gJu = intent.getStringExtra(AlaNewSquareSubListActivityConfig.ALA_SQUARE_SUB_LIST_ACTIVITY_LABEL_NAME);
-        this.gKG = intent.getStringExtra(AlaNewSquareSubListActivityConfig.ALA_SQUARE_SUB_LIST_ACTIVITY_BITMAP_RATIO);
-        this.gKH = intent.getStringArrayListExtra(AlaNewSquareSubListActivityConfig.ALA_SQUARE_SUB_LIST_ACTIVITY_SUB_TYPE_LIST);
-        if (this.gKF != null) {
-            if (this.gKF.iconType == 1) {
-                this.gEU = this.gKF.name;
-            } else if (this.gKF.iconType == 2) {
-                this.gEU = "游戏";
-                this.gJu = this.gKF.name;
+    private void handleIntent(Intent intent) {
+        this.mTabInfo = (AlaSquareTabInfo) intent.getParcelableExtra(AlaNewSquareSubListActivityConfig.ALA_SQUARE_SUB_LIST_ACTIVITY_ENTRY_DATA);
+        this.mEntryName = intent.getStringExtra(AlaNewSquareSubListActivityConfig.ALA_SQUARE_SUB_LIST_ACTIVITY_ENTRY_NAME);
+        this.mLableName = intent.getStringExtra(AlaNewSquareSubListActivityConfig.ALA_SQUARE_SUB_LIST_ACTIVITY_LABEL_NAME);
+        this.mBitmapRatio = intent.getStringExtra(AlaNewSquareSubListActivityConfig.ALA_SQUARE_SUB_LIST_ACTIVITY_BITMAP_RATIO);
+        this.mSubTypeList = intent.getStringArrayListExtra(AlaNewSquareSubListActivityConfig.ALA_SQUARE_SUB_LIST_ACTIVITY_SUB_TYPE_LIST);
+        AlaSquareTabInfo alaSquareTabInfo = this.mTabInfo;
+        if (alaSquareTabInfo != null) {
+            int i = alaSquareTabInfo.iconType;
+            if (i == 1) {
+                this.mEntryName = alaSquareTabInfo.name;
+            } else if (i == 2) {
+                this.mEntryName = "游戏";
+                this.mLableName = alaSquareTabInfo.name;
             }
-            this.gKG = this.gKF.bitmapWHRatio;
-            this.gKE.a(this.gKG, this.gEU, this.gJu, this.gKF.sortTypeList);
-        } else if (!StringUtils.isNull(this.gEU)) {
-            this.gKE.a(this.gKG, this.gEU, this.gJu, this.gKH);
+            AlaSquareTabInfo alaSquareTabInfo2 = this.mTabInfo;
+            String str = alaSquareTabInfo2.bitmapWHRatio;
+            this.mBitmapRatio = str;
+            this.mAlaNewSquareSubListController.l(str, this.mEntryName, this.mLableName, alaSquareTabInfo2.sortTypeList);
+        } else if (!StringUtils.isNull(this.mEntryName)) {
+            this.mAlaNewSquareSubListController.l(this.mBitmapRatio, this.mEntryName, this.mLableName, this.mSubTypeList);
         } else {
             finish();
         }
-        if (this.gKE.getRootView() != null) {
-            setContentView(this.gKE.getRootView());
+        if (this.mAlaNewSquareSubListController.f() != null) {
+            setContentView(this.mAlaNewSquareSubListController.f());
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
-    public void onResume() {
-        super.onResume();
-        this.gKE.refreshData();
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.gKE != null) {
-            this.gKE.onChangeSkinType(getPageContext(), i);
+        a aVar = this.mAlaNewSquareSubListController;
+        if (aVar != null) {
+            aVar.h(getPageContext(), i);
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
+    public void onCreate(Bundle bundle) {
+        super.onCreate(bundle);
+        this.mAlaNewSquareSubListController = new a(getPageContext(), true);
+        if (getIntent() != null) {
+            handleIntent(getIntent());
+        } else {
+            finish();
+        }
+    }
+
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.gKE != null) {
-            this.gKE.onDestroy();
+        a aVar = this.mAlaNewSquareSubListController;
+        if (aVar != null) {
+            aVar.i();
         }
+    }
+
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
+    public void onResume() {
+        super.onResume();
+        this.mAlaNewSquareSubListController.k();
     }
 }

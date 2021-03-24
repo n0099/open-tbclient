@@ -14,53 +14,48 @@ import android.telephony.TelephonyManager;
 import androidx.annotation.Keep;
 import androidx.annotation.RequiresApi;
 import androidx.core.content.PermissionChecker;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class SignalStrengthListener extends PhoneStateListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f5410a;
-    public TelephonyManager b;
+    public Context f31608a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public TelephonyManager f31609b;
 
     public SignalStrengthListener(Context context) {
-        this.b = null;
-        this.f5410a = context;
+        this.f31609b = null;
+        this.f31608a = context;
         if (Build.VERSION.SDK_INT < 23) {
             return;
         }
         try {
-            this.b = (TelephonyManager) context.getSystemService("phone");
-            if (this.b != null) {
-                this.b.listen(this, 256);
+            TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
+            this.f31609b = telephonyManager;
+            if (telephonyManager != null) {
+                telephonyManager.listen(this, 256);
             }
-        } catch (Exception e) {
+        } catch (Exception unused) {
         }
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:45:0x0032 */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r0v25, types: [android.telephony.CellInfo] */
-    /* JADX WARN: Type inference failed for: r0v26 */
-    /* JADX WARN: Type inference failed for: r0v27 */
     @RequiresApi(api = 23)
     private void a() {
-        CellInfoLte cellInfoLte;
+        CellInfo cellInfo;
         CellSignalStrengthLte cellSignalStrengthLte = null;
-        new StringBuilder();
-        if (PermissionChecker.checkSelfPermission(this.f5410a, "android.permission.ACCESS_COARSE_LOCATION") == 0) {
-            CellInfoLte cellInfoLte2 = null;
-            for (CellInfo cellInfo : this.b.getAllCellInfo()) {
-                if (!cellInfo.isRegistered()) {
-                    cellInfo = cellInfoLte2;
+        if (PermissionChecker.checkSelfPermission(this.f31608a, "android.permission.ACCESS_COARSE_LOCATION") == 0) {
+            cellInfo = null;
+            for (CellInfo cellInfo2 : this.f31609b.getAllCellInfo()) {
+                if (cellInfo2.isRegistered()) {
+                    cellInfo = cellInfo2;
                 }
-                cellInfoLte2 = cellInfo;
             }
-            cellInfoLte = cellInfoLte2;
         } else {
-            cellInfoLte = null;
+            cellInfo = null;
         }
-        if (cellInfoLte != null) {
-            if (cellInfoLte instanceof CellInfoLte) {
-                CellSignalStrengthLte cellSignalStrength = cellInfoLte.getCellSignalStrength();
+        if (cellInfo != null) {
+            if (cellInfo instanceof CellInfoLte) {
+                CellSignalStrengthLte cellSignalStrength = ((CellInfoLte) cellInfo).getCellSignalStrength();
                 cellSignalStrengthLte = cellSignalStrength;
                 if (Build.VERSION.SDK_INT >= 26) {
                     if (cellSignalStrength.getRsrq() < Integer.MAX_VALUE) {
@@ -76,12 +71,12 @@ public class SignalStrengthListener extends PhoneStateListener {
                         cellSignalStrengthLte = cellSignalStrength;
                     }
                 }
-            } else if (cellInfoLte instanceof CellInfoGsm) {
-                cellSignalStrengthLte = ((CellInfoGsm) cellInfoLte).getCellSignalStrength();
-            } else if (cellInfoLte instanceof CellInfoCdma) {
-                cellSignalStrengthLte = ((CellInfoCdma) cellInfoLte).getCellSignalStrength();
-            } else if (cellInfoLte instanceof CellInfoWcdma) {
-                cellSignalStrengthLte = ((CellInfoWcdma) cellInfoLte).getCellSignalStrength();
+            } else if (cellInfo instanceof CellInfoGsm) {
+                cellSignalStrengthLte = ((CellInfoGsm) cellInfo).getCellSignalStrength();
+            } else if (cellInfo instanceof CellInfoCdma) {
+                cellSignalStrengthLte = ((CellInfoCdma) cellInfo).getCellSignalStrength();
+            } else if (cellInfo instanceof CellInfoWcdma) {
+                cellSignalStrengthLte = ((CellInfoWcdma) cellInfo).getCellSignalStrength();
             }
             if (cellSignalStrengthLte != null) {
                 if (cellSignalStrengthLte.getAsuLevel() < Integer.MAX_VALUE) {
@@ -95,7 +90,7 @@ public class SignalStrengthListener extends PhoneStateListener {
     }
 
     private void a(int i, int i2) {
-        com.kuaishou.aegon.a.a.b(j.b(this, i, i2));
+        com.kuaishou.aegon.a.a.b(e.a(this, i, i2));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -109,7 +104,7 @@ public class SignalStrengthListener extends PhoneStateListener {
         if (Build.VERSION.SDK_INT >= 23) {
             try {
                 a();
-            } catch (Exception e) {
+            } catch (Exception unused) {
             }
         }
     }
@@ -117,6 +112,6 @@ public class SignalStrengthListener extends PhoneStateListener {
     @Override // android.telephony.PhoneStateListener
     @RequiresApi(api = 23)
     public void onSignalStrengthsChanged(SignalStrength signalStrength) {
-        com.kuaishou.aegon.a.a.b(k.b(this));
+        com.kuaishou.aegon.a.a.b(f.a(this));
     }
 }

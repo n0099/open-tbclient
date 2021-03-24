@@ -6,9 +6,14 @@ import org.apache.http.cookie.CookieOrigin;
 import org.apache.http.cookie.MalformedCookieException;
 import org.apache.http.cookie.SetCookie;
 @Deprecated
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class RFC2965DiscardAttributeHandler implements CookieAttributeHandler {
     public RFC2965DiscardAttributeHandler() {
+        throw new RuntimeException("Stub!");
+    }
+
+    @Override // org.apache.http.cookie.CookieAttributeHandler
+    public boolean match(Cookie cookie, CookieOrigin cookieOrigin) {
         throw new RuntimeException("Stub!");
     }
 
@@ -19,11 +24,6 @@ public class RFC2965DiscardAttributeHandler implements CookieAttributeHandler {
 
     @Override // org.apache.http.cookie.CookieAttributeHandler
     public void validate(Cookie cookie, CookieOrigin cookieOrigin) throws MalformedCookieException {
-        throw new RuntimeException("Stub!");
-    }
-
-    @Override // org.apache.http.cookie.CookieAttributeHandler
-    public boolean match(Cookie cookie, CookieOrigin cookieOrigin) {
         throw new RuntimeException("Stub!");
     }
 }

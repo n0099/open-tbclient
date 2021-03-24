@@ -2,7 +2,7 @@ package protobuf.GetGroupMsg;
 
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public final class GetGroupMsgReqIdl extends Message {
     public static final String DEFAULT_CUID = "";
     @ProtoField(tag = 1, type = Message.Datatype.STRING)
@@ -10,22 +10,7 @@ public final class GetGroupMsgReqIdl extends Message {
     @ProtoField(tag = 2)
     public final DataReq data;
 
-    private GetGroupMsgReqIdl(Builder builder, boolean z) {
-        super(builder);
-        if (z) {
-            if (builder.cuid == null) {
-                this.cuid = "";
-            } else {
-                this.cuid = builder.cuid;
-            }
-            this.data = builder.data;
-            return;
-        }
-        this.cuid = builder.cuid;
-        this.data = builder.data;
-    }
-
-    /* loaded from: classes2.dex */
+    /* loaded from: classes7.dex */
     public static final class Builder extends Message.Builder<GetGroupMsgReqIdl> {
         public String cuid;
         public DataReq data;
@@ -35,10 +20,11 @@ public final class GetGroupMsgReqIdl extends Message {
 
         public Builder(GetGroupMsgReqIdl getGroupMsgReqIdl) {
             super(getGroupMsgReqIdl);
-            if (getGroupMsgReqIdl != null) {
-                this.cuid = getGroupMsgReqIdl.cuid;
-                this.data = getGroupMsgReqIdl.data;
+            if (getGroupMsgReqIdl == null) {
+                return;
             }
+            this.cuid = getGroupMsgReqIdl.cuid;
+            this.data = getGroupMsgReqIdl.data;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -46,5 +32,21 @@ public final class GetGroupMsgReqIdl extends Message {
         public GetGroupMsgReqIdl build(boolean z) {
             return new GetGroupMsgReqIdl(this, z);
         }
+    }
+
+    public GetGroupMsgReqIdl(Builder builder, boolean z) {
+        super(builder);
+        if (z) {
+            String str = builder.cuid;
+            if (str == null) {
+                this.cuid = "";
+            } else {
+                this.cuid = str;
+            }
+            this.data = builder.data;
+            return;
+        }
+        this.cuid = builder.cuid;
+        this.data = builder.data;
     }
 }

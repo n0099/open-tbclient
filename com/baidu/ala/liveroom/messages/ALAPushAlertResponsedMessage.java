@@ -1,28 +1,29 @@
 package com.baidu.ala.liveroom.messages;
 
 import alaim.AlaPushAlert.AlaPushAlertResIdl;
+import alaim.AlaPushAlert.DataRes;
 import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Handler;
 import android.os.Looper;
 import android.text.TextUtils;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.adp.lib.e.d;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.adp.widget.ImageView.a;
 import com.baidu.ala.AlaCmdConfigSocket;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
 import com.baidu.tbadk.core.util.NotificationHelper;
+import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ar;
 import com.baidu.tbadk.coreExtra.service.DealIntentService;
-import com.baidu.tbadk.imageManager.c;
 import com.squareup.wire.Wire;
+import d.b.b.e.l.d;
+import d.b.b.j.d.a;
+import d.b.h0.a0.c;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes.dex */
 public class ALAPushAlertResponsedMessage extends SocketResponsedMessage {
-    private Handler mHandler;
+    public Handler mHandler;
 
     public ALAPushAlertResponsedMessage() {
         super(AlaCmdConfigSocket.ALA_SOCKET_PUSH_ALERT);
@@ -30,79 +31,98 @@ public class ALAPushAlertResponsedMessage extends SocketResponsedMessage {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.message.a
+    @Override // com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
     public void decodeInBackGround(int i, byte[] bArr) throws Exception {
+        String str;
+        String str2;
         AlaPushAlertResIdl alaPushAlertResIdl = (AlaPushAlertResIdl) new Wire(new Class[0]).parseFrom(bArr, AlaPushAlertResIdl.class);
-        if (alaPushAlertResIdl.data != null && alaPushAlertResIdl.data.msgInfo != null && alaPushAlertResIdl.data.ext != null) {
-            Intent intent = new Intent(TbadkCoreApplication.getInst(), DealIntentService.class);
-            intent.putExtra(DealIntentService.KEY_CLASS, 30);
-            JSONObject jSONObject = new JSONObject(alaPushAlertResIdl.data.ext);
-            String optString = jSONObject.optString("url");
-            final long optLong = jSONObject.optLong("live_auth_user_id", 0L);
-            int optInt = jSONObject.optInt("ala_msg_type", 0);
-            if (!TextUtils.isEmpty(optString)) {
-                if (optInt != 126 || optLong > 0) {
-                    if (optInt == 127) {
-                        intent.putExtra(DealIntentService.KEY_CLASS, 1);
-                        int optInt2 = jSONObject.optInt("video_channel_id", 0);
-                        intent.putExtra("video_channel_id", optInt2);
-                        intent.putExtra("id", jSONObject.optString("tid"));
-                        TiebaStatic.log(new ar("c11917").aq("obj_id", optInt2));
-                    } else if (optInt == 126) {
-                        TiebaStatic.log(new ar("c12100"));
-                        intent.putExtra("is_live", 1);
-                        intent.putExtra("is_live_lcs", 1);
-                    }
-                    intent.putExtra(BigdayActivityConfig.JUMP_URL, optString);
-                    final PendingIntent service = PendingIntent.getService(TbadkCoreApplication.getInst().getApplicationContext(), 0, intent, 134217728);
-                    if (optInt == 126) {
-                        String optString2 = jSONObject.optString("title");
-                        String optString3 = jSONObject.optString("content");
-                        final String optString4 = jSONObject.optString("image");
-                        if (StringUtils.isNull(optString3)) {
-                            optString3 = alaPushAlertResIdl.data.msgInfo.content;
-                            optString2 = "";
-                        }
-                        if (!StringUtils.isNull(optString3)) {
-                            a Dp = c.bCS().Dp(optString4 + 10);
-                            if (Dp != null && Dp.getRawBitmap() != null) {
-                                NotificationHelper.showLargeIconNotification(TbadkCoreApplication.getInst().getApplicationContext(), Long.valueOf(optLong).hashCode(), optString2, optString3, optString3, service, Dp.getRawBitmap(), false);
-                                return;
-                            } else if (!StringUtils.isNull(optString4)) {
-                                final String str = optString2;
-                                final String str2 = optString3;
-                                this.mHandler.post(new Runnable() { // from class: com.baidu.ala.liveroom.messages.ALAPushAlertResponsedMessage.1
-                                    @Override // java.lang.Runnable
-                                    public void run() {
-                                        d.mw().a(optString4, 10, new com.baidu.adp.lib.e.c<a>() { // from class: com.baidu.ala.liveroom.messages.ALAPushAlertResponsedMessage.1.1
-                                            /* JADX DEBUG: Method merged with bridge method */
-                                            /* JADX INFO: Access modifiers changed from: protected */
-                                            @Override // com.baidu.adp.lib.e.c
-                                            public void onLoaded(a aVar, String str3, int i2) {
-                                                super.onLoaded((C00341) aVar, str3, i2);
-                                                if (aVar != null && aVar.getRawBitmap() != null) {
-                                                    NotificationHelper.showLargeIconNotification(TbadkCoreApplication.getInst().getApplicationContext(), Long.valueOf(optLong).hashCode(), str, str2, str2, service, aVar.getRawBitmap(), false);
-                                                } else {
-                                                    NotificationHelper.showNotification(TbadkCoreApplication.getInst().getApplicationContext(), Long.valueOf(optLong).hashCode(), str, str2, str2, service, false);
-                                                }
-                                            }
-                                        }, null);
+        DataRes dataRes = alaPushAlertResIdl.data;
+        if (dataRes == null || dataRes.msgInfo == null || dataRes.ext == null) {
+            return;
+        }
+        Intent intent = new Intent(TbadkCoreApplication.getInst(), DealIntentService.class);
+        intent.putExtra(DealIntentService.KEY_CLASS, 30);
+        JSONObject jSONObject = new JSONObject(alaPushAlertResIdl.data.ext);
+        String optString = jSONObject.optString("url");
+        final long optLong = jSONObject.optLong("live_auth_user_id", 0L);
+        int optInt = jSONObject.optInt("ala_msg_type", 0);
+        if (TextUtils.isEmpty(optString)) {
+            return;
+        }
+        if (optInt != 126 || optLong > 0) {
+            if (optInt == 127) {
+                intent.putExtra(DealIntentService.KEY_CLASS, 1);
+                int optInt2 = jSONObject.optInt("video_channel_id", 0);
+                intent.putExtra("video_channel_id", optInt2);
+                intent.putExtra("id", jSONObject.optString("tid"));
+                TiebaStatic.log(new StatisticItem("c11917").param("obj_id", optInt2));
+            } else if (optInt == 126) {
+                TiebaStatic.log(new StatisticItem("c12100"));
+                intent.putExtra("is_live", 1);
+                intent.putExtra("is_live_lcs", 1);
+            }
+            intent.putExtra("jump_url", optString);
+            final PendingIntent service = PendingIntent.getService(TbadkCoreApplication.getInst().getApplicationContext(), 0, intent, 134217728);
+            if (optInt == 126) {
+                String optString2 = jSONObject.optString("title");
+                String optString3 = jSONObject.optString("content");
+                final String optString4 = jSONObject.optString("image");
+                if (StringUtils.isNull(optString3)) {
+                    str2 = alaPushAlertResIdl.data.msgInfo.content;
+                    str = "";
+                } else {
+                    str = optString2;
+                    str2 = optString3;
+                }
+                if (StringUtils.isNull(str2)) {
+                    return;
+                }
+                c j = c.j();
+                a l = j.l(optString4 + 10);
+                if (l != null && l.p() != null) {
+                    NotificationHelper.showLargeIconNotification(TbadkCoreApplication.getInst().getApplicationContext(), Long.valueOf(optLong).hashCode(), str, str2, str2, service, l.p(), false);
+                    return;
+                } else if (!StringUtils.isNull(optString4)) {
+                    final String str3 = str;
+                    final String str4 = str2;
+                    this.mHandler.post(new Runnable() { // from class: com.baidu.ala.liveroom.messages.ALAPushAlertResponsedMessage.1
+                        @Override // java.lang.Runnable
+                        public void run() {
+                            d.h().m(optString4, 10, new d.b.b.e.l.c<a>() { // from class: com.baidu.ala.liveroom.messages.ALAPushAlertResponsedMessage.1.1
+                                /* JADX DEBUG: Method merged with bridge method */
+                                @Override // d.b.b.e.l.c
+                                public void onLoaded(a aVar, String str5, int i2) {
+                                    super.onLoaded((C00221) aVar, str5, i2);
+                                    if (aVar != null && aVar.p() != null) {
+                                        Context applicationContext = TbadkCoreApplication.getInst().getApplicationContext();
+                                        int hashCode = Long.valueOf(optLong).hashCode();
+                                        AnonymousClass1 anonymousClass1 = AnonymousClass1.this;
+                                        String str6 = str3;
+                                        String str7 = str4;
+                                        NotificationHelper.showLargeIconNotification(applicationContext, hashCode, str6, str7, str7, service, aVar.p(), false);
+                                        return;
                                     }
-                                });
-                                return;
-                            } else {
-                                NotificationHelper.showNotification(TbadkCoreApplication.getInst().getApplicationContext(), Long.valueOf(optLong).hashCode(), optString2, optString3, optString3, service, false);
-                                return;
-                            }
+                                    Context applicationContext2 = TbadkCoreApplication.getInst().getApplicationContext();
+                                    int hashCode2 = Long.valueOf(optLong).hashCode();
+                                    AnonymousClass1 anonymousClass12 = AnonymousClass1.this;
+                                    String str8 = str3;
+                                    String str9 = str4;
+                                    NotificationHelper.showNotification(applicationContext2, hashCode2, str8, str9, str9, service, false);
+                                }
+                            }, null);
                         }
-                        return;
-                    }
-                    String str3 = alaPushAlertResIdl.data.msgInfo.content;
-                    if (!StringUtils.isNull(str3)) {
-                        NotificationHelper.showNotification(TbadkCoreApplication.getInst().getApplicationContext(), Long.valueOf(optLong).hashCode(), "", str3, str3, service, false);
-                    }
+                    });
+                    return;
+                } else {
+                    NotificationHelper.showNotification(TbadkCoreApplication.getInst().getApplicationContext(), Long.valueOf(optLong).hashCode(), str, str2, str2, service, false);
+                    return;
                 }
             }
+            String str5 = alaPushAlertResIdl.data.msgInfo.content;
+            if (StringUtils.isNull(str5)) {
+                return;
+            }
+            NotificationHelper.showNotification(TbadkCoreApplication.getInst().getApplicationContext(), Long.valueOf(optLong).hashCode(), "", str5, str5, service, false);
         }
     }
 }

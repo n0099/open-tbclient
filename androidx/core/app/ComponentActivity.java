@@ -14,36 +14,32 @@ import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.LifecycleRegistry;
 import androidx.lifecycle.ReportFragment;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes14.dex */
-public class ComponentActivity extends Activity implements KeyEventDispatcher.Component, LifecycleOwner {
-    private SimpleArrayMap<Class<? extends ExtraData>, ExtraData> mExtraDataMap = new SimpleArrayMap<>();
-    private LifecycleRegistry mLifecycleRegistry = new LifecycleRegistry(this);
+/* loaded from: classes.dex */
+public class ComponentActivity extends Activity implements LifecycleOwner, KeyEventDispatcher.Component {
+    public SimpleArrayMap<Class<? extends ExtraData>, ExtraData> mExtraDataMap = new SimpleArrayMap<>();
+    public LifecycleRegistry mLifecycleRegistry = new LifecycleRegistry(this);
 
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes14.dex */
+    /* loaded from: classes.dex */
     public static class ExtraData {
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: androidx.collection.SimpleArrayMap<java.lang.Class<? extends androidx.core.app.ComponentActivity$ExtraData>, androidx.core.app.ComponentActivity$ExtraData> */
-    /* JADX WARN: Multi-variable type inference failed */
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    public void putExtraData(ExtraData extraData) {
-        this.mExtraDataMap.put(extraData.getClass(), extraData);
+    @Override // android.app.Activity, android.view.Window.Callback
+    public boolean dispatchKeyEvent(KeyEvent keyEvent) {
+        View decorView = getWindow().getDecorView();
+        if (decorView == null || !KeyEventDispatcher.dispatchBeforeHierarchy(decorView, keyEvent)) {
+            return KeyEventDispatcher.dispatchKeyEvent(this, decorView, this, keyEvent);
+        }
+        return true;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.app.Activity
-    public void onCreate(@Nullable Bundle bundle) {
-        super.onCreate(bundle);
-        ReportFragment.injectIfNeededIn(this);
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.app.Activity
-    @CallSuper
-    public void onSaveInstanceState(Bundle bundle) {
-        this.mLifecycleRegistry.markState(Lifecycle.State.CREATED);
-        super.onSaveInstanceState(bundle);
+    @Override // android.app.Activity, android.view.Window.Callback
+    public boolean dispatchKeyShortcutEvent(KeyEvent keyEvent) {
+        View decorView = getWindow().getDecorView();
+        if (decorView == null || !KeyEventDispatcher.dispatchBeforeHierarchy(decorView, keyEvent)) {
+            return super.dispatchKeyShortcutEvent(keyEvent);
+        }
+        return true;
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
@@ -56,27 +52,29 @@ public class ComponentActivity extends Activity implements KeyEventDispatcher.Co
         return this.mLifecycleRegistry;
     }
 
+    @Override // android.app.Activity
+    public void onCreate(@Nullable Bundle bundle) {
+        super.onCreate(bundle);
+        ReportFragment.injectIfNeededIn(this);
+    }
+
+    @Override // android.app.Activity
+    @CallSuper
+    public void onSaveInstanceState(Bundle bundle) {
+        this.mLifecycleRegistry.markState(Lifecycle.State.CREATED);
+        super.onSaveInstanceState(bundle);
+    }
+
+    /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: androidx.collection.SimpleArrayMap<java.lang.Class<? extends androidx.core.app.ComponentActivity$ExtraData>, androidx.core.app.ComponentActivity$ExtraData> */
+    /* JADX WARN: Multi-variable type inference failed */
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+    public void putExtraData(ExtraData extraData) {
+        this.mExtraDataMap.put(extraData.getClass(), extraData);
+    }
+
     @Override // androidx.core.view.KeyEventDispatcher.Component
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     public boolean superDispatchKeyEvent(KeyEvent keyEvent) {
         return super.dispatchKeyEvent(keyEvent);
-    }
-
-    @Override // android.app.Activity, android.view.Window.Callback
-    public boolean dispatchKeyShortcutEvent(KeyEvent keyEvent) {
-        View decorView = getWindow().getDecorView();
-        if (decorView == null || !KeyEventDispatcher.dispatchBeforeHierarchy(decorView, keyEvent)) {
-            return super.dispatchKeyShortcutEvent(keyEvent);
-        }
-        return true;
-    }
-
-    @Override // android.app.Activity, android.view.Window.Callback
-    public boolean dispatchKeyEvent(KeyEvent keyEvent) {
-        View decorView = getWindow().getDecorView();
-        if (decorView == null || !KeyEventDispatcher.dispatchBeforeHierarchy(decorView, keyEvent)) {
-            return KeyEventDispatcher.dispatchKeyEvent(this, decorView, this, keyEvent);
-        }
-        return true;
     }
 }

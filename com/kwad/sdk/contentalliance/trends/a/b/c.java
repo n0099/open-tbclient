@@ -16,31 +16,45 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class c extends e {
-    public com.kwad.sdk.core.i.a b;
-    private RelativeLayout c;
-    private TrendsRollingTextContainer d;
-    private i i;
-    private boolean j;
-    private List<a> n;
-    private AtomicBoolean e = new AtomicBoolean(false);
-    private List<TrendInfo> f = new ArrayList();
-    private long g = 0;
-    private String h = "";
-    private com.kwad.sdk.core.i.c k = new d() { // from class: com.kwad.sdk.contentalliance.trends.a.b.c.1
+
+    /* renamed from: b  reason: collision with root package name */
+    public com.kwad.sdk.core.i.a f33042b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public RelativeLayout f33043c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public TrendsRollingTextContainer f33044d;
+    public i i;
+    public boolean j;
+    public List<a> n;
+
+    /* renamed from: e  reason: collision with root package name */
+    public AtomicBoolean f33045e = new AtomicBoolean(false);
+
+    /* renamed from: f  reason: collision with root package name */
+    public List<TrendInfo> f33046f = new ArrayList();
+
+    /* renamed from: g  reason: collision with root package name */
+    public long f33047g = 0;
+
+    /* renamed from: h  reason: collision with root package name */
+    public String f33048h = "";
+    public com.kwad.sdk.core.i.c k = new d() { // from class: com.kwad.sdk.contentalliance.trends.a.b.c.1
         @Override // com.kwad.sdk.core.i.d, com.kwad.sdk.core.i.c
         public void c_() {
-            if (c.this.e.getAndSet(true)) {
+            if (c.this.f33045e.getAndSet(true)) {
                 return;
             }
-            com.kwad.sdk.core.report.e.a(c.this.f5821a.e, c.this.g, c.this.h);
+            com.kwad.sdk.core.report.e.a(((e) c.this).f32768a.f32773e, c.this.f33047g, c.this.f33048h);
         }
     };
-    private f.a l = new f.a() { // from class: com.kwad.sdk.contentalliance.trends.a.b.c.2
+    public f.a l = new f.a() { // from class: com.kwad.sdk.contentalliance.trends.a.b.c.2
         @Override // com.kwad.sdk.contentalliance.home.b.f.a
         public void a() {
-            if (c.this.f.isEmpty()) {
+            if (c.this.f33046f.isEmpty()) {
                 o.a(true, new o.d() { // from class: com.kwad.sdk.contentalliance.trends.a.b.c.2.1
                     @Override // com.kwad.sdk.core.g.o.d
                     public void a(int i, String str) {
@@ -49,8 +63,8 @@ public class c extends e {
                     @Override // com.kwad.sdk.core.g.o.d
                     public void a(@NonNull List<TrendInfo> list) {
                         Collections.sort(list, TrendInfo.mTrendsComparator);
-                        c.this.f.addAll(list);
-                        c.this.f5821a.h = c.this.f;
+                        c.this.f33046f.addAll(list);
+                        ((e) c.this).f32768a.f32776h = c.this.f33046f;
                         c.this.g();
                     }
                 });
@@ -59,11 +73,11 @@ public class c extends e {
             }
         }
     };
-    private g m = new g() { // from class: com.kwad.sdk.contentalliance.trends.a.b.c.3
+    public g m = new g() { // from class: com.kwad.sdk.contentalliance.trends.a.b.c.3
         @Override // com.kwad.sdk.contentalliance.detail.photo.comment.g
         public void a() {
-            c.this.d.b();
-            c.this.c.setVisibility(8);
+            c.this.f33044d.b();
+            c.this.f33043c.setVisibility(8);
         }
 
         @Override // com.kwad.sdk.contentalliance.detail.photo.comment.g
@@ -71,7 +85,7 @@ public class c extends e {
             c.this.e();
         }
     };
-    private com.kwad.sdk.contentalliance.trends.view.c o = new com.kwad.sdk.contentalliance.trends.view.d() { // from class: com.kwad.sdk.contentalliance.trends.a.b.c.4
+    public com.kwad.sdk.contentalliance.trends.view.c o = new com.kwad.sdk.contentalliance.trends.view.d() { // from class: com.kwad.sdk.contentalliance.trends.a.b.c.4
         @Override // com.kwad.sdk.contentalliance.trends.view.d, com.kwad.sdk.contentalliance.trends.view.c
         public void a() {
             c.this.f();
@@ -90,7 +104,7 @@ public class c extends e {
             c.this.e();
         }
     };
-    private com.kwad.sdk.contentalliance.home.a.d p = new com.kwad.sdk.contentalliance.home.a.d() { // from class: com.kwad.sdk.contentalliance.trends.a.b.c.5
+    public com.kwad.sdk.contentalliance.home.a.d p = new com.kwad.sdk.contentalliance.home.a.d() { // from class: com.kwad.sdk.contentalliance.trends.a.b.c.5
         @Override // com.kwad.sdk.contentalliance.home.a.d
         public void a(int i, String str) {
             c.this.e();
@@ -109,41 +123,42 @@ public class c extends e {
         }
     };
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public interface a {
         void a(@NonNull List<TrendInfo> list);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void e() {
-        if (this.f.isEmpty()) {
+        if (this.f33046f.isEmpty()) {
             return;
         }
-        this.d.c();
-        this.c.setVisibility(0);
+        this.f33044d.c();
+        this.f33043c.setVisibility(0);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void f() {
-        if (this.f.isEmpty()) {
+        if (this.f33046f.isEmpty()) {
             return;
         }
-        this.d.b();
-        this.c.setVisibility(4);
+        this.f33044d.b();
+        this.f33043c.setVisibility(4);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void g() {
-        if (this.f == null || this.f.isEmpty()) {
+        List<TrendInfo> list = this.f33046f;
+        if (list == null || list.isEmpty()) {
             f();
             return;
         }
-        this.d.a(this.f);
-        this.c.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.contentalliance.trends.a.b.c.6
+        this.f33044d.a(this.f33046f);
+        this.f33043c.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.contentalliance.trends.a.b.c.6
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                c.this.c.setVisibility(8);
-                com.kwad.sdk.core.report.e.b(c.this.f5821a.e, c.this.g, c.this.h);
+                c.this.f33043c.setVisibility(8);
+                com.kwad.sdk.core.report.e.b(((e) c.this).f32768a.f32773e, c.this.f33047g, c.this.f33048h);
                 c.this.h();
             }
         });
@@ -152,49 +167,52 @@ public class c extends e {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void h() {
-        if (this.n != null) {
-            for (a aVar : this.n) {
-                aVar.a(this.f);
+        List<a> list = this.n;
+        if (list != null) {
+            for (a aVar : list) {
+                aVar.a(this.f33046f);
             }
         }
     }
 
     @Override // com.kwad.sdk.contentalliance.home.e, com.kwad.sdk.mvp.Presenter
-    protected void a() {
+    public void a() {
         super.a();
-        this.i = this.f5821a.b;
-        this.i.a(this.p);
-        this.b = this.f5821a.f.f5826a;
-        this.b.a(this.k);
-        if (this.f5821a.i != null) {
-            this.g = this.f5821a.i.trendId;
-            this.h = this.f5821a.i.name;
+        i iVar = ((e) this).f32768a.f32770b;
+        this.i = iVar;
+        iVar.a(this.p);
+        com.kwad.sdk.core.i.a aVar = ((e) this).f32768a.f32774f.f32788a;
+        this.f33042b = aVar;
+        aVar.a(this.k);
+        TrendInfo trendInfo = ((e) this).f32768a.i;
+        if (trendInfo != null) {
+            this.f33047g = trendInfo.trendId;
+            this.f33048h = trendInfo.name;
         }
-        this.f = this.f5821a.h;
-        this.n = this.f5821a.n;
+        com.kwad.sdk.contentalliance.home.f fVar = ((e) this).f32768a;
+        this.f33046f = fVar.f32776h;
+        this.n = fVar.n;
         g();
-        this.f5821a.o.add(this.o);
-        this.f5821a.f.f.add(this.m);
-        this.f5821a.p.add(this.l);
+        ((e) this).f32768a.o.add(this.o);
+        ((e) this).f32768a.f32774f.f32793f.add(this.m);
+        ((e) this).f32768a.p.add(this.l);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.mvp.Presenter
     public void b_() {
         super.b_();
-        this.f5821a.f.f.remove(this.m);
-        this.f5821a.o.remove(this.o);
-        this.b.b(this.k);
-        this.d.a();
+        ((e) this).f32768a.f32774f.f32793f.remove(this.m);
+        ((e) this).f32768a.o.remove(this.o);
+        this.f33042b.b(this.k);
+        this.f33044d.a();
         this.i.b(this.p);
-        this.f5821a.p.remove(this.l);
+        ((e) this).f32768a.p.remove(this.l);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.mvp.Presenter
     public void c() {
         super.c();
-        this.c = (RelativeLayout) b(R.id.ksad_trends_rolling_container);
-        this.d = (TrendsRollingTextContainer) b(R.id.ksad_trends_rolling_trend_name_layout);
+        this.f33043c = (RelativeLayout) b(R.id.ksad_trends_rolling_container);
+        this.f33044d = (TrendsRollingTextContainer) b(R.id.ksad_trends_rolling_trend_name_layout);
     }
 }

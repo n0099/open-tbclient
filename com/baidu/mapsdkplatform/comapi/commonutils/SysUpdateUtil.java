@@ -6,20 +6,28 @@ import android.net.Proxy;
 import com.baidu.mapapi.NetworkUtil;
 import com.baidu.mapsdkplatform.comapi.util.SysUpdateObserver;
 import com.baidu.mapsdkplatform.comjni.engine.AppEngine;
-/* loaded from: classes4.dex */
+import com.baidu.webkit.internal.ConectivityUtils;
+/* loaded from: classes2.dex */
 public class SysUpdateUtil implements SysUpdateObserver {
 
     /* renamed from: a  reason: collision with root package name */
-    static com.baidu.mapsdkplatform.comjni.map.commonmemcache.a f2203a = new com.baidu.mapsdkplatform.comjni.map.commonmemcache.a();
-    public static boolean b = false;
-    public static String c = "";
-    public static int d = 0;
+    public static com.baidu.mapsdkplatform.comjni.map.commonmemcache.a f7527a = new com.baidu.mapsdkplatform.comjni.map.commonmemcache.a();
+
+    /* renamed from: b  reason: collision with root package name */
+    public static boolean f7528b = false;
+
+    /* renamed from: c  reason: collision with root package name */
+    public static String f7529c = "";
+
+    /* renamed from: d  reason: collision with root package name */
+    public static int f7530d = 0;
 
     @Override // com.baidu.mapsdkplatform.comapi.util.SysUpdateObserver
     public void init() {
-        if (f2203a != null) {
-            f2203a.a();
-            f2203a.b();
+        com.baidu.mapsdkplatform.comjni.map.commonmemcache.a aVar = f7527a;
+        if (aVar != null) {
+            aVar.a();
+            f7527a.b();
         }
     }
 
@@ -28,7 +36,15 @@ public class SysUpdateUtil implements SysUpdateObserver {
         NetworkUtil.updateNetworkProxy(context);
     }
 
+    /* JADX WARN: Code restructure failed: missing block: B:49:0x00c5, code lost:
+        if ("10.0.0.200".equals(r9.trim()) != false) goto L45;
+     */
+    /* JADX WARN: Removed duplicated region for block: B:54:0x00d0  */
+    /* JADX WARN: Removed duplicated region for block: B:55:0x00d8  */
     @Override // com.baidu.mapsdkplatform.comapi.util.SysUpdateObserver
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     public void updateNetworkProxy(Context context) {
         NetworkInfo activeNetworkInfo = NetworkUtil.getActiveNetworkInfo(context);
         if (activeNetworkInfo == null || !activeNetworkInfo.isAvailable()) {
@@ -37,50 +53,55 @@ public class SysUpdateUtil implements SysUpdateObserver {
         String lowerCase = activeNetworkInfo.getTypeName().toLowerCase();
         if (lowerCase.equals("wifi") && activeNetworkInfo.isConnected()) {
             AppEngine.SetProxyInfo(null, 0);
-            b = false;
-        } else if (lowerCase.equals("mobile") || (lowerCase.equals("wifi") && !NetworkUtil.isWifiConnected(activeNetworkInfo))) {
+            f7528b = false;
+        } else if (!lowerCase.equals("mobile") && (!lowerCase.equals("wifi") || NetworkUtil.isWifiConnected(activeNetworkInfo))) {
+        } else {
             String extraInfo = activeNetworkInfo.getExtraInfo();
-            b = false;
+            f7528b = false;
             if (extraInfo != null) {
                 String lowerCase2 = extraInfo.toLowerCase();
-                if (lowerCase2.startsWith("cmwap") || lowerCase2.startsWith("uniwap") || lowerCase2.startsWith("3gwap")) {
-                    c = "10.0.0.172";
-                    d = 80;
-                    b = true;
-                } else if (lowerCase2.startsWith("ctwap")) {
-                    c = "10.0.0.200";
-                    d = 80;
-                    b = true;
-                } else if (lowerCase2.startsWith("cmnet") || lowerCase2.startsWith("uninet") || lowerCase2.startsWith("ctnet") || lowerCase2.startsWith("3gnet")) {
-                    b = false;
+                if (lowerCase2.startsWith(ConectivityUtils.APN_CMWAP) || lowerCase2.startsWith(ConectivityUtils.APN_UNIWAP) || lowerCase2.startsWith(ConectivityUtils.APN_3GWAP)) {
+                    f7529c = "10.0.0.172";
+                } else {
+                    if (!lowerCase2.startsWith(ConectivityUtils.APN_CTWAP)) {
+                        if (lowerCase2.startsWith(ConectivityUtils.APN_CMNET) || lowerCase2.startsWith(ConectivityUtils.APN_UNINET) || lowerCase2.startsWith(ConectivityUtils.APN_CTNET) || lowerCase2.startsWith(ConectivityUtils.APN_3GNET)) {
+                            f7528b = false;
+                        }
+                        if (f7528b) {
+                            AppEngine.SetProxyInfo(f7529c, f7530d);
+                            return;
+                        } else {
+                            AppEngine.SetProxyInfo(null, 0);
+                            return;
+                        }
+                    }
+                    f7529c = "10.0.0.200";
                 }
             } else {
                 String defaultHost = Proxy.getDefaultHost();
                 int defaultPort = Proxy.getDefaultPort();
                 if (defaultHost != null && defaultHost.length() > 0) {
                     if ("10.0.0.172".equals(defaultHost.trim())) {
-                        c = "10.0.0.172";
-                        d = defaultPort;
-                        b = true;
-                    } else if ("10.0.0.200".equals(defaultHost.trim())) {
-                        c = "10.0.0.200";
-                        d = 80;
-                        b = true;
+                        f7529c = "10.0.0.172";
+                        f7530d = defaultPort;
+                        f7528b = true;
                     }
                 }
+                if (f7528b) {
+                }
             }
-            if (b) {
-                AppEngine.SetProxyInfo(c, d);
-            } else {
-                AppEngine.SetProxyInfo(null, 0);
+            f7530d = 80;
+            f7528b = true;
+            if (f7528b) {
             }
         }
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.util.SysUpdateObserver
     public void updatePhoneInfo() {
-        if (f2203a != null) {
-            f2203a.b();
+        com.baidu.mapsdkplatform.comjni.map.commonmemcache.a aVar = f7527a;
+        if (aVar != null) {
+            aVar.b();
         }
     }
 }

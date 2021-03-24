@@ -9,26 +9,35 @@ import androidx.webkit.ServiceWorkerControllerCompat;
 import androidx.webkit.ServiceWorkerWebSettingsCompat;
 import org.chromium.support_lib_boundary.ServiceWorkerControllerBoundaryInterface;
 import org.chromium.support_lib_boundary.util.BoundaryInterfaceReflectionUtil;
-/* loaded from: classes5.dex */
+/* loaded from: classes.dex */
 public class ServiceWorkerControllerImpl extends ServiceWorkerControllerCompat {
-    private ServiceWorkerControllerBoundaryInterface mBoundaryInterface;
-    private ServiceWorkerController mFrameworksImpl;
-    private final ServiceWorkerWebSettingsCompat mWebSettings;
+    public ServiceWorkerControllerBoundaryInterface mBoundaryInterface;
+    public ServiceWorkerController mFrameworksImpl;
+    public final ServiceWorkerWebSettingsCompat mWebSettings;
 
     @SuppressLint({"NewApi"})
     public ServiceWorkerControllerImpl() {
         WebViewFeatureInternal webViewFeatureInternal = WebViewFeatureInternal.SERVICE_WORKER_BASIC_USAGE;
         if (webViewFeatureInternal.isSupportedByFramework()) {
-            this.mFrameworksImpl = ServiceWorkerController.getInstance();
+            ServiceWorkerController serviceWorkerController = ServiceWorkerController.getInstance();
+            this.mFrameworksImpl = serviceWorkerController;
             this.mBoundaryInterface = null;
-            this.mWebSettings = new ServiceWorkerWebSettingsImpl(this.mFrameworksImpl.getServiceWorkerWebSettings());
+            this.mWebSettings = new ServiceWorkerWebSettingsImpl(serviceWorkerController.getServiceWorkerWebSettings());
         } else if (webViewFeatureInternal.isSupportedByWebView()) {
             this.mFrameworksImpl = null;
-            this.mBoundaryInterface = WebViewGlueCommunicator.getFactory().getServiceWorkerController();
-            this.mWebSettings = new ServiceWorkerWebSettingsImpl(this.mBoundaryInterface.getServiceWorkerWebSettings());
+            ServiceWorkerControllerBoundaryInterface serviceWorkerController2 = WebViewGlueCommunicator.getFactory().getServiceWorkerController();
+            this.mBoundaryInterface = serviceWorkerController2;
+            this.mWebSettings = new ServiceWorkerWebSettingsImpl(serviceWorkerController2.getServiceWorkerWebSettings());
         } else {
             throw WebViewFeatureInternal.getUnsupportedOperationException();
         }
+    }
+
+    private ServiceWorkerControllerBoundaryInterface getBoundaryInterface() {
+        if (this.mBoundaryInterface == null) {
+            this.mBoundaryInterface = WebViewGlueCommunicator.getFactory().getServiceWorkerController();
+        }
+        return this.mBoundaryInterface;
     }
 
     @RequiresApi(24)
@@ -37,13 +46,6 @@ public class ServiceWorkerControllerImpl extends ServiceWorkerControllerCompat {
             this.mFrameworksImpl = ServiceWorkerController.getInstance();
         }
         return this.mFrameworksImpl;
-    }
-
-    private ServiceWorkerControllerBoundaryInterface getBoundaryInterface() {
-        if (this.mBoundaryInterface == null) {
-            this.mBoundaryInterface = WebViewGlueCommunicator.getFactory().getServiceWorkerController();
-        }
-        return this.mBoundaryInterface;
     }
 
     @Override // androidx.webkit.ServiceWorkerControllerCompat

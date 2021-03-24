@@ -11,46 +11,20 @@ import java.util.Map;
 public class b extends a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static Map<String, RemoteCallbackList<ITTAppDownloadListener>> f4884a = Collections.synchronizedMap(new HashMap());
-    private static volatile b b;
+    public static Map<String, RemoteCallbackList<ITTAppDownloadListener>> f29810a = Collections.synchronizedMap(new HashMap());
+
+    /* renamed from: b  reason: collision with root package name */
+    public static volatile b f29811b;
 
     public static b a() {
-        if (b == null) {
+        if (f29811b == null) {
             synchronized (b.class) {
-                if (b == null) {
-                    b = new b();
+                if (f29811b == null) {
+                    f29811b = new b();
                 }
             }
         }
-        return b;
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.multipro.aidl.a.a, com.bytedance.sdk.openadsdk.IListenerManager
-    public void registerTTAppDownloadListener(String str, ITTAppDownloadListener iTTAppDownloadListener) throws RemoteException {
-        RemoteCallbackList<ITTAppDownloadListener> remoteCallbackList = f4884a.get(str);
-        if (remoteCallbackList == null) {
-            remoteCallbackList = new RemoteCallbackList<>();
-        }
-        remoteCallbackList.register(iTTAppDownloadListener);
-        f4884a.put(str, remoteCallbackList);
-        u.f("DMLibManager", "aidl registerTTAppDownloadListener, materialMd5:" + str);
-        u.f("DMLibManager", "aidl registerTTAppDownloadListener, mListenerMap size:" + f4884a.size());
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.multipro.aidl.a.a, com.bytedance.sdk.openadsdk.IListenerManager
-    public void unregisterTTAppDownloadListener(String str, ITTAppDownloadListener iTTAppDownloadListener) throws RemoteException {
-        if (f4884a == null) {
-            u.f("DMLibManager", "aidl unregisterTTAppDownloadListener mListenerMap = null, materialMd5:" + str);
-            return;
-        }
-        RemoteCallbackList<ITTAppDownloadListener> remove = f4884a.remove(str);
-        if (remove == null) {
-            u.f("DMLibManager", "aidl unregisterTTAppDownloadListener cbs = null, materialMd5:" + str);
-            return;
-        }
-        a(remove);
-        u.f("DMLibManager", "aidl unregisterTTAppDownloadListener, materialMd5:" + str);
-        u.f("DMLibManager", "aidl unregisterTTAppDownloadListener, mListenerMap size:" + f4884a.size());
+        return f29811b;
     }
 
     @Override // com.bytedance.sdk.openadsdk.multipro.aidl.a.a, com.bytedance.sdk.openadsdk.IListenerManager
@@ -58,41 +32,83 @@ public class b extends a {
         a(str, str2, j, j2, str3, str4);
     }
 
+    @Override // com.bytedance.sdk.openadsdk.multipro.aidl.a.a, com.bytedance.sdk.openadsdk.IListenerManager
+    public void registerTTAppDownloadListener(String str, ITTAppDownloadListener iTTAppDownloadListener) throws RemoteException {
+        RemoteCallbackList<ITTAppDownloadListener> remoteCallbackList = f29810a.get(str);
+        if (remoteCallbackList == null) {
+            remoteCallbackList = new RemoteCallbackList<>();
+        }
+        remoteCallbackList.register(iTTAppDownloadListener);
+        f29810a.put(str, remoteCallbackList);
+        u.f("DMLibManager", "aidl registerTTAppDownloadListener, materialMd5:" + str);
+        u.f("DMLibManager", "aidl registerTTAppDownloadListener, mListenerMap size:" + f29810a.size());
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.multipro.aidl.a.a, com.bytedance.sdk.openadsdk.IListenerManager
+    public void unregisterTTAppDownloadListener(String str, ITTAppDownloadListener iTTAppDownloadListener) throws RemoteException {
+        Map<String, RemoteCallbackList<ITTAppDownloadListener>> map = f29810a;
+        if (map == null) {
+            u.f("DMLibManager", "aidl unregisterTTAppDownloadListener mListenerMap = null, materialMd5:" + str);
+            return;
+        }
+        RemoteCallbackList<ITTAppDownloadListener> remove = map.remove(str);
+        if (remove == null) {
+            u.f("DMLibManager", "aidl unregisterTTAppDownloadListener cbs = null, materialMd5:" + str);
+            return;
+        }
+        a(remove);
+        u.f("DMLibManager", "aidl unregisterTTAppDownloadListener, materialMd5:" + str);
+        u.f("DMLibManager", "aidl unregisterTTAppDownloadListener, mListenerMap size:" + f29810a.size());
+    }
+
     private synchronized void a(String str, String str2, long j, long j2, String str3, String str4) {
+        ITTAppDownloadListener broadcastItem;
         try {
-            if (f4884a != null) {
-                if ("recycleRes".equals(str2)) {
-                    a(f4884a.remove(str));
-                    u.f("DMLibManager", "aidl executeMultiProcessAppDownloadCallBack recycle res, materialMd5:" + str);
-                    u.f("DMLibManager", "aidl executeMultiProcessAppDownloadCallBack recycle res, mListenerMap sizee:" + f4884a.size());
-                } else {
-                    RemoteCallbackList<ITTAppDownloadListener> remoteCallbackList = f4884a.get(str);
-                    if (remoteCallbackList != null) {
-                        int beginBroadcast = remoteCallbackList.beginBroadcast();
-                        for (int i = 0; i < beginBroadcast; i++) {
-                            ITTAppDownloadListener broadcastItem = remoteCallbackList.getBroadcastItem(i);
-                            if (broadcastItem != null) {
-                                if ("onIdle".equals(str2)) {
-                                    broadcastItem.onIdle();
-                                } else if ("onDownloadActive".equals(str2)) {
-                                    broadcastItem.onDownloadActive(j, j2, str3, str4);
-                                } else if ("onDownloadPaused".equals(str2)) {
-                                    broadcastItem.onDownloadPaused(j, j2, str3, str4);
-                                } else if ("onDownloadFailed".equals(str2)) {
-                                    broadcastItem.onDownloadFailed(j, j2, str3, str4);
-                                } else if ("onDownloadFinished".equals(str2)) {
-                                    broadcastItem.onDownloadFinished(j, str3, str4);
-                                } else if ("onInstalled".equals(str2)) {
-                                    broadcastItem.onInstalled(str3, str4);
-                                }
+        } catch (Throwable th) {
+            u.c("MultiProcess", "AppDownloadListenerManagerImpl MultiProcess2: " + str2 + " throws Exception :", th);
+        }
+        if (f29810a == null) {
+            return;
+        }
+        if ("recycleRes".equals(str2)) {
+            a(f29810a.remove(str));
+            u.f("DMLibManager", "aidl executeMultiProcessAppDownloadCallBack recycle res, materialMd5:" + str);
+            u.f("DMLibManager", "aidl executeMultiProcessAppDownloadCallBack recycle res, mListenerMap sizee:" + f29810a.size());
+            return;
+        }
+        RemoteCallbackList<ITTAppDownloadListener> remoteCallbackList = f29810a.get(str);
+        if (remoteCallbackList != null) {
+            int beginBroadcast = remoteCallbackList.beginBroadcast();
+            for (int i = 0; i < beginBroadcast; i++) {
+                try {
+                    broadcastItem = remoteCallbackList.getBroadcastItem(i);
+                } catch (Throwable th2) {
+                    th = th2;
+                }
+                if (broadcastItem != null) {
+                    if ("onIdle".equals(str2)) {
+                        broadcastItem.onIdle();
+                    } else if ("onDownloadActive".equals(str2)) {
+                        broadcastItem.onDownloadActive(j, j2, str3, str4);
+                    } else if ("onDownloadPaused".equals(str2)) {
+                        broadcastItem.onDownloadPaused(j, j2, str3, str4);
+                    } else if ("onDownloadFailed".equals(str2)) {
+                        broadcastItem.onDownloadFailed(j, j2, str3, str4);
+                    } else {
+                        if ("onDownloadFinished".equals(str2)) {
+                            try {
+                                broadcastItem.onDownloadFinished(j, str3, str4);
+                            } catch (Throwable th3) {
+                                th = th3;
+                                u.c("MultiProcess", "AppDownloadListenerManagerImpl MultiProcess1: " + str2 + " throws Exception :", th);
                             }
+                        } else if ("onInstalled".equals(str2)) {
+                            broadcastItem.onInstalled(str3, str4);
                         }
-                        remoteCallbackList.finishBroadcast();
                     }
                 }
             }
-        } catch (Throwable th) {
-            u.c("MultiProcess", "AppDownloadListenerManagerImpl MultiProcess2: " + str2 + " throws Exception :", th);
+            remoteCallbackList.finishBroadcast();
         }
     }
 

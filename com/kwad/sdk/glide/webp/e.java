@@ -10,19 +10,19 @@ import com.kwai.sodler.lib.ext.b;
 import com.kwai.sodler.lib.g;
 import com.kwai.sodler.lib.h;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final AtomicBoolean f6856a = new AtomicBoolean(false);
+    public static final AtomicBoolean f35883a = new AtomicBoolean(false);
 
     public static void a(Context context) {
         final String Z;
         final String str;
-        if (f6856a.get() || KsAdSDKImpl.get().getIsExternal()) {
+        if (f35883a.get() || KsAdSDKImpl.get().getIsExternal()) {
             return;
         }
-        f6856a.set(true);
+        f35883a.set(true);
         if (AbiUtil.b()) {
             Z = com.kwad.sdk.core.config.c.aa();
             if (TextUtils.isEmpty(Z)) {
@@ -41,11 +41,11 @@ public class e {
             @Override // com.kwai.sodler.lib.a.b.a
             public com.kwai.sodler.lib.b.b a(String str2) {
                 com.kwai.sodler.lib.b.b bVar = new com.kwai.sodler.lib.b.b();
-                bVar.c = Z;
-                bVar.e = true;
-                bVar.f7251a = str;
-                bVar.b = "3.0";
-                bVar.g = false;
+                bVar.f37145c = Z;
+                bVar.f37147e = true;
+                bVar.f37143a = str;
+                bVar.f37144b = "3.0";
+                bVar.f37149g = false;
                 return bVar;
             }
         });

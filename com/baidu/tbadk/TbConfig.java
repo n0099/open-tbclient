@@ -4,15 +4,13 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.webkit.URLUtil;
 import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.adp.lib.util.l;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
-import com.baidu.searchbox.account.contants.AccountConstants;
 import com.baidu.searchbox.aps.megapp_interface.BuildConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.imageManager.c;
 import com.baidu.tieba.R;
+import d.b.b.e.p.l;
+import d.b.h0.a0.c;
 import java.util.HashSet;
 /* loaded from: classes.dex */
 public class TbConfig {
@@ -46,17 +44,18 @@ public class TbConfig {
     public static final int BIG_IMAGE_MIN_SIZE = 80;
     public static final String BIG_IMG_SPEC = "big_img";
     public static final int BIG_PHOTO_MAX_SIZE = 110;
-    private static final String BROADCAST_CHANGESKIN = "com.baidu.tieba.broadcast.changeskin";
-    private static final String BROADCAST_CHANGE_SHARED_PREF = "com.baidu.tieba.broadcast.changeSharedPref";
+    public static final String BROADCAST_CHANGESKIN = "com.baidu.tieba.broadcast.changeskin";
+    public static final String BROADCAST_CHANGE_SHARED_PREF = "com.baidu.tieba.broadcast.changeSharedPref";
     public static final String BROADCAST_FIELD_SKIN_TYPE = "skin_type";
-    private static final String BROADCAST_IMAGE_RESIZED = "com.baidu.tieba.broadcast.image.resized";
-    private static final String BROADCAST_NEWVERSION = "com.baidu.tieba.broadcast.newversion";
-    private static final String BROADCAST_PAGE_ADDED = "com.baidu.tieba.broadcast.imagepb.pageadded";
-    private static final String BROADCAST_PAGE_CHANGED = "com.baidu.tieba.broadcast.imagepb.pagechanged";
-    private static final String BROADCAST_SIGN_ALERT = "com.baidu.tieba.broadcast.signalert";
+    public static final String BROADCAST_IMAGE_RESIZED = "com.baidu.tieba.broadcast.image.resized";
+    public static final String BROADCAST_NEWVERSION = "com.baidu.tieba.broadcast.newversion";
+    public static final String BROADCAST_PAGE_ADDED = "com.baidu.tieba.broadcast.imagepb.pageadded";
+    public static final String BROADCAST_PAGE_CHANGED = "com.baidu.tieba.broadcast.imagepb.pagechanged";
+    public static final String BROADCAST_SIGN_ALERT = "com.baidu.tieba.broadcast.signalert";
     public static final String BUBBLE_GROUP_PAGE = "c/e/theme/getBubbleByCategory";
     public static final String BUBBLE_LIST_PAGE = "c/e/theme/getBubbleList";
     public static final String BUBBLE_SET = "c/e/bu/setbubble";
+    public static int BUILD_NUMBER = 0;
     public static final String BUY_FACE_PACKAGE_URL = "c/e/faces/buyfacepack";
     public static final String CARD_BOX_MEMBER_PAY = "c/e/packet/andmember";
     public static final String CDN_LOG_ADDRESS = "c/p/updata";
@@ -116,6 +115,7 @@ public class TbConfig {
     public static final int EMOTION_HEIGHT_LOW = 160;
     public static final int EMOTION_WIDTH = 240;
     public static final int EMOTION_WIDTH_LOW = 160;
+    public static boolean ENABLE_VISIT_PREVIEW_SERVER_DIALOG = false;
     public static final String ENTERTAINMENT_ADDRESS = "lego/lego";
     public static final String ERROR_UPLOAD_SERVER = "c/s/logupload";
     public static final String FATAL_ERROR_ALERT_FILE = "fatal_error_alert.log";
@@ -287,6 +287,7 @@ public class TbConfig {
     public static final String MEMBER_PAY = "c/e/pay/andmember";
     public static final String MEMBER_PRIVILEGE = "c/e/pay/tmall";
     public static final String MERCATOR_LOCATION_URL = "c/s/getMercatorByLocation";
+    public static long MILLS_7DAYS = 604800000;
     public static final String MORE_TREASURE_TROVE = "c/f/forum/moreTreasureTrove";
     public static final boolean MSG_DEFAULT_ATME_SWITCH = true;
     public static final boolean MSG_DEFAULT_CHAT_SWITCH = true;
@@ -400,6 +401,8 @@ public class TbConfig {
     public static final String SEND_BLESS = "c/b/commit/sendBless";
     public static final String SEND_FREE_GIFT = "c/c/encourage/present/sendFreeGift";
     public static final String SEND_GIFT = "c/c/gift/send";
+    public static String SERVER_ADDRESS_CUSTOM = "";
+    public static String SERVER_ADDRESS_FAKE = "http://fakedata.tieba.baidu.com/";
     public static final String SETTINGFILE = "settings";
     public static final String SET_COMMON_FORUM_STATE = "c/c/forum/setCommonForumState";
     public static final String SET_HOTSELECT = "c/f/recommend/getSugTopic";
@@ -516,6 +519,7 @@ public class TbConfig {
     public static final String URL_GET_TOPIC_DETAIL = "c/f/recommend/newhottopic";
     public static final String URL_GET_TOPIC_RELATE_THREAD = "c/f/recommend/getTopicRelateThread";
     public static final String URL_GET_TOPIC_THREAD = "c/f/recommend/newtopicthread";
+    public static final String URL_GET_USER_BLOCK_INFO = "c/u/user/getUserBlackInfo";
     public static final String URL_GET_VIDEO_INFO_BY_VLOGID = "/c/f/video/getVideoInfoByVLogId";
     public static final String URL_GOD_AUTH = "https://tieba.baidu.com/mo/q/godRegister";
     public static final String URL_GOD_EXAMINE = "https://tieba.baidu.com/mo/q/godExamine";
@@ -558,15 +562,18 @@ public class TbConfig {
     public static final String URL_UPLOAD_OFFLINE_PACK_STATUS = "c/c/user/updateOfflinePackTask";
     public static final String URL_UPLOAD_VIDEO = "c/c/video/uploadVideoData";
     public static final String URL_URL_PARSER = "c/s/urlParser";
+    public static final String URL_USER_BLOCK_SET = "c/c/user/setUserBlack";
     public static final String URL_USER_REPORT = "c/c/user/complaint";
     public static final String URL_VIDEO_HOLY_CARD = "c/s/dashengVideo";
     public static final String URL_VIDEO_MONITOR_REPORT = "c/c/video/vlog";
     public static final String URL_VIDEO_TAB = "c/f/excellent/recomVideo";
+    public static final String URL_WORKS_INFO = "https://tieba.baidu.com/mo/q/wise-creative-core/guide";
     public static final String URL_YOUNGSTER_VERIFY_AUTHID = "c/c/user/passAuthidVerify";
     public static final String USER_MUTE_ADD = "c/c/user/userMuteAdd";
     public static final String USER_MUTE_CHECK = "c/u/user/userMuteCheck";
     public static final String USER_MUTE_DEL = "c/c/user/userMuteDel";
     public static final String USER_MUTE_QUERY = "c/u/user/userMuteQuery";
+    public static boolean USE_OLD_LOGIN = false;
     public static final String VIDEO_FINISH_ADDRESS = "c/c/video/uploadVideoChunkFinish";
     public static final String VIDEO_SINGLE_UPLOAD_ADDRESS = "c/c/video/uploadVideo";
     public static final String VIDEO_UPLOAD_ADDRESS = "c/c/video/uploadVideoChunk";
@@ -596,39 +603,33 @@ public class TbConfig {
     public static final String WEIXIN_SHARE_APP_ID = "wx289a8c58bca4c71e";
     public static final String api_key = "GXGROE8KmWiRmcWFpiWTmUbE";
     public static final String app_id = "1095821";
-    public static String SERVER_ADDRESS = TbDomainConfig.DOMAIN_HTTPS_SERVER_ADDRESS;
-    public static String SERVER_ADDRESS_FAKE = "http://fakedata.tieba.baidu.com/";
-    public static String SERVER_ADDRESS_CUSTOM = "";
-    public static long MILLS_7DAYS = 604800000;
-    public static int BUILD_NUMBER = 0;
-    public static boolean USE_OLD_LOGIN = false;
-    public static boolean ENABLE_VISIT_PREVIEW_SERVER_DIALOG = false;
+    public static String SERVER_ADDRESS = "http://c.tieba.baidu.com/";
     public static String LOGIN_FULL_ADDRESS = SERVER_ADDRESS + "c/s/login";
-    public static String SERVER_ADDRESS_WEB_VIEW = "http://tieba.baidu.com/";
+    public static String SERVER_ADDRESS_WEB_VIEW = TbDomainConfig.DOMAIN_HTTPS_TIEBA;
     public static int ALPHA_80 = 80;
     public static long DEFALT_USE_TIME_INTERVAL = 1;
-    private static String POSITION_PAGER_NAME = "贴吧客户端反馈";
-    private static String POSITION_PAGER_ID = "2631903";
+    public static String POSITION_PAGER_NAME = "贴吧客户端反馈";
+    public static String POSITION_PAGER_ID = "2631903";
     public static final String FRS_LIVE_TIP_ADDRESS = SERVER_ADDRESS + "ala/live/getLiveRemindInFrs";
-    private static String VERSION = "";
-    private static String SUB_VERSION = "";
-    private static String LEGO_LIB_VERSION = BuildConfig.VERSION_NAME;
-    private static String SUBAPP_TYPE = "";
-    private static String FROM = null;
-    private static int THREAD_IMAGE_MAX_WIDTH = 640;
-    private static boolean sThreadImageMaxInited = false;
+    public static String VERSION = "";
+    public static String SUB_VERSION = "";
+    public static String LEGO_LIB_VERSION = BuildConfig.VERSION_NAME;
+    public static String SUBAPP_TYPE = "";
+    public static String FROM = null;
+    public static int THREAD_IMAGE_MAX_WIDTH = 640;
+    public static boolean sThreadImageMaxInited = false;
     public static final String TRANSFER_PICTURE_ID = SERVER_ADDRESS + "c/c/img/transferUrl2Pid";
     public static final String GET_AUTHORIZE_ID = SERVER_ADDRESS + "c/s/uidTransform";
-    private static int FRIEND_PHOTO_MAX_SIZE = 80;
-    private static int VERSION_TYPE = 3;
+    public static int FRIEND_PHOTO_MAX_SIZE = 80;
+    public static int VERSION_TYPE = 3;
     public static final Bitmap.Config BitmapConfig = Bitmap.Config.RGB_565;
-    private static String TMPDIRNAME = "tieba";
-    private static String CURRENT_FROM = null;
-    private static int BIG_IMAGE_SIZE = 10240;
-    private static int BIG_IMAGE_MAX_USED_MEMORY = 1048576;
+    public static String TMPDIRNAME = "tieba";
+    public static String CURRENT_FROM = null;
+    public static int BIG_IMAGE_SIZE = 10240;
+    public static int BIG_IMAGE_MAX_USED_MEMORY = 1048576;
     public static String PHOTO_SMALL_ADDRESS = "http://tb.himg.baidu.com/sys/portraitn/item/";
     public static String PHOTO_BIG_ADDRESS = "http://tb.himg.baidu.com/sys/portrait/item/";
-    public static String FRIEND_PHOTO_ADDRESS = PHOTO_SMALL_ADDRESS;
+    public static String FRIEND_PHOTO_ADDRESS = "http://tb.himg.baidu.com/sys/portraitn/item/";
     public static final String IMAGE_ADDRESS = SERVER_ADDRESS + "c/p/img?";
     public static String UPLOAD_IMG_URL = SERVER_ADDRESS + "c/s/uploadPicture";
     public static String CHANGE_USER_PORTRAIT = SERVER_ADDRESS + "c/c/img/changeportrait";
@@ -655,12 +656,16 @@ public class TbConfig {
     public static final int VALUE_SUBPB_FONT_SIZE_BIG = getDimens(R.dimen.T_X07);
     public static final int VALUE_SUBPB_FONT_SIZE_MID = getDimens(R.dimen.T_X07);
     public static final int VALUE_SUBPB_FONT_SIZE_SMALL = getDimens(R.dimen.T_X08);
+    public static final int SUBPB_FONT_SIZE_XLAGER = getDimens(R.dimen.T_X04);
+    public static final int SUBPB_FONT_SIZE_BIG = getDimens(R.dimen.T_X06);
+    public static final int SUBPB_FONT_SIZE_MID = getDimens(R.dimen.T_X06);
+    public static final int SUBPB_FONT_SIZE_SMALL = getDimens(R.dimen.T_X07);
     public static final int VALUE_SUBPB_FONT_LINE_SPACE_XLAGRE = getDimens(R.dimen.tbds29);
     public static final int VALUE_SUBPB_FONT_LINE_SPACE_BIG = getDimens(R.dimen.tbds29);
     public static final int VALUE_SUBPB_FONT_LINE_SPACE_MID = getDimens(R.dimen.tbds20);
     public static final int VALUE_SUBPB_FONT_LINE_SPACE_SMALL = getDimens(R.dimen.tbds20);
-    private static int MAX_PHOTO_MEMORY_CACHE = 60;
-    private static int MAX_PHOTO_MEMORY_CACHE_REMOTE_PROCESS = 10;
+    public static int MAX_PHOTO_MEMORY_CACHE = 60;
+    public static int MAX_PHOTO_MEMORY_CACHE_REMOTE_PROCESS = 10;
     public static boolean IS_START_BAIDU_KUANG_CLOSE_SELF = false;
     public static boolean IS_CHECK_OFFICAL_APPLICATION = true;
     public static final String RECOMMEND_APP_ADDRESS = SERVER_ADDRESS_WEB_VIEW + "mo/q/topic_page/136_1";
@@ -669,7 +674,46 @@ public class TbConfig {
     public static String HTTPS_QUICK_WEBVIEW_PREFIX = "https://tieba.baidu.com/";
     public static final String CHECK_SHARE_SDK_URL = SERVER_ADDRESS + "c/s/checkAppValid";
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes3.dex */
+    public static class DownFlowCmd {
+        public static HashSet<Integer> sInterruptCMDs = new HashSet<>();
+
+        static {
+            collectHttpCmd();
+            collectSocketCmd();
+        }
+
+        public static void collectHttpCmd() {
+            sInterruptCMDs.add(Integer.valueOf((int) CmdConfigHttp.PB_PLAY_STATISTICS_CMD));
+            sInterruptCMDs.add(Integer.valueOf((int) CmdConfigHttp.WEBVIEW_CACHE_INFO));
+            sInterruptCMDs.add(Integer.valueOf((int) CmdConfigHttp.CMD_PLAY_DURATION_STATISTICS));
+            sInterruptCMDs.add(Integer.valueOf((int) CmdConfigHttp.CMD_UEG_CANCEL));
+            sInterruptCMDs.add(Integer.valueOf((int) CmdConfigHttp.CMD_GET_BIGDAY_INFO));
+            sInterruptCMDs.add(Integer.valueOf((int) CmdConfigHttp.CMD_GET_RN_SYNC));
+            sInterruptCMDs.add(Integer.valueOf((int) CmdConfigHttp.CMD_GET_PUSH_DIALOG_TID));
+            sInterruptCMDs.add(Integer.valueOf((int) CmdConfigHttp.CDN_IPLIST_CMD));
+            sInterruptCMDs.add(Integer.valueOf((int) CmdConfigHttp.CMD_GET_STORE_REMIND_TIME));
+            sInterruptCMDs.add(Integer.valueOf((int) CmdConfigHttp.CMD_CONCERN_CHECK_RED_NOTIFY));
+            sInterruptCMDs.add(Integer.valueOf((int) CmdConfigHttp.CMD_CONCERN_UNREAD_TIP));
+            sInterruptCMDs.add(Integer.valueOf((int) CmdConfigHttp.CMD_GET_USER_INFO));
+        }
+
+        public static void collectSocketCmd() {
+            sInterruptCMDs.add(309541);
+            sInterruptCMDs.add(303024);
+            sInterruptCMDs.add(309609);
+            sInterruptCMDs.add(309476);
+            sInterruptCMDs.add(309618);
+            sInterruptCMDs.add(303005);
+            sInterruptCMDs.add(309615);
+            sInterruptCMDs.add(309485);
+            sInterruptCMDs.add(309117);
+            sInterruptCMDs.add(202101);
+            sInterruptCMDs.add(303017);
+        }
+    }
+
+    /* loaded from: classes3.dex */
     public static final class PassConfig {
         public static final String APP_ID = "1";
         public static final String CRIPT_TYPE = "1";
@@ -679,168 +723,138 @@ public class TbConfig {
         public static final String TPL = "tb";
     }
 
-    public static void setFeedBack(String str, String str2) {
-        if (str != null && str.length() > 0 && str2 != null && str2.length() > 0) {
-            setPositionPagerName(str);
-            setPositionPagerId(str2);
-        }
-    }
-
-    public static final String getBroadcastActionPageAdded() {
-        return BROADCAST_PAGE_ADDED;
-    }
-
-    public static final int getDimens(int i) {
-        return l.getDimens(TbadkCoreApplication.getInst().getContext(), i);
-    }
-
-    public static final String getBroadcastActionSignAlert() {
-        return BROADCAST_SIGN_ALERT;
-    }
-
-    public static boolean getDebugSwitch() {
-        return BdBaseApplication.getInst().isDebugMode();
-    }
-
-    public static void setAppServer(String str) {
-        SERVER_ADDRESS = str;
-    }
-
-    public static final String getBroadcastActionChangeSharedPref() {
-        return BROADCAST_CHANGE_SHARED_PREF;
-    }
-
-    public static String getFullVersion() {
-        String version = getVersion();
-        return version + "." + getSubVersion();
-    }
-
-    public static String getLegoLibVersion() {
-        return LEGO_LIB_VERSION;
-    }
-
-    public static void setLegoLibVersion(String str) {
-        LEGO_LIB_VERSION = str;
-    }
-
-    public static String getVersion() {
-        return VERSION;
-    }
-
-    public static void setVersion(String str) {
-        VERSION = str;
-    }
-
-    public static String getSubVersion() {
-        return SUB_VERSION;
-    }
-
-    public static void setSubVersion(String str) {
-        SUB_VERSION = str;
-    }
-
-    public static int getVersionType() {
-        return VERSION_TYPE;
-    }
-
-    public static void setVersionType(int i) {
-        VERSION_TYPE = i;
-    }
-
-    public static void setSubappType(String str) {
-        SUBAPP_TYPE = str;
-    }
-
-    public static String getSubappType() {
-        return SUBAPP_TYPE;
-    }
-
-    public static void setTempDirName(String str) {
-        TMPDIRNAME = str;
-    }
-
-    public static String getTempDirName() {
-        return TMPDIRNAME;
-    }
-
-    public static int getBigImageSize() {
-        return BIG_IMAGE_SIZE;
-    }
-
-    public static int initPbImageSize(Context context) {
-        int dip2px = l.dip2px(context, 427.0f);
-        int i = dip2px <= 640 ? dip2px : 640;
-        BIG_IMAGE_SIZE = (int) (i * i * 1.6f * 2.0f);
-        return BIG_IMAGE_SIZE;
-    }
-
-    public static int getPbImageSize() {
-        return BIG_IMAGE_SIZE;
-    }
-
-    public static void initBigImageMaxUsedMemory(Context context) {
-        BIG_IMAGE_MAX_USED_MEMORY = initPbImageSize(context) * 13;
-        if (BIG_IMAGE_MAX_USED_MEMORY < UtilHelper.getBitmapMaxMemory(context) * 0.35d) {
-            BIG_IMAGE_MAX_USED_MEMORY = (int) (UtilHelper.getBitmapMaxMemory(context) * 0.35d);
-        }
-    }
-
-    public static int getMaxPhotoMemoryCache() {
-        return MAX_PHOTO_MEMORY_CACHE;
-    }
-
-    public static int getMaxPhotoMemoryCacheForRemoteProcess() {
-        return MAX_PHOTO_MEMORY_CACHE_REMOTE_PROCESS;
-    }
-
-    public static void setMaxPhotoMemoryCache(int i) {
-        if (i < 60) {
-            i = 60;
-        }
-        if (MAX_PHOTO_MEMORY_CACHE != i) {
-            c.bCS().setPhotoMaxNum(i);
-        }
-        MAX_PHOTO_MEMORY_CACHE = i;
+    public static final int getBigEmotionsSize() {
+        return 230400;
     }
 
     public static int getBigImageMaxUsedMemory() {
         return BIG_IMAGE_MAX_USED_MEMORY;
     }
 
-    public static void setBigImageMaxUsedMemory(int i) {
-        BIG_IMAGE_MAX_USED_MEMORY = i;
-    }
-
     public static int getBigImageMaxUsedMemoryForRemoteProcess() {
-        return (int) (UtilHelper.getBitmapMaxMemory(TbadkCoreApplication.getInst().getContext()) * 0.28d);
+        double bitmapMaxMemory = UtilHelper.getBitmapMaxMemory(TbadkCoreApplication.getInst().getContext());
+        Double.isNaN(bitmapMaxMemory);
+        return (int) (bitmapMaxMemory * 0.28d);
     }
 
-    public static String getFrom() {
-        return FROM;
+    public static int getBigImageSize() {
+        return BIG_IMAGE_SIZE;
     }
 
-    public static void setFrom(String str) {
-        FROM = str;
+    public static String getBigPhotoAdress() {
+        return PHOTO_BIG_ADDRESS;
+    }
+
+    public static final String getBroadcastActionChangeSharedPref() {
+        return BROADCAST_CHANGE_SHARED_PREF;
+    }
+
+    public static final String getBroadcastActionChangeSkin() {
+        return BROADCAST_CHANGESKIN;
+    }
+
+    public static final String getBroadcastActionImageResized() {
+        return BROADCAST_IMAGE_RESIZED;
+    }
+
+    public static final String getBroadcastActionNewVersion() {
+        return "com.baidu.tieba.broadcast.newversion";
+    }
+
+    public static final String getBroadcastActionPageAdded() {
+        return BROADCAST_PAGE_ADDED;
+    }
+
+    public static final String getBroadcastActionPageChanged() {
+        return BROADCAST_PAGE_CHANGED;
+    }
+
+    public static final String getBroadcastActionSignAlert() {
+        return BROADCAST_SIGN_ALERT;
+    }
+
+    public static int getBubbleImageSize() {
+        return 22050;
+    }
+
+    public static int getContentLineSpace() {
+        int fontSize = TbadkCoreApplication.getInst().getFontSize();
+        if (fontSize != 0) {
+            if (fontSize != 1) {
+                if (fontSize != 2) {
+                    if (fontSize != 3) {
+                        return VALUE_COMMON_FONT_LINE_SPACE_SMALL;
+                    }
+                    return VALUE_COMMON_FONT_LINE_SPACE_SMALL;
+                }
+                return VALUE_COMMON_FONT_LINE_SPACE_MID;
+            }
+            return VALUE_COMMON_FONT_LINE_SPACE_BIG;
+        }
+        return VALUE_COMMON_FONT_LINE_SPACE_XLAGRE;
+    }
+
+    public static int getContentLineSpaceOfLzl() {
+        int fontSize = TbadkCoreApplication.getInst().getFontSize();
+        if (fontSize != 0) {
+            if (fontSize != 1) {
+                if (fontSize != 2) {
+                    if (fontSize != 3) {
+                        return VALUE_SUBPB_FONT_LINE_SPACE_SMALL;
+                    }
+                    return VALUE_SUBPB_FONT_LINE_SPACE_SMALL;
+                }
+                return VALUE_SUBPB_FONT_LINE_SPACE_MID;
+            }
+            return VALUE_SUBPB_FONT_LINE_SPACE_BIG;
+        }
+        return VALUE_SUBPB_FONT_LINE_SPACE_XLAGRE;
+    }
+
+    public static int getContentSize() {
+        int fontSize = TbadkCoreApplication.getInst().getFontSize();
+        if (fontSize != 0) {
+            if (fontSize != 1) {
+                if (fontSize != 2) {
+                    if (fontSize != 3) {
+                        return VALUE_COMMON_FONT_SIZE_SMALL;
+                    }
+                    return VALUE_COMMON_FONT_SIZE_SMALL;
+                }
+                return VALUE_COMMON_FONT_SIZE_MID;
+            }
+            return VALUE_COMMON_FONT_SIZE_BIG;
+        }
+        return VALUE_COMMON_FONT_SIZE_XLAGER;
+    }
+
+    public static int getContentSizeOfLzl() {
+        int fontSize = TbadkCoreApplication.getInst().getFontSize();
+        if (fontSize != 0) {
+            if (fontSize != 1) {
+                if (fontSize != 2) {
+                    if (fontSize != 3) {
+                        return VALUE_SUBPB_FONT_SIZE_SMALL;
+                    }
+                    return VALUE_SUBPB_FONT_SIZE_SMALL;
+                }
+                return VALUE_SUBPB_FONT_SIZE_MID;
+            }
+            return VALUE_SUBPB_FONT_SIZE_BIG;
+        }
+        return VALUE_SUBPB_FONT_SIZE_XLAGER;
     }
 
     public static String getCurrentFrom() {
         return CURRENT_FROM;
     }
 
-    public static void setCurrentFrom(String str) {
-        CURRENT_FROM = str;
+    public static boolean getDebugSwitch() {
+        return BdBaseApplication.getInst().isDebugMode();
     }
 
-    public static void initFriendPhotoConfig(Context context) {
-        if (context != null && context.getResources() != null) {
-            if (context.getResources().getDisplayMetrics().density < 1.0f) {
-                FRIEND_PHOTO_ADDRESS = PHOTO_SMALL_ADDRESS;
-                FRIEND_PHOTO_MAX_SIZE = 80;
-                return;
-            }
-            FRIEND_PHOTO_ADDRESS = PHOTO_BIG_ADDRESS;
-            FRIEND_PHOTO_MAX_SIZE = 110;
-        }
+    public static final int getDimens(int i) {
+        return l.g(TbadkCoreApplication.getInst().getContext(), i);
     }
 
     public static String getFriendPhotoAddress() {
@@ -851,18 +865,167 @@ public class TbConfig {
         return FRIEND_PHOTO_MAX_SIZE;
     }
 
+    public static String getFrom() {
+        return FROM;
+    }
+
+    public static String getFullVersion() {
+        String version = getVersion();
+        String subVersion = getSubVersion();
+        return version + "." + subVersion;
+    }
+
+    public static String getLegoLibVersion() {
+        return LEGO_LIB_VERSION;
+    }
+
+    public static int getMaxPhotoMemoryCache() {
+        return MAX_PHOTO_MEMORY_CACHE;
+    }
+
+    public static int getMaxPhotoMemoryCacheForRemoteProcess() {
+        return MAX_PHOTO_MEMORY_CACHE_REMOTE_PROCESS;
+    }
+
+    public static int getNameSize() {
+        int fontSize = TbadkCoreApplication.getInst().getFontSize();
+        if (fontSize == 0 || fontSize == 1) {
+            return 13;
+        }
+        return fontSize != 2 ? 11 : 12;
+    }
+
+    public static int getPbImageSize() {
+        return BIG_IMAGE_SIZE;
+    }
+
     public static String getPhotoSmallAddress() {
         return PHOTO_SMALL_ADDRESS;
     }
 
-    public static void setPhotoSmallAddress(String str) {
-        PHOTO_SMALL_ADDRESS = str;
+    public static String getPositionPagerId() {
+        return POSITION_PAGER_ID;
     }
 
-    public static void setSmallPhotoAdress(String str) {
-        if (URLUtil.isHttpUrl(str) || URLUtil.isHttpsUrl(str)) {
-            PHOTO_SMALL_ADDRESS = str;
+    public static String getPositionPagerName() {
+        return POSITION_PAGER_NAME;
+    }
+
+    public static int getPostLineSpace() {
+        int fontSize = TbadkCoreApplication.getInst().getFontSize();
+        if (fontSize != 0) {
+            if (fontSize != 1) {
+                if (fontSize != 2) {
+                    if (fontSize != 3) {
+                        return VALUE_POST_FONT_LINE_SPACE_SMALL;
+                    }
+                    return VALUE_POST_FONT_LINE_SPACE_SMALL;
+                }
+                return VALUE_POST_FONT_LINE_SPACE_MID;
+            }
+            return VALUE_POST_FONT_LINE_SPACE_BIG;
         }
+        return VALUE_POST_FONT_LINE_SPACE_XLAGRE;
+    }
+
+    public static String getSubVersion() {
+        return SUB_VERSION;
+    }
+
+    public static String getSubappType() {
+        return SUBAPP_TYPE;
+    }
+
+    public static String getTempDirName() {
+        return TMPDIRNAME;
+    }
+
+    public static int getTestContentSizeOfLzl() {
+        int fontSize = TbadkCoreApplication.getInst().getFontSize();
+        if (fontSize != 0) {
+            if (fontSize != 1) {
+                if (fontSize != 2) {
+                    if (fontSize != 3) {
+                        return SUBPB_FONT_SIZE_SMALL;
+                    }
+                    return SUBPB_FONT_SIZE_SMALL;
+                }
+                return SUBPB_FONT_SIZE_MID;
+            }
+            return SUBPB_FONT_SIZE_BIG;
+        }
+        return SUBPB_FONT_SIZE_XLAGER;
+    }
+
+    public static int getThreadImageMaxWidth() {
+        return THREAD_IMAGE_MAX_WIDTH;
+    }
+
+    public static String getVersion() {
+        return VERSION;
+    }
+
+    public static int getVersionType() {
+        return VERSION_TYPE;
+    }
+
+    public static void initBigImageMaxUsedMemory(Context context) {
+        int initPbImageSize = initPbImageSize(context) * 13;
+        BIG_IMAGE_MAX_USED_MEMORY = initPbImageSize;
+        double bitmapMaxMemory = UtilHelper.getBitmapMaxMemory(context);
+        Double.isNaN(bitmapMaxMemory);
+        if (initPbImageSize < bitmapMaxMemory * 0.35d) {
+            double bitmapMaxMemory2 = UtilHelper.getBitmapMaxMemory(context);
+            Double.isNaN(bitmapMaxMemory2);
+            BIG_IMAGE_MAX_USED_MEMORY = (int) (bitmapMaxMemory2 * 0.35d);
+        }
+    }
+
+    public static void initBigImageWidth(Context context) {
+        if (sThreadImageMaxInited) {
+            return;
+        }
+        sThreadImageMaxInited = true;
+        int sqrt = (int) Math.sqrt(l.k(context) * l.i(context));
+        if (sqrt > THREAD_IMAGE_MAX_WIDTH) {
+            THREAD_IMAGE_MAX_WIDTH = sqrt;
+        }
+        if (Runtime.getRuntime().maxMemory() <= 16777216) {
+            double d2 = THREAD_IMAGE_MAX_WIDTH;
+            Double.isNaN(d2);
+            THREAD_IMAGE_MAX_WIDTH = (int) (d2 * 0.8d);
+        }
+    }
+
+    public static void initFriendPhotoConfig(Context context) {
+        if (context == null || context.getResources() == null) {
+            return;
+        }
+        if (context.getResources().getDisplayMetrics().density < 1.0f) {
+            FRIEND_PHOTO_ADDRESS = PHOTO_SMALL_ADDRESS;
+            FRIEND_PHOTO_MAX_SIZE = 80;
+            return;
+        }
+        FRIEND_PHOTO_ADDRESS = PHOTO_BIG_ADDRESS;
+        FRIEND_PHOTO_MAX_SIZE = 110;
+    }
+
+    public static int initPbImageSize(Context context) {
+        int e2 = l.e(context, 427.0f);
+        if (e2 > 640) {
+            e2 = 640;
+        }
+        int i = (int) (e2 * e2 * 1.6f * 2.0f);
+        BIG_IMAGE_SIZE = i;
+        return i;
+    }
+
+    public static void setAppServer(String str) {
+        SERVER_ADDRESS = str;
+    }
+
+    public static void setBigImageMaxUsedMemory(int i) {
+        BIG_IMAGE_MAX_USED_MEMORY = i;
     }
 
     public static void setBigPhotoAdress(String str) {
@@ -871,190 +1034,71 @@ public class TbConfig {
         }
     }
 
-    public static int getNameSize() {
-        switch (TbadkCoreApplication.getInst().getFontSize()) {
-            case 0:
-            case 1:
-                return 13;
-            case 2:
-                return 12;
-            default:
-                return 11;
+    public static void setCurrentFrom(String str) {
+        CURRENT_FROM = str;
+    }
+
+    public static void setFeedBack(String str, String str2) {
+        if (str == null || str.length() <= 0 || str2 == null || str2.length() <= 0) {
+            return;
         }
+        setPositionPagerName(str);
+        setPositionPagerId(str2);
     }
 
-    public static int getContentSize() {
-        switch (TbadkCoreApplication.getInst().getFontSize()) {
-            case 0:
-                return VALUE_COMMON_FONT_SIZE_XLAGER;
-            case 1:
-                return VALUE_COMMON_FONT_SIZE_BIG;
-            case 2:
-                return VALUE_COMMON_FONT_SIZE_MID;
-            case 3:
-                return VALUE_COMMON_FONT_SIZE_SMALL;
-            default:
-                return VALUE_COMMON_FONT_SIZE_SMALL;
+    public static void setFrom(String str) {
+        FROM = str;
+    }
+
+    public static void setLegoLibVersion(String str) {
+        LEGO_LIB_VERSION = str;
+    }
+
+    public static void setMaxPhotoMemoryCache(int i) {
+        if (i < 60) {
+            i = 60;
         }
-    }
-
-    public static int getContentLineSpace() {
-        switch (TbadkCoreApplication.getInst().getFontSize()) {
-            case 0:
-                return VALUE_COMMON_FONT_LINE_SPACE_XLAGRE;
-            case 1:
-                return VALUE_COMMON_FONT_LINE_SPACE_BIG;
-            case 2:
-                return VALUE_COMMON_FONT_LINE_SPACE_MID;
-            case 3:
-                return VALUE_COMMON_FONT_LINE_SPACE_SMALL;
-            default:
-                return VALUE_COMMON_FONT_LINE_SPACE_SMALL;
+        if (MAX_PHOTO_MEMORY_CACHE != i) {
+            c.j().r(i);
         }
+        MAX_PHOTO_MEMORY_CACHE = i;
     }
 
-    public static int getPostLineSpace() {
-        switch (TbadkCoreApplication.getInst().getFontSize()) {
-            case 0:
-                return VALUE_POST_FONT_LINE_SPACE_XLAGRE;
-            case 1:
-                return VALUE_POST_FONT_LINE_SPACE_BIG;
-            case 2:
-                return VALUE_POST_FONT_LINE_SPACE_MID;
-            case 3:
-                return VALUE_POST_FONT_LINE_SPACE_SMALL;
-            default:
-                return VALUE_POST_FONT_LINE_SPACE_SMALL;
-        }
-    }
-
-    public static int getContentSizeOfLzl() {
-        switch (TbadkCoreApplication.getInst().getFontSize()) {
-            case 0:
-                return VALUE_SUBPB_FONT_SIZE_XLAGER;
-            case 1:
-                return VALUE_SUBPB_FONT_SIZE_BIG;
-            case 2:
-                return VALUE_SUBPB_FONT_SIZE_MID;
-            case 3:
-                return VALUE_SUBPB_FONT_SIZE_SMALL;
-            default:
-                return VALUE_SUBPB_FONT_SIZE_SMALL;
-        }
-    }
-
-    public static int getContentLineSpaceOfLzl() {
-        switch (TbadkCoreApplication.getInst().getFontSize()) {
-            case 0:
-                return VALUE_SUBPB_FONT_LINE_SPACE_XLAGRE;
-            case 1:
-                return VALUE_SUBPB_FONT_LINE_SPACE_BIG;
-            case 2:
-                return VALUE_SUBPB_FONT_LINE_SPACE_MID;
-            case 3:
-                return VALUE_SUBPB_FONT_LINE_SPACE_SMALL;
-            default:
-                return VALUE_SUBPB_FONT_LINE_SPACE_SMALL;
-        }
-    }
-
-    public static final String getBroadcastActionPageChanged() {
-        return BROADCAST_PAGE_CHANGED;
-    }
-
-    public static final String getBroadcastActionImageResized() {
-        return BROADCAST_IMAGE_RESIZED;
-    }
-
-    public static int getThreadImageMaxWidth() {
-        return THREAD_IMAGE_MAX_WIDTH;
-    }
-
-    public static void initBigImageWidth(Context context) {
-        if (!sThreadImageMaxInited) {
-            sThreadImageMaxInited = true;
-            int sqrt = (int) Math.sqrt(l.getEquipmentWidth(context) * l.getEquipmentHeight(context));
-            if (sqrt > THREAD_IMAGE_MAX_WIDTH) {
-                THREAD_IMAGE_MAX_WIDTH = sqrt;
-            }
-            if (Runtime.getRuntime().maxMemory() <= AccountConstants.TYPE_MODIFY_ADDRESSLIST_SWITCH) {
-                THREAD_IMAGE_MAX_WIDTH = (int) (THREAD_IMAGE_MAX_WIDTH * 0.8d);
-            }
-        }
-    }
-
-    public static final int getBigEmotionsSize() {
-        return 230400;
-    }
-
-    public static int getBubbleImageSize() {
-        return 22050;
-    }
-
-    public static String getPositionPagerName() {
-        return POSITION_PAGER_NAME;
-    }
-
-    public static void setPositionPagerName(String str) {
-        POSITION_PAGER_NAME = str;
-    }
-
-    public static String getPositionPagerId() {
-        return POSITION_PAGER_ID;
+    public static void setPhotoSmallAddress(String str) {
+        PHOTO_SMALL_ADDRESS = str;
     }
 
     public static void setPositionPagerId(String str) {
         POSITION_PAGER_ID = str;
     }
 
-    public static final String getBroadcastActionNewVersion() {
-        return "com.baidu.tieba.broadcast.newversion";
+    public static void setPositionPagerName(String str) {
+        POSITION_PAGER_NAME = str;
     }
 
-    public static String getBigPhotoAdress() {
-        return PHOTO_BIG_ADDRESS;
+    public static void setSmallPhotoAdress(String str) {
+        if (URLUtil.isHttpUrl(str) || URLUtil.isHttpsUrl(str)) {
+            PHOTO_SMALL_ADDRESS = str;
+        }
     }
 
-    public static final String getBroadcastActionChangeSkin() {
-        return BROADCAST_CHANGESKIN;
+    public static void setSubVersion(String str) {
+        SUB_VERSION = str;
     }
 
-    /* loaded from: classes.dex */
-    public static class DownFlowCmd {
-        public static HashSet<Integer> sInterruptCMDs = new HashSet<>();
+    public static void setSubappType(String str) {
+        SUBAPP_TYPE = str;
+    }
 
-        static {
-            collectHttpCmd();
-            collectSocketCmd();
-        }
+    public static void setTempDirName(String str) {
+        TMPDIRNAME = str;
+    }
 
-        private static void collectSocketCmd() {
-            sInterruptCMDs.add(Integer.valueOf((int) CmdConfigSocket.CMD_CONCERN_UNREAD_TIP));
-            sInterruptCMDs.add(Integer.valueOf((int) CmdConfigSocket.CMD_GET_USER_INFO));
-            sInterruptCMDs.add(309609);
-            sInterruptCMDs.add(Integer.valueOf((int) CmdConfigSocket.CMD_CONCERN_CHECK_RED_NOTIFY));
-            sInterruptCMDs.add(309618);
-            sInterruptCMDs.add(Integer.valueOf((int) CmdConfigSocket.CMD_QUERY_COLLECT_UPDATE_NUM));
-            sInterruptCMDs.add(309615);
-            sInterruptCMDs.add(Integer.valueOf((int) CmdConfigSocket.WEBVIEW_CACHE_INFO));
-            sInterruptCMDs.add(Integer.valueOf((int) CmdConfigSocket.CMD_GET_STORE_REMIND_TIME));
-            sInterruptCMDs.add(Integer.valueOf((int) CmdConfigSocket.CMD_PUSH_COUNT));
-            sInterruptCMDs.add(Integer.valueOf((int) CmdConfigSocket.CMD_GET_LOCATION));
-        }
+    public static void setVersion(String str) {
+        VERSION = str;
+    }
 
-        private static void collectHttpCmd() {
-            sInterruptCMDs.add(1001804);
-            sInterruptCMDs.add(1003365);
-            sInterruptCMDs.add(1003359);
-            sInterruptCMDs.add(Integer.valueOf((int) CmdConfigHttp.CMD_UEG_CANCEL));
-            sInterruptCMDs.add(Integer.valueOf((int) CmdConfigHttp.CMD_GET_BIGDAY_INFO));
-            sInterruptCMDs.add(Integer.valueOf((int) CmdConfigHttp.CMD_GET_RN_SYNC));
-            sInterruptCMDs.add(Integer.valueOf((int) CmdConfigHttp.CMD_GET_PUSH_DIALOG_TID));
-            sInterruptCMDs.add(1002600);
-            sInterruptCMDs.add(1003067);
-            sInterruptCMDs.add(1003344);
-            sInterruptCMDs.add(1003387);
-            sInterruptCMDs.add(1003001);
-        }
+    public static void setVersionType(int i) {
+        VERSION_TYPE = i;
     }
 }

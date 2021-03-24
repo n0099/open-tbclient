@@ -2,13 +2,15 @@ package com.sina.weibo.sdk.network.intercept;
 
 import com.sina.weibo.sdk.network.IRequestIntercept;
 import java.util.HashMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class GlobalInterceptHelper {
-    private static GlobalInterceptHelper globalInterceptHelper;
-    private HashMap<String, IRequestIntercept> globalIntercept = new HashMap<>();
+    public static GlobalInterceptHelper globalInterceptHelper;
+    public HashMap<String, IRequestIntercept> globalIntercept;
 
-    private GlobalInterceptHelper() {
-        this.globalIntercept.put(GuestParamInterception.class.getName(), new GuestParamInterception());
+    public GlobalInterceptHelper() {
+        HashMap<String, IRequestIntercept> hashMap = new HashMap<>();
+        this.globalIntercept = hashMap;
+        hashMap.put(GuestParamInterception.class.getName(), new GuestParamInterception());
         this.globalIntercept.put(CommonParamInterception.class.getName(), new CommonParamInterception());
     }
 
@@ -23,13 +25,14 @@ public class GlobalInterceptHelper {
         this.globalIntercept.put(str, iRequestIntercept);
     }
 
+    public HashMap<String, IRequestIntercept> getGlobalIntercept() {
+        HashMap<String, IRequestIntercept> hashMap = this.globalIntercept;
+        return hashMap == null ? new HashMap<>() : hashMap;
+    }
+
     public void removeIntercept(String str) {
         if (this.globalIntercept.containsKey(str)) {
             this.globalIntercept.remove(str);
         }
-    }
-
-    public HashMap<String, IRequestIntercept> getGlobalIntercept() {
-        return this.globalIntercept == null ? new HashMap<>() : this.globalIntercept;
     }
 }

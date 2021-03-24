@@ -21,14 +21,35 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class QuicktimeTextTrackImpl extends AbstractTrack {
-    TrackMetaData trackMetaData = new TrackMetaData();
-    List<Line> subs = new LinkedList();
-    SampleDescriptionBox sampleDescriptionBox = new SampleDescriptionBox();
+    public TrackMetaData trackMetaData = new TrackMetaData();
+    public List<Line> subs = new LinkedList();
+    public SampleDescriptionBox sampleDescriptionBox = new SampleDescriptionBox();
 
-    public List<Line> getSubs() {
-        return this.subs;
+    /* loaded from: classes6.dex */
+    public static class Line {
+        public long from;
+        public String text;
+        public long to;
+
+        public Line(long j, long j2, String str) {
+            this.from = j;
+            this.to = j2;
+            this.text = str;
+        }
+
+        public long getFrom() {
+            return this.from;
+        }
+
+        public String getText() {
+            return this.text;
+        }
+
+        public long getTo() {
+            return this.to;
+        }
     }
 
     public QuicktimeTextTrackImpl() {
@@ -40,30 +61,27 @@ public class QuicktimeTextTrackImpl extends AbstractTrack {
         this.trackMetaData.setTimescale(1000L);
     }
 
+    @Override // com.googlecode.mp4parser.authoring.AbstractTrack, com.googlecode.mp4parser.authoring.Track
+    public List<CompositionTimeToSample.Entry> getCompositionTimeEntries() {
+        return null;
+    }
+
     @Override // com.googlecode.mp4parser.authoring.Track
-    public List<Sample> getSamples() {
-        LinkedList linkedList = new LinkedList();
-        long j = 0;
-        for (Line line : this.subs) {
-            long j2 = line.from - j;
-            if (j2 > 0) {
-                linkedList.add(new SampleImpl(ByteBuffer.wrap(new byte[2])));
-            } else if (j2 < 0) {
-                throw new Error("Subtitle display times may not intersect");
-            }
-            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-            DataOutputStream dataOutputStream = new DataOutputStream(byteArrayOutputStream);
-            try {
-                dataOutputStream.writeShort(line.text.getBytes("UTF-8").length);
-                dataOutputStream.write(line.text.getBytes("UTF-8"));
-                dataOutputStream.close();
-                linkedList.add(new SampleImpl(ByteBuffer.wrap(byteArrayOutputStream.toByteArray())));
-                j = line.to;
-            } catch (IOException e) {
-                throw new Error("VM is broken. Does not support UTF-8");
-            }
-        }
-        return linkedList;
+    public String getHandler() {
+        return "text";
+    }
+
+    @Override // com.googlecode.mp4parser.authoring.Track
+    public Box getMediaHeaderBox() {
+        GenericMediaHeaderAtom genericMediaHeaderAtom = new GenericMediaHeaderAtom();
+        genericMediaHeaderAtom.addBox(new BaseMediaInfoAtom());
+        genericMediaHeaderAtom.addBox(new GenericMediaHeaderTextAtom());
+        return genericMediaHeaderAtom;
+    }
+
+    @Override // com.googlecode.mp4parser.authoring.AbstractTrack, com.googlecode.mp4parser.authoring.Track
+    public List<SampleDependencyTypeBox.Entry> getSampleDependencies() {
+        return null;
     }
 
     @Override // com.googlecode.mp4parser.authoring.Track
@@ -94,8 +112,38 @@ public class QuicktimeTextTrackImpl extends AbstractTrack {
         return jArr;
     }
 
+    @Override // com.googlecode.mp4parser.authoring.Track
+    public List<Sample> getSamples() {
+        LinkedList linkedList = new LinkedList();
+        long j = 0;
+        for (Line line : this.subs) {
+            long j2 = line.from - j;
+            if (j2 > 0) {
+                linkedList.add(new SampleImpl(ByteBuffer.wrap(new byte[2])));
+            } else if (j2 < 0) {
+                throw new Error("Subtitle display times may not intersect");
+            }
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            DataOutputStream dataOutputStream = new DataOutputStream(byteArrayOutputStream);
+            try {
+                dataOutputStream.writeShort(line.text.getBytes("UTF-8").length);
+                dataOutputStream.write(line.text.getBytes("UTF-8"));
+                dataOutputStream.close();
+                linkedList.add(new SampleImpl(ByteBuffer.wrap(byteArrayOutputStream.toByteArray())));
+                j = line.to;
+            } catch (IOException unused) {
+                throw new Error("VM is broken. Does not support UTF-8");
+            }
+        }
+        return linkedList;
+    }
+
+    public List<Line> getSubs() {
+        return this.subs;
+    }
+
     @Override // com.googlecode.mp4parser.authoring.AbstractTrack, com.googlecode.mp4parser.authoring.Track
-    public List<CompositionTimeToSample.Entry> getCompositionTimeEntries() {
+    public SubSampleInformationBox getSubsampleInformationBox() {
         return null;
     }
 
@@ -104,56 +152,8 @@ public class QuicktimeTextTrackImpl extends AbstractTrack {
         return null;
     }
 
-    @Override // com.googlecode.mp4parser.authoring.AbstractTrack, com.googlecode.mp4parser.authoring.Track
-    public List<SampleDependencyTypeBox.Entry> getSampleDependencies() {
-        return null;
-    }
-
     @Override // com.googlecode.mp4parser.authoring.Track
     public TrackMetaData getTrackMetaData() {
         return this.trackMetaData;
-    }
-
-    @Override // com.googlecode.mp4parser.authoring.Track
-    public String getHandler() {
-        return "text";
-    }
-
-    /* loaded from: classes5.dex */
-    public static class Line {
-        long from;
-        String text;
-        long to;
-
-        public Line(long j, long j2, String str) {
-            this.from = j;
-            this.to = j2;
-            this.text = str;
-        }
-
-        public long getFrom() {
-            return this.from;
-        }
-
-        public String getText() {
-            return this.text;
-        }
-
-        public long getTo() {
-            return this.to;
-        }
-    }
-
-    @Override // com.googlecode.mp4parser.authoring.Track
-    public Box getMediaHeaderBox() {
-        GenericMediaHeaderAtom genericMediaHeaderAtom = new GenericMediaHeaderAtom();
-        genericMediaHeaderAtom.addBox(new BaseMediaInfoAtom());
-        genericMediaHeaderAtom.addBox(new GenericMediaHeaderTextAtom());
-        return genericMediaHeaderAtom;
-    }
-
-    @Override // com.googlecode.mp4parser.authoring.AbstractTrack, com.googlecode.mp4parser.authoring.Track
-    public SubSampleInformationBox getSubsampleInformationBox() {
-        return null;
     }
 }

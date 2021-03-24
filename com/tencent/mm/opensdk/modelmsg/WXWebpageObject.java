@@ -3,10 +3,10 @@ package com.tencent.mm.opensdk.modelmsg;
 import android.os.Bundle;
 import com.tencent.mm.opensdk.modelmsg.WXMediaMessage;
 import com.tencent.mm.opensdk.utils.Log;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class WXWebpageObject implements WXMediaMessage.IMediaObject {
-    private static final int LENGTH_LIMIT = 10240;
-    private static final String TAG = "MicroMsg.SDK.WXWebpageObject";
+    public static final int LENGTH_LIMIT = 10240;
+    public static final String TAG = "MicroMsg.SDK.WXWebpageObject";
     public String canvasPageXml;
     public String extInfo;
     public String webpageUrl;
@@ -20,8 +20,9 @@ public class WXWebpageObject implements WXMediaMessage.IMediaObject {
 
     @Override // com.tencent.mm.opensdk.modelmsg.WXMediaMessage.IMediaObject
     public boolean checkArgs() {
-        if (this.webpageUrl == null || this.webpageUrl.length() == 0 || this.webpageUrl.length() > LENGTH_LIMIT) {
-            Log.e(TAG, "checkArgs fail, webpageUrl is invalid");
+        String str = this.webpageUrl;
+        if (str == null || str.length() == 0 || this.webpageUrl.length() > 10240) {
+            Log.e("MicroMsg.SDK.WXWebpageObject", "checkArgs fail, webpageUrl is invalid");
             return false;
         }
         return true;

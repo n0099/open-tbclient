@@ -1,24 +1,25 @@
 package com.baidu.tieba.im.message;
 
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.squareup.wire.Wire;
+import d.b.i0.d1.w.b;
 import protobuf.CommitGroupMsg.CommitGroupMsgResIdl;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class ResponseCommitGroupMessage extends ResponseCommitMessage {
     public ResponseCommitGroupMessage() {
-        super(CmdConfigSocket.CMD_GROUP_CHAT_MSG);
+        super(202001);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.message.a
+    @Override // com.baidu.tieba.im.message.ResponseCommitMessage, com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
     public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         CommitGroupMsgResIdl commitGroupMsgResIdl = (CommitGroupMsgResIdl) new Wire(new Class[0]).parseFrom(bArr, CommitGroupMsgResIdl.class);
         setError(commitGroupMsgResIdl.error.errorno.intValue());
         setErrorString(commitGroupMsgResIdl.error.usermsg);
-        if (getError() == 0) {
-            setMsgId(com.baidu.tieba.im.util.b.hd(commitGroupMsgResIdl.data.msgId.longValue()));
-            setRecordId(commitGroupMsgResIdl.data.recordId.longValue());
-            setGroupId(String.valueOf(commitGroupMsgResIdl.data.groupId));
+        if (getError() != 0) {
+            return;
         }
+        setMsgId(b.a(commitGroupMsgResIdl.data.msgId.longValue()));
+        setRecordId(commitGroupMsgResIdl.data.recordId.longValue());
+        setGroupId(String.valueOf(commitGroupMsgResIdl.data.groupId));
     }
 }

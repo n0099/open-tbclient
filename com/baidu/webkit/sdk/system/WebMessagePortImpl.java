@@ -5,21 +5,15 @@ import android.os.Handler;
 import android.webkit.WebMessage;
 import android.webkit.WebMessagePort;
 import com.baidu.webkit.sdk.WebMessagePort;
-/* JADX INFO: Access modifiers changed from: package-private */
 @TargetApi(23)
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public final class WebMessagePortImpl extends WebMessagePort {
-    private final android.webkit.WebMessagePort mMsgPort;
+    public final android.webkit.WebMessagePort mMsgPort;
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public class WebMessageCallbackWrapper extends WebMessagePort.WebMessageCallback {
-        static final /* synthetic */ boolean $assertionsDisabled;
-        private final WebMessagePort.WebMessageCallback mCallback;
-
-        static {
-            $assertionsDisabled = !WebMessagePortImpl.class.desiredAssertionStatus();
-        }
+        public static final /* synthetic */ boolean $assertionsDisabled = false;
+        public final WebMessagePort.WebMessageCallback mCallback;
 
         public WebMessageCallbackWrapper(WebMessagePort.WebMessageCallback webMessageCallback) {
             this.mCallback = webMessageCallback;
@@ -27,42 +21,32 @@ public final class WebMessagePortImpl extends WebMessagePort {
 
         @Override // android.webkit.WebMessagePort.WebMessageCallback
         public void onMessage(android.webkit.WebMessagePort webMessagePort, WebMessage webMessage) {
-            if (!$assertionsDisabled && webMessagePort != WebMessagePortImpl.this.mMsgPort) {
-                throw new AssertionError();
-            }
             this.mCallback.onMessage(WebMessagePortImpl.this, Glue.cast(webMessage));
         }
     }
 
-    private WebMessagePortImpl(android.webkit.WebMessagePort webMessagePort) {
+    public WebMessagePortImpl(android.webkit.WebMessagePort webMessagePort) {
         this.mMsgPort = webMessagePort;
     }
 
-    static com.baidu.webkit.sdk.WebMessagePort from(android.webkit.WebMessagePort webMessagePort) {
+    public static com.baidu.webkit.sdk.WebMessagePort from(android.webkit.WebMessagePort webMessagePort) {
         if (webMessagePort == null) {
             return null;
         }
         return new WebMessagePortImpl(webMessagePort);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public static android.webkit.WebMessagePort[] from(com.baidu.webkit.sdk.WebMessagePort[] webMessagePortArr) {
         if (webMessagePortArr == null) {
             return null;
         }
         android.webkit.WebMessagePort[] webMessagePortArr2 = new android.webkit.WebMessagePort[webMessagePortArr.length];
-        int i = 0;
-        while (true) {
-            int i2 = i;
-            if (i2 >= webMessagePortArr.length) {
-                return webMessagePortArr2;
-            }
-            webMessagePortArr2[i2] = ((WebMessagePortImpl) webMessagePortArr[i2]).getImpl();
-            i = i2 + 1;
+        for (int i = 0; i < webMessagePortArr.length; i++) {
+            webMessagePortArr2[i] = ((WebMessagePortImpl) webMessagePortArr[i]).getImpl();
         }
+        return webMessagePortArr2;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public static com.baidu.webkit.sdk.WebMessagePort[] from(android.webkit.WebMessagePort[] webMessagePortArr) {
         if (webMessagePortArr == null) {
             return null;

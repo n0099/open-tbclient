@@ -7,7 +7,7 @@ import java.security.SecureRandom;
 import javax.crypto.Cipher;
 import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.DESKeySpec;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public abstract class DESUtil {
     public static String decrypt(String str, String str2) {
         Cipher cipher = Cipher.getInstance("DES");
@@ -22,7 +22,7 @@ public abstract class DESUtil {
         return new String(Base64.encode(cipher.doFinal(str.getBytes("UTF-8")), 0), Charset.defaultCharset()).trim();
     }
 
-    private static Key getDesKey(String str) {
+    public static Key getDesKey(String str) {
         return SecretKeyFactory.getInstance("DES").generateSecret(new DESKeySpec(Base64.decode(str, 0)));
     }
 }

@@ -1,10 +1,11 @@
 package com.bytedance.sdk.adnet.err;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class c extends VAdError {
-    public c() {
+    public c(int i) {
+        super(i);
     }
 
-    public c(Throwable th) {
-        super(th);
+    public c(Throwable th, int i) {
+        super(th, i);
     }
 }

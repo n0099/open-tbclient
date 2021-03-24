@@ -2,7 +2,7 @@ package com.baidu.mapapi.search.core;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class CityInfo implements Parcelable {
     public static final Parcelable.Creator<CityInfo> CREATOR = new b();
     public String city;
@@ -11,7 +11,6 @@ public class CityInfo implements Parcelable {
     public CityInfo() {
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     public CityInfo(Parcel parcel) {
         this.city = parcel.readString();
         this.num = parcel.readInt();

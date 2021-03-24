@@ -1,7 +1,7 @@
 package com.baidu.android.imsdk.mcast;
 
 import com.baidu.android.imsdk.IMListener;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public interface GetM3u8CallBack extends IMListener {
     void onResult(int i, byte[] bArr);
 }

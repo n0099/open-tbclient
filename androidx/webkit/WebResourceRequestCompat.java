@@ -6,9 +6,10 @@ import androidx.annotation.NonNull;
 import androidx.webkit.internal.WebResourceRequestAdapter;
 import androidx.webkit.internal.WebViewFeatureInternal;
 import androidx.webkit.internal.WebViewGlueCommunicator;
-/* loaded from: classes5.dex */
+/* loaded from: classes.dex */
 public class WebResourceRequestCompat {
-    private WebResourceRequestCompat() {
+    public static WebResourceRequestAdapter getAdapter(WebResourceRequest webResourceRequest) {
+        return WebViewGlueCommunicator.getCompatConverter().convertWebResourceRequest(webResourceRequest);
     }
 
     @SuppressLint({"NewApi"})
@@ -21,9 +22,5 @@ public class WebResourceRequestCompat {
             return getAdapter(webResourceRequest).isRedirect();
         }
         throw WebViewFeatureInternal.getUnsupportedOperationException();
-    }
-
-    private static WebResourceRequestAdapter getAdapter(WebResourceRequest webResourceRequest) {
-        return WebViewGlueCommunicator.getCompatConverter().convertWebResourceRequest(webResourceRequest);
     }
 }

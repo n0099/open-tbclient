@@ -1,7 +1,7 @@
 package com.airbnb.lottie.network;
 
-import com.airbnb.lottie.c;
-/* loaded from: classes5.dex */
+import d.a.a.c;
+/* loaded from: classes.dex */
 public enum FileExtension {
     Json(".json"),
     Zip(".zip");
@@ -12,15 +12,6 @@ public enum FileExtension {
         this.extension = str;
     }
 
-    public String tempExtension() {
-        return ".temp" + this.extension;
-    }
-
-    @Override // java.lang.Enum
-    public String toString() {
-        return this.extension;
-    }
-
     public static FileExtension forFile(String str) {
         FileExtension[] values;
         for (FileExtension fileExtension : values()) {
@@ -28,7 +19,16 @@ public enum FileExtension {
                 return fileExtension;
             }
         }
-        c.warn("Unable to find correct extension for " + str);
+        c.d("Unable to find correct extension for " + str);
         return Json;
+    }
+
+    public String tempExtension() {
+        return ".temp" + this.extension;
+    }
+
+    @Override // java.lang.Enum
+    public String toString() {
+        return this.extension;
     }
 }

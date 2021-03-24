@@ -3,7 +3,7 @@ package org.apache.http.auth.params;
 import org.apache.http.params.HttpAbstractParamBean;
 import org.apache.http.params.HttpParams;
 @Deprecated
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class AuthParamBean extends HttpAbstractParamBean {
     public AuthParamBean(HttpParams httpParams) {
         super(null);

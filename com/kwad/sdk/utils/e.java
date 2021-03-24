@@ -3,6 +3,7 @@ package com.kwad.sdk.utils;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.content.pm.ResolveInfo;
 import android.net.Uri;
 import android.os.Build;
@@ -10,26 +11,28 @@ import android.text.TextUtils;
 import com.baidu.android.util.devices.RomUtils;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final Map<String, String> f7142a = new HashMap();
+    public static final Map<String, String> f36768a;
 
     static {
-        f7142a.put("HUAWEI", "com.huawei.appmarket");
-        f7142a.put(RomUtils.ROM_OPPO, "com.oppo.market");
-        f7142a.put(RomUtils.MANUFACTURER_VIVO, "com.bbk.appstore");
-        f7142a.put(RomUtils.MANUFACTURER_XIAOMI, "com.xiaomi.market");
-        f7142a.put("OnePlus", "com.oppo.market");
-        f7142a.put("Meizu", "com.meizu.mstore");
-        f7142a.put("samsung", "com.sec.android.app.samsungapps");
-        f7142a.put(RomUtils.ROM_SMARTISAN, "com.smartisanos.appstore");
-        f7142a.put("Realme", "com.oppo.market");
-        f7142a.put("HONOR", "com.huawei.appmarket");
+        HashMap hashMap = new HashMap();
+        f36768a = hashMap;
+        hashMap.put("HUAWEI", "com.huawei.appmarket");
+        f36768a.put("OPPO", "com.oppo.market");
+        f36768a.put(RomUtils.MANUFACTURER_VIVO, "com.bbk.appstore");
+        f36768a.put(RomUtils.MANUFACTURER_XIAOMI, "com.xiaomi.market");
+        f36768a.put("OnePlus", "com.oppo.market");
+        f36768a.put("Meizu", "com.meizu.mstore");
+        f36768a.put("samsung", "com.sec.android.app.samsungapps");
+        f36768a.put("SMARTISAN", "com.smartisanos.appstore");
+        f36768a.put("Realme", "com.oppo.market");
+        f36768a.put("HONOR", "com.huawei.appmarket");
     }
 
-    private static boolean a(Context context, String str) {
+    public static boolean a(Context context, String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
@@ -38,8 +41,8 @@ public class e {
         try {
             context.startActivity(intent);
             return true;
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (Exception e2) {
+            e2.printStackTrace();
             return false;
         }
     }
@@ -52,7 +55,7 @@ public class e {
             str = "http://apps.samsung.com/appquery/appDetail.as?appId=" + str2;
         }
         try {
-            String str3 = f7142a.get(Build.BRAND);
+            String str3 = f36768a.get(Build.BRAND);
             Intent parseUri = Intent.parseUri(str, 1);
             parseUri.addFlags(268435456);
             for (ResolveInfo resolveInfo : context.getPackageManager().queryIntentActivities(parseUri, 0)) {
@@ -66,16 +69,17 @@ public class e {
                 }
             }
             return a(context, str);
-        } catch (Exception e) {
+        } catch (Exception unused) {
             return a(context, str);
         }
     }
 
-    private static boolean a(ResolveInfo resolveInfo) {
-        return resolveInfo == null || resolveInfo.activityInfo == null || TextUtils.isEmpty(resolveInfo.activityInfo.packageName);
+    public static boolean a(ResolveInfo resolveInfo) {
+        ActivityInfo activityInfo;
+        return resolveInfo == null || (activityInfo = resolveInfo.activityInfo) == null || TextUtils.isEmpty(activityInfo.packageName);
     }
 
-    private static boolean a(String str) {
-        return RomUtils.ROM_OPPO.equals(Build.BRAND) && "com.heytap.market".equals(str);
+    public static boolean a(String str) {
+        return "OPPO".equals(Build.BRAND) && "com.heytap.market".equals(str);
     }
 }

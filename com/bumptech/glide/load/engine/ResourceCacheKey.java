@@ -9,19 +9,18 @@ import com.bumptech.glide.util.LruCache;
 import com.bumptech.glide.util.Util;
 import java.nio.ByteBuffer;
 import java.security.MessageDigest;
-/* loaded from: classes14.dex */
-final class ResourceCacheKey implements Key {
-    private static final LruCache<Class<?>, byte[]> RESOURCE_CLASS_BYTES = new LruCache<>(50);
-    private final ArrayPool arrayPool;
-    private final Class<?> decodedResourceClass;
-    private final int height;
-    private final Options options;
-    private final Key signature;
-    private final Key sourceKey;
-    private final Transformation<?> transformation;
-    private final int width;
+/* loaded from: classes5.dex */
+public final class ResourceCacheKey implements Key {
+    public static final LruCache<Class<?>, byte[]> RESOURCE_CLASS_BYTES = new LruCache<>(50);
+    public final ArrayPool arrayPool;
+    public final Class<?> decodedResourceClass;
+    public final int height;
+    public final Options options;
+    public final Key signature;
+    public final Key sourceKey;
+    public final Transformation<?> transformation;
+    public final int width;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public ResourceCacheKey(ArrayPool arrayPool, Key key, Key key2, int i, int i2, Transformation<?> transformation, Class<?> cls, Options options) {
         this.arrayPool = arrayPool;
         this.sourceKey = key;
@@ -31,6 +30,16 @@ final class ResourceCacheKey implements Key {
         this.transformation = transformation;
         this.decodedResourceClass = cls;
         this.options = options;
+    }
+
+    private byte[] getResourceClassBytes() {
+        byte[] bArr = RESOURCE_CLASS_BYTES.get(this.decodedResourceClass);
+        if (bArr == null) {
+            byte[] bytes = this.decodedResourceClass.getName().getBytes(Key.CHARSET);
+            RESOURCE_CLASS_BYTES.put(this.decodedResourceClass, bytes);
+            return bytes;
+        }
+        return bArr;
     }
 
     @Override // com.bumptech.glide.load.Key
@@ -45,10 +54,15 @@ final class ResourceCacheKey implements Key {
     @Override // com.bumptech.glide.load.Key
     public int hashCode() {
         int hashCode = (((((this.sourceKey.hashCode() * 31) + this.signature.hashCode()) * 31) + this.width) * 31) + this.height;
-        if (this.transformation != null) {
-            hashCode = (hashCode * 31) + this.transformation.hashCode();
+        Transformation<?> transformation = this.transformation;
+        if (transformation != null) {
+            hashCode = (hashCode * 31) + transformation.hashCode();
         }
         return (((hashCode * 31) + this.decodedResourceClass.hashCode()) * 31) + this.options.hashCode();
+    }
+
+    public String toString() {
+        return "ResourceCacheKey{sourceKey=" + this.sourceKey + ", signature=" + this.signature + ", width=" + this.width + ", height=" + this.height + ", decodedResourceClass=" + this.decodedResourceClass + ", transformation='" + this.transformation + "', options=" + this.options + '}';
     }
 
     @Override // com.bumptech.glide.load.Key
@@ -58,25 +72,12 @@ final class ResourceCacheKey implements Key {
         this.signature.updateDiskCacheKey(messageDigest);
         this.sourceKey.updateDiskCacheKey(messageDigest);
         messageDigest.update(bArr);
-        if (this.transformation != null) {
-            this.transformation.updateDiskCacheKey(messageDigest);
+        Transformation<?> transformation = this.transformation;
+        if (transformation != null) {
+            transformation.updateDiskCacheKey(messageDigest);
         }
         this.options.updateDiskCacheKey(messageDigest);
         messageDigest.update(getResourceClassBytes());
         this.arrayPool.put(bArr);
-    }
-
-    private byte[] getResourceClassBytes() {
-        byte[] bArr = RESOURCE_CLASS_BYTES.get(this.decodedResourceClass);
-        if (bArr == null) {
-            byte[] bytes = this.decodedResourceClass.getName().getBytes(CHARSET);
-            RESOURCE_CLASS_BYTES.put(this.decodedResourceClass, bytes);
-            return bytes;
-        }
-        return bArr;
-    }
-
-    public String toString() {
-        return "ResourceCacheKey{sourceKey=" + this.sourceKey + ", signature=" + this.signature + ", width=" + this.width + ", height=" + this.height + ", decodedResourceClass=" + this.decodedResourceClass + ", transformation='" + this.transformation + "', options=" + this.options + '}';
     }
 }

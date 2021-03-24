@@ -1,14 +1,62 @@
 package com.baidu.minivideo.plugin.capture.download.core;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public class ThreadRecord {
-    private long end;
-    private long finished;
-    private int id;
-    private long start;
-    private String tag;
-    private String uri;
+    public long end;
+    public long finished;
+    public int id;
+    public long start;
+    public String tag;
+    public String uri;
 
     public ThreadRecord() {
+    }
+
+    public long getEnd() {
+        return this.end;
+    }
+
+    public long getFinished() {
+        return this.finished;
+    }
+
+    public int getId() {
+        return this.id;
+    }
+
+    public long getStart() {
+        return this.start;
+    }
+
+    public String getTag() {
+        return this.tag;
+    }
+
+    public String getUri() {
+        return this.uri;
+    }
+
+    public void setEnd(long j) {
+        this.end = j;
+    }
+
+    public void setFinished(long j) {
+        this.finished = j;
+    }
+
+    public void setId(int i) {
+        this.id = i;
+    }
+
+    public void setStart(long j) {
+        this.start = j;
+    }
+
+    public void setTag(String str) {
+        this.tag = str;
+    }
+
+    public void setUri(String str) {
+        this.uri = str;
     }
 
     public ThreadRecord(int i, String str, String str2, long j) {
@@ -22,53 +70,5 @@ public class ThreadRecord {
         this.start = j;
         this.end = j2;
         this.finished = j3;
-    }
-
-    public int getId() {
-        return this.id;
-    }
-
-    public void setId(int i) {
-        this.id = i;
-    }
-
-    public String getTag() {
-        return this.tag;
-    }
-
-    public void setTag(String str) {
-        this.tag = str;
-    }
-
-    public String getUri() {
-        return this.uri;
-    }
-
-    public void setUri(String str) {
-        this.uri = str;
-    }
-
-    public long getStart() {
-        return this.start;
-    }
-
-    public void setStart(long j) {
-        this.start = j;
-    }
-
-    public long getEnd() {
-        return this.end;
-    }
-
-    public void setEnd(long j) {
-        this.end = j;
-    }
-
-    public long getFinished() {
-        return this.finished;
-    }
-
-    public void setFinished(long j) {
-        this.finished = j;
     }
 }

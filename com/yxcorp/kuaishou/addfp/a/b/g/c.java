@@ -2,15 +2,14 @@ package com.yxcorp.kuaishou.addfp.a.b.g;
 
 import android.os.IBinder;
 import android.os.Parcel;
-/* loaded from: classes3.dex */
-final class c implements a {
+/* loaded from: classes7.dex */
+public final class c implements a {
 
     /* renamed from: a  reason: collision with root package name */
-    private IBinder f8610a;
+    public IBinder f41104a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public c(IBinder iBinder) {
-        this.f8610a = iBinder;
+        this.f41104a = iBinder;
     }
 
     @Override // com.yxcorp.kuaishou.addfp.a.b.g.a
@@ -19,7 +18,7 @@ final class c implements a {
         Parcel obtain2 = Parcel.obtain();
         try {
             obtain.writeInterfaceToken("com.samsung.android.deviceidservice.IDeviceIdService");
-            this.f8610a.transact(1, obtain, obtain2, 0);
+            this.f41104a.transact(1, obtain, obtain2, 0);
             obtain2.readException();
             return obtain2.readString();
         } finally {
@@ -30,6 +29,6 @@ final class c implements a {
 
     @Override // android.os.IInterface
     public final IBinder asBinder() {
-        return this.f8610a;
+        return this.f41104a;
     }
 }

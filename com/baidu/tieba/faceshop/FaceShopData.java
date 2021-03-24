@@ -3,9 +3,9 @@ package com.baidu.tieba.faceshop;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import java.io.Serializable;
 import java.util.ArrayList;
-/* loaded from: classes8.dex */
+/* loaded from: classes4.dex */
 public class FaceShopData extends OrmObject implements Serializable {
-    private static final long serialVersionUID = 0;
+    public static final long serialVersionUID = 0;
     public int ctime;
     public String errmsg;
     public int errno;
@@ -18,13 +18,16 @@ public class FaceShopData extends OrmObject implements Serializable {
     public int has_more = 0;
 
     public void add(FaceShopData faceShopData) {
-        if (faceShopData != null && faceShopData.pack_list != null && faceShopData.pack_list.size() != 0) {
-            this.has_more = faceShopData.has_more;
-            if (this.pack_list != null) {
-                this.pack_list.addAll(faceShopData.pack_list);
-            } else {
-                this.pack_list = faceShopData.pack_list;
-            }
+        ArrayList<FacePackageData> arrayList;
+        if (faceShopData == null || (arrayList = faceShopData.pack_list) == null || arrayList.size() == 0) {
+            return;
+        }
+        this.has_more = faceShopData.has_more;
+        ArrayList<FacePackageData> arrayList2 = this.pack_list;
+        if (arrayList2 != null) {
+            arrayList2.addAll(faceShopData.pack_list);
+        } else {
+            this.pack_list = faceShopData.pack_list;
         }
     }
 }

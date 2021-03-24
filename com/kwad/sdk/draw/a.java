@@ -2,6 +2,7 @@ package com.kwad.sdk.draw;
 
 import android.content.Context;
 import android.view.View;
+import android.widget.FrameLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.kwad.sdk.R;
@@ -13,22 +14,36 @@ import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.core.view.AdBaseFrameLayout;
 import com.kwad.sdk.core.view.g;
 import com.kwad.sdk.mvp.Presenter;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class a extends com.kwad.sdk.core.view.b {
     @Nullable
 
     /* renamed from: a  reason: collision with root package name */
-    private KsDrawAd.AdInteractionListener f6402a;
-    private AdBaseFrameLayout b;
-    private DetailVideoView c;
-    private com.kwad.sdk.draw.a.b d;
-    private Presenter e;
+    public KsDrawAd.AdInteractionListener f34513a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public AdBaseFrameLayout f34514b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public DetailVideoView f34515c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public com.kwad.sdk.draw.a.b f34516d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public Presenter f34517e;
     @NonNull
-    private AdTemplate f;
-    private AdInfo g;
-    private com.kwad.sdk.draw.c.a h;
-    private g i;
-    private Context j;
+
+    /* renamed from: f  reason: collision with root package name */
+    public AdTemplate f34518f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public AdInfo f34519g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public com.kwad.sdk.draw.c.a f34520h;
+    public g i;
+    public Context j;
 
     public a(@NonNull Context context) {
         super(context);
@@ -37,24 +52,26 @@ public class a extends com.kwad.sdk.core.view.b {
     }
 
     private void c() {
-        inflate(this.j, R.layout.ksad_draw_layout, this);
-        this.b = (AdBaseFrameLayout) findViewById(R.id.ksad_root_container);
-        this.c = (DetailVideoView) this.b.findViewById(R.id.ksad_video_player);
-        this.c.setAd(true);
+        FrameLayout.inflate(this.j, R.layout.ksad_draw_layout, this);
+        AdBaseFrameLayout adBaseFrameLayout = (AdBaseFrameLayout) findViewById(R.id.ksad_root_container);
+        this.f34514b = adBaseFrameLayout;
+        DetailVideoView detailVideoView = (DetailVideoView) adBaseFrameLayout.findViewById(R.id.ksad_video_player);
+        this.f34515c = detailVideoView;
+        detailVideoView.setAd(true);
     }
 
     private com.kwad.sdk.draw.a.b d() {
         com.kwad.sdk.draw.a.b bVar = new com.kwad.sdk.draw.a.b();
-        bVar.f6404a = this.f6402a;
-        bVar.b = this.b;
-        bVar.c = this.f;
-        if (com.kwad.sdk.core.response.b.a.y(this.g)) {
-            bVar.d = new com.kwad.sdk.core.download.b.b(this.f);
+        bVar.f34522a = this.f34513a;
+        bVar.f34523b = this.f34514b;
+        bVar.f34524c = this.f34518f;
+        if (com.kwad.sdk.core.response.b.a.y(this.f34519g)) {
+            bVar.f34525d = new com.kwad.sdk.core.download.b.b(this.f34518f);
         }
-        bVar.e = this.h;
-        bVar.f = new com.kwad.sdk.draw.b.b.a(this.f);
-        if (com.kwad.sdk.core.response.b.b.p(this.f)) {
-            bVar.g = new c();
+        bVar.f34526e = this.f34520h;
+        bVar.f34527f = new com.kwad.sdk.draw.b.b.a(this.f34518f);
+        if (com.kwad.sdk.core.response.b.b.p(this.f34518f)) {
+            bVar.f34528g = new c();
         }
         return bVar;
     }
@@ -66,50 +83,56 @@ public class a extends com.kwad.sdk.core.view.b {
         presenter.a((Presenter) new com.kwad.sdk.draw.b.c());
         presenter.a((Presenter) new com.kwad.sdk.draw.b.b());
         presenter.a((Presenter) new com.kwad.sdk.draw.b.b.b());
-        if (com.kwad.sdk.core.response.b.b.o(this.f)) {
+        if (com.kwad.sdk.core.response.b.b.o(this.f34518f)) {
             presenter.a((Presenter) new com.kwad.sdk.draw.b.b.c());
         }
         presenter.a((Presenter) new com.kwad.sdk.draw.b.c.a());
-        if (com.kwad.sdk.core.response.b.b.p(this.f)) {
+        if (com.kwad.sdk.core.response.b.b.p(this.f34518f)) {
             presenter.a((Presenter) new com.kwad.sdk.draw.b.c.b());
         }
         return presenter;
     }
 
     @Override // com.kwad.sdk.core.view.b
-    protected void a() {
-        this.d = d();
-        this.e = e();
-        this.e.a((View) this.b);
-        this.e.a(this.d);
+    public void a() {
+        this.f34516d = d();
+        Presenter e2 = e();
+        this.f34517e = e2;
+        e2.a((View) this.f34514b);
+        this.f34517e.a(this.f34516d);
         this.i.a();
-        this.h.a();
+        this.f34520h.a();
     }
 
     public void a(@NonNull AdTemplate adTemplate) {
-        this.f = adTemplate;
-        this.g = com.kwad.sdk.core.response.b.c.j(this.f);
-        this.i = new g(this, 70);
-        this.h = new com.kwad.sdk.draw.c.a(this.f, this.i, this.c);
+        this.f34518f = adTemplate;
+        this.f34519g = com.kwad.sdk.core.response.b.c.j(adTemplate);
+        g gVar = new g(this, 70);
+        this.i = gVar;
+        this.f34520h = new com.kwad.sdk.draw.c.a(this.f34518f, gVar, this.f34515c);
     }
 
     @Override // com.kwad.sdk.core.view.b
-    protected void b() {
-        if (this.i != null) {
-            this.i.c();
+    public void b() {
+        g gVar = this.i;
+        if (gVar != null) {
+            gVar.c();
         }
-        if (this.h != null) {
-            this.h.b();
+        com.kwad.sdk.draw.c.a aVar = this.f34520h;
+        if (aVar != null) {
+            aVar.b();
         }
-        if (this.d != null) {
-            this.d.a();
+        com.kwad.sdk.draw.a.b bVar = this.f34516d;
+        if (bVar != null) {
+            bVar.a();
         }
-        if (this.e != null) {
-            this.e.j();
+        Presenter presenter = this.f34517e;
+        if (presenter != null) {
+            presenter.j();
         }
     }
 
     public void setAdInteractionListener(KsDrawAd.AdInteractionListener adInteractionListener) {
-        this.f6402a = adInteractionListener;
+        this.f34513a = adInteractionListener;
     }
 }

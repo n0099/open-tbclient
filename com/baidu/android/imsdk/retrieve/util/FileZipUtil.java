@@ -10,63 +10,55 @@ import java.io.IOException;
 import java.util.List;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class FileZipUtil {
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [62=4] */
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:54:0x009a -> B:69:0x009d). Please submit an issue!!! */
     public static void zip(File file, List<ZipSrc> list) throws IOException {
         ZipOutputStream zipOutputStream;
-        FileInputStream fileInputStream;
-        FileInputStream fileInputStream2;
         if (file == null || !file.exists() || list == null || list.size() == 0) {
             return;
         }
+        FileInputStream fileInputStream = null;
         try {
-            byte[] bArr = new byte[4096];
-            zipOutputStream = new ZipOutputStream(new FileOutputStream(file));
             try {
-                zipOutputStream.setComment(file.getName());
-                fileInputStream = null;
-                for (ZipSrc zipSrc : list) {
+                byte[] bArr = new byte[4096];
+                zipOutputStream = new ZipOutputStream(new FileOutputStream(file));
+                try {
                     try {
-                        try {
+                        zipOutputStream.setComment(file.getName());
+                        for (ZipSrc zipSrc : list) {
                             File file2 = zipSrc.mFile;
                             if (file2.canRead() && file2.isFile()) {
-                                FileInputStream fileInputStream3 = new FileInputStream(file2);
+                                FileInputStream fileInputStream2 = new FileInputStream(file2);
                                 try {
                                     zipOutputStream.putNextEntry(new ZipEntry(zipSrc.mOutName));
                                     while (true) {
-                                        int read = fileInputStream3.read(bArr);
+                                        int read = fileInputStream2.read(bArr);
                                         if (read == -1) {
                                             break;
                                         }
                                         zipOutputStream.write(bArr, 0, read);
                                     }
-                                    fileInputStream3.close();
-                                    fileInputStream2 = fileInputStream3;
-                                } catch (FileNotFoundException e) {
-                                    e = e;
-                                    fileInputStream = fileInputStream3;
+                                    fileInputStream2.close();
+                                    fileInputStream = fileInputStream2;
+                                } catch (FileNotFoundException e2) {
+                                    e = e2;
+                                    fileInputStream = fileInputStream2;
                                     e.printStackTrace();
                                     if (fileInputStream != null) {
                                         try {
                                             fileInputStream.close();
-                                        } catch (IOException e2) {
-                                            e2.printStackTrace();
+                                        } catch (IOException e3) {
+                                            e3.printStackTrace();
                                         }
                                     }
                                     if (zipOutputStream != null) {
-                                        try {
-                                            zipOutputStream.close();
-                                            return;
-                                        } catch (IOException e3) {
-                                            e3.printStackTrace();
-                                            return;
-                                        }
+                                        zipOutputStream.close();
                                     }
                                     return;
                                 } catch (Throwable th) {
                                     th = th;
-                                    fileInputStream = fileInputStream3;
+                                    fileInputStream = fileInputStream2;
                                     if (fileInputStream != null) {
                                         try {
                                             fileInputStream.close();
@@ -83,51 +75,36 @@ public class FileZipUtil {
                                     }
                                     throw th;
                                 }
-                            } else {
-                                fileInputStream2 = fileInputStream;
                             }
-                            fileInputStream = fileInputStream2;
-                        } catch (FileNotFoundException e6) {
-                            e = e6;
                         }
-                    } catch (Throwable th2) {
-                        th = th2;
-                    }
-                }
-                zipOutputStream.flush();
-                if (fileInputStream != null) {
-                    try {
-                        fileInputStream.close();
-                    } catch (IOException e7) {
-                        e7.printStackTrace();
-                    }
-                }
-                if (zipOutputStream != null) {
-                    try {
+                        zipOutputStream.flush();
+                        if (fileInputStream != null) {
+                            try {
+                                fileInputStream.close();
+                            } catch (IOException e6) {
+                                e6.printStackTrace();
+                            }
+                        }
                         zipOutputStream.close();
-                    } catch (IOException e8) {
-                        e8.printStackTrace();
+                    } catch (FileNotFoundException e7) {
+                        e = e7;
                     }
+                } catch (Throwable th2) {
+                    th = th2;
                 }
-            } catch (FileNotFoundException e9) {
-                e = e9;
-                fileInputStream = null;
-            } catch (Throwable th3) {
-                th = th3;
-                fileInputStream = null;
+            } catch (IOException e8) {
+                e8.printStackTrace();
             }
-        } catch (FileNotFoundException e10) {
-            e = e10;
+        } catch (FileNotFoundException e9) {
+            e = e9;
             zipOutputStream = null;
-            fileInputStream = null;
-        } catch (Throwable th4) {
-            th = th4;
+        } catch (Throwable th3) {
+            th = th3;
             zipOutputStream = null;
-            fileInputStream = null;
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class ZipSrc {
         public boolean mDelete;
         @NonNull
@@ -156,7 +133,7 @@ public class FileZipUtil {
 
         public ZipSrc(@NonNull File file) {
             this.mFile = file;
-            this.mOutName = this.mFile.getName();
+            this.mOutName = file.getName();
         }
     }
 }

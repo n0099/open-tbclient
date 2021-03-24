@@ -4,69 +4,78 @@ import com.baidu.webkit.sdk.Log;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    C0962a f3835a;
+    public C0284a f26928a;
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.webkit.internal.monitor.a$a  reason: collision with other inner class name */
-    /* loaded from: classes14.dex */
-    public class C0962a {
+    /* loaded from: classes5.dex */
+    public class C0284a {
 
         /* renamed from: a  reason: collision with root package name */
-        boolean f3836a;
-        boolean b;
-        long c;
-        long d;
-        boolean e;
-        boolean f;
-        Map<String, Long> g;
+        public boolean f26929a;
 
-        private C0962a() {
-            this.b = true;
-            this.c = -1L;
-            this.d = -1L;
-            this.g = new HashMap();
+        /* renamed from: b  reason: collision with root package name */
+        public boolean f26930b;
+
+        /* renamed from: c  reason: collision with root package name */
+        public long f26931c;
+
+        /* renamed from: d  reason: collision with root package name */
+        public long f26932d;
+
+        /* renamed from: e  reason: collision with root package name */
+        public boolean f26933e;
+
+        /* renamed from: f  reason: collision with root package name */
+        public boolean f26934f;
+
+        /* renamed from: g  reason: collision with root package name */
+        public Map<String, Long> f26935g;
+
+        public C0284a() {
+            this.f26930b = true;
+            this.f26931c = -1L;
+            this.f26932d = -1L;
+            this.f26935g = new HashMap();
         }
 
-        /* JADX INFO: Access modifiers changed from: package-private */
-        public /* synthetic */ C0962a(a aVar, byte b) {
+        public /* synthetic */ C0284a(a aVar, byte b2) {
             this();
         }
 
         public final void a() {
-            this.f3836a = false;
-            this.b = true;
-            this.c = -1L;
-            this.d = -1L;
-            this.e = false;
-            this.f = false;
-            this.g.clear();
+            this.f26929a = false;
+            this.f26930b = true;
+            this.f26931c = -1L;
+            this.f26932d = -1L;
+            this.f26933e = false;
+            this.f26934f = false;
+            this.f26935g.clear();
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     public final JSONObject a() {
         try {
-            if (this.f3835a != null && this.f3835a.f) {
+            if (this.f26928a != null && this.f26928a.f26934f) {
                 JSONObject jSONObject = new JSONObject();
-                jSONObject.put("coldbootfirst", this.f3835a.f3836a);
-                jSONObject.put("loadasycsearch", this.f3835a.b);
-                jSONObject.put("starttosearch", this.f3835a.c);
-                jSONObject.put("starttofragment", this.f3835a.d);
-                jSONObject.put("state50", this.f3835a.e);
-                for (String str : this.f3835a.g.keySet()) {
-                    jSONObject.put(str, this.f3835a.g.get(str));
+                jSONObject.put("coldbootfirst", this.f26928a.f26929a);
+                jSONObject.put("loadasycsearch", this.f26928a.f26930b);
+                jSONObject.put("starttosearch", this.f26928a.f26931c);
+                jSONObject.put("starttofragment", this.f26928a.f26932d);
+                jSONObject.put("state50", this.f26928a.f26933e);
+                for (String str : this.f26928a.f26935g.keySet()) {
+                    jSONObject.put(str, this.f26928a.f26935g.get(str));
                 }
-                this.f3835a.a();
+                this.f26928a.a();
                 return jSONObject;
             }
             return null;
         } catch (Throwable th) {
             Log.printStackTrace(th);
-            this.f3835a.a();
+            this.f26928a.a();
             return null;
         }
     }

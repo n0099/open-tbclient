@@ -5,10 +5,10 @@ import android.graphics.SurfaceTexture;
 import android.view.Surface;
 import android.view.SurfaceHolder;
 @TargetApi(14)
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class TextureMediaPlayer extends MediaPlayerProxy implements IMediaPlayer, ISurfaceTextureHolder {
-    private SurfaceTexture mSurfaceTexture;
-    private ISurfaceTextureHost mSurfaceTextureHost;
+    public SurfaceTexture mSurfaceTexture;
+    public ISurfaceTextureHost mSurfaceTextureHost;
 
     public TextureMediaPlayer(IMediaPlayer iMediaPlayer) {
         super(iMediaPlayer);
@@ -26,11 +26,13 @@ public class TextureMediaPlayer extends MediaPlayerProxy implements IMediaPlayer
     }
 
     public void releaseSurfaceTexture() {
-        if (this.mSurfaceTexture != null) {
-            if (this.mSurfaceTextureHost != null) {
-                this.mSurfaceTextureHost.releaseSurfaceTexture(this.mSurfaceTexture);
+        SurfaceTexture surfaceTexture = this.mSurfaceTexture;
+        if (surfaceTexture != null) {
+            ISurfaceTextureHost iSurfaceTextureHost = this.mSurfaceTextureHost;
+            if (iSurfaceTextureHost != null) {
+                iSurfaceTextureHost.releaseSurfaceTexture(surfaceTexture);
             } else {
-                this.mSurfaceTexture.release();
+                surfaceTexture.release();
             }
             this.mSurfaceTexture = null;
         }

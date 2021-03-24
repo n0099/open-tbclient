@@ -9,19 +9,37 @@ import android.view.animation.AnimationUtils;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
-import com.baidu.poly.b;
-/* loaded from: classes14.dex */
+import d.b.c0.b;
+import d.b.c0.f;
+import d.b.c0.g;
+/* loaded from: classes2.dex */
 public class c extends FrameLayout {
-    private ImageView cqq;
-    private TextView cqr;
-    private Animation cqs;
-    private boolean cqt;
+
+    /* renamed from: e  reason: collision with root package name */
+    public ImageView f10427e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public TextView f10428f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public Animation f10429g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public boolean f10430h;
 
     public c(Context context) {
         this(context, null);
     }
 
-    private void adF() {
+    public final void a(Context context) {
+        LayoutInflater.from(context).inflate(g.view_toast_loading, (ViewGroup) this, true);
+        this.f10427e = (ImageView) findViewById(f.toast_loading_view);
+        this.f10428f = (TextView) findViewById(f.toast_text_view);
+        this.f10429g = AnimationUtils.loadAnimation(context, b.loading_rotate);
+        setClickable(true);
+    }
+
+    public final void b() {
         ViewGroup.LayoutParams layoutParams = getLayoutParams();
         if (layoutParams == null) {
             setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
@@ -31,32 +49,24 @@ public class c extends FrameLayout {
         layoutParams.height = -1;
     }
 
-    private void c(Context context) {
-        LayoutInflater.from(context).inflate(b.f.view_toast_loading, (ViewGroup) this, true);
-        this.cqq = (ImageView) findViewById(b.e.toast_loading_view);
-        this.cqr = (TextView) findViewById(b.e.toast_text_view);
-        this.cqs = AnimationUtils.loadAnimation(context, b.a.loading_rotate);
-        setClickable(true);
-    }
-
     public boolean getIsLoading() {
-        return this.cqt;
+        return this.f10430h;
     }
 
     public void setLoading(boolean z) {
-        adF();
-        this.cqt = z;
+        b();
+        this.f10430h = z;
         if (z) {
             setVisibility(0);
-            this.cqq.startAnimation(this.cqs);
+            this.f10427e.startAnimation(this.f10429g);
             return;
         }
-        this.cqq.clearAnimation();
+        this.f10427e.clearAnimation();
         setVisibility(8);
     }
 
     public void setText(String str) {
-        this.cqr.setText(str);
+        this.f10428f.setText(str);
     }
 
     public c(Context context, AttributeSet attributeSet) {
@@ -65,6 +75,6 @@ public class c extends FrameLayout {
 
     public c(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        c(context);
+        a(context);
     }
 }

@@ -6,18 +6,10 @@ import android.view.MotionEvent;
 import android.widget.FrameLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class GameVideoTitleBar extends FrameLayout {
     public GameVideoTitleBar(@NonNull Context context) {
         super(context);
-    }
-
-    public GameVideoTitleBar(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        super(context, attributeSet);
-    }
-
-    public GameVideoTitleBar(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -26,5 +18,13 @@ public class GameVideoTitleBar extends FrameLayout {
             getParent().requestDisallowInterceptTouchEvent(true);
         }
         return super.dispatchTouchEvent(motionEvent);
+    }
+
+    public GameVideoTitleBar(@NonNull Context context, @Nullable AttributeSet attributeSet) {
+        super(context, attributeSet);
+    }
+
+    public GameVideoTitleBar(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
     }
 }

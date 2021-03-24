@@ -4,21 +4,21 @@ import android.util.Base64;
 import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes14.dex */
+/* loaded from: classes7.dex */
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    private static byte[] f7988a = {1, 2, 3, 4, 5, 6, 7, 8};
+    public static byte[] f39305a = {1, 2, 3, 4, 5, 6, 7, 8};
 
     public static String a(String str, String str2) {
         try {
-            IvParameterSpec ivParameterSpec = new IvParameterSpec(f7988a);
+            IvParameterSpec ivParameterSpec = new IvParameterSpec(f39305a);
             SecretKeySpec secretKeySpec = new SecretKeySpec(str2.getBytes(), "DES");
             Cipher cipher = Cipher.getInstance("DES/CBC/PKCS5Padding");
             cipher.init(1, secretKeySpec, ivParameterSpec);
             return Base64.encodeToString(cipher.doFinal(str.getBytes()), 0);
-        } catch (Exception e) {
-            com.tencent.open.a.f.c("DESUtils", "encode " + e.toString());
+        } catch (Exception e2) {
+            com.tencent.open.a.f.c("DESUtils", "encode " + e2.toString());
             return null;
         }
     }
@@ -26,13 +26,13 @@ public class d {
     public static String b(String str, String str2) {
         try {
             byte[] decode = Base64.decode(str, 0);
-            IvParameterSpec ivParameterSpec = new IvParameterSpec(f7988a);
+            IvParameterSpec ivParameterSpec = new IvParameterSpec(f39305a);
             SecretKeySpec secretKeySpec = new SecretKeySpec(str2.getBytes(), "DES");
             Cipher cipher = Cipher.getInstance("DES/CBC/PKCS5Padding");
             cipher.init(2, secretKeySpec, ivParameterSpec);
             return new String(cipher.doFinal(decode));
-        } catch (Exception e) {
-            com.tencent.open.a.f.c("DESUtils", "decode " + e.toString());
+        } catch (Exception e2) {
+            com.tencent.open.a.f.c("DESUtils", "decode " + e2.toString());
             return null;
         }
     }

@@ -1,58 +1,70 @@
 package com.baidu.tieba.lego.card.model;
 
 import android.text.TextUtils;
-import com.baidu.tieba.recapp.activity.newstyle.AdWebVideoActivityConfig;
+import com.baidu.tieba.recapp.activity.AdWebVideoActivityConfig;
+import com.baidu.tieba.tbadkCore.videoupload.VideoFinishResult;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes4.dex */
 public class ImmersiveVideoCardEx extends BaseCardInfo {
-    private final a videoInfo;
+    public final a videoInfo;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes4.dex */
     public static class a {
-        public int cFB;
-        public int kwR;
-        public String lef;
-        public int leg;
-        public int leh;
-        public boolean lei;
-        public boolean lej;
-        public String thumbUrl;
-        public int videoDuration;
-        public int videoHeight;
-        public String videoUrl;
-        public int videoWidth;
+
+        /* renamed from: a  reason: collision with root package name */
+        public String f18612a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public int f18613b;
+
+        /* renamed from: c  reason: collision with root package name */
+        public int f18614c;
+
+        /* renamed from: d  reason: collision with root package name */
+        public String f18615d;
+
+        /* renamed from: e  reason: collision with root package name */
+        public int f18616e;
+
+        /* renamed from: f  reason: collision with root package name */
+        public int f18617f;
+
+        /* renamed from: g  reason: collision with root package name */
+        public int f18618g;
+
+        /* renamed from: h  reason: collision with root package name */
+        public boolean f18619h;
+        public boolean i;
     }
 
     public ImmersiveVideoCardEx(JSONObject jSONObject) {
         super(jSONObject);
         JSONObject optJSONObject = jSONObject.optJSONObject("video");
         if (optJSONObject != null) {
-            String optString = optJSONObject.optString("video_md5");
-            String optString2 = optJSONObject.optString("video_url");
+            optJSONObject.optString(VideoFinishResult.KEY_VIDEO_MD5);
+            String optString = optJSONObject.optString("video_url");
             int optInt = optJSONObject.optInt(AdWebVideoActivityConfig.KEY_VIDEO_DURATION);
             int optInt2 = optJSONObject.optInt("video_width");
             int optInt3 = optJSONObject.optInt("video_height");
-            String optString3 = optJSONObject.optString("thumb_url");
+            String optString2 = optJSONObject.optString("thumb_url");
             int optInt4 = optJSONObject.optInt("thumb_width");
             int optInt5 = optJSONObject.optInt("thumb_height");
-            int optInt6 = optJSONObject.optInt("video_length");
-            int optInt7 = optJSONObject.optInt("play_count");
+            optJSONObject.optInt("video_length");
+            int optInt6 = optJSONObject.optInt("play_count");
             boolean z = optJSONObject.optInt("full_screen", 0) == 1;
             boolean z2 = optJSONObject.optInt("show_progress", 1) == 1;
-            if (optInt > 0 && !TextUtils.isEmpty(optString2)) {
-                this.videoInfo = new a();
-                this.videoInfo.lef = optString;
-                this.videoInfo.videoUrl = optString2;
-                this.videoInfo.videoDuration = optInt;
-                this.videoInfo.videoWidth = optInt2;
-                this.videoInfo.videoHeight = optInt3;
-                this.videoInfo.thumbUrl = optString3;
-                this.videoInfo.leg = optInt4;
-                this.videoInfo.leh = optInt5;
-                this.videoInfo.kwR = optInt6;
-                this.videoInfo.cFB = optInt7;
-                this.videoInfo.lei = z;
-                this.videoInfo.lej = z2;
+            if (optInt > 0 && !TextUtils.isEmpty(optString)) {
+                a aVar = new a();
+                this.videoInfo = aVar;
+                aVar.f18612a = optString;
+                aVar.f18613b = optInt2;
+                aVar.f18614c = optInt3;
+                aVar.f18615d = optString2;
+                aVar.f18616e = optInt4;
+                aVar.f18617f = optInt5;
+                aVar.f18618g = optInt6;
+                aVar.f18619h = z;
+                aVar.i = z2;
                 return;
             }
             this.videoInfo = null;
@@ -61,12 +73,21 @@ public class ImmersiveVideoCardEx extends BaseCardInfo {
         this.videoInfo = null;
     }
 
-    public a getVideoInfo() {
-        return this.videoInfo;
-    }
-
     @Override // com.baidu.tieba.lego.card.model.BaseLegoCardInfo, com.baidu.tieba.lego.card.model.ICardInfo
     public double getRatio() {
-        return (this.videoInfo == null || this.videoInfo.videoWidth <= 0) ? super.getRatio() : this.videoInfo.videoHeight / this.videoInfo.videoWidth;
+        int i;
+        a aVar = this.videoInfo;
+        if (aVar != null && (i = aVar.f18613b) > 0) {
+            double d2 = aVar.f18614c;
+            double d3 = i;
+            Double.isNaN(d2);
+            Double.isNaN(d3);
+            return d2 / d3;
+        }
+        return super.getRatio();
+    }
+
+    public a getVideoInfo() {
+        return this.videoInfo;
     }
 }

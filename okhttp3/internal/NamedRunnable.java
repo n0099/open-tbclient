@@ -1,13 +1,13 @@
 package okhttp3.internal;
-/* loaded from: classes14.dex */
+/* loaded from: classes7.dex */
 public abstract class NamedRunnable implements Runnable {
-    protected final String name;
-
-    protected abstract void execute();
+    public final String name;
 
     public NamedRunnable(String str, Object... objArr) {
         this.name = Util.format(str, objArr);
     }
+
+    public abstract void execute();
 
     @Override // java.lang.Runnable
     public final void run() {

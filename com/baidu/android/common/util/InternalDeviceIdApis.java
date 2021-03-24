@@ -1,39 +1,39 @@
 package com.baidu.android.common.util;
 
 import android.content.Context;
-import com.baidu.cesium.g;
-/* loaded from: classes6.dex */
+import d.b.j.l;
+/* loaded from: classes2.dex */
 public class InternalDeviceIdApis {
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public static class TargetPackageCuidV270Info {
         public String iscChannelCuid;
         public String upcChannelCuid;
     }
 
-    private static g a(Context context) {
+    public static l a(Context context) {
         DeviceId.getCUID(context);
         return DeviceId.a(context).a();
     }
 
     public static String getSelfC270Ids(Context context) {
-        g.a tJ = a(context).tJ();
-        if (tJ != null) {
-            return tJ.g();
+        l.a a2 = a(context).a();
+        if (a2 != null) {
+            return a2.n();
         }
         return null;
     }
 
     public static TargetPackageCuidV270Info getTargetPackageCuid270Info(Context context, String str) {
-        g a2 = a(context);
+        l a2 = a(context);
         TargetPackageCuidV270Info targetPackageCuidV270Info = new TargetPackageCuidV270Info();
-        g.a P = a2.P(str, "upc");
-        if (P != null) {
-            targetPackageCuidV270Info.upcChannelCuid = P.g();
+        l.a d2 = a2.d(str, "upc");
+        if (d2 != null) {
+            targetPackageCuidV270Info.upcChannelCuid = d2.n();
         }
-        g.a P2 = a2.P(str, "isc");
-        if (P2 != null) {
-            targetPackageCuidV270Info.iscChannelCuid = P2.g();
+        l.a d3 = a2.d(str, "isc");
+        if (d3 != null) {
+            targetPackageCuidV270Info.iscChannelCuid = d3.n();
         }
         return targetPackageCuidV270Info;
     }

@@ -3,85 +3,88 @@ package com.baidu.tieba.hottopicselect;
 import GetSugTopic.DataReq;
 import GetSugTopic.GetSugTopicReqIdl;
 import com.baidu.adp.framework.message.NetMessage;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
-import com.baidu.tbadk.util.v;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import d.b.h0.z0.w;
 import tbclient.CommonReq;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class HotTopicSelectNetMessage extends NetMessage {
 
     /* renamed from: common  reason: collision with root package name */
-    private CommonReq f3594common;
-    private long fid;
-    private String firstDir;
-    private String prefix;
-    private String secondDir;
+    public CommonReq f17726common;
+    public long fid;
+    public String firstDir;
+    public String prefix;
+    public String secondDir;
 
     public HotTopicSelectNetMessage() {
-        super(1003186, CmdConfigSocket.CMD_GET_HOTTOPIC_SELECT);
+        super(CmdConfigHttp.CMD_HTTP_GET_HOTTOPIC_SELECT, 309416);
         this.firstDir = "";
         this.secondDir = "";
         this.fid = 0L;
+    }
+
+    @Override // com.baidu.adp.framework.message.NetMessage
+    public Object encode(boolean z) {
+        DataReq.Builder builder = new DataReq.Builder();
+        builder.f995common = getCommon();
+        builder.fid = Long.valueOf(this.fid);
+        String str = this.prefix;
+        if (str != null) {
+            builder.prefix = str;
+        }
+        String str2 = this.firstDir;
+        if (str2 != null) {
+            builder.first_dir = str2;
+        }
+        String str3 = this.secondDir;
+        if (str3 != null) {
+            builder.second_dir = str3;
+        }
+        if (z) {
+            w.a(builder, true);
+        }
+        GetSugTopicReqIdl.Builder builder2 = new GetSugTopicReqIdl.Builder();
+        builder2.data = builder.build(false);
+        return builder2.build(false);
+    }
+
+    public CommonReq getCommon() {
+        return this.f17726common;
     }
 
     public long getFid() {
         return this.fid;
     }
 
-    public void setFid(long j) {
-        this.fid = j;
-    }
-
     public String getFirstDir() {
         return this.firstDir;
-    }
-
-    public void setFirstDir(String str) {
-        this.firstDir = str;
-    }
-
-    public String getSecondDir() {
-        return this.secondDir;
-    }
-
-    public void setSecondDir(String str) {
-        this.secondDir = str;
     }
 
     public String getPrefix() {
         return this.prefix;
     }
 
-    public CommonReq getCommon() {
-        return this.f3594common;
+    public String getSecondDir() {
+        return this.secondDir;
     }
 
     public void setCommon(CommonReq commonReq) {
-        this.f3594common = commonReq;
+        this.f17726common = commonReq;
+    }
+
+    public void setFid(long j) {
+        this.fid = j;
+    }
+
+    public void setFirstDir(String str) {
+        this.firstDir = str;
     }
 
     public void setPrefix(String str) {
         this.prefix = str;
     }
 
-    @Override // com.baidu.adp.framework.message.NetMessage
-    protected Object encode(boolean z) {
-        DataReq.Builder builder = new DataReq.Builder();
-        builder.f948common = getCommon();
-        builder.fid = Long.valueOf(this.fid);
-        if (this.prefix != null) {
-            builder.prefix = this.prefix;
-        }
-        if (this.firstDir != null) {
-            builder.first_dir = this.firstDir;
-        }
-        if (this.secondDir != null) {
-            builder.second_dir = this.secondDir;
-        }
-        if (z) {
-            v.b(builder, true);
-        }
-        GetSugTopicReqIdl.Builder builder2 = new GetSugTopicReqIdl.Builder();
-        builder2.data = builder.build(false);
-        return builder2.build(false);
+    public void setSecondDir(String str) {
+        this.secondDir = str;
     }
 }

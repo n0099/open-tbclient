@@ -3,46 +3,48 @@ package com.baidu.tieba.newfaceshop;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.widget.FrameLayout;
-import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tieba.R;
 import com.baidu.tieba.faceshop.emotioncenter.CommonEmotionCenterFragment;
-/* loaded from: classes8.dex */
+import d.b.b.e.p.l;
+/* loaded from: classes4.dex */
 public class CommonEmotionManagerActivity extends BaseFragmentActivity {
-    private FrameLayout akl;
-    private CommonEmotionCenterFragment lBZ;
-    private String mUrl;
+    public static final String FACE_SHOP_URL = "http://tieba.baidu.com/n/interact/emoticoncenter";
+    public static final String KEY_LOAD_URL = "key_load_url";
+    public CommonEmotionCenterFragment mFragment;
+    public FrameLayout mRootView;
+    public String mUrl;
 
-    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity
+    public void onChangeSkinType(int i) {
+    }
+
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setSwipeBackEnabled(false);
         setContentView(R.layout.common_emotion_manager_activity);
-        this.akl = (FrameLayout) findViewById(R.id.container);
+        this.mRootView = (FrameLayout) findViewById(R.id.container);
         if (isUseStyleImmersiveSticky()) {
-            ((FrameLayout.LayoutParams) this.akl.getLayoutParams()).topMargin = l.getStatusBarHeight(getPageContext().getPageActivity());
+            ((FrameLayout.LayoutParams) this.mRootView.getLayoutParams()).topMargin = l.r(getPageContext().getPageActivity());
         }
-        this.mUrl = getIntent().getStringExtra("url");
-        if (TextUtils.isEmpty(this.mUrl)) {
-            this.mUrl = "http://tieba.baidu.com/n/interact/emoticoncenter";
+        String stringExtra = getIntent().getStringExtra("url");
+        this.mUrl = stringExtra;
+        if (TextUtils.isEmpty(stringExtra)) {
+            this.mUrl = FACE_SHOP_URL;
         }
-        this.lBZ = new CommonEmotionCenterFragment();
+        this.mFragment = new CommonEmotionCenterFragment();
         Bundle bundle2 = new Bundle();
         bundle2.putString("key_load_url", this.mUrl);
-        this.lBZ.setArguments(bundle2);
-        getSupportFragmentManager().beginTransaction().replace(R.id.container, this.lBZ).commit();
+        this.mFragment.setArguments(bundle2);
+        getSupportFragmentManager().beginTransaction().replace(R.id.container, this.mFragment).commit();
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity
-    protected void onChangeSkinType(int i) {
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
-        if (this.lBZ != null) {
-            this.lBZ.onDestroy();
+        CommonEmotionCenterFragment commonEmotionCenterFragment = this.mFragment;
+        if (commonEmotionCenterFragment != null) {
+            commonEmotionCenterFragment.onDestroy();
         }
         super.onDestroy();
     }

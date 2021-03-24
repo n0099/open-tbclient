@@ -6,22 +6,22 @@ import android.content.Intent;
 import android.net.Uri;
 import android.text.TextUtils;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.f.b;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.adp.lib.util.k;
-import com.baidu.adp.lib.util.l;
-import com.baidu.tbadk.a.d;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.cb;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tbadk.core.util.av;
-import com.baidu.tbadk.mvc.model.NetModel;
-import com.baidu.tbadk.util.ab;
-import com.baidu.tieba.frs.d.j;
+import com.baidu.tbadk.core.util.TbImageHelper;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.frs.mc.FrsNetModel;
-import com.baidu.tieba.recapp.s;
 import com.baidu.tieba.tbadkCore.FrsRequestData;
-/* loaded from: classes.dex */
+import d.b.b.e.m.b;
+import d.b.b.e.p.l;
+import d.b.h0.b.d;
+import d.b.h0.b.g.a;
+import d.b.h0.r.q.a2;
+import d.b.h0.z0.c0;
+import d.b.i0.p0.m2.k;
+import d.b.i0.r2.s;
+/* loaded from: classes3.dex */
 public class FrsActivityConfig extends IntentConfig {
     public static final String ALA_IS_ONLIVING = "ala_is_living";
     public static final String BACK_SPECIAL = "back_special";
@@ -76,18 +76,32 @@ public class FrsActivityConfig extends IntentConfig {
     public static final int READ_CHAT = 1;
     public static final int READ_REPLYORAT = 0;
     public static final String YUELAOU_LOCATE = "yuelaou_locate";
-    private BdUniqueId mPageId;
+    public BdUniqueId mPageId;
 
     public FrsActivityConfig(Context context) {
         super(context);
         Intent intent = getIntent();
         intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
-        this.mPageId = BdUniqueId.gen();
-        intent.putExtra(FRS_PAGE_ID, this.mPageId);
+        BdUniqueId gen = BdUniqueId.gen();
+        this.mPageId = gen;
+        intent.putExtra(FRS_PAGE_ID, gen);
     }
 
-    public FrsActivityConfig createNormalCfg(String str, String str2) {
-        return createBackSpecialCfg(str, str2, false, false);
+    public FrsActivityConfig createBackSpecialCfg(String str, String str2, boolean z, boolean z2) {
+        return createBackSpecialCfg(str, str2, z, z2, false);
+    }
+
+    public FrsActivityConfig createCfgForpersonalized(String str, String str2, String str3) {
+        Intent intent = getIntent();
+        intent.putExtra("name", str);
+        intent.putExtra("from", str2);
+        intent.putExtra("back_special", false);
+        intent.putExtra(GOOD, false);
+        intent.putExtra("yuelaou_locate", str3);
+        if (!(getContext() instanceof Activity)) {
+            intent.addFlags(268435456);
+        }
+        return this;
     }
 
     public FrsActivityConfig createJumpLiveTabCfg(String str, String str2, boolean z) {
@@ -104,67 +118,8 @@ public class FrsActivityConfig extends IntentConfig {
         return this;
     }
 
-    public FrsActivityConfig createNormalCfg(String str, String str2, boolean z) {
-        return createBackSpecialCfg(str, str2, false, false, z);
-    }
-
-    public FrsActivityConfig createCfgForpersonalized(String str, String str2, String str3) {
-        Intent intent = getIntent();
-        intent.putExtra("name", str);
-        intent.putExtra("from", str2);
-        intent.putExtra("back_special", false);
-        intent.putExtra(GOOD, false);
-        intent.putExtra("yuelaou_locate", str3);
-        if (!(getContext() instanceof Activity)) {
-            intent.addFlags(268435456);
-        }
-        return this;
-    }
-
-    public FrsActivityConfig createBackSpecialCfg(String str, String str2, boolean z, boolean z2) {
-        return createBackSpecialCfg(str, str2, z, z2, false);
-    }
-
-    public FrsActivityConfig createBackSpecialCfg(String str, String str2, boolean z, boolean z2, boolean z3) {
-        Intent intent = getIntent();
-        intent.putExtra("name", str);
-        intent.putExtra("from", str2);
-        intent.putExtra("back_special", z);
-        intent.putExtra(GOOD, z2);
-        intent.putExtra(FOLLOWED_HAS_NEW, z3);
-        if (!(getContext() instanceof Activity)) {
-            intent.addFlags(268435456);
-        }
-        return this;
-    }
-
-    public FrsActivityConfig setDefaultGameTabId(int i) {
-        getIntent().putExtra(FRS_GAME_DEFAULT_TAB_ID, i);
-        return this;
-    }
-
-    public FrsActivityConfig setCallFrom(int i) {
-        getIntent().putExtra(FRS_CALL_FROM, i);
-        return this;
-    }
-
-    public FrsActivityConfig setFakeThreadId(long j) {
-        getIntent().putExtra(FRS_FAKE_THREAD_ID, j);
-        return this;
-    }
-
-    public void setUri(Uri uri) {
-        Intent intent = getIntent();
-        if (intent != null) {
-            intent.putExtra(IntentConfig.KEY_URI, uri);
-        }
-    }
-
-    public void setAchievementUrl(String str) {
-        Intent intent = getIntent();
-        if (intent != null) {
-            intent.putExtra(KEY_ACHIEVEMENT_URL, str);
-        }
+    public FrsActivityConfig createNormalCfg(String str, String str2) {
+        return createBackSpecialCfg(str, str2, false, false);
     }
 
     @Override // com.baidu.tbadk.core.frameworkData.IntentConfig
@@ -177,7 +132,7 @@ public class FrsActivityConfig extends IntentConfig {
             stringExtra = uri.getQueryParameter("name");
             stringExtra2 = uri.getQueryParameter("from");
             if (StringUtils.isNull(stringExtra)) {
-                stringExtra = uri.getQueryParameter("kw");
+                stringExtra = uri.getQueryParameter(TiebaStatic.Params.H5_FORUM_NAME);
             }
         }
         int intExtra = intent.getIntExtra(FRS_CALL_FROM, 0);
@@ -193,57 +148,103 @@ public class FrsActivityConfig extends IntentConfig {
         } else if (FRS_FROM_FREQUENTLY_FORUM_POST_THREAD.equals(stringExtra2)) {
             i = 6;
         }
-        if (d.bjt() && com.baidu.tbadk.a.b.a.eHR != com.baidu.tbadk.a.b.a.bjM()) {
-            frsRequestData.JD(j.Au(com.baidu.tbadk.a.b.a.bjM()));
+        if (d.m() && a.f49751c != a.d()) {
+            frsRequestData.D(k.d(a.d()));
         }
-        frsRequestData.setSortType(j.Au(i));
+        frsRequestData.setSortType(k.d(i));
         if (i == 5) {
-            frsRequestData.setIsGood(1);
+            frsRequestData.G(1);
         } else {
-            frsRequestData.setIsGood(0);
+            frsRequestData.G(0);
         }
-        frsRequestData.gx("forum_name", k.getUrlEncode(stringExtra));
-        frsRequestData.gx("client_type", "2");
+        frsRequestData.s("forum_name", d.b.b.e.p.k.getUrlEncode(stringExtra));
+        frsRequestData.s("client_type", "2");
         frsRequestData.setPn(1);
         frsRequestData.setCallFrom(intExtra);
-        j.a(i, frsRequestData);
-        frsRequestData.Tm("2");
-        frsRequestData.setObjSource("-2");
-        frsRequestData.setKw(stringExtra);
-        frsRequestData.setWithGroup(1);
-        frsRequestData.setCid(0);
-        frsRequestData.setScrW(l.getEquipmentWidth(TbadkCoreApplication.getInst()));
-        frsRequestData.setScrH(l.getEquipmentHeight(TbadkCoreApplication.getInst()));
-        frsRequestData.setScrDip(l.getEquipmentDensity(TbadkCoreApplication.getInst()));
-        frsRequestData.setqType(av.bsV().bsW() ? 2 : 1);
+        k.e(i, frsRequestData);
+        frsRequestData.O("2");
+        frsRequestData.P("-2");
+        frsRequestData.I(stringExtra);
+        frsRequestData.V(1);
+        frsRequestData.A(0);
+        frsRequestData.U(l.k(TbadkCoreApplication.getInst()));
+        frsRequestData.T(l.i(TbadkCoreApplication.getInst()));
+        frsRequestData.S(l.h(TbadkCoreApplication.getInst()));
+        frsRequestData.X(TbImageHelper.getInstance().isShowBigImage() ? 2 : 1);
         if (uri != null) {
-            frsRequestData.setSchemeUrl(uri.toString());
+            frsRequestData.R(uri.toString());
         }
-        frsRequestData.setLastId(null);
-        frsRequestData.setYuelaouLocate(stringExtra3);
-        frsRequestData.setLastClickTid(b.toLong(ab.bFL(), 0L));
+        frsRequestData.K(null);
+        frsRequestData.W(stringExtra3);
+        frsRequestData.J(b.f(c0.a(), 0L));
         frsRequestData.setStType(stringExtra2);
-        frsRequestData.JC(1);
+        frsRequestData.F(1);
         frsRequestData.setNeedCache(true);
         frsRequestData.setUpdateType(3);
-        frsRequestData.hG(longExtra);
-        j.a(i, frsRequestData);
-        frsRequestData.setLoadType(1);
-        if (cb.eSB.get() && s.dDB().dDv() != null) {
-            int ba = s.dDB().dDv().ba(stringExtra, false);
-            int bb = s.dDB().dDv().bb(stringExtra, false);
-            if (frsRequestData.getLoadType() == 1) {
-                ba++;
-            } else if (frsRequestData.getLoadType() == 2) {
-                bb++;
+        frsRequestData.E(longExtra);
+        k.e(i, frsRequestData);
+        frsRequestData.M(1);
+        if (a2.u3.get() && s.o().b() != null) {
+            int d2 = s.o().b().d(stringExtra, false);
+            int e2 = s.o().b().e(stringExtra, false);
+            if (frsRequestData.w() == 1) {
+                d2++;
+            } else if (frsRequestData.w() == 2) {
+                e2++;
             }
-            frsRequestData.setRefreshCount(ba);
-            frsRequestData.setLoadCount(bb);
+            frsRequestData.Q(d2);
+            frsRequestData.L(e2);
         }
         FrsNetModel frsNetModel = new FrsNetModel(null, frsRequestData);
         frsNetModel.setUniqueId(this.mPageId);
-        frsNetModel.a((NetModel.b) frsNetModel);
+        frsNetModel.V(frsNetModel);
         TbadkCoreApplication.getInst().getFrsModeArray().put(this.mPageId.getId(), frsNetModel);
-        frsNetModel.loadData();
+        frsNetModel.N();
+    }
+
+    public void setAchievementUrl(String str) {
+        Intent intent = getIntent();
+        if (intent != null) {
+            intent.putExtra(KEY_ACHIEVEMENT_URL, str);
+        }
+    }
+
+    public FrsActivityConfig setCallFrom(int i) {
+        getIntent().putExtra(FRS_CALL_FROM, i);
+        return this;
+    }
+
+    public FrsActivityConfig setDefaultGameTabId(int i) {
+        getIntent().putExtra(FRS_GAME_DEFAULT_TAB_ID, i);
+        return this;
+    }
+
+    public FrsActivityConfig setFakeThreadId(long j) {
+        getIntent().putExtra(FRS_FAKE_THREAD_ID, j);
+        return this;
+    }
+
+    public void setUri(Uri uri) {
+        Intent intent = getIntent();
+        if (intent != null) {
+            intent.putExtra(IntentConfig.KEY_URI, uri);
+        }
+    }
+
+    public FrsActivityConfig createBackSpecialCfg(String str, String str2, boolean z, boolean z2, boolean z3) {
+        Intent intent = getIntent();
+        intent.putExtra("name", str);
+        intent.putExtra("from", str2);
+        intent.putExtra("back_special", z);
+        intent.putExtra(GOOD, z2);
+        intent.putExtra(FOLLOWED_HAS_NEW, z3);
+        if (!(getContext() instanceof Activity)) {
+            intent.addFlags(268435456);
+        }
+        return this;
+    }
+
+    public FrsActivityConfig createNormalCfg(String str, String str2, boolean z) {
+        return createBackSpecialCfg(str, str2, false, false, z);
     }
 }

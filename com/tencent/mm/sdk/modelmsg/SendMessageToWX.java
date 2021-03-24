@@ -5,13 +5,13 @@ import com.tencent.mm.sdk.b.a;
 import com.tencent.mm.sdk.modelbase.BaseReq;
 import com.tencent.mm.sdk.modelbase.BaseResp;
 import com.tencent.mm.sdk.modelmsg.WXMediaMessage;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class SendMessageToWX {
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class Req extends BaseReq {
-        private static final int FAV_CONTENT_LENGTH_LIMIT = 26214400;
-        private static final String TAG = "MicroMsg.SDK.SendMessageToWX.Req";
+        public static final int FAV_CONTENT_LENGTH_LIMIT = 26214400;
+        public static final String TAG = "MicroMsg.SDK.SendMessageToWX.Req";
         public static final int WXSceneFavorite = 2;
         public static final int WXSceneSession = 0;
         public static final int WXSceneTimeline = 1;
@@ -27,12 +27,13 @@ public class SendMessageToWX {
 
         @Override // com.tencent.mm.sdk.modelbase.BaseReq
         public boolean checkArgs() {
-            if (this.message == null) {
-                a.a(TAG, "checkArgs fail ,message is null");
+            WXMediaMessage wXMediaMessage = this.message;
+            if (wXMediaMessage == null) {
+                a.a("MicroMsg.SDK.SendMessageToWX.Req", "checkArgs fail ,message is null");
                 return false;
             }
-            if (this.message.mediaObject.type() == 6 && this.scene == 2) {
-                ((WXFileObject) this.message.mediaObject).setContentLengthLimit(FAV_CONTENT_LENGTH_LIMIT);
+            if (wXMediaMessage.mediaObject.type() == 6 && this.scene == 2) {
+                ((WXFileObject) this.message.mediaObject).setContentLengthLimit(26214400);
             }
             return this.message.checkArgs();
         }
@@ -57,7 +58,7 @@ public class SendMessageToWX {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class Resp extends BaseResp {
         public Resp() {
         }
@@ -85,8 +86,5 @@ public class SendMessageToWX {
         public void toBundle(Bundle bundle) {
             super.toBundle(bundle);
         }
-    }
-
-    private SendMessageToWX() {
     }
 }

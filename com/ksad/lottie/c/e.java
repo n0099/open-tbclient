@@ -2,65 +2,43 @@ package com.ksad.lottie.c;
 
 import android.graphics.PointF;
 import android.util.JsonReader;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+import androidx.appcompat.widget.SearchView;
+/* loaded from: classes6.dex */
 public class e {
-    /* JADX INFO: Access modifiers changed from: package-private */
     public static com.ksad.lottie.model.content.a a(JsonReader jsonReader, com.ksad.lottie.d dVar, int i) {
         boolean z = i == 3;
-        com.ksad.lottie.model.a.f fVar = null;
-        com.ksad.lottie.model.a.m<PointF, PointF> mVar = null;
         String str = null;
+        com.ksad.lottie.model.a.m<PointF, PointF> mVar = null;
+        com.ksad.lottie.model.a.f fVar = null;
         while (jsonReader.hasNext()) {
             String nextName = jsonReader.nextName();
-            char c = 65535;
-            switch (nextName.hashCode()) {
-                case 100:
-                    if (nextName.equals("d")) {
-                        c = 3;
-                        break;
+            char c2 = 65535;
+            int hashCode = nextName.hashCode();
+            if (hashCode != 100) {
+                if (hashCode != 112) {
+                    if (hashCode != 115) {
+                        if (hashCode == 3519 && nextName.equals(SearchView.IME_OPTION_NO_MICROPHONE)) {
+                            c2 = 0;
+                        }
+                    } else if (nextName.equals("s")) {
+                        c2 = 2;
                     }
-                    break;
-                case 112:
-                    if (nextName.equals("p")) {
-                        c = 1;
-                        break;
-                    }
-                    break;
-                case 115:
-                    if (nextName.equals("s")) {
-                        c = 2;
-                        break;
-                    }
-                    break;
-                case 3519:
-                    if (nextName.equals("nm")) {
-                        c = 0;
-                        break;
-                    }
-                    break;
+                } else if (nextName.equals("p")) {
+                    c2 = 1;
+                }
+            } else if (nextName.equals("d")) {
+                c2 = 3;
             }
-            switch (c) {
-                case 0:
-                    str = jsonReader.nextString();
-                    break;
-                case 1:
-                    mVar = a.b(jsonReader, dVar);
-                    break;
-                case 2:
-                    fVar = d.c(jsonReader, dVar);
-                    break;
-                case 3:
-                    if (jsonReader.nextInt() != 3) {
-                        z = false;
-                        break;
-                    } else {
-                        z = true;
-                        break;
-                    }
-                default:
-                    jsonReader.skipValue();
-                    break;
+            if (c2 == 0) {
+                str = jsonReader.nextString();
+            } else if (c2 == 1) {
+                mVar = a.b(jsonReader, dVar);
+            } else if (c2 == 2) {
+                fVar = d.c(jsonReader, dVar);
+            } else if (c2 != 3) {
+                jsonReader.skipValue();
+            } else {
+                z = jsonReader.nextInt() == 3;
             }
         }
         return new com.ksad.lottie.model.content.a(str, mVar, fVar, z);

@@ -23,38 +23,39 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
-/* loaded from: classes14.dex */
+/* loaded from: classes2.dex */
 public class PluginPackageParser {
-    private final Context mHostContext;
-    private final PackageInfo mHostPackageInfo;
-    private final String mPackageName;
-    private final PackageParser mParser;
-    private final File mPluginFile;
-    private Map<ComponentName, Object> mActivityObjCache = new TreeMap(new ComponentNameComparator());
-    private Map<ComponentName, Object> mServiceObjCache = new TreeMap(new ComponentNameComparator());
-    private Map<ComponentName, Object> mProviderObjCache = new TreeMap(new ComponentNameComparator());
-    private Map<ComponentName, Object> mReceiversObjCache = new TreeMap(new ComponentNameComparator());
-    private Map<ComponentName, Object> mInstrumentationObjCache = new TreeMap(new ComponentNameComparator());
-    private Map<ComponentName, Object> mPermissionsObjCache = new TreeMap(new ComponentNameComparator());
-    private Map<ComponentName, Object> mPermissionGroupObjCache = new TreeMap(new ComponentNameComparator());
-    private ArrayList<String> mRequestedPermissionsCache = new ArrayList<>();
-    private Map<ComponentName, List<IntentFilter>> mActivityIntentFilterCache = new TreeMap(new ComponentNameComparator());
-    private Map<ComponentName, List<IntentFilter>> mServiceIntentFilterCache = new TreeMap(new ComponentNameComparator());
-    private Map<ComponentName, List<IntentFilter>> mProviderIntentFilterCache = new TreeMap(new ComponentNameComparator());
-    private Map<ComponentName, List<IntentFilter>> mReceiverIntentFilterCache = new TreeMap(new ComponentNameComparator());
-    private Map<ComponentName, ActivityInfo> mActivityInfoCache = new TreeMap(new ComponentNameComparator());
-    private Map<ComponentName, ServiceInfo> mServiceInfoCache = new TreeMap(new ComponentNameComparator());
-    private Map<ComponentName, ProviderInfo> mProviderInfoCache = new TreeMap(new ComponentNameComparator());
-    private Map<ComponentName, ActivityInfo> mReceiversInfoCache = new TreeMap(new ComponentNameComparator());
-    private Map<ComponentName, InstrumentationInfo> mInstrumentationInfoCache = new TreeMap(new ComponentNameComparator());
-    private Map<ComponentName, PermissionGroupInfo> mPermissionGroupInfoCache = new TreeMap(new ComponentNameComparator());
-    private Map<ComponentName, PermissionInfo> mPermissionsInfoCache = new TreeMap(new ComponentNameComparator());
+    public final Context mHostContext;
+    public final PackageInfo mHostPackageInfo;
+    public final String mPackageName;
+    public final PackageParser mParser;
+    public final File mPluginFile;
+    public Map<ComponentName, Object> mActivityObjCache = new TreeMap(new ComponentNameComparator());
+    public Map<ComponentName, Object> mServiceObjCache = new TreeMap(new ComponentNameComparator());
+    public Map<ComponentName, Object> mProviderObjCache = new TreeMap(new ComponentNameComparator());
+    public Map<ComponentName, Object> mReceiversObjCache = new TreeMap(new ComponentNameComparator());
+    public Map<ComponentName, Object> mInstrumentationObjCache = new TreeMap(new ComponentNameComparator());
+    public Map<ComponentName, Object> mPermissionsObjCache = new TreeMap(new ComponentNameComparator());
+    public Map<ComponentName, Object> mPermissionGroupObjCache = new TreeMap(new ComponentNameComparator());
+    public ArrayList<String> mRequestedPermissionsCache = new ArrayList<>();
+    public Map<ComponentName, List<IntentFilter>> mActivityIntentFilterCache = new TreeMap(new ComponentNameComparator());
+    public Map<ComponentName, List<IntentFilter>> mServiceIntentFilterCache = new TreeMap(new ComponentNameComparator());
+    public Map<ComponentName, List<IntentFilter>> mProviderIntentFilterCache = new TreeMap(new ComponentNameComparator());
+    public Map<ComponentName, List<IntentFilter>> mReceiverIntentFilterCache = new TreeMap(new ComponentNameComparator());
+    public Map<ComponentName, ActivityInfo> mActivityInfoCache = new TreeMap(new ComponentNameComparator());
+    public Map<ComponentName, ServiceInfo> mServiceInfoCache = new TreeMap(new ComponentNameComparator());
+    public Map<ComponentName, ProviderInfo> mProviderInfoCache = new TreeMap(new ComponentNameComparator());
+    public Map<ComponentName, ActivityInfo> mReceiversInfoCache = new TreeMap(new ComponentNameComparator());
+    public Map<ComponentName, InstrumentationInfo> mInstrumentationInfoCache = new TreeMap(new ComponentNameComparator());
+    public Map<ComponentName, PermissionGroupInfo> mPermissionGroupInfoCache = new TreeMap(new ComponentNameComparator());
+    public Map<ComponentName, PermissionInfo> mPermissionsInfoCache = new TreeMap(new ComponentNameComparator());
 
     public PluginPackageParser(Context context, File file) throws Exception {
         this.mHostContext = context;
         this.mPluginFile = file;
-        this.mParser = PackageParser.newPluginParser(context);
-        this.mParser.parsePackage(file, 0);
+        PackageParser newPluginParser = PackageParser.newPluginParser(context);
+        this.mParser = newPluginParser;
+        newPluginParser.parsePackage(file, 0);
         this.mPackageName = this.mParser.getPackageName();
         this.mHostPackageInfo = this.mHostContext.getPackageManager().getPackageInfo(this.mHostContext.getPackageName(), 0);
         for (Object obj : this.mParser.getActivities()) {
@@ -158,199 +159,12 @@ public class PluginPackageParser {
             }
         }
         List requestedPermissions = this.mParser.getRequestedPermissions();
-        if (requestedPermissions != null && requestedPermissions.size() > 0) {
-            synchronized (this.mRequestedPermissionsCache) {
-                this.mRequestedPermissionsCache.addAll(requestedPermissions);
-            }
+        if (requestedPermissions == null || requestedPermissions.size() <= 0) {
+            return;
         }
-    }
-
-    public File getPluginFile() {
-        return this.mPluginFile;
-    }
-
-    public void collectCertificates(int i) throws Exception {
-        this.mParser.collectCertificates(i);
-    }
-
-    public List<IntentFilter> getActivityIntentFilter(ComponentName componentName) {
-        List<IntentFilter> list;
-        synchronized (this.mActivityIntentFilterCache) {
-            list = this.mActivityIntentFilterCache.get(componentName);
-        }
-        return list;
-    }
-
-    public List<IntentFilter> getServiceIntentFilter(ComponentName componentName) {
-        List<IntentFilter> list;
-        synchronized (this.mServiceIntentFilterCache) {
-            list = this.mServiceIntentFilterCache.get(componentName);
-        }
-        return list;
-    }
-
-    public List<IntentFilter> getProviderIntentFilter(ComponentName componentName) {
-        List<IntentFilter> list;
-        synchronized (this.mProviderObjCache) {
-            list = this.mProviderIntentFilterCache.get(componentName);
-        }
-        return list;
-    }
-
-    public ActivityInfo getActivityInfo(ComponentName componentName, int i) throws Exception {
-        Object obj;
-        synchronized (this.mActivityObjCache) {
-            obj = this.mActivityObjCache.get(componentName);
-        }
-        if (obj != null) {
-            ActivityInfo generateActivityInfo = this.mParser.generateActivityInfo(obj, i);
-            fixApplicationInfo(generateActivityInfo.applicationInfo);
-            if (TextUtils.isEmpty(generateActivityInfo.processName)) {
-                generateActivityInfo.processName = generateActivityInfo.packageName;
-                return generateActivityInfo;
-            }
-            return generateActivityInfo;
-        }
-        return null;
-    }
-
-    public ServiceInfo getServiceInfo(ComponentName componentName, int i) throws Exception {
-        Object obj;
-        synchronized (this.mServiceObjCache) {
-            obj = this.mServiceObjCache.get(componentName);
-        }
-        if (obj != null) {
-            ServiceInfo generateServiceInfo = this.mParser.generateServiceInfo(obj, i);
-            fixApplicationInfo(generateServiceInfo.applicationInfo);
-            if (TextUtils.isEmpty(generateServiceInfo.processName)) {
-                generateServiceInfo.processName = generateServiceInfo.packageName;
-                return generateServiceInfo;
-            }
-            return generateServiceInfo;
-        }
-        return null;
-    }
-
-    public ActivityInfo getReceiverInfo(ComponentName componentName, int i) throws Exception {
-        Object obj;
-        synchronized (this.mReceiversObjCache) {
-            obj = this.mReceiversObjCache.get(componentName);
-        }
-        if (obj != null) {
-            ActivityInfo generateReceiverInfo = this.mParser.generateReceiverInfo(obj, i);
-            fixApplicationInfo(generateReceiverInfo.applicationInfo);
-            if (TextUtils.isEmpty(generateReceiverInfo.processName)) {
-                generateReceiverInfo.processName = generateReceiverInfo.packageName;
-                return generateReceiverInfo;
-            }
-            return generateReceiverInfo;
-        }
-        return null;
-    }
-
-    public ProviderInfo getProviderInfo(ComponentName componentName, int i) throws Exception {
-        Object obj;
-        synchronized (this.mProviderObjCache) {
-            obj = this.mProviderObjCache.get(componentName);
-        }
-        if (obj != null) {
-            ProviderInfo generateProviderInfo = this.mParser.generateProviderInfo(obj, i);
-            fixApplicationInfo(generateProviderInfo.applicationInfo);
-            if (TextUtils.isEmpty(generateProviderInfo.processName)) {
-                generateProviderInfo.processName = generateProviderInfo.packageName;
-                return generateProviderInfo;
-            }
-            return generateProviderInfo;
-        }
-        return null;
-    }
-
-    public InstrumentationInfo getInstrumentationInfo(ComponentName componentName, int i) throws Exception {
-        Object obj;
-        synchronized (this.mInstrumentationObjCache) {
-            obj = this.mInstrumentationObjCache.get(componentName);
-        }
-        if (obj != null) {
-            return this.mParser.generateInstrumentationInfo(obj, i);
-        }
-        return null;
-    }
-
-    public ApplicationInfo getApplicationInfo(int i) throws Exception {
-        ApplicationInfo generateApplicationInfo = this.mParser.generateApplicationInfo(i);
-        fixApplicationInfo(generateApplicationInfo);
-        if (TextUtils.isEmpty(generateApplicationInfo.processName)) {
-            generateApplicationInfo.processName = generateApplicationInfo.packageName;
-        }
-        return generateApplicationInfo;
-    }
-
-    public PermissionGroupInfo getPermissionGroupInfo(ComponentName componentName, int i) throws Exception {
-        Object obj;
-        synchronized (this.mPermissionGroupObjCache) {
-            obj = this.mPermissionGroupObjCache.get(componentName);
-        }
-        if (obj != null) {
-            return this.mParser.generatePermissionGroupInfo(obj, i);
-        }
-        return null;
-    }
-
-    public PermissionInfo getPermissionInfo(ComponentName componentName, int i) throws Exception {
-        Object obj;
-        synchronized (this.mPermissionsObjCache) {
-            obj = this.mPermissionsObjCache.get(componentName);
-        }
-        if (obj != null) {
-            return this.mParser.generatePermissionInfo(obj, i);
-        }
-        return null;
-    }
-
-    public PackageInfo getPackageInfo(int i) throws Exception {
-        PackageInfo generatePackageInfo = this.mParser.generatePackageInfo(this.mHostPackageInfo.gids, i, this.mPluginFile.lastModified(), this.mPluginFile.lastModified(), new HashSet<>(getRequestedPermissions()));
-        fixPackageInfo(generatePackageInfo);
-        return generatePackageInfo;
-    }
-
-    public List<ActivityInfo> getActivities() throws Exception {
-        return new ArrayList(this.mActivityInfoCache.values());
-    }
-
-    public List<ServiceInfo> getServices() throws Exception {
-        return new ArrayList(this.mServiceInfoCache.values());
-    }
-
-    public List<ProviderInfo> getProviders() throws Exception {
-        return new ArrayList(this.mProviderInfoCache.values());
-    }
-
-    public List<ActivityInfo> getReceivers() throws Exception {
-        return new ArrayList(this.mReceiversInfoCache.values());
-    }
-
-    public List<PermissionInfo> getPermissions() throws Exception {
-        return new ArrayList(this.mPermissionsInfoCache.values());
-    }
-
-    public List<PermissionGroupInfo> getPermissionGroups() throws Exception {
-        return new ArrayList(this.mPermissionGroupInfoCache.values());
-    }
-
-    public List<InstrumentationInfo> getInstrumentationInfos() {
-        return new ArrayList(this.mInstrumentationInfoCache.values());
-    }
-
-    public List<String> getRequestedPermissions() throws Exception {
-        ArrayList arrayList;
         synchronized (this.mRequestedPermissionsCache) {
-            arrayList = new ArrayList(this.mRequestedPermissionsCache);
+            this.mRequestedPermissionsCache.addAll(requestedPermissions);
         }
-        return arrayList;
-    }
-
-    public String getPackageName() throws Exception {
-        return this.mPackageName;
     }
 
     private ApplicationInfo fixApplicationInfo(ApplicationInfo applicationInfo) {
@@ -367,13 +181,13 @@ public class PluginPackageParser {
             if (Build.VERSION.SDK_INT >= 21 && FieldUtils.readField((Object) applicationInfo, "scanSourceDir", true) == null) {
                 FieldUtils.writeField((Object) applicationInfo, "scanSourceDir", (Object) applicationInfo.dataDir, true);
             }
-        } catch (Throwable th) {
+        } catch (Throwable unused) {
         }
         try {
             if (Build.VERSION.SDK_INT >= 21 && FieldUtils.readField((Object) applicationInfo, "scanPublicSourceDir", true) == null) {
                 FieldUtils.writeField((Object) applicationInfo, "scanPublicSourceDir", (Object) applicationInfo.dataDir, true);
             }
-        } catch (Throwable th2) {
+        } catch (Throwable unused2) {
         }
         applicationInfo.uid = this.mHostPackageInfo.applicationInfo.uid;
         if (Build.VERSION.SDK_INT >= 9 && applicationInfo.nativeLibraryDir == null) {
@@ -385,17 +199,18 @@ public class PluginPackageParser {
         if (Build.VERSION.SDK_INT >= 21 && applicationInfo.splitPublicSourceDirs == null) {
             applicationInfo.splitPublicSourceDirs = new String[]{this.mPluginFile.getPath()};
         }
-        if (Build.VERSION.SDK_INT >= 24) {
-            try {
-                if (Build.VERSION.SDK_INT < 26) {
+        int i = Build.VERSION.SDK_INT;
+        if (i >= 24) {
+            if (i < 26) {
+                try {
                     FieldUtils.writeField(applicationInfo, "deviceEncryptedDataDir", applicationInfo.dataDir);
                     FieldUtils.writeField(applicationInfo, "credentialEncryptedDataDir", applicationInfo.dataDir);
+                } catch (Exception e2) {
+                    e2.printStackTrace();
                 }
-                FieldUtils.writeField(applicationInfo, "deviceProtectedDataDir", applicationInfo.dataDir);
-                FieldUtils.writeField(applicationInfo, "credentialProtectedDataDir", applicationInfo.dataDir);
-            } catch (Exception e) {
-                e.printStackTrace();
             }
+            FieldUtils.writeField(applicationInfo, "deviceProtectedDataDir", applicationInfo.dataDir);
+            FieldUtils.writeField(applicationInfo, "credentialProtectedDataDir", applicationInfo.dataDir);
         }
         if (TextUtils.isEmpty(applicationInfo.processName)) {
             applicationInfo.processName = applicationInfo.packageName;
@@ -409,6 +224,150 @@ public class PluginPackageParser {
         return packageInfo;
     }
 
+    public void collectCertificates(int i) throws Exception {
+        this.mParser.collectCertificates(i);
+    }
+
+    public List<ActivityInfo> getActivities() throws Exception {
+        return new ArrayList(this.mActivityInfoCache.values());
+    }
+
+    public ActivityInfo getActivityInfo(ComponentName componentName, int i) throws Exception {
+        Object obj;
+        synchronized (this.mActivityObjCache) {
+            obj = this.mActivityObjCache.get(componentName);
+        }
+        if (obj != null) {
+            ActivityInfo generateActivityInfo = this.mParser.generateActivityInfo(obj, i);
+            fixApplicationInfo(generateActivityInfo.applicationInfo);
+            if (TextUtils.isEmpty(generateActivityInfo.processName)) {
+                generateActivityInfo.processName = generateActivityInfo.packageName;
+            }
+            return generateActivityInfo;
+        }
+        return null;
+    }
+
+    public List<IntentFilter> getActivityIntentFilter(ComponentName componentName) {
+        List<IntentFilter> list;
+        synchronized (this.mActivityIntentFilterCache) {
+            list = this.mActivityIntentFilterCache.get(componentName);
+        }
+        return list;
+    }
+
+    public ApplicationInfo getApplicationInfo(int i) throws Exception {
+        ApplicationInfo generateApplicationInfo = this.mParser.generateApplicationInfo(i);
+        fixApplicationInfo(generateApplicationInfo);
+        if (TextUtils.isEmpty(generateApplicationInfo.processName)) {
+            generateApplicationInfo.processName = generateApplicationInfo.packageName;
+        }
+        return generateApplicationInfo;
+    }
+
+    public InstrumentationInfo getInstrumentationInfo(ComponentName componentName, int i) throws Exception {
+        Object obj;
+        synchronized (this.mInstrumentationObjCache) {
+            obj = this.mInstrumentationObjCache.get(componentName);
+        }
+        if (obj != null) {
+            return this.mParser.generateInstrumentationInfo(obj, i);
+        }
+        return null;
+    }
+
+    public List<InstrumentationInfo> getInstrumentationInfos() {
+        return new ArrayList(this.mInstrumentationInfoCache.values());
+    }
+
+    public PackageInfo getPackageInfo(int i) throws Exception {
+        PackageInfo generatePackageInfo = this.mParser.generatePackageInfo(this.mHostPackageInfo.gids, i, this.mPluginFile.lastModified(), this.mPluginFile.lastModified(), new HashSet<>(getRequestedPermissions()));
+        fixPackageInfo(generatePackageInfo);
+        return generatePackageInfo;
+    }
+
+    public String getPackageName() throws Exception {
+        return this.mPackageName;
+    }
+
+    public PermissionGroupInfo getPermissionGroupInfo(ComponentName componentName, int i) throws Exception {
+        Object obj;
+        synchronized (this.mPermissionGroupObjCache) {
+            obj = this.mPermissionGroupObjCache.get(componentName);
+        }
+        if (obj != null) {
+            return this.mParser.generatePermissionGroupInfo(obj, i);
+        }
+        return null;
+    }
+
+    public List<PermissionGroupInfo> getPermissionGroups() throws Exception {
+        return new ArrayList(this.mPermissionGroupInfoCache.values());
+    }
+
+    public PermissionInfo getPermissionInfo(ComponentName componentName, int i) throws Exception {
+        Object obj;
+        synchronized (this.mPermissionsObjCache) {
+            obj = this.mPermissionsObjCache.get(componentName);
+        }
+        if (obj != null) {
+            return this.mParser.generatePermissionInfo(obj, i);
+        }
+        return null;
+    }
+
+    public List<PermissionInfo> getPermissions() throws Exception {
+        return new ArrayList(this.mPermissionsInfoCache.values());
+    }
+
+    public File getPluginFile() {
+        return this.mPluginFile;
+    }
+
+    public ProviderInfo getProviderInfo(ComponentName componentName, int i) throws Exception {
+        Object obj;
+        synchronized (this.mProviderObjCache) {
+            obj = this.mProviderObjCache.get(componentName);
+        }
+        if (obj != null) {
+            ProviderInfo generateProviderInfo = this.mParser.generateProviderInfo(obj, i);
+            fixApplicationInfo(generateProviderInfo.applicationInfo);
+            if (TextUtils.isEmpty(generateProviderInfo.processName)) {
+                generateProviderInfo.processName = generateProviderInfo.packageName;
+            }
+            return generateProviderInfo;
+        }
+        return null;
+    }
+
+    public List<IntentFilter> getProviderIntentFilter(ComponentName componentName) {
+        List<IntentFilter> list;
+        synchronized (this.mProviderObjCache) {
+            list = this.mProviderIntentFilterCache.get(componentName);
+        }
+        return list;
+    }
+
+    public List<ProviderInfo> getProviders() throws Exception {
+        return new ArrayList(this.mProviderInfoCache.values());
+    }
+
+    public ActivityInfo getReceiverInfo(ComponentName componentName, int i) throws Exception {
+        Object obj;
+        synchronized (this.mReceiversObjCache) {
+            obj = this.mReceiversObjCache.get(componentName);
+        }
+        if (obj != null) {
+            ActivityInfo generateReceiverInfo = this.mParser.generateReceiverInfo(obj, i);
+            fixApplicationInfo(generateReceiverInfo.applicationInfo);
+            if (TextUtils.isEmpty(generateReceiverInfo.processName)) {
+                generateReceiverInfo.processName = generateReceiverInfo.packageName;
+            }
+            return generateReceiverInfo;
+        }
+        return null;
+    }
+
     public Map<ActivityInfo, List<IntentFilter>> getReceiverIntentFilter() {
         HashMap hashMap;
         synchronized (this.mReceiverIntentFilterCache) {
@@ -420,6 +379,52 @@ public class PluginPackageParser {
         return hashMap;
     }
 
+    public List<ActivityInfo> getReceivers() throws Exception {
+        return new ArrayList(this.mReceiversInfoCache.values());
+    }
+
+    public List<String> getRequestedPermissions() throws Exception {
+        ArrayList arrayList;
+        synchronized (this.mRequestedPermissionsCache) {
+            arrayList = new ArrayList(this.mRequestedPermissionsCache);
+        }
+        return arrayList;
+    }
+
+    public ServiceInfo getServiceInfo(ComponentName componentName, int i) throws Exception {
+        Object obj;
+        synchronized (this.mServiceObjCache) {
+            obj = this.mServiceObjCache.get(componentName);
+        }
+        if (obj != null) {
+            ServiceInfo generateServiceInfo = this.mParser.generateServiceInfo(obj, i);
+            fixApplicationInfo(generateServiceInfo.applicationInfo);
+            if (TextUtils.isEmpty(generateServiceInfo.processName)) {
+                generateServiceInfo.processName = generateServiceInfo.packageName;
+            }
+            return generateServiceInfo;
+        }
+        return null;
+    }
+
+    public List<IntentFilter> getServiceIntentFilter(ComponentName componentName) {
+        List<IntentFilter> list;
+        synchronized (this.mServiceIntentFilterCache) {
+            list = this.mServiceIntentFilterCache.get(componentName);
+        }
+        return list;
+    }
+
+    public List<ServiceInfo> getServices() throws Exception {
+        return new ArrayList(this.mServiceInfoCache.values());
+    }
+
+    public void writeSignature(Signature[] signatureArr) throws Exception {
+        if (signatureArr != null) {
+            this.mParser.writeSignature(signatureArr);
+        }
+    }
+
     public List<IntentFilter> getReceiverIntentFilter(ActivityInfo activityInfo) {
         synchronized (this.mReceiverIntentFilterCache) {
             for (ComponentName componentName : this.mReceiverIntentFilterCache.keySet()) {
@@ -428,12 +433,6 @@ public class PluginPackageParser {
                 }
             }
             return null;
-        }
-    }
-
-    public void writeSignature(Signature[] signatureArr) throws Exception {
-        if (signatureArr != null) {
-            this.mParser.writeSignature(signatureArr);
         }
     }
 }

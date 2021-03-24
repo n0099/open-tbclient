@@ -2,30 +2,28 @@ package com.baidu.platform.comapi.bikenavi.widget;
 
 import android.view.View;
 import android.view.animation.Animation;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class i implements Animation.AnimationListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ g f2896a;
+    public final /* synthetic */ g f9882a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public i(g gVar) {
-        this.f2896a = gVar;
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationStart(Animation animation) {
+        this.f9882a = gVar;
     }
 
     @Override // android.view.animation.Animation.AnimationListener
     public void onAnimationEnd(Animation animation) {
         View view;
-        view = this.f2896a.e;
+        view = this.f9882a.f9880e;
         view.setVisibility(8);
     }
 
     @Override // android.view.animation.Animation.AnimationListener
     public void onAnimationRepeat(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationStart(Animation animation) {
     }
 }

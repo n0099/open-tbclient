@@ -8,11 +8,10 @@ import android.view.Window;
 import android.view.WindowManager;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.view.InputDeviceCompat;
-import androidx.core.view.ViewCompat;
+import com.google.protobuf.CodedInputStream;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public final class r {
     public static void a(Context context, Window window) {
         if (Build.VERSION.SDK_INT < 23 || context == null || window == null) {
@@ -24,16 +23,24 @@ public final class r {
 
     public static void a(Window window, int i) {
         b(window, i);
-        a(window, ((int) (((0.299d * ((double) ((((-16711681) | i) >> 16) & 255))) + (0.587d * ((double) ((((-65281) | i) >> 8) & 255)))) + (0.114d * ((double) ((i | InputDeviceCompat.SOURCE_ANY) & 255))))) * 2 > 255);
+        double d2 = (((-16711681) | i) >> 16) & 255;
+        Double.isNaN(d2);
+        double d3 = (((-65281) | i) >> 8) & 255;
+        Double.isNaN(d3);
+        double d4 = (d2 * 0.299d) + (d3 * 0.587d);
+        double d5 = (i | (-256)) & 255;
+        Double.isNaN(d5);
+        a(window, ((int) (d4 + (d5 * 0.114d))) * 2 > 255);
     }
 
-    private static void a(Window window, boolean z) {
+    public static void a(Window window, boolean z) {
         AppCompatActivity appCompatActivity;
         ActionBar supportActionBar;
         Context context = window.getContext();
-        if (Build.VERSION.SDK_INT >= 19) {
-            window.clearFlags(1024);
-            int i = z ? 13568 : 5376;
+        int i = Build.VERSION.SDK_INT;
+        window.clearFlags(1024);
+        if (i >= 19) {
+            int i2 = z ? 13568 : 5376;
             if (l.a() == 2) {
                 b(window, z);
             } else if (l.a() == 7) {
@@ -42,12 +49,12 @@ public final class r {
                 if (Build.VERSION.SDK_INT >= 21) {
                     window.addFlags(Integer.MIN_VALUE);
                 }
-                i |= (Build.VERSION.SDK_INT < 21 || Build.VERSION.SDK_INT >= 23) ? i : z ? i | 16 : i & (-17);
+                int i3 = Build.VERSION.SDK_INT;
+                i2 |= (i3 < 21 || i3 >= 23) ? i2 : z ? i2 | 16 : i2 & (-17);
             }
-            window.getDecorView().setSystemUiVisibility(i);
+            window.getDecorView().setSystemUiVisibility(i2);
             return;
         }
-        window.clearFlags(1024);
         for (Context context2 = context; context2 != null; context2 = ((ContextThemeWrapper) context2).getBaseContext()) {
             if (context2 instanceof AppCompatActivity) {
                 appCompatActivity = (AppCompatActivity) context2;
@@ -68,18 +75,18 @@ public final class r {
         }
     }
 
-    private static void b(Window window, int i) {
+    public static void b(Window window, int i) {
         if (Build.VERSION.SDK_INT < 21) {
-            if ((i & ViewCompat.MEASURED_STATE_MASK) == 0) {
-                window.addFlags(67108864);
+            if ((i & (-16777216)) == 0) {
+                window.addFlags(CodedInputStream.DEFAULT_SIZE_LIMIT);
                 return;
             } else {
-                window.clearFlags(67108864);
+                window.clearFlags(CodedInputStream.DEFAULT_SIZE_LIMIT);
                 return;
             }
         }
         window.addFlags(Integer.MIN_VALUE);
-        if ((i & ViewCompat.MEASURED_STATE_MASK) == 0) {
+        if ((i & (-16777216)) == 0) {
             window.setStatusBarColor(0);
         } else if ((i ^ (-1)) != 0) {
             window.setStatusBarColor(i);
@@ -92,7 +99,7 @@ public final class r {
         }
     }
 
-    private static boolean b(Window window, boolean z) {
+    public static boolean b(Window window, boolean z) {
         if (window != null) {
             Class<?> cls = window.getClass();
             try {
@@ -105,13 +112,13 @@ public final class r {
                     method.invoke(window, 0, Integer.valueOf(i));
                 }
                 return true;
-            } catch (Exception e) {
+            } catch (Exception unused) {
             }
         }
         return false;
     }
 
-    private static boolean c(Window window, boolean z) {
+    public static boolean c(Window window, boolean z) {
         if (window != null) {
             try {
                 WindowManager.LayoutParams attributes = window.getAttributes();
@@ -121,10 +128,10 @@ public final class r {
                 declaredField2.setAccessible(true);
                 int i = declaredField.getInt(null);
                 int i2 = declaredField2.getInt(attributes);
-                declaredField2.setInt(attributes, z ? i | i2 : (i ^ (-1)) & i2);
+                declaredField2.setInt(attributes, z ? i2 | i : (i ^ (-1)) & i2);
                 window.setAttributes(attributes);
                 return true;
-            } catch (Exception e) {
+            } catch (Exception unused) {
             }
         }
         return false;

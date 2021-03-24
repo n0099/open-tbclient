@@ -2,11 +2,8 @@ package com.kwad.sdk.core.imageloader.utils;
 
 import com.kwad.sdk.core.imageloader.cache.disc.DiskCache;
 import java.io.File;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public final class DiskCacheUtils {
-    private DiskCacheUtils() {
-    }
-
     public static File findInCache(String str, DiskCache diskCache) {
         File file = diskCache.get(str);
         if (file == null || !file.exists()) {

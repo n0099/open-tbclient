@@ -17,36 +17,38 @@ import org.apache.http.client.methods.HttpUriRequest;
 import org.apache.http.entity.ByteArrayEntity;
 import org.apache.http.params.HttpConnectionParams;
 import org.apache.http.params.HttpParams;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class g implements i {
 
     /* renamed from: a  reason: collision with root package name */
-    protected final HttpClient f2694a;
+    public final HttpClient f9337a;
 
-    public g(HttpClient httpClient) {
-        this.f2694a = httpClient;
+    /* loaded from: classes2.dex */
+    public static final class a extends HttpEntityEnclosingRequestBase {
+        public a() {
+        }
+
+        @Override // org.apache.http.client.methods.HttpRequestBase, org.apache.http.client.methods.HttpUriRequest
+        public String getMethod() {
+            return "PATCH";
+        }
+
+        public a(String str) {
+            setURI(URI.create(str));
+        }
     }
 
-    private static void a(HttpUriRequest httpUriRequest, Map<String, String> map) {
+    public g(HttpClient httpClient) {
+        this.f9337a = httpClient;
+    }
+
+    public static void a(HttpUriRequest httpUriRequest, Map<String, String> map) {
         for (String str : map.keySet()) {
             httpUriRequest.setHeader(str, map.get(str));
         }
     }
 
-    @Override // com.baidu.pano.platform.a.a.i
-    public HttpResponse a(com.baidu.pano.platform.a.n<?> nVar, Map<String, String> map) throws IOException, com.baidu.pano.platform.a.a {
-        HttpUriRequest b = b(nVar, map);
-        a(b, map);
-        a(b, nVar.i());
-        a(b);
-        HttpParams params = b.getParams();
-        int t = nVar.t();
-        HttpConnectionParams.setConnectionTimeout(params, 5000);
-        HttpConnectionParams.setSoTimeout(params, t);
-        return this.f2694a.execute(b);
-    }
-
-    static HttpUriRequest b(com.baidu.pano.platform.a.n<?> nVar, Map<String, String> map) throws com.baidu.pano.platform.a.a {
+    public static HttpUriRequest b(com.baidu.pano.platform.a.n<?> nVar, Map<String, String> map) throws com.baidu.pano.platform.a.a {
         switch (nVar.a()) {
             case -1:
                 byte[] m = nVar.m();
@@ -87,28 +89,26 @@ public class g implements i {
         }
     }
 
-    private static void a(HttpEntityEnclosingRequestBase httpEntityEnclosingRequestBase, com.baidu.pano.platform.a.n<?> nVar) throws com.baidu.pano.platform.a.a {
+    public void a(HttpUriRequest httpUriRequest) throws IOException {
+    }
+
+    @Override // com.baidu.pano.platform.a.a.i
+    public HttpResponse a(com.baidu.pano.platform.a.n<?> nVar, Map<String, String> map) throws IOException, com.baidu.pano.platform.a.a {
+        HttpUriRequest b2 = b(nVar, map);
+        a(b2, map);
+        a(b2, nVar.i());
+        a(b2);
+        HttpParams params = b2.getParams();
+        int t = nVar.t();
+        HttpConnectionParams.setConnectionTimeout(params, 5000);
+        HttpConnectionParams.setSoTimeout(params, t);
+        return this.f9337a.execute(b2);
+    }
+
+    public static void a(HttpEntityEnclosingRequestBase httpEntityEnclosingRequestBase, com.baidu.pano.platform.a.n<?> nVar) throws com.baidu.pano.platform.a.a {
         byte[] q = nVar.q();
         if (q != null) {
             httpEntityEnclosingRequestBase.setEntity(new ByteArrayEntity(q));
-        }
-    }
-
-    protected void a(HttpUriRequest httpUriRequest) throws IOException {
-    }
-
-    /* loaded from: classes4.dex */
-    public static final class a extends HttpEntityEnclosingRequestBase {
-        public a() {
-        }
-
-        public a(String str) {
-            setURI(URI.create(str));
-        }
-
-        @Override // org.apache.http.client.methods.HttpRequestBase, org.apache.http.client.methods.HttpUriRequest
-        public String getMethod() {
-            return "PATCH";
         }
     }
 }

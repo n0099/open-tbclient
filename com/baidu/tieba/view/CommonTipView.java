@@ -10,170 +10,179 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-/* loaded from: classes.dex */
+import d.b.b.e.m.e;
+/* loaded from: classes5.dex */
 public class CommonTipView extends TextView {
-    private Animation bVS;
-    private TranslateAnimation bVT;
-    private Runnable bVU;
-    private int mDuration;
-    private Runnable mRunnable;
+
+    /* renamed from: e  reason: collision with root package name */
+    public int f22035e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public Animation f22036f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public TranslateAnimation f22037g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public Runnable f22038h;
+    public Runnable i;
+
+    /* loaded from: classes5.dex */
+    public class a implements Runnable {
+        public a() {
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            CommonTipView.this.f();
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class b implements Runnable {
+        public b() {
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            ViewGroup viewGroup = (ViewGroup) CommonTipView.this.getParent();
+            if (viewGroup != null) {
+                viewGroup.removeView(CommonTipView.this);
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class c implements Animation.AnimationListener {
+        public c() {
+        }
+
+        @Override // android.view.animation.Animation.AnimationListener
+        public void onAnimationEnd(Animation animation) {
+            CommonTipView.this.i();
+            CommonTipView.this.setVisibility(8);
+            e.a().postDelayed(CommonTipView.this.i, 600L);
+        }
+
+        @Override // android.view.animation.Animation.AnimationListener
+        public void onAnimationRepeat(Animation animation) {
+        }
+
+        @Override // android.view.animation.Animation.AnimationListener
+        public void onAnimationStart(Animation animation) {
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class d implements Animation.AnimationListener {
+        public d() {
+        }
+
+        @Override // android.view.animation.Animation.AnimationListener
+        public void onAnimationEnd(Animation animation) {
+            CommonTipView commonTipView = CommonTipView.this;
+            commonTipView.postDelayed(commonTipView.f22038h, CommonTipView.this.f22035e);
+        }
+
+        @Override // android.view.animation.Animation.AnimationListener
+        public void onAnimationRepeat(Animation animation) {
+        }
+
+        @Override // android.view.animation.Animation.AnimationListener
+        public void onAnimationStart(Animation animation) {
+        }
+    }
 
     public CommonTipView(Context context) {
         super(context);
-        this.mDuration = 4000;
-        this.bVS = AnimationUtils.loadAnimation(TbadkCoreApplication.getInst(), R.anim.fade_out);
-        this.bVT = new TranslateAnimation(0.0f, 0.0f, 0.0f - TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.ds56), 0.0f);
-        this.bVU = new Runnable() { // from class: com.baidu.tieba.view.CommonTipView.1
-            @Override // java.lang.Runnable
-            public void run() {
-                CommonTipView.this.hideTip();
-            }
-        };
-        this.mRunnable = new Runnable() { // from class: com.baidu.tieba.view.CommonTipView.2
-            @Override // java.lang.Runnable
-            public void run() {
-                ViewGroup viewGroup = (ViewGroup) CommonTipView.this.getParent();
-                if (viewGroup != null) {
-                    viewGroup.removeView(CommonTipView.this);
-                }
-            }
-        };
-        init();
+        this.f22035e = 4000;
+        this.f22036f = AnimationUtils.loadAnimation(TbadkCoreApplication.getInst(), R.anim.fade_out);
+        this.f22037g = new TranslateAnimation(0.0f, 0.0f, 0.0f - TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.ds56), 0.0f);
+        this.f22038h = new a();
+        this.i = new b();
+        g();
     }
 
-    public CommonTipView(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        this.mDuration = 4000;
-        this.bVS = AnimationUtils.loadAnimation(TbadkCoreApplication.getInst(), R.anim.fade_out);
-        this.bVT = new TranslateAnimation(0.0f, 0.0f, 0.0f - TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.ds56), 0.0f);
-        this.bVU = new Runnable() { // from class: com.baidu.tieba.view.CommonTipView.1
-            @Override // java.lang.Runnable
-            public void run() {
-                CommonTipView.this.hideTip();
-            }
-        };
-        this.mRunnable = new Runnable() { // from class: com.baidu.tieba.view.CommonTipView.2
-            @Override // java.lang.Runnable
-            public void run() {
-                ViewGroup viewGroup = (ViewGroup) CommonTipView.this.getParent();
-                if (viewGroup != null) {
-                    viewGroup.removeView(CommonTipView.this);
-                }
-            }
-        };
-        init();
-    }
-
-    public CommonTipView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        this.mDuration = 4000;
-        this.bVS = AnimationUtils.loadAnimation(TbadkCoreApplication.getInst(), R.anim.fade_out);
-        this.bVT = new TranslateAnimation(0.0f, 0.0f, 0.0f - TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.ds56), 0.0f);
-        this.bVU = new Runnable() { // from class: com.baidu.tieba.view.CommonTipView.1
-            @Override // java.lang.Runnable
-            public void run() {
-                CommonTipView.this.hideTip();
-            }
-        };
-        this.mRunnable = new Runnable() { // from class: com.baidu.tieba.view.CommonTipView.2
-            @Override // java.lang.Runnable
-            public void run() {
-                ViewGroup viewGroup = (ViewGroup) CommonTipView.this.getParent();
-                if (viewGroup != null) {
-                    viewGroup.removeView(CommonTipView.this);
-                }
-            }
-        };
-        init();
-    }
-
-    private void init() {
-        setTextSize(0, TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds24));
-        setGravity(17);
-        this.bVS.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.view.CommonTipView.3
-            @Override // android.view.animation.Animation.AnimationListener
-            public void onAnimationStart(Animation animation) {
-            }
-
-            @Override // android.view.animation.Animation.AnimationListener
-            public void onAnimationEnd(Animation animation) {
-                CommonTipView.this.onDestroy();
-                CommonTipView.this.setVisibility(8);
-                com.baidu.adp.lib.f.e.mA().postDelayed(CommonTipView.this.mRunnable, 600L);
-            }
-
-            @Override // android.view.animation.Animation.AnimationListener
-            public void onAnimationRepeat(Animation animation) {
-            }
-        });
-        this.bVT.setDuration(400L);
-        this.bVT.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.view.CommonTipView.4
-            @Override // android.view.animation.Animation.AnimationListener
-            public void onAnimationStart(Animation animation) {
-            }
-
-            @Override // android.view.animation.Animation.AnimationListener
-            public void onAnimationEnd(Animation animation) {
-                CommonTipView.this.postDelayed(CommonTipView.this.bVU, CommonTipView.this.mDuration);
-            }
-
-            @Override // android.view.animation.Animation.AnimationListener
-            public void onAnimationRepeat(Animation animation) {
-            }
-        });
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void hideTip() {
-        removeCallbacks(this.bVU);
-        if (this != null && getParent() != null) {
-            startAnimation(this.bVS);
-        }
-    }
-
-    public void c(LinearLayout linearLayout, int i) {
-        if (linearLayout != null) {
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds56));
-            layoutParams.gravity = 48;
-            linearLayout.addView(this, layoutParams);
-            onChangeSkinType(i);
-            startAnimation(this.bVT);
-        }
-    }
-
-    public void b(FrameLayout frameLayout, int i) {
-        if (frameLayout != null) {
-            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds56));
-            layoutParams.setMargins(0, 0, 0, 0);
-            frameLayout.addView(this, layoutParams);
-            onChangeSkinType(i);
-            startAnimation(this.bVT);
-        }
-    }
-
-    public void hide() {
+    public void e() {
         ViewGroup viewGroup = (ViewGroup) getParent();
         if (viewGroup != null) {
             viewGroup.removeView(this);
         }
     }
 
-    public void setTipDuration(int i) {
-        if (i > 0) {
-            this.mDuration = i;
+    public final void f() {
+        removeCallbacks(this.f22038h);
+        if (getParent() != null) {
+            startAnimation(this.f22036f);
         }
     }
 
-    public void onChangeSkinType(int i) {
-        ap.setBackgroundResource(this, R.color.common_color_10260, i);
-        ap.setViewTextColor(this, R.color.CAM_X0111, 1, i);
+    public final void g() {
+        setTextSize(0, TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds24));
+        setGravity(17);
+        this.f22036f.setAnimationListener(new c());
+        this.f22037g.setDuration(400L);
+        this.f22037g.setAnimationListener(new d());
     }
 
-    public void onDestroy() {
-        removeCallbacks(this.bVU);
-        com.baidu.adp.lib.f.e.mA().removeCallbacks(this.mRunnable);
-        hide();
+    public void h(int i) {
+        SkinManager.setBackgroundResource(this, R.color.common_color_10260, i);
+        SkinManager.setViewTextColor(this, R.color.CAM_X0111, 1, i);
+    }
+
+    public void i() {
+        removeCallbacks(this.f22038h);
+        e.a().removeCallbacks(this.i);
+        e();
+    }
+
+    public void j(FrameLayout frameLayout, int i) {
+        if (frameLayout == null) {
+            return;
+        }
+        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds56));
+        layoutParams.setMargins(0, 0, 0, 0);
+        frameLayout.addView(this, layoutParams);
+        h(i);
+        startAnimation(this.f22037g);
+    }
+
+    public void k(LinearLayout linearLayout, int i) {
+        if (linearLayout == null) {
+            return;
+        }
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds56));
+        layoutParams.gravity = 48;
+        linearLayout.addView(this, layoutParams);
+        h(i);
+        startAnimation(this.f22037g);
+    }
+
+    public void setTipDuration(int i) {
+        if (i > 0) {
+            this.f22035e = i;
+        }
+    }
+
+    public CommonTipView(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        this.f22035e = 4000;
+        this.f22036f = AnimationUtils.loadAnimation(TbadkCoreApplication.getInst(), R.anim.fade_out);
+        this.f22037g = new TranslateAnimation(0.0f, 0.0f, 0.0f - TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.ds56), 0.0f);
+        this.f22038h = new a();
+        this.i = new b();
+        g();
+    }
+
+    public CommonTipView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        this.f22035e = 4000;
+        this.f22036f = AnimationUtils.loadAnimation(TbadkCoreApplication.getInst(), R.anim.fade_out);
+        this.f22037g = new TranslateAnimation(0.0f, 0.0f, 0.0f - TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.ds56), 0.0f);
+        this.f22038h = new a();
+        this.i = new b();
+        g();
     }
 }

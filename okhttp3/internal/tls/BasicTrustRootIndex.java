@@ -6,9 +6,9 @@ import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Set;
 import javax.security.auth.x500.X500Principal;
-/* loaded from: classes14.dex */
+/* loaded from: classes7.dex */
 public final class BasicTrustRootIndex implements TrustRootIndex {
-    private final Map<X500Principal, Set<X509Certificate>> subjectToCaCerts = new LinkedHashMap();
+    public final Map<X500Principal, Set<X509Certificate>> subjectToCaCerts = new LinkedHashMap();
 
     public BasicTrustRootIndex(X509Certificate... x509CertificateArr) {
         for (X509Certificate x509Certificate : x509CertificateArr) {
@@ -22,6 +22,13 @@ public final class BasicTrustRootIndex implements TrustRootIndex {
         }
     }
 
+    public boolean equals(Object obj) {
+        if (obj == this) {
+            return true;
+        }
+        return (obj instanceof BasicTrustRootIndex) && ((BasicTrustRootIndex) obj).subjectToCaCerts.equals(this.subjectToCaCerts);
+    }
+
     @Override // okhttp3.internal.tls.TrustRootIndex
     public X509Certificate findByIssuerAndSignature(X509Certificate x509Certificate) {
         Set<X509Certificate> set = this.subjectToCaCerts.get(x509Certificate.getIssuerX500Principal());
@@ -32,17 +39,10 @@ public final class BasicTrustRootIndex implements TrustRootIndex {
             try {
                 x509Certificate.verify(x509Certificate2.getPublicKey());
                 return x509Certificate2;
-            } catch (Exception e) {
+            } catch (Exception unused) {
             }
         }
         return null;
-    }
-
-    public boolean equals(Object obj) {
-        if (obj == this) {
-            return true;
-        }
-        return (obj instanceof BasicTrustRootIndex) && ((BasicTrustRootIndex) obj).subjectToCaCerts.equals(this.subjectToCaCerts);
     }
 
     public int hashCode() {

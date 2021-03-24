@@ -2,34 +2,27 @@ package com.baidu.pass.biometrics.face.liveness.a;
 
 import com.baidu.pass.biometrics.base.dto.PassBiometricDto;
 import java.util.HashMap;
-/* loaded from: classes14.dex */
+/* loaded from: classes2.dex */
 public class a {
 
+    /* renamed from: b  reason: collision with root package name */
+    public static a f9604b = null;
+
+    /* renamed from: c  reason: collision with root package name */
+    public static final String f9605c = "request_data";
+
     /* renamed from: a  reason: collision with root package name */
-    private static a f2775a = null;
-    public static final String b = "request_data";
-    private HashMap<String, PassBiometricDto> c = new HashMap<>();
+    public HashMap<String, PassBiometricDto> f9606a = new HashMap<>();
 
-    private a() {
-    }
-
-    public static a a() {
-        if (f2775a == null) {
-            f2775a = new a();
+    public static a b() {
+        if (f9604b == null) {
+            f9604b = new a();
         }
-        return f2775a;
-    }
-
-    public void b() {
-        HashMap<String, PassBiometricDto> hashMap = this.c;
-        if (hashMap != null) {
-            hashMap.clear();
-            this.c = null;
-        }
+        return f9604b;
     }
 
     public PassBiometricDto a(String str) {
-        HashMap<String, PassBiometricDto> hashMap = this.c;
+        HashMap<String, PassBiometricDto> hashMap = this.f9606a;
         if (hashMap != null) {
             return hashMap.get(str);
         }
@@ -37,9 +30,17 @@ public class a {
     }
 
     public void a(String str, PassBiometricDto passBiometricDto) {
-        if (this.c == null) {
-            this.c = new HashMap<>();
+        if (this.f9606a == null) {
+            this.f9606a = new HashMap<>();
         }
-        this.c.put(str, passBiometricDto);
+        this.f9606a.put(str, passBiometricDto);
+    }
+
+    public void a() {
+        HashMap<String, PassBiometricDto> hashMap = this.f9606a;
+        if (hashMap != null) {
+            hashMap.clear();
+            this.f9606a = null;
+        }
     }
 }

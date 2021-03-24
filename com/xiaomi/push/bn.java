@@ -1,75 +1,36 @@
 package com.xiaomi.push;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-/* loaded from: classes5.dex */
-public class bn implements ge {
+import android.content.Context;
+import com.xiaomi.push.ai;
+/* loaded from: classes7.dex */
+public class bn extends ai.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f8279a = false;
+    public Context f40287a;
 
-    /* renamed from: a  reason: collision with other field name */
-    private fs f129a;
-
-    /* renamed from: a  reason: collision with other field name */
-    private SimpleDateFormat f132a = new SimpleDateFormat("hh:mm:ss aaa");
-
-    /* renamed from: a  reason: collision with other field name */
-    private a f128a = null;
-    private a b = null;
-
-    /* renamed from: a  reason: collision with other field name */
-    private fv f130a = null;
-
-    /* renamed from: a  reason: collision with other field name */
-    private final String f131a = "[Slim] ";
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
-    public class a implements fx, gf {
-
-        /* renamed from: a  reason: collision with other field name */
-        String f133a;
-
-        a(boolean z) {
-            this.f133a = z ? " RCV " : " Sent ";
-        }
-
-        @Override // com.xiaomi.push.fx
-        public void a(fl flVar) {
-            if (bn.f8279a) {
-                com.xiaomi.channel.commonutils.logger.b.c("[Slim] " + bn.this.f132a.format(new Date()) + this.f133a + flVar.toString());
-            } else {
-                com.xiaomi.channel.commonutils.logger.b.c("[Slim] " + bn.this.f132a.format(new Date()) + this.f133a + " Blob [" + flVar.m284a() + "," + flVar.a() + "," + flVar.e() + "]");
-            }
-        }
-
-        @Override // com.xiaomi.push.fx, com.xiaomi.push.gf
-        public void a(gj gjVar) {
-            if (bn.f8279a) {
-                com.xiaomi.channel.commonutils.logger.b.c("[Slim] " + bn.this.f132a.format(new Date()) + this.f133a + " PKT " + gjVar.m320a());
-            } else {
-                com.xiaomi.channel.commonutils.logger.b.c("[Slim] " + bn.this.f132a.format(new Date()) + this.f133a + " PKT [" + gjVar.k() + "," + gjVar.j() + "]");
-            }
-        }
-
-        @Override // com.xiaomi.push.fx, com.xiaomi.push.gf
-        public boolean a(gj gjVar) {
-            return true;
-        }
+    public bn(Context context) {
+        this.f40287a = context;
     }
 
-    public bn(fs fsVar) {
-        this.f129a = null;
-        this.f129a = fsVar;
-        a();
+    private boolean a() {
+        return com.xiaomi.clientreport.manager.a.a(this.f40287a).m56a().isEventUploadSwitchOpen();
     }
 
-    private void a() {
-        this.f128a = new a(true);
-        this.b = new a(false);
-        this.f129a.a(this.f128a, this.f128a);
-        this.f129a.b(this.b, this.b);
-        this.f130a = new bo(this);
+    @Override // com.xiaomi.push.ai.a
+    /* renamed from: a  reason: collision with other method in class */
+    public String mo165a() {
+        return "100886";
+    }
+
+    @Override // java.lang.Runnable
+    public void run() {
+        try {
+            if (a()) {
+                com.xiaomi.channel.commonutils.logger.b.c(this.f40287a.getPackageName() + " begin upload event");
+                com.xiaomi.clientreport.manager.a.a(this.f40287a).m58b();
+            }
+        } catch (Exception e2) {
+            com.xiaomi.channel.commonutils.logger.b.a(e2);
+        }
     }
 }

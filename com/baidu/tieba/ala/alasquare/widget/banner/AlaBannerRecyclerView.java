@@ -6,13 +6,63 @@ import android.view.MotionEvent;
 import android.view.ViewConfiguration;
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
-/* loaded from: classes9.dex */
+/* loaded from: classes4.dex */
 public class AlaBannerRecyclerView extends RecyclerView {
-    private int Yl;
-    private int dUr;
+
+    /* renamed from: e  reason: collision with root package name */
+    public int f14956e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public int f14957f;
 
     public AlaBannerRecyclerView(Context context) {
         super(context);
+    }
+
+    public final int b(int i) {
+        if (i > 0) {
+            return Math.min(i, 3000);
+        }
+        return Math.max(i, -3000);
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:9:0x0018, code lost:
+        if (r2 != 3) goto L9;
+     */
+    @Override // android.view.ViewGroup, android.view.View
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public boolean dispatchTouchEvent(MotionEvent motionEvent) {
+        int x = (int) motionEvent.getX();
+        int y = (int) motionEvent.getY();
+        int action = motionEvent.getAction();
+        if (action != 0) {
+            if (action != 1) {
+                if (action == 2) {
+                    int i = y - this.f14956e;
+                    int i2 = x - this.f14957f;
+                    if (Math.abs(i) > ViewConfiguration.getTouchSlop() && Math.abs(i) > Math.abs(i2)) {
+                        getParent().requestDisallowInterceptTouchEvent(false);
+                    } else {
+                        getParent().requestDisallowInterceptTouchEvent(true);
+                    }
+                }
+            }
+            getParent().requestDisallowInterceptTouchEvent(false);
+        } else {
+            this.f14956e = y;
+            this.f14957f = x;
+            getParent().requestDisallowInterceptTouchEvent(true);
+        }
+        this.f14956e = y;
+        this.f14957f = x;
+        return super.dispatchTouchEvent(motionEvent);
+    }
+
+    @Override // androidx.recyclerview.widget.RecyclerView
+    public boolean fling(int i, int i2) {
+        return super.fling(b(i), b(i2));
     }
 
     public AlaBannerRecyclerView(Context context, @Nullable AttributeSet attributeSet) {
@@ -21,45 +71,5 @@ public class AlaBannerRecyclerView extends RecyclerView {
 
     public AlaBannerRecyclerView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-    }
-
-    @Override // android.view.ViewGroup, android.view.View
-    public boolean dispatchTouchEvent(MotionEvent motionEvent) {
-        int x = (int) motionEvent.getX();
-        int y = (int) motionEvent.getY();
-        switch (motionEvent.getAction()) {
-            case 0:
-                this.Yl = y;
-                this.dUr = x;
-                getParent().requestDisallowInterceptTouchEvent(true);
-                break;
-            case 1:
-            case 3:
-                getParent().requestDisallowInterceptTouchEvent(false);
-                break;
-            case 2:
-                int i = y - this.Yl;
-                int i2 = x - this.dUr;
-                if (Math.abs(i) > ViewConfiguration.getTouchSlop() && Math.abs(i) > Math.abs(i2)) {
-                    getParent().requestDisallowInterceptTouchEvent(false);
-                    break;
-                } else {
-                    getParent().requestDisallowInterceptTouchEvent(true);
-                    break;
-                }
-                break;
-        }
-        this.Yl = y;
-        this.dUr = x;
-        return super.dispatchTouchEvent(motionEvent);
-    }
-
-    @Override // androidx.recyclerview.widget.RecyclerView
-    public boolean fling(int i, int i2) {
-        return super.fling(ub(i), ub(i2));
-    }
-
-    private int ub(int i) {
-        return i > 0 ? Math.min(i, 3000) : Math.max(i, -3000);
     }
 }

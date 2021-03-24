@@ -5,7 +5,7 @@ import android.os.Parcelable;
 import com.baidu.android.imsdk.utils.LogUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class PassSaveMsg extends NormalMsg {
     public static final Parcelable.Creator<PassSaveMsg> CREATOR = new Parcelable.Creator<PassSaveMsg>() { // from class: com.baidu.android.imsdk.chatmessage.messages.PassSaveMsg.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -22,7 +22,27 @@ public class PassSaveMsg extends NormalMsg {
             return new PassSaveMsg[i];
         }
     };
-    private static final String TAG = "PassSaveMsg";
+    public static final String TAG = "PassSaveMsg";
+
+    @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg
+    public String getRecommendDescription() {
+        try {
+            return new JSONObject(getJsonContent()).optString("text");
+        } catch (JSONException e2) {
+            LogUtils.e(TAG, "getRecommendDescription exception ", e2);
+            return "";
+        }
+    }
+
+    @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg
+    public boolean parseExt() {
+        return true;
+    }
+
+    @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg
+    public boolean parseJsonString() {
+        return true;
+    }
 
     public PassSaveMsg() {
         setMsgType(28);
@@ -33,27 +53,7 @@ public class PassSaveMsg extends NormalMsg {
         setMsgContent(str);
     }
 
-    private PassSaveMsg(Parcel parcel) {
+    public PassSaveMsg(Parcel parcel) {
         super(parcel);
-    }
-
-    @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg
-    protected boolean parseJsonString() {
-        return true;
-    }
-
-    @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg
-    public String getRecommendDescription() {
-        try {
-            return new JSONObject(getJsonContent()).optString("text");
-        } catch (JSONException e) {
-            LogUtils.e(TAG, "getRecommendDescription exception ", e);
-            return "";
-        }
-    }
-
-    @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg
-    protected boolean parseExt() {
-        return true;
     }
 }

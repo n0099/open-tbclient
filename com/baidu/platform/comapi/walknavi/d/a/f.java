@@ -2,20 +2,20 @@ package com.baidu.platform.comapi.walknavi.d.a;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    private final Context f2931a;
+    public final Context f9993a;
 
     public f(Context context) {
-        this.f2931a = context;
+        this.f9993a = context;
     }
 
     public void a(String str, String str2) {
         try {
             a().edit().putString(str, str2).apply();
-        } catch (Exception e) {
+        } catch (Exception unused) {
             com.baidu.platform.comapi.walknavi.d.a.g.a.a("saveLocalResourcePath exception");
         }
     }
@@ -25,6 +25,6 @@ public class f {
     }
 
     private SharedPreferences a() {
-        return this.f2931a.getSharedPreferences("ar_resource_info", 0);
+        return this.f9993a.getSharedPreferences("ar_resource_info", 0);
     }
 }

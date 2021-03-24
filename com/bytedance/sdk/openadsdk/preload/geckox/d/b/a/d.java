@@ -3,6 +3,7 @@ package com.bytedance.sdk.openadsdk.preload.geckox.d.b.a;
 import android.util.Pair;
 import com.bytedance.sdk.openadsdk.preload.geckox.model.UpdatePackage;
 import com.bytedance.sdk.openadsdk.preload.geckox.utils.l;
+import com.facebook.common.util.UriUtil;
 import java.io.File;
 /* loaded from: classes6.dex */
 public class d extends com.bytedance.sdk.openadsdk.preload.b.d<Pair<com.bytedance.sdk.openadsdk.preload.geckox.buffer.a, UpdatePackage>, Pair<File, UpdatePackage>> {
@@ -18,14 +19,14 @@ public class d extends com.bytedance.sdk.openadsdk.preload.b.d<Pair<com.bytedanc
         try {
             l.a(new com.bytedance.sdk.openadsdk.preload.geckox.buffer.a.a(aVar), parentFile.getAbsolutePath(), updatePackage.getChannel());
             aVar.a();
-            File file = new File(parentFile, "res");
+            File file = new File(parentFile, UriUtil.LOCAL_RESOURCE_SCHEME);
             com.bytedance.sdk.openadsdk.preload.geckox.utils.d.a(file);
-            if (!new File(parentFile, updatePackage.getChannel()).renameTo(file)) {
-                throw new RuntimeException("rename unziped full zip file failed:" + parentFile.getAbsolutePath() + ", dest:" + file.getAbsolutePath() + ", exist?" + file.exists());
+            if (new File(parentFile, updatePackage.getChannel()).renameTo(file)) {
+                return bVar.a((com.bytedance.sdk.openadsdk.preload.b.b<Pair<File, UpdatePackage>>) new Pair<>(aVar.f(), updatePackage));
             }
-            return bVar.a((com.bytedance.sdk.openadsdk.preload.b.b<Pair<File, UpdatePackage>>) new Pair<>(aVar.f(), updatePackage));
-        } catch (Exception e) {
-            throw new RuntimeException("unzip full zip file failed, channel:" + updatePackage.getChannel() + ", pkg id:" + updatePackage.getFullPackage().getId() + ", dir:" + parentFile.getAbsolutePath() + ", caused by:" + e.getMessage(), e);
+            throw new RuntimeException("rename unziped full zip file failed:" + parentFile.getAbsolutePath() + ", dest:" + file.getAbsolutePath() + ", exist?" + file.exists());
+        } catch (Exception e2) {
+            throw new RuntimeException("unzip full zip file failed, channel:" + updatePackage.getChannel() + ", pkg id:" + updatePackage.getFullPackage().getId() + ", dir:" + parentFile.getAbsolutePath() + ", caused by:" + e2.getMessage(), e2);
         }
     }
 }

@@ -5,9 +5,9 @@ import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.android.util.io.Closeables;
-import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.searchbox.logsystem.util.LLog;
 import java.io.ByteArrayOutputStream;
+import java.io.Closeable;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -19,187 +19,317 @@ import java.net.URL;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class DefaultContentUploader extends BaseContentUploader {
-    private static final int CONNECT_TIMEOUT = 30000;
-    private static final boolean DEBUG = LLog.sDebug;
-    private static final String POST_METHOD = "POST";
-    private static final int READ_TIMEOUT = 30000;
-    private static final String TAG = "LSStrategy";
+    public static final int CONNECT_TIMEOUT = 30000;
+    public static final boolean DEBUG = LLog.sDebug;
+    public static final String POST_METHOD = "POST";
+    public static final int READ_TIMEOUT = 30000;
+    public static final String TAG = "LSStrategy";
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [135=5, 136=4, 137=4, 138=4, 126=4] */
-    /* JADX WARN: Removed duplicated region for block: B:17:0x0065 A[Catch: all -> 0x0174, TRY_LEAVE, TryCatch #8 {all -> 0x0174, blocks: (B:15:0x0061, B:17:0x0065), top: B:92:0x0061 }] */
-    /* JADX WARN: Removed duplicated region for block: B:66:0x0144 A[Catch: all -> 0x016f, TRY_LEAVE, TryCatch #6 {all -> 0x016f, blocks: (B:33:0x00b8, B:64:0x0140, B:66:0x0144), top: B:91:0x0005 }] */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:95:0x0004 */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Removed duplicated region for block: B:81:0x0139 A[Catch: all -> 0x0162, TryCatch #0 {all -> 0x0162, blocks: (B:79:0x0135, B:81:0x0139, B:84:0x0145, B:86:0x0149), top: B:95:0x0004 }] */
+    /* JADX WARN: Removed duplicated region for block: B:86:0x0149 A[Catch: all -> 0x0162, TRY_LEAVE, TryCatch #0 {all -> 0x0162, blocks: (B:79:0x0135, B:81:0x0139, B:84:0x0145, B:86:0x0149), top: B:95:0x0004 }] */
+    /* JADX WARN: Type inference failed for: r13v0, types: [java.io.File] */
+    /* JADX WARN: Type inference failed for: r13v15 */
+    /* JADX WARN: Type inference failed for: r13v16 */
+    /* JADX WARN: Type inference failed for: r13v17 */
+    /* JADX WARN: Type inference failed for: r13v18 */
+    /* JADX WARN: Type inference failed for: r13v3 */
+    /* JADX WARN: Type inference failed for: r13v6, types: [java.io.Closeable] */
+    /* JADX WARN: Type inference failed for: r14v0, types: [java.util.Map<java.lang.String, java.lang.String>, java.util.Map] */
+    /* JADX WARN: Type inference failed for: r14v37 */
+    /* JADX WARN: Type inference failed for: r14v38 */
+    /* JADX WARN: Type inference failed for: r14v39 */
+    /* JADX WARN: Type inference failed for: r14v4 */
+    /* JADX WARN: Type inference failed for: r14v40 */
+    /* JADX WARN: Type inference failed for: r14v8, types: [java.io.Closeable] */
+    /* JADX WARN: Type inference failed for: r8v14 */
+    /* JADX WARN: Type inference failed for: r8v15 */
+    /* JADX WARN: Type inference failed for: r8v16, types: [java.io.ByteArrayOutputStream] */
+    /* JADX WARN: Type inference failed for: r8v18 */
+    /* JADX WARN: Type inference failed for: r8v19 */
+    /* JADX WARN: Type inference failed for: r8v20 */
+    /* JADX WARN: Type inference failed for: r8v21 */
+    /* JADX WARN: Type inference failed for: r8v22 */
+    /* JADX WARN: Type inference failed for: r8v23, types: [java.io.ByteArrayOutputStream, java.io.Closeable] */
+    /* JADX WARN: Type inference failed for: r8v24 */
+    /* JADX WARN: Type inference failed for: r8v4 */
+    /* JADX WARN: Type inference failed for: r8v6 */
+    /* JADX WARN: Type inference failed for: r8v8 */
     @Override // com.baidu.searchbox.logsystem.basic.upload.BaseContentUploader
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    protected ResponseEntity uploadDataRequestSync(@NonNull String str, @NonNull File file, @Nullable Map<String, String> map) {
+    public ResponseEntity uploadDataRequestSync(@NonNull String str, @NonNull File file, @Nullable Map<String, String> map) {
         InputStream inputStream;
         FileInputStream fileInputStream;
-        boolean z;
-        ByteArrayOutputStream byteArrayOutputStream;
+        InputStream inputStream2;
+        OutputStream outputStream;
+        InputStream inputStream3;
+        OutputStream outputStream2;
+        InputStream inputStream4;
+        InputStream inputStream5;
+        OutputStream outputStream3;
+        OutputStream outputStream4;
+        InputStream inputStream6;
+        OutputStream outputStream5;
+        InputStream inputStream7;
+        InputStream errorStream;
+        boolean z = false;
         FileInputStream fileInputStream2 = null;
-        OutputStream outputStream = null;
-        ByteArrayOutputStream byteArrayOutputStream2 = null;
-        boolean z2 = false;
+        r2 = null;
+        fileInputStream2 = null;
+        fileInputStream2 = null;
+        Closeable closeable = null;
         try {
             try {
                 if (DEBUG) {
-                    Log.d(TAG, "DefaultContentUploader.uploadDataRequestSync=" + str);
+                    Log.d("LSStrategy", "DefaultContentUploader.uploadDataRequestSync=" + str);
                 }
                 HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(str).openConnection();
                 httpURLConnection.setRequestMethod("POST");
                 httpURLConnection.setReadTimeout(30000);
                 httpURLConnection.setConnectTimeout(30000);
-                if (map != null) {
+                if (map != 0) {
                     for (String str2 : map.keySet()) {
-                        httpURLConnection.setRequestProperty(str2, map.get(str2));
+                        httpURLConnection.setRequestProperty(str2, (String) map.get(str2));
                     }
                 }
                 httpURLConnection.setDoOutput(true);
                 httpURLConnection.connect();
-                fileInputStream = new FileInputStream(file);
+                fileInputStream = new FileInputStream((File) file);
                 try {
-                    outputStream = httpURLConnection.getOutputStream();
-                    byte[] bArr = new byte[8096];
-                    while (true) {
-                        int read = fileInputStream.read(bArr);
-                        if (read == -1) {
-                            break;
+                    OutputStream outputStream6 = httpURLConnection.getOutputStream();
+                    try {
+                        byte[] bArr = new byte[8096];
+                        while (true) {
+                            int read = fileInputStream.read(bArr);
+                            if (read == -1) {
+                                break;
+                            }
+                            outputStream6.write(bArr, 0, read);
                         }
-                        outputStream.write(bArr, 0, read);
-                    }
-                    outputStream.flush();
-                    int responseCode = httpURLConnection.getResponseCode();
-                    inputStream = responseCode == 200 ? httpURLConnection.getInputStream() : httpURLConnection.getErrorStream();
-                    if (inputStream != null) {
-                        try {
-                            byteArrayOutputStream = new ByteArrayOutputStream();
-                            while (true) {
-                                try {
-                                    int read2 = inputStream.read(bArr);
-                                    if (read2 == -1) {
-                                        break;
-                                    }
-                                    byteArrayOutputStream.write(bArr, 0, read2);
-                                } catch (MalformedURLException e) {
-                                    e = e;
-                                    z = z2;
-                                    byteArrayOutputStream2 = byteArrayOutputStream;
-                                    fileInputStream2 = fileInputStream;
+                        outputStream6.flush();
+                        int responseCode = httpURLConnection.getResponseCode();
+                        if (responseCode == 200) {
+                            errorStream = httpURLConnection.getInputStream();
+                        } else {
+                            errorStream = httpURLConnection.getErrorStream();
+                        }
+                        if (errorStream != null) {
+                            try {
+                                inputStream2 = new ByteArrayOutputStream();
+                                while (true) {
                                     try {
+                                        int read2 = errorStream.read(bArr);
+                                        if (read2 == -1) {
+                                            break;
+                                        }
+                                        inputStream2.write(bArr, 0, read2);
+                                    } catch (MalformedURLException e2) {
+                                        e = e2;
+                                        fileInputStream2 = fileInputStream;
+                                        MalformedURLException malformedURLException = e;
+                                        inputStream4 = errorStream;
+                                        e = malformedURLException;
+                                        outputStream2 = outputStream6;
+                                        file = outputStream2;
+                                        map = inputStream4;
                                         if (DEBUG) {
                                         }
-                                        Closeables.closeSafely(outputStream);
+                                        Closeables.closeSafely((Closeable) file);
                                         Closeables.closeSafely(fileInputStream2);
-                                        Closeables.closeSafely(byteArrayOutputStream2);
-                                        Closeables.closeSafely(inputStream);
+                                        Closeables.closeSafely(inputStream2);
+                                        Closeables.closeSafely((Closeable) map);
+                                        return new ResponseEntity(z);
+                                    } catch (IOException e3) {
+                                        e = e3;
+                                        fileInputStream2 = fileInputStream;
+                                        IOException iOException = e;
+                                        inputStream3 = errorStream;
+                                        e = iOException;
+                                        outputStream = outputStream6;
+                                        file = outputStream;
+                                        map = inputStream3;
+                                        if (DEBUG) {
+                                        }
+                                        Closeables.closeSafely((Closeable) file);
+                                        Closeables.closeSafely(fileInputStream2);
+                                        Closeables.closeSafely(inputStream2);
+                                        Closeables.closeSafely((Closeable) map);
                                         return new ResponseEntity(z);
                                     } catch (Throwable th) {
                                         th = th;
-                                        fileInputStream = fileInputStream2;
-                                        Closeables.closeSafely(outputStream);
+                                        closeable = outputStream6;
+                                        Throwable th2 = th;
+                                        inputStream = errorStream;
+                                        th = th2;
+                                        Closeables.closeSafely(closeable);
                                         Closeables.closeSafely(fileInputStream);
-                                        Closeables.closeSafely(byteArrayOutputStream2);
+                                        Closeables.closeSafely(inputStream2);
                                         Closeables.closeSafely(inputStream);
                                         throw th;
                                     }
-                                } catch (IOException e2) {
-                                    e = e2;
-                                    z = z2;
-                                    byteArrayOutputStream2 = byteArrayOutputStream;
-                                    if (DEBUG) {
-                                    }
-                                    Closeables.closeSafely(outputStream);
-                                    Closeables.closeSafely(fileInputStream);
-                                    Closeables.closeSafely(byteArrayOutputStream2);
-                                    Closeables.closeSafely(inputStream);
-                                    return new ResponseEntity(z);
-                                } catch (Throwable th2) {
-                                    th = th2;
-                                    byteArrayOutputStream2 = byteArrayOutputStream;
-                                    Closeables.closeSafely(outputStream);
-                                    Closeables.closeSafely(fileInputStream);
-                                    Closeables.closeSafely(byteArrayOutputStream2);
-                                    Closeables.closeSafely(inputStream);
-                                    throw th;
                                 }
+                                inputStream2.flush();
+                            } catch (MalformedURLException e4) {
+                                e = e4;
+                                inputStream2 = null;
+                                fileInputStream2 = fileInputStream;
+                                MalformedURLException malformedURLException2 = e;
+                                inputStream4 = errorStream;
+                                e = malformedURLException2;
+                                outputStream2 = outputStream6;
+                                file = outputStream2;
+                                map = inputStream4;
+                                if (DEBUG) {
+                                }
+                                Closeables.closeSafely((Closeable) file);
+                                Closeables.closeSafely(fileInputStream2);
+                                Closeables.closeSafely(inputStream2);
+                                Closeables.closeSafely((Closeable) map);
+                                return new ResponseEntity(z);
+                            } catch (IOException e5) {
+                                e = e5;
+                                inputStream2 = null;
+                                fileInputStream2 = fileInputStream;
+                                IOException iOException2 = e;
+                                inputStream3 = errorStream;
+                                e = iOException2;
+                                outputStream = outputStream6;
+                                file = outputStream;
+                                map = inputStream3;
+                                if (DEBUG) {
+                                }
+                                Closeables.closeSafely((Closeable) file);
+                                Closeables.closeSafely(fileInputStream2);
+                                Closeables.closeSafely(inputStream2);
+                                Closeables.closeSafely((Closeable) map);
+                                return new ResponseEntity(z);
+                            } catch (Throwable th3) {
+                                th = th3;
+                                inputStream2 = null;
+                                closeable = outputStream6;
+                                Throwable th22 = th;
+                                inputStream = errorStream;
+                                th = th22;
+                                Closeables.closeSafely(closeable);
+                                Closeables.closeSafely(fileInputStream);
+                                Closeables.closeSafely(inputStream2);
+                                Closeables.closeSafely(inputStream);
+                                throw th;
                             }
-                            byteArrayOutputStream.flush();
-                        } catch (MalformedURLException e3) {
-                            e = e3;
-                            z = false;
-                            fileInputStream2 = fileInputStream;
-                            if (DEBUG) {
-                                Log.d(TAG, Log.getStackTraceString(e));
-                            }
-                            Closeables.closeSafely(outputStream);
-                            Closeables.closeSafely(fileInputStream2);
-                            Closeables.closeSafely(byteArrayOutputStream2);
-                            Closeables.closeSafely(inputStream);
-                            return new ResponseEntity(z);
-                        } catch (IOException e4) {
-                            e = e4;
-                            z = false;
-                            if (DEBUG) {
-                                Log.d(TAG, Log.getStackTraceString(e));
-                            }
-                            Closeables.closeSafely(outputStream);
-                            Closeables.closeSafely(fileInputStream);
-                            Closeables.closeSafely(byteArrayOutputStream2);
-                            Closeables.closeSafely(inputStream);
-                            return new ResponseEntity(z);
+                        } else {
+                            inputStream2 = null;
                         }
-                    } else {
-                        byteArrayOutputStream = null;
-                    }
-                    String byteArrayOutputStream3 = byteArrayOutputStream != null ? byteArrayOutputStream.toString("utf-8") : null;
-                    if (responseCode == 200 && !TextUtils.isEmpty(byteArrayOutputStream3)) {
-                        try {
-                            z2 = new JSONObject(byteArrayOutputStream3).optInt(BdStatsConstant.StatsType.ERROR, -1) == 0;
-                        } catch (JSONException e5) {
-                            e5.printStackTrace();
+                        String byteArrayOutputStream = inputStream2 != null ? inputStream2.toString("utf-8") : null;
+                        if (responseCode == 200 && !TextUtils.isEmpty(byteArrayOutputStream)) {
+                            try {
+                                if (new JSONObject(byteArrayOutputStream).optInt("error", -1) == 0) {
+                                    z = true;
+                                }
+                            } catch (JSONException e6) {
+                                e6.printStackTrace();
+                            }
                         }
+                        if (DEBUG) {
+                            Log.d("LSStrategy", "DefaultContentUploader: success = " + z + ", resultStr= " + byteArrayOutputStream);
+                        }
+                        ResponseEntity responseEntity = new ResponseEntity(z, byteArrayOutputStream);
+                        Closeables.closeSafely(outputStream6);
+                        Closeables.closeSafely(fileInputStream);
+                        Closeables.closeSafely((Closeable) inputStream2);
+                        Closeables.closeSafely(errorStream);
+                        return responseEntity;
+                    } catch (MalformedURLException e7) {
+                        e = e7;
+                        inputStream7 = null;
+                        outputStream5 = outputStream6;
+                        inputStream2 = inputStream7;
+                        fileInputStream2 = fileInputStream;
+                        outputStream2 = outputStream5;
+                        inputStream4 = inputStream7;
+                        file = outputStream2;
+                        map = inputStream4;
+                        if (DEBUG) {
+                            Log.d("LSStrategy", Log.getStackTraceString(e));
+                            file = outputStream2;
+                            map = inputStream4;
+                        }
+                        Closeables.closeSafely((Closeable) file);
+                        Closeables.closeSafely(fileInputStream2);
+                        Closeables.closeSafely(inputStream2);
+                        Closeables.closeSafely((Closeable) map);
+                        return new ResponseEntity(z);
+                    } catch (IOException e8) {
+                        e = e8;
+                        inputStream6 = null;
+                        outputStream4 = outputStream6;
+                        inputStream2 = inputStream6;
+                        fileInputStream2 = fileInputStream;
+                        outputStream = outputStream4;
+                        inputStream3 = inputStream6;
+                        file = outputStream;
+                        map = inputStream3;
+                        if (DEBUG) {
+                            Log.d("LSStrategy", Log.getStackTraceString(e));
+                            file = outputStream;
+                            map = inputStream3;
+                        }
+                        Closeables.closeSafely((Closeable) file);
+                        Closeables.closeSafely(fileInputStream2);
+                        Closeables.closeSafely(inputStream2);
+                        Closeables.closeSafely((Closeable) map);
+                        return new ResponseEntity(z);
+                    } catch (Throwable th4) {
+                        th = th4;
+                        inputStream5 = null;
+                        inputStream2 = null;
+                        outputStream3 = outputStream6;
+                        closeable = outputStream3;
+                        inputStream = inputStream5;
+                        Closeables.closeSafely(closeable);
+                        Closeables.closeSafely(fileInputStream);
+                        Closeables.closeSafely(inputStream2);
+                        Closeables.closeSafely(inputStream);
+                        throw th;
                     }
-                    if (DEBUG) {
-                        Log.d(TAG, "DefaultContentUploader: success = " + z2 + ", resultStr= " + byteArrayOutputStream3);
-                    }
-                    ResponseEntity responseEntity = new ResponseEntity(z2, byteArrayOutputStream3);
-                    Closeables.closeSafely(outputStream);
-                    Closeables.closeSafely(fileInputStream);
-                    Closeables.closeSafely(byteArrayOutputStream);
-                    Closeables.closeSafely(inputStream);
-                    return responseEntity;
-                } catch (MalformedURLException e6) {
-                    e = e6;
-                    z = false;
+                } catch (MalformedURLException e9) {
+                    e = e9;
+                    outputStream5 = null;
+                    inputStream7 = null;
+                } catch (IOException e10) {
+                    e = e10;
+                    outputStream4 = null;
+                    inputStream6 = null;
+                } catch (Throwable th5) {
+                    th = th5;
                     inputStream = null;
-                    fileInputStream2 = fileInputStream;
-                } catch (IOException e7) {
-                    e = e7;
-                    z = false;
-                    inputStream = null;
-                } catch (Throwable th3) {
-                    th = th3;
-                    inputStream = null;
+                    inputStream2 = null;
                 }
-            } catch (Throwable th4) {
-                th = th4;
+            } catch (Throwable th6) {
+                th = th6;
+                fileInputStream = fileInputStream2;
+                outputStream3 = file;
+                inputStream5 = map;
             }
-        } catch (MalformedURLException e8) {
-            e = e8;
-            z = false;
-            inputStream = null;
-        } catch (IOException e9) {
-            e = e9;
-            z = false;
+        } catch (MalformedURLException e11) {
+            e = e11;
+            outputStream2 = null;
+            inputStream4 = null;
+            inputStream2 = null;
+        } catch (IOException e12) {
+            e = e12;
+            outputStream = null;
+            inputStream3 = null;
+            inputStream2 = null;
+        } catch (Throwable th7) {
+            th = th7;
             inputStream = null;
             fileInputStream = null;
-        } catch (Throwable th5) {
-            th = th5;
-            inputStream = null;
-            fileInputStream = null;
+            inputStream2 = null;
         }
     }
 }

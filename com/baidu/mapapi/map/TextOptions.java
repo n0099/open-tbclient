@@ -2,9 +2,8 @@ package com.baidu.mapapi.map;
 
 import android.graphics.Typeface;
 import android.os.Bundle;
-import androidx.core.view.ViewCompat;
 import com.baidu.mapapi.model.LatLng;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public final class TextOptions extends OverlayOptions {
     public static final int ALIGN_BOTTOM = 16;
     public static final int ALIGN_CENTER_HORIZONTAL = 4;
@@ -14,34 +13,47 @@ public final class TextOptions extends OverlayOptions {
     public static final int ALIGN_TOP = 8;
 
     /* renamed from: a  reason: collision with root package name */
-    int f2049a;
-    Bundle c;
-    private String d;
-    private LatLng e;
-    private int f;
-    private Typeface i;
-    private float l;
-    private int g = ViewCompat.MEASURED_STATE_MASK;
-    private int h = 12;
-    private int j = 4;
-    private int k = 32;
-    boolean b = true;
+    public int f7011a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    /* renamed from: c  reason: collision with root package name */
+    public Bundle f7013c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public String f7014d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public LatLng f7015e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public int f7016f;
+    public Typeface i;
+    public float l;
+
+    /* renamed from: g  reason: collision with root package name */
+    public int f7017g = -16777216;
+
+    /* renamed from: h  reason: collision with root package name */
+    public int f7018h = 12;
+    public int j = 4;
+    public int k = 32;
+
+    /* renamed from: b  reason: collision with root package name */
+    public boolean f7012b = true;
+
     @Override // com.baidu.mapapi.map.OverlayOptions
     public Overlay a() {
         Text text = new Text();
-        text.x = this.b;
-        text.w = this.f2049a;
-        text.y = this.c;
-        text.f2048a = this.d;
-        text.b = this.e;
-        text.c = this.f;
-        text.d = this.g;
-        text.e = this.h;
-        text.f = this.i;
-        text.g = this.j;
-        text.h = this.k;
+        text.x = this.f7012b;
+        text.w = this.f7011a;
+        text.y = this.f7013c;
+        text.f7003a = this.f7014d;
+        text.f7004b = this.f7015e;
+        text.f7005c = this.f7016f;
+        text.f7006d = this.f7017g;
+        text.f7007e = this.f7018h;
+        text.f7008f = this.i;
+        text.f7009g = this.j;
+        text.f7010h = this.k;
         text.i = this.l;
         return text;
     }
@@ -53,22 +65,22 @@ public final class TextOptions extends OverlayOptions {
     }
 
     public TextOptions bgColor(int i) {
-        this.f = i;
+        this.f7016f = i;
         return this;
     }
 
     public TextOptions extraInfo(Bundle bundle) {
-        this.c = bundle;
+        this.f7013c = bundle;
         return this;
     }
 
     public TextOptions fontColor(int i) {
-        this.g = i;
+        this.f7017g = i;
         return this;
     }
 
     public TextOptions fontSize(int i) {
-        this.h = i;
+        this.f7018h = i;
         return this;
     }
 
@@ -81,23 +93,23 @@ public final class TextOptions extends OverlayOptions {
     }
 
     public int getBgColor() {
-        return this.f;
+        return this.f7016f;
     }
 
     public Bundle getExtraInfo() {
-        return this.c;
+        return this.f7013c;
     }
 
     public int getFontColor() {
-        return this.g;
+        return this.f7017g;
     }
 
     public int getFontSize() {
-        return this.h;
+        return this.f7018h;
     }
 
     public LatLng getPosition() {
-        return this.e;
+        return this.f7015e;
     }
 
     public float getRotate() {
@@ -105,7 +117,7 @@ public final class TextOptions extends OverlayOptions {
     }
 
     public String getText() {
-        return this.d;
+        return this.f7014d;
     }
 
     public Typeface getTypeface() {
@@ -113,23 +125,23 @@ public final class TextOptions extends OverlayOptions {
     }
 
     public int getZIndex() {
-        return this.f2049a;
+        return this.f7011a;
     }
 
     public boolean isVisible() {
-        return this.b;
+        return this.f7012b;
     }
 
     public TextOptions position(LatLng latLng) {
-        if (latLng == null) {
-            throw new IllegalArgumentException("position can not be null");
+        if (latLng != null) {
+            this.f7015e = latLng;
+            return this;
         }
-        this.e = latLng;
-        return this;
+        throw new IllegalArgumentException("position can not be null");
     }
 
-    public TextOptions rotate(float f) {
-        this.l = f;
+    public TextOptions rotate(float f2) {
+        this.l = f2;
         return this;
     }
 
@@ -137,7 +149,7 @@ public final class TextOptions extends OverlayOptions {
         if (str == null || str.equals("")) {
             throw new IllegalArgumentException("text can not be null or empty");
         }
-        this.d = str;
+        this.f7014d = str;
         return this;
     }
 
@@ -147,12 +159,12 @@ public final class TextOptions extends OverlayOptions {
     }
 
     public TextOptions visible(boolean z) {
-        this.b = z;
+        this.f7012b = z;
         return this;
     }
 
     public TextOptions zIndex(int i) {
-        this.f2049a = i;
+        this.f7011a = i;
         return this;
     }
 }

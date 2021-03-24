@@ -8,12 +8,36 @@ import androidx.annotation.Dimension;
 import androidx.cardview.widget.CardView;
 import com.google.android.material.R;
 import com.google.android.material.internal.ThemeEnforcement;
-/* loaded from: classes14.dex */
+/* loaded from: classes6.dex */
 public class MaterialCardView extends CardView {
-    private final MaterialCardViewHelper cardViewHelper;
+    public final MaterialCardViewHelper cardViewHelper;
 
     public MaterialCardView(Context context) {
         this(context, null);
+    }
+
+    @ColorInt
+    public int getStrokeColor() {
+        return this.cardViewHelper.getStrokeColor();
+    }
+
+    @Dimension
+    public int getStrokeWidth() {
+        return this.cardViewHelper.getStrokeWidth();
+    }
+
+    @Override // androidx.cardview.widget.CardView
+    public void setRadius(float f2) {
+        super.setRadius(f2);
+        this.cardViewHelper.updateForeground();
+    }
+
+    public void setStrokeColor(@ColorInt int i) {
+        this.cardViewHelper.setStrokeColor(i);
+    }
+
+    public void setStrokeWidth(@Dimension int i) {
+        this.cardViewHelper.setStrokeWidth(i);
     }
 
     public MaterialCardView(Context context, AttributeSet attributeSet) {
@@ -23,32 +47,9 @@ public class MaterialCardView extends CardView {
     public MaterialCardView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context, attributeSet, R.styleable.MaterialCardView, i, R.style.Widget_MaterialComponents_CardView, new int[0]);
-        this.cardViewHelper = new MaterialCardViewHelper(this);
-        this.cardViewHelper.loadFromAttributes(obtainStyledAttributes);
+        MaterialCardViewHelper materialCardViewHelper = new MaterialCardViewHelper(this);
+        this.cardViewHelper = materialCardViewHelper;
+        materialCardViewHelper.loadFromAttributes(obtainStyledAttributes);
         obtainStyledAttributes.recycle();
-    }
-
-    public void setStrokeColor(@ColorInt int i) {
-        this.cardViewHelper.setStrokeColor(i);
-    }
-
-    @ColorInt
-    public int getStrokeColor() {
-        return this.cardViewHelper.getStrokeColor();
-    }
-
-    public void setStrokeWidth(@Dimension int i) {
-        this.cardViewHelper.setStrokeWidth(i);
-    }
-
-    @Dimension
-    public int getStrokeWidth() {
-        return this.cardViewHelper.getStrokeWidth();
-    }
-
-    @Override // androidx.cardview.widget.CardView
-    public void setRadius(float f) {
-        super.setRadius(f);
-        this.cardViewHelper.updateForeground();
     }
 }

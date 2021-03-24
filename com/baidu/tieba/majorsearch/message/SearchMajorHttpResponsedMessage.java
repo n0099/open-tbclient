@@ -2,12 +2,12 @@ package com.baidu.tieba.majorsearch.message;
 
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.majorsearch.b.a;
+import d.b.i0.o1.c.a;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes3.dex */
 public class SearchMajorHttpResponsedMessage extends JsonHttpResponsedMessage {
-    private a mSearchMajorResultData;
+    public a mSearchMajorResultData;
 
     public SearchMajorHttpResponsedMessage() {
         super(CmdConfigHttp.CMD_SEARCH_MAJOR);
@@ -18,8 +18,9 @@ public class SearchMajorHttpResponsedMessage extends JsonHttpResponsedMessage {
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null) {
             JSONArray optJSONArray = jSONObject.optJSONArray("major_list");
-            this.mSearchMajorResultData = new a();
-            this.mSearchMajorResultData.parseJson(optJSONArray);
+            a aVar = new a();
+            this.mSearchMajorResultData = aVar;
+            aVar.a(optJSONArray);
         }
     }
 

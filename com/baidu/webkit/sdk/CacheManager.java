@@ -6,28 +6,28 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.Map;
 @Deprecated
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class CacheManager {
-    static final /* synthetic */ boolean $assertionsDisabled;
+    public static final /* synthetic */ boolean $assertionsDisabled = false;
 
     @Deprecated
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public static class CacheResult {
-        long contentLength;
-        String contentdisposition;
-        String crossDomain;
-        String encoding;
-        String etag;
-        long expires;
-        String expiresString;
-        int httpStatusCode;
-        InputStream inStream;
-        String lastModified;
-        String localPath;
-        String location;
-        String mimeType;
-        File outFile;
-        OutputStream outStream;
+        public long contentLength;
+        public String contentdisposition;
+        public String crossDomain;
+        public String encoding;
+        public String etag;
+        public long expires;
+        public String expiresString;
+        public int httpStatusCode;
+        public InputStream inStream;
+        public String lastModified;
+        public String localPath;
+        public String location;
+        public String mimeType;
+        public File outFile;
+        public OutputStream outStream;
 
         public String getContentDisposition() {
             return this.contentdisposition;
@@ -94,10 +94,6 @@ public class CacheManager {
         }
     }
 
-    static {
-        $assertionsDisabled = !CacheManager.class.desiredAssertionStatus();
-    }
-
     @Deprecated
     public static boolean cacheDisabled() {
         return false;
@@ -118,13 +114,10 @@ public class CacheManager {
         return null;
     }
 
-    static void saveCacheFile(String str, long j, CacheResult cacheResult) {
+    public static void saveCacheFile(String str, long j, CacheResult cacheResult) {
         try {
             cacheResult.outStream.close();
-            if (!$assertionsDisabled) {
-                throw new AssertionError();
-            }
-        } catch (IOException e) {
+        } catch (IOException unused) {
         }
     }
 

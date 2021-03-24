@@ -7,22 +7,26 @@ import org.apache.http.conn.routing.HttpRoute;
 import org.apache.http.params.HttpParams;
 import org.apache.http.protocol.HttpContext;
 @Deprecated
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public abstract class AbstractPooledConnAdapter extends AbstractClientConnAdapter {
-    protected volatile AbstractPoolEntry poolEntry;
+    public volatile AbstractPoolEntry poolEntry;
 
-    /* JADX INFO: Access modifiers changed from: protected */
     public AbstractPooledConnAdapter(ClientConnectionManager clientConnectionManager, AbstractPoolEntry abstractPoolEntry) {
         super(null, null);
         throw new RuntimeException("Stub!");
     }
 
-    protected final void assertAttached() {
+    public final void assertAttached() {
+        throw new RuntimeException("Stub!");
+    }
+
+    @Override // org.apache.http.HttpConnection
+    public void close() throws IOException {
         throw new RuntimeException("Stub!");
     }
 
     @Override // org.apache.http.impl.conn.AbstractClientConnAdapter
-    protected void detach() {
+    public void detach() {
         throw new RuntimeException("Stub!");
     }
 
@@ -32,17 +36,7 @@ public abstract class AbstractPooledConnAdapter extends AbstractClientConnAdapte
     }
 
     @Override // org.apache.http.conn.ManagedClientConnection
-    public void open(HttpRoute httpRoute, HttpContext httpContext, HttpParams httpParams) throws IOException {
-        throw new RuntimeException("Stub!");
-    }
-
-    @Override // org.apache.http.conn.ManagedClientConnection
-    public void tunnelTarget(boolean z, HttpParams httpParams) throws IOException {
-        throw new RuntimeException("Stub!");
-    }
-
-    @Override // org.apache.http.conn.ManagedClientConnection
-    public void tunnelProxy(HttpHost httpHost, boolean z, HttpParams httpParams) throws IOException {
+    public Object getState() {
         throw new RuntimeException("Stub!");
     }
 
@@ -51,8 +45,13 @@ public abstract class AbstractPooledConnAdapter extends AbstractClientConnAdapte
         throw new RuntimeException("Stub!");
     }
 
-    @Override // org.apache.http.HttpConnection
-    public void close() throws IOException {
+    @Override // org.apache.http.conn.ManagedClientConnection
+    public void open(HttpRoute httpRoute, HttpContext httpContext, HttpParams httpParams) throws IOException {
+        throw new RuntimeException("Stub!");
+    }
+
+    @Override // org.apache.http.conn.ManagedClientConnection
+    public void setState(Object obj) {
         throw new RuntimeException("Stub!");
     }
 
@@ -62,12 +61,12 @@ public abstract class AbstractPooledConnAdapter extends AbstractClientConnAdapte
     }
 
     @Override // org.apache.http.conn.ManagedClientConnection
-    public Object getState() {
+    public void tunnelProxy(HttpHost httpHost, boolean z, HttpParams httpParams) throws IOException {
         throw new RuntimeException("Stub!");
     }
 
     @Override // org.apache.http.conn.ManagedClientConnection
-    public void setState(Object obj) {
+    public void tunnelTarget(boolean z, HttpParams httpParams) throws IOException {
         throw new RuntimeException("Stub!");
     }
 }

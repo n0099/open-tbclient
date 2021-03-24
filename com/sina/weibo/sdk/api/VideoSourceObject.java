@@ -3,7 +3,7 @@ package com.sina.weibo.sdk.api;
 import android.net.Uri;
 import android.os.Parcel;
 import android.os.Parcelable;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class VideoSourceObject extends BaseMediaObject {
     public static final Parcelable.Creator<VideoSourceObject> CREATOR = new Parcelable.Creator<VideoSourceObject>() { // from class: com.sina.weibo.sdk.api.VideoSourceObject.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -24,16 +24,12 @@ public class VideoSourceObject extends BaseMediaObject {
     public long during;
     public Uri videoPath;
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.sina.weibo.sdk.api.BaseMediaObject
-    public String toExtraMediaString() {
-        return null;
+    public VideoSourceObject() {
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.sina.weibo.sdk.api.BaseMediaObject
-    public BaseMediaObject toExtraMediaObject(String str) {
-        return null;
+    @Override // com.sina.weibo.sdk.api.BaseMediaObject, android.os.Parcelable
+    public int describeContents() {
+        return 0;
     }
 
     @Override // com.sina.weibo.sdk.api.BaseMediaObject
@@ -41,12 +37,14 @@ public class VideoSourceObject extends BaseMediaObject {
         return 0;
     }
 
-    public VideoSourceObject() {
+    @Override // com.sina.weibo.sdk.api.BaseMediaObject
+    public BaseMediaObject toExtraMediaObject(String str) {
+        return null;
     }
 
-    @Override // com.sina.weibo.sdk.api.BaseMediaObject, android.os.Parcelable
-    public int describeContents() {
-        return 0;
+    @Override // com.sina.weibo.sdk.api.BaseMediaObject
+    public String toExtraMediaString() {
+        return null;
     }
 
     @Override // com.sina.weibo.sdk.api.BaseMediaObject, android.os.Parcelable
@@ -57,7 +55,7 @@ public class VideoSourceObject extends BaseMediaObject {
         parcel.writeLong(this.during);
     }
 
-    protected VideoSourceObject(Parcel parcel) {
+    public VideoSourceObject(Parcel parcel) {
         super(parcel);
         this.coverPath = (Uri) parcel.readParcelable(Uri.class.getClassLoader());
         this.videoPath = (Uri) parcel.readParcelable(Uri.class.getClassLoader());

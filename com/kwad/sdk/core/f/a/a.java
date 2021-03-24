@@ -7,19 +7,23 @@ import android.content.ServiceConnection;
 import android.os.IBinder;
 import com.kwad.sdk.core.f.b.a;
 import java.util.concurrent.LinkedBlockingQueue;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f6073a;
-    private final LinkedBlockingQueue<IBinder> b = new LinkedBlockingQueue<>(1);
-    private ServiceConnection c = new ServiceConnection() { // from class: com.kwad.sdk.core.f.a.a.1
+    public Context f33594a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public final LinkedBlockingQueue<IBinder> f33595b = new LinkedBlockingQueue<>(1);
+
+    /* renamed from: c  reason: collision with root package name */
+    public ServiceConnection f33596c = new ServiceConnection() { // from class: com.kwad.sdk.core.f.a.a.1
         @Override // android.content.ServiceConnection
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
             try {
-                a.this.b.put(iBinder);
-            } catch (Exception e) {
-                com.kwad.sdk.core.d.a.a(e);
+                a.this.f33595b.put(iBinder);
+            } catch (Exception e2) {
+                com.kwad.sdk.core.d.a.a(e2);
             }
         }
 
@@ -29,63 +33,34 @@ public class a {
     };
 
     public a(Context context) {
-        this.f6073a = context;
+        this.f33594a = context;
     }
 
     public String a() {
-        String str;
-        Throwable th;
-        String str2;
+        Context context;
+        ServiceConnection serviceConnection;
+        String str = "";
         try {
             Intent intent = new Intent();
             intent.setAction("com.asus.msa.action.ACCESS_DID");
             intent.setComponent(new ComponentName("com.asus.msa.SupplementaryDID", "com.asus.msa.SupplementaryDID.SupplementaryDIDService"));
-            try {
-                if (this.f6073a.bindService(intent, this.c, 1)) {
-                    try {
-                        str = new a.C1114a(this.b.take()).a();
-                        try {
-                            try {
-                                com.kwad.sdk.core.d.a.b("ASUSDeviceIDHelper", "getOAID oaid:" + str);
-                                this.f6073a.unbindService(this.c);
-                            } catch (Exception e) {
-                                e = e;
-                                com.kwad.sdk.core.d.a.a(e);
-                                this.f6073a.unbindService(this.c);
-                                return str;
-                            }
-                        } catch (Throwable th2) {
-                            th = th2;
-                            str2 = str;
-                            try {
-                                this.f6073a.unbindService(this.c);
-                                throw th;
-                            } catch (Exception e2) {
-                                e = e2;
-                                str = str2;
-                                com.kwad.sdk.core.d.a.b("ASUSDeviceIDHelper", "getOAID asus service not found;");
-                                com.kwad.sdk.core.d.a.a(e);
-                                return str;
-                            }
-                        }
-                    } catch (Exception e3) {
-                        e = e3;
-                        str = "";
-                    } catch (Throwable th3) {
-                        th = th3;
-                        str2 = "";
-                        this.f6073a.unbindService(this.c);
-                        throw th;
-                    }
-                    return str;
+            if (this.f33594a.bindService(intent, this.f33596c, 1)) {
+                try {
+                    str = new a.C0381a(this.f33595b.take()).a();
+                    com.kwad.sdk.core.d.a.b("ASUSDeviceIDHelper", "getOAID oaid:" + str);
+                    context = this.f33594a;
+                    serviceConnection = this.f33596c;
+                } catch (Exception e2) {
+                    com.kwad.sdk.core.d.a.a(e2);
+                    context = this.f33594a;
+                    serviceConnection = this.f33596c;
                 }
-                return "";
-            } catch (Exception e4) {
-                e = e4;
+                context.unbindService(serviceConnection);
             }
-        } catch (Exception e5) {
-            e = e5;
-            str = "";
+        } catch (Exception e3) {
+            com.kwad.sdk.core.d.a.b("ASUSDeviceIDHelper", "getOAID asus service not found;");
+            com.kwad.sdk.core.d.a.a(e3);
         }
+        return str;
     }
 }

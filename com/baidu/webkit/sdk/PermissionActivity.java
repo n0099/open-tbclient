@@ -8,12 +8,12 @@ import android.os.Bundle;
 import com.baidu.webkit.internal.a.a;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class PermissionActivity extends Activity {
-    private static final int REQUEST_CAMERA_RECORD_CODE = 1003;
+    public static final int REQUEST_CAMERA_RECORD_CODE = 1003;
 
     @Override // android.app.Activity
-    protected void onCreate(Bundle bundle) {
+    public void onCreate(Bundle bundle) {
         int a2 = a.a(this);
         super.onCreate(bundle);
         if (a2 == -1 || Build.VERSION.SDK_INT != 26 || getApplicationInfo().targetSdkVersion <= 26 || !a.c(this) || a.b(this)) {
@@ -28,10 +28,10 @@ public class PermissionActivity extends Activity {
             if (declaredField2.getInt(obj) == -1) {
                 declaredField2.setInt(obj, a2);
             }
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        } catch (NoSuchFieldException e2) {
+        } catch (IllegalAccessException e2) {
             e2.printStackTrace();
+        } catch (NoSuchFieldException e3) {
+            e3.printStackTrace();
         }
     }
 
@@ -58,7 +58,7 @@ public class PermissionActivity extends Activity {
 
     @Override // android.app.Activity
     @SuppressLint({"NewApi"})
-    protected void onStart() {
+    public void onStart() {
         super.onStart();
         String[] stringArrayExtra = getIntent().getStringArrayExtra("Resources");
         if (stringArrayExtra == null || stringArrayExtra.length <= 0) {

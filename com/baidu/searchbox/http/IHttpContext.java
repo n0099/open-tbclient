@@ -6,34 +6,12 @@ import com.baidu.searchbox.http.statistics.NetworkInfoRecord;
 import com.baidu.searchbox.http.statistics.NetworkStat;
 import okhttp3.EventListener;
 import okhttp3.Request;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public interface IHttpContext {
     public static final IHttpContext EMPTY = new IHttpContext() { // from class: com.baidu.searchbox.http.IHttpContext.1
         @Override // com.baidu.searchbox.http.IHttpContext
-        public void init() {
-        }
-
-        @Override // com.baidu.searchbox.http.IHttpContext
-        public IHttpDns getNewHttpDns() {
-            return null;
-        }
-
-        @Override // com.baidu.searchbox.http.IHttpContext
-        public IHttpDns getNewCloneHttpDns(HttpRequest httpRequest) {
-            return null;
-        }
-
-        @Override // com.baidu.searchbox.http.IHttpContext
-        public void prefetchDnsResult(String str) {
-        }
-
-        @Override // com.baidu.searchbox.http.IHttpContext
-        public NetworkStat<Request> getNewNetworkStat() {
-            return null;
-        }
-
-        @Override // com.baidu.searchbox.http.IHttpContext
-        public void setNetworkInfoRecord(NetworkInfoRecord networkInfoRecord) {
+        public boolean forceHttpDnsIPv4OnlyInDualStack(HttpRequest httpRequest) {
+            return false;
         }
 
         @Override // com.baidu.searchbox.http.IHttpContext
@@ -42,8 +20,8 @@ public interface IHttpContext {
         }
 
         @Override // com.baidu.searchbox.http.IHttpContext
-        public boolean forceHttpDnsIPv4OnlyInDualStack(HttpRequest httpRequest) {
-            return false;
+        public EventListener getEventListener() {
+            return null;
         }
 
         @Override // com.baidu.searchbox.http.IHttpContext
@@ -52,19 +30,34 @@ public interface IHttpContext {
         }
 
         @Override // com.baidu.searchbox.http.IHttpContext
-        public EventListener getEventListener() {
+        public IHttpDns getNewCloneHttpDns(HttpRequest httpRequest) {
             return null;
         }
 
         @Override // com.baidu.searchbox.http.IHttpContext
-        public IClientIPProvider getClientIPProvider() {
+        public IHttpDns getNewHttpDns() {
             return null;
+        }
+
+        @Override // com.baidu.searchbox.http.IHttpContext
+        public NetworkStat<Request> getNewNetworkStat() {
+            return null;
+        }
+
+        @Override // com.baidu.searchbox.http.IHttpContext
+        public void init() {
+        }
+
+        @Override // com.baidu.searchbox.http.IHttpContext
+        public void prefetchDnsResult(String str) {
+        }
+
+        @Override // com.baidu.searchbox.http.IHttpContext
+        public void setNetworkInfoRecord(NetworkInfoRecord networkInfoRecord) {
         }
     };
 
     boolean forceHttpDnsIPv4OnlyInDualStack(HttpRequest httpRequest);
-
-    IClientIPProvider getClientIPProvider();
 
     CookieManager getCookieManager(boolean z, boolean z2);
 

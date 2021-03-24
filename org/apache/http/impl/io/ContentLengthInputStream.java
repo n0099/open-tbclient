@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import org.apache.http.io.SessionInputBuffer;
 @Deprecated
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class ContentLengthInputStream extends InputStream {
     public ContentLengthInputStream(SessionInputBuffer sessionInputBuffer, long j) {
         throw new RuntimeException("Stub!");
@@ -21,17 +21,17 @@ public class ContentLengthInputStream extends InputStream {
     }
 
     @Override // java.io.InputStream
+    public long skip(long j) throws IOException {
+        throw new RuntimeException("Stub!");
+    }
+
+    @Override // java.io.InputStream
     public int read(byte[] bArr, int i, int i2) throws IOException {
         throw new RuntimeException("Stub!");
     }
 
     @Override // java.io.InputStream
     public int read(byte[] bArr) throws IOException {
-        throw new RuntimeException("Stub!");
-    }
-
-    @Override // java.io.InputStream
-    public long skip(long j) throws IOException {
         throw new RuntimeException("Stub!");
     }
 }

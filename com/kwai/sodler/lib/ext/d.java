@@ -10,12 +10,11 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 @SuppressLint({"LongLogTag"})
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class d {
 
-    /* loaded from: classes3.dex */
-    private static final class a {
-        /* JADX INFO: Access modifiers changed from: private */
+    /* loaded from: classes6.dex */
+    public static final class a {
         public static void b(ClassLoader classLoader, File file) {
             Object obj = com.kwai.sodler.lib.ext.e.a(classLoader, "pathList").get(classLoader);
             Field a2 = com.kwai.sodler.lib.ext.e.a(obj, "nativeLibraryDirectories");
@@ -31,9 +30,8 @@ public class d {
         }
     }
 
-    /* loaded from: classes3.dex */
-    private static final class b {
-        /* JADX INFO: Access modifiers changed from: private */
+    /* loaded from: classes6.dex */
+    public static final class b {
         public static void b(ClassLoader classLoader, File file) {
             Object obj = com.kwai.sodler.lib.ext.e.a(classLoader, "pathList").get(classLoader);
             Field a2 = com.kwai.sodler.lib.ext.e.a(obj, "nativeLibraryDirectories");
@@ -68,63 +66,64 @@ public class d {
         }
     }
 
-    /* loaded from: classes3.dex */
-    private static final class c {
-        /* JADX INFO: Access modifiers changed from: private */
+    /* loaded from: classes6.dex */
+    public static final class c {
         public static void b(ClassLoader classLoader, File file) {
             Object obj = com.kwai.sodler.lib.ext.e.a(classLoader, "pathList").get(classLoader);
-            List list = (List) com.kwai.sodler.lib.ext.e.a(obj, "nativeLibraryDirectories").get(obj);
-            List<File> arrayList = list == null ? new ArrayList(2) : list;
-            for (File file2 : arrayList) {
+            List<File> list = (List) com.kwai.sodler.lib.ext.e.a(obj, "nativeLibraryDirectories").get(obj);
+            if (list == null) {
+                list = new ArrayList(2);
+            }
+            for (File file2 : list) {
                 if (file.equals(file2)) {
                     return;
                 }
             }
-            arrayList.add(file);
+            list.add(file);
             List list2 = (List) com.kwai.sodler.lib.ext.e.a(obj, "systemNativeLibraryDirectories").get(obj);
             if (list2 == null) {
                 list2 = new ArrayList(2);
             }
-            ArrayList arrayList2 = new ArrayList(arrayList.size() + list2.size() + 1);
-            arrayList2.addAll(arrayList);
-            arrayList2.addAll(list2);
-            com.kwai.sodler.lib.ext.e.a(obj, "nativeLibraryPathElements").set(obj, (Object[]) com.kwai.sodler.lib.ext.e.a(obj, "makePathElements", List.class, File.class, List.class).invoke(obj, arrayList2, null, new ArrayList()));
+            ArrayList arrayList = new ArrayList(list.size() + list2.size() + 1);
+            arrayList.addAll(list);
+            arrayList.addAll(list2);
+            com.kwai.sodler.lib.ext.e.a(obj, "nativeLibraryPathElements").set(obj, (Object[]) com.kwai.sodler.lib.ext.e.a(obj, "makePathElements", List.class, File.class, List.class).invoke(obj, arrayList, null, new ArrayList()));
         }
     }
 
     /* renamed from: com.kwai.sodler.lib.ext.d$d  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    private static final class C1182d {
-        /* JADX INFO: Access modifiers changed from: private */
+    /* loaded from: classes6.dex */
+    public static final class C0449d {
         public static void b(ClassLoader classLoader, File file) {
             Object obj = com.kwai.sodler.lib.ext.e.a(classLoader, "pathList").get(classLoader);
-            List list = (List) com.kwai.sodler.lib.ext.e.a(obj, "nativeLibraryDirectories").get(obj);
-            List<File> arrayList = list == null ? new ArrayList(2) : list;
-            for (File file2 : arrayList) {
+            List<File> list = (List) com.kwai.sodler.lib.ext.e.a(obj, "nativeLibraryDirectories").get(obj);
+            if (list == null) {
+                list = new ArrayList(2);
+            }
+            for (File file2 : list) {
                 if (file.equals(file2)) {
                     return;
                 }
             }
-            arrayList.add(file);
+            list.add(file);
             List list2 = (List) com.kwai.sodler.lib.ext.e.a(obj, "systemNativeLibraryDirectories").get(obj);
             if (list2 == null) {
                 list2 = new ArrayList(2);
             }
-            ArrayList arrayList2 = new ArrayList(arrayList.size() + list2.size() + 1);
-            arrayList2.addAll(arrayList);
-            arrayList2.addAll(list2);
-            com.kwai.sodler.lib.ext.e.a(obj, "nativeLibraryPathElements").set(obj, (Object[]) com.kwai.sodler.lib.ext.e.a(obj, "makePathElements", List.class).invoke(obj, arrayList2));
+            ArrayList arrayList = new ArrayList(list.size() + list2.size() + 1);
+            arrayList.addAll(list);
+            arrayList.addAll(list2);
+            com.kwai.sodler.lib.ext.e.a(obj, "nativeLibraryPathElements").set(obj, (Object[]) com.kwai.sodler.lib.ext.e.a(obj, "makePathElements", List.class).invoke(obj, arrayList));
         }
     }
 
-    /* loaded from: classes3.dex */
-    private static final class e {
-        /* JADX INFO: Access modifiers changed from: private */
+    /* loaded from: classes6.dex */
+    public static final class e {
         public static void b(ClassLoader classLoader, File file) {
             String path = file.getPath();
             Field a2 = com.kwai.sodler.lib.ext.e.a(classLoader, "libPath");
             String valueOf = String.valueOf(a2.get(classLoader));
-            a2.set(classLoader, !TextUtils.isEmpty(valueOf) ? valueOf + ":" + path : path);
+            a2.set(classLoader, TextUtils.isEmpty(valueOf) ? path : valueOf + ":" + path);
             Field a3 = com.kwai.sodler.lib.ext.e.a(classLoader, "libraryPathElements");
             List<String> list = (List) a3.get(classLoader);
             for (String str : list) {
@@ -142,7 +141,7 @@ public class d {
             if (file != null) {
                 if (file.exists()) {
                     if ((Build.VERSION.SDK_INT == 25 && Build.VERSION.PREVIEW_SDK_INT != 0) || Build.VERSION.SDK_INT > 25) {
-                        C1182d.b(classLoader, file);
+                        C0449d.b(classLoader, file);
                     } else if (Build.VERSION.SDK_INT == 24) {
                         c.b(classLoader, file);
                     } else if (Build.VERSION.SDK_INT >= 23) {
@@ -152,6 +151,7 @@ public class d {
                     } else {
                         e.b(classLoader, file);
                     }
+                    return;
                 }
             }
             Log.e("Sodler.ShareLibraryLoader", String.format("installNativeLibraryPath, folder %s is illegal", file));

@@ -8,40 +8,49 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class BasicSeperateBaMemberItemView extends LinearLayout {
-    private TbImageView jvx;
-    private View lnK;
-    private TextView lnL;
-    private TextView lnM;
-    private TbImageView lnN;
-    private Context mContext;
-    private View mRootView;
+
+    /* renamed from: e  reason: collision with root package name */
+    public Context f18896e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public View f18897f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public View f18898g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public TbImageView f18899h;
+    public TextView i;
+    public TextView j;
+    public TbImageView k;
 
     public BasicSeperateBaMemberItemView(Context context) {
         super(context);
-        this.mContext = context;
-        initView();
+        this.f18896e = context;
+        a();
+    }
+
+    public final void a() {
+        View inflate = LayoutInflater.from(this.f18896e).inflate(R.layout.index_seperate_ba_item, this);
+        this.f18897f = inflate;
+        this.f18898g = inflate.findViewById(R.id.ly_desc);
+        this.f18899h = (TbImageView) this.f18897f.findViewById(R.id.task_icon);
+        this.i = (TextView) this.f18897f.findViewById(R.id.txt_title);
+        this.j = (TextView) this.f18897f.findViewById(R.id.txt_desc);
+        this.k = (TbImageView) this.f18897f.findViewById(R.id.privilege_spread_icon);
     }
 
     public BasicSeperateBaMemberItemView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.mContext = context;
-        initView();
+        this.f18896e = context;
+        a();
     }
 
     public BasicSeperateBaMemberItemView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.mContext = context;
-        initView();
-    }
-
-    private void initView() {
-        this.mRootView = LayoutInflater.from(this.mContext).inflate(R.layout.index_seperate_ba_item, this);
-        this.lnK = this.mRootView.findViewById(R.id.ly_desc);
-        this.jvx = (TbImageView) this.mRootView.findViewById(R.id.task_icon);
-        this.lnL = (TextView) this.mRootView.findViewById(R.id.txt_title);
-        this.lnM = (TextView) this.mRootView.findViewById(R.id.txt_desc);
-        this.lnN = (TbImageView) this.mRootView.findViewById(R.id.privilege_spread_icon);
+        this.f18896e = context;
+        a();
     }
 }

@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import com.win.opensdk.activitys.H5Activity;
 import com.win.opensdk.core.Info;
-/* loaded from: classes14.dex */
+/* loaded from: classes7.dex */
 public class PoseidonH5Activity extends H5Activity {
     public static void a(Context context, Info info, String str) {
         Intent intent = new Intent(context, PoseidonH5Activity.class);

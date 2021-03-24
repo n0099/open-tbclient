@@ -4,33 +4,35 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.RelativeLayout;
-import com.baidu.tbadk.editortools.noConflictPanel.a.c;
-/* loaded from: classes.dex */
+import d.b.h0.w.v.c.c;
+/* loaded from: classes3.dex */
 public class KPSwitchRootRelativeLayout extends RelativeLayout {
-    private c fEX;
+
+    /* renamed from: e  reason: collision with root package name */
+    public c f13880e;
 
     public KPSwitchRootRelativeLayout(Context context) {
         super(context);
-        init();
+        a();
+    }
+
+    public final void a() {
+        this.f13880e = new c(this);
+    }
+
+    @Override // android.widget.RelativeLayout, android.view.View
+    public void onMeasure(int i, int i2) {
+        this.f13880e.b(View.MeasureSpec.getSize(i), View.MeasureSpec.getSize(i2));
+        super.onMeasure(i, i2);
     }
 
     public KPSwitchRootRelativeLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        init();
+        a();
     }
 
     public KPSwitchRootRelativeLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        init();
-    }
-
-    private void init() {
-        this.fEX = new c(this);
-    }
-
-    @Override // android.widget.RelativeLayout, android.view.View
-    protected void onMeasure(int i, int i2) {
-        this.fEX.W(View.MeasureSpec.getSize(i), View.MeasureSpec.getSize(i2));
-        super.onMeasure(i, i2);
+        a();
     }
 }

@@ -3,7 +3,7 @@ package com.baidu.mobad.feeds;
 import com.baidu.mobads.interfaces.feeds.IXAdFeedsRequestParameters;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public final class RequestParameters implements IXAdFeedsRequestParameters {
     public static final int ADS_TYPE_DOWNLOAD = 2;
     public static final int ADS_TYPE_OPENPAGE = 1;
@@ -15,39 +15,67 @@ public final class RequestParameters implements IXAdFeedsRequestParameters {
     public static final String TAG = "RequestParameters";
 
     /* renamed from: a  reason: collision with root package name */
-    private final String f2322a;
-    private int b;
-    private boolean c;
-    private Map<String, String> d;
-    private int e;
-    private int f;
-    private int g;
-    private boolean h;
-    protected String mPlacementId;
+    public final String f8016a;
 
-    /* loaded from: classes4.dex */
+    /* renamed from: b  reason: collision with root package name */
+    public int f8017b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public boolean f8018c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public Map<String, String> f8019d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public int f8020e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public int f8021f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public int f8022g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public boolean f8023h;
+    public String mPlacementId;
+
+    /* loaded from: classes2.dex */
     public static class Builder {
 
         /* renamed from: a  reason: collision with root package name */
-        private String f2323a;
-        private Map<String, String> b = new HashMap();
-        private int c = 3;
-        private boolean d = false;
-        private int e = 640;
-        private int f = 480;
-        private int g = 1;
-        private boolean h = false;
+        public String f8024a;
 
-        public final Builder setWidth(int i) {
-            this.e = i;
-            this.h = true;
+        /* renamed from: b  reason: collision with root package name */
+        public Map<String, String> f8025b = new HashMap();
+
+        /* renamed from: c  reason: collision with root package name */
+        public int f8026c = 3;
+
+        /* renamed from: d  reason: collision with root package name */
+        public boolean f8027d = false;
+
+        /* renamed from: e  reason: collision with root package name */
+        public int f8028e = 640;
+
+        /* renamed from: f  reason: collision with root package name */
+        public int f8029f = 480;
+
+        /* renamed from: g  reason: collision with root package name */
+        public int f8030g = 1;
+
+        /* renamed from: h  reason: collision with root package name */
+        public boolean f8031h = false;
+
+        public final Builder addExtra(String str, String str2) {
+            if (ArticleInfo.PAGE_TITLE.equals(str)) {
+                this.f8025b.put("mpt", String.valueOf(1));
+            }
+            this.f8025b.put(str, str2);
             return this;
         }
 
-        public final Builder setHeight(int i) {
-            this.f = i;
-            this.h = true;
-            return this;
+        public final RequestParameters build() {
+            return new RequestParameters(this);
         }
 
         @Deprecated
@@ -61,90 +89,26 @@ public final class RequestParameters implements IXAdFeedsRequestParameters {
         }
 
         public final Builder downloadAppConfirmPolicy(int i) {
-            this.g = i;
+            this.f8030g = i;
             return this;
         }
 
-        public final Builder addExtra(String str, String str2) {
-            if (ArticleInfo.PAGE_TITLE.equals(str)) {
-                this.b.put("mpt", String.valueOf(1));
-            }
-            this.b.put(str, str2);
+        public final Builder setHeight(int i) {
+            this.f8029f = i;
+            this.f8031h = true;
             return this;
         }
 
-        public final RequestParameters build() {
-            return new RequestParameters(this);
+        public final Builder setWidth(int i) {
+            this.f8028e = i;
+            this.f8031h = true;
+            return this;
         }
     }
 
-    private RequestParameters(Builder builder) {
-        this.e = 0;
-        this.f = 0;
-        this.f2322a = builder.f2323a;
-        this.b = builder.c;
-        this.e = builder.e;
-        this.f = builder.f;
-        this.h = builder.h;
-        this.c = builder.d;
-        this.g = builder.g;
-        setExtras(builder.b);
-    }
-
     @Override // com.baidu.mobads.interfaces.feeds.IXAdFeedsRequestParameters
-    public final String getKeywords() {
-        return this.f2322a;
-    }
-
-    public int getWidth() {
-        return this.e;
-    }
-
-    public int getHeight() {
-        return this.f;
-    }
-
-    public boolean isCustomSize() {
-        return this.h;
-    }
-
-    @Override // com.baidu.mobads.interfaces.feeds.IXAdFeedsRequestParameters
-    public int getAdsType() {
-        return this.b;
-    }
-
-    public void setAdsType(int i) {
-        this.b = i;
-    }
-
-    @Override // com.baidu.mobads.interfaces.feeds.IXAdFeedsRequestParameters
-    public boolean isConfirmDownloading() {
-        return this.c;
-    }
-
-    @Override // com.baidu.mobads.interfaces.feeds.IXAdFeedsRequestParameters
-    public Map<String, String> getExtras() {
-        return this.d;
-    }
-
-    public void setExtras(Map<String, String> map) {
-        this.d = map;
-    }
-
-    @Override // com.baidu.mobads.interfaces.feeds.IXAdFeedsRequestParameters
-    public HashMap<String, Object> toHashMap() {
-        HashMap<String, Object> hashMap = new HashMap<>();
-        hashMap.put("mKeywords", this.f2322a);
-        hashMap.put("adsType", Integer.valueOf(this.b));
-        hashMap.put("confirmDownloading", Boolean.valueOf(this.c));
-        HashMap hashMap2 = new HashMap();
-        if (this.d != null) {
-            for (Map.Entry<String, String> entry : this.d.entrySet()) {
-                hashMap2.put(entry.getKey(), entry.getValue());
-            }
-        }
-        hashMap.put("extras", hashMap2);
-        return hashMap;
+    public int getAPPConfirmPolicy() {
+        return this.f8022g;
     }
 
     @Override // com.baidu.mobads.interfaces.feeds.IXAdFeedsRequestParameters
@@ -153,7 +117,72 @@ public final class RequestParameters implements IXAdFeedsRequestParameters {
     }
 
     @Override // com.baidu.mobads.interfaces.feeds.IXAdFeedsRequestParameters
-    public int getAPPConfirmPolicy() {
-        return this.g;
+    public int getAdsType() {
+        return this.f8017b;
+    }
+
+    @Override // com.baidu.mobads.interfaces.feeds.IXAdFeedsRequestParameters
+    public Map<String, String> getExtras() {
+        return this.f8019d;
+    }
+
+    public int getHeight() {
+        return this.f8021f;
+    }
+
+    @Override // com.baidu.mobads.interfaces.feeds.IXAdFeedsRequestParameters
+    public final String getKeywords() {
+        return this.f8016a;
+    }
+
+    public int getWidth() {
+        return this.f8020e;
+    }
+
+    @Override // com.baidu.mobads.interfaces.feeds.IXAdFeedsRequestParameters
+    public boolean isConfirmDownloading() {
+        return this.f8018c;
+    }
+
+    public boolean isCustomSize() {
+        return this.f8023h;
+    }
+
+    public void setAdsType(int i) {
+        this.f8017b = i;
+    }
+
+    public void setExtras(Map<String, String> map) {
+        this.f8019d = map;
+    }
+
+    @Override // com.baidu.mobads.interfaces.feeds.IXAdFeedsRequestParameters
+    public HashMap<String, Object> toHashMap() {
+        HashMap<String, Object> hashMap = new HashMap<>();
+        hashMap.put("mKeywords", this.f8016a);
+        hashMap.put("adsType", Integer.valueOf(this.f8017b));
+        hashMap.put("confirmDownloading", Boolean.valueOf(this.f8018c));
+        HashMap hashMap2 = new HashMap();
+        Map<String, String> map = this.f8019d;
+        if (map != null) {
+            for (Map.Entry<String, String> entry : map.entrySet()) {
+                hashMap2.put(entry.getKey(), entry.getValue());
+            }
+        }
+        hashMap.put("extras", hashMap2);
+        return hashMap;
+    }
+
+    public RequestParameters(Builder builder) {
+        this.f8020e = 0;
+        this.f8021f = 0;
+        this.f8016a = builder.f8024a;
+        this.f8017b = builder.f8026c;
+        this.f8020e = builder.f8028e;
+        this.f8021f = builder.f8029f;
+        this.f8023h = builder.f8031h;
+        this.f8018c = builder.f8027d;
+        this.f8022g = builder.f8030g;
+        setExtras(builder.f8025b);
     }
 }

@@ -1,8 +1,8 @@
 package com.baidu.webkit.sdk.system;
 
 import com.baidu.webkit.sdk.CookieSyncManager;
-/* loaded from: classes14.dex */
-final class CookieSyncManagerImpl extends CookieSyncManager {
+/* loaded from: classes5.dex */
+public final class CookieSyncManagerImpl extends CookieSyncManager {
     @Override // com.baidu.webkit.sdk.CookieSyncManager
     public final void resetSync() {
         android.webkit.CookieSyncManager.getInstance().resetSync();

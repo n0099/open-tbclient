@@ -2,23 +2,21 @@ package com.baidu.platform.comapi.pano;
 
 import android.net.Uri;
 import android.text.TextUtils;
-import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.mapapi.http.AsyncHttpClient;
 import com.baidu.mapapi.http.HttpClient;
 import com.baidu.mapsdkplatform.comjni.util.AppMD5;
-import org.apache.http.HttpHost;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    AsyncHttpClient f2898a = new AsyncHttpClient();
+    public AsyncHttpClient f9888a = new AsyncHttpClient();
 
     /* renamed from: com.baidu.platform.comapi.pano.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public interface InterfaceC0287a<T> {
+    /* loaded from: classes2.dex */
+    public interface InterfaceC0119a<T> {
         void a(HttpClient.HttpStateError httpStateError);
 
         void a(T t);
@@ -26,7 +24,6 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public c a(String str) {
-        c cVar = null;
         if (str == null || str.equals("")) {
             return new c(PanoStateError.PANO_NOT_FOUND);
         }
@@ -36,11 +33,12 @@ public class a {
             if (optJSONObject == null) {
                 return new c(PanoStateError.PANO_NOT_FOUND);
             }
-            if (optJSONObject.optInt(BdStatsConstant.StatsType.ERROR) == 0) {
+            if (optJSONObject.optInt("error") == 0) {
                 JSONArray optJSONArray = jSONObject.optJSONArray("content");
                 if (optJSONArray == null) {
                     return new c(PanoStateError.PANO_NOT_FOUND);
                 }
+                c cVar = null;
                 for (int i = 0; i < optJSONArray.length(); i++) {
                     JSONObject optJSONObject2 = optJSONArray.optJSONObject(i).optJSONObject("poiinfo");
                     if (optJSONObject2 != null) {
@@ -52,14 +50,15 @@ public class a {
                 return cVar;
             }
             return new c(PanoStateError.PANO_UID_ERROR);
-        } catch (JSONException e) {
-            e.printStackTrace();
+        } catch (JSONException e2) {
+            e2.printStackTrace();
             return new c(PanoStateError.PANO_NOT_FOUND);
         }
     }
 
     private String a(Uri.Builder builder) {
-        Uri.Builder buildUpon = Uri.parse(builder.build().toString() + HttpClient.getPhoneInfo()).buildUpon();
+        String uri = builder.build().toString();
+        Uri.Builder buildUpon = Uri.parse(uri + HttpClient.getPhoneInfo()).buildUpon();
         buildUpon.appendQueryParameter("sign", AppMD5.getSignMD5String(buildUpon.build().getEncodedQuery()));
         return buildUpon.build().toString();
     }
@@ -71,13 +70,9 @@ public class a {
         builder.appendQueryParameter(str, str2);
     }
 
-    public void a(String str, InterfaceC0287a<c> interfaceC0287a) {
+    public void a(String str, InterfaceC0119a<c> interfaceC0119a) {
         Uri.Builder builder = new Uri.Builder();
-        if (HttpClient.isHttpsEnable) {
-            builder.scheme("https");
-        } else {
-            builder.scheme(HttpHost.DEFAULT_SCHEME_NAME);
-        }
+        builder.scheme(HttpClient.isHttpsEnable ? "https" : "http");
         builder.encodedAuthority("api.map.baidu.com");
         builder.path("/sdkproxy/lbs_androidsdk/pano/v1/");
         a(builder, "qt", "poi");
@@ -85,10 +80,10 @@ public class a {
         a(builder, "action", "0");
         String authToken = HttpClient.getAuthToken();
         if (authToken == null) {
-            interfaceC0287a.a((InterfaceC0287a<c>) new c(PanoStateError.PANO_NO_TOKEN));
+            interfaceC0119a.a((InterfaceC0119a<c>) new c(PanoStateError.PANO_NO_TOKEN));
             return;
         }
         a(builder, "token", authToken);
-        this.f2898a.get(a(builder), new b(this, interfaceC0287a));
+        this.f9888a.get(a(builder), new b(this, interfaceC0119a));
     }
 }

@@ -11,23 +11,26 @@ import com.baidu.tbadk.core.atomData.RecordVideoActivityConfig;
 import com.baidu.tieba.video.cloudmusic.CloudMusicActivity;
 import com.baidu.tieba.video.editvideo.EditVideoActivity;
 import com.baidu.tieba.video.record.RecordVideoActivity;
-/* loaded from: classes7.dex */
+import d.b.i0.b0.b;
+/* loaded from: classes5.dex */
 public class LocalVideoActivityStatic {
-    public static String Tag = "tag";
+
+    /* loaded from: classes5.dex */
+    public static class a implements CustomMessageTask.CustomRunnable<Object> {
+        @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+        public CustomResponsedMessage<b> run(CustomMessage<Object> customMessage) {
+            if (customMessage == null || !(customMessage.getData() instanceof d.b.i0.p3.b)) {
+                return null;
+            }
+            return new CustomResponsedMessage<>(2921466, new d.b.i0.p3.j.h.b((d.b.i0.p3.b) customMessage.getData()));
+        }
+    }
 
     static {
         TbadkCoreApplication.getInst().RegisterIntent(RecordVideoActivityConfig.class, RecordVideoActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(EditVideoActivityConfig.class, EditVideoActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(CloudMusicActivityConfig.class, CloudMusicActivity.class);
-        CustomMessageTask customMessageTask = new CustomMessageTask(2921466, new CustomMessageTask.CustomRunnable<Object>() { // from class: com.baidu.tieba.video.localvideo.LocalVideoActivityStatic.1
-            @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-            public CustomResponsedMessage<com.baidu.tieba.c.b> run(CustomMessage<Object> customMessage) {
-                if (customMessage == null || !(customMessage.getData() instanceof com.baidu.tieba.video.b)) {
-                    return null;
-                }
-                return new CustomResponsedMessage<>(2921466, new com.baidu.tieba.video.editvideo.view.b((com.baidu.tieba.video.b) customMessage.getData()));
-            }
-        });
+        CustomMessageTask customMessageTask = new CustomMessageTask(2921466, new a());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
     }

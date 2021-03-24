@@ -1,64 +1,232 @@
 package com.xiaomi.push;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
-public class db extends cv {
+import android.content.Context;
+import android.content.SharedPreferences;
+import com.xiaomi.push.al;
+import java.io.File;
+import java.io.IOException;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.concurrent.ConcurrentLinkedQueue;
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes7.dex */
+public class db {
 
     /* renamed from: a  reason: collision with root package name */
-    cv f8313a;
+    public static volatile db f40347a;
 
     /* renamed from: a  reason: collision with other field name */
-    final /* synthetic */ cz f198a;
-    final /* synthetic */ cv b;
+    public Context f214a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public db(cz czVar, String str, cv cvVar) {
-        super(str);
-        this.f198a = czVar;
-        this.b = cvVar;
-        this.f8313a = this.b;
-        this.f184b = this.f184b;
-        if (this.b != null) {
-            this.f = this.b.f;
+    /* renamed from: a  reason: collision with other field name */
+    public final ConcurrentLinkedQueue<b> f215a;
+
+    /* loaded from: classes7.dex */
+    public class a extends b {
+        public a() {
+            super();
+        }
+
+        @Override // com.xiaomi.push.db.b, com.xiaomi.push.al.b
+        public void b() {
+            db.this.b();
         }
     }
 
-    @Override // com.xiaomi.push.cv
-    public synchronized ArrayList<String> a(boolean z) {
-        ArrayList<String> arrayList;
-        arrayList = new ArrayList<>();
-        if (this.f8313a != null) {
-            arrayList.addAll(this.f8313a.a(true));
+    /* loaded from: classes7.dex */
+    public class b extends al.b {
+
+        /* renamed from: a  reason: collision with root package name */
+        public long f40349a = System.currentTimeMillis();
+
+        public b() {
         }
-        synchronized (cz.b) {
-            cv cvVar = cz.b.get(this.f184b);
-            if (cvVar != null) {
-                Iterator<String> it = cvVar.a(true).iterator();
-                while (it.hasNext()) {
-                    String next = it.next();
-                    if (arrayList.indexOf(next) == -1) {
-                        arrayList.add(next);
-                    }
+
+        @Override // com.xiaomi.push.al.b
+        public boolean a() {
+            return true;
+        }
+
+        @Override // com.xiaomi.push.al.b
+        public void b() {
+        }
+
+        @Override // com.xiaomi.push.al.b
+        public final boolean b() {
+            return System.currentTimeMillis() - this.f40349a > 172800000;
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class c extends b {
+
+        /* renamed from: a  reason: collision with root package name */
+        public int f40351a;
+
+        /* renamed from: a  reason: collision with other field name */
+        public File f217a;
+
+        /* renamed from: a  reason: collision with other field name */
+        public String f218a;
+
+        /* renamed from: a  reason: collision with other field name */
+        public boolean f219a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public String f40352b;
+
+        /* renamed from: b  reason: collision with other field name */
+        public boolean f220b;
+
+        public c(String str, String str2, File file, boolean z) {
+            super();
+            this.f218a = str;
+            this.f40352b = str2;
+            this.f217a = file;
+            this.f220b = z;
+        }
+
+        private boolean c() {
+            int i;
+            int i2 = 0;
+            SharedPreferences sharedPreferences = db.this.f214a.getSharedPreferences("log.timestamp", 0);
+            String string = sharedPreferences.getString("log.requst", "");
+            long currentTimeMillis = System.currentTimeMillis();
+            try {
+                JSONObject jSONObject = new JSONObject(string);
+                currentTimeMillis = jSONObject.getLong("time");
+                i = jSONObject.getInt("times");
+            } catch (JSONException unused) {
+                i = 0;
+            }
+            if (System.currentTimeMillis() - currentTimeMillis >= 86400000) {
+                currentTimeMillis = System.currentTimeMillis();
+            } else if (i > 10) {
+                return false;
+            } else {
+                i2 = i;
+            }
+            JSONObject jSONObject2 = new JSONObject();
+            try {
+                jSONObject2.put("time", currentTimeMillis);
+                jSONObject2.put("times", i2 + 1);
+                sharedPreferences.edit().putString("log.requst", jSONObject2.toString()).commit();
+            } catch (JSONException e2) {
+                com.xiaomi.channel.commonutils.logger.b.c("JSONException on put " + e2.getMessage());
+            }
+            return true;
+        }
+
+        @Override // com.xiaomi.push.db.b, com.xiaomi.push.al.b
+        public boolean a() {
+            return bg.e(db.this.f214a) || (this.f220b && bg.b(db.this.f214a));
+        }
+
+        @Override // com.xiaomi.push.db.b, com.xiaomi.push.al.b
+        public void b() {
+            try {
+                if (c()) {
+                    HashMap hashMap = new HashMap();
+                    hashMap.put("uid", com.xiaomi.push.service.bi.m593a());
+                    hashMap.put("token", this.f40352b);
+                    hashMap.put("net", bg.m153a(db.this.f214a));
+                    bg.a(this.f218a, hashMap, this.f217a, "file");
                 }
-                arrayList.remove(this.f184b);
-                arrayList.add(this.f184b);
+                this.f219a = true;
+            } catch (IOException unused) {
             }
         }
-        return arrayList;
-    }
 
-    @Override // com.xiaomi.push.cv
-    public synchronized void a(String str, cu cuVar) {
-        if (this.f8313a != null) {
-            this.f8313a.a(str, cuVar);
+        @Override // com.xiaomi.push.al.b
+        /* renamed from: c  reason: collision with other method in class */
+        public void mo223c() {
+            if (!this.f219a) {
+                int i = this.f40351a + 1;
+                this.f40351a = i;
+                if (i < 3) {
+                    db.this.f215a.add(this);
+                }
+            }
+            if (this.f219a || this.f40351a >= 3) {
+                this.f217a.delete();
+            }
+            db.this.a((1 << this.f40351a) * 1000);
         }
     }
 
-    @Override // com.xiaomi.push.cv
-    public boolean b() {
-        return false;
+    public db(Context context) {
+        ConcurrentLinkedQueue<b> concurrentLinkedQueue = new ConcurrentLinkedQueue<>();
+        this.f215a = concurrentLinkedQueue;
+        this.f214a = context;
+        concurrentLinkedQueue.add(new a());
+        b(0L);
+    }
+
+    public static db a(Context context) {
+        if (f40347a == null) {
+            synchronized (db.class) {
+                if (f40347a == null) {
+                    f40347a = new db(context);
+                }
+            }
+        }
+        f40347a.f214a = context;
+        return f40347a;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void a(long j) {
+        b peek = this.f215a.peek();
+        if (peek == null || !peek.a()) {
+            return;
+        }
+        b(j);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void b() {
+        if (aa.b() || aa.m119a()) {
+            return;
+        }
+        try {
+            File file = new File(this.f214a.getExternalFilesDir(null) + "/.logcache");
+            if (file.exists() && file.isDirectory()) {
+                for (File file2 : file.listFiles()) {
+                    file2.delete();
+                }
+            }
+        } catch (NullPointerException unused) {
+        }
+    }
+
+    private void b(long j) {
+        if (this.f215a.isEmpty()) {
+            return;
+        }
+        go.a(new dd(this), j);
+    }
+
+    private void c() {
+        while (!this.f215a.isEmpty()) {
+            b peek = this.f215a.peek();
+            if (peek != null) {
+                if (!peek.b() && this.f215a.size() <= 6) {
+                    return;
+                }
+                com.xiaomi.channel.commonutils.logger.b.c("remove Expired task");
+                this.f215a.remove(peek);
+            }
+        }
+    }
+
+    public void a() {
+        c();
+        a(0L);
+    }
+
+    public void a(String str, String str2, Date date, Date date2, int i, boolean z) {
+        this.f215a.add(new dc(this, i, date, date2, str, str2, z));
+        b(0L);
     }
 }

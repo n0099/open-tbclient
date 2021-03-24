@@ -6,136 +6,141 @@ import com.bytedance.sdk.openadsdk.utils.u;
 public abstract class a implements c {
 
     /* renamed from: a  reason: collision with root package name */
-    private c.e f4533a;
-    private c.b b;
-    private c.a c;
-    private c.f d;
-    private c.g e;
-    private c.InterfaceC1022c f;
-    private c.d g;
+    public c.e f28664a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public c.b f28665b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public c.a f28666c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public c.f f28667d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public c.g f28668e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public c.InterfaceC0310c f28669f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public c.d f28670g;
 
     @Override // com.bytedance.sdk.openadsdk.core.video.d.c
     public final void a(c.e eVar) {
-        this.f4533a = eVar;
+        this.f28664a = eVar;
     }
 
-    @Override // com.bytedance.sdk.openadsdk.core.video.d.c
-    public final void a(c.b bVar) {
-        this.b = bVar;
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.core.video.d.c
-    public final void a(c.a aVar) {
-        this.c = aVar;
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.core.video.d.c
-    public final void a(c.f fVar) {
-        this.d = fVar;
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.core.video.d.c
-    public final void a(c.InterfaceC1022c interfaceC1022c) {
-        this.f = interfaceC1022c;
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.core.video.d.c
-    public final void a(c.d dVar) {
-        this.g = dVar;
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.core.video.d.c
-    public final void a(c.g gVar) {
-        this.e = gVar;
-    }
-
-    public void a() {
-        this.f4533a = null;
-        this.c = null;
-        this.b = null;
-        this.d = null;
-        this.e = null;
-        this.f = null;
-        this.g = null;
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
     public final void b() {
         try {
-            if (this.f4533a != null) {
-                this.f4533a.b(this);
+            if (this.f28664a != null) {
+                this.f28664a.b(this);
             }
         } catch (Throwable th) {
             u.c("AbstractMediaPlayer", "AbstractMediaPlayer.notifyOnPrepared error: ", th);
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     public final void c() {
         try {
-            if (this.b != null) {
-                this.b.a(this);
+            if (this.f28665b != null) {
+                this.f28665b.a(this);
             }
         } catch (Throwable th) {
             u.c("AbstractMediaPlayer", "AbstractMediaPlayer.notifyOnCompletion error: ", th);
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public final void a(int i) {
-        try {
-            if (this.c != null) {
-                this.c.a(this, i);
-            }
-        } catch (Throwable th) {
-            u.c("AbstractMediaPlayer", "AbstractMediaPlayer.notifyOnBufferingUpdate error: ", th);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
     public final void d() {
         try {
-            if (this.d != null) {
-                this.d.c(this);
+            if (this.f28667d != null) {
+                this.f28667d.c(this);
             }
         } catch (Throwable th) {
             u.c("AbstractMediaPlayer", "AbstractMediaPlayer.notifyOnSeekComplete error: ", th);
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.bytedance.sdk.openadsdk.core.video.d.c
+    public final void a(c.b bVar) {
+        this.f28665b = bVar;
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.core.video.d.c
+    public final void a(c.a aVar) {
+        this.f28666c = aVar;
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.core.video.d.c
+    public final void a(c.f fVar) {
+        this.f28667d = fVar;
+    }
+
+    public final boolean b(int i, int i2) {
+        try {
+            if (this.f28670g != null) {
+                return this.f28670g.b(this, i, i2);
+            }
+            return false;
+        } catch (Throwable th) {
+            u.c("AbstractMediaPlayer", "AbstractMediaPlayer.notifyOnInfo error: ", th);
+            return false;
+        }
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.core.video.d.c
+    public final void a(c.InterfaceC0310c interfaceC0310c) {
+        this.f28669f = interfaceC0310c;
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.core.video.d.c
+    public final void a(c.d dVar) {
+        this.f28670g = dVar;
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.core.video.d.c
+    public final void a(c.g gVar) {
+        this.f28668e = gVar;
+    }
+
+    public void a() {
+        this.f28664a = null;
+        this.f28666c = null;
+        this.f28665b = null;
+        this.f28667d = null;
+        this.f28668e = null;
+        this.f28669f = null;
+        this.f28670g = null;
+    }
+
+    public final void a(int i) {
+        try {
+            if (this.f28666c != null) {
+                this.f28666c.a(this, i);
+            }
+        } catch (Throwable th) {
+            u.c("AbstractMediaPlayer", "AbstractMediaPlayer.notifyOnBufferingUpdate error: ", th);
+        }
+    }
+
     public final void a(int i, int i2, int i3, int i4) {
         try {
-            if (this.e != null) {
-                this.e.a(this, i, i2, i3, i4);
+            if (this.f28668e != null) {
+                this.f28668e.a(this, i, i2, i3, i4);
             }
         } catch (Throwable th) {
             u.c("AbstractMediaPlayer", "AbstractMediaPlayer.notifyOnVideoSizeChanged error: ", th);
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     public final boolean a(int i, int i2) {
         try {
-            if (this.f != null) {
-                return this.f.a(this, i, i2);
+            if (this.f28669f != null) {
+                return this.f28669f.a(this, i, i2);
             }
             return false;
         } catch (Throwable th) {
             u.c("AbstractMediaPlayer", "AbstractMediaPlayer.notifyOnError error: ", th);
-            return false;
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public final boolean b(int i, int i2) {
-        try {
-            if (this.g != null) {
-                return this.g.b(this, i, i2);
-            }
-            return false;
-        } catch (Throwable th) {
-            u.c("AbstractMediaPlayer", "AbstractMediaPlayer.notifyOnInfo error: ", th);
             return false;
         }
     }

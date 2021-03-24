@@ -10,13 +10,13 @@ public class b extends a {
     }
 
     @Override // com.bytedance.sdk.openadsdk.preload.geckox.f.a.a
-    protected InputStream a(File file, String str) throws IOException {
+    public InputStream a(File file, String str) throws IOException {
         com.bytedance.sdk.openadsdk.preload.geckox.h.b.a("gecko-debug-tag", "MyArchiveFileLoader, file:", new File(str).getCanonicalPath());
         return null;
     }
 
     @Override // com.bytedance.sdk.openadsdk.preload.geckox.f.a.a
-    protected boolean b(File file, String str) throws IOException {
+    public boolean b(File file, String str) throws IOException {
         new File(str).getCanonicalPath();
         return false;
     }

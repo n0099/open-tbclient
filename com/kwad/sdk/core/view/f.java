@@ -9,17 +9,17 @@ import android.graphics.drawable.Drawable;
 import android.text.style.ImageSpan;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class f extends ImageSpan {
     public f(@NonNull Context context, Bitmap bitmap) {
         super(context, bitmap);
     }
 
     @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
-    public void draw(@NonNull Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, @NonNull Paint paint) {
+    public void draw(@NonNull Canvas canvas, CharSequence charSequence, int i, int i2, float f2, int i3, int i4, int i5, @NonNull Paint paint) {
         Drawable drawable = getDrawable();
         canvas.save();
-        canvas.translate(f, (((i5 - i3) - drawable.getBounds().bottom) / 2) + i3);
+        canvas.translate(f2, (((i5 - i3) - drawable.getBounds().bottom) / 2) + i3);
         drawable.draw(canvas);
         canvas.restore();
     }
@@ -30,13 +30,14 @@ public class f extends ImageSpan {
         if (fontMetricsInt != null) {
             Paint.FontMetricsInt fontMetricsInt2 = paint.getFontMetricsInt();
             int i3 = fontMetricsInt2.bottom - fontMetricsInt2.top;
-            int i4 = bounds.bottom - bounds.top;
-            int i5 = (i4 / 2) - (i3 / 4);
-            int i6 = (i3 / 4) + (i4 / 2);
-            fontMetricsInt.ascent = -i6;
-            fontMetricsInt.top = -i6;
-            fontMetricsInt.bottom = i5;
-            fontMetricsInt.descent = i5;
+            int i4 = (bounds.bottom - bounds.top) / 2;
+            int i5 = i3 / 4;
+            int i6 = i4 - i5;
+            int i7 = -(i4 + i5);
+            fontMetricsInt.ascent = i7;
+            fontMetricsInt.top = i7;
+            fontMetricsInt.bottom = i6;
+            fontMetricsInt.descent = i6;
         }
         return bounds.right;
     }

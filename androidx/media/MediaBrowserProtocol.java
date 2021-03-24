@@ -2,7 +2,7 @@ package androidx.media;
 
 import androidx.annotation.RestrictTo;
 @RestrictTo({RestrictTo.Scope.LIBRARY})
-/* loaded from: classes14.dex */
+/* loaded from: classes.dex */
 public class MediaBrowserProtocol {
     public static final int CLIENT_MSG_ADD_SUBSCRIPTION = 3;
     public static final int CLIENT_MSG_CONNECT = 1;
@@ -40,7 +40,4 @@ public class MediaBrowserProtocol {
     public static final int SERVICE_VERSION_1 = 1;
     public static final int SERVICE_VERSION_2 = 2;
     public static final int SERVICE_VERSION_CURRENT = 2;
-
-    private MediaBrowserProtocol() {
-    }
 }

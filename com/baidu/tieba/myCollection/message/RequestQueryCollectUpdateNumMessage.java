@@ -1,13 +1,12 @@
 package com.baidu.tieba.myCollection.message;
 
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
 import tbclient.QueryCollectUpdateNum.DataReq;
 import tbclient.QueryCollectUpdateNum.QueryCollectUpdateNumReqIdl;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class RequestQueryCollectUpdateNumMessage extends TbSocketMessage {
     public RequestQueryCollectUpdateNumMessage() {
-        super(CmdConfigSocket.CMD_QUERY_COLLECT_UPDATE_NUM);
+        super(303005);
     }
 
     @Override // com.baidu.tbadk.message.websockt.TbSocketMessage

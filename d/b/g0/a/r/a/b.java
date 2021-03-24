@@ -1,0 +1,12 @@
+package d.b.g0.a.r.a;
+
+import android.os.Bundle;
+import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
+/* loaded from: classes3.dex */
+public class b extends ProviderDelegation {
+    @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
+    public Bundle execCall(Bundle bundle) {
+        a.a(getAgent().getContext(), bundle.getString("bduss"));
+        return null;
+    }
+}

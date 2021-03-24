@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class TopicDetailActivityConfig extends IntentConfig {
     public static final String KEY_IS_FROM_YUN_PUSH = "key_is_from_yunpush";
 
@@ -12,9 +12,11 @@ public class TopicDetailActivityConfig extends IntentConfig {
         super(context);
     }
 
-    public TopicDetailActivityConfig(Context context, long j) {
-        super(context);
-        getIntent().putExtra("topic_id", j);
+    public void setIsFromYunPush(boolean z) {
+        Intent intent = getIntent();
+        if (intent != null) {
+            intent.putExtra(KEY_IS_FROM_YUN_PUSH, z);
+        }
     }
 
     public void setUri(Uri uri) {
@@ -24,10 +26,8 @@ public class TopicDetailActivityConfig extends IntentConfig {
         }
     }
 
-    public void setIsFromYunPush(boolean z) {
-        Intent intent = getIntent();
-        if (intent != null) {
-            intent.putExtra(KEY_IS_FROM_YUN_PUSH, z);
-        }
+    public TopicDetailActivityConfig(Context context, long j) {
+        super(context);
+        getIntent().putExtra("topic_id", j);
     }
 }

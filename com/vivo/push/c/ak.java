@@ -1,16 +1,14 @@
 package com.vivo.push.c;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes14.dex */
+/* loaded from: classes7.dex */
 public final class ak extends com.vivo.push.v {
-    /* JADX INFO: Access modifiers changed from: package-private */
     public ak(com.vivo.push.y yVar) {
         super(yVar);
     }
 
     @Override // com.vivo.push.v
-    protected final void a(com.vivo.push.y yVar) {
+    public final void a(com.vivo.push.y yVar) {
         com.vivo.push.b.c cVar = (com.vivo.push.b.c) yVar;
-        com.vivo.push.model.b a2 = com.vivo.push.util.s.a(this.f8089a);
+        com.vivo.push.model.b a2 = com.vivo.push.util.s.a(this.f39588a);
         if (a2 == null) {
             com.vivo.push.p.a().a(cVar.h(), 1005, new Object[0]);
             return;
@@ -26,6 +24,6 @@ public final class ak extends com.vivo.push.v {
                 return;
             }
         }
-        com.vivo.push.a.a.a(this.f8089a, a3, yVar);
+        com.vivo.push.a.a.a(this.f39588a, a3, yVar);
     }
 }

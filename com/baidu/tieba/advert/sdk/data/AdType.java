@@ -1,12 +1,12 @@
 package com.baidu.tieba.advert.sdk.data;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public enum AdType {
     BANNER(13),
     INTERS(11),
     SPLASH(12),
     NATIVE(14);
     
-    private int typeId;
+    public int typeId;
 
     AdType(int i) {
         this.typeId = i;

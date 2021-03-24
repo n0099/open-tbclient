@@ -5,23 +5,26 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ResolveInfo;
 import android.content.pm.ServiceInfo;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Build;
 import android.os.Process;
 import android.text.TextUtils;
 import com.baidu.android.util.devices.RomUtils;
+import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
+import com.baidu.tieba.imageProblem.httpNet.CDNIPDirectConnect;
 import com.meizu.cloud.pushsdk.base.j;
-import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class MzSystemUtils {
-    private static final String TAG = "MzSystemUtils";
+    public static final String TAG = "MzSystemUtils";
 
     public static boolean compareVersion(String str, String str2) {
-        String[] split = str.split("\\.");
-        String[] split2 = str2.split("\\.");
+        String[] split = str.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
+        String[] split2 = str2.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
         int min = Math.min(split.length, split2.length);
         int i = 0;
         for (int i2 = 0; i2 < min; i2++) {
@@ -41,22 +44,21 @@ public class MzSystemUtils {
     }
 
     public static String findReceiver(Context context, String str, String str2) {
-        if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
-            return null;
+        if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+            Intent intent = new Intent(str);
+            intent.setPackage(str2);
+            List<ResolveInfo> queryBroadcastReceivers = context.getPackageManager().queryBroadcastReceivers(intent, 0);
+            if (queryBroadcastReceivers != null && queryBroadcastReceivers.size() > 0) {
+                return queryBroadcastReceivers.get(0).activityInfo.name;
+            }
         }
-        Intent intent = new Intent(str);
-        intent.setPackage(str2);
-        List<ResolveInfo> queryBroadcastReceivers = context.getPackageManager().queryBroadcastReceivers(intent, 0);
-        if (queryBroadcastReceivers == null || queryBroadcastReceivers.size() <= 0) {
-            return null;
-        }
-        return queryBroadcastReceivers.get(0).activityInfo.name;
+        return null;
     }
 
     public static int getAppVersionCode(Context context) {
         try {
             return context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionCode;
-        } catch (Exception e) {
+        } catch (Exception unused) {
             return 0;
         }
     }
@@ -64,7 +66,7 @@ public class MzSystemUtils {
     public static String getAppVersionName(Context context) {
         try {
             return context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionName;
-        } catch (Exception e) {
+        } catch (Exception unused) {
             return "";
         }
     }
@@ -78,8 +80,8 @@ public class MzSystemUtils {
                 }
             }
             return "";
-        } catch (Exception e) {
-            com.meizu.cloud.a.a.e("VersionInfo", "Exception message " + e.getMessage());
+        } catch (Exception e2) {
+            d.j.a.a.a.b("VersionInfo", "Exception message " + e2.getMessage());
             return "";
         }
     }
@@ -87,8 +89,8 @@ public class MzSystemUtils {
     public static String getBSSID(Context context) {
         try {
             return (String) Class.forName("com.meizu.cloud.pushsdk.util.AllergySystemUtils").getDeclaredMethod("getBSSID", Context.class).invoke(null, context);
-        } catch (Exception e) {
-            com.meizu.cloud.a.a.e(TAG, "getBSSID error " + e.getMessage());
+        } catch (Exception e2) {
+            d.j.a.a.a.b(TAG, "getBSSID error " + e2.getMessage());
             return null;
         }
     }
@@ -96,8 +98,8 @@ public class MzSystemUtils {
     public static String getCurrentLanguage() {
         try {
             return Locale.getDefault().getLanguage();
-        } catch (Exception e) {
-            com.meizu.cloud.a.a.e(TAG, "getCurrentLanguage error " + e.getMessage());
+        } catch (Exception e2) {
+            d.j.a.a.a.b(TAG, "getCurrentLanguage error " + e2.getMessage());
             return null;
         }
     }
@@ -105,8 +107,8 @@ public class MzSystemUtils {
     public static String getDeviceId(Context context) {
         try {
             return com.meizu.cloud.pushsdk.base.c.a(context);
-        } catch (Exception e) {
-            com.meizu.cloud.a.a.e(TAG, "getDeviceId error " + e.getMessage());
+        } catch (Exception e2) {
+            d.j.a.a.a.b(TAG, "getDeviceId error " + e2.getMessage());
             return null;
         }
     }
@@ -115,8 +117,8 @@ public class MzSystemUtils {
         ArrayList arrayList = new ArrayList();
         try {
             return (List) Class.forName("com.meizu.cloud.pushsdk.util.AllergySystemUtils").getDeclaredMethod("getInstalledPackage", Context.class).invoke(null, context);
-        } catch (Exception e) {
-            com.meizu.cloud.a.a.e(TAG, "getInstalledPackage error " + e.getMessage());
+        } catch (Exception e2) {
+            d.j.a.a.a.b(TAG, "getInstalledPackage error " + e2.getMessage());
             return arrayList;
         }
     }
@@ -124,8 +126,8 @@ public class MzSystemUtils {
     public static String getLineNumber(Context context) {
         try {
             return (String) Class.forName("com.meizu.cloud.pushsdk.util.AllergySystemUtils").getDeclaredMethod("getLineNumber", Context.class).invoke(null, context);
-        } catch (Exception e) {
-            com.meizu.cloud.a.a.e(TAG, "getLineNumber error " + e.getMessage());
+        } catch (Exception e2) {
+            d.j.a.a.a.b(TAG, "getLineNumber error " + e2.getMessage());
             return null;
         }
     }
@@ -139,112 +141,70 @@ public class MzSystemUtils {
                     return "com.meizu.cloud";
                 }
             }
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (Exception e2) {
+            e2.printStackTrace();
         }
-        com.meizu.cloud.a.a.i("SystemUtils", "startservice package name " + packageName);
+        d.j.a.a.a.d("SystemUtils", "startservice package name " + packageName);
         return packageName;
     }
 
-    /*  JADX ERROR: JadxRuntimeException in pass: BlockProcessor
-        jadx.core.utils.exceptions.JadxRuntimeException: Unreachable block: B:23:0x0062
-        	at jadx.core.dex.visitors.blocks.BlockProcessor.checkForUnreachableBlocks(BlockProcessor.java:81)
-        	at jadx.core.dex.visitors.blocks.BlockProcessor.processBlocksTree(BlockProcessor.java:47)
-        	at jadx.core.dex.visitors.blocks.BlockProcessor.visit(BlockProcessor.java:39)
-        */
-    public static java.lang.String getNetWorkType(android.content.Context r5) {
-        /*
-            java.lang.String r1 = ""
-            java.lang.String r0 = "connectivity"
-            java.lang.Object r0 = r5.getSystemService(r0)     // Catch: java.lang.Exception -> L41
-            android.net.ConnectivityManager r0 = (android.net.ConnectivityManager) r0     // Catch: java.lang.Exception -> L41
-            android.net.NetworkInfo r0 = r0.getActiveNetworkInfo()     // Catch: java.lang.Exception -> L41
-            if (r0 == 0) goto L65
-            int r2 = r0.getType()     // Catch: java.lang.Exception -> L41
-            switch(r2) {
-                case 0: goto L2a;
-                case 1: goto L1e;
-                case 7: goto L26;
-                case 9: goto L22;
-                default: goto L19;
+    public static String getNetWorkType(Context context) {
+        String str;
+        try {
+            NetworkInfo activeNetworkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo();
+            if (activeNetworkInfo != null) {
+                int type = activeNetworkInfo.getType();
+                if (type == 0) {
+                    switch (activeNetworkInfo.getSubtype()) {
+                        case 1:
+                        case 2:
+                        case 4:
+                        case 7:
+                        case 11:
+                            str = "MOBILE_2G";
+                            break;
+                        case 3:
+                        case 5:
+                        case 6:
+                        case 8:
+                        case 9:
+                        case 10:
+                        case 12:
+                        case 14:
+                        case 15:
+                            str = "MOBILE_3G";
+                            break;
+                        case 13:
+                            str = "MOBILE_4G";
+                            break;
+                        default:
+                            str = "MOBILE_XG";
+                            break;
+                    }
+                } else if (type == 1) {
+                    return CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING;
+                } else {
+                    if (type == 7) {
+                        return "BLUETOOTH";
+                    }
+                    if (type == 9) {
+                        return "ETHERNET";
+                    }
+                }
+                return "OTHER";
             }
-        L19:
-            r0 = r1
-        L1a:
-            java.lang.String r0 = "OTHER"
-        L1d:
-            return r0
-        L1e:
-            java.lang.String r0 = "WIFI"
-            goto L1d
-        L22:
-            java.lang.String r0 = "ETHERNET"
-            goto L1d
-        L26:
-            java.lang.String r0 = "BLUETOOTH"
-            goto L1d
-        L2a:
-            int r0 = r0.getSubtype()     // Catch: java.lang.Exception -> L41
-            switch(r0) {
-                case 1: goto L35;
-                case 2: goto L35;
-                case 3: goto L39;
-                case 4: goto L35;
-                case 5: goto L39;
-                case 6: goto L39;
-                case 7: goto L35;
-                case 8: goto L39;
-                case 9: goto L39;
-                case 10: goto L39;
-                case 11: goto L35;
-                case 12: goto L39;
-                case 13: goto L3d;
-                case 14: goto L39;
-                case 15: goto L39;
-                default: goto L31;
-            }     // Catch: java.lang.Exception -> L41
-        L31:
-            java.lang.String r0 = "MOBILE_XG"
-            goto L1a
-        L35:
-            java.lang.String r0 = "MOBILE_2G"
-            goto L1a
-        L39:
-            java.lang.String r0 = "MOBILE_3G"
-            goto L1a
-        L3d:
-            java.lang.String r0 = "MOBILE_4G"
-            goto L1a
-        L41:
-            r2 = move-exception
-            r0 = r1
-        L43:
-            java.lang.String r1 = "MzSystemUtils"
-            java.lang.StringBuilder r3 = new java.lang.StringBuilder
-            r3.<init>()
-            java.lang.String r4 = "Security exception checking connection: "
-            java.lang.StringBuilder r3 = r3.append(r4)
-            java.lang.String r2 = r2.getMessage()
-            java.lang.StringBuilder r2 = r3.append(r2)
-            java.lang.String r2 = r2.toString()
-            com.meizu.cloud.a.a.e(r1, r2)
-            goto L1d
-        L62:
-            r1 = move-exception
-            r2 = r1
-            goto L43
-        L65:
-            r0 = r1
-            goto L1d
-        */
-        throw new UnsupportedOperationException("Method not decompiled: com.meizu.cloud.pushsdk.util.MzSystemUtils.getNetWorkType(android.content.Context):java.lang.String");
+            return "";
+        } catch (Exception e2) {
+            d.j.a.a.a.b(TAG, "Security exception checking connection: " + e2.getMessage());
+            return "";
+        }
     }
 
     public static String getOperator(Context context) {
         try {
             return (String) Class.forName("com.meizu.cloud.pushsdk.util.AllergySystemUtils").getDeclaredMethod("getOperator", Context.class).invoke(null, context);
-        } catch (Exception e) {
-            com.meizu.cloud.a.a.e(TAG, "getOperator error " + e.getMessage());
+        } catch (Exception e2) {
+            d.j.a.a.a.b(TAG, "getOperator error " + e2.getMessage());
             return null;
         }
     }
@@ -252,24 +212,24 @@ public class MzSystemUtils {
     public static String getProcessName(Context context) {
         try {
             int myPid = Process.myPid();
-            for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : ((ActivityManager) context.getApplicationContext().getSystemService(PushConstants.INTENT_ACTIVITY_NAME)).getRunningAppProcesses()) {
-                com.meizu.cloud.a.a.i(TAG, "processName " + runningAppProcessInfo.processName);
+            for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : ((ActivityManager) context.getApplicationContext().getSystemService("activity")).getRunningAppProcesses()) {
+                d.j.a.a.a.d(TAG, "processName " + runningAppProcessInfo.processName);
                 if (runningAppProcessInfo.pid == myPid) {
                     return runningAppProcessInfo.processName;
                 }
             }
             return "";
-        } catch (Exception e) {
-            com.meizu.cloud.a.a.e(TAG, "getProcessName error " + e.getMessage());
+        } catch (Exception e2) {
+            d.j.a.a.a.b(TAG, "getProcessName error " + e2.getMessage());
             return null;
         }
     }
 
-    private static String getServicesByPackageName(Context context, String str) {
+    public static String getServicesByPackageName(Context context, String str) {
         ServiceInfo[] serviceInfoArr;
         try {
             serviceInfoArr = context.getPackageManager().getPackageInfo(str, 4).services;
-        } catch (Exception e) {
+        } catch (Exception unused) {
             serviceInfoArr = null;
         }
         if (serviceInfoArr == null) {
@@ -286,8 +246,8 @@ public class MzSystemUtils {
     public static int getSubId(Context context, int i) {
         try {
             return ((Integer) Class.forName("com.meizu.cloud.pushsdk.util.AllergySystemUtils").getDeclaredMethod("getSubId", Context.class, Integer.TYPE).invoke(null, context, Integer.valueOf(i))).intValue();
-        } catch (Exception e) {
-            com.meizu.cloud.a.a.e(TAG, "getSubId error " + e.getMessage());
+        } catch (Exception e2) {
+            d.j.a.a.a.b(TAG, "getSubId error " + e2.getMessage());
             return -1;
         }
     }
@@ -295,8 +255,8 @@ public class MzSystemUtils {
     public static String getSubscriberId(Context context, int i) {
         try {
             return (String) Class.forName("com.meizu.cloud.pushsdk.util.AllergySystemUtils").getDeclaredMethod("getSubscriberId", Context.class, Integer.TYPE).invoke(null, context, Integer.valueOf(i));
-        } catch (Exception e) {
-            com.meizu.cloud.a.a.e(TAG, "getSubscriberId error " + e.getMessage());
+        } catch (Exception e2) {
+            d.j.a.a.a.b(TAG, "getSubscriberId error " + e2.getMessage());
             return null;
         }
     }
@@ -305,8 +265,8 @@ public class MzSystemUtils {
         ArrayList arrayList = new ArrayList();
         try {
             return (List) Class.forName("com.meizu.cloud.pushsdk.util.AllergySystemUtils").getDeclaredMethod("getWifiList", Context.class).invoke(null, context);
-        } catch (Exception e) {
-            com.meizu.cloud.a.a.e(TAG, "getWifiList error " + e.getMessage());
+        } catch (Exception e2) {
+            d.j.a.a.a.b(TAG, "getWifiList error " + e2.getMessage());
             return arrayList;
         }
     }
@@ -314,8 +274,8 @@ public class MzSystemUtils {
     public static boolean isApplicationDebug(Context context) {
         try {
             return (context.getApplicationInfo().flags & 2) != 0;
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (Exception e2) {
+            e2.printStackTrace();
             return false;
         }
     }
@@ -330,7 +290,7 @@ public class MzSystemUtils {
 
     public static boolean isHuaWei() {
         String a2 = j.a("ro.build.version.emui");
-        com.meizu.cloud.a.a.e(TAG, "huawei eui " + a2);
+        d.j.a.a.a.b(TAG, "huawei eui " + a2);
         return !TextUtils.isEmpty(a2);
     }
 
@@ -339,8 +299,8 @@ public class MzSystemUtils {
     }
 
     public static boolean isInternational() {
-        if (com.meizu.cloud.pushsdk.base.a.a().f7381a) {
-            return com.meizu.cloud.pushsdk.base.a.a().b.booleanValue();
+        if (com.meizu.cloud.pushsdk.base.a.a().f37634a) {
+            return com.meizu.cloud.pushsdk.base.a.a().f37635b.booleanValue();
         }
         return false;
     }
@@ -353,21 +313,21 @@ public class MzSystemUtils {
         try {
             context.getPackageManager().getPackageInfo(str, 0);
             return true;
-        } catch (Exception e) {
+        } catch (Exception unused) {
             return false;
         }
     }
 
     public static boolean isRunningProcess(Context context, String str) {
         try {
-            Iterator<ActivityManager.RunningAppProcessInfo> it = ((ActivityManager) context.getSystemService(PushConstants.INTENT_ACTIVITY_NAME)).getRunningAppProcesses().iterator();
+            Iterator<ActivityManager.RunningAppProcessInfo> it = ((ActivityManager) context.getSystemService("activity")).getRunningAppProcesses().iterator();
             boolean z = false;
             while (it.hasNext() && !(z = it.next().processName.contains(str))) {
             }
-            com.meizu.cloud.a.a.i(TAG, str + " is running " + z);
+            d.j.a.a.a.d(TAG, str + " is running " + z);
             return z;
-        } catch (Exception e) {
-            com.meizu.cloud.a.a.e(TAG, "can not get running process info so set running true");
+        } catch (Exception unused) {
+            d.j.a.a.a.b(TAG, "can not get running process info so set running true");
             return true;
         }
     }

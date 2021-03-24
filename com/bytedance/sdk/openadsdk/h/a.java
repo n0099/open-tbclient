@@ -1,150 +1,347 @@
 package com.bytedance.sdk.openadsdk.h;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
+import android.app.Activity;
 import android.text.TextUtils;
-import android.widget.ImageView;
+import androidx.annotation.NonNull;
+import androidx.core.app.NotificationCompat;
+import com.baidu.mobads.interfaces.IXAdRequestInfo;
+import com.baidu.searchbox.pms.constants.PmsConstant;
+import com.bytedance.sdk.openadsdk.core.b;
+import com.bytedance.sdk.openadsdk.core.d.d;
+import com.bytedance.sdk.openadsdk.core.d.l;
+import com.bytedance.sdk.openadsdk.core.i;
+import com.bytedance.sdk.openadsdk.core.k;
 import com.bytedance.sdk.openadsdk.core.p;
-import com.bytedance.sdk.openadsdk.utils.j;
+import com.bytedance.sdk.openadsdk.h.a.c;
+import com.bytedance.sdk.openadsdk.l.e;
+import com.bytedance.sdk.openadsdk.l.g;
+import com.bytedance.sdk.openadsdk.utils.ak;
+import com.bytedance.sdk.openadsdk.utils.al;
 import com.bytedance.sdk.openadsdk.utils.u;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.util.WeakHashMap;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.bytedance.sdk.openadsdk.utils.x;
+import com.tencent.connect.common.Constants;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class a extends com.bytedance.sdk.adnet.b.a {
-    private static String b;
-    private WeakHashMap<String, String> c = new WeakHashMap<>();
-    private final com.bytedance.sdk.openadsdk.b.a d = new com.bytedance.sdk.openadsdk.b.d();
+public class a {
+
+    /* renamed from: a  reason: collision with root package name */
+    public static volatile a f29407a;
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public boolean o(c cVar) {
+        return cVar == null;
+    }
+
+    public void b(String str) {
+        JSONObject jSONObject = new JSONObject();
+        try {
+            jSONObject.put("playable_url", str);
+        } catch (Throwable unused) {
+        }
+        p.i().a(c.b().a("close_playable_test_tool").b(jSONObject.toString()), false);
+    }
+
+    public void c(c cVar) {
+        if (o(cVar)) {
+            return;
+        }
+        cVar.a("outer_call_send");
+        cVar.c(System.currentTimeMillis() / 1000);
+        p.i().a(cVar, true);
+    }
+
+    public void d(c cVar) {
+        if (o(cVar)) {
+            return;
+        }
+        cVar.a("outer_call_no_rsp");
+        cVar.c(System.currentTimeMillis() / 1000);
+        p.i().a(cVar, true);
+    }
+
+    public void e(c cVar) {
+        if (o(cVar)) {
+            return;
+        }
+        cVar.a("load_ad_duration_no_ad");
+        cVar.c(System.currentTimeMillis() / 1000);
+        p.i().a(cVar);
+    }
+
+    public void f(c cVar) {
+        if (o(cVar)) {
+            return;
+        }
+        cVar.a("load_creative_error");
+        cVar.c(System.currentTimeMillis() / 1000);
+        p.i().a(cVar, true);
+    }
+
+    public void g(c cVar) {
+        if (o(cVar)) {
+            return;
+        }
+        cVar.a("load_timeout");
+        cVar.c(System.currentTimeMillis() / 1000);
+        p.i().a(cVar, true);
+    }
+
+    public void h(c cVar) {
+        if (o(cVar)) {
+            return;
+        }
+        cVar.a("express_ad_render");
+        cVar.c(System.currentTimeMillis() / 1000);
+        p.i().a(cVar);
+    }
+
+    public void i(@NonNull final c cVar) {
+        if (o(cVar)) {
+            return;
+        }
+        e.a(new g("markAtCreativeRegister") { // from class: com.bytedance.sdk.openadsdk.h.a.1
+            @Override // java.lang.Runnable
+            public void run() {
+                if (a.this.o(cVar) || !a.this.a(cVar.e(), 1)) {
+                    return;
+                }
+                cVar.a("reg_creative");
+                p.i().a(cVar);
+            }
+        }, 5);
+    }
+
+    public void j(@NonNull final c cVar) {
+        if (o(cVar)) {
+            return;
+        }
+        e.a(new g("markAtCreativeNotRegister") { // from class: com.bytedance.sdk.openadsdk.h.a.2
+            @Override // java.lang.Runnable
+            public void run() {
+                if (a.this.o(cVar) || !a.this.a(cVar.e(), 0)) {
+                    return;
+                }
+                cVar.a("no_reg_creative");
+                p.i().a(cVar);
+            }
+        }, 5);
+    }
+
+    public void k(@NonNull c cVar) {
+        if (o(cVar)) {
+            return;
+        }
+        cVar.a("load_icon_error");
+        p.i().a(cVar);
+    }
+
+    public void l(c cVar) {
+        if (o(cVar)) {
+            return;
+        }
+        cVar.a("show_backup_endcard");
+        cVar.c(System.currentTimeMillis() / 1000);
+        p.i().a(cVar);
+    }
+
+    public void m(@NonNull c cVar) {
+        if (o(cVar)) {
+            return;
+        }
+        p.i().a(cVar);
+    }
+
+    public void n(@NonNull c cVar) {
+        if (o(cVar)) {
+            return;
+        }
+        cVar.a("splash_creative_check");
+        cVar.c(System.currentTimeMillis() / 1000);
+        p.i().a(cVar, true);
+    }
 
     public static a a() {
-        return new a();
-    }
-
-    private a() {
-    }
-
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, MOVE_EXCEPTION, INVOKE, MOVE_EXCEPTION] complete} */
-    @Override // com.bytedance.sdk.adnet.b.a, com.bytedance.sdk.adnet.b.d.b
-    public Bitmap a(String str) {
-        FileInputStream fileInputStream;
-        Bitmap a2 = super.a(str);
-        if (a2 == null) {
-            File file = new File(b(), str);
-            if (file.exists()) {
-                try {
-                    fileInputStream = new FileInputStream(file);
-                    try {
-                        a2 = BitmapFactory.decodeFileDescriptor(fileInputStream.getFD(), null, null);
-                        if (a2 != null) {
-                            super.a(str, a2);
-                        }
-                    } catch (Throwable th) {
-                        th = th;
-                        try {
-                            u.c("DiskImageCache", "diskImageCache getBitmap error ", th);
-                            if (fileInputStream != null) {
-                                try {
-                                    fileInputStream.close();
-                                } catch (IOException e) {
-                                }
-                            }
-                            return a2;
-                        } finally {
-                            if (fileInputStream != null) {
-                                try {
-                                    fileInputStream.close();
-                                } catch (IOException e2) {
-                                }
-                            }
-                        }
-                    }
-                } catch (Throwable th2) {
-                    th = th2;
-                    fileInputStream = null;
+        if (f29407a == null) {
+            synchronized (a.class) {
+                if (f29407a == null) {
+                    f29407a = new a();
                 }
             }
         }
-        return a2;
+        return f29407a;
     }
 
-    @Override // com.bytedance.sdk.adnet.b.a, com.bytedance.sdk.adnet.b.d.b
-    public void a(String str, Bitmap bitmap) {
-        FileOutputStream fileOutputStream;
-        if (bitmap != null) {
-            super.a(str, bitmap);
-            File file = new File(b(), str);
-            if (!file.exists() || !file.isFile() || file.length() <= 0) {
-                File file2 = new File(file + ".tmp");
-                file2.delete();
-                try {
-                    file2.createNewFile();
-                    fileOutputStream = new FileOutputStream(file2);
-                } catch (Throwable th) {
-                    th = th;
-                    fileOutputStream = null;
-                }
-                try {
-                    bitmap.compress(Bitmap.CompressFormat.PNG, 100, fileOutputStream);
-                    fileOutputStream.flush();
-                    if (file2.exists() && file2.length() > 0) {
-                        file2.renameTo(file);
-                    }
-                    this.d.a(file);
-                    if (fileOutputStream != null) {
-                        try {
-                            fileOutputStream.close();
-                        } catch (IOException e) {
-                        }
-                    }
-                } catch (Throwable th2) {
-                    th = th2;
-                    try {
-                        u.c("DiskImageCache", "diskImageCache putBitmap error ", th);
-                        file2.delete();
-                        file.delete();
-                        if (fileOutputStream != null) {
-                            try {
-                                fileOutputStream.close();
-                            } catch (IOException e2) {
-                            }
-                        }
-                    } catch (Throwable th3) {
-                        if (fileOutputStream != null) {
-                            try {
-                                fileOutputStream.close();
-                            } catch (IOException e3) {
-                            }
-                        }
-                        throw th3;
-                    }
-                }
+    public void b() {
+        boolean alist = i.d().e().alist();
+        boolean isCanUseLocation = i.d().e().isCanUseLocation();
+        boolean isCanUseWriteExternal = i.d().e().isCanUseWriteExternal();
+        boolean isCanUseWifiState = i.d().e().isCanUseWifiState();
+        boolean isCanUsePhoneState = i.d().e().isCanUsePhoneState();
+        JSONObject jSONObject = new JSONObject();
+        int i = 1;
+        try {
+            jSONObject.put("access_fine_location", isCanUseLocation ? 1 : 0);
+            jSONObject.put("applist", alist ? 1 : 0);
+            jSONObject.put("external_storage", isCanUseWriteExternal ? 1 : 0);
+            jSONObject.put("wifi_state", isCanUseWifiState ? 1 : 0);
+            if (!isCanUsePhoneState) {
+                i = 0;
             }
+            jSONObject.put("phone_state", i);
+        } catch (Throwable unused) {
         }
+        p.i().a(c.b().a("sdk_permission").b(jSONObject.toString()), false);
     }
 
-    @Override // com.bytedance.sdk.adnet.b.a, com.bytedance.sdk.adnet.b.d.b
-    public String a(String str, int i, int i2, ImageView.ScaleType scaleType) {
-        if (TextUtils.isEmpty(str)) {
+    public void a(c cVar) {
+        if (o(cVar)) {
+            return;
+        }
+        cVar.c(System.currentTimeMillis() / 1000);
+        p.i().a(cVar);
+    }
+
+    public void a(String str) {
+        JSONObject jSONObject = new JSONObject();
+        try {
+            jSONObject.put("playable_url", str);
+        } catch (Throwable unused) {
+        }
+        p.i().a(c.b().a("click_playable_test_tool").b(jSONObject.toString()), false);
+    }
+
+    public void a(String str, int i, String str2) {
+        JSONObject jSONObject = new JSONObject();
+        try {
+            jSONObject.put("playable_url", str);
+            jSONObject.put("error_code", i);
+            jSONObject.put("error_message", str2);
+        } catch (Throwable unused) {
+        }
+        p.i().a(c.b().a("use_playable_test_tool_error").b(jSONObject.toString()), false);
+    }
+
+    public void b(c cVar) {
+        if (o(cVar)) {
+            return;
+        }
+        cVar.a("outer_call");
+        cVar.c(System.currentTimeMillis() / 1000);
+        p.i().a(cVar, true);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public JSONObject b(@NonNull List<d> list, @NonNull l lVar, JSONObject jSONObject) {
+        if (list == null || list.size() == 0 || lVar == null) {
             return null;
         }
-        String str2 = this.c.get(str);
-        if (TextUtils.isEmpty(str2)) {
-            String a2 = j.a(str);
-            this.c.put(str, a2);
-            return a2;
+        JSONObject jSONObject2 = new JSONObject();
+        JSONObject jSONObject3 = new JSONObject();
+        try {
+            jSONObject3.put("log_extra", lVar.ap());
+            jSONObject3.put(PmsConstant.Statistic.STATISTIC_NETWORK, x.c(p.a()));
+            jSONObject3.put("timestamp", System.currentTimeMillis() / 1000);
+            jSONObject3.put(IXAdRequestInfo.CELL_ID, lVar.am());
+            jSONObject3.put(Constants.PARAM_PLATFORM, "Android");
+            jSONObject3.put("app", i.d().i());
+            jSONObject3.put(com.baidu.android.imsdk.internal.Constants.KEY_DEVICE_ID, k.a(p.a()));
+            com.bytedance.sdk.openadsdk.utils.c a2 = com.bytedance.sdk.openadsdk.utils.d.a(p.a());
+            JSONObject jSONObject4 = new JSONObject();
+            if (a2 != null) {
+                jSONObject4.put("longitude", a2.f30397b);
+                jSONObject4.put("latitude", a2.f30396a);
+            }
+            jSONObject3.put("location", jSONObject4);
+            JSONArray jSONArray = new JSONArray();
+            for (d dVar : list) {
+                if (dVar != null) {
+                    jSONArray.put(dVar.a());
+                }
+            }
+            jSONObject3.put(NotificationCompat.WearableExtender.KEY_PAGES, jSONArray);
+            if (jSONObject != null) {
+                jSONObject3.put("extra_info", jSONObject);
+                u.b("extra_info", "back extra info:" + jSONObject.toString());
+            }
+            String a3 = com.bytedance.sdk.openadsdk.core.a.a(ak.i(jSONObject3.toString()), b.c());
+            jSONObject2.put("content", a3);
+            u.f("StatsLogManager", "html content:" + a3);
+        } catch (Exception unused) {
         }
-        return str2;
+        return jSONObject2;
     }
 
-    private static String b() {
-        if (TextUtils.isEmpty(b)) {
-            File file = new File(com.bytedance.sdk.adnet.a.b(p.a()), "diskImage");
-            file.mkdirs();
-            b = file.getAbsolutePath();
+    public void a(Activity activity) {
+        try {
+            JSONObject jSONObject = new JSONObject();
+            jSONObject.put("page_name", activity.getClass().getName());
+            al.a(jSONObject);
+            String jSONObject2 = jSONObject.toString();
+            c b2 = c.b().a("delegate_on_create").b(jSONObject2);
+            u.b("StatsLogManager", "delegate_on_create: " + jSONObject2);
+            p.i().a(b2, false);
+        } catch (Throwable unused) {
         }
-        return b;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public boolean a(String str, int i) {
+        com.bytedance.sdk.openadsdk.core.d a2 = com.bytedance.sdk.openadsdk.core.d.a(p.a());
+        boolean z = false;
+        int b2 = a2.b(str, 0);
+        z = ((b2 & 2) == 0 || (b2 & 1) != i) ? true : true;
+        if (z) {
+            a2.a(str, i + 2);
+        }
+        return z;
+    }
+
+    public void a(boolean z, String[] strArr) {
+        JSONObject jSONObject = new JSONObject();
+        try {
+            jSONObject.put("if_sd", z ? 1 : 0);
+            if (strArr != null && strArr.length > 0) {
+                StringBuilder sb = new StringBuilder();
+                for (String str : strArr) {
+                    if (!TextUtils.isEmpty(str)) {
+                        sb.append(str);
+                        sb.append(",");
+                    }
+                }
+                jSONObject.put("permission", sb.toString());
+            }
+        } catch (Throwable unused) {
+        }
+        p.i().a(c.b().a("download_permission").c(System.currentTimeMillis() / 1000).b(jSONObject.toString()));
+    }
+
+    public void a(JSONObject jSONObject) {
+        if (jSONObject == null) {
+            return;
+        }
+        p.i().a(c.b().a("app_env").c(System.currentTimeMillis() / 1000).b(jSONObject.toString()));
+    }
+
+    public void a(@NonNull final List<d> list, @NonNull final l lVar, final JSONObject jSONObject) {
+        if (list == null || list.size() == 0 || lVar == null) {
+            return;
+        }
+        e.a(new g("upLoadHtmlInfo") { // from class: com.bytedance.sdk.openadsdk.h.a.3
+            @Override // java.lang.Runnable
+            public void run() {
+                if (!p.h().u() || x.c(p.a()) == 4) {
+                    p.f().a(a.this.b(list, lVar, jSONObject), 1);
+                }
+            }
+        }, 5);
+    }
+
+    public void a(String str, JSONObject jSONObject) {
+        if (TextUtils.isEmpty(str) || jSONObject == null) {
+            return;
+        }
+        p.i().a(c.b().a(str).b(jSONObject.toString()), false);
     }
 }

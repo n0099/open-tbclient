@@ -3,25 +3,26 @@ package com.kwad.sdk.feed.a.a.b.a;
 import android.widget.TextView;
 import com.kwad.sdk.R;
 import com.kwad.sdk.core.response.model.AdTemplate;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class c extends com.kwad.sdk.feed.a.a.a.a {
-    private TextView b;
 
-    /* JADX INFO: Access modifiers changed from: protected */
+    /* renamed from: b  reason: collision with root package name */
+    public TextView f34822b;
+
     @Override // com.kwad.sdk.lib.widget.recycler.b.b, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        AdTemplate adTemplate = (AdTemplate) ((com.kwad.sdk.feed.a.a.a.b) this.f6892a).i;
-        if (com.kwad.sdk.core.response.b.c.b((AdTemplate) ((com.kwad.sdk.feed.a.a.a.b) this.f6892a).i)) {
+        CallerContext callercontext = ((com.kwad.sdk.lib.widget.recycler.b.b) this).f36007a;
+        AdTemplate adTemplate = (AdTemplate) ((com.kwad.sdk.feed.a.a.a.b) callercontext).i;
+        if (com.kwad.sdk.core.response.b.c.b((AdTemplate) ((com.kwad.sdk.feed.a.a.a.b) callercontext).i)) {
             return;
         }
-        this.b.setText(com.kwad.sdk.core.response.b.a.v(com.kwad.sdk.core.response.b.c.j(adTemplate)));
+        this.f34822b.setText(com.kwad.sdk.core.response.b.a.v(com.kwad.sdk.core.response.b.c.j(adTemplate)));
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.mvp.Presenter
     public void c() {
         super.c();
-        this.b = (TextView) b(R.id.ksad_feed_ad_label);
+        this.f34822b = (TextView) b(R.id.ksad_feed_ad_label);
     }
 }

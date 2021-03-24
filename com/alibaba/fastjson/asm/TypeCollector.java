@@ -1,13 +1,12 @@
 package com.alibaba.fastjson.asm;
 
 import androidx.exifinterface.media.ExifInterface;
-import com.baidu.adp.plugin.proxy.ContentProviderProxy;
 import java.lang.reflect.Modifier;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes.dex */
 public class TypeCollector {
-    private static final Map<String, String> primitives = new HashMap<String, String>() { // from class: com.alibaba.fastjson.asm.TypeCollector.1
+    public static final Map<String, String> primitives = new HashMap<String, String>() { // from class: com.alibaba.fastjson.asm.TypeCollector.1
         {
             put("int", "I");
             put("boolean", "Z");
@@ -19,16 +18,37 @@ public class TypeCollector {
             put("double", "D");
         }
     };
-    protected MethodCollector collector = null;
-    private final String methodName;
-    private final Class<?>[] parameterTypes;
+    public MethodCollector collector = null;
+    public final String methodName;
+    public final Class<?>[] parameterTypes;
 
     public TypeCollector(String str, Class<?>[] clsArr) {
         this.methodName = str;
         this.parameterTypes = clsArr;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
+    private boolean correctTypeName(Type type, String str) {
+        String className = type.getClassName();
+        String str2 = "";
+        while (className.endsWith("[]")) {
+            str2 = str2 + "[";
+            className = className.substring(0, className.length() - 2);
+        }
+        if (!str2.equals("")) {
+            if (primitives.containsKey(className)) {
+                className = str2 + primitives.get(className);
+            } else {
+                className = str2 + "L" + className + ";";
+            }
+        }
+        return className.equals(str);
+    }
+
+    public String[] getParameterNamesForMethod() {
+        MethodCollector methodCollector = this.collector;
+        return (methodCollector == null || !methodCollector.debugInfoPresent) ? new String[0] : methodCollector.getResult().split(",");
+    }
+
     public MethodCollector visitMethod(int i, String str, String str2) {
         if (this.collector == null && str.equals(this.methodName)) {
             Type[] argumentTypes = Type.getArgumentTypes(str2);
@@ -47,31 +67,10 @@ public class TypeCollector {
                     return null;
                 }
             }
-            MethodCollector methodCollector = new MethodCollector(Modifier.isStatic(i) ? 0 : 1, i2 + argumentTypes.length);
+            MethodCollector methodCollector = new MethodCollector(!Modifier.isStatic(i) ? 1 : 0, argumentTypes.length + i2);
             this.collector = methodCollector;
             return methodCollector;
         }
         return null;
-    }
-
-    private boolean correctTypeName(Type type, String str) {
-        String className = type.getClassName();
-        String str2 = "";
-        while (className.endsWith("[]")) {
-            str2 = str2 + "[";
-            className = className.substring(0, className.length() - 2);
-        }
-        if (!str2.equals("")) {
-            if (primitives.containsKey(className)) {
-                className = str2 + primitives.get(className);
-            } else {
-                className = str2 + "L" + className + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR;
-            }
-        }
-        return className.equals(str);
-    }
-
-    public String[] getParameterNamesForMethod() {
-        return (this.collector == null || !this.collector.debugInfoPresent) ? new String[0] : this.collector.getResult().split(",");
     }
 }

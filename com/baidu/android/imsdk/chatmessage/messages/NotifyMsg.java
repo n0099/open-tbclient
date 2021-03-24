@@ -1,15 +1,15 @@
 package com.baidu.android.imsdk.chatmessage.messages;
 
 import android.os.Parcel;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public abstract class NotifyMsg extends ChatMsg {
     public NotifyMsg() {
         setCategory(2);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public NotifyMsg(Parcel parcel) {
-        super(parcel);
+    @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg
+    public String getRecommendDescription() {
+        return null;
     }
 
     @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg, android.os.Parcelable
@@ -17,8 +17,7 @@ public abstract class NotifyMsg extends ChatMsg {
         super.writeToParcel(parcel, i);
     }
 
-    @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg
-    public String getRecommendDescription() {
-        return null;
+    public NotifyMsg(Parcel parcel) {
+        super(parcel);
     }
 }

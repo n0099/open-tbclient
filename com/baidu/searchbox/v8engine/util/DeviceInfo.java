@@ -2,9 +2,9 @@ package com.baidu.searchbox.v8engine.util;
 
 import java.io.File;
 import java.io.FileFilter;
-/* loaded from: classes14.dex */
+/* loaded from: classes3.dex */
 public class DeviceInfo {
-    private static final FileFilter CPU_FILTER = new FileFilter() { // from class: com.baidu.searchbox.v8engine.util.DeviceInfo.1
+    public static final FileFilter CPU_FILTER = new FileFilter() { // from class: com.baidu.searchbox.v8engine.util.DeviceInfo.1
         @Override // java.io.FileFilter
         public boolean accept(File file) {
             String name = file.getName();
@@ -24,9 +24,7 @@ public class DeviceInfo {
     public static int getNumberOfCPUCores() {
         try {
             return new File("/sys/devices/system/cpu/").listFiles(CPU_FILTER).length;
-        } catch (NullPointerException e) {
-            return -1;
-        } catch (SecurityException e2) {
+        } catch (NullPointerException | SecurityException unused) {
             return -1;
         }
     }

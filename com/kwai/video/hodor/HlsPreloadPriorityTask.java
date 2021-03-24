@@ -7,15 +7,15 @@ import com.kwai.video.hodor.anotations.AccessedByNative;
 import com.kwai.video.hodor.util.HeaderUtil;
 import java.util.Map;
 @Keep
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class HlsPreloadPriorityTask extends AbstractHodorPreloadTask {
-    private AwesomeCacheCallback mAwesomeCacheCallback;
+    public AwesomeCacheCallback mAwesomeCacheCallback;
     @AccessedByNative
-    private String mCacheKey;
-    private String mHeaders;
-    private String mManifestJson;
-    private int mPreferBandwidth;
-    private long mPreloadBytes;
+    public String mCacheKey;
+    public String mHeaders;
+    public String mManifestJson;
+    public int mPreferBandwidth;
+    public long mPreloadBytes;
 
     public HlsPreloadPriorityTask(String str, int i) {
         this.mPreloadBytes = 1048576L;

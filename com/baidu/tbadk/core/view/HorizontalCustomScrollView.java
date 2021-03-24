@@ -4,29 +4,19 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.widget.HorizontalScrollView;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class HorizontalCustomScrollView extends HorizontalScrollView {
-    private a fhD;
 
-    /* loaded from: classes.dex */
+    /* renamed from: e  reason: collision with root package name */
+    public a f13369e;
+
+    /* loaded from: classes3.dex */
     public interface a {
-        void aQ(int i, int i2);
-    }
-
-    public void setOnSizeChangeListener(a aVar) {
-        this.fhD = aVar;
+        void a(int i, int i2);
     }
 
     public HorizontalCustomScrollView(Context context) {
         super(context);
-    }
-
-    public HorizontalCustomScrollView(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-    }
-
-    public HorizontalCustomScrollView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
     }
 
     @Override // android.widget.HorizontalScrollView, android.view.ViewGroup
@@ -38,10 +28,23 @@ public class HorizontalCustomScrollView extends HorizontalScrollView {
     }
 
     @Override // android.widget.HorizontalScrollView, android.widget.FrameLayout, android.view.ViewGroup, android.view.View
-    protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
+    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
-        if (this.fhD != null) {
-            this.fhD.aQ(getMeasuredWidth(), getMeasuredHeight());
+        a aVar = this.f13369e;
+        if (aVar != null) {
+            aVar.a(getMeasuredWidth(), getMeasuredHeight());
         }
+    }
+
+    public void setOnSizeChangeListener(a aVar) {
+        this.f13369e = aVar;
+    }
+
+    public HorizontalCustomScrollView(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+    }
+
+    public HorizontalCustomScrollView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
     }
 }

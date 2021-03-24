@@ -1,14 +1,14 @@
 package com.fun.ad.sdk;
 
 import androidx.annotation.NonNull;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class FunAdSlot {
     public int expressHeight;
     public int expressWidth;
     public String sid;
     public boolean smallImgStyle;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class Builder {
         public int expressHeight;
         public int expressWidth;

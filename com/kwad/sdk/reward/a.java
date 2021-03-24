@@ -11,20 +11,34 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class a extends com.kwad.sdk.core.e.b {
     @NonNull
-    public com.kwad.sdk.reward.a.b b;
+
+    /* renamed from: b  reason: collision with root package name */
+    public com.kwad.sdk.reward.a.b f36217b;
     @NonNull
-    public KsVideoPlayConfig c;
+
+    /* renamed from: c  reason: collision with root package name */
+    public KsVideoPlayConfig f36218c;
     @Nullable
-    public JSONObject d;
-    public int e;
+
+    /* renamed from: d  reason: collision with root package name */
+    public JSONObject f36219d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public int f36220e;
     @NonNull
-    public AdTemplate f;
-    public Activity g;
+
+    /* renamed from: f  reason: collision with root package name */
+    public AdTemplate f36221f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public Activity f36222g;
     @NonNull
-    public AdBaseFrameLayout h;
+
+    /* renamed from: h  reason: collision with root package name */
+    public AdBaseFrameLayout f36223h;
     @NonNull
     public com.kwad.sdk.reward.c.a i;
     @Nullable
@@ -39,23 +53,26 @@ public class a extends com.kwad.sdk.core.e.b {
     public boolean q;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<com.kwad.sdk.reward.a.a> f6935a = new ArrayList();
+    public List<com.kwad.sdk.reward.a.a> f36216a = new ArrayList();
     public Set<com.kwad.sdk.reward.a.e> n = new HashSet();
     public Set<com.kwad.sdk.reward.a.d> o = new HashSet();
 
     @Override // com.kwad.sdk.core.e.b
     public void a() {
-        this.f6935a.clear();
+        this.f36216a.clear();
         this.n.clear();
         this.i.h();
-        if (this.j != null) {
-            this.j.f();
+        com.kwad.sdk.core.download.b.b bVar = this.j;
+        if (bVar != null) {
+            bVar.f();
         }
-        if (this.l != null) {
-            this.l.c();
+        com.kwad.sdk.c.c cVar = this.l;
+        if (cVar != null) {
+            cVar.c();
         }
-        if (this.m != null) {
-            this.m.c();
+        com.kwad.sdk.c.b bVar2 = this.m;
+        if (bVar2 != null) {
+            bVar2.c();
         }
     }
 

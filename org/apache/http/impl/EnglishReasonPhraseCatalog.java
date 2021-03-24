@@ -3,11 +3,11 @@ package org.apache.http.impl;
 import java.util.Locale;
 import org.apache.http.ReasonPhraseCatalog;
 @Deprecated
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class EnglishReasonPhraseCatalog implements ReasonPhraseCatalog {
     public static final EnglishReasonPhraseCatalog INSTANCE = null;
 
-    protected EnglishReasonPhraseCatalog() {
+    public EnglishReasonPhraseCatalog() {
         throw new RuntimeException("Stub!");
     }
 

@@ -4,7 +4,6 @@ import android.graphics.Bitmap;
 import android.media.MediaMetadataRetriever;
 import android.os.Environment;
 import android.text.TextUtils;
-import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.minivideo.plugin.capture.Application;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -16,12 +15,138 @@ import java.util.Random;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipException;
 import java.util.zip.ZipFile;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public class FileUtils {
     public static final String PUBLIC_SUCCESS_TEMP_DIR = "public_succes_temp";
     public static final String VIDEO_COVER_DIR = "video_cover";
     public static final String VIDEO_UPLOAD_DIR = "video_upload";
-    private static File sPublishedFolder;
+    public static File sPublishedFolder;
+
+    public static String createTempFileName(File file, String str) {
+        if (file == null) {
+            return null;
+        }
+        return file.getAbsolutePath() + File.separator + (System.currentTimeMillis() + "_" + new Random().nextInt(10000) + str);
+    }
+
+    public static boolean delete(File file) {
+        if (file == null) {
+            return false;
+        }
+        deleteNotCheck(file);
+        return !file.exists();
+    }
+
+    public static void deleteAllFiles(File file) {
+        File[] listFiles;
+        if (file == null || (listFiles = file.listFiles()) == null || listFiles.length == 0) {
+            return;
+        }
+        for (File file2 : listFiles) {
+            if (!file2.isDirectory()) {
+                file2.delete();
+            }
+        }
+    }
+
+    public static boolean deleteDir(File file) {
+        if (file.isDirectory()) {
+            for (String str : file.list()) {
+                if (!deleteDir(new File(file, str))) {
+                    return false;
+                }
+            }
+        }
+        return file.delete();
+    }
+
+    public static boolean deleteFile(String str) {
+        if (TextUtils.isEmpty(str)) {
+            return false;
+        }
+        File file = new File(str);
+        if (file.exists()) {
+            return file.delete();
+        }
+        return false;
+    }
+
+    public static void deleteNotCheck(File file) {
+        if (file.isFile()) {
+            file.delete();
+            return;
+        }
+        File[] listFiles = file.listFiles();
+        if (listFiles != null && listFiles.length != 0) {
+            for (File file2 : listFiles) {
+                deleteNotCheck(file2);
+                file.delete();
+            }
+            return;
+        }
+        file.delete();
+    }
+
+    public static long getDirectorySize(String str) throws IOException {
+        long length;
+        File file = new File(str);
+        File[] listFiles = file.listFiles();
+        if (listFiles == null) {
+            return file.length();
+        }
+        int length2 = listFiles.length;
+        long j = 0;
+        for (int i = 0; i < length2; i++) {
+            if (listFiles[i].isDirectory()) {
+                length = getDirectorySize(listFiles[i]);
+            } else {
+                length = listFiles[i].length();
+            }
+            j += length;
+        }
+        return j;
+    }
+
+    public static boolean getExistFile(File file) {
+        return file.exists();
+    }
+
+    public static String getFileMD5(String str) {
+        if (TextUtils.isEmpty(str)) {
+            return null;
+        }
+        File file = new File(str);
+        if (file.exists()) {
+            return EncryptUtils.encrypt("MD5", file, false);
+        }
+        return null;
+    }
+
+    public static Bitmap getLocalVideoBitmap(String str) {
+        MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();
+        Bitmap bitmap = null;
+        try {
+            try {
+                mediaMetadataRetriever.setDataSource(str);
+                bitmap = mediaMetadataRetriever.getFrameAtTime();
+                return BitmapUtils.scaleCover(bitmap, Integer.parseInt(mediaMetadataRetriever.extractMetadata(18)), Integer.parseInt(mediaMetadataRetriever.extractMetadata(19)), true);
+            } catch (IllegalArgumentException e2) {
+                e2.printStackTrace();
+                mediaMetadataRetriever.release();
+                return bitmap;
+            } catch (Exception unused) {
+                mediaMetadataRetriever.release();
+                return bitmap;
+            }
+        } finally {
+            mediaMetadataRetriever.release();
+        }
+    }
+
+    public static String getSuffix(String str) {
+        int lastIndexOf;
+        return (TextUtils.isEmpty(str) || (lastIndexOf = str.lastIndexOf(".")) <= 0) ? "" : str.substring(lastIndexOf);
+    }
 
     public static File getVideoCoverCacheDir() {
         File externalCacheDir = Application.get().getExternalCacheDir();
@@ -35,24 +160,6 @@ public class FileUtils {
         return null;
     }
 
-    public static void deleteAllFiles(File file) {
-        File[] listFiles;
-        if (file != null && (listFiles = file.listFiles()) != null && listFiles.length != 0) {
-            for (File file2 : listFiles) {
-                if (!file2.isDirectory()) {
-                    file2.delete();
-                }
-            }
-        }
-    }
-
-    public static String createTempFileName(File file, String str) {
-        if (file == null) {
-            return null;
-        }
-        return file.getAbsolutePath() + File.separator + (System.currentTimeMillis() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + new Random().nextInt(10000) + str);
-    }
-
     public static boolean isExistFile(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
@@ -60,93 +167,13 @@ public class FileUtils {
         return new File(str).exists();
     }
 
-    public static boolean deleteFile(String str) {
-        if (!TextUtils.isEmpty(str)) {
-            File file = new File(str);
-            if (file.exists()) {
-                return file.delete();
-            }
-        }
-        return false;
-    }
-
-    public static String getFileMD5(String str) {
-        if (!TextUtils.isEmpty(str)) {
-            File file = new File(str);
-            if (file.exists()) {
-                return EncryptUtils.encrypt(EncryptUtils.ENCRYPT_MD5, file, false);
-            }
-        }
-        return null;
-    }
-
-    public static String getSuffix(String str) {
-        int lastIndexOf;
-        return (TextUtils.isEmpty(str) || (lastIndexOf = str.lastIndexOf(".")) <= 0) ? "" : str.substring(lastIndexOf);
-    }
-
-    public static long getDirectorySize(String str) throws IOException {
-        long length;
-        long j = 0;
-        File file = new File(str);
-        File[] listFiles = file.listFiles();
-        if (listFiles == null) {
-            return file.length();
-        }
-        int length2 = listFiles.length;
-        for (int i = 0; i < length2; i++) {
-            if (listFiles[i].isDirectory()) {
-                length = getDirectorySize(listFiles[i]);
-            } else {
-                length = listFiles[i].length();
-            }
-            j += length;
-        }
-        return j;
-    }
-
-    public static long getDirectorySize(File file) throws IOException {
-        long length;
-        long j = 0;
-        File[] listFiles = file.listFiles();
-        if (listFiles == null) {
-            return file.length();
-        }
-        int length2 = listFiles.length;
-        for (int i = 0; i < length2; i++) {
-            if (listFiles[i].isDirectory()) {
-                length = getDirectorySize(listFiles[i]);
-            } else {
-                length = listFiles[i].length();
-            }
-            j += length;
-        }
-        return j;
-    }
-
-    public static Bitmap getLocalVideoBitmap(String str) {
-        Bitmap bitmap = null;
-        MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();
-        try {
-            try {
-                mediaMetadataRetriever.setDataSource(str);
-                bitmap = BitmapUtils.scaleCover(mediaMetadataRetriever.getFrameAtTime(), Integer.parseInt(mediaMetadataRetriever.extractMetadata(18)), Integer.parseInt(mediaMetadataRetriever.extractMetadata(19)), true);
-                mediaMetadataRetriever.release();
-            } catch (IllegalArgumentException e) {
-                e.printStackTrace();
-                mediaMetadataRetriever.release();
-            } catch (Exception e2) {
-                mediaMetadataRetriever.release();
-            }
-            return bitmap;
-        } catch (Throwable th) {
-            mediaMetadataRetriever.release();
-            throw th;
-        }
+    public static boolean isSDMounted() {
+        return Environment.getExternalStorageState().equals("mounted");
     }
 
     public static String saveBitmap(Bitmap bitmap) {
-        File file = new File(getVideoCoverCacheDir(), System.currentTimeMillis() + ".jpg");
+        File videoCoverCacheDir = getVideoCoverCacheDir();
+        File file = new File(videoCoverCacheDir, System.currentTimeMillis() + ".jpg");
         try {
             FileOutputStream fileOutputStream = new FileOutputStream(file);
             if (bitmap != null) {
@@ -154,10 +181,10 @@ public class FileUtils {
             }
             fileOutputStream.flush();
             fileOutputStream.close();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e2) {
+        } catch (FileNotFoundException e2) {
             e2.printStackTrace();
+        } catch (IOException e3) {
+            e3.printStackTrace();
         }
         return file.getAbsolutePath();
     }
@@ -197,46 +224,22 @@ public class FileUtils {
         }
     }
 
-    public static boolean deleteDir(File file) {
-        if (file.isDirectory()) {
-            for (String str : file.list()) {
-                if (!deleteDir(new File(file, str))) {
-                    return false;
-                }
-            }
-        }
-        return file.delete();
-    }
-
-    public static boolean delete(File file) {
-        if (file == null) {
-            return false;
-        }
-        deleteNotCheck(file);
-        return !file.exists();
-    }
-
-    private static void deleteNotCheck(File file) {
-        if (file.isFile()) {
-            file.delete();
-            return;
-        }
+    public static long getDirectorySize(File file) throws IOException {
+        long length;
         File[] listFiles = file.listFiles();
-        if (listFiles == null || listFiles.length == 0) {
-            file.delete();
-            return;
+        if (listFiles == null) {
+            return file.length();
         }
-        for (File file2 : listFiles) {
-            deleteNotCheck(file2);
-            file.delete();
+        int length2 = listFiles.length;
+        long j = 0;
+        for (int i = 0; i < length2; i++) {
+            if (listFiles[i].isDirectory()) {
+                length = getDirectorySize(listFiles[i]);
+            } else {
+                length = listFiles[i].length();
+            }
+            j += length;
         }
-    }
-
-    public static boolean getExistFile(File file) {
-        return file.exists();
-    }
-
-    public static boolean isSDMounted() {
-        return Environment.getExternalStorageState().equals("mounted");
+        return j;
     }
 }

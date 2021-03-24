@@ -1,25 +1,27 @@
 package kotlin.jvm.internal;
-/* loaded from: classes14.dex */
-public class FunctionReferenceImpl extends FunctionReference {
-    private final String name;
-    private final kotlin.reflect.d owner;
-    private final String signature;
 
-    public FunctionReferenceImpl(int i, kotlin.reflect.d dVar, String str, String str2) {
+import kotlin.reflect.KDeclarationContainer;
+/* loaded from: classes7.dex */
+public class FunctionReferenceImpl extends FunctionReference {
+    public final String name;
+    public final KDeclarationContainer owner;
+    public final String signature;
+
+    public FunctionReferenceImpl(int i, KDeclarationContainer kDeclarationContainer, String str, String str2) {
         super(i);
-        this.owner = dVar;
+        this.owner = kDeclarationContainer;
         this.name = str;
         this.signature = str2;
     }
 
-    @Override // kotlin.jvm.internal.CallableReference
-    public kotlin.reflect.d getOwner() {
-        return this.owner;
+    @Override // kotlin.jvm.internal.CallableReference, kotlin.reflect.KCallable
+    public String getName() {
+        return this.name;
     }
 
     @Override // kotlin.jvm.internal.CallableReference
-    public String getName() {
-        return this.name;
+    public KDeclarationContainer getOwner() {
+        return this.owner;
     }
 
     @Override // kotlin.jvm.internal.CallableReference

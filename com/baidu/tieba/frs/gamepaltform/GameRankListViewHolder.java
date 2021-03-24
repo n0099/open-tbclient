@@ -4,14 +4,18 @@ import android.view.View;
 import android.widget.TextView;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.tieba.R;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class GameRankListViewHolder extends TypeAdapter.ViewHolder {
-    public GameRankHorizontalLayout jAQ;
-    public TextView jAR;
+
+    /* renamed from: a  reason: collision with root package name */
+    public GameRankHorizontalLayout f16365a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public TextView f16366b;
 
     public GameRankListViewHolder(View view) {
         super(view);
-        this.jAQ = (GameRankHorizontalLayout) view.findViewById(R.id.game_rank_list_viewpager);
-        this.jAR = (TextView) view.findViewById(R.id.close_game_rank_btn);
+        this.f16365a = (GameRankHorizontalLayout) view.findViewById(R.id.game_rank_list_viewpager);
+        this.f16366b = (TextView) view.findViewById(R.id.close_game_rank_btn);
     }
 }

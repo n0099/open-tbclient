@@ -1,45 +1,42 @@
 package com.meizu.cloud.pushsdk.b.g;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class k {
 
     /* renamed from: a  reason: collision with root package name */
-    static j f7372a;
-    static long b;
+    public static j f37610a;
 
-    private k() {
-    }
+    /* renamed from: b  reason: collision with root package name */
+    public static long f37611b;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public static j a() {
         synchronized (k.class) {
-            if (f7372a != null) {
-                j jVar = f7372a;
-                f7372a = jVar.f;
-                jVar.f = null;
-                b -= 2048;
+            if (f37610a != null) {
+                j jVar = f37610a;
+                f37610a = jVar.f37608f;
+                jVar.f37608f = null;
+                f37611b -= 2048;
                 return jVar;
             }
             return new j();
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public static void a(j jVar) {
-        if (jVar.f != null || jVar.g != null) {
+        if (jVar.f37608f != null || jVar.f37609g != null) {
             throw new IllegalArgumentException();
         }
-        if (jVar.d) {
+        if (jVar.f37606d) {
             return;
         }
         synchronized (k.class) {
-            if (b + 2048 <= 65536) {
-                b += 2048;
-                jVar.f = f7372a;
-                jVar.c = 0;
-                jVar.b = 0;
-                f7372a = jVar;
+            if (f37611b + 2048 > 65536) {
+                return;
             }
+            f37611b += 2048;
+            jVar.f37608f = f37610a;
+            jVar.f37605c = 0;
+            jVar.f37604b = 0;
+            f37610a = jVar;
         }
     }
 }

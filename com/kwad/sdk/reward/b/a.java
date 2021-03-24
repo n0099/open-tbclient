@@ -9,65 +9,71 @@ import android.os.Handler;
 import android.os.Message;
 import android.text.TextUtils;
 import com.baidu.fsg.base.activity.BaseActivity;
+import com.baidu.tbadk.commonReceiver.PackageChangedReceiver;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.utils.ap;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class a extends com.kwad.sdk.reward.d implements ap.a {
-    private Handler b;
-    private AdInfo c;
-    private com.kwad.sdk.reward.c.a d;
-    private BroadcastReceiver e = new BroadcastReceiver() { // from class: com.kwad.sdk.reward.b.a.1
+
+    /* renamed from: b  reason: collision with root package name */
+    public Handler f36224b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public AdInfo f36225c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public com.kwad.sdk.reward.c.a f36226d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public BroadcastReceiver f36227e = new BroadcastReceiver() { // from class: com.kwad.sdk.reward.b.a.1
         @Override // android.content.BroadcastReceiver
         public void onReceive(Context context, Intent intent) {
-            String str = null;
-            if (TextUtils.equals("android.intent.action.PACKAGE_ADDED", intent.getAction()) && intent.getData() != null) {
-                str = intent.getData().getSchemeSpecificPart();
-            }
-            if (TextUtils.isEmpty(str)) {
+            String schemeSpecificPart = (!TextUtils.equals(PackageChangedReceiver.ACTION_INSTALL, intent.getAction()) || intent.getData() == null) ? null : intent.getData().getSchemeSpecificPart();
+            if (TextUtils.isEmpty(schemeSpecificPart)) {
                 return;
             }
-            Message obtainMessage = a.this.b.obtainMessage(BaseActivity.DIALOG_LOADING);
-            obtainMessage.obj = str;
+            Message obtainMessage = a.this.f36224b.obtainMessage(BaseActivity.DIALOG_LOADING);
+            obtainMessage.obj = schemeSpecificPart;
             obtainMessage.sendToTarget();
         }
     };
 
     private void e() {
         IntentFilter intentFilter = new IntentFilter();
-        intentFilter.addAction("android.intent.action.PACKAGE_ADDED");
+        intentFilter.addAction(PackageChangedReceiver.ACTION_INSTALL);
         intentFilter.addDataScheme("package");
-        this.f7028a.g.registerReceiver(this.e, intentFilter);
+        ((com.kwad.sdk.reward.d) this).f36457a.f36222g.registerReceiver(this.f36227e, intentFilter);
     }
 
     private void f() {
-        Activity activity = this.f7028a.g;
+        Activity activity = ((com.kwad.sdk.reward.d) this).f36457a.f36222g;
         if (activity != null) {
-            activity.unregisterReceiver(this.e);
+            activity.unregisterReceiver(this.f36227e);
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.reward.d, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        this.c = com.kwad.sdk.core.response.b.c.j(this.f7028a.f);
-        this.d = this.f7028a.i;
-        this.b = new ap(this);
+        this.f36225c = com.kwad.sdk.core.response.b.c.j(((com.kwad.sdk.reward.d) this).f36457a.f36221f);
+        this.f36226d = ((com.kwad.sdk.reward.d) this).f36457a.i;
+        this.f36224b = new ap(this);
         e();
     }
 
     @Override // com.kwad.sdk.utils.ap.a
     public void a(Message message) {
-        if (message.what == 242 && message.obj != null && message.obj.equals(this.c.adBaseInfo.appPackageName)) {
-            if (this.f7028a.b != null) {
-                this.f7028a.b.e();
+        Object obj;
+        if (message.what == 242 && (obj = message.obj) != null && obj.equals(this.f36225c.adBaseInfo.appPackageName)) {
+            com.kwad.sdk.reward.a.b bVar = ((com.kwad.sdk.reward.d) this).f36457a.f36217b;
+            if (bVar != null) {
+                bVar.e();
             }
-            this.d.h();
-            this.f7028a.b();
+            this.f36226d.h();
+            ((com.kwad.sdk.reward.d) this).f36457a.b();
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.mvp.Presenter
     public void b_() {
         super.b_();

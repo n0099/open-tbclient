@@ -12,71 +12,77 @@ import com.baidu.webkit.sdk.Log;
 import com.baidu.webkit.sdk.WebKitFactory;
 import java.util.HashMap;
 import org.json.JSONObject;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class JsUploadTask implements INoProGuard {
-    private static final int CONN_TIMEOUT = 5000;
-    private static final int READ_TIMEOUT = 10000;
-    private static final String TAG = "JsInterface";
-    private static String mAppVersion;
-    private static String mAppid;
-    private static String mBTranUrl;
-    private static int mBlockedAdCount;
-    private static String mCpuType;
-    private static boolean mCssLoaded;
-    private static String mCurrentUrl;
-    private static int mDocumentLoadState;
-    private static int mErrorCode;
-    private static boolean mErrorUploadAlreadySet;
-    private static boolean mErrorUploadEnabled;
-    private static long mFirstScreenTime;
-    private static String mGpuType;
-    private static boolean mHttpDnsEnable;
-    private static boolean mMainLinkDirectAlreadySet;
-    private static int mNetError;
-    private static String mNetType;
-    private static boolean mOnePacketAlreadySet;
-    private static String mPacUrl;
-    private static long mPageFinishedTime;
-    private static long mPageStartTime;
-    private static int mParsedTokens;
-    private static boolean mPreloadAlreadySet;
-    private static int mReceivedDataSize;
-    private static String mSdkVer;
-    private static String mSearchId;
-    private static boolean mSessionHeaderAlreadySet;
-    private static boolean mSpdyAlreadySet;
-    private static boolean mSpdyCompressAlreadySet;
-    private static boolean mSpdyEncryptionAlreadySet;
-    private static String mStatisticsSessionId;
-    private static String mTimeStamp;
-    private static int mUpLoadNum;
-    private static boolean mUsingCloudSettingsAlreadySet;
-    private static boolean mWebessenseAlreadySet;
-    private static String mXFirstJumpUrl;
-    private static String mZeusVer;
-    private Context mContext;
-    private String mReferer;
-    private String mTag;
-    private String mUrl;
-    private String mXReferer;
-    private boolean responded;
-    private static String mCuid = "0";
-    private static int mCurEngine = -1;
-    private static boolean mUsingCloudSettings = true;
-    private static boolean mIsMobileSite = true;
-    private static int mHttpcode = -1;
-    private static int mNetcode = AddressManageCallback.VoiceRecognitionResult.ERROR_CODE_VOICE_RECOGNITION_CANCEL;
-    private static int mWiseLandingPageType = AddressManageCallback.VoiceRecognitionResult.ERROR_CODE_VOICE_RECOGNITION_CANCEL;
-    private static JumpType mFirstJumpType = JumpType.DefaultJump;
-    private static JumpType mLastJumpType = JumpType.DefaultJump;
+    public static final int CONN_TIMEOUT = 5000;
+    public static final int READ_TIMEOUT = 10000;
+    public static final String TAG = "JsInterface";
+    public static String mAppVersion = null;
+    public static String mAppid = null;
+    public static String mBTranUrl = null;
+    public static int mBlockedAdCount = 0;
+    public static String mCpuType = null;
+    public static boolean mCssLoaded = false;
+    public static String mCuid = "0";
+    public static int mCurEngine = -1;
+    public static String mCurrentUrl = null;
+    public static int mDocumentLoadState = 0;
+    public static int mErrorCode = 0;
+    public static boolean mErrorUploadAlreadySet = false;
+    public static boolean mErrorUploadEnabled = false;
+    public static JumpType mFirstJumpType = null;
+    public static long mFirstScreenTime = 0;
+    public static String mGpuType = null;
+    public static boolean mHttpDnsEnable = false;
+    public static int mHttpcode = -1;
+    public static boolean mIsMobileSite = true;
+    public static JumpType mLastJumpType = null;
+    public static boolean mMainLinkDirectAlreadySet = false;
+    public static int mNetError = 0;
+    public static String mNetType = null;
+    public static int mNetcode = -500;
+    public static boolean mOnePacketAlreadySet = false;
+    public static String mPacUrl = null;
+    public static long mPageFinishedTime = 0;
+    public static long mPageStartTime = 0;
+    public static int mParsedTokens = 0;
+    public static boolean mPreloadAlreadySet = false;
+    public static int mReceivedDataSize = 0;
+    public static String mSdkVer = null;
+    public static String mSearchId = null;
+    public static boolean mSessionHeaderAlreadySet = false;
+    public static boolean mSpdyAlreadySet = false;
+    public static boolean mSpdyCompressAlreadySet = false;
+    public static boolean mSpdyEncryptionAlreadySet = false;
+    public static String mStatisticsSessionId = null;
+    public static String mTimeStamp = null;
+    public static int mUpLoadNum = 0;
+    public static boolean mUsingCloudSettings = true;
+    public static boolean mUsingCloudSettingsAlreadySet = false;
+    public static boolean mWebessenseAlreadySet = false;
+    public static int mWiseLandingPageType = -500;
+    public static String mXFirstJumpUrl;
+    public static String mZeusVer;
+    public Context mContext;
+    public String mReferer;
+    public String mTag;
+    public String mUrl;
+    public String mXReferer;
+    public boolean responded;
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public enum JumpType {
         DefaultJump,
         JsJump,
         RedirectJump,
         TCRedirectJump,
         LPRedirectJump
+    }
+
+    static {
+        JumpType jumpType = JumpType.DefaultJump;
+        mFirstJumpType = jumpType;
+        mLastJumpType = jumpType;
     }
 
     public JsUploadTask() {
@@ -90,14 +96,14 @@ public class JsUploadTask implements INoProGuard {
         this.mXReferer = str4;
     }
 
-    private static void addExternalItem(StringBuilder sb) {
+    public static void addExternalItem(StringBuilder sb) {
         HashMap<String, String> statisticParams = WebKitFactory.getStatisticParams();
         if (statisticParams == null || statisticParams.isEmpty()) {
             return;
         }
         for (String str : statisticParams.keySet()) {
             if (sb.length() > 0) {
-                sb.append(ETAG.ITEM_SEPARATOR);
+                sb.append("&");
             }
             sb.append(str);
             sb.append("=");
@@ -105,27 +111,27 @@ public class JsUploadTask implements INoProGuard {
         }
     }
 
-    private static void addRawLogItem(StringBuilder sb, String str, long j) {
+    public static void addRawLogItem(StringBuilder sb, String str, long j) {
         if (sb.length() > 0) {
-            sb.append(ETAG.ITEM_SEPARATOR);
+            sb.append("&");
         }
         sb.append(str);
         sb.append("=");
         sb.append(j);
     }
 
-    private static void addRawLogItem(StringBuilder sb, String str, String str2) {
+    public static void addRawLogItem(StringBuilder sb, String str, String str2) {
         if (sb.length() > 0) {
-            sb.append(ETAG.ITEM_SEPARATOR);
+            sb.append("&");
         }
         sb.append(str);
         sb.append("=");
         sb.append(str2);
     }
 
-    private static void addRawLogItem(StringBuilder sb, String str, boolean z) {
+    public static void addRawLogItem(StringBuilder sb, String str, boolean z) {
         if (sb.length() > 0) {
-            sb.append(ETAG.ITEM_SEPARATOR);
+            sb.append("&");
         }
         sb.append(str);
         sb.append("=");
@@ -137,26 +143,26 @@ public class JsUploadTask implements INoProGuard {
     }
 
     public static synchronized String getEngineInfo() {
+        boolean shouldAccessNetworkOverSpdy;
         String sb;
-        boolean z = false;
         synchronized (JsUploadTask.class) {
             StringBuilder sb2 = new StringBuilder();
-            if (mCurrentUrl != null) {
-                z = WebSettingsGlobalBlink.shouldAccessNetworkOverSpdy(mCurrentUrl);
-                Log.w(TAG, "getEngineInfo " + mCurrentUrl + " spdy " + z);
-            } else if (WebKitFactory.getCurEngine() == 1) {
-                z = WebSettingsGlobalBlink.getEnableSpdy();
+            if (mCurrentUrl == null) {
+                shouldAccessNetworkOverSpdy = WebKitFactory.getCurEngine() == 1 ? WebSettingsGlobalBlink.getEnableSpdy() : false;
+            } else {
+                shouldAccessNetworkOverSpdy = WebSettingsGlobalBlink.shouldAccessNetworkOverSpdy(mCurrentUrl);
+                Log.w(TAG, "getEngineInfo " + mCurrentUrl + " spdy " + shouldAccessNetworkOverSpdy);
             }
             boolean spdy31Enabled = WebSettingsGlobalBlink.getSpdy31Enabled();
             boolean http2Enabled = WebSettingsGlobalBlink.getHttp2Enabled();
             addRawLogItem(sb2, "appid", mAppid);
             addRawLogItem(sb2, "appversion", mAppVersion);
             addRawLogItem(sb2, "cuid", mCuid);
-            addRawLogItem(sb2, "session_id", mStatisticsSessionId);
+            addRawLogItem(sb2, ETAG.KEY_STATISTICS_SEESIONID, mStatisticsSessionId);
             addRawLogItem(sb2, ETAG.KEY_SEARCH_ID, mSearchId);
             addRawLogItem(sb2, ETAG.KEY_B_TRAN_URL, mBTranUrl);
             addExternalItem(sb2);
-            addRawLogItem(sb2, ETAG.KEY_TIME_STAMP, mTimeStamp);
+            addRawLogItem(sb2, "time_stamp", mTimeStamp);
             addRawLogItem(sb2, ETAG.KEY_CPU_TYPE, mCpuType);
             if (WebKitFactory.getCurEngine() == 1) {
                 addRawLogItem(sb2, ETAG.KEY_GPU_TYPE, mGpuType);
@@ -173,7 +179,7 @@ public class JsUploadTask implements INoProGuard {
             addRawLogItem(sb2, ETAG.KEY_PAGE_FINISHED, mPageFinishedTime);
             addRawLogItem(sb2, ETAG.KEY_UPLOAD_NUM, mUpLoadNum);
             addRawLogItem(sb2, ETAG.KEY_SYS_PROXY, WebSettingsGlobalBlink.getSysProxyEnabled());
-            addRawLogItem(sb2, "net_error", mNetError);
+            addRawLogItem(sb2, ETAG.KEY_NET_ERROR, mNetError);
             addRawLogItem(sb2, "http_code", mHttpcode);
             addRawLogItem(sb2, ETAG.KEY_NET_CODE, mNetcode);
             addRawLogItem(sb2, ETAG.KEY_FIRST_JUMP_TYPE, mFirstJumpType.ordinal());
@@ -187,11 +193,11 @@ public class JsUploadTask implements INoProGuard {
             mFirstJumpType = JumpType.DefaultJump;
             mLastJumpType = JumpType.DefaultJump;
             if (WebKitFactory.getCurEngine() == 1) {
-                addRawLogItem(sb2, ETAG.KEY_SPDY, z);
+                addRawLogItem(sb2, ETAG.KEY_SPDY, shouldAccessNetworkOverSpdy);
                 addRawLogItem(sb2, ETAG.KEY_SPDY31, spdy31Enabled);
                 addRawLogItem(sb2, ETAG.KEY_HTTP2_WORMHOLE, http2Enabled);
                 Log.w(TAG, "[mohao] HTTP2_WORMHOLE: " + http2Enabled);
-                addRawLogItem(sb2, ETAG.KEY_ZEUS_VER, mZeusVer);
+                addRawLogItem(sb2, "zeus_ver", mZeusVer);
                 addRawLogItem(sb2, ETAG.KEY_FIRST_SCREEN, mFirstScreenTime);
                 addRawLogItem(sb2, ETAG.KEY_IS_MOBILE_SITE, mIsMobileSite);
                 String GetCloudSettingsValue = WebSettingsGlobalBlink.GetCloudSettingsValue("spdyswitch");
@@ -204,14 +210,15 @@ public class JsUploadTask implements INoProGuard {
                 addRawLogItem(sb2, ETAG.KEY_LOCAL_DNS, WebSettingsGlobalBlink.getLocalDns());
                 addRawLogItem(sb2, ETAG.KEY_UP_TRAFFIC, WebSettingsGlobalBlink.getUpTraffic());
                 addRawLogItem(sb2, ETAG.KEY_DOWN_TRAFFIC, WebSettingsGlobalBlink.getDownTraffic());
-                if (z) {
+                if (shouldAccessNetworkOverSpdy) {
                     addRawLogItem(sb2, ETAG.KEY_SPDY_COMPRESS, WebSettingsGlobalBlink.getSpdyCompressEnabled());
                     addRawLogItem(sb2, ETAG.KEY_SPDY_HOST, WebSettingsGlobalBlink.getCloudHost());
                     addRawLogItem(sb2, ETAG.KEY_QUIC_HOST, WebSettingsGlobalBlink.getQuicHost());
                 }
                 addRawLogItem(sb2, ETAG.KEY_QUIC_THRESHOLD, WebSettingsGlobalBlink.getQuicThreshold());
-                mHttpDnsEnable = WebSettingsGlobalBlink.GetHttpDnsCache(mCurrentUrl);
-                addRawLogItem(sb2, ETAG.KEY_HTTP_DNS_ENABLE, mHttpDnsEnable);
+                boolean GetHttpDnsCache = WebSettingsGlobalBlink.GetHttpDnsCache(mCurrentUrl);
+                mHttpDnsEnable = GetHttpDnsCache;
+                addRawLogItem(sb2, ETAG.KEY_HTTP_DNS_ENABLE, GetHttpDnsCache);
                 String dnsInfo = WebSettingsGlobalBlink.getDnsInfo(mCurrentUrl);
                 Log.w(TAG, "[cronet] HTTP_DNS_ENABLE: " + mHttpDnsEnable + " http_dns info:" + dnsInfo + " url : " + mCurrentUrl);
                 addRawLogItem(sb2, ETAG.KEY_DNS_INFO, dnsInfo);
@@ -233,9 +240,9 @@ public class JsUploadTask implements INoProGuard {
                         CloudSettings.a aVar = CloudSettings.NetRecordList.get(0);
                         CloudSettings.NetRecordList.remove(0);
                         Log.w(TAG, "NetRecordList size1 " + CloudSettings.NetRecordList.size());
-                        jSONObject.put(ETAG.KEY_CRONET_ENABLE, aVar.c);
-                        jSONObject.put(ETAG.KEY_CRONET_NET_TIME, aVar.f3832a);
-                        jSONObject.put(ETAG.KEY_CRONET_NET_RES, aVar.b);
+                        jSONObject.put(ETAG.KEY_CRONET_ENABLE, aVar.f26917c);
+                        jSONObject.put(ETAG.KEY_CRONET_NET_TIME, aVar.f26915a);
+                        jSONObject.put(ETAG.KEY_CRONET_NET_RES, aVar.f26916b);
                     }
                     if (WebSettingsGlobalBlink.isFeedProxyAdUrl(mCurrentUrl)) {
                         jSONObject.put(ETAG.KEY_FEED_PROXY_AD, 1);
@@ -251,8 +258,8 @@ public class JsUploadTask implements INoProGuard {
                     String jSONObject2 = jSONObject.toString();
                     Log.w(TAG, "[mohao] extension: " + jSONObject2);
                     addRawLogItem(sb2, ETAG.KEY_EXTENSION, jSONObject2);
-                } catch (Exception e) {
-                    e.printStackTrace();
+                } catch (Exception e2) {
+                    e2.printStackTrace();
                 }
             }
             sb = sb2.toString();
@@ -275,11 +282,11 @@ public class JsUploadTask implements INoProGuard {
             addRawLogItem(sb2, "appid", mAppid);
             addRawLogItem(sb2, "appversion", mAppVersion);
             addRawLogItem(sb2, "cuid", mCuid);
-            addRawLogItem(sb2, "session_id", mStatisticsSessionId);
+            addRawLogItem(sb2, ETAG.KEY_STATISTICS_SEESIONID, mStatisticsSessionId);
             addRawLogItem(sb2, ETAG.KEY_SEARCH_ID, mSearchId);
             addRawLogItem(sb2, ETAG.KEY_B_TRAN_URL, mBTranUrl);
             addExternalItem(sb2);
-            addRawLogItem(sb2, ETAG.KEY_TIME_STAMP, mTimeStamp);
+            addRawLogItem(sb2, "time_stamp", mTimeStamp);
             addRawLogItem(sb2, ETAG.KEY_CPU_TYPE, mCpuType);
             addRawLogItem(sb2, "net_type", mNetType);
             addRawLogItem(sb2, ETAG.KEY_ZEUS_STATE, WebKitFactory.getCurEngine());

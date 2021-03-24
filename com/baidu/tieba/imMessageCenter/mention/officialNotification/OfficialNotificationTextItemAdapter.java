@@ -3,42 +3,48 @@ package com.baidu.tieba.imMessageCenter.mention.officialNotification;
 import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.im.chat.MsgCommonItemAdapter;
 import com.baidu.tieba.im.message.chat.ChatMessage;
-/* loaded from: classes2.dex */
+import d.b.i0.e1.b.q.a;
+/* loaded from: classes4.dex */
 public class OfficialNotificationTextItemAdapter extends MsgCommonItemAdapter<a> {
-    private View.OnClickListener mOnClickListener;
-    private TbPageContext mPageContext;
+    public TbPageContext t;
+    public View.OnClickListener u;
 
     public OfficialNotificationTextItemAdapter(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext, bdUniqueId);
-        this.mPageContext = tbPageContext;
+        this.t = tbPageContext;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: ch */
-    public MsgCommonItemAdapter.MsgViewHolder<a> e(ViewGroup viewGroup) {
-        a aVar = new a(this.mPageContext, viewGroup, this.mOnClickListener);
-        return new MsgCommonItemAdapter.MsgViewHolder<>(aVar.getView(), aVar);
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
+    @Override // com.baidu.tieba.im.chat.MsgCommonItemAdapter, d.b.b.j.e.a
+    public /* bridge */ /* synthetic */ View X(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, TypeAdapter.ViewHolder viewHolder) {
+        l0(i, view, viewGroup, chatMessage, (MsgCommonItemAdapter.MsgViewHolder) viewHolder);
+        return view;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.im.chat.MsgCommonItemAdapter, com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, MsgCommonItemAdapter.MsgViewHolder<a> msgViewHolder) {
-        super.a(i, view, viewGroup, chatMessage, (MsgCommonItemAdapter.MsgViewHolder) msgViewHolder);
-        a cUT = msgViewHolder.cUT();
-        cUT.onChangeSkinType();
-        if (cUT != null) {
-            cUT.setData(chatMessage);
+    @Override // com.baidu.tieba.im.chat.MsgCommonItemAdapter
+    public View l0(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, MsgCommonItemAdapter.MsgViewHolder<a> msgViewHolder) {
+        super.X(i, view, viewGroup, chatMessage, msgViewHolder);
+        a b2 = msgViewHolder.b();
+        b2.b();
+        if (b2 != null) {
+            b2.c(chatMessage);
         }
         return view;
     }
 
-    public void setOnClickListener(View.OnClickListener onClickListener) {
-        this.mOnClickListener = onClickListener;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // d.b.b.j.e.a
+    /* renamed from: r0 */
+    public MsgCommonItemAdapter.MsgViewHolder<a> R(ViewGroup viewGroup) {
+        a aVar = new a(this.t, viewGroup, this.u);
+        return new MsgCommonItemAdapter.MsgViewHolder<>(aVar.a(), aVar);
+    }
+
+    public void s0(View.OnClickListener onClickListener) {
+        this.u = onClickListener;
     }
 }

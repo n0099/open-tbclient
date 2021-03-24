@@ -8,11 +8,14 @@ import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-/* loaded from: classes.dex */
+import d.b.b.e.p.l;
+/* loaded from: classes3.dex */
 public class BdListViewHelper {
-    public static final int fOd = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.ds320);
 
-    /* loaded from: classes.dex */
+    /* renamed from: a  reason: collision with root package name */
+    public static final int f14030a = l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.ds320);
+
+    /* loaded from: classes3.dex */
     public enum HeadType {
         DEFAULT,
         HASTAB,
@@ -20,52 +23,89 @@ public class BdListViewHelper {
         TIP
     }
 
+    /* loaded from: classes3.dex */
+    public static /* synthetic */ class a {
+
+        /* renamed from: a  reason: collision with root package name */
+        public static final /* synthetic */ int[] f14031a;
+
+        static {
+            int[] iArr = new int[HeadType.values().length];
+            f14031a = iArr;
+            try {
+                iArr[HeadType.DEFAULT.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
+            }
+            try {
+                f14031a[HeadType.HASTAB.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
+            }
+            try {
+                f14031a[HeadType.HAS_NO_NETWORK_BAR.ordinal()] = 3;
+            } catch (NoSuchFieldError unused3) {
+            }
+            try {
+                f14031a[HeadType.TIP.ordinal()] = 4;
+            } catch (NoSuchFieldError unused4) {
+            }
+        }
+    }
+
     public static int a(HeadType headType) {
         Context context = TbadkCoreApplication.getInst().getContext();
-        switch (headType) {
-            case DEFAULT:
-                return com.baidu.adp.lib.util.l.getDimens(context, R.dimen.ds88) + UtilHelper.getLightStatusBarHeight();
-            case HASTAB:
-                return com.baidu.adp.lib.util.l.getDimens(context, R.dimen.ds176) + UtilHelper.getLightStatusBarHeight();
-            case HAS_NO_NETWORK_BAR:
-                return com.baidu.adp.lib.util.l.getDimens(context, R.dimen.ds168) + UtilHelper.getLightStatusBarHeight();
-            case TIP:
-                return com.baidu.adp.lib.util.l.getDimens(context, R.dimen.ds56);
-            default:
-                return com.baidu.adp.lib.util.l.getDimens(context, R.dimen.ds88) + UtilHelper.getLightStatusBarHeight();
-        }
-    }
-
-    public static View a(Context context, BdListView bdListView, HeadType headType) {
-        TextView textView = new TextView(context);
-        textView.setLayoutParams(new AbsListView.LayoutParams(-1, a(headType)));
-        bdListView.addHeaderView(textView, 0);
-        return textView;
-    }
-
-    public static void a(View view, HeadType headType, boolean z) {
-        if (view != null && headType != null) {
-            Context context = TbadkCoreApplication.getInst().getContext();
-            AbsListView.LayoutParams layoutParams = (AbsListView.LayoutParams) view.getLayoutParams();
-            if (z) {
-                layoutParams.height = a(headType);
-            } else if (HeadType.DEFAULT == headType) {
-                layoutParams.height = com.baidu.adp.lib.util.l.getDimens(context, R.dimen.ds170) + UtilHelper.getLightStatusBarHeight();
-            } else {
-                layoutParams.height = com.baidu.adp.lib.util.l.getDimens(context, R.dimen.ds240) + UtilHelper.getLightStatusBarHeight();
+        int i = a.f14031a[headType.ordinal()];
+        if (i != 1) {
+            if (i != 2) {
+                if (i != 3) {
+                    if (i != 4) {
+                        return UtilHelper.getLightStatusBarHeight() + l.g(context, R.dimen.ds88);
+                    }
+                    return l.g(context, R.dimen.ds56);
+                }
+                return UtilHelper.getLightStatusBarHeight() + l.g(context, R.dimen.ds168);
             }
-            view.setLayoutParams(layoutParams);
+            return UtilHelper.getLightStatusBarHeight() + l.g(context, R.dimen.ds176);
         }
+        return UtilHelper.getLightStatusBarHeight() + l.g(context, R.dimen.ds88);
     }
 
-    public static int a(HeadType headType, boolean z) {
+    public static int b(HeadType headType, boolean z) {
+        int lightStatusBarHeight;
+        int g2;
         Context context = TbadkCoreApplication.getInst().getContext();
         if (z) {
             return a(headType);
         }
         if (HeadType.DEFAULT == headType) {
-            return com.baidu.adp.lib.util.l.getDimens(context, R.dimen.ds170) + UtilHelper.getLightStatusBarHeight();
+            lightStatusBarHeight = UtilHelper.getLightStatusBarHeight();
+            g2 = l.g(context, R.dimen.ds170);
+        } else {
+            lightStatusBarHeight = UtilHelper.getLightStatusBarHeight();
+            g2 = l.g(context, R.dimen.ds240);
         }
-        return com.baidu.adp.lib.util.l.getDimens(context, R.dimen.ds240) + UtilHelper.getLightStatusBarHeight();
+        return lightStatusBarHeight + g2;
+    }
+
+    public static void c(View view, HeadType headType, boolean z) {
+        if (view == null || headType == null) {
+            return;
+        }
+        Context context = TbadkCoreApplication.getInst().getContext();
+        AbsListView.LayoutParams layoutParams = (AbsListView.LayoutParams) view.getLayoutParams();
+        if (z) {
+            layoutParams.height = a(headType);
+        } else if (HeadType.DEFAULT == headType) {
+            layoutParams.height = UtilHelper.getLightStatusBarHeight() + l.g(context, R.dimen.ds170);
+        } else {
+            layoutParams.height = UtilHelper.getLightStatusBarHeight() + l.g(context, R.dimen.ds240);
+        }
+        view.setLayoutParams(layoutParams);
+    }
+
+    public static View d(Context context, BdListView bdListView, HeadType headType) {
+        TextView textView = new TextView(context);
+        textView.setLayoutParams(new AbsListView.LayoutParams(-1, a(headType)));
+        bdListView.x(textView, 0);
+        return textView;
     }
 }

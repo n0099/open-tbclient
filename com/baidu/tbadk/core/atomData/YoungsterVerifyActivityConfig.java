@@ -2,10 +2,9 @@ package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.webkit.internal.ETAG;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class YoungsterVerifyActivityConfig extends TbWebViewActivityConfig {
     public static final String PARAMA_AUTH_ID = "authid";
     public static final String PARAMA_SCENE = "scene";
@@ -18,9 +17,10 @@ public class YoungsterVerifyActivityConfig extends TbWebViewActivityConfig {
 
     public static String getYoungsterVerifyUrl() {
         try {
-            return VERIFY_URL_PREFIX + URLEncoder.encode(TbConfig.SERVER_ADDRESS + TbConfig.URL_YOUNGSTER_VERIFY_AUTHID, "utf-8") + ETAG.ITEM_SEPARATOR + "scene=" + PARAMA_TIEBA_AUTH;
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
+            String encode = URLEncoder.encode(TbConfig.SERVER_ADDRESS + TbConfig.URL_YOUNGSTER_VERIFY_AUTHID, "utf-8");
+            return VERIFY_URL_PREFIX + encode + "&scene=" + PARAMA_TIEBA_AUTH;
+        } catch (UnsupportedEncodingException e2) {
+            e2.printStackTrace();
             return "";
         }
     }

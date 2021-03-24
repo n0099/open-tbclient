@@ -10,38 +10,44 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.util.Arrays;
 @SuppressLint({"DefaultLocale"})
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public final class f {
-    private static String c = Environment.getExternalStorageDirectory().getPath() + "/image_cache";
-    private static f d = null;
-    private final String b = "ufo";
+
+    /* renamed from: c  reason: collision with root package name */
+    public static String f22949c = Environment.getExternalStorageDirectory().getPath() + "/image_cache";
+
+    /* renamed from: d  reason: collision with root package name */
+    public static f f22950d = null;
+
+    /* renamed from: b  reason: collision with root package name */
+    public final String f22952b = "ufo";
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f3622a = 1209600000;
+    public final int f22951a = 1209600000;
 
     public static Bitmap a(String str) {
         Bitmap decodeFile;
-        String b = b(str);
-        if (new File(b).exists() && (decodeFile = BitmapFactory.decodeFile(b, null)) != null) {
-            new File(c + "/cache/image/", b).setLastModified(System.currentTimeMillis());
+        String b2 = b(str);
+        if (new File(b2).exists() && (decodeFile = BitmapFactory.decodeFile(b2, null)) != null) {
+            new File(f22949c + "/cache/image/", b2).setLastModified(System.currentTimeMillis());
             return decodeFile;
         }
         return null;
     }
 
     public static f a() {
-        if (d == null) {
-            d = new f();
+        if (f22950d == null) {
+            f22950d = new f();
         }
-        return d;
+        return f22950d;
     }
 
-    private static String b(String str) {
-        return c + "/cache/image/" + str;
+    public static String b(String str) {
+        return f22949c + "/cache/image/" + str;
     }
 
     public static void b() {
-        String str = c + "/cache/image/";
+        String str = f22949c + "/cache/image/";
         File[] listFiles = new File(str).listFiles();
         if (listFiles == null) {
             return;
@@ -52,13 +58,17 @@ public final class f {
         }
     }
 
-    private static int c() {
+    public static int c() {
         if (!Environment.getExternalStorageState().equals("mounted")) {
             c.a("sdCard is not exist");
             return 0;
         }
         StatFs statFs = new StatFs(Environment.getExternalStorageDirectory().getPath());
-        return (int) ((statFs.getBlockSize() * statFs.getAvailableBlocks()) / 1048576.0d);
+        double availableBlocks = statFs.getAvailableBlocks();
+        double blockSize = statFs.getBlockSize();
+        Double.isNaN(availableBlocks);
+        Double.isNaN(blockSize);
+        return (int) ((availableBlocks * blockSize) / 1048576.0d);
     }
 
     private void c(String str) {
@@ -71,11 +81,13 @@ public final class f {
             i = (int) (i + file.length());
         }
         if (i > 20971520 || 20 > c()) {
-            int length = (int) ((0.4d * listFiles.length) + 1.0d);
+            double length = listFiles.length;
+            Double.isNaN(length);
+            int i2 = (int) ((length * 0.4d) + 1.0d);
             Arrays.sort(listFiles, new g(this));
             c.b("ufo ->Clear some expiredcache files");
-            for (int i2 = 0; i2 < length; i2++) {
-                listFiles[i2].delete();
+            for (int i3 = 0; i3 < i2; i3++) {
+                listFiles[i3].delete();
             }
         }
     }
@@ -89,11 +101,11 @@ public final class f {
                     c.c("ufo ->Low free space onsd, do not cache");
                     return;
                 }
-                c(c + "/cache/image/");
+                c(f22949c + "/cache/image/");
                 if (equals) {
-                    File file2 = new File(c);
-                    File file3 = new File(c + "/cache");
-                    File file4 = new File(c + "/cache/image");
+                    File file2 = new File(f22949c);
+                    File file3 = new File(f22949c + "/cache");
+                    File file4 = new File(f22949c + "/cache/image");
                     if (!file2.exists()) {
                         file2.mkdir();
                     }
@@ -112,8 +124,8 @@ public final class f {
                 bufferedOutputStream.flush();
                 bufferedOutputStream.close();
             }
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (Exception e2) {
+            e2.printStackTrace();
         }
     }
 }

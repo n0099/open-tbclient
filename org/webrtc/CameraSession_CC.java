@@ -4,7 +4,7 @@ import android.content.Context;
 import android.graphics.Matrix;
 import android.view.WindowManager;
 import org.webrtc.VideoFrame;
-/* loaded from: classes9.dex */
+/* loaded from: classes7.dex */
 public final /* synthetic */ class CameraSession_CC {
     public static VideoFrame.TextureBuffer createTextureBufferWithModifiedTransformMatrix(TextureBufferImpl textureBufferImpl, boolean z, int i) {
         Matrix matrix = new Matrix();
@@ -18,15 +18,13 @@ public final /* synthetic */ class CameraSession_CC {
     }
 
     public static int getDeviceOrientation(Context context) {
-        switch (((WindowManager) context.getSystemService("window")).getDefaultDisplay().getRotation()) {
-            case 1:
-                return 90;
-            case 2:
-                return 180;
-            case 3:
-                return 270;
-            default:
-                return 0;
+        int rotation = ((WindowManager) context.getSystemService("window")).getDefaultDisplay().getRotation();
+        if (rotation != 1) {
+            if (rotation != 2) {
+                return rotation != 3 ? 0 : 270;
+            }
+            return 180;
         }
+        return 90;
     }
 }

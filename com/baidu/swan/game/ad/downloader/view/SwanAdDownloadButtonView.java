@@ -8,187 +8,217 @@ import android.graphics.RectF;
 import android.graphics.Shader;
 import android.text.TextUtils;
 import android.view.View;
-import com.baidu.swan.game.ad.c;
-/* loaded from: classes5.dex */
+import d.b.g0.e.a.d;
+import d.b.g0.e.a.e;
+/* loaded from: classes3.dex */
 public class SwanAdDownloadButtonView extends View {
-    private Paint bjh;
-    private Paint dZT;
-    private int dZU;
-    private boolean dZV;
-    private boolean dZW;
-    private int dZX;
-    private State dZY;
-    private int mBgColor;
-    private int mProgress;
-    private float mRadius;
-    private String mText;
-    private int mTextColor;
-    private float mTextSize;
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* renamed from: e  reason: collision with root package name */
+    public Paint f12795e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public int f12796f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public int f12797g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public boolean f12798h;
+    public int i;
+    public boolean j;
+    public Paint k;
+    public int l;
+    public float m;
+    public String n;
+    public int o;
+    public State p;
+    public float q;
+
+    /* loaded from: classes3.dex */
     public enum State {
         PREPARE,
         DOWNLOADING,
         FINISH
     }
 
+    /* loaded from: classes3.dex */
+    public static /* synthetic */ class a {
+
+        /* renamed from: a  reason: collision with root package name */
+        public static final /* synthetic */ int[] f12799a;
+
+        static {
+            int[] iArr = new int[State.values().length];
+            f12799a = iArr;
+            try {
+                iArr[State.DOWNLOADING.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
+            }
+            try {
+                f12799a[State.FINISH.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
+            }
+        }
+    }
+
     public SwanAdDownloadButtonView(Context context) {
         super(context);
-        this.dZT = new Paint();
-        this.bjh = new Paint();
-        this.mTextColor = -1;
-        this.dZX = 100;
-        this.dZY = State.PREPARE;
-        this.mRadius = -1.0f;
-        this.dZT.setAntiAlias(true);
-        this.bjh.setAntiAlias(true);
-        this.mTextSize = getResources().getDimensionPixelOffset(c.C0508c.swanapp_ad_dimens_14dp);
-        this.mBgColor = context.getResources().getColor(c.b.swanapp_ad_download_button_default_bg_color);
-        this.dZU = context.getResources().getColor(c.b.swanapp_ad_download_button_default_fg_color);
+        this.f12795e = new Paint();
+        this.k = new Paint();
+        this.l = -1;
+        this.o = 100;
+        this.p = State.PREPARE;
+        this.q = -1.0f;
+        this.f12795e.setAntiAlias(true);
+        this.k.setAntiAlias(true);
+        this.m = getResources().getDimensionPixelOffset(e.swanapp_ad_dimens_14dp);
+        this.f12796f = context.getResources().getColor(d.swanapp_ad_download_button_default_bg_color);
+        this.f12797g = context.getResources().getColor(d.swanapp_ad_download_button_default_fg_color);
     }
 
-    public SwanAdDownloadButtonView hP(boolean z) {
-        this.dZW = z;
+    public final void a(Canvas canvas, RectF rectF) {
+        this.f12795e.setColor(this.f12796f);
+        this.f12795e.setStyle(Paint.Style.FILL);
+        float f2 = this.q;
+        if (f2 <= 0.0f) {
+            f2 = this.f12798h ? rectF.height() / 2.0f : 0.0f;
+        }
+        canvas.drawRoundRect(rectF, f2, f2, this.f12795e);
+    }
+
+    public final void b(Canvas canvas, RectF rectF) {
+        int i = a.f12799a[this.p.ordinal()];
+        float f2 = 0.0f;
+        if (i != 1) {
+            if (i != 2) {
+                return;
+            }
+            this.f12795e.setColor(this.f12797g);
+            this.f12795e.setStyle(Paint.Style.FILL);
+            float f3 = this.q;
+            if (f3 > 0.0f) {
+                f2 = f3;
+            } else if (this.f12798h) {
+                f2 = rectF.height() / 2.0f;
+            }
+            canvas.drawRoundRect(rectF, f2, f2, this.f12795e);
+            return;
+        }
+        Paint paint = new Paint();
+        paint.setStyle(Paint.Style.FILL);
+        float f4 = this.i / this.o;
+        paint.setShader(new LinearGradient(0.0f, 0.0f, rectF.width(), 0.0f, new int[]{this.f12797g, 0}, new float[]{f4, f4 + 1.0E-4f}, Shader.TileMode.CLAMP));
+        float f5 = this.q;
+        if (f5 > 0.0f) {
+            f2 = f5;
+        } else if (this.f12798h) {
+            f2 = rectF.height() / 2.0f;
+        }
+        canvas.drawRoundRect(rectF, f2, f2, paint);
+    }
+
+    public final void c(Canvas canvas) {
+        this.k.setTextSize(this.m);
+        float height = (canvas.getHeight() / 2) - ((this.k.descent() / 2.0f) + (this.k.ascent() / 2.0f));
+        float measureText = this.k.measureText(this.n);
+        this.k.setColor(this.l);
+        canvas.drawText(this.n, (getMeasuredWidth() - measureText) / 2.0f, height, this.k);
+    }
+
+    public final void d(Canvas canvas) {
+        float f2 = 0;
+        RectF rectF = new RectF(f2, f2, getWidth(), getHeight());
+        a(canvas, rectF);
+        b(canvas, rectF);
+        c(canvas);
+    }
+
+    @Override // android.view.View
+    public void draw(Canvas canvas) {
+        super.draw(canvas);
+        if (getWidth() == 0 || getHeight() == 0 || TextUtils.isEmpty(this.n)) {
+            return;
+        }
+        if (!this.j) {
+            e(canvas);
+        } else {
+            d(canvas);
+        }
+    }
+
+    public final void e(Canvas canvas) {
+        float f2 = 0;
+        RectF rectF = new RectF(f2, f2, getWidth() + 0, getHeight() + 0);
+        this.f12795e.setColor(this.f12796f);
+        this.f12795e.setStyle(Paint.Style.FILL);
+        float f3 = this.q;
+        if (f3 <= 0.0f) {
+            f3 = this.f12798h ? rectF.height() / 2.0f : 0.0f;
+        }
+        canvas.drawRoundRect(rectF, f3, f3, this.f12795e);
+        this.k.setColor(this.l);
+        this.k.setTextSize(this.m);
+        Paint.FontMetrics fontMetrics = this.k.getFontMetrics();
+        float f4 = fontMetrics.descent;
+        canvas.drawText(this.n, (getMeasuredWidth() - this.k.measureText(this.n)) / 2.0f, ((getHeight() / 2) - f4) + ((f4 - fontMetrics.ascent) / 2.0f), this.k);
+    }
+
+    public SwanAdDownloadButtonView f(boolean z) {
+        this.f12798h = z;
         return this;
     }
 
-    public SwanAdDownloadButtonView hQ(boolean z) {
-        this.dZV = z;
+    public SwanAdDownloadButtonView g(boolean z) {
+        this.j = z;
         return this;
     }
 
-    public SwanAdDownloadButtonView kL(int i) {
-        this.mBgColor = i;
+    public int getMax() {
+        return this.o;
+    }
+
+    public SwanAdDownloadButtonView h(int i) {
+        this.f12796f = i;
         return this;
     }
 
-    public void setRadius(float f) {
-        this.mRadius = f;
+    public SwanAdDownloadButtonView i(int i) {
+        this.l = i;
+        return this;
+    }
+
+    public SwanAdDownloadButtonView j(float f2) {
+        this.m = f2;
+        return this;
+    }
+
+    public void setMax(int i) {
+        this.o = i;
     }
 
     public void setProgress(int i) {
         if (i < 0) {
             i = 0;
         }
-        if (i > this.dZX) {
-            i = this.dZX;
+        int i2 = this.o;
+        if (i > i2) {
+            i = i2;
         }
-        this.mProgress = i;
-        if (this.mProgress == 0) {
-            this.dZY = State.PREPARE;
-        } else if (this.mProgress == this.dZX) {
-            this.dZY = State.FINISH;
+        this.i = i;
+        if (i == 0) {
+            this.p = State.PREPARE;
+        } else if (i == this.o) {
+            this.p = State.FINISH;
         } else {
-            this.dZY = State.DOWNLOADING;
+            this.p = State.DOWNLOADING;
         }
+    }
+
+    public void setRadius(float f2) {
+        this.q = f2;
     }
 
     public void setText(String str) {
-        this.mText = str;
-    }
-
-    public int getMax() {
-        return this.dZX;
-    }
-
-    public void setMax(int i) {
-        this.dZX = i;
-    }
-
-    public SwanAdDownloadButtonView kM(int i) {
-        this.mTextColor = i;
-        return this;
-    }
-
-    public SwanAdDownloadButtonView aa(float f) {
-        this.mTextSize = f;
-        return this;
-    }
-
-    @Override // android.view.View
-    public void draw(Canvas canvas) {
-        super.draw(canvas);
-        if (getWidth() != 0 && getHeight() != 0 && !TextUtils.isEmpty(this.mText)) {
-            if (!this.dZW) {
-                H(canvas);
-            } else {
-                I(canvas);
-            }
-        }
-    }
-
-    private void H(Canvas canvas) {
-        float f = 0.0f;
-        RectF rectF = new RectF(0, 0, getWidth() + 0, getHeight() + 0);
-        this.dZT.setColor(this.mBgColor);
-        this.dZT.setStyle(Paint.Style.FILL);
-        if (this.mRadius > 0.0f) {
-            f = this.mRadius;
-        } else if (this.dZV) {
-            f = rectF.height() / 2.0f;
-        }
-        canvas.drawRoundRect(rectF, f, f, this.dZT);
-        this.bjh.setColor(this.mTextColor);
-        this.bjh.setTextSize(this.mTextSize);
-        Paint.FontMetrics fontMetrics = this.bjh.getFontMetrics();
-        canvas.drawText(this.mText, (getMeasuredWidth() - this.bjh.measureText(this.mText)) / 2.0f, ((fontMetrics.descent - fontMetrics.ascent) / 2.0f) + ((getHeight() / 2) - fontMetrics.descent), this.bjh);
-    }
-
-    private void I(Canvas canvas) {
-        RectF rectF = new RectF(0, 0, getWidth(), getHeight());
-        a(canvas, rectF);
-        b(canvas, rectF);
-        J(canvas);
-    }
-
-    private void a(Canvas canvas, RectF rectF) {
-        float f = 0.0f;
-        this.dZT.setColor(this.mBgColor);
-        this.dZT.setStyle(Paint.Style.FILL);
-        if (this.mRadius > 0.0f) {
-            f = this.mRadius;
-        } else if (this.dZV) {
-            f = rectF.height() / 2.0f;
-        }
-        canvas.drawRoundRect(rectF, f, f, this.dZT);
-    }
-
-    private void b(Canvas canvas, RectF rectF) {
-        float f = 0.0f;
-        switch (this.dZY) {
-            case DOWNLOADING:
-                Paint paint = new Paint();
-                paint.setStyle(Paint.Style.FILL);
-                float f2 = this.mProgress / this.dZX;
-                paint.setShader(new LinearGradient(0.0f, 0.0f, rectF.width(), 0.0f, new int[]{this.dZU, 0}, new float[]{f2, f2 + 1.0E-4f}, Shader.TileMode.CLAMP));
-                if (this.mRadius > 0.0f) {
-                    f = this.mRadius;
-                } else if (this.dZV) {
-                    f = rectF.height() / 2.0f;
-                }
-                canvas.drawRoundRect(rectF, f, f, paint);
-                return;
-            case FINISH:
-                this.dZT.setColor(this.dZU);
-                this.dZT.setStyle(Paint.Style.FILL);
-                if (this.mRadius > 0.0f) {
-                    f = this.mRadius;
-                } else if (this.dZV) {
-                    f = rectF.height() / 2.0f;
-                }
-                canvas.drawRoundRect(rectF, f, f, this.dZT);
-                return;
-            default:
-                return;
-        }
-    }
-
-    private void J(Canvas canvas) {
-        this.bjh.setTextSize(this.mTextSize);
-        float height = (canvas.getHeight() / 2) - ((this.bjh.descent() / 2.0f) + (this.bjh.ascent() / 2.0f));
-        float measureText = this.bjh.measureText(this.mText);
-        this.bjh.setColor(this.mTextColor);
-        canvas.drawText(this.mText, (getMeasuredWidth() - measureText) / 2.0f, height, this.bjh);
+        this.n = str;
     }
 }

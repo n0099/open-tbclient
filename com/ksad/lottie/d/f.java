@@ -6,37 +6,51 @@ import android.graphics.Path;
 import android.graphics.PathMeasure;
 import android.graphics.PointF;
 import androidx.annotation.Nullable;
+import com.baidu.wallet.paysdk.beans.PayBeanFactory;
 import com.ksad.lottie.a.a.r;
 import java.io.Closeable;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public final class f {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final PathMeasure f5343a = new PathMeasure();
-    private static final Path b = new Path();
-    private static final Path c = new Path();
-    private static final float[] d = new float[4];
-    private static final float e = (float) Math.sqrt(2.0d);
-    private static float f = -1.0f;
+    public static final PathMeasure f31366a = new PathMeasure();
+
+    /* renamed from: b  reason: collision with root package name */
+    public static final Path f31367b = new Path();
+
+    /* renamed from: c  reason: collision with root package name */
+    public static final Path f31368c = new Path();
+
+    /* renamed from: d  reason: collision with root package name */
+    public static final float[] f31369d = new float[4];
+
+    /* renamed from: e  reason: collision with root package name */
+    public static final float f31370e = (float) Math.sqrt(2.0d);
+
+    /* renamed from: f  reason: collision with root package name */
+    public static float f31371f = -1.0f;
 
     public static float a() {
-        if (f == -1.0f) {
-            f = Resources.getSystem().getDisplayMetrics().density;
+        if (f31371f == -1.0f) {
+            f31371f = Resources.getSystem().getDisplayMetrics().density;
         }
-        return f;
+        return f31371f;
     }
 
     public static float a(Matrix matrix) {
-        d[0] = 0.0f;
-        d[1] = 0.0f;
-        d[2] = e;
-        d[3] = e;
-        matrix.mapPoints(d);
-        return ((float) Math.hypot(d[2] - d[0], d[3] - d[1])) / 2.0f;
+        float[] fArr = f31369d;
+        fArr[0] = 0.0f;
+        fArr[1] = 0.0f;
+        float f2 = f31370e;
+        fArr[2] = f2;
+        fArr[3] = f2;
+        matrix.mapPoints(fArr);
+        float[] fArr2 = f31369d;
+        return ((float) Math.hypot(fArr2[2] - fArr2[0], fArr2[3] - fArr2[1])) / 2.0f;
     }
 
     public static int a(float f2, float f3, float f4, float f5) {
-        int i = f2 != 0.0f ? (int) (527 * f2) : 17;
+        int i = f2 != 0.0f ? (int) (((float) PayBeanFactory.BEAN_ID_WIDTHDRAW) * f2) : 17;
         if (f3 != 0.0f) {
             i = (int) (i * 31 * f3);
         }
@@ -52,57 +66,59 @@ public final class f {
         if (pointF3 == null || pointF4 == null || (pointF3.length() == 0.0f && pointF4.length() == 0.0f)) {
             path.lineTo(pointF2.x, pointF2.y);
         } else {
-            path.cubicTo(pointF.x + pointF3.x, pointF.y + pointF3.y, pointF2.x + pointF4.x, pointF2.y + pointF4.y, pointF2.x, pointF2.y);
+            float f2 = pointF.x;
+            float f3 = pointF2.x;
+            float f4 = pointF2.y;
+            path.cubicTo(pointF3.x + f2, pointF.y + pointF3.y, f3 + pointF4.x, f4 + pointF4.y, f3, f4);
         }
         return path;
     }
 
     public static void a(Path path, float f2, float f3, float f4) {
         com.ksad.lottie.c.c("applyTrimPathIfNeeded");
-        f5343a.setPath(path, false);
-        float length = f5343a.getLength();
+        f31366a.setPath(path, false);
+        float length = f31366a.getLength();
         if (f2 == 1.0f && f3 == 0.0f) {
             com.ksad.lottie.c.d("applyTrimPathIfNeeded");
         } else if (length < 1.0f || Math.abs((f3 - f2) - 1.0f) < 0.01d) {
             com.ksad.lottie.c.d("applyTrimPathIfNeeded");
         } else {
-            float f5 = length * f2;
-            float f6 = length * f3;
-            float min = Math.min(f5, f6);
-            float max = Math.max(f5, f6);
+            float f5 = f2 * length;
+            float f6 = f3 * length;
             float f7 = f4 * length;
-            float f8 = min + f7;
-            float f9 = max + f7;
-            if (f8 >= length && f9 >= length) {
-                f8 = e.a(f8, length);
-                f9 = e.a(f9, length);
+            float min = Math.min(f5, f6) + f7;
+            float max = Math.max(f5, f6) + f7;
+            if (min >= length && max >= length) {
+                min = e.a(min, length);
+                max = e.a(max, length);
             }
-            if (f8 < 0.0f) {
-                f8 = e.a(f8, length);
+            if (min < 0.0f) {
+                min = e.a(min, length);
             }
-            if (f9 < 0.0f) {
-                f9 = e.a(f9, length);
+            if (max < 0.0f) {
+                max = e.a(max, length);
             }
-            if (f8 == f9) {
+            if (min == max) {
                 path.reset();
-                com.ksad.lottie.c.d("applyTrimPathIfNeeded");
-                return;
+            } else {
+                if (min >= max) {
+                    min -= length;
+                }
+                f31367b.reset();
+                f31366a.getSegment(min, max, f31367b, true);
+                if (max > length) {
+                    f31368c.reset();
+                    f31366a.getSegment(0.0f, max % length, f31368c, true);
+                } else {
+                    if (min < 0.0f) {
+                        f31368c.reset();
+                        f31366a.getSegment(min + length, length, f31368c, true);
+                    }
+                    path.set(f31367b);
+                }
+                f31367b.addPath(f31368c);
+                path.set(f31367b);
             }
-            if (f8 >= f9) {
-                f8 -= length;
-            }
-            b.reset();
-            f5343a.getSegment(f8, f9, b, true);
-            if (f9 > length) {
-                c.reset();
-                f5343a.getSegment(0.0f, f9 % length, c, true);
-                b.addPath(c);
-            } else if (f8 < 0.0f) {
-                c.reset();
-                f5343a.getSegment(f8 + length, length, c, true);
-                b.addPath(c);
-            }
-            path.set(b);
             com.ksad.lottie.c.d("applyTrimPathIfNeeded");
         }
     }
@@ -120,7 +136,7 @@ public final class f {
                 closeable.close();
             } catch (RuntimeException e2) {
                 throw e2;
-            } catch (Exception e3) {
+            } catch (Exception unused) {
             }
         }
     }
@@ -129,12 +145,12 @@ public final class f {
         if (i < i4) {
             return false;
         }
-        if (i <= i4) {
-            if (i2 < i5) {
-                return false;
-            }
-            return i2 > i5 || i3 >= i6;
+        if (i > i4) {
+            return true;
         }
-        return true;
+        if (i2 < i5) {
+            return false;
+        }
+        return i2 > i5 || i3 >= i6;
     }
 }

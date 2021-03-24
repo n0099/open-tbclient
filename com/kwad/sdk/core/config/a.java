@@ -2,11 +2,11 @@ package com.kwad.sdk.core.config;
 
 import android.text.TextUtils;
 import java.net.URI;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String[] f6014a = {"gifshow.com", "kuaishou.com", "static.yximgs.com"};
+    public static final String[] f33434a = {"gifshow.com", "kuaishou.com", "static.yximgs.com"};
 
     public static boolean a(String str) {
         if (TextUtils.isEmpty(str)) {
@@ -20,16 +20,16 @@ public class a {
                 }
             }
             return true;
-        } catch (Exception e) {
+        } catch (Exception unused) {
             return false;
         }
     }
 
-    private static boolean b(String str) {
+    public static boolean b(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        for (String str2 : f6014a) {
+        for (String str2 : f33434a) {
             if (str.contains(str2)) {
                 return true;
             }
@@ -37,7 +37,7 @@ public class a {
         return false;
     }
 
-    private static boolean c(String str) {
+    public static boolean c(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }

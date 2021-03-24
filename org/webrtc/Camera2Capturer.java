@@ -3,21 +3,21 @@ package org.webrtc;
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.hardware.camera2.CameraManager;
-import com.baidu.ar.arplay.core.pixel.PixelReadParams;
+import com.baidu.browser.sailor.feature.upload.BdUploadHandler;
 import javax.annotation.Nullable;
 import org.webrtc.CameraSession;
 import org.webrtc.CameraVideoCapturer;
 @TargetApi(21)
-/* loaded from: classes9.dex */
+/* loaded from: classes.dex */
 public class Camera2Capturer extends CameraCapturer {
     @Nullable
-    private final CameraManager cameraManager;
-    private final Context context;
+    public final CameraManager cameraManager;
+    public final Context context;
 
     public Camera2Capturer(Context context, String str, CameraVideoCapturer.CameraEventsHandler cameraEventsHandler) {
         super(str, cameraEventsHandler, new Camera2Enumerator(context));
         this.context = context;
-        this.cameraManager = (CameraManager) context.getSystemService(PixelReadParams.DEFAULT_FILTER_ID);
+        this.cameraManager = (CameraManager) context.getSystemService(BdUploadHandler.MEDIA_SOURCE_VALUE_CAMERA);
     }
 
     @Override // org.webrtc.CameraCapturer, org.webrtc.VideoCapturer
@@ -26,7 +26,7 @@ public class Camera2Capturer extends CameraCapturer {
     }
 
     @Override // org.webrtc.CameraCapturer
-    protected void createCameraSession(CameraSession.CreateSessionCallback createSessionCallback, CameraSession.Events events, Context context, SurfaceTextureHelper surfaceTextureHelper, String str, int i, int i2, int i3) {
+    public void createCameraSession(CameraSession.CreateSessionCallback createSessionCallback, CameraSession.Events events, Context context, SurfaceTextureHelper surfaceTextureHelper, String str, int i, int i2, int i3) {
         Camera2Session.create(createSessionCallback, events, context, this.cameraManager, surfaceTextureHelper, str, i, i2, i3);
     }
 

@@ -2,18 +2,18 @@ package com.baidu.tieba.ala.alasquare.subtablist.message;
 
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.ala.AlaCmdConfigHttp;
-import com.baidu.tbadk.core.data.cb;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
+import d.b.h0.r.q.a2;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes4.dex */
 public class AlaNewSquareSubListResponseMessage extends JsonHttpResponsedMessage {
-    private boolean hasMore;
-    private int liveCount;
-    private List<cb> liveList;
-    private List<String> sortType;
+    public boolean hasMore;
+    public int liveCount;
+    public List<a2> liveList;
+    public List<String> sortType;
 
     public AlaNewSquareSubListResponseMessage() {
         super(AlaCmdConfigHttp.CMD_ALA_NEW_SQUARE_SUB_LIST);
@@ -24,49 +24,51 @@ public class AlaNewSquareSubListResponseMessage extends JsonHttpResponsedMessage
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         super.decodeLogicInBackGround(i, jSONObject);
-        if (jSONObject != null) {
-            this.hasMore = jSONObject.optInt("has_more") == 1;
-            this.liveCount = jSONObject.optInt("count");
-            JSONArray optJSONArray = jSONObject.optJSONArray("live");
-            if (optJSONArray != null && optJSONArray.length() > 0) {
-                int length = optJSONArray.length();
-                for (int i2 = 0; i2 < length; i2++) {
-                    JSONObject optJSONObject = optJSONArray.optJSONObject(i2);
-                    if (optJSONObject != null) {
-                        cb cbVar = new cb();
-                        cbVar.parserJson(optJSONObject);
-                        this.liveList.add(cbVar);
-                    }
+        if (jSONObject == null) {
+            return;
+        }
+        this.hasMore = jSONObject.optInt("has_more") == 1;
+        this.liveCount = jSONObject.optInt("count");
+        JSONArray optJSONArray = jSONObject.optJSONArray("live");
+        if (optJSONArray != null && optJSONArray.length() > 0) {
+            int length = optJSONArray.length();
+            for (int i2 = 0; i2 < length; i2++) {
+                JSONObject optJSONObject = optJSONArray.optJSONObject(i2);
+                if (optJSONObject != null) {
+                    a2 a2Var = new a2();
+                    a2Var.P2(optJSONObject);
+                    this.liveList.add(a2Var);
                 }
-            } else {
-                this.hasMore = false;
             }
-            JSONArray optJSONArray2 = jSONObject.optJSONArray("live_tab_type");
-            if (optJSONArray2 != null && optJSONArray2.length() > 0) {
-                int length2 = optJSONArray2.length();
-                for (int i3 = 0; i3 < length2; i3++) {
-                    String optString = optJSONArray2.optString(i3);
-                    if (!StringUtils.isNull(optString)) {
-                        this.sortType.add(optString);
-                    }
-                }
+        } else {
+            this.hasMore = false;
+        }
+        JSONArray optJSONArray2 = jSONObject.optJSONArray("live_tab_type");
+        if (optJSONArray2 == null || optJSONArray2.length() <= 0) {
+            return;
+        }
+        int length2 = optJSONArray2.length();
+        for (int i3 = 0; i3 < length2; i3++) {
+            String optString = optJSONArray2.optString(i3);
+            if (!StringUtils.isNull(optString)) {
+                this.sortType.add(optString);
             }
         }
-    }
-
-    public List<cb> getLiveList() {
-        return this.liveList;
-    }
-
-    public boolean hasMore() {
-        return this.hasMore;
     }
 
     public int getLiveCount() {
         return this.liveCount;
     }
 
+    public List<a2> getLiveList() {
+        return this.liveList;
+    }
+
     public List<String> getSortTypeList() {
         return this.sortType;
+    }
+
+    public boolean hasMore() {
+        return this.hasMore;
     }
 }

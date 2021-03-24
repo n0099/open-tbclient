@@ -2,7 +2,7 @@ package org.webrtc;
 
 import java.nio.ByteBuffer;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes9.dex */
+/* loaded from: classes7.dex */
 public class EncodedImage {
     public final ByteBuffer buffer;
     public final long captureTimeMs;
@@ -14,18 +14,18 @@ public class EncodedImage {
     public final Integer qp;
     public final int rotation;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes7.dex */
     public static class Builder {
-        private ByteBuffer buffer;
-        private long captureTimeNs;
-        private boolean completeFrame;
-        private int encodedHeight;
-        private int encodedWidth;
-        private FrameType frameType;
-        private Integer qp;
-        private int rotation;
+        public ByteBuffer buffer;
+        public long captureTimeNs;
+        public boolean completeFrame;
+        public int encodedHeight;
+        public int encodedWidth;
+        public FrameType frameType;
+        public Integer qp;
+        public int rotation;
 
-        private Builder() {
+        public Builder() {
         }
 
         public EncodedImage createEncodedImage() {
@@ -79,20 +79,20 @@ public class EncodedImage {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes7.dex */
     public enum FrameType {
         EmptyFrame(0),
         VideoFrameKey(3),
         VideoFrameDelta(4);
         
-        private final int nativeIndex;
+        public final int nativeIndex;
 
         FrameType(int i) {
             this.nativeIndex = i;
         }
 
         @CalledByNative("FrameType")
-        static FrameType fromNativeIndex(int i) {
+        public static FrameType fromNativeIndex(int i) {
             FrameType[] values;
             for (FrameType frameType : values()) {
                 if (frameType.getNative() == i) {
@@ -108,7 +108,7 @@ public class EncodedImage {
     }
 
     @CalledByNative
-    private EncodedImage(ByteBuffer byteBuffer, int i, int i2, long j, FrameType frameType, int i3, boolean z, Integer num) {
+    public EncodedImage(ByteBuffer byteBuffer, int i, int i2, long j, FrameType frameType, int i3, boolean z, Integer num) {
         this.buffer = byteBuffer;
         this.encodedWidth = i;
         this.encodedHeight = i2;

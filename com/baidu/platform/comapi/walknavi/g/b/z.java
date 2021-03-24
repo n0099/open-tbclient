@@ -3,16 +3,14 @@ package com.baidu.platform.comapi.walknavi.g.b;
 import android.view.View;
 import android.widget.TextView;
 import com.baidu.platform.comapi.walknavi.g.b.c;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class z implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ c f2996a;
+    public final /* synthetic */ c f10121a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public z(c cVar) {
-        this.f2996a = cVar;
+        this.f10121a = cVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -29,47 +27,49 @@ public class z implements View.OnClickListener {
         com.baidu.platform.comapi.walknavi.g.a aVar3;
         TextView textView5;
         TextView textView6;
-        z = this.f2996a.D;
+        z = this.f10121a.D;
         if (!z) {
-            textView = this.f2996a.A;
+            textView = this.f10121a.A;
             if (textView != null) {
-                textView2 = this.f2996a.A;
+                textView2 = this.f10121a.A;
                 textView2.setTextColor(-8749952);
-                textView3 = this.f2996a.A;
+                textView3 = this.f10121a.A;
                 textView3.setText("查看全览");
             }
-            c cVar = this.f2996a;
-            z2 = this.f2996a.D;
-            cVar.D = z2 ? false : true;
+            c cVar = this.f10121a;
+            z2 = cVar.D;
+            cVar.D = !z2;
             if (com.baidu.platform.comapi.walknavi.b.a().J() == 4) {
                 com.baidu.platform.comapi.wnplatform.k.a.a().a("st", 2);
                 com.baidu.platform.comapi.wnplatform.k.a.a().a("FootNaviPG.continue");
-                this.f2996a.m();
+                this.f10121a.m();
                 return;
             }
-            if (com.baidu.platform.comapi.walknavi.segmentbrowse.c.s() == com.baidu.platform.comapi.walknavi.segmentbrowse.b.REFRESH_GUIDANCE || com.baidu.platform.comapi.walknavi.segmentbrowse.c.s() == com.baidu.platform.comapi.walknavi.segmentbrowse.b.GUIDING) {
+            if (com.baidu.platform.comapi.walknavi.segmentbrowse.c.s() != com.baidu.platform.comapi.walknavi.segmentbrowse.b.REFRESH_GUIDANCE && com.baidu.platform.comapi.walknavi.segmentbrowse.c.s() != com.baidu.platform.comapi.walknavi.segmentbrowse.b.GUIDING) {
+                if (com.baidu.platform.comapi.walknavi.segmentbrowse.c.s() == com.baidu.platform.comapi.walknavi.segmentbrowse.b.GUIDING_TO_SEGMENTBROWSE) {
+                    com.baidu.platform.comapi.wnplatform.k.a.a().a("st", 3);
+                    com.baidu.platform.comapi.wnplatform.k.a.a().a("FootNaviPG.continue");
+                }
+            } else {
                 com.baidu.platform.comapi.wnplatform.k.a.a().a("st", 1);
-                com.baidu.platform.comapi.wnplatform.k.a.a().a("FootNaviPG.continue");
-            } else if (com.baidu.platform.comapi.walknavi.segmentbrowse.c.s() == com.baidu.platform.comapi.walknavi.segmentbrowse.b.GUIDING_TO_SEGMENTBROWSE) {
-                com.baidu.platform.comapi.wnplatform.k.a.a().a("st", 3);
                 com.baidu.platform.comapi.wnplatform.k.a.a().a("FootNaviPG.continue");
             }
             com.baidu.platform.comapi.walknavi.b.a().F().run("[3D车头向上]按钮点击");
-            aVar = this.f2996a.E;
+            aVar = this.f10121a.E;
             aVar.a(com.baidu.platform.comapi.walknavi.segmentbrowse.b.REFRESH_GUIDANCE);
             return;
         }
         com.baidu.platform.comapi.walknavi.b.a().F().run("[查看全览]按钮点击");
-        textView4 = this.f2996a.A;
+        textView4 = this.f10121a.A;
         if (textView4 != null) {
-            textView5 = this.f2996a.A;
+            textView5 = this.f10121a.A;
             textView5.setTextColor(-13400577);
-            textView6 = this.f2996a.A;
+            textView6 = this.f10121a.A;
             textView6.setText("继续");
         }
-        c cVar2 = this.f2996a;
-        z3 = this.f2996a.D;
-        cVar2.D = z3 ? false : true;
+        c cVar2 = this.f10121a;
+        z3 = cVar2.D;
+        cVar2.D = !z3;
         if (com.baidu.platform.comapi.walknavi.b.a().J() == 4) {
             com.baidu.platform.comapi.wnplatform.k.a.a().a("st", 2);
             com.baidu.platform.comapi.wnplatform.k.a.a().a("FootNaviPG.overview");
@@ -77,9 +77,9 @@ public class z implements View.OnClickListener {
             com.baidu.platform.comapi.wnplatform.k.a.a().a("st", 1);
             com.baidu.platform.comapi.wnplatform.k.a.a().a("FootNaviPG.overview");
         }
-        aVar2 = this.f2996a.m;
+        aVar2 = this.f10121a.m;
         if (aVar2 != null) {
-            aVar3 = this.f2996a.m;
+            aVar3 = this.f10121a.m;
             aVar3.w();
         }
     }

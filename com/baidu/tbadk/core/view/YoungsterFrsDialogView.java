@@ -8,23 +8,104 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.annotation.Nullable;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.WebPManager;
-import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
-/* loaded from: classes.dex */
+import d.b.h0.r.f0.m.c;
+/* loaded from: classes3.dex */
 public class YoungsterFrsDialogView extends LinearLayout {
-    private RelativeLayout fog;
-    private LinearLayout foh;
-    private ImageView foi;
-    private TextView foj;
-    private TextView fok;
-    private TBSpecificationBtn fol;
-    private TBSpecificationBtn fom;
-    private NoTipAgainView fon;
+
+    /* renamed from: e  reason: collision with root package name */
+    public RelativeLayout f13596e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public LinearLayout f13597f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public ImageView f13598g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public TextView f13599h;
+    public TextView i;
+    public TBSpecificationBtn j;
+    public TBSpecificationBtn k;
+    public NoTipAgainView l;
 
     public YoungsterFrsDialogView(Context context) {
         this(context, null);
+    }
+
+    public final void a() {
+        LinearLayout.inflate(getContext(), R.layout.youngster_frs_dialog_view, this);
+        this.f13596e = (RelativeLayout) findViewById(R.id.youngster_dialog_view);
+        this.f13598g = (ImageView) findViewById(R.id.img_youngster_top);
+        this.f13599h = (TextView) findViewById(R.id.txt_youngster_dialog_title);
+        this.i = (TextView) findViewById(R.id.txt_youngster_dialog_content);
+        this.f13597f = (LinearLayout) findViewById(R.id.youngster_dialog_group);
+        this.j = (TBSpecificationBtn) findViewById(R.id.btn_youngster_dialog_left);
+        c cVar = new c();
+        cVar.q(R.color.CAM_X0105);
+        this.j.setConfig(cVar);
+        this.k = (TBSpecificationBtn) findViewById(R.id.btn_youngster_dialog_right);
+        c cVar2 = new c();
+        cVar2.o(R.color.CAM_X0302);
+        this.k.setConfig(cVar2);
+        this.l = (NoTipAgainView) findViewById(R.id.no_tip_again);
+        c();
+    }
+
+    public boolean b() {
+        NoTipAgainView noTipAgainView = this.l;
+        if (noTipAgainView == null) {
+            return false;
+        }
+        return noTipAgainView.b();
+    }
+
+    public void c() {
+        SkinManager.setBackgroundResource(this, R.drawable.transparent_bg);
+        this.f13598g.setImageDrawable(WebPManager.getMaskDrawable(R.drawable.pic_mask_qingshaonian, WebPManager.ResourceStateType.NORMAL));
+        SkinManager.setViewTextColor(this.f13599h, R.color.CAM_X0105);
+        SkinManager.setViewTextColor(this.i, R.color.CAM_X0107);
+        this.l.c();
+        SkinManager.setBackgroundResource(this.f13596e, R.drawable.dialog_background);
+        this.j.k();
+        this.k.k();
+    }
+
+    public void setLeftOnClickListener(int i, View.OnClickListener onClickListener) {
+        TBSpecificationBtn tBSpecificationBtn = this.j;
+        if (tBSpecificationBtn != null) {
+            tBSpecificationBtn.setText(getContext().getString(i));
+            this.j.setOnClickListener(onClickListener);
+        }
+    }
+
+    public void setNoTipAgainViewVisible(boolean z) {
+        this.l.setVisibility(z ? 0 : 8);
+    }
+
+    public void setRightOnClickListener(int i, View.OnClickListener onClickListener) {
+        TBSpecificationBtn tBSpecificationBtn = this.k;
+        if (tBSpecificationBtn != null) {
+            tBSpecificationBtn.setText(getContext().getString(i));
+            this.k.setOnClickListener(onClickListener);
+        }
+    }
+
+    public void setTxtYoungsterDialogContentText(int i) {
+        this.i.setText(getContext().getString(i));
+    }
+
+    public void setTxtYoungsterDialogTitleText(int i) {
+        this.f13599h.setText(getContext().getString(i));
+    }
+
+    public void setYoungsterDialogGroupMarginTop(int i) {
+        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f13597f.getLayoutParams();
+        layoutParams.topMargin = i;
+        this.f13597f.setLayoutParams(layoutParams);
     }
 
     public YoungsterFrsDialogView(Context context, @Nullable AttributeSet attributeSet) {
@@ -33,75 +114,6 @@ public class YoungsterFrsDialogView extends LinearLayout {
 
     public YoungsterFrsDialogView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        init();
-    }
-
-    private void init() {
-        inflate(getContext(), R.layout.youngster_frs_dialog_view, this);
-        this.fog = (RelativeLayout) findViewById(R.id.youngster_dialog_view);
-        this.foi = (ImageView) findViewById(R.id.img_youngster_top);
-        this.foj = (TextView) findViewById(R.id.txt_youngster_dialog_title);
-        this.fok = (TextView) findViewById(R.id.txt_youngster_dialog_content);
-        this.foh = (LinearLayout) findViewById(R.id.youngster_dialog_group);
-        this.fol = (TBSpecificationBtn) findViewById(R.id.btn_youngster_dialog_left);
-        com.baidu.tbadk.core.view.commonBtn.c cVar = new com.baidu.tbadk.core.view.commonBtn.c();
-        cVar.pU(R.color.CAM_X0105);
-        this.fol.setConfig(cVar);
-        this.fom = (TBSpecificationBtn) findViewById(R.id.btn_youngster_dialog_right);
-        com.baidu.tbadk.core.view.commonBtn.c cVar2 = new com.baidu.tbadk.core.view.commonBtn.c();
-        cVar2.pS(R.color.CAM_X0302);
-        this.fom.setConfig(cVar2);
-        this.fon = (NoTipAgainView) findViewById(R.id.no_tip_again);
-        onChangeSkinType();
-    }
-
-    public boolean bqx() {
-        if (this.fon == null) {
-            return false;
-        }
-        return this.fon.bqx();
-    }
-
-    public void setTxtYoungsterDialogTitleText(int i) {
-        this.foj.setText(getContext().getString(i));
-    }
-
-    public void setTxtYoungsterDialogContentText(int i) {
-        this.fok.setText(getContext().getString(i));
-    }
-
-    public void setNoTipAgainViewVisible(boolean z) {
-        this.fon.setVisibility(z ? 0 : 8);
-    }
-
-    public void setLeftOnClickListener(int i, View.OnClickListener onClickListener) {
-        if (this.fol != null) {
-            this.fol.setText(getContext().getString(i));
-            this.fol.setOnClickListener(onClickListener);
-        }
-    }
-
-    public void setRightOnClickListener(int i, View.OnClickListener onClickListener) {
-        if (this.fom != null) {
-            this.fom.setText(getContext().getString(i));
-            this.fom.setOnClickListener(onClickListener);
-        }
-    }
-
-    public void setYoungsterDialogGroupMarginTop(int i) {
-        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.foh.getLayoutParams();
-        layoutParams.topMargin = i;
-        this.foh.setLayoutParams(layoutParams);
-    }
-
-    public void onChangeSkinType() {
-        ap.setBackgroundResource(this, R.drawable.transparent_bg);
-        this.foi.setImageDrawable(WebPManager.a(R.drawable.pic_mask_qingshaonian, WebPManager.ResourceStateType.NORMAL));
-        ap.setViewTextColor(this.foj, R.color.CAM_X0105);
-        ap.setViewTextColor(this.fok, R.color.CAM_X0107);
-        this.fon.onChangeSkinType();
-        ap.setBackgroundResource(this.fog, R.drawable.dialog_background);
-        this.fol.bus();
-        this.fom.bus();
+        a();
     }
 }

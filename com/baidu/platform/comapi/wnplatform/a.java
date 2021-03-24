@@ -1,75 +1,84 @@
 package com.baidu.platform.comapi.wnplatform;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f3043a;
-    private int b;
-    private int c;
-    private boolean d;
-    private int e;
+    public int f10235a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    /* renamed from: b  reason: collision with root package name */
+    public int f10236b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public int f10237c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public boolean f10238d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public int f10239e;
+
     /* renamed from: com.baidu.platform.comapi.wnplatform.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public static class C0296a {
+    /* loaded from: classes2.dex */
+    public static class C0128a {
 
         /* renamed from: a  reason: collision with root package name */
-        static final a f3044a = new a();
+        public static final a f10240a = new a();
     }
 
     public static a a() {
-        return C0296a.f3044a;
-    }
-
-    private a() {
-        this.e = 0;
+        return C0128a.f10240a;
     }
 
     public boolean b() {
-        return (this.b & 1) == 1;
+        return (this.f10236b & 1) == 1;
     }
 
     public boolean c() {
-        return (this.b & 2) == 2;
+        return (this.f10236b & 2) == 2;
     }
 
     public boolean d() {
-        return (this.b & 4) == 4;
+        return (this.f10236b & 4) == 4;
     }
 
     public int e() {
-        return this.b;
-    }
-
-    public void a(int i) {
-        this.b = i;
-        if (!a().i()) {
-            this.b &= -5;
-        }
-    }
-
-    public void b(int i) {
-        this.f3043a = i;
+        return this.f10236b;
     }
 
     public boolean f() {
-        return this.f3043a == 0;
+        return this.f10235a == 0;
     }
 
     public boolean g() {
-        return this.f3043a == 1 || this.f3043a == 2;
+        int i = this.f10235a;
+        return i == 1 || i == 2;
     }
 
     public int h() {
-        return this.c;
-    }
-
-    public void c(int i) {
-        this.c = i;
+        return this.f10237c;
     }
 
     public boolean i() {
-        return this.d;
+        return this.f10238d;
+    }
+
+    public a() {
+        this.f10239e = 0;
+    }
+
+    public void a(int i) {
+        this.f10236b = i;
+        if (a().i()) {
+            return;
+        }
+        this.f10236b &= -5;
+    }
+
+    public void b(int i) {
+        this.f10235a = i;
+    }
+
+    public void c(int i) {
+        this.f10237c = i;
     }
 }

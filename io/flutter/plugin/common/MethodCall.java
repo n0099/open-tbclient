@@ -3,7 +3,7 @@ package io.flutter.plugin.common;
 import androidx.annotation.Nullable;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes14.dex */
+/* loaded from: classes7.dex */
 public final class MethodCall {
     public final Object arguments;
     public final String method;
@@ -13,33 +13,35 @@ public final class MethodCall {
         this.arguments = obj;
     }
 
-    public <T> T arguments() {
-        return (T) this.arguments;
-    }
-
     @Nullable
     public <T> T argument(String str) {
-        if (this.arguments == null) {
+        Object obj = this.arguments;
+        if (obj == null) {
             return null;
         }
-        if (this.arguments instanceof Map) {
-            return (T) ((Map) this.arguments).get(str);
+        if (obj instanceof Map) {
+            return (T) ((Map) obj).get(str);
         }
-        if (this.arguments instanceof JSONObject) {
-            return (T) ((JSONObject) this.arguments).opt(str);
+        if (obj instanceof JSONObject) {
+            return (T) ((JSONObject) obj).opt(str);
         }
         throw new ClassCastException();
     }
 
+    public <T> T arguments() {
+        return (T) this.arguments;
+    }
+
     public boolean hasArgument(String str) {
-        if (this.arguments == null) {
+        Object obj = this.arguments;
+        if (obj == null) {
             return false;
         }
-        if (this.arguments instanceof Map) {
-            return ((Map) this.arguments).containsKey(str);
+        if (obj instanceof Map) {
+            return ((Map) obj).containsKey(str);
         }
-        if (this.arguments instanceof JSONObject) {
-            return ((JSONObject) this.arguments).has(str);
+        if (obj instanceof JSONObject) {
+            return ((JSONObject) obj).has(str);
         }
         throw new ClassCastException();
     }

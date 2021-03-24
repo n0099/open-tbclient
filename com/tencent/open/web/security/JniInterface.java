@@ -5,7 +5,7 @@ import com.tencent.connect.auth.AuthAgent;
 import com.tencent.open.a.f;
 import com.tencent.open.utils.e;
 import java.io.File;
-/* loaded from: classes14.dex */
+/* loaded from: classes7.dex */
 public class JniInterface {
     public static boolean isJniOk = false;
 
@@ -18,23 +18,24 @@ public class JniInterface {
     public static native boolean insetTextToArray(int i, String str, int i2);
 
     public static void loadSo() {
-        if (!isJniOk) {
-            try {
-                Context a2 = e.a();
-                if (a2 != null) {
-                    if (new File(a2.getFilesDir().toString() + "/" + AuthAgent.SECURE_LIB_NAME).exists()) {
-                        System.load(a2.getFilesDir().toString() + "/" + AuthAgent.SECURE_LIB_NAME);
-                        isJniOk = true;
-                        f.c("openSDK_LOG.JniInterface", "-->load lib success:" + AuthAgent.SECURE_LIB_NAME);
-                    } else {
-                        f.c("openSDK_LOG.JniInterface", "-->fail, because so is not exists:" + AuthAgent.SECURE_LIB_NAME);
-                    }
+        if (isJniOk) {
+            return;
+        }
+        try {
+            Context a2 = e.a();
+            if (a2 != null) {
+                if (new File(a2.getFilesDir().toString() + "/" + AuthAgent.SECURE_LIB_NAME).exists()) {
+                    System.load(a2.getFilesDir().toString() + "/" + AuthAgent.SECURE_LIB_NAME);
+                    isJniOk = true;
+                    f.c("openSDK_LOG.JniInterface", "-->load lib success:" + AuthAgent.SECURE_LIB_NAME);
                 } else {
-                    f.c("openSDK_LOG.JniInterface", "-->load lib fail, because context is null:" + AuthAgent.SECURE_LIB_NAME);
+                    f.c("openSDK_LOG.JniInterface", "-->fail, because so is not exists:" + AuthAgent.SECURE_LIB_NAME);
                 }
-            } catch (Throwable th) {
-                f.b("openSDK_LOG.JniInterface", "-->load lib error:" + AuthAgent.SECURE_LIB_NAME, th);
+            } else {
+                f.c("openSDK_LOG.JniInterface", "-->load lib fail, because context is null:" + AuthAgent.SECURE_LIB_NAME);
             }
+        } catch (Throwable th) {
+            f.b("openSDK_LOG.JniInterface", "-->load lib error:" + AuthAgent.SECURE_LIB_NAME, th);
         }
     }
 }

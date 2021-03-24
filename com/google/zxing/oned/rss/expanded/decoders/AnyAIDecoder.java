@@ -3,12 +3,10 @@ package com.google.zxing.oned.rss.expanded.decoders;
 import com.google.zxing.FormatException;
 import com.google.zxing.NotFoundException;
 import com.google.zxing.common.BitArray;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class AnyAIDecoder extends AbstractExpandedDecoder {
-    private static final int HEADER_SIZE = 5;
+    public static final int HEADER_SIZE = 5;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public AnyAIDecoder(BitArray bitArray) {
         super(bitArray);
     }

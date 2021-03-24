@@ -3,11 +3,11 @@ package com.baidu.tieba.im.data;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 import java.util.LinkedList;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class GroupMsgData extends CustomResponsedMessage<Object> {
-    private GroupIdTypeData groupInfo;
-    private boolean hasMore;
-    private LinkedList<ChatMessage> listMessage;
+    public GroupIdTypeData groupInfo;
+    public boolean hasMore;
+    public LinkedList<ChatMessage> listMessage;
 
     public GroupMsgData(int i) {
         super(i);
@@ -19,23 +19,23 @@ public class GroupMsgData extends CustomResponsedMessage<Object> {
         return this.groupInfo;
     }
 
-    public void setGroupInfo(GroupIdTypeData groupIdTypeData) {
-        this.groupInfo = groupIdTypeData;
-    }
-
     public LinkedList<ChatMessage> getListMessage() {
         return this.listMessage;
-    }
-
-    public void setListMessageData(LinkedList<ChatMessage> linkedList) {
-        this.listMessage = linkedList;
     }
 
     public boolean hasMore() {
         return this.hasMore;
     }
 
+    public void setGroupInfo(GroupIdTypeData groupIdTypeData) {
+        this.groupInfo = groupIdTypeData;
+    }
+
     public void setHasMore(boolean z) {
         this.hasMore = z;
+    }
+
+    public void setListMessageData(LinkedList<ChatMessage> linkedList) {
+        this.listMessage = linkedList;
     }
 }

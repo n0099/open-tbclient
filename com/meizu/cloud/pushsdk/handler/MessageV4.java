@@ -6,7 +6,7 @@ import android.text.TextUtils;
 import com.meizu.cloud.pushsdk.notification.model.ActVideoSetting;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class MessageV4 extends MessageV3 {
     public static final Parcelable.Creator<MessageV3> CREATOR = new Parcelable.Creator<MessageV3>() { // from class: com.meizu.cloud.pushsdk.handler.MessageV4.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -23,8 +23,8 @@ public class MessageV4 extends MessageV3 {
             return new MessageV4[i];
         }
     };
-    private static final String TAG = "MessageV4";
-    private ActVideoSetting actVideoSetting;
+    public static final String TAG = "MessageV4";
+    public ActVideoSetting actVideoSetting;
 
     public MessageV4() {
     }
@@ -45,11 +45,11 @@ public class MessageV4 extends MessageV3 {
                         messageV4.setActVideoSetting(ActVideoSetting.parse(jSONObject2.getJSONObject(ActVideoSetting.ACT_VIDEO_SETTING)));
                     }
                 }
-            } catch (JSONException e) {
-                com.meizu.cloud.a.a.e(TAG, "parse messageV4 error " + e.getMessage());
+            } catch (JSONException e2) {
+                d.j.a.a.a.b(TAG, "parse messageV4 error " + e2.getMessage());
             }
         }
-        com.meizu.cloud.a.a.i(TAG, "MessageV4 " + messageV4);
+        d.j.a.a.a.d(TAG, "MessageV4 " + messageV4);
         return messageV4;
     }
 

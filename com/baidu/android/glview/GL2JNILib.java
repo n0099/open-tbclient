@@ -1,7 +1,7 @@
 package com.baidu.android.glview;
 
 import android.view.Surface;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public class GL2JNILib {
     public static native void close(int i);
 
@@ -21,5 +21,5 @@ public class GL2JNILib {
 
     public static native void stretch(int i, int i2);
 
-    public static native void transform(int i, float f, float f2, float f3, float f4, int i2);
+    public static native void transform(int i, float f2, float f3, float f4, float f5, int i2);
 }

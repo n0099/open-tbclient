@@ -1,17 +1,16 @@
 package com.baidu.mapsdkplatform.comjni.tools;
 
 import android.os.Bundle;
-import com.baidu.ar.gesture.GestureAR;
 import com.baidu.mapapi.model.inner.Point;
 import java.util.ArrayList;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class a {
     public static double a(Point point, Point point2) {
         Bundle bundle = new Bundle();
-        bundle.putDouble(GestureAR.SDK_TO_LUA_GESTURE_RESULT_X1, point.x);
-        bundle.putDouble(GestureAR.SDK_TO_LUA_GESTURE_RESULT_Y1, point.y);
-        bundle.putDouble(GestureAR.SDK_TO_LUA_GESTURE_RESULT_X2, point2.x);
-        bundle.putDouble(GestureAR.SDK_TO_LUA_GESTURE_RESULT_Y2, point2.y);
+        bundle.putDouble("x1", point.x);
+        bundle.putDouble("y1", point.y);
+        bundle.putDouble("x2", point2.x);
+        bundle.putDouble("y2", point2.y);
         JNITools.GetDistanceByMC(bundle);
         return bundle.getDouble("distance");
     }
@@ -28,16 +27,16 @@ public class a {
         if (bundle2 != null) {
             Bundle bundle3 = bundle2.getBundle("ll");
             if (bundle3 != null) {
-                aVar.b = new Point((int) bundle3.getDouble("ptx"), (int) bundle3.getDouble("pty"));
+                aVar.f7119b = new Point((int) bundle3.getDouble("ptx"), (int) bundle3.getDouble("pty"));
             }
             Bundle bundle4 = bundle2.getBundle("ru");
             if (bundle4 != null) {
-                aVar.c = new Point((int) bundle4.getDouble("ptx"), (int) bundle4.getDouble("pty"));
+                aVar.f7120c = new Point((int) bundle4.getDouble("ptx"), (int) bundle4.getDouble("pty"));
             }
         }
         for (ParcelItem parcelItem : (ParcelItem[]) bundle.getParcelableArray("poly_line")) {
-            if (aVar.d == null) {
-                aVar.d = new ArrayList<>();
+            if (aVar.f7121d == null) {
+                aVar.f7121d = new ArrayList<>();
             }
             Bundle bundle5 = parcelItem.getBundle();
             if (bundle5 != null) {
@@ -50,11 +49,11 @@ public class a {
                     }
                 }
                 arrayList.trimToSize();
-                aVar.d.add(arrayList);
+                aVar.f7121d.add(arrayList);
             }
         }
-        aVar.d.trimToSize();
-        aVar.f2090a = (int) bundle.getDouble("type");
+        aVar.f7121d.trimToSize();
+        aVar.f7118a = (int) bundle.getDouble("type");
         return aVar;
     }
 

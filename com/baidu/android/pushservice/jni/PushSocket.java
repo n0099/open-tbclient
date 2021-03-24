@@ -3,92 +3,118 @@ package com.baidu.android.pushservice.jni;
 import android.content.Context;
 import android.util.Log;
 import com.baidu.android.pushservice.message.h;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public class PushSocket {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f1227a;
-    private static byte[] b = null;
-    private static int c = 0;
-    private static String d = "PushSocket";
-    private static int e = 36;
-    private static int f = 32;
+    public static boolean f3401a = false;
 
-    /* loaded from: classes5.dex */
+    /* renamed from: b  reason: collision with root package name */
+    public static byte[] f3402b = null;
+
+    /* renamed from: c  reason: collision with root package name */
+    public static int f3403c = 0;
+
+    /* renamed from: d  reason: collision with root package name */
+    public static String f3404d = "PushSocket";
+
+    /* renamed from: e  reason: collision with root package name */
+    public static int f3405e = 36;
+
+    /* renamed from: f  reason: collision with root package name */
+    public static int f3406f = 32;
+
+    /* loaded from: classes2.dex */
     public interface OnCreateSocketListener {
         void onConnect(int i);
     }
 
     static {
-        f1227a = false;
         try {
-            System.loadLibrary("bdpush_V3_3");
-            f1227a = true;
-        } catch (Throwable th) {
+            System.loadLibrary("bdpush_V3_4");
+            f3401a = true;
+        } catch (Throwable unused) {
         }
+    }
+
+    public static int a(int i, byte[] bArr, int i2) {
+        if (i >= 0) {
+            return sendMsg(i, bArr, i2);
+        }
+        return -1;
     }
 
     public static short a(byte[] bArr, int i) {
-        return (short) ((bArr[i + 1] << 8) | (bArr[i + 0] & 255));
+        return (short) ((bArr[i + 0] & 255) | (bArr[i + 1] << 8));
     }
 
     public static void a(int i) {
-        b = null;
-        c = 0;
-        closeSocket(i);
+        f3402b = null;
+        f3403c = 0;
+        if (i >= 0) {
+            closeSocket(i);
+        }
     }
 
     public static boolean a() {
-        if (!f1227a) {
+        if (!f3401a) {
             try {
-                System.loadLibrary("bdpush_V3_3");
-                f1227a = true;
-            } catch (Throwable th) {
-                Log.e("BDPushSDK-" + d, "Native library not found! Please copy libbdpush_V3_3.so into your project!");
+                System.loadLibrary("bdpush_V3_4");
+                f3401a = true;
+            } catch (Throwable unused) {
+                Log.e("BDPushSDK-" + f3404d, "Native library not found! Please copy libbdpush_V3_4.so into your project!");
             }
         }
-        return f1227a;
+        return f3401a;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:14:0x0031, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:29:0x0069, code lost:
         r0 = new byte[2];
-        java.lang.System.arraycopy(com.baidu.android.pushservice.jni.PushSocket.b, com.baidu.android.pushservice.jni.PushSocket.c, r0, 0, r0.length);
+        java.lang.System.arraycopy(com.baidu.android.pushservice.jni.PushSocket.f3402b, com.baidu.android.pushservice.jni.PushSocket.f3403c, r0, 0, 2);
      */
-    /* JADX WARN: Code restructure failed: missing block: B:15:0x0042, code lost:
-        if (r2 != com.baidu.android.pushservice.message.h.MSG_ID_TINY_HEARTBEAT_SERVER.b()) goto L49;
+    /* JADX WARN: Code restructure failed: missing block: B:30:0x0079, code lost:
+        if (r1 != com.baidu.android.pushservice.message.h.MSG_ID_TINY_HEARTBEAT_SERVER.b()) goto L51;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:16:0x0044, code lost:
-        com.baidu.android.pushservice.i.m.a("MSG_ID_TINY_HEARTBEAT_SERVER", r6);
+    /* JADX WARN: Code restructure failed: missing block: B:31:0x007b, code lost:
+        com.baidu.android.pushservice.j.m.a("MSG_ID_TINY_HEARTBEAT_SERVER", r7);
      */
-    /* JADX WARN: Code restructure failed: missing block: B:17:0x004a, code lost:
-        com.baidu.android.pushservice.jni.PushSocket.c += 2;
+    /* JADX WARN: Code restructure failed: missing block: B:32:0x0080, code lost:
+        com.baidu.android.pushservice.jni.PushSocket.f3403c += 2;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:18:0x0050, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:33:0x0085, code lost:
         return r0;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public static byte[] a(Context context, int i) {
+        if (i < 0) {
+            return null;
+        }
         while (true) {
-            if (b != null) {
-                int length = b.length;
-                if (length == c) {
-                    b = null;
-                    c = 0;
-                } else if (length - c > 1) {
-                    short a2 = a(b, c);
+            byte[] bArr = f3402b;
+            if (bArr != null) {
+                int length = bArr.length;
+                int i2 = f3403c;
+                if (length == i2) {
+                    f3402b = null;
+                    f3403c = 0;
+                } else if (length - i2 > 1) {
+                    short a2 = a(bArr, i2);
                     if (a2 == h.MSG_ID_TINY_HEARTBEAT_CLIENT.b() || a2 == h.MSG_ID_TINY_HEARTBEAT_SERVER.b()) {
                         break;
-                    } else if (length - c < e && !b(i)) {
+                    } else if (length - f3403c < f3405e && !b(i)) {
                         return null;
                     } else {
-                        int b2 = b(b, c + f);
-                        if (c + b2 + e <= length - c) {
-                            byte[] bArr = new byte[e + b2];
-                            System.arraycopy(b, c, bArr, 0, bArr.length);
-                            c += b2 + e;
-                            return bArr;
+                        int b2 = b(f3402b, f3403c + f3406f);
+                        int i3 = f3403c;
+                        int i4 = f3405e;
+                        if (i3 + b2 + i4 <= length - i3) {
+                            int i5 = i4 + b2;
+                            byte[] bArr2 = new byte[i5];
+                            System.arraycopy(f3402b, i3, bArr2, 0, i5);
+                            f3403c += b2 + f3405e;
+                            return bArr2;
                         } else if (!b(i)) {
                             return null;
                         }
@@ -103,22 +129,24 @@ public class PushSocket {
     }
 
     public static int b(byte[] bArr, int i) {
-        return ((bArr[i + 3] & 255) << 24) | ((bArr[i + 2] & 255) << 16) | ((bArr[i + 1] & 255) << 8) | ((bArr[i + 0] & 255) << 0);
+        return ((bArr[i + 0] & 255) << 0) | ((bArr[i + 3] & 255) << 24) | ((bArr[i + 2] & 255) << 16) | ((bArr[i + 1] & 255) << 8);
     }
 
-    private static boolean b(int i) {
+    public static boolean b(int i) {
         byte[] rcvMsg = rcvMsg(i);
         if (rcvMsg == null || rcvMsg.length == 0) {
             return false;
         }
-        if (b == null) {
-            b = rcvMsg;
-        } else {
-            byte[] bArr = new byte[b.length + rcvMsg.length];
-            System.arraycopy(b, c, bArr, 0, b.length - c);
-            System.arraycopy(rcvMsg, 0, bArr, b.length, rcvMsg.length);
-            b = bArr;
+        byte[] bArr = f3402b;
+        if (bArr == null) {
+            f3402b = rcvMsg;
+            return true;
         }
+        byte[] bArr2 = new byte[bArr.length + rcvMsg.length];
+        int i2 = f3403c;
+        System.arraycopy(bArr, i2, bArr2, 0, bArr.length - i2);
+        System.arraycopy(rcvMsg, 0, bArr2, f3402b.length, rcvMsg.length);
+        f3402b = bArr2;
         return true;
     }
 
@@ -130,7 +158,9 @@ public class PushSocket {
 
     public static native String getLastSocketIP();
 
-    private static native byte[] rcvMsg(int i);
+    public static native boolean isIPv4Reachable();
+
+    public static native byte[] rcvMsg(int i);
 
     public static native int sendMsg(int i, byte[] bArr, int i2);
 }

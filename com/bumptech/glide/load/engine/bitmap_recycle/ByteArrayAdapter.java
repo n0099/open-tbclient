@@ -1,7 +1,12 @@
 package com.bumptech.glide.load.engine.bitmap_recycle;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public final class ByteArrayAdapter implements ArrayAdapterInterface<byte[]> {
-    private static final String TAG = "ByteArrayPool";
+    public static final String TAG = "ByteArrayPool";
+
+    @Override // com.bumptech.glide.load.engine.bitmap_recycle.ArrayAdapterInterface
+    public int getElementSizeInBytes() {
+        return 1;
+    }
 
     @Override // com.bumptech.glide.load.engine.bitmap_recycle.ArrayAdapterInterface
     public String getTag() {
@@ -18,10 +23,5 @@ public final class ByteArrayAdapter implements ArrayAdapterInterface<byte[]> {
     @Override // com.bumptech.glide.load.engine.bitmap_recycle.ArrayAdapterInterface
     public byte[] newArray(int i) {
         return new byte[i];
-    }
-
-    @Override // com.bumptech.glide.load.engine.bitmap_recycle.ArrayAdapterInterface
-    public int getElementSizeInBytes() {
-        return 1;
     }
 }

@@ -15,21 +15,22 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 @Keep
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class WebpBitmapFactory {
-    private static final int IN_TEMP_BUFFER_SIZE = 8192;
-    private static final int MAX_WEBP_HEADER_SIZE = 21;
+    public static final int IN_TEMP_BUFFER_SIZE = 8192;
+    public static final int MAX_WEBP_HEADER_SIZE = 21;
 
     static {
         try {
             System.loadLibrary("glide-webp");
-        } catch (Throwable th) {
+        } catch (Throwable unused) {
         }
     }
 
     @Keep
-    private static Bitmap createBitmap(int i, int i2, BitmapFactory.Options options) {
-        if (options == null || options.inBitmap == null || !options.inBitmap.isMutable()) {
+    public static Bitmap createBitmap(int i, int i2, BitmapFactory.Options options) {
+        Bitmap bitmap;
+        if (options == null || (bitmap = options.inBitmap) == null || !bitmap.isMutable()) {
             Bitmap createBitmap = Bitmap.createBitmap(i, i2, Bitmap.Config.ARGB_8888);
             createBitmap.setHasAlpha(true);
             createBitmap.eraseColor(0);
@@ -58,62 +59,59 @@ public class WebpBitmapFactory {
         return decodeFile(str, null);
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:34:0x0039 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Code restructure failed: missing block: B:14:0x002a, code lost:
+        if (r1 == null) goto L11;
+     */
+    /* JADX WARN: Removed duplicated region for block: B:28:0x0032 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public static Bitmap decodeFile(String str, BitmapFactory.Options options) {
         FileInputStream fileInputStream;
+        FileInputStream fileInputStream2 = null;
+        r0 = null;
         Bitmap bitmap = null;
         try {
+            fileInputStream = new FileInputStream(str);
             try {
-                fileInputStream = new FileInputStream(str);
                 try {
                     bitmap = decodeStream(fileInputStream, null, options);
-                    if (fileInputStream != null) {
-                        try {
-                            fileInputStream.close();
-                        } catch (IOException e) {
-                        }
-                    }
                 } catch (Exception e2) {
                     e = e2;
                     Log.e("WebpBitmapFactory", "Unable to decode stream: " + e);
-                    if (fileInputStream != null) {
-                        try {
-                            fileInputStream.close();
-                        } catch (IOException e3) {
-                        }
-                    }
-                    return bitmap;
                 }
             } catch (Throwable th) {
                 th = th;
-                if (fileInputStream != null) {
+                fileInputStream2 = fileInputStream;
+                if (fileInputStream2 != null) {
                     try {
-                        fileInputStream.close();
-                    } catch (IOException e4) {
+                        fileInputStream2.close();
+                    } catch (IOException unused) {
                     }
                 }
                 throw th;
             }
-        } catch (Exception e5) {
-            e = e5;
+        } catch (Exception e3) {
+            e = e3;
             fileInputStream = null;
         } catch (Throwable th2) {
             th = th2;
-            fileInputStream = null;
-            if (fileInputStream != null) {
+            if (fileInputStream2 != null) {
             }
             throw th;
         }
-        return bitmap;
+        try {
+            fileInputStream.close();
+        } catch (IOException unused2) {
+            return bitmap;
+        }
     }
 
     public static Bitmap decodeFileDescriptor(FileDescriptor fileDescriptor) {
         return decodeFileDescriptor(fileDescriptor, null, null);
     }
 
+    /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[INVOKE] complete} */
     public static Bitmap decodeFileDescriptor(FileDescriptor fileDescriptor, Rect rect, BitmapFactory.Options options) {
         Bitmap decodeFileDescriptor;
         InputStream wrapToMarkSupportedStream = wrapToMarkSupportedStream(new FileInputStream(fileDescriptor));
@@ -129,7 +127,7 @@ public class WebpBitmapFactory {
         } finally {
             try {
                 wrapToMarkSupportedStream.close();
-            } catch (Throwable th) {
+            } catch (Throwable unused) {
             }
         }
     }
@@ -138,56 +136,58 @@ public class WebpBitmapFactory {
         return decodeResource(resources, i, null);
     }
 
+    /* JADX WARN: Code restructure failed: missing block: B:16:0x0021, code lost:
+        if (r3 == null) goto L8;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:5:0x000e, code lost:
+        if (r3 != null) goto L16;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:6:0x0010, code lost:
+        r3.close();
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     public static Bitmap decodeResource(Resources resources, int i, BitmapFactory.Options options) {
-        Throwable th;
         InputStream inputStream;
-        InputStream inputStream2;
         TypedValue typedValue;
+        InputStream inputStream2 = null;
+        r0 = null;
         Bitmap bitmap = null;
         try {
             typedValue = new TypedValue();
-            inputStream2 = resources.openRawResource(i, typedValue);
-        } catch (Exception e) {
-            inputStream2 = null;
-        } catch (Throwable th2) {
-            th = th2;
+            inputStream = resources.openRawResource(i, typedValue);
+        } catch (Exception unused) {
             inputStream = null;
+        } catch (Throwable th) {
+            th = th;
         }
         try {
-            bitmap = decodeResourceStream(resources, typedValue, inputStream2, null, options);
+            bitmap = decodeResourceStream(resources, typedValue, inputStream, null, options);
+        } catch (Exception unused2) {
+        } catch (Throwable th2) {
+            th = th2;
+            inputStream2 = inputStream;
             if (inputStream2 != null) {
                 try {
                     inputStream2.close();
-                } catch (IOException e2) {
-                }
-            }
-        } catch (Exception e3) {
-            if (inputStream2 != null) {
-                try {
-                    inputStream2.close();
-                } catch (IOException e4) {
-                }
-            }
-            if (bitmap == null) {
-            }
-            return bitmap;
-        } catch (Throwable th3) {
-            th = th3;
-            inputStream = inputStream2;
-            if (inputStream != null) {
-                try {
-                    inputStream.close();
-                } catch (IOException e5) {
+                } catch (IOException unused3) {
                 }
             }
             throw th;
         }
-        if (bitmap == null || options == null || options.inBitmap == null) {
+        if (bitmap != null || options == null || options.inBitmap == null) {
             return bitmap;
         }
         throw new IllegalArgumentException("Problem decoding into existing bitmap");
     }
 
+    /* JADX WARN: Code restructure failed: missing block: B:12:0x0019, code lost:
+        if (r2 != 65535) goto L9;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     public static Bitmap decodeResourceStream(Resources resources, TypedValue typedValue, InputStream inputStream, Rect rect, BitmapFactory.Options options) {
         if (options == null) {
             options = new BitmapFactory.Options();
@@ -195,10 +195,9 @@ public class WebpBitmapFactory {
         if (options.inDensity == 0 && typedValue != null) {
             int i = typedValue.density;
             if (i == 0) {
-                options.inDensity = 160;
-            } else if (i != 65535) {
-                options.inDensity = i;
+                i = 160;
             }
+            options.inDensity = i;
         }
         if (options.inTargetDensity == 0 && resources != null) {
             options.inTargetDensity = resources.getDisplayMetrics().densityDpi;
@@ -224,7 +223,7 @@ public class WebpBitmapFactory {
         return BitmapFactory.decodeStream(wrapToMarkSupportedStream, rect, options);
     }
 
-    private static byte[] getImageHeader(InputStream inputStream) {
+    public static byte[] getImageHeader(InputStream inputStream) {
         if (!inputStream.markSupported()) {
             inputStream = new BufferedInputStream(inputStream, 21);
         }
@@ -234,34 +233,35 @@ public class WebpBitmapFactory {
             inputStream.read(bArr, 0, 21);
             inputStream.reset();
             return bArr;
-        } catch (IOException e) {
+        } catch (IOException unused) {
             return null;
         }
     }
 
-    private static byte[] getInTempStorageFromOptions(BitmapFactory.Options options) {
-        return (options == null || options.inTempStorage == null) ? new byte[8192] : options.inTempStorage;
+    public static byte[] getInTempStorageFromOptions(BitmapFactory.Options options) {
+        byte[] bArr;
+        return (options == null || (bArr = options.inTempStorage) == null) ? new byte[8192] : bArr;
     }
 
-    private static float getScaleFromOptions(BitmapFactory.Options options) {
+    public static float getScaleFromOptions(BitmapFactory.Options options) {
         if (options != null) {
             int i = options.inSampleSize;
-            float f = i > 1 ? 1.0f / i : 1.0f;
+            float f2 = i > 1 ? 1.0f / i : 1.0f;
             if (options.inScaled) {
                 int i2 = options.inDensity;
                 int i3 = options.inTargetDensity;
-                return (i2 == 0 || i3 == 0 || i2 == options.inScreenDensity) ? f : i3 / i2;
+                return (i2 == 0 || i3 == 0 || i2 == options.inScreenDensity) ? f2 : i3 / i2;
             }
-            return f;
+            return f2;
         }
         return 1.0f;
     }
 
-    private static native Bitmap nativeDecodeByteArray(byte[] bArr, int i, int i2, BitmapFactory.Options options, float f, byte[] bArr2);
+    public static native Bitmap nativeDecodeByteArray(byte[] bArr, int i, int i2, BitmapFactory.Options options, float f2, byte[] bArr2);
 
-    private static native Bitmap nativeDecodeStream(InputStream inputStream, BitmapFactory.Options options, float f, byte[] bArr);
+    public static native Bitmap nativeDecodeStream(InputStream inputStream, BitmapFactory.Options options, float f2, byte[] bArr);
 
-    private static void setDefaultPadding(Rect rect) {
+    public static void setDefaultPadding(Rect rect) {
         if (rect != null) {
             rect.top = -1;
             rect.left = -1;
@@ -270,7 +270,7 @@ public class WebpBitmapFactory {
         }
     }
 
-    private static void setDensityFromOptions(Bitmap bitmap, BitmapFactory.Options options) {
+    public static void setDensityFromOptions(Bitmap bitmap, BitmapFactory.Options options) {
         if (bitmap == null || options == null) {
             return;
         }
@@ -291,7 +291,7 @@ public class WebpBitmapFactory {
     }
 
     @Keep
-    private static boolean setOutDimensions(BitmapFactory.Options options, int i, int i2) {
+    public static boolean setOutDimensions(BitmapFactory.Options options, int i, int i2) {
         if (options != null) {
             options.outWidth = i;
             options.outHeight = i2;
@@ -300,7 +300,7 @@ public class WebpBitmapFactory {
         return false;
     }
 
-    private static void setWebpBitmapOptions(Bitmap bitmap, BitmapFactory.Options options) {
+    public static void setWebpBitmapOptions(Bitmap bitmap, BitmapFactory.Options options) {
         setDensityFromOptions(bitmap, options);
         if (options != null) {
             options.outMimeType = "image/webp";
@@ -311,13 +311,13 @@ public class WebpBitmapFactory {
         WebpHeaderParser.WebpImageType webpImageType;
         try {
             webpImageType = WebpHeaderParser.a(bArr, i, i2);
-        } catch (IOException e) {
+        } catch (IOException unused) {
             webpImageType = WebpHeaderParser.WebpImageType.NONE_WEBP;
         }
         return Build.VERSION.SDK_INT <= 17 && WebpHeaderParser.b(webpImageType);
     }
 
-    private static InputStream wrapToMarkSupportedStream(InputStream inputStream) {
+    public static InputStream wrapToMarkSupportedStream(InputStream inputStream) {
         return !inputStream.markSupported() ? new BufferedInputStream(inputStream, 8192) : inputStream;
     }
 }

@@ -1,38 +1,38 @@
 package com.baidu.tieba.imMessageCenter.mention.agree.message;
 
 import com.baidu.adp.framework.message.NetMessage;
-import com.baidu.adp.lib.util.l;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.k;
-import com.baidu.tbadk.util.v;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import d.b.b.e.p.l;
+import d.b.h0.r.k;
+import d.b.h0.z0.w;
 import tbclient.AgreeMe.AgreeMeReqIdl;
 import tbclient.AgreeMe.DataReq;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class AgreeMeRequestMessage extends NetMessage {
     public long id;
 
     public AgreeMeRequestMessage() {
-        super(1002211, CmdConfigSocket.CMD_AGREE_ME);
+        super(CmdConfigHttp.AGREE_ME_HTTP_CMD, 309593);
     }
 
     @Override // com.baidu.adp.framework.message.NetMessage
-    protected Object encode(boolean z) {
+    public Object encode(boolean z) {
         try {
             DataReq.Builder builder = new DataReq.Builder();
             builder.id = Long.valueOf(this.id);
-            builder.q_type = Integer.valueOf(k.bkV().getViewImageQuality());
+            builder.q_type = Integer.valueOf(k.c().e());
             builder.rn = 20;
             builder.scr_dip = Integer.valueOf((int) TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density);
-            builder.scr_h = Integer.valueOf(l.getEquipmentHeight(TbadkCoreApplication.getInst().getApp()));
-            builder.scr_w = Integer.valueOf(l.getEquipmentWidth(TbadkCoreApplication.getInst().getApp()));
+            builder.scr_h = Integer.valueOf(l.i(TbadkCoreApplication.getInst().getApp()));
+            builder.scr_w = Integer.valueOf(l.k(TbadkCoreApplication.getInst().getApp()));
             if (z) {
-                v.b(builder, true);
+                w.a(builder, true);
             }
             AgreeMeReqIdl.Builder builder2 = new AgreeMeReqIdl.Builder();
             builder2.data = builder.build(false);
             return builder2.build(false);
-        } catch (Exception e) {
+        } catch (Exception unused) {
             return null;
         }
     }

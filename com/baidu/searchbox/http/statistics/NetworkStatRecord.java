@@ -1,9 +1,6 @@
 package com.baidu.searchbox.http.statistics;
 
 import android.text.TextUtils;
-import com.baidu.ala.recorder.video.AlaRecorderLog;
-import com.baidu.searchbox.perfframe.ioc.Constant;
-import com.baidu.searchbox.websocket.WebSocketRequest;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.net.InetAddress;
@@ -13,7 +10,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class NetworkStatRecord {
     public static final int DEFAULT_FROM_ID = 0;
     public static final int DEFAULT_SUBFROM_ID = 0;
@@ -21,7 +18,6 @@ public class NetworkStatRecord {
     public List<InetAddress> addressList;
     public String bdTraceId;
     public String clientIP;
-    public String clientIPv6;
     public String errheaders;
     public Exception exception;
     public JSONObject extraUserInfo;
@@ -36,7 +32,6 @@ public class NetworkStatRecord {
     public String netType;
     public int networkQuality;
     public int networkQualityFrom;
-    public String processName;
     public String protocol;
     public String remoteIP;
     public JSONObject sdtProbeErrorCode;
@@ -61,6 +56,133 @@ public class NetworkStatRecord {
     public int from = 0;
     public int subFrom = 0;
 
+    private String getStackTraceString(Throwable th) {
+        StringWriter stringWriter;
+        PrintWriter printWriter;
+        if (th == null) {
+            return "";
+        }
+        PrintWriter printWriter2 = null;
+        try {
+            stringWriter = new StringWriter();
+            printWriter = new PrintWriter(stringWriter);
+        } catch (Throwable th2) {
+            th = th2;
+        }
+        try {
+            th.printStackTrace(printWriter);
+            printWriter.flush();
+            String stringWriter2 = stringWriter.toString();
+            printWriter.close();
+            return stringWriter2;
+        } catch (Throwable th3) {
+            th = th3;
+            printWriter2 = printWriter;
+            if (printWriter2 != null) {
+                printWriter2.close();
+            }
+            throw th;
+        }
+    }
+
+    private JSONArray parseAddressList() {
+        ArrayList arrayList = new ArrayList();
+        for (InetAddress inetAddress : this.addressList) {
+            if (!TextUtils.isEmpty(inetAddress.getHostAddress())) {
+                arrayList.add(inetAddress.getHostAddress());
+            }
+        }
+        return new JSONArray((Collection) arrayList);
+    }
+
+    public boolean isNeedFinishRightNow() {
+        return (this.exception == null && this.statusCode == 200) ? false : true;
+    }
+
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("NetworkStatRecord{, netEngine=");
+        sb.append(this.netEngine);
+        sb.append("，url=");
+        sb.append(this.url);
+        sb.append(", protocol=");
+        sb.append(this.protocol);
+        sb.append(", netType=");
+        sb.append(this.netType);
+        sb.append(", startTs=");
+        sb.append(this.startTs);
+        sb.append(", connTs=");
+        sb.append(this.connTs);
+        sb.append(", dnsStartTs=");
+        sb.append(this.dnsStartTs);
+        sb.append(", dnsEndTs=");
+        sb.append(this.dnsEndTs);
+        sb.append(", dnsDetail=");
+        sb.append(this.dnsDetail.toString());
+        sb.append(", responseTs=");
+        sb.append(this.responseTs);
+        sb.append(", sendHeaderTs=");
+        sb.append(this.sendHeaderTs);
+        sb.append(", receiveHeaderTs=");
+        sb.append(this.receiveHeaderTs);
+        sb.append(", finishTs=");
+        sb.append(this.finishTs);
+        sb.append(", failTs=");
+        sb.append(this.failTs);
+        sb.append(", responseLength=");
+        sb.append(this.responseLength);
+        sb.append(", requestBodyLength=");
+        sb.append(this.requestBodyLength);
+        sb.append(", remoteIP=");
+        sb.append(this.remoteIP);
+        sb.append(", localIP=");
+        sb.append(this.localIP);
+        sb.append(", connectConsume=");
+        sb.append(this.connTs - this.startTs);
+        sb.append(", responseConsume=");
+        sb.append(this.responseTs - this.connTs);
+        sb.append(", totalConsume=");
+        sb.append(this.responseTs - this.startTs);
+        sb.append(", headers=");
+        sb.append(this.errheaders);
+        sb.append(", excetion=");
+        sb.append(getStackTraceString(this.exception));
+        sb.append(", clientIP=");
+        sb.append(this.clientIP);
+        sb.append(", isConnReused=");
+        sb.append(this.isConnReused ? "1" : "0");
+        sb.append(", realResponseLength=");
+        sb.append(this.realResponseLength);
+        sb.append(", readOverTime=");
+        sb.append(this.readOverTs);
+        sb.append(", from=");
+        sb.append(this.from);
+        sb.append(", subFrom=");
+        sb.append(this.subFrom);
+        sb.append(", extraUserInfo=");
+        JSONObject jSONObject = this.extraUserInfo;
+        sb.append(jSONObject != null ? jSONObject.toString() : "");
+        sb.append(", ipStack=");
+        sb.append(this.ipStack);
+        sb.append(", isVPNConnect=");
+        sb.append(this.isVPNConnect);
+        sb.append(", isProxyConnect=");
+        sb.append(this.isProxyConnect);
+        sb.append(", networkQuality=");
+        sb.append(this.networkQuality);
+        sb.append(", sdtProbeErrorCode=");
+        JSONObject jSONObject2 = this.sdtProbeErrorCode;
+        sb.append(jSONObject2 != null ? jSONObject2.toString() : "");
+        sb.append(", networkQualityFrom=");
+        sb.append(this.networkQualityFrom);
+        sb.append(", httpDnsAreaInfo=");
+        sb.append(this.httpDnsAreaInfo);
+        sb.append(", httpDnsAreaUpdateTime=");
+        sb.append(this.httpDnsAreaInfoLastUpdateTime);
+        sb.append('}');
+        return sb.toString();
+    }
+
     public JSONObject toUBCJson() {
         JSONObject jSONObject = new JSONObject();
         try {
@@ -70,7 +192,7 @@ public class NetworkStatRecord {
                 jSONObject.put("url", this.url);
             }
             if (!TextUtils.isEmpty(this.protocol)) {
-                jSONObject.put(AlaRecorderLog.KEY_CONTENT_EXT_PROTOCOL, this.protocol);
+                jSONObject.put("protocol", this.protocol);
             }
             if (!TextUtils.isEmpty(this.netType)) {
                 jSONObject.put("netType", this.netType);
@@ -122,15 +244,12 @@ public class NetworkStatRecord {
                 jSONObject.put("remoteIP", this.remoteIP);
             }
             if (!TextUtils.isEmpty(this.errheaders)) {
-                jSONObject.put(WebSocketRequest.PARAM_KEY_HEADER, this.errheaders);
+                jSONObject.put("header", this.errheaders);
             }
             jSONObject.put("responseLength", this.responseLength);
             jSONObject.put("requestBodyLength", this.requestBodyLength);
             if (!TextUtils.isEmpty(this.clientIP)) {
                 jSONObject.put("clientIP", this.clientIP);
-            }
-            if (!TextUtils.isEmpty(this.clientIPv6)) {
-                jSONObject.put("clientIPv6", this.clientIPv6);
             }
             if (this.realResponseLength > 0) {
                 jSONObject.put("realResponseLength", this.realResponseLength);
@@ -146,6 +265,7 @@ public class NetworkStatRecord {
             }
             jSONObject.put("from", this.from);
             jSONObject.put("subFrom", this.subFrom);
+            String str = "1";
             jSONObject.put("socketReuse", this.isConnReused ? "1" : "0");
             jSONObject.put("ipStack", this.ipStack);
             jSONObject.put("useFallback", this.useFallbackConn ? "1" : "0");
@@ -159,66 +279,17 @@ public class NetworkStatRecord {
                 jSONObject.put("sdtProbeErrorCode", this.sdtProbeErrorCode.toString());
             }
             jSONObject.put("viaVPN", this.isVPNConnect ? "1" : "0");
-            jSONObject.put("viaProxy", this.isProxyConnect ? "1" : "0");
+            if (!this.isProxyConnect) {
+                str = "0";
+            }
+            jSONObject.put("viaProxy", str);
             if (!TextUtils.isEmpty(this.httpDnsAreaInfo)) {
                 jSONObject.put("httpDnsAreaInfo", this.httpDnsAreaInfo);
                 jSONObject.put("httpDnsAreaUpdateTime", this.httpDnsAreaInfoLastUpdateTime);
             }
-            if (!TextUtils.isEmpty(this.processName)) {
-                jSONObject.put(Constant.KEY_PROCESS_NAME, this.processName);
-            }
-        } catch (JSONException e) {
-            e.printStackTrace();
+        } catch (JSONException e2) {
+            e2.printStackTrace();
         }
         return jSONObject;
-    }
-
-    public String toString() {
-        return "NetworkStatRecord{, netEngine=" + this.netEngine + "，url=" + this.url + ", protocol=" + this.protocol + ", netType=" + this.netType + ", startTs=" + this.startTs + ", connTs=" + this.connTs + ", dnsStartTs=" + this.dnsStartTs + ", dnsEndTs=" + this.dnsEndTs + ", dnsDetail=" + this.dnsDetail.toString() + ", responseTs=" + this.responseTs + ", sendHeaderTs=" + this.sendHeaderTs + ", receiveHeaderTs=" + this.receiveHeaderTs + ", finishTs=" + this.finishTs + ", failTs=" + this.failTs + ", responseLength=" + this.responseLength + ", requestBodyLength=" + this.requestBodyLength + ", remoteIP=" + this.remoteIP + ", localIP=" + this.localIP + ", connectConsume=" + (this.connTs - this.startTs) + ", responseConsume=" + (this.responseTs - this.connTs) + ", totalConsume=" + (this.responseTs - this.startTs) + ", headers=" + this.errheaders + ", excetion=" + getStackTraceString(this.exception) + ", clientIP=" + this.clientIP + ", clientIPv6=" + this.clientIPv6 + ", isConnReused=" + (this.isConnReused ? "1" : "0") + ", realResponseLength=" + this.realResponseLength + ", readOverTime=" + this.readOverTs + ", from=" + this.from + ", subFrom=" + this.subFrom + ", extraUserInfo=" + (this.extraUserInfo != null ? this.extraUserInfo.toString() : "") + ", ipStack=" + this.ipStack + ", isVPNConnect=" + this.isVPNConnect + ", isProxyConnect=" + this.isProxyConnect + ", networkQuality=" + this.networkQuality + ", sdtProbeErrorCode=" + (this.sdtProbeErrorCode != null ? this.sdtProbeErrorCode.toString() : "") + ", networkQualityFrom=" + this.networkQualityFrom + ", httpDnsAreaInfo=" + this.httpDnsAreaInfo + ", httpDnsAreaUpdateTime=" + this.httpDnsAreaInfoLastUpdateTime + ", processName=" + this.processName + '}';
-    }
-
-    private String getStackTraceString(Throwable th) {
-        PrintWriter printWriter;
-        StringWriter stringWriter;
-        if (th == null) {
-            return "";
-        }
-        try {
-            stringWriter = new StringWriter();
-            printWriter = new PrintWriter(stringWriter);
-        } catch (Throwable th2) {
-            th = th2;
-            printWriter = null;
-        }
-        try {
-            th.printStackTrace(printWriter);
-            printWriter.flush();
-            String stringWriter2 = stringWriter.toString();
-            if (printWriter == null) {
-                return stringWriter2;
-            }
-            printWriter.close();
-            return stringWriter2;
-        } catch (Throwable th3) {
-            th = th3;
-            if (printWriter != null) {
-                printWriter.close();
-            }
-            throw th;
-        }
-    }
-
-    public boolean isNeedFinishRightNow() {
-        return (this.exception == null && this.statusCode == 200) ? false : true;
-    }
-
-    private JSONArray parseAddressList() {
-        ArrayList arrayList = new ArrayList();
-        for (InetAddress inetAddress : this.addressList) {
-            if (!TextUtils.isEmpty(inetAddress.getHostAddress())) {
-                arrayList.add(inetAddress.getHostAddress());
-            }
-        }
-        return new JSONArray((Collection) arrayList);
     }
 }

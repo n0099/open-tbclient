@@ -1,20 +1,20 @@
 package com.baidu.mobads.utils;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class k implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ Runnable f2486a;
-    final /* synthetic */ h b;
+    public final /* synthetic */ Runnable f8542a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    /* renamed from: b  reason: collision with root package name */
+    public final /* synthetic */ h f8543b;
+
     public k(h hVar, Runnable runnable) {
-        this.b = hVar;
-        this.f2486a = runnable;
+        this.f8543b = hVar;
+        this.f8542a = runnable;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.f2486a.run();
+        this.f8542a.run();
     }
 }

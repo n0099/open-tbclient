@@ -10,12 +10,12 @@ import okio.BufferedSource;
 import okio.ForwardingSource;
 import okio.Okio;
 import okio.Source;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class BceServiceResponseBody<T extends AbstractBceRequest> extends ResponseBody {
-    private BceProgressCallback<T> bceProgressCallback;
-    private BufferedSource bceRespBufferedSource;
-    private final ResponseBody bceResponseBody;
-    private T request;
+    public BceProgressCallback<T> bceProgressCallback;
+    public BufferedSource bceRespBufferedSource;
+    public final ResponseBody bceResponseBody;
+    public T request;
 
     public BceServiceResponseBody(ResponseBody responseBody, T t, BceProgressCallback<T> bceProgressCallback) {
         this.bceResponseBody = responseBody;
@@ -24,13 +24,13 @@ public class BceServiceResponseBody<T extends AbstractBceRequest> extends Respon
     }
 
     @Override // okhttp3.ResponseBody
-    public MediaType contentType() {
-        return this.bceResponseBody.contentType();
+    public long contentLength() {
+        return this.bceResponseBody.contentLength();
     }
 
     @Override // okhttp3.ResponseBody
-    public long contentLength() {
-        return this.bceResponseBody.contentLength();
+    public MediaType contentType() {
+        return this.bceResponseBody.contentType();
     }
 
     @Override // okhttp3.ResponseBody
@@ -43,14 +43,14 @@ public class BceServiceResponseBody<T extends AbstractBceRequest> extends Respon
 
     private Source source(BufferedSource bufferedSource) {
         return new ForwardingSource(bufferedSource) { // from class: com.baidubce.http.BceServiceResponseBody.1
-            private long totalBytesRead = 0;
+            public long totalBytesRead = 0;
 
-            /* JADX DEBUG: Multi-variable search result rejected for r0v10, resolved type: com.baidubce.callback.BceProgressCallback */
+            /* JADX DEBUG: Multi-variable search result rejected for r0v3, resolved type: com.baidubce.callback.BceProgressCallback */
             /* JADX WARN: Multi-variable type inference failed */
             @Override // okio.ForwardingSource, okio.Source
             public long read(Buffer buffer, long j) throws IOException {
                 long read = super.read(buffer, j);
-                this.totalBytesRead = (read != -1 ? read : 0L) + this.totalBytesRead;
+                this.totalBytesRead += read != -1 ? read : 0L;
                 if (BceServiceResponseBody.this.bceProgressCallback != null && this.totalBytesRead > 0) {
                     BceServiceResponseBody.this.bceProgressCallback.onProgress(BceServiceResponseBody.this.request, this.totalBytesRead, BceServiceResponseBody.this.bceResponseBody.contentLength());
                 }

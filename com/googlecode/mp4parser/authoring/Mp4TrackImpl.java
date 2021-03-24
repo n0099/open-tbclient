@@ -30,21 +30,26 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class Mp4TrackImpl extends AbstractTrack {
-    private List<CompositionTimeToSample.Entry> compositionTimeEntries;
-    private long[] decodingTimes;
-    private String handler;
-    private AbstractMediaHeaderBox mihd;
-    private List<SampleDependencyTypeBox.Entry> sampleDependencies;
-    private SampleDescriptionBox sampleDescriptionBox;
-    private List<CencSampleAuxiliaryDataFormat> sampleEncryptionEntries;
-    private List<Sample> samples;
-    private long[] syncSamples;
-    private TrackMetaData trackMetaData = new TrackMetaData();
+    public List<CompositionTimeToSample.Entry> compositionTimeEntries;
+    public long[] decodingTimes;
+    public String handler;
+    public AbstractMediaHeaderBox mihd;
+    public List<SampleDependencyTypeBox.Entry> sampleDependencies;
+    public SampleDescriptionBox sampleDescriptionBox;
+    public List<CencSampleAuxiliaryDataFormat> sampleEncryptionEntries;
+    public List<Sample> samples;
+    public long[] syncSamples;
+    public TrackMetaData trackMetaData = new TrackMetaData();
 
     public Mp4TrackImpl(TrackBox trackBox, IsoFile... isoFileArr) {
+        Iterator it;
+        long j;
+        Iterator it2;
         SampleFlags defaultSampleFlags;
+        int i;
+        int i2 = 0;
         this.syncSamples = new long[0];
         long trackId = trackBox.getTrackHeaderBox().getTrackId();
         this.samples = new SampleList(trackBox, isoFileArr);
@@ -72,66 +77,91 @@ public class Mp4TrackImpl extends AbstractTrack {
                 for (TrackExtendsBox trackExtendsBox : movieExtendsBox.getBoxes(TrackExtendsBox.class)) {
                     if (trackExtendsBox.getTrackId() == trackId) {
                         LinkedList<Long> linkedList = new LinkedList();
-                        long j = 1;
+                        long j2 = 1;
                         for (MovieFragmentBox movieFragmentBox : ((Box) trackBox.getParent()).getParent().getBoxes(MovieFragmentBox.class)) {
-                            long j2 = j;
-                            for (TrackFragmentBox trackFragmentBox : movieFragmentBox.getBoxes(TrackFragmentBox.class)) {
+                            Iterator it3 = movieFragmentBox.getBoxes(TrackFragmentBox.class).iterator();
+                            while (it3.hasNext()) {
+                                TrackFragmentBox trackFragmentBox = (TrackFragmentBox) it3.next();
                                 if (trackFragmentBox.getTrackFragmentHeaderBox().getTrackId() == trackId) {
                                     for (SampleEncryptionBox sampleEncryptionBox : trackFragmentBox.getBoxes(SampleEncryptionBox.class)) {
                                         this.sampleEncryptionEntries.addAll(sampleEncryptionBox.getEntries());
+                                        it3 = it3;
+                                        trackId = trackId;
                                     }
-                                    for (TrackRunBox trackRunBox : trackFragmentBox.getBoxes(TrackRunBox.class)) {
+                                    Iterator it4 = trackFragmentBox.getBoxes(TrackRunBox.class).iterator();
+                                    while (it4.hasNext()) {
+                                        TrackRunBox trackRunBox = (TrackRunBox) it4.next();
                                         TrackFragmentHeaderBox trackFragmentHeaderBox = ((TrackFragmentBox) trackRunBox.getParent()).getTrackFragmentHeaderBox();
+                                        int i3 = 1;
                                         boolean z = true;
-                                        Iterator<TrackRunBox.Entry> it = trackRunBox.getEntries().iterator();
-                                        while (true) {
-                                            boolean z2 = z;
-                                            if (it.hasNext()) {
-                                                TrackRunBox.Entry next = it.next();
-                                                if (trackRunBox.isSampleDurationPresent()) {
-                                                    if (arrayList.size() == 0 || ((TimeToSampleBox.Entry) arrayList.get(arrayList.size() - 1)).getDelta() != next.getSampleDuration()) {
-                                                        arrayList.add(new TimeToSampleBox.Entry(1L, next.getSampleDuration()));
-                                                    } else {
-                                                        TimeToSampleBox.Entry entry = (TimeToSampleBox.Entry) arrayList.get(arrayList.size() - 1);
-                                                        entry.setCount(entry.getCount() + 1);
+                                        for (TrackRunBox.Entry entry : trackRunBox.getEntries()) {
+                                            if (trackRunBox.isSampleDurationPresent()) {
+                                                if (arrayList.size() != 0) {
+                                                    it = it3;
+                                                    if (((TimeToSampleBox.Entry) arrayList.get(arrayList.size() - 1)).getDelta() == entry.getSampleDuration()) {
+                                                        TimeToSampleBox.Entry entry2 = (TimeToSampleBox.Entry) arrayList.get(arrayList.size() - i3);
+                                                        j = trackId;
+                                                        it2 = it4;
+                                                        entry2.setCount(entry2.getCount() + 1);
                                                     }
-                                                } else if (trackFragmentHeaderBox.hasDefaultSampleDuration()) {
+                                                } else {
+                                                    it = it3;
+                                                }
+                                                j = trackId;
+                                                it2 = it4;
+                                                arrayList.add(new TimeToSampleBox.Entry(1L, entry.getSampleDuration()));
+                                            } else {
+                                                it = it3;
+                                                j = trackId;
+                                                it2 = it4;
+                                                if (trackFragmentHeaderBox.hasDefaultSampleDuration()) {
                                                     arrayList.add(new TimeToSampleBox.Entry(1L, trackFragmentHeaderBox.getDefaultSampleDuration()));
                                                 } else {
                                                     arrayList.add(new TimeToSampleBox.Entry(1L, trackExtendsBox.getDefaultSampleDuration()));
                                                 }
-                                                if (trackRunBox.isSampleCompositionTimeOffsetPresent()) {
-                                                    if (this.compositionTimeEntries.size() == 0 || this.compositionTimeEntries.get(this.compositionTimeEntries.size() - 1).getOffset() != next.getSampleCompositionTimeOffset()) {
-                                                        this.compositionTimeEntries.add(new CompositionTimeToSample.Entry(1, CastUtils.l2i(next.getSampleCompositionTimeOffset())));
-                                                    } else {
-                                                        CompositionTimeToSample.Entry entry2 = this.compositionTimeEntries.get(this.compositionTimeEntries.size() - 1);
-                                                        entry2.setCount(entry2.getCount() + 1);
-                                                    }
-                                                }
-                                                if (trackRunBox.isSampleFlagsPresent()) {
-                                                    defaultSampleFlags = next.getSampleFlags();
-                                                } else if (z2 && trackRunBox.isFirstSampleFlagsPresent()) {
-                                                    defaultSampleFlags = trackRunBox.getFirstSampleFlags();
-                                                } else if (trackFragmentHeaderBox.hasDefaultSampleFlags()) {
-                                                    defaultSampleFlags = trackFragmentHeaderBox.getDefaultSampleFlags();
-                                                } else {
-                                                    defaultSampleFlags = trackExtendsBox.getDefaultSampleFlags();
-                                                }
-                                                if (defaultSampleFlags != null && !defaultSampleFlags.isSampleIsDifferenceSample()) {
-                                                    linkedList.add(Long.valueOf(j2));
-                                                }
-                                                j2++;
-                                                z = false;
                                             }
+                                            if (trackRunBox.isSampleCompositionTimeOffsetPresent()) {
+                                                if (this.compositionTimeEntries.size() != 0) {
+                                                    List<CompositionTimeToSample.Entry> list = this.compositionTimeEntries;
+                                                    i = 1;
+                                                    if (list.get(list.size() - 1).getOffset() == entry.getSampleCompositionTimeOffset()) {
+                                                        List<CompositionTimeToSample.Entry> list2 = this.compositionTimeEntries;
+                                                        CompositionTimeToSample.Entry entry3 = list2.get(list2.size() - 1);
+                                                        entry3.setCount(entry3.getCount() + 1);
+                                                    }
+                                                } else {
+                                                    i = 1;
+                                                }
+                                                this.compositionTimeEntries.add(new CompositionTimeToSample.Entry(i, CastUtils.l2i(entry.getSampleCompositionTimeOffset())));
+                                            }
+                                            if (trackRunBox.isSampleFlagsPresent()) {
+                                                defaultSampleFlags = entry.getSampleFlags();
+                                            } else if (z && trackRunBox.isFirstSampleFlagsPresent()) {
+                                                defaultSampleFlags = trackRunBox.getFirstSampleFlags();
+                                            } else if (trackFragmentHeaderBox.hasDefaultSampleFlags()) {
+                                                defaultSampleFlags = trackFragmentHeaderBox.getDefaultSampleFlags();
+                                            } else {
+                                                defaultSampleFlags = trackExtendsBox.getDefaultSampleFlags();
+                                            }
+                                            if (defaultSampleFlags != null && !defaultSampleFlags.isSampleIsDifferenceSample()) {
+                                                linkedList.add(Long.valueOf(j2));
+                                            }
+                                            j2++;
+                                            it3 = it;
+                                            it4 = it2;
+                                            trackId = j;
+                                            i3 = 1;
+                                            z = false;
                                         }
                                     }
                                 }
                             }
-                            j = j2;
+                            i2 = 0;
                         }
                         long[] jArr = this.syncSamples;
-                        this.syncSamples = new long[this.syncSamples.length + linkedList.size()];
-                        System.arraycopy(jArr, 0, this.syncSamples, 0, jArr.length);
+                        long[] jArr2 = new long[jArr.length + linkedList.size()];
+                        this.syncSamples = jArr2;
+                        System.arraycopy(jArr, i2, jArr2, i2, jArr.length);
                         int length = jArr.length;
                         for (Long l : linkedList) {
                             this.syncSamples[length] = l.longValue();
@@ -156,29 +186,14 @@ public class Mp4TrackImpl extends AbstractTrack {
         this.trackMetaData.setEditList((EditListBox) Path.getPath((AbstractContainerBox) trackBox, "edts/elst"));
     }
 
-    @Override // com.googlecode.mp4parser.authoring.Track
-    public List<Sample> getSamples() {
-        return this.samples;
-    }
-
-    @Override // com.googlecode.mp4parser.authoring.Track
-    public synchronized long[] getSampleDurations() {
-        return this.decodingTimes;
-    }
-
-    @Override // com.googlecode.mp4parser.authoring.Track
-    public SampleDescriptionBox getSampleDescriptionBox() {
-        return this.sampleDescriptionBox;
-    }
-
     @Override // com.googlecode.mp4parser.authoring.AbstractTrack, com.googlecode.mp4parser.authoring.Track
     public List<CompositionTimeToSample.Entry> getCompositionTimeEntries() {
         return this.compositionTimeEntries;
     }
 
-    @Override // com.googlecode.mp4parser.authoring.AbstractTrack, com.googlecode.mp4parser.authoring.Track
-    public long[] getSyncSamples() {
-        return this.syncSamples;
+    @Override // com.googlecode.mp4parser.authoring.Track
+    public String getHandler() {
+        return this.handler;
     }
 
     @Override // com.googlecode.mp4parser.authoring.AbstractTrack, com.googlecode.mp4parser.authoring.Track
@@ -187,19 +202,22 @@ public class Mp4TrackImpl extends AbstractTrack {
     }
 
     @Override // com.googlecode.mp4parser.authoring.Track
-    public TrackMetaData getTrackMetaData() {
-        return this.trackMetaData;
+    public SampleDescriptionBox getSampleDescriptionBox() {
+        return this.sampleDescriptionBox;
     }
 
     @Override // com.googlecode.mp4parser.authoring.Track
-    public String getHandler() {
-        return this.handler;
+    public synchronized long[] getSampleDurations() {
+        return this.decodingTimes;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
+    public List<CencSampleAuxiliaryDataFormat> getSampleEncryptionEntries() {
+        return this.sampleEncryptionEntries;
+    }
+
     @Override // com.googlecode.mp4parser.authoring.Track
-    public AbstractMediaHeaderBox getMediaHeaderBox() {
-        return this.mihd;
+    public List<Sample> getSamples() {
+        return this.samples;
     }
 
     @Override // com.googlecode.mp4parser.authoring.AbstractTrack, com.googlecode.mp4parser.authoring.Track
@@ -207,11 +225,23 @@ public class Mp4TrackImpl extends AbstractTrack {
         return null;
     }
 
-    public List<CencSampleAuxiliaryDataFormat> getSampleEncryptionEntries() {
-        return this.sampleEncryptionEntries;
+    @Override // com.googlecode.mp4parser.authoring.AbstractTrack, com.googlecode.mp4parser.authoring.Track
+    public long[] getSyncSamples() {
+        return this.syncSamples;
+    }
+
+    @Override // com.googlecode.mp4parser.authoring.Track
+    public TrackMetaData getTrackMetaData() {
+        return this.trackMetaData;
     }
 
     public String toString() {
         return "Mp4TrackImpl{handler='" + this.handler + "'}";
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.googlecode.mp4parser.authoring.Track
+    public AbstractMediaHeaderBox getMediaHeaderBox() {
+        return this.mihd;
     }
 }

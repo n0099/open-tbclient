@@ -1,8 +1,8 @@
 package com.vivo.push.util;
 
 import android.content.Context;
-/* loaded from: classes14.dex */
-interface c {
+/* loaded from: classes7.dex */
+public interface c {
     String a(String str, String str2);
 
     boolean a(Context context);

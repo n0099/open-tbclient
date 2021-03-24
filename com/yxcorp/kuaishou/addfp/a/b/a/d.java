@@ -2,14 +2,14 @@ package com.yxcorp.kuaishou.addfp.a.b.a;
 
 import android.os.IBinder;
 import android.os.Parcel;
-/* loaded from: classes3.dex */
-final class d implements b {
+/* loaded from: classes7.dex */
+public final class d implements b {
 
     /* renamed from: a  reason: collision with root package name */
-    private IBinder f8597a;
+    public IBinder f41083a;
 
     public d(IBinder iBinder) {
-        this.f8597a = iBinder;
+        this.f41083a = iBinder;
     }
 
     @Override // com.yxcorp.kuaishou.addfp.a.b.a.b
@@ -18,21 +18,22 @@ final class d implements b {
         Parcel obtain2 = Parcel.obtain();
         try {
             obtain.writeInterfaceToken("com.asus.msa.SupplementaryDID.IDidAidlInterface");
-            this.f8597a.transact(1, obtain, obtain2, 0);
+            this.f41083a.transact(1, obtain, obtain2, 0);
             obtain2.readException();
-            r0 = obtain2.readInt() != 0;
+            r2 = obtain2.readInt() != 0;
             obtain2.recycle();
             obtain.recycle();
-        } catch (Throwable th) {
+            return r2;
+        } catch (Throwable unused) {
             obtain2.recycle();
             obtain.recycle();
+            return r2;
         }
-        return r0;
     }
 
     @Override // android.os.IInterface
     public final IBinder asBinder() {
-        return this.f8597a;
+        return this.f41083a;
     }
 
     @Override // com.yxcorp.kuaishou.addfp.a.b.a.b
@@ -42,16 +43,13 @@ final class d implements b {
         Parcel obtain2 = Parcel.obtain();
         try {
             obtain.writeInterfaceToken("com.asus.msa.SupplementaryDID.IDidAidlInterface");
-            this.f8597a.transact(2, obtain, obtain2, 0);
+            this.f41083a.transact(2, obtain, obtain2, 0);
             obtain2.readException();
             str = obtain2.readString();
-        } catch (Throwable th) {
+        } finally {
             try {
-                com.yxcorp.kuaishou.addfp.android.b.b.a(th);
-                str = "";
+                return str;
             } finally {
-                obtain2.recycle();
-                obtain.recycle();
             }
         }
         return str;
@@ -64,16 +62,13 @@ final class d implements b {
         Parcel obtain2 = Parcel.obtain();
         try {
             obtain.writeInterfaceToken("com.asus.msa.SupplementaryDID.IDidAidlInterface");
-            this.f8597a.transact(3, obtain, obtain2, 0);
+            this.f41083a.transact(3, obtain, obtain2, 0);
             obtain2.readException();
             str = obtain2.readString();
-        } catch (Throwable th) {
+        } finally {
             try {
-                com.yxcorp.kuaishou.addfp.android.b.b.a(th);
-                str = "";
+                return str;
             } finally {
-                obtain2.recycle();
-                obtain.recycle();
             }
         }
         return str;
@@ -86,16 +81,13 @@ final class d implements b {
         Parcel obtain2 = Parcel.obtain();
         try {
             obtain.writeInterfaceToken("com.asus.msa.SupplementaryDID.IDidAidlInterface");
-            this.f8597a.transact(4, obtain, obtain2, 0);
+            this.f41083a.transact(4, obtain, obtain2, 0);
             obtain2.readException();
             str = obtain2.readString();
-        } catch (Throwable th) {
+        } finally {
             try {
-                com.yxcorp.kuaishou.addfp.android.b.b.a(th);
-                str = "";
+                return str;
             } finally {
-                obtain2.recycle();
-                obtain.recycle();
             }
         }
         return str;
@@ -108,16 +100,13 @@ final class d implements b {
         Parcel obtain2 = Parcel.obtain();
         try {
             obtain.writeInterfaceToken("com.asus.msa.SupplementaryDID.IDidAidlInterface");
-            this.f8597a.transact(5, obtain, obtain2, 0);
+            this.f41083a.transact(5, obtain, obtain2, 0);
             obtain2.readException();
             str = obtain2.readString();
-        } catch (Throwable th) {
+        } finally {
             try {
-                com.yxcorp.kuaishou.addfp.android.b.b.a(th);
-                str = "";
+                return str;
             } finally {
-                obtain2.recycle();
-                obtain.recycle();
             }
         }
         return str;

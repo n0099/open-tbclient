@@ -1,28 +1,26 @@
 package com.kwad.sdk.core.diskcache.b;
 
 import android.text.TextUtils;
-import com.baidu.minivideo.plugin.capture.utils.EncryptUtils;
 import java.io.Closeable;
 import java.io.IOException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes3.dex */
-class d {
-    /* JADX INFO: Access modifiers changed from: package-private */
+/* loaded from: classes6.dex */
+public class d {
     public static String a(String str) {
         try {
-            MessageDigest messageDigest = MessageDigest.getInstance(EncryptUtils.ENCRYPT_MD5);
+            MessageDigest messageDigest = MessageDigest.getInstance("MD5");
             messageDigest.update(str.getBytes());
             return a(messageDigest.digest());
-        } catch (NoSuchAlgorithmException e) {
+        } catch (NoSuchAlgorithmException unused) {
             return String.valueOf(str.hashCode());
         }
     }
 
-    private static String a(byte[] bArr) {
+    public static String a(byte[] bArr) {
         StringBuilder sb = new StringBuilder();
-        for (byte b : bArr) {
-            String hexString = Integer.toHexString(b & 255);
+        for (byte b2 : bArr) {
+            String hexString = Integer.toHexString(b2 & 255);
             if (hexString.length() == 1) {
                 sb.append('0');
             }
@@ -31,17 +29,15 @@ class d {
         return sb.toString();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public static void a(Closeable closeable) {
         if (closeable != null) {
             try {
                 closeable.close();
-            } catch (IOException e) {
+            } catch (IOException unused) {
             }
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public static void a(Object obj, String str) {
         if (obj == null) {
             throw new NullPointerException(str);

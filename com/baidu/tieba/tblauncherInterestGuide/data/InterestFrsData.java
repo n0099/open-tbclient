@@ -3,43 +3,89 @@ package com.baidu.tieba.tblauncherInterestGuide.data;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import java.io.Serializable;
 import java.util.ArrayList;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class InterestFrsData extends OrmObject implements Serializable {
-    private static final long serialVersionUID = 3148930531307087667L;
-    private String errmsg;
-    private int errno;
-    private ArrayList<Tag> tag_list = new ArrayList<>();
+    public static final long serialVersionUID = 3148930531307087667L;
+    public String errmsg;
+    public int errno;
+    public ArrayList<Tag> tag_list = new ArrayList<>();
 
-    public int getErrno() {
-        return this.errno;
+    /* loaded from: classes5.dex */
+    public static class Card extends OrmObject implements Serializable {
+        public static final long serialVersionUID = -6381883030119073721L;
+        public String avatar;
+        public String cdesc;
+        public int cid;
+        public int fid;
+        public String fname;
+        public String icon_url;
+        public int is_like;
+        public int order;
+        public String slogan;
+
+        public String getAvatar() {
+            return this.avatar;
+        }
+
+        public String getCdesc() {
+            return this.cdesc;
+        }
+
+        public int getCid() {
+            return this.cid;
+        }
+
+        public int getFid() {
+            return this.fid;
+        }
+
+        public String getFname() {
+            return this.fname;
+        }
+
+        public String getIcon_url() {
+            return this.icon_url;
+        }
+
+        public int getIs_like() {
+            return this.is_like;
+        }
+
+        public int getOrder() {
+            return this.order;
+        }
+
+        public String getSlogan() {
+            return this.slogan;
+        }
+
+        public void setIs_like(int i) {
+            this.is_like = i;
+        }
     }
 
-    public void setErrno(int i) {
-        this.errno = i;
-    }
-
-    public String getErrmsg() {
-        return this.errmsg;
-    }
-
-    public void setErrmsg(String str) {
-        this.errmsg = str;
-    }
-
-    public ArrayList<Tag> getTag_list() {
-        return this.tag_list;
-    }
-
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static class Tag extends OrmObject implements Serializable {
-        private static final long serialVersionUID = -161320459489433271L;
-        private String bdesc;
-        private String bgpic;
-        private String bicon;
-        private int bid;
-        private String bname;
-        private int btype;
-        private ArrayList<Card> card_list = new ArrayList<>();
+        public static final long serialVersionUID = -161320459489433271L;
+        public String bdesc;
+        public String bgpic;
+        public String bicon;
+        public int bid;
+        public String bname;
+        public int btype;
+        public ArrayList<Card> card_list = new ArrayList<>();
+
+        public String getBdesc() {
+            return this.bdesc;
+        }
+
+        public String getBgpic() {
+            return this.bgpic;
+        }
+
+        public String getBicon() {
+            return this.bicon;
+        }
 
         public int getBid() {
             return this.bid;
@@ -49,20 +95,8 @@ public class InterestFrsData extends OrmObject implements Serializable {
             return this.bname;
         }
 
-        public String getBicon() {
-            return this.bicon;
-        }
-
-        public String getBgpic() {
-            return this.bgpic;
-        }
-
         public int getBtype() {
             return this.btype;
-        }
-
-        public String getBdesc() {
-            return this.bdesc;
         }
 
         public ArrayList<Card> getCard_list() {
@@ -70,57 +104,23 @@ public class InterestFrsData extends OrmObject implements Serializable {
         }
     }
 
-    /* loaded from: classes2.dex */
-    public static class Card extends OrmObject implements Serializable {
-        private static final long serialVersionUID = -6381883030119073721L;
-        private String avatar;
-        private String cdesc;
-        private int cid;
-        private int fid;
-        private String fname;
-        private String icon_url;
-        private int is_like;
-        private int order;
-        private String slogan;
+    public String getErrmsg() {
+        return this.errmsg;
+    }
 
-        public int getOrder() {
-            return this.order;
-        }
+    public int getErrno() {
+        return this.errno;
+    }
 
-        public int getCid() {
-            return this.cid;
-        }
+    public ArrayList<Tag> getTag_list() {
+        return this.tag_list;
+    }
 
-        public String getFname() {
-            return this.fname;
-        }
+    public void setErrmsg(String str) {
+        this.errmsg = str;
+    }
 
-        public int getFid() {
-            return this.fid;
-        }
-
-        public String getCdesc() {
-            return this.cdesc;
-        }
-
-        public String getSlogan() {
-            return this.slogan;
-        }
-
-        public String getIcon_url() {
-            return this.icon_url;
-        }
-
-        public String getAvatar() {
-            return this.avatar;
-        }
-
-        public int getIs_like() {
-            return this.is_like;
-        }
-
-        public void setIs_like(int i) {
-            this.is_like = i;
-        }
+    public void setErrno(int i) {
+        this.errno = i;
     }
 }

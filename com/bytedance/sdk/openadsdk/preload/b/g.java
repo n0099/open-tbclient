@@ -7,7 +7,9 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.Executor;
 /* loaded from: classes6.dex */
 public class g<T> extends d<List<T>, T> {
-    private Executor d;
+
+    /* renamed from: d  reason: collision with root package name */
+    public Executor f30152d;
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bytedance.sdk.openadsdk.preload.b.d
@@ -17,18 +19,17 @@ public class g<T> extends d<List<T>, T> {
         final CopyOnWriteArrayList copyOnWriteArrayList = new CopyOnWriteArrayList();
         final CopyOnWriteArrayList copyOnWriteArrayList2 = new CopyOnWriteArrayList();
         for (final T t : list) {
-            this.d.execute(new Runnable() { // from class: com.bytedance.sdk.openadsdk.preload.b.g.1
+            this.f30152d.execute(new Runnable() { // from class: com.bytedance.sdk.openadsdk.preload.b.g.1
                 @Override // java.lang.Runnable
                 public void run() {
                     try {
                         try {
                             copyOnWriteArrayList.add(bVar.a((b) t));
-                        } catch (i.a e) {
-                            Throwable cause = e.getCause();
+                        } catch (i.a e2) {
+                            Throwable cause = e2.getCause();
                             copyOnWriteArrayList2.add(cause);
                             g.this.d(cause);
                         }
-                    } finally {
                         countDownLatch.countDown();
                     }
                 }
@@ -41,20 +42,19 @@ public class g<T> extends d<List<T>, T> {
         throw new com.bytedance.sdk.openadsdk.preload.b.a.a(copyOnWriteArrayList2);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.bytedance.sdk.openadsdk.preload.b.d
     public void a(Object... objArr) {
         super.a(objArr);
         if (objArr != null) {
-            if (objArr.length != 1) {
-                throw new IllegalArgumentException("ParallelInterceptor only need one param");
-            }
-            if (!(objArr[0] instanceof Executor)) {
+            if (objArr.length == 1) {
+                if (objArr[0] instanceof Executor) {
+                    this.f30152d = (Executor) objArr[0];
+                    return;
+                }
                 throw new IllegalArgumentException("ParallelInterceptor args must be instance of Executor");
             }
-            this.d = (Executor) objArr[0];
-            return;
+            throw new IllegalArgumentException("ParallelInterceptor only need one param");
         }
-        this.d = com.bytedance.sdk.openadsdk.j.e.a();
+        this.f30152d = com.bytedance.sdk.openadsdk.l.e.a();
     }
 }

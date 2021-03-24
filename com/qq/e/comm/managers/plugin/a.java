@@ -13,22 +13,27 @@ import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.nio.charset.Charset;
 import java.util.Arrays;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private final File f7566a;
-    private final File b;
-    private String c;
-    private int d;
+    public final File f38296a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public final File f38297b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public String f38298c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public int f38299d;
 
     public a(File file, File file2) {
-        this.f7566a = file;
-        this.b = file2;
+        this.f38296a = file;
+        this.f38297b = file2;
     }
 
     public static boolean a(Context context, File file, File file2) {
-        int i;
         AssetManager assets = context.getAssets();
         try {
             if (Arrays.binarySearch(assets.list(CustomPkgConstants.getAssetPluginDir()), CustomPkgConstants.getAssetPluginName()) < 0) {
@@ -39,7 +44,7 @@ public class a {
             if (str2 == null) {
                 str2 = "";
             }
-            StringUtil.writeTo("1180#####" + str2, file2);
+            StringUtil.writeTo("1203#####" + str2, file2);
             if (StringUtil.isEmpty(CustomPkgConstants.getAssetPluginXorKey())) {
                 return FileUtil.copyTo(assets.open(str), file);
             }
@@ -48,8 +53,8 @@ public class a {
             byte[] bytes = CustomPkgConstants.getAssetPluginXorKey().getBytes(Charset.forName("UTF-8"));
             byte[] bArr = new byte[1024];
             int length = bytes.length;
+            int i = 0;
             int i2 = 0;
-            int i3 = 0;
             while (true) {
                 int read = open.read(bArr);
                 if (read <= 0) {
@@ -57,22 +62,17 @@ public class a {
                     fileOutputStream.close();
                     return true;
                 }
-                int i4 = 0;
-                int i5 = i2;
-                while (i4 < read) {
-                    int i6 = i5 + 1;
-                    if (i5 >= 64) {
-                        i = i3 + 1;
-                        bArr[i4] = (byte) (bytes[i3 % length] ^ bArr[i4]);
-                    } else {
-                        i = i3;
+                int i3 = 0;
+                while (i3 < read) {
+                    int i4 = i + 1;
+                    if (i >= 64) {
+                        bArr[i3] = (byte) (bArr[i3] ^ bytes[i2 % length]);
+                        i2++;
                     }
-                    i4++;
-                    i5 = i6;
-                    i3 = i;
+                    i3++;
+                    i = i4;
                 }
                 fileOutputStream.write(bArr, 0, read);
-                i2 = i5;
             }
         } catch (Throwable th) {
             GDTLogger.report("Exception while init default plugin manager", th);
@@ -80,24 +80,32 @@ public class a {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: Removed duplicated region for block: B:17:0x0045 A[Catch: all -> 0x004b, TRY_LEAVE, TryCatch #0 {all -> 0x004b, blocks: (B:3:0x0001, B:5:0x0009, B:7:0x0011, B:9:0x0021, B:11:0x0032, B:14:0x0039, B:17:0x0045), top: B:23:0x0001 }] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     public boolean a() {
+        boolean z;
         try {
-            if (this.b.exists() && this.f7566a.exists()) {
-                String[] split = StringUtil.readAll(this.b).split("#####");
+            if (this.f38297b.exists() && this.f38296a.exists()) {
+                String[] split = StringUtil.readAll(this.f38297b).split("#####");
                 if (split.length == 2) {
                     String str = split[1];
                     int parseInteger = StringUtil.parseInteger(split[0], 0);
                     com.qq.e.comm.util.a a2 = com.qq.e.comm.util.a.a();
-                    File file = this.f7566a;
-                    if ((file == null || !file.exists()) ? false : a2.b(str, Md5Util.encode(file))) {
-                        this.c = str;
-                        this.d = parseInteger;
-                        return true;
+                    File file = this.f38296a;
+                    if (file != null && file.exists()) {
+                        z = a2.b(str, Md5Util.encode(file));
+                        if (z) {
+                            this.f38298c = str;
+                            this.f38299d = parseInteger;
+                            return true;
+                        }
                     }
-                    return false;
+                    z = false;
+                    if (z) {
+                    }
                 }
-                return false;
             }
             return false;
         } catch (Throwable th) {
@@ -106,24 +114,18 @@ public class a {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public boolean a(File file, File file2) {
         if (file == null || file2 == null) {
             return false;
         }
-        if (file.equals(this.f7566a) || FileUtil.renameTo(this.f7566a, file)) {
-            return file2.equals(this.b) || FileUtil.renameTo(this.b, file2);
-        }
-        return false;
+        return (file.equals(this.f38296a) || FileUtil.renameTo(this.f38296a, file)) && (file2.equals(this.f38297b) || FileUtil.renameTo(this.f38297b, file2));
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public int b() {
-        return this.d;
+        return this.f38299d;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public String c() {
-        return this.c;
+        return this.f38298c;
     }
 }

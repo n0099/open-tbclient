@@ -6,7 +6,7 @@ import org.apache.http.conn.routing.HttpRoute;
 import org.apache.http.params.HttpAbstractParamBean;
 import org.apache.http.params.HttpParams;
 @Deprecated
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class ConnRouteParamBean extends HttpAbstractParamBean {
     public ConnRouteParamBean(HttpParams httpParams) {
         super(null);
@@ -17,11 +17,11 @@ public class ConnRouteParamBean extends HttpAbstractParamBean {
         throw new RuntimeException("Stub!");
     }
 
-    public void setLocalAddress(InetAddress inetAddress) {
+    public void setForcedRoute(HttpRoute httpRoute) {
         throw new RuntimeException("Stub!");
     }
 
-    public void setForcedRoute(HttpRoute httpRoute) {
+    public void setLocalAddress(InetAddress inetAddress) {
         throw new RuntimeException("Stub!");
     }
 }

@@ -6,13 +6,12 @@ import android.graphics.Path;
 import android.graphics.PointF;
 import android.os.Build;
 import android.util.Property;
-/* loaded from: classes5.dex */
-class PropertyValuesHolderUtils {
-    /* JADX INFO: Access modifiers changed from: package-private */
+/* loaded from: classes.dex */
+public class PropertyValuesHolderUtils {
     public static PropertyValuesHolder ofPointF(Property<?, PointF> property, Path path) {
-        return Build.VERSION.SDK_INT >= 21 ? PropertyValuesHolder.ofObject(property, (TypeConverter) null, path) : PropertyValuesHolder.ofFloat(new PathProperty(property, path), 0.0f, 1.0f);
-    }
-
-    private PropertyValuesHolderUtils() {
+        if (Build.VERSION.SDK_INT >= 21) {
+            return PropertyValuesHolder.ofObject(property, (TypeConverter) null, path);
+        }
+        return PropertyValuesHolder.ofFloat(new PathProperty(property, path), 0.0f, 1.0f);
     }
 }

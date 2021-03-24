@@ -8,7 +8,7 @@ import androidx.annotation.MainThread;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class ApplicationStatus {
     public static final Map<Activity, Object> sActivityInfo;
     public static final ObserverList<ApplicationStateListener> sApplicationStateListeners;
@@ -16,7 +16,7 @@ public class ApplicationStatus {
     public static int sCurrentApplicationState;
     public static ApplicationStateListener sNativeApplicationStateListener;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public interface ApplicationStateListener {
     }
 
@@ -54,9 +54,10 @@ public class ApplicationStatus {
                 if (ApplicationStatus.sNativeApplicationStateListener != null) {
                     return;
                 }
-                ApplicationStatus.sNativeApplicationStateListener = new ApplicationStateListener(this) { // from class: aegon.chrome.base.ApplicationStatus.3.1
+                ApplicationStateListener applicationStateListener = new ApplicationStateListener(this) { // from class: aegon.chrome.base.ApplicationStatus.3.1
                 };
-                ApplicationStatus.registerApplicationStateListener(ApplicationStatus.sNativeApplicationStateListener);
+                ApplicationStatus.sNativeApplicationStateListener = applicationStateListener;
+                ApplicationStatus.registerApplicationStateListener(applicationStateListener);
             }
         };
         if (ThreadUtils.runningOnUiThread()) {

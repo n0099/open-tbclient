@@ -6,27 +6,22 @@ import java.io.IOException;
 import java.io.Reader;
 import java.io.StringWriter;
 import java.nio.charset.Charset;
-/* loaded from: classes3.dex */
-final class Util {
-    static final Charset US_ASCII = Charset.forName("US-ASCII");
-    static final Charset UTF_8 = Charset.forName("UTF-8");
+/* loaded from: classes6.dex */
+public final class Util {
+    public static final Charset US_ASCII = Charset.forName("US-ASCII");
+    public static final Charset UTF_8 = Charset.forName("UTF-8");
 
-    private Util() {
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
     public static void closeQuietly(Closeable closeable) {
         if (closeable != null) {
             try {
                 closeable.close();
-            } catch (RuntimeException e) {
-                throw e;
-            } catch (Exception e2) {
+            } catch (RuntimeException e2) {
+                throw e2;
+            } catch (Exception unused) {
             }
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public static void deleteContents(File file) {
         File[] listFiles = file.listFiles();
         if (listFiles == null) {
@@ -42,7 +37,6 @@ final class Util {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public static String readFully(Reader reader) {
         try {
             StringWriter stringWriter = new StringWriter();

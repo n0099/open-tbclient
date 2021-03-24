@@ -16,8 +16,8 @@ public class UrlRequestException extends IOException {
     public static final int ERROR_QUIC_PROTOCOL_FAILED = 11;
     public static final int ERROR_TIMED_OUT = 4;
     public static final int ERROR_ZERORTT_HANDSHAKE_ERROR = 10;
-    private final int mCronetInternalErrorCode;
-    private final int mErrorCode;
+    public final int mCronetInternalErrorCode;
+    public final int mErrorCode;
 
     public UrlRequestException(String str, int i, int i2) {
         super(str, null);
@@ -25,33 +25,22 @@ public class UrlRequestException extends IOException {
         this.mCronetInternalErrorCode = i2;
     }
 
-    public UrlRequestException(String str, Throwable th) {
-        super(str, th);
-        this.mErrorCode = 0;
-        this.mCronetInternalErrorCode = 0;
+    public int getCronetInternalErrorCode() {
+        return this.mCronetInternalErrorCode;
     }
 
     public int getErrorCode() {
         return this.mErrorCode;
     }
 
-    public int getCronetInternalErrorCode() {
-        return this.mCronetInternalErrorCode;
+    public boolean immediatelyRetryable() {
+        int i = this.mErrorCode;
+        return i == 3 || i == 4 || i == 5 || i == 6 || i == 8 || i == 10;
     }
 
-    public boolean immediatelyRetryable() {
-        switch (this.mErrorCode) {
-            case 3:
-            case 4:
-            case 5:
-            case 6:
-            case 8:
-            case 10:
-                return true;
-            case 7:
-            case 9:
-            default:
-                return false;
-        }
+    public UrlRequestException(String str, Throwable th) {
+        super(str, th);
+        this.mErrorCode = 0;
+        this.mCronetInternalErrorCode = 0;
     }
 }

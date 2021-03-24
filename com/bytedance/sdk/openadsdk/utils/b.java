@@ -14,24 +14,23 @@ public class b {
     }
 
     public static boolean a(Context context, Intent intent, a aVar) {
-        if (context == null || intent == null) {
-            return false;
+        if (context != null && intent != null) {
+            try {
+                if (!(context instanceof Activity)) {
+                    intent.addFlags(268435456);
+                }
+                context.startActivity(intent);
+                if (aVar != null) {
+                    aVar.a();
+                    return true;
+                }
+                return true;
+            } catch (Throwable th) {
+                if (aVar != null) {
+                    aVar.a(th);
+                }
+            }
         }
-        try {
-            if (!(context instanceof Activity)) {
-                intent.addFlags(268435456);
-            }
-            context.startActivity(intent);
-            if (aVar != null) {
-                aVar.a();
-            }
-            return true;
-        } catch (Throwable th) {
-            if (aVar != null) {
-                aVar.a(th);
-                return false;
-            }
-            return false;
-        }
+        return false;
     }
 }

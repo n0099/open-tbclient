@@ -3,10 +3,10 @@ package com.tencent.mm.sdk.modelmsg;
 import android.os.Bundle;
 import com.tencent.mm.sdk.b.a;
 import com.tencent.mm.sdk.modelmsg.WXMediaMessage;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class WXMusicObject implements WXMediaMessage.IMediaObject {
-    private static final int LENGTH_LIMIT = 10240;
-    private static final String TAG = "MicroMsg.SDK.WXMusicObject";
+    public static final int LENGTH_LIMIT = 10240;
+    public static final String TAG = "MicroMsg.SDK.WXMusicObject";
     public String musicDataUrl;
     public String musicLowBandDataUrl;
     public String musicLowBandUrl;
@@ -14,18 +14,25 @@ public class WXMusicObject implements WXMediaMessage.IMediaObject {
 
     @Override // com.tencent.mm.sdk.modelmsg.WXMediaMessage.IMediaObject
     public boolean checkArgs() {
-        if ((this.musicUrl == null || this.musicUrl.length() == 0) && (this.musicLowBandUrl == null || this.musicLowBandUrl.length() == 0)) {
-            a.a(TAG, "both arguments are null");
-            return false;
-        } else if (this.musicUrl != null && this.musicUrl.length() > LENGTH_LIMIT) {
-            a.a(TAG, "checkArgs fail, musicUrl is too long");
-            return false;
-        } else if (this.musicLowBandUrl == null || this.musicLowBandUrl.length() <= LENGTH_LIMIT) {
-            return true;
+        String str;
+        String str2;
+        String str3 = this.musicUrl;
+        if ((str3 == null || str3.length() == 0) && ((str = this.musicLowBandUrl) == null || str.length() == 0)) {
+            str2 = "both arguments are null";
         } else {
-            a.a(TAG, "checkArgs fail, musicLowBandUrl is too long");
-            return false;
+            String str4 = this.musicUrl;
+            if (str4 == null || str4.length() <= 10240) {
+                String str5 = this.musicLowBandUrl;
+                if (str5 == null || str5.length() <= 10240) {
+                    return true;
+                }
+                str2 = "checkArgs fail, musicLowBandUrl is too long";
+            } else {
+                str2 = "checkArgs fail, musicUrl is too long";
+            }
         }
+        a.a("MicroMsg.SDK.WXMusicObject", str2);
+        return false;
     }
 
     @Override // com.tencent.mm.sdk.modelmsg.WXMediaMessage.IMediaObject

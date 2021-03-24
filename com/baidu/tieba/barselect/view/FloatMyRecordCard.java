@@ -11,128 +11,145 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.f.b;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
-import com.baidu.live.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PersonPolymericActivityConfig;
 import com.baidu.tbadk.core.util.BitmapHelper;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.au;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.barselect.data.d;
-import com.baidu.tieba.barselect.data.e;
-import com.baidu.tieba.barselect.data.f;
 import com.baidu.tieba.barselect.segment.VotedAreaLayout;
-/* loaded from: classes7.dex */
+import d.b.b.e.m.b;
+import d.b.i0.v.b.d;
+import d.b.i0.v.b.e;
+import d.b.i0.v.b.f;
+/* loaded from: classes4.dex */
 public class FloatMyRecordCard extends LinearLayout {
-    private TextView eKp;
-    private f ire;
-    private TextView iuL;
-    private ImageView iuM;
-    private d iuP;
-    private TextView ivk;
-    private BazhuHeadView ivl;
-    private VotedAreaLayout ivm;
-    private Context mContext;
-    private View.OnClickListener onClickListener;
-    private int status;
+
+    /* renamed from: e  reason: collision with root package name */
+    public Context f15201e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public int f15202f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public f f15203g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public d f15204h;
+    public TextView i;
+    public BazhuHeadView j;
+    public TextView k;
+    public ImageView l;
+    public TextView m;
+    public VotedAreaLayout n;
+    public View.OnClickListener o;
+
+    /* loaded from: classes4.dex */
+    public class a implements View.OnClickListener {
+        public a() {
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            if (FloatMyRecordCard.this.f15204h == null || FloatMyRecordCard.this.f15204h.l() == 0) {
+                return;
+            }
+            long f2 = b.f(TbadkCoreApplication.getCurrentAccount(), 0L);
+            long l = FloatMyRecordCard.this.f15204h.l();
+            if (FloatMyRecordCard.this.getContext() instanceof Activity) {
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(FloatMyRecordCard.this.getContext()).createNormalConfig(l, l == f2, false)));
+            }
+        }
+    }
 
     public FloatMyRecordCard(Context context) {
         this(context, null);
     }
 
-    public FloatMyRecordCard(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        this.onClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.barselect.view.FloatMyRecordCard.1
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
-                if (FloatMyRecordCard.this.iuP != null && FloatMyRecordCard.this.iuP.getUid() != 0) {
-                    long j = b.toLong(TbadkCoreApplication.getCurrentAccount(), 0L);
-                    long uid = FloatMyRecordCard.this.iuP.getUid();
-                    if (FloatMyRecordCard.this.getContext() instanceof Activity) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonPolymericActivityConfig(FloatMyRecordCard.this.getContext()).createNormalConfig(uid, uid == j, false)));
-                    }
-                }
-            }
-        };
-        initUI();
+    public final void b() {
+        this.i = (TextView) findViewById(R.id.tv_voted_rank);
+        BazhuHeadView bazhuHeadView = (BazhuHeadView) findViewById(R.id.user_avatar);
+        this.j = bazhuHeadView;
+        if (bazhuHeadView.getHeadView() != null) {
+            this.j.getHeadView().setIsRound(true);
+        }
+        this.k = (TextView) findViewById(R.id.user_name);
+        this.l = (ImageView) findViewById(R.id.grade);
+        this.m = (TextView) findViewById(R.id.vote_id);
+        this.n = (VotedAreaLayout) findViewById(R.id.my_vote_num_layout);
     }
 
-    private void initUI() {
-        this.mContext = getContext();
+    public final void c() {
+        this.f15201e = getContext();
         setOrientation(0);
         setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
         LayoutInflater.from(getContext()).inflate(R.layout.float_my_record_card, (ViewGroup) this, true);
-        tz();
+        b();
     }
 
-    private void tz() {
-        this.ivk = (TextView) findViewById(R.id.tv_voted_rank);
-        this.ivl = (BazhuHeadView) findViewById(R.id.user_avatar);
-        if (this.ivl.getHeadView() != null) {
-            this.ivl.getHeadView().setIsRound(true);
+    public void d(int i) {
+        d dVar = this.f15204h;
+        if (dVar == null) {
+            return;
         }
-        this.eKp = (TextView) findViewById(R.id.user_name);
-        this.iuM = (ImageView) findViewById(R.id.grade);
-        this.iuL = (TextView) findViewById(R.id.vote_id);
-        this.ivm = (VotedAreaLayout) findViewById(R.id.my_vote_num_layout);
+        if (dVar.i() > 3) {
+            SkinManager.setViewTextColor(this.i, R.color.CAM_X0105, 1, i);
+        }
+        SkinManager.setViewTextColor(this.k, R.color.CAM_X0105, 1, i);
+        setGrade(this.f15204h.d());
+        SkinManager.setViewTextColor(this.m, R.color.CAM_X0109, 1, i);
+        this.n.c(i);
+        SkinManager.setBackgroundColor(this, R.color.CAM_X0201, i);
+        setGrade(this.f15204h.d());
     }
 
     public void setData(f fVar) {
+        d dVar;
         String str;
-        this.ire = fVar;
-        if (this.ire != null && this.ire.crC() != null) {
-            e crC = this.ire.crC();
-            if (crC != null) {
-                this.status = crC.getStatus();
+        this.f15203g = fVar;
+        if (fVar != null && fVar.a() != null) {
+            e a2 = this.f15203g.a();
+            if (a2 != null) {
+                this.f15202f = a2.g();
             }
-            this.iuP = this.ire.crB();
+            this.f15204h = this.f15203g.f();
         }
-        if (this.ire == null || this.iuP == null || this.status != com.baidu.tieba.barselect.a.d.ivi) {
-            setVisibility(8);
+        if (this.f15203g != null && (dVar = this.f15204h) != null && this.f15202f == d.b.i0.v.e.d.f61960c) {
+            int i = dVar.i();
+            if (i < 10) {
+                this.i.setText("0" + i);
+            } else {
+                this.i.setText("" + i);
+            }
+            if (i == 2) {
+                this.i.setTextColor(getResources().getColor(R.color.common_color_10263));
+            } else if (i == 3) {
+                this.i.setTextColor(getResources().getColor(R.color.common_color_10266));
+            }
+            this.j.k(this.f15204h.g());
+            this.j.setOnClickListener(this.o);
+            this.k.setText(StringHelper.cutChineseAndEnglishWithSuffix(this.f15204h.e(), 14, StringHelper.STRING_MORE));
+            setGrade(this.f15204h.d());
+            if (this.f15204h.c() < 1000) {
+                String str2 = "0000" + this.f15204h.c();
+                str = str2.substring(str2.length() - 4, str2.length());
+            } else {
+                str = "" + this.f15204h.c();
+            }
+            this.m.setText("NO." + str);
+            this.n.setMyRecordData(this.f15204h);
             return;
         }
-        int rank = this.iuP.getRank();
-        if (rank < 10) {
-            this.ivk.setText("0" + rank);
-        } else {
-            this.ivk.setText("" + rank);
-        }
-        if (rank == 2) {
-            this.ivk.setTextColor(getResources().getColor(R.color.common_color_10263));
-        } else if (rank == 3) {
-            this.ivk.setTextColor(getResources().getColor(R.color.common_color_10266));
-        }
-        this.ivl.BH(this.iuP.getPortrait());
-        this.ivl.setOnClickListener(this.onClickListener);
-        this.eKp.setText(au.cutChineseAndEnglishWithSuffix(this.iuP.getNickname(), 14, StringHelper.STRING_MORE));
-        setGrade(this.iuP.cro());
-        if (this.iuP.crn() < 1000) {
-            String str2 = "0000" + this.iuP.crn();
-            str = str2.substring(str2.length() - 4, str2.length());
-        } else {
-            str = "" + this.iuP.crn();
-        }
-        this.iuL.setText("NO." + str);
-        this.ivm.setMyRecordData(this.iuP);
+        setVisibility(8);
     }
 
     public void setGrade(int i) {
-        ap.setImageResource(this.iuM, BitmapHelper.getGradeResourceIdInEnterForum(i));
+        SkinManager.setImageResource(this.l, BitmapHelper.getGradeResourceIdInEnterForum(i));
     }
 
-    public void uw(int i) {
-        if (this.iuP != null) {
-            if (this.iuP.getRank() > 3) {
-                ap.setViewTextColor(this.ivk, R.color.CAM_X0105, 1, i);
-            }
-            ap.setViewTextColor(this.eKp, R.color.CAM_X0105, 1, i);
-            setGrade(this.iuP.cro());
-            ap.setViewTextColor(this.iuL, R.color.CAM_X0109, 1, i);
-            this.ivm.uw(i);
-            ap.setBackgroundColor(this, R.color.CAM_X0201, i);
-            setGrade(this.iuP.cro());
-        }
+    public FloatMyRecordCard(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        this.o = new a();
+        c();
     }
 }

@@ -10,20 +10,14 @@ import com.kwad.sdk.api.core.ResContext;
 import java.util.Map;
 import java.util.WeakHashMap;
 @Keep
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class Wrapper {
-    private static Map<Context, Context> sResContextCache = new WeakHashMap();
+    public static Map<Context, Context> sResContextCache = new WeakHashMap();
 
     @Keep
     public static Context unwrapContextIfNeed(Context context) {
-        Context context2;
-        ResContext resContext = null;
-        if (context instanceof ResContext) {
-            resContext = (ResContext) context;
-            context2 = context;
-        } else {
-            context2 = context;
-        }
+        ResContext resContext = context instanceof ResContext ? (ResContext) context : null;
+        Context context2 = context;
         while (context2 instanceof ContextWrapper) {
             if (context2 instanceof Activity) {
                 return context2;

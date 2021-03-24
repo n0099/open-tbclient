@@ -1,52 +1,46 @@
 package com.baidubce.services.vod.model;
 
 import com.baidubce.model.AbstractBceResponse;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class GenerateMediaIdResponse extends AbstractBceResponse {
-    private String endPoint;
-    private String mediaId;
-    private String sourceBucket;
-    private String sourceKey;
+    public String endPoint;
+    public String mediaId;
+    public String sourceBucket;
+    public String sourceKey;
+
+    public String getEndPoint() {
+        return this.endPoint;
+    }
 
     public String getMediaId() {
         return this.mediaId;
-    }
-
-    public void setMediaId(String str) {
-        this.mediaId = str;
-    }
-
-    public String getSourceKey() {
-        return this.sourceKey;
-    }
-
-    public void setSourceKey(String str) {
-        this.sourceKey = str;
     }
 
     public String getSourceBucket() {
         return this.sourceBucket;
     }
 
-    public void setSourceBucket(String str) {
-        this.sourceBucket = str;
+    public String getSourceKey() {
+        return this.sourceKey;
     }
 
     public void setEndPoint(String str) {
         this.endPoint = str;
     }
 
-    public String getEndPoint() {
-        return this.endPoint;
+    public void setMediaId(String str) {
+        this.mediaId = str;
+    }
+
+    public void setSourceBucket(String str) {
+        this.sourceBucket = str;
+    }
+
+    public void setSourceKey(String str) {
+        this.sourceKey = str;
     }
 
     public String toString() {
-        StringBuilder sb = new StringBuilder("GenerateMediaIdResponse { \n");
-        sb.append("  mediaId = ").append(this.mediaId).append("\n");
-        sb.append("  sourceBucket = ").append(this.sourceBucket).append("\n");
-        sb.append("  sourceKey = ").append(this.sourceKey).append("\n");
-        sb.append("  endPoint = ").append(this.endPoint).append("\n");
-        sb.append("}\n");
-        return sb.toString();
+        return "GenerateMediaIdResponse { \n  mediaId = " + this.mediaId + "\n  sourceBucket = " + this.sourceBucket + "\n  sourceKey = " + this.sourceKey + "\n  endPoint = " + this.endPoint + "\n}\n";
     }
 }

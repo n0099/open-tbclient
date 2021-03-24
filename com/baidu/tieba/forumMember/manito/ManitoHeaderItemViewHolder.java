@@ -4,14 +4,18 @@ import android.view.View;
 import android.widget.TextView;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.tieba.R;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class ManitoHeaderItemViewHolder extends TypeAdapter.ViewHolder {
-    public int mSkinType;
-    public TextView title;
+
+    /* renamed from: a  reason: collision with root package name */
+    public TextView f15904a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public int f15905b;
 
     public ManitoHeaderItemViewHolder(View view) {
         super(view);
-        this.mSkinType = 3;
-        this.title = (TextView) view.findViewById(R.id.manito_header_title);
+        this.f15905b = 3;
+        this.f15904a = (TextView) view.findViewById(R.id.manito_header_title);
     }
 }

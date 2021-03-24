@@ -1,26 +1,26 @@
 package com.google.zxing;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class FormatException extends ReaderException {
-    private static final FormatException INSTANCE;
+    public static final FormatException INSTANCE;
 
     static {
         FormatException formatException = new FormatException();
         INSTANCE = formatException;
-        formatException.setStackTrace(NO_TRACE);
+        formatException.setStackTrace(ReaderException.NO_TRACE);
     }
 
-    private FormatException() {
-    }
-
-    private FormatException(Throwable th) {
-        super(th);
+    public FormatException() {
     }
 
     public static FormatException getFormatInstance() {
-        return isStackTrace ? new FormatException() : INSTANCE;
+        return ReaderException.isStackTrace ? new FormatException() : INSTANCE;
+    }
+
+    public FormatException(Throwable th) {
+        super(th);
     }
 
     public static FormatException getFormatInstance(Throwable th) {
-        return isStackTrace ? new FormatException(th) : INSTANCE;
+        return ReaderException.isStackTrace ? new FormatException(th) : INSTANCE;
     }
 }

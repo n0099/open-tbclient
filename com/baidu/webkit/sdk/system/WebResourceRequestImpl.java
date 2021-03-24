@@ -6,15 +6,14 @@ import android.os.Build;
 import com.baidu.webkit.sdk.WebResourceRequest;
 import java.util.Map;
 @TargetApi(21)
-/* loaded from: classes14.dex */
-final class WebResourceRequestImpl implements WebResourceRequest {
-    private final android.webkit.WebResourceRequest mRequest;
+/* loaded from: classes5.dex */
+public final class WebResourceRequestImpl implements WebResourceRequest {
+    public final android.webkit.WebResourceRequest mRequest;
 
-    private WebResourceRequestImpl(android.webkit.WebResourceRequest webResourceRequest) {
+    public WebResourceRequestImpl(android.webkit.WebResourceRequest webResourceRequest) {
         this.mRequest = webResourceRequest;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public static WebResourceRequest from(android.webkit.WebResourceRequest webResourceRequest) {
         if (webResourceRequest == null) {
             return null;

@@ -9,69 +9,69 @@ import android.os.Build;
 import android.os.IBinder;
 import android.os.Looper;
 import android.os.Parcel;
-import com.baidu.android.imsdk.internal.IMConnection;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
+import com.uodis.opendevice.aidl.OpenDeviceIdentifierService;
+/* loaded from: classes7.dex */
 public class ap implements ar {
 
     /* renamed from: a  reason: collision with root package name */
-    private static boolean f8260a;
+    public static boolean f40232a;
 
     /* renamed from: a  reason: collision with other field name */
-    private Context f106a;
+    public Context f116a;
 
     /* renamed from: a  reason: collision with other field name */
-    private ServiceConnection f107a;
+    public ServiceConnection f117a;
 
     /* renamed from: a  reason: collision with other field name */
-    private volatile int f105a = 0;
+    public volatile int f115a = 0;
 
     /* renamed from: a  reason: collision with other field name */
-    private volatile String f109a = null;
+    public volatile String f119a = null;
 
     /* renamed from: b  reason: collision with other field name */
-    private volatile boolean f110b = false;
-    private volatile String b = null;
+    public volatile boolean f120b = false;
+
+    /* renamed from: b  reason: collision with root package name */
+    public volatile String f40233b = null;
 
     /* renamed from: a  reason: collision with other field name */
-    private final Object f108a = new Object();
+    public final Object f118a = new Object();
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public class a implements ServiceConnection {
-        private a() {
+        public a() {
         }
 
         /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
         @Override // android.content.ServiceConnection
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
             try {
-                ap.this.f109a = b.a(iBinder);
-                ap.this.f110b = b.m140a(iBinder);
+                ap.this.f119a = b.a(iBinder);
+                ap.this.f120b = b.m131a(iBinder);
                 ap.this.b();
-                ap.this.f105a = 2;
-                synchronized (ap.this.f108a) {
+                ap.this.f115a = 2;
+                synchronized (ap.this.f118a) {
                     try {
-                        ap.this.f108a.notifyAll();
-                    } catch (Exception e) {
+                        ap.this.f118a.notifyAll();
+                    } catch (Exception unused) {
                     }
                 }
-            } catch (Exception e2) {
+            } catch (Exception unused2) {
                 ap.this.b();
-                ap.this.f105a = 2;
-                synchronized (ap.this.f108a) {
+                ap.this.f115a = 2;
+                synchronized (ap.this.f118a) {
                     try {
-                        ap.this.f108a.notifyAll();
-                    } catch (Exception e3) {
+                        ap.this.f118a.notifyAll();
+                    } catch (Exception unused3) {
                     }
                 }
             } catch (Throwable th) {
                 ap.this.b();
-                ap.this.f105a = 2;
-                synchronized (ap.this.f108a) {
+                ap.this.f115a = 2;
+                synchronized (ap.this.f118a) {
                     try {
-                        ap.this.f108a.notifyAll();
-                    } catch (Exception e4) {
+                        ap.this.f118a.notifyAll();
+                    } catch (Exception unused4) {
                     }
                     throw th;
                 }
@@ -83,13 +83,13 @@ public class ap implements ar {
         }
     }
 
-    /* loaded from: classes5.dex */
-    private static class b {
-        static String a(IBinder iBinder) {
+    /* loaded from: classes7.dex */
+    public static class b {
+        public static String a(IBinder iBinder) {
             Parcel obtain = Parcel.obtain();
             Parcel obtain2 = Parcel.obtain();
             try {
-                obtain.writeInterfaceToken("com.uodis.opendevice.aidl.OpenDeviceIdentifierService");
+                obtain.writeInterfaceToken(OpenDeviceIdentifierService.Stub.DESCRIPTOR);
                 iBinder.transact(1, obtain, obtain2, 0);
                 obtain2.readException();
                 return obtain2.readString();
@@ -100,11 +100,11 @@ public class ap implements ar {
         }
 
         /* renamed from: a  reason: collision with other method in class */
-        static boolean m140a(IBinder iBinder) {
+        public static boolean m131a(IBinder iBinder) {
             Parcel obtain = Parcel.obtain();
             Parcel obtain2 = Parcel.obtain();
             try {
-                obtain.writeInterfaceToken("com.uodis.opendevice.aidl.OpenDeviceIdentifierService");
+                obtain.writeInterfaceToken(OpenDeviceIdentifierService.Stub.DESCRIPTOR);
                 iBinder.transact(2, obtain, obtain2, 0);
                 obtain2.readException();
                 return obtain2.readInt() != 0;
@@ -116,65 +116,86 @@ public class ap implements ar {
     }
 
     public ap(Context context) {
-        this.f106a = context;
+        this.f116a = context;
         a();
     }
 
-    private static String a(Context context) {
-        String string;
-        String str = null;
-        if (Build.VERSION.SDK_INT < 24 || (string = context.createDeviceProtectedStorageContext().getSharedPreferences("aaid", 0).getString("aaid", null)) == null) {
-            str = context.getSharedPreferences("aaid", 0).getString("aaid", null);
-            return str == null ? "" : str;
+    /* JADX WARN: Removed duplicated region for block: B:15:0x0027 A[ORIG_RETURN, RETURN] */
+    /* JADX WARN: Removed duplicated region for block: B:22:? A[RETURN, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static String a(Context context) {
+        String str;
+        String str2;
+        String str3 = null;
+        try {
+            if (Build.VERSION.SDK_INT >= 24) {
+                str2 = context.createDeviceProtectedStorageContext().getSharedPreferences("aaid", 0).getString("aaid", null);
+                if (str2 != null) {
+                    return str2;
+                }
+            } else {
+                str2 = null;
+            }
+        } catch (Exception unused) {
         }
-        return string;
+        try {
+            str = context.getSharedPreferences("aaid", 0).getString("aaid", null);
+        } catch (Exception unused2) {
+            str3 = str2;
+            str = str3;
+            if (str != null) {
+            }
+        }
+        return str != null ? "" : str;
     }
 
     private void a() {
-        this.f107a = new a();
+        boolean z;
+        this.f117a = new a();
         Intent intent = new Intent("com.uodis.opendevice.OPENIDS_SERVICE");
         intent.setPackage("com.huawei.hwid");
-        boolean z = false;
         try {
-            z = this.f106a.bindService(intent, this.f107a, 1);
-        } catch (Exception e) {
+            z = this.f116a.bindService(intent, this.f117a, 1);
+        } catch (Exception unused) {
+            z = false;
         }
-        this.f105a = z ? 1 : 2;
+        this.f115a = z ? 1 : 2;
     }
 
     private void a(String str) {
-        if (this.f105a != 1 || Looper.myLooper() == Looper.getMainLooper()) {
+        if (this.f115a != 1 || Looper.myLooper() == Looper.getMainLooper()) {
             return;
         }
-        synchronized (this.f108a) {
+        synchronized (this.f118a) {
             try {
-                com.xiaomi.channel.commonutils.logger.b.m58a("huawei's " + str + " wait...");
-                this.f108a.wait(IMConnection.RETRY_DELAY_TIMES);
-            } catch (Exception e) {
+                com.xiaomi.channel.commonutils.logger.b.m51a("huawei's " + str + " wait...");
+                this.f118a.wait(3000L);
+            } catch (Exception unused) {
             }
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m138a(Context context) {
+    public static boolean m129a(Context context) {
+        boolean z;
         try {
             PackageInfo packageInfo = context.getPackageManager().getPackageInfo("com.huawei.hwid", 128);
-            boolean z = (packageInfo.applicationInfo.flags & 1) != 0;
-            f8260a = packageInfo.versionCode >= 20602000;
-            if (z) {
-                return true;
-            }
-        } catch (Exception e) {
+            z = (packageInfo.applicationInfo.flags & 1) != 0;
+            f40232a = packageInfo.versionCode >= 20602000;
+        } catch (Exception unused) {
         }
-        return false;
+        return z;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b() {
-        if (this.f107a != null) {
+        ServiceConnection serviceConnection = this.f117a;
+        if (serviceConnection != null) {
             try {
-                this.f106a.unbindService(this.f107a);
-            } catch (Exception e) {
+                this.f116a.unbindService(serviceConnection);
+            } catch (Exception unused) {
             }
         }
     }
@@ -186,14 +207,14 @@ public class ap implements ar {
 
     @Override // com.xiaomi.push.ar
     public boolean a() {
-        return f8260a;
+        return f40232a;
     }
 
     @Override // com.xiaomi.push.ar
     /* renamed from: b  reason: collision with other method in class */
-    public String mo139b() {
+    public String mo130b() {
         a("getOAID");
-        return this.f109a;
+        return this.f119a;
     }
 
     @Override // com.xiaomi.push.ar
@@ -203,13 +224,13 @@ public class ap implements ar {
 
     @Override // com.xiaomi.push.ar
     public String d() {
-        if (this.b == null) {
+        if (this.f40233b == null) {
             synchronized (this) {
-                if (this.b == null) {
-                    this.b = a(this.f106a);
+                if (this.f40233b == null) {
+                    this.f40233b = a(this.f116a);
                 }
             }
         }
-        return this.b;
+        return this.f40233b;
     }
 }

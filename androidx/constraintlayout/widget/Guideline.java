@@ -5,30 +5,11 @@ import android.graphics.Canvas;
 import android.util.AttributeSet;
 import android.view.View;
 import androidx.constraintlayout.widget.ConstraintLayout;
-/* loaded from: classes4.dex */
+/* loaded from: classes.dex */
 public class Guideline extends View {
     public Guideline(Context context) {
         super(context);
         super.setVisibility(8);
-    }
-
-    public Guideline(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        super.setVisibility(8);
-    }
-
-    public Guideline(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        super.setVisibility(8);
-    }
-
-    public Guideline(Context context, AttributeSet attributeSet, int i, int i2) {
-        super(context, attributeSet, i);
-        super.setVisibility(8);
-    }
-
-    @Override // android.view.View
-    public void setVisibility(int i) {
     }
 
     @Override // android.view.View
@@ -36,7 +17,7 @@ public class Guideline extends View {
     }
 
     @Override // android.view.View
-    protected void onMeasure(int i, int i2) {
+    public void onMeasure(int i, int i2) {
         setMeasuredDimension(0, 0);
     }
 
@@ -52,9 +33,28 @@ public class Guideline extends View {
         setLayoutParams(layoutParams);
     }
 
-    public void setGuidelinePercent(float f) {
+    public void setGuidelinePercent(float f2) {
         ConstraintLayout.LayoutParams layoutParams = (ConstraintLayout.LayoutParams) getLayoutParams();
-        layoutParams.guidePercent = f;
+        layoutParams.guidePercent = f2;
         setLayoutParams(layoutParams);
+    }
+
+    @Override // android.view.View
+    public void setVisibility(int i) {
+    }
+
+    public Guideline(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        super.setVisibility(8);
+    }
+
+    public Guideline(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        super.setVisibility(8);
+    }
+
+    public Guideline(Context context, AttributeSet attributeSet, int i, int i2) {
+        super(context, attributeSet, i);
+        super.setVisibility(8);
     }
 }

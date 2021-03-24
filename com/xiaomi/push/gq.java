@@ -1,142 +1,209 @@
 package com.xiaomi.push;
 
-import java.io.InputStream;
-import java.net.URL;
+import android.content.ContentValues;
+import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteException;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.text.TextUtils;
+import com.baidu.searchbox.elasticthread.statistic.StatisticRecorder;
+import com.baidu.searchbox.pms.constants.PmsConstant;
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
-import java.util.Enumeration;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
-import org.xmlpull.v1.XmlPullParser;
-import org.xmlpull.v1.XmlPullParserFactory;
-/* loaded from: classes5.dex */
+import java.util.Collections;
+import java.util.List;
+/* loaded from: classes7.dex */
 public class gq {
 
+    /* renamed from: a  reason: collision with other field name */
+    public static al f438a = new al(true);
+
     /* renamed from: a  reason: collision with root package name */
-    private static gq f8395a;
+    public static volatile int f40602a = -1;
 
     /* renamed from: a  reason: collision with other field name */
-    private Map<String, Object> f405a = new ConcurrentHashMap();
-    private Map<String, Object> b = new ConcurrentHashMap();
+    public static long f437a = System.currentTimeMillis();
 
-    private gq() {
-        m326a();
-    }
+    /* renamed from: a  reason: collision with other field name */
+    public static final Object f440a = new Object();
 
-    public static synchronized gq a() {
-        gq gqVar;
-        synchronized (gq.class) {
-            if (f8395a == null) {
-                f8395a = new gq();
-            }
-            gqVar = f8395a;
+    /* renamed from: a  reason: collision with other field name */
+    public static List<a> f442a = Collections.synchronizedList(new ArrayList());
+
+    /* renamed from: a  reason: collision with other field name */
+    public static String f441a = "";
+
+    /* renamed from: a  reason: collision with other field name */
+    public static com.xiaomi.push.providers.a f439a = null;
+
+    /* loaded from: classes7.dex */
+    public static class a {
+
+        /* renamed from: a  reason: collision with root package name */
+        public int f40603a;
+
+        /* renamed from: a  reason: collision with other field name */
+        public long f443a;
+
+        /* renamed from: a  reason: collision with other field name */
+        public String f444a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public int f40604b;
+
+        /* renamed from: b  reason: collision with other field name */
+        public long f445b;
+
+        /* renamed from: b  reason: collision with other field name */
+        public String f446b;
+
+        public a(String str, long j, int i, int i2, String str2, long j2) {
+            this.f444a = "";
+            this.f443a = 0L;
+            this.f40603a = -1;
+            this.f40604b = -1;
+            this.f446b = "";
+            this.f445b = 0L;
+            this.f444a = str;
+            this.f443a = j;
+            this.f40603a = i;
+            this.f40604b = i2;
+            this.f446b = str2;
+            this.f445b = j2;
         }
-        return gqVar;
-    }
 
-    private String a(String str, String str2) {
-        StringBuilder sb = new StringBuilder();
-        sb.append("<").append(str).append("/>");
-        if (str != null) {
-            sb.append("<").append(str2).append("/>");
+        public boolean a(a aVar) {
+            return TextUtils.equals(aVar.f444a, this.f444a) && TextUtils.equals(aVar.f446b, this.f446b) && aVar.f40603a == this.f40603a && aVar.f40604b == this.f40604b && Math.abs(aVar.f443a - this.f443a) <= 5000;
         }
-        return sb.toString();
     }
 
-    /* renamed from: a  reason: collision with other method in class */
-    private ClassLoader[] m324a() {
-        ClassLoader[] classLoaderArr = {gq.class.getClassLoader(), Thread.currentThread().getContextClassLoader()};
-        ArrayList arrayList = new ArrayList();
-        for (ClassLoader classLoader : classLoaderArr) {
-            if (classLoader != null) {
-                arrayList.add(classLoader);
-            }
+    public static int a(Context context) {
+        if (f40602a == -1) {
+            f40602a = b(context);
         }
-        return (ClassLoader[]) arrayList.toArray(new ClassLoader[arrayList.size()]);
+        return f40602a;
     }
 
-    /* renamed from: a  reason: collision with other method in class */
-    public Object m325a(String str, String str2) {
-        return this.f405a.get(a(str, str2));
-    }
-
-    /* renamed from: a  reason: collision with other method in class */
-    protected void m326a() {
+    public static int a(String str) {
         try {
-            for (ClassLoader classLoader : m324a()) {
-                Enumeration<URL> resources = classLoader.getResources("META-INF/smack.providers");
-                while (resources.hasMoreElements()) {
-                    InputStream openStream = resources.nextElement().openStream();
-                    XmlPullParser newPullParser = XmlPullParserFactory.newInstance().newPullParser();
-                    newPullParser.setFeature("http://xmlpull.org/v1/doc/features.html#process-namespaces", true);
-                    newPullParser.setInput(openStream, "UTF-8");
-                    int eventType = newPullParser.getEventType();
-                    do {
-                        if (eventType == 2) {
-                            if (newPullParser.getName().equals("iqProvider")) {
-                                newPullParser.next();
-                                newPullParser.next();
-                                String nextText = newPullParser.nextText();
-                                newPullParser.next();
-                                newPullParser.next();
-                                String nextText2 = newPullParser.nextText();
-                                newPullParser.next();
-                                newPullParser.next();
-                                String nextText3 = newPullParser.nextText();
-                                String a2 = a(nextText, nextText2);
-                                if (!this.b.containsKey(a2)) {
-                                    try {
-                                        Class<?> cls = Class.forName(nextText3);
-                                        if (go.class.isAssignableFrom(cls)) {
-                                            this.b.put(a2, cls.newInstance());
-                                        } else if (gh.class.isAssignableFrom(cls)) {
-                                            this.b.put(a2, cls);
-                                        }
-                                    } catch (ClassNotFoundException e) {
-                                        e.printStackTrace();
-                                    }
-                                }
-                            } else if (newPullParser.getName().equals("extensionProvider")) {
-                                newPullParser.next();
-                                newPullParser.next();
-                                String nextText4 = newPullParser.nextText();
-                                newPullParser.next();
-                                newPullParser.next();
-                                String nextText5 = newPullParser.nextText();
-                                newPullParser.next();
-                                newPullParser.next();
-                                String nextText6 = newPullParser.nextText();
-                                String a3 = a(nextText4, nextText5);
-                                if (!this.f405a.containsKey(a3)) {
-                                    try {
-                                        Class<?> cls2 = Class.forName(nextText6);
-                                        if (gp.class.isAssignableFrom(cls2)) {
-                                            this.f405a.put(a3, cls2.newInstance());
-                                        } else if (gk.class.isAssignableFrom(cls2)) {
-                                            this.f405a.put(a3, cls2);
-                                        }
-                                    } catch (ClassNotFoundException e2) {
-                                        e2.printStackTrace();
-                                    }
-                                }
-                            }
-                        }
-                        eventType = newPullParser.next();
-                    } while (eventType != 1);
-                    try {
-                        openStream.close();
-                    } catch (Exception e3) {
-                    }
-                }
-            }
-        } catch (Exception e4) {
-            e4.printStackTrace();
+            return str.getBytes("UTF-8").length;
+        } catch (UnsupportedEncodingException unused) {
+            return str.getBytes().length;
         }
     }
 
-    public void a(String str, String str2, Object obj) {
-        if (!(obj instanceof gp) && !(obj instanceof Class)) {
-            throw new IllegalArgumentException("Provider must be a PacketExtensionProvider or a Class instance.");
+    public static long a(int i, long j, boolean z, long j2, boolean z2) {
+        if (z && z2) {
+            long j3 = f437a;
+            f437a = j2;
+            if (j2 - j3 > StatisticRecorder.UPLOAD_DATA_TIME_THRESHOLD && j > 1024) {
+                return j * 2;
+            }
         }
-        this.f405a.put(a(str, str2), obj);
+        return (j * (i == 0 ? 13 : 11)) / 10;
+    }
+
+    /* renamed from: a  reason: collision with other method in class */
+    public static com.xiaomi.push.providers.a m337a(Context context) {
+        com.xiaomi.push.providers.a aVar = f439a;
+        if (aVar != null) {
+            return aVar;
+        }
+        com.xiaomi.push.providers.a aVar2 = new com.xiaomi.push.providers.a(context);
+        f439a = aVar2;
+        return aVar2;
+    }
+
+    /* renamed from: a  reason: collision with other method in class */
+    public static synchronized String m338a(Context context) {
+        synchronized (gq.class) {
+            if (TextUtils.isEmpty(f441a)) {
+                return "";
+            }
+            return f441a;
+        }
+    }
+
+    /* renamed from: a  reason: collision with other method in class */
+    public static void m340a(Context context) {
+        f40602a = b(context);
+    }
+
+    public static void a(Context context, String str, long j, boolean z, long j2) {
+        int a2;
+        boolean isEmpty;
+        if (context == null || TextUtils.isEmpty(str) || !"com.xiaomi.xmsf".equals(context.getPackageName()) || "com.xiaomi.xmsf".equals(str) || -1 == (a2 = a(context))) {
+            return;
+        }
+        synchronized (f440a) {
+            isEmpty = f442a.isEmpty();
+            a(new a(str, j2, a2, z ? 1 : 0, a2 == 0 ? m338a(context) : "", j));
+        }
+        if (isEmpty) {
+            f438a.a(new gr(context), 5000L);
+        }
+    }
+
+    public static void a(Context context, String str, long j, boolean z, boolean z2, long j2) {
+        a(context, str, a(a(context), j, z, j2, z2), z, j2);
+    }
+
+    public static void a(a aVar) {
+        for (a aVar2 : f442a) {
+            if (aVar2.a(aVar)) {
+                aVar2.f445b += aVar.f445b;
+                return;
+            }
+        }
+        f442a.add(aVar);
+    }
+
+    /* renamed from: a  reason: collision with other method in class */
+    public static synchronized void m341a(String str) {
+        synchronized (gq.class) {
+            if (!l.d() && !TextUtils.isEmpty(str)) {
+                f441a = str;
+            }
+        }
+    }
+
+    public static int b(Context context) {
+        try {
+            ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
+            if (connectivityManager == null) {
+                return -1;
+            }
+            NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+            if (activeNetworkInfo == null) {
+                return -1;
+            }
+            return activeNetworkInfo.getType();
+        } catch (Exception unused) {
+            return -1;
+        }
+    }
+
+    public static void b(Context context, List<a> list) {
+        try {
+            synchronized (com.xiaomi.push.providers.a.f823a) {
+                SQLiteDatabase writableDatabase = m337a(context).getWritableDatabase();
+                writableDatabase.beginTransaction();
+                for (a aVar : list) {
+                    ContentValues contentValues = new ContentValues();
+                    contentValues.put("package_name", aVar.f444a);
+                    contentValues.put("message_ts", Long.valueOf(aVar.f443a));
+                    contentValues.put(PmsConstant.Statistic.STATISTIC_NETWORK, Integer.valueOf(aVar.f40603a));
+                    contentValues.put("bytes", Long.valueOf(aVar.f445b));
+                    contentValues.put("rcv", Integer.valueOf(aVar.f40604b));
+                    contentValues.put("imsi", aVar.f446b);
+                    writableDatabase.insert("traffic", null, contentValues);
+                }
+                writableDatabase.setTransactionSuccessful();
+                writableDatabase.endTransaction();
+            }
+        } catch (SQLiteException e2) {
+            com.xiaomi.channel.commonutils.logger.b.a(e2);
+        }
     }
 }

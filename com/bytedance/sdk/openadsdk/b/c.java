@@ -9,119 +9,115 @@ import java.util.TreeMap;
 public class c extends b {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f4192a;
-    private int b;
-    private volatile boolean c;
+    public int f27529a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public int f27530b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public volatile boolean f27531c;
 
     public c(int i, int i2) {
-        this.f4192a = 15;
-        this.b = 3;
-        if (i <= 0) {
-            throw new IllegalArgumentException("Max count must be positive number!");
-        }
-        this.f4192a = i;
-        this.b = i2;
-    }
-
-    public c(int i, int i2, boolean z) {
-        this.f4192a = 15;
-        this.b = 3;
-        if (i <= 0) {
-            throw new IllegalArgumentException("Max count must be positive number!");
-        }
-        this.f4192a = i;
-        this.b = i2;
-        this.c = z;
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.bytedance.sdk.openadsdk.b.b
-    public boolean a(long j, int i) {
-        return i <= this.f4192a;
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.bytedance.sdk.openadsdk.b.b
-    public boolean a(File file, long j, int i) {
-        return i <= this.b;
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.b.b
-    protected void a(List<File> list) {
-        if (this.c) {
-            d(list);
-            this.c = false;
+        this.f27529a = 15;
+        this.f27530b = 3;
+        if (i > 0) {
+            this.f27529a = i;
+            this.f27530b = i2;
             return;
         }
-        c(list);
+        throw new IllegalArgumentException("Max count must be positive number!");
     }
 
     private void c(List<File> list) {
-        long b = b(list);
+        long b2 = b(list);
         int size = list.size();
-        if (!a(b, size)) {
-            int i = size;
-            for (File file : list) {
-                long length = file.length();
-                if (file.delete()) {
-                    i--;
-                    b -= length;
-                    u.c("TotalCountLruDiskFile", "Cache file " + file + " is deleted because it exceeds cache limit");
-                } else {
-                    u.c("TotalCountLruDiskFile", "Error deleting file " + file + " for trimming cache");
-                }
-                if (a(file, b, i)) {
-                    return;
-                }
+        if (a(b2, size)) {
+            return;
+        }
+        for (File file : list) {
+            long length = file.length();
+            if (file.delete()) {
+                size--;
+                b2 -= length;
+                u.c("TotalCountLruDiskFile", "Cache file " + file + " is deleted because it exceeds cache limit");
+            } else {
+                u.c("TotalCountLruDiskFile", "Error deleting file " + file + " for trimming cache");
+            }
+            if (a(file, b2, size)) {
+                return;
             }
         }
     }
 
     private void d(List<File> list) {
-        int i;
-        int i2;
         if (list != null) {
             try {
-                if (list.size() != 0) {
-                    long b = b(list);
-                    int size = list.size();
-                    boolean a2 = a(b, size);
-                    if (a2) {
-                        u.c("splashLoadAd", "不满足删除条件，不执行删除操作(true)" + a2);
-                        return;
-                    }
-                    TreeMap treeMap = new TreeMap();
-                    for (File file : list) {
-                        treeMap.put(Long.valueOf(file.lastModified()), file);
-                    }
-                    for (Map.Entry entry : treeMap.entrySet()) {
-                        if (entry != null) {
-                            if (a2) {
-                                i = size;
-                            } else {
-                                u.f("splashLoadAd", "LRUDeleteFile deleting fileTime " + ((Long) entry.getKey()).longValue());
-                                File file2 = (File) entry.getValue();
-                                long length = file2.length();
-                                if (file2.delete()) {
-                                    i2 = size - 1;
-                                    b -= length;
-                                    u.c("splashLoadAd", "删除 一个 Cache file 当前总个数：" + i2);
-                                } else {
-                                    u.f("splashLoadAd", "Error deleting file " + file2 + " for trimming cache");
-                                    i2 = size;
-                                }
-                                if (a(file2, b, i2)) {
-                                    u.c("splashLoadAd", "停止删除 当前总个数 totalCount：" + i2 + " 最大值存储上限个数 maxCount " + this.f4192a + " 最小个数 " + this.b);
-                                    return;
-                                }
-                                i = i2;
-                            }
-                            size = i;
+                if (list.size() == 0) {
+                    return;
+                }
+                long b2 = b(list);
+                int size = list.size();
+                boolean a2 = a(b2, size);
+                if (a2) {
+                    u.c("splashLoadAd", "不满足删除条件，不执行删除操作(true)" + a2);
+                    return;
+                }
+                TreeMap treeMap = new TreeMap();
+                for (File file : list) {
+                    treeMap.put(Long.valueOf(file.lastModified()), file);
+                }
+                for (Map.Entry entry : treeMap.entrySet()) {
+                    if (entry != null && !a2) {
+                        u.f("splashLoadAd", "LRUDeleteFile deleting fileTime " + ((Long) entry.getKey()).longValue());
+                        File file2 = (File) entry.getValue();
+                        long length = file2.length();
+                        if (file2.delete()) {
+                            size--;
+                            b2 -= length;
+                            u.c("splashLoadAd", "删除 一个 Cache file 当前总个数：" + size);
+                        } else {
+                            u.f("splashLoadAd", "Error deleting file " + file2 + " for trimming cache");
+                        }
+                        if (a(file2, b2, size)) {
+                            u.c("splashLoadAd", "停止删除 当前总个数 totalCount：" + size + " 最大值存储上限个数 maxCount " + this.f27529a + " 最小个数 " + this.f27530b);
+                            return;
                         }
                     }
                 }
-            } catch (Throwable th) {
+            } catch (Throwable unused) {
             }
         }
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.b.b
+    public boolean a(long j, int i) {
+        return i <= this.f27529a;
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.b.b
+    public boolean a(File file, long j, int i) {
+        return i <= this.f27530b;
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.b.b
+    public void a(List<File> list) {
+        if (this.f27531c) {
+            d(list);
+            this.f27531c = false;
+            return;
+        }
+        c(list);
+    }
+
+    public c(int i, int i2, boolean z) {
+        this.f27529a = 15;
+        this.f27530b = 3;
+        if (i > 0) {
+            this.f27529a = i;
+            this.f27530b = i2;
+            this.f27531c = z;
+            return;
+        }
+        throw new IllegalArgumentException("Max count must be positive number!");
     }
 }

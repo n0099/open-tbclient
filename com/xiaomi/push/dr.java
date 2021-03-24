@@ -1,33 +1,28 @@
 package com.xiaomi.push;
 
 import android.content.Context;
-import android.content.IntentFilter;
-import com.xiaomi.push.mpcd.receivers.BroadcastActionsReceiver;
-/* loaded from: classes5.dex */
-public class dr {
-    private static IntentFilter a() {
-        IntentFilter intentFilter = new IntentFilter();
-        intentFilter.addAction("android.intent.action.PACKAGE_ADDED");
-        intentFilter.addAction("android.intent.action.PACKAGE_CHANGED");
-        intentFilter.addAction("android.intent.action.PACKAGE_DATA_CLEARED");
-        intentFilter.addAction("android.intent.action.PACKAGE_REPLACED");
-        intentFilter.addAction("android.intent.action.PACKAGE_RESTARTED");
-        intentFilter.addAction("android.intent.action.PACKAGE_REMOVED");
-        intentFilter.addDataScheme("package");
-        return intentFilter;
+import com.baidu.tbadk.core.util.FieldBuilder;
+import com.tencent.connect.common.Constants;
+/* loaded from: classes7.dex */
+public class dr extends dq {
+    public dr(Context context, int i) {
+        super(context, i);
     }
 
-    /* renamed from: a  reason: collision with other method in class */
-    private static dw m237a() {
-        return new ds();
+    @Override // com.xiaomi.push.dq, com.xiaomi.push.ai.a
+    /* renamed from: a */
+    public hh mo165a() {
+        return hh.Storage;
     }
 
-    public static void a(Context context) {
-        dx.a(context).m238a();
-        try {
-            context.registerReceiver(new BroadcastActionsReceiver(m237a()), a());
-        } catch (Throwable th) {
-            com.xiaomi.channel.commonutils.logger.b.a(th);
-        }
+    @Override // com.xiaomi.push.dq, com.xiaomi.push.ai.a
+    /* renamed from: a */
+    public String mo165a() {
+        return Constants.VIA_REPORT_TYPE_SHARE_TO_TROOPBAR;
+    }
+
+    @Override // com.xiaomi.push.dq
+    public String b() {
+        return "ram:" + i.m416a() + ",rom:" + i.m420b() + FieldBuilder.SE + "ramOriginal:" + i.m422c() + ",romOriginal:" + i.d();
     }
 }

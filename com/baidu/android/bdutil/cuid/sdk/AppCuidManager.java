@@ -1,10 +1,7 @@
 package com.baidu.android.bdutil.cuid.sdk;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public class AppCuidManager {
-    private static AppCuidManager sAppCuidManager;
-
-    private AppCuidManager() {
-    }
+    public static AppCuidManager sAppCuidManager;
 
     public static AppCuidManager getInstance() {
         if (sAppCuidManager == null) {

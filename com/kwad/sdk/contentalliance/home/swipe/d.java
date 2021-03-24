@@ -2,34 +2,34 @@ package com.kwad.sdk.contentalliance.home.swipe;
 
 import android.view.MotionEvent;
 import android.view.View;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public abstract class d {
 
     /* renamed from: a  reason: collision with root package name */
-    private boolean f5831a = false;
+    public boolean f32813a = false;
 
-    protected abstract void a(View view, MotionEvent motionEvent);
+    public abstract void a(View view, MotionEvent motionEvent);
 
     public void a(boolean z) {
-        this.f5831a = !z;
+        this.f32813a = !z;
     }
 
-    protected abstract boolean b(View view, MotionEvent motionEvent);
+    public abstract boolean b(View view, MotionEvent motionEvent);
 
-    protected abstract boolean c(View view, MotionEvent motionEvent);
+    public abstract boolean c(View view, MotionEvent motionEvent);
 
     public final void d(View view, MotionEvent motionEvent) {
-        if (this.f5831a) {
+        if (this.f32813a) {
             return;
         }
         a(view, motionEvent);
     }
 
     public final boolean e(View view, MotionEvent motionEvent) {
-        return !this.f5831a && b(view, motionEvent);
+        return !this.f32813a && b(view, motionEvent);
     }
 
     public final boolean f(View view, MotionEvent motionEvent) {
-        return !this.f5831a && c(view, motionEvent);
+        return !this.f32813a && c(view, motionEvent);
     }
 }

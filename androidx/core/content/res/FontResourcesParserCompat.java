@@ -21,60 +21,48 @@ import java.util.List;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes14.dex */
+/* loaded from: classes.dex */
 public class FontResourcesParserCompat {
-    private static final int DEFAULT_TIMEOUT_MILLIS = 500;
+    public static final int DEFAULT_TIMEOUT_MILLIS = 500;
     public static final int FETCH_STRATEGY_ASYNC = 1;
     public static final int FETCH_STRATEGY_BLOCKING = 0;
     public static final int INFINITE_TIMEOUT_VALUE = -1;
-    private static final int ITALIC = 1;
-    private static final int NORMAL_WEIGHT = 400;
+    public static final int ITALIC = 1;
+    public static final int NORMAL_WEIGHT = 400;
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes.dex */
     public interface FamilyResourceEntry {
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes14.dex */
+    /* loaded from: classes.dex */
     public @interface FetchStrategy {
     }
 
-    /* loaded from: classes14.dex */
-    public static final class ProviderResourceEntry implements FamilyResourceEntry {
+    /* loaded from: classes.dex */
+    public static final class FontFamilyFilesResourceEntry implements FamilyResourceEntry {
         @NonNull
-        private final FontRequest mRequest;
-        private final int mStrategy;
-        private final int mTimeoutMs;
+        public final FontFileResourceEntry[] mEntries;
 
-        public ProviderResourceEntry(@NonNull FontRequest fontRequest, int i, int i2) {
-            this.mRequest = fontRequest;
-            this.mStrategy = i;
-            this.mTimeoutMs = i2;
+        public FontFamilyFilesResourceEntry(@NonNull FontFileResourceEntry[] fontFileResourceEntryArr) {
+            this.mEntries = fontFileResourceEntryArr;
         }
 
         @NonNull
-        public FontRequest getRequest() {
-            return this.mRequest;
-        }
-
-        public int getFetchStrategy() {
-            return this.mStrategy;
-        }
-
-        public int getTimeout() {
-            return this.mTimeoutMs;
+        public FontFileResourceEntry[] getEntries() {
+            return this.mEntries;
         }
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes.dex */
     public static final class FontFileResourceEntry {
         @NonNull
-        private final String mFileName;
-        private boolean mItalic;
-        private int mResourceId;
-        private int mTtcIndex;
-        private String mVariationSettings;
-        private int mWeight;
+        public final String mFileName;
+        public boolean mItalic;
+        public int mResourceId;
+        public int mTtcIndex;
+        public String mVariationSettings;
+        public int mWeight;
 
         public FontFileResourceEntry(@NonNull String str, int i, boolean z, @Nullable String str2, int i2, int i3) {
             this.mFileName = str;
@@ -90,12 +78,12 @@ public class FontResourcesParserCompat {
             return this.mFileName;
         }
 
-        public int getWeight() {
-            return this.mWeight;
+        public int getResourceId() {
+            return this.mResourceId;
         }
 
-        public boolean isItalic() {
-            return this.mItalic;
+        public int getTtcIndex() {
+            return this.mTtcIndex;
         }
 
         @Nullable
@@ -103,28 +91,49 @@ public class FontResourcesParserCompat {
             return this.mVariationSettings;
         }
 
-        public int getTtcIndex() {
-            return this.mTtcIndex;
+        public int getWeight() {
+            return this.mWeight;
         }
 
-        public int getResourceId() {
-            return this.mResourceId;
+        public boolean isItalic() {
+            return this.mItalic;
         }
     }
 
-    /* loaded from: classes14.dex */
-    public static final class FontFamilyFilesResourceEntry implements FamilyResourceEntry {
+    /* loaded from: classes.dex */
+    public static final class ProviderResourceEntry implements FamilyResourceEntry {
         @NonNull
-        private final FontFileResourceEntry[] mEntries;
+        public final FontRequest mRequest;
+        public final int mStrategy;
+        public final int mTimeoutMs;
 
-        public FontFamilyFilesResourceEntry(@NonNull FontFileResourceEntry[] fontFileResourceEntryArr) {
-            this.mEntries = fontFileResourceEntryArr;
+        public ProviderResourceEntry(@NonNull FontRequest fontRequest, int i, int i2) {
+            this.mRequest = fontRequest;
+            this.mStrategy = i;
+            this.mTimeoutMs = i2;
+        }
+
+        public int getFetchStrategy() {
+            return this.mStrategy;
         }
 
         @NonNull
-        public FontFileResourceEntry[] getEntries() {
-            return this.mEntries;
+        public FontRequest getRequest() {
+            return this.mRequest;
         }
+
+        public int getTimeout() {
+            return this.mTimeoutMs;
+        }
+    }
+
+    public static int getType(TypedArray typedArray, int i) {
+        if (Build.VERSION.SDK_INT >= 21) {
+            return typedArray.getType(i);
+        }
+        TypedValue typedValue = new TypedValue();
+        typedArray.getValue(i, typedValue);
+        return typedValue.type;
     }
 
     @Nullable
@@ -136,14 +145,40 @@ public class FontResourcesParserCompat {
                 break;
             }
         } while (next != 1);
-        if (next != 2) {
-            throw new XmlPullParserException("No start tag found");
+        if (next == 2) {
+            return readFamilies(xmlPullParser, resources);
         }
-        return readFamilies(xmlPullParser, resources);
+        throw new XmlPullParserException("No start tag found");
+    }
+
+    public static List<List<byte[]>> readCerts(Resources resources, @ArrayRes int i) {
+        if (i == 0) {
+            return Collections.emptyList();
+        }
+        TypedArray obtainTypedArray = resources.obtainTypedArray(i);
+        try {
+            if (obtainTypedArray.length() == 0) {
+                return Collections.emptyList();
+            }
+            ArrayList arrayList = new ArrayList();
+            if (getType(obtainTypedArray, 0) == 1) {
+                for (int i2 = 0; i2 < obtainTypedArray.length(); i2++) {
+                    int resourceId = obtainTypedArray.getResourceId(i2, 0);
+                    if (resourceId != 0) {
+                        arrayList.add(toByteArrayList(resources.getStringArray(resourceId)));
+                    }
+                }
+            } else {
+                arrayList.add(toByteArrayList(resources.getStringArray(i)));
+            }
+            return arrayList;
+        } finally {
+            obtainTypedArray.recycle();
+        }
     }
 
     @Nullable
-    private static FamilyResourceEntry readFamilies(XmlPullParser xmlPullParser, Resources resources) throws XmlPullParserException, IOException {
+    public static FamilyResourceEntry readFamilies(XmlPullParser xmlPullParser, Resources resources) throws XmlPullParserException, IOException {
         xmlPullParser.require(2, null, "font-family");
         if (xmlPullParser.getName().equals("font-family")) {
             return readFamily(xmlPullParser, resources);
@@ -153,7 +188,7 @@ public class FontResourcesParserCompat {
     }
 
     @Nullable
-    private static FamilyResourceEntry readFamily(XmlPullParser xmlPullParser, Resources resources) throws XmlPullParserException, IOException {
+    public static FamilyResourceEntry readFamily(XmlPullParser xmlPullParser, Resources resources) throws XmlPullParserException, IOException {
         TypedArray obtainAttributes = resources.obtainAttributes(Xml.asAttributeSet(xmlPullParser), R.styleable.FontFamily);
         String string = obtainAttributes.getString(R.styleable.FontFamily_fontProviderAuthority);
         String string2 = obtainAttributes.getString(R.styleable.FontFamily_fontProviderPackage);
@@ -184,50 +219,7 @@ public class FontResourcesParserCompat {
         return new FontFamilyFilesResourceEntry((FontFileResourceEntry[]) arrayList.toArray(new FontFileResourceEntry[arrayList.size()]));
     }
 
-    private static int getType(TypedArray typedArray, int i) {
-        if (Build.VERSION.SDK_INT >= 21) {
-            return typedArray.getType(i);
-        }
-        TypedValue typedValue = new TypedValue();
-        typedArray.getValue(i, typedValue);
-        return typedValue.type;
-    }
-
-    public static List<List<byte[]>> readCerts(Resources resources, @ArrayRes int i) {
-        if (i == 0) {
-            return Collections.emptyList();
-        }
-        TypedArray obtainTypedArray = resources.obtainTypedArray(i);
-        try {
-            if (obtainTypedArray.length() == 0) {
-                return Collections.emptyList();
-            }
-            ArrayList arrayList = new ArrayList();
-            if (getType(obtainTypedArray, 0) == 1) {
-                for (int i2 = 0; i2 < obtainTypedArray.length(); i2++) {
-                    int resourceId = obtainTypedArray.getResourceId(i2, 0);
-                    if (resourceId != 0) {
-                        arrayList.add(toByteArrayList(resources.getStringArray(resourceId)));
-                    }
-                }
-            } else {
-                arrayList.add(toByteArrayList(resources.getStringArray(i)));
-            }
-            return arrayList;
-        } finally {
-            obtainTypedArray.recycle();
-        }
-    }
-
-    private static List<byte[]> toByteArrayList(String[] strArr) {
-        ArrayList arrayList = new ArrayList();
-        for (String str : strArr) {
-            arrayList.add(Base64.decode(str, 0));
-        }
-        return arrayList;
-    }
-
-    private static FontFileResourceEntry readFont(XmlPullParser xmlPullParser, Resources resources) throws XmlPullParserException, IOException {
+    public static FontFileResourceEntry readFont(XmlPullParser xmlPullParser, Resources resources) throws XmlPullParserException, IOException {
         TypedArray obtainAttributes = resources.obtainAttributes(Xml.asAttributeSet(xmlPullParser), R.styleable.FontFamilyFont);
         int i = obtainAttributes.getInt(obtainAttributes.hasValue(R.styleable.FontFamilyFont_fontWeight) ? R.styleable.FontFamilyFont_fontWeight : R.styleable.FontFamilyFont_android_fontWeight, 400);
         boolean z = 1 == obtainAttributes.getInt(obtainAttributes.hasValue(R.styleable.FontFamilyFont_fontStyle) ? R.styleable.FontFamilyFont_fontStyle : R.styleable.FontFamilyFont_android_fontStyle, 0);
@@ -244,20 +236,23 @@ public class FontResourcesParserCompat {
         return new FontFileResourceEntry(string2, i, z, string, i3, resourceId);
     }
 
-    private static void skip(XmlPullParser xmlPullParser) throws XmlPullParserException, IOException {
+    public static void skip(XmlPullParser xmlPullParser) throws XmlPullParserException, IOException {
         int i = 1;
         while (i > 0) {
-            switch (xmlPullParser.next()) {
-                case 2:
-                    i++;
-                    break;
-                case 3:
-                    i--;
-                    break;
+            int next = xmlPullParser.next();
+            if (next == 2) {
+                i++;
+            } else if (next == 3) {
+                i--;
             }
         }
     }
 
-    private FontResourcesParserCompat() {
+    public static List<byte[]> toByteArrayList(String[] strArr) {
+        ArrayList arrayList = new ArrayList();
+        for (String str : strArr) {
+            arrayList.add(Base64.decode(str, 0));
+        }
+        return arrayList;
     }
 }

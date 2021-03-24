@@ -7,33 +7,19 @@ import com.baidu.minivideo.plugin.capture.download.base.DownloadStatusDelivery;
 import com.baidu.minivideo.plugin.capture.download.exception.DownloadException;
 import com.baidu.minivideo.plugin.capture.download.utils.LogUtils;
 import java.util.concurrent.Executor;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public class DownloadStatusDeliveryImpl implements DownloadStatusDelivery {
-    private static final String TAG = "DownloadStatusDelivery";
-    private Executor mDownloadStatusPoster;
+    public static final String TAG = "DownloadStatusDelivery";
+    public Executor mDownloadStatusPoster;
 
-    public DownloadStatusDeliveryImpl(final Handler handler) {
-        this.mDownloadStatusPoster = new Executor() { // from class: com.baidu.minivideo.plugin.capture.download.core.DownloadStatusDeliveryImpl.1
-            @Override // java.util.concurrent.Executor
-            public void execute(Runnable runnable) {
-                handler.post(runnable);
-            }
-        };
-    }
-
-    @Override // com.baidu.minivideo.plugin.capture.download.base.DownloadStatusDelivery
-    public void post(DownloadStatus downloadStatus) {
-        this.mDownloadStatusPoster.execute(new DownloadStatusDeliveryRunnable(downloadStatus));
-    }
-
-    /* loaded from: classes5.dex */
-    private static class DownloadStatusDeliveryRunnable implements Runnable {
-        private final DownloadCallback mCallBack;
-        private final DownloadStatus mDownloadStatus;
+    /* loaded from: classes2.dex */
+    public static class DownloadStatusDeliveryRunnable implements Runnable {
+        public final DownloadCallback mCallBack;
+        public final DownloadStatus mDownloadStatus;
 
         public DownloadStatusDeliveryRunnable(DownloadStatus downloadStatus) {
             this.mDownloadStatus = downloadStatus;
-            this.mCallBack = this.mDownloadStatus.getCallBack();
+            this.mCallBack = downloadStatus.getCallBack();
         }
 
         @Override // java.lang.Runnable
@@ -53,11 +39,11 @@ public class DownloadStatusDeliveryImpl implements DownloadStatusDelivery {
                     return;
                 case 105:
                     LogUtils.d(DownloadStatusDeliveryImpl.TAG, "STATUS_COMPLETED Path:" + this.mDownloadStatus.getSavedPath());
-                    if (!this.mDownloadStatus.getCalledCompleted()) {
-                        this.mDownloadStatus.setCalledCompleted(true);
-                        this.mCallBack.onCompleted(this.mDownloadStatus.getSavedPath());
+                    if (this.mDownloadStatus.getCalledCompleted()) {
                         return;
                     }
+                    this.mDownloadStatus.setCalledCompleted(true);
+                    this.mCallBack.onCompleted(this.mDownloadStatus.getSavedPath());
                     return;
                 case 106:
                     LogUtils.d(DownloadStatusDeliveryImpl.TAG, "STATUS_PAUSED");
@@ -75,5 +61,19 @@ public class DownloadStatusDeliveryImpl implements DownloadStatusDelivery {
                     return;
             }
         }
+    }
+
+    public DownloadStatusDeliveryImpl(final Handler handler) {
+        this.mDownloadStatusPoster = new Executor() { // from class: com.baidu.minivideo.plugin.capture.download.core.DownloadStatusDeliveryImpl.1
+            @Override // java.util.concurrent.Executor
+            public void execute(Runnable runnable) {
+                handler.post(runnable);
+            }
+        };
+    }
+
+    @Override // com.baidu.minivideo.plugin.capture.download.base.DownloadStatusDelivery
+    public void post(DownloadStatus downloadStatus) {
+        this.mDownloadStatusPoster.execute(new DownloadStatusDeliveryRunnable(downloadStatus));
     }
 }

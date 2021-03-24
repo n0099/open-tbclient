@@ -1,109 +1,79 @@
 package com.xiaomi.mipush.sdk;
 
-import android.app.Activity;
-import android.app.Service;
+import android.content.ComponentName;
 import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
 import android.text.TextUtils;
-import com.baidu.ala.recorder.video.AlaRecorderLog;
-import com.baidu.ar.pose.PoseAR;
-import com.xiaomi.push.ai;
-import com.xiaomi.push.eq;
-import com.xiaomi.push.es;
-import com.xiaomi.push.hr;
-import com.xiaomi.push.hw;
-import com.xiaomi.push.il;
-import com.xiaomi.push.iw;
-import com.xiaomi.push.ix;
-import java.util.HashMap;
-/* loaded from: classes5.dex */
+import com.xiaomi.push.bh;
+/* loaded from: classes7.dex */
 public class n {
-    public static void a(Context context, Intent intent, Uri uri) {
-        if (context == null) {
-            return;
+
+    /* renamed from: a  reason: collision with root package name */
+    public static int f40202a = -1;
+
+    public static af a(Context context) {
+        try {
+            return (context.getPackageManager().getServiceInfo(new ComponentName("com.huawei.hwid", "com.huawei.hms.core.service.HMSCoreService"), 128) == null || !a()) ? af.OTHER : af.HUAWEI;
+        } catch (Exception unused) {
+            return af.OTHER;
         }
-        aq.a(context).m89a();
-        if (eq.a(context.getApplicationContext()).m272a() == null) {
-            eq.a(context.getApplicationContext()).a(b.m98a(context.getApplicationContext()).m99a(), context.getPackageName(), com.xiaomi.push.service.ak.a(context.getApplicationContext()).a(hr.AwakeInfoUploadWaySwitch.a(), 0), new c());
-            com.xiaomi.push.service.ak.a(context).a(new p(102, "awake online config", context));
-        }
-        if ((context instanceof Activity) && intent != null) {
-            eq.a(context.getApplicationContext()).a(es.ACTIVITY, context, intent, (String) null);
-        } else if (!(context instanceof Service) || intent == null) {
-            if (uri == null || TextUtils.isEmpty(uri.toString())) {
-                return;
+    }
+
+    public static boolean a() {
+        try {
+            String str = (String) bh.a("android.os.SystemProperties", "get", "ro.build.hw_emui_api_level", "");
+            if (!TextUtils.isEmpty(str)) {
+                if (Integer.parseInt(str) >= 9) {
+                    return true;
+                }
             }
-            eq.a(context.getApplicationContext()).a(es.PROVIDER, context, (Intent) null, uri.toString());
-        } else if ("com.xiaomi.mipush.sdk.WAKEUP".equals(intent.getAction())) {
-            eq.a(context.getApplicationContext()).a(es.SERVICE_COMPONENT, context, intent, (String) null);
-        } else {
-            eq.a(context.getApplicationContext()).a(es.SERVICE_ACTION, context, intent, (String) null);
+        } catch (Exception e2) {
+            com.xiaomi.channel.commonutils.logger.b.a(e2);
         }
+        return false;
     }
 
-    private static void a(Context context, il ilVar) {
-        int i = 30;
-        boolean a2 = com.xiaomi.push.service.ak.a(context).a(hr.AwakeAppPingSwitch.a(), false);
-        int a3 = com.xiaomi.push.service.ak.a(context).a(hr.AwakeAppPingFrequency.a(), 0);
-        if (a3 < 0 || a3 >= 30) {
-            i = a3;
-        } else {
-            com.xiaomi.channel.commonutils.logger.b.c("aw_ping: frquency need > 30s.");
+    /* renamed from: a  reason: collision with other method in class */
+    public static boolean m117a(Context context) {
+        Object a2 = bh.a(bh.a("com.google.android.gms.common.GoogleApiAvailability", "getInstance", new Object[0]), "isGooglePlayServicesAvailable", context);
+        Object a3 = bh.a("com.google.android.gms.common.ConnectionResult", com.alipay.security.mobile.module.http.model.c.f2100g);
+        if (a3 == null || !(a3 instanceof Integer)) {
+            com.xiaomi.channel.commonutils.logger.b.c("google service is not avaliable");
+            f40202a = 0;
+            return false;
         }
-        boolean z = i >= 0 ? a2 : false;
-        if (!com.xiaomi.push.l.m504a()) {
-            a(context, ilVar, z, i);
-        } else if (z) {
-            com.xiaomi.push.ai.a(context.getApplicationContext()).a((ai.a) new o(ilVar, context), i);
+        int intValue = ((Integer) Integer.class.cast(a3)).intValue();
+        if (a2 != null) {
+            if (a2 instanceof Integer) {
+                f40202a = ((Integer) Integer.class.cast(a2)).intValue() == intValue ? 1 : 0;
+            } else {
+                f40202a = 0;
+                com.xiaomi.channel.commonutils.logger.b.c("google service is not avaliable");
+            }
         }
+        StringBuilder sb = new StringBuilder();
+        sb.append("is google service can be used");
+        sb.append(f40202a > 0);
+        com.xiaomi.channel.commonutils.logger.b.c(sb.toString());
+        return f40202a > 0;
     }
 
-    public static final <T extends ix<T, ?>> void a(Context context, T t, boolean z, int i) {
-        byte[] a2 = iw.a(t);
-        if (a2 == null) {
-            com.xiaomi.channel.commonutils.logger.b.m58a("send message fail, because msgBytes is null.");
-            return;
+    public static boolean b(Context context) {
+        boolean z = false;
+        Object a2 = bh.a("com.xiaomi.assemble.control.COSPushManager", "isSupportPush", context);
+        if (a2 != null && (a2 instanceof Boolean)) {
+            z = ((Boolean) Boolean.class.cast(a2)).booleanValue();
         }
-        Intent intent = new Intent();
-        intent.setAction("action_help_ping");
-        intent.putExtra("extra_help_ping_switch", z);
-        intent.putExtra("extra_help_ping_frequency", i);
-        intent.putExtra("mipush_payload", a2);
-        intent.putExtra("com.xiaomi.mipush.MESSAGE_CACHE", true);
-        aq.a(context).m90a(intent);
+        com.xiaomi.channel.commonutils.logger.b.c("color os push  is avaliable ? :" + z);
+        return z;
     }
 
-    public static void a(Context context, String str) {
-        com.xiaomi.channel.commonutils.logger.b.m58a("aw_ping : send aw_ping cmd and content to push service from 3rd app");
-        HashMap hashMap = new HashMap();
-        hashMap.put("awake_info", str);
-        hashMap.put(PoseAR.MDL_START_POSE_FUN_EVENT_TYPE_KEY, String.valueOf((int) AlaRecorderLog.ErrorCode.ERROR_RECORDER_NOT_DEFINE_ERROR));
-        hashMap.put("description", "ping message");
-        il ilVar = new il();
-        ilVar.b(b.m98a(context).m99a());
-        ilVar.d(context.getPackageName());
-        ilVar.c(hw.AwakeAppResponse.f476a);
-        ilVar.a(com.xiaomi.push.service.an.a());
-        ilVar.f617a = hashMap;
-        a(context, ilVar);
-    }
-
-    public static void a(Context context, String str, int i, String str2) {
-        il ilVar = new il();
-        ilVar.b(str);
-        ilVar.a(new HashMap());
-        ilVar.m437a().put("extra_aw_app_online_cmd", String.valueOf(i));
-        ilVar.m437a().put("extra_help_aw_info", str2);
-        ilVar.a(com.xiaomi.push.service.an.a());
-        byte[] a2 = iw.a(ilVar);
-        if (a2 == null) {
-            com.xiaomi.channel.commonutils.logger.b.m58a("send message fail, because msgBytes is null.");
-            return;
+    public static boolean c(Context context) {
+        boolean z = false;
+        Object a2 = bh.a("com.xiaomi.assemble.control.FTOSPushManager", "isSupportPush", context);
+        if (a2 != null && (a2 instanceof Boolean)) {
+            z = ((Boolean) Boolean.class.cast(a2)).booleanValue();
         }
-        Intent intent = new Intent();
-        intent.setAction("action_aw_app_logic");
-        intent.putExtra("mipush_payload", a2);
-        aq.a(context).m90a(intent);
+        com.xiaomi.channel.commonutils.logger.b.c("fun touch os push  is avaliable ? :" + z);
+        return z;
     }
 }

@@ -4,20 +4,20 @@ import androidx.annotation.Keep;
 import com.kwai.video.cache.AwesomeCacheInitConfig;
 import com.kwai.video.hodor.anotations.AccessedByNative;
 @Keep
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public abstract class AbstractHodorTask implements IHodorTask {
     @AccessedByNative
-    private int mTaskQosClass = 0;
+    public int mTaskQosClass = 0;
     @AccessedByNative
-    private int mPriority = 3000;
+    public int mPriority = 3000;
     @AccessedByNative
-    private int mConnectTimeoutMs = 3000;
+    public int mConnectTimeoutMs = 3000;
     @AccessedByNative
-    private int mMaxSpeedKbps = -1;
+    public int mMaxSpeedKbps = -1;
     @AccessedByNative
-    protected String mBizType = "unknown";
+    public String mBizType = "unknown";
     @AccessedByNative
-    protected String mGroupName = "";
+    public String mGroupName = "";
 
     static {
         AwesomeCacheInitConfig.waitSoLibReady();

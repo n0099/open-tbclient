@@ -3,63 +3,59 @@ package com.baidu.android.util.devices;
 import android.app.ActivityManager;
 import com.baidu.android.util.io.Closeables;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class MemoryUtils {
-    private static final int BUFFER_SIZE = 8192;
-    private static final boolean DEBUG = false;
-    private static final String TAG = "MemoryUtils";
-    private static long sTotalMemory;
+    public static final int BUFFER_SIZE = 8192;
+    public static final boolean DEBUG = false;
+    public static final String TAG = "MemoryUtils";
+    public static long sTotalMemory;
 
     public static long getFreeMemory() {
         ActivityManager.MemoryInfo memoryInfo = new ActivityManager.MemoryInfo();
-        ((ActivityManager) AppRuntime.getAppContext().getSystemService(PushConstants.INTENT_ACTIVITY_NAME)).getMemoryInfo(memoryInfo);
+        ((ActivityManager) AppRuntime.getAppContext().getSystemService("activity")).getMemoryInfo(memoryInfo);
         return memoryInfo.availMem / 1024;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [73=4] */
     public static long getTotalMemory() {
-        BufferedReader bufferedReader;
         FileReader fileReader;
         String readLine;
         if (sTotalMemory == 0) {
+            BufferedReader bufferedReader = null;
             try {
                 fileReader = new FileReader("/proc/meminfo");
                 try {
-                    bufferedReader = new BufferedReader(fileReader, 8192);
+                    BufferedReader bufferedReader2 = new BufferedReader(fileReader, 8192);
                     try {
-                        r0 = bufferedReader.readLine() != null ? Integer.valueOf(readLine.split("\\s+")[1]).intValue() : -1L;
+                        r1 = bufferedReader2.readLine() != null ? Integer.valueOf(readLine.split("\\s+")[1]).intValue() : -1L;
+                        Closeables.closeSafely(bufferedReader2);
+                    } catch (IOException unused) {
+                        bufferedReader = bufferedReader2;
                         Closeables.closeSafely(bufferedReader);
                         Closeables.closeSafely(fileReader);
-                    } catch (IOException e) {
-                        Closeables.closeSafely(bufferedReader);
-                        Closeables.closeSafely(fileReader);
-                        sTotalMemory = r0;
+                        sTotalMemory = r1;
                         return sTotalMemory;
                     } catch (Throwable th) {
                         th = th;
+                        bufferedReader = bufferedReader2;
                         Closeables.closeSafely(bufferedReader);
                         Closeables.closeSafely(fileReader);
                         throw th;
                     }
-                } catch (IOException e2) {
-                    bufferedReader = null;
+                } catch (IOException unused2) {
                 } catch (Throwable th2) {
                     th = th2;
-                    bufferedReader = null;
                 }
-            } catch (IOException e3) {
-                bufferedReader = null;
+            } catch (IOException unused3) {
                 fileReader = null;
             } catch (Throwable th3) {
                 th = th3;
-                bufferedReader = null;
                 fileReader = null;
             }
-            sTotalMemory = r0;
+            Closeables.closeSafely(fileReader);
+            sTotalMemory = r1;
         }
         return sTotalMemory;
     }

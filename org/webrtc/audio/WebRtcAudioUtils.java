@@ -6,19 +6,16 @@ import android.content.Context;
 import android.media.AudioDeviceInfo;
 import android.media.AudioManager;
 import android.os.Build;
+import com.baidu.android.common.others.lang.StringUtil;
+import com.bumptech.glide.load.engine.GlideException;
 import java.util.Arrays;
 import org.webrtc.Logging;
-/* loaded from: classes9.dex */
-final class WebRtcAudioUtils {
-    private static final String TAG = "WebRtcAudioUtilsExternal";
+/* loaded from: classes7.dex */
+public final class WebRtcAudioUtils {
+    public static final String TAG = "WebRtcAudioUtilsExternal";
 
-    WebRtcAudioUtils() {
-    }
-
-    private static String deviceTypeToString(int i) {
+    public static String deviceTypeToString(int i) {
         switch (i) {
-            case 0:
-                return "TYPE_UNKNOWN";
             case 1:
                 return "TYPE_BUILTIN_EARPIECE";
             case 2:
@@ -72,35 +69,35 @@ final class WebRtcAudioUtils {
         return "@[name=" + Thread.currentThread().getName() + ", id=" + Thread.currentThread().getId() + "]";
     }
 
-    private static boolean hasMicrophone(Context context) {
+    public static boolean hasMicrophone(Context context) {
         return context.getPackageManager().hasSystemFeature("android.hardware.microphone");
     }
 
     @TargetApi(23)
-    private static void logAudioDeviceInfo(String str, AudioManager audioManager) {
+    public static void logAudioDeviceInfo(String str, AudioManager audioManager) {
         if (runningOnMarshmallowOrHigher()) {
             AudioDeviceInfo[] devices = audioManager.getDevices(3);
             if (devices.length != 0) {
                 Logging.d(str, "Audio Devices: ");
                 for (AudioDeviceInfo audioDeviceInfo : devices) {
                     StringBuilder sb = new StringBuilder();
-                    sb.append("  ");
+                    sb.append(GlideException.IndentedAppendable.INDENT);
                     sb.append(deviceTypeToString(audioDeviceInfo.getType()));
                     sb.append(audioDeviceInfo.isSource() ? "(in): " : "(out): ");
                     if (audioDeviceInfo.getChannelCounts().length > 0) {
                         sb.append("channels=");
                         sb.append(Arrays.toString(audioDeviceInfo.getChannelCounts()));
-                        sb.append(", ");
+                        sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
                     }
                     if (audioDeviceInfo.getEncodings().length > 0) {
                         sb.append("encodings=");
                         sb.append(Arrays.toString(audioDeviceInfo.getEncodings()));
-                        sb.append(", ");
+                        sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
                     }
                     if (audioDeviceInfo.getSampleRates().length > 0) {
                         sb.append("sample rates=");
                         sb.append(Arrays.toString(audioDeviceInfo.getSampleRates()));
-                        sb.append(", ");
+                        sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
                     }
                     sb.append("id=");
                     sb.append(audioDeviceInfo.getId());
@@ -110,7 +107,6 @@ final class WebRtcAudioUtils {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public static void logAudioState(String str, Context context, AudioManager audioManager) {
         logDeviceInfo(str);
         logAudioStateBasic(str, context, audioManager);
@@ -118,12 +114,12 @@ final class WebRtcAudioUtils {
         logAudioDeviceInfo(str, audioManager);
     }
 
-    private static void logAudioStateBasic(String str, Context context, AudioManager audioManager) {
+    public static void logAudioStateBasic(String str, Context context, AudioManager audioManager) {
         Logging.d(str, "Audio State: audio mode: " + modeToString(audioManager.getMode()) + ", has mic: " + hasMicrophone(context) + ", mic muted: " + audioManager.isMicrophoneMute() + ", music active: " + audioManager.isMusicActive() + ", speakerphone: " + audioManager.isSpeakerphoneOn() + ", BT SCO: " + audioManager.isBluetoothScoOn());
     }
 
     @SuppressLint({"NewApi"})
-    private static void logAudioStateVolume(String str, AudioManager audioManager) {
+    public static void logAudioStateVolume(String str, AudioManager audioManager) {
         boolean z;
         int[] iArr = {0, 3, 2, 4, 5, 1};
         Logging.d(str, "Audio State: ");
@@ -136,44 +132,33 @@ final class WebRtcAudioUtils {
         if (z) {
             return;
         }
-        for (int i : iArr) {
+        for (int i = 0; i < 6; i++) {
+            int i2 = iArr[i];
             StringBuilder sb = new StringBuilder();
-            sb.append("  " + streamTypeToString(i) + ": ");
+            sb.append(GlideException.IndentedAppendable.INDENT + streamTypeToString(i2) + ": ");
             sb.append("volume=");
-            sb.append(audioManager.getStreamVolume(i));
+            sb.append(audioManager.getStreamVolume(i2));
             sb.append(", max=");
-            sb.append(audioManager.getStreamMaxVolume(i));
-            logIsStreamMute(str, audioManager, i, sb);
+            sb.append(audioManager.getStreamMaxVolume(i2));
+            logIsStreamMute(str, audioManager, i2, sb);
             Logging.d(str, sb.toString());
         }
     }
 
-    static void logDeviceInfo(String str) {
+    public static void logDeviceInfo(String str) {
         Logging.d(str, "Android SDK: " + Build.VERSION.SDK_INT + ", Release: " + Build.VERSION.RELEASE + ", Brand: " + Build.BRAND + ", Device: " + Build.DEVICE + ", Id: " + Build.ID + ", Hardware: " + Build.HARDWARE + ", Manufacturer: " + Build.MANUFACTURER + ", Model: " + Build.MODEL + ", Product: " + Build.PRODUCT);
     }
 
     @TargetApi(23)
-    private static void logIsStreamMute(String str, AudioManager audioManager, int i, StringBuilder sb) {
+    public static void logIsStreamMute(String str, AudioManager audioManager, int i, StringBuilder sb) {
         if (runningOnMarshmallowOrHigher()) {
             sb.append(", muted=");
             sb.append(audioManager.isStreamMute(i));
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public static String modeToString(int i) {
-        switch (i) {
-            case 0:
-                return "MODE_NORMAL";
-            case 1:
-                return "MODE_RINGTONE";
-            case 2:
-                return "MODE_IN_CALL";
-            case 3:
-                return "MODE_IN_COMMUNICATION";
-            default:
-                return "MODE_INVALID";
-        }
+        return i != 0 ? i != 1 ? i != 2 ? i != 3 ? "MODE_INVALID" : "MODE_IN_COMMUNICATION" : "MODE_IN_CALL" : "MODE_RINGTONE" : "MODE_NORMAL";
     }
 
     public static boolean runningOnEmulator() {
@@ -208,22 +193,7 @@ final class WebRtcAudioUtils {
         return Build.VERSION.SDK_INT >= 26;
     }
 
-    private static String streamTypeToString(int i) {
-        switch (i) {
-            case 0:
-                return "STREAM_VOICE_CALL";
-            case 1:
-                return "STREAM_SYSTEM";
-            case 2:
-                return "STREAM_RING";
-            case 3:
-                return "STREAM_MUSIC";
-            case 4:
-                return "STREAM_ALARM";
-            case 5:
-                return "STREAM_NOTIFICATION";
-            default:
-                return "STREAM_INVALID";
-        }
+    public static String streamTypeToString(int i) {
+        return i != 0 ? i != 1 ? i != 2 ? i != 3 ? i != 4 ? i != 5 ? "STREAM_INVALID" : "STREAM_NOTIFICATION" : "STREAM_ALARM" : "STREAM_MUSIC" : "STREAM_RING" : "STREAM_SYSTEM" : "STREAM_VOICE_CALL";
     }
 }

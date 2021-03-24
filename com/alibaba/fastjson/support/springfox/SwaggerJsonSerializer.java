@@ -5,7 +5,7 @@ import com.alibaba.fastjson.serializer.ObjectSerializer;
 import java.io.IOException;
 import java.lang.reflect.Type;
 import springfox.documentation.spring.web.json.Json;
-/* loaded from: classes4.dex */
+/* loaded from: classes.dex */
 public class SwaggerJsonSerializer implements ObjectSerializer {
     public static final SwaggerJsonSerializer instance = new SwaggerJsonSerializer();
 

@@ -7,31 +7,49 @@ import androidx.annotation.Nullable;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
-/* loaded from: classes4.dex */
-class RawDocumentFile extends DocumentFile {
-    private File mFile;
+/* loaded from: classes.dex */
+public class RawDocumentFile extends DocumentFile {
+    public File mFile;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public RawDocumentFile(@Nullable DocumentFile documentFile, File file) {
         super(documentFile);
         this.mFile = file;
     }
 
+    public static boolean deleteContents(File file) {
+        File[] listFiles = file.listFiles();
+        boolean z = true;
+        if (listFiles != null) {
+            for (File file2 : listFiles) {
+                if (file2.isDirectory()) {
+                    z &= deleteContents(file2);
+                }
+                if (!file2.delete()) {
+                    Log.w("DocumentFile", "Failed to delete " + file2);
+                    z = false;
+                }
+            }
+        }
+        return z;
+    }
+
+    public static String getTypeForName(String str) {
+        int lastIndexOf = str.lastIndexOf(46);
+        if (lastIndexOf >= 0) {
+            String mimeTypeFromExtension = MimeTypeMap.getSingleton().getMimeTypeFromExtension(str.substring(lastIndexOf + 1).toLowerCase());
+            return mimeTypeFromExtension != null ? mimeTypeFromExtension : "application/octet-stream";
+        }
+        return "application/octet-stream";
+    }
+
     @Override // androidx.documentfile.provider.DocumentFile
-    @Nullable
-    public DocumentFile createFile(String str, String str2) {
-        String extensionFromMimeType = MimeTypeMap.getSingleton().getExtensionFromMimeType(str);
-        if (extensionFromMimeType != null) {
-            str2 = str2 + "." + extensionFromMimeType;
-        }
-        File file = new File(this.mFile, str2);
-        try {
-            file.createNewFile();
-            return new RawDocumentFile(this, file);
-        } catch (IOException e) {
-            Log.w("DocumentFile", "Failed to createFile: " + e);
-            return null;
-        }
+    public boolean canRead() {
+        return this.mFile.canRead();
+    }
+
+    @Override // androidx.documentfile.provider.DocumentFile
+    public boolean canWrite() {
+        return this.mFile.canWrite();
     }
 
     @Override // androidx.documentfile.provider.DocumentFile
@@ -45,8 +63,31 @@ class RawDocumentFile extends DocumentFile {
     }
 
     @Override // androidx.documentfile.provider.DocumentFile
-    public Uri getUri() {
-        return Uri.fromFile(this.mFile);
+    @Nullable
+    public DocumentFile createFile(String str, String str2) {
+        String extensionFromMimeType = MimeTypeMap.getSingleton().getExtensionFromMimeType(str);
+        if (extensionFromMimeType != null) {
+            str2 = str2 + "." + extensionFromMimeType;
+        }
+        File file = new File(this.mFile, str2);
+        try {
+            file.createNewFile();
+            return new RawDocumentFile(this, file);
+        } catch (IOException e2) {
+            Log.w("DocumentFile", "Failed to createFile: " + e2);
+            return null;
+        }
+    }
+
+    @Override // androidx.documentfile.provider.DocumentFile
+    public boolean delete() {
+        deleteContents(this.mFile);
+        return this.mFile.delete();
+    }
+
+    @Override // androidx.documentfile.provider.DocumentFile
+    public boolean exists() {
+        return this.mFile.exists();
     }
 
     @Override // androidx.documentfile.provider.DocumentFile
@@ -61,6 +102,11 @@ class RawDocumentFile extends DocumentFile {
             return null;
         }
         return getTypeForName(this.mFile.getName());
+    }
+
+    @Override // androidx.documentfile.provider.DocumentFile
+    public Uri getUri() {
+        return Uri.fromFile(this.mFile);
     }
 
     @Override // androidx.documentfile.provider.DocumentFile
@@ -89,27 +135,6 @@ class RawDocumentFile extends DocumentFile {
     }
 
     @Override // androidx.documentfile.provider.DocumentFile
-    public boolean canRead() {
-        return this.mFile.canRead();
-    }
-
-    @Override // androidx.documentfile.provider.DocumentFile
-    public boolean canWrite() {
-        return this.mFile.canWrite();
-    }
-
-    @Override // androidx.documentfile.provider.DocumentFile
-    public boolean delete() {
-        deleteContents(this.mFile);
-        return this.mFile.delete();
-    }
-
-    @Override // androidx.documentfile.provider.DocumentFile
-    public boolean exists() {
-        return this.mFile.exists();
-    }
-
-    @Override // androidx.documentfile.provider.DocumentFile
     public DocumentFile[] listFiles() {
         ArrayList arrayList = new ArrayList();
         File[] listFiles = this.mFile.listFiles();
@@ -129,33 +154,5 @@ class RawDocumentFile extends DocumentFile {
             return true;
         }
         return false;
-    }
-
-    private static String getTypeForName(String str) {
-        int lastIndexOf = str.lastIndexOf(46);
-        if (lastIndexOf >= 0) {
-            String mimeTypeFromExtension = MimeTypeMap.getSingleton().getMimeTypeFromExtension(str.substring(lastIndexOf + 1).toLowerCase());
-            if (mimeTypeFromExtension != null) {
-                return mimeTypeFromExtension;
-            }
-        }
-        return "application/octet-stream";
-    }
-
-    private static boolean deleteContents(File file) {
-        File[] listFiles = file.listFiles();
-        boolean z = true;
-        if (listFiles != null) {
-            for (File file2 : listFiles) {
-                if (file2.isDirectory()) {
-                    z &= deleteContents(file2);
-                }
-                if (!file2.delete()) {
-                    Log.w("DocumentFile", "Failed to delete " + file2);
-                    z = false;
-                }
-            }
-        }
-        return z;
     }
 }

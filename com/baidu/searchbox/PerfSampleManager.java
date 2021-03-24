@@ -1,26 +1,28 @@
 package com.baidu.searchbox;
 
 import android.text.TextUtils;
-import com.baidu.f.a.b;
-import com.baidu.pyramid.a.a;
-import com.baidu.pyramid.a.a.d;
+import com.baidu.pyramid.annotation.Inject;
 import com.baidu.searchbox.anr.ubc.ANRPerfSampleCallback;
 import com.baidu.searchbox.ruka.ubc.LooperPerfSampleCallback;
-import com.baidu.tieba.q.p;
+import d.b.d0.a.a;
+import d.b.d0.a.b.d;
+import d.b.i0.x2.p;
+import d.b.p.b.b;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class PerfSampleManager {
-    private d<IPerfSampleCallback> mCallbackList;
+    @Inject(force = false)
+    public d<IPerfSampleCallback> mCallbackList;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public interface IPerfSampleCallback {
         String getSampleFlag();
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public class IPerfSampleCallback_PerfSampleManager_ListProvider implements a {
-        @Override // com.baidu.pyramid.a.a
+        @Override // d.b.d0.a.a
         public Object get() {
             ArrayList arrayList = new ArrayList();
             arrayList.add(new b());
@@ -31,36 +33,32 @@ public class PerfSampleManager {
         }
     }
 
-    public void initmCallbackList() {
-        this.mCallbackList = com.baidu.pyramid.a.a.b.aeb();
-        this.mCallbackList.b(new IPerfSampleCallback_PerfSampleManager_ListProvider());
-    }
-
     public PerfSampleManager() {
         initmCallbackList();
     }
 
     public String getSampleFlag() {
-        List<IPerfSampleCallback> list;
+        List<IPerfSampleCallback> a2;
+        d<IPerfSampleCallback> dVar = this.mCallbackList;
         String str = 0;
-        if (this.mCallbackList != null && (list = this.mCallbackList.getList()) != null && list.size() != 0) {
-            int i = 0;
-            while (i < list.size()) {
-                String sampleFlag = list.get(i).getSampleFlag();
+        if (dVar != null && (a2 = dVar.a()) != null && a2.size() != 0) {
+            for (int i = 0; i < a2.size(); i++) {
+                String sampleFlag = a2.get(i).getSampleFlag();
                 if (!TextUtils.isEmpty(sampleFlag)) {
-                    if (!TextUtils.isEmpty(str)) {
-                        if (!str.contains(sampleFlag)) {
-                            sampleFlag = str + "," + sampleFlag;
-                        }
+                    if (TextUtils.isEmpty(str)) {
+                        str = sampleFlag;
+                    } else if (!str.contains(sampleFlag)) {
+                        str = str + "," + sampleFlag;
                     }
-                    i++;
-                    str = sampleFlag;
                 }
-                sampleFlag = str;
-                i++;
-                str = sampleFlag;
             }
         }
         return str;
+    }
+
+    public void initmCallbackList() {
+        d.b.d0.a.b.b c2 = d.b.d0.a.b.b.c();
+        this.mCallbackList = c2;
+        c2.b(new IPerfSampleCallback_PerfSampleManager_ListProvider());
     }
 }

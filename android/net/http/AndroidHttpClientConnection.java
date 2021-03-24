@@ -13,8 +13,8 @@ import org.apache.http.HttpRequest;
 import org.apache.http.ParseException;
 import org.apache.http.StatusLine;
 import org.apache.http.params.HttpParams;
-/* loaded from: classes5.dex */
-public class AndroidHttpClientConnection implements HttpConnection, HttpInetConnection {
+/* loaded from: classes.dex */
+public class AndroidHttpClientConnection implements HttpInetConnection, HttpConnection {
     public AndroidHttpClientConnection() {
         throw new RuntimeException("Stub!");
     }
@@ -23,12 +23,16 @@ public class AndroidHttpClientConnection implements HttpConnection, HttpInetConn
         throw new RuntimeException("Stub!");
     }
 
-    public String toString() {
+    @Override // org.apache.http.HttpConnection
+    public void close() throws IOException {
         throw new RuntimeException("Stub!");
     }
 
-    @Override // org.apache.http.HttpConnection
-    public boolean isOpen() {
+    public void doFlush() throws IOException {
+        throw new RuntimeException("Stub!");
+    }
+
+    public void flush() throws IOException {
         throw new RuntimeException("Stub!");
     }
 
@@ -39,6 +43,11 @@ public class AndroidHttpClientConnection implements HttpConnection, HttpInetConn
 
     @Override // org.apache.http.HttpInetConnection
     public int getLocalPort() {
+        throw new RuntimeException("Stub!");
+    }
+
+    @Override // org.apache.http.HttpConnection
+    public HttpConnectionMetrics getMetrics() {
         throw new RuntimeException("Stub!");
     }
 
@@ -53,38 +62,17 @@ public class AndroidHttpClientConnection implements HttpConnection, HttpInetConn
     }
 
     @Override // org.apache.http.HttpConnection
-    public void setSocketTimeout(int i) {
-        throw new RuntimeException("Stub!");
-    }
-
-    @Override // org.apache.http.HttpConnection
     public int getSocketTimeout() {
         throw new RuntimeException("Stub!");
     }
 
     @Override // org.apache.http.HttpConnection
-    public void shutdown() throws IOException {
+    public boolean isOpen() {
         throw new RuntimeException("Stub!");
     }
 
     @Override // org.apache.http.HttpConnection
-    public void close() throws IOException {
-        throw new RuntimeException("Stub!");
-    }
-
-    public void sendRequestHeader(HttpRequest httpRequest) throws HttpException, IOException {
-        throw new RuntimeException("Stub!");
-    }
-
-    public void sendRequestEntity(HttpEntityEnclosingRequest httpEntityEnclosingRequest) throws HttpException, IOException {
-        throw new RuntimeException("Stub!");
-    }
-
-    protected void doFlush() throws IOException {
-        throw new RuntimeException("Stub!");
-    }
-
-    public void flush() throws IOException {
+    public boolean isStale() {
         throw new RuntimeException("Stub!");
     }
 
@@ -96,13 +84,25 @@ public class AndroidHttpClientConnection implements HttpConnection, HttpInetConn
         throw new RuntimeException("Stub!");
     }
 
-    @Override // org.apache.http.HttpConnection
-    public boolean isStale() {
+    public void sendRequestEntity(HttpEntityEnclosingRequest httpEntityEnclosingRequest) throws HttpException, IOException {
+        throw new RuntimeException("Stub!");
+    }
+
+    public void sendRequestHeader(HttpRequest httpRequest) throws HttpException, IOException {
         throw new RuntimeException("Stub!");
     }
 
     @Override // org.apache.http.HttpConnection
-    public HttpConnectionMetrics getMetrics() {
+    public void setSocketTimeout(int i) {
+        throw new RuntimeException("Stub!");
+    }
+
+    @Override // org.apache.http.HttpConnection
+    public void shutdown() throws IOException {
+        throw new RuntimeException("Stub!");
+    }
+
+    public String toString() {
         throw new RuntimeException("Stub!");
     }
 }

@@ -3,55 +3,40 @@ package com.baidu.ar.npc;
 import android.graphics.Bitmap;
 import android.opengl.GLES20;
 import android.opengl.GLUtils;
+import com.baidu.wallet.core.StatusCode;
 import java.nio.Buffer;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class RendererUtils {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final float[] f1275a = {0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f};
-    private static final float[] b = {-1.0f, -1.0f, 1.0f, -1.0f, -1.0f, 1.0f, 1.0f, 1.0f};
+    public static final float[] f4146a = {0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f};
 
-    /* loaded from: classes4.dex */
+    /* renamed from: b  reason: collision with root package name */
+    public static final float[] f4147b = {-1.0f, -1.0f, 1.0f, -1.0f, -1.0f, 1.0f, 1.0f, 1.0f};
+
+    /* loaded from: classes2.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private int f1276a;
-        private int b;
-        private int c;
-        private int d;
-        private FloatBuffer e;
-        private FloatBuffer f;
-    }
+        public int f4148a;
 
-    public static int createTexture() {
-        int[] iArr = new int[1];
-        GLES20.glGenTextures(iArr.length, iArr, 0);
-        return iArr[0];
-    }
+        /* renamed from: b  reason: collision with root package name */
+        public int f4149b;
 
-    public static int createTexture(Bitmap bitmap) {
-        int createTexture = createTexture();
-        GLES20.glBindTexture(3553, createTexture);
-        GLUtils.texImage2D(3553, 0, bitmap, 0);
-        GLES20.glTexParameteri(3553, 10240, 9729);
-        GLES20.glTexParameteri(3553, 10241, 9729);
-        GLES20.glTexParameteri(3553, 10242, 33071);
-        GLES20.glTexParameteri(3553, 10243, 33071);
-        return createTexture;
-    }
+        /* renamed from: c  reason: collision with root package name */
+        public int f4150c;
 
-    public static int createTexture(int i, int i2) {
-        int createTexture = createTexture();
-        GLES20.glBindTexture(3553, createTexture);
-        GLES20.glTexParameteri(3553, 10240, 9729);
-        GLES20.glTexParameteri(3553, 10241, 9729);
-        GLES20.glTexParameteri(3553, 10242, 33071);
-        GLES20.glTexParameteri(3553, 10243, 33071);
-        GLES20.glTexImage2D(3553, 0, 6408, i, i2, 0, 6408, 5121, null);
-        return createTexture;
+        /* renamed from: d  reason: collision with root package name */
+        public int f4151d;
+
+        /* renamed from: e  reason: collision with root package name */
+        public FloatBuffer f4152e;
+
+        /* renamed from: f  reason: collision with root package name */
+        public FloatBuffer f4153f;
     }
 
     public static int createFBO(int i, int i2, int i3, int i4) {
@@ -66,23 +51,6 @@ public class RendererUtils {
         GLES20.glFramebufferRenderbuffer(36160, 36096, 36161, iArr[0]);
         GLES20.glBindFramebuffer(36160, 0);
         return iArr2[0];
-    }
-
-    public static void renderTexture(a aVar, int i, int i2, int i3) {
-        GLES20.glViewport(0, 0, i2, i3);
-        GLES20.glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
-        GLES20.glClear(16384);
-        GLES20.glUseProgram(aVar.f1276a);
-        GLES20.glDisable(2929);
-        GLES20.glDisable(3042);
-        GLES20.glVertexAttribPointer(aVar.c, 2, 5126, false, 0, (Buffer) aVar.e);
-        GLES20.glEnableVertexAttribArray(aVar.c);
-        GLES20.glVertexAttribPointer(aVar.d, 2, 5126, false, 0, (Buffer) aVar.f);
-        GLES20.glEnableVertexAttribArray(aVar.d);
-        GLES20.glActiveTexture(33984);
-        GLES20.glBindTexture(3553, i);
-        GLES20.glUniform1i(aVar.b, 0);
-        GLES20.glDrawArrays(5, 0, 4);
     }
 
     public static a createProgram() {
@@ -105,16 +73,31 @@ public class RendererUtils {
             }
         }
         a aVar = new a();
-        aVar.b = GLES20.glGetUniformLocation(glCreateProgram, "tex_sampler");
-        aVar.c = GLES20.glGetAttribLocation(glCreateProgram, "a_texcoord");
-        aVar.d = GLES20.glGetAttribLocation(glCreateProgram, "a_position");
-        aVar.e = createVerticesBuffer(f1275a);
-        aVar.f = createVerticesBuffer(b);
-        aVar.f1276a = glCreateProgram;
+        aVar.f4149b = GLES20.glGetUniformLocation(glCreateProgram, "tex_sampler");
+        aVar.f4150c = GLES20.glGetAttribLocation(glCreateProgram, "a_texcoord");
+        aVar.f4151d = GLES20.glGetAttribLocation(glCreateProgram, "a_position");
+        aVar.f4152e = createVerticesBuffer(f4146a);
+        aVar.f4153f = createVerticesBuffer(f4147b);
+        aVar.f4148a = glCreateProgram;
         return aVar;
     }
 
-    private static int loadShader(int i, String str) {
+    public static int createTexture() {
+        int[] iArr = new int[1];
+        GLES20.glGenTextures(1, iArr, 0);
+        return iArr[0];
+    }
+
+    public static FloatBuffer createVerticesBuffer(float[] fArr) {
+        if (fArr.length == 8) {
+            FloatBuffer asFloatBuffer = ByteBuffer.allocateDirect(fArr.length * 4).order(ByteOrder.nativeOrder()).asFloatBuffer();
+            asFloatBuffer.put(fArr).position(0);
+            return asFloatBuffer;
+        }
+        throw new RuntimeException("Number of vertices should be four.");
+    }
+
+    public static int loadShader(int i, String str) {
         int glCreateShader = GLES20.glCreateShader(i);
         if (glCreateShader != 0) {
             GLES20.glShaderSource(glCreateShader, str);
@@ -130,12 +113,42 @@ public class RendererUtils {
         return glCreateShader;
     }
 
-    private static FloatBuffer createVerticesBuffer(float[] fArr) {
-        if (fArr.length != 8) {
-            throw new RuntimeException("Number of vertices should be four.");
-        }
-        FloatBuffer asFloatBuffer = ByteBuffer.allocateDirect(fArr.length * 4).order(ByteOrder.nativeOrder()).asFloatBuffer();
-        asFloatBuffer.put(fArr).position(0);
-        return asFloatBuffer;
+    public static void renderTexture(a aVar, int i, int i2, int i3) {
+        GLES20.glViewport(0, 0, i2, i3);
+        GLES20.glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
+        GLES20.glClear(16384);
+        GLES20.glUseProgram(aVar.f4148a);
+        GLES20.glDisable(2929);
+        GLES20.glDisable(3042);
+        GLES20.glVertexAttribPointer(aVar.f4150c, 2, (int) StatusCode.PUBLIC_SECURITY_AUTH_NOT_EXIST, false, 0, (Buffer) aVar.f4152e);
+        GLES20.glEnableVertexAttribArray(aVar.f4150c);
+        GLES20.glVertexAttribPointer(aVar.f4151d, 2, (int) StatusCode.PUBLIC_SECURITY_AUTH_NOT_EXIST, false, 0, (Buffer) aVar.f4153f);
+        GLES20.glEnableVertexAttribArray(aVar.f4151d);
+        GLES20.glActiveTexture(33984);
+        GLES20.glBindTexture(3553, i);
+        GLES20.glUniform1i(aVar.f4149b, 0);
+        GLES20.glDrawArrays(5, 0, 4);
+    }
+
+    public static int createTexture(Bitmap bitmap) {
+        int createTexture = createTexture();
+        GLES20.glBindTexture(3553, createTexture);
+        GLUtils.texImage2D(3553, 0, bitmap, 0);
+        GLES20.glTexParameteri(3553, 10240, 9729);
+        GLES20.glTexParameteri(3553, 10241, 9729);
+        GLES20.glTexParameteri(3553, 10242, 33071);
+        GLES20.glTexParameteri(3553, 10243, 33071);
+        return createTexture;
+    }
+
+    public static int createTexture(int i, int i2) {
+        int createTexture = createTexture();
+        GLES20.glBindTexture(3553, createTexture);
+        GLES20.glTexParameteri(3553, 10240, 9729);
+        GLES20.glTexParameteri(3553, 10241, 9729);
+        GLES20.glTexParameteri(3553, 10242, 33071);
+        GLES20.glTexParameteri(3553, 10243, 33071);
+        GLES20.glTexImage2D(3553, 0, 6408, i, i2, 0, 6408, 5121, null);
+        return createTexture;
     }
 }

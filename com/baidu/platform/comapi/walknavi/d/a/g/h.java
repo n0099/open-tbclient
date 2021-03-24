@@ -4,25 +4,31 @@ import android.app.ActivityManager;
 import android.content.Context;
 import android.os.Environment;
 import android.os.StatFs;
-import com.meizu.cloud.pushsdk.constants.PushConstants;
+import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.searchbox.track.ui.TrackUI;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f2938a = "";
-    public static String b = "";
-    public static String c = "";
+    public static String f10009a = "";
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [222=4] */
+    /* renamed from: b  reason: collision with root package name */
+    public static String f10010b = "";
+
+    /* renamed from: c  reason: collision with root package name */
+    public static String f10011c = "";
+
     public static long a(Context context) {
-        BufferedReader bufferedReader;
         FileReader fileReader;
-        long j = 0;
+        Throwable th;
+        BufferedReader bufferedReader;
+        long j;
+        BufferedReader bufferedReader2 = null;
         try {
             fileReader = new FileReader("/proc/meminfo");
             try {
@@ -30,167 +36,137 @@ public class h {
                 try {
                     String readLine = bufferedReader.readLine();
                     String[] split = readLine.split("\\s+");
-                    int length = split.length;
-                    for (int i = 0; i < length; i++) {
-                        a.a(readLine + ", " + split[i] + "\t");
+                    for (String str : split) {
+                        a.a(readLine + StringUtil.ARRAY_ELEMENT_SEPARATOR + str + TrackUI.SEPERATOR);
                     }
                     j = Integer.parseInt(split[1]);
-                    if (bufferedReader != null) {
+                    try {
+                        bufferedReader.close();
+                    } catch (IOException unused) {
+                    }
+                    try {
+                        fileReader.close();
+                    } catch (IOException unused2) {
+                        return j / 1024;
+                    }
+                } catch (Exception unused3) {
+                    bufferedReader2 = bufferedReader;
+                    if (bufferedReader2 != null) {
                         try {
-                            bufferedReader.close();
-                        } catch (IOException e) {
+                            bufferedReader2.close();
+                        } catch (IOException unused4) {
                         }
                     }
                     if (fileReader != null) {
                         try {
                             fileReader.close();
-                        } catch (IOException e2) {
+                        } catch (IOException unused5) {
                         }
                     }
-                } catch (Exception e3) {
-                    if (bufferedReader != null) {
-                        try {
-                            bufferedReader.close();
-                        } catch (IOException e4) {
-                        }
-                    }
-                    if (fileReader != null) {
-                        try {
-                            fileReader.close();
-                        } catch (IOException e5) {
-                        }
-                    }
+                    j = 0;
                     return j / 1024;
-                } catch (Throwable th) {
-                    th = th;
+                } catch (Throwable th2) {
+                    th = th2;
                     if (bufferedReader != null) {
                         try {
                             bufferedReader.close();
-                        } catch (IOException e6) {
+                        } catch (IOException unused6) {
                         }
                     }
                     if (fileReader != null) {
                         try {
                             fileReader.close();
-                        } catch (IOException e7) {
+                        } catch (IOException unused7) {
                         }
                     }
                     throw th;
                 }
-            } catch (Exception e8) {
-                bufferedReader = null;
-            } catch (Throwable th2) {
-                th = th2;
+            } catch (Exception unused8) {
+            } catch (Throwable th3) {
+                th = th3;
                 bufferedReader = null;
             }
-        } catch (Exception e9) {
-            bufferedReader = null;
+        } catch (Exception unused9) {
             fileReader = null;
-        } catch (Throwable th3) {
-            th = th3;
-            bufferedReader = null;
+        } catch (Throwable th4) {
             fileReader = null;
+            th = th4;
+            bufferedReader = null;
         }
-        return j / 1024;
     }
 
     public static long b(Context context) {
         ActivityManager.MemoryInfo memoryInfo = new ActivityManager.MemoryInfo();
-        ((ActivityManager) context.getSystemService(PushConstants.INTENT_ACTIVITY_NAME)).getMemoryInfo(memoryInfo);
+        ((ActivityManager) context.getSystemService("activity")).getMemoryInfo(memoryInfo);
         return memoryInfo.availMem / 1048576;
     }
 
-    public static long[] a() {
-        StatFs statFs;
-        long blockSize = new StatFs(Environment.getDataDirectory().getPath()).getBlockSize();
-        return new long[]{(statFs.getBlockCount() * blockSize) / 1048576, (statFs.getAvailableBlocks() * blockSize) / 1048576};
-    }
-
-    public static long[] b() {
-        StatFs statFs;
-        long[] jArr = new long[2];
-        if ("mounted".equals(Environment.getExternalStorageState())) {
-            long blockSize = new StatFs(Environment.getExternalStorageDirectory().getPath()).getBlockSize();
-            jArr[0] = (statFs.getBlockCount() * blockSize) / 1048576;
-            jArr[1] = (statFs.getAvailableBlocks() * blockSize) / 1048576;
-        }
-        return jArr;
-    }
-
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [314=4] */
     public static String c() {
-        Throwable th;
         BufferedReader bufferedReader;
+        Throwable th;
         FileReader fileReader;
-        BufferedReader bufferedReader2;
-        String str = null;
         try {
             fileReader = new FileReader("/proc/cpuinfo");
             try {
-                bufferedReader2 = new BufferedReader(fileReader);
-            } catch (Exception e) {
-                bufferedReader2 = null;
-            } catch (Throwable th2) {
-                th = th2;
+                bufferedReader = new BufferedReader(fileReader);
+                try {
+                    String[] split = bufferedReader.readLine().split(":\\s+", 2);
+                    for (int i = 0; i < split.length; i++) {
+                    }
+                    String str = split[1];
+                    try {
+                        bufferedReader.close();
+                    } catch (IOException unused) {
+                    }
+                    try {
+                        fileReader.close();
+                    } catch (IOException unused2) {
+                    }
+                    return str;
+                } catch (Exception unused3) {
+                    if (bufferedReader != null) {
+                        try {
+                            bufferedReader.close();
+                        } catch (IOException unused4) {
+                        }
+                    }
+                    if (fileReader != null) {
+                        try {
+                            fileReader.close();
+                        } catch (IOException unused5) {
+                        }
+                    }
+                    return null;
+                } catch (Throwable th2) {
+                    th = th2;
+                    if (bufferedReader != null) {
+                        try {
+                            bufferedReader.close();
+                        } catch (IOException unused6) {
+                        }
+                    }
+                    if (fileReader != null) {
+                        try {
+                            fileReader.close();
+                        } catch (IOException unused7) {
+                        }
+                    }
+                    throw th;
+                }
+            } catch (Exception unused8) {
                 bufferedReader = null;
+            } catch (Throwable th3) {
+                bufferedReader = null;
+                th = th3;
             }
-        } catch (Exception e2) {
-            bufferedReader2 = null;
+        } catch (Exception unused9) {
             fileReader = null;
-        } catch (Throwable th3) {
-            th = th3;
             bufferedReader = null;
+        } catch (Throwable th4) {
+            bufferedReader = null;
+            th = th4;
             fileReader = null;
         }
-        try {
-            String[] split = bufferedReader2.readLine().split(":\\s+", 2);
-            for (int i = 0; i < split.length; i++) {
-            }
-            str = split[1];
-            if (bufferedReader2 != null) {
-                try {
-                    bufferedReader2.close();
-                } catch (IOException e3) {
-                }
-            }
-            if (fileReader != null) {
-                try {
-                    fileReader.close();
-                } catch (IOException e4) {
-                }
-            }
-        } catch (Exception e5) {
-            if (bufferedReader2 != null) {
-                try {
-                    bufferedReader2.close();
-                } catch (IOException e6) {
-                }
-            }
-            if (fileReader != null) {
-                try {
-                    fileReader.close();
-                } catch (IOException e7) {
-                }
-            }
-            return str;
-        } catch (Throwable th4) {
-            th = th4;
-            bufferedReader = bufferedReader2;
-            if (bufferedReader != null) {
-                try {
-                    bufferedReader.close();
-                } catch (IOException e8) {
-                }
-            }
-            if (fileReader != null) {
-                try {
-                    fileReader.close();
-                } catch (IOException e9) {
-                }
-            }
-            throw th;
-        }
-        return str;
     }
 
     public static int d() {
@@ -198,7 +174,7 @@ public class h {
             File[] listFiles = new File("/sys/devices/system/cpu/").listFiles(new i());
             a.a("CPU Count: " + listFiles.length);
             return listFiles.length;
-        } catch (Exception e) {
+        } catch (Exception unused) {
             a.a("CPU Count: Failed.");
             return 1;
         }
@@ -207,15 +183,15 @@ public class h {
     public static String e() {
         String str;
         byte[] bArr;
-        String str2 = "";
         try {
             InputStream inputStream = new ProcessBuilder("/system/bin/cat", "/sys/devices/system/cpu/cpu0/cpufreq/cpuinfo_min_freq").start().getInputStream();
+            String str2 = "";
             while (inputStream.read(new byte[24]) != -1) {
                 str2 = str2 + new String(bArr);
             }
             inputStream.close();
             str = String.valueOf(Integer.parseInt(str2.trim()) / 1000);
-        } catch (Exception e) {
+        } catch (Exception unused) {
             str = "N/A";
         }
         return str.trim();
@@ -224,87 +200,96 @@ public class h {
     public static String f() {
         String str;
         byte[] bArr;
-        String str2 = "";
         try {
             InputStream inputStream = new ProcessBuilder("/system/bin/cat", "/sys/devices/system/cpu/cpu0/cpufreq/cpuinfo_max_freq").start().getInputStream();
+            String str2 = "";
             while (inputStream.read(new byte[24]) != -1) {
                 str2 = str2 + new String(bArr);
             }
             inputStream.close();
             str = String.valueOf(Integer.parseInt(str2.trim()) / 1000);
-        } catch (Exception e) {
+        } catch (Exception unused) {
             str = "N/A";
         }
         return String.valueOf(str);
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [432=4] */
+    /* JADX WARN: Code restructure failed: missing block: B:29:0x004c, code lost:
+        if (r2 == null) goto L15;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     public static String g() {
-        BufferedReader bufferedReader;
         FileReader fileReader;
         String str = "N/A";
+        BufferedReader bufferedReader = null;
         try {
             fileReader = new FileReader("/sys/devices/system/cpu/cpu0/cpufreq/scaling_cur_freq");
             try {
-                bufferedReader = new BufferedReader(fileReader);
-            } catch (Exception e) {
-                bufferedReader = null;
-            } catch (Throwable th) {
-                th = th;
-                bufferedReader = null;
+                BufferedReader bufferedReader2 = new BufferedReader(fileReader);
+                try {
+                    str = String.valueOf(Integer.parseInt(bufferedReader2.readLine().trim().trim()) / 1000);
+                    try {
+                        bufferedReader2.close();
+                    } catch (IOException unused) {
+                    }
+                } catch (Exception unused2) {
+                    bufferedReader = bufferedReader2;
+                    if (bufferedReader != null) {
+                        try {
+                            bufferedReader.close();
+                        } catch (IOException unused3) {
+                        }
+                    }
+                } catch (Throwable th) {
+                    th = th;
+                    bufferedReader = bufferedReader2;
+                    if (bufferedReader != null) {
+                        try {
+                            bufferedReader.close();
+                        } catch (IOException unused4) {
+                        }
+                    }
+                    if (fileReader != null) {
+                        try {
+                            fileReader.close();
+                        } catch (IOException unused5) {
+                        }
+                    }
+                    throw th;
+                }
+            } catch (Exception unused6) {
+            } catch (Throwable th2) {
+                th = th2;
             }
-        } catch (Exception e2) {
-            bufferedReader = null;
+        } catch (Exception unused7) {
             fileReader = null;
-        } catch (Throwable th2) {
-            th = th2;
-            bufferedReader = null;
+        } catch (Throwable th3) {
+            th = th3;
             fileReader = null;
         }
         try {
-            str = String.valueOf(Integer.parseInt(bufferedReader.readLine().trim().trim()) / 1000);
-            if (bufferedReader != null) {
-                try {
-                    bufferedReader.close();
-                } catch (IOException e3) {
-                }
-            }
-            if (fileReader != null) {
-                try {
-                    fileReader.close();
-                } catch (IOException e4) {
-                }
-            }
-        } catch (Exception e5) {
-            if (bufferedReader != null) {
-                try {
-                    bufferedReader.close();
-                } catch (IOException e6) {
-                }
-            }
-            if (fileReader != null) {
-                try {
-                    fileReader.close();
-                } catch (IOException e7) {
-                }
-            }
+            fileReader.close();
+        } catch (IOException unused8) {
             return str;
-        } catch (Throwable th3) {
-            th = th3;
-            if (bufferedReader != null) {
-                try {
-                    bufferedReader.close();
-                } catch (IOException e8) {
-                }
-            }
-            if (fileReader != null) {
-                try {
-                    fileReader.close();
-                } catch (IOException e9) {
-                }
-            }
-            throw th;
         }
-        return str;
+    }
+
+    public static long[] b() {
+        StatFs statFs;
+        long[] jArr = new long[2];
+        if ("mounted".equals(Environment.getExternalStorageState())) {
+            long blockSize = new StatFs(Environment.getExternalStorageDirectory().getPath()).getBlockSize();
+            jArr[0] = (statFs.getBlockCount() * blockSize) / 1048576;
+            jArr[1] = (blockSize * statFs.getAvailableBlocks()) / 1048576;
+        }
+        return jArr;
+    }
+
+    public static long[] a() {
+        StatFs statFs;
+        long blockSize = new StatFs(Environment.getDataDirectory().getPath()).getBlockSize();
+        return new long[]{(statFs.getBlockCount() * blockSize) / 1048576, (blockSize * statFs.getAvailableBlocks()) / 1048576};
     }
 }

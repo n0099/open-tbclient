@@ -1,7 +1,7 @@
 package com.baidu.platform.comjni.bikenavi;
 
 import android.os.Bundle;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class JNIGuidanceControl {
     public native int CalcRoute(long j, int i, int i2, int i3, byte[] bArr);
 
@@ -55,9 +55,9 @@ public class JNIGuidanceControl {
 
     public native boolean StopRouteGuide(long j);
 
-    public native boolean TriggerGPSDataChange(long j, double d, double d2, float f, float f2, float f3, float f4, String str, String str2, int i, int i2);
+    public native boolean TriggerGPSDataChange(long j, double d2, double d3, float f2, float f3, float f4, float f5, String str, String str2, int i, int i2);
 
-    public native void UpdateSensor(long j, double d, double d2, double d3, double d4, double d5, double d6);
+    public native void UpdateSensor(long j, double d2, double d3, double d4, double d5, double d6, double d7);
 
     public native boolean getCurViaPoiPanoImage(long j, Bundle bundle);
 

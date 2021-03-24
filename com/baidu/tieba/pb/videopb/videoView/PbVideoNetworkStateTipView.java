@@ -4,31 +4,35 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.TextView;
-import com.baidu.adp.lib.util.j;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.au;
 import com.baidu.tieba.R;
 import com.baidu.tieba.play.operableVideoView.OperableVideoNetworkStateTipView;
-import com.baidu.tieba.video.f;
-/* loaded from: classes2.dex */
+import d.b.b.e.p.j;
+import d.b.h0.l.a;
+import d.b.i0.p3.f;
+/* loaded from: classes5.dex */
 public class PbVideoNetworkStateTipView extends OperableVideoNetworkStateTipView {
-    private TextView eCV;
+    public TextView i;
 
     public PbVideoNetworkStateTipView(Context context) {
         super(context);
-        init();
+        c();
     }
 
-    public PbVideoNetworkStateTipView(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        init();
+    private void c() {
+        this.i = (TextView) findViewById(R.id.video_net_tip_duration);
     }
 
-    public PbVideoNetworkStateTipView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        init();
+    @Override // com.baidu.tieba.play.operableVideoView.OperableVideoNetworkStateTipView
+    public void a(boolean z, boolean z2) {
+    }
+
+    @Override // com.baidu.tieba.play.operableVideoView.OperableVideoNetworkStateTipView
+    public boolean d() {
+        return (b() || f.d().e() || TbadkCoreApplication.getInst().getVideoAutoPlayReal() == 2 || !j.x()) ? false : true;
     }
 
     @Override // com.baidu.tieba.play.operableVideoView.OperableVideoNetworkStateTipView
@@ -36,37 +40,37 @@ public class PbVideoNetworkStateTipView extends OperableVideoNetworkStateTipView
         return R.layout.pb_video_network_state_tip;
     }
 
-    private void init() {
-        this.eCV = (TextView) findViewById(R.id.video_net_tip_duration);
+    @Override // com.baidu.tieba.play.operableVideoView.OperableVideoNetworkStateTipView, android.view.View.OnClickListener
+    public void onClick(View view) {
+        if (view == null) {
+            return;
+        }
+        if (view.getId() == R.id.free_flow) {
+            a.u(true, getContext(), getResources().getString(R.string.free_data_privilege), TbConfig.URL_BAIDU_SINGKIL);
+        } else if (view.getId() == R.id.play) {
+            View.OnClickListener onClickListener = this.f20526g;
+            if (onClickListener != null) {
+                onClickListener.onClick(view);
+            }
+            TiebaStatic.log("c12618");
+        }
     }
 
     @Override // com.baidu.tieba.play.operableVideoView.OperableVideoNetworkStateTipView
     public void setVideoDuration(int i) {
-        if (i > 0) {
-            this.eCV.setText(String.format(getResources().getString(R.string.pb_video_duration), au.stringForVideoTime(i * 1000)));
+        if (i <= 0) {
+            return;
         }
+        this.i.setText(String.format(getResources().getString(R.string.pb_video_duration), StringHelper.stringForVideoTime(i * 1000)));
     }
 
-    @Override // com.baidu.tieba.play.operableVideoView.OperableVideoNetworkStateTipView
-    public boolean dvK() {
-        return (hasAgreeToPlay() || f.dSn().dSo() || TbadkCoreApplication.getInst().getVideoAutoPlayReal() == 2 || !j.isMobileNet()) ? false : true;
+    public PbVideoNetworkStateTipView(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        c();
     }
 
-    @Override // com.baidu.tieba.play.operableVideoView.OperableVideoNetworkStateTipView
-    public void au(boolean z, boolean z2) {
-    }
-
-    @Override // com.baidu.tieba.play.operableVideoView.OperableVideoNetworkStateTipView, android.view.View.OnClickListener
-    public void onClick(View view) {
-        if (view != null) {
-            if (view.getId() == R.id.free_flow) {
-                com.baidu.tbadk.browser.a.startWebActivity(true, getContext(), getResources().getString(R.string.free_data_privilege), TbConfig.URL_BAIDU_SINGKIL);
-            } else if (view.getId() == R.id.play) {
-                if (this.mMK != null) {
-                    this.mMK.onClick(view);
-                }
-                TiebaStatic.log("c12618");
-            }
-        }
+    public PbVideoNetworkStateTipView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        c();
     }
 }

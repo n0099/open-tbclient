@@ -4,37 +4,38 @@ import android.content.Context;
 import com.baidu.cyberplayer.sdk.CyberLog;
 import com.baidu.cyberplayer.sdk.loader.CyberClassLoader;
 import com.baidu.media.duplayer.Keep;
-import com.baidu.media.duplayer.b;
-import com.baidu.media.duplayer.e;
+import d.b.w.a.c;
+import d.b.w.a.e;
+import d.b.w.b.a;
 import java.io.File;
 @Keep
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public class CyberMediaExtLoader {
 
     /* renamed from: a  reason: collision with root package name */
-    private static ClassLoader f2310a = null;
+    public static ClassLoader f7974a;
 
-    private static void a(Context context) {
-        CyberLog.i("CyberMediaExtInvoker", "tryLoadExtJar isExtJarLoader = " + a.a());
-        if (context == null || a.a()) {
+    public static void a(Context context) {
+        CyberLog.i("CyberMediaExtInvoker", "tryLoadExtJar isExtJarLoader = " + a.d());
+        if (context == null || a.d()) {
             return;
         }
-        String str = b.c() + File.separator + "libs";
-        File file = new File(e.abA().fA(2048).c());
-        if (file == null || !file.exists()) {
-            CyberLog.e("CyberMediaExtInvoker", "dexFile = null or dexFile not exist!");
+        String str = c.i() + File.separator + "libs";
+        File file = new File(e.b().a(2048).d());
+        if (file.exists()) {
+            f7974a = new CyberClassLoader(file.getAbsolutePath(), new File(str), null, context.getClassLoader());
         } else {
-            f2310a = new CyberClassLoader(file.getAbsolutePath(), new File(str), null, context.getClassLoader());
+            CyberLog.e("CyberMediaExtInvoker", "dexFile = null or dexFile not exist!");
         }
     }
 
     public static synchronized boolean init(Context context) {
-        boolean a2;
+        boolean d2;
         synchronized (CyberMediaExtLoader.class) {
             a(context);
-            a.c(f2310a);
-            a2 = a.a();
+            a.e(f7974a);
+            d2 = a.d();
         }
-        return a2;
+        return d2;
     }
 }

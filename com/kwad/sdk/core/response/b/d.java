@@ -5,7 +5,7 @@ import androidx.annotation.NonNull;
 import com.kwad.sdk.core.response.model.PhotoInfo;
 import com.kwad.sdk.core.response.model.TrendInfo;
 import com.kwad.sdk.utils.ag;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class d {
     public static String A(@NonNull PhotoInfo photoInfo) {
         return photoInfo.tubeEpisode.tubeName;
@@ -21,37 +21,51 @@ public class d {
 
     @NonNull
     public static com.kwad.sdk.core.response.model.c D(@NonNull PhotoInfo photoInfo) {
+        String str;
+        int i;
+        int j;
         boolean z;
-        String d = d(photoInfo);
-        int e = e(photoInfo);
-        int f = f(photoInfo);
-        if (ag.a(d) || ag.b(d) || e == 0 || f == 0) {
-            d = g(photoInfo);
-            e = i(photoInfo);
-            f = j(photoInfo);
+        String d2 = d(photoInfo);
+        int e2 = e(photoInfo);
+        int f2 = f(photoInfo);
+        if (ag.a(d2) || ag.b(d2) || e2 == 0 || f2 == 0) {
+            String g2 = g(photoInfo);
+            str = g2;
+            i = i(photoInfo);
+            j = j(photoInfo);
             z = true;
         } else {
+            str = d2;
+            i = e2;
+            j = f2;
             z = false;
         }
-        com.kwad.sdk.core.d.a.a("PhotoInfoHelper", "frameUrl=" + d + " useCover=" + z + " isAd=false");
-        return new com.kwad.sdk.core.response.model.c(d, e, f, false, z);
+        com.kwad.sdk.core.d.a.a("PhotoInfoHelper", "frameUrl=" + str + " useCover=" + z + " isAd=false");
+        return new com.kwad.sdk.core.response.model.c(str, i, j, false, z);
     }
 
     @NonNull
     public static com.kwad.sdk.core.response.model.c E(@NonNull PhotoInfo photoInfo) {
+        String str;
+        int e2;
+        int j;
         boolean z;
-        String g = g(photoInfo);
+        String g2 = g(photoInfo);
         int i = i(photoInfo);
-        int j = j(photoInfo);
-        if (ag.a(g) || i == 0 || j == 0) {
-            g = d(photoInfo);
-            i = e(photoInfo);
+        int j2 = j(photoInfo);
+        if (ag.a(g2) || i == 0 || j2 == 0) {
+            String d2 = d(photoInfo);
+            str = d2;
+            e2 = e(photoInfo);
             j = j(photoInfo);
             z = false;
         } else {
+            str = g2;
+            e2 = i;
+            j = j2;
             z = true;
         }
-        return new com.kwad.sdk.core.response.model.c(g, i, j, false, z);
+        return new com.kwad.sdk.core.response.model.c(str, e2, j, false, z);
     }
 
     public static boolean F(@NonNull PhotoInfo photoInfo) {

@@ -2,50 +2,44 @@ package com.baidu.platform.comapi.walknavi.fsm;
 
 import android.graphics.Point;
 import com.baidu.mapapi.map.MapStatus;
+import com.baidu.mapapi.map.WinRound;
 import com.baidu.mapapi.model.inner.GeoPoint;
 import com.baidu.platform.comapi.walknavi.b;
 import com.baidu.platform.comapi.walknavi.segmentbrowse.c;
 import com.baidu.platform.comapi.wnplatform.o.e;
-/* loaded from: classes4.dex */
+import com.baidu.tbadk.TbConfig;
+/* loaded from: classes2.dex */
 public class RGStateCar3D extends RGState {
     @Override // com.baidu.platform.comapi.walknavi.fsm.RGState
-    protected void onActionUI() {
-        b.a().Q().l();
-        b.a().Q().c(2130837750);
-        if (com.baidu.platform.comapi.wnplatform.a.a().f()) {
-            if (b.a().J() != 4) {
-                b.a().Q().a(true);
-            }
-        } else if (com.baidu.platform.comapi.wnplatform.a.a().g()) {
-            b.a().Q().a(true);
-        }
+    public void enter() {
+        super.enter();
     }
 
     @Override // com.baidu.platform.comapi.walknavi.fsm.RGState
-    protected void onActionNaviEngine() {
-        if (b.a().J() != 4 && c.s() != com.baidu.platform.comapi.walknavi.segmentbrowse.b.REFRESH_SEGMENTBROWSE && c.s() != com.baidu.platform.comapi.walknavi.segmentbrowse.b.GUIDING_TO_SEGMENTBROWSE) {
-            b.a().D().a(false);
-            if (com.baidu.platform.comapi.wnplatform.a.a().d()) {
-                b.a().D().b(1);
-            } else {
-                b.a().D().b(0);
-            }
-        }
+    public void excute() {
+        super.excute();
     }
 
     @Override // com.baidu.platform.comapi.walknavi.fsm.RGState
-    protected void onActionLayers() {
+    public void exit() {
+        super.exit();
     }
 
     @Override // com.baidu.platform.comapi.walknavi.fsm.RGState
-    protected void onActionMapStatus() {
+    public void onActionLayers() {
+    }
+
+    @Override // com.baidu.platform.comapi.walknavi.fsm.RGState
+    public void onActionMapStatus() {
         b.a().Q().o();
         b.a().G().b(true);
-        GeoPoint e = b.a().D().e();
+        GeoPoint e2 = b.a().D().e();
         MapStatus i = b.a().G().i();
         if (i != null) {
             MapStatus.Builder builder = new MapStatus.Builder(i);
-            builder.targetScreen(new Point((i.winRound.right + i.winRound.left) / 2, ((i.winRound.top + i.winRound.bottom) / 2) - ((int) (0.0f - (Math.abs(i.winRound.bottom - i.winRound.top) * 0.2f)))));
+            WinRound winRound = i.winRound;
+            WinRound winRound2 = i.winRound;
+            builder.targetScreen(new Point((winRound2.right + winRound2.left) / 2, ((winRound2.top + winRound2.bottom) / 2) - ((int) (0.0f - (Math.abs(winRound.bottom - winRound.top) * 0.2f)))));
             builder.rotate(b.a().D().d());
             if (com.baidu.platform.comapi.wnplatform.a.a().f()) {
                 builder.overlook(-50.0f);
@@ -55,23 +49,34 @@ public class RGStateCar3D extends RGState {
             if (i.zoom < 19.0f) {
                 builder.zoom(19.0f);
             }
-            builder.target(e.a(e));
-            b.a().G().a(builder.build(), 1300);
+            builder.target(e.a(e2));
+            b.a().G().a(builder.build(), TbConfig.POST_IMAGE_SMALL);
         }
     }
 
     @Override // com.baidu.platform.comapi.walknavi.fsm.RGState
-    public void excute() {
-        super.excute();
+    public void onActionNaviEngine() {
+        if (b.a().J() == 4 || c.s() == com.baidu.platform.comapi.walknavi.segmentbrowse.b.REFRESH_SEGMENTBROWSE || c.s() == com.baidu.platform.comapi.walknavi.segmentbrowse.b.GUIDING_TO_SEGMENTBROWSE) {
+            return;
+        }
+        b.a().D().a(false);
+        if (com.baidu.platform.comapi.wnplatform.a.a().d()) {
+            b.a().D().b(1);
+        } else {
+            b.a().D().b(0);
+        }
     }
 
     @Override // com.baidu.platform.comapi.walknavi.fsm.RGState
-    public void enter() {
-        super.enter();
-    }
-
-    @Override // com.baidu.platform.comapi.walknavi.fsm.RGState
-    public void exit() {
-        super.exit();
+    public void onActionUI() {
+        b.a().Q().l();
+        b.a().Q().c(2130837750);
+        if (com.baidu.platform.comapi.wnplatform.a.a().f()) {
+            if (b.a().J() != 4) {
+                b.a().Q().a(true);
+            }
+        } else if (com.baidu.platform.comapi.wnplatform.a.a().g()) {
+            b.a().Q().a(true);
+        }
     }
 }

@@ -1,49 +1,49 @@
 package com.baidu.tbadk.switchs;
 
 import com.baidu.adp.lib.featureSwitch.SwitchManager;
-import com.baidu.adp.lib.featureSwitch.a;
-import com.baidu.adp.lib.featureSwitch.b;
-/* loaded from: classes.dex */
+import d.b.b.e.f.a;
+import d.b.b.e.f.b;
+/* loaded from: classes3.dex */
 public class KeepAliveSwitch extends a {
     public static final String KEEP_ALIVE_KEY = "android_new_keep_alive";
     public static final int OFF_TYPE = 0;
     public static final int ON_TYPE = 1;
 
-    @Override // com.baidu.adp.lib.featureSwitch.a
-    protected void addToManager() {
+    @Override // d.b.b.e.f.a
+    public void addToManager() {
         b bVar = new b(this.mName, this.mDefaultType, this.mSwitchListener);
-        bVar.a(this.mMaxCrashTimes, this.mKey, this.mOffType);
-        bVar.g(getSwitchLibs());
-        bVar.aa(true);
+        bVar.i(this.mMaxCrashTimes, this.mKey, this.mOffType);
+        bVar.k(getSwitchLibs());
+        bVar.j(true);
         SwitchManager.getInstance().addSwitchData(bVar);
     }
 
-    @Override // com.baidu.adp.lib.featureSwitch.a
-    protected void changeSettingByType(int i) {
+    @Override // d.b.b.e.f.a
+    public void changeSettingByType(int i) {
     }
 
-    @Override // com.baidu.adp.lib.featureSwitch.a
-    protected String getName() {
-        return KEEP_ALIVE_KEY;
-    }
-
-    @Override // com.baidu.adp.lib.featureSwitch.a
-    protected String[] getCrashKeys() {
+    @Override // d.b.b.e.f.a
+    public String[] getCrashKeys() {
         return null;
     }
 
-    @Override // com.baidu.adp.lib.featureSwitch.a
-    protected int getDefaultType() {
+    @Override // d.b.b.e.f.a
+    public int getDefaultType() {
         return 0;
     }
 
-    @Override // com.baidu.adp.lib.featureSwitch.a
-    protected int getOffType() {
-        return 0;
-    }
-
-    @Override // com.baidu.adp.lib.featureSwitch.a
-    protected int getMaxCrashTimes() {
+    @Override // d.b.b.e.f.a
+    public int getMaxCrashTimes() {
         return 10;
+    }
+
+    @Override // d.b.b.e.f.a
+    public String getName() {
+        return KEEP_ALIVE_KEY;
+    }
+
+    @Override // d.b.b.e.f.a
+    public int getOffType() {
+        return 0;
     }
 }

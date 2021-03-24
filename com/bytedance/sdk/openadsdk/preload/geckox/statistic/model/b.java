@@ -6,27 +6,41 @@ import java.util.Map;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f5102a;
-    public String b;
-    public String c;
-    public String d;
-    public String e;
-    public String f;
-    public int g;
+    public String f30333a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public String f30334b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public String f30335c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public String f30336d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public String f30337e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public String f30338f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public int f30339g;
 
     public static String a(Map<String, String> map) {
-        if (map == null || map.isEmpty()) {
-            return "";
-        }
-        String str = map.get("x-tt-logid");
-        if (TextUtils.isEmpty(str)) {
-            String str2 = map.get("X-Tt-Logid");
-            if (TextUtils.isEmpty(str2)) {
-                String str3 = map.get("X-TT-LOGID");
-                return TextUtils.isEmpty(str3) ? "" : str3;
+        if (map != null && !map.isEmpty()) {
+            String str = map.get("x-tt-logid");
+            if (!TextUtils.isEmpty(str)) {
+                return str;
             }
-            return str2;
+            String str2 = map.get("X-Tt-Logid");
+            if (!TextUtils.isEmpty(str2)) {
+                return str2;
+            }
+            String str3 = map.get("X-TT-LOGID");
+            if (!TextUtils.isEmpty(str3)) {
+                return str3;
+            }
         }
-        return str;
+        return "";
     }
 }

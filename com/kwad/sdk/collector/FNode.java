@@ -11,22 +11,22 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class FNode implements Serializable, Comparable<FNode> {
-    private static final String TAG = "FNode";
-    private static HashSet<String> specialPath = new HashSet<>();
-    private AppStatusHelper.AppRunningInfo appRunningInfo;
-    private NodeFilter externalFilter;
-    private FNode parent;
-    private File realFile;
-    private ArrayList<FNode> children = new ArrayList<>();
-    private HashMap<String, Object> infoMap = new HashMap<>();
-    private FChildNodeInfo nodeInfo = null;
+    public static final String TAG = "FNode";
+    public static HashSet<String> specialPath = new HashSet<>();
+    public AppStatusHelper.AppRunningInfo appRunningInfo;
+    public NodeFilter externalFilter;
+    public FNode parent;
+    public File realFile;
+    public ArrayList<FNode> children = new ArrayList<>();
+    public HashMap<String, Object> infoMap = new HashMap<>();
+    public FChildNodeInfo nodeInfo = null;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class FChildNodeInfo implements Serializable {
-        private static final long serialVersionUID = 1544029961328446275L;
-        private long totalSize;
+        public static final long serialVersionUID = 1544029961328446275L;
+        public long totalSize;
 
         public void add(@NonNull FChildNodeInfo fChildNodeInfo) {
             this.totalSize += fChildNodeInfo.totalSize;
@@ -61,8 +61,9 @@ public class FNode implements Serializable, Comparable<FNode> {
         if (file == null || !file.exists() || file.lastModified() > System.currentTimeMillis() + 300000) {
             return false;
         }
-        if (this.externalFilter != null) {
-            return this.externalFilter.onFilterChild(file);
+        NodeFilter nodeFilter = this.externalFilter;
+        if (nodeFilter != null) {
+            return nodeFilter.onFilterChild(file);
         }
         return true;
     }
@@ -90,7 +91,8 @@ public class FNode implements Serializable, Comparable<FNode> {
     public List<String> dumpNode() {
         ArrayList arrayList = new ArrayList();
         arrayList.add(toString());
-        if (this.children != null && this.children.size() > 0) {
+        ArrayList<FNode> arrayList2 = this.children;
+        if (arrayList2 != null && arrayList2.size() > 0) {
             Iterator<FNode> it = this.children.iterator();
             while (it.hasNext()) {
                 arrayList.addAll(it.next().dumpNode());
@@ -103,7 +105,7 @@ public class FNode implements Serializable, Comparable<FNode> {
         if (this == obj) {
             return true;
         }
-        if (obj == null || getClass() != obj.getClass()) {
+        if (obj == null || FNode.class != obj.getClass()) {
             return false;
         }
         return this.realFile.getAbsolutePath().equals(((FNode) obj).realFile.getAbsolutePath());
@@ -111,11 +113,13 @@ public class FNode implements Serializable, Comparable<FNode> {
 
     @Nullable
     public AppStatusHelper.AppRunningInfo getAppRunningInfo() {
-        if (this.appRunningInfo != null) {
-            return this.appRunningInfo;
+        AppStatusHelper.AppRunningInfo appRunningInfo = this.appRunningInfo;
+        if (appRunningInfo != null) {
+            return appRunningInfo;
         }
-        if (this.parent != null) {
-            return this.parent.getAppRunningInfo();
+        FNode fNode = this.parent;
+        if (fNode != null) {
+            return fNode.getAppRunningInfo();
         }
         return null;
     }
@@ -134,14 +138,16 @@ public class FNode implements Serializable, Comparable<FNode> {
 
     @Nullable
     public String getNodeFileName() {
-        if (this.realFile == null || !this.realFile.exists()) {
+        File file = this.realFile;
+        if (file == null || !file.exists()) {
             return null;
         }
         return this.realFile.getName();
     }
 
     public long getNodeLastModifyTime() {
-        if (this.realFile == null || !this.realFile.exists()) {
+        File file = this.realFile;
+        if (file == null || !file.exists()) {
             return -1L;
         }
         return this.realFile.lastModified();
@@ -149,7 +155,8 @@ public class FNode implements Serializable, Comparable<FNode> {
 
     @Nullable
     public String getNodePath() {
-        if (this.realFile == null || !this.realFile.exists()) {
+        File file = this.realFile;
+        if (file == null || !file.exists()) {
             return null;
         }
         return this.realFile.getAbsolutePath();
@@ -176,21 +183,17 @@ public class FNode implements Serializable, Comparable<FNode> {
         if (fNode == null || (nodePath = fNode.getNodePath()) == null || getNodePath() == null || !nodePath.equals(getNodePath())) {
             return false;
         }
-        if (getNodeLastModifyTime() == fNode.getNodeLastModifyTime()) {
-            return this.children.size() != fNode.children.size();
-        }
-        return true;
+        return (((getNodeLastModifyTime() > fNode.getNodeLastModifyTime() ? 1 : (getNodeLastModifyTime() == fNode.getNodeLastModifyTime() ? 0 : -1)) == 0) && this.children.size() == fNode.children.size()) ? false : true;
     }
 
     public void readNode() {
+        long j;
         FChildNodeInfo fChildNodeInfo = new FChildNodeInfo();
         if (this.realFile.isFile()) {
-            fChildNodeInfo.setTotalSize(this.realFile.length());
+            j = this.realFile.length();
         } else {
             File[] listFiles = this.realFile.listFiles();
-            if (listFiles == null) {
-                fChildNodeInfo.setTotalSize(0L);
-            } else {
+            if (listFiles != null) {
                 for (File file : listFiles) {
                     if (onFilterChild(file)) {
                         FNode fNode = new FNode(this, file);
@@ -200,15 +203,19 @@ public class FNode implements Serializable, Comparable<FNode> {
                         if (fNodeInfo != null) {
                             fChildNodeInfo.add(fNodeInfo);
                         }
-                        if (this.externalFilter != null) {
-                            this.externalFilter.onChildNodeCreate(fNode);
+                        NodeFilter nodeFilter = this.externalFilter;
+                        if (nodeFilter != null) {
+                            nodeFilter.onChildNodeCreate(fNode);
                         }
                         this.children.add(fNode);
                     }
                 }
                 sortChildren(this.children);
+                this.nodeInfo = fChildNodeInfo;
             }
+            j = 0;
         }
+        fChildNodeInfo.setTotalSize(j);
         this.nodeInfo = fChildNodeInfo;
     }
 

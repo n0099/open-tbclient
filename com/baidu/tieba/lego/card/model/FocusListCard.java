@@ -1,39 +1,52 @@
 package com.baidu.tieba.lego.card.model;
 
 import com.baidu.tieba.lego.card.exception.CardParseException;
+import d.b.i0.i1.o.k.b;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes4.dex */
 public class FocusListCard extends BaseCardInfo {
-    private static final int MIN_FOCUS_ITEMS = 3;
-    private final int bgColor;
-    private final int bgColorNight;
-    private final List<a> focusItemList;
-    private final int titleColor;
-    private final int titleColorNight;
+    public static final int MIN_FOCUS_ITEMS = 3;
+    public final int bgColor;
+    public final int bgColorNight;
+    public final List<a> focusItemList;
+    public final int titleColor;
+    public final int titleColorNight;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes4.dex */
     public static class a {
-        public String ldX;
-        public int ldY;
-        public int ldZ;
-        public long lea;
-        public String scheme;
-        public String statistics;
-        public String subtitle;
-        public String title;
+
+        /* renamed from: a  reason: collision with root package name */
+        public String f18597a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public String f18598b;
+
+        /* renamed from: c  reason: collision with root package name */
+        public String f18599c;
+
+        /* renamed from: d  reason: collision with root package name */
+        public int f18600d;
+
+        /* renamed from: e  reason: collision with root package name */
+        public int f18601e;
+
+        /* renamed from: f  reason: collision with root package name */
+        public String f18602f;
+
+        /* renamed from: g  reason: collision with root package name */
+        public long f18603g;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public FocusListCard(JSONObject jSONObject) throws CardParseException {
         super(jSONObject);
         JSONArray optJSONArray;
-        this.titleColor = com.baidu.tieba.lego.card.c.b.rT(jSONObject.optString("titleColor", ""));
-        this.titleColorNight = com.baidu.tieba.lego.card.c.b.rT(jSONObject.optString("titleColorNight", ""));
-        this.bgColor = com.baidu.tieba.lego.card.c.b.rT(jSONObject.optString("bgColor", ""));
-        this.bgColorNight = com.baidu.tieba.lego.card.c.b.rT(jSONObject.optString("bgColorNight", ""));
+        this.titleColor = b.b(jSONObject.optString("titleColor", ""));
+        this.titleColorNight = b.b(jSONObject.optString("titleColorNight", ""));
+        this.bgColor = b.b(jSONObject.optString("bgColor", ""));
+        this.bgColorNight = b.b(jSONObject.optString("bgColorNight", ""));
         JSONArray optJSONArray2 = jSONObject.optJSONArray("itemList");
         int length = optJSONArray2 == null ? 0 : optJSONArray2.length();
         this.focusItemList = new ArrayList(length);
@@ -43,32 +56,23 @@ public class FocusListCard extends BaseCardInfo {
                 a aVar = new a();
                 try {
                     if (optJSONArray.length() > 0) {
-                        aVar.title = optJSONArray.getString(0);
+                        aVar.f18597a = optJSONArray.getString(0);
                     }
                     if (optJSONArray.length() > 1) {
-                        aVar.subtitle = optJSONArray.getString(1);
+                        aVar.f18598b = optJSONArray.getString(1);
                     }
                     if (optJSONArray.length() > 2) {
-                        aVar.ldX = optJSONArray.getString(2);
+                        aVar.f18599c = optJSONArray.getString(2);
                     }
-                    aVar.ldY = com.baidu.tieba.lego.card.c.b.rT(optJSONObject.optString("focusColor", ""));
-                    aVar.ldZ = com.baidu.tieba.lego.card.c.b.rT(optJSONObject.optString("focusColorNight", ""));
-                    aVar.scheme = optJSONObject.optString("scheme");
-                    aVar.lea = optJSONObject.optLong("resourceId");
-                    aVar.statistics = this.statistics;
+                    aVar.f18600d = b.b(optJSONObject.optString("focusColor", ""));
+                    aVar.f18601e = b.b(optJSONObject.optString("focusColorNight", ""));
+                    aVar.f18602f = optJSONObject.optString("scheme");
+                    aVar.f18603g = optJSONObject.optLong("resourceId");
                     this.focusItemList.add(aVar);
-                } catch (Exception e) {
+                } catch (Exception unused) {
                 }
             }
         }
-    }
-
-    public int getTitleColor() {
-        return this.titleColor;
-    }
-
-    public int getTitleColorNight() {
-        return this.titleColorNight;
     }
 
     public int getBgColor() {
@@ -81,6 +85,14 @@ public class FocusListCard extends BaseCardInfo {
 
     public List<a> getFocusItemList() {
         return this.focusItemList;
+    }
+
+    public int getTitleColor() {
+        return this.titleColor;
+    }
+
+    public int getTitleColorNight() {
+        return this.titleColorNight;
     }
 
     @Override // com.baidu.tieba.lego.card.model.BaseLegoCardInfo, com.baidu.tieba.lego.card.model.ICardInfo

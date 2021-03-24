@@ -1,21 +1,12 @@
 package com.baidu.tieba.route;
 
-import com.baidu.adp.framework.a.d;
+import com.baidu.adp.framework.cmdRouter.ICmdRouter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes2.dex */
-public final class EnterForumDelegateStaticAutoGenerateUrlCollectorImpl implements d {
-    @Override // com.baidu.adp.framework.a.d
-    public Map<String, ArrayList<String>> getConfigRouterMap() {
-        HashMap hashMap = new HashMap();
-        ArrayList arrayList = new ArrayList();
-        arrayList.add("ForumTestActivityConfig");
-        hashMap.put("com.baidu.tieba.enterForum.home.EnterForumDelegateStatic", arrayList);
-        return hashMap;
-    }
-
-    @Override // com.baidu.adp.framework.a.d
+/* loaded from: classes5.dex */
+public final class EnterForumDelegateStaticAutoGenerateUrlCollectorImpl implements ICmdRouter {
+    @Override // com.baidu.adp.framework.cmdRouter.ICmdRouter
     public Map<String, String> getCmdRouterMap() {
         HashMap hashMap = new HashMap();
         new ArrayList();
@@ -25,6 +16,15 @@ public final class EnterForumDelegateStaticAutoGenerateUrlCollectorImpl implemen
         hashMap.put("2001323", "com.baidu.tieba.enterForum.home.EnterForumDelegateStatic");
         hashMap.put("2016562", "com.baidu.tieba.enterForum.home.EnterForumDelegateStatic");
         hashMap.put("2016562", "com.baidu.tieba.enterForum.home.EnterForumDelegateStatic");
+        return hashMap;
+    }
+
+    @Override // com.baidu.adp.framework.cmdRouter.ICmdRouter
+    public Map<String, ArrayList<String>> getConfigRouterMap() {
+        HashMap hashMap = new HashMap();
+        ArrayList arrayList = new ArrayList();
+        arrayList.add("ForumTestActivityConfig");
+        hashMap.put("com.baidu.tieba.enterForum.home.EnterForumDelegateStatic", arrayList);
         return hashMap;
     }
 }

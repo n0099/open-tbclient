@@ -2,21 +2,21 @@ package com.baidu.mapapi.search.core;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.mapapi.model.LatLng;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class PoiChildrenInfo implements Parcelable {
     public static final Parcelable.Creator<PoiChildrenInfo> CREATOR = new e();
-    private String address;
-    private LatLng location;
-    private String name;
-    private String showName;
-    private String tag;
-    private String uid;
+    public String address;
+    public LatLng location;
+    public String name;
+    public String showName;
+    public String tag;
+    public String uid;
 
     public PoiChildrenInfo() {
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     public PoiChildrenInfo(Parcel parcel) {
         this.uid = parcel.readString();
         this.name = parcel.readString();
@@ -81,17 +81,19 @@ public class PoiChildrenInfo implements Parcelable {
 
     public String toString() {
         StringBuffer stringBuffer = new StringBuffer("PoiChildrenInfo: ");
-        stringBuffer.append("uid = ").append(this.uid);
-        stringBuffer.append("; name = ").append(this.name);
-        stringBuffer.append("; showName = ").append(this.showName);
-        stringBuffer.append("; tag = ").append(this.tag);
+        stringBuffer.append("uid = ");
+        stringBuffer.append(this.uid);
+        stringBuffer.append("; name = ");
+        stringBuffer.append(this.name);
+        stringBuffer.append("; showName = ");
+        stringBuffer.append(this.showName);
+        stringBuffer.append("; tag = ");
+        stringBuffer.append(this.tag);
         stringBuffer.append("; location = ");
-        if (this.location != null) {
-            stringBuffer.append(this.location.toString());
-        } else {
-            stringBuffer.append("null");
-        }
-        stringBuffer.append("; address = ").append(this.address);
+        LatLng latLng = this.location;
+        stringBuffer.append(latLng != null ? latLng.toString() : StringUtil.NULL_STRING);
+        stringBuffer.append("; address = ");
+        stringBuffer.append(this.address);
         return stringBuffer.toString();
     }
 

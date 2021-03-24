@@ -9,30 +9,43 @@ import com.baidu.searchbox.logsystem.basic.upload.LokiRuntime;
 import com.baidu.util.Base64Encoder;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public final class LokiIdentityManager {
-    private static final String PARAM_APP_NAME = "appname";
-    private static final String PARAM_BDVC = "bdvc";
-    private static final String PARAM_C3AID = "c3_aid";
-    private static final String PARAM_CFROM = "cfrom";
-    private static final String PARAM_FROM = "from";
-    private static final String PARAM_SCHEME_HEADER = "scheme";
-    private static final String PARAM_SID = "sid";
-    private static final String PARAM_UA = "ua";
-    private static final String PARAM_UID = "uid";
-    private static final String PARAM_UT = "ut";
-    private static final String PARAM_ZID = "zid";
-    private static volatile LokiIdentityManager sLokiIdentityManager;
-    private volatile String mC3Aid = null;
-    private Context mContext;
-    private DeviceInfoParam mDeviceInfoParam;
-    private String mEnUid;
-    private NetworkParam mNetworkParam;
-    private UaParam mUaParam;
-    private String mUid;
+    public static final String PARAM_APP_NAME = "appname";
+    public static final String PARAM_BDVC = "bdvc";
+    public static final String PARAM_C3AID = "c3_aid";
+    public static final String PARAM_CFROM = "cfrom";
+    public static final String PARAM_FROM = "from";
+    public static final String PARAM_SCHEME_HEADER = "scheme";
+    public static final String PARAM_SID = "sid";
+    public static final String PARAM_UA = "ua";
+    public static final String PARAM_UID = "uid";
+    public static final String PARAM_UT = "ut";
+    public static final String PARAM_ZID = "zid";
+    public static volatile LokiIdentityManager sLokiIdentityManager;
+    public volatile String mC3Aid = null;
+    public Context mContext;
+    public DeviceInfoParam mDeviceInfoParam;
+    public String mEnUid;
+    public NetworkParam mNetworkParam;
+    public UaParam mUaParam;
+    public String mUid;
 
-    private LokiIdentityManager() {
+    public LokiIdentityManager() {
         init();
+    }
+
+    private String addParam(String str, String str2, String str3) {
+        return !TextUtils.isEmpty(str3) ? UrlUtil.addParam(str, str2, getEncodeValue(str3)) : str;
+    }
+
+    public static String getEncodeValue(String str) {
+        try {
+            return URLEncoder.encode(str, "utf-8");
+        } catch (UnsupportedEncodingException e2) {
+            e2.printStackTrace();
+            return str;
+        }
     }
 
     public static LokiIdentityManager getInstance() {
@@ -46,30 +59,21 @@ public final class LokiIdentityManager {
         return sLokiIdentityManager;
     }
 
-    public static String getEncodeValue(String str) {
-        try {
-            return URLEncoder.encode(str, "utf-8");
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-            return str;
-        }
-    }
-
     private void init() {
         this.mContext = AppRuntime.getAppContext();
         this.mNetworkParam = new NetworkParam();
         this.mDeviceInfoParam = new DeviceInfoParam();
         this.mUaParam = new UaParam();
-        this.mUid = DeviceId.getCUID(this.mContext);
-        if (!TextUtils.isEmpty(this.mUid)) {
-            this.mEnUid = new String(Base64Encoder.B64Encode(this.mUid.getBytes()));
+        String cuid = DeviceId.getCUID(this.mContext);
+        this.mUid = cuid;
+        if (TextUtils.isEmpty(cuid)) {
+            return;
         }
+        this.mEnUid = new String(Base64Encoder.B64Encode(this.mUid.getBytes()));
     }
 
     public String processUrl(String str) {
-        String ua = this.mUaParam.getUA();
-        String deviceInfo = this.mDeviceInfoParam.getDeviceInfo();
-        String addParam = addParam(addParam(addParam(addParam(this.mNetworkParam.addNetWorkParam(str, true), PARAM_UT, deviceInfo), "ua", ua), "uid", this.mEnUid), PARAM_APP_NAME, LokiRuntime.getIdentityNeedContext().getAppName());
+        String addParam = addParam(addParam(addParam(addParam(this.mNetworkParam.addNetWorkParam(str, true), "ut", this.mDeviceInfoParam.getDeviceInfo()), "ua", this.mUaParam.getUA()), "uid", this.mEnUid), "appname", LokiRuntime.getIdentityNeedContext().getAppName());
         ILokiIdentityContext identityContext = LokiRuntime.getIdentityContext();
         String zid = identityContext.getZid();
         String sid = identityContext.getSid();
@@ -82,20 +86,10 @@ public final class LokiIdentityManager {
         if (TextUtils.isEmpty(cfrom)) {
             cfrom = ChannelManager.getInstance().getLastChannel();
         }
-        String addParam2 = addParam(addParam(addParam(addParam(addParam(addParam(addParam, PARAM_BDVC, identityContext.getBDVCInfo()), "sid", sid), PARAM_ZID, zid), "cfrom", cfrom), "from", from), PARAM_SCHEME_HEADER, schemeHeader);
+        String addParam2 = addParam(addParam(addParam(addParam(addParam(addParam(addParam, "bdvc", identityContext.getBDVCInfo()), "sid", sid), "zid", zid), "cfrom", cfrom), "from", from), "scheme", schemeHeader);
         if (TextUtils.isEmpty(this.mC3Aid)) {
             this.mC3Aid = identityContext.getC3Aid();
         }
-        if (!TextUtils.isEmpty(this.mC3Aid)) {
-            return addParam(addParam2, PARAM_C3AID, this.mC3Aid);
-        }
-        return addParam2;
-    }
-
-    private String addParam(String str, String str2, String str3) {
-        if (!TextUtils.isEmpty(str3)) {
-            return UrlUtil.addParam(str, str2, getEncodeValue(str3));
-        }
-        return str;
+        return !TextUtils.isEmpty(this.mC3Aid) ? addParam(addParam2, "c3_aid", this.mC3Aid) : addParam2;
     }
 }

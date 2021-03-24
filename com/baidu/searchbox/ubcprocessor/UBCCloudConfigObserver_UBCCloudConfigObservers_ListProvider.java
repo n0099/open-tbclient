@@ -1,10 +1,10 @@
 package com.baidu.searchbox.ubcprocessor;
 
-import com.baidu.pyramid.a.a;
+import d.b.d0.a.a;
 import java.util.ArrayList;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class UBCCloudConfigObserver_UBCCloudConfigObservers_ListProvider implements a {
-    @Override // com.baidu.pyramid.a.a
+    @Override // d.b.d0.a.a
     public Object get() {
         return new ArrayList();
     }

@@ -8,7 +8,7 @@ import java.lang.annotation.Target;
 @Target({ElementType.FIELD})
 @Documented
 @Retention(RetentionPolicy.RUNTIME)
-/* loaded from: classes6.dex */
+/* loaded from: classes.dex */
 public @interface a {
     boolean a() default true;
 

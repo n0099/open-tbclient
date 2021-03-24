@@ -4,29 +4,32 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
-import com.baidu.tieba.ad.download.d;
-/* loaded from: classes.dex */
+import com.baidu.tbadk.commonReceiver.PackageChangedReceiver;
+import d.b.i0.o.c.d;
+/* loaded from: classes4.dex */
 public class AppNotificationReceiver extends BroadcastReceiver {
-    @Override // android.content.BroadcastReceiver
-    public void onReceive(Context context, Intent intent) {
-        String extractPackageName;
-        if (intent != null) {
-            if ("android.intent.action.PACKAGE_ADDED".equals(intent.getAction())) {
-                String extractPackageName2 = extractPackageName(intent);
-                if (extractPackageName2 != null) {
-                    d.bLC().aK(context, extractPackageName2);
-                }
-            } else if ("android.intent.action.PACKAGE_REMOVED".equals(intent.getAction()) && (extractPackageName = extractPackageName(intent)) != null) {
-                d.bLC().aM(context, extractPackageName);
-            }
-        }
-    }
-
     private String extractPackageName(Intent intent) {
         Uri data;
         if (intent == null || (data = intent.getData()) == null) {
             return null;
         }
         return data.getEncodedSchemeSpecificPart();
+    }
+
+    @Override // android.content.BroadcastReceiver
+    public void onReceive(Context context, Intent intent) {
+        String extractPackageName;
+        if (intent == null) {
+            return;
+        }
+        if (PackageChangedReceiver.ACTION_INSTALL.equals(intent.getAction())) {
+            String extractPackageName2 = extractPackageName(intent);
+            if (extractPackageName2 != null) {
+                d.c().d(context, extractPackageName2);
+            }
+        } else if (!PackageChangedReceiver.ACTION_UNINSTALL.equals(intent.getAction()) || (extractPackageName = extractPackageName(intent)) == null) {
+        } else {
+            d.c().p(context, extractPackageName);
+        }
     }
 }

@@ -6,32 +6,32 @@ import com.fun.ad.sdk.FunAdSdk;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
-/* loaded from: classes4.dex */
+/* loaded from: classes.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final SharedPreferences f1006a = FunAdSdk.getAppContext().getSharedPreferences("fun_ad_sdk", 0);
+    public static final SharedPreferences f1359a = FunAdSdk.getAppContext().getSharedPreferences("fun_ad_sdk", 0);
 
     public static int a(String str) {
-        return f1006a.getInt("key_sid_c_pre_" + str, 0);
+        return f1359a.getInt("key_sid_c_pre_" + str, 0);
     }
 
-    public static void a(long j, int i, int i2, a.a.a.a.a.a aVar) {
+    public static void a(long j, int i, int i2, a.a.a.a.s.a aVar) {
         byte[] bArr;
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         try {
             ObjectOutputStream objectOutputStream = new ObjectOutputStream(byteArrayOutputStream);
-            objectOutputStream.writeInt(aVar.f952a);
+            objectOutputStream.writeInt(aVar.f1340a);
             aVar.a(objectOutputStream);
             objectOutputStream.flush();
             bArr = byteArrayOutputStream.toByteArray();
-        } catch (IOException e) {
+        } catch (IOException unused) {
             bArr = null;
         }
         String encodeToString = bArr != null ? Base64.encodeToString(bArr, 0) : null;
         Object[] objArr = new Object[1];
         objArr[0] = Integer.valueOf(encodeToString == null ? -1 : encodeToString.length());
         d.c("sspsUTF len:%d", objArr);
-        f1006a.edit().putLong("key_config_v", j).putInt("key_config_interval", i).putInt("key_V", i2).putString("key_adcfg", encodeToString).apply();
+        f1359a.edit().putLong("key_config_v", j).putInt("key_config_interval", i).putInt("key_V", i2).putString("key_adcfg", encodeToString).apply();
     }
 }

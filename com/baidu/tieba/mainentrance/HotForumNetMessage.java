@@ -1,25 +1,25 @@
 package com.baidu.tieba.mainentrance;
 
 import com.baidu.adp.framework.message.NetMessage;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
-import com.baidu.tbadk.util.v;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import d.b.h0.z0.w;
 import tbclient.HotForum.DataReq;
 import tbclient.HotForum.HotForumReqIdl;
-/* loaded from: classes7.dex */
+/* loaded from: classes3.dex */
 public class HotForumNetMessage extends NetMessage {
-    private int lyo;
+    public int lyo;
 
     public HotForumNetMessage() {
-        super(1001534, CmdConfigSocket.CMD_GET_HOTFORUM);
+        super(CmdConfigHttp.CMD_HTTP_GET_HOTFORUM, 303116);
         this.lyo = 0;
     }
 
     @Override // com.baidu.adp.framework.message.NetMessage
-    protected Object encode(boolean z) {
+    public Object encode(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
         builder.lyo = Integer.valueOf(this.lyo);
         if (z) {
-            v.b(builder, true);
+            w.a(builder, true);
         }
         HotForumReqIdl.Builder builder2 = new HotForumReqIdl.Builder();
         builder2.data = builder.build(false);

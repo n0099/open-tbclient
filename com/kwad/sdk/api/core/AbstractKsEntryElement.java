@@ -8,7 +8,7 @@ import com.kwad.sdk.api.KsEntryElement;
 import com.kwad.sdk.api.loader.Wrapper;
 @KsAdSdkDynamicApi
 @Keep
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public abstract class AbstractKsEntryElement implements KsEntryElement {
     @Override // com.kwad.sdk.api.KsEntryElement
     @Nullable
@@ -21,5 +21,5 @@ public abstract class AbstractKsEntryElement implements KsEntryElement {
     @Nullable
     @KsAdSdkDynamicApi
     @Keep
-    protected abstract View getEntryView2(Context context, KsEntryElement.OnFeedClickListener onFeedClickListener);
+    public abstract View getEntryView2(Context context, KsEntryElement.OnFeedClickListener onFeedClickListener);
 }

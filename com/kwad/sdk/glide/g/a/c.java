@@ -1,33 +1,33 @@
 package com.kwad.sdk.glide.g.a;
 
 import androidx.annotation.NonNull;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public abstract class c {
 
-    /* loaded from: classes3.dex */
-    private static class a extends c {
+    /* loaded from: classes6.dex */
+    public static class a extends c {
 
         /* renamed from: a  reason: collision with root package name */
-        private volatile boolean f6627a;
+        public volatile boolean f35209a;
 
-        a() {
+        public a() {
             super();
         }
 
         @Override // com.kwad.sdk.glide.g.a.c
         public void a(boolean z) {
-            this.f6627a = z;
+            this.f35209a = z;
         }
 
         @Override // com.kwad.sdk.glide.g.a.c
         public void b() {
-            if (this.f6627a) {
+            if (this.f35209a) {
                 throw new IllegalStateException("Already released");
             }
         }
     }
 
-    private c() {
+    public c() {
     }
 
     @NonNull
@@ -35,7 +35,6 @@ public abstract class c {
         return new a();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public abstract void a(boolean z);
 
     public abstract void b();

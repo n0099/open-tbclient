@@ -5,42 +5,12 @@ import org.apache.http.HeaderIterator;
 import org.apache.http.HttpMessage;
 import org.apache.http.params.HttpParams;
 @Deprecated
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public abstract class AbstractHttpMessage implements HttpMessage {
-    protected HeaderGroup headergroup;
-    protected HttpParams params;
+    public HeaderGroup headergroup;
+    public HttpParams params;
 
-    protected AbstractHttpMessage(HttpParams httpParams) {
-        throw new RuntimeException("Stub!");
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public AbstractHttpMessage() {
-        throw new RuntimeException("Stub!");
-    }
-
-    @Override // org.apache.http.HttpMessage
-    public boolean containsHeader(String str) {
-        throw new RuntimeException("Stub!");
-    }
-
-    @Override // org.apache.http.HttpMessage
-    public Header[] getHeaders(String str) {
-        throw new RuntimeException("Stub!");
-    }
-
-    @Override // org.apache.http.HttpMessage
-    public Header getFirstHeader(String str) {
-        throw new RuntimeException("Stub!");
-    }
-
-    @Override // org.apache.http.HttpMessage
-    public Header getLastHeader(String str) {
-        throw new RuntimeException("Stub!");
-    }
-
-    @Override // org.apache.http.HttpMessage
-    public Header[] getAllHeaders() {
+    public AbstractHttpMessage(HttpParams httpParams) {
         throw new RuntimeException("Stub!");
     }
 
@@ -50,22 +20,37 @@ public abstract class AbstractHttpMessage implements HttpMessage {
     }
 
     @Override // org.apache.http.HttpMessage
-    public void addHeader(String str, String str2) {
+    public boolean containsHeader(String str) {
         throw new RuntimeException("Stub!");
     }
 
     @Override // org.apache.http.HttpMessage
-    public void setHeader(Header header) {
+    public Header[] getAllHeaders() {
         throw new RuntimeException("Stub!");
     }
 
     @Override // org.apache.http.HttpMessage
-    public void setHeader(String str, String str2) {
+    public Header getFirstHeader(String str) {
         throw new RuntimeException("Stub!");
     }
 
     @Override // org.apache.http.HttpMessage
-    public void setHeaders(Header[] headerArr) {
+    public Header[] getHeaders(String str) {
+        throw new RuntimeException("Stub!");
+    }
+
+    @Override // org.apache.http.HttpMessage
+    public Header getLastHeader(String str) {
+        throw new RuntimeException("Stub!");
+    }
+
+    @Override // org.apache.http.HttpMessage
+    public HttpParams getParams() {
+        throw new RuntimeException("Stub!");
+    }
+
+    @Override // org.apache.http.HttpMessage
+    public HeaderIterator headerIterator() {
         throw new RuntimeException("Stub!");
     }
 
@@ -80,7 +65,26 @@ public abstract class AbstractHttpMessage implements HttpMessage {
     }
 
     @Override // org.apache.http.HttpMessage
-    public HeaderIterator headerIterator() {
+    public void setHeader(Header header) {
+        throw new RuntimeException("Stub!");
+    }
+
+    @Override // org.apache.http.HttpMessage
+    public void setHeaders(Header[] headerArr) {
+        throw new RuntimeException("Stub!");
+    }
+
+    @Override // org.apache.http.HttpMessage
+    public void setParams(HttpParams httpParams) {
+        throw new RuntimeException("Stub!");
+    }
+
+    public AbstractHttpMessage() {
+        throw new RuntimeException("Stub!");
+    }
+
+    @Override // org.apache.http.HttpMessage
+    public void addHeader(String str, String str2) {
         throw new RuntimeException("Stub!");
     }
 
@@ -90,12 +94,7 @@ public abstract class AbstractHttpMessage implements HttpMessage {
     }
 
     @Override // org.apache.http.HttpMessage
-    public HttpParams getParams() {
-        throw new RuntimeException("Stub!");
-    }
-
-    @Override // org.apache.http.HttpMessage
-    public void setParams(HttpParams httpParams) {
+    public void setHeader(String str, String str2) {
         throw new RuntimeException("Stub!");
     }
 }

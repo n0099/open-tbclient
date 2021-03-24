@@ -2,15 +2,14 @@ package com.baidu.mobads.f;
 
 import android.util.Log;
 import java.lang.Thread;
-/* loaded from: classes4.dex */
-class g implements Thread.UncaughtExceptionHandler {
+/* loaded from: classes2.dex */
+public class g implements Thread.UncaughtExceptionHandler {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ f f2383a;
+    public final /* synthetic */ f f8245a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public g(f fVar) {
-        this.f2383a = fVar;
+        this.f8245a = fVar;
     }
 
     @Override // java.lang.Thread.UncaughtExceptionHandler

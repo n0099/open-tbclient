@@ -3,16 +3,14 @@ package com.baidu.fsg.base.widget;
 import android.view.MotionEvent;
 import android.view.View;
 import com.baidu.fsg.base.utils.support.ViewHelper;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public class a implements View.OnTouchListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ BdActionBar f1587a;
+    public final /* synthetic */ BdActionBar f5507a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public a(BdActionBar bdActionBar) {
-        this.f1587a = bdActionBar;
+        this.f5507a = bdActionBar;
     }
 
     @Override // android.view.View.OnTouchListener
@@ -20,11 +18,11 @@ public class a implements View.OnTouchListener {
         View view2;
         View view3;
         if (motionEvent.getAction() == 0 || motionEvent.getAction() == 2) {
-            view2 = this.f1587a.c;
+            view2 = this.f5507a.f5465c;
             ViewHelper.setAlpha(view2, 0.5f);
             return false;
         }
-        view3 = this.f1587a.c;
+        view3 = this.f5507a.f5465c;
         ViewHelper.setAlpha(view3, 1.0f);
         return false;
     }

@@ -1,156 +1,234 @@
 package com.xiaomi.push;
 
-import android.content.Context;
-import android.content.pm.PackageInfo;
-import android.content.pm.ServiceInfo;
-import android.os.Build;
-import com.xiaomi.push.service.XMJobService;
-/* loaded from: classes5.dex */
-public final class fc {
+import android.text.TextUtils;
+import com.xiaomi.push.du;
+import java.io.BufferedInputStream;
+import java.io.EOFException;
+import java.io.IOException;
+import java.io.InputStream;
+import java.nio.ByteBuffer;
+import java.util.zip.Adler32;
+/* loaded from: classes7.dex */
+public class fc {
 
     /* renamed from: a  reason: collision with other field name */
-    private static a f312a;
+    public fh f362a;
 
     /* renamed from: a  reason: collision with other field name */
-    private static final String f313a = XMJobService.class.getCanonicalName();
+    public InputStream f363a;
+
+    /* renamed from: a  reason: collision with other field name */
+    public volatile boolean f366a;
+
+    /* renamed from: a  reason: collision with other field name */
+    public byte[] f367a;
+
+    /* renamed from: a  reason: collision with other field name */
+    public ByteBuffer f364a = ByteBuffer.allocate(2048);
+
+    /* renamed from: b  reason: collision with root package name */
+    public ByteBuffer f40494b = ByteBuffer.allocate(4);
+
+    /* renamed from: a  reason: collision with other field name */
+    public Adler32 f365a = new Adler32();
 
     /* renamed from: a  reason: collision with root package name */
-    private static int f8360a = 0;
+    public ff f40493a = new ff();
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
-    public interface a {
-        void a();
-
-        void a(boolean z);
-
-        /* renamed from: a  reason: collision with other method in class */
-        boolean m279a();
+    public fc(InputStream inputStream, fh fhVar) {
+        this.f363a = new BufferedInputStream(inputStream);
+        this.f362a = fhVar;
     }
 
-    public static synchronized void a() {
-        synchronized (fc.class) {
-            if (f312a != null) {
-                com.xiaomi.channel.commonutils.logger.b.c("stop alarm.");
-                f312a.a();
-            }
-        }
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:20:0x0050  */
+    /* JADX WARN: Removed duplicated region for block: B:19:0x00be  */
+    /* JADX WARN: Removed duplicated region for block: B:24:0x00cf  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static void a(Context context) {
-        Exception e;
-        PackageInfo packageInfo;
+    private ByteBuffer a() {
+        ByteBuffer allocate;
+        int i;
+        this.f364a.clear();
+        a(this.f364a, 8);
+        short s = this.f364a.getShort(0);
+        short s2 = this.f364a.getShort(2);
+        if (s != -15618 || s2 != 5) {
+            throw new IOException("Malformed Input");
+        }
+        int i2 = this.f364a.getInt(4);
+        int position = this.f364a.position();
+        if (i2 > 32768) {
+            throw new IOException("Blob size too large");
+        }
+        if (i2 + 4 <= this.f364a.remaining()) {
+            if (this.f364a.capacity() > 4096 && i2 < 2048) {
+                allocate = ByteBuffer.allocate(2048);
+                allocate.put(this.f364a.array(), 0, this.f364a.arrayOffset() + this.f364a.position());
+            }
+            a(this.f364a, i2);
+            this.f40494b.clear();
+            a(this.f40494b, 4);
+            this.f40494b.position(0);
+            i = this.f40494b.getInt();
+            this.f365a.reset();
+            this.f365a.update(this.f364a.array(), 0, this.f364a.position());
+            if (i != ((int) this.f365a.getValue())) {
+                byte[] bArr = this.f367a;
+                if (bArr != null) {
+                    com.xiaomi.push.service.be.a(bArr, this.f364a.array(), true, position, i2);
+                }
+                return this.f364a;
+            }
+            com.xiaomi.channel.commonutils.logger.b.m51a("CRC = " + ((int) this.f365a.getValue()) + " and " + i);
+            throw new IOException("Corrupted Blob bad CRC");
+        }
+        allocate = ByteBuffer.allocate(i2 + 2048);
+        allocate.put(this.f364a.array(), 0, this.f364a.arrayOffset() + this.f364a.position());
+        this.f364a = allocate;
+        a(this.f364a, i2);
+        this.f40494b.clear();
+        a(this.f40494b, 4);
+        this.f40494b.position(0);
+        i = this.f40494b.getInt();
+        this.f365a.reset();
+        this.f365a.update(this.f364a.array(), 0, this.f364a.position());
+        if (i != ((int) this.f365a.getValue())) {
+        }
+    }
+
+    private void a(ByteBuffer byteBuffer, int i) {
+        int position = byteBuffer.position();
+        do {
+            int read = this.f363a.read(byteBuffer.array(), position, i);
+            if (read == -1) {
+                throw new EOFException();
+            }
+            i -= read;
+            position += read;
+        } while (i > 0);
+        byteBuffer.position(position);
+    }
+
+    private void c() {
+        String str;
+        StringBuilder sb;
         boolean z = false;
-        boolean z2 = true;
-        Context applicationContext = context.getApplicationContext();
-        if ("com.xiaomi.xmsf".equals(applicationContext.getPackageName())) {
-            f312a = new fd(applicationContext);
-            return;
+        this.f366a = false;
+        fa m291a = m291a();
+        if ("CONN".equals(m291a.m283a())) {
+            du.f a2 = du.f.a(m291a.m287a());
+            if (a2.a()) {
+                this.f362a.a(a2.a());
+                z = true;
+            }
+            if (a2.c()) {
+                du.b a3 = a2.a();
+                fa faVar = new fa();
+                faVar.a("SYNC", "CONF");
+                faVar.a(a3.m262a(), (String) null);
+                this.f362a.a(faVar);
+            }
+            com.xiaomi.channel.commonutils.logger.b.m51a("[Slim] CONN: host = " + a2.b());
         }
-        try {
-            packageInfo = applicationContext.getPackageManager().getPackageInfo(applicationContext.getPackageName(), 4);
-        } catch (Exception e2) {
-            e = e2;
+        if (!z) {
+            com.xiaomi.channel.commonutils.logger.b.m51a("[Slim] Invalid CONN");
+            throw new IOException("Invalid Connection");
         }
-        if (packageInfo.services != null) {
-            ServiceInfo[] serviceInfoArr = packageInfo.services;
-            int length = serviceInfoArr.length;
-            int i = 0;
-            boolean z3 = false;
-            while (true) {
-                if (i >= length) {
-                    z2 = z3;
-                    break;
-                }
-                try {
-                    ServiceInfo serviceInfo = serviceInfoArr[i];
-                    if ("android.permission.BIND_JOB_SERVICE".equals(serviceInfo.permission)) {
-                        if (f313a.equals(serviceInfo.name)) {
-                            z3 = true;
-                        } else {
-                            try {
-                                if (f313a.equals(t.a(applicationContext, serviceInfo.name).getSuperclass().getCanonicalName())) {
-                                    z3 = true;
-                                }
-                            } catch (Exception e3) {
-                            }
+        this.f367a = this.f362a.a();
+        while (!this.f366a) {
+            fa m291a2 = m291a();
+            this.f362a.c();
+            short m285a = m291a2.m285a();
+            if (m285a != 1) {
+                if (m285a != 2) {
+                    if (m285a != 3) {
+                        str = "[Slim] unknow blob type " + ((int) m291a2.m285a());
+                        com.xiaomi.channel.commonutils.logger.b.m51a(str);
+                    } else {
+                        try {
+                            this.f362a.b(this.f40493a.a(m291a2.m287a(), this.f362a));
+                        } catch (Exception e2) {
+                            e = e2;
+                            sb = new StringBuilder();
+                            sb.append("[Slim] Parse packet from Blob chid=");
+                            sb.append(m291a2.a());
+                            sb.append("; Id=");
+                            sb.append(m291a2.e());
+                            sb.append(" failure:");
+                            sb.append(e.getMessage());
+                            str = sb.toString();
+                            com.xiaomi.channel.commonutils.logger.b.m51a(str);
                         }
-                        if (z3) {
-                            z2 = z3;
-                            break;
-                        }
                     }
-                    z = z3;
-                    if (f313a.equals(serviceInfo.name) && "android.permission.BIND_JOB_SERVICE".equals(serviceInfo.permission)) {
-                        break;
+                } else if ("SECMSG".equals(m291a2.m283a()) && ((m291a2.a() == 2 || m291a2.a() == 3) && TextUtils.isEmpty(m291a2.m289b()))) {
+                    try {
+                        this.f362a.b(this.f40493a.a(m291a2.m288a(com.xiaomi.push.service.av.a().a(Integer.valueOf(m291a2.a()).toString(), m291a2.g()).f40967h), this.f362a));
+                    } catch (Exception e3) {
+                        e = e3;
+                        sb = new StringBuilder();
+                        sb.append("[Slim] Parse packet from Blob chid=");
+                        sb.append(m291a2.a());
+                        sb.append("; Id=");
+                        sb.append(m291a2.e());
+                        sb.append(" failure:");
+                        sb.append(e.getMessage());
+                        str = sb.toString();
+                        com.xiaomi.channel.commonutils.logger.b.m51a(str);
                     }
-                    i++;
-                    z3 = z;
-                } catch (Exception e4) {
-                    e = e4;
-                    z = z3;
-                    com.xiaomi.channel.commonutils.logger.b.m58a("check service err : " + e.getMessage());
-                    z2 = z;
-                    if (z2) {
-                    }
-                    if (Build.VERSION.SDK_INT >= 21) {
-                    }
-                    f312a = new fd(applicationContext);
                 }
             }
-            if (z2 && t.m591a(applicationContext)) {
-                throw new RuntimeException("Should export service: " + f313a + " with permission android.permission.BIND_JOB_SERVICE in AndroidManifest.xml file");
-            }
-            if (Build.VERSION.SDK_INT >= 21) {
-            }
-            f312a = new fd(applicationContext);
-        }
-        z2 = z;
-        if (z2) {
-        }
-        if (Build.VERSION.SDK_INT >= 21) {
-        }
-        f312a = new fd(applicationContext);
-    }
-
-    public static synchronized void a(Context context, int i) {
-        synchronized (fc.class) {
-            int i2 = f8360a;
-            if (!"com.xiaomi.xmsf".equals(context.getPackageName())) {
-                if (i == 2) {
-                    f8360a = 2;
-                } else {
-                    f8360a = 0;
-                }
-            }
-            if (i2 != f8360a && f8360a == 2) {
-                a();
-                f312a = new ff(context);
-            }
-        }
-    }
-
-    public static synchronized void a(boolean z) {
-        synchronized (fc.class) {
-            if (f312a == null) {
-                com.xiaomi.channel.commonutils.logger.b.m58a("timer is not initialized");
-            } else {
-                com.xiaomi.channel.commonutils.logger.b.c("register alarm. (" + z + ")");
-                f312a.a(z);
-            }
+            this.f362a.a(m291a2);
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static synchronized boolean m278a() {
-        boolean m279a;
-        synchronized (fc.class) {
-            m279a = f312a == null ? false : f312a.m279a();
+    public fa m291a() {
+        int i;
+        ByteBuffer a2;
+        try {
+            a2 = a();
+            i = a2.position();
+        } catch (IOException e2) {
+            e = e2;
+            i = 0;
         }
-        return m279a;
+        try {
+            a2.flip();
+            a2.position(8);
+            fa fgVar = i == 8 ? new fg() : fa.a(a2.slice());
+            com.xiaomi.channel.commonutils.logger.b.c("[Slim] Read {cmd=" + fgVar.m283a() + ";chid=" + fgVar.a() + ";len=" + i + "}");
+            return fgVar;
+        } catch (IOException e3) {
+            e = e3;
+            if (i == 0) {
+                i = this.f364a.position();
+            }
+            StringBuilder sb = new StringBuilder();
+            sb.append("[Slim] read Blob [");
+            byte[] array = this.f364a.array();
+            if (i > 128) {
+                i = 128;
+            }
+            sb.append(af.a(array, 0, i));
+            sb.append("] Err:");
+            sb.append(e.getMessage());
+            com.xiaomi.channel.commonutils.logger.b.m51a(sb.toString());
+            throw e;
+        }
+    }
+
+    /* renamed from: a  reason: collision with other method in class */
+    public void m292a() {
+        try {
+            c();
+        } catch (IOException e2) {
+            if (!this.f366a) {
+                throw e2;
+            }
+        }
+    }
+
+    public void b() {
+        this.f366a = true;
     }
 }

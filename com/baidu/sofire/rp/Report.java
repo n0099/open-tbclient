@@ -3,97 +3,103 @@ package com.baidu.sofire.rp;
 import android.content.Context;
 import android.os.Message;
 import com.baidu.sofire.b;
-import com.baidu.sofire.i.e;
-import com.baidu.sofire.i.g;
-/* loaded from: classes4.dex */
+import com.baidu.sofire.g.d;
+import com.baidu.sofire.g.e;
+/* loaded from: classes3.dex */
 public class Report {
 
     /* renamed from: a  reason: collision with root package name */
-    private static Report f3574a;
-    private Context b;
+    public static Report f11857a;
 
-    private Report(Context context) {
-        this.b = context.getApplicationContext();
+    /* renamed from: b  reason: collision with root package name */
+    public Context f11858b;
+
+    public Report(Context context) {
+        this.f11858b = context.getApplicationContext();
     }
 
     public static synchronized Report getInstance(Context context) {
         Report report;
         synchronized (Report.class) {
-            if (f3574a == null) {
-                f3574a = new Report(context);
+            if (f11857a == null) {
+                f11857a = new Report(context);
             }
-            report = f3574a;
+            report = f11857a;
         }
         return report;
     }
 
+    public void fr() {
+        try {
+            e a2 = e.a(this.f11858b);
+            Message message = new Message();
+            message.what = 9;
+            a2.f11757b.a(message);
+        } catch (Throwable unused) {
+            d.a();
+        }
+    }
+
     public void i(String str, String str2, String str3, String str4, String str5) {
         try {
-            e.a(this.b, str, str2, str3, str4, str5);
-        } catch (Throwable th) {
-            e.a();
+            d.a(this.f11858b, str, str2, str3, str4, str5);
+        } catch (Throwable unused) {
+            d.a();
+        }
+    }
+
+    public void n() {
+        try {
+            e a2 = e.a(this.f11858b);
+            Message message = new Message();
+            message.what = 6;
+            a2.f11757b.a(message);
+        } catch (Throwable unused) {
+            d.a();
+        }
+    }
+
+    public void r(boolean z) {
+        try {
+            e.a(this.f11858b).a();
+        } catch (Throwable unused) {
+            d.a();
         }
     }
 
     public void s(String str) {
-        try {
-            new StringBuilder().append(str);
-            b.a();
-            e.a(this.b, str);
-        } catch (Throwable th) {
-            e.a();
-        }
+        s(str, false);
     }
 
     public void sr(String str) {
         try {
             new StringBuilder().append(str);
             b.a();
-            g a2 = g.a(this.b);
+            e a2 = e.a(this.f11858b);
             Message message = new Message();
             message.what = 11;
             message.obj = str;
-            a2.f3536a.a(message);
-        } catch (Throwable th) {
-            e.a();
-        }
-    }
-
-    public void r(boolean z) {
-        try {
-            g.a(this.b).a();
-        } catch (Throwable th) {
-            e.a();
+            a2.f11757b.a(message);
+        } catch (Throwable unused) {
+            d.a();
         }
     }
 
     public void w(String str) {
         try {
-            e.b(this.b, str);
-        } catch (Throwable th) {
-            e.a();
+            d.a(this.f11858b, str);
+        } catch (Throwable unused) {
+            d.a();
         }
     }
 
-    public void n() {
+    public void s(String str, boolean z) {
         try {
-            g a2 = g.a(this.b);
-            Message message = new Message();
-            message.what = 6;
-            a2.f3536a.a(message);
-        } catch (Throwable th) {
-            e.a();
-        }
-    }
-
-    public void fr() {
-        try {
-            g a2 = g.a(this.b);
-            Message message = new Message();
-            message.what = 9;
-            a2.f3536a.a(message);
-        } catch (Throwable th) {
-            e.a();
+            new StringBuilder().append(str);
+            b.a();
+            d.a(this.f11858b, str, z);
+        } catch (Throwable unused) {
+            d.a();
         }
     }
 }

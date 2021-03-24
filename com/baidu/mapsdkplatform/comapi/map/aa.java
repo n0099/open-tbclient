@@ -1,12 +1,14 @@
 package com.baidu.mapsdkplatform.comapi.map;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public enum aa {
     GLSurfaceView(1),
     TextureView(2);
     
-    private final int c;
+
+    /* renamed from: c  reason: collision with root package name */
+    public final int f7568c;
 
     aa(int i) {
-        this.c = i;
+        this.f7568c = i;
     }
 }

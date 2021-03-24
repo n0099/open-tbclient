@@ -1,15 +1,14 @@
 package com.baidu.tieba.im.message;
 
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import java.util.List;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class ResponsedMemoryListMessage extends CustomResponsedMessage<List<ImMessageCenterPojo>> {
-    private int type;
+    public int type;
 
     public ResponsedMemoryListMessage(List<ImMessageCenterPojo> list, int i) {
-        super(CmdConfigCustom.MEMORY_REQUEST_MEMORY_LIST, list);
+        super(2016007, list);
         this.type = i;
     }
 

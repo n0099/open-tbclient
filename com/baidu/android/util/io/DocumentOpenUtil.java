@@ -3,7 +3,7 @@ package com.baidu.android.util.io;
 import android.text.TextUtils;
 import java.util.Locale;
 @Deprecated
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class DocumentOpenUtil {
     public static final String DOC = "doc";
     public static final String DOCUMENT_TYPE = "application/vnd.openxmlformats-officedocument.wordprocessingml.document";
@@ -29,52 +29,52 @@ public class DocumentOpenUtil {
     public static String getFixSupportMimeType(String str, String str2) {
         if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && !getSupportMimeType(str)) {
             String lowerCase = str2.toLowerCase(Locale.getDefault());
-            char c = 65535;
+            char c2 = 65535;
             switch (lowerCase.hashCode()) {
                 case 99640:
                     if (lowerCase.equals(DOC)) {
-                        c = 1;
+                        c2 = 1;
                         break;
                     }
                     break;
                 case 110834:
                     if (lowerCase.equals(PDF)) {
-                        c = 0;
+                        c2 = 0;
                         break;
                     }
                     break;
                 case 111220:
                     if (lowerCase.equals(PPT)) {
-                        c = 5;
+                        c2 = 5;
                         break;
                     }
                     break;
                 case 118783:
                     if (lowerCase.equals(XLS)) {
-                        c = 3;
+                        c2 = 3;
                         break;
                     }
                     break;
                 case 3088960:
                     if (lowerCase.equals(DOCX)) {
-                        c = 2;
+                        c2 = 2;
                         break;
                     }
                     break;
                 case 3447940:
                     if (lowerCase.equals(PPTX)) {
-                        c = 6;
+                        c2 = 6;
                         break;
                     }
                     break;
                 case 3682393:
                     if (lowerCase.equals(XLSX)) {
-                        c = 4;
+                        c2 = 4;
                         break;
                     }
                     break;
             }
-            switch (c) {
+            switch (c2) {
                 case 0:
                     str = PDF_TYPE;
                     break;
@@ -112,57 +112,57 @@ public class DocumentOpenUtil {
     }
 
     public static String guessSupportMimeTypeFromExt(String str) {
+        String str2;
         if (TextUtils.isEmpty(str)) {
             return "";
         }
-        String str2 = "";
         String lowerCase = str.toLowerCase(Locale.getDefault());
-        char c = 65535;
+        char c2 = 65535;
         switch (lowerCase.hashCode()) {
             case 99640:
                 if (lowerCase.equals(DOC)) {
-                    c = 1;
+                    c2 = 1;
                     break;
                 }
                 break;
             case 110834:
                 if (lowerCase.equals(PDF)) {
-                    c = 0;
+                    c2 = 0;
                     break;
                 }
                 break;
             case 111220:
                 if (lowerCase.equals(PPT)) {
-                    c = 5;
+                    c2 = 5;
                     break;
                 }
                 break;
             case 118783:
                 if (lowerCase.equals(XLS)) {
-                    c = 3;
+                    c2 = 3;
                     break;
                 }
                 break;
             case 3088960:
                 if (lowerCase.equals(DOCX)) {
-                    c = 2;
+                    c2 = 2;
                     break;
                 }
                 break;
             case 3447940:
                 if (lowerCase.equals(PPTX)) {
-                    c = 6;
+                    c2 = 6;
                     break;
                 }
                 break;
             case 3682393:
                 if (lowerCase.equals(XLSX)) {
-                    c = 4;
+                    c2 = 4;
                     break;
                 }
                 break;
         }
-        switch (c) {
+        switch (c2) {
             case 0:
                 str2 = PDF_TYPE;
                 break;
@@ -184,7 +184,10 @@ public class DocumentOpenUtil {
             case 6:
                 str2 = PRESENT_TYPE;
                 break;
+            default:
+                str2 = "";
+                break;
         }
-        return !getSupportMimeType(str2) ? "" : str2;
+        return getSupportMimeType(str2) ? str2 : "";
     }
 }

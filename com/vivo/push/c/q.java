@@ -3,24 +3,26 @@ package com.vivo.push.c;
 import android.content.Context;
 import com.vivo.push.model.UnvarnishedMessage;
 import com.vivo.push.sdk.PushMessageCallback;
-/* loaded from: classes14.dex */
-final class q implements Runnable {
+/* loaded from: classes7.dex */
+public final class q implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ UnvarnishedMessage f8040a;
-    final /* synthetic */ p b;
+    public final /* synthetic */ UnvarnishedMessage f39438a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    /* renamed from: b  reason: collision with root package name */
+    public final /* synthetic */ p f39439b;
+
     public q(p pVar, UnvarnishedMessage unvarnishedMessage) {
-        this.b = pVar;
-        this.f8040a = unvarnishedMessage;
+        this.f39439b = pVar;
+        this.f39438a = unvarnishedMessage;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
         Context context;
-        PushMessageCallback pushMessageCallback = this.b.b;
-        context = this.b.f8089a;
-        pushMessageCallback.onTransmissionMessage(context, this.f8040a);
+        p pVar = this.f39439b;
+        PushMessageCallback pushMessageCallback = ((ab) pVar).f39408b;
+        context = pVar.f39588a;
+        pushMessageCallback.onTransmissionMessage(context, this.f39438a);
     }
 }

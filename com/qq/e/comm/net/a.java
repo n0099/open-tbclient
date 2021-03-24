@@ -4,8 +4,9 @@ import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.telephony.TelephonyManager;
-import com.baidu.live.tbadk.ubc.UbcStatConstant;
+import android.text.TextUtils;
 import com.baidu.mobstat.Config;
+import com.baidu.pass.ecommerce.bean.SuggestAddrField;
 import com.qq.e.comm.managers.GDTADManager;
 import com.qq.e.comm.managers.plugin.PM;
 import com.qq.e.comm.managers.setting.SM;
@@ -16,22 +17,23 @@ import com.qq.e.comm.util.StringUtil;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class a {
-    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: int : 0x002c: INVOKE  (r0v12 int A[REMOVE]) = 
-      (wrap: android.telephony.TelephonyManager : 0x0025: CHECK_CAST (r0v11 android.telephony.TelephonyManager A[REMOVE]) = (android.telephony.TelephonyManager) (wrap: java.lang.Object : 0x0021: INVOKE  (r0v10 java.lang.Object A[REMOVE]) = (r2v0 android.content.Context), ("phone") type: VIRTUAL call: android.content.Context.getSystemService(java.lang.String):java.lang.Object))
+    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: int : 0x002a: INVOKE  (r0v4 int A[REMOVE]) = 
+      (wrap: android.telephony.TelephonyManager : 0x0023: CHECK_CAST (r0v3 android.telephony.TelephonyManager A[REMOVE]) = (android.telephony.TelephonyManager) (wrap: java.lang.Object : 0x001f: INVOKE  (r0v2 java.lang.Object A[REMOVE]) = (r0v1 android.content.Context), ("phone") type: VIRTUAL call: android.content.Context.getSystemService(java.lang.String):java.lang.Object))
      type: VIRTUAL call: android.telephony.TelephonyManager.getNetworkType():int)] */
-    private static String a() {
+    public static String a() {
         Context appContext = GDTADManager.getInstance().getAppContext();
         try {
             NetworkInfo activeNetworkInfo = ((ConnectivityManager) appContext.getSystemService("connectivity")).getActiveNetworkInfo();
-            if (activeNetworkInfo == null || activeNetworkInfo.getType() != 0) {
-                return null;
+            if (activeNetworkInfo != null && activeNetworkInfo.getType() == 0) {
+                StringBuilder sb = new StringBuilder();
+                sb.append(((TelephonyManager) appContext.getSystemService("phone")).getNetworkType());
+                return sb.toString();
             }
-            return new StringBuilder().append(((TelephonyManager) appContext.getSystemService("phone")).getNetworkType()).toString();
-        } catch (Exception e) {
-            return null;
+        } catch (Exception unused) {
         }
+        return null;
     }
 
     public static JSONObject a(PM pm) throws JSONException {
@@ -39,6 +41,13 @@ public final class a {
         jSONObject.putOpt("sdkv", SDKStatus.getSDKVersion());
         jSONObject.putOpt("pv", Integer.valueOf(pm.getPluginVersion()));
         jSONObject.putOpt("sdk_st", 1);
+        jSONObject.putOpt("sdk_cnl", 1);
+        if (!TextUtils.isEmpty("")) {
+            jSONObject.putOpt("sdk_ex1", "");
+        }
+        if (!TextUtils.isEmpty("")) {
+            jSONObject.putOpt("sdk_ex2", "");
+        }
         return jSONObject;
     }
 
@@ -46,7 +55,7 @@ public final class a {
         JSONObject jSONObject = new JSONObject();
         if (sm != null) {
             jSONObject.putOpt("suid", sm.getSuid());
-            jSONObject.putOpt(UbcStatConstant.KEY_CONTENT_EXT_SID, sm.getSid());
+            jSONObject.putOpt("sid", sm.getSid());
         }
         return jSONObject;
     }
@@ -54,7 +63,7 @@ public final class a {
     public static JSONObject a(APPStatus aPPStatus) throws JSONException {
         JSONObject jSONObject = new JSONObject();
         if (aPPStatus != null) {
-            jSONObject.putOpt("an", aPPStatus.getAPPName());
+            jSONObject.putOpt(com.alipay.sdk.sys.a.i, aPPStatus.getAPPName());
             jSONObject.putOpt("appkey", aPPStatus.getAPPID());
             jSONObject.putOpt("appv", aPPStatus.getAPPVersion());
             jSONObject.putOpt("appn", aPPStatus.getAPPRealName());
@@ -71,8 +80,8 @@ public final class a {
             if (!StringUtil.isEmpty(a2)) {
                 jSONObject.putOpt("cell_native", a2);
             }
-            jSONObject.putOpt("lat", deviceStatus.getLat());
-            jSONObject.putOpt("lng", deviceStatus.getLng());
+            jSONObject.putOpt(SuggestAddrField.KEY_LAT, deviceStatus.getLat());
+            jSONObject.putOpt(SuggestAddrField.KEY_LNG, deviceStatus.getLng());
             for (Map.Entry<String, String> entry : deviceStatus.getLacAndCeilId().entrySet()) {
                 jSONObject.putOpt(entry.getKey(), entry.getValue());
             }

@@ -5,58 +5,54 @@ import androidx.annotation.Nullable;
 import androidx.collection.ArrayMap;
 import androidx.collection.SimpleArrayMap;
 import java.security.MessageDigest;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public final class e implements c {
-    private final ArrayMap<d<?>, Object> b = new com.kwad.sdk.glide.g.b();
+
+    /* renamed from: b  reason: collision with root package name */
+    public final ArrayMap<d<?>, Object> f35382b = new com.kwad.sdk.glide.g.b();
 
     /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: java.lang.Object */
     /* JADX WARN: Multi-variable type inference failed */
-    private static <T> void a(@NonNull d<T> dVar, @NonNull Object obj, @NonNull MessageDigest messageDigest) {
+    public static <T> void a(@NonNull d<T> dVar, @NonNull Object obj, @NonNull MessageDigest messageDigest) {
         dVar.a((d<T>) obj, messageDigest);
     }
 
     @NonNull
     public <T> e a(@NonNull d<T> dVar, @NonNull T t) {
-        this.b.put(dVar, t);
+        this.f35382b.put(dVar, t);
         return this;
     }
 
     @Nullable
     public <T> T a(@NonNull d<T> dVar) {
-        return this.b.containsKey(dVar) ? (T) this.b.get(dVar) : dVar.a();
+        return this.f35382b.containsKey(dVar) ? (T) this.f35382b.get(dVar) : dVar.a();
     }
 
     public void a(@NonNull e eVar) {
-        this.b.putAll((SimpleArrayMap<? extends d<?>, ? extends Object>) eVar.b);
+        this.f35382b.putAll((SimpleArrayMap<? extends d<?>, ? extends Object>) eVar.f35382b);
     }
 
     @Override // com.kwad.sdk.glide.load.c
     public void a(@NonNull MessageDigest messageDigest) {
-        int i = 0;
-        while (true) {
-            int i2 = i;
-            if (i2 >= this.b.size()) {
-                return;
-            }
-            a(this.b.keyAt(i2), this.b.valueAt(i2), messageDigest);
-            i = i2 + 1;
+        for (int i = 0; i < this.f35382b.size(); i++) {
+            a(this.f35382b.keyAt(i), this.f35382b.valueAt(i), messageDigest);
         }
     }
 
     @Override // com.kwad.sdk.glide.load.c
     public boolean equals(Object obj) {
         if (obj instanceof e) {
-            return this.b.equals(((e) obj).b);
+            return this.f35382b.equals(((e) obj).f35382b);
         }
         return false;
     }
 
     @Override // com.kwad.sdk.glide.load.c
     public int hashCode() {
-        return this.b.hashCode();
+        return this.f35382b.hashCode();
     }
 
     public String toString() {
-        return "Options{values=" + this.b + '}';
+        return "Options{values=" + this.f35382b + '}';
     }
 }

@@ -2,63 +2,33 @@ package com.baidu.mobstat;
 
 import android.content.Context;
 import android.text.TextUtils;
-import com.baidu.live.adp.lib.cache.BdKVCache;
 import com.baidu.mobstat.Config;
+import com.baidu.tbadk.core.util.FieldBuilder;
+import com.baidu.webkit.sdk.VideoCloudSetting;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class EventAnalysis {
 
     /* renamed from: a  reason: collision with root package name */
-    private Map<String, a> f2543a = new HashMap();
+    public Map<String, a> f8783a = new HashMap();
 
-    public void onEvent(Context context, long j, String str, String str2, int i, long j2, ExtraInfo extraInfo, Map<String, String> map, boolean z) {
-        a(context, j, str, str2, i, j2, 0L, extraInfo, map, z);
-    }
+    /* loaded from: classes2.dex */
+    public static class a {
 
-    public void onEvent(Context context, long j, String str, String str2, int i, long j2, String str3, String str4, int i2, boolean z) {
-        a(context, j, str, str2, i, j2, 0L, str3, str4, i2);
-    }
+        /* renamed from: a  reason: collision with root package name */
+        public String f8784a;
 
-    public void onEvent(Context context, long j, String str, String str2, int i, long j2, JSONArray jSONArray, JSONArray jSONArray2, String str3, String str4, String str5, Map<String, String> map, boolean z) {
-        flushEvent(context, j, str, str2, i, j2, jSONArray, jSONArray2, str3, str4, str5, map, z);
-    }
+        /* renamed from: b  reason: collision with root package name */
+        public String f8785b;
 
-    public void onEventStart(Context context, String str, String str2, long j) {
-        a aVar = new a();
-        aVar.c = j;
-        aVar.f2544a = str;
-        aVar.b = str2;
-        String a2 = a(str, str2);
-        if (this.f2543a.containsKey(a2)) {
-            bc.c().b("[WARNING] eventId: " + str + ", with label: " + str2 + " is duplicated, older is removed");
-        }
-        this.f2543a.put(a2, aVar);
-    }
+        /* renamed from: c  reason: collision with root package name */
+        public long f8786c;
 
-    public void onEventEnd(Context context, long j, String str, String str2, long j2, ExtraInfo extraInfo, Map<String, String> map, boolean z) {
-        String a2 = a(str, str2);
-        a aVar = this.f2543a.get(a2);
-        if (aVar == null) {
-            bc.c().b("[WARNING] eventId: " + str + ", with label: " + str2 + " is not started or alread ended");
-        } else if ((str != null && !str.equals(aVar.f2544a)) || (str2 != null && !str2.equals(aVar.b))) {
-            bc.c().b("[WARNING] eventId/label pair not match");
-        } else {
-            this.f2543a.remove(a2);
-            long j3 = j2 - aVar.c;
-            if (j3 < 0) {
-                bc.c().b("[WARNING] onEventEnd must be invoked after onEventStart");
-            }
-            onEventDuration(context, j, str, str2, aVar.c, j3, extraInfo, map, z);
-        }
-    }
-
-    public void onEventDuration(Context context, long j, String str, String str2, long j2, long j3, ExtraInfo extraInfo, Map<String, String> map, boolean z) {
-        if (j3 > 0) {
-            a(context, j, str, str2, 1, j2, j3, extraInfo, map, z);
+        public a() {
         }
     }
 
@@ -67,30 +37,60 @@ public class EventAnalysis {
         DataCore.instance().flush(context);
     }
 
-    private void a(Context context, long j, String str, String str2, int i, long j2, long j3, String str3, String str4, int i2) {
-        DataCore.instance().putEvent(context, getEvent(context, j, str, str2, i, j2, j3, str3, str4, i2, 1, null, null, false));
-        DataCore.instance().flush(context);
+    public static boolean b(String str, String str2) {
+        if (TextUtils.isEmpty(str) || new JSONObject().toString().equals(str)) {
+            return (TextUtils.isEmpty(str2) || new JSONArray().toString().equals(str2)) ? false : true;
+        }
+        return true;
     }
 
-    public void flushEvent(Context context, long j, String str, String str2, int i, long j2, JSONArray jSONArray, JSONArray jSONArray2, String str3, String str4, String str5, Map<String, String> map, boolean z) {
-        DataCore.instance().putEvent(context, getEvent(context, j, str, str2, i, j2, 0L, "", jSONArray, jSONArray2, str3, str4, str5, Config.EventViewType.EDIT.getValue(), 2, null, map, "", "", z));
-        DataCore.instance().flush(context);
-    }
-
-    private String a(String str, String str2) {
-        return "__sdk_" + str + "$|$" + str2;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
-    public static class a {
-
-        /* renamed from: a  reason: collision with root package name */
-        String f2544a;
-        String b;
-        long c;
-
-        private a() {
+    public static void doEventMerge(JSONArray jSONArray, JSONObject jSONObject) {
+        String optString;
+        String optString2;
+        JSONArray jSONArray2;
+        JSONArray jSONArray3;
+        int i;
+        Config.EventViewType.EDIT.getValue();
+        try {
+            long optLong = jSONObject.optLong("ss");
+            String string = jSONObject.getString("i");
+            String string2 = jSONObject.getString("l");
+            long j = jSONObject.getLong("t") / VideoCloudSetting.HOUR_MILLISECOND;
+            String optString3 = jSONObject.optString("s");
+            int optInt = jSONObject.optInt("at");
+            String optString4 = jSONObject.optString("h");
+            if (optInt != 3) {
+                jSONArray2 = jSONObject.optJSONArray(Config.EVENT_NATIVE_VIEW_HIERARCHY);
+                jSONArray3 = jSONObject.optJSONArray(Config.EVENT_H5_VIEW_HIERARCHY);
+                optString = "";
+                optString2 = optString;
+            } else {
+                optString = jSONObject.optString(Config.EVENT_NATIVE_VIEW_HIERARCHY);
+                optString2 = jSONObject.optString(Config.EVENT_H5_VIEW_HIERARCHY);
+                jSONArray2 = null;
+                jSONArray3 = null;
+            }
+            String optString5 = jSONObject.optString("p");
+            String optString6 = jSONObject.optString("p2");
+            String optString7 = jSONObject.optString("rn");
+            int optInt2 = jSONObject.optInt("v");
+            String optString8 = jSONObject.optString("ext");
+            String optString9 = jSONObject.optString(Config.EVENT_ATTR);
+            int optInt3 = jSONObject.optInt("h5");
+            String optString10 = jSONObject.optString("sign");
+            try {
+                i = jSONObject.getInt("d");
+            } catch (JSONException unused) {
+                i = 0;
+            }
+            if (i == 0 && !b(optString8, optString9)) {
+                a(jSONArray, jSONObject, optLong, string, string2, optString3, j, optString4, jSONArray2, jSONArray3, optString5, optString6, optString7, optInt2, optInt, optString, optString2, optInt3, optString10);
+                return;
+            }
+            int length = jSONArray.length();
+            jSONObject.put("s", "0");
+            jSONArray.put(length, jSONObject);
+        } catch (JSONException unused2) {
         }
     }
 
@@ -98,8 +98,59 @@ public class EventAnalysis {
         return getEvent(context, j, str, str2, i, j2, j3, str3, null, null, str4, null, null, i2, i3, extraInfo, map, "", "", z);
     }
 
+    public void flushEvent(Context context, long j, String str, String str2, int i, long j2, JSONArray jSONArray, JSONArray jSONArray2, String str3, String str4, String str5, Map<String, String> map, boolean z) {
+        DataCore.instance().putEvent(context, getEvent(context, j, str, str2, i, j2, 0L, "", jSONArray, jSONArray2, str3, str4, str5, Config.EventViewType.EDIT.getValue(), 2, null, map, "", "", z));
+        DataCore.instance().flush(context);
+    }
+
+    public void onEvent(Context context, long j, String str, String str2, int i, long j2, ExtraInfo extraInfo, Map<String, String> map, boolean z) {
+        a(context, j, str, str2, i, j2, 0L, extraInfo, map, z);
+    }
+
+    public void onEventDuration(Context context, long j, String str, String str2, long j2, long j3, ExtraInfo extraInfo, Map<String, String> map, boolean z) {
+        if (j3 <= 0) {
+            return;
+        }
+        a(context, j, str, str2, 1, j2, j3, extraInfo, map, z);
+    }
+
+    public void onEventEnd(Context context, long j, String str, String str2, long j2, ExtraInfo extraInfo, Map<String, String> map, boolean z) {
+        String a2 = a(str, str2);
+        a aVar = this.f8783a.get(a2);
+        if (aVar == null) {
+            bc c2 = bc.c();
+            c2.b("[WARNING] eventId: " + str + ", with label: " + str2 + " is not started or alread ended");
+        } else if ((str != null && !str.equals(aVar.f8784a)) || (str2 != null && !str2.equals(aVar.f8785b))) {
+            bc.c().b("[WARNING] eventId/label pair not match");
+        } else {
+            this.f8783a.remove(a2);
+            long j3 = j2 - aVar.f8786c;
+            if (j3 < 0) {
+                bc.c().b("[WARNING] onEventEnd must be invoked after onEventStart");
+            }
+            onEventDuration(context, j, str, str2, aVar.f8786c, j3, extraInfo, map, z);
+        }
+    }
+
+    public void onEventStart(Context context, String str, String str2, long j) {
+        a aVar = new a();
+        aVar.f8786c = j;
+        aVar.f8784a = str;
+        aVar.f8785b = str2;
+        String a2 = a(str, str2);
+        if (this.f8783a.containsKey(a2)) {
+            bc c2 = bc.c();
+            c2.b("[WARNING] eventId: " + str + ", with label: " + str2 + " is duplicated, older is removed");
+        }
+        this.f8783a.put(a2, aVar);
+    }
+
     public static JSONObject getEvent(Context context, long j, String str, String str2, int i, long j2, long j3, String str3, JSONArray jSONArray, JSONArray jSONArray2, String str4, String str5, String str6, int i2, int i3, ExtraInfo extraInfo, Map<String, String> map, String str7, String str8, boolean z) {
         return getEvent(context, j, str, str2, i, j2, j3, str3, jSONArray, jSONArray2, str4, str5, str6, i2, i3, extraInfo, map, str7, str8, z, null, "");
+    }
+
+    public void onEvent(Context context, long j, String str, String str2, int i, long j2, String str3, String str4, int i2, boolean z) {
+        a(context, j, str, str2, i, j2, 0L, str3, str4, i2);
     }
 
     public static JSONObject getEvent(Context context, long j, String str, String str2, int i, long j2, long j3, String str3, JSONArray jSONArray, JSONArray jSONArray2, String str4, String str5, String str6, int i2, int i3, ExtraInfo extraInfo, Map<String, String> map, String str7, String str8, boolean z, JSONObject jSONObject, String str9) {
@@ -135,7 +186,7 @@ public class EventAnalysis {
                     String value = entry.getValue();
                     if (!TextUtils.isEmpty(key) && !TextUtils.isEmpty(value) && !a(value, 1024)) {
                         JSONObject jSONObject3 = new JSONObject();
-                        jSONObject3.put("k", key);
+                        jSONObject3.put(Config.APP_KEY, key);
                         jSONObject3.put("v", value);
                         jSONArray3.put(jSONObject3);
                     }
@@ -149,196 +200,441 @@ public class EventAnalysis {
                 jSONArray4.put(jSONObject);
                 jSONObject2.put(Config.EVENT_HEAT_POINT, jSONArray4);
             }
-            if (TextUtils.isEmpty(str9)) {
-                str9 = "";
-            }
-            jSONObject2.put("sign", str9);
-        } catch (Exception e) {
+            jSONObject2.put("sign", TextUtils.isEmpty(str9) ? "" : str9);
+        } catch (Exception unused) {
         }
         return jSONObject2;
     }
 
-    private static boolean a(String str, int i) {
+    public void onEvent(Context context, long j, String str, String str2, int i, long j2, JSONArray jSONArray, JSONArray jSONArray2, String str3, String str4, String str5, Map<String, String> map, boolean z) {
+        flushEvent(context, j, str, str2, i, j2, jSONArray, jSONArray2, str3, str4, str5, map, z);
+    }
+
+    private void a(Context context, long j, String str, String str2, int i, long j2, long j3, String str3, String str4, int i2) {
+        DataCore.instance().putEvent(context, getEvent(context, j, str, str2, i, j2, j3, str3, str4, i2, 1, null, null, false));
+        DataCore.instance().flush(context);
+    }
+
+    private String a(String str, String str2) {
+        return "__sdk_" + str + "$|$" + str2;
+    }
+
+    public static boolean a(String str, int i) {
         int i2;
         if (str == null) {
             return false;
         }
         try {
             i2 = str.getBytes().length;
-        } catch (Exception e) {
+        } catch (Exception unused) {
             i2 = 0;
         }
         return i2 > i;
     }
 
-    private static boolean b(String str, String str2) {
-        if (TextUtils.isEmpty(str) || new JSONObject().toString().equals(str)) {
-            return (TextUtils.isEmpty(str2) || new JSONArray().toString().equals(str2)) ? false : true;
-        }
-        return true;
-    }
-
-    public static void doEventMerge(JSONArray jSONArray, JSONObject jSONObject) {
-        int i = 0;
-        JSONArray jSONArray2 = null;
-        JSONArray jSONArray3 = null;
-        String str = "";
-        String str2 = "";
-        Config.EventViewType.EDIT.getValue();
-        try {
-            long optLong = jSONObject.optLong("ss");
-            String string = jSONObject.getString("i");
-            String string2 = jSONObject.getString("l");
-            long j = jSONObject.getLong("t") / BdKVCache.MILLS_1Hour;
-            String optString = jSONObject.optString("s");
-            int optInt = jSONObject.optInt("at");
-            String optString2 = jSONObject.optString("h");
-            if (optInt != 3) {
-                jSONArray2 = jSONObject.optJSONArray(Config.EVENT_NATIVE_VIEW_HIERARCHY);
-                jSONArray3 = jSONObject.optJSONArray(Config.EVENT_H5_VIEW_HIERARCHY);
-            } else {
-                str = jSONObject.optString(Config.EVENT_NATIVE_VIEW_HIERARCHY);
-                str2 = jSONObject.optString(Config.EVENT_H5_VIEW_HIERARCHY);
-            }
-            String optString3 = jSONObject.optString("p");
-            String optString4 = jSONObject.optString("p2");
-            String optString5 = jSONObject.optString("rn");
-            int optInt2 = jSONObject.optInt("v");
-            String optString6 = jSONObject.optString("ext");
-            String optString7 = jSONObject.optString(Config.EVENT_ATTR);
-            int optInt3 = jSONObject.optInt("h5");
-            String optString8 = jSONObject.optString("sign");
-            try {
-                i = jSONObject.getInt("d");
-            } catch (JSONException e) {
-            }
-            if (i == 0 && !b(optString6, optString7)) {
-                a(jSONArray, jSONObject, optLong, string, string2, optString, j, optString2, jSONArray2, jSONArray3, optString3, optString4, optString5, optInt2, optInt, str, str2, optInt3, optString8);
-                return;
-            }
-            int length = jSONArray.length();
-            try {
-                jSONObject.put("s", "0");
-                jSONArray.put(length, jSONObject);
-            } catch (JSONException e2) {
-            }
-        } catch (JSONException e3) {
-        }
-    }
-
-    /* JADX WARN: Code restructure failed: missing block: B:5:0x000f, code lost:
-        if (r33.equals("") != false) goto L3;
+    /* JADX WARN: Code restructure failed: missing block: B:5:0x001b, code lost:
+        if (r37.equals("") != false) goto L3;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:76:0x0165, code lost:
+        if (r4.equalsIgnoreCase(r23) != false) goto L86;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private static void a(JSONArray jSONArray, JSONObject jSONObject, long j, String str, String str2, String str3, long j2, String str4, JSONArray jSONArray2, JSONArray jSONArray3, String str5, String str6, String str7, int i, int i2, String str8, String str9, int i3, String str10) {
+    public static void a(JSONArray jSONArray, JSONObject jSONObject, long j, String str, String str2, String str3, long j2, String str4, JSONArray jSONArray2, JSONArray jSONArray3, String str5, String str6, String str7, int i, int i2, String str8, String str9, int i3, String str10) {
+        JSONObject jSONObject2;
         int i4;
+        int i5;
+        String str11;
+        String str12;
+        int i6;
+        String str13;
+        String str14;
+        String str15;
+        int i7;
+        int i8;
+        JSONObject jSONObject3;
+        long optLong;
+        String string;
+        String string2;
+        long j3;
+        int i9;
+        String optString;
+        String optString2;
+        String optString3;
+        String optString4;
+        int optInt;
+        int optInt2;
+        String str16;
+        String str17;
+        JSONArray optJSONArray;
+        String str18;
+        String str19;
+        String optString5;
+        String str20;
+        String optString6;
+        int optInt3;
+        String optString7;
+        long j4;
+        JSONArray jSONArray4 = jSONArray;
+        JSONObject jSONObject4 = jSONObject;
+        String str21 = "t";
+        JSONArray jSONArray5 = "c";
         int length = jSONArray.length();
+        String str22 = "0|";
+        String str23 = "s";
+        String str24 = "";
         if (str3 != null) {
         }
-        jSONObject.put("s", "0|");
-        int i5 = 0;
-        int i6 = length;
+        jSONObject4.put("s", "0|");
+        int i10 = length;
+        int i11 = 0;
         while (true) {
-            if (i5 >= length) {
-                i5 = i6;
+            if (i11 >= length) {
+                jSONObject2 = jSONObject4;
+                i4 = length;
+                i5 = i10;
                 break;
             }
             try {
-                JSONObject jSONObject2 = jSONArray.getJSONObject(i5);
-                long optLong = jSONObject2.optLong("ss");
-                String string = jSONObject2.getString("i");
-                String string2 = jSONObject2.getString("l");
-                long j3 = jSONObject2.getLong("t") / BdKVCache.MILLS_1Hour;
+                jSONObject3 = jSONArray4.getJSONObject(i11);
+                optLong = jSONObject3.optLong("ss");
+                string = jSONObject3.getString("i");
+                string2 = jSONObject3.getString("l");
+                j3 = jSONObject3.getLong(str21) / VideoCloudSetting.HOUR_MILLISECOND;
                 try {
-                    i4 = jSONObject2.getInt("d");
-                } catch (JSONException e) {
-                    i4 = 0;
+                    i9 = jSONObject3.getInt("d");
+                    str13 = str22;
+                } catch (JSONException unused) {
+                    str13 = str22;
+                    i9 = 0;
                 }
-                String optString = jSONObject2.optString("h");
-                String optString2 = jSONObject2.optString("p");
-                String optString3 = jSONObject2.optString("p2");
-                String optString4 = jSONObject2.optString("rn");
-                int optInt = jSONObject2.optInt("v");
-                int optInt2 = jSONObject2.optInt("at");
-                JSONArray jSONArray4 = null;
-                JSONArray jSONArray5 = null;
-                String str11 = "";
-                String str12 = "";
-                if (optInt2 != 3) {
-                    jSONArray4 = jSONObject2.optJSONArray(Config.EVENT_NATIVE_VIEW_HIERARCHY);
-                    jSONArray5 = jSONObject2.optJSONArray(Config.EVENT_H5_VIEW_HIERARCHY);
-                } else {
-                    str11 = jSONObject2.optString(Config.EVENT_NATIVE_VIEW_HIERARCHY);
-                    str12 = jSONObject2.optString(Config.EVENT_H5_VIEW_HIERARCHY);
-                }
-                String optString5 = jSONObject2.optString("ext");
-                String optString6 = jSONObject2.optString(Config.EVENT_ATTR);
-                int optInt3 = jSONObject2.optInt("h5");
-                String optString7 = jSONObject2.optString("sign");
-                if (j3 == j2 && i4 == 0 && !b(optString5, optString6) && optLong == j && string.equals(str) && string2.equals(str2) && optString.equals(str4) && optString2.equals(str5) && optString3.equals(str6) && a(jSONArray4, jSONArray2) && a(jSONArray5, jSONArray3) && optString4.equals(str7) && optInt == i && optInt2 == i2 && str11.equals(str8) && str12.equals(str9) && optInt3 == i3 && optString7.equals(str10)) {
-                    int i7 = jSONObject.getInt("c") + jSONObject2.getInt("c");
-                    String optString8 = jSONObject2.optString("s");
-                    String str13 = (optString8 == null || optString8.equalsIgnoreCase("")) ? "0|" : optString8;
-                    long j4 = jSONObject.getLong("t") - jSONObject2.getLong("t");
-                    if (j4 < 0) {
-                        j4 = 0;
-                    }
-                    String str14 = str13 + j4 + "|";
-                    try {
-                        jSONObject2.remove("c");
-                        jSONObject2.put("c", i7);
-                        jSONObject2.put("s", str14);
-                        a(jSONObject2, jSONObject);
-                        break;
-                    } catch (JSONException e2) {
-                        i6 = i5;
-                    }
-                }
-            } catch (JSONException e3) {
+            } catch (JSONException unused2) {
+                str11 = str21;
+                str12 = jSONArray5;
+                i6 = length;
+                str13 = str22;
             }
-            i5++;
-        }
-        if (i5 >= length) {
             try {
-                jSONArray.put(length, jSONObject);
-            } catch (JSONException e4) {
-            }
-        }
-    }
-
-    private static void a(JSONObject jSONObject, JSONObject jSONObject2) {
-        JSONArray optJSONArray;
-        if (jSONObject != null && jSONObject2 != null) {
-            JSONArray jSONArray = new JSONArray();
-            JSONArray optJSONArray2 = jSONObject.optJSONArray(Config.EVENT_HEAT_POINT);
-            if (optJSONArray2 != null && optJSONArray2.length() != 0) {
-                for (int i = 0; i < optJSONArray2.length(); i++) {
-                    try {
-                        jSONArray.put(optJSONArray2.getJSONObject(i));
-                    } catch (Exception e) {
-                    }
-                }
-            }
-            if (jSONArray.length() < 10 && (optJSONArray = jSONObject2.optJSONArray(Config.EVENT_HEAT_POINT)) != null && optJSONArray.length() != 0) {
-                for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-                    try {
-                        jSONArray.put(optJSONArray.getJSONObject(i2));
-                    } catch (Exception e2) {
-                    }
-                }
-            }
-            if (jSONArray != null && jSONArray.length() != 0) {
+                optString = jSONObject3.optString("h");
+                i8 = i10;
                 try {
-                    jSONObject.put(Config.EVENT_HEAT_POINT, jSONArray);
-                } catch (Exception e3) {
+                    optString2 = jSONObject3.optString("p");
+                    optString3 = jSONObject3.optString("p2");
+                    i6 = length;
+                    try {
+                        optString4 = jSONObject3.optString("rn");
+                        i7 = i11;
+                    } catch (JSONException unused3) {
+                        str11 = str21;
+                        str12 = jSONArray5;
+                        str14 = str23;
+                        str15 = str24;
+                        i7 = i11;
+                        jSONObject2 = jSONObject4;
+                        jSONArray5 = str12;
+                        i11 = i7 + 1;
+                        str23 = str14;
+                        jSONObject4 = jSONObject2;
+                        str22 = str13;
+                        i10 = i8;
+                        length = i6;
+                        str21 = str11;
+                        str24 = str15;
+                        jSONArray4 = jSONArray;
+                    }
+                } catch (JSONException unused4) {
+                    str11 = str21;
+                    str12 = jSONArray5;
+                    i6 = length;
                 }
+            } catch (JSONException unused5) {
+                str11 = str21;
+                str12 = jSONArray5;
+                i6 = length;
+                str14 = str23;
+                str15 = str24;
+                i7 = i11;
+                i8 = i10;
+                jSONObject2 = jSONObject4;
+                jSONArray5 = str12;
+                i11 = i7 + 1;
+                str23 = str14;
+                jSONObject4 = jSONObject2;
+                str22 = str13;
+                i10 = i8;
+                length = i6;
+                str21 = str11;
+                str24 = str15;
+                jSONArray4 = jSONArray;
+            }
+            try {
+                optInt = jSONObject3.optInt("v");
+                str11 = str21;
+                try {
+                    optInt2 = jSONObject3.optInt("at");
+                    str15 = str24;
+                    str16 = str23;
+                    if (optInt2 != 3) {
+                        try {
+                            str17 = jSONArray5;
+                            optJSONArray = jSONObject3.optJSONArray(Config.EVENT_NATIVE_VIEW_HIERARCHY);
+                            jSONArray5 = jSONObject3.optJSONArray(Config.EVENT_H5_VIEW_HIERARCHY);
+                            str18 = str15;
+                            str19 = str18;
+                        } catch (JSONException unused6) {
+                            jSONObject2 = jSONObject;
+                            str12 = jSONArray5;
+                        }
+                    } else {
+                        str18 = jSONObject3.optString(Config.EVENT_NATIVE_VIEW_HIERARCHY);
+                        str17 = jSONArray5;
+                        jSONArray5 = null;
+                        optJSONArray = null;
+                        str19 = jSONObject3.optString(Config.EVENT_H5_VIEW_HIERARCHY);
+                    }
+                    try {
+                        optString5 = jSONObject3.optString("ext");
+                        str20 = str18;
+                        optString6 = jSONObject3.optString(Config.EVENT_ATTR);
+                        optInt3 = jSONObject3.optInt("h5");
+                        optString7 = jSONObject3.optString("sign");
+                    } catch (JSONException unused7) {
+                    }
+                } catch (JSONException unused8) {
+                    jSONObject2 = jSONObject4;
+                    str12 = jSONArray5;
+                    str14 = str23;
+                    str15 = str24;
+                }
+            } catch (JSONException unused9) {
+                str11 = str21;
+                str12 = jSONArray5;
+                str14 = str23;
+                str15 = str24;
+                jSONObject2 = jSONObject4;
+                jSONArray5 = str12;
+                i11 = i7 + 1;
+                str23 = str14;
+                jSONObject4 = jSONObject2;
+                str22 = str13;
+                i10 = i8;
+                length = i6;
+                str21 = str11;
+                str24 = str15;
+                jSONArray4 = jSONArray;
+            }
+            if (j3 == j2 && i9 == 0 && !b(optString5, optString6) && optLong == j && string.equals(str) && string2.equals(str2) && optString.equals(str4) && optString2.equals(str5)) {
+                if (optString3.equals(str6) && a(optJSONArray, jSONArray2)) {
+                    if (a(jSONArray5, jSONArray3) && optString4.equals(str7) && optInt == i) {
+                        if (optInt2 == i2) {
+                            if (str20.equals(str8)) {
+                                if (str19.equals(str9)) {
+                                    if (optInt3 == i3) {
+                                        try {
+                                            if (optString7.equals(str10)) {
+                                                jSONObject2 = jSONObject;
+                                                str12 = str17;
+                                                try {
+                                                    int i12 = jSONObject2.getInt(str12) + jSONObject3.getInt(str12);
+                                                    str14 = str16;
+                                                    try {
+                                                        String optString8 = jSONObject3.optString(str14);
+                                                        if (optString8 != null) {
+                                                            try {
+                                                            } catch (JSONException unused10) {
+                                                                str15 = str15;
+                                                            }
+                                                        }
+                                                        optString8 = str13;
+                                                        str15 = str15;
+                                                        try {
+                                                            long j5 = jSONObject2.getLong(str11) - jSONObject3.getLong(str11);
+                                                            if (j5 < 0) {
+                                                                str11 = str11;
+                                                                j4 = 0;
+                                                            } else {
+                                                                str11 = str11;
+                                                                j4 = j5;
+                                                            }
+                                                            String str25 = optString8 + j4 + FieldBuilder.SE;
+                                                            try {
+                                                                jSONObject3.remove(str12);
+                                                                jSONObject3.put(str12, i12);
+                                                                jSONObject3.put(str14, str25);
+                                                                a(jSONObject3, jSONObject2);
+                                                                i4 = i6;
+                                                                i5 = i7;
+                                                                break;
+                                                            } catch (JSONException unused11) {
+                                                                i8 = i7;
+                                                            }
+                                                        } catch (JSONException unused12) {
+                                                            str11 = str11;
+                                                        }
+                                                    } catch (JSONException unused13) {
+                                                        continue;
+                                                    }
+                                                } catch (JSONException unused14) {
+                                                }
+                                            }
+                                        } catch (JSONException unused15) {
+                                        }
+                                        jSONObject2 = jSONObject;
+                                        str12 = str17;
+                                        str14 = str16;
+                                        jSONArray5 = str12;
+                                        i11 = i7 + 1;
+                                        str23 = str14;
+                                        jSONObject4 = jSONObject2;
+                                        str22 = str13;
+                                        i10 = i8;
+                                        length = i6;
+                                        str21 = str11;
+                                        str24 = str15;
+                                        jSONArray4 = jSONArray;
+                                    } else {
+                                        jSONObject2 = jSONObject;
+                                        str12 = str17;
+                                        str14 = str16;
+                                        jSONArray5 = str12;
+                                        i11 = i7 + 1;
+                                        str23 = str14;
+                                        jSONObject4 = jSONObject2;
+                                        str22 = str13;
+                                        i10 = i8;
+                                        length = i6;
+                                        str21 = str11;
+                                        str24 = str15;
+                                        jSONArray4 = jSONArray;
+                                    }
+                                }
+                                jSONObject2 = jSONObject;
+                                str12 = str17;
+                                str14 = str16;
+                                jSONArray5 = str12;
+                                i11 = i7 + 1;
+                                str23 = str14;
+                                jSONObject4 = jSONObject2;
+                                str22 = str13;
+                                i10 = i8;
+                                length = i6;
+                                str21 = str11;
+                                str24 = str15;
+                                jSONArray4 = jSONArray;
+                            }
+                            jSONObject2 = jSONObject;
+                            str12 = str17;
+                            str14 = str16;
+                            jSONArray5 = str12;
+                            i11 = i7 + 1;
+                            str23 = str14;
+                            jSONObject4 = jSONObject2;
+                            str22 = str13;
+                            i10 = i8;
+                            length = i6;
+                            str21 = str11;
+                            str24 = str15;
+                            jSONArray4 = jSONArray;
+                        } else {
+                            jSONObject2 = jSONObject;
+                            str12 = str17;
+                            str14 = str16;
+                            jSONArray5 = str12;
+                            i11 = i7 + 1;
+                            str23 = str14;
+                            jSONObject4 = jSONObject2;
+                            str22 = str13;
+                            i10 = i8;
+                            length = i6;
+                            str21 = str11;
+                            str24 = str15;
+                            jSONArray4 = jSONArray;
+                        }
+                    }
+                    jSONObject2 = jSONObject;
+                    str12 = str17;
+                    str14 = str16;
+                    jSONArray5 = str12;
+                    i11 = i7 + 1;
+                    str23 = str14;
+                    jSONObject4 = jSONObject2;
+                    str22 = str13;
+                    i10 = i8;
+                    length = i6;
+                    str21 = str11;
+                    str24 = str15;
+                    jSONArray4 = jSONArray;
+                }
+                jSONObject2 = jSONObject;
+                str12 = str17;
+                str14 = str16;
+                jSONArray5 = str12;
+                i11 = i7 + 1;
+                str23 = str14;
+                jSONObject4 = jSONObject2;
+                str22 = str13;
+                i10 = i8;
+                length = i6;
+                str21 = str11;
+                str24 = str15;
+                jSONArray4 = jSONArray;
+            }
+            jSONObject2 = jSONObject;
+            str12 = str17;
+            str14 = str16;
+            jSONArray5 = str12;
+            i11 = i7 + 1;
+            str23 = str14;
+            jSONObject4 = jSONObject2;
+            str22 = str13;
+            i10 = i8;
+            length = i6;
+            str21 = str11;
+            str24 = str15;
+            jSONArray4 = jSONArray;
+        }
+        if (i5 < i4) {
+            return;
+        }
+        try {
+            jSONArray.put(i4, jSONObject2);
+        } catch (JSONException unused16) {
+        }
+    }
+
+    public static void a(JSONObject jSONObject, JSONObject jSONObject2) {
+        JSONArray optJSONArray;
+        if (jSONObject == null || jSONObject2 == null) {
+            return;
+        }
+        JSONArray jSONArray = new JSONArray();
+        JSONArray optJSONArray2 = jSONObject.optJSONArray(Config.EVENT_HEAT_POINT);
+        if (optJSONArray2 != null && optJSONArray2.length() != 0) {
+            for (int i = 0; i < optJSONArray2.length(); i++) {
+                try {
+                    jSONArray.put(optJSONArray2.getJSONObject(i));
+                } catch (Exception unused) {
+                }
+            }
+        }
+        if (jSONArray.length() < 10 && (optJSONArray = jSONObject2.optJSONArray(Config.EVENT_HEAT_POINT)) != null && optJSONArray.length() != 0) {
+            for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
+                try {
+                    jSONArray.put(optJSONArray.getJSONObject(i2));
+                } catch (Exception unused2) {
+                }
+            }
+        }
+        if (jSONArray.length() != 0) {
+            try {
+                jSONObject.put(Config.EVENT_HEAT_POINT, jSONArray);
+            } catch (Exception unused3) {
             }
         }
     }
 
-    private static boolean a(JSONArray jSONArray, JSONArray jSONArray2) {
+    public static boolean a(JSONArray jSONArray, JSONArray jSONArray2) {
         if (jSONArray == null && jSONArray2 == null) {
             return true;
         }

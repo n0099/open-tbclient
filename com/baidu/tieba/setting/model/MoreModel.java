@@ -2,12 +2,16 @@ package com.baidu.tieba.setting.model;
 
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.tbadk.coreExtra.data.PersonChangeData;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class MoreModel extends BdBaseModel {
-    private PersonChangeData mDc;
-    private boolean nhp;
 
-    /* loaded from: classes7.dex */
+    /* renamed from: e  reason: collision with root package name */
+    public PersonChangeData f20984e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public boolean f20985f;
+
+    /* loaded from: classes5.dex */
     public enum TaskType {
         DO_CACHE_CLEAR,
         GET_SIZE
@@ -15,28 +19,16 @@ public class MoreModel extends BdBaseModel {
 
     public MoreModel(PersonChangeData personChangeData) {
         super(null);
-        this.mDc = null;
-        this.nhp = false;
-        this.mDc = personChangeData;
-        if (this.mDc == null) {
-            this.mDc = new PersonChangeData();
+        this.f20984e = null;
+        this.f20985f = false;
+        this.f20984e = personChangeData;
+        if (personChangeData == null) {
+            this.f20984e = new PersonChangeData();
         }
     }
 
-    public void b(PersonChangeData personChangeData) {
-        this.mDc = personChangeData;
-    }
-
-    public void xN(boolean z) {
-        this.nhp = z;
-    }
-
-    public boolean dGI() {
-        return this.nhp;
-    }
-
     @Override // com.baidu.adp.base.BdBaseModel
-    protected boolean LoadData() {
+    public boolean LoadData() {
         return false;
     }
 
@@ -45,7 +37,19 @@ public class MoreModel extends BdBaseModel {
         return false;
     }
 
-    public PersonChangeData dGJ() {
-        return this.mDc;
+    public PersonChangeData s() {
+        return this.f20984e;
+    }
+
+    public boolean t() {
+        return this.f20985f;
+    }
+
+    public void u(PersonChangeData personChangeData) {
+        this.f20984e = personChangeData;
+    }
+
+    public void v(boolean z) {
+        this.f20985f = z;
     }
 }

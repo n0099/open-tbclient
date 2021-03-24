@@ -5,7 +5,6 @@ import aegon.chrome.base.annotations.CalledByNative;
 import aegon.chrome.net.CronetException;
 import aegon.chrome.net.ExperimentalBidirectionalStream;
 import aegon.chrome.net.RequestFinishedInfo;
-import aegon.chrome.net.UrlResponseInfo;
 import aegon.chrome.net.impl.UrlResponseInfoImpl;
 import java.nio.ByteBuffer;
 import java.util.AbstractMap;
@@ -16,10 +15,9 @@ import java.util.LinkedList;
 import java.util.Map;
 import java.util.concurrent.Executor;
 import java.util.concurrent.RejectedExecutionException;
-import org.apache.http.client.methods.HttpHead;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class CronetBidirectionalStream extends ExperimentalBidirectionalStream {
-    public static final /* synthetic */ boolean $assertionsDisabled = !CronetBidirectionalStream.class.desiredAssertionStatus();
+    public static final /* synthetic */ boolean $assertionsDisabled = false;
     public boolean mEndOfStreamWritten;
     public CronetException mException;
     public final Executor mExecutor;
@@ -38,13 +36,13 @@ public class CronetBidirectionalStream extends ExperimentalBidirectionalStream {
     public UrlResponseInfoImpl mResponseInfo;
     public int mWriteState;
 
-    /* loaded from: classes3.dex */
-    private final class OnReadCompletedRunnable implements Runnable {
+    /* loaded from: classes.dex */
+    public final class OnReadCompletedRunnable implements Runnable {
         public ByteBuffer mByteBuffer;
     }
 
-    /* loaded from: classes3.dex */
-    private final class OnWriteCompletedRunnable implements Runnable {
+    /* loaded from: classes.dex */
+    public final class OnWriteCompletedRunnable implements Runnable {
         public ByteBuffer mByteBuffer;
         public final boolean mEndOfStream;
 
@@ -56,7 +54,6 @@ public class CronetBidirectionalStream extends ExperimentalBidirectionalStream {
         @Override // java.lang.Runnable
         public void run() {
             try {
-                ByteBuffer byteBuffer = this.mByteBuffer;
                 this.mByteBuffer = null;
                 synchronized (CronetBidirectionalStream.this.mNativeStreamLock) {
                     if (CronetBidirectionalStream.this.isDoneLocked()) {
@@ -67,19 +64,17 @@ public class CronetBidirectionalStream extends ExperimentalBidirectionalStream {
                         int unused = CronetBidirectionalStream.this.mReadState;
                     }
                     CronetBidirectionalStream.access$500(CronetBidirectionalStream.this);
-                    CronetBidirectionalStream cronetBidirectionalStream = CronetBidirectionalStream.this;
                     UrlResponseInfoImpl unused2 = CronetBidirectionalStream.this.mResponseInfo;
-                    boolean z = this.mEndOfStream;
                     throw null;
                 }
-            } catch (Exception e) {
-                CronetBidirectionalStream.this.onCallbackException(e);
+            } catch (Exception e2) {
+                CronetBidirectionalStream.this.onCallbackException(e2);
             }
         }
     }
 
     public static /* synthetic */ boolean access$1100(String str) {
-        return (str.equals("GET") || str.equals(HttpHead.METHOD_NAME)) ? false : true;
+        return (str.equals("GET") || str.equals("HEAD")) ? false : true;
     }
 
     public static /* synthetic */ void access$500(CronetBidirectionalStream cronetBidirectionalStream) {
@@ -112,11 +107,10 @@ public class CronetBidirectionalStream extends ExperimentalBidirectionalStream {
             public void run() {
                 try {
                     CronetBidirectionalStream.access$500(CronetBidirectionalStream.this);
-                    CronetBidirectionalStream cronetBidirectionalStream = CronetBidirectionalStream.this;
                     UrlResponseInfoImpl unused = CronetBidirectionalStream.this.mResponseInfo;
                     throw null;
-                } catch (Exception e) {
-                    Log.e(CronetUrlRequestContext.LOG_TAG, "Exception in onCanceled method", e);
+                } catch (Exception e2) {
+                    Log.e(CronetUrlRequestContext.LOG_TAG, "Exception in onCanceled method", e2);
                 }
             }
         });
@@ -130,9 +124,9 @@ public class CronetBidirectionalStream extends ExperimentalBidirectionalStream {
         }
         if (i == 10 || i == 3) {
             failWithException(new QuicExceptionImpl("Exception in BidirectionalStream: " + str, i, i2, i3));
-        } else {
-            failWithException(new BidirectionalStreamNetworkException("Exception in BidirectionalStream: " + str, i, i2));
+            return;
         }
+        failWithException(new BidirectionalStreamNetworkException("Exception in BidirectionalStream: " + str, i, i2));
     }
 
     @CalledByNative
@@ -142,12 +136,6 @@ public class CronetBidirectionalStream extends ExperimentalBidirectionalStream {
                 throw new IllegalStateException("Metrics collection should only happen once.");
             }
             this.mMetrics = new CronetMetrics(j, j2, j3, j4, j5, j6, j7, j8, j9, j10, j11, j12, j13, z, j14, j15);
-            if (!$assertionsDisabled && this.mReadState != this.mWriteState) {
-                throw new AssertionError();
-            }
-            if (!$assertionsDisabled && this.mReadState != 7 && this.mReadState != 6 && this.mReadState != 5) {
-                throw new AssertionError();
-            }
             this.mRequestContext.reportRequestFinished(new RequestFinishedInfoImpl(this.mInitialUrl, this.mRequestAnnotations, this.mMetrics, this.mReadState == 7 ? 0 : this.mReadState == 5 ? 2 : 1, this.mResponseInfo, this.mException));
         }
     }
@@ -155,17 +143,14 @@ public class CronetBidirectionalStream extends ExperimentalBidirectionalStream {
     @CalledByNative
     private void onReadCompleted(ByteBuffer byteBuffer, int i, int i2, int i3, long j) {
         int i4;
-        OnReadCompletedRunnable onReadCompletedRunnable = null;
         this.mResponseInfo.mReceivedByteCount.set(j);
+        OnReadCompletedRunnable onReadCompletedRunnable = null;
         if (byteBuffer.position() != i2 || byteBuffer.limit() != i3) {
             failWithException(new CronetExceptionImpl("ByteBuffer modified externally during read", null));
         } else if (i < 0 || (i4 = i2 + i) > i3) {
             failWithException(new CronetExceptionImpl("Invalid number of bytes read", null));
         } else {
             byteBuffer.position(i4);
-            if (!$assertionsDisabled && onReadCompletedRunnable.mByteBuffer != null) {
-                throw new AssertionError();
-            }
             onReadCompletedRunnable.mByteBuffer = byteBuffer;
             postTaskToExecutor(null);
         }
@@ -183,18 +168,17 @@ public class CronetBidirectionalStream extends ExperimentalBidirectionalStream {
                             return;
                         }
                         CronetBidirectionalStream.this.mReadState = 2;
-                    }
-                    try {
-                        CronetBidirectionalStream.access$500(CronetBidirectionalStream.this);
-                        CronetBidirectionalStream cronetBidirectionalStream = CronetBidirectionalStream.this;
-                        UrlResponseInfoImpl unused = CronetBidirectionalStream.this.mResponseInfo;
-                        throw null;
-                    } catch (Exception e) {
-                        CronetBidirectionalStream.this.onCallbackException(e);
+                        try {
+                            CronetBidirectionalStream.access$500(CronetBidirectionalStream.this);
+                            UrlResponseInfoImpl unused = CronetBidirectionalStream.this.mResponseInfo;
+                            throw null;
+                        } catch (Exception e2) {
+                            CronetBidirectionalStream.this.onCallbackException(e2);
+                        }
                     }
                 }
             });
-        } catch (Exception e) {
+        } catch (Exception unused) {
             failWithException(new CronetExceptionImpl("Cannot prepare ResponseInfo", null));
         }
     }
@@ -209,15 +193,13 @@ public class CronetBidirectionalStream extends ExperimentalBidirectionalStream {
                     if (CronetBidirectionalStream.this.isDoneLocked()) {
                         return;
                     }
-                }
-                try {
-                    CronetBidirectionalStream.access$500(CronetBidirectionalStream.this);
-                    CronetBidirectionalStream cronetBidirectionalStream = CronetBidirectionalStream.this;
-                    UrlResponseInfoImpl unused = CronetBidirectionalStream.this.mResponseInfo;
-                    UrlResponseInfo.HeaderBlock headerBlock = headerBlockImpl;
-                    throw null;
-                } catch (Exception e) {
-                    CronetBidirectionalStream.this.onCallbackException(e);
+                    try {
+                        CronetBidirectionalStream.access$500(CronetBidirectionalStream.this);
+                        UrlResponseInfoImpl unused = CronetBidirectionalStream.this.mResponseInfo;
+                        throw null;
+                    } catch (Exception e2) {
+                        CronetBidirectionalStream.this.onCallbackException(e2);
+                    }
                 }
             }
         });
@@ -228,6 +210,8 @@ public class CronetBidirectionalStream extends ExperimentalBidirectionalStream {
         postTaskToExecutor(new Runnable() { // from class: aegon.chrome.net.impl.CronetBidirectionalStream.1
             @Override // java.lang.Runnable
             public void run() {
+                CronetBidirectionalStream cronetBidirectionalStream;
+                int i;
                 synchronized (CronetBidirectionalStream.this.mNativeStreamLock) {
                     if (CronetBidirectionalStream.this.isDoneLocked()) {
                         return;
@@ -235,17 +219,19 @@ public class CronetBidirectionalStream extends ExperimentalBidirectionalStream {
                     CronetBidirectionalStream.this.mRequestHeadersSent = z;
                     CronetBidirectionalStream.this.mReadState = 2;
                     if (CronetBidirectionalStream.access$1100(CronetBidirectionalStream.this.mInitialMethod) || !CronetBidirectionalStream.this.mRequestHeadersSent) {
-                        CronetBidirectionalStream.this.mWriteState = 8;
+                        cronetBidirectionalStream = CronetBidirectionalStream.this;
+                        i = 8;
                     } else {
-                        CronetBidirectionalStream.this.mWriteState = 10;
+                        cronetBidirectionalStream = CronetBidirectionalStream.this;
+                        i = 10;
                     }
-                }
-                try {
-                    CronetBidirectionalStream.access$500(CronetBidirectionalStream.this);
-                    CronetBidirectionalStream cronetBidirectionalStream = CronetBidirectionalStream.this;
-                    throw null;
-                } catch (Exception e) {
-                    CronetBidirectionalStream.this.onCallbackException(e);
+                    cronetBidirectionalStream.mWriteState = i;
+                    try {
+                        CronetBidirectionalStream.access$500(CronetBidirectionalStream.this);
+                        throw null;
+                    } catch (Exception e2) {
+                        CronetBidirectionalStream.this.onCallbackException(e2);
+                    }
                 }
             }
         });
@@ -253,12 +239,6 @@ public class CronetBidirectionalStream extends ExperimentalBidirectionalStream {
 
     @CalledByNative
     private void onWritevCompleted(ByteBuffer[] byteBufferArr, int[] iArr, int[] iArr2, boolean z) {
-        if (!$assertionsDisabled && byteBufferArr.length != iArr.length) {
-            throw new AssertionError();
-        }
-        if (!$assertionsDisabled && byteBufferArr.length != iArr2.length) {
-            throw new AssertionError();
-        }
         synchronized (this.mNativeStreamLock) {
             if (isDoneLocked()) {
                 return;
@@ -267,22 +247,25 @@ public class CronetBidirectionalStream extends ExperimentalBidirectionalStream {
             if (!this.mFlushData.isEmpty()) {
                 sendFlushDataLocked();
             }
-            int i = 0;
-            while (i < byteBufferArr.length) {
+            for (int i = 0; i < byteBufferArr.length; i++) {
                 ByteBuffer byteBuffer = byteBufferArr[i];
                 if (byteBuffer.position() != iArr[i] || byteBuffer.limit() != iArr2[i]) {
                     failWithException(new CronetExceptionImpl("ByteBuffer modified externally during write", null));
                     return;
                 }
                 byteBuffer.position(byteBuffer.limit());
-                postTaskToExecutor(new OnWriteCompletedRunnable(byteBuffer, z && i == byteBufferArr.length + (-1)));
-                i++;
+                boolean z2 = true;
+                if (!z || i != byteBufferArr.length - 1) {
+                    z2 = false;
+                }
+                postTaskToExecutor(new OnWriteCompletedRunnable(byteBuffer, z2));
             }
         }
     }
 
     public final void destroyNativeStreamLocked(boolean z) {
-        Log.i(CronetUrlRequestContext.LOG_TAG, "destroyNativeStreamLocked " + toString(), new Object[0]);
+        String str = CronetUrlRequestContext.LOG_TAG;
+        Log.i(str, "destroyNativeStreamLocked " + toString(), new Object[0]);
         long j = this.mNativeStream;
         if (j == 0) {
             return;
@@ -314,12 +297,11 @@ public class CronetBidirectionalStream extends ExperimentalBidirectionalStream {
             this.mWriteState = 6;
             this.mReadState = 6;
             destroyNativeStreamLocked(false);
-        }
-        try {
-            UrlResponseInfoImpl urlResponseInfoImpl = this.mResponseInfo;
-            throw null;
-        } catch (Exception e) {
-            Log.e(CronetUrlRequestContext.LOG_TAG, "Exception notifying of failed request", e);
+            try {
+                throw null;
+            } catch (Exception e2) {
+                Log.e(CronetUrlRequestContext.LOG_TAG, "Exception notifying of failed request", e2);
+            }
         }
     }
 
@@ -336,8 +318,8 @@ public class CronetBidirectionalStream extends ExperimentalBidirectionalStream {
     public final void postTaskToExecutor(Runnable runnable) {
         try {
             this.mExecutor.execute(runnable);
-        } catch (RejectedExecutionException e) {
-            Log.e(CronetUrlRequestContext.LOG_TAG, "Exception posting task to executor", e);
+        } catch (RejectedExecutionException e2) {
+            Log.e(CronetUrlRequestContext.LOG_TAG, "Exception posting task to executor", e2);
             synchronized (this.mNativeStreamLock) {
                 this.mWriteState = 6;
                 this.mReadState = 6;
@@ -347,10 +329,6 @@ public class CronetBidirectionalStream extends ExperimentalBidirectionalStream {
     }
 
     public final void sendFlushDataLocked() {
-        boolean z = true;
-        if (!$assertionsDisabled && this.mWriteState != 8) {
-            throw new AssertionError();
-        }
         int size = this.mFlushData.size();
         ByteBuffer[] byteBufferArr = new ByteBuffer[size];
         int[] iArr = new int[size];
@@ -361,15 +339,9 @@ public class CronetBidirectionalStream extends ExperimentalBidirectionalStream {
             iArr[i] = poll.position();
             iArr2[i] = poll.limit();
         }
-        if (!$assertionsDisabled && !this.mFlushData.isEmpty()) {
-            throw new AssertionError();
-        }
-        if (!$assertionsDisabled && byteBufferArr.length < 1) {
-            throw new AssertionError();
-        }
         this.mWriteState = 9;
         this.mRequestHeadersSent = true;
-        if (nativeWritevData(this.mNativeStream, byteBufferArr, iArr, iArr2, (this.mEndOfStreamWritten && this.mPendingData.isEmpty()) ? false : false)) {
+        if (nativeWritevData(this.mNativeStream, byteBufferArr, iArr, iArr2, this.mEndOfStreamWritten && this.mPendingData.isEmpty())) {
             return;
         }
         this.mWriteState = 8;

@@ -4,100 +4,96 @@ import android.content.Context;
 import android.util.AttributeSet;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatTextView;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-/* loaded from: classes7.dex */
+import d.b.i0.r2.e0.a;
+/* loaded from: classes5.dex */
 public class FeedAdProgressText extends AppCompatTextView implements a {
-    private int dXJ;
-    private int mColor;
-    private int mProgress;
-    private int nct;
+
+    /* renamed from: e  reason: collision with root package name */
+    public int f20906e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public int f20907f;
 
     public FeedAdProgressText(Context context) {
         super(context);
-        this.dXJ = 100;
-        this.mProgress = 0;
-        this.mColor = 0;
-        this.nct = 0;
-        init(context);
+        this.f20906e = 100;
+        this.f20907f = 0;
+        f(context);
     }
 
-    public FeedAdProgressText(Context context, @Nullable AttributeSet attributeSet) {
-        super(context, attributeSet);
-        this.dXJ = 100;
-        this.mProgress = 0;
-        this.mColor = 0;
-        this.nct = 0;
-        init(context);
+    @Override // d.b.i0.r2.e0.a
+    public void a() {
+        setTextColor(SkinManager.getColor(R.color.CAM_X0109));
     }
 
-    public FeedAdProgressText(Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        this.dXJ = 100;
-        this.mProgress = 0;
-        this.mColor = 0;
-        this.nct = 0;
-        init(context);
+    @Override // d.b.i0.r2.e0.a
+    public void d() {
+        setTextColor(SkinManager.getColor(R.color.CAM_X0109));
     }
 
-    private void init(Context context) {
+    public final void f(Context context) {
         setIncludeFontPadding(false);
     }
 
-    public void setMax(int i) {
-        this.dXJ = i;
+    public int getMax() {
+        return this.f20906e;
     }
 
-    @Override // com.baidu.tieba.recapp.widget.a
+    public int getProgress() {
+        return this.f20907f;
+    }
+
+    @Override // d.b.i0.r2.e0.a
     public void setButtonText(String str) {
         setText(str);
     }
 
-    @Override // com.baidu.tieba.recapp.widget.a
-    public void setButtonText(String str, int i) {
-        this.mProgress = i;
-        setText(str);
+    @Override // d.b.i0.r2.e0.a
+    public void setButtonTextColor(int i) {
+        setTextColor(i);
     }
 
-    @Override // com.baidu.tieba.recapp.widget.a
+    @Override // d.b.i0.r2.e0.a
+    public void setButtonTextNightColor(int i) {
+    }
+
+    @Override // d.b.i0.r2.e0.a
     public void setButtonTextSize(int i) {
         setTextSize(1, i);
     }
 
-    @Override // com.baidu.tieba.recapp.widget.a
-    public void setButtonTextColor(int i) {
-        this.mColor = i;
-        setTextColor(i);
+    public void setMax(int i) {
+        this.f20906e = i;
     }
 
-    @Override // com.baidu.tieba.recapp.widget.a
-    public void setButtonTextNightColor(int i) {
-        this.nct = i;
-    }
-
-    @Override // com.baidu.tieba.recapp.widget.a
+    @Override // d.b.i0.r2.e0.a
     public void setProgress(int i) {
-        if (i <= this.dXJ) {
-            this.mProgress = i;
-            setText("已下载" + i + "%");
+        if (i > this.f20906e) {
+            return;
         }
+        this.f20907f = i;
+        setText("已下载" + i + "%");
     }
 
-    public int getMax() {
-        return this.dXJ;
+    @Override // d.b.i0.r2.e0.a
+    public void setButtonText(String str, int i) {
+        this.f20907f = i;
+        setText(str);
     }
 
-    public int getProgress() {
-        return this.mProgress;
+    public FeedAdProgressText(Context context, @Nullable AttributeSet attributeSet) {
+        super(context, attributeSet);
+        this.f20906e = 100;
+        this.f20907f = 0;
+        f(context);
     }
 
-    @Override // com.baidu.tieba.recapp.widget.a
-    public void onChangeSkinType() {
-        setTextColor(ap.getColor(R.color.CAM_X0109));
-    }
-
-    @Override // com.baidu.tieba.recapp.widget.a
-    public void bur() {
-        setTextColor(ap.getColor(R.color.CAM_X0109));
+    public FeedAdProgressText(Context context, @Nullable AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        this.f20906e = 100;
+        this.f20907f = 0;
+        f(context);
     }
 }

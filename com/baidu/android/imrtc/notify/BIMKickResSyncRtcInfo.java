@@ -3,10 +3,10 @@ package com.baidu.android.imrtc.notify;
 import androidx.annotation.NonNull;
 import com.baidu.android.imrtc.utils.LogUtils;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class BIMKickResSyncRtcInfo extends BIMKickReqSyncRtcInfo {
-    private static final String TAG = "BIMKickResSyncRtcInfo";
-    private int mKickedStatus = 0;
+    public static final String TAG = "BIMKickResSyncRtcInfo";
+    public int mKickedStatus = 0;
 
     public int getBIMKickedStatus() {
         return this.mKickedStatus;
@@ -24,8 +24,8 @@ public class BIMKickResSyncRtcInfo extends BIMKickReqSyncRtcInfo {
             jSONObject.put("status", this.mKickedStatus);
             LogUtils.d(TAG, "BIMKickResSyncRtcInfo :" + jSONObject.toString());
             return jSONObject.toString();
-        } catch (Exception e) {
-            LogUtils.e(TAG, "BIMKickResSyncRtcInfo Exception ", e);
+        } catch (Exception e2) {
+            LogUtils.e(TAG, "BIMKickResSyncRtcInfo Exception ", e2);
             return "";
         }
     }

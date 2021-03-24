@@ -1,10 +1,119 @@
 package com.xiaomi.mipush.sdk;
-/* loaded from: classes5.dex */
-public enum ah {
-    HUAWEI,
-    MEIZU,
-    FCM,
-    OPPO,
-    VIVO,
-    OTHER
+
+import android.content.Context;
+import android.text.TextUtils;
+import com.xiaomi.push.bj;
+import com.xiaomi.push.hf;
+import com.xiaomi.push.hu;
+import com.xiaomi.push.hv;
+import com.xiaomi.push.hw;
+import com.xiaomi.push.ia;
+import com.xiaomi.push.ib;
+import com.xiaomi.push.ie;
+import com.xiaomi.push.ig;
+import com.xiaomi.push.ih;
+import com.xiaomi.push.ii;
+import com.xiaomi.push.ik;
+import com.xiaomi.push.im;
+import com.xiaomi.push.io;
+import com.xiaomi.push.ip;
+import com.xiaomi.push.iq;
+import java.nio.ByteBuffer;
+/* loaded from: classes7.dex */
+public class ah {
+    public static <T extends iq<T, ?>> ib a(Context context, T t, hf hfVar) {
+        return a(context, t, hfVar, !hfVar.equals(hf.Registration), context.getPackageName(), b.m92a(context).m93a());
+    }
+
+    public static <T extends iq<T, ?>> ib a(Context context, T t, hf hfVar, boolean z, String str, String str2) {
+        return a(context, t, hfVar, z, str, str2, true);
+    }
+
+    public static <T extends iq<T, ?>> ib a(Context context, T t, hf hfVar, boolean z, String str, String str2, boolean z2) {
+        String str3;
+        byte[] a2 = ip.a(t);
+        if (a2 != null) {
+            ib ibVar = new ib();
+            if (z) {
+                String d2 = b.m92a(context).d();
+                if (TextUtils.isEmpty(d2)) {
+                    str3 = "regSecret is empty, return null";
+                } else {
+                    try {
+                        a2 = com.xiaomi.push.h.b(bj.m161a(d2), a2);
+                    } catch (Exception unused) {
+                        com.xiaomi.channel.commonutils.logger.b.d("encryption error. ");
+                    }
+                }
+            }
+            hu huVar = new hu();
+            huVar.f554a = 5L;
+            huVar.f555a = "fakeid";
+            ibVar.a(huVar);
+            ibVar.a(ByteBuffer.wrap(a2));
+            ibVar.a(hfVar);
+            ibVar.b(z2);
+            ibVar.b(str);
+            ibVar.a(z);
+            ibVar.a(str2);
+            return ibVar;
+        }
+        str3 = "invoke convertThriftObjectToBytes method, return null.";
+        com.xiaomi.channel.commonutils.logger.b.m51a(str3);
+        return null;
+    }
+
+    public static iq a(Context context, ib ibVar) {
+        byte[] m437a;
+        if (ibVar.m439b()) {
+            try {
+                m437a = com.xiaomi.push.h.a(bj.m161a(b.m92a(context).d()), ibVar.m437a());
+            } catch (Exception e2) {
+                throw new t("the aes decrypt failed.", e2);
+            }
+        } else {
+            m437a = ibVar.m437a();
+        }
+        iq a2 = a(ibVar.a(), ibVar.f636b);
+        if (a2 != null) {
+            ip.a(a2, m437a);
+        }
+        return a2;
+    }
+
+    public static iq a(hf hfVar, boolean z) {
+        switch (ai.f40159a[hfVar.ordinal()]) {
+            case 1:
+                return new ig();
+            case 2:
+                return new im();
+            case 3:
+                return new ik();
+            case 4:
+                return new io();
+            case 5:
+                return new ii();
+            case 6:
+                return new hv();
+            case 7:
+                return new ia();
+            case 8:
+                return new ih();
+            case 9:
+                if (z) {
+                    return new ie();
+                }
+                hw hwVar = new hw();
+                hwVar.a(true);
+                return hwVar;
+            case 10:
+                return new ia();
+            default:
+                return null;
+        }
+    }
+
+    public static <T extends iq<T, ?>> ib b(Context context, T t, hf hfVar, boolean z, String str, String str2) {
+        return a(context, t, hfVar, z, str, str2, false);
+    }
 }

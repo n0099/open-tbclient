@@ -4,6 +4,8 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
+import com.baidu.swan.gamecenter.appmanager.install.InstallAntiBlockingActivity;
+import com.sina.weibo.sdk.api.BaseMediaObject;
 import com.sina.weibo.sdk.api.ImageObject;
 import com.sina.weibo.sdk.api.TextObject;
 import com.sina.weibo.sdk.api.WebpageObject;
@@ -24,39 +26,100 @@ import com.sina.weibo.sdk.web.param.BaseWebViewRequestParam;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class ShareWebViewRequestParam extends BaseWebViewRequestParam {
     public static final String SHARE_URL = "https://service.weibo.com/share/mobilesdk.php";
-    private static final String UPLOAD_PIC_URL = "https://service.weibo.com/share/mobilesdk_uppic.php";
-    private String hashKey;
-    private byte[] mBase64ImgData;
-    private String mShareContent;
-    private WeiboMultiMessage multiMessage;
-    private String packageName;
-    private String picId;
-    private String token;
+    public static final String UPLOAD_PIC_URL = "https://service.weibo.com/share/mobilesdk_uppic.php";
+    public String hashKey;
+    public byte[] mBase64ImgData;
+    public String mShareContent;
+    public WeiboMultiMessage multiMessage;
+    public String packageName;
+    public String picId;
+    public String token;
 
     public ShareWebViewRequestParam() {
     }
 
-    public ShareWebViewRequestParam(Context context) {
-        this.context = context;
+    private void getBaseUrl() {
+        StringBuilder sb = new StringBuilder();
+        TextObject textObject = this.multiMessage.textObject;
+        if (textObject instanceof TextObject) {
+            sb.append(textObject.text + " ");
+        }
+        BaseMediaObject baseMediaObject = this.multiMessage.mediaObject;
+        if (baseMediaObject != null && (baseMediaObject instanceof WebpageObject) && !TextUtils.isEmpty(baseMediaObject.actionUrl)) {
+            sb.append(this.multiMessage.mediaObject.actionUrl);
+        }
+        ImageObject imageObject = this.multiMessage.imageObject;
+        if (imageObject instanceof ImageObject) {
+            handleMblogPic(imageObject.imagePath, imageObject.imageData);
+        }
+        this.mShareContent = sb.toString();
     }
 
-    public ShareWebViewRequestParam(AuthInfo authInfo, WebRequestType webRequestType, String str, String str2, String str3, Context context) {
-        this(authInfo, webRequestType, str, 0, str2, str3, context);
-    }
-
-    public ShareWebViewRequestParam(AuthInfo authInfo, WebRequestType webRequestType, String str, int i, String str2, String str3, Context context) {
-        super(authInfo, webRequestType, str, i, str2, str3, context);
+    private void handleMblogPic(String str, byte[] bArr) {
+        FileInputStream fileInputStream;
+        try {
+            if (!TextUtils.isEmpty(str)) {
+                File file = new File(str);
+                if (file.exists() && file.canRead() && file.length() > 0) {
+                    byte[] bArr2 = new byte[(int) file.length()];
+                    FileInputStream fileInputStream2 = null;
+                    try {
+                        fileInputStream = new FileInputStream(file);
+                    } catch (IOException unused) {
+                    } catch (Throwable th) {
+                        th = th;
+                    }
+                    try {
+                        fileInputStream.read(bArr2);
+                        this.mBase64ImgData = Base64.encodebyte(bArr2);
+                        try {
+                            fileInputStream.close();
+                            return;
+                        } catch (Exception unused2) {
+                            return;
+                        }
+                    } catch (IOException unused3) {
+                        fileInputStream2 = fileInputStream;
+                        if (fileInputStream2 != null) {
+                            fileInputStream2.close();
+                        }
+                        if (bArr != null) {
+                            return;
+                        }
+                        return;
+                    } catch (Throwable th2) {
+                        th = th2;
+                        fileInputStream2 = fileInputStream;
+                        if (fileInputStream2 != null) {
+                            try {
+                                fileInputStream2.close();
+                            } catch (Exception unused4) {
+                            }
+                        }
+                        throw th;
+                    }
+                }
+            }
+        } catch (SecurityException | Exception unused5) {
+        }
+        if (bArr != null || bArr.length <= 0) {
+            return;
+        }
+        this.mBase64ImgData = Base64.encodebyte(bArr);
     }
 
     @Override // com.sina.weibo.sdk.web.param.BaseWebViewRequestParam
-    public boolean hasExtraTask() {
-        if (this.mBase64ImgData == null || this.mBase64ImgData.length <= 0) {
-            return super.hasExtraTask();
+    public void childFillBundle(Bundle bundle) {
+        WeiboMultiMessage weiboMultiMessage = this.multiMessage;
+        if (weiboMultiMessage != null) {
+            weiboMultiMessage.toBundle(bundle);
         }
-        return true;
+        bundle.putString("token", this.token);
+        bundle.putString(InstallAntiBlockingActivity.PARAM_PACKAGE_NAME, this.packageName);
+        bundle.putString("hashKey", this.hashKey);
     }
 
     @Override // com.sina.weibo.sdk.web.param.BaseWebViewRequestParam
@@ -71,48 +134,34 @@ public class ShareWebViewRequestParam extends BaseWebViewRequestParam {
         builder.addPostParam("img", str);
         builder.addPostParam("appKey", getBaseData().getAuthInfo().getAppKey());
         requestService.asyncRequest(builder.build(), new SimpleTarget() { // from class: com.sina.weibo.sdk.web.param.ShareWebViewRequestParam.1
-            @Override // com.sina.weibo.sdk.network.target.SimpleTarget
-            public void onSuccess(String str2) {
-                LogUtil.i("Share", "ShareWebViewRequestParam.doExtraTask().onSuccess()");
-                WebPicUploadResult parse = WebPicUploadResult.parse(str2);
-                if (parse != null && parse.getCode() == 1 && !TextUtils.isEmpty(parse.getPicId())) {
-                    ShareWebViewRequestParam.this.picId = parse.getPicId();
-                    if (extraTaskCallback != null) {
-                        extraTaskCallback.onComplete(ShareWebViewRequestParam.this.picId);
-                    }
-                } else if (extraTaskCallback != null) {
-                    extraTaskCallback.onException("upload pic fail");
-                }
-            }
-
             @Override // com.sina.weibo.sdk.network.target.Target
             public void onFailure(Exception exc) {
                 LogUtil.i("Share", "ShareWebViewRequestParam.doExtraTask().onFailure(),e =" + exc.getMessage());
-                if (extraTaskCallback != null) {
-                    extraTaskCallback.onException("upload pic fail");
+                BaseWebViewRequestParam.ExtraTaskCallback extraTaskCallback2 = extraTaskCallback;
+                if (extraTaskCallback2 != null) {
+                    extraTaskCallback2.onException("upload pic fail");
+                }
+            }
+
+            @Override // com.sina.weibo.sdk.network.target.SimpleTarget
+            public void onSuccess(String str2) {
+                LogUtil.i("Share", "ShareWebViewRequestParam.doExtraTask().onSuccess(),response = " + str2);
+                WebPicUploadResult parse = WebPicUploadResult.parse(str2);
+                if (parse != null && parse.getCode() == 1 && !TextUtils.isEmpty(parse.getPicId())) {
+                    ShareWebViewRequestParam.this.picId = parse.getPicId();
+                    BaseWebViewRequestParam.ExtraTaskCallback extraTaskCallback2 = extraTaskCallback;
+                    if (extraTaskCallback2 != null) {
+                        extraTaskCallback2.onComplete(ShareWebViewRequestParam.this.picId);
+                        return;
+                    }
+                    return;
+                }
+                BaseWebViewRequestParam.ExtraTaskCallback extraTaskCallback3 = extraTaskCallback;
+                if (extraTaskCallback3 != null) {
+                    extraTaskCallback3.onException("upload pic fail");
                 }
             }
         });
-    }
-
-    @Override // com.sina.weibo.sdk.web.param.BaseWebViewRequestParam
-    protected void childFillBundle(Bundle bundle) {
-        if (this.multiMessage != null) {
-            this.multiMessage.toBundle(bundle);
-        }
-        bundle.putString("token", this.token);
-        bundle.putString("packageName", this.packageName);
-        bundle.putString("hashKey", this.hashKey);
-    }
-
-    @Override // com.sina.weibo.sdk.web.param.BaseWebViewRequestParam
-    protected void transformChildBundle(Bundle bundle) {
-        this.multiMessage = new WeiboMultiMessage();
-        this.multiMessage.toObject(bundle);
-        this.token = bundle.getString("token");
-        this.packageName = bundle.getString("packageName");
-        this.hashKey = bundle.getString("hashKey");
-        getBaseUrl();
     }
 
     @Override // com.sina.weibo.sdk.web.param.BaseWebViewRequestParam
@@ -127,8 +176,9 @@ public class ShareWebViewRequestParam extends BaseWebViewRequestParam {
         if (!TextUtils.isEmpty(this.token)) {
             buildUpon.appendQueryParameter("access_token", this.token);
         }
-        if (this.context != null) {
-            String aid = Utility.getAid(this.context, appKey);
+        Context context = this.context;
+        if (context != null) {
+            String aid = Utility.getAid(context, appKey);
             if (!TextUtils.isEmpty(aid)) {
                 buildUpon.appendQueryParameter("aid", aid);
             }
@@ -148,97 +198,55 @@ public class ShareWebViewRequestParam extends BaseWebViewRequestParam {
     }
 
     @Override // com.sina.weibo.sdk.web.param.BaseWebViewRequestParam
-    public void updateRequestUrl(String str) {
-        this.picId = str;
-    }
-
-    public void setMultiMessage(WeiboMultiMessage weiboMultiMessage) {
-        this.multiMessage = weiboMultiMessage;
-    }
-
-    public void setToken(String str) {
-        this.token = str;
+    public boolean hasExtraTask() {
+        byte[] bArr = this.mBase64ImgData;
+        if (bArr == null || bArr.length <= 0) {
+            return super.hasExtraTask();
+        }
+        return true;
     }
 
     public void setHashKey(String str) {
         this.hashKey = str;
     }
 
+    public void setMultiMessage(WeiboMultiMessage weiboMultiMessage) {
+        this.multiMessage = weiboMultiMessage;
+    }
+
     public void setPackageName(String str) {
         this.packageName = str;
     }
 
-    private void getBaseUrl() {
-        StringBuilder sb = new StringBuilder();
-        if (this.multiMessage.textObject instanceof TextObject) {
-            sb.append(this.multiMessage.textObject.text + " ");
-        }
-        if (this.multiMessage.mediaObject != null && (this.multiMessage.mediaObject instanceof WebpageObject) && !TextUtils.isEmpty(this.multiMessage.mediaObject.actionUrl)) {
-            sb.append(this.multiMessage.mediaObject.actionUrl);
-        }
-        if (this.multiMessage.imageObject instanceof ImageObject) {
-            ImageObject imageObject = this.multiMessage.imageObject;
-            handleMblogPic(imageObject.imagePath, imageObject.imageData);
-        }
-        this.mShareContent = sb.toString();
+    public void setToken(String str) {
+        this.token = str;
     }
 
-    private void handleMblogPic(String str, byte[] bArr) {
-        Throwable th;
-        FileInputStream fileInputStream;
-        FileInputStream fileInputStream2;
-        try {
-            if (!TextUtils.isEmpty(str)) {
-                File file = new File(str);
-                if (file.exists() && file.canRead() && file.length() > 0) {
-                    byte[] bArr2 = new byte[(int) file.length()];
-                    try {
-                        fileInputStream2 = new FileInputStream(file);
-                    } catch (IOException e) {
-                        fileInputStream2 = null;
-                    } catch (Throwable th2) {
-                        th = th2;
-                        fileInputStream = null;
-                    }
-                    try {
-                        fileInputStream2.read(bArr2);
-                        this.mBase64ImgData = Base64.encodebyte(bArr2);
-                        if (fileInputStream2 != null) {
-                            try {
-                                fileInputStream2.close();
-                                return;
-                            } catch (Exception e2) {
-                                return;
-                            }
-                        }
-                        return;
-                    } catch (IOException e3) {
-                        if (fileInputStream2 != null) {
-                            try {
-                                fileInputStream2.close();
-                            } catch (Exception e4) {
-                            }
-                        }
-                        if (bArr == null) {
-                        }
-                        return;
-                    } catch (Throwable th3) {
-                        th = th3;
-                        fileInputStream = fileInputStream2;
-                        if (fileInputStream != null) {
-                            try {
-                                fileInputStream.close();
-                            } catch (Exception e5) {
-                            }
-                        }
-                        throw th;
-                    }
-                }
-            }
-        } catch (SecurityException e6) {
-        }
-        if (bArr == null && bArr.length > 0) {
-            this.mBase64ImgData = Base64.encodebyte(bArr);
-        }
+    @Override // com.sina.weibo.sdk.web.param.BaseWebViewRequestParam
+    public void transformChildBundle(Bundle bundle) {
+        WeiboMultiMessage weiboMultiMessage = new WeiboMultiMessage();
+        this.multiMessage = weiboMultiMessage;
+        weiboMultiMessage.toObject(bundle);
+        this.token = bundle.getString("token");
+        this.packageName = bundle.getString(InstallAntiBlockingActivity.PARAM_PACKAGE_NAME);
+        this.hashKey = bundle.getString("hashKey");
+        getBaseUrl();
+    }
+
+    @Override // com.sina.weibo.sdk.web.param.BaseWebViewRequestParam
+    public void updateRequestUrl(String str) {
+        this.picId = str;
+    }
+
+    public ShareWebViewRequestParam(Context context) {
+        this.context = context;
+    }
+
+    public ShareWebViewRequestParam(AuthInfo authInfo, WebRequestType webRequestType, String str, String str2, String str3, Context context) {
+        this(authInfo, webRequestType, str, 0, str2, str3, context);
+    }
+
+    public ShareWebViewRequestParam(AuthInfo authInfo, WebRequestType webRequestType, String str, int i, String str2, String str3, Context context) {
+        super(authInfo, webRequestType, str, i, str2, str3, context);
     }
 }

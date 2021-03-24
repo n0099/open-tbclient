@@ -7,19 +7,19 @@ import com.alibaba.fastjson.serializer.SerializerFeature;
 import java.io.IOException;
 import java.lang.reflect.Type;
 @Deprecated
-/* loaded from: classes4.dex */
+/* loaded from: classes.dex */
 public class MappingFastJsonValue implements JSONSerializable {
-    private static final int BrowserSecureMask = SerializerFeature.BrowserSecure.mask;
-    private static final String SECURITY_PREFIX = "/**/";
-    private String jsonpFunction;
-    private Object value;
+    public static final int BrowserSecureMask = SerializerFeature.BrowserSecure.mask;
+    public static final String SECURITY_PREFIX = "/**/";
+    public String jsonpFunction;
+    public Object value;
 
     public MappingFastJsonValue(Object obj) {
         this.value = obj;
     }
 
-    public void setValue(Object obj) {
-        this.value = obj;
+    public String getJsonpFunction() {
+        return this.jsonpFunction;
     }
 
     public Object getValue() {
@@ -30,8 +30,8 @@ public class MappingFastJsonValue implements JSONSerializable {
         this.jsonpFunction = str;
     }
 
-    public String getJsonpFunction() {
-        return this.jsonpFunction;
+    public void setValue(Object obj) {
+        this.value = obj;
     }
 
     @Override // com.alibaba.fastjson.serializer.JSONSerializable
@@ -41,7 +41,8 @@ public class MappingFastJsonValue implements JSONSerializable {
             jSONSerializer.write(this.value);
             return;
         }
-        if ((BrowserSecureMask & i) != 0 || serializeWriter.isEnabled(BrowserSecureMask)) {
+        int i2 = BrowserSecureMask;
+        if ((i & i2) != 0 || serializeWriter.isEnabled(i2)) {
             serializeWriter.write(SECURITY_PREFIX);
         }
         serializeWriter.write(this.jsonpFunction);

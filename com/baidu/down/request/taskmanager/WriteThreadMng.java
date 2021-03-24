@@ -6,15 +6,15 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class WriteThreadMng {
-    private static final boolean DEBUG = false;
-    private static final String TAG = "WriteThreadMng";
-    private Object mLock = new Object();
-    private Map<String, WriteThread> mThreadMap;
-    private int mWritePoolSize;
-    private WriteThread[] mWriteThread;
-    private ExecutorService mWriteThreadPool;
+    public static final boolean DEBUG = false;
+    public static final String TAG = "WriteThreadMng";
+    public Object mLock = new Object();
+    public Map<String, WriteThread> mThreadMap;
+    public int mWritePoolSize;
+    public WriteThread[] mWriteThread;
+    public ExecutorService mWriteThreadPool;
 
     public WriteThreadMng(int i) {
         this.mWriteThreadPool = null;
@@ -22,13 +22,29 @@ public class WriteThreadMng {
         this.mWriteThread = null;
         this.mThreadMap = null;
         this.mWritePoolSize = i;
-        this.mWriteThreadPool = Executors.newFixedThreadPool(this.mWritePoolSize, new NamingThreadFactory("WriteThread"));
+        this.mWriteThreadPool = Executors.newFixedThreadPool(i, new NamingThreadFactory(WriteThread.TAG));
         this.mWriteThread = new WriteThread[this.mWritePoolSize];
         for (int i2 = 0; i2 < this.mWritePoolSize; i2++) {
             this.mWriteThread[i2] = new WriteThread();
             this.mWriteThreadPool.execute(this.mWriteThread[i2]);
         }
         this.mThreadMap = new HashMap();
+    }
+
+    public void closeDownloadFileStream(String str) {
+        WriteThread remove;
+        synchronized (this.mLock) {
+            remove = this.mThreadMap.remove(str);
+            if (TaskFacade.getInstance(null) != null && TaskFacade.getInstance(null).getBinaryTaskMng() != null && TaskFacade.getInstance(null).getBinaryTaskMng().getTaskByKey(str) != null && TaskFacade.getInstance(null).getBinaryTaskMng().getTaskByKey(str).mTaskSpeedStat.endWriteTimeMillis == -1) {
+                TaskFacade.getInstance(null).getBinaryTaskMng().getTaskByKey(str).mTaskSpeedStat.endWriteTimeMillis = SystemClock.elapsedRealtime();
+            }
+        }
+        if (remove != null) {
+            try {
+                remove.closeOutputFile(str);
+            } catch (Exception unused) {
+            }
+        }
     }
 
     public void loadBalanceToWrite(ByteArrayInfo byteArrayInfo) {
@@ -51,21 +67,5 @@ public class WriteThreadMng {
             }
         }
         writeThread.put(byteArrayInfo);
-    }
-
-    public void closeDownloadFileStream(String str) {
-        WriteThread remove;
-        synchronized (this.mLock) {
-            remove = this.mThreadMap.remove(str);
-            if (TaskFacade.getInstance(null) != null && TaskFacade.getInstance(null).getBinaryTaskMng() != null && TaskFacade.getInstance(null).getBinaryTaskMng().getTaskByKey(str) != null && TaskFacade.getInstance(null).getBinaryTaskMng().getTaskByKey(str).mTaskSpeedStat.endWriteTimeMillis == -1) {
-                TaskFacade.getInstance(null).getBinaryTaskMng().getTaskByKey(str).mTaskSpeedStat.endWriteTimeMillis = SystemClock.elapsedRealtime();
-            }
-        }
-        if (remove != null) {
-            try {
-                remove.closeOutputFile(str);
-            } catch (Exception e) {
-            }
-        }
     }
 }

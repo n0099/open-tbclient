@@ -2,25 +2,28 @@ package com.baidu.ufosdk.ui;
 
 import android.content.Context;
 import com.baidu.ufosdk.UfoSDK;
-/* loaded from: classes7.dex */
-final class eo implements Runnable {
+/* loaded from: classes5.dex */
+public final class eo implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FeedbackInputActivity f3768a;
-    final /* synthetic */ String b;
-    final /* synthetic */ ej c;
+    public final /* synthetic */ FeedbackInputActivity f23225a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    /* renamed from: b  reason: collision with root package name */
+    public final /* synthetic */ String f23226b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public final /* synthetic */ ej f23227c;
+
     public eo(ej ejVar, FeedbackInputActivity feedbackInputActivity, String str) {
-        this.c = ejVar;
-        this.f3768a = feedbackInputActivity;
-        this.b = str;
+        this.f23227c = ejVar;
+        this.f23225a = feedbackInputActivity;
+        this.f23226b = str;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
-        Context applicationContext = this.f3768a.getApplicationContext();
+        Context applicationContext = this.f23225a.getApplicationContext();
         String str = UfoSDK.clientid;
-        com.baidu.ufosdk.e.a.b(applicationContext, this.f3768a.f, this.b);
+        com.baidu.ufosdk.e.a.b(applicationContext, this.f23225a.f23019f, this.f23226b);
     }
 }

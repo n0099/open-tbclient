@@ -1,75 +1,27 @@
 package rx.internal.producers;
 
+import h.e;
+import h.f;
+import h.j;
+import h.m.a;
+import h.o.d.k.f0;
+import h.o.d.k.y;
 import java.util.Queue;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
-import rx.e;
 import rx.exceptions.MissingBackpressureException;
-import rx.f;
-import rx.internal.util.a.ae;
-import rx.internal.util.a.x;
-import rx.j;
-/* loaded from: classes4.dex */
-public final class QueuedProducer<T> extends AtomicLong implements e<T>, f {
-    static final Object NULL_SENTINEL = new Object();
-    private static final long serialVersionUID = 7277121710709137047L;
-    final j<? super T> child;
-    volatile boolean done;
-    Throwable error;
-    final Queue<Object> queue;
-    final AtomicInteger wip;
+/* loaded from: classes7.dex */
+public final class QueuedProducer<T> extends AtomicLong implements f, e<T> {
+    public static final Object NULL_SENTINEL = new Object();
+    public static final long serialVersionUID = 7277121710709137047L;
+    public final j<? super T> child;
+    public volatile boolean done;
+    public Throwable error;
+    public final Queue<Object> queue;
+    public final AtomicInteger wip;
 
     public QueuedProducer(j<? super T> jVar) {
-        this(jVar, ae.eNq() ? new x() : new rx.internal.util.atomic.e());
-    }
-
-    public QueuedProducer(j<? super T> jVar, Queue<Object> queue) {
-        this.child = jVar;
-        this.queue = queue;
-        this.wip = new AtomicInteger();
-    }
-
-    @Override // rx.f
-    public void request(long j) {
-        if (j < 0) {
-            throw new IllegalArgumentException("n >= 0 required");
-        }
-        if (j > 0) {
-            rx.internal.operators.a.e(this, j);
-            drain();
-        }
-    }
-
-    public boolean offer(T t) {
-        if (t == null) {
-            if (!this.queue.offer(NULL_SENTINEL)) {
-                return false;
-            }
-        } else if (!this.queue.offer(t)) {
-            return false;
-        }
-        drain();
-        return true;
-    }
-
-    @Override // rx.e
-    public void onNext(T t) {
-        if (!offer(t)) {
-            onError(new MissingBackpressureException());
-        }
-    }
-
-    @Override // rx.e
-    public void onError(Throwable th) {
-        this.error = th;
-        this.done = true;
-        drain();
-    }
-
-    @Override // rx.e
-    public void onCompleted() {
-        this.done = true;
-        drain();
+        this(jVar, f0.b() ? new y() : new h.o.d.j.e());
     }
 
     private boolean checkTerminated(boolean z, boolean z2) {
@@ -85,6 +37,8 @@ public final class QueuedProducer<T> extends AtomicLong implements e<T>, f {
             } else if (z2) {
                 this.child.onCompleted();
                 return true;
+            } else {
+                return false;
             }
         }
         return false;
@@ -101,23 +55,25 @@ public final class QueuedProducer<T> extends AtomicLong implements e<T>, f {
                 while (j != 0) {
                     boolean z = this.done;
                     Object poll = queue.poll();
-                    if (!checkTerminated(z, poll == null)) {
-                        if (poll == null) {
-                            break;
+                    if (checkTerminated(z, poll == null)) {
+                        return;
+                    }
+                    if (poll == null) {
+                        break;
+                    }
+                    try {
+                        if (poll == NULL_SENTINEL) {
+                            jVar.onNext(null);
+                        } else {
+                            jVar.onNext(poll);
                         }
-                        try {
-                            if (poll == NULL_SENTINEL) {
-                                jVar.onNext(null);
-                            } else {
-                                jVar.onNext(poll);
-                            }
-                            j--;
-                            j2 = 1 + j2;
-                        } catch (Throwable th) {
-                            rx.exceptions.a.a(th, jVar, poll != NULL_SENTINEL ? poll : null);
-                            return;
+                        j--;
+                        j2++;
+                    } catch (Throwable th) {
+                        if (poll == NULL_SENTINEL) {
+                            poll = null;
                         }
-                    } else {
+                        a.g(th, jVar, poll);
                         return;
                     }
                 }
@@ -129,5 +85,55 @@ public final class QueuedProducer<T> extends AtomicLong implements e<T>, f {
                 }
             }
         }
+    }
+
+    public boolean offer(T t) {
+        if (t == null) {
+            if (!this.queue.offer(NULL_SENTINEL)) {
+                return false;
+            }
+        } else if (!this.queue.offer(t)) {
+            return false;
+        }
+        drain();
+        return true;
+    }
+
+    @Override // h.e
+    public void onCompleted() {
+        this.done = true;
+        drain();
+    }
+
+    @Override // h.e
+    public void onError(Throwable th) {
+        this.error = th;
+        this.done = true;
+        drain();
+    }
+
+    @Override // h.e
+    public void onNext(T t) {
+        if (offer(t)) {
+            return;
+        }
+        onError(new MissingBackpressureException());
+    }
+
+    @Override // h.f
+    public void request(long j) {
+        if (j < 0) {
+            throw new IllegalArgumentException("n >= 0 required");
+        }
+        if (j > 0) {
+            h.o.a.a.b(this, j);
+            drain();
+        }
+    }
+
+    public QueuedProducer(j<? super T> jVar, Queue<Object> queue) {
+        this.child = jVar;
+        this.queue = queue;
+        this.wip = new AtomicInteger();
     }
 }

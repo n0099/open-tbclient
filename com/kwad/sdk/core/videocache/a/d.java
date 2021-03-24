@@ -9,12 +9,12 @@ import java.util.Comparator;
 import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes3.dex */
-class d {
+/* loaded from: classes6.dex */
+public class d {
 
-    /* loaded from: classes3.dex */
-    private static final class a implements Comparator<File> {
-        private a() {
+    /* loaded from: classes6.dex */
+    public static final class a implements Comparator<File> {
+        public a() {
         }
 
         private int a(long j, long j2) {
@@ -32,18 +32,17 @@ class d {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public static void a(File file) {
-        if (file.exists()) {
-            if (!file.isDirectory()) {
-                throw new IOException("File " + file + " is not directory!");
+        if (!file.exists()) {
+            if (!file.mkdirs()) {
+                throw new IOException(String.format("Directory %s can't be created", file.getAbsolutePath()));
             }
-        } else if (!file.mkdirs()) {
-            throw new IOException(String.format("Directory %s can't be created", file.getAbsolutePath()));
+        } else if (file.isDirectory()) {
+        } else {
+            throw new IOException("File " + file + " is not directory!");
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public static List<File> b(File file) {
         LinkedList linkedList = new LinkedList();
         File[] listFiles = file.listFiles();
@@ -55,7 +54,6 @@ class d {
         return linkedList;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public static void c(File file) {
         if (file.exists()) {
             long currentTimeMillis = System.currentTimeMillis();
@@ -69,23 +67,25 @@ class d {
         }
     }
 
-    static void d(File file) {
+    public static void d(File file) {
         long length = file.length();
         if (length == 0) {
             e(file);
             return;
         }
         RandomAccessFile randomAccessFile = new RandomAccessFile(file, "rwd");
-        randomAccessFile.seek(length - 1);
+        long j = length - 1;
+        randomAccessFile.seek(j);
         byte readByte = randomAccessFile.readByte();
-        randomAccessFile.seek(length - 1);
+        randomAccessFile.seek(j);
         randomAccessFile.write(readByte);
         randomAccessFile.close();
     }
 
-    private static void e(File file) {
-        if (!file.delete() || !file.createNewFile()) {
-            throw new IOException("Error recreate zero-size file " + file);
+    public static void e(File file) {
+        if (file.delete() && file.createNewFile()) {
+            return;
         }
+        throw new IOException("Error recreate zero-size file " + file);
     }
 }

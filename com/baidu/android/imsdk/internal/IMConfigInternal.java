@@ -5,11 +5,31 @@ import android.util.Log;
 import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class IMConfigInternal {
-    private static final String TAG = IMConfigInternal.class.getSimpleName();
-    private static IMConfigInternal sConfig;
-    private IIMConfig mConfig;
+    public static final String TAG = "IMConfigInternal";
+    public static IMConfigInternal sConfig;
+    public IIMConfig mConfig;
+
+    private IIMConfig createConfig(Context context, String str) {
+        try {
+            Class<?> cls = Class.forName(str);
+            if (cls != null) {
+                try {
+                    return (IIMConfig) cls.newInstance();
+                } catch (Exception e2) {
+                    new IMTrack.CrashBuilder(context).exception(Log.getStackTraceString(e2)).build();
+                    LogUtils.d(TAG, "Product line of jar is ERROR!");
+                }
+            }
+            LogUtils.d(TAG, "Init ERROR!");
+            return null;
+        } catch (ClassNotFoundException e3) {
+            new IMTrack.CrashBuilder(context).exception(Log.getStackTraceString(e3)).build();
+            LogUtils.d(TAG, "Product line of jar is ERROR!");
+            return null;
+        }
+    }
 
     public static IMConfigInternal getInstance() {
         synchronized (IMConfigInternal.class) {
@@ -20,56 +40,20 @@ public class IMConfigInternal {
         return sConfig;
     }
 
-    public boolean setProductLine(Context context, int i) {
-        Utility.writeIntData(context, Constants.KEY_PRODUCT_LINE, i);
-        return true;
-    }
-
     public IIMConfig getIMConfig(Context context) {
-        String str;
         if (this.mConfig == null) {
             synchronized (IMConfigInternal.class) {
                 if (this.mConfig == null) {
-                    switch (getProductLine(context)) {
-                        case 1:
-                            str = "com.baidu.android.imsdk.internal.DefaultConfig";
-                            break;
-                        case 2:
-                        default:
-                            str = "com.baidu.android.imsdk.internal.DefaultConfig";
-                            break;
-                        case 3:
-                            str = "com.baidu.android.imsdk.box.BoxConfig";
-                            break;
-                    }
-                    this.mConfig = createConfig(context, str);
-                    if (this.mConfig == null) {
+                    int productLine = getProductLine(context);
+                    IIMConfig createConfig = createConfig(context, productLine != 1 ? productLine != 3 ? "com.baidu.android.imsdk.internal.DefaultConfig" : "com.baidu.android.imsdk.box.BoxConfig" : "com.baidu.android.imsdk.internal.DefaultConfig");
+                    this.mConfig = createConfig;
+                    if (createConfig == null) {
                         this.mConfig = new DefaultConfig();
                     }
                 }
             }
         }
         return this.mConfig;
-    }
-
-    private IIMConfig createConfig(Context context, String str) {
-        try {
-            Class<?> cls = Class.forName(str);
-            if (cls != null) {
-                try {
-                    return (IIMConfig) cls.newInstance();
-                } catch (Exception e) {
-                    new IMTrack.CrashBuilder(context).exception(Log.getStackTraceString(e)).build();
-                    LogUtils.d(TAG, "Product line of jar is ERROR!");
-                }
-            }
-            LogUtils.d(TAG, "Init ERROR!");
-            return null;
-        } catch (ClassNotFoundException e2) {
-            new IMTrack.CrashBuilder(context).exception(Log.getStackTraceString(e2)).build();
-            LogUtils.d(TAG, "Product line of jar is ERROR!");
-            return null;
-        }
     }
 
     public int getProductLine(Context context) {
@@ -85,10 +69,16 @@ public class IMConfigInternal {
 
     public int getSDKVersionValue(Context context) {
         try {
-            return Integer.valueOf("685" + String.format("%03d", Integer.valueOf(getProductLine(context))) + "6").intValue();
-        } catch (Exception e) {
-            new IMTrack.CrashBuilder(context).exception(Log.getStackTraceString(e)).build();
+            int productLine = getProductLine(context);
+            return Integer.valueOf("685" + String.format("%03d", Integer.valueOf(productLine)) + "6").intValue();
+        } catch (Exception e2) {
+            new IMTrack.CrashBuilder(context).exception(Log.getStackTraceString(e2)).build();
             return 0;
         }
+    }
+
+    public boolean setProductLine(Context context, int i) {
+        Utility.writeIntData(context, Constants.KEY_PRODUCT_LINE, i);
+        return true;
     }
 }

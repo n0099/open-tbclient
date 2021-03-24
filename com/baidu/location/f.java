@@ -8,21 +8,24 @@ import android.content.Intent;
 import android.os.IBinder;
 import com.baidu.android.util.io.ActionJsonData;
 import com.baidu.location.d.j;
-import com.yy.mediaframework.stat.VideoDataStatistic;
 import dalvik.system.DexClassLoader;
 import java.io.File;
 import java.io.RandomAccessFile;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class f extends Service {
-
-    /* renamed from: a  reason: collision with root package name */
-    LLSInterface f1975a = null;
-    LLSInterface b = null;
-    LLSInterface c = null;
-    public static String replaceFileName = "repll.jar";
-    public static Context mC = null;
     public static boolean isServing = false;
     public static boolean isStartedServing = false;
+    public static Context mC = null;
+    public static String replaceFileName = "repll.jar";
+
+    /* renamed from: a  reason: collision with root package name */
+    public LLSInterface f6722a = null;
+
+    /* renamed from: b  reason: collision with root package name */
+    public LLSInterface f6723b = null;
+
+    /* renamed from: c  reason: collision with root package name */
+    public LLSInterface f6724c = null;
 
     private boolean a(File file) {
         int readInt;
@@ -30,20 +33,20 @@ public class f extends Service {
         try {
             File file2 = new File(j.h() + "/grtcfrsa.dat");
             if (file2.exists()) {
-                RandomAccessFile randomAccessFile = new RandomAccessFile(file2, VideoDataStatistic.AnchorHiidoCoreStatisticKey.CaptureRealResolutionWidth);
+                RandomAccessFile randomAccessFile = new RandomAccessFile(file2, "rw");
                 randomAccessFile.seek(200L);
                 if (randomAccessFile.readBoolean() && randomAccessFile.readBoolean() && (readInt = randomAccessFile.readInt()) != 0) {
                     byte[] bArr = new byte[readInt];
                     randomAccessFile.read(bArr, 0, readInt);
                     String str = new String(bArr);
                     String a2 = j.a(file, "SHA-256");
-                    if (str != null && a2 != null && j.b(a2, str, "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCiP7BS5IjEOzrKGR9/Ww9oSDhdX1ir26VOsYjT1T6tk2XumRpkHRwZbrucDcNnvSB4QsqiEJnvTSRi7YMbh2H9sLMkcvHlMV5jAErNvnuskWfcvf7T2mq7EUZI/Hf4oVZhHV0hQJRFVdTcjWI6q2uaaKM3VMh+roDesiE7CR2biQIDAQAB")) {
+                    if (a2 != null && j.b(a2, str, "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCiP7BS5IjEOzrKGR9/Ww9oSDhdX1ir26VOsYjT1T6tk2XumRpkHRwZbrucDcNnvSB4QsqiEJnvTSRi7YMbh2H9sLMkcvHlMV5jAErNvnuskWfcvf7T2mq7EUZI/Hf4oVZhHV0hQJRFVdTcjWI6q2uaaKM3VMh+roDesiE7CR2biQIDAQAB")) {
                         z = true;
                     }
                 }
                 randomAccessFile.close();
             }
-        } catch (Exception e) {
+        } catch (Exception unused) {
         }
         return z;
     }
@@ -62,7 +65,7 @@ public class f extends Service {
 
     @Override // android.app.Service
     public IBinder onBind(Intent intent) {
-        return this.c.onBind(intent);
+        return this.f6724c.onBind(intent);
     }
 
     @Override // android.app.Service
@@ -70,7 +73,7 @@ public class f extends Service {
     public void onCreate() {
         mC = getApplicationContext();
         System.currentTimeMillis();
-        this.b = new com.baidu.location.c.a();
+        this.f6723b = new com.baidu.location.c.a();
         try {
             File file = new File(j.h() + File.separator + replaceFileName);
             File file2 = new File(j.h() + File.separator + "app.jar");
@@ -80,27 +83,30 @@ public class f extends Service {
                 }
                 file.renameTo(file2);
             }
-            if (file2.exists() && a(new File(j.h() + File.separator + "app.jar"))) {
-                this.f1975a = (LLSInterface) new DexClassLoader(j.h() + File.separator + "app.jar", j.h(), null, getClassLoader()).loadClass("com.baidu.serverLoc.LocationService").newInstance();
+            if (file2.exists()) {
+                if (a(new File(j.h() + File.separator + "app.jar"))) {
+                    this.f6722a = (LLSInterface) new DexClassLoader(j.h() + File.separator + "app.jar", j.h(), null, getClassLoader()).loadClass("com.baidu.serverLoc.LocationService").newInstance();
+                }
             }
-        } catch (Exception e) {
-            this.f1975a = null;
+        } catch (Exception unused) {
+            this.f6722a = null;
         }
-        if (this.f1975a == null || this.f1975a.getVersion() < this.b.getVersion()) {
-            this.c = this.b;
-            this.f1975a = null;
+        LLSInterface lLSInterface = this.f6722a;
+        if (lLSInterface == null || lLSInterface.getVersion() < this.f6723b.getVersion()) {
+            this.f6724c = this.f6723b;
+            this.f6722a = null;
         } else {
-            this.c = this.f1975a;
-            this.b = null;
+            this.f6724c = this.f6722a;
+            this.f6723b = null;
         }
         isServing = true;
-        this.c.onCreate(this);
+        this.f6724c.onCreate(this);
     }
 
     @Override // android.app.Service
     public void onDestroy() {
         isServing = false;
-        this.c.onDestroy();
+        this.f6724c.onDestroy();
         if (isStartedServing) {
             stopForeground(true);
         }
@@ -118,20 +124,20 @@ public class f extends Service {
                     stopForeground(intent.getBooleanExtra("removenotify", true));
                     isStartedServing = false;
                 }
-            } catch (Exception e) {
-                e.printStackTrace();
+            } catch (Exception e2) {
+                e2.printStackTrace();
             }
         }
-        return this.c.onStartCommand(intent, i, i2);
+        return this.f6724c.onStartCommand(intent, i, i2);
     }
 
     @Override // android.app.Service
     public void onTaskRemoved(Intent intent) {
-        this.c.onTaskRemoved(intent);
+        this.f6724c.onTaskRemoved(intent);
     }
 
     @Override // android.app.Service
     public boolean onUnbind(Intent intent) {
-        return this.c.onUnBind(intent);
+        return this.f6724c.onUnBind(intent);
     }
 }

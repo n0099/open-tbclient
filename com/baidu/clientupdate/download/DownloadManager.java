@@ -10,8 +10,6 @@ import android.os.Process;
 import android.text.TextUtils;
 import android.webkit.MimeTypeMap;
 import com.baidu.android.common.jni.MiniGzip;
-import com.baidu.android.common.security.RSAUtil;
-import com.baidu.android.imsdk.IMConstants;
 import com.baidu.appsearch.update.patchupdate.GDiffPatcher;
 import com.baidu.clientupdata.key.PublicKey;
 import com.baidu.clientupdate.ClientUpdater;
@@ -28,8 +26,9 @@ import com.baidu.down.request.db.DownloadDataConstants;
 import com.baidu.down.request.taskmanager.BinaryTaskMng;
 import com.baidu.down.request.taskmanager.TaskFacade;
 import com.baidu.down.utils.Utils;
-import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.mobstat.Config;
+import com.baidu.sapi2.SapiWebView;
+import com.baidu.tieba.lc.LcUpdateDialogActivity;
 import com.baidu.util.LogUtil;
 import java.io.File;
 import java.io.FileInputStream;
@@ -45,182 +44,229 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public final class DownloadManager {
     public static final String ACTION_DOWNLOAD_MERGE_STATUS = "com.baidu.clientupdate.download.STATUS_MERGE";
     public static final String ACTION_DOWNLOAD_PROGRESS_CHANGE = "com.baidu.clientupdate.download.PROGRESS_CHANGE";
     public static final String ACTION_DOWNLOAD_STATUS_CHANGE = "com.baidu.clientupdate.download.STATUS_CHANGE";
-    private static final long MIN_LEFT_SIZE = 20971520;
-    private static final long MIN_PROGRESS_INTERVAL = 200;
-    private static final long MIN_PROGRESS_SAVE_INTERVAL = 2000;
-    private static final String TAG = "DownloadManager";
-    private static DownloadManager sInstance;
-    private File apkFile;
-    private Download download;
-    private Thread loadThread;
-    private com.baidu.clientupdate.c.a mBaiduParamManager;
-    private Context mContext;
-    private a mDbHelper;
-    private HashMap mHeaders;
-    private d mLogUtils;
-    private BinaryTaskMng mTaskManager;
-    private File privateApkFile;
-    private String sign;
-    private Hashtable mDownloadMap = new Hashtable();
-    private Handler mHandler = new Handler(Looper.getMainLooper());
-    private ExecutorService mExecutor = Executors.newFixedThreadPool(1, new i("DownloadManagerAsync"));
-    private Boolean isDownloadPublicKey = true;
-    private Boolean isUseRSA = true;
-    private boolean isQuietDownload = false;
-    private TaskObserver mtaskObserver = new TaskObserver() { // from class: com.baidu.clientupdate.download.DownloadManager.1
-        @Override // com.baidu.down.common.TaskObserver
-        protected void onDownloadCancel(String str, long j, long j2, long j3, String str2) {
-            LogUtil.logE("DownloadManager", "--- onDownloadCancel : " + j);
-            DownloadManager.this.changeState(DownloadState.CANCEL, j);
-        }
+    public static final long MIN_LEFT_SIZE = 20971520;
+    public static final long MIN_PROGRESS_INTERVAL = 200;
+    public static final long MIN_PROGRESS_SAVE_INTERVAL = 2000;
+    public static final String TAG = "DownloadManager";
+    public static DownloadManager sInstance;
+    public File apkFile;
+    public Download download;
+    public Boolean isDownloadPublicKey;
+    public boolean isQuietDownload;
+    public Boolean isUseRSA;
+    public Thread loadThread;
+    public com.baidu.clientupdate.c.a mBaiduParamManager;
+    public Context mContext;
+    public a mDbHelper;
+    public HashMap mHeaders;
+    public d mLogUtils;
+    public BinaryTaskMng mTaskManager;
+    public TaskObserver mtaskObserver;
+    public File privateApkFile;
+    public String sign;
+    public Hashtable mDownloadMap = new Hashtable();
+    public Handler mHandler = new Handler(Looper.getMainLooper());
+    public ExecutorService mExecutor = Executors.newFixedThreadPool(1, new i("DownloadManagerAsync"));
 
-        @Override // com.baidu.down.common.TaskObserver
-        protected void onDownloadFail(String str, long j, long j2, String str2, String str3, int i, DownDetail downDetail) {
-            DownloadManager.this.mLogUtils.a(DownloadManager.this.mBaiduParamManager.c(), "0", DownloadManager.this.mBaiduParamManager.b(), "a7", "1", (System.currentTimeMillis() / 1000) + "", "", "DownloadFail", "");
-            LogUtil.logE("DownloadManager", "--- onDownloadFail : " + j);
-            Download download = (Download) DownloadManager.this.mDownloadMap.get(Long.valueOf(j));
-            if (download != null) {
-                if (j2 <= download.mFileLength) {
+    public DownloadManager(Context context) {
+        Boolean bool = Boolean.TRUE;
+        this.isDownloadPublicKey = bool;
+        this.isUseRSA = bool;
+        this.isQuietDownload = false;
+        this.mtaskObserver = new TaskObserver() { // from class: com.baidu.clientupdate.download.DownloadManager.1
+            @Override // com.baidu.down.common.TaskObserver
+            public void onDownloadCancel(String str, long j, long j2, long j3, String str2) {
+                LogUtil.logE("DownloadManager", "--- onDownloadCancel : " + j);
+                DownloadManager.this.changeState(DownloadState.CANCEL, j);
+            }
+
+            @Override // com.baidu.down.common.TaskObserver
+            public void onDownloadFail(String str, long j, long j2, String str2, String str3, int i, DownDetail downDetail) {
+                d dVar = DownloadManager.this.mLogUtils;
+                String c2 = DownloadManager.this.mBaiduParamManager.c();
+                String b2 = DownloadManager.this.mBaiduParamManager.b();
+                dVar.a(c2, "0", b2, "a7", "1", (System.currentTimeMillis() / 1000) + "", "", "DownloadFail", "");
+                LogUtil.logE("DownloadManager", "--- onDownloadFail : " + j);
+                Download download = (Download) DownloadManager.this.mDownloadMap.get(Long.valueOf(j));
+                if (download != null) {
+                    if (j2 <= download.mFileLength) {
+                        download.mCurrentLength = j2;
+                    }
+                    download.mFailReason = str3;
+                }
+                LogUtil.logE("DownloadManager", "-- onDownloadFail : " + str3);
+                DownloadManager.this.changeState(DownloadState.FAILED, j);
+            }
+
+            @Override // com.baidu.down.common.TaskObserverInterface
+            public void onDownloadMsgType(String str, long j, int i, Object obj) {
+                LogUtil.logE("DownloadManager", "--- onDownloadMsgType ");
+            }
+
+            @Override // com.baidu.down.common.TaskObserver
+            public void onDownloadPause(String str, long j, long j2, long j3, String str2) {
+                d dVar = DownloadManager.this.mLogUtils;
+                String c2 = DownloadManager.this.mBaiduParamManager.c();
+                String b2 = DownloadManager.this.mBaiduParamManager.b();
+                dVar.a(c2, "0", b2, "a7", "-1", (System.currentTimeMillis() / 1000) + "", "", "DownloadPause", "");
+                LogUtil.logE("DownloadManager", "--- onDownloadPause : " + j);
+                Download download = (Download) DownloadManager.this.mDownloadMap.get(Long.valueOf(j));
+                if (download != null) {
                     download.mCurrentLength = j2;
                 }
-                download.mFailReason = str3;
+                DownloadManager.this.changeState(DownloadState.PAUSE, j);
             }
-            LogUtil.logE("DownloadManager", "-- onDownloadFail : " + str3);
-            DownloadManager.this.changeState(DownloadState.FAILED, j);
-        }
 
-        @Override // com.baidu.down.common.TaskObserverInterface
-        public void onDownloadMsgType(String str, long j, int i, Object obj) {
-            LogUtil.logE("DownloadManager", "--- onDownloadMsgType ");
-        }
+            @Override // com.baidu.down.common.TaskObserver
+            public void onDownloadRunning(String str, long j, long j2, long j3) {
+                LogUtil.logE("DownloadManager", "--- onDownloadRunning ");
+            }
 
-        @Override // com.baidu.down.common.TaskObserver
-        protected void onDownloadPause(String str, long j, long j2, long j3, String str2) {
-            DownloadManager.this.mLogUtils.a(DownloadManager.this.mBaiduParamManager.c(), "0", DownloadManager.this.mBaiduParamManager.b(), "a7", "-1", (System.currentTimeMillis() / 1000) + "", "", "DownloadPause", "");
-            LogUtil.logE("DownloadManager", "--- onDownloadPause : " + j);
-            Download download = (Download) DownloadManager.this.mDownloadMap.get(Long.valueOf(j));
-            if (download != null) {
+            @Override // com.baidu.down.common.TaskObserver
+            public void onDownloadStart(String str, long j, long j2, String str2, String str3, String str4, String str5, boolean z, DownDetail downDetail) {
+                DownloadManager downloadManager;
+                DownloadState downloadState;
+                d dVar;
+                String c2;
+                String b2;
+                String str6;
+                String str7;
+                String str8;
+                String str9;
+                String str10;
+                String str11;
+                LogUtil.logE("DownloadManager", "--- onDownloadStart : " + j);
+                Download download = (Download) DownloadManager.this.mDownloadMap.get(Long.valueOf(j));
+                if (download != null) {
+                    if (download.mMimeType.equals("patch")) {
+                        dVar = DownloadManager.this.mLogUtils;
+                        c2 = DownloadManager.this.mBaiduParamManager.c();
+                        b2 = DownloadManager.this.mBaiduParamManager.b();
+                        str6 = (System.currentTimeMillis() / 1000) + "";
+                        str7 = "0";
+                        str8 = "a6";
+                        str9 = "0";
+                        str10 = "";
+                        str11 = "PatchDownload";
+                    } else {
+                        dVar = DownloadManager.this.mLogUtils;
+                        c2 = DownloadManager.this.mBaiduParamManager.c();
+                        b2 = DownloadManager.this.mBaiduParamManager.b();
+                        str6 = (System.currentTimeMillis() / 1000) + "";
+                        str7 = "0";
+                        str8 = "a6";
+                        str9 = "0";
+                        str10 = "";
+                        str11 = "normalDownload";
+                    }
+                    dVar.a(c2, str7, b2, str8, str9, str6, str10, str11, "");
+                    DownloadManager.processAPKInDataLocation(DownloadManager.this.mContext, str3);
+                    File file = new File(str3);
+                    String parent = file.getParent();
+                    if (!TextUtils.equals(parent, download.mSavedPath)) {
+                        String str12 = download.mFileName;
+                        if (str12 != null) {
+                            new File(download.mSavedPath, Uri.encode(str12)).delete();
+                        }
+                        download.mSavedPath = parent;
+                        download.mCurrentLength = 0L;
+                    }
+                    String decode = Uri.decode(file.getName());
+                    download.mETag = str4;
+                    download.mFileLength = j2;
+                    download.mFileName = decode;
+                    downloadManager = DownloadManager.this;
+                    downloadState = DownloadState.DOWNLOADING;
+                } else {
+                    downloadManager = DownloadManager.this;
+                    downloadState = DownloadState.FAILED;
+                }
+                downloadManager.changeState(downloadState, j);
+            }
+
+            @Override // com.baidu.down.common.TaskObserver
+            public void onDownloadSuccess(String str, long j, long j2, long j3, String str2, long j4) {
+                LogUtil.logE("DownloadManager", "--- onDownloadSuccess : " + j);
+            }
+
+            @Override // com.baidu.down.common.TaskObserver
+            public void onDownloadWait(String str, long j) {
+                LogUtil.logE("DownloadManager", "--- onDownloadWait : " + j);
+            }
+
+            @Override // com.baidu.down.common.TaskObserver
+            public void onDownloading(String str, long j, long j2, long j3, long j4, String str2) {
+                LogUtil.logE("DownloadManager", "--- onDownloading : " + j);
+                if (j3 == 0 || j2 == 0 || j2 > j3) {
+                    return;
+                }
+                Download download = (Download) DownloadManager.this.mDownloadMap.get(Long.valueOf(j));
+                if (download == null) {
+                    LogUtil.logE("DownloadManager", "*** onDownloading, found download is null!");
+                    return;
+                }
                 download.mCurrentLength = j2;
-            }
-            DownloadManager.this.changeState(DownloadState.PAUSE, j);
-        }
-
-        @Override // com.baidu.down.common.TaskObserver
-        protected void onDownloadRunning(String str, long j, long j2, long j3) {
-            LogUtil.logE("DownloadManager", "--- onDownloadRunning ");
-        }
-
-        @Override // com.baidu.down.common.TaskObserver
-        protected void onDownloadStart(String str, long j, long j2, String str2, String str3, String str4, String str5, boolean z, DownDetail downDetail) {
-            LogUtil.logE("DownloadManager", "--- onDownloadStart : " + j);
-            Download download = (Download) DownloadManager.this.mDownloadMap.get(Long.valueOf(j));
-            if (download == null) {
-                DownloadManager.this.changeState(DownloadState.FAILED, j);
-                return;
-            }
-            if (download.mMimeType.equals("patch")) {
-                DownloadManager.this.mLogUtils.a(DownloadManager.this.mBaiduParamManager.c(), "0", DownloadManager.this.mBaiduParamManager.b(), "a6", "0", (System.currentTimeMillis() / 1000) + "", "", "PatchDownload", "");
-            } else {
-                DownloadManager.this.mLogUtils.a(DownloadManager.this.mBaiduParamManager.c(), "0", DownloadManager.this.mBaiduParamManager.b(), "a6", "0", (System.currentTimeMillis() / 1000) + "", "", "normalDownload", "");
-            }
-            DownloadManager.processAPKInDataLocation(DownloadManager.this.mContext, str3);
-            File file = new File(str3);
-            String parent = file.getParent();
-            if (!TextUtils.equals(parent, download.mSavedPath)) {
-                if (download.mFileName != null) {
-                    new File(download.mSavedPath, Uri.encode(download.mFileName)).delete();
+                download.mFileLength = j3;
+                long currentTimeMillis = System.currentTimeMillis();
+                if (currentTimeMillis - download.f4609a < 200) {
+                    return;
                 }
-                download.mSavedPath = parent;
-                download.mCurrentLength = 0L;
-            }
-            String decode = Uri.decode(file.getName());
-            download.mETag = str4;
-            download.mFileLength = j2;
-            download.mFileName = decode;
-            DownloadManager.this.changeState(DownloadState.DOWNLOADING, j);
-        }
-
-        @Override // com.baidu.down.common.TaskObserver
-        protected void onDownloadSuccess(String str, long j, long j2, long j3, String str2, long j4) {
-            LogUtil.logE("DownloadManager", "--- onDownloadSuccess : " + j);
-        }
-
-        @Override // com.baidu.down.common.TaskObserver
-        protected void onDownloadWait(String str, long j) {
-            LogUtil.logE("DownloadManager", "--- onDownloadWait : " + j);
-        }
-
-        @Override // com.baidu.down.common.TaskObserver
-        protected void onDownloading(String str, long j, long j2, long j3, long j4, String str2) {
-            LogUtil.logE("DownloadManager", "--- onDownloading : " + j);
-            if (j3 == 0 || j2 == 0 || j2 > j3) {
-                return;
-            }
-            Download download = (Download) DownloadManager.this.mDownloadMap.get(Long.valueOf(j));
-            if (download == null) {
-                LogUtil.logE("DownloadManager", "*** onDownloading, found download is null!");
-                return;
-            }
-            download.mCurrentLength = j2;
-            download.mFileLength = j3;
-            long currentTimeMillis = System.currentTimeMillis();
-            if (currentTimeMillis - download.f1372a >= DownloadManager.MIN_PROGRESS_INTERVAL) {
-                download.f1372a = currentTimeMillis;
+                download.f4609a = currentTimeMillis;
                 int progress = download.getProgress();
-                if (progress != download.c) {
+                if (progress != download.f4611c) {
                     DownloadManager.this.notifyProgressChange(j, progress);
-                    download.c = progress;
+                    download.f4611c = progress;
                 }
-                if (currentTimeMillis - download.b > 2000) {
+                if (currentTimeMillis - download.f4610b > 2000) {
                     long currentTimeMillis2 = System.currentTimeMillis();
                     DownloadManager.this.mDbHelper.b(download);
-                    LogUtil.logE("DownloadManager", "1新的更新数据库用时time:" + (System.currentTimeMillis() - currentTimeMillis2) + "ms");
-                    download.b = currentTimeMillis;
+                    long currentTimeMillis3 = System.currentTimeMillis();
+                    LogUtil.logE("DownloadManager", "1新的更新数据库用时time:" + (currentTimeMillis3 - currentTimeMillis2) + "ms");
+                    download.f4610b = currentTimeMillis;
                 }
             }
-        }
 
-        @Override // com.baidu.down.common.TaskObserver
-        protected void onWriteFinish(String str, long j, long j2, long j3, DownDetail downDetail) {
-            DownloadManager.this.mLogUtils.a(DownloadManager.this.mBaiduParamManager.c(), "0", DownloadManager.this.mBaiduParamManager.b(), "a7", "0", (System.currentTimeMillis() / 1000) + "", "", "DownloadFinish", "");
-            LogUtil.logE("DownloadManager", "--- onWriteFinish : " + j);
-            final Download download = (Download) DownloadManager.this.mDownloadMap.get(Long.valueOf(j));
-            if (download != null) {
-                download.mCurrentLength = download.mFileLength;
-                final String str2 = download.mSavedPath + "/" + Uri.encode(download.mFileName);
-                LogUtil.logD("DownloadManager", "Download path:" + str2 + str2.endsWith(DownloadDataConstants.DEFAULT_DL_BINARY_EXTENSION));
-                if (!DownloadManager.this.isQuietDownload && (!com.baidu.clientupdate.d.a.a(DownloadManager.this.mContext).d() || !str2.endsWith(DownloadDataConstants.DEFAULT_DL_BINARY_EXTENSION))) {
-                    DownloadManager.this.mHandler.post(new Runnable() { // from class: com.baidu.clientupdate.download.DownloadManager.1.1
-                        @Override // java.lang.Runnable
-                        public void run() {
-                            LogUtil.logE("DownloadManager", "onWriteFinish   launchSystemInstalller");
-                            DownloadManager.this.launchSystemInstalller(str2, download);
-                        }
-                    });
+            @Override // com.baidu.down.common.TaskObserver
+            public void onWriteFinish(String str, long j, long j2, long j3, DownDetail downDetail) {
+                DownloadManager.this.mLogUtils.a(DownloadManager.this.mBaiduParamManager.c(), "0", DownloadManager.this.mBaiduParamManager.b(), "a7", "0", (System.currentTimeMillis() / 1000) + "", "", "DownloadFinish", "");
+                LogUtil.logE("DownloadManager", "--- onWriteFinish : " + j);
+                final Download download = (Download) DownloadManager.this.mDownloadMap.get(Long.valueOf(j));
+                if (download != null) {
+                    download.mCurrentLength = download.mFileLength;
+                    final String str2 = download.mSavedPath + "/" + Uri.encode(download.mFileName);
+                    LogUtil.logD("DownloadManager", "Download path:" + str2 + str2.endsWith(DownloadDataConstants.DEFAULT_DL_BINARY_EXTENSION));
+                    if (!DownloadManager.this.isQuietDownload && (!com.baidu.clientupdate.d.a.a(DownloadManager.this.mContext).d() || !str2.endsWith(DownloadDataConstants.DEFAULT_DL_BINARY_EXTENSION))) {
+                        DownloadManager.this.mHandler.post(new Runnable() { // from class: com.baidu.clientupdate.download.DownloadManager.1.1
+                            @Override // java.lang.Runnable
+                            public void run() {
+                                LogUtil.logE("DownloadManager", "onWriteFinish   launchSystemInstalller");
+                                DownloadManager.this.launchSystemInstalller(str2, download);
+                            }
+                        });
+                    }
                 }
+                DownloadManager.this.changeState(DownloadState.FINISH, j);
             }
-            DownloadManager.this.changeState(DownloadState.FINISH, j);
-        }
-    };
-
-    private DownloadManager(Context context) {
+        };
         this.mContext = context;
         this.mDbHelper = a.a(context);
         this.mLogUtils = d.a(this.mContext);
         this.mBaiduParamManager = com.baidu.clientupdate.c.a.a(context);
-        this.mTaskManager = TaskFacade.getInstance(this.mContext).getBinaryTaskMng();
-        this.mTaskManager.addObserver(this.mtaskObserver);
-        this.mHeaders = new HashMap();
-        this.mHeaders.put(Config.LAUNCH_REFERER, "https://update.baidu.com");
+        BinaryTaskMng binaryTaskMng = TaskFacade.getInstance(this.mContext).getBinaryTaskMng();
+        this.mTaskManager = binaryTaskMng;
+        binaryTaskMng.addObserver(this.mtaskObserver);
+        HashMap hashMap = new HashMap();
+        this.mHeaders = hashMap;
+        hashMap.put(Config.LAUNCH_REFERER, "https://update.baidu.com");
         try {
             queryAll();
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (Exception e2) {
+            e2.printStackTrace();
         }
     }
 
@@ -229,8 +275,8 @@ public final class DownloadManager {
         if (bArr == null || bArr.length <= 0) {
             return null;
         }
-        for (byte b : bArr) {
-            String hexString = Integer.toHexString(b & 255);
+        for (byte b2 : bArr) {
+            String hexString = Integer.toHexString(b2 & 255);
             if (hexString.length() < 2) {
                 sb.append(0);
             }
@@ -244,12 +290,12 @@ public final class DownloadManager {
         Download download = (Download) this.mDownloadMap.get(Long.valueOf(j));
         if (download != null) {
             if (downloadState == DownloadState.CANCEL) {
-                if (download.d) {
+                if (download.f4612d) {
                     try {
                         new File(download.mSavedPath, Uri.encode(download.mFileName)).delete();
-                    } catch (Exception e) {
+                    } catch (Exception e2) {
                         LogUtil.logE("DownloadManager", "delete download file error!!");
-                        e.printStackTrace();
+                        e2.printStackTrace();
                     }
                 }
                 this.mDownloadMap.remove(Long.valueOf(j));
@@ -260,18 +306,22 @@ public final class DownloadManager {
             } else {
                 long currentTimeMillis = System.currentTimeMillis();
                 this.mDbHelper.b(download);
-                LogUtil.logE("DownloadManager", "2新的更新数据库用时time:" + (System.currentTimeMillis() - currentTimeMillis) + "ms");
-                LogUtil.logD("DownloadManager", "downloadmanger notification :" + download);
+                long currentTimeMillis2 = System.currentTimeMillis();
+                LogUtil.logE("DownloadManager", "2新的更新数据库用时time:" + (currentTimeMillis2 - currentTimeMillis) + "ms");
+                StringBuilder sb = new StringBuilder();
+                sb.append("downloadmanger notification :");
+                sb.append(download);
+                LogUtil.logD("DownloadManager", sb.toString());
             }
             download.mState = downloadState;
             notifyStateChange(j, download);
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:15:0x004b  */
-    /* JADX WARN: Removed duplicated region for block: B:19:0x006b A[ORIG_RETURN, RETURN] */
-    /* JADX WARN: Removed duplicated region for block: B:33:0x00c1  */
-    /* JADX WARN: Removed duplicated region for block: B:47:? A[RETURN, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:18:0x004c  */
+    /* JADX WARN: Removed duplicated region for block: B:34:0x00a8  */
+    /* JADX WARN: Removed duplicated region for block: B:49:0x00d9  */
+    /* JADX WARN: Removed duplicated region for block: B:51:? A[RETURN, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -279,24 +329,27 @@ public final class DownloadManager {
         String str4;
         int lastIndexOf;
         int lastIndexOf2;
+        StringBuilder sb;
+        int lastIndexOf3 = (str2 == null || str2.endsWith("/")) ? -1 : str2.lastIndexOf(46);
         String str5 = null;
-        int i = -1;
-        if (str2 != null && !str2.endsWith("/")) {
-            i = str2.lastIndexOf(46);
-        }
-        if (i >= 0 && i < str2.length() - 1) {
-            String substring = str2.substring(i + 1);
+        if (lastIndexOf3 >= 0 && lastIndexOf3 < str2.length() - 1) {
+            String substring = str2.substring(lastIndexOf3 + 1);
             if (!TextUtils.isEmpty(MimeTypeMap.getSingleton().getMimeTypeFromExtension(substring))) {
                 str4 = "." + substring;
                 if (TextUtils.isEmpty(str3)) {
                     str4 = MimeTypeMap.getSingleton().getExtensionFromMimeType(str3);
                     if (str4 != null) {
-                        str4 = "." + str4;
+                        sb = new StringBuilder();
+                        sb.append(".");
                     } else if (str3.toLowerCase().startsWith("text/")) {
-                        str4 = str3.equalsIgnoreCase("text/html") ? DownloadDataConstants.DEFAULT_DL_HTML_EXTENSION : str3.equalsIgnoreCase("text/bin") ? DownloadDataConstants.DEFAULT_DL_BINARY_EXTENSION : DownloadDataConstants.DEFAULT_DL_TEXT_EXTENSION;
+                        str4 = str3.equalsIgnoreCase(SapiWebView.K) ? DownloadDataConstants.DEFAULT_DL_HTML_EXTENSION : str3.equalsIgnoreCase("text/bin") ? DownloadDataConstants.DEFAULT_DL_BINARY_EXTENSION : DownloadDataConstants.DEFAULT_DL_TEXT_EXTENSION;
                     } else if (str3.toLowerCase().startsWith("audio/")) {
-                        str4 = "." + str3.substring(6);
+                        sb = new StringBuilder();
+                        sb.append(".");
+                        str4 = str3.substring(6);
                     }
+                    sb.append(str4);
+                    str4 = sb.toString();
                 } else {
                     String decode = Uri.decode(str);
                     if (decode != null && !decode.endsWith("/") && decode.indexOf(63) < 0 && (lastIndexOf2 = decode.lastIndexOf(47) + 1) > 0) {
@@ -319,32 +372,35 @@ public final class DownloadManager {
     public static String chooseFilename(String str, String str2, String str3) {
         String decode;
         int lastIndexOf;
-        String str4 = null;
-        if (0 == 0 && str2 != null && !str2.endsWith("/")) {
-            int lastIndexOf2 = str2.lastIndexOf(47) + 1;
-            str4 = lastIndexOf2 > 0 ? str2.substring(lastIndexOf2) : str2;
-        }
-        if (str4 == null && (decode = Uri.decode(str)) != null && !decode.endsWith("/") && decode.indexOf(63) < 0 && (lastIndexOf = decode.lastIndexOf(47) + 1) > 0) {
-            str4 = decode.substring(lastIndexOf);
-        }
-        if (str4 == null) {
-            str4 = Utils.DEFAULT_DL_FILENAME;
+        if (str2 == null || str2.endsWith("/")) {
+            str2 = null;
         } else {
-            int lastIndexOf3 = str4.lastIndexOf(46);
-            if (lastIndexOf3 > 0) {
-                str4 = str4.substring(0, lastIndexOf3);
+            int lastIndexOf2 = str2.lastIndexOf(47) + 1;
+            if (lastIndexOf2 > 0) {
+                str2 = str2.substring(lastIndexOf2);
             }
         }
-        return str4.replaceAll("[()（）.,：:\\-|^$#_，。：=、/+《》<>*?？‘“”''\"\"]", PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
+        if (str2 == null && (decode = Uri.decode(str)) != null && !decode.endsWith("/") && decode.indexOf(63) < 0 && (lastIndexOf = decode.lastIndexOf(47) + 1) > 0) {
+            str2 = decode.substring(lastIndexOf);
+        }
+        if (str2 == null) {
+            str2 = Utils.DEFAULT_DL_FILENAME;
+        } else {
+            int lastIndexOf3 = str2.lastIndexOf(46);
+            if (lastIndexOf3 > 0) {
+                str2 = str2.substring(0, lastIndexOf3);
+            }
+        }
+        return str2.replaceAll("[()（）.,：:\\-|^$#_，。：=、/+《》<>*?？‘“”''\"\"]", "_");
     }
 
     private void downloadPublicKey(final String str, final String str2) {
-        this.loadThread = new Thread() { // from class: com.baidu.clientupdate.download.DownloadManager.2
+        Thread thread = new Thread() { // from class: com.baidu.clientupdate.download.DownloadManager.2
             @Override // java.lang.Thread, java.lang.Runnable
             public void run() {
-                Throwable th;
-                Exception e;
                 HttpURLConnection httpURLConnection;
+                DownloadManager downloadManager;
+                String str3;
                 super.run();
                 HttpURLConnection httpURLConnection2 = null;
                 try {
@@ -353,8 +409,8 @@ public final class DownloadManager {
                     } catch (Exception e2) {
                         e = e2;
                     }
-                } catch (Throwable th2) {
-                    th = th2;
+                } catch (Throwable th) {
+                    th = th;
                 }
                 try {
                     httpURLConnection.setConnectTimeout(5000);
@@ -374,18 +430,21 @@ public final class DownloadManager {
                         inputStream.close();
                         LogUtil.logD("DownloadManager", "获取公钥的返回结果: " + sb.toString());
                         if (sb.toString() == null || sb.toString().equals("")) {
-                            DownloadManager.this.sendBroadcastRSAFail("sign==null||result==null");
+                            downloadManager = DownloadManager.this;
+                            str3 = "sign==null||result==null";
                         } else {
-                            String str3 = new String(b.a(b.a(sb.toString()), com.baidu.clientupdate.b.a.a(com.baidu.clientupdate.d.a.a(DownloadManager.this.mContext).a().mSign)));
-                            LogUtil.logE("DownloadManager", "公钥解密：" + str3);
+                            String str4 = new String(b.a(b.a(sb.toString()), com.baidu.clientupdate.b.a.a(com.baidu.clientupdate.d.a.a(DownloadManager.this.mContext).a().mSign)));
+                            LogUtil.logE("DownloadManager", "公钥解密：" + str4);
                             LogUtil.logE("DownloadManager", "apk的md5值：" + str2);
-                            if (str3.equals(str2)) {
+                            if (str4.equals(str2)) {
                                 LogUtil.logE("DownloadManager", "第二次RSA验证通过");
                                 j.a(DownloadManager.this.mContext, DownloadManager.this.privateApkFile);
                             } else {
-                                DownloadManager.this.sendBroadcastRSAFail("RSAstr!=apkMd5");
+                                downloadManager = DownloadManager.this;
+                                str3 = "RSAstr!=apkMd5";
                             }
                         }
+                        downloadManager.sendBroadcastRSAFail(str3);
                     }
                     if (httpURLConnection != null) {
                         httpURLConnection.disconnect();
@@ -398,8 +457,8 @@ public final class DownloadManager {
                     if (httpURLConnection2 != null) {
                         httpURLConnection2.disconnect();
                     }
-                } catch (Throwable th3) {
-                    th = th3;
+                } catch (Throwable th2) {
+                    th = th2;
                     httpURLConnection2 = httpURLConnection;
                     if (httpURLConnection2 != null) {
                         httpURLConnection2.disconnect();
@@ -408,7 +467,8 @@ public final class DownloadManager {
                 }
             }
         };
-        this.loadThread.start();
+        this.loadThread = thread;
+        thread.start();
     }
 
     public static synchronized DownloadManager getInstance(Context context) {
@@ -429,8 +489,8 @@ public final class DownloadManager {
             try {
                 new FileInputStream(file).read(bArr);
                 return "1F8B0800".equalsIgnoreCase(bytesToHexString(bArr));
-            } catch (Exception e) {
-                e.printStackTrace();
+            } catch (Exception e2) {
+                e2.printStackTrace();
                 return false;
             }
         }
@@ -445,7 +505,7 @@ public final class DownloadManager {
             public void run() {
                 Download download = (Download) DownloadManager.this.mDownloadMap.get(Long.valueOf(j));
                 if (download != null) {
-                    Intent intent = new Intent(DownloadManager.ACTION_DOWNLOAD_PROGRESS_CHANGE);
+                    Intent intent = new Intent("com.baidu.clientupdate.download.PROGRESS_CHANGE");
                     intent.putExtra("downloadid", j);
                     intent.putExtra("download", download);
                     intent.putExtra("progress", i);
@@ -463,7 +523,7 @@ public final class DownloadManager {
             public void run() {
                 File file;
                 GDiffPatcher gDiffPatcher = new GDiffPatcher();
-                Intent intent = new Intent(DownloadManager.ACTION_DOWNLOAD_STATUS_CHANGE);
+                Intent intent = new Intent("com.baidu.clientupdate.download.STATUS_CHANGE");
                 intent.putExtra("downloadid", j);
                 intent.putExtra("state", download.getState());
                 intent.putExtra("download", download);
@@ -473,7 +533,8 @@ public final class DownloadManager {
                     String[] strArr = new String[4];
                     strArr[0] = "-d";
                     strArr[1] = j.b(DownloadManager.this.mContext, DownloadManager.this.mContext.getPackageName()).applicationInfo.publicSourceDir;
-                    String encode = download.mFileName != null ? Uri.encode(download.mFileName) : null;
+                    String str = download.mFileName;
+                    String encode = str != null ? Uri.encode(str) : null;
                     strArr[2] = download.mSavedPath + File.separator + DownloadManager.chooseFilename(download.mUrl, encode, "patch") + DownloadManager.chooseExtension(download.mUrl, encode, "patch");
                     strArr[3] = download.mSavedPath + File.separator + DownloadManager.chooseFilename(download.mUrl, encode, "application/vnd.android.package-archive") + DownloadManager.chooseExtension(download.mUrl, encode, "application/vnd.android.package-archive");
                     File file2 = new File(strArr[1]);
@@ -483,37 +544,40 @@ public final class DownloadManager {
                     }
                     long currentTimeMillis = System.currentTimeMillis();
                     if (DownloadManager.isGzipFile(strArr[2])) {
-                        MiniGzip.unGzipFile(strArr[2], strArr[2] + ".temp");
+                        String str2 = strArr[2];
+                        MiniGzip.unGzipFile(str2, strArr[2] + ".temp");
                         file = new File(strArr[2] + ".temp");
                     } else {
                         file = new File(strArr[2]);
                     }
-                    Intent intent2 = new Intent(DownloadManager.ACTION_DOWNLOAD_MERGE_STATUS);
+                    Intent intent2 = new Intent("com.baidu.clientupdate.download.STATUS_MERGE");
                     intent2.putExtra("downloadid", j);
                     intent2.putExtra("state", DownloadState.MEAGESTART);
-                    download.mState = DownloadState.MEAGESTART;
-                    intent2.putExtra("download", download);
+                    Download download2 = download;
+                    download2.mState = DownloadState.MEAGESTART;
+                    intent2.putExtra("download", download2);
                     intent2.setPackage(DownloadManager.this.mContext.getPackageName());
                     DownloadManager.this.mContext.sendBroadcast(intent2);
                     try {
                         gDiffPatcher.patch(file2, file, file3);
-                    } catch (Exception e) {
-                        e.printStackTrace();
+                    } catch (Exception e2) {
+                        e2.printStackTrace();
                         JSONObject jSONObject = new JSONObject();
                         try {
                             jSONObject.put("msgId", "2");
-                            jSONObject.put("messageDetail", e.getMessage());
-                        } catch (JSONException e2) {
-                            e2.printStackTrace();
+                            jSONObject.put("messageDetail", e2.getMessage());
+                        } catch (JSONException e3) {
+                            e3.printStackTrace();
                         }
                         ClientUpdater.getInstance(DownloadManager.this.mContext).throwError(jSONObject);
                     }
                     LogUtil.logD("DownloadManager", "time is >>>  " + (System.currentTimeMillis() - currentTimeMillis) + "");
-                    Intent intent3 = new Intent(DownloadManager.ACTION_DOWNLOAD_MERGE_STATUS);
+                    Intent intent3 = new Intent("com.baidu.clientupdate.download.STATUS_MERGE");
                     intent3.putExtra("downloadid", j);
                     intent3.putExtra("state", DownloadState.MEAGEEND);
-                    download.mState = DownloadState.MEAGEEND;
-                    intent3.putExtra("download", download);
+                    Download download3 = download;
+                    download3.mState = DownloadState.MEAGEEND;
+                    intent3.putExtra("download", download3);
                     intent3.setPackage(DownloadManager.this.mContext.getPackageName());
                     DownloadManager.this.mContext.sendBroadcast(intent3);
                     if (DownloadManager.this.isQuietDownload) {
@@ -535,17 +599,18 @@ public final class DownloadManager {
         if (str.startsWith(context.getFilesDir().getAbsolutePath())) {
             try {
                 context.openFileOutput(new File(str).getName(), 0).close();
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
-            } catch (IOException e2) {
+            } catch (FileNotFoundException e2) {
                 e2.printStackTrace();
+            } catch (IOException e3) {
+                e3.printStackTrace();
             }
         }
     }
 
     private void queryAll() {
         Cursor a2;
-        if ((this.mDownloadMap == null || this.mDownloadMap.size() == 0) && (a2 = this.mDbHelper.a()) != null) {
+        Hashtable hashtable = this.mDownloadMap;
+        if ((hashtable == null || hashtable.size() == 0) && (a2 = this.mDbHelper.a()) != null) {
             a2.moveToFirst();
             while (!a2.isAfterLast()) {
                 Download readDownload = readDownload(a2);
@@ -558,18 +623,15 @@ public final class DownloadManager {
 
     private Download readDownload(Cursor cursor) {
         Download download = new Download();
-        download.mId = cursor.getLong(cursor.getColumnIndex(IMConstants.MSG_ROW_ID));
-        download.mUrl = cursor.getString(cursor.getColumnIndex(DownloadDataConstants.Columns.COLUMN_URI));
+        download.mId = cursor.getLong(cursor.getColumnIndex("_id"));
+        download.mUrl = cursor.getString(cursor.getColumnIndex("uri"));
         download.mFileName = cursor.getString(cursor.getColumnIndex("_data"));
         download.mSavedPath = cursor.getString(cursor.getColumnIndex("saved_path_for_user"));
         download.mFileLength = cursor.getLong(cursor.getColumnIndex("total_bytes"));
         download.mCurrentLength = cursor.getLong(cursor.getColumnIndex(DownloadDataConstants.Columns.COLUMN_CURRENT_BYTES));
-        File file = new File(download.mSavedPath + File.separator + Uri.encode(download.mFileName));
-        if (file.exists()) {
-            download.mCurrentLength = file.length();
-        } else {
-            download.mCurrentLength = 0L;
-        }
+        String encode = Uri.encode(download.mFileName);
+        File file = new File(download.mSavedPath + File.separator + encode);
+        download.mCurrentLength = file.exists() ? file.length() : 0L;
         download.mState = DownloadState.getState(cursor.getInt(cursor.getColumnIndex("status")));
         download.mFailReason = cursor.getString(cursor.getColumnIndex("failreason"));
         download.mMimeType = cursor.getString(cursor.getColumnIndex(DownloadDataConstants.Columns.COLUMN_MIME_TYPE));
@@ -582,59 +644,105 @@ public final class DownloadManager {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void sendBroadcastRSAFail(String str) {
-        if (this.apkFile != null) {
-            this.apkFile.delete();
+        File file = this.apkFile;
+        if (file != null) {
+            file.delete();
         }
-        if (this.privateApkFile != null) {
-            this.privateApkFile.delete();
+        File file2 = this.privateApkFile;
+        if (file2 != null) {
+            file2.delete();
         }
-        Intent intent = new Intent("com.baidu.clientupdate.RSA.STATUS_FAIL");
+        Intent intent = new Intent(LcUpdateDialogActivity.LC_UPDATE_FAIL);
         intent.putExtra("download", this.download);
         this.mContext.sendBroadcast(intent);
-        this.mLogUtils.a(this.mBaiduParamManager.c(), "0", this.mBaiduParamManager.b(), "a8", "1", (System.currentTimeMillis() / 1000) + "", "", RSAUtil.ALGORITHM_RSA, str);
+        d dVar = this.mLogUtils;
+        String c2 = this.mBaiduParamManager.c();
+        String b2 = this.mBaiduParamManager.b();
+        dVar.a(c2, "0", b2, "a8", "1", (System.currentTimeMillis() / 1000) + "", "", "RSA", str);
     }
 
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:51:0x0188 */
     /* JADX INFO: Access modifiers changed from: private */
+    /* JADX WARN: Removed duplicated region for block: B:23:0x004e  */
+    /* JADX WARN: Removed duplicated region for block: B:60:0x0196  */
+    /* JADX WARN: Removed duplicated region for block: B:64:0x01e1  */
+    /* JADX WARN: Removed duplicated region for block: B:70:0x0203  */
+    /* JADX WARN: Type inference failed for: r7v10 */
+    /* JADX WARN: Type inference failed for: r7v11 */
+    /* JADX WARN: Type inference failed for: r7v15, types: [boolean] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     public long startDownload(Download download) {
+        String encode;
+        File file;
+        boolean z;
+        File a2;
+        String str;
+        ?? r7;
+        String str2;
         download.mFailReason = "";
-        String str = download.mSavedPath;
+        String str3 = download.mSavedPath;
         long j = download.mFileLength;
         long j2 = download.mCurrentLength;
-        File file = null;
-        String str2 = null;
-        if (download.mFileName != null) {
+        String str4 = download.mFileName;
+        if (str4 != null) {
             try {
-                str2 = Uri.encode(download.mFileName);
-            } catch (Exception e) {
-                e.printStackTrace();
+                encode = Uri.encode(str4);
+            } catch (Exception e2) {
+                e2.printStackTrace();
             }
-        }
-        File file2 = (download.mSavedPath == null || download.mFileName == null) ? null : new File(download.mSavedPath, str2);
-        boolean z = (file2 == null || !file2.exists()) && (file = com.baidu.clientupdate.d.b.a(this.mContext, (download.mFileLength - download.mCurrentLength) + MIN_LEFT_SIZE, download.mSavedPath)) == null;
-        if (file != null && j2 == 0) {
-            str = file.getPath();
-            String str3 = str + File.separator + chooseFilename(download.mUrl, str2, download.mMimeType) + chooseExtension(download.mUrl, str2, download.mMimeType);
-            String str4 = chooseFilename(download.mUrl, str2, download.mMimeType) + chooseExtension(download.mUrl, str2, download.mMimeType);
-            File file3 = new File(str3);
-            LogUtil.logE("DownloadManager", "file path is >>>>>>" + file3.getAbsolutePath());
-            if (file3.exists()) {
-                try {
+            file = (download.mSavedPath != null || download.mFileName == null) ? null : new File(download.mSavedPath, encode);
+            z = false;
+            if (file == null && file.exists()) {
+                a2 = null;
+            } else {
+                a2 = com.baidu.clientupdate.d.b.a(this.mContext, (download.mFileLength - download.mCurrentLength) + MIN_LEFT_SIZE, download.mSavedPath);
+                if (a2 == null) {
+                    z = true;
+                }
+            }
+            if (a2 == null && j2 == 0) {
+                String path = a2.getPath();
+                String str5 = path + File.separator + chooseFilename(download.mUrl, encode, download.mMimeType) + chooseExtension(download.mUrl, encode, download.mMimeType);
+                String str6 = chooseFilename(download.mUrl, encode, download.mMimeType) + chooseExtension(download.mUrl, encode, download.mMimeType);
+                File file2 = new File(str5);
+                LogUtil.logE("DownloadManager", "file path is >>>>>>" + file2.getAbsolutePath());
+                if (file2.exists()) {
+                    try {
+                    } catch (IOException e3) {
+                        e = e3;
+                        r7 = path;
+                    }
                     if (download.mMimeType.equals("patch")) {
-                        String valueOf = String.valueOf(file3.length());
-                        download.mSavedPath = file3.getParent();
+                        String valueOf = String.valueOf(file2.length());
+                        download.mSavedPath = file2.getParent();
                         if (valueOf.equals(com.baidu.clientupdate.d.a.a(this.mContext).a().mPatchSize)) {
                             notifyProgressChange(download.mId, 100);
                             changeState(DownloadState.FINISH, download.mId);
                             return download.mId;
                         }
-                        file3.delete();
+                        file2.delete();
                     } else {
-                        String a2 = g.a(file3);
-                        LogUtil.logE("DownloadManager", "apkMd5 is >>> " + a2 + ", server_mApkMd5 is >>>" + com.baidu.clientupdate.d.a.a(this.mContext).a().mApkMd5);
-                        if (a2.equals(com.baidu.clientupdate.d.a.a(this.mContext).a().mApkMd5)) {
-                            download.mSavedPath = file3.getParent();
-                            if (str4 != null) {
-                                download.mFileName = Uri.decode(str4);
+                        String a3 = g.a(file2);
+                        LogUtil.logE("DownloadManager", "apkMd5 is >>> " + a3 + ", server_mApkMd5 is >>>" + com.baidu.clientupdate.d.a.a(this.mContext).a().mApkMd5);
+                        r7 = a3.equals(com.baidu.clientupdate.d.a.a(this.mContext).a().mApkMd5);
+                        try {
+                        } catch (IOException e4) {
+                            e = e4;
+                            e.printStackTrace();
+                            str2 = r7;
+                            str = str2;
+                            if (a2 == null) {
+                            }
+                            if (z) {
+                            }
+                            return download.mId;
+                        }
+                        if (r7 != 0) {
+                            download.mSavedPath = file2.getParent();
+                            if (str6 != null) {
+                                download.mFileName = Uri.decode(str6);
                             } else {
                                 download.mFileName = null;
                             }
@@ -643,32 +751,53 @@ public final class DownloadManager {
                             changeState(DownloadState.FINISH, download.mId);
                             LogUtil.logE("DownloadManager", "startDownload   launchSystemInstalller");
                             if (!this.isQuietDownload) {
-                                launchSystemInstalller(file3.getAbsolutePath(), download);
+                                launchSystemInstalller(file2.getAbsolutePath(), download);
                             }
                             return download.mId;
                         }
-                        file3.delete();
+                        str2 = path;
+                        file2.delete();
+                        str = str2;
                     }
-                } catch (IOException e2) {
-                    e2.printStackTrace();
                 }
+                str2 = path;
+                str = str2;
+            } else {
+                str = str3;
             }
+            if (a2 == null && !TextUtils.equals(a2.getPath(), download.mSavedPath)) {
+                String path2 = a2.getPath();
+                com.baidu.util.a.a(this.mContext).b("lcsdk_xml", "path", path2);
+                this.mTaskManager.startDownload(new FileMsg(download.mUrl, download.mId, path2, download.mFileName, download.mMimeType, Boolean.TRUE, this.mHeaders, 0L, 0L, download.mETag));
+            } else if (z) {
+                JSONObject jSONObject = new JSONObject();
+                try {
+                    jSONObject.put("msgId", "5");
+                    jSONObject.put("messageDetail", "not enough free space");
+                } catch (JSONException e5) {
+                    e5.printStackTrace();
+                }
+                ClientUpdater.getInstance(this.mContext).throwError(jSONObject);
+            } else {
+                this.mTaskManager.startDownload(new FileMsg(download.mUrl, download.mId, str, download.mFileName, download.mMimeType, Boolean.TRUE, this.mHeaders, j2, j, download.mETag));
+            }
+            return download.mId;
         }
-        if (file != null && !TextUtils.equals(file.getPath(), download.mSavedPath)) {
-            String path = file.getPath();
-            com.baidu.util.a.a(this.mContext).b("lcsdk_xml", "path", path);
-            this.mTaskManager.startDownload(new FileMsg(download.mUrl, download.mId, path, download.mFileName, download.mMimeType, true, this.mHeaders, 0L, 0L, download.mETag));
-        } else if (z) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("msgId", "5");
-                jSONObject.put("messageDetail", "not enough free space");
-            } catch (JSONException e3) {
-                e3.printStackTrace();
-            }
-            ClientUpdater.getInstance(this.mContext).throwError(jSONObject);
-        } else {
-            this.mTaskManager.startDownload(new FileMsg(download.mUrl, download.mId, str, download.mFileName, download.mMimeType, true, this.mHeaders, j2, j, download.mETag));
+        encode = null;
+        if (download.mSavedPath != null) {
+        }
+        z = false;
+        if (file == null) {
+        }
+        a2 = com.baidu.clientupdate.d.b.a(this.mContext, (download.mFileLength - download.mCurrentLength) + MIN_LEFT_SIZE, download.mSavedPath);
+        if (a2 == null) {
+        }
+        if (a2 == null) {
+        }
+        str = str3;
+        if (a2 == null) {
+        }
+        if (z) {
         }
         return download.mId;
     }
@@ -680,7 +809,7 @@ public final class DownloadManager {
                 for (int i = 0; i < jArr.length; i++) {
                     Download download = (Download) DownloadManager.this.mDownloadMap.get(Long.valueOf(jArr[i]));
                     if (download != null) {
-                        download.d = true;
+                        download.f4612d = true;
                         DownloadManager.this.mTaskManager.stopDownload(download.mUrl, jArr[i], false);
                     }
                 }
@@ -692,7 +821,7 @@ public final class DownloadManager {
         for (int i = 0; i < jArr.length; i++) {
             Download download = (Download) this.mDownloadMap.get(Long.valueOf(jArr[i]));
             if (download != null) {
-                download.d = false;
+                download.f4612d = false;
                 this.mTaskManager.stopDownload(download.mUrl, jArr[i], false);
             }
         }
@@ -702,13 +831,16 @@ public final class DownloadManager {
         this.download = download;
         String str2 = this.mContext.getApplicationContext().getFilesDir().getAbsolutePath() + "/" + download.mFileName;
         LogUtil.logD("DownloadManager", "安装包路径：" + str + "   " + download.mFileName);
-        LogUtil.logE("DownloadManager", "复制apk到data/data路径：" + str2);
+        StringBuilder sb = new StringBuilder();
+        sb.append("复制apk到data/data路径：");
+        sb.append(str2);
+        LogUtil.logE("DownloadManager", sb.toString());
         try {
             FileOutputStream openFileOutput = this.mContext.openFileOutput(download.mFileName, 0);
             FileInputStream fileInputStream = new FileInputStream(str);
             byte[] bArr = new byte[2048];
             while (true) {
-                int read = fileInputStream.read(bArr, 0, bArr.length);
+                int read = fileInputStream.read(bArr, 0, 2048);
                 if (read == -1) {
                     break;
                 }
@@ -719,8 +851,8 @@ public final class DownloadManager {
             this.apkFile = new File(str);
             this.privateApkFile = new File(str2);
             new ProcessBuilder("chmod", "755", str2).start();
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (Exception e2) {
+            e2.printStackTrace();
         }
         if (!this.isUseRSA.booleanValue()) {
             try {
@@ -730,8 +862,8 @@ public final class DownloadManager {
                     sendBroadcastRSAFail("");
                 }
                 return;
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e3) {
+                e3.printStackTrace();
                 return;
             }
         }
@@ -754,7 +886,7 @@ public final class DownloadManager {
                 LogUtil.logE("DownloadManager", "apk的md5值：" + a3);
                 if (str4.equals(a3)) {
                     LogUtil.logE("DownloadManager", "第一次RSA验证通过");
-                    this.mLogUtils.a(this.mBaiduParamManager.c(), "0", this.mBaiduParamManager.b(), "a8", "0", (System.currentTimeMillis() / 1000) + "", "", RSAUtil.ALGORITHM_RSA, "");
+                    this.mLogUtils.a(this.mBaiduParamManager.c(), "0", this.mBaiduParamManager.b(), "a8", "0", (System.currentTimeMillis() / 1000) + "", "", "RSA", "");
                     j.a(this.mContext, this.privateApkFile);
                 } else if (this.isDownloadPublicKey.booleanValue()) {
                     LogUtil.logE("DownloadManager", "RSA验证失败，下载公钥重新验证");
@@ -762,16 +894,16 @@ public final class DownloadManager {
                 } else {
                     sendBroadcastRSAFail("");
                 }
-            } catch (Exception e3) {
+            } catch (Exception e4) {
                 LogUtil.logE("DownloadManager", "RSA异常，下载公钥重新验证");
                 downloadPublicKey(str3, a3);
-                LogUtil.logE("DownloadManager", e3.toString());
-                LogUtil.logE("DownloadManager", e3.getMessage());
-                e3.printStackTrace();
+                LogUtil.logE("DownloadManager", e4.toString());
+                LogUtil.logE("DownloadManager", e4.getMessage());
+                e4.printStackTrace();
             }
-        } catch (Exception e4) {
-            e4.printStackTrace();
-            sendBroadcastRSAFail(e4.toString());
+        } catch (Exception e5) {
+            e5.printStackTrace();
+            sendBroadcastRSAFail(e5.toString());
         }
     }
 
@@ -806,8 +938,9 @@ public final class DownloadManager {
             @Override // java.lang.Runnable
             public void run() {
                 Process.setThreadPriority(10);
-                if (download != null) {
-                    DownloadManager.this.startDownload(download);
+                Download download2 = download;
+                if (download2 != null) {
+                    DownloadManager.this.startDownload(download2);
                 }
             }
         });
@@ -827,34 +960,36 @@ public final class DownloadManager {
 
     public long start(final Download download) {
         long a2 = this.mDbHelper.a(download);
-        if (a2 != -1) {
-            download.mId = a2;
-            this.mDownloadMap.put(Long.valueOf(a2), download);
-            runAsync(new Runnable() { // from class: com.baidu.clientupdate.download.DownloadManager.5
-                @Override // java.lang.Runnable
-                public void run() {
-                    Process.setThreadPriority(10);
-                    DownloadManager.this.startDownload(download);
-                }
-            });
+        if (a2 == -1) {
+            return a2;
         }
+        download.mId = a2;
+        this.mDownloadMap.put(Long.valueOf(a2), download);
+        runAsync(new Runnable() { // from class: com.baidu.clientupdate.download.DownloadManager.5
+            @Override // java.lang.Runnable
+            public void run() {
+                Process.setThreadPriority(10);
+                DownloadManager.this.startDownload(download);
+            }
+        });
         return a2;
     }
 
     public long start(final Download download, boolean z) {
         this.isQuietDownload = z;
         long a2 = this.mDbHelper.a(download);
-        if (a2 != -1) {
-            download.mId = a2;
-            this.mDownloadMap.put(Long.valueOf(a2), download);
-            runAsync(new Runnable() { // from class: com.baidu.clientupdate.download.DownloadManager.6
-                @Override // java.lang.Runnable
-                public void run() {
-                    Process.setThreadPriority(10);
-                    DownloadManager.this.startDownload(download);
-                }
-            });
+        if (a2 == -1) {
+            return a2;
         }
+        download.mId = a2;
+        this.mDownloadMap.put(Long.valueOf(a2), download);
+        runAsync(new Runnable() { // from class: com.baidu.clientupdate.download.DownloadManager.6
+            @Override // java.lang.Runnable
+            public void run() {
+                Process.setThreadPriority(10);
+                DownloadManager.this.startDownload(download);
+            }
+        });
         return a2;
     }
 }

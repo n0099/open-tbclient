@@ -7,19 +7,38 @@ import com.baidubce.auth.BceCredentials;
 import com.baidubce.http.RetryPolicy;
 import com.baidubce.util.CheckUtils;
 import java.net.InetAddress;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class BosClientConfiguration extends BceClientConfiguration {
     public static final int DEFAULT_STREAM_BUFFER_SIZE = 5242880;
-    private Boolean cnameEnabled;
-    private int streamBufferSize = DEFAULT_STREAM_BUFFER_SIZE;
+    public Boolean cnameEnabled;
+    public int streamBufferSize = 5242880;
 
     public int getStreamBufferSize() {
         return this.streamBufferSize;
     }
 
+    public Boolean isCnameEnabled() {
+        return this.cnameEnabled;
+    }
+
+    public void setCnameEnabled(Boolean bool) {
+        this.cnameEnabled = bool;
+    }
+
     public void setStreamBufferSize(int i) {
         CheckUtils.checkArgument(i > 0, "streamBufferSize should be positive.");
         this.streamBufferSize = i;
+    }
+
+    public BosClientConfiguration withCnameEnabled(Boolean bool) {
+        setCnameEnabled(bool);
+        return this;
+    }
+
+    @Override // com.baidubce.BceClientConfiguration
+    public BceClientConfiguration withProxyPreemptiveAuthenticationEnabled(boolean z) {
+        setProxyPreemptiveAuthenticationEnabled(z);
+        return this;
     }
 
     public BosClientConfiguration withStreamBufferSize(int i) {
@@ -29,22 +48,22 @@ public class BosClientConfiguration extends BceClientConfiguration {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidubce.BceClientConfiguration
-    public BosClientConfiguration withProtocol(Protocol protocol) {
-        setProtocol(protocol);
+    public BosClientConfiguration withConnectionTimeoutInMillis(int i) {
+        setConnectionTimeoutInMillis(i);
         return this;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidubce.BceClientConfiguration
-    public BosClientConfiguration withMaxConnections(int i) {
-        setMaxConnections(i);
+    public BosClientConfiguration withCredentials(BceCredentials bceCredentials) {
+        setCredentials(bceCredentials);
         return this;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidubce.BceClientConfiguration
-    public BosClientConfiguration withUserAgent(String str) {
-        setUserAgent(str);
+    public BosClientConfiguration withEndpoint(String str) {
+        setEndpoint(str);
         return this;
     }
 
@@ -57,8 +76,36 @@ public class BosClientConfiguration extends BceClientConfiguration {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidubce.BceClientConfiguration
+    public BosClientConfiguration withMaxConnections(int i) {
+        setMaxConnections(i);
+        return this;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidubce.BceClientConfiguration
+    public BosClientConfiguration withProtocol(Protocol protocol) {
+        setProtocol(protocol);
+        return this;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidubce.BceClientConfiguration
+    public BosClientConfiguration withProxyDomain(String str) {
+        setProxyDomain(str);
+        return this;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidubce.BceClientConfiguration
     public BosClientConfiguration withProxyHost(String str) {
         setProxyHost(str);
+        return this;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidubce.BceClientConfiguration
+    public BosClientConfiguration withProxyPassword(String str) {
+        setProxyPassword(str);
         return this;
     }
 
@@ -78,63 +125,8 @@ public class BosClientConfiguration extends BceClientConfiguration {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidubce.BceClientConfiguration
-    public BosClientConfiguration withProxyPassword(String str) {
-        setProxyPassword(str);
-        return this;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidubce.BceClientConfiguration
-    public BosClientConfiguration withProxyDomain(String str) {
-        setProxyDomain(str);
-        return this;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidubce.BceClientConfiguration
     public BosClientConfiguration withProxyWorkstation(String str) {
         setProxyWorkstation(str);
-        return this;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidubce.BceClientConfiguration
-    public BosClientConfiguration withRetryPolicy(RetryPolicy retryPolicy) {
-        setRetryPolicy(retryPolicy);
-        return this;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidubce.BceClientConfiguration
-    public BosClientConfiguration withSocketTimeoutInMillis(int i) {
-        setSocketTimeoutInMillis(i);
-        return this;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidubce.BceClientConfiguration
-    public BosClientConfiguration withConnectionTimeoutInMillis(int i) {
-        setConnectionTimeoutInMillis(i);
-        return this;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidubce.BceClientConfiguration
-    public BosClientConfiguration withSocketBufferSizeInBytes(int i) {
-        setSocketBufferSizeInBytes(i);
-        return this;
-    }
-
-    @Override // com.baidubce.BceClientConfiguration
-    public BceClientConfiguration withProxyPreemptiveAuthenticationEnabled(boolean z) {
-        setProxyPreemptiveAuthenticationEnabled(z);
-        return this;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidubce.BceClientConfiguration
-    public BosClientConfiguration withEndpoint(String str) {
-        setEndpoint(str);
         return this;
     }
 
@@ -147,21 +139,29 @@ public class BosClientConfiguration extends BceClientConfiguration {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidubce.BceClientConfiguration
-    public BosClientConfiguration withCredentials(BceCredentials bceCredentials) {
-        setCredentials(bceCredentials);
+    public BosClientConfiguration withRetryPolicy(RetryPolicy retryPolicy) {
+        setRetryPolicy(retryPolicy);
         return this;
     }
 
-    public Boolean isCnameEnabled() {
-        return this.cnameEnabled;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidubce.BceClientConfiguration
+    public BosClientConfiguration withSocketBufferSizeInBytes(int i) {
+        setSocketBufferSizeInBytes(i);
+        return this;
     }
 
-    public void setCnameEnabled(Boolean bool) {
-        this.cnameEnabled = bool;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidubce.BceClientConfiguration
+    public BosClientConfiguration withSocketTimeoutInMillis(int i) {
+        setSocketTimeoutInMillis(i);
+        return this;
     }
 
-    public BosClientConfiguration withCnameEnabled(Boolean bool) {
-        setCnameEnabled(bool);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidubce.BceClientConfiguration
+    public BosClientConfiguration withUserAgent(String str) {
+        setUserAgent(str);
         return this;
     }
 }

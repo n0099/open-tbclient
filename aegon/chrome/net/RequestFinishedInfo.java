@@ -1,10 +1,10 @@
 package aegon.chrome.net;
 
 import java.util.concurrent.Executor;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public abstract class RequestFinishedInfo {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static abstract class Listener {
         public final Executor mExecutor;
 
@@ -22,7 +22,7 @@ public abstract class RequestFinishedInfo {
         public abstract void onRequestFinished(RequestFinishedInfo requestFinishedInfo);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static abstract class Metrics {
     }
 }

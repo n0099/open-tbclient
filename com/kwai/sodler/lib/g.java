@@ -3,7 +3,7 @@ package com.kwai.sodler.lib;
 import android.content.Context;
 import com.kwai.sodler.lib.ext.PluginError;
 import java.io.File;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class g extends com.kwai.sodler.lib.a.a {
     public g(String str) {
         super(str);
@@ -16,7 +16,6 @@ public class g extends com.kwai.sodler.lib.a.a {
         d();
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     public void a(File file) {
         if (file == null || !file.exists()) {
             a.e("Sodler.simple.package", "Apk file not exist.");

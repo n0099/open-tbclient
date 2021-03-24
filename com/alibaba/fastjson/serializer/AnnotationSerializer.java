@@ -8,28 +8,23 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Type;
 import java.util.Map;
 import sun.reflect.annotation.AnnotationType;
-/* loaded from: classes4.dex */
+/* loaded from: classes.dex */
 public class AnnotationSerializer implements ObjectSerializer {
     public static AnnotationSerializer instance = new AnnotationSerializer();
 
     @Override // com.alibaba.fastjson.serializer.ObjectSerializer
     public void write(JSONSerializer jSONSerializer, Object obj, Object obj2, Type type, int i) throws IOException {
-        Object obj3;
         Class<?>[] interfaces = obj.getClass().getInterfaces();
         if (interfaces.length == 1 && interfaces[0].isAnnotation()) {
             Map members = AnnotationType.getInstance(interfaces[0]).members();
             JSONObject jSONObject = new JSONObject(members.size());
-            Object obj4 = null;
+            Object obj3 = null;
             for (Map.Entry entry : members.entrySet()) {
                 try {
                     obj3 = ((Method) entry.getValue()).invoke(obj, new Object[0]);
-                } catch (IllegalAccessException e) {
-                    obj3 = obj4;
-                } catch (InvocationTargetException e2) {
-                    obj3 = obj4;
+                } catch (IllegalAccessException | InvocationTargetException unused) {
                 }
                 jSONObject.put((String) entry.getKey(), JSON.toJSON(obj3));
-                obj4 = obj3;
             }
             jSONSerializer.write(jSONObject);
         }

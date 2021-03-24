@@ -4,23 +4,25 @@ import androidx.annotation.NonNull;
 import java.io.FilterInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public final class c extends FilterInputStream {
 
     /* renamed from: a  reason: collision with root package name */
-    private final long f6629a;
-    private int b;
+    public final long f35211a;
 
-    private c(@NonNull InputStream inputStream, long j) {
+    /* renamed from: b  reason: collision with root package name */
+    public int f35212b;
+
+    public c(@NonNull InputStream inputStream, long j) {
         super(inputStream);
-        this.f6629a = j;
+        this.f35211a = j;
     }
 
     private int a(int i) {
         if (i >= 0) {
-            this.b += i;
-        } else if (this.f6629a - this.b > 0) {
-            throw new IOException("Failed to read all expected data, expected: " + this.f6629a + ", but read: " + this.b);
+            this.f35212b += i;
+        } else if (this.f35211a - this.f35212b > 0) {
+            throw new IOException("Failed to read all expected data, expected: " + this.f35211a + ", but read: " + this.f35212b);
         }
         return i;
     }
@@ -32,7 +34,7 @@ public final class c extends FilterInputStream {
 
     @Override // java.io.FilterInputStream, java.io.InputStream
     public synchronized int available() {
-        return (int) Math.max(this.f6629a - this.b, this.in.available());
+        return (int) Math.max(this.f35211a - this.f35212b, ((FilterInputStream) this).in.available());
     }
 
     @Override // java.io.FilterInputStream, java.io.InputStream

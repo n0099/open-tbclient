@@ -7,14 +7,15 @@ import com.kwad.sdk.core.network.BaseResultData;
 import com.kwad.sdk.utils.o;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class ProfileResultData extends BaseResultData implements b {
-    private static final long serialVersionUID = 5593104938742949008L;
+    public static final long serialVersionUID = 5593104938742949008L;
     public UserProfile userProfile = new UserProfile();
 
     @Override // com.kwad.sdk.core.network.BaseResultData
     public boolean isDataEmpty() {
-        return this.userProfile == null || this.userProfile.tabList.isEmpty();
+        UserProfile userProfile = this.userProfile;
+        return userProfile == null || userProfile.tabList.isEmpty();
     }
 
     @Override // com.kwad.sdk.core.network.BaseResultData
@@ -25,8 +26,8 @@ public class ProfileResultData extends BaseResultData implements b {
         }
         try {
             this.userProfile.parseJson(new JSONObject(d.b(jSONObject.optString("data"))));
-        } catch (JSONException e) {
-            e.printStackTrace();
+        } catch (JSONException e2) {
+            e2.printStackTrace();
         }
     }
 

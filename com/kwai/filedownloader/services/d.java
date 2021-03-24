@@ -9,33 +9,38 @@ import com.kwai.filedownloader.c.b;
 import com.kwai.filedownloader.message.MessageSnapshot;
 import com.kwai.filedownloader.message.e;
 import java.lang.ref.WeakReference;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class d extends b.a implements e.b, i {
 
     /* renamed from: a  reason: collision with root package name */
-    private final RemoteCallbackList<com.kwai.filedownloader.c.a> f7241a = new RemoteCallbackList<>();
-    private final g b;
-    private final WeakReference<FileDownloadServiceProxy> c;
+    public final RemoteCallbackList<com.kwai.filedownloader.c.a> f37109a = new RemoteCallbackList<>();
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    /* renamed from: b  reason: collision with root package name */
+    public final g f37110b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public final WeakReference<FileDownloadServiceProxy> f37111c;
+
     public d(WeakReference<FileDownloadServiceProxy> weakReference, g gVar) {
-        this.c = weakReference;
-        this.b = gVar;
+        this.f37111c = weakReference;
+        this.f37110b = gVar;
         com.kwai.filedownloader.message.e.a().a(this);
     }
 
     private synchronized int b(MessageSnapshot messageSnapshot) {
         int beginBroadcast;
-        beginBroadcast = this.f7241a.beginBroadcast();
+        RemoteCallbackList<com.kwai.filedownloader.c.a> remoteCallbackList;
+        beginBroadcast = this.f37109a.beginBroadcast();
         for (int i = 0; i < beginBroadcast; i++) {
             try {
-                this.f7241a.getBroadcastItem(i).a(messageSnapshot);
-            } catch (RemoteException e) {
-                com.kwai.filedownloader.f.d.a(this, e, "callback error", new Object[0]);
-                this.f7241a.finishBroadcast();
+                this.f37109a.getBroadcastItem(i).a(messageSnapshot);
+            } catch (RemoteException e2) {
+                com.kwai.filedownloader.f.d.a(this, e2, "callback error", new Object[0]);
+                remoteCallbackList = this.f37109a;
             }
         }
-        this.f7241a.finishBroadcast();
+        remoteCallbackList = this.f37109a;
+        remoteCallbackList.finishBroadcast();
         return beginBroadcast;
     }
 
@@ -46,15 +51,16 @@ public class d extends b.a implements e.b, i {
 
     @Override // com.kwai.filedownloader.c.b
     public void a() {
-        this.b.a();
+        this.f37110b.a();
     }
 
     @Override // com.kwai.filedownloader.c.b
     public void a(int i, Notification notification) {
-        if (this.c == null || this.c.get() == null) {
+        WeakReference<FileDownloadServiceProxy> weakReference = this.f37111c;
+        if (weakReference == null || weakReference.get() == null) {
             return;
         }
-        this.c.get().context.startForeground(i, notification);
+        this.f37111c.get().context.startForeground(i, notification);
     }
 
     @Override // com.kwai.filedownloader.services.i
@@ -63,7 +69,7 @@ public class d extends b.a implements e.b, i {
 
     @Override // com.kwai.filedownloader.c.b
     public void a(com.kwai.filedownloader.c.a aVar) {
-        this.f7241a.register(aVar);
+        this.f37109a.register(aVar);
     }
 
     @Override // com.kwai.filedownloader.message.e.b
@@ -73,55 +79,56 @@ public class d extends b.a implements e.b, i {
 
     @Override // com.kwai.filedownloader.c.b
     public void a(String str, String str2, boolean z, int i, int i2, int i3, boolean z2, com.kwai.filedownloader.d.b bVar, boolean z3) {
-        this.b.a(str, str2, z, i, i2, i3, z2, bVar, z3);
+        this.f37110b.a(str, str2, z, i, i2, i3, z2, bVar, z3);
     }
 
     @Override // com.kwai.filedownloader.c.b
     public void a(boolean z) {
-        if (this.c == null || this.c.get() == null) {
+        WeakReference<FileDownloadServiceProxy> weakReference = this.f37111c;
+        if (weakReference == null || weakReference.get() == null) {
             return;
         }
-        this.c.get().context.stopForeground(z);
+        this.f37111c.get().context.stopForeground(z);
     }
 
     @Override // com.kwai.filedownloader.c.b
     public boolean a(int i) {
-        return this.b.b(i);
+        return this.f37110b.b(i);
     }
 
     @Override // com.kwai.filedownloader.c.b
     public boolean a(String str, String str2) {
-        return this.b.a(str, str2);
+        return this.f37110b.a(str, str2);
     }
 
     @Override // com.kwai.filedownloader.c.b
     public void b(com.kwai.filedownloader.c.a aVar) {
-        this.f7241a.unregister(aVar);
+        this.f37109a.unregister(aVar);
     }
 
     @Override // com.kwai.filedownloader.c.b
     public boolean b() {
-        return this.b.b();
+        return this.f37110b.b();
     }
 
     @Override // com.kwai.filedownloader.c.b
     public boolean b(int i) {
-        return this.b.f(i);
+        return this.f37110b.f(i);
     }
 
     @Override // com.kwai.filedownloader.c.b
     public long c(int i) {
-        return this.b.c(i);
+        return this.f37110b.c(i);
     }
 
     @Override // com.kwai.filedownloader.c.b
     public void c() {
-        this.b.c();
+        this.f37110b.c();
     }
 
     @Override // com.kwai.filedownloader.c.b
     public long d(int i) {
-        return this.b.d(i);
+        return this.f37110b.d(i);
     }
 
     @Override // com.kwai.filedownloader.services.i
@@ -131,11 +138,11 @@ public class d extends b.a implements e.b, i {
 
     @Override // com.kwai.filedownloader.c.b
     public byte e(int i) {
-        return this.b.e(i);
+        return this.f37110b.e(i);
     }
 
     @Override // com.kwai.filedownloader.c.b
     public boolean f(int i) {
-        return this.b.g(i);
+        return this.f37110b.g(i);
     }
 }

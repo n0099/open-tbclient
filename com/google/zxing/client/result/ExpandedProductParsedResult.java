@@ -1,25 +1,25 @@
 package com.google.zxing.client.result;
 
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class ExpandedProductParsedResult extends ParsedResult {
     public static final String KILOGRAM = "KG";
     public static final String POUND = "LB";
-    private final String bestBeforeDate;
-    private final String expirationDate;
-    private final String lotNumber;
-    private final String packagingDate;
-    private final String price;
-    private final String priceCurrency;
-    private final String priceIncrement;
-    private final String productID;
-    private final String productionDate;
-    private final String rawText;
-    private final String sscc;
-    private final Map<String, String> uncommonAIs;
-    private final String weight;
-    private final String weightIncrement;
-    private final String weightType;
+    public final String bestBeforeDate;
+    public final String expirationDate;
+    public final String lotNumber;
+    public final String packagingDate;
+    public final String price;
+    public final String priceCurrency;
+    public final String priceIncrement;
+    public final String productID;
+    public final String productionDate;
+    public final String rawText;
+    public final String sscc;
+    public final Map<String, String> uncommonAIs;
+    public final String weight;
+    public final String weightIncrement;
+    public final String weightType;
 
     public ExpandedProductParsedResult(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, String str10, String str11, String str12, String str13, String str14, Map<String, String> map) {
         super(ParsedResultType.PRODUCT);
@@ -40,6 +40,20 @@ public final class ExpandedProductParsedResult extends ParsedResult {
         this.uncommonAIs = map;
     }
 
+    public static boolean equalsOrNull(Object obj, Object obj2) {
+        if (obj == null) {
+            return obj2 == null;
+        }
+        return obj.equals(obj2);
+    }
+
+    public static int hashNotNull(Object obj) {
+        if (obj == null) {
+            return 0;
+        }
+        return obj.hashCode();
+    }
+
     public boolean equals(Object obj) {
         if (obj instanceof ExpandedProductParsedResult) {
             ExpandedProductParsedResult expandedProductParsedResult = (ExpandedProductParsedResult) obj;
@@ -48,83 +62,72 @@ public final class ExpandedProductParsedResult extends ParsedResult {
         return false;
     }
 
-    private static boolean equalsOrNull(Object obj, Object obj2) {
-        return obj == null ? obj2 == null : obj.equals(obj2);
-    }
-
-    public int hashCode() {
-        return ((((((((((((hashNotNull(this.productID) ^ 0) ^ hashNotNull(this.sscc)) ^ hashNotNull(this.lotNumber)) ^ hashNotNull(this.productionDate)) ^ hashNotNull(this.bestBeforeDate)) ^ hashNotNull(this.expirationDate)) ^ hashNotNull(this.weight)) ^ hashNotNull(this.weightType)) ^ hashNotNull(this.weightIncrement)) ^ hashNotNull(this.price)) ^ hashNotNull(this.priceIncrement)) ^ hashNotNull(this.priceCurrency)) ^ hashNotNull(this.uncommonAIs);
-    }
-
-    private static int hashNotNull(Object obj) {
-        if (obj == null) {
-            return 0;
-        }
-        return obj.hashCode();
-    }
-
-    public String getRawText() {
-        return this.rawText;
-    }
-
-    public String getProductID() {
-        return this.productID;
-    }
-
-    public String getSscc() {
-        return this.sscc;
-    }
-
-    public String getLotNumber() {
-        return this.lotNumber;
-    }
-
-    public String getProductionDate() {
-        return this.productionDate;
-    }
-
-    public String getPackagingDate() {
-        return this.packagingDate;
-    }
-
     public String getBestBeforeDate() {
         return this.bestBeforeDate;
+    }
+
+    @Override // com.google.zxing.client.result.ParsedResult
+    public String getDisplayResult() {
+        return String.valueOf(this.rawText);
     }
 
     public String getExpirationDate() {
         return this.expirationDate;
     }
 
-    public String getWeight() {
-        return this.weight;
+    public String getLotNumber() {
+        return this.lotNumber;
     }
 
-    public String getWeightType() {
-        return this.weightType;
-    }
-
-    public String getWeightIncrement() {
-        return this.weightIncrement;
+    public String getPackagingDate() {
+        return this.packagingDate;
     }
 
     public String getPrice() {
         return this.price;
     }
 
+    public String getPriceCurrency() {
+        return this.priceCurrency;
+    }
+
     public String getPriceIncrement() {
         return this.priceIncrement;
     }
 
-    public String getPriceCurrency() {
-        return this.priceCurrency;
+    public String getProductID() {
+        return this.productID;
+    }
+
+    public String getProductionDate() {
+        return this.productionDate;
+    }
+
+    public String getRawText() {
+        return this.rawText;
+    }
+
+    public String getSscc() {
+        return this.sscc;
     }
 
     public Map<String, String> getUncommonAIs() {
         return this.uncommonAIs;
     }
 
-    @Override // com.google.zxing.client.result.ParsedResult
-    public String getDisplayResult() {
-        return String.valueOf(this.rawText);
+    public String getWeight() {
+        return this.weight;
+    }
+
+    public String getWeightIncrement() {
+        return this.weightIncrement;
+    }
+
+    public String getWeightType() {
+        return this.weightType;
+    }
+
+    public int hashCode() {
+        return ((((((((((((hashNotNull(this.productID) ^ 0) ^ hashNotNull(this.sscc)) ^ hashNotNull(this.lotNumber)) ^ hashNotNull(this.productionDate)) ^ hashNotNull(this.bestBeforeDate)) ^ hashNotNull(this.expirationDate)) ^ hashNotNull(this.weight)) ^ hashNotNull(this.weightType)) ^ hashNotNull(this.weightIncrement)) ^ hashNotNull(this.price)) ^ hashNotNull(this.priceIncrement)) ^ hashNotNull(this.priceCurrency)) ^ hashNotNull(this.uncommonAIs);
     }
 }

@@ -2,6 +2,7 @@ package com.kwad.sdk.glide.load.b;
 
 import android.util.Base64;
 import androidx.annotation.NonNull;
+import com.bumptech.glide.load.model.DataUrlLoader;
 import com.kwad.sdk.glide.Priority;
 import com.kwad.sdk.glide.load.DataSource;
 import com.kwad.sdk.glide.load.a.d;
@@ -9,13 +10,13 @@ import com.kwad.sdk.glide.load.b.n;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public final class e<Model, Data> implements n<Model, Data> {
 
     /* renamed from: a  reason: collision with root package name */
-    private final a<Data> f6670a;
+    public final a<Data> f35294a;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public interface a<Data> {
         Class<Data> a();
 
@@ -24,41 +25,46 @@ public final class e<Model, Data> implements n<Model, Data> {
         void a(Data data);
     }
 
-    /* loaded from: classes3.dex */
-    private static final class b<Data> implements com.kwad.sdk.glide.load.a.d<Data> {
+    /* loaded from: classes6.dex */
+    public static final class b<Data> implements com.kwad.sdk.glide.load.a.d<Data> {
 
         /* renamed from: a  reason: collision with root package name */
-        private final String f6671a;
-        private final a<Data> b;
-        private Data c;
+        public final String f35295a;
 
-        b(String str, a<Data> aVar) {
-            this.f6671a = str;
-            this.b = aVar;
+        /* renamed from: b  reason: collision with root package name */
+        public final a<Data> f35296b;
+
+        /* renamed from: c  reason: collision with root package name */
+        public Data f35297c;
+
+        public b(String str, a<Data> aVar) {
+            this.f35295a = str;
+            this.f35296b = aVar;
         }
 
         @Override // com.kwad.sdk.glide.load.a.d
         @NonNull
         public Class<Data> a() {
-            return this.b.a();
+            return this.f35296b.a();
         }
 
-        /* JADX DEBUG: Type inference failed for r0v3. Raw type applied. Possible types: Data, ? super Data */
+        /* JADX WARN: Type inference failed for: r2v3, types: [java.lang.Object, Data] */
         @Override // com.kwad.sdk.glide.load.a.d
         public void a(@NonNull Priority priority, @NonNull d.a<? super Data> aVar) {
             try {
-                this.c = this.b.a(this.f6671a);
-                aVar.a((d.a<? super Data>) ((Data) this.c));
-            } catch (IllegalArgumentException e) {
-                aVar.a((Exception) e);
+                Data a2 = this.f35296b.a(this.f35295a);
+                this.f35297c = a2;
+                aVar.a((d.a<? super Data>) a2);
+            } catch (IllegalArgumentException e2) {
+                aVar.a((Exception) e2);
             }
         }
 
         @Override // com.kwad.sdk.glide.load.a.d
         public void b() {
             try {
-                this.b.a((a<Data>) this.c);
-            } catch (IOException e) {
+                this.f35296b.a((a<Data>) this.f35297c);
+            } catch (IOException unused) {
             }
         }
 
@@ -73,11 +79,11 @@ public final class e<Model, Data> implements n<Model, Data> {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static final class c<Model> implements o<Model, InputStream> {
 
         /* renamed from: a  reason: collision with root package name */
-        private final a<InputStream> f6672a = new a<InputStream>() { // from class: com.kwad.sdk.glide.load.b.e.c.1
+        public final a<InputStream> f35298a = new a<InputStream>() { // from class: com.kwad.sdk.glide.load.b.e.c.1
             @Override // com.kwad.sdk.glide.load.b.e.a
             public Class<InputStream> a() {
                 return InputStream.class;
@@ -93,15 +99,15 @@ public final class e<Model, Data> implements n<Model, Data> {
             @Override // com.kwad.sdk.glide.load.b.e.a
             /* renamed from: b */
             public InputStream a(String str) {
-                if (str.startsWith("data:image")) {
+                if (str.startsWith(DataUrlLoader.DATA_SCHEME_IMAGE)) {
                     int indexOf = str.indexOf(44);
-                    if (indexOf == -1) {
-                        throw new IllegalArgumentException("Missing comma in data URL.");
+                    if (indexOf != -1) {
+                        if (str.substring(0, indexOf).endsWith(DataUrlLoader.BASE64_TAG)) {
+                            return new ByteArrayInputStream(Base64.decode(str.substring(indexOf + 1), 0));
+                        }
+                        throw new IllegalArgumentException("Not a base64 image data URL.");
                     }
-                    if (str.substring(0, indexOf).endsWith(";base64")) {
-                        return new ByteArrayInputStream(Base64.decode(str.substring(indexOf + 1), 0));
-                    }
-                    throw new IllegalArgumentException("Not a base64 image data URL.");
+                    throw new IllegalArgumentException("Missing comma in data URL.");
                 }
                 throw new IllegalArgumentException("Not a valid image data URL.");
             }
@@ -110,21 +116,21 @@ public final class e<Model, Data> implements n<Model, Data> {
         @Override // com.kwad.sdk.glide.load.b.o
         @NonNull
         public n<Model, InputStream> a(@NonNull r rVar) {
-            return new e(this.f6672a);
+            return new e(this.f35298a);
         }
     }
 
     public e(a<Data> aVar) {
-        this.f6670a = aVar;
+        this.f35294a = aVar;
     }
 
     @Override // com.kwad.sdk.glide.load.b.n
     public n.a<Data> a(@NonNull Model model, int i, int i2, @NonNull com.kwad.sdk.glide.load.e eVar) {
-        return new n.a<>(new com.kwad.sdk.glide.f.b(model), new b(model.toString(), this.f6670a));
+        return new n.a<>(new com.kwad.sdk.glide.f.b(model), new b(model.toString(), this.f35294a));
     }
 
     @Override // com.kwad.sdk.glide.load.b.n
     public boolean a(@NonNull Model model) {
-        return model.toString().startsWith("data:image");
+        return model.toString().startsWith(DataUrlLoader.DATA_SCHEME_IMAGE);
     }
 }

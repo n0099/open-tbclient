@@ -7,30 +7,45 @@ import android.net.Uri;
 import android.os.Build;
 import android.text.TextUtils;
 import androidx.annotation.Keep;
-import com.xiaomi.mipush.sdk.Constants;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class sysParamters {
-    private static volatile sysParamters poP;
+
+    /* renamed from: e  reason: collision with root package name */
+    public static volatile sysParamters f27149e;
 
     /* renamed from: a  reason: collision with root package name */
-    private String f3895a;
-    private String b;
-    private String c;
-    private String d = "Android";
-    @Keep
-    private String sdk_version = "10011";
-    @Keep
-    private String sdk_vname = "1.0.11";
+    public String f27150a;
 
-    private sysParamters() {
-    }
+    /* renamed from: b  reason: collision with root package name */
+    public String f27151b;
 
-    private static PackageInfo a(Context context, String str) {
+    /* renamed from: c  reason: collision with root package name */
+    public String f27152c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public String f27153d = "Android";
+    @Keep
+    public String sdk_version = "10011";
+    @Keep
+    public String sdk_vname = "1.0.11";
+
+    public static PackageInfo a(Context context, String str) {
         try {
             return context.getPackageManager().getPackageInfo(str, 0);
-        } catch (Exception e) {
+        } catch (Exception unused) {
             return null;
         }
+    }
+
+    public static sysParamters a() {
+        if (f27149e == null) {
+            synchronized (sysParamters.class) {
+                if (f27149e == null) {
+                    f27149e = new sysParamters();
+                }
+            }
+        }
+        return f27149e;
     }
 
     public static String a(Context context) {
@@ -44,17 +59,6 @@ public class sysParamters {
         return a2.versionName;
     }
 
-    public static sysParamters enC() {
-        if (poP == null) {
-            synchronized (sysParamters.class) {
-                if (poP == null) {
-                    poP = new sysParamters();
-                }
-            }
-        }
-        return poP;
-    }
-
     public static String f() {
         return "";
     }
@@ -64,16 +68,17 @@ public class sysParamters {
         return (applicationInfo == null || TextUtils.isEmpty(applicationInfo.packageName)) ? h() : applicationInfo.packageName;
     }
 
-    private static String h() {
+    public static String h() {
         return b.a().getPackageName();
     }
 
     public String b() {
-        if (TextUtils.isEmpty(this.f3895a)) {
-            this.f3895a = a(b.a());
-            return this.f3895a;
+        if (TextUtils.isEmpty(this.f27150a)) {
+            String a2 = a(b.a());
+            this.f27150a = a2;
+            return a2;
         }
-        return this.f3895a;
+        return this.f27150a;
     }
 
     public String c() {
@@ -81,19 +86,22 @@ public class sysParamters {
     }
 
     public String d() {
-        if (TextUtils.isEmpty(this.b)) {
-            this.b = Build.MODEL;
-            this.b = this.b.replace(" ", Constants.ACCEPT_TIME_SEPARATOR_SERVER);
-            return this.b;
+        if (TextUtils.isEmpty(this.f27151b)) {
+            String str = Build.MODEL;
+            this.f27151b = str;
+            String replace = str.replace(" ", "-");
+            this.f27151b = replace;
+            return replace;
         }
-        return this.b;
+        return this.f27151b;
     }
 
     public String e() {
-        if (TextUtils.isEmpty(this.c)) {
-            this.c = Uri.encode(Build.MANUFACTURER);
-            return this.c;
+        if (TextUtils.isEmpty(this.f27152c)) {
+            String encode = Uri.encode(Build.MANUFACTURER);
+            this.f27152c = encode;
+            return encode;
         }
-        return this.c;
+        return this.f27152c;
     }
 }

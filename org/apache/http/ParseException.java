@@ -1,6 +1,6 @@
 package org.apache.http;
 @Deprecated
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class ParseException extends RuntimeException {
     public ParseException() {
         throw new RuntimeException("Stub!");

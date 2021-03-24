@@ -3,30 +3,30 @@ package com.baidu.ufosdk.screencapedt;
 import android.content.Intent;
 import com.baidu.ufosdk.ui.FeedbackEditActivity;
 import java.io.ByteArrayOutputStream;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public final class h implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ int f3637a;
-    final /* synthetic */ ScreenCapEditActivity b;
+    public final /* synthetic */ int f22985a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    /* renamed from: b  reason: collision with root package name */
+    public final /* synthetic */ ScreenCapEditActivity f22986b;
+
     public h(ScreenCapEditActivity screenCapEditActivity, int i) {
-        this.b = screenCapEditActivity;
-        this.f3637a = i;
+        this.f22986b = screenCapEditActivity;
+        this.f22985a = i;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
         ByteArrayOutputStream byteArrayOutputStream;
         Intent intent = new Intent();
-        intent.setClass(this.b, FeedbackEditActivity.class);
-        byteArrayOutputStream = this.b.J;
+        intent.setClass(this.f22986b, FeedbackEditActivity.class);
+        byteArrayOutputStream = this.f22986b.J;
         intent.putExtra("shot", byteArrayOutputStream.toByteArray());
-        intent.putExtra("extend_feedback_channel", this.f3637a);
-        intent.putExtra("feedback_channel", this.f3637a);
-        this.b.startActivity(intent);
-        this.b.finish();
+        intent.putExtra("extend_feedback_channel", this.f22985a);
+        intent.putExtra("feedback_channel", this.f22985a);
+        this.f22986b.startActivity(intent);
+        this.f22986b.finish();
     }
 }

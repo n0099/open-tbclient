@@ -5,15 +5,15 @@ import android.os.Parcelable;
 import com.baidu.android.imsdk.utils.LogUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class DuPaBInfoMsg extends ChatMsg {
-    private static final String B_ACTION = "action";
+    public static final String B_ACTION = "action";
     public static final int B_ACTION_ENTER = 1;
-    private static final String B_ADDR = "addr";
-    private static final String B_IP = "ip";
-    private static final String B_LATITUDE = "latitude";
-    private static final String B_LONGITUDE = "longitude";
-    private static final String B_TIME = "time";
+    public static final String B_ADDR = "addr";
+    public static final String B_IP = "ip";
+    public static final String B_LATITUDE = "latitude";
+    public static final String B_LONGITUDE = "longitude";
+    public static final String B_TIME = "time";
     public static final Parcelable.Creator<DuPaBInfoMsg> CREATOR = new Parcelable.Creator<DuPaBInfoMsg>() { // from class: com.baidu.android.imsdk.chatmessage.messages.DuPaBInfoMsg.1
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
@@ -29,13 +29,51 @@ public class DuPaBInfoMsg extends ChatMsg {
             return new DuPaBInfoMsg[i];
         }
     };
-    private static final String TAG = "DuPaBInfoMsg";
-    private int action;
-    private String addr;
-    private String ip;
-    private String latitude;
-    private String longitude;
-    private long time;
+    public static final String TAG = "DuPaBInfoMsg";
+    public int action;
+    public String addr;
+    public String ip;
+    public String latitude;
+    public String longitude;
+    public long time;
+
+    private String getBInfoContentJson() {
+        JSONObject jSONObject = new JSONObject();
+        try {
+            if (this.action == 1) {
+                jSONObject.put(B_ADDR, this.addr);
+                jSONObject.put("time", this.time);
+                jSONObject.put("longitude", this.longitude);
+                jSONObject.put("latitude", this.latitude);
+                jSONObject.put("ip", this.ip);
+            }
+            jSONObject.put("action", this.action);
+        } catch (JSONException e2) {
+            LogUtils.e(TAG, "getBInfoContentJson :", e2);
+        }
+        return jSONObject.toString();
+    }
+
+    @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg
+    public String getRecommendDescription() {
+        return "";
+    }
+
+    @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg
+    public boolean parseJsonString() {
+        return true;
+    }
+
+    @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg, android.os.Parcelable
+    public void writeToParcel(Parcel parcel, int i) {
+        super.writeToParcel(parcel, i);
+        parcel.writeString(this.addr);
+        parcel.writeLong(this.time);
+        parcel.writeString(this.longitude);
+        parcel.writeString(this.latitude);
+        parcel.writeString(this.ip);
+        parcel.writeInt(this.action);
+    }
 
     public DuPaBInfoMsg(String str, long j, String str2, String str3, String str4, int i) {
         setMsgType(31);
@@ -50,7 +88,7 @@ public class DuPaBInfoMsg extends ChatMsg {
         setMsgContent(getBInfoContentJson());
     }
 
-    private DuPaBInfoMsg(Parcel parcel) {
+    public DuPaBInfoMsg(Parcel parcel) {
         super(parcel);
         this.addr = parcel.readString();
         this.time = parcel.readLong();
@@ -58,43 +96,5 @@ public class DuPaBInfoMsg extends ChatMsg {
         this.latitude = parcel.readString();
         this.ip = parcel.readString();
         this.action = parcel.readInt();
-    }
-
-    @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg
-    protected boolean parseJsonString() {
-        return true;
-    }
-
-    private String getBInfoContentJson() {
-        JSONObject jSONObject = new JSONObject();
-        try {
-            if (this.action == 1) {
-                jSONObject.put(B_ADDR, this.addr);
-                jSONObject.put("time", this.time);
-                jSONObject.put(B_LONGITUDE, this.longitude);
-                jSONObject.put(B_LATITUDE, this.latitude);
-                jSONObject.put("ip", this.ip);
-            }
-            jSONObject.put("action", this.action);
-        } catch (JSONException e) {
-            LogUtils.e(TAG, "getBInfoContentJson :", e);
-        }
-        return jSONObject.toString();
-    }
-
-    @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg
-    public String getRecommendDescription() {
-        return "";
-    }
-
-    @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg, android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
-        super.writeToParcel(parcel, i);
-        parcel.writeString(this.addr);
-        parcel.writeLong(this.time);
-        parcel.writeString(this.longitude);
-        parcel.writeString(this.latitude);
-        parcel.writeString(this.ip);
-        parcel.writeInt(this.action);
     }
 }

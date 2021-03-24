@@ -12,11 +12,11 @@ import androidx.fragment.app.Fragment;
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes.dex */
 public abstract class FragmentManager {
     public static final int POP_BACK_STACK_INCLUSIVE = 1;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes.dex */
     public interface BackStackEntry {
         @Nullable
         CharSequence getBreadCrumbShortTitle();
@@ -36,9 +36,58 @@ public abstract class FragmentManager {
         String getName();
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes.dex */
+    public static abstract class FragmentLifecycleCallbacks {
+        public void onFragmentActivityCreated(@NonNull FragmentManager fragmentManager, @NonNull Fragment fragment, @Nullable Bundle bundle) {
+        }
+
+        public void onFragmentAttached(@NonNull FragmentManager fragmentManager, @NonNull Fragment fragment, @NonNull Context context) {
+        }
+
+        public void onFragmentCreated(@NonNull FragmentManager fragmentManager, @NonNull Fragment fragment, @Nullable Bundle bundle) {
+        }
+
+        public void onFragmentDestroyed(@NonNull FragmentManager fragmentManager, @NonNull Fragment fragment) {
+        }
+
+        public void onFragmentDetached(@NonNull FragmentManager fragmentManager, @NonNull Fragment fragment) {
+        }
+
+        public void onFragmentPaused(@NonNull FragmentManager fragmentManager, @NonNull Fragment fragment) {
+        }
+
+        public void onFragmentPreAttached(@NonNull FragmentManager fragmentManager, @NonNull Fragment fragment, @NonNull Context context) {
+        }
+
+        public void onFragmentPreCreated(@NonNull FragmentManager fragmentManager, @NonNull Fragment fragment, @Nullable Bundle bundle) {
+        }
+
+        public void onFragmentResumed(@NonNull FragmentManager fragmentManager, @NonNull Fragment fragment) {
+        }
+
+        public void onFragmentSaveInstanceState(@NonNull FragmentManager fragmentManager, @NonNull Fragment fragment, @NonNull Bundle bundle) {
+        }
+
+        public void onFragmentStarted(@NonNull FragmentManager fragmentManager, @NonNull Fragment fragment) {
+        }
+
+        public void onFragmentStopped(@NonNull FragmentManager fragmentManager, @NonNull Fragment fragment) {
+        }
+
+        public void onFragmentViewCreated(@NonNull FragmentManager fragmentManager, @NonNull Fragment fragment, @NonNull View view, @Nullable Bundle bundle) {
+        }
+
+        public void onFragmentViewDestroyed(@NonNull FragmentManager fragmentManager, @NonNull Fragment fragment) {
+        }
+    }
+
+    /* loaded from: classes.dex */
     public interface OnBackStackChangedListener {
         void onBackStackChanged();
+    }
+
+    public static void enableDebugLogging(boolean z) {
+        FragmentManagerImpl.DEBUG = z;
     }
 
     public abstract void addOnBackStackChangedListener(@NonNull OnBackStackChangedListener onBackStackChangedListener);
@@ -74,6 +123,12 @@ public abstract class FragmentManager {
 
     public abstract boolean isStateSaved();
 
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+    @Deprecated
+    public FragmentTransaction openTransaction() {
+        return beginTransaction();
+    }
+
     public abstract void popBackStack();
 
     public abstract void popBackStack(int i, int i2);
@@ -96,59 +151,4 @@ public abstract class FragmentManager {
     public abstract Fragment.SavedState saveFragmentInstanceState(Fragment fragment);
 
     public abstract void unregisterFragmentLifecycleCallbacks(@NonNull FragmentLifecycleCallbacks fragmentLifecycleCallbacks);
-
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    @Deprecated
-    public FragmentTransaction openTransaction() {
-        return beginTransaction();
-    }
-
-    public static void enableDebugLogging(boolean z) {
-        FragmentManagerImpl.DEBUG = z;
-    }
-
-    /* loaded from: classes6.dex */
-    public static abstract class FragmentLifecycleCallbacks {
-        public void onFragmentPreAttached(@NonNull FragmentManager fragmentManager, @NonNull Fragment fragment, @NonNull Context context) {
-        }
-
-        public void onFragmentAttached(@NonNull FragmentManager fragmentManager, @NonNull Fragment fragment, @NonNull Context context) {
-        }
-
-        public void onFragmentPreCreated(@NonNull FragmentManager fragmentManager, @NonNull Fragment fragment, @Nullable Bundle bundle) {
-        }
-
-        public void onFragmentCreated(@NonNull FragmentManager fragmentManager, @NonNull Fragment fragment, @Nullable Bundle bundle) {
-        }
-
-        public void onFragmentActivityCreated(@NonNull FragmentManager fragmentManager, @NonNull Fragment fragment, @Nullable Bundle bundle) {
-        }
-
-        public void onFragmentViewCreated(@NonNull FragmentManager fragmentManager, @NonNull Fragment fragment, @NonNull View view, @Nullable Bundle bundle) {
-        }
-
-        public void onFragmentStarted(@NonNull FragmentManager fragmentManager, @NonNull Fragment fragment) {
-        }
-
-        public void onFragmentResumed(@NonNull FragmentManager fragmentManager, @NonNull Fragment fragment) {
-        }
-
-        public void onFragmentPaused(@NonNull FragmentManager fragmentManager, @NonNull Fragment fragment) {
-        }
-
-        public void onFragmentStopped(@NonNull FragmentManager fragmentManager, @NonNull Fragment fragment) {
-        }
-
-        public void onFragmentSaveInstanceState(@NonNull FragmentManager fragmentManager, @NonNull Fragment fragment, @NonNull Bundle bundle) {
-        }
-
-        public void onFragmentViewDestroyed(@NonNull FragmentManager fragmentManager, @NonNull Fragment fragment) {
-        }
-
-        public void onFragmentDestroyed(@NonNull FragmentManager fragmentManager, @NonNull Fragment fragment) {
-        }
-
-        public void onFragmentDetached(@NonNull FragmentManager fragmentManager, @NonNull Fragment fragment) {
-        }
-    }
 }

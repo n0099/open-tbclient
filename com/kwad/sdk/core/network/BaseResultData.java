@@ -2,14 +2,13 @@ package com.kwad.sdk.core.network;
 
 import android.text.TextUtils;
 import androidx.annotation.Nullable;
-import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.kwad.sdk.utils.o;
 import java.io.Serializable;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public abstract class BaseResultData implements com.kwad.sdk.core.b, Serializable {
-    private static final int CODE_RESULT_OK = 1;
-    private static final long serialVersionUID = -8657363515914699792L;
+    public static final int CODE_RESULT_OK = 1;
+    public static final long serialVersionUID = -8657363515914699792L;
     public String cookie;
     public String errorMsg;
     public String extra;
@@ -30,13 +29,14 @@ public abstract class BaseResultData implements com.kwad.sdk.core.b, Serializabl
         }
         this.llsid = jSONObject.optLong("llsid");
         this.result = jSONObject.optInt("result");
-        this.errorMsg = jSONObject.optString(TiebaInitialize.LogFields.ERROR_MESSAGE);
+        this.errorMsg = jSONObject.optString("errorMsg");
         String optString = jSONObject.optString("extra");
         if (!TextUtils.isEmpty(optString)) {
             this.extra = com.kwad.sdk.core.b.d.b(optString);
         }
-        this.cookie = jSONObject.optString("cookie");
-        if (TextUtils.isEmpty(this.cookie)) {
+        String optString2 = jSONObject.optString("cookie");
+        this.cookie = optString2;
+        if (TextUtils.isEmpty(optString2)) {
             return;
         }
         e.a().a(this.cookie);
@@ -48,7 +48,7 @@ public abstract class BaseResultData implements com.kwad.sdk.core.b, Serializabl
         o.a(jSONObject, "llsid", this.llsid);
         o.a(jSONObject, "extra", this.extra);
         o.a(jSONObject, "result", this.result);
-        o.a(jSONObject, TiebaInitialize.LogFields.ERROR_MESSAGE, this.errorMsg);
+        o.a(jSONObject, "errorMsg", this.errorMsg);
         o.a(jSONObject, "cookie", this.cookie);
         return jSONObject;
     }

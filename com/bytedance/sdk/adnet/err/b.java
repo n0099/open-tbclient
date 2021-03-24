@@ -1,12 +1,9 @@
 package com.bytedance.sdk.adnet.err;
 
-import com.bytedance.sdk.adnet.core.k;
-/* loaded from: classes6.dex */
+import d.c.c.b.d.k;
+/* loaded from: classes5.dex */
 public class b extends f {
     public b(k kVar) {
         super(kVar);
-    }
-
-    public b() {
     }
 }

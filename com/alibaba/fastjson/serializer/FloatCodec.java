@@ -9,20 +9,26 @@ import java.io.IOException;
 import java.lang.reflect.Type;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
-/* loaded from: classes4.dex */
-public class FloatCodec implements ObjectDeserializer, ObjectSerializer {
+/* loaded from: classes.dex */
+public class FloatCodec implements ObjectSerializer, ObjectDeserializer {
     public static FloatCodec instance = new FloatCodec();
-    private NumberFormat decimalFormat;
+    public NumberFormat decimalFormat;
 
     public FloatCodec() {
     }
 
-    public FloatCodec(DecimalFormat decimalFormat) {
-        this.decimalFormat = decimalFormat;
+    @Override // com.alibaba.fastjson.parser.deserializer.ObjectDeserializer
+    public <T> T deserialze(DefaultJSONParser defaultJSONParser, Type type, Object obj) {
+        try {
+            return (T) deserialze(defaultJSONParser);
+        } catch (Exception e2) {
+            throw new JSONException("parseLong error, field : " + obj, e2);
+        }
     }
 
-    public FloatCodec(String str) {
-        this(new DecimalFormat(str));
+    @Override // com.alibaba.fastjson.parser.deserializer.ObjectDeserializer
+    public int getFastMatchToken() {
+        return 2;
     }
 
     @Override // com.alibaba.fastjson.serializer.ObjectSerializer
@@ -33,20 +39,16 @@ public class FloatCodec implements ObjectDeserializer, ObjectSerializer {
             return;
         }
         float floatValue = ((Float) obj).floatValue();
-        if (this.decimalFormat != null) {
-            serializeWriter.write(this.decimalFormat.format(floatValue));
+        NumberFormat numberFormat = this.decimalFormat;
+        if (numberFormat != null) {
+            serializeWriter.write(numberFormat.format(floatValue));
         } else {
             serializeWriter.writeFloat(floatValue, true);
         }
     }
 
-    @Override // com.alibaba.fastjson.parser.deserializer.ObjectDeserializer
-    public <T> T deserialze(DefaultJSONParser defaultJSONParser, Type type, Object obj) {
-        try {
-            return (T) deserialze(defaultJSONParser);
-        } catch (Exception e) {
-            throw new JSONException("parseLong error, field : " + obj, e);
-        }
+    public FloatCodec(DecimalFormat decimalFormat) {
+        this.decimalFormat = decimalFormat;
     }
 
     public static <T> T deserialze(DefaultJSONParser defaultJSONParser) {
@@ -68,8 +70,7 @@ public class FloatCodec implements ObjectDeserializer, ObjectSerializer {
         }
     }
 
-    @Override // com.alibaba.fastjson.parser.deserializer.ObjectDeserializer
-    public int getFastMatchToken() {
-        return 2;
+    public FloatCodec(String str) {
+        this(new DecimalFormat(str));
     }
 }

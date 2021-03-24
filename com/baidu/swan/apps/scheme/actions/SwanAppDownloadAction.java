@@ -6,12 +6,18 @@ import androidx.annotation.Nullable;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.setting.oauth.a.b;
+import d.b.g0.a.i2.u0.b;
+import d.b.g0.a.r1.e;
+import d.b.g0.a.t1.j;
+import d.b.g0.a.t1.k.a0;
+import d.b.g0.a.v1.c.c;
+import d.b.g0.a.v1.c.h;
+import d.b.g0.a.v1.c.i.b;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
-public class SwanAppDownloadAction extends aa {
+/* loaded from: classes3.dex */
+public class SwanAppDownloadAction extends a0 {
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes3.dex */
     public enum SwanAppDownloadType {
         TYPE_QUERY_STATUS("queryStatus"),
         TYPE_START_DOWNLOAD("startDownload"),
@@ -22,14 +28,10 @@ public class SwanAppDownloadAction extends aa {
         TYPE_STOP_SERVICE("stopService"),
         TYPE_OTHER("#");
         
-        private String typeName;
+        public String typeName;
 
         SwanAppDownloadType(String str) {
             this.typeName = str;
-        }
-
-        public String getTypeName() {
-            return this.typeName;
         }
 
         public static SwanAppDownloadType find(@Nullable String str) {
@@ -41,51 +43,75 @@ public class SwanAppDownloadAction extends aa {
             }
             return TYPE_OTHER;
         }
+
+        public String getTypeName() {
+            return this.typeName;
+        }
     }
 
-    public SwanAppDownloadAction(com.baidu.swan.apps.scheme.j jVar) {
+    /* loaded from: classes3.dex */
+    public class a implements b<h<b.e>> {
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ CallbackHandler f12646e;
+
+        /* renamed from: f  reason: collision with root package name */
+        public final /* synthetic */ UnitedSchemeEntity f12647f;
+
+        /* renamed from: g  reason: collision with root package name */
+        public final /* synthetic */ Context f12648g;
+
+        /* renamed from: h  reason: collision with root package name */
+        public final /* synthetic */ JSONObject f12649h;
+        public final /* synthetic */ SwanAppDownloadType i;
+
+        public a(CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, Context context, JSONObject jSONObject, SwanAppDownloadType swanAppDownloadType) {
+            this.f12646e = callbackHandler;
+            this.f12647f = unitedSchemeEntity;
+            this.f12648g = context;
+            this.f12649h = jSONObject;
+            this.i = swanAppDownloadType;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // d.b.g0.a.i2.u0.b
+        /* renamed from: a */
+        public void onCallback(h<b.e> hVar) {
+            if (c.h(hVar)) {
+                if (SwanAppDownloadAction.this.k(this.f12648g, this.f12647f, this.f12646e, this.f12649h, this.i)) {
+                    return;
+                }
+                UnitedSchemeUtility.callCallback(this.f12646e, this.f12647f, UnitedSchemeUtility.wrapCallbackParams(1001));
+                return;
+            }
+            c.n(hVar, this.f12646e, this.f12647f);
+        }
+    }
+
+    public SwanAppDownloadAction(j jVar) {
         this(jVar, "/swanAPI/installApp");
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public SwanAppDownloadAction(com.baidu.swan.apps.scheme.j jVar, String str) {
-        super(jVar, str);
-    }
-
-    @Override // com.baidu.swan.apps.scheme.actions.aa
-    public boolean a(final Context context, final UnitedSchemeEntity unitedSchemeEntity, final CallbackHandler callbackHandler, com.baidu.swan.apps.runtime.e eVar) {
-        final JSONObject b = b(unitedSchemeEntity, "params");
-        if (b == null) {
+    @Override // d.b.g0.a.t1.k.a0
+    public boolean g(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, e eVar) {
+        JSONObject a2 = a0.a(unitedSchemeEntity, "params");
+        if (a2 == null) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal parameter");
-            com.baidu.swan.apps.console.c.i("SwanAppDownloadAction", "params parse error");
+            d.b.g0.a.c0.c.g("SwanAppDownloadAction", "params parse error");
             return false;
         }
-        String optString = b.optString("type");
-        final SwanAppDownloadType find = SwanAppDownloadType.find(optString);
+        String optString = a2.optString("type");
+        SwanAppDownloadType find = SwanAppDownloadType.find(optString);
         if (find == SwanAppDownloadType.TYPE_OTHER) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "parameters empty");
-            com.baidu.swan.apps.console.c.i("SwanAppDownloadAction", "type error:" + optString);
+            d.b.g0.a.c0.c.g("SwanAppDownloadAction", "type error:" + optString);
             return true;
-        } else if (!a(unitedSchemeEntity, eVar)) {
-            a(context, unitedSchemeEntity, callbackHandler, b, find);
+        } else if (!l(unitedSchemeEntity, eVar)) {
+            k(context, unitedSchemeEntity, callbackHandler, a2, find);
             return true;
         } else {
             if (eVar != null) {
-                eVar.aIZ().b(context, "mapp_i_app_download", new com.baidu.swan.apps.ao.e.b<com.baidu.swan.apps.setting.oauth.h<b.d>>() { // from class: com.baidu.swan.apps.scheme.actions.SwanAppDownloadAction.1
-                    /* JADX DEBUG: Method merged with bridge method */
-                    @Override // com.baidu.swan.apps.ao.e.b
-                    /* renamed from: a */
-                    public void N(com.baidu.swan.apps.setting.oauth.h<b.d> hVar) {
-                        if (com.baidu.swan.apps.setting.oauth.c.b(hVar)) {
-                            if (!SwanAppDownloadAction.this.a(context, unitedSchemeEntity, callbackHandler, b, find)) {
-                                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(1001));
-                                return;
-                            }
-                            return;
-                        }
-                        com.baidu.swan.apps.setting.oauth.c.a(hVar, callbackHandler, unitedSchemeEntity);
-                    }
-                });
+                eVar.R().g(context, "mapp_i_app_download", new a(callbackHandler, unitedSchemeEntity, context, a2, find));
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(0);
             } else {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "SwanApp is Null");
@@ -94,19 +120,23 @@ public class SwanAppDownloadAction extends aa {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, JSONObject jSONObject, SwanAppDownloadType swanAppDownloadType) {
-        boolean a2 = com.baidu.swan.apps.t.a.axj().a(context, unitedSchemeEntity, swanAppDownloadType, jSONObject, callbackHandler);
-        if (a2) {
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(0, "success");
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, unitedSchemeEntity.result);
+    public final boolean k(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, JSONObject jSONObject, SwanAppDownloadType swanAppDownloadType) {
+        boolean b2 = d.b.g0.a.w0.a.d().b(context, unitedSchemeEntity, swanAppDownloadType, jSONObject, callbackHandler);
+        if (b2) {
+            JSONObject wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(0, "success");
+            unitedSchemeEntity.result = wrapCallbackParams;
+            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, wrapCallbackParams);
         } else {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "parameters error");
         }
-        return a2;
+        return b2;
     }
 
-    protected boolean a(@NonNull UnitedSchemeEntity unitedSchemeEntity, @Nullable com.baidu.swan.apps.runtime.e eVar) {
+    public boolean l(@NonNull UnitedSchemeEntity unitedSchemeEntity, @Nullable e eVar) {
         return true;
+    }
+
+    public SwanAppDownloadAction(j jVar, String str) {
+        super(jVar, str);
     }
 }

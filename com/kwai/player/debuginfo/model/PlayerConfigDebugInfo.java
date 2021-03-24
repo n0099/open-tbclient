@@ -1,15 +1,16 @@
 package com.kwai.player.debuginfo.model;
 
 import androidx.annotation.Keep;
+import com.baidu.searchbox.live.interfaces.DI;
 import java.io.StringWriter;
 import java.util.Locale;
 @Keep
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class PlayerConfigDebugInfo {
-    private static final String Formatter_Boolean = "%s : %b\n";
-    private static final String Formatter_Int = "%s : %d\n";
-    private static final String Formatter_String = "%s : %s\n";
-    private static final String Formatter_Title = ">>> %s <<<\n";
+    public static final String Formatter_Boolean = "%s : %b\n";
+    public static final String Formatter_Int = "%s : %d\n";
+    public static final String Formatter_String = "%s : %s\n";
+    public static final String Formatter_Title = ">>> %s <<<\n";
     public int cacheBufferDataSourceSizeKb;
     public int cacheConnectTimeoutMs;
     public String cacheDataSourceType;
@@ -30,7 +31,7 @@ public class PlayerConfigDebugInfo {
 
     public String getPrettySingleText() {
         StringWriter stringWriter = new StringWriter();
-        stringWriter.append((CharSequence) String.format(Locale.US, Formatter_Title, "player"));
+        stringWriter.append((CharSequence) String.format(Locale.US, Formatter_Title, DI.LIVE_PLAYER));
         stringWriter.append((CharSequence) String.format(Locale.US, Formatter_Int, "max_buffer_dur_ms", Integer.valueOf(this.playerMaxBufDurMs)));
         stringWriter.append((CharSequence) String.format(Locale.US, Formatter_Boolean, "start_on_prepared", Boolean.valueOf(this.playerStartOnPrepared)));
         stringWriter.append((CharSequence) "\n");

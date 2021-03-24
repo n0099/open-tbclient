@@ -5,50 +5,58 @@ import android.util.AttributeSet;
 import android.util.SparseArray;
 import android.widget.LinearLayout;
 import androidx.annotation.Nullable;
-import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
+import d.b.b.e.p.l;
 import java.util.List;
 import tbclient.ItemPlot;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class ItemTableView extends LinearLayout {
-    private static final int fYc = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds5);
-    private ItemTableRowView jTZ;
-    private ItemTableRowView jUa;
-    private ItemTableRowView jUb;
-    private ItemTableRowView jUc;
-    private ItemTableRowView jUd;
-    private SparseArray<ItemTableRowView> jUe;
+    public static final int k = l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds5);
+
+    /* renamed from: e  reason: collision with root package name */
+    public ItemTableRowView f16782e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public ItemTableRowView f16783f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public ItemTableRowView f16784g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public ItemTableRowView f16785h;
+    public ItemTableRowView i;
+    public SparseArray<ItemTableRowView> j;
 
     public ItemTableView(Context context) {
         this(context, null);
     }
 
-    public ItemTableView(Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, 0);
+    public void a() {
+        this.f16782e.a();
+        this.f16783f.a();
+        this.f16784g.a();
+        this.f16785h.a();
+        this.i.a();
     }
 
-    public ItemTableView(Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        init(context);
-    }
-
-    private void init(Context context) {
+    public final void b(Context context) {
         setOrientation(1);
-        this.jUd = c(context, 0, 0);
-        this.jUc = c(context, 1, fYc);
-        this.jUb = c(context, 2, fYc);
-        this.jUa = c(context, 3, fYc);
-        this.jTZ = c(context, 4, fYc);
-        this.jUe = new SparseArray<>();
-        this.jUe.put(5, this.jUd);
-        this.jUe.put(4, this.jUc);
-        this.jUe.put(3, this.jUb);
-        this.jUe.put(2, this.jUa);
-        this.jUe.put(1, this.jTZ);
+        this.i = c(context, 0, 0);
+        this.f16785h = c(context, 1, k);
+        this.f16784g = c(context, 2, k);
+        this.f16783f = c(context, 3, k);
+        this.f16782e = c(context, 4, k);
+        SparseArray<ItemTableRowView> sparseArray = new SparseArray<>();
+        this.j = sparseArray;
+        sparseArray.put(5, this.i);
+        this.j.put(4, this.f16785h);
+        this.j.put(3, this.f16784g);
+        this.j.put(2, this.f16783f);
+        this.j.put(1, this.f16782e);
     }
 
-    private ItemTableRowView c(Context context, int i, int i2) {
+    public final ItemTableRowView c(Context context, int i, int i2) {
         ItemTableRowView itemTableRowView = new ItemTableRowView(context);
         itemTableRowView.setEmptyStartCount(i);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
@@ -57,36 +65,38 @@ public class ItemTableView extends LinearLayout {
         return itemTableRowView;
     }
 
+    public void d() {
+        this.f16782e.c();
+        this.f16783f.c();
+        this.f16784g.c();
+        this.f16785h.c();
+        this.i.c();
+    }
+
     public void setData(List<ItemPlot> list, int i) {
-        clear();
-        if (list != null) {
-            for (ItemPlot itemPlot : list) {
-                if (itemPlot != null) {
-                    int intValue = itemPlot.level.intValue();
-                    float intValue2 = (itemPlot.num.intValue() * 1.0f) / i;
-                    ItemTableRowView itemTableRowView = this.jUe.get(intValue);
-                    if (itemTableRowView != null) {
-                        itemTableRowView.setData(intValue2);
-                    }
+        a();
+        if (list == null) {
+            return;
+        }
+        for (ItemPlot itemPlot : list) {
+            if (itemPlot != null) {
+                int intValue = itemPlot.level.intValue();
+                float intValue2 = (itemPlot.num.intValue() * 1.0f) / i;
+                ItemTableRowView itemTableRowView = this.j.get(intValue);
+                if (itemTableRowView != null) {
+                    itemTableRowView.setData(intValue2);
                 }
             }
-            invalidate();
         }
+        invalidate();
     }
 
-    public void clear() {
-        this.jTZ.clear();
-        this.jUa.clear();
-        this.jUb.clear();
-        this.jUc.clear();
-        this.jUd.clear();
+    public ItemTableView(Context context, @Nullable AttributeSet attributeSet) {
+        this(context, attributeSet, 0);
     }
 
-    public void onChangeSkinType() {
-        this.jTZ.onChangeSkinType();
-        this.jUa.onChangeSkinType();
-        this.jUb.onChangeSkinType();
-        this.jUc.onChangeSkinType();
-        this.jUd.onChangeSkinType();
+    public ItemTableView(Context context, @Nullable AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        b(context);
     }
 }

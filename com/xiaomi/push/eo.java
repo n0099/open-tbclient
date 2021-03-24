@@ -1,80 +1,227 @@
 package com.xiaomi.push;
 
-import android.app.Activity;
+import android.app.PendingIntent;
 import android.content.Context;
-import android.content.Intent;
+import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.graphics.Color;
+import android.graphics.Paint;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.ShapeDrawable;
+import android.graphics.drawable.shapes.RoundRectShape;
+import android.os.Build;
+import android.os.Bundle;
 import android.text.TextUtils;
-import com.meizu.cloud.pushsdk.constants.PushConstants;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
-public class eo implements et {
-    private void a(Activity activity, Intent intent) {
-        String stringExtra = intent.getStringExtra("awake_info");
-        if (TextUtils.isEmpty(stringExtra)) {
-            em.a(activity.getApplicationContext(), PushConstants.INTENT_ACTIVITY_NAME, 1008, "B get incorrect message");
+import android.widget.RemoteViews;
+import java.util.Map;
+/* loaded from: classes7.dex */
+public class eo extends ep {
+
+    /* renamed from: a  reason: collision with root package name */
+    public int f40449a;
+
+    /* renamed from: a  reason: collision with other field name */
+    public PendingIntent f319a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public int f40450b;
+
+    /* renamed from: b  reason: collision with other field name */
+    public Bitmap f320b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public int f40451c;
+
+    /* renamed from: c  reason: collision with other field name */
+    public CharSequence f321c;
+
+    public eo(Context context, int i, String str) {
+        super(context, i, str);
+        this.f40449a = 16777216;
+        this.f40450b = 16777216;
+        this.f40451c = 16777216;
+    }
+
+    private Drawable a(int i, int i2, int i3, float f2) {
+        ShapeDrawable shapeDrawable = new ShapeDrawable();
+        shapeDrawable.setShape(new RoundRectShape(new float[]{f2, f2, f2, f2, f2, f2, f2, f2}, null, null));
+        shapeDrawable.getPaint().setColor(i);
+        shapeDrawable.getPaint().setStyle(Paint.Style.FILL);
+        shapeDrawable.setIntrinsicWidth(i2);
+        shapeDrawable.setIntrinsicHeight(i3);
+        return shapeDrawable;
+    }
+
+    private void a(RemoteViews remoteViews, int i, int i2, int i3, boolean z) {
+        if (Build.VERSION.SDK_INT >= 16) {
+            int a2 = a(6.0f);
+            remoteViews.setViewPadding(i, a2, 0, a2, 0);
+        }
+        int i4 = z ? -1 : -16777216;
+        remoteViews.setTextColor(i2, i4);
+        remoteViews.setTextColor(i3, i4);
+    }
+
+    @Override // com.xiaomi.push.ep
+    public eo a(Bitmap bitmap) {
+        if (m276b() && bitmap != null) {
+            if (bitmap.getWidth() != 984 || bitmap.getHeight() < 177 || bitmap.getHeight() > 207) {
+                com.xiaomi.channel.commonutils.logger.b.m51a("colorful notification bg image resolution error, must [984*177, 984*207]");
+            } else {
+                this.f320b = bitmap;
+            }
+        }
+        return this;
+    }
+
+    public eo a(CharSequence charSequence, PendingIntent pendingIntent) {
+        if (m276b()) {
+            this.f321c = charSequence;
+            this.f319a = pendingIntent;
+        }
+        return this;
+    }
+
+    public eo a(String str) {
+        if (m276b() && !TextUtils.isEmpty(str)) {
+            try {
+                this.f40450b = Color.parseColor(str);
+            } catch (Exception unused) {
+                com.xiaomi.channel.commonutils.logger.b.m51a("parse colorful notification button bg color error");
+            }
+        }
+        return this;
+    }
+
+    @Override // com.xiaomi.push.en
+    public String a() {
+        return "notification_colorful";
+    }
+
+    @Override // com.xiaomi.push.en
+    public void a() {
+        RemoteViews a2;
+        Bitmap bitmap;
+        boolean z;
+        RemoteViews a3;
+        RemoteViews a4;
+        Drawable a5;
+        if (!m276b()) {
+            m275b();
             return;
         }
-        String b = el.b(stringExtra);
-        if (TextUtils.isEmpty(b)) {
-            em.a(activity.getApplicationContext(), PushConstants.INTENT_ACTIVITY_NAME, 1008, "B get incorrect message");
+        super.a();
+        Resources resources = a().getResources();
+        String packageName = a().getPackageName();
+        int a6 = a(resources, "icon", "id", packageName);
+        if (((ep) this).f322a == null) {
+            a(a6);
         } else {
-            em.a(activity.getApplicationContext(), b, 1007, "play with activity successfully");
+            a().setImageViewBitmap(a6, ((ep) this).f322a);
         }
-    }
-
-    private void b(Context context, ep epVar) {
-        String m270a = epVar.m270a();
-        String b = epVar.b();
-        String d = epVar.d();
-        int a2 = epVar.a();
-        if (context == null || TextUtils.isEmpty(m270a) || TextUtils.isEmpty(b) || TextUtils.isEmpty(d)) {
-            if (TextUtils.isEmpty(d)) {
-                em.a(context, PushConstants.INTENT_ACTIVITY_NAME, 1008, "argument error");
-            } else {
-                em.a(context, d, 1008, "argument error");
+        int a7 = a(resources, "title", "id", packageName);
+        int a8 = a(resources, "content", "id", packageName);
+        a().setTextViewText(a7, ((ep) this).f324a);
+        a().setTextViewText(a8, ((ep) this).f40453b);
+        if (!TextUtils.isEmpty(this.f321c)) {
+            int a9 = a(resources, "buttonContainer", "id", packageName);
+            int a10 = a(resources, "button", "id", packageName);
+            int a11 = a(resources, "buttonBg", "id", packageName);
+            a().setViewVisibility(a9, 0);
+            a().setTextViewText(a10, this.f321c);
+            a().setOnClickPendingIntent(a9, this.f319a);
+            if (this.f40450b != 16777216) {
+                int a12 = a(70.0f);
+                int a13 = a(29.0f);
+                a().setImageViewBitmap(a11, com.xiaomi.push.service.ac.a(a(this.f40450b, a12, a13, a13 / 2.0f)));
+                a().setTextColor(a10, m274a(this.f40450b) ? -1 : -16777216);
             }
-        } else if (!com.xiaomi.push.service.f.b(context, m270a, b)) {
-            em.a(context, d, 1003, "B is not ready");
-        } else {
-            em.a(context, d, 1002, "B is ready");
-            em.a(context, d, 1004, "A is ready");
-            Intent intent = new Intent(b);
-            intent.setPackage(m270a);
-            intent.putExtra("awake_info", el.a(d));
-            intent.addFlags(276824064);
-            intent.setAction(b);
-            if (a2 == 1) {
+        }
+        int a14 = a(resources, "bg", "id", packageName);
+        int a15 = a(resources, "container", "id", packageName);
+        if (this.f40449a != 16777216) {
+            if (l.a(a()) >= 10) {
+                a4 = a();
+                a5 = a(this.f40449a, 984, 192, 30.0f);
+            } else {
+                a4 = a();
+                a5 = a(this.f40449a, 984, 192, 0.0f);
+            }
+            a4.setImageViewBitmap(a14, com.xiaomi.push.service.ac.a(a5));
+            a3 = a();
+            z = m274a(this.f40449a);
+        } else if (this.f320b == null) {
+            if (Build.VERSION.SDK_INT >= 24) {
+                a().setViewVisibility(a6, 8);
+                a().setViewVisibility(a14, 8);
                 try {
-                    if (!eq.m271a(context)) {
-                        em.a(context, d, 1008, "A not in foreground");
-                    }
-                } catch (Exception e) {
-                    com.xiaomi.channel.commonutils.logger.b.a(e);
-                    em.a(context, d, 1008, "A meet a exception when help B's activity");
-                    return;
+                    bh.a((Object) this, "setStyle", t.a(a(), "android.app.Notification$DecoratedCustomViewStyle").getConstructor(new Class[0]).newInstance(new Object[0]));
+                } catch (Exception unused) {
+                    com.xiaomi.channel.commonutils.logger.b.m51a("load class DecoratedCustomViewStyle failed");
                 }
             }
-            context.startActivity(intent);
-            em.a(context, d, 1005, "A is successful");
-            em.a(context, d, 1006, "The job is finished");
+            Bundle bundle = new Bundle();
+            bundle.putBoolean("miui.customHeight", true);
+            addExtras(bundle);
+            setCustomContentView(a());
+        } else {
+            if (l.a(a()) >= 10) {
+                a2 = a();
+                bitmap = a(this.f320b, 30.0f);
+            } else {
+                a2 = a();
+                bitmap = this.f320b;
+            }
+            a2.setImageViewBitmap(a14, bitmap);
+            Map<String, String> map = ((ep) this).f326a;
+            if (map != null && this.f40451c == 16777216) {
+                c(map.get("notification_image_text_color"));
+            }
+            int i = this.f40451c;
+            z = i == 16777216 || !m274a(i);
+            a3 = a();
         }
+        a(a3, a15, a7, a8, z);
+        Bundle bundle2 = new Bundle();
+        bundle2.putBoolean("miui.customHeight", true);
+        addExtras(bundle2);
+        setCustomContentView(a());
     }
 
-    @Override // com.xiaomi.push.et
-    public void a(Context context, Intent intent, String str) {
-        if (context == null || !(context instanceof Activity) || intent == null) {
-            em.a(context, PushConstants.INTENT_ACTIVITY_NAME, 1008, "B receive incorrect message");
-        } else {
-            a((Activity) context, intent);
+    @Override // com.xiaomi.push.en
+    public boolean a() {
+        if (l.m517a(a())) {
+            Resources resources = a().getResources();
+            String packageName = a().getPackageName();
+            return (a(resources, "icon", "id", packageName) == 0 || a(resources, "title", "id", packageName) == 0 || a(resources, "content", "id", packageName) == 0) ? false : true;
         }
+        return false;
     }
 
-    @Override // com.xiaomi.push.et
-    public void a(Context context, ep epVar) {
-        if (epVar != null) {
-            b(context, epVar);
-        } else {
-            em.a(context, PushConstants.INTENT_ACTIVITY_NAME, 1008, "A receive incorrect message");
+    public eo b(String str) {
+        if (m276b() && !TextUtils.isEmpty(str)) {
+            try {
+                this.f40449a = Color.parseColor(str);
+            } catch (Exception unused) {
+                com.xiaomi.channel.commonutils.logger.b.m51a("parse colorful notification bg color error");
+            }
         }
+        return this;
+    }
+
+    @Override // com.xiaomi.push.ep
+    public String b() {
+        return "notification_colorful_copy";
+    }
+
+    public eo c(String str) {
+        if (m276b() && !TextUtils.isEmpty(str)) {
+            try {
+                this.f40451c = Color.parseColor(str);
+            } catch (Exception unused) {
+                com.xiaomi.channel.commonutils.logger.b.m51a("parse colorful notification image text color error");
+            }
+        }
+        return this;
     }
 }

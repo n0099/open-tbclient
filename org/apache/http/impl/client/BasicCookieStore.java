@@ -5,7 +5,7 @@ import java.util.List;
 import org.apache.http.client.CookieStore;
 import org.apache.http.cookie.Cookie;
 @Deprecated
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class BasicCookieStore implements CookieStore {
     public BasicCookieStore() {
         throw new RuntimeException("Stub!");
@@ -21,7 +21,7 @@ public class BasicCookieStore implements CookieStore {
     }
 
     @Override // org.apache.http.client.CookieStore
-    public synchronized List<Cookie> getCookies() {
+    public synchronized void clear() {
         throw new RuntimeException("Stub!");
     }
 
@@ -30,12 +30,12 @@ public class BasicCookieStore implements CookieStore {
         throw new RuntimeException("Stub!");
     }
 
-    public String toString() {
+    @Override // org.apache.http.client.CookieStore
+    public synchronized List<Cookie> getCookies() {
         throw new RuntimeException("Stub!");
     }
 
-    @Override // org.apache.http.client.CookieStore
-    public synchronized void clear() {
+    public String toString() {
         throw new RuntimeException("Stub!");
     }
 }

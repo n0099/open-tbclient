@@ -2,31 +2,30 @@ package com.baidu.searchbox.process.ipc.delegate.activity;
 
 import com.baidu.searchbox.process.ipc.agent.activity.ProcessDelegateBaseActivity;
 import com.baidu.searchbox.process.ipc.delegate.Delegation;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public abstract class ActivityDelegation extends Delegation<ProcessDelegateBaseActivity> {
-    protected abstract boolean onExec();
-
     public void exec() {
         if (onExec()) {
             finish();
         }
     }
 
-    public void onAgentDestroy() {
+    public void finish() {
+        getAgent().exit();
     }
 
     public int getScreenOrientation() {
         return 1;
     }
 
+    public void onAgentDestroy() {
+    }
+
     public void onAttachedToWindow() {
     }
 
-    public void onSelfFinish() {
-    }
+    public abstract boolean onExec();
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void finish() {
-        getAgent().exit();
+    public void onSelfFinish() {
     }
 }

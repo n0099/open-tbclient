@@ -10,18 +10,35 @@ import com.bumptech.glide.load.Transformation;
 import com.bumptech.glide.load.engine.Resource;
 import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool;
 import java.security.MessageDigest;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class DrawableTransformation implements Transformation<Drawable> {
-    private final boolean isRequired;
-    private final Transformation<Bitmap> wrapped;
+    public final boolean isRequired;
+    public final Transformation<Bitmap> wrapped;
 
     public DrawableTransformation(Transformation<Bitmap> transformation, boolean z) {
         this.wrapped = transformation;
         this.isRequired = z;
     }
 
+    private Resource<Drawable> newDrawableResource(Context context, Resource<Bitmap> resource) {
+        return LazyBitmapDrawableResource.obtain(context.getResources(), resource);
+    }
+
     public Transformation<BitmapDrawable> asBitmapDrawable() {
         return this;
+    }
+
+    @Override // com.bumptech.glide.load.Key
+    public boolean equals(Object obj) {
+        if (obj instanceof DrawableTransformation) {
+            return this.wrapped.equals(((DrawableTransformation) obj).wrapped);
+        }
+        return false;
+    }
+
+    @Override // com.bumptech.glide.load.Key
+    public int hashCode() {
+        return this.wrapped.hashCode();
     }
 
     @Override // com.bumptech.glide.load.Transformation
@@ -42,23 +59,6 @@ public class DrawableTransformation implements Transformation<Drawable> {
             return resource;
         }
         return newDrawableResource(context, transform);
-    }
-
-    private Resource<Drawable> newDrawableResource(Context context, Resource<Bitmap> resource) {
-        return LazyBitmapDrawableResource.obtain(context.getResources(), resource);
-    }
-
-    @Override // com.bumptech.glide.load.Key
-    public boolean equals(Object obj) {
-        if (obj instanceof DrawableTransformation) {
-            return this.wrapped.equals(((DrawableTransformation) obj).wrapped);
-        }
-        return false;
-    }
-
-    @Override // com.bumptech.glide.load.Key
-    public int hashCode() {
-        return this.wrapped.hashCode();
     }
 
     @Override // com.bumptech.glide.load.Key

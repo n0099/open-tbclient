@@ -5,7 +5,7 @@ import android.graphics.PorterDuff;
 import androidx.annotation.Nullable;
 import androidx.annotation.RestrictTo;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes14.dex */
+/* loaded from: classes.dex */
 public interface TintableImageSourceView {
     @Nullable
     ColorStateList getSupportImageTintList();

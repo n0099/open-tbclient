@@ -1,21 +1,12 @@
 package com.baidu.mobads;
-/* loaded from: classes4.dex */
-class s implements SplashLpCloseListener {
+/* loaded from: classes2.dex */
+public class s implements SplashLpCloseListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ SplashAd f2476a;
+    public final /* synthetic */ SplashAd f8512a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public s(SplashAd splashAd) {
-        this.f2476a = splashAd;
-    }
-
-    @Override // com.baidu.mobads.SplashAdListener
-    public void onAdPresent() {
-    }
-
-    @Override // com.baidu.mobads.SplashAdListener
-    public void onAdDismissed() {
+        this.f8512a = splashAd;
     }
 
     @Override // com.baidu.mobads.SplashAdListener
@@ -23,11 +14,19 @@ class s implements SplashLpCloseListener {
     }
 
     @Override // com.baidu.mobads.SplashAdListener
+    public void onAdClick() {
+    }
+
+    @Override // com.baidu.mobads.SplashAdListener
+    public void onAdDismissed() {
+    }
+
+    @Override // com.baidu.mobads.SplashAdListener
     public void onAdFailed(String str) {
     }
 
     @Override // com.baidu.mobads.SplashAdListener
-    public void onAdClick() {
+    public void onAdPresent() {
     }
 
     @Override // com.baidu.mobads.SplashLpCloseListener

@@ -1,272 +1,261 @@
 package com.baidu.cyberplayer.sdk;
-
-import com.baidu.ala.recorder.video.drawer.EncoderTextureDrawer;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class f {
-    private int j;
-    private float[] l;
 
     /* renamed from: a  reason: collision with root package name */
-    private int f1425a = 0;
-    private int b = 0;
-    private int c = 1;
-    private int d = 1;
-    private int e = 0;
-    private int f = 0;
-    private int g = 0;
-    private int h = 0;
-    private int i = 0;
-    private float[] k = new float[2];
+    public int f4934a = 0;
+
+    /* renamed from: b  reason: collision with root package name */
+    public int f4935b = 0;
+
+    /* renamed from: c  reason: collision with root package name */
+    public int f4936c = 1;
+
+    /* renamed from: d  reason: collision with root package name */
+    public int f4937d = 1;
+
+    /* renamed from: e  reason: collision with root package name */
+    public int f4938e = 0;
+
+    /* renamed from: f  reason: collision with root package name */
+    public int f4939f = 0;
+
+    /* renamed from: g  reason: collision with root package name */
+    public int f4940g = 0;
+
+    /* renamed from: h  reason: collision with root package name */
+    public int f4941h = 0;
+    public int i = 0;
+    public int j;
+    public float[] k;
+    public float[] l;
 
     public f() {
         this.j = 0;
-        this.k[0] = 1.0f;
-        this.k[1] = 1.0f;
-        this.l = new float[2];
-        this.l[0] = 0.0f;
-        this.l[1] = 0.0f;
+        this.k = r3;
+        float[] fArr = {1.0f, 1.0f};
+        this.l = r3;
+        float[] fArr2 = {0.0f, 0.0f};
         this.j = 2;
     }
 
     public void a() {
-        this.f1425a = 0;
-        this.b = 0;
-        this.c = 1;
-        this.d = 1;
-        this.e = 0;
-        this.f = 0;
-        this.g = 0;
-        this.h = 0;
+        this.f4934a = 0;
+        this.f4935b = 0;
+        this.f4936c = 1;
+        this.f4937d = 1;
+        this.f4938e = 0;
+        this.f4939f = 0;
+        this.f4940g = 0;
+        this.f4941h = 0;
         this.i = 0;
-        this.k[0] = 1.0f;
-        this.k[1] = 1.0f;
+        float[] fArr = this.k;
+        fArr[0] = 1.0f;
+        fArr[1] = 1.0f;
         this.j = 2;
     }
 
     public boolean a(int i) {
-        if (this.f != i) {
-            this.f = i;
-            this.g = ((this.e + EncoderTextureDrawer.X264_WIDTH) - i) % EncoderTextureDrawer.X264_WIDTH;
+        if (this.f4939f != i) {
+            this.f4939f = i;
+            this.f4940g = ((this.f4938e + 360) - i) % 360;
             return true;
         }
         return false;
     }
 
     public boolean a(int i, int i2) {
-        if (this.f1425a == i && this.b == i2) {
+        if (this.f4934a == i && this.f4935b == i2) {
             return false;
         }
-        this.f1425a = i;
-        this.b = i2;
+        this.f4934a = i;
+        this.f4935b = i2;
         return true;
     }
 
     public boolean a(int i, int i2, int i3, int i4) {
-        if (this.h == i && i2 == this.i && this.c == i3 && this.d == i4) {
+        if (this.f4941h == i && i2 == this.i && this.f4936c == i3 && this.f4937d == i4) {
             return false;
         }
-        this.h = i;
+        this.f4941h = i;
         this.i = i2;
         if (i4 == 0 || i3 == 0) {
-            this.c = 1;
-            this.d = 1;
-            return true;
+            this.f4936c = 1;
+            this.f4937d = 1;
+        } else {
+            this.f4936c = i3;
+            this.f4937d = i4;
         }
-        this.c = i3;
-        this.d = i4;
         return true;
     }
 
+    /* JADX WARN: Code restructure failed: missing block: B:33:0x00bc, code lost:
+        if (r5 > r3) goto L30;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:53:0x0100, code lost:
+        if (0.5625f > r3) goto L49;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:56:0x0107, code lost:
+        if (0.75f > r3) goto L49;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:59:0x010f, code lost:
+        if (0.8f > r3) goto L49;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:60:0x0111, code lost:
+        r3 = r3 / r0;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:61:0x0113, code lost:
+        r5 = r0 / r3;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:63:0x0118, code lost:
+        if (r5 > r3) goto L30;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:67:0x0121, code lost:
+        if (r5 > r3) goto L25;
+     */
+    /* JADX WARN: Removed duplicated region for block: B:32:0x00ba  */
+    /* JADX WARN: Removed duplicated region for block: B:35:0x00c0  */
+    /* JADX WARN: Removed duplicated region for block: B:38:0x00c9  */
+    /* JADX WARN: Removed duplicated region for block: B:41:0x00d2  */
+    /* JADX WARN: Removed duplicated region for block: B:45:0x00db  */
+    /* JADX WARN: Removed duplicated region for block: B:50:0x00e5  */
+    /* JADX WARN: Removed duplicated region for block: B:52:0x00fc  */
+    /* JADX WARN: Removed duplicated region for block: B:55:0x0103  */
+    /* JADX WARN: Removed duplicated region for block: B:58:0x010a  */
+    /* JADX WARN: Removed duplicated region for block: B:62:0x0116  */
+    /* JADX WARN: Removed duplicated region for block: B:65:0x011b A[PHI: r4 r7 
+      PHI: (r4v1 float) = (r4v0 float), (r4v6 float) binds: [B:31:0x00b7, B:70:0x0126] A[DONT_GENERATE, DONT_INLINE]
+      PHI: (r7v2 float) = (r7v1 float), (r7v4 float) binds: [B:31:0x00b7, B:70:0x0126] A[DONT_GENERATE, DONT_INLINE]] */
+    /* JADX WARN: Removed duplicated region for block: B:66:0x011f  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     public void b() {
-        float f;
+        int i;
         float f2;
+        int i2;
         float f3;
         float f4;
         float f5;
-        if (this.f1425a == 0 || this.b == 0 || this.h == 0 || this.i == 0) {
+        float f6;
+        float f7;
+        if (this.f4934a == 0 || this.f4935b == 0 || this.f4941h == 0 || this.i == 0) {
             return;
         }
-        boolean z = this.j == 0 || this.j == 2;
-        float f6 = (this.b * 1.0f) / this.f1425a;
-        float f7 = (this.i * 1.0f) / this.h;
-        if ((this.g == 90 || this.g == 270) && this.i != 0) {
-            f7 = (this.h * 1.0f) / this.i;
+        int i3 = this.j;
+        boolean z = i3 == 0 || i3 == 2;
+        float f8 = 1.0f;
+        float f9 = (this.f4935b * 1.0f) / this.f4934a;
+        float f10 = (this.i * 1.0f) / this.f4941h;
+        int i4 = this.f4940g;
+        if ((i4 != 90 && i4 != 270) || (i = this.i) == 0) {
             if (z) {
-                f = ((this.c * 1.0f) / this.d) * f7;
+                f2 = this.f4937d * 1.0f;
+                i2 = this.f4936c;
+                f10 *= f2 / i2;
             }
-            f = f7;
-        } else {
-            if (z) {
-                f = ((this.d * 1.0f) / this.c) * f7;
+            CyberLog.d("CyberRenderSizeHelper", "updateDisplaySize called mVideoWidth:" + this.f4941h + " mVideoHeight:" + this.i + " mVideoSarNum:" + this.f4936c + " mVideoSarDen:" + this.f4937d + " mSurfaceWidth:" + this.f4934a + " mSurfaceHeight:" + this.f4935b + " mDisplayMode:" + this.j);
+            float f11 = 0.0f;
+            switch (this.j) {
             }
-            f = f7;
+            float[] fArr = this.k;
+            fArr[0] = f8;
+            fArr[1] = f4;
+            float[] fArr2 = this.l;
+            fArr2[0] = f11;
+            fArr2[1] = f3;
+            CyberLog.d("CyberRenderSizeHelper", "updateDisplaySize called sx:" + f8 + " sy:" + f4 + " translateX:" + f11 + " translateY:" + f3);
         }
-        CyberLog.d("CyberRenderSizeHelper", "updateDisplaySize called mVideoWidth:" + this.h + " mVideoHeight:" + this.i + " mVideoSarNum:" + this.c + " mVideoSarDen:" + this.d + " mSurfaceWidth:" + this.f1425a + " mSurfaceHeight:" + this.b + " mDisplayMode:" + this.j);
+        f10 = (this.f4941h * 1.0f) / i;
+        if (z) {
+            f2 = this.f4936c * 1.0f;
+            i2 = this.f4937d;
+            f10 *= f2 / i2;
+        }
+        CyberLog.d("CyberRenderSizeHelper", "updateDisplaySize called mVideoWidth:" + this.f4941h + " mVideoHeight:" + this.i + " mVideoSarNum:" + this.f4936c + " mVideoSarDen:" + this.f4937d + " mSurfaceWidth:" + this.f4934a + " mSurfaceHeight:" + this.f4935b + " mDisplayMode:" + this.j);
+        float f112 = 0.0f;
         switch (this.j) {
-            case 0:
-                if (f <= f6) {
-                    f2 = f6 / f;
-                    f3 = 0.0f;
-                    f4 = 0.0f;
-                    f5 = 1.0f;
-                    break;
-                } else {
-                    f5 = f / f6;
-                    f3 = 0.0f;
-                    f4 = 0.0f;
-                    f2 = 1.0f;
-                    break;
-                }
             case 1:
                 f3 = 0.0f;
-                f4 = 0.0f;
-                f5 = 1.0f;
-                f2 = 1.0f;
+                f4 = 1.0f;
                 break;
-            case 2:
-                if (f <= f6) {
-                    f5 = f / f6;
-                    f3 = 0.0f;
-                    f4 = 0.0f;
-                    f2 = 1.0f;
-                    break;
-                } else {
-                    f2 = f6 / f;
-                    f3 = 0.0f;
-                    f4 = 0.0f;
-                    f5 = 1.0f;
-                    break;
-                }
             case 3:
-                if (0.8f <= f6) {
-                    f5 = 0.8f / f6;
-                    f3 = 0.0f;
-                    f4 = 0.0f;
-                    f2 = 1.0f;
-                    break;
-                } else {
-                    f2 = f6 / 0.8f;
-                    f3 = 0.0f;
-                    f4 = 0.0f;
-                    f5 = 1.0f;
-                    break;
-                }
+                f5 = 0.8f;
+                break;
             case 4:
-                if (0.75f <= f6) {
-                    f5 = 0.75f / f6;
-                    f3 = 0.0f;
-                    f4 = 0.0f;
-                    f2 = 1.0f;
-                    break;
-                } else {
-                    f2 = f6 / 0.75f;
-                    f3 = 0.0f;
-                    f4 = 0.0f;
-                    f5 = 1.0f;
-                    break;
-                }
+                f5 = 0.75f;
+                break;
             case 5:
-                if (0.5625f <= f6) {
-                    f5 = 0.5625f / f6;
-                    f3 = 0.0f;
-                    f4 = 0.0f;
-                    f2 = 1.0f;
-                    break;
-                } else {
-                    f2 = f6 / 0.5625f;
-                    f3 = 0.0f;
-                    f4 = 0.0f;
-                    f5 = 1.0f;
-                    break;
-                }
+                f5 = 0.5625f;
+                break;
             case 6:
-                f2 = (this.h * 1.0f) / this.f1425a;
-                f5 = (this.i * 1.0f) / this.b;
+                float f12 = (this.f4941h * 1.0f) / this.f4934a;
+                f4 = (this.i * 1.0f) / this.f4935b;
+                f8 = f12;
                 f3 = 0.0f;
-                f4 = 0.0f;
                 break;
             case 7:
-                if (f <= f6) {
-                    f2 = f6 / f;
-                    f4 = 1.0f - f2;
+                if (f10 <= f9) {
+                    f6 = f9 / f10;
+                    f7 = 1.0f - f6;
+                    f112 = f7;
+                    f8 = f6;
                     f3 = 0.0f;
-                    f5 = 1.0f;
-                    break;
-                } else {
-                    f5 = f / f6;
-                    f3 = 0.0f;
-                    f4 = 0.0f;
-                    f2 = 1.0f;
+                    f4 = 1.0f;
                     break;
                 }
+                f4 = f10 / f9;
+                f3 = 0.0f;
+                break;
             case 8:
-                if (f <= f6) {
-                    f2 = f6 / f;
-                    f4 = f2 - 1.0f;
+                if (f10 <= f9) {
+                    f6 = f9 / f10;
+                    f7 = f6 - 1.0f;
+                    f112 = f7;
+                    f8 = f6;
                     f3 = 0.0f;
-                    f5 = 1.0f;
-                    break;
-                } else {
-                    f5 = f / f6;
-                    f3 = 0.0f;
-                    f4 = 0.0f;
-                    f2 = 1.0f;
+                    f4 = 1.0f;
                     break;
                 }
+                f4 = f10 / f9;
+                f3 = 0.0f;
+                break;
             case 9:
-                if (f <= f6) {
-                    f2 = f6 / f;
-                    f3 = 0.0f;
-                    f4 = 0.0f;
-                    f5 = 1.0f;
-                    break;
-                } else {
-                    f5 = f / f6;
-                    f3 = f5 - 1.0f;
-                    f4 = 0.0f;
-                    f2 = 1.0f;
+                if (f10 > f9) {
+                    f4 = f10 / f9;
+                    f3 = f4 - 1.0f;
                     break;
                 }
+                f6 = f9 / f10;
+                f8 = f6;
+                f3 = 0.0f;
+                f4 = 1.0f;
+                break;
             case 10:
-                if (f <= f6) {
-                    f2 = f6 / f;
-                    f3 = 0.0f;
-                    f4 = 0.0f;
-                    f5 = 1.0f;
-                    break;
-                } else {
-                    f5 = f / f6;
-                    f3 = 1.0f - f5;
-                    f4 = 0.0f;
-                    f2 = 1.0f;
+                if (f10 > f9) {
+                    f4 = f10 / f9;
+                    f3 = 1.0f - f4;
                     break;
                 }
-            default:
-                if (f <= f6) {
-                    f5 = f / f6;
-                    f3 = 0.0f;
-                    f4 = 0.0f;
-                    f2 = 1.0f;
-                    break;
-                } else {
-                    f2 = f6 / f;
-                    f3 = 0.0f;
-                    f4 = 0.0f;
-                    f5 = 1.0f;
-                    break;
-                }
+                f6 = f9 / f10;
+                f8 = f6;
+                f3 = 0.0f;
+                f4 = 1.0f;
+                break;
         }
-        this.k[0] = f2;
-        this.k[1] = f5;
-        this.l[0] = f4;
-        this.l[1] = f3;
-        CyberLog.d("CyberRenderSizeHelper", "updateDisplaySize called sx:" + f2 + " sy:" + f5 + " translateX:" + f4 + " translateY:" + f3);
+        float[] fArr3 = this.k;
+        fArr3[0] = f8;
+        fArr3[1] = f4;
+        float[] fArr22 = this.l;
+        fArr22[0] = f112;
+        fArr22[1] = f3;
+        CyberLog.d("CyberRenderSizeHelper", "updateDisplaySize called sx:" + f8 + " sy:" + f4 + " translateX:" + f112 + " translateY:" + f3);
     }
 
     public boolean b(int i) {
-        if (this.e != i) {
-            this.e = i;
-            this.g = ((360 - this.f) + i) % EncoderTextureDrawer.X264_WIDTH;
+        if (this.f4938e != i) {
+            this.f4938e = i;
+            this.f4940g = ((360 - this.f4939f) + i) % 360;
             return true;
         }
         return false;
@@ -293,15 +282,16 @@ public class f {
     }
 
     public boolean f() {
-        return this.j == 7 || this.j == 8 || this.j == 9 || this.j == 10;
+        int i = this.j;
+        return i == 7 || i == 8 || i == 9 || i == 10;
     }
 
     public int g() {
-        return this.g;
+        return this.f4940g;
     }
 
     public int h() {
-        return this.h;
+        return this.f4941h;
     }
 
     public int i() {
@@ -309,10 +299,10 @@ public class f {
     }
 
     public int j() {
-        return this.f1425a;
+        return this.f4934a;
     }
 
     public int k() {
-        return this.b;
+        return this.f4935b;
     }
 }

@@ -1,12 +1,12 @@
 package com.baidu.tieba.view.bubbleView;
-/* loaded from: classes.dex */
+/* loaded from: classes5.dex */
 public enum ArrowDirection {
     LEFT(0),
     RIGHT(1),
     TOP(2),
     BOTTOM(3);
     
-    private int value;
+    public int value;
 
     ArrowDirection(int i) {
         this.value = i;

@@ -8,29 +8,157 @@ import android.graphics.PaintFlagsDrawFilter;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
-import com.baidu.swan.apps.ao.ak;
-import com.baidu.swan.apps.canvas.a.a.af;
-import com.baidu.swan.apps.canvas.a.a.f;
-import com.baidu.swan.apps.canvas.a.a.k;
+import d.b.g0.a.i2.k0;
+import d.b.g0.a.y.a.j.f;
+import d.b.g0.a.y.a.j.f0;
+import d.b.g0.a.y.a.j.k;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class CanvasView extends AbsCanvasView {
-    private List<a> cMg;
-    private final DrawFilter cMh;
-    private int cMi;
-    private HashMap<String, Bitmap> cMj;
-    private b cMk;
 
-    /* loaded from: classes8.dex */
-    public interface b {
-        void akP();
+    /* renamed from: f  reason: collision with root package name */
+    public List<b> f12118f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public final DrawFilter f12119g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public int f12120h;
+    public HashMap<String, Bitmap> i;
+
+    /* loaded from: classes3.dex */
+    public class a implements Runnable {
+        public a() {
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            CanvasView.this.d();
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public static class b {
+
+        /* renamed from: a  reason: collision with root package name */
+        public List<d.b.g0.a.y.a.j.a> f12122a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public d.b.g0.a.y.a.j.b f12123b;
+
+        public b() {
+        }
+
+        public /* synthetic */ b(a aVar) {
+            this();
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public interface c {
+        void a();
     }
 
     public CanvasView(Context context) {
         this(context, null);
+    }
+
+    public void c(List<d.b.g0.a.y.a.j.a> list, boolean z) {
+        if (list == null || this.f12118f.contains(list)) {
+            return;
+        }
+        if (!z) {
+            this.f12118f.clear();
+        }
+        int size = this.f12118f.size();
+        boolean z2 = z && size > 0;
+        b bVar = new b(null);
+        if (z2) {
+            b bVar2 = this.f12118f.get(size - 1);
+            bVar.f12123b = bVar2.f12123b;
+            List<d.b.g0.a.y.a.j.a> list2 = bVar2.f12122a;
+            bVar.f12122a = list2;
+            list2.addAll(list);
+        } else {
+            bVar.f12123b = new d.b.g0.a.y.a.j.b(this);
+            bVar.f12122a = list;
+        }
+        this.f12118f.add(bVar);
+        k0.X(new a());
+    }
+
+    public final void d() {
+        int i = this.f12120h;
+        if (this.f12118f.size() > 0) {
+            for (b bVar : this.f12118f) {
+                Iterator<d.b.g0.a.y.a.j.a> it = bVar.f12122a.iterator();
+                while (true) {
+                    if (it.hasNext()) {
+                        d.b.g0.a.y.a.j.a next = it.next();
+                        if (next instanceof f) {
+                            i = 2;
+                        } else if (next instanceof f0) {
+                            i = 1;
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+        if (getLayerType() != i) {
+            setLayerType(i, null);
+        }
+    }
+
+    public Bitmap e(String str) {
+        if (TextUtils.isEmpty(str)) {
+            return null;
+        }
+        return this.i.get(str);
+    }
+
+    public synchronized void f() {
+        this.i.clear();
+    }
+
+    public d.b.g0.a.y.a.j.b getCanvasContext() {
+        if (this.f12118f.size() > 0) {
+            List<b> list = this.f12118f;
+            return list.get(list.size() - 1).f12123b;
+        }
+        return null;
+    }
+
+    @Override // android.view.View
+    public void onDraw(Canvas canvas) {
+        super.onDraw(canvas);
+        if (this.f12118f.size() > 0) {
+            canvas.save();
+            canvas.setDrawFilter(this.f12119g);
+            for (b bVar : this.f12118f) {
+                List<d.b.g0.a.y.a.j.a> list = bVar.f12122a;
+                d.b.g0.a.y.a.j.b bVar2 = bVar.f12123b;
+                bVar2.e();
+                for (d.b.g0.a.y.a.j.a aVar : list) {
+                    aVar.a(bVar2, canvas);
+                    if (aVar instanceof k) {
+                        ((k) aVar).e(this.i);
+                    }
+                }
+            }
+            canvas.restore();
+        }
+    }
+
+    @Override // android.view.View
+    public boolean onTouchEvent(MotionEvent motionEvent) {
+        return a() || super.onTouchEvent(motionEvent);
+    }
+
+    public void setOnDrawCompleteLinstener(c cVar) {
     }
 
     public CanvasView(Context context, AttributeSet attributeSet) {
@@ -39,129 +167,10 @@ public class CanvasView extends AbsCanvasView {
 
     public CanvasView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.cMg = new ArrayList();
-        this.cMh = new PaintFlagsDrawFilter(0, 3);
-        this.cMi = 0;
-        this.cMj = new HashMap<>();
-        this.cMi = getLayerType();
-    }
-
-    public void i(List<com.baidu.swan.apps.canvas.a.a.a> list, boolean z) {
-        if (list != null && !this.cMg.contains(list)) {
-            if (!z) {
-                this.cMg.clear();
-            }
-            int size = this.cMg.size();
-            boolean z2 = z && size > 0;
-            a aVar = new a();
-            if (z2) {
-                a aVar2 = this.cMg.get(size - 1);
-                aVar.cMm = aVar2.cMm;
-                aVar.cLY = aVar2.cLY;
-                aVar.cLY.addAll(list);
-            } else {
-                aVar.cMm = new com.baidu.swan.apps.canvas.a.a.b(this);
-                aVar.cLY = list;
-            }
-            this.cMg.add(aVar);
-            ak.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.canvas.view.CanvasView.1
-                @Override // java.lang.Runnable
-                public void run() {
-                    CanvasView.this.akY();
-                }
-            });
-        }
-    }
-
-    @Override // android.view.View
-    public boolean onTouchEvent(MotionEvent motionEvent) {
-        return akX() || super.onTouchEvent(motionEvent);
-    }
-
-    @Override // android.view.View
-    public void onDraw(Canvas canvas) {
-        super.onDraw(canvas);
-        if (this.cMg.size() > 0) {
-            canvas.save();
-            canvas.setDrawFilter(this.cMh);
-            for (a aVar : this.cMg) {
-                List<com.baidu.swan.apps.canvas.a.a.a> list = aVar.cLY;
-                com.baidu.swan.apps.canvas.a.a.b bVar = aVar.cMm;
-                bVar.init();
-                for (com.baidu.swan.apps.canvas.a.a.a aVar2 : list) {
-                    aVar2.a(bVar, canvas);
-                    if (aVar2 instanceof k) {
-                        ((k) aVar2).A(this.cMj);
-                    }
-                }
-            }
-            canvas.restore();
-        }
-    }
-
-    public com.baidu.swan.apps.canvas.a.a.b getCanvasContext() {
-        if (this.cMg.size() > 0) {
-            return this.cMg.get(this.cMg.size() - 1).cMm;
-        }
-        return null;
-    }
-
-    public Bitmap lP(String str) {
-        if (TextUtils.isEmpty(str)) {
-            return null;
-        }
-        return this.cMj.get(str);
-    }
-
-    public synchronized void onRelease() {
-        this.cMj.clear();
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void akY() {
-        int i;
-        int i2 = this.cMi;
-        if (this.cMg.size() > 0) {
-            Iterator<a> it = this.cMg.iterator();
-            while (true) {
-                i = i2;
-                if (!it.hasNext()) {
-                    break;
-                }
-                Iterator<com.baidu.swan.apps.canvas.a.a.a> it2 = it.next().cLY.iterator();
-                while (true) {
-                    if (!it2.hasNext()) {
-                        i2 = i;
-                        break;
-                    }
-                    com.baidu.swan.apps.canvas.a.a.a next = it2.next();
-                    if (next instanceof f) {
-                        i = 2;
-                    } else if (next instanceof af) {
-                        i2 = 1;
-                        break;
-                    }
-                }
-            }
-        } else {
-            i = i2;
-        }
-        if (getLayerType() != i) {
-            setLayerType(i, null);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes8.dex */
-    public static class a {
-        List<com.baidu.swan.apps.canvas.a.a.a> cLY;
-        com.baidu.swan.apps.canvas.a.a.b cMm;
-
-        private a() {
-        }
-    }
-
-    public void setOnDrawCompleteLinstener(b bVar) {
-        this.cMk = bVar;
+        this.f12118f = new ArrayList();
+        this.f12119g = new PaintFlagsDrawFilter(0, 3);
+        this.f12120h = 0;
+        this.i = new HashMap<>();
+        this.f12120h = getLayerType();
     }
 }

@@ -8,66 +8,80 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
+import com.bumptech.glide.manager.DefaultConnectivityMonitorFactory;
 import com.kwad.sdk.KsAdSDKImpl;
 import java.lang.ref.WeakReference;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class NetworkMonitor {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile boolean f6003a = false;
-    private List<WeakReference<a>> b;
-    private boolean c;
-    private final BroadcastReceiver d;
+    public static volatile boolean f33406a = false;
 
-    /* loaded from: classes3.dex */
-    private enum Holder {
+    /* renamed from: b  reason: collision with root package name */
+    public List<WeakReference<a>> f33407b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public boolean f33408c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public final BroadcastReceiver f33409d;
+
+    /* loaded from: classes6.dex */
+    public enum Holder {
         INSTANCE;
         
-        private NetworkMonitor mInstance = new NetworkMonitor();
+        public NetworkMonitor mInstance = new NetworkMonitor();
 
         Holder() {
         }
 
-        NetworkMonitor getInstance() {
+        public NetworkMonitor getInstance() {
             return this.mInstance;
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public enum NetworkState {
         NETWORK_NONE,
         NETWORK_MOBILE,
         NETWORK_WIFI
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public interface a {
         void a(NetworkState networkState);
     }
 
-    private NetworkMonitor() {
-        this.b = Collections.synchronizedList(new LinkedList());
-        this.c = false;
-        this.d = new BroadcastReceiver() { // from class: com.kwad.sdk.core.NetworkMonitor.1
+    public NetworkMonitor() {
+        this.f33407b = Collections.synchronizedList(new LinkedList());
+        this.f33408c = false;
+        this.f33409d = new BroadcastReceiver() { // from class: com.kwad.sdk.core.NetworkMonitor.1
             @Override // android.content.BroadcastReceiver
             public void onReceive(@NonNull Context context, Intent intent) {
                 ConnectivityManager connectivityManager;
+                NetworkMonitor networkMonitor;
+                NetworkState networkState;
                 try {
-                    if ((ContextCompat.checkSelfPermission(context, "android.permission.ACCESS_NETWORK_STATE") == 0) && (connectivityManager = (ConnectivityManager) context.getSystemService("connectivity")) != null) {
+                    if ((ContextCompat.checkSelfPermission(context, DefaultConnectivityMonitorFactory.NETWORK_PERMISSION) == 0) && (connectivityManager = (ConnectivityManager) context.getSystemService("connectivity")) != null) {
                         NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
                         if (activeNetworkInfo == null || !activeNetworkInfo.isConnected()) {
-                            NetworkMonitor.this.a(NetworkState.NETWORK_NONE);
+                            networkMonitor = NetworkMonitor.this;
+                            networkState = NetworkState.NETWORK_NONE;
                         } else if (1 == activeNetworkInfo.getType()) {
-                            NetworkMonitor.this.a(NetworkState.NETWORK_WIFI);
+                            networkMonitor = NetworkMonitor.this;
+                            networkState = NetworkState.NETWORK_WIFI;
                         } else if (activeNetworkInfo.getType() == 0) {
-                            NetworkMonitor.this.a(NetworkState.NETWORK_MOBILE);
+                            networkMonitor = NetworkMonitor.this;
+                            networkState = NetworkState.NETWORK_MOBILE;
                         } else {
-                            NetworkMonitor.this.a(NetworkState.NETWORK_NONE);
+                            networkMonitor = NetworkMonitor.this;
+                            networkState = NetworkState.NETWORK_NONE;
                         }
+                        networkMonitor.a(networkState);
                     }
                 } catch (Throwable th) {
                     th.printStackTrace();
@@ -82,61 +96,57 @@ public class NetworkMonitor {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(NetworkState networkState) {
-        Iterator<WeakReference<a>> it = this.b.iterator();
+        a aVar;
+        Iterator<WeakReference<a>> it = this.f33407b.iterator();
         while (it.hasNext()) {
             WeakReference<a> next = it.next();
-            if (next == null) {
+            if (next == null || (aVar = next.get()) == null) {
                 it.remove();
             } else {
-                a aVar = next.get();
-                if (aVar == null) {
-                    it.remove();
-                } else {
-                    aVar.a(networkState);
-                }
+                aVar.a(networkState);
             }
         }
     }
 
     private synchronized void d() {
-        Context context;
-        if (!f6003a && (context = KsAdSDKImpl.get().getContext()) != null) {
-            context.getApplicationContext().registerReceiver(this.d, new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE"));
-            f6003a = true;
+        if (f33406a) {
+            return;
         }
+        Context context = KsAdSDKImpl.get().getContext();
+        if (context == null) {
+            return;
+        }
+        context.getApplicationContext().registerReceiver(this.f33409d, new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE"));
+        f33406a = true;
     }
 
     public void a(@NonNull a aVar) {
         d();
-        this.b.add(new WeakReference<>(aVar));
+        this.f33407b.add(new WeakReference<>(aVar));
     }
 
     public void b(a aVar) {
+        a aVar2;
         if (aVar == null) {
             return;
         }
-        Iterator<WeakReference<a>> it = this.b.iterator();
+        Iterator<WeakReference<a>> it = this.f33407b.iterator();
         while (it.hasNext()) {
             WeakReference<a> next = it.next();
-            if (next == null) {
+            if (next == null || (aVar2 = next.get()) == null) {
                 it.remove();
-            } else {
-                a aVar2 = next.get();
-                if (aVar2 == null) {
-                    it.remove();
-                } else if (aVar == aVar2) {
-                    it.remove();
-                    return;
-                }
+            } else if (aVar == aVar2) {
+                it.remove();
+                return;
             }
         }
     }
 
     public boolean b() {
-        return !this.c;
+        return !this.f33408c;
     }
 
     public void c() {
-        this.c = true;
+        this.f33408c = true;
     }
 }

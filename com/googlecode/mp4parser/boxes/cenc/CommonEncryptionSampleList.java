@@ -17,104 +17,35 @@ import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
 import javax.crypto.SecretKey;
 import javax.crypto.spec.IvParameterSpec;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class CommonEncryptionSampleList extends AbstractList<Sample> {
-    static Cipher cipher;
-    List<CencSampleAuxiliaryDataFormat> auxiliaryDataFormats;
-    List<Sample> parent;
-    SecretKey secretKey;
+    public static Cipher cipher;
+    public List<CencSampleAuxiliaryDataFormat> auxiliaryDataFormats;
+    public List<Sample> parent;
+    public SecretKey secretKey;
 
-    static {
-        try {
-            cipher = Cipher.getInstance("AES/CTR/NoPadding");
-        } catch (NoSuchAlgorithmException e) {
-            throw new RuntimeException(e);
-        } catch (NoSuchPaddingException e2) {
-            throw new RuntimeException(e2);
-        }
-    }
-
-    public CommonEncryptionSampleList(SecretKey secretKey, List<Sample> list, List<CencSampleAuxiliaryDataFormat> list2) {
-        this.auxiliaryDataFormats = list2;
-        this.secretKey = secretKey;
-        this.parent = list;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // java.util.AbstractList, java.util.List
-    public Sample get(int i) {
-        return new a(this, this.parent.get(i), this.auxiliaryDataFormats.get(i), cipher, null);
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class a implements Sample {
-        static final /* synthetic */ boolean $assertionsDisabled;
-        private final Cipher cipher;
-        private final Sample pYx;
-        private final CencSampleAuxiliaryDataFormat pYy;
 
-        static {
-            $assertionsDisabled = !CommonEncryptionSampleList.class.desiredAssertionStatus();
-        }
+        /* renamed from: a  reason: collision with root package name */
+        public final Sample f31065a;
 
-        /* synthetic */ a(CommonEncryptionSampleList commonEncryptionSampleList, Sample sample, CencSampleAuxiliaryDataFormat cencSampleAuxiliaryDataFormat, Cipher cipher, a aVar) {
+        /* renamed from: b  reason: collision with root package name */
+        public final CencSampleAuxiliaryDataFormat f31066b;
+
+        /* renamed from: c  reason: collision with root package name */
+        public final Cipher f31067c;
+
+        public /* synthetic */ a(CommonEncryptionSampleList commonEncryptionSampleList, Sample sample, CencSampleAuxiliaryDataFormat cencSampleAuxiliaryDataFormat, Cipher cipher, a aVar) {
             this(sample, cencSampleAuxiliaryDataFormat, cipher);
-        }
-
-        private a(Sample sample, CencSampleAuxiliaryDataFormat cencSampleAuxiliaryDataFormat, Cipher cipher) {
-            this.pYx = sample;
-            this.pYy = cencSampleAuxiliaryDataFormat;
-            this.cipher = cipher;
-        }
-
-        @Override // com.googlecode.mp4parser.authoring.Sample
-        public void writeTo(WritableByteChannel writableByteChannel) throws IOException {
-            ByteBuffer byteBuffer = (ByteBuffer) this.pYx.asByteBuffer().rewind();
-            CommonEncryptionSampleList.this.initCipher(this.pYy.iv);
-            try {
-                if (this.pYy.pairs != null && this.pYy.pairs.size() > 0) {
-                    for (CencSampleAuxiliaryDataFormat.Pair pair : this.pYy.pairs) {
-                        byte[] bArr = new byte[pair.clear];
-                        byteBuffer.get(bArr);
-                        writableByteChannel.write(ByteBuffer.wrap(bArr));
-                        if (pair.encrypted > 0) {
-                            byte[] bArr2 = new byte[CastUtils.l2i(pair.encrypted)];
-                            byteBuffer.get(bArr2);
-                            if (!$assertionsDisabled && bArr2.length % 16 != 0) {
-                                throw new AssertionError();
-                            }
-                            byte[] update = this.cipher.update(bArr2);
-                            if (!$assertionsDisabled && update.length != bArr2.length) {
-                                throw new AssertionError();
-                            }
-                            writableByteChannel.write(ByteBuffer.wrap(update));
-                        }
-                    }
-                } else {
-                    byte[] bArr3 = new byte[byteBuffer.limit()];
-                    byteBuffer.get(bArr3);
-                    writableByteChannel.write(ByteBuffer.wrap(this.cipher.doFinal(bArr3)));
-                }
-                byteBuffer.rewind();
-            } catch (BadPaddingException e) {
-                throw new RuntimeException(e);
-            } catch (IllegalBlockSizeException e2) {
-                throw new RuntimeException(e2);
-            }
-        }
-
-        @Override // com.googlecode.mp4parser.authoring.Sample
-        public long getSize() {
-            return this.pYx.getSize();
         }
 
         @Override // com.googlecode.mp4parser.authoring.Sample
         public ByteBuffer asByteBuffer() {
-            ByteBuffer byteBuffer = (ByteBuffer) this.pYx.asByteBuffer().rewind();
+            ByteBuffer byteBuffer = (ByteBuffer) this.f31065a.asByteBuffer().rewind();
             ByteBuffer allocate = ByteBuffer.allocate(byteBuffer.limit());
-            CencSampleAuxiliaryDataFormat cencSampleAuxiliaryDataFormat = this.pYy;
-            CommonEncryptionSampleList.this.initCipher(this.pYy.iv);
+            CencSampleAuxiliaryDataFormat cencSampleAuxiliaryDataFormat = this.f31066b;
+            CommonEncryptionSampleList.this.initCipher(cencSampleAuxiliaryDataFormat.iv);
             try {
                 if (cencSampleAuxiliaryDataFormat.pairs != null) {
                     for (CencSampleAuxiliaryDataFormat.Pair pair : cencSampleAuxiliaryDataFormat.pairs) {
@@ -124,46 +55,101 @@ public class CommonEncryptionSampleList extends AbstractList<Sample> {
                         if (pair.encrypted > 0) {
                             byte[] bArr2 = new byte[CastUtils.l2i(pair.encrypted)];
                             byteBuffer.get(bArr2);
-                            if (!$assertionsDisabled && bArr2.length % 16 != 0) {
-                                throw new AssertionError();
-                            }
-                            byte[] update = this.cipher.update(bArr2);
-                            if (!$assertionsDisabled && update.length != bArr2.length) {
-                                throw new AssertionError();
-                            }
-                            allocate.put(update);
+                            allocate.put(this.f31067c.update(bArr2));
                         }
                     }
                 } else {
                     byte[] bArr3 = new byte[byteBuffer.limit()];
                     byteBuffer.get(bArr3);
-                    allocate.put(this.cipher.doFinal(bArr3));
+                    allocate.put(this.f31067c.doFinal(bArr3));
                 }
                 byteBuffer.rewind();
                 allocate.rewind();
                 return allocate;
-            } catch (BadPaddingException e) {
-                throw new RuntimeException(e);
-            } catch (IllegalBlockSizeException e2) {
+            } catch (BadPaddingException e2) {
                 throw new RuntimeException(e2);
+            } catch (IllegalBlockSizeException e3) {
+                throw new RuntimeException(e3);
             }
+        }
+
+        @Override // com.googlecode.mp4parser.authoring.Sample
+        public long getSize() {
+            return this.f31065a.getSize();
+        }
+
+        @Override // com.googlecode.mp4parser.authoring.Sample
+        public void writeTo(WritableByteChannel writableByteChannel) throws IOException {
+            ByteBuffer byteBuffer = (ByteBuffer) this.f31065a.asByteBuffer().rewind();
+            CommonEncryptionSampleList.this.initCipher(this.f31066b.iv);
+            try {
+                if (this.f31066b.pairs != null && this.f31066b.pairs.size() > 0) {
+                    for (CencSampleAuxiliaryDataFormat.Pair pair : this.f31066b.pairs) {
+                        byte[] bArr = new byte[pair.clear];
+                        byteBuffer.get(bArr);
+                        writableByteChannel.write(ByteBuffer.wrap(bArr));
+                        if (pair.encrypted > 0) {
+                            byte[] bArr2 = new byte[CastUtils.l2i(pair.encrypted)];
+                            byteBuffer.get(bArr2);
+                            writableByteChannel.write(ByteBuffer.wrap(this.f31067c.update(bArr2)));
+                        }
+                    }
+                } else {
+                    byte[] bArr3 = new byte[byteBuffer.limit()];
+                    byteBuffer.get(bArr3);
+                    writableByteChannel.write(ByteBuffer.wrap(this.f31067c.doFinal(bArr3)));
+                }
+                byteBuffer.rewind();
+            } catch (BadPaddingException e2) {
+                throw new RuntimeException(e2);
+            } catch (IllegalBlockSizeException e3) {
+                throw new RuntimeException(e3);
+            }
+        }
+
+        public a(Sample sample, CencSampleAuxiliaryDataFormat cencSampleAuxiliaryDataFormat, Cipher cipher) {
+            this.f31065a = sample;
+            this.f31066b = cencSampleAuxiliaryDataFormat;
+            this.f31067c = cipher;
         }
     }
 
-    protected void initCipher(byte[] bArr) {
+    static {
+        try {
+            cipher = Cipher.getInstance("AES/CTR/NoPadding");
+        } catch (NoSuchAlgorithmException e2) {
+            throw new RuntimeException(e2);
+        } catch (NoSuchPaddingException e3) {
+            throw new RuntimeException(e3);
+        }
+    }
+
+    public CommonEncryptionSampleList(SecretKey secretKey, List<Sample> list, List<CencSampleAuxiliaryDataFormat> list2) {
+        this.auxiliaryDataFormats = list2;
+        this.secretKey = secretKey;
+        this.parent = list;
+    }
+
+    public void initCipher(byte[] bArr) {
         try {
             byte[] bArr2 = new byte[16];
             System.arraycopy(bArr, 0, bArr2, 0, bArr.length);
             cipher.init(1, this.secretKey, new IvParameterSpec(bArr2));
-        } catch (InvalidAlgorithmParameterException e) {
-            throw new RuntimeException(e);
-        } catch (InvalidKeyException e2) {
+        } catch (InvalidAlgorithmParameterException e2) {
             throw new RuntimeException(e2);
+        } catch (InvalidKeyException e3) {
+            throw new RuntimeException(e3);
         }
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection, java.util.List
     public int size() {
         return this.parent.size();
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // java.util.AbstractList, java.util.List
+    public Sample get(int i) {
+        return new a(this, this.parent.get(i), this.auxiliaryDataFormats.get(i), cipher, null);
     }
 }

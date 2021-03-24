@@ -1,70 +1,80 @@
 package com.baidu.clientupdate.b;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final byte[] f1360a = new byte[128];
-    private static final char[] b = new char[64];
+    public static final byte[] f4579a = new byte[128];
+
+    /* renamed from: b  reason: collision with root package name */
+    public static final char[] f4580b = new char[64];
 
     static {
-        int i = 0;
-        for (int i2 = 0; i2 < 128; i2++) {
-            f1360a[i2] = -1;
+        int i;
+        int i2;
+        int i3 = 0;
+        for (int i4 = 0; i4 < 128; i4++) {
+            f4579a[i4] = -1;
         }
-        for (int i3 = 90; i3 >= 65; i3--) {
-            f1360a[i3] = (byte) (i3 - 65);
+        for (int i5 = 90; i5 >= 65; i5--) {
+            f4579a[i5] = (byte) (i5 - 65);
         }
-        for (int i4 = 122; i4 >= 97; i4--) {
-            f1360a[i4] = (byte) ((i4 - 97) + 26);
+        int i6 = 122;
+        while (true) {
+            i = 26;
+            if (i6 < 97) {
+                break;
+            }
+            f4579a[i6] = (byte) ((i6 - 97) + 26);
+            i6--;
         }
-        for (int i5 = 57; i5 >= 48; i5--) {
-            f1360a[i5] = (byte) ((i5 - 48) + 52);
+        int i7 = 57;
+        while (true) {
+            i2 = 52;
+            if (i7 < 48) {
+                break;
+            }
+            f4579a[i7] = (byte) ((i7 - 48) + 52);
+            i7--;
         }
-        f1360a[43] = 62;
-        f1360a[47] = 63;
-        for (int i6 = 0; i6 <= 25; i6++) {
-            b[i6] = (char) (i6 + 65);
+        byte[] bArr = f4579a;
+        bArr[43] = 62;
+        bArr[47] = 63;
+        for (int i8 = 0; i8 <= 25; i8++) {
+            f4580b[i8] = (char) (i8 + 65);
         }
-        int i7 = 26;
-        int i8 = 0;
-        while (i7 <= 51) {
-            b[i7] = (char) (i8 + 97);
-            i7++;
-            i8++;
-        }
-        int i9 = 52;
-        while (i9 <= 61) {
-            b[i9] = (char) (i + 48);
-            i9++;
+        int i9 = 0;
+        while (i <= 51) {
+            f4580b[i] = (char) (i9 + 97);
             i++;
+            i9++;
         }
-        b[62] = '+';
-        b[63] = '/';
+        while (i2 <= 61) {
+            f4580b[i2] = (char) (i3 + 48);
+            i2++;
+            i3++;
+        }
+        char[] cArr = f4580b;
+        cArr[62] = '+';
+        cArr[63] = '/';
     }
 
-    private static int a(char[] cArr) {
-        int i;
+    public static int a(char[] cArr) {
         if (cArr == null) {
             return 0;
         }
         int length = cArr.length;
-        int i2 = 0;
-        int i3 = 0;
-        while (i2 < length) {
-            if (a(cArr[i2])) {
-                i = i3;
-            } else {
-                i = i3 + 1;
-                cArr[i3] = cArr[i2];
+        int i = 0;
+        for (int i2 = 0; i2 < length; i2++) {
+            if (!a(cArr[i2])) {
+                cArr[i] = cArr[i2];
+                i++;
             }
-            i2++;
-            i3 = i;
         }
-        return i3;
+        return i;
     }
 
-    private static boolean a(char c) {
-        return c == ' ' || c == '\r' || c == '\n' || c == '\t';
+    public static boolean a(char c2) {
+        return c2 == ' ' || c2 == '\r' || c2 == '\n' || c2 == '\t';
     }
 
     public static byte[] a(String str) {
@@ -73,104 +83,104 @@ public final class a {
         }
         char[] charArray = str.toCharArray();
         int a2 = a(charArray);
-        if (a2 % 4 == 0) {
-            int i = a2 / 4;
-            if (i == 0) {
-                return new byte[0];
-            }
-            byte[] bArr = new byte[i * 3];
-            int i2 = 0;
-            int i3 = 0;
-            int i4 = 0;
-            while (i4 < i - 1) {
-                int i5 = i2 + 1;
-                char c = charArray[i2];
-                if (!c(c)) {
-                    return null;
-                }
+        if (a2 % 4 != 0) {
+            return null;
+        }
+        int i = a2 / 4;
+        if (i == 0) {
+            return new byte[0];
+        }
+        byte[] bArr = new byte[i * 3];
+        int i2 = 0;
+        int i3 = 0;
+        int i4 = 0;
+        while (i2 < i - 1) {
+            int i5 = i3 + 1;
+            char c2 = charArray[i3];
+            if (c(c2)) {
                 int i6 = i5 + 1;
-                char c2 = charArray[i5];
-                if (!c(c2)) {
-                    return null;
-                }
-                int i7 = i6 + 1;
-                char c3 = charArray[i6];
-                if (!c(c3)) {
-                    return null;
-                }
-                i2 = i7 + 1;
-                char c4 = charArray[i7];
-                if (!c(c4)) {
-                    return null;
-                }
-                byte b2 = f1360a[c];
-                byte b3 = f1360a[c2];
-                byte b4 = f1360a[c3];
-                byte b5 = f1360a[c4];
-                int i8 = i3 + 1;
-                bArr[i3] = (byte) ((b2 << 2) | (b3 >> 4));
-                int i9 = i8 + 1;
-                bArr[i8] = (byte) (((b3 & 15) << 4) | ((b4 >> 2) & 15));
-                i3 = i9 + 1;
-                bArr[i9] = (byte) ((b4 << 6) | b5);
-                i4++;
-            }
-            int i10 = i2 + 1;
-            char c5 = charArray[i2];
-            if (c(c5)) {
-                int i11 = i10 + 1;
-                char c6 = charArray[i10];
-                if (c(c6)) {
-                    byte b6 = f1360a[c5];
-                    byte b7 = f1360a[c6];
-                    int i12 = i11 + 1;
-                    char c7 = charArray[i11];
-                    int i13 = i12 + 1;
-                    char c8 = charArray[i12];
-                    if (c(c7) && c(c8)) {
-                        byte b8 = f1360a[c7];
-                        byte b9 = f1360a[c8];
-                        int i14 = i3 + 1;
-                        bArr[i3] = (byte) ((b6 << 2) | (b7 >> 4));
-                        int i15 = i14 + 1;
-                        bArr[i14] = (byte) (((b7 & 15) << 4) | ((b8 >> 2) & 15));
-                        int i16 = i15 + 1;
-                        bArr[i15] = (byte) ((b8 << 6) | b9);
-                        return bArr;
-                    } else if (b(c7) && b(c8)) {
-                        if ((b7 & 15) == 0) {
-                            byte[] bArr2 = new byte[(i4 * 3) + 1];
-                            System.arraycopy(bArr, 0, bArr2, 0, i4 * 3);
-                            bArr2[i3] = (byte) ((b6 << 2) | (b7 >> 4));
-                            return bArr2;
+                char c3 = charArray[i5];
+                if (c(c3)) {
+                    int i7 = i6 + 1;
+                    char c4 = charArray[i6];
+                    if (c(c4)) {
+                        int i8 = i7 + 1;
+                        char c5 = charArray[i7];
+                        if (c(c5)) {
+                            byte[] bArr2 = f4579a;
+                            byte b2 = bArr2[c2];
+                            byte b3 = bArr2[c3];
+                            byte b4 = bArr2[c4];
+                            byte b5 = bArr2[c5];
+                            int i9 = i4 + 1;
+                            bArr[i4] = (byte) ((b2 << 2) | (b3 >> 4));
+                            int i10 = i9 + 1;
+                            bArr[i9] = (byte) (((b3 & 15) << 4) | ((b4 >> 2) & 15));
+                            i4 = i10 + 1;
+                            bArr[i10] = (byte) ((b4 << 6) | b5);
+                            i2++;
+                            i3 = i8;
                         }
-                        return null;
-                    } else if (b(c7) || !b(c8)) {
-                        return null;
-                    } else {
-                        byte b10 = f1360a[c7];
-                        if ((b10 & 3) == 0) {
-                            byte[] bArr3 = new byte[(i4 * 3) + 2];
-                            System.arraycopy(bArr, 0, bArr3, 0, i4 * 3);
-                            bArr3[i3] = (byte) ((b6 << 2) | (b7 >> 4));
-                            bArr3[i3 + 1] = (byte) (((b7 & 15) << 4) | ((b10 >> 2) & 15));
-                            return bArr3;
-                        }
-                        return null;
                     }
                 }
-                return null;
+            }
+            return null;
+        }
+        int i11 = i3 + 1;
+        char c6 = charArray[i3];
+        if (c(c6)) {
+            int i12 = i11 + 1;
+            char c7 = charArray[i11];
+            if (c(c7)) {
+                byte[] bArr3 = f4579a;
+                byte b6 = bArr3[c6];
+                byte b7 = bArr3[c7];
+                int i13 = i12 + 1;
+                char c8 = charArray[i12];
+                char c9 = charArray[i13];
+                if (c(c8) && c(c9)) {
+                    byte[] bArr4 = f4579a;
+                    byte b8 = bArr4[c8];
+                    byte b9 = bArr4[c9];
+                    int i14 = i4 + 1;
+                    bArr[i4] = (byte) ((b6 << 2) | (b7 >> 4));
+                    bArr[i14] = (byte) (((b7 & 15) << 4) | ((b8 >> 2) & 15));
+                    bArr[i14 + 1] = (byte) (b9 | (b8 << 6));
+                    return bArr;
+                } else if (b(c8) && b(c9)) {
+                    if ((b7 & 15) != 0) {
+                        return null;
+                    }
+                    int i15 = i2 * 3;
+                    byte[] bArr5 = new byte[i15 + 1];
+                    System.arraycopy(bArr, 0, bArr5, 0, i15);
+                    bArr5[i4] = (byte) ((b6 << 2) | (b7 >> 4));
+                    return bArr5;
+                } else if (b(c8) || !b(c9)) {
+                    return null;
+                } else {
+                    byte b10 = f4579a[c8];
+                    if ((b10 & 3) != 0) {
+                        return null;
+                    }
+                    int i16 = i2 * 3;
+                    byte[] bArr6 = new byte[i16 + 2];
+                    System.arraycopy(bArr, 0, bArr6, 0, i16);
+                    bArr6[i4] = (byte) ((b6 << 2) | (b7 >> 4));
+                    bArr6[i4 + 1] = (byte) (((b10 >> 2) & 15) | ((b7 & 15) << 4));
+                    return bArr6;
+                }
             }
             return null;
         }
         return null;
     }
 
-    private static boolean b(char c) {
-        return c == '=';
+    public static boolean b(char c2) {
+        return c2 == '=';
     }
 
-    private static boolean c(char c) {
-        return c < 128 && f1360a[c] != -1;
+    public static boolean c(char c2) {
+        return c2 < 128 && f4579a[c2] != -1;
     }
 }

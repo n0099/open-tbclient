@@ -9,190 +9,144 @@ import androidx.collection.SparseArrayCompat;
 import androidx.core.view.animation.PathInterpolatorCompat;
 import com.baidu.mobstat.Config;
 import java.lang.ref.WeakReference;
-/* loaded from: classes3.dex */
-class q {
+/* loaded from: classes6.dex */
+public class q {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final Interpolator f5336a = new LinearInterpolator();
-    private static SparseArrayCompat<WeakReference<Interpolator>> b;
+    public static final Interpolator f31342a = new LinearInterpolator();
 
-    q() {
-    }
+    /* renamed from: b  reason: collision with root package name */
+    public static SparseArrayCompat<WeakReference<Interpolator>> f31343b;
 
-    private static SparseArrayCompat<WeakReference<Interpolator>> a() {
-        if (b == null) {
-            b = new SparseArrayCompat<>();
+    public static SparseArrayCompat<WeakReference<Interpolator>> a() {
+        if (f31343b == null) {
+            f31343b = new SparseArrayCompat<>();
         }
-        return b;
+        return f31343b;
     }
 
-    private static <T> com.ksad.lottie.e.a<T> a(JsonReader jsonReader, float f, aj<T> ajVar) {
-        return new com.ksad.lottie.e.a<>(ajVar.b(jsonReader, f));
+    public static <T> com.ksad.lottie.e.a<T> a(JsonReader jsonReader, float f2, aj<T> ajVar) {
+        return new com.ksad.lottie.e.a<>(ajVar.b(jsonReader, f2));
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static <T> com.ksad.lottie.e.a<T> a(JsonReader jsonReader, com.ksad.lottie.d dVar, float f, aj<T> ajVar, boolean z) {
-        return z ? a(dVar, jsonReader, f, ajVar) : a(jsonReader, f, ajVar);
+    public static <T> com.ksad.lottie.e.a<T> a(JsonReader jsonReader, com.ksad.lottie.d dVar, float f2, aj<T> ajVar, boolean z) {
+        return z ? a(dVar, jsonReader, f2, ajVar) : a(jsonReader, f2, ajVar);
     }
 
-    private static <T> com.ksad.lottie.e.a<T> a(com.ksad.lottie.d dVar, JsonReader jsonReader, float f, aj<T> ajVar) {
+    public static <T> com.ksad.lottie.e.a<T> a(com.ksad.lottie.d dVar, JsonReader jsonReader, float f2, aj<T> ajVar) {
         Interpolator interpolator;
-        T t;
-        PointF b2;
-        PointF pointF;
-        T t2;
-        PointF pointF2 = null;
-        PointF pointF3 = null;
-        float f2 = 0.0f;
-        T t3 = null;
-        T t4 = null;
-        boolean z = false;
-        PointF pointF4 = null;
-        PointF pointF5 = null;
         jsonReader.beginObject();
+        boolean z = false;
+        PointF pointF = null;
+        PointF pointF2 = null;
+        T t = null;
+        T t2 = null;
+        float f3 = 0.0f;
+        PointF pointF3 = null;
+        PointF pointF4 = null;
         while (jsonReader.hasNext()) {
             String nextName = jsonReader.nextName();
-            char c = 65535;
-            switch (nextName.hashCode()) {
-                case 101:
-                    if (nextName.equals("e")) {
-                        c = 2;
-                        break;
+            char c2 = 65535;
+            int hashCode = nextName.hashCode();
+            if (hashCode != 101) {
+                if (hashCode != 111) {
+                    if (hashCode != 3701) {
+                        if (hashCode != 3707) {
+                            if (hashCode != 104) {
+                                if (hashCode != 105) {
+                                    if (hashCode != 115) {
+                                        if (hashCode == 116 && nextName.equals("t")) {
+                                            c2 = 0;
+                                        }
+                                    } else if (nextName.equals("s")) {
+                                        c2 = 1;
+                                    }
+                                } else if (nextName.equals("i")) {
+                                    c2 = 4;
+                                }
+                            } else if (nextName.equals("h")) {
+                                c2 = 5;
+                            }
+                        } else if (nextName.equals("to")) {
+                            c2 = 6;
+                        }
+                    } else if (nextName.equals(Config.FEED_LIST_PART)) {
+                        c2 = 7;
                     }
-                    break;
-                case 104:
-                    if (nextName.equals("h")) {
-                        c = 5;
-                        break;
-                    }
-                    break;
-                case 105:
-                    if (nextName.equals("i")) {
-                        c = 4;
-                        break;
-                    }
-                    break;
-                case 111:
-                    if (nextName.equals(Config.OS)) {
-                        c = 3;
-                        break;
-                    }
-                    break;
-                case 115:
-                    if (nextName.equals("s")) {
-                        c = 1;
-                        break;
-                    }
-                    break;
-                case 116:
-                    if (nextName.equals("t")) {
-                        c = 0;
-                        break;
-                    }
-                    break;
-                case 3701:
-                    if (nextName.equals(Config.FEED_LIST_PART)) {
-                        c = 7;
-                        break;
-                    }
-                    break;
-                case 3707:
-                    if (nextName.equals("to")) {
-                        c = 6;
-                        break;
-                    }
-                    break;
+                } else if (nextName.equals(Config.OS)) {
+                    c2 = 3;
+                }
+            } else if (nextName.equals("e")) {
+                c2 = 2;
             }
-            switch (c) {
+            switch (c2) {
                 case 0:
-                    f2 = (float) jsonReader.nextDouble();
-                    b2 = pointF5;
-                    pointF = pointF4;
-                    t2 = t4;
+                    f3 = (float) jsonReader.nextDouble();
                     break;
                 case 1:
-                    t3 = ajVar.b(jsonReader, f);
-                    b2 = pointF5;
-                    pointF = pointF4;
-                    t2 = t4;
+                    t = ajVar.b(jsonReader, f2);
                     break;
                 case 2:
-                    t2 = ajVar.b(jsonReader, f);
-                    b2 = pointF5;
-                    pointF = pointF4;
+                    t2 = ajVar.b(jsonReader, f2);
                     break;
                 case 3:
-                    pointF2 = p.b(jsonReader, f);
-                    b2 = pointF5;
-                    pointF = pointF4;
-                    t2 = t4;
+                    pointF = p.b(jsonReader, f2);
                     break;
                 case 4:
-                    pointF3 = p.b(jsonReader, f);
-                    b2 = pointF5;
-                    pointF = pointF4;
-                    t2 = t4;
+                    pointF2 = p.b(jsonReader, f2);
                     break;
                 case 5:
-                    z = jsonReader.nextInt() == 1;
-                    b2 = pointF5;
-                    pointF = pointF4;
-                    t2 = t4;
-                    break;
+                    if (jsonReader.nextInt() != 1) {
+                        z = false;
+                        break;
+                    } else {
+                        z = true;
+                        break;
+                    }
                 case 6:
-                    pointF = p.b(jsonReader, f);
-                    b2 = pointF5;
-                    t2 = t4;
+                    pointF3 = p.b(jsonReader, f2);
                     break;
                 case 7:
-                    b2 = p.b(jsonReader, f);
-                    pointF = pointF4;
-                    t2 = t4;
+                    pointF4 = p.b(jsonReader, f2);
                     break;
                 default:
                     jsonReader.skipValue();
-                    b2 = pointF5;
-                    pointF = pointF4;
-                    t2 = t4;
                     break;
             }
-            pointF5 = b2;
-            pointF4 = pointF;
-            t4 = t2;
         }
         jsonReader.endObject();
         if (z) {
-            interpolator = f5336a;
-            t = t3;
-        } else if (pointF2 == null || pointF3 == null) {
-            interpolator = f5336a;
-            t = t4;
+            interpolator = f31342a;
+            t2 = t;
+        } else if (pointF == null || pointF2 == null) {
+            interpolator = f31342a;
         } else {
-            pointF2.x = com.ksad.lottie.d.e.b(pointF2.x, -f, f);
-            pointF2.y = com.ksad.lottie.d.e.b(pointF2.y, -100.0f, 100.0f);
-            pointF3.x = com.ksad.lottie.d.e.b(pointF3.x, -f, f);
-            pointF3.y = com.ksad.lottie.d.e.b(pointF3.y, -100.0f, 100.0f);
-            int a2 = com.ksad.lottie.d.f.a(pointF2.x, pointF2.y, pointF3.x, pointF3.y);
+            float f4 = -f2;
+            pointF.x = com.ksad.lottie.d.e.b(pointF.x, f4, f2);
+            pointF.y = com.ksad.lottie.d.e.b(pointF.y, -100.0f, 100.0f);
+            pointF2.x = com.ksad.lottie.d.e.b(pointF2.x, f4, f2);
+            float b2 = com.ksad.lottie.d.e.b(pointF2.y, -100.0f, 100.0f);
+            pointF2.y = b2;
+            int a2 = com.ksad.lottie.d.f.a(pointF.x, pointF.y, pointF2.x, b2);
             WeakReference<Interpolator> a3 = a(a2);
             Interpolator interpolator2 = a3 != null ? a3.get() : null;
             if (a3 == null || interpolator2 == null) {
-                interpolator2 = PathInterpolatorCompat.create(pointF2.x / f, pointF2.y / f, pointF3.x / f, pointF3.y / f);
+                interpolator2 = PathInterpolatorCompat.create(pointF.x / f2, pointF.y / f2, pointF2.x / f2, pointF2.y / f2);
                 try {
                     a(a2, new WeakReference(interpolator2));
-                } catch (ArrayIndexOutOfBoundsException e) {
+                } catch (ArrayIndexOutOfBoundsException unused) {
                 }
             }
             interpolator = interpolator2;
-            t = t4;
         }
-        com.ksad.lottie.e.a<T> aVar = new com.ksad.lottie.e.a<>(dVar, t3, t, interpolator, f2, null);
-        aVar.f = pointF4;
-        aVar.g = pointF5;
+        com.ksad.lottie.e.a<T> aVar = new com.ksad.lottie.e.a<>(dVar, t, t2, interpolator, f3, null);
+        aVar.f31387f = pointF3;
+        aVar.f31388g = pointF4;
         return aVar;
     }
 
     @Nullable
-    private static WeakReference<Interpolator> a(int i) {
+    public static WeakReference<Interpolator> a(int i) {
         WeakReference<Interpolator> weakReference;
         synchronized (q.class) {
             weakReference = a().get(i);
@@ -200,9 +154,9 @@ class q {
         return weakReference;
     }
 
-    private static void a(int i, WeakReference<Interpolator> weakReference) {
+    public static void a(int i, WeakReference<Interpolator> weakReference) {
         synchronized (q.class) {
-            b.put(i, weakReference);
+            f31343b.put(i, weakReference);
         }
     }
 }

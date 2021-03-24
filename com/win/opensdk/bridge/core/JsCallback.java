@@ -7,14 +7,16 @@ import java.lang.ref.WeakReference;
 import java.util.Locale;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes14.dex */
+/* loaded from: classes7.dex */
 public class JsCallback {
 
     /* renamed from: a  reason: collision with root package name */
-    public WeakReference f8127a;
-    public String b;
+    public WeakReference f39896a;
 
-    /* loaded from: classes14.dex */
+    /* renamed from: b  reason: collision with root package name */
+    public String f39897b;
+
+    /* loaded from: classes7.dex */
     public class JsCallbackException extends Exception {
         public JsCallbackException(String str) {
             super(str);
@@ -22,34 +24,34 @@ public class JsCallback {
     }
 
     public JsCallback(WebView webView, String str) {
-        this.f8127a = new WeakReference(webView);
-        this.b = str;
+        this.f39896a = new WeakReference(webView);
+        this.f39897b = str;
     }
 
-    public static void a(JsCallback jsCallback, boolean z, JSONObject jSONObject, String str) {
+    public static void invokeJsCallback(JsCallback jsCallback, boolean z, JSONObject jSONObject, String str) {
         if (jsCallback == null) {
             return;
         }
         try {
-            jsCallback.a(z, jSONObject, str);
-        } catch (JsCallbackException e) {
-            e.printStackTrace();
+            jsCallback.call(z, jSONObject, str);
+        } catch (JsCallbackException e2) {
+            e2.printStackTrace();
         }
     }
 
-    public static JsCallback e(WebView webView, String str) {
+    public static JsCallback newInstance(WebView webView, String str) {
         return new JsCallback(webView, str);
     }
 
-    public void a(boolean z, JSONObject jSONObject, String str) {
-        final WebView webView = (WebView) this.f8127a.get();
+    public void call(boolean z, JSONObject jSONObject, String str) {
+        final WebView webView = (WebView) this.f39896a.get();
         if (webView == null) {
             throw new JsCallbackException("The WebView related to the JsCallback has been recycled!");
         }
         JSONObject jSONObject2 = new JSONObject();
         JSONObject jSONObject3 = new JSONObject();
         try {
-            jSONObject3.put("code", z ? 0 : 1);
+            jSONObject3.put("code", !z ? 1 : 0);
             if (TextUtils.isEmpty(str)) {
                 jSONObject3.put("msg", "");
             } else {
@@ -59,14 +61,14 @@ public class JsCallback {
             if (jSONObject != null) {
                 jSONObject2.put("data", jSONObject);
             }
-        } catch (JSONException e) {
-            e.printStackTrace();
+        } catch (JSONException e2) {
+            e2.printStackTrace();
         }
-        final String format = String.format(Locale.getDefault(), "javascript:JsBridge.onComplete(%s,%s);", this.b, jSONObject2.toString());
+        final String format = String.format(Locale.getDefault(), "javascript:JsBridge.onComplete(%s,%s);", this.f39897b, jSONObject2.toString());
         if (AsyncTaskExecutor.isMainThread()) {
             webView.loadUrl(format);
         } else {
-            AsyncTaskExecutor.A(new Runnable(this) { // from class: com.win.opensdk.bridge.core.JsCallback.1
+            AsyncTaskExecutor.runOnMainThread(new Runnable(this) { // from class: com.win.opensdk.bridge.core.JsCallback.1
                 @Override // java.lang.Runnable
                 public void run() {
                     webView.loadUrl(format);

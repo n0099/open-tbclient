@@ -4,36 +4,208 @@ import com.squareup.wire2.FieldEncoding;
 import com.squareup.wire2.Message;
 import com.squareup.wire2.ProtoAdapter;
 import com.squareup.wire2.WireField;
-import com.squareup.wire2.c;
-import com.squareup.wire2.d;
-import com.squareup.wire2.internal.a;
+import d.n.a.c;
+import d.n.a.d;
+import d.n.a.h.a;
 import java.io.IOException;
 import okio.ByteString;
-/* loaded from: classes5.dex */
+/* loaded from: classes.dex */
 public final class MovieParams extends Message<MovieParams, Builder> {
-    private static final long serialVersionUID = 0;
-    @WireField(eEc = "com.squareup.wire.ProtoAdapter#INT32", tag = 3)
-    public final Integer fps;
-    @WireField(eEc = "com.squareup.wire.ProtoAdapter#INT32", tag = 4)
-    public final Integer frames;
-    @WireField(eEc = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 2)
-    public final Float viewBoxHeight;
-    @WireField(eEc = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 1)
-    public final Float viewBoxWidth;
     public static final ProtoAdapter<MovieParams> ADAPTER = new ProtoAdapter_MovieParams();
-    public static final Float DEFAULT_VIEWBOXWIDTH = Float.valueOf(0.0f);
-    public static final Float DEFAULT_VIEWBOXHEIGHT = Float.valueOf(0.0f);
-    public static final Integer DEFAULT_FPS = 0;
-    public static final Integer DEFAULT_FRAMES = 0;
+    public static final Integer DEFAULT_FPS;
+    public static final Integer DEFAULT_FRAMES;
+    public static final Float DEFAULT_VIEWBOXHEIGHT;
+    public static final Float DEFAULT_VIEWBOXWIDTH;
+    public static final long serialVersionUID = 0;
+    @WireField(adapter = "com.squareup.wire.ProtoAdapter#INT32", tag = 3)
+    public final Integer fps;
+    @WireField(adapter = "com.squareup.wire.ProtoAdapter#INT32", tag = 4)
+    public final Integer frames;
+    @WireField(adapter = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 2)
+    public final Float viewBoxHeight;
+    @WireField(adapter = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 1)
+    public final Float viewBoxWidth;
 
-    public MovieParams(Float f, Float f2, Integer num, Integer num2) {
-        this(f, f2, num, num2, ByteString.EMPTY);
+    /* loaded from: classes6.dex */
+    public static final class Builder extends Message.a<MovieParams, Builder> {
+        public Integer fps;
+        public Integer frames;
+        public Float viewBoxHeight;
+        public Float viewBoxWidth;
+
+        public Builder fps(Integer num) {
+            this.fps = num;
+            return this;
+        }
+
+        public Builder frames(Integer num) {
+            this.frames = num;
+            return this;
+        }
+
+        public Builder viewBoxHeight(Float f2) {
+            this.viewBoxHeight = f2;
+            return this;
+        }
+
+        public Builder viewBoxWidth(Float f2) {
+            this.viewBoxWidth = f2;
+            return this;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX WARN: Can't rename method to resolve collision */
+        @Override // com.squareup.wire2.Message.a
+        public MovieParams build() {
+            return new MovieParams(this.viewBoxWidth, this.viewBoxHeight, this.fps, this.frames, super.buildUnknownFields());
+        }
     }
 
-    public MovieParams(Float f, Float f2, Integer num, Integer num2, ByteString byteString) {
+    /* loaded from: classes6.dex */
+    public static final class ProtoAdapter_MovieParams extends ProtoAdapter<MovieParams> {
+        public ProtoAdapter_MovieParams() {
+            super(FieldEncoding.LENGTH_DELIMITED, MovieParams.class);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX WARN: Can't rename method to resolve collision */
+        @Override // com.squareup.wire2.ProtoAdapter
+        public MovieParams decode(c cVar) throws IOException {
+            Builder builder = new Builder();
+            long c2 = cVar.c();
+            while (true) {
+                int f2 = cVar.f();
+                if (f2 == -1) {
+                    cVar.d(c2);
+                    return builder.build();
+                } else if (f2 == 1) {
+                    builder.viewBoxWidth(ProtoAdapter.FLOAT.decode(cVar));
+                } else if (f2 == 2) {
+                    builder.viewBoxHeight(ProtoAdapter.FLOAT.decode(cVar));
+                } else if (f2 == 3) {
+                    builder.fps(ProtoAdapter.INT32.decode(cVar));
+                } else if (f2 != 4) {
+                    FieldEncoding g2 = cVar.g();
+                    builder.addUnknownField(f2, g2, g2.rawProtoAdapter().decode(cVar));
+                } else {
+                    builder.frames(ProtoAdapter.INT32.decode(cVar));
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.squareup.wire2.ProtoAdapter
+        public void encode(d dVar, MovieParams movieParams) throws IOException {
+            Float f2 = movieParams.viewBoxWidth;
+            if (f2 != null) {
+                ProtoAdapter.FLOAT.encodeWithTag(dVar, 1, f2);
+            }
+            Float f3 = movieParams.viewBoxHeight;
+            if (f3 != null) {
+                ProtoAdapter.FLOAT.encodeWithTag(dVar, 2, f3);
+            }
+            Integer num = movieParams.fps;
+            if (num != null) {
+                ProtoAdapter.INT32.encodeWithTag(dVar, 3, num);
+            }
+            Integer num2 = movieParams.frames;
+            if (num2 != null) {
+                ProtoAdapter.INT32.encodeWithTag(dVar, 4, num2);
+            }
+            dVar.k(movieParams.unknownFields());
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.squareup.wire2.ProtoAdapter
+        public int encodedSize(MovieParams movieParams) {
+            Float f2 = movieParams.viewBoxWidth;
+            int encodedSizeWithTag = f2 != null ? ProtoAdapter.FLOAT.encodedSizeWithTag(1, f2) : 0;
+            Float f3 = movieParams.viewBoxHeight;
+            int encodedSizeWithTag2 = encodedSizeWithTag + (f3 != null ? ProtoAdapter.FLOAT.encodedSizeWithTag(2, f3) : 0);
+            Integer num = movieParams.fps;
+            int encodedSizeWithTag3 = encodedSizeWithTag2 + (num != null ? ProtoAdapter.INT32.encodedSizeWithTag(3, num) : 0);
+            Integer num2 = movieParams.frames;
+            return encodedSizeWithTag3 + (num2 != null ? ProtoAdapter.INT32.encodedSizeWithTag(4, num2) : 0) + movieParams.unknownFields().size();
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.squareup.wire2.ProtoAdapter
+        public MovieParams redact(MovieParams movieParams) {
+            Message.a<MovieParams, Builder> newBuilder2 = movieParams.newBuilder2();
+            newBuilder2.clearUnknownFields();
+            return newBuilder2.build();
+        }
+    }
+
+    static {
+        Float valueOf = Float.valueOf(0.0f);
+        DEFAULT_VIEWBOXWIDTH = valueOf;
+        DEFAULT_VIEWBOXHEIGHT = valueOf;
+        DEFAULT_FPS = 0;
+        DEFAULT_FRAMES = 0;
+    }
+
+    public MovieParams(Float f2, Float f3, Integer num, Integer num2) {
+        this(f2, f3, num, num2, ByteString.EMPTY);
+    }
+
+    public boolean equals(Object obj) {
+        if (obj == this) {
+            return true;
+        }
+        if (obj instanceof MovieParams) {
+            MovieParams movieParams = (MovieParams) obj;
+            return unknownFields().equals(movieParams.unknownFields()) && a.f(this.viewBoxWidth, movieParams.viewBoxWidth) && a.f(this.viewBoxHeight, movieParams.viewBoxHeight) && a.f(this.fps, movieParams.fps) && a.f(this.frames, movieParams.frames);
+        }
+        return false;
+    }
+
+    public int hashCode() {
+        int i = this.hashCode;
+        if (i == 0) {
+            int hashCode = unknownFields().hashCode() * 37;
+            Float f2 = this.viewBoxWidth;
+            int hashCode2 = (hashCode + (f2 != null ? f2.hashCode() : 0)) * 37;
+            Float f3 = this.viewBoxHeight;
+            int hashCode3 = (hashCode2 + (f3 != null ? f3.hashCode() : 0)) * 37;
+            Integer num = this.fps;
+            int hashCode4 = (hashCode3 + (num != null ? num.hashCode() : 0)) * 37;
+            Integer num2 = this.frames;
+            int hashCode5 = hashCode4 + (num2 != null ? num2.hashCode() : 0);
+            this.hashCode = hashCode5;
+            return hashCode5;
+        }
+        return i;
+    }
+
+    @Override // com.squareup.wire2.Message
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        if (this.viewBoxWidth != null) {
+            sb.append(", viewBoxWidth=");
+            sb.append(this.viewBoxWidth);
+        }
+        if (this.viewBoxHeight != null) {
+            sb.append(", viewBoxHeight=");
+            sb.append(this.viewBoxHeight);
+        }
+        if (this.fps != null) {
+            sb.append(", fps=");
+            sb.append(this.fps);
+        }
+        if (this.frames != null) {
+            sb.append(", frames=");
+            sb.append(this.frames);
+        }
+        StringBuilder replace = sb.replace(0, 2, "MovieParams{");
+        replace.append('}');
+        return replace.toString();
+    }
+
+    public MovieParams(Float f2, Float f3, Integer num, Integer num2, ByteString byteString) {
         super(ADAPTER, byteString);
-        this.viewBoxWidth = f;
-        this.viewBoxHeight = f2;
+        this.viewBoxWidth = f2;
+        this.viewBoxHeight = f3;
         this.fps = num;
         this.frames = num2;
     }
@@ -50,152 +222,5 @@ public final class MovieParams extends Message<MovieParams, Builder> {
         builder.frames = this.frames;
         builder.addUnknownFields(unknownFields());
         return builder;
-    }
-
-    public boolean equals(Object obj) {
-        if (obj == this) {
-            return true;
-        }
-        if (obj instanceof MovieParams) {
-            MovieParams movieParams = (MovieParams) obj;
-            return unknownFields().equals(movieParams.unknownFields()) && a.equals(this.viewBoxWidth, movieParams.viewBoxWidth) && a.equals(this.viewBoxHeight, movieParams.viewBoxHeight) && a.equals(this.fps, movieParams.fps) && a.equals(this.frames, movieParams.frames);
-        }
-        return false;
-    }
-
-    public int hashCode() {
-        int i = this.hashCode;
-        if (i == 0) {
-            int hashCode = (((this.fps != null ? this.fps.hashCode() : 0) + (((this.viewBoxHeight != null ? this.viewBoxHeight.hashCode() : 0) + (((this.viewBoxWidth != null ? this.viewBoxWidth.hashCode() : 0) + (unknownFields().hashCode() * 37)) * 37)) * 37)) * 37) + (this.frames != null ? this.frames.hashCode() : 0);
-            this.hashCode = hashCode;
-            return hashCode;
-        }
-        return i;
-    }
-
-    @Override // com.squareup.wire2.Message
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        if (this.viewBoxWidth != null) {
-            sb.append(", viewBoxWidth=").append(this.viewBoxWidth);
-        }
-        if (this.viewBoxHeight != null) {
-            sb.append(", viewBoxHeight=").append(this.viewBoxHeight);
-        }
-        if (this.fps != null) {
-            sb.append(", fps=").append(this.fps);
-        }
-        if (this.frames != null) {
-            sb.append(", frames=").append(this.frames);
-        }
-        return sb.replace(0, 2, "MovieParams{").append('}').toString();
-    }
-
-    /* loaded from: classes5.dex */
-    public static final class Builder extends Message.a<MovieParams, Builder> {
-        public Integer fps;
-        public Integer frames;
-        public Float viewBoxHeight;
-        public Float viewBoxWidth;
-
-        public Builder viewBoxWidth(Float f) {
-            this.viewBoxWidth = f;
-            return this;
-        }
-
-        public Builder viewBoxHeight(Float f) {
-            this.viewBoxHeight = f;
-            return this;
-        }
-
-        public Builder fps(Integer num) {
-            this.fps = num;
-            return this;
-        }
-
-        public Builder frames(Integer num) {
-            this.frames = num;
-            return this;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX WARN: Can't rename method to resolve collision */
-        @Override // com.squareup.wire2.Message.a
-        public MovieParams build() {
-            return new MovieParams(this.viewBoxWidth, this.viewBoxHeight, this.fps, this.frames, super.buildUnknownFields());
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    private static final class ProtoAdapter_MovieParams extends ProtoAdapter<MovieParams> {
-        ProtoAdapter_MovieParams() {
-            super(FieldEncoding.LENGTH_DELIMITED, MovieParams.class);
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.squareup.wire2.ProtoAdapter
-        public int encodedSize(MovieParams movieParams) {
-            return (movieParams.fps != null ? ProtoAdapter.INT32.encodedSizeWithTag(3, movieParams.fps) : 0) + (movieParams.viewBoxHeight != null ? ProtoAdapter.FLOAT.encodedSizeWithTag(2, movieParams.viewBoxHeight) : 0) + (movieParams.viewBoxWidth != null ? ProtoAdapter.FLOAT.encodedSizeWithTag(1, movieParams.viewBoxWidth) : 0) + (movieParams.frames != null ? ProtoAdapter.INT32.encodedSizeWithTag(4, movieParams.frames) : 0) + movieParams.unknownFields().size();
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.squareup.wire2.ProtoAdapter
-        public void encode(d dVar, MovieParams movieParams) throws IOException {
-            if (movieParams.viewBoxWidth != null) {
-                ProtoAdapter.FLOAT.encodeWithTag(dVar, 1, movieParams.viewBoxWidth);
-            }
-            if (movieParams.viewBoxHeight != null) {
-                ProtoAdapter.FLOAT.encodeWithTag(dVar, 2, movieParams.viewBoxHeight);
-            }
-            if (movieParams.fps != null) {
-                ProtoAdapter.INT32.encodeWithTag(dVar, 3, movieParams.fps);
-            }
-            if (movieParams.frames != null) {
-                ProtoAdapter.INT32.encodeWithTag(dVar, 4, movieParams.frames);
-            }
-            dVar.b(movieParams.unknownFields());
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX WARN: Can't rename method to resolve collision */
-        @Override // com.squareup.wire2.ProtoAdapter
-        public MovieParams decode(c cVar) throws IOException {
-            Builder builder = new Builder();
-            long eDU = cVar.eDU();
-            while (true) {
-                int eDV = cVar.eDV();
-                if (eDV != -1) {
-                    switch (eDV) {
-                        case 1:
-                            builder.viewBoxWidth(ProtoAdapter.FLOAT.decode(cVar));
-                            break;
-                        case 2:
-                            builder.viewBoxHeight(ProtoAdapter.FLOAT.decode(cVar));
-                            break;
-                        case 3:
-                            builder.fps(ProtoAdapter.INT32.decode(cVar));
-                            break;
-                        case 4:
-                            builder.frames(ProtoAdapter.INT32.decode(cVar));
-                            break;
-                        default:
-                            FieldEncoding eDW = cVar.eDW();
-                            builder.addUnknownField(eDV, eDW, eDW.rawProtoAdapter().decode(cVar));
-                            break;
-                    }
-                } else {
-                    cVar.iV(eDU);
-                    return builder.build();
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.squareup.wire2.ProtoAdapter
-        public MovieParams redact(MovieParams movieParams) {
-            Message.a<MovieParams, Builder> newBuilder2 = movieParams.newBuilder2();
-            newBuilder2.clearUnknownFields();
-            return newBuilder2.build();
-        }
     }
 }

@@ -5,7 +5,7 @@ import android.os.Parcelable;
 import android.text.TextUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class ActVideoSetting implements Parcelable {
     public static final String ACT_URL = "au";
     public static final String ACT_VIDEO_SETTING = "acts";
@@ -26,13 +26,13 @@ public class ActVideoSetting implements Parcelable {
     };
     public static final String TAG = "ActVideoSetting";
     public static final String WIFI_DISPLAY = "wd";
-    private String actUrl;
-    private boolean wifiDisplay;
+    public String actUrl;
+    public boolean wifiDisplay;
 
     public ActVideoSetting() {
     }
 
-    protected ActVideoSetting(Parcel parcel) {
+    public ActVideoSetting(Parcel parcel) {
         this.wifiDisplay = parcel.readByte() != 0;
         this.actUrl = parcel.readString();
     }
@@ -42,8 +42,8 @@ public class ActVideoSetting implements Parcelable {
         if (!TextUtils.isEmpty(str)) {
             try {
                 jSONObject = new JSONObject(str);
-            } catch (JSONException e) {
-                com.meizu.cloud.a.a.e(TAG, "parse json string error " + e.getMessage());
+            } catch (JSONException e2) {
+                d.j.a.a.a.b(TAG, "parse json string error " + e2.getMessage());
             }
             return parse(jSONObject);
         }
@@ -52,6 +52,7 @@ public class ActVideoSetting implements Parcelable {
     }
 
     public static ActVideoSetting parse(JSONObject jSONObject) {
+        String str;
         ActVideoSetting actVideoSetting = new ActVideoSetting();
         if (jSONObject != null) {
             try {
@@ -61,12 +62,13 @@ public class ActVideoSetting implements Parcelable {
                 if (!jSONObject.isNull(ACT_URL)) {
                     actVideoSetting.setActUrl(jSONObject.getString(ACT_URL));
                 }
-            } catch (JSONException e) {
-                com.meizu.cloud.a.a.e(TAG, "parse json obj error " + e.getMessage());
+            } catch (JSONException e2) {
+                str = "parse json obj error " + e2.getMessage();
             }
-        } else {
-            com.meizu.cloud.a.a.e(TAG, "no such tag ActVideoSetting");
+            return actVideoSetting;
         }
+        str = "no such tag ActVideoSetting";
+        d.j.a.a.a.b(TAG, str);
         return actVideoSetting;
     }
 
@@ -97,7 +99,7 @@ public class ActVideoSetting implements Parcelable {
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeByte((byte) (this.wifiDisplay ? 1 : 0));
+        parcel.writeByte(this.wifiDisplay ? (byte) 1 : (byte) 0);
         parcel.writeString(this.actUrl);
     }
 }

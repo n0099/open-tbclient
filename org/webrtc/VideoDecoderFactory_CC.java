@@ -1,7 +1,7 @@
 package org.webrtc;
 
 import javax.annotation.Nullable;
-/* loaded from: classes9.dex */
+/* loaded from: classes.dex */
 public final /* synthetic */ class VideoDecoderFactory_CC {
     @Nullable
     @Deprecated

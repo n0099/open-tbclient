@@ -6,59 +6,58 @@ import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import androidx.appcompat.widget.AppCompatEditText;
-import com.baidu.swan.apps.ao.ah;
 import com.baidu.tieba.R;
-/* loaded from: classes8.dex */
+import d.b.g0.a.i2.h0;
+/* loaded from: classes3.dex */
 public class ClearableEditText extends AppCompatEditText {
-    private static final int esl = ah.T(10.0f);
-    private Drawable esk;
+
+    /* renamed from: f  reason: collision with root package name */
+    public static final int f12972f = h0.f(10.0f);
+
+    /* renamed from: e  reason: collision with root package name */
+    public Drawable f12973e;
 
     public ClearableEditText(Context context) {
         super(context);
-        init();
+        a();
     }
 
-    public ClearableEditText(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        init();
+    private void setClearIconVisible(boolean z) {
+        setCompoundDrawablesWithIntrinsicBounds(getCompoundDrawables()[0], getCompoundDrawables()[1], z ? this.f12973e : null, getCompoundDrawables()[3]);
     }
 
-    public ClearableEditText(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        init();
+    public final void a() {
+        this.f12973e = getResources().getDrawable(R.drawable.aiapps_location_search_del);
     }
 
-    private void init() {
-        this.esk = getResources().getDrawable(R.drawable.aiapps_location_search_del);
+    @Override // android.widget.TextView, android.view.View
+    public void onFocusChanged(boolean z, int i, Rect rect) {
+        super.onFocusChanged(z, i, rect);
+        setClearIconVisible(z && length() > 0);
     }
 
     @Override // android.widget.TextView
-    protected void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
         super.onTextChanged(charSequence, i, i2, i3);
         setClearIconVisible(hasFocus() && charSequence.length() > 0);
     }
 
     @Override // android.widget.TextView, android.view.View
-    protected void onFocusChanged(boolean z, int i, Rect rect) {
-        super.onFocusChanged(z, i, rect);
-        setClearIconVisible(z && length() > 0);
-    }
-
-    @Override // android.widget.TextView, android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        switch (motionEvent.getAction()) {
-            case 1:
-                Drawable drawable = getCompoundDrawables()[2];
-                if (drawable != null && motionEvent.getX() <= (getWidth() - getPaddingRight()) + esl && motionEvent.getX() >= ((getWidth() - getPaddingRight()) - drawable.getBounds().width()) - esl) {
-                    setText("");
-                    break;
-                }
-                break;
+        Drawable drawable;
+        if (motionEvent.getAction() == 1 && (drawable = getCompoundDrawables()[2]) != null && motionEvent.getX() <= (getWidth() - getPaddingRight()) + f12972f && motionEvent.getX() >= ((getWidth() - getPaddingRight()) - drawable.getBounds().width()) - f12972f) {
+            setText("");
         }
         return super.onTouchEvent(motionEvent);
     }
 
-    private void setClearIconVisible(boolean z) {
-        setCompoundDrawablesWithIntrinsicBounds(getCompoundDrawables()[0], getCompoundDrawables()[1], z ? this.esk : null, getCompoundDrawables()[3]);
+    public ClearableEditText(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        a();
+    }
+
+    public ClearableEditText(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        a();
     }
 }

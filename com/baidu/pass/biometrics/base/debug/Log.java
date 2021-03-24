@@ -1,38 +1,40 @@
 package com.baidu.pass.biometrics.base.debug;
-/* loaded from: classes6.dex */
+
+import com.baidu.tbadk.core.util.FieldBuilder;
+/* loaded from: classes2.dex */
 public final class Log {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f2743a = "SAPI_BIOMETRIC";
-    private static boolean b;
+    public static final String f9519a = "SAPI_BIOMETRIC";
 
-    private Log() {
-    }
+    /* renamed from: b  reason: collision with root package name */
+    public static boolean f9520b = false;
 
-    private static String a(String str, Object[] objArr) {
+    public static String a(String str, Object[] objArr) {
         if (objArr != null) {
             try {
-                if (objArr.length != 0) {
-                    StringBuffer stringBuffer = new StringBuffer();
-                    int length = objArr.length;
-                    for (int i = 0; i < length; i++) {
-                        Object obj = objArr[i];
-                        if (obj != null) {
-                            if (i != 0) {
-                                stringBuffer.append("|");
+                if (objArr.length == 0) {
+                    return "";
+                }
+                StringBuffer stringBuffer = new StringBuffer();
+                int length = objArr.length;
+                for (int i = 0; i < length; i++) {
+                    Object obj = objArr[i];
+                    if (obj != null) {
+                        if (i != 0) {
+                            stringBuffer.append(FieldBuilder.SE);
+                        }
+                        try {
+                            if (obj instanceof Throwable) {
+                                stringBuffer.append(android.util.Log.getStackTraceString((Throwable) obj));
+                            } else {
+                                stringBuffer.append(obj.toString());
                             }
-                            try {
-                                if (obj instanceof Throwable) {
-                                    stringBuffer.append(android.util.Log.getStackTraceString((Throwable) obj));
-                                } else {
-                                    stringBuffer.append(obj.toString());
-                                }
-                            } catch (Exception e) {
-                            }
+                        } catch (Exception unused) {
                         }
                     }
-                    return stringBuffer.toString();
                 }
+                return stringBuffer.toString();
             } catch (Throwable th) {
                 android.util.Log.e(str, "converArrayToString t: " + th.toString());
                 return "converArrayToString null";
@@ -42,32 +44,29 @@ public final class Log {
     }
 
     public static void d(String str, Object... objArr) {
-        if (!b) {
-            return;
+        if (f9520b) {
+            android.util.Log.d(str, a(str, objArr));
         }
-        android.util.Log.d(str, a(str, objArr));
     }
 
     public static void e(Throwable th) {
-        e(f2743a, th);
+        e("SAPI_BIOMETRIC", th);
     }
 
     public static void enable(boolean z) {
-        b = z;
+        f9520b = z;
     }
 
     public static void i(String str, Object... objArr) {
-        if (!b) {
-            return;
+        if (f9520b) {
+            android.util.Log.i(str, a(str, objArr));
         }
-        android.util.Log.i(str, a(str, objArr));
     }
 
     public static void w(String str, Object... objArr) {
-        if (!b) {
-            return;
+        if (f9520b) {
+            android.util.Log.w(str, a(str, objArr));
         }
-        android.util.Log.w(str, a(str, objArr));
     }
 
     public static void e(String str, Throwable th) {
@@ -75,21 +74,20 @@ public final class Log {
     }
 
     public static void d(Object... objArr) {
-        d(f2743a, objArr);
+        d("SAPI_BIOMETRIC", objArr);
     }
 
     public static void e(String str, Object... objArr) {
-        if (!b) {
-            return;
+        if (f9520b) {
+            android.util.Log.e(str, a(str, objArr));
         }
-        android.util.Log.e(str, a(str, objArr));
     }
 
     public static void i(Object... objArr) {
-        i(f2743a, objArr);
+        i("SAPI_BIOMETRIC", objArr);
     }
 
     public static void w(Object... objArr) {
-        w(f2743a, objArr);
+        w("SAPI_BIOMETRIC", objArr);
     }
 }

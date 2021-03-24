@@ -2,91 +2,104 @@ package com.baidu.tieba.interestlabel.activity;
 
 import android.os.Bundle;
 import android.view.KeyEvent;
-import com.baidu.adp.lib.util.j;
-import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
 import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.util.y;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.R;
-import com.baidu.tieba.interestlabel.b.b;
 import com.baidu.tieba.interestlabel.model.LabelRequestEnum;
 import com.baidu.tieba.interestlabel.model.LabelSettingModel;
-import com.baidu.tieba.interestlabel.model.a;
 import com.baidu.tieba.interestlabel.view.LabelSettingView;
+import d.b.b.e.p.j;
+import d.b.i0.g1.b.b;
 import java.util.List;
-/* loaded from: classes7.dex */
-public class LabelSettingActivity extends BaseActivity<LabelSettingActivity> implements a {
-    private LabelSettingView kZY;
-    private LabelSettingModel kZZ;
+/* loaded from: classes4.dex */
+public class LabelSettingActivity extends BaseActivity<LabelSettingActivity> implements d.b.i0.g1.c.a {
+    public LabelSettingModel mLabelSettingModel;
+    public LabelSettingView mLabelSettingView;
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
-    public void onCreate(Bundle bundle) {
-        super.onCreate(bundle);
-        this.kZY = new LabelSettingView(getPageContext(), this);
-        this.kZZ = new LabelSettingModel(getPageContext());
-        setContentView(this.kZY);
-        this.kZZ.a(this);
-        daS();
+    /* loaded from: classes4.dex */
+    public static /* synthetic */ class a {
+
+        /* renamed from: a  reason: collision with root package name */
+        public static final /* synthetic */ int[] f18481a;
+
+        static {
+            int[] iArr = new int[LabelRequestEnum.values().length];
+            f18481a = iArr;
+            try {
+                iArr[LabelRequestEnum.GET_LABEL.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
+            }
+            try {
+                f18481a[LabelRequestEnum.SUB_LABEL.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
+            }
+        }
     }
 
-    @Override // com.baidu.tieba.interestlabel.model.a
-    public void daS() {
-        if (!j.isNetworkAvailableForImmediately()) {
-            this.kZY.hideLoadingView();
-            this.kZY.qa(true);
+    @Override // d.b.i0.g1.c.a
+    public void callback(LabelRequestEnum labelRequestEnum, b bVar, int i) {
+        int i2 = a.f18481a[labelRequestEnum.ordinal()];
+        if (i2 != 1) {
+            if (i2 == 2 && i == 0) {
+                d.b.h0.r.d0.b.i().s("set_recommend_label", true);
+                finish();
+                return;
+            }
             return;
         }
-        this.kZY.Xc();
-        this.kZY.ir(true);
-        this.kZZ.daY();
-    }
-
-    @Override // com.baidu.tieba.interestlabel.model.a
-    public void eD(List<Integer> list) {
-        if (!j.isNetworkAvailableForImmediately()) {
-            showToast(R.string.neterror);
-        } else {
-            this.kZZ.eE(list);
+        this.mLabelSettingView.h();
+        if (bVar != null && !ListUtils.isEmpty(bVar.b())) {
+            this.mLabelSettingView.i();
+            this.mLabelSettingView.setData(bVar);
+            return;
         }
+        this.mLabelSettingView.p(true);
     }
 
-    @Override // com.baidu.tieba.interestlabel.model.a
-    public void a(LabelRequestEnum labelRequestEnum, b bVar, int i) {
-        switch (labelRequestEnum) {
-            case GET_LABEL:
-                this.kZY.hideLoadingView();
-                if (bVar == null || y.isEmpty(bVar.daW())) {
-                    this.kZY.qa(true);
-                    return;
-                }
-                this.kZY.Xc();
-                this.kZY.setData(bVar);
-                return;
-            case SUB_LABEL:
-                if (i == 0) {
-                    com.baidu.tbadk.core.sharedPref.b.brR().putBoolean(SharedPrefConfig.SET_RECOMMEND_LABEL, true);
-                    finish();
-                    return;
-                }
-                return;
-            default:
-                return;
+    @Override // d.b.i0.g1.c.a
+    public void getLabel() {
+        if (!j.A()) {
+            this.mLabelSettingView.h();
+            this.mLabelSettingView.p(true);
+            return;
         }
+        this.mLabelSettingView.i();
+        this.mLabelSettingView.o(true);
+        this.mLabelSettingModel.x();
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.kZY.onChangeSkinType();
+        this.mLabelSettingView.m();
+    }
+
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
+    public void onCreate(Bundle bundle) {
+        super.onCreate(bundle);
+        this.mLabelSettingView = new LabelSettingView(getPageContext(), this);
+        this.mLabelSettingModel = new LabelSettingModel(getPageContext());
+        setContentView(this.mLabelSettingView);
+        this.mLabelSettingModel.z(this);
+        getLabel();
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (i == 4 && this.kZY != null && this.kZY.dbi()) {
-            this.kZY.QH();
+        LabelSettingView labelSettingView;
+        if (i == 4 && (labelSettingView = this.mLabelSettingView) != null && labelSettingView.f()) {
+            this.mLabelSettingView.n();
             return true;
         }
         return super.onKeyDown(i, keyEvent);
+    }
+
+    @Override // d.b.i0.g1.c.a
+    public void subLabel(List<Integer> list) {
+        if (!j.A()) {
+            showToast(R.string.neterror);
+        } else {
+            this.mLabelSettingModel.y(list);
+        }
     }
 }

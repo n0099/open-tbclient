@@ -6,8 +6,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.crashpad.ZwCrashpad;
 import com.baidu.disasterrecovery.jnicrash.NativeCrashCapture;
-import com.baidu.disasterrecovery.jnicrash.b;
-import com.baidu.pyramid.runtime.multiprocess.a;
 import com.baidu.searchbox.aop.annotation.DebugTrace;
 import com.baidu.searchbox.aop.annotation.TimeSpendTrace;
 import com.baidu.searchbox.common.runtime.AppRuntime;
@@ -16,66 +14,36 @@ import com.baidu.searchbox.logsystem.basic.track.LokiTrackUISaver;
 import com.baidu.searchbox.logsystem.basic.upload.LogSystemUploaderStrategy;
 import com.baidu.searchbox.logsystem.util.Common;
 import com.baidu.searchbox.track.Track;
-/* loaded from: classes6.dex */
+import d.b.d0.b.a.a;
+import d.b.o.a.b;
+/* loaded from: classes.dex */
 public class Loki {
-    private static final String CRASH_PAD_PROCESS_NAME = ":crashpad";
-    private static volatile boolean sIsInitialized = false;
-    private static volatile boolean sIsStartTrack = false;
+    public static final String CRASH_PAD_PROCESS_NAME = ":crashpad";
+    public static volatile boolean sIsInitialized = false;
+    public static volatile boolean sIsStartTrack = false;
 
     @DebugTrace
     @TimeSpendTrace(tag = "AppInit")
     public static void init(@NonNull Context context, @NonNull BaseUncaughtExceptionHandler baseUncaughtExceptionHandler) {
-        if (!isLokiService(a.getProcessName())) {
-            retryUpload(context);
-            if (!sIsInitialized && baseUncaughtExceptionHandler != null) {
-                sIsInitialized = true;
-                Thread.setDefaultUncaughtExceptionHandler(baseUncaughtExceptionHandler);
-            }
+        if (isLokiService(a.b())) {
+            return;
         }
-    }
-
-    public static void init(@NonNull Context context) {
-        init(context, new BaseUncaughtExceptionHandler(context));
-        startTrack();
-    }
-
-    public static void initService(@Nullable LogSystemProcessor logSystemProcessor) {
-        if (isLokiService(a.getProcessName())) {
-            LokiService.mProcessor = logSystemProcessor;
+        retryUpload(context);
+        if (sIsInitialized || baseUncaughtExceptionHandler == null) {
+            return;
         }
-    }
-
-    public static void initService() {
-        if (isLokiService(a.getProcessName())) {
-            LokiService.mProcessor = new LogSystemProcessor();
-        }
+        sIsInitialized = true;
+        Thread.setDefaultUncaughtExceptionHandler(baseUncaughtExceptionHandler);
     }
 
     public static void initNative(@NonNull Context context) {
         initNative(context, true);
     }
 
-    public static void initNative(@NonNull Context context, @NonNull b bVar) {
-        initNative(context, bVar, true);
-    }
-
-    public static void initNative(@NonNull Context context, boolean z) {
-        if (!isLokiService(a.getProcessName())) {
-            NativeCrashCapture.init(context, new b(context), z);
+    public static void initService(@Nullable LogSystemProcessor logSystemProcessor) {
+        if (isLokiService(a.b())) {
+            LokiService.mProcessor = logSystemProcessor;
         }
-    }
-
-    public static void initNative(@NonNull Context context, @NonNull b bVar, boolean z) {
-        if (!isLokiService(a.getProcessName())) {
-            NativeCrashCapture.init(context, bVar, z);
-        }
-    }
-
-    public static boolean isLokiService(@NonNull String str) {
-        if (TextUtils.isEmpty(str)) {
-            return false;
-        }
-        return str.endsWith(":loki");
     }
 
     public static boolean isCrashpadService(@NonNull String str) {
@@ -85,22 +53,21 @@ public class Loki {
         return str.endsWith(CRASH_PAD_PROCESS_NAME);
     }
 
-    public static void startTrack() {
-        if (!sIsStartTrack) {
-            sIsStartTrack = true;
-            Track.getInstance().addTrackUIListener(LokiTrackUISaver.getTrackUiListener());
-            Track.getInstance().startTrack(AppRuntime.getAppContext());
+    public static boolean isLokiService(@NonNull String str) {
+        if (TextUtils.isEmpty(str)) {
+            return false;
         }
-    }
-
-    public static void retryUpload(Context context) {
-        if (a.aed() && LogSystemUploaderStrategy.checkFlag()) {
-            LogSystemServiceUtil.startLogHandlerService(context);
-        }
+        return str.endsWith(LokiService.LOG_SYSTEM_SERVICE);
     }
 
     public static boolean isStartTrack() {
         return sIsInitialized;
+    }
+
+    public static void retryUpload(Context context) {
+        if (a.f() && LogSystemUploaderStrategy.checkFlag()) {
+            LogSystemServiceUtil.startLogHandlerService(context);
+        }
     }
 
     public static void setAppExtraCall(Common.AppExtraCall appExtraCall) {
@@ -109,5 +76,43 @@ public class Loki {
 
     public static boolean setCyberVersion(String str) {
         return ZwCrashpad.setCyberVersion(str);
+    }
+
+    public static void startTrack() {
+        if (sIsStartTrack) {
+            return;
+        }
+        sIsStartTrack = true;
+        Track.getInstance().addTrackUIListener(LokiTrackUISaver.getTrackUiListener());
+        Track.getInstance().startTrack(AppRuntime.getAppContext());
+    }
+
+    public static void initNative(@NonNull Context context, @NonNull b bVar) {
+        initNative(context, bVar, true);
+    }
+
+    public static void initNative(@NonNull Context context, boolean z) {
+        if (isLokiService(a.b())) {
+            return;
+        }
+        NativeCrashCapture.init(context, new b(context), z);
+    }
+
+    public static void initService() {
+        if (isLokiService(a.b())) {
+            LokiService.mProcessor = new LogSystemProcessor();
+        }
+    }
+
+    public static void initNative(@NonNull Context context, @NonNull b bVar, boolean z) {
+        if (isLokiService(a.b())) {
+            return;
+        }
+        NativeCrashCapture.init(context, bVar, z);
+    }
+
+    public static void init(@NonNull Context context) {
+        init(context, new BaseUncaughtExceptionHandler(context));
+        startTrack();
     }
 }

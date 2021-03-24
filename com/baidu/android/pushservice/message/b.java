@@ -2,12 +2,12 @@ package com.baidu.android.pushservice.message;
 
 import android.content.Context;
 import android.util.Log;
-import com.baidu.android.pushservice.h.a.b;
-import com.baidu.android.pushservice.i.m;
+import com.baidu.android.pushservice.i.a.b;
+import com.baidu.android.pushservice.j.m;
 import com.qq.e.comm.constants.Constants;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public class b extends c {
     public b(Context context) {
         super(context);
@@ -18,17 +18,17 @@ public class b extends c {
         JSONObject jSONObject;
         g gVar = new g();
         try {
-            jSONObject = new JSONObject(new String(eVar.b));
-        } catch (JSONException e) {
-            new b.c(this.f1245a).a(Log.getStackTraceString(e)).a();
+            jSONObject = new JSONObject(new String(eVar.f3456b));
+        } catch (JSONException e2) {
+            new b.c(this.f3452a).a(Log.getStackTraceString(e2)).a();
             jSONObject = null;
         }
         int optInt = jSONObject != null ? jSONObject.optInt(Constants.KEYS.RET, -1) : -1;
         if (optInt == 2002) {
-            com.baidu.android.pushservice.j.a(this.f1245a).a(null, null, null, null);
-            m.c(this.f1245a);
+            com.baidu.android.pushservice.k.a(this.f3452a).a(null, null, null, null);
+            m.c(this.f3452a);
         }
-        new b.C0065b(this.f1245a).a(System.currentTimeMillis()).a(optInt + "").d(401102L).a();
+        new b.C0052b(this.f3452a).a(System.currentTimeMillis()).a(optInt + "").d(401102L).a();
         gVar.a(optInt);
         return gVar;
     }

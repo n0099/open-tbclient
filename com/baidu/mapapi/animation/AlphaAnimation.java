@@ -3,7 +3,8 @@ package com.baidu.mapapi.animation;
 import android.view.animation.Interpolator;
 import com.baidu.mapapi.animation.Animation;
 import com.baidu.mapsdkplatform.comapi.a.a;
-/* loaded from: classes4.dex */
+import com.baidu.mapsdkplatform.comapi.a.c;
+/* loaded from: classes2.dex */
 public class AlphaAnimation extends Animation {
     public AlphaAnimation(float... fArr) {
         if (fArr == null || fArr.length == 0) {
@@ -37,10 +38,17 @@ public class AlphaAnimation extends Animation {
     }
 
     public void setRepeatMode(Animation.RepeatMode repeatMode) {
+        c cVar;
+        int i;
         if (repeatMode == Animation.RepeatMode.RESTART) {
-            this.bdAnimation.a(1);
-        } else if (repeatMode == Animation.RepeatMode.REVERSE) {
-            this.bdAnimation.a(2);
+            cVar = this.bdAnimation;
+            i = 1;
+        } else if (repeatMode != Animation.RepeatMode.REVERSE) {
+            return;
+        } else {
+            cVar = this.bdAnimation;
+            i = 2;
         }
+        cVar.a(i);
     }
 }

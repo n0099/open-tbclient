@@ -2,27 +2,29 @@ package com.kwad.sdk.contentalliance.detail.photo.comment;
 
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    private static Set<String> f5635a = new HashSet();
+    public static Set<String> f32246a = new HashSet();
 
     public static void a(long j, long j2) {
-        f5635a.add(d(j, j2));
+        f32246a.add(d(j, j2));
     }
 
     public static void b(long j, long j2) {
-        f5635a.remove(d(j, j2));
+        f32246a.remove(d(j, j2));
     }
 
     public static boolean c(long j, long j2) {
-        return f5635a.contains(d(j, j2));
+        return f32246a.contains(d(j, j2));
     }
 
-    private static String d(long j, long j2) {
+    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(r1v0 long), (r3v0 long)] */
+    public static String d(long j, long j2) {
         StringBuilder sb = new StringBuilder();
-        sb.append(j).append(j2);
+        sb.append(j);
+        sb.append(j2);
         return sb.toString();
     }
 }

@@ -4,17 +4,18 @@ import android.content.Context;
 import android.net.NetworkInfo;
 import android.net.Proxy;
 import com.baidu.down.utils.Utils;
-/* loaded from: classes6.dex */
+import com.baidu.webkit.internal.ConectivityUtils;
+/* loaded from: classes2.dex */
 public class ConnectManager {
-    private static final boolean DEBUG = false;
-    private static final String TAG = ConnectManager.class.getSimpleName();
-    private String mApn;
-    private NetWorkType mNetWorkType = NetWorkType.TYPE_UNKNOWN;
-    private String mPort;
-    private String mProxy;
-    private boolean mUseWap;
+    public static final boolean DEBUG = false;
+    public static final String TAG = "ConnectManager";
+    public String mApn;
+    public NetWorkType mNetWorkType = NetWorkType.TYPE_UNKNOWN;
+    public String mPort;
+    public String mProxy;
+    public boolean mUseWap;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public enum NetWorkType {
         TYPE_UNKNOWN,
         TYPE_WF,
@@ -30,21 +31,23 @@ public class ConnectManager {
     private void checkApn(Context context, NetworkInfo networkInfo) {
         String lowerCase;
         if (networkInfo.getExtraInfo() != null && (lowerCase = networkInfo.getExtraInfo().toLowerCase()) != null) {
-            if (lowerCase.startsWith("cmwap") || lowerCase.startsWith("uniwap") || lowerCase.startsWith("3gwap")) {
+            if (!lowerCase.startsWith(ConectivityUtils.APN_CMWAP) && !lowerCase.startsWith(ConectivityUtils.APN_UNIWAP) && !lowerCase.startsWith(ConectivityUtils.APN_3GWAP)) {
+                if (lowerCase.startsWith(ConectivityUtils.APN_CTWAP)) {
+                    this.mUseWap = true;
+                    this.mApn = lowerCase;
+                    this.mProxy = "10.0.0.200";
+                    this.mPort = "80";
+                    return;
+                } else if (lowerCase.startsWith(ConectivityUtils.APN_CMNET) || lowerCase.startsWith(ConectivityUtils.APN_UNINET) || lowerCase.startsWith(ConectivityUtils.APN_CTNET) || lowerCase.startsWith(ConectivityUtils.APN_3GNET)) {
+                    this.mUseWap = false;
+                    this.mApn = lowerCase;
+                    return;
+                }
+            } else {
                 this.mUseWap = true;
                 this.mApn = lowerCase;
                 this.mProxy = "10.0.0.172";
                 this.mPort = "80";
-                return;
-            } else if (lowerCase.startsWith("ctwap")) {
-                this.mUseWap = true;
-                this.mApn = lowerCase;
-                this.mProxy = "10.0.0.200";
-                this.mPort = "80";
-                return;
-            } else if (lowerCase.startsWith("cmnet") || lowerCase.startsWith("uninet") || lowerCase.startsWith("ctnet") || lowerCase.startsWith("3gnet")) {
-                this.mUseWap = false;
-                this.mApn = lowerCase;
                 return;
             }
         }
@@ -52,7 +55,7 @@ public class ConnectManager {
         int defaultPort = Proxy.getDefaultPort();
         if (defaultHost != null && defaultHost.length() > 0) {
             this.mProxy = defaultHost;
-            if ("10.0.0.172".equals(this.mProxy.trim())) {
+            if ("10.0.0.172".equals(defaultHost.trim())) {
                 this.mUseWap = true;
                 this.mPort = "80";
                 return;
@@ -67,19 +70,6 @@ public class ConnectManager {
             }
         }
         this.mUseWap = false;
-    }
-
-    private void checkNetworkType(Context context) {
-        NetworkInfo activeNetworkInfoSafely = Utils.getActiveNetworkInfoSafely(context);
-        if (activeNetworkInfoSafely != null) {
-            if ("wifi".equals(activeNetworkInfoSafely.getTypeName().toLowerCase())) {
-                this.mNetWorkType = NetWorkType.TYPE_WF;
-                this.mUseWap = false;
-                return;
-            }
-            checkApn(context, activeNetworkInfoSafely);
-            this.mNetWorkType = checkApnType(activeNetworkInfoSafely);
-        }
     }
 
     private NetWorkType checkApnType(NetworkInfo networkInfo) {
@@ -122,6 +112,19 @@ public class ConnectManager {
         }
     }
 
+    private void checkNetworkType(Context context) {
+        NetworkInfo activeNetworkInfoSafely = Utils.getActiveNetworkInfoSafely(context);
+        if (activeNetworkInfoSafely != null) {
+            if ("wifi".equals(activeNetworkInfoSafely.getTypeName().toLowerCase())) {
+                this.mNetWorkType = NetWorkType.TYPE_WF;
+                this.mUseWap = false;
+                return;
+            }
+            checkApn(context, activeNetworkInfoSafely);
+            this.mNetWorkType = checkApnType(activeNetworkInfoSafely);
+        }
+    }
+
     public static boolean isNetworkConnected(Context context) {
         NetworkInfo activeNetworkInfoSafely = Utils.getActiveNetworkInfoSafely(context);
         if (activeNetworkInfoSafely != null) {
@@ -130,12 +133,12 @@ public class ConnectManager {
         return false;
     }
 
-    public boolean isWapNetwork() {
-        return this.mUseWap;
-    }
-
     public String getApn() {
         return this.mApn;
+    }
+
+    public NetWorkType getNetType() {
+        return this.mNetWorkType;
     }
 
     public String getProxy() {
@@ -146,7 +149,7 @@ public class ConnectManager {
         return this.mPort;
     }
 
-    public NetWorkType getNetType() {
-        return this.mNetWorkType;
+    public boolean isWapNetwork() {
+        return this.mUseWap;
     }
 }

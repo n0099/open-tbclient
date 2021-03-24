@@ -10,28 +10,42 @@ import android.view.ViewGroup;
 import android.view.ViewParent;
 import android.webkit.WebView;
 import android.widget.ImageView;
-import com.bytedance.sdk.openadsdk.utils.ad;
+import com.bytedance.sdk.openadsdk.utils.ae;
 import java.util.HashSet;
 /* loaded from: classes6.dex */
 public class aa {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final boolean f4358a;
-    private static final boolean b;
-    private static int c;
-    private static int d;
-    private static int e;
-    private static Handler f;
-    private static final HashSet<String> g;
-    private static final HashSet<String> h;
+    public static final boolean f28032a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public static final boolean f28033b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public static int f28034c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public static int f28035d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public static int f28036e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public static Handler f28037f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public static final HashSet<String> f28038g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public static final HashSet<String> f28039h;
 
     static {
-        f4358a = Build.VERSION.SDK_INT >= 16 && ad.e();
-        b = a();
-        c = -1;
-        d = -1;
-        e = -1;
-        f = null;
+        f28032a = Build.VERSION.SDK_INT >= 16 && ae.e();
+        f28033b = a();
+        f28034c = -1;
+        f28035d = -1;
+        f28036e = -1;
+        f28037f = null;
         HashSet<String> hashSet = new HashSet<>();
         hashSet.add("HUAWEI C8812");
         hashSet.add("HUAWEI C8812E");
@@ -39,7 +53,7 @@ public class aa {
         hashSet.add("HUAWEI U8825D");
         hashSet.add("HUAWEI C8950D");
         hashSet.add("HUAWEI U8950D");
-        g = hashSet;
+        f28038g = hashSet;
         HashSet<String> hashSet2 = new HashSet<>();
         hashSet2.add("ZTE V955");
         hashSet2.add("ZTE N881E");
@@ -47,51 +61,53 @@ public class aa {
         hashSet2.add("ZTE N880G");
         hashSet2.add("ZTE N880F");
         hashSet2.add("ZTE V889F");
-        h = hashSet2;
+        f28039h = hashSet2;
     }
 
     public static void a(Context context, WebView webView) {
-        if (context != null && webView != null && (context instanceof Activity)) {
-            Activity activity = (Activity) context;
-            if (activity.isFinishing()) {
-                try {
-                    webView.loadUrl("about:blank");
-                    if (e > 0) {
-                        View rootView = webView.getRootView();
-                        if (rootView instanceof ViewGroup) {
-                            View childAt = ((ViewGroup) rootView).getChildAt(0);
-                            childAt.setDrawingCacheEnabled(true);
-                            Bitmap createBitmap = Bitmap.createBitmap(childAt.getDrawingCache());
-                            childAt.setDrawingCacheEnabled(false);
-                            ImageView imageView = new ImageView(activity);
-                            imageView.setImageBitmap(createBitmap);
-                            imageView.setVisibility(0);
-                            ((ViewGroup) rootView).addView(imageView, new ViewGroup.LayoutParams(-1, -1));
-                        }
+        if (context == null || webView == null || !(context instanceof Activity)) {
+            return;
+        }
+        Activity activity = (Activity) context;
+        if (activity.isFinishing()) {
+            try {
+                webView.loadUrl("about:blank");
+                if (f28036e > 0) {
+                    View rootView = webView.getRootView();
+                    if (rootView instanceof ViewGroup) {
+                        View childAt = ((ViewGroup) rootView).getChildAt(0);
+                        childAt.setDrawingCacheEnabled(true);
+                        Bitmap createBitmap = Bitmap.createBitmap(childAt.getDrawingCache());
+                        childAt.setDrawingCacheEnabled(false);
+                        ImageView imageView = new ImageView(activity);
+                        imageView.setImageBitmap(createBitmap);
+                        imageView.setVisibility(0);
+                        ((ViewGroup) rootView).addView(imageView, new ViewGroup.LayoutParams(-1, -1));
                     }
-                } catch (Exception e2) {
                 }
+            } catch (Exception unused) {
             }
         }
     }
 
-    private static boolean a() {
-        return f4358a || (Build.VERSION.SDK_INT == 16 && "ZTE N5".equals(Build.MODEL));
+    public static boolean a() {
+        return f28032a || (Build.VERSION.SDK_INT == 16 && "ZTE N5".equals(Build.MODEL));
     }
 
     public static void a(WebView webView) {
-        if (webView != null) {
-            webView.setWebChromeClient(null);
-            webView.setWebViewClient(null);
-            ViewParent parent = webView.getParent();
-            if (parent != null && (parent instanceof ViewGroup)) {
-                ((ViewGroup) parent).removeView(webView);
-            }
-            webView.removeAllViews();
-            try {
-                webView.destroy();
-            } catch (Throwable th) {
-            }
+        if (webView == null) {
+            return;
+        }
+        webView.setWebChromeClient(null);
+        webView.setWebViewClient(null);
+        ViewParent parent = webView.getParent();
+        if (parent != null && (parent instanceof ViewGroup)) {
+            ((ViewGroup) parent).removeView(webView);
+        }
+        webView.removeAllViews();
+        try {
+            webView.destroy();
+        } catch (Throwable unused) {
         }
     }
 }

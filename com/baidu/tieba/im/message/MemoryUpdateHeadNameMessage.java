@@ -1,19 +1,26 @@
 package com.baidu.tieba.im.message;
 
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class MemoryUpdateHeadNameMessage extends CustomResponsedMessage<a> {
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public static class a {
-        public int customGroupType;
-        public String head;
-        public String id;
-        public String name;
+
+        /* renamed from: a  reason: collision with root package name */
+        public String f18056a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public String f18057b;
+
+        /* renamed from: c  reason: collision with root package name */
+        public String f18058c;
+
+        /* renamed from: d  reason: collision with root package name */
+        public int f18059d;
     }
 
     public MemoryUpdateHeadNameMessage(a aVar) {
-        super(CmdConfigCustom.MEMORY_UPDATE_GROUP_HEAD_NAME, aVar);
+        super(2016017, aVar);
     }
 }

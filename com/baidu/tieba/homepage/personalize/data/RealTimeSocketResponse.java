@@ -1,24 +1,27 @@
 package com.baidu.tieba.homepage.personalize.data;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.squareup.wire.Wire;
+import tbclient.Error;
 import tbclient.Realtime.RealtimeResIdl;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class RealTimeSocketResponse extends SocketResponsedMessage {
     public RealTimeSocketResponse() {
-        super(CmdConfigSocket.CMD_REPORT_HOME_PIC_CLICK);
+        super(309277);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.message.a
+    @Override // com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
     public void decodeInBackGround(int i, byte[] bArr) throws Exception {
+        Error error;
         RealtimeResIdl realtimeResIdl = (RealtimeResIdl) new Wire(new Class[0]).parseFrom(bArr, RealtimeResIdl.class);
-        if (realtimeResIdl != null && realtimeResIdl.error != null) {
-            if (realtimeResIdl.error.errorno != null) {
-                setError(realtimeResIdl.error.errorno.intValue());
-            }
-            setErrorString(realtimeResIdl.error.usermsg);
+        if (realtimeResIdl == null || (error = realtimeResIdl.error) == null) {
+            return;
         }
+        Integer num = error.errorno;
+        if (num != null) {
+            setError(num.intValue());
+        }
+        setErrorString(realtimeResIdl.error.usermsg);
     }
 }

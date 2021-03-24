@@ -12,268 +12,114 @@ import com.google.zxing.pdf417.decoder.ec.ErrorCorrection;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Formatter;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class PDF417ScanningDecoder {
-    private static final int CODEWORD_SKEW_SIZE = 2;
-    private static final int MAX_EC_CODEWORDS = 512;
-    private static final int MAX_ERRORS = 3;
-    private static final ErrorCorrection errorCorrection = new ErrorCorrection();
+    public static final int CODEWORD_SKEW_SIZE = 2;
+    public static final int MAX_EC_CODEWORDS = 512;
+    public static final int MAX_ERRORS = 3;
+    public static final ErrorCorrection errorCorrection = new ErrorCorrection();
 
-    private PDF417ScanningDecoder() {
-    }
-
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r2v20, types: [com.google.zxing.pdf417.decoder.DetectionResultColumn] */
-    public static DecoderResult decode(BitMatrix bitMatrix, ResultPoint resultPoint, ResultPoint resultPoint2, ResultPoint resultPoint3, ResultPoint resultPoint4, int i, int i2) throws NotFoundException, FormatException, ChecksumException {
-        DetectionResult detectionResult;
-        DetectionResultRowIndicatorColumn detectionResultRowIndicatorColumn;
-        DetectionResultRowIndicatorColumn detectionResultRowIndicatorColumn2;
-        DetectionResultRowIndicatorColumn detectionResultRowIndicatorColumn3 = null;
-        DetectionResultRowIndicatorColumn detectionResultRowIndicatorColumn4 = null;
-        DetectionResult detectionResult2 = null;
-        int i3 = 0;
-        BoundingBox boundingBox = new BoundingBox(bitMatrix, resultPoint, resultPoint2, resultPoint3, resultPoint4);
-        while (i3 < 2) {
-            DetectionResultRowIndicatorColumn rowIndicatorColumn = resultPoint != null ? getRowIndicatorColumn(bitMatrix, boundingBox, resultPoint, true, i, i2) : detectionResultRowIndicatorColumn3;
-            detectionResultRowIndicatorColumn = resultPoint3 != null ? getRowIndicatorColumn(bitMatrix, boundingBox, resultPoint3, false, i, i2) : detectionResultRowIndicatorColumn4;
-            detectionResult2 = merge(rowIndicatorColumn, detectionResultRowIndicatorColumn);
-            if (detectionResult2 == null) {
-                throw NotFoundException.getNotFoundInstance();
-            }
-            if (i3 == 0 && detectionResult2.getBoundingBox() != null && (detectionResult2.getBoundingBox().getMinY() < boundingBox.getMinY() || detectionResult2.getBoundingBox().getMaxY() > boundingBox.getMaxY())) {
-                boundingBox = detectionResult2.getBoundingBox();
-                i3++;
-                detectionResultRowIndicatorColumn4 = detectionResultRowIndicatorColumn;
-                detectionResultRowIndicatorColumn3 = rowIndicatorColumn;
-            } else {
-                detectionResult2.setBoundingBox(boundingBox);
-                detectionResult = detectionResult2;
-                detectionResultRowIndicatorColumn3 = rowIndicatorColumn;
-                break;
-            }
-        }
-        detectionResult = detectionResult2;
-        detectionResultRowIndicatorColumn = detectionResultRowIndicatorColumn4;
-        int barcodeColumnCount = detectionResult.getBarcodeColumnCount() + 1;
-        detectionResult.setDetectionResultColumn(0, detectionResultRowIndicatorColumn3);
-        detectionResult.setDetectionResultColumn(barcodeColumnCount, detectionResultRowIndicatorColumn);
-        boolean z = detectionResultRowIndicatorColumn3 != null;
-        int i4 = i2;
-        int i5 = i;
-        for (int i6 = 1; i6 <= barcodeColumnCount; i6++) {
-            int i7 = z ? i6 : barcodeColumnCount - i6;
-            if (detectionResult.getDetectionResultColumn(i7) == null) {
-                if (i7 == 0 || i7 == barcodeColumnCount) {
-                    detectionResultRowIndicatorColumn2 = new DetectionResultRowIndicatorColumn(boundingBox, i7 == 0);
-                } else {
-                    detectionResultRowIndicatorColumn2 = new DetectionResultColumn(boundingBox);
-                }
-                detectionResult.setDetectionResultColumn(i7, detectionResultRowIndicatorColumn2);
-                int i8 = -1;
-                int minY = boundingBox.getMinY();
-                while (true) {
-                    int i9 = i8;
-                    if (minY <= boundingBox.getMaxY()) {
-                        int startColumn = getStartColumn(detectionResult, i7, minY, z);
-                        if (startColumn < 0 || startColumn > boundingBox.getMaxX()) {
-                            if (i9 != -1) {
-                                startColumn = i9;
-                            }
-                            i8 = i9;
-                            minY++;
-                        }
-                        Codeword detectCodeword = detectCodeword(bitMatrix, boundingBox.getMinX(), boundingBox.getMaxX(), z, startColumn, minY, i5, i4);
-                        if (detectCodeword != null) {
-                            detectionResultRowIndicatorColumn2.setCodeword(minY, detectCodeword);
-                            i5 = Math.min(i5, detectCodeword.getWidth());
-                            i4 = Math.max(i4, detectCodeword.getWidth());
-                            i8 = startColumn;
-                            minY++;
-                        }
-                        i8 = i9;
-                        minY++;
-                    }
-                }
-            }
-        }
-        return createDecoderResult(detectionResult);
-    }
-
-    private static DetectionResult merge(DetectionResultRowIndicatorColumn detectionResultRowIndicatorColumn, DetectionResultRowIndicatorColumn detectionResultRowIndicatorColumn2) throws NotFoundException {
-        BarcodeMetadata barcodeMetadata;
-        if ((detectionResultRowIndicatorColumn == null && detectionResultRowIndicatorColumn2 == null) || (barcodeMetadata = getBarcodeMetadata(detectionResultRowIndicatorColumn, detectionResultRowIndicatorColumn2)) == null) {
-            return null;
-        }
-        return new DetectionResult(barcodeMetadata, BoundingBox.merge(adjustBoundingBox(detectionResultRowIndicatorColumn), adjustBoundingBox(detectionResultRowIndicatorColumn2)));
-    }
-
-    private static BoundingBox adjustBoundingBox(DetectionResultRowIndicatorColumn detectionResultRowIndicatorColumn) throws NotFoundException {
+    public static BoundingBox adjustBoundingBox(DetectionResultRowIndicatorColumn detectionResultRowIndicatorColumn) throws NotFoundException {
         int[] rowHeights;
         if (detectionResultRowIndicatorColumn == null || (rowHeights = detectionResultRowIndicatorColumn.getRowHeights()) == null) {
             return null;
         }
         int max = getMax(rowHeights);
         int i = 0;
-        for (int i2 : rowHeights) {
-            i += max - i2;
-            if (i2 > 0) {
+        int i2 = 0;
+        for (int i3 : rowHeights) {
+            i2 += max - i3;
+            if (i3 > 0) {
                 break;
             }
         }
         Codeword[] codewords = detectionResultRowIndicatorColumn.getCodewords();
-        int i3 = i;
-        for (int i4 = 0; i3 > 0 && codewords[i4] == null; i4++) {
-            i3--;
+        for (int i4 = 0; i2 > 0 && codewords[i4] == null; i4++) {
+            i2--;
         }
-        int i5 = 0;
         for (int length = rowHeights.length - 1; length >= 0; length--) {
-            i5 += max - rowHeights[length];
+            i += max - rowHeights[length];
             if (rowHeights[length] > 0) {
                 break;
             }
         }
-        int i6 = i5;
-        for (int length2 = codewords.length - 1; i6 > 0 && codewords[length2] == null; length2--) {
-            i6--;
+        for (int length2 = codewords.length - 1; i > 0 && codewords[length2] == null; length2--) {
+            i--;
         }
-        return detectionResultRowIndicatorColumn.getBoundingBox().addMissingRows(i3, i6, detectionResultRowIndicatorColumn.isLeft());
+        return detectionResultRowIndicatorColumn.getBoundingBox().addMissingRows(i2, i, detectionResultRowIndicatorColumn.isLeft());
     }
 
-    private static int getMax(int[] iArr) {
-        int i = -1;
-        for (int i2 : iArr) {
-            i = Math.max(i, i2);
-        }
-        return i;
-    }
-
-    private static BarcodeMetadata getBarcodeMetadata(DetectionResultRowIndicatorColumn detectionResultRowIndicatorColumn, DetectionResultRowIndicatorColumn detectionResultRowIndicatorColumn2) {
-        BarcodeMetadata barcodeMetadata;
-        BarcodeMetadata barcodeMetadata2;
-        if (detectionResultRowIndicatorColumn == null || (barcodeMetadata = detectionResultRowIndicatorColumn.getBarcodeMetadata()) == null) {
-            if (detectionResultRowIndicatorColumn2 == null) {
-                return null;
-            }
-            return detectionResultRowIndicatorColumn2.getBarcodeMetadata();
-        } else if (detectionResultRowIndicatorColumn2 == null || (barcodeMetadata2 = detectionResultRowIndicatorColumn2.getBarcodeMetadata()) == null) {
-            return barcodeMetadata;
-        } else {
-            if (barcodeMetadata.getColumnCount() == barcodeMetadata2.getColumnCount() || barcodeMetadata.getErrorCorrectionLevel() == barcodeMetadata2.getErrorCorrectionLevel() || barcodeMetadata.getRowCount() == barcodeMetadata2.getRowCount()) {
-                return barcodeMetadata;
-            }
-            return null;
-        }
-    }
-
-    private static DetectionResultRowIndicatorColumn getRowIndicatorColumn(BitMatrix bitMatrix, BoundingBox boundingBox, ResultPoint resultPoint, boolean z, int i, int i2) {
-        DetectionResultRowIndicatorColumn detectionResultRowIndicatorColumn = new DetectionResultRowIndicatorColumn(boundingBox, z);
-        int i3 = 0;
-        while (true) {
-            int i4 = i3;
-            if (i4 < 2) {
-                int i5 = i4 == 0 ? 1 : -1;
-                int x = (int) resultPoint.getX();
-                for (int y = (int) resultPoint.getY(); y <= boundingBox.getMaxY() && y >= boundingBox.getMinY(); y += i5) {
-                    Codeword detectCodeword = detectCodeword(bitMatrix, 0, bitMatrix.getWidth(), z, x, y, i, i2);
-                    if (detectCodeword != null) {
-                        detectionResultRowIndicatorColumn.setCodeword(y, detectCodeword);
-                        if (z) {
-                            x = detectCodeword.getStartX();
-                        } else {
-                            x = detectCodeword.getEndX();
-                        }
-                    }
-                }
-                i3 = i4 + 1;
-            } else {
-                return detectionResultRowIndicatorColumn;
-            }
-        }
-    }
-
-    private static void adjustCodewordCount(DetectionResult detectionResult, BarcodeValue[][] barcodeValueArr) throws NotFoundException {
+    public static void adjustCodewordCount(DetectionResult detectionResult, BarcodeValue[][] barcodeValueArr) throws NotFoundException {
         int[] value = barcodeValueArr[0][1].getValue();
         int barcodeColumnCount = (detectionResult.getBarcodeColumnCount() * detectionResult.getBarcodeRowCount()) - getNumberOfECCodeWords(detectionResult.getBarcodeECLevel());
-        if (value.length == 0) {
-            if (barcodeColumnCount <= 0 || barcodeColumnCount > 928) {
-                throw NotFoundException.getNotFoundInstance();
+        if (value.length != 0) {
+            if (value[0] != barcodeColumnCount) {
+                barcodeValueArr[0][1].setValue(barcodeColumnCount);
             }
+        } else if (barcodeColumnCount > 0 && barcodeColumnCount <= 928) {
             barcodeValueArr[0][1].setValue(barcodeColumnCount);
-        } else if (value[0] != barcodeColumnCount) {
-            barcodeValueArr[0][1].setValue(barcodeColumnCount);
+        } else {
+            throw NotFoundException.getNotFoundInstance();
         }
     }
 
-    private static DecoderResult createDecoderResult(DetectionResult detectionResult) throws FormatException, ChecksumException, NotFoundException {
-        BarcodeValue[][] createBarcodeMatrix = createBarcodeMatrix(detectionResult);
-        adjustCodewordCount(detectionResult, createBarcodeMatrix);
-        ArrayList arrayList = new ArrayList();
-        int[] iArr = new int[detectionResult.getBarcodeRowCount() * detectionResult.getBarcodeColumnCount()];
-        ArrayList arrayList2 = new ArrayList();
-        ArrayList arrayList3 = new ArrayList();
-        for (int i = 0; i < detectionResult.getBarcodeRowCount(); i++) {
-            for (int i2 = 0; i2 < detectionResult.getBarcodeColumnCount(); i2++) {
-                int[] value = createBarcodeMatrix[i][i2 + 1].getValue();
-                int barcodeColumnCount = (detectionResult.getBarcodeColumnCount() * i) + i2;
-                if (value.length == 0) {
-                    arrayList.add(Integer.valueOf(barcodeColumnCount));
-                } else if (value.length == 1) {
-                    iArr[barcodeColumnCount] = value[0];
-                } else {
-                    arrayList3.add(Integer.valueOf(barcodeColumnCount));
-                    arrayList2.add(value);
-                }
-            }
-        }
-        int[][] iArr2 = new int[arrayList2.size()];
-        for (int i3 = 0; i3 < iArr2.length; i3++) {
-            iArr2[i3] = (int[]) arrayList2.get(i3);
-        }
-        return createDecoderResultFromAmbiguousValues(detectionResult.getBarcodeECLevel(), iArr, PDF417Common.toIntArray(arrayList), PDF417Common.toIntArray(arrayList3), iArr2);
-    }
-
-    private static DecoderResult createDecoderResultFromAmbiguousValues(int i, int[] iArr, int[] iArr2, int[] iArr3, int[][] iArr4) throws FormatException, ChecksumException {
-        int[] iArr5 = new int[iArr3.length];
-        int i2 = 100;
-        while (true) {
-            int i3 = i2 - 1;
-            if (i2 > 0) {
-                for (int i4 = 0; i4 < iArr5.length; i4++) {
-                    iArr[iArr3[i4]] = iArr4[i4][iArr5[i4]];
-                }
-                try {
-                    return decodeCodewords(iArr, i, iArr2);
-                } catch (ChecksumException e) {
-                    if (iArr5.length == 0) {
-                        throw ChecksumException.getChecksumInstance();
+    /* JADX WARN: Code restructure failed: missing block: B:22:0x0022, code lost:
+        continue;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:23:0x0022, code lost:
+        continue;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:24:0x0022, code lost:
+        continue;
+     */
+    /* JADX WARN: Removed duplicated region for block: B:14:0x0017  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static int adjustCodewordStartColumn(BitMatrix bitMatrix, int i, int i2, boolean z, int i3, int i4) {
+        int i5 = z ? -1 : 1;
+        int i6 = i3;
+        for (int i7 = 0; i7 < 2; i7++) {
+            while (true) {
+                if (z) {
+                    if (i6 < i) {
+                        break;
                     }
-                    int i5 = 0;
-                    while (true) {
-                        if (i5 >= iArr5.length) {
-                            i2 = i3;
-                            break;
-                        } else if (iArr5[i5] < iArr4[i5].length - 1) {
-                            iArr5[i5] = iArr5[i5] + 1;
-                            i2 = i3;
-                            break;
-                        } else {
-                            iArr5[i5] = 0;
-                            if (i5 != iArr5.length - 1) {
-                                i5++;
-                            } else {
-                                throw ChecksumException.getChecksumInstance();
-                            }
+                    if (z != bitMatrix.get(i6, i4)) {
+                        if (Math.abs(i3 - i6) > 2) {
+                            return i3;
                         }
+                        i6 += i5;
+                    }
+                } else {
+                    if (i6 >= i2) {
+                        break;
+                    }
+                    if (z != bitMatrix.get(i6, i4)) {
+                        break;
                     }
                 }
-            } else {
-                throw ChecksumException.getChecksumInstance();
             }
+            i5 = -i5;
+            z = !z;
         }
+        return i6;
     }
 
-    private static BarcodeValue[][] createBarcodeMatrix(DetectionResult detectionResult) {
+    public static boolean checkCodewordSkew(int i, int i2, int i3) {
+        return i2 + (-2) <= i && i <= i3 + 2;
+    }
+
+    public static int correctErrors(int[] iArr, int[] iArr2, int i) throws ChecksumException {
+        if ((iArr2 == null || iArr2.length <= (i / 2) + 3) && i >= 0 && i <= 512) {
+            return errorCorrection.decode(iArr, i, iArr2);
+        }
+        throw ChecksumException.getChecksumInstance();
+    }
+
+    public static BarcodeValue[][] createBarcodeMatrix(DetectionResult detectionResult) {
         DetectionResultColumn[] detectionResultColumns;
+        Codeword[] codewords;
         int rowNumber;
         BarcodeValue[][] barcodeValueArr = (BarcodeValue[][]) Array.newInstance(BarcodeValue.class, detectionResult.getBarcodeRowCount(), detectionResult.getBarcodeColumnCount() + 2);
         for (int i = 0; i < barcodeValueArr.length; i++) {
@@ -284,8 +130,7 @@ public final class PDF417ScanningDecoder {
         int i3 = 0;
         for (DetectionResultColumn detectionResultColumn : detectionResult.getDetectionResultColumns()) {
             if (detectionResultColumn != null) {
-                Codeword[] codewords = detectionResultColumn.getCodewords();
-                for (Codeword codeword : codewords) {
+                for (Codeword codeword : detectionResultColumn.getCodewords()) {
                     if (codeword != null && (rowNumber = codeword.getRowNumber()) >= 0 && rowNumber < barcodeValueArr.length) {
                         barcodeValueArr[rowNumber][i3].setValue(codeword.getValue());
                     }
@@ -296,46 +141,172 @@ public final class PDF417ScanningDecoder {
         return barcodeValueArr;
     }
 
-    private static boolean isValidBarcodeColumn(DetectionResult detectionResult, int i) {
-        return i >= 0 && i <= detectionResult.getBarcodeColumnCount() + 1;
+    public static DecoderResult createDecoderResult(DetectionResult detectionResult) throws FormatException, ChecksumException, NotFoundException {
+        BarcodeValue[][] createBarcodeMatrix = createBarcodeMatrix(detectionResult);
+        adjustCodewordCount(detectionResult, createBarcodeMatrix);
+        ArrayList arrayList = new ArrayList();
+        int[] iArr = new int[detectionResult.getBarcodeRowCount() * detectionResult.getBarcodeColumnCount()];
+        ArrayList arrayList2 = new ArrayList();
+        ArrayList arrayList3 = new ArrayList();
+        for (int i = 0; i < detectionResult.getBarcodeRowCount(); i++) {
+            int i2 = 0;
+            while (i2 < detectionResult.getBarcodeColumnCount()) {
+                int i3 = i2 + 1;
+                int[] value = createBarcodeMatrix[i][i3].getValue();
+                int barcodeColumnCount = (detectionResult.getBarcodeColumnCount() * i) + i2;
+                if (value.length == 0) {
+                    arrayList.add(Integer.valueOf(barcodeColumnCount));
+                } else if (value.length == 1) {
+                    iArr[barcodeColumnCount] = value[0];
+                } else {
+                    arrayList3.add(Integer.valueOf(barcodeColumnCount));
+                    arrayList2.add(value);
+                }
+                i2 = i3;
+            }
+        }
+        int size = arrayList2.size();
+        int[][] iArr2 = new int[size];
+        for (int i4 = 0; i4 < size; i4++) {
+            iArr2[i4] = (int[]) arrayList2.get(i4);
+        }
+        return createDecoderResultFromAmbiguousValues(detectionResult.getBarcodeECLevel(), iArr, PDF417Common.toIntArray(arrayList), PDF417Common.toIntArray(arrayList3), iArr2);
     }
 
-    private static int getStartColumn(DetectionResult detectionResult, int i, int i2, boolean z) {
-        Codeword[] codewords;
-        int i3 = z ? 1 : -1;
-        Codeword codeword = null;
-        if (isValidBarcodeColumn(detectionResult, i - i3)) {
-            codeword = detectionResult.getDetectionResultColumn(i - i3).getCodeword(i2);
+    public static DecoderResult createDecoderResultFromAmbiguousValues(int i, int[] iArr, int[] iArr2, int[] iArr3, int[][] iArr4) throws FormatException, ChecksumException {
+        int length = iArr3.length;
+        int[] iArr5 = new int[length];
+        int i2 = 100;
+        while (true) {
+            int i3 = i2 - 1;
+            if (i2 > 0) {
+                for (int i4 = 0; i4 < length; i4++) {
+                    iArr[iArr3[i4]] = iArr4[i4][iArr5[i4]];
+                }
+                try {
+                    return decodeCodewords(iArr, i, iArr2);
+                } catch (ChecksumException unused) {
+                    if (length == 0) {
+                        throw ChecksumException.getChecksumInstance();
+                    }
+                    int i5 = 0;
+                    while (true) {
+                        if (i5 >= length) {
+                            break;
+                        } else if (iArr5[i5] < iArr4[i5].length - 1) {
+                            iArr5[i5] = iArr5[i5] + 1;
+                            break;
+                        } else {
+                            iArr5[i5] = 0;
+                            if (i5 == length - 1) {
+                                throw ChecksumException.getChecksumInstance();
+                            }
+                            i5++;
+                        }
+                    }
+                    i2 = i3;
+                }
+            } else {
+                throw ChecksumException.getChecksumInstance();
+            }
         }
-        if (codeword != null) {
-            return z ? codeword.getEndX() : codeword.getStartX();
+    }
+
+    public static DecoderResult decode(BitMatrix bitMatrix, ResultPoint resultPoint, ResultPoint resultPoint2, ResultPoint resultPoint3, ResultPoint resultPoint4, int i, int i2) throws NotFoundException, FormatException, ChecksumException {
+        DetectionResultColumn detectionResultRowIndicatorColumn;
+        int i3;
+        int i4;
+        int i5;
+        DetectionResultRowIndicatorColumn detectionResultRowIndicatorColumn2 = null;
+        DetectionResultRowIndicatorColumn detectionResultRowIndicatorColumn3 = null;
+        DetectionResult detectionResult = null;
+        BoundingBox boundingBox = new BoundingBox(bitMatrix, resultPoint, resultPoint2, resultPoint3, resultPoint4);
+        for (int i6 = 0; i6 < 2; i6++) {
+            if (resultPoint != null) {
+                detectionResultRowIndicatorColumn2 = getRowIndicatorColumn(bitMatrix, boundingBox, resultPoint, true, i, i2);
+            }
+            if (resultPoint3 != null) {
+                detectionResultRowIndicatorColumn3 = getRowIndicatorColumn(bitMatrix, boundingBox, resultPoint3, false, i, i2);
+            }
+            detectionResult = merge(detectionResultRowIndicatorColumn2, detectionResultRowIndicatorColumn3);
+            if (detectionResult != null) {
+                if (i6 == 0 && detectionResult.getBoundingBox() != null && (detectionResult.getBoundingBox().getMinY() < boundingBox.getMinY() || detectionResult.getBoundingBox().getMaxY() > boundingBox.getMaxY())) {
+                    boundingBox = detectionResult.getBoundingBox();
+                } else {
+                    detectionResult.setBoundingBox(boundingBox);
+                    break;
+                }
+            } else {
+                throw NotFoundException.getNotFoundInstance();
+            }
         }
-        Codeword codewordNearby = detectionResult.getDetectionResultColumn(i).getCodewordNearby(i2);
-        if (codewordNearby != null) {
-            return z ? codewordNearby.getStartX() : codewordNearby.getEndX();
-        }
-        if (isValidBarcodeColumn(detectionResult, i - i3)) {
-            codewordNearby = detectionResult.getDetectionResultColumn(i - i3).getCodewordNearby(i2);
-        }
-        if (codewordNearby != null) {
-            return z ? codewordNearby.getEndX() : codewordNearby.getStartX();
-        }
-        int i4 = 0;
-        while (isValidBarcodeColumn(detectionResult, i - i3)) {
-            i -= i3;
-            for (Codeword codeword2 : detectionResult.getDetectionResultColumn(i).getCodewords()) {
-                if (codeword2 != null) {
-                    return (i3 * i4 * (codeword2.getEndX() - codeword2.getStartX())) + (z ? codeword2.getEndX() : codeword2.getStartX());
+        int barcodeColumnCount = detectionResult.getBarcodeColumnCount() + 1;
+        detectionResult.setDetectionResultColumn(0, detectionResultRowIndicatorColumn2);
+        detectionResult.setDetectionResultColumn(barcodeColumnCount, detectionResultRowIndicatorColumn3);
+        boolean z = detectionResultRowIndicatorColumn2 != null;
+        int i7 = i;
+        int i8 = i2;
+        for (int i9 = 1; i9 <= barcodeColumnCount; i9++) {
+            int i10 = z ? i9 : barcodeColumnCount - i9;
+            if (detectionResult.getDetectionResultColumn(i10) == null) {
+                if (i10 != 0 && i10 != barcodeColumnCount) {
+                    detectionResultRowIndicatorColumn = new DetectionResultColumn(boundingBox);
+                } else {
+                    detectionResultRowIndicatorColumn = new DetectionResultRowIndicatorColumn(boundingBox, i10 == 0);
+                }
+                detectionResult.setDetectionResultColumn(i10, detectionResultRowIndicatorColumn);
+                int i11 = -1;
+                int minY = boundingBox.getMinY();
+                int i12 = -1;
+                while (minY <= boundingBox.getMaxY()) {
+                    int startColumn = getStartColumn(detectionResult, i10, minY, z);
+                    if (startColumn >= 0 && startColumn <= boundingBox.getMaxX()) {
+                        i5 = startColumn;
+                    } else if (i12 != i11) {
+                        i5 = i12;
+                    } else {
+                        i3 = i12;
+                        i4 = minY;
+                        i12 = i3;
+                        minY = i4 + 1;
+                        i11 = -1;
+                    }
+                    i3 = i12;
+                    int i13 = minY;
+                    Codeword detectCodeword = detectCodeword(bitMatrix, boundingBox.getMinX(), boundingBox.getMaxX(), z, i5, i13, i7, i8);
+                    i4 = i13;
+                    if (detectCodeword != null) {
+                        detectionResultRowIndicatorColumn.setCodeword(i4, detectCodeword);
+                        i7 = Math.min(i7, detectCodeword.getWidth());
+                        i8 = Math.max(i8, detectCodeword.getWidth());
+                        i12 = i5;
+                        minY = i4 + 1;
+                        i11 = -1;
+                    }
+                    i12 = i3;
+                    minY = i4 + 1;
+                    i11 = -1;
                 }
             }
-            i4++;
         }
-        return z ? detectionResult.getBoundingBox().getMinX() : detectionResult.getBoundingBox().getMaxX();
+        return createDecoderResult(detectionResult);
     }
 
-    private static Codeword detectCodeword(BitMatrix bitMatrix, int i, int i2, boolean z, int i3, int i4, int i5, int i6) {
+    public static DecoderResult decodeCodewords(int[] iArr, int i, int[] iArr2) throws FormatException, ChecksumException {
+        if (iArr.length != 0) {
+            int i2 = 1 << (i + 1);
+            int correctErrors = correctErrors(iArr, iArr2, i2);
+            verifyCodewordCount(iArr, i2);
+            DecoderResult decode = DecodedBitStreamParser.decode(iArr, String.valueOf(i));
+            decode.setErrorsCorrected(Integer.valueOf(correctErrors));
+            decode.setErasures(Integer.valueOf(iArr2.length));
+            return decode;
+        }
+        throw FormatException.getFormatInstance();
+    }
+
+    public static Codeword detectCodeword(BitMatrix bitMatrix, int i, int i2, boolean z, int i3, int i4, int i5, int i6) {
         int i7;
-        int i8;
         int decodedValue;
         int codeword;
         int adjustCodewordStartColumn = adjustCodewordStartColumn(bitMatrix, i, i2, z, i3, i4);
@@ -345,33 +316,77 @@ public final class PDF417ScanningDecoder {
         }
         int sum = MathUtils.sum(moduleBitCount);
         if (z) {
-            i8 = adjustCodewordStartColumn + sum;
-            i7 = adjustCodewordStartColumn;
+            i7 = adjustCodewordStartColumn + sum;
         } else {
-            for (int i9 = 0; i9 < moduleBitCount.length / 2; i9++) {
-                int i10 = moduleBitCount[i9];
-                moduleBitCount[i9] = moduleBitCount[(moduleBitCount.length - 1) - i9];
-                moduleBitCount[(moduleBitCount.length - 1) - i9] = i10;
+            for (int i8 = 0; i8 < moduleBitCount.length / 2; i8++) {
+                int i9 = moduleBitCount[i8];
+                moduleBitCount[i8] = moduleBitCount[(moduleBitCount.length - 1) - i8];
+                moduleBitCount[(moduleBitCount.length - 1) - i8] = i9;
             }
-            i7 = adjustCodewordStartColumn - sum;
-            i8 = adjustCodewordStartColumn;
+            adjustCodewordStartColumn -= sum;
+            i7 = adjustCodewordStartColumn;
         }
         if (checkCodewordSkew(sum, i5, i6) && (codeword = PDF417Common.getCodeword((decodedValue = PDF417CodewordDecoder.getDecodedValue(moduleBitCount)))) != -1) {
-            return new Codeword(i7, i8, getCodewordBucketNumber(decodedValue), codeword);
+            return new Codeword(adjustCodewordStartColumn, i7, getCodewordBucketNumber(decodedValue), codeword);
         }
         return null;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:30:0x0023 A[EDGE_INSN: B:30:0x0023->B:14:0x0023 ?: BREAK  , SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:9:0x0011  */
+    public static BarcodeMetadata getBarcodeMetadata(DetectionResultRowIndicatorColumn detectionResultRowIndicatorColumn, DetectionResultRowIndicatorColumn detectionResultRowIndicatorColumn2) {
+        BarcodeMetadata barcodeMetadata;
+        BarcodeMetadata barcodeMetadata2;
+        if (detectionResultRowIndicatorColumn == null || (barcodeMetadata = detectionResultRowIndicatorColumn.getBarcodeMetadata()) == null) {
+            if (detectionResultRowIndicatorColumn2 == null) {
+                return null;
+            }
+            return detectionResultRowIndicatorColumn2.getBarcodeMetadata();
+        } else if (detectionResultRowIndicatorColumn2 == null || (barcodeMetadata2 = detectionResultRowIndicatorColumn2.getBarcodeMetadata()) == null || barcodeMetadata.getColumnCount() == barcodeMetadata2.getColumnCount() || barcodeMetadata.getErrorCorrectionLevel() == barcodeMetadata2.getErrorCorrectionLevel() || barcodeMetadata.getRowCount() == barcodeMetadata2.getRowCount()) {
+            return barcodeMetadata;
+        } else {
+            return null;
+        }
+    }
+
+    public static int[] getBitCountForCodeword(int i) {
+        int[] iArr = new int[8];
+        int i2 = 0;
+        int i3 = 7;
+        while (true) {
+            int i4 = i & 1;
+            if (i4 != i2) {
+                i3--;
+                if (i3 < 0) {
+                    return iArr;
+                }
+                i2 = i4;
+            }
+            iArr[i3] = iArr[i3] + 1;
+            i >>= 1;
+        }
+    }
+
+    public static int getCodewordBucketNumber(int i) {
+        return getCodewordBucketNumber(getBitCountForCodeword(i));
+    }
+
+    public static int getMax(int[] iArr) {
+        int i = -1;
+        for (int i2 : iArr) {
+            i = Math.max(i, i2);
+        }
+        return i;
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:12:0x0015  */
+    /* JADX WARN: Removed duplicated region for block: B:27:0x0027 A[EDGE_INSN: B:27:0x0027->B:16:0x0027 ?: BREAK  , SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private static int[] getModuleBitCount(BitMatrix bitMatrix, int i, int i2, boolean z, int i3, int i4) {
+    public static int[] getModuleBitCount(BitMatrix bitMatrix, int i, int i2, boolean z, int i3, int i4) {
         int[] iArr = new int[8];
         int i5 = z ? 1 : -1;
-        boolean z2 = z;
         int i6 = 0;
+        boolean z2 = z;
         while (true) {
             if (z) {
                 if (i3 >= i2) {
@@ -395,121 +410,89 @@ public final class PDF417ScanningDecoder {
             }
         }
         if (i6 != 8) {
-            if (!z) {
-                i2 = i;
+            if (z) {
+                i = i2;
             }
-            if (i3 != i2 || i6 != 7) {
+            if (i3 != i || i6 != 7) {
                 return null;
             }
         }
         return iArr;
     }
 
-    private static int getNumberOfECCodeWords(int i) {
+    public static int getNumberOfECCodeWords(int i) {
         return 2 << i;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:11:0x0015  */
-    /* JADX WARN: Removed duplicated region for block: B:28:0x0022 A[EDGE_INSN: B:28:0x0022->B:16:0x0022 ?: BREAK  , SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    private static int adjustCodewordStartColumn(BitMatrix bitMatrix, int i, int i2, boolean z, int i3, int i4) {
-        int i5 = 0;
-        int i6 = z ? -1 : 1;
-        int i7 = i3;
-        while (i5 < 2) {
-            while (true) {
-                if (!z) {
-                    if (i7 >= i2) {
-                        break;
-                    }
-                    if (z == bitMatrix.get(i7, i4)) {
-                    }
-                } else {
-                    if (i7 < i) {
-                        break;
-                    }
-                    if (z == bitMatrix.get(i7, i4)) {
-                        break;
-                    } else if (Math.abs(i3 - i7) <= 2) {
-                        i7 += i6;
+    public static DetectionResultRowIndicatorColumn getRowIndicatorColumn(BitMatrix bitMatrix, BoundingBox boundingBox, ResultPoint resultPoint, boolean z, int i, int i2) {
+        int endX;
+        DetectionResultRowIndicatorColumn detectionResultRowIndicatorColumn = new DetectionResultRowIndicatorColumn(boundingBox, z);
+        int i3 = 0;
+        while (i3 < 2) {
+            int i4 = i3 == 0 ? 1 : -1;
+            int x = (int) resultPoint.getX();
+            for (int y = (int) resultPoint.getY(); y <= boundingBox.getMaxY() && y >= boundingBox.getMinY(); y += i4) {
+                Codeword detectCodeword = detectCodeword(bitMatrix, 0, bitMatrix.getWidth(), z, x, y, i, i2);
+                if (detectCodeword != null) {
+                    detectionResultRowIndicatorColumn.setCodeword(y, detectCodeword);
+                    if (z) {
+                        endX = detectCodeword.getStartX();
                     } else {
-                        return i3;
+                        endX = detectCodeword.getEndX();
+                    }
+                    x = endX;
+                }
+            }
+            i3++;
+        }
+        return detectionResultRowIndicatorColumn;
+    }
+
+    public static int getStartColumn(DetectionResult detectionResult, int i, int i2, boolean z) {
+        Codeword[] codewords;
+        int i3 = z ? 1 : -1;
+        int i4 = i - i3;
+        Codeword codeword = isValidBarcodeColumn(detectionResult, i4) ? detectionResult.getDetectionResultColumn(i4).getCodeword(i2) : null;
+        if (codeword != null) {
+            return z ? codeword.getEndX() : codeword.getStartX();
+        }
+        Codeword codewordNearby = detectionResult.getDetectionResultColumn(i).getCodewordNearby(i2);
+        if (codewordNearby != null) {
+            return z ? codewordNearby.getStartX() : codewordNearby.getEndX();
+        }
+        if (isValidBarcodeColumn(detectionResult, i4)) {
+            codewordNearby = detectionResult.getDetectionResultColumn(i4).getCodewordNearby(i2);
+        }
+        if (codewordNearby != null) {
+            return z ? codewordNearby.getEndX() : codewordNearby.getStartX();
+        }
+        int i5 = 0;
+        while (true) {
+            i -= i3;
+            if (isValidBarcodeColumn(detectionResult, i)) {
+                for (Codeword codeword2 : detectionResult.getDetectionResultColumn(i).getCodewords()) {
+                    if (codeword2 != null) {
+                        return (z ? codeword2.getEndX() : codeword2.getStartX()) + (i3 * i5 * (codeword2.getEndX() - codeword2.getStartX()));
                     }
                 }
+                i5++;
+            } else {
+                BoundingBox boundingBox = detectionResult.getBoundingBox();
+                return z ? boundingBox.getMinX() : boundingBox.getMaxX();
             }
-            i6 = -i6;
-            i5++;
-            z = !z;
-        }
-        return i7;
-    }
-
-    private static boolean checkCodewordSkew(int i, int i2, int i3) {
-        return i2 + (-2) <= i && i <= i3 + 2;
-    }
-
-    private static DecoderResult decodeCodewords(int[] iArr, int i, int[] iArr2) throws FormatException, ChecksumException {
-        if (iArr.length == 0) {
-            throw FormatException.getFormatInstance();
-        }
-        int i2 = 1 << (i + 1);
-        int correctErrors = correctErrors(iArr, iArr2, i2);
-        verifyCodewordCount(iArr, i2);
-        DecoderResult decode = DecodedBitStreamParser.decode(iArr, String.valueOf(i));
-        decode.setErrorsCorrected(Integer.valueOf(correctErrors));
-        decode.setErasures(Integer.valueOf(iArr2.length));
-        return decode;
-    }
-
-    private static int correctErrors(int[] iArr, int[] iArr2, int i) throws ChecksumException {
-        if ((iArr2 != null && iArr2.length > (i / 2) + 3) || i < 0 || i > 512) {
-            throw ChecksumException.getChecksumInstance();
-        }
-        return errorCorrection.decode(iArr, i, iArr2);
-    }
-
-    private static void verifyCodewordCount(int[] iArr, int i) throws FormatException {
-        if (iArr.length < 4) {
-            throw FormatException.getFormatInstance();
-        }
-        int i2 = iArr[0];
-        if (i2 > iArr.length) {
-            throw FormatException.getFormatInstance();
-        }
-        if (i2 == 0) {
-            if (i < iArr.length) {
-                iArr[0] = iArr.length - i;
-                return;
-            }
-            throw FormatException.getFormatInstance();
         }
     }
 
-    private static int[] getBitCountForCodeword(int i) {
-        int[] iArr = new int[8];
-        int i2 = 0;
-        int i3 = 7;
-        while (true) {
-            if ((i & 1) != i2) {
-                i2 = i & 1;
-                i3--;
-                if (i3 < 0) {
-                    return iArr;
-                }
-            }
-            iArr[i3] = iArr[i3] + 1;
-            i >>= 1;
+    public static boolean isValidBarcodeColumn(DetectionResult detectionResult, int i) {
+        return i >= 0 && i <= detectionResult.getBarcodeColumnCount() + 1;
+    }
+
+    public static DetectionResult merge(DetectionResultRowIndicatorColumn detectionResultRowIndicatorColumn, DetectionResultRowIndicatorColumn detectionResultRowIndicatorColumn2) throws NotFoundException {
+        BarcodeMetadata barcodeMetadata;
+        if ((detectionResultRowIndicatorColumn == null && detectionResultRowIndicatorColumn2 == null) || (barcodeMetadata = getBarcodeMetadata(detectionResultRowIndicatorColumn, detectionResultRowIndicatorColumn2)) == null) {
+            return null;
         }
-    }
-
-    private static int getCodewordBucketNumber(int i) {
-        return getCodewordBucketNumber(getBitCountForCodeword(i));
-    }
-
-    private static int getCodewordBucketNumber(int[] iArr) {
-        return ((((iArr[0] - iArr[2]) + iArr[4]) - iArr[6]) + 9) % 9;
+        return new DetectionResult(barcodeMetadata, BoundingBox.merge(adjustBoundingBox(detectionResultRowIndicatorColumn), adjustBoundingBox(detectionResultRowIndicatorColumn2)));
     }
 
     public static String toString(BarcodeValue[][] barcodeValueArr) {
@@ -529,5 +512,27 @@ public final class PDF417ScanningDecoder {
         String formatter2 = formatter.toString();
         formatter.close();
         return formatter2;
+    }
+
+    public static void verifyCodewordCount(int[] iArr, int i) throws FormatException {
+        if (iArr.length >= 4) {
+            int i2 = iArr[0];
+            if (i2 > iArr.length) {
+                throw FormatException.getFormatInstance();
+            }
+            if (i2 == 0) {
+                if (i < iArr.length) {
+                    iArr[0] = iArr.length - i;
+                    return;
+                }
+                throw FormatException.getFormatInstance();
+            }
+            return;
+        }
+        throw FormatException.getFormatInstance();
+    }
+
+    public static int getCodewordBucketNumber(int[] iArr) {
+        return ((((iArr[0] - iArr[2]) + iArr[4]) - iArr[6]) + 9) % 9;
     }
 }

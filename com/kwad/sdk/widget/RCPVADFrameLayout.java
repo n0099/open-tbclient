@@ -7,11 +7,11 @@ import androidx.annotation.MainThread;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.kwad.sdk.utils.s;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class RCPVADFrameLayout extends RCPVFrameLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final s.a f7159a = new s.a();
+    public static final s.a f36814a = new s.a();
 
     public RCPVADFrameLayout(@NonNull Context context) {
         super(context);
@@ -27,20 +27,18 @@ public class RCPVADFrameLayout extends RCPVFrameLayout {
 
     @Override // android.view.ViewGroup, android.view.View
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
-        switch (motionEvent.getAction()) {
-            case 0:
-                f7159a.a(getWidth(), getHeight());
-                f7159a.a(motionEvent.getX(), motionEvent.getY());
-                break;
-            case 1:
-                f7159a.b(motionEvent.getX(), motionEvent.getY());
-                break;
+        int action = motionEvent.getAction();
+        if (action == 0) {
+            f36814a.a(getWidth(), getHeight());
+            f36814a.a(motionEvent.getX(), motionEvent.getY());
+        } else if (action == 1) {
+            f36814a.b(motionEvent.getX(), motionEvent.getY());
         }
         return super.dispatchTouchEvent(motionEvent);
     }
 
     @MainThread
     public s.a getTouchCoords() {
-        return f7159a;
+        return f36814a;
     }
 }

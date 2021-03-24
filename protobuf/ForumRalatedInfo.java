@@ -2,7 +2,7 @@ package protobuf;
 
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public final class ForumRalatedInfo extends Message {
     public static final String DEFAULT_AVATAR = "";
     public static final String DEFAULT_NAME = "";
@@ -23,51 +23,7 @@ public final class ForumRalatedInfo extends Message {
     public static final Integer DEFAULT_CURSCORE = 0;
     public static final Integer DEFAULT_LEFTSCORE = 0;
 
-    private ForumRalatedInfo(Builder builder, boolean z) {
-        super(builder);
-        if (z) {
-            if (builder.forumId == null) {
-                this.forumId = DEFAULT_FORUMID;
-            } else {
-                this.forumId = builder.forumId;
-            }
-            if (builder.name == null) {
-                this.name = "";
-            } else {
-                this.name = builder.name;
-            }
-            if (builder.avatar == null) {
-                this.avatar = "";
-            } else {
-                this.avatar = builder.avatar;
-            }
-            if (builder.level == null) {
-                this.level = DEFAULT_LEVEL;
-            } else {
-                this.level = builder.level;
-            }
-            if (builder.curScore == null) {
-                this.curScore = DEFAULT_CURSCORE;
-            } else {
-                this.curScore = builder.curScore;
-            }
-            if (builder.leftScore == null) {
-                this.leftScore = DEFAULT_LEFTSCORE;
-                return;
-            } else {
-                this.leftScore = builder.leftScore;
-                return;
-            }
-        }
-        this.forumId = builder.forumId;
-        this.name = builder.name;
-        this.avatar = builder.avatar;
-        this.level = builder.level;
-        this.curScore = builder.curScore;
-        this.leftScore = builder.leftScore;
-    }
-
-    /* loaded from: classes2.dex */
+    /* loaded from: classes7.dex */
     public static final class Builder extends Message.Builder<ForumRalatedInfo> {
         public String avatar;
         public Integer curScore;
@@ -81,14 +37,15 @@ public final class ForumRalatedInfo extends Message {
 
         public Builder(ForumRalatedInfo forumRalatedInfo) {
             super(forumRalatedInfo);
-            if (forumRalatedInfo != null) {
-                this.forumId = forumRalatedInfo.forumId;
-                this.name = forumRalatedInfo.name;
-                this.avatar = forumRalatedInfo.avatar;
-                this.level = forumRalatedInfo.level;
-                this.curScore = forumRalatedInfo.curScore;
-                this.leftScore = forumRalatedInfo.leftScore;
+            if (forumRalatedInfo == null) {
+                return;
             }
+            this.forumId = forumRalatedInfo.forumId;
+            this.name = forumRalatedInfo.name;
+            this.avatar = forumRalatedInfo.avatar;
+            this.level = forumRalatedInfo.level;
+            this.curScore = forumRalatedInfo.curScore;
+            this.leftScore = forumRalatedInfo.leftScore;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -96,5 +53,55 @@ public final class ForumRalatedInfo extends Message {
         public ForumRalatedInfo build(boolean z) {
             return new ForumRalatedInfo(this, z);
         }
+    }
+
+    public ForumRalatedInfo(Builder builder, boolean z) {
+        super(builder);
+        if (z) {
+            Integer num = builder.forumId;
+            if (num == null) {
+                this.forumId = DEFAULT_FORUMID;
+            } else {
+                this.forumId = num;
+            }
+            String str = builder.name;
+            if (str == null) {
+                this.name = "";
+            } else {
+                this.name = str;
+            }
+            String str2 = builder.avatar;
+            if (str2 == null) {
+                this.avatar = "";
+            } else {
+                this.avatar = str2;
+            }
+            Integer num2 = builder.level;
+            if (num2 == null) {
+                this.level = DEFAULT_LEVEL;
+            } else {
+                this.level = num2;
+            }
+            Integer num3 = builder.curScore;
+            if (num3 == null) {
+                this.curScore = DEFAULT_CURSCORE;
+            } else {
+                this.curScore = num3;
+            }
+            Integer num4 = builder.leftScore;
+            if (num4 == null) {
+                this.leftScore = DEFAULT_LEFTSCORE;
+                return;
+            } else {
+                this.leftScore = num4;
+                return;
+            }
+        }
+        this.forumId = builder.forumId;
+        this.name = builder.name;
+        this.avatar = builder.avatar;
+        this.level = builder.level;
+        this.curScore = builder.curScore;
+        this.leftScore = builder.leftScore;
     }
 }

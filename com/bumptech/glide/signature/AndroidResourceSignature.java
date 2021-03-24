@@ -6,19 +6,19 @@ import com.bumptech.glide.load.Key;
 import com.bumptech.glide.util.Util;
 import java.nio.ByteBuffer;
 import java.security.MessageDigest;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public final class AndroidResourceSignature implements Key {
-    private final Key applicationVersion;
-    private final int nightMode;
+    public final Key applicationVersion;
+    public final int nightMode;
+
+    public AndroidResourceSignature(int i, Key key) {
+        this.nightMode = i;
+        this.applicationVersion = key;
+    }
 
     @NonNull
     public static Key obtain(@NonNull Context context) {
         return new AndroidResourceSignature(context.getResources().getConfiguration().uiMode & 48, ApplicationVersionSignature.obtain(context));
-    }
-
-    private AndroidResourceSignature(int i, Key key) {
-        this.nightMode = i;
-        this.applicationVersion = key;
     }
 
     @Override // com.bumptech.glide.load.Key

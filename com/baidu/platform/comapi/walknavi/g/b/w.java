@@ -1,16 +1,14 @@
 package com.baidu.platform.comapi.walknavi.g.b;
 
 import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class w implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ c f2993a;
+    public final /* synthetic */ c f10118a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public w(c cVar) {
-        this.f2993a = cVar;
+        this.f10118a = cVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -19,23 +17,22 @@ public class w implements View.OnClickListener {
         com.baidu.platform.comapi.wnplatform.k.a.a().a("FootNaviPG.turnDire");
         com.baidu.platform.comapi.wnplatform.d.a.a("yang13", "loc click:" + com.baidu.platform.comapi.walknavi.segmentbrowse.c.s());
         if (com.baidu.platform.comapi.walknavi.segmentbrowse.c.s() != com.baidu.platform.comapi.walknavi.segmentbrowse.b.GUIDING_TO_SEGMENTBROWSE) {
-            i = this.f2993a.v;
-            switch (i) {
-                case 1:
-                    com.baidu.platform.comapi.walknavi.b.a().F().run("[3D车头向上]按钮点击");
-                    return;
-                case 2:
-                    com.baidu.platform.comapi.walknavi.b.a().F().run("[2D正北]按钮点击");
-                    return;
-                case 3:
-                    com.baidu.platform.comapi.walknavi.b.a().F().run("[回车位]按钮点击");
-                    return;
-                default:
-                    return;
+            i = this.f10118a.v;
+            if (i == 1) {
+                com.baidu.platform.comapi.walknavi.b.a().F().run("[3D车头向上]按钮点击");
+                return;
+            } else if (i == 2) {
+                com.baidu.platform.comapi.walknavi.b.a().F().run("[2D正北]按钮点击");
+                return;
+            } else if (i != 3) {
+                return;
+            } else {
+                com.baidu.platform.comapi.walknavi.b.a().F().run("[回车位]按钮点击");
+                return;
             }
         }
         com.baidu.platform.comapi.walknavi.segmentbrowse.c.a(com.baidu.platform.comapi.walknavi.segmentbrowse.b.REFRESH_GUIDANCE);
         com.baidu.platform.comapi.walknavi.b.a().D().j();
-        this.f2993a.a(true);
+        this.f10118a.a(true);
     }
 }

@@ -1,117 +1,262 @@
 package com.bytedance.sdk.openadsdk.j;
 
-import com.bytedance.sdk.openadsdk.j.a;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.PriorityBlockingQueue;
-import java.util.concurrent.RejectedExecutionHandler;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
+import android.content.Context;
+import android.view.ViewTreeObserver;
+import android.webkit.WebView;
+import java.lang.ref.WeakReference;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class e {
-    public static c b;
-    private static volatile ThreadPoolExecutor d;
-    private static volatile ThreadPoolExecutor e;
-    private static volatile ScheduledExecutorService f;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f4866a = Runtime.getRuntime().availableProcessors();
-    public static boolean c = true;
+    public Context f29543a;
 
-    public static ExecutorService a() {
-        if (d == null) {
-            synchronized (e.class) {
-                if (d == null) {
-                    d = new a.C1038a().a("io").a(2).b(8).a(5L).a(TimeUnit.SECONDS).a(new PriorityBlockingQueue()).a(e()).a();
-                    d.allowCoreThreadTimeOut(true);
+    /* renamed from: b  reason: collision with root package name */
+    public WeakReference<WebView> f29544b;
+
+    /* renamed from: d  reason: collision with root package name */
+    public a f29546d;
+
+    /* renamed from: h  reason: collision with root package name */
+    public String f29550h;
+    public String i;
+    public String j;
+    public JSONObject l;
+    public JSONObject m;
+    public String n;
+    public boolean o;
+    public boolean p;
+    public boolean q;
+
+    /* renamed from: e  reason: collision with root package name */
+    public int f29547e = 0;
+
+    /* renamed from: f  reason: collision with root package name */
+    public int f29548f = 0;
+
+    /* renamed from: g  reason: collision with root package name */
+    public JSONObject f29549g = new JSONObject();
+    public Map<String, String> k = new HashMap();
+
+    /* renamed from: c  reason: collision with root package name */
+    public c f29545c = new c(this);
+
+    public e(Context context, final WebView webView, a aVar) {
+        this.f29543a = context;
+        this.f29544b = new WeakReference<>(webView);
+        this.f29546d = aVar;
+        f.a(webView);
+        webView.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() { // from class: com.bytedance.sdk.openadsdk.j.e.1
+            @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
+            public void onGlobalLayout() {
+                try {
+                    if (e.this.f29547e == webView.getWidth() && e.this.f29548f == webView.getHeight()) {
+                        return;
+                    }
+                    e.this.f29547e = webView.getWidth();
+                    e.this.f29548f = webView.getHeight();
+                    JSONObject jSONObject = new JSONObject();
+                    jSONObject.put("width", e.this.f29547e);
+                    jSONObject.put("height", e.this.f29548f);
+                    e.this.a("resize", jSONObject);
+                    e.this.f29549g = jSONObject;
+                } catch (Throwable th) {
+                    d.a("PlayablePlugin", "onSizeChanged error", th);
                 }
             }
+        });
+    }
+
+    public JSONObject c() {
+        return this.m;
+    }
+
+    public String d() {
+        return this.i;
+    }
+
+    public String e() {
+        return this.f29550h;
+    }
+
+    public String f() {
+        return this.j;
+    }
+
+    public String g() {
+        return this.n;
+    }
+
+    public boolean h() {
+        return this.o;
+    }
+
+    public boolean i() {
+        return this.p;
+    }
+
+    public Set<String> j() {
+        return this.f29545c.a();
+    }
+
+    public b k() {
+        return this.f29546d.a();
+    }
+
+    public a l() {
+        return this.f29546d;
+    }
+
+    public JSONObject m() {
+        return this.f29549g;
+    }
+
+    public JSONObject n() {
+        return this.l;
+    }
+
+    public void o() {
+        this.f29546d.b();
+    }
+
+    public void p() {
+        b(false);
+    }
+
+    public void q() {
+        b(true);
+    }
+
+    public void r() {
+        try {
+            this.f29545c.b();
+        } catch (Throwable unused) {
         }
-        return d;
     }
 
-    public static void a(g gVar) {
-        if (d == null) {
-            a();
+    public e c(String str) {
+        try {
+            JSONObject jSONObject = new JSONObject();
+            jSONObject.put("playable_style", str);
+            this.m = jSONObject;
+        } catch (Throwable th) {
+            d.a("PlayablePlugin", "setPlayableStyle error", th);
         }
-        if (d != null) {
-            d.execute(gVar);
+        return this;
+    }
+
+    public e d(String str) {
+        this.j = str;
+        return this;
+    }
+
+    public e e(String str) {
+        this.n = str;
+        return this;
+    }
+
+    public Map<String, String> b() {
+        return this.k;
+    }
+
+    public Context a() {
+        return this.f29543a;
+    }
+
+    public e b(String str) {
+        this.i = str;
+        return this;
+    }
+
+    public e a(String str, String str2) {
+        this.k.put(str, str2);
+        return this;
+    }
+
+    public e b(boolean z) {
+        this.p = z;
+        try {
+            JSONObject jSONObject = new JSONObject();
+            jSONObject.put("viewStatus", this.p);
+            a("viewableChange", jSONObject);
+        } catch (Throwable th) {
+            d.a("PlayablePlugin", "setViewable error", th);
         }
+        return this;
     }
 
-    public static void a(final Runnable runnable, int i) {
-        if (d == null) {
-            a();
+    public e a(String str) {
+        this.f29550h = str;
+        return this;
+    }
+
+    public e c(boolean z) {
+        this.q = z;
+        try {
+            JSONObject jSONObject = new JSONObject();
+            jSONObject.put("send_click", this.q);
+            a("change_playable_click", jSONObject);
+        } catch (Throwable th) {
+            d.a("PlayablePlugin", "setPlayableClick error", th);
         }
-        if (d != null) {
-            d.execute(new g(i) { // from class: com.bytedance.sdk.openadsdk.j.e.1
-                @Override // java.lang.Runnable
-                public void run() {
-                    runnable.run();
-                }
-            });
+        return this;
+    }
+
+    public e a(boolean z) {
+        this.o = z;
+        try {
+            JSONObject jSONObject = new JSONObject();
+            jSONObject.put("endcard_mute", this.o);
+            a("volumeChange", jSONObject);
+        } catch (Throwable th) {
+            d.a("PlayablePlugin", "setIsMute error", th);
         }
+        return this;
     }
 
-    public static void b(final Runnable runnable, int i) {
-        if (e == null) {
-            b();
+    public JSONObject b(String str, JSONObject jSONObject) {
+        long currentTimeMillis = System.currentTimeMillis();
+        if (d.a()) {
+            StringBuilder sb = new StringBuilder();
+            sb.append("PlayablePlugin JSB-REQ [");
+            sb.append(str);
+            sb.append("] ");
+            sb.append(jSONObject != null ? jSONObject.toString() : "");
+            d.a("PlayablePlugin", sb.toString());
         }
-        if (e != null) {
-            e.execute(new g(i) { // from class: com.bytedance.sdk.openadsdk.j.e.2
-                @Override // java.lang.Runnable
-                public void run() {
-                    runnable.run();
-                }
-            });
+        JSONObject a2 = this.f29545c.a(str, jSONObject);
+        if (d.a()) {
+            StringBuilder sb2 = new StringBuilder();
+            sb2.append("PlayablePlugin JSB-RSP [");
+            sb2.append(str);
+            sb2.append("] time:");
+            sb2.append(System.currentTimeMillis() - currentTimeMillis);
+            sb2.append(" ");
+            sb2.append(a2 != null ? a2.toString() : "");
+            d.a("PlayablePlugin", sb2.toString());
         }
+        return a2;
     }
 
-    public static ExecutorService b() {
-        if (e == null) {
-            synchronized (e.class) {
-                if (e == null) {
-                    e = new a.C1038a().a("aidl").a(0).b(4).a(5L).a(TimeUnit.SECONDS).a(new PriorityBlockingQueue()).a(e()).a();
-                    e.allowCoreThreadTimeOut(true);
-                }
-            }
+    public void a(String str, JSONObject jSONObject) {
+        if (d.a()) {
+            StringBuilder sb = new StringBuilder();
+            sb.append("CALL JS [");
+            sb.append(str);
+            sb.append("] ");
+            sb.append(jSONObject != null ? jSONObject.toString() : "");
+            d.a("PlayablePlugin", sb.toString());
         }
-        return e;
+        this.f29546d.a(str, jSONObject);
     }
 
-    public static ScheduledExecutorService c() {
-        if (f == null) {
-            synchronized (e.class) {
-                if (f == null) {
-                    f = Executors.newSingleThreadScheduledExecutor(new h(5, "scheduled"));
-                }
-            }
+    public static e a(Context context, WebView webView, a aVar) {
+        if (webView == null || aVar == null) {
+            return null;
         }
-        return f;
-    }
-
-    public static boolean d() {
-        return c;
-    }
-
-    public static void a(boolean z) {
-        c = z;
-    }
-
-    public static RejectedExecutionHandler e() {
-        return new RejectedExecutionHandler() { // from class: com.bytedance.sdk.openadsdk.j.e.3
-            @Override // java.util.concurrent.RejectedExecutionHandler
-            public void rejectedExecution(Runnable runnable, ThreadPoolExecutor threadPoolExecutor) {
-            }
-        };
-    }
-
-    public static c f() {
-        return b;
-    }
-
-    public static void a(c cVar) {
-        b = cVar;
+        return new e(context, webView, aVar);
     }
 }

@@ -10,106 +10,146 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.Nullable;
-import com.baidu.adp.lib.util.l;
-import com.baidu.card.p;
-import com.baidu.tbadk.a.b.b;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.MediaData;
-import com.baidu.tbadk.core.data.cb;
-import com.baidu.tbadk.core.k;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.au;
-import com.baidu.tbadk.core.util.az;
-import com.baidu.tbadk.core.util.y;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.core.util.ThreadCardUtils;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.card.ab;
+import d.b.b.e.p.l;
+import d.b.h0.b.g.b;
+import d.b.h0.r.k;
+import d.b.h0.r.q.a;
+import d.b.h0.r.q.a2;
+import d.b.i.p;
+import d.b.i0.x.b0;
 import java.util.ArrayList;
 import java.util.LinkedList;
-/* loaded from: classes.dex */
-public class MutiImgSingleHorizontalLayout extends LinearLayout implements p<com.baidu.tbadk.core.data.a> {
-    private static final int ahN = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds88);
-    private static final int ahO = l.getEquipmentWidth(TbadkCoreApplication.getInst());
-    private static final int ahP = ahO - ahN;
-    private static final int ahQ = ahP / 2;
-    private com.baidu.tbadk.core.data.a ahB;
-    private ab<com.baidu.tbadk.core.data.a> ajy;
-    public TbImageView amG;
-    public ImageView amS;
-    private boolean amh;
-    private boolean amw;
-    private LinkedList<MediaData> amy;
-    public TextView mTitle;
+/* loaded from: classes2.dex */
+public class MutiImgSingleHorizontalLayout extends LinearLayout implements p<a> {
+    public static final int j = l.g(TbadkCoreApplication.getInst(), R.dimen.tbds88);
+    public static final int k;
+    public static final int l;
+    public static final int m;
+
+    /* renamed from: e  reason: collision with root package name */
+    public TextView f4473e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public TbImageView f4474f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public ImageView f4475g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public boolean f4476h;
+    public b0<a> i;
+
+    static {
+        int k2 = l.k(TbadkCoreApplication.getInst());
+        k = k2;
+        int i = k2 - j;
+        l = i;
+        m = i / 2;
+    }
 
     public MutiImgSingleHorizontalLayout(Context context) {
         this(context, null);
     }
 
-    public MutiImgSingleHorizontalLayout(Context context, @Nullable AttributeSet attributeSet) {
-        super(context, attributeSet);
-        this.amh = true;
-        this.ahB = null;
-        this.amw = false;
-        initUI();
-    }
-
-    private void initUI() {
-        LayoutInflater.from(getContext()).inflate(R.layout.multi_image_single_h_layout, (ViewGroup) this, true);
-        setOrientation(1);
-        setLayoutParams(new ViewGroup.LayoutParams(-1, ahQ));
-        this.mTitle = (TextView) findViewById(R.id.thread_card_title);
-        b.a(this.mTitle, R.dimen.tbds7, R.dimen.tbds10);
-        this.amG = (TbImageView) findViewById(R.id.thread_card_img_singal);
-        b.j(this.amG, R.dimen.tbds26, R.dimen.tbds14);
-        this.amS = (ImageView) findViewById(R.id.play_btn);
-    }
-
-    private void setImageData(cb cbVar) {
-        ArrayList<MediaData> bob = cbVar.bob();
-        if (k.bkV().isShowImages() && y.getCount(bob) != 0) {
-            LinkedList<MediaData> linkedList = new LinkedList<>();
-            for (int i = 0; i < bob.size(); i++) {
-                MediaData mediaData = (MediaData) y.getItem(bob, i);
+    private void setImageData(a2 a2Var) {
+        ArrayList<MediaData> K0 = a2Var.K0();
+        if (k.c().g() && ListUtils.getCount(K0) != 0) {
+            LinkedList linkedList = new LinkedList();
+            for (int i = 0; i < K0.size(); i++) {
+                MediaData mediaData = (MediaData) ListUtils.getItem(K0, i);
                 if (mediaData != null && mediaData.getType() == 3) {
                     linkedList.add(mediaData);
                 }
             }
-            this.amy = linkedList;
-            this.amw = true;
-            this.amG.setVisibility(8);
-            this.amS.setVisibility(8);
-            if (y.getCount(linkedList) > 0) {
-                this.amG.setVisibility(0);
-                this.amS.setVisibility(0);
-                this.amG.setConrers(15);
-                a((MediaData) y.getItem(bob, 0), this.amG, true, false, true, 0);
+            this.f4474f.setVisibility(8);
+            this.f4475g.setVisibility(8);
+            if (ListUtils.getCount(linkedList) > 0) {
+                this.f4474f.setVisibility(0);
+                this.f4475g.setVisibility(0);
+                this.f4474f.setConrers(15);
+                e((MediaData) ListUtils.getItem(K0, 0), this.f4474f, true, false, true, 0);
                 return;
             }
-            this.amG.setVisibility(8);
-            this.amS.setVisibility(8);
-            this.amw = false;
+            this.f4474f.setVisibility(8);
+            this.f4475g.setVisibility(8);
             return;
         }
-        this.amG.setVisibility(8);
-        this.amS.setVisibility(8);
-        this.amw = false;
+        this.f4474f.setVisibility(8);
+        this.f4475g.setVisibility(8);
     }
 
-    public void setFromCDN(boolean z) {
-        this.amh = z;
+    public final String b(MediaData mediaData) {
+        if (mediaData == null) {
+            return "";
+        }
+        String picUrl = mediaData.getPicUrl();
+        if (TextUtils.isEmpty(picUrl)) {
+            picUrl = mediaData.getSmallUrl();
+        }
+        if (TextUtils.isEmpty(picUrl)) {
+            picUrl = mediaData.getThumbnails_url();
+        }
+        return TextUtils.isEmpty(picUrl) ? mediaData.getSrc_pic() : picUrl;
     }
 
-    public void setPreloadSizeReadyCallback(com.baidu.adp.widget.a.b bVar) {
+    public final void c() {
+        LayoutInflater.from(getContext()).inflate(R.layout.multi_image_single_h_layout, (ViewGroup) this, true);
+        setOrientation(1);
+        setLayoutParams(new ViewGroup.LayoutParams(-1, m));
+        TextView textView = (TextView) findViewById(R.id.thread_card_title);
+        this.f4473e = textView;
+        b.k(textView, R.dimen.tbds7, R.dimen.tbds10);
+        TbImageView tbImageView = (TbImageView) findViewById(R.id.thread_card_img_singal);
+        this.f4474f = tbImageView;
+        b.b(tbImageView, R.dimen.tbds26, R.dimen.tbds14);
+        this.f4475g = (ImageView) findViewById(R.id.play_btn);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.card.p
-    /* renamed from: b */
-    public void E(com.baidu.tbadk.core.data.a aVar) {
-        this.ahB = aVar;
-        cb blp = aVar.blp();
-        az.a(this.mTitle, blp);
-        setImageData(blp);
+    @Override // d.b.i.p
+    /* renamed from: d */
+    public void a(a aVar) {
+        a2 n = aVar.n();
+        ThreadCardUtils.setTitle(this.f4473e, n);
+        setImageData(n);
+    }
+
+    public final void e(MediaData mediaData, TbImageView tbImageView, boolean z, boolean z2, boolean z3, int i) {
+        String b2 = b(mediaData);
+        int i2 = this.f4476h ? 13 : 14;
+        if (!StringHelper.equals(b2, tbImageView.getUrl())) {
+            tbImageView.S();
+        }
+        if (z) {
+            tbImageView.setRadius(l.g(getContext(), R.dimen.tbds10));
+            tbImageView.setDrawBorder(true);
+            tbImageView.setForegroundColor(0);
+            tbImageView.setBorderWidth(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds1));
+            tbImageView.setBorderColor(SkinManager.getColor(R.color.CAM_X0401));
+            tbImageView.setBorderSurroundContent(true);
+        }
+        tbImageView.W(b2, i2, false);
+    }
+
+    public b0<a> getSubClickListener() {
+        return this.i;
+    }
+
+    @Override // android.widget.LinearLayout, android.view.View
+    public void onMeasure(int i, int i2) {
+        super.onMeasure(i, i2);
+    }
+
+    public void setFromCDN(boolean z) {
+        this.f4476h = z;
     }
 
     public void setMarginsTop(View view, int i) {
@@ -122,50 +162,16 @@ public class MutiImgSingleHorizontalLayout extends LinearLayout implements p<com
         }
     }
 
-    public ab<com.baidu.tbadk.core.data.a> getSubClickListener() {
-        return this.ajy;
+    public void setPreloadSizeReadyCallback(d.b.b.j.c.b bVar) {
     }
 
-    public void setSubClickListener(ab<com.baidu.tbadk.core.data.a> abVar) {
-        this.ajy = abVar;
+    public void setSubClickListener(b0<a> b0Var) {
+        this.i = b0Var;
     }
 
-    @Override // android.widget.LinearLayout, android.view.View
-    protected void onMeasure(int i, int i2) {
-        super.onMeasure(i, i2);
-    }
-
-    private void a(MediaData mediaData, TbImageView tbImageView, boolean z, boolean z2, boolean z3, int i) {
-        String a2 = a(mediaData);
-        int i2 = this.amh ? 13 : 14;
-        if (!au.equals(a2, tbImageView.getUrl())) {
-            tbImageView.reset();
-        }
-        if (z) {
-            tbImageView.setRadius(l.getDimens(getContext(), R.dimen.tbds10));
-            tbImageView.setDrawBorder(true);
-            tbImageView.setForegroundColor(0);
-            tbImageView.setBorderWidth(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds1));
-            tbImageView.setBorderColor(ap.getColor(R.color.CAM_X0401));
-            tbImageView.setBorderSurroundContent(true);
-        }
-        tbImageView.startLoad(a2, i2, false);
-    }
-
-    private String a(MediaData mediaData) {
-        if (mediaData == null) {
-            return "";
-        }
-        String picUrl = mediaData.getPicUrl();
-        if (TextUtils.isEmpty(picUrl)) {
-            picUrl = mediaData.getSmallUrl();
-        }
-        if (TextUtils.isEmpty(picUrl)) {
-            picUrl = mediaData.getThumbnails_url();
-        }
-        if (TextUtils.isEmpty(picUrl)) {
-            return mediaData.getSrc_pic();
-        }
-        return picUrl;
+    public MutiImgSingleHorizontalLayout(Context context, @Nullable AttributeSet attributeSet) {
+        super(context, attributeSet);
+        this.f4476h = true;
+        c();
     }
 }

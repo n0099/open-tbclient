@@ -4,36 +4,19 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.util.AttributeSet;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-/* loaded from: classes7.dex */
+import d.b.h0.z0.i;
+/* loaded from: classes5.dex */
 public class PersonGaussianBlurView extends PersonExpandImageView {
-    a mHJ;
+    public a i;
 
-    public PersonGaussianBlurView(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-    }
-
-    public void setSrc(Bitmap bitmap) {
-        if (bitmap != null && !bitmap.isRecycled()) {
-            if (this.mHJ != null) {
-                this.mHJ.cancel();
-            }
-            this.mHJ = new a();
-            this.mHJ.execute(bitmap);
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    class a extends BdAsyncTask<Bitmap, String, Bitmap> {
-        private final float mHK = 0.5f;
-        private final int mHL = 15;
-
-        a() {
+    /* loaded from: classes5.dex */
+    public class a extends BdAsyncTask<Bitmap, String, Bitmap> {
+        public a() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: a */
+        /* renamed from: b */
         public Bitmap doInBackground(Bitmap... bitmapArr) {
             if (bitmapArr != null) {
                 try {
@@ -41,41 +24,57 @@ public class PersonGaussianBlurView extends PersonExpandImageView {
                         return null;
                     }
                     Bitmap bitmap = bitmapArr[0];
-                    if (I(bitmap)) {
+                    if (c(bitmap)) {
                         if (bitmap.getWidth() >= 600 || bitmap.getHeight() >= 600) {
                             int round = Math.round(bitmap.getWidth() * 0.5f);
                             int round2 = Math.round(bitmap.getHeight() * 0.5f);
-                            if (round <= 0 || round2 <= 0) {
-                                return null;
+                            if (round > 0 && round2 > 0) {
+                                bitmap = Bitmap.createScaledBitmap(bitmap, round, round2, false);
+                                if (!c(bitmap)) {
+                                    return null;
+                                }
                             }
-                            bitmap = Bitmap.createScaledBitmap(bitmap, round, round2, false);
-                            if (!I(bitmap)) {
-                                return null;
-                            }
+                            return null;
                         }
-                        return com.baidu.tbadk.util.i.b(Bitmap.createBitmap(bitmap, 0, (int) (bitmap.getHeight() * 0.2f), bitmap.getWidth(), (int) (bitmap.getHeight() * 0.6f)), 15, false);
+                        return i.a(Bitmap.createBitmap(bitmap, 0, (int) (bitmap.getHeight() * 0.2f), bitmap.getWidth(), (int) (bitmap.getHeight() * 0.6f)), 15, false);
                     }
                     return null;
-                } catch (Exception e) {
-                    e.printStackTrace();
+                } catch (Exception e2) {
+                    e2.printStackTrace();
                     return null;
                 }
             }
             return null;
         }
 
+        public final boolean c(Bitmap bitmap) {
+            return (bitmap == null || bitmap.isRecycled() || bitmap.getWidth() == 0 || bitmap.getHeight() == 0) ? false : true;
+        }
+
         /* JADX DEBUG: Method merged with bridge method */
-        /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Bitmap bitmap) {
             super.onPostExecute((a) bitmap);
-            if (I(bitmap)) {
+            if (c(bitmap)) {
                 PersonGaussianBlurView.this.setImageBitmap(bitmap);
             }
         }
+    }
 
-        private boolean I(Bitmap bitmap) {
-            return (bitmap == null || bitmap.isRecycled() || bitmap.getWidth() == 0 || bitmap.getHeight() == 0) ? false : true;
+    public PersonGaussianBlurView(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+    }
+
+    public void setSrc(Bitmap bitmap) {
+        if (bitmap == null || bitmap.isRecycled()) {
+            return;
         }
+        a aVar = this.i;
+        if (aVar != null) {
+            aVar.cancel();
+        }
+        a aVar2 = new a();
+        this.i = aVar2;
+        aVar2.execute(bitmap);
     }
 }

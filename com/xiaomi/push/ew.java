@@ -1,77 +1,217 @@
 package com.xiaomi.push;
 
-import android.app.Service;
-import android.content.Context;
-import android.content.Intent;
-import android.text.TextUtils;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
-public class ew implements et {
-    private void a(Service service, Intent intent) {
-        String stringExtra = intent.getStringExtra("awake_info");
-        if (TextUtils.isEmpty(stringExtra)) {
-            em.a(service.getApplicationContext(), "service", 1008, "B get a incorrect message");
-            return;
-        }
-        String b = el.b(stringExtra);
-        if (TextUtils.isEmpty(b)) {
-            em.a(service.getApplicationContext(), "service", 1008, "B get a incorrect message");
-        } else {
-            em.a(service.getApplicationContext(), b, 1007, "play with service successfully");
-        }
+import com.kwai.video.player.PlayerPostEvent;
+import com.kwai.video.player.PlayerProps;
+import com.tencent.connect.common.Constants;
+/* loaded from: classes7.dex */
+public enum ew {
+    TCP_CONN_FAIL(1),
+    TCP_CONN_TIME(2),
+    PING_RTT(3),
+    CHANNEL_CON_FAIL(4),
+    CHANNEL_CON_OK(5),
+    ICMP_PING_FAIL(6),
+    ICMP_PING_OK(7),
+    CHANNEL_ONLINE_RATE(8),
+    BATCH_TCP_CONN_SUCCESS(1000),
+    BATCH_TCP_CONN_FAIL(1001),
+    CHANNEL_STATS_COUNTER(8000),
+    GSLB_REQUEST_SUCCESS(10000),
+    GSLB_TCP_NOACCESS(PlayerPostEvent.MEDIA_INFO_PLAY_TO_END),
+    GSLB_TCP_NETUNREACH(10102),
+    GSLB_TCP_CONNREFUSED(10103),
+    GSLB_TCP_NOROUTETOHOST(10104),
+    GSLB_TCP_TIMEOUT(10105),
+    GSLB_TCP_INVALARG(Constants.REQUEST_SEND_TO_MY_COMPUTER),
+    GSLB_TCP_UKNOWNHOST(Constants.REQUEST_SHARE_TO_TROOP_BAR),
+    GSLB_TCP_ERR_OTHER(10199),
+    GSLB_ERR(10999),
+    CONN_SUCCESS(20000),
+    CONN_TCP_NOACCESS(20101),
+    CONN_TCP_NETUNREACH(20102),
+    CONN_TCP_CONNREFUSED(20103),
+    CONN_TCP_NOROUTETOHOST(20104),
+    CONN_TCP_TIMEOUT(20105),
+    CONN_TCP_INVALARG(20106),
+    CONN_TCP_UKNOWNHOST(20107),
+    CONN_TCP_ERR_OTHER(20199),
+    CONN_XMPP_ERR(20399),
+    CONN_BOSH_UNKNOWNHOST(20407),
+    CONN_BOSH_ERR(20499),
+    BIND_SUCCESS(30000),
+    BIND_TCP_READ_TIMEOUT_DEPRECTED(PlayerProps.FFP_PROP_STRING_LOG_FILE_PATH),
+    BIND_TCP_CONNRESET_DEPRECTED(PlayerProps.FFP_PROP_STRING_STREAM_ID),
+    BIND_TCP_BROKEN_PIPE_DEPRECTED(PlayerProps.FFP_PROP_STRING_DOMAIN),
+    BIND_TCP_READ_TIMEOUT(30108),
+    BIND_TCP_CONNRESET(30109),
+    BIND_TCP_BROKEN_PIPE(30110),
+    BIND_TCP_ERR(30199),
+    BIND_XMPP_ERR(30399),
+    BIND_BOSH_ITEM_NOT_FOUND(30401),
+    BIND_BOSH_ERR(30499),
+    BIND_TIMEOUT(30501),
+    BIND_INVALID_SIG(30502),
+    CHANNEL_TCP_READTIMEOUT_DEPRECTED(40101),
+    CHANNEL_TCP_CONNRESET_DEPRECTED(40102),
+    CHANNEL_TCP_BROKEN_PIPE_DEPRECTED(40103),
+    CHANNEL_TCP_READTIMEOUT(40108),
+    CHANNEL_TCP_CONNRESET(40109),
+    CHANNEL_TCP_BROKEN_PIPE(40110),
+    CHANNEL_TCP_ERR(40199),
+    CHANNEL_XMPPEXCEPTION(40399),
+    CHANNEL_BOSH_ITEMNOTFIND(40401),
+    CHANNEL_BOSH_EXCEPTION(40499),
+    CHANNEL_TIMER_DELAYED(50001);
+    
+
+    /* renamed from: a  reason: collision with other field name */
+    public final int f339a;
+
+    ew(int i) {
+        this.f339a = i;
     }
 
-    private void b(Context context, ep epVar) {
-        String m270a = epVar.m270a();
-        String b = epVar.b();
-        String d = epVar.d();
-        int a2 = epVar.a();
-        if (context == null || TextUtils.isEmpty(m270a) || TextUtils.isEmpty(b) || TextUtils.isEmpty(d)) {
-            if (TextUtils.isEmpty(d)) {
-                em.a(context, "service", 1008, "argument error");
-            } else {
-                em.a(context, d, 1008, "argument error");
-            }
-        } else if (!com.xiaomi.push.service.f.a(context, m270a, b)) {
-            em.a(context, d, 1003, "B is not ready");
-        } else {
-            em.a(context, d, 1002, "B is ready");
-            em.a(context, d, 1004, "A is ready");
-            try {
-                Intent intent = new Intent();
-                intent.setAction(b);
-                intent.setPackage(m270a);
-                intent.putExtra("awake_info", el.a(d));
-                if (a2 == 1 && !eq.m271a(context)) {
-                    em.a(context, d, 1008, "A not in foreground");
-                } else if (context.startService(intent) != null) {
-                    em.a(context, d, 1005, "A is successful");
-                    em.a(context, d, 1006, "The job is finished");
-                } else {
-                    em.a(context, d, 1008, "A is fail to help B's service");
+    public static ew a(int i) {
+        if (i != 30501) {
+            if (i != 30502) {
+                switch (i) {
+                    case 1:
+                        return TCP_CONN_FAIL;
+                    case 2:
+                        return TCP_CONN_TIME;
+                    case 3:
+                        return PING_RTT;
+                    case 4:
+                        return CHANNEL_CON_FAIL;
+                    case 5:
+                        return CHANNEL_CON_OK;
+                    case 6:
+                        return ICMP_PING_FAIL;
+                    case 7:
+                        return ICMP_PING_OK;
+                    case 8:
+                        return CHANNEL_ONLINE_RATE;
+                    default:
+                        switch (i) {
+                            case 8000:
+                                return CHANNEL_STATS_COUNTER;
+                            case 10000:
+                                return GSLB_REQUEST_SUCCESS;
+                            case 10199:
+                                return GSLB_TCP_ERR_OTHER;
+                            case 10999:
+                                return GSLB_ERR;
+                            case 20000:
+                                return CONN_SUCCESS;
+                            case 20199:
+                                return CONN_TCP_ERR_OTHER;
+                            case 20399:
+                                return CONN_XMPP_ERR;
+                            case 20407:
+                                return CONN_BOSH_UNKNOWNHOST;
+                            case 20499:
+                                return CONN_BOSH_ERR;
+                            case 30000:
+                                return BIND_SUCCESS;
+                            case 30199:
+                                return BIND_TCP_ERR;
+                            case 30399:
+                                return BIND_XMPP_ERR;
+                            case 30401:
+                                return BIND_BOSH_ITEM_NOT_FOUND;
+                            case 30499:
+                                return BIND_BOSH_ERR;
+                            case 40199:
+                                return CHANNEL_TCP_ERR;
+                            case 40399:
+                                return CHANNEL_XMPPEXCEPTION;
+                            case 40401:
+                                return CHANNEL_BOSH_ITEMNOTFIND;
+                            case 40499:
+                                return CHANNEL_BOSH_EXCEPTION;
+                            case 50001:
+                                return CHANNEL_TIMER_DELAYED;
+                            default:
+                                switch (i) {
+                                    case PlayerPostEvent.MEDIA_INFO_PLAY_TO_END /* 10101 */:
+                                        return GSLB_TCP_NOACCESS;
+                                    case 10102:
+                                        return GSLB_TCP_NETUNREACH;
+                                    case 10103:
+                                        return GSLB_TCP_CONNREFUSED;
+                                    case 10104:
+                                        return GSLB_TCP_NOROUTETOHOST;
+                                    case 10105:
+                                        return GSLB_TCP_TIMEOUT;
+                                    case Constants.REQUEST_SEND_TO_MY_COMPUTER /* 10106 */:
+                                        return GSLB_TCP_INVALARG;
+                                    case Constants.REQUEST_SHARE_TO_TROOP_BAR /* 10107 */:
+                                        return GSLB_TCP_UKNOWNHOST;
+                                    default:
+                                        switch (i) {
+                                            case 20101:
+                                                return CONN_TCP_NOACCESS;
+                                            case 20102:
+                                                return CONN_TCP_NETUNREACH;
+                                            case 20103:
+                                                return CONN_TCP_CONNREFUSED;
+                                            case 20104:
+                                                return CONN_TCP_NOROUTETOHOST;
+                                            case 20105:
+                                                return CONN_TCP_TIMEOUT;
+                                            case 20106:
+                                                return CONN_TCP_INVALARG;
+                                            case 20107:
+                                                return CONN_TCP_UKNOWNHOST;
+                                            default:
+                                                switch (i) {
+                                                    case PlayerProps.FFP_PROP_STRING_LOG_FILE_PATH /* 30101 */:
+                                                        return BIND_TCP_READ_TIMEOUT_DEPRECTED;
+                                                    case PlayerProps.FFP_PROP_STRING_STREAM_ID /* 30102 */:
+                                                        return BIND_TCP_CONNRESET_DEPRECTED;
+                                                    case PlayerProps.FFP_PROP_STRING_DOMAIN /* 30103 */:
+                                                        return BIND_TCP_BROKEN_PIPE_DEPRECTED;
+                                                    default:
+                                                        switch (i) {
+                                                            case 30108:
+                                                                return BIND_TCP_READ_TIMEOUT;
+                                                            case 30109:
+                                                                return BIND_TCP_CONNRESET;
+                                                            case 30110:
+                                                                return BIND_TCP_BROKEN_PIPE;
+                                                            default:
+                                                                switch (i) {
+                                                                    case 40101:
+                                                                        return CHANNEL_TCP_READTIMEOUT_DEPRECTED;
+                                                                    case 40102:
+                                                                        return CHANNEL_TCP_CONNRESET_DEPRECTED;
+                                                                    case 40103:
+                                                                        return CHANNEL_TCP_BROKEN_PIPE_DEPRECTED;
+                                                                    default:
+                                                                        switch (i) {
+                                                                            case 40108:
+                                                                                return CHANNEL_TCP_READTIMEOUT;
+                                                                            case 40109:
+                                                                                return CHANNEL_TCP_CONNRESET;
+                                                                            case 40110:
+                                                                                return CHANNEL_TCP_BROKEN_PIPE;
+                                                                            default:
+                                                                                return null;
+                                                                        }
+                                                                }
+                                                        }
+                                                }
+                                        }
+                                }
+                        }
                 }
-            } catch (Exception e) {
-                com.xiaomi.channel.commonutils.logger.b.a(e);
-                em.a(context, d, 1008, "A meet a exception when help B's service");
             }
+            return BIND_INVALID_SIG;
         }
+        return BIND_TIMEOUT;
     }
 
-    @Override // com.xiaomi.push.et
-    public void a(Context context, Intent intent, String str) {
-        if (context == null || !(context instanceof Service)) {
-            em.a(context, "service", 1008, "A receive incorrect message");
-        } else {
-            a((Service) context, intent);
-        }
-    }
-
-    @Override // com.xiaomi.push.et
-    public void a(Context context, ep epVar) {
-        if (epVar != null) {
-            b(context, epVar);
-        } else {
-            em.a(context, "service", 1008, "A receive incorrect message");
-        }
+    public int a() {
+        return this.f339a;
     }
 }

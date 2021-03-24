@@ -1,31 +1,31 @@
 package com.baidubce;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class BceErrorResponse {
-    private String code;
-    private String message;
-    private String requestId;
-
-    public String getRequestId() {
-        return this.requestId;
-    }
-
-    public void setRequestId(String str) {
-        this.requestId = str;
-    }
+    public String code;
+    public String message;
+    public String requestId;
 
     public String getCode() {
         return this.code;
-    }
-
-    public void setCode(String str) {
-        this.code = str;
     }
 
     public String getMessage() {
         return this.message;
     }
 
+    public String getRequestId() {
+        return this.requestId;
+    }
+
+    public void setCode(String str) {
+        this.code = str;
+    }
+
     public void setMessage(String str) {
         this.message = str;
+    }
+
+    public void setRequestId(String str) {
+        this.requestId = str;
     }
 }

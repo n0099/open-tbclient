@@ -1,19 +1,20 @@
 package rx.internal.util;
 
+import h.f;
 import java.util.concurrent.atomic.AtomicLong;
-/* loaded from: classes4.dex */
-public final class BackpressureDrainManager extends AtomicLong implements rx.f {
-    private static final long serialVersionUID = 2826241102729529449L;
-    final a actual;
-    boolean emitting;
-    Throwable exception;
-    volatile boolean terminated;
+/* loaded from: classes7.dex */
+public final class BackpressureDrainManager extends AtomicLong implements f {
+    public static final long serialVersionUID = 2826241102729529449L;
+    public final a actual;
+    public boolean emitting;
+    public Throwable exception;
+    public volatile boolean terminated;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public interface a {
-        void Y(Throwable th);
+        void a(Throwable th);
 
-        boolean ce(Object obj);
+        boolean accept(Object obj);
 
         Object peek();
 
@@ -24,19 +25,174 @@ public final class BackpressureDrainManager extends AtomicLong implements rx.f {
         this.actual = aVar;
     }
 
+    /* JADX WARN: Code restructure failed: missing block: B:23:0x002f, code lost:
+        if (r2 == 0) goto L18;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:27:0x0038, code lost:
+        monitor-enter(r13);
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:28:0x0039, code lost:
+        r1 = r13.terminated;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:29:0x003f, code lost:
+        if (r5.peek() == null) goto L50;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:30:0x0041, code lost:
+        r2 = true;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:31:0x0043, code lost:
+        r2 = false;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:34:0x004f, code lost:
+        if (get() != Long.MAX_VALUE) goto L36;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:35:0x0051, code lost:
+        if (r2 != false) goto L33;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:36:0x0053, code lost:
+        if (r1 != false) goto L33;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:37:0x0055, code lost:
+        r13.emitting = false;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:38:0x0057, code lost:
+        monitor-exit(r13);
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:39:0x0058, code lost:
+        return;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:40:0x0059, code lost:
+        r2 = Long.MAX_VALUE;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:42:0x005d, code lost:
+        r9 = addAndGet(-r6);
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:43:0x0063, code lost:
+        if (r9 == 0) goto L42;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:44:0x0065, code lost:
+        if (r2 != false) goto L40;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:45:0x0067, code lost:
+        if (r1 == false) goto L49;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:46:0x0069, code lost:
+        if (r2 == false) goto L40;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:48:0x006c, code lost:
+        r2 = r9;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:51:0x006f, code lost:
+        r13.emitting = false;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:52:0x0071, code lost:
+        monitor-exit(r13);
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:53:0x0072, code lost:
+        return;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:54:0x0073, code lost:
+        r1 = th;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:56:0x0075, code lost:
+        monitor-exit(r13);
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:57:0x0076, code lost:
+        throw r1;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void drain() {
+        synchronized (this) {
+            if (this.emitting) {
+                return;
+            }
+            boolean z = true;
+            this.emitting = true;
+            boolean z2 = this.terminated;
+            long j = get();
+            try {
+                a aVar = this.actual;
+                while (true) {
+                    int i = 0;
+                    while (true) {
+                        try {
+                            if (j > 0 || z2) {
+                                if (z2) {
+                                    if (aVar.peek() == null) {
+                                        aVar.a(this.exception);
+                                        return;
+                                    }
+                                }
+                                Object poll = aVar.poll();
+                                if (poll != null) {
+                                    if (aVar.accept(poll)) {
+                                        return;
+                                    }
+                                    j--;
+                                    i++;
+                                }
+                            }
+                            try {
+                                break;
+                            } catch (Throwable th) {
+                                th = th;
+                            }
+                        } catch (Throwable th2) {
+                            th = th2;
+                            if (!z) {
+                                synchronized (this) {
+                                    this.emitting = false;
+                                }
+                            }
+                            throw th;
+                        }
+                    }
+                }
+            } catch (Throwable th3) {
+                th = th3;
+                z = false;
+            }
+        }
+    }
+
     public boolean isTerminated() {
         return this.terminated;
     }
 
-    public void terminate() {
-        this.terminated = true;
+    @Override // h.f
+    public void request(long j) {
+        boolean z;
+        long j2;
+        if (j == 0) {
+            return;
+        }
+        while (true) {
+            long j3 = get();
+            boolean z2 = true;
+            z = j3 == 0;
+            if (j3 == Long.MAX_VALUE) {
+                break;
+            }
+            if (j == Long.MAX_VALUE) {
+                j2 = j;
+            } else {
+                j2 = j3 <= Long.MAX_VALUE - j ? j3 + j : Long.MAX_VALUE;
+                z2 = z;
+            }
+            if (compareAndSet(j3, j2)) {
+                z = z2;
+                break;
+            }
+        }
+        if (z) {
+            drain();
+        }
     }
 
-    public void terminate(Throwable th) {
-        if (!this.terminated) {
-            this.exception = th;
-            this.terminated = true;
-        }
+    public void terminate() {
+        this.terminated = true;
     }
 
     public void terminateAndDrain() {
@@ -44,179 +200,20 @@ public final class BackpressureDrainManager extends AtomicLong implements rx.f {
         drain();
     }
 
+    public void terminate(Throwable th) {
+        if (this.terminated) {
+            return;
+        }
+        this.exception = th;
+        this.terminated = true;
+    }
+
     public void terminateAndDrain(Throwable th) {
-        if (!this.terminated) {
-            this.exception = th;
-            this.terminated = true;
-            drain();
+        if (this.terminated) {
+            return;
         }
-    }
-
-    @Override // rx.f
-    public void request(long j) {
-        long j2;
-        boolean z;
-        long j3;
-        if (j != 0) {
-            do {
-                j2 = get();
-                z = j2 == 0;
-                if (j2 == Long.MAX_VALUE) {
-                    break;
-                } else if (j == Long.MAX_VALUE) {
-                    j3 = j;
-                    z = true;
-                } else {
-                    j3 = j2 > Long.MAX_VALUE - j ? Long.MAX_VALUE : j2 + j;
-                }
-            } while (!compareAndSet(j2, j3));
-            if (z) {
-                drain();
-            }
-        }
-    }
-
-    /* JADX WARN: Code restructure failed: missing block: B:34:0x0043, code lost:
-        monitor-enter(r14);
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:35:0x0044, code lost:
-        r2 = r14.terminated;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:36:0x004a, code lost:
-        if (r9.peek() == null) goto L75;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:37:0x004c, code lost:
-        r5 = true;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:40:0x0053, code lost:
-        if (get() != Long.MAX_VALUE) goto L41;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:41:0x0055, code lost:
-        if (r5 != false) goto L38;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:42:0x0057, code lost:
-        if (r2 != false) goto L38;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:44:0x005a, code lost:
-        r14.emitting = false;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:45:0x005c, code lost:
-        monitor-exit(r14);
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:47:0x005e, code lost:
-        r0 = th;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:48:0x005f, code lost:
-        r1 = true;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:49:0x0060, code lost:
-        monitor-exit(r14);
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:50:0x0061, code lost:
-        throw r0;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:51:0x0062, code lost:
-        r0 = th;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:52:0x0063, code lost:
-        r4 = r1;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:58:0x0078, code lost:
-        r5 = false;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:59:0x007a, code lost:
-        r0 = Long.MAX_VALUE;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:60:0x007b, code lost:
-        monitor-exit(r14);
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:62:0x007d, code lost:
-        r0 = th;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:63:0x007e, code lost:
-        r1 = false;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:64:0x0080, code lost:
-        r0 = addAndGet(-r8);
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:66:0x0088, code lost:
-        if (r0 == 0) goto L45;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:67:0x008a, code lost:
-        if (r5 != false) goto L39;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:68:0x008c, code lost:
-        if (r2 == false) goto L51;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:69:0x008e, code lost:
-        if (r5 == false) goto L39;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:71:0x0091, code lost:
-        r14.emitting = false;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:72:0x0093, code lost:
-        monitor-exit(r14);
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:79:0x009b, code lost:
-        r0 = th;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:7:0x000f, code lost:
-        return;
-     */
-    /* JADX WARN: Removed duplicated region for block: B:24:0x0036  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void drain() {
-        boolean z = false;
-        synchronized (this) {
-            if (!this.emitting) {
-                this.emitting = true;
-                boolean z2 = this.terminated;
-                long j = get();
-                try {
-                    a aVar = this.actual;
-                    while (true) {
-                        int i = 0;
-                        long j2 = j;
-                        while (true) {
-                            if (j2 <= 0 && !z2) {
-                                break;
-                            }
-                            if (z2) {
-                                if (aVar.peek() == null) {
-                                    try {
-                                        aVar.Y(this.exception);
-                                        return;
-                                    } catch (Throwable th) {
-                                        th = th;
-                                        z = true;
-                                        if (!z) {
-                                            synchronized (this) {
-                                                this.emitting = false;
-                                            }
-                                        }
-                                        throw th;
-                                    }
-                                } else if (j2 == 0) {
-                                    break;
-                                }
-                            }
-                            Object poll = aVar.poll();
-                            if (poll == null) {
-                                break;
-                            } else if (!aVar.ce(poll)) {
-                                j2--;
-                                i++;
-                            } else {
-                                return;
-                            }
-                        }
-                    }
-                } catch (Throwable th2) {
-                    th = th2;
-                }
-            }
-        }
+        this.exception = th;
+        this.terminated = true;
+        drain();
     }
 }

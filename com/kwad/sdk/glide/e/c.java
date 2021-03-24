@@ -7,16 +7,20 @@ import com.kwad.sdk.glide.load.engine.g;
 import com.kwad.sdk.glide.load.engine.q;
 import java.util.Collections;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final q<?, ?, ?> f6599a = new q<>(Object.class, Object.class, Object.class, Collections.singletonList(new g(Object.class, Object.class, Object.class, Collections.emptyList(), new com.kwad.sdk.glide.load.resource.e.g(), null)), null);
-    private final ArrayMap<i, q<?, ?, ?>> b = new ArrayMap<>();
-    private final AtomicReference<i> c = new AtomicReference<>();
+    public static final q<?, ?, ?> f35143a = new q<>(Object.class, Object.class, Object.class, Collections.singletonList(new g(Object.class, Object.class, Object.class, Collections.emptyList(), new com.kwad.sdk.glide.load.resource.e.g(), null)), null);
+
+    /* renamed from: b  reason: collision with root package name */
+    public final ArrayMap<i, q<?, ?, ?>> f35144b = new ArrayMap<>();
+
+    /* renamed from: c  reason: collision with root package name */
+    public final AtomicReference<i> f35145c = new AtomicReference<>();
 
     private i b(Class<?> cls, Class<?> cls2, Class<?> cls3) {
-        i andSet = this.c.getAndSet(null);
+        i andSet = this.f35145c.getAndSet(null);
         if (andSet == null) {
             andSet = new i();
         }
@@ -27,26 +31,26 @@ public class c {
     @Nullable
     public <Data, TResource, Transcode> q<Data, TResource, Transcode> a(Class<Data> cls, Class<TResource> cls2, Class<Transcode> cls3) {
         q<Data, TResource, Transcode> qVar;
-        i b = b(cls, cls2, cls3);
-        synchronized (this.b) {
-            qVar = (q<Data, TResource, Transcode>) this.b.get(b);
+        i b2 = b(cls, cls2, cls3);
+        synchronized (this.f35144b) {
+            qVar = (q<Data, TResource, Transcode>) this.f35144b.get(b2);
         }
-        this.c.set(b);
+        this.f35145c.set(b2);
         return qVar;
     }
 
     public void a(Class<?> cls, Class<?> cls2, Class<?> cls3, @Nullable q<?, ?, ?> qVar) {
-        synchronized (this.b) {
-            ArrayMap<i, q<?, ?, ?>> arrayMap = this.b;
+        synchronized (this.f35144b) {
+            ArrayMap<i, q<?, ?, ?>> arrayMap = this.f35144b;
             i iVar = new i(cls, cls2, cls3);
             if (qVar == null) {
-                qVar = f6599a;
+                qVar = f35143a;
             }
             arrayMap.put(iVar, qVar);
         }
     }
 
     public boolean a(@Nullable q<?, ?, ?> qVar) {
-        return f6599a.equals(qVar);
+        return f35143a.equals(qVar);
     }
 }

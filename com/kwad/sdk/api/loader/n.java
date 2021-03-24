@@ -6,21 +6,23 @@ import android.content.ContextWrapper;
 import android.content.res.Resources;
 import android.view.LayoutInflater;
 import com.kwad.sdk.api.core.ResContext;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class n extends ContextWrapper implements ResContext {
 
     /* renamed from: a  reason: collision with root package name */
-    private final Context f5484a;
-    private Resources.Theme b;
-    private int c;
+    public final Context f31841a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    /* renamed from: b  reason: collision with root package name */
+    public Resources.Theme f31842b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public int f31843c;
+
     public n(Context context) {
         super(context);
-        this.c = -1;
-        this.f5484a = context;
-        this.c = ((Integer) Reflect.a(context).d("getThemeResId").a()).intValue();
+        this.f31843c = -1;
+        this.f31841a = context;
+        this.f31843c = ((Integer) Reflect.a(context).d("getThemeResId").a()).intValue();
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
@@ -41,7 +43,7 @@ public class n extends ContextWrapper implements ResContext {
 
     @Override // com.kwad.sdk.api.core.ResContext
     public Context getDelegatedContext() {
-        return this.f5484a;
+        return this.f31841a;
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
@@ -52,11 +54,13 @@ public class n extends ContextWrapper implements ResContext {
 
     @Override // android.content.ContextWrapper, android.content.Context
     public Object getSystemService(String str) {
-        if ("layout_inflater".equals(str)) {
-            LayoutInflater layoutInflater = (LayoutInflater) super.getSystemService(str);
+        boolean equals = "layout_inflater".equals(str);
+        Object systemService = super.getSystemService(str);
+        if (equals) {
+            LayoutInflater layoutInflater = (LayoutInflater) systemService;
             return !(layoutInflater.getContext() instanceof ResContext) ? layoutInflater.cloneInContext(this) : layoutInflater;
         }
-        return super.getSystemService(str);
+        return systemService;
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
@@ -64,24 +68,26 @@ public class n extends ContextWrapper implements ResContext {
         Resources.Theme theme = super.getTheme();
         Resources externalResource = Loader.get().getExternalResource();
         if (externalResource != null) {
-            if (this.b == null) {
-                this.b = externalResource.newTheme();
-                if (this.c > 0) {
-                    this.b.applyStyle(this.c, true);
+            if (this.f31842b == null) {
+                Resources.Theme newTheme = externalResource.newTheme();
+                this.f31842b = newTheme;
+                int i = this.f31843c;
+                if (i > 0) {
+                    newTheme.applyStyle(i, true);
                 }
             }
-            return this.b;
+            return this.f31842b;
         }
         return theme;
     }
 
     @Override // android.content.Context
     public void registerComponentCallbacks(ComponentCallbacks componentCallbacks) {
-        this.f5484a.registerComponentCallbacks(componentCallbacks);
+        this.f31841a.registerComponentCallbacks(componentCallbacks);
     }
 
     @Override // android.content.Context
     public void unregisterComponentCallbacks(ComponentCallbacks componentCallbacks) {
-        this.f5484a.unregisterComponentCallbacks(componentCallbacks);
+        this.f31841a.unregisterComponentCallbacks(componentCallbacks);
     }
 }

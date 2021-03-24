@@ -8,17 +8,17 @@ import org.apache.http.entity.BasicHttpEntity;
 import org.apache.http.entity.ContentLengthStrategy;
 import org.apache.http.io.SessionInputBuffer;
 @Deprecated
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class EntityDeserializer {
     public EntityDeserializer(ContentLengthStrategy contentLengthStrategy) {
         throw new RuntimeException("Stub!");
     }
 
-    protected BasicHttpEntity doDeserialize(SessionInputBuffer sessionInputBuffer, HttpMessage httpMessage) throws HttpException, IOException {
+    public HttpEntity deserialize(SessionInputBuffer sessionInputBuffer, HttpMessage httpMessage) throws HttpException, IOException {
         throw new RuntimeException("Stub!");
     }
 
-    public HttpEntity deserialize(SessionInputBuffer sessionInputBuffer, HttpMessage httpMessage) throws HttpException, IOException {
+    public BasicHttpEntity doDeserialize(SessionInputBuffer sessionInputBuffer, HttpMessage httpMessage) throws HttpException, IOException {
         throw new RuntimeException("Stub!");
     }
 }

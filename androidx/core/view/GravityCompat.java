@@ -3,7 +3,7 @@ package androidx.core.view;
 import android.graphics.Rect;
 import android.os.Build;
 import android.view.Gravity;
-/* loaded from: classes14.dex */
+/* loaded from: classes.dex */
 public final class GravityCompat {
     public static final int END = 8388613;
     public static final int RELATIVE_HORIZONTAL_GRAVITY_MASK = 8388615;
@@ -18,14 +18,6 @@ public final class GravityCompat {
         }
     }
 
-    public static void apply(int i, int i2, int i3, Rect rect, int i4, int i5, Rect rect2, int i6) {
-        if (Build.VERSION.SDK_INT >= 17) {
-            Gravity.apply(i, i2, i3, rect, i4, i5, rect2, i6);
-        } else {
-            Gravity.apply(i, i2, i3, rect, i4, i5, rect2);
-        }
-    }
-
     public static void applyDisplay(int i, Rect rect, Rect rect2, int i2) {
         if (Build.VERSION.SDK_INT >= 17) {
             Gravity.applyDisplay(i, rect, rect2, i2);
@@ -35,9 +27,14 @@ public final class GravityCompat {
     }
 
     public static int getAbsoluteGravity(int i, int i2) {
-        return Build.VERSION.SDK_INT >= 17 ? Gravity.getAbsoluteGravity(i, i2) : (-8388609) & i;
+        return Build.VERSION.SDK_INT >= 17 ? Gravity.getAbsoluteGravity(i, i2) : i & (-8388609);
     }
 
-    private GravityCompat() {
+    public static void apply(int i, int i2, int i3, Rect rect, int i4, int i5, Rect rect2, int i6) {
+        if (Build.VERSION.SDK_INT >= 17) {
+            Gravity.apply(i, i2, i3, rect, i4, i5, rect2, i6);
+        } else {
+            Gravity.apply(i, i2, i3, rect, i4, i5, rect2);
+        }
     }
 }

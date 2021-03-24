@@ -1,139 +1,127 @@
 package com.facebook.datasource;
 
 import android.util.Pair;
+import com.facebook.common.internal.Preconditions;
 import java.util.Iterator;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.Executor;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
-/* loaded from: classes4.dex */
-public abstract class AbstractDataSource<T> implements b<T> {
+/* loaded from: classes.dex */
+public abstract class AbstractDataSource<T> implements DataSource<T> {
     @GuardedBy("this")
     @Nullable
-    private T duA = null;
+    public T mResult = null;
     @GuardedBy("this")
-    private Throwable pCt = null;
+    public Throwable mFailureThrowable = null;
     @GuardedBy("this")
-    private float mProgress = 0.0f;
+    public float mProgress = 0.0f;
     @GuardedBy("this")
-    private boolean SU = false;
+    public boolean mIsClosed = false;
     @GuardedBy("this")
-    private DataSourceStatus pCs = DataSourceStatus.IN_PROGRESS;
-    private final ConcurrentLinkedQueue<Pair<d<T>, Executor>> pCu = new ConcurrentLinkedQueue<>();
+    public DataSourceStatus mDataSourceStatus = DataSourceStatus.IN_PROGRESS;
+    public final ConcurrentLinkedQueue<Pair<DataSubscriber<T>, Executor>> mSubscribers = new ConcurrentLinkedQueue<>();
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public enum DataSourceStatus {
         IN_PROGRESS,
         SUCCESS,
         FAILURE
     }
 
-    public synchronized boolean isClosed() {
-        return this.SU;
-    }
-
-    @Override // com.facebook.datasource.b
-    public synchronized boolean isFinished() {
-        return this.pCs != DataSourceStatus.IN_PROGRESS;
-    }
-
-    @Override // com.facebook.datasource.b
-    public synchronized boolean eto() {
-        return this.duA != null;
-    }
-
-    @Override // com.facebook.datasource.b
-    @Nullable
-    public synchronized T getResult() {
-        return this.duA;
-    }
-
-    public synchronized boolean etp() {
-        return this.pCs == DataSourceStatus.FAILURE;
-    }
-
-    @Override // com.facebook.datasource.b
-    @Nullable
-    public synchronized Throwable etq() {
-        return this.pCt;
-    }
-
-    @Override // com.facebook.datasource.b
-    public synchronized float getProgress() {
-        return this.mProgress;
-    }
-
-    @Override // com.facebook.datasource.b
-    public boolean apO() {
-        boolean z = true;
-        synchronized (this) {
-            if (this.SU) {
-                z = false;
-            } else {
-                this.SU = true;
-                T t = this.duA;
-                this.duA = null;
-                if (t != null) {
-                    bh(t);
-                }
-                if (!isFinished()) {
-                    etr();
-                }
-                synchronized (this) {
-                    this.pCu.clear();
-                }
-            }
-        }
-        return z;
-    }
-
-    protected void bh(@Nullable T t) {
-    }
-
-    @Override // com.facebook.datasource.b
-    public void a(d<T> dVar, Executor executor) {
-        com.facebook.common.internal.g.checkNotNull(dVar);
-        com.facebook.common.internal.g.checkNotNull(executor);
-        synchronized (this) {
-            if (!this.SU) {
-                if (this.pCs == DataSourceStatus.IN_PROGRESS) {
-                    this.pCu.add(Pair.create(dVar, executor));
-                }
-                boolean z = eto() || isFinished() || ets();
-                if (z) {
-                    a(dVar, executor, etp(), ets());
-                }
-            }
-        }
-    }
-
-    private void etr() {
-        boolean etp = etp();
-        boolean ets = ets();
-        Iterator<Pair<d<T>, Executor>> it = this.pCu.iterator();
-        while (it.hasNext()) {
-            Pair<d<T>, Executor> next = it.next();
-            a((d) next.first, (Executor) next.second, etp, ets);
-        }
-    }
-
-    private void a(final d<T> dVar, Executor executor, final boolean z, final boolean z2) {
+    private void notifyDataSubscriber(final DataSubscriber<T> dataSubscriber, Executor executor, final boolean z, final boolean z2) {
         executor.execute(new Runnable() { // from class: com.facebook.datasource.AbstractDataSource.1
             @Override // java.lang.Runnable
             public void run() {
                 if (z) {
-                    dVar.e(AbstractDataSource.this);
+                    dataSubscriber.onFailure(AbstractDataSource.this);
                 } else if (z2) {
-                    dVar.b(AbstractDataSource.this);
+                    dataSubscriber.onCancellation(AbstractDataSource.this);
                 } else {
-                    dVar.d(AbstractDataSource.this);
+                    dataSubscriber.onNewResult(AbstractDataSource.this);
                 }
             }
         });
     }
 
-    private synchronized boolean ets() {
+    private void notifyDataSubscribers() {
+        boolean hasFailed = hasFailed();
+        boolean wasCancelled = wasCancelled();
+        Iterator<Pair<DataSubscriber<T>, Executor>> it = this.mSubscribers.iterator();
+        while (it.hasNext()) {
+            Pair<DataSubscriber<T>, Executor> next = it.next();
+            notifyDataSubscriber((DataSubscriber) next.first, (Executor) next.second, hasFailed, wasCancelled);
+        }
+    }
+
+    private synchronized boolean setFailureInternal(Throwable th) {
+        if (!this.mIsClosed && this.mDataSourceStatus == DataSourceStatus.IN_PROGRESS) {
+            this.mDataSourceStatus = DataSourceStatus.FAILURE;
+            this.mFailureThrowable = th;
+            return true;
+        }
+        return false;
+    }
+
+    private synchronized boolean setProgressInternal(float f2) {
+        if (!this.mIsClosed && this.mDataSourceStatus == DataSourceStatus.IN_PROGRESS) {
+            if (f2 < this.mProgress) {
+                return false;
+            }
+            this.mProgress = f2;
+            return true;
+        }
+        return false;
+    }
+
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:31:0x0039 -> B:32:0x003a). Please submit an issue!!! */
+    private boolean setResultInternal(@Nullable T t, boolean z) {
+        T t2;
+        T t3 = null;
+        try {
+            synchronized (this) {
+                try {
+                    try {
+                        if (!this.mIsClosed && this.mDataSourceStatus == DataSourceStatus.IN_PROGRESS) {
+                            if (z) {
+                                this.mDataSourceStatus = DataSourceStatus.SUCCESS;
+                                this.mProgress = 1.0f;
+                            }
+                            if (this.mResult != t) {
+                                T t4 = this.mResult;
+                                try {
+                                    this.mResult = t;
+                                    t2 = t4;
+                                } catch (Throwable th) {
+                                    th = th;
+                                    t3 = t4;
+                                    throw th;
+                                }
+                            } else {
+                                t2 = null;
+                            }
+                            return true;
+                        }
+                        if (t != null) {
+                            closeResult(t);
+                        }
+                        return false;
+                    } catch (Throwable th2) {
+                        t3 = t;
+                        th = th2;
+                    }
+                } catch (Throwable th3) {
+                    th = th3;
+                }
+            }
+        } finally {
+            if (t3 != null) {
+                closeResult(t3);
+            }
+        }
+    }
+
+    private synchronized boolean wasCancelled() {
         boolean z;
         if (isClosed()) {
             z = isFinished() ? false : true;
@@ -141,133 +129,139 @@ public abstract class AbstractDataSource<T> implements b<T> {
         return z;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public boolean c(@Nullable T t, boolean z) {
-        boolean d = d(t, z);
-        if (d) {
-            etr();
-        }
-        return d;
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public boolean t(Throwable th) {
-        boolean u = u(th);
-        if (u) {
-            etr();
-        }
-        return u;
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public boolean bJ(float f) {
-        boolean bK = bK(f);
-        if (bK) {
-            ett();
-        }
-        return bK;
-    }
-
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [282=4] */
-    /* JADX WARN: Removed duplicated region for block: B:30:0x0036  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    private boolean d(@Nullable T t, boolean z) {
-        boolean z2;
-        T t2;
-        try {
-            try {
-                synchronized (this) {
-                    try {
-                        if (this.SU || this.pCs != DataSourceStatus.IN_PROGRESS) {
-                            z2 = false;
-                            if (t != null) {
-                                bh(t);
-                            }
-                        } else {
-                            if (z) {
-                                this.pCs = DataSourceStatus.SUCCESS;
-                                this.mProgress = 1.0f;
-                            }
-                            if (this.duA != t) {
-                                T t3 = this.duA;
-                                try {
-                                    this.duA = t;
-                                    t2 = t3;
-                                } catch (Throwable th) {
-                                    th = th;
-                                    t = t3;
-                                    try {
-                                        throw th;
-                                    } catch (Throwable th2) {
-                                        th = th2;
-                                        if (t != null) {
-                                            bh(t);
-                                        }
-                                        throw th;
-                                    }
-                                }
-                            } else {
-                                t2 = null;
-                            }
-                            z2 = true;
-                            if (t2 != null) {
-                                bh(t2);
-                            }
-                        }
-                        return z2;
-                    } catch (Throwable th3) {
-                        th = th3;
-                        t = null;
-                    }
-                }
-            } catch (Throwable th4) {
-                th = th4;
-                t = null;
-                if (t != null) {
-                }
-                throw th;
-            }
-        } catch (Throwable th5) {
-            th = th5;
-        }
-    }
-
-    private synchronized boolean u(Throwable th) {
-        boolean z;
-        if (this.SU || this.pCs != DataSourceStatus.IN_PROGRESS) {
-            z = false;
-        } else {
-            this.pCs = DataSourceStatus.FAILURE;
-            this.pCt = th;
-            z = true;
-        }
-        return z;
-    }
-
-    private synchronized boolean bK(float f) {
-        boolean z = false;
+    @Override // com.facebook.datasource.DataSource
+    public boolean close() {
         synchronized (this) {
-            if (!this.SU && this.pCs == DataSourceStatus.IN_PROGRESS && f >= this.mProgress) {
-                this.mProgress = f;
-                z = true;
+            if (this.mIsClosed) {
+                return false;
             }
+            this.mIsClosed = true;
+            T t = this.mResult;
+            this.mResult = null;
+            if (t != null) {
+                closeResult(t);
+            }
+            if (!isFinished()) {
+                notifyDataSubscribers();
+            }
+            synchronized (this) {
+                this.mSubscribers.clear();
+            }
+            return true;
         }
-        return z;
     }
 
-    protected void ett() {
-        Iterator<Pair<d<T>, Executor>> it = this.pCu.iterator();
+    public void closeResult(@Nullable T t) {
+    }
+
+    @Override // com.facebook.datasource.DataSource
+    @Nullable
+    public synchronized Throwable getFailureCause() {
+        return this.mFailureThrowable;
+    }
+
+    @Override // com.facebook.datasource.DataSource
+    public synchronized float getProgress() {
+        return this.mProgress;
+    }
+
+    @Override // com.facebook.datasource.DataSource
+    @Nullable
+    public synchronized T getResult() {
+        return this.mResult;
+    }
+
+    @Override // com.facebook.datasource.DataSource
+    public synchronized boolean hasFailed() {
+        return this.mDataSourceStatus == DataSourceStatus.FAILURE;
+    }
+
+    @Override // com.facebook.datasource.DataSource
+    public boolean hasMultipleResults() {
+        return false;
+    }
+
+    @Override // com.facebook.datasource.DataSource
+    public synchronized boolean hasResult() {
+        return this.mResult != null;
+    }
+
+    @Override // com.facebook.datasource.DataSource
+    public synchronized boolean isClosed() {
+        return this.mIsClosed;
+    }
+
+    @Override // com.facebook.datasource.DataSource
+    public synchronized boolean isFinished() {
+        return this.mDataSourceStatus != DataSourceStatus.IN_PROGRESS;
+    }
+
+    public void notifyProgressUpdate() {
+        Iterator<Pair<DataSubscriber<T>, Executor>> it = this.mSubscribers.iterator();
         while (it.hasNext()) {
-            Pair<d<T>, Executor> next = it.next();
-            final d dVar = (d) next.first;
+            Pair<DataSubscriber<T>, Executor> next = it.next();
+            final DataSubscriber dataSubscriber = (DataSubscriber) next.first;
             ((Executor) next.second).execute(new Runnable() { // from class: com.facebook.datasource.AbstractDataSource.2
                 @Override // java.lang.Runnable
                 public void run() {
-                    dVar.f(AbstractDataSource.this);
+                    dataSubscriber.onProgressUpdate(AbstractDataSource.this);
                 }
             });
+        }
+    }
+
+    public boolean setFailure(Throwable th) {
+        boolean failureInternal = setFailureInternal(th);
+        if (failureInternal) {
+            notifyDataSubscribers();
+        }
+        return failureInternal;
+    }
+
+    public boolean setProgress(float f2) {
+        boolean progressInternal = setProgressInternal(f2);
+        if (progressInternal) {
+            notifyProgressUpdate();
+        }
+        return progressInternal;
+    }
+
+    public boolean setResult(@Nullable T t, boolean z) {
+        boolean resultInternal = setResultInternal(t, z);
+        if (resultInternal) {
+            notifyDataSubscribers();
+        }
+        return resultInternal;
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:22:0x0035  */
+    /* JADX WARN: Removed duplicated region for block: B:28:? A[RETURN, SYNTHETIC] */
+    @Override // com.facebook.datasource.DataSource
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void subscribe(DataSubscriber<T> dataSubscriber, Executor executor) {
+        boolean z;
+        Preconditions.checkNotNull(dataSubscriber);
+        Preconditions.checkNotNull(executor);
+        synchronized (this) {
+            if (this.mIsClosed) {
+                return;
+            }
+            if (this.mDataSourceStatus == DataSourceStatus.IN_PROGRESS) {
+                this.mSubscribers.add(Pair.create(dataSubscriber, executor));
+            }
+            if (!hasResult() && !isFinished() && !wasCancelled()) {
+                z = false;
+                if (z) {
+                    return;
+                }
+                notifyDataSubscriber(dataSubscriber, executor, hasFailed(), wasCancelled());
+                return;
+            }
+            z = true;
+            if (z) {
+            }
         }
     }
 }

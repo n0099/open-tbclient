@@ -6,25 +6,47 @@ import com.baidu.tieba.ad.download.mvp.IDownloadModel;
 import com.baidu.tieba.ad.download.state.DownloadStatus;
 import java.io.Serializable;
 import java.util.Objects;
-/* loaded from: classes.dex */
-public final class AdDownloadData implements IDownloadModel, Serializable {
-    private final String mAdId;
-    private String mAppJson;
-    private String mDownloadKey;
-    private String mDownloadUrl;
-    private String mExtInfo;
-    private final AdDownloadExtra mExtra;
-    private int mFakeDownloadPercent;
-    private int mFakeDownloadTime;
-    private String mPackageName;
+/* loaded from: classes4.dex */
+public final class AdDownloadData implements Serializable, IDownloadModel {
+    public final String mAdId;
+    public String mAppJson;
+    public String mDownloadKey;
+    public String mDownloadUrl;
+    public String mExtInfo;
+    public final AdDownloadExtra mExtra;
+    public int mFakeDownloadPercent;
+    public int mFakeDownloadTime;
+    public String mPackageName;
+    public String mPage;
 
-    private AdDownloadData(a aVar) {
-        this.mAdId = aVar.mAdId;
-        this.mPackageName = aVar.mPackageName;
-        this.mDownloadUrl = aVar.mDownloadUrl;
-        this.mFakeDownloadTime = aVar.mFakeDownloadTime;
-        this.mFakeDownloadPercent = aVar.mFakeDownloadPercent;
-        this.mExtra = new AdDownloadExtra(this);
+    /* loaded from: classes4.dex */
+    public static final class b {
+
+        /* renamed from: a  reason: collision with root package name */
+        public final String f14520a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public String f14521b;
+
+        /* renamed from: c  reason: collision with root package name */
+        public String f14522c;
+
+        /* renamed from: d  reason: collision with root package name */
+        public int f14523d;
+
+        /* renamed from: e  reason: collision with root package name */
+        public int f14524e;
+
+        public b(@NonNull DownloadCacheKey downloadCacheKey) {
+            this.f14520a = downloadCacheKey.mAdId;
+            this.f14521b = downloadCacheKey.mDownloadUrl;
+            this.f14522c = downloadCacheKey.mPackageName;
+        }
+
+        @NonNull
+        public AdDownloadData f() {
+            return new AdDownloadData(this);
+        }
     }
 
     @Override // com.baidu.tieba.ad.download.mvp.IDownloadModel
@@ -32,47 +54,23 @@ public final class AdDownloadData implements IDownloadModel, Serializable {
         return this.mAdId;
     }
 
-    public String pkgName() {
-        return this.mPackageName;
-    }
-
-    public void setupPkgName(String str) {
-        this.mPackageName = str;
-    }
-
-    public void setupDownloadUrl(String str) {
-        this.mDownloadUrl = str;
-    }
-
-    public String getDownloadUrl() {
-        return this.mDownloadUrl;
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj instanceof DownloadCacheKey) {
+            return Objects.equals(this.mAdId, ((DownloadCacheKey) obj).mAdId);
+        }
+        return false;
     }
 
     public AdDownloadExtra extra() {
         return this.mExtra;
     }
 
-    public boolean isValid() {
-        return (TextUtils.isEmpty(this.mAdId) || TextUtils.isEmpty(this.mDownloadUrl)) ? false : true;
-    }
-
-    public int hashCode() {
-        return Objects.hash(this.mAdId);
-    }
-
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (!(obj instanceof DownloadCacheKey)) {
-            return false;
-        }
-        return Objects.equals(this.mAdId, ((DownloadCacheKey) obj).mAdId);
-    }
-
     @Override // com.baidu.tieba.ad.download.mvp.IDownloadModel
-    public int getPercent() {
-        return this.mExtra.getPercent();
+    public String getAppJson() {
+        return this.mAppJson;
     }
 
     @Override // com.baidu.tieba.ad.download.mvp.IDownloadModel
@@ -82,8 +80,12 @@ public final class AdDownloadData implements IDownloadModel, Serializable {
     }
 
     @Override // com.baidu.tieba.ad.download.mvp.IDownloadModel
-    public String getPkgName() {
-        return this.mPackageName;
+    public String getDownloadKey() {
+        return this.mDownloadKey;
+    }
+
+    public String getDownloadUrl() {
+        return this.mDownloadUrl;
     }
 
     @Override // com.baidu.tieba.ad.download.mvp.IDownloadModel
@@ -91,45 +93,62 @@ public final class AdDownloadData implements IDownloadModel, Serializable {
         return this.mExtInfo;
     }
 
-    @Override // com.baidu.tieba.ad.download.mvp.IDownloadModel
-    public String getDownloadKey() {
-        return this.mDownloadKey;
+    public String getPage() {
+        return this.mPage;
     }
 
     @Override // com.baidu.tieba.ad.download.mvp.IDownloadModel
-    public String getAppJson() {
-        return this.mAppJson;
+    public int getPercent() {
+        return this.mExtra.getPercent();
     }
 
-    public void setExtInfo(String str) {
-        this.mExtInfo = str;
+    @Override // com.baidu.tieba.ad.download.mvp.IDownloadModel
+    public String getPkgName() {
+        return this.mPackageName;
     }
 
-    public void setDownloadKey(String str) {
-        this.mDownloadKey = str;
+    public int hashCode() {
+        return Objects.hash(this.mAdId);
+    }
+
+    public boolean isValid() {
+        return (TextUtils.isEmpty(this.mAdId) || TextUtils.isEmpty(this.mDownloadUrl)) ? false : true;
+    }
+
+    public String pkgName() {
+        return this.mPackageName;
     }
 
     public void setAppJson(String str) {
         this.mAppJson = str;
     }
 
-    /* loaded from: classes.dex */
-    public static final class a {
-        private final String mAdId;
-        private String mDownloadUrl;
-        private int mFakeDownloadPercent;
-        private int mFakeDownloadTime;
-        private String mPackageName;
+    public void setDownloadKey(String str) {
+        this.mDownloadKey = str;
+    }
 
-        public a(@NonNull DownloadCacheKey downloadCacheKey) {
-            this.mAdId = downloadCacheKey.mAdId;
-            this.mDownloadUrl = downloadCacheKey.mDownloadUrl;
-            this.mPackageName = downloadCacheKey.mPackageName;
-        }
+    public void setExtInfo(String str) {
+        this.mExtInfo = str;
+    }
 
-        @NonNull
-        public AdDownloadData bLB() {
-            return new AdDownloadData(this);
-        }
+    public void setPage(String str) {
+        this.mPage = str;
+    }
+
+    public void setupDownloadUrl(String str) {
+        this.mDownloadUrl = str;
+    }
+
+    public void setupPkgName(String str) {
+        this.mPackageName = str;
+    }
+
+    public AdDownloadData(b bVar) {
+        this.mAdId = bVar.f14520a;
+        this.mPackageName = bVar.f14522c;
+        this.mDownloadUrl = bVar.f14521b;
+        this.mFakeDownloadTime = bVar.f14523d;
+        this.mFakeDownloadPercent = bVar.f14524e;
+        this.mExtra = new AdDownloadExtra(this);
     }
 }

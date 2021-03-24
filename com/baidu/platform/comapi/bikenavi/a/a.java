@@ -1,7 +1,7 @@
 package com.baidu.platform.comapi.bikenavi.a;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f2869a = true;
+    public static boolean f9824a = true;
 }

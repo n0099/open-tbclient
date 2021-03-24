@@ -1,42 +1,44 @@
 package com.baidu.tbadk.distribute;
 
 import com.baidu.adp.framework.message.NetMessage;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
-import com.baidu.tbadk.util.v;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import d.b.h0.z0.w;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.LogTogether.AdReq;
 import tbclient.LogTogether.DataReq;
 import tbclient.LogTogether.LogTogetherReqIdl;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class DistributeRequest extends NetMessage {
-    private List<AdReq> adReqList;
+    public List<AdReq> adReqList;
 
     public DistributeRequest(List<AdReq> list) {
-        super(1003000, CmdConfigSocket.CMD_UPLOAD_ACTUAL_LOG);
+        super(CmdConfigHttp.DISTRIBUTE_ACTRUAL_CMD, 303101);
         this.adReqList = list;
     }
 
-    public DistributeRequest(AdReq adReq) {
-        super(1003000, CmdConfigSocket.CMD_UPLOAD_ACTUAL_LOG);
-        this.adReqList = new ArrayList();
-        this.adReqList.add(adReq);
+    @Override // com.baidu.adp.framework.message.NetMessage
+    public Object encode(boolean z) {
+        List<AdReq> list = this.adReqList;
+        if (list == null || list.size() <= 0) {
+            return null;
+        }
+        DataReq.Builder builder = new DataReq.Builder();
+        LogTogetherReqIdl.Builder builder2 = new LogTogetherReqIdl.Builder();
+        builder.Ad = this.adReqList;
+        w.a(builder, false);
+        builder2.data = builder.build(false);
+        return builder2.build(false);
     }
 
     public List<AdReq> getAdReqList() {
         return this.adReqList;
     }
 
-    @Override // com.baidu.adp.framework.message.NetMessage
-    protected Object encode(boolean z) {
-        if (this.adReqList == null || this.adReqList.size() <= 0) {
-            return null;
-        }
-        DataReq.Builder builder = new DataReq.Builder();
-        LogTogetherReqIdl.Builder builder2 = new LogTogetherReqIdl.Builder();
-        builder.Ad = this.adReqList;
-        v.b(builder, false);
-        builder2.data = builder.build(false);
-        return builder2.build(false);
+    public DistributeRequest(AdReq adReq) {
+        super(CmdConfigHttp.DISTRIBUTE_ACTRUAL_CMD, 303101);
+        ArrayList arrayList = new ArrayList();
+        this.adReqList = arrayList;
+        arrayList.add(adReq);
     }
 }

@@ -2,10 +2,22 @@ package com.baidu.searchbox.v8engine;
 
 import com.baidu.smallgame.sdk.Log;
 @NotProguard
-/* loaded from: classes14.dex */
+/* loaded from: classes3.dex */
 public class JsFunction extends JsReleaser {
-    private static final String TAG = "JsFunction";
-    private boolean mReleaseAfterInvoke;
+    public static final String TAG = "JsFunction";
+    public boolean mReleaseAfterInvoke;
+
+    public JsFunction(long j, long j2, long j3) {
+        super(j, j2, j3);
+        this.mReleaseAfterInvoke = true;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void freeIfNeeded() {
+        if (this.mReleaseAfterInvoke) {
+            release();
+        }
+    }
 
     /* JADX INFO: Access modifiers changed from: private */
     public native void invokeJsFunctionParamBoolean(long j, boolean z);
@@ -20,7 +32,7 @@ public class JsFunction extends JsReleaser {
     public native void invokeJsFunctionParamCharArray(long j, char[] cArr);
 
     /* JADX INFO: Access modifiers changed from: private */
-    public native void invokeJsFunctionParamDouble(long j, double d);
+    public native void invokeJsFunctionParamDouble(long j, double d2);
 
     /* JADX INFO: Access modifiers changed from: private */
     public native void invokeJsFunctionParamDoubleArray(long j, double[] dArr);
@@ -57,15 +69,6 @@ public class JsFunction extends JsReleaser {
 
     private native boolean nativeStrictEquals(long j, long j2);
 
-    public JsFunction(long j, long j2, long j3) {
-        super(j, j2, j3);
-        this.mReleaseAfterInvoke = true;
-    }
-
-    public void setReleaseMode(boolean z) {
-        this.mReleaseAfterInvoke = z;
-    }
-
     private void runOnJSThreadSafely(Runnable runnable) {
         V8Engine v8Engine = V8Engine.getInstance(this.mOwnedNativeEngine);
         if (v8Engine == null) {
@@ -81,12 +84,37 @@ public class JsFunction extends JsReleaser {
             public void run() {
                 long j = JsFunction.this.mNativeObject.get();
                 if (j != 0) {
-                    V8Engine.checkValid(JsFunction.this.mOwnedNativeEngine, JsFunction.this.mOwnedThreadId);
+                    JsFunction jsFunction = JsFunction.this;
+                    V8Engine.checkValid(jsFunction.mOwnedNativeEngine, jsFunction.mOwnedThreadId);
                     JsFunction.this.invokeJsFunctionParamUndefined(j);
                     JsFunction.this.freeIfNeeded();
                 }
             }
         });
+    }
+
+    public boolean equals(Object obj) {
+        if (obj instanceof JsFunction) {
+            return strictEquals((JsFunction) obj);
+        }
+        return false;
+    }
+
+    public void setReleaseMode(boolean z) {
+        this.mReleaseAfterInvoke = z;
+    }
+
+    public boolean strictEquals(JsFunction jsFunction) {
+        long j = this.mNativeObject.get();
+        long j2 = jsFunction.mNativeObject.get();
+        if (this == jsFunction || j == j2) {
+            return true;
+        }
+        if (j == 0 || j2 == 0) {
+            return false;
+        }
+        V8Engine.checkValid(this.mOwnedNativeEngine, this.mOwnedThreadId);
+        return nativeStrictEquals(j, j2);
     }
 
     public void call(final boolean z) {
@@ -95,7 +123,8 @@ public class JsFunction extends JsReleaser {
             public void run() {
                 long j = JsFunction.this.mNativeObject.get();
                 if (j != 0) {
-                    V8Engine.checkValid(JsFunction.this.mOwnedNativeEngine, JsFunction.this.mOwnedThreadId);
+                    JsFunction jsFunction = JsFunction.this;
+                    V8Engine.checkValid(jsFunction.mOwnedNativeEngine, jsFunction.mOwnedThreadId);
                     JsFunction.this.invokeJsFunctionParamBoolean(j, z);
                     JsFunction.this.freeIfNeeded();
                 }
@@ -109,7 +138,8 @@ public class JsFunction extends JsReleaser {
             public void run() {
                 long j = JsFunction.this.mNativeObject.get();
                 if (j != 0) {
-                    V8Engine.checkValid(JsFunction.this.mOwnedNativeEngine, JsFunction.this.mOwnedThreadId);
+                    JsFunction jsFunction = JsFunction.this;
+                    V8Engine.checkValid(jsFunction.mOwnedNativeEngine, jsFunction.mOwnedThreadId);
                     JsFunction.this.invokeJsFunctionParamInteger(j, i);
                     JsFunction.this.freeIfNeeded();
                 }
@@ -123,7 +153,8 @@ public class JsFunction extends JsReleaser {
             public void run() {
                 long j2 = JsFunction.this.mNativeObject.get();
                 if (j2 != 0) {
-                    V8Engine.checkValid(JsFunction.this.mOwnedNativeEngine, JsFunction.this.mOwnedThreadId);
+                    JsFunction jsFunction = JsFunction.this;
+                    V8Engine.checkValid(jsFunction.mOwnedNativeEngine, jsFunction.mOwnedThreadId);
                     JsFunction.this.invokeJsFunctionParamLong(j2, j);
                     JsFunction.this.freeIfNeeded();
                 }
@@ -131,14 +162,15 @@ public class JsFunction extends JsReleaser {
         });
     }
 
-    public void call(final double d) {
+    public void call(final double d2) {
         runOnJSThreadSafely(new Runnable() { // from class: com.baidu.searchbox.v8engine.JsFunction.5
             @Override // java.lang.Runnable
             public void run() {
                 long j = JsFunction.this.mNativeObject.get();
                 if (j != 0) {
-                    V8Engine.checkValid(JsFunction.this.mOwnedNativeEngine, JsFunction.this.mOwnedThreadId);
-                    JsFunction.this.invokeJsFunctionParamDouble(j, d);
+                    JsFunction jsFunction = JsFunction.this;
+                    V8Engine.checkValid(jsFunction.mOwnedNativeEngine, jsFunction.mOwnedThreadId);
+                    JsFunction.this.invokeJsFunctionParamDouble(j, d2);
                     JsFunction.this.freeIfNeeded();
                 }
             }
@@ -151,7 +183,8 @@ public class JsFunction extends JsReleaser {
             public void run() {
                 long j = JsFunction.this.mNativeObject.get();
                 if (j != 0) {
-                    V8Engine.checkValid(JsFunction.this.mOwnedNativeEngine, JsFunction.this.mOwnedThreadId);
+                    JsFunction jsFunction = JsFunction.this;
+                    V8Engine.checkValid(jsFunction.mOwnedNativeEngine, jsFunction.mOwnedThreadId);
                     JsFunction.this.invokeJsFunctionParamString(j, str);
                     JsFunction.this.freeIfNeeded();
                 }
@@ -173,7 +206,8 @@ public class JsFunction extends JsReleaser {
             public void run() {
                 long j = JsFunction.this.mNativeObject.get();
                 if (j != 0) {
-                    V8Engine.checkValid(JsFunction.this.mOwnedNativeEngine, JsFunction.this.mOwnedThreadId);
+                    JsFunction jsFunction = JsFunction.this;
+                    V8Engine.checkValid(jsFunction.mOwnedNativeEngine, jsFunction.mOwnedThreadId);
                     JsFunction.this.invokeJsFunctionParamObject(j, obj, obj2, z);
                     JsFunction.this.freeIfNeeded();
                 }
@@ -187,7 +221,8 @@ public class JsFunction extends JsReleaser {
             public void run() {
                 long j = JsFunction.this.mNativeObject.get();
                 if (j != 0) {
-                    V8Engine.checkValid(JsFunction.this.mOwnedNativeEngine, JsFunction.this.mOwnedThreadId);
+                    JsFunction jsFunction = JsFunction.this;
+                    V8Engine.checkValid(jsFunction.mOwnedNativeEngine, jsFunction.mOwnedThreadId);
                     JsFunction.this.invokeJsFunctionParamByteArray(j, bArr);
                     JsFunction.this.freeIfNeeded();
                 }
@@ -201,7 +236,8 @@ public class JsFunction extends JsReleaser {
             public void run() {
                 long j = JsFunction.this.mNativeObject.get();
                 if (j != 0) {
-                    V8Engine.checkValid(JsFunction.this.mOwnedNativeEngine, JsFunction.this.mOwnedThreadId);
+                    JsFunction jsFunction = JsFunction.this;
+                    V8Engine.checkValid(jsFunction.mOwnedNativeEngine, jsFunction.mOwnedThreadId);
                     JsFunction.this.invokeJsFunctionParamBooleanArray(j, zArr);
                     JsFunction.this.freeIfNeeded();
                 }
@@ -215,7 +251,8 @@ public class JsFunction extends JsReleaser {
             public void run() {
                 long j = JsFunction.this.mNativeObject.get();
                 if (j != 0) {
-                    V8Engine.checkValid(JsFunction.this.mOwnedNativeEngine, JsFunction.this.mOwnedThreadId);
+                    JsFunction jsFunction = JsFunction.this;
+                    V8Engine.checkValid(jsFunction.mOwnedNativeEngine, jsFunction.mOwnedThreadId);
                     JsFunction.this.invokeJsFunctionParamIntegerArray(j, iArr);
                     JsFunction.this.freeIfNeeded();
                 }
@@ -229,7 +266,8 @@ public class JsFunction extends JsReleaser {
             public void run() {
                 long j = JsFunction.this.mNativeObject.get();
                 if (j != 0) {
-                    V8Engine.checkValid(JsFunction.this.mOwnedNativeEngine, JsFunction.this.mOwnedThreadId);
+                    JsFunction jsFunction = JsFunction.this;
+                    V8Engine.checkValid(jsFunction.mOwnedNativeEngine, jsFunction.mOwnedThreadId);
                     JsFunction.this.invokeJsFunctionParamLongArray(j, jArr);
                     JsFunction.this.freeIfNeeded();
                 }
@@ -256,7 +294,8 @@ public class JsFunction extends JsReleaser {
             public void run() {
                 long j = JsFunction.this.mNativeObject.get();
                 if (j != 0) {
-                    V8Engine.checkValid(JsFunction.this.mOwnedNativeEngine, JsFunction.this.mOwnedThreadId);
+                    JsFunction jsFunction = JsFunction.this;
+                    V8Engine.checkValid(jsFunction.mOwnedNativeEngine, jsFunction.mOwnedThreadId);
                     JsFunction.this.invokeJsFunctionParamDoubleArray(j, dArr);
                     JsFunction.this.freeIfNeeded();
                 }
@@ -270,7 +309,8 @@ public class JsFunction extends JsReleaser {
             public void run() {
                 long j = JsFunction.this.mNativeObject.get();
                 if (j != 0) {
-                    V8Engine.checkValid(JsFunction.this.mOwnedNativeEngine, JsFunction.this.mOwnedThreadId);
+                    JsFunction jsFunction = JsFunction.this;
+                    V8Engine.checkValid(jsFunction.mOwnedNativeEngine, jsFunction.mOwnedThreadId);
                     JsFunction.this.invokeJsFunctionParamShortArray(j, sArr);
                     JsFunction.this.freeIfNeeded();
                 }
@@ -284,7 +324,8 @@ public class JsFunction extends JsReleaser {
             public void run() {
                 long j = JsFunction.this.mNativeObject.get();
                 if (j != 0) {
-                    V8Engine.checkValid(JsFunction.this.mOwnedNativeEngine, JsFunction.this.mOwnedThreadId);
+                    JsFunction jsFunction = JsFunction.this;
+                    V8Engine.checkValid(jsFunction.mOwnedNativeEngine, jsFunction.mOwnedThreadId);
                     JsFunction.this.invokeJsFunctionParamCharArray(j, cArr);
                     JsFunction.this.freeIfNeeded();
                 }
@@ -298,38 +339,12 @@ public class JsFunction extends JsReleaser {
             public void run() {
                 long j = JsFunction.this.mNativeObject.get();
                 if (j != 0) {
-                    V8Engine.checkValid(JsFunction.this.mOwnedNativeEngine, JsFunction.this.mOwnedThreadId);
+                    JsFunction jsFunction = JsFunction.this;
+                    V8Engine.checkValid(jsFunction.mOwnedNativeEngine, jsFunction.mOwnedThreadId);
                     JsFunction.this.invokeJsFunctionParamStringArray(j, strArr);
                     JsFunction.this.freeIfNeeded();
                 }
             }
         });
-    }
-
-    public boolean strictEquals(JsFunction jsFunction) {
-        long j = this.mNativeObject.get();
-        long j2 = jsFunction.mNativeObject.get();
-        if (this == jsFunction || j == j2) {
-            return true;
-        }
-        if (j == 0 || j2 == 0) {
-            return false;
-        }
-        V8Engine.checkValid(this.mOwnedNativeEngine, this.mOwnedThreadId);
-        return nativeStrictEquals(j, j2);
-    }
-
-    public boolean equals(Object obj) {
-        if (obj instanceof JsFunction) {
-            return strictEquals((JsFunction) obj);
-        }
-        return false;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void freeIfNeeded() {
-        if (this.mReleaseAfterInvoke) {
-            release();
-        }
     }
 }

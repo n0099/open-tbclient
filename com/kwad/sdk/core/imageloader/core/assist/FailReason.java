@@ -1,10 +1,10 @@
 package com.kwad.sdk.core.imageloader.core.assist;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class FailReason {
-    private final Throwable cause;
-    private final FailType type;
+    public final Throwable cause;
+    public final FailType type;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public enum FailType {
         IO_ERROR,
         DECODING_ERROR,

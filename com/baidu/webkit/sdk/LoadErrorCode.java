@@ -1,8 +1,7 @@
 package com.baidu.webkit.sdk;
 
 import android.content.Context;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sapi2.outsdk.OneKeyLoginSdkCall;
+import com.baidu.nps.pm.provider.BundleOpProvider;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -12,7 +11,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class LoadErrorCode {
     public static final String COLON = ":";
     public static final int GET_INTERN_PACKAGEINFO_FAIL = 2;
@@ -38,37 +37,36 @@ public class LoadErrorCode {
     public static final int MSG_ZEUS_DISABLED_BY_CLOUD = 510;
     public static final int MSG_ZEUS_NOT_EXIST = 513;
     public static final int NONE = 0;
-    private static final String TAG = "LoadErrorCode";
-    private static final String TOKEN_NEXT = " -> ";
-    private static final String TOKEN_NONE = "none";
+    public static final String TAG = "LoadErrorCode";
+    public static final String TOKEN_NEXT = " -> ";
+    public static final String TOKEN_NONE = "none";
     public static final int UNZIP_LZMA_ERROR = 100;
     public static final int UNZIP_LZMA_WRITE_BACK_FAIL = 101;
     public static final int UNZIP_TASK_FAILED = 103;
     public static final int UNZIP_TASK_TIMEOUT = 102;
-    private static LoadErrorCode mInstance;
-    private volatile StringBuilder mDetails;
-    private volatile int mErrorCode;
+    public static LoadErrorCode mInstance;
+    public volatile StringBuilder mDetails;
+    public volatile int mErrorCode;
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public static class Statistics {
-        private static final boolean DEBUG = true;
-        private static final String KEY_ERROR_CNT = "error_cnt";
-        private static final String KEY_ERROR_CODE = "error_code";
-        private static final String KEY_ERROR_REASON = "error_reason";
-        private static final String KEY_T7_ERROR_LIST = "t7_error_list";
-        private static final String KEY_T7_STRAT_CNT = "t7_start_cnt";
-        private static final String TAG = "LoadErrorStatistics";
-        private static volatile StringBuilder mInfo;
-        private static volatile List<ErrorItem> sBkupList;
-        private static volatile List<ErrorItem> sErrorList;
-        private static volatile boolean sIsInited;
-        private static volatile boolean sIsUploading;
-        private static volatile File sRecordFile;
-        private static final String RECORD_RELATIVE_PATH = "/zeus/statistics/".replace('/', File.separatorChar);
-        private static final String RECORD_FILE_NAME = "/load_error.json".replace('/', File.separatorChar);
+        public static final boolean DEBUG = true;
+        public static final String KEY_ERROR_CNT = "error_cnt";
+        public static final String KEY_ERROR_CODE = "error_code";
+        public static final String KEY_ERROR_REASON = "error_reason";
+        public static final String KEY_T7_ERROR_LIST = "t7_error_list";
+        public static final String KEY_T7_STRAT_CNT = "t7_start_cnt";
+        public static final String TAG = "LoadErrorStatistics";
+        public static volatile StringBuilder mInfo;
+        public static volatile List<ErrorItem> sBkupList;
+        public static volatile List<ErrorItem> sErrorList;
+        public static volatile boolean sIsInited;
+        public static volatile boolean sIsUploading;
+        public static volatile File sRecordFile;
+        public static final String RECORD_RELATIVE_PATH = "/zeus/statistics/".replace('/', File.separatorChar);
+        public static final String RECORD_FILE_NAME = "/load_error.json".replace('/', File.separatorChar);
 
-        /* JADX INFO: Access modifiers changed from: private */
-        /* loaded from: classes14.dex */
+        /* loaded from: classes5.dex */
         public static class ErrorItem {
             public int mCount;
             public String mDetails;
@@ -87,69 +85,69 @@ public class LoadErrorCode {
             }
         }
 
-        /* JADX WARN: Removed duplicated region for block: B:11:0x0029  */
-        /* JADX WARN: Removed duplicated region for block: B:46:0x0051 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+        /* JADX DEBUG: Failed to insert an additional move for type inference into block B:16:0x0032 */
+        /* JADX DEBUG: Failed to insert an additional move for type inference into block B:18:0x0034 */
+        /* JADX DEBUG: Failed to insert an additional move for type inference into block B:33:? */
+        /* JADX DEBUG: Failed to insert an additional move for type inference into block B:36:0x0044 */
+        /* JADX DEBUG: Failed to insert an additional move for type inference into block B:37:0x000c */
+        /* JADX WARN: Removed duplicated region for block: B:23:0x0046  */
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
-        private static boolean JSONToFile(JSONObject jSONObject) {
+        public static boolean JSONToFile(JSONObject jSONObject) {
+            byte[] bytes;
             FileOutputStream fileOutputStream;
-            boolean z;
             sRecordFile.delete();
             try {
                 sRecordFile.createNewFile();
-            } catch (Exception e) {
+            } catch (Exception unused) {
             }
+            FileOutputStream fileOutputStream2 = null;
+            fileOutputStream2 = null;
+            fileOutputStream2 = null;
+            boolean z = false;
             try {
-                byte[] bytes = jSONObject.toString().getBytes();
-                fileOutputStream = new FileOutputStream(sRecordFile);
                 try {
                     try {
-                        fileOutputStream.write(bytes, 0, bytes.length);
-                        fileOutputStream.flush();
-                        z = true;
-                        try {
-                            fileOutputStream.close();
-                        } catch (Exception e2) {
-                            e2.printStackTrace();
-                        }
-                    } catch (Exception e3) {
-                        e = e3;
-                        addInfo(e.getMessage());
-                        e.printStackTrace();
-                        if (fileOutputStream != null) {
-                            try {
-                                fileOutputStream.close();
-                                z = false;
-                            } catch (Exception e4) {
-                                e4.printStackTrace();
-                                z = false;
-                            }
-                        } else {
-                            z = false;
-                        }
-                        if (!z) {
-                        }
-                        return z;
+                        bytes = jSONObject.toString().getBytes();
+                        fileOutputStream = new FileOutputStream(sRecordFile);
+                    } catch (Throwable th) {
+                        th = th;
                     }
-                } catch (Throwable th) {
-                    th = th;
-                    if (fileOutputStream != null) {
-                        try {
-                            fileOutputStream.close();
-                        } catch (Exception e5) {
-                            e5.printStackTrace();
-                        }
-                    }
-                    throw th;
+                } catch (Exception e2) {
+                    e = e2;
                 }
-            } catch (Exception e6) {
-                e = e6;
-                fileOutputStream = null;
+            } catch (Exception e3) {
+                e3.printStackTrace();
+            }
+            try {
+                int length = bytes.length;
+                fileOutputStream.write(bytes, 0, length);
+                fileOutputStream.flush();
+                z = true;
+                fileOutputStream.close();
+                fileOutputStream2 = length;
+            } catch (Exception e4) {
+                e = e4;
+                fileOutputStream2 = fileOutputStream;
+                addInfo(e.getMessage());
+                e.printStackTrace();
+                if (fileOutputStream2 != null) {
+                    fileOutputStream2.close();
+                    fileOutputStream2 = fileOutputStream2;
+                }
+                if (!z) {
+                }
+                return z;
             } catch (Throwable th2) {
                 th = th2;
-                fileOutputStream = null;
-                if (fileOutputStream != null) {
+                fileOutputStream2 = fileOutputStream;
+                if (fileOutputStream2 != null) {
+                    try {
+                        fileOutputStream2.close();
+                    } catch (Exception e5) {
+                        e5.printStackTrace();
+                    }
                 }
                 throw th;
             }
@@ -159,8 +157,8 @@ public class LoadErrorCode {
             return z;
         }
 
-        private static boolean JSONToList(JSONObject jSONObject) {
-            boolean z = true;
+        public static boolean JSONToList(JSONObject jSONObject) {
+            boolean z = false;
             try {
                 JSONArray jSONArray = jSONObject.getJSONArray(KEY_T7_ERROR_LIST);
                 int length = jSONArray.length();
@@ -168,10 +166,10 @@ public class LoadErrorCode {
                     JSONObject jSONObject2 = jSONArray.getJSONObject(i);
                     sErrorList.add(new ErrorItem(1, jSONObject2.getInt("error_code"), jSONObject2.getString(KEY_ERROR_REASON), jSONObject2.getInt(KEY_ERROR_CNT)));
                 }
-            } catch (Exception e) {
-                addInfo(e.getMessage());
-                e.printStackTrace();
-                z = false;
+                z = true;
+            } catch (Exception e2) {
+                addInfo(e2.getMessage());
+                e2.printStackTrace();
             }
             if (!z) {
                 sRecordFile.delete();
@@ -180,7 +178,7 @@ public class LoadErrorCode {
             return z;
         }
 
-        private static void addBkupList(ErrorItem errorItem) {
+        public static void addBkupList(ErrorItem errorItem) {
             if (sBkupList == null) {
                 sBkupList = new LinkedList();
             }
@@ -192,15 +190,16 @@ public class LoadErrorCode {
                 if (mInfo == null) {
                     mInfo = new StringBuilder();
                 }
-                if (mInfo.length() > 0) {
-                    mInfo.append(LoadErrorCode.TOKEN_NEXT + str);
-                } else {
+                if (mInfo.length() <= 0) {
                     mInfo.append(str);
+                    return;
                 }
+                StringBuilder sb = mInfo;
+                sb.append(LoadErrorCode.TOKEN_NEXT + str);
             }
         }
 
-        private static void cleanBkupList() {
+        public static void cleanBkupList() {
             if (sBkupList == null) {
                 return;
             }
@@ -223,12 +222,19 @@ public class LoadErrorCode {
             }
         }
 
-        private static JSONObject fileToJSON() {
-            FileInputStream fileInputStream;
+        /* JADX DEBUG: Failed to insert an additional move for type inference into block B:26:0x0060 */
+        /* JADX WARN: Multi-variable type inference failed */
+        /* JADX WARN: Type inference failed for: r0v1, types: [boolean] */
+        /* JADX WARN: Type inference failed for: r0v2, types: [java.io.FileInputStream] */
+        /* JADX WARN: Type inference failed for: r0v4 */
+        public static JSONObject fileToJSON() {
             JSONObject jSONObject;
-            FileInputStream fileInputStream2 = null;
+            Exception e2;
+            FileInputStream fileInputStream;
+            ?? exists = sRecordFile.exists();
+            JSONObject jSONObject2 = null;
             try {
-                if (!sRecordFile.exists()) {
+                if (exists == 0) {
                     return null;
                 }
                 try {
@@ -241,43 +247,40 @@ public class LoadErrorCode {
                             jSONObject = new JSONObject(new String(bArr));
                             try {
                                 Log.d(TAG, "readJSON " + jSONObject);
-                            } catch (Exception e) {
-                                e = e;
-                                addInfo(e.getMessage());
-                                e.printStackTrace();
+                                jSONObject2 = jSONObject;
+                            } catch (Exception e3) {
+                                e2 = e3;
+                                addInfo(e2.getMessage());
+                                e2.printStackTrace();
                                 if (fileInputStream != null) {
                                     try {
                                         fileInputStream.close();
-                                        return jSONObject;
-                                    } catch (IOException e2) {
-                                        return jSONObject;
+                                    } catch (IOException unused) {
                                     }
                                 }
                                 return jSONObject;
                             }
-                        } else {
-                            jSONObject = null;
                         }
                         try {
                             fileInputStream.close();
-                            return jSONObject;
-                        } catch (IOException e3) {
-                            return jSONObject;
+                        } catch (IOException unused2) {
+                            return jSONObject2;
                         }
                     } catch (Exception e4) {
-                        e = e4;
                         jSONObject = null;
+                        e2 = e4;
                     }
                 } catch (Exception e5) {
-                    e = e5;
-                    fileInputStream = null;
                     jSONObject = null;
+                    e2 = e5;
+                    fileInputStream = null;
                 } catch (Throwable th) {
                     th = th;
-                    if (0 != 0) {
+                    exists = 0;
+                    if (exists != 0) {
                         try {
-                            fileInputStream2.close();
-                        } catch (IOException e6) {
+                            exists.close();
+                        } catch (IOException unused3) {
                         }
                     }
                     throw th;
@@ -287,34 +290,32 @@ public class LoadErrorCode {
             }
         }
 
-        /* JADX WARN: Code restructure failed: missing block: B:14:0x0025, code lost:
-            if (r0.isEmpty() == false) goto L15;
-         */
-        /*
-            Code decompiled incorrectly, please refer to instructions dump.
-        */
         public static synchronized String getString() {
-            String message;
             synchronized (Statistics.class) {
                 if (sIsInited) {
                     if (sIsUploading) {
                         cleanBkupList();
                     }
                     sIsUploading = true;
-                    message = map(listToJSON());
-                    if (message != null) {
-                        message = message.trim();
+                    String map = map(listToJSON());
+                    if (map != null) {
+                        map = map.trim();
                     }
-                    if (message != null) {
+                    if (map != null && !map.isEmpty()) {
+                        return map;
                     }
                 } else {
                     Log.e(TAG, "[ERROR]getString before init");
                 }
                 StringBuilder sb = new StringBuilder(mInfo == null ? "" : mInfo);
-                sb.append(LoadErrorCode.TOKEN_NEXT).append(String.valueOf(sIsInited));
-                sb.append(LoadErrorCode.TOKEN_NEXT).append(String.valueOf(sIsUploading));
-                sb.append(LoadErrorCode.TOKEN_NEXT).append(String.valueOf(LoadErrorCode.getInstance().getInt()));
-                sb.append(LoadErrorCode.TOKEN_NEXT).append(LoadErrorCode.getInstance().getString());
+                sb.append(LoadErrorCode.TOKEN_NEXT);
+                sb.append(String.valueOf(sIsInited));
+                sb.append(LoadErrorCode.TOKEN_NEXT);
+                sb.append(String.valueOf(sIsUploading));
+                sb.append(LoadErrorCode.TOKEN_NEXT);
+                sb.append(String.valueOf(LoadErrorCode.getInstance().getInt()));
+                sb.append(LoadErrorCode.TOKEN_NEXT);
+                sb.append(LoadErrorCode.getInstance().getString());
                 mInfo = null;
                 if (sb.length() >= 512) {
                     sb.substring(0, 511);
@@ -328,20 +329,20 @@ public class LoadErrorCode {
                     jSONArray.put(jSONObject);
                     JSONObject jSONObject2 = new JSONObject();
                     jSONObject2.put(KEY_T7_ERROR_LIST, jSONArray);
-                    message = jSONObject2.toString();
-                } catch (JSONException e) {
-                    message = e.getMessage();
+                    return jSONObject2.toString();
+                } catch (JSONException e2) {
+                    return e2.getMessage();
                 }
             }
-            return message;
         }
 
         public static synchronized void init(Context context) {
             synchronized (Statistics.class) {
-                addInfo(OneKeyLoginSdkCall.l);
+                addInfo("init");
                 if (context == null) {
                     Log.e(TAG, "[ERROR]init ctx null");
-                } else if (!sIsInited) {
+                } else if (sIsInited) {
+                } else {
                     sRecordFile = new File(new File(WebViewFactory.getContext().getFilesDir(), RECORD_RELATIVE_PATH), RECORD_FILE_NAME);
                     sErrorList = new LinkedList();
                     JSONObject fileToJSON = fileToJSON();
@@ -353,7 +354,7 @@ public class LoadErrorCode {
             }
         }
 
-        private static JSONObject listToJSON() {
+        public static JSONObject listToJSON() {
             try {
                 JSONArray jSONArray = new JSONArray();
                 for (ErrorItem errorItem : sErrorList) {
@@ -370,35 +371,30 @@ public class LoadErrorCode {
                 JSONObject jSONObject2 = new JSONObject();
                 jSONObject2.put(KEY_T7_ERROR_LIST, jSONArray);
                 return jSONObject2;
-            } catch (JSONException e) {
-                e.printStackTrace();
-                addInfo(e.getMessage());
+            } catch (JSONException e2) {
+                e2.printStackTrace();
+                addInfo(e2.getMessage());
                 return null;
             }
         }
 
-        private static String map(JSONObject jSONObject) {
+        public static String map(JSONObject jSONObject) {
             if (jSONObject == null) {
                 return null;
             }
             byte[] bytes = jSONObject.toString().getBytes();
             for (int i = 0; i < bytes.length; i++) {
-                switch (bytes[i]) {
-                    case 34:
-                        bytes[i] = 47;
-                        break;
-                    case 91:
-                        bytes[i] = 60;
-                        break;
-                    case 93:
-                        bytes[i] = 62;
-                        break;
-                    case Constants.METHOD_IM_FRIEND_GROUP_QUERY /* 123 */:
-                        bytes[i] = 40;
-                        break;
-                    case Constants.METHOD_IM_FRIEND_GROUP_ASSIGN /* 125 */:
-                        bytes[i] = 41;
-                        break;
+                byte b2 = bytes[i];
+                if (b2 == 34) {
+                    bytes[i] = 47;
+                } else if (b2 == 91) {
+                    bytes[i] = 60;
+                } else if (b2 == 93) {
+                    bytes[i] = 62;
+                } else if (b2 == 123) {
+                    bytes[i] = 40;
+                } else if (b2 == 125) {
+                    bytes[i] = 41;
                 }
             }
             return new String(bytes);
@@ -406,7 +402,7 @@ public class LoadErrorCode {
 
         public static synchronized void record() {
             synchronized (Statistics.class) {
-                addInfo("record");
+                addInfo(BundleOpProvider.METHOD_BUNDLE_RECORD);
                 LoadErrorCode loadErrorCode = LoadErrorCode.getInstance();
                 if (!sIsInited) {
                     Log.e(TAG, "[ERROR]record before init");
@@ -414,19 +410,20 @@ public class LoadErrorCode {
                     Log.e(TAG, "[ERORR]record error code null");
                 } else {
                     int engineType = loadErrorCode.getEngineType();
-                    if (engineType == 1) {
-                        ErrorItem errorItem = new ErrorItem(engineType, loadErrorCode.getInt(), loadErrorCode.getString());
-                        if (sIsUploading) {
-                            addBkupList(errorItem);
-                        } else {
-                            record(errorItem);
-                        }
+                    if (engineType != 1) {
+                        return;
+                    }
+                    ErrorItem errorItem = new ErrorItem(engineType, loadErrorCode.getInt(), loadErrorCode.getString());
+                    if (sIsUploading) {
+                        addBkupList(errorItem);
+                    } else {
+                        record(errorItem);
                     }
                 }
             }
         }
 
-        private static void record(ErrorItem errorItem) {
+        public static void record(ErrorItem errorItem) {
             if (errorItem.mEngineType == 1 && errorItem.mErrorCode != 0) {
                 for (ErrorItem errorItem2 : sErrorList) {
                     if (errorItem2.mEngineType == errorItem.mEngineType && errorItem2.mErrorCode == errorItem.mErrorCode) {
@@ -441,14 +438,14 @@ public class LoadErrorCode {
         public static synchronized void reset() {
             synchronized (Statistics.class) {
                 addInfo("reset");
-                if (sIsInited) {
-                    sRecordFile.delete();
-                    sErrorList.clear();
-                    sIsUploading = false;
-                    cleanBkupList();
-                } else {
+                if (!sIsInited) {
                     Log.e(TAG, "[ERROR]reset before init");
+                    return;
                 }
+                sRecordFile.delete();
+                sErrorList.clear();
+                sIsUploading = false;
+                cleanBkupList();
             }
         }
     }
@@ -502,7 +499,10 @@ public class LoadErrorCode {
     }
 
     public synchronized String getString() {
-        return (this.mDetails == null || this.mDetails.length() <= 0) ? "none" : this.mDetails.toString();
+        if (this.mDetails != null && this.mDetails.length() > 0) {
+            return this.mDetails.toString();
+        }
+        return "none";
     }
 
     public synchronized void set(int i) {
@@ -523,11 +523,11 @@ public class LoadErrorCode {
     public synchronized void trace(String str) {
         if (this.mDetails == null) {
             this.mDetails = new StringBuilder(str);
-        } else {
-            if (this.mDetails.length() > 0) {
-                this.mDetails.append(TOKEN_NEXT);
-            }
-            this.mDetails.append(str);
+            return;
         }
+        if (this.mDetails.length() > 0) {
+            this.mDetails.append(TOKEN_NEXT);
+        }
+        this.mDetails.append(str);
     }
 }

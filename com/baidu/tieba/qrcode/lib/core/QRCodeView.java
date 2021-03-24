@@ -7,195 +7,233 @@ import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.widget.RelativeLayout;
 import com.baidu.tieba.R;
-import com.baidu.tieba.qrcode.lib.core.c;
-/* loaded from: classes7.dex */
+import d.b.i0.o2.b.a.c;
+/* loaded from: classes5.dex */
 public abstract class QRCodeView extends RelativeLayout implements Camera.PreviewCallback, c.a {
-    protected Camera mCamera;
-    protected Handler mHandler;
-    private int mOrientation;
-    protected CameraPreview mQP;
-    protected ScanBoxView mQQ;
-    protected a mQR;
-    protected boolean mQS;
-    protected c mQT;
-    private Runnable mQU;
 
-    /* loaded from: classes7.dex */
-    public interface a {
-        void QY(String str);
+    /* renamed from: e  reason: collision with root package name */
+    public Camera f20659e;
 
-        void dCC();
+    /* renamed from: f  reason: collision with root package name */
+    public CameraPreview f20660f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public ScanBoxView f20661g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public c f20662h;
+    public Handler i;
+    public boolean j;
+    public d.b.i0.o2.b.a.c k;
+    public int l;
+    public Runnable m;
+
+    /* loaded from: classes5.dex */
+    public class a extends d.b.i0.o2.b.a.c {
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ Camera f20663e;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(Camera camera, byte[] bArr, c.a aVar, int i, Camera camera2) {
+            super(camera, bArr, aVar, i);
+            this.f20663e = camera2;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // android.os.AsyncTask
+        /* renamed from: d */
+        public void onPostExecute(String str) {
+            QRCodeView qRCodeView = QRCodeView.this;
+            if (qRCodeView.j) {
+                try {
+                    if (qRCodeView.f20662h != null && !TextUtils.isEmpty(str)) {
+                        QRCodeView.this.f20662h.b(str);
+                    } else {
+                        this.f20663e.setOneShotPreviewCallback(QRCodeView.this);
+                    }
+                } catch (Exception unused) {
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class b implements Runnable {
+        public b() {
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            QRCodeView qRCodeView = QRCodeView.this;
+            Camera camera = qRCodeView.f20659e;
+            if (camera == null || !qRCodeView.j) {
+                return;
+            }
+            try {
+                camera.setOneShotPreviewCallback(qRCodeView);
+            } catch (Exception e2) {
+                e2.printStackTrace();
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public interface c {
+        void a();
+
+        void b(String str);
     }
 
     public QRCodeView(Context context, AttributeSet attributeSet) {
         this(context, attributeSet, 0);
     }
 
-    public QRCodeView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        this.mQS = false;
-        this.mQU = new Runnable() { // from class: com.baidu.tieba.qrcode.lib.core.QRCodeView.2
-            @Override // java.lang.Runnable
-            public void run() {
-                if (QRCodeView.this.mCamera != null && QRCodeView.this.mQS) {
-                    try {
-                        QRCodeView.this.mCamera.setOneShotPreviewCallback(QRCodeView.this);
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                }
-            }
-        };
-        this.mHandler = new Handler();
-        j(context, attributeSet);
+    public void b() {
+        d.b.i0.o2.b.a.c cVar = this.k;
+        if (cVar != null) {
+            cVar.a();
+            this.k = null;
+        }
     }
 
-    private void j(Context context, AttributeSet attributeSet) {
-        this.mQP = new CameraPreview(getContext());
-        this.mQQ = new ScanBoxView(getContext());
-        this.mQQ.l(context, attributeSet);
-        this.mQP.setId(R.id.bgaqrcode_camera_preview);
-        addView(this.mQP);
+    public void c() {
+        ScanBoxView scanBoxView = this.f20661g;
+        if (scanBoxView != null) {
+            scanBoxView.setVisibility(8);
+        }
+    }
+
+    public final void d(Context context, AttributeSet attributeSet) {
+        this.f20660f = new CameraPreview(getContext());
+        ScanBoxView scanBoxView = new ScanBoxView(getContext());
+        this.f20661g = scanBoxView;
+        scanBoxView.k(context, attributeSet);
+        this.f20660f.setId(R.id.bgaqrcode_camera_preview);
+        addView(this.f20660f);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(context, attributeSet);
-        layoutParams.addRule(6, this.mQP.getId());
-        layoutParams.addRule(8, this.mQP.getId());
-        addView(this.mQQ, layoutParams);
-        this.mOrientation = com.baidu.tieba.qrcode.lib.core.a.gL(context);
+        layoutParams.addRule(6, this.f20660f.getId());
+        layoutParams.addRule(8, this.f20660f.getId());
+        addView(this.f20661g, layoutParams);
+        this.l = d.b.i0.o2.b.a.a.c(context);
     }
 
-    public void setDelegate(a aVar) {
-        this.mQR = aVar;
+    public void e() {
+        l();
+        this.i = null;
+        this.f20662h = null;
+        this.m = null;
     }
 
-    public ScanBoxView getScanBoxView() {
-        return this.mQQ;
-    }
-
-    public void dCK() {
-        if (this.mQQ != null) {
-            this.mQQ.setVisibility(0);
+    public void f() {
+        ScanBoxView scanBoxView = this.f20661g;
+        if (scanBoxView != null) {
+            scanBoxView.setVisibility(0);
         }
     }
 
-    public void dCL() {
-        if (this.mQQ != null) {
-            this.mQQ.setVisibility(8);
-        }
-    }
-
-    public void dCM() {
-        HG(0);
-    }
-
-    public void HG(int i) {
-        if (this.mCamera == null) {
-            Camera.CameraInfo cameraInfo = new Camera.CameraInfo();
-            for (int i2 = 0; i2 < Camera.getNumberOfCameras(); i2++) {
-                Camera.getCameraInfo(i2, cameraInfo);
-                if (cameraInfo.facing == i) {
-                    HH(i2);
-                    return;
-                }
-            }
-        }
-    }
-
-    private void HH(int i) {
-        try {
-            this.mCamera = Camera.open(i);
-            this.mQP.setCamera(this.mCamera);
-        } catch (Exception e) {
-            if (this.mQR != null) {
-                this.mQR.dCC();
-            }
-        }
-    }
-
-    public void stopCamera() {
-        try {
-            dCP();
-            if (this.mCamera != null) {
-                this.mQP.dCI();
-                this.mQP.setCamera(null);
-                this.mCamera.release();
-                this.mCamera = null;
-            }
-        } catch (Exception e) {
-        }
-    }
-
-    public void dCN() {
-        HI(1000);
-    }
-
-    public void HI(int i) {
-        this.mQS = true;
-        this.mHandler.removeCallbacks(this.mQU);
-        this.mHandler.postDelayed(this.mQU, i);
-    }
-
-    public void dCO() {
-        dCQ();
-        this.mQS = false;
-        if (this.mCamera != null) {
-            try {
-                this.mCamera.setOneShotPreviewCallback(null);
-            } catch (Exception e) {
-            }
-        }
-        if (this.mHandler != null) {
-            this.mHandler.removeCallbacks(this.mQU);
-        }
-    }
-
-    public void dCP() {
-        dCO();
-        dCL();
-    }
-
-    public void onDestroy() {
-        stopCamera();
-        this.mHandler = null;
-        this.mQR = null;
-        this.mQU = null;
-    }
-
-    protected void dCQ() {
-        if (this.mQT != null) {
-            this.mQT.cancelTask();
-            this.mQT = null;
-        }
+    public void g() {
+        h(0);
     }
 
     public boolean getIsScanBarcodeStyle() {
-        return this.mQQ.getIsBarcode();
+        return this.f20661g.getIsBarcode();
+    }
+
+    public ScanBoxView getScanBoxView() {
+        return this.f20661g;
+    }
+
+    public void h(int i) {
+        if (this.f20659e != null) {
+            return;
+        }
+        Camera.CameraInfo cameraInfo = new Camera.CameraInfo();
+        for (int i2 = 0; i2 < Camera.getNumberOfCameras(); i2++) {
+            Camera.getCameraInfo(i2, cameraInfo);
+            if (cameraInfo.facing == i) {
+                i(i2);
+                return;
+            }
+        }
+    }
+
+    public final void i(int i) {
+        try {
+            Camera open = Camera.open(i);
+            this.f20659e = open;
+            this.f20660f.setCamera(open);
+        } catch (Exception unused) {
+            c cVar = this.f20662h;
+            if (cVar != null) {
+                cVar.a();
+            }
+        }
+    }
+
+    public void j() {
+        k(1000);
+    }
+
+    public void k(int i) {
+        this.j = true;
+        this.i.removeCallbacks(this.m);
+        this.i.postDelayed(this.m, i);
+    }
+
+    public void l() {
+        try {
+            n();
+            if (this.f20659e != null) {
+                this.f20660f.g();
+                this.f20660f.setCamera(null);
+                this.f20659e.release();
+                this.f20659e = null;
+            }
+        } catch (Exception unused) {
+        }
+    }
+
+    public void m() {
+        b();
+        this.j = false;
+        Camera camera = this.f20659e;
+        if (camera != null) {
+            try {
+                camera.setOneShotPreviewCallback(null);
+            } catch (Exception unused) {
+            }
+        }
+        Handler handler = this.i;
+        if (handler != null) {
+            handler.removeCallbacks(this.m);
+        }
+    }
+
+    public void n() {
+        m();
+        c();
     }
 
     @Override // android.hardware.Camera.PreviewCallback
-    public void onPreviewFrame(byte[] bArr, final Camera camera) {
-        if (this.mQS) {
-            dCQ();
-            this.mQT = new c(camera, bArr, this, this.mOrientation) { // from class: com.baidu.tieba.qrcode.lib.core.QRCodeView.1
-                /* JADX DEBUG: Method merged with bridge method */
-                /* JADX INFO: Access modifiers changed from: protected */
-                @Override // android.os.AsyncTask
-                public void onPostExecute(String str) {
-                    if (QRCodeView.this.mQS) {
-                        if (QRCodeView.this.mQR != null && !TextUtils.isEmpty(str)) {
-                            try {
-                                QRCodeView.this.mQR.QY(str);
-                                return;
-                            } catch (Exception e) {
-                                return;
-                            }
-                        }
-                        try {
-                            camera.setOneShotPreviewCallback(QRCodeView.this);
-                        } catch (Exception e2) {
-                        }
-                    }
-                }
-            }.dCJ();
+    public void onPreviewFrame(byte[] bArr, Camera camera) {
+        if (this.j) {
+            b();
+            a aVar = new a(camera, bArr, this, this.l, camera);
+            aVar.c();
+            this.k = aVar;
         }
+    }
+
+    public void setDelegate(c cVar) {
+        this.f20662h = cVar;
+    }
+
+    public QRCodeView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        this.j = false;
+        this.m = new b();
+        this.i = new Handler();
+        d(context, attributeSet);
     }
 }

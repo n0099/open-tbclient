@@ -5,7 +5,7 @@ import android.app.TabActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public abstract class MATabActivity extends TabActivity {
     public static final String TAG = "MATabActivity";
 
@@ -13,20 +13,20 @@ public abstract class MATabActivity extends TabActivity {
         return this;
     }
 
-    public final Context getMAParent() {
-        return super.getParent();
-    }
-
     public Context getCurrentMAActivity() {
         return getCurrentActivity();
     }
 
-    public void remapStartActivityIntent(Intent intent) {
+    public final Context getMAParent() {
+        return super.getParent();
     }
 
     public MABottomToolBar onGetBottomBar() {
         Log.d(TAG, "onGetBottomBar");
         return null;
+    }
+
+    public void remapStartActivityIntent(Intent intent) {
     }
 
     public void setMABottomToolBarVisibility(int i) {

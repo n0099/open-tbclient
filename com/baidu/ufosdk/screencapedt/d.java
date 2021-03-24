@@ -6,15 +6,14 @@ import android.view.View;
 import android.widget.Button;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes7.dex */
-final class d implements View.OnClickListener {
+/* loaded from: classes5.dex */
+public final class d implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ScreenCapEditActivity f3633a;
+    public final /* synthetic */ ScreenCapEditActivity f22981a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public d(ScreenCapEditActivity screenCapEditActivity) {
-        this.f3633a = screenCapEditActivity;
+        this.f22981a = screenCapEditActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -27,35 +26,35 @@ final class d implements View.OnClickListener {
         int i2;
         Canvas canvas;
         Paint paint;
-        this.f3633a.a(false);
-        hashMap = this.f3633a.t;
+        this.f22981a.a(false);
+        hashMap = this.f22981a.t;
         for (Map.Entry entry : hashMap.entrySet()) {
-            canvas = this.f3633a.m;
-            float b = ((a) entry.getValue()).b();
-            float c = ((a) entry.getValue()).c();
-            float d = ((a) entry.getValue()).d();
-            float e = ((a) entry.getValue()).e();
-            paint = this.f3633a.n;
-            canvas.drawRect(b, c, d, e, paint);
+            canvas = this.f22981a.m;
+            float b2 = ((a) entry.getValue()).b();
+            float c2 = ((a) entry.getValue()).c();
+            float d2 = ((a) entry.getValue()).d();
+            float e2 = ((a) entry.getValue()).e();
+            paint = this.f22981a.n;
+            canvas.drawRect(b2, c2, d2, e2, paint);
         }
-        button = this.f3633a.T;
+        button = this.f22981a.T;
         button.setClickable(false);
-        z = this.f3633a.I;
+        z = this.f22981a.I;
         if (!z) {
-            ScreenCapEditActivity.j(this.f3633a);
-            ScreenCapEditActivity screenCapEditActivity = this.f3633a;
-            i = this.f3633a.M;
+            ScreenCapEditActivity.j(this.f22981a);
+            ScreenCapEditActivity screenCapEditActivity = this.f22981a;
+            i = screenCapEditActivity.M;
             ScreenCapEditActivity.a(screenCapEditActivity, i);
             return;
         }
-        z2 = this.f3633a.L;
+        z2 = this.f22981a.L;
         if (!z2) {
-            ScreenCapEditActivity.i(this.f3633a);
+            ScreenCapEditActivity.i(this.f22981a);
             return;
         }
-        ScreenCapEditActivity.j(this.f3633a);
-        ScreenCapEditActivity screenCapEditActivity2 = this.f3633a;
-        i2 = this.f3633a.M;
+        ScreenCapEditActivity.j(this.f22981a);
+        ScreenCapEditActivity screenCapEditActivity2 = this.f22981a;
+        i2 = screenCapEditActivity2.M;
         ScreenCapEditActivity.a(screenCapEditActivity2, i2);
     }
 }

@@ -3,9 +3,9 @@ package com.kwad.sdk.api.core.lifecycle;
 import androidx.annotation.Keep;
 import androidx.lifecycle.LifecycleObserver;
 @Keep
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class KsLifecycleObserver {
-    LifecycleObserver mBase;
+    public LifecycleObserver mBase;
 
     public LifecycleObserver getBase() {
         return this.mBase;

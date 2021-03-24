@@ -3,13 +3,13 @@ package org.webrtc;
 import android.os.Build;
 import java.nio.ByteBuffer;
 import org.webrtc.VideoFrame;
-/* loaded from: classes9.dex */
+/* loaded from: classes7.dex */
 public class NV21Buffer implements VideoFrame.Buffer {
-    private final byte[] data;
-    private final int height;
-    private final RefCountDelegate refCountDelegate;
-    private final boolean uvSwapped = Build.MODEL.contains("SABRESD-MX6DQ");
-    private final int width;
+    public final byte[] data;
+    public final int height;
+    public final RefCountDelegate refCountDelegate;
+    public final boolean uvSwapped = Build.MODEL.contains("SABRESD-MX6DQ");
+    public final int width;
 
     public NV21Buffer(byte[] bArr, int i, int i2, Runnable runnable) {
         this.data = bArr;
@@ -18,7 +18,7 @@ public class NV21Buffer implements VideoFrame.Buffer {
         this.refCountDelegate = new RefCountDelegate(runnable);
     }
 
-    private static native void nativeCropAndScale(int i, int i2, int i3, int i4, int i5, int i6, byte[] bArr, int i7, int i8, ByteBuffer byteBuffer, int i9, ByteBuffer byteBuffer2, int i10, ByteBuffer byteBuffer3, int i11);
+    public static native void nativeCropAndScale(int i, int i2, int i3, int i4, int i5, int i6, byte[] bArr, int i7, int i8, ByteBuffer byteBuffer, int i9, ByteBuffer byteBuffer2, int i10, ByteBuffer byteBuffer3, int i11);
 
     @Override // org.webrtc.VideoFrame.Buffer
     public VideoFrame.Buffer cropAndScale(int i, int i2, int i3, int i4, int i5, int i6) {
@@ -53,6 +53,8 @@ public class NV21Buffer implements VideoFrame.Buffer {
 
     @Override // org.webrtc.VideoFrame.Buffer
     public VideoFrame.I420Buffer toI420() {
-        return (VideoFrame.I420Buffer) cropAndScale(0, 0, this.width, this.height, this.width, this.height);
+        int i = this.width;
+        int i2 = this.height;
+        return (VideoFrame.I420Buffer) cropAndScale(0, 0, i, i2, i, i2);
     }
 }

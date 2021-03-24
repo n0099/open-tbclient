@@ -2,40 +2,24 @@ package com.baidu.tieba.myAttentionAndFans.message;
 
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.adp.lib.cache.l;
-import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
-import com.baidu.tbadk.core.c.a;
-import com.baidu.tbadk.core.data.bg;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tieba.myAttentionAndFans.PersonListModel;
+import d.b.b.e.d.l;
+import d.b.h0.r.q.g1;
+import d.b.h0.r.r.a;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class ResponseNetPersonFollowMessage extends JsonHttpResponsedMessage {
-    private bg data;
-    private int mErrCode;
-    private String mErrMsg;
-    private PersonListModel mModel;
+    public g1 data;
+    public int mErrCode;
+    public String mErrMsg;
+    public PersonListModel mModel;
 
     public ResponseNetPersonFollowMessage(int i) {
-        super(1002004);
+        super(CmdConfigHttp.PIC_PERSONAL_LIST);
         this.mErrCode = 0;
         this.mErrMsg = "";
-    }
-
-    public int getErrNo() {
-        return this.mErrCode;
-    }
-
-    public String getErrMsg() {
-        return this.mErrMsg;
-    }
-
-    public bg getData() {
-        return this.data;
-    }
-
-    public void setModel(PersonListModel personListModel) {
-        this.mModel = personListModel;
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
@@ -45,22 +29,44 @@ public class ResponseNetPersonFollowMessage extends JsonHttpResponsedMessage {
         if (statusCode == 200 && error == 0) {
             this.mErrCode = jSONObject.optInt("error_code");
             this.mErrMsg = jSONObject.optString("error_msg");
-            this.data = new bg();
-            this.data.parserJson(jSONObject);
+            g1 g1Var = new g1();
+            this.data = g1Var;
+            g1Var.c(jSONObject);
         }
+    }
+
+    public g1 getData() {
+        return this.data;
+    }
+
+    public String getErrMsg() {
+        return this.mErrMsg;
+    }
+
+    public int getErrNo() {
+        return this.mErrCode;
+    }
+
+    public void setModel(PersonListModel personListModel) {
+        this.mModel = personListModel;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public void afterDispatchInBackGround(int i, byte[] bArr) {
+        PersonListModel personListModel;
         super.afterDispatchInBackGround(i, (int) bArr);
-        if (getError() == 0 && this.mModel != null && this.mModel.getPage() == 1 && (getOrginalMessage() instanceof HttpMessage)) {
-            BdUniqueId tag = ((HttpMessage) getOrginalMessage()).getTag();
-            boolean z = tag != null && tag.equals(PersonListModel.FOLLOWME);
-            String str = new String(bArr);
-            l<String> Az = a.bqt().Az("tb.my_pages");
-            if (Az != null) {
-                Az.set((z ? "personal_followme" : "personal_myfollow") + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + this.mModel.getId(), str, 604800000L);
+        if (getError() == 0 && (personListModel = this.mModel) != null) {
+            boolean z = true;
+            if (personListModel.A() == 1 && (getOrginalMessage() instanceof HttpMessage)) {
+                BdUniqueId tag = ((HttpMessage) getOrginalMessage()).getTag();
+                z = (tag == null || !tag.equals(PersonListModel.FOLLOWME)) ? false : false;
+                String str = new String(bArr);
+                l<String> g2 = a.f().g("tb.my_pages");
+                if (g2 != null) {
+                    String str2 = z ? "personal_followme" : "personal_myfollow";
+                    g2.e(str2 + "_" + this.mModel.getId(), str, 604800000L);
+                }
             }
         }
     }

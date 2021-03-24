@@ -6,18 +6,18 @@ import android.widget.ImageView;
 import com.baidu.mapapi.walknavi.adapter.IWNPCLoadAndInitListener;
 import com.baidu.mapapi.walknavi.model.BaseNpcModel;
 import com.baidu.platform.comapi.walknavi.g.b.c;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class ac implements c.d {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ BaseNpcModel f2969a;
-    final /* synthetic */ c b;
+    public final /* synthetic */ BaseNpcModel f10077a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    /* renamed from: b  reason: collision with root package name */
+    public final /* synthetic */ c f10078b;
+
     public ac(c cVar, BaseNpcModel baseNpcModel) {
-        this.b = cVar;
-        this.f2969a = baseNpcModel;
+        this.f10078b = cVar;
+        this.f10077a = baseNpcModel;
     }
 
     @Override // com.baidu.platform.comapi.walknavi.g.b.c.d
@@ -25,13 +25,13 @@ public class ac implements c.d {
         IWNPCLoadAndInitListener iWNPCLoadAndInitListener;
         View view;
         IWNPCLoadAndInitListener iWNPCLoadAndInitListener2;
-        iWNPCLoadAndInitListener = this.b.W;
+        iWNPCLoadAndInitListener = this.f10078b.W;
         if (iWNPCLoadAndInitListener != null) {
-            iWNPCLoadAndInitListener2 = this.b.W;
+            iWNPCLoadAndInitListener2 = this.f10078b.W;
             iWNPCLoadAndInitListener2.onSuccess();
         }
-        view = this.b.N;
-        ((ImageView) view).setImageBitmap(this.f2969a.getIcon());
+        view = this.f10078b.N;
+        ((ImageView) view).setImageBitmap(this.f10077a.getIcon());
     }
 
     @Override // com.baidu.platform.comapi.walknavi.g.b.c.d
@@ -39,16 +39,16 @@ public class ac implements c.d {
         IWNPCLoadAndInitListener iWNPCLoadAndInitListener;
         View view;
         IWNPCLoadAndInitListener iWNPCLoadAndInitListener2;
-        iWNPCLoadAndInitListener = this.b.W;
+        iWNPCLoadAndInitListener = this.f10078b.W;
         if (iWNPCLoadAndInitListener != null) {
             com.baidu.platform.comapi.walknavi.d.e.c().a("");
-            this.b.b(true);
+            this.f10078b.b(true);
             com.baidu.platform.comapi.walknavi.b.a().D().a(0, 0);
-            this.b.o();
-            iWNPCLoadAndInitListener2 = this.b.W;
+            this.f10078b.o();
+            iWNPCLoadAndInitListener2 = this.f10078b.W;
             iWNPCLoadAndInitListener2.onFail();
         }
-        view = this.b.N;
+        view = this.f10078b.N;
         ((ImageView) view).setImageBitmap(BitmapFactory.decodeResource(com.baidu.platform.comapi.wnplatform.o.a.a.b(), 2130837800));
     }
 }

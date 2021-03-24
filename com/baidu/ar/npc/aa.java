@@ -2,19 +2,34 @@ package com.baidu.ar.npc;
 
 import android.view.GestureDetector;
 import android.view.MotionEvent;
-/* loaded from: classes4.dex */
-class aa implements GestureDetector.OnGestureListener {
+/* loaded from: classes2.dex */
+public class aa implements GestureDetector.OnGestureListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ BaiduArView f1278a;
+    public final /* synthetic */ BaiduArView f4155a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public aa(BaiduArView baiduArView) {
-        this.f1278a = baiduArView;
+        this.f4155a = baiduArView;
     }
 
     @Override // android.view.GestureDetector.OnGestureListener
     public boolean onDown(MotionEvent motionEvent) {
+        return false;
+    }
+
+    @Override // android.view.GestureDetector.OnGestureListener
+    public boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent2, float f2, float f3) {
+        return false;
+    }
+
+    @Override // android.view.GestureDetector.OnGestureListener
+    public void onLongPress(MotionEvent motionEvent) {
+        this.f4155a.queueEvent(new ad(this, motionEvent));
+    }
+
+    @Override // android.view.GestureDetector.OnGestureListener
+    public boolean onScroll(MotionEvent motionEvent, MotionEvent motionEvent2, float f2, float f3) {
+        this.f4155a.queueEvent(new ac(this, motionEvent, motionEvent2, f2, f3));
         return false;
     }
 
@@ -24,23 +39,7 @@ class aa implements GestureDetector.OnGestureListener {
 
     @Override // android.view.GestureDetector.OnGestureListener
     public boolean onSingleTapUp(MotionEvent motionEvent) {
-        this.f1278a.queueEvent(new ab(this, motionEvent));
-        return false;
-    }
-
-    @Override // android.view.GestureDetector.OnGestureListener
-    public boolean onScroll(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
-        this.f1278a.queueEvent(new ac(this, motionEvent, motionEvent2, f, f2));
-        return false;
-    }
-
-    @Override // android.view.GestureDetector.OnGestureListener
-    public void onLongPress(MotionEvent motionEvent) {
-        this.f1278a.queueEvent(new ad(this, motionEvent));
-    }
-
-    @Override // android.view.GestureDetector.OnGestureListener
-    public boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
+        this.f4155a.queueEvent(new ab(this, motionEvent));
         return false;
     }
 }

@@ -2,54 +2,33 @@ package com.baidu.tieba.ala.alasquare.live.message;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.lib.cache.BdCacheService;
-import com.baidu.adp.lib.cache.l;
 import com.baidu.ala.AlaCmdConfigSocket;
-import com.baidu.tbadk.core.util.y;
-import com.baidu.tieba.ala.alasquare.a.d;
-import com.baidu.tieba.ala.alasquare.live.b.a;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.squareup.wire.Wire;
+import d.b.b.e.d.l;
+import d.b.i0.t.d.a.b;
+import d.b.i0.t.d.b.b.a;
 import java.util.LinkedList;
+import tbclient.LiveSquare.DataRes;
 import tbclient.LiveSquare.FunctionListInfo;
 import tbclient.LiveSquare.HeadLiveInfo;
 import tbclient.LiveSquare.LiveSquareResIdl;
-/* loaded from: classes9.dex */
+/* loaded from: classes4.dex */
 public class AlaSquareLiveSocketResponseMessage extends SocketResponsedMessage {
-    private LinkedList<a> categoryList;
-    private LinkedList<FunctionListInfo> functionList;
-    private HeadLiveInfo headLiveInfo;
-    private int isSmallFollow;
-    private boolean mHasMore;
-    private int mPn;
+    public LinkedList<a> categoryList;
+    public LinkedList<FunctionListInfo> functionList;
+    public HeadLiveInfo headLiveInfo;
+    public int isSmallFollow;
+    public boolean mHasMore;
+    public int mPn;
 
     public AlaSquareLiveSocketResponseMessage() {
         super(AlaCmdConfigSocket.CMD_SQUARE_LIVE);
         this.mPn = 0;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.message.a
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
-        LiveSquareResIdl liveSquareResIdl = (LiveSquareResIdl) new Wire(new Class[0]).parseFrom(bArr, LiveSquareResIdl.class);
-        setError(liveSquareResIdl.error.errorno.intValue());
-        setErrorString(liveSquareResIdl.error.usermsg);
-        if (!hasError()) {
-            this.functionList = new LinkedList<>();
-            this.categoryList = new LinkedList<>();
-            this.categoryList.addAll(d.cb(liveSquareResIdl.data.live_with_category));
-            this.functionList.addAll(liveSquareResIdl.data.function_list_info);
-            this.headLiveInfo = liveSquareResIdl.data.head_live_info;
-            this.isSmallFollow = liveSquareResIdl.data.is_small_follow.intValue();
-            this.mHasMore = liveSquareResIdl.data.has_more.intValue() == 1;
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.message.ResponsedMessage
-    public void afterDispatchInBackGround(int i, byte[] bArr) {
-        l<byte[]> b;
-        if (!hasError() && !y.isEmpty(this.categoryList) && this.mPn == 1 && (b = BdCacheService.lw().b("ala_square_space", BdCacheService.CacheStorage.SQLite_CACHE_All_IN_ONE_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 20)) != null) {
-            b.set("ala_square_live_key", bArr, 604800000L);
-        }
+    public LinkedList<a> getCategoryList() {
+        return this.categoryList;
     }
 
     public LinkedList<FunctionListInfo> getFunctionList() {
@@ -60,19 +39,45 @@ public class AlaSquareLiveSocketResponseMessage extends SocketResponsedMessage {
         return this.headLiveInfo;
     }
 
-    public LinkedList<a> getCategoryList() {
-        return this.categoryList;
+    public int getIsSmallFollow() {
+        return this.isSmallFollow;
     }
 
     public boolean hasMore() {
         return this.mHasMore;
     }
 
-    public int getIsSmallFollow() {
-        return this.isSmallFollow;
-    }
-
     public void setPn(int i) {
         this.mPn = i;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.message.ResponsedMessage
+    public void afterDispatchInBackGround(int i, byte[] bArr) {
+        l<byte[]> a2;
+        if (hasError() || ListUtils.isEmpty(this.categoryList) || this.mPn != 1 || (a2 = BdCacheService.l().a("ala_square_space", BdCacheService.CacheStorage.SQLite_CACHE_All_IN_ONE_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 20)) == null) {
+            return;
+        }
+        a2.e("ala_square_live_key", bArr, 604800000L);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
+    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
+        LiveSquareResIdl liveSquareResIdl = (LiveSquareResIdl) new Wire(new Class[0]).parseFrom(bArr, LiveSquareResIdl.class);
+        setError(liveSquareResIdl.error.errorno.intValue());
+        setErrorString(liveSquareResIdl.error.usermsg);
+        if (hasError()) {
+            return;
+        }
+        this.functionList = new LinkedList<>();
+        LinkedList<a> linkedList = new LinkedList<>();
+        this.categoryList = linkedList;
+        linkedList.addAll(b.a(liveSquareResIdl.data.live_with_category));
+        this.functionList.addAll(liveSquareResIdl.data.function_list_info);
+        DataRes dataRes = liveSquareResIdl.data;
+        this.headLiveInfo = dataRes.head_live_info;
+        this.isSmallFollow = dataRes.is_small_follow.intValue();
+        this.mHasMore = liveSquareResIdl.data.has_more.intValue() == 1;
     }
 }

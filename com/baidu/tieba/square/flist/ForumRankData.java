@@ -4,9 +4,9 @@ import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.tbadk.core.data.NewErrorData;
 import com.baidu.tieba.square.data.ForumInfoData;
 import java.io.Serializable;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class ForumRankData extends OrmObject implements Serializable {
-    private static final long serialVersionUID = 6536045499676911895L;
+    public static final long serialVersionUID = 6536045499676911895L;
     public NewErrorData error;
     public int error_code;
     public ForumInfoData[] forumsquare_list;

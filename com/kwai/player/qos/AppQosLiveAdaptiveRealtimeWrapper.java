@@ -1,18 +1,18 @@
 package com.kwai.player.qos;
 
 import com.kwai.video.player.IMediaPlayer;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class AppQosLiveAdaptiveRealtimeWrapper {
-    private static final int DEFAULT_LIVE_ADAPTIVE_QOS_TICK_DURATION_SEC = 2;
-    private static final int DEFAULT_MONITOR_INTERVAL = 1000;
-    private final AppLiveReatimeInfoProvider mAppLiveReatimeInfoProvider;
-    private AppQosLiveAdaptiveRealtime mAppQosLiveAdaptiveRealtime;
-    private final boolean mEnable;
-    private boolean mEnableAdditinalQosFlag;
-    private Object mLiveAdaptiveQosObject = new Object();
-    private long mLiveAdaptiveQosTickDuration = 2000;
-    private IMediaPlayer.OnLiveAdaptiveQosStatListener mOnLiveAdaptiveQosStatListener;
-    private long mStartTsMs;
+    public static final int DEFAULT_LIVE_ADAPTIVE_QOS_TICK_DURATION_SEC = 2;
+    public static final int DEFAULT_MONITOR_INTERVAL = 1000;
+    public final AppLiveReatimeInfoProvider mAppLiveReatimeInfoProvider;
+    public AppQosLiveAdaptiveRealtime mAppQosLiveAdaptiveRealtime;
+    public final boolean mEnable;
+    public boolean mEnableAdditinalQosFlag;
+    public Object mLiveAdaptiveQosObject = new Object();
+    public long mLiveAdaptiveQosTickDuration = 2000;
+    public IMediaPlayer.OnLiveAdaptiveQosStatListener mOnLiveAdaptiveQosStatListener;
+    public long mStartTsMs;
 
     public AppQosLiveAdaptiveRealtimeWrapper(AppLiveReatimeInfoProvider appLiveReatimeInfoProvider, boolean z) {
         this.mAppLiveReatimeInfoProvider = appLiveReatimeInfoProvider;
@@ -20,19 +20,22 @@ public class AppQosLiveAdaptiveRealtimeWrapper {
     }
 
     private synchronized void startLiveAdaptiveQosStatTimer() {
-        if (this.mAppQosLiveAdaptiveRealtime == null) {
-            this.mAppQosLiveAdaptiveRealtime = new AppQosLiveAdaptiveRealtime(1000L, this.mLiveAdaptiveQosTickDuration, this.mAppLiveReatimeInfoProvider, this.mLiveAdaptiveQosObject);
-            this.mAppQosLiveAdaptiveRealtime.setPlayStartTime(this.mStartTsMs);
-            this.mAppQosLiveAdaptiveRealtime.setEnableLiveAdaptiveAdditionalQosStat(this.mEnableAdditinalQosFlag);
-            this.mAppQosLiveAdaptiveRealtime.startReport(this.mOnLiveAdaptiveQosStatListener);
+        if (this.mAppQosLiveAdaptiveRealtime != null) {
+            return;
         }
+        AppQosLiveAdaptiveRealtime appQosLiveAdaptiveRealtime = new AppQosLiveAdaptiveRealtime(1000L, this.mLiveAdaptiveQosTickDuration, this.mAppLiveReatimeInfoProvider, this.mLiveAdaptiveQosObject);
+        this.mAppQosLiveAdaptiveRealtime = appQosLiveAdaptiveRealtime;
+        appQosLiveAdaptiveRealtime.setPlayStartTime(this.mStartTsMs);
+        this.mAppQosLiveAdaptiveRealtime.setEnableLiveAdaptiveAdditionalQosStat(this.mEnableAdditinalQosFlag);
+        this.mAppQosLiveAdaptiveRealtime.startReport(this.mOnLiveAdaptiveQosStatListener);
     }
 
     private synchronized void stopLiveAdaptiveQosStatTimer() {
-        if (this.mAppQosLiveAdaptiveRealtime != null) {
-            this.mAppQosLiveAdaptiveRealtime.stopReport();
-            this.mAppQosLiveAdaptiveRealtime = null;
+        if (this.mAppQosLiveAdaptiveRealtime == null) {
+            return;
         }
+        this.mAppQosLiveAdaptiveRealtime.stopReport();
+        this.mAppQosLiveAdaptiveRealtime = null;
     }
 
     public void setEnableLiveAdaptiveAdditionalQosStat(boolean z) {

@@ -8,44 +8,58 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.R;
 import tbclient.GetClientConfig.DataRes;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class ClientConfigModel extends BdBaseModel {
-    private a eKQ;
-    private final com.baidu.adp.framework.listener.a eKR;
 
-    public ClientConfigModel(BdBaseFragmentActivity<?> bdBaseFragmentActivity, a aVar) {
-        super(bdBaseFragmentActivity.getPageContext());
-        this.eKR = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_CLIENT_CONFIG, 303039) { // from class: com.baidu.tbadk.clientConfig.ClientConfigModel.1
-            @Override // com.baidu.adp.framework.listener.a
-            public void onMessage(ResponsedMessage<?> responsedMessage) {
-                if (!ClientConfigModel.this.checkMessageIsBelongToCurPage(responsedMessage)) {
-                    if (ClientConfigModel.this.eKQ != null) {
-                        ClientConfigModel.this.eKQ.onError("");
-                    }
-                } else if (responsedMessage.hasError() || responsedMessage.getError() != 0) {
-                    String errorString = responsedMessage.getErrorString();
-                    String string = TbadkCoreApplication.getInst().getString(R.string.neterror);
-                    if (!StringUtils.isNull(errorString)) {
-                        string = errorString;
-                    }
-                    if (ClientConfigModel.this.eKQ != null) {
-                        ClientConfigModel.this.eKQ.onError(string);
-                    }
-                } else if (responsedMessage instanceof ClientConfigHttpProtoResponse) {
-                    ClientConfigModel.this.a(((ClientConfigHttpProtoResponse) responsedMessage).getData());
+    /* renamed from: e  reason: collision with root package name */
+    public d.b.h0.p.a f13146e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public final d.b.b.c.g.a f13147f;
+
+    /* loaded from: classes3.dex */
+    public class a extends d.b.b.c.g.a {
+        public a(int i, int i2) {
+            super(i, i2);
+        }
+
+        @Override // d.b.b.c.g.a
+        public void onMessage(ResponsedMessage<?> responsedMessage) {
+            if (!ClientConfigModel.this.v(responsedMessage)) {
+                if (ClientConfigModel.this.f13146e != null) {
+                    ClientConfigModel.this.f13146e.onError("");
+                }
+            } else if (!responsedMessage.hasError() && responsedMessage.getError() == 0) {
+                if (responsedMessage instanceof ClientConfigHttpProtoResponse) {
+                    ClientConfigModel.this.w(((ClientConfigHttpProtoResponse) responsedMessage).getData());
                 } else if (responsedMessage instanceof ClientConfigSocketResponse) {
-                    ClientConfigModel.this.a(((ClientConfigSocketResponse) responsedMessage).getData());
-                } else if (ClientConfigModel.this.eKQ != null) {
-                    ClientConfigModel.this.eKQ.onError("");
+                    ClientConfigModel.this.w(((ClientConfigSocketResponse) responsedMessage).getData());
+                } else if (ClientConfigModel.this.f13146e != null) {
+                    ClientConfigModel.this.f13146e.onError("");
+                }
+            } else {
+                String errorString = responsedMessage.getErrorString();
+                String string = TbadkCoreApplication.getInst().getString(R.string.neterror);
+                if (StringUtils.isNull(errorString)) {
+                    errorString = string;
+                }
+                if (ClientConfigModel.this.f13146e != null) {
+                    ClientConfigModel.this.f13146e.onError(errorString);
                 }
             }
-        };
-        this.eKQ = aVar;
-        registerListener(this.eKR);
+        }
+    }
+
+    public ClientConfigModel(BdBaseFragmentActivity<?> bdBaseFragmentActivity, d.b.h0.p.a aVar) {
+        super(bdBaseFragmentActivity.getPageContext());
+        a aVar2 = new a(CmdConfigHttp.CMD_CLIENT_CONFIG, 303039);
+        this.f13147f = aVar2;
+        this.f13146e = aVar;
+        registerListener(aVar2);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
-    protected boolean LoadData() {
+    public boolean LoadData() {
         return false;
     }
 
@@ -54,25 +68,27 @@ public class ClientConfigModel extends BdBaseModel {
         return false;
     }
 
-    public void zN(String str) {
-        ClientConfigNetMessage clientConfigNetMessage = new ClientConfigNetMessage();
-        clientConfigNetMessage.setType(str);
-        sendMessage(clientConfigNetMessage);
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public boolean checkMessageIsBelongToCurPage(ResponsedMessage<?> responsedMessage) {
+    public final boolean v(ResponsedMessage<?> responsedMessage) {
         return (responsedMessage == null || responsedMessage.getOrginalMessage() == null || responsedMessage.getOrginalMessage().getTag() != getUniqueId()) ? false : true;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(DataRes dataRes) {
+    public final void w(DataRes dataRes) {
         if (dataRes == null) {
-            if (this.eKQ != null) {
-                this.eKQ.onError(TbadkCoreApplication.getInst().getString(R.string.data_load_error));
+            if (this.f13146e != null) {
+                this.f13146e.onError(TbadkCoreApplication.getInst().getString(R.string.data_load_error));
+                return;
             }
-        } else if (this.eKQ != null) {
-            this.eKQ.av(dataRes);
+            return;
         }
+        d.b.h0.p.a aVar = this.f13146e;
+        if (aVar != null) {
+            aVar.a(dataRes);
+        }
+    }
+
+    public void x(String str) {
+        ClientConfigNetMessage clientConfigNetMessage = new ClientConfigNetMessage();
+        clientConfigNetMessage.setType(str);
+        sendMessage(clientConfigNetMessage);
     }
 }

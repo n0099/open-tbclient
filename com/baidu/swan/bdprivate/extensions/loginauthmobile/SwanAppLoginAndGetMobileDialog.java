@@ -21,170 +21,75 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
-import com.baidu.swan.bdprivate.b;
 import com.baidu.swan.bdprivate.extensions.quicklogin.QuickLoginInfo;
+import com.xiaomi.mipush.sdk.Constants;
+import d.b.g0.b.d;
 import java.lang.ref.WeakReference;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public abstract class SwanAppLoginAndGetMobileDialog extends DialogFragment {
-    protected QuickLoginInfo dVK;
-    protected String dVL;
-    protected a dVR;
-    protected FragmentActivity dVS;
-    protected String mAppId;
-    protected LinearLayout mRootView;
-    protected boolean dzL = false;
-    protected String dVI = "";
-    private boolean dVT = true;
 
-    /* loaded from: classes8.dex */
-    public interface a {
-        void hJ(boolean z);
+    /* renamed from: e  reason: collision with root package name */
+    public b f12713e;
 
-        void kC(int i);
-    }
+    /* renamed from: f  reason: collision with root package name */
+    public FragmentActivity f12714f;
 
-    protected abstract void a(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup);
+    /* renamed from: h  reason: collision with root package name */
+    public LinearLayout f12716h;
+    public QuickLoginInfo j;
+    public String l;
+    public String m;
 
-    protected abstract void aPM();
+    /* renamed from: g  reason: collision with root package name */
+    public boolean f12715g = false;
+    public String i = "";
+    public boolean k = true;
 
-    protected abstract void updateUI();
-
-    @Override // androidx.fragment.app.DialogFragment, androidx.fragment.app.Fragment
-    public void onCreate(@Nullable Bundle bundle) {
-        super.onCreate(bundle);
-    }
-
-    public void a(FragmentActivity fragmentActivity) {
-        this.dVS = fragmentActivity;
-    }
-
-    @Override // androidx.fragment.app.Fragment
-    @Nullable
-    public View onCreateView(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
-        apd();
-        getDialog().requestWindowFeature(1);
-        getDialog().setCanceledOnTouchOutside(true);
-        Window window = getDialog().getWindow();
-        if (window == null) {
-            return null;
+    /* loaded from: classes3.dex */
+    public class a implements View.OnTouchListener {
+        public a() {
         }
-        c(window);
-        a(layoutInflater, viewGroup);
-        updateUI();
-        aPM();
-        return this.mRootView;
-    }
 
-    private void c(Window window) {
-        window.setBackgroundDrawable(getContext().getResources().getDrawable(this.dzL ? b.d.aiapps_login_getmobile_dark_bg : b.d.aiapps_login_getmobile_bg));
-        window.getDecorView().setPadding(0, 0, 0, 0);
-        window.setFlags(32, 32);
-        window.setFlags(262144, 262144);
-        window.getDecorView().setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.swan.bdprivate.extensions.loginauthmobile.SwanAppLoginAndGetMobileDialog.1
-            @Override // android.view.View.OnTouchListener
-            public boolean onTouch(View view, MotionEvent motionEvent) {
-                if (motionEvent.getAction() == 4) {
-                    SwanAppLoginAndGetMobileDialog.this.hK(true);
-                    SwanAppLoginAndGetMobileDialog.this.aPN();
-                }
-                return true;
+        @Override // android.view.View.OnTouchListener
+        public boolean onTouch(View view, MotionEvent motionEvent) {
+            if (motionEvent.getAction() == 4) {
+                SwanAppLoginAndGetMobileDialog.this.L0(true);
+                SwanAppLoginAndGetMobileDialog.this.F0();
             }
-        });
-        WindowManager.LayoutParams attributes = window.getAttributes();
-        attributes.gravity = 80;
-        attributes.width = -1;
-        attributes.height = -2;
-        window.setAttributes(attributes);
-    }
-
-    public void hK(boolean z) {
-        this.dVT = z;
-    }
-
-    private void apd() {
-        Bundle arguments = getArguments();
-        if (arguments != null) {
-            this.dVI = arguments.getString("auth_tip");
-            this.dzL = arguments.getBoolean("is_night");
-            this.dVK = (QuickLoginInfo) arguments.getParcelable("quick_login_info");
-            this.dVL = arguments.getString("launch_from");
-            this.mAppId = arguments.getString("app_id");
+            return true;
         }
     }
 
-    public void hL(boolean z) {
-        this.dzL = z;
-        Window window = getDialog().getWindow();
-        if (window != null) {
-            window.setBackgroundDrawable(getContext().getResources().getDrawable(this.dzL ? b.d.aiapps_login_getmobile_dark_bg : b.d.aiapps_login_getmobile_bg));
+    /* loaded from: classes3.dex */
+    public interface b {
+        void onDialogDismiss(boolean z);
+
+        void onLoginResult(int i);
+    }
+
+    /* loaded from: classes3.dex */
+    public static class c extends ClickableSpan {
+
+        /* renamed from: e  reason: collision with root package name */
+        public WeakReference<Activity> f12718e;
+
+        /* renamed from: f  reason: collision with root package name */
+        public String f12719f;
+
+        public c(String str, Activity activity) {
+            this.f12719f = str;
+            this.f12718e = new WeakReference<>(activity);
         }
-        updateUI();
-    }
 
-    @Override // androidx.fragment.app.Fragment
-    public void onResume() {
-        super.onResume();
-        boolean ail = com.baidu.swan.apps.t.a.axv().ail();
-        if (ail != this.dzL) {
-            hL(ail);
-        }
-    }
-
-    public void a(a aVar) {
-        this.dVR = aVar;
-    }
-
-    @Override // androidx.fragment.app.DialogFragment
-    public void show(FragmentManager fragmentManager, String str) {
-        try {
-            super.show(fragmentManager, str);
-        } catch (IllegalStateException e) {
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void aPN() {
-        if (this.dVR != null) {
-            this.dVR.hJ(this.dVT);
-        }
-        dismissAllowingStateLoss();
-    }
-
-    @Override // androidx.fragment.app.Fragment, android.content.ComponentCallbacks
-    public void onConfigurationChanged(Configuration configuration) {
-        aPN();
-        super.onConfigurationChanged(configuration);
-    }
-
-    @Override // androidx.fragment.app.DialogFragment, android.content.DialogInterface.OnDismissListener
-    public void onDismiss(DialogInterface dialogInterface) {
-        if (this.dVR != null) {
-            this.dVR.hJ(this.dVT);
-        }
-        super.onDismiss(dialogInterface);
-    }
-
-    @Override // androidx.fragment.app.DialogFragment, androidx.fragment.app.Fragment
-    public void onDestroyView() {
-        if (this.dVR != null) {
-            this.dVR.hJ(this.dVT);
-        }
-        super.onDestroyView();
-    }
-
-    public void a(SpannableStringBuilder spannableStringBuilder, int i, String str, String str2) {
-        spannableStringBuilder.append((CharSequence) str);
-        spannableStringBuilder.setSpan(new b(str2, this.dVS), i, spannableStringBuilder.length(), 33);
-    }
-
-    /* loaded from: classes8.dex */
-    static class b extends ClickableSpan {
-        private WeakReference<Activity> mActivityRef;
-        private String mUrl;
-
-        public b(String str, Activity activity) {
-            this.mUrl = str;
-            this.mActivityRef = new WeakReference<>(activity);
+        @Override // android.text.style.ClickableSpan
+        public void onClick(View view) {
+            Activity activity = this.f12718e.get();
+            if (activity == null) {
+                return;
+            }
+            Intent intent = new Intent(activity, LoginServiceAgreementActivity.class);
+            intent.putExtra("url", this.f12719f);
+            activity.startActivity(intent);
         }
 
         @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
@@ -192,15 +97,132 @@ public abstract class SwanAppLoginAndGetMobileDialog extends DialogFragment {
             textPaint.setUnderlineText(false);
             textPaint.setColor(Color.parseColor("#3388FF"));
         }
+    }
 
-        @Override // android.text.style.ClickableSpan
-        public void onClick(View view) {
-            Activity activity = this.mActivityRef.get();
-            if (activity != null) {
-                Intent intent = new Intent(activity, LoginServiceAgreementActivity.class);
-                intent.putExtra("url", this.mUrl);
-                activity.startActivity(intent);
-            }
+    public void E0(SpannableStringBuilder spannableStringBuilder, int i, String str, String str2) {
+        spannableStringBuilder.append((CharSequence) str);
+        spannableStringBuilder.setSpan(new c(str2, this.f12714f), i, spannableStringBuilder.length(), 33);
+    }
+
+    public void F0() {
+        b bVar = this.f12713e;
+        if (bVar != null) {
+            bVar.onDialogDismiss(this.k);
+        }
+        dismissAllowingStateLoss();
+    }
+
+    public abstract void G0();
+
+    public abstract void H0(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup);
+
+    public void I0(boolean z) {
+        this.f12715g = z;
+        Window window = getDialog().getWindow();
+        if (window != null) {
+            window.setBackgroundDrawable(getContext().getResources().getDrawable(this.f12715g ? d.aiapps_login_getmobile_dark_bg : d.aiapps_login_getmobile_bg));
+        }
+        O0();
+    }
+
+    public final void J0() {
+        Bundle arguments = getArguments();
+        if (arguments != null) {
+            this.i = arguments.getString("auth_tip");
+            this.f12715g = arguments.getBoolean("is_night");
+            this.j = (QuickLoginInfo) arguments.getParcelable("quick_login_info");
+            this.l = arguments.getString("launch_from");
+            this.m = arguments.getString(Constants.APP_ID);
+        }
+    }
+
+    public void K0(FragmentActivity fragmentActivity) {
+        this.f12714f = fragmentActivity;
+    }
+
+    public void L0(boolean z) {
+        this.k = z;
+    }
+
+    public void M0(b bVar) {
+        this.f12713e = bVar;
+    }
+
+    public final void N0(Window window) {
+        window.setBackgroundDrawable(getContext().getResources().getDrawable(this.f12715g ? d.aiapps_login_getmobile_dark_bg : d.aiapps_login_getmobile_bg));
+        window.getDecorView().setPadding(0, 0, 0, 0);
+        window.setFlags(32, 32);
+        window.setFlags(262144, 262144);
+        window.getDecorView().setOnTouchListener(new a());
+        WindowManager.LayoutParams attributes = window.getAttributes();
+        attributes.gravity = 80;
+        attributes.width = -1;
+        attributes.height = -2;
+        window.setAttributes(attributes);
+    }
+
+    public abstract void O0();
+
+    @Override // androidx.fragment.app.Fragment, android.content.ComponentCallbacks
+    public void onConfigurationChanged(Configuration configuration) {
+        F0();
+        super.onConfigurationChanged(configuration);
+    }
+
+    @Override // androidx.fragment.app.DialogFragment, androidx.fragment.app.Fragment
+    public void onCreate(@Nullable Bundle bundle) {
+        super.onCreate(bundle);
+    }
+
+    @Override // androidx.fragment.app.Fragment
+    @Nullable
+    public View onCreateView(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
+        J0();
+        getDialog().requestWindowFeature(1);
+        getDialog().setCanceledOnTouchOutside(true);
+        Window window = getDialog().getWindow();
+        if (window == null) {
+            return null;
+        }
+        N0(window);
+        H0(layoutInflater, viewGroup);
+        O0();
+        G0();
+        return this.f12716h;
+    }
+
+    @Override // androidx.fragment.app.DialogFragment, androidx.fragment.app.Fragment
+    public void onDestroyView() {
+        b bVar = this.f12713e;
+        if (bVar != null) {
+            bVar.onDialogDismiss(this.k);
+        }
+        super.onDestroyView();
+    }
+
+    @Override // androidx.fragment.app.DialogFragment, android.content.DialogInterface.OnDismissListener
+    public void onDismiss(DialogInterface dialogInterface) {
+        b bVar = this.f12713e;
+        if (bVar != null) {
+            bVar.onDialogDismiss(this.k);
+        }
+        super.onDismiss(dialogInterface);
+    }
+
+    @Override // androidx.fragment.app.Fragment
+    public void onResume() {
+        super.onResume();
+        boolean a2 = d.b.g0.a.w0.a.z().a();
+        if (a2 != this.f12715g) {
+            I0(a2);
+        }
+    }
+
+    @Override // androidx.fragment.app.DialogFragment
+    public void show(FragmentManager fragmentManager, String str) {
+        try {
+            super.show(fragmentManager, str);
+        } catch (IllegalStateException unused) {
         }
     }
 }

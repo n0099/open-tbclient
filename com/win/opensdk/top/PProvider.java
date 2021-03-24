@@ -7,22 +7,22 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.Handler;
 import android.os.Looper;
-import com.win.opensdk.bp;
-import com.win.opensdk.bx;
-import com.win.opensdk.ca;
-import com.win.opensdk.p;
-import com.win.opensdk.v;
+import com.win.opensdk.D1;
+import com.win.opensdk.G;
+import com.win.opensdk.V1;
+import com.win.opensdk.Z0;
+import com.win.opensdk.a1;
 import org.json.JSONException;
 import org.json.JSONStringer;
-/* loaded from: classes14.dex */
+/* loaded from: classes7.dex */
 public class PProvider extends ContentProvider {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f8173a;
+    public Context f40043a;
 
     public final void a() {
-        if (bp.g(this.f8173a) == 0) {
-            v.f(this.f8173a);
+        if (V1.g(this.f40043a) == 0) {
+            G.f(this.f40043a);
         }
     }
 
@@ -44,25 +44,25 @@ public class PProvider extends ContentProvider {
     @Override // android.content.ContentProvider
     public boolean onCreate() {
         long currentTimeMillis = System.currentTimeMillis();
-        this.f8173a = getContext();
-        Context context = this.f8173a;
+        Context context = getContext();
+        this.f40043a = context;
         if (context != null) {
-            if (bp.g(context) == 0) {
-                v.f(this.f8173a);
+            if (V1.g(context) == 0) {
+                G.f(this.f40043a);
             }
         } else {
-            new Handler(Looper.getMainLooper()).post(new p(this));
+            new Handler(Looper.getMainLooper()).post(new D1(this));
         }
         try {
-            if (bp.t(getContext())) {
-                bx iT = ca.iT(this.f8173a);
+            if (V1.t(getContext())) {
+                Z0 a2 = a1.a(this.f40043a);
                 long currentTimeMillis2 = System.currentTimeMillis() - currentTimeMillis;
                 try {
-                    iT.qlo = new JSONStringer().object();
-                    iT.hD("e", "hbt").P("dr", currentTimeMillis2);
-                } catch (JSONException e) {
+                    a2.f39849b = new JSONStringer().object();
+                    a2.a("e", "hbt").a("dr", currentTimeMillis2);
+                } catch (JSONException unused) {
                 }
-                iT.a();
+                a2.a();
                 return true;
             }
             return true;

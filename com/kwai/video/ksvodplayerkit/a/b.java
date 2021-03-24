@@ -1,23 +1,26 @@
 package com.kwai.video.ksvodplayerkit.a;
 
 import android.util.Log;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private static a f7271a;
-    private static boolean b = true;
+    public static a f37226a = null;
+
+    /* renamed from: b  reason: collision with root package name */
+    public static boolean f37227b = true;
 
     public static void a(String str, String str2) {
         a(str, str2, null);
     }
 
     public static void a(String str, String str2, Throwable th) {
-        if (b && f7271a != null) {
+        a aVar;
+        if (f37227b && (aVar = f37226a) != null) {
             try {
-                f7271a.a(str, str2, th);
-            } catch (Exception e) {
-                Log.e("ksvodplayer", Log.getStackTraceString(e));
+                aVar.a(str, str2, th);
+            } catch (Exception e2) {
+                Log.e("ksvodplayer", Log.getStackTraceString(e2));
             }
         }
     }
@@ -27,11 +30,12 @@ public class b {
     }
 
     public static void b(String str, String str2, Throwable th) {
-        if (b && f7271a != null) {
+        a aVar;
+        if (f37227b && (aVar = f37226a) != null) {
             try {
-                f7271a.c(str, str2, th);
-            } catch (Exception e) {
-                Log.e("ksvodplayer", Log.getStackTraceString(e));
+                aVar.c(str, str2, th);
+            } catch (Exception e2) {
+                Log.e("ksvodplayer", Log.getStackTraceString(e2));
             }
         }
     }
@@ -41,11 +45,12 @@ public class b {
     }
 
     public static void c(String str, String str2, Throwable th) {
-        if (b && f7271a != null) {
+        a aVar;
+        if (f37227b && (aVar = f37226a) != null) {
             try {
-                f7271a.b(str, str2, th);
-            } catch (Exception e) {
-                Log.e("ksvodplayer", Log.getStackTraceString(e));
+                aVar.b(str, str2, th);
+            } catch (Exception e2) {
+                Log.e("ksvodplayer", Log.getStackTraceString(e2));
             }
         }
     }
@@ -55,11 +60,12 @@ public class b {
     }
 
     public static void d(String str, String str2, Throwable th) {
-        if (b && f7271a != null) {
+        a aVar;
+        if (f37227b && (aVar = f37226a) != null) {
             try {
-                f7271a.d(str, str2, th);
-            } catch (Exception e) {
-                Log.e("ksvodplayer", Log.getStackTraceString(e));
+                aVar.d(str, str2, th);
+            } catch (Exception e2) {
+                Log.e("ksvodplayer", Log.getStackTraceString(e2));
             }
         }
     }
@@ -69,11 +75,12 @@ public class b {
     }
 
     public static void e(String str, String str2, Throwable th) {
-        if (b && f7271a != null) {
+        a aVar;
+        if (f37227b && (aVar = f37226a) != null) {
             try {
-                f7271a.e(str, str2, th);
-            } catch (Exception e) {
-                Log.e("ksvodplayer", Log.getStackTraceString(e));
+                aVar.e(str, str2, th);
+            } catch (Exception e2) {
+                Log.e("ksvodplayer", Log.getStackTraceString(e2));
             }
         }
     }

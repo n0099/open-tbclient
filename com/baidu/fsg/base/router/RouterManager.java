@@ -5,74 +5,80 @@ import com.baidu.fsg.base.utils.LogUtil;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public class RouterManager {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f1520a = "MaApplication";
-    private static RouterManager b = new RouterManager();
-    private ArrayList<ApplicationLogicWrapper> c = new ArrayList<>();
+    public static final String f5253a = "MaApplication";
 
-    private RouterManager() {
-    }
+    /* renamed from: b  reason: collision with root package name */
+    public static RouterManager f5254b = new RouterManager();
 
-    public static RouterManager getInstance() {
-        return b;
-    }
-
-    public void init(Context context, HashMap<String, Object> hashMap) {
-        if (context == null) {
-            throw new RuntimeException("Router manager init with context null");
-        }
-        Context applicationContext = context.getApplicationContext();
-        if (applicationContext == null) {
-            throw new RuntimeException("Router manager init with applciation context null");
-        }
-        LogUtil.d(f1520a, "Application onCreate start: " + System.currentTimeMillis());
-        LocalRouter.init(applicationContext);
-        a(applicationContext, hashMap);
-        LogUtil.d(f1520a, "Application onCreate end: " + System.currentTimeMillis());
-    }
+    /* renamed from: c  reason: collision with root package name */
+    public ArrayList<ApplicationLogicWrapper> f5255c = new ArrayList<>();
 
     private void a(Context context, HashMap<String, Object> hashMap) {
-        if (this.c != null && this.c.size() >= 1) {
-            Iterator<ApplicationLogicWrapper> it = this.c.iterator();
-            while (it.hasNext()) {
-                ApplicationLogicWrapper next = it.next();
-                if (next != null) {
-                    try {
-                        next.instance = next.logicClass.newInstance();
-                    } catch (IllegalAccessException e) {
-                    } catch (InstantiationException e2) {
-                        e2.printStackTrace();
-                    }
-                    if (next != null && next.instance != null) {
-                        next.instance.onCreate(context, hashMap);
-                    }
+        BaseApplicationLogic baseApplicationLogic;
+        ArrayList<ApplicationLogicWrapper> arrayList = this.f5255c;
+        if (arrayList == null || arrayList.size() < 1) {
+            return;
+        }
+        Iterator<ApplicationLogicWrapper> it = this.f5255c.iterator();
+        while (it.hasNext()) {
+            ApplicationLogicWrapper next = it.next();
+            if (next != null) {
+                try {
+                    next.instance = next.logicClass.newInstance();
+                } catch (IllegalAccessException unused) {
+                } catch (InstantiationException e2) {
+                    e2.printStackTrace();
+                }
+                if (next != null && (baseApplicationLogic = next.instance) != null) {
+                    baseApplicationLogic.onCreate(context, hashMap);
                 }
             }
         }
     }
 
-    public boolean registerApplicationLogic(Class<? extends BaseApplicationLogic> cls) {
-        if (this.c == null) {
-            return false;
-        }
-        Iterator<ApplicationLogicWrapper> it = this.c.iterator();
-        while (it.hasNext()) {
-            if (it.next().logicClass.equals(cls)) {
-                throw new RuntimeException(cls.getName() + " has registered.");
-            }
-        }
-        this.c.add(new ApplicationLogicWrapper(cls));
-        return true;
+    public static RouterManager getInstance() {
+        return f5254b;
     }
 
-    public void route(Context context, RouterRequest routerRequest, RouterCallback routerCallback) {
-        LocalRouter.getInstance().a(context, routerRequest, routerCallback);
+    public void init(Context context, HashMap<String, Object> hashMap) {
+        if (context != null) {
+            Context applicationContext = context.getApplicationContext();
+            if (applicationContext != null) {
+                LogUtil.d(f5253a, "Application onCreate start: " + System.currentTimeMillis());
+                LocalRouter.init(applicationContext);
+                a(applicationContext, hashMap);
+                LogUtil.d(f5253a, "Application onCreate end: " + System.currentTimeMillis());
+                return;
+            }
+            throw new RuntimeException("Router manager init with applciation context null");
+        }
+        throw new RuntimeException("Router manager init with context null");
+    }
+
+    public boolean registerApplicationLogic(Class<? extends BaseApplicationLogic> cls) {
+        ArrayList<ApplicationLogicWrapper> arrayList = this.f5255c;
+        if (arrayList != null) {
+            Iterator<ApplicationLogicWrapper> it = arrayList.iterator();
+            while (it.hasNext()) {
+                if (it.next().logicClass.equals(cls)) {
+                    throw new RuntimeException(cls.getName() + " has registered.");
+                }
+            }
+            this.f5255c.add(new ApplicationLogicWrapper(cls));
+            return true;
+        }
+        return false;
     }
 
     public void registerProvider(String str, RouterProvider routerProvider) {
         LocalRouter.getInstance().a(str, routerProvider);
+    }
+
+    public void route(Context context, RouterRequest routerRequest, RouterCallback routerCallback) {
+        LocalRouter.getInstance().a(context, routerRequest, routerCallback);
     }
 }

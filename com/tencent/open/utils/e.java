@@ -2,21 +2,18 @@ package com.tencent.open.utils;
 
 import android.content.Context;
 import java.io.File;
-/* loaded from: classes14.dex */
+/* loaded from: classes7.dex */
 public final class e {
 
     /* renamed from: a  reason: collision with root package name */
-    private static Context f7989a;
+    public static Context f39306a;
 
     public static final Context a() {
-        if (f7989a == null) {
+        Context context = f39306a;
+        if (context == null) {
             return null;
         }
-        return f7989a;
-    }
-
-    public static final void a(Context context) {
-        f7989a = context;
+        return context;
     }
 
     public static final String b() {
@@ -28,5 +25,9 @@ public final class e {
             return null;
         }
         return a().getFilesDir();
+    }
+
+    public static final void a(Context context) {
+        f39306a = context;
     }
 }

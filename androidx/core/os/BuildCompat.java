@@ -1,11 +1,8 @@
 package androidx.core.os;
 
 import android.os.Build;
-/* loaded from: classes14.dex */
+/* loaded from: classes.dex */
 public class BuildCompat {
-    private BuildCompat() {
-    }
-
     @Deprecated
     public static boolean isAtLeastN() {
         return Build.VERSION.SDK_INT >= 24;

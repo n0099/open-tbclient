@@ -8,19 +8,17 @@ import androidx.core.internal.view.SupportMenuItem;
 import androidx.core.internal.view.SupportSubMenu;
 import java.util.Iterator;
 import java.util.Map;
-/* loaded from: classes5.dex */
-abstract class BaseMenuWrapper<T> extends BaseWrapper<T> {
-    final Context mContext;
-    private Map<SupportMenuItem, MenuItem> mMenuItems;
-    private Map<SupportSubMenu, SubMenu> mSubMenus;
+/* loaded from: classes.dex */
+public abstract class BaseMenuWrapper<T> extends BaseWrapper<T> {
+    public final Context mContext;
+    public Map<SupportMenuItem, MenuItem> mMenuItems;
+    public Map<SupportSubMenu, SubMenu> mSubMenus;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public BaseMenuWrapper(Context context, T t) {
         super(t);
         this.mContext = context;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public final MenuItem getMenuItemWrapper(MenuItem menuItem) {
         if (menuItem instanceof SupportMenuItem) {
             SupportMenuItem supportMenuItem = (SupportMenuItem) menuItem;
@@ -38,7 +36,6 @@ abstract class BaseMenuWrapper<T> extends BaseWrapper<T> {
         return menuItem;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public final SubMenu getSubMenuWrapper(SubMenu subMenu) {
         if (subMenu instanceof SupportSubMenu) {
             SupportSubMenu supportSubMenu = (SupportSubMenu) subMenu;
@@ -56,37 +53,40 @@ abstract class BaseMenuWrapper<T> extends BaseWrapper<T> {
         return subMenu;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public final void internalClear() {
-        if (this.mMenuItems != null) {
-            this.mMenuItems.clear();
+        Map<SupportMenuItem, MenuItem> map = this.mMenuItems;
+        if (map != null) {
+            map.clear();
         }
-        if (this.mSubMenus != null) {
-            this.mSubMenus.clear();
+        Map<SupportSubMenu, SubMenu> map2 = this.mSubMenus;
+        if (map2 != null) {
+            map2.clear();
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public final void internalRemoveGroup(int i) {
-        if (this.mMenuItems != null) {
-            Iterator<SupportMenuItem> it = this.mMenuItems.keySet().iterator();
-            while (it.hasNext()) {
-                if (i == it.next().getGroupId()) {
-                    it.remove();
-                }
+        Map<SupportMenuItem, MenuItem> map = this.mMenuItems;
+        if (map == null) {
+            return;
+        }
+        Iterator<SupportMenuItem> it = map.keySet().iterator();
+        while (it.hasNext()) {
+            if (i == it.next().getGroupId()) {
+                it.remove();
             }
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public final void internalRemoveItem(int i) {
-        if (this.mMenuItems != null) {
-            Iterator<SupportMenuItem> it = this.mMenuItems.keySet().iterator();
-            while (it.hasNext()) {
-                if (i == it.next().getItemId()) {
-                    it.remove();
-                    return;
-                }
+        Map<SupportMenuItem, MenuItem> map = this.mMenuItems;
+        if (map == null) {
+            return;
+        }
+        Iterator<SupportMenuItem> it = map.keySet().iterator();
+        while (it.hasNext()) {
+            if (i == it.next().getItemId()) {
+                it.remove();
+                return;
             }
         }
     }

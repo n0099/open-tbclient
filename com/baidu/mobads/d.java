@@ -1,17 +1,16 @@
 package com.baidu.mobads;
-/* loaded from: classes4.dex */
-class d implements BaiduHybridAdViewListener {
+/* loaded from: classes2.dex */
+public class d implements BaiduHybridAdViewListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ BaiduHybridAdManager f2371a;
+    public final /* synthetic */ BaiduHybridAdManager f8211a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public d(BaiduHybridAdManager baiduHybridAdManager) {
-        this.f2371a = baiduHybridAdManager;
+        this.f8211a = baiduHybridAdManager;
     }
 
     @Override // com.baidu.mobads.BaiduHybridAdViewListener
-    public void onAdShow(int i, String str) {
+    public void onAdClick(int i, String str) {
     }
 
     @Override // com.baidu.mobads.BaiduHybridAdViewListener
@@ -19,6 +18,6 @@ class d implements BaiduHybridAdViewListener {
     }
 
     @Override // com.baidu.mobads.BaiduHybridAdViewListener
-    public void onAdClick(int i, String str) {
+    public void onAdShow(int i, String str) {
     }
 }

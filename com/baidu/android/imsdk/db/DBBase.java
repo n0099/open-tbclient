@@ -9,15 +9,14 @@ import android.util.Log;
 import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class DBBase {
-    public static final String TAG = DBBase.class.getSimpleName();
-    protected static Object mSyncLock = new Object();
-    protected Context mContext = null;
+    public static final String TAG = "DBBase";
+    public static Object mSyncLock = new Object();
+    public Context mContext = null;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class UpdateArgs {
         public String[] args;
         public String query;
@@ -30,110 +29,57 @@ public class DBBase {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public SQLiteDatabase openDatabase() {
-        SQLiteDatabase openDatabase;
-        synchronized (mSyncLock) {
-            openDatabase = DBResource.getInstance(this.mContext).openDatabase();
-        }
-        return openDatabase;
-    }
-
-    public void setContext(Context context) {
-        if (context != null) {
-            this.mContext = context.getApplicationContext();
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public long insert(String str, ContentValues contentValues) {
+    public long add(String str, String[] strArr, String str2, String[] strArr2, ContentValues contentValues) {
+        long insert;
         SQLiteDatabase openDatabase = openDatabase();
         if (openDatabase == null) {
             LogUtils.d(TAG, "getWritableDb fail!");
             return -1L;
         }
+        Cursor cursor = null;
         try {
-            return openDatabase.insert(str, null, contentValues);
-        } catch (Exception e) {
-            new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
-            LogUtils.e(TAG, "saveCmdMsg:", e);
-            return -1L;
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public int update(String str, String str2, String[] strArr, ContentValues contentValues) {
-        UpdateArgs updateArgs = new UpdateArgs(str2, strArr, contentValues);
-        ArrayList arrayList = new ArrayList();
-        if (arrayList.add(updateArgs)) {
-            return updateBatch(str, arrayList);
-        }
-        return -1;
-    }
-
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, IGET, CONSTRUCTOR, INVOKE, INVOKE, INVOKE, SGET, CONST_STR, INVOKE, MOVE_EXCEPTION, INVOKE, IGET, CONSTRUCTOR, INVOKE, INVOKE, INVOKE, SGET, CONST_STR, INVOKE, MOVE_EXCEPTION] complete} */
-    public int updateBatch(String str, List<UpdateArgs> list) {
-        int i;
-        int i2 = -1;
-        if (!TextUtils.isEmpty(str) && list != null && list.size() != 0) {
-            SQLiteDatabase openDatabase = openDatabase();
             try {
-                if (openDatabase == null) {
-                    LogUtils.e(TAG, "updateBatch open db = null");
-                } else {
-                    try {
-                        openDatabase.beginTransaction();
-                        Iterator<UpdateArgs> it = list.iterator();
-                        while (true) {
-                            try {
-                                i = i2;
-                                if (!it.hasNext()) {
-                                    i2 = i;
-                                    break;
-                                }
-                                UpdateArgs next = it.next();
-                                i2 = openDatabase.update(str, next.values, next.query, next.args);
-                                if (i2 < 0) {
-                                    break;
-                                }
-                            } catch (Exception e) {
-                                e = e;
-                                i2 = i;
-                                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
-                                LogUtils.e(TAG, String.format("update table %s exception!", str), e);
-                                if (openDatabase != null) {
-                                    try {
-                                        openDatabase.endTransaction();
-                                    } catch (Exception e2) {
-                                        new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
-                                        LogUtils.e(TAG, "updateBatch", e2);
-                                    }
-                                }
-                                return i2;
-                            }
-                        }
-                        if (i2 >= 0) {
-                            openDatabase.setTransactionSuccessful();
-                        }
-                    } catch (Exception e3) {
-                        e = e3;
+                Cursor query = openDatabase.query(str, strArr, str2, strArr2, null, null, null);
+                if (query == null) {
+                    if (query != null) {
+                        query.close();
                     }
+                    return -1L;
                 }
-            } finally {
-                if (openDatabase != null) {
-                    try {
-                        openDatabase.endTransaction();
-                    } catch (Exception e4) {
-                        new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e4)).build();
-                        LogUtils.e(TAG, "updateBatch", e4);
+                try {
+                    if (query.getCount() > 0) {
+                        insert = openDatabase.update(str, contentValues, str2, strArr2);
+                    } else {
+                        insert = openDatabase.insert(str, null, contentValues);
                     }
+                    if (query != null) {
+                        query.close();
+                    }
+                    return insert;
+                } catch (Exception e2) {
+                    e = e2;
+                    cursor = query;
+                    LogUtils.e(TAG, "deleteCmdMsg:", e);
+                    if (cursor != null) {
+                        cursor.close();
+                    }
+                    return -1L;
+                } catch (Throwable th) {
+                    th = th;
+                    cursor = query;
+                    if (cursor != null) {
+                        cursor.close();
+                    }
+                    throw th;
                 }
+            } catch (Exception e3) {
+                e = e3;
             }
+        } catch (Throwable th2) {
+            th = th2;
         }
-        return i2;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     public int delete(String str, String str2, String[] strArr) {
         SQLiteDatabase openDatabase = openDatabase();
         if (openDatabase == null) {
@@ -142,253 +88,28 @@ public class DBBase {
         }
         try {
             return openDatabase.delete(str, str2, strArr);
-        } catch (Exception e) {
-            new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
-            LogUtils.e(TAG, "deleteCmdMsg:", e);
+        } catch (Exception e2) {
+            new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
+            LogUtils.e(TAG, "deleteCmdMsg:", e2);
             return -1;
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public int delete(SQLiteDatabase sQLiteDatabase, String str, String str2, String[] strArr) {
-        if (sQLiteDatabase == null) {
-            LogUtils.d(TAG, "getWritableDb fail!");
-            return -1;
-        }
-        try {
-            return sQLiteDatabase.delete(str, str2, strArr);
-        } catch (Exception e) {
-            new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
-            LogUtils.e(TAG, "deleteCmdMsg:", e);
-            return -1;
-        }
-    }
-
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [168=5, 169=4] */
-    /* JADX INFO: Access modifiers changed from: protected */
-    /* JADX WARN: Removed duplicated region for block: B:30:0x0063  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public long add(String str, String[] strArr, String str2, String[] strArr2, ContentValues contentValues) {
-        Cursor cursor;
-        Cursor cursor2;
+    public long insert(String str, ContentValues contentValues) {
         SQLiteDatabase openDatabase = openDatabase();
         if (openDatabase == null) {
             LogUtils.d(TAG, "getWritableDb fail!");
             return -1L;
         }
         try {
-            cursor = openDatabase.query(str, strArr, str2, strArr2, null, null, null);
-            if (cursor == null) {
-                if (cursor != null) {
-                    cursor.close();
-                }
-                return -1L;
-            }
-            try {
-                long update = cursor.getCount() > 0 ? openDatabase.update(str, contentValues, str2, strArr2) : openDatabase.insert(str, null, contentValues);
-                if (cursor != null) {
-                    cursor.close();
-                    return update;
-                }
-                return update;
-            } catch (Exception e) {
-                e = e;
-                cursor2 = cursor;
-                try {
-                    LogUtils.e(TAG, "deleteCmdMsg:", e);
-                    if (cursor2 != null) {
-                        cursor2.close();
-                    }
-                    return -1L;
-                } catch (Throwable th) {
-                    th = th;
-                    cursor = cursor2;
-                    if (cursor != null) {
-                        cursor.close();
-                    }
-                    throw th;
-                }
-            } catch (Throwable th2) {
-                th = th2;
-                if (cursor != null) {
-                }
-                throw th;
-            }
+            return openDatabase.insert(str, null, contentValues);
         } catch (Exception e2) {
-            e = e2;
-            cursor2 = null;
-        } catch (Throwable th3) {
-            th = th3;
-            cursor = null;
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public long queryCount(String str, String[] strArr, String str2, String[] strArr2) {
-        try {
-            return queryCount(openDatabase(), str, strArr, str2, strArr2);
-        } catch (Exception e) {
-            new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
-            LogUtils.e(LogUtils.TAG, "queryCount", e);
+            new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
+            LogUtils.e(TAG, "saveCmdMsg:", e2);
             return -1L;
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [206=5, 207=4] */
-    /* JADX WARN: Removed duplicated region for block: B:25:0x0057  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    protected long queryCount(SQLiteDatabase sQLiteDatabase, String str, String[] strArr, String str2, String[] strArr2) {
-        Cursor cursor;
-        if (sQLiteDatabase == null) {
-            LogUtils.d(TAG, "getWritableDb fail!");
-            return -1L;
-        }
-        try {
-            Cursor query = sQLiteDatabase.query(str, strArr, str2, strArr2, null, null, null);
-            if (query == null) {
-                if (query != null) {
-                    query.close();
-                }
-                return -1L;
-            }
-            try {
-                long count = query.getCount();
-                if (query != null) {
-                    query.close();
-                    return count;
-                }
-                return count;
-            } catch (Exception e) {
-                e = e;
-                cursor = query;
-                try {
-                    new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
-                    LogUtils.e(LogUtils.TAG, "queryCount", e);
-                    if (cursor != null) {
-                        cursor.close();
-                    }
-                    return -1L;
-                } catch (Throwable th) {
-                    th = th;
-                    if (cursor != null) {
-                        cursor.close();
-                    }
-                    throw th;
-                }
-            } catch (Throwable th2) {
-                th = th2;
-                cursor = query;
-                if (cursor != null) {
-                }
-                throw th;
-            }
-        } catch (Exception e2) {
-            e = e2;
-            cursor = null;
-        } catch (Throwable th3) {
-            th = th3;
-            cursor = null;
-        }
-    }
-
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [229=4] */
-    /* JADX INFO: Access modifiers changed from: protected */
-    /* JADX WARN: Removed duplicated region for block: B:18:0x0046  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void query(String str, String[] strArr, String str2, String[] strArr2, String str3, String str4, String str5, CursorParse cursorParse) {
-        Cursor cursor;
-        SQLiteDatabase openDatabase = openDatabase();
-        if (openDatabase == null) {
-            return;
-        }
-        try {
-            cursor = openDatabase.query(str, strArr, str2, strArr2, str3, str4, str5);
-            try {
-                try {
-                    cursorParse.parseCursor(cursor);
-                    if (cursor != null) {
-                        cursor.close();
-                    }
-                } catch (Exception e) {
-                    e = e;
-                    new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
-                    LogUtils.e(LogUtils.TAG, "query:", e);
-                    if (cursor != null) {
-                        cursor.close();
-                    }
-                }
-            } catch (Throwable th) {
-                th = th;
-                if (cursor != null) {
-                    cursor.close();
-                }
-                throw th;
-            }
-        } catch (Exception e2) {
-            e = e2;
-            cursor = null;
-        } catch (Throwable th2) {
-            th = th2;
-            cursor = null;
-            if (cursor != null) {
-            }
-            throw th;
-        }
-    }
-
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [251=4] */
-    /* JADX WARN: Removed duplicated region for block: B:18:0x0049  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    protected void query(String str, String[] strArr, String str2, String[] strArr2, String str3, String str4, String str5, String str6, CursorParse cursorParse) {
-        Cursor cursor;
-        SQLiteDatabase openDatabase = openDatabase();
-        if (openDatabase == null) {
-            return;
-        }
-        try {
-            cursor = openDatabase.query(str, strArr, str2, strArr2, str3, str4, str5, str6);
-            try {
-                try {
-                    cursorParse.parseCursor(cursor);
-                    if (cursor != null) {
-                        cursor.close();
-                    }
-                } catch (Exception e) {
-                    e = e;
-                    new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
-                    LogUtils.e(LogUtils.TAG, "query:", e);
-                    if (cursor != null) {
-                        cursor.close();
-                    }
-                }
-            } catch (Throwable th) {
-                th = th;
-                if (cursor != null) {
-                    cursor.close();
-                }
-                throw th;
-            }
-        } catch (Exception e2) {
-            e = e2;
-            cursor = null;
-        } catch (Throwable th2) {
-            th = th2;
-            cursor = null;
-            if (cursor != null) {
-            }
-            throw th;
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
     public String makePlaceholders(int i) {
         if (i < 1) {
             return null;
@@ -401,54 +122,283 @@ public class DBBase {
         return sb.toString();
     }
 
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, SGET, CONST_STR, INVOKE, MOVE_EXCEPTION, INVOKE, SGET, CONST_STR, INVOKE, MOVE_EXCEPTION] complete} */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:29:0x0008 */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r3v2, types: [java.lang.String] */
-    /* JADX WARN: Type inference failed for: r3v6, types: [java.lang.String] */
-    protected Long querymax(String str) {
+    public SQLiteDatabase openDatabase() {
+        SQLiteDatabase openDatabase;
+        synchronized (mSyncLock) {
+            openDatabase = DBResource.getInstance(this.mContext).openDatabase();
+        }
+        return openDatabase;
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:21:0x0047  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void query(String str, String[] strArr, String str2, String[] strArr2, String str3, String str4, String str5, CursorParse cursorParse) {
+        SQLiteDatabase openDatabase = openDatabase();
+        if (openDatabase == null) {
+            return;
+        }
         Cursor cursor = null;
-        cursor = null;
-        long j = 0;
+        try {
+            try {
+                cursor = openDatabase.query(str, strArr, str2, strArr2, str3, str4, str5);
+                cursorParse.parseCursor(cursor);
+                if (cursor != null) {
+                    cursor.close();
+                }
+            } catch (Throwable th) {
+                th = th;
+                if (cursor != null) {
+                    cursor.close();
+                }
+                throw th;
+            }
+        } catch (Exception e2) {
+            try {
+                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
+                LogUtils.e(LogUtils.TAG, "query:", e2);
+                if (cursor != null) {
+                    cursor.close();
+                }
+            } catch (Throwable th2) {
+                th = th2;
+                if (cursor != null) {
+                }
+                throw th;
+            }
+        }
+    }
+
+    public long queryCount(String str, String[] strArr, String str2, String[] strArr2) {
+        try {
+            return queryCount(openDatabase(), str, strArr, str2, strArr2);
+        } catch (Exception e2) {
+            new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
+            LogUtils.e(LogUtils.TAG, "queryCount", e2);
+            return -1L;
+        }
+    }
+
+    /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, SGET, INVOKE, INVOKE, SGET, INVOKE] complete} */
+    public Long querymax(String str) {
+        long j;
+        Cursor cursor = null;
         try {
             try {
                 cursor = openDatabase().rawQuery(str, null);
                 cursor.moveToFirst();
                 j = cursor.getLong(0);
-                cursor = cursor;
                 if (cursor != null) {
                     try {
                         cursor.close();
-                        cursor = cursor;
-                    } catch (Exception e) {
+                    } catch (Exception unused) {
                         LogUtils.e(TAG, "close curse exception");
-                        cursor = "close curse exception";
                     }
                 }
             } catch (Exception e2) {
                 new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
-                LogUtils.e(TAG, "querymax " + e2.getMessage());
-                cursor = cursor;
+                String str2 = TAG;
+                LogUtils.e(str2, "querymax " + e2.getMessage());
                 if (cursor != null) {
                     try {
                         cursor.close();
-                        cursor = cursor;
-                    } catch (Exception e3) {
+                    } catch (Exception unused2) {
                         LogUtils.e(TAG, "close curse exception");
-                        cursor = "close curse exception";
                     }
                 }
+                j = 0;
             }
             return Long.valueOf(j);
         } catch (Throwable th) {
             if (cursor != null) {
                 try {
                     cursor.close();
-                } catch (Exception e4) {
+                } catch (Exception unused3) {
                     LogUtils.e(TAG, "close curse exception");
                 }
             }
             throw th;
+        }
+    }
+
+    public void setContext(Context context) {
+        if (context != null) {
+            this.mContext = context.getApplicationContext();
+        }
+    }
+
+    public int update(String str, String str2, String[] strArr, ContentValues contentValues) {
+        UpdateArgs updateArgs = new UpdateArgs(str2, strArr, contentValues);
+        ArrayList arrayList = new ArrayList();
+        if (arrayList.add(updateArgs)) {
+            return updateBatch(str, arrayList);
+        }
+        return -1;
+    }
+
+    public int updateBatch(String str, List<UpdateArgs> list) {
+        IMTrack.CrashBuilder crashBuilder;
+        int i = -1;
+        if (TextUtils.isEmpty(str) || list == null || list.size() == 0) {
+            return -1;
+        }
+        SQLiteDatabase openDatabase = openDatabase();
+        try {
+            if (openDatabase == null) {
+                LogUtils.e(TAG, "updateBatch open db = null");
+                return -1;
+            }
+            try {
+                openDatabase.beginTransaction();
+                for (UpdateArgs updateArgs : list) {
+                    i = openDatabase.update(str, updateArgs.values, updateArgs.query, updateArgs.args);
+                    if (i < 0) {
+                        break;
+                    }
+                }
+                if (i >= 0) {
+                    openDatabase.setTransactionSuccessful();
+                }
+                if (openDatabase != null) {
+                    try {
+                        openDatabase.endTransaction();
+                    } catch (Exception e2) {
+                        e = e2;
+                        crashBuilder = new IMTrack.CrashBuilder(this.mContext);
+                        crashBuilder.exception(Log.getStackTraceString(e)).build();
+                        LogUtils.e(TAG, "updateBatch", e);
+                        return i;
+                    }
+                }
+            } catch (Exception e3) {
+                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e3)).build();
+                LogUtils.e(TAG, String.format("update table %s exception!", str), e3);
+                if (openDatabase != null) {
+                    try {
+                        openDatabase.endTransaction();
+                    } catch (Exception e4) {
+                        e = e4;
+                        crashBuilder = new IMTrack.CrashBuilder(this.mContext);
+                        crashBuilder.exception(Log.getStackTraceString(e)).build();
+                        LogUtils.e(TAG, "updateBatch", e);
+                        return i;
+                    }
+                }
+            }
+            return i;
+        } catch (Throwable th) {
+            if (openDatabase != null) {
+                try {
+                    openDatabase.endTransaction();
+                } catch (Exception e5) {
+                    new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e5)).build();
+                    LogUtils.e(TAG, "updateBatch", e5);
+                }
+            }
+            throw th;
+        }
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:28:0x0055  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public long queryCount(SQLiteDatabase sQLiteDatabase, String str, String[] strArr, String str2, String[] strArr2) {
+        if (sQLiteDatabase == null) {
+            LogUtils.d(TAG, "getWritableDb fail!");
+            return -1L;
+        }
+        Cursor cursor = null;
+        try {
+            try {
+                Cursor query = sQLiteDatabase.query(str, strArr, str2, strArr2, null, null, null);
+                if (query == null) {
+                    if (query != null) {
+                        query.close();
+                    }
+                    return -1L;
+                }
+                long count = query.getCount();
+                if (query != null) {
+                    query.close();
+                }
+                return count;
+            } catch (Exception e2) {
+                try {
+                    new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
+                    LogUtils.e(LogUtils.TAG, "queryCount", e2);
+                    if (0 != 0) {
+                        cursor.close();
+                    }
+                    return -1L;
+                } catch (Throwable th) {
+                    th = th;
+                    if (0 != 0) {
+                        cursor.close();
+                    }
+                    throw th;
+                }
+            }
+        } catch (Throwable th2) {
+            th = th2;
+            if (0 != 0) {
+            }
+            throw th;
+        }
+    }
+
+    public int delete(SQLiteDatabase sQLiteDatabase, String str, String str2, String[] strArr) {
+        if (sQLiteDatabase == null) {
+            LogUtils.d(TAG, "getWritableDb fail!");
+            return -1;
+        }
+        try {
+            return sQLiteDatabase.delete(str, str2, strArr);
+        } catch (Exception e2) {
+            new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
+            LogUtils.e(TAG, "deleteCmdMsg:", e2);
+            return -1;
+        }
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:21:0x004a  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void query(String str, String[] strArr, String str2, String[] strArr2, String str3, String str4, String str5, String str6, CursorParse cursorParse) {
+        SQLiteDatabase openDatabase = openDatabase();
+        if (openDatabase == null) {
+            return;
+        }
+        Cursor cursor = null;
+        try {
+            try {
+                cursor = openDatabase.query(str, strArr, str2, strArr2, str3, str4, str5, str6);
+                cursorParse.parseCursor(cursor);
+                if (cursor != null) {
+                    cursor.close();
+                }
+            } catch (Throwable th) {
+                th = th;
+                if (cursor != null) {
+                    cursor.close();
+                }
+                throw th;
+            }
+        } catch (Exception e2) {
+            try {
+                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
+                LogUtils.e(LogUtils.TAG, "query:", e2);
+                if (cursor != null) {
+                    cursor.close();
+                }
+            } catch (Throwable th2) {
+                th = th2;
+                if (cursor != null) {
+                }
+                throw th;
+            }
         }
     }
 }

@@ -2,64 +2,144 @@ package com.baidu.ala.view;
 
 import android.text.TextUtils;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.base.f;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.ala.data.AlaAttentionData;
-import com.baidu.live.adp.framework.MessageConfig;
-import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
-import com.baidu.live.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.AccountData;
-import com.baidu.tbadk.core.dialog.a;
-import com.baidu.tbadk.core.sharedPref.b;
+import com.baidu.tbadk.core.util.NetWork;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.aa;
-import com.baidu.tbadk.core.util.ar;
-import com.baidu.tbadk.core.util.ay;
 import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
-import com.baidu.tbadk.coreExtra.messageCenter.d;
 import com.baidu.tieba.R;
+import d.b.b.a.f;
+import d.b.h0.r.d0.b;
+import d.b.h0.r.s.a;
+import d.b.h0.s.d.d;
 import java.util.HashMap;
 import java.util.LinkedList;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public class AlaAttentionManager {
-    private static final int ALA_LIVE_PUSH_REMIND_TIME_INTERVAL = 86400000;
-    private static final int ATTENTION_REQUEST_MAP_MAX_SIZE = 3;
-    private static AlaAttentionManager sInstance;
-    private HashMap<String, LinkedList<AlaAttentionData>> mUserAttentionRequestMap = new HashMap<>();
-    private HashMap<String, AttentionAsyncTask> mAttentionTaskMap = new HashMap<>();
+    public static final int ALA_LIVE_PUSH_REMIND_TIME_INTERVAL = 86400000;
+    public static final int ATTENTION_REQUEST_MAP_MAX_SIZE = 3;
+    public static AlaAttentionManager sInstance;
+    public HashMap<String, LinkedList<AlaAttentionData>> mUserAttentionRequestMap = new HashMap<>();
+    public HashMap<String, AttentionAsyncTask> mAttentionTaskMap = new HashMap<>();
 
-    private AlaAttentionManager() {
-    }
+    /* loaded from: classes2.dex */
+    public class AttentionAsyncTask extends BdAsyncTask<Integer, Integer, String> {
+        public String forumId;
+        public String from;
+        public String inLive;
+        public boolean isAttention;
+        public boolean isGod;
+        public NetWork mNetwork;
+        public BdUniqueId pageId;
+        public String portrait;
+        public boolean showToastAfterAttentionSuc;
+        public String toUid;
 
-    public static AlaAttentionManager getInstance() {
-        if (sInstance == null) {
-            synchronized (AlaAttentionManager.class) {
-                if (sInstance == null) {
-                    sInstance = new AlaAttentionManager();
+        public AttentionAsyncTask() {
+            this.mNetwork = null;
+            this.isGod = false;
+            this.from = "0";
+            this.inLive = "0";
+            this.forumId = null;
+            this.showToastAfterAttentionSuc = false;
+        }
+
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void cancel() {
+            super.cancel(true);
+            NetWork netWork = this.mNetwork;
+            if (netWork != null) {
+                netWork.cancelNetConnect();
+                this.mNetwork = null;
+            }
+        }
+
+        public void setAlaAttentionData(AlaAttentionData alaAttentionData) {
+            this.isAttention = alaAttentionData.isAttention();
+            this.toUid = alaAttentionData.getUserId();
+            this.portrait = alaAttentionData.getPortrait();
+            this.inLive = alaAttentionData.getInLive();
+            this.pageId = alaAttentionData.getPageId();
+            this.from = alaAttentionData.getFrom();
+            this.forumId = alaAttentionData.getForumId();
+            this.isGod = alaAttentionData.isGod();
+            if (this.forumId != null) {
+                this.showToastAfterAttentionSuc = true;
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public String doInBackground(Integer... numArr) {
+            try {
+                if (this.portrait != null) {
+                    NetWork netWork = new NetWork();
+                    this.mNetwork = netWork;
+                    if (this.isAttention) {
+                        netWork.setUrl(TbConfig.SERVER_ADDRESS + TbConfig.FOLLOW_ADDRESS);
+                        this.mNetwork.setNeedSig(true);
+                    } else {
+                        netWork.setUrl(TbConfig.SERVER_ADDRESS + TbConfig.UNFOLLOW_ADDRESS);
+                    }
+                    this.mNetwork.addPostData("portrait", this.portrait);
+                    if (!StringUtils.isNull(this.from)) {
+                        this.mNetwork.addPostData("from_type", this.from);
+                    }
+                    if (!StringUtils.isNull(this.forumId)) {
+                        this.mNetwork.addPostData("forum_id", this.forumId);
+                    }
+                    this.mNetwork.addPostData("in_live", this.inLive);
+                    this.mNetwork.getNetContext().getRequest().mIsNeedTbs = true;
+                    return this.mNetwork.postNetData();
                 }
+                return null;
+            } catch (Exception e2) {
+                BdLog.e(e2.getMessage());
+                return null;
             }
         }
-        return sInstance;
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void onPostExecute(String str) {
+            super.onPostExecute((AttentionAsyncTask) str);
+            if (this.mNetwork != null) {
+                UpdateAttentionMessage.a aVar = new UpdateAttentionMessage.a();
+                aVar.f13692a = this.mNetwork.getNetContext().getResponse().isRequestSuccess();
+                aVar.f13693b = this.mNetwork.getErrorString();
+                aVar.f13695d = this.isAttention;
+                aVar.f13694c = this.toUid;
+                aVar.f13696e = this.isGod;
+                aVar.b(str, this.showToastAfterAttentionSuc);
+                aVar.f13697f = this.mNetwork.getNetContext().getResponse();
+                UpdateAttentionMessage updateAttentionMessage = new UpdateAttentionMessage(aVar);
+                updateAttentionMessage.setOrginalMessage(new CustomMessage(2001000, this.pageId));
+                MessageManager.getInstance().dispatchResponsedMessage(updateAttentionMessage);
+            }
+            AlaAttentionManager.this.mAttentionTaskMap.remove(this.toUid);
+            if (AlaAttentionManager.this.mUserAttentionRequestMap.containsKey(this.toUid)) {
+                AlaAttentionManager.this.removeRequestListFirstByUid(this.toUid);
+                AlaAttentionManager.this.executeAttentionTask(this.toUid);
+            }
+        }
     }
 
-    public void updateAttention(String str, AlaAttentionData alaAttentionData) {
-        if (!StringUtils.isNull(str) && alaAttentionData != null && alaAttentionData.getPortrait() != null) {
-            LinkedList<AlaAttentionData> linkedList = this.mUserAttentionRequestMap.get(str);
-            if (linkedList == null) {
-                linkedList = new LinkedList<>();
-                this.mUserAttentionRequestMap.put(str, linkedList);
-            }
-            dealAttentionUpdateData(linkedList, alaAttentionData);
-            executeAttentionTask(str);
+    private void addAttentionReqeustList(LinkedList<AlaAttentionData> linkedList, AlaAttentionData alaAttentionData) {
+        if (alaAttentionData == null) {
+            return;
         }
+        linkedList.add(alaAttentionData.m10clone());
     }
 
     private void dealAttentionUpdateData(LinkedList<AlaAttentionData> linkedList, AlaAttentionData alaAttentionData) {
@@ -79,12 +159,6 @@ public class AlaAttentionManager {
         }
     }
 
-    private void addAttentionReqeustList(LinkedList<AlaAttentionData> linkedList, AlaAttentionData alaAttentionData) {
-        if (alaAttentionData != null) {
-            linkedList.add(alaAttentionData.m13clone());
-        }
-    }
-
     /* JADX INFO: Access modifiers changed from: private */
     public void executeAttentionTask(String str) {
         LinkedList<AlaAttentionData> linkedList;
@@ -97,106 +171,35 @@ public class AlaAttentionManager {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes9.dex */
-    public class AttentionAsyncTask extends BdAsyncTask<Integer, Integer, String> {
-        private String forumId;
-        private String from;
-        private String inLive;
-        private boolean isAttention;
-        private boolean isGod;
-        private aa mNetwork;
-        private BdUniqueId pageId;
-        private String portrait;
-        private boolean showToastAfterAttentionSuc;
-        private String toUid;
-
-        private AttentionAsyncTask() {
-            this.mNetwork = null;
-            this.isGod = false;
-            this.from = "0";
-            this.inLive = "0";
-            this.forumId = null;
-            this.showToastAfterAttentionSuc = false;
-        }
-
-        public void setAlaAttentionData(AlaAttentionData alaAttentionData) {
-            this.isAttention = alaAttentionData.isAttention();
-            this.toUid = alaAttentionData.getUserId();
-            this.portrait = alaAttentionData.getPortrait();
-            this.inLive = alaAttentionData.getInLive();
-            this.pageId = alaAttentionData.getPageId();
-            this.from = alaAttentionData.getFrom();
-            this.forumId = alaAttentionData.getForumId();
-            this.isGod = alaAttentionData.isGod();
-            if (this.forumId != null) {
-                this.showToastAfterAttentionSuc = true;
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX INFO: Access modifiers changed from: protected */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public String doInBackground(Integer... numArr) {
-            try {
-                if (this.portrait != null) {
-                    this.mNetwork = new aa();
-                    if (this.isAttention) {
-                        this.mNetwork.setUrl(TbConfig.SERVER_ADDRESS + "c/c/user/follow");
-                        this.mNetwork.jL(true);
-                    } else {
-                        this.mNetwork.setUrl(TbConfig.SERVER_ADDRESS + "c/c/user/unfollow");
-                    }
-                    this.mNetwork.addPostData("portrait", this.portrait);
-                    if (!StringUtils.isNull(this.from)) {
-                        this.mNetwork.addPostData("from_type", this.from);
-                    }
-                    if (!StringUtils.isNull(this.forumId)) {
-                        this.mNetwork.addPostData("forum_id", this.forumId);
-                    }
-                    this.mNetwork.addPostData("in_live", this.inLive);
-                    this.mNetwork.bsu().btd().mIsNeedTbs = true;
-                    return this.mNetwork.postNetData();
+    public static AlaAttentionManager getInstance() {
+        if (sInstance == null) {
+            synchronized (AlaAttentionManager.class) {
+                if (sInstance == null) {
+                    sInstance = new AlaAttentionManager();
                 }
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
             }
-            return null;
         }
+        return sInstance;
+    }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX INFO: Access modifiers changed from: protected */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public void onPostExecute(String str) {
-            super.onPostExecute((AttentionAsyncTask) str);
-            if (this.mNetwork != null) {
-                UpdateAttentionMessage.a aVar = new UpdateAttentionMessage.a();
-                aVar.isSucc = this.mNetwork.bsu().bte().isRequestSuccess();
-                aVar.errorString = this.mNetwork.getErrorString();
-                aVar.isAttention = this.isAttention;
-                aVar.toUid = this.toUid;
-                aVar.isGod = this.isGod;
-                aVar.parserJson(str, this.showToastAfterAttentionSuc);
-                aVar.fdl = this.mNetwork.bsu().bte();
-                UpdateAttentionMessage updateAttentionMessage = new UpdateAttentionMessage(aVar);
-                updateAttentionMessage.setOrginalMessage(new CustomMessage((int) MessageConfig.BASE_CUSTOM_CMD, this.pageId));
-                MessageManager.getInstance().dispatchResponsedMessage(updateAttentionMessage);
-            }
-            AlaAttentionManager.this.mAttentionTaskMap.remove(this.toUid);
-            if (AlaAttentionManager.this.mUserAttentionRequestMap.containsKey(this.toUid)) {
-                AlaAttentionManager.this.removeRequestListFirstByUid(this.toUid);
-                AlaAttentionManager.this.executeAttentionTask(this.toUid);
-            }
-        }
+    private long getLastShowTime() {
+        b i = b.i();
+        return i.k("ala_live_push_remind_showtime" + getUserId(), 0L);
+    }
 
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public void cancel() {
-            super.cancel(true);
-            if (this.mNetwork != null) {
-                this.mNetwork.cancelNetConnect();
-                this.mNetwork = null;
-            }
+    private String getUserId() {
+        AccountData currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo();
+        if (currentAccountInfo != null) {
+            String id = currentAccountInfo.getID();
+            return !TextUtils.isEmpty(id) ? id : "";
         }
+        return "";
+    }
+
+    private void saveLastShowTime() {
+        long currentTimeMillis = System.currentTimeMillis();
+        b i = b.i();
+        i.v("ala_live_push_remind_showtime" + getUserId(), currentTimeMillis);
     }
 
     public void cancelAllTask() {
@@ -216,19 +219,49 @@ public class AlaAttentionManager {
         this.mAttentionTaskMap.remove(str);
     }
 
-    public void removeRequestListFirstByUid(String str) {
-        LinkedList<AlaAttentionData> linkedList = this.mUserAttentionRequestMap.get(str);
-        if (linkedList != null && linkedList.size() > 0) {
-            try {
-                linkedList.removeFirst();
-            } catch (Exception e) {
+    public boolean checkIsForbidden(UpdateAttentionMessage.a aVar, final f<?> fVar, boolean z) {
+        if (aVar != null && aVar.f13698g != null && aVar.f13697f != null && fVar != null && fVar.getPageActivity() != null) {
+            int i = aVar.f13697f.mServerErrorCode;
+            if (!(i == 3250001 || i == 3250002 || i == 3250003 || i == 3250004)) {
+                return false;
+            }
+            if (aVar.f13699h) {
+                return true;
+            }
+            JSONObject optJSONObject = aVar.f13698g.optJSONObject("info");
+            if (optJSONObject == null) {
+                return false;
+            }
+            String optString = optJSONObject.optString("block_content");
+            final String optString2 = optJSONObject.optString("block_dealurl");
+            String optString3 = optJSONObject.optString("block_confirm");
+            String optString4 = optJSONObject.optString("block_cancel");
+            if (optString != null && optString2 != null && optString3 != null && optString4 != null) {
+                aVar.f13699h = true;
+                a aVar2 = new a(fVar.getPageActivity());
+                aVar2.setAutoNight(z);
+                aVar2.setMessage(optString);
+                aVar2.setPositiveButton(optString3, new a.e() { // from class: com.baidu.ala.view.AlaAttentionManager.1
+                    @Override // d.b.h0.r.s.a.e
+                    public void onClick(a aVar3) {
+                        d.b.h0.l.a.l(fVar.getPageActivity(), optString2);
+                        aVar3.dismiss();
+                        TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_POS_CLICK).param("obj_locate", TbadkCoreStatisticKey.AntiLocateValue.LOCATE_LIKE_PERSON));
+                    }
+                });
+                aVar2.setNegativeButton(optString4, new a.e() { // from class: com.baidu.ala.view.AlaAttentionManager.2
+                    @Override // d.b.h0.r.s.a.e
+                    public void onClick(a aVar3) {
+                        aVar3.dismiss();
+                        TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_NEG_CLICK).param("obj_locate", TbadkCoreStatisticKey.AntiLocateValue.LOCATE_LIKE_PERSON));
+                    }
+                });
+                aVar2.create(fVar).show();
+                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_SHOW).param("obj_locate", TbadkCoreStatisticKey.AntiLocateValue.LOCATE_LIKE_PERSON));
+                return true;
             }
         }
-    }
-
-    public void removeRequestListByUid(String str) {
-        this.mUserAttentionRequestMap.get(str).clear();
-        this.mUserAttentionRequestMap.remove(str);
+        return false;
     }
 
     public void removeRequestListAll() {
@@ -240,92 +273,55 @@ public class AlaAttentionManager {
         this.mUserAttentionRequestMap.clear();
     }
 
-    private void saveLastShowTime() {
-        b.brR().putLong(SharedPrefConfig.ALA_LIVE_PUSH_REMIND_SHOWTIME + getUserId(), System.currentTimeMillis());
+    public void removeRequestListByUid(String str) {
+        this.mUserAttentionRequestMap.get(str).clear();
+        this.mUserAttentionRequestMap.remove(str);
     }
 
-    private long getLastShowTime() {
-        return b.brR().getLong(SharedPrefConfig.ALA_LIVE_PUSH_REMIND_SHOWTIME + getUserId(), 0L);
-    }
-
-    private String getUserId() {
-        AccountData currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo();
-        if (currentAccountInfo != null) {
-            String id = currentAccountInfo.getID();
-            if (!TextUtils.isEmpty(id)) {
-                return id;
-            }
-        }
-        return "";
-    }
-
-    public void showAttentionSuccessTipAndLivePushDialog(TbPageContext tbPageContext, boolean z) {
-        if (System.currentTimeMillis() - getLastShowTime() < 86400000 || d.byh().byj()) {
-            if (z) {
-                showAttentionSucceedTip(tbPageContext);
-                return;
-            }
+    public void removeRequestListFirstByUid(String str) {
+        LinkedList<AlaAttentionData> linkedList = this.mUserAttentionRequestMap.get(str);
+        if (linkedList == null || linkedList.size() <= 0) {
             return;
         }
-        showLivePushRemindDialog(tbPageContext, z);
-    }
-
-    public void showLivePushRemindDialog(TbPageContext tbPageContext, boolean z) {
-        if (!d.byh().byj()) {
-            new AlaLivePushRemindDialog(tbPageContext).showDialog(z);
-            saveLastShowTime();
+        try {
+            linkedList.removeFirst();
+        } catch (Exception unused) {
         }
     }
 
     public void showAttentionSucceedTip(TbPageContext<?> tbPageContext) {
-        if (tbPageContext != null) {
-            tbPageContext.showToast(R.string.ala_attention_success_toast);
+        if (tbPageContext == null) {
+            return;
+        }
+        tbPageContext.showToast(R.string.ala_attention_success_toast);
+    }
+
+    public void showAttentionSuccessTipAndLivePushDialog(TbPageContext tbPageContext, boolean z) {
+        if (System.currentTimeMillis() - getLastShowTime() >= 86400000 && !d.d().s()) {
+            showLivePushRemindDialog(tbPageContext, z);
+        } else if (z) {
+            showAttentionSucceedTip(tbPageContext);
         }
     }
 
-    public boolean checkIsForbidden(UpdateAttentionMessage.a aVar, final f<?> fVar, boolean z) {
-        if (aVar == null || aVar.resultJson == null || aVar.fdl == null || fVar == null || fVar.getPageActivity() == null) {
-            return false;
+    public void showLivePushRemindDialog(TbPageContext tbPageContext, boolean z) {
+        if (d.d().s()) {
+            return;
         }
-        int i = aVar.fdl.mServerErrorCode;
-        if (i == 3250001 || i == 3250002 || i == 3250003 || i == 3250004) {
-            if (aVar.hasShownForbiddenAlert) {
-                return true;
-            }
-            JSONObject optJSONObject = aVar.resultJson.optJSONObject("info");
-            if (optJSONObject != null) {
-                String optString = optJSONObject.optString("block_content");
-                final String optString2 = optJSONObject.optString("block_dealurl");
-                String optString3 = optJSONObject.optString("block_confirm");
-                String optString4 = optJSONObject.optString("block_cancel");
-                if (optString == null || optString2 == null || optString3 == null || optString4 == null) {
-                    return false;
-                }
-                aVar.hasShownForbiddenAlert = true;
-                a aVar2 = new a(fVar.getPageActivity());
-                aVar2.setAutoNight(z);
-                aVar2.AB(optString);
-                aVar2.a(optString3, new a.b() { // from class: com.baidu.ala.view.AlaAttentionManager.1
-                    @Override // com.baidu.tbadk.core.dialog.a.b
-                    public void onClick(a aVar3) {
-                        com.baidu.tbadk.browser.a.startWebActivity(fVar.getPageActivity(), optString2);
-                        aVar3.dismiss();
-                        TiebaStatic.log(new ar(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_POS_CLICK).aq("obj_locate", ay.a.LOCATE_LIKE_PERSON));
-                    }
-                });
-                aVar2.b(optString4, new a.b() { // from class: com.baidu.ala.view.AlaAttentionManager.2
-                    @Override // com.baidu.tbadk.core.dialog.a.b
-                    public void onClick(a aVar3) {
-                        aVar3.dismiss();
-                        TiebaStatic.log(new ar(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_NEG_CLICK).aq("obj_locate", ay.a.LOCATE_LIKE_PERSON));
-                    }
-                });
-                aVar2.b(fVar).bqz();
-                TiebaStatic.log(new ar(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_SHOW).aq("obj_locate", ay.a.LOCATE_LIKE_PERSON));
-                return true;
-            }
-            return false;
+        new AlaLivePushRemindDialog(tbPageContext).showDialog(z);
+        saveLastShowTime();
+    }
+
+    public void updateAttention(String str, AlaAttentionData alaAttentionData) {
+        if (StringUtils.isNull(str) || alaAttentionData == null || alaAttentionData.getPortrait() == null) {
+            return;
         }
-        return false;
+        LinkedList<AlaAttentionData> linkedList = this.mUserAttentionRequestMap.get(str);
+        if (linkedList == null) {
+            linkedList = new LinkedList<>();
+            this.mUserAttentionRequestMap.put(str, linkedList);
+        }
+        dealAttentionUpdateData(linkedList, alaAttentionData);
+        executeAttentionTask(str);
     }
 }

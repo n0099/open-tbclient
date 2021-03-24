@@ -5,29 +5,28 @@ import android.view.View;
 import com.baidu.tbadk.ActivityPendingTransitionFactory;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tieba.R;
-/* loaded from: classes2.dex */
+import d.b.i0.p0.g1.c;
+/* loaded from: classes4.dex */
 public class AchievementActivity extends BaseActivity {
-    private c jnA;
-    private a jnB;
-    private View.OnClickListener jnC = new View.OnClickListener() { // from class: com.baidu.tieba.frs.achievement.AchievementActivity.1
+    public d.b.i0.p0.g1.a inviteLetter;
+    public View.OnClickListener onShareClickListener = new a();
+    public c thanksLetter;
+
+    /* loaded from: classes4.dex */
+    public class a implements View.OnClickListener {
+        public a() {
+        }
+
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            AchievementActivity.this.jnA.setDisplay(false);
-            AchievementActivity.this.jnB.setDisplay(true);
+            AchievementActivity.this.thanksLetter.h(false);
+            AchievementActivity.this.inviteLetter.h(true);
         }
-    };
+    }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
-    public void onCreate(Bundle bundle) {
-        setIsAddSwipeBackLayout(false);
-        super.onCreate(bundle);
-        setContentView(R.layout.activity_achievement);
-        this.jnA = new c(getPageContext(), findViewById(R.id.layout_thanks_letter));
-        this.jnA.setDisplay(true);
-        this.jnA.B(this.jnC);
-        this.jnB = new a(getPageContext(), findViewById(R.id.layout_invite_letter));
-        this.jnB.setDisplay(false);
+    @Override // com.baidu.tbadk.BaseActivity
+    public void closeAnimation() {
+        ActivityPendingTransitionFactory.enterExitAnimation(getPageContext(), 0);
     }
 
     @Override // com.baidu.tbadk.BaseActivity
@@ -36,15 +35,23 @@ public class AchievementActivity extends BaseActivity {
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public void closeAnimation() {
-        ActivityPendingTransitionFactory.enterExitAnimation(getPageContext(), 0);
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.jnA.onChangeSkinType(i);
-        this.jnB.onChangeSkinType(i);
+        this.thanksLetter.g(i);
+        this.inviteLetter.g(i);
+    }
+
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
+    public void onCreate(Bundle bundle) {
+        setIsAddSwipeBackLayout(false);
+        super.onCreate(bundle);
+        setContentView(R.layout.activity_achievement);
+        c cVar = new c(getPageContext(), findViewById(R.id.layout_thanks_letter));
+        this.thanksLetter = cVar;
+        cVar.h(true);
+        this.thanksLetter.j(this.onShareClickListener);
+        d.b.i0.p0.g1.a aVar = new d.b.i0.p0.g1.a(getPageContext(), findViewById(R.id.layout_invite_letter));
+        this.inviteLetter = aVar;
+        aVar.h(false);
     }
 }

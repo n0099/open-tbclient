@@ -1,7 +1,6 @@
 package com.qq.e.comm.managers.plugin;
 
 import android.content.Context;
-import com.baidu.minivideo.plugin.capture.utils.EncryptUtils;
 import com.qq.e.comm.managers.plugin.PM;
 import com.qq.e.comm.net.NetworkCallBack;
 import com.qq.e.comm.net.NetworkClient;
@@ -23,112 +22,133 @@ import java.security.NoSuchAlgorithmException;
 import java.util.concurrent.Executor;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final Pattern f7567a = Pattern.compile(".*plugin\\.dex-(\\d+)\\.jar.*");
-    private final Context b;
-    private PM.a.b c;
-    private Executor d;
+    public static final Pattern f38300a = Pattern.compile(".*plugin\\.dex-(\\d+)\\.jar.*");
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
+    /* renamed from: b  reason: collision with root package name */
+    public final Context f38301b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public PM.a.b f38302c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public Executor f38303d;
+
+    /* loaded from: classes6.dex */
     public class a implements NetworkCallBack {
 
         /* renamed from: a  reason: collision with root package name */
-        private final String f7568a;
-        private final int b;
+        public final String f38304a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public final int f38305b;
 
         public a(String str, int i) {
-            this.f7568a = str;
-            this.b = i;
+            this.f38304a = str;
+            this.f38305b = i;
         }
 
-        private static String a(Response response, File file) {
+        /* JADX DEBUG: Failed to insert an additional move for type inference into block B:13:0x0037 */
+        /* JADX DEBUG: Failed to insert an additional move for type inference into block B:15:0x0039 */
+        /* JADX DEBUG: Failed to insert an additional move for type inference into block B:35:0x005c */
+        /* JADX WARN: Multi-variable type inference failed */
+        /* JADX WARN: Type inference failed for: r5v0, types: [com.qq.e.comm.net.rr.Response] */
+        /* JADX WARN: Type inference failed for: r5v3 */
+        /* JADX WARN: Type inference failed for: r5v7, types: [java.io.InputStream] */
+        public static String a(Response response, File file) {
             OutputStream outputStream;
-            InputStream inputStream;
             FileOutputStream fileOutputStream;
+            String str;
+            InputStream inputStream;
             MessageDigest messageDigest;
-            String str = null;
+            InputStream inputStream2 = null;
             try {
                 try {
-                    messageDigest = MessageDigest.getInstance(EncryptUtils.ENCRYPT_MD5);
-                    inputStream = response.getStreamContent();
+                    messageDigest = MessageDigest.getInstance("MD5");
+                    response = response.getStreamContent();
                 } catch (Throwable th) {
                     th = th;
                 }
-                try {
-                    fileOutputStream = new FileOutputStream(file);
-                    try {
-                        byte[] bArr = new byte[1024];
-                        while (true) {
-                            int read = inputStream.read(bArr);
-                            if (read <= 0) {
-                                break;
-                            }
-                            messageDigest.update(bArr, 0, read);
-                            fileOutputStream.write(bArr, 0, read);
-                        }
-                        FileUtil.tryClose(inputStream);
-                        FileUtil.tryClose(fileOutputStream);
-                        str = Md5Util.byteArrayToHexString(messageDigest.digest());
-                        FileUtil.tryClose(inputStream);
-                        FileUtil.tryClose(fileOutputStream);
-                    } catch (IOException e) {
-                        e = e;
-                        GDTLogger.e("IOException While Update Plugin", e);
-                        FileUtil.tryClose(inputStream);
-                        FileUtil.tryClose(fileOutputStream);
-                        return str;
-                    } catch (NoSuchAlgorithmException e2) {
-                        e = e2;
-                        GDTLogger.e("MD5SUMException While Update Plugin", e);
-                        FileUtil.tryClose(inputStream);
-                        FileUtil.tryClose(fileOutputStream);
-                        return str;
-                    }
-                } catch (IOException e3) {
-                    e = e3;
-                    fileOutputStream = null;
-                } catch (NoSuchAlgorithmException e4) {
-                    e = e4;
-                    fileOutputStream = null;
-                } catch (Throwable th2) {
-                    th = th2;
-                    outputStream = null;
-                    FileUtil.tryClose(inputStream);
-                    FileUtil.tryClose(outputStream);
-                    throw th;
-                }
-            } catch (IOException e5) {
-                e = e5;
+            } catch (IOException e2) {
+                e = e2;
+                response = null;
                 fileOutputStream = null;
-                inputStream = null;
-            } catch (NoSuchAlgorithmException e6) {
+            } catch (NoSuchAlgorithmException e3) {
+                e = e3;
+                response = null;
+                fileOutputStream = null;
+            } catch (Throwable th2) {
+                th = th2;
+                outputStream = null;
+                FileUtil.tryClose(inputStream2);
+                FileUtil.tryClose(outputStream);
+                throw th;
+            }
+            try {
+                fileOutputStream = new FileOutputStream(file);
+                try {
+                    byte[] bArr = new byte[1024];
+                    while (true) {
+                        int read = response.read(bArr);
+                        if (read <= 0) {
+                            FileUtil.tryClose((InputStream) response);
+                            FileUtil.tryClose(fileOutputStream);
+                            String byteArrayToHexString = Md5Util.byteArrayToHexString(messageDigest.digest());
+                            FileUtil.tryClose((InputStream) response);
+                            FileUtil.tryClose(fileOutputStream);
+                            return byteArrayToHexString;
+                        }
+                        messageDigest.update(bArr, 0, read);
+                        fileOutputStream.write(bArr, 0, read);
+                    }
+                } catch (IOException e4) {
+                    e = e4;
+                    str = "IOException While Update Plugin";
+                    inputStream = response;
+                    GDTLogger.e(str, e);
+                    FileUtil.tryClose(inputStream);
+                    FileUtil.tryClose(fileOutputStream);
+                    return null;
+                } catch (NoSuchAlgorithmException e5) {
+                    e = e5;
+                    str = "MD5SUMException While Update Plugin";
+                    inputStream = response;
+                    GDTLogger.e(str, e);
+                    FileUtil.tryClose(inputStream);
+                    FileUtil.tryClose(fileOutputStream);
+                    return null;
+                }
+            } catch (IOException e6) {
                 e = e6;
                 fileOutputStream = null;
-                inputStream = null;
+            } catch (NoSuchAlgorithmException e7) {
+                e = e7;
+                fileOutputStream = null;
             } catch (Throwable th3) {
                 th = th3;
                 outputStream = null;
-                inputStream = null;
+                inputStream2 = response;
+                FileUtil.tryClose(inputStream2);
+                FileUtil.tryClose(outputStream);
+                throw th;
             }
-            return str;
         }
 
         private void a() {
-            if (b.this.c != null) {
-                b.this.c.b();
+            if (b.this.f38302c != null) {
+                b.this.f38302c.b();
             }
         }
 
         private boolean a(File file) {
             try {
-                StringUtil.writeTo(this.b + "#####" + this.f7568a, file);
+                StringUtil.writeTo(this.f38305b + "#####" + this.f38304a, file);
                 return true;
-            } catch (IOException e) {
-                GDTLogger.e("IOException While Update Plugin", e);
+            } catch (IOException e2) {
+                GDTLogger.e("IOException While Update Plugin", e2);
                 return false;
             }
         }
@@ -139,73 +159,82 @@ public final class b {
             a();
         }
 
-        /* JADX WARN: Code restructure failed: missing block: B:13:0x0055, code lost:
-            if ((com.qq.e.comm.util.FileUtil.renameTo(r2, com.qq.e.comm.managers.plugin.d.d(r7.c.b)) && com.qq.e.comm.util.FileUtil.renameTo(r3, com.qq.e.comm.managers.plugin.d.g(r7.c.b))) != false) goto L17;
-         */
+        /* JADX WARN: Removed duplicated region for block: B:19:0x0078 A[Catch: all -> 0x00a0, TryCatch #0 {all -> 0x00a0, blocks: (B:4:0x000c, B:6:0x0032, B:8:0x0038, B:10:0x0048, B:17:0x005f, B:19:0x0078, B:20:0x0082), top: B:31:0x000c }] */
         @Override // com.qq.e.comm.net.NetworkCallBack
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
         public final void onResponse(Request request, Response response) {
-            boolean z = true;
+            StringBuilder sb;
             if (response.getStatusCode() != 200) {
                 GDTLogger.report("DownLoad Plugin Jar Status error,response status code=" + response.getStatusCode());
                 a();
                 return;
             }
             try {
-                File c = d.c(b.this.b);
-                File f = d.f(b.this.b);
-                String a2 = a(response, c);
-                if (com.qq.e.comm.util.a.a().b(this.f7568a, a2)) {
-                    if (a(f)) {
+                File c2 = d.c(b.this.f38301b);
+                File f2 = d.f(b.this.f38301b);
+                String a2 = a(response, c2);
+                boolean z = true;
+                if (com.qq.e.comm.util.a.a().b(this.f38304a, a2)) {
+                    if (a(f2)) {
+                        if (FileUtil.renameTo(c2, d.d(b.this.f38301b)) && FileUtil.renameTo(f2, d.g(b.this.f38301b))) {
+                            GDTLogger.d("PluginUpdateSucc:" + z);
+                            if (b.this.f38302c != null) {
+                                b.this.f38302c.a();
+                            }
+                        }
                     }
                     z = false;
                     GDTLogger.d("PluginUpdateSucc:" + z);
-                    if (b.this.c != null) {
-                        b.this.c.a();
+                    if (b.this.f38302c != null) {
                     }
                 } else {
-                    c.delete();
-                    GDTLogger.report(String.format("Fail to update plugin while verifying,sig=%s,md5=%s", this.f7568a, a2));
+                    c2.delete();
+                    GDTLogger.report(String.format("Fail to update plugin while verifying,sig=%s,md5=%s", this.f38304a, a2));
                     a();
                 }
+                sb = new StringBuilder("TIMESTAMP_AFTER_DOWNPLUGIN:");
             } catch (Throwable th) {
                 try {
                     GDTLogger.e("UnknownException While Update Plugin", th);
                     a();
-                } finally {
-                    GDTLogger.d("TIMESTAMP_AFTER_DOWNPLUGIN:" + System.nanoTime() + ";sig=" + this.f7568a);
+                    sb = new StringBuilder("TIMESTAMP_AFTER_DOWNPLUGIN:");
+                } catch (Throwable th2) {
+                    GDTLogger.d("TIMESTAMP_AFTER_DOWNPLUGIN:" + System.nanoTime() + ";sig=" + this.f38304a);
+                    throw th2;
                 }
             }
+            sb.append(System.nanoTime());
+            sb.append(";sig=");
+            sb.append(this.f38304a);
+            GDTLogger.d(sb.toString());
         }
     }
 
     public b(Context context, Executor executor) {
-        this.b = context.getApplicationContext();
-        this.d = executor;
+        this.f38301b = context.getApplicationContext();
+        this.f38303d = executor;
     }
 
     public final void a(PM.a.b bVar) {
-        this.c = bVar;
+        this.f38302c = bVar;
     }
 
     public final void a(String str, String str2) {
-        boolean z;
         if (StringUtil.isEmpty(str) || StringUtil.isEmpty(str2)) {
             return;
         }
-        Matcher matcher = f7567a.matcher(str2);
+        Matcher matcher = f38300a.matcher(str2);
+        boolean z = true;
         int parseInteger = StringUtil.parseInteger(matcher.matches() ? matcher.group(1) : "0", 0);
-        if (parseInteger < 1180) {
-            GDTLogger.i("online plugin version is smaller than asset plugin version" + parseInteger + ",1180.download give up");
+        if (parseInteger < 1203) {
+            GDTLogger.i("online plugin version is smaller than asset plugin version" + parseInteger + ",1203.download give up");
             z = false;
-        } else {
-            z = true;
         }
         if (z) {
             GDTLogger.d("TIMESTAP_BEFORE_OWN_PLUGIN:" + System.nanoTime());
-            NetworkClientImpl.getInstance().submit(new PlainRequest(str2, Request.Method.GET, (byte[]) null), NetworkClient.Priority.High, new a(str, parseInteger), this.d);
+            NetworkClientImpl.getInstance().submit(new PlainRequest(str2, Request.Method.GET, (byte[]) null), NetworkClient.Priority.High, new a(str, parseInteger), this.f38303d);
         }
     }
 }

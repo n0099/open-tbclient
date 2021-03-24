@@ -6,7 +6,7 @@ import org.apache.http.io.SessionOutputBuffer;
 import org.apache.http.message.LineFormatter;
 import org.apache.http.params.HttpParams;
 @Deprecated
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class HttpResponseWriter extends AbstractMessageWriter {
     public HttpResponseWriter(SessionOutputBuffer sessionOutputBuffer, LineFormatter lineFormatter, HttpParams httpParams) {
         super(null, null, null);
@@ -14,7 +14,7 @@ public class HttpResponseWriter extends AbstractMessageWriter {
     }
 
     @Override // org.apache.http.impl.io.AbstractMessageWriter
-    protected void writeHeadLine(HttpMessage httpMessage) throws IOException {
+    public void writeHeadLine(HttpMessage httpMessage) throws IOException {
         throw new RuntimeException("Stub!");
     }
 }

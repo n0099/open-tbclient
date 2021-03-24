@@ -1,96 +1,130 @@
 package com.xiaomi.push;
 
-import com.xiaomi.push.hc;
+import com.xiaomi.push.gv;
 import com.xiaomi.push.service.XMPushService;
-import com.xiaomi.push.service.ap;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
-public class gz implements ap.b.a {
+import com.xiaomi.push.service.av;
+import java.util.Hashtable;
+/* loaded from: classes7.dex */
+public class gz {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f8403a;
+    public static final int f40619a = ew.PING_RTT.a();
 
-    /* renamed from: a  reason: collision with other field name */
-    private fs f417a;
+    /* loaded from: classes7.dex */
+    public static class a {
 
-    /* renamed from: a  reason: collision with other field name */
-    private XMPushService f418a;
-
-    /* renamed from: a  reason: collision with other field name */
-    private ap.b f419a;
-
-    /* renamed from: a  reason: collision with other field name */
-    private boolean f421a = false;
-
-    /* renamed from: a  reason: collision with other field name */
-    private ap.c f420a = ap.c.binding;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public gz(XMPushService xMPushService, ap.b bVar) {
-        this.f418a = xMPushService;
-        this.f419a = bVar;
+        /* renamed from: a  reason: collision with root package name */
+        public static Hashtable<Integer, Long> f40620a = new Hashtable<>();
     }
 
-    private void b() {
-        this.f419a.b(this);
+    public static void a() {
+        a(0, f40619a);
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void c() {
-        b();
-        if (this.f421a && this.f8403a != 11) {
-            fi m340a = he.m338a().m340a();
-            switch (hb.f8406a[this.f420a.ordinal()]) {
-                case 1:
-                    if (this.f8403a != 17) {
-                        if (this.f8403a != 21) {
-                            try {
-                                hc.a c = hc.c(he.a().a());
-                                m340a.f324a = c.f8407a.a();
-                                m340a.c(c.f422a);
-                                break;
-                            } catch (NullPointerException e) {
-                                m340a = null;
-                                break;
-                            }
-                        } else {
-                            m340a.f324a = fh.BIND_TIMEOUT.a();
-                            break;
-                        }
-                    } else {
-                        m340a.f324a = fh.BIND_TCP_READ_TIMEOUT.a();
-                        break;
-                    }
-                case 3:
-                    m340a.f324a = fh.BIND_SUCCESS.a();
-                    break;
+    public static void a(int i) {
+        ex m346a = gx.m344a().m346a();
+        m346a.a(ew.CHANNEL_STATS_COUNTER.a());
+        m346a.c(i);
+        gx.m344a().a(m346a);
+    }
+
+    public static synchronized void a(int i, int i2) {
+        synchronized (gz.class) {
+            if (i2 < 16777215) {
+                a.f40620a.put(Integer.valueOf((i << 24) | i2), Long.valueOf(System.currentTimeMillis()));
+            } else {
+                com.xiaomi.channel.commonutils.logger.b.d("stats key should less than 16777215");
             }
-            if (m340a != null) {
-                m340a.b(this.f417a.m298a());
-                m340a.d(this.f419a.f862b);
-                m340a.f327b = 1;
-                try {
-                    m340a.a((byte) Integer.parseInt(this.f419a.g));
-                } catch (NumberFormatException e2) {
+        }
+    }
+
+    public static void a(int i, int i2, int i3, String str, int i4) {
+        ex m346a = gx.m344a().m346a();
+        m346a.a((byte) i);
+        m346a.a(i2);
+        m346a.b(i3);
+        m346a.b(str);
+        m346a.c(i4);
+        gx.m344a().a(m346a);
+    }
+
+    public static synchronized void a(int i, int i2, String str, int i3) {
+        synchronized (gz.class) {
+            long currentTimeMillis = System.currentTimeMillis();
+            int i4 = (i << 24) | i2;
+            if (a.f40620a.containsKey(Integer.valueOf(i4))) {
+                ex m346a = gx.m344a().m346a();
+                m346a.a(i2);
+                m346a.b((int) (currentTimeMillis - a.f40620a.get(Integer.valueOf(i4)).longValue()));
+                m346a.b(str);
+                if (i3 > -1) {
+                    m346a.c(i3);
                 }
-                he.m338a().a(m340a);
+                gx.m344a().a(m346a);
+                a.f40620a.remove(Integer.valueOf(i2));
+            } else {
+                com.xiaomi.channel.commonutils.logger.b.d("stats key not found");
             }
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void a() {
-        this.f419a.a(this);
-        this.f417a = this.f418a.m523a();
+    public static void a(XMPushService xMPushService, av.b bVar) {
+        new gs(xMPushService, bVar).a();
     }
 
-    @Override // com.xiaomi.push.service.ap.b.a
-    public void a(ap.c cVar, ap.c cVar2, int i) {
-        if (!this.f421a && cVar == ap.c.binding) {
-            this.f420a = cVar2;
-            this.f8403a = i;
-            this.f421a = true;
+    public static void a(String str, int i, Exception exc) {
+        ex m346a = gx.m344a().m346a();
+        if (i > 0) {
+            m346a.a(ew.GSLB_REQUEST_SUCCESS.a());
+            m346a.b(str);
+            m346a.b(i);
+            gx.m344a().a(m346a);
+            return;
         }
-        this.f418a.a(new ha(this, 4));
+        try {
+            gv.a a2 = gv.a(exc);
+            m346a.a(a2.f40609a.a());
+            m346a.c(a2.f452a);
+            m346a.b(str);
+            gx.m344a().a(m346a);
+        } catch (NullPointerException unused) {
+        }
+    }
+
+    public static void a(String str, Exception exc) {
+        try {
+            gv.a b2 = gv.b(exc);
+            ex m346a = gx.m344a().m346a();
+            m346a.a(b2.f40609a.a());
+            m346a.c(b2.f452a);
+            m346a.b(str);
+            gx.m344a().a(m346a);
+        } catch (NullPointerException unused) {
+        }
+    }
+
+    /* renamed from: a  reason: collision with other method in class */
+    public static byte[] m350a() {
+        ey m347a = gx.m344a().m347a();
+        if (m347a != null) {
+            return ip.a(m347a);
+        }
+        return null;
+    }
+
+    public static void b() {
+        a(0, f40619a, null, -1);
+    }
+
+    public static void b(String str, Exception exc) {
+        try {
+            gv.a d2 = gv.d(exc);
+            ex m346a = gx.m344a().m346a();
+            m346a.a(d2.f40609a.a());
+            m346a.c(d2.f452a);
+            m346a.b(str);
+            gx.m344a().a(m346a);
+        } catch (NullPointerException unused) {
+        }
     }
 }

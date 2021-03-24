@@ -3,16 +3,14 @@ package com.baidu.mapapi.map;
 import android.view.View;
 import com.baidu.mapsdkplatform.comapi.map.ab;
 import com.baidu.mapsdkplatform.comapi.map.ac;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class t implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ TextureMapView f2079a;
+    public final /* synthetic */ TextureMapView f7097a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public t(TextureMapView textureMapView) {
-        this.f2079a = textureMapView;
+        this.f7097a = textureMapView;
     }
 
     @Override // android.view.View.OnClickListener
@@ -20,17 +18,18 @@ public class t implements View.OnClickListener {
         ac acVar;
         ac acVar2;
         ac acVar3;
-        acVar = this.f2079a.b;
-        float f = acVar.b().b;
-        acVar2 = this.f2079a.b;
+        acVar = this.f7097a.f7023b;
+        float f2 = acVar.b().f7613b;
+        acVar2 = this.f7097a.f7023b;
         ab E = acVar2.b().E();
-        E.f2214a -= 1.0f;
-        if (E.f2214a >= f) {
-            f = E.f2214a;
+        float f3 = E.f7569a - 1.0f;
+        E.f7569a = f3;
+        if (f3 >= f2) {
+            f2 = f3;
         }
-        E.f2214a = f;
+        E.f7569a = f2;
         BaiduMap.mapStatusReason |= 16;
-        acVar3 = this.f2079a.b;
+        acVar3 = this.f7097a.f7023b;
         acVar3.b().a(E, 300);
     }
 }

@@ -6,7 +6,7 @@ import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.regex.Pattern;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public abstract class CronetEngineBuilderImpl extends ICronetEngineBuilder {
     public final Context mApplicationContext;
     public boolean mDisableCache;
@@ -25,7 +25,7 @@ public abstract class CronetEngineBuilderImpl extends ICronetEngineBuilder {
     public boolean mHttp2Enabled = true;
     public boolean mBrotiEnabled = false;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static class Pkp {
         public final Date mExpirationDate;
         public final byte[][] mHashes;
@@ -33,7 +33,7 @@ public abstract class CronetEngineBuilderImpl extends ICronetEngineBuilder {
         public final boolean mIncludeSubdomains;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static class QuicHint {
         public final int mAlternatePort;
         public final String mHost;
@@ -45,27 +45,13 @@ public abstract class CronetEngineBuilderImpl extends ICronetEngineBuilder {
     }
 
     public CronetEngineBuilderImpl(Context context) {
-        boolean z = false;
         this.mApplicationContext = context.getApplicationContext();
         if (this.mStoragePath != null) {
             throw new IllegalArgumentException("Storage path must not be set");
         }
         this.mDisableCache = true;
         this.mHttpCacheMaxSize = 0L;
-        switch (z) {
-            case false:
-                this.mHttpCacheMode = 0;
-                break;
-            case true:
-                this.mHttpCacheMode = 2;
-                break;
-            case true:
-            case true:
-                this.mHttpCacheMode = 1;
-                break;
-            default:
-                throw new IllegalArgumentException("Unknown cache mode");
-        }
+        this.mHttpCacheMode = 0;
         this.mNetworkQualityEstimatorEnabled = false;
         this.mPublicKeyPinningBypassForLocalTrustAnchorsEnabled = true;
     }

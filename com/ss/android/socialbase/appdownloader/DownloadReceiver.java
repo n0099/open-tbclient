@@ -7,87 +7,133 @@ import android.net.Uri;
 import android.os.Handler;
 import android.os.Looper;
 import android.text.TextUtils;
+import com.baidu.tbadk.commonReceiver.PackageChangedReceiver;
+import com.ss.android.socialbase.downloader.model.DownloadInfo;
+import d.o.a.e.a.d;
+import d.o.a.e.a.k;
+import d.o.a.e.b.g.d;
+import d.o.a.e.b.l.e;
+import d.o.a.e.b.p.b;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class DownloadReceiver extends BroadcastReceiver {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f7740a = DownloadReceiver.class.getSimpleName();
-    private Handler b = new Handler(Looper.getMainLooper());
+    public static final String f38679a = DownloadReceiver.class.getSimpleName();
 
-    @Override // android.content.BroadcastReceiver
-    public void onReceive(final Context context, final Intent intent) {
-        if (context != null && intent != null) {
-            String action = intent.getAction();
-            if (!TextUtils.isEmpty(action)) {
-                com.ss.android.socialbase.appdownloader.c.c eFu = d.eFz().eFu();
-                if (action.equals("android.intent.action.BOOT_COMPLETED") && (eFu == null || eFu.a())) {
-                    if (com.ss.android.socialbase.downloader.f.a.a()) {
-                        com.ss.android.socialbase.downloader.f.a.a(f7740a, "Received broadcast intent for android.intent.action.BOOT_COMPLETED");
-                    }
-                    a(context, action);
-                } else if (action.equals("android.intent.action.MEDIA_MOUNTED")) {
-                    if (com.ss.android.socialbase.downloader.f.a.a()) {
-                        com.ss.android.socialbase.downloader.f.a.a(f7740a, "Received broadcast intent for android.intent.action.MEDIA_MOUNTED");
-                    }
-                    a(context, action);
-                } else if (action.equals("android.intent.action.PACKAGE_ADDED") || action.equals("android.intent.action.PACKAGE_REPLACED")) {
-                    com.ss.android.socialbase.downloader.downloader.b.eGo().execute(new Runnable() { // from class: com.ss.android.socialbase.appdownloader.DownloadReceiver.1
-                        @Override // java.lang.Runnable
-                        public void run() {
-                            Uri data = intent.getData();
-                            if (data != null) {
-                                String schemeSpecificPart = data.getSchemeSpecificPart();
-                                com.ss.android.socialbase.appdownloader.c.d eFv = d.eFz().eFv();
-                                if (eFv != null) {
-                                    eFv.a(context, schemeSpecificPart);
-                                }
-                                List<com.ss.android.socialbase.downloader.g.c> b = com.ss.android.socialbase.downloader.downloader.f.iC(context).b("application/vnd.android.package-archive");
-                                if (b != null) {
-                                    for (final com.ss.android.socialbase.downloader.g.c cVar : b) {
-                                        if (cVar != null && c.c(cVar, schemeSpecificPart)) {
-                                            com.ss.android.socialbase.downloader.d.d Rx = com.ss.android.socialbase.downloader.downloader.f.iC(context).Rx(cVar.g());
-                                            if (Rx != null && com.ss.android.socialbase.downloader.m.d.e(Rx.a())) {
-                                                Rx.a(9, cVar, schemeSpecificPart, "");
-                                            }
-                                            com.ss.android.socialbase.downloader.notification.a Sg = com.ss.android.socialbase.downloader.notification.b.eIK().Sg(cVar.g());
-                                            if (Sg != null) {
-                                                Sg.a((com.ss.android.socialbase.downloader.e.a) null, false);
-                                            }
-                                            if (com.ss.android.socialbase.downloader.k.a.Sa(cVar.g()).a("install_queue_enable", 0) == 1) {
-                                                h.eGa().a(cVar, schemeSpecificPart);
-                                            }
-                                            DownloadReceiver.this.b.postDelayed(new Runnable() { // from class: com.ss.android.socialbase.appdownloader.DownloadReceiver.1.1
-                                                @Override // java.lang.Runnable
-                                                public void run() {
-                                                    com.ss.android.socialbase.downloader.downloader.b.eGo().execute(new Runnable() { // from class: com.ss.android.socialbase.appdownloader.DownloadReceiver.1.1.1
-                                                        @Override // java.lang.Runnable
-                                                        public void run() {
-                                                            try {
-                                                                if (cVar.eIe()) {
-                                                                    com.ss.android.socialbase.downloader.m.d.b(cVar);
-                                                                }
-                                                            } catch (Throwable th) {
-                                                                th.printStackTrace();
-                                                            }
-                                                        }
-                                                    });
-                                                }
-                                            }, 1000L);
-                                            return;
-                                        }
-                                    }
-                                }
-                            }
+    /* renamed from: b  reason: collision with root package name */
+    public Handler f38680b = new Handler(Looper.getMainLooper());
+
+    /* loaded from: classes7.dex */
+    public class a implements Runnable {
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ Intent f38681e;
+
+        /* renamed from: f  reason: collision with root package name */
+        public final /* synthetic */ Context f38682f;
+
+        /* renamed from: com.ss.android.socialbase.appdownloader.DownloadReceiver$a$a  reason: collision with other inner class name */
+        /* loaded from: classes7.dex */
+        public class RunnableC0477a implements Runnable {
+
+            /* renamed from: e  reason: collision with root package name */
+            public final /* synthetic */ DownloadInfo f38684e;
+
+            /* renamed from: com.ss.android.socialbase.appdownloader.DownloadReceiver$a$a$a  reason: collision with other inner class name */
+            /* loaded from: classes7.dex */
+            public class RunnableC0478a implements Runnable {
+                public RunnableC0478a() {
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    try {
+                        if (RunnableC0477a.this.f38684e.O1()) {
+                            e.Z(RunnableC0477a.this.f38684e);
                         }
-                    });
+                    } catch (Throwable th) {
+                        th.printStackTrace();
+                    }
+                }
+            }
+
+            public RunnableC0477a(a aVar, DownloadInfo downloadInfo) {
+                this.f38684e = downloadInfo;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                d.w0().execute(new RunnableC0478a());
+            }
+        }
+
+        public a(Intent intent, Context context) {
+            this.f38681e = intent;
+            this.f38682f = context;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Uri data = this.f38681e.getData();
+            if (data == null) {
+                return;
+            }
+            String schemeSpecificPart = data.getSchemeSpecificPart();
+            d.f t = d.o.a.e.a.e.F().t();
+            if (t != null) {
+                t.a(this.f38682f, schemeSpecificPart);
+            }
+            List<DownloadInfo> o = d.o.a.e.b.g.a.l(this.f38682f).o("application/vnd.android.package-archive");
+            if (o != null) {
+                for (DownloadInfo downloadInfo : o) {
+                    if (downloadInfo != null && d.o.a.e.a.d.A(downloadInfo, schemeSpecificPart)) {
+                        d.o.a.e.b.f.d i = d.o.a.e.b.g.a.l(this.f38682f).i(downloadInfo.c0());
+                        if (i != null && e.I0(i.a())) {
+                            i.a(9, downloadInfo, schemeSpecificPart, "");
+                        }
+                        d.o.a.e.b.p.a l = b.a().l(downloadInfo.c0());
+                        if (l != null) {
+                            l.g(null, false);
+                        }
+                        if (d.o.a.e.b.j.a.d(downloadInfo.c0()).b("install_queue_enable", 0) == 1) {
+                            k.d().g(downloadInfo, schemeSpecificPart);
+                        }
+                        DownloadReceiver.this.f38680b.postDelayed(new RunnableC0477a(this, downloadInfo), 1000L);
+                        return;
+                    }
                 }
             }
         }
     }
 
+    @Override // android.content.BroadcastReceiver
+    public void onReceive(Context context, Intent intent) {
+        if (context == null || intent == null) {
+            return;
+        }
+        String action = intent.getAction();
+        if (TextUtils.isEmpty(action)) {
+            return;
+        }
+        d.e b2 = d.o.a.e.a.e.F().b();
+        if (action.equals("android.intent.action.BOOT_COMPLETED") && (b2 == null || b2.a())) {
+            if (d.o.a.e.b.c.a.e()) {
+                d.o.a.e.b.c.a.c(f38679a, "Received broadcast intent for android.intent.action.BOOT_COMPLETED");
+            }
+            a(context, action);
+        } else if (action.equals("android.intent.action.MEDIA_MOUNTED")) {
+            if (d.o.a.e.b.c.a.e()) {
+                d.o.a.e.b.c.a.c(f38679a, "Received broadcast intent for android.intent.action.MEDIA_MOUNTED");
+            }
+            a(context, action);
+        } else if (action.equals(PackageChangedReceiver.ACTION_INSTALL) || action.equals("android.intent.action.PACKAGE_REPLACED")) {
+            d.o.a.e.b.g.d.w0().execute(new a(intent, context));
+        }
+    }
+
     private void a(Context context, String str) {
-        if (com.ss.android.socialbase.downloader.downloader.b.A()) {
+        if (d.o.a.e.b.g.d.f()) {
             try {
                 Intent intent = new Intent(context, DownloadHandlerService.class);
                 intent.setAction(str);

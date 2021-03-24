@@ -9,30 +9,44 @@ import com.qq.e.comm.util.StringUtil;
 import com.qq.e.comm.util.SystemUtil;
 import java.io.File;
 import java.io.IOException;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class SM {
-    private String b;
-    private a c;
-    private String e;
-    private d f;
-    private String i;
-    private String k;
-    private Context m;
-    private d g = null;
-    private String l = "";
+
+    /* renamed from: b  reason: collision with root package name */
+    public String f38318b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public a f38319c;
+
+    /* renamed from: e  reason: collision with root package name */
+    public String f38321e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public d f38322f;
+    public String i;
+    public String k;
+    public Context m;
+
+    /* renamed from: g  reason: collision with root package name */
+    public d f38323g = null;
+    public String l = "";
 
     /* renamed from: a  reason: collision with root package name */
-    private a f7571a = new a();
-    private a d = new a();
-    private d h = new b();
-    private c j = new c();
-    private String n = SystemUtil.buildNewPathByProcessName("e_qq_com_setting");
+    public a f38317a = new a();
+
+    /* renamed from: d  reason: collision with root package name */
+    public a f38320d = new a();
+
+    /* renamed from: h  reason: collision with root package name */
+    public d f38324h = new b();
+    public c j = new c();
+    public String n = SystemUtil.buildNewPathByProcessName("e_qq_com_setting");
 
     public SM(Context context) {
         this.m = context;
         try {
             this.k = StringUtil.readAll(new File(this.m.getDir(this.n, 0), "gdt_suid"));
-        } catch (Throwable th) {
+        } catch (Throwable unused) {
             this.k = null;
             GDTLogger.e("IO Exception while loading suid");
         }
@@ -42,13 +56,13 @@ public class SM {
     }
 
     private void a() {
-        e.a<d> b = e.b(this.m);
-        if (b == null) {
+        e.a<d> b2 = e.b(this.m);
+        if (b2 == null) {
             GDTLogger.d("Load Local SDK Cloud setting fail");
             return;
         }
-        this.e = b.a();
-        this.f = b.b();
+        this.f38321e = b2.a();
+        this.f38322f = b2.b();
     }
 
     private void b() {
@@ -57,18 +71,18 @@ public class SM {
             GDTLogger.d("Load Local DEV Cloud setting fail");
             return;
         }
-        this.c = a2.b();
-        this.b = a2.a();
+        this.f38319c = a2.b();
+        this.f38318b = a2.a();
     }
 
     private void c() {
-        e.a<c> c = e.c(this.m);
-        if (c == null) {
+        e.a<c> c2 = e.c(this.m);
+        if (c2 == null) {
             GDTLogger.d("Load Local DEV Cloud setting fail");
             return;
         }
-        this.j = c.b();
-        this.i = c.a();
+        this.j = c2.b();
+        this.i = c2.a();
     }
 
     public Object get(String str) {
@@ -80,12 +94,12 @@ public class SM {
             return null;
         }
         try {
-            if (this.f7571a == null || (a5 = this.f7571a.a(str)) == null) {
-                if (this.c == null || (a4 = this.c.a(str)) == null) {
-                    if (this.d == null || (a3 = this.d.a(str)) == null) {
-                        if (this.f == null || (a2 = this.f.a(str)) == null) {
-                            if (this.h != null) {
-                                return this.h.a(str);
+            if (this.f38317a == null || (a5 = this.f38317a.a(str)) == null) {
+                if (this.f38319c == null || (a4 = this.f38319c.a(str)) == null) {
+                    if (this.f38320d == null || (a3 = this.f38320d.a(str)) == null) {
+                        if (this.f38322f == null || (a2 = this.f38322f.a(str)) == null) {
+                            if (this.f38324h != null) {
+                                return this.f38324h.a(str);
                             }
                             return null;
                         }
@@ -107,7 +121,7 @@ public class SM {
     }
 
     public String getDevCloudSettingSig() {
-        return this.b;
+        return this.f38318b;
     }
 
     public Object getForPlacement(String str, String str2) {
@@ -122,7 +136,7 @@ public class SM {
             return get(str);
         }
         try {
-            return (this.j == null || (a5 = this.j.a(str, str2)) == null) ? (this.f7571a == null || (a4 = this.f7571a.a(str, str2)) == null) ? (this.c == null || (a3 = this.c.a(str, str2)) == null) ? (this.d == null || (a2 = this.d.a(str, str2)) == null) ? get(str) : a2 : a3 : a4 : a5;
+            return (this.j == null || (a5 = this.j.a(str, str2)) == null) ? (this.f38317a == null || (a4 = this.f38317a.a(str, str2)) == null) ? (this.f38319c == null || (a3 = this.f38319c.a(str, str2)) == null) ? (this.f38320d == null || (a2 = this.f38320d.a(str, str2)) == null) ? get(str) : a2 : a3 : a4 : a5;
         } catch (Throwable th) {
             GDTLogger.report("Exception in settingManager.getForPlacement", th);
             return null;
@@ -144,7 +158,7 @@ public class SM {
     }
 
     public String getSdkCloudSettingSig() {
-        return this.e;
+        return this.f38321e;
     }
 
     public String getSettingDir() {
@@ -186,11 +200,11 @@ public class SM {
     }
 
     public void setDEVCodeSetting(String str, Object obj) {
-        this.d.a(str, obj);
+        this.f38320d.a(str, obj);
     }
 
     public void setDEVCodeSetting(String str, Object obj, String str2) {
-        this.d.a(str, obj, str2);
+        this.f38320d.a(str, obj, str2);
     }
 
     public void updateContextSetting(String str) {
@@ -199,7 +213,7 @@ public class SM {
             if (!TextUtils.isEmpty(str)) {
                 aVar = new a(new String(Base64.decode(str, 0), "UTF-8"));
             }
-            this.f7571a = aVar;
+            this.f38317a = aVar;
         } catch (Throwable th) {
             GDTLogger.report("Exception while update Context Setting", th);
         }
@@ -238,8 +252,8 @@ public class SM {
         this.k = str;
         try {
             StringUtil.writeTo(str, new File(this.m.getDir(this.n, 0), "gdt_suid"));
-        } catch (IOException e) {
-            GDTLogger.report("Exception while persit suid", e);
+        } catch (IOException e2) {
+            GDTLogger.report("Exception while persit suid", e2);
         }
     }
 }

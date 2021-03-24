@@ -8,9 +8,9 @@ import android.net.wifi.WifiManager;
 import android.text.TextUtils;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class NetWorkUtils {
-    private static final boolean DEBUG = false;
+    public static final boolean DEBUG = false;
     public static final String NETWORK_TYPE_CELL_2G = "2g";
     public static final String NETWORK_TYPE_CELL_3G = "3g";
     public static final String NETWORK_TYPE_CELL_4G = "4g";
@@ -19,9 +19,9 @@ public class NetWorkUtils {
     public static final String NETWORK_TYPE_CELL_UN_CONNECTED = "no";
     public static final int NETWORK_TYPE_LTE_CA = 19;
     public static final String NETWORK_TYPE_WIFI = "wifi";
-    private static final String TAG = "NetWorkUtils";
+    public static final String TAG = "NetWorkUtils";
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public enum NetType {
         NONE("no"),
         WIFI("wifi"),
@@ -44,25 +44,28 @@ public class NetWorkUtils {
         }
         try {
             ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
-            return connectivityManager == null ? null : connectivityManager.getActiveNetworkInfo();
-        } catch (SecurityException e) {
+            if (connectivityManager == null) {
+                return null;
+            }
+            return connectivityManager.getActiveNetworkInfo();
+        } catch (SecurityException unused) {
             return null;
         }
     }
 
-    public static boolean isWifiConnected(Context context) {
-        NetworkInfo activeNetworkInfo = getActiveNetworkInfo(context);
-        return activeNetworkInfo != null && activeNetworkInfo.isAvailable() && activeNetworkInfo.getType() == 1;
+    public static String getBSSID(Context context) {
+        WifiInfo connectionInfo;
+        WifiManager wifiManager = (WifiManager) context.getApplicationContext().getSystemService("wifi");
+        return (wifiManager == null || (connectionInfo = wifiManager.getConnectionInfo()) == null) ? "NULL" : connectionInfo.getBSSID();
     }
 
-    public static boolean isMobileConnected(Context context) {
-        NetworkInfo activeNetworkInfo = getActiveNetworkInfo(context);
-        return activeNetworkInfo != null && activeNetworkInfo.isAvailable() && activeNetworkInfo.getType() == 0;
-    }
-
-    public static boolean isConnected(Context context) {
-        NetworkInfo activeNetworkInfo = getActiveNetworkInfo(context);
-        return activeNetworkInfo != null && activeNetworkInfo.isConnectedOrConnecting();
+    public static int getIPAddress(Context context) {
+        WifiInfo connectionInfo;
+        WifiManager wifiManager = (WifiManager) context.getApplicationContext().getSystemService("wifi");
+        if (wifiManager == null || (connectionInfo = wifiManager.getConnectionInfo()) == null) {
+            return 0;
+        }
+        return connectionInfo.getIpAddress();
     }
 
     public static String getMobileType(int i, String str) {
@@ -92,89 +95,78 @@ public class NetWorkUtils {
             case 20:
                 return "5g";
             default:
-                if (!TextUtils.isEmpty(str) && str.equalsIgnoreCase("LTE_CA")) {
-                    return "4g";
-                }
-                return "unknown";
+                return (TextUtils.isEmpty(str) || !str.equalsIgnoreCase("LTE_CA")) ? "unknown" : "4g";
         }
+    }
+
+    public static int getNetworkId(Context context) {
+        WifiInfo connectionInfo;
+        WifiManager wifiManager = (WifiManager) context.getApplicationContext().getSystemService("wifi");
+        if (wifiManager == null || (connectionInfo = wifiManager.getConnectionInfo()) == null) {
+            return 0;
+        }
+        return connectionInfo.getNetworkId();
     }
 
     public static NetType getNetworkType(Context context) {
+        char c2;
         String networkTypeString = getNetworkTypeString(context);
-        char c = 65535;
-        switch (networkTypeString.hashCode()) {
-            case -284840886:
-                if (networkTypeString.equals("unknown")) {
-                    c = 6;
-                    break;
-                }
-                break;
-            case 1653:
-                if (networkTypeString.equals("2g")) {
-                    c = 0;
-                    break;
-                }
-                break;
-            case 1684:
-                if (networkTypeString.equals("3g")) {
-                    c = 1;
-                    break;
-                }
-                break;
-            case 1715:
-                if (networkTypeString.equals("4g")) {
-                    c = 2;
-                    break;
-                }
-                break;
-            case 1746:
-                if (networkTypeString.equals("5g")) {
-                    c = 3;
-                    break;
-                }
-                break;
-            case 3521:
-                if (networkTypeString.equals("no")) {
-                    c = 5;
-                    break;
-                }
-                break;
-            case 3649301:
-                if (networkTypeString.equals("wifi")) {
-                    c = 4;
-                    break;
-                }
-                break;
+        int hashCode = networkTypeString.hashCode();
+        if (hashCode == -284840886) {
+            if (networkTypeString.equals("unknown")) {
+                c2 = 6;
+            }
+            c2 = 65535;
+        } else if (hashCode == 1653) {
+            if (networkTypeString.equals("2g")) {
+                c2 = 0;
+            }
+            c2 = 65535;
+        } else if (hashCode == 1684) {
+            if (networkTypeString.equals("3g")) {
+                c2 = 1;
+            }
+            c2 = 65535;
+        } else if (hashCode == 1715) {
+            if (networkTypeString.equals("4g")) {
+                c2 = 2;
+            }
+            c2 = 65535;
+        } else if (hashCode == 1746) {
+            if (networkTypeString.equals("5g")) {
+                c2 = 3;
+            }
+            c2 = 65535;
+        } else if (hashCode != 3521) {
+            if (hashCode == 3649301 && networkTypeString.equals("wifi")) {
+                c2 = 4;
+            }
+            c2 = 65535;
+        } else {
+            if (networkTypeString.equals("no")) {
+                c2 = 5;
+            }
+            c2 = 65535;
         }
-        switch (c) {
-            case 0:
-                return NetType._2G;
-            case 1:
-                return NetType._3G;
-            case 2:
+        if (c2 != 0) {
+            if (c2 != 1) {
+                if (c2 != 2) {
+                    if (c2 != 3) {
+                        if (c2 != 4) {
+                            if (c2 != 5) {
+                                return NetType.UNKOWN;
+                            }
+                            return NetType.NONE;
+                        }
+                        return NetType.WIFI;
+                    }
+                    return NetType._5G;
+                }
                 return NetType._4G;
-            case 3:
-                return NetType._5G;
-            case 4:
-                return NetType.WIFI;
-            case 5:
-                return NetType.NONE;
-            default:
-                return NetType.UNKOWN;
+            }
+            return NetType._3G;
         }
-    }
-
-    public static boolean isHighNetworkConnected(Context context) {
-        String networkTypeString = getNetworkTypeString(context);
-        return "wifi".equals(networkTypeString) || "5g".equals(networkTypeString) || "4g".equals(networkTypeString) || "3g".equals(networkTypeString);
-    }
-
-    public static InetAddress intToInetAddress(int i) {
-        try {
-            return InetAddress.getByAddress(new byte[]{(byte) (i & 255), (byte) ((i >> 8) & 255), (byte) ((i >> 16) & 255), (byte) ((i >> 24) & 255)});
-        } catch (UnknownHostException e) {
-            throw new AssertionError();
-        }
+        return NetType._2G;
     }
 
     public static String getNetworkTypeString(Context context) {
@@ -182,22 +174,13 @@ public class NetWorkUtils {
             return "unknown";
         }
         NetworkInfo activeNetworkInfo = getActiveNetworkInfo(context);
-        if (activeNetworkInfo == null || !activeNetworkInfo.isConnected()) {
-            return "no";
-        }
-        if (activeNetworkInfo.getType() == 1) {
-            return "wifi";
-        }
-        if (activeNetworkInfo.getType() == 0) {
-            return getMobileType(activeNetworkInfo.getSubtype(), activeNetworkInfo.getSubtypeName());
-        }
-        return "unknown";
+        return (activeNetworkInfo == null || !activeNetworkInfo.isConnected()) ? "no" : activeNetworkInfo.getType() == 1 ? "wifi" : activeNetworkInfo.getType() == 0 ? getMobileType(activeNetworkInfo.getSubtype(), activeNetworkInfo.getSubtypeName()) : "unknown";
     }
 
-    public static String getBSSID(Context context) {
+    public static String getWifiInfo(Context context) {
         WifiInfo connectionInfo;
         WifiManager wifiManager = (WifiManager) context.getApplicationContext().getSystemService("wifi");
-        return (wifiManager == null || (connectionInfo = wifiManager.getConnectionInfo()) == null) ? "NULL" : connectionInfo.getBSSID();
+        return (wifiManager == null || (connectionInfo = wifiManager.getConnectionInfo()) == null) ? "NULL" : connectionInfo.toString();
     }
 
     public static String getWifiName(Context context) {
@@ -206,27 +189,31 @@ public class NetWorkUtils {
         return (wifiManager == null || (connectionInfo = wifiManager.getConnectionInfo()) == null) ? "NULL" : connectionInfo.getSSID();
     }
 
-    public static int getIPAddress(Context context) {
-        WifiManager wifiManager = (WifiManager) context.getApplicationContext().getSystemService("wifi");
-        if (wifiManager == null) {
-            return 0;
+    public static InetAddress intToInetAddress(int i) {
+        try {
+            return InetAddress.getByAddress(new byte[]{(byte) (i & 255), (byte) ((i >> 8) & 255), (byte) ((i >> 16) & 255), (byte) ((i >> 24) & 255)});
+        } catch (UnknownHostException unused) {
+            throw new AssertionError();
         }
-        WifiInfo connectionInfo = wifiManager.getConnectionInfo();
-        return connectionInfo == null ? 0 : connectionInfo.getIpAddress();
     }
 
-    public static int getNetworkId(Context context) {
-        WifiManager wifiManager = (WifiManager) context.getApplicationContext().getSystemService("wifi");
-        if (wifiManager == null) {
-            return 0;
-        }
-        WifiInfo connectionInfo = wifiManager.getConnectionInfo();
-        return connectionInfo == null ? 0 : connectionInfo.getNetworkId();
+    public static boolean isConnected(Context context) {
+        NetworkInfo activeNetworkInfo = getActiveNetworkInfo(context);
+        return activeNetworkInfo != null && activeNetworkInfo.isConnectedOrConnecting();
     }
 
-    public static String getWifiInfo(Context context) {
-        WifiInfo connectionInfo;
-        WifiManager wifiManager = (WifiManager) context.getApplicationContext().getSystemService("wifi");
-        return (wifiManager == null || (connectionInfo = wifiManager.getConnectionInfo()) == null) ? "NULL" : connectionInfo.toString();
+    public static boolean isHighNetworkConnected(Context context) {
+        String networkTypeString = getNetworkTypeString(context);
+        return "wifi".equals(networkTypeString) || "5g".equals(networkTypeString) || "4g".equals(networkTypeString) || "3g".equals(networkTypeString);
+    }
+
+    public static boolean isMobileConnected(Context context) {
+        NetworkInfo activeNetworkInfo = getActiveNetworkInfo(context);
+        return activeNetworkInfo != null && activeNetworkInfo.isAvailable() && activeNetworkInfo.getType() == 0;
+    }
+
+    public static boolean isWifiConnected(Context context) {
+        NetworkInfo activeNetworkInfo = getActiveNetworkInfo(context);
+        return activeNetworkInfo != null && activeNetworkInfo.isAvailable() && activeNetworkInfo.getType() == 1;
     }
 }

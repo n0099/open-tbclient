@@ -4,7 +4,7 @@ import alaim.LiveMarkInfo;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import java.io.Serializable;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes.dex */
 public class AlaLiveMarkData extends OrmObject implements Serializable {
     public static final String DEFAULT_ANCHOR_USER_ID = "0";
     public static final int TYPE_USER_LABEL = 3;
@@ -18,26 +18,31 @@ public class AlaLiveMarkData extends OrmObject implements Serializable {
     public int width;
 
     public void parserJson(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            this.type = jSONObject.optInt("type");
-            this.anchor_user_id = jSONObject.optString("anchor_user_id");
-            this.mark_id = jSONObject.optLong("mark_id");
-            this.mark_name = jSONObject.optString("mark_name");
-            this.mark_pic = jSONObject.optString("mark_pic");
-            this.width = jSONObject.optInt("width");
-            this.height = jSONObject.optInt("height");
+        if (jSONObject == null) {
+            return;
         }
+        this.type = jSONObject.optInt("type");
+        this.anchor_user_id = jSONObject.optString("anchor_user_id");
+        this.mark_id = jSONObject.optLong("mark_id");
+        this.mark_name = jSONObject.optString("mark_name");
+        this.mark_pic = jSONObject.optString("mark_pic");
+        this.width = jSONObject.optInt("width");
+        this.height = jSONObject.optInt("height");
     }
 
     public void parserProto(LiveMarkInfo liveMarkInfo) {
-        if (liveMarkInfo != null) {
-            this.type = liveMarkInfo.type == null ? 0 : liveMarkInfo.type.intValue();
-            this.anchor_user_id = String.valueOf(liveMarkInfo.anchor_user_id);
-            this.mark_id = liveMarkInfo.mark_id.longValue();
-            this.mark_name = liveMarkInfo.mark_name;
-            this.mark_pic = liveMarkInfo.mark_pic;
-            this.width = liveMarkInfo.width == null ? 0 : liveMarkInfo.width.intValue();
-            this.height = liveMarkInfo.height != null ? liveMarkInfo.height.intValue() : 0;
+        if (liveMarkInfo == null) {
+            return;
         }
+        Long l = liveMarkInfo.type;
+        this.type = l == null ? 0 : l.intValue();
+        this.anchor_user_id = String.valueOf(liveMarkInfo.anchor_user_id);
+        this.mark_id = liveMarkInfo.mark_id.longValue();
+        this.mark_name = liveMarkInfo.mark_name;
+        this.mark_pic = liveMarkInfo.mark_pic;
+        Long l2 = liveMarkInfo.width;
+        this.width = l2 == null ? 0 : l2.intValue();
+        Long l3 = liveMarkInfo.height;
+        this.height = l3 != null ? l3.intValue() : 0;
     }
 }

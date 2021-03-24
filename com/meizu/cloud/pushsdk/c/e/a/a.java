@@ -4,10 +4,10 @@ import com.meizu.cloud.pushsdk.c.b.a.b;
 import com.meizu.cloud.pushsdk.c.e.c;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class a extends c {
-    private static final String n = a.class.getSimpleName();
-    private static ScheduledExecutorService o;
+    public static final String n = "a";
+    public static ScheduledExecutorService o;
 
     public a(c.a aVar) {
         super(aVar);
@@ -28,14 +28,17 @@ public class a extends c {
     public void c() {
         if (o == null && this.i) {
             com.meizu.cloud.pushsdk.c.f.c.b(n, "Session checking has been resumed.", new Object[0]);
-            final com.meizu.cloud.pushsdk.c.e.a aVar = this.d;
-            o = Executors.newSingleThreadScheduledExecutor();
-            o.scheduleAtFixedRate(new Runnable() { // from class: com.meizu.cloud.pushsdk.c.e.a.a.1
+            final com.meizu.cloud.pushsdk.c.e.a aVar = this.f37773d;
+            ScheduledExecutorService newSingleThreadScheduledExecutor = Executors.newSingleThreadScheduledExecutor();
+            o = newSingleThreadScheduledExecutor;
+            Runnable runnable = new Runnable() { // from class: com.meizu.cloud.pushsdk.c.e.a.a.1
                 @Override // java.lang.Runnable
                 public void run() {
                     aVar.b();
                 }
-            }, this.j, this.j, this.l);
+            };
+            long j = this.j;
+            newSingleThreadScheduledExecutor.scheduleAtFixedRate(runnable, j, j, this.l);
         }
     }
 }

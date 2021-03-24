@@ -1,21 +1,21 @@
 package com.baidu.tieba.themeCenter.avatarPendant;
 
 import com.baidu.adp.framework.message.NetMessage;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
-import com.baidu.tbadk.util.v;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import d.b.h0.z0.w;
 import tbclient.GetPendantByCategory.DataReq;
 import tbclient.GetPendantByCategory.GetPendantByCategoryReqIdl;
-/* loaded from: classes8.dex */
+/* loaded from: classes5.dex */
 public class AvatarPendantListRequestMessage extends NetMessage {
     public AvatarPendantListRequestMessage() {
-        super(1003178, CmdConfigSocket.CMD_AVATAR_APENDANT);
+        super(CmdConfigHttp.CMD_AVATAR_PENDANT_LIST, 309371);
     }
 
     @Override // com.baidu.adp.framework.message.NetMessage
-    protected Object encode(boolean z) {
+    public Object encode(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
         if (z) {
-            v.b(builder, true);
+            w.a(builder, true);
         }
         GetPendantByCategoryReqIdl.Builder builder2 = new GetPendantByCategoryReqIdl.Builder();
         builder2.data = builder.build(false);

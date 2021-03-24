@@ -5,13 +5,12 @@ import com.bumptech.glide.load.Encoder;
 import com.bumptech.glide.load.Options;
 import com.bumptech.glide.load.engine.cache.DiskCache;
 import java.io.File;
-/* loaded from: classes14.dex */
-class DataCacheWriter<DataType> implements DiskCache.Writer {
-    private final DataType data;
-    private final Encoder<DataType> encoder;
-    private final Options options;
+/* loaded from: classes5.dex */
+public class DataCacheWriter<DataType> implements DiskCache.Writer {
+    public final DataType data;
+    public final Encoder<DataType> encoder;
+    public final Options options;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public DataCacheWriter(Encoder<DataType> encoder, DataType datatype, Options options) {
         this.encoder = encoder;
         this.data = datatype;

@@ -7,36 +7,17 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.suspended.SuspendedActivity;
-import com.baidu.tbadk.suspended.a;
-/* loaded from: classes7.dex */
+import d.b.h0.t0.a;
+/* loaded from: classes5.dex */
 public class RelevanceItemSearchActivity extends SuspendedActivity {
-    private RelevanceItemSearchView opl;
-
-    @Override // com.baidu.tbadk.suspended.SuspendedActivity
-    protected a a(LinearLayout linearLayout, NavigationBar navigationBar) {
-        this.opl = new RelevanceItemSearchView(this, linearLayout, navigationBar);
-        return this.opl;
-    }
-
-    @Override // com.baidu.tbadk.suspended.SuspendedActivity
-    protected void bER() {
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.suspended.SuspendedActivity, com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
-    public void onDestroy() {
-        super.onDestroy();
-        if (this.opl != null) {
-            this.opl.onDestroy();
-        }
-    }
+    public RelevanceItemSearchView mSearchView;
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.app.Activity, android.view.Window.Callback
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
         InputMethodManager inputMethodManager;
         if (motionEvent.getAction() == 0) {
             View currentFocus = getCurrentFocus();
-            if (m(currentFocus, motionEvent) && (inputMethodManager = (InputMethodManager) getSystemService("input_method")) != null) {
+            if (isShouldHideInput(currentFocus, motionEvent) && (inputMethodManager = (InputMethodManager) getSystemService("input_method")) != null) {
                 inputMethodManager.hideSoftInputFromWindow(currentFocus.getWindowToken(), 0);
             }
             return super.dispatchTouchEvent(motionEvent);
@@ -47,7 +28,18 @@ public class RelevanceItemSearchActivity extends SuspendedActivity {
         }
     }
 
-    public boolean m(View view, MotionEvent motionEvent) {
+    public RelevanceItemSearchView getSearchView() {
+        return this.mSearchView;
+    }
+
+    @Override // com.baidu.tbadk.suspended.SuspendedActivity
+    public a getSuspendedContentView(LinearLayout linearLayout, NavigationBar navigationBar) {
+        RelevanceItemSearchView relevanceItemSearchView = new RelevanceItemSearchView(this, linearLayout, navigationBar);
+        this.mSearchView = relevanceItemSearchView;
+        return relevanceItemSearchView;
+    }
+
+    public boolean isShouldHideInput(View view, MotionEvent motionEvent) {
         if (view == null || !(view instanceof EditText)) {
             return false;
         }
@@ -58,7 +50,16 @@ public class RelevanceItemSearchActivity extends SuspendedActivity {
         return motionEvent.getX() <= ((float) i) || motionEvent.getX() >= ((float) (view.getWidth() + i)) || motionEvent.getY() <= ((float) i2) || motionEvent.getY() >= ((float) (view.getHeight() + i2));
     }
 
-    public RelevanceItemSearchView dZR() {
-        return this.opl;
+    @Override // com.baidu.tbadk.suspended.SuspendedActivity, com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
+    public void onDestroy() {
+        super.onDestroy();
+        RelevanceItemSearchView relevanceItemSearchView = this.mSearchView;
+        if (relevanceItemSearchView != null) {
+            relevanceItemSearchView.p();
+        }
+    }
+
+    @Override // com.baidu.tbadk.suspended.SuspendedActivity
+    public void requestData() {
     }
 }

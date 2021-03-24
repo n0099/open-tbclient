@@ -10,75 +10,76 @@ import com.bytedance.sdk.openadsdk.utils.u;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f4429a = a.class.getSimpleName();
+    public static final String f28335a = "a";
 
     public static boolean a(Context context, String str) {
-        return Build.VERSION.SDK_INT >= 19 ? b(context, str) : c(context, str);
+        if (Build.VERSION.SDK_INT >= 19) {
+            return b(context, str);
+        }
+        return c(context, str);
     }
 
+    /* JADX WARN: Code restructure failed: missing block: B:20:0x004d, code lost:
+        if (r0 == 1) goto L27;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:21:0x004f, code lost:
+        if (r0 == 2) goto L26;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:22:0x0051, code lost:
+        r7 = r7.replaceFirst("android.permission.", "android:").toLowerCase();
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:23:0x005e, code lost:
+        r7 = "android:read_phone_state";
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:24:0x0061, code lost:
+        r7 = "android:fine_location";
+     */
     @RequiresApi(api = 19)
-    private static boolean b(Context context, String str) {
-        Exception exc;
-        boolean z;
-        String str2;
-        u.f(f4429a, "checkPermissinKITKATNew，permission：" + str);
-        char c = 65535;
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static boolean b(Context context, String str) {
+        String str2 = f28335a;
+        u.f(str2, "checkPermissinKITKATNew，permission：" + str);
+        char c2 = 65535;
+        boolean z = false;
         try {
-            switch (str.hashCode()) {
-                case -1888586689:
-                    if (str.equals("android.permission.ACCESS_FINE_LOCATION")) {
-                        c = 1;
-                        break;
+            int hashCode = str.hashCode();
+            if (hashCode != -1888586689) {
+                if (hashCode != -63024214) {
+                    if (hashCode == -5573545 && str.equals("android.permission.READ_PHONE_STATE")) {
+                        c2 = 2;
                     }
-                    break;
-                case -63024214:
-                    if (str.equals("android.permission.ACCESS_COARSE_LOCATION")) {
-                        c = 0;
-                        break;
-                    }
-                    break;
-                case -5573545:
-                    if (str.equals("android.permission.READ_PHONE_STATE")) {
-                        c = 2;
-                        break;
-                    }
-                    break;
+                } else if (str.equals("android.permission.ACCESS_COARSE_LOCATION")) {
+                    c2 = 0;
+                }
+            } else if (str.equals("android.permission.ACCESS_FINE_LOCATION")) {
+                c2 = 1;
             }
-            switch (c) {
-                case 0:
-                    str2 = "android:coarse_location";
-                    break;
-                case 1:
-                    str2 = "android:fine_location";
-                    break;
-                case 2:
-                    str2 = "android:read_phone_state";
-                    break;
-                default:
-                    str2 = str.replaceFirst("android.permission.", "android:").toLowerCase();
-                    break;
-            }
-            int checkOp = ((AppOpsManager) context.getSystemService("appops")).checkOp(str2, Binder.getCallingUid(), context.getPackageName());
-            u.f(f4429a, "checkPermissinKITKATNew，locationOp,permission：" + checkOp + "," + str2);
+            String str3 = "android:coarse_location";
+            int checkOp = ((AppOpsManager) context.getSystemService("appops")).checkOp(str3, Binder.getCallingUid(), context.getPackageName());
+            String str4 = f28335a;
+            u.f(str4, "checkPermissinKITKATNew，locationOp,permission：" + checkOp + "," + str3);
             if (checkOp != 0) {
                 try {
-                    u.f(f4429a, "checkPermissinKITKATNew，false,permission：" + str2);
+                    String str5 = f28335a;
+                    u.f(str5, "checkPermissinKITKATNew，false,permission：" + str3);
                     return false;
-                } catch (Exception e) {
-                    exc = e;
-                    z = false;
-                    u.f(f4429a, "权限检查出错时默认返回有权限，异常代码：" + exc);
+                } catch (Exception e2) {
+                    e = e2;
+                    String str6 = f28335a;
+                    u.f(str6, "权限检查出错时默认返回有权限，异常代码：" + e);
                     return z;
                 }
             }
             return true;
-        } catch (Exception e2) {
-            exc = e2;
+        } catch (Exception e3) {
+            e = e3;
             z = true;
         }
     }
 
-    private static boolean c(Context context, String str) {
+    public static boolean c(Context context, String str) {
         return context.getPackageManager().checkPermission(str, context.getPackageName()) == 0;
     }
 }

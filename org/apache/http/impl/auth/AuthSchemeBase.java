@@ -5,20 +5,20 @@ import org.apache.http.auth.AuthScheme;
 import org.apache.http.auth.MalformedChallengeException;
 import org.apache.http.util.CharArrayBuffer;
 @Deprecated
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public abstract class AuthSchemeBase implements AuthScheme {
-    protected abstract void parseChallenge(CharArrayBuffer charArrayBuffer, int i, int i2) throws MalformedChallengeException;
-
     public AuthSchemeBase() {
         throw new RuntimeException("Stub!");
     }
 
-    @Override // org.apache.http.auth.AuthScheme
-    public void processChallenge(Header header) throws MalformedChallengeException {
+    public boolean isProxy() {
         throw new RuntimeException("Stub!");
     }
 
-    public boolean isProxy() {
+    public abstract void parseChallenge(CharArrayBuffer charArrayBuffer, int i, int i2) throws MalformedChallengeException;
+
+    @Override // org.apache.http.auth.AuthScheme
+    public void processChallenge(Header header) throws MalformedChallengeException {
         throw new RuntimeException("Stub!");
     }
 }

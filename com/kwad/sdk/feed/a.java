@@ -8,77 +8,119 @@ import com.kwad.sdk.feed.widget.f;
 import com.kwad.sdk.feed.widget.g;
 import com.kwad.sdk.feed.widget.h;
 import com.kwad.sdk.feed.widget.i;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class a {
-    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    private static com.kwad.sdk.feed.widget.base.a a(Context context, FeedType feedType) {
-        switch (feedType) {
-            case FEED_TYPE_TEXT_IMMERSE:
-                return new g(context);
-            case FEED_TYPE_TEXT_ABOVE:
-                return new c(context);
-            case FEED_TYPE_TEXT_BELOW:
-                return new e(context);
-            case FEED_TYPE_TEXT_LEFT:
-                return new h(context);
-            case FEED_TYPE_TEXT_RIGHT:
-                return new i(context);
-            case FEED_TYPE_TEXT_ABOVE_GROUP:
-            case FEED_TYPE_UNKNOWN:
-                com.kwad.sdk.core.d.a.d("KSFeedFactory", "getSingleImageView type is unknown:" + feedType);
-                break;
+
+    /* renamed from: com.kwad.sdk.feed.a$1  reason: invalid class name */
+    /* loaded from: classes6.dex */
+    public static /* synthetic */ class AnonymousClass1 {
+
+        /* renamed from: a  reason: collision with root package name */
+        public static final /* synthetic */ int[] f34787a;
+
+        static {
+            int[] iArr = new int[FeedType.values().length];
+            f34787a = iArr;
+            try {
+                iArr[FeedType.FEED_TYPE_TEXT_IMMERSE.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
+            }
+            try {
+                f34787a[FeedType.FEED_TYPE_TEXT_ABOVE.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
+            }
+            try {
+                f34787a[FeedType.FEED_TYPE_TEXT_BELOW.ordinal()] = 3;
+            } catch (NoSuchFieldError unused3) {
+            }
+            try {
+                f34787a[FeedType.FEED_TYPE_TEXT_LEFT.ordinal()] = 4;
+            } catch (NoSuchFieldError unused4) {
+            }
+            try {
+                f34787a[FeedType.FEED_TYPE_TEXT_RIGHT.ordinal()] = 5;
+            } catch (NoSuchFieldError unused5) {
+            }
+            try {
+                f34787a[FeedType.FEED_TYPE_TEXT_ABOVE_GROUP.ordinal()] = 6;
+            } catch (NoSuchFieldError unused6) {
+            }
+            try {
+                f34787a[FeedType.FEED_TYPE_UNKNOWN.ordinal()] = 7;
+            } catch (NoSuchFieldError unused7) {
+            }
         }
-        return null;
+    }
+
+    public static com.kwad.sdk.feed.widget.base.a a(Context context, FeedType feedType) {
+        switch (AnonymousClass1.f34787a[feedType.ordinal()]) {
+            case 1:
+                return new g(context);
+            case 2:
+                return new c(context);
+            case 3:
+                return new e(context);
+            case 4:
+                return new h(context);
+            case 5:
+                return new i(context);
+            case 6:
+            case 7:
+                com.kwad.sdk.core.d.a.d("KSFeedFactory", "getSingleImageView type is unknown:" + feedType);
+                return null;
+            default:
+                return null;
+        }
     }
 
     public static com.kwad.sdk.feed.widget.base.a a(Context context, FeedType feedType, int i) {
         if (feedType == FeedType.FEED_TYPE_TEXT_NEW) {
             return new e(context);
         }
-        switch (i) {
-            case 1:
-                return c(context, feedType);
-            case 2:
-                return a(context, feedType);
-            case 3:
+        if (i != 1) {
+            if (i != 2) {
+                if (i != 3) {
+                    com.kwad.sdk.core.d.a.d("KSFeedFactory", "getNewFeedView materialType is unknown");
+                    return null;
+                }
                 return b(context, feedType);
+            }
+            return a(context, feedType);
+        }
+        return c(context, feedType);
+    }
+
+    public static com.kwad.sdk.feed.widget.base.a b(Context context, FeedType feedType) {
+        switch (AnonymousClass1.f34787a[feedType.ordinal()]) {
+            case 1:
+                return new g(context);
+            case 2:
+                return new c(context);
+            case 3:
+                return new e(context);
+            case 4:
+                return new h(context);
+            case 5:
+                return new i(context);
+            case 6:
+                return new com.kwad.sdk.feed.widget.b(context);
+            case 7:
+                com.kwad.sdk.core.d.a.d("KSFeedFactory", "getVideoView type is unknown" + feedType);
+                return null;
             default:
-                com.kwad.sdk.core.d.a.d("KSFeedFactory", "getNewFeedView materialType is unknown");
                 return null;
         }
     }
 
-    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    private static com.kwad.sdk.feed.widget.base.a b(Context context, FeedType feedType) {
-        switch (feedType) {
-            case FEED_TYPE_TEXT_IMMERSE:
-                return new g(context);
-            case FEED_TYPE_TEXT_ABOVE:
-                return new c(context);
-            case FEED_TYPE_TEXT_BELOW:
-                return new e(context);
-            case FEED_TYPE_TEXT_LEFT:
-                return new h(context);
-            case FEED_TYPE_TEXT_RIGHT:
-                return new i(context);
-            case FEED_TYPE_TEXT_ABOVE_GROUP:
-                return new com.kwad.sdk.feed.widget.b(context);
-            case FEED_TYPE_UNKNOWN:
-                com.kwad.sdk.core.d.a.d("KSFeedFactory", "getVideoView type is unknown" + feedType);
-                break;
-        }
-        return null;
-    }
-
-    private static com.kwad.sdk.feed.widget.base.a c(Context context, FeedType feedType) {
-        switch (feedType) {
-            case FEED_TYPE_TEXT_ABOVE:
-                return new d(context);
-            case FEED_TYPE_TEXT_BELOW:
-                return new f(context);
-            default:
+    public static com.kwad.sdk.feed.widget.base.a c(Context context, FeedType feedType) {
+        int i = AnonymousClass1.f34787a[feedType.ordinal()];
+        if (i != 2) {
+            if (i != 3) {
                 com.kwad.sdk.core.d.a.d("KSFeedFactory", "getVideoView type is unknown:" + feedType);
                 return null;
+            }
+            return new f(context);
         }
+        return new d(context);
     }
 }

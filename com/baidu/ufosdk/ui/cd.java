@@ -2,40 +2,39 @@ package com.baidu.ufosdk.ui;
 
 import android.os.Handler;
 import com.baidu.ufosdk.UfoSDK;
-/* loaded from: classes7.dex */
-final class cd implements Runnable {
+/* loaded from: classes5.dex */
+public final class cd implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FeedbackInputActivity f3704a;
+    public final /* synthetic */ FeedbackInputActivity f23111a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public cd(FeedbackInputActivity feedbackInputActivity) {
-        this.f3704a = feedbackInputActivity;
+        this.f23111a = feedbackInputActivity;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
         String str;
         String str2;
-        String d;
+        String d2;
         Handler handler;
         String str3;
-        str = this.f3704a.ar;
+        str = this.f23111a.ar;
         if (str != null) {
-            str3 = this.f3704a.ar;
+            str3 = this.f23111a.ar;
             if (str3.length() > 0) {
-                str2 = this.f3704a.ar;
-                d = com.baidu.ufosdk.e.a.d(this.f3704a.getApplicationContext(), this.f3704a.e, str2);
-                if (d != null || d.length() == 0) {
+                str2 = this.f23111a.ar;
+                d2 = com.baidu.ufosdk.e.a.d(this.f23111a.getApplicationContext(), this.f23111a.f23018e, str2);
+                if (d2 != null || d2.length() == 0) {
                 }
-                handler = this.f3704a.aK;
-                handler.obtainMessage(5, d).sendToTarget();
+                handler = this.f23111a.aK;
+                handler.obtainMessage(5, d2).sendToTarget();
                 return;
             }
         }
         str2 = UfoSDK.appid;
-        d = com.baidu.ufosdk.e.a.d(this.f3704a.getApplicationContext(), this.f3704a.e, str2);
-        if (d != null) {
+        d2 = com.baidu.ufosdk.e.a.d(this.f23111a.getApplicationContext(), this.f23111a.f23018e, str2);
+        if (d2 != null) {
         }
     }
 }

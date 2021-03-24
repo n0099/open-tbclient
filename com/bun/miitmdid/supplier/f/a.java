@@ -5,18 +5,17 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static Uri f3880a = Uri.parse("content://cn.nubia.identity/identity");
+    public static Uri f27113a = Uri.parse("content://cn.nubia.identity/identity");
 
     public static String a(Context context, String str) {
-        String str2;
         Bundle call;
         try {
             if (Build.VERSION.SDK_INT >= 17) {
-                ContentProviderClient acquireUnstableContentProviderClient = context.getContentResolver().acquireUnstableContentProviderClient(f3880a);
+                ContentProviderClient acquireUnstableContentProviderClient = context.getContentResolver().acquireUnstableContentProviderClient(f27113a);
                 call = acquireUnstableContentProviderClient.call("getAAID", str, null);
                 if (acquireUnstableContentProviderClient != null) {
                     if (Build.VERSION.SDK_INT >= 24) {
@@ -26,25 +25,19 @@ public class a {
                     }
                 }
             } else {
-                call = context.getContentResolver().call(f3880a, "getAAID", str, (Bundle) null);
+                call = context.getContentResolver().call(f27113a, "getAAID", str, (Bundle) null);
             }
             if (call.getInt("code", -1) == 0) {
                 String string = call.getString("id");
                 com.bun.miitmdid.utils.a.a("NubiaLog", "succeed:" + string);
                 return string;
             }
-            str2 = call.getString("message");
-            try {
-                com.bun.miitmdid.utils.a.a("NubiaLog", "failed:" + str2);
-                return str2;
-            } catch (Exception e) {
-                e = e;
-                e.printStackTrace();
-                return str2;
-            }
+            String string2 = call.getString("message");
+            com.bun.miitmdid.utils.a.a("NubiaLog", "failed:" + string2);
+            return string2;
         } catch (Exception e2) {
-            e = e2;
-            str2 = null;
+            e2.printStackTrace();
+            return null;
         }
     }
 
@@ -52,7 +45,7 @@ public class a {
         Bundle call;
         try {
             if (Build.VERSION.SDK_INT >= 17) {
-                ContentProviderClient acquireUnstableContentProviderClient = context.getContentResolver().acquireUnstableContentProviderClient(f3880a);
+                ContentProviderClient acquireUnstableContentProviderClient = context.getContentResolver().acquireUnstableContentProviderClient(f27113a);
                 call = acquireUnstableContentProviderClient.call("isSupport", null, null);
                 if (acquireUnstableContentProviderClient != null) {
                     if (Build.VERSION.SDK_INT >= 24) {
@@ -62,25 +55,26 @@ public class a {
                     }
                 }
             } else {
-                call = context.getContentResolver().call(f3880a, "isSupport", (String) null, (Bundle) null);
+                call = context.getContentResolver().call(f27113a, "isSupport", (String) null, (Bundle) null);
             }
-        } catch (Exception e) {
-            e.printStackTrace();
+            if (call.getInt("code", -1) == 0) {
+                com.bun.miitmdid.utils.a.a("NubiaLog", "succeed");
+                return call.getBoolean("issupport", true);
+            }
+            String string = call.getString("message");
+            com.bun.miitmdid.utils.a.a("NubiaLog", "failed:" + string);
+            return false;
+        } catch (Exception e2) {
+            e2.printStackTrace();
+            return false;
         }
-        if (call.getInt("code", -1) == 0) {
-            com.bun.miitmdid.utils.a.a("NubiaLog", "succeed");
-            return call.getBoolean("issupport", true);
-        }
-        com.bun.miitmdid.utils.a.a("NubiaLog", "failed:" + call.getString("message"));
-        return false;
     }
 
     public static String b(Context context) {
-        String str;
         Bundle call;
         try {
             if (Build.VERSION.SDK_INT >= 17) {
-                ContentProviderClient acquireUnstableContentProviderClient = context.getContentResolver().acquireUnstableContentProviderClient(f3880a);
+                ContentProviderClient acquireUnstableContentProviderClient = context.getContentResolver().acquireUnstableContentProviderClient(f27113a);
                 call = acquireUnstableContentProviderClient.call("getOAID", null, null);
                 if (acquireUnstableContentProviderClient != null) {
                     if (Build.VERSION.SDK_INT >= 24) {
@@ -90,34 +84,27 @@ public class a {
                     }
                 }
             } else {
-                call = context.getContentResolver().call(f3880a, "getOAID", (String) null, (Bundle) null);
+                call = context.getContentResolver().call(f27113a, "getOAID", (String) null, (Bundle) null);
             }
             if (call.getInt("code", -1) == 0) {
                 String string = call.getString("id");
                 com.bun.miitmdid.utils.a.a("NubiaLog", "succeed:" + string);
                 return string;
             }
-            str = call.getString("message");
-            try {
-                com.bun.miitmdid.utils.a.a("NubiaLog", "failed:" + str);
-                return str;
-            } catch (Exception e) {
-                e = e;
-                e.printStackTrace();
-                return str;
-            }
+            String string2 = call.getString("message");
+            com.bun.miitmdid.utils.a.a("NubiaLog", "failed:" + string2);
+            return string2;
         } catch (Exception e2) {
-            e = e2;
-            str = null;
+            e2.printStackTrace();
+            return null;
         }
     }
 
     public static String b(Context context, String str) {
-        String str2;
         Bundle bundle;
         try {
             if (Build.VERSION.SDK_INT >= 17) {
-                ContentProviderClient acquireUnstableContentProviderClient = context.getContentResolver().acquireUnstableContentProviderClient(f3880a);
+                ContentProviderClient acquireUnstableContentProviderClient = context.getContentResolver().acquireUnstableContentProviderClient(f27113a);
                 bundle = acquireUnstableContentProviderClient.call("getVAID", str, null);
                 if (acquireUnstableContentProviderClient != null) {
                     if (Build.VERSION.SDK_INT >= 24) {
@@ -127,7 +114,7 @@ public class a {
                     }
                 }
             } else {
-                context.getContentResolver().call(f3880a, "getVAID", str, (Bundle) null);
+                context.getContentResolver().call(f27113a, "getVAID", str, (Bundle) null);
                 bundle = null;
             }
             if (bundle.getInt("code", -1) == 0) {
@@ -135,18 +122,12 @@ public class a {
                 com.bun.miitmdid.utils.a.a("NubiaLog", "succeed:" + string);
                 return string;
             }
-            str2 = bundle.getString("message");
-            try {
-                com.bun.miitmdid.utils.a.a("NubiaLog", "failed:" + str2);
-                return str2;
-            } catch (Exception e) {
-                e = e;
-                e.printStackTrace();
-                return str2;
-            }
+            String string2 = bundle.getString("message");
+            com.bun.miitmdid.utils.a.a("NubiaLog", "failed:" + string2);
+            return string2;
         } catch (Exception e2) {
-            e = e2;
-            str2 = null;
+            e2.printStackTrace();
+            return null;
         }
     }
 }

@@ -6,100 +6,110 @@ import android.view.MotionEvent;
 import android.view.ViewConfiguration;
 import android.view.animation.TranslateAnimation;
 import androidx.viewpager.widget.ViewPager;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class b extends ViewPager {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f5999a;
-    private Rect b;
-    private boolean c;
-    private float d;
-    private a e;
-    private float f;
-    private boolean g;
-    private float h;
-    private float i;
-    private float j;
+    public int f33382a;
 
-    /* loaded from: classes3.dex */
+    /* renamed from: b  reason: collision with root package name */
+    public Rect f33383b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public boolean f33384c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public float f33385d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public a f33386e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public float f33387f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public boolean f33388g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public float f33389h;
+    public float i;
+    public float j;
+
+    /* loaded from: classes6.dex */
     public interface a {
-        void a(int i, float f);
+        void a(int i, float f2);
 
         void a(int i, int i2, int i3, int i4);
 
-        void a(boolean z, int i, float f);
+        void a(boolean z, int i, float f2);
     }
 
     public b(Context context) {
         super(context);
-        this.f5999a = 0;
-        this.b = new Rect();
-        this.c = true;
-        this.d = 0.0f;
-        this.g = false;
+        this.f33382a = 0;
+        this.f33383b = new Rect();
+        this.f33384c = true;
+        this.f33385d = 0.0f;
+        this.f33388g = false;
         this.j = ViewConfiguration.get(getContext()).getScaledTouchSlop();
     }
 
     private void a() {
-        if (!this.b.isEmpty()) {
+        if (!this.f33383b.isEmpty()) {
             b();
         }
-        this.d = -1.0f;
+        this.f33385d = -1.0f;
     }
 
-    private void a(float f) {
-        if (this.b.isEmpty()) {
-            this.b.set(getLeft(), getTop(), getRight(), getBottom());
+    private void a(float f2) {
+        if (this.f33383b.isEmpty()) {
+            this.f33383b.set(getLeft(), getTop(), getRight(), getBottom());
         }
-        this.c = false;
-        layout(getLeft() + ((int) (f * 0.5f)), getTop(), getRight() + ((int) (f * 0.5f)), getBottom());
+        this.f33384c = false;
+        int i = (int) (f2 * 0.5f);
+        layout(getLeft() + i, getTop(), getRight() + i, getBottom());
     }
 
     private void b() {
-        TranslateAnimation translateAnimation = new TranslateAnimation(getLeft(), this.b.left, 0.0f, 0.0f);
+        TranslateAnimation translateAnimation = new TranslateAnimation(getLeft(), this.f33383b.left, 0.0f, 0.0f);
         translateAnimation.setDuration(200L);
         startAnimation(translateAnimation);
-        layout(this.b.left, this.b.top, this.b.right, this.b.bottom);
-        this.b.setEmpty();
-        this.c = true;
-        if (this.e != null) {
-            this.e.a(this.f5999a, this.b.left - getLeft());
+        Rect rect = this.f33383b;
+        layout(rect.left, rect.top, rect.right, rect.bottom);
+        this.f33383b.setEmpty();
+        this.f33384c = true;
+        a aVar = this.f33386e;
+        if (aVar != null) {
+            aVar.a(this.f33382a, this.f33383b.left - getLeft());
         }
     }
 
     private int getSideEdgeType() {
-        if (getScrollX() >= this.f) {
+        if (getScrollX() >= this.f33387f) {
             return 2;
         }
-        return this.f5999a == 0 ? 1 : 0;
+        return this.f33382a == 0 ? 1 : 0;
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
-        switch (motionEvent.getAction()) {
-            case 0:
-                this.h = motionEvent.getRawX();
-                this.i = motionEvent.getRawY();
-                this.g = false;
+        int action = motionEvent.getAction();
+        if (action == 0) {
+            this.f33389h = motionEvent.getRawX();
+            this.i = motionEvent.getRawY();
+            this.f33388g = false;
+            getParent().requestDisallowInterceptTouchEvent(true);
+        } else if (action == 2 && !this.f33388g) {
+            float rawX = motionEvent.getRawX();
+            float rawY = motionEvent.getRawY();
+            float f2 = rawX - this.f33389h;
+            float f3 = rawY - this.i;
+            if (Math.abs(f2) > this.j && Math.abs(f2) > Math.abs(f3)) {
                 getParent().requestDisallowInterceptTouchEvent(true);
-                break;
-            case 2:
-                if (!this.g) {
-                    float rawX = motionEvent.getRawX();
-                    float rawY = motionEvent.getRawY();
-                    float f = rawX - this.h;
-                    float f2 = rawY - this.i;
-                    if (Math.abs(f) > this.j && Math.abs(f) > Math.abs(f2)) {
-                        getParent().requestDisallowInterceptTouchEvent(true);
-                        this.g = true;
-                        break;
-                    } else if (Math.abs(f2) - Math.abs(f) > this.j) {
-                        getParent().requestDisallowInterceptTouchEvent(false);
-                        this.g = true;
-                        break;
-                    }
-                }
-                break;
+            } else if (Math.abs(f3) - Math.abs(f2) > this.j) {
+                getParent().requestDisallowInterceptTouchEvent(false);
+            }
+            this.f33388g = true;
         }
         return super.dispatchTouchEvent(motionEvent);
     }
@@ -107,88 +117,110 @@ public class b extends ViewPager {
     @Override // androidx.viewpager.widget.ViewPager, android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
         if (motionEvent.getAction() == 0) {
-            this.f5999a = getCurrentItem();
-            float f = 0.0f;
+            this.f33382a = getCurrentItem();
+            float f2 = 0.0f;
             if (getAdapter() != null) {
                 for (int i = 0; i < getAdapter().getCount(); i++) {
-                    f += getAdapter().getPageWidth(i);
+                    f2 += getAdapter().getPageWidth(i);
                 }
             }
-            this.f = (f - 1.0f) * getMeasuredWidth();
-            if (this.f5999a == 0 || getScrollX() >= this.f) {
-                this.d = motionEvent.getX();
+            this.f33387f = (f2 - 1.0f) * getMeasuredWidth();
+            if (this.f33382a == 0 || getScrollX() >= this.f33387f) {
+                this.f33385d = motionEvent.getX();
             }
         }
         return super.onInterceptTouchEvent(motionEvent);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // androidx.viewpager.widget.ViewPager, android.view.ViewGroup, android.view.View
     public void onLayout(boolean z, int i, int i2, int i3, int i4) {
+        a aVar;
         super.onLayout(z, i, i2, i3, i4);
-        if (!z || this.e == null || i == this.b.left) {
+        if (!z || (aVar = this.f33386e) == null || i == this.f33383b.left) {
             return;
         }
-        this.e.a(getCurrentItem() == 0, this.f5999a, this.b.left - getLeft());
+        aVar.a(getCurrentItem() == 0, this.f33382a, this.f33383b.left - getLeft());
     }
 
     @Override // android.view.View
-    protected void onScrollChanged(int i, int i2, int i3, int i4) {
+    public void onScrollChanged(int i, int i2, int i3, int i4) {
         super.onScrollChanged(i, i2, i3, i4);
-        if (this.e != null) {
-            this.e.a(i, i2, i3, i4);
+        a aVar = this.f33386e;
+        if (aVar != null) {
+            aVar.a(i, i2, i3, i4);
         }
     }
 
+    /* JADX WARN: Code restructure failed: missing block: B:23:0x0058, code lost:
+        if ((getLeft() + r2) != r7.f33383b.left) goto L25;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:24:0x005a, code lost:
+        layout(getLeft() + r2, getTop(), getRight() + r2, getBottom());
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:34:0x0093, code lost:
+        if ((getLeft() + r2) >= r7.f33383b.left) goto L25;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:42:0x00ae, code lost:
+        if ((getRight() + r2) <= r7.f33383b.right) goto L25;
+     */
+    /* JADX WARN: Removed duplicated region for block: B:47:0x00b7 A[RETURN] */
     @Override // androidx.viewpager.widget.ViewPager, android.view.View
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        switch (motionEvent.getActionMasked()) {
-            case 1:
-                a();
-                break;
-            case 2:
-                int sideEdgeType = getSideEdgeType();
-                if (sideEdgeType > 0 && this.d < 0.0f) {
-                    this.d = motionEvent.getX(0);
+        int i;
+        int actionMasked = motionEvent.getActionMasked();
+        if (actionMasked == 1) {
+            a();
+        } else if (actionMasked == 2) {
+            int sideEdgeType = getSideEdgeType();
+            if (sideEdgeType > 0 && this.f33385d < 0.0f) {
+                this.f33385d = motionEvent.getX(0);
+            }
+            if (getAdapter().getCount() == 1) {
+                float x = motionEvent.getX(0);
+                float f2 = x - this.f33385d;
+                this.f33385d = x;
+                if (f2 > 10.0f || f2 < -10.0f) {
+                    a(f2);
+                } else if (!this.f33384c) {
+                    i = (int) (f2 * 0.5f);
                 }
-                if (getAdapter().getCount() == 1) {
-                    float x = motionEvent.getX(0);
-                    float f = x - this.d;
-                    this.d = x;
-                    if (f > 10.0f) {
-                        a(f);
-                    } else if (f < -10.0f) {
-                        a(f);
-                    } else if (!this.c && getLeft() + ((int) (f * 0.5f)) != this.b.left) {
-                        layout(getLeft() + ((int) (f * 0.5f)), getTop(), ((int) (f * 0.5f)) + getRight(), getBottom());
-                    }
-                } else if (sideEdgeType > 0) {
-                    float x2 = motionEvent.getX(0);
-                    float f2 = x2 - this.d;
-                    this.d = x2;
-                    if (sideEdgeType == 1) {
-                        if (f2 > 10.0f) {
-                            a(f2);
-                        } else if (!this.c && getLeft() + ((int) (f2 * 0.5f)) >= this.b.left) {
-                            layout(getLeft() + ((int) (f2 * 0.5f)), getTop(), ((int) (f2 * 0.5f)) + getRight(), getBottom());
-                        }
-                    } else if (f2 < -10.0f) {
-                        a(f2);
-                    } else if (!this.c && getRight() + ((int) (f2 * 0.5f)) <= this.b.right) {
-                        layout(getLeft() + ((int) (f2 * 0.5f)), getTop(), ((int) (f2 * 0.5f)) + getRight(), getBottom());
-                    }
-                } else {
-                    this.c = true;
-                }
-                if (!this.c) {
+                if (!this.f33384c) {
                     return true;
                 }
-                break;
+            } else {
+                if (sideEdgeType > 0) {
+                    float x2 = motionEvent.getX(0);
+                    float f3 = x2 - this.f33385d;
+                    this.f33385d = x2;
+                    if (sideEdgeType == 1) {
+                        if (f3 <= 10.0f) {
+                            if (!this.f33384c) {
+                                i = (int) (f3 * 0.5f);
+                            }
+                        }
+                        a(f3);
+                    } else {
+                        if (f3 >= -10.0f) {
+                            if (!this.f33384c) {
+                                i = (int) (f3 * 0.5f);
+                            }
+                        }
+                        a(f3);
+                    }
+                } else {
+                    this.f33384c = true;
+                }
+                if (!this.f33384c) {
+                }
+            }
         }
         return super.onTouchEvent(motionEvent);
     }
 
     public void setDragListener(a aVar) {
-        this.e = aVar;
+        this.f33386e = aVar;
     }
 }

@@ -2,51 +2,53 @@ package com.baidu.ufosdk.ui;
 
 import android.text.Editable;
 import android.text.TextWatcher;
-/* loaded from: classes7.dex */
-final class bt implements TextWatcher {
+import android.widget.TextView;
+/* loaded from: classes5.dex */
+public final class bt implements TextWatcher {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FeedbackInputActivity f3693a;
+    public final /* synthetic */ FeedbackInputActivity f23097a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public bt(FeedbackInputActivity feedbackInputActivity) {
-        this.f3693a = feedbackInputActivity;
+        this.f23097a = feedbackInputActivity;
     }
 
     @Override // android.text.TextWatcher
     public final void afterTextChanged(Editable editable) {
         boolean z;
-        z = this.f3693a.au;
+        z = this.f23097a.au;
         if (!z) {
-            com.baidu.ufosdk.f.d dVar = new com.baidu.ufosdk.f.d(this.f3693a);
+            com.baidu.ufosdk.f.d dVar = new com.baidu.ufosdk.f.d(this.f23097a);
             dVar.b(dVar.b() + 1);
-            this.f3693a.au = true;
+            this.f23097a.au = true;
         }
-        switch (this.f3693a.I) {
-            case 0:
-                if (this.f3693a.E.getText().toString().trim().length() > 0) {
-                    this.f3693a.J.setTextColor(com.baidu.ufosdk.f.i.a(com.baidu.ufosdk.b.v, com.baidu.ufosdk.b.y, com.baidu.ufosdk.b.v, com.baidu.ufosdk.b.v));
-                    return;
-                }
-                return;
-            case 1:
-                if (this.f3693a.E.getText().toString().trim().length() <= 0) {
-                    this.f3693a.J.setTextColor(com.baidu.ufosdk.b.y);
-                    return;
-                }
-                return;
-            default:
-                return;
+        FeedbackInputActivity feedbackInputActivity = this.f23097a;
+        int i = feedbackInputActivity.I;
+        if (i != 0) {
+            if (i == 1 && feedbackInputActivity.E.getText().toString().trim().length() <= 0) {
+                this.f23097a.J.setTextColor(com.baidu.ufosdk.b.y);
+            }
+        } else if (feedbackInputActivity.E.getText().toString().trim().length() > 0) {
+            TextView textView = this.f23097a.J;
+            int i2 = com.baidu.ufosdk.b.v;
+            int i3 = com.baidu.ufosdk.b.y;
+            int i4 = com.baidu.ufosdk.b.v;
+            textView.setTextColor(com.baidu.ufosdk.f.i.a(i2, i3, i4, i4));
         }
     }
 
     @Override // android.text.TextWatcher
     public final void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-        if (this.f3693a.E.getText().toString().trim().length() <= 0) {
-            this.f3693a.I = 0;
+        FeedbackInputActivity feedbackInputActivity;
+        int i4;
+        if (this.f23097a.E.getText().toString().trim().length() <= 0) {
+            feedbackInputActivity = this.f23097a;
+            i4 = 0;
         } else {
-            this.f3693a.I = 1;
+            feedbackInputActivity = this.f23097a;
+            i4 = 1;
         }
+        feedbackInputActivity.I = i4;
     }
 
     @Override // android.text.TextWatcher

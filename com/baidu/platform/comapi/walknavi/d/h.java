@@ -1,22 +1,18 @@
 package com.baidu.platform.comapi.walknavi.d;
 
 import com.baidu.platform.comapi.walknavi.d.g;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class h implements com.baidu.platform.comapi.walknavi.d.a.a {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ c f2946a;
-    final /* synthetic */ g b;
+    public final /* synthetic */ c f10033a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    /* renamed from: b  reason: collision with root package name */
+    public final /* synthetic */ g f10034b;
+
     public h(g gVar, c cVar) {
-        this.b = gVar;
-        this.f2946a = cVar;
-    }
-
-    @Override // com.baidu.platform.comapi.walknavi.d.a.a
-    public void a(boolean z, float f) {
+        this.f10034b = gVar;
+        this.f10033a = cVar;
     }
 
     @Override // com.baidu.platform.comapi.walknavi.d.a.a
@@ -25,26 +21,34 @@ public class h implements com.baidu.platform.comapi.walknavi.d.a.a {
         g.a aVar2;
         com.baidu.platform.comapi.wnplatform.d.a.a("NpcSDKManagerImp", "download onProgress = " + i);
         if (i == 100) {
-            this.b.n = false;
-            this.b.b.c = 0;
-            this.b.b.b = "";
+            this.f10034b.n = false;
+            g.b bVar = this.f10034b.f10022b;
+            bVar.f10031c = 0;
+            bVar.f10030b = "";
         }
-        aVar = this.b.o;
+        aVar = this.f10034b.o;
         if (aVar != null) {
-            this.b.b.c = i;
-            aVar2 = this.b.o;
-            aVar2.a(this.b.b);
+            g gVar = this.f10034b;
+            gVar.f10022b.f10031c = i;
+            aVar2 = gVar.o;
+            aVar2.a(this.f10034b.f10022b);
         }
     }
 
     @Override // com.baidu.platform.comapi.walknavi.d.a.a
+    public void a(boolean z, float f2) {
+    }
+
+    @Override // com.baidu.platform.comapi.walknavi.d.a.a
     public void a(int i, String str) {
-        com.baidu.platform.comapi.wnplatform.d.a.a("NpcSDKManagerImp", "download onResponse = " + this.f2946a);
-        this.b.n = false;
-        this.b.b.c = 0;
-        this.b.b.b = "";
-        if (this.f2946a != null) {
-            this.f2946a.a(i, str);
+        com.baidu.platform.comapi.wnplatform.d.a.a("NpcSDKManagerImp", "download onResponse = " + this.f10033a);
+        this.f10034b.n = false;
+        g.b bVar = this.f10034b.f10022b;
+        bVar.f10031c = 0;
+        bVar.f10030b = "";
+        c cVar = this.f10033a;
+        if (cVar != null) {
+            cVar.a(i, str);
         }
     }
 }

@@ -1,7 +1,6 @@
 package com.baidubce.util;
 
-import android.net.http.Headers;
-import com.baidu.live.tbadk.core.util.TiebaInitialize;
+import com.baidu.searchbox.aperf.bosuploader.ContentUtil;
 import com.baidubce.BceErrorResponse;
 import com.baidubce.http.BceHttpResponse;
 import com.baidubce.model.AbstractBceResponse;
@@ -24,6 +23,7 @@ import com.baidubce.services.bos.model.MultipartUploadSummary;
 import com.baidubce.services.bos.model.PartETag;
 import com.baidubce.services.bos.model.PartSummary;
 import com.baidubce.services.bos.model.Permission;
+import com.baidubce.services.sts.StsClient;
 import com.baidubce.services.sts.model.GetSessionTokenResponse;
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -38,8 +38,57 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class JsonUtils {
+
+    /* renamed from: com.baidubce.util.JsonUtils$1  reason: invalid class name */
+    /* loaded from: classes5.dex */
+    public static /* synthetic */ class AnonymousClass1 {
+        public static final /* synthetic */ int[] $SwitchMap$com$baidubce$services$bos$model$Permission;
+
+        static {
+            int[] iArr = new int[Permission.values().length];
+            $SwitchMap$com$baidubce$services$bos$model$Permission = iArr;
+            try {
+                iArr[Permission.FULL_CONTROL.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
+            }
+            try {
+                $SwitchMap$com$baidubce$services$bos$model$Permission[Permission.READ.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
+            }
+            try {
+                $SwitchMap$com$baidubce$services$bos$model$Permission[Permission.WRITE.ordinal()] = 3;
+            } catch (NoSuchFieldError unused3) {
+            }
+        }
+    }
+
+    public static void load(BceHttpResponse bceHttpResponse, AbstractBceResponse abstractBceResponse) throws IOException, NoSuchMethodException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, JSONException, ParseException {
+        load(bceHttpResponse.getContent(), abstractBceResponse);
+    }
+
+    public static BceErrorResponse loadError(InputStream inputStream) throws IOException, JSONException {
+        BceErrorResponse bceErrorResponse = new BceErrorResponse();
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
+        String str = "";
+        while (true) {
+            String readLine = bufferedReader.readLine();
+            if (readLine == null) {
+                break;
+            }
+            str = str + readLine;
+        }
+        if (str.isEmpty()) {
+            return null;
+        }
+        JSONObject jSONObject = new JSONObject(str);
+        bceErrorResponse.setCode(jSONObject.getString("code"));
+        bceErrorResponse.setMessage(jSONObject.getString("message"));
+        bceErrorResponse.setRequestId(jSONObject.getString("requestId"));
+        return bceErrorResponse;
+    }
+
     public static void loadFromString(String str, AbstractBceResponse abstractBceResponse) throws IOException, NoSuchMethodException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, JSONException, ParseException {
         JSONObject jSONObject = new JSONObject(str);
         if (abstractBceResponse.getClass() == ListBucketsResponse.class) {
@@ -53,7 +102,7 @@ public class JsonUtils {
                 JSONObject optJSONObject = jSONArray.optJSONObject(i);
                 BucketSummary bucketSummary = new BucketSummary();
                 bucketSummary.setName(optJSONObject.getString("name"));
-                bucketSummary.setLocation(optJSONObject.getString(Headers.LOCATION));
+                bucketSummary.setLocation(optJSONObject.getString("location"));
                 bucketSummary.setCreationDate(DateUtils.parseAlternateIso8601Date(optJSONObject.getString("creationDate")));
                 arrayList.add(bucketSummary);
             }
@@ -90,7 +139,7 @@ public class JsonUtils {
                     BosObjectSummary bosObjectSummary = new BosObjectSummary();
                     bosObjectSummary.setETag(optJSONObject2.getString("eTag"));
                     bosObjectSummary.setKey(optJSONObject2.getString("key"));
-                    bosObjectSummary.setSize(optJSONObject2.getLong(TiebaInitialize.LogFields.SIZE));
+                    bosObjectSummary.setSize(optJSONObject2.getLong("size"));
                     bosObjectSummary.setLastModified(DateUtils.parseAlternateIso8601Date(optJSONObject2.getString("lastModified")));
                     bosObjectSummary.setStorageClass(optJSONObject2.getString("storageClass"));
                     JSONObject jSONObject3 = optJSONObject2.getJSONObject("owner");
@@ -122,16 +171,13 @@ public class JsonUtils {
                 }
                 JSONArray jSONArray6 = jSONObject5.getJSONArray("permission");
                 for (int i6 = 0; i6 < jSONArray6.length(); i6++) {
-                    switch (Permission.valueOf(jSONArray6.get(i6).toString())) {
-                        case FULL_CONTROL:
-                            arrayList6.add(Permission.FULL_CONTROL);
-                            break;
-                        case READ:
-                            arrayList6.add(Permission.READ);
-                            break;
-                        case WRITE:
-                            arrayList6.add(Permission.WRITE);
-                            break;
+                    int i7 = AnonymousClass1.$SwitchMap$com$baidubce$services$bos$model$Permission[Permission.valueOf(jSONArray6.get(i6).toString()).ordinal()];
+                    if (i7 == 1) {
+                        arrayList6.add(Permission.FULL_CONTROL);
+                    } else if (i7 == 2) {
+                        arrayList6.add(Permission.READ);
+                    } else if (i7 == 3) {
+                        arrayList6.add(Permission.WRITE);
                     }
                 }
                 arrayList4.add(new Grant(arrayList5, arrayList6));
@@ -144,16 +190,16 @@ public class JsonUtils {
             abstractBceResponse.getClass().getMethod("setLastModified", Date.class).invoke(abstractBceResponse, DateUtils.parseAlternateIso8601Date(String.valueOf(jSONObject.get("lastModified"))));
             abstractBceResponse.getClass().getMethod("setETag", String.class).invoke(abstractBceResponse, jSONObject.get("eTag"));
         } else if (abstractBceResponse.getClass() == InitiateMultipartUploadResponse.class) {
-            abstractBceResponse.getClass().getMethod("setBucketName", String.class).invoke(abstractBceResponse, jSONObject.get("bucket"));
+            abstractBceResponse.getClass().getMethod("setBucketName", String.class).invoke(abstractBceResponse, jSONObject.get(ContentUtil.RESULT_KEY_BUCKET));
             abstractBceResponse.getClass().getMethod("setKey", String.class).invoke(abstractBceResponse, jSONObject.get("key"));
             abstractBceResponse.getClass().getMethod("setUploadId", String.class).invoke(abstractBceResponse, jSONObject.get("uploadId"));
         } else if (abstractBceResponse.getClass() == CompleteMultipartUploadResponse.class) {
-            abstractBceResponse.getClass().getMethod("setBucketName", String.class).invoke(abstractBceResponse, jSONObject.get("bucket"));
+            abstractBceResponse.getClass().getMethod("setBucketName", String.class).invoke(abstractBceResponse, jSONObject.get(ContentUtil.RESULT_KEY_BUCKET));
             abstractBceResponse.getClass().getMethod("setKey", String.class).invoke(abstractBceResponse, jSONObject.get("key"));
-            abstractBceResponse.getClass().getMethod("setLocation", String.class).invoke(abstractBceResponse, jSONObject.get(Headers.LOCATION));
+            abstractBceResponse.getClass().getMethod("setLocation", String.class).invoke(abstractBceResponse, jSONObject.get("location"));
             abstractBceResponse.getClass().getMethod("setETag", String.class).invoke(abstractBceResponse, jSONObject.get("eTag"));
         } else if (abstractBceResponse.getClass() == ListMultipartUploadsResponse.class) {
-            abstractBceResponse.getClass().getMethod("setBucketName", String.class).invoke(abstractBceResponse, jSONObject.get("bucket"));
+            abstractBceResponse.getClass().getMethod("setBucketName", String.class).invoke(abstractBceResponse, jSONObject.get(ContentUtil.RESULT_KEY_BUCKET));
             if (jSONObject.has("keyMarker")) {
                 abstractBceResponse.getClass().getMethod("setKeyMarker", String.class).invoke(abstractBceResponse, jSONObject.get("keyMarker"));
             }
@@ -170,15 +216,15 @@ public class JsonUtils {
                 Method method2 = abstractBceResponse.getClass().getMethod("setCommonPrefixes", List.class);
                 JSONArray jSONArray7 = jSONObject.getJSONArray("commonPrefixes");
                 ArrayList arrayList7 = new ArrayList();
-                for (int i7 = 0; i7 < jSONArray7.length(); i7++) {
-                    arrayList7.add(jSONArray7.optJSONObject(i7).getString("prefix"));
+                for (int i8 = 0; i8 < jSONArray7.length(); i8++) {
+                    arrayList7.add(jSONArray7.optJSONObject(i8).getString("prefix"));
                 }
                 method2.invoke(abstractBceResponse, arrayList7);
             }
             ArrayList arrayList8 = new ArrayList();
             JSONArray jSONArray8 = jSONObject.getJSONArray("uploads");
-            for (int i8 = 0; i8 < jSONArray8.length(); i8++) {
-                JSONObject optJSONObject4 = jSONArray8.optJSONObject(i8);
+            for (int i9 = 0; i9 < jSONArray8.length(); i9++) {
+                JSONObject optJSONObject4 = jSONArray8.optJSONObject(i9);
                 MultipartUploadSummary multipartUploadSummary = new MultipartUploadSummary();
                 multipartUploadSummary.setUploadId(optJSONObject4.getString("uploadId"));
                 multipartUploadSummary.setKey(optJSONObject4.getString("key"));
@@ -193,7 +239,7 @@ public class JsonUtils {
             }
             abstractBceResponse.getClass().getMethod("setMultipartUploads", List.class).invoke(abstractBceResponse, arrayList8);
         } else if (abstractBceResponse.getClass() == ListPartsResponse.class) {
-            abstractBceResponse.getClass().getMethod("setBucketName", String.class).invoke(abstractBceResponse, jSONObject.get("bucket"));
+            abstractBceResponse.getClass().getMethod("setBucketName", String.class).invoke(abstractBceResponse, jSONObject.get(ContentUtil.RESULT_KEY_BUCKET));
             abstractBceResponse.getClass().getMethod("setKey", String.class).invoke(abstractBceResponse, jSONObject.get("key"));
             abstractBceResponse.getClass().getMethod("setUploadId", String.class).invoke(abstractBceResponse, jSONObject.get("uploadId"));
             abstractBceResponse.getClass().getMethod("setInitiated", Date.class).invoke(abstractBceResponse, DateUtils.parseAlternateIso8601Date(jSONObject.getString("initiated")));
@@ -209,12 +255,12 @@ public class JsonUtils {
             abstractBceResponse.getClass().getMethod("setOwner", User.class).invoke(abstractBceResponse, user4);
             ArrayList arrayList9 = new ArrayList();
             JSONArray jSONArray9 = jSONObject.getJSONArray("parts");
-            for (int i9 = 0; i9 < jSONArray9.length(); i9++) {
-                JSONObject optJSONObject5 = jSONArray9.optJSONObject(i9);
+            for (int i10 = 0; i10 < jSONArray9.length(); i10++) {
+                JSONObject optJSONObject5 = jSONArray9.optJSONObject(i10);
                 PartSummary partSummary = new PartSummary();
                 partSummary.setPartNumber(optJSONObject5.getInt("partNumber"));
                 partSummary.setETag(optJSONObject5.getString("eTag"));
-                partSummary.setSize(optJSONObject5.getInt(TiebaInitialize.LogFields.SIZE));
+                partSummary.setSize(optJSONObject5.getInt("size"));
                 partSummary.setLastModified(DateUtils.parseAlternateIso8601Date(optJSONObject5.getString("lastModified")));
                 arrayList9.add(partSummary);
             }
@@ -222,53 +268,11 @@ public class JsonUtils {
         } else if (abstractBceResponse.getClass() == GetSessionTokenResponse.class) {
             abstractBceResponse.getClass().getMethod("setAccessKeyId", String.class).invoke(abstractBceResponse, jSONObject.get("accessKeyId"));
             abstractBceResponse.getClass().getMethod("setSecretAccessKey", String.class).invoke(abstractBceResponse, jSONObject.get("secretAccessKey"));
-            abstractBceResponse.getClass().getMethod("setSessionToken", String.class).invoke(abstractBceResponse, jSONObject.get("sessionToken"));
+            abstractBceResponse.getClass().getMethod("setSessionToken", String.class).invoke(abstractBceResponse, jSONObject.get(StsClient.GET_SESSION_TOKEN_PATH));
             abstractBceResponse.getClass().getMethod("setExpiration", Date.class).invoke(abstractBceResponse, DateUtils.parseAlternateIso8601Date(jSONObject.getString("expiration")));
         } else if (abstractBceResponse.getClass() == GetBucketLocationResponse.class) {
             abstractBceResponse.getClass().getMethod("setLocationConstraint", String.class).invoke(abstractBceResponse, jSONObject.get("locationConstraint"));
         }
-    }
-
-    public static void load(BceHttpResponse bceHttpResponse, AbstractBceResponse abstractBceResponse) throws IOException, NoSuchMethodException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, JSONException, ParseException {
-        load(bceHttpResponse.getContent(), abstractBceResponse);
-    }
-
-    public static void load(InputStream inputStream, AbstractBceResponse abstractBceResponse) throws IOException, NoSuchMethodException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, JSONException, ParseException {
-        String str = "";
-        if (inputStream != null) {
-            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
-            while (true) {
-                String readLine = bufferedReader.readLine();
-                if (readLine != null) {
-                    str = str + readLine;
-                } else {
-                    inputStream.close();
-                    loadFromString(str, abstractBceResponse);
-                    return;
-                }
-            }
-        }
-    }
-
-    public static BceErrorResponse loadError(InputStream inputStream) throws IOException, JSONException {
-        BceErrorResponse bceErrorResponse = new BceErrorResponse();
-        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
-        String str = "";
-        while (true) {
-            String readLine = bufferedReader.readLine();
-            if (readLine == null) {
-                break;
-            }
-            str = str + readLine;
-        }
-        if (str.isEmpty()) {
-            return null;
-        }
-        JSONObject jSONObject = new JSONObject(str);
-        bceErrorResponse.setCode(jSONObject.getString("code"));
-        bceErrorResponse.setMessage(jSONObject.getString("message"));
-        bceErrorResponse.setRequestId(jSONObject.getString("requestId"));
-        return bceErrorResponse;
     }
 
     public static String setAclJson(List<Grant> list) throws JSONException {
@@ -305,5 +309,23 @@ public class JsonUtils {
         }
         jSONObject.put("parts", jSONArray);
         return jSONObject.toString();
+    }
+
+    public static void load(InputStream inputStream, AbstractBceResponse abstractBceResponse) throws IOException, NoSuchMethodException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, JSONException, ParseException {
+        if (inputStream == null) {
+            return;
+        }
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
+        String str = "";
+        while (true) {
+            String readLine = bufferedReader.readLine();
+            if (readLine != null) {
+                str = str + readLine;
+            } else {
+                inputStream.close();
+                loadFromString(str, abstractBceResponse);
+                return;
+            }
+        }
     }
 }

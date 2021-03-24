@@ -10,10 +10,10 @@ import androidx.annotation.Nullable;
 import com.bytedance.sdk.openadsdk.TTAdDislike;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public interface TTNativeAd {
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface AdInteractionListener {
         void onAdClicked(View view, TTNativeAd tTNativeAd);
 
@@ -22,9 +22,9 @@ public interface TTNativeAd {
         void onAdShow(TTNativeAd tTNativeAd);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface ExpressRenderListener {
-        void onRenderSuccess(View view, float f, float f2, boolean z);
+        void onRenderSuccess(View view, float f2, float f3, boolean z);
     }
 
     void destroy();
@@ -60,6 +60,8 @@ public interface TTNativeAd {
     int getInteractionType();
 
     Map<String, Object> getMediaExtraInfo();
+
+    PersonalizationPrompt getPersonalizationPrompt();
 
     String getSource();
 

@@ -4,10 +4,10 @@ import android.os.Bundle;
 import com.tencent.mm.opensdk.modelbase.BaseReq;
 import com.tencent.mm.opensdk.utils.Log;
 import com.tencent.mm.opensdk.utils.a;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class PayReq extends BaseReq {
-    private static final int EXTDATA_MAX_LENGTH = 1024;
-    private static final String TAG = "MicroMsg.PaySdk.PayReq";
+    public static final int EXTDATA_MAX_LENGTH = 1024;
+    public static final String TAG = "MicroMsg.PaySdk.PayReq";
     public String appId;
     public String extData;
     public String nonceStr;
@@ -19,7 +19,7 @@ public class PayReq extends BaseReq {
     public String signType;
     public String timeStamp;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class Options {
         public static final int INVALID_FLAGS = -1;
         public String callbackClassName;
@@ -38,33 +38,49 @@ public class PayReq extends BaseReq {
 
     @Override // com.tencent.mm.opensdk.modelbase.BaseReq
     public boolean checkArgs() {
-        if (this.appId == null || this.appId.length() == 0) {
-            Log.e(TAG, "checkArgs fail, invalid appId");
-            return false;
-        } else if (this.partnerId == null || this.partnerId.length() == 0) {
-            Log.e(TAG, "checkArgs fail, invalid partnerId");
-            return false;
-        } else if (this.prepayId == null || this.prepayId.length() == 0) {
-            Log.e(TAG, "checkArgs fail, invalid prepayId");
-            return false;
-        } else if (this.nonceStr == null || this.nonceStr.length() == 0) {
-            Log.e(TAG, "checkArgs fail, invalid nonceStr");
-            return false;
-        } else if (this.timeStamp == null || this.timeStamp.length() == 0) {
-            Log.e(TAG, "checkArgs fail, invalid timeStamp");
-            return false;
-        } else if (this.packageValue == null || this.packageValue.length() == 0) {
-            Log.e(TAG, "checkArgs fail, invalid packageValue");
-            return false;
-        } else if (this.sign == null || this.sign.length() == 0) {
-            Log.e(TAG, "checkArgs fail, invalid sign");
-            return false;
-        } else if (this.extData == null || this.extData.length() <= 1024) {
-            return true;
+        String str;
+        String str2 = this.appId;
+        if (str2 == null || str2.length() == 0) {
+            str = "checkArgs fail, invalid appId";
         } else {
-            Log.e(TAG, "checkArgs fail, extData length too long");
-            return false;
+            String str3 = this.partnerId;
+            if (str3 == null || str3.length() == 0) {
+                str = "checkArgs fail, invalid partnerId";
+            } else {
+                String str4 = this.prepayId;
+                if (str4 == null || str4.length() == 0) {
+                    str = "checkArgs fail, invalid prepayId";
+                } else {
+                    String str5 = this.nonceStr;
+                    if (str5 == null || str5.length() == 0) {
+                        str = "checkArgs fail, invalid nonceStr";
+                    } else {
+                        String str6 = this.timeStamp;
+                        if (str6 == null || str6.length() == 0) {
+                            str = "checkArgs fail, invalid timeStamp";
+                        } else {
+                            String str7 = this.packageValue;
+                            if (str7 == null || str7.length() == 0) {
+                                str = "checkArgs fail, invalid packageValue";
+                            } else {
+                                String str8 = this.sign;
+                                if (str8 == null || str8.length() == 0) {
+                                    str = "checkArgs fail, invalid sign";
+                                } else {
+                                    String str9 = this.extData;
+                                    if (str9 == null || str9.length() <= 1024) {
+                                        return true;
+                                    }
+                                    str = "checkArgs fail, extData length too long";
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
+        Log.e("MicroMsg.PaySdk.PayReq", str);
+        return false;
     }
 
     @Override // com.tencent.mm.opensdk.modelbase.BaseReq
@@ -79,8 +95,9 @@ public class PayReq extends BaseReq {
         this.sign = a.b(bundle, "_wxapi_payreq_sign");
         this.extData = a.b(bundle, "_wxapi_payreq_extdata");
         this.signType = a.b(bundle, "_wxapi_payreq_sign_type");
-        this.options = new Options();
-        this.options.fromBundle(bundle);
+        Options options = new Options();
+        this.options = options;
+        options.fromBundle(bundle);
     }
 
     @Override // com.tencent.mm.opensdk.modelbase.BaseReq
@@ -100,8 +117,9 @@ public class PayReq extends BaseReq {
         bundle.putString("_wxapi_payreq_sign", this.sign);
         bundle.putString("_wxapi_payreq_extdata", this.extData);
         bundle.putString("_wxapi_payreq_sign_type", this.signType);
-        if (this.options != null) {
-            this.options.toBundle(bundle);
+        Options options = this.options;
+        if (options != null) {
+            options.toBundle(bundle);
         }
     }
 }

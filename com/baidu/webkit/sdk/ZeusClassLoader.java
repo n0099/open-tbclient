@@ -2,7 +2,6 @@ package com.baidu.webkit.sdk;
 
 import android.os.Build;
 import android.util.AndroidRuntimeException;
-import com.baidu.adp.plugin.install.PluginInstallerService;
 import com.baidu.webkit.sdk.performance.ZeusPerformanceTiming;
 import dalvik.system.BaseDexClassLoader;
 import dalvik.system.DexFile;
@@ -10,30 +9,29 @@ import java.io.File;
 import java.lang.reflect.Array;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public final class ZeusClassLoader extends BaseDexClassLoader {
-    static Class DexPathListClass = null;
-    static Class ElementClass = null;
-    static final String TAG = "ZeusClassLoader";
-    private static String ORG_CHROMIUM = "org.chromium.";
-    private static String COM_BAIDU_BLINK = "com.baidu.blink.";
-    private static String COM_BAIDU_CYBERPLAYER = "com.baidu.cyberplayer.";
-    private static String COM_BAIDU_ZEUS = "com.baidu.zeus.";
-    private static String COM_BAIDU_DUMPER = "com.baidu.dumper.";
-    private static String ANDROID_SUPPORT_V4 = "zeus.support.v4.";
-    private static String BAIDU_MONITOR = "com.baidu.monitor.";
-    private static String ORG_CHROMIUM_NET = "org.chromium.net.";
+    public static String ANDROID_SUPPORT_V4 = "zeus.support.v4.";
+    public static String BAIDU_MONITOR = "com.baidu.monitor.";
+    public static String COM_BAIDU_BLINK = "com.baidu.blink.";
+    public static String COM_BAIDU_CYBERPLAYER = "com.baidu.cyberplayer.";
+    public static String COM_BAIDU_DUMPER = "com.baidu.dumper.";
+    public static String COM_BAIDU_ZEUS = "com.baidu.zeus.";
+    public static Class DexPathListClass = null;
+    public static Class ElementClass = null;
+    public static String ORG_CHROMIUM = "org.chromium.";
+    public static String ORG_CHROMIUM_NET = "org.chromium.net.";
+    public static final String TAG = "ZeusClassLoader";
 
     public ZeusClassLoader(String str, File file, String str2, ClassLoader classLoader) {
         super(logBeforeCallSuper(str, "super()"), file, str2, classLoader);
-        if (Build.VERSION.SDK_INT >= 21 || !str.endsWith(PluginInstallerService.APK_LIB_SUFFIX)) {
+        if (Build.VERSION.SDK_INT >= 21 || !str.endsWith(".so")) {
             return;
         }
         makeAndSetDexElements(str, file, str2, classLoader);
     }
 
-    private static void ensureReflectionInited() throws Exception {
+    public static void ensureReflectionInited() throws Exception {
         if (DexPathListClass == null || ElementClass == null) {
             Class<?> cls = Class.forName("dalvik.system.DexPathList");
             DexPathListClass = cls;
@@ -57,7 +55,7 @@ public final class ZeusClassLoader extends BaseDexClassLoader {
         }
     }
 
-    private static Object getField(Class cls, Object obj, String str) throws Exception {
+    public static Object getField(Class cls, Object obj, String str) throws Exception {
         Field declaredField = cls.getDeclaredField(str);
         boolean isAccessible = declaredField.isAccessible();
         declaredField.setAccessible(true);
@@ -66,7 +64,7 @@ public final class ZeusClassLoader extends BaseDexClassLoader {
         return obj2;
     }
 
-    private static boolean isFileSuffixCheckExists() {
+    public static boolean isFileSuffixCheckExists() {
         try {
             ensureReflectionInited();
             for (Field field : DexPathListClass.getDeclaredFields()) {
@@ -77,12 +75,12 @@ public final class ZeusClassLoader extends BaseDexClassLoader {
                 }
             }
             return false;
-        } catch (Throwable th) {
+        } catch (Throwable unused) {
             return false;
         }
     }
 
-    private static String logBeforeCallSuper(String str, String str2) {
+    public static String logBeforeCallSuper(String str, String str2) {
         Log.d(TAG, str2);
         return str;
     }
@@ -91,11 +89,12 @@ public final class ZeusClassLoader extends BaseDexClassLoader {
         Object newInstance;
         try {
             ensureReflectionInited();
-            DexFile loadDex = DexFile.loadDex(str, file.getAbsolutePath() + File.separator + new File(str).getName().replace(PluginInstallerService.APK_LIB_SUFFIX, ".dex"), 0);
+            String replace = new File(str).getName().replace(".so", ".dex");
+            DexFile loadDex = DexFile.loadDex(str, file.getAbsolutePath() + File.separator + replace, 0);
             Constructor<?> constructor = ElementClass.getConstructors()[0];
             int length = constructor.getParameterTypes().length;
             if (length == 4) {
-                newInstance = constructor.newInstance(new File(str), false, null, loadDex);
+                newInstance = constructor.newInstance(new File(str), Boolean.FALSE, null, loadDex);
             } else if (length != 3) {
                 throw new Exception("Unsupported:" + constructor.toGenericString());
             } else {
@@ -108,13 +107,13 @@ public final class ZeusClassLoader extends BaseDexClassLoader {
             if (Build.VERSION.SDK_INT >= 19) {
                 setField(DexPathListClass, field, "dexElementsSuppressedExceptions", null);
             }
-        } catch (Exception e) {
-            e.printStackTrace();
-            throw new AndroidRuntimeException(e);
+        } catch (Exception e2) {
+            e2.printStackTrace();
+            throw new AndroidRuntimeException(e2);
         }
     }
 
-    private static void setField(Class cls, Object obj, String str, Object obj2) throws Exception {
+    public static void setField(Class cls, Object obj, String str, Object obj2) throws Exception {
         Field declaredField = cls.getDeclaredField(str);
         boolean isAccessible = declaredField.isAccessible();
         declaredField.setAccessible(true);
@@ -139,7 +138,7 @@ public final class ZeusClassLoader extends BaseDexClassLoader {
                     return findClass;
                 }
             }
-        } catch (Throwable th) {
+        } catch (Throwable unused) {
             Log.e(TAG, "loadClass error. aClassName=" + str);
         }
         return super.loadClass(str);

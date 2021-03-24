@@ -4,7 +4,7 @@ import android.content.Context;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.pay.PayConfig;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class WalletPayResultActivityConfig extends IntentConfig {
     public static final String IS_DIALOG = "is_dialog";
     public static final String PAYDATA = "pay_data";

@@ -5,38 +5,21 @@ import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Looper;
 import android.os.Message;
-/* loaded from: classes14.dex */
+import com.baidu.tbadk.core.data.SmallTailInfo;
+/* loaded from: classes7.dex */
 public abstract class aa {
 
     /* renamed from: a  reason: collision with root package name */
-    protected Context f8005a;
-    protected Handler b;
-    private final Object c = new Object();
+    public Context f39350a;
 
-    public abstract void b(Message message);
+    /* renamed from: b  reason: collision with root package name */
+    public Handler f39351b;
 
-    public aa() {
-        HandlerThread handlerThread = new HandlerThread(getClass().getSimpleName(), 1);
-        handlerThread.start();
-        this.b = new a(handlerThread.getLooper());
-    }
+    /* renamed from: c  reason: collision with root package name */
+    public final Object f39352c = new Object();
 
-    public final void a(Context context) {
-        this.f8005a = context;
-    }
-
-    public final void a(Message message) {
-        synchronized (this.c) {
-            if (this.b == null) {
-                com.vivo.push.util.p.e(getClass().getSimpleName(), ("Dead worker dropping a message: " + message.what) + " (Thread " + Thread.currentThread().getId() + ")");
-            } else {
-                this.b.sendMessage(message);
-            }
-        }
-    }
-
-    /* loaded from: classes14.dex */
-    class a extends Handler {
+    /* loaded from: classes7.dex */
+    public class a extends Handler {
         public a(Looper looper) {
             super(looper);
         }
@@ -44,6 +27,29 @@ public abstract class aa {
         @Override // android.os.Handler
         public final void handleMessage(Message message) {
             aa.this.b(message);
+        }
+    }
+
+    public aa() {
+        HandlerThread handlerThread = new HandlerThread(getClass().getSimpleName(), 1);
+        handlerThread.start();
+        this.f39351b = new a(handlerThread.getLooper());
+    }
+
+    public final void a(Context context) {
+        this.f39350a = context;
+    }
+
+    public abstract void b(Message message);
+
+    public final void a(Message message) {
+        synchronized (this.f39352c) {
+            if (this.f39351b == null) {
+                String simpleName = getClass().getSimpleName();
+                com.vivo.push.util.p.e(simpleName, ("Dead worker dropping a message: " + message.what) + " (Thread " + Thread.currentThread().getId() + SmallTailInfo.EMOTION_SUFFIX);
+            } else {
+                this.f39351b.sendMessage(message);
+            }
         }
     }
 }

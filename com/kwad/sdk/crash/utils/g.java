@@ -1,5 +1,6 @@
 package com.kwad.sdk.crash.utils;
 
+import com.baidu.android.common.others.IStringUtil;
 import java.io.File;
 import java.io.FileFilter;
 import java.io.FileInputStream;
@@ -13,45 +14,72 @@ import java.nio.channels.FileChannel;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class g {
-    public static final char i;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Charset f6397a = Charset.forName("US-ASCII");
-    public static final Charset b = Charset.forName("UTF-8");
-    public static final BigInteger c = BigInteger.valueOf(1024);
-    public static final BigInteger d = c.multiply(c);
-    public static final BigInteger e = c.multiply(d);
-    public static final BigInteger f = c.multiply(e);
-    public static final BigInteger g = c.multiply(f);
-    public static final BigInteger h = c.multiply(g);
-    public static final BigInteger j = BigInteger.valueOf(1024).multiply(BigInteger.valueOf(1152921504606846976L));
-    public static final BigInteger k = c.multiply(j);
-    public static final File[] l = new File[0];
-    public static final String m = Character.toString('.');
-    private static final Charset n = Charset.forName("UTF-8");
-    private static final char o = File.separatorChar;
+    public static final Charset f34493a = Charset.forName("US-ASCII");
+
+    /* renamed from: b  reason: collision with root package name */
+    public static final Charset f34494b = Charset.forName("UTF-8");
+
+    /* renamed from: c  reason: collision with root package name */
+    public static final BigInteger f34495c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public static final BigInteger f34496d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public static final BigInteger f34497e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public static final BigInteger f34498f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public static final BigInteger f34499g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public static final BigInteger f34500h;
+    public static final char i;
+    public static final BigInteger j;
+    public static final BigInteger k;
+    public static final File[] l;
+    public static final String m;
+    public static final Charset n;
+    public static final char o;
 
     static {
-        if (a()) {
-            i = '/';
-        } else {
-            i = '\\';
-        }
+        BigInteger valueOf = BigInteger.valueOf(1024L);
+        f34495c = valueOf;
+        BigInteger multiply = valueOf.multiply(valueOf);
+        f34496d = multiply;
+        BigInteger multiply2 = f34495c.multiply(multiply);
+        f34497e = multiply2;
+        BigInteger multiply3 = f34495c.multiply(multiply2);
+        f34498f = multiply3;
+        BigInteger multiply4 = f34495c.multiply(multiply3);
+        f34499g = multiply4;
+        f34500h = f34495c.multiply(multiply4);
+        BigInteger multiply5 = BigInteger.valueOf(1024L).multiply(BigInteger.valueOf(1152921504606846976L));
+        j = multiply5;
+        k = f34495c.multiply(multiply5);
+        l = new File[0];
+        m = Character.toString(IStringUtil.EXTENSION_SEPARATOR);
+        n = Charset.forName("UTF-8");
+        o = File.separatorChar;
+        i = a() ? '/' : '\\';
     }
 
     public static FileInputStream a(File file) {
-        if (file.exists()) {
-            if (file.isDirectory()) {
-                throw new IOException("File '" + file + "' exists but is a directory");
-            }
-            if (file.canRead()) {
-                return new FileInputStream(file);
-            }
+        if (!file.exists()) {
+            throw new FileNotFoundException("File '" + file + "' does not exist");
+        } else if (file.isDirectory()) {
+            throw new IOException("File '" + file + "' exists but is a directory");
+        } else if (file.canRead()) {
+            return new FileInputStream(file);
+        } else {
             throw new IOException("File '" + file + "' cannot be read");
         }
-        throw new FileNotFoundException("File '" + file + "' does not exist");
     }
 
     public static FileOutputStream a(File file, boolean z) {
@@ -62,21 +90,28 @@ public class g {
             }
         } else if (file.isDirectory()) {
             throw new IOException("File '" + file + "' exists but is a directory");
-        } else {
-            if (!file.canWrite()) {
-                throw new IOException("File '" + file + "' cannot be written to");
-            }
+        } else if (!file.canWrite()) {
+            throw new IOException("File '" + file + "' cannot be written to");
         }
         return new FileOutputStream(file, z);
     }
 
     public static String a(File file, Charset charset) {
-        FileInputStream fileInputStream = null;
+        FileInputStream fileInputStream;
         try {
             fileInputStream = a(file);
-            return h.a(fileInputStream, a.a(charset));
-        } finally {
-            b.a((InputStream) fileInputStream);
+            try {
+                String a2 = h.a(fileInputStream, a.a(charset));
+                b.a((InputStream) fileInputStream);
+                return a2;
+            } catch (Throwable th) {
+                th = th;
+                b.a((InputStream) fileInputStream);
+                throw th;
+            }
+        } catch (Throwable th2) {
+            th = th2;
+            fileInputStream = null;
         }
     }
 
@@ -93,27 +128,26 @@ public class g {
         }
         if (!file.exists()) {
             throw new FileNotFoundException("Source '" + file + "' does not exist");
-        }
-        if (!file.isDirectory()) {
+        } else if (!file.isDirectory()) {
             throw new IOException("Source '" + file + "' exists but is not a directory");
-        }
-        if (file.getCanonicalPath().equals(file2.getCanonicalPath())) {
+        } else if (file.getCanonicalPath().equals(file2.getCanonicalPath())) {
             throw new IOException("Source '" + file + "' and destination '" + file2 + "' are the same");
-        }
-        ArrayList arrayList = null;
-        if (file2.getCanonicalPath().startsWith(file.getCanonicalPath())) {
-            File[] listFiles = fileFilter == null ? file.listFiles() : file.listFiles(fileFilter);
-            if (listFiles != null && listFiles.length > 0) {
-                arrayList = new ArrayList(listFiles.length);
-                for (File file3 : listFiles) {
-                    arrayList.add(new File(file2, file3.getName()).getCanonicalPath());
+        } else {
+            ArrayList arrayList = null;
+            if (file2.getCanonicalPath().startsWith(file.getCanonicalPath())) {
+                File[] listFiles = fileFilter == null ? file.listFiles() : file.listFiles(fileFilter);
+                if (listFiles != null && listFiles.length > 0) {
+                    arrayList = new ArrayList(listFiles.length);
+                    for (File file3 : listFiles) {
+                        arrayList.add(new File(file2, file3.getName()).getCanonicalPath());
+                    }
                 }
             }
+            a(file, file2, fileFilter, z, arrayList);
         }
-        a(file, file2, fileFilter, z, arrayList);
     }
 
-    private static void a(File file, File file2, FileFilter fileFilter, boolean z, List<String> list) {
+    public static void a(File file, File file2, FileFilter fileFilter, boolean z, List<String> list) {
         File[] listFiles = fileFilter == null ? file.listFiles() : file.listFiles(fileFilter);
         if (listFiles == null) {
             throw new IOException("Failed to list contents of " + file);
@@ -156,102 +190,104 @@ public class g {
             if (!f(file)) {
                 c(file);
             }
-            if (!file.delete()) {
-                throw new IOException("Unable to delete directory " + file + ".");
+            if (file.delete()) {
+                return;
             }
+            throw new IOException("Unable to delete directory " + file + ".");
         }
     }
 
-    private static void b(File file, File file2, boolean z) {
-        Throwable th;
-        FileChannel fileChannel;
-        FileChannel fileChannel2;
-        FileOutputStream fileOutputStream;
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:29:0x00a6 */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r4v0 */
+    /* JADX WARN: Type inference failed for: r4v1 */
+    /* JADX WARN: Type inference failed for: r4v2, types: [java.io.OutputStream] */
+    /* JADX WARN: Type inference failed for: r4v3 */
+    /* JADX WARN: Type inference failed for: r4v4, types: [java.io.OutputStream, java.io.FileOutputStream] */
+    public static void b(File file, File file2, boolean z) {
         FileInputStream fileInputStream;
-        FileOutputStream fileOutputStream2;
-        FileChannel channel;
+        ?? r4;
+        FileChannel fileChannel;
         if (file2.exists() && file2.isDirectory()) {
             throw new IOException("Destination '" + file2 + "' exists but is a directory");
         }
+        FileChannel fileChannel2 = null;
         try {
             fileInputStream = new FileInputStream(file);
             try {
-                fileOutputStream2 = new FileOutputStream(file2);
+                r4 = new FileOutputStream(file2);
                 try {
-                    fileChannel2 = fileInputStream.getChannel();
+                    fileChannel = fileInputStream.getChannel();
                     try {
-                        channel = fileOutputStream2.getChannel();
-                    } catch (Throwable th2) {
-                        th = th2;
-                        fileChannel = null;
-                        fileOutputStream = fileOutputStream2;
+                        fileChannel2 = r4.getChannel();
+                        long size = fileChannel.size();
+                        long j2 = 0;
+                        while (j2 < size) {
+                            long j3 = size - j2;
+                            j2 += fileChannel2.transferFrom(fileChannel, j2, j3 > 31457280 ? 31457280L : j3);
+                        }
+                        b.a(fileChannel2);
+                        b.a((OutputStream) r4);
+                        b.a(fileChannel);
+                        b.a((InputStream) fileInputStream);
+                        if (file.length() == file2.length()) {
+                            if (z) {
+                                file2.setLastModified(file.lastModified());
+                                return;
+                            }
+                            return;
+                        }
+                        throw new IOException("Failed to copy full contents from '" + file + "' to '" + file2 + "'");
+                    } catch (Throwable th) {
+                        th = th;
+                        b.a(fileChannel2);
+                        b.a((OutputStream) r4);
+                        b.a(fileChannel);
+                        b.a((InputStream) fileInputStream);
+                        throw th;
                     }
-                } catch (Throwable th3) {
-                    th = th3;
+                } catch (Throwable th2) {
+                    th = th2;
                     fileChannel = null;
-                    fileChannel2 = null;
-                    fileOutputStream = fileOutputStream2;
                 }
-            } catch (Throwable th4) {
-                th = th4;
-                fileChannel = null;
-                fileChannel2 = null;
-                fileOutputStream = null;
+            } catch (Throwable th3) {
+                th = th3;
+                r4 = 0;
+                fileChannel = r4;
+                b.a(fileChannel2);
+                b.a((OutputStream) r4);
+                b.a(fileChannel);
+                b.a((InputStream) fileInputStream);
+                throw th;
             }
-        } catch (Throwable th5) {
-            th = th5;
-            fileChannel = null;
-            fileChannel2 = null;
-            fileOutputStream = null;
+        } catch (Throwable th4) {
+            th = th4;
             fileInputStream = null;
-        }
-        try {
-            long size = fileChannel2.size();
-            for (long j2 = 0; j2 < size; j2 += channel.transferFrom(fileChannel2, j2, size - j2 > 31457280 ? 31457280L : size - j2)) {
-            }
-            b.a(channel);
-            b.a((OutputStream) fileOutputStream2);
-            b.a(fileChannel2);
-            b.a((InputStream) fileInputStream);
-            if (file.length() != file2.length()) {
-                throw new IOException("Failed to copy full contents from '" + file + "' to '" + file2 + "'");
-            }
-            if (z) {
-                file2.setLastModified(file.lastModified());
-            }
-        } catch (Throwable th6) {
-            th = th6;
-            fileChannel = channel;
-            fileOutputStream = fileOutputStream2;
-            b.a(fileChannel);
-            b.a((OutputStream) fileOutputStream);
-            b.a(fileChannel2);
-            b.a((InputStream) fileInputStream);
-            throw th;
+            r4 = 0;
         }
     }
 
     public static void c(File file) {
         if (!file.exists()) {
             throw new IllegalArgumentException(file + " does not exist");
-        }
-        if (!file.isDirectory()) {
+        } else if (!file.isDirectory()) {
             throw new IllegalArgumentException(file + " is not a directory");
-        }
-        File[] listFiles = file.listFiles();
-        if (listFiles == null) {
-            throw new IOException("Failed to list contents of " + file);
-        }
-        IOException e2 = null;
-        for (File file2 : listFiles) {
-            try {
-                e(file2);
-            } catch (IOException e3) {
-                e2 = e3;
+        } else {
+            File[] listFiles = file.listFiles();
+            if (listFiles == null) {
+                throw new IOException("Failed to list contents of " + file);
             }
-        }
-        if (e2 != null) {
-            throw e2;
+            IOException e2 = null;
+            for (File file2 : listFiles) {
+                try {
+                    e(file2);
+                } catch (IOException e3) {
+                    e2 = e3;
+                }
+            }
+            if (e2 != null) {
+                throw e2;
+            }
         }
     }
 
@@ -268,22 +304,22 @@ public class g {
         if (file.delete()) {
             return;
         }
-        if (!exists) {
-            throw new FileNotFoundException("File does not exist: " + file);
+        if (exists) {
+            throw new IOException("Unable to delete file: " + file);
         }
-        throw new IOException("Unable to delete file: " + file);
+        throw new FileNotFoundException("File does not exist: " + file);
     }
 
     public static boolean f(File file) {
-        if (file == null) {
-            throw new NullPointerException("File must not be null");
+        if (file != null) {
+            if (a()) {
+                return false;
+            }
+            if (file.getParent() != null) {
+                file = new File(file.getParentFile().getCanonicalFile(), file.getName());
+            }
+            return !file.getCanonicalFile().equals(file.getAbsoluteFile());
         }
-        if (a()) {
-            return false;
-        }
-        if (file.getParent() != null) {
-            file = new File(file.getParentFile().getCanonicalFile(), file.getName());
-        }
-        return !file.getCanonicalFile().equals(file.getAbsoluteFile());
+        throw new NullPointerException("File must not be null");
     }
 }

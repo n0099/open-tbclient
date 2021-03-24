@@ -4,22 +4,22 @@ import android.os.Binder;
 import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcel;
-/* loaded from: classes4.dex */
+/* loaded from: classes.dex */
 public interface a extends IInterface {
 
     /* renamed from: com.asus.msa.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public static abstract class AbstractBinderC0014a extends Binder implements a {
+    /* loaded from: classes.dex */
+    public static abstract class AbstractBinderC0019a extends Binder implements a {
 
         /* renamed from: com.asus.msa.a.a$a$a  reason: collision with other inner class name */
-        /* loaded from: classes4.dex */
-        public static class C0015a implements a {
+        /* loaded from: classes.dex */
+        public static class C0020a implements a {
 
             /* renamed from: a  reason: collision with root package name */
-            public IBinder f1050a;
+            public IBinder f2112a;
 
-            public C0015a(IBinder iBinder) {
-                this.f1050a = iBinder;
+            public C0020a(IBinder iBinder) {
+                this.f2112a = iBinder;
             }
 
             @Override // com.asus.msa.a.a
@@ -28,7 +28,7 @@ public interface a extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.asus.msa.SupplementaryDID.IDidAidlInterface");
-                    this.f1050a.transact(1, obtain, obtain2, 0);
+                    this.f2112a.transact(1, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readInt() != 0;
                 } finally {
@@ -39,7 +39,7 @@ public interface a extends IInterface {
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f1050a;
+                return this.f2112a;
             }
 
             @Override // com.asus.msa.a.a
@@ -48,7 +48,7 @@ public interface a extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.asus.msa.SupplementaryDID.IDidAidlInterface");
-                    this.f1050a.transact(2, obtain, obtain2, 0);
+                    this.f2112a.transact(2, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readString();
                 } finally {
@@ -63,7 +63,7 @@ public interface a extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.asus.msa.SupplementaryDID.IDidAidlInterface");
-                    this.f1050a.transact(3, obtain, obtain2, 0);
+                    this.f2112a.transact(3, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readString();
                 } finally {
@@ -78,7 +78,7 @@ public interface a extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.asus.msa.SupplementaryDID.IDidAidlInterface");
-                    this.f1050a.transact(4, obtain, obtain2, 0);
+                    this.f2112a.transact(4, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readString();
                 } finally {
@@ -93,7 +93,7 @@ public interface a extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.asus.msa.SupplementaryDID.IDidAidlInterface");
-                    this.f1050a.transact(5, obtain, obtain2, 0);
+                    this.f2112a.transact(5, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readString();
                 } finally {
@@ -108,7 +108,7 @@ public interface a extends IInterface {
                 return null;
             }
             IInterface queryLocalInterface = iBinder.queryLocalInterface("com.asus.msa.SupplementaryDID.IDidAidlInterface");
-            return (queryLocalInterface == null || !(queryLocalInterface instanceof a)) ? new C0015a(iBinder) : (a) queryLocalInterface;
+            return (queryLocalInterface == null || !(queryLocalInterface instanceof a)) ? new C0020a(iBinder) : (a) queryLocalInterface;
         }
 
         @Override // android.os.Binder
@@ -116,40 +116,38 @@ public interface a extends IInterface {
             if (i == 1598968902) {
                 parcel2.writeString("com.asus.msa.SupplementaryDID.IDidAidlInterface");
                 return true;
-            }
-            switch (i) {
-                case 1:
-                    parcel.enforceInterface("com.asus.msa.SupplementaryDID.IDidAidlInterface");
-                    boolean a2 = a();
-                    parcel2.writeNoException();
-                    parcel2.writeInt(a2 ? 1 : 0);
-                    return true;
-                case 2:
-                    parcel.enforceInterface("com.asus.msa.SupplementaryDID.IDidAidlInterface");
-                    String b = b();
-                    parcel2.writeNoException();
-                    parcel2.writeString(b);
-                    return true;
-                case 3:
-                    parcel.enforceInterface("com.asus.msa.SupplementaryDID.IDidAidlInterface");
-                    String c = c();
-                    parcel2.writeNoException();
-                    parcel2.writeString(c);
-                    return true;
-                case 4:
-                    parcel.enforceInterface("com.asus.msa.SupplementaryDID.IDidAidlInterface");
-                    String d = d();
-                    parcel2.writeNoException();
-                    parcel2.writeString(d);
-                    return true;
-                case 5:
-                    parcel.enforceInterface("com.asus.msa.SupplementaryDID.IDidAidlInterface");
-                    String e = e();
-                    parcel2.writeNoException();
-                    parcel2.writeString(e);
-                    return true;
-                default:
-                    return super.onTransact(i, parcel, parcel2, i2);
+            } else if (i == 1) {
+                parcel.enforceInterface("com.asus.msa.SupplementaryDID.IDidAidlInterface");
+                boolean a2 = a();
+                parcel2.writeNoException();
+                parcel2.writeInt(a2 ? 1 : 0);
+                return true;
+            } else if (i == 2) {
+                parcel.enforceInterface("com.asus.msa.SupplementaryDID.IDidAidlInterface");
+                String b2 = b();
+                parcel2.writeNoException();
+                parcel2.writeString(b2);
+                return true;
+            } else if (i == 3) {
+                parcel.enforceInterface("com.asus.msa.SupplementaryDID.IDidAidlInterface");
+                String c2 = c();
+                parcel2.writeNoException();
+                parcel2.writeString(c2);
+                return true;
+            } else if (i == 4) {
+                parcel.enforceInterface("com.asus.msa.SupplementaryDID.IDidAidlInterface");
+                String d2 = d();
+                parcel2.writeNoException();
+                parcel2.writeString(d2);
+                return true;
+            } else if (i != 5) {
+                return super.onTransact(i, parcel, parcel2, i2);
+            } else {
+                parcel.enforceInterface("com.asus.msa.SupplementaryDID.IDidAidlInterface");
+                String e2 = e();
+                parcel2.writeNoException();
+                parcel2.writeString(e2);
+                return true;
             }
         }
     }

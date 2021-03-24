@@ -11,17 +11,31 @@ import com.kwad.sdk.contentalliance.tube.b;
 import com.kwad.sdk.core.response.model.AdResultData;
 import com.kwad.sdk.utils.p;
 import com.kwad.sdk.utils.q;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class g extends com.kwad.sdk.contentalliance.tube.detail.a.a {
-    private LottieAnimationView b;
-    private ViewGroup c;
-    private ImageView d;
-    private TextView e;
-    private ImageView f;
-    private TextView g;
-    private TextView h;
-    private boolean i;
-    private b.a j = new b.a() { // from class: com.kwad.sdk.contentalliance.tube.detail.b.g.1
+
+    /* renamed from: b  reason: collision with root package name */
+    public LottieAnimationView f33212b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public ViewGroup f33213c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public ImageView f33214d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public TextView f33215e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public ImageView f33216f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public TextView f33217g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public TextView f33218h;
+    public boolean i;
+    public b.a j = new b.a() { // from class: com.kwad.sdk.contentalliance.tube.detail.b.g.1
         @Override // com.kwad.sdk.contentalliance.tube.b.a
         public void a(boolean z) {
         }
@@ -47,10 +61,10 @@ public class g extends com.kwad.sdk.contentalliance.tube.detail.a.a {
             g.this.e();
         }
     };
-    private View.OnClickListener k = new View.OnClickListener() { // from class: com.kwad.sdk.contentalliance.tube.detail.b.g.2
+    public View.OnClickListener k = new View.OnClickListener() { // from class: com.kwad.sdk.contentalliance.tube.detail.b.g.2
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            com.kwad.sdk.contentalliance.tube.b bVar = g.this.f5945a.g;
+            com.kwad.sdk.contentalliance.tube.b bVar = ((com.kwad.sdk.contentalliance.tube.detail.a.a) g.this).f33157a.f33164g;
             if (bVar != null) {
                 g.this.i = true;
                 g.this.f();
@@ -70,8 +84,8 @@ public class g extends com.kwad.sdk.contentalliance.tube.detail.a.a {
     }
 
     private void c(int i) {
-        this.c.setVisibility(0);
-        if (!com.ksad.download.d.b.a(o()) || i == com.kwad.sdk.core.network.f.f6187a.k) {
+        this.f33213c.setVisibility(0);
+        if (!com.ksad.download.d.b.a(o()) || i == com.kwad.sdk.core.network.f.f33868a.k) {
             h();
         } else if (i == com.kwad.sdk.core.network.f.j.k) {
             q();
@@ -83,83 +97,80 @@ public class g extends com.kwad.sdk.contentalliance.tube.detail.a.a {
     /* JADX INFO: Access modifiers changed from: private */
     public void e() {
         f();
-        this.b.setVisibility(8);
-        this.d.setVisibility(8);
-        this.c.setVisibility(8);
+        this.f33212b.setVisibility(8);
+        this.f33214d.setVisibility(8);
+        this.f33213c.setVisibility(8);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void f() {
-        this.d.setVisibility(0);
-        this.b.setVisibility(0);
-        if (!this.b.c()) {
-            this.b.b();
+        this.f33214d.setVisibility(0);
+        this.f33212b.setVisibility(0);
+        if (!this.f33212b.c()) {
+            this.f33212b.b();
         }
-        this.c.setVisibility(8);
+        this.f33213c.setVisibility(8);
     }
 
     private void g() {
-        this.d.setVisibility(8);
-        if (!this.b.c()) {
-            this.b.d();
+        this.f33214d.setVisibility(8);
+        if (!this.f33212b.c()) {
+            this.f33212b.d();
         }
-        this.b.setVisibility(8);
+        this.f33212b.setVisibility(8);
     }
 
     private void h() {
-        this.f.setImageDrawable(o().getResources().getDrawable(R.drawable.ksad_content_network_error));
-        this.e.setText(q.d(o()));
-        this.g.setText(q.e(o()));
-        this.h.setText(q.i(o()));
+        this.f33216f.setImageDrawable(o().getResources().getDrawable(R.drawable.ksad_content_network_error));
+        this.f33215e.setText(q.d(o()));
+        this.f33217g.setText(q.e(o()));
+        this.f33218h.setText(q.i(o()));
     }
 
     private void p() {
-        this.f.setImageDrawable(o().getResources().getDrawable(R.drawable.ksad_no_data_img));
-        this.e.setText(q.g(o()));
-        this.g.setText(q.h(o()));
-        this.h.setText(q.i(o()));
+        this.f33216f.setImageDrawable(o().getResources().getDrawable(R.drawable.ksad_no_data_img));
+        this.f33215e.setText(q.g(o()));
+        this.f33217g.setText(q.h(o()));
+        this.f33218h.setText(q.i(o()));
     }
 
     private void q() {
-        this.f.setImageDrawable(o().getResources().getDrawable(R.drawable.ksad_no_video_img));
-        this.e.setText(o().getString(R.string.ksad_video_no_found));
-        this.g.setText(o().getString(R.string.ksad_click_to_next_video));
-        this.h.setText(o().getString(R.string.ksad_watch_next_video));
+        this.f33216f.setImageDrawable(o().getResources().getDrawable(R.drawable.ksad_no_video_img));
+        this.f33215e.setText(o().getString(R.string.ksad_video_no_found));
+        this.f33217g.setText(o().getString(R.string.ksad_click_to_next_video));
+        this.f33218h.setText(o().getString(R.string.ksad_watch_next_video));
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.contentalliance.tube.detail.a.a, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        this.f5945a.d.add(this.j);
-        this.h.setOnClickListener(this.k);
+        ((com.kwad.sdk.contentalliance.tube.detail.a.a) this).f33157a.f33161d.add(this.j);
+        this.f33218h.setOnClickListener(this.k);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.mvp.Presenter
     public void b_() {
         super.b_();
-        this.f5945a.d.remove(this.j);
-        this.h.setOnClickListener(null);
+        ((com.kwad.sdk.contentalliance.tube.detail.a.a) this).f33157a.f33161d.remove(this.j);
+        this.f33218h.setOnClickListener(null);
         g();
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.mvp.Presenter
     public void c() {
         super.c();
-        this.b = (LottieAnimationView) b(R.id.ksad_center_loading_animation_view);
-        this.c = (ViewGroup) b(R.id.ksad_error_container);
-        this.d = (ImageView) b(R.id.ksad_tube_loading_mask_view);
-        this.e = (TextView) b(R.id.ksad_load_error_title);
-        this.f = (ImageView) b(R.id.ksad_load_error_img);
-        this.g = (TextView) b(R.id.ksad_load_error_tip);
-        this.h = (TextView) b(R.id.ksad_retry_btn);
+        this.f33212b = (LottieAnimationView) b(R.id.ksad_center_loading_animation_view);
+        this.f33213c = (ViewGroup) b(R.id.ksad_error_container);
+        this.f33214d = (ImageView) b(R.id.ksad_tube_loading_mask_view);
+        this.f33215e = (TextView) b(R.id.ksad_load_error_title);
+        this.f33216f = (ImageView) b(R.id.ksad_load_error_img);
+        this.f33217g = (TextView) b(R.id.ksad_load_error_tip);
+        this.f33218h = (TextView) b(R.id.ksad_retry_btn);
         int i = R.raw.ksad_detail_loading_amin_new;
-        this.d.setVisibility(4);
-        this.b.setVisibility(0);
-        this.b.setRepeatMode(1);
-        this.b.setRepeatCount(-1);
-        this.b.setAnimation(i);
+        this.f33214d.setVisibility(4);
+        this.f33212b.setVisibility(0);
+        this.f33212b.setRepeatMode(1);
+        this.f33212b.setRepeatCount(-1);
+        this.f33212b.setAnimation(i);
     }
 }

@@ -3,50 +3,53 @@ package com.baidu.mobads;
 import android.content.Context;
 import android.view.ViewGroup;
 import com.baidu.mobads.utils.XAdSDKFoundationFacade;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class AdService {
-    protected static String channelId = "";
-    protected static int instanceCount = -1;
+    public static String channelId = "";
+    public static int instanceCount = -1;
 
     /* renamed from: a  reason: collision with root package name */
-    private AdView f2335a;
+    public AdView f8065a;
+
+    public AdService(Context context, ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams, AdViewListener adViewListener) {
+        this(context, viewGroup, layoutParams, adViewListener, AdSize.Banner, "");
+    }
+
+    private void a(ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams) {
+        try {
+            if (this.f8065a.getParent() != viewGroup) {
+                if (this.f8065a.getParent() != null) {
+                    ((ViewGroup) this.f8065a.getParent()).removeView(this.f8065a);
+                }
+                viewGroup.addView(this.f8065a, layoutParams);
+            }
+        } catch (Exception e2) {
+            XAdSDKFoundationFacade.getInstance().getAdLogger().d(e2);
+        }
+    }
 
     public static void setChannelId(String str) {
         channelId = str;
         XAdSDKFoundationFacade.getInstance().getCommonUtils().setChannelId(str);
     }
 
-    public AdService(Context context, ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams, AdViewListener adViewListener) {
-        this(context, viewGroup, layoutParams, adViewListener, AdSize.Banner, "");
+    public void destroy() {
+        AdView adView = this.f8065a;
+        if (adView != null) {
+            adView.destroy();
+            this.f8065a = null;
+        }
     }
 
     public AdService(Context context, ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams, AdViewListener adViewListener, AdSize adSize, String str) {
-        if (context == null || viewGroup == null || layoutParams == null || adViewListener == null || adSize == null) {
-            throw new IllegalArgumentException("One of arguments is null");
+        if (context != null && viewGroup != null && layoutParams != null && adViewListener != null && adSize != null) {
+            AdView adView = new AdView(context, false, adSize, str);
+            this.f8065a = adView;
+            adView.setListener(adViewListener);
+            a(viewGroup, layoutParams);
+            instanceCount++;
+            return;
         }
-        this.f2335a = new AdView(context, false, adSize, str);
-        this.f2335a.setListener(adViewListener);
-        a(viewGroup, layoutParams);
-        instanceCount++;
-    }
-
-    private void a(ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams) {
-        try {
-            if (this.f2335a.getParent() != viewGroup) {
-                if (this.f2335a.getParent() != null) {
-                    ((ViewGroup) this.f2335a.getParent()).removeView(this.f2335a);
-                }
-                viewGroup.addView(this.f2335a, layoutParams);
-            }
-        } catch (Exception e) {
-            XAdSDKFoundationFacade.getInstance().getAdLogger().d(e);
-        }
-    }
-
-    public void destroy() {
-        if (this.f2335a != null) {
-            this.f2335a.destroy();
-            this.f2335a = null;
-        }
+        throw new IllegalArgumentException("One of arguments is null");
     }
 }

@@ -2,15 +2,14 @@ package com.baidu.ufosdk.ui;
 
 import android.view.View;
 import android.widget.AbsListView;
-/* loaded from: classes7.dex */
-final class cc implements AbsListView.RecyclerListener {
+/* loaded from: classes5.dex */
+public final class cc implements AbsListView.RecyclerListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FeedbackInputActivity f3703a;
+    public final /* synthetic */ FeedbackInputActivity f23110a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public cc(FeedbackInputActivity feedbackInputActivity) {
-        this.f3703a = feedbackInputActivity;
+        this.f23110a = feedbackInputActivity;
     }
 
     @Override // android.widget.AbsListView.RecyclerListener

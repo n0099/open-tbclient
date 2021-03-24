@@ -7,14 +7,15 @@ import android.net.Uri;
 import android.webkit.ValueCallback;
 import com.baidu.browser.core.INoProGuard;
 import com.baidu.browser.sailor.BdSailorConfig;
+import com.baidu.browser.sailor.feature.a;
 import com.baidu.webkit.sdk.Log;
 import com.baidu.webkit.sdk.WebChromeClient;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes14.dex */
-public class BdUploadFeature extends com.baidu.browser.sailor.feature.a implements INoProGuard, IUploadFile {
+/* loaded from: classes2.dex */
+public class BdUploadFeature extends a implements INoProGuard, IUploadFile {
     public static final int FILE_SELECTED = 11;
-    protected Map<Activity, BdUploadHandler> mUploadHandlers;
+    public Map<Activity, BdUploadHandler> mUploadHandlers;
 
     public BdUploadFeature(Context context) {
         super(context);
@@ -36,13 +37,14 @@ public class BdUploadFeature extends com.baidu.browser.sailor.feature.a implemen
     }
 
     public BdUploadHandler getUploadHandler(Activity activity) {
-        if (this.mUploadHandlers == null || this.mUploadHandlers.size() <= 0) {
+        Map<Activity, BdUploadHandler> map = this.mUploadHandlers;
+        if (map == null || map.size() <= 0) {
             return null;
         }
         return this.mUploadHandlers.get(activity);
     }
 
-    protected BdUploadHandler makeUploadHandler(Activity activity) {
+    public BdUploadHandler makeUploadHandler(Activity activity) {
         BdUploadHandler uploadHandler = getUploadHandler(activity);
         if (uploadHandler == null) {
             BdUploadHandler bdUploadHandler = new BdUploadHandler(activity);
@@ -53,8 +55,9 @@ public class BdUploadFeature extends com.baidu.browser.sailor.feature.a implemen
     }
 
     public void onDestroy(Activity activity) {
+        Map<Activity, BdUploadHandler> map;
         BdUploadHandler bdUploadHandler;
-        if (activity == null || this.mUploadHandlers == null || this.mUploadHandlers.size() <= 0 || (bdUploadHandler = this.mUploadHandlers.get(activity)) == null) {
+        if (activity == null || (map = this.mUploadHandlers) == null || map.size() <= 0 || (bdUploadHandler = this.mUploadHandlers.get(activity)) == null) {
             return;
         }
         this.mUploadHandlers.remove(activity);
@@ -104,50 +107,62 @@ public class BdUploadFeature extends com.baidu.browser.sailor.feature.a implemen
     }
 
     public boolean openFileChooser(Activity activity, ValueCallback<Uri> valueCallback) {
+        Map<Activity, BdUploadHandler> map;
         boolean openFileChooser = activity != null ? makeUploadHandler(activity).openFileChooser(valueCallback, "") : false;
         if (!openFileChooser) {
             valueCallback.onReceiveValue(null);
-            if (activity != null && this.mUploadHandlers != null) {
-                this.mUploadHandlers.remove(activity);
+            if (activity != null && (map = this.mUploadHandlers) != null) {
+                map.remove(activity);
             }
         }
         return openFileChooser;
     }
 
+    /* JADX WARN: Removed duplicated region for block: B:8:0x0010  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     public boolean openFileChooser(Activity activity, ValueCallback<Uri[]> valueCallback, WebChromeClient.FileChooserParams fileChooserParams) {
-        boolean z = false;
+        boolean z;
+        Map<Activity, BdUploadHandler> map;
         if (activity != null) {
             BdUploadHandler makeUploadHandler = makeUploadHandler(activity);
             if (fileChooserParams != null) {
                 z = makeUploadHandler.openFileChooser(valueCallback, fileChooserParams);
+                if (!z) {
+                    valueCallback.onReceiveValue(null);
+                    if (activity != null && (map = this.mUploadHandlers) != null) {
+                        map.remove(activity);
+                    }
+                }
+                return z;
             }
         }
+        z = false;
         if (!z) {
-            valueCallback.onReceiveValue(null);
-            if (activity != null && this.mUploadHandlers != null) {
-                this.mUploadHandlers.remove(activity);
-            }
         }
         return z;
     }
 
     public boolean openFileChooser(Activity activity, ValueCallback<Uri> valueCallback, String str) {
+        Map<Activity, BdUploadHandler> map;
         boolean openFileChooser = activity != null ? makeUploadHandler(activity).openFileChooser(valueCallback, str) : false;
         if (!openFileChooser) {
             valueCallback.onReceiveValue(null);
-            if (activity != null && this.mUploadHandlers != null) {
-                this.mUploadHandlers.remove(activity);
+            if (activity != null && (map = this.mUploadHandlers) != null) {
+                map.remove(activity);
             }
         }
         return openFileChooser;
     }
 
     public boolean openFileChooser(Activity activity, ValueCallback<Uri> valueCallback, String str, String str2) {
+        Map<Activity, BdUploadHandler> map;
         boolean openFileChooser = activity != null ? makeUploadHandler(activity).openFileChooser(valueCallback, str, str2) : false;
         if (!openFileChooser) {
             valueCallback.onReceiveValue(null);
-            if (activity != null && this.mUploadHandlers != null) {
-                this.mUploadHandlers.remove(activity);
+            if (activity != null && (map = this.mUploadHandlers) != null) {
+                map.remove(activity);
             }
         }
         return openFileChooser;
@@ -166,7 +181,7 @@ public class BdUploadFeature extends com.baidu.browser.sailor.feature.a implemen
     public boolean startImageActivityForResult(Activity activity) {
         BdUploadHandler uploadHandler = getUploadHandler(activity);
         if (uploadHandler != null) {
-            return uploadHandler.startActivityForResult(uploadHandler.createOpenableIntent("image/*"), 11);
+            return uploadHandler.startActivityForResult(uploadHandler.createOpenableIntent(BdUploadHandler.IMAGE_MIME_TYPE), 11);
         }
         return false;
     }

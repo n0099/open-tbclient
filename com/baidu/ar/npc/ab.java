@@ -4,26 +4,30 @@ import android.util.Log;
 import android.view.MotionEvent;
 import com.baidu.ar.npc.BaiduArView;
 import java.util.Calendar;
-/* loaded from: classes4.dex */
-class ab implements Runnable {
+/* loaded from: classes2.dex */
+public class ab implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ MotionEvent f1279a;
-    final /* synthetic */ aa b;
+    public final /* synthetic */ MotionEvent f4156a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    /* renamed from: b  reason: collision with root package name */
+    public final /* synthetic */ aa f4157b;
+
     public ab(aa aaVar, MotionEvent motionEvent) {
-        this.b = aaVar;
-        this.f1279a = motionEvent;
+        this.f4157b = aaVar;
+        this.f4156a = motionEvent;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        Log.d(BaiduArView.b, "touch on single tap with motionEvnet " + this.f1279a);
+        String str = BaiduArView.f4098b;
+        Log.d(str, "touch on single tap with motionEvnet " + this.f4156a);
         long timeInMillis = Calendar.getInstance().getTimeInMillis();
-        Log.d(BaiduArView.b, "touch timeInMils " + timeInMillis);
-        if (!this.b.f1278a.x && !this.b.f1278a.z) {
-            ArBridge.getInstance().a(BaiduArView.j.EClick.ordinal(), this.f1279a.getPointerId(0), this.f1279a.getX(), this.f1279a.getY(), -1.0f, -1.0f, -1, -1.0f, -1.0f, -1.0f, -1.0f, timeInMillis);
+        String str2 = BaiduArView.f4098b;
+        Log.d(str2, "touch timeInMils " + timeInMillis);
+        if (this.f4157b.f4155a.x || this.f4157b.f4155a.z) {
+            return;
         }
+        ArBridge.getInstance().a(BaiduArView.j.EClick.ordinal(), this.f4156a.getPointerId(0), this.f4156a.getX(), this.f4156a.getY(), -1.0f, -1.0f, -1, -1.0f, -1.0f, -1.0f, -1.0f, timeInMillis);
     }
 }

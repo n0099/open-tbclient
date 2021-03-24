@@ -1,7 +1,7 @@
 package com.baidu.mapapi.map;
 
 import android.os.Bundle;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public final class Stroke {
     public final int color;
     public final int strokeWidth;
@@ -11,7 +11,6 @@ public final class Stroke {
         this.color = i2;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public Bundle a(Bundle bundle) {
         bundle.putInt("width", this.strokeWidth);
         Overlay.a(this.color, bundle);

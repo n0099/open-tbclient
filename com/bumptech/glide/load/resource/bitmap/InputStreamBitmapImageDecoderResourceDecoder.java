@@ -12,9 +12,9 @@ import com.bumptech.glide.util.ByteBufferUtil;
 import java.io.IOException;
 import java.io.InputStream;
 @RequiresApi(api = 28)
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public final class InputStreamBitmapImageDecoderResourceDecoder implements ResourceDecoder<InputStream, Bitmap> {
-    private final BitmapImageDecoderResourceDecoder wrapped = new BitmapImageDecoderResourceDecoder();
+    public final BitmapImageDecoderResourceDecoder wrapped = new BitmapImageDecoderResourceDecoder();
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.load.ResourceDecoder

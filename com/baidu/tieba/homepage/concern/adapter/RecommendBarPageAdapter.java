@@ -7,31 +7,77 @@ import androidx.annotation.NonNull;
 import androidx.viewpager.widget.PagerAdapter;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ar;
 import com.baidu.tieba.R;
+import d.b.b.j.e.n;
+import d.b.i0.z0.b.f.c;
+import d.b.i0.z0.b.f.d;
+import d.b.i0.z0.b.g.b;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class RecommendBarPageAdapter extends PagerAdapter {
-    private byte kdJ;
-    private TbPageContext<?> pageContext;
-    private int aln = 3;
-    private List<com.baidu.adp.widget.ListView.n> kdK = new ArrayList(6);
-    private List<com.baidu.tieba.homepage.concern.b.b> kdL = new ArrayList(6);
 
-    public RecommendBarPageAdapter(TbPageContext<?> tbPageContext, byte b) {
-        this.pageContext = tbPageContext;
-        this.kdJ = b;
+    /* renamed from: c  reason: collision with root package name */
+    public TbPageContext<?> f17029c;
+
+    /* renamed from: e  reason: collision with root package name */
+    public byte f17031e;
+
+    /* renamed from: d  reason: collision with root package name */
+    public int f17030d = 3;
+
+    /* renamed from: a  reason: collision with root package name */
+    public List<n> f17027a = new ArrayList(6);
+
+    /* renamed from: b  reason: collision with root package name */
+    public List<b> f17028b = new ArrayList(6);
+
+    public RecommendBarPageAdapter(TbPageContext<?> tbPageContext, byte b2) {
+        this.f17029c = tbPageContext;
+        this.f17031e = b2;
         for (int i = 0; i < 6; i++) {
-            this.kdL.add(new com.baidu.tieba.homepage.concern.b.b(LayoutInflater.from(this.pageContext.getPageActivity()).inflate(R.layout.recommend_bar_item, (ViewGroup) null, false), this.pageContext, b));
+            this.f17028b.add(new b(LayoutInflater.from(this.f17029c.getPageActivity()).inflate(R.layout.recommend_bar_item, (ViewGroup) null, false), this.f17029c, b2));
         }
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
+    public void destroyItem(ViewGroup viewGroup, int i, @NonNull Object obj) {
+        viewGroup.removeView(this.f17028b.get(i).b());
+    }
+
+    @Override // androidx.viewpager.widget.PagerAdapter
     public int getCount() {
-        return com.baidu.tbadk.core.util.y.getCount(this.kdK);
+        return ListUtils.getCount(this.f17027a);
+    }
+
+    public n i(int i) {
+        if (ListUtils.isEmpty(this.f17027a) || i >= this.f17027a.size()) {
+            return null;
+        }
+        return this.f17027a.get(i);
+    }
+
+    @Override // androidx.viewpager.widget.PagerAdapter
+    @NonNull
+    public Object instantiateItem(ViewGroup viewGroup, int i) {
+        List<b> list = this.f17028b;
+        if (list == null) {
+            return super.instantiateItem(viewGroup, i);
+        }
+        b bVar = (b) ListUtils.getItem(list, i);
+        if (bVar == null) {
+            return super.instantiateItem(viewGroup, i);
+        }
+        if (bVar.b().getParent() == null) {
+            viewGroup.addView(bVar.b(), new ViewGroup.LayoutParams(-2, -2));
+        }
+        bVar.b().setTag(Integer.valueOf(i));
+        bVar.c((n) ListUtils.getItem(this.f17027a, i));
+        return bVar.b();
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
@@ -39,80 +85,63 @@ public class RecommendBarPageAdapter extends PagerAdapter {
         return view == obj;
     }
 
-    public void a(com.baidu.tieba.homepage.concern.a.c cVar) {
-        if (cVar != null && !com.baidu.tbadk.core.util.y.isEmpty(cVar.cPq())) {
-            this.kdK.clear();
-            this.kdK.addAll(cVar.cPq());
-            for (int i = 0; i < this.kdK.size() && i < this.kdL.size(); i++) {
-                com.baidu.tieba.homepage.concern.b.b bVar = this.kdL.get(i);
-                bVar.sb(!cVar.cPr());
-                bVar.a((com.baidu.adp.widget.ListView.n) com.baidu.tbadk.core.util.y.getItem(this.kdK, i));
+    public void j(int i) {
+        if (this.f17030d == i) {
+            return;
+        }
+        this.f17030d = i;
+        List<b> list = this.f17028b;
+        if (list == null || list.size() <= 0) {
+            return;
+        }
+        for (b bVar : this.f17028b) {
+            bVar.l(i);
+        }
+    }
+
+    public void k(c cVar) {
+        if (cVar == null || ListUtils.isEmpty(cVar.z())) {
+            return;
+        }
+        this.f17027a.clear();
+        this.f17027a.addAll(cVar.z());
+        for (int i = 0; i < this.f17027a.size() && i < this.f17028b.size(); i++) {
+            b bVar = this.f17028b.get(i);
+            bVar.m(!cVar.A());
+            bVar.c((n) ListUtils.getItem(this.f17027a, i));
+        }
+        notifyDataSetChanged();
+        if (this.f17027a.get(0) instanceof d) {
+            d dVar = (d) this.f17027a.get(0);
+            StatisticItem param = new StatisticItem("c14004").param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_locate", (int) this.f17031e).param("obj_param1", 0);
+            if (!StringUtils.isNull(dVar.f62795e)) {
+                param = param.param("obj_name", dVar.f62795e);
             }
-            notifyDataSetChanged();
-            if (this.kdK.get(0) instanceof com.baidu.tieba.homepage.concern.a.d) {
-                com.baidu.tieba.homepage.concern.a.d dVar = (com.baidu.tieba.homepage.concern.a.d) this.kdK.get(0);
-                ar aq = new ar("c14004").dR("uid", TbadkApplication.getCurrentAccount()).aq("obj_locate", this.kdJ).aq("obj_param1", 0);
-                if (!StringUtils.isNull(dVar.kdV)) {
-                    aq = aq.dR("obj_name", dVar.kdV);
-                }
-                TiebaStatic.log(aq);
-                ar aq2 = new ar("c13643").dR("uid", TbadkApplication.getCurrentAccount()).dR("fid", dVar.cPs()).aq("obj_locate", this.kdJ);
-                TiebaStatic.log(StringUtils.isNull(dVar.kdV) ? aq2 : aq2.dR("obj_name", dVar.kdV));
+            TiebaStatic.log(param);
+            StatisticItem param2 = new StatisticItem("c13643").param("uid", TbadkCoreApplication.getCurrentAccount()).param("fid", dVar.a()).param("obj_locate", (int) this.f17031e);
+            if (!StringUtils.isNull(dVar.f62795e)) {
+                param2 = param2.param("obj_name", dVar.f62795e);
             }
+            TiebaStatic.log(param2);
         }
     }
 
-    @Override // androidx.viewpager.widget.PagerAdapter
-    public void destroyItem(ViewGroup viewGroup, int i, @NonNull Object obj) {
-        viewGroup.removeView(this.kdL.get(i).getView());
-    }
-
-    @Override // androidx.viewpager.widget.PagerAdapter
-    @NonNull
-    public Object instantiateItem(ViewGroup viewGroup, int i) {
-        if (this.kdL == null) {
-            return super.instantiateItem(viewGroup, i);
+    public void l(long j, boolean z) {
+        if (ListUtils.isEmpty(this.f17028b)) {
+            return;
         }
-        com.baidu.tieba.homepage.concern.b.b bVar = (com.baidu.tieba.homepage.concern.b.b) com.baidu.tbadk.core.util.y.getItem(this.kdL, i);
-        if (bVar == null) {
-            return super.instantiateItem(viewGroup, i);
-        }
-        if (bVar.getView().getParent() == null) {
-            viewGroup.addView(bVar.getView(), new ViewGroup.LayoutParams(-2, -2));
-        }
-        bVar.getView().setTag(Integer.valueOf(i));
-        bVar.a((com.baidu.adp.widget.ListView.n) com.baidu.tbadk.core.util.y.getItem(this.kdK, i));
-        return bVar.getView();
-    }
-
-    public void onSkinTypeChanged(int i) {
-        if (this.aln != i) {
-            this.aln = i;
-            if (this.kdL != null && this.kdL.size() > 0) {
-                for (com.baidu.tieba.homepage.concern.b.b bVar : this.kdL) {
-                    bVar.onSkinTypeChanged(i);
-                }
-            }
-        }
-    }
-
-    public com.baidu.adp.widget.ListView.n By(int i) {
-        if (com.baidu.tbadk.core.util.y.isEmpty(this.kdK) || i >= this.kdK.size()) {
-            return null;
-        }
-        return this.kdK.get(i);
-    }
-
-    public void n(long j, boolean z) {
-        if (!com.baidu.tbadk.core.util.y.isEmpty(this.kdL)) {
-            for (int i = 0; i < this.kdL.size(); i++) {
-                com.baidu.tieba.homepage.concern.b.b bVar = this.kdL.get(i);
-                com.baidu.tieba.homepage.concern.a.d cPz = bVar.cPz();
-                if (cPz != null) {
-                    for (int i2 = 0; i2 < cPz.kdX.length; i2++) {
-                        if (cPz.kdX[i2].getForumId() == j) {
-                            bVar.W(i2, z);
+        for (int i = 0; i < this.f17028b.size(); i++) {
+            b bVar = this.f17028b.get(i);
+            d j2 = bVar.j();
+            if (j2 != null) {
+                int i2 = 0;
+                while (true) {
+                    d.a[] aVarArr = j2.f62798h;
+                    if (i2 < aVarArr.length) {
+                        if (aVarArr[i2].j() == j) {
+                            bVar.n(i2, z);
                         }
+                        i2++;
                     }
                 }
             }

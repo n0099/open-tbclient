@@ -7,12 +7,12 @@ import com.kwad.sdk.core.network.BaseResultData;
 import com.kwad.sdk.utils.o;
 import java.io.Serializable;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class SdkConfigData extends BaseResultData implements com.kwad.sdk.core.b, Serializable {
     public static final int DEFAULT_REQUEST_INTERVAL = 3600;
     public static final int DEFAULT_SPLASH_TIME_OUT = 5000;
-    private static final long serialVersionUID = -7796837168148055391L;
-    private JSONObject abConfig;
+    public static final long serialVersionUID = -7796837168148055391L;
+    public JSONObject abConfig;
     public long requestInterval = 3600;
     public TemplateConfig templateConfig = new TemplateConfig();
     public TemplateConfig splashConfig = new TemplateConfig();
@@ -20,17 +20,17 @@ public class SdkConfigData extends BaseResultData implements com.kwad.sdk.core.b
     public TemplateConfig rewardMiddleEndcardConfig = new TemplateConfig();
     public TemplateConfigMap templateConfigMap = new TemplateConfigMap();
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class TemplateConfig extends com.kwad.sdk.core.response.a.a implements com.kwad.sdk.core.b, Serializable {
-        private static final long serialVersionUID = -6943205584670122269L;
+        public static final long serialVersionUID = -6943205584670122269L;
         public String h5Checksum;
         public String h5Url;
         public String h5Version;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class TemplateConfigMap extends com.kwad.sdk.core.response.a.a implements com.kwad.sdk.core.b, Serializable {
-        private static final long serialVersionUID = -6512236636350788192L;
+        public static final long serialVersionUID = -6512236636350788192L;
         public TemplateConfig downloadPopWindowConfig;
     }
 
@@ -50,15 +50,16 @@ public class SdkConfigData extends BaseResultData implements com.kwad.sdk.core.b
             e.a(jSONObject.optString("egid"));
             JSONObject jSONObject2 = new JSONObject(d.b(optString));
             this.requestInterval = jSONObject2.optLong("requestInterval");
-            this.abConfig = jSONObject2.optJSONObject("abConfig");
-            com.kwad.sdk.core.config.b.a(this.abConfig);
+            JSONObject optJSONObject = jSONObject2.optJSONObject("abConfig");
+            this.abConfig = optJSONObject;
+            com.kwad.sdk.core.config.b.a(optJSONObject);
             this.templateConfig.parseJson(jSONObject2.optJSONObject("templateConfig"));
             this.splashConfig.parseJson(jSONObject2.optJSONObject("splashConfig"));
             this.rewardMiniCardConfig.parseJson(jSONObject2.optJSONObject("rewardMiniCardConfig"));
             this.rewardMiddleEndcardConfig.parseJson(jSONObject2.optJSONObject("rewardMiddleEndcardConfig"));
             this.templateConfigMap.parseJson(jSONObject2.optJSONObject("templateConfigMap"));
-        } catch (Exception e) {
-            com.kwad.sdk.core.d.a.b(e);
+        } catch (Exception e2) {
+            com.kwad.sdk.core.d.a.b(e2);
         }
     }
 

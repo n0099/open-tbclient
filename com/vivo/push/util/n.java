@@ -3,15 +3,42 @@ package com.vivo.push.util;
 import android.content.Context;
 import android.os.Process;
 import android.util.Log;
-/* loaded from: classes14.dex */
+import com.baidu.tbadk.core.data.SmallTailInfo;
+/* loaded from: classes7.dex */
 public final class n implements o {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f8080a = "(" + Process.myPid() + ")";
+    public static final String f39560a = "(" + Process.myPid() + SmallTailInfo.EMOTION_SUFFIX;
 
     @Override // com.vivo.push.util.o
     public final int a(String str, String str2) {
-        return Log.e("VivoPush." + str, f8080a + str2);
+        return Log.e("VivoPush." + str, f39560a + str2);
+    }
+
+    @Override // com.vivo.push.util.o
+    public final int b(String str, String str2) {
+        return Log.w("VivoPush." + str, f39560a + str2);
+    }
+
+    @Override // com.vivo.push.util.o
+    public final int c(String str, String str2) {
+        return Log.d("VivoPush." + str, f39560a + str2);
+    }
+
+    @Override // com.vivo.push.util.o
+    public final int d(String str, String str2) {
+        if (p.a()) {
+            return Log.i("VivoPush." + str, f39560a + str2);
+        }
+        return -1;
+    }
+
+    @Override // com.vivo.push.util.o
+    public final int e(String str, String str2) {
+        if (p.a()) {
+            return Log.v("VivoPush." + str, f39560a + str2);
+        }
+        return -1;
     }
 
     @Override // com.vivo.push.util.o
@@ -20,53 +47,17 @@ public final class n implements o {
     }
 
     @Override // com.vivo.push.util.o
-    public final int a(String str, String str2, Throwable th) {
-        return Log.e("VivoPush." + str, f8080a + str2, th);
-    }
-
-    @Override // com.vivo.push.util.o
-    public final int b(String str, String str2) {
-        return Log.w("VivoPush." + str, f8080a + str2);
-    }
-
-    @Override // com.vivo.push.util.o
-    public final int c(String str, String str2) {
-        return Log.d("VivoPush." + str, f8080a + str2);
-    }
-
-    @Override // com.vivo.push.util.o
-    public final int d(String str, String str2) {
-        if (p.a()) {
-            return Log.i("VivoPush." + str, f8080a + str2);
-        }
-        return -1;
-    }
-
-    @Override // com.vivo.push.util.o
     public final int b(String str, String str2, Throwable th) {
         if (p.a()) {
-            return Log.i("VivoPush." + str, f8080a + str2, th);
+            return Log.i("VivoPush." + str, f39560a + str2, th);
         }
         return -1;
     }
 
     @Override // com.vivo.push.util.o
-    public final int e(String str, String str2) {
+    public final void c(Context context, String str) {
         if (p.a()) {
-            return Log.v("VivoPush." + str, f8080a + str2);
-        }
-        return -1;
-    }
-
-    @Override // com.vivo.push.util.o
-    public final String a(Throwable th) {
-        return Log.getStackTraceString(th);
-    }
-
-    @Override // com.vivo.push.util.o
-    public final void a(Context context, String str) {
-        if (p.a()) {
-            a(context, str, 0);
+            a(context, str, 2);
         }
     }
 
@@ -78,9 +69,19 @@ public final class n implements o {
     }
 
     @Override // com.vivo.push.util.o
-    public final void c(Context context, String str) {
+    public final int a(String str, String str2, Throwable th) {
+        return Log.e("VivoPush." + str, f39560a + str2, th);
+    }
+
+    @Override // com.vivo.push.util.o
+    public final String a(Throwable th) {
+        return Log.getStackTraceString(th);
+    }
+
+    @Override // com.vivo.push.util.o
+    public final void a(Context context, String str) {
         if (p.a()) {
-            a(context, str, 2);
+            a(context, str, 0);
         }
     }
 
@@ -102,7 +103,7 @@ public final class n implements o {
         a(context, pVar, context.getPackageName());
     }
 
-    private static void a(Context context, com.vivo.push.b.p pVar, String str) {
+    public static void a(Context context, com.vivo.push.b.p pVar, String str) {
         if (str.contains("test") || str.equals(s.b(context))) {
             com.vivo.push.a.a.a(context, pVar, str);
         }

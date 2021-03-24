@@ -1,6 +1,5 @@
 package com.baidu.platform.core.c;
 
-import android.net.http.Headers;
 import android.util.Log;
 import com.baidu.mapapi.CoordType;
 import com.baidu.mapapi.SDKInitializer;
@@ -11,22 +10,27 @@ import com.baidu.mapapi.search.poi.OnGetPoiSearchResultListener;
 import com.baidu.mapapi.search.poi.PoiDetailResult;
 import com.baidu.mapapi.search.poi.PoiDetailSearchResult;
 import com.baidu.mapsdkplatform.comapi.util.CoordTrans;
+import com.baidu.pass.ecommerce.bean.SuggestAddrField;
 import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class d extends com.baidu.platform.base.d {
-    private static final String b = d.class.getSimpleName();
-    private boolean c = false;
+
+    /* renamed from: b  reason: collision with root package name */
+    public static final String f10411b = "d";
+
+    /* renamed from: c  reason: collision with root package name */
+    public boolean f10412c = false;
 
     private LatLng a(JSONObject jSONObject) {
         if (jSONObject == null) {
             return null;
         }
-        double optDouble = jSONObject.optDouble("lat");
-        double optDouble2 = jSONObject.optDouble("lng");
+        double optDouble = jSONObject.optDouble(SuggestAddrField.KEY_LAT);
+        double optDouble2 = jSONObject.optDouble(SuggestAddrField.KEY_LNG);
         return SDKInitializer.getCoordType() == CoordType.GCJ02 ? CoordTrans.baiduToGcj(new LatLng(optDouble, optDouble2)) : new LatLng(optDouble, optDouble2);
     }
 
@@ -34,12 +38,12 @@ public class d extends com.baidu.platform.base.d {
         JSONArray optJSONArray;
         try {
             JSONObject jSONObject = new JSONObject(str);
-            if (jSONObject == null || jSONObject.length() == 0 || jSONObject.optInt("status") != 0 || (optJSONArray = jSONObject.optJSONArray("result")) == null || optJSONArray.length() == 0) {
+            if (jSONObject.length() == 0 || jSONObject.optInt("status") != 0 || (optJSONArray = jSONObject.optJSONArray("result")) == null || optJSONArray.length() == 0) {
                 return false;
             }
-            return this.c ? a(optJSONArray, (PoiDetailSearchResult) searchResult) : a(optJSONArray, (PoiDetailResult) searchResult);
-        } catch (JSONException e) {
-            Log.e(b, "Parse detail search result error", e);
+            return this.f10412c ? a(optJSONArray, (PoiDetailSearchResult) searchResult) : a(optJSONArray, (PoiDetailResult) searchResult);
+        } catch (JSONException e2) {
+            Log.e(f10411b, "Parse detail search result error", e2);
             return false;
         }
     }
@@ -50,7 +54,7 @@ public class d extends com.baidu.platform.base.d {
             return false;
         }
         poiDetailResult.setName(jSONObject.optString("name"));
-        poiDetailResult.setLocation(a(jSONObject.optJSONObject(Headers.LOCATION)));
+        poiDetailResult.setLocation(a(jSONObject.optJSONObject("location")));
         poiDetailResult.setAddress(jSONObject.optString("address"));
         poiDetailResult.setTelephone(jSONObject.optString("telephone"));
         poiDetailResult.setUid(jSONObject.optString("uid"));
@@ -86,7 +90,7 @@ public class d extends com.baidu.platform.base.d {
             if (jSONObject != null && jSONObject.length() != 0) {
                 PoiDetailInfo poiDetailInfo = new PoiDetailInfo();
                 poiDetailInfo.setName(jSONObject.optString("name"));
-                poiDetailInfo.setLocation(a(jSONObject.optJSONObject(Headers.LOCATION)));
+                poiDetailInfo.setLocation(a(jSONObject.optJSONObject("location")));
                 poiDetailInfo.setAddress(jSONObject.optString("address"));
                 poiDetailInfo.setProvince(jSONObject.optString("province"));
                 poiDetailInfo.setCity(jSONObject.optString("city"));
@@ -127,63 +131,50 @@ public class d extends com.baidu.platform.base.d {
 
     @Override // com.baidu.platform.base.d
     public SearchResult a(String str) {
-        SearchResult poiDetailSearchResult = this.c ? new PoiDetailSearchResult() : new PoiDetailResult();
-        if (str == null || str.isEmpty()) {
-            poiDetailSearchResult.error = SearchResult.ERRORNO.RESULT_NOT_FOUND;
-        } else {
+        SearchResult.ERRORNO errorno;
+        JSONObject jSONObject;
+        SearchResult poiDetailSearchResult = this.f10412c ? new PoiDetailSearchResult() : new PoiDetailResult();
+        if (str != null && !str.isEmpty()) {
             try {
-                JSONObject jSONObject = new JSONObject(str);
-                if (jSONObject != null && jSONObject.length() != 0) {
-                    if (jSONObject.has("SDK_InnerError")) {
-                        JSONObject optJSONObject = jSONObject.optJSONObject("SDK_InnerError");
-                        if (optJSONObject != null && optJSONObject.length() != 0) {
-                            if (!optJSONObject.has("PermissionCheckError")) {
-                                if (optJSONObject.has("httpStateError")) {
-                                    String optString = optJSONObject.optString("httpStateError");
-                                    char c = 65535;
-                                    switch (optString.hashCode()) {
-                                        case -879828873:
-                                            if (optString.equals("NETWORK_ERROR")) {
-                                                c = 0;
-                                                break;
-                                            }
-                                            break;
-                                        case 1470557208:
-                                            if (optString.equals("REQUEST_ERROR")) {
-                                                c = 1;
-                                                break;
-                                            }
-                                            break;
-                                    }
-                                    switch (c) {
-                                        case 0:
-                                            poiDetailSearchResult.error = SearchResult.ERRORNO.NETWORK_ERROR;
-                                            break;
-                                        case 1:
-                                            poiDetailSearchResult.error = SearchResult.ERRORNO.REQUEST_ERROR;
-                                            break;
-                                        default:
-                                            poiDetailSearchResult.error = SearchResult.ERRORNO.SEARCH_SERVER_INTERNAL_ERROR;
-                                            break;
-                                    }
-                                }
-                            } else {
-                                poiDetailSearchResult.error = SearchResult.ERRORNO.PERMISSION_UNFINISHED;
-                            }
-                        } else {
-                            poiDetailSearchResult.error = SearchResult.ERRORNO.RESULT_NOT_FOUND;
-                        }
-                    } else if (!a(str, poiDetailSearchResult)) {
-                        poiDetailSearchResult.error = SearchResult.ERRORNO.RESULT_NOT_FOUND;
-                    }
-                } else {
+                jSONObject = new JSONObject(str);
+            } catch (JSONException e2) {
+                Log.e(f10411b, "Parse detail search result failed", e2);
+            }
+            if (jSONObject.length() == 0) {
+                poiDetailSearchResult.error = SearchResult.ERRORNO.RESULT_NOT_FOUND;
+                return poiDetailSearchResult;
+            } else if (!jSONObject.has("SDK_InnerError")) {
+                if (!a(str, poiDetailSearchResult)) {
                     poiDetailSearchResult.error = SearchResult.ERRORNO.RESULT_NOT_FOUND;
                 }
-            } catch (JSONException e) {
-                Log.e(b, "Parse detail search result failed", e);
-                poiDetailSearchResult.error = SearchResult.ERRORNO.RESULT_NOT_FOUND;
+                return poiDetailSearchResult;
+            } else {
+                JSONObject optJSONObject = jSONObject.optJSONObject("SDK_InnerError");
+                if (optJSONObject != null && optJSONObject.length() != 0) {
+                    if (optJSONObject.has("PermissionCheckError")) {
+                        errorno = SearchResult.ERRORNO.PERMISSION_UNFINISHED;
+                        poiDetailSearchResult.error = errorno;
+                        return poiDetailSearchResult;
+                    }
+                    if (optJSONObject.has("httpStateError")) {
+                        String optString = optJSONObject.optString("httpStateError");
+                        char c2 = 65535;
+                        int hashCode = optString.hashCode();
+                        if (hashCode != -879828873) {
+                            if (hashCode == 1470557208 && optString.equals("REQUEST_ERROR")) {
+                                c2 = 1;
+                            }
+                        } else if (optString.equals("NETWORK_ERROR")) {
+                            c2 = 0;
+                        }
+                        poiDetailSearchResult.error = c2 != 0 ? c2 != 1 ? SearchResult.ERRORNO.SEARCH_SERVER_INTERNAL_ERROR : SearchResult.ERRORNO.REQUEST_ERROR : SearchResult.ERRORNO.NETWORK_ERROR;
+                    }
+                    return poiDetailSearchResult;
+                }
             }
         }
+        errorno = SearchResult.ERRORNO.RESULT_NOT_FOUND;
+        poiDetailSearchResult.error = errorno;
         return poiDetailSearchResult;
     }
 
@@ -192,15 +183,15 @@ public class d extends com.baidu.platform.base.d {
         if (obj == null || !(obj instanceof OnGetPoiSearchResultListener)) {
             return;
         }
-        if (this.c) {
-            ((OnGetPoiSearchResultListener) obj).onGetPoiDetailResult((PoiDetailSearchResult) searchResult);
+        OnGetPoiSearchResultListener onGetPoiSearchResultListener = (OnGetPoiSearchResultListener) obj;
+        if (this.f10412c) {
+            onGetPoiSearchResultListener.onGetPoiDetailResult((PoiDetailSearchResult) searchResult);
         } else {
-            ((OnGetPoiSearchResultListener) obj).onGetPoiDetailResult((PoiDetailResult) searchResult);
+            onGetPoiSearchResultListener.onGetPoiDetailResult((PoiDetailResult) searchResult);
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public void a(boolean z) {
-        this.c = z;
+        this.f10412c = z;
     }
 }

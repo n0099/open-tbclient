@@ -4,7 +4,7 @@ import com.kwai.video.ksvodplayerkit.b.c;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public final class e {
     public static c.a a(JSONObject jSONObject) {
         if (jSONObject == null) {
@@ -20,7 +20,7 @@ public final class e {
                     arrayList.add(g.a(optJSONObject));
                 }
             }
-            aVar.f7275a = arrayList;
+            aVar.f37236a = arrayList;
         }
         return aVar;
     }
@@ -28,14 +28,14 @@ public final class e {
     public static String a(c.a aVar) {
         JSONObject jSONObject = new JSONObject();
         try {
-            if (aVar.f7275a != null && !aVar.f7275a.isEmpty()) {
+            if (aVar.f37236a != null && !aVar.f37236a.isEmpty()) {
                 JSONArray jSONArray = new JSONArray();
-                for (f fVar : aVar.f7275a) {
+                for (f fVar : aVar.f37236a) {
                     jSONArray.put(g.a(fVar));
                 }
                 jSONObject.put("representation", jSONArray);
             }
-        } catch (Exception e) {
+        } catch (Exception unused) {
         }
         return jSONObject.toString();
     }

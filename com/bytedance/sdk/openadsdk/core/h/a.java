@@ -7,142 +7,142 @@ import org.json.JSONArray;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f4448a;
-    public int b = 1;
-    public int c = 1;
-    public int d = 2;
-    public int e = 1;
-    public int f = 1;
-    public int g = 100;
-    public int h = 0;
-    public int i = 2;
-    public int j = 1;
-    public int k = 3;
+    public String f28388a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public int f28389b = 1;
+
+    /* renamed from: c  reason: collision with root package name */
+    public int f28390c = 1;
+
+    /* renamed from: d  reason: collision with root package name */
+    public int f28391d = 2;
+
+    /* renamed from: e  reason: collision with root package name */
+    public int f28392e = 1;
+
+    /* renamed from: f  reason: collision with root package name */
+    public int f28393f = 100;
+
+    /* renamed from: g  reason: collision with root package name */
+    public int f28394g = 0;
+
+    /* renamed from: h  reason: collision with root package name */
+    public int f28395h = 2;
+    public int i = 1;
+    public int j = 3;
+    public int k = -1;
     public int l = -1;
     public int m = -1;
-    public int n = -1;
-    public int o = 2;
-    public int p = 1;
-    public int q = 0;
-    public int r = 1500;
-    public int s = 2;
-    public int t = -1;
-    public int u = 20;
-    public int v = -1;
+    public int n = 2;
+    public int o = 1;
+    public int p = 0;
+    public int q = 1500;
+    public int r = 2;
+    public int s = -1;
+    public int t = 20;
+    public int u = -1;
+    public int v = 0;
     public int w = 0;
-    public int x = 0;
-    public int y = 5;
-    public List<String> z;
+    public int x = 5;
+    public List<String> y;
 
     public static a a() {
         return new a();
     }
 
-    private a() {
-    }
-
-    public a a(int i) {
+    public a b(int i) {
         this.v = i;
         return this;
     }
 
-    public a b(int i) {
+    public a c(int i) {
         this.w = i;
         return this;
     }
 
-    public a c(int i) {
-        this.x = i;
-        return this;
-    }
-
     public a d(int i) {
-        this.u = i;
-        return this;
-    }
-
-    public a e(int i) {
         this.t = i;
         return this;
     }
 
-    public a f(int i) {
-        this.q = i;
-        return this;
-    }
-
-    public a g(int i) {
-        this.r = i;
-        return this;
-    }
-
-    public a h(int i) {
+    public a e(int i) {
         this.s = i;
         return this;
     }
 
+    public a f(int i) {
+        this.p = i;
+        return this;
+    }
+
+    public a g(int i) {
+        this.q = i;
+        return this;
+    }
+
+    public a h(int i) {
+        this.r = i;
+        return this;
+    }
+
     public a i(int i) {
-        this.o = i;
-        return this;
-    }
-
-    public a j(int i) {
-        this.m = i;
-        return this;
-    }
-
-    public a k(int i) {
         this.n = i;
         return this;
     }
 
-    public a l(int i) {
+    public a j(int i) {
         this.l = i;
         return this;
     }
 
-    public a m(int i) {
+    public a k(int i) {
+        this.m = i;
+        return this;
+    }
+
+    public a l(int i) {
         this.k = i;
         return this;
     }
 
-    public a a(String str) {
-        this.f4448a = str;
+    public a m(int i) {
+        this.j = i;
         return this;
     }
 
     public a n(int i) {
-        this.b = i;
+        this.f28389b = i;
         return this;
     }
 
     public a o(int i) {
-        this.c = i;
+        this.f28390c = i;
         return this;
     }
 
     public a p(int i) {
-        this.d = i;
+        this.f28391d = i;
         return this;
     }
 
     public a q(int i) {
-        this.e = i;
+        this.f28392e = i;
         return this;
     }
 
     public a r(int i) {
-        this.f = i;
+        this.f28393f = i;
         return this;
     }
 
     public a s(int i) {
-        this.g = i;
+        this.f28394g = i;
         return this;
     }
 
     public a t(int i) {
-        this.h = i;
+        this.f28395h = i;
         return this;
     }
 
@@ -152,30 +152,35 @@ public class a {
     }
 
     public a v(int i) {
-        this.j = i;
+        this.o = i;
         return this;
     }
 
     public a w(int i) {
-        this.p = i;
+        this.x = i;
+        return this;
+    }
+
+    public a a(int i) {
+        this.u = i;
+        return this;
+    }
+
+    public a a(String str) {
+        this.f28388a = str;
         return this;
     }
 
     public a a(JSONArray jSONArray) {
         if (jSONArray != null && jSONArray.length() != 0) {
-            this.z = new ArrayList();
+            this.y = new ArrayList();
             for (int i = 0; i < jSONArray.length(); i++) {
                 try {
-                    this.z.add(jSONArray.get(i).toString());
-                } catch (Exception e) {
+                    this.y.add(jSONArray.get(i).toString());
+                } catch (Exception unused) {
                 }
             }
         }
-        return this;
-    }
-
-    public a x(int i) {
-        this.y = i;
         return this;
     }
 }

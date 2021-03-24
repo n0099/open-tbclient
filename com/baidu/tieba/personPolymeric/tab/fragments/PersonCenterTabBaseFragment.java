@@ -5,49 +5,54 @@ import android.view.ViewGroup;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.personPolymeric.view.l;
+import d.b.i0.h2.j.l;
 import tbclient.User;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public abstract class PersonCenterTabBaseFragment extends BaseFragment {
-    private l mFU;
 
-    public abstract void d(User user);
+    /* renamed from: e  reason: collision with root package name */
+    public l f20447e;
 
-    public abstract int getTabType();
+    public abstract void E0(boolean z);
 
-    public abstract boolean isHost();
+    public abstract int F0();
 
-    public abstract void wX(boolean z);
+    public abstract boolean G0();
 
-    @Override // com.baidu.tbadk.core.BaseFragment
-    public void showNetRefreshView(View view, String str, boolean z) {
-        if (this.mFU == null) {
-            this.mFU = new l(getPageContext().getPageActivity(), getNetRefreshListener());
-            this.mFU.setTitle(getPageContext().getResources().getString(R.string.refresh_view_title_text));
-            this.mFU.setSubText(null);
-            this.mFU.setButtonText(getPageContext().getResources().getString(R.string.refresh_view_button_text));
-            this.mFU.showRefreshButton();
-            this.mFU.getAttachedView().setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
-        }
-        this.mFU.onChangeSkinType();
-        this.mFU.attachView(view, z);
+    public void H0(MetaData metaData) {
     }
+
+    public abstract void I0(User user);
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void hideNetRefreshView(View view) {
-        if (this.mFU != null) {
-            this.mFU.dettachView(view);
+        l lVar = this.f20447e;
+        if (lVar != null) {
+            lVar.dettachView(view);
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.mFU != null) {
-            this.mFU.onChangeSkinType();
+        l lVar = this.f20447e;
+        if (lVar != null) {
+            lVar.onChangeSkinType();
         }
     }
 
-    public void a(MetaData metaData) {
+    @Override // com.baidu.tbadk.core.BaseFragment
+    public void showNetRefreshView(View view, String str, boolean z) {
+        if (this.f20447e == null) {
+            l lVar = new l(getPageContext().getPageActivity(), getNetRefreshListener());
+            this.f20447e = lVar;
+            lVar.e(getPageContext().getResources().getString(R.string.refresh_view_title_text));
+            this.f20447e.d(null);
+            this.f20447e.c(getPageContext().getResources().getString(R.string.refresh_view_button_text));
+            this.f20447e.f();
+            this.f20447e.b().setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
+        }
+        this.f20447e.onChangeSkinType();
+        this.f20447e.attachView(view, z);
     }
 }

@@ -4,9 +4,9 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import com.tencent.mm.opensdk.modelmsg.WXMediaMessage;
 import com.tencent.mm.opensdk.utils.Log;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class WXEmojiSharedObject implements WXMediaMessage.IMediaObject {
-    private static final String TAG = "MicroMsg.SDK.WXEmojiSharedObject";
+    public static final String TAG = "MicroMsg.SDK.WXEmojiSharedObject";
     public int packageflag;
     public String packageid;
     public String thumburl;
@@ -25,7 +25,7 @@ public class WXEmojiSharedObject implements WXMediaMessage.IMediaObject {
     @Override // com.tencent.mm.opensdk.modelmsg.WXMediaMessage.IMediaObject
     public boolean checkArgs() {
         if (TextUtils.isEmpty(this.packageid) || TextUtils.isEmpty(this.thumburl) || TextUtils.isEmpty(this.url) || this.packageflag == -1) {
-            Log.e(TAG, "checkArgs fail, packageid or thumburl is invalid");
+            Log.e("MicroMsg.SDK.WXEmojiSharedObject", "checkArgs fail, packageid or thumburl is invalid");
             return false;
         }
         return true;

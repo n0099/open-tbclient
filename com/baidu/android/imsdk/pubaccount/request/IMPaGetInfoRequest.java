@@ -21,12 +21,12 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class IMPaGetInfoRequest extends PaBaseHttpRequest {
-    private static final String TAG = IMPaGetInfoRequest.class.getSimpleName();
-    private long mAppid;
-    private String mKey;
-    private long mUk;
+    public static final String TAG = "IMPaGetInfoRequest";
+    public long mAppid;
+    public String mKey;
+    public long mUk;
 
     public IMPaGetInfoRequest(Context context, String str, long j, long j2) {
         this.mContext = context;
@@ -35,24 +35,44 @@ public class IMPaGetInfoRequest extends PaBaseHttpRequest {
         this.mUk = j2;
     }
 
-    @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
-    public byte[] getRequestParameter() throws NoSuchAlgorithmException {
-        String bduss = IMConfigInternal.getInstance().getIMConfig(this.mContext).getBduss(this.mContext);
-        long currentTimeMillis = System.currentTimeMillis() / 1000;
-        StringBuilder sb = new StringBuilder();
-        sb.append("method=pa_detail_list");
-        sb.append("&appid=").append(this.mAppid);
-        sb.append("&timestamp=").append(currentTimeMillis);
-        sb.append("&uk=").append(this.mUk);
-        sb.append("&sdk_version=").append(IMConfigInternal.getInstance().getSDKVersionValue(this.mContext));
-        sb.append("&sign=").append(getMd5("" + currentTimeMillis + bduss + this.mAppid));
-        sb.append("&is_https=").append(true);
-        sb.append("&account_type=").append(AccountManagerImpl.getInstance(this.mContext).getLoginType());
-        if (AccountManager.isCuidLogin(this.mContext)) {
-            sb.append("&token");
-            sb.append(AccountManager.getToken(this.mContext));
+    private void localSyncSubscribedPaList(Context context, List<PaInfo> list) {
+        if (list == null) {
+            return;
         }
-        return sb.toString().getBytes();
+        if (list.size() == 0) {
+            PaInfoDBManager.getInstance(context).deleteAllSubscribedPa();
+            return;
+        }
+        List<PaInfo> querySubscribedPaList = PaInfoDBManager.getInstance(context).querySubscribedPaList();
+        ArrayList arrayList = new ArrayList();
+        for (PaInfo paInfo : list) {
+            boolean z = false;
+            if (querySubscribedPaList != null) {
+                Iterator<PaInfo> it = querySubscribedPaList.iterator();
+                while (true) {
+                    if (!it.hasNext()) {
+                        break;
+                    }
+                    PaInfo next = it.next();
+                    if (paInfo.getPaId() == next.getPaId()) {
+                        querySubscribedPaList.remove(next);
+                        PaInfoDBManager.getInstance(context).acceptPaPush(paInfo.getPaId(), paInfo.isAcceptPush());
+                        z = true;
+                        break;
+                    }
+                }
+            }
+            if (!z) {
+                arrayList.add(paInfo);
+            }
+        }
+        Iterator it2 = arrayList.iterator();
+        while (it2.hasNext()) {
+            PaInfo paInfo2 = (PaInfo) it2.next();
+            String str = TAG;
+            LogUtils.d(str, "FXF  add to db " + paInfo2.toString());
+            PaInfoDBManager.getInstance(context).subscribePa(paInfo2);
+        }
     }
 
     @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
@@ -60,32 +80,58 @@ public class IMPaGetInfoRequest extends PaBaseHttpRequest {
         return "application/x-www-form-urlencoded";
     }
 
-    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
-    public boolean shouldAbort() {
-        return false;
+    @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
+    public byte[] getRequestParameter() throws NoSuchAlgorithmException {
+        String bduss = IMConfigInternal.getInstance().getIMConfig(this.mContext).getBduss(this.mContext);
+        long currentTimeMillis = System.currentTimeMillis() / 1000;
+        StringBuilder sb = new StringBuilder();
+        sb.append("method=pa_detail_list");
+        sb.append("&appid=");
+        sb.append(this.mAppid);
+        sb.append("&timestamp=");
+        sb.append(currentTimeMillis);
+        sb.append("&uk=");
+        sb.append(this.mUk);
+        sb.append("&sdk_version=");
+        sb.append(IMConfigInternal.getInstance().getSDKVersionValue(this.mContext));
+        sb.append("&sign=");
+        sb.append(getMd5("" + currentTimeMillis + bduss + this.mAppid));
+        sb.append("&is_https=");
+        sb.append(true);
+        sb.append("&account_type=");
+        sb.append(AccountManagerImpl.getInstance(this.mContext).getLoginType());
+        if (AccountManager.isCuidLogin(this.mContext)) {
+            sb.append("&token");
+            sb.append(AccountManager.getToken(this.mContext));
+        }
+        return sb.toString().getBytes();
+    }
+
+    @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
+    public void onFailure(int i, byte[] bArr, Throwable th) {
+        Pair<Integer, String> transErrorCode = transErrorCode(i, bArr, th);
+        PaManagerImpl.getInstance(this.mContext).onQueryScribedPaListResult(this.mKey, ((Integer) transErrorCode.first).intValue(), (String) transErrorCode.second, null);
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
     public void onSuccess(int i, byte[] bArr) {
-        JSONException jSONException;
-        List<PaInfo> list;
-        int i2;
         String str;
+        int i2;
         String str2 = new String(bArr);
-        LogUtils.d(TAG, "FXF  json is " + str2);
+        String str3 = TAG;
+        LogUtils.d(str3, "FXF  json is " + str2);
+        ArrayList arrayList = null;
         try {
             JSONObject jSONObject = new JSONObject(str2);
-            int i3 = jSONObject.getInt("error_code");
+            i2 = jSONObject.getInt("error_code");
             str = jSONObject.optString("error_msg", "");
-            if (i3 == 0) {
-                if (!jSONObject.has("response_params")) {
-                    list = null;
-                } else {
+            if (i2 == 0) {
+                if (jSONObject.has("response_params")) {
                     JSONArray jSONArray = jSONObject.getJSONArray("response_params");
-                    list = new ArrayList<>();
-                    for (int i4 = 0; i4 < jSONArray.length(); i4++) {
+                    ArrayList arrayList2 = new ArrayList();
+                    for (int i3 = 0; i3 < jSONArray.length(); i3++) {
                         try {
-                            JSONObject jSONObject2 = jSONArray.getJSONObject(i4);
+                            JSONObject jSONObject2 = jSONArray.getJSONObject(i3);
                             if (jSONObject2.optInt("pa_type") != 16) {
                                 PaInfo paInfo = new PaInfo();
                                 paInfo.setPaId(jSONObject2.optLong("pa_uid"));
@@ -111,72 +157,37 @@ public class IMPaGetInfoRequest extends PaBaseHttpRequest {
                                 if (!TextUtils.isEmpty(optString)) {
                                     try {
                                         paInfo.setSubsetType(new JSONObject(optString).optInt("sub_pa_type", 0));
-                                    } catch (JSONException e) {
-                                        LogUtils.e(LogUtils.TAG, "IMPaGetInfoListRequest JSONException", e);
+                                    } catch (JSONException e2) {
+                                        LogUtils.e(LogUtils.TAG, "IMPaGetInfoListRequest JSONException", e2);
                                     }
                                 }
-                                list.add(paInfo);
+                                arrayList2.add(paInfo);
                             }
-                        } catch (JSONException e2) {
-                            jSONException = e2;
-                            LogUtils.e(LogUtils.TAG, "IMGetZhidaInfoRequest JSONException", jSONException);
+                        } catch (JSONException e3) {
+                            e = e3;
+                            arrayList = arrayList2;
+                            LogUtils.e(LogUtils.TAG, "IMGetZhidaInfoRequest JSONException", e);
                             i2 = 1010;
+                            new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
                             str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
-                            new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(jSONException)).build();
-                            PaManagerImpl.getInstance(this.mContext).onQueryScribedPaListResult(this.mKey, i2, str, list);
+                            PaManagerImpl.getInstance(this.mContext).onQueryScribedPaListResult(this.mKey, i2, str, arrayList);
                         }
                     }
-                    localSyncSubscribedPaList(this.mContext, list);
+                    localSyncSubscribedPaList(this.mContext, arrayList2);
+                    arrayList = arrayList2;
                 }
             } else {
                 str = "query from local db";
-                list = PaInfoDBManager.getInstance(this.mContext).querySubscribedPaList();
+                arrayList = PaInfoDBManager.getInstance(this.mContext).querySubscribedPaList();
             }
-            i2 = i3;
-        } catch (JSONException e3) {
-            jSONException = e3;
-            list = null;
+        } catch (JSONException e4) {
+            e = e4;
         }
-        PaManagerImpl.getInstance(this.mContext).onQueryScribedPaListResult(this.mKey, i2, str, list);
+        PaManagerImpl.getInstance(this.mContext).onQueryScribedPaListResult(this.mKey, i2, str, arrayList);
     }
 
-    @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
-    public void onFailure(int i, byte[] bArr, Throwable th) {
-        Pair<Integer, String> transErrorCode = transErrorCode(i, bArr, th);
-        PaManagerImpl.getInstance(this.mContext).onQueryScribedPaListResult(this.mKey, ((Integer) transErrorCode.first).intValue(), (String) transErrorCode.second, null);
-    }
-
-    private void localSyncSubscribedPaList(Context context, List<PaInfo> list) {
-        boolean z;
-        if (list != null) {
-            if (list.size() == 0) {
-                PaInfoDBManager.getInstance(context).deleteAllSubscribedPa();
-                return;
-            }
-            List<PaInfo> querySubscribedPaList = PaInfoDBManager.getInstance(context).querySubscribedPaList();
-            ArrayList arrayList = new ArrayList();
-            for (PaInfo paInfo : list) {
-                if (querySubscribedPaList != null) {
-                    for (PaInfo paInfo2 : querySubscribedPaList) {
-                        if (paInfo.getPaId() == paInfo2.getPaId()) {
-                            querySubscribedPaList.remove(paInfo2);
-                            PaInfoDBManager.getInstance(context).acceptPaPush(paInfo.getPaId(), paInfo.isAcceptPush());
-                            z = true;
-                            break;
-                        }
-                    }
-                }
-                z = false;
-                if (!z) {
-                    arrayList.add(paInfo);
-                }
-            }
-            Iterator it = arrayList.iterator();
-            while (it.hasNext()) {
-                PaInfo paInfo3 = (PaInfo) it.next();
-                LogUtils.d(TAG, "FXF  add to db " + paInfo3.toString());
-                PaInfoDBManager.getInstance(context).subscribePa(paInfo3);
-            }
-        }
+    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
+    public boolean shouldAbort() {
+        return false;
     }
 }

@@ -4,7 +4,7 @@ import org.apache.http.ConnectionReuseStrategy;
 import org.apache.http.HttpResponse;
 import org.apache.http.protocol.HttpContext;
 @Deprecated
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class NoConnectionReuseStrategy implements ConnectionReuseStrategy {
     public NoConnectionReuseStrategy() {
         throw new RuntimeException("Stub!");

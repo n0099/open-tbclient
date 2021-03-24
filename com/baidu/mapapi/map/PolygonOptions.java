@@ -1,113 +1,115 @@
 package com.baidu.mapapi.map;
 
 import android.os.Bundle;
-import androidx.core.view.ViewCompat;
 import com.baidu.mapapi.model.LatLng;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public final class PolygonOptions extends OverlayOptions {
 
     /* renamed from: a  reason: collision with root package name */
-    int f2041a;
-    Bundle c;
-    private Stroke d;
-    private List<LatLng> f;
-    private int e = ViewCompat.MEASURED_STATE_MASK;
-    boolean b = true;
+    public int f6968a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    /* renamed from: c  reason: collision with root package name */
+    public Bundle f6970c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public Stroke f6971d;
+
+    /* renamed from: f  reason: collision with root package name */
+    public List<LatLng> f6973f;
+
+    /* renamed from: e  reason: collision with root package name */
+    public int f6972e = -16777216;
+
+    /* renamed from: b  reason: collision with root package name */
+    public boolean f6969b = true;
+
     @Override // com.baidu.mapapi.map.OverlayOptions
     public Overlay a() {
         Polygon polygon = new Polygon();
-        polygon.x = this.b;
-        polygon.w = this.f2041a;
-        polygon.y = this.c;
-        if (this.f == null || this.f.size() < 2) {
+        polygon.x = this.f6969b;
+        polygon.w = this.f6968a;
+        polygon.y = this.f6970c;
+        List<LatLng> list = this.f6973f;
+        if (list == null || list.size() < 2) {
             throw new IllegalStateException("when you add polyline, you must at least supply 2 points");
         }
-        polygon.c = this.f;
-        polygon.b = this.e;
-        polygon.f2040a = this.d;
+        polygon.f6967c = this.f6973f;
+        polygon.f6966b = this.f6972e;
+        polygon.f6965a = this.f6971d;
         return polygon;
     }
 
     public PolygonOptions extraInfo(Bundle bundle) {
-        this.c = bundle;
+        this.f6970c = bundle;
         return this;
     }
 
     public PolygonOptions fillColor(int i) {
-        this.e = i;
+        this.f6972e = i;
         return this;
     }
 
     public Bundle getExtraInfo() {
-        return this.c;
+        return this.f6970c;
     }
 
     public int getFillColor() {
-        return this.e;
+        return this.f6972e;
     }
 
     public List<LatLng> getPoints() {
-        return this.f;
+        return this.f6973f;
     }
 
     public Stroke getStroke() {
-        return this.d;
+        return this.f6971d;
     }
 
     public int getZIndex() {
-        return this.f2041a;
+        return this.f6968a;
     }
 
     public boolean isVisible() {
-        return this.b;
+        return this.f6969b;
     }
 
     public PolygonOptions points(List<LatLng> list) {
-        if (list == null) {
-            throw new IllegalArgumentException("points list can not be null");
-        }
-        if (list.size() <= 2) {
-            throw new IllegalArgumentException("points count can not less than three");
-        }
-        if (list.contains(null)) {
-            throw new IllegalArgumentException("points list can not contains null");
-        }
-        int i = 0;
-        while (true) {
-            int i2 = i;
-            if (i2 >= list.size()) {
-                this.f = list;
+        if (list != null) {
+            if (list.size() > 2) {
+                if (list.contains(null)) {
+                    throw new IllegalArgumentException("points list can not contains null");
+                }
+                int i = 0;
+                while (i < list.size()) {
+                    int i2 = i + 1;
+                    for (int i3 = i2; i3 < list.size(); i3++) {
+                        if (list.get(i) == list.get(i3)) {
+                            throw new IllegalArgumentException("points list can not has same points");
+                        }
+                    }
+                    i = i2;
+                }
+                this.f6973f = list;
                 return this;
             }
-            int i3 = i2 + 1;
-            while (true) {
-                int i4 = i3;
-                if (i4 < list.size()) {
-                    if (list.get(i2) == list.get(i4)) {
-                        throw new IllegalArgumentException("points list can not has same points");
-                    }
-                    i3 = i4 + 1;
-                }
-            }
-            i = i2 + 1;
+            throw new IllegalArgumentException("points count can not less than three");
         }
+        throw new IllegalArgumentException("points list can not be null");
     }
 
     public PolygonOptions stroke(Stroke stroke) {
-        this.d = stroke;
+        this.f6971d = stroke;
         return this;
     }
 
     public PolygonOptions visible(boolean z) {
-        this.b = z;
+        this.f6969b = z;
         return this;
     }
 
     public PolygonOptions zIndex(int i) {
-        this.f2041a = i;
+        this.f6968a = i;
         return this;
     }
 }

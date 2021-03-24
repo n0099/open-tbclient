@@ -10,29 +10,27 @@ import android.os.Build;
 import android.os.SystemClock;
 import android.util.AndroidException;
 import android.util.Range;
-import com.baidu.ar.arplay.core.pixel.PixelReadParams;
-import com.baidu.mobstat.Config;
+import com.baidu.browser.sailor.feature.upload.BdUploadHandler;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import org.webrtc.CameraEnumerationAndroid;
 import org.webrtc.CameraVideoCapturer;
-/* loaded from: classes9.dex */
+/* loaded from: classes7.dex */
 public class Camera2Enumerator implements CameraEnumerator {
-    private static final double NANO_SECONDS_PER_SECOND = 1.0E9d;
-    private static final String TAG = "Camera2Enumerator";
-    private static final Map<String, List<CameraEnumerationAndroid.CaptureFormat>> cachedSupportedFormats = new HashMap();
-    private static boolean disableExtraCamera;
-    final CameraManager cameraManager;
-    final Context context;
+    public static final double NANO_SECONDS_PER_SECOND = 1.0E9d;
+    public static final String TAG = "Camera2Enumerator";
+    public static final Map<String, List<CameraEnumerationAndroid.CaptureFormat>> cachedSupportedFormats = new HashMap();
+    public static boolean disableExtraCamera = false;
+    public final CameraManager cameraManager;
+    public final Context context;
 
     public Camera2Enumerator(Context context) {
         this.context = context;
-        this.cameraManager = (CameraManager) context.getSystemService(PixelReadParams.DEFAULT_FILTER_ID);
+        this.cameraManager = (CameraManager) context.getSystemService(BdUploadHandler.MEDIA_SOURCE_VALUE_CAMERA);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public static List<CameraEnumerationAndroid.CaptureFormat.FramerateRange> convertFramerates(Range<Integer>[] rangeArr, int i) {
         ArrayList arrayList = new ArrayList();
         for (Range<Integer> range : rangeArr) {
@@ -41,7 +39,7 @@ public class Camera2Enumerator implements CameraEnumerator {
         return arrayList;
     }
 
-    private static List<Size> convertSizes(android.util.Size[] sizeArr) {
+    public static List<Size> convertSizes(android.util.Size[] sizeArr) {
         ArrayList arrayList = new ArrayList();
         for (android.util.Size size : sizeArr) {
             arrayList.add(new Size(size.getWidth(), size.getHeight()));
@@ -56,27 +54,23 @@ public class Camera2Enumerator implements CameraEnumerator {
     private CameraCharacteristics getCameraCharacteristics(String str) {
         try {
             return this.cameraManager.getCameraCharacteristics(str);
-        } catch (AndroidException e) {
-            Logging.e(TAG, "Camera access exception: " + e);
+        } catch (AndroidException e2) {
+            Logging.e(TAG, "Camera access exception: " + e2);
             return null;
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public static int getFpsUnitFactor(Range<Integer>[] rangeArr) {
-        if (rangeArr.length == 0) {
-            return 1000;
-        }
-        return rangeArr[0].getUpper().intValue() < 1000 ? 1000 : 1;
+        return (rangeArr.length != 0 && rangeArr[0].getUpper().intValue() >= 1000) ? 1 : 1000;
     }
 
-    static List<CameraEnumerationAndroid.CaptureFormat> getSupportedFormats(Context context, String str) {
-        return getSupportedFormats((CameraManager) context.getSystemService(PixelReadParams.DEFAULT_FILTER_ID), str);
+    public static List<CameraEnumerationAndroid.CaptureFormat> getSupportedFormats(Context context, String str) {
+        return getSupportedFormats((CameraManager) context.getSystemService(BdUploadHandler.MEDIA_SOURCE_VALUE_CAMERA), str);
     }
 
-    static List<CameraEnumerationAndroid.CaptureFormat> getSupportedFormats(CameraManager cameraManager, String str) {
+    public static List<CameraEnumerationAndroid.CaptureFormat> getSupportedFormats(CameraManager cameraManager, String str) {
         long j;
-        Map<String, List<CameraEnumerationAndroid.CaptureFormat>> map = cachedSupportedFormats;
+        int round;
         synchronized (cachedSupportedFormats) {
             if (cachedSupportedFormats.containsKey(str)) {
                 return cachedSupportedFormats.get(str);
@@ -97,12 +91,18 @@ public class Camera2Enumerator implements CameraEnumerator {
                 for (Size size : supportedSizes) {
                     try {
                         j = streamConfigurationMap.getOutputMinFrameDuration(SurfaceTexture.class, new android.util.Size(size.width, size.height));
-                    } catch (Exception e) {
+                    } catch (Exception unused) {
                         j = 0;
                     }
-                    int round = j == 0 ? i : ((int) Math.round(NANO_SECONDS_PER_SECOND / j)) * 1000;
+                    if (j == 0) {
+                        round = i;
+                    } else {
+                        double d2 = j;
+                        Double.isNaN(d2);
+                        round = ((int) Math.round(1.0E9d / d2)) * 1000;
+                    }
                     arrayList.add(new CameraEnumerationAndroid.CaptureFormat(size.width, size.height, 0, round));
-                    Logging.d(TAG, "Format: " + size.width + Config.EVENT_HEAT_X + size.height + "@" + round);
+                    Logging.d(TAG, "Format: " + size.width + "x" + size.height + "@" + round);
                 }
                 cachedSupportedFormats.put(str, arrayList);
                 long elapsedRealtime2 = SystemClock.elapsedRealtime();
@@ -115,7 +115,6 @@ public class Camera2Enumerator implements CameraEnumerator {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public static List<Size> getSupportedSizes(CameraCharacteristics cameraCharacteristics) {
         int intValue = ((Integer) cameraCharacteristics.get(CameraCharacteristics.INFO_SUPPORTED_HARDWARE_LEVEL)).intValue();
         List<Size> convertSizes = convertSizes(((StreamConfigurationMap) cameraCharacteristics.get(CameraCharacteristics.SCALER_STREAM_CONFIGURATION_MAP)).getOutputSizes(SurfaceTexture.class));
@@ -136,7 +135,7 @@ public class Camera2Enumerator implements CameraEnumerator {
         if (Build.VERSION.SDK_INT < 21) {
             return false;
         }
-        CameraManager cameraManager = (CameraManager) context.getSystemService(PixelReadParams.DEFAULT_FILTER_ID);
+        CameraManager cameraManager = (CameraManager) context.getSystemService(BdUploadHandler.MEDIA_SOURCE_VALUE_CAMERA);
         try {
             for (String str : cameraManager.getCameraIdList()) {
                 if (((Integer) cameraManager.getCameraCharacteristics(str).get(CameraCharacteristics.INFO_SUPPORTED_HARDWARE_LEVEL)).intValue() == 2) {
@@ -144,8 +143,8 @@ public class Camera2Enumerator implements CameraEnumerator {
                 }
             }
             return true;
-        } catch (AndroidException e) {
-            Logging.e(TAG, "Camera access exception: " + e);
+        } catch (AndroidException e2) {
+            Logging.e(TAG, "Camera access exception: " + e2);
             return false;
         }
     }
@@ -159,9 +158,14 @@ public class Camera2Enumerator implements CameraEnumerator {
     public String[] getDeviceNames() {
         try {
             String[] cameraIdList = this.cameraManager.getCameraIdList();
-            return cameraIdList.length > 2 ? disableExtraCamera ? new String[]{cameraIdList[0], cameraIdList[1]} : cameraIdList : cameraIdList;
-        } catch (AndroidException e) {
-            Logging.e(TAG, "Camera access exception: " + e);
+            if (cameraIdList.length > 2) {
+                if (disableExtraCamera) {
+                    return new String[]{cameraIdList[0], cameraIdList[1]};
+                }
+            }
+            return cameraIdList;
+        } catch (AndroidException e2) {
+            Logging.e(TAG, "Camera access exception: " + e2);
             return new String[0];
         }
     }

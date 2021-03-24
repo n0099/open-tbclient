@@ -2,18 +2,18 @@ package com.meizu.cloud.pushsdk.notification;
 
 import android.content.Context;
 import android.graphics.Bitmap;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class PushNotificationBuilder {
-    protected String appLabel;
-    protected Bitmap appLargeIcon;
-    protected String clickPackageName;
-    protected Context context;
-    protected int mLargIcon;
-    protected int mNotificationDefaults;
-    protected int mNotificationFlags;
-    protected String mNotificationsound;
-    protected int mStatusbarIcon;
-    protected long[] mVibratePattern;
+    public String appLabel;
+    public Bitmap appLargeIcon;
+    public String clickPackageName;
+    public Context context;
+    public int mLargIcon;
+    public int mNotificationDefaults;
+    public int mNotificationFlags;
+    public String mNotificationsound;
+    public int mStatusbarIcon;
+    public long[] mVibratePattern;
 
     public PushNotificationBuilder() {
     }

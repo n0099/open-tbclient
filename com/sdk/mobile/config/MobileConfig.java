@@ -1,16 +1,18 @@
 package com.sdk.mobile.config;
 
 import com.sdk.base.framework.c.e;
-import com.sdk.base.framework.f.d.a;
+import com.sdk.base.framework.f.c.a;
 import com.sdk.base.module.config.BaseConfig;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class MobileConfig implements e {
-    String apk = BaseConfig.apk;
-    String cm = BaseConfig.cm;
-    int c = 1;
-    String v = "1.0";
-    String n = "ZzxOAuth";
-    long r = System.currentTimeMillis();
+    public String apk = BaseConfig.apk;
+    public String cm = BaseConfig.cm;
+
+    /* renamed from: c  reason: collision with root package name */
+    public int f38604c = 1;
+    public String v = "1.0";
+    public String n = "ZzxOAuth";
+    public long r = System.currentTimeMillis();
 
     public String getApiKey() {
         return this.apk;

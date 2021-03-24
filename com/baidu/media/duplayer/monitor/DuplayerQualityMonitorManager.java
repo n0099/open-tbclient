@@ -4,70 +4,53 @@ import android.os.Handler;
 import android.os.Looper;
 import com.baidu.cyberplayer.sdk.CyberLog;
 import com.baidu.cyberplayer.sdk.config.CyberCfgManager;
-import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.media.duplayer.Keep;
+import com.baidu.rtc.PeerConnectionClient;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 @Keep
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public class DuplayerQualityMonitorManager {
-    private static final int[] b = {480, 540, 720, 1080};
-    private static DuplayerQualityMonitorManager cjY;
-    private ConcurrentHashMap<String, Integer> c = new ConcurrentHashMap<>();
-    private int d = -1;
 
-    private DuplayerQualityMonitorManager() {
-    }
+    /* renamed from: c  reason: collision with root package name */
+    public static DuplayerQualityMonitorManager f7968c;
 
-    private int a(int i) {
-        if (i == 0 || i == 2 || i == 1) {
-            return i;
-        }
-        return 0;
-    }
+    /* renamed from: d  reason: collision with root package name */
+    public static final int[] f7969d = {480, 540, PeerConnectionClient.HD_VIDEO_HEIGHT, 1080};
 
-    private int a(int i, int i2) {
-        int min = Math.min(i, i2);
-        if (min <= 0) {
-            return 540;
-        }
-        for (int length = b.length - 1; length >= 0; length--) {
-            if (min >= b[length]) {
-                return b[length];
-            }
-        }
-        return b[0];
-    }
+    /* renamed from: a  reason: collision with root package name */
+    public ConcurrentHashMap<String, Integer> f7970a = new ConcurrentHashMap<>();
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(String str, int i) {
-        CyberLog.i("DuplayerQualityMonitorManager", "onUpdateMonitorData key:" + str + " score:" + i);
-        if (this.c != null) {
-            this.c.put(str, Integer.valueOf(i));
-        }
-    }
+    /* renamed from: b  reason: collision with root package name */
+    public int f7971b = -1;
 
-    private String b(String str, int i, int i2, int i3, Map<String, String> map) {
-        StringBuilder sb = new StringBuilder();
-        if (str != null) {
-            sb.append(str);
-        } else {
-            sb.append("video/hevc");
+    /* loaded from: classes2.dex */
+    public static class a implements Runnable {
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ String f7972e;
+
+        /* renamed from: f  reason: collision with root package name */
+        public final /* synthetic */ int f7973f;
+
+        public a(String str, int i) {
+            this.f7972e = str;
+            this.f7973f = i;
         }
-        sb.append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
-        sb.append(a(i));
-        sb.append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
-        sb.append(a(i2, i3));
-        return sb.toString();
+
+        @Override // java.lang.Runnable
+        public void run() {
+            DuplayerQualityMonitorManager.getInstance().e(this.f7972e, this.f7973f);
+        }
     }
 
     public static synchronized DuplayerQualityMonitorManager getInstance() {
         DuplayerQualityMonitorManager duplayerQualityMonitorManager;
         synchronized (DuplayerQualityMonitorManager.class) {
-            if (cjY == null) {
-                cjY = new DuplayerQualityMonitorManager();
+            if (f7968c == null) {
+                f7968c = new DuplayerQualityMonitorManager();
             }
-            duplayerQualityMonitorManager = cjY;
+            duplayerQualityMonitorManager = f7968c;
         }
         return duplayerQualityMonitorManager;
     }
@@ -77,30 +60,64 @@ public class DuplayerQualityMonitorManager {
     private native int nativeInit();
 
     @Keep
-    private static void updateMonitorData(int i, final String str, final int i2, int i3) {
-        switch (i) {
-            case 1000:
-                new Handler(Looper.getMainLooper()).post(new Runnable() { // from class: com.baidu.media.duplayer.monitor.DuplayerQualityMonitorManager.1
-                    @Override // java.lang.Runnable
-                    public void run() {
-                        DuplayerQualityMonitorManager.getInstance().a(str, i2);
-                    }
-                });
-                return;
-            default:
-                return;
+    public static void updateMonitorData(int i, String str, int i2, int i3) {
+        if (i != 1000) {
+            return;
+        }
+        new Handler(Looper.getMainLooper()).post(new a(str, i2));
+    }
+
+    public final int a(int i) {
+        if (i == 0 || i == 2 || i == 1) {
+            return i;
+        }
+        return 0;
+    }
+
+    public final int b(int i, int i2) {
+        int min = Math.min(i, i2);
+        if (min <= 0) {
+            return 540;
+        }
+        for (int length = f7969d.length - 1; length >= 0; length--) {
+            int[] iArr = f7969d;
+            if (min >= iArr[length]) {
+                return iArr[length];
+            }
+        }
+        return f7969d[0];
+    }
+
+    public final String c(String str, int i, int i2, int i3, Map<String, String> map) {
+        StringBuilder sb = new StringBuilder();
+        if (str == null) {
+            str = "video/hevc";
+        }
+        sb.append(str);
+        sb.append("_");
+        sb.append(a(i));
+        sb.append("_");
+        sb.append(b(i2, i3));
+        return sb.toString();
+    }
+
+    public final void e(String str, int i) {
+        CyberLog.i("DuplayerQualityMonitorManager", "onUpdateMonitorData key:" + str + " score:" + i);
+        ConcurrentHashMap<String, Integer> concurrentHashMap = this.f7970a;
+        if (concurrentHashMap != null) {
+            concurrentHashMap.put(str, Integer.valueOf(i));
         }
     }
 
     public int getPlayQualityScore(String str, int i, int i2, int i3, Map<String, String> map) {
-        String b2 = b(str, i, i2, i3, map);
-        Integer num = this.c.get(b2);
-        CyberLog.i("DuplayerQualityMonitorManager", "getPlayQualityScore key:" + b2 + " score:" + num);
-        return num != null ? num.intValue() : this.d;
+        String c2 = c(str, i, i2, i3, map);
+        Integer num = this.f7970a.get(c2);
+        CyberLog.i("DuplayerQualityMonitorManager", "getPlayQualityScore key:" + c2 + " score:" + num);
+        return num != null ? num.intValue() : this.f7971b;
     }
 
     public void init() {
-        this.d = CyberCfgManager.getInstance().getCfgIntValue("default_play_quality_score", -1);
+        this.f7971b = CyberCfgManager.getInstance().getCfgIntValue("default_play_quality_score", -1);
         nativeInit();
     }
 }

@@ -2,6 +2,7 @@ package com.kwad.sdk.crash.model.message;
 
 import android.text.TextUtils;
 import androidx.annotation.Nullable;
+import com.baidu.searchbox.track.ui.TrackUI;
 import com.kwad.sdk.core.b;
 import com.kwad.sdk.utils.o;
 import java.io.Serializable;
@@ -10,9 +11,9 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class MemoryInfo implements b, Serializable {
-    private static final long serialVersionUID = -4944913077323984734L;
+    public static final long serialVersionUID = -4944913077323984734L;
     public int mAvailableMB;
     public int mFdCount;
     public int mJavaHeapLimitMB;
@@ -36,8 +37,8 @@ public class MemoryInfo implements b, Serializable {
                 return;
             }
             parseJson(new JSONObject(str));
-        } catch (JSONException e) {
-            com.kwad.sdk.core.d.a.b(e);
+        } catch (JSONException e2) {
+            com.kwad.sdk.core.d.a.b(e2);
         }
     }
 
@@ -98,8 +99,8 @@ public class MemoryInfo implements b, Serializable {
                     this.mAllThreads.add(threadInfo3);
                 }
             }
-        } catch (Exception e) {
-            com.kwad.sdk.core.d.a.b(e);
+        } catch (Exception e2) {
+            com.kwad.sdk.core.d.a.b(e2);
         }
     }
 
@@ -124,30 +125,73 @@ public class MemoryInfo implements b, Serializable {
 
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("\t总RAM容量: ").append(this.mTotalMB).append(" (MB)\n").append("\t剩余RAM容量: ").append(this.mAvailableMB).append(" (MB)\n").append("\t本进程Java堆上限: ").append(this.mJavaHeapLimitMB).append(" (MB)\n").append("\t本进程Java堆已使用: ").append(this.mJavaHeapMB).append(" (MB)\n").append("\t虚拟地址空间已使用Vss: ").append(this.mVssMB).append(" (MB)\n").append("\t实际空间使用量(包含共享库) Rss: ").append(this.mRssMB).append(" (MB)\n").append("\t实际空间使用量(共享库已经均摊)(高内存杀进程的依据）Pss: ").append(this.mPssMB).append(" (MB)\n").append("\t打开文件描述符数: ").append(this.mFdCount).append("\n");
+        sb.append("\t总RAM容量: ");
+        sb.append(this.mTotalMB);
+        sb.append(" (MB)\n");
+        sb.append("\t剩余RAM容量: ");
+        sb.append(this.mAvailableMB);
+        sb.append(" (MB)\n");
+        sb.append("\t本进程Java堆上限: ");
+        sb.append(this.mJavaHeapLimitMB);
+        sb.append(" (MB)\n");
+        sb.append("\t本进程Java堆已使用: ");
+        sb.append(this.mJavaHeapMB);
+        sb.append(" (MB)\n");
+        sb.append("\t虚拟地址空间已使用Vss: ");
+        sb.append(this.mVssMB);
+        sb.append(" (MB)\n");
+        sb.append("\t实际空间使用量(包含共享库) Rss: ");
+        sb.append(this.mRssMB);
+        sb.append(" (MB)\n");
+        sb.append("\t实际空间使用量(共享库已经均摊)(高内存杀进程的依据）Pss: ");
+        sb.append(this.mPssMB);
+        sb.append(" (MB)\n");
+        sb.append("\t打开文件描述符数: ");
+        sb.append(this.mFdCount);
+        sb.append("\n");
         if (this.mFds.size() > 0) {
             sb.append("\t文件描述符详情: \n");
             for (String str : this.mFds) {
-                sb.append("\t").append(str).append("\n");
+                sb.append(TrackUI.SEPERATOR);
+                sb.append(str);
+                sb.append("\n");
             }
         }
-        sb.append("\t正在运行线程数: ").append(this.mThreadsCount).append("\tJava: ").append(this.mJavaThreads.size()).append("\tNative: ").append(this.mThreadsCount - this.mJavaThreads.size()).append("\n\n");
+        sb.append("\t正在运行线程数: ");
+        sb.append(this.mThreadsCount);
+        sb.append("\tJava: ");
+        sb.append(this.mJavaThreads.size());
+        sb.append("\tNative: ");
+        sb.append(this.mThreadsCount - this.mJavaThreads.size());
+        sb.append("\n\n");
         if (this.mAllThreads.size() > 0) {
             sb.append("\t全部线程名: \n");
             for (ThreadInfo threadInfo : this.mAllThreads) {
-                sb.append("\t").append(threadInfo.mName).append("\n");
+                sb.append(TrackUI.SEPERATOR);
+                sb.append(threadInfo.mName);
+                sb.append("\n");
             }
         }
         if (this.mJavaThreads.size() > 0) {
             sb.append("Java线程堆栈: \n");
             for (ThreadInfo threadInfo2 : this.mJavaThreads) {
-                sb.append(threadInfo2.mName).append("\n").append(threadInfo2.mTrace.replace("#", "\n")).append("\n");
+                sb.append(threadInfo2.mName);
+                sb.append("\n");
+                sb.append(threadInfo2.mTrace.replace("#", "\n"));
+                sb.append("\n");
             }
         }
         if (this.mNativeThreads.size() > 0) {
             sb.append("\tNative线程堆栈: \n");
             for (ThreadInfo threadInfo3 : this.mNativeThreads) {
-                sb.append("\t").append(threadInfo3.mName).append("\t(tid=").append(threadInfo3.mTid).append(", index=").append(threadInfo3.mIndex).append("):\n").append(threadInfo3.mTrace);
+                sb.append(TrackUI.SEPERATOR);
+                sb.append(threadInfo3.mName);
+                sb.append("\t(tid=");
+                sb.append(threadInfo3.mTid);
+                sb.append(", index=");
+                sb.append(threadInfo3.mIndex);
+                sb.append("):\n");
+                sb.append(threadInfo3.mTrace);
             }
         }
         return sb.substring(0);

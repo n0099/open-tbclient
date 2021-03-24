@@ -1,63 +1,29 @@
 package com.baidu.tieba.homepage;
 
 import com.baidu.adp.framework.message.NetMessage;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import tbclient.GetMyPost.DataReq;
 import tbclient.GetMyPost.GetMyPostReqIdl;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class RequestGetMyPostNetMessage extends NetMessage {
-    private String bFrom;
-    private int callFrom;
-    private boolean hideErrorToast;
-    private long mForumId;
-    private long mPostId;
-    private int mQType;
-    private double mScrDip;
-    private int mScrH;
-    private int mScrW;
-    private long mThreadId;
-    private int proZone;
+    public String bFrom;
+    public int callFrom;
+    public boolean hideErrorToast;
+    public long mForumId;
+    public long mPostId;
+    public int mQType;
+    public double mScrDip;
+    public int mScrH;
+    public int mScrW;
+    public long mThreadId;
+    public int proZone;
 
     public RequestGetMyPostNetMessage() {
-        super(1003010, CmdConfigSocket.CMD_GET_MY_POST);
-    }
-
-    public void setParams(long j, long j2, long j3, int i, int i2, double d, int i3) {
-        this.mPostId = j2;
-        this.mThreadId = j;
-        this.mForumId = j3;
-        this.mScrW = i;
-        this.mScrH = i2;
-        this.mScrDip = d;
-        this.mQType = i3;
-    }
-
-    public void setProZone(int i) {
-        this.proZone = i;
-    }
-
-    public int getProZone() {
-        return this.proZone;
-    }
-
-    public void setBFrom(String str) {
-        this.bFrom = str;
-    }
-
-    public void setHideErrorToast(boolean z) {
-        this.hideErrorToast = z;
-    }
-
-    public boolean showErrorToast() {
-        return !this.hideErrorToast;
-    }
-
-    public void setCallFrom(int i) {
-        this.callFrom = i;
+        super(CmdConfigHttp.CMD_GET_MY_POST, 303111);
     }
 
     @Override // com.baidu.adp.framework.message.NetMessage
-    protected Object encode(boolean z) {
+    public Object encode(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
         builder.forum_id = Long.valueOf(this.mForumId);
         builder.thread_id = Long.valueOf(this.mThreadId);
@@ -71,5 +37,39 @@ public class RequestGetMyPostNetMessage extends NetMessage {
         GetMyPostReqIdl.Builder builder2 = new GetMyPostReqIdl.Builder();
         builder2.data = builder.build(false);
         return builder2.build(false);
+    }
+
+    public int getProZone() {
+        return this.proZone;
+    }
+
+    public void setBFrom(String str) {
+        this.bFrom = str;
+    }
+
+    public void setCallFrom(int i) {
+        this.callFrom = i;
+    }
+
+    public void setHideErrorToast(boolean z) {
+        this.hideErrorToast = z;
+    }
+
+    public void setParams(long j, long j2, long j3, int i, int i2, double d2, int i3) {
+        this.mPostId = j2;
+        this.mThreadId = j;
+        this.mForumId = j3;
+        this.mScrW = i;
+        this.mScrH = i2;
+        this.mScrDip = d2;
+        this.mQType = i3;
+    }
+
+    public void setProZone(int i) {
+        this.proZone = i;
+    }
+
+    public boolean showErrorToast() {
+        return !this.hideErrorToast;
     }
 }

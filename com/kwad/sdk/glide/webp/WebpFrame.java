@@ -3,21 +3,21 @@ package com.kwad.sdk.glide.webp;
 import android.graphics.Bitmap;
 import androidx.annotation.Keep;
 @Keep
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class WebpFrame {
-    static final int FRAME_DURATION_MS_FOR_MIN = 100;
-    static final int MIN_FRAME_DURATION_MS = 20;
-    boolean blendPreviousFrame;
-    int delay;
-    boolean disposeBackgroundColor;
-    int ih;
-    int iw;
-    int ix;
-    int iy;
+    public static final int FRAME_DURATION_MS_FOR_MIN = 100;
+    public static final int MIN_FRAME_DURATION_MS = 20;
+    public boolean blendPreviousFrame;
+    public int delay;
+    public boolean disposeBackgroundColor;
+    public int ih;
+    public int iw;
+    public int ix;
+    public int iy;
     @Keep
-    private long mNativePtr;
+    public long mNativePtr;
 
-    WebpFrame(long j, int i, int i2, int i3, int i4, int i5, boolean z, boolean z2) {
+    public WebpFrame(long j, int i, int i2, int i3, int i4, int i5, boolean z, boolean z2) {
         this.mNativePtr = j;
         this.ix = i;
         this.iy = i2;
@@ -45,7 +45,7 @@ public class WebpFrame {
         nativeDispose();
     }
 
-    protected void finalize() {
+    public void finalize() {
         nativeFinalize();
     }
 

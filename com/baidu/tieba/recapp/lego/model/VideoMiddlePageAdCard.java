@@ -1,22 +1,22 @@
 package com.baidu.tieba.recapp.lego.model;
 
 import android.text.TextUtils;
-import com.baidu.adp.lib.util.c;
-import com.baidu.afd.d;
-import com.baidu.afd.i;
 import com.baidu.tbadk.core.atomData.MissonDetailsActivityConfig;
 import com.baidu.tbadk.core.atomData.WriteActivityConfig;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tieba.lego.card.a.b;
 import com.baidu.tieba.lego.card.model.BaseLegoCardInfo;
-import com.baidu.tieba.recapp.activity.newstyle.AdWebVideoActivityConfig;
+import com.baidu.tieba.recapp.activity.AdWebVideoActivityConfig;
 import com.baidu.tieba.recapp.lego.model.AdCard;
+import com.baidu.tieba.tbadkCore.videoupload.VideoFinishResult;
+import d.b.b.e.p.c;
+import d.b.c.d;
+import d.b.i0.i1.o.h.b;
+import d.b.i0.i1.o.l.i;
 import org.json.JSONException;
 import org.json.JSONObject;
 import tbclient.VideoInfo;
-/* loaded from: classes7.dex */
-public class VideoMiddlePageAdCard extends BaseLegoCardInfo implements i, b, com.baidu.tieba.lego.card.view.i {
-    private d adFacadeData;
+/* loaded from: classes5.dex */
+public class VideoMiddlePageAdCard extends BaseLegoCardInfo implements i, d.b.c.i, b {
+    public d adFacadeData;
     public boolean autoPlay;
     public AdCard.c operateData;
     public b.a parallelChargeInfo;
@@ -35,14 +35,15 @@ public class VideoMiddlePageAdCard extends BaseLegoCardInfo implements i, b, com
         this.userName = jSONObject.optString("user_name");
         this.userPortrait = jSONObject.optString("user_portrait");
         this.threadTitle = jSONObject.optString(MissonDetailsActivityConfig.THREAD_TITLE);
-        this.tagName = jSONObject.optString("tag_name", "广告");
-        if (TextUtils.isEmpty(this.tagName)) {
+        String optString = jSONObject.optString("tag_name", "广告");
+        this.tagName = optString;
+        if (TextUtils.isEmpty(optString)) {
             this.tagName = "广告";
         }
         JSONObject optJSONObject = jSONObject.optJSONObject(WriteActivityConfig.VIDEO_INFO);
         if (optJSONObject != null && optJSONObject.length() > 0) {
             VideoInfo.Builder builder = new VideoInfo.Builder();
-            builder.video_md5 = optJSONObject.optString("video_md5", "");
+            builder.video_md5 = optJSONObject.optString(VideoFinishResult.KEY_VIDEO_MD5, "");
             builder.video_url = optJSONObject.optString("video_url", "");
             builder.video_duration = Integer.valueOf(optJSONObject.optInt(AdWebVideoActivityConfig.KEY_VIDEO_DURATION, 0));
             builder.video_width = Integer.valueOf(optJSONObject.optInt("video_width", 0));
@@ -58,62 +59,25 @@ public class VideoMiddlePageAdCard extends BaseLegoCardInfo implements i, b, com
             this.video = null;
         }
         JSONObject optJSONObject2 = jSONObject.optJSONObject(AdWebVideoActivityConfig.KEY_TAIL_FRAME);
-        this.tailFrame = new AdCard.g();
-        this.tailFrame.parseFromJson(optJSONObject2);
+        AdCard.g gVar = new AdCard.g();
+        this.tailFrame = gVar;
+        gVar.b(optJSONObject2);
         JSONObject optJSONObject3 = jSONObject.optJSONObject("operate");
-        this.operateData = new AdCard.c();
-        this.operateData.parseFromJson(optJSONObject3);
-        this.parallelChargeInfo = new b.a();
-        this.parallelChargeInfo.parseFromJson(jSONObject);
-        if (TextUtils.isEmpty(this.operateData.mVv)) {
-            this.operateData.mVv = this.userName;
+        AdCard.c cVar = new AdCard.c();
+        this.operateData = cVar;
+        cVar.a(optJSONObject3);
+        b.a aVar = new b.a();
+        this.parallelChargeInfo = aVar;
+        aVar.a(jSONObject);
+        if (TextUtils.isEmpty(this.operateData.f20703b)) {
+            this.operateData.f20703b = this.userName;
         }
-    }
-
-    @Override // com.baidu.tieba.lego.card.model.BaseLegoCardInfo, com.baidu.tieba.lego.card.model.ICardInfo
-    public boolean responseAttention(Object obj) {
-        return false;
-    }
-
-    @Override // com.baidu.tieba.lego.card.view.i
-    public void setAutoPlay(boolean z) {
-        this.autoPlay = z;
-    }
-
-    public boolean getAutoPlay() {
-        return this.autoPlay;
-    }
-
-    @Override // com.baidu.tieba.lego.card.view.i
-    public void setWaitConfirm(boolean z) {
-        this.waitConfirm = z;
-    }
-
-    public boolean getWaitConfirm() {
-        return this.waitConfirm;
-    }
-
-    public d getAdFacadeData() {
-        return this.adFacadeData;
-    }
-
-    @Override // com.baidu.afd.i
-    public void setAdFacadeData(d dVar) {
-        this.adFacadeData = dVar;
-    }
-
-    public String adCollect() {
-        byte[] bytes = toJson().toString().getBytes();
-        for (int i = 0; i < bytes.length; i++) {
-            bytes[i] = (byte) (bytes[i] ^ 47);
-        }
-        return new String(c.encodeBytesToBytes(bytes));
     }
 
     private JSONObject toJson() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put(IntentConfig.CARD_TYPE, this.cardType);
+            jSONObject.put("card_type", this.cardType);
             jSONObject.put("user_portrait", this.userPortrait);
             jSONObject.put("user_name", this.userPortrait);
             jSONObject.put(MissonDetailsActivityConfig.THREAD_TITLE, this.userPortrait);
@@ -131,19 +95,59 @@ public class VideoMiddlePageAdCard extends BaseLegoCardInfo implements i, b, com
                 jSONObject2.put("video_url", this.video.video_url);
             }
             jSONObject.put(WriteActivityConfig.VIDEO_INFO, jSONObject2);
-            jSONObject.put(AdWebVideoActivityConfig.KEY_TAIL_FRAME, this.tailFrame.toJson());
-            jSONObject.put("operate", this.operateData.toJsonObject());
-            if (this.adFacadeData != null && this.adFacadeData.qT() != null) {
-                jSONObject.put("extraparams", this.adFacadeData.qT().ext);
+            jSONObject.put(AdWebVideoActivityConfig.KEY_TAIL_FRAME, this.tailFrame.d());
+            jSONObject.put("operate", this.operateData.b());
+            if (this.adFacadeData != null && this.adFacadeData.j() != null) {
+                jSONObject.put("extraparams", this.adFacadeData.j().f42492b);
             }
-        } catch (JSONException e) {
-            e.printStackTrace();
+        } catch (JSONException e2) {
+            e2.printStackTrace();
         }
         return jSONObject;
     }
 
-    @Override // com.baidu.tieba.lego.card.a.b
+    public String adCollect() {
+        byte[] bytes = toJson().toString().getBytes();
+        for (int i = 0; i < bytes.length; i++) {
+            bytes[i] = (byte) (bytes[i] ^ 47);
+        }
+        return new String(c.m(bytes));
+    }
+
+    public d getAdFacadeData() {
+        return this.adFacadeData;
+    }
+
+    public boolean getAutoPlay() {
+        return this.autoPlay;
+    }
+
+    @Override // d.b.i0.i1.o.h.b
     public b.a getParallelCharge() {
         return this.parallelChargeInfo;
+    }
+
+    public boolean getWaitConfirm() {
+        return this.waitConfirm;
+    }
+
+    @Override // com.baidu.tieba.lego.card.model.BaseLegoCardInfo, com.baidu.tieba.lego.card.model.ICardInfo
+    public boolean responseAttention(Object obj) {
+        return false;
+    }
+
+    @Override // d.b.c.i
+    public void setAdFacadeData(d dVar) {
+        this.adFacadeData = dVar;
+    }
+
+    @Override // d.b.i0.i1.o.l.i
+    public void setAutoPlay(boolean z) {
+        this.autoPlay = z;
+    }
+
+    @Override // d.b.i0.i1.o.l.i
+    public void setWaitConfirm(boolean z) {
+        this.waitConfirm = z;
     }
 }

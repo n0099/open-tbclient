@@ -7,10 +7,9 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class a {
     public static Map<String, String> a(String str) {
-        HashMap hashMap = null;
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -18,25 +17,17 @@ public class a {
             FileReader fileReader = new FileReader(str);
             Properties properties = new Properties();
             properties.load(fileReader);
-            if (properties != null) {
-                HashMap hashMap2 = new HashMap();
-                try {
-                    for (Map.Entry entry : properties.entrySet()) {
-                        hashMap2.put((String) entry.getKey(), (String) entry.getValue());
-                    }
-                    hashMap = hashMap2;
-                } catch (FileNotFoundException e) {
-                    return hashMap2;
-                } catch (IOException e2) {
-                    return hashMap2;
+            HashMap hashMap = new HashMap();
+            try {
+                for (Map.Entry entry : properties.entrySet()) {
+                    hashMap.put((String) entry.getKey(), (String) entry.getValue());
                 }
+                fileReader.close();
+            } catch (FileNotFoundException | IOException unused) {
             }
-            fileReader.close();
             return hashMap;
-        } catch (FileNotFoundException e3) {
-            return hashMap;
-        } catch (IOException e4) {
-            return hashMap;
+        } catch (FileNotFoundException | IOException unused2) {
+            return null;
         }
     }
 }

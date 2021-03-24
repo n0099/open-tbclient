@@ -1,6 +1,6 @@
 package org.apache.http.params;
 @Deprecated
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class DefaultedHttpParams extends AbstractHttpParams {
     public DefaultedHttpParams(HttpParams httpParams, HttpParams httpParams2) {
         throw new RuntimeException("Stub!");
@@ -8,6 +8,10 @@ public final class DefaultedHttpParams extends AbstractHttpParams {
 
     @Override // org.apache.http.params.HttpParams
     public HttpParams copy() {
+        throw new RuntimeException("Stub!");
+    }
+
+    public HttpParams getDefaults() {
         throw new RuntimeException("Stub!");
     }
 
@@ -23,10 +27,6 @@ public final class DefaultedHttpParams extends AbstractHttpParams {
 
     @Override // org.apache.http.params.HttpParams
     public HttpParams setParameter(String str, Object obj) {
-        throw new RuntimeException("Stub!");
-    }
-
-    public HttpParams getDefaults() {
         throw new RuntimeException("Stub!");
     }
 }

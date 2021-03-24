@@ -1,0 +1,80 @@
+package d.b.g0.a.t1.k;
+
+import android.content.Context;
+import android.text.TextUtils;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import d.b.g0.a.y0.e.b;
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes3.dex */
+public class q extends a0 {
+
+    /* loaded from: classes3.dex */
+    public class a implements Runnable {
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ String f46541e;
+
+        /* renamed from: f  reason: collision with root package name */
+        public final /* synthetic */ JSONObject f46542f;
+
+        public a(q qVar, String str, JSONObject jSONObject) {
+            this.f46541e = str;
+            this.f46542f = jSONObject;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            d.b.g0.n.e.l(this.f46541e, this.f46542f);
+        }
+    }
+
+    public q(d.b.g0.a.t1.j jVar) {
+        super(jVar, "/swanAPI/openStatisticEvent");
+    }
+
+    public static void j(JSONObject jSONObject) {
+        if (jSONObject == null) {
+            return;
+        }
+        b.a J = d.b.g0.a.r1.d.e().s().J();
+        d.b.g0.a.i2.v.d(jSONObject, "launchId", J.U());
+        d.b.g0.a.i2.v.d(jSONObject, "scheme", J.V());
+        d.b.g0.a.i2.v.d(jSONObject, "appid", J.G());
+        d.b.g0.a.i2.v.d(jSONObject, "swan", d.b.g0.a.b2.b.g(J.f0(), J.F()));
+        d.b.g0.a.i2.v.d(jSONObject, "packageVersion", J.n1());
+    }
+
+    @Override // d.b.g0.a.t1.k.a0
+    public boolean g(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, d.b.g0.a.r1.e eVar) {
+        JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
+        if (optParamsAsJo == null) {
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty joParams");
+            return false;
+        }
+        String optString = optParamsAsJo.optString("bizId", "-1");
+        if (TextUtils.isEmpty(optString)) {
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty flowId");
+            return false;
+        }
+        try {
+            optParamsAsJo.putOpt("timestamp", Long.valueOf(System.currentTimeMillis()));
+            optParamsAsJo.putOpt("eventType", "0");
+            optParamsAsJo.putOpt("propagation", d.b.g0.a.i2.v.d(optParamsAsJo.optJSONObject("propagation"), "source", d.b.g0.a.r1.d.e().s().J().S()));
+        } catch (JSONException e2) {
+            if (a0.f46287b) {
+                e2.printStackTrace();
+            }
+        }
+        JSONObject optJSONObject = optParamsAsJo.optJSONObject("content");
+        if (optJSONObject != null) {
+            j(optJSONObject.optJSONObject("ext"));
+        }
+        d.b.g0.a.c0.c.g("OpenStatisticEvent", "OpenStat : " + optParamsAsJo);
+        d.b.g0.a.i2.p.k(new a(this, optString, optParamsAsJo), "OpenStatisticEvent");
+        UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+        return true;
+    }
+}

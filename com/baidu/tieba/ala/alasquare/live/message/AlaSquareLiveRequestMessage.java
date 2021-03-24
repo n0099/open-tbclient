@@ -1,17 +1,17 @@
 package com.baidu.tieba.ala.alasquare.live.message;
 
 import com.baidu.adp.framework.message.NetMessage;
-import com.baidu.adp.lib.util.j;
-import com.baidu.adp.lib.util.l;
 import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.ala.AlaCmdConfigSocket;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.util.v;
+import d.b.b.e.p.j;
+import d.b.b.e.p.l;
+import d.b.h0.z0.w;
 import tbclient.LiveSquare.DataReq;
 import tbclient.LiveSquare.LiveSquareReqIdl;
-/* loaded from: classes9.dex */
+/* loaded from: classes4.dex */
 public class AlaSquareLiveRequestMessage extends NetMessage {
-    private Integer mPn;
+    public Integer mPn;
 
     public AlaSquareLiveRequestMessage(int i, boolean z) {
         super(AlaCmdConfigHttp.CMD_SQUARE_LIVE, AlaCmdConfigSocket.CMD_SQUARE_LIVE);
@@ -20,22 +20,22 @@ public class AlaSquareLiveRequestMessage extends NetMessage {
     }
 
     @Override // com.baidu.adp.framework.message.NetMessage
-    protected Object encode(boolean z) {
+    public Object encode(boolean z) {
         try {
             DataReq.Builder builder = new DataReq.Builder();
             builder.pn = this.mPn;
-            builder.scr_w = Integer.valueOf(l.getEquipmentWidth(TbadkCoreApplication.getInst()));
-            builder.scr_h = Integer.valueOf(l.getEquipmentHeight(TbadkCoreApplication.getInst()));
+            builder.scr_w = Integer.valueOf(l.k(TbadkCoreApplication.getInst()));
+            builder.scr_h = Integer.valueOf(l.i(TbadkCoreApplication.getInst()));
             builder.q_type = 0;
-            builder.scr_dip = Integer.valueOf((int) l.getEquipmentDensity(TbadkCoreApplication.getInst()));
-            builder.network_type = String.valueOf(j.netTypeNameInUpperCase());
+            builder.scr_dip = Integer.valueOf((int) l.h(TbadkCoreApplication.getInst()));
+            builder.network_type = String.valueOf(j.K());
             if (z) {
-                v.b(builder, true);
+                w.a(builder, true);
             }
             LiveSquareReqIdl.Builder builder2 = new LiveSquareReqIdl.Builder();
             builder2.data = builder.build(false);
             return builder2.build(false);
-        } catch (Exception e) {
+        } catch (Exception unused) {
             return null;
         }
     }

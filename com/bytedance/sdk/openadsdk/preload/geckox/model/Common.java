@@ -2,8 +2,9 @@ package com.bytedance.sdk.openadsdk.preload.geckox.model;
 
 import android.os.Build;
 import androidx.annotation.Keep;
-import com.baidu.ar.constants.HttpConstants;
-import com.baidu.sapi2.SapiContext;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
+import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import com.bytedance.sdk.openadsdk.preload.a.a.c;
 @Keep
 /* loaded from: classes6.dex */
@@ -12,25 +13,25 @@ public class Common {
     public String ac;
     @c(a = "aid")
     public long aid;
-    @c(a = "app_name")
+    @c(a = DpStatConstants.KEY_APP_NAME)
     public String appName;
     @c(a = "app_version")
     public String appVersion;
-    @c(a = "device_id")
+    @c(a = Constants.KEY_DEVICE_ID)
     public String deviceId;
     @c(a = "region")
     public String region;
     @c(a = "uid")
     public String uid;
-    @c(a = "os")
+    @c(a = IXAdRequestInfo.OS)
     public int os = 0;
     @c(a = "os_version")
     public String osVersion = Build.VERSION.SDK_INT + "";
     @c(a = "device_model")
     public String deviceModel = Build.MODEL;
     @c(a = "device_platform")
-    public String devicePlatform = HttpConstants.OS_TYPE_VALUE;
-    @c(a = SapiContext.KEY_SDK_VERSION)
+    public String devicePlatform = "android";
+    @c(a = "sdk_version")
     public String sdkVersion = "2.0.3-rc.9-pangle";
 
     public Common(long j, String str, String str2, String str3, String str4) {

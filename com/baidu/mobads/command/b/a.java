@@ -2,49 +2,58 @@ package com.baidu.mobads.command.b;
 
 import android.content.Context;
 import android.content.IntentFilter;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class a extends com.baidu.mobads.openad.a.c {
-    private static a d;
-    private Context b;
-    private b c;
 
-    private a(Context context) {
-        this.b = context.getApplicationContext();
+    /* renamed from: d  reason: collision with root package name */
+    public static a f8194d;
+
+    /* renamed from: b  reason: collision with root package name */
+    public Context f8195b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public b f8196c;
+
+    public a(Context context) {
+        this.f8195b = context.getApplicationContext();
     }
 
     public static a a(Context context) {
-        if (d == null) {
+        if (f8194d == null) {
             synchronized (a.class) {
-                if (d == null) {
-                    d = new a(context);
+                if (f8194d == null) {
+                    f8194d = new a(context);
                 }
             }
         }
-        return d;
-    }
-
-    public void a() {
-        dispatchEvent(new com.baidu.mobads.openad.a.b("AdLpClosed"));
+        return f8194d;
     }
 
     public void b() {
         try {
-            if (this.c == null) {
-                this.c = new b(this);
+            if (this.f8196c == null) {
+                this.f8196c = new b(this);
             }
-            if (this.b != null) {
+            if (this.f8195b != null) {
                 IntentFilter intentFilter = new IntentFilter();
                 intentFilter.addAction("lp_close");
-                this.b.registerReceiver(this.c, intentFilter);
+                this.f8195b.registerReceiver(this.f8196c, intentFilter);
             }
-        } catch (Exception e) {
+        } catch (Exception unused) {
         }
     }
 
     public void c() {
-        if (this.b != null && this.c != null) {
-            this.b.unregisterReceiver(this.c);
-            this.c = null;
+        b bVar;
+        Context context = this.f8195b;
+        if (context == null || (bVar = this.f8196c) == null) {
+            return;
         }
+        context.unregisterReceiver(bVar);
+        this.f8196c = null;
+    }
+
+    public void a() {
+        dispatchEvent(new com.baidu.mobads.openad.a.b("AdLpClosed"));
     }
 }

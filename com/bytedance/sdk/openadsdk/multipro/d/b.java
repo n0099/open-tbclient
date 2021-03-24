@@ -8,89 +8,47 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes6.dex */
-class b {
+public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private static SoftReference<ConcurrentHashMap<String, Map<String, Object>>> f4926a;
+    public static SoftReference<ConcurrentHashMap<String, Map<String, Object>>> f29894a;
 
-    private static SharedPreferences c(Context context, String str) {
+    public static String a(String str) {
+        return TextUtils.isEmpty(str) ? "sphelper_ttopenadsdk" : str;
+    }
+
+    public static void b(String str) {
+        Map<String, Object> map;
+        SoftReference<ConcurrentHashMap<String, Map<String, Object>>> softReference = f29894a;
+        if (softReference == null || softReference.get() == null || (map = f29894a.get().get(a(str))) == null) {
+            return;
+        }
+        map.clear();
+    }
+
+    public static SharedPreferences c(Context context, String str) {
         if (context == null) {
             return null;
         }
         return context.getSharedPreferences(a(str), 0);
     }
 
-    private static String a(String str) {
-        return TextUtils.isEmpty(str) ? "sphelper_ttopenadsdk" : str;
-    }
-
-    private static Object a(String str, String str2) {
+    public static Object a(String str, String str2) {
         ConcurrentHashMap<String, Map<String, Object>> concurrentHashMap;
         Map<String, Object> map;
-        if (f4926a == null || (concurrentHashMap = f4926a.get()) == null || (map = concurrentHashMap.get(a(str))) == null) {
+        SoftReference<ConcurrentHashMap<String, Map<String, Object>>> softReference = f29894a;
+        if (softReference == null || (concurrentHashMap = softReference.get()) == null || (map = concurrentHashMap.get(a(str))) == null) {
             return null;
         }
         return map.get(str2);
     }
 
-    private static void a(String str, String str2, Object obj) {
-        if (f4926a == null || f4926a.get() == null) {
-            f4926a = new SoftReference<>(new ConcurrentHashMap());
-        }
-        String a2 = a(str);
-        ConcurrentHashMap<String, Map<String, Object>> concurrentHashMap = f4926a.get();
-        if (concurrentHashMap.get(a2) == null) {
-            concurrentHashMap.put(a2, new HashMap());
-        }
-        concurrentHashMap.get(a2).put(str2, obj);
+    public static String c(Context context, String str, String str2, String str3) {
+        SharedPreferences c2 = c(context, str);
+        return c2 == null ? str3 : c2.getString(str2, str3);
     }
 
-    private static void b(String str) {
-        Map<String, Object> map;
-        if (f4926a != null && f4926a.get() != null && (map = f4926a.get().get(a(str))) != null) {
-            map.clear();
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static synchronized <T> void a(Context context, String str, String str2, T t) {
-        synchronized (b.class) {
-            SharedPreferences c = c(context, str);
-            if (c != null && !t.equals(a(str, str2))) {
-                SharedPreferences.Editor edit = c.edit();
-                if (t instanceof Boolean) {
-                    edit.putBoolean(str2, ((Boolean) t).booleanValue());
-                }
-                if (t instanceof String) {
-                    edit.putString(str2, (String) t);
-                }
-                if (t instanceof Integer) {
-                    edit.putInt(str2, ((Integer) t).intValue());
-                }
-                if (t instanceof Long) {
-                    edit.putLong(str2, ((Long) t).longValue());
-                }
-                if (t instanceof Float) {
-                    edit.putFloat(str2, ((Float) t).floatValue());
-                }
-                edit.apply();
-                a(str, str2, t);
-            }
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static String a(Context context, String str, String str2, String str3) {
-        Object a2 = a(str, str2);
-        if (a2 != null) {
-            return a2 + "";
-        }
-        Object b = b(context, str, str2, str3);
-        a(str, str2, b);
-        return b + "";
-    }
-
-    private static Object b(Context context, String str, String str2, String str3) {
+    public static Object b(Context context, String str, String str2, String str3) {
         String a2 = a(str);
         if (a(context, a2, str2)) {
             if (str3.equalsIgnoreCase("string")) {
@@ -116,70 +74,117 @@ class b {
         return null;
     }
 
-    private static String c(Context context, String str, String str2, String str3) {
-        SharedPreferences c = c(context, str);
-        return c == null ? str3 : c.getString(str2, str3);
+    public static void a(String str, String str2, Object obj) {
+        SoftReference<ConcurrentHashMap<String, Map<String, Object>>> softReference = f29894a;
+        if (softReference == null || softReference.get() == null) {
+            f29894a = new SoftReference<>(new ConcurrentHashMap());
+        }
+        String a2 = a(str);
+        ConcurrentHashMap<String, Map<String, Object>> concurrentHashMap = f29894a.get();
+        if (concurrentHashMap.get(a2) == null) {
+            concurrentHashMap.put(a2, new HashMap());
+        }
+        concurrentHashMap.get(a2).put(str2, obj);
     }
 
-    private static int a(Context context, String str, String str2, int i) {
-        SharedPreferences c = c(context, str);
-        return c == null ? i : c.getInt(str2, i);
-    }
-
-    private static float a(Context context, String str, String str2, float f) {
-        SharedPreferences c = c(context, str);
-        return c == null ? f : c.getFloat(str2, f);
-    }
-
-    private static boolean a(Context context, String str, String str2, boolean z) {
-        SharedPreferences c = c(context, str);
-        return c == null ? z : c.getBoolean(str2, z);
-    }
-
-    private static long a(Context context, String str, String str2, long j) {
-        SharedPreferences c = c(context, str);
-        return c == null ? j : c.getLong(str2, j);
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static boolean a(Context context, String str, String str2) {
-        SharedPreferences c = c(context, str);
-        return c != null && c.contains(str2);
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static void b(Context context, String str, String str2) {
-        Map<String, Object> map;
-        try {
-            SharedPreferences c = c(context, str);
-            if (c != null) {
-                SharedPreferences.Editor edit = c.edit();
-                edit.remove(str2);
-                edit.apply();
-                if (f4926a != null && f4926a.get() != null) {
-                    String a2 = a(str);
-                    if (!TextUtils.isEmpty(a2) && (map = f4926a.get().get(a2)) != null && map.size() != 0) {
-                        map.remove(str2);
-                        if (f4926a != null && f4926a.get() != null) {
-                            f4926a.get().put(a2, map);
-                        }
-                    }
-                }
+    public static synchronized <T> void a(Context context, String str, String str2, T t) {
+        synchronized (b.class) {
+            SharedPreferences c2 = c(context, str);
+            if (c2 == null) {
+                return;
             }
-        } catch (Throwable th) {
+            if (t.equals(a(str, str2))) {
+                return;
+            }
+            SharedPreferences.Editor edit = c2.edit();
+            if (t instanceof Boolean) {
+                edit.putBoolean(str2, ((Boolean) t).booleanValue());
+            }
+            if (t instanceof String) {
+                edit.putString(str2, (String) t);
+            }
+            if (t instanceof Integer) {
+                edit.putInt(str2, ((Integer) t).intValue());
+            }
+            if (t instanceof Long) {
+                edit.putLong(str2, ((Long) t).longValue());
+            }
+            if (t instanceof Float) {
+                edit.putFloat(str2, ((Float) t).floatValue());
+            }
+            edit.apply();
+            a(str, str2, t);
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    public static void b(Context context, String str, String str2) {
+        Map<String, Object> map;
+        try {
+            SharedPreferences c2 = c(context, str);
+            if (c2 == null) {
+                return;
+            }
+            SharedPreferences.Editor edit = c2.edit();
+            edit.remove(str2);
+            edit.apply();
+            if (f29894a == null || f29894a.get() == null) {
+                return;
+            }
+            String a2 = a(str);
+            if (!TextUtils.isEmpty(a2) && (map = f29894a.get().get(a2)) != null && map.size() != 0) {
+                map.remove(str2);
+                if (f29894a == null || f29894a.get() == null) {
+                    return;
+                }
+                f29894a.get().put(a2, map);
+            }
+        } catch (Throwable unused) {
+        }
+    }
+
+    public static Map<String, ?> b(Context context, String str) {
+        return c(context, str).getAll();
+    }
+
+    public static String a(Context context, String str, String str2, String str3) {
+        Object a2 = a(str, str2);
+        if (a2 != null) {
+            return a2 + "";
+        }
+        Object b2 = b(context, str, str2, str3);
+        a(str, str2, b2);
+        return b2 + "";
+    }
+
+    public static int a(Context context, String str, String str2, int i) {
+        SharedPreferences c2 = c(context, str);
+        return c2 == null ? i : c2.getInt(str2, i);
+    }
+
+    public static float a(Context context, String str, String str2, float f2) {
+        SharedPreferences c2 = c(context, str);
+        return c2 == null ? f2 : c2.getFloat(str2, f2);
+    }
+
+    public static boolean a(Context context, String str, String str2, boolean z) {
+        SharedPreferences c2 = c(context, str);
+        return c2 == null ? z : c2.getBoolean(str2, z);
+    }
+
+    public static long a(Context context, String str, String str2, long j) {
+        SharedPreferences c2 = c(context, str);
+        return c2 == null ? j : c2.getLong(str2, j);
+    }
+
+    public static boolean a(Context context, String str, String str2) {
+        SharedPreferences c2 = c(context, str);
+        return c2 != null && c2.contains(str2);
+    }
+
     public static void a(Context context, String str) {
         SharedPreferences.Editor edit = c(context, str).edit();
         edit.clear();
         edit.apply();
         b(str);
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static Map<String, ?> b(Context context, String str) {
-        return c(context, str).getAll();
     }
 }

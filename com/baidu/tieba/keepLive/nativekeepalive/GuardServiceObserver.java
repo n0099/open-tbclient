@@ -5,24 +5,30 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.IBinder;
 import com.baidu.adp.framework.client.socket.link.BdSocketLinkService;
-import com.baidu.live.tbadk.core.util.CommonStatisticKey;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.lcs.a;
+import d.b.h0.c0.a;
 /* loaded from: classes.dex */
 public class GuardServiceObserver extends Service {
-    private final long STEP = 900000;
+    public final long STEP = 900000;
 
     public static void startNativeServiceForUnder23(Context context) {
         try {
             TiebaStatic.log(CommonStatisticKey.KEY_KEEP_LIVE);
-            if (TbadkCoreApplication.getKeepLiveSwitch(context) && context != null) {
-                a.d(0, 0, 0, 1, 5);
-                context.startService(new Intent(context, GuardServiceObserver.class));
+            if (!TbadkCoreApplication.getKeepLiveSwitch(context) || context == null) {
+                return;
             }
-        } catch (Throwable th) {
+            a.b(0, 0, 0, 1, 5);
+            context.startService(new Intent(context, GuardServiceObserver.class));
+        } catch (Throwable unused) {
             BdSocketLinkService.startService(false, "restart");
         }
+    }
+
+    @Override // android.app.Service
+    public IBinder onBind(Intent intent) {
+        return null;
     }
 
     @Override // android.app.Service
@@ -36,17 +42,12 @@ public class GuardServiceObserver extends Service {
     }
 
     @Override // android.app.Service
-    public IBinder onBind(Intent intent) {
-        return null;
-    }
-
-    @Override // android.app.Service
     public int onStartCommand(Intent intent, int i, int i2) {
         try {
             TiebaStatic.log(CommonStatisticKey.KEY_KEEP_LIVE);
-            a.d(0, 0, 0, 1, 5);
+            a.b(0, 0, 0, 1, 5);
             BdSocketLinkService.startService(false, "restart");
-        } catch (Throwable th) {
+        } catch (Throwable unused) {
         }
         return super.onStartCommand(intent, i, i2);
     }

@@ -2,27 +2,30 @@ package com.baidu.tieba.forumMember.member;
 
 import android.view.View;
 import com.baidu.adp.widget.ListView.TypeAdapter;
-import com.baidu.tbadk.core.util.ap;
-/* loaded from: classes7.dex */
+import com.baidu.tbadk.core.util.SkinManager;
+/* loaded from: classes4.dex */
 public class FrsEmpertyItemViewHolder extends TypeAdapter.ViewHolder {
-    public View jep;
+
+    /* renamed from: a  reason: collision with root package name */
+    public View f15919a;
 
     public FrsEmpertyItemViewHolder(View view) {
         super(view);
-        this.jep = view;
+        this.f15919a = view;
     }
 
-    public void yk(int i) {
-        if (i < 0) {
-            this.jep.setMinimumHeight(0);
-        } else {
-            this.jep.setMinimumHeight(i);
+    public void b(int i) {
+        if (i == 0) {
+            return;
         }
+        SkinManager.setBackgroundResource(this.f15919a, i);
     }
 
-    public void setBackground(int i) {
-        if (i != 0) {
-            ap.setBackgroundResource(this.jep, i);
+    public void c(int i) {
+        if (i < 0) {
+            this.f15919a.setMinimumHeight(0);
+        } else {
+            this.f15919a.setMinimumHeight(i);
         }
     }
 }

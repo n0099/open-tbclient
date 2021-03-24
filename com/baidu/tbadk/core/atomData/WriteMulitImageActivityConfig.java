@@ -6,7 +6,7 @@ import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.img.WriteImagesInfo;
 import com.baidu.tieba.frs.ForumWriteData;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class WriteMulitImageActivityConfig extends IntentConfig {
     public static final int ENTRANCE_ALBUM = 2;
     public static final int ENTRANCE_CHOOSE_TAB = 1;
@@ -25,9 +25,9 @@ public class WriteMulitImageActivityConfig extends IntentConfig {
         setIntentAction(IntentAction.ActivityForResult);
         setRequestCode(i);
         if (writeImagesInfo != null && writeImagesInfo.getChosedFiles() != null && (size = writeImagesInfo.getChosedFiles().size()) >= 1 && i2 >= 0 && i2 < size) {
-            getIntent().putExtra("WriteImgsInfoJsonStr", writeImagesInfo.toJsonString());
-            getIntent().putExtra("CurrentImgIndex", i2);
-            getIntent().putExtra("skinType", TbadkCoreApplication.getInst().getSkinType());
+            getIntent().putExtra(EXTRA_WRITE_IMG_INFO_JSON_STR, writeImagesInfo.toJsonString());
+            getIntent().putExtra(EXTRA_IMG_CURRENT_INDEX, i2);
+            getIntent().putExtra(SKIN_TYPE, TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
@@ -37,11 +37,11 @@ public class WriteMulitImageActivityConfig extends IntentConfig {
         setIntentAction(IntentAction.ActivityForResult);
         setRequestCode(i);
         if (writeImagesInfo != null && writeImagesInfo.getChosedFiles() != null && (size = writeImagesInfo.getChosedFiles().size()) >= 1 && i2 >= 0 && i2 < size) {
-            getIntent().putExtra("WriteImgsInfoJsonStr", writeImagesInfo.toJsonString());
-            getIntent().putExtra("CurrentImgIndex", i2);
-            getIntent().putExtra("FourmWriteData", forumWriteData);
-            getIntent().putExtra("FourmWriteIndex", i3);
-            getIntent().putExtra("skinType", TbadkCoreApplication.getInst().getSkinType());
+            getIntent().putExtra(EXTRA_WRITE_IMG_INFO_JSON_STR, writeImagesInfo.toJsonString());
+            getIntent().putExtra(EXTRA_IMG_CURRENT_INDEX, i2);
+            getIntent().putExtra(FOURM_WRITE_DATA, forumWriteData);
+            getIntent().putExtra(FOURM_WRITE_ENTRANCE, i3);
+            getIntent().putExtra(SKIN_TYPE, TbadkCoreApplication.getInst().getSkinType());
         }
     }
 }

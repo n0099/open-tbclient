@@ -9,10 +9,10 @@ import com.kwad.sdk.core.response.model.AdTemplate;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class i {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public interface a {
         @MainThread
         void a(int i, String str);
@@ -24,15 +24,14 @@ public class i {
     public static void a(@NonNull final h.a aVar, @NonNull final e.a aVar2) {
         new com.kwad.sdk.core.network.i<h, AdResultData>() { // from class: com.kwad.sdk.core.g.i.1
             /* JADX DEBUG: Method merged with bridge method */
-            /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.kwad.sdk.core.network.i
             @NonNull
             /* renamed from: a */
             public AdResultData b(String str) {
                 JSONObject jSONObject = new JSONObject(str);
                 ArrayList arrayList = new ArrayList();
-                for (com.kwad.sdk.core.g.a.f fVar : h.a.this.f6152a) {
-                    arrayList.add(fVar.f6100a);
+                for (com.kwad.sdk.core.g.a.f fVar : h.a.this.f33784a) {
+                    arrayList.add(fVar.f33650a);
                 }
                 AdResultData adResultData = new AdResultData(arrayList);
                 adResultData.parseJson(jSONObject);

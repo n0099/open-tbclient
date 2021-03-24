@@ -56,32 +56,27 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import androidx.viewpager.widget.ViewPager;
-import com.baidu.live.data.AlaLiveStreamSessionInfo;
 import java.util.HashMap;
 import java.util.Locale;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class ay {
-    private static final ay b = new ay();
+
+    /* renamed from: b  reason: collision with root package name */
+    public static final ay f9046b = new ay();
 
     /* renamed from: a  reason: collision with root package name */
-    private HashMap<String, String> f2623a = new HashMap<>();
+    public HashMap<String, String> f9047a = new HashMap<>();
 
-    public static ay a() {
-        return b;
-    }
-
-    private ay() {
+    public ay() {
         b();
     }
 
-    private void a(Throwable th) {
-        if (bh.c().b()) {
-            bh.c().b(th.toString());
-        }
+    public static ay a() {
+        return f9046b;
     }
 
     private void b() {
-        if (Build.VERSION.SDK_INT >= 14 && this.f2623a.size() == 0) {
+        if (Build.VERSION.SDK_INT >= 14 && this.f9047a.size() == 0) {
             try {
                 a(AutoCompleteTextView.class.getSimpleName(), "A0");
             } catch (Throwable th) {
@@ -173,17 +168,17 @@ public class ay {
                 a(th18);
             }
             try {
-                a(LinearLayout.class.getSimpleName(), AlaLiveStreamSessionInfo.STREAM_LEVEL_DEFAULT);
+                a(LinearLayout.class.getSimpleName(), "L0");
             } catch (Throwable th19) {
                 a(th19);
             }
             try {
-                a(ListView.class.getSimpleName(), AlaLiveStreamSessionInfo.STREAM_LEVEL_LOW);
+                a(ListView.class.getSimpleName(), "L1");
             } catch (Throwable th20) {
                 a(th20);
             }
             try {
-                a(ListFragment.class.getSimpleName(), AlaLiveStreamSessionInfo.STREAM_LEVEL_MEDIUM);
+                a(ListFragment.class.getSimpleName(), "L2");
             } catch (Throwable th21) {
                 a(th21);
             }
@@ -360,13 +355,20 @@ public class ay {
         }
     }
 
-    private void a(String str, String str2) {
-        if (!TextUtils.isEmpty(str) && !this.f2623a.containsKey(str)) {
-            this.f2623a.put(str, str2.toUpperCase(Locale.ENGLISH));
+    private void a(Throwable th) {
+        if (bh.c().b()) {
+            bh.c().b(th.toString());
         }
     }
 
+    private void a(String str, String str2) {
+        if (TextUtils.isEmpty(str) || this.f9047a.containsKey(str)) {
+            return;
+        }
+        this.f9047a.put(str, str2.toUpperCase(Locale.ENGLISH));
+    }
+
     public String a(String str) {
-        return this.f2623a.get(str);
+        return this.f9047a.get(str);
     }
 }

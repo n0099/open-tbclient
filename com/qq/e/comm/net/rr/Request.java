@@ -2,10 +2,10 @@ package com.qq.e.comm.net.rr;
 
 import java.net.HttpURLConnection;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public interface Request {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public enum Method {
         GET,
         POST

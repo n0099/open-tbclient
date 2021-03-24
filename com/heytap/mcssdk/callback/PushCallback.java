@@ -2,7 +2,7 @@ package com.heytap.mcssdk.callback;
 
 import com.heytap.mcssdk.mode.SubscribeResult;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public interface PushCallback {
     void onGetAliases(int i, List<SubscribeResult> list);
 

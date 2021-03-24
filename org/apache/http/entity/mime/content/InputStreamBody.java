@@ -3,26 +3,43 @@ package org.apache.http.entity.mime.content;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class InputStreamBody extends AbstractContentBody {
-    private final String filename;
-    private final InputStream in;
+    public final String filename;
+    public final InputStream in;
 
     public InputStreamBody(InputStream inputStream, String str, String str2) {
         super(str);
-        if (inputStream == null) {
-            throw new IllegalArgumentException("Input stream may not be null");
+        if (inputStream != null) {
+            this.in = inputStream;
+            this.filename = str2;
+            return;
         }
-        this.in = inputStream;
-        this.filename = str2;
+        throw new IllegalArgumentException("Input stream may not be null");
     }
 
-    public InputStreamBody(InputStream inputStream, String str) {
-        this(inputStream, "application/octet-stream", str);
+    @Override // org.apache.http.entity.mime.content.ContentDescriptor
+    public String getCharset() {
+        return null;
+    }
+
+    @Override // org.apache.http.entity.mime.content.ContentDescriptor
+    public long getContentLength() {
+        return -1L;
+    }
+
+    @Override // org.apache.http.entity.mime.content.ContentBody
+    public String getFilename() {
+        return this.filename;
     }
 
     public InputStream getInputStream() {
         return this.in;
+    }
+
+    @Override // org.apache.http.entity.mime.content.ContentDescriptor
+    public String getTransferEncoding() {
+        return "binary";
     }
 
     @Deprecated
@@ -51,23 +68,7 @@ public class InputStreamBody extends AbstractContentBody {
         }
     }
 
-    @Override // org.apache.http.entity.mime.content.ContentDescriptor
-    public String getTransferEncoding() {
-        return "binary";
-    }
-
-    @Override // org.apache.http.entity.mime.content.ContentDescriptor
-    public String getCharset() {
-        return null;
-    }
-
-    @Override // org.apache.http.entity.mime.content.ContentDescriptor
-    public long getContentLength() {
-        return -1L;
-    }
-
-    @Override // org.apache.http.entity.mime.content.ContentBody
-    public String getFilename() {
-        return this.filename;
+    public InputStreamBody(InputStream inputStream, String str) {
+        this(inputStream, "application/octet-stream", str);
     }
 }

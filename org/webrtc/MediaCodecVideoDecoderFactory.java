@@ -7,13 +7,13 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import javax.annotation.Nullable;
 import org.webrtc.EglBase;
-/* loaded from: classes9.dex */
-class MediaCodecVideoDecoderFactory implements VideoDecoderFactory {
-    private static final String TAG = "MediaCodecVideoDecoderFactory";
-    private final String[] prefixBlacklist;
-    private final String[] prefixWhitelist;
+/* loaded from: classes.dex */
+public class MediaCodecVideoDecoderFactory implements VideoDecoderFactory {
+    public static final String TAG = "MediaCodecVideoDecoderFactory";
+    public final String[] prefixBlacklist;
+    public final String[] prefixWhitelist;
     @Nullable
-    private final EglBase.Context sharedContext;
+    public final EglBase.Context sharedContext;
 
     public MediaCodecVideoDecoderFactory(@Nullable EglBase.Context context, String[] strArr, String[] strArr2) {
         this.sharedContext = context;
@@ -30,8 +30,8 @@ class MediaCodecVideoDecoderFactory implements VideoDecoderFactory {
         for (int i = 0; i < MediaCodecList.getCodecCount(); i++) {
             try {
                 mediaCodecInfo = MediaCodecList.getCodecInfoAt(i);
-            } catch (IllegalArgumentException e) {
-                Logging.e(TAG, "Cannot retrieve decoder codec info", e);
+            } catch (IllegalArgumentException e2) {
+                Logging.e(TAG, "Cannot retrieve decoder codec info", e2);
                 mediaCodecInfo = null;
             }
             if (mediaCodecInfo != null && !mediaCodecInfo.isEncoder() && isSupportedCodec(mediaCodecInfo, videoCodecType)) {
@@ -92,9 +92,10 @@ class MediaCodecVideoDecoderFactory implements VideoDecoderFactory {
 
     @Override // org.webrtc.VideoDecoderFactory
     public VideoCodecInfo[] getSupportedCodecs() {
-        VideoCodecType[] videoCodecTypeArr;
         ArrayList arrayList = new ArrayList();
-        for (VideoCodecType videoCodecType : new VideoCodecType[]{VideoCodecType.VP8, VideoCodecType.VP9, VideoCodecType.H264}) {
+        VideoCodecType[] videoCodecTypeArr = {VideoCodecType.VP8, VideoCodecType.VP9, VideoCodecType.H264};
+        for (int i = 0; i < 3; i++) {
+            VideoCodecType videoCodecType = videoCodecTypeArr[i];
             MediaCodecInfo findCodecForType = findCodecForType(videoCodecType);
             if (findCodecForType != null) {
                 String name = videoCodecType.name();

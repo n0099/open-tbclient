@@ -8,19 +8,19 @@ import android.os.Bundle;
 import android.webkit.ConsoleMessage;
 import android.webkit.WebChromeClient;
 import com.tencent.open.a.f;
-/* loaded from: classes14.dex */
+/* loaded from: classes7.dex */
 public abstract class b extends Dialog {
 
     /* renamed from: a  reason: collision with root package name */
-    protected a f7959a;
+    public a f39221a;
     @SuppressLint({"NewApi"})
-    protected final WebChromeClient b;
 
-    protected abstract void a(String str);
+    /* renamed from: b  reason: collision with root package name */
+    public final WebChromeClient f39222b;
 
     public b(Context context, int i) {
         super(context, i);
-        this.b = new WebChromeClient() { // from class: com.tencent.open.b.1
+        this.f39222b = new WebChromeClient() { // from class: com.tencent.open.b.1
             @Override // android.webkit.WebChromeClient
             public boolean onConsoleMessage(ConsoleMessage consoleMessage) {
                 if (consoleMessage == null) {
@@ -29,6 +29,7 @@ public abstract class b extends Dialog {
                 f.c("openSDK_LOG.JsDialog", "WebChromeClient onConsoleMessage" + consoleMessage.message() + " -- From  111 line " + consoleMessage.lineNumber() + " of " + consoleMessage.sourceId());
                 if (Build.VERSION.SDK_INT > 7) {
                     b.this.a(consoleMessage == null ? "" : consoleMessage.message());
+                    return true;
                 }
                 return true;
             }
@@ -43,10 +44,11 @@ public abstract class b extends Dialog {
         };
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
+    public abstract void a(String str);
+
     @Override // android.app.Dialog
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.f7959a = new a();
+        this.f39221a = new a();
     }
 }

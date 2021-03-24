@@ -3,7 +3,7 @@ package com.baidu.adp.lib.util;
 import java.io.Serializable;
 /* loaded from: classes.dex */
 public class NetworkState implements Serializable {
-    private static final long serialVersionUID = 6342610950738914764L;
+    public static final long serialVersionUID = 6342610950738914764L;
     public long mCurChangedTime;
     public int mCurNetState;
     public int mLastNetState;

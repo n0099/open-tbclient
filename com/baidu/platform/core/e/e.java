@@ -6,8 +6,7 @@ import com.baidu.mapapi.search.share.RouteShareURLOption;
 import com.baidu.mapsdkplatform.comjni.util.AppMD5;
 import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import com.baidu.mobstat.Config;
-import com.baidu.webkit.internal.ETAG;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class e extends com.baidu.platform.base.e {
     public e(RouteShareURLOption routeShareURLOption) {
         a(routeShareURLOption);
@@ -16,52 +15,62 @@ public class e extends com.baidu.platform.base.e {
     private int a(String str) {
         try {
             return Integer.parseInt(str);
-        } catch (NumberFormatException e) {
+        } catch (NumberFormatException unused) {
             return 0;
         }
     }
 
     private void a(RouteShareURLOption routeShareURLOption) {
+        String str;
+        String str2;
         com.baidu.platform.util.a aVar = new com.baidu.platform.util.a();
         Point ll2point = CoordUtil.ll2point(routeShareURLOption.mFrom.getLocation());
         Point ll2point2 = CoordUtil.ll2point(routeShareURLOption.mTo.getLocation());
-        String str = ll2point != null ? "1$$$$" + ll2point.x + "," + ll2point.y + "$$" : "2$$$$$$";
-        String name = routeShareURLOption.mFrom.getName();
-        String str2 = str + ((name == null || name.equals("")) ? "起点" : "起点") + "$$0$$$$";
-        String str3 = ll2point2 != null ? "1$$$$" + ll2point2.x + "," + ll2point2.y + "$$" : "2$$$$$$";
-        String name2 = routeShareURLOption.mTo.getName();
-        String str4 = str3 + ((name2 == null || name2.equals("")) ? "终点" : "终点") + "$$0$$$$";
-        String str5 = "";
-        String str6 = "";
-        switch (routeShareURLOption.mMode.ordinal()) {
-            case 0:
-                str6 = "&sharecallbackflag=carRoute";
-                str5 = "nav";
-                aVar.a(Config.STAT_SDK_CHANNEL, a(routeShareURLOption.mFrom.getCity()) + "");
-                aVar.a("ec", a(routeShareURLOption.mTo.getCity()) + "");
-                break;
-            case 1:
-                str6 = "&sharecallbackflag=footRoute";
-                str5 = "walk";
-                aVar.a(Config.STAT_SDK_CHANNEL, a(routeShareURLOption.mFrom.getCity()) + "");
-                aVar.a("ec", a(routeShareURLOption.mTo.getCity()) + "");
-                break;
-            case 2:
-                str6 = "&sharecallbackflag=cycleRoute";
-                str5 = "cycle";
-                aVar.a(Config.STAT_SDK_CHANNEL, a(routeShareURLOption.mFrom.getCity()) + "");
-                aVar.a("ec", a(routeShareURLOption.mTo.getCity()) + "");
-                break;
-            case 3:
-                str6 = "&i=" + routeShareURLOption.mPn + ",1,1&sharecallbackflag=busRoute";
-                aVar.a("c", routeShareURLOption.mCityCode + "");
-                str5 = "bt";
-                break;
+        String str3 = "2$$$$$$";
+        if (ll2point != null) {
+            str = "1$$$$" + ll2point.x + "," + ll2point.y + "$$";
+        } else {
+            str = "2$$$$$$";
         }
-        aVar.a(IXAdRequestInfo.SN, str2);
-        aVar.a(com.baidu.fsg.base.statistics.h.f1535a, str4);
-        this.f2867a.a("url", "http://map.baidu.com/?newmap=1&s=" + str5 + (AppMD5.encodeUrlParamsValue(ETAG.ITEM_SEPARATOR + aVar.a() + ("&start=" + name + "&end=" + name2)) + str6));
-        this.f2867a.a("from", "android_map_sdk");
+        String name = routeShareURLOption.mFrom.getName();
+        String str4 = "";
+        name = (name == null || name.equals("")) ? "起点" : "起点";
+        String str5 = str + name + "$$0$$$$";
+        if (ll2point2 != null) {
+            str3 = "1$$$$" + ll2point2.x + "," + ll2point2.y + "$$";
+        }
+        String name2 = routeShareURLOption.mTo.getName();
+        name2 = (name2 == null || name2.equals("")) ? "终点" : "终点";
+        String str6 = str3 + name2 + "$$0$$$$";
+        int ordinal = routeShareURLOption.mMode.ordinal();
+        if (ordinal == 0) {
+            aVar.a(Config.STAT_SDK_CHANNEL, a(routeShareURLOption.mFrom.getCity()) + "");
+            aVar.a("ec", a(routeShareURLOption.mTo.getCity()) + "");
+            str4 = "&sharecallbackflag=carRoute";
+            str2 = "nav";
+        } else if (ordinal == 1) {
+            aVar.a(Config.STAT_SDK_CHANNEL, a(routeShareURLOption.mFrom.getCity()) + "");
+            aVar.a("ec", a(routeShareURLOption.mTo.getCity()) + "");
+            str4 = "&sharecallbackflag=footRoute";
+            str2 = "walk";
+        } else if (ordinal == 2) {
+            aVar.a(Config.STAT_SDK_CHANNEL, a(routeShareURLOption.mFrom.getCity()) + "");
+            aVar.a("ec", a(routeShareURLOption.mTo.getCity()) + "");
+            str4 = "&sharecallbackflag=cycleRoute";
+            str2 = "cycle";
+        } else if (ordinal != 3) {
+            str2 = "";
+        } else {
+            String str7 = "&i=" + routeShareURLOption.mPn + ",1,1&sharecallbackflag=busRoute";
+            aVar.a("c", routeShareURLOption.mCityCode + "");
+            str2 = "bt";
+            str4 = str7;
+        }
+        aVar.a(IXAdRequestInfo.SN, str5);
+        aVar.a("en", str6);
+        String str8 = "&" + aVar.a() + ("&start=" + name + "&end=" + name2);
+        this.f9820a.a("url", "http://map.baidu.com/?newmap=1&s=" + str2 + (AppMD5.encodeUrlParamsValue(str8) + str4));
+        this.f9820a.a("from", "android_map_sdk");
     }
 
     @Override // com.baidu.platform.base.e

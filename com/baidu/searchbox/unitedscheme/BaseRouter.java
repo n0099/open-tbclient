@@ -6,13 +6,28 @@ import android.net.Uri;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class BaseRouter {
     public static boolean invoke(Context context, String str) {
         if (UnitedSchemeUtility.isUnitedScheme(str)) {
             return invokeSchemeForInner(context, Uri.parse(str));
         }
         return false;
+    }
+
+    public static boolean invokeNextScheme(Context context, Intent intent) {
+        return SchemeRouter.invokeNextScheme(context, intent);
+    }
+
+    public static boolean invokeScheme(Context context, Uri uri, String str, CallbackHandler callbackHandler) {
+        if (context == null) {
+            context = AppRuntime.getAppContext();
+        }
+        return SchemeRouter.invokeScheme(context, uri, str, callbackHandler);
+    }
+
+    public static boolean invokeSchemeForInner(Context context, Uri uri) {
+        return SchemeRouter.invokeSchemeForInner(context, uri);
     }
 
     public static boolean isAvailable(Context context, String str) {
@@ -29,22 +44,7 @@ public class BaseRouter {
         return SchemeRouter.isSchemeAvailable(context, uri, str);
     }
 
-    public static boolean invokeScheme(Context context, Uri uri, String str, CallbackHandler callbackHandler) {
-        if (context == null) {
-            context = AppRuntime.getAppContext();
-        }
-        return SchemeRouter.invokeScheme(context, uri, str, callbackHandler);
-    }
-
     public static boolean invokeScheme(Context context, Uri uri, String str) {
         return invokeScheme(context, uri, str, null);
-    }
-
-    public static boolean invokeNextScheme(Context context, Intent intent) {
-        return SchemeRouter.invokeNextScheme(context, intent);
-    }
-
-    public static boolean invokeSchemeForInner(Context context, Uri uri) {
-        return SchemeRouter.invokeSchemeForInner(context, uri);
     }
 }

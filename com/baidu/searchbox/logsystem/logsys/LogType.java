@@ -1,17 +1,14 @@
 package com.baidu.searchbox.logsystem.logsys;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public enum LogType {
     JAVA_CRASH("$JAVA_CRASH$"),
     NATIVE_CRASH("$NATIVE_CRASH$"),
     NONE("$NONE$");
     
-    private String mTypeName;
+    public String mTypeName;
 
     LogType(String str) {
         this.mTypeName = str;
-    }
-
-    public static void init() {
     }
 
     public static LogType getLogType(String str) {
@@ -25,6 +22,9 @@ public enum LogType {
             return NONE;
         }
         return null;
+    }
+
+    public static void init() {
     }
 
     public String getTypeName() {

@@ -10,52 +10,129 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.adp.lib.f.e;
+import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.plugin.packageManager.status.PluginStatus;
 import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
-import com.meizu.cloud.pushsdk.constants.PushConstants;
+import d.b.b.e.m.e;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class PluginErrorTipActivity extends BaseActivity<PluginErrorTipActivity> {
-    private ImageView fMl;
-    private TextView fMm;
-    private View fMn;
-    private TextView fMo;
-    private TextView fMp;
-    private PluginStatus fMq;
-    private ShadowLayout fMr;
-    private View mBack;
-    private NavigationBar mNavigationBar;
+    public TextView btn;
+    public ImageView errorImage;
+    public TextView errorInstallFail;
+    public View mBack;
+    public NavigationBar mNavigationBar;
+    public View parent;
+    public TextView resolveMsgView;
+    public ShadowLayout shadowLayout;
+    public PluginStatus status;
 
-    public static final void a(Context context, PluginStatus pluginStatus) {
-        if (context != null && pluginStatus != null) {
-            Intent intent = new Intent(context, PluginErrorTipActivity.class);
-            String jsonStrWithObject = PluginStatus.jsonStrWithObject(pluginStatus);
-            if (jsonStrWithObject != null) {
-                intent.putExtra(PluginStatus.class.getName(), jsonStrWithObject);
-                if (!(context instanceof Activity) && intent != null) {
-                    intent.addFlags(268435456);
+    /* loaded from: classes3.dex */
+    public class a implements Runnable {
+        public a() {
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            String str;
+            HashSet hashSet = new HashSet(10);
+            HashSet hashSet2 = new HashSet(10);
+            List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) BdBaseApplication.getInst().getContext().getSystemService("activity")).getRunningAppProcesses();
+            if (runningAppProcesses != null) {
+                for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : runningAppProcesses) {
+                    if (runningAppProcessInfo != null && (str = runningAppProcessInfo.processName) != null && str.startsWith(PluginErrorTipActivity.this.getApplication().getPackageName()) && runningAppProcessInfo.pid != Process.myPid() && hashSet.contains(runningAppProcessInfo.processName)) {
+                        hashSet2.add(Integer.valueOf(runningAppProcessInfo.pid));
+                    }
                 }
-                context.startActivity(intent);
             }
+            Iterator it = hashSet2.iterator();
+            while (it.hasNext()) {
+                Process.killProcess(((Integer) it.next()).intValue());
+            }
+            Process.killProcess(Process.myPid());
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
+    public static final void startByPlugiStatus(Context context, PluginStatus pluginStatus) {
+        if (context == null || pluginStatus == null) {
+            return;
+        }
+        Intent intent = new Intent(context, PluginErrorTipActivity.class);
+        String jsonStrWithObject = OrmObject.jsonStrWithObject(pluginStatus);
+        if (jsonStrWithObject == null) {
+            return;
+        }
+        intent.putExtra(PluginStatus.class.getName(), jsonStrWithObject);
+        if (!(context instanceof Activity)) {
+            intent.addFlags(268435456);
+        }
+        context.startActivity(intent);
+    }
+
+    public void initUI() {
+        NavigationBar navigationBar = (NavigationBar) findViewById(R.id.view_navigation_bar);
+        this.mNavigationBar = navigationBar;
+        View addSystemImageButton = navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, null);
+        this.mBack = addSystemImageButton;
+        addSystemImageButton.setOnClickListener(this);
+        this.mNavigationBar.setTitleText(R.string.pluginstatus_tip_title);
+        this.errorImage = (ImageView) findViewById(R.id.plugin_error_tip_image);
+        this.errorInstallFail = (TextView) findViewById(R.id.plugin_error_install_fail);
+        this.resolveMsgView = (TextView) findViewById(R.id.plugin_error_tip_resolve);
+        this.parent = findViewById(R.id.plugin_error_parent);
+        this.shadowLayout = (ShadowLayout) findViewById(R.id.plugin_error_shadow_layout);
+        TextView textView = (TextView) findViewById(R.id.plugin_error_btn);
+        this.btn = textView;
+        textView.setOnClickListener(this);
+        this.resolveMsgView.setText(getString(R.string.plugin_error_tips, new Object[]{this.status.getErrorMsg(), this.status.t()}));
+        if (this.status.getErrorCode() != 5 && this.status.getErrorCode() != 1 && this.status.getErrorCode() != 100) {
+            this.btn.setVisibility(8);
+            return;
+        }
+        this.btn.setText(R.string.pluginstatus_btn_restartapp);
+        this.btn.setVisibility(0);
+    }
+
+    @Override // com.baidu.tbadk.BaseActivity
+    public void onChangeSkinType(int i) {
+        this.mNavigationBar.onChangeSkinType(getPageContext(), i);
+        SkinManager.setImageResource(this.errorImage, R.drawable.new_pic_emotion_05);
+        SkinManager.setViewTextColor(this.errorInstallFail, R.color.CAM_X0108);
+        SkinManager.setBackgroundColor(this.parent, R.color.CAM_X0201);
+        SkinManager.setViewTextColor(this.resolveMsgView, R.color.CAM_X0105);
+        SkinManager.setViewTextColor(this.btn, R.color.CAM_X0111);
+        SkinManager.setBackgroundResource(this.btn, R.drawable.selector_blue_gradient_button);
+        this.shadowLayout.setShadowColor(R.color.plugin_button_shadow_blue);
+    }
+
+    @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
+    public void onClick(View view) {
+        if (view == this.mBack) {
+            finish();
+        } else if (view == this.btn) {
+            PluginStatus pluginStatus = this.status;
+            if (pluginStatus != null && pluginStatus.getErrorCode() == 100) {
+                d.b.b.h.h.a.b().u(true);
+            }
+            showLoadingDialog(getResources().getString(R.string.waiting));
+            e.a().postDelayed(new a(), 2000L);
+        }
+    }
+
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         if (getIntent() != null) {
-            this.fMq = (PluginStatus) PluginStatus.objectWithJsonStr(getIntent().getStringExtra(PluginStatus.class.getName()), PluginStatus.class);
+            this.status = (PluginStatus) OrmObject.objectWithJsonStr(getIntent().getStringExtra(PluginStatus.class.getName()), PluginStatus.class);
         } else {
-            this.fMq = (PluginStatus) PluginStatus.objectWithJsonStr(bundle.getString(PluginStatus.class.getName()), PluginStatus.class);
+            this.status = (PluginStatus) OrmObject.objectWithJsonStr(bundle.getString(PluginStatus.class.getName()), PluginStatus.class);
         }
-        if (this.fMq == null) {
+        if (this.status == null) {
             finish();
             return;
         }
@@ -63,78 +140,12 @@ public class PluginErrorTipActivity extends BaseActivity<PluginErrorTipActivity>
         initUI();
     }
 
-    protected void initUI() {
-        this.mNavigationBar = (NavigationBar) findViewById(R.id.view_navigation_bar);
-        this.mBack = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, null);
-        this.mBack.setOnClickListener(this);
-        this.mNavigationBar.setTitleText(R.string.pluginstatus_tip_title);
-        this.fMl = (ImageView) findViewById(R.id.plugin_error_tip_image);
-        this.fMm = (TextView) findViewById(R.id.plugin_error_install_fail);
-        this.fMo = (TextView) findViewById(R.id.plugin_error_tip_resolve);
-        this.fMn = findViewById(R.id.plugin_error_parent);
-        this.fMr = (ShadowLayout) findViewById(R.id.plugin_error_shadow_layout);
-        this.fMp = (TextView) findViewById(R.id.plugin_error_btn);
-        this.fMp.setOnClickListener(this);
-        this.fMo.setText(getString(R.string.plugin_error_tips, new Object[]{this.fMq.getErrorMsg(), this.fMq.qc()}));
-        if (this.fMq.getErrorCode() == 5 || this.fMq.getErrorCode() == 1 || this.fMq.getErrorCode() == 100) {
-            this.fMp.setText(R.string.pluginstatus_btn_restartapp);
-            this.fMp.setVisibility(0);
-            return;
-        }
-        this.fMp.setVisibility(8);
-    }
-
     @Override // android.app.Activity
-    protected void onSaveInstanceState(Bundle bundle) {
+    public void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        String jsonStrWithObject = PluginStatus.jsonStrWithObject(this.fMq);
+        String jsonStrWithObject = OrmObject.jsonStrWithObject(this.status);
         if (jsonStrWithObject != null) {
             bundle.putString(PluginStatus.class.getName(), jsonStrWithObject);
         }
-    }
-
-    @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
-    public void onClick(View view) {
-        if (view == this.mBack) {
-            finish();
-        } else if (view == this.fMp) {
-            if (this.fMq != null && this.fMq.getErrorCode() == 100) {
-                com.baidu.adp.plugin.b.a.pe().at(true);
-            }
-            showLoadingDialog(getResources().getString(R.string.waiting));
-            e.mA().postDelayed(new Runnable() { // from class: com.baidu.tbadk.plugin.PluginErrorTipActivity.1
-                @Override // java.lang.Runnable
-                public void run() {
-                    HashSet hashSet = new HashSet(10);
-                    HashSet hashSet2 = new HashSet(10);
-                    List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) BdBaseApplication.getInst().getContext().getSystemService(PushConstants.INTENT_ACTIVITY_NAME)).getRunningAppProcesses();
-                    if (runningAppProcesses != null) {
-                        for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : runningAppProcesses) {
-                            if (runningAppProcessInfo != null && runningAppProcessInfo.processName != null && runningAppProcessInfo.processName.startsWith(PluginErrorTipActivity.this.getApplication().getPackageName()) && runningAppProcessInfo.pid != Process.myPid() && hashSet.contains(runningAppProcessInfo.processName)) {
-                                hashSet2.add(Integer.valueOf(runningAppProcessInfo.pid));
-                            }
-                        }
-                    }
-                    Iterator it = hashSet2.iterator();
-                    while (it.hasNext()) {
-                        Process.killProcess(((Integer) it.next()).intValue());
-                    }
-                    Process.killProcess(Process.myPid());
-                }
-            }, 2000L);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i) {
-        this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-        ap.setImageResource(this.fMl, R.drawable.new_pic_emotion_05);
-        ap.setViewTextColor(this.fMm, R.color.CAM_X0108);
-        ap.setBackgroundColor(this.fMn, R.color.CAM_X0201);
-        ap.setViewTextColor(this.fMo, R.color.CAM_X0105);
-        ap.setViewTextColor(this.fMp, R.color.CAM_X0111);
-        ap.setBackgroundResource(this.fMp, R.drawable.selector_blue_gradient_button);
-        this.fMr.setShadowColor(R.color.plugin_button_shadow_blue);
     }
 }

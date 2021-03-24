@@ -1,5 +1,5 @@
 package com.kwad.sdk.core.download;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public enum DOWNLOADSTAUS {
     UNKNOWN(0),
     START(1),
@@ -15,7 +15,7 @@ public enum DOWNLOADSTAUS {
     INSTALL_FAILED(11),
     INSTALL_FINSHED(12);
     
-    private int status;
+    public int status;
 
     DOWNLOADSTAUS(int i) {
         this.status = i;

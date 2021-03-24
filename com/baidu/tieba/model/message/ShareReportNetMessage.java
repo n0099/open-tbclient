@@ -1,33 +1,33 @@
 package com.baidu.tieba.model.message;
 
 import com.baidu.adp.framework.message.NetMessage;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
-import com.baidu.tbadk.util.v;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import d.b.h0.z0.w;
 import tbclient.CommonReq;
 import tbclient.Share.DataReq;
 import tbclient.Share.ShareReqIdl;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class ShareReportNetMessage extends NetMessage {
 
     /* renamed from: common  reason: collision with root package name */
-    private CommonReq f3600common;
-    private long fid;
-    private int from;
-    private long tid;
+    public CommonReq f19047common;
+    public long fid;
+    public int from;
+    public long tid;
 
     public ShareReportNetMessage() {
-        super(1003363, CmdConfigSocket.CMD_SHARE_REPORT);
+        super(CmdConfigHttp.CMD_SHARE_REPORT, 309480);
     }
 
     @Override // com.baidu.adp.framework.message.NetMessage
-    protected Object encode(boolean z) {
+    public Object encode(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
-        builder.f8940common = getCommon();
+        builder.f68618common = getCommon();
         builder.fid = Long.valueOf(getFid());
         builder.tid = Long.valueOf(getTid());
         builder.from = Integer.valueOf(getFrom());
         if (z) {
-            v.b(builder, true);
+            w.a(builder, true);
         }
         ShareReqIdl.Builder builder2 = new ShareReqIdl.Builder();
         builder2.data = builder.build(false);
@@ -35,34 +35,34 @@ public class ShareReportNetMessage extends NetMessage {
     }
 
     public CommonReq getCommon() {
-        return this.f3600common;
-    }
-
-    public void setCommon(CommonReq commonReq) {
-        this.f3600common = commonReq;
+        return this.f19047common;
     }
 
     public long getFid() {
         return this.fid;
     }
 
-    public void setFid(long j) {
-        this.fid = j;
+    public int getFrom() {
+        return this.from;
     }
 
     public long getTid() {
         return this.tid;
     }
 
-    public void setTid(long j) {
-        this.tid = j;
+    public void setCommon(CommonReq commonReq) {
+        this.f19047common = commonReq;
     }
 
-    public int getFrom() {
-        return this.from;
+    public void setFid(long j) {
+        this.fid = j;
     }
 
     public void setFrom(int i) {
         this.from = i;
+    }
+
+    public void setTid(long j) {
+        this.tid = j;
     }
 }

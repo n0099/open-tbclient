@@ -1,9 +1,11 @@
 package com.baidu.mapsdkplatform.comapi.map;
-/* loaded from: classes4.dex */
+
+import com.baidu.tbadk.core.util.TiebaStatic;
+/* loaded from: classes2.dex */
 public class a extends d {
     public a() {
-        this.c = 10;
-        this.b = "heatmap";
-        this.d = 180000;
+        this.f7609c = 10;
+        this.f7608b = "heatmap";
+        this.f7610d = TiebaStatic.MAX_COST_VALUE;
     }
 }

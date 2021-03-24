@@ -15,7 +15,7 @@ import com.baidu.swan.apps.process.messaging.client.SwanAppLocalService2;
 import com.baidu.swan.apps.process.messaging.client.SwanAppLocalService3;
 import com.baidu.swan.apps.process.messaging.client.SwanAppLocalService4;
 import com.baidu.swan.apps.process.messaging.client.SwanAppLocalService5;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public enum SwanAppProcessInfo {
     UNKNOWN(-2, false, false, null, null),
     SERVICE(-1, true, false, null, null),
@@ -28,33 +28,60 @@ public enum SwanAppProcessInfo {
     
     public static final int PROCESS_ID_END = 5;
     public static final int PROCESS_ID_START = 0;
-    private static final String SWAN_APP_PROCESS_SUFFIX = ":swan";
+    public static final String SWAN_APP_PROCESS_SUFFIX = ":swan";
     @NonNull
-    private static SwanAppProcessInfo sCurrent = UNKNOWN;
-    private static SwanAppProcessInfo[] sIndices;
+    public static SwanAppProcessInfo sCurrent = UNKNOWN;
+    public static SwanAppProcessInfo[] sIndices;
     public final Class<? extends SwanAppActivity> activity;
     public final int index;
     public final boolean isSwanClient;
     public final boolean isSwanService;
     public final Class<? extends SwanAppLocalService> service;
 
+    SwanAppProcessInfo(int i, boolean z, boolean z2, Class cls, Class cls2) {
+        this.index = i;
+        this.activity = cls;
+        this.service = cls2;
+        this.isSwanService = z;
+        this.isSwanClient = z2;
+    }
+
+    public static boolean checkProcessId(int i) {
+        return i >= 0 && i <= 5;
+    }
+
+    @NonNull
+    public static SwanAppProcessInfo current() {
+        return (isInited() || !ProcessUtils.isMainProcess()) ? sCurrent : init(SERVICE);
+    }
+
     public static SwanAppProcessInfo indexOf(int i) {
         return indices()[i];
     }
 
     public static SwanAppProcessInfo[] indices() {
+        int i;
         if (sIndices == null) {
             SwanAppProcessInfo[] values = values();
             sIndices = new SwanAppProcessInfo[values.length];
+            int i2 = 0;
             for (SwanAppProcessInfo swanAppProcessInfo : values) {
-                if (swanAppProcessInfo != null && swanAppProcessInfo.index >= 0 && swanAppProcessInfo.index < sIndices.length && sIndices[swanAppProcessInfo.index] == null) {
-                    sIndices[swanAppProcessInfo.index] = swanAppProcessInfo;
+                if (swanAppProcessInfo != null && (i = swanAppProcessInfo.index) >= 0) {
+                    SwanAppProcessInfo[] swanAppProcessInfoArr = sIndices;
+                    if (i < swanAppProcessInfoArr.length && swanAppProcessInfoArr[i] == null) {
+                        swanAppProcessInfoArr[i] = swanAppProcessInfo;
+                    }
                 }
             }
-            for (int i = 0; i < sIndices.length; i++) {
-                if (sIndices[i] == null) {
-                    sIndices[i] = UNKNOWN;
+            while (true) {
+                SwanAppProcessInfo[] swanAppProcessInfoArr2 = sIndices;
+                if (i2 >= swanAppProcessInfoArr2.length) {
+                    break;
                 }
+                if (swanAppProcessInfoArr2[i2] == null) {
+                    swanAppProcessInfoArr2[i2] = UNKNOWN;
+                }
+                i2++;
             }
         }
         return sIndices;
@@ -72,28 +99,11 @@ public enum SwanAppProcessInfo {
         return sCurrent.isSwanClient;
     }
 
-    @NonNull
-    public static SwanAppProcessInfo current() {
-        return (isInited() || !ProcessUtils.isMainProcess()) ? sCurrent : init(SERVICE);
-    }
-
-    SwanAppProcessInfo(int i, boolean z, boolean z2, Class cls, Class cls2) {
-        this.index = i;
-        this.activity = cls;
-        this.service = cls2;
-        this.isSwanService = z;
-        this.isSwanClient = z2;
-    }
-
     public boolean isSwanAppProcess() {
         return checkProcessId(this.index);
     }
 
     public static boolean isSwanAppProcess(String str) {
-        return !TextUtils.isEmpty(str) && str.contains(SWAN_APP_PROCESS_SUFFIX);
-    }
-
-    public static boolean checkProcessId(int i) {
-        return i >= 0 && i <= 5;
+        return !TextUtils.isEmpty(str) && str.contains(":swan");
     }
 }

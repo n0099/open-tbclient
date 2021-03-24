@@ -12,47 +12,56 @@ import io.flutter.embedding.engine.dart.DartExecutor;
 import io.flutter.embedding.engine.renderer.FlutterUiDisplayListener;
 import io.flutter.plugin.common.BinaryMessenger;
 import java.nio.ByteBuffer;
-/* loaded from: classes14.dex */
+/* loaded from: classes7.dex */
 public class FlutterNativeView implements BinaryMessenger {
-    private static final String TAG = "FlutterNativeView";
-    private boolean applicationIsRunning;
-    private final DartExecutor dartExecutor;
-    private final FlutterUiDisplayListener flutterUiDisplayListener;
-    private final Context mContext;
-    private final FlutterJNI mFlutterJNI;
-    private FlutterView mFlutterView;
-    private final FlutterPluginRegistry mPluginRegistry;
+    public static final String TAG = "FlutterNativeView";
+    public boolean applicationIsRunning;
+    public final DartExecutor dartExecutor;
+    public final FlutterUiDisplayListener flutterUiDisplayListener;
+    public final Context mContext;
+    public final FlutterJNI mFlutterJNI;
+    public FlutterView mFlutterView;
+    public final FlutterPluginRegistry mPluginRegistry;
+
+    /* loaded from: classes7.dex */
+    public final class EngineLifecycleListenerImpl implements FlutterEngine.EngineLifecycleListener {
+        public EngineLifecycleListenerImpl() {
+        }
+
+        @Override // io.flutter.embedding.engine.FlutterEngine.EngineLifecycleListener
+        public void onPreEngineRestart() {
+            if (FlutterNativeView.this.mFlutterView != null) {
+                FlutterNativeView.this.mFlutterView.resetAccessibilityTree();
+            }
+            if (FlutterNativeView.this.mPluginRegistry == null) {
+                return;
+            }
+            FlutterNativeView.this.mPluginRegistry.onPreEngineRestart();
+        }
+    }
 
     public FlutterNativeView(@NonNull Context context) {
         this(context, false);
     }
 
-    public FlutterNativeView(@NonNull Context context, boolean z) {
-        this.flutterUiDisplayListener = new FlutterUiDisplayListener() { // from class: io.flutter.view.FlutterNativeView.1
-            @Override // io.flutter.embedding.engine.renderer.FlutterUiDisplayListener
-            public void onFlutterUiDisplayed() {
-                if (FlutterNativeView.this.mFlutterView != null) {
-                    FlutterNativeView.this.mFlutterView.onFirstFrame();
-                }
-            }
-
-            @Override // io.flutter.embedding.engine.renderer.FlutterUiDisplayListener
-            public void onFlutterUiNoLongerDisplayed() {
-            }
-        };
-        this.mContext = context;
-        this.mPluginRegistry = new FlutterPluginRegistry(this, context);
-        this.mFlutterJNI = new FlutterJNI();
-        this.mFlutterJNI.addIsDisplayingFlutterUiListener(this.flutterUiDisplayListener);
-        this.dartExecutor = new DartExecutor(this.mFlutterJNI, context.getAssets());
-        this.mFlutterJNI.addEngineLifecycleListener(new EngineLifecycleListenerImpl());
-        attach(this, z);
-        assertAttached();
+    private void attach(FlutterNativeView flutterNativeView, boolean z) {
+        this.mFlutterJNI.attachToNative(z);
+        this.dartExecutor.onAttachedToJNI();
     }
 
-    public void detachFromFlutterView() {
-        this.mPluginRegistry.detach();
-        this.mFlutterView = null;
+    public static String getObservatoryUri() {
+        return FlutterJNI.getObservatoryUri();
+    }
+
+    public void assertAttached() {
+        if (!isAttached()) {
+            throw new AssertionError("Platform view is not attached");
+        }
+    }
+
+    public void attachViewAndActivity(FlutterView flutterView, Activity activity) {
+        this.mFlutterView = flutterView;
+        this.mPluginRegistry.attach(flutterView, activity);
     }
 
     public void destroy() {
@@ -64,9 +73,18 @@ public class FlutterNativeView implements BinaryMessenger {
         this.applicationIsRunning = false;
     }
 
+    public void detachFromFlutterView() {
+        this.mPluginRegistry.detach();
+        this.mFlutterView = null;
+    }
+
     @NonNull
     public DartExecutor getDartExecutor() {
         return this.dartExecutor;
+    }
+
+    public FlutterJNI getFlutterJNI() {
+        return this.mFlutterJNI;
     }
 
     @NonNull
@@ -74,39 +92,25 @@ public class FlutterNativeView implements BinaryMessenger {
         return this.mPluginRegistry;
     }
 
-    public void attachViewAndActivity(FlutterView flutterView, Activity activity) {
-        this.mFlutterView = flutterView;
-        this.mPluginRegistry.attach(flutterView, activity);
+    public boolean isApplicationRunning() {
+        return this.applicationIsRunning;
     }
 
     public boolean isAttached() {
         return this.mFlutterJNI.isAttached();
     }
 
-    public void assertAttached() {
-        if (!isAttached()) {
-            throw new AssertionError("Platform view is not attached");
-        }
-    }
-
     public void runFromBundle(FlutterRunArguments flutterRunArguments) {
-        if (flutterRunArguments.entrypoint == null) {
-            throw new AssertionError("An entrypoint must be specified");
-        }
-        assertAttached();
-        if (this.applicationIsRunning) {
+        if (flutterRunArguments.entrypoint != null) {
+            assertAttached();
+            if (!this.applicationIsRunning) {
+                this.mFlutterJNI.runBundleAndSnapshotFromLibrary(flutterRunArguments.bundlePath, flutterRunArguments.entrypoint, flutterRunArguments.libraryPath, this.mContext.getResources().getAssets());
+                this.applicationIsRunning = true;
+                return;
+            }
             throw new AssertionError("This Flutter engine instance is already running an application");
         }
-        this.mFlutterJNI.runBundleAndSnapshotFromLibrary(flutterRunArguments.bundlePath, flutterRunArguments.entrypoint, flutterRunArguments.libraryPath, this.mContext.getResources().getAssets());
-        this.applicationIsRunning = true;
-    }
-
-    public boolean isApplicationRunning() {
-        return this.applicationIsRunning;
-    }
-
-    public static String getObservatoryUri() {
-        return FlutterJNI.getObservatoryUri();
+        throw new AssertionError("An entrypoint must be specified");
     }
 
     @Override // io.flutter.plugin.common.BinaryMessenger
@@ -117,43 +121,42 @@ public class FlutterNativeView implements BinaryMessenger {
 
     @Override // io.flutter.plugin.common.BinaryMessenger
     @UiThread
-    public void send(String str, ByteBuffer byteBuffer, BinaryMessenger.BinaryReply binaryReply) {
-        if (!isAttached()) {
-            Log.d(TAG, "FlutterView.send called on a detached view, channel=" + str);
-        } else {
-            this.dartExecutor.getBinaryMessenger().send(str, byteBuffer, binaryReply);
-        }
-    }
-
-    @Override // io.flutter.plugin.common.BinaryMessenger
-    @UiThread
     public void setMessageHandler(String str, BinaryMessenger.BinaryMessageHandler binaryMessageHandler) {
         this.dartExecutor.getBinaryMessenger().setMessageHandler(str, binaryMessageHandler);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public FlutterJNI getFlutterJNI() {
-        return this.mFlutterJNI;
+    public FlutterNativeView(@NonNull Context context, boolean z) {
+        this.flutterUiDisplayListener = new FlutterUiDisplayListener() { // from class: io.flutter.view.FlutterNativeView.1
+            @Override // io.flutter.embedding.engine.renderer.FlutterUiDisplayListener
+            public void onFlutterUiDisplayed() {
+                if (FlutterNativeView.this.mFlutterView == null) {
+                    return;
+                }
+                FlutterNativeView.this.mFlutterView.onFirstFrame();
+            }
+
+            @Override // io.flutter.embedding.engine.renderer.FlutterUiDisplayListener
+            public void onFlutterUiNoLongerDisplayed() {
+            }
+        };
+        this.mContext = context;
+        this.mPluginRegistry = new FlutterPluginRegistry(this, context);
+        FlutterJNI flutterJNI = new FlutterJNI();
+        this.mFlutterJNI = flutterJNI;
+        flutterJNI.addIsDisplayingFlutterUiListener(this.flutterUiDisplayListener);
+        this.dartExecutor = new DartExecutor(this.mFlutterJNI, context.getAssets());
+        this.mFlutterJNI.addEngineLifecycleListener(new EngineLifecycleListenerImpl());
+        attach(this, z);
+        assertAttached();
     }
 
-    private void attach(FlutterNativeView flutterNativeView, boolean z) {
-        this.mFlutterJNI.attachToNative(z);
-        this.dartExecutor.onAttachedToJNI();
-    }
-
-    /* loaded from: classes14.dex */
-    private final class EngineLifecycleListenerImpl implements FlutterEngine.EngineLifecycleListener {
-        private EngineLifecycleListenerImpl() {
+    @Override // io.flutter.plugin.common.BinaryMessenger
+    @UiThread
+    public void send(String str, ByteBuffer byteBuffer, BinaryMessenger.BinaryReply binaryReply) {
+        if (!isAttached()) {
+            Log.d(TAG, "FlutterView.send called on a detached view, channel=" + str);
+            return;
         }
-
-        @Override // io.flutter.embedding.engine.FlutterEngine.EngineLifecycleListener
-        public void onPreEngineRestart() {
-            if (FlutterNativeView.this.mFlutterView != null) {
-                FlutterNativeView.this.mFlutterView.resetAccessibilityTree();
-            }
-            if (FlutterNativeView.this.mPluginRegistry != null) {
-                FlutterNativeView.this.mPluginRegistry.onPreEngineRestart();
-            }
-        }
+        this.dartExecutor.getBinaryMessenger().send(str, byteBuffer, binaryReply);
     }
 }

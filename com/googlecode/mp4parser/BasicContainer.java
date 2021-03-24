@@ -1,6 +1,5 @@
 package com.googlecode.mp4parser;
 
-import com.baidu.adp.plugin.proxy.ContentProviderProxy;
 import com.coremedia.iso.BoxParser;
 import com.coremedia.iso.boxes.Box;
 import com.coremedia.iso.boxes.Container;
@@ -14,49 +13,100 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.NoSuchElementException;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class BasicContainer implements Container, Iterator<Box> {
-    protected BoxParser boxParser;
-    protected DataSource dataSource;
-    private static Logger LOG = Logger.getLogger(AbstractContainerBox.class);
-    private static final Box EOF = new AbstractBox("eof ") { // from class: com.googlecode.mp4parser.BasicContainer.1
+    public BoxParser boxParser;
+    public DataSource dataSource;
+    public static Logger LOG = Logger.getLogger(AbstractContainerBox.class);
+    public static final Box EOF = new a("eof ");
+    public List<Box> boxes = new ArrayList();
+    public Box lookahead = null;
+    public long parsePosition = 0;
+    public long startPosition = 0;
+    public long endPosition = 0;
+
+    /* loaded from: classes6.dex */
+    public class a extends AbstractBox {
+        public a(String str) {
+            super(str);
+        }
+
         @Override // com.googlecode.mp4parser.AbstractBox
-        protected long getContentSize() {
+        public void _parseDetails(ByteBuffer byteBuffer) {
+        }
+
+        @Override // com.googlecode.mp4parser.AbstractBox
+        public void getContent(ByteBuffer byteBuffer) {
+        }
+
+        @Override // com.googlecode.mp4parser.AbstractBox
+        public long getContentSize() {
             return 0L;
         }
+    }
 
-        @Override // com.googlecode.mp4parser.AbstractBox
-        protected void getContent(ByteBuffer byteBuffer) {
-        }
-
-        @Override // com.googlecode.mp4parser.AbstractBox
-        protected void _parseDetails(ByteBuffer byteBuffer) {
-        }
-    };
-    private List<Box> boxes = new ArrayList();
-    Box lookahead = null;
-    long parsePosition = 0;
-    long startPosition = 0;
-    long endPosition = 0;
+    public void addBox(Box box) {
+        this.boxes = new ArrayList(getBoxes());
+        box.setParent(this);
+        this.boxes.add(box);
+    }
 
     @Override // com.coremedia.iso.boxes.Container
     public List<Box> getBoxes() {
-        return (this.dataSource == null || this.lookahead == EOF) ? this.boxes : new LazyList(this.boxes, this);
+        if (this.dataSource != null && this.lookahead != EOF) {
+            return new LazyList(this.boxes, this);
+        }
+        return this.boxes;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.coremedia.iso.boxes.Container
+    public ByteBuffer getByteBuffer(long j, long j2) throws IOException {
+        ByteBuffer map;
+        synchronized (this.dataSource) {
+            map = this.dataSource.map(this.startPosition + j, j2);
+        }
+        return map;
+    }
+
     public long getContainerSize() {
         long j = 0;
-        int i = 0;
-        while (true) {
-            int i2 = i;
-            if (i2 < getBoxes().size()) {
-                j += this.boxes.get(i2).getSize();
-                i = i2 + 1;
-            } else {
-                return j;
-            }
+        for (int i = 0; i < getBoxes().size(); i++) {
+            j += this.boxes.get(i).getSize();
         }
+        return j;
+    }
+
+    @Override // java.util.Iterator
+    public boolean hasNext() {
+        Box box = this.lookahead;
+        if (box == EOF) {
+            return false;
+        }
+        if (box != null) {
+            return true;
+        }
+        try {
+            this.lookahead = next();
+            return true;
+        } catch (NoSuchElementException unused) {
+            this.lookahead = EOF;
+            return false;
+        }
+    }
+
+    public void parseContainer(DataSource dataSource, long j, BoxParser boxParser) throws IOException {
+        this.dataSource = dataSource;
+        long position = dataSource.position();
+        this.startPosition = position;
+        this.parsePosition = position;
+        dataSource.position(dataSource.position() + j);
+        this.endPosition = dataSource.position();
+        this.boxParser = boxParser;
+    }
+
+    @Override // java.util.Iterator
+    public void remove() {
+        throw new UnsupportedOperationException();
     }
 
     @Override // com.coremedia.iso.boxes.Container
@@ -64,6 +114,57 @@ public class BasicContainer implements Container, Iterator<Box> {
         this.boxes = new ArrayList(list);
         this.lookahead = EOF;
         this.dataSource = null;
+    }
+
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(getClass().getSimpleName());
+        sb.append("[");
+        for (int i = 0; i < this.boxes.size(); i++) {
+            if (i > 0) {
+                sb.append(";");
+            }
+            sb.append(this.boxes.get(i).toString());
+        }
+        sb.append("]");
+        return sb.toString();
+    }
+
+    @Override // com.coremedia.iso.boxes.Container
+    public final void writeContainer(WritableByteChannel writableByteChannel) throws IOException {
+        for (Box box : getBoxes()) {
+            box.getBox(writableByteChannel);
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX WARN: Can't rename method to resolve collision */
+    @Override // java.util.Iterator
+    public Box next() {
+        Box parseBox;
+        Box box = this.lookahead;
+        if (box != null && box != EOF) {
+            this.lookahead = null;
+            return box;
+        }
+        LOG.logDebug("Parsing next() box");
+        DataSource dataSource = this.dataSource;
+        if (dataSource != null && this.parsePosition < this.endPosition) {
+            try {
+                synchronized (dataSource) {
+                    this.dataSource.position(this.parsePosition);
+                    parseBox = this.boxParser.parseBox(this.dataSource, this);
+                    this.parsePosition = this.dataSource.position();
+                }
+                return parseBox;
+            } catch (EOFException unused) {
+                throw new NoSuchElementException();
+            } catch (IOException unused2) {
+                throw new NoSuchElementException();
+            }
+        }
+        this.lookahead = EOF;
+        throw new NoSuchElementException();
     }
 
     @Override // com.coremedia.iso.boxes.Container
@@ -83,107 +184,5 @@ public class BasicContainer implements Container, Iterator<Box> {
             }
         }
         return arrayList;
-    }
-
-    public void addBox(Box box) {
-        this.boxes = new ArrayList(getBoxes());
-        box.setParent(this);
-        this.boxes.add(box);
-    }
-
-    public void parseContainer(DataSource dataSource, long j, BoxParser boxParser) throws IOException {
-        this.dataSource = dataSource;
-        long position = dataSource.position();
-        this.startPosition = position;
-        this.parsePosition = position;
-        dataSource.position(dataSource.position() + j);
-        this.endPosition = dataSource.position();
-        this.boxParser = boxParser;
-    }
-
-    @Override // java.util.Iterator
-    public void remove() {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override // java.util.Iterator
-    public boolean hasNext() {
-        if (this.lookahead == EOF) {
-            return false;
-        }
-        if (this.lookahead != null) {
-            return true;
-        }
-        try {
-            this.lookahead = next();
-            return true;
-        } catch (NoSuchElementException e) {
-            this.lookahead = EOF;
-            return false;
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX WARN: Can't rename method to resolve collision */
-    @Override // java.util.Iterator
-    public Box next() {
-        Box parseBox;
-        if (this.lookahead != null && this.lookahead != EOF) {
-            Box box = this.lookahead;
-            this.lookahead = null;
-            return box;
-        }
-        LOG.logDebug("Parsing next() box");
-        if (this.dataSource == null || this.parsePosition >= this.endPosition) {
-            this.lookahead = EOF;
-            throw new NoSuchElementException();
-        }
-        try {
-            synchronized (this.dataSource) {
-                this.dataSource.position(this.parsePosition);
-                parseBox = this.boxParser.parseBox(this.dataSource, this);
-                this.parsePosition = this.dataSource.position();
-            }
-            return parseBox;
-        } catch (EOFException e) {
-            throw new NoSuchElementException();
-        } catch (IOException e2) {
-            throw new NoSuchElementException();
-        }
-    }
-
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(getClass().getSimpleName()).append("[");
-        int i = 0;
-        while (true) {
-            int i2 = i;
-            if (i2 < this.boxes.size()) {
-                if (i2 > 0) {
-                    sb.append(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
-                }
-                sb.append(this.boxes.get(i2).toString());
-                i = i2 + 1;
-            } else {
-                sb.append("]");
-                return sb.toString();
-            }
-        }
-    }
-
-    @Override // com.coremedia.iso.boxes.Container
-    public final void writeContainer(WritableByteChannel writableByteChannel) throws IOException {
-        for (Box box : getBoxes()) {
-            box.getBox(writableByteChannel);
-        }
-    }
-
-    @Override // com.coremedia.iso.boxes.Container
-    public ByteBuffer getByteBuffer(long j, long j2) throws IOException {
-        ByteBuffer map;
-        synchronized (this.dataSource) {
-            map = this.dataSource.map(this.startPosition + j, j2);
-        }
-        return map;
     }
 }

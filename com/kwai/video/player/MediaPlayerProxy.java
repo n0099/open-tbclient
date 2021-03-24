@@ -10,9 +10,9 @@ import com.kwai.video.player.misc.IMediaDataSource;
 import com.kwai.video.player.misc.ITrackInfo;
 import java.io.FileDescriptor;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class MediaPlayerProxy implements IMediaPlayer {
-    protected final IMediaPlayer mBackEndMediaPlayer;
+    public final IMediaPlayer mBackEndMediaPlayer;
 
     public MediaPlayerProxy(IMediaPlayer iMediaPlayer) {
         this.mBackEndMediaPlayer = iMediaPlayer;
@@ -284,8 +284,8 @@ public class MediaPlayerProxy implements IMediaPlayer {
     }
 
     @Override // com.kwai.video.player.IMediaPlayer
-    public void setVolume(float f, float f2) {
-        this.mBackEndMediaPlayer.setVolume(f, f2);
+    public void setVolume(float f2, float f3) {
+        this.mBackEndMediaPlayer.setVolume(f2, f3);
     }
 
     @Override // com.kwai.video.player.IMediaPlayer

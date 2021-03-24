@@ -6,20 +6,23 @@ import android.view.View;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.core.view.ViewCompat;
 import com.google.android.material.appbar.AppBarLayout;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class FixAppBarLayoutBehavior extends AppBarLayout.Behavior {
     public FixAppBarLayoutBehavior() {
     }
 
-    public FixAppBarLayoutBehavior(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
+    public final void stopNestedScrollIfNeeded(int i, AppBarLayout appBarLayout, View view, int i2) {
+        if (i2 == 1) {
+            int topAndBottomOffset = getTopAndBottomOffset();
+            if ((i >= 0 || topAndBottomOffset != 0) && (i <= 0 || topAndBottomOffset != (-appBarLayout.getTotalScrollRange()))) {
+                return;
+            }
+            ViewCompat.stopNestedScroll(view, 1);
+        }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.google.android.material.appbar.AppBarLayout.BaseBehavior, androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
-    public void onNestedScroll(CoordinatorLayout coordinatorLayout, AppBarLayout appBarLayout, View view, int i, int i2, int i3, int i4, int i5) {
-        super.onNestedScroll(coordinatorLayout, appBarLayout, view, i, i2, i3, i4, i5);
-        stopNestedScrollIfNeeded(i4, appBarLayout, view, i5);
+    public FixAppBarLayoutBehavior(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -29,12 +32,10 @@ public class FixAppBarLayoutBehavior extends AppBarLayout.Behavior {
         stopNestedScrollIfNeeded(i2, appBarLayout, view, i3);
     }
 
-    private void stopNestedScrollIfNeeded(int i, AppBarLayout appBarLayout, View view, int i2) {
-        if (i2 == 1) {
-            int topAndBottomOffset = getTopAndBottomOffset();
-            if ((i < 0 && topAndBottomOffset == 0) || (i > 0 && topAndBottomOffset == (-appBarLayout.getTotalScrollRange()))) {
-                ViewCompat.stopNestedScroll(view, 1);
-            }
-        }
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.google.android.material.appbar.AppBarLayout.BaseBehavior, androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
+    public void onNestedScroll(CoordinatorLayout coordinatorLayout, AppBarLayout appBarLayout, View view, int i, int i2, int i3, int i4, int i5) {
+        super.onNestedScroll(coordinatorLayout, appBarLayout, view, i, i2, i3, i4, i5);
+        stopNestedScrollIfNeeded(i4, appBarLayout, view, i5);
     }
 }

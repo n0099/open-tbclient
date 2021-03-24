@@ -1,38 +1,39 @@
 package com.baidubce;
 
+import com.baidu.android.common.others.lang.StringUtil;
 import com.baidubce.auth.BceCredentials;
 import com.baidubce.http.RetryPolicy;
 import com.baidubce.util.CheckUtils;
 import com.baidubce.util.JoinerUtils;
 import java.net.InetAddress;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class BceClientConfiguration {
     public static final int DEFAULT_CONNECTION_TIMEOUT_IN_MILLIS = 30000;
     public static final int DEFAULT_MAX_CONNECTIONS = 5;
     public static final int DEFAULT_SOCKET_TIMEOUT_IN_MILLIS = 30000;
     public static final String DEFAULT_USER_AGENT;
-    private String acceptEncoding;
-    private int connectionTimeoutInMillis;
-    private BceCredentials credentials;
-    private String endpoint;
-    private long keepAliveDuration;
-    private InetAddress localAddress;
-    private int maxConnections;
-    private Protocol protocol;
-    private String proxyDomain;
-    private String proxyHost;
-    private String proxyPassword;
-    private int proxyPort;
-    private boolean proxyPreemptiveAuthenticationEnabled;
-    private String proxyUsername;
-    private String proxyWorkstation;
-    private Region region;
-    private RetryPolicy retryPolicy;
-    private int socketBufferSizeInBytes;
-    private int socketTimeoutInMillis;
-    private String token;
-    private long uploadSegmentPart;
-    private String userAgent;
+    public String acceptEncoding;
+    public int connectionTimeoutInMillis;
+    public BceCredentials credentials;
+    public String endpoint;
+    public long keepAliveDuration;
+    public InetAddress localAddress;
+    public int maxConnections;
+    public Protocol protocol;
+    public String proxyDomain;
+    public String proxyHost;
+    public String proxyPassword;
+    public int proxyPort;
+    public boolean proxyPreemptiveAuthenticationEnabled;
+    public String proxyUsername;
+    public String proxyWorkstation;
+    public Region region;
+    public RetryPolicy retryPolicy;
+    public int socketBufferSizeInBytes;
+    public int socketTimeoutInMillis;
+    public String token;
+    public long uploadSegmentPart;
+    public String userAgent;
     public static Region DEFAULT_REGION = Region.CN_N1;
     public static String DEFAULT_ACCPET_ENCODING = "identity";
     public static Protocol DEFAULT_PROTOCOL = Protocol.HTTP;
@@ -44,10 +45,7 @@ public class BceClientConfiguration {
             property = "";
         }
         String property2 = System.getProperty("user.region");
-        if (property2 == null) {
-            property2 = "";
-        }
-        DEFAULT_USER_AGENT = JoinerUtils.on("/", "bce-sdk-android", "1.0.7", System.getProperty("os.name"), System.getProperty("os.version"), System.getProperty("java.vm.name"), System.getProperty("java.vm.version"), System.getProperty("java.version"), property, property2).replace(' ', '_');
+        DEFAULT_USER_AGENT = JoinerUtils.on("/", "bce-sdk-android", "1.0.7", System.getProperty("os.name"), System.getProperty("os.version"), System.getProperty("java.vm.name"), System.getProperty("java.vm.version"), System.getProperty("java.version"), property, property2 != null ? property2 : "").replace(' ', '_');
     }
 
     public BceClientConfiguration() {
@@ -72,6 +70,297 @@ public class BceClientConfiguration {
         this.token = null;
         this.credentials = null;
         this.uploadSegmentPart = 2048L;
+    }
+
+    public String getAcceptEncoding() {
+        return this.acceptEncoding;
+    }
+
+    public int getConnectionTimeoutInMillis() {
+        return this.connectionTimeoutInMillis;
+    }
+
+    public BceCredentials getCredentials() {
+        return this.credentials;
+    }
+
+    public String getEndpoint() {
+        String str = this.endpoint;
+        if (str == null || str.length() <= 0 || this.endpoint.indexOf("://") >= 0) {
+            return str;
+        }
+        return this.protocol.toString().toLowerCase() + "://" + this.endpoint;
+    }
+
+    public long getKeepAliveDuration() {
+        return this.keepAliveDuration;
+    }
+
+    public InetAddress getLocalAddress() {
+        return this.localAddress;
+    }
+
+    public int getMaxConnections() {
+        return this.maxConnections;
+    }
+
+    public Protocol getProtocol() {
+        return this.protocol;
+    }
+
+    public String getProxyDomain() {
+        return this.proxyDomain;
+    }
+
+    public String getProxyHost() {
+        return this.proxyHost;
+    }
+
+    public String getProxyPassword() {
+        return this.proxyPassword;
+    }
+
+    public int getProxyPort() {
+        return this.proxyPort;
+    }
+
+    public String getProxyUsername() {
+        return this.proxyUsername;
+    }
+
+    public String getProxyWorkstation() {
+        return this.proxyWorkstation;
+    }
+
+    public Region getRegion() {
+        return this.region;
+    }
+
+    public RetryPolicy getRetryPolicy() {
+        return this.retryPolicy;
+    }
+
+    public int getSocketBufferSizeInBytes() {
+        return this.socketBufferSizeInBytes;
+    }
+
+    public int getSocketTimeoutInMillis() {
+        return this.socketTimeoutInMillis;
+    }
+
+    public long getUploadSegmentPart() {
+        return this.uploadSegmentPart;
+    }
+
+    public String getUserAgent() {
+        return this.userAgent;
+    }
+
+    public boolean isProxyPreemptiveAuthenticationEnabled() {
+        return this.proxyPreemptiveAuthenticationEnabled;
+    }
+
+    public void setAcceptEncoding(String str) {
+        this.acceptEncoding = str;
+    }
+
+    public void setConnectionTimeoutInMillis(int i) {
+        CheckUtils.checkArgument(i >= 0, "connectionTimeoutInMillis should not be negative.");
+        this.connectionTimeoutInMillis = i;
+    }
+
+    public void setCredentials(BceCredentials bceCredentials) {
+        CheckUtils.isNotNull(bceCredentials, "credentials should not be null.");
+        this.credentials = bceCredentials;
+    }
+
+    public void setEndpoint(String str) {
+        CheckUtils.isNotNull(str, "endpoint should not be null.");
+        this.endpoint = str;
+    }
+
+    public void setKeepAliveDuration(long j) {
+        this.keepAliveDuration = j;
+    }
+
+    public void setLocalAddress(InetAddress inetAddress) {
+        this.localAddress = inetAddress;
+    }
+
+    public void setMaxConnections(int i) {
+        CheckUtils.checkArgument(i >= 0, "maxConnections should not be negative.");
+        this.maxConnections = i;
+    }
+
+    public void setProtocol(Protocol protocol) {
+        if (protocol == null) {
+            protocol = DEFAULT_PROTOCOL;
+        }
+        this.protocol = protocol;
+    }
+
+    public void setProxyDomain(String str) {
+        this.proxyDomain = str;
+    }
+
+    public void setProxyHost(String str) {
+        this.proxyHost = str;
+    }
+
+    public void setProxyPassword(String str) {
+        this.proxyPassword = str;
+    }
+
+    public void setProxyPort(int i) {
+        this.proxyPort = i;
+    }
+
+    public void setProxyPreemptiveAuthenticationEnabled(boolean z) {
+        this.proxyPreemptiveAuthenticationEnabled = z;
+    }
+
+    public void setProxyUsername(String str) {
+        this.proxyUsername = str;
+    }
+
+    public void setProxyWorkstation(String str) {
+        this.proxyWorkstation = str;
+    }
+
+    public void setRegion(Region region) {
+        if (region == null) {
+            region = DEFAULT_REGION;
+        }
+        this.region = region;
+    }
+
+    public void setRetryPolicy(RetryPolicy retryPolicy) {
+        if (retryPolicy == null) {
+            retryPolicy = RetryPolicy.DEFAULT_RETRY_POLICY;
+        }
+        this.retryPolicy = retryPolicy;
+    }
+
+    public void setSocketBufferSizeInBytes(int i) {
+        this.socketBufferSizeInBytes = i;
+    }
+
+    public void setSocketTimeoutInMillis(int i) {
+        CheckUtils.checkArgument(i >= 0, "socketTimeoutInMillis should not be negative.");
+        this.socketTimeoutInMillis = i;
+    }
+
+    public void setUploadSegmentPart(long j) {
+        this.uploadSegmentPart = (j < 1 || j > 8192) ? 2048L : 2048L;
+    }
+
+    public void setUserAgent(String str) {
+        if (str == null) {
+            this.userAgent = DEFAULT_USER_AGENT;
+        } else if (str.endsWith(DEFAULT_USER_AGENT)) {
+            this.userAgent = str;
+        } else {
+            this.userAgent = str + StringUtil.ARRAY_ELEMENT_SEPARATOR + DEFAULT_USER_AGENT;
+        }
+    }
+
+    public String toString() {
+        return "BceClientConfiguration [ \n  userAgent=" + this.userAgent + ", \n  retryPolicy=" + this.retryPolicy + ", \n  localAddress=" + this.localAddress + ", \n  protocol=" + this.protocol + ", \n  proxyHost=" + this.proxyHost + ", \n  proxyPort=" + this.proxyPort + ", \n  proxyUsername=" + this.proxyUsername + ", \n  proxyPassword=" + this.proxyPassword + ", \n  proxyDomain=" + this.proxyDomain + ", \n  proxyWorkstation=" + this.proxyWorkstation + ", \n  proxyPreemptiveAuthenticationEnabled=" + this.proxyPreemptiveAuthenticationEnabled + ", \n  maxConnections=" + this.maxConnections + ", \n  socketTimeoutInMillis=" + this.socketTimeoutInMillis + ", \n  connectionTimeoutInMillis=" + this.connectionTimeoutInMillis + ", \n  socketBufferSizeInBytes=" + this.socketBufferSizeInBytes + ", \n  endpoint=" + this.endpoint + ", \n  region=" + this.region + ", \n  credentials=" + this.credentials + ", \n  uploadSegmentPart=" + this.uploadSegmentPart + ", \n  acceptEncoding=" + this.acceptEncoding + ", \n  keepAliveDuration=" + this.keepAliveDuration + "]\n";
+    }
+
+    public BceClientConfiguration withConnectionTimeoutInMillis(int i) {
+        setConnectionTimeoutInMillis(i);
+        return this;
+    }
+
+    public BceClientConfiguration withCredentials(BceCredentials bceCredentials) {
+        setCredentials(bceCredentials);
+        return this;
+    }
+
+    public BceClientConfiguration withEndpoint(String str) {
+        setEndpoint(str);
+        return this;
+    }
+
+    public BceClientConfiguration withLocalAddress(InetAddress inetAddress) {
+        setLocalAddress(inetAddress);
+        return this;
+    }
+
+    public BceClientConfiguration withMaxConnections(int i) {
+        setMaxConnections(i);
+        return this;
+    }
+
+    public BceClientConfiguration withProtocol(Protocol protocol) {
+        setProtocol(protocol);
+        return this;
+    }
+
+    public BceClientConfiguration withProxyDomain(String str) {
+        setProxyDomain(str);
+        return this;
+    }
+
+    public BceClientConfiguration withProxyHost(String str) {
+        setProxyHost(str);
+        return this;
+    }
+
+    public BceClientConfiguration withProxyPassword(String str) {
+        setProxyPassword(str);
+        return this;
+    }
+
+    public BceClientConfiguration withProxyPort(int i) {
+        setProxyPort(i);
+        return this;
+    }
+
+    public BceClientConfiguration withProxyPreemptiveAuthenticationEnabled(boolean z) {
+        setProxyPreemptiveAuthenticationEnabled(z);
+        return this;
+    }
+
+    public BceClientConfiguration withProxyUsername(String str) {
+        setProxyUsername(str);
+        return this;
+    }
+
+    public BceClientConfiguration withProxyWorkstation(String str) {
+        setProxyWorkstation(str);
+        return this;
+    }
+
+    public BceClientConfiguration withRegion(Region region) {
+        setRegion(region);
+        return this;
+    }
+
+    public BceClientConfiguration withRetryPolicy(RetryPolicy retryPolicy) {
+        setRetryPolicy(retryPolicy);
+        return this;
+    }
+
+    public BceClientConfiguration withSocketBufferSizeInBytes(int i) {
+        setSocketBufferSizeInBytes(i);
+        return this;
+    }
+
+    public BceClientConfiguration withSocketTimeoutInMillis(int i) {
+        setSocketTimeoutInMillis(i);
+        return this;
+    }
+
+    public BceClientConfiguration withUploadSegmentPart(Long l) {
+        setUploadSegmentPart(l.longValue());
+        return this;
+    }
+
+    public BceClientConfiguration withUserAgent(String str) {
+        setUserAgent(str);
+        return this;
     }
 
     public BceClientConfiguration(BceClientConfiguration bceClientConfiguration) {
@@ -118,296 +407,5 @@ public class BceClientConfiguration {
         this.uploadSegmentPart = bceClientConfiguration.uploadSegmentPart;
         this.acceptEncoding = bceClientConfiguration.acceptEncoding;
         this.keepAliveDuration = bceClientConfiguration.keepAliveDuration;
-    }
-
-    public Protocol getProtocol() {
-        return this.protocol;
-    }
-
-    public void setProtocol(Protocol protocol) {
-        if (protocol == null) {
-            protocol = DEFAULT_PROTOCOL;
-        }
-        this.protocol = protocol;
-    }
-
-    public BceClientConfiguration withProtocol(Protocol protocol) {
-        setProtocol(protocol);
-        return this;
-    }
-
-    public int getMaxConnections() {
-        return this.maxConnections;
-    }
-
-    public void setMaxConnections(int i) {
-        CheckUtils.checkArgument(i >= 0, "maxConnections should not be negative.");
-        this.maxConnections = i;
-    }
-
-    public BceClientConfiguration withMaxConnections(int i) {
-        setMaxConnections(i);
-        return this;
-    }
-
-    public String getUserAgent() {
-        return this.userAgent;
-    }
-
-    public void setUserAgent(String str) {
-        if (str == null) {
-            this.userAgent = DEFAULT_USER_AGENT;
-        } else if (str.endsWith(DEFAULT_USER_AGENT)) {
-            this.userAgent = str;
-        } else {
-            this.userAgent = str + ", " + DEFAULT_USER_AGENT;
-        }
-    }
-
-    public BceClientConfiguration withUserAgent(String str) {
-        setUserAgent(str);
-        return this;
-    }
-
-    public InetAddress getLocalAddress() {
-        return this.localAddress;
-    }
-
-    public void setLocalAddress(InetAddress inetAddress) {
-        this.localAddress = inetAddress;
-    }
-
-    public BceClientConfiguration withLocalAddress(InetAddress inetAddress) {
-        setLocalAddress(inetAddress);
-        return this;
-    }
-
-    public String getProxyHost() {
-        return this.proxyHost;
-    }
-
-    public void setProxyHost(String str) {
-        this.proxyHost = str;
-    }
-
-    public BceClientConfiguration withProxyHost(String str) {
-        setProxyHost(str);
-        return this;
-    }
-
-    public int getProxyPort() {
-        return this.proxyPort;
-    }
-
-    public void setProxyPort(int i) {
-        this.proxyPort = i;
-    }
-
-    public BceClientConfiguration withProxyPort(int i) {
-        setProxyPort(i);
-        return this;
-    }
-
-    public String getProxyUsername() {
-        return this.proxyUsername;
-    }
-
-    public void setProxyUsername(String str) {
-        this.proxyUsername = str;
-    }
-
-    public BceClientConfiguration withProxyUsername(String str) {
-        setProxyUsername(str);
-        return this;
-    }
-
-    public String getProxyPassword() {
-        return this.proxyPassword;
-    }
-
-    public void setProxyPassword(String str) {
-        this.proxyPassword = str;
-    }
-
-    public BceClientConfiguration withProxyPassword(String str) {
-        setProxyPassword(str);
-        return this;
-    }
-
-    public String getProxyDomain() {
-        return this.proxyDomain;
-    }
-
-    public void setProxyDomain(String str) {
-        this.proxyDomain = str;
-    }
-
-    public BceClientConfiguration withProxyDomain(String str) {
-        setProxyDomain(str);
-        return this;
-    }
-
-    public String getProxyWorkstation() {
-        return this.proxyWorkstation;
-    }
-
-    public void setProxyWorkstation(String str) {
-        this.proxyWorkstation = str;
-    }
-
-    public BceClientConfiguration withProxyWorkstation(String str) {
-        setProxyWorkstation(str);
-        return this;
-    }
-
-    public boolean isProxyPreemptiveAuthenticationEnabled() {
-        return this.proxyPreemptiveAuthenticationEnabled;
-    }
-
-    public void setProxyPreemptiveAuthenticationEnabled(boolean z) {
-        this.proxyPreemptiveAuthenticationEnabled = z;
-    }
-
-    public BceClientConfiguration withProxyPreemptiveAuthenticationEnabled(boolean z) {
-        setProxyPreemptiveAuthenticationEnabled(z);
-        return this;
-    }
-
-    public RetryPolicy getRetryPolicy() {
-        return this.retryPolicy;
-    }
-
-    public void setRetryPolicy(RetryPolicy retryPolicy) {
-        if (retryPolicy == null) {
-            retryPolicy = RetryPolicy.DEFAULT_RETRY_POLICY;
-        }
-        this.retryPolicy = retryPolicy;
-    }
-
-    public BceClientConfiguration withRetryPolicy(RetryPolicy retryPolicy) {
-        setRetryPolicy(retryPolicy);
-        return this;
-    }
-
-    public int getSocketTimeoutInMillis() {
-        return this.socketTimeoutInMillis;
-    }
-
-    public void setSocketTimeoutInMillis(int i) {
-        CheckUtils.checkArgument(i >= 0, "socketTimeoutInMillis should not be negative.");
-        this.socketTimeoutInMillis = i;
-    }
-
-    public BceClientConfiguration withSocketTimeoutInMillis(int i) {
-        setSocketTimeoutInMillis(i);
-        return this;
-    }
-
-    public int getConnectionTimeoutInMillis() {
-        return this.connectionTimeoutInMillis;
-    }
-
-    public void setConnectionTimeoutInMillis(int i) {
-        CheckUtils.checkArgument(i >= 0, "connectionTimeoutInMillis should not be negative.");
-        this.connectionTimeoutInMillis = i;
-    }
-
-    public BceClientConfiguration withConnectionTimeoutInMillis(int i) {
-        setConnectionTimeoutInMillis(i);
-        return this;
-    }
-
-    public int getSocketBufferSizeInBytes() {
-        return this.socketBufferSizeInBytes;
-    }
-
-    public void setSocketBufferSizeInBytes(int i) {
-        this.socketBufferSizeInBytes = i;
-    }
-
-    public BceClientConfiguration withSocketBufferSizeInBytes(int i) {
-        setSocketBufferSizeInBytes(i);
-        return this;
-    }
-
-    public String getEndpoint() {
-        String str = this.endpoint;
-        if (this.endpoint != null && this.endpoint.length() > 0 && this.endpoint.indexOf("://") < 0) {
-            return this.protocol.toString().toLowerCase() + "://" + this.endpoint;
-        }
-        return str;
-    }
-
-    public void setEndpoint(String str) {
-        CheckUtils.isNotNull(str, "endpoint should not be null.");
-        this.endpoint = str;
-    }
-
-    public BceClientConfiguration withEndpoint(String str) {
-        setEndpoint(str);
-        return this;
-    }
-
-    public Region getRegion() {
-        return this.region;
-    }
-
-    public void setRegion(Region region) {
-        if (region == null) {
-            region = DEFAULT_REGION;
-        }
-        this.region = region;
-    }
-
-    public BceClientConfiguration withRegion(Region region) {
-        setRegion(region);
-        return this;
-    }
-
-    public BceCredentials getCredentials() {
-        return this.credentials;
-    }
-
-    public void setCredentials(BceCredentials bceCredentials) {
-        CheckUtils.isNotNull(bceCredentials, "credentials should not be null.");
-        this.credentials = bceCredentials;
-    }
-
-    public BceClientConfiguration withCredentials(BceCredentials bceCredentials) {
-        setCredentials(bceCredentials);
-        return this;
-    }
-
-    public long getUploadSegmentPart() {
-        return this.uploadSegmentPart;
-    }
-
-    public void setUploadSegmentPart(long j) {
-        this.uploadSegmentPart = (j < 1 || j > 8192) ? 2048L : 2048L;
-    }
-
-    public BceClientConfiguration withUploadSegmentPart(Long l) {
-        setUploadSegmentPart(l.longValue());
-        return this;
-    }
-
-    public String getAcceptEncoding() {
-        return this.acceptEncoding;
-    }
-
-    public void setAcceptEncoding(String str) {
-        this.acceptEncoding = str;
-    }
-
-    public long getKeepAliveDuration() {
-        return this.keepAliveDuration;
-    }
-
-    public void setKeepAliveDuration(long j) {
-        this.keepAliveDuration = j;
-    }
-
-    public String toString() {
-        return "BceClientConfiguration [ \n  userAgent=" + this.userAgent + ", \n  retryPolicy=" + this.retryPolicy + ", \n  localAddress=" + this.localAddress + ", \n  protocol=" + this.protocol + ", \n  proxyHost=" + this.proxyHost + ", \n  proxyPort=" + this.proxyPort + ", \n  proxyUsername=" + this.proxyUsername + ", \n  proxyPassword=" + this.proxyPassword + ", \n  proxyDomain=" + this.proxyDomain + ", \n  proxyWorkstation=" + this.proxyWorkstation + ", \n  proxyPreemptiveAuthenticationEnabled=" + this.proxyPreemptiveAuthenticationEnabled + ", \n  maxConnections=" + this.maxConnections + ", \n  socketTimeoutInMillis=" + this.socketTimeoutInMillis + ", \n  connectionTimeoutInMillis=" + this.connectionTimeoutInMillis + ", \n  socketBufferSizeInBytes=" + this.socketBufferSizeInBytes + ", \n  endpoint=" + this.endpoint + ", \n  region=" + this.region + ", \n  credentials=" + this.credentials + ", \n  uploadSegmentPart=" + this.uploadSegmentPart + ", \n  acceptEncoding=" + this.acceptEncoding + ", \n  keepAliveDuration=" + this.keepAliveDuration + "]\n";
     }
 }

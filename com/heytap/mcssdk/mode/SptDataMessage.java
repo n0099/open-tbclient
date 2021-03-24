@@ -1,10 +1,10 @@
 package com.heytap.mcssdk.mode;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class SptDataMessage extends Message {
-    private String mAppID;
-    private String mContent;
-    private String mDescription;
-    private String mGlobalID;
+    public String mAppID;
+    public String mContent;
+    public String mDescription;
+    public String mGlobalID;
 
     public String getAppID() {
         return this.mAppID;

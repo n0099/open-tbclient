@@ -7,7 +7,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class CommandMessage extends Message {
     public static final String APP_KEY = "appKey";
     public static final String APP_SECRET = "appSecret";
@@ -42,29 +42,30 @@ public class CommandMessage extends Message {
     public static final String PARAMS = "params";
     public static final String REGISTER_ID = "registerID";
     public static final String SDK_VERSION = "sdkVersion";
-    private static final String SPLITTER = "&";
+    public static final String SPLITTER = "&";
     public static final String TYPE_ALIAS = "alias";
     public static final String TYPE_NULL = null;
     public static final String TYPE_TAGS = "tags";
-    private String mAppKey;
-    private String mAppSecret;
-    private int mCommand;
-    private String mContent;
-    private String mParams;
-    private String mRegisterID;
-    private int mResponseCode = -2;
-    private String mSdkVersion;
+    public String mAppKey;
+    public String mAppSecret;
+    public int mCommand;
+    public String mContent;
+    public String mParams;
+    public String mRegisterID;
+    public int mResponseCode = -2;
+    public String mSdkVersion;
 
     public static List<String> parseToList(String str) {
         ArrayList arrayList = null;
-        if (!TextUtils.isEmpty(str)) {
-            String[] split = str.split("&");
-            if (split.length > 0) {
-                arrayList = new ArrayList();
-                for (String str2 : split) {
-                    if (!TextUtils.isEmpty(str2)) {
-                        arrayList.add(str2);
-                    }
+        if (TextUtils.isEmpty(str)) {
+            return null;
+        }
+        String[] split = str.split("&");
+        if (split.length > 0) {
+            arrayList = new ArrayList();
+            for (String str2 : split) {
+                if (!TextUtils.isEmpty(str2)) {
+                    arrayList.add(str2);
                 }
             }
         }
@@ -74,13 +75,15 @@ public class CommandMessage extends Message {
     public static <T> String parseToString(List<T> list) {
         StringBuilder sb = new StringBuilder();
         for (T t : list) {
-            sb.append(t).append("&");
+            sb.append(t);
+            sb.append("&");
         }
         return sb.toString();
     }
 
     public static List<SubscribeResult> parseToSubscribeResultList(String str, String str2, String str3, String str4) {
         ArrayList arrayList;
+        ArrayList arrayList2 = null;
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -94,16 +97,17 @@ public class CommandMessage extends Message {
                     subscribeResult.setContent(jSONObject.getString(str4));
                     subscribeResult.setSubscribeId(jSONObject.getString(str3));
                     arrayList.add(subscribeResult);
-                } catch (JSONException e) {
-                    e = e;
+                } catch (JSONException e2) {
+                    e = e2;
+                    arrayList2 = arrayList;
                     e.printStackTrace();
+                    arrayList = arrayList2;
                     LogUtil.d("parseToSubscribeResultList--" + arrayList);
                     return arrayList;
                 }
             }
-        } catch (JSONException e2) {
-            e = e2;
-            arrayList = null;
+        } catch (JSONException e3) {
+            e = e3;
         }
         LogUtil.d("parseToSubscribeResultList--" + arrayList);
         return arrayList;

@@ -7,85 +7,84 @@ import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.im.data.MsgCacheData;
 import com.baidu.tieba.im.message.chat.ChatMessage;
-/* loaded from: classes.dex */
-public abstract class MsgCommonItemAdapter<T> extends com.baidu.adp.widget.ListView.a<ChatMessage, MsgViewHolder<T>> {
-    private boolean kCC;
-    private boolean kCD;
-    protected int kCE;
-    protected com.baidu.adp.lib.b.a kCv;
-    protected com.baidu.adp.lib.b.b kCw;
-    protected long mCurrentTime;
-    protected TbPageContext<MsglistActivity<?>> mPageContext;
+import d.b.b.e.h.b;
+import d.b.b.j.e.a;
+/* loaded from: classes4.dex */
+public abstract class MsgCommonItemAdapter<T> extends a<ChatMessage, MsgViewHolder<T>> {
+    public TbPageContext<MsglistActivity<?>> m;
+    public d.b.b.e.h.a n;
+    public b o;
+    public long p;
+    public boolean q;
+    public boolean r;
+    public int s;
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.widget.ListView.a
-    public /* bridge */ /* synthetic */ View a(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, TypeAdapter.ViewHolder viewHolder) {
-        return a(i, view, viewGroup, chatMessage, (MsgViewHolder) ((MsgViewHolder) viewHolder));
+    /* loaded from: classes4.dex */
+    public static class MsgViewHolder<T> extends TypeAdapter.ViewHolder {
+
+        /* renamed from: a  reason: collision with root package name */
+        public T f17763a;
+
+        public MsgViewHolder(View view, T t) {
+            super(view);
+            this.f17763a = t;
+        }
+
+        public T b() {
+            return this.f17763a;
+        }
     }
 
     public MsgCommonItemAdapter(TbPageContext<MsglistActivity<?>> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.kCv = null;
-        this.kCw = null;
-        this.mCurrentTime = 0L;
-        this.kCC = false;
-        this.kCD = false;
-        this.mPageContext = tbPageContext;
+        this.n = null;
+        this.o = null;
+        this.p = 0L;
+        this.q = false;
+        this.r = false;
+        this.m = tbPageContext;
     }
 
-    public void a(com.baidu.adp.lib.b.a aVar) {
-        this.kCv = aVar;
+    public final void h0() {
+        this.p = System.currentTimeMillis() / 1000;
     }
 
-    public void setOnItemViewLongClickListener(com.baidu.adp.lib.b.b bVar) {
-        this.kCw = bVar;
+    public boolean i0() {
+        return this.r;
     }
 
-    private void cUQ() {
-        this.mCurrentTime = System.currentTimeMillis() / 1000;
+    public boolean j0() {
+        return this.q;
     }
 
-    public boolean cUR() {
-        return this.kCC;
-    }
-
-    public void sB(boolean z) {
-        this.kCC = z;
-    }
-
-    public boolean cUS() {
-        return this.kCD;
-    }
-
-    public void sC(boolean z) {
-        this.kCD = z;
-    }
-
-    public void CK(int i) {
-        this.kCE = i;
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public View a(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, MsgViewHolder<T> msgViewHolder) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // d.b.b.j.e.a
+    /* renamed from: l0 */
+    public View X(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, MsgViewHolder<T> msgViewHolder) {
         if (chatMessage != null && chatMessage.getCacheData() == null) {
             chatMessage.setCacheData(new MsgCacheData());
         }
-        cUQ();
+        h0();
         return view;
     }
 
-    /* loaded from: classes.dex */
-    public static class MsgViewHolder<T> extends TypeAdapter.ViewHolder {
-        private T kCF;
+    public void m0(boolean z) {
+        this.r = z;
+    }
 
-        public MsgViewHolder(View view, T t) {
-            super(view);
-            this.kCF = t;
-        }
+    public void n0(boolean z) {
+        this.q = z;
+    }
 
-        public T cUT() {
-            return this.kCF;
-        }
+    public void o0(d.b.b.e.h.a aVar) {
+        this.n = aVar;
+    }
+
+    public void p0(b bVar) {
+        this.o = bVar;
+    }
+
+    public void q0(int i) {
+        this.s = i;
     }
 }

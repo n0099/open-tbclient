@@ -2,15 +2,15 @@ package com.baidu.fsg.base.widget.textfilter;
 
 import android.text.TextUtils;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public class NumberEditTextPasteFilter implements IEditTextPasteFilter {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f1603a = NumberEditTextPasteFilter.class.getSimpleName();
+    public static final String f5524a = "NumberEditTextPasteFilter";
 
     @Override // com.baidu.fsg.base.widget.textfilter.IEditTextPasteFilter
     public String intercept(String str) {
-        List<String> regxParse = EditTextPasteFilterUtils.regxParse(str, EditTextPasteFilterUtils.REGX_NUMBER);
+        List<String> regxParse = EditTextPasteFilterUtils.regxParse(str, "[0-9]+");
         if (regxParse == null || regxParse.size() <= 0) {
             return "";
         }

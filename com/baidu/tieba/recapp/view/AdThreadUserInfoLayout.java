@@ -6,11 +6,11 @@ import android.view.View;
 import android.widget.RelativeLayout;
 import com.baidu.card.view.CardUserInfoLayout;
 import com.baidu.tbadk.core.view.HeadPendantClickableView;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class AdThreadUserInfoLayout extends CardUserInfoLayout {
-    private AfterAdjustChildWidthListener nbr;
+    public AfterAdjustChildWidthListener J;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public interface AfterAdjustChildWidthListener {
         void afterChildWidth();
     }
@@ -19,18 +19,24 @@ public class AdThreadUserInfoLayout extends CardUserInfoLayout {
         super(context);
     }
 
-    public AdThreadUserInfoLayout(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
+    public void addAdTagView(View view) {
+        if (view == null) {
+            return;
+        }
+        this.q.removeAllViews();
+        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
+        layoutParams.addRule(11);
+        layoutParams.addRule(15);
+        view.setLayoutParams(layoutParams);
+        this.q.addView(view);
     }
 
-    public void addAdTagView(View view) {
-        if (view != null) {
-            this.alz.removeAllViews();
-            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
-            layoutParams.addRule(11);
-            layoutParams.addRule(15);
-            view.setLayoutParams(layoutParams);
-            this.alz.addView(view);
+    @Override // com.baidu.card.view.CardUserInfoLayout
+    public void f() {
+        super.f();
+        AfterAdjustChildWidthListener afterAdjustChildWidthListener = this.J;
+        if (afterAdjustChildWidthListener != null) {
+            afterAdjustChildWidthListener.afterChildWidth();
         }
     }
 
@@ -38,16 +44,11 @@ public class AdThreadUserInfoLayout extends CardUserInfoLayout {
         return getAvatar();
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.card.view.CardUserInfoLayout
-    public void tB() {
-        super.tB();
-        if (this.nbr != null) {
-            this.nbr.afterChildWidth();
-        }
+    public void setAfterAdjustChildWidthListener(AfterAdjustChildWidthListener afterAdjustChildWidthListener) {
+        this.J = afterAdjustChildWidthListener;
     }
 
-    public void setAfterAdjustChildWidthListener(AfterAdjustChildWidthListener afterAdjustChildWidthListener) {
-        this.nbr = afterAdjustChildWidthListener;
+    public AdThreadUserInfoLayout(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
     }
 }

@@ -10,54 +10,17 @@ import com.googlecode.mp4parser.authoring.Track;
 import com.googlecode.mp4parser.authoring.TrackMetaData;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class MultiplyTimeScaleTrack implements Track {
-    Track source;
-    private int timeScaleFactor;
+    public Track source;
+    public int timeScaleFactor;
 
     public MultiplyTimeScaleTrack(Track track, int i) {
         this.source = track;
         this.timeScaleFactor = i;
     }
 
-    @Override // com.googlecode.mp4parser.authoring.Track
-    public SampleDescriptionBox getSampleDescriptionBox() {
-        return this.source.getSampleDescriptionBox();
-    }
-
-    @Override // com.googlecode.mp4parser.authoring.Track
-    public List<CompositionTimeToSample.Entry> getCompositionTimeEntries() {
-        return adjustCtts(this.source.getCompositionTimeEntries(), this.timeScaleFactor);
-    }
-
-    @Override // com.googlecode.mp4parser.authoring.Track
-    public long[] getSyncSamples() {
-        return this.source.getSyncSamples();
-    }
-
-    @Override // com.googlecode.mp4parser.authoring.Track
-    public List<SampleDependencyTypeBox.Entry> getSampleDependencies() {
-        return this.source.getSampleDependencies();
-    }
-
-    @Override // com.googlecode.mp4parser.authoring.Track
-    public TrackMetaData getTrackMetaData() {
-        TrackMetaData trackMetaData = (TrackMetaData) this.source.getTrackMetaData().clone();
-        trackMetaData.setTimescale(this.source.getTrackMetaData().getTimescale() * this.timeScaleFactor);
-        return trackMetaData;
-    }
-
-    @Override // com.googlecode.mp4parser.authoring.Track
-    public String getHandler() {
-        return this.source.getHandler();
-    }
-
-    @Override // com.googlecode.mp4parser.authoring.Track
-    public List<Sample> getSamples() {
-        return this.source.getSamples();
-    }
-
-    static List<CompositionTimeToSample.Entry> adjustCtts(List<CompositionTimeToSample.Entry> list, int i) {
+    public static List<CompositionTimeToSample.Entry> adjustCtts(List<CompositionTimeToSample.Entry> list, int i) {
         if (list != null) {
             ArrayList arrayList = new ArrayList(list.size());
             for (CompositionTimeToSample.Entry entry : list) {
@@ -66,6 +29,36 @@ public class MultiplyTimeScaleTrack implements Track {
             return arrayList;
         }
         return null;
+    }
+
+    @Override // com.googlecode.mp4parser.authoring.Track
+    public List<CompositionTimeToSample.Entry> getCompositionTimeEntries() {
+        return adjustCtts(this.source.getCompositionTimeEntries(), this.timeScaleFactor);
+    }
+
+    @Override // com.googlecode.mp4parser.authoring.Track
+    public long getDuration() {
+        return this.source.getDuration() * this.timeScaleFactor;
+    }
+
+    @Override // com.googlecode.mp4parser.authoring.Track
+    public String getHandler() {
+        return this.source.getHandler();
+    }
+
+    @Override // com.googlecode.mp4parser.authoring.Track
+    public Box getMediaHeaderBox() {
+        return this.source.getMediaHeaderBox();
+    }
+
+    @Override // com.googlecode.mp4parser.authoring.Track
+    public List<SampleDependencyTypeBox.Entry> getSampleDependencies() {
+        return this.source.getSampleDependencies();
+    }
+
+    @Override // com.googlecode.mp4parser.authoring.Track
+    public SampleDescriptionBox getSampleDescriptionBox() {
+        return this.source.getSampleDescriptionBox();
     }
 
     @Override // com.googlecode.mp4parser.authoring.Track
@@ -78,8 +71,8 @@ public class MultiplyTimeScaleTrack implements Track {
     }
 
     @Override // com.googlecode.mp4parser.authoring.Track
-    public Box getMediaHeaderBox() {
-        return this.source.getMediaHeaderBox();
+    public List<Sample> getSamples() {
+        return this.source.getSamples();
     }
 
     @Override // com.googlecode.mp4parser.authoring.Track
@@ -88,8 +81,15 @@ public class MultiplyTimeScaleTrack implements Track {
     }
 
     @Override // com.googlecode.mp4parser.authoring.Track
-    public long getDuration() {
-        return this.source.getDuration() * this.timeScaleFactor;
+    public long[] getSyncSamples() {
+        return this.source.getSyncSamples();
+    }
+
+    @Override // com.googlecode.mp4parser.authoring.Track
+    public TrackMetaData getTrackMetaData() {
+        TrackMetaData trackMetaData = (TrackMetaData) this.source.getTrackMetaData().clone();
+        trackMetaData.setTimescale(this.source.getTrackMetaData().getTimescale() * this.timeScaleFactor);
+        return trackMetaData;
     }
 
     public String toString() {

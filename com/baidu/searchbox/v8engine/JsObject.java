@@ -1,10 +1,11 @@
 package com.baidu.searchbox.v8engine;
 
+import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.webkit.internal.monitor.SessionMonitorEngine;
 @NotProguard
-/* loaded from: classes14.dex */
+/* loaded from: classes3.dex */
 public class JsObject extends JsReleaser {
-    static final /* synthetic */ boolean $assertionsDisabled;
+    public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static final int JARRAY = 6;
     public static final int JARRAYBUFFER = 10;
     public static final int JBOOLEAN = 1;
@@ -17,8 +18,19 @@ public class JsObject extends JsReleaser {
     public static final int JOBJECT = 9;
     public static final int JSTRING = 7;
     public static final int JUNDEFINED = 12;
-    static final String TAG = "JsObject";
-    private int mSize;
+    public static final String TAG = "JsObject";
+    public int mSize;
+
+    public JsObject() {
+        super(0L, 0L, 0L);
+        this.mSize = 0;
+        this.mSize = 0;
+    }
+
+    private boolean checkValid(int i) {
+        V8Engine.checkValid(this.mOwnedNativeEngine, this.mOwnedThreadId);
+        return this.mNativeObject.get() != 0 && i >= 0 && i < this.mSize;
+    }
 
     private native JsSerializeValue nativeAsSerializeValue(long j);
 
@@ -58,31 +70,6 @@ public class JsObject extends JsReleaser {
 
     private native int nativeType(long j);
 
-    static {
-        $assertionsDisabled = !JsObject.class.desiredAssertionStatus();
-    }
-
-    public JsObject() {
-        super(0L, 0L, 0L);
-        this.mSize = 0;
-        this.mSize = 0;
-    }
-
-    public JsObject(long j, long j2, long j3, int i) {
-        super(j, j2, j3);
-        this.mSize = 0;
-        this.mSize = i;
-    }
-
-    public int length() {
-        return this.mSize;
-    }
-
-    private boolean checkValid(int i) {
-        V8Engine.checkValid(this.mOwnedNativeEngine, this.mOwnedThreadId);
-        return this.mNativeObject.get() != 0 && i >= 0 && i < this.mSize;
-    }
-
     public static String typeToString(int i) {
         switch (i) {
             case 0:
@@ -111,12 +98,13 @@ public class JsObject extends JsReleaser {
         }
     }
 
-    public String getPropertyName(int i) {
-        if ($assertionsDisabled || checkValid(i)) {
-            long j = this.mNativeObject.get();
-            return j == 0 ? SessionMonitorEngine.PUBLIC_DATA_UNDIFNED : nativeGetPropertyName(j, i);
+    public JsSerializeValue asSerializeValue() {
+        long andSet = this.mNativeObject.getAndSet(0L);
+        if (andSet == 0) {
+            return null;
         }
-        throw new AssertionError();
+        this.mSize = 0;
+        return nativeAsSerializeValue(andSet);
     }
 
     public int getPropertyIndex(String str) {
@@ -127,15 +115,17 @@ public class JsObject extends JsReleaser {
         return nativeGetPropertyIndex(j, str);
     }
 
+    public String getPropertyName(int i) {
+        long j = this.mNativeObject.get();
+        return j == 0 ? SessionMonitorEngine.PUBLIC_DATA_UNDIFNED : nativeGetPropertyName(j, i);
+    }
+
     public int getPropertyType(int i) {
-        if ($assertionsDisabled || checkValid(i)) {
-            long j = this.mNativeObject.get();
-            if (j == 0) {
-                return 0;
-            }
-            return nativePropertyType(j, i);
+        long j = this.mNativeObject.get();
+        if (j == 0) {
+            return 0;
         }
-        throw new AssertionError();
+        return nativePropertyType(j, i);
     }
 
     public int getType() {
@@ -147,129 +137,24 @@ public class JsObject extends JsReleaser {
         return nativeType(j);
     }
 
-    public boolean toBoolean(int i) {
-        if ($assertionsDisabled || checkValid(i)) {
-            long j = this.mNativeObject.get();
-            if (j == 0) {
-                return false;
-            }
-            return nativeToBoolean(j, i);
-        }
-        throw new AssertionError();
-    }
-
-    public int toInteger(int i) {
-        if ($assertionsDisabled || checkValid(i)) {
-            long j = this.mNativeObject.get();
-            if (j == 0) {
-                return 0;
-            }
-            return nativeToInteger(j, i);
-        }
-        throw new AssertionError();
-    }
-
-    public long toLong(int i) {
-        if ($assertionsDisabled || checkValid(i)) {
-            long j = this.mNativeObject.get();
-            if (j == 0) {
-                return 0L;
-            }
-            return nativeToLong(j, i);
-        }
-        throw new AssertionError();
-    }
-
-    public JsSerializeValue toSerializeValue(int i) {
-        if ($assertionsDisabled || checkValid(i)) {
-            long j = this.mNativeObject.get();
-            if (j == 0) {
-                return null;
-            }
-            return nativeToSerializeValue(j, i);
-        }
-        throw new AssertionError();
-    }
-
-    public JsSerializeValue asSerializeValue() {
-        long andSet = this.mNativeObject.getAndSet(0L);
-        if (andSet == 0) {
-            return null;
-        }
-        this.mSize = 0;
-        return nativeAsSerializeValue(andSet);
-    }
-
-    public double toDouble(int i) {
-        if ($assertionsDisabled || checkValid(i)) {
-            long j = this.mNativeObject.get();
-            if (j == 0) {
-                return 0.0d;
-            }
-            return nativeToDouble(j, i);
-        }
-        throw new AssertionError();
-    }
-
-    public String toString(int i) {
-        if ($assertionsDisabled || checkValid(i)) {
-            long j = this.mNativeObject.get();
-            return j == 0 ? "null" : nativeToString(j, i);
-        }
-        throw new AssertionError();
-    }
-
-    public JsFunction toJsFunction(int i) {
-        if ($assertionsDisabled || checkValid(i)) {
-            long j = this.mNativeObject.get();
-            if (j == 0) {
-                return null;
-            }
-            return nativeToJsFunction(this.mOwnedNativeEngine, j, i);
-        }
-        throw new AssertionError();
-    }
-
-    public JsObject toJsObject(int i) {
-        if ($assertionsDisabled || checkValid(i)) {
-            long j = this.mNativeObject.get();
-            if (j == 0) {
-                return null;
-            }
-            return nativeToJsObject(j, i);
-        }
-        throw new AssertionError();
-    }
-
-    public JsArrayBuffer toJsArrayBuffer(int i) {
-        if ($assertionsDisabled || checkValid(i)) {
-            long j = this.mNativeObject.get();
-            if (j == 0) {
-                return null;
-            }
-            return nativeToJsArrayBuffer(j, i);
-        }
-        throw new AssertionError();
+    public boolean isArray(int i) {
+        return getPropertyType(i) == 6;
     }
 
     public boolean isBoolean(int i) {
         return getPropertyType(i) == 1;
     }
 
-    public boolean isInteger(int i) {
-        return getPropertyType(i) == 2;
-    }
-
-    public boolean isLong(int i) {
-        return getPropertyType(i) == 3;
-    }
-
     public boolean isDouble(int i) {
         return getPropertyType(i) == 5;
     }
 
-    public boolean isString(int i) {
-        return getPropertyType(i) == 7;
+    public boolean isInteger(int i) {
+        return getPropertyType(i) == 2;
+    }
+
+    public boolean isJsArrayBuffer(int i) {
+        return getPropertyType(i) == 10;
     }
 
     public boolean isJsFunction(int i) {
@@ -280,56 +165,16 @@ public class JsObject extends JsReleaser {
         return getPropertyType(i) == 9;
     }
 
-    public boolean isJsArrayBuffer(int i) {
-        return getPropertyType(i) == 10;
+    public boolean isLong(int i) {
+        return getPropertyType(i) == 3;
     }
 
-    public boolean isArray(int i) {
-        return getPropertyType(i) == 6;
+    public boolean isString(int i) {
+        return getPropertyType(i) == 7;
     }
 
-    public String[] toStringArray(int i) {
-        if ($assertionsDisabled || checkValid(i)) {
-            long j = this.mNativeObject.get();
-            if (j == 0) {
-                return null;
-            }
-            return nativeToStringArray(j, i);
-        }
-        throw new AssertionError();
-    }
-
-    public double[] toDoubleArray(int i) {
-        if ($assertionsDisabled || checkValid(i)) {
-            long j = this.mNativeObject.get();
-            if (j == 0) {
-                return null;
-            }
-            return nativeToDoubleArray(j, i);
-        }
-        throw new AssertionError();
-    }
-
-    public int[] toIntegerArray(int i) {
-        if ($assertionsDisabled || checkValid(i)) {
-            long j = this.mNativeObject.get();
-            if (j == 0) {
-                return null;
-            }
-            return nativeToIntegerArray(j, i);
-        }
-        throw new AssertionError();
-    }
-
-    public JsObject[] toObjectArray(int i) {
-        if ($assertionsDisabled || checkValid(i)) {
-            long j = this.mNativeObject.get();
-            if (j == 0) {
-                return null;
-            }
-            return nativeToObjectArray(j, i);
-        }
-        throw new AssertionError();
+    public int length() {
+        return this.mSize;
     }
 
     public boolean strictEquals(JsObject jsObject) {
@@ -341,5 +186,112 @@ public class JsObject extends JsReleaser {
         }
         V8Engine.checkValid(this.mOwnedNativeEngine, this.mOwnedThreadId);
         return nativeStrictEquals(this.mNativeObject.get(), jsObject.mNativeObject.get());
+    }
+
+    public boolean toBoolean(int i) {
+        long j = this.mNativeObject.get();
+        if (j == 0) {
+            return false;
+        }
+        return nativeToBoolean(j, i);
+    }
+
+    public double toDouble(int i) {
+        long j = this.mNativeObject.get();
+        if (j == 0) {
+            return 0.0d;
+        }
+        return nativeToDouble(j, i);
+    }
+
+    public double[] toDoubleArray(int i) {
+        long j = this.mNativeObject.get();
+        if (j == 0) {
+            return null;
+        }
+        return nativeToDoubleArray(j, i);
+    }
+
+    public int toInteger(int i) {
+        long j = this.mNativeObject.get();
+        if (j == 0) {
+            return 0;
+        }
+        return nativeToInteger(j, i);
+    }
+
+    public int[] toIntegerArray(int i) {
+        long j = this.mNativeObject.get();
+        if (j == 0) {
+            return null;
+        }
+        return nativeToIntegerArray(j, i);
+    }
+
+    public JsArrayBuffer toJsArrayBuffer(int i) {
+        long j = this.mNativeObject.get();
+        if (j == 0) {
+            return null;
+        }
+        return nativeToJsArrayBuffer(j, i);
+    }
+
+    public JsFunction toJsFunction(int i) {
+        long j = this.mNativeObject.get();
+        if (j == 0) {
+            return null;
+        }
+        return nativeToJsFunction(this.mOwnedNativeEngine, j, i);
+    }
+
+    public JsObject toJsObject(int i) {
+        long j = this.mNativeObject.get();
+        if (j == 0) {
+            return null;
+        }
+        return nativeToJsObject(j, i);
+    }
+
+    public long toLong(int i) {
+        long j = this.mNativeObject.get();
+        if (j == 0) {
+            return 0L;
+        }
+        return nativeToLong(j, i);
+    }
+
+    public JsObject[] toObjectArray(int i) {
+        long j = this.mNativeObject.get();
+        if (j == 0) {
+            return null;
+        }
+        return nativeToObjectArray(j, i);
+    }
+
+    public JsSerializeValue toSerializeValue(int i) {
+        long j = this.mNativeObject.get();
+        if (j == 0) {
+            return null;
+        }
+        return nativeToSerializeValue(j, i);
+    }
+
+    public String toString(int i) {
+        long j = this.mNativeObject.get();
+        return j == 0 ? StringUtil.NULL_STRING : nativeToString(j, i);
+    }
+
+    public String[] toStringArray(int i) {
+        long j = this.mNativeObject.get();
+        if (j == 0) {
+            return null;
+        }
+        return nativeToStringArray(j, i);
+    }
+
+    public JsObject(long j, long j2, long j3, int i) {
+        super(j, j2, j3);
+        this.mSize = 0;
+        this.mSize = i;
     }
 }

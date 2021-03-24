@@ -4,7 +4,7 @@ import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public final class Zan extends Message {
     @ProtoField(tag = 3, type = Message.Datatype.INT32)
     public final Integer isLiked;
@@ -19,39 +19,7 @@ public final class Zan extends Message {
     public static final Integer DEFAULT_LASTTIME = 0;
     public static final List<Long> DEFAULT_LIKERID = Collections.emptyList();
 
-    private Zan(Builder builder, boolean z) {
-        super(builder);
-        if (z) {
-            if (builder.num == null) {
-                this.num = DEFAULT_NUM;
-            } else {
-                this.num = builder.num;
-            }
-            if (builder.isLiked == null) {
-                this.isLiked = DEFAULT_ISLIKED;
-            } else {
-                this.isLiked = builder.isLiked;
-            }
-            if (builder.lastTime == null) {
-                this.lastTime = DEFAULT_LASTTIME;
-            } else {
-                this.lastTime = builder.lastTime;
-            }
-            if (builder.likerId == null) {
-                this.likerId = DEFAULT_LIKERID;
-                return;
-            } else {
-                this.likerId = immutableCopyOf(builder.likerId);
-                return;
-            }
-        }
-        this.num = builder.num;
-        this.isLiked = builder.isLiked;
-        this.lastTime = builder.lastTime;
-        this.likerId = immutableCopyOf(builder.likerId);
-    }
-
-    /* loaded from: classes2.dex */
+    /* loaded from: classes7.dex */
     public static final class Builder extends Message.Builder<Zan> {
         public Integer isLiked;
         public Integer lastTime;
@@ -63,12 +31,13 @@ public final class Zan extends Message {
 
         public Builder(Zan zan) {
             super(zan);
-            if (zan != null) {
-                this.num = zan.num;
-                this.isLiked = zan.isLiked;
-                this.lastTime = zan.lastTime;
-                this.likerId = Zan.copyOf(zan.likerId);
+            if (zan == null) {
+                return;
             }
+            this.num = zan.num;
+            this.isLiked = zan.isLiked;
+            this.lastTime = zan.lastTime;
+            this.likerId = Message.copyOf(zan.likerId);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -76,5 +45,41 @@ public final class Zan extends Message {
         public Zan build(boolean z) {
             return new Zan(this, z);
         }
+    }
+
+    public Zan(Builder builder, boolean z) {
+        super(builder);
+        if (z) {
+            Integer num = builder.num;
+            if (num == null) {
+                this.num = DEFAULT_NUM;
+            } else {
+                this.num = num;
+            }
+            Integer num2 = builder.isLiked;
+            if (num2 == null) {
+                this.isLiked = DEFAULT_ISLIKED;
+            } else {
+                this.isLiked = num2;
+            }
+            Integer num3 = builder.lastTime;
+            if (num3 == null) {
+                this.lastTime = DEFAULT_LASTTIME;
+            } else {
+                this.lastTime = num3;
+            }
+            List<Long> list = builder.likerId;
+            if (list == null) {
+                this.likerId = DEFAULT_LIKERID;
+                return;
+            } else {
+                this.likerId = Message.immutableCopyOf(list);
+                return;
+            }
+        }
+        this.num = builder.num;
+        this.isLiked = builder.isLiked;
+        this.lastTime = builder.lastTime;
+        this.likerId = Message.immutableCopyOf(builder.likerId);
     }
 }

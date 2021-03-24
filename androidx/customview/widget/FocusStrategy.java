@@ -3,74 +3,32 @@ package androidx.customview.widget;
 import android.graphics.Rect;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.upload.action.pb.IMPushPb;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
-/* loaded from: classes14.dex */
-class FocusStrategy {
+/* loaded from: classes.dex */
+public class FocusStrategy {
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes.dex */
     public interface BoundsAdapter<T> {
         void obtainBounds(T t, Rect rect);
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes.dex */
     public interface CollectionAdapter<T, V> {
         V get(T t, int i);
 
         int size(T t);
     }
 
-    public static <L, T> T findNextFocusInRelativeDirection(@NonNull L l, @NonNull CollectionAdapter<L, T> collectionAdapter, @NonNull BoundsAdapter<T> boundsAdapter, @Nullable T t, int i, boolean z, boolean z2) {
-        int size = collectionAdapter.size(l);
-        ArrayList arrayList = new ArrayList(size);
-        for (int i2 = 0; i2 < size; i2++) {
-            arrayList.add(collectionAdapter.get(l, i2));
-        }
-        Collections.sort(arrayList, new SequentialComparator(z, boundsAdapter));
-        switch (i) {
-            case 1:
-                return (T) getPreviousFocusable(t, arrayList, z2);
-            case 2:
-                return (T) getNextFocusable(t, arrayList, z2);
-            default:
-                throw new IllegalArgumentException("direction must be one of {FOCUS_FORWARD, FOCUS_BACKWARD}.");
-        }
-    }
+    /* loaded from: classes.dex */
+    public static class SequentialComparator<T> implements Comparator<T> {
+        public final BoundsAdapter<T> mAdapter;
+        public final boolean mIsLayoutRtl;
+        public final Rect mTemp1 = new Rect();
+        public final Rect mTemp2 = new Rect();
 
-    private static <T> T getNextFocusable(T t, ArrayList<T> arrayList, boolean z) {
-        int size = arrayList.size();
-        int lastIndexOf = (t == null ? -1 : arrayList.lastIndexOf(t)) + 1;
-        if (lastIndexOf < size) {
-            return arrayList.get(lastIndexOf);
-        }
-        if (z && size > 0) {
-            return arrayList.get(0);
-        }
-        return null;
-    }
-
-    private static <T> T getPreviousFocusable(T t, ArrayList<T> arrayList, boolean z) {
-        int size = arrayList.size();
-        int indexOf = (t == null ? size : arrayList.indexOf(t)) - 1;
-        if (indexOf >= 0) {
-            return arrayList.get(indexOf);
-        }
-        if (z && size > 0) {
-            return arrayList.get(size - 1);
-        }
-        return null;
-    }
-
-    /* loaded from: classes14.dex */
-    private static class SequentialComparator<T> implements Comparator<T> {
-        private final BoundsAdapter<T> mAdapter;
-        private final boolean mIsLayoutRtl;
-        private final Rect mTemp1 = new Rect();
-        private final Rect mTemp2 = new Rect();
-
-        SequentialComparator(boolean z, BoundsAdapter<T> boundsAdapter) {
+        public SequentialComparator(boolean z, BoundsAdapter<T> boundsAdapter) {
             this.mIsLayoutRtl = z;
             this.mAdapter = boundsAdapter;
         }
@@ -81,50 +39,76 @@ class FocusStrategy {
             Rect rect2 = this.mTemp2;
             this.mAdapter.obtainBounds(t, rect);
             this.mAdapter.obtainBounds(t2, rect2);
-            if (rect.top < rect2.top) {
+            int i = rect.top;
+            int i2 = rect2.top;
+            if (i < i2) {
                 return -1;
             }
-            if (rect.top > rect2.top) {
+            if (i > i2) {
                 return 1;
             }
-            if (rect.left < rect2.left) {
+            int i3 = rect.left;
+            int i4 = rect2.left;
+            if (i3 < i4) {
                 return this.mIsLayoutRtl ? 1 : -1;
-            } else if (rect.left > rect2.left) {
-                return !this.mIsLayoutRtl ? 1 : -1;
-            } else if (rect.bottom >= rect2.bottom) {
-                if (rect.bottom > rect2.bottom) {
+            } else if (i3 > i4) {
+                return this.mIsLayoutRtl ? -1 : 1;
+            } else {
+                int i5 = rect.bottom;
+                int i6 = rect2.bottom;
+                if (i5 < i6) {
+                    return -1;
+                }
+                if (i5 > i6) {
                     return 1;
                 }
-                if (rect.right < rect2.right) {
+                int i7 = rect.right;
+                int i8 = rect2.right;
+                if (i7 < i8) {
                     return this.mIsLayoutRtl ? 1 : -1;
-                } else if (rect.right > rect2.right) {
-                    return !this.mIsLayoutRtl ? 1 : -1;
+                } else if (i7 > i8) {
+                    return this.mIsLayoutRtl ? -1 : 1;
                 } else {
                     return 0;
                 }
-            } else {
-                return -1;
             }
         }
     }
 
+    public static boolean beamBeats(int i, @NonNull Rect rect, @NonNull Rect rect2, @NonNull Rect rect3) {
+        boolean beamsOverlap = beamsOverlap(i, rect, rect2);
+        if (beamsOverlap(i, rect, rect3) || !beamsOverlap) {
+            return false;
+        }
+        return !isToDirectionOf(i, rect, rect3) || i == 17 || i == 66 || majorAxisDistance(i, rect, rect2) < majorAxisDistanceToFarEdge(i, rect, rect3);
+    }
+
+    public static boolean beamsOverlap(int i, @NonNull Rect rect, @NonNull Rect rect2) {
+        if (i != 17) {
+            if (i != 33) {
+                if (i != 66) {
+                    if (i != 130) {
+                        throw new IllegalArgumentException("direction must be one of {FOCUS_UP, FOCUS_DOWN, FOCUS_LEFT, FOCUS_RIGHT}.");
+                    }
+                }
+            }
+            return rect2.right >= rect.left && rect2.left <= rect.right;
+        }
+        return rect2.bottom >= rect.top && rect2.top <= rect.bottom;
+    }
+
     public static <L, T> T findNextFocusInAbsoluteDirection(@NonNull L l, @NonNull CollectionAdapter<L, T> collectionAdapter, @NonNull BoundsAdapter<T> boundsAdapter, @Nullable T t, @NonNull Rect rect, int i) {
         Rect rect2 = new Rect(rect);
-        switch (i) {
-            case 17:
-                rect2.offset(rect.width() + 1, 0);
-                break;
-            case 33:
-                rect2.offset(0, rect.height() + 1);
-                break;
-            case 66:
-                rect2.offset(-(rect.width() + 1), 0);
-                break;
-            case IMPushPb.PushImClient.SDK_NAME_FIELD_NUMBER /* 130 */:
-                rect2.offset(0, -(rect.height() + 1));
-                break;
-            default:
-                throw new IllegalArgumentException("direction must be one of {FOCUS_UP, FOCUS_DOWN, FOCUS_LEFT, FOCUS_RIGHT}.");
+        if (i == 17) {
+            rect2.offset(rect.width() + 1, 0);
+        } else if (i == 33) {
+            rect2.offset(0, rect.height() + 1);
+        } else if (i == 66) {
+            rect2.offset(-(rect.width() + 1), 0);
+        } else if (i == 130) {
+            rect2.offset(0, -(rect.height() + 1));
+        } else {
+            throw new IllegalArgumentException("direction must be one of {FOCUS_UP, FOCUS_DOWN, FOCUS_LEFT, FOCUS_RIGHT}.");
         }
         T t2 = null;
         int size = collectionAdapter.size(l);
@@ -142,122 +126,157 @@ class FocusStrategy {
         return t2;
     }
 
-    private static boolean isBetterCandidate(int i, @NonNull Rect rect, @NonNull Rect rect2, @NonNull Rect rect3) {
-        if (isCandidate(rect, rect2, i)) {
-            if (!isCandidate(rect, rect3, i) || beamBeats(i, rect, rect2, rect3)) {
-                return true;
+    public static <L, T> T findNextFocusInRelativeDirection(@NonNull L l, @NonNull CollectionAdapter<L, T> collectionAdapter, @NonNull BoundsAdapter<T> boundsAdapter, @Nullable T t, int i, boolean z, boolean z2) {
+        int size = collectionAdapter.size(l);
+        ArrayList arrayList = new ArrayList(size);
+        for (int i2 = 0; i2 < size; i2++) {
+            arrayList.add(collectionAdapter.get(l, i2));
+        }
+        Collections.sort(arrayList, new SequentialComparator(z, boundsAdapter));
+        if (i != 1) {
+            if (i == 2) {
+                return (T) getNextFocusable(t, arrayList, z2);
             }
-            return !beamBeats(i, rect, rect3, rect2) && getWeightedDistanceFor(majorAxisDistance(i, rect, rect2), minorAxisDistance(i, rect, rect2)) < getWeightedDistanceFor(majorAxisDistance(i, rect, rect3), minorAxisDistance(i, rect, rect3));
+            throw new IllegalArgumentException("direction must be one of {FOCUS_FORWARD, FOCUS_BACKWARD}.");
+        }
+        return (T) getPreviousFocusable(t, arrayList, z2);
+    }
+
+    public static <T> T getNextFocusable(T t, ArrayList<T> arrayList, boolean z) {
+        int size = arrayList.size();
+        int lastIndexOf = (t == null ? -1 : arrayList.lastIndexOf(t)) + 1;
+        if (lastIndexOf < size) {
+            return arrayList.get(lastIndexOf);
+        }
+        if (!z || size <= 0) {
+            return null;
+        }
+        return arrayList.get(0);
+    }
+
+    public static <T> T getPreviousFocusable(T t, ArrayList<T> arrayList, boolean z) {
+        int size = arrayList.size();
+        int indexOf = (t == null ? size : arrayList.indexOf(t)) - 1;
+        if (indexOf >= 0) {
+            return arrayList.get(indexOf);
+        }
+        if (!z || size <= 0) {
+            return null;
+        }
+        return arrayList.get(size - 1);
+    }
+
+    public static int getWeightedDistanceFor(int i, int i2) {
+        return (i * 13 * i) + (i2 * i2);
+    }
+
+    public static boolean isBetterCandidate(int i, @NonNull Rect rect, @NonNull Rect rect2, @NonNull Rect rect3) {
+        if (isCandidate(rect, rect2, i)) {
+            if (isCandidate(rect, rect3, i) && !beamBeats(i, rect, rect2, rect3)) {
+                return !beamBeats(i, rect, rect3, rect2) && getWeightedDistanceFor(majorAxisDistance(i, rect, rect2), minorAxisDistance(i, rect, rect2)) < getWeightedDistanceFor(majorAxisDistance(i, rect, rect3), minorAxisDistance(i, rect, rect3));
+            }
+            return true;
         }
         return false;
     }
 
-    private static boolean beamBeats(int i, @NonNull Rect rect, @NonNull Rect rect2, @NonNull Rect rect3) {
-        boolean beamsOverlap = beamsOverlap(i, rect, rect2);
-        if (beamsOverlap(i, rect, rect3) || !beamsOverlap) {
-            return false;
-        }
-        return !isToDirectionOf(i, rect, rect3) || i == 17 || i == 66 || majorAxisDistance(i, rect, rect2) < majorAxisDistanceToFarEdge(i, rect, rect3);
-    }
-
-    private static int getWeightedDistanceFor(int i, int i2) {
-        return (i * 13 * i) + (i2 * i2);
-    }
-
-    private static boolean isCandidate(@NonNull Rect rect, @NonNull Rect rect2, int i) {
-        switch (i) {
-            case 17:
-                return (rect.right > rect2.right || rect.left >= rect2.right) && rect.left > rect2.left;
-            case 33:
-                return (rect.bottom > rect2.bottom || rect.top >= rect2.bottom) && rect.top > rect2.top;
-            case 66:
-                return (rect.left < rect2.left || rect.right <= rect2.left) && rect.right < rect2.right;
-            case IMPushPb.PushImClient.SDK_NAME_FIELD_NUMBER /* 130 */:
-                return (rect.top < rect2.top || rect.bottom <= rect2.top) && rect.bottom < rect2.bottom;
-            default:
-                throw new IllegalArgumentException("direction must be one of {FOCUS_UP, FOCUS_DOWN, FOCUS_LEFT, FOCUS_RIGHT}.");
+    public static boolean isCandidate(@NonNull Rect rect, @NonNull Rect rect2, int i) {
+        if (i == 17) {
+            int i2 = rect.right;
+            int i3 = rect2.right;
+            return (i2 > i3 || rect.left >= i3) && rect.left > rect2.left;
+        } else if (i == 33) {
+            int i4 = rect.bottom;
+            int i5 = rect2.bottom;
+            return (i4 > i5 || rect.top >= i5) && rect.top > rect2.top;
+        } else if (i == 66) {
+            int i6 = rect.left;
+            int i7 = rect2.left;
+            return (i6 < i7 || rect.right <= i7) && rect.right < rect2.right;
+        } else if (i == 130) {
+            int i8 = rect.top;
+            int i9 = rect2.top;
+            return (i8 < i9 || rect.bottom <= i9) && rect.bottom < rect2.bottom;
+        } else {
+            throw new IllegalArgumentException("direction must be one of {FOCUS_UP, FOCUS_DOWN, FOCUS_LEFT, FOCUS_RIGHT}.");
         }
     }
 
-    private static boolean beamsOverlap(int i, @NonNull Rect rect, @NonNull Rect rect2) {
-        switch (i) {
-            case 17:
-            case 66:
-                return rect2.bottom >= rect.top && rect2.top <= rect.bottom;
-            case 33:
-            case IMPushPb.PushImClient.SDK_NAME_FIELD_NUMBER /* 130 */:
-                return rect2.right >= rect.left && rect2.left <= rect.right;
-            default:
-                throw new IllegalArgumentException("direction must be one of {FOCUS_UP, FOCUS_DOWN, FOCUS_LEFT, FOCUS_RIGHT}.");
+    public static boolean isToDirectionOf(int i, @NonNull Rect rect, @NonNull Rect rect2) {
+        if (i == 17) {
+            return rect.left >= rect2.right;
+        } else if (i == 33) {
+            return rect.top >= rect2.bottom;
+        } else if (i == 66) {
+            return rect.right <= rect2.left;
+        } else if (i == 130) {
+            return rect.bottom <= rect2.top;
+        } else {
+            throw new IllegalArgumentException("direction must be one of {FOCUS_UP, FOCUS_DOWN, FOCUS_LEFT, FOCUS_RIGHT}.");
         }
     }
 
-    private static boolean isToDirectionOf(int i, @NonNull Rect rect, @NonNull Rect rect2) {
-        switch (i) {
-            case 17:
-                return rect.left >= rect2.right;
-            case 33:
-                return rect.top >= rect2.bottom;
-            case 66:
-                return rect.right <= rect2.left;
-            case IMPushPb.PushImClient.SDK_NAME_FIELD_NUMBER /* 130 */:
-                return rect.bottom <= rect2.top;
-            default:
-                throw new IllegalArgumentException("direction must be one of {FOCUS_UP, FOCUS_DOWN, FOCUS_LEFT, FOCUS_RIGHT}.");
-        }
-    }
-
-    private static int majorAxisDistance(int i, @NonNull Rect rect, @NonNull Rect rect2) {
+    public static int majorAxisDistance(int i, @NonNull Rect rect, @NonNull Rect rect2) {
         return Math.max(0, majorAxisDistanceRaw(i, rect, rect2));
     }
 
-    private static int majorAxisDistanceRaw(int i, @NonNull Rect rect, @NonNull Rect rect2) {
-        switch (i) {
-            case 17:
-                return rect.left - rect2.right;
-            case 33:
-                return rect.top - rect2.bottom;
-            case 66:
-                return rect2.left - rect.right;
-            case IMPushPb.PushImClient.SDK_NAME_FIELD_NUMBER /* 130 */:
-                return rect2.top - rect.bottom;
-            default:
-                throw new IllegalArgumentException("direction must be one of {FOCUS_UP, FOCUS_DOWN, FOCUS_LEFT, FOCUS_RIGHT}.");
+    public static int majorAxisDistanceRaw(int i, @NonNull Rect rect, @NonNull Rect rect2) {
+        int i2;
+        int i3;
+        if (i == 17) {
+            i2 = rect.left;
+            i3 = rect2.right;
+        } else if (i == 33) {
+            i2 = rect.top;
+            i3 = rect2.bottom;
+        } else if (i == 66) {
+            i2 = rect2.left;
+            i3 = rect.right;
+        } else if (i == 130) {
+            i2 = rect2.top;
+            i3 = rect.bottom;
+        } else {
+            throw new IllegalArgumentException("direction must be one of {FOCUS_UP, FOCUS_DOWN, FOCUS_LEFT, FOCUS_RIGHT}.");
         }
+        return i2 - i3;
     }
 
-    private static int majorAxisDistanceToFarEdge(int i, @NonNull Rect rect, @NonNull Rect rect2) {
+    public static int majorAxisDistanceToFarEdge(int i, @NonNull Rect rect, @NonNull Rect rect2) {
         return Math.max(1, majorAxisDistanceToFarEdgeRaw(i, rect, rect2));
     }
 
-    private static int majorAxisDistanceToFarEdgeRaw(int i, @NonNull Rect rect, @NonNull Rect rect2) {
-        switch (i) {
-            case 17:
-                return rect.left - rect2.left;
-            case 33:
-                return rect.top - rect2.top;
-            case 66:
-                return rect2.right - rect.right;
-            case IMPushPb.PushImClient.SDK_NAME_FIELD_NUMBER /* 130 */:
-                return rect2.bottom - rect.bottom;
-            default:
-                throw new IllegalArgumentException("direction must be one of {FOCUS_UP, FOCUS_DOWN, FOCUS_LEFT, FOCUS_RIGHT}.");
+    public static int majorAxisDistanceToFarEdgeRaw(int i, @NonNull Rect rect, @NonNull Rect rect2) {
+        int i2;
+        int i3;
+        if (i == 17) {
+            i2 = rect.left;
+            i3 = rect2.left;
+        } else if (i == 33) {
+            i2 = rect.top;
+            i3 = rect2.top;
+        } else if (i == 66) {
+            i2 = rect2.right;
+            i3 = rect.right;
+        } else if (i == 130) {
+            i2 = rect2.bottom;
+            i3 = rect.bottom;
+        } else {
+            throw new IllegalArgumentException("direction must be one of {FOCUS_UP, FOCUS_DOWN, FOCUS_LEFT, FOCUS_RIGHT}.");
         }
+        return i2 - i3;
     }
 
-    private static int minorAxisDistance(int i, @NonNull Rect rect, @NonNull Rect rect2) {
-        switch (i) {
-            case 17:
-            case 66:
-                return Math.abs((rect.top + (rect.height() / 2)) - (rect2.top + (rect2.height() / 2)));
-            case 33:
-            case IMPushPb.PushImClient.SDK_NAME_FIELD_NUMBER /* 130 */:
-                return Math.abs((rect.left + (rect.width() / 2)) - (rect2.left + (rect2.width() / 2)));
-            default:
-                throw new IllegalArgumentException("direction must be one of {FOCUS_UP, FOCUS_DOWN, FOCUS_LEFT, FOCUS_RIGHT}.");
+    public static int minorAxisDistance(int i, @NonNull Rect rect, @NonNull Rect rect2) {
+        if (i != 17) {
+            if (i != 33) {
+                if (i != 66) {
+                    if (i != 130) {
+                        throw new IllegalArgumentException("direction must be one of {FOCUS_UP, FOCUS_DOWN, FOCUS_LEFT, FOCUS_RIGHT}.");
+                    }
+                }
+            }
+            return Math.abs((rect.left + (rect.width() / 2)) - (rect2.left + (rect2.width() / 2)));
         }
-    }
-
-    private FocusStrategy() {
+        return Math.abs((rect.top + (rect.height() / 2)) - (rect2.top + (rect2.height() / 2)));
     }
 }

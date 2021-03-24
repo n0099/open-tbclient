@@ -2,17 +2,17 @@ package com.baidu.searchbox.anr.impl;
 
 import com.baidu.searchbox.track.ui.TrackUI;
 import java.util.LinkedList;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public class ANRInfo {
-    private String mAllStackTracePath;
-    private String mCurrentPage;
-    private String mLogId;
-    private String mLogcatPath;
-    private String mStackTrace;
-    private String mTimeStamp;
-    private String mTracesPath;
-    private LinkedList<TrackUI> mTrackUIs;
-    private String mType = "anr";
+    public String mAllStackTracePath;
+    public String mCurrentPage;
+    public String mLogId;
+    public String mLogcatPath;
+    public String mStackTrace;
+    public String mTimeStamp;
+    public String mTracesPath;
+    public LinkedList<TrackUI> mTrackUIs;
+    public String mType = "anr";
 
     public ANRInfo(String str, String str2, String str3, String str4, String str5) {
         this.mTimeStamp = str;
@@ -22,75 +22,75 @@ public class ANRInfo {
         this.mAllStackTracePath = str5;
     }
 
-    public String getType() {
-        return this.mType;
-    }
-
-    public void setType(String str) {
-        this.mType = str;
-    }
-
-    public LinkedList<TrackUI> getTrackUIs() {
-        return this.mTrackUIs;
-    }
-
-    public void setTrackUIs(LinkedList<TrackUI> linkedList) {
-        this.mTrackUIs = linkedList;
+    public String getAllStackTracePath() {
+        return this.mAllStackTracePath;
     }
 
     public String getCurrentPage() {
         return this.mCurrentPage;
     }
 
-    public void setCurrentPage(String str) {
-        this.mCurrentPage = str;
-    }
-
-    public String getTimeStamp() {
-        return this.mTimeStamp;
-    }
-
-    public void setTimeStamp(String str) {
-        this.mTimeStamp = str;
-    }
-
-    public String getStackTrace() {
-        return this.mStackTrace;
-    }
-
-    public void setStackTrace(String str) {
-        this.mStackTrace = str;
+    public String getLogId() {
+        return this.mLogId;
     }
 
     public String getLogcatPath() {
         return this.mLogcatPath;
     }
 
-    public void setLogcatPath(String str) {
-        this.mLogcatPath = str;
+    public String getStackTrace() {
+        return this.mStackTrace;
+    }
+
+    public String getTimeStamp() {
+        return this.mTimeStamp;
     }
 
     public String getTracesPath() {
         return this.mTracesPath;
     }
 
-    public void setTracesPath(String str) {
-        this.mTracesPath = str;
+    public LinkedList<TrackUI> getTrackUIs() {
+        return this.mTrackUIs;
     }
 
-    public String getAllStackTracePath() {
-        return this.mAllStackTracePath;
+    public String getType() {
+        return this.mType;
     }
 
     public void setAllStackTracePath(String str) {
         this.mAllStackTracePath = str;
     }
 
-    public String getLogId() {
-        return this.mLogId;
+    public void setCurrentPage(String str) {
+        this.mCurrentPage = str;
     }
 
     public void setLogId(String str) {
         this.mLogId = str;
+    }
+
+    public void setLogcatPath(String str) {
+        this.mLogcatPath = str;
+    }
+
+    public void setStackTrace(String str) {
+        this.mStackTrace = str;
+    }
+
+    public void setTimeStamp(String str) {
+        this.mTimeStamp = str;
+    }
+
+    public void setTracesPath(String str) {
+        this.mTracesPath = str;
+    }
+
+    public void setTrackUIs(LinkedList<TrackUI> linkedList) {
+        this.mTrackUIs = linkedList;
+    }
+
+    public void setType(String str) {
+        this.mType = str;
     }
 }

@@ -7,15 +7,15 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import androidx.core.view.MotionEventCompat;
 import java.lang.ref.WeakReference;
-/* loaded from: classes14.dex */
+/* loaded from: classes3.dex */
 public class CustomSlidingPanelLayout extends SlidingPaneLayout {
-    private boolean mCanSlide;
-    private boolean mForceActivityTransparent;
-    private OnTranslucentListener mListener;
-    private boolean mNightMode;
-    private SlideInterceptor mSlideInterceptor;
-    private double mSlideRegionFactor;
-    private WeakReference<Activity> mTopActivity;
+    public boolean mCanSlide;
+    public boolean mForceActivityTransparent;
+    public OnTranslucentListener mListener;
+    public boolean mNightMode;
+    public SlideInterceptor mSlideInterceptor;
+    public double mSlideRegionFactor;
+    public WeakReference<Activity> mTopActivity;
 
     public CustomSlidingPanelLayout(Context context) {
         super(context);
@@ -23,6 +23,109 @@ public class CustomSlidingPanelLayout extends SlidingPaneLayout {
         this.mForceActivityTransparent = false;
         this.mSlideRegionFactor = 1.0d;
         init();
+    }
+
+    @Override // com.baidu.searchbox.widget.SlidingPaneLayout
+    public void attachActivity(Activity activity) {
+        if (Build.VERSION.SDK_INT < 21 || activity == null || activity.getWindow() == null || activity.getWindow().getDecorView() == null) {
+            return;
+        }
+        this.mTopActivity = new WeakReference<>(activity);
+        activity.getWindow().getDecorView().setBackgroundColor(0);
+        if (this.mForceActivityTransparent) {
+            return;
+        }
+        convertActivityFromTranslucent();
+    }
+
+    @Override // com.baidu.searchbox.widget.SlidingPaneLayout
+    public void convertActivityFromTranslucent() {
+        WeakReference<Activity> weakReference = this.mTopActivity;
+        if (weakReference != null && weakReference.get() != null) {
+            SlideUtil.convertFromTranslucent(this.mTopActivity.get(), new OnTranslucentListener() { // from class: com.baidu.searchbox.widget.CustomSlidingPanelLayout.2
+                @Override // com.baidu.searchbox.widget.OnTranslucentListener
+                public void onTranslucent(boolean z) {
+                    CustomSlidingPanelLayout.this.setActivityIsTranslucent(z);
+                    if (CustomSlidingPanelLayout.this.mListener != null) {
+                        CustomSlidingPanelLayout.this.mListener.onTranslucent(z);
+                    }
+                }
+            });
+            return;
+        }
+        OnTranslucentListener onTranslucentListener = this.mListener;
+        if (onTranslucentListener != null) {
+            onTranslucentListener.onTranslucent(true);
+        }
+    }
+
+    @Override // com.baidu.searchbox.widget.SlidingPaneLayout
+    public void convertActivityToTranslucent() {
+        WeakReference<Activity> weakReference = this.mTopActivity;
+        if (weakReference != null && weakReference.get() != null) {
+            SlideUtil.convertToTranslucent(this.mTopActivity.get(), new OnTranslucentListener() { // from class: com.baidu.searchbox.widget.CustomSlidingPanelLayout.1
+                @Override // com.baidu.searchbox.widget.OnTranslucentListener
+                public void onTranslucent(boolean z) {
+                    CustomSlidingPanelLayout.this.setActivityIsTranslucent(z);
+                    if (CustomSlidingPanelLayout.this.mListener != null) {
+                        CustomSlidingPanelLayout.this.mListener.onTranslucent(z);
+                    }
+                }
+            });
+            return;
+        }
+        OnTranslucentListener onTranslucentListener = this.mListener;
+        if (onTranslucentListener != null) {
+            onTranslucentListener.onTranslucent(false);
+        }
+    }
+
+    @Override // com.baidu.searchbox.widget.SlidingPaneLayout
+    public void forceActivityTransparent(boolean z) {
+        this.mForceActivityTransparent = z;
+    }
+
+    public void init() {
+        setCanSlideRegionFactor(this.mSlideRegionFactor);
+        setActivityIsTranslucent(true);
+    }
+
+    @Override // com.baidu.searchbox.widget.SlidingPaneLayout, android.view.ViewGroup
+    public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
+        if (motionEvent.getPointerCount() > 1) {
+            return false;
+        }
+        if (MotionEventCompat.getActionMasked(motionEvent) == 2) {
+            if (!this.mCanSlide) {
+                return false;
+            }
+            try {
+                if (this.mSlideInterceptor != null) {
+                    if (!this.mSlideInterceptor.isSlidable(motionEvent)) {
+                        return false;
+                    }
+                }
+            } catch (AbstractMethodError e2) {
+                e2.printStackTrace();
+            }
+        }
+        return super.onInterceptTouchEvent(motionEvent);
+    }
+
+    public void setCanSlidable(boolean z) {
+        this.mCanSlide = z;
+    }
+
+    public void setNightMode(boolean z) {
+        this.mNightMode = z;
+    }
+
+    public void setOnTransparentListener(OnTranslucentListener onTranslucentListener) {
+        this.mListener = onTranslucentListener;
+    }
+
+    public void setSlideInterceptor(SlideInterceptor slideInterceptor) {
+        this.mSlideInterceptor = slideInterceptor;
     }
 
     public CustomSlidingPanelLayout(Context context, AttributeSet attributeSet) {
@@ -39,107 +142,5 @@ public class CustomSlidingPanelLayout extends SlidingPaneLayout {
         this.mForceActivityTransparent = false;
         this.mSlideRegionFactor = 1.0d;
         init();
-    }
-
-    public void setCanSlidable(boolean z) {
-        this.mCanSlide = z;
-    }
-
-    @Override // com.baidu.searchbox.widget.SlidingPaneLayout, android.view.ViewGroup
-    public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        if (motionEvent.getPointerCount() > 1) {
-            return false;
-        }
-        switch (MotionEventCompat.getActionMasked(motionEvent)) {
-            case 2:
-                if (!this.mCanSlide) {
-                    return false;
-                }
-                try {
-                    if (this.mSlideInterceptor != null) {
-                        if (!this.mSlideInterceptor.isSlidable(motionEvent)) {
-                            return false;
-                        }
-                    }
-                } catch (AbstractMethodError e) {
-                    e.printStackTrace();
-                    break;
-                }
-                break;
-        }
-        return super.onInterceptTouchEvent(motionEvent);
-    }
-
-    @Override // com.baidu.searchbox.widget.SlidingPaneLayout
-    public void attachActivity(Activity activity) {
-        if (Build.VERSION.SDK_INT >= 21 && activity != null && activity.getWindow() != null && activity.getWindow().getDecorView() != null) {
-            this.mTopActivity = new WeakReference<>(activity);
-            activity.getWindow().getDecorView().setBackgroundColor(0);
-            if (!this.mForceActivityTransparent) {
-                convertActivityFromTranslucent();
-            }
-        }
-    }
-
-    @Override // com.baidu.searchbox.widget.SlidingPaneLayout
-    public void forceActivityTransparent(boolean z) {
-        this.mForceActivityTransparent = z;
-    }
-
-    public void setNightMode(boolean z) {
-        this.mNightMode = z;
-    }
-
-    protected void init() {
-        setCanSlideRegionFactor(this.mSlideRegionFactor);
-        setActivityIsTranslucent(true);
-    }
-
-    public void setSlideInterceptor(SlideInterceptor slideInterceptor) {
-        this.mSlideInterceptor = slideInterceptor;
-    }
-
-    @Override // com.baidu.searchbox.widget.SlidingPaneLayout
-    public void convertActivityToTranslucent() {
-        if (this.mTopActivity == null || this.mTopActivity.get() == null) {
-            if (this.mListener != null) {
-                this.mListener.onTranslucent(false);
-                return;
-            }
-            return;
-        }
-        SlideUtil.convertToTranslucent(this.mTopActivity.get(), new OnTranslucentListener() { // from class: com.baidu.searchbox.widget.CustomSlidingPanelLayout.1
-            @Override // com.baidu.searchbox.widget.OnTranslucentListener
-            public void onTranslucent(boolean z) {
-                CustomSlidingPanelLayout.this.setActivityIsTranslucent(z);
-                if (CustomSlidingPanelLayout.this.mListener != null) {
-                    CustomSlidingPanelLayout.this.mListener.onTranslucent(z);
-                }
-            }
-        });
-    }
-
-    @Override // com.baidu.searchbox.widget.SlidingPaneLayout
-    public void convertActivityFromTranslucent() {
-        if (this.mTopActivity == null || this.mTopActivity.get() == null) {
-            if (this.mListener != null) {
-                this.mListener.onTranslucent(true);
-                return;
-            }
-            return;
-        }
-        SlideUtil.convertFromTranslucent(this.mTopActivity.get(), new OnTranslucentListener() { // from class: com.baidu.searchbox.widget.CustomSlidingPanelLayout.2
-            @Override // com.baidu.searchbox.widget.OnTranslucentListener
-            public void onTranslucent(boolean z) {
-                CustomSlidingPanelLayout.this.setActivityIsTranslucent(z);
-                if (CustomSlidingPanelLayout.this.mListener != null) {
-                    CustomSlidingPanelLayout.this.mListener.onTranslucent(z);
-                }
-            }
-        });
-    }
-
-    public void setOnTransparentListener(OnTranslucentListener onTranslucentListener) {
-        this.mListener = onTranslucentListener;
     }
 }

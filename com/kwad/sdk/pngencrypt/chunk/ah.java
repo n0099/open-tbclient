@@ -2,27 +2,25 @@ package com.kwad.sdk.pngencrypt.chunk;
 
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class ah {
 
     /* renamed from: a  reason: collision with root package name */
-    private final e f6919a;
-    private final boolean b;
+    public final e f36131a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public final boolean f36132b;
 
     public ah(e eVar) {
-        this.f6919a = eVar;
-        if (eVar instanceof f) {
-            this.b = false;
-        } else {
-            this.b = true;
-        }
+        this.f36131a = eVar;
+        this.f36132b = !(eVar instanceof f);
     }
 
     public List<? extends ae> a(String str) {
         ArrayList arrayList = new ArrayList();
-        arrayList.addAll(this.f6919a.a("tEXt", str));
-        arrayList.addAll(this.f6919a.a("zTXt", str));
-        arrayList.addAll(this.f6919a.a("iTXt", str));
+        arrayList.addAll(this.f36131a.a("tEXt", str));
+        arrayList.addAll(this.f36131a.a("zTXt", str));
+        arrayList.addAll(this.f36131a.a("iTXt", str));
         return arrayList;
     }
 
@@ -33,7 +31,8 @@ public class ah {
         }
         StringBuilder sb = new StringBuilder();
         for (ae aeVar : a2) {
-            sb.append(aeVar.d()).append("\n");
+            sb.append(aeVar.d());
+            sb.append("\n");
         }
         return sb.toString().trim();
     }

@@ -2,32 +2,36 @@ package com.baidu.tbadk.BdToken.activeConfig;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.squareup.wire.Wire;
+import d.b.h0.a.z.b;
 import tbclient.ActiveConfig.ActiveConfigResIdl;
-/* loaded from: classes.dex */
+import tbclient.Error;
+/* loaded from: classes3.dex */
 public class ActiveConfigSocketResMsg extends SocketResponsedMessage {
-    private a mData;
+    public b mData;
 
     public ActiveConfigSocketResMsg() {
         super(309637);
     }
 
+    public b getData() {
+        return this.mData;
+    }
+
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.message.a
+    @Override // com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
     public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         ActiveConfigResIdl activeConfigResIdl = (ActiveConfigResIdl) new Wire(new Class[0]).parseFrom(bArr, ActiveConfigResIdl.class);
         if (activeConfigResIdl != null) {
-            if (activeConfigResIdl.error != null) {
-                setError(activeConfigResIdl.error.errorno.intValue());
+            Error error = activeConfigResIdl.error;
+            if (error != null) {
+                setError(error.errorno.intValue());
                 setErrorString(activeConfigResIdl.error.usermsg);
             }
             if (activeConfigResIdl.data != null) {
-                this.mData = new a();
-                this.mData.a(activeConfigResIdl.data);
+                b bVar = new b();
+                this.mData = bVar;
+                bVar.c(activeConfigResIdl.data);
             }
         }
-    }
-
-    public a getData() {
-        return this.mData;
     }
 }

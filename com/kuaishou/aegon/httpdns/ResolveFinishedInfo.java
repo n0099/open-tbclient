@@ -3,7 +3,7 @@ package com.kuaishou.aegon.httpdns;
 import androidx.annotation.Keep;
 import java.util.List;
 @Keep
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class ResolveFinishedInfo {
     public String clientIp;
     public String errorMessage;
@@ -44,19 +44,6 @@ public class ResolveFinishedInfo {
     }
 
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("{\n");
-        sb.append("host : ").append(this.host).append("\n");
-        sb.append("success : ").append(this.success).append("\n");
-        sb.append("total cost : ").append(this.totalCostMs).append("\n");
-        sb.append("network cost : ").append(this.networkCostMs).append("\n");
-        sb.append("local cost : ").append(this.localCostMs).append("\n");
-        sb.append("ping cost : ").append(this.pingCostMs).append("\n");
-        sb.append("network nodes : ").append(this.networkResults).append("\n");
-        sb.append("local nodes : ").append(this.localResults).append("\n");
-        sb.append("ping details : ").append(this.pingDetails).append("\n");
-        sb.append("ping nodes : ").append(this.pingResults).append("\n}");
-        sb.append("client ip : ").append(this.clientIp).append("\n}");
-        return sb.toString();
+        return "{\nhost : " + this.host + "\nsuccess : " + this.success + "\ntotal cost : " + this.totalCostMs + "\nnetwork cost : " + this.networkCostMs + "\nlocal cost : " + this.localCostMs + "\nping cost : " + this.pingCostMs + "\nnetwork nodes : " + this.networkResults + "\nlocal nodes : " + this.localResults + "\nping details : " + this.pingDetails + "\nping nodes : " + this.pingResults + "\n}client ip : " + this.clientIp + "\n}";
     }
 }

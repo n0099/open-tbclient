@@ -1,20 +1,22 @@
 package com.baidu.platform.core.e;
 
 import com.baidu.platform.base.SearchType;
-/* loaded from: classes4.dex */
-/* synthetic */ class g {
+/* loaded from: classes2.dex */
+public /* synthetic */ class g {
 
     /* renamed from: a  reason: collision with root package name */
-    static final /* synthetic */ int[] f3101a = new int[SearchType.values().length];
+    public static final /* synthetic */ int[] f10422a;
 
     static {
+        int[] iArr = new int[SearchType.values().length];
+        f10422a = iArr;
         try {
-            f3101a[SearchType.POI_DETAIL_SHARE.ordinal()] = 1;
-        } catch (NoSuchFieldError e) {
+            iArr[SearchType.POI_DETAIL_SHARE.ordinal()] = 1;
+        } catch (NoSuchFieldError unused) {
         }
         try {
-            f3101a[SearchType.LOCATION_SEARCH_SHARE.ordinal()] = 2;
-        } catch (NoSuchFieldError e2) {
+            f10422a[SearchType.LOCATION_SEARCH_SHARE.ordinal()] = 2;
+        } catch (NoSuchFieldError unused2) {
         }
     }
 }

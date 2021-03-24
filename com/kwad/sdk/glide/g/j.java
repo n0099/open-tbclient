@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import java.util.Collection;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public final class j {
     @NonNull
     public static <T> T a(@Nullable T t) {
@@ -13,10 +13,10 @@ public final class j {
 
     @NonNull
     public static <T> T a(@Nullable T t, @NonNull String str) {
-        if (t == null) {
-            throw new NullPointerException(str);
+        if (t != null) {
+            return t;
         }
-        return t;
+        throw new NullPointerException(str);
     }
 
     @NonNull

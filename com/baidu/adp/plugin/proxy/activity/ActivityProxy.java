@@ -39,78 +39,30 @@ import android.view.accessibility.AccessibilityEvent;
 import androidx.annotation.Nullable;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.adp.base.f;
-import com.baidu.adp.base.g;
-import com.baidu.adp.base.h;
-import com.baidu.adp.base.i;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.plugin.Plugin;
 import com.baidu.adp.plugin.PluginCenter;
-import com.baidu.adp.plugin.a.a;
 import com.baidu.adp.plugin.pluginBase.PluginBaseActivity;
 import com.baidu.adp.plugin.proxy.ContentResolverProxy;
-import com.baidu.adp.plugin.util.d;
-import com.baidu.adp.widget.ListView.q;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
+import d.b.b.a.f;
+import d.b.b.a.g;
+import d.b.b.a.h;
+import d.b.b.a.i;
+import d.b.b.h.f.a;
+import d.b.b.h.k.d;
+import d.b.b.j.e.q;
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
 /* loaded from: classes.dex */
-public class ActivityProxy extends Activity implements Handler.Callback, g, i, a {
-    private PluginBaseActivity mEntity = null;
-
-    @Override // android.app.Activity
-    public void onCreate(@Nullable Bundle bundle, @Nullable PersistableBundle persistableBundle) {
-        com.baidu.adp.base.a.j(this);
-        super.onCreate(bundle, persistableBundle);
-    }
-
-    @Override // android.app.Activity, android.view.LayoutInflater.Factory2
-    public View onCreateView(View view, String str, Context context, AttributeSet attributeSet) {
-        return this.mEntity != null ? this.mEntity.onCreateView(view, str, context, attributeSet) : super.onCreateView(view, str, context, attributeSet);
-    }
-
-    public void loadEntityActivity() {
-        if (this.mEntity == null && !super.isFinishing()) {
-            Intent intent = getIntent();
-            if (intent == null) {
-                finish();
-                return;
-            }
-            String stringExtra = intent.getStringExtra(Plugin.INTENT_EXTRA_PACKAGE_NAME);
-            if (!PluginCenter.getInstance().isLoaded(stringExtra)) {
-                finish();
-                BdLog.e("plugin not loaded. pluginname is " + stringExtra);
-                return;
-            }
-            try {
-                String stringExtra2 = intent.getStringExtra(Plugin.INTENT_EXTRA_ACTIVITY);
-                if (BdBaseApplication.getInst().getIsPluginResourcOpen()) {
-                    Plugin plugin2 = PluginCenter.getInstance().getPlugin(stringExtra);
-                    this.mEntity = (PluginBaseActivity) plugin2.getDexClassLoader().loadClass(stringExtra2).asSubclass(PluginBaseActivity.class).newInstance();
-                    this.mEntity.setActivityProxy(this);
-                    this.mEntity.setPluginPackageName(stringExtra);
-                    setTheme(plugin2.getActivityThemeResource());
-                } else {
-                    this.mEntity = (PluginBaseActivity) PluginCenter.getInstance().getPlugin(stringExtra).getDexClassLoader().loadClass(stringExtra2).asSubclass(PluginBaseActivity.class).newInstance();
-                    this.mEntity.setActivityProxy(this);
-                    this.mEntity.setPluginPackageName(stringExtra);
-                }
-            } catch (ClassNotFoundException e) {
-                BdLog.e(e);
-            } catch (IllegalAccessException e2) {
-                BdLog.e(e2);
-            } catch (InstantiationException e3) {
-                BdLog.e(e3);
-            } catch (Exception e4) {
-                BdLog.e(e4);
-            }
-        }
-    }
+public class ActivityProxy extends Activity implements a, i, Handler.Callback, g {
+    public PluginBaseActivity mEntity = null;
 
     @Override // android.app.Activity
     public void addContentView(View view, ViewGroup.LayoutParams layoutParams) {
-        if (this.mEntity != null) {
-            this.mEntity.addContentView(view, layoutParams);
+        PluginBaseActivity pluginBaseActivity = this.mEntity;
+        if (pluginBaseActivity != null) {
+            pluginBaseActivity.addContentView(view, layoutParams);
         } else {
             super.addContentView(view, layoutParams);
         }
@@ -118,13 +70,18 @@ public class ActivityProxy extends Activity implements Handler.Callback, g, i, a
 
     @Override // android.content.ContextWrapper, android.content.Context
     public boolean bindService(Intent intent, ServiceConnection serviceConnection, int i) {
-        return this.mEntity != null ? this.mEntity.bindService(intent, serviceConnection, i) : super.bindService(intent, serviceConnection, i);
+        PluginBaseActivity pluginBaseActivity = this.mEntity;
+        if (pluginBaseActivity != null) {
+            return pluginBaseActivity.bindService(intent, serviceConnection, i);
+        }
+        return super.bindService(intent, serviceConnection, i);
     }
 
     @Override // android.app.Activity
     public void closeContextMenu() {
-        if (this.mEntity != null) {
-            this.mEntity.closeContextMenu();
+        PluginBaseActivity pluginBaseActivity = this.mEntity;
+        if (pluginBaseActivity != null) {
+            pluginBaseActivity.closeContextMenu();
         } else {
             super.closeContextMenu();
         }
@@ -132,8 +89,9 @@ public class ActivityProxy extends Activity implements Handler.Callback, g, i, a
 
     @Override // android.app.Activity
     public void closeOptionsMenu() {
-        if (this.mEntity != null) {
-            this.mEntity.closeOptionsMenu();
+        PluginBaseActivity pluginBaseActivity = this.mEntity;
+        if (pluginBaseActivity != null) {
+            pluginBaseActivity.closeOptionsMenu();
         } else {
             super.closeOptionsMenu();
         }
@@ -141,37 +99,65 @@ public class ActivityProxy extends Activity implements Handler.Callback, g, i, a
 
     @Override // android.app.Activity
     public PendingIntent createPendingResult(int i, Intent intent, int i2) {
-        return this.mEntity != null ? this.mEntity.createPendingResult(i, intent, i2) : super.createPendingResult(i, intent, i2);
+        PluginBaseActivity pluginBaseActivity = this.mEntity;
+        if (pluginBaseActivity != null) {
+            return pluginBaseActivity.createPendingResult(i, intent, i2);
+        }
+        return super.createPendingResult(i, intent, i2);
     }
 
     @Override // android.app.Activity, android.view.Window.Callback
     public boolean dispatchGenericMotionEvent(MotionEvent motionEvent) {
-        return this.mEntity != null ? this.mEntity.dispatchGenericMotionEvent(motionEvent) : super.dispatchGenericMotionEvent(motionEvent);
+        PluginBaseActivity pluginBaseActivity = this.mEntity;
+        if (pluginBaseActivity != null) {
+            return pluginBaseActivity.dispatchGenericMotionEvent(motionEvent);
+        }
+        return super.dispatchGenericMotionEvent(motionEvent);
     }
 
     @Override // android.app.Activity, android.view.Window.Callback
     public boolean dispatchKeyEvent(KeyEvent keyEvent) {
-        return this.mEntity != null ? this.mEntity.dispatchKeyEvent(keyEvent) : super.dispatchKeyEvent(keyEvent);
+        PluginBaseActivity pluginBaseActivity = this.mEntity;
+        if (pluginBaseActivity != null) {
+            return pluginBaseActivity.dispatchKeyEvent(keyEvent);
+        }
+        return super.dispatchKeyEvent(keyEvent);
     }
 
     @Override // android.app.Activity, android.view.Window.Callback
     public boolean dispatchKeyShortcutEvent(KeyEvent keyEvent) {
-        return this.mEntity != null ? this.mEntity.dispatchKeyShortcutEvent(keyEvent) : super.dispatchKeyShortcutEvent(keyEvent);
+        PluginBaseActivity pluginBaseActivity = this.mEntity;
+        if (pluginBaseActivity != null) {
+            return pluginBaseActivity.dispatchKeyShortcutEvent(keyEvent);
+        }
+        return super.dispatchKeyShortcutEvent(keyEvent);
     }
 
     @Override // android.app.Activity, android.view.Window.Callback
     public boolean dispatchPopulateAccessibilityEvent(AccessibilityEvent accessibilityEvent) {
-        return this.mEntity != null ? this.mEntity.dispatchPopulateAccessibilityEvent(accessibilityEvent) : super.dispatchPopulateAccessibilityEvent(accessibilityEvent);
+        PluginBaseActivity pluginBaseActivity = this.mEntity;
+        if (pluginBaseActivity != null) {
+            return pluginBaseActivity.dispatchPopulateAccessibilityEvent(accessibilityEvent);
+        }
+        return super.dispatchPopulateAccessibilityEvent(accessibilityEvent);
     }
 
     @Override // android.app.Activity, android.view.Window.Callback
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
-        return this.mEntity != null ? this.mEntity.dispatchTouchEvent(motionEvent) : super.dispatchTouchEvent(motionEvent);
+        PluginBaseActivity pluginBaseActivity = this.mEntity;
+        if (pluginBaseActivity != null) {
+            return pluginBaseActivity.dispatchTouchEvent(motionEvent);
+        }
+        return super.dispatchTouchEvent(motionEvent);
     }
 
     @Override // android.app.Activity, android.view.Window.Callback
     public boolean dispatchTrackballEvent(MotionEvent motionEvent) {
-        return this.mEntity != null ? this.mEntity.dispatchTrackballEvent(motionEvent) : super.dispatchTrackballEvent(motionEvent);
+        PluginBaseActivity pluginBaseActivity = this.mEntity;
+        if (pluginBaseActivity != null) {
+            return pluginBaseActivity.dispatchTrackballEvent(motionEvent);
+        }
+        return super.dispatchTrackballEvent(motionEvent);
     }
 
     @Override // android.app.Activity
@@ -180,13 +166,18 @@ public class ActivityProxy extends Activity implements Handler.Callback, g, i, a
 
     @Override // android.app.Activity
     public View findViewById(int i) {
-        return this.mEntity != null ? this.mEntity.findViewById(i) : super.findViewById(i);
+        PluginBaseActivity pluginBaseActivity = this.mEntity;
+        if (pluginBaseActivity != null) {
+            return pluginBaseActivity.findViewById(i);
+        }
+        return super.findViewById(i);
     }
 
     @Override // android.app.Activity
     public void finish() {
-        if (this.mEntity != null) {
-            this.mEntity.finish();
+        PluginBaseActivity pluginBaseActivity = this.mEntity;
+        if (pluginBaseActivity != null) {
+            pluginBaseActivity.finish();
         } else {
             super.finish();
         }
@@ -194,8 +185,9 @@ public class ActivityProxy extends Activity implements Handler.Callback, g, i, a
 
     @Override // android.app.Activity
     public void finishActivity(int i) {
-        if (this.mEntity != null) {
-            this.mEntity.finishActivity(i);
+        PluginBaseActivity pluginBaseActivity = this.mEntity;
+        if (pluginBaseActivity != null) {
+            pluginBaseActivity.finishActivity(i);
         } else {
             super.finishActivity(i);
         }
@@ -203,8 +195,9 @@ public class ActivityProxy extends Activity implements Handler.Callback, g, i, a
 
     @Override // android.app.Activity
     public void finishActivityFromChild(Activity activity, int i) {
-        if (this.mEntity != null) {
-            this.mEntity.finishActivityFromChild(activity, i);
+        PluginBaseActivity pluginBaseActivity = this.mEntity;
+        if (pluginBaseActivity != null) {
+            pluginBaseActivity.finishActivityFromChild(activity, i);
         } else {
             super.finishActivityFromChild(activity, i);
         }
@@ -212,31 +205,53 @@ public class ActivityProxy extends Activity implements Handler.Callback, g, i, a
 
     @Override // android.app.Activity
     public void finishFromChild(Activity activity) {
-        if (this.mEntity != null) {
-            this.mEntity.finishFromChild(activity);
+        PluginBaseActivity pluginBaseActivity = this.mEntity;
+        if (pluginBaseActivity != null) {
+            pluginBaseActivity.finishFromChild(activity);
         } else {
             super.finishFromChild(activity);
         }
     }
 
-    @Override // com.baidu.adp.plugin.a.a
+    @Override // d.b.b.h.f.a
     public Activity getActivity() {
         return this;
     }
 
+    @Override // android.content.ContextWrapper, android.content.Context
+    public Context getApplicationContext() {
+        PluginBaseActivity pluginBaseActivity = this.mEntity;
+        if (pluginBaseActivity != null) {
+            return pluginBaseActivity.getApplicationContext();
+        }
+        return super.getApplicationContext();
+    }
+
     @Override // android.view.ContextThemeWrapper, android.content.ContextWrapper, android.content.Context
     public AssetManager getAssets() {
-        return this.mEntity != null ? this.mEntity.getAssets() : super.getAssets();
+        PluginBaseActivity pluginBaseActivity = this.mEntity;
+        if (pluginBaseActivity != null) {
+            return pluginBaseActivity.getAssets();
+        }
+        return super.getAssets();
     }
 
     @Override // android.app.Activity
     public ComponentName getCallingActivity() {
-        return this.mEntity != null ? this.mEntity.getCallingActivity() : super.getCallingActivity();
+        PluginBaseActivity pluginBaseActivity = this.mEntity;
+        if (pluginBaseActivity != null) {
+            return pluginBaseActivity.getCallingActivity();
+        }
+        return super.getCallingActivity();
     }
 
     @Override // android.app.Activity
     public String getCallingPackage() {
-        return this.mEntity != null ? this.mEntity.getCallingPackage() : super.getCallingPackage();
+        PluginBaseActivity pluginBaseActivity = this.mEntity;
+        if (pluginBaseActivity != null) {
+            return pluginBaseActivity.getCallingPackage();
+        }
+        return super.getCallingPackage();
     }
 
     @Override // android.app.Activity
@@ -246,418 +261,11 @@ public class ActivityProxy extends Activity implements Handler.Callback, g, i, a
 
     @Override // android.content.ContextWrapper, android.content.Context
     public ClassLoader getClassLoader() {
-        return this.mEntity != null ? this.mEntity.getClassLoader() : super.getClassLoader();
-    }
-
-    @Override // android.app.Activity
-    public View getCurrentFocus() {
-        return this.mEntity != null ? this.mEntity.getCurrentFocus() : super.getCurrentFocus();
-    }
-
-    @Override // android.app.Activity
-    public Intent getIntent() {
         PluginBaseActivity pluginBaseActivity = this.mEntity;
-        return pluginBaseActivity != null ? pluginBaseActivity.getIntent() : super.getIntent();
-    }
-
-    @Override // android.app.Activity
-    public LayoutInflater getLayoutInflater() {
-        PluginBaseActivity pluginBaseActivity = this.mEntity;
-        return pluginBaseActivity != null ? pluginBaseActivity.getLayoutInflater() : super.getLayoutInflater();
-    }
-
-    @Override // android.app.Activity
-    public String getLocalClassName() {
-        PluginBaseActivity pluginBaseActivity = this.mEntity;
-        return pluginBaseActivity != null ? pluginBaseActivity.getLocalClassName() : super.getLocalClassName();
-    }
-
-    @Override // android.app.Activity
-    public MenuInflater getMenuInflater() {
-        return this.mEntity != null ? this.mEntity.getMenuInflater() : super.getMenuInflater();
-    }
-
-    @Override // android.content.ContextWrapper, android.content.Context
-    public PackageManager getPackageManager() {
-        return this.mEntity != null ? this.mEntity.getPackageManager() : super.getPackageManager();
-    }
-
-    @Override // android.app.Activity
-    public SharedPreferences getPreferences(int i) {
-        return this.mEntity != null ? this.mEntity.getPreferences(i) : super.getPreferences(i);
-    }
-
-    @Override // android.app.Activity
-    public int getRequestedOrientation() {
-        return this.mEntity != null ? this.mEntity.getRequestedOrientation() : super.getRequestedOrientation();
-    }
-
-    @Override // android.view.ContextThemeWrapper, android.content.ContextWrapper, android.content.Context
-    public Resources getResources() {
-        if (BdBaseApplication.getInst().getIsPluginResourcOpen()) {
-            if (this.mEntity != null) {
-                return this.mEntity.getResources();
-            }
-        } else {
-            Resources resources = h.kD().getResources();
-            if (resources != null) {
-                return resources;
-            }
+        if (pluginBaseActivity != null) {
+            return pluginBaseActivity.getClassLoader();
         }
-        return super.getResources();
-    }
-
-    @Override // android.content.ContextWrapper, android.content.Context
-    public SharedPreferences getSharedPreferences(String str, int i) {
-        return this.mEntity != null ? this.mEntity.getSharedPreferences(str, i) : super.getSharedPreferences(str, i);
-    }
-
-    @Override // android.app.Activity, android.view.ContextThemeWrapper, android.content.ContextWrapper, android.content.Context
-    public Object getSystemService(String str) {
-        return this.mEntity != null ? this.mEntity.getSystemService(str) : super.getSystemService(str);
-    }
-
-    @Override // android.app.Activity
-    public int getTaskId() {
-        PluginBaseActivity pluginBaseActivity = this.mEntity;
-        return pluginBaseActivity != null ? pluginBaseActivity.getTaskId() : super.getTaskId();
-    }
-
-    @Override // android.content.ContextWrapper, android.content.Context
-    public int getWallpaperDesiredMinimumHeight() {
-        PluginBaseActivity pluginBaseActivity = this.mEntity;
-        return pluginBaseActivity != null ? pluginBaseActivity.getWallpaperDesiredMinimumHeight() : super.getWallpaperDesiredMinimumHeight();
-    }
-
-    @Override // android.content.ContextWrapper, android.content.Context
-    public int getWallpaperDesiredMinimumWidth() {
-        PluginBaseActivity pluginBaseActivity = this.mEntity;
-        return pluginBaseActivity != null ? pluginBaseActivity.getWallpaperDesiredMinimumWidth() : super.getWallpaperDesiredMinimumWidth();
-    }
-
-    @Override // android.app.Activity
-    public Window getWindow() {
-        PluginBaseActivity pluginBaseActivity = this.mEntity;
-        return pluginBaseActivity != null ? pluginBaseActivity.getWindow() : super.getWindow();
-    }
-
-    @Override // android.app.Activity
-    public WindowManager getWindowManager() {
-        PluginBaseActivity pluginBaseActivity = this.mEntity;
-        return pluginBaseActivity != null ? pluginBaseActivity.getWindowManager() : super.getWindowManager();
-    }
-
-    @Override // android.app.Activity
-    public boolean hasWindowFocus() {
-        return this.mEntity != null ? this.mEntity.hasWindowFocus() : super.hasWindowFocus();
-    }
-
-    @Override // android.app.Activity
-    public boolean isFinishing() {
-        return this.mEntity != null ? this.mEntity.isFinishing() : super.isFinishing();
-    }
-
-    @Override // android.app.Activity
-    public boolean isTaskRoot() {
-        PluginBaseActivity pluginBaseActivity = this.mEntity;
-        return pluginBaseActivity != null ? pluginBaseActivity.isTaskRoot() : super.isTaskRoot();
-    }
-
-    @Override // android.app.Activity
-    public boolean moveTaskToBack(boolean z) {
-        PluginBaseActivity pluginBaseActivity = this.mEntity;
-        return pluginBaseActivity != null ? pluginBaseActivity.moveTaskToBack(z) : super.moveTaskToBack(z);
-    }
-
-    @Override // android.app.Activity
-    protected void onActivityResult(int i, int i2, Intent intent) {
-        if (this.mEntity != null) {
-            d.invokeMethod(this.mEntity, "onActivityResult", new Class[]{Integer.TYPE, Integer.TYPE, Intent.class}, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), intent});
-        } else {
-            super.onActivityResult(i, i2, intent);
-        }
-    }
-
-    @Override // android.app.Activity, android.view.ContextThemeWrapper
-    protected void onApplyThemeResource(Resources.Theme theme, int i, boolean z) {
-        if (this.mEntity != null) {
-            d.invokeMethod(this.mEntity, "onApplyThemeResource", new Class[]{Resources.Theme.class, Integer.TYPE, Boolean.TYPE}, new Object[]{theme, Integer.valueOf(i), Boolean.valueOf(z)});
-        } else {
-            super.onApplyThemeResource(theme, i, z);
-        }
-    }
-
-    @Override // android.app.Activity, android.view.Window.Callback
-    public void onAttachedToWindow() {
-        if (this.mEntity != null) {
-            this.mEntity.onAttachedToWindow();
-        } else {
-            super.onAttachedToWindow();
-        }
-    }
-
-    @Override // android.app.Activity
-    public void onBackPressed() {
-        if (this.mEntity != null) {
-            this.mEntity.onBackPressed();
-        } else {
-            super.onBackPressed();
-        }
-    }
-
-    @Override // android.app.Activity
-    protected void onChildTitleChanged(Activity activity, CharSequence charSequence) {
-        if (this.mEntity != null) {
-            d.invokeMethod(this.mEntity, "onChildTitleChanged", new Class[]{Activity.class, CharSequence.class}, new Object[]{activity, charSequence});
-        } else {
-            super.onChildTitleChanged(activity, charSequence);
-        }
-    }
-
-    @Override // android.app.Activity, android.content.ComponentCallbacks
-    public void onConfigurationChanged(Configuration configuration) {
-        if (this.mEntity != null) {
-            this.mEntity.onConfigurationChanged(configuration);
-        } else {
-            super.onConfigurationChanged(configuration);
-        }
-    }
-
-    @Override // android.app.Activity, android.view.Window.Callback
-    public void onContentChanged() {
-        if (this.mEntity != null) {
-            this.mEntity.onContentChanged();
-        } else {
-            super.onContentChanged();
-        }
-    }
-
-    @Override // android.app.Activity
-    public boolean onContextItemSelected(MenuItem menuItem) {
-        return this.mEntity != null ? this.mEntity.onContextItemSelected(menuItem) : super.onContextItemSelected(menuItem);
-    }
-
-    @Override // android.app.Activity
-    public void onContextMenuClosed(Menu menu) {
-        if (this.mEntity != null) {
-            this.mEntity.onContextMenuClosed(menu);
-        } else {
-            super.onContextMenuClosed(menu);
-        }
-    }
-
-    @Override // android.app.Activity
-    protected void onCreate(Bundle bundle) {
-        requestWindowFeature(1);
-        this.mEntity = null;
-        loadEntityActivity();
-        if (this.mEntity != null) {
-            d.invokeMethod(this.mEntity, MissionEvent.MESSAGE_CREATE, new Class[]{Bundle.class}, new Object[]{bundle});
-        } else {
-            super.onCreate(bundle);
-        }
-    }
-
-    @Override // android.app.Activity, android.view.View.OnCreateContextMenuListener
-    public void onCreateContextMenu(ContextMenu contextMenu, View view, ContextMenu.ContextMenuInfo contextMenuInfo) {
-        if (this.mEntity != null) {
-            this.mEntity.onCreateContextMenu(contextMenu, view, contextMenuInfo);
-        } else {
-            super.onCreateContextMenu(contextMenu, view, contextMenuInfo);
-        }
-    }
-
-    @Override // android.app.Activity
-    public CharSequence onCreateDescription() {
-        PluginBaseActivity pluginBaseActivity = this.mEntity;
-        return pluginBaseActivity != null ? pluginBaseActivity.onCreateDescription() : super.onCreateDescription();
-    }
-
-    @Override // android.app.Activity
-    protected Dialog onCreateDialog(int i) {
-        return this.mEntity != null ? (Dialog) d.invokeMethod(this.mEntity, "onCreateDialog", new Class[]{Integer.TYPE}, new Object[]{Integer.valueOf(i)}) : super.onCreateDialog(i);
-    }
-
-    @Override // android.app.Activity, android.view.Window.Callback
-    public boolean onCreatePanelMenu(int i, Menu menu) {
-        return this.mEntity != null ? this.mEntity.onCreatePanelMenu(i, menu) : super.onCreatePanelMenu(i, menu);
-    }
-
-    @Override // android.app.Activity, android.view.Window.Callback
-    public View onCreatePanelView(int i) {
-        return this.mEntity != null ? this.mEntity.onCreatePanelView(i) : super.onCreatePanelView(i);
-    }
-
-    @Override // android.app.Activity
-    public boolean onCreateThumbnail(Bitmap bitmap, Canvas canvas) {
-        return this.mEntity != null ? this.mEntity.onCreateThumbnail(bitmap, canvas) : super.onCreateThumbnail(bitmap, canvas);
-    }
-
-    @Override // android.app.Activity, android.view.LayoutInflater.Factory
-    public View onCreateView(String str, Context context, AttributeSet attributeSet) {
-        return this.mEntity != null ? this.mEntity.onCreateView(str, context, attributeSet) : super.onCreateView(str, context, attributeSet);
-    }
-
-    @Override // android.app.Activity
-    protected void onDestroy() {
-        if (this.mEntity != null) {
-            d.invokeMethod(this.mEntity, MissionEvent.MESSAGE_DESTROY, new Class[0], new Object[0]);
-        } else {
-            super.onDestroy();
-        }
-    }
-
-    @Override // android.app.Activity, android.view.Window.Callback
-    public void onDetachedFromWindow() {
-        if (this.mEntity != null) {
-            this.mEntity.onDetachedFromWindow();
-        } else {
-            super.onDetachedFromWindow();
-        }
-    }
-
-    @Override // android.app.Activity, android.view.KeyEvent.Callback
-    public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        return this.mEntity != null ? this.mEntity.onKeyDown(i, keyEvent) : super.onKeyDown(i, keyEvent);
-    }
-
-    @Override // android.app.Activity, android.view.KeyEvent.Callback
-    public boolean onKeyLongPress(int i, KeyEvent keyEvent) {
-        return this.mEntity != null ? this.mEntity.onKeyLongPress(i, keyEvent) : super.onKeyLongPress(i, keyEvent);
-    }
-
-    @Override // android.app.Activity, android.view.KeyEvent.Callback
-    public boolean onKeyMultiple(int i, int i2, KeyEvent keyEvent) {
-        return this.mEntity != null ? this.mEntity.onKeyMultiple(i, i2, keyEvent) : super.onKeyMultiple(i, i2, keyEvent);
-    }
-
-    @Override // android.app.Activity, android.view.KeyEvent.Callback
-    public boolean onKeyUp(int i, KeyEvent keyEvent) {
-        return this.mEntity != null ? this.mEntity.onKeyUp(i, keyEvent) : super.onKeyUp(i, keyEvent);
-    }
-
-    @Override // android.app.Activity, android.content.ComponentCallbacks
-    public void onLowMemory() {
-        if (this.mEntity != null) {
-            this.mEntity.onLowMemory();
-        } else {
-            super.onLowMemory();
-        }
-    }
-
-    @Override // android.app.Activity, android.view.Window.Callback
-    public boolean onMenuItemSelected(int i, MenuItem menuItem) {
-        return this.mEntity != null ? this.mEntity.onMenuItemSelected(i, menuItem) : super.onMenuItemSelected(i, menuItem);
-    }
-
-    @Override // android.app.Activity, android.view.Window.Callback
-    public boolean onMenuOpened(int i, Menu menu) {
-        return this.mEntity != null ? this.mEntity.onMenuOpened(i, menu) : super.onMenuOpened(i, menu);
-    }
-
-    @Override // android.app.Activity
-    protected void onNewIntent(Intent intent) {
-        if (this.mEntity != null) {
-            d.invokeMethod(this.mEntity, "onNewIntent", new Class[]{Intent.class}, new Object[]{intent});
-        } else {
-            super.onNewIntent(intent);
-        }
-    }
-
-    @Override // android.app.Activity
-    public boolean onOptionsItemSelected(MenuItem menuItem) {
-        return this.mEntity != null ? this.mEntity.onOptionsItemSelected(menuItem) : super.onOptionsItemSelected(menuItem);
-    }
-
-    @Override // android.app.Activity
-    public void onOptionsMenuClosed(Menu menu) {
-        if (this.mEntity != null) {
-            this.mEntity.onOptionsMenuClosed(menu);
-        } else {
-            super.onOptionsMenuClosed(menu);
-        }
-    }
-
-    @Override // android.app.Activity, android.view.Window.Callback
-    public void onPanelClosed(int i, Menu menu) {
-        if (this.mEntity != null) {
-            this.mEntity.onPanelClosed(i, menu);
-        } else {
-            super.onPanelClosed(i, menu);
-        }
-    }
-
-    @Override // android.app.Activity
-    protected void onPause() {
-        if (this.mEntity != null) {
-            d.invokeMethod(this.mEntity, MissionEvent.MESSAGE_PAUSE, new Class[0], new Object[0]);
-        } else {
-            super.onPause();
-        }
-    }
-
-    @Override // android.app.Activity
-    protected void onPostCreate(Bundle bundle) {
-        if (this.mEntity != null) {
-            d.invokeMethod(this.mEntity, "onPostCreate", new Class[]{Bundle.class}, new Object[]{bundle});
-        } else {
-            super.onPostCreate(bundle);
-        }
-    }
-
-    @Override // android.app.Activity
-    protected void onPostResume() {
-        if (this.mEntity != null) {
-            d.invokeMethod(this.mEntity, "onPostResume", new Class[0], new Object[0]);
-        } else {
-            super.onPostResume();
-        }
-    }
-
-    @Override // android.app.Activity
-    protected void onPrepareDialog(int i, Dialog dialog) {
-        if (this.mEntity != null) {
-            this.mEntity.onPrepareDialog(i, dialog);
-        } else {
-            super.onPrepareDialog(i, dialog);
-        }
-    }
-
-    @Override // android.app.Activity
-    public boolean onPrepareOptionsMenu(Menu menu) {
-        return this.mEntity != null ? this.mEntity.onPrepareOptionsMenu(menu) : super.onPrepareOptionsMenu(menu);
-    }
-
-    @Override // android.app.Activity, android.view.Window.Callback
-    public boolean onPreparePanel(int i, View view, Menu menu) {
-        return this.mEntity != null ? this.mEntity.onPreparePanel(i, view, menu) : super.onPreparePanel(i, view, menu);
-    }
-
-    @Override // android.app.Activity
-    protected void onRestart() {
-        if (this.mEntity != null) {
-            d.invokeMethod(this.mEntity, "onRestart", new Class[0], new Object[0]);
-        } else {
-            super.onRestart();
-        }
-    }
-
-    @Override // android.app.Activity
-    protected void onRestoreInstanceState(Bundle bundle) {
-        if (this.mEntity != null) {
-            d.invokeMethod(this.mEntity, "onRestoreInstanceState", new Class[]{Bundle.class}, new Object[]{bundle});
-        } else {
-            super.onRestoreInstanceState(bundle);
-        }
-    }
-
-    @Override // android.app.Activity
-    protected void onResume() {
-        if (this.mEntity != null) {
-            d.invokeMethod(this.mEntity, MissionEvent.MESSAGE_RESUME, new Class[0], new Object[0]);
-        } else {
-            super.onResume();
-        }
+        return super.getClassLoader();
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
@@ -666,9 +274,664 @@ public class ActivityProxy extends Activity implements Handler.Callback, g, i, a
     }
 
     @Override // android.app.Activity
-    protected void onSaveInstanceState(Bundle bundle) {
-        if (this.mEntity != null) {
-            d.invokeMethod(this.mEntity, "onSaveInstanceState", new Class[]{Bundle.class}, new Object[]{bundle});
+    public View getCurrentFocus() {
+        PluginBaseActivity pluginBaseActivity = this.mEntity;
+        if (pluginBaseActivity != null) {
+            return pluginBaseActivity.getCurrentFocus();
+        }
+        return super.getCurrentFocus();
+    }
+
+    @Override // android.app.Activity
+    public Intent getIntent() {
+        PluginBaseActivity pluginBaseActivity = this.mEntity;
+        if (pluginBaseActivity != null) {
+            return pluginBaseActivity.getIntent();
+        }
+        return super.getIntent();
+    }
+
+    @Override // android.app.Activity
+    public LayoutInflater getLayoutInflater() {
+        PluginBaseActivity pluginBaseActivity = this.mEntity;
+        if (pluginBaseActivity != null) {
+            return pluginBaseActivity.getLayoutInflater();
+        }
+        return super.getLayoutInflater();
+    }
+
+    @Override // android.app.Activity
+    public String getLocalClassName() {
+        PluginBaseActivity pluginBaseActivity = this.mEntity;
+        if (pluginBaseActivity != null) {
+            return pluginBaseActivity.getLocalClassName();
+        }
+        return super.getLocalClassName();
+    }
+
+    @Override // android.app.Activity
+    public MenuInflater getMenuInflater() {
+        PluginBaseActivity pluginBaseActivity = this.mEntity;
+        if (pluginBaseActivity != null) {
+            return pluginBaseActivity.getMenuInflater();
+        }
+        return super.getMenuInflater();
+    }
+
+    @Override // android.content.ContextWrapper, android.content.Context
+    public PackageManager getPackageManager() {
+        PluginBaseActivity pluginBaseActivity = this.mEntity;
+        if (pluginBaseActivity != null) {
+            return pluginBaseActivity.getPackageManager();
+        }
+        return super.getPackageManager();
+    }
+
+    @Override // d.b.b.a.g
+    public f getPageContext() {
+        PluginBaseActivity pluginBaseActivity = this.mEntity;
+        if (pluginBaseActivity == null || !(pluginBaseActivity instanceof g)) {
+            return null;
+        }
+        return pluginBaseActivity.getPageContext();
+    }
+
+    @Override // android.app.Activity
+    public SharedPreferences getPreferences(int i) {
+        PluginBaseActivity pluginBaseActivity = this.mEntity;
+        if (pluginBaseActivity != null) {
+            return pluginBaseActivity.getPreferences(i);
+        }
+        return super.getPreferences(i);
+    }
+
+    @Override // android.app.Activity
+    public int getRequestedOrientation() {
+        PluginBaseActivity pluginBaseActivity = this.mEntity;
+        if (pluginBaseActivity != null) {
+            return pluginBaseActivity.getRequestedOrientation();
+        }
+        return super.getRequestedOrientation();
+    }
+
+    @Override // android.view.ContextThemeWrapper, android.content.ContextWrapper, android.content.Context
+    public Resources getResources() {
+        if (BdBaseApplication.getInst().getIsPluginResourcOpen()) {
+            PluginBaseActivity pluginBaseActivity = this.mEntity;
+            if (pluginBaseActivity != null) {
+                return pluginBaseActivity.getResources();
+            }
+        } else {
+            Resources b2 = h.a().b();
+            if (b2 != null) {
+                return b2;
+            }
+        }
+        return super.getResources();
+    }
+
+    @Override // android.content.ContextWrapper, android.content.Context
+    public SharedPreferences getSharedPreferences(String str, int i) {
+        PluginBaseActivity pluginBaseActivity = this.mEntity;
+        if (pluginBaseActivity != null) {
+            return pluginBaseActivity.getSharedPreferences(str, i);
+        }
+        return super.getSharedPreferences(str, i);
+    }
+
+    @Override // android.app.Activity, android.view.ContextThemeWrapper, android.content.ContextWrapper, android.content.Context
+    public Object getSystemService(String str) {
+        PluginBaseActivity pluginBaseActivity = this.mEntity;
+        if (pluginBaseActivity != null) {
+            return pluginBaseActivity.getSystemService(str);
+        }
+        return super.getSystemService(str);
+    }
+
+    @Override // d.b.b.h.f.a
+    public PluginBaseActivity getTarget() {
+        return this.mEntity;
+    }
+
+    @Override // android.app.Activity
+    public int getTaskId() {
+        PluginBaseActivity pluginBaseActivity = this.mEntity;
+        if (pluginBaseActivity != null) {
+            return pluginBaseActivity.getTaskId();
+        }
+        return super.getTaskId();
+    }
+
+    @Override // android.view.ContextThemeWrapper, android.content.ContextWrapper, android.content.Context
+    public Resources.Theme getTheme() {
+        PluginBaseActivity pluginBaseActivity = this.mEntity;
+        if (pluginBaseActivity != null) {
+            return pluginBaseActivity.getTheme();
+        }
+        return super.getTheme();
+    }
+
+    @Override // d.b.b.a.i
+    public BdUniqueId getUniqueId() {
+        PluginBaseActivity pluginBaseActivity = this.mEntity;
+        if (pluginBaseActivity != null) {
+            return pluginBaseActivity.getUniqueId();
+        }
+        return null;
+    }
+
+    @Override // android.content.ContextWrapper, android.content.Context
+    public int getWallpaperDesiredMinimumHeight() {
+        PluginBaseActivity pluginBaseActivity = this.mEntity;
+        if (pluginBaseActivity != null) {
+            return pluginBaseActivity.getWallpaperDesiredMinimumHeight();
+        }
+        return super.getWallpaperDesiredMinimumHeight();
+    }
+
+    @Override // android.content.ContextWrapper, android.content.Context
+    public int getWallpaperDesiredMinimumWidth() {
+        PluginBaseActivity pluginBaseActivity = this.mEntity;
+        if (pluginBaseActivity != null) {
+            return pluginBaseActivity.getWallpaperDesiredMinimumWidth();
+        }
+        return super.getWallpaperDesiredMinimumWidth();
+    }
+
+    @Override // android.app.Activity
+    public Window getWindow() {
+        PluginBaseActivity pluginBaseActivity = this.mEntity;
+        if (pluginBaseActivity != null) {
+            return pluginBaseActivity.getWindow();
+        }
+        return super.getWindow();
+    }
+
+    @Override // android.app.Activity
+    public WindowManager getWindowManager() {
+        PluginBaseActivity pluginBaseActivity = this.mEntity;
+        if (pluginBaseActivity != null) {
+            return pluginBaseActivity.getWindowManager();
+        }
+        return super.getWindowManager();
+    }
+
+    @Override // android.os.Handler.Callback
+    public boolean handleMessage(Message message) {
+        PluginBaseActivity pluginBaseActivity = this.mEntity;
+        if (pluginBaseActivity != null) {
+            return pluginBaseActivity.handleMessage(message);
+        }
+        return false;
+    }
+
+    @Override // android.app.Activity
+    public boolean hasWindowFocus() {
+        PluginBaseActivity pluginBaseActivity = this.mEntity;
+        if (pluginBaseActivity != null) {
+            return pluginBaseActivity.hasWindowFocus();
+        }
+        return super.hasWindowFocus();
+    }
+
+    @Override // android.app.Activity
+    public boolean isFinishing() {
+        PluginBaseActivity pluginBaseActivity = this.mEntity;
+        if (pluginBaseActivity != null) {
+            return pluginBaseActivity.isFinishing();
+        }
+        return super.isFinishing();
+    }
+
+    @Override // d.b.b.a.i
+    public boolean isScroll() {
+        PluginBaseActivity pluginBaseActivity = this.mEntity;
+        if (pluginBaseActivity != null) {
+            return pluginBaseActivity.isScroll();
+        }
+        return false;
+    }
+
+    @Override // android.app.Activity
+    public boolean isTaskRoot() {
+        PluginBaseActivity pluginBaseActivity = this.mEntity;
+        if (pluginBaseActivity != null) {
+            return pluginBaseActivity.isTaskRoot();
+        }
+        return super.isTaskRoot();
+    }
+
+    public void loadEntityActivity() {
+        if (this.mEntity != null || super.isFinishing()) {
+            return;
+        }
+        Intent intent = getIntent();
+        if (intent == null) {
+            finish();
+            return;
+        }
+        String stringExtra = intent.getStringExtra(Plugin.INTENT_EXTRA_PACKAGE_NAME);
+        if (!PluginCenter.getInstance().isLoaded(stringExtra)) {
+            finish();
+            BdLog.e("plugin not loaded. pluginname is " + stringExtra);
+            return;
+        }
+        try {
+            String stringExtra2 = intent.getStringExtra(Plugin.INTENT_EXTRA_ACTIVITY);
+            if (BdBaseApplication.getInst().getIsPluginResourcOpen()) {
+                Plugin plugin2 = PluginCenter.getInstance().getPlugin(stringExtra);
+                PluginBaseActivity pluginBaseActivity = (PluginBaseActivity) plugin2.getDexClassLoader().loadClass(stringExtra2).asSubclass(PluginBaseActivity.class).newInstance();
+                this.mEntity = pluginBaseActivity;
+                pluginBaseActivity.setActivityProxy(this);
+                this.mEntity.setPluginPackageName(stringExtra);
+                setTheme(plugin2.getActivityThemeResource());
+            } else {
+                PluginBaseActivity pluginBaseActivity2 = (PluginBaseActivity) PluginCenter.getInstance().getPlugin(stringExtra).getDexClassLoader().loadClass(stringExtra2).asSubclass(PluginBaseActivity.class).newInstance();
+                this.mEntity = pluginBaseActivity2;
+                pluginBaseActivity2.setActivityProxy(this);
+                this.mEntity.setPluginPackageName(stringExtra);
+            }
+        } catch (ClassNotFoundException e2) {
+            BdLog.e(e2);
+        } catch (IllegalAccessException e3) {
+            BdLog.e(e3);
+        } catch (InstantiationException e4) {
+            BdLog.e(e4);
+        } catch (Exception e5) {
+            BdLog.e(e5);
+        }
+    }
+
+    @Override // android.app.Activity
+    public boolean moveTaskToBack(boolean z) {
+        PluginBaseActivity pluginBaseActivity = this.mEntity;
+        if (pluginBaseActivity != null) {
+            return pluginBaseActivity.moveTaskToBack(z);
+        }
+        return super.moveTaskToBack(z);
+    }
+
+    @Override // android.app.Activity
+    public void onActivityResult(int i, int i2, Intent intent) {
+        PluginBaseActivity pluginBaseActivity = this.mEntity;
+        if (pluginBaseActivity != null) {
+            Class cls = Integer.TYPE;
+            d.k(pluginBaseActivity, "onActivityResult", new Class[]{cls, cls, Intent.class}, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), intent});
+            return;
+        }
+        super.onActivityResult(i, i2, intent);
+    }
+
+    @Override // android.app.Activity, android.view.ContextThemeWrapper
+    public void onApplyThemeResource(Resources.Theme theme, int i, boolean z) {
+        PluginBaseActivity pluginBaseActivity = this.mEntity;
+        if (pluginBaseActivity != null) {
+            d.k(pluginBaseActivity, "onApplyThemeResource", new Class[]{Resources.Theme.class, Integer.TYPE, Boolean.TYPE}, new Object[]{theme, Integer.valueOf(i), Boolean.valueOf(z)});
+        } else {
+            super.onApplyThemeResource(theme, i, z);
+        }
+    }
+
+    @Override // android.app.Activity, android.view.Window.Callback
+    public void onAttachedToWindow() {
+        PluginBaseActivity pluginBaseActivity = this.mEntity;
+        if (pluginBaseActivity != null) {
+            pluginBaseActivity.onAttachedToWindow();
+        } else {
+            super.onAttachedToWindow();
+        }
+    }
+
+    @Override // android.app.Activity
+    public void onBackPressed() {
+        PluginBaseActivity pluginBaseActivity = this.mEntity;
+        if (pluginBaseActivity != null) {
+            pluginBaseActivity.onBackPressed();
+        } else {
+            super.onBackPressed();
+        }
+    }
+
+    @Override // android.app.Activity
+    public void onChildTitleChanged(Activity activity, CharSequence charSequence) {
+        PluginBaseActivity pluginBaseActivity = this.mEntity;
+        if (pluginBaseActivity != null) {
+            d.k(pluginBaseActivity, "onChildTitleChanged", new Class[]{Activity.class, CharSequence.class}, new Object[]{activity, charSequence});
+        } else {
+            super.onChildTitleChanged(activity, charSequence);
+        }
+    }
+
+    @Override // android.app.Activity, android.content.ComponentCallbacks
+    public void onConfigurationChanged(Configuration configuration) {
+        PluginBaseActivity pluginBaseActivity = this.mEntity;
+        if (pluginBaseActivity != null) {
+            pluginBaseActivity.onConfigurationChanged(configuration);
+        } else {
+            super.onConfigurationChanged(configuration);
+        }
+    }
+
+    @Override // android.app.Activity, android.view.Window.Callback
+    public void onContentChanged() {
+        PluginBaseActivity pluginBaseActivity = this.mEntity;
+        if (pluginBaseActivity != null) {
+            pluginBaseActivity.onContentChanged();
+        } else {
+            super.onContentChanged();
+        }
+    }
+
+    @Override // android.app.Activity
+    public boolean onContextItemSelected(MenuItem menuItem) {
+        PluginBaseActivity pluginBaseActivity = this.mEntity;
+        if (pluginBaseActivity != null) {
+            return pluginBaseActivity.onContextItemSelected(menuItem);
+        }
+        return super.onContextItemSelected(menuItem);
+    }
+
+    @Override // android.app.Activity
+    public void onContextMenuClosed(Menu menu) {
+        PluginBaseActivity pluginBaseActivity = this.mEntity;
+        if (pluginBaseActivity != null) {
+            pluginBaseActivity.onContextMenuClosed(menu);
+        } else {
+            super.onContextMenuClosed(menu);
+        }
+    }
+
+    @Override // android.app.Activity
+    public void onCreate(@Nullable Bundle bundle, @Nullable PersistableBundle persistableBundle) {
+        d.b.b.a.a.b(this);
+        super.onCreate(bundle, persistableBundle);
+    }
+
+    @Override // android.app.Activity, android.view.View.OnCreateContextMenuListener
+    public void onCreateContextMenu(ContextMenu contextMenu, View view, ContextMenu.ContextMenuInfo contextMenuInfo) {
+        PluginBaseActivity pluginBaseActivity = this.mEntity;
+        if (pluginBaseActivity != null) {
+            pluginBaseActivity.onCreateContextMenu(contextMenu, view, contextMenuInfo);
+        } else {
+            super.onCreateContextMenu(contextMenu, view, contextMenuInfo);
+        }
+    }
+
+    @Override // android.app.Activity
+    public CharSequence onCreateDescription() {
+        PluginBaseActivity pluginBaseActivity = this.mEntity;
+        if (pluginBaseActivity != null) {
+            return pluginBaseActivity.onCreateDescription();
+        }
+        return super.onCreateDescription();
+    }
+
+    @Override // android.app.Activity
+    public Dialog onCreateDialog(int i) {
+        PluginBaseActivity pluginBaseActivity = this.mEntity;
+        return pluginBaseActivity != null ? (Dialog) d.k(pluginBaseActivity, "onCreateDialog", new Class[]{Integer.TYPE}, new Object[]{Integer.valueOf(i)}) : super.onCreateDialog(i);
+    }
+
+    @Override // android.app.Activity, android.view.Window.Callback
+    public boolean onCreatePanelMenu(int i, Menu menu) {
+        PluginBaseActivity pluginBaseActivity = this.mEntity;
+        if (pluginBaseActivity != null) {
+            return pluginBaseActivity.onCreatePanelMenu(i, menu);
+        }
+        return super.onCreatePanelMenu(i, menu);
+    }
+
+    @Override // android.app.Activity, android.view.Window.Callback
+    public View onCreatePanelView(int i) {
+        PluginBaseActivity pluginBaseActivity = this.mEntity;
+        if (pluginBaseActivity != null) {
+            return pluginBaseActivity.onCreatePanelView(i);
+        }
+        return super.onCreatePanelView(i);
+    }
+
+    @Override // android.app.Activity
+    public boolean onCreateThumbnail(Bitmap bitmap, Canvas canvas) {
+        PluginBaseActivity pluginBaseActivity = this.mEntity;
+        if (pluginBaseActivity != null) {
+            return pluginBaseActivity.onCreateThumbnail(bitmap, canvas);
+        }
+        return super.onCreateThumbnail(bitmap, canvas);
+    }
+
+    @Override // android.app.Activity, android.view.LayoutInflater.Factory2
+    public View onCreateView(View view, String str, Context context, AttributeSet attributeSet) {
+        PluginBaseActivity pluginBaseActivity = this.mEntity;
+        if (pluginBaseActivity != null) {
+            return pluginBaseActivity.onCreateView(view, str, context, attributeSet);
+        }
+        return super.onCreateView(view, str, context, attributeSet);
+    }
+
+    @Override // android.app.Activity
+    public void onDestroy() {
+        PluginBaseActivity pluginBaseActivity = this.mEntity;
+        if (pluginBaseActivity != null) {
+            d.k(pluginBaseActivity, MissionEvent.MESSAGE_DESTROY, new Class[0], new Object[0]);
+        } else {
+            super.onDestroy();
+        }
+    }
+
+    @Override // android.app.Activity, android.view.Window.Callback
+    public void onDetachedFromWindow() {
+        PluginBaseActivity pluginBaseActivity = this.mEntity;
+        if (pluginBaseActivity != null) {
+            pluginBaseActivity.onDetachedFromWindow();
+        } else {
+            super.onDetachedFromWindow();
+        }
+    }
+
+    @Override // android.app.Activity, android.view.KeyEvent.Callback
+    public boolean onKeyDown(int i, KeyEvent keyEvent) {
+        PluginBaseActivity pluginBaseActivity = this.mEntity;
+        if (pluginBaseActivity != null) {
+            return pluginBaseActivity.onKeyDown(i, keyEvent);
+        }
+        return super.onKeyDown(i, keyEvent);
+    }
+
+    @Override // android.app.Activity, android.view.KeyEvent.Callback
+    public boolean onKeyLongPress(int i, KeyEvent keyEvent) {
+        PluginBaseActivity pluginBaseActivity = this.mEntity;
+        if (pluginBaseActivity != null) {
+            return pluginBaseActivity.onKeyLongPress(i, keyEvent);
+        }
+        return super.onKeyLongPress(i, keyEvent);
+    }
+
+    @Override // android.app.Activity, android.view.KeyEvent.Callback
+    public boolean onKeyMultiple(int i, int i2, KeyEvent keyEvent) {
+        PluginBaseActivity pluginBaseActivity = this.mEntity;
+        if (pluginBaseActivity != null) {
+            return pluginBaseActivity.onKeyMultiple(i, i2, keyEvent);
+        }
+        return super.onKeyMultiple(i, i2, keyEvent);
+    }
+
+    @Override // android.app.Activity, android.view.KeyEvent.Callback
+    public boolean onKeyUp(int i, KeyEvent keyEvent) {
+        PluginBaseActivity pluginBaseActivity = this.mEntity;
+        if (pluginBaseActivity != null) {
+            return pluginBaseActivity.onKeyUp(i, keyEvent);
+        }
+        return super.onKeyUp(i, keyEvent);
+    }
+
+    @Override // android.app.Activity, android.content.ComponentCallbacks
+    public void onLowMemory() {
+        PluginBaseActivity pluginBaseActivity = this.mEntity;
+        if (pluginBaseActivity != null) {
+            pluginBaseActivity.onLowMemory();
+        } else {
+            super.onLowMemory();
+        }
+    }
+
+    @Override // android.app.Activity, android.view.Window.Callback
+    public boolean onMenuItemSelected(int i, MenuItem menuItem) {
+        PluginBaseActivity pluginBaseActivity = this.mEntity;
+        if (pluginBaseActivity != null) {
+            return pluginBaseActivity.onMenuItemSelected(i, menuItem);
+        }
+        return super.onMenuItemSelected(i, menuItem);
+    }
+
+    @Override // android.app.Activity, android.view.Window.Callback
+    public boolean onMenuOpened(int i, Menu menu) {
+        PluginBaseActivity pluginBaseActivity = this.mEntity;
+        if (pluginBaseActivity != null) {
+            return pluginBaseActivity.onMenuOpened(i, menu);
+        }
+        return super.onMenuOpened(i, menu);
+    }
+
+    @Override // android.app.Activity
+    public void onNewIntent(Intent intent) {
+        PluginBaseActivity pluginBaseActivity = this.mEntity;
+        if (pluginBaseActivity != null) {
+            d.k(pluginBaseActivity, "onNewIntent", new Class[]{Intent.class}, new Object[]{intent});
+        } else {
+            super.onNewIntent(intent);
+        }
+    }
+
+    @Override // android.app.Activity
+    public boolean onOptionsItemSelected(MenuItem menuItem) {
+        PluginBaseActivity pluginBaseActivity = this.mEntity;
+        if (pluginBaseActivity != null) {
+            return pluginBaseActivity.onOptionsItemSelected(menuItem);
+        }
+        return super.onOptionsItemSelected(menuItem);
+    }
+
+    @Override // android.app.Activity
+    public void onOptionsMenuClosed(Menu menu) {
+        PluginBaseActivity pluginBaseActivity = this.mEntity;
+        if (pluginBaseActivity != null) {
+            pluginBaseActivity.onOptionsMenuClosed(menu);
+        } else {
+            super.onOptionsMenuClosed(menu);
+        }
+    }
+
+    @Override // android.app.Activity, android.view.Window.Callback
+    public void onPanelClosed(int i, Menu menu) {
+        PluginBaseActivity pluginBaseActivity = this.mEntity;
+        if (pluginBaseActivity != null) {
+            pluginBaseActivity.onPanelClosed(i, menu);
+        } else {
+            super.onPanelClosed(i, menu);
+        }
+    }
+
+    @Override // android.app.Activity
+    public void onPause() {
+        PluginBaseActivity pluginBaseActivity = this.mEntity;
+        if (pluginBaseActivity != null) {
+            d.k(pluginBaseActivity, MissionEvent.MESSAGE_PAUSE, new Class[0], new Object[0]);
+        } else {
+            super.onPause();
+        }
+    }
+
+    @Override // android.app.Activity
+    public void onPostCreate(Bundle bundle) {
+        PluginBaseActivity pluginBaseActivity = this.mEntity;
+        if (pluginBaseActivity != null) {
+            d.k(pluginBaseActivity, "onPostCreate", new Class[]{Bundle.class}, new Object[]{bundle});
+        } else {
+            super.onPostCreate(bundle);
+        }
+    }
+
+    @Override // android.app.Activity
+    public void onPostResume() {
+        PluginBaseActivity pluginBaseActivity = this.mEntity;
+        if (pluginBaseActivity != null) {
+            d.k(pluginBaseActivity, "onPostResume", new Class[0], new Object[0]);
+        } else {
+            super.onPostResume();
+        }
+    }
+
+    @Override // d.b.b.a.i
+    public void onPreLoad(q qVar) {
+        PluginBaseActivity pluginBaseActivity = this.mEntity;
+        if (pluginBaseActivity != null) {
+            pluginBaseActivity.onPreLoad(qVar);
+        }
+    }
+
+    @Override // android.app.Activity
+    public void onPrepareDialog(int i, Dialog dialog) {
+        PluginBaseActivity pluginBaseActivity = this.mEntity;
+        if (pluginBaseActivity != null) {
+            pluginBaseActivity.onPrepareDialog(i, dialog);
+        } else {
+            super.onPrepareDialog(i, dialog);
+        }
+    }
+
+    @Override // android.app.Activity
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        PluginBaseActivity pluginBaseActivity = this.mEntity;
+        if (pluginBaseActivity != null) {
+            return pluginBaseActivity.onPrepareOptionsMenu(menu);
+        }
+        return super.onPrepareOptionsMenu(menu);
+    }
+
+    @Override // android.app.Activity, android.view.Window.Callback
+    public boolean onPreparePanel(int i, View view, Menu menu) {
+        PluginBaseActivity pluginBaseActivity = this.mEntity;
+        if (pluginBaseActivity != null) {
+            return pluginBaseActivity.onPreparePanel(i, view, menu);
+        }
+        return super.onPreparePanel(i, view, menu);
+    }
+
+    @Override // android.app.Activity
+    public void onRestart() {
+        PluginBaseActivity pluginBaseActivity = this.mEntity;
+        if (pluginBaseActivity != null) {
+            d.k(pluginBaseActivity, "onRestart", new Class[0], new Object[0]);
+        } else {
+            super.onRestart();
+        }
+    }
+
+    @Override // android.app.Activity
+    public void onRestoreInstanceState(Bundle bundle) {
+        PluginBaseActivity pluginBaseActivity = this.mEntity;
+        if (pluginBaseActivity != null) {
+            d.k(pluginBaseActivity, "onRestoreInstanceState", new Class[]{Bundle.class}, new Object[]{bundle});
+        } else {
+            super.onRestoreInstanceState(bundle);
+        }
+    }
+
+    @Override // android.app.Activity
+    public void onResume() {
+        PluginBaseActivity pluginBaseActivity = this.mEntity;
+        if (pluginBaseActivity != null) {
+            d.k(pluginBaseActivity, MissionEvent.MESSAGE_RESUME, new Class[0], new Object[0]);
+        } else {
+            super.onResume();
+        }
+    }
+
+    @Override // android.app.Activity
+    public void onSaveInstanceState(Bundle bundle) {
+        PluginBaseActivity pluginBaseActivity = this.mEntity;
+        if (pluginBaseActivity != null) {
+            d.k(pluginBaseActivity, "onSaveInstanceState", new Class[]{Bundle.class}, new Object[]{bundle});
         } else {
             super.onSaveInstanceState(bundle);
         }
@@ -676,31 +939,38 @@ public class ActivityProxy extends Activity implements Handler.Callback, g, i, a
 
     @Override // android.app.Activity, android.view.Window.Callback
     public boolean onSearchRequested() {
-        return this.mEntity != null ? this.mEntity.onSearchRequested() : super.onSearchRequested();
+        PluginBaseActivity pluginBaseActivity = this.mEntity;
+        if (pluginBaseActivity != null) {
+            return pluginBaseActivity.onSearchRequested();
+        }
+        return super.onSearchRequested();
     }
 
     @Override // android.app.Activity
-    protected void onStart() {
-        if (this.mEntity != null) {
-            d.invokeMethod(this.mEntity, MissionEvent.MESSAGE_START, new Class[0], new Object[0]);
+    public void onStart() {
+        PluginBaseActivity pluginBaseActivity = this.mEntity;
+        if (pluginBaseActivity != null) {
+            d.k(pluginBaseActivity, MissionEvent.MESSAGE_START, new Class[0], new Object[0]);
         } else {
             super.onStart();
         }
     }
 
     @Override // android.app.Activity
-    protected void onStop() {
-        if (this.mEntity != null) {
-            d.invokeMethod(this.mEntity, MissionEvent.MESSAGE_STOP, new Class[0], new Object[0]);
+    public void onStop() {
+        PluginBaseActivity pluginBaseActivity = this.mEntity;
+        if (pluginBaseActivity != null) {
+            d.k(pluginBaseActivity, MissionEvent.MESSAGE_STOP, new Class[0], new Object[0]);
         } else {
             super.onStop();
         }
     }
 
     @Override // android.app.Activity
-    protected void onTitleChanged(CharSequence charSequence, int i) {
-        if (this.mEntity != null) {
-            d.invokeMethod(this.mEntity, "onTitleChanged", new Class[]{CharSequence.class, Integer.TYPE}, new Object[]{charSequence, Integer.valueOf(i)});
+    public void onTitleChanged(CharSequence charSequence, int i) {
+        PluginBaseActivity pluginBaseActivity = this.mEntity;
+        if (pluginBaseActivity != null) {
+            d.k(pluginBaseActivity, "onTitleChanged", new Class[]{CharSequence.class, Integer.TYPE}, new Object[]{charSequence, Integer.valueOf(i)});
         } else {
             super.onTitleChanged(charSequence, i);
         }
@@ -708,32 +978,42 @@ public class ActivityProxy extends Activity implements Handler.Callback, g, i, a
 
     @Override // android.app.Activity
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        return this.mEntity != null ? this.mEntity.onTouchEvent(motionEvent) : super.onTouchEvent(motionEvent);
+        PluginBaseActivity pluginBaseActivity = this.mEntity;
+        if (pluginBaseActivity != null) {
+            return pluginBaseActivity.onTouchEvent(motionEvent);
+        }
+        return super.onTouchEvent(motionEvent);
     }
 
     @Override // android.app.Activity
     public boolean onTrackballEvent(MotionEvent motionEvent) {
-        return this.mEntity != null ? this.mEntity.onTrackballEvent(motionEvent) : super.onTrackballEvent(motionEvent);
+        PluginBaseActivity pluginBaseActivity = this.mEntity;
+        if (pluginBaseActivity != null) {
+            return pluginBaseActivity.onTrackballEvent(motionEvent);
+        }
+        return super.onTrackballEvent(motionEvent);
     }
 
     @Override // android.app.Activity
     public void onUserInteraction() {
-        if (this.mEntity != null) {
-            this.mEntity.onUserInteraction();
+        PluginBaseActivity pluginBaseActivity = this.mEntity;
+        if (pluginBaseActivity != null) {
+            pluginBaseActivity.onUserInteraction();
         } else {
             super.onUserInteraction();
         }
     }
 
     @Override // android.app.Activity
-    protected void onUserLeaveHint() {
+    public void onUserLeaveHint() {
         super.onUserLeaveHint();
     }
 
     @Override // android.app.Activity, android.view.Window.Callback
     public void onWindowAttributesChanged(WindowManager.LayoutParams layoutParams) {
-        if (this.mEntity != null) {
-            this.mEntity.onWindowAttributesChanged(layoutParams);
+        PluginBaseActivity pluginBaseActivity = this.mEntity;
+        if (pluginBaseActivity != null) {
+            pluginBaseActivity.onWindowAttributesChanged(layoutParams);
         } else {
             super.onWindowAttributesChanged(layoutParams);
         }
@@ -741,8 +1021,9 @@ public class ActivityProxy extends Activity implements Handler.Callback, g, i, a
 
     @Override // android.app.Activity, android.view.Window.Callback
     public void onWindowFocusChanged(boolean z) {
-        if (this.mEntity != null) {
-            this.mEntity.onWindowFocusChanged(z);
+        PluginBaseActivity pluginBaseActivity = this.mEntity;
+        if (pluginBaseActivity != null) {
+            pluginBaseActivity.onWindowFocusChanged(z);
         } else {
             super.onWindowFocusChanged(z);
         }
@@ -750,8 +1031,9 @@ public class ActivityProxy extends Activity implements Handler.Callback, g, i, a
 
     @Override // android.app.Activity
     public void openContextMenu(View view) {
-        if (this.mEntity != null) {
-            this.mEntity.openContextMenu(view);
+        PluginBaseActivity pluginBaseActivity = this.mEntity;
+        if (pluginBaseActivity != null) {
+            pluginBaseActivity.openContextMenu(view);
         } else {
             super.openContextMenu(view);
         }
@@ -759,8 +1041,9 @@ public class ActivityProxy extends Activity implements Handler.Callback, g, i, a
 
     @Override // android.app.Activity
     public void openOptionsMenu() {
-        if (this.mEntity != null) {
-            this.mEntity.openOptionsMenu();
+        PluginBaseActivity pluginBaseActivity = this.mEntity;
+        if (pluginBaseActivity != null) {
+            pluginBaseActivity.openOptionsMenu();
         } else {
             super.openOptionsMenu();
         }
@@ -768,114 +1051,120 @@ public class ActivityProxy extends Activity implements Handler.Callback, g, i, a
 
     @Override // android.app.Activity
     public void overridePendingTransition(int i, int i2) {
-        if (this.mEntity != null) {
-            this.mEntity.overridePendingTransition(i, i2);
+        PluginBaseActivity pluginBaseActivity = this.mEntity;
+        if (pluginBaseActivity != null) {
+            pluginBaseActivity.overridePendingTransition(i, i2);
         } else {
             super.overridePendingTransition(i, i2);
         }
     }
 
-    @Override // com.baidu.adp.plugin.a.a
-    public View proxyOnCreateView(String str, Context context, AttributeSet attributeSet) {
-        return super.onCreateView(str, context, attributeSet);
-    }
-
-    @Override // com.baidu.adp.plugin.a.a
-    public View proxyOnCreateView(View view, String str, Context context, AttributeSet attributeSet) {
-        return super.onCreateView(view, str, context, attributeSet);
-    }
-
-    @Override // com.baidu.adp.plugin.a.a
+    @Override // d.b.b.h.f.a
     public void proxyAddContentView(View view, ViewGroup.LayoutParams layoutParams) {
         super.addContentView(view, layoutParams);
     }
 
-    @Override // com.baidu.adp.plugin.a.a
+    @Override // d.b.b.h.f.a
     public boolean proxyBindService(Intent intent, ServiceConnection serviceConnection, int i) {
         return super.bindService(intent, serviceConnection, i);
     }
 
-    @Override // com.baidu.adp.plugin.a.a
+    @Override // d.b.b.h.f.a
     public void proxyCloseContextMenu() {
         super.closeContextMenu();
     }
 
-    @Override // com.baidu.adp.plugin.a.a
+    @Override // d.b.b.h.f.a
     public void proxyCloseOptionsMenu() {
         super.closeOptionsMenu();
     }
 
-    @Override // com.baidu.adp.plugin.a.a
+    @Override // d.b.b.h.f.a
     public PendingIntent proxyCreatePendingResult(int i, Intent intent, int i2) {
         return super.createPendingResult(i, intent, i2);
     }
 
-    @Override // com.baidu.adp.plugin.a.a
+    @Override // d.b.b.h.f.a
+    public boolean proxyDispatchGenericMotionEvent(MotionEvent motionEvent) {
+        return super.dispatchGenericMotionEvent(motionEvent);
+    }
+
+    @Override // d.b.b.h.f.a
     public boolean proxyDispatchKeyEvent(KeyEvent keyEvent) {
         return super.dispatchKeyEvent(keyEvent);
     }
 
-    @Override // com.baidu.adp.plugin.a.a
+    @Override // d.b.b.h.f.a
+    public boolean proxyDispatchKeyShortcutEvent(KeyEvent keyEvent) {
+        return super.dispatchKeyShortcutEvent(keyEvent);
+    }
+
+    @Override // d.b.b.h.f.a
     public boolean proxyDispatchPopulateAccessibilityEvent(AccessibilityEvent accessibilityEvent) {
         return super.dispatchPopulateAccessibilityEvent(accessibilityEvent);
     }
 
-    @Override // com.baidu.adp.plugin.a.a
+    @Override // d.b.b.h.f.a
     public boolean proxyDispatchTouchEvent(MotionEvent motionEvent) {
         return super.dispatchTouchEvent(motionEvent);
     }
 
-    @Override // com.baidu.adp.plugin.a.a
+    @Override // d.b.b.h.f.a
     public boolean proxyDispatchTrackballEvent(MotionEvent motionEvent) {
         return super.dispatchTrackballEvent(motionEvent);
     }
 
-    @Override // com.baidu.adp.plugin.a.a
+    @Override // d.b.b.h.f.a
     public View proxyFindViewById(int i) {
         return super.findViewById(i);
     }
 
-    @Override // com.baidu.adp.plugin.a.a
+    @Override // d.b.b.h.f.a
     public void proxyFinish() {
         super.finish();
     }
 
-    @Override // com.baidu.adp.plugin.a.a
+    @Override // d.b.b.h.f.a
     public void proxyFinishActivity(int i) {
         super.finishActivity(i);
     }
 
-    @Override // com.baidu.adp.plugin.a.a
+    @Override // d.b.b.h.f.a
     public void proxyFinishActivityFromChild(Activity activity, int i) {
         super.finishActivityFromChild(activity, i);
     }
 
-    @Override // com.baidu.adp.plugin.a.a
+    @Override // d.b.b.h.f.a
     public void proxyFinishFromChild(Activity activity) {
         super.finishFromChild(activity);
     }
 
-    @Override // com.baidu.adp.plugin.a.a
+    @Override // d.b.b.h.f.a
+    public Context proxyGetApplicationContext() {
+        return super.getApplicationContext();
+    }
+
+    @Override // d.b.b.h.f.a
     public ComponentName proxyGetCallingActivity() {
         return null;
     }
 
-    @Override // com.baidu.adp.plugin.a.a
+    @Override // d.b.b.h.f.a
     public String proxyGetCallingPackage() {
         return super.getCallingPackage();
     }
 
-    @Override // com.baidu.adp.plugin.a.a
+    @Override // d.b.b.h.f.a
     public int proxyGetChangingConfigurations() {
         return super.getChangingConfigurations();
     }
 
-    @Override // com.baidu.adp.plugin.a.a
+    @Override // d.b.b.h.f.a
     public View proxyGetCurrentFocus() {
         return super.getCurrentFocus();
     }
 
-    @Override // com.baidu.adp.plugin.a.a
+    @Override // d.b.b.h.f.a
     public Intent proxyGetIntent() {
         return super.getIntent();
     }
@@ -884,412 +1173,397 @@ public class ActivityProxy extends Activity implements Handler.Callback, g, i, a
         return super.getLastNonConfigurationInstance();
     }
 
-    @Override // com.baidu.adp.plugin.a.a
+    @Override // d.b.b.h.f.a
     public LayoutInflater proxyGetLayoutInflater() {
         return super.getLayoutInflater();
     }
 
-    @Override // com.baidu.adp.plugin.a.a
+    @Override // d.b.b.h.f.a
     public String proxyGetLocalClassName() {
         return super.getLocalClassName();
     }
 
-    @Override // com.baidu.adp.plugin.a.a
+    @Override // d.b.b.h.f.a
     public MenuInflater proxyGetMenuInflater() {
         return super.getMenuInflater();
     }
 
-    @Override // com.baidu.adp.plugin.a.a
+    @Override // d.b.b.h.f.a
     public PackageManager proxyGetPackageManager() {
         return super.getPackageManager();
     }
 
-    @Override // com.baidu.adp.plugin.a.a
+    @Override // d.b.b.h.f.a
     public SharedPreferences proxyGetPreferences(int i) {
         return super.getPreferences(i);
     }
 
-    @Override // com.baidu.adp.plugin.a.a
+    @Override // d.b.b.h.f.a
     public int proxyGetRequestedOrientation() {
         return super.getRequestedOrientation();
     }
 
-    @Override // com.baidu.adp.plugin.a.a
+    @Override // d.b.b.h.f.a
+    public SharedPreferences proxyGetSharedPreferences(String str, int i) {
+        return super.getSharedPreferences(str, i);
+    }
+
+    @Override // d.b.b.h.f.a
     public Object proxyGetSystemService(String str) {
         return super.getSystemService(str);
     }
 
-    @Override // com.baidu.adp.plugin.a.a
+    @Override // d.b.b.h.f.a
     public int proxyGetTaskId() {
         return super.getTaskId();
     }
 
-    @Override // com.baidu.adp.plugin.a.a
+    @Override // d.b.b.h.f.a
     public int proxyGetWallpaperDesiredMinimumHeight() {
         return super.getWallpaperDesiredMinimumHeight();
     }
 
-    @Override // com.baidu.adp.plugin.a.a
+    @Override // d.b.b.h.f.a
     public int proxyGetWallpaperDesiredMinimumWidth() {
         return super.getWallpaperDesiredMinimumWidth();
     }
 
-    @Override // com.baidu.adp.plugin.a.a
+    @Override // d.b.b.h.f.a
     public Window proxyGetWindow() {
         return super.getWindow();
     }
 
-    @Override // com.baidu.adp.plugin.a.a
+    @Override // d.b.b.h.f.a
     public WindowManager proxyGetWindowManager() {
         return super.getWindowManager();
     }
 
-    @Override // com.baidu.adp.plugin.a.a
+    @Override // d.b.b.h.f.a
     public boolean proxyHasWindowFocus() {
         return super.hasWindowFocus();
     }
 
-    @Override // com.baidu.adp.plugin.a.a
+    @Override // d.b.b.h.f.a
     public boolean proxyIsFinishing() {
         return super.isFinishing();
     }
 
-    @Override // com.baidu.adp.plugin.a.a
+    @Override // d.b.b.h.f.a
     public boolean proxyIsTaskRoot() {
         return super.isTaskRoot();
     }
 
-    @Override // com.baidu.adp.plugin.a.a
+    @Override // d.b.b.h.f.a
     public boolean proxyMoveTaskToBack(boolean z) {
         return super.moveTaskToBack(z);
     }
 
-    @Override // com.baidu.adp.plugin.a.a
+    @Override // d.b.b.h.f.a
     public void proxyOnActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
     }
 
-    @Override // com.baidu.adp.plugin.a.a
+    @Override // d.b.b.h.f.a
     public void proxyOnApplyThemeResource(Resources.Theme theme, int i, boolean z) {
         super.onApplyThemeResource(theme, i, z);
     }
 
-    @Override // com.baidu.adp.plugin.a.a
+    @Override // d.b.b.h.f.a
     public void proxyOnAttachedToWindow() {
         super.onAttachedToWindow();
     }
 
-    @Override // com.baidu.adp.plugin.a.a
+    @Override // d.b.b.h.f.a
     public void proxyOnBackPressed() {
         super.onBackPressed();
     }
 
-    @Override // com.baidu.adp.plugin.a.a
+    @Override // d.b.b.h.f.a
     public void proxyOnChildTitleChanged(Activity activity, CharSequence charSequence) {
         super.onChildTitleChanged(activity, charSequence);
     }
 
-    @Override // com.baidu.adp.plugin.a.a
+    @Override // d.b.b.h.f.a
     public void proxyOnConfigurationChanged(Configuration configuration) {
         super.onConfigurationChanged(configuration);
     }
 
-    @Override // com.baidu.adp.plugin.a.a
+    @Override // d.b.b.h.f.a
     public void proxyOnContentChanged() {
         super.onContentChanged();
     }
 
-    @Override // com.baidu.adp.plugin.a.a
+    @Override // d.b.b.h.f.a
     public boolean proxyOnContextItemSelected(MenuItem menuItem) {
         return super.onContextItemSelected(menuItem);
     }
 
-    @Override // com.baidu.adp.plugin.a.a
+    @Override // d.b.b.h.f.a
     public void proxyOnContextMenuClosed(Menu menu) {
         super.onContextMenuClosed(menu);
     }
 
-    @Override // com.baidu.adp.plugin.a.a
+    @Override // d.b.b.h.f.a
     public void proxyOnCreate(Bundle bundle) {
         super.onCreate(bundle);
     }
 
-    @Override // com.baidu.adp.plugin.a.a
+    @Override // d.b.b.h.f.a
     public void proxyOnCreateContextMenu(ContextMenu contextMenu, View view, ContextMenu.ContextMenuInfo contextMenuInfo) {
         super.onCreateContextMenu(contextMenu, view, contextMenuInfo);
     }
 
-    @Override // com.baidu.adp.plugin.a.a
+    @Override // d.b.b.h.f.a
     public boolean proxyOnCreatePanelMenu(int i, Menu menu) {
         return super.onCreatePanelMenu(i, menu);
     }
 
-    @Override // com.baidu.adp.plugin.a.a
+    @Override // d.b.b.h.f.a
     public boolean proxyOnCreateThumbnail(Bitmap bitmap, Canvas canvas) {
         return super.onCreateThumbnail(bitmap, canvas);
     }
 
-    @Override // com.baidu.adp.plugin.a.a
+    @Override // d.b.b.h.f.a
+    public View proxyOnCreateView(String str, Context context, AttributeSet attributeSet) {
+        return super.onCreateView(str, context, attributeSet);
+    }
+
+    @Override // d.b.b.h.f.a
     public void proxyOnDestroy() {
         super.onDestroy();
     }
 
-    @Override // com.baidu.adp.plugin.a.a
+    @Override // d.b.b.h.f.a
     public void proxyOnDetachedFromWindow() {
         super.onDetachedFromWindow();
     }
 
-    @Override // com.baidu.adp.plugin.a.a
+    @Override // d.b.b.h.f.a
     public boolean proxyOnKeyDown(int i, KeyEvent keyEvent) {
         return super.onKeyDown(i, keyEvent);
     }
 
-    @Override // com.baidu.adp.plugin.a.a
+    @Override // d.b.b.h.f.a
     public boolean proxyOnKeyLongPress(int i, KeyEvent keyEvent) {
         return super.onKeyLongPress(i, keyEvent);
     }
 
-    @Override // com.baidu.adp.plugin.a.a
+    @Override // d.b.b.h.f.a
     public boolean proxyOnKeyMultiple(int i, int i2, KeyEvent keyEvent) {
         return super.onKeyMultiple(i, i2, keyEvent);
     }
 
-    @Override // com.baidu.adp.plugin.a.a
+    @Override // d.b.b.h.f.a
     public boolean proxyOnKeyUp(int i, KeyEvent keyEvent) {
         return super.onKeyUp(i, keyEvent);
     }
 
-    @Override // com.baidu.adp.plugin.a.a
+    @Override // d.b.b.h.f.a
     public void proxyOnLowMemory() {
         super.onLowMemory();
     }
 
-    @Override // com.baidu.adp.plugin.a.a
+    @Override // d.b.b.h.f.a
     public boolean proxyOnMenuItemSelected(int i, MenuItem menuItem) {
         return super.onMenuItemSelected(i, menuItem);
     }
 
-    @Override // com.baidu.adp.plugin.a.a
+    @Override // d.b.b.h.f.a
     public boolean proxyOnMenuOpened(int i, Menu menu) {
         return super.onMenuOpened(i, menu);
     }
 
-    @Override // com.baidu.adp.plugin.a.a
+    @Override // d.b.b.h.f.a
     public boolean proxyOnOptionsItemSelected(MenuItem menuItem) {
         return super.onOptionsItemSelected(menuItem);
     }
 
-    @Override // com.baidu.adp.plugin.a.a
+    @Override // d.b.b.h.f.a
     public void proxyOnOptionsMenuClosed(Menu menu) {
         super.onOptionsMenuClosed(menu);
     }
 
-    @Override // com.baidu.adp.plugin.a.a
+    @Override // d.b.b.h.f.a
     public void proxyOnPanelClosed(int i, Menu menu) {
         super.onPanelClosed(i, menu);
     }
 
-    @Override // com.baidu.adp.plugin.a.a
+    @Override // d.b.b.h.f.a
     public void proxyOnPause() {
         super.onPause();
     }
 
-    @Override // com.baidu.adp.plugin.a.a
+    @Override // d.b.b.h.f.a
     public void proxyOnPostCreate(Bundle bundle) {
         super.onPostCreate(bundle);
     }
 
-    @Override // com.baidu.adp.plugin.a.a
+    @Override // d.b.b.h.f.a
     public void proxyOnPostResume() {
         super.onPostResume();
     }
 
-    @Override // com.baidu.adp.plugin.a.a
+    @Override // d.b.b.h.f.a
     public void proxyOnPrepareDialog(int i, Dialog dialog) {
         super.onPrepareDialog(i, dialog);
     }
 
-    @Override // com.baidu.adp.plugin.a.a
+    @Override // d.b.b.h.f.a
     public boolean proxyOnPrepareOptionsMenu(Menu menu) {
         return super.onPrepareOptionsMenu(menu);
     }
 
-    @Override // com.baidu.adp.plugin.a.a
+    @Override // d.b.b.h.f.a
     public boolean proxyOnPreparePanel(int i, View view, Menu menu) {
         return super.onPreparePanel(i, view, menu);
     }
 
-    @Override // com.baidu.adp.plugin.a.a
+    @Override // d.b.b.h.f.a
     public void proxyOnRestart() {
         super.onRestart();
     }
 
-    @Override // com.baidu.adp.plugin.a.a
+    @Override // d.b.b.h.f.a
     public void proxyOnRestoreInstanceState(Bundle bundle) {
         super.onRestoreInstanceState(bundle);
     }
 
-    @Override // com.baidu.adp.plugin.a.a
+    @Override // d.b.b.h.f.a
     public void proxyOnResume() {
         super.onResume();
     }
 
-    @Override // com.baidu.adp.plugin.a.a
+    @Override // d.b.b.h.f.a
     public Object proxyOnRetainNonConfigurationInstance() {
         return super.onRetainNonConfigurationInstance();
     }
 
-    @Override // com.baidu.adp.plugin.a.a
+    @Override // d.b.b.h.f.a
     public void proxyOnSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
     }
 
-    @Override // com.baidu.adp.plugin.a.a
+    @Override // d.b.b.h.f.a
     public boolean proxyOnSearchRequested() {
         return super.onSearchRequested();
     }
 
-    @Override // com.baidu.adp.plugin.a.a
+    @Override // d.b.b.h.f.a
     public void proxyOnStart() {
         super.onStart();
     }
 
-    @Override // com.baidu.adp.plugin.a.a
+    @Override // d.b.b.h.f.a
     public void proxyOnStop() {
         super.onStop();
     }
 
-    @Override // com.baidu.adp.plugin.a.a
+    @Override // d.b.b.h.f.a
     public void proxyOnTitleChanged(CharSequence charSequence, int i) {
         super.onTitleChanged(charSequence, i);
     }
 
-    @Override // com.baidu.adp.plugin.a.a
+    @Override // d.b.b.h.f.a
     public boolean proxyOnTouchEvent(MotionEvent motionEvent) {
         return super.onTouchEvent(motionEvent);
     }
 
-    @Override // com.baidu.adp.plugin.a.a
+    @Override // d.b.b.h.f.a
     public boolean proxyOnTrackballEvent(MotionEvent motionEvent) {
         return super.onTrackballEvent(motionEvent);
     }
 
-    @Override // com.baidu.adp.plugin.a.a
+    @Override // d.b.b.h.f.a
     public void proxyOnUserInteraction() {
         super.onUserInteraction();
     }
 
-    @Override // com.baidu.adp.plugin.a.a
+    @Override // d.b.b.h.f.a
     public void proxyOnWindowAttributesChanged(WindowManager.LayoutParams layoutParams) {
         super.onWindowAttributesChanged(layoutParams);
     }
 
-    @Override // com.baidu.adp.plugin.a.a
+    @Override // d.b.b.h.f.a
     public void proxyOnWindowFocusChanged(boolean z) {
         super.onWindowFocusChanged(z);
     }
 
-    @Override // com.baidu.adp.plugin.a.a
+    @Override // d.b.b.h.f.a
     public void proxyOpenContextMenu(View view) {
         super.openContextMenu(view);
     }
 
-    @Override // com.baidu.adp.plugin.a.a
+    @Override // d.b.b.h.f.a
     public void proxyOpenOptionsMenu() {
         super.openOptionsMenu();
     }
 
-    @Override // com.baidu.adp.plugin.a.a
-    public boolean proxyDispatchKeyShortcutEvent(KeyEvent keyEvent) {
-        return super.dispatchKeyShortcutEvent(keyEvent);
-    }
-
-    @Override // com.baidu.adp.plugin.a.a
+    @Override // d.b.b.h.f.a
     public void proxyOverridePendingTransition(int i, int i2) {
         super.overridePendingTransition(i, i2);
     }
 
-    @Override // com.baidu.adp.plugin.a.a
+    @Override // d.b.b.h.f.a
     public void proxyRegisterForContextMenu(View view) {
         super.registerForContextMenu(view);
     }
 
-    @Override // com.baidu.adp.plugin.a.a
+    @Override // d.b.b.h.f.a
     public void proxySetContentView(int i) {
         super.setContentView(i);
     }
 
-    @Override // com.baidu.adp.plugin.a.a
-    public void proxySetContentView(View view) {
-        super.setContentView(view);
-    }
-
-    @Override // com.baidu.adp.plugin.a.a
-    public void proxySetContentView(View view, ViewGroup.LayoutParams layoutParams) {
-        super.setContentView(view, layoutParams);
-    }
-
-    @Override // com.baidu.adp.plugin.a.a
+    @Override // d.b.b.h.f.a
     public void proxySetIntent(Intent intent) {
         super.setIntent(intent);
     }
 
-    @Override // com.baidu.adp.plugin.a.a
+    @Override // d.b.b.h.f.a
     public void proxySetRequestedOrientation(int i) {
         super.setRequestedOrientation(i);
     }
 
-    @Override // com.baidu.adp.plugin.a.a
+    @Override // d.b.b.h.f.a
     public void proxySetTitle(int i) {
         super.setTitle(i);
     }
 
-    @Override // com.baidu.adp.plugin.a.a
-    public void proxySetTitle(CharSequence charSequence) {
-        super.setTitle(charSequence);
-    }
-
-    @Override // com.baidu.adp.plugin.a.a
+    @Override // d.b.b.h.f.a
     public void proxySetTitleColor(int i) {
         super.setTitleColor(i);
     }
 
-    @Override // com.baidu.adp.plugin.a.a
+    @Override // d.b.b.h.f.a
     public void proxySetVisible(boolean z) {
         super.setVisible(z);
     }
 
-    @Override // com.baidu.adp.plugin.a.a
+    @Override // d.b.b.h.f.a
     public void proxyStartActivity(Intent intent) {
         super.startActivity(intent);
     }
 
-    @Override // com.baidu.adp.plugin.a.a
-    public boolean proxyDispatchGenericMotionEvent(MotionEvent motionEvent) {
-        return super.dispatchGenericMotionEvent(motionEvent);
-    }
-
-    @Override // com.baidu.adp.plugin.a.a
+    @Override // d.b.b.h.f.a
     public void proxyStartActivityForResult(Intent intent, int i) {
         super.startActivityForResult(intent, i);
     }
 
-    @Override // com.baidu.adp.plugin.a.a
+    @Override // d.b.b.h.f.a
     public void proxyStartActivityFromChild(Activity activity, Intent intent, int i) {
         super.startActivityFromChild(activity, intent, i);
     }
 
-    @Override // com.baidu.adp.plugin.a.a
+    @Override // d.b.b.h.f.a
     public boolean proxyStartActivityIfNeeded(Intent intent, int i) {
         return super.startActivityIfNeeded(intent, i);
     }
 
-    @Override // com.baidu.adp.plugin.a.a
+    @Override // d.b.b.h.f.a
     public void proxyStartIntentSender(IntentSender intentSender, Intent intent, int i, int i2, int i3) throws IntentSender.SendIntentException {
         super.startIntentSender(intentSender, intent, i, i2, i3);
     }
 
-    @Override // com.baidu.adp.plugin.a.a
+    @Override // d.b.b.h.f.a
     public void proxyStartIntentSenderForResult(IntentSender intentSender, int i, Intent intent, int i2, int i3, int i4) throws IntentSender.SendIntentException {
         super.startIntentSenderForResult(intentSender, i, intent, i2, i3, i4);
     }
@@ -1298,109 +1572,108 @@ public class ActivityProxy extends Activity implements Handler.Callback, g, i, a
         super.startIntentSenderFromChild(activity, intentSender, i, intent, i2, i3, i4);
     }
 
-    @Override // com.baidu.adp.plugin.a.a
+    @Override // d.b.b.h.f.a
     public void proxyStartManagingCursor(Cursor cursor) {
         super.startManagingCursor(cursor);
     }
 
-    @Override // com.baidu.adp.plugin.a.a
+    @Override // d.b.b.h.f.a
     public boolean proxyStartNextMatchingActivity(Intent intent) {
         return super.startNextMatchingActivity(intent);
     }
 
-    @Override // com.baidu.adp.plugin.a.a
+    @Override // d.b.b.h.f.a
     public void proxyStartSearch(String str, boolean z, Bundle bundle, boolean z2) {
         super.startSearch(str, z, bundle, z2);
     }
 
-    @Override // com.baidu.adp.plugin.a.a
+    @Override // d.b.b.h.f.a
     public ComponentName proxyStartService(Intent intent) {
         return super.startService(intent);
     }
 
-    @Override // com.baidu.adp.plugin.a.a
+    @Override // d.b.b.h.f.a
     public void proxyStopManagingCursor(Cursor cursor) {
         super.stopManagingCursor(cursor);
     }
 
-    @Override // com.baidu.adp.plugin.a.a
+    @Override // d.b.b.h.f.a
     public boolean proxyStopService(Intent intent) {
         return super.stopService(intent);
     }
 
-    @Override // com.baidu.adp.plugin.a.a
+    @Override // d.b.b.h.f.a
     public void proxyTakeKeyEvents(boolean z) {
         super.takeKeyEvents(z);
     }
 
-    @Override // com.baidu.adp.plugin.a.a
+    @Override // d.b.b.h.f.a
     public void proxyUnregisterForContextMenu(View view) {
         super.unregisterForContextMenu(view);
     }
 
+    public void proxysetFinishOnTouchOutside(boolean z) {
+        super.setFinishOnTouchOutside(z);
+    }
+
     @Override // android.app.Activity
     public void registerForContextMenu(View view) {
-        if (this.mEntity != null) {
-            this.mEntity.registerForContextMenu(view);
+        PluginBaseActivity pluginBaseActivity = this.mEntity;
+        if (pluginBaseActivity != null) {
+            pluginBaseActivity.registerForContextMenu(view);
         } else {
             super.registerForContextMenu(view);
         }
     }
 
+    @Override // android.content.ContextWrapper, android.content.Context, d.b.b.h.f.a
+    public Intent registerReceiver(BroadcastReceiver broadcastReceiver, IntentFilter intentFilter) {
+        return super.registerReceiver(broadcastReceiver, intentFilter);
+    }
+
     @Override // android.app.Activity
     public void setContentView(int i) {
-        if (this.mEntity != null) {
-            this.mEntity.setContentView(i);
+        PluginBaseActivity pluginBaseActivity = this.mEntity;
+        if (pluginBaseActivity != null) {
+            pluginBaseActivity.setContentView(i);
         } else {
             super.setContentView(i);
         }
     }
 
     @Override // android.app.Activity
-    public void setContentView(View view) {
-        if (this.mEntity != null) {
-            this.mEntity.setContentView(view);
-        } else {
-            super.setContentView(view);
-        }
-    }
-
-    @Override // android.app.Activity
-    public void setContentView(View view, ViewGroup.LayoutParams layoutParams) {
-        if (this.mEntity != null) {
-            this.mEntity.setContentView(view, layoutParams);
-        } else {
-            super.setContentView(view, layoutParams);
-        }
-    }
-
-    @Override // android.app.Activity
     public void setIntent(Intent intent) {
-        if (this.mEntity != null) {
-            this.mEntity.setIntent(intent);
+        PluginBaseActivity pluginBaseActivity = this.mEntity;
+        if (pluginBaseActivity != null) {
+            pluginBaseActivity.setIntent(intent);
         } else {
             super.setIntent(intent);
         }
     }
 
+    @Override // d.b.b.a.i
+    public void setIsScroll(boolean z) {
+        PluginBaseActivity pluginBaseActivity = this.mEntity;
+        if (pluginBaseActivity != null) {
+            pluginBaseActivity.setIsScroll(z);
+        }
+    }
+
     @Override // android.app.Activity
     public void setRequestedOrientation(int i) {
-        if (this.mEntity != null) {
-            this.mEntity.setRequestedOrientation(i);
+        PluginBaseActivity pluginBaseActivity = this.mEntity;
+        if (pluginBaseActivity != null) {
+            pluginBaseActivity.setRequestedOrientation(i);
         } else {
             super.setRequestedOrientation(i);
         }
     }
 
-    @Override // android.view.ContextThemeWrapper, android.content.ContextWrapper, android.content.Context
-    public Resources.Theme getTheme() {
-        return this.mEntity != null ? this.mEntity.getTheme() : super.getTheme();
-    }
-
     @Override // android.app.Activity, android.view.ContextThemeWrapper, android.content.ContextWrapper, android.content.Context
     public void setTheme(int i) {
-        if (this.mEntity != null) {
-            this.mEntity.setTheme(i);
+        PluginBaseActivity pluginBaseActivity = this.mEntity;
+        if (pluginBaseActivity != null) {
+            pluginBaseActivity.setTheme(i);
         } else {
             super.setTheme(i);
         }
@@ -1408,26 +1681,19 @@ public class ActivityProxy extends Activity implements Handler.Callback, g, i, a
 
     @Override // android.app.Activity
     public void setTitle(int i) {
-        if (this.mEntity != null) {
-            this.mEntity.setTitle(i);
+        PluginBaseActivity pluginBaseActivity = this.mEntity;
+        if (pluginBaseActivity != null) {
+            pluginBaseActivity.setTitle(i);
         } else {
             super.setTitle(i);
         }
     }
 
     @Override // android.app.Activity
-    public void setTitle(CharSequence charSequence) {
-        if (this.mEntity != null) {
-            this.mEntity.setTitle(charSequence);
-        } else {
-            super.setTitle(charSequence);
-        }
-    }
-
-    @Override // android.app.Activity
     public void setTitleColor(int i) {
-        if (this.mEntity != null) {
-            this.mEntity.setTitleColor(i);
+        PluginBaseActivity pluginBaseActivity = this.mEntity;
+        if (pluginBaseActivity != null) {
+            pluginBaseActivity.setTitleColor(i);
         } else {
             super.setTitleColor(i);
         }
@@ -1435,8 +1701,9 @@ public class ActivityProxy extends Activity implements Handler.Callback, g, i, a
 
     @Override // android.app.Activity
     public void setVisible(boolean z) {
-        if (this.mEntity != null) {
-            this.mEntity.setVisible(z);
+        PluginBaseActivity pluginBaseActivity = this.mEntity;
+        if (pluginBaseActivity != null) {
+            pluginBaseActivity.setVisible(z);
         } else {
             super.setVisible(z);
         }
@@ -1444,8 +1711,9 @@ public class ActivityProxy extends Activity implements Handler.Callback, g, i, a
 
     @Override // android.app.Activity, android.content.ContextWrapper, android.content.Context
     public void startActivity(Intent intent) {
-        if (this.mEntity != null) {
-            this.mEntity.startActivity(intent);
+        PluginBaseActivity pluginBaseActivity = this.mEntity;
+        if (pluginBaseActivity != null) {
+            pluginBaseActivity.startActivity(intent);
         } else {
             super.startActivity(intent);
         }
@@ -1453,8 +1721,9 @@ public class ActivityProxy extends Activity implements Handler.Callback, g, i, a
 
     @Override // android.app.Activity
     public void startActivityForResult(Intent intent, int i) {
-        if (this.mEntity != null) {
-            this.mEntity.startActivityForResult(intent, i);
+        PluginBaseActivity pluginBaseActivity = this.mEntity;
+        if (pluginBaseActivity != null) {
+            pluginBaseActivity.startActivityForResult(intent, i);
         } else {
             super.startActivityForResult(intent, i);
         }
@@ -1462,8 +1731,9 @@ public class ActivityProxy extends Activity implements Handler.Callback, g, i, a
 
     @Override // android.app.Activity
     public void startActivityFromChild(Activity activity, Intent intent, int i) {
-        if (this.mEntity != null) {
-            this.mEntity.startActivityFromChild(activity, intent, i);
+        PluginBaseActivity pluginBaseActivity = this.mEntity;
+        if (pluginBaseActivity != null) {
+            pluginBaseActivity.startActivityFromChild(activity, intent, i);
         } else {
             super.startActivityFromChild(activity, intent, i);
         }
@@ -1471,13 +1741,18 @@ public class ActivityProxy extends Activity implements Handler.Callback, g, i, a
 
     @Override // android.app.Activity
     public boolean startActivityIfNeeded(Intent intent, int i) {
-        return this.mEntity != null ? this.mEntity.startActivityIfNeeded(intent, i) : super.startActivityIfNeeded(intent, i);
+        PluginBaseActivity pluginBaseActivity = this.mEntity;
+        if (pluginBaseActivity != null) {
+            return pluginBaseActivity.startActivityIfNeeded(intent, i);
+        }
+        return super.startActivityIfNeeded(intent, i);
     }
 
     @Override // android.app.Activity, android.content.ContextWrapper, android.content.Context
     public void startIntentSender(IntentSender intentSender, Intent intent, int i, int i2, int i3) throws IntentSender.SendIntentException {
-        if (this.mEntity != null) {
-            this.mEntity.startIntentSender(intentSender, intent, i, i2, i3);
+        PluginBaseActivity pluginBaseActivity = this.mEntity;
+        if (pluginBaseActivity != null) {
+            pluginBaseActivity.startIntentSender(intentSender, intent, i, i2, i3);
         } else {
             super.startIntentSender(intentSender, intent, i, i2, i3);
         }
@@ -1485,8 +1760,9 @@ public class ActivityProxy extends Activity implements Handler.Callback, g, i, a
 
     @Override // android.app.Activity
     public void startIntentSenderForResult(IntentSender intentSender, int i, Intent intent, int i2, int i3, int i4) throws IntentSender.SendIntentException {
-        if (this.mEntity != null) {
-            this.mEntity.startIntentSenderForResult(intentSender, i, intent, i2, i3, i4);
+        PluginBaseActivity pluginBaseActivity = this.mEntity;
+        if (pluginBaseActivity != null) {
+            pluginBaseActivity.startIntentSenderForResult(intentSender, i, intent, i2, i3, i4);
         } else {
             super.startIntentSenderForResult(intentSender, i, intent, i2, i3, i4);
         }
@@ -1494,8 +1770,9 @@ public class ActivityProxy extends Activity implements Handler.Callback, g, i, a
 
     @Override // android.app.Activity
     public void startManagingCursor(Cursor cursor) {
-        if (this.mEntity != null) {
-            this.mEntity.startManagingCursor(cursor);
+        PluginBaseActivity pluginBaseActivity = this.mEntity;
+        if (pluginBaseActivity != null) {
+            pluginBaseActivity.startManagingCursor(cursor);
         } else {
             super.startManagingCursor(cursor);
         }
@@ -1504,13 +1781,17 @@ public class ActivityProxy extends Activity implements Handler.Callback, g, i, a
     @Override // android.app.Activity
     public boolean startNextMatchingActivity(Intent intent) {
         PluginBaseActivity pluginBaseActivity = this.mEntity;
-        return pluginBaseActivity != null ? pluginBaseActivity.startNextMatchingActivity(intent) : super.startNextMatchingActivity(intent);
+        if (pluginBaseActivity != null) {
+            return pluginBaseActivity.startNextMatchingActivity(intent);
+        }
+        return super.startNextMatchingActivity(intent);
     }
 
     @Override // android.app.Activity
     public void startSearch(String str, boolean z, Bundle bundle, boolean z2) {
-        if (this.mEntity != null) {
-            this.mEntity.startSearch(str, z, bundle, z2);
+        PluginBaseActivity pluginBaseActivity = this.mEntity;
+        if (pluginBaseActivity != null) {
+            pluginBaseActivity.startSearch(str, z, bundle, z2);
         } else {
             super.startSearch(str, z, bundle, z2);
         }
@@ -1518,13 +1799,18 @@ public class ActivityProxy extends Activity implements Handler.Callback, g, i, a
 
     @Override // android.content.ContextWrapper, android.content.Context
     public ComponentName startService(Intent intent) {
-        return this.mEntity != null ? this.mEntity.startService(intent) : super.startService(intent);
+        PluginBaseActivity pluginBaseActivity = this.mEntity;
+        if (pluginBaseActivity != null) {
+            return pluginBaseActivity.startService(intent);
+        }
+        return super.startService(intent);
     }
 
     @Override // android.app.Activity
     public void stopManagingCursor(Cursor cursor) {
-        if (this.mEntity != null) {
-            this.mEntity.stopManagingCursor(cursor);
+        PluginBaseActivity pluginBaseActivity = this.mEntity;
+        if (pluginBaseActivity != null) {
+            pluginBaseActivity.stopManagingCursor(cursor);
         } else {
             super.stopManagingCursor(cursor);
         }
@@ -1532,13 +1818,18 @@ public class ActivityProxy extends Activity implements Handler.Callback, g, i, a
 
     @Override // android.content.ContextWrapper, android.content.Context
     public boolean stopService(Intent intent) {
-        return this.mEntity != null ? this.mEntity.stopService(intent) : super.stopService(intent);
+        PluginBaseActivity pluginBaseActivity = this.mEntity;
+        if (pluginBaseActivity != null) {
+            return pluginBaseActivity.stopService(intent);
+        }
+        return super.stopService(intent);
     }
 
     @Override // android.app.Activity
     public void takeKeyEvents(boolean z) {
-        if (this.mEntity != null) {
-            this.mEntity.takeKeyEvents(z);
+        PluginBaseActivity pluginBaseActivity = this.mEntity;
+        if (pluginBaseActivity != null) {
+            pluginBaseActivity.takeKeyEvents(z);
         } else {
             super.takeKeyEvents(z);
         }
@@ -1546,90 +1837,88 @@ public class ActivityProxy extends Activity implements Handler.Callback, g, i, a
 
     @Override // android.app.Activity
     public void unregisterForContextMenu(View view) {
-        if (this.mEntity != null) {
-            this.mEntity.unregisterForContextMenu(view);
+        PluginBaseActivity pluginBaseActivity = this.mEntity;
+        if (pluginBaseActivity != null) {
+            pluginBaseActivity.unregisterForContextMenu(view);
         } else {
             super.unregisterForContextMenu(view);
         }
     }
 
-    public void proxysetFinishOnTouchOutside(boolean z) {
-        super.setFinishOnTouchOutside(z);
-    }
-
-    @Override // android.content.ContextWrapper, android.content.Context, com.baidu.adp.plugin.a.a
-    public Intent registerReceiver(BroadcastReceiver broadcastReceiver, IntentFilter intentFilter) {
-        return super.registerReceiver(broadcastReceiver, intentFilter);
-    }
-
-    @Override // android.content.ContextWrapper, android.content.Context, com.baidu.adp.plugin.a.a
+    @Override // android.content.ContextWrapper, android.content.Context, d.b.b.h.f.a
     public void unregisterReceiver(BroadcastReceiver broadcastReceiver) {
         super.unregisterReceiver(broadcastReceiver);
     }
 
-    @Override // com.baidu.adp.plugin.a.a
-    public PluginBaseActivity getTarget() {
-        return this.mEntity;
+    @Override // d.b.b.h.f.a
+    public View proxyOnCreateView(View view, String str, Context context, AttributeSet attributeSet) {
+        return super.onCreateView(view, str, context, attributeSet);
     }
 
-    @Override // com.baidu.adp.plugin.a.a
-    public SharedPreferences proxyGetSharedPreferences(String str, int i) {
-        return super.getSharedPreferences(str, i);
+    @Override // d.b.b.h.f.a
+    public void proxySetContentView(View view) {
+        super.setContentView(view);
     }
 
-    @Override // android.content.ContextWrapper, android.content.Context
-    public Context getApplicationContext() {
-        return this.mEntity != null ? this.mEntity.getApplicationContext() : super.getApplicationContext();
+    @Override // d.b.b.h.f.a
+    public void proxySetTitle(CharSequence charSequence) {
+        super.setTitle(charSequence);
     }
 
-    @Override // com.baidu.adp.plugin.a.a
-    public Context proxyGetApplicationContext() {
-        return super.getApplicationContext();
-    }
-
-    @Override // com.baidu.adp.base.i
-    public BdUniqueId getUniqueId() {
-        if (this.mEntity != null) {
-            return this.mEntity.getUniqueId();
-        }
-        return null;
-    }
-
-    @Override // com.baidu.adp.base.i
-    public boolean isScroll() {
-        if (this.mEntity != null) {
-            return this.mEntity.isScroll();
-        }
-        return false;
-    }
-
-    @Override // com.baidu.adp.base.i
-    public void setIsScroll(boolean z) {
-        if (this.mEntity != null) {
-            this.mEntity.setIsScroll(z);
+    @Override // android.app.Activity
+    public void onCreate(Bundle bundle) {
+        requestWindowFeature(1);
+        this.mEntity = null;
+        loadEntityActivity();
+        PluginBaseActivity pluginBaseActivity = this.mEntity;
+        if (pluginBaseActivity != null) {
+            d.k(pluginBaseActivity, MissionEvent.MESSAGE_CREATE, new Class[]{Bundle.class}, new Object[]{bundle});
+        } else {
+            super.onCreate(bundle);
         }
     }
 
-    @Override // com.baidu.adp.base.i
-    public void onPreLoad(q qVar) {
-        if (this.mEntity != null) {
-            this.mEntity.onPreLoad(qVar);
+    @Override // d.b.b.h.f.a
+    public void proxySetContentView(View view, ViewGroup.LayoutParams layoutParams) {
+        super.setContentView(view, layoutParams);
+    }
+
+    @Override // android.app.Activity, android.view.LayoutInflater.Factory
+    public View onCreateView(String str, Context context, AttributeSet attributeSet) {
+        PluginBaseActivity pluginBaseActivity = this.mEntity;
+        if (pluginBaseActivity != null) {
+            return pluginBaseActivity.onCreateView(str, context, attributeSet);
+        }
+        return super.onCreateView(str, context, attributeSet);
+    }
+
+    @Override // android.app.Activity
+    public void setContentView(View view) {
+        PluginBaseActivity pluginBaseActivity = this.mEntity;
+        if (pluginBaseActivity != null) {
+            pluginBaseActivity.setContentView(view);
+        } else {
+            super.setContentView(view);
         }
     }
 
-    @Override // android.os.Handler.Callback
-    public boolean handleMessage(Message message) {
-        if (this.mEntity != null) {
-            return this.mEntity.handleMessage(message);
+    @Override // android.app.Activity
+    public void setTitle(CharSequence charSequence) {
+        PluginBaseActivity pluginBaseActivity = this.mEntity;
+        if (pluginBaseActivity != null) {
+            pluginBaseActivity.setTitle(charSequence);
+        } else {
+            super.setTitle(charSequence);
         }
-        return false;
     }
 
-    @Override // com.baidu.adp.base.g
-    public f getPageContext() {
-        if (this.mEntity == null || !(this.mEntity instanceof g)) {
-            return null;
+    @Override // android.app.Activity
+    public void setContentView(View view, ViewGroup.LayoutParams layoutParams) {
+        PluginBaseActivity pluginBaseActivity = this.mEntity;
+        if (pluginBaseActivity != null) {
+            pluginBaseActivity.setContentView(view, layoutParams);
+        } else {
+            super.setContentView(view, layoutParams);
         }
-        return this.mEntity.getPageContext();
     }
 }

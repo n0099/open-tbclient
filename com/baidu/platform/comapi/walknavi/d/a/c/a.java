@@ -1,19 +1,22 @@
 package com.baidu.platform.comapi.walknavi.d.a.c;
 
 import com.baidu.platform.comapi.walknavi.d.a.a.b;
+import com.baidu.searchbox.pms.constants.PmsConstant;
+import com.baidu.searchbox.pms.db.PackageTable;
+import com.baidu.tbadk.core.atomData.FrsArActivityConfig;
 import com.qq.e.comm.constants.Constants;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public final class a {
     public static b a(JSONObject jSONObject) {
         b bVar = new b();
         try {
-            if (jSONObject.has("err_code")) {
-                bVar.a(jSONObject.getInt("err_code"));
+            if (jSONObject.has(PmsConstant.Statistic.STATISTIC_ERRCODE)) {
+                bVar.a(jSONObject.getInt(PmsConstant.Statistic.STATISTIC_ERRCODE));
             }
-            if (jSONObject.has("err_msg")) {
-                bVar.a(jSONObject.getString("err_msg"));
+            if (jSONObject.has(PmsConstant.Statistic.STATISTIC_ERRMSG)) {
+                bVar.a(jSONObject.getString(PmsConstant.Statistic.STATISTIC_ERRMSG));
             }
             if (jSONObject.has(Constants.KEYS.RET)) {
                 JSONObject jSONObject2 = jSONObject.getJSONObject(Constants.KEYS.RET);
@@ -37,11 +40,11 @@ public final class a {
                 if (jSONObject2.has("version_code")) {
                     bVar.e(jSONObject2.getString("version_code"));
                 }
-                if (jSONObject2.has("ar_type")) {
-                    bVar.b(Integer.parseInt(jSONObject2.getString("ar_type")));
+                if (jSONObject2.has(FrsArActivityConfig.AR_TYPE)) {
+                    bVar.b(Integer.parseInt(jSONObject2.getString(FrsArActivityConfig.AR_TYPE)));
                 }
-                if (jSONObject2.has("md5")) {
-                    bVar.f(jSONObject2.getString("md5"));
+                if (jSONObject2.has(PackageTable.MD5)) {
+                    bVar.f(jSONObject2.getString(PackageTable.MD5));
                 }
                 if (jSONObject2.has("hardware_satisfied")) {
                     bVar.b(jSONObject2.getBoolean("hardware_satisfied"));
@@ -58,7 +61,7 @@ public final class a {
                 }
                 bVar.h(jSONObject2.optString("ar_code_url"));
             }
-        } catch (Exception e) {
+        } catch (Exception unused) {
         }
         return bVar;
     }

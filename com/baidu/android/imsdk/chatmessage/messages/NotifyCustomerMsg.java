@@ -6,7 +6,7 @@ import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.NoProGuard;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class NotifyCustomerMsg extends NotifyMsg implements Parcelable, NoProGuard {
     public static final Parcelable.Creator<NotifyCustomerMsg> CREATOR = new Parcelable.Creator<NotifyCustomerMsg>() { // from class: com.baidu.android.imsdk.chatmessage.messages.NotifyCustomerMsg.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -23,21 +23,13 @@ public class NotifyCustomerMsg extends NotifyMsg implements Parcelable, NoProGua
             return new NotifyCustomerMsg[i];
         }
     };
-    private long csuid;
-    private String text;
+    public long csuid;
+    public String text;
 
     public NotifyCustomerMsg(int i) {
         this.csuid = -1L;
         this.text = "";
         setNotifyCmd(i);
-    }
-
-    public NotifyCustomerMsg(Parcel parcel) {
-        super(parcel);
-        this.csuid = -1L;
-        this.text = "";
-        this.csuid = parcel.readLong();
-        this.text = parcel.readString();
     }
 
     public long getCsUid() {
@@ -46,6 +38,19 @@ public class NotifyCustomerMsg extends NotifyMsg implements Parcelable, NoProGua
 
     public String getText() {
         return this.text;
+    }
+
+    @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg
+    public boolean parseJsonString() {
+        try {
+            JSONObject jSONObject = new JSONObject(getJsonContent());
+            this.csuid = jSONObject.getInt("cs_uid");
+            this.text = jSONObject.getString("text");
+            return true;
+        } catch (JSONException e2) {
+            LogUtils.e(LogUtils.TAG, "parseJsonString", e2);
+            return false;
+        }
     }
 
     public void setText(String str) {
@@ -59,16 +64,11 @@ public class NotifyCustomerMsg extends NotifyMsg implements Parcelable, NoProGua
         parcel.writeString(this.text);
     }
 
-    @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg
-    public boolean parseJsonString() {
-        try {
-            JSONObject jSONObject = new JSONObject(getJsonContent());
-            this.csuid = jSONObject.getInt("cs_uid");
-            this.text = jSONObject.getString("text");
-            return true;
-        } catch (JSONException e) {
-            LogUtils.e(LogUtils.TAG, "parseJsonString", e);
-            return false;
-        }
+    public NotifyCustomerMsg(Parcel parcel) {
+        super(parcel);
+        this.csuid = -1L;
+        this.text = "";
+        this.csuid = parcel.readLong();
+        this.text = parcel.readString();
     }
 }

@@ -2,17 +2,17 @@ package com.baidu.tieba;
 
 import android.content.Context;
 import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ar;
-import com.baidu.tbadk.n.l;
+import d.b.h0.m0.l;
+import d.b.h0.q0.a;
 /* loaded from: classes.dex */
 public class TiebaMainApplication extends TbadkApplication {
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.core.TbadkCoreApplication, android.content.ContextWrapper
+    @Override // com.baidu.tbadk.core.TbadkCoreApplication, com.baidu.adp.base.BdBaseApplication, android.content.ContextWrapper
     public void attachBaseContext(Context context) {
         long currentTimeMillis = System.currentTimeMillis();
         super.attachBaseContext(context);
-        l.bEp().em(currentTimeMillis);
+        l.b().t(currentTimeMillis);
     }
 
     @Override // com.baidu.tbadk.TbadkApplication, com.baidu.tbadk.core.TbadkCoreApplication, android.app.Application
@@ -20,13 +20,13 @@ public class TiebaMainApplication extends TbadkApplication {
         setPageStayOpen(true);
         super.onCreate();
         if (getSplash() != null) {
-            getSplash().hide();
+            getSplash().g();
         }
-        if (com.baidu.tbadk.p.a.dN(getContext())) {
-            TiebaStatic.log(new ar("c13616").aq("obj_type", 1));
+        if (a.a(getContext())) {
+            TiebaStatic.log(new StatisticItem("c13616").param("obj_type", 1));
         } else {
-            TiebaStatic.log(new ar("c13616").aq("obj_type", 2));
+            TiebaStatic.log(new StatisticItem("c13616").param("obj_type", 2));
         }
-        l.bEp().en(System.currentTimeMillis());
+        l.b().J(System.currentTimeMillis());
     }
 }

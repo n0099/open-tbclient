@@ -4,9 +4,15 @@ import com.baidu.adp.BdUniqueId;
 import java.security.InvalidParameterException;
 /* loaded from: classes.dex */
 public class BdAsyncTaskParallel {
-    private BdUniqueId Mp;
-    private BdAsyncTaskParallelType Mq;
-    private int mExecuteNum;
+
+    /* renamed from: a  reason: collision with root package name */
+    public BdUniqueId f2147a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public BdAsyncTaskParallelType f2148b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public int f2149c;
 
     /* loaded from: classes.dex */
     public enum BdAsyncTaskParallelType {
@@ -19,40 +25,43 @@ public class BdAsyncTaskParallel {
     }
 
     public BdAsyncTaskParallel(BdAsyncTaskParallelType bdAsyncTaskParallelType, BdUniqueId bdUniqueId) {
-        this.Mp = null;
-        this.Mq = BdAsyncTaskParallelType.MAX_PARALLEL;
-        this.mExecuteNum = 1;
-        if (bdAsyncTaskParallelType == null || bdUniqueId == null) {
-            throw new InvalidParameterException("BdAsyncTaskParallel parameter null");
+        this.f2147a = null;
+        this.f2148b = BdAsyncTaskParallelType.MAX_PARALLEL;
+        this.f2149c = 1;
+        if (bdAsyncTaskParallelType != null && bdUniqueId != null) {
+            this.f2148b = bdAsyncTaskParallelType;
+            this.f2147a = bdUniqueId;
+            return;
         }
-        this.Mq = bdAsyncTaskParallelType;
-        this.Mp = bdUniqueId;
+        throw new InvalidParameterException("BdAsyncTaskParallel parameter null");
+    }
+
+    public int a() {
+        return this.f2149c;
+    }
+
+    public int b() {
+        BdUniqueId bdUniqueId = this.f2147a;
+        if (bdUniqueId == null) {
+            return 0;
+        }
+        return bdUniqueId.getId();
+    }
+
+    public BdAsyncTaskParallelType c() {
+        return this.f2148b;
     }
 
     public BdAsyncTaskParallel(BdUniqueId bdUniqueId, int i) {
-        this.Mp = null;
-        this.Mq = BdAsyncTaskParallelType.MAX_PARALLEL;
-        this.mExecuteNum = 1;
-        if (bdUniqueId == null) {
-            throw new InvalidParameterException("BdAsyncTaskParallel parameter null");
+        this.f2147a = null;
+        this.f2148b = BdAsyncTaskParallelType.MAX_PARALLEL;
+        this.f2149c = 1;
+        if (bdUniqueId != null) {
+            this.f2148b = BdAsyncTaskParallelType.CUSTOM_PARALLEL;
+            this.f2149c = i;
+            this.f2147a = bdUniqueId;
+            return;
         }
-        this.Mq = BdAsyncTaskParallelType.CUSTOM_PARALLEL;
-        this.mExecuteNum = i;
-        this.Mp = bdUniqueId;
-    }
-
-    public int getExecuteNum() {
-        return this.mExecuteNum;
-    }
-
-    public int getTag() {
-        if (this.Mp == null) {
-            return 0;
-        }
-        return this.Mp.getId();
-    }
-
-    public BdAsyncTaskParallelType lr() {
-        return this.Mq;
+        throw new InvalidParameterException("BdAsyncTaskParallel parameter null");
     }
 }

@@ -1,10 +1,10 @@
 package com.example.image_loader_plugin;
 
 import java.util.HashMap;
-/* loaded from: classes14.dex */
+/* loaded from: classes6.dex */
 public class ResNameTransform {
-    private static HashMap<String, String> platformImageNameMap = new HashMap<>();
-    private static HashMap<String, String> svgColorMap = new HashMap<>();
+    public static HashMap<String, String> platformImageNameMap = new HashMap<>();
+    public static HashMap<String, String> svgColorMap = new HashMap<>();
 
     static {
         platformImageNameMap.put("btn_sign_vip_n", "btn_vip_all_sign");
@@ -85,6 +85,7 @@ public class ResNameTransform {
         platformImageNameMap.put("icon_pure_gerenba_ba_n", "ic_icon_pure_gerenba_ba_n_svg");
         platformImageNameMap.put("icon_pure_gerenba_concern_n", "ic_icon_pure_gerenba_concern_n_svg");
         platformImageNameMap.put("icon_pure_personalba_shop", "ic_icon_pure_personalba_shop_svg");
+        platformImageNameMap.put("pic_live_mine", "ic_pic_live_mine");
         svgColorMap.put("icon_pure_topbar_sign44_svg", "cp_cont_b");
         svgColorMap.put("icon_pure_topbar_scan44_svg", "cp_cont_b");
         svgColorMap.put("icon_pure_topbar_store44_svg", "cp_cont_b");

@@ -1,245 +1,136 @@
 package io.reactivex.processors;
 
+import f.a.b0.a;
+import f.a.x.i.a;
+import f.a.x.i.b;
+import g.d.c;
+import g.d.d;
 import io.reactivex.exceptions.MissingBackpressureException;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
-import io.reactivex.internal.util.ExceptionHelper;
 import io.reactivex.internal.util.NotificationLite;
-import io.reactivex.internal.util.a;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 import java.util.concurrent.locks.Lock;
-import org.a.c;
-import org.a.d;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class BehaviorProcessor<T> extends a<T> {
-    static final Object[] qte = new Object[0];
-    static final BehaviorSubscription[] qtf = new BehaviorSubscription[0];
-    static final BehaviorSubscription[] qtg = new BehaviorSubscription[0];
-    long index;
-    final Lock qth;
-    final Lock qti;
-    final AtomicReference<Throwable> qtj;
-    final AtomicReference<BehaviorSubscription<T>[]> subscribers;
-    final AtomicReference<Object> value;
 
-    @Override // io.reactivex.g
-    protected void a(c<? super T> cVar) {
-        BehaviorSubscription<T> behaviorSubscription = new BehaviorSubscription<>(cVar, this);
-        cVar.onSubscribe(behaviorSubscription);
-        if (a(behaviorSubscription)) {
-            if (behaviorSubscription.cancelled) {
-                b(behaviorSubscription);
-                return;
-            } else {
-                behaviorSubscription.emitFirst();
-                return;
-            }
-        }
-        Throwable th = this.qtj.get();
-        if (th == ExceptionHelper.TERMINATED) {
-            cVar.onComplete();
-        } else {
-            cVar.onError(th);
-        }
-    }
+    /* renamed from: f  reason: collision with root package name */
+    public final Lock f68095f;
 
-    @Override // io.reactivex.j, org.a.c
-    public void onSubscribe(d dVar) {
-        if (this.qtj.get() != null) {
-            dVar.cancel();
-        } else {
-            dVar.request(Long.MAX_VALUE);
-        }
-    }
+    /* renamed from: g  reason: collision with root package name */
+    public final AtomicReference<Object> f68096g;
 
-    @Override // org.a.c
-    public void onNext(T t) {
-        io.reactivex.internal.functions.a.n(t, "onNext called with null. Null values are generally not allowed in 2.x operators and sources.");
-        if (this.qtj.get() == null) {
-            Object next = NotificationLite.next(t);
-            bQ(next);
-            for (BehaviorSubscription<T> behaviorSubscription : this.subscribers.get()) {
-                behaviorSubscription.emitNext(next, this.index);
-            }
-        }
-    }
+    /* renamed from: h  reason: collision with root package name */
+    public long f68097h;
 
-    @Override // org.a.c
-    public void onError(Throwable th) {
-        io.reactivex.internal.functions.a.n(th, "onError called with null. Null values are generally not allowed in 2.x operators and sources.");
-        if (!this.qtj.compareAndSet(null, th)) {
-            io.reactivex.d.a.onError(th);
-            return;
-        }
-        Object error = NotificationLite.error(th);
-        for (BehaviorSubscription<T> behaviorSubscription : bP(error)) {
-            behaviorSubscription.emitNext(error, this.index);
-        }
-    }
+    /* loaded from: classes7.dex */
+    public static final class BehaviorSubscription<T> extends AtomicLong implements d, a.InterfaceC1857a<Object> {
+        public static final long serialVersionUID = 3293175281126227086L;
+        public final c<? super T> actual;
+        public volatile boolean cancelled;
+        public boolean emitting;
+        public boolean fastPath;
+        public long index;
+        public boolean next;
+        public f.a.x.i.a<Object> queue;
+        public final BehaviorProcessor<T> state;
 
-    @Override // org.a.c
-    public void onComplete() {
-        if (this.qtj.compareAndSet(null, ExceptionHelper.TERMINATED)) {
-            Object complete = NotificationLite.complete();
-            for (BehaviorSubscription<T> behaviorSubscription : bP(complete)) {
-                behaviorSubscription.emitNext(complete, this.index);
-            }
-        }
-    }
-
-    boolean a(BehaviorSubscription<T> behaviorSubscription) {
-        BehaviorSubscription<T>[] behaviorSubscriptionArr;
-        BehaviorSubscription<T>[] behaviorSubscriptionArr2;
-        do {
-            behaviorSubscriptionArr = this.subscribers.get();
-            if (behaviorSubscriptionArr == qtg) {
-                return false;
-            }
-            int length = behaviorSubscriptionArr.length;
-            behaviorSubscriptionArr2 = new BehaviorSubscription[length + 1];
-            System.arraycopy(behaviorSubscriptionArr, 0, behaviorSubscriptionArr2, 0, length);
-            behaviorSubscriptionArr2[length] = behaviorSubscription;
-        } while (!this.subscribers.compareAndSet(behaviorSubscriptionArr, behaviorSubscriptionArr2));
-        return true;
-    }
-
-    void b(BehaviorSubscription<T> behaviorSubscription) {
-        BehaviorSubscription<T>[] behaviorSubscriptionArr;
-        BehaviorSubscription<T>[] behaviorSubscriptionArr2;
-        do {
-            behaviorSubscriptionArr = this.subscribers.get();
-            if (behaviorSubscriptionArr != qtg && behaviorSubscriptionArr != qtf) {
-                int length = behaviorSubscriptionArr.length;
-                int i = -1;
-                int i2 = 0;
-                while (true) {
-                    if (i2 >= length) {
-                        break;
-                    } else if (behaviorSubscriptionArr[i2] == behaviorSubscription) {
-                        i = i2;
-                        break;
-                    } else {
-                        i2++;
-                    }
-                }
-                if (i >= 0) {
-                    if (length == 1) {
-                        behaviorSubscriptionArr2 = qtf;
-                    } else {
-                        behaviorSubscriptionArr2 = new BehaviorSubscription[length - 1];
-                        System.arraycopy(behaviorSubscriptionArr, 0, behaviorSubscriptionArr2, 0, i);
-                        System.arraycopy(behaviorSubscriptionArr, i + 1, behaviorSubscriptionArr2, i, (length - i) - 1);
-                    }
-                } else {
-                    return;
-                }
-            } else {
-                return;
-            }
-        } while (!this.subscribers.compareAndSet(behaviorSubscriptionArr, behaviorSubscriptionArr2));
-    }
-
-    BehaviorSubscription<T>[] bP(Object obj) {
-        BehaviorSubscription<T>[] behaviorSubscriptionArr = this.subscribers.get();
-        if (behaviorSubscriptionArr != qtg && (behaviorSubscriptionArr = this.subscribers.getAndSet(qtg)) != qtg) {
-            bQ(obj);
-        }
-        return behaviorSubscriptionArr;
-    }
-
-    void bQ(Object obj) {
-        Lock lock = this.qti;
-        lock.lock();
-        this.index++;
-        this.value.lazySet(obj);
-        lock.unlock();
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
-    public static final class BehaviorSubscription<T> extends AtomicLong implements a.InterfaceC1288a<Object>, d {
-        private static final long serialVersionUID = 3293175281126227086L;
-        final c<? super T> actual;
-        volatile boolean cancelled;
-        boolean emitting;
-        boolean fastPath;
-        long index;
-        boolean next;
-        io.reactivex.internal.util.a<Object> queue;
-        final BehaviorProcessor<T> state;
-
-        BehaviorSubscription(c<? super T> cVar, BehaviorProcessor<T> behaviorProcessor) {
+        public BehaviorSubscription(c<? super T> cVar, BehaviorProcessor<T> behaviorProcessor) {
             this.actual = cVar;
             this.state = behaviorProcessor;
         }
 
-        @Override // org.a.d
+        @Override // g.d.d
+        public void cancel() {
+            if (this.cancelled) {
+                return;
+            }
+            this.cancelled = true;
+            this.state.d(this);
+            throw null;
+        }
+
+        public void emitFirst() {
+            if (this.cancelled) {
+                return;
+            }
+            synchronized (this) {
+                if (this.cancelled) {
+                    return;
+                }
+                if (this.next) {
+                    return;
+                }
+                BehaviorProcessor<T> behaviorProcessor = this.state;
+                Lock lock = behaviorProcessor.f68095f;
+                lock.lock();
+                this.index = behaviorProcessor.f68097h;
+                Object obj = behaviorProcessor.f68096g.get();
+                lock.unlock();
+                this.emitting = obj != null;
+                this.next = true;
+                if (obj == null || test(obj)) {
+                    return;
+                }
+                emitLoop();
+            }
+        }
+
+        public void emitLoop() {
+            f.a.x.i.a<Object> aVar;
+            while (!this.cancelled) {
+                synchronized (this) {
+                    aVar = this.queue;
+                    if (aVar == null) {
+                        this.emitting = false;
+                        return;
+                    }
+                    this.queue = null;
+                }
+                aVar.b(this);
+            }
+        }
+
+        public void emitNext(Object obj, long j) {
+            if (this.cancelled) {
+                return;
+            }
+            if (!this.fastPath) {
+                synchronized (this) {
+                    if (this.cancelled) {
+                        return;
+                    }
+                    if (this.index == j) {
+                        return;
+                    }
+                    if (this.emitting) {
+                        f.a.x.i.a<Object> aVar = this.queue;
+                        if (aVar == null) {
+                            aVar = new f.a.x.i.a<>(4);
+                            this.queue = aVar;
+                        }
+                        aVar.a(obj);
+                        return;
+                    }
+                    this.next = true;
+                    this.fastPath = true;
+                }
+            }
+            test(obj);
+        }
+
+        public boolean isFull() {
+            return get() == 0;
+        }
+
+        @Override // g.d.d
         public void request(long j) {
             if (SubscriptionHelper.validate(j)) {
-                io.reactivex.internal.util.b.a(this, j);
+                b.a(this, j);
             }
         }
 
-        @Override // org.a.d
-        public void cancel() {
-            if (!this.cancelled) {
-                this.cancelled = true;
-                this.state.b(this);
-            }
-        }
-
-        void emitFirst() {
-            if (!this.cancelled) {
-                synchronized (this) {
-                    if (!this.cancelled) {
-                        if (!this.next) {
-                            BehaviorProcessor<T> behaviorProcessor = this.state;
-                            Lock lock = behaviorProcessor.qth;
-                            lock.lock();
-                            this.index = behaviorProcessor.index;
-                            Object obj = behaviorProcessor.value.get();
-                            lock.unlock();
-                            this.emitting = obj != null;
-                            this.next = true;
-                            if (obj != null && !test(obj)) {
-                                emitLoop();
-                            }
-                        }
-                    }
-                }
-            }
-        }
-
-        void emitNext(Object obj, long j) {
-            if (!this.cancelled) {
-                if (!this.fastPath) {
-                    synchronized (this) {
-                        if (!this.cancelled) {
-                            if (this.index != j) {
-                                if (this.emitting) {
-                                    io.reactivex.internal.util.a<Object> aVar = this.queue;
-                                    if (aVar == null) {
-                                        aVar = new io.reactivex.internal.util.a<>(4);
-                                        this.queue = aVar;
-                                    }
-                                    aVar.add(obj);
-                                    return;
-                                }
-                                this.next = true;
-                                this.fastPath = true;
-                            } else {
-                                return;
-                            }
-                        } else {
-                            return;
-                        }
-                    }
-                }
-                test(obj);
-            }
-        }
-
-        @Override // io.reactivex.internal.util.a.InterfaceC1288a, io.reactivex.b.j
+        @Override // f.a.x.i.a.InterfaceC1857a, f.a.w.i
         public boolean test(Object obj) {
             if (this.cancelled) {
                 return true;
@@ -256,6 +147,7 @@ public final class BehaviorProcessor<T> extends a<T> {
                     this.actual.onNext((Object) NotificationLite.getValue(obj));
                     if (j != Long.MAX_VALUE) {
                         decrementAndGet();
+                        return false;
                     }
                     return false;
                 }
@@ -264,24 +156,9 @@ public final class BehaviorProcessor<T> extends a<T> {
                 return true;
             }
         }
+    }
 
-        void emitLoop() {
-            io.reactivex.internal.util.a<Object> aVar;
-            while (!this.cancelled) {
-                synchronized (this) {
-                    aVar = this.queue;
-                    if (aVar == null) {
-                        this.emitting = false;
-                        return;
-                    }
-                    this.queue = null;
-                }
-                aVar.a(this);
-            }
-        }
-
-        public boolean isFull() {
-            return get() == 0;
-        }
+    public void d(BehaviorSubscription<T> behaviorSubscription) {
+        throw null;
     }
 }

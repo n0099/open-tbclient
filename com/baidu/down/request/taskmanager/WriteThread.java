@@ -9,159 +9,51 @@ import com.baidu.down.request.db.DownloadDataConstants;
 import com.baidu.down.request.task.AbstractTask;
 import com.baidu.down.retry.HttpRetryStatistic;
 import com.baidu.down.utils.Utils;
-import com.yy.mediaframework.stat.VideoDataStatistic;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.util.HashMap;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class WriteThread implements Runnable {
-    private static final boolean DEBUG = false;
+    public static final boolean DEBUG = false;
     public static final int MAX_DOWNLOAD_QUENE_COUNT = 1000;
     public static final int MAX_DOWNLOAD_WRITE_PROGRESS = 1500;
-    private static final String TAG = "WriteThread";
-    private BlockingQueue<ByteArrayInfo> mQueue = new ArrayBlockingQueue(1000);
-    private HashMap<String, RandomAccessFile> mHashMap = new HashMap<>();
-    private TaskMsg mTaskmsg = null;
+    public static final String TAG = "WriteThread";
+    public BlockingQueue<ByteArrayInfo> mQueue = new ArrayBlockingQueue(1000);
+    public HashMap<String, RandomAccessFile> mHashMap = new HashMap<>();
+    public TaskMsg mTaskmsg = null;
 
-    private void tryToCreateDownloadFile(AbstractTask abstractTask) throws Exception {
-        if (this.mHashMap.get(abstractTask.getTaskKey()) == null) {
-            abstractTask.mTaskSpeedStat.startWriteTimeMillis = SystemClock.elapsedRealtime();
-            this.mHashMap.put(abstractTask.getTaskKey(), getRandomAccessFile(abstractTask));
+    private RandomAccessFile getRandomAccessFile(AbstractTask abstractTask) throws Exception {
+        File file = new File(abstractTask.mFileDir);
+        if (!file.exists()) {
+            file.mkdir();
         }
-    }
-
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [256=6] */
-    @Override // java.lang.Runnable
-    public void run() {
-        BinaryTaskMng binaryTaskMng;
-        this.mTaskmsg = new TaskMsg();
-        while (TaskFacade.getInstance(null) != null && (binaryTaskMng = TaskFacade.getInstance(null).getBinaryTaskMng()) != null) {
-            ByteArrayInfo take = this.mQueue.take();
-            AbstractTask taskByKey = binaryTaskMng.getTaskByKey(take.mkey);
-            if (taskByKey == null || taskByKey.mStatus == 1006 || taskByKey.mStatus == 1004 || taskByKey.mStatus == 1008 || taskByKey.mStatus == 1005) {
-                binaryTaskMng.getByteArrayInfoMng().recycle(take);
+        if (TextUtils.isEmpty(abstractTask.mFilePath)) {
+            if (abstractTask.mKeepNameAndPath) {
+                abstractTask.mFilePath = abstractTask.mFileDir + File.separator + abstractTask.mFilename;
             } else {
-                try {
-                    try {
-                        tryToCreateDownloadFile(taskByKey);
-                        if (taskByKey.mBNotifyStart) {
-                            taskByKey.mBNotifyStart = false;
-                            TaskMsg taskMsg = new TaskMsg();
-                            taskMsg._id = taskByKey.mDownloadId;
-                            taskMsg.uKey = taskByKey.mUri + taskByKey.mDownloadId;
-                            taskMsg.filePath = taskByKey.mFilePath;
-                            taskMsg.fileSize = taskByKey.mTotalLength;
-                            taskMsg.status = 1001;
-                            taskMsg.etag = taskByKey.mETag;
-                            taskMsg.supportRange = taskByKey.mTaskHandler.mSupportRange;
-                            if (taskByKey.mProgressInfo.getCurrentLength() > 0) {
-                                taskMsg.strRedownload = taskByKey.mStrRedownload;
-                            }
-                            DownDetail downDetail = new DownDetail();
-                            downDetail.domainNameAndIpInfo = taskByKey.mTaskHandler.getDomainNameAndIpInfo();
-                            taskMsg.downDetail = downDetail;
-                            TaskFacade.getInstance(null).getBinaryTaskMng().notifyUi(taskMsg);
-                        }
-                        if (wrirteToFile(take, taskByKey)) {
-                            TaskFacade.getInstance(null).getBinaryTaskMng().getWriteThreadMng().closeDownloadFileStream(take.mkey);
-                            TaskMsg taskMsg2 = new TaskMsg();
-                            taskByKey.mStatus = 1008;
-                            taskMsg2._id = taskByKey.mDownloadId;
-                            taskMsg2.uKey = taskByKey.mUri + taskByKey.mDownloadId;
-                            taskMsg2.status = 1008;
-                            taskMsg2.fileSize = taskByKey.mTotalLength;
-                            taskMsg2.progressMap = taskByKey.mProgressInfo.toString();
-                            taskMsg2.transferedSpeed = (taskMsg2.fileSize * 1000) / (SystemClock.elapsedRealtime() - taskByKey.mStartTime);
-                            DownDetail downDetail2 = new DownDetail();
-                            downDetail2.domainNameAndIpInfo = taskByKey.mTaskHandler.getDomainNameAndIpInfo();
-                            downDetail2.retryStrategyInfo = HttpRetryStatistic.buidTaskRetryStatistic(taskByKey.mHttpRetryStrategyHandler.getDownDetail(), taskByKey.mHttpRetryStrategyHandler.getDownFlowMode(), taskByKey.mHttpRetryStrategyHandler.getDownFlowCostTime(), taskByKey.mHttpRetryStrategyHandler.getRetryExceptionName(), taskByKey.mHttpRetryStrategyHandler.getRequestId());
-                            downDetail2.retryType = taskByKey.mHttpRetryStrategyHandler.getRetryType();
-                            downDetail2.retryException = taskByKey.mHttpRetryStrategyHandler.getRetryExceptionName();
-                            taskMsg2.downDetail = downDetail2;
-                            binaryTaskMng.notifyUi(taskMsg2);
-                            binaryTaskMng.notifyMngTaskStatus(taskByKey.mUri, taskByKey.mDownloadId);
-                            binaryTaskMng.getHttpClient().cancelRequests(taskByKey.myContext, true, null);
-                        } else if (taskByKey.mStatus != 1004 && taskByKey.mStatus != 1006) {
-                            this.mTaskmsg._id = taskByKey.mDownloadId;
-                            this.mTaskmsg.uKey = taskByKey.mUri + taskByKey.mDownloadId;
-                            this.mTaskmsg.filePath = taskByKey.mFilePath;
-                            this.mTaskmsg.fileSize = taskByKey.mTotalLength;
-                            this.mTaskmsg.transferedSize = taskByKey.mProgressInfo.getCurrentLength();
-                            this.mTaskmsg.progressMap = taskByKey.mProgressInfo.toString();
-                            long elapsedRealtime = SystemClock.elapsedRealtime();
-                            long j = elapsedRealtime - taskByKey.mLastNotifyTime;
-                            if ((j >= 500 || taskByKey.mLastNotifySpeed <= 0) && j > 0) {
-                                this.mTaskmsg.transferedSpeed = ((this.mTaskmsg.transferedSize - taskByKey.mLastNotifyBytes) * 1000) / j;
-                                if (this.mTaskmsg.transferedSpeed < 0) {
-                                    this.mTaskmsg.transferedSpeed = 0L;
-                                }
-                                taskByKey.mLastNotifyBytes = this.mTaskmsg.transferedSize;
-                                taskByKey.mLastNotifyTime = elapsedRealtime;
-                                taskByKey.mLastNotifySpeed = this.mTaskmsg.transferedSpeed;
-                            } else {
-                                this.mTaskmsg.transferedSpeed = taskByKey.mLastNotifySpeed;
-                            }
-                            this.mTaskmsg.status = 1002;
-                            binaryTaskMng.notifyUi(this.mTaskmsg);
-                        }
-                    } finally {
-                        binaryTaskMng.getByteArrayInfoMng().recycle(take);
-                    }
-                } catch (Exception e) {
-                    if (taskByKey.mStatus == 1004 || taskByKey.mStatus == 1006) {
-                        binaryTaskMng.getByteArrayInfoMng().recycle(take);
-                    } else {
-                        taskByKey.mStatus = 1005;
-                        TaskMsg taskMsg3 = new TaskMsg();
-                        taskMsg3._id = taskByKey.mDownloadId;
-                        taskMsg3.uKey = taskByKey.mUri + taskByKey.mDownloadId;
-                        taskMsg3.filePath = taskByKey.mFilePath;
-                        taskMsg3.fileSize = taskByKey.mTotalLength;
-                        taskMsg3.transferedSize = taskByKey.mProgressInfo.getCurrentLength();
-                        taskMsg3.errorStr = e.toString();
-                        taskMsg3.status = 1005;
-                        DownDetail downDetail3 = new DownDetail();
-                        downDetail3.domainNameAndIpInfo = taskByKey.mTaskHandler.getDomainNameAndIpInfo();
-                        downDetail3.retryStrategyInfo = HttpRetryStatistic.buidTaskRetryStatistic(taskByKey.mHttpRetryStrategyHandler.getDownDetail(), taskByKey.mHttpRetryStrategyHandler.getDownFlowMode(), taskByKey.mHttpRetryStrategyHandler.getDownFlowCostTime(), taskByKey.mHttpRetryStrategyHandler.getRetryExceptionName(), taskByKey.mHttpRetryStrategyHandler.getRequestId());
-                        downDetail3.retryType = taskByKey.mHttpRetryStrategyHandler.getRetryType();
-                        downDetail3.retryException = taskByKey.mHttpRetryStrategyHandler.getRetryExceptionName();
-                        taskMsg3.downDetail = downDetail3;
-                        taskByKey.setTaskmsg(taskMsg3);
-                        if ((e instanceof IOException) || (e instanceof FileNotFoundException)) {
-                            if (e.getMessage() == null || !e.getMessage().contains("No space left on device")) {
-                                taskMsg3.failType = 3;
-                            } else {
-                                taskMsg3.failType = 2;
-                            }
-                        }
-                        TaskFacade.getInstance(null).getBinaryTaskMng().getHttpClient().cancelRequests(taskByKey.myContext, true, taskByKey.mTaskHandler);
-                        TaskFacade.getInstance(null).getBinaryTaskMng().notifyUi(taskMsg3);
-                        TaskFacade.getInstance(null).getBinaryTaskMng().notifyMngTaskStatus(taskByKey.mUri, taskByKey.mDownloadId);
-                        if (taskByKey.needWriteDb) {
-                            ContentValues contentValues = new ContentValues();
-                            contentValues.put("status", Integer.valueOf(taskByKey.mStatus));
-                            contentValues.put(DownloadDataConstants.Columns.COLUMN_CURRENT_BYTES, Long.valueOf(taskByKey.mProgressInfo.getCurrentLength()));
-                            TaskFacade.getInstance(null).getBinaryTaskMng().getDatabaseMng().update(contentValues, "_id=?", new String[]{String.valueOf(taskByKey.mDownloadId)});
-                        }
-                    }
-                }
+                abstractTask.mFilePath = Utils.chooseUniqueFilename(abstractTask.mFileDir + File.separator + Utils.chooseFilename(abstractTask.mUri, abstractTask.mFilename, abstractTask.mMimetype), Utils.chooseExtension(abstractTask.mUri, abstractTask.mFilename, abstractTask.mMimetype));
+            }
+            if (abstractTask.needWriteDb) {
+                ContentValues contentValues = new ContentValues();
+                contentValues.put("data", abstractTask.mFilePath);
+                TaskFacade.getInstance(null).getBinaryTaskMng().getDatabaseMng().update(contentValues, "_id=?", new String[]{String.valueOf(abstractTask.mDownloadId)});
             }
         }
+        File file2 = new File(abstractTask.mFilePath);
+        abstractTask.mFile = file2;
+        abstractTask.mFilename = file2.getName();
+        return new RandomAccessFile(abstractTask.mFilePath, "rw");
     }
 
-    public void put(ByteArrayInfo byteArrayInfo) {
-        try {
-            this.mQueue.put(byteArrayInfo);
-        } catch (InterruptedException e) {
+    private void tryToCreateDownloadFile(AbstractTask abstractTask) throws Exception {
+        if (this.mHashMap.get(abstractTask.getTaskKey()) != null) {
+            return;
         }
-    }
-
-    public int getQueueSize() {
-        return this.mQueue.size();
+        abstractTask.mTaskSpeedStat.startWriteTimeMillis = SystemClock.elapsedRealtime();
+        this.mHashMap.put(abstractTask.getTaskKey(), getRandomAccessFile(abstractTask));
     }
 
     private boolean wrirteToFile(ByteArrayInfo byteArrayInfo, AbstractTask abstractTask) throws IOException {
@@ -189,32 +81,198 @@ public class WriteThread implements Runnable {
         }
     }
 
-    private RandomAccessFile getRandomAccessFile(AbstractTask abstractTask) throws Exception {
-        File file = new File(abstractTask.mFileDir);
-        if (!file.exists()) {
-            file.mkdir();
-        }
-        if (TextUtils.isEmpty(abstractTask.mFilePath)) {
-            if (abstractTask.mKeepNameAndPath) {
-                abstractTask.mFilePath = abstractTask.mFileDir + File.separator + abstractTask.mFilename;
-            } else {
-                abstractTask.mFilePath = Utils.chooseUniqueFilename(abstractTask.mFileDir + File.separator + Utils.chooseFilename(abstractTask.mUri, abstractTask.mFilename, abstractTask.mMimetype), Utils.chooseExtension(abstractTask.mUri, abstractTask.mFilename, abstractTask.mMimetype));
-            }
-            if (abstractTask.needWriteDb) {
-                ContentValues contentValues = new ContentValues();
-                contentValues.put("data", abstractTask.mFilePath);
-                TaskFacade.getInstance(null).getBinaryTaskMng().getDatabaseMng().update(contentValues, "_id=?", new String[]{String.valueOf(abstractTask.mDownloadId)});
-            }
-        }
-        abstractTask.mFile = new File(abstractTask.mFilePath);
-        abstractTask.mFilename = abstractTask.mFile.getName();
-        return new RandomAccessFile(abstractTask.mFilePath, VideoDataStatistic.AnchorHiidoCoreStatisticKey.CaptureRealResolutionWidth);
-    }
-
     public void closeOutputFile(String str) throws Exception {
         RandomAccessFile remove = this.mHashMap.remove(str);
         if (remove != null) {
             remove.close();
+        }
+    }
+
+    public int getQueueSize() {
+        return this.mQueue.size();
+    }
+
+    public void put(ByteArrayInfo byteArrayInfo) {
+        try {
+            this.mQueue.put(byteArrayInfo);
+        } catch (InterruptedException unused) {
+        }
+    }
+
+    /* JADX WARN: Can't wrap try/catch for region: R(6:(11:39|40|41|(1:43)|92|50|51|52|53|55|56)(1:98)|(9:46|(1:48)|49|50|51|52|53|55|56)|52|53|55|56) */
+    /* JADX WARN: Code restructure failed: missing block: B:60:0x0210, code lost:
+        r0 = e;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:72:0x02aa, code lost:
+        if ((r0 instanceof java.io.FileNotFoundException) == false) goto L69;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:79:0x02c1, code lost:
+        r3.failType = 2;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:83:0x02fc, code lost:
+        r0 = new android.content.ContentValues();
+        r0.put("status", java.lang.Integer.valueOf(r5.mStatus));
+        r0.put(com.baidu.down.request.db.DownloadDataConstants.Columns.COLUMN_CURRENT_BYTES, java.lang.Long.valueOf(r5.mProgressInfo.getCurrentLength()));
+        com.baidu.down.request.taskmanager.TaskFacade.getInstance(null).getBinaryTaskMng().getDatabaseMng().update(r0, "_id=?", new java.lang.String[]{java.lang.String.valueOf(r5.mDownloadId)});
+     */
+    /* JADX WARN: Removed duplicated region for block: B:117:0x033e A[SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:71:0x02a8 A[Catch: all -> 0x033b, TryCatch #5 {all -> 0x033b, blocks: (B:58:0x020b, B:64:0x0214, B:66:0x021a, B:69:0x0222, B:71:0x02a8, B:81:0x02c9, B:83:0x02fc, B:75:0x02af, B:77:0x02b5, B:79:0x02c1, B:80:0x02c5), top: B:100:0x020b }] */
+    /* JADX WARN: Removed duplicated region for block: B:83:0x02fc A[Catch: all -> 0x033b, TRY_LEAVE, TryCatch #5 {all -> 0x033b, blocks: (B:58:0x020b, B:64:0x0214, B:66:0x021a, B:69:0x0222, B:71:0x02a8, B:81:0x02c9, B:83:0x02fc, B:75:0x02af, B:77:0x02b5, B:79:0x02c1, B:80:0x02c5), top: B:100:0x020b }] */
+    @Override // java.lang.Runnable
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void run() {
+        BinaryTaskMng binaryTaskMng;
+        BinaryTaskMng binaryTaskMng2;
+        ByteArrayInfo byteArrayInfo;
+        BinaryTaskMng binaryTaskMng3;
+        this.mTaskmsg = new TaskMsg();
+        while (TaskFacade.getInstance(null) != null && (binaryTaskMng = TaskFacade.getInstance(null).getBinaryTaskMng()) != null) {
+            try {
+                byteArrayInfo = this.mQueue.take();
+                try {
+                    AbstractTask taskByKey = binaryTaskMng.getTaskByKey(byteArrayInfo.mkey);
+                    if (taskByKey != null && taskByKey.mStatus != 1006 && taskByKey.mStatus != 1004 && taskByKey.mStatus != 1008 && taskByKey.mStatus != 1005) {
+                        try {
+                            tryToCreateDownloadFile(taskByKey);
+                            if (taskByKey.mBNotifyStart) {
+                                taskByKey.mBNotifyStart = false;
+                                TaskMsg taskMsg = new TaskMsg();
+                                taskMsg._id = taskByKey.mDownloadId;
+                                taskMsg.uKey = taskByKey.mUri + taskByKey.mDownloadId;
+                                taskMsg.filePath = taskByKey.mFilePath;
+                                taskMsg.fileSize = taskByKey.mTotalLength;
+                                taskMsg.status = 1001;
+                                taskMsg.etag = taskByKey.mETag;
+                                taskMsg.supportRange = taskByKey.mTaskHandler.mSupportRange;
+                                if (taskByKey.mProgressInfo.getCurrentLength() > 0) {
+                                    taskMsg.strRedownload = taskByKey.mStrRedownload;
+                                }
+                                DownDetail downDetail = new DownDetail();
+                                downDetail.domainNameAndIpInfo = taskByKey.mTaskHandler.getDomainNameAndIpInfo();
+                                taskMsg.downDetail = downDetail;
+                                TaskFacade.getInstance(null).getBinaryTaskMng().notifyUi(taskMsg);
+                            }
+                        } catch (Exception e2) {
+                            e = e2;
+                            binaryTaskMng2 = binaryTaskMng;
+                        }
+                        if (wrirteToFile(byteArrayInfo, taskByKey)) {
+                            TaskFacade.getInstance(null).getBinaryTaskMng().getWriteThreadMng().closeDownloadFileStream(byteArrayInfo.mkey);
+                            TaskMsg taskMsg2 = new TaskMsg();
+                            taskByKey.mStatus = 1008;
+                            taskMsg2._id = taskByKey.mDownloadId;
+                            taskMsg2.uKey = taskByKey.mUri + taskByKey.mDownloadId;
+                            taskMsg2.status = 1008;
+                            taskMsg2.fileSize = taskByKey.mTotalLength;
+                            taskMsg2.progressMap = taskByKey.mProgressInfo.toString();
+                            taskMsg2.transferedSpeed = (taskMsg2.fileSize * 1000) / (SystemClock.elapsedRealtime() - taskByKey.mStartTime);
+                            DownDetail downDetail2 = new DownDetail();
+                            downDetail2.domainNameAndIpInfo = taskByKey.mTaskHandler.getDomainNameAndIpInfo();
+                            downDetail2.retryStrategyInfo = HttpRetryStatistic.buidTaskRetryStatistic(taskByKey.mHttpRetryStrategyHandler.getDownDetail(), taskByKey.mHttpRetryStrategyHandler.getDownFlowMode(), taskByKey.mHttpRetryStrategyHandler.getDownFlowCostTime(), taskByKey.mHttpRetryStrategyHandler.getRetryExceptionName(), taskByKey.mHttpRetryStrategyHandler.getRequestId());
+                            downDetail2.retryType = taskByKey.mHttpRetryStrategyHandler.getRetryType();
+                            downDetail2.retryException = taskByKey.mHttpRetryStrategyHandler.getRetryExceptionName();
+                            taskMsg2.downDetail = downDetail2;
+                            binaryTaskMng.notifyUi(taskMsg2);
+                            binaryTaskMng.notifyMngTaskStatus(taskByKey.mUri, taskByKey.mDownloadId);
+                            binaryTaskMng.getHttpClient().cancelRequests(taskByKey.myContext, true, null);
+                        } else if (taskByKey.mStatus != 1004 && taskByKey.mStatus != 1006) {
+                            this.mTaskmsg._id = taskByKey.mDownloadId;
+                            this.mTaskmsg.uKey = taskByKey.mUri + taskByKey.mDownloadId;
+                            this.mTaskmsg.filePath = taskByKey.mFilePath;
+                            this.mTaskmsg.fileSize = taskByKey.mTotalLength;
+                            this.mTaskmsg.transferedSize = taskByKey.mProgressInfo.getCurrentLength();
+                            this.mTaskmsg.progressMap = taskByKey.mProgressInfo.toString();
+                            long elapsedRealtime = SystemClock.elapsedRealtime();
+                            long j = elapsedRealtime - taskByKey.mLastNotifyTime;
+                            try {
+                                if (j < 500) {
+                                    binaryTaskMng3 = binaryTaskMng;
+                                    try {
+                                        if (taskByKey.mLastNotifySpeed <= 0) {
+                                        }
+                                        this.mTaskmsg.transferedSpeed = taskByKey.mLastNotifySpeed;
+                                        this.mTaskmsg.status = 1002;
+                                        binaryTaskMng2 = binaryTaskMng3;
+                                        binaryTaskMng2.notifyUi(this.mTaskmsg);
+                                    } catch (Exception e3) {
+                                        e = e3;
+                                        binaryTaskMng2 = binaryTaskMng3;
+                                        if (taskByKey.mStatus != 1004) {
+                                            taskByKey.mStatus = 1005;
+                                            TaskMsg taskMsg3 = new TaskMsg();
+                                            taskMsg3._id = taskByKey.mDownloadId;
+                                            taskMsg3.uKey = taskByKey.mUri + taskByKey.mDownloadId;
+                                            taskMsg3.filePath = taskByKey.mFilePath;
+                                            taskMsg3.fileSize = taskByKey.mTotalLength;
+                                            taskMsg3.transferedSize = taskByKey.mProgressInfo.getCurrentLength();
+                                            taskMsg3.errorStr = e.toString();
+                                            taskMsg3.status = 1005;
+                                            DownDetail downDetail3 = new DownDetail();
+                                            downDetail3.domainNameAndIpInfo = taskByKey.mTaskHandler.getDomainNameAndIpInfo();
+                                            downDetail3.retryStrategyInfo = HttpRetryStatistic.buidTaskRetryStatistic(taskByKey.mHttpRetryStrategyHandler.getDownDetail(), taskByKey.mHttpRetryStrategyHandler.getDownFlowMode(), taskByKey.mHttpRetryStrategyHandler.getDownFlowCostTime(), taskByKey.mHttpRetryStrategyHandler.getRetryExceptionName(), taskByKey.mHttpRetryStrategyHandler.getRequestId());
+                                            downDetail3.retryType = taskByKey.mHttpRetryStrategyHandler.getRetryType();
+                                            downDetail3.retryException = taskByKey.mHttpRetryStrategyHandler.getRetryExceptionName();
+                                            taskMsg3.downDetail = downDetail3;
+                                            taskByKey.setTaskmsg(taskMsg3);
+                                            if (!(e instanceof IOException)) {
+                                            }
+                                            if (e.getMessage() != null) {
+                                            }
+                                            taskMsg3.failType = 3;
+                                            TaskFacade.getInstance(null).getBinaryTaskMng().getHttpClient().cancelRequests(taskByKey.myContext, true, taskByKey.mTaskHandler);
+                                            TaskFacade.getInstance(null).getBinaryTaskMng().notifyUi(taskMsg3);
+                                            TaskFacade.getInstance(null).getBinaryTaskMng().notifyMngTaskStatus(taskByKey.mUri, taskByKey.mDownloadId);
+                                            if (taskByKey.needWriteDb) {
+                                            }
+                                        }
+                                    } catch (Throwable th) {
+                                        th = th;
+                                        binaryTaskMng2 = binaryTaskMng3;
+                                        try {
+                                            th.printStackTrace();
+                                            return;
+                                        } finally {
+                                            binaryTaskMng2.getByteArrayInfoMng().recycle(byteArrayInfo);
+                                        }
+                                    }
+                                } else {
+                                    binaryTaskMng3 = binaryTaskMng;
+                                }
+                                if (j > 0) {
+                                    this.mTaskmsg.transferedSpeed = ((this.mTaskmsg.transferedSize - taskByKey.mLastNotifyBytes) * 1000) / j;
+                                    if (this.mTaskmsg.transferedSpeed < 0) {
+                                        this.mTaskmsg.transferedSpeed = 0L;
+                                    }
+                                    taskByKey.mLastNotifyBytes = this.mTaskmsg.transferedSize;
+                                    taskByKey.mLastNotifyTime = elapsedRealtime;
+                                    taskByKey.mLastNotifySpeed = this.mTaskmsg.transferedSpeed;
+                                    this.mTaskmsg.status = 1002;
+                                    binaryTaskMng2 = binaryTaskMng3;
+                                    binaryTaskMng2.notifyUi(this.mTaskmsg);
+                                }
+                                binaryTaskMng2.notifyUi(this.mTaskmsg);
+                            } catch (Throwable th2) {
+                                th = th2;
+                                th.printStackTrace();
+                                return;
+                            }
+                            this.mTaskmsg.transferedSpeed = taskByKey.mLastNotifySpeed;
+                            this.mTaskmsg.status = 1002;
+                            binaryTaskMng2 = binaryTaskMng3;
+                        }
+                    }
+                    binaryTaskMng2 = binaryTaskMng;
+                } catch (Throwable th3) {
+                    th = th3;
+                    binaryTaskMng2 = binaryTaskMng;
+                }
+            } catch (Throwable th4) {
+                th = th4;
+                binaryTaskMng2 = binaryTaskMng;
+                byteArrayInfo = null;
+            }
         }
     }
 }

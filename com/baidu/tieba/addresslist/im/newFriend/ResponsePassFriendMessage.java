@@ -1,73 +1,75 @@
 package com.baidu.tieba.addresslist.im.newFriend;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.squareup.wire.Wire;
 import tbclient.PassFriend.PassFriendResIdl;
-/* loaded from: classes7.dex */
+import tbclient.PassFriend.friendInfo;
+/* loaded from: classes4.dex */
 public class ResponsePassFriendMessage extends SocketResponsedMessage {
-    private long friendId;
-    private String key;
-    private String name;
-    private String portrait;
-    private String quanpin;
-
-    public String getKey() {
-        return this.key;
-    }
-
-    public void setKey(String str) {
-        this.key = str;
-    }
-
-    public String getQuanpin() {
-        return this.quanpin;
-    }
-
-    public void setQuanpin(String str) {
-        this.quanpin = str;
-    }
-
-    public String getName() {
-        return this.name;
-    }
-
-    public void setName(String str) {
-        this.name = str;
-    }
-
-    public String getPortrait() {
-        return this.portrait;
-    }
-
-    public void setPortrait(String str) {
-        this.portrait = str;
-    }
+    public long friendId;
+    public String key;
+    public String name;
+    public String portrait;
+    public String quanpin;
 
     public ResponsePassFriendMessage() {
-        super(CmdConfigSocket.CMD_PASS_NEW_FRIEND);
+        super(304101);
     }
 
     public long getFriendId() {
         return this.friendId;
     }
 
+    public String getKey() {
+        return this.key;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public String getPortrait() {
+        return this.portrait;
+    }
+
+    public String getQuanpin() {
+        return this.quanpin;
+    }
+
     public void setFriendId(long j) {
         this.friendId = j;
     }
 
+    public void setKey(String str) {
+        this.key = str;
+    }
+
+    public void setName(String str) {
+        this.name = str;
+    }
+
+    public void setPortrait(String str) {
+        this.portrait = str;
+    }
+
+    public void setQuanpin(String str) {
+        this.quanpin = str;
+    }
+
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.message.a
+    @Override // com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
     public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         PassFriendResIdl passFriendResIdl = (PassFriendResIdl) new Wire(new Class[0]).parseFrom(bArr, PassFriendResIdl.class);
         setError(passFriendResIdl.error.errorno.intValue());
         setErrorString(passFriendResIdl.error.usermsg);
-        if (getError() == 0) {
-            this.friendId = passFriendResIdl.data.friend_info.user_id.longValue();
-            this.portrait = passFriendResIdl.data.friend_info.portrait;
-            this.name = passFriendResIdl.data.friend_info.user_name;
-            this.key = passFriendResIdl.data.friend_info.key;
-            this.quanpin = passFriendResIdl.data.friend_info.quanpin;
+        if (getError() != 0) {
+            return;
         }
+        this.friendId = passFriendResIdl.data.friend_info.user_id.longValue();
+        friendInfo friendinfo = passFriendResIdl.data.friend_info;
+        this.portrait = friendinfo.portrait;
+        this.name = friendinfo.user_name;
+        this.key = friendinfo.key;
+        this.quanpin = friendinfo.quanpin;
     }
 }

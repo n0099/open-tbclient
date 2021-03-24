@@ -14,24 +14,28 @@ import com.bytedance.sdk.openadsdk.TTImage;
 import com.bytedance.sdk.openadsdk.TTNativeAd;
 import com.fun.ad.sdk.R;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class CSJNativeAdSmallImgView extends b {
-    public ImageView f;
-    public float g;
+
+    /* renamed from: f  reason: collision with root package name */
+    public ImageView f30763f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public float f30764g;
 
     public CSJNativeAdSmallImgView(Context context) {
         super(context);
-        this.g = 1.78f;
+        this.f30764g = 1.78f;
     }
 
     public CSJNativeAdSmallImgView(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.g = 1.78f;
+        this.f30764g = 1.78f;
     }
 
     public CSJNativeAdSmallImgView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.g = 1.78f;
+        this.f30764g = 1.78f;
     }
 
     @Override // a.a.a.a.r.b.b.b
@@ -43,10 +47,10 @@ public final class CSJNativeAdSmallImgView extends b {
             return;
         }
         d.b("CSJNativeAdView ttImage width: " + tTImage.getWidth() + ", height: " + tTImage.getHeight(), new Object[0]);
-        this.g = (tTImage.getWidth() * 1.0f) / (tTImage.getHeight() * 1.0f);
+        this.f30764g = (((float) tTImage.getWidth()) * 1.0f) / (((float) tTImage.getHeight()) * 1.0f);
         Context context = getContext();
         String imageUrl = tTImage.getImageUrl();
-        ImageView imageView = this.f;
+        ImageView imageView = this.f30763f;
         if (context == null) {
             d.b("GlideHelper: context is null when load: " + imageUrl, new Object[0]);
         } else if (context instanceof Activity) {
@@ -65,16 +69,16 @@ public final class CSJNativeAdSmallImgView extends b {
     @Override // a.a.a.a.r.b.b.b, android.view.View
     public void onFinishInflate() {
         super.onFinishInflate();
-        this.f = (ImageView) findViewById(R.id.ad_img);
+        this.f30763f = (ImageView) findViewById(R.id.ad_img);
     }
 
     @Override // android.view.View
     public void onSizeChanged(int i, int i2, int i3, int i4) {
         super.onSizeChanged(i, i2, i3, i4);
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f.getLayoutParams();
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f30763f.getLayoutParams();
         int i5 = (i - layoutParams.leftMargin) - layoutParams.rightMargin;
         layoutParams.width = i5;
-        layoutParams.height = (int) (i5 / this.g);
-        this.f.setLayoutParams(layoutParams);
+        layoutParams.height = (int) (i5 / this.f30764g);
+        this.f30763f.setLayoutParams(layoutParams);
     }
 }

@@ -15,47 +15,48 @@ import com.kwai.sodler.lib.j;
 import java.io.File;
 import java.io.InputStream;
 import java.io.OutputStream;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private static boolean f7246a = false;
+    public static boolean f37122a = false;
 
     public static synchronized void a(Context context) {
         synchronized (b.class) {
-            if (!f7246a) {
-                j.a().a(context, new c.a().a("sodler").a(3).a(false).a());
-                j.a().d().a(new g.a() { // from class: com.kwai.sodler.a.b.1
-                    /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
-                    @Override // com.kwai.sodler.lib.a.g.a
-                    public void a(@NonNull f fVar, File file) {
-                        long currentTimeMillis = System.currentTimeMillis();
-                        Log.d("Sodler.helper", "==============start download:" + fVar);
+            if (f37122a) {
+                return;
+            }
+            j.a().a(context, new c.a().a("sodler").a(3).a(false).a());
+            j.a().d().a(new g.a() { // from class: com.kwai.sodler.a.b.1
+                /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
+                @Override // com.kwai.sodler.lib.a.g.a
+                public void a(@NonNull f fVar, File file) {
+                    long currentTimeMillis = System.currentTimeMillis();
+                    Log.d("Sodler.helper", "==============start download:" + fVar);
+                    try {
+                        e.a(fVar.q(), file, null, 0);
+                        if (!TextUtils.isEmpty(fVar.p()) && !TextUtils.equals(com.kwai.sodler.lib.c.a.f(file), fVar.p())) {
+                            throw new PluginError.UpdateError("file md5 not equal", -4);
+                        }
+                        a.a((InputStream) null);
+                        a.a((OutputStream) null);
+                        long currentTimeMillis2 = System.currentTimeMillis() - currentTimeMillis;
+                        j.a h2 = j.a().h();
+                        if (h2 != null) {
+                            h2.a("sodler_download", String.valueOf(currentTimeMillis2));
+                        }
+                    } catch (Throwable th) {
                         try {
-                            e.a(fVar.q(), file, null, 0);
-                            if (!TextUtils.isEmpty(fVar.p()) && !TextUtils.equals(com.kwai.sodler.lib.c.a.f(file), fVar.p())) {
-                                throw new PluginError.UpdateError("file md5 not equal", -4);
-                            }
+                            throw new PluginError.UpdateError(th.getMessage(), -4);
+                        } catch (Throwable th2) {
                             a.a((InputStream) null);
                             a.a((OutputStream) null);
-                            long currentTimeMillis2 = System.currentTimeMillis() - currentTimeMillis;
-                            j.a h = j.a().h();
-                            if (h != null) {
-                                h.a("sodler_download", String.valueOf(currentTimeMillis2));
-                            }
-                        } catch (Throwable th) {
-                            try {
-                                throw new PluginError.UpdateError(th.getMessage(), -4);
-                            } catch (Throwable th2) {
-                                a.a((InputStream) null);
-                                a.a((OutputStream) null);
-                                throw th2;
-                            }
+                            throw th2;
                         }
                     }
-                });
-                f7246a = true;
-            }
+                }
+            });
+            f37122a = true;
         }
     }
 

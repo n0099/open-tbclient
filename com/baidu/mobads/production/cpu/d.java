@@ -11,153 +11,134 @@ import android.net.wifi.WifiManager;
 import android.text.TextUtils;
 import android.webkit.CookieManager;
 import android.webkit.CookieSyncManager;
-import com.baidu.adp.plugin.proxy.ContentProviderProxy;
 import com.baidu.mobads.g.g;
 import com.baidu.mobads.interfaces.utils.IXAdCommonUtils;
 import com.baidu.mobads.interfaces.utils.IXAdSystemUtils;
 import com.baidu.mobads.utils.XAdSDKFoundationFacade;
 import com.baidu.mobstat.Config;
-import com.baidu.sapi2.SapiContext;
 import com.baidu.searchbox.account.data.UserAccountActionItem;
-import com.xiaomi.mipush.sdk.Constants;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    private Set<String> f2450a;
-    private Set<String> b;
-    private Set<String> c;
-    private CookieManager d;
-    private IXAdSystemUtils e;
-    private IXAdCommonUtils f;
-    private Context g;
-    private int h;
-    private String i;
-    private String j;
-    private String k;
+    public Set<String> f8446a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public Set<String> f8447b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public Set<String> f8448c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public CookieManager f8449d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public IXAdSystemUtils f8450e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public IXAdCommonUtils f8451f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public Context f8452g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public int f8453h;
+    public String i;
+    public String j;
+    public String k;
 
     public d(Context context, int i, String str) {
-        this.e = XAdSDKFoundationFacade.getInstance().getSystemUtils();
-        this.f = XAdSDKFoundationFacade.getInstance().getCommonUtils();
-        this.g = context;
-        this.h = i;
+        this.f8450e = XAdSDKFoundationFacade.getInstance().getSystemUtils();
+        this.f8451f = XAdSDKFoundationFacade.getInstance().getCommonUtils();
+        this.f8452g = context;
+        this.f8453h = i;
         this.i = str;
         this.j = null;
         b();
         c();
     }
 
-    public d(Context context, String str, String str2) {
-        this.e = XAdSDKFoundationFacade.getInstance().getSystemUtils();
-        this.f = XAdSDKFoundationFacade.getInstance().getCommonUtils();
-        this.g = context;
-        this.j = str;
-        this.i = str2;
-        this.h = -1;
-        b();
-        c();
-    }
-
-    public void a(String str) {
-        this.k = str;
-    }
-
     private void b() {
         try {
-            CookieSyncManager.createInstance(this.g);
-        } catch (Throwable th) {
+            CookieSyncManager.createInstance(this.f8452g);
+        } catch (Throwable unused) {
         }
         try {
-            this.d = CookieManager.getInstance();
-            this.d.setAcceptCookie(true);
-        } catch (Throwable th2) {
+            CookieManager cookieManager = CookieManager.getInstance();
+            this.f8449d = cookieManager;
+            cookieManager.setAcceptCookie(true);
+        } catch (Throwable unused2) {
         }
-    }
-
-    public String a() {
-        d();
-        return this.j != null ? "https://cpu.baidu.com/block/app/" + this.i + "/" + this.j : "https://cpu.baidu.com/" + this.h + "/" + this.i;
     }
 
     private void c() {
-        this.f2450a = new HashSet();
-        this.f2450a.add("46000");
-        this.f2450a.add("46002");
-        this.f2450a.add("46007");
-        this.b = new HashSet();
-        this.b.add("46001");
-        this.b.add("46006");
-        this.c = new HashSet();
-        this.c.add("46003");
-        this.c.add("46005");
+        HashSet hashSet = new HashSet();
+        this.f8446a = hashSet;
+        hashSet.add("46000");
+        this.f8446a.add("46002");
+        this.f8446a.add("46007");
+        HashSet hashSet2 = new HashSet();
+        this.f8447b = hashSet2;
+        hashSet2.add("46001");
+        this.f8447b.add("46006");
+        HashSet hashSet3 = new HashSet();
+        this.f8448c = hashSet3;
+        hashSet3.add("46003");
+        this.f8448c.add("46005");
     }
 
     private void d() {
-        Rect screenRect = this.f.getScreenRect(this.g);
+        Rect screenRect = this.f8451f.getScreenRect(this.f8452g);
         int height = screenRect.height();
         int width = screenRect.width();
-        boolean e = e();
-        String b = e ? b(h()) : null;
-        int f = e ? f() : 0;
-        String g = e ? g() : null;
-        int i = e ? 1 : 0;
-        String cuid = this.e.getCUID(this.g);
+        boolean e2 = e();
+        String b2 = e2 ? b(h()) : null;
+        int f2 = e2 ? f() : 0;
+        String g2 = e2 ? g() : null;
+        String cuid = this.f8450e.getCUID(this.f8452g);
         a("v", i());
-        a("im", com.baidu.mobads.utils.b.a("MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAvz5XO+wDhxUaIDOtrp72fUeIfTYXUSkZXNbA0REQzFGXPFqeMvKEOacgixdfeb/1jWif6dE2pzX1kwMAaOCenIjP9MSw8ZRgR3bZmRq8IuiBPDLI68tFDE6jpA8WjTlcaSkBy06iPtPckAT3LQiPFQroz4Dsoxnrw1QFO82QyWoFfUhGZjj895BQSjfjJjZajOoEY6GBtcRmI30XlVUwMJT9JAqf8GjyvoOMDR3Tjp226UepBIF/NhJKMrW3M5a0SHWo6r+KiAuG6pSVCHPXdP6MaQ/6W2W62wxRqrf24hi407qyKOu4MiEAPbEP3UjdIV3AW1nADjUzg2nxSjRFKQIDAQAB", this.e.getIMEI(this.g)));
-        a("aid", com.baidu.mobads.utils.b.a("MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAvz5XO+wDhxUaIDOtrp72fUeIfTYXUSkZXNbA0REQzFGXPFqeMvKEOacgixdfeb/1jWif6dE2pzX1kwMAaOCenIjP9MSw8ZRgR3bZmRq8IuiBPDLI68tFDE6jpA8WjTlcaSkBy06iPtPckAT3LQiPFQroz4Dsoxnrw1QFO82QyWoFfUhGZjj895BQSjfjJjZajOoEY6GBtcRmI30XlVUwMJT9JAqf8GjyvoOMDR3Tjp226UepBIF/NhJKMrW3M5a0SHWo6r+KiAuG6pSVCHPXdP6MaQ/6W2W62wxRqrf24hi407qyKOu4MiEAPbEP3UjdIV3AW1nADjUzg2nxSjRFKQIDAQAB", this.e.getAndroidId(this.g)));
-        a("m", b(this.e.getMacAddress(this.g)));
+        a("im", com.baidu.mobads.utils.b.a("MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAvz5XO+wDhxUaIDOtrp72fUeIfTYXUSkZXNbA0REQzFGXPFqeMvKEOacgixdfeb/1jWif6dE2pzX1kwMAaOCenIjP9MSw8ZRgR3bZmRq8IuiBPDLI68tFDE6jpA8WjTlcaSkBy06iPtPckAT3LQiPFQroz4Dsoxnrw1QFO82QyWoFfUhGZjj895BQSjfjJjZajOoEY6GBtcRmI30XlVUwMJT9JAqf8GjyvoOMDR3Tjp226UepBIF/NhJKMrW3M5a0SHWo6r+KiAuG6pSVCHPXdP6MaQ/6W2W62wxRqrf24hi407qyKOu4MiEAPbEP3UjdIV3AW1nADjUzg2nxSjRFKQIDAQAB", this.f8450e.getIMEI(this.f8452g)));
+        a("aid", com.baidu.mobads.utils.b.a("MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAvz5XO+wDhxUaIDOtrp72fUeIfTYXUSkZXNbA0REQzFGXPFqeMvKEOacgixdfeb/1jWif6dE2pzX1kwMAaOCenIjP9MSw8ZRgR3bZmRq8IuiBPDLI68tFDE6jpA8WjTlcaSkBy06iPtPckAT3LQiPFQroz4Dsoxnrw1QFO82QyWoFfUhGZjj895BQSjfjJjZajOoEY6GBtcRmI30XlVUwMJT9JAqf8GjyvoOMDR3Tjp226UepBIF/NhJKMrW3M5a0SHWo6r+KiAuG6pSVCHPXdP6MaQ/6W2W62wxRqrf24hi407qyKOu4MiEAPbEP3UjdIV3AW1nADjUzg2nxSjRFKQIDAQAB", this.f8450e.getAndroidId(this.f8452g)));
+        a("m", b(this.f8450e.getMacAddress(this.f8452g)));
         a("cuid", com.baidu.mobads.utils.b.a("MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAvz5XO+wDhxUaIDOtrp72fUeIfTYXUSkZXNbA0REQzFGXPFqeMvKEOacgixdfeb/1jWif6dE2pzX1kwMAaOCenIjP9MSw8ZRgR3bZmRq8IuiBPDLI68tFDE6jpA8WjTlcaSkBy06iPtPckAT3LQiPFQroz4Dsoxnrw1QFO82QyWoFfUhGZjj895BQSjfjJjZajOoEY6GBtcRmI30XlVUwMJT9JAqf8GjyvoOMDR3Tjp226UepBIF/NhJKMrW3M5a0SHWo6r+KiAuG6pSVCHPXdP6MaQ/6W2W62wxRqrf24hi407qyKOu4MiEAPbEP3UjdIV3AW1nADjUzg2nxSjRFKQIDAQAB", cuid));
-        a(Config.EXCEPTION_CRASH_TYPE, Integer.valueOf(b.a(this.g)));
+        a(Config.EXCEPTION_CRASH_TYPE, Integer.valueOf(b.a(this.f8452g)));
         a("oi", Integer.valueOf(j()));
         a(UserAccountActionItem.KEY_SRC, 1);
         a("h", Integer.valueOf(height));
         a("w", Integer.valueOf(width));
-        a("apm", b);
-        a("rssi", Integer.valueOf(f));
-        a("apn", g);
-        a("isc", Integer.valueOf(i));
-        a(SapiContext.KEY_SDK_VERSION, "android_" + g.b(this.g));
-        if (!TextUtils.isEmpty(this.k)) {
-            a("outerId", com.baidu.mobads.utils.b.a("MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAvz5XO+wDhxUaIDOtrp72fUeIfTYXUSkZXNbA0REQzFGXPFqeMvKEOacgixdfeb/1jWif6dE2pzX1kwMAaOCenIjP9MSw8ZRgR3bZmRq8IuiBPDLI68tFDE6jpA8WjTlcaSkBy06iPtPckAT3LQiPFQroz4Dsoxnrw1QFO82QyWoFfUhGZjj895BQSjfjJjZajOoEY6GBtcRmI30XlVUwMJT9JAqf8GjyvoOMDR3Tjp226UepBIF/NhJKMrW3M5a0SHWo6r+KiAuG6pSVCHPXdP6MaQ/6W2W62wxRqrf24hi407qyKOu4MiEAPbEP3UjdIV3AW1nADjUzg2nxSjRFKQIDAQAB", this.k));
+        a("apm", b2);
+        a("rssi", Integer.valueOf(f2));
+        a("apn", g2);
+        a("isc", Integer.valueOf(e2 ? 1 : 0));
+        a("sdk_version", "android_" + g.b(this.f8452g));
+        if (TextUtils.isEmpty(this.k)) {
+            return;
         }
-    }
-
-    private void a(String str, Object obj) {
-        StringBuffer stringBuffer = new StringBuffer();
-        stringBuffer.append(str);
-        stringBuffer.append("=");
-        stringBuffer.append(obj);
-        stringBuffer.append(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
-        try {
-            this.d.setCookie("https://cpu.baidu.com/", stringBuffer.toString());
-        } catch (Throwable th) {
-        }
+        a("outerId", com.baidu.mobads.utils.b.a("MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAvz5XO+wDhxUaIDOtrp72fUeIfTYXUSkZXNbA0REQzFGXPFqeMvKEOacgixdfeb/1jWif6dE2pzX1kwMAaOCenIjP9MSw8ZRgR3bZmRq8IuiBPDLI68tFDE6jpA8WjTlcaSkBy06iPtPckAT3LQiPFQroz4Dsoxnrw1QFO82QyWoFfUhGZjj895BQSjfjJjZajOoEY6GBtcRmI30XlVUwMJT9JAqf8GjyvoOMDR3Tjp226UepBIF/NhJKMrW3M5a0SHWo6r+KiAuG6pSVCHPXdP6MaQ/6W2W62wxRqrf24hi407qyKOu4MiEAPbEP3UjdIV3AW1nADjUzg2nxSjRFKQIDAQAB", this.k));
     }
 
     private boolean e() {
         try {
-            NetworkInfo activeNetworkInfo = ((ConnectivityManager) this.g.getSystemService("connectivity")).getActiveNetworkInfo();
+            NetworkInfo activeNetworkInfo = ((ConnectivityManager) this.f8452g.getSystemService("connectivity")).getActiveNetworkInfo();
             if (activeNetworkInfo != null) {
-                if (activeNetworkInfo.getType() == 1) {
-                    return true;
-                }
+                return activeNetworkInfo.getType() == 1;
             }
             return false;
-        } catch (Exception e) {
+        } catch (Exception unused) {
             return false;
         }
     }
 
     private int f() {
         try {
-            WifiInfo connectionInfo = ((WifiManager) this.g.getSystemService("wifi")).getConnectionInfo();
+            WifiInfo connectionInfo = ((WifiManager) this.f8452g.getSystemService("wifi")).getConnectionInfo();
             if (connectionInfo == null) {
                 return 0;
             }
             return connectionInfo.getRssi();
-        } catch (Exception e) {
+        } catch (Exception unused) {
             return 0;
         }
     }
@@ -171,41 +152,71 @@ public class d {
     }
 
     private String i() {
-        String str = null;
         try {
-            PackageInfo packageInfo = this.g.getPackageManager().getPackageInfo(this.g.getPackageName(), 0);
-            String str2 = packageInfo == null ? null : packageInfo.versionName;
-            if (str2 != null) {
-                str = str2.replace(".", Constants.ACCEPT_TIME_SEPARATOR_SERVER);
-                return str;
+            PackageInfo packageInfo = this.f8452g.getPackageManager().getPackageInfo(this.f8452g.getPackageName(), 0);
+            String str = packageInfo == null ? null : packageInfo.versionName;
+            if (str != null) {
+                return str.replace(".", "-");
             }
             return null;
-        } catch (PackageManager.NameNotFoundException e) {
-            return str;
+        } catch (PackageManager.NameNotFoundException unused) {
+            return null;
         }
     }
 
     private int j() {
-        String networkOperator = this.e.getNetworkOperator(this.g);
+        String networkOperator = this.f8450e.getNetworkOperator(this.f8452g);
         if (networkOperator == null) {
             return 0;
         }
-        if (this.f2450a.contains(networkOperator)) {
+        if (this.f8446a.contains(networkOperator)) {
             return 1;
         }
-        if (this.c.contains(networkOperator)) {
+        if (this.f8448c.contains(networkOperator)) {
             return 2;
         }
-        if (this.b.contains(networkOperator)) {
-            return 3;
+        return this.f8447b.contains(networkOperator) ? 3 : 99;
+    }
+
+    public void a(String str) {
+        this.k = str;
+    }
+
+    public String a() {
+        d();
+        if (this.j != null) {
+            return "https://cpu.baidu.com/block/app/" + this.i + "/" + this.j;
         }
-        return 99;
+        return "https://cpu.baidu.com/" + this.f8453h + "/" + this.i;
     }
 
     private String b(String str) {
         if (str == null) {
             return null;
         }
-        return str.replace(":", Constants.ACCEPT_TIME_SEPARATOR_SERVER);
+        return str.replace(":", "-");
+    }
+
+    private void a(String str, Object obj) {
+        StringBuffer stringBuffer = new StringBuffer();
+        stringBuffer.append(str);
+        stringBuffer.append("=");
+        stringBuffer.append(obj);
+        stringBuffer.append(";");
+        try {
+            this.f8449d.setCookie("https://cpu.baidu.com/", stringBuffer.toString());
+        } catch (Throwable unused) {
+        }
+    }
+
+    public d(Context context, String str, String str2) {
+        this.f8450e = XAdSDKFoundationFacade.getInstance().getSystemUtils();
+        this.f8451f = XAdSDKFoundationFacade.getInstance().getCommonUtils();
+        this.f8452g = context;
+        this.j = str;
+        this.i = str2;
+        this.f8453h = -1;
+        b();
+        c();
     }
 }

@@ -18,24 +18,15 @@ import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.adp.lib.util.j;
-import com.baidu.adp.lib.util.l;
-import com.baidu.adp.lib.util.s;
 import com.baidu.android.util.io.DocumentOpenUtil;
-import com.baidu.ar.arplay.core.engine.ARPScriptEnvironment;
-import com.baidu.ar.constants.HttpConstants;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
-import com.baidu.live.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.live.tbadk.core.util.TiebaInitialize;
+import com.baidu.searchbox.pms.db.PackageTable;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.BdToken.completeTask.CompleteTaskReqMsg;
-import com.baidu.tbadk.BdToken.w;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.AlaPersonCenterActivityConfig;
-import com.baidu.tbadk.core.atomData.AlbumActivityConfig;
 import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
 import com.baidu.tbadk.core.atomData.ForumDetailActivityConfig;
 import com.baidu.tbadk.core.atomData.GameShareActivityConfig;
@@ -45,35 +36,43 @@ import com.baidu.tbadk.core.atomData.PersonPostActivityConfig;
 import com.baidu.tbadk.core.atomData.RecordVideoActivityConfig;
 import com.baidu.tbadk.core.atomData.ShareDialogConfig;
 import com.baidu.tbadk.core.atomData.SubPbActivityConfig;
+import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
 import com.baidu.tbadk.core.atomData.WriteActivityConfig;
-import com.baidu.tbadk.core.business.a;
 import com.baidu.tbadk.core.data.GameShareData;
-import com.baidu.tbadk.core.dialog.h;
+import com.baidu.tbadk.core.util.DeviceInfoUtil;
+import com.baidu.tbadk.core.util.FileHelper;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.NetWork;
+import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.ar;
-import com.baidu.tbadk.core.util.au;
-import com.baidu.tbadk.core.util.bf;
-import com.baidu.tbadk.core.util.bh;
-import com.baidu.tbadk.core.util.o;
+import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
-import com.baidu.tbadk.core.util.y;
 import com.baidu.tbadk.coreExtra.share.ShareItem;
 import com.baidu.tbadk.download.DownloadData;
 import com.baidu.tbadk.mutiprocess.event.TipEvent;
 import com.baidu.tbadk.mutiprocess.event.TopToastEvent;
-import com.baidu.tbadk.mutiprocess.g;
 import com.baidu.tbadk.switchs.OpenJsSdkSwitch;
 import com.baidu.tbadk.util.AdExtParam;
-import com.baidu.tbadk.util.p;
 import com.baidu.tbadk.xiuba.JSResultData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.c.f;
 import com.baidu.tieba.frs.ForumWriteData;
 import com.baidu.tieba.h5power.DescriptionTableInfo;
 import com.baidu.tieba.share.ImplicitShareMessage;
+import com.kwad.sdk.core.imageloader.utils.StorageUtils;
+import com.tencent.connect.common.Constants;
 import com.vivo.push.PushClientConstants;
-import com.xiaomi.mipush.sdk.Constants;
+import com.xiaomi.mipush.sdk.MiPushCommandMessage;
+import d.b.b.e.p.j;
+import d.b.b.e.p.k;
+import d.b.b.e.p.l;
+import d.b.h0.a.w;
+import d.b.h0.f0.g;
+import d.b.h0.r.o.a;
+import d.b.h0.r.s.i;
+import d.b.h0.s.d.f;
+import d.b.h0.z0.q;
 import java.io.File;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
@@ -81,555 +80,260 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-@com.baidu.b.a.a
-/* loaded from: classes.dex */
-public class CommonTbJsBridge implements com.baidu.tieba.tbadkCore.e.b {
-    private static final String CHANGE_SKIN_TYPE = "changeSkinType";
-    private static final String CHECK_APP_INSTALL = "checkAppInstall";
-    private static final String CLICK_GO_BACK_TO_H5 = "clickGoBackToH5";
-    private static final String CLOSE_NATIVE_MASK = "closeNativeMask";
-    private static final String COMPLETE_TASK = "completeTask";
-    private static final String DELETE_OFFLINE_BUNDLE = "deleteOfflineBundle";
-    private static final String DisableSlideBack = "disableSlideBack";
-    private static final String FETCH_OFFLINE_USER_INFO = "getOfflineUserInfo";
-    private static final String FINISH_THIS_PAGE = "finishThisPage";
-    private static final String GAME_PUSH = "gamePush";
-    private static final String GAME_PUSH_STATUS = "gamePushStatus";
-    private static final String GAME_SHARE = "gameShare";
-    private static final String GENERAL_PREFERENCES = "generalPreferences";
-    private static final String GET_APIS = "getAPIs";
-    private static final String GET_CLIPPER_INFORMATION = "getClipperInformation";
-    private static final String GET_DEVICE_INFO = "getDeviceInfo";
-    private static final String GET_MODAL_DATA = "getModalData";
-    private static final String GET_SUPPLEMENT_INFO = "getSupplementInfo";
-    private static final String GET_ZID = "getZid";
-    private static final String GO_TO_BAR_DETAIL_PAGE = "jumpBarDetail";
-    private static final String GO_TO_GOODS_SHOP = "goToGoodsShop";
-    private static final String GO_TO_HOT_TREND = "goToHotTrend";
-    private static final String GO_TO_MY_LIVE = "goToMyLive";
-    private static final String GO_TO_MY_POST = "goToMyPost";
-    private static final String GO_TO_NOTIFICATIONSETTING = "goToNotificationSetting";
-    private static final String GO_TO_PB = "goToPB";
-    private static final String HAS_NOTIFICATION_PERMISSION = "hasNotificationPermission";
-    private static final String HIDE_WEBVIEW_LOADING = "hideWebLoading";
-    protected static final String INTERFACE_NAME = "CommonJSBridge";
-    private static final String IS_DISABLE_GO_BACK = "isDisableGoBack";
-    private static final String JUMP_TO_HTML_PAGE = "jumpToHTMLPage";
-    private static final String LOAD_THIRD_PARTY_LOGIN = "loadThirdPartyLogin";
-    private static final String LOGIN_RESULT_TO_H5 = "loginResultToH5";
-    private static final String ORIGINAL_THREAD = "1";
-    private static final String PERSON_PAGE_REFRESH = "personPageRefresh";
-    private static final String PERSON_PAGE_SHARE = "registerShareData";
-    private static final String PLAY_SOUND = "playSound";
-    private static final String PLAY_VIBRATE = "playVibrate";
-    private static final String RESULT_THIRD_PARTY_LOGIN = "thirdPartyLoginResultToH5";
-    private static final String RE_SHOW = "reshow";
-    private static final String SAVE_IMAGE = "saveImage";
-    private static final String SET_CLIPPER_INFORMATION = "setClipperInformation";
-    private static final String SET_SHARE_INFO = "registerShareDataNew";
-    private static final String SHARE = "share";
-    private static final String SHARE_SUCCCESS_NOTIFICATION = "ShareSuccessNotification";
-    private static final String SHOW_ALERTVIEW = "showAlertView";
-    private static final String SHOW_TIP_TOAST = "showTipToast";
-    private static final String SPRING_FESTIVAL_TIMER = "springFestivalTimer";
-    private static final String START_ACCELEROMETER = "startAccelerometer";
-    private static final String START_APP = "startApp";
-    private static final String START_DOWNLOAD_CSS = "startDownloadCss";
-    private static final String START_LOAD_TIME_INTERVAL = "startLoadTimeInterval";
-    private static final String START_LOGIN_MODULE = "startLoginModule";
-    private static final String SWITCH_OFFLINE_BUNDLE_STATUS = "switchOfflineBundleStatus";
-    private static final String SWITCH_OFFLINE_INTERFACE = "switchOfflineInterface";
-    private static final String SWITCH_URL_HOST = "switchUrlHost";
-    private static final String TAG = "CommonTbJsBridge";
-    private static final String THREAD_FLOOR = "2";
-    private static final String THREAD_MEZZANINE_FLOOR = "3";
-    private static final String TOAST_POPUPVIEW = "toastPopupView";
-    private static final String UPDATE_OFFLINE_BUNDLE = "updateOfflineBundle";
-    private static String tempUrl = TbConfig.SERVER_ADDRESS + TbConfig.WEBVIEW_CACHE_URL;
-    private final String SHOW_MORE_FORUM_ICON;
-    private com.baidu.tieba.tbadkCore.e.a jsPromptBridge;
-    private final Context mContext;
-    private long mLastLoadUrlTime;
-    private PermissionJudgePolicy mPermissionJudgement;
-    private JsPromptResult mResult;
-    private w mShakeController;
-    private WebView mWebView;
-    private String shakeCallbackjsMethod;
-    private ShareItem shareItem;
+@d.b.d.a.a
+/* loaded from: classes3.dex */
+public class CommonTbJsBridge implements d.b.i0.c3.l0.b {
+    public static final String CHANGE_SKIN_TYPE = "changeSkinType";
+    public static final String CHECK_APP_INSTALL = "checkAppInstall";
+    public static final String CLICK_GO_BACK_TO_H5 = "clickGoBackToH5";
+    public static final String CLOSE_NATIVE_MASK = "closeNativeMask";
+    public static final String COMPLETE_TASK = "completeTask";
+    public static final String DELETE_OFFLINE_BUNDLE = "deleteOfflineBundle";
+    public static final String DisableSlideBack = "disableSlideBack";
+    public static final String FETCH_OFFLINE_USER_INFO = "getOfflineUserInfo";
+    public static final String FINISH_THIS_PAGE = "finishThisPage";
+    public static final String GAME_PUSH = "gamePush";
+    public static final String GAME_PUSH_STATUS = "gamePushStatus";
+    public static final String GAME_SHARE = "gameShare";
+    public static final String GENERAL_PREFERENCES = "generalPreferences";
+    public static final String GET_APIS = "getAPIs";
+    public static final String GET_CLIPPER_INFORMATION = "getClipperInformation";
+    public static final String GET_DEVICE_INFO = "getDeviceInfo";
+    public static final String GET_MODAL_DATA = "getModalData";
+    public static final String GET_SUPPLEMENT_INFO = "getSupplementInfo";
+    public static final String GET_ZID = "getZid";
+    public static final String GO_TO_BAR_DETAIL_PAGE = "jumpBarDetail";
+    public static final String GO_TO_GOODS_SHOP = "goToGoodsShop";
+    public static final String GO_TO_HOT_TREND = "goToHotTrend";
+    public static final String GO_TO_MY_LIVE = "goToMyLive";
+    public static final String GO_TO_MY_POST = "goToMyPost";
+    public static final String GO_TO_NOTIFICATIONSETTING = "goToNotificationSetting";
+    public static final String GO_TO_PB = "goToPB";
+    public static final String HAS_NOTIFICATION_PERMISSION = "hasNotificationPermission";
+    public static final String HIDE_WEBVIEW_LOADING = "hideWebLoading";
+    public static final String INTERFACE_NAME = "CommonJSBridge";
+    public static final String IS_DISABLE_GO_BACK = "isDisableGoBack";
+    public static final String JUMP_TO_HTML_PAGE = "jumpToHTMLPage";
+    public static final String LOAD_THIRD_PARTY_LOGIN = "loadThirdPartyLogin";
+    public static final String LOGIN_RESULT_TO_H5 = "loginResultToH5";
+    public static final String ORIGINAL_THREAD = "1";
+    public static final String PERSON_PAGE_REFRESH = "personPageRefresh";
+    public static final String PERSON_PAGE_SHARE = "registerShareData";
+    public static final String PLAY_SOUND = "playSound";
+    public static final String PLAY_VIBRATE = "playVibrate";
+    public static final String RESULT_THIRD_PARTY_LOGIN = "thirdPartyLoginResultToH5";
+    public static final String RE_SHOW = "reshow";
+    public static final String SAVE_IMAGE = "saveImage";
+    public static final String SET_CLIPPER_INFORMATION = "setClipperInformation";
+    public static final String SET_SHARE_INFO = "registerShareDataNew";
+    public static final String SHARE = "share";
+    public static final String SHARE_SUCCCESS_NOTIFICATION = "ShareSuccessNotification";
+    public static final String SHOW_ALERTVIEW = "showAlertView";
+    public static final String SHOW_TIP_TOAST = "showTipToast";
+    public static final String SPRING_FESTIVAL_TIMER = "springFestivalTimer";
+    public static final String START_ACCELEROMETER = "startAccelerometer";
+    public static final String START_APP = "startApp";
+    public static final String START_DOWNLOAD_CSS = "startDownloadCss";
+    public static final String START_LOAD_TIME_INTERVAL = "startLoadTimeInterval";
+    public static final String START_LOGIN_MODULE = "startLoginModule";
+    public static final String SWITCH_OFFLINE_BUNDLE_STATUS = "switchOfflineBundleStatus";
+    public static final String SWITCH_OFFLINE_INTERFACE = "switchOfflineInterface";
+    public static final String SWITCH_URL_HOST = "switchUrlHost";
+    public static final String TAG = "CommonTbJsBridge";
+    public static final String THREAD_FLOOR = "2";
+    public static final String THREAD_MEZZANINE_FLOOR = "3";
+    public static final String TOAST_POPUPVIEW = "toastPopupView";
+    public static final String UPDATE_OFFLINE_BUNDLE = "updateOfflineBundle";
+    public static String tempUrl = TbConfig.SERVER_ADDRESS + TbConfig.WEBVIEW_CACHE_URL;
+    public final String SHOW_MORE_FORUM_ICON;
+    public d.b.i0.c3.l0.a jsPromptBridge;
+    public final Context mContext;
+    public long mLastLoadUrlTime;
+    public PermissionJudgePolicy mPermissionJudgement;
+    public JsPromptResult mResult;
+    public w mShakeController;
+    public WebView mWebView;
+    public String shakeCallbackjsMethod;
+    public ShareItem shareItem;
+
+    /* loaded from: classes3.dex */
+    public class a implements w.b {
+        public a() {
+        }
+
+        @Override // d.b.h0.a.w.b
+        public void a() {
+            if (TextUtils.isEmpty(CommonTbJsBridge.this.shakeCallbackjsMethod)) {
+                return;
+            }
+            try {
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put(MiPushCommandMessage.KEY_RESULT_CODE, 1);
+                CommonTbJsBridge.this.callJsMethod(CommonTbJsBridge.this.shakeCallbackjsMethod, jSONObject);
+            } catch (JSONException e2) {
+                e2.printStackTrace();
+            }
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class b extends q.a {
+        public b() {
+        }
+
+        @Override // d.b.h0.z0.q.a
+        public void onError(int i, String str) {
+            if (CommonTbJsBridge.this.jsPromptBridge != null) {
+                LinkedHashMap linkedHashMap = new LinkedHashMap();
+                linkedHashMap.put("result", -1);
+                CommonTbJsBridge.this.jsPromptBridge.h(CommonTbJsBridge.this.mWebView, "saveImageSuccess", linkedHashMap);
+            }
+        }
+
+        @Override // d.b.h0.z0.q.a
+        public void onSuccess(String str) {
+            if (CommonTbJsBridge.this.jsPromptBridge != null) {
+                LinkedHashMap linkedHashMap = new LinkedHashMap();
+                linkedHashMap.put("result", 0);
+                CommonTbJsBridge.this.jsPromptBridge.h(CommonTbJsBridge.this.mWebView, "saveImageSuccess", linkedHashMap);
+            }
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class c extends q.a {
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ int f13095a;
+
+        public c(int i) {
+            this.f13095a = i;
+        }
+
+        @Override // d.b.h0.z0.q.a
+        public void onError(int i, String str) {
+        }
+
+        @Override // d.b.h0.z0.q.a
+        public void onSuccess(String str) {
+            if (new File(str).exists()) {
+                if (CommonTbJsBridge.this.shareItem != null) {
+                    CommonTbJsBridge.this.shareItem.V = 1;
+                    CommonTbJsBridge.this.shareItem.x = str;
+                }
+                if (this.f13095a != 0) {
+                    MessageManager.getInstance().sendMessage(new ImplicitShareMessage(CommonTbJsBridge.this.mContext, this.f13095a, CommonTbJsBridge.this.shareItem, true));
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class d implements a.c {
+        public d() {
+        }
+
+        @Override // d.b.h0.r.o.a.c
+        public void a() {
+            try {
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put(MiPushCommandMessage.KEY_RESULT_CODE, 1);
+                if (CommonTbJsBridge.this.mResult != null) {
+                    CommonTbJsBridge.this.mResult.confirm(jSONObject.toString());
+                }
+            } catch (JSONException e2) {
+                BdLog.e(e2);
+            }
+        }
+
+        @Override // d.b.h0.r.o.a.c
+        public void onCancel() {
+            try {
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put(MiPushCommandMessage.KEY_RESULT_CODE, 0);
+                if (CommonTbJsBridge.this.mResult != null) {
+                    CommonTbJsBridge.this.mResult.confirm(jSONObject.toString());
+                }
+            } catch (JSONException e2) {
+                BdLog.e(e2);
+            }
+        }
+    }
 
     public CommonTbJsBridge(Context context) {
         this(context, null);
     }
 
-    public CommonTbJsBridge(Context context, WebView webView) {
-        this.SHOW_MORE_FORUM_ICON = "1";
-        this.mLastLoadUrlTime = 0L;
-        this.mContext = context;
-        this.mWebView = webView;
-    }
-
-    public void setJsPromptBridge(com.baidu.tieba.tbadkCore.e.a aVar) {
-        this.jsPromptBridge = aVar;
-    }
-
-    public com.baidu.tieba.tbadkCore.e.a.c startLoginModule(String str) {
-        com.baidu.tieba.tbadkCore.e.a.c cVar = new com.baidu.tieba.tbadkCore.e.a.c();
-        if (this.mWebView == null) {
-            bh.checkUpIsLogin(this.mContext);
-        } else {
-            bh.t(this.mContext, this.mWebView.getOriginalUrl(), str);
+    /* JADX INFO: Access modifiers changed from: private */
+    public void callJsMethod(String str, JSONObject jSONObject) {
+        WebView webView = this.mWebView;
+        if (webView == null) {
+            return;
         }
-        JSResultData jSResultData = new JSResultData();
-        jSResultData.setStatus(1);
-        jSResultData.setErrorCode("0");
-        jSResultData.setErrorMsg("");
-        cVar.setData(OrmObject.jsonStrWithObject(jSResultData));
-        return cVar;
-    }
-
-    public com.baidu.tieba.tbadkCore.e.a.c finishPage() {
-        com.baidu.tieba.tbadkCore.e.a.c cVar = new com.baidu.tieba.tbadkCore.e.a.c();
-        if (this.mContext instanceof Activity) {
-            ((Activity) this.mContext).finish();
+        if (Build.VERSION.SDK_INT >= 19) {
+            webView.evaluateJavascript("javascript:" + str + "&&" + str + "('" + jSONObject.toString() + "')", null);
+            return;
         }
-        return cVar;
+        webView.loadUrl("javascript:" + str + "&&" + str + "('" + jSONObject.toString() + "')");
     }
 
-    private String refreshPage() {
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_PERSON_PAGE_REFRESH));
-        return "";
-    }
-
-    private void hideWebviewLoading(String str) {
-    }
-
-    @Override // com.baidu.tieba.tbadkCore.e.b
-    public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
-        if ("CommonJSBridge".equals(str)) {
-            if (START_LOGIN_MODULE.equals(str2)) {
+    private String closeNativeMask(String str) {
+        int i = 1;
+        try {
+            if (!StringUtils.isNull(str)) {
                 try {
-                    jsPromptResult.confirm(startLoginModule(new JSONObject(str3).optString("cssUrl")).getData());
-                    return true;
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-            if (HIDE_WEBVIEW_LOADING.equals(str2)) {
-                try {
-                    String optString = new JSONObject(str3).optString("url");
-                    if (!StringUtils.isNull(optString)) {
-                        hideWebviewLoading(optString);
-                    }
-                    jsPromptResult.confirm();
-                    return true;
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921444, Boolean.valueOf(new JSONObject(str).optInt("result", 0) == 1)));
                 } catch (JSONException e2) {
                     e2.printStackTrace();
                 }
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put(MiPushCommandMessage.KEY_RESULT_CODE, i);
+                return jSONObject.toString();
             }
-            if (PERSON_PAGE_REFRESH.equals(str2)) {
-                try {
-                    jsPromptResult.confirm(refreshPage());
-                    return true;
-                } catch (Exception e3) {
-                    e3.printStackTrace();
-                }
-            }
-            if (FINISH_THIS_PAGE.equals(str2)) {
-                try {
-                    jsPromptResult.confirm(finishPage().getData());
-                    return true;
-                } catch (Exception e4) {
-                    e4.printStackTrace();
-                }
-            }
-            if (PERSON_PAGE_SHARE.equals(str2)) {
-                try {
-                    showRightShare(str3);
-                    jsPromptResult.confirm();
-                    return true;
-                } catch (Exception e5) {
-                    e5.printStackTrace();
-                }
-            }
-            if (GAME_SHARE.equals(str2)) {
-                try {
-                    goToGameShare(str3);
-                    jsPromptResult.confirm();
-                } catch (Exception e6) {
-                    e6.printStackTrace();
-                }
-                return true;
-            } else if (GET_ZID.equals(str2)) {
-                jsPromptResult.confirm(getZid().getData());
-                return true;
-            } else if (SET_SHARE_INFO.equals(str2)) {
-                try {
-                    JSONObject jSONObject = new JSONObject(str3);
-                    jsPromptResult.confirm(setShareInfo(jSONObject.optString("title"), jSONObject.optString("desc"), jSONObject.optString("img"), jSONObject.optString("url"), jSONObject.optString(AlbumActivityConfig.FROM_TOPIC), jSONObject.optString("wbtitle"), jSONObject.optString("wbcontent"), jSONObject.optString("isShowMoreForum"), jSONObject.optInt("shareimg"), jSONObject.optString("extdata")).getData());
-                } catch (JSONException e7) {
-                    BdLog.e(e7);
-                }
-                return true;
-            } else if ("share".equals(str2)) {
-                try {
-                    JSONObject jSONObject2 = new JSONObject(str3);
-                    jsPromptResult.confirm(share(jSONObject2.optInt("channel"), jSONObject2.optInt("shareimg"), jSONObject2.optString("img"), jSONObject2.optString("isShowMoreForum"), jSONObject2.optString("url"), jSONObject2.optString("title"), jSONObject2.optString("desc"), jSONObject2.optString(AlbumActivityConfig.FROM_TOPIC), jSONObject2.optString("wbtitle"), jSONObject2.optString("wbcontent"), jSONObject2.optInt("weixin_disable"), jSONObject2.optString("extdata")).getData());
-                } catch (JSONException e8) {
-                    BdLog.e(e8);
-                }
-                return true;
-            } else if (GET_CLIPPER_INFORMATION.equals(str2)) {
-                jsPromptResult.confirm(getClipperInformation().getData());
-                return true;
-            } else if (SET_CLIPPER_INFORMATION.equals(str2)) {
-                try {
-                    jsPromptResult.confirm(setClipperInformation(new JSONObject(str3).optString(DocumentOpenUtil.TXT)).getData());
-                } catch (JSONException e9) {
-                    BdLog.e(e9);
-                }
-                return true;
-            } else if (CHECK_APP_INSTALL.equals(str2)) {
-                try {
-                    jsPromptResult.confirm(checkAppInstall(new JSONObject(str3).optString(PushClientConstants.TAG_PKG_NAME)).getData());
-                } catch (JSONException e10) {
-                    BdLog.e(e10);
-                }
-                return true;
-            } else if (START_APP.equals(str2)) {
-                jsPromptResult.confirm(startApp(str3));
-                return true;
-            } else if (LOAD_THIRD_PARTY_LOGIN.equals(str2)) {
-                jsPromptResult.confirm(loadThirdPartyLogin(str3));
-            } else if (HAS_NOTIFICATION_PERMISSION.equals(str2)) {
-                jsPromptResult.confirm(hasNotificationPermission().getData());
-                return true;
-            } else if (GO_TO_NOTIFICATIONSETTING.equals(str2)) {
-                goToNotificationSetting();
-            } else if (START_DOWNLOAD_CSS.equals(str2)) {
-                try {
-                    jsPromptResult.confirm(startDownloadCss(new JSONObject(str3).optString("downloadUrl")).getData());
-                } catch (JSONException e11) {
-                    BdLog.e(e11);
-                }
-            } else if (SPRING_FESTIVAL_TIMER.equals(str2)) {
-                jsPromptResult.confirm(parseSpringFestivalTimer(str3));
-            } else if (IS_DISABLE_GO_BACK.equals(str2)) {
-                jsPromptResult.confirm(setDisableGoBack().getData());
-            } else if (PLAY_VIBRATE.equals(str2)) {
-                jsPromptResult.confirm(playVibrate().getData());
-            } else if (PLAY_SOUND.equals(str2)) {
-                try {
-                    jsPromptResult.confirm(playSound(new JSONObject(str3).optString("soundUrl")).getData());
-                } catch (JSONException e12) {
-                    BdLog.e(e12);
-                }
-            } else if (SHOW_ALERTVIEW.equals(str2)) {
-                try {
-                    this.mResult = jsPromptResult;
-                    JSONObject jSONObject3 = new JSONObject(str3);
-                    showAlertView(jSONObject3.optString("title"), jSONObject3.optString("sub_title"), jSONObject3.optInt("btn_corner"), jSONObject3.optInt("btn_borderWidth"), jSONObject3.optString("cancel_btn_text"), jSONObject3.optString("cancel_btn_color"), jSONObject3.optString("cancel_btn_borderColor"), jSONObject3.optString("confirm_btn_text"), jSONObject3.optString("confirm_btn_color"), jSONObject3.optString("confirm_btn_borderColor"), jSONObject3.optString("confirm_btn_url"));
-                } catch (JSONException e13) {
-                    BdLog.e(e13);
-                }
-            } else if (START_ACCELEROMETER.equals(str2)) {
-                jsPromptResult.confirm(startAcceleromter(str3));
-            } else if (DisableSlideBack.equals(str2)) {
-                try {
-                    jsPromptResult.confirm(disableBack(new JSONObject(str3).optInt("disable")).getData());
-                } catch (JSONException e14) {
-                    BdLog.e(e14);
-                }
-            } else if (TOAST_POPUPVIEW.equals(str2)) {
-                try {
-                    JSONObject jSONObject4 = new JSONObject(str3);
-                    jsPromptResult.confirm(showLowerHairHint(jSONObject4.optInt(RecordVideoActivityConfig.SHOW_TYPE), jSONObject4.optInt("ahead_type"), jSONObject4.optString("message"), jSONObject4.optString("btn_text"), jSONObject4.optInt("toast_duration"), jSONObject4.optString("schema"), jSONObject4.optString("token"), jSONObject4.optDouble("opacity"), jSONObject4.optString(BigdayActivityConfig.IMG_URL), jSONObject4.optString("url"), jSONObject4.optInt("mission_id"), jSONObject4.optString("btn_color"), jSONObject4.optString("message_color"), jSONObject4.optString("btn_text_color"), jSONObject4.optInt("status"), jSONObject4.optInt(FINISH_THIS_PAGE)).getData());
-                } catch (JSONException e15) {
-                    BdLog.e(e15);
-                }
-            } else if (GAME_PUSH.equals(str2)) {
-                jsPromptResult.confirm(handleGamePush(str3));
-                return true;
-            } else if (GAME_PUSH_STATUS.equals(str2)) {
-                jsPromptResult.confirm(handleGamePushStatus());
-                return true;
-            } else if (GO_TO_MY_POST.equals(str2)) {
-                try {
-                    jsPromptResult.confirm(handleGoToMyPost(new JSONObject(str3).optString("uid")).getData());
-                } catch (JSONException e16) {
-                    BdLog.e(e16);
-                }
-                return true;
-            } else if (GO_TO_MY_LIVE.equals(str2)) {
-                try {
-                    jsPromptResult.confirm(handleGoToMyLive(new JSONObject(str3).optString("uid")).getData());
-                } catch (JSONException e17) {
-                    BdLog.e(e17);
-                }
-                return true;
-            } else if (SAVE_IMAGE.equals(str2)) {
-                try {
-                    jsPromptResult.confirm(handleSaveImage(new JSONObject(str3).optString("imgUrl")).getData());
-                } catch (JSONException e18) {
-                    BdLog.e(e18);
-                }
-                return true;
-            } else if (GET_SUPPLEMENT_INFO.equals(str2)) {
-                jsPromptResult.confirm(getSupplementInfo().getData());
-                return true;
-            } else if (GET_DEVICE_INFO.equals(str2)) {
-                jsPromptResult.confirm(getDeviceInfo().getData());
-                return true;
-            } else if (GENERAL_PREFERENCES.equals(str2)) {
-                jsPromptResult.confirm(generalSharePreferences());
-            } else if (COMPLETE_TASK.equals(str2)) {
-                try {
-                    JSONObject jSONObject5 = new JSONObject(str3);
-                    jsPromptResult.confirm(sendCompleteTaskReqMsg(jSONObject5.optString("activityId"), jSONObject5.optString("missionId")).getData());
-                } catch (JSONException e19) {
-                    BdLog.e(e19);
-                }
-            } else if (GET_MODAL_DATA.equals(str2)) {
-                jsPromptResult.confirm(getGetModalData());
-            } else if (SHOW_TIP_TOAST.equals(str2)) {
-                try {
-                    JSONObject jSONObject6 = new JSONObject(str3);
-                    jsPromptResult.confirm(showTipToast(jSONObject6.optString("content"), jSONObject6.optString("linkUrl"), jSONObject6.optString("key"), jSONObject6.optInt("maxTimes"), jSONObject6.optInt(FINISH_THIS_PAGE)).getData());
-                } catch (JSONException e20) {
-                    BdLog.e(e20);
-                }
-            } else if (JUMP_TO_HTML_PAGE.equals(str2)) {
-                try {
-                    JSONObject jSONObject7 = new JSONObject(str3);
-                    jsPromptResult.confirm(jumpToHtmlPage(jSONObject7.optString("url"), jSONObject7.optInt("finish_this_page", 1)).toString());
-                } catch (JSONException e21) {
-                    BdLog.e(e21);
-                }
-            } else if (CLOSE_NATIVE_MASK.equals(str2)) {
-                jsPromptResult.confirm(closeNativeMask(str3));
-            } else if (GO_TO_HOT_TREND.equals(str2)) {
-                jumpToHotTrendPage();
-                jsPromptResult.confirm();
-            } else if (GO_TO_PB.equals(str2)) {
-                try {
-                    JSONObject jSONObject8 = new JSONObject(str3);
-                    String optString2 = jSONObject8.optString("tid");
-                    String optString3 = jSONObject8.optString("fr");
-                    if (!StringUtils.isNull(optString2) && !StringUtils.isNull(optString3)) {
-                        jumpToPbPage(optString2, optString3);
-                    }
-                    jsPromptResult.confirm();
-                    return true;
-                } catch (JSONException e22) {
-                    e22.printStackTrace();
-                }
-            } else if (GET_APIS.equals(str2)) {
-                jsPromptResult.confirm(getAPIs());
-                return true;
-            } else if (START_LOAD_TIME_INTERVAL.equals(str2)) {
-                jsPromptResult.confirm(getStartLoadTimeInterval().getData());
-                return true;
-            }
-        }
-        return false;
-    }
-
-    private w getShakeController() {
-        if (this.mShakeController == null) {
-            this.mShakeController = new w(this.mContext, new w.a() { // from class: com.baidu.tbadk.browser.CommonTbJsBridge.1
-                @Override // com.baidu.tbadk.BdToken.w.a
-                public void biw() {
-                    if (!TextUtils.isEmpty(CommonTbJsBridge.this.shakeCallbackjsMethod)) {
-                        try {
-                            JSONObject jSONObject = new JSONObject();
-                            jSONObject.put("resultCode", 1);
-                            CommonTbJsBridge.this.callJsMethod(CommonTbJsBridge.this.shakeCallbackjsMethod, jSONObject);
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                }
-            });
-        }
-        return this.mShakeController;
-    }
-
-    public com.baidu.tieba.tbadkCore.e.a.c showLowerHairHint(int i, int i2, String str, String str2, int i3, String str3, String str4, double d, String str5, String str6, int i4, String str7, String str8, String str9, int i5, int i6) {
-        com.baidu.tieba.tbadkCore.e.a.c cVar = new com.baidu.tieba.tbadkCore.e.a.c();
-        com.baidu.tbadk.BdToken.completeTask.a aVar = new com.baidu.tbadk.BdToken.completeTask.a();
-        aVar.showType = i;
-        aVar.eHd = i2;
-        aVar.message = str;
-        aVar.btnText = str2;
-        aVar.duration = i3;
-        aVar.schema = str3;
-        aVar.token = str4;
-        aVar.opacity = d;
-        aVar.imgUrl = str5;
-        aVar.url = str6;
-        aVar.missionId = i4;
-        aVar.btn_color = str7;
-        aVar.message_color = str8;
-        aVar.btn_text_color = str9;
-        if (aVar.showType == com.baidu.tbadk.BdToken.completeTask.a.eGW) {
-            h.b(TbadkCoreApplication.getInst().getCurrentActivity(), aVar).bqN();
-        } else if (aVar.showType == com.baidu.tbadk.BdToken.completeTask.a.eGX) {
-            Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
-            com.baidu.tbadk.core.business.c cVar2 = new com.baidu.tbadk.core.business.c(currentActivity);
-            if (currentActivity != null) {
-                cVar2.a(currentActivity, aVar);
-                cVar2.show();
-            }
-        } else if (aVar.showType == com.baidu.tbadk.BdToken.completeTask.a.eGY) {
-            if (aVar.eHd == com.baidu.tbadk.BdToken.completeTask.a.eHb) {
-                if (!UtilHelper.dealOneScheme(TbadkCoreApplication.getInst().getCurrentActivity(), aVar.schema) && !au.isEmpty(aVar.url)) {
-                    dealJump(aVar.url + "?page_type=open_full_screen_opacity_web_page");
-                }
-            } else if (aVar.eHd == com.baidu.tbadk.BdToken.completeTask.a.eHc && !au.isEmpty(aVar.url)) {
-                dealJump(aVar.url + "?page_type=open_full_screen_opacity_web_page");
-            }
-        } else if (i == com.baidu.tbadk.BdToken.completeTask.a.eHa) {
-            if (i6 == 1 && (this.mContext instanceof Activity)) {
-                ((Activity) this.mContext).finish();
-            }
-            g.publishEvent(new TopToastEvent(i5, str));
-        }
-        try {
-            JSONObject jSONObject = new JSONObject();
-            jSONObject.put("resultCode", 1);
-            cVar.setData(jSONObject.toString());
-            return cVar;
-        } catch (JSONException e) {
-            BdLog.e(e);
-            return cVar;
-        }
-    }
-
-    private String handleGamePush(String str) {
-        if (TextUtils.isEmpty(str)) {
-            return "0";
-        }
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921404, str));
-        return "1";
-    }
-
-    private String generalSharePreferences() {
-        com.baidu.tbadk.core.sharedPref.b.brR().putInt("key_bawu_task_toast", -1);
-        try {
-            JSONObject jSONObject = new JSONObject();
-            jSONObject.put("resultCode", 1);
-            return jSONObject.toString();
-        } catch (JSONException e) {
-            BdLog.e(e);
+            JSONObject jSONObject2 = new JSONObject();
+            jSONObject2.put(MiPushCommandMessage.KEY_RESULT_CODE, i);
+            return jSONObject2.toString();
+        } catch (JSONException e3) {
+            BdLog.e(e3);
             return null;
         }
-    }
-
-    private String handleGamePushStatus() {
-        String string = com.baidu.tbadk.core.sharedPref.b.brR().getString("key_match_id_list_football", "");
-        String string2 = com.baidu.tbadk.core.sharedPref.b.brR().getString("key_match_id_list_basketball", "");
-        try {
-            JSONObject jSONObject = new JSONObject();
-            jSONObject.put("football", "[" + string + "]");
-            jSONObject.put("basketball", "[" + string2 + "]");
-            return jSONObject.toString();
-        } catch (JSONException e) {
-            BdLog.e(e);
-            return null;
-        }
-    }
-
-    public com.baidu.tieba.tbadkCore.e.a.c handleGoToMyPost(String str) {
-        com.baidu.tieba.tbadkCore.e.a.c cVar = new com.baidu.tieba.tbadkCore.e.a.c();
-        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonPostActivityConfig(this.mContext, str, 0, null)));
-        try {
-            JSONObject jSONObject = new JSONObject();
-            jSONObject.put("resultCode", 0);
-            cVar.setData(jSONObject.toString());
-        } catch (JSONException e) {
-            BdLog.e(e);
-        }
-        return cVar;
-    }
-
-    public com.baidu.tieba.tbadkCore.e.a.c handleGoToBarDetail(String str) {
-        com.baidu.tieba.tbadkCore.e.a.c cVar = new com.baidu.tieba.tbadkCore.e.a.c();
-        if (!TextUtils.isEmpty(str)) {
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ForumDetailActivityConfig(this.mContext, str, ForumDetailActivityConfig.FromType.BLUEV_SETTLE)));
-        }
-        return cVar;
-    }
-
-    public com.baidu.tieba.tbadkCore.e.a.c handleGoToMyLive(String str) {
-        com.baidu.tieba.tbadkCore.e.a.c cVar = new com.baidu.tieba.tbadkCore.e.a.c();
-        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaPersonCenterActivityConfig(this.mContext, str, "", "", 0, true)));
-        try {
-            JSONObject jSONObject = new JSONObject();
-            jSONObject.put("resultCode", 1);
-            cVar.setData(jSONObject.toString());
-            return cVar;
-        } catch (JSONException e) {
-            BdLog.e(e);
-            return cVar;
-        }
-    }
-
-    public com.baidu.tieba.tbadkCore.e.a.c handleSaveImage(String str) {
-        com.baidu.tieba.tbadkCore.e.a.c cVar = new com.baidu.tieba.tbadkCore.e.a.c();
-        if (this.mPermissionJudgement == null) {
-            this.mPermissionJudgement = new PermissionJudgePolicy();
-        }
-        this.mPermissionJudgement.clearRequestPermissionList();
-        if (!(this.mContext instanceof Activity)) {
-            cVar.dOs();
-            return cVar;
-        }
-        this.mPermissionJudgement.appendRequestPermission((Activity) this.mContext, "android.permission.WRITE_EXTERNAL_STORAGE");
-        if (this.mPermissionJudgement.startRequestPermission((Activity) this.mContext)) {
-            cVar.TB("权限申请");
-            return cVar;
-        }
-        new p((Activity) this.mContext, str, new p.a() { // from class: com.baidu.tbadk.browser.CommonTbJsBridge.2
-            @Override // com.baidu.tbadk.util.p.a
-            public void onError(int i, String str2) {
-                if (CommonTbJsBridge.this.jsPromptBridge != null) {
-                    LinkedHashMap linkedHashMap = new LinkedHashMap();
-                    linkedHashMap.put("result", -1);
-                    CommonTbJsBridge.this.jsPromptBridge.a(CommonTbJsBridge.this.mWebView, "saveImageSuccess", linkedHashMap);
-                }
-            }
-
-            @Override // com.baidu.tbadk.util.p.a
-            public void onSuccess(String str2) {
-                if (CommonTbJsBridge.this.jsPromptBridge != null) {
-                    LinkedHashMap linkedHashMap = new LinkedHashMap();
-                    linkedHashMap.put("result", 0);
-                    CommonTbJsBridge.this.jsPromptBridge.a(CommonTbJsBridge.this.mWebView, "saveImageSuccess", linkedHashMap);
-                }
-            }
-        }).execute(new String[0]);
-        try {
-            JSONObject jSONObject = new JSONObject();
-            jSONObject.put("resultCode", 0);
-            cVar.setData(jSONObject.toString());
-            return cVar;
-        } catch (JSONException e) {
-            BdLog.e(e);
-            return cVar;
-        }
-    }
-
-    public com.baidu.tieba.tbadkCore.e.a.c saveImageSuccess(HashMap<String, Integer> hashMap) {
-        com.baidu.tieba.tbadkCore.e.a.c cVar = new com.baidu.tieba.tbadkCore.e.a.c();
-        if (hashMap != null && hashMap.get("result").intValue() == -1) {
-            cVar.TB("图片保存错误");
-        }
-        return cVar;
+        i = 0;
     }
 
     private void dealJump(String str) {
         TbPageContext<?> currentActivityPageContext;
-        if (!au.isEmpty(str) && (currentActivityPageContext = getCurrentActivityPageContext(TbadkCoreApplication.getInst().getCurrentActivity())) != null) {
-            bf.bsY().b(currentActivityPageContext, new String[]{str});
+        if (k.isEmpty(str) || (currentActivityPageContext = getCurrentActivityPageContext(TbadkCoreApplication.getInst().getCurrentActivity())) == null) {
+            return;
+        }
+        UrlManager.getInstance().dealOneLink(currentActivityPageContext, new String[]{str});
+    }
+
+    private String generalSharePreferences() {
+        d.b.h0.r.d0.b.i().u("key_bawu_task_toast", -1);
+        try {
+            JSONObject jSONObject = new JSONObject();
+            jSONObject.put(MiPushCommandMessage.KEY_RESULT_CODE, 1);
+            return jSONObject.toString();
+        } catch (JSONException e2) {
+            BdLog.e(e2);
+            return null;
+        }
+    }
+
+    private String getAPIs() {
+        try {
+            JSONObject jSONObject = new JSONObject();
+            jSONObject.put("status", 0);
+            jSONObject.put("message", TbadkCoreApplication.getInst().getString(R.string.scheme_action_status_ok));
+            if (OpenJsSdkSwitch.isOn()) {
+                jSONObject.put("data", new JSONArray(DescriptionTableInfo.getDescriptionTable()));
+            } else {
+                jSONObject.put("data", new JSONArray());
+            }
+            return jSONObject.toString();
+        } catch (JSONException e2) {
+            BdLog.e(e2);
+            return null;
         }
     }
 
@@ -643,21 +347,76 @@ public class CommonTbJsBridge implements com.baidu.tieba.tbadkCore.e.b {
         return null;
     }
 
-    private String startAcceleromter(String str) {
-        int i;
+    private String getGetModalData() {
+        JSONObject jSONObject;
+        String f2;
+        int i = 0;
         try {
-            this.shakeCallbackjsMethod = new JSONObject(str).optString("method_name");
-            if (!getShakeController().isOpen()) {
-                getShakeController().open();
-            }
-            i = 1;
-        } catch (JSONException e) {
-            e.printStackTrace();
-            i = 0;
+            f2 = f.c().f();
+        } catch (Exception e2) {
+            BdLog.e(e2);
         }
         try {
+            if (!TextUtils.isEmpty(f2)) {
+                jSONObject = new JSONObject(f2);
+                i = 1;
+                JSONObject jSONObject2 = new JSONObject();
+                jSONObject2.put(MiPushCommandMessage.KEY_RESULT_CODE, i);
+                jSONObject2.put("user_info", jSONObject);
+                return jSONObject2.toString();
+            }
+            JSONObject jSONObject22 = new JSONObject();
+            jSONObject22.put(MiPushCommandMessage.KEY_RESULT_CODE, i);
+            jSONObject22.put("user_info", jSONObject);
+            return jSONObject22.toString();
+        } catch (JSONException e3) {
+            BdLog.e(e3);
+            return null;
+        }
+        jSONObject = null;
+    }
+
+    private w getShakeController() {
+        if (this.mShakeController == null) {
+            this.mShakeController = new w(this.mContext, new a());
+        }
+        return this.mShakeController;
+    }
+
+    private ShareItem getShareItem() {
+        return this.shareItem;
+    }
+
+    private void goToGameShare(String str) {
+        JSONObject jSONObject;
+        try {
+            jSONObject = new JSONObject(str);
+        } catch (JSONException e2) {
+            BdLog.e(e2);
+            jSONObject = null;
+        }
+        if (jSONObject != null) {
+            GameShareData gameShareData = new GameShareData();
+            gameShareData.a(jSONObject);
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new GameShareActivityConfig(this.mContext, gameShareData)));
+        }
+    }
+
+    private String handleGamePush(String str) {
+        if (TextUtils.isEmpty(str)) {
+            return "0";
+        }
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921404, str));
+        return "1";
+    }
+
+    private String handleGamePushStatus() {
+        String o = d.b.h0.r.d0.b.i().o("key_match_id_list_football", "");
+        String o2 = d.b.h0.r.d0.b.i().o("key_match_id_list_basketball", "");
+        try {
             JSONObject jSONObject = new JSONObject();
-            jSONObject.put("resultCode", i);
+            jSONObject.put("football", "[" + o + "]");
+            jSONObject.put("basketball", "[" + o2 + "]");
             return jSONObject.toString();
         } catch (JSONException e2) {
             BdLog.e(e2);
@@ -665,39 +424,38 @@ public class CommonTbJsBridge implements com.baidu.tieba.tbadkCore.e.b {
         }
     }
 
-    public com.baidu.tieba.tbadkCore.e.a.c playSound(String str) {
-        com.baidu.tieba.tbadkCore.e.a.c cVar = new com.baidu.tieba.tbadkCore.e.a.c();
-        int i = 0;
-        if (j.isNetWorkAvailable()) {
-            getShakeController().zt(str);
-            i = 1;
-        } else if (this.mContext != null) {
-            l.showToast(this.mContext, R.string.neterror);
-        }
-        try {
-            JSONObject jSONObject = new JSONObject();
-            jSONObject.put("resultCode", i);
-            cVar.setData(jSONObject.toString());
-        } catch (JSONException e) {
-            BdLog.e(e);
-        }
-        return cVar;
+    private void hideWebviewLoading(String str) {
     }
 
-    public com.baidu.tieba.tbadkCore.e.a.c playVibrate() {
-        com.baidu.tieba.tbadkCore.e.a.c cVar = new com.baidu.tieba.tbadkCore.e.a.c();
-        int i = 0;
-        if (getShakeController().biv()) {
-            i = 1;
+    private boolean isLegalSchema(List<String> list, String str) {
+        if (!StringUtils.isNull(str) && !ListUtils.isEmpty(list)) {
+            for (String str2 : list) {
+                if (str.startsWith(str2)) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    private String jumpToPbPage(String str, String str2) {
+        PbActivityConfig createNormalCfg = new PbActivityConfig(this.mContext).createNormalCfg(str, null, str2);
+        createNormalCfg.setStartFrom(5);
+        MessageManager.getInstance().sendMessage(new CustomMessage(2004001, createNormalCfg));
+        return null;
+    }
+
+    private String loadThirdPartyLogin(String str) {
+        if (k.isEmpty(str)) {
+            return null;
         }
         try {
-            JSONObject jSONObject = new JSONObject();
-            jSONObject.put("resultCode", i);
-            cVar.setData(jSONObject.toString());
-        } catch (JSONException e) {
-            BdLog.e(e);
+            JSONObject jSONObject = new JSONObject(str);
+            return jumpLoginActivity(jSONObject.optInt("socialType", 0), jSONObject.optString("activityId")).a();
+        } catch (JSONException e2) {
+            BdLog.e(e2);
+            return null;
         }
-        return cVar;
     }
 
     private String parseSpringFestivalTimer(String str) {
@@ -706,674 +464,434 @@ public class CommonTbJsBridge implements com.baidu.tieba.tbadkCore.e.b {
             JSONObject jSONObject = new JSONObject(str);
             boolean optBoolean = jSONObject.optBoolean("open");
             String optString = jSONObject.optString("method_name");
-            com.baidu.tbadk.data.l lVar = new com.baidu.tbadk.data.l();
-            lVar.setOpen(optBoolean);
-            lVar.setMethod(optString);
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2156673, lVar));
+            d.b.h0.t.k kVar = new d.b.h0.t.k();
+            kVar.g(optBoolean);
+            kVar.f(optString);
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2156673, kVar));
             i = 1;
-        } catch (JSONException e) {
-            e.printStackTrace();
+        } catch (JSONException e2) {
+            e2.printStackTrace();
             i = 0;
         }
         try {
             JSONObject jSONObject2 = new JSONObject();
-            jSONObject2.put("resultCode", i);
+            jSONObject2.put(MiPushCommandMessage.KEY_RESULT_CODE, i);
             return jSONObject2.toString();
-        } catch (JSONException e2) {
-            BdLog.e(e2);
+        } catch (JSONException e3) {
+            BdLog.e(e3);
             return null;
         }
     }
 
-    private String loadThirdPartyLogin(String str) {
-        if (!au.isEmpty(str)) {
-            try {
-                JSONObject jSONObject = new JSONObject(str);
-                return jumpLoginActivity(jSONObject.optInt("socialType", 0), jSONObject.optString("activityId")).getData();
-            } catch (JSONException e) {
-                BdLog.e(e);
-            }
-        }
-        return null;
-    }
-
-    public com.baidu.tieba.tbadkCore.e.a.c jumpLoginActivity(int i, String str) {
-        com.baidu.tieba.tbadkCore.e.a.c cVar = new com.baidu.tieba.tbadkCore.e.a.c();
-        JSONObject jSONObject = new JSONObject();
-        if (this.mContext == null) {
-            try {
-                jSONObject.put("resultCode", 0);
-            } catch (JSONException e) {
-                BdLog.e(e);
-            }
-            cVar.setData(jSONObject.toString());
-        } else {
-            LoginActivityConfig loginActivityConfig = new LoginActivityConfig(this.mContext, true);
-            loginActivityConfig.setThirdPartyLoginForResult(i, str);
-            if (this.mWebView != null) {
-                loginActivityConfig.setUrl(this.mWebView.getOriginalUrl());
-            }
-            bh.a(loginActivityConfig);
-            try {
-                jSONObject.put("resultCode", 1);
-            } catch (JSONException e2) {
-                BdLog.e(e2);
-            }
-            cVar.setData(jSONObject.toString());
-        }
-        return cVar;
-    }
-
-    private void showRightShare(String str) {
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_SHARE, str));
-    }
-
-    private void goToGameShare(String str) {
-        JSONObject jSONObject;
-        try {
-            jSONObject = new JSONObject(str);
-        } catch (JSONException e) {
-            BdLog.e(e);
-            jSONObject = null;
-        }
-        if (jSONObject != null) {
-            GameShareData gameShareData = new GameShareData();
-            gameShareData.parseJson(jSONObject);
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new GameShareActivityConfig(this.mContext, gameShareData)));
-        }
-    }
-
-    public com.baidu.tieba.tbadkCore.e.a.c getStartLoadTimeInterval() {
-        com.baidu.tieba.tbadkCore.e.a.c cVar = new com.baidu.tieba.tbadkCore.e.a.c();
-        try {
-            JSONObject jSONObject = new JSONObject();
-            jSONObject.put("loadUrlTime", this.mLastLoadUrlTime);
-            cVar.setData(jSONObject.toString());
-        } catch (JSONException e) {
-            BdLog.e(e);
-        }
-        return cVar;
-    }
-
-    public com.baidu.tieba.tbadkCore.e.a.c getZid() {
-        com.baidu.tieba.tbadkCore.e.a.c cVar = new com.baidu.tieba.tbadkCore.e.a.c();
-        String zid = TbadkCoreApplication.getInst().getZid();
-        try {
-            JSONObject jSONObject = new JSONObject();
-            jSONObject.put("resultCode", 1);
-            jSONObject.put("zid", zid);
-            cVar.setData(jSONObject.toString());
-        } catch (JSONException e) {
-            BdLog.e(e);
-        }
-        return cVar;
-    }
-
-    public com.baidu.tieba.tbadkCore.e.a.c setShareInfo(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, int i, String str9) {
-        int i2;
-        com.baidu.tieba.tbadkCore.e.a.c cVar = new com.baidu.tieba.tbadkCore.e.a.c();
-        JSONObject jSONObject = new JSONObject();
-        try {
-            jSONObject.put("title", str);
-            jSONObject.put("desc", str2);
-            jSONObject.put("img", str3);
-            jSONObject.put("url", str4);
-            jSONObject.put(AlbumActivityConfig.FROM_TOPIC, str5);
-            jSONObject.put("wbtitle", str6);
-            jSONObject.put("wbcontent", str7);
-            jSONObject.put("isShowMoreForum", str8);
-            jSONObject.put("shareimg", i);
-            jSONObject.put("extdata", str9);
-        } catch (JSONException e) {
-            BdLog.e(e);
-        }
-        String jSONObject2 = jSONObject.toString();
-        if (au.isEmpty(jSONObject2)) {
-            i2 = 0;
-        } else {
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016566, jSONObject2));
-            i2 = 1;
-        }
-        try {
-            JSONObject jSONObject3 = new JSONObject();
-            jSONObject3.put("resultCode", i2);
-            cVar.setData(jSONObject3.toString());
-        } catch (JSONException e2) {
-            BdLog.e(e2);
-        }
-        return cVar;
-    }
-
-    private ShareItem getShareItem() {
-        return this.shareItem;
+    private String refreshPage() {
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921052));
+        return "";
     }
 
     private void setShareItem(ShareItem shareItem) {
         this.shareItem = shareItem;
     }
 
-    private void shareLoacalImage(String str, final int i) {
+    private void shareLoacalImage(String str, int i) {
         Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
-        if (currentActivity != null) {
-            if (this.mPermissionJudgement == null) {
-                this.mPermissionJudgement = new PermissionJudgePolicy();
-            }
-            this.mPermissionJudgement.clearRequestPermissionList();
-            this.mPermissionJudgement.appendRequestPermission(currentActivity, "android.permission.WRITE_EXTERNAL_STORAGE");
-            if (!this.mPermissionJudgement.startRequestPermission(currentActivity)) {
-                p pVar = new p(currentActivity, str, new p.a() { // from class: com.baidu.tbadk.browser.CommonTbJsBridge.3
-                    @Override // com.baidu.tbadk.util.p.a
-                    public void onError(int i2, String str2) {
-                    }
-
-                    @Override // com.baidu.tbadk.util.p.a
-                    public void onSuccess(String str2) {
-                        if (new File(str2).exists()) {
-                            if (CommonTbJsBridge.this.shareItem != null) {
-                                CommonTbJsBridge.this.shareItem.shareType = 1;
-                                CommonTbJsBridge.this.shareItem.localFile = str2;
-                            }
-                            if (i != 0) {
-                                MessageManager.getInstance().sendMessage(new ImplicitShareMessage(CommonTbJsBridge.this.mContext, i, CommonTbJsBridge.this.shareItem, true));
-                            }
-                        }
-                    }
-                });
-                pVar.setFrom(1);
-                pVar.execute(new String[0]);
-            }
+        if (currentActivity == null) {
+            return;
         }
+        if (this.mPermissionJudgement == null) {
+            this.mPermissionJudgement = new PermissionJudgePolicy();
+        }
+        this.mPermissionJudgement.clearRequestPermissionList();
+        this.mPermissionJudgement.appendRequestPermission(currentActivity, StorageUtils.EXTERNAL_STORAGE_PERMISSION);
+        if (this.mPermissionJudgement.startRequestPermission(currentActivity)) {
+            return;
+        }
+        q qVar = new q(currentActivity, str, new c(i));
+        qVar.p(1);
+        qVar.execute(new String[0]);
     }
 
-    public com.baidu.tieba.tbadkCore.e.a.c share(int i, int i2, String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, int i3, String str9) {
-        int i4;
-        CustomResponsedMessage runTask;
-        com.baidu.tieba.tbadkCore.e.a.c cVar = new com.baidu.tieba.tbadkCore.e.a.c();
-        JSONObject jSONObject = new JSONObject();
+    private void showRightShare(String str) {
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921331, str));
+    }
+
+    private String startAcceleromter(String str) {
+        int i;
         try {
-            jSONObject.put("channel", i);
-            jSONObject.put("shareimg", i2);
-            jSONObject.put("img", str);
-            jSONObject.put("isShowMoreForum", str2);
-            jSONObject.put("url", str3);
-            jSONObject.put("title", str4);
-            jSONObject.put("desc", str5);
-            jSONObject.put(AlbumActivityConfig.FROM_TOPIC, str6);
-            jSONObject.put("wbtitle", str7);
-            jSONObject.put("wbcontent", str8);
-            jSONObject.put("weixin_disable", i3);
-            jSONObject.put("extdata", str9);
-        } catch (JSONException e) {
-            BdLog.e(e);
-        }
-        String jSONObject2 = jSONObject.toString();
-        if (au.isEmpty(jSONObject2) || (runTask = MessageManager.getInstance().runTask(2016568, ShareItem.class, jSONObject2)) == null) {
-            i4 = 0;
-        } else {
-            ShareItem shareItem = (ShareItem) runTask.getData();
-            if (shareItem != null) {
-                shareItem.fww = 17;
+            this.shakeCallbackjsMethod = new JSONObject(str).optString("method_name");
+            if (!getShakeController().d()) {
+                getShakeController().f();
             }
-            if ("1".equals(str2) && shareItem != null) {
-                shareItem.imageUrl = str;
-                shareItem.linkUrl = str3;
-                shareItem.title = str4 + " " + str5;
-                shareItem.fwq = true;
-                ShareDialogConfig shareDialogConfig = new ShareDialogConfig(this.mContext, shareItem, true, (SparseArray<String>) null);
-                shareDialogConfig.mShowMoreForumShare = true;
-                f.ctM().b(shareDialogConfig);
-                cVar.setData("");
-                return cVar;
-            }
-            if (i == 0) {
-                if (shareItem != null && !au.isEmpty(str) && i2 == 1) {
-                    setShareItem(shareItem);
-                    shareLoacalImage(str, i);
-                }
-                showShareDialog(shareItem);
-            } else if (shareItem != null && !au.isEmpty(str) && i2 == 1) {
-                setShareItem(shareItem);
-                shareLoacalImage(str, i);
-            } else {
-                MessageManager.getInstance().sendMessage(new ImplicitShareMessage(this.mContext, i, shareItem, true));
-            }
-            i4 = 1;
-        }
-        try {
-            JSONObject jSONObject3 = new JSONObject();
-            jSONObject3.put("resultCode", i4);
-            cVar.setData(jSONObject3.toString());
-            return cVar;
-        } catch (JSONException e2) {
-            BdLog.e(e2);
-            return cVar;
-        }
-    }
-
-    protected void showShareDialog(ShareItem shareItem) {
-        if (shareItem != null) {
-            ShareDialogConfig shareDialogConfig = new ShareDialogConfig(this.mContext, shareItem, true);
-            if (shareItem.shareType != 0) {
-                shareDialogConfig.hideMode |= 32;
-            }
-            shareDialogConfig.setIsSupportNightMode(true);
-            shareDialogConfig.setIsCopyLink(true);
-            ar arVar = new ar(TbadkCoreStatisticKey.WEBVIEW_SHARE);
-            arVar.dR(TiebaInitialize.Params.OBJ_URL, shareItem.linkUrl);
-            arVar.aq("obj_type", 1);
-            TiebaStatic.log(arVar);
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SHARE_DIALOG_SHOW, shareDialogConfig));
-        }
-    }
-
-    public com.baidu.tieba.tbadkCore.e.a.c getClipperInformation() {
-        com.baidu.tieba.tbadkCore.e.a.c cVar = new com.baidu.tieba.tbadkCore.e.a.c();
-        int i = 0;
-        String clipBoardContent = UtilHelper.getClipBoardContent();
-        if (!au.isEmpty(clipBoardContent)) {
             i = 1;
-        }
-        try {
-            JSONObject jSONObject = new JSONObject();
-            jSONObject.put("resultCode", i);
-            jSONObject.put("data", clipBoardContent);
-            cVar.setData(jSONObject.toString());
-        } catch (JSONException e) {
-            BdLog.e(e);
-        }
-        return cVar;
-    }
-
-    public com.baidu.tieba.tbadkCore.e.a.c setClipperInformation(String str) {
-        com.baidu.tieba.tbadkCore.e.a.c cVar = new com.baidu.tieba.tbadkCore.e.a.c();
-        com.baidu.adp.lib.util.a.copyToClipboard(str);
-        try {
-            JSONObject jSONObject = new JSONObject();
-            jSONObject.put("resultCode", 1);
-            cVar.setData(jSONObject.toString());
-        } catch (JSONException e) {
-            BdLog.e(e);
-        }
-        return cVar;
-    }
-
-    public com.baidu.tieba.tbadkCore.e.a.c goToEditPost(String str, String str2, String str3, String str4, String str5, String str6, String str7) {
-        com.baidu.tieba.tbadkCore.e.a.c cVar = new com.baidu.tieba.tbadkCore.e.a.c();
-        if ("1".equals(str)) {
-            WriteActivityConfig.newInstance(this.mContext).setType(9).setForumWriteData(new ForumWriteData(str6, str7, null, null)).setIsSaveDraft(false).setContent(str5).setFrom("frs").setCallFrom("2").send();
-        } else if ("2".equals(str)) {
-            PbActivityConfig createNormalCfg = new PbActivityConfig(this.mContext).createNormalCfg(str2, null, null);
-            createNormalCfg.setJumpToCommentArea(true);
-            createNormalCfg.showOpenEditorTips(str5);
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, createNormalCfg));
-        } else if ("3".equals(str)) {
-            SubPbActivityConfig createSubPbActivityConfig = new SubPbActivityConfig(this.mContext).createSubPbActivityConfig(str2, str4, "mention", false, "", false, str4, 0);
-            createSubPbActivityConfig.showOpenEditorTips(str5);
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, createSubPbActivityConfig));
-        }
-        return cVar;
-    }
-
-    public com.baidu.tieba.tbadkCore.e.a.c changeSkinTypeInH5(HashMap hashMap) {
-        com.baidu.tieba.tbadkCore.e.a.c cVar = new com.baidu.tieba.tbadkCore.e.a.c();
-        if (hashMap != null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("skin", hashMap.get("skin"));
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            callJsMethod(CHANGE_SKIN_TYPE, jSONObject);
-            cVar.setData(jSONObject.toString());
-        }
-        return cVar;
-    }
-
-    private String closeNativeMask(String str) {
-        int i = 1;
-        try {
-            if (!StringUtils.isNull(str)) {
-                try {
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921444, Boolean.valueOf(new JSONObject(str).optInt("result", 0) == 1)));
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-                JSONObject jSONObject = new JSONObject();
-                jSONObject.put("resultCode", i);
-                return jSONObject.toString();
-            }
-            JSONObject jSONObject2 = new JSONObject();
-            jSONObject2.put("resultCode", i);
-            return jSONObject2.toString();
         } catch (JSONException e2) {
-            BdLog.e(e2);
+            e2.printStackTrace();
+            i = 0;
+        }
+        try {
+            JSONObject jSONObject = new JSONObject();
+            jSONObject.put(MiPushCommandMessage.KEY_RESULT_CODE, i);
+            return jSONObject.toString();
+        } catch (JSONException e3) {
+            BdLog.e(e3);
             return null;
         }
-        i = 0;
     }
 
-    public com.baidu.tieba.tbadkCore.e.a.c shareSuccessNotification(HashMap hashMap) {
-        int intValue = ((Integer) hashMap.get("shareChannel")).intValue();
-        ShareItem shareItem = (ShareItem) hashMap.get("shareItem");
-        JSONObject jSONObject = new JSONObject();
-        try {
-            JSONObject jSONObject2 = new JSONObject();
-            jSONObject2.put("title", shareItem.title);
-            jSONObject2.put("desc", shareItem.content);
-            jSONObject2.put("img", shareItem.imageUri);
-            jSONObject2.put("url", shareItem.linkUrl);
-            JSONObject jSONObject3 = new JSONObject();
-            jSONObject3.put("type", intValue);
-            jSONObject3.put("shareData", jSONObject2);
-            jSONObject.put("resultCode", 1);
-            jSONObject.put("data", jSONObject3);
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        callJsMethod(SHARE_SUCCCESS_NOTIFICATION, jSONObject);
-        com.baidu.tieba.tbadkCore.e.a.c cVar = new com.baidu.tieba.tbadkCore.e.a.c();
-        cVar.setData(jSONObject.toString());
-        return cVar;
-    }
-
-    public com.baidu.tieba.tbadkCore.e.a.c thirdPartyLoginResultToH5(HashMap hashMap) {
+    public d.b.i0.c3.l0.d.c changeSkinTypeInH5(HashMap hashMap) {
+        d.b.i0.c3.l0.d.c cVar = new d.b.i0.c3.l0.d.c();
         if (hashMap == null) {
-            return null;
+            return cVar;
         }
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("resultCode", 1);
-            jSONObject.put("socialType", hashMap.get(LoginActivityConfig.SOCIAL_TYPE));
-            jSONObject.put("activityId", hashMap.get("activityId"));
-        } catch (JSONException e) {
-            e.printStackTrace();
+            jSONObject.put("skin", hashMap.get("skin"));
+        } catch (JSONException e2) {
+            e2.printStackTrace();
         }
-        callJsMethod(RESULT_THIRD_PARTY_LOGIN, jSONObject);
-        com.baidu.tieba.tbadkCore.e.a.c cVar = new com.baidu.tieba.tbadkCore.e.a.c();
-        cVar.setData(jSONObject.toString());
+        callJsMethod(CHANGE_SKIN_TYPE, jSONObject);
+        cVar.l(jSONObject.toString());
         return cVar;
     }
 
-    public com.baidu.tieba.tbadkCore.e.a.c onUserLoginChanged(HashMap hashMap) {
-        if (hashMap == null || hashMap.get("isLogin") == null) {
-            return null;
-        }
-        if (((Boolean) hashMap.get("isLogin")).booleanValue()) {
+    /* JADX DEBUG: Multi-variable search result rejected for r4v5, resolved type: boolean */
+    /* JADX WARN: Multi-variable type inference failed */
+    public d.b.i0.c3.l0.d.c checkAppInstall(String str) {
+        d.b.i0.c3.l0.d.c cVar = new d.b.i0.c3.l0.d.c();
+        int isInstalledPackage = !StringUtils.isNull(str) ? UtilHelper.isInstalledPackage(this.mContext, str) : 0;
+        try {
             JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("resultCode", 1);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            callJsMethod(LOGIN_RESULT_TO_H5, jSONObject);
-            com.baidu.tieba.tbadkCore.e.a.c cVar = new com.baidu.tieba.tbadkCore.e.a.c();
-            cVar.setData(jSONObject.toString());
+            jSONObject.put(MiPushCommandMessage.KEY_RESULT_CODE, isInstalledPackage);
+            cVar.l(jSONObject.toString());
+            return cVar;
+        } catch (JSONException e2) {
+            BdLog.e(e2);
             return cVar;
         }
-        return null;
     }
 
-    public com.baidu.tieba.tbadkCore.e.a.c reShow(HashMap hashMap) {
+    public d.b.i0.c3.l0.d.c dealClickGoBackToH5(HashMap hashMap) {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("resultCode", 1);
-        } catch (JSONException e) {
-            e.printStackTrace();
+            jSONObject.put(MiPushCommandMessage.KEY_RESULT_CODE, 1);
+        } catch (JSONException e2) {
+            e2.printStackTrace();
         }
-        callJsMethod(RE_SHOW, jSONObject);
-        com.baidu.tieba.tbadkCore.e.a.c cVar = new com.baidu.tieba.tbadkCore.e.a.c();
-        cVar.setData(jSONObject.toString());
+        callJsMethod(CLICK_GO_BACK_TO_H5, jSONObject);
+        d.b.i0.c3.l0.d.c cVar = new d.b.i0.c3.l0.d.c();
+        cVar.l(jSONObject.toString());
         return cVar;
     }
 
-    public com.baidu.tieba.tbadkCore.e.a.c checkAppInstall(String str) {
-        int i = 0;
-        com.baidu.tieba.tbadkCore.e.a.c cVar = new com.baidu.tieba.tbadkCore.e.a.c();
-        if (!StringUtils.isNull(str) && UtilHelper.isInstalledPackage(this.mContext, str)) {
-            i = 1;
-        }
-        try {
-            JSONObject jSONObject = new JSONObject();
-            jSONObject.put("resultCode", i);
-            cVar.setData(jSONObject.toString());
-            return cVar;
-        } catch (JSONException e) {
-            BdLog.e(e);
-            return cVar;
-        }
-    }
-
-    public com.baidu.tieba.tbadkCore.e.a.c disableBack(int i) {
-        com.baidu.tieba.tbadkCore.e.a.c cVar = new com.baidu.tieba.tbadkCore.e.a.c();
-        if (this.mContext instanceof TbWebViewActivity) {
-            if (i == 0) {
-                ((TbWebViewActivity) this.mContext).setSwipeBackEnabled(true);
-            } else {
-                ((TbWebViewActivity) this.mContext).setSwipeBackEnabled(false);
+    @Override // d.b.i0.c3.l0.b
+    public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
+        boolean z;
+        boolean z2;
+        CommonTbJsBridge commonTbJsBridge = this;
+        if ("CommonJSBridge".equals(str)) {
+            if ("startLoginModule".equals(str2)) {
+                try {
+                    jsPromptResult.confirm(commonTbJsBridge.startLoginModule(new JSONObject(str3).optString("cssUrl")).a());
+                    return true;
+                } catch (Exception e2) {
+                    e2.printStackTrace();
+                }
             }
-        }
-        return cVar;
-    }
-
-    private boolean isLegalSchema(List<String> list, String str) {
-        if (StringUtils.isNull(str) || y.isEmpty(list)) {
-            return false;
-        }
-        for (String str2 : list) {
-            if (str.startsWith(str2)) {
+            if (HIDE_WEBVIEW_LOADING.equals(str2)) {
+                try {
+                    String optString = new JSONObject(str3).optString("url");
+                    if (!StringUtils.isNull(optString)) {
+                        commonTbJsBridge.hideWebviewLoading(optString);
+                    }
+                    jsPromptResult.confirm();
+                    return true;
+                } catch (JSONException e3) {
+                    e3.printStackTrace();
+                }
+            }
+            if (PERSON_PAGE_REFRESH.equals(str2)) {
+                try {
+                    jsPromptResult.confirm(refreshPage());
+                    return true;
+                } catch (Exception e4) {
+                    e4.printStackTrace();
+                }
+            }
+            if (FINISH_THIS_PAGE.equals(str2)) {
+                try {
+                    jsPromptResult.confirm(finishPage().a());
+                    return true;
+                } catch (Exception e5) {
+                    e5.printStackTrace();
+                }
+            }
+            if (PERSON_PAGE_SHARE.equals(str2)) {
+                try {
+                    commonTbJsBridge.showRightShare(str3);
+                    jsPromptResult.confirm();
+                    return true;
+                } catch (Exception e6) {
+                    e6.printStackTrace();
+                }
+            }
+            if (GAME_SHARE.equals(str2)) {
+                try {
+                    commonTbJsBridge.goToGameShare(str3);
+                    jsPromptResult.confirm();
+                } catch (Exception e7) {
+                    e7.printStackTrace();
+                }
                 return true;
+            } else if (GET_ZID.equals(str2)) {
+                jsPromptResult.confirm(getZid().a());
+                return true;
+            } else if (SET_SHARE_INFO.equals(str2)) {
+                try {
+                    JSONObject jSONObject = new JSONObject(str3);
+                    jsPromptResult.confirm(setShareInfo(jSONObject.optString("title"), jSONObject.optString("desc"), jSONObject.optString("img"), jSONObject.optString("url"), jSONObject.optString("topic"), jSONObject.optString("wbtitle"), jSONObject.optString("wbcontent"), jSONObject.optString("isShowMoreForum"), jSONObject.optInt("shareimg"), jSONObject.optString("extdata")).a());
+                    return true;
+                } catch (JSONException e8) {
+                    BdLog.e(e8);
+                    return true;
+                }
+            } else if ("share".equals(str2)) {
+                try {
+                    JSONObject jSONObject2 = new JSONObject(str3);
+                    z = true;
+                    try {
+                        jsPromptResult.confirm(share(jSONObject2.optInt("channel"), jSONObject2.optInt("shareimg"), jSONObject2.optString("img"), jSONObject2.optString("isShowMoreForum"), jSONObject2.optString("url"), jSONObject2.optString("title"), jSONObject2.optString("desc"), jSONObject2.optString("topic"), jSONObject2.optString("wbtitle"), jSONObject2.optString("wbcontent"), jSONObject2.optInt("weixin_disable"), jSONObject2.optString("extdata")).a());
+                    } catch (JSONException e9) {
+                        e = e9;
+                        BdLog.e(e);
+                        return z;
+                    }
+                } catch (JSONException e10) {
+                    e = e10;
+                    z = true;
+                }
+                return z;
+            } else if (GET_CLIPPER_INFORMATION.equals(str2)) {
+                jsPromptResult.confirm(getClipperInformation().a());
+                return true;
+            } else if (SET_CLIPPER_INFORMATION.equals(str2)) {
+                try {
+                    z2 = true;
+                    try {
+                        jsPromptResult.confirm(setClipperInformation(new JSONObject(str3).optString(DocumentOpenUtil.TXT)).a());
+                    } catch (JSONException e11) {
+                        e = e11;
+                        BdLog.e(e);
+                        return z2;
+                    }
+                } catch (JSONException e12) {
+                    e = e12;
+                    z2 = true;
+                }
+                return z2;
+            } else {
+                commonTbJsBridge = this;
+                if (CHECK_APP_INSTALL.equals(str2)) {
+                    try {
+                        jsPromptResult.confirm(commonTbJsBridge.checkAppInstall(new JSONObject(str3).optString(PushClientConstants.TAG_PKG_NAME)).a());
+                    } catch (JSONException e13) {
+                        BdLog.e(e13);
+                    }
+                    return true;
+                } else if (START_APP.equals(str2)) {
+                    jsPromptResult.confirm(commonTbJsBridge.startApp(str3));
+                    return true;
+                } else if (LOAD_THIRD_PARTY_LOGIN.equals(str2)) {
+                    jsPromptResult.confirm(commonTbJsBridge.loadThirdPartyLogin(str3));
+                } else if (HAS_NOTIFICATION_PERMISSION.equals(str2)) {
+                    jsPromptResult.confirm(hasNotificationPermission().a());
+                    return true;
+                } else if (GO_TO_NOTIFICATIONSETTING.equals(str2)) {
+                    goToNotificationSetting();
+                } else if (START_DOWNLOAD_CSS.equals(str2)) {
+                    try {
+                        jsPromptResult.confirm(commonTbJsBridge.startDownloadCss(new JSONObject(str3).optString("downloadUrl")).a());
+                    } catch (JSONException e14) {
+                        BdLog.e(e14);
+                    }
+                } else if (SPRING_FESTIVAL_TIMER.equals(str2)) {
+                    jsPromptResult.confirm(commonTbJsBridge.parseSpringFestivalTimer(str3));
+                } else if (IS_DISABLE_GO_BACK.equals(str2)) {
+                    jsPromptResult.confirm(setDisableGoBack().a());
+                } else if (PLAY_VIBRATE.equals(str2)) {
+                    jsPromptResult.confirm(playVibrate().a());
+                } else if (PLAY_SOUND.equals(str2)) {
+                    try {
+                        jsPromptResult.confirm(commonTbJsBridge.playSound(new JSONObject(str3).optString("soundUrl")).a());
+                    } catch (JSONException e15) {
+                        BdLog.e(e15);
+                    }
+                } else if (SHOW_ALERTVIEW.equals(str2)) {
+                    try {
+                        commonTbJsBridge.mResult = jsPromptResult;
+                        JSONObject jSONObject3 = new JSONObject(str3);
+                        showAlertView(jSONObject3.optString("title"), jSONObject3.optString("sub_title"), jSONObject3.optInt("btn_corner"), jSONObject3.optInt("btn_borderWidth"), jSONObject3.optString("cancel_btn_text"), jSONObject3.optString("cancel_btn_color"), jSONObject3.optString("cancel_btn_borderColor"), jSONObject3.optString("confirm_btn_text"), jSONObject3.optString("confirm_btn_color"), jSONObject3.optString("confirm_btn_borderColor"), jSONObject3.optString("confirm_btn_url"));
+                    } catch (JSONException e16) {
+                        BdLog.e(e16);
+                    }
+                } else if (START_ACCELEROMETER.equals(str2)) {
+                    jsPromptResult.confirm(commonTbJsBridge.startAcceleromter(str3));
+                } else if (DisableSlideBack.equals(str2)) {
+                    try {
+                        jsPromptResult.confirm(commonTbJsBridge.disableBack(new JSONObject(str3).optInt(PackageTable.DISABLE)).a());
+                    } catch (JSONException e17) {
+                        BdLog.e(e17);
+                    }
+                } else if (TOAST_POPUPVIEW.equals(str2)) {
+                    try {
+                        JSONObject jSONObject4 = new JSONObject(str3);
+                        jsPromptResult.confirm(showLowerHairHint(jSONObject4.optInt(RecordVideoActivityConfig.SHOW_TYPE), jSONObject4.optInt("ahead_type"), jSONObject4.optString("message"), jSONObject4.optString("btn_text"), jSONObject4.optInt("toast_duration"), jSONObject4.optString("schema"), jSONObject4.optString("token"), jSONObject4.optDouble("opacity"), jSONObject4.optString(BigdayActivityConfig.IMG_URL), jSONObject4.optString("url"), jSONObject4.optInt("mission_id"), jSONObject4.optString("btn_color"), jSONObject4.optString("message_color"), jSONObject4.optString("btn_text_color"), jSONObject4.optInt("status"), jSONObject4.optInt(FINISH_THIS_PAGE)).a());
+                    } catch (JSONException e18) {
+                        BdLog.e(e18);
+                    }
+                    return false;
+                } else if (GAME_PUSH.equals(str2)) {
+                    jsPromptResult.confirm(handleGamePush(str3));
+                    return true;
+                } else if (GAME_PUSH_STATUS.equals(str2)) {
+                    jsPromptResult.confirm(handleGamePushStatus());
+                    return true;
+                } else if (GO_TO_MY_POST.equals(str2)) {
+                    try {
+                        jsPromptResult.confirm(handleGoToMyPost(new JSONObject(str3).optString("uid")).a());
+                    } catch (JSONException e19) {
+                        BdLog.e(e19);
+                    }
+                    return true;
+                } else if (GO_TO_MY_LIVE.equals(str2)) {
+                    try {
+                        jsPromptResult.confirm(handleGoToMyLive(new JSONObject(str3).optString("uid")).a());
+                    } catch (JSONException e20) {
+                        BdLog.e(e20);
+                    }
+                    return true;
+                } else if (SAVE_IMAGE.equals(str2)) {
+                    try {
+                        jsPromptResult.confirm(handleSaveImage(new JSONObject(str3).optString("imgUrl")).a());
+                    } catch (JSONException e21) {
+                        BdLog.e(e21);
+                    }
+                    return true;
+                } else if ("getSupplementInfo".equals(str2)) {
+                    jsPromptResult.confirm(getSupplementInfo().a());
+                    return true;
+                } else if ("getDeviceInfo".equals(str2)) {
+                    jsPromptResult.confirm(getDeviceInfo().a());
+                    return true;
+                } else if (GENERAL_PREFERENCES.equals(str2)) {
+                    jsPromptResult.confirm(generalSharePreferences());
+                    return false;
+                } else if (COMPLETE_TASK.equals(str2)) {
+                    try {
+                        JSONObject jSONObject5 = new JSONObject(str3);
+                        jsPromptResult.confirm(sendCompleteTaskReqMsg(jSONObject5.optString("activityId"), jSONObject5.optString("missionId")).a());
+                        return false;
+                    } catch (JSONException e22) {
+                        BdLog.e(e22);
+                        return false;
+                    }
+                } else if (GET_MODAL_DATA.equals(str2)) {
+                    jsPromptResult.confirm(getGetModalData());
+                    return false;
+                } else if (SHOW_TIP_TOAST.equals(str2)) {
+                    try {
+                        JSONObject jSONObject6 = new JSONObject(str3);
+                        jsPromptResult.confirm(showTipToast(jSONObject6.optString("content"), jSONObject6.optString("linkUrl"), jSONObject6.optString("key"), jSONObject6.optInt("maxTimes"), jSONObject6.optInt(FINISH_THIS_PAGE)).a());
+                        return false;
+                    } catch (JSONException e23) {
+                        BdLog.e(e23);
+                        return false;
+                    }
+                } else if (JUMP_TO_HTML_PAGE.equals(str2)) {
+                    try {
+                        JSONObject jSONObject7 = new JSONObject(str3);
+                        jsPromptResult.confirm(jumpToHtmlPage(jSONObject7.optString("url"), jSONObject7.optInt("finish_this_page", 1)).toString());
+                        return false;
+                    } catch (JSONException e24) {
+                        BdLog.e(e24);
+                        return false;
+                    }
+                } else if (CLOSE_NATIVE_MASK.equals(str2)) {
+                    jsPromptResult.confirm(closeNativeMask(str3));
+                    return false;
+                } else if (GO_TO_HOT_TREND.equals(str2)) {
+                    jumpToHotTrendPage();
+                    jsPromptResult.confirm();
+                    return false;
+                } else if (GO_TO_PB.equals(str2)) {
+                    try {
+                        JSONObject jSONObject8 = new JSONObject(str3);
+                        String optString2 = jSONObject8.optString("tid");
+                        String optString3 = jSONObject8.optString("fr");
+                        if (!StringUtils.isNull(optString2) && !StringUtils.isNull(optString3)) {
+                            jumpToPbPage(optString2, optString3);
+                        }
+                        jsPromptResult.confirm();
+                        return true;
+                    } catch (JSONException e25) {
+                        e25.printStackTrace();
+                        return false;
+                    }
+                } else if (GET_APIS.equals(str2)) {
+                    jsPromptResult.confirm(getAPIs());
+                    return true;
+                } else if (START_LOAD_TIME_INTERVAL.equals(str2)) {
+                    jsPromptResult.confirm(getStartLoadTimeInterval().a());
+                    return true;
+                } else {
+                    return false;
+                }
             }
         }
         return false;
-    }
-
-    public String startApp(String str) {
-        if (!au.isEmpty(str)) {
-            try {
-                JSONObject jSONObject = new JSONObject(str);
-                return startApp(jSONObject.optString(PushClientConstants.TAG_PKG_NAME), jSONObject.optString("schema")).getData();
-            } catch (JSONException e) {
-                BdLog.e(e);
-            }
-        }
-        try {
-            JSONObject jSONObject2 = new JSONObject();
-            jSONObject2.put("resultCode", 0);
-            return jSONObject2.toString();
-        } catch (JSONException e2) {
-            BdLog.e(e2);
-            return null;
-        }
-    }
-
-    public com.baidu.tieba.tbadkCore.e.a.c startApp(String str, String str2) {
-        boolean z;
-        Intent launchIntentForPackage;
-        com.baidu.tieba.tbadkCore.e.a.c cVar = new com.baidu.tieba.tbadkCore.e.a.c();
-        List<String> bwk = com.baidu.tbadk.coreExtra.data.g.bwk();
-        if (isLegalSchema(bwk, str2)) {
-            Intent intent = new Intent();
-            intent.setData(Uri.parse(str2));
-            try {
-                this.mContext.startActivity(intent);
-                z = true;
-            } catch (ActivityNotFoundException e) {
-                z = false;
-            }
-        } else {
-            z = false;
-        }
-        if (!z && isLegalSchema(bwk, str) && (launchIntentForPackage = this.mContext.getPackageManager().getLaunchIntentForPackage(str)) != null) {
-            this.mContext.startActivity(launchIntentForPackage);
-            z = true;
-        }
-        try {
-            JSONObject jSONObject = new JSONObject();
-            jSONObject.put("resultCode", z ? 1 : 0);
-            cVar.setData(jSONObject.toString());
-        } catch (JSONException e2) {
-            BdLog.e(e2);
-        }
-        return cVar;
-    }
-
-    public com.baidu.tieba.tbadkCore.e.a.c dealClickGoBackToH5(HashMap hashMap) {
-        JSONObject jSONObject = new JSONObject();
-        try {
-            jSONObject.put("resultCode", 1);
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        callJsMethod(CLICK_GO_BACK_TO_H5, jSONObject);
-        com.baidu.tieba.tbadkCore.e.a.c cVar = new com.baidu.tieba.tbadkCore.e.a.c();
-        cVar.setData(jSONObject.toString());
-        return cVar;
     }
 
     public void dealSpringFestivalTimer(String str, JSONObject jSONObject) {
         callJsMethod(str, jSONObject);
     }
 
-    public com.baidu.tieba.tbadkCore.e.a.c hasNotificationPermission() {
-        int i = 1;
-        com.baidu.tieba.tbadkCore.e.a.c cVar = new com.baidu.tieba.tbadkCore.e.a.c();
-        if (Build.VERSION.SDK_INT >= 19 && !NotificationManagerCompat.from(this.mContext).areNotificationsEnabled()) {
-            i = 0;
-        }
-        try {
-            JSONObject jSONObject = new JSONObject();
-            jSONObject.put("resultCode", i);
-            cVar.setData(jSONObject.toString());
-            return cVar;
-        } catch (JSONException e) {
-            BdLog.e(e);
-            return cVar;
-        }
-    }
-
-    public com.baidu.tieba.tbadkCore.e.a.c goToNotificationSetting() {
-        com.baidu.tieba.tbadkCore.e.a.c cVar = new com.baidu.tieba.tbadkCore.e.a.c();
-        try {
-            Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
-            if (currentActivity != null) {
-                currentActivity.startActivity(new Intent("android.settings.APPLICATION_DETAILS_SETTINGS", Uri.parse("package:" + TbadkCoreApplication.getInst().getPackageName())));
-            }
-        } catch (Throwable th) {
-            BdLog.e(th.getMessage());
-        }
-        return cVar;
-    }
-
-    public com.baidu.tieba.tbadkCore.e.a.c startDownloadCss(String str) {
-        com.baidu.tieba.tbadkCore.e.a.c cVar = new com.baidu.tieba.tbadkCore.e.a.c();
-        JSONObject jSONObject = new JSONObject();
-        if (!au.isEmpty(str)) {
-            try {
-                if (au.isEmpty(str)) {
-                    jSONObject.put("resultCode", 0);
-                    cVar.setData(jSONObject.toString());
-                } else {
-                    String AY = o.AY(str);
-                    String AZ = o.AZ(str);
-                    if (!o.AX(AZ)) {
-                        jSONObject.put("resultCode", 0);
-                        cVar.setData(jSONObject.toString());
-                    } else {
-                        DownloadData downloadData = new DownloadData(AY, AY, str, null);
-                        downloadData.setPath(AZ);
-                        com.baidu.tbadk.download.d.bBg().f(downloadData);
-                        jSONObject.put("resultCode", 1);
-                    }
-                }
-            } catch (JSONException e) {
-                BdLog.e(e);
-            }
-            return cVar;
-        }
-        cVar.setData(jSONObject.toString());
-        return cVar;
-    }
-
-    public com.baidu.tieba.tbadkCore.e.a.c setDisableGoBack() {
-        com.baidu.tieba.tbadkCore.e.a.c cVar = new com.baidu.tieba.tbadkCore.e.a.c();
-        int i = 0;
-        if (this.mContext instanceof TbWebViewActivity) {
-            ((TbWebViewActivity) this.mContext).isDisableGoBack = true;
-            i = 1;
-        }
-        try {
-            JSONObject jSONObject = new JSONObject();
-            jSONObject.put("resultCode", i);
-            cVar.setData(jSONObject.toString());
-            return cVar;
-        } catch (JSONException e) {
-            BdLog.e(e);
-            return cVar;
-        }
-    }
-
-    public void onDestroy() {
-        if (this.mShakeController != null && this.mShakeController.isOpen()) {
-            this.mShakeController.close();
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void callJsMethod(String str, JSONObject jSONObject) {
-        if (this.mWebView != null) {
-            if (Build.VERSION.SDK_INT >= 19) {
-                this.mWebView.evaluateJavascript("javascript:" + str + "&&" + str + "('" + jSONObject.toString() + "')", null);
+    public d.b.i0.c3.l0.d.c disableBack(int i) {
+        d.b.i0.c3.l0.d.c cVar = new d.b.i0.c3.l0.d.c();
+        Context context = this.mContext;
+        if (context instanceof TbWebViewActivity) {
+            if (i == 0) {
+                ((TbWebViewActivity) context).setSwipeBackEnabled(true);
             } else {
-                this.mWebView.loadUrl("javascript:" + str + "&&" + str + "('" + jSONObject.toString() + "')");
+                ((TbWebViewActivity) context).setSwipeBackEnabled(false);
             }
-        }
-    }
-
-    public com.baidu.tieba.tbadkCore.e.a.c getSupplementInfo() {
-        com.baidu.tieba.tbadkCore.e.a.c cVar = new com.baidu.tieba.tbadkCore.e.a.c();
-        StringBuffer stringBuffer = new StringBuffer(1024);
-        String imei = TbadkCoreApplication.getInst().getImei();
-        stringBuffer.append("imei=");
-        stringBuffer.append(imei);
-        String cuid = TbadkCoreApplication.getInst().getCuid();
-        stringBuffer.append("cuid=");
-        stringBuffer.append(cuid);
-        String cuidGalaxy2 = TbadkCoreApplication.getInst().getCuidGalaxy2();
-        stringBuffer.append("shoubai_cuid=");
-        stringBuffer.append(cuidGalaxy2);
-        String str = Build.BRAND;
-        stringBuffer.append("brand=");
-        stringBuffer.append(str);
-        stringBuffer.append("client_type=");
-        stringBuffer.append("Android");
-        String version = TbConfig.getVersion();
-        stringBuffer.append("client_version=");
-        stringBuffer.append(version);
-        String zid = TbadkCoreApplication.getInst().getZid();
-        stringBuffer.append("zid=");
-        stringBuffer.append(zid);
-        stringBuffer.append("tiebaclient!!!");
-        String md5 = s.toMd5(stringBuffer.toString());
-        try {
-            JSONObject jSONObject = new JSONObject();
-            jSONObject.put("imei", imei);
-            jSONObject.put("cuid", cuid);
-            jSONObject.put(AdExtParam.KEY_SHOUBAI_CUID, cuidGalaxy2);
-            jSONObject.put(Constants.PHONE_BRAND, str);
-            jSONObject.put("client_type", "Android");
-            jSONObject.put("client_version", version);
-            jSONObject.put("zid", zid);
-            jSONObject.put("sign", md5);
-            cVar.setData(jSONObject.toString());
-        } catch (JSONException e) {
-            BdLog.e(e);
-            cVar.setData("");
         }
         return cVar;
     }
 
-    public com.baidu.tieba.tbadkCore.e.a.c getDeviceInfo() {
-        com.baidu.tieba.tbadkCore.e.a.c cVar = new com.baidu.tieba.tbadkCore.e.a.c();
+    public d.b.i0.c3.l0.d.c finishPage() {
+        d.b.i0.c3.l0.d.c cVar = new d.b.i0.c3.l0.d.c();
+        Context context = this.mContext;
+        if (context instanceof Activity) {
+            ((Activity) context).finish();
+        }
+        return cVar;
+    }
+
+    public d.b.i0.c3.l0.d.c getClipperInformation() {
+        d.b.i0.c3.l0.d.c cVar = new d.b.i0.c3.l0.d.c();
+        String clipBoardContent = UtilHelper.getClipBoardContent();
+        int i = !k.isEmpty(clipBoardContent) ? 1 : 0;
+        try {
+            JSONObject jSONObject = new JSONObject();
+            jSONObject.put(MiPushCommandMessage.KEY_RESULT_CODE, i);
+            jSONObject.put("data", clipBoardContent);
+            cVar.l(jSONObject.toString());
+            return cVar;
+        } catch (JSONException e2) {
+            BdLog.e(e2);
+            return cVar;
+        }
+    }
+
+    public d.b.i0.c3.l0.d.c getDeviceInfo() {
+        d.b.i0.c3.l0.d.c cVar = new d.b.i0.c3.l0.d.c();
         StringBuffer stringBuffer = new StringBuffer(1024);
         String imei = TbadkCoreApplication.getInst().getImei();
         stringBuffer.append("imei=");
@@ -1398,54 +916,375 @@ public class CommonTbJsBridge implements com.baidu.tieba.tbadkCore.e.b {
         String packageName = TbadkCoreApplication.getInst().getPackageName();
         stringBuffer.append("pkgName=");
         stringBuffer.append(packageName);
-        String str3 = "" + j.netType();
+        String str3 = "" + j.I();
         stringBuffer.append("network=");
         stringBuffer.append(str3);
-        String str4 = "" + j.curOperatorType();
+        String str4 = "" + j.f();
         stringBuffer.append("carrier=");
         stringBuffer.append(str4);
-        String alJ = com.baidu.tbadk.core.util.g.alJ();
+        String devicesManufacturer = DeviceInfoUtil.getDevicesManufacturer();
         stringBuffer.append("manufacturer=");
-        stringBuffer.append(alJ);
+        stringBuffer.append(devicesManufacturer);
         String str5 = Build.HARDWARE;
         stringBuffer.append("hardware=");
         stringBuffer.append(str5);
         String str6 = Build.BOARD;
         stringBuffer.append("board=");
         stringBuffer.append(str6);
-        String str7 = com.baidu.tbadk.core.util.g.eV(TbadkCoreApplication.getInst()) ? "1" : "0";
+        String str7 = DeviceInfoUtil.isSupportGyroScope(TbadkCoreApplication.getInst()) ? "1" : "0";
         stringBuffer.append("imu=");
         stringBuffer.append(str7);
-        stringBuffer.append("tiebaclient!!!");
-        String md5 = s.toMd5(stringBuffer.toString());
+        stringBuffer.append(NetWork.SIGN_SUFFIX);
+        String c2 = d.b.b.e.p.q.c(stringBuffer.toString());
         try {
             JSONObject jSONObject = new JSONObject();
-            jSONObject.put("imei", imei);
-            jSONObject.put("androidId", androidId);
-            jSONObject.put("imsi", iMsi);
-            jSONObject.put("model", str);
-            jSONObject.put(Constants.PHONE_BRAND, str2);
-            jSONObject.put("platform", "Android");
-            jSONObject.put(PushClientConstants.TAG_PKG_NAME, packageName);
-            jSONObject.put("network", str3);
-            jSONObject.put("carrier", str4);
-            jSONObject.put(HttpConstants.HTTP_MANUFACTURER, alJ);
-            jSONObject.put(HttpConstants.HTTP_HARDWARE, str5);
-            jSONObject.put(HttpConstants.HTTP_BOARD, str6);
-            jSONObject.put(ARPScriptEnvironment.KEY_DATA_PIP_IMU, str7);
-            jSONObject.put("sign", md5);
-            cVar.setData(jSONObject.toString());
+            try {
+                jSONObject.put("imei", imei);
+                jSONObject.put("androidId", androidId);
+                jSONObject.put("imsi", iMsi);
+                jSONObject.put("model", str);
+                jSONObject.put("brand", str2);
+                jSONObject.put(Constants.PARAM_PLATFORM, "Android");
+                jSONObject.put(PushClientConstants.TAG_PKG_NAME, packageName);
+                jSONObject.put("network", str3);
+                jSONObject.put("carrier", str4);
+                jSONObject.put("manufacturer", devicesManufacturer);
+                jSONObject.put("hardware", str5);
+                jSONObject.put("board", str6);
+                jSONObject.put("imu", str7);
+                jSONObject.put("sign", c2);
+                cVar = cVar;
+                cVar.l(jSONObject.toString());
+                return cVar;
+            } catch (JSONException e2) {
+                e = e2;
+                cVar = cVar;
+                BdLog.e(e);
+                cVar.l("");
+                return cVar;
+            }
+        } catch (JSONException e3) {
+            e = e3;
+        }
+    }
+
+    public d.b.i0.c3.l0.d.c getStartLoadTimeInterval() {
+        d.b.i0.c3.l0.d.c cVar = new d.b.i0.c3.l0.d.c();
+        try {
+            JSONObject jSONObject = new JSONObject();
+            jSONObject.put("loadUrlTime", this.mLastLoadUrlTime);
+            cVar.l(jSONObject.toString());
             return cVar;
-        } catch (JSONException e) {
-            BdLog.e(e);
-            cVar.setData("");
+        } catch (JSONException e2) {
+            BdLog.e(e2);
             return cVar;
         }
     }
 
-    public com.baidu.tieba.tbadkCore.e.a.c sendCompleteTaskReqMsg(String str, String str2) {
+    public d.b.i0.c3.l0.d.c getSupplementInfo() {
+        d.b.i0.c3.l0.d.c cVar = new d.b.i0.c3.l0.d.c();
+        StringBuffer stringBuffer = new StringBuffer(1024);
+        String imei = TbadkCoreApplication.getInst().getImei();
+        stringBuffer.append("imei=");
+        stringBuffer.append(imei);
+        String cuid = TbadkCoreApplication.getInst().getCuid();
+        stringBuffer.append("cuid=");
+        stringBuffer.append(cuid);
+        String cuidGalaxy2 = TbadkCoreApplication.getInst().getCuidGalaxy2();
+        stringBuffer.append("shoubai_cuid=");
+        stringBuffer.append(cuidGalaxy2);
+        String str = Build.BRAND;
+        stringBuffer.append("brand=");
+        stringBuffer.append(str);
+        stringBuffer.append("client_type=");
+        stringBuffer.append("Android");
+        String version = TbConfig.getVersion();
+        stringBuffer.append("client_version=");
+        stringBuffer.append(version);
+        String zid = TbadkCoreApplication.getInst().getZid();
+        stringBuffer.append("zid=");
+        stringBuffer.append(zid);
+        stringBuffer.append(NetWork.SIGN_SUFFIX);
+        String c2 = d.b.b.e.p.q.c(stringBuffer.toString());
+        try {
+            JSONObject jSONObject = new JSONObject();
+            jSONObject.put("imei", imei);
+            jSONObject.put("cuid", cuid);
+            jSONObject.put(AdExtParam.KEY_SHOUBAI_CUID, cuidGalaxy2);
+            jSONObject.put("brand", str);
+            jSONObject.put("client_type", "Android");
+            jSONObject.put("client_version", version);
+            jSONObject.put("zid", zid);
+            jSONObject.put("sign", c2);
+            cVar.l(jSONObject.toString());
+            return cVar;
+        } catch (JSONException e2) {
+            BdLog.e(e2);
+            cVar.l("");
+            return cVar;
+        }
+    }
+
+    public d.b.i0.c3.l0.d.c getZid() {
+        d.b.i0.c3.l0.d.c cVar = new d.b.i0.c3.l0.d.c();
+        String zid = TbadkCoreApplication.getInst().getZid();
+        try {
+            JSONObject jSONObject = new JSONObject();
+            jSONObject.put(MiPushCommandMessage.KEY_RESULT_CODE, 1);
+            jSONObject.put("zid", zid);
+            cVar.l(jSONObject.toString());
+            return cVar;
+        } catch (JSONException e2) {
+            BdLog.e(e2);
+            return cVar;
+        }
+    }
+
+    public d.b.i0.c3.l0.d.c goToEditPost(String str, String str2, String str3, String str4, String str5, String str6, String str7) {
+        d.b.i0.c3.l0.d.c cVar = new d.b.i0.c3.l0.d.c();
+        if ("1".equals(str)) {
+            WriteActivityConfig.newInstance(this.mContext).setType(9).setForumWriteData(new ForumWriteData(str6, str7, null, null)).setIsSaveDraft(false).setContent(str5).setFrom("frs").setCallFrom("2").send();
+        } else if ("2".equals(str)) {
+            PbActivityConfig createNormalCfg = new PbActivityConfig(this.mContext).createNormalCfg(str2, null, null);
+            createNormalCfg.setJumpToCommentArea(true);
+            createNormalCfg.showOpenEditorTips(str5);
+            MessageManager.getInstance().sendMessage(new CustomMessage(2004001, createNormalCfg));
+        } else if ("3".equals(str)) {
+            SubPbActivityConfig createSubPbActivityConfig = new SubPbActivityConfig(this.mContext).createSubPbActivityConfig(str2, str4, "mention", false, "", false, str4, 0);
+            createSubPbActivityConfig.showOpenEditorTips(str5);
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, createSubPbActivityConfig));
+        }
+        return cVar;
+    }
+
+    public d.b.i0.c3.l0.d.c goToNotificationSetting() {
+        Activity currentActivity;
+        d.b.i0.c3.l0.d.c cVar = new d.b.i0.c3.l0.d.c();
+        try {
+            currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
+        } catch (Throwable th) {
+            BdLog.e(th.getMessage());
+        }
+        if (currentActivity == null) {
+            return cVar;
+        }
+        currentActivity.startActivity(new Intent("android.settings.APPLICATION_DETAILS_SETTINGS", Uri.parse("package:" + TbadkCoreApplication.getInst().getPackageName())));
+        return cVar;
+    }
+
+    public d.b.i0.c3.l0.d.c handleGoToBarDetail(String str) {
+        d.b.i0.c3.l0.d.c cVar = new d.b.i0.c3.l0.d.c();
+        if (!TextUtils.isEmpty(str)) {
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ForumDetailActivityConfig(this.mContext, str, ForumDetailActivityConfig.FromType.BLUEV_SETTLE)));
+        }
+        return cVar;
+    }
+
+    public d.b.i0.c3.l0.d.c handleGoToMyLive(String str) {
+        d.b.i0.c3.l0.d.c cVar = new d.b.i0.c3.l0.d.c();
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaPersonCenterActivityConfig(this.mContext, str, "", "", 0, true)));
+        try {
+            JSONObject jSONObject = new JSONObject();
+            jSONObject.put(MiPushCommandMessage.KEY_RESULT_CODE, 1);
+            cVar.l(jSONObject.toString());
+            return cVar;
+        } catch (JSONException e2) {
+            BdLog.e(e2);
+            return cVar;
+        }
+    }
+
+    public d.b.i0.c3.l0.d.c handleGoToMyPost(String str) {
+        d.b.i0.c3.l0.d.c cVar = new d.b.i0.c3.l0.d.c();
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPostActivityConfig(this.mContext, str, 0, null)));
+        try {
+            JSONObject jSONObject = new JSONObject();
+            jSONObject.put(MiPushCommandMessage.KEY_RESULT_CODE, 0);
+            cVar.l(jSONObject.toString());
+            return cVar;
+        } catch (JSONException e2) {
+            BdLog.e(e2);
+            return cVar;
+        }
+    }
+
+    public d.b.i0.c3.l0.d.c handleSaveImage(String str) {
+        d.b.i0.c3.l0.d.c cVar = new d.b.i0.c3.l0.d.c();
+        if (this.mPermissionJudgement == null) {
+            this.mPermissionJudgement = new PermissionJudgePolicy();
+        }
+        this.mPermissionJudgement.clearRequestPermissionList();
+        Context context = this.mContext;
+        if (!(context instanceof Activity)) {
+            cVar.m();
+            return cVar;
+        }
+        this.mPermissionJudgement.appendRequestPermission((Activity) context, StorageUtils.EXTERNAL_STORAGE_PERMISSION);
+        if (this.mPermissionJudgement.startRequestPermission((Activity) this.mContext)) {
+            cVar.n("权限申请");
+            return cVar;
+        }
+        new q((Activity) this.mContext, str, new b()).execute(new String[0]);
+        try {
+            JSONObject jSONObject = new JSONObject();
+            jSONObject.put(MiPushCommandMessage.KEY_RESULT_CODE, 0);
+            cVar.l(jSONObject.toString());
+            return cVar;
+        } catch (JSONException e2) {
+            BdLog.e(e2);
+            return cVar;
+        }
+    }
+
+    public d.b.i0.c3.l0.d.c hasNotificationPermission() {
+        d.b.i0.c3.l0.d.c cVar = new d.b.i0.c3.l0.d.c();
+        int areNotificationsEnabled = Build.VERSION.SDK_INT >= 19 ? NotificationManagerCompat.from(this.mContext).areNotificationsEnabled() : 1;
+        try {
+            JSONObject jSONObject = new JSONObject();
+            jSONObject.put(MiPushCommandMessage.KEY_RESULT_CODE, areNotificationsEnabled);
+            cVar.l(jSONObject.toString());
+            return cVar;
+        } catch (JSONException e2) {
+            BdLog.e(e2);
+            return cVar;
+        }
+    }
+
+    public d.b.i0.c3.l0.d.c jumpLoginActivity(int i, String str) {
+        d.b.i0.c3.l0.d.c cVar = new d.b.i0.c3.l0.d.c();
+        JSONObject jSONObject = new JSONObject();
+        if (this.mContext == null) {
+            try {
+                jSONObject.put(MiPushCommandMessage.KEY_RESULT_CODE, 0);
+            } catch (JSONException e2) {
+                BdLog.e(e2);
+            }
+            cVar.l(jSONObject.toString());
+            return cVar;
+        }
+        LoginActivityConfig loginActivityConfig = new LoginActivityConfig(this.mContext, true);
+        loginActivityConfig.setThirdPartyLoginForResult(i, str);
+        WebView webView = this.mWebView;
+        if (webView != null) {
+            loginActivityConfig.setUrl(webView.getOriginalUrl());
+        }
+        ViewHelper.checkUpIsLoginFromH5(loginActivityConfig);
+        try {
+            jSONObject.put(MiPushCommandMessage.KEY_RESULT_CODE, 1);
+        } catch (JSONException e3) {
+            BdLog.e(e3);
+        }
+        cVar.l(jSONObject.toString());
+        return cVar;
+    }
+
+    public d.b.i0.c3.l0.d.c jumpToHotTrendPage() {
+        d.b.i0.c3.l0.d.c cVar = new d.b.i0.c3.l0.d.c();
+        d.b.h0.r.a0.b.g(this.mContext, 16, false);
+        return cVar;
+    }
+
+    public d.b.i0.c3.l0.d.c jumpToHtmlPage(String str, int i) {
+        Context context;
+        d.b.i0.c3.l0.d.c cVar = new d.b.i0.c3.l0.d.c();
+        if (!TextUtils.isEmpty(str) && (context = this.mContext) != null) {
+            d.b.h0.l.a.l(context, str);
+            if (i == 1) {
+                Context context2 = this.mContext;
+                if (context2 instanceof Activity) {
+                    ((Activity) context2).finish();
+                }
+            }
+        }
+        return cVar;
+    }
+
+    public void onDestroy() {
+        w wVar = this.mShakeController;
+        if (wVar == null || !wVar.d()) {
+            return;
+        }
+        this.mShakeController.c();
+    }
+
+    public d.b.i0.c3.l0.d.c onUserLoginChanged(HashMap hashMap) {
+        if (hashMap == null || hashMap.get("isLogin") == null || !((Boolean) hashMap.get("isLogin")).booleanValue()) {
+            return null;
+        }
+        JSONObject jSONObject = new JSONObject();
+        try {
+            jSONObject.put(MiPushCommandMessage.KEY_RESULT_CODE, 1);
+        } catch (JSONException e2) {
+            e2.printStackTrace();
+        }
+        callJsMethod(LOGIN_RESULT_TO_H5, jSONObject);
+        d.b.i0.c3.l0.d.c cVar = new d.b.i0.c3.l0.d.c();
+        cVar.l(jSONObject.toString());
+        return cVar;
+    }
+
+    public d.b.i0.c3.l0.d.c playSound(String str) {
+        int i;
+        d.b.i0.c3.l0.d.c cVar = new d.b.i0.c3.l0.d.c();
+        if (j.z()) {
+            getShakeController().i(str);
+            i = 1;
+        } else {
+            Context context = this.mContext;
+            if (context != null) {
+                l.K(context, R.string.neterror);
+            }
+            i = 0;
+        }
+        try {
+            JSONObject jSONObject = new JSONObject();
+            jSONObject.put(MiPushCommandMessage.KEY_RESULT_CODE, i);
+            cVar.l(jSONObject.toString());
+            return cVar;
+        } catch (JSONException e2) {
+            BdLog.e(e2);
+            return cVar;
+        }
+    }
+
+    public d.b.i0.c3.l0.d.c playVibrate() {
+        d.b.i0.c3.l0.d.c cVar = new d.b.i0.c3.l0.d.c();
+        boolean g2 = getShakeController().g();
+        try {
+            JSONObject jSONObject = new JSONObject();
+            jSONObject.put(MiPushCommandMessage.KEY_RESULT_CODE, g2 ? 1 : 0);
+            cVar.l(jSONObject.toString());
+            return cVar;
+        } catch (JSONException e2) {
+            BdLog.e(e2);
+            return cVar;
+        }
+    }
+
+    public d.b.i0.c3.l0.d.c reShow(HashMap hashMap) {
+        JSONObject jSONObject = new JSONObject();
+        try {
+            jSONObject.put(MiPushCommandMessage.KEY_RESULT_CODE, 1);
+        } catch (JSONException e2) {
+            e2.printStackTrace();
+        }
+        callJsMethod(RE_SHOW, jSONObject);
+        d.b.i0.c3.l0.d.c cVar = new d.b.i0.c3.l0.d.c();
+        cVar.l(jSONObject.toString());
+        return cVar;
+    }
+
+    public d.b.i0.c3.l0.d.c saveImageSuccess(HashMap<String, Integer> hashMap) {
+        d.b.i0.c3.l0.d.c cVar = new d.b.i0.c3.l0.d.c();
+        if (hashMap != null && hashMap.get("result").intValue() == -1) {
+            cVar.n("图片保存错误");
+        }
+        return cVar;
+    }
+
+    public d.b.i0.c3.l0.d.c sendCompleteTaskReqMsg(String str, String str2) {
+        d.b.i0.c3.l0.d.c cVar = new d.b.i0.c3.l0.d.c();
         int i = 0;
-        com.baidu.tieba.tbadkCore.e.a.c cVar = new com.baidu.tieba.tbadkCore.e.a.c();
         try {
             if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
                 JSONObject jSONObject = new JSONObject();
@@ -1456,13 +1295,27 @@ public class CommonTbJsBridge implements com.baidu.tieba.tbadkCore.e.b {
                 MessageManager.getInstance().sendMessage(completeTaskReqMsg);
                 i = 1;
             }
-        } catch (Exception e) {
-            BdLog.e(e);
+        } catch (Exception e2) {
+            BdLog.e(e2);
         }
         try {
             JSONObject jSONObject2 = new JSONObject();
-            jSONObject2.put("resultCode", i);
-            cVar.setData(jSONObject2.toString());
+            jSONObject2.put(MiPushCommandMessage.KEY_RESULT_CODE, i);
+            cVar.l(jSONObject2.toString());
+            return cVar;
+        } catch (JSONException e3) {
+            BdLog.e(e3);
+            return cVar;
+        }
+    }
+
+    public d.b.i0.c3.l0.d.c setClipperInformation(String str) {
+        d.b.i0.c3.l0.d.c cVar = new d.b.i0.c3.l0.d.c();
+        d.b.b.e.p.a.a(str);
+        try {
+            JSONObject jSONObject = new JSONObject();
+            jSONObject.put(MiPushCommandMessage.KEY_RESULT_CODE, 1);
+            cVar.l(jSONObject.toString());
             return cVar;
         } catch (JSONException e2) {
             BdLog.e(e2);
@@ -1470,157 +1323,405 @@ public class CommonTbJsBridge implements com.baidu.tieba.tbadkCore.e.b {
         }
     }
 
-    public com.baidu.tieba.tbadkCore.e.a.c showTipToast(String str, String str2, String str3, int i, int i2) {
-        int i3 = 1;
-        com.baidu.tieba.tbadkCore.e.a.c cVar = new com.baidu.tieba.tbadkCore.e.a.c();
-        if (TextUtils.isEmpty(str) || !(this.mContext instanceof Activity)) {
-            i3 = 0;
+    public d.b.i0.c3.l0.d.c setDisableGoBack() {
+        d.b.i0.c3.l0.d.c cVar = new d.b.i0.c3.l0.d.c();
+        Context context = this.mContext;
+        int i = 1;
+        if (context instanceof TbWebViewActivity) {
+            ((TbWebViewActivity) context).isDisableGoBack = true;
         } else {
-            Activity activity = (Activity) this.mContext;
-            if (!TextUtils.isEmpty(str3)) {
-                String str4 = "showToast_" + str3;
-                int i4 = com.baidu.tbadk.core.sharedPref.b.brR().getInt(str4, 0);
-                if (i4 < i) {
-                    int i5 = i4 + 1;
-                    com.baidu.tbadk.core.sharedPref.b.brR().putInt(str4, i4);
-                    g.publishEvent(new TipEvent(activity.getIntent(), str, str2, i2 == 1));
-                }
-            } else {
-                g.publishEvent(new TipEvent(activity.getIntent(), str, str2, i2 == 1));
-            }
-            if (i2 == 1) {
-                activity.finish();
-            }
+            i = 0;
         }
         try {
             JSONObject jSONObject = new JSONObject();
-            jSONObject.put("resultCode", i3);
-            cVar.setData(jSONObject.toString());
+            jSONObject.put(MiPushCommandMessage.KEY_RESULT_CODE, i);
+            cVar.l(jSONObject.toString());
             return cVar;
-        } catch (JSONException e) {
-            BdLog.e(e);
-            return cVar;
-        }
-    }
-
-    private String getGetModalData() {
-        JSONObject jSONObject;
-        String byF;
-        int i = 0;
-        try {
-            byF = com.baidu.tbadk.coreExtra.messageCenter.f.byD().byF();
-        } catch (Exception e) {
-            BdLog.e(e);
-        }
-        try {
-            if (!TextUtils.isEmpty(byF)) {
-                jSONObject = new JSONObject(byF);
-                i = 1;
-                JSONObject jSONObject2 = new JSONObject();
-                jSONObject2.put("resultCode", i);
-                jSONObject2.put("user_info", jSONObject);
-                return jSONObject2.toString();
-            }
-            JSONObject jSONObject22 = new JSONObject();
-            jSONObject22.put("resultCode", i);
-            jSONObject22.put("user_info", jSONObject);
-            return jSONObject22.toString();
         } catch (JSONException e2) {
             BdLog.e(e2);
-            return null;
-        }
-        jSONObject = null;
-    }
-
-    public com.baidu.tieba.tbadkCore.e.a.c jumpToHtmlPage(String str, int i) {
-        com.baidu.tieba.tbadkCore.e.a.c cVar = new com.baidu.tieba.tbadkCore.e.a.c();
-        if (!TextUtils.isEmpty(str) && this.mContext != null) {
-            a.startWebActivity(this.mContext, str);
-            if (i == 1 && (this.mContext instanceof Activity)) {
-                ((Activity) this.mContext).finish();
-            }
-        }
-        return cVar;
-    }
-
-    public com.baidu.tieba.tbadkCore.e.a.c jumpToHotTrendPage() {
-        com.baidu.tieba.tbadkCore.e.a.c cVar = new com.baidu.tieba.tbadkCore.e.a.c();
-        com.baidu.tbadk.core.e.b.d(this.mContext, 16, false);
-        return cVar;
-    }
-
-    private String jumpToPbPage(String str, String str2) {
-        PbActivityConfig createNormalCfg = new PbActivityConfig(this.mContext).createNormalCfg(str, null, str2);
-        createNormalCfg.setStartFrom(5);
-        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, createNormalCfg));
-        return null;
-    }
-
-    private String getAPIs() {
-        try {
-            JSONObject jSONObject = new JSONObject();
-            jSONObject.put("status", 0);
-            jSONObject.put("message", TbadkCoreApplication.getInst().getString(R.string.scheme_action_status_ok));
-            if (OpenJsSdkSwitch.isOn()) {
-                jSONObject.put("data", new JSONArray(DescriptionTableInfo.getDescriptionTable()));
-            } else {
-                jSONObject.put("data", new JSONArray());
-            }
-            return jSONObject.toString();
-        } catch (JSONException e) {
-            BdLog.e(e);
-            return null;
+            return cVar;
         }
     }
 
-    public com.baidu.tieba.tbadkCore.e.a.c showAlertView(String str, String str2, int i, int i2, String str3, String str4, String str5, String str6, String str7, String str8, String str9) {
-        com.baidu.tieba.tbadkCore.e.a.c cVar = new com.baidu.tieba.tbadkCore.e.a.c();
-        com.baidu.tbadk.BdToken.completeTask.a aVar = new com.baidu.tbadk.BdToken.completeTask.a();
-        aVar.title = str;
-        aVar.subTitle = str2;
-        aVar.eHk = i;
-        aVar.eHl = i2;
-        aVar.eHm = str3;
-        aVar.eHn = str4;
-        aVar.eHo = str5;
-        aVar.eHp = str6;
-        aVar.eHq = str7;
-        aVar.eHr = str8;
-        aVar.eHs = str9;
-        com.baidu.tbadk.core.business.a aVar2 = new com.baidu.tbadk.core.business.a(TbadkCoreApplication.getInst().getCurrentActivity());
-        aVar2.a(new a.InterfaceC0562a() { // from class: com.baidu.tbadk.browser.CommonTbJsBridge.4
-            @Override // com.baidu.tbadk.core.business.a.InterfaceC0562a
-            public void bkv() {
-                try {
-                    JSONObject jSONObject = new JSONObject();
-                    jSONObject.put("resultCode", 1);
-                    if (CommonTbJsBridge.this.mResult != null) {
-                        CommonTbJsBridge.this.mResult.confirm(jSONObject.toString());
-                    }
-                } catch (JSONException e) {
-                    BdLog.e(e);
-                }
-            }
-
-            @Override // com.baidu.tbadk.core.business.a.InterfaceC0562a
-            public void onCancel() {
-                try {
-                    JSONObject jSONObject = new JSONObject();
-                    jSONObject.put("resultCode", 0);
-                    if (CommonTbJsBridge.this.mResult != null) {
-                        CommonTbJsBridge.this.mResult.confirm(jSONObject.toString());
-                    }
-                } catch (JSONException e) {
-                    BdLog.e(e);
-                }
-            }
-        });
-        aVar2.a(aVar);
-        aVar2.blh().bli();
-        return cVar;
+    public void setJsPromptBridge(d.b.i0.c3.l0.a aVar) {
+        this.jsPromptBridge = aVar;
     }
 
     public void setLastLoadUrlTime(long j) {
         this.mLastLoadUrlTime = j;
+    }
+
+    public d.b.i0.c3.l0.d.c setShareInfo(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, int i, String str9) {
+        int i2;
+        d.b.i0.c3.l0.d.c cVar = new d.b.i0.c3.l0.d.c();
+        JSONObject jSONObject = new JSONObject();
+        try {
+            jSONObject.put("title", str);
+            jSONObject.put("desc", str2);
+            jSONObject.put("img", str3);
+            jSONObject.put("url", str4);
+            jSONObject.put("topic", str5);
+            jSONObject.put("wbtitle", str6);
+            jSONObject.put("wbcontent", str7);
+            jSONObject.put("isShowMoreForum", str8);
+            jSONObject.put("shareimg", i);
+            jSONObject.put("extdata", str9);
+        } catch (JSONException e2) {
+            BdLog.e(e2);
+        }
+        String jSONObject2 = jSONObject.toString();
+        if (k.isEmpty(jSONObject2)) {
+            i2 = 0;
+        } else {
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016566, jSONObject2));
+            i2 = 1;
+        }
+        try {
+            JSONObject jSONObject3 = new JSONObject();
+            jSONObject3.put(MiPushCommandMessage.KEY_RESULT_CODE, i2);
+            cVar.l(jSONObject3.toString());
+            return cVar;
+        } catch (JSONException e3) {
+            BdLog.e(e3);
+            return cVar;
+        }
+    }
+
+    public d.b.i0.c3.l0.d.c share(int i, int i2, String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, int i3, String str9) {
+        CustomResponsedMessage runTask;
+        d.b.i0.c3.l0.d.c cVar = new d.b.i0.c3.l0.d.c();
+        JSONObject jSONObject = new JSONObject();
+        try {
+            jSONObject.put("channel", i);
+            jSONObject.put("shareimg", i2);
+            jSONObject.put("img", str);
+            jSONObject.put("isShowMoreForum", str2);
+            jSONObject.put("url", str3);
+            jSONObject.put("title", str4);
+            jSONObject.put("desc", str5);
+            jSONObject.put("topic", str6);
+            jSONObject.put("wbtitle", str7);
+            jSONObject.put("wbcontent", str8);
+            jSONObject.put("weixin_disable", i3);
+            jSONObject.put("extdata", str9);
+        } catch (JSONException e2) {
+            BdLog.e(e2);
+        }
+        String jSONObject2 = jSONObject.toString();
+        int i4 = 1;
+        if (k.isEmpty(jSONObject2) || (runTask = MessageManager.getInstance().runTask(2016568, ShareItem.class, jSONObject2)) == null) {
+            i4 = 0;
+        } else {
+            ShareItem shareItem = (ShareItem) runTask.getData();
+            if (shareItem != null) {
+                shareItem.D = 17;
+            }
+            if ("1".equals(str2) && shareItem != null) {
+                shareItem.w = str;
+                shareItem.t = str3;
+                shareItem.r = str4 + " " + str5;
+                shareItem.m = true;
+                ShareDialogConfig shareDialogConfig = new ShareDialogConfig(this.mContext, shareItem, true, (SparseArray<String>) null);
+                shareDialogConfig.mShowMoreForumShare = true;
+                d.b.i0.b0.f.b().k(shareDialogConfig);
+                cVar.l("");
+                return cVar;
+            } else if (i == 0) {
+                if (shareItem != null && !k.isEmpty(str) && i2 == 1) {
+                    setShareItem(shareItem);
+                    shareLoacalImage(str, i);
+                }
+                showShareDialog(shareItem);
+            } else if (shareItem != null && !k.isEmpty(str) && i2 == 1) {
+                setShareItem(shareItem);
+                shareLoacalImage(str, i);
+            } else {
+                MessageManager.getInstance().sendMessage(new ImplicitShareMessage(this.mContext, i, shareItem, true));
+            }
+        }
+        try {
+            JSONObject jSONObject3 = new JSONObject();
+            jSONObject3.put(MiPushCommandMessage.KEY_RESULT_CODE, i4);
+            cVar.l(jSONObject3.toString());
+            return cVar;
+        } catch (JSONException e3) {
+            BdLog.e(e3);
+            return cVar;
+        }
+    }
+
+    public d.b.i0.c3.l0.d.c shareSuccessNotification(HashMap hashMap) {
+        int intValue = ((Integer) hashMap.get("shareChannel")).intValue();
+        ShareItem shareItem = (ShareItem) hashMap.get("shareItem");
+        JSONObject jSONObject = new JSONObject();
+        try {
+            JSONObject jSONObject2 = new JSONObject();
+            jSONObject2.put("title", shareItem.r);
+            jSONObject2.put("desc", shareItem.s);
+            jSONObject2.put("img", shareItem.v);
+            jSONObject2.put("url", shareItem.t);
+            JSONObject jSONObject3 = new JSONObject();
+            jSONObject3.put("type", intValue);
+            jSONObject3.put("shareData", jSONObject2);
+            jSONObject.put(MiPushCommandMessage.KEY_RESULT_CODE, 1);
+            jSONObject.put("data", jSONObject3);
+        } catch (JSONException e2) {
+            e2.printStackTrace();
+        }
+        callJsMethod(SHARE_SUCCCESS_NOTIFICATION, jSONObject);
+        d.b.i0.c3.l0.d.c cVar = new d.b.i0.c3.l0.d.c();
+        cVar.l(jSONObject.toString());
+        return cVar;
+    }
+
+    public d.b.i0.c3.l0.d.c showAlertView(String str, String str2, int i, int i2, String str3, String str4, String str5, String str6, String str7, String str8, String str9) {
+        d.b.i0.c3.l0.d.c cVar = new d.b.i0.c3.l0.d.c();
+        d.b.h0.a.b0.a aVar = new d.b.h0.a.b0.a();
+        aVar.y = str;
+        aVar.z = str2;
+        aVar.A = str3;
+        aVar.B = str6;
+        d.b.h0.r.o.a aVar2 = new d.b.h0.r.o.a(TbadkCoreApplication.getInst().getCurrentActivity());
+        aVar2.g(new d());
+        aVar2.f(aVar);
+        aVar2.d();
+        aVar2.h();
+        return cVar;
+    }
+
+    public d.b.i0.c3.l0.d.c showLowerHairHint(int i, int i2, String str, String str2, int i3, String str3, String str4, double d2, String str5, String str6, int i4, String str7, String str8, String str9, int i5, int i6) {
+        d.b.i0.c3.l0.d.c cVar = new d.b.i0.c3.l0.d.c();
+        d.b.h0.a.b0.a aVar = new d.b.h0.a.b0.a();
+        aVar.f49512c = i;
+        aVar.f49513d = i2;
+        aVar.f49514e = str;
+        aVar.f49515f = str2;
+        aVar.i = i3;
+        aVar.l = str3;
+        aVar.n = d2;
+        aVar.j = str5;
+        aVar.k = str6;
+        aVar.f49511b = i4;
+        aVar.o = str7;
+        aVar.p = str8;
+        aVar.q = str9;
+        if (i == d.b.h0.a.b0.a.C) {
+            i.i(TbadkCoreApplication.getInst().getCurrentActivity(), aVar).k();
+        } else if (i == d.b.h0.a.b0.a.D) {
+            Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
+            d.b.h0.r.o.c cVar2 = new d.b.h0.r.o.c(currentActivity);
+            if (currentActivity != null) {
+                cVar2.d(currentActivity, aVar);
+                cVar2.i();
+            }
+        } else if (i == d.b.h0.a.b0.a.E) {
+            if (i2 == d.b.h0.a.b0.a.H) {
+                if (!UtilHelper.dealOneScheme(TbadkCoreApplication.getInst().getCurrentActivity(), aVar.l) && !k.isEmpty(aVar.k)) {
+                    dealJump(aVar.k + TbWebViewActivityConfig.JUMP_PARAMS_PAGE_TYPE);
+                }
+            } else if (i2 == d.b.h0.a.b0.a.I && !k.isEmpty(str6)) {
+                dealJump(aVar.k + TbWebViewActivityConfig.JUMP_PARAMS_PAGE_TYPE);
+            }
+        } else if (i == d.b.h0.a.b0.a.G) {
+            if (i6 == 1) {
+                Context context = this.mContext;
+                if (context instanceof Activity) {
+                    ((Activity) context).finish();
+                }
+            }
+            g.g(new TopToastEvent(i5, str));
+        }
+        try {
+            JSONObject jSONObject = new JSONObject();
+            jSONObject.put(MiPushCommandMessage.KEY_RESULT_CODE, 1);
+            cVar.l(jSONObject.toString());
+            return cVar;
+        } catch (JSONException e2) {
+            BdLog.e(e2);
+            return cVar;
+        }
+    }
+
+    public void showShareDialog(ShareItem shareItem) {
+        if (shareItem == null) {
+            return;
+        }
+        ShareDialogConfig shareDialogConfig = new ShareDialogConfig(this.mContext, shareItem, true);
+        if (shareItem.V != 0) {
+            shareDialogConfig.hideMode |= 32;
+        }
+        shareDialogConfig.setIsSupportNightMode(true);
+        shareDialogConfig.setIsCopyLink(true);
+        StatisticItem statisticItem = new StatisticItem("c10898");
+        statisticItem.param(TiebaStatic.Params.OBJ_URL, shareItem.t);
+        statisticItem.param("obj_type", 1);
+        TiebaStatic.log(statisticItem);
+        MessageManager.getInstance().sendMessage(new CustomMessage(2001276, shareDialogConfig));
+    }
+
+    public d.b.i0.c3.l0.d.c showTipToast(String str, String str2, String str3, int i, int i2) {
+        d.b.i0.c3.l0.d.c cVar = new d.b.i0.c3.l0.d.c();
+        int i3 = 0;
+        i3 = 0;
+        if (!TextUtils.isEmpty(str)) {
+            Context context = this.mContext;
+            if (context instanceof Activity) {
+                Activity activity = (Activity) context;
+                if (!TextUtils.isEmpty(str3)) {
+                    String str4 = "showToast_" + str3;
+                    int j = d.b.h0.r.d0.b.i().j(str4, 0);
+                    if (j < i) {
+                        d.b.h0.r.d0.b.i().u(str4, j);
+                        g.g(new TipEvent(activity.getIntent(), str, str2, i2 == 1));
+                    }
+                } else {
+                    g.g(new TipEvent(activity.getIntent(), str, str2, i2 == 1));
+                }
+                if (i2 == 1) {
+                    activity.finish();
+                }
+                i3 = 1;
+            }
+        }
+        try {
+            JSONObject jSONObject = new JSONObject();
+            jSONObject.put(MiPushCommandMessage.KEY_RESULT_CODE, i3);
+            cVar.l(jSONObject.toString());
+            return cVar;
+        } catch (JSONException e2) {
+            BdLog.e(e2);
+            return cVar;
+        }
+    }
+
+    public String startApp(String str) {
+        if (!k.isEmpty(str)) {
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                return startApp(jSONObject.optString(PushClientConstants.TAG_PKG_NAME), jSONObject.optString("schema")).a();
+            } catch (JSONException e2) {
+                BdLog.e(e2);
+            }
+        }
+        try {
+            JSONObject jSONObject2 = new JSONObject();
+            jSONObject2.put(MiPushCommandMessage.KEY_RESULT_CODE, 0);
+            return jSONObject2.toString();
+        } catch (JSONException e3) {
+            BdLog.e(e3);
+            return null;
+        }
+    }
+
+    public d.b.i0.c3.l0.d.c startDownloadCss(String str) {
+        d.b.i0.c3.l0.d.c cVar = new d.b.i0.c3.l0.d.c();
+        JSONObject jSONObject = new JSONObject();
+        if (!k.isEmpty(str)) {
+            try {
+                if (k.isEmpty(str)) {
+                    jSONObject.put(MiPushCommandMessage.KEY_RESULT_CODE, 0);
+                    cVar.l(jSONObject.toString());
+                    return cVar;
+                }
+                String customLoginCssFileName = FileHelper.getCustomLoginCssFileName(str);
+                String customLoginCssStoragePath = FileHelper.getCustomLoginCssStoragePath(str);
+                if (!FileHelper.checkIsCssFile(customLoginCssStoragePath)) {
+                    jSONObject.put(MiPushCommandMessage.KEY_RESULT_CODE, 0);
+                    cVar.l(jSONObject.toString());
+                    return cVar;
+                }
+                DownloadData downloadData = new DownloadData(customLoginCssFileName, customLoginCssFileName, str, null);
+                downloadData.setPath(customLoginCssStoragePath);
+                d.b.h0.v.d.j().k(downloadData);
+                jSONObject.put(MiPushCommandMessage.KEY_RESULT_CODE, 1);
+            } catch (JSONException e2) {
+                BdLog.e(e2);
+            }
+        }
+        cVar.l(jSONObject.toString());
+        return cVar;
+    }
+
+    public d.b.i0.c3.l0.d.c startLoginModule(String str) {
+        d.b.i0.c3.l0.d.c cVar = new d.b.i0.c3.l0.d.c();
+        WebView webView = this.mWebView;
+        if (webView == null) {
+            ViewHelper.checkUpIsLogin(this.mContext);
+        } else {
+            ViewHelper.checkUpIsLoginFromH5(this.mContext, webView.getOriginalUrl(), str);
+        }
+        JSResultData jSResultData = new JSResultData();
+        jSResultData.setStatus(1);
+        jSResultData.setErrorCode("0");
+        jSResultData.setErrorMsg("");
+        cVar.l(OrmObject.jsonStrWithObject(jSResultData));
+        return cVar;
+    }
+
+    public d.b.i0.c3.l0.d.c thirdPartyLoginResultToH5(HashMap hashMap) {
+        if (hashMap == null) {
+            return null;
+        }
+        JSONObject jSONObject = new JSONObject();
+        try {
+            jSONObject.put(MiPushCommandMessage.KEY_RESULT_CODE, 1);
+            jSONObject.put("socialType", hashMap.get("social_type"));
+            jSONObject.put("activityId", hashMap.get("activityId"));
+        } catch (JSONException e2) {
+            e2.printStackTrace();
+        }
+        callJsMethod(RESULT_THIRD_PARTY_LOGIN, jSONObject);
+        d.b.i0.c3.l0.d.c cVar = new d.b.i0.c3.l0.d.c();
+        cVar.l(jSONObject.toString());
+        return cVar;
+    }
+
+    public CommonTbJsBridge(Context context, WebView webView) {
+        this.SHOW_MORE_FORUM_ICON = "1";
+        this.mLastLoadUrlTime = 0L;
+        this.mContext = context;
+        this.mWebView = webView;
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:16:0x0048  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public d.b.i0.c3.l0.d.c startApp(String str, String str2) {
+        boolean z;
+        Intent launchIntentForPackage;
+        d.b.i0.c3.l0.d.c cVar = new d.b.i0.c3.l0.d.c();
+        List<String> a2 = d.b.h0.s.c.g.a();
+        try {
+            if (isLegalSchema(a2, str2)) {
+                Intent intent = new Intent();
+                intent.setData(Uri.parse(str2));
+                try {
+                    this.mContext.startActivity(intent);
+                    z = true;
+                } catch (ActivityNotFoundException unused) {
+                }
+                if (!z && isLegalSchema(a2, str) && (launchIntentForPackage = this.mContext.getPackageManager().getLaunchIntentForPackage(str)) != null) {
+                    this.mContext.startActivity(launchIntentForPackage);
+                    z = true;
+                }
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put(MiPushCommandMessage.KEY_RESULT_CODE, z ? 1 : 0);
+                cVar.l(jSONObject.toString());
+                return cVar;
+            }
+            JSONObject jSONObject2 = new JSONObject();
+            jSONObject2.put(MiPushCommandMessage.KEY_RESULT_CODE, z ? 1 : 0);
+            cVar.l(jSONObject2.toString());
+            return cVar;
+        } catch (JSONException e2) {
+            BdLog.e(e2);
+            return cVar;
+        }
+        z = false;
+        if (!z) {
+            this.mContext.startActivity(launchIntentForPackage);
+            z = true;
+        }
     }
 }

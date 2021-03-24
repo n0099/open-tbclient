@@ -4,7 +4,7 @@ import android.animation.Animator;
 import android.view.animation.Interpolator;
 import com.baidu.mapapi.animation.Animation;
 import com.baidu.mapapi.map.Marker;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public abstract class c {
     public abstract void a();
 
@@ -12,7 +12,7 @@ public abstract class c {
 
     public abstract void a(long j);
 
-    protected abstract void a(Animator animator);
+    public abstract void a(Animator animator);
 
     public abstract void a(Interpolator interpolator);
 

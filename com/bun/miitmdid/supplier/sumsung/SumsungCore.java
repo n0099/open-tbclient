@@ -10,15 +10,15 @@ import android.util.Log;
 import androidx.annotation.Keep;
 import com.samsung.android.deviceidservice.a;
 @Keep
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class SumsungCore {
-    private com.bun.miitmdid.supplier.c.a mCallerCallBack;
-    private ServiceConnection mConnection;
-    private Context mContext;
-    private com.samsung.android.deviceidservice.a mDeviceidInterface;
-    private static String TAG = "SumsungCore library";
-    private static String SAMSUNGTAG = "Samsung_DeviceIdService";
-    private static boolean DBG = false;
+    public static boolean DBG = false;
+    public static String SAMSUNGTAG = "Samsung_DeviceIdService";
+    public static String TAG = "SumsungCore library";
+    public com.bun.miitmdid.supplier.c.a mCallerCallBack;
+    public ServiceConnection mConnection;
+    public Context mContext;
+    public com.samsung.android.deviceidservice.a mDeviceidInterface;
 
     public SumsungCore(Context context, com.bun.miitmdid.supplier.c.a aVar) {
         this.mContext = null;
@@ -31,7 +31,7 @@ public class SumsungCore {
         this.mConnection = new ServiceConnection() { // from class: com.bun.miitmdid.supplier.sumsung.SumsungCore.1
             @Override // android.content.ServiceConnection
             public synchronized void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-                SumsungCore.this.mDeviceidInterface = a.AbstractBinderC1207a.a(iBinder);
+                SumsungCore.this.mDeviceidInterface = a.AbstractBinderC0472a.a(iBinder);
                 if (SumsungCore.this.mCallerCallBack != null) {
                     SumsungCore.this.mCallerCallBack.a(true);
                 }
@@ -52,30 +52,40 @@ public class SumsungCore {
         }
         this.mContext.unbindService(this.mConnection);
         com.bun.miitmdid.utils.a.a(TAG, "bindService Failed!");
-        if (this.mCallerCallBack != null) {
-            this.mCallerCallBack.a();
+        com.bun.miitmdid.supplier.c.a aVar2 = this.mCallerCallBack;
+        if (aVar2 != null) {
+            aVar2.a();
         }
     }
 
     public String getAAID() {
-        if (this.mContext == null) {
+        String str;
+        String str2;
+        Context context = this.mContext;
+        if (context == null) {
             com.bun.miitmdid.utils.a.a(TAG, "Context is null.");
             throw new IllegalArgumentException("Context is null, must be new SumsungCore first");
         }
-        String packageName = this.mContext.getPackageName();
-        com.bun.miitmdid.utils.a.a(TAG, "liufeng, getAAID package：" + packageName);
+        String packageName = context.getPackageName();
+        String str3 = TAG;
+        com.bun.miitmdid.utils.a.a(str3, "liufeng, getAAID package：" + packageName);
         if (packageName == null || packageName.equals("")) {
-            com.bun.miitmdid.utils.a.a(TAG, "input package is null!");
+            str = TAG;
+            str2 = "input package is null!";
         } else {
             try {
                 if (this.mDeviceidInterface != null) {
-                    Log.d(SAMSUNGTAG, "getAAID Package: " + packageName);
+                    String str4 = SAMSUNGTAG;
+                    Log.d(str4, "getAAID Package: " + packageName);
                     return this.mDeviceidInterface.b(packageName);
                 }
-            } catch (RemoteException e) {
-                com.bun.miitmdid.utils.a.a(TAG, "getAAID error, RemoteException!");
+                return null;
+            } catch (RemoteException unused) {
+                str = TAG;
+                str2 = "getAAID error, RemoteException!";
             }
         }
+        com.bun.miitmdid.utils.a.a(str, str2);
         return null;
     }
 
@@ -89,11 +99,12 @@ public class SumsungCore {
                 Log.d(SAMSUNGTAG, "getOAID call");
                 return this.mDeviceidInterface.a();
             }
-        } catch (RemoteException e) {
+            return null;
+        } catch (RemoteException e2) {
             com.bun.miitmdid.utils.a.b(TAG, "getOAID error, RemoteException!");
-            e.printStackTrace();
+            e2.printStackTrace();
+            return null;
         }
-        return null;
     }
 
     public String getUDID() {
@@ -101,26 +112,30 @@ public class SumsungCore {
     }
 
     public String getVAID() {
-        if (this.mContext == null) {
+        Context context = this.mContext;
+        if (context == null) {
             com.bun.miitmdid.utils.a.a(TAG, "Context is null.");
             throw new IllegalArgumentException("Context is null, must be new SumsungCore first");
         }
-        String packageName = this.mContext.getPackageName();
-        com.bun.miitmdid.utils.a.a(TAG, "liufeng, getVAID package：" + packageName);
+        String packageName = context.getPackageName();
+        String str = TAG;
+        com.bun.miitmdid.utils.a.a(str, "liufeng, getVAID package：" + packageName);
         if (packageName == null || packageName.equals("")) {
             com.bun.miitmdid.utils.a.a(TAG, "input package is null!");
-        } else {
-            try {
-                if (this.mDeviceidInterface != null) {
-                    Log.d(SAMSUNGTAG, "getVAID Package: " + packageName);
-                    return this.mDeviceidInterface.a(packageName);
-                }
-            } catch (RemoteException e) {
-                com.bun.miitmdid.utils.a.a(TAG, "getVAID error, RemoteException!");
-                e.printStackTrace();
-            }
+            return null;
         }
-        return null;
+        try {
+            if (this.mDeviceidInterface != null) {
+                String str2 = SAMSUNGTAG;
+                Log.d(str2, "getVAID Package: " + packageName);
+                return this.mDeviceidInterface.a(packageName);
+            }
+            return null;
+        } catch (RemoteException e2) {
+            com.bun.miitmdid.utils.a.a(TAG, "getVAID error, RemoteException!");
+            e2.printStackTrace();
+            return null;
+        }
     }
 
     public boolean isSupported() {
@@ -130,7 +145,7 @@ public class SumsungCore {
                 return true;
             }
             return false;
-        } catch (Exception e) {
+        } catch (Exception unused) {
             com.bun.miitmdid.utils.a.a(TAG, "isSupport error, RemoteException!");
             return false;
         }
@@ -140,7 +155,7 @@ public class SumsungCore {
         try {
             this.mContext.unbindService(this.mConnection);
             com.bun.miitmdid.utils.a.a(TAG, "unBind Service successful");
-        } catch (IllegalArgumentException e) {
+        } catch (IllegalArgumentException unused) {
             com.bun.miitmdid.utils.a.a(TAG, "unBind Service exception");
         }
         this.mDeviceidInterface = null;

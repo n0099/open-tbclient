@@ -3,6 +3,7 @@ package com.kwad.sdk.emotion.b;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import androidx.annotation.Nullable;
+import com.baidu.spswitch.emotion.resource.EmotionResourceProvider;
 import com.kwad.sdk.emotion.model.CDNUrl;
 import com.kwad.sdk.emotion.model.EmotionInfo;
 import com.kwai.filedownloader.i;
@@ -11,14 +12,16 @@ import java.io.File;
 import java.util.List;
 import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public final class d {
 
     /* renamed from: a  reason: collision with root package name */
-    private volatile Queue<com.kwai.filedownloader.a> f6453a = new ConcurrentLinkedQueue();
-    private volatile Queue<com.kwai.filedownloader.a> b = new ConcurrentLinkedQueue();
+    public volatile Queue<com.kwai.filedownloader.a> f34675a = new ConcurrentLinkedQueue();
 
-    /* loaded from: classes3.dex */
+    /* renamed from: b  reason: collision with root package name */
+    public volatile Queue<com.kwai.filedownloader.a> f34676b = new ConcurrentLinkedQueue();
+
+    /* loaded from: classes6.dex */
     public interface a {
         void a();
 
@@ -34,10 +37,12 @@ public final class d {
     }
 
     private String a(String str, String str2) {
-        String str3 = ".png";
+        String str3;
         if (str2 != null) {
             String substring = str2.substring(str2.lastIndexOf("/") + 1);
             str3 = substring.substring(substring.lastIndexOf("."));
+        } else {
+            str3 = EmotionResourceProvider.EMOTION_RES_NAME_SUFFIX;
         }
         return str + str3;
     }
@@ -45,15 +50,15 @@ public final class d {
     /* JADX INFO: Access modifiers changed from: private */
     public void a() {
         synchronized (d.class) {
-            if (this.f6453a.isEmpty() && this.b.isEmpty()) {
+            if (this.f34675a.isEmpty() && this.f34676b.isEmpty()) {
                 return;
             }
-            int size = 10 - this.b.size();
-            int size2 = this.f6453a.size();
+            int size = 10 - this.f34676b.size();
+            int size2 = this.f34675a.size();
             for (int i = 0; i < size && i < size2; i++) {
-                com.kwai.filedownloader.a poll = this.f6453a.poll();
+                com.kwai.filedownloader.a poll = this.f34675a.poll();
                 if (poll != null && !poll.c()) {
-                    this.b.offer(poll);
+                    this.f34676b.offer(poll);
                     poll.e();
                 }
             }
@@ -68,19 +73,25 @@ public final class d {
         }
         final b a2 = b.a();
         final String a3 = a(str, strArr[i]);
-        this.f6453a.offer(q.a().a(strArr[i]).a((z ? a2.c() : a2.b()) + File.separator + a3).b(false).a((i) new c() { // from class: com.kwad.sdk.emotion.b.d.1
+        com.kwai.filedownloader.a a4 = q.a().a(strArr[i]);
+        StringBuilder sb = new StringBuilder();
+        sb.append(z ? a2.c() : a2.b());
+        sb.append(File.separator);
+        sb.append(a3);
+        this.f34675a.offer(a4.a(sb.toString()).b(false).a((i) new c() { // from class: com.kwad.sdk.emotion.b.d.1
             @Override // com.kwad.sdk.emotion.b.c, com.kwai.filedownloader.i
             public void a(com.kwai.filedownloader.a aVar2, Throwable th) {
-                d.this.b.remove(aVar2);
+                d.this.f34676b.remove(aVar2);
                 d.this.a(i + 1, strArr, str, z, aVar);
                 d.this.a();
             }
 
             @Override // com.kwai.filedownloader.i
             public void c(com.kwai.filedownloader.a aVar2) {
-                d.this.b.remove(aVar2);
-                if (aVar != null) {
-                    aVar.a(aVar2.o());
+                d.this.f34676b.remove(aVar2);
+                a aVar3 = aVar;
+                if (aVar3 != null) {
+                    aVar3.a(aVar2.o());
                 }
                 a2.a(str, a3, z);
                 d.this.a();

@@ -4,7 +4,7 @@ import com.baidu.tbadk.core.data.AntiData;
 import com.baidu.tbadk.core.data.PostPrefixData;
 import com.baidu.tbadk.core.data.PostTopicData;
 import java.io.Serializable;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class ForumWriteData implements Serializable {
     public final AntiData antiData;
     public String avatar;
@@ -32,31 +32,31 @@ public class ForumWriteData implements Serializable {
         this.antiData = antiData;
     }
 
-    public void setMem_type(int i) {
-        this.mem_type = i;
+    public void setAvatar(String str) {
+        this.avatar = str;
     }
 
     public void setCategoryId(int i) {
         this.categoryId = i;
     }
 
-    public void setTopicData(PostTopicData postTopicData) {
-        this.topicData = postTopicData;
+    public void setDefaultZone(int i) {
+        this.defaultZone = i;
     }
 
     public void setForumLevel(int i) {
         this.forumLevel = i;
     }
 
-    public void setAvatar(String str) {
-        this.avatar = str;
+    public void setMem_type(int i) {
+        this.mem_type = i;
     }
 
     public void setPrivateThread(int i) {
         this.privateThread = i;
     }
 
-    public void setDefaultZone(int i) {
-        this.defaultZone = i;
+    public void setTopicData(PostTopicData postTopicData) {
+        this.topicData = postTopicData;
     }
 }

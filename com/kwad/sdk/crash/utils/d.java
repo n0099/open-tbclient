@@ -3,25 +3,25 @@ package com.kwad.sdk.crash.utils;
 import android.content.Context;
 import android.content.SharedPreferences;
 import androidx.annotation.WorkerThread;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    private static Context f6394a;
+    public static Context f34489a;
 
     @WorkerThread
     public static long a() {
-        long b = b(f6394a);
-        a(f6394a, 1 + b);
-        return b;
+        long b2 = b(f34489a);
+        a(f34489a, 1 + b2);
+        return b2;
     }
 
     public static void a(Context context) {
-        f6394a = context;
+        f34489a = context;
     }
 
     @WorkerThread
-    private static boolean a(Context context, long j) {
+    public static boolean a(Context context, long j) {
         if (context != null) {
             SharedPreferences.Editor edit = context.getSharedPreferences("ksadsdk_crashseq", 0).edit();
             edit.putLong("crashseq", j);
@@ -31,7 +31,7 @@ public class d {
     }
 
     @WorkerThread
-    private static long b(Context context) {
+    public static long b(Context context) {
         SharedPreferences sharedPreferences;
         if (context == null || (sharedPreferences = context.getSharedPreferences("ksadsdk_crashseq", 0)) == null) {
             return 0L;

@@ -2,7 +2,7 @@ package androidx.core.view;
 
 import android.view.View;
 import androidx.annotation.NonNull;
-/* loaded from: classes14.dex */
+/* loaded from: classes.dex */
 public interface NestedScrollingParent2 extends NestedScrollingParent {
     void onNestedPreScroll(@NonNull View view, int i, int i2, @NonNull int[] iArr, int i3);
 

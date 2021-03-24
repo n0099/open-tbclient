@@ -6,21 +6,21 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class c {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public interface a {
         boolean a();
     }
 
-    /* loaded from: classes4.dex */
-    public interface b extends a, InterfaceC0290c {
+    /* loaded from: classes2.dex */
+    public interface b extends a, InterfaceC0122c {
     }
 
     /* renamed from: com.baidu.platform.comapi.walknavi.d.a.d.a.c$c  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public interface InterfaceC0290c {
+    /* loaded from: classes2.dex */
+    public interface InterfaceC0122c {
         void a(long j, long j2);
     }
 
@@ -28,36 +28,51 @@ public class c {
         byte[] bArr = new byte[1024];
         while (true) {
             int read = inputStream.read(bArr);
-            if (read != -1) {
-                outputStream.write(bArr, 0, read);
-            } else {
+            if (read == -1) {
                 return;
             }
+            outputStream.write(bArr, 0, read);
         }
     }
 
     public static void a(InputStream inputStream, File file) throws IOException {
-        FileOutputStream fileOutputStream = null;
+        FileOutputStream fileOutputStream;
         try {
             fileOutputStream = com.baidu.platform.comapi.walknavi.d.a.d.a.a.d(file);
-            a(inputStream, fileOutputStream);
-        } finally {
-            a(fileOutputStream);
+            try {
+                a(inputStream, fileOutputStream);
+                a(fileOutputStream);
+            } catch (Throwable th) {
+                th = th;
+                a(fileOutputStream);
+                throw th;
+            }
+        } catch (Throwable th2) {
+            th = th2;
+            fileOutputStream = null;
         }
     }
 
-    public static void a(InputStream inputStream, File file, long j, InterfaceC0290c interfaceC0290c) throws IOException {
-        FileOutputStream fileOutputStream = null;
+    public static void a(InputStream inputStream, File file, long j, InterfaceC0122c interfaceC0122c) throws IOException {
+        FileOutputStream fileOutputStream;
         try {
             fileOutputStream = com.baidu.platform.comapi.walknavi.d.a.d.a.a.d(file);
-            a(inputStream, fileOutputStream, j, interfaceC0290c);
-        } finally {
-            a(fileOutputStream);
+            try {
+                a(inputStream, fileOutputStream, j, interfaceC0122c);
+                a(fileOutputStream);
+            } catch (Throwable th) {
+                th = th;
+                a(fileOutputStream);
+                throw th;
+            }
+        } catch (Throwable th2) {
+            th = th2;
+            fileOutputStream = null;
         }
     }
 
-    public static void a(InputStream inputStream, OutputStream outputStream, long j, InterfaceC0290c interfaceC0290c) throws IOException {
-        a(inputStream, outputStream, j, (b) new d(interfaceC0290c));
+    public static void a(InputStream inputStream, OutputStream outputStream, long j, InterfaceC0122c interfaceC0122c) throws IOException {
+        a(inputStream, outputStream, j, (b) new d(interfaceC0122c));
     }
 
     public static void a(InputStream inputStream, OutputStream outputStream, long j, b bVar) throws IOException {
@@ -65,14 +80,13 @@ public class c {
         long j2 = 0;
         do {
             int read = inputStream.read(bArr);
-            if (read != -1) {
-                outputStream.write(bArr, 0, read);
-                j2 += read;
-                if (bVar != null) {
-                    bVar.a(j2, j);
-                }
-            } else {
+            if (read == -1) {
                 return;
+            }
+            outputStream.write(bArr, 0, read);
+            j2 += read;
+            if (bVar != null) {
+                bVar.a(j2, j);
             }
         } while (!bVar.a());
     }
@@ -81,7 +95,7 @@ public class c {
         if (closeable != null) {
             try {
                 closeable.close();
-            } catch (IOException e) {
+            } catch (IOException unused) {
             }
         }
     }

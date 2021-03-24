@@ -1,0 +1,173 @@
+package com.baidu.tbadk.core.util;
+
+import android.text.TextUtils;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.widget.ListView.BdRecyclerAdapter;
+import com.baidu.adp.widget.ListView.TypeAdapter;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.gif.GifInfo;
+import com.baidu.tbadk.widget.richText.TbRichTextEmotionInfo;
+import d.b.b.e.l.d;
+import d.b.b.e.p.j;
+import d.b.b.j.c.c;
+import d.b.b.j.e.a;
+import d.b.b.j.e.n;
+import d.b.b.j.e.o;
+import d.b.b.j.e.q;
+import d.b.b.j.e.r;
+import java.util.ArrayList;
+import java.util.Iterator;
+/* loaded from: classes3.dex */
+public class PreLoadImageHelper {
+    public static final float IMAGE_MAX_CACHE_SIZE_PERCENT = 0.8f;
+
+    public static void addPreloadSuggestSize(o oVar, Object obj, PreLoadImageInfo preLoadImageInfo) {
+        a<n, TypeAdapter.ViewHolder> b2;
+        c F;
+        if (oVar == null || obj == null || preLoadImageInfo == null) {
+            return;
+        }
+        if (preLoadImageInfo.width <= 0 || preLoadImageInfo.height <= 0) {
+            r rVar = null;
+            if (oVar instanceof r) {
+                rVar = (r) oVar;
+            } else if (oVar instanceof BdRecyclerAdapter) {
+                BdRecyclerAdapter bdRecyclerAdapter = (BdRecyclerAdapter) oVar;
+                if (bdRecyclerAdapter.p() instanceof r) {
+                    rVar = (r) bdRecyclerAdapter.p();
+                }
+            }
+            if (rVar == null || !(obj instanceof n) || (b2 = rVar.b((n) obj)) == null || (F = b2.F(preLoadImageInfo.preloadType)) == null || F.b() <= 0 || F.a() <= 0) {
+                return;
+            }
+            preLoadImageInfo.width = F.b();
+            preLoadImageInfo.height = F.a();
+        }
+    }
+
+    public static void load(q qVar, BdUniqueId bdUniqueId) {
+        load(qVar, bdUniqueId, 13);
+    }
+
+    public static void load(q qVar, BdUniqueId bdUniqueId, int i) {
+        o adapter;
+        o oVar;
+        ArrayList<PreLoadImageInfo> images;
+        o oVar2;
+        int i2;
+        int pbImageSize;
+        int i3;
+        int i4;
+        int i5;
+        if (qVar == null || !j.H() || (adapter = qVar.getAdapter()) == null) {
+            return;
+        }
+        int bigImageMaxUsedMemory = (int) (TbConfig.getBigImageMaxUsedMemory() * 0.8f);
+        boolean isSupportGifEmotions = TbImageHelper.isSupportGifEmotions();
+        int firstVisiblePosition = qVar.getFirstVisiblePosition();
+        int lastVisiblePosition = qVar.getLastVisiblePosition();
+        d.h().f(bdUniqueId, null);
+        int i6 = 0;
+        int i7 = 0;
+        int i8 = 0;
+        while (firstVisiblePosition < adapter.getCount()) {
+            Object item = adapter.getItem(firstVisiblePosition);
+            if (!(item instanceof PreLoadImageProvider) || (images = ((PreLoadImageProvider) item).getImages()) == null || images.size() == 0) {
+                oVar = adapter;
+            } else {
+                Iterator<PreLoadImageInfo> it = images.iterator();
+                int i9 = i7;
+                int i10 = i8;
+                while (it.hasNext()) {
+                    PreLoadImageInfo next = it.next();
+                    if (d.h().j(next.procType)) {
+                        int i11 = next.procType;
+                        if (12 != i11 && 28 != i11) {
+                            int i12 = next.width * next.height;
+                            if (i12 > 0) {
+                                pbImageSize = next.bigEmotion != null ? i12 * 4 : i12 * 2;
+                            } else if (next.bigEmotion != null) {
+                                BdLog.e("missing big emotion image width and height!");
+                                pbImageSize = TbConfig.getBigEmotionsSize();
+                            } else {
+                                pbImageSize = TbConfig.getPbImageSize();
+                            }
+                            int i13 = i9 + pbImageSize;
+                            int i14 = i6 + 1;
+                            if (i14 <= i && i13 < bigImageMaxUsedMemory && firstVisiblePosition > lastVisiblePosition) {
+                                TbRichTextEmotionInfo tbRichTextEmotionInfo = next.bigEmotion;
+                                if (tbRichTextEmotionInfo != null) {
+                                    GifInfo gifInfo = tbRichTextEmotionInfo.mGifInfo;
+                                    String str = isSupportGifEmotions ? gifInfo.mDynamicUrl : gifInfo.mStaticUrl;
+                                    if (!TextUtils.isEmpty(str)) {
+                                        d h2 = d.h();
+                                        GifInfo gifInfo2 = tbRichTextEmotionInfo.mGifInfo;
+                                        String str2 = gifInfo2.mSharpText;
+                                        oVar2 = adapter;
+                                        i3 = i14;
+                                        i4 = i10;
+                                        i5 = i13;
+                                        h2.k(str2, next.procType, null, next.width, next.height, bdUniqueId, gifInfo2.mGid, str2, Boolean.valueOf(isSupportGifEmotions), str);
+                                    }
+                                } else {
+                                    oVar2 = adapter;
+                                    i3 = i14;
+                                    i4 = i10;
+                                    i5 = i13;
+                                    String str3 = next.imgUrl;
+                                    if (!TextUtils.isEmpty(str3)) {
+                                        d.h().k(str3, next.procType, null, next.width, next.height, bdUniqueId, new Object[0]);
+                                    }
+                                }
+                                i10 = i4;
+                                i9 = i5;
+                                i6 = i3;
+                            }
+                            oVar2 = adapter;
+                            i3 = i14;
+                            i4 = i10;
+                            i5 = i13;
+                            i10 = i4;
+                            i9 = i5;
+                            i6 = i3;
+                        } else {
+                            oVar2 = adapter;
+                            int i15 = i10 + 1;
+                            if (i15 > 30 || firstVisiblePosition <= lastVisiblePosition || TextUtils.isEmpty(next.imgUrl)) {
+                                i2 = i9;
+                            } else {
+                                int i16 = next.procType;
+                                if (12 == i16) {
+                                    i2 = i9;
+                                    d.h().k(next.imgUrl, 12, null, next.width, next.height, bdUniqueId, new Object[0]);
+                                } else {
+                                    int i17 = i9;
+                                    if (28 == i16) {
+                                        i2 = i17;
+                                        d.h().k(next.imgUrl, 28, null, next.width, next.height, bdUniqueId, new Object[0]);
+                                    } else {
+                                        i2 = i17;
+                                    }
+                                }
+                            }
+                            i10 = i15;
+                            i9 = i2;
+                        }
+                        adapter = oVar2;
+                    }
+                }
+                oVar = adapter;
+                int i18 = i10;
+                int i19 = i9;
+                if ((i6 > i || i19 >= bigImageMaxUsedMemory) && i18 > 30) {
+                    return;
+                }
+                i8 = i18;
+                i7 = i19;
+            }
+            firstVisiblePosition++;
+            adapter = oVar;
+        }
+    }
+}

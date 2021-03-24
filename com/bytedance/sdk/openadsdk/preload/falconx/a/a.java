@@ -10,40 +10,44 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private b f5049a;
-    private AtomicBoolean b = new AtomicBoolean(false);
+    public b f30176a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public AtomicBoolean f30177b = new AtomicBoolean(false);
 
     public a(Context context, String str, File file) {
-        if (context == null) {
-            throw new RuntimeException("context == null");
-        }
-        if (TextUtils.isEmpty(str)) {
-            throw new RuntimeException("access key empty");
-        }
-        if (file == null) {
+        if (context != null) {
+            if (TextUtils.isEmpty(str)) {
+                throw new RuntimeException("access key empty");
+            }
+            if (file != null) {
+                this.f30176a = new b(context, str, file);
+                return;
+            }
             throw new RuntimeException("resRootDir == null");
         }
-        this.f5049a = new b(context, str, file);
+        throw new RuntimeException("context == null");
     }
 
     public InputStream a(String str) throws Exception {
-        if (this.b.get()) {
-            throw new RuntimeException("released!");
+        if (!this.f30177b.get()) {
+            com.bytedance.sdk.openadsdk.preload.geckox.h.b.a("WebOffline-falcon", "GeckoResLoader ready to load, file:", str);
+            return this.f30176a.a(str);
         }
-        com.bytedance.sdk.openadsdk.preload.geckox.h.b.a("WebOffline-falcon", "GeckoResLoader ready to load, file:", str);
-        return this.f5049a.a(str);
+        throw new RuntimeException("released!");
     }
 
     public boolean b(String str) throws Exception {
-        if (this.b.get()) {
-            throw new RuntimeException("released!");
+        if (!this.f30177b.get()) {
+            return this.f30176a.b(str);
         }
-        return this.f5049a.b(str);
+        throw new RuntimeException("released!");
     }
 
     public void a() throws Exception {
-        if (!this.b.getAndSet(true)) {
-            this.f5049a.a();
+        if (this.f30177b.getAndSet(true)) {
+            return;
         }
+        this.f30176a.a();
     }
 }

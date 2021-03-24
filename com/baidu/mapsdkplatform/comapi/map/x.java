@@ -1,12 +1,10 @@
 package com.baidu.mapsdkplatform.comapi.map;
-
-import android.net.http.Headers;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class x extends ag {
     public x() {
-        this.c = 0;
-        this.b = Headers.LOCATION;
-        this.d = 1000;
-        this.g = 7;
+        this.f7609c = 0;
+        this.f7608b = "location";
+        this.f7610d = 1000;
+        this.f7598g = 7;
     }
 }

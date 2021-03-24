@@ -9,19 +9,19 @@ import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.InputStream;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public abstract class BaseDiskCache implements DiskCache {
     public static final int DEFAULT_BUFFER_SIZE = 32768;
     public static final Bitmap.CompressFormat DEFAULT_COMPRESS_FORMAT = Bitmap.CompressFormat.PNG;
     public static final int DEFAULT_COMPRESS_QUALITY = 100;
-    private static final String ERROR_ARG_NULL = " argument must be not null";
-    private static final String TEMP_IMAGE_POSTFIX = ".tmp";
-    protected int bufferSize;
-    protected final File cacheDir;
-    protected Bitmap.CompressFormat compressFormat;
-    protected int compressQuality;
-    protected final FileNameGenerator fileNameGenerator;
-    protected final File reserveCacheDir;
+    public static final String ERROR_ARG_NULL = " argument must be not null";
+    public static final String TEMP_IMAGE_POSTFIX = ".tmp";
+    public int bufferSize;
+    public final File cacheDir;
+    public Bitmap.CompressFormat compressFormat;
+    public int compressQuality;
+    public final FileNameGenerator fileNameGenerator;
+    public final File reserveCacheDir;
 
     public BaseDiskCache(File file) {
         this(file, null);
@@ -70,14 +70,14 @@ public abstract class BaseDiskCache implements DiskCache {
         return this.cacheDir;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     public File getFile(String str) {
+        File file;
         String generate = this.fileNameGenerator.generate(str);
-        File file = this.cacheDir;
-        if (!this.cacheDir.exists() && !this.cacheDir.mkdirs() && this.reserveCacheDir != null && (this.reserveCacheDir.exists() || this.reserveCacheDir.mkdirs())) {
-            file = this.reserveCacheDir;
+        File file2 = this.cacheDir;
+        if (!file2.exists() && !this.cacheDir.mkdirs() && (file = this.reserveCacheDir) != null && (file.exists() || this.reserveCacheDir.mkdirs())) {
+            file2 = this.reserveCacheDir;
         }
-        return new File(file, generate);
+        return new File(file2, generate);
     }
 
     @Override // com.kwad.sdk.core.imageloader.cache.disc.DiskCache
@@ -88,7 +88,7 @@ public abstract class BaseDiskCache implements DiskCache {
     @Override // com.kwad.sdk.core.imageloader.cache.disc.DiskCache
     public boolean save(String str, Bitmap bitmap) {
         File file = getFile(str);
-        File file2 = new File(file.getAbsolutePath() + TEMP_IMAGE_POSTFIX);
+        File file2 = new File(file.getAbsolutePath() + ".tmp");
         BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(new FileOutputStream(file2), this.bufferSize);
         try {
             boolean compress = bitmap.compress(this.compressFormat, this.compressQuality, bufferedOutputStream);
@@ -111,34 +111,34 @@ public abstract class BaseDiskCache implements DiskCache {
     @Override // com.kwad.sdk.core.imageloader.cache.disc.DiskCache
     public boolean save(String str, InputStream inputStream, IoUtils.CopyListener copyListener) {
         boolean z;
-        BufferedOutputStream bufferedOutputStream;
         File file = getFile(str);
-        File file2 = new File(file.getAbsolutePath() + TEMP_IMAGE_POSTFIX);
+        File file2 = new File(file.getAbsolutePath() + ".tmp");
+        boolean z2 = false;
         try {
-            bufferedOutputStream = new BufferedOutputStream(new FileOutputStream(file2), this.bufferSize);
+            BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(new FileOutputStream(file2), this.bufferSize);
             z = IoUtils.copyStream(inputStream, bufferedOutputStream, copyListener, this.bufferSize);
-        } catch (Throwable th) {
-            th = th;
-            z = false;
-        }
-        try {
-            IoUtils.closeSilently(bufferedOutputStream);
-            if (z && !file2.renameTo(file)) {
-                z = false;
+            try {
+                IoUtils.closeSilently(bufferedOutputStream);
+                if (!z || file2.renameTo(file)) {
+                    z2 = z;
+                }
+                if (!z2) {
+                    file2.delete();
+                }
+                return z2;
+            } catch (Throwable th) {
+                th = th;
+                if (!z || file2.renameTo(file)) {
+                    z2 = z;
+                }
+                if (!z2) {
+                    file2.delete();
+                }
+                throw th;
             }
-            if (!z) {
-                file2.delete();
-            }
-            return z;
         } catch (Throwable th2) {
             th = th2;
-            if (z && !file2.renameTo(file)) {
-                z = false;
-            }
-            if (!z) {
-                file2.delete();
-            }
-            throw th;
+            z = false;
         }
     }
 

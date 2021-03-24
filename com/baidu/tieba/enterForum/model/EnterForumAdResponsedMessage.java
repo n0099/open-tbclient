@@ -2,10 +2,11 @@ package com.baidu.tieba.enterForum.model;
 
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
+import d.b.i0.i0.d.b;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class EnterForumAdResponsedMessage extends JsonHttpResponsedMessage {
-    private com.baidu.tieba.enterForum.data.b adData;
+    public b adData;
 
     public EnterForumAdResponsedMessage() {
         super(CmdConfigHttp.CMD_ENTER_FORUM_AD_REQUEST);
@@ -14,14 +15,16 @@ public class EnterForumAdResponsedMessage extends JsonHttpResponsedMessage {
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         super.decodeLogicInBackGround(i, jSONObject);
-        this.adData = new com.baidu.tieba.enterForum.data.b();
-        this.adData.ej(jSONObject);
-        if (!this.adData.isValid()) {
-            this.adData = null;
+        b bVar = new b();
+        this.adData = bVar;
+        bVar.b(jSONObject);
+        if (this.adData.a()) {
+            return;
         }
+        this.adData = null;
     }
 
-    public com.baidu.tieba.enterForum.data.b getAdData() {
+    public b getAdData() {
         return this.adData;
     }
 }

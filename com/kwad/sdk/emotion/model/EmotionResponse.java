@@ -8,10 +8,10 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class EmotionResponse extends BaseResultData implements com.kwad.sdk.core.b, Serializable {
     public static final String KEY_EMOTION_RESPONSE_LIST = "emotionPackageList";
-    private static final long serialVersionUID = -5365732599060399342L;
+    public static final long serialVersionUID = -5365732599060399342L;
     public List<EmotionPackage> mEmotionPackageList = new ArrayList();
 
     @Override // com.kwad.sdk.core.network.BaseResultData

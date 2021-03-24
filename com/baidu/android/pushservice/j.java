@@ -1,71 +1,99 @@
 package com.baidu.android.pushservice;
 
 import android.content.Context;
+import android.os.Build;
 import android.text.TextUtils;
-/* loaded from: classes5.dex */
-public final class j {
+import com.baidu.android.imsdk.db.TableDefine;
+import com.baidu.android.pushservice.j.m;
+import com.baidu.mobads.interfaces.IXAdRequestInfo;
+import java.util.HashMap;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes2.dex */
+public class j {
 
     /* renamed from: a  reason: collision with root package name */
-    private static j f1226a;
-    private String b;
-    private String c;
-    private String d;
-    private String e;
-    private Context f;
+    public static boolean f3371a = false;
 
-    private j(Context context) {
-        this.d = PushSettings.c(context);
-        this.b = PushSettings.a(context);
-        if (com.baidu.android.pushservice.b.d.b(context)) {
-            this.e = com.baidu.android.pushservice.i.i.a(context, "com.baidu.pushservice.channel_token_new");
-            this.c = PushSettings.b(context);
-        }
-        this.f = context;
-    }
+    /* renamed from: b  reason: collision with root package name */
+    public static volatile j f3372b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public static Context f3373c;
 
     public static j a(Context context) {
-        if (f1226a == null) {
+        if (f3372b == null) {
             synchronized (j.class) {
-                if (f1226a == null) {
-                    f1226a = new j(context);
+                if (f3372b == null) {
+                    f3372b = new j();
+                    f3373c = context;
                 }
             }
         }
-        return f1226a;
+        return f3372b;
     }
 
-    public String a() {
-        return this.b;
-    }
-
-    public synchronized void a(String str, String str2, String str3, String str4) {
-        this.b = str;
-        this.d = str2;
-        this.c = str3;
-        this.e = str4;
-        PushSettings.a(this.f, str, str3);
-        PushSettings.a(this.f, str2);
-    }
-
-    public String b() {
-        return this.d;
-    }
-
-    public String c() {
-        return this.c;
-    }
-
-    public String d() {
-        return this.e;
-    }
-
-    public boolean e() {
-        if (TextUtils.isEmpty(this.b)) {
-            this.b = PushSettings.a(this.f);
+    /* JADX INFO: Access modifiers changed from: private */
+    public String b(String str) {
+        if (!TextUtils.isEmpty(str)) {
+            try {
+                return new JSONObject(str).getJSONObject("info").getString("token");
+            } catch (JSONException unused) {
+            }
         }
-        if (TextUtils.isEmpty(this.d)) {
-            this.d = PushSettings.c(this.f);
+        return "";
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public String c(String str) {
+        JSONObject jSONObject = new JSONObject();
+        JSONObject jSONObject2 = new JSONObject();
+        try {
+            jSONObject2.put(TableDefine.ZhiDaColumns.COLUMN_APIKEY, com.baidu.android.pushservice.j.i.a(f3373c, "com.baidu.android.pushservice.PushManager.LONGIN_VALUE"));
+            jSONObject2.put("timestamp", (System.currentTimeMillis() / 1000) + "");
+            jSONObject2.put(IXAdRequestInfo.CELL_ID, com.baidu.android.pushservice.j.i.a(f3373c, IXAdRequestInfo.CELL_ID));
+            jSONObject2.put("device_type", "3");
+            jSONObject2.put("sdk_int", Build.VERSION.SDK_INT + "");
+            jSONObject2.put("push_sdk_version", ((int) a.a()) + "");
+            int i = m.o(f3373c) ? 3 : 2;
+            jSONObject2.put("connect_version", i + "");
+            jSONObject2.put("bind_name", Build.MODEL);
+            if (!TextUtils.isEmpty(str)) {
+                jSONObject2.put("push_proxy", str);
+            }
+            jSONObject2.put("os_version", Build.DISPLAY);
+            jSONObject2.put("manufacturer", Build.MANUFACTURER);
+            jSONObject2.put("bind_notify_status", com.baidu.android.pushservice.j.h.b(f3373c));
+            jSONObject2.put("source", 2);
+            JSONArray a2 = com.baidu.android.pushservice.j.k.a(jSONObject2.toString(), 3, 2);
+            jSONObject.put("info", a2);
+            jSONObject.put("info_len", a2.length());
+        } catch (JSONException | Exception unused) {
         }
-        return (TextUtils.isEmpty(this.b) || TextUtils.isEmpty(this.d)) ? false : true;
+        return jSONObject.toString();
+    }
+
+    public void a(final String str) {
+        final String str2 = h.f3066c + h.f3071h;
+        final HashMap hashMap = new HashMap();
+        hashMap.put("Content-Type", "application/json");
+        com.baidu.android.pushservice.h.d.a().a(new com.baidu.android.pushservice.h.c("requestNewBind", (short) 100) { // from class: com.baidu.android.pushservice.j.1
+            @Override // com.baidu.android.pushservice.h.c
+            public void a() {
+                String b2 = j.this.b(str);
+                com.baidu.android.pushservice.e.b a2 = com.baidu.android.pushservice.e.c.a(j.f3373c, str2, "POST", j.this.c(str), hashMap, "application/json");
+                if (a2 != null) {
+                    try {
+                        com.baidu.android.pushservice.j.i.a(j.f3373c, IXAdRequestInfo.CELL_ID, new JSONObject(m.a(j.f3373c, a2.a())).getJSONObject("response_params").getString(IXAdRequestInfo.CELL_ID));
+                        if (TextUtils.isEmpty(b2)) {
+                            return;
+                        }
+                        com.baidu.android.pushservice.j.i.a(j.f3373c, "token", b2);
+                    } catch (JSONException unused) {
+                    }
+                }
+            }
+        });
     }
 }

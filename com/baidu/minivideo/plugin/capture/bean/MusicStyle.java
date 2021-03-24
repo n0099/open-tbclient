@@ -1,5 +1,5 @@
 package com.baidu.minivideo.plugin.capture.bean;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public enum MusicStyle {
     MENU(0),
     COMMON(1),
@@ -9,7 +9,7 @@ public enum MusicStyle {
     LINE(5),
     DESCRIBE(6);
     
-    int value;
+    public int value;
 
     MusicStyle(int i) {
         this.value = i;

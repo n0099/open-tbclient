@@ -1,14 +1,11 @@
 package com.baidu.tieba.imMessageCenter.mention;
 
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
+import d.b.i0.e1.b.i;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class MsgReminderHttpRespMessage extends JsonHttpResponsedMessage {
-    private h msgData;
-
-    public h getMsgData() {
-        return this.msgData;
-    }
+    public i msgData;
 
     public MsgReminderHttpRespMessage(int i) {
         super(i);
@@ -22,10 +19,14 @@ public class MsgReminderHttpRespMessage extends JsonHttpResponsedMessage {
         if (statusCode == 200 && error == 0 && jSONObject != null) {
             JSONObject optJSONObject = jSONObject.optJSONObject("message");
             if (jSONObject != null) {
-                h hVar = new h();
-                hVar.parserJson(optJSONObject);
-                this.msgData = hVar;
+                i iVar = new i();
+                iVar.f(optJSONObject);
+                this.msgData = iVar;
             }
         }
+    }
+
+    public i getMsgData() {
+        return this.msgData;
     }
 }

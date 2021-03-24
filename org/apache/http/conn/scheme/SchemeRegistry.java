@@ -4,17 +4,9 @@ import java.util.List;
 import java.util.Map;
 import org.apache.http.HttpHost;
 @Deprecated
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class SchemeRegistry {
     public SchemeRegistry() {
-        throw new RuntimeException("Stub!");
-    }
-
-    public final synchronized Scheme getScheme(String str) {
-        throw new RuntimeException("Stub!");
-    }
-
-    public final synchronized Scheme getScheme(HttpHost httpHost) {
         throw new RuntimeException("Stub!");
     }
 
@@ -22,11 +14,7 @@ public final class SchemeRegistry {
         throw new RuntimeException("Stub!");
     }
 
-    public final synchronized Scheme register(Scheme scheme) {
-        throw new RuntimeException("Stub!");
-    }
-
-    public final synchronized Scheme unregister(String str) {
+    public final synchronized Scheme getScheme(String str) {
         throw new RuntimeException("Stub!");
     }
 
@@ -34,7 +22,19 @@ public final class SchemeRegistry {
         throw new RuntimeException("Stub!");
     }
 
+    public final synchronized Scheme register(Scheme scheme) {
+        throw new RuntimeException("Stub!");
+    }
+
     public synchronized void setItems(Map<String, Scheme> map) {
+        throw new RuntimeException("Stub!");
+    }
+
+    public final synchronized Scheme unregister(String str) {
+        throw new RuntimeException("Stub!");
+    }
+
+    public final synchronized Scheme getScheme(HttpHost httpHost) {
         throw new RuntimeException("Stub!");
     }
 }

@@ -2,44 +2,40 @@ package com.baidu.mapapi.bikenavi.controllers.a;
 
 import com.baidu.mapapi.bikenavi.adapter.IBRoutePlanListener;
 import com.baidu.mapapi.bikenavi.model.BikeRoutePlanError;
-/* loaded from: classes4.dex */
-class c implements com.baidu.platform.comapi.wnplatform.i.a {
+/* loaded from: classes2.dex */
+public class c implements com.baidu.platform.comapi.wnplatform.i.a {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ IBRoutePlanListener f1992a;
-    final /* synthetic */ a b;
+    public final /* synthetic */ IBRoutePlanListener f6748a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    /* renamed from: b  reason: collision with root package name */
+    public final /* synthetic */ a f6749b;
+
     public c(a aVar, IBRoutePlanListener iBRoutePlanListener) {
-        this.b = aVar;
-        this.f1992a = iBRoutePlanListener;
+        this.f6749b = aVar;
+        this.f6748a = iBRoutePlanListener;
     }
 
     @Override // com.baidu.platform.comapi.wnplatform.i.a
     public void a() {
-        this.f1992a.onRoutePlanStart();
+        this.f6748a.onRoutePlanStart();
     }
 
     @Override // com.baidu.platform.comapi.wnplatform.i.a
     public void b() {
-        this.f1992a.onRoutePlanSuccess();
+        this.f6748a.onRoutePlanSuccess();
     }
 
     @Override // com.baidu.platform.comapi.wnplatform.i.a
     public void a(int i) {
-        switch (i) {
-            case 16777214:
-                this.f1992a.onRoutePlanFail(BikeRoutePlanError.FORWARD_AK_ERROR);
-                return;
-            case 16777216:
-                this.f1992a.onRoutePlanFail(BikeRoutePlanError.SERVER_UNUSUAL);
-                return;
-            case 805306368:
-                this.f1992a.onRoutePlanFail(BikeRoutePlanError.NET_ERR);
-                return;
-            default:
-                this.f1992a.onRoutePlanFail(BikeRoutePlanError.PARSE_FAIL);
-                return;
+        if (i == 16777214) {
+            this.f6748a.onRoutePlanFail(BikeRoutePlanError.FORWARD_AK_ERROR);
+        } else if (i == 16777216) {
+            this.f6748a.onRoutePlanFail(BikeRoutePlanError.SERVER_UNUSUAL);
+        } else if (i != 805306368) {
+            this.f6748a.onRoutePlanFail(BikeRoutePlanError.PARSE_FAIL);
+        } else {
+            this.f6748a.onRoutePlanFail(BikeRoutePlanError.NET_ERR);
         }
     }
 }

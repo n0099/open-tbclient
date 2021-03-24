@@ -1,23 +1,14 @@
 package com.baidu.tbadk.newFriends;
 
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
 import tbclient.DeleteFriend.DeleteFriendReqIdl;
 import tbclient.DeleteFriend.ReqData;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class RequestDeleteFriendMessage extends TbSocketMessage {
-    private long friendId;
-
-    public long getFriendId() {
-        return this.friendId;
-    }
-
-    public void setFriendId(long j) {
-        this.friendId = j;
-    }
+    public long friendId;
 
     public RequestDeleteFriendMessage() {
-        super(CmdConfigSocket.CMD_DELETE_NEW_FRIEND);
+        super(304102);
     }
 
     @Override // com.baidu.tbadk.message.websockt.TbSocketMessage
@@ -27,5 +18,13 @@ public class RequestDeleteFriendMessage extends TbSocketMessage {
         DeleteFriendReqIdl.Builder builder2 = new DeleteFriendReqIdl.Builder();
         builder2.data = builder.build(false);
         return builder2.build(false);
+    }
+
+    public long getFriendId() {
+        return this.friendId;
+    }
+
+    public void setFriendId(long j) {
+        this.friendId = j;
     }
 }

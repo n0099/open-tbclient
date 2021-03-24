@@ -4,17 +4,16 @@ import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.FrsActivityConfig;
 import com.baidu.tbadk.core.util.NotificationHelper;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ar;
-import com.baidu.tbadk.coreExtra.messageCenter.b;
-import com.baidu.tbadk.coreExtra.messageCenter.d;
 import com.baidu.tbadk.coreExtra.service.DealIntentService;
 import com.baidu.tieba.R;
+import d.b.h0.s.d.b;
 /* loaded from: classes.dex */
 public class SignAlertReceiver extends BroadcastReceiver {
     @Override // android.content.BroadcastReceiver
@@ -32,18 +31,14 @@ public class SignAlertReceiver extends BroadcastReceiver {
                 PendingIntent service = PendingIntent.getService(context, 0, intent2, 134217728);
                 String string = context.getString(R.string.sign_notification_content);
                 String string2 = context.getString(R.string.app_name);
-                b.bxE().s(b.bxE().qu(12), 12);
+                b.g0().j(b.g0().C(12), 12);
                 NotificationHelper.showNotification(context, 12, string2, string, string, service, false);
-                ar arVar = new ar("c13252");
-                arVar.dR("uid", TbadkCoreApplication.getCurrentAccount());
-                TiebaStatic.log(arVar);
-            } catch (Throwable th) {
+                StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_SIGN_REMIND_PUSH_SHOW);
+                statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+                TiebaStatic.log(statisticItem);
+            } finally {
                 try {
-                    if (BdLog.isDebugMode()) {
-                        BdLog.e(th.getMessage());
-                    }
                 } finally {
-                    d.byh().updateSignAlarm();
                 }
             }
         }

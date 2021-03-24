@@ -11,8 +11,8 @@ import java.util.Optional;
 import java.util.OptionalDouble;
 import java.util.OptionalInt;
 import java.util.OptionalLong;
-/* loaded from: classes4.dex */
-public class OptionalCodec implements ObjectDeserializer, ObjectSerializer {
+/* loaded from: classes.dex */
+public class OptionalCodec implements ObjectSerializer, ObjectDeserializer {
     public static OptionalCodec instance = new OptionalCodec();
 
     @Override // com.alibaba.fastjson.parser.deserializer.ObjectDeserializer

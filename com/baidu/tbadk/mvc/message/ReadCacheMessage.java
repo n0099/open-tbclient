@@ -1,23 +1,19 @@
 package com.baidu.tbadk.mvc.message;
 
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.mvc.b.e;
-/* loaded from: classes.dex */
+import d.b.h0.g0.b.d;
+/* loaded from: classes3.dex */
 public class ReadCacheMessage<T> extends CustomMessage<T> {
-    private boolean isNeedUid;
-    private e requestData;
+    public boolean isNeedUid;
+    public d requestData;
 
     public ReadCacheMessage(int i) {
         super(i);
         this.isNeedUid = true;
     }
 
-    public e getRequestData() {
+    public d getRequestData() {
         return this.requestData;
-    }
-
-    public void setRequestData(e eVar) {
-        this.requestData = eVar;
     }
 
     public boolean isNeedUid() {
@@ -26,5 +22,9 @@ public class ReadCacheMessage<T> extends CustomMessage<T> {
 
     public void setNeedUid(boolean z) {
         this.isNeedUid = z;
+    }
+
+    public void setRequestData(d dVar) {
+        this.requestData = dVar;
     }
 }

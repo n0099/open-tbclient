@@ -22,27 +22,26 @@ import java.net.NetworkInterface;
 import java.net.SocketException;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes7.dex */
 public class NetworkMonitorAutoDetect extends BroadcastReceiver {
-    static final long INVALID_NET_ID = -1;
-    private static final String TAG = "NetworkMonitorAutoDetect";
+    public static final long INVALID_NET_ID = -1;
+    public static final String TAG = "NetworkMonitorAutoDetect";
     @Nullable
-    private final ConnectivityManager.NetworkCallback allNetworkCallback;
-    private ConnectionType connectionType;
-    private ConnectivityManagerDelegate connectivityManagerDelegate;
-    private final Context context;
-    private final IntentFilter intentFilter;
-    private boolean isRegistered;
+    public final ConnectivityManager.NetworkCallback allNetworkCallback;
+    public ConnectionType connectionType;
+    public ConnectivityManagerDelegate connectivityManagerDelegate;
+    public final Context context;
+    public final IntentFilter intentFilter;
+    public boolean isRegistered;
     @Nullable
-    private final ConnectivityManager.NetworkCallback mobileNetworkCallback;
-    private final Observer observer;
-    private WifiDirectManagerDelegate wifiDirectManagerDelegate;
-    private WifiManagerDelegate wifiManagerDelegate;
-    private String wifiSSID;
+    public final ConnectivityManager.NetworkCallback mobileNetworkCallback;
+    public final Observer observer;
+    public WifiDirectManagerDelegate wifiDirectManagerDelegate;
+    public WifiManagerDelegate wifiManagerDelegate;
+    public String wifiSSID;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes7.dex */
     public enum ConnectionType {
         CONNECTION_UNKNOWN,
         CONNECTION_ETHERNET,
@@ -56,17 +55,16 @@ public class NetworkMonitorAutoDetect extends BroadcastReceiver {
         CONNECTION_NONE
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes7.dex */
     public static class ConnectivityManagerDelegate {
         @Nullable
-        private final ConnectivityManager connectivityManager;
+        public final ConnectivityManager connectivityManager;
 
-        ConnectivityManagerDelegate() {
+        public ConnectivityManagerDelegate() {
             this.connectivityManager = null;
         }
 
-        ConnectivityManagerDelegate(Context context) {
+        public ConnectivityManagerDelegate(Context context) {
             this.connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
         }
 
@@ -78,10 +76,11 @@ public class NetworkMonitorAutoDetect extends BroadcastReceiver {
         @Nullable
         @SuppressLint({"NewApi"})
         public NetworkInformation networkToInfo(@Nullable Network network) {
-            if (network == null || this.connectivityManager == null) {
+            ConnectivityManager connectivityManager;
+            if (network == null || (connectivityManager = this.connectivityManager) == null) {
                 return null;
             }
-            LinkProperties linkProperties = this.connectivityManager.getLinkProperties(network);
+            LinkProperties linkProperties = connectivityManager.getLinkProperties(network);
             if (linkProperties == null) {
                 Logging.w(NetworkMonitorAutoDetect.TAG, "Detected unknown network: " + network.toString());
                 return null;
@@ -103,7 +102,7 @@ public class NetworkMonitorAutoDetect extends BroadcastReceiver {
         }
 
         @Nullable
-        List<NetworkInformation> getActiveNetworkList() {
+        public List<NetworkInformation> getActiveNetworkList() {
             if (supportNetworkCallback()) {
                 ArrayList arrayList = new ArrayList();
                 for (Network network : getAllNetworks()) {
@@ -118,12 +117,13 @@ public class NetworkMonitorAutoDetect extends BroadcastReceiver {
         }
 
         @SuppressLint({"NewApi"})
-        Network[] getAllNetworks() {
-            return this.connectivityManager == null ? new Network[0] : this.connectivityManager.getAllNetworks();
+        public Network[] getAllNetworks() {
+            ConnectivityManager connectivityManager = this.connectivityManager;
+            return connectivityManager == null ? new Network[0] : connectivityManager.getAllNetworks();
         }
 
         @SuppressLint({"NewApi"})
-        long getDefaultNetId() {
+        public long getDefaultNetId() {
             NetworkInfo activeNetworkInfo;
             Network[] allNetworks;
             NetworkInfo networkInfo;
@@ -143,31 +143,29 @@ public class NetworkMonitorAutoDetect extends BroadcastReceiver {
         }
 
         @SuppressLint({"NewApi"})
-        IPAddress[] getIPAddresses(LinkProperties linkProperties) {
+        public IPAddress[] getIPAddresses(LinkProperties linkProperties) {
             IPAddress[] iPAddressArr = new IPAddress[linkProperties.getLinkAddresses().size()];
-            Iterator<LinkAddress> it = linkProperties.getLinkAddresses().iterator();
             int i = 0;
-            while (true) {
-                int i2 = i;
-                if (!it.hasNext()) {
-                    return iPAddressArr;
-                }
-                iPAddressArr[i2] = new IPAddress(it.next().getAddress().getAddress());
-                i = i2 + 1;
+            for (LinkAddress linkAddress : linkProperties.getLinkAddresses()) {
+                iPAddressArr[i] = new IPAddress(linkAddress.getAddress().getAddress());
+                i++;
             }
+            return iPAddressArr;
         }
 
-        NetworkState getNetworkState() {
-            return this.connectivityManager == null ? new NetworkState(false, -1, -1, -1, -1) : getNetworkState(this.connectivityManager.getActiveNetworkInfo());
+        public NetworkState getNetworkState() {
+            ConnectivityManager connectivityManager = this.connectivityManager;
+            return connectivityManager == null ? new NetworkState(false, -1, -1, -1, -1) : getNetworkState(connectivityManager.getActiveNetworkInfo());
         }
 
         @SuppressLint({"NewApi"})
-        NetworkState getNetworkState(@Nullable Network network) {
+        public NetworkState getNetworkState(@Nullable Network network) {
+            ConnectivityManager connectivityManager;
             NetworkInfo activeNetworkInfo;
-            if (network == null || this.connectivityManager == null) {
+            if (network == null || (connectivityManager = this.connectivityManager) == null) {
                 return new NetworkState(false, -1, -1, -1, -1);
             }
-            NetworkInfo networkInfo = this.connectivityManager.getNetworkInfo(network);
+            NetworkInfo networkInfo = connectivityManager.getNetworkInfo(network);
             if (networkInfo != null) {
                 if (networkInfo.getType() == 17) {
                     return networkInfo.getType() == 17 ? (Build.VERSION.SDK_INT < 23 || !network.equals(this.connectivityManager.getActiveNetwork()) || (activeNetworkInfo = this.connectivityManager.getActiveNetworkInfo()) == null || activeNetworkInfo.getType() == 17) ? new NetworkState(networkInfo.isConnected(), 17, -1, -1, -1) : new NetworkState(networkInfo.isConnected(), 17, -1, activeNetworkInfo.getType(), activeNetworkInfo.getSubtype()) : getNetworkState(networkInfo);
@@ -180,9 +178,10 @@ public class NetworkMonitorAutoDetect extends BroadcastReceiver {
         }
 
         @SuppressLint({"NewApi"})
-        boolean hasInternetCapability(Network network) {
+        public boolean hasInternetCapability(Network network) {
             NetworkCapabilities networkCapabilities;
-            return (this.connectivityManager == null || (networkCapabilities = this.connectivityManager.getNetworkCapabilities(network)) == null || !networkCapabilities.hasCapability(12)) ? false : true;
+            ConnectivityManager connectivityManager = this.connectivityManager;
+            return (connectivityManager == null || (networkCapabilities = connectivityManager.getNetworkCapabilities(network)) == null || !networkCapabilities.hasCapability(12)) ? false : true;
         }
 
         @SuppressLint({"NewApi"})
@@ -210,7 +209,7 @@ public class NetworkMonitorAutoDetect extends BroadcastReceiver {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes7.dex */
     public static class IPAddress {
         public final byte[] address;
 
@@ -224,7 +223,7 @@ public class NetworkMonitorAutoDetect extends BroadcastReceiver {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes7.dex */
     public static class NetworkInformation {
         public final long handle;
         public final IPAddress[] ipAddresses;
@@ -266,14 +265,13 @@ public class NetworkMonitorAutoDetect extends BroadcastReceiver {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes7.dex */
     public static class NetworkState {
-        private final boolean connected;
-        private final int subtype;
-        private final int type;
-        private final int underlyingNetworkSubtypeForVpn;
-        private final int underlyingNetworkTypeForVpn;
+        public final boolean connected;
+        public final int subtype;
+        public final int type;
+        public final int underlyingNetworkSubtypeForVpn;
+        public final int underlyingNetworkTypeForVpn;
 
         public NetworkState(boolean z, int i, int i2, int i3, int i4) {
             this.connected = z;
@@ -304,7 +302,7 @@ public class NetworkMonitorAutoDetect extends BroadcastReceiver {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes7.dex */
     public interface Observer {
         void onConnectionTypeChanged(ConnectionType connectionType);
 
@@ -314,9 +312,9 @@ public class NetworkMonitorAutoDetect extends BroadcastReceiver {
     }
 
     @SuppressLint({"NewApi"})
-    /* loaded from: classes9.dex */
-    private class SimpleNetworkCallback extends ConnectivityManager.NetworkCallback {
-        private SimpleNetworkCallback() {
+    /* loaded from: classes7.dex */
+    public class SimpleNetworkCallback extends ConnectivityManager.NetworkCallback {
+        public SimpleNetworkCallback() {
         }
 
         private void onNetworkChanged(Network network) {
@@ -356,15 +354,15 @@ public class NetworkMonitorAutoDetect extends BroadcastReceiver {
         }
     }
 
-    /* loaded from: classes9.dex */
-    static class WifiDirectManagerDelegate extends BroadcastReceiver {
-        private static final int WIFI_P2P_NETWORK_HANDLE = 0;
-        private final Context context;
-        private final Observer observer;
+    /* loaded from: classes7.dex */
+    public static class WifiDirectManagerDelegate extends BroadcastReceiver {
+        public static final int WIFI_P2P_NETWORK_HANDLE = 0;
+        public final Context context;
+        public final Observer observer;
         @Nullable
-        private NetworkInformation wifiP2pNetworkInfo;
+        public NetworkInformation wifiP2pNetworkInfo;
 
-        WifiDirectManagerDelegate(Observer observer, Context context) {
+        public WifiDirectManagerDelegate(Observer observer, Context context) {
             this.context = context;
             this.observer = observer;
             IntentFilter intentFilter = new IntentFilter();
@@ -380,19 +378,14 @@ public class NetworkMonitorAutoDetect extends BroadcastReceiver {
             try {
                 ArrayList list = Collections.list(NetworkInterface.getByName(wifiP2pGroup.getInterface()).getInetAddresses());
                 IPAddress[] iPAddressArr = new IPAddress[list.size()];
-                int i = 0;
-                while (true) {
-                    int i2 = i;
-                    if (i2 >= list.size()) {
-                        this.wifiP2pNetworkInfo = new NetworkInformation(wifiP2pGroup.getInterface(), ConnectionType.CONNECTION_WIFI, ConnectionType.CONNECTION_NONE, 0L, iPAddressArr);
-                        this.observer.onNetworkConnect(this.wifiP2pNetworkInfo);
-                        return;
-                    }
-                    iPAddressArr[i2] = new IPAddress(((InetAddress) list.get(i2)).getAddress());
-                    i = i2 + 1;
+                for (int i = 0; i < list.size(); i++) {
+                    iPAddressArr[i] = new IPAddress(((InetAddress) list.get(i)).getAddress());
                 }
-            } catch (SocketException e) {
-                Logging.e(NetworkMonitorAutoDetect.TAG, "Unable to get WifiP2p network interface", e);
+                NetworkInformation networkInformation = new NetworkInformation(wifiP2pGroup.getInterface(), ConnectionType.CONNECTION_WIFI, ConnectionType.CONNECTION_NONE, 0L, iPAddressArr);
+                this.wifiP2pNetworkInfo = networkInformation;
+                this.observer.onNetworkConnect(networkInformation);
+            } catch (SocketException e2) {
+                Logging.e(NetworkMonitorAutoDetect.TAG, "Unable to get WifiP2p network interface", e2);
             }
         }
 
@@ -404,7 +397,8 @@ public class NetworkMonitorAutoDetect extends BroadcastReceiver {
         }
 
         public List<NetworkInformation> getActiveNetworkList() {
-            return this.wifiP2pNetworkInfo != null ? Collections.singletonList(this.wifiP2pNetworkInfo) : Collections.emptyList();
+            NetworkInformation networkInformation = this.wifiP2pNetworkInfo;
+            return networkInformation != null ? Collections.singletonList(networkInformation) : Collections.emptyList();
         }
 
         @Override // android.content.BroadcastReceiver
@@ -422,21 +416,20 @@ public class NetworkMonitorAutoDetect extends BroadcastReceiver {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes7.dex */
     public static class WifiManagerDelegate {
         @Nullable
-        private final Context context;
+        public final Context context;
 
-        WifiManagerDelegate() {
+        public WifiManagerDelegate() {
             this.context = null;
         }
 
-        WifiManagerDelegate(Context context) {
+        public WifiManagerDelegate(Context context) {
             this.context = context;
         }
 
-        String getWifiSSID() {
+        public String getWifiSSID() {
             WifiInfo wifiInfo;
             String ssid;
             Intent registerReceiver = this.context.registerReceiver(null, new IntentFilter(McastConfig.ACTION_NETWORK_STATE_CHANGED));
@@ -466,13 +459,14 @@ public class NetworkMonitorAutoDetect extends BroadcastReceiver {
         ConnectivityManager.NetworkCallback networkCallback = new ConnectivityManager.NetworkCallback();
         try {
             this.connectivityManagerDelegate.requestMobileNetwork(networkCallback);
-        } catch (SecurityException e) {
+        } catch (SecurityException unused) {
             Logging.w(TAG, "Unable to obtain permission to request a cellular network.");
             networkCallback = null;
         }
         this.mobileNetworkCallback = networkCallback;
-        this.allNetworkCallback = new SimpleNetworkCallback();
-        this.connectivityManagerDelegate.registerNetworkCallback(this.allNetworkCallback);
+        SimpleNetworkCallback simpleNetworkCallback = new SimpleNetworkCallback();
+        this.allNetworkCallback = simpleNetworkCallback;
+        this.connectivityManagerDelegate.registerNetworkCallback(simpleNetworkCallback);
     }
 
     private void connectionTypeChanged(NetworkState networkState) {
@@ -491,50 +485,37 @@ public class NetworkMonitorAutoDetect extends BroadcastReceiver {
         return getConnectionType(networkState.isConnected(), networkState.getNetworkType(), networkState.getNetworkSubType());
     }
 
-    private static ConnectionType getConnectionType(boolean z, int i, int i2) {
+    public static ConnectionType getConnectionType(boolean z, int i, int i2) {
         if (z) {
-            switch (i) {
-                case 0:
-                    switch (i2) {
-                        case 1:
-                        case 2:
-                        case 4:
-                        case 7:
-                        case 11:
-                            return ConnectionType.CONNECTION_2G;
-                        case 3:
-                        case 5:
-                        case 6:
-                        case 8:
-                        case 9:
-                        case 10:
-                        case 12:
-                        case 14:
-                        case 15:
-                            return ConnectionType.CONNECTION_3G;
-                        case 13:
-                            return ConnectionType.CONNECTION_4G;
-                        default:
-                            return ConnectionType.CONNECTION_UNKNOWN_CELLULAR;
-                    }
+            if (i != 0) {
+                return i != 1 ? i != 6 ? i != 7 ? i != 9 ? i != 17 ? ConnectionType.CONNECTION_UNKNOWN : ConnectionType.CONNECTION_VPN : ConnectionType.CONNECTION_ETHERNET : ConnectionType.CONNECTION_BLUETOOTH : ConnectionType.CONNECTION_4G : ConnectionType.CONNECTION_WIFI;
+            }
+            switch (i2) {
                 case 1:
-                    return ConnectionType.CONNECTION_WIFI;
-                case 6:
-                    return ConnectionType.CONNECTION_4G;
+                case 2:
+                case 4:
                 case 7:
-                    return ConnectionType.CONNECTION_BLUETOOTH;
+                case 11:
+                    return ConnectionType.CONNECTION_2G;
+                case 3:
+                case 5:
+                case 6:
+                case 8:
                 case 9:
-                    return ConnectionType.CONNECTION_ETHERNET;
-                case 17:
-                    return ConnectionType.CONNECTION_VPN;
+                case 10:
+                case 12:
+                case 14:
+                case 15:
+                    return ConnectionType.CONNECTION_3G;
+                case 13:
+                    return ConnectionType.CONNECTION_4G;
                 default:
-                    return ConnectionType.CONNECTION_UNKNOWN;
+                    return ConnectionType.CONNECTION_UNKNOWN_CELLULAR;
             }
         }
         return ConnectionType.CONNECTION_NONE;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     public static ConnectionType getUnderlyingConnectionTypeForVpn(NetworkState networkState) {
         return networkState.getNetworkType() != 17 ? ConnectionType.CONNECTION_NONE : getConnectionType(networkState.isConnected(), networkState.getUnderlyingNetworkTypeForVpn(), networkState.getUnderlyingNetworkSubtypeForVpn());
     }
@@ -543,7 +524,6 @@ public class NetworkMonitorAutoDetect extends BroadcastReceiver {
         return getConnectionType(networkState) != ConnectionType.CONNECTION_WIFI ? "" : this.wifiManagerDelegate.getWifiSSID();
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     @SuppressLint({"NewApi"})
     public static long networkToNetId(Network network) {
         return Build.VERSION.SDK_INT >= 23 ? network.getNetworkHandle() : Integer.parseInt(network.toString());
@@ -562,25 +542,27 @@ public class NetworkMonitorAutoDetect extends BroadcastReceiver {
             this.isRegistered = false;
             try {
                 this.context.unregisterReceiver(this);
-            } catch (Exception e) {
+            } catch (Exception unused) {
             }
         }
     }
 
     public void destroy() {
-        if (this.allNetworkCallback != null) {
-            this.connectivityManagerDelegate.releaseCallback(this.allNetworkCallback);
+        ConnectivityManager.NetworkCallback networkCallback = this.allNetworkCallback;
+        if (networkCallback != null) {
+            this.connectivityManagerDelegate.releaseCallback(networkCallback);
         }
-        if (this.mobileNetworkCallback != null) {
-            this.connectivityManagerDelegate.releaseCallback(this.mobileNetworkCallback);
+        ConnectivityManager.NetworkCallback networkCallback2 = this.mobileNetworkCallback;
+        if (networkCallback2 != null) {
+            this.connectivityManagerDelegate.releaseCallback(networkCallback2);
         }
-        if (this.wifiDirectManagerDelegate != null) {
-            this.wifiDirectManagerDelegate.release();
+        WifiDirectManagerDelegate wifiDirectManagerDelegate = this.wifiDirectManagerDelegate;
+        if (wifiDirectManagerDelegate != null) {
+            wifiDirectManagerDelegate.release();
         }
         unregisterReceiver();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     @Nullable
     public List<NetworkInformation> getActiveNetworkList() {
         List<NetworkInformation> activeNetworkList = this.connectivityManagerDelegate.getActiveNetworkList();
@@ -588,9 +570,9 @@ public class NetworkMonitorAutoDetect extends BroadcastReceiver {
             return null;
         }
         ArrayList arrayList = new ArrayList(activeNetworkList);
-        if (this.wifiDirectManagerDelegate != null) {
-            arrayList.addAll(this.wifiDirectManagerDelegate.getActiveNetworkList());
-            return arrayList;
+        WifiDirectManagerDelegate wifiDirectManagerDelegate = this.wifiDirectManagerDelegate;
+        if (wifiDirectManagerDelegate != null) {
+            arrayList.addAll(wifiDirectManagerDelegate.getActiveNetworkList());
         }
         return arrayList;
     }
@@ -603,7 +585,7 @@ public class NetworkMonitorAutoDetect extends BroadcastReceiver {
         return this.connectivityManagerDelegate.getDefaultNetId();
     }
 
-    boolean isReceiverRegisteredForTesting() {
+    public boolean isReceiverRegisteredForTesting() {
         return this.isRegistered;
     }
 
@@ -615,11 +597,11 @@ public class NetworkMonitorAutoDetect extends BroadcastReceiver {
         }
     }
 
-    void setConnectivityManagerDelegateForTests(ConnectivityManagerDelegate connectivityManagerDelegate) {
+    public void setConnectivityManagerDelegateForTests(ConnectivityManagerDelegate connectivityManagerDelegate) {
         this.connectivityManagerDelegate = connectivityManagerDelegate;
     }
 
-    void setWifiManagerDelegateForTests(WifiManagerDelegate wifiManagerDelegate) {
+    public void setWifiManagerDelegateForTests(WifiManagerDelegate wifiManagerDelegate) {
         this.wifiManagerDelegate = wifiManagerDelegate;
     }
 

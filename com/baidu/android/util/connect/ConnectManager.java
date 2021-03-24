@@ -4,52 +4,44 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.net.NetworkInfo;
 import android.net.Proxy;
-import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
+import com.baidu.webkit.internal.ConectivityUtils;
 @Deprecated
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class ConnectManager {
-    private static final boolean DEBUG = false;
-    private static final String TAG = "ConnectManager";
-    private String mApn;
-    private String mNetType;
-    private int mPort;
-    private String mProxy;
-    private int mSubType;
-    private String mSubTypeName;
-    private boolean mUseWap;
+    public static final boolean DEBUG = false;
+    public static final String TAG = "ConnectManager";
+    public String mApn;
+    public String mNetType;
+    public int mPort;
+    public String mProxy;
+    public int mSubType;
+    public String mSubTypeName;
+    public boolean mUseWap;
 
     public ConnectManager(Context context) {
         checkNetworkType(context);
     }
 
-    @Deprecated
-    public static boolean isNetworkConnected(Context context) {
-        return NetWorkUtils.isConnected(context);
-    }
-
-    @Deprecated
-    public static boolean isWifi(Context context) {
-        return NetWorkUtils.isWifiConnected(context);
-    }
-
     private void checkApn(NetworkInfo networkInfo) {
         String lowerCase;
         if (networkInfo.getExtraInfo() != null && (lowerCase = networkInfo.getExtraInfo().toLowerCase()) != null) {
-            if (lowerCase.startsWith("cmwap") || lowerCase.startsWith("uniwap") || lowerCase.startsWith("3gwap")) {
+            if (!lowerCase.startsWith(ConectivityUtils.APN_CMWAP) && !lowerCase.startsWith(ConectivityUtils.APN_UNIWAP) && !lowerCase.startsWith(ConectivityUtils.APN_3GWAP)) {
+                if (lowerCase.startsWith(ConectivityUtils.APN_CTWAP)) {
+                    this.mUseWap = true;
+                    this.mApn = lowerCase;
+                    this.mProxy = "10.0.0.200";
+                    this.mPort = 80;
+                    return;
+                } else if (lowerCase.startsWith(ConectivityUtils.APN_CMNET) || lowerCase.startsWith(ConectivityUtils.APN_UNINET) || lowerCase.startsWith(ConectivityUtils.APN_CTNET) || lowerCase.startsWith(ConectivityUtils.APN_3GNET)) {
+                    this.mUseWap = false;
+                    this.mApn = lowerCase;
+                    return;
+                }
+            } else {
                 this.mUseWap = true;
                 this.mApn = lowerCase;
                 this.mProxy = "10.0.0.172";
                 this.mPort = 80;
-                return;
-            } else if (lowerCase.startsWith("ctwap")) {
-                this.mUseWap = true;
-                this.mApn = lowerCase;
-                this.mProxy = "10.0.0.200";
-                this.mPort = 80;
-                return;
-            } else if (lowerCase.startsWith("cmnet") || lowerCase.startsWith("uninet") || lowerCase.startsWith("ctnet") || lowerCase.startsWith("3gnet")) {
-                this.mUseWap = false;
-                this.mApn = lowerCase;
                 return;
             }
         }
@@ -57,7 +49,7 @@ public class ConnectManager {
         int defaultPort = Proxy.getDefaultPort();
         if (defaultHost != null && defaultHost.length() > 0) {
             this.mProxy = defaultHost;
-            if ("10.0.0.172".equals(this.mProxy.trim())) {
+            if ("10.0.0.172".equals(defaultHost.trim())) {
                 this.mUseWap = true;
                 this.mPort = 80;
                 return;
@@ -89,32 +81,10 @@ public class ConnectManager {
         }
     }
 
-    public boolean isWapNetwork() {
-        return this.mUseWap;
-    }
-
-    public String getApn() {
-        return this.mApn;
-    }
-
-    public String getProxy() {
-        return this.mProxy;
-    }
-
-    public String getSubTypeName() {
-        return this.mSubTypeName;
-    }
-
-    public int getSubType() {
-        return this.mSubType;
-    }
-
-    public int getProxyPort() {
-        return this.mPort;
-    }
-
-    public String getNetType() {
-        return this.mNetType;
+    @SuppressLint({"MissingPermission"})
+    @Deprecated
+    public static NetworkInfo getInfo(Context context) {
+        return NetWorkUtils.getActiveNetworkInfo(context);
     }
 
     @Deprecated
@@ -131,47 +101,80 @@ public class ConnectManager {
             String lowerCase = activeNetworkInfo.getExtraInfo() == null ? "none" : activeNetworkInfo.getExtraInfo().toLowerCase();
             StringBuilder sb = new StringBuilder();
             String subtypeName = activeNetworkInfo.getSubtypeName();
-            switch (subtype) {
-                case 1:
-                case 2:
-                case 4:
-                case 7:
-                case 11:
-                    sb.append("2g");
-                    break;
-                case 3:
-                case 5:
-                case 6:
-                case 8:
-                case 9:
-                case 10:
-                case 12:
-                case 14:
-                case 15:
-                    sb.append("3g");
-                    break;
-                case 13:
-                    sb.append("4g");
-                    break;
-                case 16:
-                case 17:
-                case 18:
-                case 19:
-                default:
-                    sb.append(activeNetworkInfo.getTypeName());
-                    break;
-                case 20:
-                    sb.append("5g");
-                    break;
+            if (subtype != 20) {
+                switch (subtype) {
+                    case 1:
+                    case 2:
+                    case 4:
+                    case 7:
+                    case 11:
+                        sb.append("2g");
+                        break;
+                    case 3:
+                    case 5:
+                    case 6:
+                    case 8:
+                    case 9:
+                    case 10:
+                    case 12:
+                    case 14:
+                    case 15:
+                        sb.append("3g");
+                        break;
+                    case 13:
+                        sb.append("4g");
+                        break;
+                    default:
+                        sb.append(activeNetworkInfo.getTypeName());
+                        break;
+                }
+            } else {
+                sb.append("5g");
             }
-            return sb.append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS).append(lowerCase).append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS).append(subtypeName).toString();
+            sb.append("_");
+            sb.append(lowerCase);
+            sb.append("_");
+            sb.append(subtypeName);
+            return sb.toString();
         }
-        return activeNetworkInfo.getTypeName() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + activeNetworkInfo.getSubtypeName();
+        return activeNetworkInfo.getTypeName() + "_" + activeNetworkInfo.getSubtypeName();
     }
 
-    @SuppressLint({"MissingPermission"})
     @Deprecated
-    public static NetworkInfo getInfo(Context context) {
-        return NetWorkUtils.getActiveNetworkInfo(context);
+    public static boolean isNetworkConnected(Context context) {
+        return NetWorkUtils.isConnected(context);
+    }
+
+    @Deprecated
+    public static boolean isWifi(Context context) {
+        return NetWorkUtils.isWifiConnected(context);
+    }
+
+    public String getApn() {
+        return this.mApn;
+    }
+
+    public String getNetType() {
+        return this.mNetType;
+    }
+
+    public String getProxy() {
+        return this.mProxy;
+    }
+
+    public int getProxyPort() {
+        return this.mPort;
+    }
+
+    public int getSubType() {
+        return this.mSubType;
+    }
+
+    public String getSubTypeName() {
+        return this.mSubTypeName;
+    }
+
+    public boolean isWapNetwork() {
+        return this.mUseWap;
     }
 }

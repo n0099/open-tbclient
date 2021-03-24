@@ -1,5 +1,6 @@
 package okhttp3.internal.http;
 
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import java.io.IOException;
 import java.net.ProtocolException;
 import okhttp3.Interceptor;
@@ -14,9 +15,24 @@ import okio.ForwardingSink;
 import okio.Okio;
 import okio.Sink;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes14.dex */
+/* loaded from: classes7.dex */
 public final class CallServerInterceptor implements Interceptor {
-    private final boolean forWebSocket;
+    public final boolean forWebSocket;
+
+    /* loaded from: classes7.dex */
+    public static final class CountingSink extends ForwardingSink {
+        public long successfulCount;
+
+        public CountingSink(Sink sink) {
+            super(sink);
+        }
+
+        @Override // okio.ForwardingSink, okio.Sink
+        public void write(Buffer buffer, long j) throws IOException {
+            super.write(buffer, j);
+            this.successfulCount += j;
+        }
+    }
 
     public CallServerInterceptor(boolean z) {
         this.forWebSocket = z;
@@ -24,7 +40,6 @@ public final class CallServerInterceptor implements Interceptor {
 
     @Override // okhttp3.Interceptor
     public Response intercept(Interceptor.Chain chain) throws IOException {
-        Response.Builder builder;
         Response build;
         RealInterceptorChain realInterceptorChain = (RealInterceptorChain) chain;
         HttpCodec httpStream = realInterceptorChain.httpStream();
@@ -35,28 +50,22 @@ public final class CallServerInterceptor implements Interceptor {
         realInterceptorChain.eventListener().requestHeadersStart(realInterceptorChain.call());
         httpStream.writeRequestHeaders(request);
         realInterceptorChain.eventListener().requestHeadersEnd(realInterceptorChain.call(), request);
-        Response.Builder builder2 = null;
-        if (!HttpMethod.permitsRequestBody(request.method()) || request.body() == null) {
-            builder = null;
-        } else {
+        Response.Builder builder = null;
+        if (HttpMethod.permitsRequestBody(request.method()) && request.body() != null) {
             if (HTTP.EXPECT_CONTINUE.equalsIgnoreCase(request.header(HTTP.EXPECT_DIRECTIVE))) {
                 httpStream.flushRequest();
                 realInterceptorChain.eventListener().responseHeadersStart(realInterceptorChain.call());
-                builder2 = httpStream.readResponseHeaders(true);
+                builder = httpStream.readResponseHeaders(true);
             }
-            if (builder2 == null) {
+            if (builder == null) {
                 realInterceptorChain.eventListener().requestBodyStart(realInterceptorChain.call());
                 CountingSink countingSink = new CountingSink(httpStream.createRequestBody(request, request.body().contentLength()));
                 BufferedSink buffer = Okio.buffer(countingSink);
                 request.body().writeTo(buffer);
                 buffer.close();
                 realInterceptorChain.eventListener().requestBodyEnd(realInterceptorChain.call(), countingSink.successfulCount);
-                builder = builder2;
-            } else {
-                if (!realConnection.isMultiplexed()) {
-                    streamAllocation.noNewStreams();
-                }
-                builder = builder2;
+            } else if (!realConnection.isMultiplexed()) {
+                streamAllocation.noNewStreams();
             }
         }
         httpStream.finishRequest();
@@ -76,27 +85,12 @@ public final class CallServerInterceptor implements Interceptor {
         } else {
             build = build2.newBuilder().body(httpStream.openResponseBody(build2)).build();
         }
-        if ("close".equalsIgnoreCase(build.request().header(HTTP.CONN_DIRECTIVE)) || "close".equalsIgnoreCase(build.header(HTTP.CONN_DIRECTIVE))) {
+        if (IntentConfig.CLOSE.equalsIgnoreCase(build.request().header(HTTP.CONN_DIRECTIVE)) || IntentConfig.CLOSE.equalsIgnoreCase(build.header(HTTP.CONN_DIRECTIVE))) {
             streamAllocation.noNewStreams();
         }
         if ((code == 204 || code == 205) && build.body().contentLength() > 0) {
             throw new ProtocolException("HTTP " + code + " had non-zero Content-Length: " + build.body().contentLength());
         }
         return build;
-    }
-
-    /* loaded from: classes14.dex */
-    static final class CountingSink extends ForwardingSink {
-        long successfulCount;
-
-        CountingSink(Sink sink) {
-            super(sink);
-        }
-
-        @Override // okio.ForwardingSink, okio.Sink
-        public void write(Buffer buffer, long j) throws IOException {
-            super.write(buffer, j);
-            this.successfulCount += j;
-        }
     }
 }

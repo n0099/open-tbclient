@@ -1,146 +1,33 @@
 package com.sdk.base.framework.f.h;
 
-import android.content.Context;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
-import android.os.Build;
-import java.net.InetAddress;
-import java.net.URL;
-import java.util.ArrayList;
-/* loaded from: classes4.dex */
+import com.sdk.base.framework.a.a.c;
+import com.sdk.base.framework.c.f;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.security.KeyFactory;
+import java.security.PublicKey;
+import java.security.spec.X509EncodedKeySpec;
+/* loaded from: classes6.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f7645a = a.class.getName();
-    private static final Boolean b = Boolean.valueOf(com.sdk.base.framework.c.f.b);
+    public static final String f38556a = "a";
 
-    public static c a(Context context, ArrayList<String> arrayList, boolean z) {
-        c cVar;
-        NetworkInfo activeNetworkInfo;
-        c cVar2 = c.c;
-        if (context == null) {
-            return cVar2;
-        }
+    /* renamed from: b  reason: collision with root package name */
+    public static Boolean f38557b = Boolean.valueOf(f.f38519b);
+
+    public static PublicKey a(String str) {
         try {
-            ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
-            if (z && a(context, arrayList)) {
-                NetworkInfo.State state = connectivityManager.getNetworkInfo(2).getState();
-                NetworkInfo.State state2 = connectivityManager.getNetworkInfo(0).getState();
-                if (state.compareTo(NetworkInfo.State.CONNECTED) == 0 || state2.compareTo(NetworkInfo.State.CONNECTED) == 0) {
-                    return c.b;
-                }
-            }
-            activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
-        } catch (Throwable th) {
-            com.sdk.base.framework.a.a.c.b(f7645a, th.getMessage(), b);
-        }
-        if (activeNetworkInfo != null && activeNetworkInfo.isConnected()) {
-            String typeName = activeNetworkInfo.getTypeName();
-            if ("MOBILE".equalsIgnoreCase(typeName)) {
-                cVar = c.b;
-            } else if ("WIFI".equalsIgnoreCase(typeName)) {
-                cVar = c.f7646a;
-            }
-            return cVar;
-        }
-        cVar = cVar2;
-        return cVar;
-    }
-
-    private static ArrayList<Integer> a(ArrayList<String> arrayList) {
-        Throwable th;
-        ArrayList<Integer> arrayList2 = null;
-        if (arrayList == null) {
+            com.sdk.base.framework.e.a aVar = new com.sdk.base.framework.e.a();
+            byte[] bArr = new byte[str.length()];
+            str.getBytes(0, str.length(), bArr, 0);
+            ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr);
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            aVar.a(byteArrayInputStream, byteArrayOutputStream);
+            return KeyFactory.getInstance("RSA").generatePublic(new X509EncodedKeySpec(byteArrayOutputStream.toByteArray()));
+        } catch (Exception e2) {
+            c.b(f38556a, e2.toString(), f38557b);
             return null;
         }
-        try {
-            if (arrayList.size() > 0) {
-                ArrayList<Integer> arrayList3 = new ArrayList<>();
-                for (int i = 0; i < arrayList.size(); i++) {
-                    try {
-                        byte[] address = InetAddress.getByName(new URL(arrayList.get(i)).getHost()).getAddress();
-                        arrayList3.add(Integer.valueOf((address[0] & 255) | ((address[3] & 255) << 24) | ((address[2] & 255) << 16) | ((address[1] & 255) << 8)));
-                    } catch (Throwable th2) {
-                        th = th2;
-                        arrayList2 = arrayList3;
-                        com.sdk.base.framework.a.a.c.b(f7645a, th.getMessage(), b);
-                        return arrayList2;
-                    }
-                }
-                return arrayList3;
-            }
-            return null;
-        } catch (Throwable th3) {
-            th = th3;
-        }
-    }
-
-    public static void a(Context context) {
-        try {
-            ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
-            if (Build.VERSION.SDK_INT < 21) {
-                NetworkInfo.State state = connectivityManager.getNetworkInfo(2).getState();
-                if (state.compareTo(NetworkInfo.State.CONNECTED) == 0 || state.compareTo(NetworkInfo.State.CONNECTING) == 0) {
-                    connectivityManager.stopUsingNetworkFeature(0, "enableMMS");
-                }
-            }
-        } catch (Throwable th) {
-        }
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:16:0x0032  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    private static boolean a(Context context, ArrayList<String> arrayList) {
-        Throwable th;
-        boolean z;
-        ConnectivityManager connectivityManager;
-        if (arrayList == null || arrayList.size() <= 0) {
-            return false;
-        }
-        try {
-            connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
-        } catch (Throwable th2) {
-            th = th2;
-            z = false;
-        }
-        if (connectivityManager == null) {
-            com.sdk.base.framework.a.a.c.a(f7645a, "ConnectivityManager 为null", b);
-            return false;
-        }
-        NetworkInfo.State state = connectivityManager.getNetworkInfo(0).getState();
-        if (state.compareTo(NetworkInfo.State.CONNECTED) == 0 || state.compareTo(NetworkInfo.State.CONNECTING) == 0) {
-            return true;
-        }
-        connectivityManager.startUsingNetworkFeature(0, "enableMMS");
-        ArrayList<Integer> a2 = a(arrayList);
-        for (int i = 0; i < 5 && connectivityManager.getNetworkInfo(2).getState().compareTo(NetworkInfo.State.CONNECTED) != 0; i++) {
-            Thread.sleep(500L);
-        }
-        if (a2 == null || a2.size() <= 0) {
-            z = false;
-        } else {
-            boolean z2 = false;
-            for (int i2 = 0; i2 < a2.size(); i2++) {
-                try {
-                    z2 = connectivityManager.requestRouteToHost(2, a2.get(i2).intValue());
-                } catch (Throwable th3) {
-                    th = th3;
-                    z = z2;
-                    com.sdk.base.framework.a.a.c.b(f7645a, th.getMessage(), b);
-                    boolean z3 = com.sdk.base.framework.c.f.f;
-                    if (!z) {
-                    }
-                    return z;
-                }
-            }
-            z = z2;
-        }
-        boolean z32 = com.sdk.base.framework.c.f.f;
-        if (!z) {
-            a(context);
-        }
-        return z;
     }
 }

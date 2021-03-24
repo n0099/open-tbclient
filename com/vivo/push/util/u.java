@@ -8,28 +8,35 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Properties;
-/* loaded from: classes14.dex */
-final class u implements c {
+/* loaded from: classes7.dex */
+public final class u implements c {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f8084a = Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator + ".vivo/pushsdk/config";
-    private static final String b = f8084a + File.separator + "config.txt";
-    private static String c = "SdcardCache";
-    private File d;
+    public static final String f39566a = Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator + ".vivo/pushsdk/config";
+
+    /* renamed from: b  reason: collision with root package name */
+    public static final String f39567b = f39566a + File.separator + "config.txt";
+
+    /* renamed from: c  reason: collision with root package name */
+    public static String f39568c = "SdcardCache";
+
+    /* renamed from: d  reason: collision with root package name */
+    public File f39569d;
 
     @Override // com.vivo.push.util.c
     public final boolean a(Context context) {
         if ("mounted".equals(Environment.getExternalStorageState())) {
-            File file = new File(f8084a);
+            File file = new File(f39566a);
             boolean mkdirs = !file.exists() ? file.mkdirs() : true;
             if (mkdirs) {
-                this.d = new File(b);
-                if (!this.d.exists()) {
+                File file2 = new File(f39567b);
+                this.f39569d = file2;
+                if (!file2.exists()) {
                     try {
-                        this.d.createNewFile();
+                        this.f39569d.createNewFile();
                         return true;
-                    } catch (IOException e) {
-                        e.printStackTrace();
+                    } catch (IOException e2) {
+                        e2.printStackTrace();
                         return false;
                     }
                 }
@@ -40,89 +47,76 @@ final class u implements c {
     }
 
     @Override // com.vivo.push.util.c
-    public final String a(String str, String str2) {
-        return a().getProperty(str, str2);
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:37:0x002b A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    @Override // com.vivo.push.util.c
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
     public final void b(String str, String str2) {
         FileOutputStream fileOutputStream;
         Properties a2 = a();
-        String str3 = b;
+        String str3 = f39567b;
+        FileOutputStream fileOutputStream2 = null;
         try {
             try {
                 a2.setProperty(str, str2);
                 fileOutputStream = new FileOutputStream(str3);
-                try {
-                    a2.store(fileOutputStream, (String) null);
-                    fileOutputStream.flush();
-                    try {
-                        fileOutputStream.close();
-                    } catch (Exception e) {
-                    }
-                } catch (Exception e2) {
-                    e = e2;
-                    e.printStackTrace();
-                    if (fileOutputStream != null) {
-                        try {
-                            fileOutputStream.close();
-                        } catch (Exception e3) {
-                        }
-                    }
-                }
-            } catch (Throwable th) {
-                th = th;
-                if (fileOutputStream != null) {
-                    try {
-                        fileOutputStream.close();
-                    } catch (Exception e4) {
-                    }
-                }
-                throw th;
+            } catch (Exception e2) {
+                e = e2;
             }
-        } catch (Exception e5) {
-            e = e5;
-            fileOutputStream = null;
+        } catch (Throwable th) {
+            th = th;
+        }
+        try {
+            a2.store(fileOutputStream, (String) null);
+            fileOutputStream.flush();
+            try {
+                fileOutputStream.close();
+            } catch (Exception unused) {
+            }
+        } catch (Exception e3) {
+            e = e3;
+            fileOutputStream2 = fileOutputStream;
+            e.printStackTrace();
+            if (fileOutputStream2 != null) {
+                try {
+                    fileOutputStream2.close();
+                } catch (Exception unused2) {
+                }
+            }
         } catch (Throwable th2) {
             th = th2;
-            fileOutputStream = null;
-            if (fileOutputStream != null) {
+            fileOutputStream2 = fileOutputStream;
+            if (fileOutputStream2 != null) {
+                try {
+                    fileOutputStream2.close();
+                } catch (Exception unused3) {
+                }
             }
             throw th;
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:31:0x0029 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    @Override // com.vivo.push.util.c
+    public final String a(String str, String str2) {
+        return a().getProperty(str, str2);
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:14:0x0024, code lost:
+        if (r2 == null) goto L10;
+     */
+    /* JADX WARN: Removed duplicated region for block: B:31:0x002c A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private static Properties a() {
+    public static Properties a() {
         BufferedInputStream bufferedInputStream;
+        Exception e2;
         Properties properties = new Properties();
         BufferedInputStream bufferedInputStream2 = null;
         try {
+            bufferedInputStream = new BufferedInputStream(new FileInputStream(f39567b));
             try {
-                bufferedInputStream = new BufferedInputStream(new FileInputStream(b));
                 try {
                     properties.load(bufferedInputStream);
-                    try {
-                        bufferedInputStream.close();
-                    } catch (IOException e) {
-                    }
-                } catch (Exception e2) {
-                    e = e2;
-                    e.printStackTrace();
-                    if (bufferedInputStream != null) {
-                        try {
-                            bufferedInputStream.close();
-                        } catch (IOException e3) {
-                        }
-                    }
-                    return properties;
+                } catch (Exception e3) {
+                    e2 = e3;
+                    e2.printStackTrace();
                 }
             } catch (Throwable th) {
                 th = th;
@@ -130,20 +124,24 @@ final class u implements c {
                 if (bufferedInputStream2 != null) {
                     try {
                         bufferedInputStream2.close();
-                    } catch (IOException e4) {
+                    } catch (IOException unused) {
                     }
                 }
                 throw th;
             }
-        } catch (Exception e5) {
-            e = e5;
+        } catch (Exception e4) {
             bufferedInputStream = null;
+            e2 = e4;
         } catch (Throwable th2) {
             th = th2;
             if (bufferedInputStream2 != null) {
             }
             throw th;
         }
-        return properties;
+        try {
+            bufferedInputStream.close();
+        } catch (IOException unused2) {
+            return properties;
+        }
     }
 }

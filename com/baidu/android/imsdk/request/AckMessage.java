@@ -1,5 +1,5 @@
 package com.baidu.android.imsdk.request;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class AckMessage {
     public static final int RETRY_ACK = 1;
 

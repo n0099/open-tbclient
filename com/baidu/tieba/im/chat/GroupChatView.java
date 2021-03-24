@@ -1,43 +1,63 @@
 package com.baidu.tieba.im.chat;
 
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
-import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
-import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.GroupChatActivityConfig;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
-/* loaded from: classes7.dex */
+import d.b.h0.r.d0.b;
+/* loaded from: classes4.dex */
 public class GroupChatView extends CommonGroupMsglistView {
-    protected TextView kCo;
-    protected ImageView kCp;
-    private GroupChatActivity kCq;
+
+    /* renamed from: e  reason: collision with root package name */
+    public TextView f17753e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public ImageView f17754f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public GroupChatActivity f17755g;
 
     public GroupChatView(MsglistActivity msglistActivity, boolean z) {
         super(msglistActivity, z);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
+    public void d() {
+        this.f17754f.setVisibility(8);
+        b.i().s("has_shown_group_btn_dot", true);
+    }
+
+    public void e() {
+        if (b.i().g("has_shown_group_btn_dot", false)) {
+            return;
+        }
+        this.f17754f.setVisibility(0);
+    }
+
     @Override // com.baidu.tieba.im.chat.AbsMsglistView
     public void initHeader(TalkableActivity talkableActivity, boolean z) {
         super.initHeader(talkableActivity, z);
-        this.kCq = (GroupChatActivity) talkableActivity;
+        this.f17755g = (GroupChatActivity) talkableActivity;
         String string = talkableActivity.getPageContext().getString(R.string.msglist_groupinfo);
         if (string != null) {
             String stringExtra = talkableActivity.getIntent().getStringExtra(GroupChatActivityConfig.GROUP_AUTHOR_ID);
-            this.mBtnGroupInfo = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.group_info_btn, talkableActivity);
-            this.kCo = (TextView) this.mBtnGroupInfo.findViewById(R.id.group_info_btn_txt);
-            this.kCo.setText(string);
-            this.kCp = (ImageView) this.mBtnGroupInfo.findViewById(R.id.red_dot);
-            this.kCp.setVisibility(8);
-            if (!StringUtils.isNull(stringExtra) && stringExtra.equals(TbadkApplication.getCurrentAccount())) {
-                cUN();
+            View addCustomView = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.group_info_btn, talkableActivity);
+            this.mBtnGroupInfo = addCustomView;
+            TextView textView = (TextView) addCustomView.findViewById(R.id.group_info_btn_txt);
+            this.f17753e = textView;
+            textView.setText(string);
+            ImageView imageView = (ImageView) this.mBtnGroupInfo.findViewById(R.id.red_dot);
+            this.f17754f = imageView;
+            imageView.setVisibility(8);
+            if (!StringUtils.isNull(stringExtra) && stringExtra.equals(TbadkCoreApplication.getCurrentAccount())) {
+                e();
             }
-            if (MessageManager.getInstance().findTask(CmdConfigCustom.IM_GROUP_INFO_ACTIVITY_START) == null) {
+            if (MessageManager.getInstance().findTask(2008011) == null) {
                 this.mBtnGroupInfo.setVisibility(4);
             } else {
                 this.mBtnGroupInfo.setVisibility(0);
@@ -48,22 +68,13 @@ public class GroupChatView extends CommonGroupMsglistView {
     @Override // com.baidu.tieba.im.chat.AbsMsglistView
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.kCo != null) {
-            ap.setViewTextColor(this.kCo, R.color.CAM_X0105, 1);
+        TextView textView = this.f17753e;
+        if (textView != null) {
+            SkinManager.setViewTextColor(textView, R.color.CAM_X0105, 1);
         }
-        if (this.mNavigationBar != null) {
-            this.mNavigationBar.onChangeSkinType(getPageContext(), i);
+        NavigationBar navigationBar = this.mNavigationBar;
+        if (navigationBar != null) {
+            navigationBar.onChangeSkinType(getPageContext(), i);
         }
-    }
-
-    public void cUN() {
-        if (!com.baidu.tbadk.core.sharedPref.b.brR().getBoolean(SharedPrefConfig.HAS_SHOWN_GROUP_BTN_DOT, false)) {
-            this.kCp.setVisibility(0);
-        }
-    }
-
-    public void cUO() {
-        this.kCp.setVisibility(8);
-        com.baidu.tbadk.core.sharedPref.b.brR().putBoolean(SharedPrefConfig.HAS_SHOWN_GROUP_BTN_DOT, true);
     }
 }

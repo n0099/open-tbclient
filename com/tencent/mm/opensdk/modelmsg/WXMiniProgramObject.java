@@ -4,32 +4,35 @@ import android.os.Bundle;
 import com.tencent.mm.opensdk.modelmsg.WXMediaMessage;
 import com.tencent.mm.opensdk.utils.Log;
 import com.tencent.mm.opensdk.utils.d;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class WXMiniProgramObject implements WXMediaMessage.IMediaObject {
     public static final int MINIPROGRAM_TYPE_PREVIEW = 2;
     public static final int MINIPROGRAM_TYPE_TEST = 1;
     public static final int MINIPTOGRAM_TYPE_RELEASE = 0;
-    private static final String TAG = "MicroMsg.SDK.WXMiniProgramObject";
-    public int miniprogramType = 0;
+    public static final String TAG = "MicroMsg.SDK.WXMiniProgramObject";
     public String path;
     public String userName;
     public String webpageUrl;
     public boolean withShareTicket;
+    public int miniprogramType = 0;
+    public int disableforward = 0;
 
     @Override // com.tencent.mm.opensdk.modelmsg.WXMediaMessage.IMediaObject
     public boolean checkArgs() {
-        if (d.a(this.webpageUrl)) {
-            Log.e(TAG, "webPageUrl is null");
-            return false;
-        } else if (d.a(this.userName)) {
-            Log.e(TAG, "userName is null");
-            return false;
-        } else if (this.miniprogramType < 0 || this.miniprogramType > 2) {
-            Log.e(TAG, "miniprogram type should between MINIPTOGRAM_TYPE_RELEASE and MINIPROGRAM_TYPE_PREVIEW");
-            return false;
+        String str;
+        if (d.b(this.webpageUrl)) {
+            str = "webPageUrl is null";
+        } else if (d.b(this.userName)) {
+            str = "userName is null";
         } else {
-            return true;
+            int i = this.miniprogramType;
+            if (i >= 0 && i <= 2) {
+                return true;
+            }
+            str = "miniprogram type should between MINIPTOGRAM_TYPE_RELEASE and MINIPROGRAM_TYPE_PREVIEW";
         }
+        Log.e(TAG, str);
+        return false;
     }
 
     @Override // com.tencent.mm.opensdk.modelmsg.WXMediaMessage.IMediaObject
@@ -39,6 +42,7 @@ public class WXMiniProgramObject implements WXMediaMessage.IMediaObject {
         bundle.putString("_wxminiprogram_path", this.path);
         bundle.putBoolean("_wxminiprogram_withsharetiket", this.withShareTicket);
         bundle.putInt("_wxminiprogram_type", this.miniprogramType);
+        bundle.putInt("_wxminiprogram_disableforward", this.disableforward);
     }
 
     @Override // com.tencent.mm.opensdk.modelmsg.WXMediaMessage.IMediaObject
@@ -53,5 +57,6 @@ public class WXMiniProgramObject implements WXMediaMessage.IMediaObject {
         this.path = bundle.getString("_wxminiprogram_path");
         this.withShareTicket = bundle.getBoolean("_wxminiprogram_withsharetiket");
         this.miniprogramType = bundle.getInt("_wxminiprogram_type");
+        this.disableforward = bundle.getInt("_wxminiprogram_disableforward");
     }
 }

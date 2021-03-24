@@ -5,54 +5,168 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-import com.baidu.adp.lib.util.l;
-import com.baidu.live.tbadk.core.util.StringHelper;
+import com.baidu.apollon.imagemanager.ImageLoader;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.au;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tieba.R;
+import d.b.b.e.p.l;
 import java.util.ArrayList;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class OfficialBarFeedMsglistAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
-    private ArrayList<com.baidu.tbadk.mvc.b.a> akG = new ArrayList<>();
-    private c kEN;
-    private TbPageContext<?> mPageContext;
 
-    /* loaded from: classes7.dex */
+    /* renamed from: a  reason: collision with root package name */
+    public TbPageContext<?> f17822a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public c f17823b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public ArrayList<d.b.h0.g0.b.a> f17824c = new ArrayList<>();
+
+    /* loaded from: classes4.dex */
+    public static class a implements d.b.h0.g0.b.a {
+
+        /* renamed from: e  reason: collision with root package name */
+        public String f17825e;
+
+        /* renamed from: f  reason: collision with root package name */
+        public String f17826f;
+
+        /* renamed from: g  reason: collision with root package name */
+        public long f17827g;
+
+        /* renamed from: h  reason: collision with root package name */
+        public int f17828h;
+        public long i;
+
+        public String b() {
+            return this.f17825e;
+        }
+
+        public String c() {
+            return this.f17826f;
+        }
+
+        public long d() {
+            return this.f17827g;
+        }
+
+        public int f() {
+            return this.f17828h;
+        }
+
+        public long g() {
+            return this.i;
+        }
+
+        public void h(String str) {
+            this.f17825e = str;
+        }
+
+        public void i(String str) {
+            this.f17826f = str;
+        }
+
+        public void j(long j) {
+            this.f17827g = j;
+        }
+
+        public void m(int i) {
+            this.f17828h = i;
+        }
+
+        public void n(int i) {
+        }
+
+        public void o(long j) {
+            this.i = j;
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class b extends RecyclerView.ViewHolder implements View.OnClickListener {
+
+        /* renamed from: e  reason: collision with root package name */
+        public BarImageView f17829e;
+
+        /* renamed from: f  reason: collision with root package name */
+        public TextView f17830f;
+
+        /* renamed from: g  reason: collision with root package name */
+        public View f17831g;
+
+        /* renamed from: h  reason: collision with root package name */
+        public a f17832h;
+
+        public b(View view) {
+            super(view);
+            this.f17829e = (BarImageView) view.findViewById(R.id.official_bar_image);
+            this.f17830f = (TextView) view.findViewById(R.id.official_bar_name);
+            this.f17831g = view.findViewById(R.id.official_bar_feed_red_dot);
+            this.f17829e.setShowOval(true);
+            this.f17829e.setPlaceHolder(2);
+            this.f17829e.setShowOuterBorder(false);
+            this.f17829e.setShowInnerBorder(true);
+            this.f17829e.setStrokeWith(l.g(TbadkCoreApplication.getInst(), R.dimen.tbds1));
+        }
+
+        public void a(d.b.h0.g0.b.a aVar) {
+            this.f17832h = (a) aVar;
+            SkinManager.setViewTextColor(this.f17830f, R.color.CAM_X0105);
+            SkinManager.setBackgroundResource(this.f17831g, R.drawable.icon_official_bar_red_dot);
+            this.f17829e.setStrokeColorResId(R.color.CAM_X0401);
+            this.f17829e.W(this.f17832h.b(), 10, false);
+            if (StringHelper.getChineseAndEnglishLength(this.f17832h.c()) <= 10) {
+                this.f17830f.setText(this.f17832h.c());
+            } else {
+                this.f17830f.setText(StringHelper.cutChineseAndEnglishWithSuffix(this.f17832h.c(), 8, StringHelper.STRING_MORE));
+            }
+            this.f17829e.setOnClickListener(this);
+            if (this.f17832h.f() > 0 && (this.f17832h.g() <= 0 || System.currentTimeMillis() - this.f17832h.g() < ImageLoader.f3672d)) {
+                this.f17831g.setVisibility(0);
+            } else {
+                this.f17831g.setVisibility(8);
+            }
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            this.f17831g.setVisibility(8);
+            if (OfficialBarFeedMsglistAdapter.this.f17823b != null) {
+                OfficialBarFeedMsglistAdapter.this.f17823b.a(view, this.f17832h, getAdapterPosition(), getItemId());
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
     public interface c {
         void a(View view, Object obj, int i, long j);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public OfficialBarFeedMsglistAdapter(TbPageContext<?> tbPageContext, c cVar) {
-        this.mPageContext = tbPageContext;
-        this.kEN = cVar;
+        this.f17822a = tbPageContext;
+        this.f17823b = cVar;
     }
 
-    public void setData(ArrayList<? extends com.baidu.tbadk.mvc.b.a> arrayList) {
-        if (arrayList != null) {
-            this.akG.clear();
-            this.akG.addAll(arrayList);
-            notifyDataSetChanged();
+    public void d(ArrayList<? extends d.b.h0.g0.b.a> arrayList) {
+        if (arrayList == null) {
+            return;
         }
+        this.f17824c.clear();
+        this.f17824c.addAll(arrayList);
+        notifyDataSetChanged();
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    @NonNull
-    public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        return new b(this.mPageContext.getPageActivity().getLayoutInflater().inflate(R.layout.official_bar_feed_header_item, (ViewGroup) null));
-    }
-
-    @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, int i) {
-        if (this.akG != null && this.akG.size() > 0) {
-            com.baidu.tbadk.mvc.b.a aVar = this.akG.get(i);
-            if ((viewHolder instanceof b) && (aVar instanceof a)) {
-                ((b) viewHolder).b(aVar);
-            }
+    public int getItemCount() {
+        ArrayList<d.b.h0.g0.b.a> arrayList = this.f17824c;
+        if (arrayList == null) {
+            return 0;
         }
+        return arrayList.size();
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
@@ -61,116 +175,20 @@ public class OfficialBarFeedMsglistAdapter extends RecyclerView.Adapter<Recycler
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    public int getItemCount() {
-        if (this.akG == null) {
-            return 0;
+    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, int i) {
+        ArrayList<d.b.h0.g0.b.a> arrayList = this.f17824c;
+        if (arrayList == null || arrayList.size() <= 0) {
+            return;
         }
-        return this.akG.size();
-    }
-
-    /* loaded from: classes7.dex */
-    class b extends RecyclerView.ViewHolder implements View.OnClickListener {
-        private TextView jRl;
-        private BarImageView kEP;
-        private View kEQ;
-        private a kER;
-
-        b(View view) {
-            super(view);
-            this.kEP = (BarImageView) view.findViewById(R.id.official_bar_image);
-            this.jRl = (TextView) view.findViewById(R.id.official_bar_name);
-            this.kEQ = view.findViewById(R.id.official_bar_feed_red_dot);
-            this.kEP.setShowOval(true);
-            this.kEP.setPlaceHolder(2);
-            this.kEP.setShowOuterBorder(false);
-            this.kEP.setShowInnerBorder(true);
-            this.kEP.setStrokeWith(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds1));
-        }
-
-        void b(com.baidu.tbadk.mvc.b.a aVar) {
-            this.kER = (a) aVar;
-            ap.setViewTextColor(this.jRl, R.color.CAM_X0105);
-            ap.setBackgroundResource(this.kEQ, R.drawable.icon_official_bar_red_dot);
-            this.kEP.setStrokeColorResId(R.color.CAM_X0401);
-            this.kEP.startLoad(this.kER.cVf(), 10, false);
-            if (au.getChineseAndEnglishLength(this.kER.cPu()) <= 10) {
-                this.jRl.setText(this.kER.cPu());
-            } else {
-                this.jRl.setText(au.cutChineseAndEnglishWithSuffix(this.kER.cPu(), 8, StringHelper.STRING_MORE));
-            }
-            this.kEP.setOnClickListener(this);
-            if (this.kER.getUnReadCount() > 0 && (this.kER.cVg() <= 0 || System.currentTimeMillis() - this.kER.cVg() < 864000000)) {
-                this.kEQ.setVisibility(0);
-            } else {
-                this.kEQ.setVisibility(8);
-            }
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
-            this.kEQ.setVisibility(8);
-            if (OfficialBarFeedMsglistAdapter.this.kEN != null) {
-                OfficialBarFeedMsglistAdapter.this.kEN.a(view, this.kER, getAdapterPosition(), getItemId());
-            }
+        d.b.h0.g0.b.a aVar = this.f17824c.get(i);
+        if ((viewHolder instanceof b) && (aVar instanceof a)) {
+            ((b) viewHolder).a(aVar);
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes7.dex */
-    public static class a implements com.baidu.tbadk.mvc.b.a {
-        private long daH;
-        private long groupId;
-        private String kEO;
-        private String kdY;
-        private int unReadCount;
-        private int userType;
-
-        String cVf() {
-            return this.kEO;
-        }
-
-        /* JADX INFO: Access modifiers changed from: package-private */
-        public String cPu() {
-            return this.kdY;
-        }
-
-        int getUnReadCount() {
-            return this.unReadCount;
-        }
-
-        /* JADX INFO: Access modifiers changed from: package-private */
-        public void Mz(String str) {
-            this.kEO = str;
-        }
-
-        /* JADX INFO: Access modifiers changed from: package-private */
-        public void MA(String str) {
-            this.kdY = str;
-        }
-
-        /* JADX INFO: Access modifiers changed from: package-private */
-        public void setUnReadCount(int i) {
-            this.unReadCount = i;
-        }
-
-        public void setGroupId(long j) {
-            this.groupId = j;
-        }
-
-        public void setUserType(int i) {
-            this.userType = i;
-        }
-
-        public long getGroupId() {
-            return this.groupId;
-        }
-
-        public long cVg() {
-            return this.daH;
-        }
-
-        public void gP(long j) {
-            this.daH = j;
-        }
+    @Override // androidx.recyclerview.widget.RecyclerView.Adapter
+    @NonNull
+    public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+        return new b(this.f17822a.getPageActivity().getLayoutInflater().inflate(R.layout.official_bar_feed_header_item, (ViewGroup) null));
     }
 }

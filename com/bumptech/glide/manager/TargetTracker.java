@@ -7,16 +7,24 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Set;
 import java.util.WeakHashMap;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public final class TargetTracker implements LifecycleListener {
-    private final Set<Target<?>> targets = Collections.newSetFromMap(new WeakHashMap());
+    public final Set<Target<?>> targets = Collections.newSetFromMap(new WeakHashMap());
 
-    public void track(@NonNull Target<?> target) {
-        this.targets.add(target);
+    public void clear() {
+        this.targets.clear();
     }
 
-    public void untrack(@NonNull Target<?> target) {
-        this.targets.remove(target);
+    @NonNull
+    public List<Target<?>> getAll() {
+        return Util.getSnapshot(this.targets);
+    }
+
+    @Override // com.bumptech.glide.manager.LifecycleListener
+    public void onDestroy() {
+        for (Target target : Util.getSnapshot(this.targets)) {
+            target.onDestroy();
+        }
     }
 
     @Override // com.bumptech.glide.manager.LifecycleListener
@@ -33,19 +41,11 @@ public final class TargetTracker implements LifecycleListener {
         }
     }
 
-    @Override // com.bumptech.glide.manager.LifecycleListener
-    public void onDestroy() {
-        for (Target target : Util.getSnapshot(this.targets)) {
-            target.onDestroy();
-        }
+    public void track(@NonNull Target<?> target) {
+        this.targets.add(target);
     }
 
-    @NonNull
-    public List<Target<?>> getAll() {
-        return Util.getSnapshot(this.targets);
-    }
-
-    public void clear() {
-        this.targets.clear();
+    public void untrack(@NonNull Target<?> target) {
+        this.targets.remove(target);
     }
 }

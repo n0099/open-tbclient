@@ -4,7 +4,7 @@ import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public final class DataRes extends Message {
     public static final String DEFAULT_CONFIG = "";
     @ProtoField(tag = 2, type = Message.Datatype.INT32)
@@ -18,35 +18,7 @@ public final class DataRes extends Message {
     public static final List<GroupMsg> DEFAULT_GROUPMSG = Collections.emptyList();
     public static final Integer DEFAULT_ALLOWEGGS = 0;
 
-    private DataRes(Builder builder, boolean z) {
-        super(builder);
-        if (z) {
-            if (builder.groupMsg == null) {
-                this.groupMsg = DEFAULT_GROUPMSG;
-            } else {
-                this.groupMsg = immutableCopyOf(builder.groupMsg);
-            }
-            if (builder.allowEggs == null) {
-                this.allowEggs = DEFAULT_ALLOWEGGS;
-            } else {
-                this.allowEggs = builder.allowEggs;
-            }
-            this.userMsg = builder.userMsg;
-            if (builder.config == null) {
-                this.config = "";
-                return;
-            } else {
-                this.config = builder.config;
-                return;
-            }
-        }
-        this.groupMsg = immutableCopyOf(builder.groupMsg);
-        this.allowEggs = builder.allowEggs;
-        this.userMsg = builder.userMsg;
-        this.config = builder.config;
-    }
-
-    /* loaded from: classes2.dex */
+    /* loaded from: classes7.dex */
     public static final class Builder extends Message.Builder<DataRes> {
         public Integer allowEggs;
         public String config;
@@ -58,12 +30,13 @@ public final class DataRes extends Message {
 
         public Builder(DataRes dataRes) {
             super(dataRes);
-            if (dataRes != null) {
-                this.groupMsg = DataRes.copyOf(dataRes.groupMsg);
-                this.allowEggs = dataRes.allowEggs;
-                this.userMsg = dataRes.userMsg;
-                this.config = dataRes.config;
+            if (dataRes == null) {
+                return;
             }
+            this.groupMsg = Message.copyOf(dataRes.groupMsg);
+            this.allowEggs = dataRes.allowEggs;
+            this.userMsg = dataRes.userMsg;
+            this.config = dataRes.config;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -71,5 +44,36 @@ public final class DataRes extends Message {
         public DataRes build(boolean z) {
             return new DataRes(this, z);
         }
+    }
+
+    public DataRes(Builder builder, boolean z) {
+        super(builder);
+        if (z) {
+            List<GroupMsg> list = builder.groupMsg;
+            if (list == null) {
+                this.groupMsg = DEFAULT_GROUPMSG;
+            } else {
+                this.groupMsg = Message.immutableCopyOf(list);
+            }
+            Integer num = builder.allowEggs;
+            if (num == null) {
+                this.allowEggs = DEFAULT_ALLOWEGGS;
+            } else {
+                this.allowEggs = num;
+            }
+            this.userMsg = builder.userMsg;
+            String str = builder.config;
+            if (str == null) {
+                this.config = "";
+                return;
+            } else {
+                this.config = str;
+                return;
+            }
+        }
+        this.groupMsg = Message.immutableCopyOf(builder.groupMsg);
+        this.allowEggs = builder.allowEggs;
+        this.userMsg = builder.userMsg;
+        this.config = builder.config;
     }
 }

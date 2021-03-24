@@ -7,88 +7,49 @@ import android.os.IBinder;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
-/* loaded from: classes.dex */
+import d.b.h0.p0.c.a;
+/* loaded from: classes3.dex */
 public class GameCenterDownloadService extends Service {
     @Override // android.app.Service
     public IBinder onBind(Intent intent) {
-        if (a.bEI() != null) {
+        if (a.d() != null) {
             try {
-                return a.bEI().onBind(intent);
+                return a.d().onBind(intent);
             } catch (Throwable th) {
                 BdLog.e(th);
+                return null;
             }
         }
         return null;
     }
 
+    @Override // android.app.Service, android.content.ComponentCallbacks
+    public void onConfigurationChanged(Configuration configuration) {
+        super.onConfigurationChanged(configuration);
+        if (a.d() != null) {
+            a.d().onConfigurationChanged(configuration);
+        }
+    }
+
     @Override // android.app.Service
     public void onCreate() {
         super.onCreate();
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_PROXY_GAME_DOWNLOAD_SERVICE_READY, this));
-        if (a.bEI() != null) {
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016519, this));
+        if (a.d() != null) {
             try {
-                a.bEI().onCreate();
+                a.d().onCreate();
             } catch (Throwable th) {
                 BdLog.e(th);
             }
         }
-    }
-
-    @Override // android.app.Service
-    public void onStart(Intent intent, int i) {
-        super.onStart(intent, i);
-        if (a.bEI() != null) {
-            try {
-                a.bEI().onStart(intent, i);
-            } catch (Throwable th) {
-                BdLog.e(th);
-            }
-        }
-    }
-
-    @Override // android.app.Service
-    public int onStartCommand(Intent intent, int i, int i2) {
-        if (a.bEI() != null) {
-            try {
-                return a.bEI().onStartCommand(intent, i, i2);
-            } catch (Throwable th) {
-                BdLog.e(th);
-            }
-        }
-        return super.onStartCommand(intent, i, i2);
-    }
-
-    @Override // android.app.Service
-    public void onRebind(Intent intent) {
-        super.onRebind(intent);
-        if (a.bEI() != null) {
-            try {
-                a.bEI().onRebind(intent);
-            } catch (Throwable th) {
-                BdLog.e(th);
-            }
-        }
-    }
-
-    @Override // android.app.Service
-    public boolean onUnbind(Intent intent) {
-        if (a.bEI() != null) {
-            try {
-                return a.bEI().onUnbind(intent);
-            } catch (Throwable th) {
-                BdLog.e(th);
-            }
-        }
-        return super.onUnbind(intent);
     }
 
     @Override // android.app.Service
     public void onDestroy() {
         super.onDestroy();
-        if (a.bEI() != null) {
+        if (a.d() != null) {
             try {
-                a.bEI().onDestroy();
+                a.d().onDestroy();
             } catch (Throwable th) {
                 BdLog.e(th);
             }
@@ -98,16 +59,56 @@ public class GameCenterDownloadService extends Service {
     @Override // android.app.Service, android.content.ComponentCallbacks
     public void onLowMemory() {
         super.onLowMemory();
-        if (a.bEI() != null) {
-            a.bEI().onLowMemory();
+        if (a.d() != null) {
+            a.d().onLowMemory();
         }
     }
 
-    @Override // android.app.Service, android.content.ComponentCallbacks
-    public void onConfigurationChanged(Configuration configuration) {
-        super.onConfigurationChanged(configuration);
-        if (a.bEI() != null) {
-            a.bEI().onConfigurationChanged(configuration);
+    @Override // android.app.Service
+    public void onRebind(Intent intent) {
+        super.onRebind(intent);
+        if (a.d() != null) {
+            try {
+                a.d().onRebind(intent);
+            } catch (Throwable th) {
+                BdLog.e(th);
+            }
         }
+    }
+
+    @Override // android.app.Service
+    public void onStart(Intent intent, int i) {
+        super.onStart(intent, i);
+        if (a.d() != null) {
+            try {
+                a.d().onStart(intent, i);
+            } catch (Throwable th) {
+                BdLog.e(th);
+            }
+        }
+    }
+
+    @Override // android.app.Service
+    public int onStartCommand(Intent intent, int i, int i2) {
+        if (a.d() != null) {
+            try {
+                return a.d().onStartCommand(intent, i, i2);
+            } catch (Throwable th) {
+                BdLog.e(th);
+            }
+        }
+        return super.onStartCommand(intent, i, i2);
+    }
+
+    @Override // android.app.Service
+    public boolean onUnbind(Intent intent) {
+        if (a.d() != null) {
+            try {
+                return a.d().onUnbind(intent);
+            } catch (Throwable th) {
+                BdLog.e(th);
+            }
+        }
+        return super.onUnbind(intent);
     }
 }

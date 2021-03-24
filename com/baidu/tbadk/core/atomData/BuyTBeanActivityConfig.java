@@ -2,8 +2,9 @@ package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.baidu.tbadk.core.util.MemberPayStatistic;
 import com.baidu.tbadk.util.PageDialogHelper;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class BuyTBeanActivityConfig extends IntentConfig {
     public static final String GIFT_TBEAN = "gift_tbean";
     public static final String IS_FROM_ALA = "is_from_ala";
@@ -24,17 +25,9 @@ public class BuyTBeanActivityConfig extends IntentConfig {
         getIntent().putExtra("gift_tbean", j);
     }
 
-    public BuyTBeanActivityConfig(Context context, long j, int i, String str, PageDialogHelper.PayForm payForm) {
-        super(context);
-        getIntent().putExtra("gift_tbean", j);
-        getIntent().putExtra("scene_id", str);
-        getIntent().putExtra("pay_type", i);
-        getIntent().putExtra("pay_form", payForm);
-    }
-
-    public void setReferPageAndClickZone(String str, String str2) {
-        getIntent().putExtra("refer_page", str);
-        getIntent().putExtra("click_zone", str2);
+    public BuyTBeanActivityConfig setFromDecreaseGiftStepStrategy(int i) {
+        getIntent().putExtra(IS_FROM_ALA_GIFT_PANEL, i);
+        return this;
     }
 
     public BuyTBeanActivityConfig setIsFromALa(boolean z) {
@@ -42,13 +35,21 @@ public class BuyTBeanActivityConfig extends IntentConfig {
         return this;
     }
 
-    public BuyTBeanActivityConfig setFromDecreaseGiftStepStrategy(int i) {
-        getIntent().putExtra(IS_FROM_ALA_GIFT_PANEL, i);
-        return this;
+    public void setReferPageAndClickZone(String str, String str2) {
+        getIntent().putExtra(MemberPayStatistic.REFER_PAGE, str);
+        getIntent().putExtra(MemberPayStatistic.CLICK_ZONE, str2);
     }
 
     public BuyTBeanActivityConfig setTBeanLeftToBuyGift(long j) {
         getIntent().putExtra(TBEAN_LEFT_TO_BUY_ALA_GIFT, j);
         return this;
+    }
+
+    public BuyTBeanActivityConfig(Context context, long j, int i, String str, PageDialogHelper.PayForm payForm) {
+        super(context);
+        getIntent().putExtra("gift_tbean", j);
+        getIntent().putExtra("scene_id", str);
+        getIntent().putExtra("pay_type", i);
+        getIntent().putExtra(PAY_FORM, payForm);
     }
 }

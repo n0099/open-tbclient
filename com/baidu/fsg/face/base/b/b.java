@@ -7,34 +7,59 @@ import android.text.TextUtils;
 import com.baidu.android.common.security.MD5Util;
 import com.baidu.fsg.face.base.d.h;
 import com.baidu.fsg.face.base.d.i;
-import com.xiaomi.mipush.sdk.Constants;
+import com.baidu.idl.license.License;
+import com.baidu.sapi2.share.ShareStorage;
 import java.io.File;
 import java.io.UnsupportedEncodingException;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f1608a = 100;
-    private static final String c = ".BD_SAPI_CACHE";
-    private static final String d = "so_zips";
-    private static final String e = "1.0.1";
-    private static final String f = "1.0.3";
-    private static final String g = "FaceSDKLibs";
-    private static final String[] h = {"idl_license", "FaceSDK"};
-    private static b i;
-    private String b;
-    private SharedPreferences j;
+    public static final int f5538a = 100;
 
-    /* loaded from: classes5.dex */
+    /* renamed from: c  reason: collision with root package name */
+    public static final String f5539c = ".BD_SAPI_CACHE";
+
+    /* renamed from: d  reason: collision with root package name */
+    public static final String f5540d = "so_zips";
+
+    /* renamed from: e  reason: collision with root package name */
+    public static final String f5541e = "1.0.1";
+
+    /* renamed from: f  reason: collision with root package name */
+    public static final String f5542f = "1.0.3";
+
+    /* renamed from: g  reason: collision with root package name */
+    public static final String f5543g = "FaceSDKLibs";
+
+    /* renamed from: h  reason: collision with root package name */
+    public static final String[] f5544h = {License.LICENSE_DEFAULT_FILE_NAME, "FaceSDK"};
+    public static b i;
+
+    /* renamed from: b  reason: collision with root package name */
+    public String f5545b;
+    public SharedPreferences j;
+
+    /* loaded from: classes2.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f1609a;
-        public String b;
-        public String c;
-        public String[] d;
+        public String f5546a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public String f5547b;
+
+        /* renamed from: c  reason: collision with root package name */
+        public String f5548c;
+
+        /* renamed from: d  reason: collision with root package name */
+        public String[] f5549d;
+    }
+
+    public b(Context context) {
+        this.j = context.getApplicationContext().getSharedPreferences("rim_liveness_base_system_v1", 0);
     }
 
     public static b a(Context context) {
@@ -45,24 +70,33 @@ public class b {
         return i;
     }
 
-    private b(Context context) {
-        this.j = context.getApplicationContext().getSharedPreferences("rim_liveness_base_system_v1", 0);
-    }
-
-    public static String a(Context context, a aVar) {
-        return context.getDir(aVar.c, 0).getAbsolutePath();
-    }
-
     public static String b(Context context, a aVar) {
-        return new File(a(context, aVar) + File.separator).getAbsolutePath();
+        String a2 = a(context, aVar);
+        return new File(a2 + File.separator).getAbsolutePath();
     }
 
     public static String c(Context context, a aVar) {
-        return new File(a(context, aVar) + File.separator + aVar.f1609a + File.separator + aVar.f1609a + Constants.ACCEPT_TIME_SEPARATOR_SERVER + aVar.b + ".zip").getAbsolutePath();
+        String a2 = a(context, aVar);
+        return new File(a2 + File.separator + aVar.f5546a + File.separator + aVar.f5546a + "-" + aVar.f5547b + ".zip").getAbsolutePath();
+    }
+
+    private String b(Context context) {
+        if (TextUtils.isEmpty(this.f5545b)) {
+            try {
+                this.f5545b = MD5Util.toMd5((context.getPackageName() + h.a(context, context.getPackageName())).getBytes("UTF-8"), false).substring(0, 16);
+            } catch (UnsupportedEncodingException e2) {
+                com.baidu.fsg.face.base.d.d.a(e2);
+            }
+        }
+        return this.f5545b;
+    }
+
+    public static String a(Context context, a aVar) {
+        return context.getDir(aVar.f5548c, 0).getAbsolutePath();
     }
 
     public static String a(a aVar) {
-        return ".BD_SAPI_CACHE/" + aVar.f1609a + "/" + aVar.f1609a + Constants.ACCEPT_TIME_SEPARATOR_SERVER + aVar.b + ".zip";
+        return ShareStorage.f11327d + aVar.f5546a + "/" + aVar.f5546a + "-" + aVar.f5547b + ".zip";
     }
 
     private String a(String str) {
@@ -86,10 +120,10 @@ public class b {
     public c a(Context context, String str) {
         String a2 = a(str);
         if (!TextUtils.isEmpty(a2)) {
-            String b = i.b(a2, b(context));
-            if (!TextUtils.isEmpty(b)) {
+            String b2 = i.b(a2, b(context));
+            if (!TextUtils.isEmpty(b2)) {
                 try {
-                    return c.a(new JSONObject(b));
+                    return c.a(new JSONObject(b2));
                 } catch (JSONException e2) {
                     com.baidu.fsg.face.base.d.d.a(e2);
                 }
@@ -98,28 +132,15 @@ public class b {
         return new c();
     }
 
-    private String b(Context context) {
-        if (TextUtils.isEmpty(this.b)) {
-            try {
-                this.b = MD5Util.toMd5((context.getPackageName() + h.a(context, context.getPackageName())).getBytes("UTF-8"), false).substring(0, 16);
-            } catch (UnsupportedEncodingException e2) {
-                com.baidu.fsg.face.base.d.d.a(e2);
-            }
-        }
-        return this.b;
-    }
-
     public static a a(int i2) {
         a aVar = new a();
-        switch (i2) {
-            case 4:
-                aVar.f1609a = d;
-                aVar.b = "1.0.3";
-                aVar.c = g;
-                aVar.d = h;
-                return aVar;
-            default:
-                throw new IllegalArgumentException("the so modle type = " + i2 + " is not support");
+        if (i2 == 4) {
+            aVar.f5546a = f5540d;
+            aVar.f5547b = "1.0.3";
+            aVar.f5548c = f5543g;
+            aVar.f5549d = f5544h;
+            return aVar;
         }
+        throw new IllegalArgumentException("the so modle type = " + i2 + " is not support");
     }
 }

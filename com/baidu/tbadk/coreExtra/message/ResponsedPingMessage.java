@@ -1,14 +1,14 @@
 package com.baidu.tbadk.coreExtra.message;
 
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class ResponsedPingMessage extends TbSocketReponsedMessage {
     public ResponsedPingMessage() {
         super(1003);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.message.a
+    @Override // com.baidu.tbadk.message.websockt.TbSocketReponsedMessage, com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
     public void decodeInBackGround(int i, byte[] bArr) throws Exception {
     }
 }

@@ -28,22 +28,21 @@ import com.baidu.android.imsdk.upload.IUploadTransferListener;
 import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.NoProGuard;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class BIMConversation implements NoProGuard {
-    private static final String TAG = "BIMConversation";
-    protected boolean isMulAppSync = false;
-    protected BIMManager.CATEGORY mCategory;
-    protected Context mContext;
-    protected ChatSession session;
+    public static final String TAG = "BIMConversation";
+    public boolean isMulAppSync = false;
+    public BIMManager.CATEGORY mCategory;
+    public Context mContext;
+    public ChatSession session;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public enum MSGTYPE {
         ALL,
         MSG,
         SYSTEMMSG
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     public BIMConversation(Context context, BIMManager.CATEGORY category, String str, ChatSession chatSession) {
         this.mCategory = BIMManager.CATEGORY.UNKOWN;
         this.mContext = context.getApplicationContext();
@@ -51,15 +50,27 @@ public class BIMConversation implements NoProGuard {
         this.mCategory = category;
     }
 
-    public BIMConversation(Context context, BIMManager.CATEGORY category, String str, ChatSession chatSession, String str2, int i) {
-        this.mCategory = BIMManager.CATEGORY.UNKOWN;
-        this.mContext = context.getApplicationContext();
-        this.session = chatSession;
-        this.mCategory = category;
-    }
-
-    public ChatSession getChatSession() {
-        return this.session;
+    private void handleRichMediaMsg(ChatMsg chatMsg, ISendMessageListener iSendMessageListener) {
+        try {
+            RichMediaMsg richMediaMsg = (RichMediaMsg) chatMsg;
+            if (richMediaMsg.getLocalUrl() != null) {
+                ChatMsgManagerImpl.getInstance(this.mContext).saveMessage(chatMsg);
+                handleUpload(richMediaMsg, iSendMessageListener);
+                return;
+            }
+            ISendMessageStatusListener iSendMessageStatusListener = (ISendMessageStatusListener) ListenerManager.getInstance().removeListener(chatMsg.mListenerKey);
+            if (iSendMessageStatusListener != null) {
+                iSendMessageStatusListener.onSendStatus(1007, chatMsg);
+            }
+            LogUtils.e(TAG, "local url should be not null.");
+        } catch (ClassCastException e2) {
+            LogUtils.e(TAG, "sendMessage", e2);
+            ISendMessageStatusListener iSendMessageStatusListener2 = (ISendMessageStatusListener) ListenerManager.getInstance().removeListener(chatMsg.mListenerKey);
+            if (iSendMessageStatusListener2 != null) {
+                iSendMessageStatusListener2.onSendStatus(1007, chatMsg);
+            }
+            new IMTrack.CrashBuilder(this.mContext).exception(e2.getMessage()).build();
+        }
     }
 
     private void handleUpload(final RichMediaMsg richMediaMsg, final ISendMessageListener iSendMessageListener) {
@@ -88,6 +99,115 @@ public class BIMConversation implements NoProGuard {
         }).execute();
     }
 
+    /* JADX INFO: Access modifiers changed from: private */
+    public void senMessageInternal(ChatMsg chatMsg, ISendMessageStatusListener iSendMessageStatusListener, ISendMessageListener iSendMessageListener) {
+        chatMsg.setCategory(this.session.getCategory());
+        chatMsg.setContacter(this.session.getContacter());
+        chatMsg.setFromUser(AccountManager.getUK(this.mContext));
+        chatMsg.setSenderUid(AccountManagerImpl.getInstance(this.mContext).getUid());
+        chatMsg.setStatus(1);
+        chatMsg.setIsZhida(this.isMulAppSync);
+        chatMsg.setMsgTime(System.currentTimeMillis() / 1000);
+        chatMsg.setListenerKey(ListenerManager.getInstance().addListener(iSendMessageStatusListener));
+        int msgType = chatMsg.getMsgType();
+        if (msgType == 1) {
+            ImageMsg imageMsg = (ImageMsg) chatMsg;
+            imageMsg.setContent(imageMsg.getLocalUrl(), imageMsg.getWidth(), imageMsg.getHeight());
+            handleRichMediaMsg(chatMsg, iSendMessageListener);
+        } else if (msgType != 2) {
+            ChatMsgManagerImpl.getInstance(this.mContext).sendMessage(chatMsg, iSendMessageListener);
+        } else {
+            AudioMsg audioMsg = (AudioMsg) chatMsg;
+            audioMsg.setContent(audioMsg.getLocalUrl(), audioMsg.getFormat(), audioMsg.getDuration());
+            handleRichMediaMsg(chatMsg, iSendMessageListener);
+        }
+    }
+
+    public void beginWithCompletion(IMcastSetListener iMcastSetListener) {
+    }
+
+    public long clear() {
+        return -1L;
+    }
+
+    public boolean deleteChatMsg(ChatMsg chatMsg) {
+        return false;
+    }
+
+    public int deleteDraftMessage() {
+        return -1;
+    }
+
+    public void endWithCompletion(IMcastSetListener iMcastSetListener) {
+    }
+
+    public void fetchMessage(MSGTYPE msgtype, ChatMsg chatMsg, int i, boolean z, IFetchMessageListener iFetchMessageListener) {
+    }
+
+    public BIMManager.CATEGORY getCategory() {
+        return BIMManager.CATEGORY.ALL;
+    }
+
+    public ChatSession getChatSession() {
+        return this.session;
+    }
+
+    public int getChatType() {
+        return 0;
+    }
+
+    public ChatMsg getDraftMessage() {
+        return null;
+    }
+
+    public String getIconUrl() {
+        return "";
+    }
+
+    public String getId() {
+        return "";
+    }
+
+    public ChatMsg getLastChatmsg() {
+        return new TextMsg("");
+    }
+
+    public long getLastMsgTime() {
+        return -1L;
+    }
+
+    public String getName() {
+        return "";
+    }
+
+    public long getUnReadChatMsgCount() {
+        return -1L;
+    }
+
+    public boolean markMsgClicked(ChatMsg chatMsg) {
+        return false;
+    }
+
+    public void pauseCastMessage() {
+    }
+
+    public void playCastMessage() {
+    }
+
+    public void quitLiveShow() {
+    }
+
+    public void registerLiveMsgReceiveListener(ILiveMsgReceiveListener iLiveMsgReceiveListener) {
+        ChatMsgManagerImpl.getInstance(this.mContext).registerLiveMsgReceiveListener(iLiveMsgReceiveListener);
+    }
+
+    public int saveAsDraftMessage(ChatMsg chatMsg) {
+        return -1;
+    }
+
+    public void seekCastMessage(int i) {
+    }
+
     public ChatMsg sendMessage(final ChatMsg chatMsg, final ISendMessageStatusListener iSendMessageStatusListener, final ISendMessageListener iSendMessageListener) {
         if (chatMsg != null) {
             if (this.session.getContacter() < 0) {
@@ -98,8 +218,11 @@ public class BIMConversation implements NoProGuard {
                             if (i == 0 && chatUser != null) {
                                 BIMConversation.this.session.setContacter(chatUser.getUk());
                                 BIMConversation.this.senMessageInternal(chatMsg, iSendMessageStatusListener, iSendMessageListener);
-                            } else if (iSendMessageStatusListener != null) {
-                                iSendMessageStatusListener.onSendStatus(2, chatMsg);
+                                return;
+                            }
+                            ISendMessageStatusListener iSendMessageStatusListener2 = iSendMessageStatusListener;
+                            if (iSendMessageStatusListener2 != null) {
+                                iSendMessageStatusListener2.onSendStatus(2, chatMsg);
                             }
                         }
                     });
@@ -111,70 +234,7 @@ public class BIMConversation implements NoProGuard {
         return chatMsg;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void senMessageInternal(ChatMsg chatMsg, ISendMessageStatusListener iSendMessageStatusListener, ISendMessageListener iSendMessageListener) {
-        chatMsg.setCategory(this.session.getCategory());
-        chatMsg.setContacter(this.session.getContacter());
-        chatMsg.setFromUser(AccountManager.getUK(this.mContext));
-        chatMsg.setSenderUid(AccountManagerImpl.getInstance(this.mContext).getUid());
-        chatMsg.setStatus(1);
-        chatMsg.setIsZhida(this.isMulAppSync);
-        chatMsg.setMsgTime(System.currentTimeMillis() / 1000);
-        chatMsg.setListenerKey(ListenerManager.getInstance().addListener(iSendMessageStatusListener));
-        switch (chatMsg.getMsgType()) {
-            case 1:
-                ImageMsg imageMsg = (ImageMsg) chatMsg;
-                imageMsg.setContent(imageMsg.getLocalUrl(), imageMsg.getWidth(), imageMsg.getHeight());
-                handleRichMediaMsg(chatMsg, iSendMessageListener);
-                return;
-            case 2:
-                AudioMsg audioMsg = (AudioMsg) chatMsg;
-                audioMsg.setContent(audioMsg.getLocalUrl(), audioMsg.getFormat(), audioMsg.getDuration());
-                handleRichMediaMsg(chatMsg, iSendMessageListener);
-                return;
-            default:
-                ChatMsgManagerImpl.getInstance(this.mContext).sendMessage(chatMsg, iSendMessageListener);
-                return;
-        }
-    }
-
-    private void handleRichMediaMsg(ChatMsg chatMsg, ISendMessageListener iSendMessageListener) {
-        try {
-            RichMediaMsg richMediaMsg = (RichMediaMsg) chatMsg;
-            if (richMediaMsg.getLocalUrl() != null) {
-                ChatMsgManagerImpl.getInstance(this.mContext).saveMessage(chatMsg);
-                handleUpload(richMediaMsg, iSendMessageListener);
-                return;
-            }
-            ISendMessageStatusListener iSendMessageStatusListener = (ISendMessageStatusListener) ListenerManager.getInstance().removeListener(chatMsg.mListenerKey);
-            if (iSendMessageStatusListener != null) {
-                iSendMessageStatusListener.onSendStatus(1007, chatMsg);
-            }
-            LogUtils.e(TAG, "local url should be not null.");
-        } catch (ClassCastException e) {
-            LogUtils.e(TAG, "sendMessage", e);
-            ISendMessageStatusListener iSendMessageStatusListener2 = (ISendMessageStatusListener) ListenerManager.getInstance().removeListener(chatMsg.mListenerKey);
-            if (iSendMessageStatusListener2 != null) {
-                iSendMessageStatusListener2.onSendStatus(1007, chatMsg);
-            }
-            new IMTrack.CrashBuilder(this.mContext).exception(e.getMessage()).build();
-        }
-    }
-
-    public boolean deleteChatMsg(ChatMsg chatMsg) {
-        return false;
-    }
-
-    public boolean markMsgClicked(ChatMsg chatMsg) {
-        return false;
-    }
-
-    public ChatMsg getLastChatmsg() {
-        return new TextMsg("");
-    }
-
-    public boolean setSingleMessageReaded(ChatMsg chatMsg) {
-        return false;
+    public void sendQuizOpts(long j, long j2, int i, String str, IMcastSetListener iMcastSetListener) {
     }
 
     public boolean setAllMessageReaded(ChatMsg chatMsg) {
@@ -184,69 +244,11 @@ public class BIMConversation implements NoProGuard {
     public void setDisturb(int i, BIMValueCallBack<String> bIMValueCallBack) {
     }
 
-    public int saveAsDraftMessage(ChatMsg chatMsg) {
-        return -1;
+    public void setPullInterval(int i) {
     }
 
-    public int deleteDraftMessage() {
-        return -1;
-    }
-
-    public ChatMsg getDraftMessage() {
-        return null;
-    }
-
-    public long getUnReadChatMsgCount() {
-        return -1L;
-    }
-
-    public void fetchMessage(MSGTYPE msgtype, ChatMsg chatMsg, int i, boolean z, IFetchMessageListener iFetchMessageListener) {
-    }
-
-    public void updateConversation(ChatSession chatSession) {
-    }
-
-    public String getId() {
-        return "";
-    }
-
-    public String getName() {
-        return "";
-    }
-
-    public long getLastMsgTime() {
-        return -1L;
-    }
-
-    public BIMManager.CATEGORY getCategory() {
-        return BIMManager.CATEGORY.ALL;
-    }
-
-    public String getIconUrl() {
-        return "";
-    }
-
-    public int getChatType() {
-        return 0;
-    }
-
-    public long clear() {
-        return -1L;
-    }
-
-    public void registerLiveMsgReceiveListener(ILiveMsgReceiveListener iLiveMsgReceiveListener) {
-        ChatMsgManagerImpl.getInstance(this.mContext).registerLiveMsgReceiveListener(iLiveMsgReceiveListener);
-    }
-
-    public void registerLiveMsgReceiveListener(long j, ILiveMsgReceiveListener iLiveMsgReceiveListener) {
-        ChatMsgManagerImpl.getInstance(this.mContext).registerLiveMsgReceiveListener(j + "", iLiveMsgReceiveListener);
-    }
-
-    public void registerLiveMsgReceiveListener(long j, boolean z, ILiveMsgReceiveListener iLiveMsgReceiveListener) {
-        if (z) {
-            ConversationStudioManImpl.getInstance(this.mContext).addReliableCastId(j);
-        }
-        ChatMsgManagerImpl.getInstance(this.mContext).registerLiveMsgReceiveListener(j + "", iLiveMsgReceiveListener);
+    public boolean setSingleMessageReaded(ChatMsg chatMsg) {
+        return false;
     }
 
     public void unregisterLiveMsgReceiveListener(String str, ILiveMsgReceiveListener iLiveMsgReceiveListener) {
@@ -254,35 +256,35 @@ public class BIMConversation implements NoProGuard {
         ChatMsgManagerImpl.getInstance(this.mContext).unregisterLiveMsgReceiveListener(iLiveMsgReceiveListener);
     }
 
-    public void unregisterLiveMsgReceiveListener(long j) {
-        ChatMsgManagerImpl.getInstance(this.mContext).unregisterLiveMsgReceiveListener(j + "");
-    }
-
     public void unregisterMessageReceiveListener(IMessageReceiveListener iMessageReceiveListener) {
         ChatMsgManagerImpl.getInstance(this.mContext).unregisterMessageReceiveListener(this.mContext, iMessageReceiveListener);
     }
 
-    public void beginWithCompletion(IMcastSetListener iMcastSetListener) {
+    public void updateConversation(ChatSession chatSession) {
     }
 
-    public void endWithCompletion(IMcastSetListener iMcastSetListener) {
+    public void registerLiveMsgReceiveListener(long j, ILiveMsgReceiveListener iLiveMsgReceiveListener) {
+        ChatMsgManagerImpl chatMsgManagerImpl = ChatMsgManagerImpl.getInstance(this.mContext);
+        chatMsgManagerImpl.registerLiveMsgReceiveListener(j + "", iLiveMsgReceiveListener);
     }
 
-    public void sendQuizOpts(long j, long j2, int i, String str, IMcastSetListener iMcastSetListener) {
+    public void registerLiveMsgReceiveListener(long j, boolean z, ILiveMsgReceiveListener iLiveMsgReceiveListener) {
+        if (z) {
+            ConversationStudioManImpl.getInstance(this.mContext).addReliableCastId(j);
+        }
+        ChatMsgManagerImpl chatMsgManagerImpl = ChatMsgManagerImpl.getInstance(this.mContext);
+        chatMsgManagerImpl.registerLiveMsgReceiveListener(j + "", iLiveMsgReceiveListener);
     }
 
-    public void setPullInterval(int i) {
+    public void unregisterLiveMsgReceiveListener(long j) {
+        ChatMsgManagerImpl chatMsgManagerImpl = ChatMsgManagerImpl.getInstance(this.mContext);
+        chatMsgManagerImpl.unregisterLiveMsgReceiveListener(j + "");
     }
 
-    public void playCastMessage() {
-    }
-
-    public void pauseCastMessage() {
-    }
-
-    public void seekCastMessage(int i) {
-    }
-
-    public void quitLiveShow() {
+    public BIMConversation(Context context, BIMManager.CATEGORY category, String str, ChatSession chatSession, String str2, int i) {
+        this.mCategory = BIMManager.CATEGORY.UNKOWN;
+        this.mContext = context.getApplicationContext();
+        this.session = chatSession;
+        this.mCategory = category;
     }
 }

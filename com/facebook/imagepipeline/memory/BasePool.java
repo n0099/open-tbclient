@@ -3,353 +3,480 @@ package com.facebook.imagepipeline.memory;
 import android.annotation.SuppressLint;
 import android.util.SparseArray;
 import android.util.SparseIntArray;
+import com.facebook.common.internal.Preconditions;
+import com.facebook.common.internal.Sets;
+import com.facebook.common.internal.Throwables;
+import com.facebook.common.internal.VisibleForTesting;
+import com.facebook.common.logging.FLog;
+import com.facebook.common.memory.MemoryTrimType;
+import com.facebook.common.memory.MemoryTrimmableRegistry;
+import com.facebook.common.memory.Pool;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
+import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
 import javax.annotation.concurrent.NotThreadSafe;
-/* loaded from: classes5.dex */
-public abstract class BasePool<V> implements com.facebook.common.memory.e<V> {
-    private static b pMS;
-    final com.facebook.common.memory.c pLj;
-    final r pMT;
-    final Set<V> pMV;
-    private boolean pMW;
+/* loaded from: classes.dex */
+public abstract class BasePool<V> implements Pool<V> {
+    public static OnFailedListener mOnFailedListener;
+    public boolean mAllowNewBuckets;
+    @VisibleForTesting
     @GuardedBy("this")
-    final a pMX;
+    public final Counter mFree;
+    @VisibleForTesting
+    public final Set<V> mInUseValues;
+    public final MemoryTrimmableRegistry mMemoryTrimmableRegistry;
+    public final PoolParams mPoolParams;
+    public final PoolStatsTracker mPoolStatsTracker;
+    @VisibleForTesting
     @GuardedBy("this")
-    final a pMY;
-    private final s pMZ;
-    private final Class<?> pAh = getClass();
-    final SparseArray<d<V>> pMU = new SparseArray<>();
+    public final Counter mUsed;
+    public final Class<?> TAG = getClass();
+    @VisibleForTesting
+    public final SparseArray<Bucket<V>> mBuckets = new SparseArray<>();
 
-    /* loaded from: classes5.dex */
-    public interface b {
-        void onFailed();
-    }
-
-    protected abstract V PU(int i);
-
-    protected abstract int PV(int i);
-
-    protected abstract int PW(int i);
-
-    protected abstract void by(V v);
-
-    protected abstract int bz(V v);
-
-    public BasePool(com.facebook.common.memory.c cVar, r rVar, s sVar) {
-        this.pLj = (com.facebook.common.memory.c) com.facebook.common.internal.g.checkNotNull(cVar);
-        this.pMT = (r) com.facebook.common.internal.g.checkNotNull(rVar);
-        this.pMZ = (s) com.facebook.common.internal.g.checkNotNull(sVar);
-        if (this.pMT.pNH) {
-            eyN();
-        } else {
-            a(new SparseIntArray(0));
-        }
-        this.pMV = com.facebook.common.internal.i.esQ();
-        this.pMY = new a();
-        this.pMX = new a();
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void initialize() {
-        this.pLj.a(this);
-        this.pMZ.a(this);
-    }
-
-    @Override // com.facebook.common.memory.e
-    public V get(int i) {
-        V o;
-        eyM();
-        int PV = PV(i);
-        synchronized (this) {
-            d<V> PY = PY(PV);
-            if (PY != null && (o = PY.get()) != null) {
-                com.facebook.common.internal.g.checkState(this.pMV.add(o));
-                int bz = bz(o);
-                int PW = PW(bz);
-                this.pMX.Qb(PW);
-                this.pMY.Qc(PW);
-                this.pMZ.Qi(PW);
-                ews();
-                if (com.facebook.common.c.a.isLoggable(2)) {
-                    com.facebook.common.c.a.a(this.pAh, "get (reuse) (object, size) = (%x, %s)", Integer.valueOf(System.identityHashCode(o)), Integer.valueOf(bz));
-                }
-            } else {
-                int PW2 = PW(PV);
-                if (!Qa(PW2)) {
-                    throw new PoolSizeViolationException(this.pMT.pNC, this.pMX.pNa, this.pMY.pNa, PW2);
-                }
-                this.pMX.Qb(PW2);
-                if (PY != null) {
-                    PY.eyV();
-                }
-                o = o(PW2, PV, true);
-                synchronized (this) {
-                    com.facebook.common.internal.g.checkState(this.pMV.add(o));
-                    eyO();
-                    this.pMZ.Qj(PW2);
-                    ews();
-                    if (com.facebook.common.c.a.isLoggable(2)) {
-                        com.facebook.common.c.a.a(this.pAh, "get (alloc) (object, size) = (%x, %s)", Integer.valueOf(System.identityHashCode(o)), Integer.valueOf(PV));
-                    }
-                }
-            }
-        }
-        return o;
-    }
-
-    private V o(int i, int i2, boolean z) {
-        try {
-            V PU = PU(i2);
-            if (com.facebook.common.c.a.isLoggable(3)) {
-                com.facebook.common.c.a.g(this.pAh, "alloc success!!");
-                return PU;
-            }
-            return PU;
-        } catch (Throwable th) {
-            if (com.facebook.common.c.a.isLoggable(3)) {
-                com.facebook.common.c.a.g(this.pAh, "alloc fail!!");
-            }
-            if (!z || pMS == null) {
-                if (com.facebook.common.c.a.isLoggable(3)) {
-                    com.facebook.common.c.a.g(this.pAh, "retryOnce won't work." + (z ? "retry = true" : "retry = false") + (pMS == null ? ",mOnFailedListener is null" : ",mOnFailedListener is not null"));
-                }
-                synchronized (this) {
-                    this.pMX.Qc(i);
-                    d<V> PY = PY(i2);
-                    if (PY != null) {
-                        PY.eyW();
-                    }
-                    com.facebook.common.internal.l.r(th);
-                    return null;
-                }
-            }
-            if (com.facebook.common.c.a.isLoggable(3)) {
-                com.facebook.common.c.a.g(this.pAh, "retryOnce will work." + (z ? "retry = true" : "retry = false") + (pMS == null ? ",mOnFailedListener is null" : ",mOnFailedListener is not null"));
-            }
-            pMS.onFailed();
-            return o(i, i2, false);
-        }
-    }
-
-    @Override // com.facebook.common.memory.e, com.facebook.common.references.c
-    public void release(V v) {
-        com.facebook.common.internal.g.checkNotNull(v);
-        int bz = bz(v);
-        int PW = PW(bz);
-        synchronized (this) {
-            d<V> PX = PX(bz);
-            if (!this.pMV.remove(v)) {
-                com.facebook.common.c.a.d(this.pAh, "release (free, value unrecognized) (object, size) = (%x, %s)", Integer.valueOf(System.identityHashCode(v)), Integer.valueOf(bz));
-                by(v);
-                this.pMZ.Qk(PW);
-            } else if (PX == null || PX.eyT() || eyP() || !bA(v)) {
-                if (PX != null) {
-                    PX.eyW();
-                }
-                if (com.facebook.common.c.a.isLoggable(2)) {
-                    com.facebook.common.c.a.a(this.pAh, "release (free) (object, size) = (%x, %s)", Integer.valueOf(System.identityHashCode(v)), Integer.valueOf(bz));
-                }
-                by(v);
-                this.pMX.Qc(PW);
-                this.pMZ.Qk(PW);
-            } else {
-                PX.release(v);
-                this.pMY.Qb(PW);
-                this.pMX.Qc(PW);
-                this.pMZ.Ql(PW);
-                if (com.facebook.common.c.a.isLoggable(2)) {
-                    com.facebook.common.c.a.a(this.pAh, "release (reuse) (object, size) = (%x, %s)", Integer.valueOf(System.identityHashCode(v)), Integer.valueOf(bz));
-                }
-            }
-            ews();
-        }
-    }
-
-    protected boolean bA(V v) {
-        com.facebook.common.internal.g.checkNotNull(v);
-        return true;
-    }
-
-    private synchronized void eyM() {
-        com.facebook.common.internal.g.checkState(!eyP() || this.pMY.pNa == 0);
-    }
-
-    private synchronized void a(SparseIntArray sparseIntArray) {
-        synchronized (this) {
-            com.facebook.common.internal.g.checkNotNull(sparseIntArray);
-            this.pMU.clear();
-            SparseIntArray sparseIntArray2 = this.pMT.pNE;
-            if (sparseIntArray2 != null) {
-                for (int i = 0; i < sparseIntArray2.size(); i++) {
-                    int keyAt = sparseIntArray2.keyAt(i);
-                    this.pMU.put(keyAt, new d<>(PW(keyAt), sparseIntArray2.valueAt(i), sparseIntArray.get(keyAt, 0), this.pMT.pNH));
-                }
-                this.pMW = false;
-            } else {
-                this.pMW = true;
-            }
-        }
-    }
-
-    private synchronized void eyN() {
-        SparseIntArray sparseIntArray = this.pMT.pNE;
-        if (sparseIntArray != null) {
-            b(sparseIntArray);
-            this.pMW = false;
-        } else {
-            this.pMW = true;
-        }
-    }
-
-    private void b(SparseIntArray sparseIntArray) {
-        this.pMU.clear();
-        for (int i = 0; i < sparseIntArray.size(); i++) {
-            int keyAt = sparseIntArray.keyAt(i);
-            this.pMU.put(keyAt, new d<>(PW(keyAt), sparseIntArray.valueAt(i), 0, this.pMT.pNH));
-        }
-    }
-
-    synchronized void eyO() {
-        if (eyP()) {
-            trimToSize(this.pMT.pND);
-        }
-    }
-
-    synchronized void trimToSize(int i) {
-        int min = Math.min((this.pMX.pNa + this.pMY.pNa) - i, this.pMY.pNa);
-        if (min > 0) {
-            if (com.facebook.common.c.a.isLoggable(2)) {
-                com.facebook.common.c.a.a(this.pAh, "trimToSize: TargetSize = %d; Initial Size = %d; Bytes to free = %d", Integer.valueOf(i), Integer.valueOf(this.pMX.pNa + this.pMY.pNa), Integer.valueOf(min));
-            }
-            ews();
-            for (int i2 = 0; i2 < this.pMU.size() && min > 0; i2++) {
-                d<V> valueAt = this.pMU.valueAt(i2);
-                while (min > 0) {
-                    V pop = valueAt.pop();
-                    if (pop == null) {
-                        break;
-                    }
-                    by(pop);
-                    min -= valueAt.mItemSize;
-                    this.pMY.Qc(valueAt.mItemSize);
-                }
-            }
-            ews();
-            if (com.facebook.common.c.a.isLoggable(2)) {
-                com.facebook.common.c.a.a(this.pAh, "trimToSize: TargetSize = %d; Final Size = %d", Integer.valueOf(i), Integer.valueOf(this.pMX.pNa + this.pMY.pNa));
-            }
-        }
-    }
-
-    private synchronized d<V> PX(int i) {
-        return this.pMU.get(i);
-    }
-
-    synchronized d<V> PY(int i) {
-        d<V> dVar;
-        dVar = this.pMU.get(i);
-        if (dVar == null && this.pMW) {
-            if (com.facebook.common.c.a.isLoggable(2)) {
-                com.facebook.common.c.a.a(this.pAh, "creating new bucket %s", Integer.valueOf(i));
-            }
-            dVar = PZ(i);
-            this.pMU.put(i, dVar);
-        }
-        return dVar;
-    }
-
-    d<V> PZ(int i) {
-        return new d<>(PW(i), Integer.MAX_VALUE, 0, this.pMT.pNH);
-    }
-
-    synchronized boolean eyP() {
-        boolean z;
-        z = this.pMX.pNa + this.pMY.pNa > this.pMT.pND;
-        if (z) {
-            this.pMZ.ezd();
-        }
-        return z;
-    }
-
-    synchronized boolean Qa(int i) {
-        boolean z = false;
-        synchronized (this) {
-            int i2 = this.pMT.pNC;
-            if (i > i2 - this.pMX.pNa) {
-                this.pMZ.eze();
-            } else {
-                int i3 = this.pMT.pND;
-                if (i > i3 - (this.pMX.pNa + this.pMY.pNa)) {
-                    trimToSize(i3 - i);
-                }
-                if (i > i2 - (this.pMX.pNa + this.pMY.pNa)) {
-                    this.pMZ.eze();
-                } else {
-                    z = true;
-                }
-            }
-        }
-        return z;
-    }
-
-    @SuppressLint({"InvalidAccessToGuardedField"})
-    private void ews() {
-        if (com.facebook.common.c.a.isLoggable(2)) {
-            com.facebook.common.c.a.a(this.pAh, "Used = (%d, %d); Free = (%d, %d)", Integer.valueOf(this.pMX.mCount), Integer.valueOf(this.pMX.pNa), Integer.valueOf(this.pMY.mCount), Integer.valueOf(this.pMY.pNa));
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
+    @VisibleForTesting
     @NotThreadSafe
-    /* loaded from: classes5.dex */
-    public static class a {
-        int mCount;
-        int pNa;
+    /* loaded from: classes6.dex */
+    public static class Counter {
+        public static final String TAG = "com.facebook.imagepipeline.memory.BasePool.Counter";
+        public int mCount;
+        public int mNumBytes;
 
-        a() {
-        }
-
-        public void Qb(int i) {
-            this.mCount++;
-            this.pNa += i;
-        }
-
-        public void Qc(int i) {
-            if (this.pNa >= i && this.mCount > 0) {
-                this.mCount--;
-                this.pNa -= i;
+        public void decrement(int i) {
+            int i2;
+            int i3 = this.mNumBytes;
+            if (i3 >= i && (i2 = this.mCount) > 0) {
+                this.mCount = i2 - 1;
+                this.mNumBytes = i3 - i;
                 return;
             }
-            com.facebook.common.c.a.h("com.facebook.imagepipeline.memory.BasePool.Counter", "Unexpected decrement of %d. Current numBytes = %d, count = %d", Integer.valueOf(i), Integer.valueOf(this.pNa), Integer.valueOf(this.mCount));
+            FLog.wtf(TAG, "Unexpected decrement of %d. Current numBytes = %d, count = %d", Integer.valueOf(i), Integer.valueOf(this.mNumBytes), Integer.valueOf(this.mCount));
+        }
+
+        public void increment(int i) {
+            this.mCount++;
+            this.mNumBytes += i;
+        }
+
+        public void reset() {
+            this.mCount = 0;
+            this.mNumBytes = 0;
         }
     }
 
-    /* loaded from: classes5.dex */
-    public static class InvalidValueException extends RuntimeException {
-        public InvalidValueException(Object obj) {
-            super("Invalid value: " + obj.toString());
-        }
-    }
-
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class InvalidSizeException extends RuntimeException {
         public InvalidSizeException(Object obj) {
             super("Invalid size: " + obj.toString());
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
+    public static class InvalidValueException extends RuntimeException {
+        public InvalidValueException(Object obj) {
+            super("Invalid value: " + obj.toString());
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public interface OnFailedListener {
+        void onFailed();
+    }
+
+    /* loaded from: classes6.dex */
+    public static class PoolSizeViolationException extends RuntimeException {
+        public PoolSizeViolationException(int i, int i2, int i3, int i4) {
+            super("Pool hard cap violation? Hard cap = " + i + " Used size = " + i2 + " Free size = " + i3 + " Request size = " + i4);
+        }
+    }
+
+    /* loaded from: classes6.dex */
     public static class SizeTooLargeException extends InvalidSizeException {
         public SizeTooLargeException(Object obj) {
             super(obj);
         }
     }
 
-    /* loaded from: classes5.dex */
-    public static class PoolSizeViolationException extends RuntimeException {
-        public PoolSizeViolationException(int i, int i2, int i3, int i4) {
-            super("Pool hard cap violation? Hard cap = " + i + " Used size = " + i2 + " Free size = " + i3 + " Request size = " + i4);
+    public BasePool(MemoryTrimmableRegistry memoryTrimmableRegistry, PoolParams poolParams, PoolStatsTracker poolStatsTracker) {
+        this.mMemoryTrimmableRegistry = (MemoryTrimmableRegistry) Preconditions.checkNotNull(memoryTrimmableRegistry);
+        this.mPoolParams = (PoolParams) Preconditions.checkNotNull(poolParams);
+        this.mPoolStatsTracker = (PoolStatsTracker) Preconditions.checkNotNull(poolStatsTracker);
+        if (this.mPoolParams.fixBucketsReinitialization) {
+            initBuckets();
+        } else {
+            legacyInitBuckets(new SparseIntArray(0));
+        }
+        this.mInUseValues = Sets.newIdentityHashSet();
+        this.mFree = new Counter();
+        this.mUsed = new Counter();
+    }
+
+    private synchronized void ensurePoolSizeInvariant() {
+        boolean z;
+        if (isMaxSizeSoftCapExceeded() && this.mFree.mNumBytes != 0) {
+            z = false;
+            Preconditions.checkState(z);
+        }
+        z = true;
+        Preconditions.checkState(z);
+    }
+
+    private void fillBuckets(SparseIntArray sparseIntArray) {
+        this.mBuckets.clear();
+        for (int i = 0; i < sparseIntArray.size(); i++) {
+            int keyAt = sparseIntArray.keyAt(i);
+            this.mBuckets.put(keyAt, new Bucket<>(getSizeInBytes(keyAt), sparseIntArray.valueAt(i), 0, this.mPoolParams.fixBucketsReinitialization));
+        }
+    }
+
+    private synchronized Bucket<V> getBucketIfPresent(int i) {
+        return this.mBuckets.get(i);
+    }
+
+    private synchronized void initBuckets() {
+        SparseIntArray sparseIntArray = this.mPoolParams.bucketSizes;
+        if (sparseIntArray != null) {
+            fillBuckets(sparseIntArray);
+            this.mAllowNewBuckets = false;
+        } else {
+            this.mAllowNewBuckets = true;
+        }
+    }
+
+    private synchronized void legacyInitBuckets(SparseIntArray sparseIntArray) {
+        Preconditions.checkNotNull(sparseIntArray);
+        this.mBuckets.clear();
+        SparseIntArray sparseIntArray2 = this.mPoolParams.bucketSizes;
+        if (sparseIntArray2 != null) {
+            for (int i = 0; i < sparseIntArray2.size(); i++) {
+                int keyAt = sparseIntArray2.keyAt(i);
+                this.mBuckets.put(keyAt, new Bucket<>(getSizeInBytes(keyAt), sparseIntArray2.valueAt(i), sparseIntArray.get(keyAt, 0), this.mPoolParams.fixBucketsReinitialization));
+            }
+            this.mAllowNewBuckets = false;
+        } else {
+            this.mAllowNewBuckets = true;
+        }
+    }
+
+    @SuppressLint({"InvalidAccessToGuardedField"})
+    private void logStats() {
+        if (FLog.isLoggable(2)) {
+            FLog.v(this.TAG, "Used = (%d, %d); Free = (%d, %d)", Integer.valueOf(this.mUsed.mCount), Integer.valueOf(this.mUsed.mNumBytes), Integer.valueOf(this.mFree.mCount), Integer.valueOf(this.mFree.mNumBytes));
+        }
+    }
+
+    private List<Bucket<V>> refillBuckets() {
+        ArrayList arrayList = new ArrayList(this.mBuckets.size());
+        int size = this.mBuckets.size();
+        for (int i = 0; i < size; i++) {
+            Bucket<V> valueAt = this.mBuckets.valueAt(i);
+            int i2 = valueAt.mItemSize;
+            int i3 = valueAt.mMaxLength;
+            int inUseCount = valueAt.getInUseCount();
+            if (valueAt.getFreeListSize() > 0) {
+                arrayList.add(valueAt);
+            }
+            this.mBuckets.setValueAt(i, new Bucket<>(getSizeInBytes(i2), i3, inUseCount, this.mPoolParams.fixBucketsReinitialization));
+        }
+        return arrayList;
+    }
+
+    private V retryOnce(int i, int i2, boolean z) {
+        try {
+            V alloc = alloc(i2);
+            if (FLog.isLoggable(3)) {
+                FLog.d(this.TAG, "alloc success!!");
+            }
+            return alloc;
+        } catch (Throwable th) {
+            if (FLog.isLoggable(3)) {
+                FLog.d(this.TAG, "alloc fail!!");
+            }
+            if (z && mOnFailedListener != null) {
+                if (FLog.isLoggable(3)) {
+                    Class<?> cls = this.TAG;
+                    StringBuilder sb = new StringBuilder();
+                    sb.append("retryOnce will work.");
+                    sb.append(z ? "retry = true" : "retry = false");
+                    sb.append(mOnFailedListener == null ? ",mOnFailedListener is null" : ",mOnFailedListener is not null");
+                    FLog.d(cls, sb.toString());
+                }
+                mOnFailedListener.onFailed();
+                return retryOnce(i, i2, false);
+            }
+            if (FLog.isLoggable(3)) {
+                Class<?> cls2 = this.TAG;
+                StringBuilder sb2 = new StringBuilder();
+                sb2.append("retryOnce won't work.");
+                sb2.append(z ? "retry = true" : "retry = false");
+                sb2.append(mOnFailedListener == null ? ",mOnFailedListener is null" : ",mOnFailedListener is not null");
+                FLog.d(cls2, sb2.toString());
+            }
+            synchronized (this) {
+                this.mUsed.decrement(i);
+                Bucket<V> bucket = getBucket(i2);
+                if (bucket != null) {
+                    bucket.decrementInUseCount();
+                }
+                Throwables.propagateIfPossible(th);
+                return null;
+            }
+        }
+    }
+
+    public static void setOnFailedListener(OnFailedListener onFailedListener) {
+        mOnFailedListener = onFailedListener;
+    }
+
+    public abstract V alloc(int i);
+
+    @VisibleForTesting
+    public synchronized boolean canAllocate(int i) {
+        int i2 = this.mPoolParams.maxSizeHardCap;
+        if (i > i2 - this.mUsed.mNumBytes) {
+            this.mPoolStatsTracker.onHardCapReached();
+            return false;
+        }
+        int i3 = this.mPoolParams.maxSizeSoftCap;
+        if (i > i3 - (this.mUsed.mNumBytes + this.mFree.mNumBytes)) {
+            trimToSize(i3 - i);
+        }
+        if (i > i2 - (this.mUsed.mNumBytes + this.mFree.mNumBytes)) {
+            this.mPoolStatsTracker.onHardCapReached();
+            return false;
+        }
+        return true;
+    }
+
+    @VisibleForTesting
+    public abstract void free(V v);
+
+    @Override // com.facebook.common.memory.Pool
+    public V get(int i) {
+        V value;
+        ensurePoolSizeInvariant();
+        int bucketedSize = getBucketedSize(i);
+        synchronized (this) {
+            Bucket<V> bucket = getBucket(bucketedSize);
+            if (bucket != null && (value = getValue(bucket)) != null) {
+                Preconditions.checkState(this.mInUseValues.add(value));
+                int bucketedSizeForValue = getBucketedSizeForValue(value);
+                int sizeInBytes = getSizeInBytes(bucketedSizeForValue);
+                this.mUsed.increment(sizeInBytes);
+                this.mFree.decrement(sizeInBytes);
+                this.mPoolStatsTracker.onValueReuse(sizeInBytes);
+                logStats();
+                if (FLog.isLoggable(2)) {
+                    FLog.v(this.TAG, "get (reuse) (object, size) = (%x, %s)", Integer.valueOf(System.identityHashCode(value)), Integer.valueOf(bucketedSizeForValue));
+                }
+                return value;
+            }
+            int sizeInBytes2 = getSizeInBytes(bucketedSize);
+            if (canAllocate(sizeInBytes2)) {
+                this.mUsed.increment(sizeInBytes2);
+                if (bucket != null) {
+                    bucket.incrementInUseCount();
+                }
+                V retryOnce = retryOnce(sizeInBytes2, bucketedSize, true);
+                synchronized (this) {
+                    Preconditions.checkState(this.mInUseValues.add(retryOnce));
+                    trimToSoftCap();
+                    this.mPoolStatsTracker.onAlloc(sizeInBytes2);
+                    logStats();
+                    if (FLog.isLoggable(2)) {
+                        FLog.v(this.TAG, "get (alloc) (object, size) = (%x, %s)", Integer.valueOf(System.identityHashCode(retryOnce)), Integer.valueOf(bucketedSize));
+                    }
+                }
+                return retryOnce;
+            }
+            throw new PoolSizeViolationException(this.mPoolParams.maxSizeHardCap, this.mUsed.mNumBytes, this.mFree.mNumBytes, sizeInBytes2);
+        }
+    }
+
+    @VisibleForTesting
+    public synchronized Bucket<V> getBucket(int i) {
+        Bucket<V> bucket = this.mBuckets.get(i);
+        if (bucket == null && this.mAllowNewBuckets) {
+            if (FLog.isLoggable(2)) {
+                FLog.v(this.TAG, "creating new bucket %s", Integer.valueOf(i));
+            }
+            Bucket<V> newBucket = newBucket(i);
+            this.mBuckets.put(i, newBucket);
+            return newBucket;
+        }
+        return bucket;
+    }
+
+    public abstract int getBucketedSize(int i);
+
+    public abstract int getBucketedSizeForValue(V v);
+
+    public abstract int getSizeInBytes(int i);
+
+    public synchronized Map<String, Integer> getStats() {
+        HashMap hashMap;
+        hashMap = new HashMap();
+        for (int i = 0; i < this.mBuckets.size(); i++) {
+            int keyAt = this.mBuckets.keyAt(i);
+            hashMap.put(PoolStatsTracker.BUCKETS_USED_PREFIX + getSizeInBytes(keyAt), Integer.valueOf(this.mBuckets.valueAt(i).getInUseCount()));
+        }
+        hashMap.put(PoolStatsTracker.SOFT_CAP, Integer.valueOf(this.mPoolParams.maxSizeSoftCap));
+        hashMap.put(PoolStatsTracker.HARD_CAP, Integer.valueOf(this.mPoolParams.maxSizeHardCap));
+        hashMap.put(PoolStatsTracker.USED_COUNT, Integer.valueOf(this.mUsed.mCount));
+        hashMap.put(PoolStatsTracker.USED_BYTES, Integer.valueOf(this.mUsed.mNumBytes));
+        hashMap.put(PoolStatsTracker.FREE_COUNT, Integer.valueOf(this.mFree.mCount));
+        hashMap.put(PoolStatsTracker.FREE_BYTES, Integer.valueOf(this.mFree.mNumBytes));
+        return hashMap;
+    }
+
+    @Nullable
+    public synchronized V getValue(Bucket<V> bucket) {
+        return bucket.get();
+    }
+
+    public void initialize() {
+        this.mMemoryTrimmableRegistry.registerMemoryTrimmable(this);
+        this.mPoolStatsTracker.setBasePool(this);
+    }
+
+    @VisibleForTesting
+    public synchronized boolean isMaxSizeSoftCapExceeded() {
+        boolean z;
+        z = this.mUsed.mNumBytes + this.mFree.mNumBytes > this.mPoolParams.maxSizeSoftCap;
+        if (z) {
+            this.mPoolStatsTracker.onSoftCapReached();
+        }
+        return z;
+    }
+
+    public boolean isReusable(V v) {
+        Preconditions.checkNotNull(v);
+        return true;
+    }
+
+    public Bucket<V> newBucket(int i) {
+        return new Bucket<>(getSizeInBytes(i), Integer.MAX_VALUE, 0, this.mPoolParams.fixBucketsReinitialization);
+    }
+
+    public void onParamsChanged() {
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:19:0x0080, code lost:
+        r2.decrementInUseCount();
+     */
+    @Override // com.facebook.common.memory.Pool, com.facebook.common.references.ResourceReleaser
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void release(V v) {
+        Preconditions.checkNotNull(v);
+        int bucketedSizeForValue = getBucketedSizeForValue(v);
+        int sizeInBytes = getSizeInBytes(bucketedSizeForValue);
+        synchronized (this) {
+            Bucket<V> bucketIfPresent = getBucketIfPresent(bucketedSizeForValue);
+            if (!this.mInUseValues.remove(v)) {
+                FLog.e(this.TAG, "release (free, value unrecognized) (object, size) = (%x, %s)", Integer.valueOf(System.identityHashCode(v)), Integer.valueOf(bucketedSizeForValue));
+                free(v);
+                this.mPoolStatsTracker.onFree(sizeInBytes);
+            } else {
+                if (bucketIfPresent != null && !bucketIfPresent.isMaxLengthExceeded() && !isMaxSizeSoftCapExceeded() && isReusable(v)) {
+                    bucketIfPresent.release(v);
+                    this.mFree.increment(sizeInBytes);
+                    this.mUsed.decrement(sizeInBytes);
+                    this.mPoolStatsTracker.onValueRelease(sizeInBytes);
+                    if (FLog.isLoggable(2)) {
+                        FLog.v(this.TAG, "release (reuse) (object, size) = (%x, %s)", Integer.valueOf(System.identityHashCode(v)), Integer.valueOf(bucketedSizeForValue));
+                    }
+                }
+                if (FLog.isLoggable(2)) {
+                    FLog.v(this.TAG, "release (free) (object, size) = (%x, %s)", Integer.valueOf(System.identityHashCode(v)), Integer.valueOf(bucketedSizeForValue));
+                }
+                free(v);
+                this.mUsed.decrement(sizeInBytes);
+                this.mPoolStatsTracker.onFree(sizeInBytes);
+            }
+            logStats();
+        }
+    }
+
+    @Override // com.facebook.common.memory.MemoryTrimmable
+    public void trim(MemoryTrimType memoryTrimType) {
+        trimToNothing();
+    }
+
+    /* JADX DEBUG: Multi-variable search result rejected for r6v0, resolved type: com.facebook.imagepipeline.memory.BasePool<V> */
+    /* JADX WARN: Multi-variable type inference failed */
+    @VisibleForTesting
+    public void trimToNothing() {
+        int i;
+        List arrayList;
+        synchronized (this) {
+            if (this.mPoolParams.fixBucketsReinitialization) {
+                arrayList = refillBuckets();
+            } else {
+                arrayList = new ArrayList(this.mBuckets.size());
+                SparseIntArray sparseIntArray = new SparseIntArray();
+                for (int i2 = 0; i2 < this.mBuckets.size(); i2++) {
+                    Bucket<V> valueAt = this.mBuckets.valueAt(i2);
+                    if (valueAt.getFreeListSize() > 0) {
+                        arrayList.add(valueAt);
+                    }
+                    sparseIntArray.put(this.mBuckets.keyAt(i2), valueAt.getInUseCount());
+                }
+                legacyInitBuckets(sparseIntArray);
+            }
+            this.mFree.reset();
+            logStats();
+        }
+        onParamsChanged();
+        for (i = 0; i < arrayList.size(); i++) {
+            Bucket bucket = (Bucket) arrayList.get(i);
+            while (true) {
+                Object pop = bucket.pop();
+                if (pop == null) {
+                    break;
+                }
+                free(pop);
+            }
+        }
+    }
+
+    @VisibleForTesting
+    public synchronized void trimToSize(int i) {
+        int min = Math.min((this.mUsed.mNumBytes + this.mFree.mNumBytes) - i, this.mFree.mNumBytes);
+        if (min <= 0) {
+            return;
+        }
+        if (FLog.isLoggable(2)) {
+            FLog.v(this.TAG, "trimToSize: TargetSize = %d; Initial Size = %d; Bytes to free = %d", Integer.valueOf(i), Integer.valueOf(this.mUsed.mNumBytes + this.mFree.mNumBytes), Integer.valueOf(min));
+        }
+        logStats();
+        for (int i2 = 0; i2 < this.mBuckets.size() && min > 0; i2++) {
+            Bucket<V> valueAt = this.mBuckets.valueAt(i2);
+            while (min > 0) {
+                V pop = valueAt.pop();
+                if (pop == null) {
+                    break;
+                }
+                free(pop);
+                min -= valueAt.mItemSize;
+                this.mFree.decrement(valueAt.mItemSize);
+            }
+        }
+        logStats();
+        if (FLog.isLoggable(2)) {
+            FLog.v(this.TAG, "trimToSize: TargetSize = %d; Final Size = %d", Integer.valueOf(i), Integer.valueOf(this.mUsed.mNumBytes + this.mFree.mNumBytes));
+        }
+    }
+
+    @VisibleForTesting
+    public synchronized void trimToSoftCap() {
+        if (isMaxSizeSoftCapExceeded()) {
+            trimToSize(this.mPoolParams.maxSizeSoftCap);
         }
     }
 }

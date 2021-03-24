@@ -11,93 +11,74 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes5.dex */
 public abstract class PathUtils {
-    static final /* synthetic */ boolean $assertionsDisabled;
-    private static final AtomicBoolean oRj;
-    private static AsyncTask<Void, Void, String[]> oRk;
-    private static Context oRl;
-    private static String sDataDirectorySuffix;
 
-    static {
-        $assertionsDisabled = !PathUtils.class.desiredAssertionStatus();
-        oRj = new AtomicBoolean();
-    }
+    /* renamed from: a  reason: collision with root package name */
+    public static AsyncTask<Void, Void, String[]> f22651a;
 
-    private PathUtils() {
-    }
+    /* renamed from: b  reason: collision with root package name */
+    public static Context f22652b;
 
-    /* JADX INFO: Access modifiers changed from: private */
+    /* renamed from: c  reason: collision with root package name */
+    public static String f22653c;
+
     /* loaded from: classes5.dex */
     public static class a {
-        private static final String[] DIRECTORY_PATHS = PathUtils.egm();
+
+        /* renamed from: a  reason: collision with root package name */
+        public static final String[] f22654a = PathUtils.c();
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public static String[] egm() {
+    static {
+        new AtomicBoolean();
+    }
+
+    public static String b(int i) {
+        return a.f22654a[i];
+    }
+
+    public static String[] c() {
         try {
-            if (oRk.cancel(false)) {
+            if (f22651a.cancel(false)) {
                 StrictMode.ThreadPolicy allowThreadDiskReads = StrictMode.allowThreadDiskReads();
                 StrictMode.allowThreadDiskWrites();
-                try {
-                    return setPrivateDataDirectorySuffixInternal();
-                } finally {
-                    StrictMode.setThreadPolicy(allowThreadDiskReads);
-                }
+                String[] d2 = d();
+                StrictMode.setThreadPolicy(allowThreadDiskReads);
+                return d2;
             }
-            return oRk.get();
-        } catch (InterruptedException | ExecutionException e) {
+            return f22651a.get();
+        } catch (InterruptedException | ExecutionException unused) {
             return null;
         }
     }
 
-    private static String[] setPrivateDataDirectorySuffixInternal() {
+    public static String[] d() {
         String[] strArr = new String[4];
-        strArr[0] = oRl.getDir(sDataDirectorySuffix, 0).getPath();
-        strArr[1] = oRl.getDir("textures", 0).getPath();
-        strArr[2] = oRl.getDatabasePath("foo").getParent();
-        if (oRl.getCacheDir() != null) {
-            strArr[3] = oRl.getCacheDir().getPath();
+        strArr[0] = f22652b.getDir(f22653c, 0).getPath();
+        strArr[1] = f22652b.getDir("textures", 0).getPath();
+        strArr[2] = f22652b.getDatabasePath("foo").getParent();
+        if (f22652b.getCacheDir() != null) {
+            strArr[3] = f22652b.getCacheDir().getPath();
         }
         return strArr;
     }
 
-    private static String getDirectoryPath(int i) {
-        return a.DIRECTORY_PATHS[i];
+    @CalledByNative
+    public static String getCacheDirectory(Context context) {
+        return b(3);
     }
 
     @CalledByNative
     public static String getDataDirectory(Context context) {
-        if ($assertionsDisabled || oRk != null) {
-            return getDirectoryPath(0);
-        }
-        throw new AssertionError("setDataDirectorySuffix must be called first.");
+        return b(0);
     }
 
     @CalledByNative
     public static String getDatabaseDirectory(Context context) {
-        if ($assertionsDisabled || oRk != null) {
-            return getDirectoryPath(2);
-        }
-        throw new AssertionError("setDataDirectorySuffix must be called first.");
+        return b(2);
     }
 
     @CalledByNative
-    public static String getCacheDirectory(Context context) {
-        if ($assertionsDisabled || oRk != null) {
-            return getDirectoryPath(3);
-        }
-        throw new AssertionError("setDataDirectorySuffix must be called first.");
-    }
-
-    @CalledByNative
-    public static String getThumbnailCacheDirectory(Context context) {
-        if ($assertionsDisabled || oRk != null) {
-            return getDirectoryPath(1);
-        }
-        throw new AssertionError("setDataDirectorySuffix must be called first.");
-    }
-
-    @CalledByNative
-    private static String getDownloadsDirectory(Context context) {
+    public static String getDownloadsDirectory(Context context) {
         StrictMode.ThreadPolicy allowThreadDiskReads = StrictMode.allowThreadDiskReads();
         try {
             SystemClock.elapsedRealtime();
@@ -108,13 +89,19 @@ public abstract class PathUtils {
     }
 
     @CalledByNative
-    private static String getNativeLibraryDirectory(Context context) {
-        ApplicationInfo applicationInfo = context.getApplicationInfo();
-        return ((applicationInfo.flags & 128) != 0 || (applicationInfo.flags & 1) == 0) ? applicationInfo.nativeLibraryDir : "/system/lib/";
+    public static String getExternalStorageDirectory() {
+        return Environment.getExternalStorageDirectory().getAbsolutePath();
     }
 
     @CalledByNative
-    public static String getExternalStorageDirectory() {
-        return Environment.getExternalStorageDirectory().getAbsolutePath();
+    public static String getNativeLibraryDirectory(Context context) {
+        ApplicationInfo applicationInfo = context.getApplicationInfo();
+        int i = applicationInfo.flags;
+        return ((i & 128) != 0 || (i & 1) == 0) ? applicationInfo.nativeLibraryDir : "/system/lib/";
+    }
+
+    @CalledByNative
+    public static String getThumbnailCacheDirectory(Context context) {
+        return b(1);
     }
 }

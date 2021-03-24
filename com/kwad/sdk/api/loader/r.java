@@ -3,10 +3,8 @@ package com.kwad.sdk.api.loader;
 import android.content.Context;
 import android.util.Log;
 import com.kwad.sdk.api.loader.k;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class r {
-    /* JADX INFO: Access modifiers changed from: package-private */
     public static void a(Context context) {
         if (Math.abs(System.currentTimeMillis() - q.b(context, "lastUpdateTime")) < q.b(context, "interval") * 1000) {
             return;

@@ -1,7 +1,7 @@
 package com.baidu.minivideo.plugin.capture;
 
 import android.content.Context;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public class Application {
     public static Context sInstance;
 

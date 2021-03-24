@@ -1,7 +1,7 @@
 package io.reactivex.exceptions;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class OnErrorNotImplementedException extends RuntimeException {
-    private static final long serialVersionUID = -6298857009889503852L;
+    public static final long serialVersionUID = -6298857009889503852L;
 
     public OnErrorNotImplementedException(String str, Throwable th) {
         super(str, th == null ? new NullPointerException() : th);

@@ -1,13 +1,15 @@
 package com.baidu.mapsdkplatform.comapi.map;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public enum y {
     DEFAULT(1),
     INDOOR(2),
     STREET(3);
     
-    private final int d;
+
+    /* renamed from: d  reason: collision with root package name */
+    public final int f7684d;
 
     y(int i) {
-        this.d = i;
+        this.f7684d = i;
     }
 }

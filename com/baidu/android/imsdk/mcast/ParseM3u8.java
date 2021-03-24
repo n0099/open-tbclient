@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.text.TextUtils;
 import androidx.exifinterface.media.ExifInterface;
 import com.baidu.android.imsdk.utils.LogUtils;
+import com.bumptech.glide.load.engine.GlideException;
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
@@ -14,14 +15,14 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class ParseM3u8 {
-    private static final String TAG = ParseM3u8.class.getSimpleName();
-    private int mDuration;
-    private ArrayList<TS> mTslist = new ArrayList<>();
-    private boolean mIsend = false;
+    public static final String TAG = "ParseM3u8";
+    public int mDuration;
+    public ArrayList<TS> mTslist = new ArrayList<>();
+    public boolean mIsend = false;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class TS {
         public double duration;
         public long relativetime;
@@ -33,56 +34,65 @@ public class ParseM3u8 {
         }
     }
 
-    public long getMaxTime() {
-        if (this.mTslist.size() > 0) {
-            return this.mTslist.get(this.mTslist.size() - 1).time;
-        }
-        return 0L;
+    public static long dateToLong(Date date) {
+        return date.getTime();
     }
 
-    public ArrayList<TS> getTslist() {
-        return this.mTslist;
+    private void parseTSattr(String str, String str2, String str3) {
+        String str4 = TAG;
+        LogUtils.d(str4, "parseTSline attr:   " + str + GlideException.IndentedAppendable.INDENT + str2 + GlideException.IndentedAppendable.INDENT + str3);
+        if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || TextUtils.isEmpty(str3)) {
+            return;
+        }
+        TS ts = new TS();
+        String trim = str.substring(str.indexOf(":") + 1).replace(ExifInterface.GPS_DIRECTION_TRUE, " ").trim();
+        ts.stime = trim;
+        if (trim.length() >= 20) {
+            try {
+                ts.time = stringToLong(trim.substring(0, 19), "yyyy-MM-dd HH:mm:ss");
+            } catch (ParseException e2) {
+                e2.printStackTrace();
+                LogUtils.e(TAG, "stringToLong execption");
+            }
+            int indexOf = str2.indexOf(":") + 1;
+            if (str2.length() > indexOf) {
+                String replace = str2.substring(indexOf).trim().replace(",", "");
+                try {
+                    ts.duration = Double.valueOf(replace).doubleValue();
+                } catch (Exception unused) {
+                    String str5 = TAG;
+                    LogUtils.e(str5, " String to double execption " + replace);
+                }
+                ts.tsfile = str3.trim();
+                String str6 = TAG;
+                LogUtils.d(str6, " parseTSline: " + ts.tsfile);
+                if (this.mTslist.size() == 0) {
+                    ts.relativetime = 0L;
+                } else {
+                    ts.relativetime = (ts.time - this.mTslist.get(0).time) / 1000;
+                }
+                String str7 = TAG;
+                LogUtils.d(str7, "  parseTSline attr:   " + ts.time + " " + ts.relativetime + GlideException.IndentedAppendable.INDENT + ts.duration + GlideException.IndentedAppendable.INDENT + str3);
+                this.mTslist.add(ts);
+                return;
+            }
+            LogUtils.e(TAG, "parseTSattr exception 2.");
+            return;
+        }
+        LogUtils.e(TAG, "parseTSattr exception 2.");
     }
 
-    public List<TS> getTslist(int i) {
-        boolean z;
-        Iterator<TS> it = this.mTslist.iterator();
-        int i2 = -1;
-        while (true) {
-            if (!it.hasNext()) {
-                z = false;
-                break;
-            }
-            i2++;
-            if (it.next().relativetime >= i) {
-                z = true;
-                break;
-            }
-        }
-        if (z) {
-            return this.mTslist.subList(i2, this.mTslist.size());
-        }
-        return null;
+    @SuppressLint({"SimpleDateFormat"})
+    public static Date stringToDate(String str, String str2) throws ParseException {
+        return new SimpleDateFormat(str2).parse(str);
     }
 
-    public List<TS> getNewAppendTS(long j) {
-        boolean z = false;
-        Iterator<TS> it = this.mTslist.iterator();
-        int i = 0;
-        while (true) {
-            if (!it.hasNext()) {
-                break;
-            }
-            i++;
-            if (it.next().time == j) {
-                z = true;
-                break;
-            }
+    public static long stringToLong(String str, String str2) throws ParseException {
+        Date stringToDate = stringToDate(str, str2);
+        if (stringToDate == null) {
+            return 0L;
         }
-        if (!z || this.mTslist.size() <= i) {
-            return null;
-        }
-        return this.mTslist.subList(i, this.mTslist.size());
+        return dateToLong(stringToDate);
     }
 
     public List<TS> getLatestTS(long j) {
@@ -103,15 +113,49 @@ public class ParseM3u8 {
         if (!z || this.mTslist.size() <= i) {
             return null;
         }
-        return this.mTslist.subList(i, this.mTslist.size());
+        ArrayList<TS> arrayList = this.mTslist;
+        return arrayList.subList(i, arrayList.size());
     }
 
-    public boolean isEnd() {
-        return this.mIsend;
+    public long getMaxTime() {
+        if (this.mTslist.size() > 0) {
+            ArrayList<TS> arrayList = this.mTslist;
+            return arrayList.get(arrayList.size() - 1).time;
+        }
+        return 0L;
+    }
+
+    public List<TS> getNewAppendTS(long j) {
+        Iterator<TS> it = this.mTslist.iterator();
+        boolean z = false;
+        int i = 0;
+        while (true) {
+            if (!it.hasNext()) {
+                break;
+            }
+            i++;
+            if (it.next().time == j) {
+                z = true;
+                break;
+            }
+        }
+        if (!z || this.mTslist.size() <= i) {
+            return null;
+        }
+        ArrayList<TS> arrayList = this.mTslist;
+        return arrayList.subList(i, arrayList.size());
     }
 
     public int getTsSize() {
         return this.mTslist.size();
+    }
+
+    public ArrayList<TS> getTslist() {
+        return this.mTslist;
+    }
+
+    public boolean isEnd() {
+        return this.mIsend;
     }
 
     public void readByte(byte[] bArr) throws IOException {
@@ -120,87 +164,49 @@ public class ParseM3u8 {
         BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
         while (true) {
             String readLine = bufferedReader.readLine();
-            if (readLine == null) {
-                break;
-            } else if (readLine.matches("#EXT-X-TARGETDURATION(.*)")) {
-                String[] split = readLine.split(":");
-                if (split.length == 2) {
-                    try {
-                        this.mDuration = Integer.valueOf(split[1]).intValue();
-                    } catch (NumberFormatException e) {
-                        this.mDuration = 0;
+            if (readLine != null) {
+                if (readLine.matches("#EXT-X-TARGETDURATION(.*)")) {
+                    String[] split = readLine.split(":");
+                    if (split.length == 2) {
+                        try {
+                            this.mDuration = Integer.valueOf(split[1]).intValue();
+                        } catch (NumberFormatException unused) {
+                            this.mDuration = 0;
+                        }
                     }
+                } else if (readLine.matches("#EXT-X-PROGRAM-DATE-TIME(.*)")) {
+                    parseTSattr(readLine, bufferedReader.readLine(), bufferedReader.readLine());
+                } else if (readLine.matches("#EXT-X-ENDLIST(.*)")) {
+                    this.mIsend = true;
                 }
-            } else if (readLine.matches("#EXT-X-PROGRAM-DATE-TIME(.*)")) {
-                parseTSattr(readLine, bufferedReader.readLine(), bufferedReader.readLine());
-            } else if (readLine.matches("#EXT-X-ENDLIST(.*)")) {
-                this.mIsend = true;
-            }
-        }
-        if (bufferedReader != null) {
-            bufferedReader.close();
-        }
-        if (inputStreamReader != null) {
-            inputStreamReader.close();
-        }
-        if (byteArrayInputStream != null) {
-            byteArrayInputStream.close();
-        }
-    }
-
-    private void parseTSattr(String str, String str2, String str3) {
-        LogUtils.d(TAG, "parseTSline attr:   " + str + "  " + str2 + "  " + str3);
-        if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str3)) {
-            TS ts = new TS();
-            String trim = str.substring(str.indexOf(":") + 1).replace(ExifInterface.GPS_DIRECTION_TRUE, " ").trim();
-            ts.stime = trim;
-            if (trim.length() < 20) {
-                LogUtils.e(TAG, "parseTSattr exception 2.");
-                return;
-            }
-            try {
-                ts.time = stringToLong(trim.substring(0, 19), "yyyy-MM-dd HH:mm:ss");
-            } catch (ParseException e) {
-                e.printStackTrace();
-                LogUtils.e(TAG, "stringToLong execption");
-            }
-            int indexOf = str2.indexOf(":");
-            if (str2.length() <= indexOf + 1) {
-                LogUtils.e(TAG, "parseTSattr exception 2.");
-                return;
-            }
-            String replace = str2.substring(indexOf + 1).trim().replace(",", "");
-            try {
-                ts.duration = Double.valueOf(replace).doubleValue();
-            } catch (Exception e2) {
-                LogUtils.e(TAG, " String to double execption " + replace);
-            }
-            ts.tsfile = str3.trim();
-            LogUtils.d(TAG, " parseTSline: " + ts.tsfile);
-            if (this.mTslist.size() == 0) {
-                ts.relativetime = 0L;
             } else {
-                ts.relativetime = (ts.time - this.mTslist.get(0).time) / 1000;
+                bufferedReader.close();
+                inputStreamReader.close();
+                byteArrayInputStream.close();
+                return;
             }
-            LogUtils.d(TAG, "  parseTSline attr:   " + ts.time + " " + ts.relativetime + "  " + ts.duration + "  " + str3);
-            this.mTslist.add(ts);
         }
     }
 
-    public static long dateToLong(Date date) {
-        return date.getTime();
-    }
-
-    @SuppressLint({"SimpleDateFormat"})
-    public static Date stringToDate(String str, String str2) throws ParseException {
-        return new SimpleDateFormat(str2).parse(str);
-    }
-
-    public static long stringToLong(String str, String str2) throws ParseException {
-        Date stringToDate = stringToDate(str, str2);
-        if (stringToDate == null) {
-            return 0L;
+    public List<TS> getTslist(int i) {
+        boolean z;
+        Iterator<TS> it = this.mTslist.iterator();
+        int i2 = -1;
+        while (true) {
+            if (!it.hasNext()) {
+                z = false;
+                break;
+            }
+            i2++;
+            if (it.next().relativetime >= i) {
+                z = true;
+                break;
+            }
         }
-        return dateToLong(stringToDate);
+        if (z) {
+            ArrayList<TS> arrayList = this.mTslist;
+            return arrayList.subList(i2, arrayList.size());
+        }
+        return null;
     }
 }

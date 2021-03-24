@@ -35,44 +35,58 @@ import com.kwad.sdk.utils.ao;
 import com.kwad.sdk.utils.p;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class d extends com.kwad.sdk.contentalliance.detail.b implements View.OnClickListener {
-    private static AccelerateDecelerateInterpolator L = new AccelerateDecelerateInterpolator();
-    private List<com.kwad.sdk.contentalliance.home.swipe.a> A;
-    private com.kwad.sdk.contentalliance.home.swipe.c B;
-    private com.kwad.sdk.contentalliance.detail.video.b C;
-    private boolean D;
-    private View J;
-    private LottieAnimationView K;
-    private boolean P;
-    private i<q, ProfileResultData> Q;
-    private View b;
-    private View c;
-    private View d;
-    private RecyclerView e;
-    private SlidePlayViewPager f;
-    private TextView g;
-    private int h;
-    private View i;
-    private ImageView j;
-    private TextView k;
-    private TextView l;
-    private int n;
-    private int o;
-    private int p;
-    private int q;
-    private int r;
-    private int s;
-    private Float t;
-    private int u;
-    private int v;
+    public static AccelerateDecelerateInterpolator L = new AccelerateDecelerateInterpolator();
+    public List<com.kwad.sdk.contentalliance.home.swipe.a> A;
+    public com.kwad.sdk.contentalliance.home.swipe.c B;
+    public com.kwad.sdk.contentalliance.detail.video.b C;
+    public boolean D;
+    public View J;
+    public LottieAnimationView K;
+    public boolean P;
+    public i<q, ProfileResultData> Q;
+
+    /* renamed from: b  reason: collision with root package name */
+    public View f32016b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public View f32017c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public View f32018d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public RecyclerView f32019e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public SlidePlayViewPager f32020f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public TextView f32021g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public int f32022h;
+    public View i;
+    public ImageView j;
+    public TextView k;
+    public TextView l;
+    public int n;
+    public int o;
+    public int p;
+    public int q;
+    public int r;
+    public int s;
+    public Float t;
+    public int u;
+    public int v;
     @Nullable
-    private View w;
-    private boolean x;
-    private com.kwad.sdk.contentalliance.home.a.i y;
-    private AdTemplate z;
-    private float m = 1.0f;
-    private SlidePlayTouchViewPager.a E = new SlidePlayTouchViewPager.a() { // from class: com.kwad.sdk.contentalliance.detail.a.d.6
+    public View w;
+    public boolean x;
+    public com.kwad.sdk.contentalliance.home.a.i y;
+    public AdTemplate z;
+    public float m = 1.0f;
+    public SlidePlayTouchViewPager.a E = new SlidePlayTouchViewPager.a() { // from class: com.kwad.sdk.contentalliance.detail.a.d.6
         @Override // com.kwad.sdk.contentalliance.home.viewpager.SlidePlayTouchViewPager.a
         public void a() {
         }
@@ -82,7 +96,7 @@ public class d extends com.kwad.sdk.contentalliance.detail.b implements View.OnC
             d.this.D = true;
         }
     };
-    private com.kwad.sdk.contentalliance.detail.video.e F = new f() { // from class: com.kwad.sdk.contentalliance.detail.a.d.7
+    public com.kwad.sdk.contentalliance.detail.video.e F = new f() { // from class: com.kwad.sdk.contentalliance.detail.a.d.7
         @Override // com.kwad.sdk.contentalliance.detail.video.f, com.kwad.sdk.contentalliance.detail.video.e
         public void b() {
             super.b();
@@ -101,36 +115,38 @@ public class d extends com.kwad.sdk.contentalliance.detail.b implements View.OnC
             d.this.a(true);
         }
     };
-    private com.kwad.sdk.contentalliance.a.a G = new com.kwad.sdk.contentalliance.a.b() { // from class: com.kwad.sdk.contentalliance.detail.a.d.8
+    public com.kwad.sdk.contentalliance.a.a G = new com.kwad.sdk.contentalliance.a.b() { // from class: com.kwad.sdk.contentalliance.detail.a.d.8
         @Override // com.kwad.sdk.contentalliance.a.b, com.kwad.sdk.contentalliance.a.a
         public void j() {
+            String str;
             d.this.x = true;
             d.this.s();
             if (d.this.B != null) {
                 d.this.B.a(d.this.H);
             }
-            if (d.this.f.getSourceType() == 1) {
-                com.kwad.sdk.lib.widget.recycler.d dVar = (com.kwad.sdk.lib.widget.recycler.d) d.this.e.getAdapter();
+            if (d.this.f32020f.getSourceType() == 1) {
+                com.kwad.sdk.lib.widget.recycler.d dVar = (com.kwad.sdk.lib.widget.recycler.d) d.this.f32019e.getAdapter();
                 if (dVar != null) {
                     com.kwad.sdk.contentalliance.home.c.b bVar = (com.kwad.sdk.contentalliance.home.c.b) dVar.c();
-                    com.kwad.sdk.contentalliance.home.c.c e = bVar.e();
+                    com.kwad.sdk.contentalliance.home.c.c e2 = bVar.e();
                     d.this.y.a(bVar.f(), d.this.z);
                     bVar.a(d.this.w);
                     bVar.a(d.this.z, d.this.C);
-                    e.b(d.this.z);
+                    e2.b(d.this.z);
                     com.kwad.sdk.core.d.a.a("DetailProfileSlidePresenter", "scrollVerticallyToPosition becomesAttachedOnPageSelected");
-                    d.this.e.removeCallbacks(d.this.M);
-                    d.this.e.removeCallbacks(d.this.N);
-                    d.this.e.post(d.this.M);
-                    e.a(d.this.I);
-                    d.this.e.addOnScrollListener(d.this.O);
+                    d.this.f32019e.removeCallbacks(d.this.M);
+                    d.this.f32019e.removeCallbacks(d.this.N);
+                    d.this.f32019e.post(d.this.M);
+                    e2.a(d.this.I);
+                    d.this.f32019e.addOnScrollListener(d.this.O);
                 }
-                com.kwad.sdk.core.d.a.a("DetailProfileSlidePresenter", "becomesAttachedOnPageSelected mPosition" + d.this.f5594a.i + "--mSourceType=PROFILE--headerFooterAdapter=" + dVar);
+                str = "becomesAttachedOnPageSelected mPosition" + ((com.kwad.sdk.contentalliance.detail.b) d.this).f32132a.i + "--mSourceType=PROFILE--headerFooterAdapter=" + dVar;
             } else {
-                com.kwad.sdk.core.d.a.a("DetailProfileSlidePresenter", "becomesAttachedOnPageSelected mPosition" + d.this.f5594a.i + "--mSourceType=FEED--headerFooterAdapter=" + d.this.e.getAdapter());
+                str = "becomesAttachedOnPageSelected mPosition" + ((com.kwad.sdk.contentalliance.detail.b) d.this).f32132a.i + "--mSourceType=FEED--headerFooterAdapter=" + d.this.f32019e.getAdapter();
             }
+            com.kwad.sdk.core.d.a.a("DetailProfileSlidePresenter", str);
             d.this.D = false;
-            d.this.f.a(d.this.E);
+            d.this.f32020f.a(d.this.E);
         }
 
         @Override // com.kwad.sdk.contentalliance.a.b, com.kwad.sdk.contentalliance.a.a
@@ -139,120 +155,131 @@ public class d extends com.kwad.sdk.contentalliance.detail.b implements View.OnC
             if (d.this.B.a() == d.this.H) {
                 d.this.B.a((com.kwad.sdk.contentalliance.home.swipe.a) null);
             }
-            d.this.e.removeCallbacks(d.this.M);
-            com.kwad.sdk.lib.widget.recycler.d dVar = (com.kwad.sdk.lib.widget.recycler.d) d.this.e.getAdapter();
+            d.this.f32019e.removeCallbacks(d.this.M);
+            com.kwad.sdk.lib.widget.recycler.d dVar = (com.kwad.sdk.lib.widget.recycler.d) d.this.f32019e.getAdapter();
             if (dVar != null) {
                 com.kwad.sdk.contentalliance.home.c.b bVar = (com.kwad.sdk.contentalliance.home.c.b) dVar.c();
-                com.kwad.sdk.contentalliance.home.c.c e = bVar.e();
-                if (d.this.f.getSourceType() == 0) {
+                com.kwad.sdk.contentalliance.home.c.c e2 = bVar.e();
+                if (d.this.f32020f.getSourceType() == 0) {
                     if (d.this.J != null) {
                         dVar.a(d.this.J);
                         d.this.K.d();
                         d.this.J = null;
                     }
-                    e.b(d.this.I);
-                    e.d();
+                    e2.b(d.this.I);
+                    e2.d();
                     bVar.k();
-                    d.this.e.removeOnScrollListener(d.this.O);
-                    d.this.e.setAdapter(null);
+                    d.this.f32019e.removeOnScrollListener(d.this.O);
+                    d.this.f32019e.setAdapter(null);
                     d.this.R.removeCallbacksAndMessages(null);
                 } else {
-                    e.b(d.this.I);
-                    e.d();
+                    e2.b(d.this.I);
+                    e2.d();
                 }
             }
-            com.kwad.sdk.core.d.a.a("DetailProfileSlidePresenter", "becomesDetachedOnPageSelected mPosition" + d.this.f5594a.i + "--mSourceType=" + d.this.f.getSourceType() + "--headerFooterAdapter=" + d.this.e.getAdapter());
-            d.this.f.b(d.this.E);
+            com.kwad.sdk.core.d.a.a("DetailProfileSlidePresenter", "becomesDetachedOnPageSelected mPosition" + ((com.kwad.sdk.contentalliance.detail.b) d.this).f32132a.i + "--mSourceType=" + d.this.f32020f.getSourceType() + "--headerFooterAdapter=" + d.this.f32019e.getAdapter());
+            d.this.f32020f.b(d.this.E);
         }
     };
-    private final com.kwad.sdk.contentalliance.home.swipe.a H = new com.kwad.sdk.contentalliance.home.swipe.a() { // from class: com.kwad.sdk.contentalliance.detail.a.d.9
+    public final com.kwad.sdk.contentalliance.home.swipe.a H = new com.kwad.sdk.contentalliance.home.swipe.a() { // from class: com.kwad.sdk.contentalliance.detail.a.d.9
         @Override // com.kwad.sdk.contentalliance.home.swipe.a
-        public void a(float f) {
+        public void a(float f2) {
+            View view;
+            int i;
             if (d.this.x) {
-                if (d.this.e.getAdapter() == null) {
+                if (d.this.f32019e.getAdapter() == null) {
                     d.this.f();
                 }
-                d.this.m = f;
-                d.this.a(f);
-                if (f == 1.0f) {
-                    d.this.i.setVisibility(8);
+                d.this.m = f2;
+                d.this.a(f2);
+                if (f2 == 1.0f) {
+                    view = d.this.i;
+                    i = 8;
                 } else {
-                    d.this.i.setVisibility(0);
+                    view = d.this.i;
+                    i = 0;
                 }
+                view.setVisibility(i);
                 for (com.kwad.sdk.contentalliance.home.swipe.a aVar : d.this.A) {
-                    aVar.a(f);
+                    aVar.a(f2);
                 }
             }
         }
 
         @Override // com.kwad.sdk.contentalliance.home.swipe.a
-        public float b(float f) {
+        public float b(float f2) {
             if (d.this.t == null) {
-                d.this.t = Float.valueOf(d.this.d.getTranslationX());
+                d dVar = d.this;
+                dVar.t = Float.valueOf(dVar.f32018d.getTranslationX());
             }
             if (d.this.t.floatValue() == 0.0f) {
-                if (f < 0.0f) {
+                if (f2 < 0.0f) {
                     return 0.0f;
                 }
-                return Math.min(1.0f, (Math.abs(f) * 1.0f) / d.this.s);
-            } else if (f > 0.0f) {
+                return Math.min(1.0f, (Math.abs(f2) * 1.0f) / d.this.s);
+            } else if (f2 > 0.0f) {
                 return 1.0f;
             } else {
-                return Math.max(0.0f, 1.0f - ((Math.abs(f) * 1.0f) / d.this.s));
+                return Math.max(0.0f, 1.0f - ((Math.abs(f2) * 1.0f) / d.this.s));
             }
         }
 
         @Override // com.kwad.sdk.contentalliance.home.swipe.a
-        public void c(float f) {
+        public void c(float f2) {
             if (d.this.x) {
                 for (com.kwad.sdk.contentalliance.home.swipe.a aVar : d.this.A) {
-                    aVar.c(f);
+                    aVar.c(f2);
                 }
             }
         }
 
         @Override // com.kwad.sdk.contentalliance.home.swipe.a
-        public void d(float f) {
+        public void d(float f2) {
             if (d.this.x) {
                 d.this.r();
                 ae.b(d.this.o());
-                d.this.f.setEnabled(false);
+                d.this.f32020f.setEnabled(false);
                 for (com.kwad.sdk.contentalliance.home.swipe.a aVar : d.this.A) {
-                    aVar.d(f);
+                    aVar.d(f2);
                 }
             }
         }
 
         @Override // com.kwad.sdk.contentalliance.home.swipe.a
-        public void e(float f) {
+        public void e(float f2) {
+            View view;
+            int i;
             if (d.this.x) {
                 d.this.t = null;
-                d.this.m = f;
-                com.kwad.sdk.core.d.a.a("DetailProfileSlidePresenter", "updateFeed onSwipeFinish mPosition" + d.this.f5594a.i + "--mSourceType=" + d.this.f.getSourceType());
+                d.this.m = f2;
+                com.kwad.sdk.core.d.a.a("DetailProfileSlidePresenter", "updateFeed onSwipeFinish mPosition" + ((com.kwad.sdk.contentalliance.detail.b) d.this).f32132a.i + "--mSourceType=" + d.this.f32020f.getSourceType());
                 d.this.q();
                 for (com.kwad.sdk.contentalliance.home.swipe.a aVar : d.this.A) {
-                    aVar.e(f);
+                    aVar.e(f2);
                 }
-                if (f == 0.0f) {
+                if (f2 == 0.0f) {
                     com.kwad.sdk.core.report.e.n(d.this.z);
                 }
-                if (f == 1.0f) {
-                    d.this.i.setVisibility(8);
+                if (f2 == 1.0f) {
+                    view = d.this.i;
+                    i = 8;
                 } else {
-                    d.this.i.setVisibility(0);
+                    view = d.this.i;
+                    i = 0;
                 }
+                view.setVisibility(i);
             }
         }
     };
-    private com.kwad.sdk.contentalliance.home.a.d I = new com.kwad.sdk.contentalliance.home.a.d() { // from class: com.kwad.sdk.contentalliance.detail.a.d.10
+    public com.kwad.sdk.contentalliance.home.a.d I = new com.kwad.sdk.contentalliance.home.a.d() { // from class: com.kwad.sdk.contentalliance.detail.a.d.10
         @Override // com.kwad.sdk.contentalliance.home.a.d
         public void a(int i, String str) {
             d.this.p();
-            com.kwad.sdk.contentalliance.home.c.c e = ((com.kwad.sdk.contentalliance.home.c.b) ((com.kwad.sdk.lib.widget.recycler.d) d.this.e.getAdapter()).c()).e();
-            if (d.this.D || e.c()) {
-                if (com.kwad.sdk.core.network.f.f6187a.k == i) {
+            com.kwad.sdk.contentalliance.home.c.c e2 = ((com.kwad.sdk.contentalliance.home.c.b) ((com.kwad.sdk.lib.widget.recycler.d) d.this.f32019e.getAdapter()).c()).e();
+            if (d.this.D || e2.c()) {
+                if (com.kwad.sdk.core.network.f.f33868a.k == i) {
                     p.a(d.this.o());
-                } else if (com.kwad.sdk.core.network.f.g.k != i) {
+                } else if (com.kwad.sdk.core.network.f.f33874g.k != i) {
                     p.b(d.this.o());
                 } else if (com.kwad.sdk.core.config.c.X()) {
                     p.c(d.this.o());
@@ -262,13 +289,13 @@ public class d extends com.kwad.sdk.contentalliance.detail.b implements View.OnC
 
         @Override // com.kwad.sdk.contentalliance.home.a.d
         public void a(boolean z, int i) {
-            com.kwad.sdk.core.d.a.a("DetailProfileSlidePresenter", "updateFeed onFinishLoading mPosition" + d.this.f5594a.i + "--mSourceType=" + d.this.f.getSourceType());
+            com.kwad.sdk.core.d.a.a("DetailProfileSlidePresenter", "updateFeed onFinishLoading mPosition" + ((com.kwad.sdk.contentalliance.detail.b) d.this).f32132a.i + "--mSourceType=" + d.this.f32020f.getSourceType());
             if (z) {
                 d.this.e();
                 d.this.q();
-                d.this.e.removeCallbacks(d.this.M);
-                d.this.e.removeCallbacks(d.this.N);
-                d.this.e.post(d.this.N);
+                d.this.f32019e.removeCallbacks(d.this.M);
+                d.this.f32019e.removeCallbacks(d.this.N);
+                d.this.f32019e.post(d.this.N);
             } else {
                 d.this.e();
                 d.this.q();
@@ -283,19 +310,19 @@ public class d extends com.kwad.sdk.contentalliance.detail.b implements View.OnC
             }
         }
     };
-    private Runnable M = new Runnable() { // from class: com.kwad.sdk.contentalliance.detail.a.d.11
+    public Runnable M = new Runnable() { // from class: com.kwad.sdk.contentalliance.detail.a.d.11
         @Override // java.lang.Runnable
         public void run() {
             d.this.b(true);
         }
     };
-    private Runnable N = new Runnable() { // from class: com.kwad.sdk.contentalliance.detail.a.d.12
+    public Runnable N = new Runnable() { // from class: com.kwad.sdk.contentalliance.detail.a.d.12
         @Override // java.lang.Runnable
         public void run() {
             d.this.b(false);
         }
     };
-    private RecyclerView.OnScrollListener O = new RecyclerView.OnScrollListener() { // from class: com.kwad.sdk.contentalliance.detail.a.d.2
+    public RecyclerView.OnScrollListener O = new RecyclerView.OnScrollListener() { // from class: com.kwad.sdk.contentalliance.detail.a.d.2
         @Override // androidx.recyclerview.widget.RecyclerView.OnScrollListener
         public void onScrollStateChanged(RecyclerView recyclerView, int i) {
             super.onScrollStateChanged(recyclerView, i);
@@ -312,7 +339,7 @@ public class d extends com.kwad.sdk.contentalliance.detail.b implements View.OnC
             }
         }
     };
-    private Handler R = new Handler();
+    public Handler R = new Handler();
 
     private int a(View view, int i) {
         if (view == null) {
@@ -326,56 +353,58 @@ public class d extends com.kwad.sdk.contentalliance.detail.b implements View.OnC
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(float f) {
-        this.d.setTranslationX(this.s * f);
-        this.c.setPivotX(((this.p * 1.0f) / (this.p + this.s)) * this.n);
-        float f2 = 1.0f - (((this.s + this.p) * (1.0f - f)) / this.n);
-        this.c.setScaleX(f2);
-        this.c.setScaleY(f2);
+    public void a(float f2) {
+        this.f32018d.setTranslationX(this.s * f2);
+        int i = this.p;
+        this.f32017c.setPivotX(((i * 1.0f) / (i + this.s)) * this.n);
+        float f3 = 1.0f - (((this.s + this.p) * (1.0f - f2)) / this.n);
+        this.f32017c.setScaleX(f3);
+        this.f32017c.setScaleY(f3);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(RecyclerView recyclerView) {
-        com.kwad.sdk.contentalliance.home.c.b bVar = (com.kwad.sdk.contentalliance.home.c.b) ((com.kwad.sdk.lib.widget.recycler.d) this.e.getAdapter()).c();
+        com.kwad.sdk.contentalliance.home.c.b bVar = (com.kwad.sdk.contentalliance.home.c.b) ((com.kwad.sdk.lib.widget.recycler.d) this.f32019e.getAdapter()).c();
         RecyclerView.LayoutManager layoutManager = recyclerView.getLayoutManager();
-        com.kwad.sdk.contentalliance.home.c.c e = bVar.e();
-        if (layoutManager.getChildCount() <= 0 || !a((com.kwad.sdk.contentalliance.home.a.b) e)) {
+        com.kwad.sdk.contentalliance.home.c.c e2 = bVar.e();
+        if (layoutManager.getChildCount() <= 0 || !a((com.kwad.sdk.contentalliance.home.a.b) e2)) {
             return;
         }
         if (((RecyclerView.LayoutParams) layoutManager.getChildAt(layoutManager.getChildCount() - 1).getLayoutParams()).getViewAdapterPosition() >= bVar.getItemCount() - 1) {
-            e.a();
+            e2.a();
         }
     }
 
     private void a(KsFragment ksFragment, h hVar) {
-        if (this.b != null) {
+        if (this.f32016b != null) {
             return;
         }
-        this.b = ksFragment.getParentFragment().getView();
-        this.c = this.b.findViewById(R.id.ksad_home_content_layout);
-        this.f = (SlidePlayViewPager) this.b.findViewById(R.id.ksad_slide_play_view_pager);
-        this.h = R.id.ksad_content_home_author_id;
-        this.g = (TextView) this.b.findViewById(R.id.ksad_home_profile_title);
-        this.i = this.b.findViewById(R.id.ksad_home_profile_bottom_layout);
-        this.j = (ImageView) this.b.findViewById(R.id.ksad_home_profile_author_icon);
-        this.k = (TextView) this.b.findViewById(R.id.ksad_home_profile_author_name);
-        this.l = (TextView) this.b.findViewById(R.id.ksad_home_profile_author_photo_count);
-        this.d = this.b.findViewById(R.id.ksad_home_profile_layout);
-        this.e = (RecyclerView) this.b.findViewById(R.id.ksad_home_profile_recycler_view);
+        View view = ksFragment.getParentFragment().getView();
+        this.f32016b = view;
+        this.f32017c = view.findViewById(R.id.ksad_home_content_layout);
+        this.f32020f = (SlidePlayViewPager) this.f32016b.findViewById(R.id.ksad_slide_play_view_pager);
+        this.f32022h = R.id.ksad_content_home_author_id;
+        this.f32021g = (TextView) this.f32016b.findViewById(R.id.ksad_home_profile_title);
+        this.i = this.f32016b.findViewById(R.id.ksad_home_profile_bottom_layout);
+        this.j = (ImageView) this.f32016b.findViewById(R.id.ksad_home_profile_author_icon);
+        this.k = (TextView) this.f32016b.findViewById(R.id.ksad_home_profile_author_name);
+        this.l = (TextView) this.f32016b.findViewById(R.id.ksad_home_profile_author_photo_count);
+        this.f32018d = this.f32016b.findViewById(R.id.ksad_home_profile_layout);
+        this.f32019e = (RecyclerView) this.f32016b.findViewById(R.id.ksad_home_profile_recycler_view);
         this.s = ao.a(o(), R.dimen.ksad_content_slide_profile_width);
         this.p = ao.a(o(), R.dimen.ksad_content_slide_profile_margin);
         this.q = this.s;
         this.u = ao.a(o(), 5.0f);
         this.v = ao.a(o(), R.dimen.ksad_content_slide_profile_item_height) + this.u;
-        this.B = hVar.g;
-        this.y = hVar.h;
-        if (this.e.getLayoutManager() == null) {
-            this.e.setLayoutManager(new LinearLayoutManager(this.e.getContext()));
-            this.e.setItemAnimator(null);
-            this.e.addItemDecoration(new RecyclerView.ItemDecoration() { // from class: com.kwad.sdk.contentalliance.detail.a.d.1
+        this.B = hVar.f32794g;
+        this.y = hVar.f32795h;
+        if (this.f32019e.getLayoutManager() == null) {
+            this.f32019e.setLayoutManager(new LinearLayoutManager(this.f32019e.getContext()));
+            this.f32019e.setItemAnimator(null);
+            this.f32019e.addItemDecoration(new RecyclerView.ItemDecoration() { // from class: com.kwad.sdk.contentalliance.detail.a.d.1
                 @Override // androidx.recyclerview.widget.RecyclerView.ItemDecoration
-                public void getItemOffsets(Rect rect, View view, RecyclerView recyclerView, RecyclerView.State state) {
-                    rect.set(0, recyclerView.getChildAdapterPosition(view) == 0 ? 0 : d.this.u, 0, 0);
+                public void getItemOffsets(Rect rect, View view2, RecyclerView recyclerView, RecyclerView.State state) {
+                    rect.set(0, recyclerView.getChildAdapterPosition(view2) == 0 ? 0 : d.this.u, 0, 0);
                 }
             });
         }
@@ -387,16 +416,17 @@ public class d extends com.kwad.sdk.contentalliance.detail.b implements View.OnC
     public void a(UserProfile userProfile) {
         long o = com.kwad.sdk.core.response.b.d.o(this.z.photoInfo);
         if (o == userProfile.authorId) {
-            this.g.setText(a(userProfile.authorGender));
+            this.f32021g.setText(a(userProfile.authorGender));
             this.k.setText(userProfile.authorName);
-            this.l.setText("作品 " + ag.a(userProfile.ownerCount.publicPhotoCount));
-            this.l.setTag(this.h, String.valueOf(o));
+            TextView textView = this.l;
+            textView.setText("作品 " + ag.a(userProfile.ownerCount.publicPhotoCount));
+            this.l.setTag(this.f32022h, String.valueOf(o));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(boolean z) {
-        com.kwad.sdk.lib.widget.recycler.d dVar = (com.kwad.sdk.lib.widget.recycler.d) this.e.getAdapter();
+        com.kwad.sdk.lib.widget.recycler.d dVar = (com.kwad.sdk.lib.widget.recycler.d) this.f32019e.getAdapter();
         if (dVar != null) {
             ((com.kwad.sdk.contentalliance.home.c.b) dVar.c()).a(this.z, this.w, z);
         }
@@ -409,66 +439,71 @@ public class d extends com.kwad.sdk.contentalliance.detail.b implements View.OnC
     /* JADX INFO: Access modifiers changed from: private */
     public void b(boolean z) {
         int indexOf;
-        com.kwad.sdk.lib.widget.recycler.d dVar = (com.kwad.sdk.lib.widget.recycler.d) this.e.getAdapter();
+        com.kwad.sdk.lib.widget.recycler.d dVar = (com.kwad.sdk.lib.widget.recycler.d) this.f32019e.getAdapter();
         if (dVar == null || (indexOf = ((com.kwad.sdk.contentalliance.home.c.b) dVar.c()).h().indexOf(this.z)) == -1) {
             return;
         }
-        LinearLayoutManager linearLayoutManager = (LinearLayoutManager) this.e.getLayoutManager();
-        int height = this.e.getHeight();
+        LinearLayoutManager linearLayoutManager = (LinearLayoutManager) this.f32019e.getLayoutManager();
+        int height = this.f32019e.getHeight();
         if (!z) {
-            linearLayoutManager.scrollToPositionWithOffset(indexOf, ((height - this.v) / 2) - (indexOf != 0 ? this.u + ((height % this.v) / 2) : 0));
+            int i = this.v;
+            linearLayoutManager.scrollToPositionWithOffset(indexOf, ((height - i) / 2) - (indexOf != 0 ? this.u + ((height % i) / 2) : 0));
             return;
         }
         View findViewByPosition = linearLayoutManager.findViewByPosition(indexOf);
         if (findViewByPosition != null) {
-            this.e.smoothScrollBy(0, a(findViewByPosition, height), L);
+            this.f32019e.smoothScrollBy(0, a(findViewByPosition, height), L);
             return;
         }
         int findFirstVisibleItemPosition = linearLayoutManager.findFirstVisibleItemPosition();
         int findLastVisibleItemPosition = linearLayoutManager.findLastVisibleItemPosition();
         if (indexOf < findFirstVisibleItemPosition) {
-            this.e.smoothScrollBy(0, a(linearLayoutManager.findViewByPosition(findFirstVisibleItemPosition), height) + ((-(findFirstVisibleItemPosition - indexOf)) * this.v), L);
+            this.f32019e.smoothScrollBy(0, ((-(findFirstVisibleItemPosition - indexOf)) * this.v) + a(linearLayoutManager.findViewByPosition(findFirstVisibleItemPosition), height), L);
         } else if (indexOf > findLastVisibleItemPosition) {
-            this.e.smoothScrollBy(0, a(linearLayoutManager.findViewByPosition(findLastVisibleItemPosition), height) + ((indexOf - findLastVisibleItemPosition) * this.v), L);
+            this.f32019e.smoothScrollBy(0, ((indexOf - findLastVisibleItemPosition) * this.v) + a(linearLayoutManager.findViewByPosition(findLastVisibleItemPosition), height), L);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void e() {
-        com.kwad.sdk.contentalliance.home.c.b bVar = (com.kwad.sdk.contentalliance.home.c.b) ((com.kwad.sdk.lib.widget.recycler.d) this.e.getAdapter()).c();
+        com.kwad.sdk.contentalliance.home.c.b bVar = (com.kwad.sdk.contentalliance.home.c.b) ((com.kwad.sdk.lib.widget.recycler.d) this.f32019e.getAdapter()).c();
         bVar.a(bVar.e().b());
         bVar.notifyDataSetChanged();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void f() {
-        com.kwad.sdk.core.d.a.a("DetailProfileSlidePresenter", "updateProfileFeed mPosition" + this.f5594a.i + "--mSourceType=" + this.f.getSourceType());
+        com.kwad.sdk.core.d.a.a("DetailProfileSlidePresenter", "updateProfileFeed mPosition" + ((com.kwad.sdk.contentalliance.detail.b) this).f32132a.i + "--mSourceType=" + this.f32020f.getSourceType());
         com.kwad.sdk.contentalliance.home.c.c cVar = new com.kwad.sdk.contentalliance.home.c.c(this.z.mAdScene);
         cVar.b(this.z);
-        com.kwad.sdk.contentalliance.home.c.b bVar = new com.kwad.sdk.contentalliance.home.c.b(this.f5594a.k.getParentFragment(), this.e, this.f);
+        com.kwad.sdk.contentalliance.home.c.b bVar = new com.kwad.sdk.contentalliance.home.c.b(((com.kwad.sdk.contentalliance.detail.b) this).f32132a.k.getParentFragment(), this.f32019e, this.f32020f);
         bVar.a(this.w);
         bVar.a(this.z, this.C);
         bVar.a(cVar.b());
         bVar.a(cVar);
         com.kwad.sdk.lib.widget.recycler.d dVar = new com.kwad.sdk.lib.widget.recycler.d(bVar);
-        this.J = g();
-        if (!dVar.d(this.J)) {
+        View g2 = g();
+        this.J = g2;
+        if (!dVar.d(g2)) {
             dVar.c(this.J);
         }
-        dVar.a(this.e);
-        this.e.setAdapter(dVar);
+        dVar.a(this.f32019e);
+        this.f32019e.setAdapter(dVar);
         cVar.a(this.I);
-        this.e.addOnScrollListener(this.O);
+        this.f32019e.addOnScrollListener(this.O);
         cVar.a(0);
     }
 
     private View g() {
-        if (this.J != null) {
-            return this.J;
+        View view = this.J;
+        if (view != null) {
+            return view;
         }
-        this.J = ao.a((ViewGroup) this.e, R.layout.ksad_content_slide_home_profile_loading_more, false);
-        this.K = (LottieAnimationView) this.J.findViewById(R.id.ksad_loading_lottie);
-        this.K.setAnimation(R.raw.ksad_detail_loading_amin_new);
+        View a2 = ao.a((ViewGroup) this.f32019e, R.layout.ksad_content_slide_home_profile_loading_more, false);
+        this.J = a2;
+        LottieAnimationView lottieAnimationView = (LottieAnimationView) a2.findViewById(R.id.ksad_loading_lottie);
+        this.K = lottieAnimationView;
+        lottieAnimationView.setAnimation(R.raw.ksad_detail_loading_amin_new);
         this.K.setRepeatMode(1);
         this.K.setRepeatCount(-1);
         return this.J;
@@ -493,45 +528,52 @@ public class d extends com.kwad.sdk.contentalliance.detail.b implements View.OnC
 
     /* JADX INFO: Access modifiers changed from: private */
     public void q() {
-        if (this.m == 1.0f) {
-            if (this.y.a(this.y.c())) {
-                this.z.mIsLeftSlipStatus = 0;
-                this.f.a(this.z, 0);
+        float f2 = this.m;
+        if (f2 == 1.0f) {
+            com.kwad.sdk.contentalliance.home.a.i iVar = this.y;
+            if (iVar.a(iVar.c())) {
+                AdTemplate adTemplate = this.z;
+                adTemplate.mIsLeftSlipStatus = 0;
+                this.f32020f.a(adTemplate, 0);
             }
-            this.f.setEnabled(true);
-        } else if (this.m == 0.0f) {
-            com.kwad.sdk.contentalliance.home.c.b bVar = (com.kwad.sdk.contentalliance.home.c.b) ((com.kwad.sdk.lib.widget.recycler.d) this.e.getAdapter()).c();
-            com.kwad.sdk.contentalliance.home.c.c e = bVar.e();
-            if (e.c()) {
+        } else if (f2 != 0.0f) {
+            return;
+        } else {
+            com.kwad.sdk.contentalliance.home.c.b bVar = (com.kwad.sdk.contentalliance.home.c.b) ((com.kwad.sdk.lib.widget.recycler.d) this.f32019e.getAdapter()).c();
+            com.kwad.sdk.contentalliance.home.c.c e2 = bVar.e();
+            if (e2.c()) {
                 return;
             }
-            if (this.y.a(e)) {
-                this.z.mIsLeftSlipStatus = 1;
-                bVar.b(this.y.a(this.z));
-                this.f.a(this.z, 1);
+            if (this.y.a(e2)) {
+                AdTemplate adTemplate2 = this.z;
+                adTemplate2.mIsLeftSlipStatus = 1;
+                bVar.b(this.y.a(adTemplate2));
+                this.f32020f.a(this.z, 1);
             } else {
-                this.f.getAdapter().a(this.y.d(), this.z, 1, this.y.a(this.z), false);
+                com.kwad.sdk.contentalliance.home.viewpager.a adapter = this.f32020f.getAdapter();
+                List<AdTemplate> d2 = this.y.d();
+                AdTemplate adTemplate3 = this.z;
+                adapter.a(d2, adTemplate3, 1, this.y.a(adTemplate3), false);
             }
-            if (e.b().size() <= 1) {
-                this.f.setEnabled(false);
-            } else {
-                this.f.setEnabled(true);
+            if (e2.b().size() <= 1) {
+                this.f32020f.setEnabled(false);
+                return;
             }
         }
+        this.f32020f.setEnabled(true);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void r() {
         SceneImpl sceneImpl;
         final long o = com.kwad.sdk.core.response.b.d.o(this.z.photoInfo);
-        String str = (String) this.l.getTag(this.h);
+        String str = (String) this.l.getTag(this.f32022h);
         if ((TextUtils.isEmpty(str) || !str.equals(String.valueOf(o))) && !this.P && this.x && (sceneImpl = this.z.mAdScene) != null) {
             this.P = true;
             final com.kwad.sdk.core.g.a.f fVar = new com.kwad.sdk.core.g.a.f(sceneImpl);
-            fVar.b = sceneImpl.getPageScene();
-            this.Q = new i<q, ProfileResultData>() { // from class: com.kwad.sdk.contentalliance.detail.a.d.3
+            fVar.f33651b = sceneImpl.getPageScene();
+            i<q, ProfileResultData> iVar = new i<q, ProfileResultData>() { // from class: com.kwad.sdk.contentalliance.detail.a.d.3
                 /* JADX DEBUG: Method merged with bridge method */
-                /* JADX INFO: Access modifiers changed from: protected */
                 @Override // com.kwad.sdk.core.network.i
                 @NonNull
                 /* renamed from: a */
@@ -550,7 +592,8 @@ public class d extends com.kwad.sdk.contentalliance.detail.b implements View.OnC
                     return new q(fVar, o);
                 }
             };
-            this.Q.a(new j<q, ProfileResultData>() { // from class: com.kwad.sdk.contentalliance.detail.a.d.4
+            this.Q = iVar;
+            iVar.a(new j<q, ProfileResultData>() { // from class: com.kwad.sdk.contentalliance.detail.a.d.4
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.kwad.sdk.core.network.j, com.kwad.sdk.core.network.h
                 public void a(@NonNull q qVar, int i, String str2) {
@@ -575,16 +618,17 @@ public class d extends com.kwad.sdk.contentalliance.detail.b implements View.OnC
     /* JADX INFO: Access modifiers changed from: private */
     public void s() {
         long o = com.kwad.sdk.core.response.b.d.o(this.z.photoInfo);
-        String str = (String) this.i.getTag(this.h);
+        String str = (String) this.i.getTag(this.f32022h);
         if (TextUtils.isEmpty(str) || !str.equals(String.valueOf(o))) {
             KSImageLoader.loadCircleIconWithoutStroke(this.j, com.kwad.sdk.core.response.b.c.q(this.z), o().getResources().getDrawable(R.drawable.ksad_photo_default_author_icon_2));
-            this.i.setTag(this.h, String.valueOf(o));
+            this.i.setTag(this.f32022h, String.valueOf(o));
         }
     }
 
     private void t() {
-        if (this.Q != null) {
-            this.Q.e();
+        i<q, ProfileResultData> iVar = this.Q;
+        if (iVar != null) {
+            iVar.e();
         }
     }
 
@@ -607,87 +651,92 @@ public class d extends com.kwad.sdk.contentalliance.detail.b implements View.OnC
         com.kwad.sdk.core.report.e.a(this.z, 5, 3, 0);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.contentalliance.detail.b, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        a(this.f5594a.k, this.f5594a.f5600a);
+        com.kwad.sdk.contentalliance.detail.c cVar = ((com.kwad.sdk.contentalliance.detail.b) this).f32132a;
+        a(cVar.k, cVar.f32151a);
         this.R.post(new Runnable() { // from class: com.kwad.sdk.contentalliance.detail.a.d.5
             @Override // java.lang.Runnable
             public void run() {
-                d.this.n = d.this.b.getWidth();
-                d.this.o = d.this.b.getHeight();
-                d.this.r = (int) (((((d.this.n - d.this.p) - d.this.q) * 1.0f) / d.this.n) * d.this.o);
+                d dVar = d.this;
+                dVar.n = dVar.f32016b.getWidth();
+                d dVar2 = d.this;
+                dVar2.o = dVar2.f32016b.getHeight();
+                d dVar3 = d.this;
+                dVar3.r = (int) (((((dVar3.n - d.this.p) - d.this.q) * 1.0f) / d.this.n) * d.this.o);
                 com.kwad.sdk.core.d.a.a("DetailProfileSlidePresenter", "mScaledHeight=" + d.this.r + "--mHomeFragmentWidth" + d.this.n + "--mHomeFragmentHeight=" + d.this.o);
-                if (d.this.e.getHeight() != d.this.r) {
-                    ViewGroup.LayoutParams layoutParams = d.this.e.getLayoutParams();
+                if (d.this.f32019e.getHeight() != d.this.r) {
+                    ViewGroup.LayoutParams layoutParams = d.this.f32019e.getLayoutParams();
                     layoutParams.height = d.this.r;
-                    d.this.e.setLayoutParams(layoutParams);
+                    d.this.f32019e.setLayoutParams(layoutParams);
                     ViewGroup.LayoutParams layoutParams2 = d.this.i.getLayoutParams();
                     layoutParams2.height = (d.this.o - d.this.r) / 2;
                     d.this.i.setLayoutParams(layoutParams2);
                 }
             }
         });
-        this.z = this.f5594a.j;
-        this.A = this.f5594a.e;
-        this.f5594a.b.add(this.G);
-        this.m = this.f.getSourceType() == 1 ? 0.0f : 1.0f;
-        this.C = this.f5594a.m;
-        if (this.C != null) {
-            this.C.a(this.F);
+        com.kwad.sdk.contentalliance.detail.c cVar2 = ((com.kwad.sdk.contentalliance.detail.b) this).f32132a;
+        this.z = cVar2.j;
+        this.A = cVar2.f32155e;
+        cVar2.f32152b.add(this.G);
+        this.m = this.f32020f.getSourceType() == 1 ? 0.0f : 1.0f;
+        com.kwad.sdk.contentalliance.detail.video.b bVar = ((com.kwad.sdk.contentalliance.detail.b) this).f32132a.m;
+        this.C = bVar;
+        if (bVar != null) {
+            bVar.a(this.F);
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.mvp.Presenter
     public void b_() {
         super.b_();
-        this.f5594a.b.remove(this.G);
-        if (this.C != null) {
-            this.C.b(this.F);
+        ((com.kwad.sdk.contentalliance.detail.b) this).f32132a.f32152b.remove(this.G);
+        com.kwad.sdk.contentalliance.detail.video.b bVar = this.C;
+        if (bVar != null) {
+            bVar.b(this.F);
         }
         t();
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.mvp.Presenter
     public void c() {
         super.c();
         this.w = b(R.id.ksad_video_control_button);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.mvp.Presenter
     public void d() {
         super.d();
-        this.e.removeCallbacks(this.M);
-        this.e.removeCallbacks(this.N);
+        this.f32019e.removeCallbacks(this.M);
+        this.f32019e.removeCallbacks(this.N);
         this.R.removeCallbacksAndMessages(null);
         t();
-        com.kwad.sdk.lib.widget.recycler.d dVar = (com.kwad.sdk.lib.widget.recycler.d) this.e.getAdapter();
+        com.kwad.sdk.lib.widget.recycler.d dVar = (com.kwad.sdk.lib.widget.recycler.d) this.f32019e.getAdapter();
         if (dVar != null) {
             com.kwad.sdk.contentalliance.home.c.b bVar = (com.kwad.sdk.contentalliance.home.c.b) dVar.c();
-            com.kwad.sdk.contentalliance.home.c.c e = bVar.e();
-            e.b(this.I);
-            e.d();
+            com.kwad.sdk.contentalliance.home.c.c e2 = bVar.e();
+            e2.b(this.I);
+            e2.d();
             bVar.k();
-            this.e.removeOnScrollListener(this.O);
-            this.e.setAdapter(null);
-            if (this.K != null) {
-                this.K.d();
+            this.f32019e.removeOnScrollListener(this.O);
+            this.f32019e.setAdapter(null);
+            LottieAnimationView lottieAnimationView = this.K;
+            if (lottieAnimationView != null) {
+                lottieAnimationView.d();
             }
         }
         try {
             a(1.0f);
-        } catch (Exception e2) {
-            com.kwad.sdk.core.d.a.b(e2);
+        } catch (Exception e3) {
+            com.kwad.sdk.core.d.a.b(e3);
         }
-        if (this.y.a(this.y.c())) {
-            this.f.a(this.z, 0);
+        com.kwad.sdk.contentalliance.home.a.i iVar = this.y;
+        if (iVar.a(iVar.c())) {
+            this.f32020f.a(this.z, 0);
         }
-        this.f.setEnabled(true);
-        this.f.b(this.E);
+        this.f32020f.setEnabled(true);
+        this.f32020f.b(this.E);
     }
 
     @Override // android.view.View.OnClickListener

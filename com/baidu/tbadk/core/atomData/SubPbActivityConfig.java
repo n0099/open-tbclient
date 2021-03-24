@@ -13,7 +13,7 @@ import com.baidu.tbadk.data.IconData;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class SubPbActivityConfig extends IntentConfig {
     public static final String ICON_LIST = "icon_list";
     public static final String KEY_ANTI = "anti";
@@ -58,8 +58,158 @@ public class SubPbActivityConfig extends IntentConfig {
         super(context);
     }
 
+    public SubPbActivityConfig addBigImageData(ArrayList<String> arrayList, ConcurrentHashMap<String, ImageUrlData> concurrentHashMap, boolean z, int i) {
+        if (concurrentHashMap != null && arrayList != null) {
+            Intent intent = getIntent();
+            Bundle bundle = new Bundle();
+            ArrayList<String> arrayList2 = new ArrayList<>(concurrentHashMap.keySet());
+            bundle.putStringArrayList(SUB_KEY_IMG_URL, arrayList2);
+            bundle.putBoolean(SUB_KEY_IMG_CDN, z);
+            bundle.putStringArrayList(SUB_KEY_IMG_SRC, arrayList);
+            Iterator<String> it = arrayList2.iterator();
+            while (it.hasNext()) {
+                String next = it.next();
+                if (!StringUtils.isNull(next)) {
+                    bundle.putSerializable(next, concurrentHashMap.get(next));
+                }
+            }
+            bundle.putInt(SUB_KEY_IMG_OFFSET, i);
+            intent.putExtra(KEY_IMG_URLS, bundle);
+        }
+        return this;
+    }
+
     public SubPbActivityConfig createSubPbActivityConfig(String str, String str2, String str3, boolean z, boolean z2) {
         return createSubPbActivityConfig(str, str2, str3, z, null, false, null, 0, null, null, z2);
+    }
+
+    public void setBjhData(BaijiahaoData baijiahaoData) {
+        Intent intent = getIntent();
+        if (intent == null || baijiahaoData == null) {
+            return;
+        }
+        int i = baijiahaoData.oriUgcType;
+        boolean z = true;
+        if (i != 1 && i != 2 && i != 3 && i != 4) {
+            z = false;
+        }
+        intent.putExtra("key_is_from_dynamic", z);
+        intent.putExtra("key_ori_ugc_nid", baijiahaoData.oriUgcNid);
+        intent.putExtra("key_ori_ugc_tid", baijiahaoData.oriUgcTid);
+        intent.putExtra("key_ori_ugc_type", baijiahaoData.oriUgcType);
+        intent.putExtra("key_ori_ugc_vid", baijiahaoData.oriUgcVid);
+    }
+
+    public void setDeletedReasonInfoIsGrayCaleForum(int i) {
+        Intent intent = getIntent();
+        if (intent != null) {
+            intent.putExtra(KEY_DELETED_REASON_INFO_IS_GRAY_CALE_FORUM, i);
+        }
+    }
+
+    public void setDeletedReasonInfoIsIsBoomGrow(int i) {
+        Intent intent = getIntent();
+        if (intent != null) {
+            intent.putExtra(KEY_DELETED_REASON_INFO_IS_IS_BOOM_GROW, i);
+        }
+    }
+
+    public void setForumHeadUrl(String str) {
+        Intent intent = getIntent();
+        if (intent != null) {
+            intent.putExtra(KEY_FORUM_HEAD_URL, str);
+        }
+    }
+
+    public void setFromFrsForumId(String str) {
+        Intent intent = getIntent();
+        if (intent != null) {
+            intent.putExtra(KEY_FROM_FRS_FORUM_ID, str);
+        }
+    }
+
+    public void setHasForumRule(int i) {
+        Intent intent = getIntent();
+        if (intent != null) {
+            intent.putExtra(KEY_HAS_FORUM_RULE, i);
+        }
+    }
+
+    public void setHighLightPostId(String str) {
+        Intent intent = getIntent();
+        if (intent != null) {
+            intent.putExtra("high_light_post_id", str);
+        }
+    }
+
+    public void setIsFromeSchema(boolean z) {
+        Intent intent = getIntent();
+        if (intent != null) {
+            intent.putExtra(KEY_IS_FROM_SCHEMA, z);
+        }
+    }
+
+    public void setIsManager(int i) {
+        Intent intent = getIntent();
+        if (intent != null) {
+            intent.putExtra(KEY_IS_MANAGER, i);
+        }
+    }
+
+    public void setIsOpenEditor(boolean z) {
+        Intent intent = getIntent();
+        if (intent != null) {
+            intent.putExtra(KEY_IS_OPEN_EDITOR, z);
+        }
+    }
+
+    public void setKeyFromForumId(String str) {
+        Intent intent = getIntent();
+        if (intent != null) {
+            intent.putExtra("from_forum_id", str);
+        }
+    }
+
+    public void setKeyIsUseSpid(boolean z) {
+        Intent intent = getIntent();
+        if (intent != null) {
+            intent.putExtra(KEY_IS_USE_SPID, z);
+        }
+    }
+
+    public void setKeyOriUgcTopPid(String str) {
+        Intent intent = getIntent();
+        if (intent != null) {
+            intent.putExtra(KEY_ORI_UGC_TOP_PID, str);
+        }
+    }
+
+    public void setKeyPageStartFrom(int i) {
+        Intent intent = getIntent();
+        if (intent != null) {
+            intent.putExtra(KEY_PAGE_START_FROM, i);
+        }
+    }
+
+    public void setMainPostMaskVisibly(boolean z) {
+        Intent intent = getIntent();
+        if (intent != null) {
+            intent.putExtra(KEY_MAIN_POST_MASK_VISIBLE, z);
+        }
+    }
+
+    public void setUserLevel(int i) {
+        Intent intent = getIntent();
+        if (intent != null) {
+            intent.putExtra(KEY_FORUM_HEAD_URL, i);
+        }
+    }
+
+    public void showOpenEditorTips(String str) {
+        Intent intent = getIntent();
+        if (intent != null) {
+            intent.putExtra("key_open_editor_tips", str);
+        }
     }
 
     public SubPbActivityConfig createSubPbActivityConfig(String str, String str2, String str3, boolean z) {
@@ -109,153 +259,5 @@ public class SubPbActivityConfig extends IntentConfig {
         intent.putExtra(ICON_LIST, arrayList);
         intent.putExtra(KEY_IS_SHOW_GO_TO_SUBJECT, z3);
         return this;
-    }
-
-    public SubPbActivityConfig addBigImageData(ArrayList<String> arrayList, ConcurrentHashMap<String, ImageUrlData> concurrentHashMap, boolean z, int i) {
-        if (concurrentHashMap != null && arrayList != null) {
-            Intent intent = getIntent();
-            Bundle bundle = new Bundle();
-            ArrayList<String> arrayList2 = new ArrayList<>(concurrentHashMap.keySet());
-            bundle.putStringArrayList(SUB_KEY_IMG_URL, arrayList2);
-            bundle.putBoolean(SUB_KEY_IMG_CDN, z);
-            bundle.putStringArrayList(SUB_KEY_IMG_SRC, arrayList);
-            Iterator<String> it = arrayList2.iterator();
-            while (it.hasNext()) {
-                String next = it.next();
-                if (!StringUtils.isNull(next)) {
-                    bundle.putSerializable(next, concurrentHashMap.get(next));
-                }
-            }
-            bundle.putInt(SUB_KEY_IMG_OFFSET, i);
-            intent.putExtra(KEY_IMG_URLS, bundle);
-        }
-        return this;
-    }
-
-    public void setKeyFromForumId(String str) {
-        Intent intent = getIntent();
-        if (intent != null) {
-            intent.putExtra("from_forum_id", str);
-        }
-    }
-
-    public void setBjhData(BaijiahaoData baijiahaoData) {
-        boolean z = true;
-        Intent intent = getIntent();
-        if (intent != null && baijiahaoData != null) {
-            if (baijiahaoData.oriUgcType != 1 && baijiahaoData.oriUgcType != 2 && baijiahaoData.oriUgcType != 3 && baijiahaoData.oriUgcType != 4) {
-                z = false;
-            }
-            intent.putExtra("key_is_from_dynamic", z);
-            intent.putExtra("key_ori_ugc_nid", baijiahaoData.oriUgcNid);
-            intent.putExtra("key_ori_ugc_tid", baijiahaoData.oriUgcTid);
-            intent.putExtra("key_ori_ugc_type", baijiahaoData.oriUgcType);
-            intent.putExtra("key_ori_ugc_vid", baijiahaoData.oriUgcVid);
-        }
-    }
-
-    public void setKeyOriUgcTopPid(String str) {
-        Intent intent = getIntent();
-        if (intent != null) {
-            intent.putExtra(KEY_ORI_UGC_TOP_PID, str);
-        }
-    }
-
-    public void setKeyPageStartFrom(int i) {
-        Intent intent = getIntent();
-        if (intent != null) {
-            intent.putExtra(KEY_PAGE_START_FROM, i);
-        }
-    }
-
-    public void setFromFrsForumId(String str) {
-        Intent intent = getIntent();
-        if (intent != null) {
-            intent.putExtra(KEY_FROM_FRS_FORUM_ID, str);
-        }
-    }
-
-    public void setHighLightPostId(String str) {
-        Intent intent = getIntent();
-        if (intent != null) {
-            intent.putExtra("high_light_post_id", str);
-        }
-    }
-
-    public void setIsFromeSchema(boolean z) {
-        Intent intent = getIntent();
-        if (intent != null) {
-            intent.putExtra(KEY_IS_FROM_SCHEMA, z);
-        }
-    }
-
-    public void setIsOpenEditor(boolean z) {
-        Intent intent = getIntent();
-        if (intent != null) {
-            intent.putExtra(KEY_IS_OPEN_EDITOR, z);
-        }
-    }
-
-    public void setKeyIsUseSpid(boolean z) {
-        Intent intent = getIntent();
-        if (intent != null) {
-            intent.putExtra(KEY_IS_USE_SPID, z);
-        }
-    }
-
-    public void setHasForumRule(int i) {
-        Intent intent = getIntent();
-        if (intent != null) {
-            intent.putExtra(KEY_HAS_FORUM_RULE, i);
-        }
-    }
-
-    public void setIsManager(int i) {
-        Intent intent = getIntent();
-        if (intent != null) {
-            intent.putExtra(KEY_IS_MANAGER, i);
-        }
-    }
-
-    public void setDeletedReasonInfoIsGrayCaleForum(int i) {
-        Intent intent = getIntent();
-        if (intent != null) {
-            intent.putExtra(KEY_DELETED_REASON_INFO_IS_GRAY_CALE_FORUM, i);
-        }
-    }
-
-    public void setDeletedReasonInfoIsIsBoomGrow(int i) {
-        Intent intent = getIntent();
-        if (intent != null) {
-            intent.putExtra(KEY_DELETED_REASON_INFO_IS_IS_BOOM_GROW, i);
-        }
-    }
-
-    public void setForumHeadUrl(String str) {
-        Intent intent = getIntent();
-        if (intent != null) {
-            intent.putExtra(KEY_FORUM_HEAD_URL, str);
-        }
-    }
-
-    public void setUserLevel(int i) {
-        Intent intent = getIntent();
-        if (intent != null) {
-            intent.putExtra(KEY_FORUM_HEAD_URL, i);
-        }
-    }
-
-    public void showOpenEditorTips(String str) {
-        Intent intent = getIntent();
-        if (intent != null) {
-            intent.putExtra("key_open_editor_tips", str);
-        }
-    }
-
-    public void setMainPostMaskVisibly(boolean z) {
-        Intent intent = getIntent();
-        if (intent != null) {
-            intent.putExtra(KEY_MAIN_POST_MASK_VISIBLE, z);
-        }
     }
 }

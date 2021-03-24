@@ -1,11 +1,11 @@
 package org.webrtc;
 
 import org.webrtc.VideoFrame;
-/* loaded from: classes9.dex */
+/* loaded from: classes7.dex */
 public class NativeCapturerObserver implements CapturerObserver {
-    private static VideoSink myHookSink;
-    private final long nativeSource;
-    private final SurfaceTextureHelper surfaceTextureHelper;
+    public static VideoSink myHookSink;
+    public final long nativeSource;
+    public final SurfaceTextureHelper surfaceTextureHelper;
 
     @CalledByNative
     public NativeCapturerObserver(long j) {
@@ -18,19 +18,20 @@ public class NativeCapturerObserver implements CapturerObserver {
         this.surfaceTextureHelper = surfaceTextureHelper;
     }
 
-    private static native void nativeCapturerStarted(long j, boolean z);
+    public static native void nativeCapturerStarted(long j, boolean z);
 
-    private static native void nativeCapturerStopped(long j);
+    public static native void nativeCapturerStopped(long j);
 
-    private static native void nativeOnFrameCaptured(long j, int i, int i2, int i3, long j2, VideoFrame.Buffer buffer);
+    public static native void nativeOnFrameCaptured(long j, int i, int i2, int i3, long j2, VideoFrame.Buffer buffer);
 
     public static void setMyHookSink(VideoSink videoSink) {
         myHookSink = videoSink;
     }
 
     public void dispose() {
-        if (this.surfaceTextureHelper != null) {
-            this.surfaceTextureHelper.dispose();
+        SurfaceTextureHelper surfaceTextureHelper = this.surfaceTextureHelper;
+        if (surfaceTextureHelper != null) {
+            surfaceTextureHelper.dispose();
         }
     }
 
@@ -46,8 +47,9 @@ public class NativeCapturerObserver implements CapturerObserver {
 
     @Override // org.webrtc.CapturerObserver
     public void onFrameCaptured(VideoFrame videoFrame) {
-        if (myHookSink != null) {
-            myHookSink.onFrame(videoFrame);
+        VideoSink videoSink = myHookSink;
+        if (videoSink != null) {
+            videoSink.onFrame(videoFrame);
         }
         nativeOnFrameCaptured(this.nativeSource, videoFrame.getBuffer().getWidth(), videoFrame.getBuffer().getHeight(), videoFrame.getRotation(), videoFrame.getTimestampNs(), videoFrame.getBuffer());
     }

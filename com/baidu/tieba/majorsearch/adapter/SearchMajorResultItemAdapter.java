@@ -11,107 +11,134 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes3.dex */
 public class SearchMajorResultItemAdapter extends RecyclerView.Adapter<ViewHolder> {
-    private String erD;
-    private a lmL;
-    private Context mContext;
-    private List<String> mDataList;
 
-    /* loaded from: classes7.dex */
-    public interface a {
-        void Oe(String str);
+    /* renamed from: a  reason: collision with root package name */
+    public String f18871a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public Context f18872b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public List<String> f18873c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public b f18874d;
+
+    /* loaded from: classes3.dex */
+    public class ViewHolder extends RecyclerView.ViewHolder {
+
+        /* renamed from: a  reason: collision with root package name */
+        public TextView f18875a;
+
+        public ViewHolder(SearchMajorResultItemAdapter searchMajorResultItemAdapter, View view) {
+            super(view);
+            this.f18875a = (TextView) view.findViewById(R.id.tv_major_name);
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class a implements View.OnClickListener {
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ String f18876e;
+
+        public a(String str) {
+            this.f18876e = str;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            if (SearchMajorResultItemAdapter.this.f18874d != null) {
+                SearchMajorResultItemAdapter.this.f18874d.a(this.f18876e);
+            }
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public interface b {
+        void a(String str);
     }
 
     public SearchMajorResultItemAdapter(Context context) {
-        this.mContext = context;
+        this.f18872b = context;
+    }
+
+    public final void d(TextView textView, String str) {
+        if (textView == null || TextUtils.isEmpty(str) || TextUtils.isEmpty(this.f18871a)) {
+            return;
+        }
+        String lowerCase = str.toLowerCase();
+        String lowerCase2 = this.f18871a.toLowerCase();
+        if (!lowerCase.contains(lowerCase2)) {
+            textView.setText(str);
+            return;
+        }
+        int indexOf = lowerCase.indexOf(lowerCase2);
+        ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0301));
+        SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
+        spannableStringBuilder.setSpan(foregroundColorSpan, indexOf, this.f18871a.length() + indexOf, 33);
+        textView.setText(spannableStringBuilder);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // androidx.recyclerview.widget.RecyclerView.Adapter
+    /* renamed from: e */
+    public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
+        List<String> list = this.f18873c;
+        if (list == null) {
+            return;
+        }
+        String str = list.get(i);
+        if (StringUtils.isNull(str)) {
+            return;
+        }
+        viewHolder.f18875a.setText(str);
+        SkinManager.setViewTextColor(viewHolder.f18875a, R.color.CAM_X0105);
+        SkinManager.setBackgroundResource(viewHolder.itemView, R.drawable.more_pop_item_bg_selector);
+        d(viewHolder.f18875a, str);
+        viewHolder.itemView.setOnClickListener(new a(str));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     @NonNull
-    /* renamed from: N */
+    /* renamed from: f */
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        return new ViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.search_major_item_layout, viewGroup, false));
+        return new ViewHolder(this, LayoutInflater.from(this.f18872b).inflate(R.layout.search_major_item_layout, viewGroup, false));
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    /* renamed from: a */
-    public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
-        if (this.mDataList != null) {
-            final String str = this.mDataList.get(i);
-            if (!StringUtils.isNull(str)) {
-                viewHolder.lmO.setText(str);
-                ap.setViewTextColor(viewHolder.lmO, R.color.CAM_X0105);
-                ap.setBackgroundResource(viewHolder.itemView, R.drawable.more_pop_item_bg_selector);
-                e(viewHolder.lmO, str);
-                viewHolder.itemView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.majorsearch.adapter.SearchMajorResultItemAdapter.1
-                    @Override // android.view.View.OnClickListener
-                    public void onClick(View view) {
-                        if (SearchMajorResultItemAdapter.this.lmL != null) {
-                            SearchMajorResultItemAdapter.this.lmL.Oe(str);
-                        }
-                    }
-                });
-            }
-        }
+    public void g(String str) {
+        this.f18871a = str;
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public int getItemCount() {
-        if (this.mDataList == null) {
+        List<String> list = this.f18873c;
+        if (list == null) {
             return 0;
         }
-        return this.mDataList.size();
+        return list.size();
     }
 
-    public void b(a aVar) {
-        this.lmL = aVar;
-    }
-
-    public void setData(List<String> list) {
-        this.mDataList = list;
-        notifyDataSetChanged();
-    }
-
-    public void dfe() {
-        if (this.mDataList != null) {
-            this.mDataList.clear();
+    public void m() {
+        List<String> list = this.f18873c;
+        if (list != null) {
+            list.clear();
             notifyDataSetChanged();
         }
     }
 
-    public void NW(String str) {
-        this.erD = str;
+    public void n(b bVar) {
+        this.f18874d = bVar;
     }
 
-    /* loaded from: classes7.dex */
-    public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView lmO;
-
-        public ViewHolder(View view) {
-            super(view);
-            this.lmO = (TextView) view.findViewById(R.id.tv_major_name);
-        }
-    }
-
-    private void e(TextView textView, String str) {
-        if (textView != null && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(this.erD)) {
-            String lowerCase = str.toLowerCase();
-            String lowerCase2 = this.erD.toLowerCase();
-            if (!lowerCase.contains(lowerCase2)) {
-                textView.setText(str);
-                return;
-            }
-            int indexOf = lowerCase.indexOf(lowerCase2);
-            ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(ap.getColor(R.color.CAM_X0301));
-            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
-            spannableStringBuilder.setSpan(foregroundColorSpan, indexOf, this.erD.length() + indexOf, 33);
-            textView.setText(spannableStringBuilder);
-        }
+    public void setData(List<String> list) {
+        this.f18873c = list;
+        notifyDataSetChanged();
     }
 }

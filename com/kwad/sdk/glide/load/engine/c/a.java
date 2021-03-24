@@ -5,18 +5,24 @@ import android.os.Looper;
 import com.kwad.sdk.glide.load.DecodeFormat;
 import com.kwad.sdk.glide.load.engine.a.h;
 import com.kwad.sdk.glide.load.engine.bitmap_recycle.e;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private final h f6751a;
-    private final e b;
-    private final DecodeFormat c;
-    private final Handler d = new Handler(Looper.getMainLooper());
+    public final h f35515a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public final e f35516b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public final DecodeFormat f35517c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public final Handler f35518d = new Handler(Looper.getMainLooper());
 
     public a(h hVar, e eVar, DecodeFormat decodeFormat) {
-        this.f6751a = hVar;
-        this.b = eVar;
-        this.c = decodeFormat;
+        this.f35515a = hVar;
+        this.f35516b = eVar;
+        this.f35517c = decodeFormat;
     }
 }

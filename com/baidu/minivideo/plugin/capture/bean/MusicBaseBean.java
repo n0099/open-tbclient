@@ -1,5 +1,5 @@
 package com.baidu.minivideo.plugin.capture.bean;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public abstract class MusicBaseBean {
     public int type = -1;
 

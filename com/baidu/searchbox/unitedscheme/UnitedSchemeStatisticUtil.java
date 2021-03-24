@@ -2,29 +2,30 @@ package com.baidu.searchbox.unitedscheme;
 
 import android.net.Uri;
 import android.text.TextUtils;
+import com.baidu.android.common.others.lang.StringUtil;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class UnitedSchemeStatisticUtil {
-    private static final String UBC_KEY_SCHEME_INVALID = "326";
-    private static final String UBC_KEY_SCHEME_INVOKE = "327";
-    private static final String UBC_KEY_SCHEME_UPDATE = "328";
+    public static final String UBC_KEY_SCHEME_INVALID = "326";
+    public static final String UBC_KEY_SCHEME_INVOKE = "327";
+    public static final String UBC_KEY_SCHEME_UPDATE = "328";
 
     public static void doUBCForInvalidScheme(Uri uri, String str) {
         String uri2;
         JSONObject jSONObject = new JSONObject();
         if (uri == null) {
-            uri2 = "null";
+            uri2 = StringUtil.NULL_STRING;
         } else {
             try {
                 uri2 = uri.toString();
-            } catch (JSONException e) {
-                e.printStackTrace();
+            } catch (JSONException e2) {
+                e2.printStackTrace();
             }
         }
         jSONObject.put("scheme", uri2);
         if (TextUtils.isEmpty(str)) {
-            str = "null";
+            str = StringUtil.NULL_STRING;
         }
         jSONObject.put("msg", str);
         SchemeRuntime.getSchemeIoc().doStatistic(UBC_KEY_SCHEME_INVALID, jSONObject.toString());
@@ -34,9 +35,9 @@ public class UnitedSchemeStatisticUtil {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("from", str);
-            jSONObject.put("scheme", uri == null ? "null" : uri.toString());
-        } catch (JSONException e) {
-            e.printStackTrace();
+            jSONObject.put("scheme", uri == null ? StringUtil.NULL_STRING : uri.toString());
+        } catch (JSONException e2) {
+            e2.printStackTrace();
         }
         SchemeRuntime.getSchemeIoc().doStatistic(UBC_KEY_SCHEME_INVOKE, jSONObject.toString());
     }
@@ -45,12 +46,12 @@ public class UnitedSchemeStatisticUtil {
         String uri2;
         JSONObject jSONObject = new JSONObject();
         if (uri == null) {
-            uri2 = "null";
+            uri2 = StringUtil.NULL_STRING;
         } else {
             try {
                 uri2 = uri.toString();
-            } catch (JSONException e) {
-                e.printStackTrace();
+            } catch (JSONException e2) {
+                e2.printStackTrace();
             }
         }
         jSONObject.put("scheme", uri2);

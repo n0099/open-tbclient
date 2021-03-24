@@ -13,29 +13,36 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public final class e {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile e f2286a = null;
-    private boolean b = false;
-    private boolean c = true;
-    private final List<d> d = new ArrayList();
-    private d e = null;
-    private String f;
+    public static volatile e f7879a;
 
-    private e() {
-    }
+    /* renamed from: b  reason: collision with root package name */
+    public boolean f7880b = false;
+
+    /* renamed from: c  reason: collision with root package name */
+    public boolean f7881c = true;
+
+    /* renamed from: d  reason: collision with root package name */
+    public final List<d> f7882d = new ArrayList();
+
+    /* renamed from: e  reason: collision with root package name */
+    public d f7883e = null;
+
+    /* renamed from: f  reason: collision with root package name */
+    public String f7884f;
 
     public static e a() {
-        if (f2286a == null) {
+        if (f7879a == null) {
             synchronized (e.class) {
-                if (f2286a == null) {
-                    f2286a = new e();
+                if (f7879a == null) {
+                    f7879a = new e();
                 }
             }
         }
-        return f2286a;
+        return f7879a;
     }
 
     private boolean a(String str) {
@@ -49,8 +56,8 @@ public final class e {
             if (file.exists()) {
                 file.delete();
             }
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (Exception e2) {
+            e2.printStackTrace();
         }
         return z;
     }
@@ -59,38 +66,53 @@ public final class e {
     @TargetApi(14)
     private void c(Context context) {
         boolean z;
+        Object[] objArr;
         try {
             StorageManager storageManager = (StorageManager) context.getSystemService("storage");
             Method method = storageManager.getClass().getMethod("getVolumeList", new Class[0]);
+            int i = 1;
             Method method2 = storageManager.getClass().getMethod("getVolumeState", String.class);
             Class<?> cls = Class.forName("android.os.storage.StorageVolume");
             Method method3 = cls.getMethod("isRemovable", new Class[0]);
             Method method4 = cls.getMethod("getPath", new Class[0]);
-            Object[] objArr = (Object[]) method.invoke(storageManager, new Object[0]);
-            if (objArr != null) {
-                for (Object obj : objArr) {
+            Object[] objArr2 = (Object[]) method.invoke(storageManager, new Object[0]);
+            if (objArr2 != null) {
+                int length = objArr2.length;
+                int i2 = 0;
+                while (true) {
+                    if (i2 >= length) {
+                        break;
+                    }
+                    Object obj = objArr2[i2];
                     String str = (String) method4.invoke(obj, new Object[0]);
-                    if (str != null && str.length() > 0 && "mounted".equals(method2.invoke(storageManager, str))) {
-                        boolean z2 = !((Boolean) method3.invoke(obj, new Object[0])).booleanValue();
-                        if (Build.VERSION.SDK_INT <= 19 && a(str)) {
-                            this.d.add(new d(str, !z2, z2 ? "内置存储卡" : "外置存储卡", context));
-                        } else if (Build.VERSION.SDK_INT >= 19 && new File(str + File.separator + "BaiduMapSDKNew").exists() && str.equals(context.getSharedPreferences("map_pref", 0).getString("PREFFERED_SD_CARD", ""))) {
-                            this.f = str + File.separator + "BaiduMapSDKNew";
+                    if (str == null || str.length() <= 0) {
+                        objArr = objArr2;
+                    } else {
+                        objArr = objArr2;
+                        Object[] objArr3 = new Object[i];
+                        objArr3[0] = str;
+                        if ("mounted".equals(method2.invoke(storageManager, objArr3))) {
+                            boolean z2 = !((Boolean) method3.invoke(obj, new Object[0])).booleanValue();
+                            if (Build.VERSION.SDK_INT <= 19 && a(str)) {
+                                this.f7882d.add(new d(str, !z2, z2 ? "内置存储卡" : "外置存储卡", context));
+                            } else if (Build.VERSION.SDK_INT >= 19) {
+                                if (new File(str + File.separator + "BaiduMapSDKNew").exists() && str.equals(context.getSharedPreferences("map_pref", 0).getString("PREFFERED_SD_CARD", ""))) {
+                                    this.f7884f = str + File.separator + "BaiduMapSDKNew";
+                                }
+                            }
                         }
                     }
+                    i2++;
+                    objArr2 = objArr;
+                    i = 1;
                 }
                 if (Build.VERSION.SDK_INT >= 19) {
                     File[] externalFilesDirs = context.getExternalFilesDirs(null);
                     ArrayList arrayList = new ArrayList();
-                    arrayList.addAll(this.d);
-                    int i = 0;
-                    while (true) {
-                        int i2 = i;
-                        if (i2 >= externalFilesDirs.length || externalFilesDirs[i2] == null) {
-                            break;
-                        }
-                        String absolutePath = externalFilesDirs[i2].getAbsolutePath();
-                        Iterator<d> it = this.d.iterator();
+                    arrayList.addAll(this.f7882d);
+                    for (int i3 = 0; i3 < externalFilesDirs.length && externalFilesDirs[i3] != null; i3++) {
+                        String absolutePath = externalFilesDirs[i3].getAbsolutePath();
+                        Iterator<d> it = this.f7882d.iterator();
                         while (true) {
                             if (it.hasNext()) {
                                 if (absolutePath.startsWith(it.next().a())) {
@@ -106,72 +128,58 @@ public final class e {
                         if (str2 != null && !z && absolutePath.indexOf(str2) != -1) {
                             arrayList.add(new d(absolutePath, true, "外置存储卡", context));
                         }
-                        i = i2 + 1;
                     }
-                    this.d.clear();
-                    this.d.addAll(arrayList);
+                    this.f7882d.clear();
+                    this.f7882d.addAll(arrayList);
                 }
             }
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (Exception e2) {
+            e2.printStackTrace();
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:41:0x00b3  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
     private void d(Context context) {
         Scanner scanner;
         String[] split;
         String[] split2;
-        Scanner scanner2 = null;
         ArrayList<String> arrayList = new ArrayList();
         ArrayList arrayList2 = new ArrayList();
+        Scanner scanner2 = null;
         try {
-            File file = new File("/proc/mounts");
-            if (file.exists()) {
-                scanner = new Scanner(file);
-                while (scanner.hasNext()) {
-                    try {
+            try {
+                File file = new File("/proc/mounts");
+                if (file.exists()) {
+                    scanner = new Scanner(file);
+                    while (scanner.hasNext()) {
                         try {
                             String nextLine = scanner.nextLine();
                             if (nextLine.startsWith("/dev/block/vold/") && (split2 = nextLine.replace('\t', ' ').split(" ")) != null && split2.length > 0) {
                                 arrayList.add(split2[1]);
                             }
-                        } catch (Exception e) {
-                            e = e;
-                            try {
-                                e.printStackTrace();
-                                if (scanner != null) {
-                                    scanner.close();
-                                    return;
-                                }
+                        } catch (Exception e2) {
+                            e = e2;
+                            scanner2 = scanner;
+                            e.printStackTrace();
+                            if (scanner2 != null) {
+                                scanner2.close();
                                 return;
-                            } catch (Throwable th) {
-                                th = th;
-                                scanner2 = scanner;
-                                if (scanner2 != null) {
-                                    scanner2.close();
-                                }
-                                throw th;
                             }
+                            return;
+                        } catch (Throwable th) {
+                            th = th;
+                            scanner2 = scanner;
+                            if (scanner2 != null) {
+                                scanner2.close();
+                            }
+                            throw th;
                         }
-                    } catch (Throwable th2) {
-                        th = th2;
-                        scanner2 = scanner;
-                        if (scanner2 != null) {
-                        }
-                        throw th;
                     }
+                    scanner.close();
                 }
-                scanner.close();
-            }
-            File file2 = new File("/system/etc/vold.fstab");
-            if (file2.exists()) {
-                scanner = new Scanner(file2);
-                while (scanner.hasNext()) {
-                    try {
+                File file2 = new File("/system/etc/vold.fstab");
+                if (file2.exists()) {
+                    scanner = new Scanner(file2);
+                    while (scanner.hasNext()) {
                         String nextLine2 = scanner.nextLine();
                         if (nextLine2.startsWith("dev_mount") && (split = nextLine2.replace('\t', ' ').split(" ")) != null && split.length > 0) {
                             String str = split[2];
@@ -180,104 +188,97 @@ public final class e {
                             }
                             arrayList2.add(str);
                         }
-                    } catch (Throwable th3) {
-                        th = th3;
-                        scanner2 = scanner;
-                        if (scanner2 != null) {
+                    }
+                    scanner.close();
+                }
+                String absolutePath = Environment.getExternalStorageDirectory().getAbsolutePath();
+                this.f7882d.add(new d(absolutePath, false, "Auto", context));
+                for (String str2 : arrayList) {
+                    if (arrayList2.contains(str2) && !str2.equals(absolutePath)) {
+                        File file3 = new File(str2);
+                        if (file3.exists() && file3.isDirectory() && file3.canWrite()) {
+                            this.f7882d.add(new d(str2, false, "Auto", context));
                         }
-                        throw th;
                     }
                 }
-                scanner.close();
+            } catch (Throwable th2) {
+                th = th2;
             }
-            String absolutePath = Environment.getExternalStorageDirectory().getAbsolutePath();
-            this.d.add(new d(absolutePath, false, "Auto", context));
-            for (String str2 : arrayList) {
-                if (arrayList2.contains(str2) && !str2.equals(absolutePath)) {
-                    File file3 = new File(str2);
-                    if (file3.exists() && file3.isDirectory() && file3.canWrite()) {
-                        this.d.add(new d(str2, false, "Auto", context));
-                    }
-                }
-            }
-            if (0 != 0) {
-                scanner2.close();
-            }
-        } catch (Exception e2) {
-            e = e2;
-            scanner = null;
-        } catch (Throwable th4) {
-            th = th4;
+        } catch (Exception e3) {
+            e = e3;
         }
     }
 
-    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:21:0x0045 -> B:63:0x0012). Please submit an issue!!! */
+    /* JADX WARN: Removed duplicated region for block: B:38:0x0082 A[Catch: Exception -> 0x008d, TRY_LEAVE, TryCatch #1 {Exception -> 0x008d, blocks: (B:14:0x001b, B:16:0x0023, B:17:0x002b, B:19:0x0031, B:21:0x0046, B:23:0x004c, B:25:0x0054, B:26:0x005a, B:28:0x0060, B:30:0x006c, B:36:0x007e, B:38:0x0082, B:32:0x0071, B:35:0x0078), top: B:61:0x001b }] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     public void a(Context context) {
-        int i = 0;
-        if (this.b) {
+        if (this.f7880b) {
             return;
         }
-        this.b = true;
+        this.f7880b = true;
         try {
             if (Build.VERSION.SDK_INT >= 14) {
                 c(context);
             } else {
                 d(context);
             }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        try {
-            if (this.d.size() > 0) {
-                d dVar = null;
-                for (d dVar2 : this.d) {
-                    if (new File(dVar2.b()).exists()) {
-                        i++;
-                    } else {
-                        dVar2 = dVar;
-                    }
-                    dVar = dVar2;
-                }
-                if (i == 0) {
-                    this.e = b(context);
-                    if (this.e == null) {
-                        Iterator<d> it = this.d.iterator();
-                        while (true) {
-                            if (!it.hasNext()) {
-                                break;
-                            }
-                            d next = it.next();
-                            if (a(context, next)) {
-                                this.e = next;
-                                break;
-                            }
-                        }
-                    }
-                } else if (i != 1) {
-                    this.e = b(context);
-                } else if (a(context, dVar)) {
-                    this.e = dVar;
-                }
-                if (this.e == null) {
-                    this.e = this.d.get(0);
-                }
-            }
         } catch (Exception e2) {
             e2.printStackTrace();
         }
         try {
-            if (this.e == null || !a(this.e.a())) {
-                this.c = false;
-                this.e = new d(context);
-                this.d.clear();
-                this.d.add(this.e);
+        } catch (Exception e3) {
+            e3.printStackTrace();
+        }
+        if (this.f7882d.size() > 0) {
+            r2 = null;
+            int i = 0;
+            for (d dVar : this.f7882d) {
+                if (new File(dVar.b()).exists()) {
+                    i++;
+                    r2 = dVar;
+                }
+            }
+            if (i == 0) {
+                d b2 = b(context);
+                this.f7883e = b2;
+                if (b2 == null) {
+                    for (d dVar2 : this.f7882d) {
+                        if (a(context, dVar2)) {
+                            this.f7883e = dVar2;
+                            break;
+                        }
+                    }
+                }
+                if (this.f7883e == null) {
+                    this.f7883e = this.f7882d.get(0);
+                }
+            } else {
+                if (i != 1) {
+                    this.f7883e = b(context);
+                } else if (a(context, dVar2)) {
+                    this.f7883e = dVar2;
+                    break;
+                }
+                if (this.f7883e == null) {
+                }
+            }
+            e3.printStackTrace();
+        }
+        try {
+            if (this.f7883e == null || !a(this.f7883e.a())) {
+                this.f7881c = false;
+                this.f7883e = new d(context);
+                this.f7882d.clear();
+                this.f7882d.add(this.f7883e);
                 return;
             }
-            File file = new File(this.e.b());
+            File file = new File(this.f7883e.b());
             if (!file.exists()) {
                 file.mkdirs();
             }
-            File file2 = new File(this.e.c());
+            File file2 = new File(this.f7883e.c());
             if (!file2.exists()) {
                 file2.mkdirs();
             }
@@ -286,8 +287,8 @@ public final class e {
                 return;
             }
             file3.createNewFile();
-        } catch (Exception e3) {
-            e3.printStackTrace();
+        } catch (Exception e4) {
+            e4.printStackTrace();
         }
     }
 
@@ -302,16 +303,17 @@ public final class e {
     }
 
     public d b() {
-        return this.e;
+        return this.f7883e;
     }
 
     public d b(Context context) {
         String string = context.getSharedPreferences("map_pref", 0).getString("PREFFERED_SD_CARD", "");
-        if (string != null && string.length() > 0) {
-            for (d dVar : this.d) {
-                if (dVar.a().equals(string)) {
-                    return dVar;
-                }
+        if (string == null || string.length() <= 0) {
+            return null;
+        }
+        for (d dVar : this.f7882d) {
+            if (dVar.a().equals(string)) {
+                return dVar;
             }
         }
         return null;

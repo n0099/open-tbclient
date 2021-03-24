@@ -1,65 +1,74 @@
 package com.baidu.fsg.base.a;
 
 import android.annotation.SuppressLint;
-/* loaded from: classes5.dex */
+import com.baidu.tbadk.core.data.SmallTailInfo;
+/* loaded from: classes2.dex */
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    private final long f1487a;
-    private long b;
-    private long c;
-    private long d;
+    public final long f5124a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public long f5125b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public long f5126c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public long f5127d;
     @SuppressLint({"InlinedApi"})
-    private int e = 1;
+
+    /* renamed from: e  reason: collision with root package name */
+    public int f5128e = 1;
 
     public c(long j) {
-        this.f1487a = j;
+        this.f5124a = j;
     }
 
     public int a() {
-        return this.e;
-    }
-
-    public void a(int i) {
-        this.e = i;
+        return this.f5128e;
     }
 
     public long b() {
-        return this.b;
-    }
-
-    public void a(long j) {
-        this.b = j;
+        return this.f5125b;
     }
 
     public long c() {
-        return this.c;
-    }
-
-    public void b(long j) {
-        this.c = j;
+        return this.f5126c;
     }
 
     public long d() {
-        return this.f1487a;
+        return this.f5124a;
     }
 
     public long e() {
-        return this.d;
-    }
-
-    public void c(long j) {
-        this.d = j;
+        return this.f5127d;
     }
 
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("DownloadItem=(id: " + this.f1487a);
-        sb.append(", current bytes: " + this.b);
-        sb.append(", total bytes: " + this.c);
-        sb.append(", speed: " + this.d);
-        sb.append(", state: " + this.e);
-        sb.append(")");
+        sb.append("DownloadItem=(id: " + this.f5124a);
+        sb.append(", current bytes: " + this.f5125b);
+        sb.append(", total bytes: " + this.f5126c);
+        sb.append(", speed: " + this.f5127d);
+        sb.append(", state: " + this.f5128e);
+        sb.append(SmallTailInfo.EMOTION_SUFFIX);
         return sb.toString();
+    }
+
+    public void a(int i) {
+        this.f5128e = i;
+    }
+
+    public void b(long j) {
+        this.f5126c = j;
+    }
+
+    public void c(long j) {
+        this.f5127d = j;
+    }
+
+    public void a(long j) {
+        this.f5125b = j;
     }
 }

@@ -1,7 +1,7 @@
 package android.net.http;
 
 import java.security.cert.X509Certificate;
-/* loaded from: classes5.dex */
+/* loaded from: classes.dex */
 public class SslError {
     public static final int SSL_DATE_INVALID = 4;
     public static final int SSL_EXPIRED = 1;
@@ -17,6 +17,30 @@ public class SslError {
         throw new RuntimeException("Stub!");
     }
 
+    public boolean addError(int i) {
+        throw new RuntimeException("Stub!");
+    }
+
+    public SslCertificate getCertificate() {
+        throw new RuntimeException("Stub!");
+    }
+
+    public int getPrimaryError() {
+        throw new RuntimeException("Stub!");
+    }
+
+    public String getUrl() {
+        throw new RuntimeException("Stub!");
+    }
+
+    public boolean hasError(int i) {
+        throw new RuntimeException("Stub!");
+    }
+
+    public String toString() {
+        throw new RuntimeException("Stub!");
+    }
+
     @Deprecated
     public SslError(int i, X509Certificate x509Certificate) {
         throw new RuntimeException("Stub!");
@@ -27,30 +51,6 @@ public class SslError {
     }
 
     public SslError(int i, X509Certificate x509Certificate, String str) {
-        throw new RuntimeException("Stub!");
-    }
-
-    public SslCertificate getCertificate() {
-        throw new RuntimeException("Stub!");
-    }
-
-    public String getUrl() {
-        throw new RuntimeException("Stub!");
-    }
-
-    public boolean addError(int i) {
-        throw new RuntimeException("Stub!");
-    }
-
-    public boolean hasError(int i) {
-        throw new RuntimeException("Stub!");
-    }
-
-    public int getPrimaryError() {
-        throw new RuntimeException("Stub!");
-    }
-
-    public String toString() {
         throw new RuntimeException("Stub!");
     }
 }

@@ -5,54 +5,61 @@ import android.graphics.Canvas;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.LinearLayout;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class EmotionLinearLayout extends LinearLayout {
-    private View fGE;
-    private boolean visible;
+
+    /* renamed from: e  reason: collision with root package name */
+    public View f15315e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public boolean f15316f;
 
     public EmotionLinearLayout(Context context) {
         super(context);
     }
 
-    public EmotionLinearLayout(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-    }
-
-    @Override // android.widget.LinearLayout, android.view.View
-    protected void onMeasure(int i, int i2) {
-        super.onMeasure(i, i2);
-        if (this.fGE != null) {
-            this.fGE.measure(getChildMeasureSpec(i, 0, this.fGE.getLayoutParams().width), getChildMeasureSpec(i2, 0, this.fGE.getLayoutParams().height));
-        }
-    }
-
-    @Override // android.widget.LinearLayout, android.view.ViewGroup, android.view.View
-    protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
-        super.onLayout(z, i, i2, i3, i4);
-        View childAt = getChildAt(0);
-        if (this.fGE != null && childAt != null) {
-            int measuredWidth = childAt.getMeasuredWidth() - this.fGE.getMeasuredWidth();
-            this.fGE.layout(measuredWidth, 0, this.fGE.getMeasuredWidth() + measuredWidth, this.fGE.getMeasuredHeight());
-        }
-    }
-
-    public void setNewView(View view) {
-        this.fGE = view;
-    }
-
     @Override // android.view.ViewGroup, android.view.View
-    protected void dispatchDraw(Canvas canvas) {
+    public void dispatchDraw(Canvas canvas) {
         super.dispatchDraw(canvas);
-        if (this.visible) {
+        if (this.f15316f) {
             canvas.save();
-            canvas.translate(this.fGE.getLeft(), this.fGE.getTop());
-            this.fGE.draw(canvas);
+            canvas.translate(this.f15315e.getLeft(), this.f15315e.getTop());
+            this.f15315e.draw(canvas);
             canvas.restore();
         }
     }
 
+    @Override // android.widget.LinearLayout, android.view.ViewGroup, android.view.View
+    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
+        super.onLayout(z, i, i2, i3, i4);
+        View childAt = getChildAt(0);
+        if (this.f15315e == null || childAt == null) {
+            return;
+        }
+        int measuredWidth = childAt.getMeasuredWidth() - this.f15315e.getMeasuredWidth();
+        View view = this.f15315e;
+        view.layout(measuredWidth, 0, view.getMeasuredWidth() + measuredWidth, this.f15315e.getMeasuredHeight());
+    }
+
+    @Override // android.widget.LinearLayout, android.view.View
+    public void onMeasure(int i, int i2) {
+        super.onMeasure(i, i2);
+        View view = this.f15315e;
+        if (view != null) {
+            this.f15315e.measure(LinearLayout.getChildMeasureSpec(i, 0, view.getLayoutParams().width), LinearLayout.getChildMeasureSpec(i2, 0, this.f15315e.getLayoutParams().height));
+        }
+    }
+
+    public void setNewView(View view) {
+        this.f15315e = view;
+    }
+
     public void setNewViewVisible(boolean z) {
-        this.visible = z;
+        this.f15316f = z;
         invalidate();
+    }
+
+    public EmotionLinearLayout(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
     }
 }

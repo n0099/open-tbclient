@@ -6,34 +6,34 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.atomData.SelectForumActivityConfig;
 import com.baidu.tbadk.core.data.BaijiahaoData;
 import com.baidu.tbadk.core.data.OriginalThreadInfo;
-/* loaded from: classes7.dex */
+import d.b.i0.o0.b.b;
+/* loaded from: classes4.dex */
 public class ForumSearchActivity extends BaseActivity {
-    b jfP;
+    public b mController;
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.jfP = new b(getPageContext());
-        setContentView(this.jfP.cBj().mRoot);
+        b bVar = new b(getPageContext());
+        this.mController = bVar;
+        setContentView(bVar.o().f57226b);
         Intent intent = getIntent();
         if (intent != null) {
-            this.jfP.setFrom(intent.getIntExtra(SelectForumActivityConfig.EXTRA_KEY_FROM, 0));
-            this.jfP.setLiveId(intent.getLongExtra("extra_key_live_id", 0L));
-            this.jfP.setOriginalThread((OriginalThreadInfo.ShareInfo) intent.getSerializableExtra(SelectForumActivityConfig.EXTRA_KEY_ORIGINAL_THREAD));
-            this.jfP.setBaijiahaoData((BaijiahaoData) intent.getSerializableExtra(SelectForumActivityConfig.EXTRA_KEY_BAIJIAHAO_DATA));
-            this.jfP.setTransmitOriginThreadComment(intent.getStringExtra(SelectForumActivityConfig.EXTRA_KEY_TRANSMIT_ORIGIN_THREAD_CONTENT));
-            this.jfP.setTransmitThreadAuthorNameShow(intent.getStringExtra(SelectForumActivityConfig.EXTRA_KEY_TRANSMIT_THREAD_AUTHOR_NAME_SHOW));
-            this.jfP.setMoreForumImg(intent.getStringExtra("more_forum_img"));
-            this.jfP.setMoreForumUrl(intent.getStringExtra("more_forum_url"));
-            this.jfP.setMoreForumTitle(intent.getStringExtra("more_forum_title"));
+            this.mController.x(intent.getIntExtra(SelectForumActivityConfig.EXTRA_KEY_FROM, 0));
+            this.mController.y(intent.getLongExtra("extra_key_live_id", 0L));
+            this.mController.E((OriginalThreadInfo.ShareInfo) intent.getSerializableExtra(SelectForumActivityConfig.EXTRA_KEY_ORIGINAL_THREAD));
+            this.mController.v((BaijiahaoData) intent.getSerializableExtra(SelectForumActivityConfig.EXTRA_KEY_BAIJIAHAO_DATA));
+            this.mController.F(intent.getStringExtra(SelectForumActivityConfig.EXTRA_KEY_TRANSMIT_ORIGIN_THREAD_CONTENT));
+            this.mController.G(intent.getStringExtra(SelectForumActivityConfig.EXTRA_KEY_TRANSMIT_THREAD_AUTHOR_NAME_SHOW));
+            this.mController.z(intent.getStringExtra("more_forum_img"));
+            this.mController.B(intent.getStringExtra("more_forum_url"));
+            this.mController.A(intent.getStringExtra("more_forum_title"));
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        this.jfP.onDestory();
+        this.mController.u();
     }
 }

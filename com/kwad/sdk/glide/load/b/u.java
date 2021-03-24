@@ -9,13 +9,13 @@ import androidx.annotation.Nullable;
 import com.kwad.sdk.glide.load.b.n;
 import java.io.File;
 import java.io.InputStream;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class u<Data> implements n<String, Data> {
 
     /* renamed from: a  reason: collision with root package name */
-    private final n<Uri, Data> f6700a;
+    public final n<Uri, Data> f35365a;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static final class a implements o<String, AssetFileDescriptor> {
         @Override // com.kwad.sdk.glide.load.b.o
         public n<String, AssetFileDescriptor> a(@NonNull r rVar) {
@@ -23,7 +23,7 @@ public class u<Data> implements n<String, Data> {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class b implements o<String, ParcelFileDescriptor> {
         @Override // com.kwad.sdk.glide.load.b.o
         @NonNull
@@ -32,7 +32,7 @@ public class u<Data> implements n<String, Data> {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class c implements o<String, InputStream> {
         @Override // com.kwad.sdk.glide.load.b.o
         @NonNull
@@ -42,22 +42,24 @@ public class u<Data> implements n<String, Data> {
     }
 
     public u(n<Uri, Data> nVar) {
-        this.f6700a = nVar;
+        this.f35365a = nVar;
     }
 
     @Nullable
-    private static Uri b(String str) {
+    public static Uri b(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        if (str.charAt(0) == '/') {
-            return c(str);
+        if (str.charAt(0) != '/') {
+            Uri parse = Uri.parse(str);
+            if (parse.getScheme() != null) {
+                return parse;
+            }
         }
-        Uri parse = Uri.parse(str);
-        return parse.getScheme() == null ? c(str) : parse;
+        return c(str);
     }
 
-    private static Uri c(String str) {
+    public static Uri c(String str) {
         return Uri.fromFile(new File(str));
     }
 
@@ -65,10 +67,10 @@ public class u<Data> implements n<String, Data> {
     @Override // com.kwad.sdk.glide.load.b.n
     public n.a<Data> a(@NonNull String str, int i, int i2, @NonNull com.kwad.sdk.glide.load.e eVar) {
         Uri b2 = b(str);
-        if (b2 == null || !this.f6700a.a(b2)) {
+        if (b2 == null || !this.f35365a.a(b2)) {
             return null;
         }
-        return this.f6700a.a(b2, i, i2, eVar);
+        return this.f35365a.a(b2, i, i2, eVar);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

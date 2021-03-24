@@ -1,10 +1,8 @@
 package com.baidu.tieba.im.message.chat;
-
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class GroupChatMessage extends CommonGroupChatMessage {
     public GroupChatMessage() {
-        super(CmdConfigSocket.CMD_GROUP_CHAT_MSG);
+        super(202001);
     }
 
     public GroupChatMessage(int i) {

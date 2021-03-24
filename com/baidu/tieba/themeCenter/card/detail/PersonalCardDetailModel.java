@@ -3,53 +3,58 @@ package com.baidu.tieba.themeCenter.card.detail;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.TbConfig;
-/* loaded from: classes8.dex */
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+/* loaded from: classes5.dex */
 public class PersonalCardDetailModel extends BdBaseModel<PersonalCardDetailActivity> {
-    private com.baidu.adp.framework.listener.a lqe = new com.baidu.adp.framework.listener.a(1003094, CmdConfigSocket.CMD_GET_CARD_DETAIL) { // from class: com.baidu.tieba.themeCenter.card.detail.PersonalCardDetailModel.1
-        @Override // com.baidu.adp.framework.listener.a
+
+    /* renamed from: e  reason: collision with root package name */
+    public d.b.i0.i3.a f21659e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public b f21660f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public d.b.b.c.g.a f21661g = new a(CmdConfigHttp.CMD_GET_CARD_DETAIL, 309333);
+
+    /* loaded from: classes5.dex */
+    public class a extends d.b.b.c.g.a {
+        public a(int i, int i2) {
+            super(i, i2);
+        }
+
+        @Override // d.b.b.c.g.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
-            if (responsedMessage != null) {
-                if ((responsedMessage instanceof PersonalCardDetailHttpReponse) || (responsedMessage instanceof PersonalCardDetailSocketReponse)) {
-                    if (responsedMessage instanceof PersonalCardDetailHttpReponse) {
-                        PersonalCardDetailModel.this.nKT = ((PersonalCardDetailHttpReponse) responsedMessage).getCardData();
-                    } else if (responsedMessage instanceof PersonalCardDetailSocketReponse) {
-                        PersonalCardDetailModel.this.nKT = ((PersonalCardDetailSocketReponse) responsedMessage).getCardData();
-                    }
-                    if (PersonalCardDetailModel.this.nLb != null) {
-                        PersonalCardDetailModel.this.nLb.b(responsedMessage.getError(), responsedMessage.getErrorString(), PersonalCardDetailModel.this.nKT);
-                    }
+            if (responsedMessage == null) {
+                return;
+            }
+            boolean z = responsedMessage instanceof PersonalCardDetailHttpReponse;
+            if (z || (responsedMessage instanceof PersonalCardDetailSocketReponse)) {
+                if (z) {
+                    PersonalCardDetailModel.this.f21659e = ((PersonalCardDetailHttpReponse) responsedMessage).getCardData();
+                } else if (responsedMessage instanceof PersonalCardDetailSocketReponse) {
+                    PersonalCardDetailModel.this.f21659e = ((PersonalCardDetailSocketReponse) responsedMessage).getCardData();
+                }
+                if (PersonalCardDetailModel.this.f21660f != null) {
+                    PersonalCardDetailModel.this.f21660f.a(responsedMessage.getError(), responsedMessage.getErrorString(), PersonalCardDetailModel.this.f21659e);
                 }
             }
         }
-    };
-    private com.baidu.tieba.themeCenter.a nKT;
-    private a nLb;
+    }
 
-    /* loaded from: classes8.dex */
-    public interface a {
-        void b(int i, String str, com.baidu.tieba.themeCenter.a aVar);
+    /* loaded from: classes5.dex */
+    public interface b {
+        void a(int i, String str, d.b.i0.i3.a aVar);
     }
 
     public PersonalCardDetailModel() {
-        com.baidu.tieba.tbadkCore.a.a.a(CmdConfigSocket.CMD_GET_CARD_DETAIL, PersonalCardDetailSocketReponse.class, false, false);
-        com.baidu.tieba.tbadkCore.a.a.a(CmdConfigSocket.CMD_GET_CARD_DETAIL, 1003094, TbConfig.GET_CARD_DETAIL, PersonalCardDetailHttpReponse.class, false, false, false, false);
-        registerListener(this.lqe);
-    }
-
-    public void hz(long j) {
-        PersonalCardDetailRequest personalCardDetailRequest = new PersonalCardDetailRequest();
-        personalCardDetailRequest.setCardId(j);
-        sendMessage(personalCardDetailRequest);
-    }
-
-    public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.lqe);
+        d.b.i0.c3.d0.a.h(309333, PersonalCardDetailSocketReponse.class, false, false);
+        d.b.i0.c3.d0.a.c(309333, CmdConfigHttp.CMD_GET_CARD_DETAIL, TbConfig.GET_CARD_DETAIL, PersonalCardDetailHttpReponse.class, false, false, false, false);
+        registerListener(this.f21661g);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
-    protected boolean LoadData() {
+    public boolean LoadData() {
         return false;
     }
 
@@ -58,7 +63,17 @@ public class PersonalCardDetailModel extends BdBaseModel<PersonalCardDetailActiv
         return false;
     }
 
-    public void a(a aVar) {
-        this.nLb = aVar;
+    public void onDestroy() {
+        MessageManager.getInstance().unRegisterListener(this.f21661g);
+    }
+
+    public void v(long j) {
+        PersonalCardDetailRequest personalCardDetailRequest = new PersonalCardDetailRequest();
+        personalCardDetailRequest.setCardId(j);
+        sendMessage(personalCardDetailRequest);
+    }
+
+    public void w(b bVar) {
+        this.f21660f = bVar;
     }
 }

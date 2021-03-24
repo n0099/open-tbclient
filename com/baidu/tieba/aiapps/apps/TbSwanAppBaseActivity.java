@@ -5,34 +5,40 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
-import com.baidu.swan.apps.ao.ah;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
 import com.baidu.tieba.aiapps.apps.widget.SwanAppBdActionBar;
-/* loaded from: classes8.dex */
+import d.b.g0.a.i2.h0;
+import d.b.g0.i.n;
+/* loaded from: classes4.dex */
 public class TbSwanAppBaseActivity extends BaseActivity<TbSwanAppBaseActivity> {
-    private com.baidu.tbadk.core.view.a fNE;
-    private SwanAppBdActionBar gnk;
-    private RelativeLayout mRootView;
+    public SwanAppBdActionBar mActionBar;
+    public d.b.g0.a.y0.e.b mLaunchInfo;
+    public d.b.h0.r.f0.a mLoadingDialog;
+    public RelativeLayout mRootView;
+    public n mToolMenu;
 
-    @Override // com.baidu.adp.base.BdBaseActivity, android.app.Activity
-    public void setContentView(int i) {
-        setContentView(getLayoutInflater().inflate(i, (ViewGroup) null));
+    /* loaded from: classes4.dex */
+    public class a implements View.OnClickListener {
+        public a() {
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            TbSwanAppBaseActivity.this.onActionBarBackPressed();
+        }
     }
 
-    @Override // android.app.Activity
-    public void setContentView(View view) {
-        View inflate = getLayoutInflater().inflate(R.layout.tb_swan_app_base_layout, (ViewGroup) null);
-        this.gnk = (SwanAppBdActionBar) inflate.findViewById(R.id.ai_apps_title_bar);
-        this.mRootView = (RelativeLayout) inflate.findViewById(R.id.delivery_root);
-        this.mRootView.addView(view, new RelativeLayout.LayoutParams(-1, -1));
-        if (UtilHelper.canUseStyleImmersiveSticky()) {
-            UtilHelper.useNavigationBarStyleImmersiveSticky(this);
-            ((LinearLayout) inflate.findViewById(R.id.ai_apps_title_bar_container)).addView(createStateBarFillView(), 0);
+    /* loaded from: classes4.dex */
+    public class b implements View.OnClickListener {
+        public b() {
         }
-        bNe();
-        super.setContentView(inflate);
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            TbSwanAppBaseActivity.this.onActionBarBackPressed();
+        }
     }
 
     private View createStateBarFillView() {
@@ -43,38 +49,61 @@ public class TbSwanAppBaseActivity extends BaseActivity<TbSwanAppBaseActivity> {
         return view;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
+    private void initActionBar() {
+        SwanAppBdActionBar swanAppBdActionBar = this.mActionBar;
+        if (swanAppBdActionBar == null) {
+            return;
+        }
+        swanAppBdActionBar.setLeftTitleInvalidate(true);
+        this.mActionBar.setRightTxtZone1Visibility(8);
+        this.mActionBar.setLeftZoneOnClickListener(new a());
+        this.mActionBar.setRightExitViewVisibility(false);
+        this.mActionBar.setRightMenuVisibility(false);
+        this.mActionBar.setLeftZoneImageSrcMinWidth(h0.e(this, 38.0f));
+        this.mActionBar.setLeftZoneOnClickListener(new b());
+    }
+
+    public void dismissLoading() {
+        this.mLoadingDialog.h(false);
+    }
+
+    public SwanAppBdActionBar getBdActionBar() {
+        return this.mActionBar;
+    }
+
+    public void onActionBarBackPressed() {
+        finish();
+    }
+
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.fNE = new com.baidu.tbadk.core.view.a(getPageContext());
-        this.fNE.setTipString("加载中...");
-        this.fNE.setCancelable(true);
+        d.b.h0.r.f0.a aVar = new d.b.h0.r.f0.a(getPageContext());
+        this.mLoadingDialog = aVar;
+        aVar.j("加载中...");
+        this.mLoadingDialog.f(true);
     }
 
-    private void bNe() {
-        if (this.gnk != null) {
-            this.gnk.setLeftTitleInvalidate(true);
-            this.gnk.setRightTxtZone1Visibility(8);
-            this.gnk.setLeftZoneOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.aiapps.apps.TbSwanAppBaseActivity.1
-                @Override // android.view.View.OnClickListener
-                public void onClick(View view) {
-                    TbSwanAppBaseActivity.this.aoG();
-                }
-            });
-            this.gnk.setRightExitViewVisibility(false);
-            this.gnk.setRightMenuVisibility(false);
-            this.gnk.setLeftZoneImageSrcMinWidth(ah.dip2px(this, 38.0f));
-            this.gnk.setLeftZoneOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.aiapps.apps.TbSwanAppBaseActivity.2
-                @Override // android.view.View.OnClickListener
-                public void onClick(View view) {
-                    TbSwanAppBaseActivity.this.aoG();
-                }
-            });
+    @Override // com.baidu.adp.base.BdBaseActivity, android.app.Activity
+    public void setContentView(int i) {
+        setContentView(getLayoutInflater().inflate(i, (ViewGroup) null));
+    }
+
+    public void showLoading() {
+        this.mLoadingDialog.h(true);
+    }
+
+    @Override // android.app.Activity
+    public void setContentView(View view) {
+        View inflate = getLayoutInflater().inflate(R.layout.tb_swan_app_base_layout, (ViewGroup) null);
+        this.mActionBar = (SwanAppBdActionBar) inflate.findViewById(R.id.ai_apps_title_bar);
+        this.mRootView = (RelativeLayout) inflate.findViewById(R.id.delivery_root);
+        this.mRootView.addView(view, new RelativeLayout.LayoutParams(-1, -1));
+        if (UtilHelper.canUseStyleImmersiveSticky()) {
+            UtilHelper.useNavigationBarStyleImmersiveSticky(this);
+            ((LinearLayout) inflate.findViewById(R.id.ai_apps_title_bar_container)).addView(createStateBarFillView(), 0);
         }
-    }
-
-    protected void aoG() {
-        finish();
+        initActionBar();
+        super.setContentView(inflate);
     }
 }

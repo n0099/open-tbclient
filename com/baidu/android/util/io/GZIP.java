@@ -6,13 +6,10 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.util.zip.GZIPInputStream;
 import java.util.zip.GZIPOutputStream;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public final class GZIP {
-    private static final boolean DEBUG = false;
+    public static final boolean DEBUG = false;
     public static final int NUM_1024 = 1024;
-
-    private GZIP() {
-    }
 
     public static byte[] gZip(byte[] bArr) {
         byte[] bArr2 = null;
@@ -25,10 +22,44 @@ public final class GZIP {
             bArr2 = byteArrayOutputStream.toByteArray();
             byteArrayOutputStream.close();
             return bArr2;
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (Exception e2) {
+            e2.printStackTrace();
             return bArr2;
         }
+    }
+
+    public static boolean isGzipFile(String str) {
+        FileInputStream fileInputStream;
+        File file = new File(str);
+        if (file.exists()) {
+            byte[] bArr = new byte[4];
+            FileInputStream fileInputStream2 = null;
+            try {
+                fileInputStream = new FileInputStream(file);
+                try {
+                    fileInputStream.read(bArr);
+                } catch (Exception unused) {
+                    fileInputStream2 = fileInputStream;
+                    Closeables.closeSafely(fileInputStream2);
+                    return false;
+                } catch (Throwable th) {
+                    th = th;
+                    fileInputStream2 = fileInputStream;
+                    Closeables.closeSafely(fileInputStream2);
+                    throw th;
+                }
+            } catch (Exception unused2) {
+            } catch (Throwable th2) {
+                th = th2;
+            }
+            if ("1F8B0800".equalsIgnoreCase(FileUtils.toHexString(bArr, "", true))) {
+                Closeables.closeSafely(fileInputStream);
+                return true;
+            }
+            Closeables.closeSafely(fileInputStream);
+            return false;
+        }
+        return false;
     }
 
     public static byte[] unGZip(byte[] bArr) {
@@ -39,7 +70,7 @@ public final class GZIP {
             byte[] bArr3 = new byte[1024];
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
             while (true) {
-                int read = gZIPInputStream.read(bArr3, 0, bArr3.length);
+                int read = gZIPInputStream.read(bArr3, 0, 1024);
                 if (read != -1) {
                     byteArrayOutputStream.write(bArr3, 0, read);
                 } else {
@@ -51,44 +82,9 @@ public final class GZIP {
                     return bArr2;
                 }
             }
-        } catch (Exception e) {
-            e.printStackTrace();
-            return bArr2;
-        }
-    }
-
-    public static boolean isGzipFile(String str) {
-        FileInputStream fileInputStream;
-        FileInputStream fileInputStream2;
-        File file = new File(str);
-        if (!file.exists()) {
-            return false;
-        }
-        byte[] bArr = new byte[4];
-        try {
-            fileInputStream = new FileInputStream(file);
-            try {
-                fileInputStream.read(bArr);
-                if ("1F8B0800".equalsIgnoreCase(FileUtils.toHexString(bArr, "", true))) {
-                    Closeables.closeSafely(fileInputStream);
-                    return true;
-                }
-                Closeables.closeSafely(fileInputStream);
-                return false;
-            } catch (Exception e) {
-                fileInputStream2 = fileInputStream;
-                Closeables.closeSafely(fileInputStream2);
-                return false;
-            } catch (Throwable th) {
-                th = th;
-                Closeables.closeSafely(fileInputStream);
-                throw th;
-            }
         } catch (Exception e2) {
-            fileInputStream2 = null;
-        } catch (Throwable th2) {
-            th = th2;
-            fileInputStream = null;
+            e2.printStackTrace();
+            return bArr2;
         }
     }
 }

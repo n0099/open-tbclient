@@ -1,4 +1,4 @@
 package com.baidu.platform.comapi.wnplatform.model;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public abstract class a {
 }

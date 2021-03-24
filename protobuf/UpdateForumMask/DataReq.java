@@ -2,36 +2,16 @@ package protobuf.UpdateForumMask;
 
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public final class DataReq extends Message {
     @ProtoField(tag = 2, type = Message.Datatype.BOOL)
     public final Boolean flag;
     @ProtoField(tag = 1, type = Message.Datatype.INT32)
     public final Integer type;
     public static final Integer DEFAULT_TYPE = 0;
-    public static final Boolean DEFAULT_FLAG = false;
+    public static final Boolean DEFAULT_FLAG = Boolean.FALSE;
 
-    private DataReq(Builder builder, boolean z) {
-        super(builder);
-        if (z) {
-            if (builder.type == null) {
-                this.type = DEFAULT_TYPE;
-            } else {
-                this.type = builder.type;
-            }
-            if (builder.flag == null) {
-                this.flag = DEFAULT_FLAG;
-                return;
-            } else {
-                this.flag = builder.flag;
-                return;
-            }
-        }
-        this.type = builder.type;
-        this.flag = builder.flag;
-    }
-
-    /* loaded from: classes2.dex */
+    /* loaded from: classes7.dex */
     public static final class Builder extends Message.Builder<DataReq> {
         public Boolean flag;
         public Integer type;
@@ -41,10 +21,11 @@ public final class DataReq extends Message {
 
         public Builder(DataReq dataReq) {
             super(dataReq);
-            if (dataReq != null) {
-                this.type = dataReq.type;
-                this.flag = dataReq.flag;
+            if (dataReq == null) {
+                return;
             }
+            this.type = dataReq.type;
+            this.flag = dataReq.flag;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -52,5 +33,27 @@ public final class DataReq extends Message {
         public DataReq build(boolean z) {
             return new DataReq(this, z);
         }
+    }
+
+    public DataReq(Builder builder, boolean z) {
+        super(builder);
+        if (z) {
+            Integer num = builder.type;
+            if (num == null) {
+                this.type = DEFAULT_TYPE;
+            } else {
+                this.type = num;
+            }
+            Boolean bool = builder.flag;
+            if (bool == null) {
+                this.flag = DEFAULT_FLAG;
+                return;
+            } else {
+                this.flag = bool;
+                return;
+            }
+        }
+        this.type = builder.type;
+        this.flag = builder.flag;
     }
 }

@@ -3,66 +3,73 @@ package com.baidu.crabsdk.b;
 import android.content.Context;
 import android.provider.Settings;
 import android.text.TextUtils;
-import com.baidu.minivideo.plugin.capture.utils.EncryptUtils;
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public final class h {
-    public static String aqy = null;
-    private static Context mContext = null;
+
+    /* renamed from: a  reason: collision with root package name */
+    public static String f4684a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public static Context f4685b;
 
     public static String a(String str) {
+        byte b2;
         if (TextUtils.isEmpty(str)) {
             return "N/A";
         }
         MessageDigest messageDigest = null;
         try {
-            messageDigest = MessageDigest.getInstance(EncryptUtils.ENCRYPT_MD5);
+            messageDigest = MessageDigest.getInstance("MD5");
             messageDigest.reset();
             messageDigest.update(str.getBytes("UTF-8"));
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-        } catch (NoSuchAlgorithmException e2) {
+        } catch (UnsupportedEncodingException e2) {
             e2.printStackTrace();
-        } catch (Exception e3) {
+        } catch (NoSuchAlgorithmException e3) {
             e3.printStackTrace();
+        } catch (Exception e4) {
+            e4.printStackTrace();
         }
-        if (messageDigest != null) {
-            try {
-                byte[] digest = messageDigest.digest();
-                StringBuffer stringBuffer = new StringBuffer();
-                for (int i = 0; i < digest.length; i++) {
-                    if (Integer.toHexString(digest[i] & 255).length() == 1) {
-                        stringBuffer.append("0").append(Integer.toHexString(digest[i] & 255));
-                    } else {
-                        stringBuffer.append(Integer.toHexString(digest[i] & 255));
-                    }
-                }
-                return stringBuffer.toString();
-            } catch (Exception e4) {
-                return str;
-            }
-        }
-        return str;
-    }
-
-    public static void e(Context context) {
-        if (mContext == null) {
-            mContext = context;
-        }
-    }
-
-    public static String z() {
-        if (aqy != null) {
-            return aqy;
+        if (messageDigest == null) {
+            return str;
         }
         try {
-            aqy = a(Settings.Secure.getString(mContext.getContentResolver(), "android_id"));
-        } catch (Exception e) {
-            com.baidu.crabsdk.c.a.a("getCUID failed!", e);
-            aqy = "N/A";
+            byte[] digest = messageDigest.digest();
+            StringBuffer stringBuffer = new StringBuffer();
+            for (int i = 0; i < digest.length; i++) {
+                if (Integer.toHexString(digest[i] & 255).length() == 1) {
+                    stringBuffer.append("0");
+                    b2 = digest[i];
+                } else {
+                    b2 = digest[i];
+                }
+                stringBuffer.append(Integer.toHexString(b2 & 255));
+            }
+            return stringBuffer.toString();
+        } catch (Exception unused) {
+            return str;
         }
-        return aqy;
+    }
+
+    public static void b(Context context) {
+        if (f4685b == null) {
+            f4685b = context;
+        }
+    }
+
+    public static String c() {
+        String str = f4684a;
+        if (str != null) {
+            return str;
+        }
+        try {
+            f4684a = a(Settings.Secure.getString(f4685b.getContentResolver(), "android_id"));
+        } catch (Exception e2) {
+            com.baidu.crabsdk.c.a.a("getCUID failed!", e2);
+            f4684a = "N/A";
+        }
+        return f4684a;
     }
 }

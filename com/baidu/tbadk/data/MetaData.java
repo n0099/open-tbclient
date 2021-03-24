@@ -5,8 +5,6 @@ import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.db.DBTableDefine;
-import com.baidu.android.imsdk.db.TableDefine;
-import com.baidu.live.tbadk.data.Config;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.GroupLevelActivityConfig;
 import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
@@ -14,308 +12,152 @@ import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tbadk.core.data.AlaInfoData;
 import com.baidu.tbadk.core.data.AlaUserInfoData;
 import com.baidu.tbadk.core.data.ThemeCardInUserData;
-import com.baidu.tbadk.core.util.au;
 import com.baidu.tbadk.coreExtra.data.BazhuGradeData;
 import com.baidu.tbadk.coreExtra.data.NewGodData;
 import com.baidu.tbadk.coreExtra.data.PrivSetsData;
+import d.b.b.e.m.b;
+import d.b.b.e.p.k;
+import d.b.h0.r.f0.q.a;
+import d.b.h0.t.c;
+import d.b.h0.t.m;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import tbclient.BaijiahaoInfo;
+import tbclient.BazhuSign;
 import tbclient.ForumToolPerm;
 import tbclient.GodInfo;
 import tbclient.Icon;
 import tbclient.LiveRoomInfo;
+import tbclient.NewGodInfo;
+import tbclient.PrivSets;
+import tbclient.SpringVirtualUser;
+import tbclient.TbVipInfo;
 import tbclient.TshowInfo;
 import tbclient.User;
-/* loaded from: classes.dex */
-public class MetaData extends OrmObject implements com.baidu.tbadk.core.view.userLike.a, Serializable {
-    private static final long serialVersionUID = -2658065756886586092L;
-    private AlaInfoData alaInfo;
+/* loaded from: classes3.dex */
+public class MetaData extends OrmObject implements Serializable, a {
+    public static final long serialVersionUID = -2658065756886586092L;
+    public AlaInfoData alaInfo;
     public AlaUserInfoData alaUserData;
-    private String appealThreadPopover;
-    private d businessAccountData;
-    private boolean canModifyAvatar;
-    private String cantModifyAvatarDesc;
-    private String fansNickName;
-    private int gender;
-    private String god_intro;
-    private String imBjhAvatar;
-    private boolean isBigV;
+    public String appealThreadPopover;
+    public c businessAccountData;
+    public boolean canModifyAvatar;
+    public String cantModifyAvatarDesc;
+    public String fansNickName;
+    public int gender;
+    public String god_intro;
+    public String imBjhAvatar;
+    public boolean isBigV;
     public boolean isDefaultAvatar;
-    private boolean isGod;
+    public boolean isGod;
     public boolean isMask;
-    private int is_manager;
-    private int is_myfans;
-    private int is_myfriend;
-    private LiveRoomInfo liveRoomInfo;
-    private n pendantData;
+    public int is_manager;
+    public int is_myfans;
+    public int is_myfriend;
+    public LiveRoomInfo liveRoomInfo;
+    public m pendantData;
     public int rankInfluence;
     public String rankNum;
-    private String virtualUserUrl;
-    private boolean isLikeStatusFromNet = true;
-    private int is_like = 0;
-    private int likeStatus = 0;
-    private GodUserData godUserData = new GodUserData();
-    private UserTbVipInfoData bigVData = new UserTbVipInfoData();
-    private NewGodData mNewGodData = new NewGodData();
-    private BazhuGradeData mBazhuGrade = new BazhuGradeData();
-    private PrivSetsData privSetsData = new PrivSetsData();
-    private String userId = null;
-    private int type = 0;
-    private int level_id = 0;
-    private String userName = null;
-    private String uk = null;
-    private String name_show = null;
-    private String portrait = null;
-    private String portraith = null;
-    private ArrayList<IconData> mIconInfo = new ArrayList<>();
-    private ArrayList<IconData> mTShowIconInfo = new ArrayList<>();
-    private ArrayList<IconData> mTShowIconInfoNew = new ArrayList<>();
-    private int is_bawu = 0;
-    private String bawu_type = null;
-    private int concernNum = 0;
-    private int fansNum = 0;
-    private int threadNum = -1;
-    private int likeNum = -1;
-    private boolean mHadConcerned = false;
+    public String virtualUserUrl;
+    public boolean isLikeStatusFromNet = true;
+    public int is_like = 0;
+    public int likeStatus = 0;
+    public GodUserData godUserData = new GodUserData();
+    public UserTbVipInfoData bigVData = new UserTbVipInfoData();
+    public NewGodData mNewGodData = new NewGodData();
+    public BazhuGradeData mBazhuGrade = new BazhuGradeData();
+    public PrivSetsData privSetsData = new PrivSetsData();
+    public String userId = null;
+    public int type = 0;
+    public int level_id = 0;
+    public String userName = null;
+    public String uk = null;
+    public String name_show = null;
+    public String portrait = null;
+    public String portraith = null;
+    public ArrayList<IconData> mIconInfo = new ArrayList<>();
+    public ArrayList<IconData> mTShowIconInfo = new ArrayList<>();
+    public ArrayList<IconData> mTShowIconInfoNew = new ArrayList<>();
+    public int is_bawu = 0;
+    public String bawu_type = null;
+    public int concernNum = 0;
+    public int fansNum = 0;
+    public int threadNum = -1;
+    public int likeNum = -1;
+    public boolean mHadConcerned = false;
     @Deprecated
-    private GodInfo godInfo = null;
-    private int giftNum = 0;
-    private int isMem = 0;
-    private ThemeCardInUserData themeCard = new ThemeCardInUserData();
-    private String sealPrefix = null;
-    private int left_call_num = 0;
-    private BaijiahaoInfo baijiahaoInfo = null;
-    private List<ForumToolPerm> forumToolAuth = new ArrayList();
+    public GodInfo godInfo = null;
+    public int giftNum = 0;
+    public int isMem = 0;
+    public ThemeCardInUserData themeCard = new ThemeCardInUserData();
+    public String sealPrefix = null;
+    public int left_call_num = 0;
+    public BaijiahaoInfo baijiahaoInfo = null;
+    public List<ForumToolPerm> forumToolAuth = new ArrayList();
 
-    public BaijiahaoInfo getBaijiahaoInfo() {
-        return this.baijiahaoInfo;
+    private void testBaijiahaoInfo() {
+        BaijiahaoInfo.Builder builder = new BaijiahaoInfo.Builder();
+        builder.auth_id = 1;
+        builder.auth_desc = "专家";
+        this.baijiahaoInfo = builder.build(true);
     }
 
-    public void setBaijiahaoInfo(BaijiahaoInfo baijiahaoInfo) {
-        this.baijiahaoInfo = baijiahaoInfo;
-    }
-
-    public boolean isBaijiahaoUser() {
-        return this.baijiahaoInfo != null && this.baijiahaoInfo.auth_id.intValue() > 0;
-    }
-
-    public void setUserId(String str) {
-        this.userId = str;
-    }
-
-    @Override // com.baidu.tbadk.core.view.userLike.a
-    public String getUserId() {
-        return this.userId;
-    }
-
-    public String getUk() {
-        return this.uk;
-    }
-
-    public void setUk(String str) {
-        this.uk = str;
-    }
-
-    @Override // com.baidu.tbadk.core.view.userLike.a
-    public void setIsFromNetWork(boolean z) {
-        this.isLikeStatusFromNet = z;
-        if (this.godUserData != null) {
-            this.godUserData.setIsFromNetWork(z);
-        }
-    }
-
-    public boolean isLikeStatusFromNet() {
-        return this.isLikeStatusFromNet;
-    }
-
-    @Override // com.baidu.tbadk.core.view.userLike.a
-    public boolean isGod() {
-        return this.isGod;
-    }
-
-    public boolean isBigV() {
-        return this.isBigV;
-    }
-
-    public void setIsBigV(boolean z) {
-        this.isBigV = z;
-    }
-
-    public void setIsGod(boolean z) {
-        this.isGod = z;
-    }
-
-    public void setUserIdLong(long j) {
-        this.userId = String.valueOf(j);
-    }
-
-    @Override // com.baidu.tbadk.core.view.userLike.a
-    public boolean getIsLike() {
-        return isGod() ? this.godUserData.getIsLike() || this.mHadConcerned : this.is_like == 1 || this.mHadConcerned;
-    }
-
-    public void setIsLike(boolean z) {
-        this.is_like = z ? 1 : 0;
-        this.mHadConcerned = z;
-        if (isGod()) {
-            this.godUserData.setIsLike(z);
-        }
-    }
-
-    public void setHadConcerned(boolean z) {
-        this.mHadConcerned = z;
-        setIsLike(z);
-    }
-
-    public boolean hadConcerned() {
-        return this.mHadConcerned || this.is_like == 1;
-    }
-
-    @Override // com.baidu.tbadk.core.view.userLike.a
-    public void setLikeStatus(int i) {
-        this.likeStatus = i;
-    }
-
-    @Override // com.baidu.tbadk.core.view.userLike.a
-    public int getLikeStatus() {
-        return this.likeStatus;
-    }
-
-    public long getUserIdLong() {
-        return com.baidu.adp.lib.f.b.toLong(this.userId, 0L);
-    }
-
-    public void setType(int i) {
-        this.type = i;
-    }
-
-    public int getType() {
-        return this.type;
-    }
-
-    public void setUserName(String str) {
-        this.userName = str;
-    }
-
-    public int getIsMem() {
-        return this.isMem;
-    }
-
-    public String getUserName() {
-        return (this.userName == null || this.userName.length() <= 0) ? "" : this.userName;
-    }
-
-    public void setName_show(String str) {
-        this.name_show = str;
-    }
-
-    public String getName_show() {
-        return !StringUtils.isNull(this.name_show) ? this.name_show : this.userName;
-    }
-
-    public String getGodIntro() {
-        return this.god_intro;
-    }
-
-    public void setGodIntor(String str) {
-        this.god_intro = str;
-    }
-
-    public void setPortrait(String str) {
-        this.portrait = str;
-    }
-
-    @Override // com.baidu.tbadk.core.view.userLike.a
-    public String getPortrait() {
-        return this.portrait;
-    }
-
-    public void setPortraitH(String str) {
-        this.portraith = str;
-    }
-
-    public AlaUserInfoData getAlaUserData() {
-        return this.alaUserData;
+    public boolean canModifyAvatar() {
+        return this.canModifyAvatar;
     }
 
     public AlaInfoData getAlaInfo() {
         return this.alaInfo;
     }
 
-    public LiveRoomInfo getLiveRoomInfo() {
-        return this.liveRoomInfo;
+    public AlaUserInfoData getAlaUserData() {
+        return this.alaUserData;
     }
 
-    public String getPortraitH() {
+    public String getAppealThreadPopover() {
+        return this.appealThreadPopover;
+    }
+
+    public String getAvatarH() {
+        BaijiahaoInfo baijiahaoInfo = this.baijiahaoInfo;
+        if (baijiahaoInfo != null && !TextUtils.isEmpty(baijiahaoInfo.avatar_h)) {
+            return this.baijiahaoInfo.avatar_h;
+        }
         return this.portraith;
     }
 
-    public ArrayList<IconData> getIconInfo() {
-        return this.mIconInfo;
+    public String getAvater() {
+        BaijiahaoInfo baijiahaoInfo = this.baijiahaoInfo;
+        if (baijiahaoInfo != null && !TextUtils.isEmpty(baijiahaoInfo.avatar)) {
+            return this.baijiahaoInfo.avatar;
+        }
+        if (!TextUtils.isEmpty(this.imBjhAvatar)) {
+            return this.imBjhAvatar;
+        }
+        return this.portrait;
     }
 
-    public void setIconInfo(ArrayList<IconData> arrayList) {
-        this.mIconInfo = arrayList;
-    }
-
-    public ArrayList<IconData> getTShowInfo() {
-        return this.mTShowIconInfo;
-    }
-
-    public void setTShowInfo(ArrayList<IconData> arrayList) {
-        this.mTShowIconInfo = arrayList;
-    }
-
-    public ArrayList<IconData> getTShowInfoNew() {
-        return this.mTShowIconInfoNew;
-    }
-
-    public int getLeft_call_num() {
-        return this.left_call_num;
-    }
-
-    public void setLeft_call_num(int i) {
-        this.left_call_num = i;
-    }
-
-    public int getLevel_id() {
-        return this.level_id;
-    }
-
-    public void setLevel_id(int i) {
-        this.level_id = i;
-    }
-
-    public int getIs_bawu() {
-        return this.is_bawu;
-    }
-
-    public int getIs_manager() {
-        return this.is_manager;
+    public BaijiahaoInfo getBaijiahaoInfo() {
+        return this.baijiahaoInfo;
     }
 
     public String getBawu_type() {
         return this.bawu_type;
     }
 
-    public int getIsMyFriend() {
-        return this.is_myfriend;
+    public BazhuGradeData getBazhuGradeData() {
+        return this.mBazhuGrade;
     }
 
-    public int getIsMyFans() {
-        return this.is_myfans;
+    public c getBusinessAccountData() {
+        return this.businessAccountData;
     }
 
-    public int getGender() {
-        return this.gender;
-    }
-
-    public void setGender(int i) {
-        this.gender = i;
+    public String getCantModifyAvatarDesc() {
+        return this.cantModifyAvatarDesc;
     }
 
     public int getConcernNum() {
@@ -326,42 +168,25 @@ public class MetaData extends OrmObject implements com.baidu.tbadk.core.view.use
         return this.concernNum;
     }
 
-    public void setConcern_num(int i) {
-        this.concernNum = i;
-    }
-
     public String getFansNickName() {
         return this.fansNickName;
     }
 
-    public void setFansNickName(String str) {
-        this.fansNickName = str;
-    }
-
-    @Override // com.baidu.tbadk.core.view.userLike.a
-    public void setFansNum(int i) {
-        this.fansNum = i;
-    }
-
-    @Override // com.baidu.tbadk.core.view.userLike.a
+    @Override // d.b.h0.r.f0.q.a
     public int getFansNum() {
         return this.fansNum;
     }
 
-    public void setLikeNum(int i) {
-        this.likeNum = i;
+    public List<ForumToolPerm> getForumToolAuth() {
+        return this.forumToolAuth;
     }
 
-    public int getLikeNum() {
-        return this.likeNum;
+    public int getGender() {
+        return this.gender;
     }
 
-    public void setThreadNum(int i) {
-        this.threadNum = i;
-    }
-
-    public int getThreadNum() {
-        return this.threadNum;
+    public int getGiftNum() {
+        return this.giftNum;
     }
 
     @Deprecated
@@ -369,250 +194,621 @@ public class MetaData extends OrmObject implements com.baidu.tbadk.core.view.use
         return this.godInfo;
     }
 
-    @Deprecated
-    public void setGodInfo(GodInfo godInfo) {
-        this.godInfo = godInfo;
+    public String getGodIntro() {
+        return this.god_intro;
     }
 
     public GodUserData getGodUserData() {
         return this.godUserData;
     }
 
-    public UserTbVipInfoData getUserTbVipInfoData() {
-        return this.bigVData;
+    public ArrayList<IconData> getIconInfo() {
+        return this.mIconInfo;
     }
 
-    public void setGodUserData(GodUserData godUserData) {
-        this.godUserData = godUserData;
+    public String getImBjhAvatar() {
+        if (!TextUtils.isEmpty(this.imBjhAvatar)) {
+            return this.imBjhAvatar;
+        }
+        BaijiahaoInfo baijiahaoInfo = this.baijiahaoInfo;
+        if (baijiahaoInfo != null && !TextUtils.isEmpty(baijiahaoInfo.avatar)) {
+            return this.baijiahaoInfo.avatar;
+        }
+        return this.imBjhAvatar;
     }
 
-    public void setTbVipInfoData(UserTbVipInfoData userTbVipInfoData) {
-        this.bigVData = userTbVipInfoData;
+    @Override // d.b.h0.r.f0.q.a
+    public boolean getIsLike() {
+        return isGod() ? this.godUserData.getIsLike() || this.mHadConcerned : this.is_like == 1 || this.mHadConcerned;
     }
 
-    public int getGiftNum() {
-        return this.giftNum;
+    public int getIsMem() {
+        return this.isMem;
     }
 
-    public void setGiftNum(int i) {
-        this.giftNum = i;
+    public int getIsMyFans() {
+        return this.is_myfans;
     }
 
-    public void setSealPrefix(String str) {
-        this.sealPrefix = str;
+    public int getIsMyFriend() {
+        return this.is_myfriend;
+    }
+
+    public int getIs_bawu() {
+        return this.is_bawu;
+    }
+
+    public int getIs_manager() {
+        return this.is_manager;
+    }
+
+    public int getLeft_call_num() {
+        return this.left_call_num;
+    }
+
+    public int getLevel_id() {
+        return this.level_id;
+    }
+
+    public int getLikeNum() {
+        return this.likeNum;
+    }
+
+    @Override // d.b.h0.r.f0.q.a
+    public int getLikeStatus() {
+        return this.likeStatus;
+    }
+
+    public LiveRoomInfo getLiveRoomInfo() {
+        return this.liveRoomInfo;
+    }
+
+    public String getName_show() {
+        if (!StringUtils.isNull(this.name_show)) {
+            return this.name_show;
+        }
+        return this.userName;
+    }
+
+    public NewGodData getNewGodData() {
+        return this.mNewGodData;
+    }
+
+    public m getPendantData() {
+        return this.pendantData;
+    }
+
+    @Override // d.b.h0.r.f0.q.a
+    public String getPortrait() {
+        return this.portrait;
+    }
+
+    public String getPortraitH() {
+        return this.portraith;
+    }
+
+    public PrivSetsData getPrivSetsData() {
+        return this.privSetsData;
     }
 
     public String getSealPrefix() {
         return this.sealPrefix;
     }
 
-    public List<ForumToolPerm> getForumToolAuth() {
-        return this.forumToolAuth;
+    public ArrayList<IconData> getTShowInfo() {
+        return this.mTShowIconInfo;
+    }
+
+    public ArrayList<IconData> getTShowInfoNew() {
+        return this.mTShowIconInfoNew;
+    }
+
+    public ThemeCardInUserData getThemeCard() {
+        return this.themeCard;
+    }
+
+    public int getThreadNum() {
+        return this.threadNum;
+    }
+
+    public int getType() {
+        return this.type;
+    }
+
+    public String getUk() {
+        return this.uk;
+    }
+
+    @Override // d.b.h0.r.f0.q.a
+    public String getUserId() {
+        return this.userId;
+    }
+
+    public long getUserIdLong() {
+        return b.f(this.userId, 0L);
+    }
+
+    public String getUserName() {
+        String str = this.userName;
+        return (str == null || str.length() <= 0) ? "" : this.userName;
+    }
+
+    public UserTbVipInfoData getUserTbVipInfoData() {
+        return this.bigVData;
+    }
+
+    public String getVirtualUserUrl() {
+        return this.virtualUserUrl;
+    }
+
+    public boolean hadConcerned() {
+        return this.mHadConcerned || this.is_like == 1;
+    }
+
+    public boolean isBaijiahaoUser() {
+        BaijiahaoInfo baijiahaoInfo = this.baijiahaoInfo;
+        return baijiahaoInfo != null && baijiahaoInfo.auth_id.intValue() > 0;
+    }
+
+    public boolean isBigV() {
+        return this.isBigV;
+    }
+
+    public boolean isForumBusinessAccount() {
+        c cVar = this.businessAccountData;
+        return cVar != null && cVar.f51456b;
+    }
+
+    @Override // d.b.h0.r.f0.q.a
+    public boolean isGod() {
+        return this.isGod;
+    }
+
+    public boolean isLikeStatusFromNet() {
+        return this.isLikeStatusFromNet;
+    }
+
+    public boolean isNewGod() {
+        NewGodData newGodData = this.mNewGodData;
+        return newGodData != null && newGodData.isNewGod();
+    }
+
+    public boolean isOfficial() {
+        c cVar = this.businessAccountData;
+        return cVar != null && cVar.f51455a;
+    }
+
+    public boolean isVideoGod() {
+        NewGodData newGodData = this.mNewGodData;
+        return newGodData != null && newGodData.isVideoGod();
+    }
+
+    public void parseFromCurrentUser() {
+        if (TbadkCoreApplication.getCurrentAccountInfo() == null) {
+            return;
+        }
+        AccountData currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo();
+        this.userId = currentAccountInfo.getID();
+        this.gender = currentAccountInfo.getSex();
+        this.userName = currentAccountInfo.getAccount();
+        this.name_show = currentAccountInfo.getAccountNameShow();
+        this.portrait = currentAccountInfo.getPortrait();
+    }
+
+    public void parserJson(String str) {
+        try {
+            parserJson(new JSONObject(str));
+        } catch (Exception e2) {
+            BdLog.e(e2.getMessage());
+        }
+    }
+
+    public void parserProtobuf(User user) {
+        if (user == null) {
+            return;
+        }
+        this.userId = user.id + "";
+        this.gender = user.gender.intValue();
+        this.type = user.type.intValue();
+        this.userName = user.name;
+        this.level_id = user.level_id.intValue();
+        this.is_like = user.is_like.intValue();
+        this.is_bawu = user.is_bawu.intValue();
+        this.is_manager = user.is_manager.intValue();
+        this.bawu_type = user.bawu_type;
+        this.is_myfriend = user.is_friend.intValue();
+        this.is_myfans = user.is_fans.intValue();
+        this.concernNum = user.concern_num.intValue();
+        this.mHadConcerned = user.has_concerned.intValue() == 1 || user.has_concerned.intValue() == 2;
+        setLikeStatus(user.has_concerned.intValue());
+        this.fansNickName = user.fans_nickname;
+        this.fansNum = user.fans_num.intValue();
+        this.likeNum = user.agree_num.intValue();
+        this.threadNum = user.thread_num.intValue();
+        String str = this.userName;
+        if (str != null && str.length() <= 0) {
+            this.userName = null;
+        }
+        this.name_show = user.name_show;
+        this.portrait = user.portrait;
+        this.portraith = user.portraith;
+        List<Icon> list = user.iconinfo;
+        List<TshowInfo> list2 = user.tshow_icon;
+        List<TshowInfo> list3 = user.new_tshow_icon;
+        this.isMem = user.is_mem.intValue();
+        this.mIconInfo.clear();
+        if (list != null) {
+            for (int i = 0; i < list.size(); i++) {
+                IconData iconData = new IconData();
+                iconData.parserProtobuf(list.get(i));
+                this.mIconInfo.add(iconData);
+            }
+        }
+        this.mTShowIconInfo.clear();
+        if (list2 != null) {
+            for (int i2 = 0; i2 < list2.size(); i2++) {
+                IconData iconData2 = new IconData();
+                iconData2.parserProtobuf(list2.get(i2));
+                this.mTShowIconInfo.add(iconData2);
+            }
+        }
+        this.mTShowIconInfoNew.clear();
+        if (list3 != null) {
+            for (int i3 = 0; i3 < list3.size(); i3++) {
+                IconData iconData3 = new IconData();
+                iconData3.parserProtobuf(list3.get(i3));
+                this.mTShowIconInfoNew.add(iconData3);
+            }
+        }
+        GodInfo godInfo = user.god_data;
+        if (godInfo != null) {
+            this.godUserData.parserProtobuf(godInfo);
+            this.isGod = this.godUserData.isGod();
+            this.isBigV = this.godUserData.isBigV();
+            this.god_intro = this.godUserData.getIntro();
+        }
+        TbVipInfo tbVipInfo = user.tb_vip;
+        if (tbVipInfo != null) {
+            this.bigVData.parserProtobuf(tbVipInfo);
+        }
+        this.godInfo = user.god_data;
+        this.giftNum = user.gift_num.intValue();
+        this.themeCard.parser(user.theme_card);
+        if (user.pendant != null) {
+            m mVar = new m();
+            this.pendantData = mVar;
+            mVar.c(user.pendant);
+        }
+        this.isLikeStatusFromNet = true;
+        if (user.ala_info != null) {
+            AlaUserInfoData alaUserInfoData = new AlaUserInfoData();
+            this.alaUserData = alaUserInfoData;
+            alaUserInfoData.s(user.ala_info);
+        }
+        if (user.ala_live_info != null) {
+            AlaInfoData alaInfoData = new AlaInfoData();
+            this.alaInfo = alaInfoData;
+            alaInfoData.parserProtobuf(user.ala_live_info);
+        } else if (this.alaUserData != null) {
+            AlaInfoData alaInfoData2 = new AlaInfoData();
+            this.alaInfo = alaInfoData2;
+            AlaUserInfoData alaUserInfoData2 = this.alaUserData;
+            alaInfoData2.live_status = alaUserInfoData2.live_status;
+            alaInfoData2.live_id = alaUserInfoData2.live_id;
+        }
+        this.liveRoomInfo = user.live_room_info;
+        this.sealPrefix = user.seal_prefix;
+        SpringVirtualUser springVirtualUser = user.spring_virtual_user;
+        if (springVirtualUser != null && springVirtualUser.is_virtual.intValue() == 1 && !StringUtils.isNull(user.spring_virtual_user.url)) {
+            this.virtualUserUrl = user.spring_virtual_user.url;
+        }
+        this.left_call_num = user.left_call_num.intValue();
+        this.baijiahaoInfo = user.baijiahao_info;
+        this.canModifyAvatar = user.can_modify_avatar.intValue() == 0;
+        this.cantModifyAvatarDesc = user.modify_avatar_desc;
+        this.rankNum = user.level_influence;
+        Integer num = user.influence;
+        this.rankInfluence = num == null ? 0 : num.intValue();
+        this.isMask = user.is_mask.intValue() == 1;
+        NewGodInfo newGodInfo = user.new_god_data;
+        if (newGodInfo != null) {
+            this.mNewGodData.parserProtobuf(newGodInfo);
+        }
+        BazhuSign bazhuSign = user.bazhu_grade;
+        if (bazhuSign != null) {
+            this.mBazhuGrade.parserProtobuf(bazhuSign);
+        }
+        this.isDefaultAvatar = user.is_default_avatar.intValue() == 1;
+        this.uk = user.uk;
+        PrivSets privSets = user.priv_sets;
+        if (privSets != null) {
+            this.privSetsData.parserProtobuf(privSets);
+        }
+        if (user.business_account_info != null) {
+            c cVar = new c();
+            this.businessAccountData = cVar;
+            cVar.b(user.business_account_info);
+        }
+        if (!StringUtils.isNull(user.appeal_thread_popover)) {
+            this.appealThreadPopover = user.appeal_thread_popover;
+        }
+        List<ForumToolPerm> list4 = user.forum_tool_auth;
+        this.forumToolAuth.clear();
+        if (list4 == null || list4.size() <= 0) {
+            return;
+        }
+        this.forumToolAuth.addAll(list4);
+    }
+
+    public void setBaijiahaoInfo(BaijiahaoInfo baijiahaoInfo) {
+        this.baijiahaoInfo = baijiahaoInfo;
+    }
+
+    public void setBazhuGradeData(BazhuGradeData bazhuGradeData) {
+        this.mBazhuGrade = bazhuGradeData;
+    }
+
+    public void setBusinessAccountData(c cVar) {
+        this.businessAccountData = cVar;
+    }
+
+    public void setConcern_num(int i) {
+        this.concernNum = i;
+    }
+
+    public void setFansNickName(String str) {
+        this.fansNickName = str;
+    }
+
+    @Override // d.b.h0.r.f0.q.a
+    public void setFansNum(int i) {
+        this.fansNum = i;
     }
 
     public void setForumToolAuth(List<ForumToolPerm> list) {
         this.forumToolAuth = list;
     }
 
-    public void parseFromCurrentUser() {
-        if (TbadkCoreApplication.getCurrentAccountInfo() != null) {
-            AccountData currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo();
-            this.userId = currentAccountInfo.getID();
-            this.gender = currentAccountInfo.getSex();
-            this.userName = currentAccountInfo.getAccount();
-            this.name_show = currentAccountInfo.getAccountNameShow();
-            this.portrait = currentAccountInfo.getPortrait();
+    public void setGender(int i) {
+        this.gender = i;
+    }
+
+    public void setGiftNum(int i) {
+        this.giftNum = i;
+    }
+
+    @Deprecated
+    public void setGodInfo(GodInfo godInfo) {
+        this.godInfo = godInfo;
+    }
+
+    public void setGodIntor(String str) {
+        this.god_intro = str;
+    }
+
+    public void setGodUserData(GodUserData godUserData) {
+        this.godUserData = godUserData;
+    }
+
+    public void setHadConcerned(boolean z) {
+        this.mHadConcerned = z;
+        setIsLike(z);
+    }
+
+    public void setIconInfo(ArrayList<IconData> arrayList) {
+        this.mIconInfo = arrayList;
+    }
+
+    public void setImBjhAvatar(String str) {
+        this.imBjhAvatar = str;
+    }
+
+    public void setIsBigV(boolean z) {
+        this.isBigV = z;
+    }
+
+    @Override // d.b.h0.r.f0.q.a
+    public void setIsFromNetWork(boolean z) {
+        this.isLikeStatusFromNet = z;
+        GodUserData godUserData = this.godUserData;
+        if (godUserData != null) {
+            godUserData.setIsFromNetWork(z);
         }
     }
 
-    public void parserProtobuf(User user) {
-        if (user != null) {
-            this.userId = user.id + "";
-            this.gender = user.gender.intValue();
-            this.type = user.type.intValue();
-            this.userName = user.name;
-            this.level_id = user.level_id.intValue();
-            this.is_like = user.is_like.intValue();
-            this.is_bawu = user.is_bawu.intValue();
-            this.is_manager = user.is_manager.intValue();
-            this.bawu_type = user.bawu_type;
-            this.is_myfriend = user.is_friend.intValue();
-            this.is_myfans = user.is_fans.intValue();
-            this.concernNum = user.concern_num.intValue();
-            this.mHadConcerned = user.has_concerned.intValue() == 1 || user.has_concerned.intValue() == 2;
-            setLikeStatus(user.has_concerned.intValue());
-            this.fansNickName = user.fans_nickname;
-            this.fansNum = user.fans_num.intValue();
-            this.likeNum = user.agree_num.intValue();
-            this.threadNum = user.thread_num.intValue();
+    public void setIsGod(boolean z) {
+        this.isGod = z;
+    }
+
+    public void setIsLike(boolean z) {
+        this.is_like = z ? 1 : 0;
+        this.mHadConcerned = z;
+        if (isGod()) {
+            this.godUserData.setIsLike(z);
+        }
+    }
+
+    public void setIsManager(int i) {
+        this.is_manager = i;
+    }
+
+    public void setLeft_call_num(int i) {
+        this.left_call_num = i;
+    }
+
+    public void setLevel_id(int i) {
+        this.level_id = i;
+    }
+
+    public void setLikeNum(int i) {
+        this.likeNum = i;
+    }
+
+    @Override // d.b.h0.r.f0.q.a
+    public void setLikeStatus(int i) {
+        this.likeStatus = i;
+    }
+
+    public void setName_show(String str) {
+        this.name_show = str;
+    }
+
+    public void setNewGodData(NewGodData newGodData) {
+        this.mNewGodData = newGodData;
+    }
+
+    public void setPendantData(m mVar) {
+        this.pendantData = mVar;
+    }
+
+    public void setPortrait(String str) {
+        this.portrait = str;
+    }
+
+    public void setPortraitH(String str) {
+        this.portraith = str;
+    }
+
+    public void setPrivSetsData(PrivSetsData privSetsData) {
+        this.privSetsData = privSetsData;
+    }
+
+    public void setSealPrefix(String str) {
+        this.sealPrefix = str;
+    }
+
+    public void setTShowInfo(ArrayList<IconData> arrayList) {
+        this.mTShowIconInfo = arrayList;
+    }
+
+    public void setTbVipInfoData(UserTbVipInfoData userTbVipInfoData) {
+        this.bigVData = userTbVipInfoData;
+    }
+
+    public void setThreadNum(int i) {
+        this.threadNum = i;
+    }
+
+    public void setType(int i) {
+        this.type = i;
+    }
+
+    public void setUk(String str) {
+        this.uk = str;
+    }
+
+    public void setUserId(String str) {
+        this.userId = str;
+    }
+
+    public void setUserIdLong(long j) {
+        this.userId = String.valueOf(j);
+    }
+
+    public void setUserName(String str) {
+        this.userName = str;
+    }
+
+    public void setVirtualUserUrl(String str) {
+        this.virtualUserUrl = str;
+    }
+
+    public boolean showBazhuGrade() {
+        BazhuGradeData bazhuGradeData;
+        BaijiahaoInfo baijiahaoInfo = this.baijiahaoInfo;
+        if ((baijiahaoInfo != null && baijiahaoInfo.auth_id.intValue() != 0 && !k.isEmpty(this.baijiahaoInfo.auth_desc)) || (bazhuGradeData = this.mBazhuGrade) == null || k.isEmpty(bazhuGradeData.getDesc())) {
+            return false;
+        }
+        return (this.is_bawu == 1 && "manager".equals(this.bawu_type)) ? this.privSetsData.getBazhuShowInside() != 3 : this.privSetsData.getBazhuShowOutside() != 3;
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:19:0x00e0  */
+    /* JADX WARN: Removed duplicated region for block: B:24:0x00fd  */
+    /* JADX WARN: Removed duplicated region for block: B:29:0x011a  */
+    /* JADX WARN: Removed duplicated region for block: B:34:0x0137 A[Catch: Exception -> 0x0267, TryCatch #0 {Exception -> 0x0267, blocks: (B:5:0x0005, B:7:0x0070, B:9:0x0078, B:10:0x007b, B:17:0x00bb, B:20:0x00e1, B:22:0x00e7, B:25:0x00fe, B:27:0x0104, B:30:0x011b, B:32:0x0121, B:34:0x0137, B:36:0x014e, B:37:0x0153, B:39:0x015b, B:40:0x0160, B:42:0x018a, B:44:0x0198, B:46:0x019e, B:47:0x01a0, B:49:0x01b0, B:50:0x01ed, B:52:0x01f5, B:53:0x01fa, B:55:0x0202, B:56:0x0207, B:60:0x0211, B:62:0x0223, B:63:0x0228, B:66:0x023e, B:68:0x0244), top: B:73:0x0005 }] */
+    /* JADX WARN: Removed duplicated region for block: B:36:0x014e A[Catch: Exception -> 0x0267, TryCatch #0 {Exception -> 0x0267, blocks: (B:5:0x0005, B:7:0x0070, B:9:0x0078, B:10:0x007b, B:17:0x00bb, B:20:0x00e1, B:22:0x00e7, B:25:0x00fe, B:27:0x0104, B:30:0x011b, B:32:0x0121, B:34:0x0137, B:36:0x014e, B:37:0x0153, B:39:0x015b, B:40:0x0160, B:42:0x018a, B:44:0x0198, B:46:0x019e, B:47:0x01a0, B:49:0x01b0, B:50:0x01ed, B:52:0x01f5, B:53:0x01fa, B:55:0x0202, B:56:0x0207, B:60:0x0211, B:62:0x0223, B:63:0x0228, B:66:0x023e, B:68:0x0244), top: B:73:0x0005 }] */
+    /* JADX WARN: Removed duplicated region for block: B:39:0x015b A[Catch: Exception -> 0x0267, TryCatch #0 {Exception -> 0x0267, blocks: (B:5:0x0005, B:7:0x0070, B:9:0x0078, B:10:0x007b, B:17:0x00bb, B:20:0x00e1, B:22:0x00e7, B:25:0x00fe, B:27:0x0104, B:30:0x011b, B:32:0x0121, B:34:0x0137, B:36:0x014e, B:37:0x0153, B:39:0x015b, B:40:0x0160, B:42:0x018a, B:44:0x0198, B:46:0x019e, B:47:0x01a0, B:49:0x01b0, B:50:0x01ed, B:52:0x01f5, B:53:0x01fa, B:55:0x0202, B:56:0x0207, B:60:0x0211, B:62:0x0223, B:63:0x0228, B:66:0x023e, B:68:0x0244), top: B:73:0x0005 }] */
+    /* JADX WARN: Removed duplicated region for block: B:42:0x018a A[Catch: Exception -> 0x0267, TryCatch #0 {Exception -> 0x0267, blocks: (B:5:0x0005, B:7:0x0070, B:9:0x0078, B:10:0x007b, B:17:0x00bb, B:20:0x00e1, B:22:0x00e7, B:25:0x00fe, B:27:0x0104, B:30:0x011b, B:32:0x0121, B:34:0x0137, B:36:0x014e, B:37:0x0153, B:39:0x015b, B:40:0x0160, B:42:0x018a, B:44:0x0198, B:46:0x019e, B:47:0x01a0, B:49:0x01b0, B:50:0x01ed, B:52:0x01f5, B:53:0x01fa, B:55:0x0202, B:56:0x0207, B:60:0x0211, B:62:0x0223, B:63:0x0228, B:66:0x023e, B:68:0x0244), top: B:73:0x0005 }] */
+    /* JADX WARN: Removed duplicated region for block: B:49:0x01b0 A[Catch: Exception -> 0x0267, TryCatch #0 {Exception -> 0x0267, blocks: (B:5:0x0005, B:7:0x0070, B:9:0x0078, B:10:0x007b, B:17:0x00bb, B:20:0x00e1, B:22:0x00e7, B:25:0x00fe, B:27:0x0104, B:30:0x011b, B:32:0x0121, B:34:0x0137, B:36:0x014e, B:37:0x0153, B:39:0x015b, B:40:0x0160, B:42:0x018a, B:44:0x0198, B:46:0x019e, B:47:0x01a0, B:49:0x01b0, B:50:0x01ed, B:52:0x01f5, B:53:0x01fa, B:55:0x0202, B:56:0x0207, B:60:0x0211, B:62:0x0223, B:63:0x0228, B:66:0x023e, B:68:0x0244), top: B:73:0x0005 }] */
+    /* JADX WARN: Removed duplicated region for block: B:52:0x01f5 A[Catch: Exception -> 0x0267, TryCatch #0 {Exception -> 0x0267, blocks: (B:5:0x0005, B:7:0x0070, B:9:0x0078, B:10:0x007b, B:17:0x00bb, B:20:0x00e1, B:22:0x00e7, B:25:0x00fe, B:27:0x0104, B:30:0x011b, B:32:0x0121, B:34:0x0137, B:36:0x014e, B:37:0x0153, B:39:0x015b, B:40:0x0160, B:42:0x018a, B:44:0x0198, B:46:0x019e, B:47:0x01a0, B:49:0x01b0, B:50:0x01ed, B:52:0x01f5, B:53:0x01fa, B:55:0x0202, B:56:0x0207, B:60:0x0211, B:62:0x0223, B:63:0x0228, B:66:0x023e, B:68:0x0244), top: B:73:0x0005 }] */
+    /* JADX WARN: Removed duplicated region for block: B:55:0x0202 A[Catch: Exception -> 0x0267, TryCatch #0 {Exception -> 0x0267, blocks: (B:5:0x0005, B:7:0x0070, B:9:0x0078, B:10:0x007b, B:17:0x00bb, B:20:0x00e1, B:22:0x00e7, B:25:0x00fe, B:27:0x0104, B:30:0x011b, B:32:0x0121, B:34:0x0137, B:36:0x014e, B:37:0x0153, B:39:0x015b, B:40:0x0160, B:42:0x018a, B:44:0x0198, B:46:0x019e, B:47:0x01a0, B:49:0x01b0, B:50:0x01ed, B:52:0x01f5, B:53:0x01fa, B:55:0x0202, B:56:0x0207, B:60:0x0211, B:62:0x0223, B:63:0x0228, B:66:0x023e, B:68:0x0244), top: B:73:0x0005 }] */
+    /* JADX WARN: Removed duplicated region for block: B:58:0x020f  */
+    /* JADX WARN: Removed duplicated region for block: B:59:0x0210  */
+    /* JADX WARN: Removed duplicated region for block: B:62:0x0223 A[Catch: Exception -> 0x0267, TryCatch #0 {Exception -> 0x0267, blocks: (B:5:0x0005, B:7:0x0070, B:9:0x0078, B:10:0x007b, B:17:0x00bb, B:20:0x00e1, B:22:0x00e7, B:25:0x00fe, B:27:0x0104, B:30:0x011b, B:32:0x0121, B:34:0x0137, B:36:0x014e, B:37:0x0153, B:39:0x015b, B:40:0x0160, B:42:0x018a, B:44:0x0198, B:46:0x019e, B:47:0x01a0, B:49:0x01b0, B:50:0x01ed, B:52:0x01f5, B:53:0x01fa, B:55:0x0202, B:56:0x0207, B:60:0x0211, B:62:0x0223, B:63:0x0228, B:66:0x023e, B:68:0x0244), top: B:73:0x0005 }] */
+    /* JADX WARN: Removed duplicated region for block: B:65:0x023d  */
+    /* JADX WARN: Removed duplicated region for block: B:79:? A[RETURN, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void parserJson(JSONObject jSONObject) {
+        boolean z;
+        JSONArray optJSONArray;
+        JSONArray optJSONArray2;
+        JSONArray optJSONArray3;
+        JSONObject optJSONObject;
+        JSONObject optJSONObject2;
+        JSONObject optJSONObject3;
+        JSONObject optJSONObject4;
+        JSONObject optJSONObject5;
+        JSONObject optJSONObject6;
+        JSONObject optJSONObject7;
+        JSONObject optJSONObject8;
+        JSONArray optJSONArray4;
+        if (jSONObject == null) {
+            return;
+        }
+        try {
+            this.userId = jSONObject.optString("id");
+            this.gender = jSONObject.optInt("gender", 0);
+            this.type = jSONObject.optInt("type", 0);
+            this.userName = jSONObject.optString("name");
+            this.uk = jSONObject.optString("uk");
+            this.level_id = jSONObject.optInt("level_id", 0);
+            this.is_like = jSONObject.optInt("is_like", 0);
+            this.is_bawu = jSONObject.optInt("is_bawu", 0);
+            this.is_manager = jSONObject.optInt("is_manager", 0);
+            this.isMem = jSONObject.optInt(GroupLevelActivityConfig.IS_MEM, 0);
+            this.bawu_type = jSONObject.optString("bawu_type");
+            this.is_myfriend = jSONObject.optInt("is_friend");
+            this.is_myfans = jSONObject.optInt("is_fans");
             if (this.userName != null && this.userName.length() <= 0) {
                 this.userName = null;
             }
-            this.name_show = user.name_show;
-            this.portrait = user.portrait;
-            this.portraith = user.portraith;
-            List<Icon> list = user.iconinfo;
-            List<TshowInfo> list2 = user.tshow_icon;
-            List<TshowInfo> list3 = user.new_tshow_icon;
-            this.isMem = user.is_mem.intValue();
-            this.mIconInfo.clear();
-            if (list != null) {
-                for (int i = 0; i < list.size(); i++) {
-                    IconData iconData = new IconData();
-                    iconData.parserProtobuf(list.get(i));
-                    this.mIconInfo.add(iconData);
-                }
-            }
-            this.mTShowIconInfo.clear();
-            if (list2 != null) {
-                for (int i2 = 0; i2 < list2.size(); i2++) {
-                    IconData iconData2 = new IconData();
-                    iconData2.parserProtobuf(list2.get(i2));
-                    this.mTShowIconInfo.add(iconData2);
-                }
-            }
-            this.mTShowIconInfoNew.clear();
-            if (list3 != null) {
-                for (int i3 = 0; i3 < list3.size(); i3++) {
-                    IconData iconData3 = new IconData();
-                    iconData3.parserProtobuf(list3.get(i3));
-                    this.mTShowIconInfoNew.add(iconData3);
-                }
-            }
-            if (user.god_data != null) {
-                this.godUserData.parserProtobuf(user.god_data);
-                this.isGod = this.godUserData.isGod();
-                this.isBigV = this.godUserData.isBigV();
-                this.god_intro = this.godUserData.getIntro();
-            }
-            if (user.tb_vip != null) {
-                this.bigVData.parserProtobuf(user.tb_vip);
-            }
-            this.godInfo = user.god_data;
-            this.giftNum = user.gift_num.intValue();
-            this.themeCard.parser(user.theme_card);
-            if (user.pendant != null) {
-                this.pendantData = new n();
-                this.pendantData.a(user.pendant);
-            }
-            this.isLikeStatusFromNet = true;
-            if (user.ala_info != null) {
-                this.alaUserData = new AlaUserInfoData();
-                this.alaUserData.a(user.ala_info);
-            }
-            if (user.ala_live_info != null) {
-                this.alaInfo = new AlaInfoData();
-                this.alaInfo.parserProtobuf(user.ala_live_info);
-            } else if (this.alaUserData != null) {
-                this.alaInfo = new AlaInfoData();
-                this.alaInfo.live_status = this.alaUserData.live_status;
-                this.alaInfo.live_id = this.alaUserData.live_id;
-            }
-            this.liveRoomInfo = user.live_room_info;
-            this.sealPrefix = user.seal_prefix;
-            if (user.spring_virtual_user != null && user.spring_virtual_user.is_virtual.intValue() == 1 && !StringUtils.isNull(user.spring_virtual_user.url)) {
-                this.virtualUserUrl = user.spring_virtual_user.url;
-            }
-            this.left_call_num = user.left_call_num.intValue();
-            this.baijiahaoInfo = user.baijiahao_info;
-            this.canModifyAvatar = user.can_modify_avatar.intValue() == 0;
-            this.cantModifyAvatarDesc = user.modify_avatar_desc;
-            this.rankNum = user.level_influence;
-            this.rankInfluence = user.influence == null ? 0 : user.influence.intValue();
-            this.isMask = user.is_mask.intValue() == 1;
-            if (user.new_god_data != null) {
-                this.mNewGodData.parserProtobuf(user.new_god_data);
-            }
-            if (user.bazhu_grade != null) {
-                this.mBazhuGrade.parserProtobuf(user.bazhu_grade);
-            }
-            this.isDefaultAvatar = user.is_default_avatar.intValue() == 1;
-            this.uk = user.uk;
-            if (user.priv_sets != null) {
-                this.privSetsData.parserProtobuf(user.priv_sets);
-            }
-            if (user.business_account_info != null) {
-                this.businessAccountData = new d();
-                this.businessAccountData.a(user.business_account_info);
-            }
-            if (!StringUtils.isNull(user.appeal_thread_popover)) {
-                this.appealThreadPopover = user.appeal_thread_popover;
-            }
-            List<ForumToolPerm> list4 = user.forum_tool_auth;
-            this.forumToolAuth.clear();
-            if (list4 != null && list4.size() > 0) {
-                this.forumToolAuth.addAll(list4);
-            }
-        }
-    }
-
-    private void testBaijiahaoInfo() {
-        BaijiahaoInfo.Builder builder = new BaijiahaoInfo.Builder();
-        builder.auth_id = 1;
-        builder.auth_desc = "专家";
-        this.baijiahaoInfo = builder.build(true);
-    }
-
-    public void parserJson(String str) {
-        try {
-            parserJson(new JSONObject(str));
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
-        }
-    }
-
-    public void parserJson(JSONObject jSONObject) {
-        int i = 0;
-        if (jSONObject != null) {
-            try {
-                this.userId = jSONObject.optString("id");
-                this.gender = jSONObject.optInt("gender", 0);
-                this.type = jSONObject.optInt("type", 0);
-                this.userName = jSONObject.optString("name");
-                this.uk = jSONObject.optString("uk");
-                this.level_id = jSONObject.optInt("level_id", 0);
-                this.is_like = jSONObject.optInt("is_like", 0);
-                this.is_bawu = jSONObject.optInt("is_bawu", 0);
-                this.is_manager = jSONObject.optInt("is_manager", 0);
-                this.isMem = jSONObject.optInt(GroupLevelActivityConfig.IS_MEM, 0);
-                this.bawu_type = jSONObject.optString("bawu_type");
-                this.is_myfriend = jSONObject.optInt("is_friend");
-                this.is_myfans = jSONObject.optInt("is_fans");
-                if (this.userName != null && this.userName.length() <= 0) {
-                    this.userName = null;
-                }
-                this.name_show = jSONObject.optString("name_show");
-                this.portrait = jSONObject.optString("portrait");
-                this.portraith = jSONObject.optString("portraith");
-                this.fansNum = jSONObject.optInt(PersonInfoActivityConfig.FANS_NUM);
-                this.likeNum = jSONObject.optInt("my_like_num");
-                this.threadNum = jSONObject.optInt("post_num");
-                int optInt = jSONObject.optInt("has_concerned");
-                this.mHadConcerned = optInt == 1 || optInt == 2;
+            this.name_show = jSONObject.optString("name_show");
+            this.portrait = jSONObject.optString("portrait");
+            this.portraith = jSONObject.optString("portraith");
+            this.fansNum = jSONObject.optInt(PersonInfoActivityConfig.FANS_NUM);
+            this.likeNum = jSONObject.optInt("my_like_num");
+            this.threadNum = jSONObject.optInt("post_num");
+            int optInt = jSONObject.optInt("has_concerned");
+            boolean z2 = true;
+            if (optInt != 1 && optInt != 2) {
+                z = false;
+                this.mHadConcerned = z;
                 setLikeStatus(optInt);
-                JSONArray optJSONArray = jSONObject.optJSONArray("iconinfo");
-                JSONArray optJSONArray2 = jSONObject.optJSONArray("tshow_icon");
-                JSONArray optJSONArray3 = jSONObject.optJSONArray("new_tshow_icon");
-                JSONObject optJSONObject = jSONObject.optJSONObject("god_data");
-                JSONObject optJSONObject2 = jSONObject.optJSONObject("tb_vip");
+                optJSONArray = jSONObject.optJSONArray("iconinfo");
+                optJSONArray2 = jSONObject.optJSONArray("tshow_icon");
+                optJSONArray3 = jSONObject.optJSONArray("new_tshow_icon");
+                optJSONObject = jSONObject.optJSONObject("god_data");
+                optJSONObject2 = jSONObject.optJSONObject("tb_vip");
                 if (optJSONArray != null) {
-                    for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
+                    for (int i = 0; i < optJSONArray.length(); i++) {
                         IconData iconData = new IconData();
-                        iconData.parserJson(optJSONArray.getJSONObject(i2));
+                        iconData.parserJson(optJSONArray.getJSONObject(i));
                         this.mIconInfo.add(iconData);
                     }
                 }
                 if (optJSONArray2 != null) {
-                    for (int i3 = 0; i3 < optJSONArray2.length(); i3++) {
+                    for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
                         IconData iconData2 = new IconData();
-                        iconData2.parserJson(optJSONArray2.getJSONObject(i3));
+                        iconData2.parserJson(optJSONArray2.getJSONObject(i2));
                         this.mTShowIconInfo.add(iconData2);
                     }
                 }
                 if (optJSONArray3 != null) {
-                    for (int i4 = 0; i4 < optJSONArray3.length(); i4++) {
+                    for (int i3 = 0; i3 < optJSONArray3.length(); i3++) {
                         IconData iconData3 = new IconData();
-                        iconData3.parserJson(optJSONArray3.getJSONObject(i4));
+                        iconData3.parserJson(optJSONArray3.getJSONObject(i3));
                         this.mTShowIconInfoNew.add(iconData3);
                     }
                 }
@@ -624,16 +820,18 @@ public class MetaData extends OrmObject implements com.baidu.tbadk.core.view.use
                 if (optJSONObject2 != null) {
                     this.bigVData.parseJson(optJSONObject2);
                 }
-                JSONObject optJSONObject3 = jSONObject.optJSONObject("theme_card");
+                optJSONObject3 = jSONObject.optJSONObject("theme_card");
                 if (optJSONObject3 != null) {
                     this.themeCard.parser(optJSONObject3);
                 }
                 this.isLikeStatusFromNet = true;
-                this.alaUserData = new AlaUserInfoData();
-                this.alaUserData.parserJson(jSONObject.optJSONObject("ala_info"));
-                this.alaInfo = new AlaInfoData();
-                this.alaInfo.parserJson(jSONObject.optJSONObject("ala_live_info"));
-                JSONObject optJSONObject4 = jSONObject.optJSONObject("spring_virtual_user");
+                AlaUserInfoData alaUserInfoData = new AlaUserInfoData();
+                this.alaUserData = alaUserInfoData;
+                alaUserInfoData.parserJson(jSONObject.optJSONObject("ala_info"));
+                AlaInfoData alaInfoData = new AlaInfoData();
+                this.alaInfo = alaInfoData;
+                alaInfoData.parserJson(jSONObject.optJSONObject("ala_live_info"));
+                optJSONObject4 = jSONObject.optJSONObject("spring_virtual_user");
                 if (optJSONObject4 != null) {
                     int optInt2 = optJSONObject4.optInt("is_virtual");
                     String optString = optJSONObject4.optString("url");
@@ -642,173 +840,102 @@ public class MetaData extends OrmObject implements com.baidu.tbadk.core.view.use
                     }
                 }
                 this.left_call_num = jSONObject.optInt("left_call_num", 0);
-                JSONObject optJSONObject5 = jSONObject.optJSONObject("baijiahao_info");
+                optJSONObject5 = jSONObject.optJSONObject("baijiahao_info");
                 if (optJSONObject5 != null) {
                     BaijiahaoInfo.Builder builder = new BaijiahaoInfo.Builder();
                     builder.name = optJSONObject5.optString("name");
-                    builder.avatar = optJSONObject5.optString(TableDefine.PaSubscribeColumns.COLUMN_AVATAR);
+                    builder.avatar = optJSONObject5.optString("avatar");
                     builder.avatar_h = optJSONObject5.optString("avatar_h");
                     builder.brief = optJSONObject5.optString(DBTableDefine.GroupInfoColumns.COLUMN_BRIEF);
                     builder.auth_id = Integer.valueOf(optJSONObject5.optInt("auth_id"));
                     builder.auth_desc = optJSONObject5.optString("auth_desc");
                     this.baijiahaoInfo = builder.build(false);
                 }
-                JSONObject optJSONObject6 = jSONObject.optJSONObject("new_god_data");
+                optJSONObject6 = jSONObject.optJSONObject("new_god_data");
                 if (optJSONObject6 != null) {
                     this.mNewGodData.parserJson(optJSONObject6);
                 }
-                JSONObject optJSONObject7 = jSONObject.optJSONObject("bazhu_grade");
+                optJSONObject7 = jSONObject.optJSONObject("bazhu_grade");
                 if (optJSONObject7 != null) {
                     this.mBazhuGrade.parserJson(optJSONObject7);
                 }
-                this.canModifyAvatar = jSONObject.optInt("can_modify_avatar") == 0;
+                if (jSONObject.optInt("can_modify_avatar") == 0) {
+                    z2 = false;
+                }
+                this.canModifyAvatar = z2;
                 this.cantModifyAvatarDesc = jSONObject.getString("modify_avatar_desc");
-                JSONObject optJSONObject8 = jSONObject.optJSONObject("business_account_info");
+                optJSONObject8 = jSONObject.optJSONObject("business_account_info");
                 if (optJSONObject8 != null) {
-                    this.businessAccountData.parseJson(optJSONObject8);
+                    this.businessAccountData.a(optJSONObject8);
                 }
                 this.appealThreadPopover = jSONObject.optString("appeal_thread_popover");
                 this.forumToolAuth.clear();
-                JSONArray optJSONArray4 = jSONObject.optJSONArray("forum_tool_auth");
+                optJSONArray4 = jSONObject.optJSONArray("forum_tool_auth");
                 if (optJSONArray4 == null) {
+                    for (int i4 = 0; i4 < optJSONArray4.length(); i4++) {
+                        ForumToolPerm.Builder builder2 = new ForumToolPerm.Builder();
+                        builder2.perm = Long.valueOf(((JSONObject) optJSONArray4.get(i4)).optLong("perm"));
+                        this.forumToolAuth.add(builder2.build(false));
+                    }
                     return;
                 }
-                while (true) {
-                    int i5 = i;
-                    if (i5 < optJSONArray4.length()) {
-                        ForumToolPerm.Builder builder2 = new ForumToolPerm.Builder();
-                        builder2.perm = Long.valueOf(((JSONObject) optJSONArray4.get(i5)).optLong("perm"));
-                        this.forumToolAuth.add(builder2.build(false));
-                        i = i5 + 1;
-                    } else {
-                        return;
-                    }
-                }
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
+                return;
             }
+            z = true;
+            this.mHadConcerned = z;
+            setLikeStatus(optInt);
+            optJSONArray = jSONObject.optJSONArray("iconinfo");
+            optJSONArray2 = jSONObject.optJSONArray("tshow_icon");
+            optJSONArray3 = jSONObject.optJSONArray("new_tshow_icon");
+            optJSONObject = jSONObject.optJSONObject("god_data");
+            optJSONObject2 = jSONObject.optJSONObject("tb_vip");
+            if (optJSONArray != null) {
+            }
+            if (optJSONArray2 != null) {
+            }
+            if (optJSONArray3 != null) {
+            }
+            if (optJSONObject != null) {
+            }
+            if (optJSONObject2 != null) {
+            }
+            optJSONObject3 = jSONObject.optJSONObject("theme_card");
+            if (optJSONObject3 != null) {
+            }
+            this.isLikeStatusFromNet = true;
+            AlaUserInfoData alaUserInfoData2 = new AlaUserInfoData();
+            this.alaUserData = alaUserInfoData2;
+            alaUserInfoData2.parserJson(jSONObject.optJSONObject("ala_info"));
+            AlaInfoData alaInfoData2 = new AlaInfoData();
+            this.alaInfo = alaInfoData2;
+            alaInfoData2.parserJson(jSONObject.optJSONObject("ala_live_info"));
+            optJSONObject4 = jSONObject.optJSONObject("spring_virtual_user");
+            if (optJSONObject4 != null) {
+            }
+            this.left_call_num = jSONObject.optInt("left_call_num", 0);
+            optJSONObject5 = jSONObject.optJSONObject("baijiahao_info");
+            if (optJSONObject5 != null) {
+            }
+            optJSONObject6 = jSONObject.optJSONObject("new_god_data");
+            if (optJSONObject6 != null) {
+            }
+            optJSONObject7 = jSONObject.optJSONObject("bazhu_grade");
+            if (optJSONObject7 != null) {
+            }
+            if (jSONObject.optInt("can_modify_avatar") == 0) {
+            }
+            this.canModifyAvatar = z2;
+            this.cantModifyAvatarDesc = jSONObject.getString("modify_avatar_desc");
+            optJSONObject8 = jSONObject.optJSONObject("business_account_info");
+            if (optJSONObject8 != null) {
+            }
+            this.appealThreadPopover = jSONObject.optString("appeal_thread_popover");
+            this.forumToolAuth.clear();
+            optJSONArray4 = jSONObject.optJSONArray("forum_tool_auth");
+            if (optJSONArray4 == null) {
+            }
+        } catch (Exception e2) {
+            BdLog.e(e2.getMessage());
         }
-    }
-
-    public ThemeCardInUserData getThemeCard() {
-        return this.themeCard;
-    }
-
-    public n getPendantData() {
-        return this.pendantData;
-    }
-
-    public void setPendantData(n nVar) {
-        this.pendantData = nVar;
-    }
-
-    public String getVirtualUserUrl() {
-        return this.virtualUserUrl;
-    }
-
-    public void setVirtualUserUrl(String str) {
-        this.virtualUserUrl = str;
-    }
-
-    public boolean canModifyAvatar() {
-        return this.canModifyAvatar;
-    }
-
-    public String getCantModifyAvatarDesc() {
-        return this.cantModifyAvatarDesc;
-    }
-
-    public String getImBjhAvatar() {
-        if (!TextUtils.isEmpty(this.imBjhAvatar)) {
-            return this.imBjhAvatar;
-        }
-        if (this.baijiahaoInfo != null && !TextUtils.isEmpty(this.baijiahaoInfo.avatar)) {
-            return this.baijiahaoInfo.avatar;
-        }
-        return this.imBjhAvatar;
-    }
-
-    public void setImBjhAvatar(String str) {
-        this.imBjhAvatar = str;
-    }
-
-    public String getAvater() {
-        if (this.baijiahaoInfo != null && !TextUtils.isEmpty(this.baijiahaoInfo.avatar)) {
-            return this.baijiahaoInfo.avatar;
-        }
-        if (!TextUtils.isEmpty(this.imBjhAvatar)) {
-            return this.imBjhAvatar;
-        }
-        return this.portrait;
-    }
-
-    public void setBusinessAccountData(d dVar) {
-        this.businessAccountData = dVar;
-    }
-
-    public d getBusinessAccountData() {
-        return this.businessAccountData;
-    }
-
-    public String getAvatarH() {
-        return (this.baijiahaoInfo == null || TextUtils.isEmpty(this.baijiahaoInfo.avatar_h)) ? this.portraith : this.baijiahaoInfo.avatar_h;
-    }
-
-    public NewGodData getNewGodData() {
-        return this.mNewGodData;
-    }
-
-    public void setNewGodData(NewGodData newGodData) {
-        this.mNewGodData = newGodData;
-    }
-
-    public boolean isNewGod() {
-        return this.mNewGodData != null && this.mNewGodData.isNewGod();
-    }
-
-    public boolean isVideoGod() {
-        return this.mNewGodData != null && this.mNewGodData.isVideoGod();
-    }
-
-    public boolean isOfficial() {
-        return this.businessAccountData != null && this.businessAccountData.fBq;
-    }
-
-    public boolean isForumBusinessAccount() {
-        return this.businessAccountData != null && this.businessAccountData.isForumBusinessAccount;
-    }
-
-    public BazhuGradeData getBazhuGradeData() {
-        return this.mBazhuGrade;
-    }
-
-    public void setBazhuGradeData(BazhuGradeData bazhuGradeData) {
-        this.mBazhuGrade = bazhuGradeData;
-    }
-
-    public void setPrivSetsData(PrivSetsData privSetsData) {
-        this.privSetsData = privSetsData;
-    }
-
-    public PrivSetsData getPrivSetsData() {
-        return this.privSetsData;
-    }
-
-    public boolean showBazhuGrade() {
-        if ((this.baijiahaoInfo != null && this.baijiahaoInfo.auth_id.intValue() != 0 && !au.isEmpty(this.baijiahaoInfo.auth_desc)) || this.mBazhuGrade == null || au.isEmpty(this.mBazhuGrade.getDesc())) {
-            return false;
-        }
-        if (this.is_bawu == 1 && Config.BAWU_TYPE_MANAGER.equals(this.bawu_type)) {
-            return this.privSetsData.getBazhuShowInside() != 3;
-        }
-        return this.privSetsData.getBazhuShowOutside() != 3;
-    }
-
-    public String getAppealThreadPopover() {
-        return this.appealThreadPopover;
-    }
-
-    public void setIsManager(int i) {
-        this.is_manager = i;
     }
 }

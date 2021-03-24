@@ -5,7 +5,7 @@ import com.kwai.video.player.KsMediaMeta;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class o implements com.kwad.sdk.core.c<EmotionCode> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.core.c
@@ -25,17 +25,10 @@ public class o implements com.kwad.sdk.core.c<EmotionCode> {
         emotionCode.language = jSONObject.optString(KsMediaMeta.KSM_KEY_LANGUAGE);
         emotionCode.codes = new ArrayList();
         JSONArray optJSONArray = jSONObject.optJSONArray("codes");
-        if (optJSONArray == null) {
-            return;
-        }
-        int i = 0;
-        while (true) {
-            int i2 = i;
-            if (i2 >= optJSONArray.length()) {
-                return;
+        if (optJSONArray != null) {
+            for (int i = 0; i < optJSONArray.length(); i++) {
+                emotionCode.codes.add((String) optJSONArray.opt(i));
             }
-            emotionCode.codes.add((String) optJSONArray.opt(i2));
-            i = i2 + 1;
         }
     }
 }

@@ -1,29 +1,32 @@
 package com.tencent.mm.opensdk.utils;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class Log {
-    private static ILog logImpl;
+    public static ILog logImpl;
 
     public static void d(String str, String str2) {
-        if (logImpl == null) {
+        ILog iLog = logImpl;
+        if (iLog == null) {
             android.util.Log.d(str, str2);
         } else {
-            logImpl.d(str, str2);
+            iLog.d(str, str2);
         }
     }
 
     public static void e(String str, String str2) {
-        if (logImpl == null) {
+        ILog iLog = logImpl;
+        if (iLog == null) {
             android.util.Log.e(str, str2);
         } else {
-            logImpl.e(str, str2);
+            iLog.e(str, str2);
         }
     }
 
     public static void i(String str, String str2) {
-        if (logImpl == null) {
+        ILog iLog = logImpl;
+        if (iLog == null) {
             android.util.Log.i(str, str2);
         } else {
-            logImpl.i(str, str2);
+            iLog.i(str, str2);
         }
     }
 
@@ -32,18 +35,20 @@ public class Log {
     }
 
     public static void v(String str, String str2) {
-        if (logImpl == null) {
+        ILog iLog = logImpl;
+        if (iLog == null) {
             android.util.Log.v(str, str2);
         } else {
-            logImpl.v(str, str2);
+            iLog.v(str, str2);
         }
     }
 
     public static void w(String str, String str2) {
-        if (logImpl == null) {
+        ILog iLog = logImpl;
+        if (iLog == null) {
             android.util.Log.w(str, str2);
         } else {
-            logImpl.w(str, str2);
+            iLog.w(str, str2);
         }
     }
 }

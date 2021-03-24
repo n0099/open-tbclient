@@ -5,20 +5,20 @@ import com.kwad.sdk.glide.Priority;
 import com.kwad.sdk.glide.load.DataSource;
 import com.kwad.sdk.glide.load.a.d;
 import com.kwad.sdk.glide.load.b.n;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class v<Model> implements n<Model, Model> {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final v<?> f6701a = new v<>();
+    public static final v<?> f35366a = new v<>();
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class a<Model> implements o<Model, Model> {
 
         /* renamed from: a  reason: collision with root package name */
-        private static final a<?> f6702a = new a<>();
+        public static final a<?> f35367a = new a<>();
 
         public static <T> a<T> a() {
-            return (a<T>) f6702a;
+            return (a<T>) f35367a;
         }
 
         @Override // com.kwad.sdk.glide.load.b.o
@@ -28,26 +28,26 @@ public class v<Model> implements n<Model, Model> {
         }
     }
 
-    /* loaded from: classes3.dex */
-    private static class b<Model> implements com.kwad.sdk.glide.load.a.d<Model> {
+    /* loaded from: classes6.dex */
+    public static class b<Model> implements com.kwad.sdk.glide.load.a.d<Model> {
 
         /* renamed from: a  reason: collision with root package name */
-        private final Model f6703a;
+        public final Model f35368a;
 
-        b(Model model) {
-            this.f6703a = model;
+        public b(Model model) {
+            this.f35368a = model;
         }
 
         @Override // com.kwad.sdk.glide.load.a.d
         @NonNull
         public Class<Model> a() {
-            return (Class<Model>) this.f6703a.getClass();
+            return (Class<Model>) this.f35368a.getClass();
         }
 
-        /* JADX DEBUG: Type inference failed for r0v0. Raw type applied. Possible types: Model, ? super Model */
+        /* JADX DEBUG: Type inference failed for r1v1. Raw type applied. Possible types: Model, ? super Model */
         @Override // com.kwad.sdk.glide.load.a.d
         public void a(@NonNull Priority priority, @NonNull d.a<? super Model> aVar) {
-            aVar.a((d.a<? super Model>) ((Model) this.f6703a));
+            aVar.a((d.a<? super Model>) ((Model) this.f35368a));
         }
 
         @Override // com.kwad.sdk.glide.load.a.d
@@ -66,7 +66,7 @@ public class v<Model> implements n<Model, Model> {
     }
 
     public static <T> v<T> a() {
-        return (v<T>) f6701a;
+        return (v<T>) f35366a;
     }
 
     @Override // com.kwad.sdk.glide.load.b.n

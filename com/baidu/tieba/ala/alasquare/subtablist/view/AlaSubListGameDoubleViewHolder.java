@@ -1,12 +1,15 @@
 package com.baidu.tieba.ala.alasquare.subtablist.view;
 
 import com.baidu.adp.widget.ListView.TypeAdapter;
-/* loaded from: classes9.dex */
+import d.b.i0.t.d.g.d.a;
+/* loaded from: classes4.dex */
 public class AlaSubListGameDoubleViewHolder extends TypeAdapter.ViewHolder {
-    public a gKz;
+
+    /* renamed from: a  reason: collision with root package name */
+    public a f14937a;
 
     public AlaSubListGameDoubleViewHolder(a aVar) {
-        super(aVar.getView());
-        this.gKz = aVar;
+        super(aVar.m());
+        this.f14937a = aVar;
     }
 }

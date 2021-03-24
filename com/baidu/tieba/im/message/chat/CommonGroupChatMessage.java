@@ -1,16 +1,11 @@
 package com.baidu.tieba.im.message.chat;
 
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import protobuf.CommitGroupMsg.CommitGroupMsgReqIdl;
 import protobuf.CommitGroupMsg.DataReq;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class CommonGroupChatMessage extends ChatMessage {
     public CommonGroupChatMessage() {
-        super(CmdConfigSocket.CMD_GROUP_CHAT_MSG);
-    }
-
-    public CommonGroupChatMessage(int i) {
-        super(i);
+        super(202001);
     }
 
     @Override // com.baidu.tbadk.message.websockt.TbSocketMessage
@@ -25,8 +20,12 @@ public class CommonGroupChatMessage extends ChatMessage {
             CommitGroupMsgReqIdl.Builder builder2 = new CommitGroupMsgReqIdl.Builder();
             builder2.data = builder.build(false);
             return builder2.build(false);
-        } catch (Exception e) {
+        } catch (Exception unused) {
             return null;
         }
+    }
+
+    public CommonGroupChatMessage(int i) {
+        super(i);
     }
 }

@@ -9,29 +9,13 @@ import org.apache.http.HttpResponseFactory;
 import org.apache.http.HttpServerConnection;
 import org.apache.http.params.HttpParams;
 @Deprecated
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class HttpService {
     public HttpService(HttpProcessor httpProcessor, ConnectionReuseStrategy connectionReuseStrategy, HttpResponseFactory httpResponseFactory) {
         throw new RuntimeException("Stub!");
     }
 
-    public void setHttpProcessor(HttpProcessor httpProcessor) {
-        throw new RuntimeException("Stub!");
-    }
-
-    public void setConnReuseStrategy(ConnectionReuseStrategy connectionReuseStrategy) {
-        throw new RuntimeException("Stub!");
-    }
-
-    public void setResponseFactory(HttpResponseFactory httpResponseFactory) {
-        throw new RuntimeException("Stub!");
-    }
-
-    public void setHandlerResolver(HttpRequestHandlerResolver httpRequestHandlerResolver) {
-        throw new RuntimeException("Stub!");
-    }
-
-    public void setExpectationVerifier(HttpExpectationVerifier httpExpectationVerifier) {
+    public void doService(HttpRequest httpRequest, HttpResponse httpResponse, HttpContext httpContext) throws HttpException, IOException {
         throw new RuntimeException("Stub!");
     }
 
@@ -39,7 +23,7 @@ public class HttpService {
         throw new RuntimeException("Stub!");
     }
 
-    public void setParams(HttpParams httpParams) {
+    public void handleException(HttpException httpException, HttpResponse httpResponse) {
         throw new RuntimeException("Stub!");
     }
 
@@ -47,11 +31,27 @@ public class HttpService {
         throw new RuntimeException("Stub!");
     }
 
-    protected void handleException(HttpException httpException, HttpResponse httpResponse) {
+    public void setConnReuseStrategy(ConnectionReuseStrategy connectionReuseStrategy) {
         throw new RuntimeException("Stub!");
     }
 
-    protected void doService(HttpRequest httpRequest, HttpResponse httpResponse, HttpContext httpContext) throws HttpException, IOException {
+    public void setExpectationVerifier(HttpExpectationVerifier httpExpectationVerifier) {
+        throw new RuntimeException("Stub!");
+    }
+
+    public void setHandlerResolver(HttpRequestHandlerResolver httpRequestHandlerResolver) {
+        throw new RuntimeException("Stub!");
+    }
+
+    public void setHttpProcessor(HttpProcessor httpProcessor) {
+        throw new RuntimeException("Stub!");
+    }
+
+    public void setParams(HttpParams httpParams) {
+        throw new RuntimeException("Stub!");
+    }
+
+    public void setResponseFactory(HttpResponseFactory httpResponseFactory) {
         throw new RuntimeException("Stub!");
     }
 }

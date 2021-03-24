@@ -1,13 +1,13 @@
 package com.kwad.sdk.contentalliance.home.swipe;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public interface a {
-    void a(float f);
+    void a(float f2);
 
-    float b(float f);
+    float b(float f2);
 
-    void c(float f);
+    void c(float f2);
 
-    void d(float f);
+    void d(float f2);
 
-    void e(float f);
+    void e(float f2);
 }

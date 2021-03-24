@@ -8,9 +8,9 @@ import com.bumptech.glide.util.ByteBufferUtil;
 import java.io.File;
 import java.io.IOException;
 import java.nio.ByteBuffer;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class ByteBufferEncoder implements Encoder<ByteBuffer> {
-    private static final String TAG = "ByteBufferEncoder";
+    public static final String TAG = "ByteBufferEncoder";
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.load.Encoder
@@ -18,11 +18,10 @@ public class ByteBufferEncoder implements Encoder<ByteBuffer> {
         try {
             ByteBufferUtil.toFile(byteBuffer, file);
             return true;
-        } catch (IOException e) {
-            if (!Log.isLoggable(TAG, 3)) {
-                return false;
+        } catch (IOException e2) {
+            if (Log.isLoggable(TAG, 3)) {
+                Log.d(TAG, "Failed to write data", e2);
             }
-            Log.d(TAG, "Failed to write data", e);
             return false;
         }
     }

@@ -6,50 +6,46 @@ import java.util.HashMap;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
-class e {
+/* loaded from: classes2.dex */
+public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f1877a;
-    private List<HashMap<String, String>> b = null;
-    private a<String> c = null;
+    public Context f6327a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
+    /* renamed from: b  reason: collision with root package name */
+    public List<HashMap<String, String>> f6328b = null;
+
+    /* renamed from: c  reason: collision with root package name */
+    public a<String> f6329c = null;
+
+    /* loaded from: classes2.dex */
     public interface a<Result> {
         void a(Result result);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     public e(Context context) {
-        this.f1877a = context;
+        this.f6327a = context;
     }
 
     private List<HashMap<String, String>> a(HashMap<String, String> hashMap, String[] strArr) {
         ArrayList arrayList = new ArrayList();
-        if (strArr != null && strArr.length > 0) {
-            int i = 0;
-            while (true) {
-                int i2 = i;
-                if (i2 >= strArr.length) {
-                    break;
-                }
-                HashMap hashMap2 = new HashMap();
-                for (String str : hashMap.keySet()) {
-                    String str2 = str.toString();
-                    hashMap2.put(str2, hashMap.get(str2));
-                }
-                hashMap2.put("mcode", strArr[i2]);
-                arrayList.add(hashMap2);
-                i = i2 + 1;
+        if (strArr == null || strArr.length <= 0) {
+            HashMap hashMap2 = new HashMap();
+            for (String str : hashMap.keySet()) {
+                String str2 = str.toString();
+                hashMap2.put(str2, hashMap.get(str2));
             }
+            arrayList.add(hashMap2);
         } else {
-            HashMap hashMap3 = new HashMap();
-            for (String str3 : hashMap.keySet()) {
-                String str4 = str3.toString();
-                hashMap3.put(str4, hashMap.get(str4));
+            for (String str3 : strArr) {
+                HashMap hashMap3 = new HashMap();
+                for (String str4 : hashMap.keySet()) {
+                    String str5 = str4.toString();
+                    hashMap3.put(str5, hashMap.get(str5));
+                }
+                hashMap3.put("mcode", str3);
+                arrayList.add(hashMap3);
             }
-            arrayList.add(hashMap3);
         }
         return arrayList;
     }
@@ -64,7 +60,7 @@ class e {
             if (!jSONObject.has("status")) {
                 jSONObject.put("status", -1);
             }
-        } catch (JSONException e) {
+        } catch (JSONException unused) {
             jSONObject = new JSONObject();
             try {
                 jSONObject.put("status", -1);
@@ -72,43 +68,26 @@ class e {
                 e2.printStackTrace();
             }
         }
-        if (this.c != null) {
-            this.c.a(jSONObject != null ? jSONObject.toString() : new JSONObject().toString());
+        a<String> aVar = this.f6329c;
+        if (aVar != null) {
+            aVar.a(jSONObject.toString());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(List<HashMap<String, String>> list) {
-        int i = 0;
+        int i;
         com.baidu.lbsapi.auth.a.a("syncConnect start Thread id = " + String.valueOf(Thread.currentThread().getId()));
         if (list == null || list.size() == 0) {
             com.baidu.lbsapi.auth.a.c("syncConnect failed,params list is null or size is 0");
             return;
         }
         ArrayList arrayList = new ArrayList();
-        while (true) {
-            int i2 = i;
-            if (i2 >= list.size()) {
-                com.baidu.lbsapi.auth.a.a("--iiiiii:" + i2 + "<><>paramList.size():" + list.size() + "<><>authResults.size():" + arrayList.size());
-                if (list.size() <= 0 || i2 != list.size() || arrayList.size() <= 0 || i2 != arrayList.size() || i2 - 1 <= 0) {
-                    return;
-                }
-                try {
-                    JSONObject jSONObject = new JSONObject((String) arrayList.get(i2 - 1));
-                    if (!jSONObject.has("status") || jSONObject.getInt("status") == 0) {
-                        return;
-                    }
-                    com.baidu.lbsapi.auth.a.a("i-1 result is not 0,return first result");
-                    a((String) arrayList.get(0));
-                    return;
-                } catch (JSONException e) {
-                    a(ErrorMessage.a("JSONException:" + e.getMessage()));
-                    return;
-                }
-            }
+        int i2 = 0;
+        while (i2 < list.size()) {
             com.baidu.lbsapi.auth.a.a("syncConnect resuest " + i2 + "  start!!!");
             HashMap<String, String> hashMap = list.get(i2);
-            g gVar = new g(this.f1877a);
+            g gVar = new g(this.f6327a);
             if (gVar.a()) {
                 String a2 = gVar.a(hashMap);
                 if (a2 == null) {
@@ -117,13 +96,13 @@ class e {
                 com.baidu.lbsapi.auth.a.a("syncConnect resuest " + i2 + "  result:" + a2);
                 arrayList.add(a2);
                 try {
-                    JSONObject jSONObject2 = new JSONObject(a2);
-                    if (jSONObject2.has("status") && jSONObject2.getInt("status") == 0) {
+                    JSONObject jSONObject = new JSONObject(a2);
+                    if (jSONObject.has("status") && jSONObject.getInt("status") == 0) {
                         com.baidu.lbsapi.auth.a.a("auth end and break");
                         a(a2);
                         return;
                     }
-                } catch (JSONException e2) {
+                } catch (JSONException unused) {
                     com.baidu.lbsapi.auth.a.a("continue-------------------------------");
                 }
             } else {
@@ -131,14 +110,27 @@ class e {
                 arrayList.add(ErrorMessage.a("Current network is not available."));
             }
             com.baidu.lbsapi.auth.a.a("syncConnect end");
-            i = i2 + 1;
+            i2++;
+        }
+        com.baidu.lbsapi.auth.a.a("--iiiiii:" + i2 + "<><>paramList.size():" + list.size() + "<><>authResults.size():" + arrayList.size());
+        if (list.size() <= 0 || i2 != list.size() || arrayList.size() <= 0 || i2 != arrayList.size() || i2 - 1 <= 0) {
+            return;
+        }
+        try {
+            JSONObject jSONObject2 = new JSONObject((String) arrayList.get(i));
+            if (!jSONObject2.has("status") || jSONObject2.getInt("status") == 0) {
+                return;
+            }
+            com.baidu.lbsapi.auth.a.a("i-1 result is not 0,return first result");
+            a((String) arrayList.get(0));
+        } catch (JSONException e2) {
+            a(ErrorMessage.a("JSONException:" + e2.getMessage()));
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     public void a(HashMap<String, String> hashMap, String[] strArr, a<String> aVar) {
-        this.b = a(hashMap, strArr);
-        this.c = aVar;
+        this.f6328b = a(hashMap, strArr);
+        this.f6329c = aVar;
         new Thread(new f(this)).start();
     }
 }

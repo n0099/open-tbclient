@@ -9,29 +9,129 @@ import com.baidu.pass.biometrics.base.PassBiometricConfiguration;
 import com.baidu.pass.biometrics.base.PassBiometricOperation;
 import com.baidu.pass.biometrics.base.callback.PassBiometricCallback;
 import com.baidu.pass.biometrics.base.dto.PassBiometricDto;
-import com.baidu.pass.biometrics.base.dynamicupdate.SoManager;
+import com.baidu.pass.biometrics.base.dynamicupdate.LocalConfigOptions;
+import com.baidu.pass.biometrics.base.dynamicupdate.SdkConfigOptions;
+import com.baidu.pass.biometrics.base.http.HttpClientWrap;
+import com.baidu.pass.biometrics.base.http.HttpHandlerWrap;
+import com.baidu.pass.biometrics.base.http.HttpHashMapWrap;
 import com.baidu.pass.biometrics.base.restnet.beans.business.BeanConstants;
 import com.baidu.pass.biometrics.base.result.PassBiometricResult;
 import com.baidu.pass.biometrics.base.utils.PassBiometricUtil;
 import com.baidu.pass.biometrics.base.utils.ResUtils;
+import com.baidu.pass.biometrics.base.utils.SoUtils;
 import com.baidu.pass.biometrics.face.liveness.PassFaceOperation;
-import com.baidu.pass.biometrics.face.liveness.a.a;
-import com.baidu.pass.biometrics.face.liveness.activity.LivenessRecogActivity;
+import com.baidu.pass.biometrics.face.liveness.activity.PassLivenessRecogActivity;
 import com.baidu.pass.biometrics.face.liveness.callback.PassFaceRecogCallback;
 import com.baidu.pass.biometrics.face.liveness.dto.PassFaceRecogDTO;
 import com.baidu.pass.biometrics.face.liveness.result.PassFaceRecogResult;
 import com.baidu.pass.biometrics.face.liveness.utils.enums.PassFaceRecogType;
-/* loaded from: classes14.dex */
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes2.dex */
 public class PassFaceRecogManager implements PassBiometric {
 
-    /* renamed from: a  reason: collision with root package name */
-    private static final long f2774a = 300;
-    private static PassFaceRecogManager b;
-    private PassBiometricConfiguration c;
-    private PassFaceRecogCallback d;
-    private long e;
+    /* renamed from: d  reason: collision with root package name */
+    public static final long f9598d = 300;
 
-    private PassFaceRecogManager() {
+    /* renamed from: e  reason: collision with root package name */
+    public static PassFaceRecogManager f9599e;
+
+    /* renamed from: a  reason: collision with root package name */
+    public PassBiometricConfiguration f9600a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public PassFaceRecogCallback f9601b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public long f9602c;
+
+    /* loaded from: classes2.dex */
+    public class a extends HttpHandlerWrap {
+        public a(boolean z) {
+            super(z);
+        }
+
+        @Override // com.baidu.pass.biometrics.base.http.HttpHandlerWrap
+        public void onFailure(Throwable th, int i, String str) {
+            LocalConfigOptions.getInstance(PassFaceRecogManager.this.f9600a.getApplication()).setBioOptions(LocalConfigOptions.getInstance(PassFaceRecogManager.this.f9600a.getApplication()).getBioOptions());
+        }
+
+        @Override // com.baidu.pass.biometrics.base.http.HttpHandlerWrap
+        public void onSuccess(int i, String str) {
+            try {
+                LocalConfigOptions.getInstance(PassFaceRecogManager.this.f9600a.getApplication()).setBioOptions(SdkConfigOptions.fromOnLineJSON(new JSONObject(str)));
+            } catch (JSONException e2) {
+                onFailure(e2, e2.hashCode(), str);
+            }
+        }
+    }
+
+    private void b() {
+        this.f9602c = System.currentTimeMillis();
+    }
+
+    private boolean c() {
+        return System.currentTimeMillis() - this.f9602c < 300;
+    }
+
+    public static synchronized PassFaceRecogManager getInstance() {
+        PassFaceRecogManager passFaceRecogManager;
+        synchronized (PassFaceRecogManager.class) {
+            if (f9599e == null) {
+                f9599e = new PassFaceRecogManager();
+            }
+            passFaceRecogManager = f9599e;
+        }
+        return passFaceRecogManager;
+    }
+
+    public void cleanPassFaceRecogCallback() {
+        this.f9601b = null;
+    }
+
+    @Override // com.baidu.pass.biometrics.base.PassBiometric
+    public void config(PassBiometricConfiguration passBiometricConfiguration) {
+        if (passBiometricConfiguration != null) {
+            if (!TextUtils.isEmpty(passBiometricConfiguration.tpl) && !TextUtils.isEmpty(passBiometricConfiguration.appId) && !TextUtils.isEmpty(passBiometricConfiguration.appSignKey)) {
+                this.f9600a = passBiometricConfiguration;
+                ResUtils.setApplicationContext(passBiometricConfiguration.getApplication());
+                BeanConstants.tpl = passBiometricConfiguration.tpl;
+                BeanConstants.appid = passBiometricConfiguration.appId;
+                BeanConstants.appSignKey = passBiometricConfiguration.appSignKey;
+                a();
+                SoUtils.load(passBiometricConfiguration.getApplication());
+                return;
+            }
+            throw new IllegalArgumentException("tpl, appId, appsignkey can not be null, please use setProductLineInfo(String tpl, String appId, String appSignKey)to initialize them.");
+        }
+        throw new IllegalArgumentException("PassBiometricConfiguration can't be null");
+    }
+
+    @Override // com.baidu.pass.biometrics.base.PassBiometric
+    public void execute(PassBiometricOperation passBiometricOperation, PassBiometricCallback passBiometricCallback, PassBiometricDto passBiometricDto, Context context) {
+        if (passBiometricCallback == null) {
+            throw new IllegalArgumentException(PassBiometricCallback.class.getSimpleName() + " can't be null");
+        } else if (passBiometricOperation == null) {
+            throw new IllegalArgumentException(PassBiometricOperation.class.getSimpleName() + " can't be null");
+        } else if (passBiometricDto != null) {
+            if (((PassFaceOperation) passBiometricOperation).operationType != PassFaceOperation.OperationType.RECOGNIZE || c()) {
+                return;
+            }
+            b();
+            PassFaceRecogDTO passFaceRecogDTO = (PassFaceRecogDTO) passBiometricDto;
+            a(passFaceRecogDTO);
+            a((PassFaceRecogCallback) passBiometricCallback, passFaceRecogDTO, context);
+        } else {
+            throw new IllegalArgumentException(PassBiometricDto.class.getSimpleName() + " can't be null");
+        }
+    }
+
+    public PassBiometricConfiguration getConfiguration() {
+        return this.f9600a;
+    }
+
+    public PassFaceRecogCallback getPassFaceRecogCallback() {
+        return this.f9601b;
     }
 
     private void a(PassFaceRecogCallback passFaceRecogCallback, PassFaceRecogDTO passFaceRecogDTO, Context context) {
@@ -75,15 +175,6 @@ public class PassFaceRecogManager implements PassBiometric {
             } else if (TextUtils.isEmpty(passFaceRecogDTO.exUid)) {
                 passFaceRecogDTO.exUid = "1";
             }
-        } else if (passFaceRecogType == PassFaceRecogType.RECOG_TYPE_FACEDETECT) {
-            if (TextUtils.isEmpty(passFaceRecogDTO.exUid)) {
-                passFaceRecogResult.setResultCode(-205);
-                if (passFaceRecogCallback != null) {
-                    passFaceRecogCallback.onFailure(passFaceRecogResult);
-                    return;
-                }
-                return;
-            }
         } else if (passFaceRecogType == PassFaceRecogType.RECOG_TYPE_OUTER && TextUtils.isEmpty(passFaceRecogDTO.exUid)) {
             passFaceRecogResult.setResultCode(-205);
             if (passFaceRecogCallback != null) {
@@ -92,77 +183,12 @@ public class PassFaceRecogManager implements PassBiometric {
             }
             return;
         }
-        this.d = passFaceRecogCallback;
-        Intent intent = new Intent(context, LivenessRecogActivity.class);
+        this.f9601b = passFaceRecogCallback;
+        Intent intent = new Intent(context, PassLivenessRecogActivity.class);
         if (!(context instanceof Activity)) {
             intent.setFlags(268435456);
         }
         context.startActivity(intent);
-    }
-
-    private boolean b() {
-        return System.currentTimeMillis() - this.e < 300;
-    }
-
-    public static synchronized PassFaceRecogManager getInstance() {
-        PassFaceRecogManager passFaceRecogManager;
-        synchronized (PassFaceRecogManager.class) {
-            if (b == null) {
-                b = new PassFaceRecogManager();
-            }
-            passFaceRecogManager = b;
-        }
-        return passFaceRecogManager;
-    }
-
-    public void cleanPassFaceRecogCallback() {
-        this.d = null;
-    }
-
-    @Override // com.baidu.pass.biometrics.base.PassBiometric
-    public void config(PassBiometricConfiguration passBiometricConfiguration) {
-        if (passBiometricConfiguration != null) {
-            if (!TextUtils.isEmpty(passBiometricConfiguration.tpl) && !TextUtils.isEmpty(passBiometricConfiguration.appId) && !TextUtils.isEmpty(passBiometricConfiguration.appSignKey)) {
-                this.c = passBiometricConfiguration;
-                ResUtils.setApplicationContext(passBiometricConfiguration.getApplication());
-                BeanConstants.tpl = passBiometricConfiguration.tpl;
-                BeanConstants.appid = passBiometricConfiguration.appId;
-                BeanConstants.appSignKey = passBiometricConfiguration.appSignKey;
-                SoManager.checkVersion(getInstance().getConfiguration());
-                return;
-            }
-            throw new IllegalArgumentException("tpl, appId, appsignkey can not be null, please use setProductLineInfo(String tpl, String appId, String appSignKey)to initialize them.");
-        }
-        throw new IllegalArgumentException("PassBiometricConfiguration can't be null");
-    }
-
-    @Override // com.baidu.pass.biometrics.base.PassBiometric
-    public void execute(PassBiometricOperation passBiometricOperation, PassBiometricCallback passBiometricCallback, PassBiometricDto passBiometricDto, Context context) {
-        if (passBiometricCallback == null) {
-            throw new IllegalArgumentException(PassBiometricCallback.class.getSimpleName() + " can't be null");
-        }
-        if (passBiometricOperation == null) {
-            throw new IllegalArgumentException(PassBiometricOperation.class.getSimpleName() + " can't be null");
-        }
-        if (passBiometricDto != null) {
-            if (((PassFaceOperation) passBiometricOperation).operationType == PassFaceOperation.OperationType.RECOGNIZE && !b()) {
-                a();
-                PassFaceRecogDTO passFaceRecogDTO = (PassFaceRecogDTO) passBiometricDto;
-                a(passFaceRecogDTO);
-                a((PassFaceRecogCallback) passBiometricCallback, passFaceRecogDTO, context);
-                return;
-            }
-            return;
-        }
-        throw new IllegalArgumentException(PassBiometricDto.class.getSimpleName() + " can't be null");
-    }
-
-    public PassBiometricConfiguration getConfiguration() {
-        return this.c;
-    }
-
-    public PassFaceRecogCallback getPassFaceRecogCallback() {
-        return this.d;
     }
 
     private void a(PassFaceRecogDTO passFaceRecogDTO) {
@@ -176,10 +202,13 @@ public class PassFaceRecogManager implements PassBiometric {
             passFaceRecogDTO.extraParamsMap.put(PassFaceRecogDTO.KEY_EXTRA_PASS_PRODUCT_ID, passFaceRecogDTO.passProductId);
         }
         passFaceRecogDTO.processid = PassBiometricUtil.getUUID();
-        a.a().a("request_data", passFaceRecogDTO);
+        com.baidu.pass.biometrics.face.liveness.a.a.b().a("request_data", passFaceRecogDTO);
     }
 
     private void a() {
-        this.e = System.currentTimeMillis();
+        HttpHashMapWrap httpHashMapWrap = new HttpHashMapWrap();
+        httpHashMapWrap.put("appid", this.f9600a.appId);
+        httpHashMapWrap.put("tpl", this.f9600a.tpl);
+        new HttpClientWrap(this.f9600a.getApplication()).get("https://wappass.bdimg.com/static/appsapi/appdistribute/android.txt", httpHashMapWrap, null, new a(true));
     }
 }

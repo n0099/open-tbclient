@@ -1,5 +1,5 @@
 package com.squareup.wire;
-/* loaded from: classes4.dex */
+/* loaded from: classes.dex */
 public enum WireType {
     VARINT(0),
     FIXED64(1),
@@ -11,8 +11,12 @@ public enum WireType {
     public static final int FIXED_32_SIZE = 4;
     public static final int FIXED_64_SIZE = 8;
     public static final int TAG_TYPE_BITS = 3;
-    private static final int TAG_TYPE_MASK = 7;
-    private final int value;
+    public static final int TAG_TYPE_MASK = 7;
+    public final int value;
+
+    WireType(int i) {
+        this.value = i;
+    }
 
     /* JADX DEBUG: Replace access to removed values field (ENUM$VALUES) with 'values()' method */
     /* renamed from: values  reason: to resolve conflict with enum method */
@@ -24,30 +28,30 @@ public enum WireType {
         return wireTypeArr;
     }
 
-    public static WireType valueOf(int i) {
-        switch (i & 7) {
-            case 0:
-                return VARINT;
-            case 1:
-                return FIXED64;
-            case 2:
-                return LENGTH_DELIMITED;
-            case 3:
-                return START_GROUP;
-            case 4:
-                return END_GROUP;
-            case 5:
-                return FIXED32;
-            default:
-                throw new IllegalArgumentException("No WireType for value " + i);
-        }
-    }
-
-    WireType(int i) {
-        this.value = i;
-    }
-
     public int value() {
         return this.value;
+    }
+
+    public static WireType valueOf(int i) {
+        int i2 = i & 7;
+        if (i2 != 0) {
+            if (i2 != 1) {
+                if (i2 != 2) {
+                    if (i2 != 3) {
+                        if (i2 != 4) {
+                            if (i2 == 5) {
+                                return FIXED32;
+                            }
+                            throw new IllegalArgumentException("No WireType for value " + i);
+                        }
+                        return END_GROUP;
+                    }
+                    return START_GROUP;
+                }
+                return LENGTH_DELIMITED;
+            }
+            return FIXED64;
+        }
+        return VARINT;
     }
 }

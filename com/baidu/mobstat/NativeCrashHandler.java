@@ -2,79 +2,79 @@ package com.baidu.mobstat;
 
 import android.content.Context;
 import java.io.File;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public final class NativeCrashHandler {
 
     /* renamed from: a  reason: collision with root package name */
-    private static boolean f2561a;
-    private static Context b;
+    public static boolean f8839a = false;
 
-    private static native void nativeException();
-
-    private static native void nativeInit(String str);
-
-    private static native void nativeProcess(String str);
-
-    private static native void nativeUnint();
+    /* renamed from: b  reason: collision with root package name */
+    public static Context f8840b;
 
     static {
-        f2561a = false;
         try {
             System.loadLibrary("crash_analysis");
-            f2561a = true;
-        } catch (Throwable th) {
+            f8839a = true;
+        } catch (Throwable unused) {
         }
     }
 
-    private NativeCrashHandler() {
-    }
-
     public static void doNativeCrash() {
-        if (f2561a) {
+        if (f8839a) {
             try {
                 nativeException();
-            } catch (Throwable th) {
+            } catch (Throwable unused) {
             }
         }
     }
 
     public static void init(Context context) {
-        if (context != null) {
-            b = context;
-            if (f2561a) {
-                File cacheDir = context.getCacheDir();
-                if (cacheDir.exists() && cacheDir.isDirectory()) {
-                    try {
-                        nativeInit(cacheDir.getAbsolutePath());
-                    } catch (Throwable th) {
-                    }
+        if (context == null) {
+            return;
+        }
+        f8840b = context;
+        if (f8839a) {
+            File cacheDir = context.getCacheDir();
+            if (cacheDir.exists() && cacheDir.isDirectory()) {
+                try {
+                    nativeInit(cacheDir.getAbsolutePath());
+                } catch (Throwable unused) {
                 }
+            }
+        }
+    }
+
+    public static native void nativeException();
+
+    public static native void nativeInit(String str);
+
+    public static native void nativeProcess(String str);
+
+    public static native void nativeUnint();
+
+    public static void onCrashCallbackFromNative(String str) {
+        ExceptionAnalysis.getInstance().saveCrashInfo(f8840b, System.currentTimeMillis(), str, "NativeException", 1, 0);
+    }
+
+    public static void process(String str) {
+        if (str == null || str.length() == 0 || !f8839a) {
+            return;
+        }
+        File file = new File(str);
+        if (file.exists() && file.isFile()) {
+            try {
+                nativeProcess(str);
+            } catch (Throwable unused) {
             }
         }
     }
 
     public static void uninit() {
-        if (f2561a) {
+        if (f8839a) {
             try {
                 nativeUnint();
-            } catch (Throwable th) {
+            } catch (Throwable unused) {
             }
         }
-    }
-
-    public static void process(String str) {
-        if (str != null && str.length() != 0 && f2561a) {
-            File file = new File(str);
-            if (file.exists() && file.isFile()) {
-                try {
-                    nativeProcess(str);
-                } catch (Throwable th) {
-                }
-            }
-        }
-    }
-
-    public static void onCrashCallbackFromNative(String str) {
-        ExceptionAnalysis.getInstance().saveCrashInfo(b, System.currentTimeMillis(), str, "NativeException", 1, 0);
     }
 }

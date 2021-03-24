@@ -3,13 +3,13 @@ package com.baidu.tbadk.core.atomData;
 import android.content.Context;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import java.util.ArrayList;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class ForumDetailActivityConfig extends IntentConfig {
     public static final String FORUM_ID = "forum_id";
     public static final String FROM_TYPE = "from_type";
     public ArrayList<String> tabs;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes3.dex */
     public enum FromType {
         BAR,
         FRS,
@@ -30,11 +30,11 @@ public class ForumDetailActivityConfig extends IntentConfig {
         getIntent().putExtra("from_type", fromType.toString());
     }
 
-    public void setForumTabs(ArrayList<String> arrayList) {
-        this.tabs = arrayList;
-    }
-
     public static boolean isFromFrs(String str) {
         return FromType.FRS.toString().equals(str) || FromType.FRS_GAME_INFO.toString().equals(str) || FromType.FRS_GAME_STRATEGY.toString().equals(str) || FromType.FRS_GAME_LIVE.toString().equals(str);
+    }
+
+    public void setForumTabs(ArrayList<String> arrayList) {
+        this.tabs = arrayList;
     }
 }

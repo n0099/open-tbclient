@@ -1,21 +1,36 @@
 package com.meizu.cloud.pushsdk.a;
-
-import com.baidu.live.adp.lib.stats.BdStatsConstant;
-import com.baidu.mobstat.Config;
-import com.meizu.cloud.pushsdk.notification.model.AppIconSetting;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class b {
+    public static String A = "wb";
+    public static String B = "lt";
+    public static String C = "at";
+    public static String D = "lat";
+    public static String E = "wl";
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f7319a = "ui";
-    public static String b = "ie";
-    public static String c = "is1";
-    public static String d = "is2";
-    public static String e = "phn";
-    public static String f = AppIconSetting.DEFAULT_LARGE_ICON;
-    public static String g = "br";
-    public static String h = "dc";
-    public static String i = Config.MANUFACTURER;
+    public static String f37402a = "ui";
+
+    /* renamed from: b  reason: collision with root package name */
+    public static String f37403b = "ie";
+
+    /* renamed from: c  reason: collision with root package name */
+    public static String f37404c = "is1";
+
+    /* renamed from: d  reason: collision with root package name */
+    public static String f37405d = "is2";
+
+    /* renamed from: e  reason: collision with root package name */
+    public static String f37406e = "phn";
+
+    /* renamed from: f  reason: collision with root package name */
+    public static String f37407f = "di";
+
+    /* renamed from: g  reason: collision with root package name */
+    public static String f37408g = "br";
+
+    /* renamed from: h  reason: collision with root package name */
+    public static String f37409h = "dc";
+    public static String i = "ma";
     public static String j = "ot";
     public static String k = "ov";
     public static String l = "ss";
@@ -24,18 +39,13 @@ public class b {
     public static String o = "ai";
     public static String p = "st";
     public static String q = "pt";
-    public static String r = Config.PACKAGE_NAME;
+    public static String r = "pn";
     public static String s = "pv";
     public static String t = "pvc";
-    public static String u = Config.PROCESS_LABEL;
-    public static String v = AppIconSetting.LARGE_ICON_URL;
-    public static String w = Config.EXCEPTION_CRASH_TYPE;
-    public static String x = Config.PRINCIPAL_PART;
-    public static String y = BdStatsConstant.StatsKey.CRASH_INFO;
+    public static String u = "pl";
+    public static String v = "li";
+    public static String w = "ct";
+    public static String x = "pr";
+    public static String y = "ci";
     public static String z = "nt";
-    public static String A = "wb";
-    public static String B = "lt";
-    public static String C = "at";
-    public static String D = "lat";
-    public static String E = "wl";
 }

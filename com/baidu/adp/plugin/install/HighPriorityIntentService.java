@@ -9,14 +9,11 @@ import android.os.Looper;
 import android.os.Message;
 /* loaded from: classes.dex */
 public abstract class HighPriorityIntentService extends Service {
-    private String mName;
-    private boolean mRedelivery;
-    private volatile a mServiceHandler;
-    private volatile Looper mServiceLooper;
+    public String mName;
+    public boolean mRedelivery;
+    public volatile a mServiceHandler;
+    public volatile Looper mServiceLooper;
 
-    protected abstract void onHandleIntent(Intent intent);
-
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public final class a extends Handler {
         public a(Looper looper) {
@@ -34,8 +31,9 @@ public abstract class HighPriorityIntentService extends Service {
         this.mName = str;
     }
 
-    public void setIntentRedelivery(boolean z) {
-        this.mRedelivery = z;
+    @Override // android.app.Service
+    public IBinder onBind(Intent intent) {
+        return null;
     }
 
     @Override // android.app.Service
@@ -46,6 +44,13 @@ public abstract class HighPriorityIntentService extends Service {
         this.mServiceLooper = handlerThread.getLooper();
         this.mServiceHandler = new a(this.mServiceLooper);
     }
+
+    @Override // android.app.Service
+    public void onDestroy() {
+        this.mServiceLooper.quit();
+    }
+
+    public abstract void onHandleIntent(Intent intent);
 
     @Override // android.app.Service
     public void onStart(Intent intent, int i) {
@@ -61,13 +66,7 @@ public abstract class HighPriorityIntentService extends Service {
         return this.mRedelivery ? 3 : 2;
     }
 
-    @Override // android.app.Service
-    public void onDestroy() {
-        this.mServiceLooper.quit();
-    }
-
-    @Override // android.app.Service
-    public IBinder onBind(Intent intent) {
-        return null;
+    public void setIntentRedelivery(boolean z) {
+        this.mRedelivery = z;
     }
 }

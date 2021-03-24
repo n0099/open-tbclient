@@ -12,22 +12,22 @@ import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class IMSyncPushMsg extends Message {
-    public static final String TAG = IMSyncPushMsg.class.getSimpleName();
-    private String mChannelId;
-    private Context mContext;
-    private String mDeviceId;
-    private String mPushAppId;
-    private String mUserId;
+    public static final String TAG = "IMSyncPushMsg";
+    public String mChannelId;
+    public Context mContext;
+    public String mDeviceId;
+    public String mPushAppId;
+    public String mUserId;
 
     public IMSyncPushMsg(Context context, String str, String str2, String str3) {
         this.mContext = context;
         initCommonParameter(context);
         if (TextUtils.isEmpty(str)) {
             str = "0";
-            str2 = "0";
-            str3 = "0";
+            str2 = str;
+            str3 = str2;
         }
         this.mChannelId = str;
         this.mUserId = str2;
@@ -38,8 +38,8 @@ public class IMSyncPushMsg extends Message {
     }
 
     public static IMSyncPushMsg newInstance(Context context, Intent intent) {
-        if (intent.hasExtra("push_channel_id") && intent.hasExtra(Constants.EXTRA_PUSH_USER_ID) && intent.hasExtra(Constants.EXTRA_PUSH_APP_ID)) {
-            return new IMSyncPushMsg(context, intent.getStringExtra("push_channel_id"), intent.getStringExtra(Constants.EXTRA_PUSH_USER_ID), intent.getStringExtra(Constants.EXTRA_PUSH_APP_ID));
+        if (intent.hasExtra(Constants.EXTRA_PUSH_CHANNEL_ID) && intent.hasExtra(Constants.EXTRA_PUSH_USER_ID) && intent.hasExtra(Constants.EXTRA_PUSH_APP_ID)) {
+            return new IMSyncPushMsg(context, intent.getStringExtra(Constants.EXTRA_PUSH_CHANNEL_ID), intent.getStringExtra(Constants.EXTRA_PUSH_USER_ID), intent.getStringExtra(Constants.EXTRA_PUSH_APP_ID));
         }
         return null;
     }
@@ -52,26 +52,22 @@ public class IMSyncPushMsg extends Message {
     }
 
     @Override // com.baidu.android.imsdk.request.Message
-    protected void buildBody() {
+    public void buildBody() {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("method", 190);
             jSONObject.put("appid", this.mAppid);
             jSONObject.put("uk", this.mUk);
-            jSONObject.put("device_id", this.mDeviceId);
+            jSONObject.put(Constants.KEY_DEVICE_ID, this.mDeviceId);
             jSONObject.put("push_channelid", this.mChannelId);
             jSONObject.put("push_uid", this.mUserId);
             jSONObject.put("push_appid", this.mPushAppId);
             jSONObject.put("account_type", AccountManagerImpl.getInstance(this.mContext).getLoginType());
             this.mBody = jSONObject.toString();
-        } catch (JSONException e) {
-            LogUtils.e(TAG, "Exception ", e);
-            new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
+        } catch (JSONException e2) {
+            LogUtils.e(TAG, "Exception ", e2);
+            new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
         }
-    }
-
-    @Override // com.baidu.android.imsdk.request.Message
-    public void onMsgSending(Context context) {
     }
 
     @Override // com.baidu.android.imsdk.request.Message
@@ -82,5 +78,9 @@ public class IMSyncPushMsg extends Message {
         }
         setNeedReSend(false);
         super.handleMessageResult(context, jSONObject, i, str);
+    }
+
+    @Override // com.baidu.android.imsdk.request.Message
+    public void onMsgSending(Context context) {
     }
 }

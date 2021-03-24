@@ -1,69 +1,81 @@
 package com.baidu.tieba.imageProblem.cdnOptimize;
 
-import com.baidu.android.imsdk.db.TableDefine;
-import com.baidu.android.util.io.BaseJsonData;
-import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class TbCdnIpListData {
-    public ArrayList<ArrayList<String>> kYM;
-    public int blq = 0;
-    public String errorString = null;
-    public String imageUrl = null;
-    public String kYL = null;
-    boolean kYN = false;
-    public String kYO = null;
+
+    /* renamed from: e  reason: collision with root package name */
+    public ArrayList<ArrayList<String>> f18406e;
+
+    /* renamed from: a  reason: collision with root package name */
+    public int f18402a = 0;
+
+    /* renamed from: b  reason: collision with root package name */
+    public String f18403b = null;
+
+    /* renamed from: c  reason: collision with root package name */
+    public String f18404c = null;
+
+    /* renamed from: d  reason: collision with root package name */
+    public String f18405d = null;
+
+    /* renamed from: f  reason: collision with root package name */
+    public boolean f18407f = false;
+
+    /* renamed from: g  reason: collision with root package name */
+    public String f18408g = null;
 
     public void parseJson(JSONObject jSONObject) {
         JSONArray optJSONArray;
-        if (jSONObject != null) {
-            try {
-                JSONObject optJSONObject = jSONObject.optJSONObject(BdStatsConstant.StatsType.ERROR);
-                if (optJSONObject != null) {
-                    this.blq = optJSONObject.optInt("errorno");
-                    this.errorString = optJSONObject.optString(BaseJsonData.TAG_ERRMSG);
-                }
-                if (1 == jSONObject.optInt("cdn_switch")) {
-                    this.kYN = true;
-                } else {
-                    this.kYN = false;
-                }
-                this.kYO = jSONObject.optString("cdn_domain");
-                JSONObject optJSONObject2 = jSONObject.optJSONObject("cdn_img_info");
-                if (optJSONObject2 != null) {
-                    this.imageUrl = optJSONObject2.optString(BigdayActivityConfig.IMG_URL);
-                    this.kYL = optJSONObject2.optString("img_md5");
-                }
-                JSONArray optJSONArray2 = jSONObject.optJSONArray("ip_list");
-                if (optJSONArray2 != null) {
-                    int length = optJSONArray2.length();
-                    ArrayList<ArrayList<String>> arrayList = new ArrayList<>();
-                    for (int i = 0; i < length; i++) {
-                        JSONObject jSONObject2 = optJSONArray2.getJSONObject(i);
-                        if (jSONObject2 != null && (optJSONArray = jSONObject2.optJSONArray(TableDefine.UserInfoColumns.COLUMN_IP)) != null) {
-                            int length2 = optJSONArray.length();
-                            ArrayList<String> arrayList2 = new ArrayList<>();
-                            for (int i2 = 0; i2 < length2; i2++) {
-                                String string = optJSONArray.getString(i2);
-                                if (string != null && string.length() > 0) {
-                                    arrayList2.add(string);
-                                }
-                            }
-                            if (arrayList2.size() > 0) {
-                                arrayList.add(arrayList2);
+        if (jSONObject == null) {
+            return;
+        }
+        try {
+            JSONObject optJSONObject = jSONObject.optJSONObject("error");
+            if (optJSONObject != null) {
+                this.f18402a = optJSONObject.optInt("errorno");
+                this.f18403b = optJSONObject.optString("errmsg");
+            }
+            if (1 == jSONObject.optInt("cdn_switch")) {
+                this.f18407f = true;
+            } else {
+                this.f18407f = false;
+            }
+            this.f18408g = jSONObject.optString("cdn_domain");
+            JSONObject optJSONObject2 = jSONObject.optJSONObject("cdn_img_info");
+            if (optJSONObject2 != null) {
+                this.f18404c = optJSONObject2.optString(BigdayActivityConfig.IMG_URL);
+                this.f18405d = optJSONObject2.optString("img_md5");
+            }
+            JSONArray optJSONArray2 = jSONObject.optJSONArray("ip_list");
+            if (optJSONArray2 != null) {
+                int length = optJSONArray2.length();
+                ArrayList<ArrayList<String>> arrayList = new ArrayList<>();
+                for (int i = 0; i < length; i++) {
+                    JSONObject jSONObject2 = optJSONArray2.getJSONObject(i);
+                    if (jSONObject2 != null && (optJSONArray = jSONObject2.optJSONArray("ip")) != null) {
+                        int length2 = optJSONArray.length();
+                        ArrayList<String> arrayList2 = new ArrayList<>();
+                        for (int i2 = 0; i2 < length2; i2++) {
+                            String string = optJSONArray.getString(i2);
+                            if (string != null && string.length() > 0) {
+                                arrayList2.add(string);
                             }
                         }
-                    }
-                    if (arrayList.size() > 0) {
-                        this.kYM = arrayList;
+                        if (arrayList2.size() > 0) {
+                            arrayList.add(arrayList2);
+                        }
                     }
                 }
-            } catch (Exception e) {
-                e.printStackTrace();
+                if (arrayList.size() > 0) {
+                    this.f18406e = arrayList;
+                }
             }
+        } catch (Exception e2) {
+            e2.printStackTrace();
         }
     }
 }

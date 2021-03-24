@@ -1,5 +1,5 @@
 package com.alibaba.fastjson.serializer;
-/* loaded from: classes4.dex */
+/* loaded from: classes.dex */
 public interface LabelFilter extends SerializeFilter {
     boolean apply(String str);
 }

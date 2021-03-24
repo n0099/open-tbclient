@@ -1,526 +1,869 @@
 package com.bytedance.sdk.openadsdk.utils;
 
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
-import android.animation.ObjectAnimator;
 import android.app.Activity;
-import android.app.KeyguardManager;
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.Paint;
-import android.graphics.Picture;
-import android.graphics.Point;
-import android.graphics.Rect;
+import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.ResolveInfo;
+import android.net.Uri;
 import android.os.Build;
+import android.os.Handler;
+import android.os.Looper;
 import android.text.TextUtils;
-import android.util.DisplayMetrics;
-import android.view.Display;
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.WindowManager;
-import android.webkit.WebView;
-import android.widget.TextView;
-import androidx.annotation.Nullable;
-import com.baidu.ar.constants.HttpConstants;
-import java.util.ArrayList;
+import android.webkit.WebSettings;
+import androidx.annotation.NonNull;
+import com.baidu.android.util.devices.RomUtils;
+import com.bytedance.sdk.openadsdk.core.widget.webview.SSWebView;
+import com.xiaomi.mipush.sdk.Constants;
+import java.io.BufferedReader;
+import java.io.ByteArrayOutputStream;
+import java.io.FileReader;
+import java.io.IOException;
+import java.security.SecureRandom;
 import java.util.HashMap;
-import java.util.Iterator;
+import java.util.List;
+import java.util.Locale;
 import java.util.Map;
+import java.util.TimeZone;
+import java.util.UUID;
+import java.util.regex.Pattern;
+import java.util.zip.GZIPOutputStream;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class ak {
 
     /* renamed from: a  reason: collision with root package name */
-    private static float f5122a = -1.0f;
-    private static int b = -1;
-    private static float c = -1.0f;
-    private static int d = -1;
-    private static int e = -1;
-    private static WindowManager f;
+    public static volatile String f30377a = "";
 
-    static {
-        a(com.bytedance.sdk.openadsdk.core.p.a());
+    /* renamed from: b  reason: collision with root package name */
+    public static String f30378b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public static String f30379c;
+
+    public static String a(int i) {
+        switch (i) {
+            case 1:
+                return "embeded_ad_landingpage";
+            case 2:
+                return "banner_ad_landingpage";
+            case 3:
+                return "interaction_landingpage";
+            case 4:
+                return "splash_ad_landingpage";
+            case 5:
+                return "fullscreen_interstitial_ad_landingpage";
+            case 6:
+                return "draw_ad_landingpage";
+            case 7:
+                return "rewarded_video_landingpage";
+            default:
+                return null;
+        }
     }
 
-    private static boolean b() {
-        return f5122a < 0.0f || b < 0 || c < 0.0f || d < 0 || e < 0;
-    }
-
-    public static void a(Context context) {
-        Context a2 = context == null ? com.bytedance.sdk.openadsdk.core.p.a() : context;
-        f = (WindowManager) com.bytedance.sdk.openadsdk.core.p.a().getSystemService("window");
-        if (a2 != null) {
-            if (b()) {
-                DisplayMetrics displayMetrics = a2.getResources().getDisplayMetrics();
-                f5122a = displayMetrics.density;
-                b = displayMetrics.densityDpi;
-                c = displayMetrics.scaledDensity;
-                d = displayMetrics.widthPixels;
-                e = displayMetrics.heightPixels;
-            }
-            if (context != null && context.getResources() != null && context.getResources().getConfiguration() != null) {
-                if (context.getResources().getConfiguration().orientation == 1) {
-                    if (d > e) {
-                        int i = d;
-                        d = e;
-                        e = i;
+    public static boolean a(Context context, String str) {
+        Intent b2;
+        if (context != null && !TextUtils.isEmpty(str)) {
+            try {
+                if (!c(context)) {
+                    Intent b3 = b(context, str);
+                    if (b3 == null) {
+                        return false;
                     }
-                } else if (d < e) {
-                    int i2 = d;
-                    d = e;
-                    e = i2;
+                    b3.putExtra("START_ONLY_FOR_ANDROID", true);
+                    context.startActivity(b3);
+                    return true;
+                } else if (!c(context, str) || (b2 = b(context, str)) == null) {
+                    return false;
+                } else {
+                    b2.putExtra("START_ONLY_FOR_ANDROID", true);
+                    b.a(context, b2, null);
+                    return true;
                 }
+            } catch (Throwable unused) {
             }
         }
+        return false;
     }
 
-    public static float a(Context context, float f2) {
-        a(context);
-        return (e(context) * f2) + 0.5f;
-    }
-
-    public static int b(Context context, float f2) {
-        a(context);
-        float e2 = e(context);
-        if (e2 <= 0.0f) {
-            e2 = 1.0f;
-        }
-        return (int) ((f2 / e2) + 0.5f);
-    }
-
-    public static int[] b(Context context) {
-        int i;
-        if (context == null) {
+    public static Intent b(Context context, String str) {
+        Intent launchIntentForPackage = context.getPackageManager().getLaunchIntentForPackage(str);
+        if (launchIntentForPackage == null) {
             return null;
         }
-        if (f == null) {
-            f = (WindowManager) com.bytedance.sdk.openadsdk.core.p.a().getSystemService("window");
+        if (!launchIntentForPackage.hasCategory("android.intent.category.LAUNCHER")) {
+            launchIntentForPackage.addCategory("android.intent.category.LAUNCHER");
         }
-        int[] iArr = new int[2];
-        if (f != null) {
-            Display defaultDisplay = f.getDefaultDisplay();
-            DisplayMetrics displayMetrics = new DisplayMetrics();
-            defaultDisplay.getMetrics(displayMetrics);
-            int i2 = displayMetrics.widthPixels;
-            int i3 = displayMetrics.heightPixels;
-            if (Build.VERSION.SDK_INT < 14 || Build.VERSION.SDK_INT >= 17) {
-                i = i3;
-            } else {
+        launchIntentForPackage.setPackage(null);
+        launchIntentForPackage.addFlags(2097152);
+        launchIntentForPackage.addFlags(268435456);
+        return launchIntentForPackage;
+    }
+
+    public static String b(int i) {
+        switch (i) {
+            case 1:
+                return "banner_ad";
+            case 2:
+                return "interaction";
+            case 3:
+            case 4:
+                return "splash_ad";
+            case 5:
+            default:
+                return "embeded_ad";
+            case 6:
+                return "stream";
+            case 7:
+                return "rewarded_video";
+            case 8:
+                return "fullscreen_interstitial_ad";
+            case 9:
+                return "draw_ad";
+        }
+    }
+
+    public static boolean c(Context context, String str) {
+        if (context == null || !c(context) || TextUtils.isEmpty(str)) {
+            return false;
+        }
+        try {
+            return context.getPackageManager().getPackageInfo(str, 0) != null;
+        } catch (Throwable unused) {
+            return false;
+        }
+    }
+
+    public static boolean d(Context context, String str) {
+        if (context != null && !TextUtils.isEmpty(str)) {
+            try {
+                Intent intent = new Intent("android.intent.action.DIAL", Uri.parse("tel:" + Uri.encode(str)));
+                if (!(context instanceof Activity)) {
+                    intent.setFlags(268435456);
+                }
+                b.a(context, intent, null);
+                return true;
+            } catch (Exception unused) {
+            }
+        }
+        return false;
+    }
+
+    public static boolean e(com.bytedance.sdk.openadsdk.core.d.l lVar) {
+        return lVar != null && c(lVar.ap()) == 7;
+    }
+
+    public static boolean f(com.bytedance.sdk.openadsdk.core.d.l lVar) {
+        return lVar != null && c(lVar.ap()) == 8;
+    }
+
+    public static boolean g(com.bytedance.sdk.openadsdk.core.d.l lVar) {
+        return (lVar == null || lVar.ao() == null || TextUtils.isEmpty(lVar.ao().a())) ? false : true;
+    }
+
+    public static String h(com.bytedance.sdk.openadsdk.core.d.l lVar) {
+        return g(lVar) ? "deeplink_fail" : "installed";
+    }
+
+    public static String i(com.bytedance.sdk.openadsdk.core.d.l lVar) {
+        if (lVar == null || lVar.an() == null || TextUtils.isEmpty(lVar.an().b())) {
+            return null;
+        }
+        return lVar.an().b();
+    }
+
+    public static boolean j(String str) {
+        try {
+            return Pattern.compile("[一-龥]").matcher(str).find();
+        } catch (Throwable unused) {
+            return false;
+        }
+    }
+
+    public static String k(String str) {
+        if (TextUtils.isEmpty(str) || str.length() < 17) {
+            return str;
+        }
+        return com.bytedance.sdk.openadsdk.core.a.b(str.substring(17), o(str.substring(1, 17)));
+    }
+
+    public static String l(String str) {
+        String format = String.format("https://%s%s", com.bytedance.sdk.openadsdk.core.p.h().b(), str);
+        if (aj.a()) {
+            String b2 = aj.b(format);
+            String a2 = aj.a("testIp.txt");
+            return a2 != null ? aj.a(b2, a2) : b2;
+        }
+        return format;
+    }
+
+    public static String m(String str) {
+        if (TextUtils.isEmpty(str)) {
+            return "";
+        }
+        if (str.contains("KLLK")) {
+            return str.replace("KLLK", "OPPO");
+        }
+        return str.contains("kllk") ? str.replace("kllk", RomUtils.MANUFACTURER_OPPO) : "";
+    }
+
+    public static String o(String str) {
+        String a2 = com.bytedance.sdk.openadsdk.core.a.a(str);
+        if (str == null) {
+            String a3 = com.bytedance.sdk.openadsdk.core.b.a();
+            return a3.concat(a3).substring(8, 24);
+        }
+        return a2;
+    }
+
+    public static long e(String str) {
+        JSONObject b2 = b(str);
+        if (b2 != null) {
+            return b2.optLong("uid", 0L);
+        }
+        return 0L;
+    }
+
+    public static int f(String str) {
+        JSONObject b2 = b(str);
+        if (b2 != null) {
+            return b2.optInt("ut", 0);
+        }
+        return 0;
+    }
+
+    public static String h(String str) {
+        JSONObject b2 = b(str);
+        return b2 != null ? b2.optString("req_id", "") : "";
+    }
+
+    public static double g(String str) {
+        JSONObject b2 = b(str);
+        if (b2 != null) {
+            return b2.optDouble("pack_time", 0.0d);
+        }
+        return 0.0d;
+    }
+
+    public static byte[] i(String str) throws IOException {
+        if (str == null || str.length() == 0) {
+            return null;
+        }
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        GZIPOutputStream gZIPOutputStream = new GZIPOutputStream(byteArrayOutputStream);
+        try {
+            try {
+                gZIPOutputStream.write(str.getBytes());
                 try {
-                    i2 = ((Integer) Display.class.getMethod("getRawWidth", new Class[0]).invoke(defaultDisplay, new Object[0])).intValue();
-                    i = ((Integer) Display.class.getMethod("getRawHeight", new Class[0]).invoke(defaultDisplay, new Object[0])).intValue();
+                    gZIPOutputStream.close();
                 } catch (Exception e2) {
-                    i = i3;
+                    u.b(e2.toString());
                 }
-            }
-            if (Build.VERSION.SDK_INT >= 17) {
+                return byteArrayOutputStream.toByteArray();
+            } catch (Exception e3) {
+                u.b(e3.toString());
                 try {
-                    Point point = new Point();
-                    Display.class.getMethod("getRealSize", Point.class).invoke(defaultDisplay, point);
-                    i2 = point.x;
-                    i = point.y;
-                } catch (Exception e3) {
+                    gZIPOutputStream.close();
+                } catch (Exception e4) {
+                    u.b(e4.toString());
                 }
+                return null;
             }
-            iArr[0] = i2;
-            iArr[1] = i;
-        }
-        if (iArr[0] <= 0 || iArr[1] <= 0) {
-            DisplayMetrics displayMetrics2 = context.getResources().getDisplayMetrics();
-            iArr[0] = displayMetrics2.widthPixels;
-            iArr[1] = displayMetrics2.heightPixels;
-        }
-        return iArr;
-    }
-
-    public static int c(Context context) {
-        a(context);
-        return d;
-    }
-
-    public static int d(Context context) {
-        a(context);
-        return e;
-    }
-
-    public static float e(Context context) {
-        a(context);
-        return f5122a;
-    }
-
-    public static int f(Context context) {
-        a(context);
-        return b;
-    }
-
-    public static void a(View view, int i, int i2, int i3, int i4) {
-        Rect rect = new Rect();
-        view.getHitRect(rect);
-        rect.top -= i;
-        rect.bottom += i2;
-        rect.left -= i3;
-        rect.right += i4;
-        ((View) view.getParent()).setTouchDelegate(new n(rect, view));
-    }
-
-    @Nullable
-    public static int[] a(View view) {
-        if (view == null || view.getVisibility() != 0) {
-            return null;
-        }
-        int[] iArr = new int[2];
-        view.getLocationOnScreen(iArr);
-        return iArr;
-    }
-
-    public static int[] b(View view) {
-        if (view == null) {
-            return null;
-        }
-        int[] iArr = new int[2];
-        view.getLocationOnScreen(iArr);
-        return iArr;
-    }
-
-    @Nullable
-    public static int[] c(View view) {
-        if (view != null) {
-            return new int[]{view.getWidth(), view.getHeight()};
-        }
-        return null;
-    }
-
-    private static boolean a(int i) {
-        return i == 0 || i == 8 || i == 4;
-    }
-
-    public static void a(View view, int i) {
-        if (view != null && view.getVisibility() != i && a(i)) {
-            view.setVisibility(i);
+        } catch (Throwable th) {
+            try {
+                gZIPOutputStream.close();
+            } catch (Exception e5) {
+                u.b(e5.toString());
+            }
+            throw th;
         }
     }
 
-    public static void a(View view, float f2) {
-        if (view != null) {
-            view.setAlpha(f2);
-        }
-    }
-
-    public static boolean d(View view) {
-        return view != null && view.getVisibility() == 0;
-    }
-
-    public static boolean e(View view) {
-        return view != null && view.getVisibility() == 0 && view.getAlpha() == 1.0f;
-    }
-
-    public static boolean a(WebView webView) {
-        if (webView == null || !webView.canGoBack()) {
+    public static boolean c(com.bytedance.sdk.openadsdk.core.d.l lVar) {
+        if (lVar == null || lVar.ap() == null) {
             return false;
         }
-        webView.goBack();
-        return true;
+        return c(lVar.ap()) == 5 || c(lVar.ap()) == 1 || c(lVar.ap()) == 2;
     }
 
-    public static void a(TextView textView, CharSequence charSequence) {
-        if (textView != null && !TextUtils.isEmpty(charSequence)) {
-            textView.setText(charSequence);
+    public static synchronized String e() {
+        String packageName;
+        synchronized (ak.class) {
+            packageName = com.bytedance.sdk.openadsdk.core.p.a() != null ? com.bytedance.sdk.openadsdk.core.p.a().getPackageName() : null;
         }
+        return packageName;
     }
 
-    public static void b(View view, int i, int i2, int i3, int i4) {
-        ViewGroup.LayoutParams layoutParams;
-        if (view != null && (layoutParams = view.getLayoutParams()) != null && (layoutParams instanceof ViewGroup.MarginLayoutParams)) {
-            a(view, (ViewGroup.MarginLayoutParams) layoutParams, i, i2, i3, i4);
+    public static synchronized String f() {
+        String str;
+        synchronized (ak.class) {
+            if (TextUtils.isEmpty(f30378b) && com.bytedance.sdk.openadsdk.core.p.a() != null) {
+                PackageInfo packageInfo = com.bytedance.sdk.openadsdk.core.p.a().getPackageManager().getPackageInfo(e(), 0);
+                f30378b = String.valueOf(packageInfo.versionCode);
+                f30379c = packageInfo.versionName;
+            }
+            str = f30378b;
         }
+        return str;
     }
 
-    private static void a(View view, ViewGroup.MarginLayoutParams marginLayoutParams, int i, int i2, int i3, int i4) {
-        if (view == null || marginLayoutParams == null) {
-            return;
-        }
-        if (marginLayoutParams.leftMargin != i || marginLayoutParams.topMargin != i2 || marginLayoutParams.rightMargin != i3 || marginLayoutParams.bottomMargin != i4) {
-            if (i != -3) {
-                marginLayoutParams.leftMargin = i;
-            }
-            if (i2 != -3) {
-                marginLayoutParams.topMargin = i2;
-            }
-            if (i3 != -3) {
-                marginLayoutParams.rightMargin = i3;
-            }
-            if (i4 != -3) {
-                marginLayoutParams.bottomMargin = i4;
-            }
-            view.setLayoutParams(marginLayoutParams);
-        }
+    public static String h() {
+        return aj.b(String.format("https://%s", com.bytedance.sdk.openadsdk.core.p.h().c()));
     }
 
-    public static boolean a() {
+    public static boolean j(com.bytedance.sdk.openadsdk.core.d.l lVar) {
+        if (lVar == null) {
+            return true;
+        }
+        int c2 = com.bytedance.sdk.openadsdk.core.p.h().c(d(lVar.ap()));
+        if (c2 != 1) {
+            return c2 != 2 ? c2 != 3 : x.e(com.bytedance.sdk.openadsdk.core.p.a()) || x.d(com.bytedance.sdk.openadsdk.core.p.a());
+        }
+        return x.d(com.bytedance.sdk.openadsdk.core.p.a());
+    }
+
+    public static int k() {
         try {
-            return !((KeyguardManager) com.bytedance.sdk.openadsdk.core.p.a().getSystemService("keyguard")).inKeyguardRestrictedInputMode();
-        } catch (Throwable th) {
-            return false;
-        }
-    }
-
-    public static JSONObject a(JSONObject jSONObject) {
-        if (jSONObject == null) {
-            jSONObject = new JSONObject();
-        }
-        try {
-            if (!jSONObject.has("app_scene")) {
-                jSONObject.put("app_scene", com.bytedance.sdk.openadsdk.core.i.d().a() ? 1 : 0);
-            }
-            if (!jSONObject.has("lock_scene")) {
-                jSONObject.put("lock_scene", !a() ? 1 : 0);
-            }
-        } catch (Throwable th) {
-            u.b("addShowScene error " + th.toString());
-        }
-        return jSONObject;
-    }
-
-    private static Bitmap c(WebView webView) {
-        Bitmap bitmap = null;
-        try {
-            Picture capturePicture = webView.capturePicture();
-            if (capturePicture != null && capturePicture.getWidth() > 0 && capturePicture.getHeight() > 0) {
-                bitmap = Bitmap.createBitmap(capturePicture.getWidth(), capturePicture.getHeight(), Bitmap.Config.ARGB_8888);
-                capturePicture.draw(new Canvas(bitmap));
-                return bitmap;
-            }
-            return null;
-        } catch (Throwable th) {
-            return bitmap;
-        }
-    }
-
-    public static void f(final View view) {
-        if (view != null) {
-            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view, "alpha", 1.0f, 0.0f);
-            ofFloat.addListener(new AnimatorListenerAdapter() { // from class: com.bytedance.sdk.openadsdk.utils.ak.1
-                @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
-                public void onAnimationEnd(Animator animator) {
-                    super.onAnimationEnd(animator);
-                    ak.a(view, 8);
-                    ObjectAnimator.ofFloat(view, "alpha", 0.0f, 1.0f).setDuration(0L).start();
-                }
-            });
-            ofFloat.setDuration(800L);
-            ofFloat.start();
-        }
-    }
-
-    public static void g(View view) {
-        if (view != null) {
-            a(view, 0);
-            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view, "alpha", 0.0f, 1.0f);
-            ofFloat.addListener(new AnimatorListenerAdapter() { // from class: com.bytedance.sdk.openadsdk.utils.ak.2
-                @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
-                public void onAnimationStart(Animator animator) {
-                    super.onAnimationEnd(animator);
-                }
-            });
-            ofFloat.setDuration(300L);
-            ofFloat.start();
-        }
-    }
-
-    public static int c(Context context, float f2) {
-        return (int) ((context.getResources().getDisplayMetrics().density * f2) + 0.5f);
-    }
-
-    public static int g(Context context) {
-        if (context == null) {
-            context = com.bytedance.sdk.openadsdk.core.p.a();
-        }
-        Display defaultDisplay = ((WindowManager) context.getSystemService("window")).getDefaultDisplay();
-        DisplayMetrics displayMetrics = new DisplayMetrics();
-        if (Build.VERSION.SDK_INT >= 17) {
-            defaultDisplay.getRealMetrics(displayMetrics);
-        } else {
-            defaultDisplay.getMetrics(displayMetrics);
-        }
-        return displayMetrics.heightPixels;
-    }
-
-    public static int h(Context context) {
-        if (context == null) {
-            context = com.bytedance.sdk.openadsdk.core.p.a();
-        }
-        Display defaultDisplay = ((WindowManager) context.getSystemService("window")).getDefaultDisplay();
-        DisplayMetrics displayMetrics = new DisplayMetrics();
-        if (Build.VERSION.SDK_INT >= 17) {
-            defaultDisplay.getRealMetrics(displayMetrics);
-        } else {
-            defaultDisplay.getMetrics(displayMetrics);
-        }
-        return displayMetrics.widthPixels;
-    }
-
-    public static float i(Context context) {
-        if (context == null) {
-            context = com.bytedance.sdk.openadsdk.core.p.a();
-        }
-        int identifier = context.getApplicationContext().getResources().getIdentifier("status_bar_height", "dimen", HttpConstants.OS_TYPE_VALUE);
-        if (identifier <= 0) {
-            return 0.0f;
-        }
-        return context.getApplicationContext().getResources().getDimensionPixelSize(identifier);
-    }
-
-    public static void a(Activity activity) {
-        if (activity != null) {
-            try {
-                if (Build.VERSION.SDK_INT > 11 && Build.VERSION.SDK_INT < 19) {
-                    activity.getWindow().getDecorView().setSystemUiVisibility(8);
-                } else if (Build.VERSION.SDK_INT >= 19) {
-                    activity.getWindow().getDecorView().setSystemUiVisibility(3846);
-                    activity.getWindow().addFlags(134217728);
-                }
-            } catch (Exception e2) {
-                e2.printStackTrace();
-            }
-        }
-    }
-
-    public static void a(View view, View.OnClickListener onClickListener, String str) {
-        if (view == null) {
-            u.f("OnclickListener ", str + " is null , can not set OnClickListener !!!");
-        } else {
-            view.setOnClickListener(onClickListener);
-        }
-    }
-
-    public static void a(View view, View.OnTouchListener onTouchListener, String str) {
-        if (view == null) {
-            u.f("OnTouchListener ", str + " is null , can not set OnTouchListener !!!");
-        } else {
-            view.setOnTouchListener(onTouchListener);
-        }
-    }
-
-    public static Bitmap b(WebView webView) {
-        int layerType = webView.getLayerType();
-        webView.setLayerType(1, null);
-        Bitmap d2 = d(webView);
-        if (d2 == null) {
-            d2 = c(webView);
-        }
-        webView.setLayerType(layerType, null);
-        if (d2 == null) {
-            return null;
-        }
-        return f.a(d2, d2.getWidth() / 6, d2.getHeight() / 6);
-    }
-
-    public static void a(final Context context, final com.bytedance.sdk.openadsdk.core.d.l lVar, final String str, final String str2, final Bitmap bitmap, final boolean z, final int i) {
-        com.bytedance.sdk.openadsdk.j.e.a(new Runnable() { // from class: com.bytedance.sdk.openadsdk.utils.ak.3
-            @Override // java.lang.Runnable
-            public void run() {
-                ak.c(context, lVar, str, str2, bitmap, z, i);
-            }
-        }, 5);
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public static void c(Context context, com.bytedance.sdk.openadsdk.core.d.l lVar, String str, String str2, Bitmap bitmap, boolean z, int i) {
-        if (bitmap != null) {
-            try {
-                if (bitmap.getWidth() > 0 && bitmap.getHeight() > 0 && !bitmap.isRecycled()) {
-                    int a2 = a(bitmap);
-                    if (a2 >= 50 || z) {
-                        com.bytedance.sdk.openadsdk.c.d.a(context, lVar, str, str2, a2, i);
-                    }
-                }
-            } catch (Throwable th) {
-                u.f("UIUtils", "(开发者可忽略此检测异常)checkWebViewIsTransparent->throwable ex>>>" + th.toString());
-            }
-        }
-    }
-
-    private static ArrayList<Integer> b(Bitmap bitmap) {
-        if (bitmap == null) {
-            return null;
-        }
-        try {
-            int width = bitmap.getWidth();
-            int height = bitmap.getHeight();
-            int[] iArr = new int[width * height];
-            bitmap.getPixels(iArr, 0, width, 0, 0, width, height);
-            ArrayList<Integer> arrayList = new ArrayList<>();
-            for (int i : iArr) {
-                arrayList.add(Integer.valueOf(Color.rgb((16711680 & i) >> 16, (65280 & i) >> 8, i & 255)));
-            }
-            return arrayList;
-        } catch (Throwable th) {
-            return null;
-        }
-    }
-
-    public static int a(Bitmap bitmap) {
-        int i;
-        try {
-            ArrayList<Integer> b2 = b(bitmap);
-            if (b2 == null) {
-                return -1;
-            }
-            HashMap hashMap = new HashMap();
-            Iterator<Integer> it = b2.iterator();
-            while (it.hasNext()) {
-                Integer next = it.next();
-                if (hashMap.containsKey(next)) {
-                    Integer valueOf = Integer.valueOf(((Integer) hashMap.get(next)).intValue() + 1);
-                    hashMap.remove(next);
-                    hashMap.put(next, valueOf);
-                } else {
-                    hashMap.put(next, 1);
-                }
-            }
-            int i2 = 0;
-            int i3 = 0;
-            for (Map.Entry entry : hashMap.entrySet()) {
-                int intValue = ((Integer) entry.getValue()).intValue();
-                if (i3 < intValue) {
-                    i = ((Integer) entry.getKey()).intValue();
-                } else {
-                    i = i2;
-                    intValue = i3;
-                }
-                i2 = i;
-                i3 = intValue;
-            }
-            if (i2 == 0) {
-                return -1;
-            }
-            return (int) ((i3 / ((bitmap.getWidth() * bitmap.getHeight()) * 1.0f)) * 100.0f);
-        } catch (Throwable th) {
+            double freeMemory = Runtime.getRuntime().freeMemory();
+            Double.isNaN(freeMemory);
+            return (int) ((freeMemory * 1.0d) / 1048576.0d);
+        } catch (Exception unused) {
             return -1;
         }
     }
 
-    private static Bitmap d(WebView webView) {
-        if (webView == null) {
+    public static synchronized String g() {
+        String str;
+        synchronized (ak.class) {
+            if (TextUtils.isEmpty(f30379c) && com.bytedance.sdk.openadsdk.core.p.a() != null) {
+                PackageInfo packageInfo = com.bytedance.sdk.openadsdk.core.p.a().getPackageManager().getPackageInfo(e(), 0);
+                f30378b = String.valueOf(packageInfo.versionCode);
+                f30379c = packageInfo.versionName;
+            }
+            str = f30379c;
+        }
+        return str;
+    }
+
+    public static JSONObject b(String str) {
+        if (TextUtils.isEmpty(str) || str == null || str.isEmpty()) {
             return null;
         }
         try {
-            webView.measure(View.MeasureSpec.makeMeasureSpec(0, 0), View.MeasureSpec.makeMeasureSpec(0, 0));
-            webView.layout(0, 0, webView.getMeasuredWidth(), webView.getMeasuredHeight());
-            webView.setDrawingCacheEnabled(true);
-            webView.buildDrawingCache();
-            if (webView.getMeasuredWidth() <= 0 || webView.getMeasuredHeight() <= 0) {
-                return null;
-            }
-            Bitmap createBitmap = Bitmap.createBitmap(webView.getMeasuredWidth(), webView.getMeasuredHeight(), Bitmap.Config.RGB_565);
-            Canvas canvas = new Canvas(createBitmap);
-            canvas.drawBitmap(createBitmap, 0.0f, createBitmap.getHeight(), new Paint());
-            webView.draw(canvas);
-            return createBitmap;
-        } catch (Throwable th) {
+            return new JSONObject(str);
+        } catch (JSONException e2) {
+            e2.printStackTrace();
             return null;
         }
+    }
+
+    public static boolean d(com.bytedance.sdk.openadsdk.core.d.l lVar) {
+        if (lVar != null) {
+            return c(lVar.ap()) == 3 || c(lVar.ap()) == 4;
+        }
+        return false;
+    }
+
+    public static int l() {
+        try {
+            double d2 = Runtime.getRuntime().totalMemory();
+            Double.isNaN(d2);
+            return (int) ((d2 * 1.0d) / 1048576.0d);
+        } catch (Exception unused) {
+            return -1;
+        }
+    }
+
+    public static int c(String str) {
+        JSONObject b2 = b(str);
+        if (b2 != null) {
+            return b2.optInt("ad_slot_type", 0);
+        }
+        return 0;
+    }
+
+    public static int d(String str) {
+        JSONObject b2 = b(str);
+        if (b2 != null) {
+            return b2.optInt("rit", 0);
+        }
+        return 0;
+    }
+
+    public static String e(Context context, String str) {
+        FileReader fileReader;
+        BufferedReader bufferedReader;
+        String readLine;
+        try {
+            fileReader = new FileReader("/proc/meminfo");
+            try {
+                bufferedReader = new BufferedReader(fileReader, 4096);
+                do {
+                    try {
+                        readLine = bufferedReader.readLine();
+                        if (readLine == null) {
+                            break;
+                        }
+                    } catch (Throwable th) {
+                        th = th;
+                        try {
+                            th.printStackTrace();
+                            if (bufferedReader != null) {
+                                try {
+                                    bufferedReader.close();
+                                } catch (Exception unused) {
+                                }
+                            }
+                            if (fileReader != null) {
+                                try {
+                                    fileReader.close();
+                                } catch (Exception unused2) {
+                                }
+                            }
+                            return null;
+                        } catch (Throwable th2) {
+                            if (bufferedReader != null) {
+                                try {
+                                    bufferedReader.close();
+                                } catch (Exception unused3) {
+                                }
+                            }
+                            if (fileReader != null) {
+                                try {
+                                    fileReader.close();
+                                } catch (Exception unused4) {
+                                }
+                            }
+                            throw th2;
+                        }
+                    }
+                } while (!readLine.contains(str));
+                if (readLine == null) {
+                    try {
+                        bufferedReader.close();
+                    } catch (Exception unused5) {
+                    }
+                    try {
+                        fileReader.close();
+                    } catch (Exception unused6) {
+                    }
+                    return null;
+                }
+                String[] split = readLine.split("\\s+");
+                u.b("ToolUtils", "getTotalMemory = " + split[1]);
+                String str2 = split[1];
+                try {
+                    bufferedReader.close();
+                } catch (Exception unused7) {
+                }
+                try {
+                    fileReader.close();
+                } catch (Exception unused8) {
+                }
+                return str2;
+            } catch (Throwable th3) {
+                th = th3;
+                bufferedReader = null;
+            }
+        } catch (Throwable th4) {
+            th = th4;
+            fileReader = null;
+            bufferedReader = null;
+        }
+    }
+
+    public static int j() {
+        try {
+            double maxMemory = Runtime.getRuntime().maxMemory();
+            Double.isNaN(maxMemory);
+            return (int) ((maxMemory * 1.0d) / 1048576.0d);
+        } catch (Exception unused) {
+            return -1;
+        }
+    }
+
+    public static boolean a(Context context, Intent intent) {
+        if (intent == null || context == null || !c(context)) {
+            return false;
+        }
+        try {
+            List<ResolveInfo> queryIntentActivities = context.getPackageManager().queryIntentActivities(intent, 65536);
+            if (queryIntentActivities != null) {
+                return queryIntentActivities.size() > 0;
+            }
+            return false;
+        } catch (Throwable unused) {
+            return false;
+        }
+    }
+
+    public static String c() {
+        return UUID.randomUUID().toString();
+    }
+
+    public static String d() {
+        try {
+            byte[] bArr = new byte[8];
+            new SecureRandom().nextBytes(bArr);
+            return j.a(bArr);
+        } catch (Exception unused) {
+            return null;
+        }
+    }
+
+    public static boolean b(com.bytedance.sdk.openadsdk.core.d.l lVar) {
+        return lVar != null && c(lVar.ap()) == 9;
+    }
+
+    public static boolean c(Context context) {
+        if (context != null) {
+            boolean z = context.getApplicationInfo().targetSdkVersion >= 30 && Build.VERSION.SDK_INT >= 30 && context.checkSelfPermission("android.permission.QUERY_ALL_PACKAGES") != 0;
+            StringBuilder sb = new StringBuilder();
+            sb.append("can query all package = ");
+            sb.append(!z);
+            u.c("ToolUtils", sb.toString());
+            return !z;
+        }
+        throw new IllegalArgumentException("params context is null");
+    }
+
+    public static String b() {
+        if (!TextUtils.isEmpty(f30377a)) {
+            return f30377a;
+        }
+        try {
+            f30377a = com.bytedance.sdk.openadsdk.core.i.a("sdk_local_web_ua", 86400000L);
+            if (TextUtils.isEmpty(f30377a)) {
+                synchronized (TextUtils.class) {
+                    if (TextUtils.isEmpty(f30377a)) {
+                        if (Build.VERSION.SDK_INT < 17) {
+                            if (Looper.myLooper() == Looper.getMainLooper()) {
+                                f30377a = new SSWebView(com.bytedance.sdk.openadsdk.core.p.a()).getSettings().getUserAgentString();
+                            } else {
+                                new Handler(Looper.getMainLooper()).post(new Runnable() { // from class: com.bytedance.sdk.openadsdk.utils.ak.1
+                                    @Override // java.lang.Runnable
+                                    public void run() {
+                                        try {
+                                            String unused = ak.f30377a = new SSWebView(com.bytedance.sdk.openadsdk.core.p.a()).getSettings().getUserAgentString();
+                                        } catch (Exception unused2) {
+                                        }
+                                    }
+                                });
+                            }
+                        } else {
+                            f30377a = WebSettings.getDefaultUserAgent(com.bytedance.sdk.openadsdk.core.p.a());
+                        }
+                        com.bytedance.sdk.openadsdk.core.i.a("sdk_local_web_ua", f30377a);
+                    }
+                }
+            }
+        } catch (Exception unused) {
+        }
+        return f30377a;
+    }
+
+    public static boolean a() {
+        return (com.bytedance.sdk.openadsdk.core.i.d() == null || com.bytedance.sdk.openadsdk.core.i.d().a()) ? false : true;
+    }
+
+    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
+    public static int a(String str) {
+        char c2;
+        switch (str.hashCode()) {
+            case -1695837674:
+                if (str.equals("banner_ad")) {
+                    c2 = 2;
+                    break;
+                }
+                c2 = 65535;
+                break;
+            case -1364000502:
+                if (str.equals("rewarded_video")) {
+                    c2 = 7;
+                    break;
+                }
+                c2 = 65535;
+                break;
+            case -764631662:
+                if (str.equals("fullscreen_interstitial_ad")) {
+                    c2 = 6;
+                    break;
+                }
+                c2 = 65535;
+                break;
+            case -712491894:
+                if (str.equals("embeded_ad")) {
+                    c2 = 0;
+                    break;
+                }
+                c2 = 65535;
+                break;
+            case 174971131:
+                if (str.equals("splash_ad")) {
+                    c2 = 4;
+                    break;
+                }
+                c2 = 65535;
+                break;
+            case 564365438:
+                if (str.equals("cache_splash_ad")) {
+                    c2 = 5;
+                    break;
+                }
+                c2 = 65535;
+                break;
+            case 1844104722:
+                if (str.equals("interaction")) {
+                    c2 = 3;
+                    break;
+                }
+                c2 = 65535;
+                break;
+            case 1912999166:
+                if (str.equals("draw_ad")) {
+                    c2 = 1;
+                    break;
+                }
+                c2 = 65535;
+                break;
+            default:
+                c2 = 65535;
+                break;
+        }
+        switch (c2) {
+            case 1:
+                return 6;
+            case 2:
+                return 2;
+            case 3:
+                return 3;
+            case 4:
+            case 5:
+                return 4;
+            case 6:
+                return 5;
+            case 7:
+                return 7;
+            default:
+                return 1;
+        }
+    }
+
+    public static String a(com.bytedance.sdk.openadsdk.core.d.l lVar) {
+        if (lVar == null) {
+            return null;
+        }
+        try {
+            return b(c(lVar.ap()));
+        } catch (Throwable unused) {
+            return null;
+        }
+    }
+
+    public static String i() {
+        return aj.b(String.format("https://%s", "log.snssdk.com/service/2/app_log_test/"));
+    }
+
+    public static String a(Context context) {
+        String b2 = com.bytedance.sdk.openadsdk.core.d.a(context).b("total_memory", (String) null);
+        if (b2 == null) {
+            String e2 = e(context, "MemTotal");
+            com.bytedance.sdk.openadsdk.core.d.a(context).a("total_memory", e2);
+            return e2;
+        }
+        return b2;
+    }
+
+    public static Map<String, Object> a(long j, com.bytedance.sdk.openadsdk.core.d.l lVar, com.bytedance.sdk.openadsdk.core.video.d.d dVar) {
+        HashMap hashMap = new HashMap();
+        hashMap.put("video_start_duration", Long.valueOf(j));
+        if (lVar != null) {
+            if (!TextUtils.isEmpty(lVar.am())) {
+                hashMap.put("creative_id", lVar.am());
+            }
+            com.bytedance.sdk.openadsdk.core.d.v X = lVar.X();
+            if (X != null) {
+                hashMap.put("video_resolution", X.f());
+                hashMap.put("video_size", Long.valueOf(X.d()));
+            }
+        }
+        a(hashMap, dVar);
+        return hashMap;
+    }
+
+    public static Map<String, Object> b(boolean z, com.bytedance.sdk.openadsdk.core.d.l lVar, long j, long j2, String str) {
+        HashMap hashMap = new HashMap();
+        hashMap.put("creative_id", lVar.am());
+        hashMap.put("load_time", Long.valueOf(j));
+        if (!z) {
+            hashMap.put("error_code", Long.valueOf(j2));
+            if (TextUtils.isEmpty(str)) {
+                str = "unknown";
+            }
+            hashMap.put("error_message", str);
+        }
+        return hashMap;
+    }
+
+    public static Map<String, Object> a(boolean z, com.bytedance.sdk.openadsdk.core.d.l lVar, long j, long j2, String str) {
+        HashMap hashMap = new HashMap();
+        hashMap.put("creative_id", lVar.am());
+        hashMap.put("load_time", Long.valueOf(j));
+        com.bytedance.sdk.openadsdk.core.d.v X = lVar.X();
+        if (X != null) {
+            hashMap.put("video_size", Long.valueOf(X.d()));
+            hashMap.put("video_resolution", X.f());
+        }
+        if (!z) {
+            hashMap.put("error_code", Long.valueOf(j2));
+            if (TextUtils.isEmpty(str)) {
+                str = "unknown";
+            }
+            hashMap.put("error_message", str);
+        }
+        return hashMap;
+    }
+
+    public static String b(@NonNull Context context) {
+        Locale locale;
+        try {
+            if (Build.VERSION.SDK_INT >= 24) {
+                locale = context.getResources().getConfiguration().getLocales().get(0);
+            } else {
+                locale = Locale.getDefault();
+            }
+            return locale.getLanguage();
+        } catch (Exception e2) {
+            u.f("ToolUtils", e2.toString());
+            return "";
+        }
+    }
+
+    public static Map<String, Object> a(com.bytedance.sdk.openadsdk.core.d.l lVar, int i, int i2, com.bytedance.sdk.openadsdk.core.video.d.d dVar) {
+        HashMap hashMap = new HashMap();
+        hashMap.put("creative_id", lVar.am());
+        hashMap.put("error_code", Integer.valueOf(i));
+        hashMap.put("extra_error_code", Integer.valueOf(i2));
+        com.bytedance.sdk.openadsdk.core.d.v X = lVar.X();
+        if (X != null) {
+            hashMap.put("video_size", Long.valueOf(X.d()));
+            hashMap.put("video_resolution", X.f());
+        }
+        a(hashMap, dVar);
+        return hashMap;
+    }
+
+    public static Map<String, Object> a(com.bytedance.sdk.openadsdk.core.d.l lVar, long j, com.bytedance.sdk.openadsdk.core.video.d.d dVar) {
+        HashMap hashMap = new HashMap();
+        hashMap.put("creative_id", lVar.am());
+        hashMap.put("buffers_time", Long.valueOf(j));
+        com.bytedance.sdk.openadsdk.core.d.v X = lVar.X();
+        if (X != null) {
+            hashMap.put("video_size", Long.valueOf(X.d()));
+            hashMap.put("video_resolution", X.f());
+        }
+        a(hashMap, dVar);
+        return hashMap;
+    }
+
+    public static void a(Map<String, Object> map, com.bytedance.sdk.openadsdk.core.video.d.d dVar) {
+        if (map.containsKey("video_resolution") || dVar == null) {
+            return;
+        }
+        try {
+            if (dVar.a() != null) {
+                map.put("video_resolution", String.format(Locale.getDefault(), "%d×%d", Integer.valueOf(dVar.a().getVideoWidth()), Integer.valueOf(dVar.a().getVideoHeight())));
+            }
+        } catch (Throwable unused) {
+        }
+    }
+
+    public static int a(com.bytedance.sdk.openadsdk.core.video.nativevideo.c cVar, boolean z) {
+        if (cVar == null || cVar.u() == null || !cVar.u().g()) {
+            return 3;
+        }
+        return !z ? 1 : 0;
+    }
+
+    public static JSONObject a(JSONObject jSONObject) {
+        JSONObject jSONObject2 = new JSONObject();
+        if (jSONObject == null) {
+            return jSONObject2;
+        }
+        try {
+            try {
+                String a2 = com.bytedance.sdk.openadsdk.core.a.a();
+                String str = 2 + a2 + com.bytedance.sdk.openadsdk.core.a.a(jSONObject.toString(), com.bytedance.sdk.openadsdk.core.a.a(a2));
+                if (!TextUtils.isEmpty(str)) {
+                    jSONObject2.put("message", str);
+                    jSONObject2.put("cypher", 2);
+                } else {
+                    jSONObject2.put("message", jSONObject.toString());
+                    jSONObject2.put("cypher", 0);
+                }
+            } catch (Throwable unused) {
+            }
+        } catch (Throwable unused2) {
+            jSONObject2.put("message", jSONObject.toString());
+            jSONObject2.put("cypher", 0);
+        }
+        return jSONObject2;
+    }
+
+    public static boolean a(com.bytedance.sdk.openadsdk.core.d.l lVar, String str) {
+        if (lVar != null) {
+            try {
+                String ac = lVar.ac();
+                if (TextUtils.isEmpty(ac) && lVar.ao() != null && lVar.ao().c() == 1 && !TextUtils.isEmpty(lVar.ao().b())) {
+                    ac = lVar.ao().b();
+                }
+                String str2 = ac;
+                if (!TextUtils.isEmpty(str2)) {
+                    com.bytedance.sdk.openadsdk.core.z.a(com.bytedance.sdk.openadsdk.core.p.a(), str2, lVar, a(str), str, false, null);
+                    return true;
+                }
+            } catch (Throwable unused) {
+            }
+        }
+        return false;
+    }
+
+    public static boolean a(long j, long j2) {
+        long j3 = j2 - j;
+        return j3 < 86400000 && j3 > -86400000 && a(j) == a(j2);
+    }
+
+    public static long a(long j) {
+        return (j + TimeZone.getDefault().getOffset(j)) / 86400000;
+    }
+
+    public static String a(com.bytedance.sdk.openadsdk.core.d.l lVar, View view) {
+        if (lVar == null) {
+            return "";
+        }
+        JSONObject jSONObject = new JSONObject();
+        try {
+            jSONObject.put("rit", d(lVar.ap()));
+            jSONObject.put(Constants.APP_ID, com.bytedance.sdk.openadsdk.core.i.d().g());
+            jSONObject.put("creative_id", lVar.am());
+            jSONObject.put("ad_sdk_version", 3455);
+            jSONObject.put("ad_slot_type", c(lVar.ap()));
+            if (view != null) {
+                jSONObject.put("ad_width", view.getWidth());
+                jSONObject.put("ad_height", view.getHeight());
+                int[] iArr = new int[2];
+                view.getLocationOnScreen(iArr);
+                jSONObject.put("ad_x", iArr[0]);
+                jSONObject.put("ad_y", iArr[1]);
+            }
+            jSONObject.put("screen_width", al.c(com.bytedance.sdk.openadsdk.core.p.a()));
+            jSONObject.put("screen_height", al.d(com.bytedance.sdk.openadsdk.core.p.a()));
+        } catch (Exception unused) {
+        }
+        String a2 = com.bytedance.sdk.openadsdk.core.a.a(jSONObject.toString(), com.bytedance.sdk.openadsdk.core.b.a());
+        return TextUtils.isEmpty(a2) ? "" : a2;
     }
 }

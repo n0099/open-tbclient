@@ -1,9 +1,9 @@
 package com.baidu.webkit.internal.daemon;
 
 import com.baidu.webkit.internal.INoProGuard;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public final class Statistics implements INoProGuard {
-    private static boolean mIsInited;
+    public static boolean mIsInited;
 
     public static synchronized void close() {
         synchronized (Statistics.class) {
@@ -12,7 +12,8 @@ public final class Statistics implements INoProGuard {
                     nativeClose();
                     mIsInited = false;
                 }
-            } finally {
+            } catch (Throwable th) {
+                th.printStackTrace();
             }
         }
     }
@@ -38,27 +39,29 @@ public final class Statistics implements INoProGuard {
     public static synchronized boolean init(String str, String str2, String str3) {
         boolean z;
         synchronized (Statistics.class) {
-            if (!mIsInited) {
-                mIsInited = nativeInit(str, str2, str3);
+            try {
+                if (!mIsInited) {
+                    mIsInited = nativeInit(str, str2, str3);
+                }
+                z = mIsInited;
             }
-            z = mIsInited;
         }
         return z;
     }
 
-    private static native void nativeClose();
+    public static native void nativeClose();
 
-    private static native String nativeGetPhoenixString();
+    public static native String nativeGetPhoenixString();
 
-    private static native String nativeGetString();
+    public static native String nativeGetString();
 
-    private static native boolean nativeInit(String str, String str2, String str3);
+    public static native boolean nativeInit(String str, String str2, String str3);
 
-    private static native void nativeRecord(int i, String str);
+    public static native void nativeRecord(int i, String str);
 
-    private static native void nativeUpdatePhoenixConfig(String str);
+    public static native void nativeUpdatePhoenixConfig(String str);
 
-    private static native void nativeUploadSuccessfully();
+    public static native void nativeUploadSuccessfully();
 
     public static void record(int i, String str) {
         if (str == null) {

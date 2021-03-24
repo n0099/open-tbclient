@@ -8,16 +8,16 @@ import com.kwad.sdk.utils.o;
 import java.io.Serializable;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class URLPackage implements b, Serializable {
     public static final String KEY_AUTHOR_ID = "authorId";
     public static final String KEY_TREND_ID = "trendId";
     public static final String KEY_TUBE_ID = "tubeId";
-    private static final long serialVersionUID = -7365796297335816787L;
+    public static final long serialVersionUID = -7365796297335816787L;
     public String identity;
-    private transient JSONObject mJsonObjectParams;
+    public transient JSONObject mJsonObjectParams;
     public int page;
-    private String params;
+    public String params;
 
     public URLPackage() {
     }
@@ -33,13 +33,14 @@ public class URLPackage implements b, Serializable {
         }
         this.page = jSONObject.optInt("page");
         this.identity = jSONObject.optString("identity");
-        this.params = jSONObject.optString("params");
+        String optString = jSONObject.optString("params");
+        this.params = optString;
         try {
-            if (ag.a(this.params)) {
+            if (ag.a(optString)) {
                 return;
             }
             this.mJsonObjectParams = new JSONObject(this.params);
-        } catch (JSONException e) {
+        } catch (JSONException unused) {
         }
     }
 
@@ -55,8 +56,9 @@ public class URLPackage implements b, Serializable {
         JSONObject jSONObject = new JSONObject();
         o.a(jSONObject, "page", this.page);
         o.a(jSONObject, "identity", this.identity);
-        if (this.mJsonObjectParams != null) {
-            o.a(jSONObject, "params", this.mJsonObjectParams.toString());
+        JSONObject jSONObject2 = this.mJsonObjectParams;
+        if (jSONObject2 != null) {
+            o.a(jSONObject, "params", jSONObject2.toString());
         }
         return jSONObject;
     }

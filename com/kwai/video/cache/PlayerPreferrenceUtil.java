@@ -5,17 +5,14 @@ import android.content.SharedPreferences;
 import android.text.TextUtils;
 import com.kwai.video.cache.AwesomeCache;
 import com.kwai.video.hodor.util.Timber;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class PlayerPreferrenceUtil {
-    private static final String VOD_ADAPTIVE_PREFERENCE_HISTORY_DATA_KEY_NAME = "history_data";
-    private static final String VOD_ADAPTIVE_PREFERENCE_NAME = "vod_adaptive_data";
-    private static PlayerPreferrenceUtil instance;
-    private Context mContext;
-    private String vodAdaptiveHisData = "";
-    private Boolean mInited = false;
-
-    private PlayerPreferrenceUtil() {
-    }
+    public static final String VOD_ADAPTIVE_PREFERENCE_HISTORY_DATA_KEY_NAME = "history_data";
+    public static final String VOD_ADAPTIVE_PREFERENCE_NAME = "vod_adaptive_data";
+    public static PlayerPreferrenceUtil instance;
+    public Context mContext;
+    public String vodAdaptiveHisData = "";
+    public Boolean mInited = Boolean.FALSE;
 
     public static PlayerPreferrenceUtil getInstance() {
         if (instance == null) {
@@ -29,7 +26,7 @@ public class PlayerPreferrenceUtil {
             return;
         }
         this.mContext = context.getApplicationContext();
-        this.mInited = true;
+        this.mInited = Boolean.TRUE;
         Timber.d("PlayerPreferrenceUtil init", new Object[0]);
     }
 

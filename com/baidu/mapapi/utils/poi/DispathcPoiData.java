@@ -1,7 +1,7 @@
 package com.baidu.mapapi.utils.poi;
 
 import com.baidu.mapapi.model.LatLng;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class DispathcPoiData {
     public String addr;
     public String name;

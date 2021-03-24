@@ -6,15 +6,39 @@ import android.net.Uri;
 import android.util.AttributeSet;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatImageView;
-import com.facebook.common.b.i;
-import com.facebook.common.references.a;
-import com.facebook.drawee.a.a.c;
-import com.facebook.imagepipeline.d.b;
+import com.facebook.common.executors.UiThreadImmediateExecutorService;
+import com.facebook.common.references.CloseableReference;
+import com.facebook.datasource.DataSource;
+import com.facebook.drawee.backends.pipeline.Fresco;
+import com.facebook.imagepipeline.datasource.BaseBitmapDataSubscriber;
+import com.facebook.imagepipeline.image.CloseableImage;
 import com.facebook.imagepipeline.request.ImageRequestBuilder;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class AdImageVIew extends AppCompatImageView {
+
+    /* loaded from: classes3.dex */
+    public class a extends BaseBitmapDataSubscriber {
+        public a() {
+        }
+
+        @Override // com.facebook.datasource.BaseDataSubscriber
+        public void onFailureImpl(DataSource<CloseableReference<CloseableImage>> dataSource) {
+        }
+
+        @Override // com.facebook.imagepipeline.datasource.BaseBitmapDataSubscriber
+        public void onNewResultImpl(@Nullable Bitmap bitmap) {
+            if (bitmap != null) {
+                AdImageVIew.this.setImageBitmap(bitmap);
+            }
+        }
+    }
+
     public AdImageVIew(Context context) {
         super(context);
+    }
+
+    public void setImageUrl(String str) {
+        Fresco.getImagePipeline().fetchDecodedImage(ImageRequestBuilder.newBuilderWithSource(Uri.parse(str)).build(), getContext()).subscribe(new a(), UiThreadImmediateExecutorService.getInstance());
     }
 
     public AdImageVIew(Context context, AttributeSet attributeSet) {
@@ -23,20 +47,5 @@ public class AdImageVIew extends AppCompatImageView {
 
     public AdImageVIew(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-    }
-
-    public void setImageUrl(String str) {
-        c.etH().e(ImageRequestBuilder.ag(Uri.parse(str)).eAz(), getContext()).a(new b() { // from class: com.baidu.swan.game.ad.component.AdImageVIew.1
-            @Override // com.facebook.imagepipeline.d.b
-            protected void f(@Nullable Bitmap bitmap) {
-                if (bitmap != null) {
-                    AdImageVIew.this.setImageBitmap(bitmap);
-                }
-            }
-
-            @Override // com.facebook.datasource.a
-            protected void a(com.facebook.datasource.b<a<com.facebook.imagepipeline.f.c>> bVar) {
-            }
-        }, i.esN());
     }
 }

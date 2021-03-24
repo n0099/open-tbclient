@@ -2,11 +2,11 @@ package com.kwad.sdk.glide.load.engine;
 
 import com.kwad.sdk.glide.load.DataSource;
 import com.kwad.sdk.glide.load.EncodeStrategy;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public abstract class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final h f6755a = new h() { // from class: com.kwad.sdk.glide.load.engine.h.1
+    public static final h f35535a = new h() { // from class: com.kwad.sdk.glide.load.engine.h.1
         @Override // com.kwad.sdk.glide.load.engine.h
         public boolean a() {
             return true;
@@ -27,7 +27,9 @@ public abstract class h {
             return true;
         }
     };
-    public static final h b = new h() { // from class: com.kwad.sdk.glide.load.engine.h.2
+
+    /* renamed from: b  reason: collision with root package name */
+    public static final h f35536b = new h() { // from class: com.kwad.sdk.glide.load.engine.h.2
         @Override // com.kwad.sdk.glide.load.engine.h
         public boolean a() {
             return false;
@@ -48,7 +50,9 @@ public abstract class h {
             return false;
         }
     };
-    public static final h c = new h() { // from class: com.kwad.sdk.glide.load.engine.h.3
+
+    /* renamed from: c  reason: collision with root package name */
+    public static final h f35537c = new h() { // from class: com.kwad.sdk.glide.load.engine.h.3
         @Override // com.kwad.sdk.glide.load.engine.h
         public boolean a() {
             return false;
@@ -69,7 +73,9 @@ public abstract class h {
             return true;
         }
     };
-    public static final h d = new h() { // from class: com.kwad.sdk.glide.load.engine.h.4
+
+    /* renamed from: d  reason: collision with root package name */
+    public static final h f35538d = new h() { // from class: com.kwad.sdk.glide.load.engine.h.4
         @Override // com.kwad.sdk.glide.load.engine.h
         public boolean a() {
             return true;
@@ -90,7 +96,9 @@ public abstract class h {
             return false;
         }
     };
-    public static final h e = new h() { // from class: com.kwad.sdk.glide.load.engine.h.5
+
+    /* renamed from: e  reason: collision with root package name */
+    public static final h f35539e = new h() { // from class: com.kwad.sdk.glide.load.engine.h.5
         @Override // com.kwad.sdk.glide.load.engine.h
         public boolean a() {
             return true;

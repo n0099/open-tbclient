@@ -3,15 +3,14 @@ package com.baidu.ufosdk.ui;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.widget.EditText;
-/* loaded from: classes7.dex */
-final class es implements TextWatcher {
+/* loaded from: classes5.dex */
+public final class es implements TextWatcher {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ er f3771a;
+    public final /* synthetic */ er f23239a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public es(er erVar) {
-        this.f3771a = erVar;
+        this.f23239a = erVar;
     }
 
     @Override // android.text.TextWatcher
@@ -19,13 +18,13 @@ final class es implements TextWatcher {
         EditText editText;
         EditText editText2;
         EditText editText3;
-        editText = this.f3771a.j;
+        editText = this.f23239a.j;
         String obj = editText.getText().toString();
         if (obj.length() > 200) {
             String substring = obj.substring(0, 200);
-            editText2 = this.f3771a.j;
+            editText2 = this.f23239a.j;
             editText2.setText(substring.substring(0, 200));
-            editText3 = this.f3771a.j;
+            editText3 = this.f23239a.j;
             editText3.setSelection(substring.length());
         }
     }

@@ -7,28 +7,43 @@ import com.kwad.sdk.api.KsSplashScreenAd;
 import com.kwad.sdk.api.KsVideoPlayConfig;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.core.view.AdBaseFrameLayout;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class c extends com.kwad.sdk.core.e.b {
 
     /* renamed from: a  reason: collision with root package name */
-    public KsSplashScreenAd.SplashScreenAdInteractionListener f7099a;
+    public KsSplashScreenAd.SplashScreenAdInteractionListener f36657a;
     @NonNull
-    public KsVideoPlayConfig b;
+
+    /* renamed from: b  reason: collision with root package name */
+    public KsVideoPlayConfig f36658b;
     @NonNull
-    public AdTemplate c;
+
+    /* renamed from: c  reason: collision with root package name */
+    public AdTemplate f36659c;
     @NonNull
-    public AdBaseFrameLayout d;
+
+    /* renamed from: d  reason: collision with root package name */
+    public AdBaseFrameLayout f36660d;
     @Nullable
-    public com.kwad.sdk.splashscreen.b.a e;
-    public com.kwad.sdk.core.download.b.b f;
+
+    /* renamed from: e  reason: collision with root package name */
+    public com.kwad.sdk.splashscreen.b.a f36661e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public com.kwad.sdk.core.download.b.b f36662f;
     @NonNull
-    public KsScene g;
-    public com.kwad.sdk.core.i.b h;
+
+    /* renamed from: g  reason: collision with root package name */
+    public KsScene f36663g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public com.kwad.sdk.core.i.b f36664h;
 
     @Override // com.kwad.sdk.core.e.b
     public void a() {
-        if (this.e != null) {
-            this.e.f();
+        com.kwad.sdk.splashscreen.b.a aVar = this.f36661e;
+        if (aVar != null) {
+            aVar.f();
         }
     }
 }

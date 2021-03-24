@@ -2,64 +2,46 @@ package com.baidu.searchbox.ubcprocessor;
 
 import android.text.TextUtils;
 import com.baidu.android.util.sp.SharedPrefsWrapper;
-import com.baidu.pyramid.runtime.service.c;
+import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.searchbox.cloudcontrol.ICloudControlUBCCallBack;
 import com.baidu.searchbox.cloudcontrol.data.CloudControlRequestInfo;
 import com.baidu.searchbox.cloudcontrol.data.CloudControlResponseInfo;
 import com.baidu.searchbox.cloudcontrol.processor.ICloudControlProcessor;
-import com.baidu.ubc.ab;
-import com.baidu.ubc.s;
-import com.baidu.ubc.w;
+import com.baidu.ubc.UBCManager;
+import d.b.k0.s;
+import d.b.k0.w;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes14.dex */
+/* loaded from: classes3.dex */
 public class UBCCloudControlProcessor implements ICloudControlProcessor {
-    private static final String KEY_STATISTIC_DATA_COUNT = "count";
-    private static final String SP_UBC_FILE_NAME = "com.baidu.searchbox_ubc";
-    static final String UBC_CLOUDCONFIG_VERSION = "ubc_cloudconfig_version";
-    private static final String UBC_KEY = "ubc";
-    private static final String UBC_VERSION_ASC = "version_asc";
-    private static final String UBC_VERSION_ASC_DEFAULT = "0";
-    private static final String UBC_VERSION_DEFAULT = "0";
+    public static final String KEY_STATISTIC_DATA_COUNT = "count";
+    public static final String SP_UBC_FILE_NAME = "com.baidu.searchbox_ubc";
+    public static final String UBC_CLOUDCONFIG_VERSION = "ubc_cloudconfig_version";
+    public static final String UBC_KEY = "ubc";
+    public static final String UBC_VERSION_ASC = "version_asc";
+    public static final String UBC_VERSION_ASC_DEFAULT = "0";
+    public static final String UBC_VERSION_DEFAULT = "0";
 
-    @Override // com.baidu.searchbox.cloudcontrol.processor.ICloudControlProcessor
-    public void processServiceData(CloudControlResponseInfo cloudControlResponseInfo, final ICloudControlUBCCallBack iCloudControlUBCCallBack) throws JSONException {
-        JSONObject option = cloudControlResponseInfo.getOption();
-        JSONObject serviceData = cloudControlResponseInfo.getServiceData();
-        if (TextUtils.equals(cloudControlResponseInfo.getServiceName(), UBC_KEY) && serviceData != null) {
-            String str = "0";
-            if (option != null) {
-                str = option.optString(UBC_VERSION_ASC);
-            }
-            boolean z = !"0".equals(str);
-            w wVar = new w("", serviceData);
-            if (wVar.bfm()) {
-                final String ehX = wVar.ehX();
-                ((ab) c.a(ab.SERVICE_REFERENCE)).b(wVar, z, new s() { // from class: com.baidu.searchbox.ubcprocessor.UBCCloudControlProcessor.1
-                    @Override // com.baidu.ubc.s
-                    public void setUBCConfigStatisticData(JSONObject jSONObject) {
-                        if (jSONObject != null && iCloudControlUBCCallBack != null) {
-                            iCloudControlUBCCallBack.setServiceInfo(jSONObject);
-                            if (UBCCloudControlProcessor.this.checkStatisticData(jSONObject) && !TextUtils.isEmpty(ehX)) {
-                                UBCCloudControlProcessor.sharedPrefsWrapper().putString(UBCCloudControlProcessor.UBC_CLOUDCONFIG_VERSION, ehX);
-                            }
-                        }
+    /* JADX INFO: Access modifiers changed from: private */
+    public boolean checkStatisticData(JSONObject jSONObject) {
+        String[] split;
+        if (jSONObject != null && jSONObject.length() != 0) {
+            String optString = jSONObject.optString("count");
+            if (!TextUtils.isEmpty(optString) && (split = optString.split(",")) != null && split.length == 3) {
+                try {
+                    if (Integer.parseInt(split[0]) == Integer.parseInt(split[1]) + Integer.parseInt(split[2])) {
+                        return true;
                     }
-                });
-            }
-            List<UBCCloudConfigObserver> list = new UBCCloudConfigObservers().mObservers.getList();
-            if (list != null && !list.isEmpty()) {
-                String jSONObject = serviceData.toString();
-                for (UBCCloudConfigObserver uBCCloudConfigObserver : list) {
-                    try {
-                        uBCCloudConfigObserver.onReceiveUbcCloudConfig(jSONObject, option);
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
+                } catch (NumberFormatException unused) {
                 }
             }
         }
+        return false;
+    }
+
+    public static SharedPrefsWrapper sharedPrefsWrapper() {
+        return new SharedPrefsWrapper(SP_UBC_FILE_NAME);
     }
 
     @Override // com.baidu.searchbox.cloudcontrol.processor.ICloudControlProcessor
@@ -70,25 +52,42 @@ public class UBCCloudControlProcessor implements ICloudControlProcessor {
         return null;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public static SharedPrefsWrapper sharedPrefsWrapper() {
-        return new SharedPrefsWrapper(SP_UBC_FILE_NAME);
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public boolean checkStatisticData(JSONObject jSONObject) {
-        String[] split;
-        if (jSONObject == null || jSONObject.length() == 0) {
-            return false;
-        }
-        String optString = jSONObject.optString("count");
-        if (TextUtils.isEmpty(optString) || (split = optString.split(",")) == null || split.length != 3) {
-            return false;
-        }
-        try {
-            return Integer.parseInt(split[0]) == Integer.parseInt(split[2]) + Integer.parseInt(split[1]);
-        } catch (NumberFormatException e) {
-            return false;
+    @Override // com.baidu.searchbox.cloudcontrol.processor.ICloudControlProcessor
+    public void processServiceData(CloudControlResponseInfo cloudControlResponseInfo, final ICloudControlUBCCallBack iCloudControlUBCCallBack) throws JSONException {
+        JSONObject option = cloudControlResponseInfo.getOption();
+        JSONObject serviceData = cloudControlResponseInfo.getServiceData();
+        if (TextUtils.equals(cloudControlResponseInfo.getServiceName(), UBC_KEY) && serviceData != null) {
+            boolean z = !"0".equals(option != null ? option.optString("version_asc") : "0");
+            w wVar = new w("", serviceData);
+            if (wVar.h()) {
+                final String e2 = wVar.e();
+                ((UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)).registerConfig(wVar, z, new s() { // from class: com.baidu.searchbox.ubcprocessor.UBCCloudControlProcessor.1
+                    @Override // d.b.k0.s
+                    public void setUBCConfigStatisticData(JSONObject jSONObject) {
+                        ICloudControlUBCCallBack iCloudControlUBCCallBack2;
+                        if (jSONObject == null || (iCloudControlUBCCallBack2 = iCloudControlUBCCallBack) == null) {
+                            return;
+                        }
+                        iCloudControlUBCCallBack2.setServiceInfo(jSONObject);
+                        if (!UBCCloudControlProcessor.this.checkStatisticData(jSONObject) || TextUtils.isEmpty(e2)) {
+                            return;
+                        }
+                        UBCCloudControlProcessor.sharedPrefsWrapper().putString(UBCCloudControlProcessor.UBC_CLOUDCONFIG_VERSION, e2);
+                    }
+                });
+            }
+            List<UBCCloudConfigObserver> a2 = new UBCCloudConfigObservers().mObservers.a();
+            if (a2 == null || a2.isEmpty()) {
+                return;
+            }
+            String jSONObject = serviceData.toString();
+            for (UBCCloudConfigObserver uBCCloudConfigObserver : a2) {
+                try {
+                    uBCCloudConfigObserver.onReceiveUbcCloudConfig(jSONObject, option);
+                } catch (Exception e3) {
+                    e3.printStackTrace();
+                }
+            }
         }
     }
 }

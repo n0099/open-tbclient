@@ -1,5 +1,5 @@
 package com.baidu.mapapi.synchronization;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public final class SynchronizationConstants {
     public static final int LBS_DRIVER_POSITION_FRESH_FREQUENCY_DEFAULT = 5;
     public static final int LBS_DRIVER_POSITION_FRESH_FREQUENCY_MAX = 30;
@@ -46,7 +46,4 @@ public final class SynchronizationConstants {
     public static final int LBS_TRAFFIC_STATUS_SMOOTH = 1;
     public static final int LBS_TRAFFIC_STATUS_UNKNOW = 0;
     public static final int ROUTE_ID_PASSENGER = 0;
-
-    private SynchronizationConstants() {
-    }
 }

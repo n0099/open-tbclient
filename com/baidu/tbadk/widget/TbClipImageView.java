@@ -3,34 +3,23 @@ package com.baidu.tbadk.widget;
 import android.content.Context;
 import android.os.Build;
 import android.util.AttributeSet;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class TbClipImageView extends TbImageView {
-    private boolean canClipPath;
+    public boolean w0;
 
     public TbClipImageView(Context context) {
         this(context, null, 0);
     }
 
-    public TbClipImageView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        this.canClipPath = false;
-        init(context, attributeSet, i);
-    }
-
-    public TbClipImageView(Context context, AttributeSet attributeSet) {
-        this(context, attributeSet, 0);
-    }
-
-    private void init(Context context, AttributeSet attributeSet, int i) {
+    public final void f0(Context context, AttributeSet attributeSet, int i) {
         boolean z;
         boolean z2;
         String trim = Build.MODEL.trim();
         if (trim != null) {
             String[] strArr = {"M040", "M045"};
-            int length = strArr.length;
             int i2 = 0;
             while (true) {
-                if (i2 >= length) {
+                if (i2 >= 2) {
                     z2 = false;
                     break;
                 } else if (strArr[i2].equalsIgnoreCase(trim)) {
@@ -41,10 +30,9 @@ public class TbClipImageView extends TbImageView {
                 }
             }
             String[] strArr2 = {"HTC T329D"};
-            int length2 = strArr2.length;
             int i3 = 0;
             while (true) {
-                if (i3 >= length2) {
+                if (i3 >= 1) {
                     z = false;
                     break;
                 } else if (strArr2[i3].equalsIgnoreCase(trim)) {
@@ -58,10 +46,10 @@ public class TbClipImageView extends TbImageView {
             z = false;
             z2 = false;
         }
-        if (z2 || z) {
-            this.canClipPath = false;
+        if (!z2 && !z) {
+            this.w0 = true;
         } else {
-            this.canClipPath = true;
+            this.w0 = false;
         }
     }
 
@@ -70,9 +58,19 @@ public class TbClipImageView extends TbImageView {
         if (i == 0) {
             super.setDrawerType(i);
         } else if (i == 1) {
-            super.setDrawerType(this.canClipPath ? 4 : 5);
+            super.setDrawerType(this.w0 ? 4 : 5);
         } else {
             super.setDrawerType(i);
         }
+    }
+
+    public TbClipImageView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        this.w0 = false;
+        f0(context, attributeSet, i);
+    }
+
+    public TbClipImageView(Context context, AttributeSet attributeSet) {
+        this(context, attributeSet, 0);
     }
 }

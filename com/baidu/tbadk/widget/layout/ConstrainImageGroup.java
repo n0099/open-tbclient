@@ -7,186 +7,93 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.data.MediaData;
-import com.baidu.tbadk.core.util.y;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.widget.TbImageView;
+import d.b.b.e.k.b;
+import d.b.h0.b1.j.c;
+import d.b.h0.b1.j.d;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class ConstrainImageGroup extends LinearLayout {
-    private d amI;
-    private boolean amh;
-    private BdUniqueId fIy;
-    private com.baidu.adp.lib.d.b<ConstrainImageLayout> fUW;
-    private com.baidu.adp.lib.d.b<TbImageView> fUX;
-    private c fUY;
-    private int fUZ;
-    private double fVa;
-    private View.OnClickListener fVb;
-    private com.baidu.adp.widget.a.b fVc;
-    private ViewGroup.OnHierarchyChangeListener fVd;
-    private boolean fVe;
+
+    /* renamed from: e  reason: collision with root package name */
+    public BdUniqueId f14167e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public b<ConstrainImageLayout> f14168f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public b<TbImageView> f14169g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public c f14170h;
+    public int i;
+    public boolean j;
+    public double k;
+    public d l;
+    public View.OnClickListener m;
+    public d.b.b.j.c.b n;
+    public ViewGroup.OnHierarchyChangeListener o;
+    public boolean p;
+
+    /* loaded from: classes3.dex */
+    public class a implements ViewGroup.OnHierarchyChangeListener {
+        public a() {
+        }
+
+        @Override // android.view.ViewGroup.OnHierarchyChangeListener
+        public void onChildViewAdded(View view, View view2) {
+        }
+
+        @Override // android.view.ViewGroup.OnHierarchyChangeListener
+        public void onChildViewRemoved(View view, View view2) {
+            if (!(view2 instanceof ConstrainImageLayout) || ConstrainImageGroup.this.f14168f == null) {
+                return;
+            }
+            ConstrainImageLayout constrainImageLayout = (ConstrainImageLayout) view2;
+            constrainImageLayout.i();
+            ConstrainImageGroup.this.f14168f.e(constrainImageLayout);
+        }
+    }
 
     public ConstrainImageGroup(Context context) {
         super(context);
-        this.fUY = new b();
-        this.amh = false;
-        this.fVd = new ViewGroup.OnHierarchyChangeListener() { // from class: com.baidu.tbadk.widget.layout.ConstrainImageGroup.1
-            @Override // android.view.ViewGroup.OnHierarchyChangeListener
-            public void onChildViewAdded(View view, View view2) {
-            }
-
-            @Override // android.view.ViewGroup.OnHierarchyChangeListener
-            public void onChildViewRemoved(View view, View view2) {
-                if ((view2 instanceof ConstrainImageLayout) && ConstrainImageGroup.this.fUW != null) {
-                    ConstrainImageLayout constrainImageLayout = (ConstrainImageLayout) view2;
-                    constrainImageLayout.reset();
-                    ConstrainImageGroup.this.fUW.returnObject(constrainImageLayout);
-                }
-            }
-        };
-        this.fVe = false;
+        this.f14170h = new d.b.h0.b1.j.b();
+        this.j = false;
+        this.o = new a();
+        this.p = false;
         setOrientation(1);
-        setOnHierarchyChangeListener(this.fVd);
+        setOnHierarchyChangeListener(this.o);
     }
 
-    public ConstrainImageGroup(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        this.fUY = new b();
-        this.amh = false;
-        this.fVd = new ViewGroup.OnHierarchyChangeListener() { // from class: com.baidu.tbadk.widget.layout.ConstrainImageGroup.1
-            @Override // android.view.ViewGroup.OnHierarchyChangeListener
-            public void onChildViewAdded(View view, View view2) {
-            }
-
-            @Override // android.view.ViewGroup.OnHierarchyChangeListener
-            public void onChildViewRemoved(View view, View view2) {
-                if ((view2 instanceof ConstrainImageLayout) && ConstrainImageGroup.this.fUW != null) {
-                    ConstrainImageLayout constrainImageLayout = (ConstrainImageLayout) view2;
-                    constrainImageLayout.reset();
-                    ConstrainImageGroup.this.fUW.returnObject(constrainImageLayout);
-                }
-            }
-        };
-        this.fVe = false;
-        setOrientation(1);
-        setOnHierarchyChangeListener(this.fVd);
+    private ConstrainImageLayout getConstrainImageLayout() {
+        ConstrainImageLayout b2 = this.f14168f.b();
+        b2.setImagePadding(this.i);
+        b2.setImageViewObjectPool(this.f14169g);
+        b2.setImageMaxChildCount(-1);
+        b2.setExtraCenterText(null);
+        b2.setLayoutParams(new LinearLayout.LayoutParams(-2, -2));
+        b2.setPageUniqueId(this.f14167e);
+        b2.setPreloadSizeReadyCallback(this.n);
+        return b2;
     }
 
-    public ConstrainImageGroup(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        this.fUY = new b();
-        this.amh = false;
-        this.fVd = new ViewGroup.OnHierarchyChangeListener() { // from class: com.baidu.tbadk.widget.layout.ConstrainImageGroup.1
-            @Override // android.view.ViewGroup.OnHierarchyChangeListener
-            public void onChildViewAdded(View view, View view2) {
-            }
-
-            @Override // android.view.ViewGroup.OnHierarchyChangeListener
-            public void onChildViewRemoved(View view, View view2) {
-                if ((view2 instanceof ConstrainImageLayout) && ConstrainImageGroup.this.fUW != null) {
-                    ConstrainImageLayout constrainImageLayout = (ConstrainImageLayout) view2;
-                    constrainImageLayout.reset();
-                    ConstrainImageGroup.this.fUW.returnObject(constrainImageLayout);
-                }
-            }
-        };
-        this.fVe = false;
-        setOrientation(1);
-        setOnHierarchyChangeListener(this.fVd);
-    }
-
-    public void setFromCDN(boolean z) {
-        this.amh = z;
-    }
-
-    public void setSingleImageRatio(double d) {
-        this.fVa = d;
-    }
-
-    public void setChildClickListener(View.OnClickListener onClickListener) {
-        this.fVb = onClickListener;
-    }
-
-    public void setConstrainLayoutPool(com.baidu.adp.lib.d.b<ConstrainImageLayout> bVar) {
-        this.fUW = bVar;
-    }
-
-    public void setImageClickListener(d dVar) {
-        this.amI = dVar;
+    public void b() {
         int childCount = getChildCount();
+        for (int i = 0; i < childCount; i++) {
+            View childAt = getChildAt(i);
+            if (childAt instanceof ConstrainImageLayout) {
+                ((ConstrainImageLayout) childAt).h();
+            }
+        }
+    }
+
+    public final void c(int i) {
+        int b2 = this.f14170h.b(i);
+        int childCount = getChildCount() - b2;
         if (childCount > 0) {
-            for (int i = 0; i < childCount; i++) {
-                View childAt = getChildAt(i);
-                if (childAt instanceof ConstrainImageLayout) {
-                    ((ConstrainImageLayout) childAt).setImageClickListener(this.amI);
-                }
-            }
-        }
-    }
-
-    public void setImageViewPool(com.baidu.adp.lib.d.b<TbImageView> bVar) {
-        this.fUX = bVar;
-    }
-
-    public void setImageMargin(int i) {
-        if (i >= 0) {
-            this.fUZ = i;
-        } else {
-            this.fUZ = 0;
-        }
-    }
-
-    @Deprecated
-    public void setImageUrls(List<String> list) {
-        if (!y.isEmpty(list)) {
-            LinkedList linkedList = new LinkedList();
-            for (String str : list) {
-                MediaData mediaData = new MediaData();
-                mediaData.setPic(str);
-                mediaData.setThumbnails_url(str);
-                linkedList.add(mediaData);
-            }
-            setImageMediaList(linkedList);
-        }
-    }
-
-    public void setImageMediaList(List<MediaData> list) {
-        int i;
-        if (!y.isEmpty(list) && this.fUW != null) {
-            rV(y.getCount(list));
-            int childCount = getChildCount();
-            int i2 = 0;
-            int i3 = 0;
-            while (i2 < childCount) {
-                View childAt = getChildAt(i2);
-                if (childAt instanceof ConstrainImageLayout) {
-                    ConstrainImageLayout constrainImageLayout = (ConstrainImageLayout) childAt;
-                    constrainImageLayout.setImageClickListener(this.amI);
-                    constrainImageLayout.setFromCDN(this.amh);
-                    if (this.fVa > 0.0d) {
-                        constrainImageLayout.setSingleImageRatio(this.fVa);
-                    }
-                    if (this.fVb == null) {
-                        constrainImageLayout.setClickable(false);
-                    } else {
-                        constrainImageLayout.setOnClickListener(this.fVb);
-                    }
-                    constrainImageLayout.setSinglePicUseStyleV10(this.fVe);
-                    i = this.fUY.a(constrainImageLayout, list, i2, i3);
-                } else {
-                    i = i3;
-                }
-                i2++;
-                i3 = i;
-            }
-        }
-    }
-
-    private void rV(int i) {
-        int rU = this.fUY.rU(i);
-        int childCount = getChildCount() - rU;
-        if (childCount > 0) {
-            removeViews(rU, childCount);
+            removeViews(b2, childCount);
         } else if (childCount < 0) {
             int abs = Math.abs(childCount);
             for (int i2 = 0; i2 < abs; i2++) {
@@ -195,49 +102,109 @@ public class ConstrainImageGroup extends LinearLayout {
         }
     }
 
-    private ConstrainImageLayout getConstrainImageLayout() {
-        ConstrainImageLayout borrowObject = this.fUW.borrowObject();
-        borrowObject.setImagePadding(this.fUZ);
-        borrowObject.setImageViewObjectPool(this.fUX);
-        borrowObject.setImageMaxChildCount(-1);
-        borrowObject.setExtraCenterText(null);
-        borrowObject.setLayoutParams(new LinearLayout.LayoutParams(-2, -2));
-        borrowObject.setPageUniqueId(this.fIy);
-        borrowObject.setPreloadSizeReadyCallback(this.fVc);
-        return borrowObject;
+    public void setChildClickListener(View.OnClickListener onClickListener) {
+        this.m = onClickListener;
     }
 
-    public void onChangeSkinType() {
+    @Override // android.view.View
+    public void setClickable(boolean z) {
+        super.setClickable(z);
+        if (z) {
+            return;
+        }
+        setImageClickListener(null);
+        setChildClickListener(null);
+    }
+
+    public void setConstrainLayoutPool(b<ConstrainImageLayout> bVar) {
+        this.f14168f = bVar;
+    }
+
+    public void setFromCDN(boolean z) {
+        this.j = z;
+    }
+
+    public void setImageClickListener(d dVar) {
+        this.l = dVar;
         int childCount = getChildCount();
-        for (int i = 0; i < childCount; i++) {
-            View childAt = getChildAt(i);
+        if (childCount > 0) {
+            for (int i = 0; i < childCount; i++) {
+                View childAt = getChildAt(i);
+                if (childAt instanceof ConstrainImageLayout) {
+                    ((ConstrainImageLayout) childAt).setImageClickListener(this.l);
+                }
+            }
+        }
+    }
+
+    public void setImageMargin(int i) {
+        if (i >= 0) {
+            this.i = i;
+        } else {
+            this.i = 0;
+        }
+    }
+
+    public void setImageMediaList(List<MediaData> list) {
+        if (ListUtils.isEmpty(list) || this.f14168f == null) {
+            return;
+        }
+        c(ListUtils.getCount(list));
+        int childCount = getChildCount();
+        int i = 0;
+        for (int i2 = 0; i2 < childCount; i2++) {
+            View childAt = getChildAt(i2);
             if (childAt instanceof ConstrainImageLayout) {
-                ((ConstrainImageLayout) childAt).onChangeSkinType();
+                ConstrainImageLayout constrainImageLayout = (ConstrainImageLayout) childAt;
+                constrainImageLayout.setImageClickListener(this.l);
+                constrainImageLayout.setFromCDN(this.j);
+                double d2 = this.k;
+                if (d2 > 0.0d) {
+                    constrainImageLayout.setSingleImageRatio(d2);
+                }
+                View.OnClickListener onClickListener = this.m;
+                if (onClickListener == null) {
+                    constrainImageLayout.setClickable(false);
+                } else {
+                    constrainImageLayout.setOnClickListener(onClickListener);
+                }
+                constrainImageLayout.setSinglePicUseStyleV10(this.p);
+                i = this.f14170h.a(constrainImageLayout, list, i2, i);
             }
         }
     }
 
     public void setImageProcessor(c cVar) {
         if (cVar != null) {
-            this.fUY = cVar;
+            this.f14170h = cVar;
         }
+    }
+
+    @Deprecated
+    public void setImageUrls(List<String> list) {
+        if (ListUtils.isEmpty(list)) {
+            return;
+        }
+        LinkedList linkedList = new LinkedList();
+        for (String str : list) {
+            MediaData mediaData = new MediaData();
+            mediaData.setPic(str);
+            mediaData.setThumbnails_url(str);
+            linkedList.add(mediaData);
+        }
+        setImageMediaList(linkedList);
+    }
+
+    public void setImageViewPool(b<TbImageView> bVar) {
+        this.f14169g = bVar;
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        this.fIy = bdUniqueId;
+        this.f14167e = bdUniqueId;
     }
 
-    @Override // android.view.View
-    public void setClickable(boolean z) {
-        super.setClickable(z);
-        if (!z) {
-            setImageClickListener(null);
-            setChildClickListener(null);
-        }
-    }
-
-    public void setPreloadSizeReadyCallback(com.baidu.adp.widget.a.b bVar) {
-        this.fVc = bVar;
+    public void setPreloadSizeReadyCallback(d.b.b.j.c.b bVar) {
+        this.n = bVar;
         int childCount = getChildCount();
         for (int i = 0; i < childCount; i++) {
             View childAt = getChildAt(i);
@@ -247,7 +214,31 @@ public class ConstrainImageGroup extends LinearLayout {
         }
     }
 
+    public void setSingleImageRatio(double d2) {
+        this.k = d2;
+    }
+
     public void setSinglePicUseStyleV10(boolean z) {
-        this.fVe = z;
+        this.p = z;
+    }
+
+    public ConstrainImageGroup(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        this.f14170h = new d.b.h0.b1.j.b();
+        this.j = false;
+        this.o = new a();
+        this.p = false;
+        setOrientation(1);
+        setOnHierarchyChangeListener(this.o);
+    }
+
+    public ConstrainImageGroup(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        this.f14170h = new d.b.h0.b1.j.b();
+        this.j = false;
+        this.o = new a();
+        this.p = false;
+        setOrientation(1);
+        setOnHierarchyChangeListener(this.o);
     }
 }

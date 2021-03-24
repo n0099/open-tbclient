@@ -1,27 +1,44 @@
 package com.baidu.sofire.m;
 
-import android.content.Context;
-import android.database.Cursor;
-import android.net.Uri;
-import android.util.Log;
-/* loaded from: classes4.dex */
+import android.text.TextUtils;
+import com.baidu.android.util.devices.RomUtils;
+/* loaded from: classes3.dex */
 public final class b {
 
-    /* renamed from: a  reason: collision with root package name */
-    private Context f3566a;
+    /* loaded from: classes3.dex */
+    public enum a {
+        UNSUPPORT(-1, "unsupport"),
+        HUA_WEI(0, "HUAWEI"),
+        XIAOMI(1, "Xiaomi"),
+        VIVO(2, RomUtils.MANUFACTURER_VIVO),
+        OPPO(3, RomUtils.MANUFACTURER_OPPO),
+        MOTO(4, "motorola"),
+        LENOVO(5, "lenovo"),
+        ASUS(6, "asus"),
+        SAMSUNG(7, "samsung"),
+        MEIZU(8, RomUtils.MANUFACTURER_MEIZU),
+        ALPS(9, "alps"),
+        NUBIA(10, "nubia");
+        
+        public int m;
+        public String n;
 
-    public b(Context context) {
-        this.f3566a = context;
-    }
-
-    public final String a() {
-        Cursor query = this.f3566a.getContentResolver().query(Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/OAID"), null, null, null, null);
-        if (query != null) {
-            r2 = query.moveToNext() ? query.getString(query.getColumnIndex("value")) : null;
-            query.close();
-        } else {
-            Log.d("VMS_IDLG_SDK_DB", "return cursor is null,return");
+        a(int i, String str) {
+            this.m = i;
+            this.n = str;
         }
-        return r2;
+
+        public static a a(String str) {
+            a[] values;
+            if (TextUtils.isEmpty(str)) {
+                return UNSUPPORT;
+            }
+            for (a aVar : values()) {
+                if (aVar.n.equalsIgnoreCase(str)) {
+                    return aVar;
+                }
+            }
+            return UNSUPPORT;
+        }
     }
 }

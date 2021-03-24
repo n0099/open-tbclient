@@ -3,7 +3,7 @@ package com.kwad.sdk.feed;
 import androidx.annotation.NonNull;
 import com.kwad.sdk.core.response.b.c;
 import com.kwad.sdk.core.response.model.AdTemplate;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public enum FeedType {
     FEED_TYPE_UNKNOWN(0),
     FEED_TYPE_TEXT_IMMERSE(1),
@@ -14,32 +14,20 @@ public enum FeedType {
     FEED_TYPE_TEXT_ABOVE_GROUP(6),
     FEED_TYPE_TEXT_NEW(7);
     
-    private int type;
+    public int type;
 
     FeedType(int i) {
         this.type = i;
     }
 
     public static boolean checkTypeValid(@NonNull AdTemplate adTemplate) {
-        boolean z = false;
         int L = com.kwad.sdk.core.response.b.a.L(c.j(adTemplate));
-        if (adTemplate.type > FEED_TYPE_TEXT_ABOVE_GROUP.type) {
+        int i = adTemplate.type;
+        if (i > FEED_TYPE_TEXT_ABOVE_GROUP.type) {
             return true;
         }
-        FeedType fromInt = fromInt(adTemplate.type);
-        switch (L) {
-            case 1:
-                if (fromInt == FEED_TYPE_TEXT_ABOVE || fromInt == FEED_TYPE_TEXT_BELOW) {
-                    z = true;
-                }
-                return z;
-            case 2:
-                return (fromInt == FEED_TYPE_UNKNOWN || fromInt == FEED_TYPE_TEXT_ABOVE_GROUP) ? false : true;
-            case 3:
-                return fromInt != FEED_TYPE_UNKNOWN;
-            default:
-                return false;
-        }
+        FeedType fromInt = fromInt(i);
+        return L != 1 ? L != 2 ? L == 3 && fromInt != FEED_TYPE_UNKNOWN : (fromInt == FEED_TYPE_UNKNOWN || fromInt == FEED_TYPE_TEXT_ABOVE_GROUP) ? false : true : fromInt == FEED_TYPE_TEXT_ABOVE || fromInt == FEED_TYPE_TEXT_BELOW;
     }
 
     @NonNull

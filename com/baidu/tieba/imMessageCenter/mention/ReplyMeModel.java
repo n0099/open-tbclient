@@ -4,41 +4,153 @@ import android.text.TextUtils;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.data.BaijiahaoData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.R;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class ReplyMeModel extends BdBaseModel {
-    private a kUq;
-    private com.baidu.adp.framework.listener.a kUr;
-    private TbPageContext mPageContext;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes2.dex */
-    public interface a {
+    /* renamed from: e  reason: collision with root package name */
+    public TbPageContext f18333e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public b f18334f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public d.b.b.c.g.a f18335g;
+
+    /* loaded from: classes4.dex */
+    public class a extends d.b.b.c.g.a {
+        public a(int i, int i2) {
+            super(i, i2);
+        }
+
+        /* JADX WARN: Removed duplicated region for block: B:35:0x00cc  */
+        /* JADX WARN: Removed duplicated region for block: B:38:0x00de  */
+        @Override // d.b.b.c.g.a
+        /*
+            Code decompiled incorrectly, please refer to instructions dump.
+        */
+        public void onMessage(ResponsedMessage<?> responsedMessage) {
+            long forumId;
+            long postState;
+            long quoteId;
+            long repostId;
+            String forumName;
+            long j;
+            long tid;
+            if (responsedMessage == null) {
+                return;
+            }
+            boolean z = responsedMessage instanceof CheckPostResponseMessage;
+            if (!z && !(responsedMessage instanceof CheckPostHttpResponseMessage)) {
+                ReplyMeModel.this.f18333e.showToast(R.string.neterror);
+            } else if (responsedMessage.hasError()) {
+                if (!TextUtils.isEmpty(responsedMessage.getErrorString())) {
+                    ReplyMeModel.this.f18333e.showToast(responsedMessage.getErrorString());
+                } else {
+                    ReplyMeModel.this.f18333e.showToast(R.string.neterror);
+                }
+            } else {
+                if (z) {
+                    CheckPostResponseMessage checkPostResponseMessage = (CheckPostResponseMessage) responsedMessage;
+                    forumId = checkPostResponseMessage.getForumId();
+                    postState = checkPostResponseMessage.getPostState();
+                    quoteId = checkPostResponseMessage.getQuoteId();
+                    repostId = checkPostResponseMessage.getRepostId();
+                    forumName = checkPostResponseMessage.getForumName();
+                    tid = (responsedMessage.getOrginalMessage() == null || !(checkPostResponseMessage.getOrginalMessage().getExtra() instanceof CheckPostRequestMessage)) ? 0L : ((CheckPostRequestMessage) checkPostResponseMessage.getOrginalMessage().getExtra()).getTid();
+                } else {
+                    CheckPostHttpResponseMessage checkPostHttpResponseMessage = (CheckPostHttpResponseMessage) responsedMessage;
+                    forumId = checkPostHttpResponseMessage.getForumId();
+                    postState = checkPostHttpResponseMessage.getPostState();
+                    quoteId = checkPostHttpResponseMessage.getQuoteId();
+                    repostId = checkPostHttpResponseMessage.getRepostId();
+                    forumName = checkPostHttpResponseMessage.getForumName();
+                    if (responsedMessage.getOrginalMessage() == null || !(checkPostHttpResponseMessage.getOrginalMessage().getExtra() instanceof CheckPostRequestMessage)) {
+                        j = 0;
+                        long j2 = forumId;
+                        long j3 = quoteId;
+                        long j4 = repostId;
+                        String str = forumName;
+                        if (postState != 1) {
+                            if (ReplyMeModel.this.f18334f != null) {
+                                ReplyMeModel.this.f18334f.a(j2, j3, j4, str, j);
+                                return;
+                            }
+                            return;
+                        } else if (postState == 0) {
+                            ReplyMeModel.this.f18333e.showToast(R.string.thread_delete_tip);
+                            return;
+                        } else if (postState == -1) {
+                            ReplyMeModel.this.f18333e.showToast(R.string.thread_shield_tip);
+                            return;
+                        } else {
+                            return;
+                        }
+                    }
+                    tid = ((CheckPostRequestMessage) checkPostHttpResponseMessage.getOrginalMessage().getExtra()).getTid();
+                }
+                j = tid;
+                long j22 = forumId;
+                long j32 = quoteId;
+                long j42 = repostId;
+                String str2 = forumName;
+                if (postState != 1) {
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public interface b {
         void a(long j, long j2, long j3, String str, long j4);
     }
 
     static {
-        com.baidu.tieba.tbadkCore.a.a.c(CmdConfigSocket.CMD_CHECK_POST, CheckPostResponseMessage.class, false);
-        com.baidu.tieba.tbadkCore.a.a.a(CmdConfigSocket.CMD_CHECK_POST, CmdConfigHttp.CMD_CHECK_POST, "c/f/check/checkpost", CheckPostHttpResponseMessage.class, true, true, false, false);
+        d.b.i0.c3.d0.a.f(303010, CheckPostResponseMessage.class, false);
+        d.b.i0.c3.d0.a.c(303010, CmdConfigHttp.CMD_CHECK_POST, "c/f/check/checkpost", CheckPostHttpResponseMessage.class, true, true, false, false);
     }
 
     public ReplyMeModel(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.mPageContext = tbPageContext;
-        cZI();
+        this.f18333e = tbPageContext;
+        u();
     }
 
-    public void a(long j, int i, String str, String str2, BaijiahaoData baijiahaoData) {
+    @Override // com.baidu.adp.base.BdBaseModel
+    public boolean LoadData() {
+        return false;
+    }
+
+    @Override // com.baidu.adp.base.BdBaseModel
+    public boolean cancelLoadData() {
+        return false;
+    }
+
+    public void onDestroy() {
+        if (this.f18335g != null) {
+            MessageManager.getInstance().unRegisterListener(this.f18335g);
+        }
+    }
+
+    public void u() {
+        a aVar = new a(CmdConfigHttp.CMD_CHECK_POST, 303010);
+        this.f18335g = aVar;
+        aVar.setTag(this.f18333e.getUniqueId());
+        this.f18335g.getHttpMessageListener().setSelfListener(true);
+        this.f18335g.getSocketMessageListener().setSelfListener(true);
+        this.f18333e.registerListener(this.f18335g);
+    }
+
+    public void v(long j, int i, String str, String str2, BaijiahaoData baijiahaoData) {
         CheckPostRequestMessage checkPostRequestMessage = new CheckPostRequestMessage();
         checkPostRequestMessage.setPid(j);
         checkPostRequestMessage.setPostType(i);
         checkPostRequestMessage.setForumName(str);
-        checkPostRequestMessage.setTid(com.baidu.adp.lib.f.b.toLong(str2, 0L));
-        checkPostRequestMessage.setTag(this.mPageContext.getUniqueId());
+        checkPostRequestMessage.setTid(d.b.b.e.m.b.f(str2, 0L));
+        checkPostRequestMessage.setTag(this.f18333e.getUniqueId());
         if (baijiahaoData != null) {
             checkPostRequestMessage.ori_ugc_type = baijiahaoData.oriUgcType;
             checkPostRequestMessage.ori_ugc_tid = baijiahaoData.oriUgcTid;
@@ -48,89 +160,7 @@ public class ReplyMeModel extends BdBaseModel {
         sendMessage(checkPostRequestMessage);
     }
 
-    public void cZI() {
-        this.kUr = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_CHECK_POST, CmdConfigSocket.CMD_CHECK_POST) { // from class: com.baidu.tieba.imMessageCenter.mention.ReplyMeModel.1
-            @Override // com.baidu.adp.framework.listener.a
-            public void onMessage(ResponsedMessage<?> responsedMessage) {
-                long forumId;
-                long postState;
-                long quoteId;
-                long repostId;
-                String forumName;
-                long j;
-                long j2;
-                if (responsedMessage != null) {
-                    if (!(responsedMessage instanceof CheckPostResponseMessage) && !(responsedMessage instanceof CheckPostHttpResponseMessage)) {
-                        ReplyMeModel.this.mPageContext.showToast(R.string.neterror);
-                    } else if (responsedMessage.hasError()) {
-                        if (!TextUtils.isEmpty(responsedMessage.getErrorString())) {
-                            ReplyMeModel.this.mPageContext.showToast(responsedMessage.getErrorString());
-                        } else {
-                            ReplyMeModel.this.mPageContext.showToast(R.string.neterror);
-                        }
-                    } else {
-                        if (responsedMessage instanceof CheckPostResponseMessage) {
-                            CheckPostResponseMessage checkPostResponseMessage = (CheckPostResponseMessage) responsedMessage;
-                            forumId = checkPostResponseMessage.getForumId();
-                            postState = checkPostResponseMessage.getPostState();
-                            quoteId = checkPostResponseMessage.getQuoteId();
-                            repostId = checkPostResponseMessage.getRepostId();
-                            forumName = checkPostResponseMessage.getForumName();
-                            if (responsedMessage.getOrginalMessage() == null || !(checkPostResponseMessage.getOrginalMessage().getExtra() instanceof CheckPostRequestMessage)) {
-                                j2 = 0;
-                            } else {
-                                j2 = ((CheckPostRequestMessage) checkPostResponseMessage.getOrginalMessage().getExtra()).getTid();
-                            }
-                            j = j2;
-                        } else {
-                            CheckPostHttpResponseMessage checkPostHttpResponseMessage = (CheckPostHttpResponseMessage) responsedMessage;
-                            forumId = checkPostHttpResponseMessage.getForumId();
-                            postState = checkPostHttpResponseMessage.getPostState();
-                            quoteId = checkPostHttpResponseMessage.getQuoteId();
-                            repostId = checkPostHttpResponseMessage.getRepostId();
-                            forumName = checkPostHttpResponseMessage.getForumName();
-                            if (responsedMessage.getOrginalMessage() == null || !(checkPostHttpResponseMessage.getOrginalMessage().getExtra() instanceof CheckPostRequestMessage)) {
-                                j = 0;
-                            } else {
-                                j = ((CheckPostRequestMessage) checkPostHttpResponseMessage.getOrginalMessage().getExtra()).getTid();
-                            }
-                        }
-                        if (postState == 1) {
-                            if (ReplyMeModel.this.kUq != null) {
-                                ReplyMeModel.this.kUq.a(forumId, quoteId, repostId, forumName, j);
-                            }
-                        } else if (postState == 0) {
-                            ReplyMeModel.this.mPageContext.showToast(R.string.thread_delete_tip);
-                        } else if (postState == -1) {
-                            ReplyMeModel.this.mPageContext.showToast(R.string.thread_shield_tip);
-                        }
-                    }
-                }
-            }
-        };
-        this.kUr.setTag(this.mPageContext.getUniqueId());
-        this.kUr.getHttpMessageListener().setSelfListener(true);
-        this.kUr.getSocketMessageListener().setSelfListener(true);
-        this.mPageContext.registerListener(this.kUr);
-    }
-
-    @Override // com.baidu.adp.base.BdBaseModel
-    protected boolean LoadData() {
-        return false;
-    }
-
-    @Override // com.baidu.adp.base.BdBaseModel
-    public boolean cancelLoadData() {
-        return false;
-    }
-
-    public void a(a aVar) {
-        this.kUq = aVar;
-    }
-
-    public void onDestroy() {
-        if (this.kUr != null) {
-            MessageManager.getInstance().unRegisterListener(this.kUr);
-        }
+    public void w(b bVar) {
+        this.f18334f = bVar;
     }
 }

@@ -2,71 +2,51 @@ package com.ksad.lottie.c;
 
 import android.graphics.Path;
 import android.util.JsonReader;
+import androidx.appcompat.widget.SearchView;
 import com.baidu.mobstat.Config;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class ae {
-    /* JADX INFO: Access modifiers changed from: package-private */
     public static com.ksad.lottie.model.content.i a(JsonReader jsonReader, com.ksad.lottie.d dVar) {
-        int i = 1;
         String str = null;
-        com.ksad.lottie.model.a.d dVar2 = null;
-        boolean z = false;
         com.ksad.lottie.model.a.a aVar = null;
+        com.ksad.lottie.model.a.d dVar2 = null;
+        int i = 1;
+        boolean z = false;
         while (jsonReader.hasNext()) {
             String nextName = jsonReader.nextName();
-            char c = 65535;
-            switch (nextName.hashCode()) {
-                case -396065730:
-                    if (nextName.equals("fillEnabled")) {
-                        c = 3;
-                        break;
+            char c2 = 65535;
+            int hashCode = nextName.hashCode();
+            if (hashCode != -396065730) {
+                if (hashCode != 99) {
+                    if (hashCode != 111) {
+                        if (hashCode != 114) {
+                            if (hashCode == 3519 && nextName.equals(SearchView.IME_OPTION_NO_MICROPHONE)) {
+                                c2 = 0;
+                            }
+                        } else if (nextName.equals(com.baidu.mapsdkplatform.comapi.map.r.f7663a)) {
+                            c2 = 4;
+                        }
+                    } else if (nextName.equals(Config.OS)) {
+                        c2 = 2;
                     }
-                    break;
-                case 99:
-                    if (nextName.equals("c")) {
-                        c = 1;
-                        break;
-                    }
-                    break;
-                case 111:
-                    if (nextName.equals(Config.OS)) {
-                        c = 2;
-                        break;
-                    }
-                    break;
-                case 114:
-                    if (nextName.equals("r")) {
-                        c = 4;
-                        break;
-                    }
-                    break;
-                case 3519:
-                    if (nextName.equals("nm")) {
-                        c = 0;
-                        break;
-                    }
-                    break;
+                } else if (nextName.equals("c")) {
+                    c2 = 1;
+                }
+            } else if (nextName.equals("fillEnabled")) {
+                c2 = 3;
             }
-            switch (c) {
-                case 0:
-                    str = jsonReader.nextString();
-                    break;
-                case 1:
-                    aVar = d.g(jsonReader, dVar);
-                    break;
-                case 2:
-                    dVar2 = d.b(jsonReader, dVar);
-                    break;
-                case 3:
-                    z = jsonReader.nextBoolean();
-                    break;
-                case 4:
-                    i = jsonReader.nextInt();
-                    break;
-                default:
-                    jsonReader.skipValue();
-                    break;
+            if (c2 == 0) {
+                str = jsonReader.nextString();
+            } else if (c2 == 1) {
+                aVar = d.g(jsonReader, dVar);
+            } else if (c2 == 2) {
+                dVar2 = d.b(jsonReader, dVar);
+            } else if (c2 == 3) {
+                z = jsonReader.nextBoolean();
+            } else if (c2 != 4) {
+                jsonReader.skipValue();
+            } else {
+                i = jsonReader.nextInt();
             }
         }
         return new com.ksad.lottie.model.content.i(str, z, i == 1 ? Path.FillType.WINDING : Path.FillType.EVEN_ODD, aVar, dVar2);

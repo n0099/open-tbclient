@@ -6,8 +6,8 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.Environment;
 import java.io.File;
 import java.io.IOException;
-/* loaded from: classes4.dex */
-class l extends ContextWrapper {
+/* loaded from: classes2.dex */
+public class l extends ContextWrapper {
     public l() {
         super(null);
     }
@@ -24,14 +24,14 @@ class l extends ContextWrapper {
             if (!file2.exists()) {
                 try {
                     file2.createNewFile();
-                } catch (IOException e) {
-                    bb.c().b(e);
+                } catch (IOException e2) {
+                    bb.c().b(e2);
                 }
             }
-            if (!file2.exists()) {
-                file2 = null;
+            if (file2.exists()) {
+                return file2;
             }
-            return file2;
+            return null;
         }
         return null;
     }
@@ -39,18 +39,18 @@ class l extends ContextWrapper {
     @Override // android.content.ContextWrapper, android.content.Context
     public SQLiteDatabase openOrCreateDatabase(String str, int i, SQLiteDatabase.CursorFactory cursorFactory) {
         File databasePath = getDatabasePath(str);
-        if (databasePath == null || !databasePath.canWrite()) {
-            throw new RuntimeException("db path is null or path can not be write");
+        if (databasePath != null && databasePath.canWrite()) {
+            return SQLiteDatabase.openOrCreateDatabase(databasePath, (SQLiteDatabase.CursorFactory) null);
         }
-        return SQLiteDatabase.openOrCreateDatabase(databasePath, (SQLiteDatabase.CursorFactory) null);
+        throw new RuntimeException("db path is null or path can not be write");
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
     public SQLiteDatabase openOrCreateDatabase(String str, int i, SQLiteDatabase.CursorFactory cursorFactory, DatabaseErrorHandler databaseErrorHandler) {
         File databasePath = getDatabasePath(str);
-        if (databasePath == null || !databasePath.canWrite()) {
-            throw new RuntimeException("db path is null or path can not be write");
+        if (databasePath != null && databasePath.canWrite()) {
+            return SQLiteDatabase.openOrCreateDatabase(databasePath, (SQLiteDatabase.CursorFactory) null);
         }
-        return SQLiteDatabase.openOrCreateDatabase(databasePath, (SQLiteDatabase.CursorFactory) null);
+        throw new RuntimeException("db path is null or path can not be write");
     }
 }

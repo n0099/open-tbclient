@@ -3,72 +3,120 @@ package com.baidu.tieba.hottopic.controller;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.adp.lib.util.l;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.k;
-import com.baidu.tieba.hottopic.data.e;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.hottopic.message.RequestHotTopicMessage;
 import com.baidu.tieba.hottopic.message.ResponseHttpHotTopicMessage;
 import com.baidu.tieba.hottopic.message.ResponseSocketHotTopicMessage;
-/* loaded from: classes7.dex */
+import d.b.b.e.p.l;
+import d.b.h0.r.k;
+import d.b.i0.b1.c.e;
+/* loaded from: classes4.dex */
 public class HotTopicModel extends BdBaseModel<BaseActivity<?>> {
     public static final int SORT_TYPE_HOT = 1;
     public static final int SORT_TYPE_NEW = 0;
-    private a kvT;
-    private BaseActivity<?> mActivity;
-    private com.baidu.adp.framework.listener.a netMessageListener;
 
-    /* loaded from: classes7.dex */
-    public interface a {
-        void a(boolean z, e eVar);
+    /* renamed from: e  reason: collision with root package name */
+    public BaseActivity<?> f17553e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public b f17554f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public d.b.b.c.g.a f17555g;
+
+    /* loaded from: classes4.dex */
+    public class a extends d.b.b.c.g.a {
+        public a(int i, int i2) {
+            super(i, i2);
+        }
+
+        @Override // d.b.b.c.g.a
+        public void onMessage(ResponsedMessage<?> responsedMessage) {
+            if (responsedMessage == null) {
+                return;
+            }
+            if (((responsedMessage instanceof ResponseHttpHotTopicMessage) || (responsedMessage instanceof ResponseSocketHotTopicMessage)) && responsedMessage.getOrginalMessage().getTag() == HotTopicModel.this.getUniqueId()) {
+                if (!responsedMessage.hasError()) {
+                    HotTopicModel.this.w(responsedMessage);
+                    return;
+                }
+                if (!StringUtils.isNull(responsedMessage.getErrorString())) {
+                    HotTopicModel.this.f17553e.showToast(responsedMessage.getErrorString());
+                }
+                HotTopicModel.this.f17554f.hotTopicDataCallback(false, null);
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public interface b {
+        void hotTopicDataCallback(boolean z, e eVar);
     }
 
     public HotTopicModel(BaseActivity<?> baseActivity) {
         super(baseActivity.getPageContext());
-        this.kvT = null;
-        this.netMessageListener = new com.baidu.adp.framework.listener.a(1003041, CmdConfigSocket.CMD_HOT_TOPIC) { // from class: com.baidu.tieba.hottopic.controller.HotTopicModel.1
-            @Override // com.baidu.adp.framework.listener.a
-            public void onMessage(ResponsedMessage<?> responsedMessage) {
-                if (responsedMessage != null) {
-                    if (((responsedMessage instanceof ResponseHttpHotTopicMessage) || (responsedMessage instanceof ResponseSocketHotTopicMessage)) && responsedMessage.getOrginalMessage().getTag() == HotTopicModel.this.getUniqueId()) {
-                        if (!responsedMessage.hasError()) {
-                            HotTopicModel.this.i(responsedMessage);
-                            return;
-                        }
-                        if (!StringUtils.isNull(responsedMessage.getErrorString())) {
-                            HotTopicModel.this.mActivity.showToast(responsedMessage.getErrorString());
-                        }
-                        HotTopicModel.this.kvT.a(false, null);
-                    }
-                }
+        this.f17554f = null;
+        a aVar = new a(CmdConfigHttp.CMD_HOT_TOPIC, 303050);
+        this.f17555g = aVar;
+        this.f17553e = baseActivity;
+        registerListener(aVar);
+    }
+
+    @Override // com.baidu.adp.base.BdBaseModel
+    public boolean LoadData() {
+        return false;
+    }
+
+    @Override // com.baidu.adp.base.BdBaseModel
+    public boolean cancelLoadData() {
+        cancelMessage();
+        return false;
+    }
+
+    public void v(String str, String str2, int i, long j, String str3, String str4, String str5, long j2) {
+        x(d.b.b.e.m.b.f(str, 0L), str2, i, j < 0 ? 0L : j, StringUtils.isNull(str3) ? "" : str3, StringUtils.isNull(str4) ? "" : str4, str5, j2);
+    }
+
+    public final void w(ResponsedMessage<?> responsedMessage) {
+        if (responsedMessage == null) {
+            return;
+        }
+        e eVar = null;
+        if (responsedMessage instanceof ResponseHttpHotTopicMessage) {
+            ResponseHttpHotTopicMessage responseHttpHotTopicMessage = (ResponseHttpHotTopicMessage) responsedMessage;
+            if (responseHttpHotTopicMessage.getHotTopicData() != null) {
+                eVar = responseHttpHotTopicMessage.getHotTopicData();
             }
-        };
-        this.mActivity = baseActivity;
-        registerListener(this.netMessageListener);
+        }
+        if (responsedMessage instanceof ResponseSocketHotTopicMessage) {
+            ResponseSocketHotTopicMessage responseSocketHotTopicMessage = (ResponseSocketHotTopicMessage) responsedMessage;
+            if (responseSocketHotTopicMessage.getHotTopicData() != null) {
+                eVar = responseSocketHotTopicMessage.getHotTopicData();
+            }
+        }
+        if (responsedMessage.getOrginalMessage() != null && (responsedMessage.getOrginalMessage().getExtra() instanceof Integer)) {
+            eVar.s = ((Integer) responsedMessage.getOrginalMessage().getExtra()).intValue();
+        }
+        this.f17554f.hotTopicDataCallback(!responsedMessage.hasError(), eVar);
     }
 
-    public void a(String str, String str2, int i, long j, String str3, String str4, String str5, long j2) {
-        a(com.baidu.adp.lib.f.b.toLong(str, 0L), str2, i, j < 0 ? 0L : j, StringUtils.isNull(str3) ? "" : str3, StringUtils.isNull(str4) ? "" : str4, str5, j2);
-    }
-
-    private void a(long j, String str, int i, long j2, String str2, String str3, String str4, long j3) {
+    public final void x(long j, String str, int i, long j2, String str2, String str3, String str4, long j3) {
         RequestHotTopicMessage requestHotTopicMessage = new RequestHotTopicMessage();
-        double d = TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density;
-        int equipmentWidth = l.getEquipmentWidth(TbadkCoreApplication.getInst().getApp());
-        int equipmentHeight = l.getEquipmentHeight(TbadkCoreApplication.getInst().getApp());
+        int k = l.k(TbadkCoreApplication.getInst().getApp());
+        int i2 = l.i(TbadkCoreApplication.getInst().getApp());
         requestHotTopicMessage.setTopicId(Long.valueOf(j));
-        requestHotTopicMessage.setCall_from(Mq(str4));
+        requestHotTopicMessage.setCall_from(z(str4));
         requestHotTopicMessage.setTopicName(str);
-        requestHotTopicMessage.setScrH(Integer.valueOf(equipmentHeight));
+        requestHotTopicMessage.setScrH(Integer.valueOf(i2));
         requestHotTopicMessage.setTopic_tid(j3);
-        requestHotTopicMessage.setScrW(Integer.valueOf(equipmentWidth));
-        requestHotTopicMessage.setSrcDip(Double.valueOf(d));
+        requestHotTopicMessage.setScrW(Integer.valueOf(k));
+        requestHotTopicMessage.setSrcDip(Double.valueOf(TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density));
         requestHotTopicMessage.setFid(Long.valueOf(j2));
         requestHotTopicMessage.setFirst_dir(str2);
         requestHotTopicMessage.setSecond_dir(str3);
-        requestHotTopicMessage.setQType(Integer.valueOf(k.bkV().getViewImageQuality()));
+        requestHotTopicMessage.setQType(Integer.valueOf(k.c().e()));
         requestHotTopicMessage.setSort_type(Integer.valueOf(i));
         if (requestHotTopicMessage.getHttpMessage() != null) {
             requestHotTopicMessage.getHttpMessage().setExtra(Integer.valueOf(i));
@@ -81,39 +129,11 @@ public class HotTopicModel extends BdBaseModel<BaseActivity<?>> {
         sendMessage(requestHotTopicMessage);
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void i(ResponsedMessage<?> responsedMessage) {
-        if (responsedMessage != null) {
-            e eVar = null;
-            if ((responsedMessage instanceof ResponseHttpHotTopicMessage) && ((ResponseHttpHotTopicMessage) responsedMessage).getHotTopicData() != null) {
-                eVar = ((ResponseHttpHotTopicMessage) responsedMessage).getHotTopicData();
-            }
-            if ((responsedMessage instanceof ResponseSocketHotTopicMessage) && ((ResponseSocketHotTopicMessage) responsedMessage).getHotTopicData() != null) {
-                eVar = ((ResponseSocketHotTopicMessage) responsedMessage).getHotTopicData();
-            }
-            if (responsedMessage.getOrginalMessage() != null && (responsedMessage.getOrginalMessage().getExtra() instanceof Integer)) {
-                eVar.sortType = ((Integer) responsedMessage.getOrginalMessage().getExtra()).intValue();
-            }
-            this.kvT.a(!responsedMessage.hasError(), eVar);
-        }
+    public void y(b bVar) {
+        this.f17554f = bVar;
     }
 
-    public void a(a aVar) {
-        this.kvT = aVar;
-    }
-
-    @Override // com.baidu.adp.base.BdBaseModel
-    public boolean cancelLoadData() {
-        cancelMessage();
-        return false;
-    }
-
-    @Override // com.baidu.adp.base.BdBaseModel
-    protected boolean LoadData() {
-        return false;
-    }
-
-    private int Mq(String str) {
+    public final int z(String str) {
         if ("1".equals(str)) {
             return 1;
         }

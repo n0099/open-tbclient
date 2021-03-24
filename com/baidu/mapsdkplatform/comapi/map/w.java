@@ -1,52 +1,50 @@
 package com.baidu.mapsdkplatform.comapi.map;
 
 import android.os.Message;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class w {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f2234a = w.class.getSimpleName();
-    private v b;
+    public static final String f7678a = "w";
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    /* renamed from: b  reason: collision with root package name */
+    public v f7679b;
+
     public void a(Message message) {
         if (message.what != 65289) {
             return;
         }
-        switch (message.arg1) {
-            case -1:
-            case 0:
-            case 1:
-            case 2:
-            case 3:
-            case 4:
-            case 5:
-            case 6:
-            case 7:
-            case 8:
-            case 9:
-            case 10:
-            case 12:
-            case 101:
-            case 102:
-                if (this.b != null) {
-                    this.b.a(message.arg1, message.arg2);
+        int i = message.arg1;
+        if (i != 12 && i != 101 && i != 102) {
+            switch (i) {
+                case -1:
+                case 0:
+                case 1:
+                case 2:
+                case 3:
+                case 4:
+                case 5:
+                case 6:
+                case 7:
+                case 8:
+                case 9:
+                case 10:
+                    break;
+                default:
                     return;
-                }
-                return;
-            default:
-                return;
+            }
+        }
+        v vVar = this.f7679b;
+        if (vVar != null) {
+            vVar.a(message.arg1, message.arg2);
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public void a(v vVar) {
-        this.b = vVar;
+        this.f7679b = vVar;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public void b(v vVar) {
-        this.b = null;
+        this.f7679b = null;
     }
 }

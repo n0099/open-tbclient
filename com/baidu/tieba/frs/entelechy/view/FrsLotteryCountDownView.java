@@ -8,144 +8,158 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.baidu.adp.lib.f.e;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
+import d.b.b.e.m.e;
 import java.lang.ref.WeakReference;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class FrsLotteryCountDownView extends LinearLayout {
-    private static final long juY = TimeUnit.DAYS.toMillis(1);
-    private static final long juZ = TimeUnit.HOURS.toMillis(1);
-    private static final long jva = TimeUnit.MINUTES.toMillis(1);
-    private static final long jvb = TimeUnit.SECONDS.toMillis(1);
-    private TextView jvc;
-    private TextView jvd;
-    private TextView jve;
-    private TextView jvf;
-    private TextView jvg;
-    private TextView jvh;
-    private TextView jvi;
-    private TextView jvj;
-    private Context mContext;
-    private View mRootView;
-    private CountDownTimer mTimer;
+    public static final long p = TimeUnit.DAYS.toMillis(1);
+    public static final long q = TimeUnit.HOURS.toMillis(1);
+    public static final long r = TimeUnit.MINUTES.toMillis(1);
+    public static final long s = TimeUnit.SECONDS.toMillis(1);
 
-    public FrsLotteryCountDownView(Context context) {
-        super(context);
-        this.mContext = null;
-        this.mTimer = null;
-        this.mContext = context;
-        init();
-    }
+    /* renamed from: e  reason: collision with root package name */
+    public Context f16243e;
 
-    public FrsLotteryCountDownView(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        this.mContext = null;
-        this.mTimer = null;
-        this.mContext = context;
-        init();
-    }
+    /* renamed from: f  reason: collision with root package name */
+    public View f16244f;
 
-    public FrsLotteryCountDownView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        this.mContext = null;
-        this.mTimer = null;
-        this.mContext = context;
-        init();
-    }
+    /* renamed from: g  reason: collision with root package name */
+    public TextView f16245g;
 
-    protected void init() {
-        this.mRootView = LayoutInflater.from(this.mContext).inflate(R.layout.frs_lottery_count_down, (ViewGroup) this, true);
-        this.jvc = (TextView) this.mRootView.findViewById(R.id.lottery_count_day);
-        this.jvd = (TextView) this.mRootView.findViewById(R.id.lottery_count_day_txt);
-        this.jve = (TextView) this.mRootView.findViewById(R.id.lottery_count_hour);
-        this.jvf = (TextView) this.mRootView.findViewById(R.id.lottery_count_hour_txt);
-        this.jvg = (TextView) this.mRootView.findViewById(R.id.lottery_count_minute);
-        this.jvh = (TextView) this.mRootView.findViewById(R.id.lottery_count_minute_txt);
-        this.jvi = (TextView) this.mRootView.findViewById(R.id.lottery_count_second);
-        this.jvj = (TextView) this.mRootView.findViewById(R.id.lottery_count_second_txt);
-    }
+    /* renamed from: h  reason: collision with root package name */
+    public TextView f16246h;
+    public TextView i;
+    public TextView j;
+    public TextView k;
+    public TextView l;
+    public TextView m;
+    public TextView n;
+    public CountDownTimer o;
 
-    public void setData(long j) {
-        ap.setViewTextColor(this.jvc, R.color.CAM_X0111);
-        ap.setViewTextColor(this.jvd, R.color.CAM_X0108);
-        ap.setBackgroundColor(this.jvc, R.color.common_color_10060);
-        ap.setViewTextColor(this.jve, R.color.CAM_X0111);
-        ap.setViewTextColor(this.jvf, R.color.CAM_X0108);
-        ap.setBackgroundColor(this.jve, R.color.common_color_10060);
-        ap.setViewTextColor(this.jvg, R.color.CAM_X0111);
-        ap.setViewTextColor(this.jvh, R.color.CAM_X0108);
-        ap.setBackgroundColor(this.jvg, R.color.common_color_10060);
-        ap.setViewTextColor(this.jvi, R.color.CAM_X0111);
-        ap.setViewTextColor(this.jvj, R.color.CAM_X0108);
-        ap.setBackgroundColor(this.jvi, R.color.common_color_10060);
-        if (j <= jvb) {
-            this.jvc.setText("0");
-            this.jve.setText("0");
-            this.jvg.setText("0");
-            this.jvi.setText("0");
-            return;
-        }
-        if (j / juY <= 0) {
-            this.jvc.setVisibility(8);
-            this.jvd.setVisibility(8);
-        } else {
-            this.jvc.setVisibility(0);
-            this.jvd.setVisibility(0);
-        }
-        if (this.mTimer != null) {
-            this.mTimer.cancel();
-        }
-        this.mTimer = new b(new WeakReference(this), j, 1000L).start();
-    }
+    /* loaded from: classes4.dex */
+    public static class b implements Runnable {
 
-    /* loaded from: classes2.dex */
-    private static class b extends CountDownTimer {
-        private final WeakReference<FrsLotteryCountDownView> reference;
-
-        public b(WeakReference<FrsLotteryCountDownView> weakReference, long j, long j2) {
-            super(j, j2);
-            this.reference = weakReference;
-        }
-
-        @Override // android.os.CountDownTimer
-        public void onTick(long j) {
-            FrsLotteryCountDownView frsLotteryCountDownView = this.reference.get();
-            if (frsLotteryCountDownView != null) {
-                frsLotteryCountDownView.jvc.setText(StringUtils.string(Long.valueOf(j / FrsLotteryCountDownView.juY)));
-                frsLotteryCountDownView.jve.setText(StringUtils.string(Long.valueOf((j % FrsLotteryCountDownView.juY) / FrsLotteryCountDownView.juZ)));
-                frsLotteryCountDownView.jvg.setText(StringUtils.string(Long.valueOf(((j % FrsLotteryCountDownView.juY) % FrsLotteryCountDownView.juZ) / FrsLotteryCountDownView.jva)));
-                frsLotteryCountDownView.jvi.setText(StringUtils.string(Long.valueOf((((j % FrsLotteryCountDownView.juY) % FrsLotteryCountDownView.juZ) % FrsLotteryCountDownView.jva) / FrsLotteryCountDownView.jvb)));
-                return;
-            }
-            e.mA().postDelayed(new a(new WeakReference(this)), TimeUnit.SECONDS.toSeconds(3L));
-        }
-
-        @Override // android.os.CountDownTimer
-        public void onFinish() {
-            FrsLotteryCountDownView frsLotteryCountDownView = this.reference.get();
-            if (frsLotteryCountDownView != null) {
-                frsLotteryCountDownView.jvi.setText("0");
-            }
-        }
-    }
-
-    /* loaded from: classes2.dex */
-    private static class a implements Runnable {
-        private final WeakReference<CountDownTimer> reference;
-
-        private a(WeakReference<CountDownTimer> weakReference) {
-            this.reference = weakReference;
-        }
+        /* renamed from: e  reason: collision with root package name */
+        public final WeakReference<CountDownTimer> f16247e;
 
         @Override // java.lang.Runnable
         public void run() {
-            CountDownTimer countDownTimer = this.reference.get();
+            CountDownTimer countDownTimer = this.f16247e.get();
             if (countDownTimer != null) {
                 countDownTimer.cancel();
             }
         }
+
+        public b(WeakReference<CountDownTimer> weakReference) {
+            this.f16247e = weakReference;
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public static class c extends CountDownTimer {
+
+        /* renamed from: a  reason: collision with root package name */
+        public final WeakReference<FrsLotteryCountDownView> f16248a;
+
+        public c(WeakReference<FrsLotteryCountDownView> weakReference, long j, long j2) {
+            super(j, j2);
+            this.f16248a = weakReference;
+        }
+
+        @Override // android.os.CountDownTimer
+        public void onFinish() {
+            FrsLotteryCountDownView frsLotteryCountDownView = this.f16248a.get();
+            if (frsLotteryCountDownView != null) {
+                frsLotteryCountDownView.m.setText("0");
+            }
+        }
+
+        @Override // android.os.CountDownTimer
+        public void onTick(long j) {
+            FrsLotteryCountDownView frsLotteryCountDownView = this.f16248a.get();
+            if (frsLotteryCountDownView != null) {
+                frsLotteryCountDownView.f16245g.setText(StringUtils.string(Long.valueOf(j / FrsLotteryCountDownView.p)));
+                frsLotteryCountDownView.i.setText(StringUtils.string(Long.valueOf((j % FrsLotteryCountDownView.p) / FrsLotteryCountDownView.q)));
+                frsLotteryCountDownView.k.setText(StringUtils.string(Long.valueOf(((j % FrsLotteryCountDownView.p) % FrsLotteryCountDownView.q) / FrsLotteryCountDownView.r)));
+                frsLotteryCountDownView.m.setText(StringUtils.string(Long.valueOf((((j % FrsLotteryCountDownView.p) % FrsLotteryCountDownView.q) % FrsLotteryCountDownView.r) / FrsLotteryCountDownView.s)));
+                return;
+            }
+            e.a().postDelayed(new b(new WeakReference(this)), TimeUnit.SECONDS.toSeconds(3L));
+        }
+    }
+
+    public FrsLotteryCountDownView(Context context) {
+        super(context);
+        this.f16243e = null;
+        this.o = null;
+        this.f16243e = context;
+        i();
+    }
+
+    public void i() {
+        View inflate = LayoutInflater.from(this.f16243e).inflate(R.layout.frs_lottery_count_down, (ViewGroup) this, true);
+        this.f16244f = inflate;
+        this.f16245g = (TextView) inflate.findViewById(R.id.lottery_count_day);
+        this.f16246h = (TextView) this.f16244f.findViewById(R.id.lottery_count_day_txt);
+        this.i = (TextView) this.f16244f.findViewById(R.id.lottery_count_hour);
+        this.j = (TextView) this.f16244f.findViewById(R.id.lottery_count_hour_txt);
+        this.k = (TextView) this.f16244f.findViewById(R.id.lottery_count_minute);
+        this.l = (TextView) this.f16244f.findViewById(R.id.lottery_count_minute_txt);
+        this.m = (TextView) this.f16244f.findViewById(R.id.lottery_count_second);
+        this.n = (TextView) this.f16244f.findViewById(R.id.lottery_count_second_txt);
+    }
+
+    public void setData(long j) {
+        SkinManager.setViewTextColor(this.f16245g, R.color.CAM_X0111);
+        SkinManager.setViewTextColor(this.f16246h, R.color.CAM_X0108);
+        SkinManager.setBackgroundColor(this.f16245g, R.color.common_color_10060);
+        SkinManager.setViewTextColor(this.i, R.color.CAM_X0111);
+        SkinManager.setViewTextColor(this.j, R.color.CAM_X0108);
+        SkinManager.setBackgroundColor(this.i, R.color.common_color_10060);
+        SkinManager.setViewTextColor(this.k, R.color.CAM_X0111);
+        SkinManager.setViewTextColor(this.l, R.color.CAM_X0108);
+        SkinManager.setBackgroundColor(this.k, R.color.common_color_10060);
+        SkinManager.setViewTextColor(this.m, R.color.CAM_X0111);
+        SkinManager.setViewTextColor(this.n, R.color.CAM_X0108);
+        SkinManager.setBackgroundColor(this.m, R.color.common_color_10060);
+        if (j <= s) {
+            this.f16245g.setText("0");
+            this.i.setText("0");
+            this.k.setText("0");
+            this.m.setText("0");
+            return;
+        }
+        if (j / p <= 0) {
+            this.f16245g.setVisibility(8);
+            this.f16246h.setVisibility(8);
+        } else {
+            this.f16245g.setVisibility(0);
+            this.f16246h.setVisibility(0);
+        }
+        CountDownTimer countDownTimer = this.o;
+        if (countDownTimer != null) {
+            countDownTimer.cancel();
+        }
+        this.o = new c(new WeakReference(this), j, 1000L).start();
+    }
+
+    public FrsLotteryCountDownView(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        this.f16243e = null;
+        this.o = null;
+        this.f16243e = context;
+        i();
+    }
+
+    public FrsLotteryCountDownView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        this.f16243e = null;
+        this.o = null;
+        this.f16243e = context;
+        i();
     }
 }

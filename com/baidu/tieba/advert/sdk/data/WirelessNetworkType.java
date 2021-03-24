@@ -1,5 +1,5 @@
 package com.baidu.tieba.advert.sdk.data;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public enum WirelessNetworkType {
     UNKNOWN_NETWORK(0),
     WIFI(1),
@@ -9,7 +9,7 @@ public enum WirelessNetworkType {
     NETWORKTYPE_INVALID(5),
     NETWORKTYPE_WAP(6);
     
-    private int type;
+    public int type;
 
     WirelessNetworkType(int i) {
         this.type = i;

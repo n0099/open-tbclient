@@ -7,7 +7,7 @@ import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.coreExtra.data.PersonChangeData;
 import com.baidu.tieba.R;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class PersonChangeActivityConfig extends IntentConfig {
     public static final String IS_FROM_PERSONINFO = "isFromPersonInfo";
     public static final String TAG_DATA = "data";
@@ -15,7 +15,7 @@ public class PersonChangeActivityConfig extends IntentConfig {
     public PersonChangeActivityConfig(Context context, int i, PersonChangeData personChangeData, Boolean bool) {
         super(context);
         getIntent().putExtra("data", personChangeData);
-        getIntent().putExtra(IS_FROM_PERSONINFO, bool);
+        getIntent().putExtra("isFromPersonInfo", bool);
         setRequestCode(i);
         setIntentAction(IntentAction.ActivityForResult);
     }

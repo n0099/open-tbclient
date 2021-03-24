@@ -13,10 +13,14 @@ import com.kwad.sdk.internal.api.SceneImpl;
 import com.kwad.sdk.mvp.Presenter;
 import com.kwad.sdk.utils.ao;
 import java.io.Serializable;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class c extends com.kwad.sdk.lib.a.c<AdResultData, AdTemplate> {
-    private SceneImpl d;
-    private ProfileTabVideoParam e;
+
+    /* renamed from: d  reason: collision with root package name */
+    public SceneImpl f32931d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public ProfileTabVideoParam f32932e;
 
     private boolean k() {
         Bundle arguments = getArguments();
@@ -25,10 +29,12 @@ public class c extends com.kwad.sdk.lib.a.c<AdResultData, AdTemplate> {
         }
         Serializable serializable = arguments.getSerializable("KEY_PROFILE_TAB_VIDEO_PARAM");
         if (serializable instanceof ProfileTabVideoParam) {
-            this.e = (ProfileTabVideoParam) serializable;
-            if (this.e.isValid()) {
-                this.d = new SceneImpl(this.e.mEntryScene);
-                this.d.setUrlPackage(this.e.mURLPackage);
+            ProfileTabVideoParam profileTabVideoParam = (ProfileTabVideoParam) serializable;
+            this.f32932e = profileTabVideoParam;
+            if (profileTabVideoParam.isValid()) {
+                SceneImpl sceneImpl = new SceneImpl(this.f32932e.mEntryScene);
+                this.f32931d = sceneImpl;
+                sceneImpl.setUrlPackage(this.f32932e.mURLPackage);
                 return true;
             }
         }
@@ -36,7 +42,7 @@ public class c extends com.kwad.sdk.lib.a.c<AdResultData, AdTemplate> {
     }
 
     @Override // com.kwad.sdk.lib.a.c
-    protected int a() {
+    public int a() {
         return R.layout.ksad_profile_fragment_tab_video;
     }
 
@@ -48,12 +54,12 @@ public class c extends com.kwad.sdk.lib.a.c<AdResultData, AdTemplate> {
     }
 
     @Override // com.kwad.sdk.lib.a.c
-    protected void a(@NonNull Presenter presenter) {
+    public void a(@NonNull Presenter presenter) {
         presenter.a((Presenter) new com.kwad.sdk.contentalliance.profile.tabvideo.b.a());
     }
 
     @Override // com.kwad.sdk.lib.a.c
-    protected int b() {
+    public int b() {
         return R.id.ksad_recycler_view;
     }
 
@@ -65,13 +71,13 @@ public class c extends com.kwad.sdk.lib.a.c<AdResultData, AdTemplate> {
     }
 
     @Override // com.kwad.sdk.lib.a.c
-    protected com.kwad.sdk.lib.b.c<AdResultData, AdTemplate> c() {
-        return new d(this.d, this.e);
+    public com.kwad.sdk.lib.b.c<AdResultData, AdTemplate> c() {
+        return new d(this.f32931d, this.f32932e);
     }
 
     @Override // com.kwad.sdk.lib.a.c
-    protected com.kwad.sdk.lib.widget.recycler.c<AdTemplate, ?> d() {
-        return new b(this, this.b, this.e);
+    public com.kwad.sdk.lib.widget.recycler.c<AdTemplate, ?> d() {
+        return new b(this, this.f35929b, this.f32932e);
     }
 
     @Override // com.kwad.sdk.lib.a.c, com.kwad.sdk.api.core.fragment.KsFragment, com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle

@@ -1,20 +1,39 @@
 package com.baidubce.services.bos.model;
 
 import com.baidubce.auth.BceCredentials;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class ListPartsRequest extends GenericUploadRequest {
-    private int maxParts;
-    private int partNumberMarker;
+    public int maxParts;
+    public int partNumberMarker;
 
     public ListPartsRequest(String str, String str2, String str3) {
         super(str, str2, str3);
         this.maxParts = -1;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidubce.model.AbstractBceRequest
-    public ListPartsRequest withRequestCredentials(BceCredentials bceCredentials) {
-        setRequestCredentials(bceCredentials);
+    public int getMaxParts() {
+        return this.maxParts;
+    }
+
+    public int getPartNumberMarker() {
+        return this.partNumberMarker;
+    }
+
+    public void setMaxParts(int i) {
+        this.maxParts = i;
+    }
+
+    public void setPartNumberMarker(int i) {
+        this.partNumberMarker = i;
+    }
+
+    public ListPartsRequest withMaxParts(int i) {
+        this.maxParts = i;
+        return this;
+    }
+
+    public ListPartsRequest withPartNumberMarker(int i) {
+        setPartNumberMarker(i);
         return this;
     }
 
@@ -33,35 +52,16 @@ public class ListPartsRequest extends GenericUploadRequest {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidubce.model.AbstractBceRequest
+    public ListPartsRequest withRequestCredentials(BceCredentials bceCredentials) {
+        setRequestCredentials(bceCredentials);
+        return this;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidubce.services.bos.model.GenericUploadRequest
     public ListPartsRequest withUploadId(String str) {
         setUploadId(str);
-        return this;
-    }
-
-    public int getMaxParts() {
-        return this.maxParts;
-    }
-
-    public void setMaxParts(int i) {
-        this.maxParts = i;
-    }
-
-    public ListPartsRequest withMaxParts(int i) {
-        this.maxParts = i;
-        return this;
-    }
-
-    public int getPartNumberMarker() {
-        return this.partNumberMarker;
-    }
-
-    public void setPartNumberMarker(int i) {
-        this.partNumberMarker = i;
-    }
-
-    public ListPartsRequest withPartNumberMarker(int i) {
-        setPartNumberMarker(i);
         return this;
     }
 }

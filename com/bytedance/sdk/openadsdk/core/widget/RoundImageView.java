@@ -18,98 +18,39 @@ import android.widget.ImageView;
 public class RoundImageView extends ImageView {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f4583a;
-    private int b;
-    private int c;
+    public int f28819a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public int f28820b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public int f28821c;
 
     public RoundImageView(Context context) {
         super(context);
-        this.f4583a = 0;
-        this.b = 0;
-        this.c = 0;
-    }
-
-    public RoundImageView(Context context, int i, int i2, int i3) {
-        super(context);
-        this.f4583a = 0;
-        this.b = 0;
-        this.c = 0;
-        this.c = i;
-        this.f4583a = i2;
-        this.b = i3;
-    }
-
-    public RoundImageView(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        this.f4583a = 0;
-        this.b = 0;
-        this.c = 0;
-    }
-
-    public RoundImageView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        this.f4583a = 0;
-        this.b = 0;
-        this.c = 0;
-    }
-
-    @Override // android.widget.ImageView, android.view.View
-    protected void onDraw(Canvas canvas) {
-        Bitmap bitmap;
-        Bitmap bitmap2;
-        int i;
-        Bitmap bitmap3;
-        Drawable drawable = getDrawable();
-        if (drawable != null && getWidth() != 0 && getHeight() != 0) {
-            measure(0, 0);
-            if (drawable.getClass() != NinePatchDrawable.class && (bitmap = ((BitmapDrawable) drawable).getBitmap()) != null) {
-                try {
-                    bitmap2 = bitmap.copy(Bitmap.Config.ARGB_8888, true);
-                } catch (Throwable th) {
-                    bitmap2 = null;
-                }
-                if (bitmap2 == null) {
-                    super.onDraw(canvas);
-                    return;
-                }
-                if (this.f4583a == 0) {
-                    this.f4583a = getWidth();
-                }
-                if (this.b == 0) {
-                    this.b = getHeight();
-                }
-                try {
-                    bitmap3 = a(bitmap2, (this.f4583a < this.b ? this.f4583a : this.b) / 2);
-                } catch (Throwable th2) {
-                    bitmap3 = null;
-                }
-                if (bitmap3 == null) {
-                    super.onDraw(canvas);
-                } else {
-                    canvas.drawBitmap(bitmap3, (this.f4583a / 2) - i, (this.b / 2) - i, (Paint) null);
-                }
-            }
-        }
+        this.f28819a = 0;
+        this.f28820b = 0;
+        this.f28821c = 0;
     }
 
     private Bitmap a(Bitmap bitmap, int i) {
+        Bitmap createBitmap;
         int i2 = i * 2;
         int width = bitmap.getWidth();
         int height = bitmap.getHeight();
-        Bitmap bitmap2 = null;
         if (height > width) {
-            bitmap2 = Bitmap.createBitmap(bitmap, 0, (height - width) / 2, width, width);
-        } else if (height < width) {
-            bitmap2 = Bitmap.createBitmap(bitmap, (width - height) / 2, 0, height, height);
+            createBitmap = Bitmap.createBitmap(bitmap, 0, (height - width) / 2, width, width);
+        } else {
+            createBitmap = height < width ? Bitmap.createBitmap(bitmap, (width - height) / 2, 0, height, height) : null;
         }
-        if (bitmap2 != null) {
-            bitmap = bitmap2;
+        if (createBitmap != null) {
+            bitmap = createBitmap;
         }
         if (bitmap.getWidth() != i2 || bitmap.getHeight() != i2) {
             bitmap = Bitmap.createScaledBitmap(bitmap, i2, i2, true);
         }
-        Bitmap createBitmap = Bitmap.createBitmap(bitmap.getWidth(), bitmap.getHeight(), Bitmap.Config.ARGB_8888);
-        Canvas canvas = new Canvas(createBitmap);
+        Bitmap createBitmap2 = Bitmap.createBitmap(bitmap.getWidth(), bitmap.getHeight(), Bitmap.Config.ARGB_8888);
+        Canvas canvas = new Canvas(createBitmap2);
         Paint paint = new Paint();
         Rect rect = new Rect(0, 0, bitmap.getWidth(), bitmap.getHeight());
         paint.setAntiAlias(true);
@@ -119,6 +60,76 @@ public class RoundImageView extends ImageView {
         canvas.drawCircle(bitmap.getWidth() / 2, bitmap.getHeight() / 2, bitmap.getWidth() / 2, paint);
         paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
         canvas.drawBitmap(bitmap, rect, rect, paint);
-        return createBitmap;
+        return createBitmap2;
+    }
+
+    @Override // android.widget.ImageView, android.view.View
+    public void onDraw(Canvas canvas) {
+        Bitmap bitmap;
+        Bitmap bitmap2;
+        int i;
+        Bitmap bitmap3;
+        Drawable drawable = getDrawable();
+        if (drawable == null || getWidth() == 0 || getHeight() == 0) {
+            return;
+        }
+        measure(0, 0);
+        if (drawable.getClass() == NinePatchDrawable.class || (bitmap = ((BitmapDrawable) drawable).getBitmap()) == null) {
+            return;
+        }
+        try {
+            bitmap2 = bitmap.copy(Bitmap.Config.ARGB_8888, true);
+        } catch (Throwable unused) {
+            bitmap2 = null;
+        }
+        if (bitmap2 == null) {
+            super.onDraw(canvas);
+            return;
+        }
+        if (this.f28819a == 0) {
+            this.f28819a = getWidth();
+        }
+        if (this.f28820b == 0) {
+            this.f28820b = getHeight();
+        }
+        int i2 = this.f28819a;
+        int i3 = this.f28820b;
+        if (i2 >= i3) {
+            i2 = i3;
+        }
+        try {
+            bitmap3 = a(bitmap2, i2 / 2);
+        } catch (Throwable unused2) {
+            bitmap3 = null;
+        }
+        if (bitmap3 == null) {
+            super.onDraw(canvas);
+        } else {
+            canvas.drawBitmap(bitmap3, (this.f28819a / 2) - i, (this.f28820b / 2) - i, (Paint) null);
+        }
+    }
+
+    public RoundImageView(Context context, int i, int i2, int i3) {
+        super(context);
+        this.f28819a = 0;
+        this.f28820b = 0;
+        this.f28821c = 0;
+        this.f28821c = i;
+        this.f28819a = i2;
+        this.f28820b = i3;
+    }
+
+    public RoundImageView(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        this.f28819a = 0;
+        this.f28820b = 0;
+        this.f28821c = 0;
+    }
+
+    public RoundImageView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        this.f28819a = 0;
+        this.f28820b = 0;
+        this.f28821c = 0;
     }
 }

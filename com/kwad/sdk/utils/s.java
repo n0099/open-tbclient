@@ -4,86 +4,96 @@ import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.WorkerThread;
 import com.kwad.sdk.KsAdSDKImpl;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public final class s {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private int f7151a;
-        private int b;
-        private int c;
-        private int d;
-        private int e;
-        private int f;
+        public int f36786a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public int f36787b;
+
+        /* renamed from: c  reason: collision with root package name */
+        public int f36788c;
+
+        /* renamed from: d  reason: collision with root package name */
+        public int f36789d;
+
+        /* renamed from: e  reason: collision with root package name */
+        public int f36790e;
+
+        /* renamed from: f  reason: collision with root package name */
+        public int f36791f;
 
         public a() {
-            this.f7151a = -1;
-            this.b = -1;
-            this.c = -1;
-            this.d = -1;
-            this.e = -1;
-            this.f = -1;
+            this.f36786a = -1;
+            this.f36787b = -1;
+            this.f36788c = -1;
+            this.f36789d = -1;
+            this.f36790e = -1;
+            this.f36791f = -1;
         }
 
         public a(int i, int i2) {
-            this.f7151a = -1;
-            this.b = -1;
-            this.c = -1;
-            this.d = -1;
-            this.e = -1;
-            this.f = -1;
-            this.f7151a = i;
-            this.b = i2;
+            this.f36786a = -1;
+            this.f36787b = -1;
+            this.f36788c = -1;
+            this.f36789d = -1;
+            this.f36790e = -1;
+            this.f36791f = -1;
+            this.f36786a = i;
+            this.f36787b = i2;
         }
 
         public int a() {
-            return this.f7151a;
+            return this.f36786a;
         }
 
-        public void a(float f, float f2) {
-            this.c = (int) f;
-            this.d = (int) f2;
+        public void a(float f2, float f3) {
+            this.f36788c = (int) f2;
+            this.f36789d = (int) f3;
         }
 
         public void a(int i, int i2) {
-            this.f7151a = i;
-            this.b = i2;
+            this.f36786a = i;
+            this.f36787b = i2;
         }
 
         public int b() {
-            return this.b;
+            return this.f36787b;
         }
 
-        public void b(float f, float f2) {
-            this.e = (int) f;
-            this.f = (int) f2;
+        public void b(float f2, float f3) {
+            this.f36790e = (int) f2;
+            this.f36791f = (int) f3;
         }
 
         public int c() {
-            return this.c;
+            return this.f36788c;
         }
 
         public int d() {
-            return this.d;
+            return this.f36789d;
         }
 
         public int e() {
-            return this.e;
+            return this.f36790e;
         }
 
         public int f() {
-            return this.f;
+            return this.f36791f;
         }
 
         @NonNull
         public String toString() {
-            return "[" + this.f7151a + "," + this.b + "," + this.c + "," + this.d + "," + this.e + "," + this.f + "]";
+            return "[" + this.f36786a + "," + this.f36787b + "," + this.f36788c + "," + this.f36789d + "," + this.f36790e + "," + this.f36791f + "]";
         }
     }
 
-    private static String a(int i) {
+    public static String a(int i) {
         return i > -1 ? String.valueOf(i) : "-999";
     }
 
@@ -92,24 +102,24 @@ public final class s {
         if (TextUtils.isEmpty(str)) {
             return str;
         }
-        String b = b(str, aVar);
+        String b2 = b(str, aVar);
         String k = ah.k(KsAdSDKImpl.get().getContext());
         if (!TextUtils.isEmpty(k)) {
-            b = b.replace("__MAC__", k).replace("__MAC2__", t.a(k)).replace("__MAC3__", t.a(k.replace(":", "")));
+            b2 = b2.replace("__MAC__", k).replace("__MAC2__", t.a(k)).replace("__MAC3__", t.a(k.replace(":", "")));
         }
-        String d = ah.d(KsAdSDKImpl.get().getContext());
-        if (!TextUtils.isEmpty(d)) {
-            b = b.replace("__IMEI__", d).replace("__IMEI2__", t.a(d)).replace("__IMEI3__", t.b(d));
+        String d2 = ah.d(KsAdSDKImpl.get().getContext());
+        if (!TextUtils.isEmpty(d2)) {
+            b2 = b2.replace("__IMEI__", d2).replace("__IMEI2__", t.a(d2)).replace("__IMEI3__", t.b(d2));
         }
         String a2 = com.kwad.sdk.core.f.a.a();
         if (!TextUtils.isEmpty(a2)) {
-            b = b.replace("__OAID__", a2).replace("__OAID2__", t.a(a2));
+            b2 = b2.replace("__OAID__", a2).replace("__OAID2__", t.a(a2));
         }
         String i = ah.i(KsAdSDKImpl.get().getContext());
         if (!TextUtils.isEmpty(i)) {
-            b = b.replace("__ANDROIDID2__", t.a(i)).replace("__ANDROIDID3__", t.b(i)).replace("__ANDROIDID__", i);
+            b2 = b2.replace("__ANDROIDID2__", t.a(i)).replace("__ANDROIDID3__", t.b(i)).replace("__ANDROIDID__", i);
         }
-        return b.replace("__TS__", String.valueOf(System.currentTimeMillis()));
+        return b2.replace("__TS__", String.valueOf(System.currentTimeMillis()));
     }
 
     @WorkerThread

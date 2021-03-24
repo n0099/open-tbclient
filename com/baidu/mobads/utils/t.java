@@ -15,11 +15,13 @@ import android.os.StatFs;
 import android.provider.Settings;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
+import com.baidu.down.utils.Utils;
 import com.baidu.mobads.MobadsPermissionSettings;
 import com.baidu.mobads.interfaces.utils.IBase64;
 import com.baidu.mobads.interfaces.utils.IXAdLogger;
 import com.baidu.mobads.interfaces.utils.IXAdSystemUtils;
-import com.meizu.cloud.pushsdk.constants.PushConstants;
+import com.bumptech.glide.manager.DefaultConnectivityMonitorFactory;
+import com.kwad.sdk.core.imageloader.utils.StorageUtils;
 import java.io.BufferedReader;
 import java.io.Closeable;
 import java.io.File;
@@ -29,148 +31,99 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class t implements IXAdSystemUtils {
-    private static String e;
-    private static String f;
-    private static String g;
-    private static String i;
-    private static String j;
-    private static String k;
-    private String o;
-    private String q;
-    private String r;
-    private String s;
-    private int u;
-    private static long h = -1;
+
+    /* renamed from: e  reason: collision with root package name */
+    public static String f8566e = null;
+
+    /* renamed from: f  reason: collision with root package name */
+    public static String f8567f = null;
+
+    /* renamed from: g  reason: collision with root package name */
+    public static String f8568g = null;
+
+    /* renamed from: h  reason: collision with root package name */
+    public static long f8569h = -1;
+    public static String i;
+    public static String j;
+    public static String k;
+    public String o;
+    public String q;
+    public String r;
+    public String s;
+    public int u;
 
     /* renamed from: a  reason: collision with root package name */
-    static List<String[]> f2494a = new ArrayList();
-    static List<String[]> b = new ArrayList();
-    static JSONArray c = new JSONArray();
-    private static volatile t l = null;
-    public JSONArray d = new JSONArray();
-    private String m = "";
-    private String n = "";
-    private int p = -1;
-    private String t = "";
+    public static List<String[]> f8563a = new ArrayList();
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    /* renamed from: b  reason: collision with root package name */
+    public static List<String[]> f8564b = new ArrayList();
+
+    /* renamed from: c  reason: collision with root package name */
+    public static JSONArray f8565c = new JSONArray();
+    public static volatile t l = null;
+
+    /* renamed from: d  reason: collision with root package name */
+    public JSONArray f8570d = new JSONArray();
+    public String m = "";
+    public String n = "";
+    public int p = -1;
+    public String t = "";
+
     public static /* synthetic */ int a(t tVar) {
         int i2 = tVar.u;
         tVar.u = i2 + 1;
         return i2;
     }
 
-    private t() {
-    }
-
-    public static t a() {
-        if (l == null) {
-            synchronized (t.class) {
-                if (l == null) {
-                    l = new t();
-                }
-            }
-        }
-        return l;
-    }
-
     @Override // com.baidu.mobads.interfaces.utils.IXAdSystemUtils
-    @TargetApi(4)
-    public boolean isTablet(Context context) {
-        return (context.getResources().getConfiguration().screenLayout & 15) >= 3;
-    }
-
-    @Override // com.baidu.mobads.interfaces.utils.IXAdSystemUtils
-    public String getSnFrom(Context context) {
-        return this.m + this.n;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public boolean e(String str) {
-        if (TextUtils.isEmpty(str) || str.length() < 6) {
-            return true;
-        }
-        int length = str.length();
-        do {
-            length--;
-            if (length < 0) {
-                return true;
-            }
-        } while (str.charAt(length) == '0');
-        return false;
-    }
-
-    @Override // com.baidu.mobads.interfaces.utils.IXAdSystemUtils
-    public String getIMEI(Context context) {
-        if (!MobadsPermissionSettings.hasPermissionGranted("permission_read_phone_state")) {
-            return "";
-        }
-        if (TextUtils.isEmpty(f)) {
-            Context applicationContext = context.getApplicationContext();
-            if (XAdSDKFoundationFacade.getInstance().getCommonUtils().hasPermission(applicationContext, "android.permission.READ_PHONE_STATE")) {
-                this.n = "1";
-                String deviceId = getDeviceId(applicationContext);
-                if (!e(deviceId)) {
-                    this.m = "0";
-                    f = deviceId;
-                    return f;
-                }
-            }
-            com.baidu.mobads.f.c.a().a((com.baidu.mobads.f.a) new u(this, applicationContext));
-        }
-        return f;
-    }
-
-    @Override // com.baidu.mobads.interfaces.utils.IXAdSystemUtils
-    public String getSn(Context context) {
+    public boolean canSupportSdcardStroage(Context context) {
         try {
-            if (TextUtils.isEmpty(i)) {
-                String imei = getIMEI(context);
-                if (TextUtils.isEmpty(imei)) {
-                    imei = getMacAddress(context);
+            h commonUtils = XAdSDKFoundationFacade.getInstance().getCommonUtils();
+            if (Build.VERSION.SDK_INT <= 28 && !commonUtils.hasPermission(context, StorageUtils.EXTERNAL_STORAGE_PERMISSION)) {
+                if (isUseOldStoragePath()) {
+                    return false;
                 }
-                i = XAdSDKFoundationFacade.getInstance().getCommonUtils().b(imei);
             }
-            return i;
-        } catch (Exception e2) {
-            return "";
+            return true;
+        } catch (Exception unused) {
+            return false;
         }
     }
 
     @Override // com.baidu.mobads.interfaces.utils.IXAdSystemUtils
-    public String getCUID(Context context) {
-        if (TextUtils.isEmpty(e)) {
-            com.baidu.mobads.f.c.a().a((com.baidu.mobads.f.a) new v(this, context));
+    public long getAllExternalMemorySize() {
+        try {
+            if (Environment.getExternalStorageState().equals("mounted")) {
+                return a(Environment.getExternalStorageDirectory());
+            }
+            return -1L;
+        } catch (Exception unused) {
+            return -1L;
         }
-        return XAdSDKFoundationFacade.getInstance().getCommonUtils().b(e);
     }
 
     @Override // com.baidu.mobads.interfaces.utils.IXAdSystemUtils
-    public double[] getGPS(Context context) {
-        return null;
-    }
-
-    @Override // com.baidu.mobads.interfaces.utils.IXAdSystemUtils
-    public String getGUID(Context context) {
-        if (TextUtils.isEmpty(j)) {
-            com.baidu.mobads.f.c.a().a((com.baidu.mobads.f.a) new w(this, context));
+    public long getAllInternalMemorySize() {
+        try {
+            return a(Environment.getDataDirectory());
+        } catch (Exception unused) {
+            return -1L;
         }
-        return j;
     }
 
     @Override // com.baidu.mobads.interfaces.utils.IXAdSystemUtils
     public String getAndroidId(Context context) {
         try {
-            if (!MobadsPermissionSettings.hasPermissionGranted("permission_read_phone_state")) {
-                return "";
+            if (MobadsPermissionSettings.hasPermissionGranted("permission_read_phone_state")) {
+                if (TextUtils.isEmpty(this.o)) {
+                    this.o = XAdSDKFoundationFacade.getInstance().getCommonUtils().b(Settings.Secure.getString(context.getContentResolver(), "android_id"));
+                }
+                return this.o;
             }
-            if (TextUtils.isEmpty(this.o)) {
-                this.o = XAdSDKFoundationFacade.getInstance().getCommonUtils().b(Settings.Secure.getString(context.getContentResolver(), "android_id"));
-            }
-            return this.o;
-        } catch (Exception e2) {
+            return "";
+        } catch (Exception unused) {
             return "";
         }
     }
@@ -191,11 +144,283 @@ public class t implements IXAdSystemUtils {
                 str = getAvailableExternalMemorySize() + "," + getAllExternalMemorySize();
                 XAdSDKFoundationFacade.getInstance().getCommonUtils().a("sysSdc", str);
                 return str;
-            } catch (Exception e3) {
+            } catch (Exception unused) {
                 return str;
             }
         }
         return "0,0";
+    }
+
+    @Override // com.baidu.mobads.interfaces.utils.IXAdSystemUtils
+    public long getAvailableExternalMemorySize() {
+        try {
+            if (Environment.getExternalStorageState().equals("mounted")) {
+                return b(Environment.getExternalStorageDirectory());
+            }
+            return -1L;
+        } catch (Exception unused) {
+            return -1L;
+        }
+    }
+
+    @Override // com.baidu.mobads.interfaces.utils.IXAdSystemUtils
+    public long getAvailableInternalMemorySize() {
+        try {
+            return b(Environment.getDataDirectory());
+        } catch (Exception unused) {
+            return -1L;
+        }
+    }
+
+    @Override // com.baidu.mobads.interfaces.utils.IXAdSystemUtils
+    public JSONArray getBackgroundBrowsers(Context context) {
+        IXAdLogger adLogger = XAdSDKFoundationFacade.getInstance().getAdLogger();
+        try {
+            String[] supportedBrowsers = XAdSDKFoundationFacade.getInstance().getAdConstants().getSupportedBrowsers();
+            List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) context.getSystemService("activity")).getRunningAppProcesses();
+            PackageManager packageManager = context.getApplicationContext().getPackageManager();
+            for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : runningAppProcesses) {
+                if (packageManager.getLaunchIntentForPackage(runningAppProcessInfo.processName) != null && packageManager.getApplicationInfo(runningAppProcessInfo.processName, 128) != null) {
+                    for (String str : supportedBrowsers) {
+                        if (runningAppProcessInfo.processName.equals(str)) {
+                            this.f8570d.put(runningAppProcessInfo.processName);
+                        }
+                    }
+                }
+            }
+        } catch (Exception e2) {
+            adLogger.d(e2);
+        }
+        adLogger.d("bgBrowsers:" + this.f8570d);
+        return this.f8570d;
+    }
+
+    @Override // com.baidu.mobads.interfaces.utils.IXAdSystemUtils
+    public String getCUID(Context context) {
+        if (TextUtils.isEmpty(f8566e)) {
+            com.baidu.mobads.f.c.a().a((com.baidu.mobads.f.a) new v(this, context));
+        }
+        return XAdSDKFoundationFacade.getInstance().getCommonUtils().b(f8566e);
+    }
+
+    @Override // com.baidu.mobads.interfaces.utils.IXAdSystemUtils
+    public List<String[]> getCell(Context context) {
+        if (!MobadsPermissionSettings.hasPermissionGranted("permission_location")) {
+            List<String[]> list = f8563a;
+            if (list == null) {
+                f8563a = new ArrayList();
+            } else {
+                list.clear();
+            }
+            return f8563a;
+        }
+        List<String[]> list2 = f8563a;
+        if (list2 == null || list2.size() == 0) {
+            try {
+                com.baidu.mobads.f.c.a().a((com.baidu.mobads.f.a) new y(this, ((TelephonyManager) context.getSystemService("phone")).getCellLocation()));
+            } catch (Throwable unused) {
+            }
+        }
+        return f8563a;
+    }
+
+    @Override // com.baidu.mobads.interfaces.utils.IXAdSystemUtils
+    public int getCurrentProcessId(Context context) {
+        try {
+            return Process.myPid();
+        } catch (Exception unused) {
+            return 0;
+        }
+    }
+
+    @Override // com.baidu.mobads.interfaces.utils.IXAdSystemUtils
+    public String getCurrentProcessName(Context context) {
+        List<ActivityManager.RunningAppProcessInfo> runningAppProcesses;
+        try {
+            ActivityManager activityManager = (ActivityManager) context.getSystemService("activity");
+            if (this.s == null) {
+                int myPid = Process.myPid();
+                if (activityManager != null && (runningAppProcesses = activityManager.getRunningAppProcesses()) != null) {
+                    for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : runningAppProcesses) {
+                        if (runningAppProcessInfo.pid == myPid) {
+                            this.s = runningAppProcessInfo.processName;
+                        }
+                    }
+                }
+            }
+            return this.s;
+        } catch (Exception unused) {
+            return this.s;
+        }
+    }
+
+    @Override // com.baidu.mobads.interfaces.utils.IXAdSystemUtils
+    public String getDeviceId(Context context) {
+        String str = "";
+        if (MobadsPermissionSettings.hasPermissionGranted("permission_read_phone_state")) {
+            if (TextUtils.isEmpty(f8568g) && context != null) {
+                try {
+                    SharedPreferences sharedPreferences = context.getSharedPreferences("__x_adsdk_agent_header__", 0);
+                    IBase64 base64 = XAdSDKFoundationFacade.getInstance().getBase64();
+                    long currentTimeMillis = System.currentTimeMillis();
+                    if (f8569h < 0) {
+                        long j2 = sharedPreferences.getLong("IA-Vuifb", 0L);
+                        f8569h = j2;
+                        if (j2 == 0 && sharedPreferences.contains("deviceid")) {
+                            String string = sharedPreferences.getString("deviceid", "");
+                            SharedPreferences.Editor edit = sharedPreferences.edit();
+                            edit.remove("deviceid");
+                            if (!e(string)) {
+                                edit.putString("uANvpyP-pyfb", base64.encode(string));
+                            }
+                            edit.apply();
+                        }
+                        str = base64.decodeStr(sharedPreferences.getString("uANvpyP-pyfb", ""));
+                        if (!e(str)) {
+                            f8568g = str;
+                        }
+                    }
+                    if (currentTimeMillis - f8569h > 129600000 && Build.VERSION.SDK_INT < 29) {
+                        String decodeStr = base64.decodeStr("uvNYwANvpyP-iyfb");
+                        String str2 = (String) XAdSDKFoundationFacade.getInstance().getCommonUtils().a((TelephonyManager) context.getApplicationContext().getSystemService("phone"), decodeStr, new Object[0]);
+                        f8569h = currentTimeMillis;
+                        SharedPreferences.Editor edit2 = sharedPreferences.edit();
+                        edit2.putLong("IA-Vuifb", f8569h);
+                        if (!e(str2) && !str2.equals(str)) {
+                            edit2.putString("uANvpyP-pyfb", base64.encode(str2));
+                            f8568g = str2;
+                        }
+                        edit2.apply();
+                    }
+                } catch (Throwable th) {
+                    q.a().d(th);
+                }
+            }
+            return XAdSDKFoundationFacade.getInstance().getCommonUtils().b(f8568g);
+        }
+        return "";
+    }
+
+    @Override // com.baidu.mobads.interfaces.utils.IXAdSystemUtils
+    public String getEncodedSN(Context context) {
+        try {
+            if (TextUtils.isEmpty(this.r)) {
+                this.r = XAdSDKFoundationFacade.getInstance().getBase64().encode(getSn(context));
+            }
+            return this.r;
+        } catch (Exception unused) {
+            return this.r;
+        }
+    }
+
+    @Override // com.baidu.mobads.interfaces.utils.IXAdSystemUtils
+    public double[] getGPS(Context context) {
+        return null;
+    }
+
+    @Override // com.baidu.mobads.interfaces.utils.IXAdSystemUtils
+    public String getGUID(Context context) {
+        if (TextUtils.isEmpty(j)) {
+            com.baidu.mobads.f.c.a().a((com.baidu.mobads.f.a) new w(this, context));
+        }
+        return j;
+    }
+
+    @Override // com.baidu.mobads.interfaces.utils.IXAdSystemUtils
+    public HttpURLConnection getHttpConnection(Context context, String str, int i2, int i3) {
+        try {
+            HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(str).openConnection();
+            try {
+                httpURLConnection.setConnectTimeout(i2);
+                httpURLConnection.setReadTimeout(i3);
+                return httpURLConnection;
+            } catch (Exception unused) {
+                return httpURLConnection;
+            }
+        } catch (Exception unused2) {
+            return null;
+        }
+    }
+
+    @Override // com.baidu.mobads.interfaces.utils.IXAdSystemUtils
+    public String getIMEI(Context context) {
+        if (MobadsPermissionSettings.hasPermissionGranted("permission_read_phone_state")) {
+            if (TextUtils.isEmpty(f8567f)) {
+                Context applicationContext = context.getApplicationContext();
+                if (XAdSDKFoundationFacade.getInstance().getCommonUtils().hasPermission(applicationContext, "android.permission.READ_PHONE_STATE")) {
+                    this.n = "1";
+                    String deviceId = getDeviceId(applicationContext);
+                    if (!e(deviceId)) {
+                        this.m = "0";
+                        f8567f = deviceId;
+                        return deviceId;
+                    }
+                }
+                com.baidu.mobads.f.c.a().a((com.baidu.mobads.f.a) new u(this, applicationContext));
+            }
+            return f8567f;
+        }
+        return "";
+    }
+
+    @Override // com.baidu.mobads.interfaces.utils.IXAdSystemUtils
+    @TargetApi(3)
+    public String getIp(Context context) {
+        return "";
+    }
+
+    @Override // com.baidu.mobads.interfaces.utils.IXAdSystemUtils
+    public String getMacAddress(Context context) {
+        return "";
+    }
+
+    @Override // com.baidu.mobads.interfaces.utils.IXAdSystemUtils
+    public String getMaxCpuFreq() {
+        Closeable closeable;
+        Throwable th;
+        FileReader fileReader;
+        Exception e2;
+        if (this.p < 0) {
+            try {
+                try {
+                    fileReader = new FileReader("/sys/devices/system/cpu/cpu0/cpufreq/cpuinfo_max_freq");
+                } catch (Throwable th2) {
+                    th = th2;
+                }
+                try {
+                    closeable = new BufferedReader(fileReader);
+                    try {
+                        this.p = Integer.parseInt(closeable.readLine().trim()) / 1000;
+                    } catch (Exception e3) {
+                        e2 = e3;
+                        XAdSDKFoundationFacade.getInstance().getAdLogger().d(e2);
+                        a(fileReader);
+                        a(closeable);
+                        return this.p + "";
+                    }
+                } catch (Exception e4) {
+                    closeable = null;
+                    e2 = e4;
+                } catch (Throwable th3) {
+                    closeable = null;
+                    th = th3;
+                    a(fileReader);
+                    a(closeable);
+                    throw th;
+                }
+            } catch (Exception e5) {
+                closeable = null;
+                e2 = e5;
+                fileReader = null;
+            } catch (Throwable th4) {
+                closeable = null;
+                th = th4;
+                fileReader = null;
+            }
+            a(fileReader);
+            a(closeable);
+        }
+        return this.p + "";
     }
 
     @Override // com.baidu.mobads.interfaces.utils.IXAdSystemUtils
@@ -213,130 +438,77 @@ public class t implements IXAdSystemUtils {
             str = getAvailableInternalMemorySize() + "," + getAllInternalMemorySize();
             XAdSDKFoundationFacade.getInstance().getCommonUtils().a("sysMem", str);
             return str;
-        } catch (Exception e3) {
+        } catch (Exception unused) {
             return str;
         }
     }
 
     @Override // com.baidu.mobads.interfaces.utils.IXAdSystemUtils
-    public long getAllExternalMemorySize() {
-        try {
-            if (Environment.getExternalStorageState().equals("mounted")) {
-                return a(Environment.getExternalStorageDirectory());
-            }
-            return -1L;
-        } catch (Exception e2) {
-            return -1L;
-        }
-    }
-
-    @Override // com.baidu.mobads.interfaces.utils.IXAdSystemUtils
-    public long getAllInternalMemorySize() {
-        try {
-            return a(Environment.getDataDirectory());
-        } catch (Exception e2) {
-            return -1L;
-        }
-    }
-
-    @Override // com.baidu.mobads.interfaces.utils.IXAdSystemUtils
-    public long getAvailableExternalMemorySize() {
-        try {
-            if (Environment.getExternalStorageState().equals("mounted")) {
-                return b(Environment.getExternalStorageDirectory());
-            }
-            return -1L;
-        } catch (Exception e2) {
-            return -1L;
-        }
-    }
-
-    @Override // com.baidu.mobads.interfaces.utils.IXAdSystemUtils
-    public long getAvailableInternalMemorySize() {
-        try {
-            return b(Environment.getDataDirectory());
-        } catch (Exception e2) {
-            return -1L;
-        }
-    }
-
-    @TargetApi(18)
-    private long a(File file) {
-        try {
-            StatFs statFs = new StatFs(file.getPath());
-            return ((statFs.getBlockSize() * statFs.getBlockCount()) / 1024) / 1024;
-        } catch (Exception e2) {
-            return -1L;
-        }
-    }
-
-    @TargetApi(18)
-    private long b(File file) {
-        try {
-            StatFs statFs = new StatFs(file.getPath());
-            return ((statFs.getBlockSize() * statFs.getAvailableBlocks()) / 1024) / 1024;
-        } catch (Exception e2) {
-            return -1L;
-        }
-    }
-
-    @Override // com.baidu.mobads.interfaces.utils.IXAdSystemUtils
-    public String getMacAddress(Context context) {
+    public String getNetType(Context context) {
         return "";
     }
 
+    /* JADX WARN: Code restructure failed: missing block: B:24:0x0050, code lost:
+        if (r3.equalsIgnoreCase("CDMA2000") != false) goto L25;
+     */
     @Override // com.baidu.mobads.interfaces.utils.IXAdSystemUtils
-    @TargetApi(3)
-    public String getIp(Context context) {
-        return "";
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public int getNetworkCatagory(Context context) {
+        try {
+            NetworkInfo activeNetworkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo();
+            if (activeNetworkInfo == null || !activeNetworkInfo.isConnected()) {
+                return 0;
+            }
+            if (activeNetworkInfo.getType() == 1) {
+                return 100;
+            }
+            if (activeNetworkInfo.getType() == 0) {
+                String subtypeName = activeNetworkInfo.getSubtypeName();
+                switch (activeNetworkInfo.getSubtype()) {
+                    case 0:
+                        return 1;
+                    case 1:
+                    case 2:
+                    case 4:
+                    case 7:
+                    case 11:
+                        return 2;
+                    case 3:
+                    case 5:
+                    case 6:
+                    case 8:
+                    case 9:
+                    case 10:
+                        return 3;
+                    default:
+                        if (subtypeName != null) {
+                            if (!subtypeName.equalsIgnoreCase("TD-SCDMA") && !subtypeName.equalsIgnoreCase("WCDMA")) {
+                                break;
+                            }
+                            return 3;
+                        }
+                        return 1;
+                }
+            }
+            return 0;
+        } catch (Exception unused) {
+            return 0;
+        }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [501=4] */
     @Override // com.baidu.mobads.interfaces.utils.IXAdSystemUtils
-    public String getMaxCpuFreq() {
-        Closeable closeable;
-        FileReader fileReader;
-        if (this.p < 0) {
-            try {
-                try {
-                    fileReader = new FileReader("/sys/devices/system/cpu/cpu0/cpufreq/cpuinfo_max_freq");
-                } catch (Throwable th) {
-                    th = th;
-                }
-                try {
-                    closeable = new BufferedReader(fileReader);
-                    try {
-                        this.p = Integer.parseInt(closeable.readLine().trim()) / 1000;
-                        a(fileReader);
-                        a(closeable);
-                    } catch (Exception e2) {
-                        e = e2;
-                        XAdSDKFoundationFacade.getInstance().getAdLogger().d(e);
-                        a(fileReader);
-                        a(closeable);
-                        return this.p + "";
-                    }
-                } catch (Exception e3) {
-                    e = e3;
-                    closeable = null;
-                } catch (Throwable th2) {
-                    th = th2;
-                    closeable = null;
-                    a(fileReader);
-                    a(closeable);
-                    throw th;
-                }
-            } catch (Exception e4) {
-                e = e4;
-                closeable = null;
-                fileReader = null;
-            } catch (Throwable th3) {
-                th = th3;
-                closeable = null;
-                fileReader = null;
+    public String getNetworkOperator(Context context) {
+        try {
+            TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
+            if (TextUtils.isEmpty(this.q)) {
+                this.q = XAdSDKFoundationFacade.getInstance().getCommonUtils().b(telephonyManager.getNetworkOperator());
             }
+            return this.q;
+        } catch (Exception unused) {
+            return this.q;
         }
-        return this.p + "";
     }
 
     @Override // com.baidu.mobads.interfaces.utils.IXAdSystemUtils
@@ -348,184 +520,15 @@ public class t implements IXAdSystemUtils {
     }
 
     @Override // com.baidu.mobads.interfaces.utils.IXAdSystemUtils
-    public String getNetworkOperator(Context context) {
-        try {
-            TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
-            if (TextUtils.isEmpty(this.q)) {
-                this.q = XAdSDKFoundationFacade.getInstance().getCommonUtils().b(telephonyManager.getNetworkOperator());
-            }
-            return this.q;
-        } catch (Exception e2) {
-            return this.q;
-        }
-    }
-
-    @Override // com.baidu.mobads.interfaces.utils.IXAdSystemUtils
-    public String getPhoneOSBuildVersionSdk() {
-        return XAdSDKFoundationFacade.getInstance().getCommonUtils().b(Build.VERSION.SDK);
-    }
-
-    @Override // com.baidu.mobads.interfaces.utils.IXAdSystemUtils
     @SuppressLint({"DefaultLocale"})
     @TargetApi(3)
     public String getNetworkType(Context context) {
         try {
             NetworkInfo activeNetworkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo();
-            if (activeNetworkInfo == null || !activeNetworkInfo.isConnectedOrConnecting()) {
-                return "none";
-            }
-            if (activeNetworkInfo.getType() == 1) {
-                return "wifi";
-            }
-            try {
-                if (activeNetworkInfo.getSubtypeName() == null) {
-                    return "unknown";
-                }
-                return activeNetworkInfo.getSubtypeName().toLowerCase();
-            } catch (Exception e2) {
-                e = e2;
-                XAdSDKFoundationFacade.getInstance().getAdLogger().i(e);
-                return "none";
-            }
-        } catch (Exception e3) {
-            e = e3;
-        }
-    }
-
-    @Override // com.baidu.mobads.interfaces.utils.IXAdSystemUtils
-    public String getNetType(Context context) {
-        return "";
-    }
-
-    /* JADX WARN: Code restructure failed: missing block: B:21:0x004d, code lost:
-        if (r4.equalsIgnoreCase("CDMA2000") != false) goto L23;
-     */
-    @Override // com.baidu.mobads.interfaces.utils.IXAdSystemUtils
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public int getNetworkCatagory(Context context) {
-        try {
-            NetworkInfo activeNetworkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo();
-            if (activeNetworkInfo != null && activeNetworkInfo.isConnected()) {
-                if (activeNetworkInfo.getType() == 1) {
-                    return 100;
-                }
-                if (activeNetworkInfo.getType() == 0) {
-                    String subtypeName = activeNetworkInfo.getSubtypeName();
-                    switch (activeNetworkInfo.getSubtype()) {
-                        case 0:
-                            return 1;
-                        case 1:
-                        case 2:
-                        case 4:
-                        case 7:
-                        case 11:
-                            return 2;
-                        case 3:
-                        case 5:
-                        case 6:
-                        case 8:
-                        case 9:
-                        case 10:
-                            return 3;
-                        default:
-                            if (subtypeName != null) {
-                                if (!subtypeName.equalsIgnoreCase("TD-SCDMA") && !subtypeName.equalsIgnoreCase("WCDMA")) {
-                                    break;
-                                }
-                                return 3;
-                            }
-                            return 1;
-                    }
-                }
-            }
-            return 0;
+            return (activeNetworkInfo == null || !activeNetworkInfo.isConnectedOrConnecting()) ? "none" : activeNetworkInfo.getType() == 1 ? "wifi" : activeNetworkInfo.getSubtypeName() != null ? activeNetworkInfo.getSubtypeName().toLowerCase() : "unknown";
         } catch (Exception e2) {
-            return 0;
-        }
-    }
-
-    @Override // com.baidu.mobads.interfaces.utils.IXAdSystemUtils
-    public Boolean isWifiConnected(Context context) {
-        return a(context, 1);
-    }
-
-    @Override // com.baidu.mobads.interfaces.utils.IXAdSystemUtils
-    public Boolean is3GConnected(Context context) {
-        return a(context, 0);
-    }
-
-    private Boolean a(Context context, int i2) {
-        try {
-            ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
-            if (context.checkCallingOrSelfPermission("android.permission.ACCESS_NETWORK_STATE") != 0) {
-                XAdSDKFoundationFacade.getInstance().getAdLogger().e("Utils", "no permission android.permission.ACCESS_NETWORK_STATE");
-                return false;
-            }
-            NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
-            return Boolean.valueOf(activeNetworkInfo != null && activeNetworkInfo.getType() == i2 && activeNetworkInfo.isConnected());
-        } catch (Exception e2) {
-            return false;
-        }
-    }
-
-    @Override // com.baidu.mobads.interfaces.utils.IXAdSystemUtils
-    public String getDeviceId(Context context) {
-        if (!MobadsPermissionSettings.hasPermissionGranted("permission_read_phone_state")) {
-            return "";
-        }
-        if (TextUtils.isEmpty(g) && context != null) {
-            try {
-                SharedPreferences sharedPreferences = context.getSharedPreferences("__x_adsdk_agent_header__", 0);
-                IBase64 base64 = XAdSDKFoundationFacade.getInstance().getBase64();
-                String str = "";
-                long currentTimeMillis = System.currentTimeMillis();
-                if (h < 0) {
-                    h = sharedPreferences.getLong("IA-Vuifb", 0L);
-                    if (h == 0 && sharedPreferences.contains("deviceid")) {
-                        String string = sharedPreferences.getString("deviceid", "");
-                        SharedPreferences.Editor edit = sharedPreferences.edit();
-                        edit.remove("deviceid");
-                        if (!e(string)) {
-                            edit.putString("uANvpyP-pyfb", base64.encode(string));
-                        }
-                        edit.apply();
-                    }
-                    str = base64.decodeStr(sharedPreferences.getString("uANvpyP-pyfb", ""));
-                    if (!e(str)) {
-                        g = str;
-                    }
-                }
-                Object obj = str;
-                if (currentTimeMillis - h > 129600000 && Build.VERSION.SDK_INT < 29) {
-                    String decodeStr = base64.decodeStr("uvNYwANvpyP-iyfb");
-                    String str2 = (String) XAdSDKFoundationFacade.getInstance().getCommonUtils().a((TelephonyManager) context.getApplicationContext().getSystemService("phone"), decodeStr, new Object[0]);
-                    h = currentTimeMillis;
-                    SharedPreferences.Editor edit2 = sharedPreferences.edit();
-                    edit2.putLong("IA-Vuifb", h);
-                    if (!e(str2) && !str2.equals(obj)) {
-                        edit2.putString("uANvpyP-pyfb", base64.encode(str2));
-                        g = str2;
-                    }
-                    edit2.apply();
-                }
-            } catch (Throwable th) {
-                q.a().d(th);
-            }
-        }
-        return XAdSDKFoundationFacade.getInstance().getCommonUtils().b(g);
-    }
-
-    @Override // com.baidu.mobads.interfaces.utils.IXAdSystemUtils
-    public String getEncodedSN(Context context) {
-        try {
-            if (TextUtils.isEmpty(this.r)) {
-                this.r = XAdSDKFoundationFacade.getInstance().getBase64().encode(getSn(context));
-            }
-            return this.r;
-        } catch (Exception e2) {
-            return this.r;
+            XAdSDKFoundationFacade.getInstance().getAdLogger().i(e2);
+            return "none";
         }
     }
 
@@ -535,47 +538,34 @@ public class t implements IXAdSystemUtils {
     }
 
     @Override // com.baidu.mobads.interfaces.utils.IXAdSystemUtils
-    public List<String[]> getCell(Context context) {
-        if (!MobadsPermissionSettings.hasPermissionGranted("permission_location")) {
-            if (f2494a == null) {
-                f2494a = new ArrayList();
-            } else {
-                f2494a.clear();
+    public String getPhoneOSBuildVersionSdk() {
+        return XAdSDKFoundationFacade.getInstance().getCommonUtils().b(Build.VERSION.SDK);
+    }
+
+    @Override // com.baidu.mobads.interfaces.utils.IXAdSystemUtils
+    public String getSn(Context context) {
+        try {
+            if (TextUtils.isEmpty(i)) {
+                String imei = getIMEI(context);
+                if (TextUtils.isEmpty(imei)) {
+                    imei = getMacAddress(context);
+                }
+                i = XAdSDKFoundationFacade.getInstance().getCommonUtils().b(imei);
             }
-            return f2494a;
+            return i;
+        } catch (Exception unused) {
+            return "";
         }
-        if (f2494a == null || f2494a.size() == 0) {
-            try {
-                com.baidu.mobads.f.c.a().a((com.baidu.mobads.f.a) new y(this, ((TelephonyManager) context.getSystemService("phone")).getCellLocation()));
-            } catch (Throwable th) {
-            }
-        }
-        return f2494a;
+    }
+
+    @Override // com.baidu.mobads.interfaces.utils.IXAdSystemUtils
+    public String getSnFrom(Context context) {
+        return this.m + this.n;
     }
 
     @Override // com.baidu.mobads.interfaces.utils.IXAdSystemUtils
     public List<String[]> getWIFI(Context context) {
-        return b;
-    }
-
-    @Override // com.baidu.mobads.interfaces.utils.IXAdSystemUtils
-    public boolean canSupportSdcardStroage(Context context) {
-        try {
-            h commonUtils = XAdSDKFoundationFacade.getInstance().getCommonUtils();
-            if (Build.VERSION.SDK_INT <= 28 && !commonUtils.hasPermission(context, "android.permission.WRITE_EXTERNAL_STORAGE")) {
-                if (isUseOldStoragePath()) {
-                    return false;
-                }
-            }
-            return true;
-        } catch (Exception e2) {
-            return false;
-        }
-    }
-
-    @Override // com.baidu.mobads.interfaces.utils.IXAdSystemUtils
-    public boolean isUseOldStoragePath() {
-        return Build.VERSION.SDK_INT < 23;
+        return f8564b;
     }
 
     @Override // com.baidu.mobads.interfaces.utils.IXAdSystemUtils
@@ -585,46 +575,12 @@ public class t implements IXAdSystemUtils {
 
     @Override // com.baidu.mobads.interfaces.utils.IXAdSystemUtils
     public JSONArray getWifiScans(Context context) {
-        return c;
+        return f8565c;
     }
 
     @Override // com.baidu.mobads.interfaces.utils.IXAdSystemUtils
-    public JSONArray getBackgroundBrowsers(Context context) {
-        IXAdLogger adLogger = XAdSDKFoundationFacade.getInstance().getAdLogger();
-        try {
-            String[] supportedBrowsers = XAdSDKFoundationFacade.getInstance().getAdConstants().getSupportedBrowsers();
-            List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) context.getSystemService(PushConstants.INTENT_ACTIVITY_NAME)).getRunningAppProcesses();
-            PackageManager packageManager = context.getApplicationContext().getPackageManager();
-            for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : runningAppProcesses) {
-                if (packageManager.getLaunchIntentForPackage(runningAppProcessInfo.processName) != null && packageManager.getApplicationInfo(runningAppProcessInfo.processName, 128) != null) {
-                    for (String str : supportedBrowsers) {
-                        if (runningAppProcessInfo.processName.equals(str)) {
-                            this.d.put(runningAppProcessInfo.processName);
-                        }
-                    }
-                }
-            }
-        } catch (Exception e2) {
-            adLogger.d(e2);
-        }
-        adLogger.d("bgBrowsers:" + this.d);
-        return this.d;
-    }
-
-    @Override // com.baidu.mobads.interfaces.utils.IXAdSystemUtils
-    public HttpURLConnection getHttpConnection(Context context, String str, int i2, int i3) {
-        try {
-            HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(str).openConnection();
-            try {
-                httpURLConnection.setConnectTimeout(i2);
-                httpURLConnection.setReadTimeout(i3);
-                return httpURLConnection;
-            } catch (Exception e2) {
-                return httpURLConnection;
-            }
-        } catch (Exception e3) {
-            return null;
-        }
+    public Boolean is3GConnected(Context context) {
+        return a(context, 0);
     }
 
     @Override // com.baidu.mobads.interfaces.utils.IXAdSystemUtils
@@ -632,9 +588,7 @@ public class t implements IXAdSystemUtils {
         try {
             NetworkInfo activeNetworkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo();
             if (activeNetworkInfo != null) {
-                if (activeNetworkInfo.isAvailable()) {
-                    return true;
-                }
+                return activeNetworkInfo.isAvailable();
             }
             return false;
         } catch (Exception e2) {
@@ -644,32 +598,81 @@ public class t implements IXAdSystemUtils {
     }
 
     @Override // com.baidu.mobads.interfaces.utils.IXAdSystemUtils
-    public String getCurrentProcessName(Context context) {
-        List<ActivityManager.RunningAppProcessInfo> runningAppProcesses;
-        try {
-            ActivityManager activityManager = (ActivityManager) context.getSystemService(PushConstants.INTENT_ACTIVITY_NAME);
-            if (this.s == null) {
-                int myPid = Process.myPid();
-                if (activityManager != null && (runningAppProcesses = activityManager.getRunningAppProcesses()) != null) {
-                    for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : runningAppProcesses) {
-                        if (runningAppProcessInfo.pid == myPid) {
-                            this.s = runningAppProcessInfo.processName;
-                        }
-                    }
-                }
-            }
-            return this.s;
-        } catch (Exception e2) {
-            return this.s;
-        }
+    @TargetApi(4)
+    public boolean isTablet(Context context) {
+        return (context.getResources().getConfiguration().screenLayout & 15) >= 3;
     }
 
     @Override // com.baidu.mobads.interfaces.utils.IXAdSystemUtils
-    public int getCurrentProcessId(Context context) {
+    public boolean isUseOldStoragePath() {
+        return Build.VERSION.SDK_INT < 23;
+    }
+
+    @Override // com.baidu.mobads.interfaces.utils.IXAdSystemUtils
+    public Boolean isWifiConnected(Context context) {
+        return a(context, 1);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public boolean e(String str) {
+        if (!TextUtils.isEmpty(str) && str.length() >= 6) {
+            int length = str.length();
+            do {
+                length--;
+                if (length >= 0) {
+                }
+            } while (str.charAt(length) == '0');
+            return false;
+        }
+        return true;
+    }
+
+    public static t a() {
+        if (l == null) {
+            synchronized (t.class) {
+                if (l == null) {
+                    l = new t();
+                }
+            }
+        }
+        return l;
+    }
+
+    @TargetApi(18)
+    private long b(File file) {
         try {
-            return Process.myPid();
-        } catch (Exception e2) {
-            return 0;
+            StatFs statFs = new StatFs(file.getPath());
+            return ((statFs.getAvailableBlocks() * statFs.getBlockSize()) / 1024) / 1024;
+        } catch (Exception unused) {
+            return -1L;
+        }
+    }
+
+    @TargetApi(18)
+    private long a(File file) {
+        try {
+            StatFs statFs = new StatFs(file.getPath());
+            return ((statFs.getBlockCount() * statFs.getBlockSize()) / 1024) / 1024;
+        } catch (Exception unused) {
+            return -1L;
+        }
+    }
+
+    private Boolean a(Context context, int i2) {
+        try {
+            ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
+            boolean z = true;
+            if (context.checkCallingOrSelfPermission(DefaultConnectivityMonitorFactory.NETWORK_PERMISSION) != 0) {
+                XAdSDKFoundationFacade.getInstance().getAdLogger().e(Utils.TAG, "no permission android.permission.ACCESS_NETWORK_STATE");
+                return Boolean.FALSE;
+            }
+            NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+            if (activeNetworkInfo == null || activeNetworkInfo.getType() != i2 || !activeNetworkInfo.isConnected()) {
+                z = false;
+            }
+            return Boolean.valueOf(z);
+        } catch (Exception unused) {
+            return Boolean.FALSE;
         }
     }
 
@@ -684,10 +687,10 @@ public class t implements IXAdSystemUtils {
     }
 
     public String a(Context context) {
-        if (!TextUtils.isEmpty(this.t) || this.u > 2) {
+        if (TextUtils.isEmpty(this.t) && this.u <= 2) {
+            com.baidu.mobads.f.c.a().a((com.baidu.mobads.f.a) new z(this, context));
             return this.t;
         }
-        com.baidu.mobads.f.c.a().a((com.baidu.mobads.f.a) new z(this, context));
         return this.t;
     }
 }

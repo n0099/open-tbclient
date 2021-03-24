@@ -4,12 +4,18 @@ import android.content.Context;
 import com.baidu.fsg.base.EnvConfig;
 import com.baidu.fsg.base.restnet.RestNameValuePair;
 import com.baidu.fsg.face.liveness.dto.LivenessRecogDTO;
+import com.baidu.wallet.core.beans.NetworkBean;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public class i extends b {
     public i(Context context) {
         super(context);
+    }
+
+    @Override // com.baidu.fsg.base.restnet.beans.ApollonBean
+    public void execBean() {
+        super.execBean(String.class);
     }
 
     @Override // com.baidu.fsg.base.restnet.beans.business.NetworkBean
@@ -20,7 +26,7 @@ public class i extends b {
             setSpParameter(livenessRecogDTO.spParams);
             arrayList.add(new RestNameValuePair("processid", livenessRecogDTO.processid));
         }
-        arrayList.add(new RestNameValuePair("atbc", a()));
+        arrayList.add(new RestNameValuePair(NetworkBean.PARAM_COOKIE, a()));
         return arrayList;
     }
 
@@ -34,14 +40,9 @@ public class i extends b {
         return EnvConfig.getInstance(this.mContext).getRimHttpsHost() + f.s;
     }
 
-    @Override // com.baidu.fsg.base.restnet.beans.ApollonBean
-    public void execBean() {
-        super.execBean(String.class);
-    }
-
-    @Override // com.baidu.fsg.base.restnet.beans.ApollonBean
-    public Class<?> responseClass() {
-        return String.class;
+    @Override // com.baidu.fsg.base.restnet.beans.business.BaseBean
+    public boolean needCheckClientSign() {
+        return true;
     }
 
     @Override // com.baidu.fsg.base.restnet.beans.business.BaseBean, com.baidu.fsg.base.restnet.beans.business.NetworkBean
@@ -49,8 +50,8 @@ public class i extends b {
         return true;
     }
 
-    @Override // com.baidu.fsg.base.restnet.beans.business.BaseBean
-    public boolean needCheckClientSign() {
-        return true;
+    @Override // com.baidu.fsg.base.restnet.beans.ApollonBean
+    public Class<?> responseClass() {
+        return String.class;
     }
 }

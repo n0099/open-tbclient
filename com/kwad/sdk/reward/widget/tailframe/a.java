@@ -4,7 +4,7 @@ import android.view.View;
 import androidx.annotation.NonNull;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public interface a {
     View a();
 

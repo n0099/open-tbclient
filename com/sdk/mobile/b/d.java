@@ -1,40 +1,38 @@
 package com.sdk.mobile.b;
 
 import android.content.Context;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class d implements com.sdk.base.framework.b.a<T> {
 
     /* renamed from: a  reason: collision with root package name */
-    private /* synthetic */ a f7667a;
+    public /* synthetic */ a f38600a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public d(a aVar) {
-        this.f7667a = aVar;
+        this.f38600a = aVar;
     }
 
     @Override // com.sdk.base.framework.b.a
     public final void a(int i, int i2, String str) {
-        this.f7667a.a(i, i2, str);
+        this.f38600a.a(i, i2, str);
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r10v0, resolved type: T */
+    /* JADX DEBUG: Multi-variable search result rejected for r12v0, resolved type: T */
     /* JADX WARN: Multi-variable type inference failed */
     @Override // com.sdk.base.framework.b.a
     public final void a(int i, String str, int i2, T t, String str2) {
         String str3;
         Context context;
         if (i == 0) {
-            context = this.f7667a.d;
-            str3 = com.sdk.base.framework.f.l.a.a(context, String.valueOf(t));
-            if (str3 == null) {
-                this.f7667a.a(1, "SDK解密异常", CmdConfigSocket.CMD_PB_PAGE, str3, str2);
+            context = this.f38600a.f38579d;
+            String a2 = com.sdk.base.framework.f.k.a.a(context, String.valueOf(t));
+            if (a2 == null) {
+                this.f38600a.a(1, "SDK解密异常", 302001, a2, str2);
                 return;
             }
+            str3 = a2;
         } else {
             str3 = t;
         }
-        this.f7667a.a(i, str, i2, str3, str2);
+        this.f38600a.a(i, str, i2, str3, str2);
     }
 }

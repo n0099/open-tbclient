@@ -1,18 +1,18 @@
 package com.kwai.filedownloader;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class f extends com.kwai.filedownloader.event.a {
 
-    /* loaded from: classes3.dex */
-    private static class a {
+    /* loaded from: classes6.dex */
+    public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private static final f f7209a = new f();
+        public static final f f37005a = new f();
     }
 
-    private f() {
+    public f() {
     }
 
     public static f a() {
-        return a.f7209a;
+        return a.f37005a;
     }
 }

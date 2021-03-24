@@ -7,7 +7,7 @@ import com.baidu.sapi2.ServiceManager;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLDecoder;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class QrLoginUtils implements NoProguard {
     public static String getJoinQrLoginPromptInfo(String str) {
         if (TextUtils.isEmpty(str)) {
@@ -20,11 +20,17 @@ public class QrLoginUtils implements NoProguard {
     }
 
     public static boolean isJoinQrLoginSchema(String str) {
+        String url;
+        StringBuilder sb;
         try {
-            URL url = new URL(str);
-            return ServiceManager.getInstance().getIsAccountManager().getConfignation().getEnvironment().getURL(true).equals(new StringBuilder().append(url.getProtocol()).append("://").append(url.getHost()).toString()) && !TextUtils.isEmpty(str) && str.contains("sign") && str.contains("/v2/api/qrcode") && str.contains("appName");
-        } catch (MalformedURLException e) {
-            return false;
+            URL url2 = new URL(str);
+            url = ServiceManager.getInstance().getIsAccountManager().getConfignation().getEnvironment().getURL(true);
+            sb = new StringBuilder();
+            sb.append(url2.getProtocol());
+            sb.append("://");
+            sb.append(url2.getHost());
+        } catch (MalformedURLException unused) {
         }
+        return url.equals(sb.toString()) && !TextUtils.isEmpty(str) && str.contains("sign") && str.contains("/v2/api/qrcode") && str.contains("appName");
     }
 }

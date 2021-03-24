@@ -1,21 +1,23 @@
 package org.webrtc;
 
 import android.opengl.GLES20;
+import com.baidu.wallet.core.StatusCode;
 import java.nio.Buffer;
 import java.nio.FloatBuffer;
-/* loaded from: classes9.dex */
+/* loaded from: classes7.dex */
 public class GlShader {
-    private static final String TAG = "GlShader";
-    private int program;
+    public static final String TAG = "GlShader";
+    public int program;
 
     public GlShader(String str, String str2) {
         int compileShader = compileShader(35633, str);
         int compileShader2 = compileShader(35632, str2);
-        this.program = GLES20.glCreateProgram();
-        if (this.program == 0) {
+        int glCreateProgram = GLES20.glCreateProgram();
+        this.program = glCreateProgram;
+        if (glCreateProgram == 0) {
             throw new RuntimeException("glCreateProgram() failed. GLES20 error: " + GLES20.glGetError());
         }
-        GLES20.glAttachShader(this.program, compileShader);
+        GLES20.glAttachShader(glCreateProgram, compileShader);
         GLES20.glAttachShader(this.program, compileShader2);
         GLES20.glLinkProgram(this.program);
         int[] iArr = {0};
@@ -30,7 +32,7 @@ public class GlShader {
         throw new RuntimeException(GLES20.glGetProgramInfoLog(this.program));
     }
 
-    private static int compileShader(int i, String str) {
+    public static int compileShader(int i, String str) {
         int glCreateShader = GLES20.glCreateShader(i);
         if (glCreateShader == 0) {
             throw new RuntimeException("glCreateShader() failed. GLES20 error: " + GLES20.glGetError());
@@ -48,31 +50,34 @@ public class GlShader {
     }
 
     public int getAttribLocation(String str) {
-        if (this.program == -1) {
-            throw new RuntimeException("The program has been released");
-        }
-        int glGetAttribLocation = GLES20.glGetAttribLocation(this.program, str);
-        if (glGetAttribLocation < 0) {
+        int i = this.program;
+        if (i != -1) {
+            int glGetAttribLocation = GLES20.glGetAttribLocation(i, str);
+            if (glGetAttribLocation >= 0) {
+                return glGetAttribLocation;
+            }
             throw new RuntimeException("Could not locate '" + str + "' in program");
         }
-        return glGetAttribLocation;
+        throw new RuntimeException("The program has been released");
     }
 
     public int getUniformLocation(String str) {
-        if (this.program == -1) {
-            throw new RuntimeException("The program has been released");
-        }
-        int glGetUniformLocation = GLES20.glGetUniformLocation(this.program, str);
-        if (glGetUniformLocation < 0) {
+        int i = this.program;
+        if (i != -1) {
+            int glGetUniformLocation = GLES20.glGetUniformLocation(i, str);
+            if (glGetUniformLocation >= 0) {
+                return glGetUniformLocation;
+            }
             throw new RuntimeException("Could not locate uniform '" + str + "' in program");
         }
-        return glGetUniformLocation;
+        throw new RuntimeException("The program has been released");
     }
 
     public void release() {
         Logging.d(TAG, "Deleting shader.");
-        if (this.program != -1) {
-            GLES20.glDeleteProgram(this.program);
+        int i = this.program;
+        if (i != -1) {
+            GLES20.glDeleteProgram(i);
             this.program = -1;
         }
     }
@@ -83,7 +88,7 @@ public class GlShader {
         }
         int attribLocation = getAttribLocation(str);
         GLES20.glEnableVertexAttribArray(attribLocation);
-        GLES20.glVertexAttribPointer(attribLocation, i, 5126, false, i2, (Buffer) floatBuffer);
+        GLES20.glVertexAttribPointer(attribLocation, i, (int) StatusCode.PUBLIC_SECURITY_AUTH_NOT_EXIST, false, i2, (Buffer) floatBuffer);
         GlUtil.checkNoGLES2Error("setVertexAttribArray");
     }
 
@@ -92,10 +97,11 @@ public class GlShader {
     }
 
     public void useProgram() {
-        if (this.program == -1) {
+        int i = this.program;
+        if (i == -1) {
             throw new RuntimeException("The program has been released");
         }
-        GLES20.glUseProgram(this.program);
+        GLES20.glUseProgram(i);
         GlUtil.checkNoGLES2Error("glUseProgram");
     }
 }

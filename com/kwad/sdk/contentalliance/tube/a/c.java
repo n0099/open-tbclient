@@ -6,11 +6,13 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
 import com.kwad.sdk.core.e.b;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public abstract class c<T extends com.kwad.sdk.core.e.b> extends com.kwad.sdk.contentalliance.b<T> {
-    protected RecyclerView d;
 
-    protected abstract int e();
+    /* renamed from: d  reason: collision with root package name */
+    public RecyclerView f33133d;
+
+    public abstract int e();
 
     @Override // com.kwad.sdk.api.core.fragment.KsFragment, com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle
     public void onSaveInstanceState(@NonNull Bundle bundle) {
@@ -20,13 +22,11 @@ public abstract class c<T extends com.kwad.sdk.core.e.b> extends com.kwad.sdk.co
     @Override // com.kwad.sdk.api.core.fragment.KsFragment, com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle
     public void onViewCreated(@NonNull View view, @Nullable Bundle bundle) {
         super.onViewCreated(view, bundle);
-        this.d = (RecyclerView) this.c.findViewById(e());
+        this.f33133d = (RecyclerView) this.f31885c.findViewById(e());
     }
 
     @Override // com.kwad.sdk.api.core.fragment.KsFragment, com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle
     public void onViewStateRestored(@Nullable Bundle bundle) {
-        if (bundle != null) {
-        }
         super.onViewStateRestored(bundle);
     }
 }

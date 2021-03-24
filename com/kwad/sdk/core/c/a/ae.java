@@ -1,27 +1,29 @@
 package com.kwad.sdk.core.c.a;
 
-import com.baidu.live.tbadk.statics.AlaStaticKeys;
+import com.baidu.sapi2.activity.BaseActivity;
+import com.baidu.searchbox.pms.db.PackageTable;
+import com.heytap.mcssdk.PushManager;
 import com.kwad.sdk.core.webview.jshandler.g;
 import com.vivo.push.PushClientConstants;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class ae implements com.kwad.sdk.core.c<g.a> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.core.c
     public JSONObject a(g.a aVar) {
         JSONObject jSONObject = new JSONObject();
-        com.kwad.sdk.utils.o.a(jSONObject, "type", aVar.f6343a);
-        com.kwad.sdk.utils.o.a(jSONObject, "appName", aVar.b);
-        com.kwad.sdk.utils.o.a(jSONObject, PushClientConstants.TAG_PKG_NAME, aVar.c);
-        com.kwad.sdk.utils.o.a(jSONObject, "version", aVar.d);
-        com.kwad.sdk.utils.o.a(jSONObject, "versionCode", aVar.e);
-        com.kwad.sdk.utils.o.a(jSONObject, "appSize", aVar.f);
-        com.kwad.sdk.utils.o.a(jSONObject, "md5", aVar.g);
-        com.kwad.sdk.utils.o.a(jSONObject, "url", aVar.h);
+        com.kwad.sdk.utils.o.a(jSONObject, "type", aVar.f34342a);
+        com.kwad.sdk.utils.o.a(jSONObject, "appName", aVar.f34343b);
+        com.kwad.sdk.utils.o.a(jSONObject, PushClientConstants.TAG_PKG_NAME, aVar.f34344c);
+        com.kwad.sdk.utils.o.a(jSONObject, "version", aVar.f34345d);
+        com.kwad.sdk.utils.o.a(jSONObject, PushManager.APP_VERSION_CODE, aVar.f34346e);
+        com.kwad.sdk.utils.o.a(jSONObject, "appSize", aVar.f34347f);
+        com.kwad.sdk.utils.o.a(jSONObject, PackageTable.MD5, aVar.f34348g);
+        com.kwad.sdk.utils.o.a(jSONObject, "url", aVar.f34349h);
         com.kwad.sdk.utils.o.a(jSONObject, "appLink", aVar.i);
-        com.kwad.sdk.utils.o.a(jSONObject, AlaStaticKeys.ALA_STATIC_VALUE_ICON, aVar.j);
+        com.kwad.sdk.utils.o.a(jSONObject, "icon", aVar.j);
         com.kwad.sdk.utils.o.a(jSONObject, "desc", aVar.k);
-        com.kwad.sdk.utils.o.a(jSONObject, "appId", aVar.l);
+        com.kwad.sdk.utils.o.a(jSONObject, BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, aVar.l);
         com.kwad.sdk.utils.o.a(jSONObject, "marketUri", aVar.m);
         com.kwad.sdk.utils.o.a(jSONObject, "disableLandingPageDeepLink", aVar.n);
         com.kwad.sdk.utils.o.a(jSONObject, "isLandscapeSupported", aVar.o);
@@ -35,18 +37,18 @@ public class ae implements com.kwad.sdk.core.c<g.a> {
         if (jSONObject == null) {
             return;
         }
-        aVar.f6343a = jSONObject.optInt("type");
-        aVar.b = jSONObject.optString("appName");
-        aVar.c = jSONObject.optString(PushClientConstants.TAG_PKG_NAME);
-        aVar.d = jSONObject.optString("version");
-        aVar.e = jSONObject.optInt("versionCode");
-        aVar.f = jSONObject.optInt("appSize");
-        aVar.g = jSONObject.optString("md5");
-        aVar.h = jSONObject.optString("url");
+        aVar.f34342a = jSONObject.optInt("type");
+        aVar.f34343b = jSONObject.optString("appName");
+        aVar.f34344c = jSONObject.optString(PushClientConstants.TAG_PKG_NAME);
+        aVar.f34345d = jSONObject.optString("version");
+        aVar.f34346e = jSONObject.optInt(PushManager.APP_VERSION_CODE);
+        aVar.f34347f = jSONObject.optInt("appSize");
+        aVar.f34348g = jSONObject.optString(PackageTable.MD5);
+        aVar.f34349h = jSONObject.optString("url");
         aVar.i = jSONObject.optString("appLink");
-        aVar.j = jSONObject.optString(AlaStaticKeys.ALA_STATIC_VALUE_ICON);
+        aVar.j = jSONObject.optString("icon");
         aVar.k = jSONObject.optString("desc");
-        aVar.l = jSONObject.optString("appId");
+        aVar.l = jSONObject.optString(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID);
         aVar.m = jSONObject.optString("marketUri");
         aVar.n = jSONObject.optBoolean("disableLandingPageDeepLink");
         aVar.o = jSONObject.optBoolean("isLandscapeSupported");

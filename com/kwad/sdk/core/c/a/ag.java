@@ -2,13 +2,13 @@ package com.kwad.sdk.core.c.a;
 
 import com.kwad.sdk.core.webview.jshandler.p;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class ag implements com.kwad.sdk.core.c<p.a> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.core.c
     public JSONObject a(p.a aVar) {
         JSONObject jSONObject = new JSONObject();
-        com.kwad.sdk.utils.o.a(jSONObject, "status", aVar.f6366a);
+        com.kwad.sdk.utils.o.a(jSONObject, "status", aVar.f34403a);
         return jSONObject;
     }
 
@@ -18,6 +18,6 @@ public class ag implements com.kwad.sdk.core.c<p.a> {
         if (jSONObject == null) {
             return;
         }
-        aVar.f6366a = jSONObject.optInt("status");
+        aVar.f34403a = jSONObject.optInt("status");
     }
 }

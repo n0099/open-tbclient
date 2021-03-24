@@ -6,62 +6,19 @@ import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcel;
 import android.os.RemoteException;
-/* loaded from: classes14.dex */
+/* loaded from: classes.dex */
 public interface IResultReceiver extends IInterface {
-    void send(int i, Bundle bundle) throws RemoteException;
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes.dex */
     public static abstract class Stub extends Binder implements IResultReceiver {
-        private static final String DESCRIPTOR = "android.support.v4.os.IResultReceiver";
-        static final int TRANSACTION_send = 1;
+        public static final String DESCRIPTOR = "android.support.v4.os.IResultReceiver";
+        public static final int TRANSACTION_send = 1;
 
-        public Stub() {
-            attachInterface(this, DESCRIPTOR);
-        }
+        /* loaded from: classes.dex */
+        public static class Proxy implements IResultReceiver {
+            public IBinder mRemote;
 
-        public static IResultReceiver asInterface(IBinder iBinder) {
-            if (iBinder == null) {
-                return null;
-            }
-            IInterface queryLocalInterface = iBinder.queryLocalInterface(DESCRIPTOR);
-            if (queryLocalInterface != null && (queryLocalInterface instanceof IResultReceiver)) {
-                return (IResultReceiver) queryLocalInterface;
-            }
-            return new Proxy(iBinder);
-        }
-
-        @Override // android.os.IInterface
-        public IBinder asBinder() {
-            return this;
-        }
-
-        @Override // android.os.Binder
-        public boolean onTransact(int i, Parcel parcel, Parcel parcel2, int i2) throws RemoteException {
-            Bundle bundle;
-            switch (i) {
-                case 1:
-                    parcel.enforceInterface(DESCRIPTOR);
-                    int readInt = parcel.readInt();
-                    if (parcel.readInt() != 0) {
-                        bundle = (Bundle) Bundle.CREATOR.createFromParcel(parcel);
-                    } else {
-                        bundle = null;
-                    }
-                    send(readInt, bundle);
-                    return true;
-                case 1598968902:
-                    parcel2.writeString(DESCRIPTOR);
-                    return true;
-                default:
-                    return super.onTransact(i, parcel, parcel2, i2);
-            }
-        }
-
-        /* loaded from: classes14.dex */
-        private static class Proxy implements IResultReceiver {
-            private IBinder mRemote;
-
-            Proxy(IBinder iBinder) {
+            public Proxy(IBinder iBinder) {
                 this.mRemote = iBinder;
             }
 
@@ -92,5 +49,41 @@ public interface IResultReceiver extends IInterface {
                 }
             }
         }
+
+        public Stub() {
+            attachInterface(this, DESCRIPTOR);
+        }
+
+        public static IResultReceiver asInterface(IBinder iBinder) {
+            if (iBinder == null) {
+                return null;
+            }
+            IInterface queryLocalInterface = iBinder.queryLocalInterface(DESCRIPTOR);
+            if (queryLocalInterface != null && (queryLocalInterface instanceof IResultReceiver)) {
+                return (IResultReceiver) queryLocalInterface;
+            }
+            return new Proxy(iBinder);
+        }
+
+        @Override // android.os.IInterface
+        public IBinder asBinder() {
+            return this;
+        }
+
+        @Override // android.os.Binder
+        public boolean onTransact(int i, Parcel parcel, Parcel parcel2, int i2) throws RemoteException {
+            if (i == 1) {
+                parcel.enforceInterface(DESCRIPTOR);
+                send(parcel.readInt(), parcel.readInt() != 0 ? (Bundle) Bundle.CREATOR.createFromParcel(parcel) : null);
+                return true;
+            } else if (i != 1598968902) {
+                return super.onTransact(i, parcel, parcel2, i2);
+            } else {
+                parcel2.writeString(DESCRIPTOR);
+                return true;
+            }
+        }
     }
+
+    void send(int i, Bundle bundle) throws RemoteException;
 }

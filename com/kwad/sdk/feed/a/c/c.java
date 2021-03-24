@@ -2,60 +2,72 @@ package com.kwad.sdk.feed.a.c;
 
 import com.kwad.sdk.core.report.e;
 import com.kwad.sdk.internal.api.SceneImpl;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class c extends com.kwad.sdk.feed.a.b.a {
-    private boolean c;
-    private long d;
-    private String e;
-    private SceneImpl f;
-    private com.kwad.sdk.core.i.a g;
-    private com.kwad.sdk.core.i.c h = new com.kwad.sdk.core.i.c() { // from class: com.kwad.sdk.feed.a.c.c.1
+
+    /* renamed from: c  reason: collision with root package name */
+    public boolean f34872c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public long f34873d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public String f34874e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public SceneImpl f34875f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public com.kwad.sdk.core.i.a f34876g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public com.kwad.sdk.core.i.c f34877h = new com.kwad.sdk.core.i.c() { // from class: com.kwad.sdk.feed.a.c.c.1
         @Override // com.kwad.sdk.core.i.c
         public void b() {
-            if (c.this.d > 0) {
-                e.a(c.this.f, System.currentTimeMillis() - c.this.d);
-                c.this.d = 0L;
+            if (c.this.f34873d > 0) {
+                e.a(c.this.f34875f, System.currentTimeMillis() - c.this.f34873d);
+                c.this.f34873d = 0L;
             }
         }
 
         @Override // com.kwad.sdk.core.i.c
         public void c_() {
-            if (c.this.c) {
-                e.c(c.this.f);
+            if (c.this.f34872c) {
+                e.c(c.this.f34875f);
             } else {
-                c.this.c = true;
-                e.b(c.this.f);
+                c.this.f34872c = true;
+                e.b(c.this.f34875f);
             }
-            c.this.d = System.currentTimeMillis();
+            c.this.f34873d = System.currentTimeMillis();
         }
     };
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.feed.a.b.a, com.kwad.sdk.lib.a.a.a, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        this.g = this.f6505a.b;
-        if (this.g == null) {
+        com.kwad.sdk.core.i.a aVar = ((com.kwad.sdk.feed.a.b.a) this).f34853a.f34855b;
+        this.f34876g = aVar;
+        if (aVar == null) {
             return;
         }
-        this.g.a(this.h);
-        this.f = this.f6505a.f6506a;
-        this.e = String.valueOf(this.f6505a.e.hashCode());
+        aVar.a(this.f34877h);
+        com.kwad.sdk.feed.a.b.b bVar = ((com.kwad.sdk.feed.a.b.a) this).f34853a;
+        this.f34875f = bVar.f34854a;
+        this.f34874e = String.valueOf(bVar.f35903e.hashCode());
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.mvp.Presenter
     public void b_() {
         super.b_();
-        if (this.g != null) {
-            this.g.b(this.h);
+        com.kwad.sdk.core.i.a aVar = this.f34876g;
+        if (aVar != null) {
+            aVar.b(this.f34877h);
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.mvp.Presenter
     public void d() {
         super.d();
-        com.kwad.sdk.core.scene.a.a().c(this.e);
+        com.kwad.sdk.core.scene.a.a().c(this.f34874e);
     }
 }

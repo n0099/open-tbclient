@@ -4,182 +4,171 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.LinearLayout;
-import com.baidu.adp.base.j;
-import com.baidu.android.imsdk.internal.IMConnection;
 import com.baidu.card.view.AutoBannerLayout;
 import com.baidu.card.view.GridIconLayout;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.l;
-import com.baidu.tbadk.core.flow.a.d;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.h.f;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.homepage.tabfeed.b;
-import com.baidu.tieba.homepage.tabfeed.data.c;
-/* loaded from: classes2.dex */
+import d.b.b.a.j;
+import d.b.h0.m.f;
+import d.b.h0.r.q.l;
+/* loaded from: classes4.dex */
 public class HomePageTabFeedHeaderView extends LinearLayout implements View.OnClickListener {
-    private d<l> akV;
-    private AutoBannerLayout kqh;
-    private GridIconLayout kqi;
-    private f kqj;
-    private TbPageContext<?> mPageContext;
+
+    /* renamed from: e  reason: collision with root package name */
+    public TbPageContext<?> f17343e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public AutoBannerLayout f17344f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public GridIconLayout f17345g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public f f17346h;
+    public d.b.h0.r.w.b.d<l> i;
+
+    /* loaded from: classes4.dex */
+    public class a implements d.b.h0.m.c {
+        public a() {
+        }
+
+        @Override // d.b.h0.m.c
+        public void a(View view, boolean z, Object obj) {
+            if (!z || HomePageTabFeedHeaderView.this.f17344f == null) {
+                return;
+            }
+            HomePageTabFeedHeaderView.this.f17344f.d();
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class b implements d.b.h0.m.c {
+        public b() {
+        }
+
+        @Override // d.b.h0.m.c
+        public void a(View view, boolean z, Object obj) {
+            if (z) {
+                d.b.i0.z0.i.b.b("c13751");
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class c implements f<l> {
+        public c() {
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // d.b.h0.m.f
+        /* renamed from: b */
+        public void c(View view, l lVar, int i, long j) {
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // d.b.h0.m.f
+        /* renamed from: d */
+        public void a(View view, l lVar, int i, long j) {
+            d.b.i0.z0.i.b.a("c13751", lVar, i + 1);
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class d implements d.b.h0.r.w.b.d<l> {
+        public d() {
+        }
+
+        @Override // d.b.h0.r.w.b.d
+        public void b(int i, String str) {
+            l lVar = new l();
+            lVar.g(str);
+            d.b.i0.z0.i.b.a("c13750", lVar, i);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // d.b.h0.r.w.b.d
+        /* renamed from: c */
+        public void a(int i, l lVar) {
+            d.b.i0.z0.i.b.c("c13750", lVar, i);
+        }
+    }
 
     public HomePageTabFeedHeaderView(Context context) {
         super(context);
-        this.kqj = new f<l>() { // from class: com.baidu.tieba.homepage.tabfeed.view.HomePageTabFeedHeaderView.3
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tbadk.h.f
-            public void a(View view, l lVar, int i, long j) {
-                b.c("c13751", lVar, i + 1);
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tbadk.h.f
-            public void b(View view, l lVar, int i, long j) {
-            }
-        };
-        this.akV = new d<l>() { // from class: com.baidu.tieba.homepage.tabfeed.view.HomePageTabFeedHeaderView.4
-            @Override // com.baidu.tbadk.core.flow.a.d
-            public void f(int i, String str) {
-                l lVar = new l();
-                lVar.Aa(str);
-                b.c("c13750", lVar, i);
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tbadk.core.flow.a.d
-            public void a(int i, l lVar) {
-                b.b("c13750", lVar, i);
-            }
-        };
-        init();
+        this.f17346h = new c();
+        this.i = new d();
+        b();
     }
 
-    public HomePageTabFeedHeaderView(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        this.kqj = new f<l>() { // from class: com.baidu.tieba.homepage.tabfeed.view.HomePageTabFeedHeaderView.3
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tbadk.h.f
-            public void a(View view, l lVar, int i, long j) {
-                b.c("c13751", lVar, i + 1);
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tbadk.h.f
-            public void b(View view, l lVar, int i, long j) {
-            }
-        };
-        this.akV = new d<l>() { // from class: com.baidu.tieba.homepage.tabfeed.view.HomePageTabFeedHeaderView.4
-            @Override // com.baidu.tbadk.core.flow.a.d
-            public void f(int i, String str) {
-                l lVar = new l();
-                lVar.Aa(str);
-                b.c("c13750", lVar, i);
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tbadk.core.flow.a.d
-            public void a(int i, l lVar) {
-                b.b("c13750", lVar, i);
-            }
-        };
-        init();
-    }
-
-    public HomePageTabFeedHeaderView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        this.kqj = new f<l>() { // from class: com.baidu.tieba.homepage.tabfeed.view.HomePageTabFeedHeaderView.3
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tbadk.h.f
-            public void a(View view, l lVar, int i2, long j) {
-                b.c("c13751", lVar, i2 + 1);
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tbadk.h.f
-            public void b(View view, l lVar, int i2, long j) {
-            }
-        };
-        this.akV = new d<l>() { // from class: com.baidu.tieba.homepage.tabfeed.view.HomePageTabFeedHeaderView.4
-            @Override // com.baidu.tbadk.core.flow.a.d
-            public void f(int i2, String str) {
-                l lVar = new l();
-                lVar.Aa(str);
-                b.c("c13750", lVar, i2);
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tbadk.core.flow.a.d
-            public void a(int i2, l lVar) {
-                b.b("c13750", lVar, i2);
-            }
-        };
-        init();
-    }
-
-    public void init() {
+    public void b() {
         setOrientation(1);
         setDescendantFocusability(262144);
-        this.mPageContext = (TbPageContext) j.J(getContext());
+        this.f17343e = (TbPageContext) j.a(getContext());
+    }
+
+    public void c(int i) {
+        AutoBannerLayout autoBannerLayout = this.f17344f;
+        if (autoBannerLayout != null) {
+            autoBannerLayout.onChangeSkinType(this.f17343e, i);
+        }
+        GridIconLayout gridIconLayout = this.f17345g;
+        if (gridIconLayout != null) {
+            gridIconLayout.onChangeSkinType(this.f17343e, i);
+        }
+        SkinManager.setBackgroundColor(this, R.color.CAM_X0205);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
     }
 
-    public void onChangeSkinType(int i) {
-        if (this.kqh != null) {
-            this.kqh.onChangeSkinType(this.mPageContext, i);
-        }
-        if (this.kqi != null) {
-            this.kqi.onChangeSkinType(this.mPageContext, i);
-        }
-        ap.setBackgroundColor(this, R.color.CAM_X0205);
-    }
-
-    public void setData(c cVar) {
-        if (cVar != null) {
-            setPadding(0, com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds44), 0, com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds60));
-            if (this.kqh == null) {
-                this.kqh = new AutoBannerLayout(getContext());
-                this.kqh.setMarqueenTime(IMConnection.RETRY_DELAY_TIMES);
-                this.kqh.setOnCoverViewCallback(this.akV);
-                this.kqh.setBannerHeight(com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds328));
-                int dimens = com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds44);
-                this.kqh.setPadding(dimens, 0, dimens, 0);
-                addView(this.kqh);
-                this.kqh.setIWindowChangedListener(new com.baidu.tbadk.h.c() { // from class: com.baidu.tieba.homepage.tabfeed.view.HomePageTabFeedHeaderView.1
-                    @Override // com.baidu.tbadk.h.c
-                    public void a(View view, boolean z, Object obj) {
-                        if (z && HomePageTabFeedHeaderView.this.kqh != null) {
-                            HomePageTabFeedHeaderView.this.kqh.ts();
-                        }
-                    }
-                });
-            }
-            this.kqh.E(cVar.kqb);
-            if (this.kqi == null) {
-                this.kqi = new GridIconLayout(getContext());
-                this.kqi.setOnItemCoverListener(this.kqj);
-                addView(this.kqi);
-                this.kqi.setIWindowChangedListener(new com.baidu.tbadk.h.c() { // from class: com.baidu.tieba.homepage.tabfeed.view.HomePageTabFeedHeaderView.2
-                    @Override // com.baidu.tbadk.h.c
-                    public void a(View view, boolean z, Object obj) {
-                        if (z) {
-                            b.Mn("c13751");
-                        }
-                    }
-                });
-                this.kqi.setPadding(0, com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds61), 0, 0);
-                this.kqi.setVerticalSpace(com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds61));
-                this.kqi.setMaxItem(10);
-            }
-            this.kqi.E(cVar.kqc);
-        }
-    }
-
     @Override // android.view.View
-    protected void onWindowVisibilityChanged(int i) {
+    public void onWindowVisibilityChanged(int i) {
         super.onWindowVisibilityChanged(i);
+    }
+
+    public void setData(d.b.i0.z0.i.e.c cVar) {
+        if (cVar == null) {
+            return;
+        }
+        setPadding(0, d.b.b.e.p.l.g(getContext(), R.dimen.tbds44), 0, d.b.b.e.p.l.g(getContext(), R.dimen.tbds60));
+        if (this.f17344f == null) {
+            AutoBannerLayout autoBannerLayout = new AutoBannerLayout(getContext());
+            this.f17344f = autoBannerLayout;
+            autoBannerLayout.setMarqueenTime(3000L);
+            this.f17344f.setOnCoverViewCallback(this.i);
+            this.f17344f.setBannerHeight(d.b.b.e.p.l.g(getContext(), R.dimen.tbds328));
+            int g2 = d.b.b.e.p.l.g(getContext(), R.dimen.tbds44);
+            this.f17344f.setPadding(g2, 0, g2, 0);
+            addView(this.f17344f);
+            this.f17344f.setIWindowChangedListener(new a());
+        }
+        this.f17344f.a(cVar.f63279d);
+        if (this.f17345g == null) {
+            GridIconLayout gridIconLayout = new GridIconLayout(getContext());
+            this.f17345g = gridIconLayout;
+            gridIconLayout.setOnItemCoverListener(this.f17346h);
+            addView(this.f17345g);
+            this.f17345g.setIWindowChangedListener(new b());
+            this.f17345g.setPadding(0, d.b.b.e.p.l.g(getContext(), R.dimen.tbds61), 0, 0);
+            this.f17345g.setVerticalSpace(d.b.b.e.p.l.g(getContext(), R.dimen.tbds61));
+            this.f17345g.setMaxItem(10);
+        }
+        this.f17345g.a(cVar.f63280e);
+    }
+
+    public HomePageTabFeedHeaderView(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        this.f17346h = new c();
+        this.i = new d();
+        b();
+    }
+
+    public HomePageTabFeedHeaderView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        this.f17346h = new c();
+        this.i = new d();
+        b();
     }
 }

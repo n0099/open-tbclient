@@ -1,12 +1,12 @@
 package com.baidu.tieba.enterForum.recommend.message;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.tieba.enterForum.recommend.b.a;
 import com.squareup.wire.Wire;
+import d.b.i0.i0.k.c.a;
 import tbclient.Recommforum.RecommforumResIdl;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class ResponseSocketRecommendMessage extends SocketResponsedMessage {
-    private a mRecommendData;
+    public a mRecommendData;
 
     public ResponseSocketRecommendMessage() {
         super(309630);
@@ -17,16 +17,19 @@ public class ResponseSocketRecommendMessage extends SocketResponsedMessage {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.message.a
+    @Override // com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
     public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         RecommforumResIdl recommforumResIdl = (RecommforumResIdl) new Wire(new Class[0]).parseFrom(bArr, RecommforumResIdl.class);
-        if (recommforumResIdl != null) {
-            setError(recommforumResIdl.error.errorno.intValue());
-            setErrorString(recommforumResIdl.error.usermsg);
-            if (getError() == 0 && recommforumResIdl.data != null) {
-                this.mRecommendData = new a();
-                this.mRecommendData.a(recommforumResIdl.data);
-            }
+        if (recommforumResIdl == null) {
+            return;
         }
+        setError(recommforumResIdl.error.errorno.intValue());
+        setErrorString(recommforumResIdl.error.usermsg);
+        if (getError() != 0 || recommforumResIdl.data == null) {
+            return;
+        }
+        a aVar = new a();
+        this.mRecommendData = aVar;
+        aVar.h(recommforumResIdl.data);
     }
 }

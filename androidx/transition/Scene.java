@@ -8,62 +8,42 @@ import android.view.ViewGroup;
 import androidx.annotation.LayoutRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-/* loaded from: classes5.dex */
+/* loaded from: classes.dex */
 public class Scene {
-    private Context mContext;
-    private Runnable mEnterAction;
-    private Runnable mExitAction;
-    private View mLayout;
-    private int mLayoutId;
-    private ViewGroup mSceneRoot;
-
-    @NonNull
-    public static Scene getSceneForLayout(@NonNull ViewGroup viewGroup, @LayoutRes int i, @NonNull Context context) {
-        SparseArray sparseArray;
-        SparseArray sparseArray2 = (SparseArray) viewGroup.getTag(R.id.transition_scene_layoutid_cache);
-        if (sparseArray2 == null) {
-            SparseArray sparseArray3 = new SparseArray();
-            viewGroup.setTag(R.id.transition_scene_layoutid_cache, sparseArray3);
-            sparseArray = sparseArray3;
-        } else {
-            sparseArray = sparseArray2;
-        }
-        Scene scene = (Scene) sparseArray.get(i);
-        if (scene == null) {
-            Scene scene2 = new Scene(viewGroup, i, context);
-            sparseArray.put(i, scene2);
-            return scene2;
-        }
-        return scene;
-    }
+    public Context mContext;
+    public Runnable mEnterAction;
+    public Runnable mExitAction;
+    public View mLayout;
+    public int mLayoutId;
+    public ViewGroup mSceneRoot;
 
     public Scene(@NonNull ViewGroup viewGroup) {
         this.mLayoutId = -1;
         this.mSceneRoot = viewGroup;
     }
 
-    private Scene(ViewGroup viewGroup, int i, Context context) {
-        this.mLayoutId = -1;
-        this.mContext = context;
-        this.mSceneRoot = viewGroup;
-        this.mLayoutId = i;
-    }
-
-    public Scene(@NonNull ViewGroup viewGroup, @NonNull View view) {
-        this.mLayoutId = -1;
-        this.mSceneRoot = viewGroup;
-        this.mLayout = view;
+    public static Scene getCurrentScene(View view) {
+        return (Scene) view.getTag(R.id.transition_current_scene);
     }
 
     @NonNull
-    public ViewGroup getSceneRoot() {
-        return this.mSceneRoot;
+    public static Scene getSceneForLayout(@NonNull ViewGroup viewGroup, @LayoutRes int i, @NonNull Context context) {
+        SparseArray sparseArray = (SparseArray) viewGroup.getTag(R.id.transition_scene_layoutid_cache);
+        if (sparseArray == null) {
+            sparseArray = new SparseArray();
+            viewGroup.setTag(R.id.transition_scene_layoutid_cache, sparseArray);
+        }
+        Scene scene = (Scene) sparseArray.get(i);
+        if (scene != null) {
+            return scene;
+        }
+        Scene scene2 = new Scene(viewGroup, i, context);
+        sparseArray.put(i, scene2);
+        return scene2;
     }
 
-    public void exit() {
-        if (getCurrentScene(this.mSceneRoot) == this && this.mExitAction != null) {
-            this.mExitAction.run();
-        }
+    public static void setCurrentScene(View view, Scene scene) {
+        view.setTag(R.id.transition_current_scene, scene);
     }
 
     public void enter() {
@@ -75,20 +55,28 @@ public class Scene {
                 this.mSceneRoot.addView(this.mLayout);
             }
         }
-        if (this.mEnterAction != null) {
-            this.mEnterAction.run();
+        Runnable runnable = this.mEnterAction;
+        if (runnable != null) {
+            runnable.run();
         }
         setCurrentScene(this.mSceneRoot, this);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static void setCurrentScene(View view, Scene scene) {
-        view.setTag(R.id.transition_current_scene, scene);
+    public void exit() {
+        Runnable runnable;
+        if (getCurrentScene(this.mSceneRoot) != this || (runnable = this.mExitAction) == null) {
+            return;
+        }
+        runnable.run();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static Scene getCurrentScene(View view) {
-        return (Scene) view.getTag(R.id.transition_current_scene);
+    @NonNull
+    public ViewGroup getSceneRoot() {
+        return this.mSceneRoot;
+    }
+
+    public boolean isCreatedFromLayoutResource() {
+        return this.mLayoutId > 0;
     }
 
     public void setEnterAction(@Nullable Runnable runnable) {
@@ -99,8 +87,16 @@ public class Scene {
         this.mExitAction = runnable;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean isCreatedFromLayoutResource() {
-        return this.mLayoutId > 0;
+    public Scene(ViewGroup viewGroup, int i, Context context) {
+        this.mLayoutId = -1;
+        this.mContext = context;
+        this.mSceneRoot = viewGroup;
+        this.mLayoutId = i;
+    }
+
+    public Scene(@NonNull ViewGroup viewGroup, @NonNull View view) {
+        this.mLayoutId = -1;
+        this.mSceneRoot = viewGroup;
+        this.mLayout = view;
     }
 }

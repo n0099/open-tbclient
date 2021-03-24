@@ -14,26 +14,30 @@ import com.kwad.sdk.core.imageloader.core.assist.LoadedFrom;
 import com.kwad.sdk.core.imageloader.core.decode.DecodedResult;
 import com.kwad.sdk.core.imageloader.core.imageaware.ImageAware;
 import com.kwad.sdk.core.imageloader.core.imageaware.ImageViewAware;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class RoundedBitmapDisplayer implements BitmapDisplayer {
-    protected final int cornerRadius;
-    protected final int margin;
+    public final int cornerRadius;
+    public final int margin;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class RoundedDrawable extends Drawable {
-        protected final BitmapShader bitmapShader;
-        protected final float cornerRadius;
-        protected final RectF mBitmapRect;
-        protected final int margin;
-        protected final RectF mRect = new RectF();
-        protected final Paint paint = new Paint();
+        public final BitmapShader bitmapShader;
+        public final float cornerRadius;
+        public final RectF mBitmapRect;
+        public final RectF mRect = new RectF();
+        public final int margin;
+        public final Paint paint;
 
         public RoundedDrawable(Bitmap bitmap, int i, int i2) {
             this.cornerRadius = i;
             this.margin = i2;
-            this.bitmapShader = new BitmapShader(bitmap, Shader.TileMode.CLAMP, Shader.TileMode.CLAMP);
-            this.mBitmapRect = new RectF(i2, i2, bitmap.getWidth() - i2, bitmap.getHeight() - i2);
-            this.paint.setAntiAlias(true);
+            Shader.TileMode tileMode = Shader.TileMode.CLAMP;
+            this.bitmapShader = new BitmapShader(bitmap, tileMode, tileMode);
+            float f2 = i2;
+            this.mBitmapRect = new RectF(f2, f2, bitmap.getWidth() - i2, bitmap.getHeight() - i2);
+            Paint paint = new Paint();
+            this.paint = paint;
+            paint.setAntiAlias(true);
             this.paint.setShader(this.bitmapShader);
             this.paint.setFilterBitmap(true);
             this.paint.setDither(true);
@@ -41,7 +45,9 @@ public class RoundedBitmapDisplayer implements BitmapDisplayer {
 
         @Override // android.graphics.drawable.Drawable
         public void draw(Canvas canvas) {
-            canvas.drawRoundRect(this.mRect, this.cornerRadius, this.cornerRadius, this.paint);
+            RectF rectF = this.mRect;
+            float f2 = this.cornerRadius;
+            canvas.drawRoundRect(rectF, f2, f2, this.paint);
         }
 
         @Override // android.graphics.drawable.Drawable
@@ -49,11 +55,12 @@ public class RoundedBitmapDisplayer implements BitmapDisplayer {
             return -3;
         }
 
-        /* JADX INFO: Access modifiers changed from: protected */
         @Override // android.graphics.drawable.Drawable
         public void onBoundsChange(Rect rect) {
             super.onBoundsChange(rect);
-            this.mRect.set(this.margin, this.margin, rect.width() - this.margin, rect.height() - this.margin);
+            RectF rectF = this.mRect;
+            int i = this.margin;
+            rectF.set(i, i, rect.width() - this.margin, rect.height() - this.margin);
             Matrix matrix = new Matrix();
             matrix.setRectToRect(this.mBitmapRect, this.mRect, Matrix.ScaleToFit.FILL);
             this.bitmapShader.setLocalMatrix(matrix);

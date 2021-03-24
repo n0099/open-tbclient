@@ -10,27 +10,80 @@ import com.baidu.searchbox.elasticthread.statistic.RealTimeStatusPrinter;
 import com.baidu.searchbox.elasticthread.statistic.Recordable;
 import com.baidu.searchbox.elasticthread.statistic.StatisticRecorder;
 import com.baidu.searchbox.elasticthread.task.ElasticTask;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class ElasticTaskScheduler {
-    private static final boolean DEBUG = false;
-    private static final int MSG_DREDGE_CONCURRENT = 3;
-    private static final int MSG_INSERT_CONCURRENT_TASK = 1;
-    private static final int MSG_INSERT_SERIAL_TASK = 4;
-    private static final int MSG_REAL_TIME_STATUS_PRINT = 9;
-    private static final int MSG_RECORD_DATA_BEGIN = 7;
-    private static final int MSG_RECORD_DATA_END = 8;
-    private static final int MSG_SCHEDULE_CONCURRENT = 2;
-    private static final int MSG_SCHEDULE_SERIAL = 5;
-    private static final int MSG_SERIAL_DREDGE = 6;
-    private static final String TAG = "ElasticTaskScheduler";
-    private static volatile ElasticTaskScheduler sInstance = null;
-    private ArteryManager mArteryManager;
-    private DredgeManager mDredgeManager;
-    private QueueManager mQueueManager;
-    private Handler mSchedulerHandler;
-    private HandlerThread mSchedulerThread;
-    private SerialManager mSerialManager;
-    private StatisticRecorder mStatisticRecorder;
+    public static final boolean DEBUG = false;
+    public static final int MSG_DREDGE_CONCURRENT = 3;
+    public static final int MSG_INSERT_CONCURRENT_TASK = 1;
+    public static final int MSG_INSERT_SERIAL_TASK = 4;
+    public static final int MSG_REAL_TIME_STATUS_PRINT = 9;
+    public static final int MSG_RECORD_DATA_BEGIN = 7;
+    public static final int MSG_RECORD_DATA_END = 8;
+    public static final int MSG_SCHEDULE_CONCURRENT = 2;
+    public static final int MSG_SCHEDULE_SERIAL = 5;
+    public static final int MSG_SERIAL_DREDGE = 6;
+    public static final String TAG = "ElasticTaskScheduler";
+    public static volatile ElasticTaskScheduler sInstance;
+    public ArteryManager mArteryManager;
+    public DredgeManager mDredgeManager;
+    public QueueManager mQueueManager;
+    public Handler mSchedulerHandler;
+    public HandlerThread mSchedulerThread;
+    public SerialManager mSerialManager;
+    public StatisticRecorder mStatisticRecorder;
+
+    /* loaded from: classes2.dex */
+    public static class TaskMsgInfo {
+        public int priority;
+        public Runnable runnable;
+        public String taskName;
+
+        public TaskMsgInfo(Runnable runnable, String str, int i) {
+            this.runnable = runnable;
+            this.taskName = str;
+            this.priority = i;
+        }
+    }
+
+    public ElasticTaskScheduler() {
+        synchronized (ElasticConfig.getElasticConfigMutex()) {
+            initElasticThread();
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void beginRecord() {
+        if (ElasticConfig.elasticExecutorDisabled()) {
+            return;
+        }
+        if (this.mStatisticRecorder.getRecordStatus() == Recordable.RecordStatus.RECORDING) {
+            Log.w(TAG, "BeginRecord is called inside a record life cycle. The data in last record life cycle would be cleared and a new record life cycle would begin based on the time of this call");
+        }
+        this.mStatisticRecorder.onRecordBegin();
+        this.mArteryManager.onRecordBegin();
+        this.mDredgeManager.onRecordBegin();
+        this.mQueueManager.onRecordBegin();
+        this.mSerialManager.onRecordBegin();
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void endRecord() {
+        if (ElasticConfig.elasticExecutorDisabled()) {
+            return;
+        }
+        if (this.mStatisticRecorder.getRecordStatus() != Recordable.RecordStatus.RECORDING) {
+            Log.w(TAG, "EndRecord is called outside of a record life cycle. This call will do noting.Please call BeginRecord first.");
+            return;
+        }
+        this.mStatisticRecorder.onRecordEnd();
+        this.mArteryManager.onRecordEnd();
+        this.mDredgeManager.onRecordEnd();
+        this.mQueueManager.onRecordEnd();
+        this.mSerialManager.onRecordEnd();
+        if (this.mStatisticRecorder.getRecordElapseTime() > StatisticRecorder.UPLOAD_DATA_TIME_THRESHOLD) {
+            this.mStatisticRecorder.uploadData();
+        }
+    }
 
     public static ElasticTaskScheduler getInstance() {
         if (sInstance == null) {
@@ -43,12 +96,6 @@ public class ElasticTaskScheduler {
         return sInstance;
     }
 
-    private ElasticTaskScheduler() {
-        synchronized (ElasticConfig.getElasticConfigMutex()) {
-            initElasticThread();
-        }
-    }
-
     private void initElasticThread() {
         ElasticConfig.updateConfig();
         ElasticConfig.setElasticThreadInitiated(true);
@@ -57,8 +104,9 @@ public class ElasticTaskScheduler {
         this.mQueueManager = new QueueManager();
         this.mSerialManager = new SerialManager();
         this.mStatisticRecorder = new StatisticRecorder();
-        this.mSchedulerThread = new HandlerThread("ElasticSchedulerThread");
-        this.mSchedulerThread.start();
+        HandlerThread handlerThread = new HandlerThread("ElasticSchedulerThread");
+        this.mSchedulerThread = handlerThread;
+        handlerThread.start();
         this.mSchedulerThread.setPriority(10);
         this.mSchedulerHandler = new Handler(this.mSchedulerThread.getLooper()) { // from class: com.baidu.searchbox.elasticthread.scheduler.ElasticTaskScheduler.1
             @Override // android.os.Handler
@@ -66,8 +114,9 @@ public class ElasticTaskScheduler {
                 super.handleMessage(message);
                 switch (message.what) {
                     case 1:
-                        if (message.obj instanceof TaskMsgInfo) {
-                            TaskMsgInfo taskMsgInfo = (TaskMsgInfo) message.obj;
+                        Object obj = message.obj;
+                        if (obj instanceof TaskMsgInfo) {
+                            TaskMsgInfo taskMsgInfo = (TaskMsgInfo) obj;
                             ElasticTaskScheduler.this.mQueueManager.insertTask(taskMsgInfo.runnable, taskMsgInfo.taskName, taskMsgInfo.priority);
                         }
                         ElasticTaskScheduler.this.scheduleConcurrentTasks();
@@ -82,8 +131,9 @@ public class ElasticTaskScheduler {
                         }
                         return;
                     case 4:
-                        if (message.obj instanceof TaskMsgInfo) {
-                            TaskMsgInfo taskMsgInfo2 = (TaskMsgInfo) message.obj;
+                        Object obj2 = message.obj;
+                        if (obj2 instanceof TaskMsgInfo) {
+                            TaskMsgInfo taskMsgInfo2 = (TaskMsgInfo) obj2;
                             ElasticTaskScheduler.this.mSerialManager.insertTask(taskMsgInfo2.runnable, taskMsgInfo2.taskName, taskMsgInfo2.priority);
                             ElasticTaskScheduler.this.scheduleNextSerialTask();
                             return;
@@ -113,96 +163,18 @@ public class ElasticTaskScheduler {
         postPrintRealTimeData(ElasticConfig.REAL_TIME_PRINTER_INTERVAL);
     }
 
-    public void postSerialTask(Runnable runnable, String str, int i) {
-        postSerialTaskDelay(runnable, str, i, 0L);
-    }
-
-    public void postSerialTaskDelay(Runnable runnable, String str, int i, long j) {
-        Message obtain = Message.obtain();
-        obtain.what = 4;
-        obtain.obj = new TaskMsgInfo(runnable, str, i);
-        this.mSchedulerHandler.sendMessageDelayed(obtain, j);
-    }
-
-    public void postSerialSchedule() {
-        postSerialScheduleDelay(0L);
-    }
-
-    public void postSerialScheduleDelay(long j) {
-        Message obtain = Message.obtain();
-        obtain.what = 5;
-        this.mSchedulerHandler.sendMessageDelayed(obtain, j);
-    }
-
-    public void postSerialDredge() {
-        postSerialDredgeDelay(0L);
-    }
-
-    public void postSerialDredgeDelay(long j) {
-        Message obtain = Message.obtain();
-        obtain.what = 6;
-        this.mSchedulerHandler.sendMessageDelayed(obtain, j);
-    }
-
-    public void postConcurrentTask(Runnable runnable, String str, int i) {
-        postConcurrentTaskDelay(runnable, str, i, 0L);
-    }
-
-    public void postConcurrentTaskDelay(Runnable runnable, String str, int i, long j) {
-        Message obtain = Message.obtain();
-        obtain.what = 1;
-        obtain.obj = new TaskMsgInfo(runnable, str, i);
-        this.mSchedulerHandler.sendMessageDelayed(obtain, j);
-    }
-
-    public void postConcurrentSchedule() {
-        postConcurrentScheduleDelay(0L);
-    }
-
-    public void postConcurrentScheduleDelay(long j) {
-        Message obtain = Message.obtain();
-        obtain.what = 2;
-        this.mSchedulerHandler.sendMessageDelayed(obtain, j);
-    }
-
-    public void postConcurrentDredge() {
-        postConcurrentDredgeDelay(0L);
-    }
-
-    public void postConcurrentDredgeDelay(long j) {
-        Message obtain = Message.obtain();
-        obtain.what = 3;
-        this.mSchedulerHandler.sendMessageDelayed(obtain, j);
-    }
-
-    public void postBeginRecord() {
-        Message obtain = Message.obtain();
-        obtain.what = 7;
-        this.mSchedulerHandler.sendMessage(obtain);
-    }
-
-    public void postEndRecord() {
-        Message obtain = Message.obtain();
-        obtain.what = 8;
-        this.mSchedulerHandler.sendMessage(obtain);
-    }
-
     /* JADX INFO: Access modifiers changed from: private */
     public void postPrintRealTimeData(long j) {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes3.dex */
-    public static class TaskMsgInfo {
-        public int priority;
-        public Runnable runnable;
-        public String taskName;
-
-        public TaskMsgInfo(Runnable runnable, String str, int i) {
-            this.runnable = runnable;
-            this.taskName = str;
-            this.priority = i;
+    public int scheduleConcurrentTasks() {
+        int i = 0;
+        while (scheduleNextConcurrentTask()) {
+            i++;
         }
+        postConcurrentDredge();
+        return i;
     }
 
     private boolean scheduleNextConcurrentTask() {
@@ -222,54 +194,8 @@ public class ElasticTaskScheduler {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public int scheduleConcurrentTasks() {
-        int i = 0;
-        while (scheduleNextConcurrentTask()) {
-            i++;
-        }
-        postConcurrentDredge();
-        return i;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
     public boolean scheduleNextSerialTask() {
         return this.mSerialManager.scheduleNextTask();
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void beginRecord() {
-        if (!ElasticConfig.elasticExecutorDisabled()) {
-            if (this.mStatisticRecorder.getRecordStatus() == Recordable.RecordStatus.RECORDING) {
-                Log.w(TAG, "BeginRecord is called inside a record life cycle. The data in last record life cycle would be cleared and a new record life cycle would begin based on the time of this call");
-            }
-            this.mStatisticRecorder.onRecordBegin();
-            this.mArteryManager.onRecordBegin();
-            this.mDredgeManager.onRecordBegin();
-            this.mQueueManager.onRecordBegin();
-            this.mSerialManager.onRecordBegin();
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void endRecord() {
-        if (!ElasticConfig.elasticExecutorDisabled()) {
-            if (this.mStatisticRecorder.getRecordStatus() != Recordable.RecordStatus.RECORDING) {
-                Log.w(TAG, "EndRecord is called outside of a record life cycle. This call will do noting.Please call BeginRecord first.");
-                return;
-            }
-            this.mStatisticRecorder.onRecordEnd();
-            this.mArteryManager.onRecordEnd();
-            this.mDredgeManager.onRecordEnd();
-            this.mQueueManager.onRecordEnd();
-            this.mSerialManager.onRecordEnd();
-            if (this.mStatisticRecorder.getRecordElapseTime() > 30000) {
-                this.mStatisticRecorder.uploadData();
-            }
-        }
-    }
-
-    public QueueManager getQueueManager() {
-        return this.mQueueManager;
     }
 
     public ArteryManager getArteryManager() {
@@ -280,7 +206,85 @@ public class ElasticTaskScheduler {
         return this.mDredgeManager;
     }
 
+    public QueueManager getQueueManager() {
+        return this.mQueueManager;
+    }
+
     public SerialManager getSerialManager() {
         return this.mSerialManager;
+    }
+
+    public void postBeginRecord() {
+        Message obtain = Message.obtain();
+        obtain.what = 7;
+        this.mSchedulerHandler.sendMessage(obtain);
+    }
+
+    public void postConcurrentDredge() {
+        postConcurrentDredgeDelay(0L);
+    }
+
+    public void postConcurrentDredgeDelay(long j) {
+        Message obtain = Message.obtain();
+        obtain.what = 3;
+        this.mSchedulerHandler.sendMessageDelayed(obtain, j);
+    }
+
+    public void postConcurrentSchedule() {
+        postConcurrentScheduleDelay(0L);
+    }
+
+    public void postConcurrentScheduleDelay(long j) {
+        Message obtain = Message.obtain();
+        obtain.what = 2;
+        this.mSchedulerHandler.sendMessageDelayed(obtain, j);
+    }
+
+    public void postConcurrentTask(Runnable runnable, String str, int i) {
+        postConcurrentTaskDelay(runnable, str, i, 0L);
+    }
+
+    public void postConcurrentTaskDelay(Runnable runnable, String str, int i, long j) {
+        Message obtain = Message.obtain();
+        obtain.what = 1;
+        obtain.obj = new TaskMsgInfo(runnable, str, i);
+        this.mSchedulerHandler.sendMessageDelayed(obtain, j);
+    }
+
+    public void postEndRecord() {
+        Message obtain = Message.obtain();
+        obtain.what = 8;
+        this.mSchedulerHandler.sendMessage(obtain);
+    }
+
+    public void postSerialDredge() {
+        postSerialDredgeDelay(0L);
+    }
+
+    public void postSerialDredgeDelay(long j) {
+        Message obtain = Message.obtain();
+        obtain.what = 6;
+        this.mSchedulerHandler.sendMessageDelayed(obtain, j);
+    }
+
+    public void postSerialSchedule() {
+        postSerialScheduleDelay(0L);
+    }
+
+    public void postSerialScheduleDelay(long j) {
+        Message obtain = Message.obtain();
+        obtain.what = 5;
+        this.mSchedulerHandler.sendMessageDelayed(obtain, j);
+    }
+
+    public void postSerialTask(Runnable runnable, String str, int i) {
+        postSerialTaskDelay(runnable, str, i, 0L);
+    }
+
+    public void postSerialTaskDelay(Runnable runnable, String str, int i, long j) {
+        Message obtain = Message.obtain();
+        obtain.what = 4;
+        obtain.obj = new TaskMsgInfo(runnable, str, i);
+        this.mSchedulerHandler.sendMessageDelayed(obtain, j);
     }
 }

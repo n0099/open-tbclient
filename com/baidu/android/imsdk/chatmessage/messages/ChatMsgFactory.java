@@ -1,18 +1,13 @@
 package com.baidu.android.imsdk.chatmessage.messages;
 
 import android.content.Context;
-import com.baidu.android.imsdk.IMConstants;
 import com.baidu.android.imsdk.internal.IMConfigInternal;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class ChatMsgFactory {
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class SingletonHolder {
-        static final ChatMsgFactory INSTANCE = new ChatMsgFactory();
-
-        private SingletonHolder() {
-        }
+        public static final ChatMsgFactory INSTANCE = new ChatMsgFactory();
     }
 
     public static synchronized ChatMsgFactory getInstance() {
@@ -24,141 +19,170 @@ public class ChatMsgFactory {
     }
 
     public ChatMsg newChatMsg(Context context, int i, int i2, int i3) {
-        switch (i) {
-            case 0:
-            case 1:
-            case 4:
-            case 6:
-                return newMsgInstanceByType(context, i2);
-            case 2:
-            case 3:
+        if (i != 0 && i != 1) {
+            if (i == 2 || i == 3) {
                 return newMsgInstanceByCmd(context, i3);
-            case 5:
-            default:
+            }
+            if (i != 4 && i != 6) {
                 return null;
+            }
         }
+        return newMsgInstanceByType(context, i2);
     }
 
-    protected ChatMsg newMsgInstanceByType(Context context, int i) {
-        if (!IMConfigInternal.getInstance().getIMConfig(context).isMsgTypeSupported(i)) {
-            return new UnSupportedMsg();
-        }
-        switch (i) {
-            case 0:
-                return new TextMsg();
-            case 1:
-                return new ImageMsg();
-            case 2:
-                return new AudioMsg();
-            case 3:
-                return new VideoMsg();
-            case 5:
-                return new RealTimeAudioMsg();
-            case 6:
-                return new RealTimeVideoMsg();
-            case 7:
-                return new LocationMsg();
-            case 8:
-                return new SignleGraphicTextMsg();
-            case 9:
-                return new MultiGraphicTextMsg();
-            case 12:
-                return new TempletMsg();
-            case 13:
-                return new CouponMsg();
-            case 16:
-                return new RedPackMsg();
-            case 18:
-                return new HtmlMsg();
-            case 20:
-                return new ConfigMsg();
-            case 21:
-                return new SmartMsg();
-            case 22:
-                return new SchemaMsg();
-            case 24:
-                return new InterActiveMsg();
-            case 25:
-                return new ProductMsg();
-            case 26:
-                return new ConsultCouponMsg();
-            case 27:
-                return new PassMsg();
-            case 28:
-                return new PassSaveMsg();
-            case 29:
-                return new GoodsMsg();
-            case 30:
-                return new BonusMsg();
-            case 32:
-                return new DuPaBManualMsg();
-            case 33:
-                return new DuPaEvaluationMsg();
-            case 80:
-                return new GalleryMsg();
-            case 100:
-                return new CustomMsg();
-            case 101:
-                return new BDMapCustomMsg();
-            case 1001:
-                return new GroupMemberAddMsg();
-            case 1002:
-                return new GroupMemberJoinMsg();
-            case 1003:
-                return new GroupMemberQuitMsg();
-            case 1004:
-                return new GroupMemberDelMsg();
-            case 1005:
-                return new GroupInfoChangeMsg();
-            case 1006:
-                return new GroupBroadcastMsg();
-            case 1007:
-                return new GroupStarJoinMsg();
-            case 1008:
-                return new GroupStarMasterUpdateMsg();
-            case 1009:
-                return new GroupStarAlertMsg();
-            case 1010:
-                return new GroupStarAlertMsg();
-            case 1011:
-                return new GroupStarAlertMsg();
-            case 1012:
-                return new GroupMemberNameChangeMsg();
-            case 2001:
-                return new AlertMsg();
-            case 2010:
-                return new RedNotifyMsg();
-            case IMConstants.IM_MSG_TYPE_SHIELD_ME /* 2012 */:
-                return new ShieldMsg();
-            case IMConstants.IM_MSG_TYPE_UNSUBSCRIBE_ME_SEND_FAIL /* 2014 */:
-                return new UnSubscribeMsg();
-            default:
-                return null;
-        }
-    }
-
-    protected ChatMsg newMsgInstanceByCmd(Context context, int i) {
-        switch (i) {
-            case 0:
-                return new AddFriendMsg();
-            case 1:
-                return new ConfirmFriendMsg();
-            case 20:
-                return new PaSync();
-            case 21:
-                return new MessageSyncMsg();
-            case 22:
-                return new DialogSyncMsg();
-            case 23:
-                return new UserSettingPaCmdMsg();
-            case 50:
+    public ChatMsg newMsgInstanceByCmd(Context context, int i) {
+        NotifyCustomerMsg notifyCustomerMsg;
+        if (i != 0) {
+            if (i != 1) {
+                if (i != 50) {
+                    if (i == 60) {
+                        notifyCustomerMsg = new NotifyCustomerMsg(60);
+                    } else if (i != 62) {
+                        switch (i) {
+                            case 20:
+                                return new PaSync();
+                            case 21:
+                                return new MessageSyncMsg();
+                            case 22:
+                                return new DialogSyncMsg();
+                            case 23:
+                                return new UserSettingPaCmdMsg();
+                            default:
+                                return null;
+                        }
+                    } else {
+                        notifyCustomerMsg = new NotifyCustomerMsg(62);
+                    }
+                    return notifyCustomerMsg;
+                }
                 return new DeviceLoginMsg();
-            case 60:
-                return new NotifyCustomerMsg(60);
-            case 62:
-                return new NotifyCustomerMsg(62);
-            default:
-                return null;
+            }
+            return new ConfirmFriendMsg();
         }
+        return new AddFriendMsg();
+    }
+
+    public ChatMsg newMsgInstanceByType(Context context, int i) {
+        if (IMConfigInternal.getInstance().getIMConfig(context).isMsgTypeSupported(i)) {
+            if (i != 0) {
+                if (i != 1) {
+                    if (i != 2) {
+                        if (i != 3) {
+                            if (i != 12) {
+                                if (i != 13) {
+                                    if (i != 16) {
+                                        if (i != 18) {
+                                            if (i != 80) {
+                                                if (i != 2001) {
+                                                    if (i != 2010) {
+                                                        if (i != 2012) {
+                                                            if (i != 2014) {
+                                                                if (i != 32) {
+                                                                    if (i != 33) {
+                                                                        if (i != 100) {
+                                                                            if (i != 101) {
+                                                                                switch (i) {
+                                                                                    case 5:
+                                                                                        return new RealTimeAudioMsg();
+                                                                                    case 6:
+                                                                                        return new RealTimeVideoMsg();
+                                                                                    case 7:
+                                                                                        return new LocationMsg();
+                                                                                    case 8:
+                                                                                        return new SignleGraphicTextMsg();
+                                                                                    case 9:
+                                                                                        return new MultiGraphicTextMsg();
+                                                                                    default:
+                                                                                        switch (i) {
+                                                                                            case 20:
+                                                                                                return new ConfigMsg();
+                                                                                            case 21:
+                                                                                                return new SmartMsg();
+                                                                                            case 22:
+                                                                                                return new SchemaMsg();
+                                                                                            default:
+                                                                                                switch (i) {
+                                                                                                    case 24:
+                                                                                                        return new InterActiveMsg();
+                                                                                                    case 25:
+                                                                                                        return new ProductMsg();
+                                                                                                    case 26:
+                                                                                                        return new ConsultCouponMsg();
+                                                                                                    case 27:
+                                                                                                        return new PassMsg();
+                                                                                                    case 28:
+                                                                                                        return new PassSaveMsg();
+                                                                                                    case 29:
+                                                                                                        return new GoodsMsg();
+                                                                                                    case 30:
+                                                                                                        return new BonusMsg();
+                                                                                                    default:
+                                                                                                        switch (i) {
+                                                                                                            case 1001:
+                                                                                                                return new GroupMemberAddMsg();
+                                                                                                            case 1002:
+                                                                                                                return new GroupMemberJoinMsg();
+                                                                                                            case 1003:
+                                                                                                                return new GroupMemberQuitMsg();
+                                                                                                            case 1004:
+                                                                                                                return new GroupMemberDelMsg();
+                                                                                                            case 1005:
+                                                                                                                return new GroupInfoChangeMsg();
+                                                                                                            case 1006:
+                                                                                                                return new GroupBroadcastMsg();
+                                                                                                            case 1007:
+                                                                                                                return new GroupStarJoinMsg();
+                                                                                                            case 1008:
+                                                                                                                return new GroupStarMasterUpdateMsg();
+                                                                                                            case 1009:
+                                                                                                                return new GroupStarAlertMsg();
+                                                                                                            case 1010:
+                                                                                                                return new GroupStarAlertMsg();
+                                                                                                            case 1011:
+                                                                                                                return new GroupStarAlertMsg();
+                                                                                                            case 1012:
+                                                                                                                return new GroupMemberNameChangeMsg();
+                                                                                                            default:
+                                                                                                                return null;
+                                                                                                        }
+                                                                                                }
+                                                                                        }
+                                                                                }
+                                                                            }
+                                                                            return new BDMapCustomMsg();
+                                                                        }
+                                                                        return new CustomMsg();
+                                                                    }
+                                                                    return new DuPaEvaluationMsg();
+                                                                }
+                                                                return new DuPaBManualMsg();
+                                                            }
+                                                            return new UnSubscribeMsg();
+                                                        }
+                                                        return new ShieldMsg();
+                                                    }
+                                                    return new RedNotifyMsg();
+                                                }
+                                                return new AlertMsg();
+                                            }
+                                            return new GalleryMsg();
+                                        }
+                                        return new HtmlMsg();
+                                    }
+                                    return new RedPackMsg();
+                                }
+                                return new CouponMsg();
+                            }
+                            return new TempletMsg();
+                        }
+                        return new VideoMsg();
+                    }
+                    return new AudioMsg();
+                }
+                return new ImageMsg();
+            }
+            return new TextMsg();
+        }
+        return new UnSupportedMsg();
     }
 }

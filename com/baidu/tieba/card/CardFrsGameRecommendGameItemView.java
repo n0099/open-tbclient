@@ -9,86 +9,102 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.Nullable;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.ar;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class CardFrsGameRecommendGameItemView extends LinearLayout {
-    private TbImageView ixE;
-    private TextView ixF;
-    private TextView ixG;
-    private String mForumId;
-    public int mSkinType;
+
+    /* renamed from: e  reason: collision with root package name */
+    public TbImageView f15237e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public TextView f15238f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public TextView f15239g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public int f15240h;
+    public String i;
+
+    /* loaded from: classes4.dex */
+    public class a implements View.OnClickListener {
+        public a() {
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            if (view.getTag() instanceof String) {
+                TiebaStatic.log(new StatisticItem("c13047").param("obj_locate", 10).param("fid", CardFrsGameRecommendGameItemView.this.i));
+                d.b.h0.l.a.l(CardFrsGameRecommendGameItemView.this.getContext(), (String) view.getTag());
+            }
+        }
+    }
 
     public CardFrsGameRecommendGameItemView(Context context) {
         super(context);
-        this.mSkinType = 3;
-        init(context);
+        this.f15240h = 3;
+        b(context);
     }
 
-    public CardFrsGameRecommendGameItemView(Context context, @Nullable AttributeSet attributeSet) {
-        super(context, attributeSet);
-        this.mSkinType = 3;
-        init(context);
-    }
-
-    public CardFrsGameRecommendGameItemView(Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        this.mSkinType = 3;
-        init(context);
-    }
-
-    private void init(Context context) {
+    public final void b(Context context) {
         LayoutInflater.from(context).inflate(R.layout.card_frs_game_recommend_game_view_item, (ViewGroup) this, true);
-        this.ixE = (TbImageView) findViewById(R.id.card_frs_game_recommend_game_pic);
-        this.ixE.setAutoChangeStyle(true);
-        this.ixE.setDefaultResource(17170445);
-        this.ixE.setDefaultBgResource(R.color.CAM_X0205);
-        this.ixE.setDrawerType(1);
-        this.ixE.setRadius(context.getResources().getDimensionPixelSize(R.dimen.tbds26));
-        this.ixE.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.ixE.setBorderColor(ap.getColor(R.color.common_color_10043));
-        this.ixE.setBorderWidth(context.getResources().getDimensionPixelSize(R.dimen.tbds2));
-        this.ixF = (TextView) findViewById(R.id.card_frs_game_recommend_game_name);
-        this.ixG = (TextView) findViewById(R.id.card_frs_game_recommend_game_dec);
+        TbImageView tbImageView = (TbImageView) findViewById(R.id.card_frs_game_recommend_game_pic);
+        this.f15237e = tbImageView;
+        tbImageView.setAutoChangeStyle(true);
+        this.f15237e.setDefaultResource(17170445);
+        this.f15237e.setDefaultBgResource(R.color.CAM_X0205);
+        this.f15237e.setDrawerType(1);
+        this.f15237e.setRadius(context.getResources().getDimensionPixelSize(R.dimen.tbds26));
+        this.f15237e.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.f15237e.setBorderColor(SkinManager.getColor(R.color.common_color_10043));
+        this.f15237e.setBorderWidth(context.getResources().getDimensionPixelSize(R.dimen.tbds2));
+        this.f15238f = (TextView) findViewById(R.id.card_frs_game_recommend_game_name);
+        this.f15239g = (TextView) findViewById(R.id.card_frs_game_recommend_game_dec);
         setOrientation(1);
         setFocusable(true);
         setClickable(true);
         setDescendantFocusability(262144);
-        setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.card.CardFrsGameRecommendGameItemView.1
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
-                if (view.getTag() instanceof String) {
-                    TiebaStatic.log(new ar("c13047").aq("obj_locate", 10).dR("fid", CardFrsGameRecommendGameItemView.this.mForumId));
-                    com.baidu.tbadk.browser.a.startWebActivity(CardFrsGameRecommendGameItemView.this.getContext(), (String) view.getTag());
-                }
-            }
-        });
+        setOnClickListener(new a());
     }
 
-    public void setForumId(String str) {
-        this.mForumId = str;
-    }
-
-    public TbImageView getGamePicView() {
-        return this.ixE;
-    }
-
-    public TextView getGameNameView() {
-        return this.ixF;
+    public void c(int i) {
+        if (i == this.f15240h) {
+            return;
+        }
+        this.f15240h = i;
+        SkinManager.setViewTextColor(this.f15238f, R.color.CAM_X0106, 1);
+        SkinManager.setViewTextColor(this.f15239g, R.color.CAM_X0109, 1);
     }
 
     public TextView getGameDscView() {
-        return this.ixG;
+        return this.f15239g;
     }
 
-    public void onChangeSkinType(int i) {
-        if (i != this.mSkinType) {
-            this.mSkinType = i;
-            ap.setViewTextColor(this.ixF, R.color.CAM_X0106, 1);
-            ap.setViewTextColor(this.ixG, R.color.CAM_X0109, 1);
-        }
+    public TextView getGameNameView() {
+        return this.f15238f;
+    }
+
+    public TbImageView getGamePicView() {
+        return this.f15237e;
+    }
+
+    public void setForumId(String str) {
+        this.i = str;
+    }
+
+    public CardFrsGameRecommendGameItemView(Context context, @Nullable AttributeSet attributeSet) {
+        super(context, attributeSet);
+        this.f15240h = 3;
+        b(context);
+    }
+
+    public CardFrsGameRecommendGameItemView(Context context, @Nullable AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        this.f15240h = 3;
+        b(context);
     }
 }

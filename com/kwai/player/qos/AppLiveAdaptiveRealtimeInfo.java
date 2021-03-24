@@ -3,25 +3,25 @@ package com.kwai.player.qos;
 import android.os.Bundle;
 import androidx.annotation.Keep;
 @Keep
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class AppLiveAdaptiveRealtimeInfo {
-    private static final String LiveAdaptiveRealtimeInfo_audioBufferTime = "audioBufferTime";
-    private static final String LiveAdaptiveRealtimeInfo_bandwidthCurrent = "bandwidthCurrent";
-    private static final String LiveAdaptiveRealtimeInfo_bandwidthFragment = "bandwidthFragment";
-    private static final String LiveAdaptiveRealtimeInfo_bitrateDownloading = "bitrateDownloading";
-    private static final String LiveAdaptiveRealtimeInfo_bitratePlaying = "bitratePlaying";
-    private static final String LiveAdaptiveRealtimeInfo_cachedTagDurationMs = "cachedTagDurationMs";
-    private static final String LiveAdaptiveRealtimeInfo_cachedTotalDurationMs = "cachedTotalDurationMs";
-    private static final String LiveAdaptiveRealtimeInfo_curRepFirstDataTime = "curRepFirstDataTime";
-    private static final String LiveAdaptiveRealtimeInfo_curRepReadStartTime = "curRepReadStartTime";
-    private static final String LiveAdaptiveRealtimeInfo_curRepStartTime = "curRepStartTime";
-    private static final String LiveAdaptiveRealtimeInfo_currentBufferMs = "currentBufferMs";
-    private static final String LiveAdaptiveRealtimeInfo_estimateBufferMs = "estimateBufferMs";
-    private static final String LiveAdaptiveRealtimeInfo_predictedBufferMs = "predictedBufferMs";
-    private static final String LiveAdaptiveRealtimeInfo_repSwitchCnt = "repSwitchCnt";
-    private static final String LiveAdaptiveRealtimeInfo_repSwitchGapTime = "repSwitchGapTime";
-    private static final String LiveAdaptiveRealtimeInfo_repSwitchPointVideoBufferTime = "repSwitchPointVideoBufferTime";
-    private static final String LiveAdaptiveRealtimeInfo_videoBufferTime = "videoBufferTime";
+    public static final String LiveAdaptiveRealtimeInfo_audioBufferTime = "audioBufferTime";
+    public static final String LiveAdaptiveRealtimeInfo_bandwidthCurrent = "bandwidthCurrent";
+    public static final String LiveAdaptiveRealtimeInfo_bandwidthFragment = "bandwidthFragment";
+    public static final String LiveAdaptiveRealtimeInfo_bitrateDownloading = "bitrateDownloading";
+    public static final String LiveAdaptiveRealtimeInfo_bitratePlaying = "bitratePlaying";
+    public static final String LiveAdaptiveRealtimeInfo_cachedTagDurationMs = "cachedTagDurationMs";
+    public static final String LiveAdaptiveRealtimeInfo_cachedTotalDurationMs = "cachedTotalDurationMs";
+    public static final String LiveAdaptiveRealtimeInfo_curRepFirstDataTime = "curRepFirstDataTime";
+    public static final String LiveAdaptiveRealtimeInfo_curRepReadStartTime = "curRepReadStartTime";
+    public static final String LiveAdaptiveRealtimeInfo_curRepStartTime = "curRepStartTime";
+    public static final String LiveAdaptiveRealtimeInfo_currentBufferMs = "currentBufferMs";
+    public static final String LiveAdaptiveRealtimeInfo_estimateBufferMs = "estimateBufferMs";
+    public static final String LiveAdaptiveRealtimeInfo_predictedBufferMs = "predictedBufferMs";
+    public static final String LiveAdaptiveRealtimeInfo_repSwitchCnt = "repSwitchCnt";
+    public static final String LiveAdaptiveRealtimeInfo_repSwitchGapTime = "repSwitchGapTime";
+    public static final String LiveAdaptiveRealtimeInfo_repSwitchPointVideoBufferTime = "repSwitchPointVideoBufferTime";
+    public static final String LiveAdaptiveRealtimeInfo_videoBufferTime = "videoBufferTime";
     public long audioBufferTime;
     public int bandwidthCurrent;
     public int bandwidthFragment;

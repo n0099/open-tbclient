@@ -13,44 +13,120 @@ import com.idlefish.flutterboost.FlutterBoost;
 import com.idlefish.flutterboost.FlutterBoostPlugin;
 import com.idlefish.flutterboost.XFlutterView;
 import io.flutter.Log;
-import io.flutter.embedding.android.FlutterView;
 import io.flutter.embedding.android.SplashScreen;
 import io.flutter.embedding.engine.FlutterEngine;
 import io.flutter.embedding.engine.renderer.FlutterUiDisplayListener;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class FlutterSplashView extends FrameLayout {
-    private static String TAG = "FlutterSplashView";
+    public static String TAG = "FlutterSplashView";
+    @Nullable
+    public XFlutterView flutterView;
+    public boolean forceShowSplash;
+    public Handler handler;
+    public FlutterEngine mFlutterEngine;
     @NonNull
-    private final FlutterView.FlutterEngineAttachmentListener flutterEngineAttachmentListener;
-    @Nullable
-    private XFlutterView flutterView;
-    private boolean forceShowSplash;
-    private Handler handler;
-    private FlutterEngine mFlutterEngine;
+    public final FlutterUiDisplayListener onFirstFrameRenderedListener;
     @NonNull
-    private final FlutterUiDisplayListener onFirstFrameRenderedListener;
+    public final Runnable onTransitionComplete;
+    @Nullable
+    public String previousCompletedSplashIsolate;
+    public long removeDelay;
     @NonNull
-    private final Runnable onTransitionComplete;
+    public final FlutterUiDisplayListener removeSplashListener;
+    public final FlutterBoostPlugin.EventListener splashEventListener;
     @Nullable
-    private String previousCompletedSplashIsolate;
-    private long removeDelay;
+    public SplashScreen splashScreen;
+    @Nullable
+    public Bundle splashScreenState;
+    @Nullable
+    public View splashScreenView;
     @NonNull
-    private final FlutterUiDisplayListener removeSplashListener;
-    private final FlutterBoostPlugin.EventListener splashEventListener;
+    public final Runnable transitionToFlutter;
     @Nullable
-    private SplashScreen splashScreen;
-    @Nullable
-    private Bundle splashScreenState;
-    @Nullable
-    private View splashScreenView;
-    @NonNull
-    private final Runnable transitionToFlutter;
-    @Nullable
-    private String transitioningIsolateId;
+    public String transitioningIsolateId;
 
     public FlutterSplashView(@NonNull Context context) {
         this(context, null, 0);
+    }
+
+    public void displayFlutterViewWithSplash(@NonNull XFlutterView xFlutterView, @Nullable SplashScreen splashScreen) {
+        XFlutterView xFlutterView2 = this.flutterView;
+        if (xFlutterView2 != null) {
+            xFlutterView2.removeOnFirstFrameRenderedListener(this.onFirstFrameRenderedListener);
+            removeView(this.flutterView);
+        }
+        View view = this.splashScreenView;
+        if (view != null) {
+            removeView(view);
+        }
+        this.flutterView = xFlutterView;
+        addView(xFlutterView);
+        this.splashScreen = splashScreen;
+        if (splashScreen != null) {
+            View createSplashView = splashScreen.createSplashView(getContext(), this.splashScreenState);
+            this.splashScreenView = createSplashView;
+            addView(createSplashView);
+            xFlutterView.addOnFirstFrameRenderedListener(this.onFirstFrameRenderedListener);
+        }
+    }
+
+    public boolean isAttachedToFlutterEngine() {
+        boolean isAttachedToFlutterEngine = this.flutterView.isAttachedToFlutterEngine();
+        Debuger.log("BoostFlutterView isAttachedToFlutterEngine:" + isAttachedToFlutterEngine);
+        return isAttachedToFlutterEngine;
+    }
+
+    public void onAttach() {
+        View view;
+        Debuger.log("BoostFlutterView onAttach");
+        this.flutterView.attachToFlutterEngine(this.mFlutterEngine);
+        if (this.forceShowSplash && (view = this.splashScreenView) != null && view.isAttachedToWindow()) {
+            this.forceShowSplash = false;
+            this.flutterView.addOnFirstFrameRenderedListener(this.removeSplashListener);
+            this.handler.postDelayed(this.onTransitionComplete, 5000L);
+        }
+    }
+
+    public void onDetach() {
+        Debuger.log("BoostFlutterView onDetach");
+        this.flutterView.detachFromFlutterEngine();
+    }
+
+    @Override // android.view.ViewGroup, android.view.View
+    public void onDetachedFromWindow() {
+        super.onDetachedFromWindow();
+        this.handler.removeCallbacksAndMessages(null);
+        FlutterBoostPlugin.singleton().removeEventListener(this.splashEventListener);
+    }
+
+    public void removeSplashDelay(long j) {
+        this.removeDelay = j;
+    }
+
+    public void showSplash(SplashScreen splashScreen) {
+        if (splashScreen == null || isAttachedToFlutterEngine()) {
+            return;
+        }
+        if (this.splashScreenView.isAttachedToWindow()) {
+            removeView(this.splashScreenView);
+        }
+        View createSplashView = splashScreen.createSplashView(getContext(), this.splashScreenState);
+        this.splashScreenView = createSplashView;
+        addView(createSplashView);
+        this.forceShowSplash = true;
+    }
+
+    public final void transitionToFlutter() {
+        if (this.flutterView.getAttachedFlutterEngine() != null) {
+            this.transitioningIsolateId = this.flutterView.getAttachedFlutterEngine().getDartExecutor().getIsolateServiceId();
+            String str = TAG;
+            Log.v(str, "Transitioning splash screen to a Flutter UI. Isolate: " + this.transitioningIsolateId);
+        }
+        SplashScreen splashScreen = this.splashScreen;
+        if (splashScreen != null) {
+            splashScreen.transitionToFlutter(this.onTransitionComplete);
+        }
     }
 
     public FlutterSplashView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
@@ -62,16 +138,6 @@ public class FlutterSplashView extends FrameLayout {
         this.handler = new Handler();
         this.forceShowSplash = false;
         this.removeDelay = 0L;
-        this.flutterEngineAttachmentListener = new FlutterView.FlutterEngineAttachmentListener() { // from class: com.idlefish.flutterboost.containers.FlutterSplashView.1
-            @Override // io.flutter.embedding.android.FlutterView.FlutterEngineAttachmentListener
-            public void onFlutterEngineAttachedToFlutterView(@NonNull FlutterEngine flutterEngine) {
-                FlutterSplashView.this.flutterView.removeFlutterEngineAttachmentListener(this);
-            }
-
-            @Override // io.flutter.embedding.android.FlutterView.FlutterEngineAttachmentListener
-            public void onFlutterEngineDetachedFromFlutterView() {
-            }
-        };
         this.onFirstFrameRenderedListener = new FlutterUiDisplayListener() { // from class: com.idlefish.flutterboost.containers.FlutterSplashView.2
             @Override // io.flutter.embedding.engine.renderer.FlutterUiDisplayListener
             public void onFlutterUiDisplayed() {
@@ -91,8 +157,10 @@ public class FlutterSplashView extends FrameLayout {
         this.onTransitionComplete = new Runnable() { // from class: com.idlefish.flutterboost.containers.FlutterSplashView.4
             @Override // java.lang.Runnable
             public void run() {
-                FlutterSplashView.this.removeView(FlutterSplashView.this.splashScreenView);
-                FlutterSplashView.this.previousCompletedSplashIsolate = FlutterSplashView.this.transitioningIsolateId;
+                FlutterSplashView flutterSplashView = FlutterSplashView.this;
+                flutterSplashView.removeView(flutterSplashView.splashScreenView);
+                FlutterSplashView flutterSplashView2 = FlutterSplashView.this;
+                flutterSplashView2.previousCompletedSplashIsolate = flutterSplashView2.transitioningIsolateId;
             }
         };
         this.splashEventListener = new FlutterBoostPlugin.EventListener() { // from class: com.idlefish.flutterboost.containers.FlutterSplashView.5
@@ -121,77 +189,5 @@ public class FlutterSplashView extends FrameLayout {
             this.mFlutterEngine = FlutterBoost.instance().engineProvider();
         }
         FlutterBoostPlugin.singleton().addEventListener("flutterPostFrame", this.splashEventListener);
-    }
-
-    public void displayFlutterViewWithSplash(@NonNull XFlutterView xFlutterView, @Nullable SplashScreen splashScreen) {
-        if (this.flutterView != null) {
-            this.flutterView.removeOnFirstFrameRenderedListener(this.onFirstFrameRenderedListener);
-            removeView(this.flutterView);
-        }
-        if (this.splashScreenView != null) {
-            removeView(this.splashScreenView);
-        }
-        this.flutterView = xFlutterView;
-        addView(xFlutterView);
-        this.splashScreen = splashScreen;
-        if (splashScreen != null) {
-            this.splashScreenView = splashScreen.createSplashView(getContext(), this.splashScreenState);
-            addView(this.splashScreenView);
-            xFlutterView.addOnFirstFrameRenderedListener(this.onFirstFrameRenderedListener);
-        }
-    }
-
-    public void showSplash(SplashScreen splashScreen) {
-        if (splashScreen != null && !isAttachedToFlutterEngine()) {
-            if (this.splashScreenView.isAttachedToWindow()) {
-                removeView(this.splashScreenView);
-            }
-            this.splashScreenView = splashScreen.createSplashView(getContext(), this.splashScreenState);
-            addView(this.splashScreenView);
-            this.forceShowSplash = true;
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void transitionToFlutter() {
-        if (this.flutterView.getAttachedFlutterEngine() != null) {
-            this.transitioningIsolateId = this.flutterView.getAttachedFlutterEngine().getDartExecutor().getIsolateServiceId();
-            Log.v(TAG, "Transitioning splash screen to a Flutter UI. Isolate: " + this.transitioningIsolateId);
-        }
-        if (this.splashScreen != null) {
-            this.splashScreen.transitionToFlutter(this.onTransitionComplete);
-        }
-    }
-
-    @Override // android.view.ViewGroup, android.view.View
-    protected void onDetachedFromWindow() {
-        super.onDetachedFromWindow();
-        this.handler.removeCallbacksAndMessages(null);
-        FlutterBoostPlugin.singleton().removeEventListener(this.splashEventListener);
-    }
-
-    public void onAttach() {
-        Debuger.log("BoostFlutterView onAttach");
-        this.flutterView.attachToFlutterEngine(this.mFlutterEngine);
-        if (this.forceShowSplash && this.splashScreenView != null && this.splashScreenView.isAttachedToWindow()) {
-            this.forceShowSplash = false;
-            this.flutterView.addOnFirstFrameRenderedListener(this.removeSplashListener);
-            this.handler.postDelayed(this.onTransitionComplete, 5000L);
-        }
-    }
-
-    public void onDetach() {
-        Debuger.log("BoostFlutterView onDetach");
-        this.flutterView.detachFromFlutterEngine();
-    }
-
-    public boolean isAttachedToFlutterEngine() {
-        boolean isAttachedToFlutterEngine = this.flutterView.isAttachedToFlutterEngine();
-        Debuger.log("BoostFlutterView isAttachedToFlutterEngine:" + isAttachedToFlutterEngine);
-        return isAttachedToFlutterEngine;
-    }
-
-    public void removeSplashDelay(long j) {
-        this.removeDelay = j;
     }
 }

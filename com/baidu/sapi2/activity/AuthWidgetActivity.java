@@ -4,18 +4,18 @@ import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.webkit.WebView;
-import com.baidu.j.a.a;
 import com.baidu.sapi2.CoreViewRouter;
 import com.baidu.sapi2.SapiWebView;
 import com.baidu.sapi2.result.SapiResult;
 import com.baidu.sapi2.utils.SapiUtils;
+import d.b.a0.a.f;
 import java.net.URLDecoder;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class AuthWidgetActivity extends BaseActivity {
     public static final String EXTRA_PARAM_AUTH_URL = "auth_url";
-    private String p;
-    private String q;
-    private SapiResult r = new SapiResult();
+    public String p;
+    public String q;
+    public SapiResult r = new SapiResult();
 
     private void finishActivity() {
         if (CoreViewRouter.getInstance().getAuthWidgetCallback() != null) {
@@ -25,20 +25,17 @@ public class AuthWidgetActivity extends BaseActivity {
         CoreViewRouter.getInstance().release();
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.sapi2.activity.TitleActivity
     public void init() {
         super.init();
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.sapi2.activity.TitleActivity
     public void onBottomBackBtnClick() {
         super.onBottomBackBtnClick();
         a();
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.sapi2.activity.TitleActivity
     public void onClose() {
         super.onClose();
@@ -51,9 +48,10 @@ public class AuthWidgetActivity extends BaseActivity {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         try {
-            setContentView(a.f.layout_sapi_sdk_webview_with_title_bar);
-            this.p = getIntent().getStringExtra(EXTRA_PARAM_AUTH_URL);
-            this.q = SapiUtils.urlParamsToMap(this.p).get("u");
+            setContentView(f.layout_sapi_sdk_webview_with_title_bar);
+            String stringExtra = getIntent().getStringExtra(EXTRA_PARAM_AUTH_URL);
+            this.p = stringExtra;
+            this.q = SapiUtils.urlParamsToMap(stringExtra).get("u");
             if (!TextUtils.isEmpty(this.p) && !TextUtils.isEmpty(this.q)) {
                 init();
                 setupViews();
@@ -68,17 +66,14 @@ public class AuthWidgetActivity extends BaseActivity {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity
     public void onLeftBtnClick() {
         super.onLeftBtnClick();
-        if (!this.executeSubClassMethod) {
-            return;
+        if (this.executeSubClassMethod) {
+            a();
         }
-        a();
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity
     public void setupViews() {
         super.setupViews();

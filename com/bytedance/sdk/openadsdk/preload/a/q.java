@@ -5,40 +5,16 @@ import java.math.BigInteger;
 public final class q extends l {
 
     /* renamed from: a  reason: collision with root package name */
-    private final Object f5036a;
+    public final Object f30138a;
 
     public q(Boolean bool) {
-        this.f5036a = com.bytedance.sdk.openadsdk.preload.a.b.a.a(bool);
-    }
-
-    public q(Number number) {
-        this.f5036a = com.bytedance.sdk.openadsdk.preload.a.b.a.a(number);
-    }
-
-    public q(String str) {
-        this.f5036a = com.bytedance.sdk.openadsdk.preload.a.b.a.a(str);
-    }
-
-    public boolean n() {
-        return this.f5036a instanceof Boolean;
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.preload.a.l
-    public boolean f() {
-        return n() ? ((Boolean) this.f5036a).booleanValue() : Boolean.parseBoolean(b());
-    }
-
-    public boolean o() {
-        return this.f5036a instanceof Number;
+        this.f30138a = com.bytedance.sdk.openadsdk.preload.a.b.a.a(bool);
     }
 
     @Override // com.bytedance.sdk.openadsdk.preload.a.l
     public Number a() {
-        return this.f5036a instanceof String ? new com.bytedance.sdk.openadsdk.preload.a.b.g((String) this.f5036a) : (Number) this.f5036a;
-    }
-
-    public boolean p() {
-        return this.f5036a instanceof String;
+        Object obj = this.f30138a;
+        return obj instanceof String ? new com.bytedance.sdk.openadsdk.preload.a.b.g((String) this.f30138a) : (Number) obj;
     }
 
     @Override // com.bytedance.sdk.openadsdk.preload.a.l
@@ -47,9 +23,9 @@ public final class q extends l {
             return a().toString();
         }
         if (n()) {
-            return ((Boolean) this.f5036a).toString();
+            return ((Boolean) this.f30138a).toString();
         }
-        return (String) this.f5036a;
+        return (String) this.f30138a;
     }
 
     @Override // com.bytedance.sdk.openadsdk.preload.a.l
@@ -67,51 +43,82 @@ public final class q extends l {
         return o() ? a().intValue() : Integer.parseInt(b());
     }
 
-    public int hashCode() {
-        if (this.f5036a == null) {
-            return 31;
-        }
-        if (a(this)) {
-            long longValue = a().longValue();
-            return (int) (longValue ^ (longValue >>> 32));
-        } else if (this.f5036a instanceof Number) {
-            long doubleToLongBits = Double.doubleToLongBits(a().doubleValue());
-            return (int) (doubleToLongBits ^ (doubleToLongBits >>> 32));
-        } else {
-            return this.f5036a.hashCode();
-        }
-    }
-
     public boolean equals(Object obj) {
-        boolean z = false;
         if (this == obj) {
             return true;
         }
-        if (obj == null || getClass() != obj.getClass()) {
+        if (obj == null || q.class != obj.getClass()) {
             return false;
         }
         q qVar = (q) obj;
-        if (this.f5036a == null) {
-            return qVar.f5036a == null;
+        if (this.f30138a == null) {
+            return qVar.f30138a == null;
         } else if (a(this) && a(qVar)) {
             return a().longValue() == qVar.a().longValue();
-        } else if ((this.f5036a instanceof Number) && (qVar.f5036a instanceof Number)) {
+        } else if ((this.f30138a instanceof Number) && (qVar.f30138a instanceof Number)) {
             double doubleValue = a().doubleValue();
             double doubleValue2 = qVar.a().doubleValue();
-            if (doubleValue == doubleValue2 || (Double.isNaN(doubleValue) && Double.isNaN(doubleValue2))) {
-                z = true;
+            if (doubleValue != doubleValue2) {
+                return Double.isNaN(doubleValue) && Double.isNaN(doubleValue2);
             }
-            return z;
+            return true;
         } else {
-            return this.f5036a.equals(qVar.f5036a);
+            return this.f30138a.equals(qVar.f30138a);
         }
     }
 
-    private static boolean a(q qVar) {
-        if (qVar.f5036a instanceof Number) {
-            Number number = (Number) qVar.f5036a;
+    @Override // com.bytedance.sdk.openadsdk.preload.a.l
+    public boolean f() {
+        if (n()) {
+            return ((Boolean) this.f30138a).booleanValue();
+        }
+        return Boolean.parseBoolean(b());
+    }
+
+    public int hashCode() {
+        long doubleToLongBits;
+        if (this.f30138a == null) {
+            return 31;
+        }
+        if (a(this)) {
+            doubleToLongBits = a().longValue();
+        } else {
+            Object obj = this.f30138a;
+            if (obj instanceof Number) {
+                doubleToLongBits = Double.doubleToLongBits(a().doubleValue());
+            } else {
+                return obj.hashCode();
+            }
+        }
+        return (int) ((doubleToLongBits >>> 32) ^ doubleToLongBits);
+    }
+
+    public boolean n() {
+        return this.f30138a instanceof Boolean;
+    }
+
+    public boolean o() {
+        return this.f30138a instanceof Number;
+    }
+
+    public boolean p() {
+        return this.f30138a instanceof String;
+    }
+
+    public static boolean a(q qVar) {
+        Object obj = qVar.f30138a;
+        if (obj instanceof Number) {
+            Number number = (Number) obj;
             return (number instanceof BigInteger) || (number instanceof Long) || (number instanceof Integer) || (number instanceof Short) || (number instanceof Byte);
         }
         return false;
+    }
+
+    public q(Number number) {
+        this.f30138a = com.bytedance.sdk.openadsdk.preload.a.b.a.a(number);
+    }
+
+    public q(String str) {
+        this.f30138a = com.bytedance.sdk.openadsdk.preload.a.b.a.a(str);
     }
 }

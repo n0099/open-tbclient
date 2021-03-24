@@ -6,167 +6,187 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.baseEditMark.MarkData;
-import com.baidu.tbadk.baseEditMark.a;
 import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.util.aa;
-/* loaded from: classes7.dex */
+import com.baidu.tbadk.core.util.NetWork;
+import d.b.h0.h.a;
+import d.b.i0.v1.g.c;
+/* loaded from: classes4.dex */
 public class MarkModel extends BdBaseModel {
-    private boolean lzM;
-    private MarkData lzN;
-    private a lzO;
-    private a.InterfaceC0560a lzP;
 
-    public void a(a.InterfaceC0560a interfaceC0560a) {
-        this.lzP = interfaceC0560a;
-    }
+    /* renamed from: e  reason: collision with root package name */
+    public boolean f19097e;
 
-    public MarkModel(BaseActivity baseActivity) {
-        super(baseActivity.getPageContext());
-        this.lzM = false;
-        this.lzN = null;
-        this.lzO = null;
-        this.lzP = null;
-        this.lzN = new MarkData();
-    }
+    /* renamed from: f  reason: collision with root package name */
+    public MarkData f19098f;
 
-    public MarkModel(BaseFragmentActivity baseFragmentActivity) {
-        super(baseFragmentActivity.getPageContext());
-        this.lzM = false;
-        this.lzN = null;
-        this.lzO = null;
-        this.lzP = null;
-        this.lzN = new MarkData();
-    }
+    /* renamed from: g  reason: collision with root package name */
+    public a f19099g;
 
-    public boolean bkb() {
-        return this.lzM;
-    }
+    /* renamed from: h  reason: collision with root package name */
+    public a.InterfaceC1064a f19100h;
 
-    public MarkData bke() {
-        return this.lzN;
-    }
+    /* loaded from: classes4.dex */
+    public class a extends BdAsyncTask<Boolean, Integer, Boolean> {
 
-    public void a(MarkData markData) {
-        this.lzN = markData;
-    }
+        /* renamed from: a  reason: collision with root package name */
+        public NetWork f19101a = null;
 
-    public void ja(boolean z) {
-        this.lzM = z;
-    }
+        /* renamed from: b  reason: collision with root package name */
+        public boolean f19102b;
 
-    public String bka() {
-        if (this.lzN != null) {
-            return this.lzN.getPostId();
-        }
-        return null;
-    }
-
-    public void bkd() {
-        if (this.lzO != null) {
-            this.lzO.cancel();
-        }
-        this.lzO = new a(true);
-        this.lzO.setPriority(3);
-        this.lzO.execute(new Boolean[0]);
-    }
-
-    public void bkc() {
-        if (this.lzO != null) {
-            this.lzO.cancel();
-        }
-        this.lzO = new a(false);
-        this.lzO.setPriority(3);
-        this.lzO.execute(new Boolean[0]);
-    }
-
-    /* loaded from: classes7.dex */
-    private class a extends BdAsyncTask<Boolean, Integer, Boolean> {
-        private aa cnM = null;
-        private boolean iEf;
-        private c lzI;
+        /* renamed from: c  reason: collision with root package name */
+        public c f19103c;
 
         public a(boolean z) {
-            this.iEf = true;
-            this.lzI = null;
-            this.iEf = z;
-            this.lzI = new c();
-        }
-
-        /* JADX INFO: Access modifiers changed from: protected */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public void onPreExecute() {
+            this.f19102b = true;
+            this.f19103c = null;
+            this.f19102b = z;
+            this.f19103c = new c();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: a */
+        /* renamed from: b */
         public Boolean doInBackground(Boolean... boolArr) {
-            if (this.iEf) {
-                this.cnM = new aa(TbConfig.SERVER_ADDRESS + TbConfig.MARK_ADDSTORE);
-                com.baidu.tieba.myCollection.baseEditMark.a aVar = new com.baidu.tieba.myCollection.baseEditMark.a();
-                aVar.f(MarkModel.this.lzN);
-                this.cnM.addPostData("data", aVar.cV(0, 1));
+            if (this.f19102b) {
+                this.f19101a = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.MARK_ADDSTORE);
+                d.b.i0.v1.g.a aVar = new d.b.i0.v1.g.a();
+                aVar.j(MarkModel.this.f19098f);
+                this.f19101a.addPostData("data", aVar.E(0, 1));
             } else {
-                this.cnM = new aa(TbConfig.SERVER_ADDRESS + TbConfig.MARK_DELSTORE);
-                this.cnM.addPostData("user_id", MarkModel.this.lzN.getAccount());
-                this.cnM.addPostData("tid", MarkModel.this.lzN.getId());
-                this.cnM.addPostData("fid", MarkModel.this.lzN.getForumId());
+                NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.MARK_DELSTORE);
+                this.f19101a = netWork;
+                netWork.addPostData("user_id", MarkModel.this.f19098f.getAccount());
+                this.f19101a.addPostData("tid", MarkModel.this.f19098f.getId());
+                this.f19101a.addPostData("fid", MarkModel.this.f19098f.getForumId());
             }
-            this.lzI.parserJson(this.cnM.postNetData());
-            boolean z = this.lzI.getErrorCode() == 0;
-            if (this.cnM.bsu().bte().isRequestSuccess() && z) {
-                return true;
+            this.f19103c.c(this.f19101a.postNetData());
+            boolean z = this.f19103c.a() == 0;
+            if (this.f19101a.getNetContext().getResponse().isRequestSuccess() && z) {
+                return Boolean.TRUE;
             }
-            return false;
+            return Boolean.FALSE;
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             super.cancel(true);
-            if (this.cnM != null) {
-                this.cnM.cancelNetConnect();
+            NetWork netWork = this.f19101a;
+            if (netWork != null) {
+                netWork.cancelNetConnect();
             }
-            MarkModel.this.lzO = null;
+            MarkModel.this.f19099g = null;
+        }
+
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void onPreExecute() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Boolean bool) {
             try {
-                if (this.lzI != null) {
-                    com.baidu.tbadk.core.d.a.a("collection", 0L, 0, "add_collection_thread", this.lzI.getErrorCode(), this.lzI.getErrorString(), new Object[0]);
+                if (this.f19103c != null) {
+                    d.b.h0.r.z.a.a("collection", 0L, 0, "add_collection_thread", this.f19103c.a(), this.f19103c.b(), new Object[0]);
                 }
                 if (bool.booleanValue()) {
-                    if (MarkModel.this.lzP != null) {
-                        MarkModel.this.lzP.e(true, this.iEf, null);
+                    if (MarkModel.this.f19100h != null) {
+                        MarkModel.this.f19100h.a(true, this.f19102b, null);
                     }
-                } else if (MarkModel.this.lzP != null) {
-                    if (this.cnM == null || this.cnM.bsu().bte().isRequestSuccess()) {
-                        MarkModel.this.lzP.e(false, this.iEf, this.lzI.getErrorString());
+                } else if (MarkModel.this.f19100h != null) {
+                    if (this.f19101a == null || this.f19101a.getNetContext().getResponse().isRequestSuccess()) {
+                        MarkModel.this.f19100h.a(false, this.f19102b, this.f19103c.b());
                     } else {
-                        MarkModel.this.lzP.e(false, this.iEf, this.cnM.getErrorString());
+                        MarkModel.this.f19100h.a(false, this.f19102b, this.f19101a.getErrorString());
                     }
                 }
-                MarkModel.this.lzO = null;
+                MarkModel.this.f19099g = null;
             } catch (Throwable th) {
                 BdLog.e(th.toString());
             }
         }
     }
 
+    public MarkModel(BaseActivity baseActivity) {
+        super(baseActivity.getPageContext());
+        this.f19097e = false;
+        this.f19098f = null;
+        this.f19099g = null;
+        this.f19100h = null;
+        this.f19098f = new MarkData();
+    }
+
+    public void A(boolean z) {
+        this.f19097e = z;
+    }
+
+    public void B(MarkData markData) {
+        this.f19098f = markData;
+    }
+
+    public void C(a.InterfaceC1064a interfaceC1064a) {
+        this.f19100h = interfaceC1064a;
+    }
+
     @Override // com.baidu.adp.base.BdBaseModel
-    protected boolean LoadData() {
+    public boolean LoadData() {
         return false;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        if (this.lzO != null) {
-            this.lzO.cancel();
+        a aVar = this.f19099g;
+        if (aVar != null) {
+            aVar.cancel();
             return false;
         }
         return false;
+    }
+
+    public void v() {
+        a aVar = this.f19099g;
+        if (aVar != null) {
+            aVar.cancel();
+        }
+        a aVar2 = new a(true);
+        this.f19099g = aVar2;
+        aVar2.setPriority(3);
+        this.f19099g.execute(new Boolean[0]);
+    }
+
+    public void w() {
+        a aVar = this.f19099g;
+        if (aVar != null) {
+            aVar.cancel();
+        }
+        a aVar2 = new a(false);
+        this.f19099g = aVar2;
+        aVar2.setPriority(3);
+        this.f19099g.execute(new Boolean[0]);
+    }
+
+    public boolean x() {
+        return this.f19097e;
+    }
+
+    public MarkData y() {
+        return this.f19098f;
+    }
+
+    public String z() {
+        MarkData markData = this.f19098f;
+        if (markData != null) {
+            return markData.getPostId();
+        }
+        return null;
+    }
+
+    public MarkModel(BaseFragmentActivity baseFragmentActivity) {
+        super(baseFragmentActivity.getPageContext());
+        this.f19097e = false;
+        this.f19098f = null;
+        this.f19099g = null;
+        this.f19100h = null;
+        this.f19098f = new MarkData();
     }
 }

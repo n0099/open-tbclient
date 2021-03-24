@@ -2,14 +2,16 @@ package com.baidu.tieba.location.data;
 
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.squareup.wire.Wire;
+import d.b.i0.m1.c.a;
 import tbclient.GetSuggestionByAddrName.GetSuggestionByAddrNameResIdl;
-/* loaded from: classes7.dex */
+/* loaded from: classes3.dex */
 public class LocationSearchHttpResponsedMessage extends HttpResponsedMessage {
-    private a mLocationData;
+    public a mLocationData;
 
     public LocationSearchHttpResponsedMessage(int i) {
-        super(1003002);
+        super(CmdConfigHttp.CMD_GET_SUGGESTLOCSTION_BY_NAME);
     }
 
     public a getLocationData() {
@@ -21,15 +23,17 @@ public class LocationSearchHttpResponsedMessage extends HttpResponsedMessage {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.message.a
+    @Override // com.baidu.adp.framework.message.HttpResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
     public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         GetSuggestionByAddrNameResIdl getSuggestionByAddrNameResIdl = (GetSuggestionByAddrNameResIdl) new Wire(new Class[0]).parseFrom(bArr, GetSuggestionByAddrNameResIdl.class);
         setError(getSuggestionByAddrNameResIdl.error.errorno.intValue());
         setErrorString(getSuggestionByAddrNameResIdl.error.usermsg);
-        if (getError() == 0) {
-            this.mLocationData = new a();
-            this.mLocationData.a(getSuggestionByAddrNameResIdl.data);
-            BdLog.detailException(null);
+        if (getError() != 0) {
+            return;
         }
+        a aVar = new a();
+        this.mLocationData = aVar;
+        aVar.b(getSuggestionByAddrNameResIdl.data);
+        BdLog.detailException(null);
     }
 }

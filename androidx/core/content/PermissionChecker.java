@@ -9,7 +9,7 @@ import androidx.annotation.RestrictTo;
 import androidx.core.app.AppOpsManagerCompat;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-/* loaded from: classes14.dex */
+/* loaded from: classes.dex */
 public final class PermissionChecker {
     public static final int PERMISSION_DENIED = -1;
     public static final int PERMISSION_DENIED_APP_OP = -2;
@@ -17,11 +17,19 @@ public final class PermissionChecker {
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes14.dex */
+    /* loaded from: classes.dex */
     public @interface PermissionResult {
     }
 
-    private PermissionChecker() {
+    public static int checkCallingOrSelfPermission(@NonNull Context context, @NonNull String str) {
+        return checkPermission(context, str, Binder.getCallingPid(), Binder.getCallingUid(), Binder.getCallingPid() == Process.myPid() ? context.getPackageName() : null);
+    }
+
+    public static int checkCallingPermission(@NonNull Context context, @NonNull String str, @Nullable String str2) {
+        if (Binder.getCallingPid() == Process.myPid()) {
+            return -1;
+        }
+        return checkPermission(context, str, Binder.getCallingPid(), Binder.getCallingUid(), str2);
     }
 
     public static int checkPermission(@NonNull Context context, @NonNull String str, int i, int i2, @Nullable String str2) {
@@ -44,16 +52,5 @@ public final class PermissionChecker {
 
     public static int checkSelfPermission(@NonNull Context context, @NonNull String str) {
         return checkPermission(context, str, Process.myPid(), Process.myUid(), context.getPackageName());
-    }
-
-    public static int checkCallingPermission(@NonNull Context context, @NonNull String str, @Nullable String str2) {
-        if (Binder.getCallingPid() == Process.myPid()) {
-            return -1;
-        }
-        return checkPermission(context, str, Binder.getCallingPid(), Binder.getCallingUid(), str2);
-    }
-
-    public static int checkCallingOrSelfPermission(@NonNull Context context, @NonNull String str) {
-        return checkPermission(context, str, Binder.getCallingPid(), Binder.getCallingUid(), Binder.getCallingPid() == Process.myPid() ? context.getPackageName() : null);
     }
 }

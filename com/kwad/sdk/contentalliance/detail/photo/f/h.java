@@ -3,60 +3,65 @@ package com.kwad.sdk.contentalliance.detail.photo.f;
 import android.view.View;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class h extends com.kwad.sdk.contentalliance.detail.photo.f.a<i> {
-    private long d;
-    private i e;
-    private long f = 0;
 
-    /* loaded from: classes3.dex */
+    /* renamed from: d  reason: collision with root package name */
+    public long f32369d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public i f32370e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public long f32371f = 0;
+
+    /* loaded from: classes6.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private static Set<Long> f5686a = new HashSet();
+        public static Set<Long> f32372a = new HashSet();
 
         public static void a(long j) {
-            f5686a.add(Long.valueOf(j));
+            f32372a.add(Long.valueOf(j));
         }
 
         public static void b(long j) {
-            f5686a.remove(Long.valueOf(j));
+            f32372a.remove(Long.valueOf(j));
         }
 
         public static boolean c(long j) {
-            return f5686a.contains(Long.valueOf(j));
+            return f32372a.contains(Long.valueOf(j));
         }
     }
 
     private long p() {
-        long s = com.kwad.sdk.core.response.b.c.s(this.f5594a.j);
-        long j = s >= 0 ? s : 0L;
-        return a.c(this.d) ? j + 1 : j;
+        long s = com.kwad.sdk.core.response.b.c.s(((com.kwad.sdk.contentalliance.detail.b) this).f32132a.j);
+        if (s < 0) {
+            s = 0;
+        }
+        return a.c(this.f32369d) ? s + 1 : s;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.contentalliance.detail.photo.f.a, com.kwad.sdk.contentalliance.detail.b, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        this.d = com.kwad.sdk.core.response.b.c.z(this.f5594a.j);
-        this.f = p();
-        this.e.a(a.c(this.d) ? 2 : 1, this.f);
-        this.e.setOnClickListener(this);
+        this.f32369d = com.kwad.sdk.core.response.b.c.z(((com.kwad.sdk.contentalliance.detail.b) this).f32132a.j);
+        this.f32371f = p();
+        this.f32370e.a(a.c(this.f32369d) ? 2 : 1, this.f32371f);
+        this.f32370e.setOnClickListener(this);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.mvp.Presenter
     public void b_() {
         super.b_();
-        this.e.setOnClickListener(null);
-        this.e.b();
+        this.f32370e.setOnClickListener(null);
+        this.f32370e.b();
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.contentalliance.detail.photo.f.a, com.kwad.sdk.mvp.Presenter
     public void c() {
         super.c();
-        this.e = f();
+        this.f32370e = f();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -67,37 +72,37 @@ public class h extends com.kwad.sdk.contentalliance.detail.photo.f.a<i> {
     }
 
     public void h() {
-        if (this.e.a()) {
-            com.kwad.sdk.core.report.e.a(this.f5594a.j, 2, 1);
+        if (this.f32370e.a()) {
+            com.kwad.sdk.core.report.e.a(((com.kwad.sdk.contentalliance.detail.b) this).f32132a.j, 2, 1);
             return;
         }
-        this.e.setLikeState(2);
-        i iVar = this.e;
-        long j = this.f + 1;
-        this.f = j;
+        this.f32370e.setLikeState(2);
+        i iVar = this.f32370e;
+        long j = this.f32371f + 1;
+        this.f32371f = j;
         iVar.setLikeCount(j);
-        a.a(this.d);
-        com.kwad.sdk.core.report.e.a(this.f5594a.j, 1, 1);
+        a.a(this.f32369d);
+        com.kwad.sdk.core.report.e.a(((com.kwad.sdk.contentalliance.detail.b) this).f32132a.j, 1, 1);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.e.a()) {
-            this.e.setLikeState(1);
-            i iVar = this.e;
-            long j = this.f - 1;
-            this.f = j;
+        if (this.f32370e.a()) {
+            this.f32370e.setLikeState(1);
+            i iVar = this.f32370e;
+            long j = this.f32371f - 1;
+            this.f32371f = j;
             iVar.setLikeCount(j);
-            a.b(this.d);
-            com.kwad.sdk.core.report.e.d(this.f5594a.j);
+            a.b(this.f32369d);
+            com.kwad.sdk.core.report.e.d(((com.kwad.sdk.contentalliance.detail.b) this).f32132a.j);
             return;
         }
-        this.e.setLikeState(2);
-        i iVar2 = this.e;
-        long j2 = this.f + 1;
-        this.f = j2;
+        this.f32370e.setLikeState(2);
+        i iVar2 = this.f32370e;
+        long j2 = this.f32371f + 1;
+        this.f32371f = j2;
         iVar2.setLikeCount(j2);
-        a.a(this.d);
-        com.kwad.sdk.core.report.e.a(this.f5594a.j, 1, 2);
+        a.a(this.f32369d);
+        com.kwad.sdk.core.report.e.a(((com.kwad.sdk.contentalliance.detail.b) this).f32132a.j, 1, 2);
     }
 }

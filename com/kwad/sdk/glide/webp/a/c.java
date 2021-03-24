@@ -10,20 +10,18 @@ import com.kwad.sdk.glide.c.h;
 import com.kwad.sdk.glide.c.l;
 import com.kwad.sdk.glide.g;
 import com.kwad.sdk.glide.request.f;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class c extends g {
     public c(@NonNull com.kwad.sdk.glide.c cVar, @NonNull h hVar, @NonNull l lVar, @NonNull Context context) {
         super(cVar, hVar, lVar, context);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.glide.g
     public void a(@NonNull f fVar) {
-        if (fVar instanceof a) {
-            super.a(fVar);
-        } else {
-            super.a(new a().b(fVar));
+        if (!(fVar instanceof a)) {
+            fVar = new a().b(fVar);
         }
+        super.a(fVar);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -41,7 +39,7 @@ public class c extends g {
     @CheckResult
     /* renamed from: c */
     public <ResourceType> b<ResourceType> a(@NonNull Class<ResourceType> cls) {
-        return new b<>(this.f6619a, this, cls, this.b);
+        return new b<>(this.f35191a, this, cls, this.f35192b);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

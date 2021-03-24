@@ -5,17 +5,17 @@ import com.kwad.sdk.core.scene.URLPackage;
 import com.kwad.sdk.utils.o;
 import java.io.Serializable;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class SceneImpl implements KsScene, Serializable {
-    private static final long serialVersionUID = 93865491903408451L;
-    private int action;
-    private int adNum;
-    private int adStyle;
+    public static final long serialVersionUID = 93865491903408451L;
+    public int action;
+    public int adNum;
+    public int adStyle;
     public long entryScene;
-    private int height;
-    private long posId;
-    private transient URLPackage urlPackage;
-    private int width;
+    public int height;
+    public long posId;
+    public transient URLPackage urlPackage;
+    public int width;
 
     public SceneImpl() {
         this.adNum = 1;
@@ -63,10 +63,11 @@ public class SceneImpl implements KsScene, Serializable {
     }
 
     public int getPageScene() {
-        if (this.urlPackage == null) {
+        URLPackage uRLPackage = this.urlPackage;
+        if (uRLPackage == null) {
             return 0;
         }
-        return this.urlPackage.page;
+        return uRLPackage.page;
     }
 
     @Override // com.kwad.sdk.api.KsScene

@@ -1,0 +1,27 @@
+package rx.internal.operators;
+
+import h.f;
+import h.o.a.a;
+import h.o.a.m;
+import java.util.concurrent.atomic.AtomicLong;
+/* loaded from: classes7.dex */
+public final class OperatorEagerConcatMap$EagerOuterProducer extends AtomicLong implements f {
+    public static final long serialVersionUID = -657299606803478389L;
+    public final m<?, ?> parent;
+
+    public OperatorEagerConcatMap$EagerOuterProducer(m<?, ?> mVar) {
+        this.parent = mVar;
+    }
+
+    @Override // h.f
+    public void request(long j) {
+        if (j < 0) {
+            throw new IllegalStateException("n >= 0 required but it was " + j);
+        } else if (j <= 0) {
+        } else {
+            a.b(this, j);
+            this.parent.b();
+            throw null;
+        }
+    }
+}

@@ -2,45 +2,44 @@ package com.baidu.fsg.base.utils;
 
 import android.content.Context;
 import android.util.DisplayMetrics;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public final class DisplayUtils {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final float f1551a = 0.5f;
-    private static DisplayMetrics b;
+    public static final float f5360a = 0.5f;
 
-    private DisplayUtils() {
-    }
+    /* renamed from: b  reason: collision with root package name */
+    public static DisplayMetrics f5361b;
 
-    public static int dip2px(Context context, float f) {
-        return (int) ((context.getResources().getDisplayMetrics().density * f) + 0.5f);
-    }
-
-    public static int px2dip(Context context, float f) {
-        return (int) ((f / context.getResources().getDisplayMetrics().density) + 0.5f);
-    }
-
-    public static int px2sp(float f, float f2) {
-        return (int) ((f / f2) + 0.5f);
-    }
-
-    public static int sp2px(float f, float f2) {
-        return (int) ((f * f2) + 0.5f);
-    }
-
-    private static void a(Context context) {
-        if (b == null) {
-            b = context.getResources().getDisplayMetrics();
+    public static void a(Context context) {
+        if (f5361b == null) {
+            f5361b = context.getResources().getDisplayMetrics();
         }
     }
 
-    public static int getDisplayWidth(Context context) {
-        a(context);
-        return b.widthPixels;
+    public static int dip2px(Context context, float f2) {
+        return (int) ((f2 * context.getResources().getDisplayMetrics().density) + 0.5f);
     }
 
     public static int getDisplayHeight(Context context) {
         a(context);
-        return b.heightPixels;
+        return f5361b.heightPixels;
+    }
+
+    public static int getDisplayWidth(Context context) {
+        a(context);
+        return f5361b.widthPixels;
+    }
+
+    public static int px2dip(Context context, float f2) {
+        return (int) ((f2 / context.getResources().getDisplayMetrics().density) + 0.5f);
+    }
+
+    public static int px2sp(float f2, float f3) {
+        return (int) ((f2 / f3) + 0.5f);
+    }
+
+    public static int sp2px(float f2, float f3) {
+        return (int) ((f2 * f3) + 0.5f);
     }
 }

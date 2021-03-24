@@ -4,75 +4,95 @@ import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
 import java.nio.ShortBuffer;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class KwaiSphereMesh extends KwaiBaseMesh {
-    private static final String TAG = "KwaiSphereMesh";
-    private static KwaiMesh kwaiMesh = new KwaiMesh();
+    public static final String TAG = "KwaiSphereMesh";
+    public static KwaiMesh kwaiMesh = new KwaiMesh();
 
     public static void generateSphere() {
         generateSphere(18.0f, 150);
     }
 
-    private static void generateSphere(float f, int i) {
+    public static void generateSphere(float f2, int i) {
+        float f3;
         int i2 = i / 2;
-        int i3 = (i2 + 1) * (i + 1);
-        float f2 = 6.2831855f / i;
-        float[] fArr = new float[i3 * 3];
-        float[] fArr2 = new float[i3 * 2];
-        short[] sArr = new short[i2 * i * 6 * 6];
-        float f3 = 2.0f / i;
-        float f4 = 1.0f / i;
-        int i4 = 0;
-        while (true) {
-            int i5 = i4;
-            if (i5 >= i2 + 1) {
-                break;
-            }
-            for (int i6 = 0; i6 < i + 1; i6++) {
-                int i7 = (((i + 1) * i5) + i6) * 3;
-                if (fArr != null) {
-                    fArr[i7 + 0] = (-f) * ((float) Math.sin(i5 * f2)) * ((float) Math.sin(i6 * f2));
-                    fArr[i7 + 1] = ((float) Math.sin(1.5707964f + (i5 * f2))) * f;
-                    fArr[i7 + 2] = ((float) Math.sin(i5 * f2)) * f * ((float) Math.cos(i6 * f2));
-                }
-                if (fArr2 != null) {
-                    int i8 = (((i + 1) * i5) + i6) * 2;
-                    fArr2[i8 + 0] = i6 / i;
-                    fArr2[i8 + 1] = i5 / i2;
-                }
-            }
-            i4 = i5 + 1;
-        }
+        int i3 = i2 + 1;
+        int i4 = i + 1;
+        int i5 = i3 * i4;
+        float f4 = i;
+        float f5 = 6.2831855f / f4;
+        int i6 = i5 * 3;
+        float[] fArr = new float[i6];
+        int i7 = i5 * 2;
+        float[] fArr2 = new float[i7];
+        int i8 = i2 * i * 6 * 6;
+        short[] sArr = new short[i8];
         int i9 = 0;
-        if (sArr != null) {
-            for (int i10 = 0; i10 < i2; i10++) {
-                for (int i11 = 0; i11 < i; i11++) {
-                    int i12 = i9 + 1;
-                    sArr[i9] = (short) (((i + 1) * i10) + i11);
-                    int i13 = i12 + 1;
-                    sArr[i12] = (short) (((i10 + 1) * (i + 1)) + i11);
-                    int i14 = i13 + 1;
-                    sArr[i13] = (short) (((i10 + 1) * (i + 1)) + i11 + 1);
-                    int i15 = i14 + 1;
-                    sArr[i14] = (short) (((i + 1) * i10) + i11);
-                    int i16 = i15 + 1;
-                    sArr[i15] = (short) (((i10 + 1) * (i + 1)) + i11 + 1);
-                    i9 = i16 + 1;
-                    sArr[i16] = (short) (((i + 1) * i10) + i11 + 1);
-                }
+        while (i9 < i3) {
+            int i10 = 0;
+            while (i10 < i4) {
+                int i11 = (i9 * i4) + i10;
+                int i12 = i11 * 3;
+                int i13 = i3;
+                int i14 = i7;
+                double d2 = i9 * f5;
+                double d3 = i10 * f5;
+                fArr[i12 + 0] = (-f2) * ((float) Math.sin(d2)) * ((float) Math.sin(d3));
+                fArr[i12 + 1] = ((float) Math.sin(f3 + 1.5707964f)) * f2;
+                fArr[i12 + 2] = ((float) Math.sin(d2)) * f2 * ((float) Math.cos(d3));
+                int i15 = i11 * 2;
+                fArr2[i15 + 0] = i10 / f4;
+                i2 = i2;
+                fArr2[i15 + 1] = i9 / i2;
+                i10++;
+                i4 = i4;
+                i3 = i13;
+                i7 = i14;
+                i8 = i8;
+                f5 = f5;
+                i6 = i6;
+            }
+            i9++;
+            i6 = i6;
+        }
+        int i16 = i7;
+        int i17 = i8;
+        int i18 = i6;
+        int i19 = i4;
+        int i20 = 0;
+        for (int i21 = 0; i21 < i2; i21++) {
+            int i22 = 0;
+            while (i22 < i) {
+                int i23 = i20 + 1;
+                int i24 = i21 * i19;
+                short s = (short) (i24 + i22);
+                sArr[i20] = s;
+                int i25 = i23 + 1;
+                int i26 = (i21 + 1) * i19;
+                sArr[i23] = (short) (i26 + i22);
+                int i27 = i25 + 1;
+                i22++;
+                short s2 = (short) (i26 + i22);
+                sArr[i25] = s2;
+                int i28 = i27 + 1;
+                sArr[i27] = s;
+                int i29 = i28 + 1;
+                sArr[i28] = s2;
+                i20 = i29 + 1;
+                sArr[i29] = (short) (i24 + i22);
             }
         }
-        ByteBuffer allocateDirect = ByteBuffer.allocateDirect(fArr.length * 4);
+        ByteBuffer allocateDirect = ByteBuffer.allocateDirect(i18 * 4);
         allocateDirect.order(ByteOrder.nativeOrder());
         FloatBuffer asFloatBuffer = allocateDirect.asFloatBuffer();
         asFloatBuffer.put(fArr);
         asFloatBuffer.position(0);
-        ByteBuffer allocateDirect2 = ByteBuffer.allocateDirect(fArr2.length * 4);
+        ByteBuffer allocateDirect2 = ByteBuffer.allocateDirect(i16 * 4);
         allocateDirect2.order(ByteOrder.nativeOrder());
         FloatBuffer asFloatBuffer2 = allocateDirect2.asFloatBuffer();
         asFloatBuffer2.put(fArr2);
         asFloatBuffer2.position(0);
-        ByteBuffer allocateDirect3 = ByteBuffer.allocateDirect(sArr.length * 2);
+        ByteBuffer allocateDirect3 = ByteBuffer.allocateDirect(i17 * 2);
         allocateDirect3.order(ByteOrder.nativeOrder());
         ShortBuffer asShortBuffer = allocateDirect3.asShortBuffer();
         asShortBuffer.put(sArr);
@@ -82,10 +102,9 @@ public class KwaiSphereMesh extends KwaiBaseMesh {
         kwaiMesh.setTexCoordinateBuffer(1, asFloatBuffer2);
         kwaiMesh.setVerticesBuffer(0, asFloatBuffer);
         kwaiMesh.setVerticesBuffer(1, asFloatBuffer);
-        kwaiMesh.setNumIndices(sArr.length);
+        kwaiMesh.setNumIndices(i17);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwai.player.vr.KwaiBaseMesh
     public void genKwaiMesh() {
         generateSphere();

@@ -5,30 +5,46 @@ import android.widget.TextView;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tieba.R;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class RelateTopicForumItemHolder extends TypeAdapter.ViewHolder {
-    public int aln;
-    public View hjV;
-    public TextView hoo;
-    public TextView jTl;
-    public TextView jTm;
-    public BarImageView kyo;
-    public TextView kyp;
-    public TextView kyq;
-    public TextView kyr;
-    public TextView kys;
+
+    /* renamed from: a  reason: collision with root package name */
+    public BarImageView f17601a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public TextView f17602b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public TextView f17603c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public TextView f17604d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public TextView f17605e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public TextView f17606f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public TextView f17607g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public TextView f17608h;
+    public View i;
+    public int j;
 
     public RelateTopicForumItemHolder(View view) {
         super(view);
-        this.aln = 3;
-        this.kyp = (TextView) view.findViewById(R.id.forum_name);
-        this.kyo = (BarImageView) view.findViewById(R.id.forum_avatar);
-        this.kyr = (TextView) view.findViewById(R.id.member_num_label);
-        this.kyq = (TextView) view.findViewById(R.id.post_num_label);
-        this.jTm = (TextView) view.findViewById(R.id.member_num);
-        this.jTl = (TextView) view.findViewById(R.id.post_num);
-        this.hoo = (TextView) view.findViewById(R.id.forum_content);
-        this.kys = (TextView) view.findViewById(R.id.forum_add_love);
-        this.hjV = view.findViewById(R.id.forum_item_divider);
+        this.j = 3;
+        this.f17602b = (TextView) view.findViewById(R.id.forum_name);
+        this.f17601a = (BarImageView) view.findViewById(R.id.forum_avatar);
+        this.f17604d = (TextView) view.findViewById(R.id.member_num_label);
+        this.f17603c = (TextView) view.findViewById(R.id.post_num_label);
+        this.f17606f = (TextView) view.findViewById(R.id.member_num);
+        this.f17605e = (TextView) view.findViewById(R.id.post_num);
+        this.f17607g = (TextView) view.findViewById(R.id.forum_content);
+        this.f17608h = (TextView) view.findViewById(R.id.forum_add_love);
+        this.i = view.findViewById(R.id.forum_item_divider);
     }
 }

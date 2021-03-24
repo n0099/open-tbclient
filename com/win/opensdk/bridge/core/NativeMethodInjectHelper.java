@@ -7,44 +7,56 @@ import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes14.dex */
+/* loaded from: classes7.dex */
 public class NativeMethodInjectHelper {
-    public static volatile NativeMethodInjectHelper c;
+
+    /* renamed from: c  reason: collision with root package name */
+    public static volatile NativeMethodInjectHelper f39900c;
 
     /* renamed from: a  reason: collision with root package name */
-    public ArrayMap f8129a = new ArrayMap();
-    public List b = new ArrayList();
+    public ArrayMap f39901a = new ArrayMap();
 
-    public static NativeMethodInjectHelper eJh() {
-        NativeMethodInjectHelper nativeMethodInjectHelper = c;
+    /* renamed from: b  reason: collision with root package name */
+    public List f39902b = new ArrayList();
+
+    public static NativeMethodInjectHelper getInstance() {
+        NativeMethodInjectHelper nativeMethodInjectHelper = f39900c;
         if (nativeMethodInjectHelper == null) {
             synchronized (NativeMethodInjectHelper.class) {
-                nativeMethodInjectHelper = c;
+                nativeMethodInjectHelper = f39900c;
                 if (nativeMethodInjectHelper == null) {
                     nativeMethodInjectHelper = new NativeMethodInjectHelper();
-                    c = nativeMethodInjectHelper;
+                    f39900c = nativeMethodInjectHelper;
                 }
             }
         }
         return nativeMethodInjectHelper;
     }
 
-    public NativeMethodInjectHelper E(Class cls) {
+    public NativeMethodInjectHelper clazz(Class cls) {
         if (cls != null) {
-            this.b.add(cls);
+            this.f39902b.add(cls);
             return this;
         }
         throw new NullPointerException("NativeMethodInjectHelper:The clazz can not be null!");
     }
 
-    public void eJi() {
+    public Method findMethod(String str, String str2) {
+        ArrayMap arrayMap;
+        if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || !this.f39901a.containsKey(str) || (arrayMap = (ArrayMap) this.f39901a.get(str)) == null || !arrayMap.containsKey(str2)) {
+            return null;
+        }
+        return (Method) arrayMap.get(str2);
+    }
+
+    public void inject() {
         Method[] declaredMethods;
         Class<?>[] parameterTypes;
-        int size = this.b.size();
+        int size = this.f39902b.size();
         if (size != 0) {
-            this.f8129a.clear();
+            this.f39901a.clear();
             for (int i = 0; i < size; i++) {
-                Class cls = (Class) this.b.get(i);
+                Class cls = (Class) this.f39902b.get(i);
                 if (cls != null) {
                     ArrayMap arrayMap = new ArrayMap();
                     for (Method method : cls.getDeclaredMethods()) {
@@ -53,26 +65,10 @@ public class NativeMethodInjectHelper {
                             arrayMap.put(method.getName(), method);
                         }
                     }
-                    this.f8129a.put(cls.getSimpleName(), arrayMap);
+                    this.f39901a.put(cls.getSimpleName(), arrayMap);
                 }
             }
-            this.b.clear();
+            this.f39902b.clear();
         }
-    }
-
-    public Method hE(String str, String str2) {
-        if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
-            return null;
-        }
-        if (this.f8129a.containsKey(str)) {
-            ArrayMap arrayMap = (ArrayMap) this.f8129a.get(str);
-            if (arrayMap == null) {
-                return null;
-            }
-            if (arrayMap.containsKey(str2)) {
-                return (Method) arrayMap.get(str2);
-            }
-        }
-        return null;
     }
 }

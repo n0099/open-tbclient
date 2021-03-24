@@ -1,14 +1,22 @@
 package com.baidu.bdhttpdns;
 
 import java.util.ArrayList;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public class BDHttpDnsResult {
-    private ResolveType afW;
-    private final ResolveStatus afX;
-    private ArrayList<String> c;
-    private ArrayList<String> d;
 
-    /* loaded from: classes5.dex */
+    /* renamed from: a  reason: collision with root package name */
+    public ResolveType f4275a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public final ResolveStatus f4276b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public ArrayList<String> f4277c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public ArrayList<String> f4278d;
+
+    /* loaded from: classes2.dex */
     public enum ResolveStatus {
         BDHttpDnsResolveOK,
         BDHttpDnsInputError,
@@ -16,7 +24,7 @@ public class BDHttpDnsResult {
         BDHttpDnsResolveErrorDnsResolve
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes2.dex */
     public enum ResolveType {
         RESOLVE_NONE,
         RESOLVE_NONEED,
@@ -27,31 +35,31 @@ public class BDHttpDnsResult {
     }
 
     public BDHttpDnsResult(ResolveStatus resolveStatus) {
-        this.afW = ResolveType.RESOLVE_NONE;
-        this.afX = resolveStatus;
+        this.f4275a = ResolveType.RESOLVE_NONE;
+        this.f4276b = resolveStatus;
     }
 
     public BDHttpDnsResult(ResolveType resolveType, ResolveStatus resolveStatus, ArrayList<String> arrayList, ArrayList<String> arrayList2) {
-        this.afW = ResolveType.RESOLVE_NONE;
-        this.afW = resolveType;
-        this.afX = resolveStatus;
-        this.c = arrayList;
-        this.d = arrayList2;
+        this.f4275a = ResolveType.RESOLVE_NONE;
+        this.f4275a = resolveType;
+        this.f4276b = resolveStatus;
+        this.f4277c = arrayList;
+        this.f4278d = arrayList2;
     }
 
-    public ResolveType sl() {
-        return this.afW;
+    public ArrayList<String> a() {
+        return this.f4277c;
     }
 
-    public ResolveStatus sm() {
-        return this.afX;
+    public ArrayList<String> b() {
+        return this.f4278d;
     }
 
-    public ArrayList<String> sn() {
-        return this.c;
+    public ResolveStatus c() {
+        return this.f4276b;
     }
 
-    public ArrayList<String> so() {
-        return this.d;
+    public ResolveType d() {
+        return this.f4275a;
     }
 }

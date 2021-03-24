@@ -3,31 +3,27 @@ package com.baidu.sofire.mutiprocess;
 import android.os.IBinder;
 import android.os.Parcel;
 import android.os.Parcelable;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class BinderHolder implements Parcelable {
     public static final Parcelable.Creator<BinderHolder> CREATOR = new Parcelable.Creator<BinderHolder>() { // from class: com.baidu.sofire.mutiprocess.BinderHolder.1
-        /* JADX DEBUG: Return type fixed from 'java.lang.Object[]' to match base method */
-        @Override // android.os.Parcelable.Creator
-        public final /* bridge */ /* synthetic */ BinderHolder[] newArray(int i) {
-            return new BinderHolder[i];
-        }
-
         /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
         @Override // android.os.Parcelable.Creator
         public final /* synthetic */ BinderHolder createFromParcel(Parcel parcel) {
             return new BinderHolder(parcel);
         }
+
+        /* JADX DEBUG: Return type fixed from 'java.lang.Object[]' to match base method */
+        @Override // android.os.Parcelable.Creator
+        public final /* bridge */ /* synthetic */ BinderHolder[] newArray(int i) {
+            return new BinderHolder[i];
+        }
     };
 
     /* renamed from: a  reason: collision with root package name */
-    public IBinder f3568a;
+    public IBinder f11849a;
 
     public BinderHolder(IBinder iBinder) {
-        this.f3568a = iBinder;
-    }
-
-    protected BinderHolder(Parcel parcel) {
-        this.f3568a = parcel.readStrongBinder();
+        this.f11849a = iBinder;
     }
 
     @Override // android.os.Parcelable
@@ -37,6 +33,10 @@ public class BinderHolder implements Parcelable {
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeStrongBinder(this.f3568a);
+        parcel.writeStrongBinder(this.f11849a);
+    }
+
+    public BinderHolder(Parcel parcel) {
+        this.f11849a = parcel.readStrongBinder();
     }
 }

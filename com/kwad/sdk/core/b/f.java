@@ -2,7 +2,6 @@ package com.kwad.sdk.core.b;
 
 import android.content.Context;
 import android.text.TextUtils;
-import com.baidu.webkit.internal.ETAG;
 import com.kwad.sdk.KsAdSDKImpl;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -10,15 +9,15 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public final class f {
     public static String a(String str) {
-        String b;
+        String n;
         Context context = KsAdSDKImpl.get().getContext();
-        return (context == null || (b = com.yxcorp.kuaishou.addfp.a.b(context, str)) == null) ? "" : b;
+        return (context == null || (n = d.q.a.a.b.n(context, str)) == null) ? "" : n;
     }
 
-    private static List<String> a(Map<String, String> map) {
+    public static List<String> a(Map<String, String> map) {
         ArrayList arrayList = new ArrayList(map.size());
         for (Map.Entry<String, String> entry : map.entrySet()) {
             String key = entry.getKey();
@@ -28,8 +27,8 @@ public final class f {
         }
         try {
             Collections.sort(arrayList);
-        } catch (Exception e) {
-            com.kwad.sdk.core.d.a.a(e);
+        } catch (Exception e2) {
+            com.kwad.sdk.core.d.a.a(e2);
         }
         return arrayList;
     }
@@ -38,15 +37,16 @@ public final class f {
         map.put("Ks-Sig1", a(b(str, new HashMap(), jSONObject)));
     }
 
-    private static String b(String str, Map<String, String> map, JSONObject jSONObject) {
-        return str + ETAG.ITEM_SEPARATOR + TextUtils.join(ETAG.ITEM_SEPARATOR, a(map)) + ETAG.ITEM_SEPARATOR + jSONObject.toString();
+    public static String b(String str, Map<String, String> map, JSONObject jSONObject) {
+        List<String> a2 = a(map);
+        return str + "&" + TextUtils.join("&", a2) + "&" + jSONObject.toString();
     }
 
-    private static boolean b(String str) {
+    public static boolean b(String str) {
         return TextUtils.isEmpty(str) || str.startsWith("__");
     }
 
-    private static String c(String str) {
+    public static String c(String str) {
         return str == null ? "" : str;
     }
 }

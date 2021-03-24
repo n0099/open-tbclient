@@ -2,13 +2,13 @@ package com.baidu.android.imsdk.internal;
 
 import android.content.Context;
 import com.baidu.android.imsdk.utils.Utility;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class IMSettings {
     public static final int DEBUG_MODE = 1;
     public static final int INVALIDE_MODE = -1;
     public static final int UNDEBUG_MODE = 0;
-    private static Context sContext = null;
-    private static int mDebugMode = -1;
+    public static int mDebugMode = -1;
+    public static Context sContext;
 
     public static boolean enableDebugMode(Context context, boolean z) {
         if (z) {
@@ -17,7 +17,7 @@ public class IMSettings {
             mDebugMode = 0;
         }
         sContext = context;
-        Utility.writeIntData(sContext, Constants.SETTING_DEBUG_MODE, mDebugMode);
+        Utility.writeIntData(context, Constants.SETTING_DEBUG_MODE, mDebugMode);
         return true;
     }
 
@@ -26,15 +26,17 @@ public class IMSettings {
     }
 
     public static boolean isDebugMode() {
-        if (mDebugMode != -1) {
-            return mDebugMode == 1;
-        } else if (sContext == null) {
-            return false;
-        } else {
-            int readIntData = Utility.readIntData(sContext, Constants.SETTING_DEBUG_MODE, 0);
-            mDebugMode = readIntData;
-            return readIntData == 1;
+        int i = mDebugMode;
+        if (i != -1) {
+            return i == 1;
         }
+        Context context = sContext;
+        if (context == null) {
+            return false;
+        }
+        int readIntData = Utility.readIntData(context, Constants.SETTING_DEBUG_MODE, 0);
+        mDebugMode = readIntData;
+        return readIntData == 1;
     }
 
     public static void setContext(Context context) {

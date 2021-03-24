@@ -4,30 +4,31 @@ import com.baidu.mapapi.BMapManager;
 import com.baidu.mapapi.common.BaiduMapSDKException;
 import com.baidu.platform.comjni.map.cloud.ICloudCenter;
 import com.baidu.platform.comjni.map.cloud.a;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class CloudManager {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f1996a = CloudManager.class.getSimpleName();
-    private static CloudManager b;
-    private ICloudCenter c;
+    public static final String f6757a = "CloudManager";
 
-    private CloudManager() {
-    }
+    /* renamed from: b  reason: collision with root package name */
+    public static CloudManager f6758b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public ICloudCenter f6759c;
 
     private boolean a(BaseCloudSearchInfo baseCloudSearchInfo) {
         String a2;
         if (baseCloudSearchInfo == null || (a2 = baseCloudSearchInfo.a()) == null || a2.equals("")) {
             return false;
         }
-        return this.c.a(a2);
+        return this.f6759c.a(a2);
     }
 
     public static CloudManager getInstance() {
-        if (b == null) {
-            b = new CloudManager();
+        if (f6758b == null) {
+            f6758b = new CloudManager();
         }
-        return b;
+        return f6758b;
     }
 
     public boolean boundSearch(BoundSearchInfo boundSearchInfo) {
@@ -35,8 +36,8 @@ public class CloudManager {
     }
 
     public void destroy() {
-        if (this.c != null) {
-            this.c = null;
+        if (this.f6759c != null) {
+            this.f6759c = null;
             BMapManager.destroy();
         }
     }
@@ -46,21 +47,22 @@ public class CloudManager {
         if (detailSearchInfo == null || (a2 = detailSearchInfo.a()) == null || a2.equals("")) {
             return false;
         }
-        return this.c.b(a2);
+        return this.f6759c.b(a2);
     }
 
     public void init() {
-        if (this.c == null) {
+        if (this.f6759c == null) {
             BMapManager.init();
-            this.c = new a();
+            this.f6759c = new a();
         }
     }
 
     public void init(CloudListener cloudListener) {
-        if (this.c == null) {
+        if (this.f6759c == null) {
             BMapManager.init();
-            this.c = new a();
-            this.c.a(cloudListener);
+            a aVar = new a();
+            this.f6759c = aVar;
+            aVar.a(cloudListener);
         }
     }
 
@@ -73,13 +75,14 @@ public class CloudManager {
     }
 
     public void registerListener(CloudListener cloudListener) {
-        if (this.c == null) {
+        ICloudCenter iCloudCenter = this.f6759c;
+        if (iCloudCenter == null) {
             return;
         }
         if (cloudListener == null) {
             throw new BaiduMapSDKException("the CloudListener should not be null.");
         }
-        this.c.a(cloudListener);
+        iCloudCenter.a(cloudListener);
     }
 
     public boolean rgcSearch(CloudRgcInfo cloudRgcInfo) {
@@ -87,13 +90,14 @@ public class CloudManager {
         if (cloudRgcInfo == null || (a2 = cloudRgcInfo.a()) == null || a2.equals("")) {
             return false;
         }
-        return this.c.c(a2);
+        return this.f6759c.c(a2);
     }
 
     public void unregisterListener() {
-        if (this.c == null) {
+        ICloudCenter iCloudCenter = this.f6759c;
+        if (iCloudCenter == null) {
             return;
         }
-        this.c.a((CloudListener) null);
+        iCloudCenter.a((CloudListener) null);
     }
 }

@@ -1,7 +1,7 @@
 package aegon.chrome.net.impl;
 
 import aegon.chrome.net.UrlRequest;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public final class VersionSafeCallbacks$UrlRequestStatusListener extends UrlRequest.StatusListener {
     public final UrlRequest.StatusListener mWrappedListener;
 

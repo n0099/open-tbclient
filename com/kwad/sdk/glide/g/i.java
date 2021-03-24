@@ -2,13 +2,17 @@ package com.kwad.sdk.glide.g;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class i {
 
     /* renamed from: a  reason: collision with root package name */
-    private Class<?> f6636a;
-    private Class<?> b;
-    private Class<?> c;
+    public Class<?> f35225a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public Class<?> f35226b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public Class<?> f35227c;
 
     public i() {
     }
@@ -18,27 +22,29 @@ public class i {
     }
 
     public void a(@NonNull Class<?> cls, @NonNull Class<?> cls2, @Nullable Class<?> cls3) {
-        this.f6636a = cls;
-        this.b = cls2;
-        this.c = cls3;
+        this.f35225a = cls;
+        this.f35226b = cls2;
+        this.f35227c = cls3;
     }
 
     public boolean equals(Object obj) {
         if (this == obj) {
             return true;
         }
-        if (obj == null || getClass() != obj.getClass()) {
+        if (obj == null || i.class != obj.getClass()) {
             return false;
         }
         i iVar = (i) obj;
-        return this.f6636a.equals(iVar.f6636a) && this.b.equals(iVar.b) && k.a(this.c, iVar.c);
+        return this.f35225a.equals(iVar.f35225a) && this.f35226b.equals(iVar.f35226b) && k.a(this.f35227c, iVar.f35227c);
     }
 
     public int hashCode() {
-        return (this.c != null ? this.c.hashCode() : 0) + (((this.f6636a.hashCode() * 31) + this.b.hashCode()) * 31);
+        int hashCode = ((this.f35225a.hashCode() * 31) + this.f35226b.hashCode()) * 31;
+        Class<?> cls = this.f35227c;
+        return hashCode + (cls != null ? cls.hashCode() : 0);
     }
 
     public String toString() {
-        return "MultiClassKey{first=" + this.f6636a + ", second=" + this.b + '}';
+        return "MultiClassKey{first=" + this.f35225a + ", second=" + this.f35226b + '}';
     }
 }

@@ -8,166 +8,191 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.live.tbadk.core.util.TiebaInitialize;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.au;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.widget.LineCountNotifyTextView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.lego.card.model.BaseLegoCardInfo;
 import com.baidu.tieba.lego.card.model.OnePicInfoCard;
-/* loaded from: classes8.dex */
+import d.b.i0.c3.n0.d;
+import d.b.i0.i1.i;
+import d.b.i0.i1.o.f;
+/* loaded from: classes4.dex */
 public class OnePicInfoCardView extends BaseCardView<OnePicInfoCard> {
-    private TbImageView gHu;
-    private TextView iEj;
-    private LinearLayout lcl;
-    private ViewGroup lgp;
-    private LineCountNotifyTextView lgq;
-    private TextView lgr;
-    private LinearLayout lgs;
-    private TbImageView lgt;
-    private TextView lgu;
-    private TbImageView lgv;
-    private TextView lgw;
-    private int lgx;
-    private int lgy;
+    public TbImageView A;
+    public TextView B;
+    public int C;
+    public int D;
+    public ViewGroup r;
+    public TbImageView s;
+    public LineCountNotifyTextView t;
+    public TextView u;
+    public TextView v;
+    public LinearLayout w;
+    public TbImageView x;
+    public TextView y;
+    public LinearLayout z;
+
+    /* loaded from: classes4.dex */
+    public class a implements LineCountNotifyTextView.a {
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ OnePicInfoCard f18657a;
+
+        public a(OnePicInfoCard onePicInfoCard) {
+            this.f18657a = onePicInfoCard;
+        }
+
+        @Override // com.baidu.tbadk.widget.LineCountNotifyTextView.a
+        public void a() {
+            int lineCount = OnePicInfoCardView.this.t.getLineCount();
+            if (OnePicInfoCardView.this.D != lineCount) {
+                if (lineCount == 1) {
+                    OnePicInfoCardView.this.u.setMaxLines(2);
+                } else {
+                    OnePicInfoCardView.this.u.setMaxLines(1);
+                }
+            }
+            OnePicInfoCardView.this.D = lineCount;
+            OnePicInfoCardView.this.u.setText(this.f18657a.getDesc());
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class b implements View.OnClickListener {
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ OnePicInfoCard f18659e;
+
+        public b(OnePicInfoCard onePicInfoCard) {
+            this.f18659e = onePicInfoCard;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            OnePicInfoCardView.this.q(this.f18659e);
+        }
+    }
 
     public OnePicInfoCardView(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.lgx = 0;
-        this.lgy = -1;
-    }
-
-    @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView
-    protected View dce() {
-        this.lgp = (ViewGroup) LayoutInflater.from(getContext()).inflate(R.layout.card_one_pic_info, (ViewGroup) null);
-        this.gHu = (TbImageView) z(this.lgp, R.id.img);
-        this.lgq = (LineCountNotifyTextView) z(this.lgp, R.id.one_title);
-        this.lgr = (TextView) z(this.lgp, R.id.discription);
-        View view = (View) z(this.lgp, R.id.hot_thread_comment);
-        this.iEj = (TextView) z(view, R.id.hot_thread_line_tag);
-        this.lgs = (LinearLayout) z(view, R.id.ll_left);
-        this.lgt = (TbImageView) z(view, R.id.iconLeft);
-        this.lgu = (TextView) z(view, R.id.textLeft);
-        this.lcl = (LinearLayout) z(view, R.id.ll_right);
-        this.lgv = (TbImageView) z(view, R.id.iconRight);
-        this.lgw = (TextView) z(view, R.id.textRight);
-        return this.lgp;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView
-    public void a(OnePicInfoCard onePicInfoCard, int i) {
-        com.baidu.tbadk.r.a.a(this.eWx, getRootView());
-        ap.setBackgroundResource(this.lgp, R.drawable.addresslist_item_bg);
-        setTagBg(onePicInfoCard);
-        ap.setViewTextColor(this.iEj, R.color.CAM_X0111);
-        ap.setViewTextColor(this.lgu, R.color.CAM_X0110);
-        ap.setViewTextColor(this.lgw, R.color.CAM_X0110);
-        if (this.lgx != 0 && this.lgq != null) {
-            ap.setViewTextColor(this.lgq, this.lgx, 1);
-        }
+        this.C = 0;
+        this.D = -1;
     }
 
     private void setTagBg(OnePicInfoCard onePicInfoCard) {
-        if (this.iEj != null) {
-            if (onePicInfoCard != null && !com.baidu.tieba.lego.card.c.b.DW(onePicInfoCard.gettBgColor()) && !com.baidu.tieba.lego.card.c.b.DW(onePicInfoCard.gettBgColorN())) {
-                this.iEj.setBackgroundColor(isNightMode() ? onePicInfoCard.gettBgColorN() : onePicInfoCard.gettBgColor());
-            } else {
-                ap.setBackgroundResource(this.iEj, R.drawable.label_bg_tie_n);
-            }
+        if (this.v == null) {
+            return;
+        }
+        if (onePicInfoCard != null && !d.b.i0.i1.o.k.b.a(onePicInfoCard.gettBgColor()) && !d.b.i0.i1.o.k.b.a(onePicInfoCard.gettBgColorN())) {
+            this.v.setBackgroundColor(w() ? onePicInfoCard.gettBgColorN() : onePicInfoCard.gettBgColor());
+        } else {
+            SkinManager.setBackgroundResource(this.v, R.drawable.label_bg_tie_n);
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView
-    /* renamed from: a */
-    public void d(final OnePicInfoCard onePicInfoCard) {
-        String str = null;
-        if (!TextUtils.isEmpty(onePicInfoCard.getPic())) {
-            str = onePicInfoCard.getPic();
-        }
-        this.gHu.startLoad(str, 10, false);
-        if (!StringUtils.isNull(onePicInfoCard.getCardTitle())) {
-            this.lgq.setText(onePicInfoCard.getCardTitle());
-            this.lgq.setGetLineCountCallback(new LineCountNotifyTextView.a() { // from class: com.baidu.tieba.lego.card.view.OnePicInfoCardView.1
-                @Override // com.baidu.tbadk.widget.LineCountNotifyTextView.a
-                public void bGf() {
-                    int lineCount = OnePicInfoCardView.this.lgq.getLineCount();
-                    if (OnePicInfoCardView.this.lgy != lineCount) {
-                        if (lineCount == 1) {
-                            OnePicInfoCardView.this.lgr.setMaxLines(2);
-                        } else {
-                            OnePicInfoCardView.this.lgr.setMaxLines(1);
-                        }
-                    }
-                    OnePicInfoCardView.this.lgy = lineCount;
-                    OnePicInfoCardView.this.lgr.setText(onePicInfoCard.getDesc());
-                }
-            });
-        }
-        if (StringUtils.isNull(onePicInfoCard.getTag())) {
-            this.iEj.setVisibility(8);
-        } else {
-            this.iEj.setVisibility(0);
-            setTagBg(onePicInfoCard);
-            this.iEj.setText(onePicInfoCard.getTag());
-        }
-        if (onePicInfoCard.getIconList() != null) {
-            this.lgs.setVisibility(8);
-            this.lcl.setVisibility(8);
-            if (onePicInfoCard.getIconList().size() > 0) {
-                this.lgs.setVisibility(0);
-                a(this.lgu, this.lgt, onePicInfoCard.getIconList().get(0));
-            }
-            if (onePicInfoCard.getIconList().size() > 1) {
-                this.lcl.setVisibility(0);
-                a(this.lgw, this.lgv, onePicInfoCard.getIconList().get(1));
-            }
-        } else {
-            this.lgs.setVisibility(8);
-            this.lcl.setVisibility(8);
-        }
-        com.baidu.tieba.tbadkCore.util.d readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
-        if (readThreadHistory != null && readThreadHistory.TT(String.valueOf(onePicInfoCard.getItemId()))) {
-            this.lgx = R.color.CAM_X0108;
-        } else {
-            this.lgx = R.color.CAM_X0105;
-        }
-        ap.setViewTextColor(this.lgq, this.lgx, 1);
-        setCardOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.lego.card.view.OnePicInfoCardView.2
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
-                OnePicInfoCardView.this.c((OnePicInfoCardView) onePicInfoCard);
-            }
-        });
-    }
-
-    private void a(TextView textView, TbImageView tbImageView, com.baidu.tieba.lego.card.model.b bVar) {
-        String str = isNightMode() ? bVar.lee : bVar.url;
+    public final void P(TextView textView, TbImageView tbImageView, d.b.i0.i1.o.j.b bVar) {
+        String str = w() ? bVar.f55938b : bVar.f55937a;
         if (!TextUtils.isEmpty(str)) {
             textView.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
             tbImageView.setVisibility(0);
-            tbImageView.startLoad(str, 10, false);
+            tbImageView.W(str, 10, false);
         } else {
             tbImageView.setVisibility(8);
-            textView.setCompoundDrawablesWithIntrinsicBounds(ap.getDrawable(com.baidu.tieba.lego.card.f.oB(bVar.type)), (Drawable) null, (Drawable) null, (Drawable) null);
+            textView.setCompoundDrawablesWithIntrinsicBounds(SkinManager.getDrawable(f.a(bVar.f55939c)), (Drawable) null, (Drawable) null, (Drawable) null);
         }
         try {
-            textView.setText(au.numberUniformFormat(Long.parseLong(bVar.content)));
-        } catch (NumberFormatException e) {
-            textView.setText(bVar.content);
+            textView.setText(StringHelper.numberUniformFormat(Long.parseLong(bVar.f55940d)));
+        } catch (NumberFormatException unused) {
+            textView.setText(bVar.f55940d);
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView
-    /* renamed from: b */
-    public void e(OnePicInfoCard onePicInfoCard) {
-        com.baidu.tieba.lego.i.a((BaseLegoCardInfo) onePicInfoCard).fF(TiebaInitialize.Params.OBJ_URL, onePicInfoCard.getScheme()).bA("obj_locate", getStatPosition()).a(onePicInfoCard);
-        super.e(onePicInfoCard);
+    /* renamed from: Q */
+    public void y(OnePicInfoCard onePicInfoCard, int i) {
+        LineCountNotifyTextView lineCountNotifyTextView;
+        d.b.h0.s0.a.a(this.m, getRootView());
+        SkinManager.setBackgroundResource(this.r, R.drawable.addresslist_item_bg);
+        setTagBg(onePicInfoCard);
+        SkinManager.setViewTextColor(this.v, R.color.CAM_X0111);
+        SkinManager.setViewTextColor(this.y, R.color.CAM_X0110);
+        SkinManager.setViewTextColor(this.B, R.color.CAM_X0110);
+        int i2 = this.C;
+        if (i2 == 0 || (lineCountNotifyTextView = this.t) == null) {
+            return;
+        }
+        SkinManager.setViewTextColor(lineCountNotifyTextView, i2, 1);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView
+    /* renamed from: R */
+    public void z(OnePicInfoCard onePicInfoCard) {
+        this.s.W(!TextUtils.isEmpty(onePicInfoCard.getPic()) ? onePicInfoCard.getPic() : null, 10, false);
+        if (!StringUtils.isNull(onePicInfoCard.getCardTitle())) {
+            this.t.setText(onePicInfoCard.getCardTitle());
+            this.t.setGetLineCountCallback(new a(onePicInfoCard));
+        }
+        if (StringUtils.isNull(onePicInfoCard.getTag())) {
+            this.v.setVisibility(8);
+        } else {
+            this.v.setVisibility(0);
+            setTagBg(onePicInfoCard);
+            this.v.setText(onePicInfoCard.getTag());
+        }
+        if (onePicInfoCard.getIconList() != null) {
+            this.w.setVisibility(8);
+            this.z.setVisibility(8);
+            if (onePicInfoCard.getIconList().size() > 0) {
+                this.w.setVisibility(0);
+                P(this.y, this.x, onePicInfoCard.getIconList().get(0));
+            }
+            if (onePicInfoCard.getIconList().size() > 1) {
+                this.z.setVisibility(0);
+                P(this.B, this.A, onePicInfoCard.getIconList().get(1));
+            }
+        } else {
+            this.w.setVisibility(8);
+            this.z.setVisibility(8);
+        }
+        d readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
+        if (readThreadHistory != null && readThreadHistory.d(String.valueOf(onePicInfoCard.getItemId()))) {
+            this.C = R.color.CAM_X0108;
+        } else {
+            this.C = R.color.CAM_X0105;
+        }
+        SkinManager.setViewTextColor(this.t, this.C, 1);
+        setCardOnClickListener(new b(onePicInfoCard));
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView
+    /* renamed from: S */
+    public void A(OnePicInfoCard onePicInfoCard) {
+        i.e(onePicInfoCard).a(TiebaStatic.Params.OBJ_URL, onePicInfoCard.getScheme()).c("obj_locate", getStatPosition()).b(onePicInfoCard);
+        super.A(onePicInfoCard);
+    }
+
+    @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView
+    public View v() {
+        ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(getContext()).inflate(R.layout.card_one_pic_info, (ViewGroup) null);
+        this.r = viewGroup;
+        this.s = (TbImageView) o(viewGroup, R.id.img);
+        this.t = (LineCountNotifyTextView) o(this.r, R.id.one_title);
+        this.u = (TextView) o(this.r, R.id.discription);
+        View view = (View) o(this.r, R.id.hot_thread_comment);
+        this.v = (TextView) o(view, R.id.hot_thread_line_tag);
+        this.w = (LinearLayout) o(view, R.id.ll_left);
+        this.x = (TbImageView) o(view, R.id.iconLeft);
+        this.y = (TextView) o(view, R.id.textLeft);
+        this.z = (LinearLayout) o(view, R.id.ll_right);
+        this.A = (TbImageView) o(view, R.id.iconRight);
+        this.B = (TextView) o(view, R.id.textRight);
+        return this.r;
     }
 }

@@ -1,15 +1,14 @@
 package com.baidu.ar.npc;
 
 import android.view.View;
-/* loaded from: classes4.dex */
-class y implements View.OnClickListener {
+/* loaded from: classes2.dex */
+public class y implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ BaiduArView f1306a;
+    public final /* synthetic */ BaiduArView f4225a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public y(BaiduArView baiduArView) {
-        this.f1306a = baiduArView;
+        this.f4225a = baiduArView;
     }
 
     @Override // android.view.View.OnClickListener

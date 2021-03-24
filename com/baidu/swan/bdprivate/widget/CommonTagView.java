@@ -8,22 +8,68 @@ import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.widget.TextView;
 import androidx.annotation.Nullable;
-import androidx.core.view.ViewCompat;
-import com.baidu.swan.apps.ao.ah;
-import com.baidu.swan.bdprivate.b;
-/* loaded from: classes8.dex */
+import d.b.g0.a.i2.h0;
+import d.b.g0.b.h;
+/* loaded from: classes3.dex */
 public class CommonTagView extends TextView {
-    private boolean dWW;
-    private int mBorderColor;
-    private int mBorderWidth;
-    private Context mContext;
-    private int mCornerRadius;
-    private boolean mHasBorder;
-    private Paint mPaint;
-    private RectF mRectF;
+
+    /* renamed from: e  reason: collision with root package name */
+    public Context f12733e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public int f12734f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public int f12735g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public int f12736h;
+    public boolean i;
+    public boolean j;
+    public Paint k;
+    public RectF l;
 
     public CommonTagView(Context context) {
         this(context, null);
+    }
+
+    public final void a(Context context, AttributeSet attributeSet, int i) {
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, h.CommonTagView);
+        this.f12734f = obtainStyledAttributes.getDimensionPixelOffset(h.CommonTagView_borderWidth, 1);
+        this.f12735g = obtainStyledAttributes.getColor(h.CommonTagView_borderColor, -16777216);
+        this.f12736h = obtainStyledAttributes.getDimensionPixelOffset(h.CommonTagView_cornerRadius, 3);
+        obtainStyledAttributes.recycle();
+        setPadding(getPaddingLeft() == 0 ? h0.e(context, 2.0f) : getPaddingLeft(), getPaddingTop() == 0 ? h0.e(context, 1.0f) : getPaddingTop(), getPaddingRight() == 0 ? h0.e(context, 2.0f) : getPaddingRight(), getPaddingBottom() == 0 ? h0.e(context, 1.0f) : getPaddingBottom());
+        b(context);
+    }
+
+    public final void b(Context context) {
+        this.f12733e = context;
+        this.k = new Paint();
+        this.l = new RectF();
+    }
+
+    @Override // android.widget.TextView, android.view.View
+    public void onDraw(Canvas canvas) {
+        super.onDraw(canvas);
+        if (this.i) {
+            this.k.setStyle(Paint.Style.STROKE);
+            this.k.setAntiAlias(true);
+            this.k.setStrokeWidth(this.f12734f);
+            if (this.j && this.f12735g != getCurrentTextColor()) {
+                this.f12735g = getCurrentTextColor();
+            }
+            this.k.setColor(this.f12735g);
+            RectF rectF = this.l;
+            int i = this.f12734f;
+            rectF.left = i * 0.5f;
+            rectF.top = i * 0.5f;
+            rectF.right = getMeasuredWidth() - (this.f12734f * 0.5f);
+            this.l.bottom = getMeasuredHeight() - (this.f12734f * 0.5f);
+            RectF rectF2 = this.l;
+            int i2 = this.f12736h;
+            canvas.drawRoundRect(rectF2, i2, i2, this.k);
+        }
     }
 
     public CommonTagView(Context context, @Nullable AttributeSet attributeSet) {
@@ -32,43 +78,8 @@ public class CommonTagView extends TextView {
 
     public CommonTagView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.mHasBorder = true;
-        this.dWW = true;
-        init(context, attributeSet, i);
-    }
-
-    private void init(Context context, AttributeSet attributeSet, int i) {
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, b.h.CommonTagView);
-        this.mBorderWidth = obtainStyledAttributes.getDimensionPixelOffset(b.h.CommonTagView_borderWidth, 1);
-        this.mBorderColor = obtainStyledAttributes.getColor(b.h.CommonTagView_borderColor, ViewCompat.MEASURED_STATE_MASK);
-        this.mCornerRadius = obtainStyledAttributes.getDimensionPixelOffset(b.h.CommonTagView_cornerRadius, 3);
-        obtainStyledAttributes.recycle();
-        setPadding(getPaddingLeft() == 0 ? ah.dip2px(context, 2.0f) : getPaddingLeft(), getPaddingTop() == 0 ? ah.dip2px(context, 1.0f) : getPaddingTop(), getPaddingRight() == 0 ? ah.dip2px(context, 2.0f) : getPaddingRight(), getPaddingBottom() == 0 ? ah.dip2px(context, 1.0f) : getPaddingBottom());
-        eq(context);
-    }
-
-    private void eq(Context context) {
-        this.mContext = context;
-        this.mPaint = new Paint();
-        this.mRectF = new RectF();
-    }
-
-    @Override // android.widget.TextView, android.view.View
-    protected void onDraw(Canvas canvas) {
-        super.onDraw(canvas);
-        if (this.mHasBorder) {
-            this.mPaint.setStyle(Paint.Style.STROKE);
-            this.mPaint.setAntiAlias(true);
-            this.mPaint.setStrokeWidth(this.mBorderWidth);
-            if (this.dWW && this.mBorderColor != getCurrentTextColor()) {
-                this.mBorderColor = getCurrentTextColor();
-            }
-            this.mPaint.setColor(this.mBorderColor);
-            this.mRectF.left = this.mBorderWidth * 0.5f;
-            this.mRectF.top = this.mBorderWidth * 0.5f;
-            this.mRectF.right = getMeasuredWidth() - (this.mBorderWidth * 0.5f);
-            this.mRectF.bottom = getMeasuredHeight() - (this.mBorderWidth * 0.5f);
-            canvas.drawRoundRect(this.mRectF, this.mCornerRadius, this.mCornerRadius, this.mPaint);
-        }
+        this.i = true;
+        this.j = true;
+        a(context, attributeSet, i);
     }
 }

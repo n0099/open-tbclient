@@ -1,39 +1,41 @@
 package io.reactivex.internal.observers;
 
+import f.a.a0.a;
+import f.a.t.b;
 import io.reactivex.exceptions.OnErrorNotImplementedException;
 import io.reactivex.internal.disposables.DisposableHelper;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes6.dex */
-public final class EmptyCompletableObserver extends AtomicReference<io.reactivex.disposables.b> implements io.reactivex.c, io.reactivex.disposables.b {
-    private static final long serialVersionUID = -7545121636549663526L;
+/* loaded from: classes7.dex */
+public final class EmptyCompletableObserver extends AtomicReference<b> implements f.a.b, b {
+    public static final long serialVersionUID = -7545121636549663526L;
 
-    @Override // io.reactivex.disposables.b
+    @Override // f.a.t.b
     public void dispose() {
         DisposableHelper.dispose(this);
     }
 
-    @Override // io.reactivex.disposables.b
+    public boolean hasCustomOnError() {
+        return false;
+    }
+
+    @Override // f.a.t.b
     public boolean isDisposed() {
         return get() == DisposableHelper.DISPOSED;
     }
 
-    @Override // io.reactivex.c
+    @Override // f.a.b
     public void onComplete() {
         lazySet(DisposableHelper.DISPOSED);
     }
 
-    @Override // io.reactivex.c
+    @Override // f.a.b
     public void onError(Throwable th) {
         lazySet(DisposableHelper.DISPOSED);
-        io.reactivex.d.a.onError(new OnErrorNotImplementedException(th));
+        a.f(new OnErrorNotImplementedException(th));
     }
 
-    @Override // io.reactivex.c
-    public void onSubscribe(io.reactivex.disposables.b bVar) {
+    @Override // f.a.b
+    public void onSubscribe(b bVar) {
         DisposableHelper.setOnce(this, bVar);
-    }
-
-    public boolean hasCustomOnError() {
-        return false;
     }
 }

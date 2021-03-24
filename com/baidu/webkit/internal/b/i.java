@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.net.MailTo;
 import android.net.Uri;
 import com.baidu.webkit.sdk.WebView;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public final class i extends j {
     @Override // com.baidu.webkit.internal.b.j
     public final boolean a(Context context, String str) {
@@ -16,14 +16,14 @@ public final class i extends j {
             if (str.startsWith("rtsp:")) {
                 try {
                     context.startActivity(new Intent("android.intent.action.VIEW", Uri.parse(str)));
-                } catch (Exception e) {
-                    e.printStackTrace();
+                } catch (Exception e2) {
+                    e2.printStackTrace();
                 }
                 return true;
             } else if (str.startsWith("ftp://")) {
                 Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(str));
                 intent.addCategory("android.intent.category.BROWSABLE");
-                return a(context, intent);
+                return j.a(context, intent);
             } else {
                 return false;
             }
@@ -37,8 +37,8 @@ public final class i extends j {
         intent2.putExtra("android.intent.extra.TEXT", parse.getBody());
         try {
             context.startActivity(intent2);
-        } catch (Exception e2) {
-            e2.printStackTrace();
+        } catch (Exception e3) {
+            e3.printStackTrace();
         }
         return true;
     }

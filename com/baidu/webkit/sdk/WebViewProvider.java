@@ -31,10 +31,10 @@ import com.baidu.webkit.sdk.performance.PagePerformanceTiming;
 import com.baidu.webkit.sdk.plugin.ZeusPluginFactory;
 import java.io.BufferedWriter;
 import java.util.Map;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public interface WebViewProvider {
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public interface ScrollDelegate {
         int computeHorizontalScrollOffset();
 
@@ -49,7 +49,7 @@ public interface WebViewProvider {
         int computeVerticalScrollRange();
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public interface ViewDelegate {
         boolean dispatchKeyEvent(KeyEvent keyEvent);
 
@@ -430,7 +430,7 @@ public interface WebViewProvider {
 
     void setPictureListener(WebView.PictureListener pictureListener);
 
-    boolean setPreviewZoomScale(float f);
+    boolean setPreviewZoomScale(float f2);
 
     void setRendererPriorityPolicy(int i, boolean z);
 
@@ -476,7 +476,7 @@ public interface WebViewProvider {
 
     void updateTopControlsState(boolean z, boolean z2, boolean z3);
 
-    boolean zoomByZeus(float f);
+    boolean zoomByZeus(float f2);
 
     boolean zoomIn();
 

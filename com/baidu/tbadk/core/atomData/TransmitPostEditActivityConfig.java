@@ -3,7 +3,6 @@ package com.baidu.tbadk.core.atomData;
 import android.content.Context;
 import android.content.Intent;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.data.AdditionData;
 import com.baidu.tbadk.core.data.AntiData;
 import com.baidu.tbadk.core.data.BaijiahaoData;
@@ -12,7 +11,8 @@ import com.baidu.tbadk.core.data.PostPrefixData;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tieba.frs.FrsTabInfoData;
-/* loaded from: classes.dex */
+import d.b.b.e.p.l;
+/* loaded from: classes3.dex */
 public class TransmitPostEditActivityConfig extends IntentConfig {
     public static final String ADDITION_DATA = "addition_data";
     public static final String BAIJIAHAO_DATA = "baijiahao_data";
@@ -42,7 +42,7 @@ public class TransmitPostEditActivityConfig extends IntentConfig {
         setIntentAction(IntentAction.ActivityForResult);
         setRequestCode(i2);
         if (antiData != null && antiData.getIfpost() == 0 && !StringUtils.isNull(antiData.getForbid_info())) {
-            l.showToast(context, antiData.getForbid_info());
+            l.L(context, antiData.getForbid_info());
             return;
         }
         getIntent().putExtra("type", i);
@@ -63,20 +63,10 @@ public class TransmitPostEditActivityConfig extends IntentConfig {
         }
     }
 
-    public void setForumDir(String str, String str2) {
-        Intent intent = getIntent();
-        intent.putExtra("forum_first_dir", str);
-        intent.putExtra("forum_second_dir", str2);
-    }
-
-    public void setCategroyId(int i) {
-        getIntent().putExtra("category_id", i);
-    }
-
-    public void setTitleAndContent(String str, String str2, boolean z) {
-        getIntent().putExtra("write_title", str);
-        getIntent().putExtra("write_content", str2);
-        getIntent().putExtra("need_save_draft", z);
+    public void setBaijiahaoData(BaijiahaoData baijiahaoData) {
+        if (getIntent() != null) {
+            getIntent().putExtra(BAIJIAHAO_DATA, baijiahaoData);
+        }
     }
 
     public void setCallFrom(String str) {
@@ -85,9 +75,25 @@ public class TransmitPostEditActivityConfig extends IntentConfig {
         }
     }
 
+    public void setCategroyId(int i) {
+        getIntent().putExtra("category_id", i);
+    }
+
+    public void setForumDir(String str, String str2) {
+        Intent intent = getIntent();
+        intent.putExtra(IntentConfig.FORUM_FIRST_DIR, str);
+        intent.putExtra(IntentConfig.FORUM_SECOND_DIR, str2);
+    }
+
     public void setForumLevel(int i) {
         if (getIntent() != null) {
             getIntent().putExtra("key_write_level", i);
+        }
+    }
+
+    public void setFrsTabInfo(FrsTabInfoData frsTabInfoData) {
+        if (getIntent() != null) {
+            getIntent().putExtra("tab_list", frsTabInfoData);
         }
     }
 
@@ -97,27 +103,21 @@ public class TransmitPostEditActivityConfig extends IntentConfig {
         }
     }
 
+    public void setTitleAndContent(String str, String str2, boolean z) {
+        getIntent().putExtra("write_title", str);
+        getIntent().putExtra("write_content", str2);
+        getIntent().putExtra("need_save_draft", z);
+    }
+
     public void setTransmitOriginThreadComment(String str) {
         if (getIntent() != null) {
             getIntent().putExtra(TRANSMIT_ORIGIN_THREAD_CONTENT, str);
         }
     }
 
-    public void setBaijiahaoData(BaijiahaoData baijiahaoData) {
-        if (getIntent() != null) {
-            getIntent().putExtra(BAIJIAHAO_DATA, baijiahaoData);
-        }
-    }
-
     public void setTransmitThreadAuthorNameShow(String str) {
         if (getIntent() != null) {
             getIntent().putExtra(TRANSMIT_THREAD_AUTHOR_NAME_SHOW, str);
-        }
-    }
-
-    public void setFrsTabInfo(FrsTabInfoData frsTabInfoData) {
-        if (getIntent() != null) {
-            getIntent().putExtra("tab_list", frsTabInfoData);
         }
     }
 }

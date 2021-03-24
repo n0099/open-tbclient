@@ -5,27 +5,33 @@ import android.widget.ImageView;
 import com.kwad.sdk.R;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.utils.ao;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class b extends com.kwad.sdk.feed.a.a.a.a implements View.OnClickListener {
-    private ImageView b;
-    private AdTemplate c;
-    private com.kwad.sdk.lib.b.c<?, AdTemplate> d;
 
-    /* JADX DEBUG: Type inference failed for r0v6. Raw type applied. Possible types: com.kwad.sdk.lib.b.c<?, MODEL>, com.kwad.sdk.lib.b.c<?, com.kwad.sdk.core.response.model.AdTemplate> */
-    /* JADX INFO: Access modifiers changed from: protected */
+    /* renamed from: b  reason: collision with root package name */
+    public ImageView f34833b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public AdTemplate f34834c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public com.kwad.sdk.lib.b.c<?, AdTemplate> f34835d;
+
+    /* JADX DEBUG: Type inference failed for r0v2. Raw type applied. Possible types: com.kwad.sdk.lib.b.c<?, MODEL>, com.kwad.sdk.lib.b.c<?, com.kwad.sdk.core.response.model.AdTemplate> */
     @Override // com.kwad.sdk.lib.widget.recycler.b.b, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        this.c = (AdTemplate) ((com.kwad.sdk.feed.a.a.a.b) this.f6892a).i;
-        this.d = ((com.kwad.sdk.feed.a.a.a.b) this.f6892a).f;
+        CallerContext callercontext = ((com.kwad.sdk.lib.widget.recycler.b.b) this).f36007a;
+        this.f34834c = (AdTemplate) ((com.kwad.sdk.feed.a.a.a.b) callercontext).i;
+        this.f34835d = ((com.kwad.sdk.feed.a.a.a.b) callercontext).f36004f;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.mvp.Presenter
     public void c() {
         super.c();
-        this.b = (ImageView) b(R.id.ksad_feed_item_close);
-        this.b.setOnClickListener(this);
+        ImageView imageView = (ImageView) b(R.id.ksad_feed_item_close);
+        this.f34833b = imageView;
+        imageView.setOnClickListener(this);
     }
 
     @Override // android.view.View.OnClickListener
@@ -33,9 +39,9 @@ public class b extends com.kwad.sdk.feed.a.a.a.a implements View.OnClickListener
         if (ao.a()) {
             return;
         }
-        if (view == this.b && com.kwad.sdk.core.response.b.c.c(this.c)) {
-            com.kwad.sdk.core.report.b.d(this.c, 69);
+        if (view == this.f34833b && com.kwad.sdk.core.response.b.c.c(this.f34834c)) {
+            com.kwad.sdk.core.report.b.d(this.f34834c, 69);
         }
-        this.d.a((com.kwad.sdk.lib.b.c<?, AdTemplate>) this.c);
+        this.f34835d.a((com.kwad.sdk.lib.b.c<?, AdTemplate>) this.f34834c);
     }
 }

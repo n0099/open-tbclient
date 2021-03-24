@@ -3,10 +3,10 @@ package com.baidu.tieba.setting.forbiddenforum;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.util.v;
+import d.b.h0.z0.w;
 import tbclient.GetDislikeList.DataReq;
 import tbclient.GetDislikeList.GetDislikeListReqIdl;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class ForbiddenForumReqMsg extends NetMessage {
     public int pageNum;
     public int pageSize;
@@ -16,10 +16,10 @@ public class ForbiddenForumReqMsg extends NetMessage {
     }
 
     @Override // com.baidu.adp.framework.message.NetMessage
-    protected Object encode(boolean z) {
+    public Object encode(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
         if (z) {
-            v.b(builder, true);
+            w.a(builder, true);
         }
         builder.user_id = Long.valueOf(TbadkCoreApplication.getCurrentAccountId());
         builder.rn = Integer.valueOf(this.pageSize);

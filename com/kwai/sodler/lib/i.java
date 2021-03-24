@@ -8,23 +8,24 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class i extends g {
     public i(String str) {
         super(str);
     }
 
     private void a(Set<File> set) {
-        if (this.f == null || this.f.h.size() <= 0 || set == null) {
+        com.kwai.sodler.lib.b.b bVar = this.f37128f;
+        if (bVar == null || bVar.f37150h.size() <= 0 || set == null) {
             return;
         }
-        HashMap<String, String> hashMap = this.f.h;
+        HashMap<String, String> hashMap = this.f37128f.f37150h;
         for (File file : set) {
-            String f = com.kwai.sodler.lib.c.a.f(file);
+            String f2 = com.kwai.sodler.lib.c.a.f(file);
             String str = hashMap.get(file.getName());
-            if (str != null && !TextUtils.equals(f, str)) {
+            if (str != null && !TextUtils.equals(f2, str)) {
                 b(set);
-                throw new PluginError.LoadError(new Exception(file.getName() + "Md5 check error,find " + f + ",except " + str), (int) PluginError.ERROR_LOA_SO_MD5_CHECK);
+                throw new PluginError.LoadError(new Exception(file.getName() + "Md5 check error,find " + f2 + ",except " + str), 4008);
             }
         }
     }
@@ -35,11 +36,11 @@ public class i extends g {
         }
     }
 
-    protected Set<File> a(Context context, File file, File file2) {
+    public Set<File> a(Context context, File file, File file2) {
         a.b("Sodler.simple.SoLib", "Install plugin so libs, destDir = " + file2);
         HashSet hashSet = new HashSet();
         if (!file2.exists() || file2.list().length <= 0) {
-            File file3 = new File(file2.getParentFile(), this.c.d());
+            File file3 = new File(file2.getParentFile(), this.f37125c.d());
             com.kwai.sodler.lib.c.a.e(file3);
             Set<String> a2 = com.kwai.sodler.lib.c.c.a(file, file3);
             if (a2 != null) {
@@ -62,23 +63,24 @@ public class i extends g {
         File file = new File(str);
         a(file);
         try {
-            this.f7247a = b(file);
+            File b2 = b(file);
+            this.f37123a = b2;
             try {
-                a(a(context, file, this.f7247a));
+                a(a(context, file, b2));
                 synchronized (Runtime.getRuntime()) {
-                    com.kwai.sodler.lib.ext.d.a(getClass().getClassLoader(), this.f7247a);
+                    com.kwai.sodler.lib.ext.d.a(getClass().getClassLoader(), this.f37123a);
                 }
                 super.a(context, str);
-            } catch (IOException e) {
-                throw new PluginError.LoadError(e, 4004);
+            } catch (IOException e2) {
+                throw new PluginError.LoadError(e2, 4004);
             }
-        } catch (IOException e2) {
-            throw new PluginError.LoadError(e2, 4003);
+        } catch (IOException e3) {
+            throw new PluginError.LoadError(e3, 4003);
         }
     }
 
     public File b(File file) {
-        File file2 = new File(file.getParentFile(), this.c.c());
+        File file2 = new File(file.getParentFile(), this.f37125c.c());
         com.kwai.sodler.lib.c.a.e(file2);
         return file2;
     }

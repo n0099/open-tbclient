@@ -2,43 +2,42 @@ package com.baidu.ufosdk.ui;
 
 import android.os.Handler;
 import com.baidu.ufosdk.UfoSDK;
-/* loaded from: classes7.dex */
-final class bg implements Runnable {
+/* loaded from: classes5.dex */
+public final class bg implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ bf f3680a;
+    public final /* synthetic */ bf f23082a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public bg(bf bfVar) {
-        this.f3680a = bfVar;
+        this.f23082a = bfVar;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
         String str;
         String str2;
-        String d;
+        String d2;
         Handler handler;
         String str3;
         try {
-            str = this.f3680a.f3679a.ar;
+            str = this.f23082a.f23081a.ar;
             if (str != null) {
-                str3 = this.f3680a.f3679a.ar;
+                str3 = this.f23082a.f23081a.ar;
                 if (str3.length() > 0) {
-                    str2 = this.f3680a.f3679a.ar;
-                    d = com.baidu.ufosdk.e.a.d(this.f3680a.f3679a.getApplicationContext(), this.f3680a.f3679a.e, str2);
-                    if (d != null || d.length() == 0) {
+                    str2 = this.f23082a.f23081a.ar;
+                    d2 = com.baidu.ufosdk.e.a.d(this.f23082a.f23081a.getApplicationContext(), this.f23082a.f23081a.f23018e, str2);
+                    if (d2 != null || d2.length() == 0) {
                     }
-                    handler = this.f3680a.f3679a.aK;
-                    handler.obtainMessage(5, d).sendToTarget();
+                    handler = this.f23082a.f23081a.aK;
+                    handler.obtainMessage(5, d2).sendToTarget();
                     return;
                 }
             }
             str2 = UfoSDK.appid;
-            d = com.baidu.ufosdk.e.a.d(this.f3680a.f3679a.getApplicationContext(), this.f3680a.f3679a.e, str2);
-            if (d != null) {
+            d2 = com.baidu.ufosdk.e.a.d(this.f23082a.f23081a.getApplicationContext(), this.f23082a.f23081a.f23018e, str2);
+            if (d2 != null) {
             }
-        } catch (Exception e) {
+        } catch (Exception unused) {
         }
     }
 }

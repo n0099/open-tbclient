@@ -9,35 +9,33 @@ import android.view.ViewConfiguration;
 import android.widget.OverScroller;
 import androidx.annotation.Keep;
 import androidx.core.view.ViewCompat;
-import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import com.kwad.sdk.lib.desigin.CustomAppBarFlingConsumer;
 import com.kwad.sdk.lib.desigin.KSAppBarLayout;
 import com.kwad.sdk.lib.desigin.KSAppBarLayout.KSBehavior;
 @Keep
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public final class CustomHeaderBehaviorEx<V extends KSAppBarLayout, B extends KSAppBarLayout.KSBehavior & CustomAppBarFlingConsumer> extends KSViewOffsetBehavior<V> {
-    private static final int FLING_MAX_VELOCITY = 10000;
-    private static final int INVALID_POINTER = -1;
-    private static final String TAG = CustomHeaderBehaviorEx.class.toString();
-    private int mActivePointerId;
-    private B mBehavior;
-    private boolean mEnabled;
-    private int mExtraFixedSize;
-    private Runnable mFlingRunnable;
-    private boolean mIsBeingDragged;
-    private int mLastMotionY;
-    private OverScroller mScroller;
-    private int mTouchSlop;
-    private VelocityTracker mVelocityTracker;
+    public static final int FLING_MAX_VELOCITY = 10000;
+    public static final int INVALID_POINTER = -1;
+    public static final String TAG = CustomHeaderBehaviorEx.class.toString();
+    public int mActivePointerId;
+    public B mBehavior;
+    public boolean mEnabled;
+    public int mExtraFixedSize;
+    public Runnable mFlingRunnable;
+    public boolean mIsBeingDragged;
+    public int mLastMotionY;
+    public OverScroller mScroller;
+    public int mTouchSlop;
+    public VelocityTracker mVelocityTracker;
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public class FlingRunnable implements Runnable {
-        private int mLastScrollY;
-        private final V mLayout;
-        private final KSCoordinatorLayout mParent;
+        public int mLastScrollY;
+        public final V mLayout;
+        public final KSCoordinatorLayout mParent;
 
-        FlingRunnable(KSCoordinatorLayout kSCoordinatorLayout, V v, int i) {
+        public FlingRunnable(KSCoordinatorLayout kSCoordinatorLayout, V v, int i) {
             this.mParent = kSCoordinatorLayout;
             this.mLayout = v;
             this.mLastScrollY = i;
@@ -59,26 +57,32 @@ public final class CustomHeaderBehaviorEx<V extends KSAppBarLayout, B extends KS
             if (bottom == measuredHeight) {
                 ((CustomAppBarFlingConsumer) CustomHeaderBehaviorEx.this.mBehavior).consumeAppBarFling(0, -i);
             } else if (bottom <= 0 || bottom + i >= measuredHeight) {
-                CustomHeaderBehaviorEx.this.mBehavior.setHeaderTopBottomOffset(this.mParent, this.mLayout, i + this.mLayout.getTop());
+                KSAppBarLayout.KSBehavior kSBehavior = CustomHeaderBehaviorEx.this.mBehavior;
+                KSCoordinatorLayout kSCoordinatorLayout = this.mParent;
+                V v = this.mLayout;
+                kSBehavior.setHeaderTopBottomOffset(kSCoordinatorLayout, v, v.getTop() + i);
             } else {
-                CustomHeaderBehaviorEx.this.mBehavior.setHeaderTopBottomOffset(this.mParent, this.mLayout, (this.mLayout.getTop() - bottom) + measuredHeight);
+                KSAppBarLayout.KSBehavior kSBehavior2 = CustomHeaderBehaviorEx.this.mBehavior;
+                KSCoordinatorLayout kSCoordinatorLayout2 = this.mParent;
+                V v2 = this.mLayout;
+                kSBehavior2.setHeaderTopBottomOffset(kSCoordinatorLayout2, v2, (v2.getTop() - bottom) + measuredHeight);
             }
             ViewCompat.postOnAnimation(this.mLayout, this);
             this.mLastScrollY = currY;
         }
     }
 
-    public CustomHeaderBehaviorEx(Context context, AttributeSet attributeSet, B b) {
+    public CustomHeaderBehaviorEx(Context context, AttributeSet attributeSet, B b2) {
         super(context, attributeSet);
         this.mActivePointerId = -1;
         this.mTouchSlop = -1;
-        this.mBehavior = b;
+        this.mBehavior = b2;
     }
 
-    public CustomHeaderBehaviorEx(B b) {
+    public CustomHeaderBehaviorEx(B b2) {
         this.mActivePointerId = -1;
         this.mTouchSlop = -1;
-        this.mBehavior = b;
+        this.mBehavior = b2;
     }
 
     private void ensureVelocityTracker() {
@@ -87,21 +91,23 @@ public final class CustomHeaderBehaviorEx<V extends KSAppBarLayout, B extends KS
         }
     }
 
-    private boolean fling(KSCoordinatorLayout kSCoordinatorLayout, V v, int i, int i2, float f) {
-        if (this.mFlingRunnable != null) {
-            v.removeCallbacks(this.mFlingRunnable);
+    private boolean fling(KSCoordinatorLayout kSCoordinatorLayout, V v, int i, int i2, float f2) {
+        Runnable runnable = this.mFlingRunnable;
+        if (runnable != null) {
+            v.removeCallbacks(runnable);
             this.mFlingRunnable = null;
         }
         if (this.mScroller == null) {
             this.mScroller = new OverScroller(v.getContext());
         }
-        this.mScroller.fling(0, getTopAndBottomOffset(), 0, Math.round(f), 0, 0, i, i2);
+        this.mScroller.fling(0, getTopAndBottomOffset(), 0, Math.round(f2), 0, 0, i, i2);
         if (!this.mScroller.computeScrollOffset()) {
             ((B) this.mBehavior).onFlingFinished(kSCoordinatorLayout, (KSAppBarLayout) v);
             return false;
         }
-        this.mFlingRunnable = new FlingRunnable(kSCoordinatorLayout, v, this.mScroller.getCurrY());
-        ViewCompat.postOnAnimation(v, this.mFlingRunnable);
+        FlingRunnable flingRunnable = new FlingRunnable(kSCoordinatorLayout, v, this.mScroller.getCurrY());
+        this.mFlingRunnable = flingRunnable;
+        ViewCompat.postOnAnimation(v, flingRunnable);
         return true;
     }
 
@@ -109,13 +115,19 @@ public final class CustomHeaderBehaviorEx<V extends KSAppBarLayout, B extends KS
         return this.mEnabled;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: com.kwad.sdk.lib.desigin.CustomHeaderBehaviorEx<V extends com.kwad.sdk.lib.desigin.KSAppBarLayout, B extends com.kwad.sdk.lib.desigin.KSAppBarLayout$KSBehavior & com.kwad.sdk.lib.desigin.CustomAppBarFlingConsumer> */
+    /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.kwad.sdk.lib.desigin.CustomHeaderBehaviorEx<V extends com.kwad.sdk.lib.desigin.KSAppBarLayout, B extends com.kwad.sdk.lib.desigin.KSAppBarLayout$KSBehavior & com.kwad.sdk.lib.desigin.CustomAppBarFlingConsumer> */
     /* JADX WARN: Multi-variable type inference failed */
     @Override // com.kwad.sdk.lib.desigin.KSCoordinatorLayout.Behavior
     public /* bridge */ /* synthetic */ boolean onInterceptTouchEvent(KSCoordinatorLayout kSCoordinatorLayout, View view, MotionEvent motionEvent) {
         return onInterceptTouchEvent(kSCoordinatorLayout, (KSCoordinatorLayout) ((KSAppBarLayout) view), motionEvent);
     }
 
+    /* JADX WARN: Code restructure failed: missing block: B:16:0x0036, code lost:
+        if (r4 != 3) goto L17;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     public boolean onInterceptTouchEvent(KSCoordinatorLayout kSCoordinatorLayout, V v, MotionEvent motionEvent) {
         int findPointerIndex;
         if (this.mTouchSlop < 0) {
@@ -126,55 +138,54 @@ public final class CustomHeaderBehaviorEx<V extends KSAppBarLayout, B extends KS
         }
         int x = (int) motionEvent.getX();
         int y = (int) motionEvent.getY();
-        switch (motionEvent.getActionMasked()) {
-            case 0:
-                this.mIsBeingDragged = false;
-                stopFling();
-                if (((B) this.mBehavior).canDragView((KSAppBarLayout) v) && kSCoordinatorLayout.isPointInChildBounds(v, x, y)) {
-                    this.mLastMotionY = y;
-                    this.mActivePointerId = motionEvent.getPointerId(0);
-                    ensureVelocityTracker();
-                    this.mBehavior.onAppBarTouchDown();
-                    break;
-                }
-                break;
-            case 1:
-            case 3:
-                this.mIsBeingDragged = false;
-                this.mActivePointerId = -1;
-                if (this.mVelocityTracker != null) {
-                    this.mVelocityTracker.recycle();
-                    this.mVelocityTracker = null;
-                    break;
-                }
-                break;
-            case 2:
-                int i = this.mActivePointerId;
-                if (i != -1 && (findPointerIndex = motionEvent.findPointerIndex(i)) != -1) {
-                    int y2 = (int) motionEvent.getY(findPointerIndex);
-                    if (Math.abs(y2 - this.mLastMotionY) > this.mTouchSlop) {
-                        this.mIsBeingDragged = true;
-                        this.mLastMotionY = y2;
-                        break;
+        int actionMasked = motionEvent.getActionMasked();
+        if (actionMasked != 0) {
+            if (actionMasked != 1) {
+                if (actionMasked == 2) {
+                    int i = this.mActivePointerId;
+                    if (i != -1 && (findPointerIndex = motionEvent.findPointerIndex(i)) != -1) {
+                        int y2 = (int) motionEvent.getY(findPointerIndex);
+                        if (Math.abs(y2 - this.mLastMotionY) > this.mTouchSlop) {
+                            this.mIsBeingDragged = true;
+                            this.mLastMotionY = y2;
+                        }
                     }
                 }
-                break;
+            }
+            this.mIsBeingDragged = false;
+            this.mActivePointerId = -1;
+            VelocityTracker velocityTracker = this.mVelocityTracker;
+            if (velocityTracker != null) {
+                velocityTracker.recycle();
+                this.mVelocityTracker = null;
+            }
+        } else {
+            this.mIsBeingDragged = false;
+            stopFling();
+            if (((B) this.mBehavior).canDragView((KSAppBarLayout) v) && kSCoordinatorLayout.isPointInChildBounds(v, x, y)) {
+                this.mLastMotionY = y;
+                this.mActivePointerId = motionEvent.getPointerId(0);
+                ensureVelocityTracker();
+                this.mBehavior.onAppBarTouchDown();
+            }
         }
-        if (this.mVelocityTracker != null) {
-            this.mVelocityTracker.addMovement(motionEvent);
+        VelocityTracker velocityTracker2 = this.mVelocityTracker;
+        if (velocityTracker2 != null) {
+            velocityTracker2.addMovement(motionEvent);
         }
         return this.mIsBeingDragged;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: com.kwad.sdk.lib.desigin.CustomHeaderBehaviorEx<V extends com.kwad.sdk.lib.desigin.KSAppBarLayout, B extends com.kwad.sdk.lib.desigin.KSAppBarLayout$KSBehavior & com.kwad.sdk.lib.desigin.CustomAppBarFlingConsumer> */
+    /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.kwad.sdk.lib.desigin.CustomHeaderBehaviorEx<V extends com.kwad.sdk.lib.desigin.KSAppBarLayout, B extends com.kwad.sdk.lib.desigin.KSAppBarLayout$KSBehavior & com.kwad.sdk.lib.desigin.CustomAppBarFlingConsumer> */
     /* JADX WARN: Multi-variable type inference failed */
     @Override // com.kwad.sdk.lib.desigin.KSCoordinatorLayout.Behavior
     public /* bridge */ /* synthetic */ boolean onTouchEvent(KSCoordinatorLayout kSCoordinatorLayout, View view, MotionEvent motionEvent) {
         return onTouchEvent(kSCoordinatorLayout, (KSCoordinatorLayout) ((KSAppBarLayout) view), motionEvent);
     }
 
-    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    /* JADX WARN: Removed duplicated region for block: B:43:0x00c1  */
+    /* JADX WARN: Code restructure failed: missing block: B:12:0x002b, code lost:
+        if (r2 != 3) goto L15;
+     */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -184,59 +195,55 @@ public final class CustomHeaderBehaviorEx<V extends KSAppBarLayout, B extends KS
         }
         int x = (int) motionEvent.getX();
         int y = (int) motionEvent.getY();
-        switch (motionEvent.getActionMasked()) {
-            case 0:
-                if (kSCoordinatorLayout.isPointInChildBounds(v, x, y) && ((B) this.mBehavior).canDragView((KSAppBarLayout) v)) {
-                    this.mLastMotionY = y;
-                    this.mActivePointerId = motionEvent.getPointerId(0);
-                    ensureVelocityTracker();
-                    break;
-                } else {
-                    return false;
-                }
-                break;
-            case 1:
-                if (this.mVelocityTracker != null) {
-                    this.mVelocityTracker.addMovement(motionEvent);
+        int actionMasked = motionEvent.getActionMasked();
+        if (actionMasked != 0) {
+            if (actionMasked == 1) {
+                VelocityTracker velocityTracker = this.mVelocityTracker;
+                if (velocityTracker != null) {
+                    velocityTracker.addMovement(motionEvent);
                     this.mVelocityTracker.computeCurrentVelocity(1000);
                     float yVelocity = this.mVelocityTracker.getYVelocity(this.mActivePointerId);
-                    fling(kSCoordinatorLayout, v, yVelocity < 0.0f ? DpStatConstants.MEDIA_ERROR_MEDIA_PLAYER : 0, yVelocity < 0.0f ? 0 : -v.getTop(), yVelocity);
+                    fling(kSCoordinatorLayout, v, yVelocity < 0.0f ? -10000 : 0, yVelocity < 0.0f ? 0 : -v.getTop(), yVelocity);
                 }
-                this.mIsBeingDragged = false;
-                this.mActivePointerId = -1;
-                if (this.mVelocityTracker != null) {
-                    this.mVelocityTracker.recycle();
-                    this.mVelocityTracker = null;
-                    break;
-                }
-                break;
-            case 2:
+            } else if (actionMasked == 2) {
                 int findPointerIndex = motionEvent.findPointerIndex(this.mActivePointerId);
-                if (findPointerIndex != -1) {
-                    int y2 = (int) motionEvent.getY(findPointerIndex);
-                    int i = this.mLastMotionY - y2;
-                    if (!this.mIsBeingDragged && Math.abs(i) > this.mTouchSlop) {
-                        this.mIsBeingDragged = true;
-                        i = i > 0 ? i - this.mTouchSlop : i + this.mTouchSlop;
-                    }
-                    if (this.mIsBeingDragged) {
-                        this.mLastMotionY = y2;
-                        ((B) this.mBehavior).scroll(kSCoordinatorLayout, v, i, ((B) this.mBehavior).getMaxDragOffset((KSAppBarLayout) v), 0);
-                        break;
-                    }
-                } else {
+                if (findPointerIndex == -1) {
                     return false;
                 }
-                break;
-            case 3:
-                this.mIsBeingDragged = false;
-                this.mActivePointerId = -1;
-                if (this.mVelocityTracker != null) {
+                int y2 = (int) motionEvent.getY(findPointerIndex);
+                int i = this.mLastMotionY - y2;
+                if (!this.mIsBeingDragged) {
+                    int abs = Math.abs(i);
+                    int i2 = this.mTouchSlop;
+                    if (abs > i2) {
+                        this.mIsBeingDragged = true;
+                        i = i > 0 ? i - i2 : i + i2;
+                    }
                 }
-                break;
+                int i3 = i;
+                if (this.mIsBeingDragged) {
+                    this.mLastMotionY = y2;
+                    KSAppBarLayout.KSBehavior kSBehavior = (B) this.mBehavior;
+                    kSBehavior.scroll(kSCoordinatorLayout, v, i3, kSBehavior.getMaxDragOffset((KSAppBarLayout) v), 0);
+                }
+            }
+            this.mIsBeingDragged = false;
+            this.mActivePointerId = -1;
+            VelocityTracker velocityTracker2 = this.mVelocityTracker;
+            if (velocityTracker2 != null) {
+                velocityTracker2.recycle();
+                this.mVelocityTracker = null;
+            }
+        } else if (!kSCoordinatorLayout.isPointInChildBounds(v, x, y) || !((B) this.mBehavior).canDragView((KSAppBarLayout) v)) {
+            return false;
+        } else {
+            this.mLastMotionY = y;
+            this.mActivePointerId = motionEvent.getPointerId(0);
+            ensureVelocityTracker();
         }
-        if (this.mVelocityTracker != null) {
-            this.mVelocityTracker.addMovement(motionEvent);
+        VelocityTracker velocityTracker3 = this.mVelocityTracker;
+        if (velocityTracker3 != null) {
+            velocityTracker3.addMovement(motionEvent);
         }
         return true;
     }
@@ -250,7 +257,8 @@ public final class CustomHeaderBehaviorEx<V extends KSAppBarLayout, B extends KS
     }
 
     public void stopFling() {
-        if (this.mFlingRunnable == null || this.mScroller == null || !this.mScroller.computeScrollOffset()) {
+        OverScroller overScroller;
+        if (this.mFlingRunnable == null || (overScroller = this.mScroller) == null || !overScroller.computeScrollOffset()) {
             return;
         }
         this.mScroller.abortAnimation();

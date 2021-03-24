@@ -3,7 +3,7 @@ package com.sina.weibo.sdk.api;
 import android.net.Uri;
 import android.os.Parcel;
 import android.os.Parcelable;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class StoryMessage implements Parcelable {
     public static final Parcelable.Creator<StoryMessage> CREATOR = new Parcelable.Creator<StoryMessage>() { // from class: com.sina.weibo.sdk.api.StoryMessage.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -20,8 +20,23 @@ public class StoryMessage implements Parcelable {
             return new StoryMessage[i];
         }
     };
-    private Uri imageUri;
-    private Uri videoUri;
+    public Uri imageUri;
+    public Uri videoUri;
+
+    public StoryMessage() {
+    }
+
+    public boolean checkSource() {
+        if (this.imageUri == null || this.videoUri == null) {
+            return (this.imageUri == null && this.videoUri == null) ? false : true;
+        }
+        return false;
+    }
+
+    @Override // android.os.Parcelable
+    public int describeContents() {
+        return 0;
+    }
 
     public Uri getImageUri() {
         return this.imageUri;
@@ -39,29 +54,14 @@ public class StoryMessage implements Parcelable {
         this.videoUri = uri;
     }
 
-    public StoryMessage() {
-    }
-
-    @Override // android.os.Parcelable
-    public int describeContents() {
-        return 0;
-    }
-
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
         parcel.writeParcelable(this.imageUri, i);
         parcel.writeParcelable(this.videoUri, i);
     }
 
-    protected StoryMessage(Parcel parcel) {
+    public StoryMessage(Parcel parcel) {
         this.imageUri = (Uri) parcel.readParcelable(Uri.class.getClassLoader());
         this.videoUri = (Uri) parcel.readParcelable(Uri.class.getClassLoader());
-    }
-
-    public boolean checkSource() {
-        if (this.imageUri == null || this.videoUri == null) {
-            return (this.imageUri == null && this.videoUri == null) ? false : true;
-        }
-        return false;
     }
 }

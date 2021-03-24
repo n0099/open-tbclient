@@ -8,152 +8,178 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.core.atomData.PersonPolymericActivityConfig;
 import com.baidu.tbadk.core.atomData.PraiseListActivityConfig;
 import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.data.PraiseData;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
+import d.b.h0.z0.v;
 import java.util.ArrayList;
-/* loaded from: classes.dex */
+/* loaded from: classes5.dex */
 public class FrsPraiseView extends LinearLayout {
-    private TextView eKh;
-    private View eoR;
-    private boolean fnP;
-    private Context mContext;
-    private String mPostId;
-    private String mThreadId;
-    private TextView nxi;
-    private TextView nxj;
-    private PraiseData nxk;
-    private boolean nxl;
 
-    public FrsPraiseView(Context context) {
-        super(context, null);
-        this.fnP = false;
-        this.nxl = false;
-    }
+    /* renamed from: e  reason: collision with root package name */
+    public Context f21308e;
 
-    public FrsPraiseView(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        this.fnP = false;
-        this.nxl = false;
-        setOrientation(0);
-        this.mContext = context;
-        initView();
-    }
+    /* renamed from: f  reason: collision with root package name */
+    public View f21309f;
 
-    private void initView() {
-        this.eoR = View.inflate(this.mContext, R.layout.frs_item_praise, this);
-        this.eKh = (TextView) this.eoR.findViewById(R.id.frs_go_praise_list_num);
-        this.nxi = (TextView) this.eoR.findViewById(R.id.frs_praise_user_name_text1);
-        this.nxj = (TextView) this.eoR.findViewById(R.id.frs_praise_user_name_text2);
-        setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.tbadkCore.FrsPraiseView.1
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
-                String str = "";
-                if (FrsPraiseView.this.nxk != null) {
-                    str = FrsPraiseView.this.nxk.getTitle();
-                }
-                com.baidu.tbadk.util.u.b(new PraiseListActivityConfig(FrsPraiseView.this.mContext, FrsPraiseView.this.mThreadId, FrsPraiseView.this.mPostId, str, FrsPraiseView.this.fnP));
-            }
-        });
-        this.nxj.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.tbadkCore.FrsPraiseView.2
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
-                MetaData metaData = FrsPraiseView.this.nxk.getUser().get(1);
-                if (metaData != null) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonPolymericActivityConfig(FrsPraiseView.this.mContext).createNormalConfig(com.baidu.adp.lib.f.b.toLong(metaData.getUserId(), 0L), false, metaData.isBigV())));
-                }
-            }
-        });
-        this.nxi.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.tbadkCore.FrsPraiseView.3
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
-                MetaData metaData = FrsPraiseView.this.nxk.getUser().get(0);
-                if (metaData != null) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonPolymericActivityConfig(FrsPraiseView.this.mContext).createNormalConfig(com.baidu.adp.lib.f.b.toLong(metaData.getUserId(), 0L), false, metaData.isBigV())));
-                }
-            }
-        });
-    }
+    /* renamed from: g  reason: collision with root package name */
+    public TextView f21310g;
 
-    public void setData(PraiseData praiseData, String str, String str2, boolean z) {
-        if (praiseData != null) {
-            this.mThreadId = str;
-            this.mPostId = str2;
-            this.nxk = praiseData;
-            ym(z);
+    /* renamed from: h  reason: collision with root package name */
+    public TextView f21311h;
+    public TextView i;
+    public PraiseData j;
+    public String k;
+    public String l;
+    public boolean m;
+    public boolean n;
+
+    /* loaded from: classes5.dex */
+    public class a implements View.OnClickListener {
+        public a() {
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            v.b(new PraiseListActivityConfig(FrsPraiseView.this.f21308e, FrsPraiseView.this.k, FrsPraiseView.this.l, FrsPraiseView.this.j != null ? FrsPraiseView.this.j.getTitle() : "", FrsPraiseView.this.m));
         }
     }
 
-    public void setIsFromPb(boolean z) {
-        this.fnP = z;
+    /* loaded from: classes5.dex */
+    public class b implements View.OnClickListener {
+        public b() {
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            MetaData metaData = FrsPraiseView.this.j.getUser().get(1);
+            if (metaData == null) {
+                return;
+            }
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(FrsPraiseView.this.f21308e).createNormalConfig(d.b.b.e.m.b.f(metaData.getUserId(), 0L), false, metaData.isBigV())));
+        }
     }
 
-    public void setIsFromPbVideo(boolean z) {
-        this.nxl = z;
+    /* loaded from: classes5.dex */
+    public class c implements View.OnClickListener {
+        public c() {
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            MetaData metaData = FrsPraiseView.this.j.getUser().get(0);
+            if (metaData == null) {
+                return;
+            }
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(FrsPraiseView.this.f21308e).createNormalConfig(d.b.b.e.m.b.f(metaData.getUserId(), 0L), false, metaData.isBigV())));
+        }
     }
 
-    private void ym(boolean z) {
-        long num = this.nxk.getNum();
-        this.nxj.setVisibility(8);
-        this.nxi.setVisibility(8);
+    public FrsPraiseView(Context context) {
+        super(context, null);
+        this.m = false;
+        this.n = false;
+    }
+
+    public final void f(boolean z) {
+        long num = this.j.getNum();
+        this.i.setVisibility(8);
+        this.f21311h.setVisibility(8);
         if (num > 0) {
-            ArrayList<MetaData> user = this.nxk.getUser();
+            ArrayList<MetaData> user = this.j.getUser();
             if (user != null && user.size() > 0) {
                 if (user.size() == 1) {
                     if (user.get(0) != null) {
-                        this.nxi.setVisibility(0);
-                        this.nxi.setText(Tl(user.get(0).getName_show()));
+                        this.f21311h.setVisibility(0);
+                        this.f21311h.setText(g(user.get(0).getName_show()));
                     }
                 } else {
                     if (user.get(0) != null) {
-                        this.nxi.setVisibility(0);
-                        this.nxi.setText(Tl(user.get(0).getName_show()));
+                        this.f21311h.setVisibility(0);
+                        this.f21311h.setText(g(user.get(0).getName_show()));
                     }
                     if (user.get(1) != null) {
-                        this.nxj.setVisibility(0);
-                        this.nxj.setText("、" + Tl(user.get(1).getName_show()));
+                        this.i.setVisibility(0);
+                        TextView textView = this.i;
+                        textView.setText("、" + g(user.get(1).getName_show()));
                     }
                 }
             }
             if (num <= 2) {
-                this.eKh.setText(this.mContext.getString(R.string.common_praise_view_text));
+                this.f21310g.setText(this.f21308e.getString(R.string.common_praise_view_text));
             } else if (num <= 999999) {
-                this.eKh.setText(this.mContext.getString(R.string.etc) + num + this.mContext.getString(R.string.common_praise_view_text2));
+                TextView textView2 = this.f21310g;
+                textView2.setText(this.f21308e.getString(R.string.etc) + num + this.f21308e.getString(R.string.common_praise_view_text2));
             } else {
-                this.eKh.setText(this.mContext.getString(R.string.etc) + "999999+" + this.mContext.getString(R.string.common_praise_view_text2));
+                TextView textView3 = this.f21310g;
+                textView3.setText(this.f21308e.getString(R.string.etc) + "999999+" + this.f21308e.getString(R.string.common_praise_view_text2));
             }
         }
     }
 
-    private String Tl(String str) {
-        if (!TextUtils.isEmpty(str) && str.length() > 14) {
-            return str.substring(0, 14);
-        }
-        return str;
+    public final String g(String str) {
+        return (TextUtils.isEmpty(str) || str.length() <= 14) ? str : str.substring(0, 14);
     }
 
-    public void onChangeSkin(int i) {
-        if (this.fnP) {
-            if (this.nxl) {
-                ap.setBackgroundResource(this.eoR, R.drawable.praise_video_selector);
-                ap.setViewTextColor(this.eKh, R.color.CAM_X0108, 1);
-                ap.setViewTextColor(this.nxi, R.color.CAM_X0304, 1);
-                ap.setViewTextColor(this.nxj, R.color.CAM_X0304, 1);
+    public final void h() {
+        View inflate = View.inflate(this.f21308e, R.layout.frs_item_praise, this);
+        this.f21309f = inflate;
+        this.f21310g = (TextView) inflate.findViewById(R.id.frs_go_praise_list_num);
+        this.f21311h = (TextView) this.f21309f.findViewById(R.id.frs_praise_user_name_text1);
+        this.i = (TextView) this.f21309f.findViewById(R.id.frs_praise_user_name_text2);
+        setOnClickListener(new a());
+        this.i.setOnClickListener(new b());
+        this.f21311h.setOnClickListener(new c());
+    }
+
+    public void i(int i) {
+        if (this.m) {
+            if (this.n) {
+                SkinManager.setBackgroundResource(this.f21309f, R.drawable.praise_video_selector);
+                SkinManager.setViewTextColor(this.f21310g, R.color.CAM_X0108, 1);
+                SkinManager.setViewTextColor(this.f21311h, R.color.CAM_X0304, 1);
+                SkinManager.setViewTextColor(this.i, R.color.CAM_X0304, 1);
                 return;
             }
-            ap.setBackgroundResource(this.eoR, R.drawable.praise_head_selector);
-            ap.setViewTextColor(this.eKh, R.color.CAM_X0109, 1);
-            ap.setViewTextColor(this.nxi, R.color.CAM_X0304, 1);
-            ap.setViewTextColor(this.nxj, R.color.CAM_X0304, 1);
+            SkinManager.setBackgroundResource(this.f21309f, R.drawable.praise_head_selector);
+            SkinManager.setViewTextColor(this.f21310g, R.color.CAM_X0109, 1);
+            SkinManager.setViewTextColor(this.f21311h, R.color.CAM_X0304, 1);
+            SkinManager.setViewTextColor(this.i, R.color.CAM_X0304, 1);
             return;
         }
-        ap.setBackgroundResource(this.eoR, R.drawable.praise_view_btn_color);
-        ap.setViewTextColor(this.eKh, R.color.CAM_X0109, 1);
-        ap.setViewTextColor(this.nxi, R.color.CAM_X0108, 1);
-        ap.setViewTextColor(this.nxj, R.color.CAM_X0108, 1);
+        SkinManager.setBackgroundResource(this.f21309f, R.drawable.praise_view_btn_color);
+        SkinManager.setViewTextColor(this.f21310g, R.color.CAM_X0109, 1);
+        SkinManager.setViewTextColor(this.f21311h, R.color.CAM_X0108, 1);
+        SkinManager.setViewTextColor(this.i, R.color.CAM_X0108, 1);
+    }
+
+    public void setData(PraiseData praiseData, String str, String str2, boolean z) {
+        if (praiseData == null) {
+            return;
+        }
+        this.k = str;
+        this.l = str2;
+        this.j = praiseData;
+        f(z);
+    }
+
+    public void setIsFromPb(boolean z) {
+        this.m = z;
+    }
+
+    public void setIsFromPbVideo(boolean z) {
+        this.n = z;
+    }
+
+    public FrsPraiseView(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        this.m = false;
+        this.n = false;
+        setOrientation(0);
+        this.f21308e = context;
+        h();
     }
 }

@@ -15,41 +15,45 @@ import android.view.VelocityTracker;
 import android.widget.FrameLayout;
 import com.baidu.adp.R;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.fsg.base.widget.textfilter.EditTextPasteFilterUtils;
 import com.baidu.sapi2.result.OneKeyLoginResult;
+import com.kwad.sdk.core.config.item.TipsConfigItem;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class VerticalTranslateLayout extends FrameLayout {
-    static final /* synthetic */ boolean $assertionsDisabled;
-    private TrackDirection ZO;
-    private final a ZP;
-    private final b ZQ;
-    private final g ZR;
-    private e ZS;
-    private c ZT;
-    private f ZU;
-    private final Paint mBackgroundPaint;
-    private final Rect mBottomFrameForTap;
-    private float mBottomHeight;
-    private float mBottomOffset;
-    private boolean mBottomTapBack;
-    private int mLastDownX;
-    private int mLastDownY;
-    private int mLastMoveY;
-    private boolean mLastMoveYBeenSet;
-    private int mMeasuredHeight;
-    private int mMeasuredWidth;
-    private final List<d> mOnOpenAnimationListener;
-    private int mPositionState;
-    private final Rect mTopFrameForTap;
-    private float mTopHeight;
-    private float mTopOffset;
-    private boolean mTopTapBack;
-    private int mTopTranslate;
-    private final int mTouchThreshold;
+    public final List<e> A;
+    public g B;
 
-    /* JADX INFO: Access modifiers changed from: private */
+    /* renamed from: e  reason: collision with root package name */
+    public int f2377e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public int f2378f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public float f2379g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public float f2380h;
+    public float i;
+    public float j;
+    public int k;
+    public final int l;
+    public TrackDirection m;
+    public int n;
+    public final Rect o;
+    public final Rect p;
+    public final Paint q;
+    public int r;
+    public int s;
+    public int t;
+    public boolean u;
+    public final b v;
+    public final c w;
+    public final h x;
+    public f y;
+    public d z;
+
     /* loaded from: classes.dex */
     public enum TrackDirection {
         top,
@@ -58,682 +62,699 @@ public class VerticalTranslateLayout extends FrameLayout {
         none
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public interface c {
-        void onBottomAnimationEnd();
+    public static /* synthetic */ class a {
 
-        void onRightAnimationStart();
+        /* renamed from: a  reason: collision with root package name */
+        public static final /* synthetic */ int[] f2381a;
+
+        static {
+            int[] iArr = new int[TrackDirection.values().length];
+            f2381a = iArr;
+            try {
+                iArr[TrackDirection.top.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
+            }
+            try {
+                f2381a[TrackDirection.bottom.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
+            }
+            try {
+                f2381a[TrackDirection.vertical.ordinal()] = 3;
+            } catch (NoSuchFieldError unused3) {
+            }
+        }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    /* loaded from: classes.dex */
+    public class b extends Handler {
+        public b() {
+        }
+
+        @Override // android.os.Handler
+        public void handleMessage(Message message) {
+            if (VerticalTranslateLayout.this.w.f2389g) {
+                int i = message.what;
+                if (i == -105) {
+                    VerticalTranslateLayout.this.w.g();
+                } else if (i == -104) {
+                    VerticalTranslateLayout.this.w.i();
+                } else if (i == -101) {
+                    VerticalTranslateLayout.this.w.f();
+                } else if (i != -100) {
+                } else {
+                    VerticalTranslateLayout.this.w.h();
+                }
+            }
+        }
+
+        public /* synthetic */ b(VerticalTranslateLayout verticalTranslateLayout, a aVar) {
+            this();
+        }
+    }
+
+    /* loaded from: classes.dex */
+    public class c {
+
+        /* renamed from: a  reason: collision with root package name */
+        public float f2383a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public float f2384b;
+
+        /* renamed from: c  reason: collision with root package name */
+        public float f2385c;
+
+        /* renamed from: d  reason: collision with root package name */
+        public float f2386d;
+
+        /* renamed from: e  reason: collision with root package name */
+        public long f2387e;
+
+        /* renamed from: f  reason: collision with root package name */
+        public long f2388f;
+
+        /* renamed from: g  reason: collision with root package name */
+        public boolean f2389g;
+
+        public c() {
+            float f2 = VerticalTranslateLayout.this.getContext().getResources().getDisplayMetrics().density;
+        }
+
+        public void a(float f2) {
+            d dVar = VerticalTranslateLayout.this.z;
+            if (dVar != null) {
+                dVar.a();
+            }
+            this.f2389g = true;
+            long uptimeMillis = SystemClock.uptimeMillis();
+            this.f2387e = uptimeMillis;
+            this.f2388f = uptimeMillis + 16;
+            this.f2384b = f2;
+            this.f2383a = 0.0f;
+            this.f2385c = (VerticalTranslateLayout.this.f2378f - VerticalTranslateLayout.this.i) - VerticalTranslateLayout.this.k;
+            this.f2386d = VerticalTranslateLayout.this.k;
+            BdLog.d("Animator@animateBottom " + this.f2385c);
+            BdLog.d("Animator@animateBottom " + f2);
+            VerticalTranslateLayout.this.v.removeMessages(-101);
+            VerticalTranslateLayout.this.v.sendEmptyMessageAtTime(-101, this.f2388f);
+        }
+
+        public void b(float f2) {
+            for (e eVar : VerticalTranslateLayout.this.A) {
+                if (eVar != null) {
+                    eVar.a();
+                }
+            }
+            this.f2389g = true;
+            long uptimeMillis = SystemClock.uptimeMillis();
+            this.f2387e = uptimeMillis;
+            this.f2388f = uptimeMillis + 16;
+            this.f2384b = f2;
+            this.f2383a = 0.0f;
+            this.f2385c = 0 - VerticalTranslateLayout.this.k;
+            this.f2386d = VerticalTranslateLayout.this.k;
+            BdLog.d("Animator@animateBottomOpen " + this.f2385c);
+            BdLog.d("Animator@animateBottomOpen " + f2);
+            VerticalTranslateLayout.this.v.removeMessages(OneKeyLoginResult.ONE_KEY_LOGIN_CODE_GET_JS_CODE_FAIL);
+            VerticalTranslateLayout.this.v.sendEmptyMessageAtTime(OneKeyLoginResult.ONE_KEY_LOGIN_CODE_GET_JS_CODE_FAIL, this.f2388f);
+        }
+
+        public void c(float f2) {
+            f fVar = VerticalTranslateLayout.this.y;
+            if (fVar != null) {
+                fVar.a();
+            }
+            this.f2389g = true;
+            long uptimeMillis = SystemClock.uptimeMillis();
+            this.f2387e = uptimeMillis;
+            this.f2388f = uptimeMillis + 16;
+            this.f2384b = f2;
+            this.f2383a = 0.0f;
+            this.f2385c = ((-VerticalTranslateLayout.this.f2378f) + VerticalTranslateLayout.this.f2379g) - VerticalTranslateLayout.this.k;
+            this.f2386d = VerticalTranslateLayout.this.k;
+            BdLog.d("Animator@animateTop " + this.f2385c);
+            BdLog.d("Animator@animateTop " + f2);
+            VerticalTranslateLayout.this.v.removeMessages(-100);
+            VerticalTranslateLayout.this.v.sendEmptyMessageAtTime(-100, this.f2388f);
+        }
+
+        public void d(float f2) {
+            for (e eVar : VerticalTranslateLayout.this.A) {
+                if (eVar != null) {
+                    eVar.a();
+                }
+            }
+            this.f2389g = true;
+            long uptimeMillis = SystemClock.uptimeMillis();
+            this.f2387e = uptimeMillis;
+            this.f2388f = uptimeMillis + 16;
+            this.f2384b = f2;
+            this.f2383a = 0.0f;
+            this.f2385c = 0 - VerticalTranslateLayout.this.k;
+            this.f2386d = VerticalTranslateLayout.this.k;
+            VerticalTranslateLayout.this.v.removeMessages(OneKeyLoginResult.ONE_KEY_LOGIN_CODE_IN_GUIDE_PROCESS);
+            BdLog.d("Animator@animateTopOpen " + this.f2385c);
+            BdLog.d("Animator@animateTopOpen " + f2);
+            VerticalTranslateLayout.this.v.sendEmptyMessageAtTime(OneKeyLoginResult.ONE_KEY_LOGIN_CODE_IN_GUIDE_PROCESS, this.f2388f);
+        }
+
+        public final void e() {
+            long uptimeMillis = SystemClock.uptimeMillis();
+            this.f2383a += this.f2384b * (((float) (uptimeMillis - this.f2387e)) / 1000.0f);
+            this.f2387e = uptimeMillis;
+            this.f2388f += 16;
+        }
+
+        public void f() {
+            e();
+            float f2 = this.f2383a;
+            float f3 = this.f2385c;
+            if (f2 >= f3) {
+                d dVar = VerticalTranslateLayout.this.z;
+                if (dVar != null) {
+                    dVar.b();
+                }
+                this.f2389g = false;
+                VerticalTranslateLayout.this.n = 10001;
+                VerticalTranslateLayout.this.s();
+                return;
+            }
+            VerticalTranslateLayout.this.k = (int) (d.b.b.j.a.a(f3, f2, false) + this.f2386d);
+            VerticalTranslateLayout.this.invalidate();
+            VerticalTranslateLayout.this.v.sendEmptyMessageAtTime(-101, this.f2388f);
+        }
+
+        public void g() {
+            e();
+            float f2 = this.f2383a;
+            float f3 = this.f2385c;
+            if (f2 <= f3) {
+                for (e eVar : VerticalTranslateLayout.this.A) {
+                    if (eVar != null) {
+                        eVar.b();
+                    }
+                }
+                this.f2389g = false;
+                VerticalTranslateLayout.this.n = 10004;
+                VerticalTranslateLayout.this.s();
+                return;
+            }
+            VerticalTranslateLayout.this.k = (int) (d.b.b.j.a.a(f3, f2, false) + this.f2386d);
+            VerticalTranslateLayout.this.invalidate();
+            VerticalTranslateLayout.this.v.sendEmptyMessageAtTime(OneKeyLoginResult.ONE_KEY_LOGIN_CODE_GET_JS_CODE_FAIL, this.f2388f);
+        }
+
+        public void h() {
+            e();
+            float f2 = this.f2383a;
+            float f3 = this.f2385c;
+            if (f2 <= f3) {
+                f fVar = VerticalTranslateLayout.this.y;
+                if (fVar != null) {
+                    fVar.b();
+                }
+                this.f2389g = false;
+                VerticalTranslateLayout.this.n = 10000;
+                VerticalTranslateLayout.this.s();
+                return;
+            }
+            VerticalTranslateLayout.this.k = (int) (d.b.b.j.a.a(f3, f2, false) + this.f2386d);
+            VerticalTranslateLayout.this.invalidate();
+            VerticalTranslateLayout.this.v.sendEmptyMessageAtTime(-100, this.f2388f);
+        }
+
+        public void i() {
+            e();
+            float f2 = this.f2383a;
+            float f3 = this.f2385c;
+            if (f2 >= f3) {
+                for (e eVar : VerticalTranslateLayout.this.A) {
+                    if (eVar != null) {
+                        eVar.b();
+                    }
+                }
+                this.f2389g = false;
+                VerticalTranslateLayout.this.n = 10004;
+                VerticalTranslateLayout.this.s();
+                return;
+            }
+            VerticalTranslateLayout.this.k = (int) (d.b.b.j.a.a(f3, f2, false) + this.f2386d);
+            VerticalTranslateLayout.this.invalidate();
+            VerticalTranslateLayout.this.v.sendEmptyMessageAtTime(OneKeyLoginResult.ONE_KEY_LOGIN_CODE_IN_GUIDE_PROCESS, this.f2388f);
+        }
+    }
+
     /* loaded from: classes.dex */
     public interface d {
-        void onOpenAnimationEnd();
+        void a();
 
-        void onOpenAnimationStart();
+        void b();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public interface e {
-        void onLeftAnimationStart();
+        void a();
 
-        void onTopAnimationEnd();
+        void b();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public interface f {
-        void onStartVerticalTrack(int i);
+        void a();
+
+        void b();
     }
 
-    static {
-        $assertionsDisabled = !VerticalTranslateLayout.class.desiredAssertionStatus();
+    /* loaded from: classes.dex */
+    public interface g {
+        void a(int i);
+    }
+
+    /* loaded from: classes.dex */
+    public class h {
+
+        /* renamed from: a  reason: collision with root package name */
+        public VelocityTracker f2391a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public boolean f2392b;
+
+        /* renamed from: c  reason: collision with root package name */
+        public final int f2393c;
+
+        /* renamed from: d  reason: collision with root package name */
+        public final int f2394d;
+
+        public h() {
+            float f2 = VerticalTranslateLayout.this.getContext().getResources().getDisplayMetrics().density;
+            this.f2393c = (int) ((200.0f * f2) + 0.5f);
+            this.f2394d = (int) ((f2 * 500.0f) + 0.5f);
+        }
+
+        public final void b(float f2) {
+            BdLog.d("VerticalTranslateLayout@bottomFling");
+            if (f2 < 0.0f) {
+                VerticalTranslateLayout.this.w.b(f2);
+            } else {
+                VerticalTranslateLayout.this.w.a(f2);
+            }
+        }
+
+        public final void c() {
+            float max;
+            this.f2391a.computeCurrentVelocity(this.f2393c);
+            float yVelocity = this.f2391a.getYVelocity();
+            BdLog.d("VerticalTranslateLayout@fling y " + yVelocity);
+            if (yVelocity < 0.0f) {
+                max = Math.min(yVelocity, -this.f2394d);
+            } else {
+                max = Math.max(yVelocity, this.f2394d);
+            }
+            int i = a.f2381a[VerticalTranslateLayout.this.m.ordinal()];
+            if (i == 1) {
+                g(max);
+            } else if (i == 2) {
+                b(max);
+            } else if (i == 3) {
+                h(max);
+            }
+            this.f2391a.recycle();
+            this.f2391a = null;
+        }
+
+        public void d(int i) {
+            if (this.f2392b) {
+                int i2 = VerticalTranslateLayout.this.k - i;
+                int i3 = a.f2381a[VerticalTranslateLayout.this.m.ordinal()];
+                if (i3 == 1) {
+                    BdLog.d("VerticalTranslateLayout@move top");
+                    if (i2 <= VerticalTranslateLayout.this.f2379g - VerticalTranslateLayout.this.f2378f || i2 >= 0) {
+                        return;
+                    }
+                    VerticalTranslateLayout.this.k -= i;
+                    VerticalTranslateLayout.this.invalidate();
+                } else if (i3 == 2) {
+                    BdLog.d("VerticalTranslateLayout@move bottom");
+                    if (i2 >= VerticalTranslateLayout.this.f2378f - VerticalTranslateLayout.this.i || i2 <= 0) {
+                        return;
+                    }
+                    VerticalTranslateLayout.this.k -= i;
+                    VerticalTranslateLayout.this.invalidate();
+                } else if (i3 != 3) {
+                } else {
+                    BdLog.d("VerticalTranslateLayout@move vertical");
+                    float f2 = i2;
+                    if (f2 < VerticalTranslateLayout.this.f2379g - VerticalTranslateLayout.this.f2378f || f2 > VerticalTranslateLayout.this.f2378f - VerticalTranslateLayout.this.i) {
+                        return;
+                    }
+                    VerticalTranslateLayout.this.k -= i;
+                    VerticalTranslateLayout.this.invalidate();
+                }
+            }
+        }
+
+        public boolean e(int i) {
+            int i2 = a.f2381a[VerticalTranslateLayout.this.m.ordinal()];
+            if (i2 != 1) {
+                if (i2 != 2) {
+                    if (i2 == 3 && VerticalTranslateLayout.this.B != null) {
+                        VerticalTranslateLayout.this.B.a(i);
+                    }
+                } else if (VerticalTranslateLayout.this.n != 10004 && VerticalTranslateLayout.this.n != 10001) {
+                    return false;
+                }
+            } else if (VerticalTranslateLayout.this.n != 10004 && VerticalTranslateLayout.this.n != 10000) {
+                return false;
+            }
+            this.f2391a = VelocityTracker.obtain();
+            this.f2392b = true;
+            return true;
+        }
+
+        public void f() {
+            this.f2392b = false;
+        }
+
+        public final void g(float f2) {
+            BdLog.d("VerticalTranslateLayout@topFling");
+            if (f2 < 0.0f) {
+                VerticalTranslateLayout.this.w.c(f2);
+            } else {
+                VerticalTranslateLayout.this.w.d(f2);
+            }
+        }
+
+        public final void h(float f2) {
+            BdLog.d("VerticalTranslateLayout@verticalFling");
+            int i = VerticalTranslateLayout.this.k;
+            if (i <= 0 && i >= VerticalTranslateLayout.this.f2379g - VerticalTranslateLayout.this.f2378f) {
+                if (f2 < 0.0f) {
+                    VerticalTranslateLayout.this.w.c(f2);
+                } else {
+                    VerticalTranslateLayout.this.w.d(f2);
+                }
+            } else if (i < 0 || i > VerticalTranslateLayout.this.f2378f - VerticalTranslateLayout.this.i) {
+            } else {
+                if (f2 < 0.0f) {
+                    VerticalTranslateLayout.this.w.b(f2);
+                } else {
+                    VerticalTranslateLayout.this.w.a(f2);
+                }
+            }
+        }
     }
 
     public VerticalTranslateLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet, 0);
-        this.mTopFrameForTap = new Rect();
-        this.mBottomFrameForTap = new Rect();
-        this.mOnOpenAnimationListener = new ArrayList();
-        this.ZP = new a();
-        this.ZQ = new b();
-        this.ZR = new g();
-        this.mPositionState = 10004;
+        this.o = new Rect();
+        this.p = new Rect();
+        this.A = new ArrayList();
+        this.v = new b(this, null);
+        this.w = new c();
+        this.x = new h();
+        this.n = 10004;
         Resources resources = getResources();
-        this.mBackgroundPaint = new Paint();
-        this.mBackgroundPaint.setColor(-1);
-        this.mTouchThreshold = (int) ((resources.getDisplayMetrics().density * 35.0f) + 0.5d);
-        loadAttrs(attributeSet);
-    }
-
-    private void loadAttrs(AttributeSet attributeSet) {
-        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, R.styleable.VerticalTranslateLayout);
-        this.mTopOffset = obtainStyledAttributes.getDimension(R.styleable.VerticalTranslateLayout_topOffset, -1.0f);
-        this.mBottomOffset = obtainStyledAttributes.getDimension(R.styleable.VerticalTranslateLayout_bottomOffset, -1.0f);
-        this.mTopHeight = obtainStyledAttributes.getDimension(R.styleable.VerticalTranslateLayout_topHeight, -1.0f);
-        this.mBottomHeight = obtainStyledAttributes.getDimension(R.styleable.VerticalTranslateLayout_bottomHeight, -1.0f);
-        String string = obtainStyledAttributes.getString(R.styleable.VerticalTranslateLayout_transTrack);
-        if (string != null && string.length() > 0) {
-            if (canTop() && canBottom() && com.baidu.live.adp.widget.VerticalTranslateLayout.VERTICAL.equals(string)) {
-                BdLog.d("VerticalTranslateLayout@parseTrack vertical");
-                this.ZO = TrackDirection.vertical;
-            } else if (canBottom() && "bottom".equals(string)) {
-                BdLog.d("VerticalTranslateLayout@parseTrack bottom");
-                this.ZO = TrackDirection.bottom;
-            } else if (canTop() && com.baidu.live.adp.widget.VerticalTranslateLayout.TOP.equals(string)) {
-                BdLog.d("VerticalTranslateLayout@parseTrack top");
-                this.ZO = TrackDirection.top;
-            } else {
-                this.ZO = TrackDirection.none;
-                BdLog.d("VerticalTranslateLayout@parseTrack no direction");
-            }
-        }
-        String string2 = obtainStyledAttributes.getString(R.styleable.VerticalTranslateLayout_tapBack);
-        if (string2 != null && string2.length() > 0) {
-            String[] split = string2.split(EditTextPasteFilterUtils.EDITTEXT_PASTE_INTERCEPTOR_SEPERATOR);
-            for (String str : split) {
-                BdLog.d("VerticalTranslateLayout@loadAttrs tap area " + str);
-                if (com.baidu.live.adp.widget.VerticalTranslateLayout.TOP.equals(str) && this.mTopOffset != -1.0f) {
-                    this.mTopTapBack = true;
-                } else if ("bottom".equals(str) && this.mBottomOffset != -1.0f) {
-                    this.mBottomTapBack = true;
-                } else {
-                    BdLog.d("VerticalTranslateLayout@loadAttrs tap_back_area value illegal");
-                }
-            }
-        }
-        this.mBackgroundPaint.setColor(obtainStyledAttributes.getColor(R.styleable.VerticalTranslateLayout_transBackground, 0));
-        obtainStyledAttributes.recycle();
-        setClickable(true);
-    }
-
-    @Override // android.view.View
-    public void setBackgroundColor(int i) {
-        this.mBackgroundPaint.setColor(i);
-        invalidate();
-    }
-
-    public void setProportion(float f2) {
-        if (f2 >= -1.0f && f2 <= 1.0f) {
-            if (f2 < 0.0f) {
-                this.mTopTranslate = (int) ((this.mTopOffset - this.mMeasuredHeight) * (-f2));
-            } else if (f2 > 0.0f) {
-                this.mTopTranslate = (int) ((this.mMeasuredHeight - this.mBottomOffset) * f2);
-            } else if (f2 == 0.0f) {
-                this.mTopTranslate = 0;
-                this.mPositionState = 10004;
-            } else if (f2 == -1.0f) {
-                this.mTopOffset -= this.mMeasuredHeight;
-                this.mPositionState = 10000;
-            } else if (f2 == 1.0f) {
-                this.mTopOffset = this.mMeasuredHeight - this.mBottomOffset;
-                this.mPositionState = 10001;
-            }
-            invalidate();
-        }
-    }
-
-    public int getTopOffset() {
-        return (int) this.mTopOffset;
-    }
-
-    public int getBottomOffset() {
-        return (int) this.mBottomOffset;
-    }
-
-    public void setTopTapBack(boolean z) {
-        this.mTopTapBack = z;
-    }
-
-    public void setBottomTapBack(boolean z) {
-        this.mBottomTapBack = z;
-    }
-
-    public int getState() {
-        return this.mPositionState;
-    }
-
-    public void setTopAnimationListener(e eVar) {
-        this.ZS = eVar;
-    }
-
-    public void setBottomAnimationListener(c cVar) {
-        this.ZT = cVar;
-    }
-
-    public void setVerticalTrackListener(f fVar) {
-        this.ZU = fVar;
-    }
-
-    private boolean canTop() {
-        return (this.mTopOffset == -1.0f && this.mBottomHeight == -1.0f) ? false : true;
-    }
-
-    private boolean canBottom() {
-        return (this.mBottomOffset == -1.0f && this.mTopHeight == -1.0f) ? false : true;
+        Paint paint = new Paint();
+        this.q = paint;
+        paint.setColor(-1);
+        double d2 = resources.getDisplayMetrics().density * 35.0f;
+        Double.isNaN(d2);
+        this.l = (int) (d2 + 0.5d);
+        r(attributeSet);
     }
 
     @Override // android.view.ViewGroup, android.view.View
-    protected void dispatchDraw(Canvas canvas) {
+    public void dispatchDraw(Canvas canvas) {
         canvas.save();
-        canvas.translate(0.0f, this.mTopTranslate);
-        BdLog.d("VerticalTranslateLayout@dispatchDraw " + this.mTopTranslate);
-        canvas.drawRect(0.0f, 0.0f, this.mMeasuredWidth, this.mMeasuredHeight, this.mBackgroundPaint);
+        canvas.translate(0.0f, this.k);
+        BdLog.d("VerticalTranslateLayout@dispatchDraw " + this.k);
+        canvas.drawRect(0.0f, 0.0f, (float) this.f2377e, (float) this.f2378f, this.q);
         super.dispatchDraw(canvas);
         canvas.restore();
     }
 
+    public int getBottomOffset() {
+        return (int) this.i;
+    }
+
+    public int getState() {
+        return this.n;
+    }
+
+    public int getTopOffset() {
+        return (int) this.f2379g;
+    }
+
     public int getTopTranslate() {
-        return this.mTopTranslate;
+        return this.k;
     }
 
     @Override // android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        if (this.ZO == TrackDirection.none) {
+        if (this.m == TrackDirection.none) {
             return false;
         }
         int action = motionEvent.getAction() & 255;
         int x = (int) motionEvent.getX();
         int y = (int) motionEvent.getY();
-        if (this.mPositionState == 10004) {
-            switch (action) {
-                case 0:
-                    this.mLastDownX = x;
-                    this.mLastDownY = y;
-                    this.ZP.removeMessages(-100);
-                    this.ZP.removeMessages(OneKeyLoginResult.ONE_KEY_LOGIN_CODE_IN_GUIDE_PROCESS);
-                    this.ZP.removeMessages(-101);
-                    this.ZP.removeMessages(OneKeyLoginResult.ONE_KEY_LOGIN_CODE_GET_JS_CODE_FAIL);
-                    return false;
-                case 1:
-                default:
-                    return false;
-                case 2:
-                    BdLog.d("VerticalTranslateLayout@interceptInterceptTouchEvent");
-                    motionEvent.offsetLocation(0.0f, -this.mTopTranslate);
-                    return prepareTracking(x, y);
+        if (this.n != 10004) {
+            BdLog.d("VerticalTranslateLayoutIntercepted to onTouch()");
+            return true;
+        }
+        if (action == 0) {
+            this.r = x;
+            this.s = y;
+            this.v.removeMessages(-100);
+            this.v.removeMessages(OneKeyLoginResult.ONE_KEY_LOGIN_CODE_IN_GUIDE_PROCESS);
+            this.v.removeMessages(-101);
+            this.v.removeMessages(OneKeyLoginResult.ONE_KEY_LOGIN_CODE_GET_JS_CODE_FAIL);
+        } else if (action == 2) {
+            BdLog.d("VerticalTranslateLayout@interceptInterceptTouchEvent");
+            motionEvent.offsetLocation(0.0f, -this.k);
+            return t(x, y);
+        }
+        return false;
+    }
+
+    @Override // android.widget.FrameLayout, android.view.ViewGroup, android.view.View
+    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
+        super.onLayout(z, i, i2, i3, i4);
+        if (z) {
+            float f2 = this.f2379g;
+            if (f2 != -1.0f) {
+                this.o.set(i, i2, i3, (int) (i2 + f2));
+            }
+            float f3 = this.i;
+            if (f3 != -1.0f) {
+                this.p.set(i, (int) (i4 - f3), i3, i4);
             }
         }
-        BdLog.d("VerticalTranslateLayoutIntercepted to onTouch()");
-        return true;
+        if (this.w.f2389g || this.x.f2392b) {
+            return;
+        }
+        s();
     }
 
-    private boolean prepareTracking(int i, int i2) {
-        return i >= this.mLastDownX - this.mTouchThreshold && i <= this.mLastDownX + this.mTouchThreshold && (i2 < this.mLastDownY - this.mTouchThreshold || i2 > this.mLastDownY + this.mTouchThreshold) && this.ZR.prepareTracking(i2 - this.mLastDownY);
+    @Override // android.widget.FrameLayout, android.view.View
+    public void onMeasure(int i, int i2) {
+        super.onMeasure(i, i2);
+        int i3 = 1073741823 & i2;
+        if (this.f2380h != -1.0f) {
+            this.f2379g = i3 - this.j;
+        }
+        if (this.j != -1.0f) {
+            this.i = i3 - this.f2380h;
+        }
+        this.f2377e = getMeasuredWidth();
+        this.f2378f = getMeasuredHeight();
     }
 
-    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
+    /* JADX WARN: Code restructure failed: missing block: B:24:0x0074, code lost:
+        if (r2 != 3) goto L17;
+     */
     @Override // android.view.View
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     public boolean onTouchEvent(MotionEvent motionEvent) {
         int x = (int) motionEvent.getX();
         int y = (int) motionEvent.getY();
         int action = motionEvent.getAction() & 255;
-        if (this.mPositionState == 10004) {
-            switch (action) {
-                case 1:
-                case 3:
-                    BdLog.d("VerticalTranslateLayout@onTouchEvent up");
-                    this.mLastMoveYBeenSet = false;
-                    if (this.ZR.tracking) {
-                        BdLog.d("VerticalTranslateLayout@onTouchEvent tracking");
-                        this.ZR.stopTracking();
-                        this.ZR.fling();
-                        return true;
+        int i = this.n;
+        if (i == 10004) {
+            if (action != 1) {
+                if (action != 2) {
+                    if (action != 3) {
+                        return false;
                     }
-                    return true;
-                case 2:
-                    if (this.ZR.tracking) {
-                        if (!this.mLastMoveYBeenSet) {
-                            if (y > this.mLastDownY) {
-                                this.mLastMoveY = this.mLastDownY + this.mTouchThreshold;
-                                this.mLastMoveYBeenSet = true;
-                            } else {
-                                this.mLastMoveY = this.mLastDownY - this.mTouchThreshold;
-                                this.mLastMoveYBeenSet = true;
-                            }
+                } else if (this.x.f2392b) {
+                    if (!this.u) {
+                        int i2 = this.s;
+                        if (y > i2) {
+                            this.t = i2 + this.l;
+                            this.u = true;
+                        } else {
+                            this.t = i2 - this.l;
+                            this.u = true;
                         }
-                        this.ZR.move(this.mLastMoveY - y);
-                        this.mLastMoveY = y;
-                        this.ZR.velocityTracker.addMovement(motionEvent);
-                        return true;
                     }
-                    return true;
-                default:
-                    return false;
+                    this.x.d(this.t - y);
+                    this.t = y;
+                    this.x.f2391a.addMovement(motionEvent);
+                }
+            }
+            BdLog.d("VerticalTranslateLayout@onTouchEvent up");
+            this.u = false;
+            if (this.x.f2392b) {
+                BdLog.d("VerticalTranslateLayout@onTouchEvent tracking");
+                this.x.f();
+                this.x.c();
+            }
+            return true;
+        }
+        if (action != 0) {
+            if (action != 1) {
+                if (action != 2) {
+                }
+            }
+            h hVar = this.x;
+            if (hVar.f2392b) {
+                hVar.f();
+                this.x.c();
+            }
+        } else if ((i != 10000 || !this.o.contains(x, y)) && (this.n != 10001 || !this.p.contains(x, y))) {
+            return false;
+        } else {
+            h hVar2 = this.x;
+            if (!hVar2.f2392b) {
+                this.t = y;
+                hVar2.e(y);
             }
         }
-        switch (action) {
-            case 0:
-                if ((this.mPositionState != 10000 || !this.mTopFrameForTap.contains(x, y)) && (this.mPositionState != 10001 || !this.mBottomFrameForTap.contains(x, y))) {
-                    return false;
-                }
-                if (!this.ZR.tracking) {
-                    this.mLastMoveY = y;
-                    this.ZR.prepareTracking(y);
-                    break;
-                }
-                break;
-            case 1:
-            case 3:
-                if (this.ZR.tracking) {
-                    this.ZR.stopTracking();
-                    this.ZR.fling();
-                    return true;
-                }
-                return true;
-            case 2:
-                break;
-            default:
-                return true;
-        }
-        if (this.ZR.tracking) {
-            this.ZR.move(this.mLastMoveY - y);
-            this.mLastMoveY = y;
-            this.ZR.velocityTracker.addMovement(motionEvent);
-            return true;
+        h hVar3 = this.x;
+        if (hVar3.f2392b) {
+            hVar3.d(this.t - y);
+            this.t = y;
+            this.x.f2391a.addMovement(motionEvent);
         }
         return true;
     }
 
-    @Override // android.widget.FrameLayout, android.view.ViewGroup, android.view.View
-    protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
-        super.onLayout(z, i, i2, i3, i4);
-        if (z) {
-            if (this.mTopOffset != -1.0f) {
-                this.mTopFrameForTap.set(i, i2, i3, (int) (i2 + this.mTopOffset));
-            }
-            if (this.mBottomOffset != -1.0f) {
-                this.mBottomFrameForTap.set(i, (int) (i4 - this.mBottomOffset), i3, i4);
-            }
-        }
-        if (!this.ZQ.iAnimating && !this.ZR.tracking) {
-            offset();
-        }
+    public final boolean p() {
+        return (this.i == -1.0f && this.f2380h == -1.0f) ? false : true;
     }
 
-    @Override // android.widget.FrameLayout, android.view.View
-    protected void onMeasure(int i, int i2) {
-        super.onMeasure(i, i2);
-        int i3 = 1073741823 & i2;
-        if (this.mTopHeight != -1.0f) {
-            this.mTopOffset = i3 - this.mBottomHeight;
-        }
-        if (this.mBottomHeight != -1.0f) {
-            this.mBottomOffset = i3 - this.mTopHeight;
-        }
-        if (!$assertionsDisabled && i3 < this.mTopOffset) {
-            throw new AssertionError("top offset should not be larger than the view's width");
-        }
-        if (!$assertionsDisabled && i3 < this.mBottomOffset) {
-            throw new AssertionError("bottom offset should not be larger than the view's width");
-        }
-        this.mMeasuredWidth = getMeasuredWidth();
-        this.mMeasuredHeight = getMeasuredHeight();
+    public final boolean q() {
+        return (this.f2379g == -1.0f && this.j == -1.0f) ? false : true;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void offset() {
-        switch (this.mPositionState) {
-            case 10000:
-                this.mTopTranslate = (int) (this.mTopOffset - this.mMeasuredHeight);
-                invalidate();
-                return;
-            case 10001:
-                this.mTopTranslate = (int) (this.mMeasuredHeight - this.mBottomOffset);
-                invalidate();
-                return;
-            case 10002:
-            case 10003:
-            default:
-                return;
-            case 10004:
-                this.mTopTranslate = 0;
-                invalidate();
-                return;
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes.dex */
-    public class a extends Handler {
-        private a() {
-        }
-
-        @Override // android.os.Handler
-        public void handleMessage(Message message) {
-            if (VerticalTranslateLayout.this.ZQ.iAnimating) {
-                switch (message.what) {
-                    case OneKeyLoginResult.ONE_KEY_LOGIN_CODE_GET_JS_CODE_FAIL /* -105 */:
-                        VerticalTranslateLayout.this.ZQ.computeBottomOpenAnimation();
-                        return;
-                    case OneKeyLoginResult.ONE_KEY_LOGIN_CODE_IN_GUIDE_PROCESS /* -104 */:
-                        VerticalTranslateLayout.this.ZQ.computeTopOpenAnimation();
-                        return;
-                    case -103:
-                    case OneKeyLoginResult.ONE_KEY_LOGIN_CODE_GET_TOKEN_FAIL /* -102 */:
-                    default:
-                        return;
-                    case -101:
-                        VerticalTranslateLayout.this.ZQ.computeBottomAnimation();
-                        return;
-                    case -100:
-                        VerticalTranslateLayout.this.ZQ.computeTopAnimation();
-                        return;
-                }
-            }
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes.dex */
-    public class g {
-        final int minVelocity;
-        boolean tracking;
-        VelocityTracker velocityTracker;
-        final int velocityUnit;
-
-        g() {
-            float f = VerticalTranslateLayout.this.getContext().getResources().getDisplayMetrics().density;
-            this.velocityUnit = (int) ((200.0f * f) + 0.5f);
-            this.minVelocity = (int) ((f * 500.0f) + 0.5f);
-        }
-
-        boolean prepareTracking(int i) {
-            switch (VerticalTranslateLayout.this.ZO) {
-                case top:
-                    if (VerticalTranslateLayout.this.mPositionState != 10004 && VerticalTranslateLayout.this.mPositionState != 10000) {
-                        return false;
-                    }
-                    break;
-                case bottom:
-                    if (VerticalTranslateLayout.this.mPositionState != 10004 && VerticalTranslateLayout.this.mPositionState != 10001) {
-                        return false;
-                    }
-                    break;
-                case vertical:
-                    if (VerticalTranslateLayout.this.ZU != null) {
-                        VerticalTranslateLayout.this.ZU.onStartVerticalTrack(i);
-                        break;
-                    }
-                    break;
-            }
-            this.velocityTracker = VelocityTracker.obtain();
-            this.tracking = true;
-            return true;
-        }
-
-        void stopTracking() {
-            this.tracking = false;
-        }
-
-        void move(int i) {
-            if (this.tracking) {
-                int i2 = VerticalTranslateLayout.this.mTopTranslate - i;
-                switch (VerticalTranslateLayout.this.ZO) {
-                    case top:
-                        BdLog.d("VerticalTranslateLayout@move top");
-                        if (i2 > VerticalTranslateLayout.this.mTopOffset - VerticalTranslateLayout.this.mMeasuredHeight && i2 < 0) {
-                            VerticalTranslateLayout.this.mTopTranslate -= i;
-                            VerticalTranslateLayout.this.invalidate();
-                            return;
-                        }
-                        return;
-                    case bottom:
-                        BdLog.d("VerticalTranslateLayout@move bottom");
-                        if (i2 < VerticalTranslateLayout.this.mMeasuredHeight - VerticalTranslateLayout.this.mBottomOffset && i2 > 0) {
-                            VerticalTranslateLayout.this.mTopTranslate -= i;
-                            VerticalTranslateLayout.this.invalidate();
-                            return;
-                        }
-                        return;
-                    case vertical:
-                        BdLog.d("VerticalTranslateLayout@move vertical");
-                        if (i2 >= VerticalTranslateLayout.this.mTopOffset - VerticalTranslateLayout.this.mMeasuredHeight && i2 <= VerticalTranslateLayout.this.mMeasuredHeight - VerticalTranslateLayout.this.mBottomOffset) {
-                            VerticalTranslateLayout.this.mTopTranslate -= i;
-                            VerticalTranslateLayout.this.invalidate();
-                            return;
-                        }
-                        return;
-                    default:
-                        return;
-                }
-            }
-        }
-
-        /* JADX INFO: Access modifiers changed from: private */
-        public void fling() {
-            float max;
-            this.velocityTracker.computeCurrentVelocity(this.velocityUnit);
-            float yVelocity = this.velocityTracker.getYVelocity();
-            BdLog.d("VerticalTranslateLayout@fling y " + yVelocity);
-            if (yVelocity < 0.0f) {
-                max = Math.min(yVelocity, -this.minVelocity);
+    public final void r(AttributeSet attributeSet) {
+        String[] split;
+        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, R.styleable.VerticalTranslateLayout);
+        this.f2379g = obtainStyledAttributes.getDimension(R.styleable.VerticalTranslateLayout_topOffset, -1.0f);
+        this.i = obtainStyledAttributes.getDimension(R.styleable.VerticalTranslateLayout_bottomOffset, -1.0f);
+        this.f2380h = obtainStyledAttributes.getDimension(R.styleable.VerticalTranslateLayout_topHeight, -1.0f);
+        this.j = obtainStyledAttributes.getDimension(R.styleable.VerticalTranslateLayout_bottomHeight, -1.0f);
+        String string = obtainStyledAttributes.getString(R.styleable.VerticalTranslateLayout_transTrack);
+        if (string != null && string.length() > 0) {
+            if (q() && p() && "vertical".equals(string)) {
+                BdLog.d("VerticalTranslateLayout@parseTrack vertical");
+                this.m = TrackDirection.vertical;
+            } else if (p() && TipsConfigItem.TipConfigData.BOTTOM.equals(string)) {
+                BdLog.d("VerticalTranslateLayout@parseTrack bottom");
+                this.m = TrackDirection.bottom;
+            } else if (q() && "top".equals(string)) {
+                BdLog.d("VerticalTranslateLayout@parseTrack top");
+                this.m = TrackDirection.top;
             } else {
-                max = Math.max(yVelocity, this.minVelocity);
+                this.m = TrackDirection.none;
+                BdLog.d("VerticalTranslateLayout@parseTrack no direction");
             }
-            switch (VerticalTranslateLayout.this.ZO) {
-                case top:
-                    topFling(max);
-                    break;
-                case bottom:
-                    bottomFling(max);
-                    break;
-                case vertical:
-                    verticalFling(max);
-                    break;
-            }
-            this.velocityTracker.recycle();
-            this.velocityTracker = null;
         }
-
-        private void verticalFling(float f) {
-            BdLog.d("VerticalTranslateLayout@verticalFling");
-            int i = VerticalTranslateLayout.this.mTopTranslate;
-            if (i <= 0 && i >= VerticalTranslateLayout.this.mTopOffset - VerticalTranslateLayout.this.mMeasuredHeight) {
-                if (f < 0.0f) {
-                    VerticalTranslateLayout.this.ZQ.animateTop(f);
-                } else {
-                    VerticalTranslateLayout.this.ZQ.animateTopOpen(f);
-                }
-            } else if (i >= 0 && i <= VerticalTranslateLayout.this.mMeasuredHeight - VerticalTranslateLayout.this.mBottomOffset) {
-                if (f < 0.0f) {
-                    VerticalTranslateLayout.this.ZQ.animateBottomOpen(f);
-                } else {
-                    VerticalTranslateLayout.this.ZQ.animateBottom(f);
+        String string2 = obtainStyledAttributes.getString(R.styleable.VerticalTranslateLayout_tapBack);
+        if (string2 != null && string2.length() > 0) {
+            for (String str : string2.split("\\|")) {
+                BdLog.d("VerticalTranslateLayout@loadAttrs tap area " + str);
+                if ((!"top".equals(str) || this.f2379g == -1.0f) && (!TipsConfigItem.TipConfigData.BOTTOM.equals(str) || this.i == -1.0f)) {
+                    BdLog.d("VerticalTranslateLayout@loadAttrs tap_back_area value illegal");
                 }
             }
         }
+        this.q.setColor(obtainStyledAttributes.getColor(R.styleable.VerticalTranslateLayout_transBackground, 0));
+        obtainStyledAttributes.recycle();
+        setClickable(true);
+    }
 
-        private void topFling(float f) {
-            BdLog.d("VerticalTranslateLayout@topFling");
-            if (f < 0.0f) {
-                VerticalTranslateLayout.this.ZQ.animateTop(f);
-            } else {
-                VerticalTranslateLayout.this.ZQ.animateTopOpen(f);
-            }
-        }
-
-        private void bottomFling(float f) {
-            BdLog.d("VerticalTranslateLayout@bottomFling");
-            if (f < 0.0f) {
-                VerticalTranslateLayout.this.ZQ.animateBottomOpen(f);
-            } else {
-                VerticalTranslateLayout.this.ZQ.animateBottom(f);
-            }
+    public final void s() {
+        int i = this.n;
+        if (i == 10000) {
+            this.k = (int) (this.f2379g - this.f2378f);
+            invalidate();
+        } else if (i == 10001) {
+            this.k = (int) (this.f2378f - this.i);
+            invalidate();
+        } else if (i != 10004) {
+        } else {
+            this.k = 0;
+            invalidate();
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes.dex */
-    public class b {
-        boolean iAnimating;
-        float iAnimatingPosition;
-        float iAnimatingVelocity;
-        float iAnimationDistance;
-        float iAnimationStart;
-        long iCurrentAnimationTime;
-        long iLastAnimationTime;
-        final float kVelocity;
+    @Override // android.view.View
+    public void setBackgroundColor(int i) {
+        this.q.setColor(i);
+        invalidate();
+    }
 
-        b() {
-            this.kVelocity = VerticalTranslateLayout.this.getContext().getResources().getDisplayMetrics().density * 600.0f;
+    public void setBottomAnimationListener(d dVar) {
+        this.z = dVar;
+    }
+
+    public void setBottomTapBack(boolean z) {
+    }
+
+    public void setProportion(float f2) {
+        if (f2 < -1.0f || f2 > 1.0f) {
+            return;
         }
-
-        private void compute() {
-            long uptimeMillis = SystemClock.uptimeMillis();
-            this.iAnimatingPosition = ((((float) (uptimeMillis - this.iLastAnimationTime)) / 1000.0f) * this.iAnimatingVelocity) + this.iAnimatingPosition;
-            this.iLastAnimationTime = uptimeMillis;
-            this.iCurrentAnimationTime += 16;
+        if (f2 < 0.0f) {
+            this.k = (int) ((this.f2379g - this.f2378f) * (-f2));
+        } else if (f2 > 0.0f) {
+            this.k = (int) ((this.f2378f - this.i) * f2);
+        } else if (f2 == 0.0f) {
+            this.k = 0;
+            this.n = 10004;
+        } else if (f2 == -1.0f) {
+            this.f2379g -= this.f2378f;
+            this.n = 10000;
+        } else if (f2 == 1.0f) {
+            this.f2379g = this.f2378f - this.i;
+            this.n = 10001;
         }
+        invalidate();
+    }
 
-        void computeTopAnimation() {
-            compute();
-            if (this.iAnimatingPosition <= this.iAnimationDistance) {
-                e eVar = VerticalTranslateLayout.this.ZS;
-                if (eVar != null) {
-                    eVar.onTopAnimationEnd();
-                }
-                this.iAnimating = false;
-                VerticalTranslateLayout.this.mPositionState = 10000;
-                VerticalTranslateLayout.this.offset();
-                return;
+    public void setTopAnimationListener(f fVar) {
+        this.y = fVar;
+    }
+
+    public void setTopTapBack(boolean z) {
+    }
+
+    public void setVerticalTrackListener(g gVar) {
+        this.B = gVar;
+    }
+
+    public final boolean t(int i, int i2) {
+        int i3 = this.r;
+        int i4 = this.l;
+        if (i >= i3 - i4 && i <= i3 + i4) {
+            int i5 = this.s;
+            if ((i2 < i5 - i4 || i2 > i5 + i4) && this.x.e(i2 - this.s)) {
+                return true;
             }
-            VerticalTranslateLayout.this.mTopTranslate = (int) (com.baidu.adp.widget.a.computeInterpolator(this.iAnimationDistance, this.iAnimatingPosition, false) + this.iAnimationStart);
-            VerticalTranslateLayout.this.invalidate();
-            VerticalTranslateLayout.this.ZP.sendEmptyMessageAtTime(-100, this.iCurrentAnimationTime);
         }
-
-        void computeBottomAnimation() {
-            compute();
-            if (this.iAnimatingPosition >= this.iAnimationDistance) {
-                c cVar = VerticalTranslateLayout.this.ZT;
-                if (cVar != null) {
-                    cVar.onBottomAnimationEnd();
-                }
-                this.iAnimating = false;
-                VerticalTranslateLayout.this.mPositionState = 10001;
-                VerticalTranslateLayout.this.offset();
-                return;
-            }
-            VerticalTranslateLayout.this.mTopTranslate = (int) (com.baidu.adp.widget.a.computeInterpolator(this.iAnimationDistance, this.iAnimatingPosition, false) + this.iAnimationStart);
-            VerticalTranslateLayout.this.invalidate();
-            VerticalTranslateLayout.this.ZP.sendEmptyMessageAtTime(-101, this.iCurrentAnimationTime);
-        }
-
-        void computeTopOpenAnimation() {
-            compute();
-            if (this.iAnimatingPosition >= this.iAnimationDistance) {
-                for (d dVar : VerticalTranslateLayout.this.mOnOpenAnimationListener) {
-                    if (dVar != null) {
-                        dVar.onOpenAnimationEnd();
-                    }
-                }
-                this.iAnimating = false;
-                VerticalTranslateLayout.this.mPositionState = 10004;
-                VerticalTranslateLayout.this.offset();
-                return;
-            }
-            VerticalTranslateLayout.this.mTopTranslate = (int) (com.baidu.adp.widget.a.computeInterpolator(this.iAnimationDistance, this.iAnimatingPosition, false) + this.iAnimationStart);
-            VerticalTranslateLayout.this.invalidate();
-            VerticalTranslateLayout.this.ZP.sendEmptyMessageAtTime(OneKeyLoginResult.ONE_KEY_LOGIN_CODE_IN_GUIDE_PROCESS, this.iCurrentAnimationTime);
-        }
-
-        void computeBottomOpenAnimation() {
-            compute();
-            if (this.iAnimatingPosition <= this.iAnimationDistance) {
-                for (d dVar : VerticalTranslateLayout.this.mOnOpenAnimationListener) {
-                    if (dVar != null) {
-                        dVar.onOpenAnimationEnd();
-                    }
-                }
-                this.iAnimating = false;
-                VerticalTranslateLayout.this.mPositionState = 10004;
-                VerticalTranslateLayout.this.offset();
-                return;
-            }
-            VerticalTranslateLayout.this.mTopTranslate = (int) (com.baidu.adp.widget.a.computeInterpolator(this.iAnimationDistance, this.iAnimatingPosition, false) + this.iAnimationStart);
-            VerticalTranslateLayout.this.invalidate();
-            VerticalTranslateLayout.this.ZP.sendEmptyMessageAtTime(OneKeyLoginResult.ONE_KEY_LOGIN_CODE_GET_JS_CODE_FAIL, this.iCurrentAnimationTime);
-        }
-
-        void animateTopOpen(float f) {
-            for (d dVar : VerticalTranslateLayout.this.mOnOpenAnimationListener) {
-                if (dVar != null) {
-                    dVar.onOpenAnimationStart();
-                }
-            }
-            this.iAnimating = true;
-            long uptimeMillis = SystemClock.uptimeMillis();
-            this.iLastAnimationTime = uptimeMillis;
-            this.iCurrentAnimationTime = uptimeMillis + 16;
-            this.iAnimatingVelocity = f;
-            this.iAnimatingPosition = 0.0f;
-            this.iAnimationDistance = 0 - VerticalTranslateLayout.this.mTopTranslate;
-            this.iAnimationStart = VerticalTranslateLayout.this.mTopTranslate;
-            VerticalTranslateLayout.this.ZP.removeMessages(OneKeyLoginResult.ONE_KEY_LOGIN_CODE_IN_GUIDE_PROCESS);
-            BdLog.d("Animator@animateTopOpen " + this.iAnimationDistance);
-            BdLog.d("Animator@animateTopOpen " + f);
-            VerticalTranslateLayout.this.ZP.sendEmptyMessageAtTime(OneKeyLoginResult.ONE_KEY_LOGIN_CODE_IN_GUIDE_PROCESS, this.iCurrentAnimationTime);
-        }
-
-        void animateBottomOpen(float f) {
-            for (d dVar : VerticalTranslateLayout.this.mOnOpenAnimationListener) {
-                if (dVar != null) {
-                    dVar.onOpenAnimationStart();
-                }
-            }
-            this.iAnimating = true;
-            long uptimeMillis = SystemClock.uptimeMillis();
-            this.iLastAnimationTime = uptimeMillis;
-            this.iCurrentAnimationTime = uptimeMillis + 16;
-            this.iAnimatingVelocity = f;
-            this.iAnimatingPosition = 0.0f;
-            this.iAnimationDistance = 0 - VerticalTranslateLayout.this.mTopTranslate;
-            this.iAnimationStart = VerticalTranslateLayout.this.mTopTranslate;
-            BdLog.d("Animator@animateBottomOpen " + this.iAnimationDistance);
-            BdLog.d("Animator@animateBottomOpen " + f);
-            VerticalTranslateLayout.this.ZP.removeMessages(OneKeyLoginResult.ONE_KEY_LOGIN_CODE_GET_JS_CODE_FAIL);
-            VerticalTranslateLayout.this.ZP.sendEmptyMessageAtTime(OneKeyLoginResult.ONE_KEY_LOGIN_CODE_GET_JS_CODE_FAIL, this.iCurrentAnimationTime);
-        }
-
-        void animateTop(float f) {
-            e eVar = VerticalTranslateLayout.this.ZS;
-            if (eVar != null) {
-                eVar.onLeftAnimationStart();
-            }
-            this.iAnimating = true;
-            long uptimeMillis = SystemClock.uptimeMillis();
-            this.iLastAnimationTime = uptimeMillis;
-            this.iCurrentAnimationTime = uptimeMillis + 16;
-            this.iAnimatingVelocity = f;
-            this.iAnimatingPosition = 0.0f;
-            this.iAnimationDistance = ((-VerticalTranslateLayout.this.mMeasuredHeight) + VerticalTranslateLayout.this.mTopOffset) - VerticalTranslateLayout.this.mTopTranslate;
-            this.iAnimationStart = VerticalTranslateLayout.this.mTopTranslate;
-            BdLog.d("Animator@animateTop " + this.iAnimationDistance);
-            BdLog.d("Animator@animateTop " + f);
-            VerticalTranslateLayout.this.ZP.removeMessages(-100);
-            VerticalTranslateLayout.this.ZP.sendEmptyMessageAtTime(-100, this.iCurrentAnimationTime);
-        }
-
-        void animateBottom(float f) {
-            c cVar = VerticalTranslateLayout.this.ZT;
-            if (cVar != null) {
-                cVar.onRightAnimationStart();
-            }
-            this.iAnimating = true;
-            long uptimeMillis = SystemClock.uptimeMillis();
-            this.iLastAnimationTime = uptimeMillis;
-            this.iCurrentAnimationTime = uptimeMillis + 16;
-            this.iAnimatingVelocity = f;
-            this.iAnimatingPosition = 0.0f;
-            this.iAnimationDistance = (VerticalTranslateLayout.this.mMeasuredHeight - VerticalTranslateLayout.this.mBottomOffset) - VerticalTranslateLayout.this.mTopTranslate;
-            this.iAnimationStart = VerticalTranslateLayout.this.mTopTranslate;
-            BdLog.d("Animator@animateBottom " + this.iAnimationDistance);
-            BdLog.d("Animator@animateBottom " + f);
-            VerticalTranslateLayout.this.ZP.removeMessages(-101);
-            VerticalTranslateLayout.this.ZP.sendEmptyMessageAtTime(-101, this.iCurrentAnimationTime);
-        }
+        return false;
     }
 }

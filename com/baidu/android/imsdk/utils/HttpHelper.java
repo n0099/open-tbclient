@@ -8,6 +8,7 @@ import android.webkit.CookieManager;
 import com.baidu.android.imsdk.account.request.IMGetTokenByCuidRequest;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.task.TaskManager;
+import com.baidu.down.loopj.android.http.AsyncHttpClient;
 import java.io.ByteArrayOutputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
@@ -23,19 +24,19 @@ import java.util.zip.GZIPOutputStream;
 import org.apache.http.client.methods.HttpPut;
 import org.apache.http.conn.ConnectTimeoutException;
 @SuppressLint({"TrulyRandom"})
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class HttpHelper {
     public static final String CONTENT_FORM = "application/x-www-form-urlencoded";
     public static final String CONTENT_JSON = "application/json";
-    private static final String COOKIE_KEY = "Cookie";
+    public static final String COOKIE_KEY = "Cookie";
     public static final int ERROR_EXCEPTION = -10;
     public static final int GET = 1;
     public static final int POST = 16;
     public static final int PUT = 256;
-    public static final String TAG = HttpHelper.class.getSimpleName();
-    private static Context mContext;
+    public static final String TAG = "HttpHelper";
+    public static Context mContext;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public interface Request {
         int getConnectTimeout();
 
@@ -54,28 +55,17 @@ public class HttpHelper {
         boolean shouldAbort();
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public interface ResponseHandler {
         void onFailure(int i, byte[] bArr, Throwable th);
 
         void onSuccess(int i, byte[] bArr);
     }
 
-    /* loaded from: classes3.dex */
-    protected class Result {
-        int errorCode;
-        InputStream inputStream = null;
-        OutputStream outputStream = null;
-        HttpURLConnection urlConnection = null;
-
-        protected Result() {
-        }
-    }
-
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class ResponseResult {
-        protected int mErrorCode;
-        protected String mErrorMsg;
+        public int mErrorCode;
+        public String mErrorMsg;
 
         public int getErrorCode() {
             return this.mErrorCode;
@@ -94,102 +84,22 @@ public class HttpHelper {
         }
     }
 
-    public static void executor(Context context, final Request request, final ResponseHandler responseHandler) {
-        if (responseHandler != null) {
-            if (context == null || request == null || TextUtils.isEmpty(request.getHost())) {
-                responseHandler.onFailure(1005, Constants.ERROR_MSG_PARAMETER_ERROR.getBytes(), null);
-            } else if (Utility.getRestApiDisable() && !(request instanceof IMGetTokenByCuidRequest)) {
-                responseHandler.onFailure(1011, Constants.ERROR_MSG_HTTP_RESPONSE_ERROR.getBytes(), null);
-            } else if (!request.shouldAbort()) {
-                if (mContext == null) {
-                    mContext = context.getApplicationContext();
-                }
-                TaskManager.getInstance(context).submitForNetWork(new Runnable() { // from class: com.baidu.android.imsdk.utils.HttpHelper.1
-                    @Override // java.lang.Runnable
-                    public void run() {
-                        int i;
-                        try {
-                            if (!Request.this.getMethod().equals("GET") && !Request.this.getMethod().equals("POST") && !Request.this.getMethod().equals(HttpPut.METHOD_NAME)) {
-                                responseHandler.onFailure(1005, Constants.ERROR_MSG_PARAMETER_ERROR.getBytes(), null);
-                            }
-                            if (Request.this.getMethod().equals("GET")) {
-                                i = 1;
-                            } else if (Request.this.getMethod().equals("POST")) {
-                                i = 16;
-                            } else {
-                                i = 256;
-                            }
-                            HttpExecutor.getInstance().execute(i, Request.this.getHost(), Request.this.getRequestParameter(), Request.this.getHeaders(), Request.this.getContentType(), responseHandler);
-                        } catch (Exception e) {
-                            LogUtils.e(HttpHelper.TAG, "Http Unknown exception :", e);
-                            responseHandler.onFailure(-1003, "Http Unknown exception".getBytes(), e);
-                        }
-                    }
-                });
-            }
+    /* loaded from: classes2.dex */
+    public class Result {
+        public int errorCode;
+        public InputStream inputStream = null;
+        public OutputStream outputStream = null;
+        public HttpURLConnection urlConnection = null;
+
+        public Result() {
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [176=4] */
-    public static void executor(int i, String str, byte[] bArr, Map<String, String> map, int i2, int i3, ResponseHandler responseHandler) throws SocketTimeoutException, ConnectTimeoutException, MalformedURLException, IOException {
-        HttpURLConnection httpURLConnection;
-        InputStream inputStream;
-        InputStream inputStream2 = null;
-        try {
-            httpURLConnection = createConnection(i, str, bArr, map, i2, i3);
-            try {
-                int responseCode = httpURLConnection.getResponseCode();
-                if (responseCode == -1) {
-                    throw new IOException("Could not retrieve response code from HttpUrlConnection.");
-                }
-                if (httpURLConnection.getResponseCode() != 200) {
-                    LogUtils.d(TAG, "createConnection responsecode:" + responseCode);
-                    responseHandler.onFailure(responseCode, "http response error".getBytes(), null);
-                    if (0 != 0) {
-                        inputStream2.close();
-                    }
-                    if (httpURLConnection != null) {
-                        httpURLConnection.disconnect();
-                        return;
-                    }
-                    return;
-                }
-                InputStream inputStream3 = httpURLConnection.getInputStream();
-                try {
-                    dealResonsResult(responseCode, inputStream3, responseHandler);
-                    if (inputStream3 != null) {
-                        inputStream3.close();
-                    }
-                    if (httpURLConnection != null) {
-                        httpURLConnection.disconnect();
-                    }
-                } catch (Throwable th) {
-                    th = th;
-                    inputStream = inputStream3;
-                    if (inputStream != null) {
-                        inputStream.close();
-                    }
-                    if (httpURLConnection != null) {
-                        httpURLConnection.disconnect();
-                    }
-                    throw th;
-                }
-            } catch (Throwable th2) {
-                th = th2;
-                inputStream = null;
-            }
-        } catch (Throwable th3) {
-            th = th3;
-            httpURLConnection = null;
-            inputStream = null;
-        }
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:10:0x004c  */
+    /* JADX WARN: Removed duplicated region for block: B:15:0x006a  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    static HttpURLConnection createConnection(int i, String str, byte[] bArr, Map<String, String> map, int i2, int i3) throws SocketTimeoutException, ConnectTimeoutException, MalformedURLException, IOException {
+    public static HttpURLConnection createConnection(int i, String str, byte[] bArr, Map<String, String> map, int i2, int i3) throws SocketTimeoutException, ConnectTimeoutException, MalformedURLException, IOException {
         String str2;
         HttpURLConnection httpURLConnection;
         if ((i & 1) != 0) {
@@ -217,119 +127,197 @@ public class HttpHelper {
         return httpURLConnection;
     }
 
-    static void setConnectionHeader(String str, HttpURLConnection httpURLConnection, Map<String, String> map) {
-        if (map != null) {
-            for (Map.Entry<String, String> entry : map.entrySet()) {
-                try {
-                    if (entry.getKey().equalsIgnoreCase("Cookie")) {
-                        CookieManager.getInstance().setCookie(str, entry.getValue());
-                        httpURLConnection.setRequestProperty(entry.getKey(), CookieManager.getInstance().getCookie(str));
-                    } else {
-                        httpURLConnection.setRequestProperty(entry.getKey(), entry.getValue());
+    public static void dealResonsResult(int i, InputStream inputStream, ResponseHandler responseHandler) {
+        byte[] dealResonsResult = dealResonsResult(inputStream);
+        String str = new String(dealResonsResult);
+        String str2 = TAG;
+        LogUtils.d(str2, "request response : " + str);
+        if (dealResonsResult != null && dealResonsResult.length != 0) {
+            responseHandler.onSuccess(i, dealResonsResult);
+        } else {
+            responseHandler.onFailure(-10, "IOException for inputStream".getBytes(), new IOException("IOException for inputStream"));
+        }
+    }
+
+    public static void executor(Context context, final Request request, final ResponseHandler responseHandler) {
+        if (responseHandler == null) {
+            return;
+        }
+        if (context != null && request != null && !TextUtils.isEmpty(request.getHost())) {
+            if (Utility.getRestApiDisable() && !(request instanceof IMGetTokenByCuidRequest)) {
+                responseHandler.onFailure(1011, Constants.ERROR_MSG_HTTP_RESPONSE_ERROR.getBytes(), null);
+                return;
+            } else if (request.shouldAbort()) {
+                return;
+            } else {
+                if (mContext == null) {
+                    mContext = context.getApplicationContext();
+                }
+                TaskManager.getInstance(context).submitForNetWork(new Runnable() { // from class: com.baidu.android.imsdk.utils.HttpHelper.1
+                    @Override // java.lang.Runnable
+                    public void run() {
+                        int i;
+                        try {
+                            if (!Request.this.getMethod().equals("GET") && !Request.this.getMethod().equals("POST") && !Request.this.getMethod().equals(HttpPut.METHOD_NAME)) {
+                                responseHandler.onFailure(1005, Constants.ERROR_MSG_PARAMETER_ERROR.getBytes(), null);
+                            }
+                            if (Request.this.getMethod().equals("GET")) {
+                                i = 1;
+                            } else {
+                                i = Request.this.getMethod().equals("POST") ? 16 : 256;
+                            }
+                            HttpExecutor.getInstance().execute(i, Request.this.getHost(), Request.this.getRequestParameter(), Request.this.getHeaders(), Request.this.getContentType(), responseHandler);
+                        } catch (Exception e2) {
+                            LogUtils.e(HttpHelper.TAG, "Http Unknown exception :", e2);
+                            responseHandler.onFailure(-1003, "Http Unknown exception".getBytes(), e2);
+                        }
                     }
-                } catch (Exception e) {
-                    e.printStackTrace();
+                });
+                return;
+            }
+        }
+        responseHandler.onFailure(1005, Constants.ERROR_MSG_PARAMETER_ERROR.getBytes(), null);
+    }
+
+    public static void setConnectionHeader(String str, HttpURLConnection httpURLConnection, Map<String, String> map) {
+        if (map == null) {
+            return;
+        }
+        for (Map.Entry<String, String> entry : map.entrySet()) {
+            try {
+                if (entry.getKey().equalsIgnoreCase("Cookie")) {
+                    CookieManager.getInstance().setCookie(str, entry.getValue());
+                    httpURLConnection.setRequestProperty(entry.getKey(), CookieManager.getInstance().getCookie(str));
+                } else {
                     httpURLConnection.setRequestProperty(entry.getKey(), entry.getValue());
                 }
+            } catch (Exception e2) {
+                e2.printStackTrace();
+                httpURLConnection.setRequestProperty(entry.getKey(), entry.getValue());
             }
         }
     }
 
-    static void setConnectionParametersForRequest(HttpURLConnection httpURLConnection, int i, byte[] bArr, boolean z, int i2, int i3) throws IOException {
+    public static void setConnectionParametersForRequest(HttpURLConnection httpURLConnection, int i, byte[] bArr, boolean z, int i2, int i3) throws IOException {
         httpURLConnection.setDoInput(true);
         httpURLConnection.setConnectTimeout(i2);
         if (z) {
-            httpURLConnection.setRequestProperty(Headers.CONTENT_ENCODING, "gzip");
+            httpURLConnection.setRequestProperty(Headers.CONTENT_ENCODING, AsyncHttpClient.ENCODING_GZIP);
         }
         httpURLConnection.setReadTimeout(i3);
-        switch (i) {
-            case 1:
-                httpURLConnection.setRequestMethod("GET");
-                return;
-            case 16:
-                if (bArr != null && bArr.length > 0) {
-                    httpURLConnection.setDoOutput(true);
-                    httpURLConnection.setRequestMethod("POST");
-                    DataOutputStream dataOutputStream = new DataOutputStream(httpURLConnection.getOutputStream());
-                    if (z) {
-                        LogUtils.d(TAG, "This is statistic, compress data");
-                        GZIPOutputStream gZIPOutputStream = new GZIPOutputStream(dataOutputStream);
-                        gZIPOutputStream.write(bArr);
-                        gZIPOutputStream.close();
-                        return;
-                    }
-                    dataOutputStream.write(bArr);
-                    dataOutputStream.close();
+        if (i == 1) {
+            httpURLConnection.setRequestMethod("GET");
+        } else if (i != 16) {
+            if (i == 256) {
+                if (bArr == null || bArr.length <= 0) {
                     return;
                 }
+                httpURLConnection.setRequestMethod(HttpPut.METHOD_NAME);
+                httpURLConnection.setDoOutput(true);
+                DataOutputStream dataOutputStream = new DataOutputStream(httpURLConnection.getOutputStream());
+                dataOutputStream.write(bArr);
+                dataOutputStream.close();
                 return;
-            case 256:
-                if (bArr != null && bArr.length > 0) {
-                    httpURLConnection.setRequestMethod(HttpPut.METHOD_NAME);
-                    httpURLConnection.setDoOutput(true);
-                    DataOutputStream dataOutputStream2 = new DataOutputStream(httpURLConnection.getOutputStream());
-                    dataOutputStream2.write(bArr);
-                    dataOutputStream2.close();
-                    return;
-                }
-                return;
-            default:
-                throw new IllegalStateException("Unknown method type.");
-        }
-    }
-
-    public static void dealResonsResult(int i, InputStream inputStream, ResponseHandler responseHandler) {
-        byte[] dealResonsResult = dealResonsResult(inputStream);
-        LogUtils.d(TAG, "request response : " + new String(dealResonsResult));
-        if (dealResonsResult == null || dealResonsResult.length == 0) {
-            responseHandler.onFailure(-10, "IOException for inputStream".getBytes(), new IOException("IOException for inputStream"));
+            }
+            throw new IllegalStateException("Unknown method type.");
+        } else if (bArr == null || bArr.length <= 0) {
         } else {
-            responseHandler.onSuccess(i, dealResonsResult);
+            httpURLConnection.setDoOutput(true);
+            httpURLConnection.setRequestMethod("POST");
+            DataOutputStream dataOutputStream2 = new DataOutputStream(httpURLConnection.getOutputStream());
+            if (z) {
+                LogUtils.d(TAG, "This is statistic, compress data");
+                GZIPOutputStream gZIPOutputStream = new GZIPOutputStream(dataOutputStream2);
+                gZIPOutputStream.write(bArr);
+                gZIPOutputStream.close();
+                return;
+            }
+            dataOutputStream2.write(bArr);
+            dataOutputStream2.close();
         }
     }
 
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, SGET, CONST_STR, INVOKE, MOVE_EXCEPTION, INVOKE, SGET, CONST_STR, INVOKE, MOVE_EXCEPTION] complete} */
-    private static byte[] dealResonsResult(InputStream inputStream) {
+    public static byte[] dealResonsResult(InputStream inputStream) {
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         byte[] bArr = new byte[1024];
-        byte[] bArr2 = null;
         while (true) {
             try {
                 try {
                     int read = inputStream.read(bArr);
-                    if (read == -1) {
-                        break;
-                    }
-                    byteArrayOutputStream.write(bArr, 0, read);
-                } catch (IOException e) {
-                    LogUtils.e(LogUtils.TAG, "HttpHelper IOException for inputStream", e);
-                    if (byteArrayOutputStream != null) {
+                    if (read != -1) {
+                        byteArrayOutputStream.write(bArr, 0, read);
+                    } else {
+                        byte[] byteArray = byteArrayOutputStream.toByteArray();
                         try {
                             byteArrayOutputStream.close();
+                            return byteArray;
                         } catch (IOException e2) {
                             LogUtils.e(LogUtils.TAG, "HttpHelper byteArrayOutputStream close", e2);
+                            return byteArray;
                         }
                     }
-                }
-            } catch (Throwable th) {
-                if (byteArrayOutputStream != null) {
+                } catch (IOException e3) {
+                    LogUtils.e(LogUtils.TAG, "HttpHelper IOException for inputStream", e3);
                     try {
                         byteArrayOutputStream.close();
-                    } catch (IOException e3) {
-                        LogUtils.e(LogUtils.TAG, "HttpHelper byteArrayOutputStream close", e3);
+                    } catch (IOException e4) {
+                        LogUtils.e(LogUtils.TAG, "HttpHelper byteArrayOutputStream close", e4);
                     }
+                    return null;
+                }
+            } catch (Throwable th) {
+                try {
+                    byteArrayOutputStream.close();
+                } catch (IOException e5) {
+                    LogUtils.e(LogUtils.TAG, "HttpHelper byteArrayOutputStream close", e5);
                 }
                 throw th;
             }
         }
-        bArr2 = byteArrayOutputStream.toByteArray();
-        if (byteArrayOutputStream != null) {
+    }
+
+    public static void executor(int i, String str, byte[] bArr, Map<String, String> map, int i2, int i3, ResponseHandler responseHandler) throws SocketTimeoutException, ConnectTimeoutException, MalformedURLException, IOException {
+        HttpURLConnection httpURLConnection;
+        InputStream inputStream = null;
+        try {
+            httpURLConnection = createConnection(i, str, bArr, map, i2, i3);
             try {
-                byteArrayOutputStream.close();
-            } catch (IOException e4) {
-                LogUtils.e(LogUtils.TAG, "HttpHelper byteArrayOutputStream close", e4);
+                int responseCode = httpURLConnection.getResponseCode();
+                if (responseCode != -1) {
+                    if (httpURLConnection.getResponseCode() != 200) {
+                        LogUtils.d(TAG, "createConnection responsecode:" + responseCode);
+                        responseHandler.onFailure(responseCode, "http response error".getBytes(), null);
+                        if (httpURLConnection != null) {
+                            httpURLConnection.disconnect();
+                            return;
+                        }
+                        return;
+                    }
+                    InputStream inputStream2 = httpURLConnection.getInputStream();
+                    dealResonsResult(responseCode, inputStream2, responseHandler);
+                    if (inputStream2 != null) {
+                        inputStream2.close();
+                    }
+                    if (httpURLConnection != null) {
+                        httpURLConnection.disconnect();
+                        return;
+                    }
+                    return;
+                }
+                throw new IOException("Could not retrieve response code from HttpUrlConnection.");
+            } catch (Throwable th) {
+                th = th;
+                if (0 != 0) {
+                    inputStream.close();
+                }
+                if (httpURLConnection != null) {
+                    httpURLConnection.disconnect();
+                }
+                throw th;
             }
+        } catch (Throwable th2) {
+            th = th2;
+            httpURLConnection = null;
         }
-        return bArr2;
     }
 }

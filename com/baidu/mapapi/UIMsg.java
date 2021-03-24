@@ -1,5 +1,5 @@
 package com.baidu.mapapi;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class UIMsg {
     public static final String UI_TIP_AR_ENTERING = "正在进入实景模式...";
     public static final String UI_TIP_FAVORITE_OFF = "收藏的地点已关闭";
@@ -52,7 +52,7 @@ public class UIMsg {
     public static final String UI_TIP_YOUR_SEARCH_START = "您要找的起点是:";
     public static final String UI_TIP_YOUR_SEARCH_START_IN_CITY = "您要找的起点在如下城市:";
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class NetDetectedType {
         public static final int NETYPE_2G = 2;
         public static final int NETYPE_3G = 3;
@@ -67,7 +67,7 @@ public class UIMsg {
         public static final int NETYPE_WIFI = 1;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class UIGPSStatus {
         public static final int GPS_DEVICE_DISABLED = 0;
         public static final int GPS_DEVICE_ENABLED = 1;
@@ -79,7 +79,7 @@ public class UIMsg {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class UIHttpType {
         public static final int ADD_FLS = 10;
         public static final int APP_SEARCH_REQ = 0;
@@ -96,7 +96,7 @@ public class UIMsg {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class UIOffType {
         public static final int MSG_DATARUN_EXCEPTION = -1;
         public static final int MSG_OFFLINE_ADD = 9;
@@ -118,7 +118,7 @@ public class UIMsg {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class WalkNaviMsg {
         public static final int NL_UI_MESSAGE_TYPE_COMPASS_GUIDEINFO_UPDATE = 4106;
         public static final int NL_UI_MESSAGE_TYPE_GPS_STATE_CHANGE = 4103;
@@ -139,7 +139,7 @@ public class UIMsg {
         public static final int VM_USER_ID = 4096;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class d_ResultType {
         public static final int ADDR_LIST = 23;
         public static final int AREA_SEARCH_LIST = 21;
@@ -180,7 +180,7 @@ public class UIMsg {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class f_FUN {
         public static final int FUN_ID_GBS = 13;
         public static final int FUN_ID_GBS_OPTION = 1301;
@@ -341,7 +341,7 @@ public class UIMsg {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class k_event {
         public static final int MV_MAP_ADDLOGOBJ = 4108;
         public static final int MV_MAP_CACHEMANAGE = 12289;
@@ -399,7 +399,7 @@ public class UIMsg {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class l_ErrorNo {
         public static final int CORE_MEMORY_ALLOCATE_ERROR = 101;
         public static final int CORE_TRANS_CODE_ERROR = 102;
@@ -421,7 +421,7 @@ public class UIMsg {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class m_AppUI {
         public static final int CELLDATA_UPLOAD_REQ = 507;
         public static final int MSG_APP_DATA_OK = 2000;

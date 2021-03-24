@@ -6,112 +6,119 @@ import com.kwad.sdk.core.response.model.AdTemplate;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class a {
-    private static volatile a d;
+
+    /* renamed from: d  reason: collision with root package name */
+    public static volatile a f34788d;
 
     /* renamed from: a  reason: collision with root package name */
-    private List<AdTemplate> f6495a;
-    private List<AdTemplate> b;
-    private List<InterfaceC1133a> c;
+    public List<AdTemplate> f34789a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public List<AdTemplate> f34790b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public List<InterfaceC0400a> f34791c;
 
     /* renamed from: com.kwad.sdk.feed.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public interface InterfaceC1133a {
+    /* loaded from: classes6.dex */
+    public interface InterfaceC0400a {
         @MainThread
         void a(int i);
     }
 
-    private a() {
-    }
-
     public static a a() {
-        if (d == null) {
+        if (f34788d == null) {
             synchronized (a.class) {
-                if (d == null) {
-                    d = new a();
+                if (f34788d == null) {
+                    f34788d = new a();
                 }
             }
         }
-        return d;
+        return f34788d;
     }
 
     @MainThread
     public void a(int i) {
-        if (this.c == null) {
+        List<InterfaceC0400a> list = this.f34791c;
+        if (list == null) {
             return;
         }
-        for (InterfaceC1133a interfaceC1133a : this.c) {
-            interfaceC1133a.a(i);
+        for (InterfaceC0400a interfaceC0400a : list) {
+            interfaceC0400a.a(i);
         }
     }
 
     @MainThread
-    public void a(InterfaceC1133a interfaceC1133a) {
-        if (this.c == null) {
-            this.c = new LinkedList();
+    public void a(InterfaceC0400a interfaceC0400a) {
+        if (this.f34791c == null) {
+            this.f34791c = new LinkedList();
         }
-        this.c.add(interfaceC1133a);
+        this.f34791c.add(interfaceC0400a);
     }
 
     public void a(List<AdTemplate> list) {
         if (list == null || list.isEmpty()) {
             return;
         }
-        if (this.f6495a == null) {
-            this.f6495a = new ArrayList();
+        if (this.f34789a == null) {
+            this.f34789a = new ArrayList();
         }
-        this.f6495a.clear();
-        this.f6495a.addAll(list);
+        this.f34789a.clear();
+        this.f34789a.addAll(list);
     }
 
     @Nullable
     public List<AdTemplate> b() {
-        return this.f6495a;
+        return this.f34789a;
     }
 
     @MainThread
-    public void b(InterfaceC1133a interfaceC1133a) {
-        if (this.c == null) {
-            this.c = new LinkedList();
+    public void b(InterfaceC0400a interfaceC0400a) {
+        if (this.f34791c == null) {
+            this.f34791c = new LinkedList();
         }
-        this.c.remove(interfaceC1133a);
+        this.f34791c.remove(interfaceC0400a);
     }
 
     public void b(List<AdTemplate> list) {
         if (list == null || list.isEmpty()) {
             return;
         }
-        if (this.b == null) {
-            this.b = new ArrayList();
+        if (this.f34790b == null) {
+            this.f34790b = new ArrayList();
         }
-        this.b.clear();
-        this.b.addAll(list);
+        this.f34790b.clear();
+        this.f34790b.addAll(list);
     }
 
     public void c() {
-        if (this.f6495a != null) {
-            this.f6495a.clear();
+        List<AdTemplate> list = this.f34789a;
+        if (list != null) {
+            list.clear();
         }
-        this.f6495a = null;
+        this.f34789a = null;
     }
 
     @Nullable
     public List<AdTemplate> d() {
-        return this.b;
+        return this.f34790b;
     }
 
     public void e() {
-        if (this.b != null) {
-            this.b.clear();
+        List<AdTemplate> list = this.f34790b;
+        if (list != null) {
+            list.clear();
         }
-        this.b = null;
+        this.f34790b = null;
     }
 
     @MainThread
     public void f() {
-        if (this.c != null) {
-            this.c.clear();
+        List<InterfaceC0400a> list = this.f34791c;
+        if (list != null) {
+            list.clear();
         }
     }
 }

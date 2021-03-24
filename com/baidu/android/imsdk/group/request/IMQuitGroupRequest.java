@@ -17,16 +17,16 @@ import com.baidu.android.imsdk.utils.LogUtils;
 import java.security.NoSuchAlgorithmException;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class IMQuitGroupRequest extends GroupBaseHttpRequest {
-    private static final String TAG = IMQuitGroupRequest.class.getSimpleName();
-    private long mAppid;
-    private String mBuid;
-    private String mGroupId;
-    private String mKey;
+    public static final String TAG = "IMQuitGroupRequest";
+    public long mAppid;
+    public String mBuid;
+    public String mGroupId;
+    public String mKey;
 
-    /* loaded from: classes3.dex */
-    class Mytask extends TaskManager.Task {
+    /* loaded from: classes2.dex */
+    public class Mytask extends TaskManager.Task {
         public Mytask(String str, String str2) {
             super(str, str2);
         }
@@ -39,20 +39,21 @@ public class IMQuitGroupRequest extends GroupBaseHttpRequest {
                 JSONObject jSONObject = new JSONObject(this.mJson);
                 i = jSONObject.getInt("error_code");
                 str = jSONObject.optString("error_msg", "");
-            } catch (JSONException e) {
-                LogUtils.e(LogUtils.TAG, "IMCreateGroupRequest JSONException", e);
+            } catch (JSONException e2) {
+                LogUtils.e(LogUtils.TAG, "IMCreateGroupRequest JSONException", e2);
                 i = 1010;
+                new IMTrack.CrashBuilder(IMQuitGroupRequest.this.mContext).exception(Log.getStackTraceString(e2)).build();
                 str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
-                new IMTrack.CrashBuilder(IMQuitGroupRequest.this.mContext).exception(Log.getStackTraceString(e)).build();
             }
             if (i == 0) {
                 GroupInfoDAOImpl.quitGroup(IMQuitGroupRequest.this.mContext, IMQuitGroupRequest.this.mGroupId);
                 ConversationManagerImpl.getInstance(IMQuitGroupRequest.this.mContext).deleteConversation(1, IMQuitGroupRequest.this.mGroupId);
                 try {
                     DialogRecordDBManager.getInstance(IMQuitGroupRequest.this.mContext).delete(1, Long.valueOf(IMQuitGroupRequest.this.mGroupId).longValue());
-                } catch (NumberFormatException e2) {
-                    LogUtils.e(IMQuitGroupRequest.TAG, "groupid " + IMQuitGroupRequest.this.mGroupId, e2);
-                    new IMTrack.CrashBuilder(IMQuitGroupRequest.this.mContext).exception(Log.getStackTraceString(e2)).build();
+                } catch (NumberFormatException e3) {
+                    String str2 = IMQuitGroupRequest.TAG;
+                    LogUtils.e(str2, "groupid " + IMQuitGroupRequest.this.mGroupId, e3);
+                    new IMTrack.CrashBuilder(IMQuitGroupRequest.this.mContext).exception(Log.getStackTraceString(e3)).build();
                 }
             }
             IMListener removeListener = ListenerManager.getInstance().removeListener(IMQuitGroupRequest.this.mKey);
@@ -72,42 +73,38 @@ public class IMQuitGroupRequest extends GroupBaseHttpRequest {
         this.mBuid = str3;
     }
 
-    @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
-    public byte[] getRequestParameter() throws NoSuchAlgorithmException {
-        String bduss = IMConfigInternal.getInstance().getIMConfig(this.mContext).getBduss(this.mContext);
-        long currentTimeMillis = System.currentTimeMillis() / 1000;
-        StringBuilder sb = new StringBuilder();
-        sb.append("method=quit");
-        sb.append("&appid=").append(this.mAppid);
-        sb.append("&group_id=").append(this.mGroupId);
-        sb.append("&timestamp=").append(currentTimeMillis);
-        sb.append("&sign=").append(getMd5("" + currentTimeMillis + bduss + this.mAppid));
-        return sb.toString().getBytes();
-    }
-
     @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
     public String getContentType() {
         return "application/x-www-form-urlencoded";
     }
 
-    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
-    public boolean shouldAbort() {
-        return false;
-    }
-
-    @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
-    public void onSuccess(int i, byte[] bArr) {
-        String str = new String(bArr);
-        LogUtils.d(TAG, "json is " + str);
-        TaskManager.getInstance(this.mContext).submitForNetWork(new Mytask(this.mKey, str));
+    @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
+    public byte[] getRequestParameter() throws NoSuchAlgorithmException {
+        String bduss = IMConfigInternal.getInstance().getIMConfig(this.mContext).getBduss(this.mContext);
+        long currentTimeMillis = System.currentTimeMillis() / 1000;
+        return ("method=quit&appid=" + this.mAppid + "&group_id=" + this.mGroupId + "&timestamp=" + currentTimeMillis + "&sign=" + getMd5("" + currentTimeMillis + bduss + this.mAppid)).getBytes();
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
     public void onFailure(int i, byte[] bArr, Throwable th) {
         Pair<Integer, String> transErrorCode = transErrorCode(i, bArr, th);
         IMListener removeListener = ListenerManager.getInstance().removeListener(this.mKey);
-        if (removeListener != null && (removeListener instanceof BIMValueCallBack)) {
-            ((BIMValueCallBack) removeListener).onResult(((Integer) transErrorCode.first).intValue(), (String) transErrorCode.second, this.mGroupId);
+        if (removeListener == null || !(removeListener instanceof BIMValueCallBack)) {
+            return;
         }
+        ((BIMValueCallBack) removeListener).onResult(((Integer) transErrorCode.first).intValue(), (String) transErrorCode.second, this.mGroupId);
+    }
+
+    @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
+    public void onSuccess(int i, byte[] bArr) {
+        String str = new String(bArr);
+        String str2 = TAG;
+        LogUtils.d(str2, "json is " + str);
+        TaskManager.getInstance(this.mContext).submitForNetWork(new Mytask(this.mKey, str));
+    }
+
+    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
+    public boolean shouldAbort() {
+        return false;
     }
 }

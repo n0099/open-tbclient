@@ -1,14 +1,14 @@
 package org.webrtc;
 
 import javax.annotation.Nullable;
-/* loaded from: classes9.dex */
+/* loaded from: classes.dex */
 public class RtpSender {
     @Nullable
-    private MediaStreamTrack cachedTrack;
+    public MediaStreamTrack cachedTrack;
     @Nullable
-    private final DtmfSender dtmfSender;
-    private long nativeRtpSender;
-    private boolean ownsTrack = true;
+    public final DtmfSender dtmfSender;
+    public long nativeRtpSender;
+    public boolean ownsTrack = true;
 
     @CalledByNative
     public RtpSender(long j) {
@@ -24,27 +24,29 @@ public class RtpSender {
         }
     }
 
-    private static native long nativeGetDtmfSender(long j);
+    public static native long nativeGetDtmfSender(long j);
 
-    private static native String nativeGetId(long j);
+    public static native String nativeGetId(long j);
 
-    private static native RtpParameters nativeGetParameters(long j);
+    public static native RtpParameters nativeGetParameters(long j);
 
-    private static native long nativeGetTrack(long j);
+    public static native long nativeGetTrack(long j);
 
-    private static native void nativeSetFrameEncryptor(long j, long j2);
+    public static native void nativeSetFrameEncryptor(long j, long j2);
 
-    private static native boolean nativeSetParameters(long j, RtpParameters rtpParameters);
+    public static native boolean nativeSetParameters(long j, RtpParameters rtpParameters);
 
-    private static native boolean nativeSetTrack(long j, long j2);
+    public static native boolean nativeSetTrack(long j, long j2);
 
     public void dispose() {
         checkRtpSenderExists();
-        if (this.dtmfSender != null) {
-            this.dtmfSender.dispose();
+        DtmfSender dtmfSender = this.dtmfSender;
+        if (dtmfSender != null) {
+            dtmfSender.dispose();
         }
-        if (this.cachedTrack != null && this.ownsTrack) {
-            this.cachedTrack.dispose();
+        MediaStreamTrack mediaStreamTrack = this.cachedTrack;
+        if (mediaStreamTrack != null && this.ownsTrack) {
+            mediaStreamTrack.dispose();
         }
         JniCommon.nativeReleaseRef(this.nativeRtpSender);
         this.nativeRtpSender = 0L;
@@ -55,7 +57,6 @@ public class RtpSender {
         return this.dtmfSender;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public long getNativeRtpSender() {
         checkRtpSenderExists();
         return this.nativeRtpSender;
@@ -84,8 +85,9 @@ public class RtpSender {
     public boolean setTrack(@Nullable MediaStreamTrack mediaStreamTrack, boolean z) {
         checkRtpSenderExists();
         if (nativeSetTrack(this.nativeRtpSender, mediaStreamTrack == null ? 0L : mediaStreamTrack.getNativeMediaStreamTrack())) {
-            if (this.cachedTrack != null && this.ownsTrack) {
-                this.cachedTrack.dispose();
+            MediaStreamTrack mediaStreamTrack2 = this.cachedTrack;
+            if (mediaStreamTrack2 != null && this.ownsTrack) {
+                mediaStreamTrack2.dispose();
             }
             this.cachedTrack = mediaStreamTrack;
             this.ownsTrack = z;

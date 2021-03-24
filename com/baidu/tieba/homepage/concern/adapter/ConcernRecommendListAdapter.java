@@ -12,222 +12,298 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
 import com.baidu.tbadk.core.data.MetaData;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.ar;
-import com.baidu.tbadk.core.util.au;
 import com.baidu.tbadk.core.view.HeadPendantClickableView;
-import com.baidu.tbadk.util.aj;
 import com.baidu.tieba.R;
 import com.baidu.tieba.view.DynamicUserLikeButton;
+import d.b.b.e.p.k;
+import d.b.b.e.p.l;
+import d.b.h0.m.f;
+import d.b.h0.z0.l0;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class ConcernRecommendListAdapter extends RecyclerView.Adapter<ForumViewHolder> {
-    private com.baidu.tbadk.h.f<MetaData> akI;
-    private BdUniqueId fqa;
-    private boolean kdq;
-    private Context mContext;
-    private List<MetaData> mData;
-    private TbPageContext mPageContext;
-    private int mSkinType = 3;
 
-    public void setOnItemCoverListener(com.baidu.tbadk.h.f<MetaData> fVar) {
-        this.akI = fVar;
+    /* renamed from: a  reason: collision with root package name */
+    public Context f17004a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public TbPageContext f17005b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public BdUniqueId f17006c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public int f17007d = 3;
+
+    /* renamed from: e  reason: collision with root package name */
+    public List<MetaData> f17008e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public f<MetaData> f17009f;
+
+    /* loaded from: classes4.dex */
+    public class ForumViewHolder extends RecyclerView.ViewHolder {
+
+        /* renamed from: a  reason: collision with root package name */
+        public LinearLayout f17010a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public TextView f17011b;
+
+        /* renamed from: c  reason: collision with root package name */
+        public TextView f17012c;
+
+        /* renamed from: d  reason: collision with root package name */
+        public HeadPendantClickableView f17013d;
+
+        /* renamed from: e  reason: collision with root package name */
+        public DynamicUserLikeButton f17014e;
+
+        /* renamed from: f  reason: collision with root package name */
+        public d.b.h0.r.f0.q.c f17015f;
+
+        /* renamed from: g  reason: collision with root package name */
+        public boolean f17016g;
+
+        public ForumViewHolder(ConcernRecommendListAdapter concernRecommendListAdapter, View view) {
+            super(view);
+            this.f17016g = false;
+            this.f17010a = (LinearLayout) view.findViewById(R.id.concern_container);
+            HeadPendantClickableView headPendantClickableView = (HeadPendantClickableView) view.findViewById(R.id.concern_user_image);
+            this.f17013d = headPendantClickableView;
+            headPendantClickableView.getHeadView().setIsRound(true);
+            this.f17013d.getHeadView().setScaleType(ImageView.ScaleType.CENTER_CROP);
+            this.f17013d.getHeadView().setDefaultResource(17170445);
+            this.f17013d.getHeadView().setPlaceHolder(1);
+            this.f17013d.getHeadView().setBorderWidth(l.g(concernRecommendListAdapter.f17004a, R.dimen.tbds1));
+            this.f17013d.getHeadView().setBorderColor(SkinManager.getColor(R.color.CAM_X0401));
+            this.f17011b = (TextView) view.findViewById(R.id.concern_user_name);
+            this.f17012c = (TextView) view.findViewById(R.id.concern_user_desc);
+            this.f17014e = (DynamicUserLikeButton) view.findViewById(R.id.user_recommend_like_btn);
+            this.f17015f = new d.b.h0.r.f0.q.c(concernRecommendListAdapter.f17005b, this.f17014e);
+        }
+
+        public void a(int i) {
+            if (!this.f17016g) {
+                SkinManager.setViewTextColor(this.f17011b, R.color.CAM_X0105);
+            } else {
+                SkinManager.setViewTextColor(this.f17011b, R.color.CAM_X0301);
+            }
+            SkinManager.setViewTextColor(this.f17012c, R.color.CAM_X0109);
+            this.f17014e.r(i);
+            d.b.h0.r.u.c a2 = d.b.h0.r.u.c.a(this.f17010a);
+            a2.h(R.string.J_X05);
+            a2.c(R.color.CAM_X0206);
+        }
+
+        public void b(boolean z) {
+            this.f17016g = z;
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class a implements View.OnClickListener {
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ MetaData f17017e;
+
+        /* renamed from: f  reason: collision with root package name */
+        public final /* synthetic */ ForumViewHolder f17018f;
+
+        public a(MetaData metaData, ForumViewHolder forumViewHolder) {
+            this.f17017e = metaData;
+            this.f17018f = forumViewHolder;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            StatisticItem statisticItem = new StatisticItem("c13566");
+            statisticItem.param("obj_locate", 2);
+            TiebaStatic.log(statisticItem);
+            ConcernRecommendListAdapter.this.i(this.f17017e, this.f17018f);
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class b implements DynamicUserLikeButton.a {
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ MetaData f17020a;
+
+        public b(ConcernRecommendListAdapter concernRecommendListAdapter, MetaData metaData) {
+            this.f17020a = metaData;
+        }
+
+        @Override // com.baidu.tieba.view.DynamicUserLikeButton.a
+        public void a(View view) {
+            MetaData metaData = this.f17020a;
+            if (metaData == null) {
+                return;
+            }
+            if (metaData.getIsLike()) {
+                TiebaStatic.log(new StatisticItem("c13571"));
+                return;
+            }
+            StatisticItem statisticItem = new StatisticItem("c13566");
+            statisticItem.param("obj_locate", 1);
+            statisticItem.param("obj_id", TbadkCoreApplication.getCurrentAccountId());
+            statisticItem.param("obj_param1", this.f17020a.getUserId());
+            TiebaStatic.log(statisticItem);
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class c implements View.OnClickListener {
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ MetaData f17021e;
+
+        /* renamed from: f  reason: collision with root package name */
+        public final /* synthetic */ ForumViewHolder f17022f;
+
+        public c(MetaData metaData, ForumViewHolder forumViewHolder) {
+            this.f17021e = metaData;
+            this.f17022f = forumViewHolder;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            MetaData metaData = this.f17021e;
+            if (metaData == null || StringUtils.isNull(metaData.getUserId())) {
+                return;
+            }
+            StatisticItem statisticItem = new StatisticItem("c13566");
+            statisticItem.param("obj_locate", 2);
+            TiebaStatic.log(statisticItem);
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(ConcernRecommendListAdapter.this.f17004a, this.f17021e.getUserId(), this.f17021e.getName_show())));
+            ConcernRecommendListAdapter.this.i(this.f17021e, this.f17022f);
+        }
     }
 
     public ConcernRecommendListAdapter(Context context) {
-        this.mContext = context;
-    }
-
-    public void setData(List<MetaData> list) {
-        this.mData = list;
+        this.f17004a = context;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    /* renamed from: G */
-    public ForumViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
-        return new ForumViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.concern_recommend_item, (ViewGroup) null));
+    /* renamed from: f */
+    public void onBindViewHolder(ForumViewHolder forumViewHolder, int i) {
+        List<MetaData> list;
+        MetaData metaData;
+        if (forumViewHolder == null || (list = this.f17008e) == null || (metaData = list.get(i)) == null) {
+            return;
+        }
+        forumViewHolder.b(metaData.isNewGod());
+        n(metaData, forumViewHolder);
+        q(metaData, forumViewHolder);
+        o(metaData, forumViewHolder);
+        p(metaData, forumViewHolder);
+        f<MetaData> fVar = this.f17009f;
+        if (fVar != null) {
+            fVar.c(forumViewHolder.itemView, metaData, i, i);
+        }
+        forumViewHolder.a(this.f17007d);
+    }
+
+    public void g(int i) {
+        this.f17007d = i;
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public int getItemCount() {
-        if (this.mData == null) {
+        List<MetaData> list = this.f17008e;
+        if (list == null) {
             return 0;
         }
-        return this.mData.size();
+        return list.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    /* renamed from: a */
-    public void onBindViewHolder(ForumViewHolder forumViewHolder, int i) {
-        MetaData metaData;
-        if (forumViewHolder != null && this.mData != null && (metaData = this.mData.get(i)) != null) {
-            forumViewHolder.rX(metaData.isNewGod());
-            a(metaData, forumViewHolder);
-            c(metaData, forumViewHolder);
-            e(metaData, forumViewHolder);
-            b(metaData, forumViewHolder);
-            if (this.akI != null) {
-                this.akI.b(forumViewHolder.itemView, metaData, i, i);
-            }
-            forumViewHolder.onChangeSkinType(this.mSkinType);
+    /* renamed from: h */
+    public ForumViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
+        return new ForumViewHolder(this, LayoutInflater.from(this.f17004a).inflate(R.layout.concern_recommend_item, (ViewGroup) null));
+    }
+
+    public final void i(MetaData metaData, ForumViewHolder forumViewHolder) {
+        if (this.f17009f != null) {
+            this.f17009f.a(forumViewHolder.itemView, metaData, forumViewHolder.getAdapterPosition(), forumViewHolder.getItemId());
         }
     }
 
-    private void a(final MetaData metaData, final ForumViewHolder forumViewHolder) {
-        forumViewHolder.kdw.setData(metaData, true);
-        forumViewHolder.kdw.setAfterClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.homepage.concern.adapter.ConcernRecommendListAdapter.1
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
-                ar arVar = new ar("c13566");
-                arVar.aq("obj_locate", 2);
-                TiebaStatic.log(arVar);
-                ConcernRecommendListAdapter.this.d(metaData, forumViewHolder);
-            }
-        });
+    public void j(boolean z) {
     }
 
-    private void b(final MetaData metaData, ForumViewHolder forumViewHolder) {
-        forumViewHolder.kdx.setOnClickEvent(new DynamicUserLikeButton.a() { // from class: com.baidu.tieba.homepage.concern.adapter.ConcernRecommendListAdapter.2
-            @Override // com.baidu.tieba.view.DynamicUserLikeButton.a
-            public void cO(View view) {
-                if (metaData != null) {
-                    if (metaData.getIsLike()) {
-                        TiebaStatic.log(new ar("c13571"));
-                        return;
-                    }
-                    ar arVar = new ar("c13566");
-                    arVar.aq("obj_locate", 1);
-                    arVar.v("obj_id", TbadkCoreApplication.getCurrentAccountId());
-                    arVar.dR("obj_param1", metaData.getUserId());
-                    TiebaStatic.log(arVar);
-                }
+    public void k(f<MetaData> fVar) {
+        this.f17009f = fVar;
+    }
+
+    public void l(TbPageContext tbPageContext) {
+        this.f17005b = tbPageContext;
+    }
+
+    public void m(BdUniqueId bdUniqueId) {
+        this.f17006c = bdUniqueId;
+    }
+
+    public final void n(MetaData metaData, ForumViewHolder forumViewHolder) {
+        forumViewHolder.f17013d.setData(metaData, true);
+        forumViewHolder.f17013d.setAfterClickListener(new a(metaData, forumViewHolder));
+    }
+
+    public final void o(MetaData metaData, ForumViewHolder forumViewHolder) {
+        if (metaData == null || forumViewHolder == null) {
+            return;
+        }
+        String str = "";
+        if (metaData.isBaijiahaoUser()) {
+            String str2 = metaData.getBaijiahaoInfo().auth_desc;
+            if (!k.isEmpty(str2)) {
+                str = str2;
             }
-        });
-        com.baidu.tbadk.core.view.userLike.c cVar = forumViewHolder.alS;
+        } else if (metaData.isNewGod()) {
+            String fieldName = metaData.getNewGodData().getFieldName();
+            if (!k.isEmpty(fieldName)) {
+                str = fieldName + l0.c(metaData.isVideoGod());
+            }
+        }
+        forumViewHolder.f17012c.setText(str);
+    }
+
+    public final void p(MetaData metaData, ForumViewHolder forumViewHolder) {
+        forumViewHolder.f17014e.setOnClickEvent(new b(this, metaData));
+        d.b.h0.r.f0.q.c cVar = forumViewHolder.f17015f;
         if (cVar != null) {
-            cVar.l(this.fqa);
-            cVar.a(metaData);
+            cVar.l(this.f17006c);
+            cVar.n(metaData);
         }
     }
 
-    private void c(final MetaData metaData, final ForumViewHolder forumViewHolder) {
-        if (metaData != null && forumViewHolder != null) {
-            String str = "";
-            if (!StringUtils.isNull(metaData.getName_show())) {
-                str = metaData.getName_show();
-            } else if (metaData.getBaijiahaoInfo() != null && !StringUtils.isNull(metaData.getBaijiahaoInfo().name)) {
-                str = metaData.getBaijiahaoInfo().name;
-            }
-            forumViewHolder.eKp.setText(str);
-            if (metaData.isNewGod()) {
-                ap.setViewTextColor(forumViewHolder.eKp, R.color.CAM_X0301);
-            }
-            forumViewHolder.eKp.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.homepage.concern.adapter.ConcernRecommendListAdapter.3
-                @Override // android.view.View.OnClickListener
-                public void onClick(View view) {
-                    if (metaData != null && !StringUtils.isNull(metaData.getUserId())) {
-                        ar arVar = new ar("c13566");
-                        arVar.aq("obj_locate", 2);
-                        TiebaStatic.log(arVar);
-                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(ConcernRecommendListAdapter.this.mContext, metaData.getUserId(), metaData.getName_show())));
-                        ConcernRecommendListAdapter.this.d(metaData, forumViewHolder);
-                    }
-                }
-            });
+    public final void q(MetaData metaData, ForumViewHolder forumViewHolder) {
+        String str;
+        if (metaData == null || forumViewHolder == null) {
+            return;
         }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void d(MetaData metaData, ForumViewHolder forumViewHolder) {
-        if (this.akI != null) {
-            this.akI.a(forumViewHolder.itemView, metaData, forumViewHolder.getAdapterPosition(), forumViewHolder.getItemId());
+        if (!StringUtils.isNull(metaData.getName_show())) {
+            str = metaData.getName_show();
+        } else {
+            str = (metaData.getBaijiahaoInfo() == null || StringUtils.isNull(metaData.getBaijiahaoInfo().name)) ? "" : metaData.getBaijiahaoInfo().name;
         }
-    }
-
-    private void e(MetaData metaData, ForumViewHolder forumViewHolder) {
-        if (metaData != null && forumViewHolder != null) {
-            String str = "";
-            if (metaData.isBaijiahaoUser()) {
-                str = metaData.getBaijiahaoInfo().auth_desc;
-                if (au.isEmpty(str)) {
-                    str = "";
-                }
-            } else if (metaData.isNewGod()) {
-                String fieldName = metaData.getNewGodData().getFieldName();
-                if (!au.isEmpty(fieldName)) {
-                    str = fieldName + aj.lA(metaData.isVideoGod());
-                } else {
-                    str = "";
-                }
-            }
-            forumViewHolder.kdv.setText(str);
+        forumViewHolder.f17011b.setText(str);
+        if (metaData.isNewGod()) {
+            SkinManager.setViewTextColor(forumViewHolder.f17011b, R.color.CAM_X0301);
         }
+        forumViewHolder.f17011b.setOnClickListener(new c(metaData, forumViewHolder));
     }
 
-    public void onChangeSkinType(int i) {
-        this.mSkinType = i;
-    }
-
-    public void setHasBorder(boolean z) {
-        this.kdq = z;
-    }
-
-    /* loaded from: classes2.dex */
-    public class ForumViewHolder extends RecyclerView.ViewHolder {
-        public com.baidu.tbadk.core.view.userLike.c alS;
-        public TextView eKp;
-        public TextView kdv;
-        public HeadPendantClickableView kdw;
-        public DynamicUserLikeButton kdx;
-        private boolean kdy;
-        public LinearLayout mContainer;
-
-        public ForumViewHolder(View view) {
-            super(view);
-            this.kdy = false;
-            this.mContainer = (LinearLayout) view.findViewById(R.id.concern_container);
-            this.kdw = (HeadPendantClickableView) view.findViewById(R.id.concern_user_image);
-            this.kdw.getHeadView().setIsRound(true);
-            this.kdw.getHeadView().setScaleType(ImageView.ScaleType.CENTER_CROP);
-            this.kdw.getHeadView().setDefaultResource(17170445);
-            this.kdw.getHeadView().setPlaceHolder(1);
-            this.kdw.getHeadView().setBorderWidth(com.baidu.adp.lib.util.l.getDimens(ConcernRecommendListAdapter.this.mContext, R.dimen.tbds1));
-            this.kdw.getHeadView().setBorderColor(ap.getColor(R.color.CAM_X0401));
-            this.eKp = (TextView) view.findViewById(R.id.concern_user_name);
-            this.kdv = (TextView) view.findViewById(R.id.concern_user_desc);
-            this.kdx = (DynamicUserLikeButton) view.findViewById(R.id.user_recommend_like_btn);
-            this.alS = new com.baidu.tbadk.core.view.userLike.c(ConcernRecommendListAdapter.this.mPageContext, this.kdx);
-        }
-
-        public void onChangeSkinType(int i) {
-            if (!this.kdy) {
-                ap.setViewTextColor(this.eKp, R.color.CAM_X0105);
-            } else {
-                ap.setViewTextColor(this.eKp, R.color.CAM_X0301);
-            }
-            ap.setViewTextColor(this.kdv, R.color.CAM_X0109);
-            this.kdx.onChangeSkinType(i);
-            com.baidu.tbadk.core.elementsMaven.c.br(this.mContainer).oh(R.string.J_X05).setBackGroundColor(R.color.CAM_X0206);
-        }
-
-        public void rX(boolean z) {
-            this.kdy = z;
-        }
-    }
-
-    public void setPageContext(TbPageContext tbPageContext) {
-        this.mPageContext = tbPageContext;
-    }
-
-    public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        this.fqa = bdUniqueId;
+    public void setData(List<MetaData> list) {
+        this.f17008e = list;
     }
 }

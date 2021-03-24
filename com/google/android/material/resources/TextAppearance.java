@@ -14,22 +14,21 @@ import androidx.annotation.RestrictTo;
 import androidx.annotation.StyleRes;
 import androidx.annotation.VisibleForTesting;
 import androidx.core.content.res.ResourcesCompat;
-import androidx.core.view.ViewCompat;
 import com.google.android.material.R;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes14.dex */
+/* loaded from: classes6.dex */
 public class TextAppearance {
-    private static final String TAG = "TextAppearance";
-    private static final int TYPEFACE_MONOSPACE = 3;
-    private static final int TYPEFACE_SANS = 1;
-    private static final int TYPEFACE_SERIF = 2;
+    public static final String TAG = "TextAppearance";
+    public static final int TYPEFACE_MONOSPACE = 3;
+    public static final int TYPEFACE_SANS = 1;
+    public static final int TYPEFACE_SERIF = 2;
     @Nullable
-    private Typeface font;
+    public Typeface font;
     @Nullable
     public final String fontFamily;
     @FontRes
-    private final int fontFamilyResourceId;
-    private boolean fontResolved = false;
+    public final int fontFamilyResourceId;
+    public boolean fontResolved = false;
     @Nullable
     public final ColorStateList shadowColor;
     public final float shadowDx;
@@ -65,6 +64,29 @@ public class TextAppearance {
         obtainStyledAttributes.recycle();
     }
 
+    /* JADX INFO: Access modifiers changed from: private */
+    public void createFallbackTypeface() {
+        if (this.font == null) {
+            this.font = Typeface.create(this.fontFamily, this.textStyle);
+        }
+        if (this.font == null) {
+            int i = this.typeface;
+            if (i == 1) {
+                this.font = Typeface.SANS_SERIF;
+            } else if (i == 2) {
+                this.font = Typeface.SERIF;
+            } else if (i != 3) {
+                this.font = Typeface.DEFAULT;
+            } else {
+                this.font = Typeface.MONOSPACE;
+            }
+            Typeface typeface = this.font;
+            if (typeface != null) {
+                this.font = Typeface.create(typeface, this.textStyle);
+            }
+        }
+    }
+
     @NonNull
     @VisibleForTesting
     public Typeface getFont(Context context) {
@@ -73,14 +95,14 @@ public class TextAppearance {
         }
         if (!context.isRestricted()) {
             try {
-                this.font = ResourcesCompat.getFont(context, this.fontFamilyResourceId);
-                if (this.font != null) {
-                    this.font = Typeface.create(this.font, this.textStyle);
+                Typeface font = ResourcesCompat.getFont(context, this.fontFamilyResourceId);
+                this.font = font;
+                if (font != null) {
+                    this.font = Typeface.create(font, this.textStyle);
                 }
-            } catch (Resources.NotFoundException e) {
-            } catch (UnsupportedOperationException e2) {
-            } catch (Exception e3) {
-                Log.d(TAG, "Error loading font " + this.fontFamily, e3);
+            } catch (Resources.NotFoundException | UnsupportedOperationException unused) {
+            } catch (Exception e2) {
+                Log.d(TAG, "Error loading font " + this.fontFamily, e2);
             }
         }
         createFallbackTypeface();
@@ -102,57 +124,36 @@ public class TextAppearance {
         try {
             ResourcesCompat.getFont(context, this.fontFamilyResourceId, new ResourcesCompat.FontCallback() { // from class: com.google.android.material.resources.TextAppearance.1
                 @Override // androidx.core.content.res.ResourcesCompat.FontCallback
-                public void onFontRetrieved(@NonNull Typeface typeface) {
-                    TextAppearance.this.font = Typeface.create(typeface, TextAppearance.this.textStyle);
-                    TextAppearance.this.updateTextPaintMeasureState(textPaint, typeface);
-                    TextAppearance.this.fontResolved = true;
-                    fontCallback.onFontRetrieved(typeface);
-                }
-
-                @Override // androidx.core.content.res.ResourcesCompat.FontCallback
                 public void onFontRetrievalFailed(int i) {
                     TextAppearance.this.createFallbackTypeface();
                     TextAppearance.this.fontResolved = true;
                     fontCallback.onFontRetrievalFailed(i);
                 }
-            }, null);
-        } catch (Resources.NotFoundException e) {
-        } catch (UnsupportedOperationException e2) {
-        } catch (Exception e3) {
-            Log.d(TAG, "Error loading font " + this.fontFamily, e3);
-        }
-    }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void createFallbackTypeface() {
-        if (this.font == null) {
-            this.font = Typeface.create(this.fontFamily, this.textStyle);
-        }
-        if (this.font == null) {
-            switch (this.typeface) {
-                case 1:
-                    this.font = Typeface.SANS_SERIF;
-                    break;
-                case 2:
-                    this.font = Typeface.SERIF;
-                    break;
-                case 3:
-                    this.font = Typeface.MONOSPACE;
-                    break;
-                default:
-                    this.font = Typeface.DEFAULT;
-                    break;
-            }
-            if (this.font != null) {
-                this.font = Typeface.create(this.font, this.textStyle);
-            }
+                @Override // androidx.core.content.res.ResourcesCompat.FontCallback
+                public void onFontRetrieved(@NonNull Typeface typeface) {
+                    TextAppearance textAppearance = TextAppearance.this;
+                    textAppearance.font = Typeface.create(typeface, textAppearance.textStyle);
+                    TextAppearance.this.updateTextPaintMeasureState(textPaint, typeface);
+                    TextAppearance.this.fontResolved = true;
+                    fontCallback.onFontRetrieved(typeface);
+                }
+            }, null);
+        } catch (Resources.NotFoundException | UnsupportedOperationException unused) {
+        } catch (Exception e2) {
+            Log.d(TAG, "Error loading font " + this.fontFamily, e2);
         }
     }
 
     public void updateDrawState(Context context, TextPaint textPaint, ResourcesCompat.FontCallback fontCallback) {
         updateMeasureState(context, textPaint, fontCallback);
-        textPaint.setColor(this.textColor != null ? this.textColor.getColorForState(textPaint.drawableState, this.textColor.getDefaultColor()) : ViewCompat.MEASURED_STATE_MASK);
-        textPaint.setShadowLayer(this.shadowRadius, this.shadowDx, this.shadowDy, this.shadowColor != null ? this.shadowColor.getColorForState(textPaint.drawableState, this.shadowColor.getDefaultColor()) : 0);
+        ColorStateList colorStateList = this.textColor;
+        textPaint.setColor(colorStateList != null ? colorStateList.getColorForState(textPaint.drawableState, colorStateList.getDefaultColor()) : -16777216);
+        float f2 = this.shadowRadius;
+        float f3 = this.shadowDx;
+        float f4 = this.shadowDy;
+        ColorStateList colorStateList2 = this.shadowColor;
+        textPaint.setShadowLayer(f2, f3, f4, colorStateList2 != null ? colorStateList2.getColorForState(textPaint.drawableState, colorStateList2.getDefaultColor()) : 0);
     }
 
     public void updateMeasureState(Context context, TextPaint textPaint, @Nullable ResourcesCompat.FontCallback fontCallback) {
@@ -161,9 +162,10 @@ public class TextAppearance {
             return;
         }
         getFontAsync(context, textPaint, fontCallback);
-        if (!this.fontResolved) {
-            updateTextPaintMeasureState(textPaint, this.font);
+        if (this.fontResolved) {
+            return;
         }
+        updateTextPaintMeasureState(textPaint, this.font);
     }
 
     public void updateTextPaintMeasureState(@NonNull TextPaint textPaint, @NonNull Typeface typeface) {

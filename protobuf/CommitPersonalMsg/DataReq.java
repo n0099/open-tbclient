@@ -2,7 +2,7 @@ package protobuf.CommitPersonalMsg;
 
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public final class DataReq extends Message {
     public static final String DEFAULT_CONTENT = "";
     public static final String DEFAULT_ST_TYPE = "";
@@ -29,63 +29,7 @@ public final class DataReq extends Message {
     public static final Long DEFAULT_RECORDID = 0L;
     public static final Integer DEFAULT_TOUSERTYPE = 0;
 
-    private DataReq(Builder builder, boolean z) {
-        super(builder);
-        if (z) {
-            if (builder.groupId == null) {
-                this.groupId = DEFAULT_GROUPID;
-            } else {
-                this.groupId = builder.groupId;
-            }
-            if (builder.toUid == null) {
-                this.toUid = DEFAULT_TOUID;
-            } else {
-                this.toUid = builder.toUid;
-            }
-            if (builder.msgType == null) {
-                this.msgType = DEFAULT_MSGTYPE;
-            } else {
-                this.msgType = builder.msgType;
-            }
-            if (builder.content == null) {
-                this.content = "";
-            } else {
-                this.content = builder.content;
-            }
-            if (builder.duration == null) {
-                this.duration = DEFAULT_DURATION;
-            } else {
-                this.duration = builder.duration;
-            }
-            if (builder.recordId == null) {
-                this.recordId = DEFAULT_RECORDID;
-            } else {
-                this.recordId = builder.recordId;
-            }
-            if (builder.toUserType == null) {
-                this.toUserType = DEFAULT_TOUSERTYPE;
-            } else {
-                this.toUserType = builder.toUserType;
-            }
-            if (builder.st_type == null) {
-                this.st_type = "";
-                return;
-            } else {
-                this.st_type = builder.st_type;
-                return;
-            }
-        }
-        this.groupId = builder.groupId;
-        this.toUid = builder.toUid;
-        this.msgType = builder.msgType;
-        this.content = builder.content;
-        this.duration = builder.duration;
-        this.recordId = builder.recordId;
-        this.toUserType = builder.toUserType;
-        this.st_type = builder.st_type;
-    }
-
-    /* loaded from: classes2.dex */
+    /* loaded from: classes7.dex */
     public static final class Builder extends Message.Builder<DataReq> {
         public String content;
         public Integer duration;
@@ -101,16 +45,17 @@ public final class DataReq extends Message {
 
         public Builder(DataReq dataReq) {
             super(dataReq);
-            if (dataReq != null) {
-                this.groupId = dataReq.groupId;
-                this.toUid = dataReq.toUid;
-                this.msgType = dataReq.msgType;
-                this.content = dataReq.content;
-                this.duration = dataReq.duration;
-                this.recordId = dataReq.recordId;
-                this.toUserType = dataReq.toUserType;
-                this.st_type = dataReq.st_type;
+            if (dataReq == null) {
+                return;
             }
+            this.groupId = dataReq.groupId;
+            this.toUid = dataReq.toUid;
+            this.msgType = dataReq.msgType;
+            this.content = dataReq.content;
+            this.duration = dataReq.duration;
+            this.recordId = dataReq.recordId;
+            this.toUserType = dataReq.toUserType;
+            this.st_type = dataReq.st_type;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -118,5 +63,69 @@ public final class DataReq extends Message {
         public DataReq build(boolean z) {
             return new DataReq(this, z);
         }
+    }
+
+    public DataReq(Builder builder, boolean z) {
+        super(builder);
+        if (z) {
+            Long l = builder.groupId;
+            if (l == null) {
+                this.groupId = DEFAULT_GROUPID;
+            } else {
+                this.groupId = l;
+            }
+            Long l2 = builder.toUid;
+            if (l2 == null) {
+                this.toUid = DEFAULT_TOUID;
+            } else {
+                this.toUid = l2;
+            }
+            Integer num = builder.msgType;
+            if (num == null) {
+                this.msgType = DEFAULT_MSGTYPE;
+            } else {
+                this.msgType = num;
+            }
+            String str = builder.content;
+            if (str == null) {
+                this.content = "";
+            } else {
+                this.content = str;
+            }
+            Integer num2 = builder.duration;
+            if (num2 == null) {
+                this.duration = DEFAULT_DURATION;
+            } else {
+                this.duration = num2;
+            }
+            Long l3 = builder.recordId;
+            if (l3 == null) {
+                this.recordId = DEFAULT_RECORDID;
+            } else {
+                this.recordId = l3;
+            }
+            Integer num3 = builder.toUserType;
+            if (num3 == null) {
+                this.toUserType = DEFAULT_TOUSERTYPE;
+            } else {
+                this.toUserType = num3;
+            }
+            String str2 = builder.st_type;
+            if (str2 == null) {
+                this.st_type = "";
+                return;
+            } else {
+                this.st_type = str2;
+                return;
+            }
+        }
+        this.groupId = builder.groupId;
+        this.toUid = builder.toUid;
+        this.msgType = builder.msgType;
+        this.content = builder.content;
+        this.duration = builder.duration;
+        this.recordId = builder.recordId;
+        this.toUserType = builder.toUserType;
+        this.st_type = builder.st_type;
     }
 }

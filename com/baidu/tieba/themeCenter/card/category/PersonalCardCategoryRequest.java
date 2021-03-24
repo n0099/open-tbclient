@@ -1,26 +1,26 @@
 package com.baidu.tieba.themeCenter.card.category;
 
 import com.baidu.adp.framework.message.NetMessage;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
-import com.baidu.tbadk.util.v;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import d.b.h0.z0.w;
 import tbclient.GetCardByCategory.DataReq;
 import tbclient.GetCardByCategory.GetCardByCategoryReqIdl;
-/* loaded from: classes8.dex */
+/* loaded from: classes5.dex */
 public class PersonalCardCategoryRequest extends NetMessage {
-    private int pn;
-    private int rn;
+    public int pn;
+    public int rn;
 
     public PersonalCardCategoryRequest() {
-        super(1003093, CmdConfigSocket.CMD_GET_CARD_BY_CATEGORY);
+        super(CmdConfigHttp.CMD_GET_CARD_BY_CATEGORY, 309331);
     }
 
     @Override // com.baidu.adp.framework.message.NetMessage
-    protected Object encode(boolean z) {
+    public Object encode(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
         builder.pn = Integer.valueOf(this.pn);
         builder.rn = Integer.valueOf(this.rn);
         if (z) {
-            v.b(builder, true);
+            w.a(builder, true);
         }
         GetCardByCategoryReqIdl.Builder builder2 = new GetCardByCategoryReqIdl.Builder();
         builder2.data = builder.build(false);
@@ -31,12 +31,12 @@ public class PersonalCardCategoryRequest extends NetMessage {
         return this.pn;
     }
 
-    public void setPn(int i) {
-        this.pn = i;
-    }
-
     public int getRn() {
         return this.rn;
+    }
+
+    public void setPn(int i) {
+        this.pn = i;
     }
 
     public void setRn(int i) {

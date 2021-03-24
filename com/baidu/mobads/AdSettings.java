@@ -8,77 +8,40 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class AdSettings {
-    private static String c;
-    private static String d;
-    private static String e;
-    private static String f;
-    private static String g;
-    private static String h;
-    private static String i;
+
+    /* renamed from: c  reason: collision with root package name */
+    public static String f8068c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public static String f8069d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public static String f8070e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public static String f8071f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public static String f8072g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public static String f8073h;
+    public static String i;
 
     /* renamed from: a  reason: collision with root package name */
-    private static HashSet<String> f2336a = new HashSet<>();
-    private static JSONArray b = new JSONArray();
-    private static String j = b.HTTPS_PROTOCOL_TYPE.a() + "";
-    private static HashSet<String> k = new HashSet<>();
-    private static JSONArray l = new JSONArray();
-    private static JSONObject m = new JSONObject();
+    public static HashSet<String> f8066a = new HashSet<>();
 
-    public static Double getSDKVersion() {
-        return Double.valueOf(XAdSDKProxyVersion.getVersion());
-    }
-
-    public static void setSupportHttps(boolean z) {
-        if (z) {
-            j = b.HTTPS_PROTOCOL_TYPE.a() + "";
-        } else {
-            j = b.HTTP_PROTOCOL_TYPE.a() + "";
-        }
-    }
-
-    public static String getSupportHttps() {
-        return j;
-    }
+    /* renamed from: b  reason: collision with root package name */
+    public static JSONArray f8067b = new JSONArray();
+    public static String j = b.HTTPS_PROTOCOL_TYPE.a() + "";
+    public static HashSet<String> k = new HashSet<>();
+    public static JSONArray l = new JSONArray();
+    public static JSONObject m = new JSONObject();
 
     @Deprecated
-    /* loaded from: classes4.dex */
-    public enum b {
-        UNKNOWN_PROTOCOL_TYPE(0),
-        HTTP_PROTOCOL_TYPE(1),
-        HTTPS_PROTOCOL_TYPE(2);
-        
-        private int d;
-
-        b(int i) {
-            this.d = i;
-        }
-
-        public String a() {
-            return this.d + "";
-        }
-    }
-
-    @Deprecated
-    /* loaded from: classes4.dex */
-    public enum d {
-        MALE(0),
-        FEMALE(1);
-        
-        private int c;
-
-        d(int i) {
-            this.c = i;
-        }
-
-        public int a() {
-            return this.c;
-        }
-    }
-
-    @Deprecated
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public enum a {
         PRIMARY(0),
         JUNIOR(1),
@@ -88,19 +51,41 @@ public class AdSettings {
         MASTER(5),
         DOCTOR(6);
         
-        private int h;
+
+        /* renamed from: h  reason: collision with root package name */
+        public int f8081h;
 
         a(int i2) {
-            this.h = i2;
+            this.f8081h = i2;
         }
 
         public int a() {
-            return this.h;
+            return this.f8081h;
         }
     }
 
     @Deprecated
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
+    public enum b {
+        UNKNOWN_PROTOCOL_TYPE(0),
+        HTTP_PROTOCOL_TYPE(1),
+        HTTPS_PROTOCOL_TYPE(2);
+        
+
+        /* renamed from: d  reason: collision with root package name */
+        public int f8086d;
+
+        b(int i) {
+            this.f8086d = i;
+        }
+
+        public String a() {
+            return this.f8086d + "";
+        }
+    }
+
+    @Deprecated
+    /* loaded from: classes2.dex */
     public enum c {
         F0T1k(0),
         F1kT2k(1),
@@ -116,7 +101,7 @@ public class AdSettings {
         F15kT20k(11),
         F20(12);
         
-        private int n;
+        public int n;
 
         c(int i) {
             this.n = i;
@@ -127,87 +112,80 @@ public class AdSettings {
         }
     }
 
+    @Deprecated
+    /* loaded from: classes2.dex */
+    public enum d {
+        MALE(0),
+        FEMALE(1);
+        
+
+        /* renamed from: c  reason: collision with root package name */
+        public int f8098c;
+
+        d(int i) {
+            this.f8098c = i;
+        }
+
+        public int a() {
+            return this.f8098c;
+        }
+    }
+
     public static JSONObject getAttr() {
         JSONObject jSONObject = new JSONObject();
-        Iterator<String> it = f2336a.iterator();
-        b = new JSONArray();
+        Iterator<String> it = f8066a.iterator();
+        f8067b = new JSONArray();
         while (it.hasNext()) {
-            b.put(it.next());
+            f8067b.put(it.next());
         }
         try {
-            jSONObject.putOpt("KEY", b);
+            jSONObject.putOpt("KEY", f8067b);
             jSONObject.putOpt("RPT", j);
-        } catch (Exception e2) {
+        } catch (Exception unused) {
         }
         return jSONObject;
     }
 
-    @Deprecated
-    public static void setKey(String[] strArr) {
-        for (String str : strArr) {
-            f2336a.add(str);
-        }
+    public static Double getSDKVersion() {
+        return Double.valueOf(XAdSDKProxyVersion.getVersion());
     }
 
-    @Deprecated
-    public static void setKey(List<String> list) {
-        f2336a.addAll(list);
-    }
-
-    @Deprecated
-    public static void setSex(d dVar) {
-        if (dVar != null) {
-            c = dVar.a() + "";
-        }
+    public static String getSupportHttps() {
+        return j;
     }
 
     @Deprecated
     public static void setBirthday(Calendar calendar) {
-        if (calendar != null) {
-            int i2 = calendar.get(1);
-            int i3 = calendar.get(2) + 1;
-            int i4 = calendar.get(5);
-            d = i2 + "";
-            if (i3 > 0 && i3 < 10) {
-                d += "0" + i3;
-            } else {
-                d += i3;
-            }
-            if (i4 > 0 && i4 < 10) {
-                d += "0" + i4;
-            } else {
-                d += i4;
-            }
+        if (calendar == null) {
+            return;
         }
+        int i2 = calendar.get(1);
+        int i3 = calendar.get(2) + 1;
+        int i4 = calendar.get(5);
+        f8069d = i2 + "";
+        if (i3 > 0 && i3 < 10) {
+            f8069d += "0" + i3;
+        } else {
+            f8069d += i3;
+        }
+        if (i4 > 0 && i4 < 10) {
+            f8069d += "0" + i4;
+            return;
+        }
+        f8069d += i4;
     }
 
     @Deprecated
     public static void setCity(String str) {
-        e = str;
-    }
-
-    @Deprecated
-    public static void setZip(String str) {
-        f = str;
-    }
-
-    @Deprecated
-    public static void setJob(String str) {
-        g = str;
+        f8070e = str;
     }
 
     @Deprecated
     public static void setEducation(a aVar) {
-        if (aVar != null) {
-            h = aVar.a() + "";
+        if (aVar == null) {
+            return;
         }
-    }
-
-    @Deprecated
-    public static void setSalary(c cVar) {
-        if (cVar != null) {
-            i = cVar.a() + "";
-        }
+        f8073h = aVar.a() + "";
     }
 
     @Deprecated
@@ -218,15 +196,61 @@ public class AdSettings {
     }
 
     @Deprecated
-    public static void setHob(List<String> list) {
-        k.addAll(list);
+    public static void setJob(String str) {
+        f8072g = str;
+    }
+
+    @Deprecated
+    public static void setKey(String[] strArr) {
+        for (String str : strArr) {
+            f8066a.add(str);
+        }
+    }
+
+    @Deprecated
+    public static void setSalary(c cVar) {
+        if (cVar == null) {
+            return;
+        }
+        i = cVar.a() + "";
+    }
+
+    @Deprecated
+    public static void setSex(d dVar) {
+        if (dVar == null) {
+            return;
+        }
+        f8068c = dVar.a() + "";
+    }
+
+    public static void setSupportHttps(boolean z) {
+        if (z) {
+            j = b.HTTPS_PROTOCOL_TYPE.a() + "";
+            return;
+        }
+        j = b.HTTP_PROTOCOL_TYPE.a() + "";
     }
 
     @Deprecated
     public static void setUserAttr(String str, String str2) {
         try {
             m.put(str, str2);
-        } catch (JSONException e2) {
+        } catch (JSONException unused) {
         }
+    }
+
+    @Deprecated
+    public static void setZip(String str) {
+        f8071f = str;
+    }
+
+    @Deprecated
+    public static void setHob(List<String> list) {
+        k.addAll(list);
+    }
+
+    @Deprecated
+    public static void setKey(List<String> list) {
+        f8066a.addAll(list);
     }
 }

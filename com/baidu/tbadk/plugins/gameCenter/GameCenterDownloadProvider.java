@@ -7,10 +7,63 @@ import android.net.Uri;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
-/* loaded from: classes.dex */
+import d.b.h0.p0.c.a;
+/* loaded from: classes3.dex */
 public class GameCenterDownloadProvider extends ContentProvider {
-    private boolean isPluginSetted = false;
+    public boolean isPluginSetted = false;
+
+    private void setPlugin() {
+        if (this.isPluginSetted) {
+            return;
+        }
+        MessageManager.getInstance().runTask(new CustomMessage<>(2016518, this), (Class) null);
+        if (a.b() != null) {
+            a.b().onCreate();
+            this.isPluginSetted = true;
+        }
+    }
+
+    @Override // android.content.ContentProvider
+    public int delete(Uri uri, String str, String[] strArr) {
+        setPlugin();
+        if (a.b() != null) {
+            try {
+                return a.b().delete(uri, str, strArr);
+            } catch (Throwable th) {
+                BdLog.e(th);
+                return 0;
+            }
+        }
+        return 0;
+    }
+
+    @Override // android.content.ContentProvider
+    public String getType(Uri uri) {
+        setPlugin();
+        if (a.b() != null) {
+            try {
+                return a.b().getType(uri);
+            } catch (Throwable th) {
+                BdLog.e(th);
+                return null;
+            }
+        }
+        return null;
+    }
+
+    @Override // android.content.ContentProvider
+    public Uri insert(Uri uri, ContentValues contentValues) {
+        setPlugin();
+        if (a.b() != null) {
+            try {
+                return a.b().insert(uri, contentValues);
+            } catch (Throwable th) {
+                BdLog.e(th);
+                return null;
+            }
+        }
+        return null;
+    }
 
     @Override // android.content.ContentProvider
     public boolean onCreate() {
@@ -20,75 +73,28 @@ public class GameCenterDownloadProvider extends ContentProvider {
     @Override // android.content.ContentProvider
     public Cursor query(Uri uri, String[] strArr, String str, String[] strArr2, String str2) {
         setPlugin();
-        if (a.bEF() != null) {
+        if (a.b() != null) {
             try {
-                return a.bEF().query(uri, strArr, str, strArr2, str2);
+                return a.b().query(uri, strArr, str, strArr2, str2);
             } catch (Throwable th) {
                 BdLog.e(th);
+                return null;
             }
         }
         return null;
-    }
-
-    @Override // android.content.ContentProvider
-    public String getType(Uri uri) {
-        setPlugin();
-        if (a.bEF() != null) {
-            try {
-                return a.bEF().getType(uri);
-            } catch (Throwable th) {
-                BdLog.e(th);
-            }
-        }
-        return null;
-    }
-
-    @Override // android.content.ContentProvider
-    public Uri insert(Uri uri, ContentValues contentValues) {
-        setPlugin();
-        if (a.bEF() != null) {
-            try {
-                return a.bEF().insert(uri, contentValues);
-            } catch (Throwable th) {
-                BdLog.e(th);
-            }
-        }
-        return null;
-    }
-
-    @Override // android.content.ContentProvider
-    public int delete(Uri uri, String str, String[] strArr) {
-        setPlugin();
-        if (a.bEF() != null) {
-            try {
-                return a.bEF().delete(uri, str, strArr);
-            } catch (Throwable th) {
-                BdLog.e(th);
-            }
-        }
-        return 0;
     }
 
     @Override // android.content.ContentProvider
     public int update(Uri uri, ContentValues contentValues, String str, String[] strArr) {
         setPlugin();
-        if (a.bEF() != null) {
+        if (a.b() != null) {
             try {
-                return a.bEF().update(uri, contentValues, str, strArr);
+                return a.b().update(uri, contentValues, str, strArr);
             } catch (Throwable th) {
                 BdLog.e(th);
+                return 0;
             }
         }
         return 0;
-    }
-
-    private void setPlugin() {
-        if (!this.isPluginSetted) {
-            MessageManager.getInstance().runTask(new CustomMessage<>((int) CmdConfigCustom.CMD_PROXY_GAME_DOWNLOAD_PROVIDER_READY, this), (Class) null);
-            if (a.bEF() != null) {
-                a.bEF().onCreate();
-                this.isPluginSetted = true;
-            }
-        }
     }
 }

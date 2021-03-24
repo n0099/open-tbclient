@@ -11,6 +11,7 @@ import com.baidu.mobads.interfaces.IXAdConstants4PDK;
 import com.baidu.mobads.interfaces.IXAdContainer;
 import com.baidu.mobads.interfaces.IXAdResponseInfo;
 import com.baidu.mobads.interfaces.IXRewardVideoAdContainer;
+import com.baidu.mobads.interfaces.utils.IXAdLogger;
 import com.baidu.mobads.production.p;
 import com.baidu.mobads.utils.XAdSDKFoundationFacade;
 import com.baidu.mobads.utils.l;
@@ -19,15 +20,114 @@ import com.baidu.mobads.vo.d;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class a extends com.baidu.mobads.production.a {
-    private IXRewardVideoAdContainer A;
-    private boolean B;
-    private boolean C;
-    private b z;
+    public IXRewardVideoAdContainer A;
+    public boolean B;
+    public boolean C;
+    public b z;
 
     public a(Context context, String str, boolean z) {
         this(context, str, z, IXAdConstants4PDK.SlotType.SLOT_TYPE_REWARD_VIDEO);
+    }
+
+    private void w() {
+        IXAdContainer iXAdContainer = this.f8440h;
+        MobRewardVideoImpl.mAdContainer = (IXRewardVideoAdContainer) iXAdContainer;
+        MobRewardVideoImpl.mContext = iXAdContainer.getAdContainerContext();
+        Intent intent = new Intent(this.f8438f, MobRewardVideoImpl.getActivityClass());
+        Context context = this.f8438f;
+        if (context != null && !(context instanceof Activity)) {
+            intent.addFlags(268435456);
+        }
+        intent.putExtra("orientation", x());
+        intent.putExtra("useSurfaceView", this.C);
+        this.f8438f.startActivity(intent);
+    }
+
+    private String x() {
+        Context context = this.f8438f;
+        return (context == null || context.getResources().getConfiguration().orientation != 2) ? "portrait" : "landscape";
+    }
+
+    public boolean a() {
+        IXRewardVideoAdContainer iXRewardVideoAdContainer = (IXRewardVideoAdContainer) this.f8440h;
+        this.A = iXRewardVideoAdContainer;
+        if (iXRewardVideoAdContainer != null) {
+            return iXRewardVideoAdContainer.isExpired();
+        }
+        return false;
+    }
+
+    @Override // com.baidu.mobads.production.a
+    public void b(IXAdContainer iXAdContainer, HashMap<String, Object> hashMap) {
+    }
+
+    @Override // com.baidu.mobads.production.a
+    public void b(IXAdResponseInfo iXAdResponseInfo) {
+    }
+
+    public boolean b() {
+        IXRewardVideoAdContainer iXRewardVideoAdContainer = (IXRewardVideoAdContainer) this.f8440h;
+        this.A = iXRewardVideoAdContainer;
+        if (iXRewardVideoAdContainer != null) {
+            return iXRewardVideoAdContainer.isVideoDownloaded();
+        }
+        return false;
+    }
+
+    @Override // com.baidu.mobads.production.a
+    public void c() {
+        this.f8440h.load();
+    }
+
+    @Override // com.baidu.mobads.production.a
+    public void d() {
+        this.m = 8000;
+    }
+
+    @Override // com.baidu.mobads.production.a
+    public void o() {
+        super.o();
+        MobRewardVideoImpl.mAdContainer = null;
+        MobRewardVideoImpl.mContext = null;
+    }
+
+    @Override // com.baidu.mobads.interfaces.IXAdProd
+    public void request() {
+        super.a(this.z);
+    }
+
+    public boolean s() {
+        try {
+            IXRewardVideoAdContainer iXRewardVideoAdContainer = (IXRewardVideoAdContainer) this.f8440h;
+            this.A = iXRewardVideoAdContainer;
+            if (iXRewardVideoAdContainer != null) {
+                return !iXRewardVideoAdContainer.getAdContainerContext().getAdInstanceInfo().getAdHasDisplayed();
+            }
+            return false;
+        } catch (Exception e2) {
+            IXAdLogger iXAdLogger = this.v;
+            iXAdLogger.d("XAbstractAdProdTemplate", "notPlayedBefore-exception=" + e2.getMessage());
+            return false;
+        }
+    }
+
+    public boolean t() {
+        IXRewardVideoAdContainer iXRewardVideoAdContainer = (IXRewardVideoAdContainer) this.f8440h;
+        this.A = iXRewardVideoAdContainer;
+        return (iXRewardVideoAdContainer == null || iXRewardVideoAdContainer.getAdContainerContext() == null || this.A.getAdContainerContext().getAdInstanceInfo() == null || TextUtils.isEmpty(this.A.getAdContainerContext().getAdInstanceInfo().getVideoUrl())) ? false : true;
+    }
+
+    public void u() {
+        w();
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.mobads.interfaces.IXAdProd
+    /* renamed from: v */
+    public d getAdRequestInfo() {
+        return this.z;
     }
 
     public a(Context context, String str, boolean z, IXAdConstants4PDK.SlotType slotType) {
@@ -60,87 +160,7 @@ public class a extends com.baidu.mobads.production.a {
         this.z.d(str);
         this.z.g(1);
         this.z.f(AdSize.RewardVideo.getValue());
-        this.z.i(adConstants.getAdCreativeTypeVideo() + adConstants.getAdCreativeTypeImage());
-    }
-
-    public boolean a() {
-        this.A = (IXRewardVideoAdContainer) this.h;
-        if (this.A != null) {
-            return this.A.isExpired();
-        }
-        return false;
-    }
-
-    public boolean b() {
-        this.A = (IXRewardVideoAdContainer) this.h;
-        if (this.A != null) {
-            return this.A.isVideoDownloaded();
-        }
-        return false;
-    }
-
-    public boolean s() {
-        try {
-            this.A = (IXRewardVideoAdContainer) this.h;
-            if (this.A != null) {
-                return !this.A.getAdContainerContext().getAdInstanceInfo().getAdHasDisplayed();
-            }
-        } catch (Exception e) {
-            this.v.d("XAbstractAdProdTemplate", "notPlayedBefore-exception=" + e.getMessage());
-        }
-        return false;
-    }
-
-    public boolean t() {
-        this.A = (IXRewardVideoAdContainer) this.h;
-        return (this.A == null || this.A.getAdContainerContext() == null || this.A.getAdContainerContext().getAdInstanceInfo() == null || TextUtils.isEmpty(this.A.getAdContainerContext().getAdInstanceInfo().getVideoUrl())) ? false : true;
-    }
-
-    public void u() {
-        w();
-    }
-
-    @Override // com.baidu.mobads.production.a
-    protected void d() {
-        this.m = 8000;
-    }
-
-    @Override // com.baidu.mobads.interfaces.IXAdProd
-    public void request() {
-        super.a(this.z);
-    }
-
-    @Override // com.baidu.mobads.production.a
-    protected void a(com.baidu.mobads.openad.b.b bVar, p pVar, int i) {
-        pVar.a(bVar, i);
-    }
-
-    @Override // com.baidu.mobads.production.a
-    protected void a(IXAdContainer iXAdContainer, HashMap<String, Object> hashMap) {
-        if (this.B) {
-            this.B = false;
-            w();
-        }
-    }
-
-    @Override // com.baidu.mobads.production.a
-    protected void b(IXAdContainer iXAdContainer, HashMap<String, Object> hashMap) {
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.mobads.interfaces.IXAdProd
-    /* renamed from: v */
-    public d getAdRequestInfo() {
-        return this.z;
-    }
-
-    @Override // com.baidu.mobads.production.a
-    public void c() {
-        this.h.load();
-    }
-
-    @Override // com.baidu.mobads.production.a
-    public void b(IXAdResponseInfo iXAdResponseInfo) {
+        this.z.i(adConstants.getAdCreativeTypeImage() + adConstants.getAdCreativeTypeVideo());
     }
 
     public void c(boolean z) {
@@ -148,35 +168,15 @@ public class a extends com.baidu.mobads.production.a {
     }
 
     @Override // com.baidu.mobads.production.a
-    public void o() {
-        super.o();
-        MobRewardVideoImpl.mAdContainer = null;
-        MobRewardVideoImpl.mContext = null;
+    public void a(com.baidu.mobads.openad.b.b bVar, p pVar, int i) {
+        pVar.a(bVar, i);
     }
 
-    private void w() {
-        MobRewardVideoImpl.mAdContainer = (IXRewardVideoAdContainer) this.h;
-        MobRewardVideoImpl.mContext = this.h.getAdContainerContext();
-        Intent intent = new Intent(this.f, MobRewardVideoImpl.getActivityClass());
-        if (this.f != null && !(this.f instanceof Activity)) {
-            intent.addFlags(268435456);
+    @Override // com.baidu.mobads.production.a
+    public void a(IXAdContainer iXAdContainer, HashMap<String, Object> hashMap) {
+        if (this.B) {
+            this.B = false;
+            w();
         }
-        intent.putExtra("orientation", x());
-        intent.putExtra("useSurfaceView", this.C);
-        this.f.startActivity(intent);
-    }
-
-    private String x() {
-        if (this.f == null) {
-            return "portrait";
-        }
-        int i = this.f.getResources().getConfiguration().orientation;
-        if (i == 2) {
-            return "landscape";
-        }
-        if (i != 1) {
-            return "portrait";
-        }
-        return "portrait";
     }
 }

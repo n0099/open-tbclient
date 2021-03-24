@@ -2,23 +2,74 @@ package com.baidu.platform.comapi.walknavi.fsm;
 
 import android.util.Log;
 import com.baidu.platform.comapi.walknavi.b;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class WGuideFSM extends com.baidu.platform.comapi.walknavi.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f2958a;
-    private String b;
-    private String c;
+    public String f10050a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public String f10051b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public String f10052c;
 
     public WGuideFSM() {
         setInitialState("Entry");
-        this.c = this.f2958a;
+        this.f10052c = this.f10050a;
         FSMTable.initTransition();
     }
 
-    @Override // com.baidu.platform.comapi.walknavi.a
-    public void release() {
-        FSMTable.release();
+    private void cacheBackState(String str) {
+        if ("North2D".equals(str)) {
+            this.f10052c = "North2D";
+        } else if ("Car3D".equals(str) || "Entry".equals(str)) {
+            this.f10052c = "Car3D";
+        }
+    }
+
+    private String getBackState(String str) {
+        if ("BrowseMap".equals(str)) {
+            return this.f10052c;
+        }
+        return null;
+    }
+
+    public static void restoreZoomLevel() {
+        int i = com.baidu.platform.comapi.walknavi.b.a.f9904c;
+        if (i < 15) {
+            i = 15;
+        } else if (i > 20) {
+            i = 19;
+        }
+        com.baidu.platform.comapi.walknavi.b.a.f9904c = i;
+    }
+
+    public static void saveZoomLevel() {
+        int k = (int) b.a().G().k();
+        if (k < 15) {
+            k = 15;
+        } else if (k > 20) {
+            k = 19;
+        }
+        com.baidu.platform.comapi.walknavi.b.a.f9904c = k;
+    }
+
+    private void stateReflection(String str, String str2) {
+        try {
+            Class<?> cls = Class.forName(RGState.PACKAGE_NAME + "." + RGState.CLASS_PREFIX + str);
+            cls.getMethod(str2, new Class[0]).invoke(cls.newInstance(), new Object[0]);
+        } catch (Exception e2) {
+            Log.e(WGuideFSM.class.getName(), e2.toString());
+        }
+    }
+
+    public String getCurrentEvent() {
+        return this.f10051b;
+    }
+
+    public String getCurrentState() {
+        return this.f10050a;
     }
 
     @Override // com.baidu.platform.comapi.walknavi.a
@@ -26,88 +77,43 @@ public class WGuideFSM extends com.baidu.platform.comapi.walknavi.a {
         return true;
     }
 
-    public void setInitialState(String str) {
-        this.f2958a = str;
+    @Override // com.baidu.platform.comapi.walknavi.a
+    public void release() {
+        FSMTable.release();
+    }
+
+    public synchronized void run(String str) {
+        String str2 = this.f10050a;
+        String queryDestState = FSMTable.queryDestState(str2, str);
+        if (queryDestState != null) {
+            this.f10051b = str;
+            if ("BACK".equals(queryDestState)) {
+                queryDestState = getBackState(str2);
+            }
+            stateReflection(str2, "exit");
+            stateReflection(queryDestState, RGState.METHOD_NAME_ENTER);
+            stateReflection(queryDestState, RGState.METHOD_NAME_EXCUTE);
+            this.f10050a = queryDestState;
+            cacheBackState(queryDestState);
+        }
     }
 
     public synchronized void runCurrentState() {
-        if (!this.f2958a.equalsIgnoreCase("Entry")) {
-            stateReflection(this.f2958a, RGState.METHOD_NAME_EXCUTE);
+        if (!this.f10050a.equalsIgnoreCase("Entry")) {
+            stateReflection(this.f10050a, RGState.METHOD_NAME_EXCUTE);
         }
     }
 
     public synchronized void runEntryState() {
         if (b.a().J() == 4) {
-            this.f2958a = "SegEntry";
+            this.f10050a = "SegEntry";
         } else {
-            this.f2958a = "Entry";
+            this.f10050a = "Entry";
         }
-        stateReflection(this.f2958a, RGState.METHOD_NAME_EXCUTE);
+        stateReflection(this.f10050a, RGState.METHOD_NAME_EXCUTE);
     }
 
-    public synchronized void run(String str) {
-        String str2 = this.f2958a;
-        String queryDestState = FSMTable.queryDestState(str2, str);
-        if (queryDestState != null) {
-            this.b = str;
-            if ("BACK".equals(queryDestState)) {
-                queryDestState = getBackState(str2);
-            }
-            stateReflection(str2, RGState.METHOD_NAME_EXIT);
-            stateReflection(queryDestState, "enter");
-            stateReflection(queryDestState, RGState.METHOD_NAME_EXCUTE);
-            this.f2958a = queryDestState;
-            cacheBackState(queryDestState);
-        }
-    }
-
-    public String getCurrentState() {
-        return this.f2958a;
-    }
-
-    public String getCurrentEvent() {
-        return this.b;
-    }
-
-    public static void saveZoomLevel() {
-        int i = 15;
-        int k = (int) b.a().G().k();
-        if (k >= 15) {
-            i = k > 20 ? 19 : k;
-        }
-        com.baidu.platform.comapi.walknavi.b.a.c = i;
-    }
-
-    public static void restoreZoomLevel() {
-        int i = 15;
-        int i2 = com.baidu.platform.comapi.walknavi.b.a.c;
-        if (i2 >= 15) {
-            i = i2 > 20 ? 19 : i2;
-        }
-        com.baidu.platform.comapi.walknavi.b.a.c = i;
-    }
-
-    private void stateReflection(String str, String str2) {
-        try {
-            Class<?> cls = Class.forName(RGState.PACKAGE_NAME + "." + RGState.CLASS_PREFIX + str);
-            cls.getMethod(str2, new Class[0]).invoke(cls.newInstance(), new Object[0]);
-        } catch (Exception e) {
-            Log.e(WGuideFSM.class.getName(), e.toString());
-        }
-    }
-
-    private void cacheBackState(String str) {
-        if ("North2D".equals(str)) {
-            this.c = "North2D";
-        } else if ("Car3D".equals(str) || "Entry".equals(str)) {
-            this.c = "Car3D";
-        }
-    }
-
-    private String getBackState(String str) {
-        if (!"BrowseMap".equals(str)) {
-            return null;
-        }
-        return this.c;
+    public void setInitialState(String str) {
+        this.f10050a = str;
     }
 }

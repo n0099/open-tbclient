@@ -1,5 +1,6 @@
 package com.baidu.mobads.c;
 
+import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Handler;
@@ -13,81 +14,127 @@ import com.baidu.mobads.utils.XAdSDKFoundationFacade;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Observer;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class a {
-    private static final Handler b = new Handler(Looper.getMainLooper());
-    private static a c;
+
+    /* renamed from: b  reason: collision with root package name */
+    public static final Handler f8169b = new Handler(Looper.getMainLooper());
+
+    /* renamed from: c  reason: collision with root package name */
+    public static a f8170c;
 
     /* renamed from: a  reason: collision with root package name */
-    private LruCache<String, Bitmap> f2360a = new b(this, ((int) Runtime.getRuntime().maxMemory()) / 32);
+    public LruCache<String, Bitmap> f8171a = new b(this, ((int) Runtime.getRuntime().maxMemory()) / 32);
+
+    /* renamed from: com.baidu.mobads.c.a$a  reason: collision with other inner class name */
+    /* loaded from: classes2.dex */
+    public static class C0104a {
+
+        /* renamed from: a  reason: collision with root package name */
+        public int f8172a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public int f8173b;
+
+        public C0104a() {
+        }
+
+        public /* synthetic */ C0104a(b bVar) {
+            this();
+        }
+    }
+
+    private Bitmap c(String str) {
+        BitmapFactory.Options options = new BitmapFactory.Options();
+        options.inJustDecodeBounds = false;
+        return BitmapFactory.decodeFile(str, options);
+    }
+
+    public static String d(String str) {
+        return XAdSDKFoundationFacade.getInstance().getIoUtils().getStoreagePath(XAdSDKFoundationFacade.getInstance().getApplicationContext());
+    }
+
+    public static String e(String str) {
+        return XAdSDKFoundationFacade.getInstance().getCommonUtils().md5(str);
+    }
+
+    private void b(String str, Observer observer) {
+        Context applicationContext = XAdSDKFoundationFacade.getInstance().getApplicationContext();
+        try {
+            URL url = new URL(str);
+            String d2 = d(str);
+            com.baidu.mobads.openad.download.b bVar = new com.baidu.mobads.openad.download.b(applicationContext, url, d2, e(str) + ".temp", true);
+            bVar.addObserver(observer);
+            bVar.start();
+        } catch (MalformedURLException unused) {
+        }
+    }
 
     public static a a() {
-        if (c == null) {
+        if (f8170c == null) {
             synchronized (a.class) {
-                if (c == null) {
-                    c = new a();
+                if (f8170c == null) {
+                    f8170c = new a();
                 }
             }
         }
-        return c;
+        return f8170c;
     }
 
-    private a() {
+    public static String b(String str) {
+        String storeagePath = XAdSDKFoundationFacade.getInstance().getIoUtils().getStoreagePath(XAdSDKFoundationFacade.getInstance().getApplicationContext());
+        String md5 = XAdSDKFoundationFacade.getInstance().getCommonUtils().md5(str);
+        return storeagePath + md5 + ".temp";
     }
 
     public void a(ImageView imageView, String str) {
         if (Looper.myLooper() != Looper.getMainLooper()) {
             throw new IllegalThreadStateException("please invoke in main thread!");
         }
-        if (imageView != null && str != null) {
-            Bitmap bitmap = this.f2360a.get(str);
-            if (bitmap != null) {
-                imageView.setImageBitmap(bitmap);
-                return;
-            }
-            Bitmap a2 = a(b(str), imageView, true);
-            if (a2 != null) {
-                a(str, a2);
-            } else {
-                b(str, new c(this, str, imageView));
-            }
+        if (imageView == null || str == null) {
+            return;
+        }
+        Bitmap bitmap = this.f8171a.get(str);
+        if (bitmap != null) {
+            imageView.setImageBitmap(bitmap);
+            return;
+        }
+        Bitmap a2 = a(b(str), imageView, true);
+        if (a2 != null) {
+            a(str, a2);
+        } else {
+            b(str, new c(this, str, imageView));
         }
     }
 
     public void a(String str, Observer observer) {
-        if (str != null && observer != null) {
-            try {
-                b(str, observer);
-            } catch (Throwable th) {
-            }
+        if (str == null || observer == null) {
+            return;
+        }
+        try {
+            b(str, observer);
+        } catch (Throwable unused) {
         }
     }
 
     public boolean a(String str) {
-        if (!TextUtils.isEmpty(str) && this.f2360a.get(str) == null) {
-            Bitmap c2 = c(b(str));
-            if (c2 == null) {
-                return true;
-            }
-            a(str, c2);
+        if (TextUtils.isEmpty(str) || this.f8171a.get(str) != null) {
+            return false;
         }
+        Bitmap c2 = c(b(str));
+        if (c2 == null) {
+            return true;
+        }
+        a(str, c2);
         return false;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(String str, Bitmap bitmap) {
-        if (this.f2360a.get(str) == null && str != null && bitmap != null) {
-            this.f2360a.put(str, bitmap);
+        if (this.f8171a.get(str) != null || str == null || bitmap == null) {
+            return;
         }
-    }
-
-    private void b(String str, Observer observer) {
-        try {
-            com.baidu.mobads.openad.download.b bVar = new com.baidu.mobads.openad.download.b(XAdSDKFoundationFacade.getInstance().getApplicationContext(), new URL(str), d(str), e(str) + ".temp", true);
-            bVar.addObserver(observer);
-            bVar.start();
-        } catch (MalformedURLException e) {
-        }
+        this.f8171a.put(str, bitmap);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -105,24 +152,18 @@ public class a {
         return decodeFile;
     }
 
-    private Bitmap c(String str) {
-        BitmapFactory.Options options = new BitmapFactory.Options();
-        options.inJustDecodeBounds = false;
-        return BitmapFactory.decodeFile(str, options);
-    }
-
-    private static int a(BitmapFactory.Options options, ImageView imageView) {
-        C0268a a2 = a(imageView);
+    public static int a(BitmapFactory.Options options, ImageView imageView) {
+        C0104a a2 = a(imageView);
         int i = options.outWidth;
         int i2 = options.outHeight;
-        if (i <= a2.f2361a && i2 <= a2.b) {
-            return 1;
+        if (i > a2.f8172a || i2 > a2.f8173b) {
+            return Math.max(Math.round((i * 1.0f) / a2.f8172a), Math.round((i2 * 1.0f) / a2.f8173b));
         }
-        return Math.max(Math.round((i * 1.0f) / a2.f2361a), Math.round((i2 * 1.0f) / a2.b));
+        return 1;
     }
 
-    private static C0268a a(ImageView imageView) {
-        C0268a c0268a = new C0268a(null);
+    public static C0104a a(ImageView imageView) {
+        C0104a c0104a = new C0104a(null);
         DisplayMetrics displayMetrics = imageView.getContext().getResources().getDisplayMetrics();
         ViewGroup.LayoutParams layoutParams = imageView.getLayoutParams();
         int width = imageView.getWidth();
@@ -145,38 +186,8 @@ public class a {
         if (height <= 0) {
             height = displayMetrics.heightPixels;
         }
-        c0268a.f2361a = width;
-        c0268a.b = height;
-        return c0268a;
-    }
-
-    public static String b(String str) {
-        String storeagePath = XAdSDKFoundationFacade.getInstance().getIoUtils().getStoreagePath(XAdSDKFoundationFacade.getInstance().getApplicationContext());
-        return storeagePath + XAdSDKFoundationFacade.getInstance().getCommonUtils().md5(str) + ".temp";
-    }
-
-    private static String d(String str) {
-        return XAdSDKFoundationFacade.getInstance().getIoUtils().getStoreagePath(XAdSDKFoundationFacade.getInstance().getApplicationContext());
-    }
-
-    private static String e(String str) {
-        return XAdSDKFoundationFacade.getInstance().getCommonUtils().md5(str);
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    /* renamed from: com.baidu.mobads.c.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public static class C0268a {
-
-        /* renamed from: a  reason: collision with root package name */
-        int f2361a;
-        int b;
-
-        private C0268a() {
-        }
-
-        /* synthetic */ C0268a(b bVar) {
-            this();
-        }
+        c0104a.f8172a = width;
+        c0104a.f8173b = height;
+        return c0104a;
     }
 }

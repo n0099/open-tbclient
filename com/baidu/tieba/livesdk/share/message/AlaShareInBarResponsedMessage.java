@@ -2,11 +2,11 @@ package com.baidu.tieba.livesdk.share.message;
 
 import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.livesdk.share.b.a;
+import d.b.i0.l1.k.b.a;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes3.dex */
 public class AlaShareInBarResponsedMessage extends JsonHttpResponsedMessage {
-    private a data;
+    public a data;
 
     public AlaShareInBarResponsedMessage() {
         super(AlaCmdConfigHttp.CMD_ALA_LIVE_SHARE_IN_BAR);
@@ -15,10 +15,12 @@ public class AlaShareInBarResponsedMessage extends JsonHttpResponsedMessage {
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         super.decodeLogicInBackGround(i, jSONObject);
-        if (getStatusCode() == 200 && jSONObject != null) {
-            this.data = new a();
-            this.data.parseJson(jSONObject);
+        if (getStatusCode() != 200 || jSONObject == null) {
+            return;
         }
+        a aVar = new a();
+        this.data = aVar;
+        aVar.a(jSONObject);
     }
 
     public a getShareInBarData() {

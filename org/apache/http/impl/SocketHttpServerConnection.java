@@ -8,39 +8,35 @@ import org.apache.http.io.SessionInputBuffer;
 import org.apache.http.io.SessionOutputBuffer;
 import org.apache.http.params.HttpParams;
 @Deprecated
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class SocketHttpServerConnection extends AbstractHttpServerConnection implements HttpInetConnection {
     public SocketHttpServerConnection() {
         throw new RuntimeException("Stub!");
     }
 
-    protected void assertNotOpen() {
+    public void assertNotOpen() {
         throw new RuntimeException("Stub!");
     }
 
     @Override // org.apache.http.impl.AbstractHttpServerConnection
-    protected void assertOpen() {
+    public void assertOpen() {
         throw new RuntimeException("Stub!");
     }
 
-    protected SessionInputBuffer createHttpDataReceiver(Socket socket, int i, HttpParams httpParams) throws IOException {
-        throw new RuntimeException("Stub!");
-    }
-
-    protected SessionOutputBuffer createHttpDataTransmitter(Socket socket, int i, HttpParams httpParams) throws IOException {
-        throw new RuntimeException("Stub!");
-    }
-
-    protected void bind(Socket socket, HttpParams httpParams) throws IOException {
-        throw new RuntimeException("Stub!");
-    }
-
-    protected Socket getSocket() {
+    public void bind(Socket socket, HttpParams httpParams) throws IOException {
         throw new RuntimeException("Stub!");
     }
 
     @Override // org.apache.http.HttpConnection
-    public boolean isOpen() {
+    public void close() throws IOException {
+        throw new RuntimeException("Stub!");
+    }
+
+    public SessionInputBuffer createHttpDataReceiver(Socket socket, int i, HttpParams httpParams) throws IOException {
+        throw new RuntimeException("Stub!");
+    }
+
+    public SessionOutputBuffer createHttpDataTransmitter(Socket socket, int i, HttpParams httpParams) throws IOException {
         throw new RuntimeException("Stub!");
     }
 
@@ -64,8 +60,7 @@ public class SocketHttpServerConnection extends AbstractHttpServerConnection imp
         throw new RuntimeException("Stub!");
     }
 
-    @Override // org.apache.http.HttpConnection
-    public void setSocketTimeout(int i) {
+    public Socket getSocket() {
         throw new RuntimeException("Stub!");
     }
 
@@ -75,12 +70,17 @@ public class SocketHttpServerConnection extends AbstractHttpServerConnection imp
     }
 
     @Override // org.apache.http.HttpConnection
-    public void shutdown() throws IOException {
+    public boolean isOpen() {
         throw new RuntimeException("Stub!");
     }
 
     @Override // org.apache.http.HttpConnection
-    public void close() throws IOException {
+    public void setSocketTimeout(int i) {
+        throw new RuntimeException("Stub!");
+    }
+
+    @Override // org.apache.http.HttpConnection
+    public void shutdown() throws IOException {
         throw new RuntimeException("Stub!");
     }
 }

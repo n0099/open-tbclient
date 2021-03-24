@@ -1,51 +1,53 @@
 package com.baidu.util;
 
 import android.content.Context;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static a f3803a;
-    private Context b;
+    public static a f23310a;
 
-    private a(Context context) {
-        this.b = context;
+    /* renamed from: b  reason: collision with root package name */
+    public Context f23311b;
+
+    public a(Context context) {
+        this.f23311b = context;
     }
 
     public static synchronized a a(Context context) {
         a aVar;
         synchronized (a.class) {
-            if (f3803a == null) {
-                f3803a = new a(context);
+            if (f23310a == null) {
+                f23310a = new a(context);
             }
-            aVar = f3803a;
+            aVar = f23310a;
         }
         return aVar;
     }
 
     public long a(String str, String str2, long j) {
         try {
-            return this.b.getSharedPreferences(str, 0).getLong(str2, j);
-        } catch (Exception e) {
-            e.printStackTrace();
+            return this.f23311b.getSharedPreferences(str, 0).getLong(str2, j);
+        } catch (Exception e2) {
+            e2.printStackTrace();
             return System.currentTimeMillis();
         }
     }
 
     public String a(String str, String str2, String str3) {
         try {
-            return this.b.getSharedPreferences(str, 0).getString(str2, str3);
-        } catch (Exception e) {
-            e.printStackTrace();
+            return this.f23311b.getSharedPreferences(str, 0).getString(str2, str3);
+        } catch (Exception e2) {
+            e2.printStackTrace();
             return "";
         }
     }
 
     public void b(String str, String str2, long j) {
-        this.b.getSharedPreferences(str, 0).edit().putLong(str2, j).commit();
+        this.f23311b.getSharedPreferences(str, 0).edit().putLong(str2, j).commit();
     }
 
     public void b(String str, String str2, String str3) {
-        this.b.getSharedPreferences(str, 0).edit().putString(str2, str3).commit();
+        this.f23311b.getSharedPreferences(str, 0).edit().putString(str2, str3).commit();
     }
 }

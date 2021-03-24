@@ -1,31 +1,20 @@
 package com.googlecode.mp4parser.authoring;
 
 import com.googlecode.mp4parser.util.Matrix;
-import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class Movie {
-    Matrix matrix;
-    List<Track> tracks;
+    public Matrix matrix;
+    public List<Track> tracks;
 
     public Movie() {
         this.matrix = Matrix.ROTATE_0;
         this.tracks = new LinkedList();
     }
 
-    public Movie(List<Track> list) {
-        this.matrix = Matrix.ROTATE_0;
-        this.tracks = new LinkedList();
-        this.tracks = list;
-    }
-
-    public List<Track> getTracks() {
-        return this.tracks;
-    }
-
-    public void setTracks(List<Track> list) {
-        this.tracks = list;
+    public static long gcd(long j, long j2) {
+        return j2 == 0 ? j : gcd(j2, j % j2);
     }
 
     public void addTrack(Track track) {
@@ -35,32 +24,26 @@ public class Movie {
         this.tracks.add(track);
     }
 
-    public String toString() {
-        String str = "Movie{ ";
-        Iterator<Track> it = this.tracks.iterator();
-        while (true) {
-            String str2 = str;
-            if (it.hasNext()) {
-                Track next = it.next();
-                str = String.valueOf(str2) + "track_" + next.getTrackMetaData().getTrackId() + " (" + next.getHandler() + ") ";
-            } else {
-                return String.valueOf(str2) + '}';
-            }
-        }
+    public Matrix getMatrix() {
+        return this.matrix;
     }
 
     public long getNextTrackId() {
         long j = 0;
-        Iterator<Track> it = this.tracks.iterator();
-        while (true) {
-            long j2 = j;
-            if (it.hasNext()) {
-                Track next = it.next();
-                j = j2 < next.getTrackMetaData().getTrackId() ? next.getTrackMetaData().getTrackId() : j2;
-            } else {
-                return 1 + j2;
+        for (Track track : this.tracks) {
+            if (j < track.getTrackMetaData().getTrackId()) {
+                j = track.getTrackMetaData().getTrackId();
             }
         }
+        return j + 1;
+    }
+
+    public long getTimescale() {
+        long timescale = getTracks().iterator().next().getTrackMetaData().getTimescale();
+        for (Track track : getTracks()) {
+            timescale = gcd(track.getTrackMetaData().getTimescale(), timescale);
+        }
+        return timescale;
     }
 
     public Track getTrackByTrackId(long j) {
@@ -72,28 +55,29 @@ public class Movie {
         return null;
     }
 
-    public long getTimescale() {
-        long timescale = getTracks().iterator().next().getTrackMetaData().getTimescale();
-        Iterator<Track> it = getTracks().iterator();
-        while (true) {
-            long j = timescale;
-            if (it.hasNext()) {
-                timescale = gcd(it.next().getTrackMetaData().getTimescale(), j);
-            } else {
-                return j;
-            }
-        }
-    }
-
-    public Matrix getMatrix() {
-        return this.matrix;
+    public List<Track> getTracks() {
+        return this.tracks;
     }
 
     public void setMatrix(Matrix matrix) {
         this.matrix = matrix;
     }
 
-    public static long gcd(long j, long j2) {
-        return j2 == 0 ? j : gcd(j2, j % j2);
+    public void setTracks(List<Track> list) {
+        this.tracks = list;
+    }
+
+    public String toString() {
+        String str = "Movie{ ";
+        for (Track track : this.tracks) {
+            str = String.valueOf(str) + "track_" + track.getTrackMetaData().getTrackId() + " (" + track.getHandler() + ") ";
+        }
+        return String.valueOf(str) + '}';
+    }
+
+    public Movie(List<Track> list) {
+        this.matrix = Matrix.ROTATE_0;
+        this.tracks = new LinkedList();
+        this.tracks = list;
     }
 }

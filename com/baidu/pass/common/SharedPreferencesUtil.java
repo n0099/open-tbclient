@@ -3,64 +3,79 @@ package com.baidu.pass.common;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.text.TextUtils;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public class SharedPreferencesUtil implements com.baidu.pass.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static SharedPreferencesUtil f2810a = null;
-    private static SharedPreferences b = null;
-    private static final String c = "sapi_system";
-    private static String d;
-    private static Context e;
+    public static SharedPreferencesUtil f9731a = null;
 
-    private SharedPreferencesUtil(Context context, String str) {
-        b = context.getSharedPreferences(str, 0);
-        e = context.getApplicationContext();
+    /* renamed from: b  reason: collision with root package name */
+    public static SharedPreferences f9732b = null;
+
+    /* renamed from: c  reason: collision with root package name */
+    public static final String f9733c = "sapi_system";
+
+    /* renamed from: d  reason: collision with root package name */
+    public static String f9734d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public static Context f9735e;
+
+    public SharedPreferencesUtil(Context context, String str) {
+        f9732b = context.getSharedPreferences(str, 0);
+        f9735e = context.getApplicationContext();
     }
 
-    private static String a() {
-        if (TextUtils.isEmpty(d)) {
+    public static String a() {
+        if (TextUtils.isEmpty(f9734d)) {
             try {
-                d = SecurityUtil.md5((e.getPackageName() + PassUtil.getPackageSign(e, e.getPackageName())).getBytes("UTF-8"), false).substring(0, 16);
+                f9734d = SecurityUtil.md5((f9735e.getPackageName() + PassUtil.getPackageSign(f9735e, f9735e.getPackageName())).getBytes("UTF-8"), false).substring(0, 16);
             } catch (Exception e2) {
                 Log.e(e2);
             }
         }
-        return d;
+        return f9734d;
     }
 
     public static <T> T get(String str, T t) {
+        char c2;
         String simpleName = t.getClass().getSimpleName();
-        char c2 = 65535;
         try {
             int hashCode = simpleName.hashCode();
-            if (hashCode != -672261858) {
-                if (hashCode != 2374300) {
-                    if (hashCode != 67973692) {
-                        if (hashCode == 1729365000 && simpleName.equals("Boolean")) {
-                            c2 = 0;
-                        }
-                    } else if (simpleName.equals("Float")) {
-                        c2 = 2;
-                    }
-                } else if (simpleName.equals("Long")) {
+            if (hashCode == -672261858) {
+                if (simpleName.equals("Integer")) {
+                    c2 = 3;
+                }
+                c2 = 65535;
+            } else if (hashCode == 2374300) {
+                if (simpleName.equals("Long")) {
                     c2 = 1;
                 }
-            } else if (simpleName.equals("Integer")) {
-                c2 = 3;
+                c2 = 65535;
+            } else if (hashCode != 67973692) {
+                if (hashCode == 1729365000 && simpleName.equals("Boolean")) {
+                    c2 = 0;
+                }
+                c2 = 65535;
+            } else {
+                if (simpleName.equals("Float")) {
+                    c2 = 2;
+                }
+                c2 = 65535;
             }
-            switch (c2) {
-                case 0:
-                    return (T) Boolean.valueOf(b.getBoolean(str, ((Boolean) t).booleanValue()));
-                case 1:
-                    return (T) Long.valueOf(b.getLong(str, ((Long) t).longValue()));
-                case 2:
-                    return (T) Float.valueOf(b.getFloat(str, ((Float) t).floatValue()));
-                case 3:
-                    return (T) Integer.valueOf(b.getInt(str, ((Integer) t).intValue()));
-                default:
-                    return (T) b.getString(str, (String) t);
+            if (c2 != 0) {
+                if (c2 != 1) {
+                    if (c2 != 2) {
+                        if (c2 != 3) {
+                            return (T) f9732b.getString(str, (String) t);
+                        }
+                        return (T) Integer.valueOf(f9732b.getInt(str, ((Integer) t).intValue()));
+                    }
+                    return (T) Float.valueOf(f9732b.getFloat(str, ((Float) t).floatValue()));
+                }
+                return (T) Long.valueOf(f9732b.getLong(str, ((Long) t).longValue()));
             }
+            return (T) Boolean.valueOf(f9732b.getBoolean(str, ((Boolean) t).booleanValue()));
         } catch (Exception e2) {
             e2.printStackTrace();
             return null;
@@ -81,54 +96,54 @@ public class SharedPreferencesUtil implements com.baidu.pass.a {
 
     public static synchronized void getInstance(Context context) {
         synchronized (SharedPreferencesUtil.class) {
-            if (f2810a == null) {
-                f2810a = new SharedPreferencesUtil(context, c);
+            if (f9731a == null) {
+                f9731a = new SharedPreferencesUtil(context, f9733c);
             }
         }
     }
 
     public static boolean put(String str, Object obj) {
-        boolean z = true;
-        SharedPreferences.Editor edit = b.edit();
+        char c2;
+        SharedPreferences.Editor edit = f9732b.edit();
         String simpleName = obj.getClass().getSimpleName();
-        char c2 = 65535;
+        boolean z = false;
         try {
             int hashCode = simpleName.hashCode();
-            if (hashCode != -672261858) {
-                if (hashCode != 2374300) {
-                    if (hashCode != 67973692) {
-                        if (hashCode == 1729365000 && simpleName.equals("Boolean")) {
-                            c2 = 0;
-                        }
-                    } else if (simpleName.equals("Float")) {
-                        c2 = 2;
-                    }
-                } else if (simpleName.equals("Long")) {
+            if (hashCode == -672261858) {
+                if (simpleName.equals("Integer")) {
+                    c2 = 3;
+                }
+                c2 = 65535;
+            } else if (hashCode == 2374300) {
+                if (simpleName.equals("Long")) {
                     c2 = 1;
                 }
-            } else if (simpleName.equals("Integer")) {
-                c2 = 3;
+                c2 = 65535;
+            } else if (hashCode != 67973692) {
+                if (hashCode == 1729365000 && simpleName.equals("Boolean")) {
+                    c2 = 0;
+                }
+                c2 = 65535;
+            } else {
+                if (simpleName.equals("Float")) {
+                    c2 = 2;
+                }
+                c2 = 65535;
             }
-            switch (c2) {
-                case 0:
-                    edit.putBoolean(str, ((Boolean) obj).booleanValue());
-                    break;
-                case 1:
-                    edit.putLong(str, ((Long) obj).longValue());
-                    break;
-                case 2:
-                    edit.putFloat(str, ((Float) obj).floatValue());
-                    break;
-                case 3:
-                    edit.putInt(str, ((Integer) obj).intValue());
-                    break;
-                default:
-                    edit.putString(str, (String) obj);
-                    break;
+            if (c2 == 0) {
+                edit.putBoolean(str, ((Boolean) obj).booleanValue());
+            } else if (c2 == 1) {
+                edit.putLong(str, ((Long) obj).longValue());
+            } else if (c2 == 2) {
+                edit.putFloat(str, ((Float) obj).floatValue());
+            } else if (c2 != 3) {
+                edit.putString(str, (String) obj);
+            } else {
+                edit.putInt(str, ((Integer) obj).intValue());
             }
+            z = true;
         } catch (Exception e2) {
             e2.printStackTrace();
-            z = false;
         }
         edit.apply();
         return z;
@@ -145,6 +160,6 @@ public class SharedPreferencesUtil implements com.baidu.pass.a {
     }
 
     public static void remove(String str) {
-        b.edit().remove(str).apply();
+        f9732b.edit().remove(str).apply();
     }
 }

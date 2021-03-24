@@ -3,11 +3,11 @@ package com.kwai.filedownloader.d;
 import android.content.ContentValues;
 import android.os.Parcel;
 import android.os.Parcelable;
-import com.baidu.android.imsdk.IMConstants;
+import com.baidu.searchbox.bddownload.core.breakpoint.sqllite.BreakpointSQLiteKey;
 import com.kwai.filedownloader.f.f;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class c implements Parcelable {
     public static final Parcelable.Creator<c> CREATOR = new Parcelable.Creator<c>() { // from class: com.kwai.filedownloader.d.c.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -26,33 +26,47 @@ public class c implements Parcelable {
     };
 
     /* renamed from: a  reason: collision with root package name */
-    private int f7190a;
-    private String b;
-    private String c;
-    private boolean d;
-    private String e;
-    private final AtomicInteger f;
-    private final AtomicLong g;
-    private long h;
-    private String i;
-    private String j;
-    private int k;
-    private boolean l;
+    public int f36906a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public String f36907b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public String f36908c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public boolean f36909d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public String f36910e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public final AtomicInteger f36911f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public final AtomicLong f36912g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public long f36913h;
+    public String i;
+    public String j;
+    public int k;
+    public boolean l;
 
     public c() {
-        this.g = new AtomicLong();
-        this.f = new AtomicInteger();
+        this.f36912g = new AtomicLong();
+        this.f36911f = new AtomicInteger();
     }
 
-    protected c(Parcel parcel) {
-        this.f7190a = parcel.readInt();
-        this.b = parcel.readString();
-        this.c = parcel.readString();
-        this.d = parcel.readByte() != 0;
-        this.e = parcel.readString();
-        this.f = new AtomicInteger(parcel.readByte());
-        this.g = new AtomicLong(parcel.readLong());
-        this.h = parcel.readLong();
+    public c(Parcel parcel) {
+        this.f36906a = parcel.readInt();
+        this.f36907b = parcel.readString();
+        this.f36908c = parcel.readString();
+        this.f36909d = parcel.readByte() != 0;
+        this.f36910e = parcel.readString();
+        this.f36911f = new AtomicInteger(parcel.readByte());
+        this.f36912g = new AtomicLong(parcel.readLong());
+        this.f36913h = parcel.readLong();
         this.i = parcel.readString();
         this.j = parcel.readString();
         this.k = parcel.readInt();
@@ -60,32 +74,32 @@ public class c implements Parcelable {
     }
 
     public int a() {
-        return this.f7190a;
+        return this.f36906a;
     }
 
-    public void a(byte b) {
-        this.f.set(b);
+    public void a(byte b2) {
+        this.f36911f.set(b2);
     }
 
     public void a(int i) {
-        this.f7190a = i;
+        this.f36906a = i;
     }
 
     public void a(long j) {
-        this.g.set(j);
+        this.f36912g.set(j);
     }
 
     public void a(String str) {
-        this.b = str;
+        this.f36907b = str;
     }
 
     public void a(String str, boolean z) {
-        this.c = str;
-        this.d = z;
+        this.f36908c = str;
+        this.f36909d = z;
     }
 
     public String b() {
-        return this.b;
+        return this.f36907b;
     }
 
     public void b(int i) {
@@ -93,7 +107,7 @@ public class c implements Parcelable {
     }
 
     public void b(long j) {
-        this.g.addAndGet(j);
+        this.f36912g.addAndGet(j);
     }
 
     public void b(String str) {
@@ -101,12 +115,12 @@ public class c implements Parcelable {
     }
 
     public String c() {
-        return this.c;
+        return this.f36908c;
     }
 
     public void c(long j) {
         this.l = j > 2147483647L;
-        this.h = j;
+        this.f36913h = j;
     }
 
     public void c(String str) {
@@ -118,7 +132,7 @@ public class c implements Parcelable {
     }
 
     public void d(String str) {
-        this.e = str;
+        this.f36910e = str;
     }
 
     @Override // android.os.Parcelable
@@ -134,19 +148,19 @@ public class c implements Parcelable {
     }
 
     public byte f() {
-        return (byte) this.f.get();
+        return (byte) this.f36911f.get();
     }
 
     public long g() {
-        return this.g.get();
+        return this.f36912g.get();
     }
 
     public long h() {
-        return this.h;
+        return this.f36913h;
     }
 
     public boolean i() {
-        return this.h == -1;
+        return this.f36913h == -1;
     }
 
     public String j() {
@@ -158,11 +172,11 @@ public class c implements Parcelable {
     }
 
     public boolean l() {
-        return this.d;
+        return this.f36909d;
     }
 
     public String m() {
-        return this.e;
+        return this.f36910e;
     }
 
     public int n() {
@@ -175,7 +189,7 @@ public class c implements Parcelable {
 
     public ContentValues p() {
         ContentValues contentValues = new ContentValues();
-        contentValues.put(IMConstants.MSG_ROW_ID, Integer.valueOf(a()));
+        contentValues.put("_id", Integer.valueOf(a()));
         contentValues.put("url", b());
         contentValues.put("path", c());
         contentValues.put("status", Byte.valueOf(f()));
@@ -186,7 +200,7 @@ public class c implements Parcelable {
         contentValues.put("connectionCount", Integer.valueOf(n()));
         contentValues.put("pathAsDirectory", Boolean.valueOf(l()));
         if (l() && m() != null) {
-            contentValues.put("filename", m());
+            contentValues.put(BreakpointSQLiteKey.FILENAME, m());
         }
         return contentValues;
     }
@@ -196,19 +210,19 @@ public class c implements Parcelable {
     }
 
     public String toString() {
-        return f.a("id[%d], url[%s], path[%s], status[%d], sofar[%s], total[%d], etag[%s], %s", Integer.valueOf(this.f7190a), this.b, this.c, Integer.valueOf(this.f.get()), this.g, Long.valueOf(this.h), this.j, super.toString());
+        return f.a("id[%d], url[%s], path[%s], status[%d], sofar[%s], total[%d], etag[%s], %s", Integer.valueOf(this.f36906a), this.f36907b, this.f36908c, Integer.valueOf(this.f36911f.get()), this.f36912g, Long.valueOf(this.f36913h), this.j, super.toString());
     }
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeInt(this.f7190a);
-        parcel.writeString(this.b);
-        parcel.writeString(this.c);
-        parcel.writeByte(this.d ? (byte) 1 : (byte) 0);
-        parcel.writeString(this.e);
-        parcel.writeByte((byte) this.f.get());
-        parcel.writeLong(this.g.get());
-        parcel.writeLong(this.h);
+        parcel.writeInt(this.f36906a);
+        parcel.writeString(this.f36907b);
+        parcel.writeString(this.f36908c);
+        parcel.writeByte(this.f36909d ? (byte) 1 : (byte) 0);
+        parcel.writeString(this.f36910e);
+        parcel.writeByte((byte) this.f36911f.get());
+        parcel.writeLong(this.f36912g.get());
+        parcel.writeLong(this.f36913h);
         parcel.writeString(this.i);
         parcel.writeString(this.j);
         parcel.writeInt(this.k);

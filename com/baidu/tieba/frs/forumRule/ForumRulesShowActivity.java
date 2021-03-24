@@ -12,251 +12,253 @@ import android.widget.TextView;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.util.bf;
+import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.gif.GifView;
-import com.baidu.tbadk.widget.richText.f;
-import com.baidu.tbadk.widget.richText.h;
-import com.baidu.tieba.frs.forumRule.a.a;
-import com.baidu.tieba.frs.forumRule.b.b;
 import com.baidu.tieba.frs.forumRule.model.ForumRulesShowModel;
-import com.baidu.tieba.frs.forumRule.view.c;
 import com.baidu.tieba.view.BdTopToast;
+import d.b.h0.b1.m.f;
+import d.b.i0.p0.q1.f.c;
 import java.util.List;
-/* loaded from: classes2.dex */
-public class ForumRulesShowActivity extends BaseActivity<ForumRulesShowActivity> implements h {
-    private ForumRulesShowModel jwx;
-    private c jwy;
-    private String mFrom;
-    a.InterfaceC0732a jwz = new a.InterfaceC0732a() { // from class: com.baidu.tieba.frs.forumRule.ForumRulesShowActivity.1
-        @Override // com.baidu.tieba.frs.forumRule.a.a.InterfaceC0732a
-        public void A(boolean z, String str) {
-            if (ForumRulesShowActivity.this.jwy != null) {
-                if (z) {
-                    ForumRulesShowActivity.this.jwy.KQ(str);
-                } else {
-                    ForumRulesShowActivity.this.jwy.cHY();
-                }
+/* loaded from: classes4.dex */
+public class ForumRulesShowActivity extends BaseActivity<ForumRulesShowActivity> implements Object {
+    public String mFrom;
+    public ForumRulesShowModel mModel;
+    public c mView;
+    public d.b.i0.p0.q1.b.a callback = new a();
+    public CustomMessageListener richTextIntentClickListener = new b(2001332);
+
+    /* loaded from: classes4.dex */
+    public class a implements d.b.i0.p0.q1.b.a {
+        public a() {
+        }
+
+        @Override // d.b.i0.p0.q1.b.a
+        public void a() {
+            if (ForumRulesShowActivity.this.mView != null) {
+                ForumRulesShowActivity.this.mView.m();
+                ForumRulesShowActivity.this.mView.z();
+                ForumRulesShowActivity forumRulesShowActivity = ForumRulesShowActivity.this;
+                forumRulesShowActivity.showNetRefreshView(forumRulesShowActivity.mView.k(), "");
             }
         }
 
-        @Override // com.baidu.tieba.frs.forumRule.a.a.InterfaceC0732a
-        public void KD(String str) {
-            if (ForumRulesShowActivity.this.jwy != null) {
-                ForumRulesShowActivity.this.jwy.addTitle(str);
+        @Override // d.b.i0.p0.q1.b.a
+        public void b(boolean z, String str) {
+            if (ForumRulesShowActivity.this.mView == null) {
+                return;
+            }
+            if (z) {
+                ForumRulesShowActivity.this.mView.B(str);
+            } else {
+                ForumRulesShowActivity.this.mView.q();
             }
         }
 
-        @Override // com.baidu.tieba.frs.forumRule.a.a.InterfaceC0732a
-        public void a(b bVar) {
-            if (ForumRulesShowActivity.this.jwy != null) {
-                ForumRulesShowActivity.this.jwy.c(bVar);
+        @Override // d.b.i0.p0.q1.b.a
+        public void c(d.b.i0.p0.q1.c.b bVar) {
+            if (ForumRulesShowActivity.this.mView != null) {
+                ForumRulesShowActivity.this.mView.e(bVar);
             }
         }
 
-        @Override // com.baidu.tieba.frs.forumRule.a.a.InterfaceC0732a
-        public void dp(List<com.baidu.tieba.frs.forumRule.b.c> list) {
-            if (ForumRulesShowActivity.this.jwy != null) {
-                ForumRulesShowActivity.this.jwy.dt(list);
+        @Override // d.b.i0.p0.q1.b.a
+        public void d(d.b.i0.p0.q1.c.a aVar) {
+            if (ForumRulesShowActivity.this.mView != null) {
+                ForumRulesShowActivity.this.mView.f(aVar);
             }
         }
 
-        @Override // com.baidu.tieba.frs.forumRule.a.a.InterfaceC0732a
-        public void a(com.baidu.tieba.frs.forumRule.b.a aVar) {
-            if (ForumRulesShowActivity.this.jwy != null) {
-                ForumRulesShowActivity.this.jwy.b(aVar);
+        @Override // d.b.i0.p0.q1.b.a
+        public void e(List<d.b.i0.p0.q1.c.c> list) {
+            if (ForumRulesShowActivity.this.mView != null) {
+                ForumRulesShowActivity.this.mView.g(list);
             }
         }
 
-        @Override // com.baidu.tieba.frs.forumRule.a.a.InterfaceC0732a
-        public void bCk() {
-            if (ForumRulesShowActivity.this.jwy != null) {
-                ForumRulesShowActivity.this.jwy.cHW();
-                ForumRulesShowActivity.this.jwy.cHS();
-                ForumRulesShowActivity.this.showNetRefreshView(ForumRulesShowActivity.this.jwy.cHR(), "");
+        @Override // d.b.i0.p0.q1.b.a
+        public void f(String str) {
+            if (ForumRulesShowActivity.this.mView != null) {
+                ForumRulesShowActivity.this.mView.h(str);
             }
         }
 
-        @Override // com.baidu.tieba.frs.forumRule.a.a.InterfaceC0732a
+        @Override // d.b.i0.p0.q1.b.a
         public void finish() {
-            if (ForumRulesShowActivity.this.jwy != null) {
-                ForumRulesShowActivity.this.hideNetRefreshView(ForumRulesShowActivity.this.jwy.cHR());
-                ForumRulesShowActivity.this.jwy.cHT();
-                ForumRulesShowActivity.this.jwy.cHV();
-                ForumRulesShowActivity.this.jwy.cHU();
+            if (ForumRulesShowActivity.this.mView != null) {
+                ForumRulesShowActivity forumRulesShowActivity = ForumRulesShowActivity.this;
+                forumRulesShowActivity.hideNetRefreshView(forumRulesShowActivity.mView.k());
+                ForumRulesShowActivity.this.mView.n();
+                ForumRulesShowActivity.this.mView.y();
+                ForumRulesShowActivity.this.mView.v();
             }
         }
-    };
-    private CustomMessageListener jwA = new CustomMessageListener(CmdConfigCustom.CMD_RICHTEXT_INTENTSPAN_CLICK) { // from class: com.baidu.tieba.frs.forumRule.ForumRulesShowActivity.2
+    }
+
+    /* loaded from: classes4.dex */
+    public class b extends CustomMessageListener {
+        public b(int i) {
+            super(i);
+        }
+
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof f.a)) {
-                f.a aVar = (f.a) customResponsedMessage.getData();
-                f.a(ForumRulesShowActivity.this.getPageContext(), aVar.type, aVar.url, aVar.subType);
+            if (customResponsedMessage == null || !(customResponsedMessage.getData() instanceof f.a)) {
+                return;
             }
+            f.a aVar = (f.a) customResponsedMessage.getData();
+            f.b(ForumRulesShowActivity.this.getPageContext(), aVar.f49978a, aVar.f49979b, aVar.f49980c);
         }
-    };
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
-    public void onCreate(Bundle bundle) {
-        super.onCreate(bundle);
-        initData(bundle);
-        initView();
-        this.jwx.ao(bundle);
-    }
-
-    @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i) {
-        super.onChangeSkinType(i);
-        if (this.jwy != null) {
-            this.jwy.onChangeSkinType(i);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
-    public void onResume() {
-        super.onResume();
-        registerListener(this.jwA);
     }
 
     private void initData(Bundle bundle) {
-        this.jwx = new ForumRulesShowModel(this);
-        cHg();
+        this.mModel = new ForumRulesShowModel(this);
+        setModelCallback();
     }
 
     private void initView() {
         if (getIntent() != null) {
             this.mFrom = getIntent().getStringExtra("from");
         }
-        this.jwy = new c(this, this.mFrom);
-        this.jwy.a(getRefreshView());
+        c cVar = new c(this, this.mFrom);
+        this.mView = cVar;
+        cVar.w(getRefreshView());
     }
 
-    private void cHg() {
-        this.jwx.a(this.jwz);
+    private void setModelCallback() {
+        this.mModel.E(this.callback);
     }
 
-    public void setFrom(String str) {
-        this.mFrom = str;
-        if (this.jwy != null) {
-            this.jwy.setFrom(str);
-        }
+    public d.b.b.e.k.b<GifView> getGifViewPool() {
+        return null;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
-    public void onPause() {
-        super.onPause();
-        MessageManager.getInstance().unRegisterListener(this.jwA);
+    public d.b.b.e.k.b<ImageView> getImageViewPool() {
+        return null;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
-    public void onDestroy() {
-        super.onDestroy();
-        if (this.jwx != null) {
-            this.jwx.destory();
-        }
-        if (this.jwy != null) {
-            this.jwy.destory();
-        }
+    public ListView getListView() {
+        return null;
     }
 
-    public void cHh() {
-        if (this.jwx != null) {
-            this.jwx.cHy();
-        }
+    public d.b.b.e.k.b<RelativeLayout> getRelativeLayoutPool() {
+        return null;
     }
 
-    public c cHi() {
-        return this.jwy;
+    public int getRichTextViewId() {
+        return 0;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
+    public d.b.b.e.k.b<TextView> getTextViewPool() {
+        return null;
+    }
+
+    public d.b.b.e.k.b<LinearLayout> getTextVoiceViewPool() {
+        return null;
+    }
+
+    public c getView() {
+        return this.mView;
+    }
+
+    public d.b.b.e.k.b<View> getVoiceViewPool() {
+        return null;
+    }
+
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
         if (i2 == -1 && i == 25053) {
             String stringExtra = intent.getStringExtra("group_name");
             if (!intent.getBooleanExtra("from", true)) {
-                this.jwy.remove();
-                this.jwy.mData.clear();
-                this.jwx.cHy();
+                this.mView.u();
+                this.mView.r.clear();
+                this.mModel.D();
             }
-            new BdTopToast(this, 3000).zm(true).Vg(stringExtra).aR(this.jwy.getRootView());
+            BdTopToast bdTopToast = new BdTopToast(this, 3000);
+            bdTopToast.i(true);
+            bdTopToast.h(stringExtra);
+            bdTopToast.j(this.mView.l());
         }
     }
 
-    @Override // com.baidu.tbadk.widget.richText.h
-    public ListView getListView() {
-        return null;
+    public void onAtClicked(Context context, String str) {
     }
 
-    @Override // com.baidu.tbadk.widget.richText.h
-    public int bIk() {
-        return 0;
+    @Override // com.baidu.tbadk.BaseActivity
+    public void onChangeSkinType(int i) {
+        super.onChangeSkinType(i);
+        c cVar = this.mView;
+        if (cVar != null) {
+            cVar.onChangeSkinType(i);
+        }
     }
 
-    @Override // com.baidu.tbadk.widget.richText.h
-    public com.baidu.adp.lib.d.b<ImageView> bIl() {
-        return null;
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
+    public void onCreate(Bundle bundle) {
+        super.onCreate(bundle);
+        initData(bundle);
+        initView();
+        this.mModel.y(bundle);
     }
 
-    @Override // com.baidu.tbadk.widget.richText.h
-    public com.baidu.adp.lib.d.b<TextView> bIm() {
-        return null;
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
+    public void onDestroy() {
+        super.onDestroy();
+        ForumRulesShowModel forumRulesShowModel = this.mModel;
+        if (forumRulesShowModel != null) {
+            forumRulesShowModel.destory();
+        }
+        c cVar = this.mView;
+        if (cVar != null) {
+            cVar.i();
+        }
     }
 
-    @Override // com.baidu.tbadk.widget.richText.h
-    public com.baidu.adp.lib.d.b<GifView> bIn() {
-        return null;
+    public void onLinkButtonClicked(Context context, String str) {
     }
 
-    @Override // com.baidu.tbadk.widget.richText.h
-    public com.baidu.adp.lib.d.b<View> bIo() {
-        return null;
+    public void onLinkClicked(Context context, String str, boolean z) {
+        UrlManager.getInstance().dealOneLink(getPageContext(), new String[]{str});
     }
 
-    @Override // com.baidu.tbadk.widget.richText.h
-    public com.baidu.adp.lib.d.b<LinearLayout> bIp() {
-        return null;
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
+    public void onPause() {
+        super.onPause();
+        MessageManager.getInstance().unRegisterListener(this.richTextIntentClickListener);
     }
 
-    @Override // com.baidu.tbadk.widget.richText.h
-    public com.baidu.adp.lib.d.b<RelativeLayout> bIq() {
-        return null;
+    public void onPhoneClicked(Context context, String str, String str2) {
     }
 
-    @Override // com.baidu.tbadk.widget.richText.h
-    public void aE(Context context, String str) {
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
+    public void onResume() {
+        super.onResume();
+        registerListener(this.richTextIntentClickListener);
     }
 
-    @Override // com.baidu.tbadk.widget.richText.h
-    public void g(Context context, String str, boolean z) {
-        bf.bsY().b(getPageContext(), new String[]{str});
+    public void onSongClicked(Context context, String str) {
     }
 
-    @Override // com.baidu.tbadk.widget.richText.h
-    public void aF(Context context, String str) {
+    public void onVideoClicked(Context context, String str) {
     }
 
-    @Override // com.baidu.tbadk.widget.richText.h
-    public void aG(Context context, String str) {
+    public void onVideoP2PClicked(Context context, String str) {
     }
 
-    @Override // com.baidu.tbadk.widget.richText.h
-    public void aH(Context context, String str) {
+    public void requestNet() {
+        ForumRulesShowModel forumRulesShowModel = this.mModel;
+        if (forumRulesShowModel != null) {
+            forumRulesShowModel.D();
+        }
     }
 
-    @Override // com.baidu.tbadk.widget.richText.h
-    public void u(Context context, String str, String str2) {
-    }
-
-    @Override // com.baidu.tbadk.widget.richText.h
-    public void aI(Context context, String str) {
+    public void setFrom(String str) {
+        this.mFrom = str;
+        c cVar = this.mView;
+        if (cVar != null) {
+            cVar.setFrom(str);
+        }
     }
 }

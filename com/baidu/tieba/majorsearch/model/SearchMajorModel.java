@@ -1,68 +1,76 @@
 package com.baidu.tieba.majorsearch.model;
 
 import com.baidu.adp.base.BdBaseModel;
-import com.baidu.adp.base.f;
 import com.baidu.adp.framework.listener.HttpMessageListener;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.ErrorData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.y;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.R;
 import com.baidu.tieba.majorsearch.message.SearchMajorHttpResponsedMessage;
+import d.b.b.a.f;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes3.dex */
 public class SearchMajorModel extends BdBaseModel {
-    a lmS;
-    private HttpMessageListener mHttpMessageListener;
 
-    /* loaded from: classes7.dex */
-    public interface a {
-        void aj(List<String> list);
+    /* renamed from: e  reason: collision with root package name */
+    public b f18878e;
 
-        void b(ErrorData errorData);
+    /* renamed from: f  reason: collision with root package name */
+    public HttpMessageListener f18879f;
+
+    /* loaded from: classes3.dex */
+    public class a extends HttpMessageListener {
+        public a(int i) {
+            super(i);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+            String str;
+            if (httpResponsedMessage == null) {
+                return;
+            }
+            SearchMajorModel.this.mErrorCode = httpResponsedMessage.getError();
+            SearchMajorModel.this.mErrorString = httpResponsedMessage.getErrorString();
+            if (!StringUtils.isNull(SearchMajorModel.this.mErrorString)) {
+                str = SearchMajorModel.this.mErrorString;
+            } else {
+                str = TbadkCoreApplication.getInst().getResources().getString(R.string.neterror);
+            }
+            ErrorData errorData = new ErrorData();
+            errorData.setError_code(SearchMajorModel.this.mErrorCode);
+            errorData.setError_msg(str);
+            SearchMajorHttpResponsedMessage searchMajorHttpResponsedMessage = httpResponsedMessage instanceof SearchMajorHttpResponsedMessage ? (SearchMajorHttpResponsedMessage) httpResponsedMessage : null;
+            if (searchMajorHttpResponsedMessage != null && searchMajorHttpResponsedMessage.getData() != null && !ListUtils.isEmpty(searchMajorHttpResponsedMessage.getData().f57276a)) {
+                SearchMajorModel.this.f18878e.onSuccess(searchMajorHttpResponsedMessage.getData().f57276a);
+            } else {
+                SearchMajorModel.this.f18878e.onError(errorData);
+            }
+        }
     }
 
-    public SearchMajorModel(f fVar, a aVar) {
+    /* loaded from: classes3.dex */
+    public interface b {
+        void onError(ErrorData errorData);
+
+        void onSuccess(List<String> list);
+    }
+
+    public SearchMajorModel(f fVar, b bVar) {
         super(fVar);
-        this.mHttpMessageListener = new HttpMessageListener(CmdConfigHttp.CMD_SEARCH_MAJOR) { // from class: com.baidu.tieba.majorsearch.model.SearchMajorModel.1
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.adp.framework.listener.MessageListener
-            public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-                String str;
-                SearchMajorHttpResponsedMessage searchMajorHttpResponsedMessage;
-                if (httpResponsedMessage != null) {
-                    SearchMajorModel.this.mErrorCode = httpResponsedMessage.getError();
-                    SearchMajorModel.this.mErrorString = httpResponsedMessage.getErrorString();
-                    if (!StringUtils.isNull(SearchMajorModel.this.mErrorString)) {
-                        str = SearchMajorModel.this.mErrorString;
-                    } else {
-                        str = TbadkCoreApplication.getInst().getResources().getString(R.string.neterror);
-                    }
-                    ErrorData errorData = new ErrorData();
-                    errorData.setError_code(SearchMajorModel.this.mErrorCode);
-                    errorData.setError_msg(str);
-                    if (!(httpResponsedMessage instanceof SearchMajorHttpResponsedMessage)) {
-                        searchMajorHttpResponsedMessage = null;
-                    } else {
-                        searchMajorHttpResponsedMessage = (SearchMajorHttpResponsedMessage) httpResponsedMessage;
-                    }
-                    if (searchMajorHttpResponsedMessage != null && searchMajorHttpResponsedMessage.getData() != null && !y.isEmpty(searchMajorHttpResponsedMessage.getData().lmR)) {
-                        SearchMajorModel.this.lmS.aj(searchMajorHttpResponsedMessage.getData().lmR);
-                    } else {
-                        SearchMajorModel.this.lmS.b(errorData);
-                    }
-                }
-            }
-        };
-        this.mHttpMessageListener.setSelfListener(true);
-        registerListener(this.mHttpMessageListener);
-        this.lmS = aVar;
+        a aVar = new a(CmdConfigHttp.CMD_SEARCH_MAJOR);
+        this.f18879f = aVar;
+        aVar.setSelfListener(true);
+        registerListener(this.f18879f);
+        this.f18878e = bVar;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
-    protected boolean LoadData() {
+    public boolean LoadData() {
         return false;
     }
 

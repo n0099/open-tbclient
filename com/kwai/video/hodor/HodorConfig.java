@@ -4,20 +4,20 @@ import android.content.Context;
 import com.kwai.video.cache.AwesomeCacheInitConfig;
 import com.kwai.video.hodor.util.FileUtils;
 import java.io.File;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class HodorConfig {
     public static final int DEFAULT_CONNECT_TIMEOUT_MS = 3000;
     public static final int HodorQueueMode_LowConsume = 0;
     public static final int HodorQueueMode_None = -1;
     public static final int HodorQueueMode_Normal = 1;
-    private static final long MB = 1048576;
-    private static final long MEDIA_CACHE_LIMIT_MB_DEFAULT = 256;
-    private static final long MEDIA_CACHE_LIMIT_MB_MIN = 10;
-    private static long sMediaDirAvialbleMB;
-    private static String sMediaDirFullPath;
-    private static String sResourceDirFullPath;
+    public static final long MB = 1048576;
+    public static final long MEDIA_CACHE_LIMIT_MB_DEFAULT = 256;
+    public static final long MEDIA_CACHE_LIMIT_MB_MIN = 10;
+    public static long sMediaDirAvialbleMB;
+    public static String sMediaDirFullPath;
+    public static String sResourceDirFullPath;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public @interface HodorQueueMode {
     }
 
@@ -39,10 +39,12 @@ public class HodorConfig {
         return sMediaDirFullPath;
     }
 
-    private static long getReasonableMediaCacheBytesLimit(String str) {
+    public static long getReasonableMediaCacheBytesLimit(String str) {
         long availableBytes = FileUtils.getAvailableBytes(str);
         sMediaDirAvialbleMB = availableBytes / 1048576;
-        return (long) Math.max(1.048576E7d, Math.min(availableBytes * 0.5d, 2.68435456E8d));
+        double d2 = availableBytes;
+        Double.isNaN(d2);
+        return (long) Math.max(1.048576E7d, Math.min(d2 * 0.5d, 2.68435456E8d));
     }
 
     public static String getResourceDirFullPath() {
@@ -57,11 +59,11 @@ public class HodorConfig {
         sMediaDirFullPath = setMediaCacheDirectoryPath(absolutePath);
         setMediaCacheBytesLimit(getReasonableMediaCacheBytesLimit(absolutePath));
         File defaultCacheDir2 = FileUtils.getDefaultCacheDir(context, false);
-        sResourceDirFullPath = setResourceCacheDirectoryPath(defaultCacheDir2 == null ? "." : defaultCacheDir2.getAbsolutePath());
+        sResourceDirFullPath = setResourceCacheDirectoryPath(defaultCacheDir2 != null ? defaultCacheDir2.getAbsolutePath() : ".");
         initCacheManager();
     }
 
-    private static native void initCacheManager();
+    public static native void initCacheManager();
 
     public static native boolean isCronetEnalbedForAllTask();
 
@@ -75,7 +77,7 @@ public class HodorConfig {
 
     public static native String setMediaCacheDirectoryPath(String str);
 
-    public static native void setPreloadV3VodBufferLowRatio(double d);
+    public static native void setPreloadV3VodBufferLowRatio(double d2);
 
     public static native void setPreloadV3VodCacheKbThresholdWhenPrepare(int i);
 

@@ -1,114 +1,124 @@
 package rx.subscriptions;
 
+import h.k;
+import h.u.e;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
-import rx.k;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public final class RefCountSubscription implements k {
-    static final a qFT = new a(false, 0);
-    private final k qFS;
-    final AtomicReference<a> qFU = new AtomicReference<>(qFT);
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
-    public static final class a {
-        final boolean isUnsubscribed;
-        final int qFV;
+    /* renamed from: g  reason: collision with root package name */
+    public static final a f68296g = new a(false, 0);
 
-        a(boolean z, int i) {
-            this.isUnsubscribed = z;
-            this.qFV = i;
-        }
+    /* renamed from: e  reason: collision with root package name */
+    public final k f68297e;
 
-        a eNZ() {
-            return new a(this.isUnsubscribed, this.qFV + 1);
-        }
+    /* renamed from: f  reason: collision with root package name */
+    public final AtomicReference<a> f68298f = new AtomicReference<>(f68296g);
 
-        a eOa() {
-            return new a(this.isUnsubscribed, this.qFV - 1);
-        }
-
-        a eOb() {
-            return new a(true, this.qFV);
-        }
-    }
-
-    public RefCountSubscription(k kVar) {
-        if (kVar == null) {
-            throw new IllegalArgumentException("s");
-        }
-        this.qFS = kVar;
-    }
-
-    public k eNX() {
-        a aVar;
-        AtomicReference<a> atomicReference = this.qFU;
-        do {
-            aVar = atomicReference.get();
-            if (aVar.isUnsubscribed) {
-                return e.eOd();
-            }
-        } while (!atomicReference.compareAndSet(aVar, aVar.eNZ()));
-        return new InnerSubscription(this);
-    }
-
-    @Override // rx.k
-    public boolean isUnsubscribed() {
-        return this.qFU.get().isUnsubscribed;
-    }
-
-    @Override // rx.k
-    public void unsubscribe() {
-        a aVar;
-        a eOb;
-        AtomicReference<a> atomicReference = this.qFU;
-        do {
-            aVar = atomicReference.get();
-            if (!aVar.isUnsubscribed) {
-                eOb = aVar.eOb();
-            } else {
-                return;
-            }
-        } while (!atomicReference.compareAndSet(aVar, eOb));
-        a(eOb);
-    }
-
-    private void a(a aVar) {
-        if (aVar.isUnsubscribed && aVar.qFV == 0) {
-            this.qFS.unsubscribe();
-        }
-    }
-
-    void eNY() {
-        a aVar;
-        a eOa;
-        AtomicReference<a> atomicReference = this.qFU;
-        do {
-            aVar = atomicReference.get();
-            eOa = aVar.eOa();
-        } while (!atomicReference.compareAndSet(aVar, eOa));
-        a(eOa);
-    }
-
-    /* loaded from: classes4.dex */
-    static final class InnerSubscription extends AtomicInteger implements k {
-        private static final long serialVersionUID = 7005765588239987643L;
-        final RefCountSubscription parent;
+    /* loaded from: classes7.dex */
+    public static final class InnerSubscription extends AtomicInteger implements k {
+        public static final long serialVersionUID = 7005765588239987643L;
+        public final RefCountSubscription parent;
 
         public InnerSubscription(RefCountSubscription refCountSubscription) {
             this.parent = refCountSubscription;
         }
 
-        @Override // rx.k
-        public void unsubscribe() {
-            if (compareAndSet(0, 1)) {
-                this.parent.eNY();
-            }
-        }
-
-        @Override // rx.k
+        @Override // h.k
         public boolean isUnsubscribed() {
             return get() != 0;
         }
+
+        @Override // h.k
+        public void unsubscribe() {
+            if (compareAndSet(0, 1)) {
+                this.parent.b();
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static final class a {
+
+        /* renamed from: a  reason: collision with root package name */
+        public final boolean f68299a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public final int f68300b;
+
+        public a(boolean z, int i) {
+            this.f68299a = z;
+            this.f68300b = i;
+        }
+
+        public a a() {
+            return new a(this.f68299a, this.f68300b + 1);
+        }
+
+        public a b() {
+            return new a(this.f68299a, this.f68300b - 1);
+        }
+
+        public a c() {
+            return new a(true, this.f68300b);
+        }
+    }
+
+    public RefCountSubscription(k kVar) {
+        if (kVar != null) {
+            this.f68297e = kVar;
+            return;
+        }
+        throw new IllegalArgumentException("s");
+    }
+
+    public k a() {
+        a aVar;
+        AtomicReference<a> atomicReference = this.f68298f;
+        do {
+            aVar = atomicReference.get();
+            if (aVar.f68299a) {
+                return e.c();
+            }
+        } while (!atomicReference.compareAndSet(aVar, aVar.a()));
+        return new InnerSubscription(this);
+    }
+
+    public void b() {
+        a aVar;
+        a b2;
+        AtomicReference<a> atomicReference = this.f68298f;
+        do {
+            aVar = atomicReference.get();
+            b2 = aVar.b();
+        } while (!atomicReference.compareAndSet(aVar, b2));
+        c(b2);
+    }
+
+    public final void c(a aVar) {
+        if (aVar.f68299a && aVar.f68300b == 0) {
+            this.f68297e.unsubscribe();
+        }
+    }
+
+    @Override // h.k
+    public boolean isUnsubscribed() {
+        return this.f68298f.get().f68299a;
+    }
+
+    @Override // h.k
+    public void unsubscribe() {
+        a aVar;
+        a c2;
+        AtomicReference<a> atomicReference = this.f68298f;
+        do {
+            aVar = atomicReference.get();
+            if (aVar.f68299a) {
+                return;
+            }
+            c2 = aVar.c();
+        } while (!atomicReference.compareAndSet(aVar, c2));
+        c(c2);
     }
 }

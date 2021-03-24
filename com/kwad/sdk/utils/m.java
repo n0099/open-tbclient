@@ -5,7 +5,7 @@ import android.graphics.drawable.Drawable;
 import androidx.annotation.Nullable;
 import com.kwad.sdk.glide.load.DataSource;
 import com.kwad.sdk.glide.load.engine.GlideException;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class m {
     public static void a(Context context, String str) {
         com.kwad.sdk.core.d.a.a("GlideUtils", "preloadImage imageUrl=" + str);
@@ -22,8 +22,8 @@ public class m {
                     return false;
                 }
             }).b();
-        } catch (Exception e) {
-            com.kwad.sdk.core.d.a.b(e);
+        } catch (Exception e2) {
+            com.kwad.sdk.core.d.a.b(e2);
         }
     }
 }

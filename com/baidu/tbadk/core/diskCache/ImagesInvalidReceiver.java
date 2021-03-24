@@ -4,15 +4,15 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.adp.lib.f.f;
-/* loaded from: classes.dex */
+import d.b.b.e.m.f;
+/* loaded from: classes3.dex */
 public class ImagesInvalidReceiver extends BroadcastReceiver {
     public static final String SUCCESS = "success";
 
     public static void broadcast(boolean z) {
         Intent intent = new Intent(BdBaseApplication.getInst().getContext(), ImagesInvalidReceiver.class);
         intent.putExtra("success", z);
-        f.sendBroadcast(BdBaseApplication.getInst().getContext(), intent);
+        f.b(BdBaseApplication.getInst().getContext(), intent);
     }
 
     @Override // android.content.BroadcastReceiver

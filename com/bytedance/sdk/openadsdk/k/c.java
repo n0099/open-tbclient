@@ -1,19 +1,20 @@
 package com.bytedance.sdk.openadsdk.k;
-
-import java.util.List;
 /* loaded from: classes6.dex */
-public class c implements a {
-    @Override // com.bytedance.sdk.openadsdk.k.a
-    public void a(String str, List<String> list, boolean z) {
-        com.bytedance.sdk.openadsdk.multipro.c.a.a(str, list, z);
-    }
+public class c {
 
-    @Override // com.bytedance.sdk.openadsdk.k.a
-    public void a(String str) {
-        com.bytedance.sdk.openadsdk.multipro.c.a.b(str);
-    }
+    /* renamed from: a  reason: collision with root package name */
+    public final long f29604a;
 
-    @Override // com.bytedance.sdk.openadsdk.k.a
-    public void a() {
+    /* renamed from: b  reason: collision with root package name */
+    public final long f29605b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public final long f29606c;
+
+    public long a(int i) {
+        if (i <= 0) {
+            return this.f29604a;
+        }
+        return Math.min(this.f29604a + (this.f29605b * i), this.f29606c);
     }
 }

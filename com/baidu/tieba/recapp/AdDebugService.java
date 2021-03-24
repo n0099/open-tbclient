@@ -10,18 +10,86 @@ import android.widget.TextView;
 import android.widget.Toast;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import com.baidu.tieba.R;
 import com.baidu.tieba.recapp.activity.AdDebugActivityConfig;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class AdDebugService extends Service {
-    private static TextView mFloatView;
-    private boolean mIsFloatingViewAttached = false;
-    private WindowManager.LayoutParams mParams;
-    private WindowManager mWindowManager;
+    public static TextView mFloatView;
+    public boolean mIsFloatingViewAttached = false;
+    public WindowManager.LayoutParams mParams;
+    public WindowManager mWindowManager;
+
+    /* loaded from: classes5.dex */
+    public class a implements View.OnTouchListener {
+
+        /* renamed from: e  reason: collision with root package name */
+        public int f20683e;
+
+        /* renamed from: f  reason: collision with root package name */
+        public int f20684f;
+
+        /* renamed from: g  reason: collision with root package name */
+        public float f20685g;
+
+        /* renamed from: h  reason: collision with root package name */
+        public float f20686h;
+
+        public a() {
+        }
+
+        @Override // android.view.View.OnTouchListener
+        public boolean onTouch(View view, MotionEvent motionEvent) {
+            int action = motionEvent.getAction();
+            if (action == 0) {
+                this.f20683e = AdDebugService.this.mParams.x;
+                this.f20684f = AdDebugService.this.mParams.y;
+                this.f20685g = motionEvent.getRawX();
+                this.f20686h = motionEvent.getRawY();
+                return true;
+            } else if (action == 1) {
+                float abs = Math.abs(motionEvent.getRawX() - this.f20685g);
+                float abs2 = Math.abs(motionEvent.getRawY() - this.f20686h);
+                if (abs < 10.0f && abs2 < 10.0f) {
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AdDebugActivityConfig(TbadkCoreApplication.getInst().getContext())));
+                }
+                return true;
+            } else if (action != 2) {
+                return false;
+            } else {
+                AdDebugService.this.mParams.x = this.f20683e + ((int) (motionEvent.getRawX() - this.f20685g));
+                AdDebugService.this.mParams.y = this.f20684f + ((int) (motionEvent.getRawY() - this.f20686h));
+                AdDebugService.this.mWindowManager.updateViewLayout(AdDebugService.mFloatView, AdDebugService.this.mParams);
+                return true;
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static class b implements Runnable {
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ String f20687e;
+
+        public b(String str) {
+            this.f20687e = str;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            AdDebugService.mFloatView.setText(this.f20687e);
+        }
+    }
+
+    public static void updateFloatView(String str) {
+        TextView textView = mFloatView;
+        if (textView == null) {
+            return;
+        }
+        textView.post(new b(str));
+    }
 
     @Override // android.app.Service
     public IBinder onBind(Intent intent) {
@@ -29,66 +97,21 @@ public class AdDebugService extends Service {
     }
 
     @Override // android.app.Service
-    public int onStartCommand(Intent intent, int i, int i2) {
-        if (!this.mIsFloatingViewAttached) {
-            this.mWindowManager.addView(mFloatView, mFloatView.getLayoutParams());
-        }
-        return super.onStartCommand(intent, i, i2);
-    }
-
-    @Override // android.app.Service
     public void onCreate() {
         super.onCreate();
         this.mWindowManager = (WindowManager) getSystemService("window");
-        mFloatView = new TextView(this);
-        mFloatView.setGravity(17);
+        TextView textView = new TextView(this);
+        mFloatView = textView;
+        textView.setGravity(17);
         mFloatView.setTextSize(getResources().getDimension(R.dimen.ds12));
-        ap.setBackgroundResource(mFloatView, R.drawable.ad_debug_view_bg);
+        SkinManager.setBackgroundResource(mFloatView, R.drawable.ad_debug_view_bg);
         mFloatView.setText("AD");
-        this.mParams = new WindowManager.LayoutParams(-2, -2, 2005, 40, -3);
-        this.mParams.gravity = 51;
-        this.mWindowManager.addView(mFloatView, this.mParams);
-        mFloatView.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.recapp.AdDebugService.1
-            private int initialY;
-            private int mTi;
-            private float mTk;
-            private float mTl;
-
-            @Override // android.view.View.OnTouchListener
-            public boolean onTouch(View view, MotionEvent motionEvent) {
-                switch (motionEvent.getAction()) {
-                    case 0:
-                        this.mTi = AdDebugService.this.mParams.x;
-                        this.initialY = AdDebugService.this.mParams.y;
-                        this.mTk = motionEvent.getRawX();
-                        this.mTl = motionEvent.getRawY();
-                        return true;
-                    case 1:
-                        float abs = Math.abs(motionEvent.getRawX() - this.mTk);
-                        float abs2 = Math.abs(motionEvent.getRawY() - this.mTl);
-                        if (abs >= 10.0f || abs2 >= 10.0f) {
-                            return true;
-                        }
-                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AdDebugActivityConfig(TbadkCoreApplication.getInst().getContext())));
-                        return true;
-                    case 2:
-                        AdDebugService.this.mParams.x = this.mTi + ((int) (motionEvent.getRawX() - this.mTk));
-                        AdDebugService.this.mParams.y = this.initialY + ((int) (motionEvent.getRawY() - this.mTl));
-                        AdDebugService.this.mWindowManager.updateViewLayout(AdDebugService.mFloatView, AdDebugService.this.mParams);
-                        return true;
-                    default:
-                        return false;
-                }
-            }
-        });
+        WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams(-2, -2, 2005, 40, -3);
+        this.mParams = layoutParams;
+        layoutParams.gravity = 51;
+        this.mWindowManager.addView(mFloatView, layoutParams);
+        mFloatView.setOnTouchListener(new a());
         this.mIsFloatingViewAttached = true;
-    }
-
-    public void removeView() {
-        if (mFloatView != null) {
-            this.mWindowManager.removeView(mFloatView);
-            this.mIsFloatingViewAttached = false;
-        }
     }
 
     @Override // android.app.Service
@@ -98,14 +121,21 @@ public class AdDebugService extends Service {
         removeView();
     }
 
-    public static void updateFloatView(final String str) {
-        if (mFloatView != null) {
-            mFloatView.post(new Runnable() { // from class: com.baidu.tieba.recapp.AdDebugService.2
-                @Override // java.lang.Runnable
-                public void run() {
-                    AdDebugService.mFloatView.setText(str);
-                }
-            });
+    @Override // android.app.Service
+    public int onStartCommand(Intent intent, int i, int i2) {
+        if (!this.mIsFloatingViewAttached) {
+            WindowManager windowManager = this.mWindowManager;
+            TextView textView = mFloatView;
+            windowManager.addView(textView, textView.getLayoutParams());
+        }
+        return super.onStartCommand(intent, i, i2);
+    }
+
+    public void removeView() {
+        TextView textView = mFloatView;
+        if (textView != null) {
+            this.mWindowManager.removeView(textView);
+            this.mIsFloatingViewAttached = false;
         }
     }
 }

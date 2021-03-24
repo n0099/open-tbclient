@@ -3,14 +3,13 @@ package org.apache.http.message;
 import org.apache.http.ProtocolVersion;
 import org.apache.http.StatusLine;
 @Deprecated
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class BasicStatusLine implements StatusLine {
     public BasicStatusLine(ProtocolVersion protocolVersion, int i, String str) {
         throw new RuntimeException("Stub!");
     }
 
-    @Override // org.apache.http.StatusLine
-    public int getStatusCode() {
+    public Object clone() throws CloneNotSupportedException {
         throw new RuntimeException("Stub!");
     }
 
@@ -24,11 +23,12 @@ public class BasicStatusLine implements StatusLine {
         throw new RuntimeException("Stub!");
     }
 
-    public String toString() {
+    @Override // org.apache.http.StatusLine
+    public int getStatusCode() {
         throw new RuntimeException("Stub!");
     }
 
-    public Object clone() throws CloneNotSupportedException {
+    public String toString() {
         throw new RuntimeException("Stub!");
     }
 }

@@ -3,26 +3,25 @@ package com.ksad.lottie.model.a;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes3.dex */
-abstract class n<V, O> implements m<V, O> {
+/* loaded from: classes6.dex */
+public abstract class n<V, O> implements m<V, O> {
 
     /* renamed from: a  reason: collision with root package name */
-    final List<com.ksad.lottie.e.a<V>> f5377a;
+    public final List<com.ksad.lottie.e.a<V>> f31465a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public n(V v) {
         this(Collections.singletonList(new com.ksad.lottie.e.a(v)));
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public n(List<com.ksad.lottie.e.a<V>> list) {
-        this.f5377a = list;
+        this.f31465a = list;
     }
 
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        if (!this.f5377a.isEmpty()) {
-            sb.append("values=").append(Arrays.toString(this.f5377a.toArray()));
+        if (!this.f31465a.isEmpty()) {
+            sb.append("values=");
+            sb.append(Arrays.toString(this.f31465a.toArray()));
         }
         return sb.toString();
     }

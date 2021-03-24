@@ -5,57 +5,69 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
-import com.baidu.adp.base.a;
-import com.baidu.swan.apps.ao.u;
-import com.baidu.swan.facade.b.b;
-/* loaded from: classes8.dex */
+import d.b.g0.a.i2.u;
+import d.b.g0.d.h.b;
+/* loaded from: classes4.dex */
 public class SwanEntryActivity extends Activity {
-    @Override // android.app.Activity
-    protected void onCreate(Bundle bundle) {
-        a.j(this);
-        super.onCreate(bundle);
-        if (!u.M(this)) {
-            bNm();
+    public static final String LAUNCHER_URI = "SWAN_URI";
+    public static final String SWAN_ACTION = "com.baidu.swan.launcher";
+
+    /* loaded from: classes4.dex */
+    public class a implements Runnable {
+        public a() {
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            SwanEntryActivity.this.finish();
         }
     }
 
-    @Override // android.app.Activity
-    protected void onNewIntent(Intent intent) {
-        super.onNewIntent(intent);
-        bNm();
+    private void doLaunch() {
+        String uri;
+        Intent intent = getIntent();
+        if (intent == null) {
+            return;
+        }
+        if (TextUtils.equals(intent.getAction(), SWAN_ACTION)) {
+            uri = intent.getStringExtra(LAUNCHER_URI);
+        } else {
+            Uri data = intent.getData();
+            uri = data == null ? null : data.toString();
+        }
+        if (TextUtils.isEmpty(uri)) {
+            return;
+        }
+        b.a(uri);
     }
 
     @Override // android.app.Activity
-    protected void onResume() {
+    public void onCreate(Bundle bundle) {
+        d.b.b.a.a.b(this);
+        super.onCreate(bundle);
+        if (u.a(this)) {
+            return;
+        }
+        doLaunch();
+    }
+
+    @Override // android.app.Activity
+    public void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+        doLaunch();
+    }
+
+    @Override // android.app.Activity
+    public void onResume() {
         super.onResume();
-        runOnUiThread(new Runnable() { // from class: com.baidu.tieba.aiapps.apps.launch.SwanEntryActivity.1
-            @Override // java.lang.Runnable
-            public void run() {
-                SwanEntryActivity.this.finish();
-            }
-        });
+        runOnUiThread(new a());
     }
 
     @Override // android.app.Activity
     public void setRequestedOrientation(int i) {
-        if (!a.k(this) || !a.Z(i)) {
-            super.setRequestedOrientation(i);
+        if (d.b.b.a.a.d(this) && d.b.b.a.a.a(i)) {
+            return;
         }
-    }
-
-    private void bNm() {
-        String uri;
-        Intent intent = getIntent();
-        if (intent != null) {
-            if (TextUtils.equals(intent.getAction(), "com.baidu.swan.launcher")) {
-                uri = intent.getStringExtra("SWAN_URI");
-            } else {
-                Uri data = intent.getData();
-                uri = data == null ? null : data.toString();
-            }
-            if (!TextUtils.isEmpty(uri)) {
-                b.uV(uri);
-            }
-        }
+        super.setRequestedOrientation(i);
     }
 }

@@ -5,149 +5,157 @@ import android.graphics.Rect;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 import com.baidu.tbadk.core.atomData.PbActivityConfig;
-import com.baidu.tbadk.core.data.cb;
-import com.baidu.tbadk.core.util.y;
-import com.baidu.tieba.pb.data.f;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.pb.pb.main.PbModel;
-/* loaded from: classes2.dex */
+import d.b.h0.r.q.a2;
+import d.b.i0.c2.h.e;
+import d.b.i0.c2.o.d;
+/* loaded from: classes5.dex */
 public class VideoPbViewModel extends ViewModel {
-    private PbModel lPy;
-    private d mnq = new d();
-    private int mnr = 0;
 
-    public void init(Intent intent) {
-        this.mnq.h((Rect) intent.getParcelableExtra(PbActivityConfig.VIDEO_ORIGIN_AREA));
-        this.mnq.wq(intent.getBooleanExtra("key_jump_to_comment_area", false));
+    /* renamed from: b  reason: collision with root package name */
+    public PbModel f20065b;
+
+    /* renamed from: a  reason: collision with root package name */
+    public d f20064a = new d();
+
+    /* renamed from: c  reason: collision with root package name */
+    public int f20066c = 0;
+
+    public void a(PbModel pbModel) {
+        this.f20065b = pbModel;
     }
 
-    public void i(PbModel pbModel) {
-        this.lPy = pbModel;
+    public MutableLiveData<Integer> b() {
+        return this.f20064a.a();
     }
 
-    public void b(f fVar, int i) {
-        boolean z = true;
-        if (i >= this.mnr) {
-            this.mnr = i;
-            this.mnq.O(fVar);
-            if (fVar != null) {
-                d dVar = this.mnq;
-                if (fVar.getIsNewUrl() != 1 && !fVar.dlS()) {
-                    z = false;
-                }
-                dVar.setFromCDN(z);
-            }
-        }
+    public e c() {
+        return this.f20064a.b();
     }
 
-    public f duH() {
-        return this.mnq.duH();
+    public e d() {
+        return this.f20064a.c();
     }
 
-    public boolean isFromCDN() {
-        return this.mnq.isFromCDN();
+    public MutableLiveData<Boolean> e() {
+        return this.f20064a.d();
     }
 
-    public f duI() {
-        return this.mnq.duI();
+    public MutableLiveData<Boolean> f() {
+        return this.f20064a.e();
     }
 
-    public void c(f fVar, int i) {
-        if (i == 3) {
-            this.mnq.setData(fVar);
-        }
+    public MutableLiveData<a2> g() {
+        return this.f20064a.f();
     }
 
-    public MutableLiveData<cb> duJ() {
-        return this.mnq.duJ();
-    }
-
-    public Rect duK() {
-        if (this.mnq.duK() == null || this.mnq.duK().isEmpty()) {
+    public Rect h() {
+        if (this.f20064a.g() == null || this.f20064a.g().isEmpty()) {
             return null;
         }
-        return this.mnq.duK();
+        return this.f20064a.g();
     }
 
-    public void wt(boolean z) {
-        if (this.mnq.duO().getValue() != null) {
-            f aM = this.lPy.aM(this.mnq.duO().getValue());
-            if (aM != null) {
-                this.mnq.duM().addLast(this.mnq.duI());
-                this.mnq.setData(aM);
-                this.mnq.aU(!y.isEmpty(aM.dlR()) ? aM.dlR().get(0) : null);
-                this.mnq.aT(this.mnq.duM().getLast() != null ? this.mnq.duM().getLast().dlp() : null);
-                this.lPy.FZ(z ? 21 : 22);
-                this.lPy.j(aM);
-                this.mnq.setIsLoading(true);
+    public MutableLiveData<a2> i() {
+        return this.f20064a.h();
+    }
+
+    public MutableLiveData<a2> j() {
+        return this.f20064a.i();
+    }
+
+    public void k(Intent intent) {
+        this.f20064a.v((Rect) intent.getParcelableExtra(PbActivityConfig.VIDEO_ORIGIN_AREA));
+        this.f20064a.t(intent.getBooleanExtra("key_jump_to_comment_area", false));
+    }
+
+    public boolean l() {
+        return this.f20064a.k();
+    }
+
+    public boolean m() {
+        return this.f20064a.l();
+    }
+
+    public MutableLiveData<Boolean> n() {
+        return this.f20064a.m();
+    }
+
+    public void o(boolean z) {
+        if (this.f20064a.f().getValue() != null) {
+            e M = this.f20065b.M(this.f20064a.f().getValue());
+            if (M != null) {
+                this.f20064a.j().addLast(this.f20064a.b());
+                this.f20064a.n(M);
+                this.f20064a.u(!ListUtils.isEmpty(M.f()) ? M.f().get(0) : null);
+                this.f20064a.w(this.f20064a.j().getLast() != null ? this.f20064a.j().getLast().L() : null);
+                this.f20065b.N1(z ? 21 : 22);
+                this.f20065b.i1(M);
+                this.f20064a.r(true);
             }
         }
     }
 
-    public void aV(cb cbVar) {
-        f aM;
-        if (cbVar != null && (aM = this.lPy.aM(cbVar)) != null) {
-            this.mnq.duM().addLast(this.mnq.duI());
-            this.mnq.setData(aM);
-            this.mnq.aU(!y.isEmpty(aM.dlR()) ? aM.dlR().get(0) : null);
-            this.mnq.aT(this.mnq.duM().getLast() != null ? this.mnq.duM().getLast().dlp() : null);
-            this.lPy.FZ(20);
-            this.lPy.j(aM);
-            this.mnq.setIsLoading(true);
-        }
-    }
-
-    public void duS() {
-        f pollLast = this.mnq.duM().pollLast();
+    public void p() {
+        e pollLast = this.f20064a.j().pollLast();
         if (pollLast != null) {
-            this.mnq.setData(pollLast);
-            this.mnq.aU(!y.isEmpty(pollLast.dlR()) ? pollLast.dlR().get(0) : null);
-            this.mnq.aT(this.mnq.duM().peekLast() != null ? this.mnq.duM().peekLast().dlp() : null);
-            this.lPy.j(pollLast);
-            this.mnq.setIsLoading(true);
+            this.f20064a.n(pollLast);
+            this.f20064a.u(!ListUtils.isEmpty(pollLast.f()) ? pollLast.f().get(0) : null);
+            this.f20064a.w(this.f20064a.j().peekLast() != null ? this.f20064a.j().peekLast().L() : null);
+            this.f20065b.i1(pollLast);
+            this.f20064a.r(true);
         }
     }
 
-    public MutableLiveData<cb> duN() {
-        return this.mnq.duN();
+    public void q(a2 a2Var) {
+        e M;
+        if (a2Var == null || (M = this.f20065b.M(a2Var)) == null) {
+            return;
+        }
+        this.f20064a.j().addLast(this.f20064a.b());
+        this.f20064a.n(M);
+        this.f20064a.u(!ListUtils.isEmpty(M.f()) ? M.f().get(0) : null);
+        this.f20064a.w(this.f20064a.j().getLast() != null ? this.f20064a.j().getLast().L() : null);
+        this.f20065b.N1(20);
+        this.f20065b.i1(M);
+        this.f20064a.r(true);
     }
 
-    public MutableLiveData<cb> duO() {
-        return this.mnq.duO();
+    public void r(e eVar, int i) {
+        if (i >= this.f20066c) {
+            this.f20066c = i;
+            this.f20064a.o(eVar);
+            if (eVar != null) {
+                d dVar = this.f20064a;
+                boolean z = true;
+                if (eVar.s() != 1 && !eVar.Z()) {
+                    z = false;
+                }
+                dVar.p(z);
+            }
+        }
     }
 
-    public MutableLiveData<Boolean> duP() {
-        return this.mnq.duP();
+    public void s(e eVar, int i) {
+        if (i == 3) {
+            this.f20064a.n(eVar);
+        }
     }
 
-    public void wr(boolean z) {
-        this.mnq.wr(z);
+    public void t(boolean z) {
+        this.f20064a.q(z);
     }
 
-    public MutableLiveData<Boolean> duQ() {
-        return this.mnq.duQ();
+    public void u(boolean z) {
+        this.f20064a.r(z);
     }
 
-    public void ws(boolean z) {
-        this.mnq.ws(z);
+    public void v(boolean z) {
+        this.f20064a.s(z);
     }
 
-    public void setIsLoading(boolean z) {
-        this.mnq.setIsLoading(z);
-    }
-
-    public MutableLiveData<Boolean> cMY() {
-        return this.mnq.cMY();
-    }
-
-    public boolean duL() {
-        return this.mnq.duL();
-    }
-
-    public void wq(boolean z) {
-        this.mnq.wq(z);
-    }
-
-    public MutableLiveData<Integer> duR() {
-        return this.mnq.duR();
+    public void w(boolean z) {
+        this.f20064a.t(z);
     }
 }

@@ -3,23 +3,21 @@ package androidx.webkit;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.webkit.internal.ServiceWorkerControllerImpl;
-/* loaded from: classes5.dex */
+/* loaded from: classes.dex */
 public abstract class ServiceWorkerControllerCompat {
-    @NonNull
-    public abstract ServiceWorkerWebSettingsCompat getServiceWorkerWebSettings();
 
-    public abstract void setServiceWorkerClient(@Nullable ServiceWorkerClientCompat serviceWorkerClientCompat);
+    /* loaded from: classes.dex */
+    public static class LAZY_HOLDER {
+        public static final ServiceWorkerControllerCompat INSTANCE = new ServiceWorkerControllerImpl();
+    }
 
     @NonNull
     public static ServiceWorkerControllerCompat getInstance() {
         return LAZY_HOLDER.INSTANCE;
     }
 
-    /* loaded from: classes5.dex */
-    private static class LAZY_HOLDER {
-        static final ServiceWorkerControllerCompat INSTANCE = new ServiceWorkerControllerImpl();
+    @NonNull
+    public abstract ServiceWorkerWebSettingsCompat getServiceWorkerWebSettings();
 
-        private LAZY_HOLDER() {
-        }
-    }
+    public abstract void setServiceWorkerClient(@Nullable ServiceWorkerClientCompat serviceWorkerClientCompat);
 }

@@ -7,22 +7,105 @@ import android.graphics.Paint;
 import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.view.View;
-import com.baidu.ala.recorder.video.drawer.EncoderTextureDrawer;
 import com.bigkoo.svprogresshud.R;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class SVCircleProgressBar extends View {
     public static final int FILL = 1;
     public static final int STROKE = 0;
-    private int max;
-    private Paint paint;
-    private int progress;
-    private int roundColor;
-    private int roundProgressColor;
-    private float roundWidth;
-    private int style;
+    public int max;
+    public Paint paint;
+    public int progress;
+    public int roundColor;
+    public int roundProgressColor;
+    public float roundWidth;
+    public int style;
 
     public SVCircleProgressBar(Context context) {
         this(context, null);
+    }
+
+    public int getCircleColor() {
+        return this.roundColor;
+    }
+
+    public int getCircleProgressColor() {
+        return this.roundProgressColor;
+    }
+
+    public synchronized int getMax() {
+        return this.max;
+    }
+
+    public synchronized int getProgress() {
+        return this.progress;
+    }
+
+    public float getRoundWidth() {
+        return this.roundWidth;
+    }
+
+    @Override // android.view.View
+    public void onDraw(Canvas canvas) {
+        int i;
+        super.onDraw(canvas);
+        int width = getWidth() / 2;
+        float f2 = width;
+        int i2 = (int) (f2 - (this.roundWidth / 2.0f));
+        this.paint.setAntiAlias(true);
+        this.paint.setColor(this.roundColor);
+        this.paint.setStyle(Paint.Style.STROKE);
+        this.paint.setStrokeWidth(this.roundWidth);
+        canvas.drawCircle(f2, f2, i2, this.paint);
+        this.paint.setStrokeWidth(this.roundWidth);
+        this.paint.setColor(this.roundProgressColor);
+        float f3 = width - i2;
+        float f4 = width + i2;
+        RectF rectF = new RectF(f3, f3, f4, f4);
+        int i3 = this.style;
+        if (i3 == 0) {
+            this.paint.setStyle(Paint.Style.STROKE);
+            canvas.drawArc(rectF, 270.0f, (this.progress * 360) / this.max, false, this.paint);
+        } else if (i3 != 1) {
+        } else {
+            this.paint.setStyle(Paint.Style.FILL_AND_STROKE);
+            if (this.progress != 0) {
+                canvas.drawArc(rectF, 270.0f, (i * 360) / this.max, true, this.paint);
+            }
+        }
+    }
+
+    public void setCircleColor(int i) {
+        this.roundColor = i;
+    }
+
+    public void setCircleProgressColor(int i) {
+        this.roundProgressColor = i;
+    }
+
+    public synchronized void setMax(int i) {
+        if (i >= 0) {
+            this.max = i;
+        } else {
+            throw new IllegalArgumentException("max not less than 0");
+        }
+    }
+
+    public synchronized void setProgress(int i) {
+        if (i >= 0) {
+            if (i > this.max) {
+                i = this.max;
+            }
+            if (i <= this.max) {
+                this.progress = i;
+                postInvalidate();
+            }
+        } else {
+            throw new IllegalArgumentException("progress not less than 0");
+        }
+    }
+
+    public void setRoundWidth(float f2) {
+        this.roundWidth = f2;
     }
 
     public SVCircleProgressBar(Context context, AttributeSet attributeSet) {
@@ -39,87 +122,5 @@ public class SVCircleProgressBar extends View {
         this.max = obtainStyledAttributes.getInteger(R.styleable.SVCircleProgressBar_svprogress_max, 100);
         this.style = obtainStyledAttributes.getInt(R.styleable.SVCircleProgressBar_svprogress_style, 0);
         obtainStyledAttributes.recycle();
-    }
-
-    @Override // android.view.View
-    protected void onDraw(Canvas canvas) {
-        super.onDraw(canvas);
-        int width = getWidth() / 2;
-        int i = (int) (width - (this.roundWidth / 2.0f));
-        this.paint.setAntiAlias(true);
-        this.paint.setColor(this.roundColor);
-        this.paint.setStyle(Paint.Style.STROKE);
-        this.paint.setStrokeWidth(this.roundWidth);
-        canvas.drawCircle(width, width, i, this.paint);
-        this.paint.setStrokeWidth(this.roundWidth);
-        this.paint.setColor(this.roundProgressColor);
-        RectF rectF = new RectF(width - i, width - i, width + i, width + i);
-        switch (this.style) {
-            case 0:
-                this.paint.setStyle(Paint.Style.STROKE);
-                canvas.drawArc(rectF, 270.0f, (this.progress * EncoderTextureDrawer.X264_WIDTH) / this.max, false, this.paint);
-                return;
-            case 1:
-                this.paint.setStyle(Paint.Style.FILL_AND_STROKE);
-                if (this.progress != 0) {
-                    canvas.drawArc(rectF, 270.0f, (this.progress * EncoderTextureDrawer.X264_WIDTH) / this.max, true, this.paint);
-                    return;
-                }
-                return;
-            default:
-                return;
-        }
-    }
-
-    public synchronized int getMax() {
-        return this.max;
-    }
-
-    public synchronized void setMax(int i) {
-        if (i < 0) {
-            throw new IllegalArgumentException("max not less than 0");
-        }
-        this.max = i;
-    }
-
-    public synchronized int getProgress() {
-        return this.progress;
-    }
-
-    public synchronized void setProgress(int i) {
-        if (i < 0) {
-            throw new IllegalArgumentException("progress not less than 0");
-        }
-        if (i > this.max) {
-            i = this.max;
-        }
-        if (i <= this.max) {
-            this.progress = i;
-            postInvalidate();
-        }
-    }
-
-    public int getCircleColor() {
-        return this.roundColor;
-    }
-
-    public void setCircleColor(int i) {
-        this.roundColor = i;
-    }
-
-    public int getCircleProgressColor() {
-        return this.roundProgressColor;
-    }
-
-    public void setCircleProgressColor(int i) {
-        this.roundProgressColor = i;
-    }
-
-    public float getRoundWidth() {
-        return this.roundWidth;
-    }
-
-    public void setRoundWidth(float f) {
-        this.roundWidth = f;
     }
 }

@@ -29,20 +29,22 @@ import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
-import androidx.core.app.NotificationCompat;
-import androidx.core.internal.view.SupportMenu;
+import androidx.core.app.NotificationCompatJellybean;
 import androidx.core.view.ViewCompat;
 import com.baidu.android.util.devices.RomUtils;
-import com.baidu.android.util.io.BaseJsonData;
-import com.baidu.ar.constants.HttpConstants;
+import com.baidu.browser.sailor.feature.upload.BdUploadHandler;
 import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
-import com.baidu.live.tbadk.ubc.UbcStatConstant;
+import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import com.baidu.mobstat.Config;
+import com.baidu.searchbox.account.contants.LoginConstants;
 import com.baidu.swan.games.utils.so.SoUtils;
 import com.baidu.tbadk.pay.PayConfig;
 import com.baidu.tieba.R;
+import com.baidu.ufosdk.ResumeCallBack;
 import com.baidu.ufosdk.UfoSDK;
 import com.baidu.ufosdk.screencapedt.ScreenCapEditActivity;
+import com.baidu.webkit.sdk.WebKitFactory;
+import com.bumptech.glide.manager.DefaultConnectivityMonitorFactory;
 import com.tencent.connect.common.Constants;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
@@ -54,103 +56,127 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class FeedbackEditActivity extends Activity {
-    private TextView C;
-    private TextView D;
-    private TextView E;
-    private ScrollView G;
-    private ImageView H;
-    private ImageView I;
-    private ImageView J;
-    private Bitmap K;
-    private RelativeLayout L;
-    private RelativeLayout M;
-    private RelativeLayout N;
-    private ImageButton O;
-    private ImageButton P;
-    private ImageButton Q;
-    private String R;
-    private LinearLayout S;
-    private RelativeLayout T;
-    private TextView U;
-    private Button V;
-    private int Y;
-    private SharedPreferences.Editor b;
-    private SharedPreferences c;
-    private RelativeLayout i;
-    private ImageView j;
-    private TextView k;
-    private RelativeLayout l;
-    private EditText m;
-    private EditText n;
-    private TextView o;
-    private LinearLayout p;
-    private List q;
-    private HashMap r;
-    private String t;
-    private View u;
-    private List z;
-    private String d = "";
-    private String e = "";
-    private int f = 0;
-    private String g = "";
-    private String h = "";
-    private Boolean s = true;
-    private boolean v = false;
-    private boolean w = false;
-    private boolean x = false;
-    private boolean y = false;
-    private LinearLayout.LayoutParams A = null;
-    private RelativeLayout.LayoutParams B = null;
-    private boolean F = true;
-    private int W = 0;
-    private int X = -1;
-    private String Z = null;
-    private String aa = null;
-    private boolean ab = false;
-    private String ac = com.baidu.ufosdk.f.s.a("43");
-    private String ad = "";
-    private String ae = "";
+    public TextView C;
+    public TextView D;
+    public TextView E;
+    public ScrollView G;
+    public ImageView H;
+    public ImageView I;
+    public ImageView J;
+    public Bitmap K;
+    public RelativeLayout L;
+    public RelativeLayout M;
+    public RelativeLayout N;
+    public ImageButton O;
+    public ImageButton P;
+    public ImageButton Q;
+    public String R;
+    public LinearLayout S;
+    public RelativeLayout T;
+    public TextView U;
+    public Button V;
+    public int Y;
+
+    /* renamed from: b  reason: collision with root package name */
+    public SharedPreferences.Editor f22989b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public SharedPreferences f22990c;
+    public RelativeLayout i;
+    public ImageView j;
+    public TextView k;
+    public RelativeLayout l;
+    public EditText m;
+    public EditText n;
+    public TextView o;
+    public LinearLayout p;
+    public List q;
+    public HashMap r;
+    public String t;
+    public View u;
+    public List z;
+
+    /* renamed from: d  reason: collision with root package name */
+    public String f22991d = "";
+
+    /* renamed from: e  reason: collision with root package name */
+    public String f22992e = "";
+
+    /* renamed from: f  reason: collision with root package name */
+    public int f22993f = 0;
+
+    /* renamed from: g  reason: collision with root package name */
+    public String f22994g = "";
+
+    /* renamed from: h  reason: collision with root package name */
+    public String f22995h = "";
+    public Boolean s = Boolean.TRUE;
+    public boolean v = false;
+    public boolean w = false;
+    public boolean x = false;
+    public boolean y = false;
+    public LinearLayout.LayoutParams A = null;
+    public RelativeLayout.LayoutParams B = null;
+    public boolean F = true;
+    public int W = 0;
+    public int X = -1;
+    public String Z = null;
+    public String aa = null;
+    public boolean ab = false;
+    public String ac = com.baidu.ufosdk.f.s.a("43");
+    public String ad = "";
+    public String ae = "";
 
     /* renamed from: a  reason: collision with root package name */
-    public Map f3639a = new HashMap();
-    private Handler af = new ag(this);
+    public Map f22988a = new HashMap();
+    public Handler af = new ag(this);
 
     private void a() {
-        this.S = new LinearLayout(this);
-        this.S.setId(R.id.Emoji_GridView);
+        LinearLayout linearLayout = new LinearLayout(this);
+        this.S = linearLayout;
+        linearLayout.setId(R.id.FILL);
+        int i = 1;
         this.S.setOrientation(1);
         this.S.setBackgroundColor(com.baidu.ufosdk.b.z);
-        if (this.h != null && this.h.length() != 0) {
+        String str = this.f22995h;
+        int i2 = -13421773;
+        float f2 = 5.0f;
+        int i3 = -1;
+        if (str != null && str.length() != 0) {
             try {
-                JSONArray jSONArray = new JSONArray(this.h);
+                JSONArray jSONArray = new JSONArray(this.f22995h);
                 int length = jSONArray.length();
-                for (int i = 0; i < length; i++) {
-                    JSONObject jSONObject = jSONArray.getJSONObject(i);
-                    int i2 = jSONObject.getInt("type");
-                    Log.d("type====", String.valueOf(i2));
-                    String string = jSONObject.getString("label");
+                int i4 = 0;
+                while (i4 < length) {
+                    JSONObject jSONObject = jSONArray.getJSONObject(i4);
+                    int i5 = jSONObject.getInt("type");
+                    Log.d("type====", String.valueOf(i5));
+                    String string = jSONObject.getString(NotificationCompatJellybean.KEY_LABEL);
                     Log.d("leftContent====", string);
                     String string2 = jSONObject.getString("placeholder");
                     String string3 = jSONObject.getString("field_key");
-                    if (i2 == 1) {
-                        this.T = new RelativeLayout(this);
-                        this.T.setBackgroundColor(-1);
-                        this.U = new TextView(this);
-                        this.U.setTextColor(-13421773);
+                    if (i5 == i) {
+                        RelativeLayout relativeLayout = new RelativeLayout(this);
+                        this.T = relativeLayout;
+                        relativeLayout.setBackgroundColor(i3);
+                        TextView textView = new TextView(this);
+                        this.U = textView;
+                        textView.setTextColor(i2);
                         this.U.setTextSize(16.0f);
-                        if (jSONObject.getInt("required") == 1) {
+                        if (jSONObject.getInt("required") == i) {
                             SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(string + "*");
-                            spannableStringBuilder.setSpan(new ForegroundColorSpan((int) SupportMenu.CATEGORY_MASK), string.length(), string.length() + 1, 34);
+                            spannableStringBuilder.setSpan(new ForegroundColorSpan(-65536), string.length(), string.length() + i, 34);
                             this.U.setText(spannableStringBuilder);
                         } else if (jSONObject.getInt("required") == 0) {
                             this.U.setText(string);
                         }
                         this.U.setGravity(16);
-                        this.U.setPadding(com.baidu.ufosdk.f.i.a(getApplicationContext(), 15.0f), com.baidu.ufosdk.f.i.a(getApplicationContext(), 5.0f), com.baidu.ufosdk.f.i.a(getApplicationContext(), 15.0f), com.baidu.ufosdk.f.i.a(getApplicationContext(), 5.0f));
-                        this.B = new RelativeLayout.LayoutParams(-1, com.baidu.ufosdk.f.i.a(getApplicationContext(), 50.0f));
-                        this.B.addRule(9);
+                        this.U.setPadding(com.baidu.ufosdk.f.i.a(getApplicationContext(), 15.0f), com.baidu.ufosdk.f.i.a(getApplicationContext(), f2), com.baidu.ufosdk.f.i.a(getApplicationContext(), 15.0f), com.baidu.ufosdk.f.i.a(getApplicationContext(), f2));
+                        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, com.baidu.ufosdk.f.i.a(getApplicationContext(), 50.0f));
+                        this.B = layoutParams;
+                        layoutParams.addRule(9);
                         this.T.addView(this.U, this.B);
                         EditText editText = new EditText(this);
                         editText.setTextColor(-13421773);
@@ -160,46 +186,59 @@ public class FeedbackEditActivity extends Activity {
                         editText.setHint(string2);
                         editText.setHintTextColor(-6710887);
                         editText.setPadding(com.baidu.ufosdk.f.i.a(getApplicationContext(), 130.0f), com.baidu.ufosdk.f.i.a(getApplicationContext(), 0.0f), com.baidu.ufosdk.f.i.a(getApplicationContext(), 0.0f), com.baidu.ufosdk.f.i.a(getApplicationContext(), 0.0f));
-                        this.B = new RelativeLayout.LayoutParams(-1, com.baidu.ufosdk.f.i.a(getApplicationContext(), 50.0f));
-                        this.T.addView(editText, this.B);
-                        this.A = new LinearLayout.LayoutParams(-1, com.baidu.ufosdk.f.i.a(getApplicationContext(), 50.0f));
-                        this.A.setMargins(0, com.baidu.ufosdk.f.i.a(getApplicationContext(), 9.0f), 0, 0);
+                        RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-1, com.baidu.ufosdk.f.i.a(getApplicationContext(), 50.0f));
+                        this.B = layoutParams2;
+                        this.T.addView(editText, layoutParams2);
+                        LinearLayout.LayoutParams layoutParams3 = new LinearLayout.LayoutParams(-1, com.baidu.ufosdk.f.i.a(getApplicationContext(), 50.0f));
+                        this.A = layoutParams3;
+                        layoutParams3.setMargins(0, com.baidu.ufosdk.f.i.a(getApplicationContext(), 9.0f), 0, 0);
                         this.S.addView(this.T, this.A);
                         if (jSONObject.getInt("required") == 1) {
                             this.z.add(editText);
                         }
                         editText.addTextChangedListener(new aa(this, editText, string3));
                     }
+                    i4++;
+                    i = 1;
+                    i2 = -13421773;
+                    f2 = 5.0f;
+                    i3 = -1;
                 }
-                this.B = new RelativeLayout.LayoutParams(-1, -2);
-                this.B.setMargins(0, com.baidu.ufosdk.f.i.a(getApplicationContext(), 11.0f), 0, 0);
+                RelativeLayout.LayoutParams layoutParams4 = new RelativeLayout.LayoutParams(-1, -2);
+                this.B = layoutParams4;
+                layoutParams4.setMargins(0, com.baidu.ufosdk.f.i.a(getApplicationContext(), 11.0f), 0, 0);
                 this.B.addRule(10);
                 this.l.addView(this.S, this.B);
-            } catch (JSONException e) {
-                e.printStackTrace();
+            } catch (JSONException e2) {
+                e2.printStackTrace();
             }
         }
-        LinearLayout linearLayout = new LinearLayout(this);
-        linearLayout.setId(R.id.FILL);
-        linearLayout.setOrientation(1);
-        linearLayout.setBackgroundColor(com.baidu.ufosdk.b.z);
-        this.C = new TextView(this);
-        this.C.setBackgroundColor(com.baidu.ufosdk.b.z);
+        LinearLayout linearLayout2 = new LinearLayout(this);
+        linearLayout2.setId(R.id.FUNCTION);
+        linearLayout2.setOrientation(1);
+        linearLayout2.setBackgroundColor(com.baidu.ufosdk.b.z);
+        TextView textView2 = new TextView(this);
+        this.C = textView2;
+        textView2.setBackgroundColor(com.baidu.ufosdk.b.z);
         this.C.setTextColor(-10066330);
-        this.C.setText(com.baidu.ufosdk.f.s.a("48") + "*");
+        TextView textView3 = this.C;
+        textView3.setText(com.baidu.ufosdk.f.s.a("48") + "*");
         this.C.setPadding(com.baidu.ufosdk.f.i.a(getApplicationContext(), 15.0f), 0, 0, 0);
         this.C.setTextSize(com.baidu.ufosdk.b.U - 1.0f);
         this.C.setGravity(16);
-        this.A = new LinearLayout.LayoutParams(-1, com.baidu.ufosdk.f.i.a(getApplicationContext(), 35.0f));
-        linearLayout.addView(this.C, this.A);
+        LinearLayout.LayoutParams layoutParams5 = new LinearLayout.LayoutParams(-1, com.baidu.ufosdk.f.i.a(getApplicationContext(), 35.0f));
+        this.A = layoutParams5;
+        linearLayout2.addView(this.C, layoutParams5);
         View view = new View(this);
         view.setBackgroundColor(-2236963);
-        this.A = new LinearLayout.LayoutParams(-1, com.baidu.ufosdk.f.i.a(getApplicationContext(), 0.5f));
-        linearLayout.addView(view, this.A);
-        RelativeLayout relativeLayout = new RelativeLayout(this);
-        relativeLayout.setBackgroundColor(-1);
-        this.m = new EditText(this);
-        this.m.setId(R.id.FUNCTION);
+        LinearLayout.LayoutParams layoutParams6 = new LinearLayout.LayoutParams(-1, com.baidu.ufosdk.f.i.a(getApplicationContext(), 0.5f));
+        this.A = layoutParams6;
+        linearLayout2.addView(view, layoutParams6);
+        RelativeLayout relativeLayout2 = new RelativeLayout(this);
+        relativeLayout2.setBackgroundColor(-1);
+        EditText editText2 = new EditText(this);
+        this.m = editText2;
+        editText2.setId(R.id.Forward);
         this.m.setBackgroundColor(-1);
         this.m.setTextColor(-13421773);
         this.m.setTextSize(com.baidu.ufosdk.b.U + 1.0f);
@@ -207,47 +246,58 @@ public class FeedbackEditActivity extends Activity {
         this.m.setGravity(3);
         this.m.setFilters(new InputFilter[]{new InputFilter.LengthFilter(com.baidu.ufosdk.b.aa)});
         this.m.setPadding(com.baidu.ufosdk.f.i.a(getApplicationContext(), 13.0f), com.baidu.ufosdk.f.i.a(getApplicationContext(), 5.0f), com.baidu.ufosdk.f.i.a(getApplicationContext(), 13.0f), com.baidu.ufosdk.f.i.a(getApplicationContext(), 5.0f));
-        this.B = new RelativeLayout.LayoutParams(-1, com.baidu.ufosdk.f.i.a(getApplicationContext(), 120.0f));
-        this.B.setMargins(com.baidu.ufosdk.f.i.a((Context) this, 2.0f), com.baidu.ufosdk.f.i.a((Context) this, 3.0f), com.baidu.ufosdk.f.i.a((Context) this, 2.0f), com.baidu.ufosdk.f.i.a((Context) this, 3.0f));
-        relativeLayout.addView(this.m, this.B);
-        this.o = new TextView(this);
-        this.o.setBackgroundColor(-1);
+        RelativeLayout.LayoutParams layoutParams7 = new RelativeLayout.LayoutParams(-1, com.baidu.ufosdk.f.i.a(getApplicationContext(), 120.0f));
+        this.B = layoutParams7;
+        layoutParams7.setMargins(com.baidu.ufosdk.f.i.a((Context) this, 2.0f), com.baidu.ufosdk.f.i.a((Context) this, 3.0f), com.baidu.ufosdk.f.i.a((Context) this, 2.0f), com.baidu.ufosdk.f.i.a((Context) this, 3.0f));
+        relativeLayout2.addView(this.m, this.B);
+        TextView textView4 = new TextView(this);
+        this.o = textView4;
+        textView4.setBackgroundColor(-1);
         this.o.setTextSize(com.baidu.ufosdk.b.V);
         this.o.setTextColor(-5131855);
-        this.o.setText("4-" + com.baidu.ufosdk.b.aa + "字");
-        this.B = new RelativeLayout.LayoutParams(-2, -2);
-        this.B.addRule(3, this.m.getId());
+        TextView textView5 = this.o;
+        textView5.setText("4-" + com.baidu.ufosdk.b.aa + "字");
+        RelativeLayout.LayoutParams layoutParams8 = new RelativeLayout.LayoutParams(-2, -2);
+        this.B = layoutParams8;
+        layoutParams8.addRule(3, this.m.getId());
         this.B.addRule(11);
         this.o.setPadding(0, 0, com.baidu.ufosdk.f.i.a(getApplicationContext(), 14.0f), com.baidu.ufosdk.f.i.a(getApplicationContext(), 7.0f));
-        relativeLayout.addView(this.o, this.B);
-        this.A = new LinearLayout.LayoutParams(-2, -2);
-        linearLayout.addView(relativeLayout, this.A);
+        relativeLayout2.addView(this.o, this.B);
+        LinearLayout.LayoutParams layoutParams9 = new LinearLayout.LayoutParams(-2, -2);
+        this.A = layoutParams9;
+        linearLayout2.addView(relativeLayout2, layoutParams9);
         View view2 = new View(this);
         view2.setBackgroundColor(-2236963);
-        this.A = new LinearLayout.LayoutParams(-1, com.baidu.ufosdk.f.i.a(getApplicationContext(), 0.5f));
-        linearLayout.addView(view2, this.A);
-        this.B = new RelativeLayout.LayoutParams(-1, -2);
-        this.B.addRule(3, this.S.getId());
-        this.l.addView(linearLayout, this.B);
-        LinearLayout linearLayout2 = new LinearLayout(this);
-        linearLayout2.setId(R.id.SELECT);
-        linearLayout2.setOrientation(1);
-        linearLayout2.setBackgroundColor(com.baidu.ufosdk.b.z);
-        this.D = new TextView(this);
-        this.D.setBackgroundColor(com.baidu.ufosdk.b.z);
+        LinearLayout.LayoutParams layoutParams10 = new LinearLayout.LayoutParams(-1, com.baidu.ufosdk.f.i.a(getApplicationContext(), 0.5f));
+        this.A = layoutParams10;
+        linearLayout2.addView(view2, layoutParams10);
+        RelativeLayout.LayoutParams layoutParams11 = new RelativeLayout.LayoutParams(-1, -2);
+        this.B = layoutParams11;
+        layoutParams11.addRule(3, this.S.getId());
+        this.l.addView(linearLayout2, this.B);
+        LinearLayout linearLayout3 = new LinearLayout(this);
+        linearLayout3.setId(R.id.SHIFT);
+        linearLayout3.setOrientation(1);
+        linearLayout3.setBackgroundColor(com.baidu.ufosdk.b.z);
+        TextView textView6 = new TextView(this);
+        this.D = textView6;
+        textView6.setBackgroundColor(com.baidu.ufosdk.b.z);
         this.D.setTextColor(-10066330);
         this.D.setText(com.baidu.ufosdk.f.s.a("46"));
         this.D.setTextSize(com.baidu.ufosdk.b.U - 1.0f);
         this.D.setGravity(16);
         this.D.setPadding(com.baidu.ufosdk.f.i.a(getApplicationContext(), 15.0f), 0, 0, 0);
-        this.A = new LinearLayout.LayoutParams(-1, com.baidu.ufosdk.f.i.a(getApplicationContext(), 35.0f));
-        linearLayout2.addView(this.D, this.A);
+        LinearLayout.LayoutParams layoutParams12 = new LinearLayout.LayoutParams(-1, com.baidu.ufosdk.f.i.a(getApplicationContext(), 35.0f));
+        this.A = layoutParams12;
+        linearLayout3.addView(this.D, layoutParams12);
         View view3 = new View(this);
         view3.setBackgroundColor(-2236963);
-        this.A = new LinearLayout.LayoutParams(-1, com.baidu.ufosdk.f.i.a(getApplicationContext(), 0.5f));
-        linearLayout2.addView(view3, this.A);
-        this.p = new LinearLayout(this);
-        this.p.setOrientation(0);
+        LinearLayout.LayoutParams layoutParams13 = new LinearLayout.LayoutParams(-1, com.baidu.ufosdk.f.i.a(getApplicationContext(), 0.5f));
+        this.A = layoutParams13;
+        linearLayout3.addView(view3, layoutParams13);
+        LinearLayout linearLayout4 = new LinearLayout(this);
+        this.p = linearLayout4;
+        linearLayout4.setOrientation(0);
         this.p.setBackgroundColor(-1);
         this.p.setPadding(com.baidu.ufosdk.f.i.a(getApplicationContext(), 11.0f), 0, com.baidu.ufosdk.f.i.a(getApplicationContext(), 11.0f), 0);
         byte[] byteArrayExtra = getIntent().getByteArrayExtra("shot");
@@ -255,88 +305,112 @@ public class FeedbackEditActivity extends Activity {
             this.q.add(byteArrayExtra);
         }
         this.K = com.baidu.ufosdk.f.m.a(getApplicationContext(), "ufo_addpic_icon.png");
-        this.L = new RelativeLayout(this);
-        this.L.setClickable(true);
+        RelativeLayout relativeLayout3 = new RelativeLayout(this);
+        this.L = relativeLayout3;
+        relativeLayout3.setClickable(true);
         this.L.setBackgroundColor(-1);
-        this.H = new ImageView(this);
-        this.H.setScaleType(ImageView.ScaleType.FIT_XY);
+        ImageView imageView = new ImageView(this);
+        this.H = imageView;
+        imageView.setScaleType(ImageView.ScaleType.FIT_XY);
         this.H.setImageBitmap(this.K);
-        this.B = new RelativeLayout.LayoutParams(-1, -1);
-        this.L.addView(this.H, this.B);
-        this.O = new ImageButton(this);
-        this.O.setBackgroundDrawable(new BitmapDrawable(com.baidu.ufosdk.f.m.a(getApplicationContext(), "ufo_delete_selected_pic.png")));
-        this.B = new RelativeLayout.LayoutParams(com.baidu.ufosdk.f.i.a(getApplicationContext(), 27.0f), com.baidu.ufosdk.f.i.a(getApplicationContext(), 27.0f));
-        this.B.addRule(11);
+        RelativeLayout.LayoutParams layoutParams14 = new RelativeLayout.LayoutParams(-1, -1);
+        this.B = layoutParams14;
+        this.L.addView(this.H, layoutParams14);
+        ImageButton imageButton = new ImageButton(this);
+        this.O = imageButton;
+        imageButton.setBackgroundDrawable(new BitmapDrawable(com.baidu.ufosdk.f.m.a(getApplicationContext(), "ufo_delete_selected_pic.png")));
+        RelativeLayout.LayoutParams layoutParams15 = new RelativeLayout.LayoutParams(com.baidu.ufosdk.f.i.a(getApplicationContext(), 27.0f), com.baidu.ufosdk.f.i.a(getApplicationContext(), 27.0f));
+        this.B = layoutParams15;
+        layoutParams15.addRule(11);
         this.B.addRule(10);
         this.B.setMargins(0, 0, 0, 0);
         this.L.addView(this.O, this.B);
         this.O.setOnClickListener(new ab(this));
-        this.M = new RelativeLayout(this);
-        this.M.setClickable(true);
+        RelativeLayout relativeLayout4 = new RelativeLayout(this);
+        this.M = relativeLayout4;
+        relativeLayout4.setClickable(true);
         this.M.setBackgroundColor(-1);
-        this.I = new ImageView(this);
-        this.I.setScaleType(ImageView.ScaleType.FIT_XY);
+        ImageView imageView2 = new ImageView(this);
+        this.I = imageView2;
+        imageView2.setScaleType(ImageView.ScaleType.FIT_XY);
         this.I.setImageBitmap(this.K);
-        this.B = new RelativeLayout.LayoutParams(-1, -1);
-        this.M.addView(this.I, this.B);
-        this.P = new ImageButton(this);
-        this.P.setBackgroundDrawable(new BitmapDrawable(com.baidu.ufosdk.f.m.a(getApplicationContext(), "ufo_delete_selected_pic.png")));
-        this.B = new RelativeLayout.LayoutParams(com.baidu.ufosdk.f.i.a(getApplicationContext(), 27.0f), com.baidu.ufosdk.f.i.a(getApplicationContext(), 27.0f));
-        this.B.addRule(11);
+        RelativeLayout.LayoutParams layoutParams16 = new RelativeLayout.LayoutParams(-1, -1);
+        this.B = layoutParams16;
+        this.M.addView(this.I, layoutParams16);
+        ImageButton imageButton2 = new ImageButton(this);
+        this.P = imageButton2;
+        imageButton2.setBackgroundDrawable(new BitmapDrawable(com.baidu.ufosdk.f.m.a(getApplicationContext(), "ufo_delete_selected_pic.png")));
+        RelativeLayout.LayoutParams layoutParams17 = new RelativeLayout.LayoutParams(com.baidu.ufosdk.f.i.a(getApplicationContext(), 27.0f), com.baidu.ufosdk.f.i.a(getApplicationContext(), 27.0f));
+        this.B = layoutParams17;
+        layoutParams17.addRule(11);
         this.B.addRule(10);
         this.B.setMargins(0, 0, 0, 0);
         this.M.addView(this.P, this.B);
         this.P.setOnClickListener(new ac(this));
-        this.N = new RelativeLayout(this);
-        this.N.setClickable(true);
+        RelativeLayout relativeLayout5 = new RelativeLayout(this);
+        this.N = relativeLayout5;
+        relativeLayout5.setClickable(true);
         this.N.setBackgroundColor(-1);
-        this.J = new ImageView(this);
-        this.J.setScaleType(ImageView.ScaleType.FIT_XY);
+        ImageView imageView3 = new ImageView(this);
+        this.J = imageView3;
+        imageView3.setScaleType(ImageView.ScaleType.FIT_XY);
         this.J.setImageBitmap(this.K);
-        this.B = new RelativeLayout.LayoutParams(-1, -1);
-        this.N.addView(this.J, this.B);
-        this.Q = new ImageButton(this);
-        this.Q.setBackgroundDrawable(new BitmapDrawable(com.baidu.ufosdk.f.m.a(getApplicationContext(), "ufo_delete_selected_pic.png")));
-        this.B = new RelativeLayout.LayoutParams(com.baidu.ufosdk.f.i.a(getApplicationContext(), 27.0f), com.baidu.ufosdk.f.i.a(getApplicationContext(), 27.0f));
-        this.B.addRule(11);
+        RelativeLayout.LayoutParams layoutParams18 = new RelativeLayout.LayoutParams(-1, -1);
+        this.B = layoutParams18;
+        this.N.addView(this.J, layoutParams18);
+        ImageButton imageButton3 = new ImageButton(this);
+        this.Q = imageButton3;
+        imageButton3.setBackgroundDrawable(new BitmapDrawable(com.baidu.ufosdk.f.m.a(getApplicationContext(), "ufo_delete_selected_pic.png")));
+        RelativeLayout.LayoutParams layoutParams19 = new RelativeLayout.LayoutParams(com.baidu.ufosdk.f.i.a(getApplicationContext(), 27.0f), com.baidu.ufosdk.f.i.a(getApplicationContext(), 27.0f));
+        this.B = layoutParams19;
+        layoutParams19.addRule(11);
         this.B.addRule(10);
         this.B.setMargins(0, 0, 0, 0);
         this.N.addView(this.Q, this.B);
         this.Q.setOnClickListener(new ad(this));
-        this.A = new LinearLayout.LayoutParams(-1, -1);
-        this.A.setMargins(com.baidu.ufosdk.f.i.a(getApplicationContext(), 4.0f), com.baidu.ufosdk.f.i.a(getApplicationContext(), 10.0f), com.baidu.ufosdk.f.i.a(getApplicationContext(), 4.0f), com.baidu.ufosdk.f.i.a(getApplicationContext(), 10.0f));
-        this.A.weight = 1.0f;
-        this.p.addView(this.L, this.A);
+        LinearLayout.LayoutParams layoutParams20 = new LinearLayout.LayoutParams(-1, -1);
+        this.A = layoutParams20;
+        layoutParams20.setMargins(com.baidu.ufosdk.f.i.a(getApplicationContext(), 4.0f), com.baidu.ufosdk.f.i.a(getApplicationContext(), 10.0f), com.baidu.ufosdk.f.i.a(getApplicationContext(), 4.0f), com.baidu.ufosdk.f.i.a(getApplicationContext(), 10.0f));
+        LinearLayout.LayoutParams layoutParams21 = this.A;
+        layoutParams21.weight = 1.0f;
+        this.p.addView(this.L, layoutParams21);
         this.p.addView(this.M, this.A);
         this.p.addView(this.N, this.A);
-        this.A = new LinearLayout.LayoutParams(-1, com.baidu.ufosdk.f.i.a(getApplicationContext(), 125.0f));
-        linearLayout2.addView(this.p, this.A);
+        LinearLayout.LayoutParams layoutParams22 = new LinearLayout.LayoutParams(-1, com.baidu.ufosdk.f.i.a(getApplicationContext(), 125.0f));
+        this.A = layoutParams22;
+        linearLayout3.addView(this.p, layoutParams22);
         View view4 = new View(this);
         view4.setBackgroundColor(-2236963);
-        this.A = new LinearLayout.LayoutParams(-1, com.baidu.ufosdk.f.i.a(getApplicationContext(), 0.5f));
-        linearLayout2.addView(view4, this.A);
-        this.B = new RelativeLayout.LayoutParams(-1, -2);
-        this.B.addRule(3, linearLayout.getId());
-        this.l.addView(linearLayout2, this.B);
-        LinearLayout linearLayout3 = new LinearLayout(this);
-        linearLayout3.setId(R.id.SHIFT);
-        linearLayout3.setOrientation(1);
-        linearLayout3.setBackgroundColor(com.baidu.ufosdk.b.z);
-        this.E = new TextView(this);
-        this.E.setBackgroundColor(com.baidu.ufosdk.b.z);
+        LinearLayout.LayoutParams layoutParams23 = new LinearLayout.LayoutParams(-1, com.baidu.ufosdk.f.i.a(getApplicationContext(), 0.5f));
+        this.A = layoutParams23;
+        linearLayout3.addView(view4, layoutParams23);
+        RelativeLayout.LayoutParams layoutParams24 = new RelativeLayout.LayoutParams(-1, -2);
+        this.B = layoutParams24;
+        layoutParams24.addRule(3, linearLayout2.getId());
+        this.l.addView(linearLayout3, this.B);
+        LinearLayout linearLayout5 = new LinearLayout(this);
+        linearLayout5.setId(R.id.STROKE);
+        linearLayout5.setOrientation(1);
+        linearLayout5.setBackgroundColor(com.baidu.ufosdk.b.z);
+        TextView textView7 = new TextView(this);
+        this.E = textView7;
+        textView7.setBackgroundColor(com.baidu.ufosdk.b.z);
         this.E.setTextColor(-10066330);
         this.E.setText(com.baidu.ufosdk.f.s.a("47"));
         this.E.setPadding(com.baidu.ufosdk.f.i.a(getApplicationContext(), 15.0f), 0, 0, 0);
         this.E.setTextSize(com.baidu.ufosdk.b.U - 1.0f);
         this.E.setGravity(16);
-        this.A = new LinearLayout.LayoutParams(-1, com.baidu.ufosdk.f.i.a(getApplicationContext(), 35.0f));
-        linearLayout3.addView(this.E, this.A);
+        LinearLayout.LayoutParams layoutParams25 = new LinearLayout.LayoutParams(-1, com.baidu.ufosdk.f.i.a(getApplicationContext(), 35.0f));
+        this.A = layoutParams25;
+        linearLayout5.addView(this.E, layoutParams25);
         View view5 = new View(this);
         view5.setBackgroundColor(-2236963);
-        this.A = new LinearLayout.LayoutParams(-1, com.baidu.ufosdk.f.i.a(getApplicationContext(), 0.5f));
-        linearLayout3.addView(view5, this.A);
-        this.n = new EditText(this);
-        this.n.setBackgroundColor(-1);
+        LinearLayout.LayoutParams layoutParams26 = new LinearLayout.LayoutParams(-1, com.baidu.ufosdk.f.i.a(getApplicationContext(), 0.5f));
+        this.A = layoutParams26;
+        linearLayout5.addView(view5, layoutParams26);
+        EditText editText3 = new EditText(this);
+        this.n = editText3;
+        editText3.setBackgroundColor(-1);
         this.n.setTextColor(-13421773);
         this.n.setTextSize(com.baidu.ufosdk.b.U + 1.0f);
         this.n.setGravity(16);
@@ -348,15 +422,18 @@ public class FeedbackEditActivity extends Activity {
         this.n.setHintTextColor(-2236963);
         this.n.setSingleLine();
         this.n.setPadding(com.baidu.ufosdk.f.i.a(getApplicationContext(), 15.0f), com.baidu.ufosdk.f.i.a(getApplicationContext(), 5.0f), com.baidu.ufosdk.f.i.a(getApplicationContext(), 15.0f), com.baidu.ufosdk.f.i.a(getApplicationContext(), 5.0f));
-        this.A = new LinearLayout.LayoutParams(-1, com.baidu.ufosdk.f.i.a(getApplicationContext(), 40.0f));
-        linearLayout3.addView(this.n, this.A);
+        LinearLayout.LayoutParams layoutParams27 = new LinearLayout.LayoutParams(-1, com.baidu.ufosdk.f.i.a(getApplicationContext(), 40.0f));
+        this.A = layoutParams27;
+        linearLayout5.addView(this.n, layoutParams27);
         View view6 = new View(this);
         view6.setBackgroundColor(-2236963);
-        this.A = new LinearLayout.LayoutParams(-1, com.baidu.ufosdk.f.i.a(getApplicationContext(), 0.5f));
-        linearLayout3.addView(view6, this.A);
-        this.B = new RelativeLayout.LayoutParams(-1, -2);
-        this.B.addRule(3, linearLayout2.getId());
-        this.l.addView(linearLayout3, this.B);
+        LinearLayout.LayoutParams layoutParams28 = new LinearLayout.LayoutParams(-1, com.baidu.ufosdk.f.i.a(getApplicationContext(), 0.5f));
+        this.A = layoutParams28;
+        linearLayout5.addView(view6, layoutParams28);
+        RelativeLayout.LayoutParams layoutParams29 = new RelativeLayout.LayoutParams(-1, -2);
+        this.B = layoutParams29;
+        layoutParams29.addRule(3, linearLayout3.getId());
+        this.l.addView(linearLayout5, this.B);
         this.m.addTextChangedListener(new ae(this));
         this.n.setFilters(new InputFilter[]{new InputFilter.LengthFilter(31)});
         this.n.addTextChangedListener(new n(this));
@@ -366,14 +443,12 @@ public class FeedbackEditActivity extends Activity {
         b();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public static /* synthetic */ void a(FeedbackEditActivity feedbackEditActivity, int i) {
         j jVar = new j(feedbackEditActivity);
         jVar.a(new r(feedbackEditActivity, i, jVar));
         jVar.show();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public static /* synthetic */ void a(FeedbackEditActivity feedbackEditActivity, String str, int i) {
         Intent intent = new Intent(feedbackEditActivity, ScreenCapEditActivity.class);
         intent.putExtra("shotUrl", str);
@@ -390,11 +465,11 @@ public class FeedbackEditActivity extends Activity {
     public void a(byte[] bArr, boolean z, int i) {
         Intent intent = new Intent(this, ScreenCapEditActivity.class);
         intent.putExtra("shot", bArr);
-        intent.putExtra(UbcStatConstant.ContentType.UBC_TYPE_PK_DIRECT, z);
+        intent.putExtra("direct", z);
         startActivityForResult(intent, i);
     }
 
-    private static byte[] a(InputStream inputStream) {
+    public static byte[] a(InputStream inputStream) {
         byte[] bArr = new byte[1024];
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         while (true) {
@@ -411,174 +486,174 @@ public class FeedbackEditActivity extends Activity {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b() {
-        switch (this.q.size()) {
-            case 0:
-                this.H.setScaleType(ImageView.ScaleType.FIT_XY);
-                this.I.setScaleType(ImageView.ScaleType.FIT_XY);
-                this.J.setScaleType(ImageView.ScaleType.FIT_XY);
-                if (this.K != null) {
-                    this.H.setImageBitmap(this.K);
-                    this.I.setImageBitmap(this.K);
-                    this.J.setImageBitmap(this.K);
-                }
-                this.O.setVisibility(8);
-                this.P.setVisibility(8);
-                this.Q.setVisibility(8);
-                return;
-            case 1:
-                this.H.setScaleType(ImageView.ScaleType.CENTER_CROP);
-                this.I.setScaleType(ImageView.ScaleType.FIT_XY);
-                this.J.setScaleType(ImageView.ScaleType.FIT_XY);
-                try {
-                    Bitmap decodeByteArray = BitmapFactory.decodeByteArray((byte[]) this.q.get(0), 0, ((byte[]) this.q.get(0)).length);
-                    if (decodeByteArray != null) {
-                        this.H.setImageBitmap(decodeByteArray);
-                    }
-                    if (this.K != null) {
-                        this.I.setImageBitmap(this.K);
-                        this.J.setImageBitmap(this.K);
-                    }
-                    this.O.setVisibility(0);
-                    this.P.setVisibility(8);
-                    this.Q.setVisibility(8);
-                    return;
-                } catch (OutOfMemoryError e) {
-                    System.gc();
-                    return;
-                }
-            case 2:
+        int size = this.q.size();
+        if (size == 0) {
+            this.H.setScaleType(ImageView.ScaleType.FIT_XY);
+            this.I.setScaleType(ImageView.ScaleType.FIT_XY);
+            this.J.setScaleType(ImageView.ScaleType.FIT_XY);
+            Bitmap bitmap = this.K;
+            if (bitmap != null) {
+                this.H.setImageBitmap(bitmap);
+                this.I.setImageBitmap(this.K);
+                this.J.setImageBitmap(this.K);
+            }
+            this.O.setVisibility(8);
+        } else if (size != 1) {
+            if (size == 2) {
                 this.H.setScaleType(ImageView.ScaleType.CENTER_CROP);
                 this.I.setScaleType(ImageView.ScaleType.CENTER_CROP);
                 this.J.setScaleType(ImageView.ScaleType.FIT_XY);
                 try {
-                    Bitmap decodeByteArray2 = BitmapFactory.decodeByteArray((byte[]) this.q.get(0), 0, ((byte[]) this.q.get(0)).length);
-                    Bitmap decodeByteArray3 = BitmapFactory.decodeByteArray((byte[]) this.q.get(1), 0, ((byte[]) this.q.get(1)).length);
+                    Bitmap decodeByteArray = BitmapFactory.decodeByteArray((byte[]) this.q.get(0), 0, ((byte[]) this.q.get(0)).length);
+                    Bitmap decodeByteArray2 = BitmapFactory.decodeByteArray((byte[]) this.q.get(1), 0, ((byte[]) this.q.get(1)).length);
+                    if (decodeByteArray != null) {
+                        this.H.setImageBitmap(decodeByteArray);
+                    }
                     if (decodeByteArray2 != null) {
-                        this.H.setImageBitmap(decodeByteArray2);
+                        this.I.setImageBitmap(decodeByteArray2);
                     }
-                    if (decodeByteArray3 != null) {
-                        this.I.setImageBitmap(decodeByteArray3);
-                    }
-                    if (this.K != null) {
-                        this.J.setImageBitmap(this.K);
+                    Bitmap bitmap2 = this.K;
+                    if (bitmap2 != null) {
+                        this.J.setImageBitmap(bitmap2);
                     }
                     this.O.setVisibility(0);
                     this.P.setVisibility(0);
                     this.Q.setVisibility(8);
-                    return;
-                } catch (OutOfMemoryError e2) {
+                } catch (OutOfMemoryError unused) {
                     System.gc();
                     return;
                 }
-            case 3:
+            } else if (size != 3) {
+                return;
+            } else {
                 this.H.setScaleType(ImageView.ScaleType.CENTER_CROP);
                 this.I.setScaleType(ImageView.ScaleType.CENTER_CROP);
                 this.J.setScaleType(ImageView.ScaleType.CENTER_CROP);
                 try {
-                    Bitmap decodeByteArray4 = BitmapFactory.decodeByteArray((byte[]) this.q.get(0), 0, ((byte[]) this.q.get(0)).length);
-                    Bitmap decodeByteArray5 = BitmapFactory.decodeByteArray((byte[]) this.q.get(1), 0, ((byte[]) this.q.get(1)).length);
-                    Bitmap decodeByteArray6 = BitmapFactory.decodeByteArray((byte[]) this.q.get(2), 0, ((byte[]) this.q.get(2)).length);
+                    Bitmap decodeByteArray3 = BitmapFactory.decodeByteArray((byte[]) this.q.get(0), 0, ((byte[]) this.q.get(0)).length);
+                    Bitmap decodeByteArray4 = BitmapFactory.decodeByteArray((byte[]) this.q.get(1), 0, ((byte[]) this.q.get(1)).length);
+                    Bitmap decodeByteArray5 = BitmapFactory.decodeByteArray((byte[]) this.q.get(2), 0, ((byte[]) this.q.get(2)).length);
+                    if (decodeByteArray3 != null) {
+                        this.H.setImageBitmap(decodeByteArray3);
+                    }
                     if (decodeByteArray4 != null) {
-                        this.H.setImageBitmap(decodeByteArray4);
+                        this.I.setImageBitmap(decodeByteArray4);
                     }
                     if (decodeByteArray5 != null) {
-                        this.I.setImageBitmap(decodeByteArray5);
-                    }
-                    if (decodeByteArray6 != null) {
-                        this.J.setImageBitmap(decodeByteArray6);
+                        this.J.setImageBitmap(decodeByteArray5);
                     }
                     this.O.setVisibility(0);
                     this.P.setVisibility(0);
                     this.Q.setVisibility(0);
                     return;
-                } catch (OutOfMemoryError e3) {
+                } catch (OutOfMemoryError unused2) {
                     System.gc();
                     return;
                 }
-            default:
+            }
+        } else {
+            this.H.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            this.I.setScaleType(ImageView.ScaleType.FIT_XY);
+            this.J.setScaleType(ImageView.ScaleType.FIT_XY);
+            try {
+                Bitmap decodeByteArray6 = BitmapFactory.decodeByteArray((byte[]) this.q.get(0), 0, ((byte[]) this.q.get(0)).length);
+                if (decodeByteArray6 != null) {
+                    this.H.setImageBitmap(decodeByteArray6);
+                }
+                Bitmap bitmap3 = this.K;
+                if (bitmap3 != null) {
+                    this.I.setImageBitmap(bitmap3);
+                    this.J.setImageBitmap(this.K);
+                }
+                this.O.setVisibility(0);
+            } catch (OutOfMemoryError unused3) {
+                System.gc();
                 return;
+            }
         }
+        this.P.setVisibility(8);
+        this.Q.setVisibility(8);
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     public static void b(EditText editText, int i) {
         try {
             if (i <= com.baidu.ufosdk.b.aa) {
                 editText.setSelection(i);
             }
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (Exception e2) {
+            e2.printStackTrace();
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* JADX WARN: Removed duplicated region for block: B:31:0x004d A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:13:0x0035 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:31:0x0003 */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r1v0 */
+    /* JADX WARN: Type inference failed for: r1v1 */
+    /* JADX WARN: Type inference failed for: r1v2, types: [java.io.ByteArrayOutputStream] */
+    /* JADX WARN: Type inference failed for: r1v4, types: [byte[]] */
+    /* JADX WARN: Type inference failed for: r6v0, types: [android.graphics.Bitmap] */
     public static byte[] b(Bitmap bitmap) {
-        ByteArrayOutputStream byteArrayOutputStream;
         byte[] bArr;
+        ByteArrayOutputStream byteArrayOutputStream;
+        ByteArrayOutputStream byteArrayOutputStream2 = 0;
+        byte[] bArr2 = null;
+        ByteArrayOutputStream byteArrayOutputStream3 = null;
         try {
-            byteArrayOutputStream = new ByteArrayOutputStream();
             try {
-                try {
-                    bitmap.compress(Bitmap.CompressFormat.PNG, 50, byteArrayOutputStream);
-                    bArr = byteArrayOutputStream.toByteArray();
-                    try {
-                        byteArrayOutputStream.flush();
-                        byteArrayOutputStream.close();
-                        com.baidu.ufosdk.f.c.a("FeedbackEditActivity --> bitMapByteArray - output.close normal");
-                        try {
-                            byteArrayOutputStream.flush();
-                            byteArrayOutputStream.close();
-                            com.baidu.ufosdk.f.c.a("FeedbackEditActivity --> bitMapByteArray - output.close in finally");
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        }
-                    } catch (Exception e2) {
-                        e = e2;
-                        e.printStackTrace();
-                        if (byteArrayOutputStream != null) {
-                            try {
-                                byteArrayOutputStream.flush();
-                                byteArrayOutputStream.close();
-                                com.baidu.ufosdk.f.c.a("FeedbackEditActivity --> bitMapByteArray - output.close in finally");
-                            } catch (Exception e3) {
-                                e3.printStackTrace();
-                            }
-                        }
-                        return bArr;
-                    }
-                } catch (Exception e4) {
-                    e = e4;
-                    bArr = null;
-                }
+                byteArrayOutputStream = new ByteArrayOutputStream();
             } catch (Throwable th) {
                 th = th;
-                if (byteArrayOutputStream != null) {
-                    try {
-                        byteArrayOutputStream.flush();
-                        byteArrayOutputStream.close();
-                        com.baidu.ufosdk.f.c.a("FeedbackEditActivity --> bitMapByteArray - output.close in finally");
-                    } catch (Exception e5) {
-                        e5.printStackTrace();
-                    }
-                }
-                throw th;
             }
-        } catch (Exception e6) {
-            e = e6;
-            byteArrayOutputStream = null;
+        } catch (Exception e2) {
+            e = e2;
             bArr = null;
+        }
+        try {
+            bitmap.compress(Bitmap.CompressFormat.PNG, 50, byteArrayOutputStream);
+            bArr2 = byteArrayOutputStream.toByteArray();
+            byteArrayOutputStream.flush();
+            byteArrayOutputStream.close();
+            com.baidu.ufosdk.f.c.a("FeedbackEditActivity --> bitMapByteArray - output.close normal");
+            try {
+                byteArrayOutputStream.flush();
+                byteArrayOutputStream.close();
+                com.baidu.ufosdk.f.c.a("FeedbackEditActivity --> bitMapByteArray - output.close in finally");
+                return bArr2;
+            } catch (Exception e3) {
+                e3.printStackTrace();
+                return bArr2;
+            }
+        } catch (Exception e4) {
+            e = e4;
+            bArr = bArr2;
+            byteArrayOutputStream3 = byteArrayOutputStream;
+            e.printStackTrace();
+            if (byteArrayOutputStream3 != null) {
+                try {
+                    byteArrayOutputStream3.flush();
+                    byteArrayOutputStream3.close();
+                    com.baidu.ufosdk.f.c.a("FeedbackEditActivity --> bitMapByteArray - output.close in finally");
+                } catch (Exception e5) {
+                    e5.printStackTrace();
+                }
+            }
+            byteArrayOutputStream2 = bArr;
+            return byteArrayOutputStream2;
         } catch (Throwable th2) {
             th = th2;
-            byteArrayOutputStream = null;
-            if (byteArrayOutputStream != null) {
+            byteArrayOutputStream2 = byteArrayOutputStream;
+            if (byteArrayOutputStream2 != 0) {
+                try {
+                    byteArrayOutputStream2.flush();
+                    byteArrayOutputStream2.close();
+                    com.baidu.ufosdk.f.c.a("FeedbackEditActivity --> bitMapByteArray - output.close in finally");
+                } catch (Exception e6) {
+                    e6.printStackTrace();
+                }
             }
             throw th;
         }
-        return bArr;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -591,10 +666,9 @@ public class FeedbackEditActivity extends Activity {
         this.u.setVisibility(8);
         this.V.setTextColor(com.baidu.ufosdk.b.v);
         this.v = false;
-        a(this.v ? false : true);
+        a(!false);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public static /* synthetic */ void h(FeedbackEditActivity feedbackEditActivity) {
         int size;
         if (feedbackEditActivity.v) {
@@ -604,7 +678,8 @@ public class FeedbackEditActivity extends Activity {
             Toast.makeText(feedbackEditActivity, com.baidu.ufosdk.f.s.a("32"), 0).show();
             return;
         }
-        if (feedbackEditActivity.z != null && (size = feedbackEditActivity.z.size()) != 0) {
+        List list = feedbackEditActivity.z;
+        if (list != null && (size = list.size()) != 0) {
             for (int i = 0; i < size; i++) {
                 if (feedbackEditActivity.z.get(i) != null && ((TextView) feedbackEditActivity.z.get(i)).getText().toString().equals("")) {
                     Log.d("content", ((TextView) feedbackEditActivity.z.get(i)).getText().toString());
@@ -618,7 +693,7 @@ public class FeedbackEditActivity extends Activity {
         } else if (feedbackEditActivity.m.getText().toString().trim().length() > com.baidu.ufosdk.b.aa) {
             Toast.makeText(feedbackEditActivity, com.baidu.ufosdk.f.s.a(Constants.VIA_REPORT_TYPE_START_WAP), 0).show();
         } else if (com.baidu.ufosdk.b.d.b(feedbackEditActivity.getApplicationContext()).contains(RomUtils.UNKNOWN) || com.baidu.ufosdk.b.d.b(feedbackEditActivity.getApplicationContext()).contains("NONE")) {
-            Toast.makeText(feedbackEditActivity, com.baidu.ufosdk.f.s.a("64"), 0).show();
+            Toast.makeText(feedbackEditActivity, com.baidu.ufosdk.f.s.a(WebKitFactory.OS_64), 0).show();
         } else if (UfoSDK.clientid.length() == 0) {
             Toast.makeText(feedbackEditActivity, com.baidu.ufosdk.f.s.a("62"), 0).show();
             new Thread(new s(feedbackEditActivity)).start();
@@ -630,31 +705,29 @@ public class FeedbackEditActivity extends Activity {
             feedbackEditActivity.u.bringToFront();
             feedbackEditActivity.v = true;
             feedbackEditActivity.V.setTextColor(com.baidu.ufosdk.b.y);
-            feedbackEditActivity.a(!feedbackEditActivity.v);
+            feedbackEditActivity.a(true ^ feedbackEditActivity.v);
             new Thread(new t(feedbackEditActivity)).start();
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public static /* synthetic */ void s(FeedbackEditActivity feedbackEditActivity) {
         if (com.baidu.ufosdk.f.h.a()) {
             return;
         }
         Intent intent = new Intent("android.intent.action.GET_CONTENT");
         intent.addCategory("android.intent.category.OPENABLE");
-        intent.setType("image/*");
+        intent.setType(BdUploadHandler.IMAGE_MIME_TYPE);
         if (feedbackEditActivity.getCurrentFocus() != null && feedbackEditActivity.getCurrentFocus().getWindowToken() != null) {
             ((InputMethodManager) feedbackEditActivity.getSystemService("input_method")).hideSoftInputFromWindow(feedbackEditActivity.getCurrentFocus().getWindowToken(), 2);
         }
         try {
             feedbackEditActivity.w = true;
             feedbackEditActivity.startActivityForResult(intent, 10);
-        } catch (ActivityNotFoundException e) {
+        } catch (ActivityNotFoundException unused) {
             Toast.makeText(feedbackEditActivity, com.baidu.ufosdk.f.s.a("0"), 1).show();
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public static /* synthetic */ void x(FeedbackEditActivity feedbackEditActivity) {
         feedbackEditActivity.p.removeAllViews();
         feedbackEditActivity.q.clear();
@@ -662,71 +735,95 @@ public class FeedbackEditActivity extends Activity {
     }
 
     public final boolean a(Context context, String str, String str2, String str3, String str4, String str5, Handler handler) {
-        if (str2.equals("newMessage") && com.baidu.ufosdk.b.ag != null) {
-            com.baidu.ufosdk.b.ag.onSubmitNewMessage();
+        Map map;
+        String str6;
+        Map map2;
+        String str7;
+        StringBuilder sb;
+        String str8;
+        com.baidu.ufosdk.a aVar;
+        if (str2.equals("newMessage") && (aVar = com.baidu.ufosdk.b.ag) != null) {
+            aVar.onSubmitNewMessage();
         }
         com.baidu.ufosdk.f.c.c("url is https://ufosdk.baidu.com/?m=Index&a=postmsg");
-        this.f3639a.put("clientid", str);
-        this.f3639a.put("appid", UfoSDK.appid);
-        this.f3639a.put("devid", UfoSDK.devid);
-        this.f3639a.put("id", str2);
-        this.f3639a.put("content", str3);
-        this.f3639a.put("product_type", Integer.valueOf(this.W));
-        this.f3639a.put("need_manual", 1);
+        this.f22988a.put("clientid", str);
+        this.f22988a.put("appid", UfoSDK.appid);
+        this.f22988a.put("devid", UfoSDK.devid);
+        this.f22988a.put("id", str2);
+        this.f22988a.put("content", str3);
+        this.f22988a.put("product_type", Integer.valueOf(this.W));
+        this.f22988a.put("need_manual", 1);
         int i = com.baidu.ufosdk.f.i.a(str4) ? 1 : com.baidu.ufosdk.f.i.b(str4) ? 2 : com.baidu.ufosdk.f.i.c(str4) ? 3 : 0;
         com.baidu.ufosdk.f.c.c("contactWay is " + str4 + "; type = " + i);
         if (i == 0) {
-            this.f3639a.put("contact_way", str4);
+            map = this.f22988a;
+            str6 = "contact_way";
         } else if (i == 1) {
             com.baidu.ufosdk.f.c.c("contactWay is email");
-            this.f3639a.put(NotificationCompat.CATEGORY_EMAIL, str4);
+            map = this.f22988a;
+            str6 = "email";
         } else if (i == 2) {
             com.baidu.ufosdk.f.c.c("contactWay is tel");
-            this.f3639a.put("tel", str4);
+            map = this.f22988a;
+            str6 = "tel";
         } else {
             com.baidu.ufosdk.f.c.c("contactWay is qq");
-            this.f3639a.put("qq", str4);
+            map = this.f22988a;
+            str6 = LoginConstants.QQ_LOGIN;
         }
-        this.f3639a.put(com.xiaomi.mipush.sdk.Constants.PHONE_BRAND, Build.MANUFACTURER);
-        this.f3639a.put("model", Build.MODEL);
-        this.f3639a.put("sdkvn", "2.9.10");
-        this.f3639a.put("os", HttpConstants.OS_TYPE_VALUE);
-        this.f3639a.put("appvn", com.baidu.ufosdk.b.e.b());
-        this.f3639a.put("freespace", String.valueOf(com.baidu.ufosdk.b.a.a()));
-        this.f3639a.put("uid", com.baidu.ufosdk.b.d);
-        this.f3639a.put("username", com.baidu.ufosdk.b.b);
-        this.f3639a.put(DpStatConstants.KEY_USER_ID, com.baidu.ufosdk.b.d);
-        this.f3639a.put("osvn", Build.VERSION.RELEASE);
-        this.f3639a.put("extra", com.baidu.ufosdk.b.f);
-        this.f3639a.put("extend_feedback_channel", Integer.valueOf(com.baidu.ufosdk.b.j));
-        this.f3639a.put("osvc", String.valueOf(com.baidu.ufosdk.f.j.a()));
-        this.f3639a.put(Config.LAUNCH_REFERER, com.baidu.ufosdk.b.p);
-        this.f3639a.put("baiducuid", com.baidu.ufosdk.b.c);
-        if (!TextUtils.isEmpty(this.g)) {
-            this.f3639a.put("faq_id", this.g);
+        map.put(str6, str4);
+        this.f22988a.put("brand", Build.MANUFACTURER);
+        this.f22988a.put("model", Build.MODEL);
+        this.f22988a.put("sdkvn", "2.9.10");
+        this.f22988a.put(IXAdRequestInfo.OS, "android");
+        this.f22988a.put("appvn", com.baidu.ufosdk.b.e.b());
+        this.f22988a.put("freespace", String.valueOf(com.baidu.ufosdk.b.a.a()));
+        this.f22988a.put("uid", com.baidu.ufosdk.b.f22904d);
+        this.f22988a.put("username", com.baidu.ufosdk.b.f22902b);
+        this.f22988a.put(DpStatConstants.KEY_USER_ID, com.baidu.ufosdk.b.f22904d);
+        this.f22988a.put("osvn", Build.VERSION.RELEASE);
+        this.f22988a.put("extra", com.baidu.ufosdk.b.f22906f);
+        this.f22988a.put("extend_feedback_channel", Integer.valueOf(com.baidu.ufosdk.b.j));
+        this.f22988a.put("osvc", String.valueOf(com.baidu.ufosdk.f.j.a()));
+        this.f22988a.put(Config.LAUNCH_REFERER, com.baidu.ufosdk.b.p);
+        this.f22988a.put("baiducuid", com.baidu.ufosdk.b.f22903c);
+        if (!TextUtils.isEmpty(this.f22994g)) {
+            this.f22988a.put("faq_id", this.f22994g);
         }
-        this.f3639a.put("phonetime", String.valueOf(System.currentTimeMillis()));
-        if (com.baidu.ufosdk.f.p.a("android.permission.ACCESS_NETWORK_STATE")) {
-            this.f3639a.put("nettype", com.baidu.ufosdk.b.d.a(context));
+        this.f22988a.put("phonetime", String.valueOf(System.currentTimeMillis()));
+        if (com.baidu.ufosdk.f.p.a(DefaultConnectivityMonitorFactory.NETWORK_PERMISSION)) {
+            map2 = this.f22988a;
+            str7 = com.baidu.ufosdk.b.d.a(context);
         } else {
-            this.f3639a.put("nettype", "N/A");
+            map2 = this.f22988a;
+            str7 = "N/A";
         }
-        this.f3639a.put("screenSize", com.baidu.ufosdk.b.f.a(context));
-        if (com.baidu.ufosdk.b.f3606a) {
-            this.f3639a.put("logcat", com.baidu.ufosdk.b.b.a());
+        map2.put("nettype", str7);
+        this.f22988a.put("screenSize", com.baidu.ufosdk.b.f.a(context));
+        if (com.baidu.ufosdk.b.f22901a) {
+            this.f22988a.put("logcat", com.baidu.ufosdk.b.b.a());
         }
-        if (!TextUtils.isEmpty(com.baidu.ufosdk.b.h)) {
-            this.f3639a.put("ip_location", com.baidu.ufosdk.b.h);
+        if (!TextUtils.isEmpty(com.baidu.ufosdk.b.f22908h)) {
+            this.f22988a.put("ip_location", com.baidu.ufosdk.b.f22908h);
         }
-        String a2 = com.baidu.ufosdk.f.k.a(com.baidu.ufosdk.c.a.a(this.f3639a));
+        String a2 = com.baidu.ufosdk.f.k.a(com.baidu.ufosdk.c.a.a(this.f22988a));
         try {
-            String a3 = com.baidu.ufosdk.e.b.a("https://ufosdk.baidu.com/?m=Index&a=postmsg", TextUtils.isEmpty(str5) ? "sdk_encrypt=" + URLEncoder.encode(a2, "UTF-8") : "sdk_encrypt=" + URLEncoder.encode(a2, "UTF-8") + "&screenshot=" + URLEncoder.encode(str5, "UTF-8"));
+            if (TextUtils.isEmpty(str5)) {
+                sb = new StringBuilder("sdk_encrypt=");
+                sb.append(URLEncoder.encode(a2, "UTF-8"));
+            } else {
+                sb = new StringBuilder("sdk_encrypt=");
+                sb.append(URLEncoder.encode(a2, "UTF-8"));
+                sb.append("&screenshot=");
+                sb.append(URLEncoder.encode(str5, "UTF-8"));
+            }
+            String a3 = com.baidu.ufosdk.e.b.a("https://ufosdk.baidu.com/?m=Index&a=postmsg", sb.toString());
             if (TextUtils.isEmpty(a3)) {
-                com.baidu.ufosdk.f.c.c("response is empty, return false!");
+                str8 = "response is empty, return false!";
             } else {
                 JSONObject jSONObject = new JSONObject(com.baidu.ufosdk.f.k.b(a3));
                 com.baidu.ufosdk.f.c.a("response is -----------------> " + jSONObject.toString());
-                int intValue = ((Integer) jSONObject.get(BaseJsonData.TAG_ERRNO)).intValue();
+                int intValue = ((Integer) jSONObject.get("errno")).intValue();
                 if (intValue == 0) {
                     UfoSDK.neverFeedback = false;
                     UfoSDK.lastSendTime = System.currentTimeMillis();
@@ -737,21 +834,22 @@ public class FeedbackEditActivity extends Activity {
                     handler.obtainMessage(14, String.valueOf(jSONObject.get("id"))).sendToTarget();
                     return true;
                 } else if (intValue == 4) {
-                    handler.obtainMessage(19, (String) jSONObject.get(BaseJsonData.TAG_ERRMSG)).sendToTarget();
+                    handler.obtainMessage(19, (String) jSONObject.get("errmsg")).sendToTarget();
                     return true;
                 } else {
-                    com.baidu.ufosdk.f.c.c("errNo is invalid, errNo = " + intValue);
+                    str8 = "errNo is invalid, errNo = " + intValue;
                 }
             }
-        } catch (Exception e) {
-            com.baidu.ufosdk.f.c.a("sendRecord fail.", e);
+            com.baidu.ufosdk.f.c.c(str8);
+        } catch (Exception e2) {
+            com.baidu.ufosdk.f.c.a("sendRecord fail.", e2);
         }
         this.v = false;
         return false;
     }
 
     @Override // android.app.Activity
-    protected void onActivityResult(int i, int i2, Intent intent) {
+    public void onActivityResult(int i, int i2, Intent intent) {
         com.baidu.ufosdk.f.c.a(" --*^o^*-- requestCode = " + i + "; resultCode = " + i2);
         super.onActivityResult(i, i2, intent);
         if (!this.y) {
@@ -764,7 +862,8 @@ public class FeedbackEditActivity extends Activity {
             return;
         }
         if (i2 == -77 && this.q.size() > 0) {
-            this.q.remove(this.q.size() - 1);
+            List list = this.q;
+            list.remove(list.size() - 1);
             this.af.obtainMessage(17).sendToTarget();
         }
         if (i != 10 && i2 == -1) {
@@ -783,80 +882,73 @@ public class FeedbackEditActivity extends Activity {
                 } else {
                     this.q.set(i, byteArrayExtra);
                 }
-            } catch (Exception e) {
-                com.baidu.ufosdk.f.c.a("set ArrayList error!", e);
+            } catch (Exception e2) {
+                com.baidu.ufosdk.f.c.a("set ArrayList error!", e2);
             }
             this.af.obtainMessage(17).sendToTarget();
             return;
         }
         Uri data = intent.getData();
-        if (data != null) {
-            InputStream inputStream = null;
+        if (data == null) {
+            return;
+        }
+        InputStream inputStream = null;
+        try {
             try {
-                try {
-                    InputStream openInputStream = getContentResolver().openInputStream(data);
-                    if (openInputStream.available() >= 8388608) {
-                        Toast.makeText(this, com.baidu.ufosdk.f.s.a(Constants.VIA_REPORT_TYPE_QQFAVORITES), 1).show();
-                        if (openInputStream != null) {
-                            try {
-                                openInputStream.close();
-                                return;
-                            } catch (Exception e2) {
-                                return;
-                            }
-                        }
-                        return;
-                    }
-                    byte[] a2 = a(openInputStream);
-                    if (a2 == null) {
-                        Toast.makeText(this, com.baidu.ufosdk.f.s.a(Constants.VIA_REPORT_TYPE_QQFAVORITES), 1).show();
-                        if (openInputStream != null) {
-                            try {
-                                openInputStream.close();
-                                return;
-                            } catch (Exception e3) {
-                                return;
-                            }
-                        }
-                        return;
-                    }
-                    byte[] a3 = com.baidu.ufosdk.f.q.a(a2);
-                    if (a3 == null) {
-                        Toast.makeText(this, com.baidu.ufosdk.f.s.a(Constants.VIA_REPORT_TYPE_QQFAVORITES), 1).show();
-                        if (openInputStream != null) {
-                            try {
-                                openInputStream.close();
-                            } catch (Exception e4) {
-                            }
-                        }
-                    } else if (a3.length > 307200) {
-                        Toast.makeText(this, com.baidu.ufosdk.f.s.a(Constants.VIA_REPORT_TYPE_QQFAVORITES), 1).show();
-                        if (openInputStream != null) {
-                            try {
-                                openInputStream.close();
-                            } catch (Exception e5) {
-                            }
-                        }
-                    } else {
-                        if (a3.length != 0) {
-                            this.q.add(a3);
-                            a(a3, true, this.q.size() - 1);
-                        } else {
-                            Toast.makeText(this, "图片错误，请重新选择一张。", 1).show();
-                        }
-                        if (openInputStream != null) {
-                            try {
-                                openInputStream.close();
-                            } catch (Exception e6) {
-                            }
-                        }
-                    }
-                } catch (Exception e7) {
-                    com.baidu.ufosdk.f.c.a("OnActivity Result Error!", e7);
-                    if (0 != 0) {
+                InputStream openInputStream = getContentResolver().openInputStream(data);
+                if (openInputStream.available() >= 8388608) {
+                    Toast.makeText(this, com.baidu.ufosdk.f.s.a(Constants.VIA_REPORT_TYPE_QQFAVORITES), 1).show();
+                    if (openInputStream != null) {
                         try {
-                            inputStream.close();
-                        } catch (Exception e8) {
+                            openInputStream.close();
+                            return;
+                        } catch (Exception unused) {
+                            return;
+                        }
+                    }
+                    return;
+                }
+                byte[] a2 = a(openInputStream);
+                if (a2 == null) {
+                    Toast.makeText(this, com.baidu.ufosdk.f.s.a(Constants.VIA_REPORT_TYPE_QQFAVORITES), 1).show();
+                    if (openInputStream != null) {
+                        try {
+                            openInputStream.close();
+                            return;
+                        } catch (Exception unused2) {
+                            return;
+                        }
+                    }
+                    return;
+                }
+                byte[] a3 = com.baidu.ufosdk.f.q.a(a2);
+                if (a3 == null) {
+                    Toast.makeText(this, com.baidu.ufosdk.f.s.a(Constants.VIA_REPORT_TYPE_QQFAVORITES), 1).show();
+                    if (openInputStream != null) {
+                        try {
+                            openInputStream.close();
+                        } catch (Exception unused3) {
+                        }
+                    }
+                } else if (a3.length > 307200) {
+                    Toast.makeText(this, com.baidu.ufosdk.f.s.a(Constants.VIA_REPORT_TYPE_QQFAVORITES), 1).show();
+                    if (openInputStream != null) {
+                        try {
+                            openInputStream.close();
+                        } catch (Exception unused4) {
+                        }
+                    }
+                } else {
+                    if (a3.length != 0) {
+                        this.q.add(a3);
+                        a(a3, true, this.q.size() - 1);
+                    } else {
+                        Toast.makeText(this, "图片错误，请重新选择一张。", 1).show();
+                    }
+                    if (openInputStream != null) {
+                        try {
+                            openInputStream.close();
+                        } catch (Exception unused5) {
                         }
                     }
                 }
@@ -864,103 +956,122 @@ public class FeedbackEditActivity extends Activity {
                 if (0 != 0) {
                     try {
                         inputStream.close();
-                    } catch (Exception e9) {
+                    } catch (Exception unused6) {
                     }
                 }
                 throw th;
+            }
+        } catch (Exception e3) {
+            com.baidu.ufosdk.f.c.a("OnActivity Result Error!", e3);
+            if (0 != 0) {
+                try {
+                    inputStream.close();
+                } catch (Exception unused7) {
+                }
             }
         }
     }
 
     @Override // android.app.Activity
-    protected void onCreate(Bundle bundle) {
+    public void onCreate(Bundle bundle) {
+        String str;
         super.onCreate(bundle);
         requestWindowFeature(1);
         getWindow().setSoftInputMode(32);
         com.baidu.ufosdk.f.r.a(this, getWindow());
         com.baidu.ufosdk.f.r.a(getWindow(), com.baidu.ufosdk.b.L);
-        this.c = getSharedPreferences("UfoSharePreference", 0);
-        String string = this.c.getString("cryptContactData", "");
+        SharedPreferences sharedPreferences = getSharedPreferences("UfoSharePreference", 0);
+        this.f22990c = sharedPreferences;
+        String string = sharedPreferences.getString("cryptContactData", "");
         if (string == null || string.trim().length() <= 0) {
             this.R = "";
         } else {
             this.R = com.baidu.ufosdk.f.k.b(string);
         }
-        this.b = this.c.edit();
-        this.g = getIntent().getStringExtra("faq_id");
+        this.f22989b = this.f22990c.edit();
+        this.f22994g = getIntent().getStringExtra("faq_id");
         this.t = getIntent().getStringExtra("msgid");
         this.W = getIntent().getIntExtra("product_type", 0);
         this.X = getIntent().getIntExtra("come_from", -1);
         this.Y = getIntent().getIntExtra("extend_feedback_channel", -1);
         if (this.X == 2) {
-            this.h = "";
-            this.ac = com.baidu.ufosdk.f.s.a("43");
+            this.f22995h = "";
+            str = "43";
         } else {
-            this.ac = com.baidu.ufosdk.f.s.a(Constants.VIA_REPORT_TYPE_SHARE_TO_QQ);
+            str = Constants.VIA_REPORT_TYPE_SHARE_TO_QQ;
         }
+        this.ac = com.baidu.ufosdk.f.s.a(str);
         if (this.W != 0 && this.X == 1) {
             new Thread(new m(this)).start();
         }
         if (this.Y != -1) {
             new Thread(new w(this)).start();
         }
-        String b = com.baidu.ufosdk.f.i.b(System.currentTimeMillis());
-        com.baidu.ufosdk.f.c.c("--FeedbackEdit:364--today:" + b + "; startStr:" + UfoSDK.startStr);
-        if (UfoSDK.startStr.equals(b + "-enable")) {
-            if (!this.c.getBoolean("editFeedbackViewUV_has", false)) {
-                this.b.putInt("editFeedbackViewUV", this.c.getInt("editFeedbackViewUV", 0) + 1);
-                this.b.putBoolean("editFeedbackViewUV_has", true);
+        String b2 = com.baidu.ufosdk.f.i.b(System.currentTimeMillis());
+        com.baidu.ufosdk.f.c.c("--FeedbackEdit:364--today:" + b2 + "; startStr:" + UfoSDK.startStr);
+        String str2 = UfoSDK.startStr;
+        if (str2.equals(b2 + "-enable")) {
+            if (!this.f22990c.getBoolean("editFeedbackViewUV_has", false)) {
+                this.f22989b.putInt("editFeedbackViewUV", this.f22990c.getInt("editFeedbackViewUV", 0) + 1);
+                this.f22989b.putBoolean("editFeedbackViewUV_has", true);
             }
-            this.b.commit();
+            this.f22989b.commit();
         }
         if (this.X == 1) {
-            this.h = "";
-            if (UfoSDK.startStr.equals(b + "-enable")) {
-                if (!this.c.getBoolean("editFeedbackViewFromFaqUV_has", false)) {
-                    this.b.putInt("editFeedbackViewFromFaqUV", this.c.getInt("editFeedbackViewFromFaqUV", 0) + 1);
-                    this.b.putBoolean("editFeedbackViewFromFaqUV_has", true);
+            this.f22995h = "";
+            String str3 = UfoSDK.startStr;
+            if (str3.equals(b2 + "-enable")) {
+                if (!this.f22990c.getBoolean("editFeedbackViewFromFaqUV_has", false)) {
+                    this.f22989b.putInt("editFeedbackViewFromFaqUV", this.f22990c.getInt("editFeedbackViewFromFaqUV", 0) + 1);
+                    this.f22989b.putBoolean("editFeedbackViewFromFaqUV_has", true);
                 }
-                this.b.commit();
+                this.f22989b.commit();
             }
         }
         if (this.X == 0) {
-            this.ae = getIntent().getStringExtra("im_content");
-            Log.d("imcontent", this.ae);
-            this.h = getIntent().getStringExtra("data_array");
-            if (UfoSDK.startStr.equals(b + "-enable")) {
-                if (!this.c.getBoolean("editFeedbackViewFromRobotUV_has", false)) {
-                    this.b.putInt("editFeedbackViewFromRobotUV", this.c.getInt("editFeedbackViewFromRobotUV", 0) + 1);
-                    this.b.putBoolean("editFeedbackViewFromRobotUV_has", true);
+            String stringExtra = getIntent().getStringExtra("im_content");
+            this.ae = stringExtra;
+            Log.d("imcontent", stringExtra);
+            this.f22995h = getIntent().getStringExtra("data_array");
+            String str4 = UfoSDK.startStr;
+            if (str4.equals(b2 + "-enable")) {
+                if (!this.f22990c.getBoolean("editFeedbackViewFromRobotUV_has", false)) {
+                    this.f22989b.putInt("editFeedbackViewFromRobotUV", this.f22990c.getInt("editFeedbackViewFromRobotUV", 0) + 1);
+                    this.f22989b.putBoolean("editFeedbackViewFromRobotUV_has", true);
                 }
-                this.b.commit();
+                this.f22989b.commit();
             }
         }
         if (TextUtils.isEmpty(this.t)) {
             this.t = "newMessage";
         }
-        if (TextUtils.isEmpty(this.g)) {
-            this.g = "";
+        if (TextUtils.isEmpty(this.f22994g)) {
+            this.f22994g = "";
         }
-        this.b.putBoolean("ADD_PIC_FLAG", true);
-        this.b.commit();
-        this.f = getIntent().getIntExtra("feedback_channel", 0);
-        com.baidu.ufosdk.b.j = this.f;
+        this.f22989b.putBoolean("ADD_PIC_FLAG", true);
+        this.f22989b.commit();
+        int intExtra = getIntent().getIntExtra("feedback_channel", 0);
+        this.f22993f = intExtra;
+        com.baidu.ufosdk.b.j = intExtra;
         this.z = new ArrayList();
         this.G = new ScrollView(this);
-        this.i = new RelativeLayout(this);
-        this.i.setFitsSystemWindows(true);
-        this.i.setId(R.drawable.res_0x7f080004_avd_show_password__1);
         RelativeLayout relativeLayout = new RelativeLayout(this);
-        relativeLayout.setId(R.id.BOTTOM);
+        this.i = relativeLayout;
+        relativeLayout.setFitsSystemWindows(true);
+        this.i.setId(R.drawable.res_0x7f080004_avd_show_password__1);
+        RelativeLayout relativeLayout2 = new RelativeLayout(this);
+        relativeLayout2.setId(R.id.BOTTOM);
         this.i.setBackgroundColor(com.baidu.ufosdk.b.z);
         LinearLayout linearLayout = new LinearLayout(this);
         linearLayout.setOrientation(0);
         linearLayout.setGravity(16);
         linearLayout.setBackgroundDrawable(com.baidu.ufosdk.f.m.a(getApplicationContext(), null, "ufo_back_layout_press.png"));
-        this.A = new LinearLayout.LayoutParams(com.baidu.ufosdk.f.i.a(getApplicationContext(), 18.0f), com.baidu.ufosdk.f.i.a(getApplicationContext(), 50.0f));
-        this.A.setMargins(com.baidu.ufosdk.f.i.a(getApplicationContext(), 10.0f), 0, 0, 0);
-        this.j = new ImageView(this);
-        this.j.setId(R.drawable.res_0x7f080001_avd_hide_password__1);
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(com.baidu.ufosdk.f.i.a(getApplicationContext(), 18.0f), com.baidu.ufosdk.f.i.a(getApplicationContext(), 50.0f));
+        this.A = layoutParams;
+        layoutParams.setMargins(com.baidu.ufosdk.f.i.a(getApplicationContext(), 10.0f), 0, 0, 0);
+        ImageView imageView = new ImageView(this);
+        this.j = imageView;
+        imageView.setId(R.drawable.res_0x7f080001_avd_hide_password__1);
         this.j.setScaleType(ImageView.ScaleType.CENTER_CROP);
         this.j.setBackgroundDrawable(new BitmapDrawable(com.baidu.ufosdk.f.m.a(getApplicationContext(), "ufo_back_icon_browser.png")));
         linearLayout.addView(this.j, this.A);
@@ -969,64 +1080,80 @@ public class FeedbackEditActivity extends Activity {
         textView.setTextSize(com.baidu.ufosdk.b.M);
         textView.setTextColor(com.baidu.ufosdk.b.H);
         textView.setGravity(16);
-        this.A = new LinearLayout.LayoutParams(-2, -2);
-        this.A.setMargins(0, 0, com.baidu.ufosdk.f.i.a(getApplicationContext(), 8.0f), 0);
+        LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-2, -2);
+        this.A = layoutParams2;
+        layoutParams2.setMargins(0, 0, com.baidu.ufosdk.f.i.a(getApplicationContext(), 8.0f), 0);
         linearLayout.addView(textView, this.A);
-        this.B = new RelativeLayout.LayoutParams(-2, -2);
-        this.B.addRule(9);
+        RelativeLayout.LayoutParams layoutParams3 = new RelativeLayout.LayoutParams(-2, -2);
+        this.B = layoutParams3;
+        layoutParams3.addRule(9);
         this.B.addRule(15);
-        relativeLayout.addView(linearLayout, this.B);
-        this.k = new TextView(this);
-        this.k.setId(R.drawable.res_0x7f080002_avd_hide_password__2);
+        relativeLayout2.addView(linearLayout, this.B);
+        TextView textView2 = new TextView(this);
+        this.k = textView2;
+        textView2.setId(R.drawable.res_0x7f080002_avd_hide_password__2);
         this.k.setText(this.ac);
         this.k.setTextColor(com.baidu.ufosdk.b.r);
         this.k.setTextSize(com.baidu.ufosdk.b.T);
         this.k.setGravity(17);
-        this.B = new RelativeLayout.LayoutParams(-2, -1);
-        this.B.addRule(13);
-        relativeLayout.addView(this.k, this.B);
+        RelativeLayout.LayoutParams layoutParams4 = new RelativeLayout.LayoutParams(-2, -1);
+        this.B = layoutParams4;
+        layoutParams4.addRule(13);
+        relativeLayout2.addView(this.k, this.B);
         this.V = new Button(this);
         if (getIntent().getIntExtra("continue", 0) == 1) {
             this.V.setVisibility(4);
         }
         this.V.setText(com.baidu.ufosdk.f.s.a(PayConfig.PAYMENT_POS_KEY_MANGA));
         this.V.setId(R.id.DOWN);
-        if (this.ae == null || this.ae.length() < 4) {
+        String str5 = this.ae;
+        if (str5 == null || str5.length() < 4) {
             this.V.setTextColor(com.baidu.ufosdk.b.y);
         } else {
-            this.V.setTextColor(com.baidu.ufosdk.f.i.a(com.baidu.ufosdk.b.v, com.baidu.ufosdk.b.y, com.baidu.ufosdk.b.v, com.baidu.ufosdk.b.v));
+            Button button = this.V;
+            int i = com.baidu.ufosdk.b.v;
+            int i2 = com.baidu.ufosdk.b.y;
+            int i3 = com.baidu.ufosdk.b.v;
+            button.setTextColor(com.baidu.ufosdk.f.i.a(i, i2, i3, i3));
         }
         this.V.setTextColor(com.baidu.ufosdk.b.y);
         this.V.setTextSize(com.baidu.ufosdk.b.U);
         this.V.setGravity(17);
         this.V.setBackgroundColor(ViewCompat.MEASURED_SIZE_MASK);
         this.V.setPadding(com.baidu.ufosdk.f.i.a(getApplicationContext(), 8.0f), 0, com.baidu.ufosdk.f.i.a(getApplicationContext(), 8.0f), 0);
-        this.B = new RelativeLayout.LayoutParams(-2, -1);
-        this.B.addRule(11);
+        RelativeLayout.LayoutParams layoutParams5 = new RelativeLayout.LayoutParams(-2, -1);
+        this.B = layoutParams5;
+        layoutParams5.addRule(11);
         this.B.addRule(15);
-        relativeLayout.addView(this.V, this.B);
-        relativeLayout.setBackgroundColor(com.baidu.ufosdk.b.A);
-        this.B = new RelativeLayout.LayoutParams(-1, com.baidu.ufosdk.f.i.a(getApplicationContext(), 50.0f));
-        this.B.addRule(10);
-        this.i.addView(relativeLayout, this.B);
-        this.A = new LinearLayout.LayoutParams(-1, -1);
-        this.A.weight = 1.0f;
+        relativeLayout2.addView(this.V, this.B);
+        relativeLayout2.setBackgroundColor(com.baidu.ufosdk.b.A);
+        RelativeLayout.LayoutParams layoutParams6 = new RelativeLayout.LayoutParams(-1, com.baidu.ufosdk.f.i.a(getApplicationContext(), 50.0f));
+        this.B = layoutParams6;
+        layoutParams6.addRule(10);
+        this.i.addView(relativeLayout2, this.B);
+        LinearLayout.LayoutParams layoutParams7 = new LinearLayout.LayoutParams(-1, -1);
+        this.A = layoutParams7;
+        layoutParams7.weight = 1.0f;
         View view = new View(this);
         view.setId(133201936);
         view.setBackgroundColor(-2894893);
-        this.B = new RelativeLayout.LayoutParams(-1, com.baidu.ufosdk.f.i.a(getApplicationContext(), 0.5f));
-        this.B.addRule(3, relativeLayout.getId());
+        RelativeLayout.LayoutParams layoutParams8 = new RelativeLayout.LayoutParams(-1, com.baidu.ufosdk.f.i.a(getApplicationContext(), 0.5f));
+        this.B = layoutParams8;
+        layoutParams8.addRule(3, relativeLayout2.getId());
         this.i.addView(view, this.B);
-        this.l = new RelativeLayout(this);
-        this.l.setId(R.drawable.res_0x7f080005_avd_show_password__2);
+        RelativeLayout relativeLayout3 = new RelativeLayout(this);
+        this.l = relativeLayout3;
+        relativeLayout3.setId(R.drawable.res_0x7f080005_avd_show_password__2);
         this.l.setBackgroundColor(com.baidu.ufosdk.b.z);
-        this.B = new RelativeLayout.LayoutParams(-1, -1);
-        this.B.addRule(3, view.getId());
+        RelativeLayout.LayoutParams layoutParams9 = new RelativeLayout.LayoutParams(-1, -1);
+        this.B = layoutParams9;
+        layoutParams9.addRule(3, view.getId());
         this.G.addView(this.l);
         this.i.addView(this.G, this.B);
         this.u = com.baidu.ufosdk.f.i.b(this, com.baidu.ufosdk.f.s.a(SoUtils.SO_EVENT_ID_NEW_SO));
-        this.B = new RelativeLayout.LayoutParams(-2, -2);
-        this.B.addRule(13);
+        RelativeLayout.LayoutParams layoutParams10 = new RelativeLayout.LayoutParams(-2, -2);
+        this.B = layoutParams10;
+        layoutParams10.addRule(13);
         this.l.addView(this.u, this.B);
         this.u.setVisibility(8);
         linearLayout.setOnClickListener(new y(this));
@@ -1038,13 +1165,13 @@ public class FeedbackEditActivity extends Activity {
         try {
             com.baidu.ufosdk.f.c.d("执行动画...");
             overridePendingTransition(com.baidu.ufosdk.f.i.a(getApplicationContext(), "ufo_slide_in_from_right"), com.baidu.ufosdk.f.i.a(getApplicationContext(), "ufo_slide_out_to_left"));
-        } catch (Exception e) {
+        } catch (Exception unused) {
             com.baidu.ufosdk.f.c.d("exit!");
         }
     }
 
     @Override // android.app.Activity
-    protected void onDestroy() {
+    public void onDestroy() {
         super.onDestroy();
     }
 
@@ -1058,43 +1185,55 @@ public class FeedbackEditActivity extends Activity {
     }
 
     @Override // android.app.Activity
-    protected void onPause() {
+    public void onPause() {
+        SharedPreferences.Editor editor;
+        String str;
         super.onPause();
         String obj = this.n.getText().toString();
         if (obj == null || obj.trim().length() <= 0) {
-            this.b.putString("cryptContactData", "");
+            this.f22989b.putString("cryptContactData", "");
         } else {
-            this.b.putString("cryptContactData", com.baidu.ufosdk.f.k.a(obj));
+            this.f22989b.putString("cryptContactData", com.baidu.ufosdk.f.k.a(obj));
         }
         if (this.s.booleanValue()) {
-            if (TextUtils.isEmpty(this.g)) {
-                this.b.putString(this.t, this.m.getText().toString());
+            if (TextUtils.isEmpty(this.f22994g)) {
+                editor = this.f22989b;
+                str = this.t;
             } else {
-                this.b.putString(this.g, this.m.getText().toString());
+                editor = this.f22989b;
+                str = this.f22994g;
             }
+            editor.putString(str, this.m.getText().toString());
         }
-        this.b.commit();
+        this.f22989b.commit();
     }
 
     @Override // android.app.Activity
-    protected void onResume() {
+    public void onResume() {
+        EditText editText;
+        String str;
+        SharedPreferences sharedPreferences;
+        String str2;
         super.onResume();
         if (TextUtils.isEmpty(UfoSDK.clientid)) {
-            SharedPreferences sharedPreferences = getSharedPreferences("UfoSharePreference", 0);
-            UfoSDK.clientid = sharedPreferences.getString("UfoClientId", "");
-            UfoSDK.appid = sharedPreferences.getString("UfoAppId", "");
-            UfoSDK.devid = sharedPreferences.getString("UfoDevId", "");
-            UfoSDK.productid = sharedPreferences.getString("UfoProductId", "");
+            SharedPreferences sharedPreferences2 = getSharedPreferences("UfoSharePreference", 0);
+            UfoSDK.clientid = sharedPreferences2.getString("UfoClientId", "");
+            UfoSDK.appid = sharedPreferences2.getString("UfoAppId", "");
+            UfoSDK.devid = sharedPreferences2.getString("UfoDevId", "");
+            UfoSDK.productid = sharedPreferences2.getString("UfoProductId", "");
         }
         com.baidu.ufosdk.f.d dVar = new com.baidu.ufosdk.f.d(this);
         dVar.a(dVar.a() + 1);
-        if (com.baidu.ufosdk.b.ac != null) {
-            com.baidu.ufosdk.b.ac.onResumeCallback();
+        ResumeCallBack resumeCallBack = com.baidu.ufosdk.b.ac;
+        if (resumeCallBack != null) {
+            resumeCallBack.onResumeCallback();
         }
-        this.ac = com.baidu.ufosdk.f.s.a("43");
-        this.k.setText(this.ac);
+        String a2 = com.baidu.ufosdk.f.s.a("43");
+        this.ac = a2;
+        this.k.setText(a2);
         this.V.setText(com.baidu.ufosdk.f.s.a(PayConfig.PAYMENT_POS_KEY_MANGA));
-        this.C.setText(com.baidu.ufosdk.f.s.a("48") + "*");
+        TextView textView = this.C;
+        textView.setText(com.baidu.ufosdk.f.s.a("48") + "*");
         this.D.setText(com.baidu.ufosdk.f.s.a("46"));
         this.E.setText(com.baidu.ufosdk.f.s.a("47"));
         if (this.R.length() > 0) {
@@ -1103,47 +1242,56 @@ public class FeedbackEditActivity extends Activity {
             this.n.setHint(com.baidu.ufosdk.f.s.a("31"));
         }
         if ("".equals(com.baidu.ufosdk.b.n)) {
-            this.m.setHint(com.baidu.ufosdk.f.s.a("6"));
+            editText = this.m;
+            str = com.baidu.ufosdk.f.s.a("6");
         } else {
-            this.m.setHint(com.baidu.ufosdk.b.n);
+            editText = this.m;
+            str = com.baidu.ufosdk.b.n;
         }
+        editText.setHint(str);
         com.baidu.ufosdk.f.i.a((RelativeLayout) this.u, com.baidu.ufosdk.f.s.a(SoUtils.SO_EVENT_ID_NEW_SO));
         this.V.setTextSize(com.baidu.ufosdk.b.U);
-        this.s = true;
-        if (this.t == null) {
-            this.t = "newMessage";
-        } else if (this.t.length() == 0) {
+        this.s = Boolean.TRUE;
+        String str3 = this.t;
+        if (str3 == null || str3.length() == 0) {
             this.t = "newMessage";
         }
         if (this.X == 0 && this.F) {
             this.F = false;
             if (this.ae.length() > 0) {
-                if (this.ae.length() > com.baidu.ufosdk.b.aa) {
-                    this.ae = this.ae.substring(0, com.baidu.ufosdk.b.aa - 1);
+                int length = this.ae.length();
+                int i = com.baidu.ufosdk.b.aa;
+                if (length > i) {
+                    this.ae = this.ae.substring(0, i - 1);
                 }
                 this.m.setText(this.ae);
                 b(this.m, this.ae.length());
             }
         } else {
-            String string = TextUtils.isEmpty(this.g) ? this.c.getString(this.t, "") : this.c.getString(this.g, "");
+            if (TextUtils.isEmpty(this.f22994g)) {
+                sharedPreferences = this.f22990c;
+                str2 = this.t;
+            } else {
+                sharedPreferences = this.f22990c;
+                str2 = this.f22994g;
+            }
+            String string = sharedPreferences.getString(str2, "");
             if (string.length() > 0) {
-                if (string.length() > com.baidu.ufosdk.b.aa) {
-                    string = string.substring(0, com.baidu.ufosdk.b.aa - 1);
+                int length2 = string.length();
+                int i2 = com.baidu.ufosdk.b.aa;
+                if (length2 > i2) {
+                    string = string.substring(0, i2 - 1);
                 }
                 this.m.setText(string);
                 b(this.m, string.length());
             }
         }
-        String string2 = this.c.getString("cryptContactData", "");
+        String string2 = this.f22990c.getString("cryptContactData", "");
         if (string2 == null || string2.trim().length() <= 0) {
             this.n.setText("");
         } else {
             this.n.setText(com.baidu.ufosdk.f.k.b(string2));
         }
-        if (UfoSDK.clientid.length() == 0) {
-            new Thread(new u(this)).start();
-        } else {
-            new Thread(new v(this)).start();
-        }
+        (UfoSDK.clientid.length() == 0 ? new Thread(new u(this)) : new Thread(new v(this))).start();
     }
 }

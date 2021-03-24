@@ -1,51 +1,46 @@
 package com.baidu.tbadk;
 
-import com.baidu.adp.base.a.b;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ba;
-import com.baidu.tbadk.core.util.bb;
+import com.baidu.tbadk.core.util.TiebaMainDatabaseHelper;
+import com.baidu.tbadk.core.util.TiebaMainSdDatabaseHelper;
+import d.b.b.a.k.b;
 /* loaded from: classes.dex */
 public class TiebaDatabase {
-    private static TiebaDatabase _instance = new TiebaDatabase();
-    private b mainDB;
-    private b mainSdDB;
-
-    private TiebaDatabase() {
-    }
+    public static TiebaDatabase _instance = new TiebaDatabase();
+    public b mainDB;
+    public b mainSdDB;
 
     public static TiebaDatabase getInstance() {
         return _instance;
     }
 
     public b getMainDBDatabaseManager() {
-        b bVar;
-        if (this.mainDB != null) {
-            return this.mainDB;
+        b bVar = this.mainDB;
+        if (bVar != null) {
+            return bVar;
         }
         synchronized (_instance) {
             if (this.mainDB != null) {
-                bVar = this.mainDB;
-            } else {
-                this.mainDB = new b(new ba(TbadkCoreApplication.getInst().getContext()));
-                bVar = this.mainDB;
+                return this.mainDB;
             }
+            b bVar2 = new b(new TiebaMainDatabaseHelper(TbadkCoreApplication.getInst().getContext()));
+            this.mainDB = bVar2;
+            return bVar2;
         }
-        return bVar;
     }
 
     public b getSdcardMainDBDatabaseManager() {
-        b bVar;
-        if (this.mainSdDB != null) {
-            return this.mainSdDB;
+        b bVar = this.mainSdDB;
+        if (bVar != null) {
+            return bVar;
         }
         synchronized (_instance) {
             if (this.mainSdDB != null) {
-                bVar = this.mainSdDB;
-            } else {
-                this.mainSdDB = new b(new bb());
-                bVar = this.mainSdDB;
+                return this.mainSdDB;
             }
+            b bVar2 = new b(new TiebaMainSdDatabaseHelper());
+            this.mainSdDB = bVar2;
+            return bVar2;
         }
-        return bVar;
     }
 }

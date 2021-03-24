@@ -9,101 +9,102 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class TurbonetConfig {
-    private String mStoragePath;
-    private boolean oTJ = false;
-    private JSONObject oTI = new JSONObject();
+
+    /* renamed from: b  reason: collision with root package name */
+    public String f22839b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public boolean f22840c = false;
+
+    /* renamed from: a  reason: collision with root package name */
+    public JSONObject f22838a = new JSONObject();
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes5.dex */
+    /* loaded from: classes.dex */
     public @interface HttpCacheSetting {
     }
 
-    public void Au(boolean z) {
-        e(SchemeCollecter.CLASSIFY_BASE, "http2_enabled", Boolean.valueOf(z));
+    public void a(String str) {
+        i("conn", "preconnect_app_hosts", str);
     }
 
-    public void Av(boolean z) {
-        e(SchemeCollecter.CLASSIFY_BASE, ETAG.KEY_QUIC_ENABLED, Boolean.valueOf(z));
+    public void b(boolean z) {
+        i("bdns", "baidu_dns_enabled", Boolean.valueOf(z));
     }
 
-    public void Xi(String str) {
-        if (!new File(str).isDirectory()) {
-            throw new IllegalArgumentException("Storage path must be set to existing directory");
-        }
-        this.mStoragePath = str;
+    public void c(boolean z) {
+        i(SchemeCollecter.CLASSIFY_BASE, "http2_enabled", Boolean.valueOf(z));
     }
 
-    public void D(int i, long j) {
-        if (i == 3 || i == 2) {
-            if (egT() == null) {
-                throw new IllegalArgumentException("Storage path must be set");
+    public void d(int i, long j) {
+        if (i != 3 && i != 2) {
+            if (l() != null) {
+                throw new IllegalArgumentException("Storage path must not be set");
             }
-            this.oTJ = true;
-        } else if (egT() != null) {
-            throw new IllegalArgumentException("Storage path must not be set");
+        } else if (l() != null) {
+            this.f22840c = true;
+        } else {
+            throw new IllegalArgumentException("Storage path must be set");
         }
-        e(SchemeCollecter.CLASSIFY_BASE, "http_cache_enabled", Boolean.valueOf(i == 0 || i == 2 ? false : true));
-        switch (i) {
-            case 0:
-                e(SchemeCollecter.CLASSIFY_BASE, "http_cache_mode", "DISABLED");
-                break;
-            case 1:
-                e(SchemeCollecter.CLASSIFY_BASE, "http_cache_mode", "MEMORY");
-                break;
-            case 2:
-            case 3:
-                e(SchemeCollecter.CLASSIFY_BASE, "http_cache_mode", "DISK");
-                break;
-            default:
-                throw new IllegalArgumentException("Unknown cache mode");
+        i(SchemeCollecter.CLASSIFY_BASE, "http_cache_enabled", Boolean.valueOf(!(i == 0 || i == 2)));
+        if (i == 0) {
+            i(SchemeCollecter.CLASSIFY_BASE, "http_cache_mode", "DISABLED");
+        } else if (i == 1) {
+            i(SchemeCollecter.CLASSIFY_BASE, "http_cache_mode", "MEMORY");
+        } else if (i != 2 && i != 3) {
+            throw new IllegalArgumentException("Unknown cache mode");
+        } else {
+            i(SchemeCollecter.CLASSIFY_BASE, "http_cache_mode", "DISK");
         }
-        e(SchemeCollecter.CLASSIFY_BASE, "http_cache_size", Long.valueOf(j));
+        i(SchemeCollecter.CLASSIFY_BASE, "http_cache_size", Long.valueOf(j));
     }
 
-    public void Aw(boolean z) {
-        e("conn", "preconnect_enabled", Boolean.valueOf(z));
+    public void e(boolean z) {
+        i("conn", "preconnect_enabled", Boolean.valueOf(z));
     }
 
-    public void Xj(String str) {
-        e("conn", "preconnect_app_hosts", str);
+    public void f(boolean z) {
+        i(SchemeCollecter.CLASSIFY_BASE, ETAG.KEY_QUIC_ENABLED, Boolean.valueOf(z));
     }
 
-    public void Ax(boolean z) {
-        e("bdns", "baidu_dns_enabled", Boolean.valueOf(z));
+    public JSONObject g() {
+        return this.f22838a;
     }
 
-    public void setRequestTimeout(int i) {
-        if (i < 0) {
-            throw new IllegalArgumentException(String.format("Invalid timeout second, %d is negative.", Integer.valueOf(i)));
-        }
-        e("misc", "request_timeout", Integer.valueOf(i));
+    public boolean h() {
+        return this.f22840c;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public JSONObject egS() {
-        return this.oTI;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public String egT() {
-        return this.mStoragePath;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean egU() {
-        return this.oTJ;
-    }
-
-    public void e(String str, String str2, Object obj) {
+    public void i(String str, String str2, Object obj) {
         try {
-            JSONObject optJSONObject = this.oTI.optJSONObject(str);
+            JSONObject optJSONObject = this.f22838a.optJSONObject(str);
             if (optJSONObject == null) {
                 optJSONObject = new JSONObject();
             }
             optJSONObject.put(str2, obj);
-            this.oTI.put(str, optJSONObject);
-        } catch (JSONException e) {
-            throw new IllegalStateException("JSON expcetion:", e);
+            this.f22838a.put(str, optJSONObject);
+        } catch (JSONException e2) {
+            throw new IllegalStateException("JSON expcetion:", e2);
         }
+    }
+
+    public void j(int i) {
+        if (i >= 0) {
+            i("misc", "request_timeout", Integer.valueOf(i));
+            return;
+        }
+        throw new IllegalArgumentException(String.format("Invalid timeout second, %d is negative.", Integer.valueOf(i)));
+    }
+
+    public void k(String str) {
+        if (new File(str).isDirectory()) {
+            this.f22839b = str;
+            return;
+        }
+        throw new IllegalArgumentException("Storage path must be set to existing directory");
+    }
+
+    public String l() {
+        return this.f22839b;
     }
 }

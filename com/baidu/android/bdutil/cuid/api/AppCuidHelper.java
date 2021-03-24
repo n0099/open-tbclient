@@ -5,35 +5,40 @@ import android.text.TextUtils;
 import com.baidu.android.common.util.CommonParam;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.util.Base64Encoder;
-/* loaded from: classes6.dex */
-final class AppCuidHelper {
-    private static final boolean DEBUG = false;
-    private static final String TAG = "AppCuidHelper";
-    private String mEnUid;
-    private String mUid;
-    private volatile String mUidFromGalaxy;
+/* loaded from: classes2.dex */
+public final class AppCuidHelper {
+    public static final boolean DEBUG = false;
+    public static final String TAG = "AppCuidHelper";
+    public String mEnUid;
+    public String mUid;
+    public volatile String mUidFromGalaxy;
 
-    /* loaded from: classes6.dex */
-    private static class Singleton {
-        private static final AppCuidHelper INSTANCE = new AppCuidHelper();
-
-        private Singleton() {
-        }
+    /* loaded from: classes2.dex */
+    public static class Singleton {
+        public static final AppCuidHelper INSTANCE = new AppCuidHelper();
     }
 
-    private AppCuidHelper() {
-        initUid();
+    private String generateUID(Context context) {
+        return CommonParam.getCUID(context);
     }
 
     public static final AppCuidHelper getInstance() {
         return Singleton.INSTANCE;
     }
 
-    public String getmUid() {
-        if (TextUtils.isEmpty(this.mUid)) {
-            initUid();
+    private synchronized String getUid() {
+        if (AppRuntime.getAppContext() == null) {
+            return null;
         }
-        return this.mUid;
+        if (TextUtils.isEmpty(this.mUidFromGalaxy)) {
+            this.mUidFromGalaxy = generateUID(AppRuntime.getAppContext());
+        }
+        return this.mUidFromGalaxy;
+    }
+
+    private void initUid() {
+        this.mUid = getUid();
+        this.mEnUid = new String(Base64Encoder.B64Encode(this.mUid.getBytes()));
     }
 
     public String getmEnUid() {
@@ -43,25 +48,14 @@ final class AppCuidHelper {
         return this.mEnUid;
     }
 
-    private void initUid() {
-        this.mUid = getUid();
-        this.mEnUid = new String(Base64Encoder.B64Encode(this.mUid.getBytes()));
-    }
-
-    private synchronized String getUid() {
-        String str;
-        if (AppRuntime.getAppContext() == null) {
-            str = null;
-        } else {
-            if (TextUtils.isEmpty(this.mUidFromGalaxy)) {
-                this.mUidFromGalaxy = generateUID(AppRuntime.getAppContext());
-            }
-            str = this.mUidFromGalaxy;
+    public String getmUid() {
+        if (TextUtils.isEmpty(this.mUid)) {
+            initUid();
         }
-        return str;
+        return this.mUid;
     }
 
-    private String generateUID(Context context) {
-        return CommonParam.getCUID(context);
+    public AppCuidHelper() {
+        initUid();
     }
 }

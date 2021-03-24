@@ -1,11 +1,11 @@
 package com.kwai.player.vr;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class FpsStatistic {
-    private static final int FPS_CALCULATE_TIME_MS = 1000;
-    private volatile boolean mFpsStar;
-    private volatile long mFpsStartTimeMs;
-    private volatile int mFpsCounter = 0;
-    private volatile int mFps = -1;
+    public static final int FPS_CALCULATE_TIME_MS = 1000;
+    public volatile boolean mFpsStar;
+    public volatile long mFpsStartTimeMs;
+    public volatile int mFpsCounter = 0;
+    public volatile int mFps = -1;
 
     private void resetFpsTimeAndCounter() {
         this.mFpsStartTimeMs = 0L;
@@ -17,22 +17,21 @@ public class FpsStatistic {
     }
 
     public void onFrame() {
-        if (!this.mFpsStar) {
-            resetFpsTimeAndCounter();
-            return;
-        }
-        if (this.mFpsStartTimeMs <= 0) {
-            this.mFpsStartTimeMs = System.currentTimeMillis();
-        }
-        int currentTimeMillis = (int) (System.currentTimeMillis() - this.mFpsStartTimeMs);
-        if (this.mFpsStartTimeMs <= 0 || currentTimeMillis <= 0) {
-            return;
-        }
-        this.mFpsCounter++;
-        if (currentTimeMillis > 1000) {
+        if (this.mFpsStar) {
+            if (this.mFpsStartTimeMs <= 0) {
+                this.mFpsStartTimeMs = System.currentTimeMillis();
+            }
+            int currentTimeMillis = (int) (System.currentTimeMillis() - this.mFpsStartTimeMs);
+            if (this.mFpsStartTimeMs <= 0 || currentTimeMillis <= 0) {
+                return;
+            }
+            this.mFpsCounter++;
+            if (currentTimeMillis <= 1000) {
+                return;
+            }
             this.mFps = this.mFpsCounter;
-            resetFpsTimeAndCounter();
         }
+        resetFpsTimeAndCounter();
     }
 
     public void resetFps() {

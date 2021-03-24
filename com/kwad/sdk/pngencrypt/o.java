@@ -3,109 +3,130 @@ package com.kwad.sdk.pngencrypt;
 import com.kwad.sdk.pngencrypt.chunk.ah;
 import java.io.Closeable;
 import java.io.InputStream;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class o implements Closeable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final k f6931a;
-    public final boolean b;
-    protected final c c;
-    protected final a d;
-    protected final ah e;
-    protected int f;
-    protected ErrorBehaviour g = ErrorBehaviour.STRICT;
-    private i<? extends Object> h;
+    public final k f36198a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public final boolean f36199b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public final c f36200c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public final a f36201d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public final ah f36202e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public int f36203f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public ErrorBehaviour f36204g = ErrorBehaviour.STRICT;
+
+    /* renamed from: h  reason: collision with root package name */
+    public i<? extends Object> f36205h;
 
     public o(InputStream inputStream, boolean z) {
-        this.f = -1;
-        this.d = new a(inputStream);
-        this.d.a(z);
-        this.c = f();
+        this.f36203f = -1;
+        a aVar = new a(inputStream);
+        this.f36201d = aVar;
+        aVar.a(z);
+        c f2 = f();
+        this.f36200c = f2;
         try {
-            if (this.d.b(this.c, 36) != 36) {
+            if (this.f36201d.b(f2, 36) != 36) {
                 com.kwad.sdk.core.d.a.a(new PngjException("Could not read first 36 bytes (PNG signature+IHDR chunk)"));
             }
-            this.f6931a = this.c.j();
-            this.b = this.c.k() != null;
+            this.f36198a = this.f36200c.j();
+            this.f36199b = this.f36200c.k() != null;
             b(5024024L);
             a(901001001L);
             c(2024024L);
-            this.c.c("fdAT");
-            this.c.c("fcTL");
-            this.e = new ah(this.c.i);
+            this.f36200c.c("fdAT");
+            this.f36200c.c("fcTL");
+            this.f36202e = new ah(this.f36200c.i);
             a(m.a());
-            this.f = -1;
-        } catch (RuntimeException e) {
-            this.d.close();
-            this.c.close();
-            throw e;
+            this.f36203f = -1;
+        } catch (RuntimeException e2) {
+            this.f36201d.close();
+            this.f36200c.close();
+            throw e2;
         }
     }
 
-    protected void a() {
-        while (this.c.h < 4) {
-            if (this.d.a(this.c) <= 0) {
+    public void a() {
+        while (true) {
+            c cVar = this.f36200c;
+            if (cVar.f36117h >= 4) {
+                return;
+            }
+            if (this.f36201d.a(cVar) <= 0) {
                 com.kwad.sdk.core.d.a.a(new PngjException("Premature ending reading first chunks"));
             }
         }
     }
 
     public void a(long j) {
-        this.c.a(j);
+        this.f36200c.a(j);
     }
 
     public void a(i<? extends Object> iVar) {
-        this.h = iVar;
+        this.f36205h = iVar;
     }
 
     public ah b() {
-        if (this.c.g()) {
+        if (this.f36200c.g()) {
             a();
         }
-        return this.e;
+        return this.f36202e;
     }
 
     public void b(long j) {
-        this.c.c(j);
+        this.f36200c.c(j);
     }
 
     public void c() {
         e();
-        this.c.c("IDAT");
-        this.c.c("fdAT");
-        if (this.c.g()) {
+        this.f36200c.c("IDAT");
+        this.f36200c.c("fdAT");
+        if (this.f36200c.g()) {
             a();
         }
         d();
     }
 
     public void c(long j) {
-        this.c.b(j);
+        this.f36200c.b(j);
     }
 
     @Override // java.io.Closeable, java.lang.AutoCloseable
     public void close() {
         try {
-            if (this.c != null) {
-                this.c.close();
+            if (this.f36200c != null) {
+                this.f36200c.close();
             }
-        } catch (Exception e) {
-            com.kwad.sdk.core.d.a.d("PNG_ENCRYPT", "error closing chunk sequence:" + e.getMessage());
+        } catch (Exception e2) {
+            com.kwad.sdk.core.d.a.d("PNG_ENCRYPT", "error closing chunk sequence:" + e2.getMessage());
         }
-        if (this.d != null) {
-            this.d.close();
+        a aVar = this.f36201d;
+        if (aVar != null) {
+            aVar.close();
         }
     }
 
     public void d() {
         try {
-            if (this.c.g()) {
+            if (this.f36200c.g()) {
                 a();
             }
-            if (this.c.h() != null && !this.c.h().d()) {
-                this.c.h().g();
+            if (this.f36200c.h() != null && !this.f36200c.h().d()) {
+                this.f36200c.h().g();
             }
-            while (!this.c.b() && this.d.a(this.c) > 0) {
+            while (!this.f36200c.b() && this.f36201d.a(this.f36200c) > 0) {
             }
         } finally {
             close();
@@ -113,14 +134,14 @@ public class o implements Closeable {
     }
 
     public void e() {
-        this.c.a(false);
+        this.f36200c.a(false);
     }
 
-    protected c f() {
+    public c f() {
         return new c(false);
     }
 
     public String toString() {
-        return this.f6931a.toString() + " interlaced=" + this.b;
+        return this.f36198a.toString() + " interlaced=" + this.f36199b;
     }
 }

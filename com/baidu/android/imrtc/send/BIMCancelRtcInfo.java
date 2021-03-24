@@ -8,17 +8,20 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class BIMCancelRtcInfo extends BIMRtcInfo {
-    private static final String TAG = "BIMCancelRtcInfo";
-    private List<BIMCancelUser> mCancelUsers = new ArrayList();
+    public static final String TAG = "BIMCancelRtcInfo";
+    public List<BIMCancelUser> mCancelUsers = new ArrayList();
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class BIMCancelUser {
         public long appId;
         public String cuid;
         public String thirdUserId;
         public long uk;
+    }
+
+    public BIMCancelRtcInfo() {
     }
 
     public List<BIMCancelUser> getBIMCancelUsers() {
@@ -30,14 +33,31 @@ public class BIMCancelRtcInfo extends BIMRtcInfo {
         this.mCancelUsers.addAll(list);
     }
 
-    public BIMCancelRtcInfo() {
-    }
-
-    private BIMCancelRtcInfo(BIMRtcInfo bIMRtcInfo) {
-        setAction(bIMRtcInfo.getAction());
-        setRtcRoomId(bIMRtcInfo.getRtcRoomId());
-        setRtcExt(bIMRtcInfo.getRtcExt());
-        setRtcDeviceId(bIMRtcInfo.getRtcDeviceId());
+    @Override // com.baidu.android.imrtc.BIMRtcInfo
+    @NonNull
+    public BIMRtcInfo toRtcInfo(int i, String str, String str2) {
+        JSONArray optJSONArray;
+        BIMCancelRtcInfo bIMCancelRtcInfo = new BIMCancelRtcInfo(super.toRtcInfo(i, str, str2));
+        try {
+            optJSONArray = new JSONObject(str2).optJSONArray("user_list");
+        } catch (Exception e2) {
+            LogUtils.e(TAG, "BBIMCancelRtcInfo toRtcInfo Exception ", e2);
+        }
+        if (optJSONArray != null && optJSONArray.length() > 0) {
+            ArrayList arrayList = new ArrayList();
+            for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
+                BIMCancelUser bIMCancelUser = new BIMCancelUser();
+                JSONObject jSONObject = (JSONObject) optJSONArray.opt(i2);
+                bIMCancelUser.appId = jSONObject.optLong("appid");
+                bIMCancelUser.uk = jSONObject.optLong("uk");
+                bIMCancelUser.cuid = jSONObject.optString("cuid");
+                bIMCancelUser.thirdUserId = jSONObject.optString("third_userid");
+                arrayList.add(bIMCancelUser);
+            }
+            bIMCancelRtcInfo.setBIMCancelUsers(arrayList);
+            return bIMCancelRtcInfo;
+        }
+        return bIMCancelRtcInfo;
     }
 
     @Override // com.baidu.android.imrtc.BIMRtcInfo
@@ -57,41 +77,21 @@ public class BIMCancelRtcInfo extends BIMRtcInfo {
             jSONObject.put("user_list", jSONArray);
             LogUtils.d(TAG, "BIMCancelRtcInfo :" + jSONObject.toString());
             return jSONObject.toString();
-        } catch (Exception e) {
-            LogUtils.e(TAG, "BIMCancelRtcInfo Exception ", e);
+        } catch (Exception e2) {
+            LogUtils.e(TAG, "BIMCancelRtcInfo Exception ", e2);
             return "";
         }
     }
 
     @Override // com.baidu.android.imrtc.BIMRtcInfo
-    @NonNull
-    public BIMRtcInfo toRtcInfo(int i, String str, String str2) {
-        JSONArray optJSONArray;
-        BIMCancelRtcInfo bIMCancelRtcInfo = new BIMCancelRtcInfo(super.toRtcInfo(i, str, str2));
-        try {
-            optJSONArray = new JSONObject(str2).optJSONArray("user_list");
-        } catch (Exception e) {
-            LogUtils.e(TAG, "BBIMCancelRtcInfo toRtcInfo Exception ", e);
-        }
-        if (optJSONArray == null || optJSONArray.length() <= 0) {
-            return bIMCancelRtcInfo;
-        }
-        ArrayList arrayList = new ArrayList();
-        for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-            BIMCancelUser bIMCancelUser = new BIMCancelUser();
-            JSONObject jSONObject = (JSONObject) optJSONArray.opt(i2);
-            bIMCancelUser.appId = jSONObject.optLong("appid");
-            bIMCancelUser.uk = jSONObject.optLong("uk");
-            bIMCancelUser.cuid = jSONObject.optString("cuid");
-            bIMCancelUser.thirdUserId = jSONObject.optString("third_userid");
-            arrayList.add(bIMCancelUser);
-        }
-        bIMCancelRtcInfo.setBIMCancelUsers(arrayList);
-        return bIMCancelRtcInfo;
-    }
-
-    @Override // com.baidu.android.imrtc.BIMRtcInfo
     public String toString() {
         return "BBIMCancelRtcInfo{" + super.toString() + ", mCancelUsers=" + this.mCancelUsers.size() + '}';
+    }
+
+    public BIMCancelRtcInfo(BIMRtcInfo bIMRtcInfo) {
+        setAction(bIMRtcInfo.getAction());
+        setRtcRoomId(bIMRtcInfo.getRtcRoomId());
+        setRtcExt(bIMRtcInfo.getRtcExt());
+        setRtcDeviceId(bIMRtcInfo.getRtcDeviceId());
     }
 }

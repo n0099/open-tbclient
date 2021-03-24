@@ -3,7 +3,7 @@ package aegon.chrome.net;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public final class ProxyBroadcastReceiver extends BroadcastReceiver {
     public final ProxyChangeListener mListener;
 

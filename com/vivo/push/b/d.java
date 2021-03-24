@@ -1,29 +1,29 @@
 package com.vivo.push.b;
-/* loaded from: classes14.dex */
+/* loaded from: classes7.dex */
 public final class d extends com.vivo.push.y {
 
     /* renamed from: a  reason: collision with root package name */
-    private boolean f8014a;
+    public boolean f39377a;
 
     public d(boolean z) {
         super(100);
-        this.f8014a = z;
+        this.f39377a = z;
+    }
+
+    @Override // com.vivo.push.y
+    public final void c(com.vivo.push.a aVar) {
+    }
+
+    @Override // com.vivo.push.y
+    public final void d(com.vivo.push.a aVar) {
     }
 
     public final boolean d() {
-        return this.f8014a;
+        return this.f39377a;
     }
 
     @Override // com.vivo.push.y
     public final String toString() {
         return "ChangeNetPromissCommand";
-    }
-
-    @Override // com.vivo.push.y
-    protected final void c(com.vivo.push.a aVar) {
-    }
-
-    @Override // com.vivo.push.y
-    protected final void d(com.vivo.push.a aVar) {
     }
 }

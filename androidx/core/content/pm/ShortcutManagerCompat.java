@@ -12,17 +12,23 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.VisibleForTesting;
 import androidx.core.content.ContextCompat;
-/* loaded from: classes14.dex */
+/* loaded from: classes.dex */
 public class ShortcutManagerCompat {
     @VisibleForTesting
-    static final String ACTION_INSTALL_SHORTCUT = "com.android.launcher.action.INSTALL_SHORTCUT";
+    public static final String ACTION_INSTALL_SHORTCUT = "com.android.launcher.action.INSTALL_SHORTCUT";
     @VisibleForTesting
-    static final String INSTALL_SHORTCUT_PERMISSION = "com.android.launcher.permission.INSTALL_SHORTCUT";
+    public static final String INSTALL_SHORTCUT_PERMISSION = "com.android.launcher.permission.INSTALL_SHORTCUT";
 
-    private ShortcutManagerCompat() {
+    @NonNull
+    public static Intent createShortcutResultIntent(@NonNull Context context, @NonNull ShortcutInfoCompat shortcutInfoCompat) {
+        Intent createShortcutResultIntent = Build.VERSION.SDK_INT >= 26 ? ((ShortcutManager) context.getSystemService(ShortcutManager.class)).createShortcutResultIntent(shortcutInfoCompat.toShortcutInfo()) : null;
+        if (createShortcutResultIntent == null) {
+            createShortcutResultIntent = new Intent();
+        }
+        return shortcutInfoCompat.addToIntent(createShortcutResultIntent);
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:12:0x0039  */
+    /* JADX WARN: Removed duplicated region for block: B:12:0x0036  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -38,7 +44,7 @@ public class ShortcutManagerCompat {
             if (TextUtils.isEmpty(str) || INSTALL_SHORTCUT_PERMISSION.equals(str)) {
                 return true;
             }
-            while (r2.hasNext()) {
+            while (r4.hasNext()) {
             }
         }
         return false;
@@ -48,35 +54,23 @@ public class ShortcutManagerCompat {
         if (Build.VERSION.SDK_INT >= 26) {
             return ((ShortcutManager) context.getSystemService(ShortcutManager.class)).requestPinShortcut(shortcutInfoCompat.toShortcutInfo(), intentSender);
         }
-        if (!isRequestPinShortcutSupported(context)) {
-            return false;
-        }
-        Intent addToIntent = shortcutInfoCompat.addToIntent(new Intent(ACTION_INSTALL_SHORTCUT));
-        if (intentSender == null) {
-            context.sendBroadcast(addToIntent);
+        if (isRequestPinShortcutSupported(context)) {
+            Intent addToIntent = shortcutInfoCompat.addToIntent(new Intent(ACTION_INSTALL_SHORTCUT));
+            if (intentSender == null) {
+                context.sendBroadcast(addToIntent);
+                return true;
+            }
+            context.sendOrderedBroadcast(addToIntent, null, new BroadcastReceiver() { // from class: androidx.core.content.pm.ShortcutManagerCompat.1
+                @Override // android.content.BroadcastReceiver
+                public void onReceive(Context context2, Intent intent) {
+                    try {
+                        intentSender.sendIntent(context2, 0, null, null, null);
+                    } catch (IntentSender.SendIntentException unused) {
+                    }
+                }
+            }, null, -1, null, null);
             return true;
         }
-        context.sendOrderedBroadcast(addToIntent, null, new BroadcastReceiver() { // from class: androidx.core.content.pm.ShortcutManagerCompat.1
-            @Override // android.content.BroadcastReceiver
-            public void onReceive(Context context2, Intent intent) {
-                try {
-                    intentSender.sendIntent(context2, 0, null, null, null);
-                } catch (IntentSender.SendIntentException e) {
-                }
-            }
-        }, null, -1, null, null);
-        return true;
-    }
-
-    @NonNull
-    public static Intent createShortcutResultIntent(@NonNull Context context, @NonNull ShortcutInfoCompat shortcutInfoCompat) {
-        Intent intent = null;
-        if (Build.VERSION.SDK_INT >= 26) {
-            intent = ((ShortcutManager) context.getSystemService(ShortcutManager.class)).createShortcutResultIntent(shortcutInfoCompat.toShortcutInfo());
-        }
-        if (intent == null) {
-            intent = new Intent();
-        }
-        return shortcutInfoCompat.addToIntent(intent);
+        return false;
     }
 }

@@ -2,67 +2,82 @@ package com.baidu.tieba.homepage.concern.message;
 
 import android.text.TextUtils;
 import com.baidu.adp.framework.message.NetMessage;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
-import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.sharedPref.b;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.util.AdExtParam;
-import com.baidu.tbadk.util.c;
-import com.baidu.tbadk.util.v;
-import com.baidu.tieba.homepage.concern.d;
+import d.b.h0.z0.c;
+import d.b.h0.z0.w;
+import d.b.i0.r2.b0.b;
+import d.b.i0.z0.b.d;
 import tbclient.Userlike.DataReq;
 import tbclient.Userlike.UserlikeReqIdl;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class ConcernPageRequestMessage extends NetMessage {
-    private c adInfo;
-    private String pageTag;
+    public c adInfo;
+    public String pageTag;
 
     public ConcernPageRequestMessage() {
-        super(1003343, CmdConfigSocket.CMD_CONCERN_PAGE);
-    }
-
-    @Override // com.baidu.adp.framework.message.NetMessage
-    protected Object encode(boolean z) {
-        try {
-            DataReq.Builder builder = new DataReq.Builder();
-            builder.page_tag = this.pageTag;
-            if (d.cPj()) {
-                if (!d.cPn()) {
-                    builder.page_tag = d.cPl();
-                } else {
-                    builder.page_tag = d.cPk();
-                }
-            }
-            builder.last_req_unix = Long.valueOf(b.brR().getLong(b.getSharedPrefKeyWithAccount(SharedPrefConfig.CONCERN_DATA_RES_REQUEST_TIME), 0L));
-            builder.follow_type = Integer.valueOf(com.baidu.tbadk.a.d.bji() ? b.brR().getInt("key_home_concern_all_status", 0) : 1);
-            if (z) {
-                v.b(builder, true);
-            }
-            builder.load_type = Integer.valueOf(TextUtils.isEmpty(this.pageTag) ? 1 : 2);
-            builder.ad_ext_params = buildAdParam();
-            UserlikeReqIdl.Builder builder2 = new UserlikeReqIdl.Builder();
-            builder2.data = builder.build(false);
-            return builder2.build(false);
-        } catch (Exception e) {
-            return null;
-        }
+        super(CmdConfigHttp.CMD_CONCERN_PAGE, 309474);
     }
 
     private String buildAdParam() {
         boolean isEmpty = TextUtils.isEmpty(this.pageTag);
-        int RZ = isEmpty ? 0 : com.baidu.tieba.recapp.report.b.dEB().RZ("CONCERN");
-        return AdExtParam.a.bEY().rE(RZ).DL(TbadkCoreApplication.getInst().getCuidGalaxy2()).DO((this.adInfo == null || isEmpty) ? "" : this.adInfo.adFloorInfo).DM(isEmpty ? "" : com.baidu.tieba.recapp.report.b.dEB().RX("CONCERN")).bEZ();
+        int e2 = isEmpty ? 0 : b.f().e("CONCERN");
+        String cuidGalaxy2 = TbadkCoreApplication.getInst().getCuidGalaxy2();
+        String str = "";
+        String d2 = isEmpty ? "" : b.f().d("CONCERN");
+        c cVar = this.adInfo;
+        if (cVar != null && !isEmpty) {
+            str = cVar.f51657b;
+        }
+        AdExtParam.a b2 = AdExtParam.a.b();
+        b2.g(e2);
+        b2.d(cuidGalaxy2);
+        b2.e(str);
+        b2.c(d2);
+        return b2.a();
+    }
+
+    @Override // com.baidu.adp.framework.message.NetMessage
+    public Object encode(boolean z) {
+        try {
+            DataReq.Builder builder = new DataReq.Builder();
+            builder.page_tag = this.pageTag;
+            if (d.J()) {
+                if (!d.C()) {
+                    builder.page_tag = d.x();
+                } else {
+                    builder.page_tag = d.w();
+                }
+            }
+            builder.last_req_unix = Long.valueOf(d.b.h0.r.d0.b.i().k(d.b.h0.r.d0.b.m("concern_data_res_request_time"), 0L));
+            int i = 1;
+            builder.follow_type = Integer.valueOf(d.b.h0.b.d.h() ? d.b.h0.r.d0.b.i().j("key_home_concern_all_status", 0) : 1);
+            if (z) {
+                w.a(builder, true);
+            }
+            if (!TextUtils.isEmpty(this.pageTag)) {
+                i = 2;
+            }
+            builder.load_type = Integer.valueOf(i);
+            builder.ad_ext_params = buildAdParam();
+            UserlikeReqIdl.Builder builder2 = new UserlikeReqIdl.Builder();
+            builder2.data = builder.build(false);
+            return builder2.build(false);
+        } catch (Exception unused) {
+            return null;
+        }
     }
 
     public String getPageTag() {
         return this.pageTag;
     }
 
-    public void setPageTag(String str) {
-        this.pageTag = str;
-    }
-
     public void setAdInfo(c cVar) {
         this.adInfo = cVar;
+    }
+
+    public void setPageTag(String str) {
+        this.pageTag = str;
     }
 }

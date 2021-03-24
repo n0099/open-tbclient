@@ -5,9 +5,9 @@ import java.io.File;
 import java.lang.reflect.Array;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class ReflectUtils implements INoProGuard {
-    private static String sReflectErrorDetail = "none";
+    public static String sReflectErrorDetail = "none";
 
     public static void expandPathList(File file, Class<?> cls) {
         try {
@@ -21,8 +21,8 @@ public class ReflectUtils implements INoProGuard {
                 Array.set(newInstance, i, fileArr[i - 1]);
             }
             declaredField.set(pathList, newInstance);
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (Exception e2) {
+            e2.printStackTrace();
         }
     }
 
@@ -60,7 +60,7 @@ public class ReflectUtils implements INoProGuard {
         }
     }
 
-    private static Object getPathList(Object obj) throws ClassNotFoundException, NoSuchFieldException, IllegalAccessException {
+    public static Object getPathList(Object obj) throws ClassNotFoundException, NoSuchFieldException, IllegalAccessException {
         return getField(obj, Class.forName("dalvik.system.BaseDexClassLoader"), "pathList");
     }
 
@@ -70,7 +70,7 @@ public class ReflectUtils implements INoProGuard {
         return str == null ? "none" : str;
     }
 
-    private static void setReflectErrorDetail(String str) {
+    public static void setReflectErrorDetail(String str) {
         sReflectErrorDetail = str;
     }
 }

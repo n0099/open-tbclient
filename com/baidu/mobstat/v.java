@@ -2,39 +2,39 @@ package com.baidu.mobstat;
 
 import android.content.Context;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
-class v implements a {
+/* loaded from: classes2.dex */
+public class v implements a {
 
     /* renamed from: a  reason: collision with root package name */
-    private z f2682a = z.f2687a;
+    public z f9259a = z.f9275a;
 
     @Override // com.baidu.mobstat.a
     public void a(Context context, JSONObject jSONObject) {
-        this.f2682a.a(context, jSONObject);
-    }
-
-    @Override // com.baidu.mobstat.a
-    public void a(Context context, String str) {
-        this.f2682a.a(context, str);
+        this.f9259a.a(context, jSONObject);
     }
 
     @Override // com.baidu.mobstat.a
     public void b(Context context, String str) {
-        this.f2682a.b(context, str);
+        this.f9259a.b(context, str);
     }
 
     @Override // com.baidu.mobstat.a
-    public void a(Context context, long j) {
-        this.f2682a.a(context, j);
-    }
-
-    @Override // com.baidu.mobstat.a
-    public boolean a(Context context) {
-        return this.f2682a.a(context);
+    public void a(Context context, String str) {
+        this.f9259a.a(context, str);
     }
 
     @Override // com.baidu.mobstat.a
     public boolean b(Context context) {
-        return this.f2682a.b(context);
+        return this.f9259a.b(context);
+    }
+
+    @Override // com.baidu.mobstat.a
+    public void a(Context context, long j) {
+        this.f9259a.a(context, j);
+    }
+
+    @Override // com.baidu.mobstat.a
+    public boolean a(Context context) {
+        return this.f9259a.a(context);
     }
 }

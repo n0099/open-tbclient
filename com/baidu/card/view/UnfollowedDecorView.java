@@ -10,58 +10,39 @@ import androidx.appcompat.widget.AppCompatImageView;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.data.cb;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.ThreadCardUtils;
 import com.baidu.tbadk.core.util.WebPManager;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.az;
-import com.baidu.tbadk.util.l;
 import com.baidu.tieba.R;
-import com.baidu.tieba.c.g;
-/* loaded from: classes.dex */
+import d.b.h0.r.q.a2;
+import d.b.h0.z0.l;
+import d.b.i0.b0.g;
+/* loaded from: classes2.dex */
 public class UnfollowedDecorView extends AppCompatImageView implements View.OnClickListener {
-    public g anH;
-    private int anI;
-    private int anJ;
+
+    /* renamed from: e  reason: collision with root package name */
+    public g f4531e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public int f4532f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public int f4533g;
 
     public UnfollowedDecorView(Context context) {
         this(context, null);
     }
 
-    public UnfollowedDecorView(Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, 0);
-    }
-
-    public UnfollowedDecorView(Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        this.anI = R.drawable.icon_pure_card_more22;
-        this.anJ = R.color.CAM_X0111;
-        this.anH = new g(getCurrentActivityPageContext((Activity) context), this);
-        setOnClickListener(this);
-        setScaleType(ImageView.ScaleType.CENTER_INSIDE);
-        setImageDrawable(WebPManager.a(R.drawable.icon_pure_card_more22, ap.getColor(R.color.CAM_X0111), WebPManager.ResourceStateType.NORMAL_PRESS));
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        if (!l.isFastDoubleClick()) {
-            this.anH.ctU();
-        }
-    }
-
-    public void r(cb cbVar) {
-        this.anH.r(cbVar);
-        if (!az.x(cbVar) && cbVar.bpM()) {
+    public void a(a2 a2Var) {
+        this.f4531e.h(a2Var);
+        if (!ThreadCardUtils.isSelf(a2Var) && a2Var.Y1()) {
             setVisibility(0);
         } else {
             setVisibility(8);
         }
     }
 
-    public void onChangeSkinType() {
-        setImageDrawable(WebPManager.a(this.anI, ap.getColor(this.anJ), WebPManager.ResourceStateType.NORMAL_PRESS));
-    }
-
-    private TbPageContext getCurrentActivityPageContext(Activity activity) {
+    public final TbPageContext b(Activity activity) {
         if (activity instanceof BaseActivity) {
             return ((BaseActivity) activity).getPageContext();
         }
@@ -71,9 +52,35 @@ public class UnfollowedDecorView extends AppCompatImageView implements View.OnCl
         return null;
     }
 
+    public void c() {
+        setImageDrawable(WebPManager.getPureDrawable(this.f4532f, SkinManager.getColor(this.f4533g), WebPManager.ResourceStateType.NORMAL_PRESS));
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        if (l.a()) {
+            return;
+        }
+        this.f4531e.n();
+    }
+
     public void setWebPResId(int i, int i2) {
-        this.anI = i;
-        this.anJ = i2;
-        setImageDrawable(WebPManager.a(this.anI, ap.getColor(this.anJ), WebPManager.ResourceStateType.NORMAL_PRESS));
+        this.f4532f = i;
+        this.f4533g = i2;
+        setImageDrawable(WebPManager.getPureDrawable(i, SkinManager.getColor(i2), WebPManager.ResourceStateType.NORMAL_PRESS));
+    }
+
+    public UnfollowedDecorView(Context context, @Nullable AttributeSet attributeSet) {
+        this(context, attributeSet, 0);
+    }
+
+    public UnfollowedDecorView(Context context, @Nullable AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        this.f4532f = R.drawable.icon_pure_card_more22;
+        this.f4533g = R.color.CAM_X0111;
+        this.f4531e = new g(b((Activity) context), this);
+        setOnClickListener(this);
+        setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+        setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_card_more22, SkinManager.getColor(R.color.CAM_X0111), WebPManager.ResourceStateType.NORMAL_PRESS));
     }
 }

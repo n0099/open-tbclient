@@ -1,18 +1,16 @@
 package com.baidu.adp.framework.task;
 
-import com.baidu.adp.framework.d.e;
 import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
+import d.b.b.c.j.e;
 import java.security.InvalidParameterException;
 /* loaded from: classes.dex */
 public abstract class MessageTask {
-    protected final int mCmd;
-    protected int mPriority;
-    protected int mRetry;
-    protected e mTimeOut;
-    private BdAsyncTaskParallel mParallel = null;
-    protected boolean mNeedEncrypt = true;
-
-    public abstract boolean checkCmd();
+    public final int mCmd;
+    public int mPriority;
+    public int mRetry;
+    public e mTimeOut;
+    public BdAsyncTaskParallel mParallel = null;
+    public boolean mNeedEncrypt = true;
 
     public MessageTask(int i) {
         this.mCmd = i;
@@ -25,47 +23,49 @@ public abstract class MessageTask {
         }
     }
 
+    public abstract boolean checkCmd();
+
     public int getCmd() {
         return this.mCmd;
-    }
-
-    public e getTimeOut() {
-        return this.mTimeOut;
-    }
-
-    public void setTimeOut(e eVar) {
-        this.mTimeOut = eVar;
-    }
-
-    public int getRetry() {
-        return this.mRetry;
-    }
-
-    public void setRetry(int i) {
-        this.mRetry = i;
-    }
-
-    public int getPriority() {
-        return this.mPriority;
-    }
-
-    public void setPriority(int i) {
-        this.mPriority = i;
-    }
-
-    public BdAsyncTaskParallel getParallel() {
-        return this.mParallel;
-    }
-
-    public void setParallel(BdAsyncTaskParallel bdAsyncTaskParallel) {
-        this.mParallel = bdAsyncTaskParallel;
     }
 
     public boolean getNeedEncrypt() {
         return this.mNeedEncrypt;
     }
 
+    public BdAsyncTaskParallel getParallel() {
+        return this.mParallel;
+    }
+
+    public int getPriority() {
+        return this.mPriority;
+    }
+
+    public int getRetry() {
+        return this.mRetry;
+    }
+
+    public e getTimeOut() {
+        return this.mTimeOut;
+    }
+
     public void setNeedEncrypt(boolean z) {
         this.mNeedEncrypt = z;
+    }
+
+    public void setParallel(BdAsyncTaskParallel bdAsyncTaskParallel) {
+        this.mParallel = bdAsyncTaskParallel;
+    }
+
+    public void setPriority(int i) {
+        this.mPriority = i;
+    }
+
+    public void setRetry(int i) {
+        this.mRetry = i;
+    }
+
+    public void setTimeOut(e eVar) {
+        this.mTimeOut = eVar;
     }
 }

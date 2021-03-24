@@ -5,22 +5,22 @@ import com.baidu.android.imrtc.send.BIMUser;
 import com.baidu.android.imrtc.utils.IMJni;
 import com.baidu.android.imrtc.utils.LogUtils;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class BIMKickReqSyncRtcInfo extends BIMSyncRtcInfo {
-    private static final String TAG = "BIMKickReqSyncRtcInfo";
-    private BIMUser mKickUser = null;
-    private BIMUser mKickedUser = null;
+    public static final String TAG = "BIMKickReqSyncRtcInfo";
+    public BIMUser mKickUser = null;
+    public BIMUser mKickedUser = null;
 
     public BIMUser getBIMKickUsers() {
         return this.mKickUser;
     }
 
-    public void setBIMKickUser(@NonNull BIMUser bIMUser) {
-        this.mKickUser = bIMUser;
-    }
-
     public BIMUser getBIMKickedUsers() {
         return this.mKickedUser;
+    }
+
+    public void setBIMKickUser(@NonNull BIMUser bIMUser) {
+        this.mKickUser = bIMUser;
     }
 
     public void setBIMKickedUser(@NonNull BIMUser bIMUser) {
@@ -48,8 +48,8 @@ public class BIMKickReqSyncRtcInfo extends BIMSyncRtcInfo {
             jSONObject.put("kicked_user", jSONObject3);
             LogUtils.d(TAG, "BIMKickReqSyncRtcInfo :" + jSONObject.toString());
             return jSONObject.toString();
-        } catch (Exception e) {
-            LogUtils.e(TAG, "BIMKickReqSyncRtcInfo Exception ", e);
+        } catch (Exception e2) {
+            LogUtils.e(TAG, "BIMKickReqSyncRtcInfo Exception ", e2);
             return "";
         }
     }

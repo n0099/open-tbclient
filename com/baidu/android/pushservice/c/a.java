@@ -13,17 +13,21 @@ import android.util.Pair;
 import java.io.File;
 import java.io.FileFilter;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static e f1093a = null;
-    private static final Object b = new Object();
-    private static int c = 200;
+    public static e f2736a = null;
+
+    /* renamed from: b  reason: collision with root package name */
+    public static final Object f2737b = new Object();
+
+    /* renamed from: c  reason: collision with root package name */
+    public static int f2738c = 200;
 
     /* renamed from: com.baidu.android.pushservice.c.a$a  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
-    enum EnumC0045a {
+    /* loaded from: classes2.dex */
+    public enum EnumC0031a {
         alarmMsgInfoId,
         msgId,
         sendtime,
@@ -33,8 +37,8 @@ public class a {
         isAlarm
     }
 
-    /* loaded from: classes5.dex */
-    enum b {
+    /* loaded from: classes2.dex */
+    public enum b {
         appInfoId,
         appid,
         appType,
@@ -46,8 +50,8 @@ public class a {
         intergratedPushVersion
     }
 
-    /* loaded from: classes5.dex */
-    enum c {
+    /* loaded from: classes2.dex */
+    public enum c {
         actionId,
         actionName,
         timeStamp,
@@ -65,28 +69,25 @@ public class a {
         packageName
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes2.dex */
     public static class d implements DatabaseErrorHandler {
-        private d() {
+        public d() {
         }
 
         @TargetApi(16)
         private void a(String str) {
-            if (str.equalsIgnoreCase(":memory:") || str.trim().length() == 0) {
-                return;
-            }
-            try {
-                if (Build.VERSION.SDK_INT > 18) {
-                    SQLiteDatabase.deleteDatabase(new File(str));
-                } else {
-                    new File(str).delete();
+            if (!str.equalsIgnoreCase(":memory:") && str.trim().length() != 0) {
+                try {
+                    if (Build.VERSION.SDK_INT > 18) {
+                        SQLiteDatabase.deleteDatabase(new File(str));
+                    } else {
+                        new File(str).delete();
+                    }
+                } catch (Exception unused) {
                 }
-            } catch (Exception e) {
             }
         }
 
-        /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[INVOKE, CHECK_CAST, IGET, CHECK_CAST, INVOKE, IF, INVOKE, INVOKE, INVOKE, INVOKE, IF] complete} */
         @Override // android.database.DatabaseErrorHandler
         public void onCorruption(SQLiteDatabase sQLiteDatabase) {
             if (!sQLiteDatabase.isOpen()) {
@@ -106,27 +107,82 @@ public class a {
                         a(sQLiteDatabase.getPath());
                     }
                 }
-            } catch (SQLiteException e) {
+            } catch (SQLiteException unused) {
             }
             try {
                 sQLiteDatabase.close();
-            } catch (SQLiteException e2) {
+            } catch (SQLiteException unused2) {
             }
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes2.dex */
     public static class e extends SQLiteOpenHelper {
 
         /* renamed from: a  reason: collision with root package name */
-        private static final String f1103a = "CREATE TABLE StatisticsInfo (" + i.info_id.name() + " INTEGER PRIMARY KEY AUTOINCREMENT, " + i.packageName.name() + " TEXT NOT NULL, " + i.open_type.name() + " TEXT NOT NULL, " + i.msgid.name() + " TEXT, " + i.app_open_time.name() + " TEXT NOT NULL, " + i.app_close_time.name() + " TEXT NOT NULL, " + i.use_duration.name() + " TEXT NOT NULL, " + i.extra.name() + " TEXT);";
-        private static final String b = "CREATE TABLE PushBehavior (" + c.actionId.name() + " INTEGER PRIMARY KEY AUTOINCREMENT, " + c.actionName.name() + " TEXT NOT NULL, " + c.timeStamp.name() + " LONG NOT NULL, " + c.networkStatus.name() + " TEXT, " + c.msgType.name() + " INTEGER, " + c.msgId.name() + " TEXT, " + c.msgLen.name() + " INTEGER, " + c.errorMsg.name() + " TEXT, " + c.requestId.name() + " TEXT, " + c.stableHeartInterval.name() + " INTEGER, " + c.errorCode.name() + " INTEGER, " + c.appid.name() + " TEXT, " + c.channel.name() + " TEXT, " + c.packageName.name() + " TEXT, " + c.openByPackageName.name() + " TEXT);";
-        private static final String c = "CREATE TABLE MsgArriveApp (" + g.MsgInfoId.name() + " INTEGER PRIMARY KEY AUTOINCREMENT, " + g.msgId.name() + " TEXT NOT NULL, " + g.timeStamp.name() + " LONG NOT NULL);";
-        private static final String d = "CREATE TABLE AlarmMsgInfo (" + EnumC0045a.alarmMsgInfoId.name() + " INTEGER PRIMARY KEY AUTOINCREMENT, " + EnumC0045a.msgId.name() + " TEXT NOT NULL, " + EnumC0045a.sendtime.name() + " LONG NOT NULL, " + EnumC0045a.showtime.name() + " LONG NOT NULL, " + EnumC0045a.expiretime.name() + " LONG NOT NULL, " + EnumC0045a.msgEnable.name() + " INTEGER, " + EnumC0045a.isAlarm.name() + " INTEGER);";
-        private static final String e = "CREATE TABLE AppInfo (" + b.appInfoId.name() + " INTEGER PRIMARY KEY AUTOINCREMENT, " + b.appid.name() + " TEXT, " + b.appType.name() + " INTEGER, " + b.packageName.name() + " TEXT UNIQUE, " + b.appName.name() + " TEXT, " + b.cFrom.name() + " TEXT, " + b.versionCode.name() + " TEXT, " + b.versionName.name() + " TEXT, " + b.intergratedPushVersion.name() + " TEXT);";
-        private static final String f = "CREATE TABLE FileDownloadingInfo (" + f.belongTo.name() + " TEXT, " + f.downloadUrl.name() + " TEXT PRIMARY KEY, " + f.savePath.name() + " TEXT NOT NULL, " + f.title.name() + " TEXT, " + f.description.name() + " TEXT, " + f.fileName.name() + " TEXT NOT NULL, " + f.downloadBytes.name() + " INTEGER NOT NULL, " + f.totalBytes.name() + " INTEGER NOT NULL, " + f.downloadStatus.name() + " INTEGER NOT NULL," + f.timeStamp.name() + " INTEGER NOT NULL);";
-        private static final String g = "CREATE TABLE NoDisturb (" + h.pkgName.name() + " TEXT NOT NULL, " + h.startHour.name() + " INTEGER, " + h.startMinute.name() + " INTEGER, " + h.endHour.name() + " INTEGER, " + h.endMinute.name() + " INTEGER);";
+        public static final String f2795a = "CREATE TABLE StatisticsInfo (" + i.info_id.name() + " INTEGER PRIMARY KEY AUTOINCREMENT, " + i.packageName.name() + " TEXT NOT NULL, " + i.open_type.name() + " TEXT NOT NULL, " + i.msgid.name() + " TEXT, " + i.app_open_time.name() + " TEXT NOT NULL, " + i.app_close_time.name() + " TEXT NOT NULL, " + i.use_duration.name() + " TEXT NOT NULL, " + i.extra.name() + " TEXT);";
+
+        /* renamed from: b  reason: collision with root package name */
+        public static final String f2796b = "CREATE TABLE PushBehavior (" + c.actionId.name() + " INTEGER PRIMARY KEY AUTOINCREMENT, " + c.actionName.name() + " TEXT NOT NULL, " + c.timeStamp.name() + " LONG NOT NULL, " + c.networkStatus.name() + " TEXT, " + c.msgType.name() + " INTEGER, " + c.msgId.name() + " TEXT, " + c.msgLen.name() + " INTEGER, " + c.errorMsg.name() + " TEXT, " + c.requestId.name() + " TEXT, " + c.stableHeartInterval.name() + " INTEGER, " + c.errorCode.name() + " INTEGER, " + c.appid.name() + " TEXT, " + c.channel.name() + " TEXT, " + c.packageName.name() + " TEXT, " + c.openByPackageName.name() + " TEXT);";
+
+        /* renamed from: c  reason: collision with root package name */
+        public static final String f2797c;
+
+        /* renamed from: d  reason: collision with root package name */
+        public static final String f2798d;
+
+        /* renamed from: e  reason: collision with root package name */
+        public static final String f2799e;
+
+        /* renamed from: f  reason: collision with root package name */
+        public static final String f2800f;
+
+        /* renamed from: g  reason: collision with root package name */
+        public static final String f2801g;
+
+        static {
+            StringBuilder sb = new StringBuilder();
+            sb.append("CREATE TABLE MsgArriveApp (");
+            sb.append(g.MsgInfoId.name());
+            sb.append(" INTEGER PRIMARY KEY AUTOINCREMENT, ");
+            sb.append(g.msgId.name());
+            sb.append(" TEXT NOT NULL, ");
+            sb.append(g.timeStamp.name());
+            sb.append(" LONG NOT NULL);");
+            f2797c = sb.toString();
+            StringBuilder sb2 = new StringBuilder();
+            sb2.append("CREATE TABLE AlarmMsgInfo (");
+            sb2.append(EnumC0031a.alarmMsgInfoId.name());
+            sb2.append(" INTEGER PRIMARY KEY AUTOINCREMENT, ");
+            sb2.append(EnumC0031a.msgId.name());
+            sb2.append(" TEXT NOT NULL, ");
+            sb2.append(EnumC0031a.sendtime.name());
+            sb2.append(" LONG NOT NULL, ");
+            sb2.append(EnumC0031a.showtime.name());
+            sb2.append(" LONG NOT NULL, ");
+            sb2.append(EnumC0031a.expiretime.name());
+            sb2.append(" LONG NOT NULL, ");
+            sb2.append(EnumC0031a.msgEnable.name());
+            sb2.append(" INTEGER, ");
+            sb2.append(EnumC0031a.isAlarm.name());
+            sb2.append(" INTEGER);");
+            f2798d = sb2.toString();
+            f2799e = "CREATE TABLE AppInfo (" + b.appInfoId.name() + " INTEGER PRIMARY KEY AUTOINCREMENT, " + b.appid.name() + " TEXT, " + b.appType.name() + " INTEGER, " + b.packageName.name() + " TEXT UNIQUE, " + b.appName.name() + " TEXT, " + b.cFrom.name() + " TEXT, " + b.versionCode.name() + " TEXT, " + b.versionName.name() + " TEXT, " + b.intergratedPushVersion.name() + " TEXT);";
+            f2800f = "CREATE TABLE FileDownloadingInfo (" + f.belongTo.name() + " TEXT, " + f.downloadUrl.name() + " TEXT PRIMARY KEY, " + f.savePath.name() + " TEXT NOT NULL, " + f.title.name() + " TEXT, " + f.description.name() + " TEXT, " + f.fileName.name() + " TEXT NOT NULL, " + f.downloadBytes.name() + " INTEGER NOT NULL, " + f.totalBytes.name() + " INTEGER NOT NULL, " + f.downloadStatus.name() + " INTEGER NOT NULL," + f.timeStamp.name() + " INTEGER NOT NULL);";
+            StringBuilder sb3 = new StringBuilder();
+            sb3.append("CREATE TABLE NoDisturb (");
+            sb3.append(h.pkgName.name());
+            sb3.append(" TEXT NOT NULL, ");
+            sb3.append(h.startHour.name());
+            sb3.append(" INTEGER, ");
+            sb3.append(h.startMinute.name());
+            sb3.append(" INTEGER, ");
+            sb3.append(h.endHour.name());
+            sb3.append(" INTEGER, ");
+            sb3.append(h.endMinute.name());
+            sb3.append(" INTEGER);");
+            f2801g = sb3.toString();
+        }
 
         public e(Context context, String str, int i) {
             super(context, str, (SQLiteDatabase.CursorFactory) null, i);
@@ -145,21 +201,21 @@ public class a {
                 sQLiteDatabase.execSQL("DROP TABLE IF EXISTS AlarmMsgInfo");
                 sQLiteDatabase.execSQL("DROP TABLE IF EXISTS NoDisturb");
                 sQLiteDatabase.execSQL("DROP TABLE IF EXISTS MsgArriveApp");
-            } catch (Exception e2) {
+            } catch (Exception unused) {
             }
         }
 
         @Override // android.database.sqlite.SQLiteOpenHelper
         public void onCreate(SQLiteDatabase sQLiteDatabase) {
             try {
-                sQLiteDatabase.execSQL(f1103a);
-                sQLiteDatabase.execSQL(b);
-                sQLiteDatabase.execSQL(c);
-                sQLiteDatabase.execSQL(d);
-                sQLiteDatabase.execSQL(e);
-                sQLiteDatabase.execSQL(f);
-                sQLiteDatabase.execSQL(g);
-            } catch (Exception e2) {
+                sQLiteDatabase.execSQL(f2795a);
+                sQLiteDatabase.execSQL(f2796b);
+                sQLiteDatabase.execSQL(f2797c);
+                sQLiteDatabase.execSQL(f2798d);
+                sQLiteDatabase.execSQL(f2799e);
+                sQLiteDatabase.execSQL(f2800f);
+                sQLiteDatabase.execSQL(f2801g);
+            } catch (Exception unused) {
             }
         }
 
@@ -170,8 +226,8 @@ public class a {
         }
     }
 
-    /* loaded from: classes5.dex */
-    enum f {
+    /* loaded from: classes2.dex */
+    public enum f {
         belongTo,
         downloadUrl,
         title,
@@ -184,15 +240,15 @@ public class a {
         timeStamp
     }
 
-    /* loaded from: classes5.dex */
-    enum g {
+    /* loaded from: classes2.dex */
+    public enum g {
         MsgInfoId,
         msgId,
         timeStamp
     }
 
-    /* loaded from: classes5.dex */
-    enum h {
+    /* loaded from: classes2.dex */
+    public enum h {
         pkgName,
         startHour,
         startMinute,
@@ -200,8 +256,8 @@ public class a {
         endMinute
     }
 
-    /* loaded from: classes5.dex */
-    enum i {
+    /* loaded from: classes2.dex */
+    public enum i {
         info_id,
         packageName,
         open_type,
@@ -213,18 +269,16 @@ public class a {
     }
 
     public static long a(Context context, String str, int i2, int i3, int i4, int i5) {
-        Throwable th;
-        Cursor cursor;
-        long j;
-        synchronized (b) {
-            long j2 = -1;
+        int update;
+        synchronized (f2737b) {
+            long j = -1;
             SQLiteDatabase a2 = a(context);
             if (a2 == null) {
                 return -1L;
             }
-            Cursor cursor2 = null;
+            Cursor cursor = null;
             try {
-                cursor = a2.query("NoDisturb", new String[]{h.pkgName.name()}, h.pkgName.name() + "= ?", new String[]{str}, null, null, null);
+                Cursor query = a2.query("NoDisturb", new String[]{h.pkgName.name()}, h.pkgName.name() + "= ?", new String[]{str}, null, null, null);
                 try {
                     ContentValues contentValues = new ContentValues();
                     contentValues.put(h.pkgName.name(), str);
@@ -232,68 +286,75 @@ public class a {
                     contentValues.put(h.startMinute.name(), Integer.valueOf(i3));
                     contentValues.put(h.endHour.name(), Integer.valueOf(i4));
                     contentValues.put(h.endMinute.name(), Integer.valueOf(i5));
-                    j2 = (cursor == null || !cursor.moveToNext()) ? a2.insert("NoDisturb", null, contentValues) : (i2 == 0 && i3 == 0 && i4 == 0 && i5 == 0) ? a2.delete("NoDisturb", h.pkgName.name() + "= ?", new String[]{str}) : a2.update("NoDisturb", contentValues, h.pkgName.name() + "= ?", new String[]{str});
-                    if (cursor != null) {
-                        cursor.close();
+                    if (query == null || !query.moveToNext()) {
+                        j = a2.insert("NoDisturb", null, contentValues);
+                    } else {
+                        if (i2 == 0 && i3 == 0 && i4 == 0 && i5 == 0) {
+                            update = a2.delete("NoDisturb", h.pkgName.name() + "= ?", new String[]{str});
+                        } else {
+                            update = a2.update("NoDisturb", contentValues, h.pkgName.name() + "= ?", new String[]{str});
+                        }
+                        j = update;
                     }
+                    if (query != null) {
+                        query.close();
+                    }
+                    if (query != null) {
+                        query.close();
+                    }
+                } catch (Exception unused) {
+                    cursor = query;
                     if (cursor != null) {
                         cursor.close();
                     }
                     a2.close();
-                    j = j2;
-                } catch (Exception e2) {
-                    if (cursor != null) {
-                        cursor.close();
-                    }
-                    a2.close();
-                    j = j2;
                     return j;
-                } catch (Throwable th2) {
-                    th = th2;
-                    cursor2 = cursor;
-                    if (cursor2 != null) {
-                        cursor2.close();
+                } catch (Throwable th) {
+                    th = th;
+                    cursor = query;
+                    if (cursor != null) {
+                        cursor.close();
                     }
                     a2.close();
                     throw th;
                 }
-            } catch (Exception e3) {
-                cursor = null;
-            } catch (Throwable th3) {
-                th = th3;
+            } catch (Exception unused2) {
+            } catch (Throwable th2) {
+                th = th2;
             }
+            a2.close();
             return j;
         }
     }
 
-    private static SQLiteDatabase a(Context context) {
+    public static SQLiteDatabase a(Context context) {
         e b2 = b(context);
         if (b2 == null) {
             return null;
         }
         try {
             return b2.getWritableDatabase();
-        } catch (Throwable th) {
+        } catch (Throwable unused) {
             return null;
         }
     }
 
     public static void a() {
-        synchronized (b) {
+        synchronized (f2737b) {
             try {
-                if (f1093a != null) {
-                    f1093a.close();
-                    f1093a = null;
+                if (f2736a != null) {
+                    f2736a.close();
+                    f2736a = null;
                 }
-            } catch (Exception e2) {
-                f1093a = null;
+            } catch (Exception unused) {
+                f2736a = null;
             }
         }
     }
 
-    private static void a(final String str, Context context) {
+    public static void a(final String str, Context context) {
         File[] listFiles;
-        File parentFile = context.getDatabasePath("pushstat_6.9.13.db").getParentFile();
+        File parentFile = context.getDatabasePath("pushstat_8.0.0.db").getParentFile();
         if (parentFile == null || !parentFile.isDirectory() || (listFiles = parentFile.listFiles(new FileFilter() { // from class: com.baidu.android.pushservice.c.a.1
             @Override // java.io.FileFilter
             public boolean accept(File file) {
@@ -314,173 +375,174 @@ public class a {
     }
 
     public static boolean a(Context context, String str) {
-        Throwable th;
         Cursor cursor;
-        Cursor cursor2 = null;
-        synchronized (b) {
+        synchronized (f2737b) {
             SQLiteDatabase a2 = a(context);
             if (a2 == null) {
                 return true;
             }
+            Cursor cursor2 = null;
             try {
                 ContentValues contentValues = new ContentValues();
                 contentValues.clear();
                 contentValues.put(g.msgId.name(), str);
                 contentValues.put(g.timeStamp.name(), Long.valueOf(System.currentTimeMillis()));
                 String str2 = g.msgId.name() + " =? ";
-                cursor = a2.query("MsgArriveApp", new String[]{g.msgId.name()}, str2, new String[]{str}, null, null, null);
-                if (cursor != null) {
+                Cursor query = a2.query("MsgArriveApp", new String[]{g.msgId.name()}, str2, new String[]{str}, null, null, null);
+                if (query != null) {
                     try {
-                        if (cursor.getCount() > 0) {
+                        if (query.getCount() > 0) {
                             a2.update("MsgArriveApp", contentValues, str2, new String[]{str});
-                            if (cursor != null && !cursor.isClosed()) {
-                                cursor.close();
+                            if (query != null && !query.isClosed()) {
+                                query.close();
                             }
                             a2.close();
                             return false;
                         }
-                    } catch (Exception e2) {
-                        if (cursor != null && !cursor.isClosed()) {
+                    } catch (Exception unused) {
+                        cursor = null;
+                        cursor2 = query;
+                        if (cursor2 != null) {
+                            cursor2.close();
+                        }
+                        if (cursor != null) {
                             cursor.close();
                         }
                         a2.close();
                         return true;
-                    } catch (Throwable th2) {
-                        th = th2;
+                    } catch (Throwable th) {
+                        th = th;
+                        cursor = null;
+                        cursor2 = query;
+                        if (cursor2 != null) {
+                            cursor2.close();
+                        }
+                        if (cursor != null) {
+                            cursor.close();
+                        }
+                        a2.close();
+                        throw th;
+                    }
+                }
+                cursor = a2.rawQuery("SELECT COUNT(*) FROM MsgArriveApp;", null);
+                try {
+                    cursor.moveToFirst();
+                    if (cursor.getInt(0) > f2738c) {
+                        a2.delete("MsgArriveApp", null, null);
+                    }
+                    a2.insert("MsgArriveApp", null, contentValues);
+                    if (query != null && !query.isClosed()) {
+                        query.close();
+                    }
+                    if (cursor != null && !cursor.isClosed()) {
+                        cursor.close();
+                    }
+                    a2.close();
+                    return true;
+                } catch (Exception unused2) {
+                    cursor2 = query;
+                    if (cursor2 != null && !cursor2.isClosed()) {
+                        cursor2.close();
+                    }
+                    if (cursor != null && !cursor.isClosed()) {
+                        cursor.close();
+                    }
+                    a2.close();
+                    return true;
+                } catch (Throwable th2) {
+                    th = th2;
+                    cursor2 = query;
+                    if (cursor2 != null && !cursor2.isClosed()) {
+                        cursor2.close();
+                    }
+                    if (cursor != null && !cursor.isClosed()) {
+                        cursor.close();
+                    }
+                    a2.close();
+                    throw th;
+                }
+            } catch (Exception unused3) {
+                cursor = null;
+            } catch (Throwable th3) {
+                th = th3;
+                cursor = null;
+            }
+        }
+    }
+
+    public static e b(Context context) {
+        synchronized (f2737b) {
+            if (f2736a == null) {
+                String path = context.getDatabasePath("pushstat_8.0.0.db").getPath();
+                a("pushstat_8.0.0.db", context);
+                if (Build.VERSION.SDK_INT >= 11) {
+                    f2736a = new e(context, path, 2, new d());
+                } else {
+                    f2736a = new e(context, path, 2);
+                }
+            }
+        }
+        return f2736a;
+    }
+
+    public static int[] b(Context context, String str) {
+        Cursor cursor;
+        synchronized (f2737b) {
+            SQLiteDatabase a2 = a(context);
+            Cursor cursor2 = null;
+            if (a2 == null) {
+                return null;
+            }
+            try {
+                cursor = a2.query("NoDisturb", null, h.pkgName.name() + "= ?", new String[]{str}, null, null, null);
+                if (cursor != null) {
+                    try {
+                        if (cursor.moveToNext()) {
+                            int i2 = cursor.getInt(cursor.getColumnIndex(h.startHour.name()));
+                            int i3 = cursor.getInt(cursor.getColumnIndex(h.startMinute.name()));
+                            int i4 = cursor.getInt(cursor.getColumnIndex(h.endHour.name()));
+                            int i5 = cursor.getInt(cursor.getColumnIndex(h.endMinute.name()));
+                            if (i2 == 0 && i3 == 0 && i4 == 0 && i5 == 0) {
+                                int[] iArr = new int[0];
+                                if (cursor != null) {
+                                    cursor.close();
+                                }
+                                a2.close();
+                                return iArr;
+                            }
+                            int[] iArr2 = {i2, i3, i4, i5};
+                            if (cursor != null) {
+                                cursor.close();
+                            }
+                            a2.close();
+                            return iArr2;
+                        }
+                    } catch (Exception unused) {
+                        if (cursor != null) {
+                            cursor.close();
+                        }
+                        a2.close();
+                        return null;
+                    } catch (Throwable th) {
+                        th = th;
                         cursor2 = cursor;
-                        if (cursor2 != null && !cursor2.isClosed()) {
+                        if (cursor2 != null) {
                             cursor2.close();
                         }
                         a2.close();
                         throw th;
                     }
                 }
-                Cursor rawQuery = a2.rawQuery("SELECT COUNT(*) FROM MsgArriveApp;", null);
-                rawQuery.moveToFirst();
-                if (rawQuery.getInt(0) > c) {
-                    a2.delete("MsgArriveApp", null, null);
-                }
-                a2.insert("MsgArriveApp", null, contentValues);
-                if (rawQuery != null && !rawQuery.isClosed()) {
-                    rawQuery.close();
-                }
-                a2.close();
-                return true;
-            } catch (Exception e3) {
-                cursor = null;
-            } catch (Throwable th3) {
-                th = th3;
-            }
-        }
-    }
-
-    private static e b(Context context) {
-        synchronized (b) {
-            if (f1093a == null) {
-                String path = context.getDatabasePath("pushstat_6.9.13.db").getPath();
-                a("pushstat_6.9.13.db", context);
-                if (Build.VERSION.SDK_INT >= 11) {
-                    f1093a = new e(context, path, 2, new d());
-                } else {
-                    f1093a = new e(context, path, 2);
-                }
-            }
-        }
-        return f1093a;
-    }
-
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:50:0x00cf */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:59:? */
-    /* JADX DEBUG: Multi-variable search result rejected for r0v2, resolved type: android.database.sqlite.SQLiteDatabase */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:39:0x00ba A[Catch: all -> 0x00c1, TryCatch #0 {, blocks: (B:4:0x0004, B:6:0x000a, B:20:0x0085, B:21:0x0088, B:22:0x008b, B:27:0x00a0, B:28:0x00a3, B:29:0x00a6, B:32:0x00ac, B:33:0x00af, B:34:0x00b2, B:47:0x00c8, B:48:0x00cb, B:49:0x00ce, B:39:0x00ba, B:40:0x00bd), top: B:54:0x0004 }] */
-    /* JADX WARN: Removed duplicated region for block: B:47:0x00c8 A[Catch: all -> 0x00c1, TRY_ENTER, TryCatch #0 {, blocks: (B:4:0x0004, B:6:0x000a, B:20:0x0085, B:21:0x0088, B:22:0x008b, B:27:0x00a0, B:28:0x00a3, B:29:0x00a6, B:32:0x00ac, B:33:0x00af, B:34:0x00b2, B:47:0x00c8, B:48:0x00cb, B:49:0x00ce, B:39:0x00ba, B:40:0x00bd), top: B:54:0x0004 }] */
-    /* JADX WARN: Type inference failed for: r0v1, types: [android.database.sqlite.SQLiteDatabase] */
-    /* JADX WARN: Type inference failed for: r0v3 */
-    /* JADX WARN: Type inference failed for: r0v5 */
-    /* JADX WARN: Type inference failed for: r0v6, types: [int[]] */
-    /* JADX WARN: Type inference failed for: r0v7 */
-    /* JADX WARN: Type inference failed for: r0v8 */
-    /* JADX WARN: Type inference failed for: r0v9 */
-    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:40:0x00bd -> B:34:0x00b2). Please submit an issue!!! */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static int[] b(Context context, String str) {
-        Cursor cursor;
-        Cursor cursor2;
-        SQLiteDatabase sQLiteDatabase;
-        synchronized (b) {
-            SQLiteDatabase a2 = a(context);
-            if (a2 == 0) {
-                return null;
-            }
-            try {
-                cursor = a2.query("NoDisturb", null, h.pkgName.name() + "= ?", new String[]{str}, null, null, null);
-            } catch (Exception e2) {
-                cursor2 = null;
-                sQLiteDatabase = a2;
-                if (cursor2 != null) {
-                    cursor2.close();
-                }
-                sQLiteDatabase.close();
-                a2 = 0;
-                return a2;
-            } catch (Throwable th) {
-                th = th;
-                cursor = null;
                 if (cursor != null) {
                     cursor.close();
                 }
-                a2.close();
-                throw th;
-            }
-            if (cursor != null) {
-                try {
-                } catch (Exception e3) {
-                    cursor2 = cursor;
-                    sQLiteDatabase = a2;
-                    if (cursor2 != null) {
-                    }
-                    sQLiteDatabase.close();
-                    a2 = 0;
-                    return a2;
-                } catch (Throwable th2) {
-                    th = th2;
-                    if (cursor != null) {
-                    }
-                    a2.close();
-                    throw th;
-                }
-                if (cursor.moveToNext()) {
-                    int i2 = cursor.getInt(cursor.getColumnIndex(h.startHour.name()));
-                    int i3 = cursor.getInt(cursor.getColumnIndex(h.startMinute.name()));
-                    int i4 = cursor.getInt(cursor.getColumnIndex(h.endHour.name()));
-                    int i5 = cursor.getInt(cursor.getColumnIndex(h.endMinute.name()));
-                    if (i2 == 0 && i3 == 0 && i4 == 0 && i5 == 0) {
-                        int[] iArr = new int[0];
-                        if (cursor != null) {
-                            cursor.close();
-                        }
-                        a2.close();
-                        a2 = iArr;
-                    } else {
-                        int[] iArr2 = {i2, i3, i4, i5};
-                        if (cursor != null) {
-                            cursor.close();
-                        }
-                        a2.close();
-                        a2 = iArr2;
-                    }
-                    return a2;
-                }
-            }
-            if (cursor != null) {
-                cursor.close();
+            } catch (Exception unused2) {
+                cursor = null;
+            } catch (Throwable th2) {
+                th = th2;
             }
             a2.close();
-            a2 = 0;
-            return a2;
+            return null;
         }
     }
 }

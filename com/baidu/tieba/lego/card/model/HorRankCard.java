@@ -1,99 +1,66 @@
 package com.baidu.tieba.lego.card.model;
 
 import android.text.TextUtils;
-import com.baidu.tbadk.core.util.y;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.lego.card.exception.CardParseException;
+import d.b.i0.i1.o.j.c;
+import d.b.i0.i1.o.k.b;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes4.dex */
 public class HorRankCard extends BaseCardInfo {
-    private final double displayNum;
-    private final String itemStatistics;
-    private final int picType;
-    private final int position;
-    List<a> rankInfoList;
-    private final double ratio;
-    private final c rightText;
-    private final boolean scrollEnabled;
-    private final boolean showLeft;
-    private final boolean showSep;
-    private final int titleColor;
-    private final int titleColorNight;
+    public final double displayNum;
+    public final String itemStatistics;
+    public final int picType;
+    public final int position;
+    public List<a> rankInfoList;
+    public final double ratio;
+    public final c rightText;
+    public final boolean scrollEnabled;
+    public final boolean showLeft;
+    public final boolean showSep;
+    public final int titleColor;
+    public final int titleColorNight;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes4.dex */
     public static class a {
-        public int bgColor;
-        public int bgColorNight;
-        public String btnDone;
-        public String btnText;
-        public boolean isDone;
-        public long lea;
-        public String leb;
-        public String lec;
-        public HorRankCard led;
-        public String picUrl;
-        public String postUrl;
-        public int rank;
-        public String subTitle;
-        public String title;
-    }
 
-    public c getRightText() {
-        return this.rightText;
-    }
+        /* renamed from: a  reason: collision with root package name */
+        public int f18604a;
 
-    @Override // com.baidu.tieba.lego.card.model.BaseLegoCardInfo, com.baidu.tieba.lego.card.model.ICardInfo
-    public double getRatio() {
-        return this.ratio;
-    }
+        /* renamed from: b  reason: collision with root package name */
+        public String f18605b;
 
-    public boolean isScrollEnabled() {
-        return this.scrollEnabled;
-    }
+        /* renamed from: c  reason: collision with root package name */
+        public String f18606c;
 
-    public int getPicType() {
-        return this.picType;
-    }
+        /* renamed from: d  reason: collision with root package name */
+        public String f18607d;
 
-    public List<a> getRankInfoList() {
-        return this.rankInfoList;
-    }
+        /* renamed from: e  reason: collision with root package name */
+        public String f18608e;
 
-    public int getTitleColor() {
-        return this.titleColor;
-    }
+        /* renamed from: f  reason: collision with root package name */
+        public String f18609f;
 
-    public int getTitleColorNight() {
-        return this.titleColorNight;
-    }
+        /* renamed from: g  reason: collision with root package name */
+        public boolean f18610g;
 
-    public double getDisplayNum() {
-        return this.displayNum;
-    }
-
-    public int getPosition() {
-        return this.position;
-    }
-
-    public String getItemStatistics() {
-        return this.itemStatistics;
-    }
-
-    public boolean isShowLeft() {
-        return this.showLeft;
-    }
-
-    public boolean isShowSep() {
-        return this.showSep;
+        /* renamed from: h  reason: collision with root package name */
+        public String f18611h;
+        public String i;
+        public String j;
+        public int k;
+        public int l;
+        public HorRankCard m;
     }
 
     public HorRankCard(JSONObject jSONObject) throws CardParseException {
         super(jSONObject);
-        this.titleColor = com.baidu.tieba.lego.card.c.b.rT(jSONObject.optString("tColor", ""));
-        this.titleColorNight = com.baidu.tieba.lego.card.c.b.rT(jSONObject.optString("tColorNight", ""));
+        this.titleColor = b.b(jSONObject.optString("tColor", ""));
+        this.titleColorNight = b.b(jSONObject.optString("tColorNight", ""));
         this.displayNum = jSONObject.optDouble("displayNum", 5.0d);
         this.ratio = jSONObject.optDouble("ratio", 1.0d);
         int optInt = jSONObject.optInt("picType", 1);
@@ -113,68 +80,100 @@ public class HorRankCard extends BaseCardInfo {
         for (int i = 0; i < length; i++) {
             a aVar = new a();
             JSONObject optJSONObject = optJSONArray.optJSONObject(i);
-            aVar.rank = optJSONObject.optInt("rank");
-            aVar.picUrl = optJSONObject.optString("picUrl");
-            aVar.leb = optJSONObject.optString("picIcon");
-            aVar.title = optJSONObject.optString("title");
-            aVar.subTitle = optJSONObject.optString("subTitle");
-            aVar.postUrl = optJSONObject.optString("postUrl");
-            aVar.isDone = optJSONObject.optInt("isDone") == 1;
-            aVar.btnText = optJSONObject.optString("btnText");
-            aVar.btnDone = optJSONObject.optString("btnDone");
-            aVar.lec = optJSONObject.optString("picScheme");
-            aVar.bgColor = com.baidu.tieba.lego.card.c.b.rT(optJSONObject.optString("bgColor", ""));
-            aVar.bgColorNight = com.baidu.tieba.lego.card.c.b.rT(optJSONObject.optString("bgColorNight", ""));
-            aVar.lea = optJSONObject.optLong("resourceId");
-            aVar.led = this;
+            aVar.f18604a = optJSONObject.optInt("rank");
+            aVar.f18605b = optJSONObject.optString("picUrl");
+            aVar.f18606c = optJSONObject.optString("picIcon");
+            aVar.f18607d = optJSONObject.optString("title");
+            aVar.f18608e = optJSONObject.optString("subTitle");
+            aVar.f18609f = optJSONObject.optString("postUrl");
+            aVar.f18610g = optJSONObject.optInt("isDone") == 1;
+            aVar.f18611h = optJSONObject.optString("btnText");
+            aVar.i = optJSONObject.optString("btnDone");
+            aVar.j = optJSONObject.optString("picScheme");
+            aVar.k = b.b(optJSONObject.optString("bgColor", ""));
+            aVar.l = b.b(optJSONObject.optString("bgColorNight", ""));
+            optJSONObject.optLong("resourceId");
+            aVar.m = this;
             this.rankInfoList.add(aVar);
         }
-        this.rightText = c.eB(jSONObject.optJSONObject("moreButton"));
+        this.rightText = c.a(jSONObject.optJSONObject("moreButton"));
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.lego.card.model.BaseCardInfo
-    public boolean shouldResponseAttention() {
-        return !y.isEmpty(this.rankInfoList);
+    public double getDisplayNum() {
+        return this.displayNum;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.lego.card.model.BaseCardInfo
-    public boolean responseAttentionUser(String str, boolean z) {
-        boolean z2 = false;
-        Iterator<a> it = this.rankInfoList.iterator();
-        while (true) {
-            boolean z3 = z2;
-            if (it.hasNext()) {
-                a next = it.next();
-                if (!TextUtils.isEmpty(next.postUrl) && !TextUtils.isEmpty(next.btnText) && !TextUtils.isEmpty(next.btnDone) && TextUtils.equals(getTouidFromPostUrl(next.postUrl), str)) {
-                    next.isDone = z;
-                    z3 = true;
-                }
-                z2 = z3;
-            } else {
-                return z3;
-            }
-        }
+    public String getItemStatistics() {
+        return this.itemStatistics;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
+    public int getPicType() {
+        return this.picType;
+    }
+
+    public int getPosition() {
+        return this.position;
+    }
+
+    public List<a> getRankInfoList() {
+        return this.rankInfoList;
+    }
+
+    @Override // com.baidu.tieba.lego.card.model.BaseLegoCardInfo, com.baidu.tieba.lego.card.model.ICardInfo
+    public double getRatio() {
+        return this.ratio;
+    }
+
+    public c getRightText() {
+        return this.rightText;
+    }
+
+    public int getTitleColor() {
+        return this.titleColor;
+    }
+
+    public int getTitleColorNight() {
+        return this.titleColorNight;
+    }
+
+    public boolean isScrollEnabled() {
+        return this.scrollEnabled;
+    }
+
+    public boolean isShowLeft() {
+        return this.showLeft;
+    }
+
+    public boolean isShowSep() {
+        return this.showSep;
+    }
+
     @Override // com.baidu.tieba.lego.card.model.BaseCardInfo
     public boolean responseAttentionForum(String str, boolean z) {
         boolean z2 = false;
-        Iterator<a> it = this.rankInfoList.iterator();
-        while (true) {
-            boolean z3 = z2;
-            if (it.hasNext()) {
-                a next = it.next();
-                if (!TextUtils.isEmpty(next.postUrl) && !TextUtils.isEmpty(next.btnText) && !TextUtils.isEmpty(next.btnDone) && TextUtils.equals(str, getFidFromPostUrl(next.postUrl))) {
-                    next.isDone = z;
-                    z3 = true;
-                }
-                z2 = z3;
-            } else {
-                return z3;
+        for (a aVar : this.rankInfoList) {
+            if (!TextUtils.isEmpty(aVar.f18609f) && !TextUtils.isEmpty(aVar.f18611h) && !TextUtils.isEmpty(aVar.i) && TextUtils.equals(str, getFidFromPostUrl(aVar.f18609f))) {
+                aVar.f18610g = z;
+                z2 = true;
             }
         }
+        return z2;
+    }
+
+    @Override // com.baidu.tieba.lego.card.model.BaseCardInfo
+    public boolean responseAttentionUser(String str, boolean z) {
+        boolean z2 = false;
+        for (a aVar : this.rankInfoList) {
+            if (!TextUtils.isEmpty(aVar.f18609f) && !TextUtils.isEmpty(aVar.f18611h) && !TextUtils.isEmpty(aVar.i) && TextUtils.equals(getTouidFromPostUrl(aVar.f18609f), str)) {
+                aVar.f18610g = z;
+                z2 = true;
+            }
+        }
+        return z2;
+    }
+
+    @Override // com.baidu.tieba.lego.card.model.BaseCardInfo
+    public boolean shouldResponseAttention() {
+        return !ListUtils.isEmpty(this.rankInfoList);
     }
 }

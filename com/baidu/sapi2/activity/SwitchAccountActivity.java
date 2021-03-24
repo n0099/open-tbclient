@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.webkit.WebBackForwardList;
 import android.webkit.WebHistoryItem;
-import com.baidu.j.a.a;
 import com.baidu.sapi2.CoreViewRouter;
 import com.baidu.sapi2.SapiWebView;
 import com.baidu.sapi2.dto.PassNameValuePair;
@@ -14,19 +13,21 @@ import com.baidu.sapi2.shell.listener.AuthorizationListener;
 import com.baidu.sapi2.shell.listener.WebAuthListener;
 import com.baidu.sapi2.shell.result.WebAuthResult;
 import com.baidu.sapi2.utils.enums.AccountType;
+import d.b.a0.a.f;
+import d.b.a0.a.g;
 import java.util.ArrayList;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class SwitchAccountActivity extends BaseActivity {
-    private static final String s = "https://wappass.baidu.com/v6/changeAccount";
-    private WebAuthResult p = new WebAuthResult() { // from class: com.baidu.sapi2.activity.SwitchAccountActivity.1
+    public static final String s = "https://wappass.baidu.com/v6/changeAccount";
+    public WebAuthResult p = new WebAuthResult() { // from class: com.baidu.sapi2.activity.SwitchAccountActivity.1
         @Override // com.baidu.sapi2.shell.result.WebAuthResult
         public void finishActivity() {
             SwitchAccountActivity.this.finish();
             CoreViewRouter.getInstance().release();
         }
     };
-    private WebAuthListener q;
-    private SwitchAccountDTO r;
+    public WebAuthListener q;
+    public SwitchAccountDTO r;
 
     private String b() {
         WebBackForwardList copyBackForwardList;
@@ -38,26 +39,26 @@ public class SwitchAccountActivity extends BaseActivity {
         return currentItem.getUrl();
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.sapi2.activity.TitleActivity
     public void init() {
         super.init();
         this.q = CoreViewRouter.getInstance().getWebAuthListener();
-        this.r = CoreViewRouter.getInstance().getSwitchAccountDTO();
-        if (this.r == null || this.q == null) {
-            this.p.setResultCode(-204);
-            a(this.p);
+        SwitchAccountDTO switchAccountDTO = CoreViewRouter.getInstance().getSwitchAccountDTO();
+        this.r = switchAccountDTO;
+        if (switchAccountDTO != null && this.q != null) {
+            setupViews();
+            return;
         }
+        this.p.setResultCode(-204);
+        a(this.p);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.sapi2.activity.TitleActivity
     public void onBottomBackBtnClick() {
         super.onBottomBackBtnClick();
         a();
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.sapi2.activity.TitleActivity
     public void onClose() {
         super.onClose();
@@ -65,14 +66,12 @@ public class SwitchAccountActivity extends BaseActivity {
         a(this.p);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         try {
-            setContentView(a.f.layout_sapi_sdk_webview_with_title_bar);
+            setContentView(f.layout_sapi_sdk_webview_with_title_bar);
             init();
-            setupViews();
         } catch (Throwable th) {
             reportWebviewError(th);
             this.p.setResultCode(-202);
@@ -80,21 +79,18 @@ public class SwitchAccountActivity extends BaseActivity {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity
     public void onLeftBtnClick() {
         super.onLeftBtnClick();
-        if (!this.executeSubClassMethod) {
-            return;
+        if (this.executeSubClassMethod) {
+            a();
         }
-        a();
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity
     public void setupViews() {
         super.setupViews();
-        setTitleText(a.g.sapi_sdk_title_switch);
+        setTitleText(g.sapi_sdk_title_switch);
         SapiWebView sapiWebView = this.sapiWebView;
         sapiWebView.showSwitchAccount = this.configuration.supportMultipleAccounts;
         sapiWebView.showLinkAccount = this.r.supportQueryAssociatedAccount;
@@ -174,8 +170,8 @@ public class SwitchAccountActivity extends BaseActivity {
         b();
         SapiWebView sapiWebView = this.sapiWebView;
         if (sapiWebView != null && sapiWebView.canGoBack()) {
-            String b = b();
-            if (b != null && b.startsWith(s)) {
+            String b2 = b();
+            if (b2 != null && b2.startsWith(s)) {
                 onClose();
                 return;
             } else {

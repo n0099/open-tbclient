@@ -8,15 +8,15 @@ import org.apache.http.ReasonPhraseCatalog;
 import org.apache.http.StatusLine;
 import org.apache.http.protocol.HttpContext;
 @Deprecated
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class DefaultHttpResponseFactory implements HttpResponseFactory {
-    protected final ReasonPhraseCatalog reasonCatalog;
+    public final ReasonPhraseCatalog reasonCatalog;
 
     public DefaultHttpResponseFactory(ReasonPhraseCatalog reasonPhraseCatalog) {
         throw new RuntimeException("Stub!");
     }
 
-    public DefaultHttpResponseFactory() {
+    public Locale determineLocale(HttpContext httpContext) {
         throw new RuntimeException("Stub!");
     }
 
@@ -25,12 +25,12 @@ public class DefaultHttpResponseFactory implements HttpResponseFactory {
         throw new RuntimeException("Stub!");
     }
 
-    @Override // org.apache.http.HttpResponseFactory
-    public HttpResponse newHttpResponse(StatusLine statusLine, HttpContext httpContext) {
+    public DefaultHttpResponseFactory() {
         throw new RuntimeException("Stub!");
     }
 
-    protected Locale determineLocale(HttpContext httpContext) {
+    @Override // org.apache.http.HttpResponseFactory
+    public HttpResponse newHttpResponse(StatusLine statusLine, HttpContext httpContext) {
         throw new RuntimeException("Stub!");
     }
 }

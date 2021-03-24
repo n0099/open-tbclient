@@ -1,17 +1,17 @@
 package com.baidu.sapi2.g;
 
 import android.view.View;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public interface b {
-    b a();
+    b setBtnCount(int i);
 
-    b a(int i);
+    b setIconInvisible();
 
-    b a(String str, View.OnClickListener onClickListener);
+    b setNegativeBtn(String str, View.OnClickListener onClickListener);
 
-    b a(String str, String str2);
+    b setPositiveBtn(String str, View.OnClickListener onClickListener);
 
-    b b(String str, View.OnClickListener onClickListener);
+    b setTitle(String str, String str2);
 
-    void b();
+    void showDialog();
 }

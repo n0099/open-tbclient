@@ -3,50 +3,51 @@ package com.baidu.tieba.imMessageCenter.im.stranger;
 import android.text.TextUtils;
 import android.widget.ImageView;
 import com.baidu.tbadk.core.data.ImMessageCenterShowItemData;
-import com.baidu.tbadk.coreExtra.messageCenter.d;
-import com.baidu.tieba.im.chat.a.c;
+import d.b.h0.s.d.d;
+import d.b.i0.d1.f.i.c;
 import org.apache.http.message.BasicNameValuePair;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class StrangerListAdapter extends c {
     public StrangerListAdapter(StrangerListActivity strangerListActivity) {
         super(strangerListActivity.getPageContext().getContext());
     }
 
-    @Override // com.baidu.tieba.im.chat.a.c
-    protected BasicNameValuePair a(ImMessageCenterShowItemData imMessageCenterShowItemData, int i, String str) {
+    @Override // d.b.i0.d1.f.i.c
+    public boolean d(ImMessageCenterShowItemData imMessageCenterShowItemData) {
+        return true;
+    }
+
+    @Override // d.b.i0.d1.f.i.c
+    public boolean e(ImMessageCenterShowItemData imMessageCenterShowItemData) {
+        return true;
+    }
+
+    @Override // d.b.i0.d1.f.i.c
+    public void g(c.a aVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
+        aVar.f53688b.setDrawBorder(true);
+        aVar.f53688b.setDefaultScaleType(ImageView.ScaleType.FIT_XY);
+        String friendBjhAvatar = imMessageCenterShowItemData.getFriendBjhAvatar();
+        if (TextUtils.isEmpty(friendBjhAvatar)) {
+            friendBjhAvatar = imMessageCenterShowItemData.getFriendPortrait();
+        }
+        if (TextUtils.isEmpty(friendBjhAvatar)) {
+            return;
+        }
+        aVar.f53688b.W(friendBjhAvatar, 12, false);
+    }
+
+    @Override // d.b.i0.d1.f.i.c
+    public BasicNameValuePair p(ImMessageCenterShowItemData imMessageCenterShowItemData, int i, String str) {
+        String str2 = "";
         int i2 = 0;
-        if (!d.byh().byp()) {
+        if (!d.d().p()) {
             str = "";
             i = 0;
         }
         if (imMessageCenterShowItemData.getGroupSetting().isAcceptNotify()) {
             i2 = i;
-        } else {
-            str = "";
+            str2 = str;
         }
-        return new BasicNameValuePair(String.valueOf(i2), str);
-    }
-
-    @Override // com.baidu.tieba.im.chat.a.c
-    protected void g(c.a aVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
-        aVar.kDK.setDrawBorder(true);
-        aVar.kDK.setDefaultScaleType(ImageView.ScaleType.FIT_XY);
-        String friendBjhAvatar = imMessageCenterShowItemData.getFriendBjhAvatar();
-        if (TextUtils.isEmpty(friendBjhAvatar)) {
-            friendBjhAvatar = imMessageCenterShowItemData.getFriendPortrait();
-        }
-        if (!TextUtils.isEmpty(friendBjhAvatar)) {
-            aVar.kDK.startLoad(friendBjhAvatar, 12, false);
-        }
-    }
-
-    @Override // com.baidu.tieba.im.chat.a.c
-    protected boolean a(ImMessageCenterShowItemData imMessageCenterShowItemData) {
-        return true;
-    }
-
-    @Override // com.baidu.tieba.im.chat.a.c
-    protected boolean b(ImMessageCenterShowItemData imMessageCenterShowItemData) {
-        return true;
+        return new BasicNameValuePair(String.valueOf(i2), str2);
     }
 }

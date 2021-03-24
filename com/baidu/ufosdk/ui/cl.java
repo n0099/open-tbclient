@@ -1,24 +1,23 @@
 package com.baidu.ufosdk.ui;
-/* loaded from: classes7.dex */
-final class cl implements Runnable {
+/* loaded from: classes5.dex */
+public final class cl implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ck f3712a;
+    public final /* synthetic */ ck f23122a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public cl(ck ckVar) {
-        this.f3712a = ckVar;
+        this.f23122a = ckVar;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
         try {
-            if (this.f3712a.b.f3707a.B) {
-                this.f3712a.b.f3707a.a(this.f3712a.b.f3707a, this.f3712a.b.f3707a.f, this.f3712a.b.f3707a.A);
+            if (this.f23122a.f23121b.f23114a.B) {
+                this.f23122a.f23121b.f23114a.a(this.f23122a.f23121b.f23114a, this.f23122a.f23121b.f23114a.f23019f, this.f23122a.f23121b.f23114a.A);
             }
-            com.baidu.ufosdk.e.a.a(this.f3712a.b.f3707a.f, 9);
-        } catch (Exception e) {
-            e.printStackTrace();
+            com.baidu.ufosdk.e.a.a(this.f23122a.f23121b.f23114a.f23019f, 9);
+        } catch (Exception e2) {
+            e2.printStackTrace();
         }
     }
 }

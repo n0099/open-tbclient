@@ -4,25 +4,29 @@ import androidx.annotation.Keep;
 import com.kuaishou.aegon.netcheck.a;
 import java.util.EnumSet;
 import java.util.concurrent.Executor;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class NetcheckTaskListenerWrapper {
-    public Executor b;
-    public a.b pZi;
+
+    /* renamed from: a  reason: collision with root package name */
+    public a.b f31623a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public Executor f31624b;
 
     @Keep
     public void OnFinish(long j, String str) {
-        a.EnumC1086a[] values;
-        EnumSet noneOf = EnumSet.noneOf(a.EnumC1086a.class);
-        for (a.EnumC1086a enumC1086a : a.EnumC1086a.values()) {
-            if (((1 << enumC1086a.a()) & j) != 0) {
-                noneOf.add(enumC1086a);
+        a.EnumC0353a[] values;
+        EnumSet noneOf = EnumSet.noneOf(a.EnumC0353a.class);
+        for (a.EnumC0353a enumC0353a : a.EnumC0353a.values()) {
+            if (((1 << enumC0353a.a()) & j) != 0) {
+                noneOf.add(enumC0353a);
             }
         }
-        this.b.execute(c.b(this, noneOf, str));
+        this.f31624b.execute(c.a(this, noneOf, str));
     }
 
     @Keep
     public void OnProgress(int i) {
-        this.b.execute(b.b(this, i));
+        this.f31624b.execute(b.a(this, i));
     }
 }

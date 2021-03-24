@@ -9,17 +9,20 @@ import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Proxy;
 import org.chromium.support_lib_boundary.WebResourceErrorBoundaryInterface;
 import org.chromium.support_lib_boundary.util.BoundaryInterfaceReflectionUtil;
-/* loaded from: classes5.dex */
+/* loaded from: classes.dex */
 public class WebResourceErrorImpl extends WebResourceErrorCompat {
-    private WebResourceErrorBoundaryInterface mBoundaryInterface;
-    private WebResourceError mFrameworksImpl;
+    public WebResourceErrorBoundaryInterface mBoundaryInterface;
+    public WebResourceError mFrameworksImpl;
 
     public WebResourceErrorImpl(@NonNull InvocationHandler invocationHandler) {
         this.mBoundaryInterface = (WebResourceErrorBoundaryInterface) BoundaryInterfaceReflectionUtil.castToSuppLibClass(WebResourceErrorBoundaryInterface.class, invocationHandler);
     }
 
-    public WebResourceErrorImpl(@NonNull WebResourceError webResourceError) {
-        this.mFrameworksImpl = webResourceError;
+    private WebResourceErrorBoundaryInterface getBoundaryInterface() {
+        if (this.mBoundaryInterface == null) {
+            this.mBoundaryInterface = (WebResourceErrorBoundaryInterface) BoundaryInterfaceReflectionUtil.castToSuppLibClass(WebResourceErrorBoundaryInterface.class, WebViewGlueCommunicator.getCompatConverter().convertWebResourceError(this.mFrameworksImpl));
+        }
+        return this.mBoundaryInterface;
     }
 
     @RequiresApi(23)
@@ -30,11 +33,18 @@ public class WebResourceErrorImpl extends WebResourceErrorCompat {
         return this.mFrameworksImpl;
     }
 
-    private WebResourceErrorBoundaryInterface getBoundaryInterface() {
-        if (this.mBoundaryInterface == null) {
-            this.mBoundaryInterface = (WebResourceErrorBoundaryInterface) BoundaryInterfaceReflectionUtil.castToSuppLibClass(WebResourceErrorBoundaryInterface.class, WebViewGlueCommunicator.getCompatConverter().convertWebResourceError(this.mFrameworksImpl));
+    @Override // androidx.webkit.WebResourceErrorCompat
+    @NonNull
+    @SuppressLint({"NewApi"})
+    public CharSequence getDescription() {
+        WebViewFeatureInternal feature = WebViewFeatureInternal.getFeature("WEB_RESOURCE_ERROR_GET_DESCRIPTION");
+        if (feature.isSupportedByFramework()) {
+            return getFrameworksImpl().getDescription();
         }
-        return this.mBoundaryInterface;
+        if (feature.isSupportedByWebView()) {
+            return getBoundaryInterface().getDescription();
+        }
+        throw WebViewFeatureInternal.getUnsupportedOperationException();
     }
 
     @Override // androidx.webkit.WebResourceErrorCompat
@@ -50,17 +60,7 @@ public class WebResourceErrorImpl extends WebResourceErrorCompat {
         throw WebViewFeatureInternal.getUnsupportedOperationException();
     }
 
-    @Override // androidx.webkit.WebResourceErrorCompat
-    @NonNull
-    @SuppressLint({"NewApi"})
-    public CharSequence getDescription() {
-        WebViewFeatureInternal feature = WebViewFeatureInternal.getFeature("WEB_RESOURCE_ERROR_GET_DESCRIPTION");
-        if (feature.isSupportedByFramework()) {
-            return getFrameworksImpl().getDescription();
-        }
-        if (feature.isSupportedByWebView()) {
-            return getBoundaryInterface().getDescription();
-        }
-        throw WebViewFeatureInternal.getUnsupportedOperationException();
+    public WebResourceErrorImpl(@NonNull WebResourceError webResourceError) {
+        this.mFrameworksImpl = webResourceError;
     }
 }

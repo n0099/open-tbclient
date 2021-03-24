@@ -1,19 +1,31 @@
 package com.baidu.location.d;
-
-import com.baidu.mobstat.Config;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f1963a = "baidu_location_service";
-    public static int b = 12000;
-    public static int c = 20000;
-    public static int d = 1;
-    public static int e = 2;
-    public static int f = 3;
-    public static int g = 4;
-    public static int h = 5;
-    public static int i = Config.MAX_CACHE_JSON_CAPACIT_EXCEPTION;
+    public static String f6668a = "baidu_location_service";
+
+    /* renamed from: b  reason: collision with root package name */
+    public static int f6669b = 12000;
+
+    /* renamed from: c  reason: collision with root package name */
+    public static int f6670c = 20000;
+
+    /* renamed from: d  reason: collision with root package name */
+    public static int f6671d = 1;
+
+    /* renamed from: e  reason: collision with root package name */
+    public static int f6672e = 2;
+
+    /* renamed from: f  reason: collision with root package name */
+    public static int f6673f = 3;
+
+    /* renamed from: g  reason: collision with root package name */
+    public static int f6674g = 4;
+
+    /* renamed from: h  reason: collision with root package name */
+    public static int f6675h = 5;
+    public static int i = 5120;
     public static int j = 0;
     public static int k = 1;
     public static int l = 2;

@@ -1,40 +1,44 @@
 package com.baidu.pano.platform.c;
 
 import android.content.Context;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class h {
 
     /* renamed from: a  reason: collision with root package name */
-    private static float f2726a = 0.0f;
-    private static float b = 0.0f;
-    private static int c;
+    public static float f9454a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public static float f9455b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public static int f9456c;
 
     public static float a(Context context) {
-        if (f2726a == 0.0f) {
-            f2726a = context.getResources().getDisplayMetrics().density;
+        if (f9454a == 0.0f) {
+            f9454a = context.getResources().getDisplayMetrics().density;
         }
-        return f2726a;
+        return f9454a;
     }
 
     public static int b(Context context) {
-        if (c == 0) {
-            c = context.getResources().getDisplayMetrics().densityDpi;
+        if (f9456c == 0) {
+            f9456c = context.getResources().getDisplayMetrics().densityDpi;
         }
-        return c;
+        return f9456c;
     }
 
     public static float c(Context context) {
-        if (b == 0.0f) {
-            b = context.getResources().getDisplayMetrics().scaledDensity;
+        if (f9455b == 0.0f) {
+            f9455b = context.getResources().getDisplayMetrics().scaledDensity;
         }
-        return b;
+        return f9455b;
     }
 
     public static int a(int i, Context context) {
-        return (int) (0.5f + (a(context) * i));
+        return (int) ((a(context) * i) + 0.5f);
     }
 
-    public static int a(float f, Context context) {
-        return (int) ((c(context) * f) + 0.5f);
+    public static int a(float f2, Context context) {
+        return (int) ((f2 * c(context)) + 0.5f);
     }
 }

@@ -9,50 +9,68 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.ListIterator;
-/* loaded from: classes3.dex */
-public class o implements d, i, j, l, a.InterfaceC1084a {
+/* loaded from: classes6.dex */
+public class o implements d, i, j, l, a.InterfaceC0351a {
 
     /* renamed from: a  reason: collision with root package name */
-    private final Matrix f5319a = new Matrix();
-    private final Path b = new Path();
-    private final com.ksad.lottie.f c;
-    private final com.ksad.lottie.model.layer.a d;
-    private final String e;
-    private final com.ksad.lottie.a.b.a<Float, Float> f;
-    private final com.ksad.lottie.a.b.a<Float, Float> g;
-    private final com.ksad.lottie.a.b.o h;
-    private c i;
+    public final Matrix f31263a = new Matrix();
+
+    /* renamed from: b  reason: collision with root package name */
+    public final Path f31264b = new Path();
+
+    /* renamed from: c  reason: collision with root package name */
+    public final com.ksad.lottie.f f31265c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public final com.ksad.lottie.model.layer.a f31266d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public final String f31267e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public final com.ksad.lottie.a.b.a<Float, Float> f31268f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public final com.ksad.lottie.a.b.a<Float, Float> f31269g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public final com.ksad.lottie.a.b.o f31270h;
+    public c i;
 
     public o(com.ksad.lottie.f fVar, com.ksad.lottie.model.layer.a aVar, com.ksad.lottie.model.content.g gVar) {
-        this.c = fVar;
-        this.d = aVar;
-        this.e = gVar.a();
-        this.f = gVar.b().a();
-        aVar.a(this.f);
-        this.f.a(this);
-        this.g = gVar.c().a();
-        aVar.a(this.g);
-        this.g.a(this);
-        this.h = gVar.d().h();
-        this.h.a(aVar);
-        this.h.a(this);
+        this.f31265c = fVar;
+        this.f31266d = aVar;
+        this.f31267e = gVar.a();
+        com.ksad.lottie.a.b.a<Float, Float> a2 = gVar.b().a();
+        this.f31268f = a2;
+        aVar.a(a2);
+        this.f31268f.a(this);
+        com.ksad.lottie.a.b.a<Float, Float> a3 = gVar.c().a();
+        this.f31269g = a3;
+        aVar.a(a3);
+        this.f31269g.a(this);
+        com.ksad.lottie.a.b.o h2 = gVar.d().h();
+        this.f31270h = h2;
+        h2.a(aVar);
+        this.f31270h.a(this);
     }
 
-    @Override // com.ksad.lottie.a.b.a.InterfaceC1084a
+    @Override // com.ksad.lottie.a.b.a.InterfaceC0351a
     public void a() {
-        this.c.invalidateSelf();
+        this.f31265c.invalidateSelf();
     }
 
     @Override // com.ksad.lottie.a.a.d
     public void a(Canvas canvas, Matrix matrix, int i) {
-        float floatValue = this.f.e().floatValue();
-        float floatValue2 = this.g.e().floatValue();
-        float floatValue3 = this.h.b().e().floatValue() / 100.0f;
-        float floatValue4 = this.h.c().e().floatValue() / 100.0f;
+        float floatValue = this.f31268f.e().floatValue();
+        float floatValue2 = this.f31269g.e().floatValue();
+        float floatValue3 = this.f31270h.b().e().floatValue() / 100.0f;
+        float floatValue4 = this.f31270h.c().e().floatValue() / 100.0f;
         for (int i2 = ((int) floatValue) - 1; i2 >= 0; i2--) {
-            this.f5319a.set(matrix);
-            this.f5319a.preConcat(this.h.b(i2 + floatValue2));
-            this.i.a(canvas, this.f5319a, (int) (i * com.ksad.lottie.d.e.a(floatValue3, floatValue4, i2 / floatValue)));
+            this.f31263a.set(matrix);
+            float f2 = i2;
+            this.f31263a.preConcat(this.f31270h.b(f2 + floatValue2));
+            this.i.a(canvas, this.f31263a, (int) (i * com.ksad.lottie.d.e.a(floatValue3, floatValue4, f2 / floatValue)));
         }
     }
 
@@ -79,19 +97,19 @@ public class o implements d, i, j, l, a.InterfaceC1084a {
             listIterator.remove();
         }
         Collections.reverse(arrayList);
-        this.i = new c(this.c, this.d, "Repeater", arrayList, null);
+        this.i = new c(this.f31265c, this.f31266d, "Repeater", arrayList, null);
     }
 
     @Override // com.ksad.lottie.a.a.l
     public Path d() {
-        Path d = this.i.d();
-        this.b.reset();
-        float floatValue = this.f.e().floatValue();
-        float floatValue2 = this.g.e().floatValue();
+        Path d2 = this.i.d();
+        this.f31264b.reset();
+        float floatValue = this.f31268f.e().floatValue();
+        float floatValue2 = this.f31269g.e().floatValue();
         for (int i = ((int) floatValue) - 1; i >= 0; i--) {
-            this.f5319a.set(this.h.b(i + floatValue2));
-            this.b.addPath(d, this.f5319a);
+            this.f31263a.set(this.f31270h.b(i + floatValue2));
+            this.f31264b.addPath(d2, this.f31263a);
         }
-        return this.b;
+        return this.f31264b;
     }
 }

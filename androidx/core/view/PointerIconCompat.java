@@ -6,7 +6,7 @@ import android.graphics.Bitmap;
 import android.os.Build;
 import android.view.PointerIcon;
 import androidx.annotation.RestrictTo;
-/* loaded from: classes14.dex */
+/* loaded from: classes.dex */
 public final class PointerIconCompat {
     public static final int TYPE_ALIAS = 1010;
     public static final int TYPE_ALL_SCROLL = 1013;
@@ -31,26 +31,35 @@ public final class PointerIconCompat {
     public static final int TYPE_WAIT = 1004;
     public static final int TYPE_ZOOM_IN = 1018;
     public static final int TYPE_ZOOM_OUT = 1019;
-    private Object mPointerIcon;
+    public Object mPointerIcon;
 
-    private PointerIconCompat(Object obj) {
+    public PointerIconCompat(Object obj) {
         this.mPointerIcon = obj;
+    }
+
+    public static PointerIconCompat create(Bitmap bitmap, float f2, float f3) {
+        if (Build.VERSION.SDK_INT >= 24) {
+            return new PointerIconCompat(PointerIcon.create(bitmap, f2, f3));
+        }
+        return new PointerIconCompat(null);
+    }
+
+    public static PointerIconCompat getSystemIcon(Context context, int i) {
+        if (Build.VERSION.SDK_INT >= 24) {
+            return new PointerIconCompat(PointerIcon.getSystemIcon(context, i));
+        }
+        return new PointerIconCompat(null);
+    }
+
+    public static PointerIconCompat load(Resources resources, int i) {
+        if (Build.VERSION.SDK_INT >= 24) {
+            return new PointerIconCompat(PointerIcon.load(resources, i));
+        }
+        return new PointerIconCompat(null);
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     public Object getPointerIcon() {
         return this.mPointerIcon;
-    }
-
-    public static PointerIconCompat getSystemIcon(Context context, int i) {
-        return Build.VERSION.SDK_INT >= 24 ? new PointerIconCompat(PointerIcon.getSystemIcon(context, i)) : new PointerIconCompat(null);
-    }
-
-    public static PointerIconCompat create(Bitmap bitmap, float f, float f2) {
-        return Build.VERSION.SDK_INT >= 24 ? new PointerIconCompat(PointerIcon.create(bitmap, f, f2)) : new PointerIconCompat(null);
-    }
-
-    public static PointerIconCompat load(Resources resources, int i) {
-        return Build.VERSION.SDK_INT >= 24 ? new PointerIconCompat(PointerIcon.load(resources, i)) : new PointerIconCompat(null);
     }
 }

@@ -2,7 +2,7 @@ package com.baidu.browser.sailor;
 
 import com.baidu.browser.core.INoProGuard;
 import com.baidu.webkit.sdk.WebSettings;
-/* loaded from: classes14.dex */
+/* loaded from: classes2.dex */
 public interface ISailorWebSettingsExt extends INoProGuard {
     boolean getAdBlockEnabledExt();
 
@@ -64,7 +64,7 @@ public interface ISailorWebSettingsExt extends INoProGuard {
 
     void setEnableVSyncOpt(boolean z);
 
-    void setFastFlingDampFactorExt(float f);
+    void setFastFlingDampFactorExt(float f2);
 
     void setFeatureDatabasePathExt(String str);
 

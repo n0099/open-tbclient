@@ -16,15 +16,23 @@ import com.bytedance.sdk.openadsdk.TTImage;
 import com.bytedance.sdk.openadsdk.TTNativeAd;
 import com.fun.ad.sdk.R;
 import java.util.ArrayList;
-/* loaded from: classes4.dex */
+/* loaded from: classes.dex */
 public class b extends LinearLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    public TextView f1001a;
-    public ImageView b;
-    public TextView c;
-    public ImageView d;
-    public Button e;
+    public TextView f1275a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public ImageView f1276b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public TextView f1277c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public ImageView f1278d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public Button f1279e;
 
     public b(Context context) {
         super(context);
@@ -39,12 +47,14 @@ public class b extends LinearLayout {
     }
 
     public void a(Activity activity, TTNativeAd tTNativeAd, TTNativeAd.AdInteractionListener adInteractionListener) {
-        this.f1001a.setText(tTNativeAd.getDescription());
+        Button button;
+        int i;
+        this.f1275a.setText(tTNativeAd.getDescription());
         TTImage icon = tTNativeAd.getIcon();
         if (icon != null && icon.isValid()) {
             Context context = getContext();
             String imageUrl = icon.getImageUrl();
-            ImageView imageView = this.b;
+            ImageView imageView = this.f1276b;
             if (context == null) {
                 d.b("GlideHelper: context is null when load: " + imageUrl, new Object[0]);
             } else if (context instanceof Activity) {
@@ -58,42 +68,47 @@ public class b extends LinearLayout {
                 Glide.with(context).load(imageUrl).into(imageView);
             }
         }
-        this.c.setText(TextUtils.isEmpty(tTNativeAd.getSource()) ? tTNativeAd.getTitle() : tTNativeAd.getSource());
-        this.d.setImageBitmap(tTNativeAd.getAdLogo());
-        switch (tTNativeAd.getInteractionType()) {
-            case 2:
-            case 3:
-                this.e.setVisibility(0);
-                this.e.setText(R.string.ad_interaction_type_browser);
-                break;
-            case 4:
-                tTNativeAd.setActivityForDownloadApp(activity);
-                this.e.setVisibility(0);
-                this.e.setText(R.string.ad_interaction_type_download);
-                break;
-            case 5:
-                this.e.setVisibility(0);
-                this.e.setText(R.string.ad_interaction_type_dial);
-                break;
-            default:
-                this.e.setVisibility(8);
-                break;
+        this.f1277c.setText(TextUtils.isEmpty(tTNativeAd.getSource()) ? tTNativeAd.getTitle() : tTNativeAd.getSource());
+        this.f1278d.setImageBitmap(tTNativeAd.getAdLogo());
+        int interactionType = tTNativeAd.getInteractionType();
+        if (interactionType == 2 || interactionType == 3) {
+            this.f1279e.setVisibility(0);
+            button = this.f1279e;
+            i = R.string.ad_interaction_type_browser;
+        } else if (interactionType == 4) {
+            tTNativeAd.setActivityForDownloadApp(activity);
+            this.f1279e.setVisibility(0);
+            button = this.f1279e;
+            i = R.string.ad_interaction_type_download;
+        } else if (interactionType != 5) {
+            this.f1279e.setVisibility(8);
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(this);
+            ArrayList arrayList2 = new ArrayList();
+            arrayList2.add(this.f1279e);
+            tTNativeAd.registerViewForInteraction(this, arrayList, arrayList2, adInteractionListener);
+            tTNativeAd.setDownloadListener(new a(this.f1279e));
+        } else {
+            this.f1279e.setVisibility(0);
+            button = this.f1279e;
+            i = R.string.ad_interaction_type_dial;
         }
-        ArrayList arrayList = new ArrayList();
-        arrayList.add(this);
-        ArrayList arrayList2 = new ArrayList();
-        arrayList2.add(this.e);
-        tTNativeAd.registerViewForInteraction(this, arrayList, arrayList2, adInteractionListener);
-        tTNativeAd.setDownloadListener(new a(this.e));
+        button.setText(i);
+        ArrayList arrayList3 = new ArrayList();
+        arrayList3.add(this);
+        ArrayList arrayList22 = new ArrayList();
+        arrayList22.add(this.f1279e);
+        tTNativeAd.registerViewForInteraction(this, arrayList3, arrayList22, adInteractionListener);
+        tTNativeAd.setDownloadListener(new a(this.f1279e));
     }
 
     @Override // android.view.View
     public void onFinishInflate() {
         super.onFinishInflate();
-        this.f1001a = (TextView) findViewById(R.id.ad_description);
-        this.d = (ImageView) findViewById(R.id.ad_logo);
-        this.b = (ImageView) findViewById(R.id.ad_icon);
-        this.c = (TextView) findViewById(R.id.ad_source);
-        this.e = (Button) findViewById(R.id.ad_creative);
+        this.f1275a = (TextView) findViewById(R.id.ad_description);
+        this.f1278d = (ImageView) findViewById(R.id.ad_logo);
+        this.f1276b = (ImageView) findViewById(R.id.ad_icon);
+        this.f1277c = (TextView) findViewById(R.id.ad_source);
+        this.f1279e = (Button) findViewById(R.id.ad_creative);
     }
 }

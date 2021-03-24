@@ -16,35 +16,49 @@ import org.apache.http.io.SessionInputBuffer;
 import org.apache.http.io.SessionOutputBuffer;
 import org.apache.http.params.HttpParams;
 @Deprecated
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public abstract class AbstractHttpClientConnection implements HttpClientConnection {
-    protected abstract void assertOpen() throws IllegalStateException;
-
     public AbstractHttpClientConnection() {
         throw new RuntimeException("Stub!");
     }
 
-    protected EntityDeserializer createEntityDeserializer() {
+    public abstract void assertOpen() throws IllegalStateException;
+
+    public EntityDeserializer createEntityDeserializer() {
         throw new RuntimeException("Stub!");
     }
 
-    protected EntitySerializer createEntitySerializer() {
+    public EntitySerializer createEntitySerializer() {
         throw new RuntimeException("Stub!");
     }
 
-    protected HttpResponseFactory createHttpResponseFactory() {
+    public HttpResponseFactory createHttpResponseFactory() {
         throw new RuntimeException("Stub!");
     }
 
-    protected HttpMessageParser createResponseParser(SessionInputBuffer sessionInputBuffer, HttpResponseFactory httpResponseFactory, HttpParams httpParams) {
+    public HttpMessageWriter createRequestWriter(SessionOutputBuffer sessionOutputBuffer, HttpParams httpParams) {
         throw new RuntimeException("Stub!");
     }
 
-    protected HttpMessageWriter createRequestWriter(SessionOutputBuffer sessionOutputBuffer, HttpParams httpParams) {
+    public HttpMessageParser createResponseParser(SessionInputBuffer sessionInputBuffer, HttpResponseFactory httpResponseFactory, HttpParams httpParams) {
         throw new RuntimeException("Stub!");
     }
 
-    protected void init(SessionInputBuffer sessionInputBuffer, SessionOutputBuffer sessionOutputBuffer, HttpParams httpParams) {
+    public void doFlush() throws IOException {
+        throw new RuntimeException("Stub!");
+    }
+
+    @Override // org.apache.http.HttpClientConnection
+    public void flush() throws IOException {
+        throw new RuntimeException("Stub!");
+    }
+
+    @Override // org.apache.http.HttpConnection
+    public HttpConnectionMetrics getMetrics() {
+        throw new RuntimeException("Stub!");
+    }
+
+    public void init(SessionInputBuffer sessionInputBuffer, SessionOutputBuffer sessionOutputBuffer, HttpParams httpParams) {
         throw new RuntimeException("Stub!");
     }
 
@@ -53,22 +67,13 @@ public abstract class AbstractHttpClientConnection implements HttpClientConnecti
         throw new RuntimeException("Stub!");
     }
 
-    @Override // org.apache.http.HttpClientConnection
-    public void sendRequestHeader(HttpRequest httpRequest) throws HttpException, IOException {
+    @Override // org.apache.http.HttpConnection
+    public boolean isStale() {
         throw new RuntimeException("Stub!");
     }
 
     @Override // org.apache.http.HttpClientConnection
-    public void sendRequestEntity(HttpEntityEnclosingRequest httpEntityEnclosingRequest) throws HttpException, IOException {
-        throw new RuntimeException("Stub!");
-    }
-
-    protected void doFlush() throws IOException {
-        throw new RuntimeException("Stub!");
-    }
-
-    @Override // org.apache.http.HttpClientConnection
-    public void flush() throws IOException {
+    public void receiveResponseEntity(HttpResponse httpResponse) throws HttpException, IOException {
         throw new RuntimeException("Stub!");
     }
 
@@ -78,17 +83,12 @@ public abstract class AbstractHttpClientConnection implements HttpClientConnecti
     }
 
     @Override // org.apache.http.HttpClientConnection
-    public void receiveResponseEntity(HttpResponse httpResponse) throws HttpException, IOException {
+    public void sendRequestEntity(HttpEntityEnclosingRequest httpEntityEnclosingRequest) throws HttpException, IOException {
         throw new RuntimeException("Stub!");
     }
 
-    @Override // org.apache.http.HttpConnection
-    public boolean isStale() {
-        throw new RuntimeException("Stub!");
-    }
-
-    @Override // org.apache.http.HttpConnection
-    public HttpConnectionMetrics getMetrics() {
+    @Override // org.apache.http.HttpClientConnection
+    public void sendRequestHeader(HttpRequest httpRequest) throws HttpException, IOException {
         throw new RuntimeException("Stub!");
     }
 }

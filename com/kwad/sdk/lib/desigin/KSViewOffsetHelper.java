@@ -3,23 +3,24 @@ package com.kwad.sdk.lib.desigin;
 import android.view.View;
 import androidx.annotation.Keep;
 import androidx.core.view.ViewCompat;
-/* JADX INFO: Access modifiers changed from: package-private */
 @Keep
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class KSViewOffsetHelper {
-    private int mLayoutLeft;
-    private int mLayoutTop;
-    private int mOffsetLeft;
-    private int mOffsetTop;
-    private final View mView;
+    public int mLayoutLeft;
+    public int mLayoutTop;
+    public int mOffsetLeft;
+    public int mOffsetTop;
+    public final View mView;
 
     public KSViewOffsetHelper(View view) {
         this.mView = view;
     }
 
     private void updateOffsets() {
-        ViewCompat.offsetTopAndBottom(this.mView, this.mOffsetTop - (this.mView.getTop() - this.mLayoutTop));
-        ViewCompat.offsetLeftAndRight(this.mView, this.mOffsetLeft - (this.mView.getLeft() - this.mLayoutLeft));
+        View view = this.mView;
+        ViewCompat.offsetTopAndBottom(view, this.mOffsetTop - (view.getTop() - this.mLayoutTop));
+        View view2 = this.mView;
+        ViewCompat.offsetLeftAndRight(view2, this.mOffsetLeft - (view2.getLeft() - this.mLayoutLeft));
     }
 
     public int getLayoutLeft() {

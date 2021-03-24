@@ -1,32 +1,28 @@
 package com.xiaomi.push.service;
 
-import com.xiaomi.push.ek;
-import com.xiaomi.push.ft;
-import com.xiaomi.push.fw;
-import java.util.Map;
-/* loaded from: classes5.dex */
-class br extends ft {
+import com.xiaomi.push.fa;
+import com.xiaomi.push.fq;
+import com.xiaomi.push.gc;
+import com.xiaomi.push.service.XMPushService;
+/* loaded from: classes7.dex */
+public class br implements fq {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ XMPushService f8554a;
+    public final /* synthetic */ XMPushService f41011a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public br(XMPushService xMPushService, Map map, int i, String str, fw fwVar) {
-        super(map, i, str, fwVar);
-        this.f8554a = xMPushService;
+    public br(XMPushService xMPushService) {
+        this.f41011a = xMPushService;
     }
 
-    @Override // com.xiaomi.push.ft
-    /* renamed from: a */
-    public byte[] mo305a() {
-        try {
-            ek.b bVar = new ek.b();
-            bVar.a(be.a().m566a());
-            return bVar.a();
-        } catch (Exception e) {
-            com.xiaomi.channel.commonutils.logger.b.m58a("getOBBString err: " + e.toString());
-            return null;
-        }
+    @Override // com.xiaomi.push.fq
+    public void a(fa faVar) {
+        XMPushService xMPushService = this.f41011a;
+        xMPushService.a(new XMPushService.c(faVar));
+    }
+
+    @Override // com.xiaomi.push.fq, com.xiaomi.push.fy
+    public void a(gc gcVar) {
+        XMPushService xMPushService = this.f41011a;
+        xMPushService.a(new XMPushService.k(gcVar));
     }
 }

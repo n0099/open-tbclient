@@ -5,8 +5,8 @@ import org.apache.commons.codec.BinaryEncoder;
 import org.apache.commons.codec.DecoderException;
 import org.apache.commons.codec.EncoderException;
 @Deprecated
-/* loaded from: classes5.dex */
-public class Hex implements BinaryDecoder, BinaryEncoder {
+/* loaded from: classes7.dex */
+public class Hex implements BinaryEncoder, BinaryDecoder {
     public Hex() {
         throw new RuntimeException("Stub!");
     }
@@ -15,11 +15,11 @@ public class Hex implements BinaryDecoder, BinaryEncoder {
         throw new RuntimeException("Stub!");
     }
 
-    protected static int toDigit(char c, int i) throws DecoderException {
+    public static char[] encodeHex(byte[] bArr) {
         throw new RuntimeException("Stub!");
     }
 
-    public static char[] encodeHex(byte[] bArr) {
+    public static int toDigit(char c2, int i) throws DecoderException {
         throw new RuntimeException("Stub!");
     }
 
@@ -28,13 +28,13 @@ public class Hex implements BinaryDecoder, BinaryEncoder {
         throw new RuntimeException("Stub!");
     }
 
-    @Override // org.apache.commons.codec.Decoder
-    public Object decode(Object obj) throws DecoderException {
+    @Override // org.apache.commons.codec.BinaryEncoder
+    public byte[] encode(byte[] bArr) {
         throw new RuntimeException("Stub!");
     }
 
-    @Override // org.apache.commons.codec.BinaryEncoder
-    public byte[] encode(byte[] bArr) {
+    @Override // org.apache.commons.codec.Decoder
+    public Object decode(Object obj) throws DecoderException {
         throw new RuntimeException("Stub!");
     }
 

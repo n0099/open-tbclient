@@ -1,5 +1,5 @@
 package com.baidu.mapsdkplatform.comjni.util;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class JNIMD5 {
     public static native String encodeUrlParamsValue(String str);
 

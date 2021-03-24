@@ -23,410 +23,420 @@ import androidx.core.view.NestedScrollingChildHelper;
 import androidx.core.view.NestedScrollingParent;
 import androidx.core.view.NestedScrollingParentHelper;
 import androidx.core.view.ViewCompat;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 /* loaded from: classes.dex */
-public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingChild, NestedScrollingParent {
-    d abo;
-    b abp;
-    private c abq;
-    private int mActivePointerId;
-    private final Animation mAnimateToCorrectPosition;
-    private final Animation mAnimateToStartPosition;
-    private int mCircleDiameter;
-    private int mCircleViewIndex;
-    int mCurrentTargetOffsetTop;
-    private final DecelerateInterpolator mDecelerateInterpolator;
-    protected int mFrom;
-    private float mInitialDownY;
-    private float mInitialMotionY;
-    private boolean mIsBeingDragged;
-    private int mMediumAnimationDuration;
-    private boolean mNestedScrollInProgress;
-    private final NestedScrollingChildHelper mNestedScrollingChildHelper;
-    private final NestedScrollingParentHelper mNestedScrollingParentHelper;
-    boolean mNotify;
-    protected int mOriginalOffsetTop;
-    private final int[] mParentOffsetInWindow;
-    private final int[] mParentScrollConsumed;
-    private Animation.AnimationListener mRefreshListener;
-    boolean mRefreshing;
-    private boolean mReturningToStart;
-    boolean mScale;
-    private Animation mScaleDownAnimation;
-    private Animation mScaleDownToStartAnimation;
-    int mSpinnerOffsetEnd;
-    float mStartingScale;
-    private int mState;
-    private View mTarget;
-    private float mTotalDragDistance;
-    private float mTotalUnconsumed;
-    private int mTouchSlop;
-    boolean mUsingCustomStart;
-    private static final String LOG_TAG = BdSwipeRefreshLayout.class.getSimpleName();
-    private static final int[] LAYOUT_ATTRS = {16842766};
+public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingParent, NestedScrollingChild {
+    public static final int[] N = {16842766};
+    public int A;
+    public float B;
+    public int C;
+    public int D;
+    public Animation E;
+    public Animation F;
+    public boolean G;
+    public int H;
+    public boolean I;
+    public j J;
+    public Animation.AnimationListener K;
+    public final Animation L;
+    public final Animation M;
+
+    /* renamed from: e  reason: collision with root package name */
+    public int f2443e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public View f2444f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public k f2445g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public boolean f2446h;
+    public int i;
+    public float j;
+    public float k;
+    public final NestedScrollingParentHelper l;
+    public final NestedScrollingChildHelper m;
+    public final int[] n;
+    public final int[] o;
+    public boolean p;
+    public int q;
+    public float r;
+    public float s;
+    public boolean t;
+    public int u;
+    public boolean v;
+    public boolean w;
+    public final DecelerateInterpolator x;
+    public i y;
+    public int z;
 
     /* loaded from: classes.dex */
-    public interface b {
+    public class a implements Animation.AnimationListener {
+        public a() {
+        }
+
+        @Override // android.view.animation.Animation.AnimationListener
+        @SuppressLint({"NewApi"})
+        public void onAnimationEnd(Animation animation) {
+            BdSwipeRefreshLayout bdSwipeRefreshLayout = BdSwipeRefreshLayout.this;
+            if (bdSwipeRefreshLayout.f2446h) {
+                bdSwipeRefreshLayout.w();
+                BdSwipeRefreshLayout bdSwipeRefreshLayout2 = BdSwipeRefreshLayout.this;
+                bdSwipeRefreshLayout2.q = bdSwipeRefreshLayout2.y.getView().getTop();
+                return;
+            }
+            bdSwipeRefreshLayout.y();
+        }
+
+        @Override // android.view.animation.Animation.AnimationListener
+        public void onAnimationRepeat(Animation animation) {
+        }
+
+        @Override // android.view.animation.Animation.AnimationListener
+        public void onAnimationStart(Animation animation) {
+        }
+    }
+
+    /* loaded from: classes.dex */
+    public class b extends Animation {
+        public b() {
+        }
+
+        @Override // android.view.animation.Animation
+        public void applyTransformation(float f2, Transformation transformation) {
+            BdSwipeRefreshLayout.this.setAnimationProgress(1.0f - f2);
+        }
+    }
+
+    /* loaded from: classes.dex */
+    public class c implements Animation.AnimationListener {
+        public c() {
+        }
+
+        @Override // android.view.animation.Animation.AnimationListener
+        public void onAnimationEnd(Animation animation) {
+            BdSwipeRefreshLayout bdSwipeRefreshLayout = BdSwipeRefreshLayout.this;
+            if (!bdSwipeRefreshLayout.v) {
+                bdSwipeRefreshLayout.C(null);
+            }
+            BdSwipeRefreshLayout.this.m();
+        }
+
+        @Override // android.view.animation.Animation.AnimationListener
+        public void onAnimationRepeat(Animation animation) {
+        }
+
+        @Override // android.view.animation.Animation.AnimationListener
+        public void onAnimationStart(Animation animation) {
+        }
+    }
+
+    /* loaded from: classes.dex */
+    public class d extends Animation {
+        public d() {
+        }
+
+        @Override // android.view.animation.Animation
+        public void applyTransformation(float f2, Transformation transformation) {
+            int i;
+            BdSwipeRefreshLayout bdSwipeRefreshLayout = BdSwipeRefreshLayout.this;
+            if (!bdSwipeRefreshLayout.I) {
+                i = bdSwipeRefreshLayout.D - Math.abs(bdSwipeRefreshLayout.C);
+            } else {
+                i = bdSwipeRefreshLayout.D;
+            }
+            BdSwipeRefreshLayout bdSwipeRefreshLayout2 = BdSwipeRefreshLayout.this;
+            int i2 = bdSwipeRefreshLayout2.A;
+            BdSwipeRefreshLayout.this.A((i2 + ((int) ((i - i2) * f2))) - bdSwipeRefreshLayout2.y.getView().getTop(), false, "AnimateToCorrectPosition");
+        }
+    }
+
+    /* loaded from: classes.dex */
+    public class e extends Animation {
+        public e() {
+        }
+
+        @Override // android.view.animation.Animation
+        public void applyTransformation(float f2, Transformation transformation) {
+            BdSwipeRefreshLayout.this.t(f2);
+        }
+    }
+
+    /* loaded from: classes.dex */
+    public class f extends Animation {
+        public f() {
+        }
+
+        @Override // android.view.animation.Animation
+        public void applyTransformation(float f2, Transformation transformation) {
+            BdSwipeRefreshLayout bdSwipeRefreshLayout = BdSwipeRefreshLayout.this;
+            float f3 = bdSwipeRefreshLayout.B;
+            bdSwipeRefreshLayout.setAnimationProgress(f3 + ((-f3) * f2));
+            BdSwipeRefreshLayout.this.t(f2);
+        }
+    }
+
+    /* loaded from: classes.dex */
+    public class g implements Runnable {
+        public g() {
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            BdSwipeRefreshLayout bdSwipeRefreshLayout = BdSwipeRefreshLayout.this;
+            bdSwipeRefreshLayout.h(bdSwipeRefreshLayout.q, bdSwipeRefreshLayout.K);
+        }
+    }
+
+    /* loaded from: classes.dex */
+    public class h implements i {
+
+        /* renamed from: e  reason: collision with root package name */
+        public BdCircleImageView f2454e;
+
+        /* renamed from: f  reason: collision with root package name */
+        public d.b.b.j.k.a f2455f;
+
+        /* renamed from: g  reason: collision with root package name */
+        public Animation f2456g;
+
+        /* renamed from: h  reason: collision with root package name */
+        public Animation f2457h;
+
+        /* loaded from: classes.dex */
+        public class a extends Animation {
+
+            /* renamed from: e  reason: collision with root package name */
+            public final /* synthetic */ int f2458e;
+
+            /* renamed from: f  reason: collision with root package name */
+            public final /* synthetic */ int f2459f;
+
+            public a(int i, int i2) {
+                this.f2458e = i;
+                this.f2459f = i2;
+            }
+
+            @Override // android.view.animation.Animation
+            public void applyTransformation(float f2, Transformation transformation) {
+                d.b.b.j.k.a aVar = h.this.f2455f;
+                int i = this.f2458e;
+                aVar.setAlpha((int) (i + ((this.f2459f - i) * f2)));
+            }
+        }
+
+        public h(Context context) {
+            this.f2454e = new BdCircleImageView(BdSwipeRefreshLayout.this.getContext(), SwipeRefreshLayout.CIRCLE_BG_LIGHT);
+            d.b.b.j.k.a aVar = new d.b.b.j.k.a(context, this.f2454e);
+            this.f2455f = aVar;
+            aVar.e(SwipeRefreshLayout.CIRCLE_BG_LIGHT);
+            this.f2454e.setImageDrawable(this.f2455f);
+            this.f2454e.setVisibility(8);
+        }
+
+        public void a(@ColorInt int i) {
+            this.f2454e.setBackgroundColor(i);
+            this.f2455f.e(i);
+        }
+
+        public void b(@ColorInt int... iArr) {
+            this.f2455f.f(iArr);
+        }
+
+        public void c(int i) {
+            this.f2454e.setImageDrawable(null);
+            this.f2455f.n(i);
+            this.f2454e.setImageDrawable(this.f2455f);
+        }
+
+        @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.i
+        public void d() {
+            this.f2455f.setAlpha(76);
+            this.f2455f.l(true);
+            if (this.f2455f.getAlpha() <= 76 || BdSwipeRefreshLayout.this.q(this.f2456g)) {
+                return;
+            }
+            o();
+        }
+
+        @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.i
+        public void e() {
+            if (this.f2455f.getAlpha() >= 255 || BdSwipeRefreshLayout.this.q(this.f2457h)) {
+                return;
+            }
+            n();
+        }
+
+        @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.i
+        public void f(float f2, float f3) {
+            this.f2455f.j(0.0f, Math.min(0.8f, f2 * 0.8f));
+            this.f2455f.d(Math.min(1.0f, f2));
+            this.f2455f.g((((f2 * 0.4f) - 0.25f) + (f3 * 2.0f)) * 0.5f);
+        }
+
+        @SuppressLint({"NewApi"})
+        public final Animation g(int i, int i2) {
+            if (BdSwipeRefreshLayout.this.p()) {
+                return null;
+            }
+            a aVar = new a(i, i2);
+            aVar.setDuration(300L);
+            this.f2454e.setAnimationListener(null);
+            this.f2454e.clearAnimation();
+            this.f2454e.startAnimation(aVar);
+            return aVar;
+        }
+
+        @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.i
+        public long getCompleteAnimTime() {
+            return 0L;
+        }
+
+        @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.i
+        public View getView() {
+            return this.f2454e;
+        }
+
+        @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.i
+        public void j() {
+        }
+
+        @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.i
+        public void m() {
+            if (Build.VERSION.SDK_INT >= 11) {
+                this.f2455f.setAlpha(255);
+            }
+            this.f2455f.d(0.0f);
+            this.f2455f.setAlpha(255);
+            this.f2455f.start();
+        }
+
+        @SuppressLint({"NewApi"})
+        public final void n() {
+            this.f2457h = g(this.f2455f.getAlpha(), 255);
+        }
+
+        @SuppressLint({"NewApi"})
+        public final void o() {
+            this.f2456g = g(this.f2455f.getAlpha(), 76);
+        }
+
+        @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.i
+        public void onFinish() {
+            this.f2455f.j(0.0f, 0.0f);
+            this.f2455f.stop();
+        }
+    }
+
+    /* loaded from: classes.dex */
+    public interface i {
+        void d();
+
+        void e();
+
+        void f(float f2, float f3);
+
         long getCompleteAnimTime();
 
         View getView();
 
-        void onCompleteRefresh();
+        void j();
+
+        void m();
 
         void onFinish();
-
-        void onPullPercentChange(float f, float f2);
-
-        void onPullToRefresh();
-
-        void onRefreshing();
-
-        void onReleaseToRefresh();
     }
 
     /* loaded from: classes.dex */
-    public interface c {
+    public interface j {
         boolean a(BdSwipeRefreshLayout bdSwipeRefreshLayout, @Nullable View view);
     }
 
     /* loaded from: classes.dex */
-    public interface d {
+    public interface k {
         void onRefresh();
-    }
-
-    void reset() {
-        finish();
-        this.abp.getView().setVisibility(8);
-        setColorViewAlpha(255);
-        if (this.mScale) {
-            setAnimationProgress(0.0f);
-        } else {
-            setTargetOffsetTopAndBottom(this.mOriginalOffsetTop - this.mCurrentTargetOffsetTop, true, "reset");
-        }
-        this.mCurrentTargetOffsetTop = this.abp.getView().getTop();
-    }
-
-    @Override // android.view.View
-    public void setEnabled(boolean z) {
-        super.setEnabled(z);
-        if (!z) {
-            reset();
-        }
-    }
-
-    @Override // android.view.ViewGroup, android.view.View
-    protected void onDetachedFromWindow() {
-        super.onDetachedFromWindow();
-        reset();
-    }
-
-    @SuppressLint({"NewApi"})
-    private void setColorViewAlpha(int i) {
-        if (this.abp != null && this.abp.getView() != null && this.abp.getView().getBackground() != null) {
-            this.abp.getView().getBackground().setAlpha(i);
-        }
-    }
-
-    public void setProgressViewOffset(boolean z, int i, int i2) {
-        this.mScale = z;
-        this.mOriginalOffsetTop = i;
-        this.mSpinnerOffsetEnd = i2;
-        this.mUsingCustomStart = true;
-        reset();
-        this.mRefreshing = false;
-    }
-
-    public int getProgressViewStartOffset() {
-        return this.mOriginalOffsetTop;
-    }
-
-    public int getProgressViewEndOffset() {
-        return this.mSpinnerOffsetEnd;
-    }
-
-    public void setProgressViewEndTarget(boolean z, int i) {
-        this.mSpinnerOffsetEnd = i;
-        this.mScale = z;
-        this.abp.getView().invalidate();
-    }
-
-    public void setSize(int i) {
-        if ((i == 0 || i == 1) && (this.abp instanceof a)) {
-            DisplayMetrics displayMetrics = getResources().getDisplayMetrics();
-            if (i == 0) {
-                this.mCircleDiameter = (int) (displayMetrics.density * 56.0f);
-            } else {
-                this.mCircleDiameter = (int) (displayMetrics.density * 61.0f);
-            }
-            ((a) this.abp).setSize(i);
-        }
     }
 
     public BdSwipeRefreshLayout(Context context) {
         this(context, null);
     }
 
-    public BdSwipeRefreshLayout(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        this.mState = 4;
-        this.mRefreshing = false;
-        this.mTotalDragDistance = -1.0f;
-        this.mParentScrollConsumed = new int[2];
-        this.mParentOffsetInWindow = new int[2];
-        this.mActivePointerId = -1;
-        this.mCircleViewIndex = -1;
-        this.mRefreshListener = new Animation.AnimationListener() { // from class: com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.1
-            @Override // android.view.animation.Animation.AnimationListener
-            public void onAnimationStart(Animation animation) {
-            }
-
-            @Override // android.view.animation.Animation.AnimationListener
-            public void onAnimationRepeat(Animation animation) {
-            }
-
-            @Override // android.view.animation.Animation.AnimationListener
-            @SuppressLint({"NewApi"})
-            public void onAnimationEnd(Animation animation) {
-                if (BdSwipeRefreshLayout.this.mRefreshing) {
-                    BdSwipeRefreshLayout.this.refreshing();
-                    BdSwipeRefreshLayout.this.mCurrentTargetOffsetTop = BdSwipeRefreshLayout.this.abp.getView().getTop();
-                    return;
-                }
-                BdSwipeRefreshLayout.this.reset();
-            }
-        };
-        this.mAnimateToCorrectPosition = new Animation() { // from class: com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.4
-            @Override // android.view.animation.Animation
-            public void applyTransformation(float f, Transformation transformation) {
-                int i;
-                if (!BdSwipeRefreshLayout.this.mUsingCustomStart) {
-                    i = BdSwipeRefreshLayout.this.mSpinnerOffsetEnd - Math.abs(BdSwipeRefreshLayout.this.mOriginalOffsetTop);
-                } else {
-                    i = BdSwipeRefreshLayout.this.mSpinnerOffsetEnd;
-                }
-                BdSwipeRefreshLayout.this.setTargetOffsetTopAndBottom((((int) ((i - BdSwipeRefreshLayout.this.mFrom) * f)) + BdSwipeRefreshLayout.this.mFrom) - BdSwipeRefreshLayout.this.abp.getView().getTop(), false, "AnimateToCorrectPosition");
-            }
-        };
-        this.mAnimateToStartPosition = new Animation() { // from class: com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.5
-            @Override // android.view.animation.Animation
-            public void applyTransformation(float f, Transformation transformation) {
-                BdSwipeRefreshLayout.this.moveToStart(f);
-            }
-        };
-        this.mTouchSlop = ViewConfiguration.get(context).getScaledTouchSlop();
-        this.mMediumAnimationDuration = getResources().getInteger(17694721);
-        setWillNotDraw(false);
-        this.mDecelerateInterpolator = new DecelerateInterpolator(2.0f);
-        DisplayMetrics displayMetrics = getResources().getDisplayMetrics();
-        this.mCircleDiameter = displayMetrics.widthPixels;
-        createProgressView();
-        ViewCompat.setChildrenDrawingOrderEnabled(this, true);
-        this.mSpinnerOffsetEnd = (int) (displayMetrics.density * 86.0f);
-        this.mTotalDragDistance = this.mSpinnerOffsetEnd;
-        this.mNestedScrollingParentHelper = new NestedScrollingParentHelper(this);
-        this.mNestedScrollingChildHelper = new NestedScrollingChildHelper(this);
-        setNestedScrollingEnabled(true);
-        int i = -this.mCircleDiameter;
-        this.mCurrentTargetOffsetTop = i;
-        this.mOriginalOffsetTop = i;
-        moveToStart(1.0f);
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, LAYOUT_ATTRS);
-        setEnabled(obtainStyledAttributes.getBoolean(0, true));
-        obtainStyledAttributes.recycle();
-    }
-
-    @Override // android.view.ViewGroup
-    protected int getChildDrawingOrder(int i, int i2) {
-        if (this.mCircleViewIndex >= 0) {
-            if (i2 == i - 1) {
-                return this.mCircleViewIndex;
-            }
-            if (i2 >= this.mCircleViewIndex) {
-                return i2 + 1;
-            }
-            return i2;
-        }
-        return i2;
-    }
-
-    private void createProgressView() {
-        this.abp = new a(getContext());
-        addView(this.abp.getView());
-    }
-
-    public void setProgressView(b bVar) {
-        if (bVar != null && bVar.getView() != null && bVar != this.abp && this.mState == 4) {
-            removeView(this.abp.getView());
-            this.abp = bVar;
-            this.abp.getView().setVisibility(8);
-            addView(this.abp.getView(), 0);
-        }
-    }
-
-    public void setOnRefreshListener(d dVar) {
-        this.abo = dVar;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public boolean isAlphaUsedForScale() {
-        return Build.VERSION.SDK_INT < 11;
-    }
-
-    public void setRefreshing(boolean z) {
-        if (z && this.mRefreshing != z) {
-            setRefreshing(z, false);
-        } else {
-            setRefreshing(z, false);
-        }
-    }
-
-    void setAnimationProgress(float f) {
-        if (isAlphaUsedForScale()) {
-            setColorViewAlpha((int) (255.0f * f));
+    @SuppressLint({"NewApi"})
+    private void setColorViewAlpha(int i2) {
+        i iVar = this.y;
+        if (iVar == null || iVar.getView() == null || this.y.getView().getBackground() == null) {
             return;
         }
-        ViewCompat.setScaleX(this.abp.getView(), f);
-        ViewCompat.setScaleY(this.abp.getView(), f);
+        this.y.getView().getBackground().setAlpha(i2);
     }
 
-    private void setRefreshing(boolean z, boolean z2) {
-        if (this.mRefreshing != z) {
-            this.mNotify = z2;
-            ensureTarget();
-            this.mRefreshing = z;
-            if (this.mRefreshing) {
-                animateOffsetToCorrectPosition(this.mCurrentTargetOffsetTop, this.mRefreshListener);
-            } else {
-                completeRefresh();
-            }
+    public void A(int i2, boolean z, String str) {
+        this.y.getView().bringToFront();
+        ViewCompat.offsetTopAndBottom(this.y.getView(), i2);
+        View view = this.f2444f;
+        if (view != null) {
+            ViewCompat.offsetTopAndBottom(view, i2);
         }
-    }
-
-    void startScaleDownAnimation(Animation.AnimationListener animationListener) {
-        this.mScaleDownAnimation = new Animation() { // from class: com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.2
-            @Override // android.view.animation.Animation
-            public void applyTransformation(float f, Transformation transformation) {
-                BdSwipeRefreshLayout.this.setAnimationProgress(1.0f - f);
-            }
-        };
-        this.mScaleDownAnimation.setDuration(150L);
-        this.mScaleDownAnimation.setAnimationListener(animationListener);
-        this.abp.getView().clearAnimation();
-        this.abp.getView().startAnimation(this.mScaleDownAnimation);
-    }
-
-    @Deprecated
-    public void setProgressBackgroundColor(int i) {
-        setProgressBackgroundColorSchemeResource(i);
-    }
-
-    public void setProgressBackgroundColorSchemeResource(@ColorRes int i) {
-        setProgressBackgroundColorSchemeColor(getContext().getResources().getColor(i));
-    }
-
-    public void setProgressBackgroundColorSchemeColor(@ColorInt int i) {
-        if (this.abp instanceof a) {
-            ((a) this.abp).setBackgroundColorSchemeColor(i);
+        this.q = this.y.getView().getTop();
+        if (!z || Build.VERSION.SDK_INT >= 11) {
+            return;
         }
+        invalidate();
     }
 
-    public void setColorSchemeResources(@ColorRes int... iArr) {
-        getContext();
-        int[] iArr2 = new int[iArr.length];
-        for (int i = 0; i < iArr.length; i++) {
-            iArr2[i] = getContext().getResources().getColor(iArr[i]);
+    @SuppressLint({"NewApi"})
+    public final void B(float f2, String str) {
+        float f3 = this.s;
+        int i2 = this.i;
+        if (f2 - f3 <= i2 || this.t) {
+            return;
         }
-        setColorSchemeColors(iArr2);
+        this.r = f3 + i2;
+        this.t = true;
     }
 
-    public void setColorSchemeColors(@ColorInt int... iArr) {
-        ensureTarget();
-        if (this.abp instanceof a) {
-            ((a) this.abp).setColorSchemeColors(iArr);
+    public void C(Animation.AnimationListener animationListener) {
+        b bVar = new b();
+        this.E = bVar;
+        bVar.setDuration(150L);
+        this.E.setAnimationListener(animationListener);
+        this.y.getView().clearAnimation();
+        this.y.getView().startAnimation(this.E);
+    }
+
+    @SuppressLint({"NewApi"})
+    public final void D(int i2, Animation.AnimationListener animationListener) {
+        this.A = i2;
+        this.B = ViewCompat.getScaleX(this.y.getView());
+        f fVar = new f();
+        this.F = fVar;
+        fVar.setDuration(150L);
+        if (animationListener != null) {
+            this.F.setAnimationListener(animationListener);
         }
+        this.y.getView().clearAnimation();
+        this.y.getView().startAnimation(this.F);
     }
 
-    public boolean isRefreshing() {
-        return this.mRefreshing;
+    @Override // android.view.View, androidx.core.view.NestedScrollingChild
+    public boolean dispatchNestedFling(float f2, float f3, boolean z) {
+        return this.m.dispatchNestedFling(f2, f3, z);
     }
 
-    private void ensureTarget() {
-        if (this.mTarget == null) {
-            for (int i = 0; i < getChildCount(); i++) {
-                View childAt = getChildAt(i);
-                if (!childAt.equals(this.abp.getView())) {
-                    this.mTarget = childAt;
-                    return;
-                }
-            }
-        }
+    @Override // android.view.View, androidx.core.view.NestedScrollingChild
+    public boolean dispatchNestedPreFling(float f2, float f3) {
+        return this.m.dispatchNestedPreFling(f2, f3);
     }
 
-    public void setDistanceToTriggerSync(int i) {
-        this.mTotalDragDistance = i;
+    @Override // android.view.View, androidx.core.view.NestedScrollingChild
+    public boolean dispatchNestedPreScroll(int i2, int i3, int[] iArr, int[] iArr2) {
+        return this.m.dispatchNestedPreScroll(i2, i3, iArr, iArr2);
     }
 
-    @Override // android.view.ViewGroup, android.view.View
-    protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
-        int measuredWidth = getMeasuredWidth();
-        int measuredHeight = getMeasuredHeight();
-        if (getChildCount() != 0) {
-            if (this.mTarget == null) {
-                ensureTarget();
-            }
-            if (this.mTarget != null) {
-                View view = this.mTarget;
-                int paddingLeft = getPaddingLeft();
-                int paddingTop = (getPaddingTop() + this.mCurrentTargetOffsetTop) - this.mOriginalOffsetTop;
-                view.layout(paddingLeft, paddingTop, ((measuredWidth - getPaddingLeft()) - getPaddingRight()) + paddingLeft, ((measuredHeight - getPaddingTop()) - getPaddingBottom()) + paddingTop);
-                int measuredWidth2 = this.abp.getView().getMeasuredWidth();
-                this.abp.getView().layout((measuredWidth / 2) - (measuredWidth2 / 2), this.mCurrentTargetOffsetTop, (measuredWidth / 2) + (measuredWidth2 / 2), this.mCurrentTargetOffsetTop + this.abp.getView().getMeasuredHeight());
-            }
-        }
-    }
-
-    @Override // android.view.View
-    public void onMeasure(int i, int i2) {
-        super.onMeasure(i, i2);
-        if (this.mTarget == null) {
-            ensureTarget();
-        }
-        if (this.mTarget != null) {
-            this.mTarget.measure(View.MeasureSpec.makeMeasureSpec((getMeasuredWidth() - getPaddingLeft()) - getPaddingRight(), 1073741824), View.MeasureSpec.makeMeasureSpec((getMeasuredHeight() - getPaddingTop()) - getPaddingBottom(), 1073741824));
-            this.abp.getView().measure(View.MeasureSpec.makeMeasureSpec(this.mCircleDiameter, 1073741824), View.MeasureSpec.makeMeasureSpec(this.mCircleDiameter, 1073741824));
-            this.mCircleViewIndex = -1;
-            for (int i3 = 0; i3 < getChildCount(); i3++) {
-                if (getChildAt(i3) == this.abp.getView()) {
-                    this.mCircleViewIndex = i3;
-                    return;
-                }
-            }
-        }
-    }
-
-    public int getProgressCircleDiameter() {
-        return this.mCircleDiameter;
-    }
-
-    public boolean canChildScrollUp() {
-        boolean z = false;
-        if (this.abq != null) {
-            return this.abq.a(this, this.mTarget);
-        }
-        if (Build.VERSION.SDK_INT < 14) {
-            if (this.mTarget instanceof AbsListView) {
-                AbsListView absListView = (AbsListView) this.mTarget;
-                return absListView.getChildCount() > 0 && (absListView.getFirstVisiblePosition() > 0 || absListView.getChildAt(0).getTop() < absListView.getPaddingTop());
-            }
-            if (ViewCompat.canScrollVertically(this.mTarget, -1) || this.mTarget.getScrollY() > 0) {
-                z = true;
-            }
-            return z;
-        }
-        return ViewCompat.canScrollVertically(this.mTarget, -1);
-    }
-
-    public void setOnChildScrollUpCallback(@Nullable c cVar) {
-        this.abq = cVar;
+    @Override // android.view.View, androidx.core.view.NestedScrollingChild
+    public boolean dispatchNestedScroll(int i2, int i3, int i4, int i5, int[] iArr) {
+        return this.m.dispatchNestedScroll(i2, i3, i4, i5, iArr);
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -434,547 +444,641 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingCh
         return super.dispatchTouchEvent(motionEvent);
     }
 
+    public final void g(int i2, Animation.AnimationListener animationListener) {
+        this.A = i2;
+        this.L.reset();
+        this.L.setDuration(200L);
+        this.L.setInterpolator(this.x);
+        if (animationListener != null) {
+            this.L.setAnimationListener(animationListener);
+        }
+        if (this.y.getView().getVisibility() != 0) {
+            this.y.getView().setVisibility(0);
+        }
+        this.y.getView().clearAnimation();
+        this.y.getView().startAnimation(this.L);
+    }
+
     @Override // android.view.ViewGroup
-    public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        int findPointerIndex;
-        ensureTarget();
-        int actionMasked = MotionEventCompat.getActionMasked(motionEvent);
-        if (this.mReturningToStart && actionMasked == 0) {
-            this.mReturningToStart = false;
-        }
-        if (!isEnabled() || this.mReturningToStart || canChildScrollUp() || this.mNestedScrollInProgress) {
-            return false;
-        }
-        switch (actionMasked) {
-            case 0:
-                this.mActivePointerId = motionEvent.getPointerId(0);
-                this.mIsBeingDragged = false;
-                int findPointerIndex2 = motionEvent.findPointerIndex(this.mActivePointerId);
-                if (findPointerIndex2 >= 0) {
-                    this.mInitialDownY = motionEvent.getY(findPointerIndex2);
-                    break;
-                } else {
-                    return false;
-                }
-            case 1:
-            case 3:
-                this.mIsBeingDragged = false;
-                this.mActivePointerId = -1;
-                break;
-            case 2:
-                if (this.mActivePointerId != -1 && (findPointerIndex = motionEvent.findPointerIndex(this.mActivePointerId)) >= 0) {
-                    startDragging(motionEvent.getY(findPointerIndex), "onInterceptTouchEvent");
-                    break;
-                } else {
-                    return false;
-                }
-                break;
-            case 6:
-                onSecondaryPointerUp(motionEvent);
-                break;
-        }
-        return this.mIsBeingDragged;
-    }
-
-    @Override // android.view.ViewGroup, android.view.ViewParent
-    public void requestDisallowInterceptTouchEvent(boolean z) {
-        if (Build.VERSION.SDK_INT >= 21 || !(this.mTarget instanceof AbsListView)) {
-            if (this.mTarget == null || ViewCompat.isNestedScrollingEnabled(this.mTarget)) {
-                super.requestDisallowInterceptTouchEvent(z);
-            }
-        }
-    }
-
-    @Override // android.view.ViewGroup, android.view.ViewParent, androidx.core.view.NestedScrollingParent
-    public boolean onStartNestedScroll(View view, View view2, int i) {
-        return (!isEnabled() || this.mReturningToStart || (i & 2) == 0) ? false : true;
-    }
-
-    @Override // android.view.ViewGroup, android.view.ViewParent, androidx.core.view.NestedScrollingParent
-    public void onNestedScrollAccepted(View view, View view2, int i) {
-        this.mNestedScrollingParentHelper.onNestedScrollAccepted(view, view2, i);
-        startNestedScroll(i & 2);
-        this.mTotalUnconsumed = 0.0f;
-        this.mNestedScrollInProgress = true;
-    }
-
-    @Override // android.view.ViewGroup, android.view.ViewParent, androidx.core.view.NestedScrollingParent
-    public void onNestedPreScroll(View view, int i, int i2, int[] iArr) {
-        if (i2 > 0 && this.mTotalUnconsumed > 0.0f) {
-            if (i2 > this.mTotalUnconsumed) {
-                iArr[1] = i2 - ((int) this.mTotalUnconsumed);
-                this.mTotalUnconsumed = 0.0f;
-            } else {
-                this.mTotalUnconsumed -= i2;
-                iArr[1] = i2;
-            }
-            moveSpinner(this.mTotalUnconsumed, "onNestedPreScroll-2");
-        }
-        if (this.mUsingCustomStart && i2 > 0 && this.mTotalUnconsumed == 0.0f && Math.abs(i2 - iArr[1]) > 0) {
-            this.abp.getView().setVisibility(8);
-        }
-        int[] iArr2 = this.mParentScrollConsumed;
-        if (dispatchNestedPreScroll(i - iArr[0], i2 - iArr[1], iArr2, null)) {
-            iArr[0] = iArr[0] + iArr2[0];
-            iArr[1] = iArr2[1] + iArr[1];
-        }
-        int i3 = i2 - iArr[1];
-        if ((isRefreshing() || this.mState == 3) && Math.abs(i3) > 0) {
-            if ((i3 > 0 && this.mCurrentTargetOffsetTop > this.mOriginalOffsetTop) || (i3 < 0 && this.mCurrentTargetOffsetTop < this.mOriginalOffsetTop + this.mSpinnerOffsetEnd && !canChildScrollUp())) {
-                moveSpinner(Math.max(Math.min(this.mSpinnerOffsetEnd, (this.mCurrentTargetOffsetTop - this.mOriginalOffsetTop) - i3), 0.0f), "onNestedPreScroll-1");
-                iArr[1] = i3 + iArr[1];
-            }
-        }
-    }
-
-    @Override // android.view.ViewGroup, android.view.ViewParent, androidx.core.view.NestedScrollingParent
-    public void onNestedScroll(View view, int i, int i2, int i3, int i4) {
-        dispatchNestedScroll(i, i2, i3, i4, this.mParentOffsetInWindow);
-        int i5 = this.mParentOffsetInWindow[1] + i4;
-        if (i5 < 0 && !canChildScrollUp() && !this.mRefreshing) {
-            this.mTotalUnconsumed = Math.abs(i5) + this.mTotalUnconsumed;
-            moveSpinner(this.mTotalUnconsumed, "onNestedScroll");
-        }
+    public int getChildDrawingOrder(int i2, int i3) {
+        int i4 = this.z;
+        return i4 < 0 ? i3 : i3 == i2 + (-1) ? i4 : i3 >= i4 ? i3 + 1 : i3;
     }
 
     @Override // android.view.ViewGroup, androidx.core.view.NestedScrollingParent
     public int getNestedScrollAxes() {
-        return this.mNestedScrollingParentHelper.getNestedScrollAxes();
+        return this.l.getNestedScrollAxes();
     }
 
-    @Override // android.view.ViewGroup, android.view.ViewParent, androidx.core.view.NestedScrollingParent
-    public void onStopNestedScroll(View view) {
-        this.mNestedScrollingParentHelper.onStopNestedScroll(view);
-        this.mNestedScrollInProgress = false;
-        if (this.mTotalUnconsumed > 0.0f) {
-            finishSpinner(this.mTotalUnconsumed, "onStopNestedScroll");
-            this.mTotalUnconsumed = 0.0f;
+    public int getProgressCircleDiameter() {
+        return this.H;
+    }
+
+    public int getProgressViewEndOffset() {
+        return this.D;
+    }
+
+    public int getProgressViewStartOffset() {
+        return this.C;
+    }
+
+    public final void h(int i2, Animation.AnimationListener animationListener) {
+        if (this.v) {
+            D(i2, animationListener);
+            return;
         }
-        stopNestedScroll();
+        this.A = i2;
+        this.M.reset();
+        this.M.setDuration(200L);
+        this.M.setInterpolator(this.x);
+        if (animationListener != null) {
+            this.M.setAnimationListener(animationListener);
+        }
+        this.y.getView().clearAnimation();
+        this.y.getView().startAnimation(this.M);
+    }
+
+    @Override // android.view.View, androidx.core.view.NestedScrollingChild
+    public boolean hasNestedScrollingParent() {
+        return this.m.hasNestedScrollingParent();
+    }
+
+    public boolean i() {
+        j jVar = this.J;
+        if (jVar != null) {
+            return jVar.a(this, this.f2444f);
+        }
+        if (Build.VERSION.SDK_INT < 14) {
+            View view = this.f2444f;
+            if (!(view instanceof AbsListView)) {
+                return ViewCompat.canScrollVertically(view, -1) || this.f2444f.getScrollY() > 0;
+            }
+            AbsListView absListView = (AbsListView) view;
+            return absListView.getChildCount() > 0 && (absListView.getFirstVisiblePosition() > 0 || absListView.getChildAt(0).getTop() < absListView.getPaddingTop());
+        }
+        return ViewCompat.canScrollVertically(this.f2444f, -1);
+    }
+
+    @Override // android.view.View, androidx.core.view.NestedScrollingChild
+    public boolean isNestedScrollingEnabled() {
+        return this.m.isNestedScrollingEnabled();
+    }
+
+    public final void j() {
+        this.f2443e = 3;
+        this.y.j();
+        postDelayed(new g(), this.y.getCompleteAnimTime());
+    }
+
+    public final void k() {
+        h hVar = new h(getContext());
+        this.y = hVar;
+        addView(hVar.getView());
+    }
+
+    public final void l() {
+        if (this.f2444f == null) {
+            for (int i2 = 0; i2 < getChildCount(); i2++) {
+                View childAt = getChildAt(i2);
+                if (!childAt.equals(this.y.getView())) {
+                    this.f2444f = childAt;
+                    return;
+                }
+            }
+        }
+    }
+
+    public final void m() {
+        this.f2443e = 4;
+        this.y.getView().clearAnimation();
+        this.y.onFinish();
+    }
+
+    public final void n(float f2, String str) {
+        if (f2 > this.j) {
+            z(true, true);
+            return;
+        }
+        this.f2446h = false;
+        h(this.q, this.v ? null : new c());
+    }
+
+    public void o() {
+        l();
+        this.f2446h = false;
+        t(1.0f);
+        y();
+    }
+
+    @Override // android.view.ViewGroup, android.view.View
+    public void onDetachedFromWindow() {
+        super.onDetachedFromWindow();
+        y();
+    }
+
+    @Override // android.view.ViewGroup
+    public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
+        int findPointerIndex;
+        l();
+        int actionMasked = MotionEventCompat.getActionMasked(motionEvent);
+        if (this.w && actionMasked == 0) {
+            this.w = false;
+        }
+        if (!isEnabled() || this.w || i() || this.p) {
+            return false;
+        }
+        if (actionMasked != 0) {
+            if (actionMasked != 1) {
+                if (actionMasked == 2) {
+                    int i2 = this.u;
+                    if (i2 == -1 || (findPointerIndex = motionEvent.findPointerIndex(i2)) < 0) {
+                        return false;
+                    }
+                    B(motionEvent.getY(findPointerIndex), "onInterceptTouchEvent");
+                } else if (actionMasked != 3) {
+                    if (actionMasked == 6) {
+                        u(motionEvent);
+                    }
+                }
+            }
+            this.t = false;
+            this.u = -1;
+        } else {
+            int pointerId = motionEvent.getPointerId(0);
+            this.u = pointerId;
+            this.t = false;
+            int findPointerIndex2 = motionEvent.findPointerIndex(pointerId);
+            if (findPointerIndex2 < 0) {
+                return false;
+            }
+            this.s = motionEvent.getY(findPointerIndex2);
+        }
+        return this.t;
+    }
+
+    @Override // android.view.ViewGroup, android.view.View
+    public void onLayout(boolean z, int i2, int i3, int i4, int i5) {
+        int measuredWidth = getMeasuredWidth();
+        int measuredHeight = getMeasuredHeight();
+        if (getChildCount() == 0) {
+            return;
+        }
+        if (this.f2444f == null) {
+            l();
+        }
+        View view = this.f2444f;
+        if (view == null) {
+            return;
+        }
+        int paddingLeft = getPaddingLeft();
+        int paddingTop = (getPaddingTop() + this.q) - this.C;
+        view.layout(paddingLeft, paddingTop, ((measuredWidth - getPaddingLeft()) - getPaddingRight()) + paddingLeft, ((measuredHeight - getPaddingTop()) - getPaddingBottom()) + paddingTop);
+        int measuredWidth2 = this.y.getView().getMeasuredWidth();
+        int measuredHeight2 = this.y.getView().getMeasuredHeight();
+        int i6 = measuredWidth / 2;
+        int i7 = measuredWidth2 / 2;
+        int i8 = this.q;
+        this.y.getView().layout(i6 - i7, i8, i6 + i7, measuredHeight2 + i8);
+    }
+
+    @Override // android.view.View
+    public void onMeasure(int i2, int i3) {
+        super.onMeasure(i2, i3);
+        if (this.f2444f == null) {
+            l();
+        }
+        View view = this.f2444f;
+        if (view == null) {
+            return;
+        }
+        view.measure(View.MeasureSpec.makeMeasureSpec((getMeasuredWidth() - getPaddingLeft()) - getPaddingRight(), 1073741824), View.MeasureSpec.makeMeasureSpec((getMeasuredHeight() - getPaddingTop()) - getPaddingBottom(), 1073741824));
+        this.y.getView().measure(View.MeasureSpec.makeMeasureSpec(this.H, 1073741824), View.MeasureSpec.makeMeasureSpec(this.H, 1073741824));
+        this.z = -1;
+        for (int i4 = 0; i4 < getChildCount(); i4++) {
+            if (getChildAt(i4) == this.y.getView()) {
+                this.z = i4;
+                return;
+            }
+        }
     }
 
     @Override // android.view.ViewGroup, android.view.ViewParent, androidx.core.view.NestedScrollingParent
-    public boolean onNestedPreFling(View view, float f, float f2) {
-        if (this.mState == 3 || this.mState == 2 || this.abp.getView() == null || this.abp.getView().getBottom() <= 0) {
-            return dispatchNestedPreFling(f, f2);
+    public boolean onNestedFling(View view, float f2, float f3, boolean z) {
+        int i2;
+        int i3 = this.f2443e;
+        if ((i3 == 3 || i3 == 2) && f3 > 0.0f && (i2 = this.q) > this.C) {
+            h(i2, null);
+        }
+        return dispatchNestedFling(f2, f3, z);
+    }
+
+    @Override // android.view.ViewGroup, android.view.ViewParent, androidx.core.view.NestedScrollingParent
+    public boolean onNestedPreFling(View view, float f2, float f3) {
+        int i2 = this.f2443e;
+        if (i2 == 3 || i2 == 2 || this.y.getView() == null || this.y.getView().getBottom() <= 0) {
+            return dispatchNestedPreFling(f2, f3);
         }
         return true;
     }
 
     @Override // android.view.ViewGroup, android.view.ViewParent, androidx.core.view.NestedScrollingParent
-    public boolean onNestedFling(View view, float f, float f2, boolean z) {
-        if ((this.mState == 3 || this.mState == 2) && f2 > 0.0f && this.mCurrentTargetOffsetTop > this.mOriginalOffsetTop) {
-            animateOffsetToStartPosition(this.mCurrentTargetOffsetTop, null);
-        }
-        return dispatchNestedFling(f, f2, z);
-    }
-
-    @Override // android.view.View, androidx.core.view.NestedScrollingChild
-    public void setNestedScrollingEnabled(boolean z) {
-        this.mNestedScrollingChildHelper.setNestedScrollingEnabled(z);
-    }
-
-    @Override // android.view.View, androidx.core.view.NestedScrollingChild
-    public boolean isNestedScrollingEnabled() {
-        return this.mNestedScrollingChildHelper.isNestedScrollingEnabled();
-    }
-
-    @Override // android.view.View, androidx.core.view.NestedScrollingChild
-    public boolean startNestedScroll(int i) {
-        return this.mNestedScrollingChildHelper.startNestedScroll(i);
-    }
-
-    @Override // android.view.View, androidx.core.view.NestedScrollingChild
-    public void stopNestedScroll() {
-        this.mNestedScrollingChildHelper.stopNestedScroll();
-    }
-
-    @Override // android.view.View, androidx.core.view.NestedScrollingChild
-    public boolean hasNestedScrollingParent() {
-        return this.mNestedScrollingChildHelper.hasNestedScrollingParent();
-    }
-
-    @Override // android.view.View, androidx.core.view.NestedScrollingChild
-    public boolean dispatchNestedScroll(int i, int i2, int i3, int i4, int[] iArr) {
-        return this.mNestedScrollingChildHelper.dispatchNestedScroll(i, i2, i3, i4, iArr);
-    }
-
-    @Override // android.view.View, androidx.core.view.NestedScrollingChild
-    public boolean dispatchNestedPreScroll(int i, int i2, int[] iArr, int[] iArr2) {
-        return this.mNestedScrollingChildHelper.dispatchNestedPreScroll(i, i2, iArr, iArr2);
-    }
-
-    @Override // android.view.View, androidx.core.view.NestedScrollingChild
-    public boolean dispatchNestedFling(float f, float f2, boolean z) {
-        return this.mNestedScrollingChildHelper.dispatchNestedFling(f, f2, z);
-    }
-
-    @Override // android.view.View, androidx.core.view.NestedScrollingChild
-    public boolean dispatchNestedPreFling(float f, float f2) {
-        return this.mNestedScrollingChildHelper.dispatchNestedPreFling(f, f2);
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public boolean isAnimationRunning(Animation animation) {
-        return (animation == null || !animation.hasStarted() || animation.hasEnded()) ? false : true;
-    }
-
-    @SuppressLint({"NewApi"})
-    private void moveSpinner(float f, String str) {
-        float min = Math.min(1.0f, Math.abs(f / this.mTotalDragDistance));
-        float max = (((float) Math.max(min - 0.4d, 0.0d)) * 5.0f) / 3.0f;
-        float abs = Math.abs(f) - this.mTotalDragDistance;
-        float f2 = this.mUsingCustomStart ? this.mSpinnerOffsetEnd - this.mOriginalOffsetTop : this.mSpinnerOffsetEnd;
-        float max2 = Math.max(0.0f, Math.min(abs, f2 * 2.0f) / f2);
-        float pow = ((float) ((max2 / 4.0f) - Math.pow(max2 / 4.0f, 2.0d))) * 2.0f;
-        int i = ((int) ((f2 * min) + (f2 * pow * 2.0f))) + this.mOriginalOffsetTop;
-        if (this.abp.getView().getVisibility() != 0) {
-            this.abp.getView().setVisibility(0);
-        }
-        if (!this.mScale) {
-            ViewCompat.setScaleX(this.abp.getView(), 1.0f);
-            ViewCompat.setScaleY(this.abp.getView(), 1.0f);
-        }
-        if (this.mScale) {
-            setAnimationProgress(Math.min(1.0f, f / this.mTotalDragDistance));
-        }
-        if (!this.mRefreshing && this.mState != 3) {
-            if (this.mOriginalOffsetTop < this.mCurrentTargetOffsetTop && this.mCurrentTargetOffsetTop < this.mOriginalOffsetTop + this.mSpinnerOffsetEnd) {
-                if (this.mState != 0) {
-                    pullToRefresh();
+    public void onNestedPreScroll(View view, int i2, int i3, int[] iArr) {
+        if (i3 > 0) {
+            float f2 = this.k;
+            if (f2 > 0.0f) {
+                float f3 = i3;
+                if (f3 > f2) {
+                    iArr[1] = i3 - ((int) f2);
+                    this.k = 0.0f;
+                } else {
+                    this.k = f2 - f3;
+                    iArr[1] = i3;
                 }
-            } else if (this.mCurrentTargetOffsetTop >= this.mOriginalOffsetTop + this.mSpinnerOffsetEnd && this.mState != 1) {
-                releaseToRefresh();
+                s(this.k, "onNestedPreScroll-2");
             }
-            this.abp.onPullPercentChange(max, pow);
         }
-        setTargetOffsetTopAndBottom(i - this.mCurrentTargetOffsetTop, true, "moveSpinner");
+        if (this.I && i3 > 0 && this.k == 0.0f && Math.abs(i3 - iArr[1]) > 0) {
+            this.y.getView().setVisibility(8);
+        }
+        int[] iArr2 = this.n;
+        if (dispatchNestedPreScroll(i2 - iArr[0], i3 - iArr[1], iArr2, null)) {
+            iArr[0] = iArr[0] + iArr2[0];
+            iArr[1] = iArr[1] + iArr2[1];
+        }
+        int i4 = i3 - iArr[1];
+        if ((r() || this.f2443e == 3) && Math.abs(i4) > 0) {
+            if ((i4 <= 0 || this.q <= this.C) && (i4 >= 0 || this.q >= this.C + this.D || i())) {
+                return;
+            }
+            s(Math.max(Math.min(this.D, (this.q - this.C) - i4), 0.0f), "onNestedPreScroll-1");
+            iArr[1] = iArr[1] + i4;
+        }
     }
 
-    private void finishSpinner(float f, String str) {
-        if (f > this.mTotalDragDistance) {
-            setRefreshing(true, true);
+    @Override // android.view.ViewGroup, android.view.ViewParent, androidx.core.view.NestedScrollingParent
+    public void onNestedScroll(View view, int i2, int i3, int i4, int i5) {
+        dispatchNestedScroll(i2, i3, i4, i5, this.o);
+        int i6 = i5 + this.o[1];
+        if (i6 >= 0 || i() || this.f2446h) {
             return;
         }
-        this.mRefreshing = false;
-        Animation.AnimationListener animationListener = null;
-        if (!this.mScale) {
-            animationListener = new Animation.AnimationListener() { // from class: com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.3
-                @Override // android.view.animation.Animation.AnimationListener
-                public void onAnimationStart(Animation animation) {
-                }
+        float abs = this.k + Math.abs(i6);
+        this.k = abs;
+        s(abs, "onNestedScroll");
+    }
 
-                @Override // android.view.animation.Animation.AnimationListener
-                public void onAnimationEnd(Animation animation) {
-                    if (!BdSwipeRefreshLayout.this.mScale) {
-                        BdSwipeRefreshLayout.this.startScaleDownAnimation(null);
-                    }
-                    BdSwipeRefreshLayout.this.finish();
-                }
+    @Override // android.view.ViewGroup, android.view.ViewParent, androidx.core.view.NestedScrollingParent
+    public void onNestedScrollAccepted(View view, View view2, int i2) {
+        this.l.onNestedScrollAccepted(view, view2, i2);
+        startNestedScroll(i2 & 2);
+        this.k = 0.0f;
+        this.p = true;
+    }
 
-                @Override // android.view.animation.Animation.AnimationListener
-                public void onAnimationRepeat(Animation animation) {
-                }
-            };
+    @Override // android.view.ViewGroup, android.view.ViewParent, androidx.core.view.NestedScrollingParent
+    public boolean onStartNestedScroll(View view, View view2, int i2) {
+        return (!isEnabled() || this.w || (i2 & 2) == 0) ? false : true;
+    }
+
+    @Override // android.view.ViewGroup, android.view.ViewParent, androidx.core.view.NestedScrollingParent
+    public void onStopNestedScroll(View view) {
+        this.l.onStopNestedScroll(view);
+        this.p = false;
+        float f2 = this.k;
+        if (f2 > 0.0f) {
+            n(f2, "onStopNestedScroll");
+            this.k = 0.0f;
         }
-        animateOffsetToStartPosition(this.mCurrentTargetOffsetTop, animationListener);
+        stopNestedScroll();
     }
 
     @Override // android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
         int actionMasked = MotionEventCompat.getActionMasked(motionEvent);
-        if (this.mReturningToStart && actionMasked == 0) {
-            this.mReturningToStart = false;
+        if (this.w && actionMasked == 0) {
+            this.w = false;
         }
-        if (!isEnabled() || this.mReturningToStart || canChildScrollUp() || this.mRefreshing || this.mNestedScrollInProgress) {
+        if (!isEnabled() || this.w || i() || this.f2446h || this.p) {
             return false;
         }
-        switch (actionMasked) {
-            case 0:
-                this.mActivePointerId = motionEvent.getPointerId(0);
-                this.mIsBeingDragged = false;
-                break;
-            case 1:
-                int findPointerIndex = motionEvent.findPointerIndex(this.mActivePointerId);
-                if (findPointerIndex >= 0) {
-                    if (this.mIsBeingDragged) {
-                        this.mIsBeingDragged = false;
-                        finishSpinner((motionEvent.getY(findPointerIndex) - this.mInitialMotionY) * 0.5f, "onTouchEvent(ACTION_UP)");
-                    }
-                    this.mActivePointerId = -1;
+        if (actionMasked == 0) {
+            this.u = motionEvent.getPointerId(0);
+            this.t = false;
+        } else if (actionMasked == 1) {
+            int findPointerIndex = motionEvent.findPointerIndex(this.u);
+            if (findPointerIndex < 0) {
+                return false;
+            }
+            if (this.t) {
+                this.t = false;
+                n((motionEvent.getY(findPointerIndex) - this.r) * 0.5f, "onTouchEvent(ACTION_UP)");
+            }
+            this.u = -1;
+            return false;
+        } else if (actionMasked == 2) {
+            int findPointerIndex2 = motionEvent.findPointerIndex(this.u);
+            if (findPointerIndex2 < 0) {
+                return false;
+            }
+            float y = motionEvent.getY(findPointerIndex2);
+            B(y, "onTouchEvent");
+            if (this.t) {
+                float f2 = (y - this.r) * 0.5f;
+                if (f2 <= 0.0f) {
                     return false;
                 }
-                return false;
-            case 2:
-                int findPointerIndex2 = motionEvent.findPointerIndex(this.mActivePointerId);
-                if (findPointerIndex2 < 0) {
-                    return false;
-                }
-                float y = motionEvent.getY(findPointerIndex2);
-                startDragging(y, "onTouchEvent");
-                if (this.mIsBeingDragged) {
-                    float f = (y - this.mInitialMotionY) * 0.5f;
-                    if (f > 0.0f) {
-                        moveSpinner(f, "onTouchEvent(ACTION_MOVE)");
-                        break;
-                    } else {
-                        return false;
-                    }
-                }
-                break;
-            case 3:
-                return false;
-            case 5:
+                s(f2, "onTouchEvent(ACTION_MOVE)");
+            }
+        } else if (actionMasked == 3) {
+            return false;
+        } else {
+            if (actionMasked == 5) {
                 int actionIndex = MotionEventCompat.getActionIndex(motionEvent);
-                if (actionIndex >= 0) {
-                    this.mActivePointerId = motionEvent.getPointerId(actionIndex);
-                    break;
-                } else {
+                if (actionIndex < 0) {
                     return false;
                 }
-            case 6:
-                onSecondaryPointerUp(motionEvent);
-                break;
+                this.u = motionEvent.getPointerId(actionIndex);
+            } else if (actionMasked == 6) {
+                u(motionEvent);
+            }
         }
         return true;
     }
 
+    public final boolean p() {
+        return Build.VERSION.SDK_INT < 11;
+    }
+
+    public final boolean q(Animation animation) {
+        return (animation == null || !animation.hasStarted() || animation.hasEnded()) ? false : true;
+    }
+
+    public boolean r() {
+        return this.f2446h;
+    }
+
+    @Override // android.view.ViewGroup, android.view.ViewParent
+    public void requestDisallowInterceptTouchEvent(boolean z) {
+        if (Build.VERSION.SDK_INT >= 21 || !(this.f2444f instanceof AbsListView)) {
+            View view = this.f2444f;
+            if (view == null || ViewCompat.isNestedScrollingEnabled(view)) {
+                super.requestDisallowInterceptTouchEvent(z);
+            }
+        }
+    }
+
     @SuppressLint({"NewApi"})
-    private void startDragging(float f, String str) {
-        if (f - this.mInitialDownY > this.mTouchSlop && !this.mIsBeingDragged) {
-            this.mInitialMotionY = this.mInitialDownY + this.mTouchSlop;
-            this.mIsBeingDragged = true;
+    public final void s(float f2, String str) {
+        int i2;
+        float min = Math.min(1.0f, Math.abs(f2 / this.j));
+        double d2 = min;
+        Double.isNaN(d2);
+        float max = (((float) Math.max(d2 - 0.4d, 0.0d)) * 5.0f) / 3.0f;
+        float abs = Math.abs(f2) - this.j;
+        float f3 = this.I ? this.D - this.C : this.D;
+        double max2 = Math.max(0.0f, Math.min(abs, f3 * 2.0f) / f3) / 4.0f;
+        double pow = Math.pow(max2, 2.0d);
+        Double.isNaN(max2);
+        float f4 = ((float) (max2 - pow)) * 2.0f;
+        int i3 = this.C + ((int) ((f3 * min) + (f3 * f4 * 2.0f)));
+        if (this.y.getView().getVisibility() != 0) {
+            this.y.getView().setVisibility(0);
         }
+        if (!this.v) {
+            ViewCompat.setScaleX(this.y.getView(), 1.0f);
+            ViewCompat.setScaleY(this.y.getView(), 1.0f);
+        }
+        if (this.v) {
+            setAnimationProgress(Math.min(1.0f, f2 / this.j));
+        }
+        if (!this.f2446h && (i2 = this.f2443e) != 3) {
+            int i4 = this.C;
+            int i5 = this.q;
+            if (i4 >= i5 || i5 >= i4 + this.D) {
+                if (this.q >= this.C + this.D && this.f2443e != 1) {
+                    x();
+                }
+            } else if (i2 != 0) {
+                v();
+            }
+            this.y.f(max, f4);
+        }
+        A(i3 - this.q, true, "moveSpinner");
     }
 
-    private void animateOffsetToCorrectPosition(int i, Animation.AnimationListener animationListener) {
-        this.mFrom = i;
-        this.mAnimateToCorrectPosition.reset();
-        this.mAnimateToCorrectPosition.setDuration(200L);
-        this.mAnimateToCorrectPosition.setInterpolator(this.mDecelerateInterpolator);
-        if (animationListener != null) {
-            this.mAnimateToCorrectPosition.setAnimationListener(animationListener);
-        }
-        if (this.abp.getView().getVisibility() != 0) {
-            this.abp.getView().setVisibility(0);
-        }
-        this.abp.getView().clearAnimation();
-        this.abp.getView().startAnimation(this.mAnimateToCorrectPosition);
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void animateOffsetToStartPosition(int i, Animation.AnimationListener animationListener) {
-        if (this.mScale) {
-            startScaleDownReturnToStartAnimation(i, animationListener);
+    public void setAnimationProgress(float f2) {
+        if (p()) {
+            setColorViewAlpha((int) (f2 * 255.0f));
             return;
         }
-        this.mFrom = i;
-        this.mAnimateToStartPosition.reset();
-        this.mAnimateToStartPosition.setDuration(200L);
-        this.mAnimateToStartPosition.setInterpolator(this.mDecelerateInterpolator);
-        if (animationListener != null) {
-            this.mAnimateToStartPosition.setAnimationListener(animationListener);
+        ViewCompat.setScaleX(this.y.getView(), f2);
+        ViewCompat.setScaleY(this.y.getView(), f2);
+    }
+
+    public void setColorSchemeColors(@ColorInt int... iArr) {
+        l();
+        i iVar = this.y;
+        if (iVar instanceof h) {
+            ((h) iVar).b(iArr);
         }
-        this.abp.getView().clearAnimation();
-        this.abp.getView().startAnimation(this.mAnimateToStartPosition);
     }
 
-    void moveToStart(float f) {
-        setTargetOffsetTopAndBottom((this.mFrom + ((int) ((this.mOriginalOffsetTop - this.mFrom) * f))) - this.abp.getView().getTop(), false, "moveToStart");
+    public void setColorSchemeResources(@ColorRes int... iArr) {
+        getContext();
+        int[] iArr2 = new int[iArr.length];
+        for (int i2 = 0; i2 < iArr.length; i2++) {
+            iArr2[i2] = getContext().getResources().getColor(iArr[i2]);
+        }
+        setColorSchemeColors(iArr2);
     }
 
-    @SuppressLint({"NewApi"})
-    private void startScaleDownReturnToStartAnimation(int i, Animation.AnimationListener animationListener) {
-        this.mFrom = i;
-        this.mStartingScale = ViewCompat.getScaleX(this.abp.getView());
-        this.mScaleDownToStartAnimation = new Animation() { // from class: com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.6
-            @Override // android.view.animation.Animation
-            public void applyTransformation(float f, Transformation transformation) {
-                BdSwipeRefreshLayout.this.setAnimationProgress(BdSwipeRefreshLayout.this.mStartingScale + ((-BdSwipeRefreshLayout.this.mStartingScale) * f));
-                BdSwipeRefreshLayout.this.moveToStart(f);
+    public void setDistanceToTriggerSync(int i2) {
+        this.j = i2;
+    }
+
+    @Override // android.view.View
+    public void setEnabled(boolean z) {
+        super.setEnabled(z);
+        if (z) {
+            return;
+        }
+        y();
+    }
+
+    @Override // android.view.View, androidx.core.view.NestedScrollingChild
+    public void setNestedScrollingEnabled(boolean z) {
+        this.m.setNestedScrollingEnabled(z);
+    }
+
+    public void setOnChildScrollUpCallback(@Nullable j jVar) {
+        this.J = jVar;
+    }
+
+    public void setOnRefreshListener(k kVar) {
+        this.f2445g = kVar;
+    }
+
+    @Deprecated
+    public void setProgressBackgroundColor(int i2) {
+        setProgressBackgroundColorSchemeResource(i2);
+    }
+
+    public void setProgressBackgroundColorSchemeColor(@ColorInt int i2) {
+        i iVar = this.y;
+        if (iVar instanceof h) {
+            ((h) iVar).a(i2);
+        }
+    }
+
+    public void setProgressBackgroundColorSchemeResource(@ColorRes int i2) {
+        setProgressBackgroundColorSchemeColor(getContext().getResources().getColor(i2));
+    }
+
+    public void setProgressView(i iVar) {
+        i iVar2;
+        if (iVar == null || iVar.getView() == null || iVar == (iVar2 = this.y) || this.f2443e != 4) {
+            return;
+        }
+        removeView(iVar2.getView());
+        this.y = iVar;
+        iVar.getView().setVisibility(8);
+        addView(this.y.getView(), 0);
+    }
+
+    public void setProgressViewEndTarget(boolean z, int i2) {
+        this.D = i2;
+        this.v = z;
+        this.y.getView().invalidate();
+    }
+
+    public void setProgressViewOffset(boolean z, int i2, int i3) {
+        this.v = z;
+        this.C = i2;
+        this.D = i3;
+        this.I = true;
+        y();
+        this.f2446h = false;
+    }
+
+    public void setRefreshing(boolean z) {
+        if (z && this.f2446h != z) {
+            z(z, false);
+        } else {
+            z(z, false);
+        }
+    }
+
+    public void setSize(int i2) {
+        if ((i2 == 0 || i2 == 1) && (this.y instanceof h)) {
+            DisplayMetrics displayMetrics = getResources().getDisplayMetrics();
+            if (i2 == 0) {
+                this.H = (int) (displayMetrics.density * 56.0f);
+            } else {
+                this.H = (int) (displayMetrics.density * 61.0f);
             }
-        };
-        this.mScaleDownToStartAnimation.setDuration(150L);
-        if (animationListener != null) {
-            this.mScaleDownToStartAnimation.setAnimationListener(animationListener);
-        }
-        this.abp.getView().clearAnimation();
-        this.abp.getView().startAnimation(this.mScaleDownToStartAnimation);
-    }
-
-    void setTargetOffsetTopAndBottom(int i, boolean z, String str) {
-        this.abp.getView().bringToFront();
-        ViewCompat.offsetTopAndBottom(this.abp.getView(), i);
-        if (this.mTarget != null) {
-            ViewCompat.offsetTopAndBottom(this.mTarget, i);
-        }
-        this.mCurrentTargetOffsetTop = this.abp.getView().getTop();
-        if (z && Build.VERSION.SDK_INT < 11) {
-            invalidate();
+            ((h) this.y).c(i2);
         }
     }
 
-    private void onSecondaryPointerUp(MotionEvent motionEvent) {
+    @Override // android.view.View, androidx.core.view.NestedScrollingChild
+    public boolean startNestedScroll(int i2) {
+        return this.m.startNestedScroll(i2);
+    }
+
+    @Override // android.view.View, androidx.core.view.NestedScrollingChild
+    public void stopNestedScroll() {
+        this.m.stopNestedScroll();
+    }
+
+    public void t(float f2) {
+        int i2 = this.A;
+        A((i2 + ((int) ((this.C - i2) * f2))) - this.y.getView().getTop(), false, "moveToStart");
+    }
+
+    public final void u(MotionEvent motionEvent) {
         int actionIndex = MotionEventCompat.getActionIndex(motionEvent);
-        if (motionEvent.getPointerId(actionIndex) == this.mActivePointerId) {
-            this.mActivePointerId = motionEvent.getPointerId(actionIndex == 0 ? 1 : 0);
+        if (motionEvent.getPointerId(actionIndex) == this.u) {
+            this.u = motionEvent.getPointerId(actionIndex == 0 ? 1 : 0);
         }
     }
 
-    private void pullToRefresh() {
-        this.mState = 0;
-        this.abp.onPullToRefresh();
+    public final void v() {
+        this.f2443e = 0;
+        this.y.d();
     }
 
-    private void releaseToRefresh() {
-        this.mState = 1;
-        this.abp.onReleaseToRefresh();
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void refreshing() {
-        this.mState = 2;
-        this.abp.onRefreshing();
-        if (this.mNotify && this.abo != null) {
-            this.abo.onRefresh();
+    public final void w() {
+        k kVar;
+        this.f2443e = 2;
+        this.y.m();
+        if (!this.G || (kVar = this.f2445g) == null) {
+            return;
         }
+        kVar.onRefresh();
     }
 
-    private void completeRefresh() {
-        this.mState = 3;
-        this.abp.onCompleteRefresh();
-        postDelayed(new Runnable() { // from class: com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.7
-            @Override // java.lang.Runnable
-            public void run() {
-                BdSwipeRefreshLayout.this.animateOffsetToStartPosition(BdSwipeRefreshLayout.this.mCurrentTargetOffsetTop, BdSwipeRefreshLayout.this.mRefreshListener);
-            }
-        }, this.abp.getCompleteAnimTime());
+    public final void x() {
+        this.f2443e = 1;
+        this.y.e();
     }
 
-    public void interruptRefresh() {
-        ensureTarget();
-        this.mRefreshing = false;
-        moveToStart(1.0f);
-        reset();
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void finish() {
-        this.mState = 4;
-        this.abp.getView().clearAnimation();
-        this.abp.onFinish();
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes.dex */
-    public class a implements b {
-        BdCircleImageView abt;
-        com.baidu.adp.widget.refresh.a abu;
-        private Animation mAlphaMaxAnimation;
-        private Animation mAlphaStartAnimation;
-
-        public a(Context context) {
-            this.abt = new BdCircleImageView(BdSwipeRefreshLayout.this.getContext(), -328966);
-            this.abu = new com.baidu.adp.widget.refresh.a(context, this.abt);
-            this.abu.setBackgroundColor(-328966);
-            this.abt.setImageDrawable(this.abu);
-            this.abt.setVisibility(8);
+    public void y() {
+        m();
+        this.y.getView().setVisibility(8);
+        setColorViewAlpha(255);
+        if (this.v) {
+            setAnimationProgress(0.0f);
+        } else {
+            A(this.C - this.q, true, "reset");
         }
+        this.q = this.y.getView().getTop();
+    }
 
-        @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.b
-        public void onPullToRefresh() {
-            this.abu.setAlpha(76);
-            this.abu.showArrow(true);
-            if (this.abu.getAlpha() > 76 && !BdSwipeRefreshLayout.this.isAnimationRunning(this.mAlphaStartAnimation)) {
-                startProgressAlphaStartAnimation();
+    public final void z(boolean z, boolean z2) {
+        if (this.f2446h != z) {
+            this.G = z2;
+            l();
+            this.f2446h = z;
+            if (z) {
+                g(this.q, this.K);
+            } else {
+                j();
             }
         }
+    }
 
-        @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.b
-        public void onReleaseToRefresh() {
-            if (this.abu.getAlpha() < 255 && !BdSwipeRefreshLayout.this.isAnimationRunning(this.mAlphaMaxAnimation)) {
-                startProgressAlphaMaxAnimation();
-            }
-        }
-
-        @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.b
-        public void onRefreshing() {
-            if (Build.VERSION.SDK_INT >= 11) {
-                this.abu.setAlpha(255);
-            }
-            this.abu.setArrowScale(0.0f);
-            this.abu.setAlpha(255);
-            this.abu.start();
-        }
-
-        @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.b
-        public void onCompleteRefresh() {
-        }
-
-        @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.b
-        public void onFinish() {
-            this.abu.setStartEndTrim(0.0f, 0.0f);
-            this.abu.stop();
-        }
-
-        @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.b
-        public void onPullPercentChange(float f, float f2) {
-            this.abu.setStartEndTrim(0.0f, Math.min(0.8f, f * 0.8f));
-            this.abu.setArrowScale(Math.min(1.0f, f));
-            this.abu.setProgressRotation(((-0.25f) + (0.4f * f) + (2.0f * f2)) * 0.5f);
-        }
-
-        @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.b
-        public long getCompleteAnimTime() {
-            return 0L;
-        }
-
-        @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.b
-        public View getView() {
-            return this.abt;
-        }
-
-        public void setSize(int i) {
-            this.abt.setImageDrawable(null);
-            this.abu.updateSizes(i);
-            this.abt.setImageDrawable(this.abu);
-        }
-
-        public void setBackgroundColorSchemeColor(@ColorInt int i) {
-            this.abt.setBackgroundColor(i);
-            this.abu.setBackgroundColor(i);
-        }
-
-        public void setColorSchemeColors(@ColorInt int... iArr) {
-            this.abu.setColorSchemeColors(iArr);
-        }
-
-        @SuppressLint({"NewApi"})
-        private void startProgressAlphaStartAnimation() {
-            this.mAlphaStartAnimation = startAlphaAnimation(this.abu.getAlpha(), 76);
-        }
-
-        @SuppressLint({"NewApi"})
-        private void startProgressAlphaMaxAnimation() {
-            this.mAlphaMaxAnimation = startAlphaAnimation(this.abu.getAlpha(), 255);
-        }
-
-        @SuppressLint({"NewApi"})
-        private Animation startAlphaAnimation(final int i, final int i2) {
-            if (BdSwipeRefreshLayout.this.isAlphaUsedForScale()) {
-                return null;
-            }
-            Animation animation = new Animation() { // from class: com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.a.1
-                @Override // android.view.animation.Animation
-                public void applyTransformation(float f, Transformation transformation) {
-                    a.this.abu.setAlpha((int) (i + ((i2 - i) * f)));
-                }
-            };
-            animation.setDuration(300L);
-            this.abt.setAnimationListener(null);
-            this.abt.clearAnimation();
-            this.abt.startAnimation(animation);
-            return animation;
-        }
+    public BdSwipeRefreshLayout(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        this.f2443e = 4;
+        this.f2446h = false;
+        this.j = -1.0f;
+        this.n = new int[2];
+        this.o = new int[2];
+        this.u = -1;
+        this.z = -1;
+        this.K = new a();
+        this.L = new d();
+        this.M = new e();
+        this.i = ViewConfiguration.get(context).getScaledTouchSlop();
+        getResources().getInteger(17694721);
+        setWillNotDraw(false);
+        this.x = new DecelerateInterpolator(2.0f);
+        DisplayMetrics displayMetrics = getResources().getDisplayMetrics();
+        this.H = displayMetrics.widthPixels;
+        k();
+        ViewCompat.setChildrenDrawingOrderEnabled(this, true);
+        int i2 = (int) (displayMetrics.density * 86.0f);
+        this.D = i2;
+        this.j = i2;
+        this.l = new NestedScrollingParentHelper(this);
+        this.m = new NestedScrollingChildHelper(this);
+        setNestedScrollingEnabled(true);
+        int i3 = -this.H;
+        this.q = i3;
+        this.C = i3;
+        t(1.0f);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, N);
+        setEnabled(obtainStyledAttributes.getBoolean(0, true));
+        obtainStyledAttributes.recycle();
     }
 }

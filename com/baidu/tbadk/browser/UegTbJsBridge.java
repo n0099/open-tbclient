@@ -6,26 +6,52 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.coreExtra.data.j;
+import d.b.d.a.a;
+import d.b.h0.s.c.j;
+import d.b.i0.c3.l0.b;
+import d.b.i0.c3.l0.d.c;
+import d.b.i0.k3.d;
 import org.json.JSONException;
 import org.json.JSONObject;
 import tbclient.BlockPopInfo;
-@com.baidu.b.a.a
-/* loaded from: classes.dex */
-public class UegTbJsBridge implements com.baidu.tieba.tbadkCore.e.b {
+@a
+/* loaded from: classes3.dex */
+public class UegTbJsBridge implements b {
     public static final String INTERFACE_NAME = "CommonJSBridge";
     public static final String METHOD_BIND_MOBILE_NUMBER = "bindMobileNumber";
     public static final String METHOD_CALL_NATIVE_SMS = "callNativeSMS";
     public static final String METHOD_COPY_TO_CLIPBOARD = "copyToClipboard";
     public static final String METHOD_SET_BLOCK_POP_INFO = "setBlockPopInfo";
     public static final String SUCCESS_CODE = "1";
-    private final TbPageContext<?> mTbPageContext;
+    public final TbPageContext<?> mTbPageContext;
 
     public UegTbJsBridge(TbPageContext<?> tbPageContext) {
         this.mTbPageContext = tbPageContext;
     }
 
-    @Override // com.baidu.tieba.tbadkCore.e.b
+    private void bindingMobileNumber(String str) {
+        try {
+            MessageManager.getInstance().sendMessage(new CustomMessage(2921372, j.b()));
+        } catch (Exception e2) {
+            e2.printStackTrace();
+        }
+    }
+
+    private void copyToClipboard(String str) {
+        try {
+            d.b.b.e.p.a.a(new JSONObject(str).optString("content"));
+        } catch (Exception e2) {
+            e2.printStackTrace();
+        }
+    }
+
+    public c callNativeSMS(String str, String str2) {
+        c cVar = new c();
+        UtilHelper.smsTo(this.mTbPageContext.getPageActivity(), str, str2);
+        return cVar;
+    }
+
+    @Override // d.b.i0.c3.l0.b
     public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
         if ("CommonJSBridge".equals(str)) {
             if (METHOD_CALL_NATIVE_SMS.equals(str2)) {
@@ -33,8 +59,8 @@ public class UegTbJsBridge implements com.baidu.tieba.tbadkCore.e.b {
                     JSONObject jSONObject = new JSONObject(str3);
                     callNativeSMS(jSONObject.optString("phoneNumber"), jSONObject.optString("content"));
                     jsPromptResult.confirm("1");
-                } catch (JSONException e) {
-                    BdLog.e(e);
+                } catch (JSONException e2) {
+                    BdLog.e(e2);
                 }
                 return true;
             } else if (METHOD_COPY_TO_CLIPBOARD.equals(str2)) {
@@ -46,11 +72,11 @@ public class UegTbJsBridge implements com.baidu.tieba.tbadkCore.e.b {
                     JSONObject jSONObject2 = new JSONObject(str3);
                     setBlockPopInfo(jSONObject2.optInt("can_post"), jSONObject2.optString("block_info"), jSONObject2.optString("ahead_info"), jSONObject2.optString("ahead_url"), jSONObject2.optString("ok_info"), jSONObject2.optInt("ahead_type"));
                     jsPromptResult.confirm("1");
-                } catch (JSONException e2) {
-                    BdLog.e(e2);
+                } catch (JSONException e3) {
+                    BdLog.e(e3);
                 }
                 return true;
-            } else if (METHOD_BIND_MOBILE_NUMBER.equals(str2)) {
+            } else if ("bindMobileNumber".equals(str2)) {
                 bindingMobileNumber(str3);
                 jsPromptResult.confirm("1");
                 return true;
@@ -61,22 +87,8 @@ public class UegTbJsBridge implements com.baidu.tieba.tbadkCore.e.b {
         return false;
     }
 
-    public com.baidu.tieba.tbadkCore.e.a.c callNativeSMS(String str, String str2) {
-        com.baidu.tieba.tbadkCore.e.a.c cVar = new com.baidu.tieba.tbadkCore.e.a.c();
-        UtilHelper.smsTo(this.mTbPageContext.getPageActivity(), str, str2);
-        return cVar;
-    }
-
-    private void copyToClipboard(String str) {
-        try {
-            com.baidu.adp.lib.util.a.copyToClipboard(new JSONObject(str).optString("content"));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    public com.baidu.tieba.tbadkCore.e.a.c setBlockPopInfo(int i, String str, String str2, String str3, String str4, int i2) {
-        com.baidu.tieba.tbadkCore.e.a.c cVar = new com.baidu.tieba.tbadkCore.e.a.c();
+    public c setBlockPopInfo(int i, String str, String str2, String str3, String str4, int i2) {
+        c cVar = new c();
         try {
             BlockPopInfo.Builder builder = new BlockPopInfo.Builder();
             builder.can_post = Integer.valueOf(i);
@@ -86,19 +98,11 @@ public class UegTbJsBridge implements com.baidu.tieba.tbadkCore.e.b {
             builder.ok_info = str4;
             builder.ahead_type = Integer.valueOf(i2);
             BlockPopInfo build = builder.build(false);
-            com.baidu.tieba.ueg.d.d(build);
-            com.baidu.tieba.ueg.d.e(build);
-        } catch (Exception e) {
-            e.printStackTrace();
+            d.g(build);
+            d.f(build);
+        } catch (Exception e2) {
+            e2.printStackTrace();
         }
         return cVar;
-    }
-
-    private void bindingMobileNumber(String str) {
-        try {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2921372, j.bwm()));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
     }
 }

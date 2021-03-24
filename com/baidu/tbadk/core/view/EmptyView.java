@@ -3,52 +3,58 @@ package com.baidu.tbadk.core.view;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
-/* loaded from: classes.dex */
+import d.b.b.e.p.l;
+/* loaded from: classes3.dex */
 public class EmptyView extends View {
-    private int height;
-    private int width;
+
+    /* renamed from: e  reason: collision with root package name */
+    public int f13361e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public int f13362f;
 
     public EmptyView(Context context) {
         super(context);
-        this.height = 0;
-        this.width = 0;
+        this.f13361e = 0;
+        this.f13362f = 0;
+    }
+
+    @Override // android.view.View
+    public void onMeasure(int i, int i2) {
+        super.onMeasure(i, i2);
+        int i3 = this.f13362f;
+        if (i3 == 0) {
+            setMeasuredDimension(i & 1073741823, this.f13361e);
+        } else if (this.f13361e == 0) {
+            setMeasuredDimension(i3, i2 & 1073741823);
+        }
+    }
+
+    public void setHeightDip(int i) {
+        this.f13361e = l.e(getContext(), i);
+    }
+
+    public void setHeightPx(int i) {
+        this.f13361e = i;
+    }
+
+    public void setWidthDip(int i) {
+        this.f13362f = l.e(getContext(), i);
+    }
+
+    public void setWidthPx(int i) {
+        this.f13362f = i;
     }
 
     public EmptyView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.height = 0;
-        this.width = 0;
+        this.f13361e = 0;
+        this.f13362f = 0;
     }
 
     public EmptyView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.height = 0;
-        this.width = 0;
-    }
-
-    @Override // android.view.View
-    protected void onMeasure(int i, int i2) {
-        super.onMeasure(i, i2);
-        if (this.width == 0) {
-            setMeasuredDimension(i & 1073741823, this.height);
-        } else if (this.height == 0) {
-            setMeasuredDimension(this.width, 1073741823 & i2);
-        }
-    }
-
-    public void setHeightPx(int i) {
-        this.height = i;
-    }
-
-    public void setWidthPx(int i) {
-        this.width = i;
-    }
-
-    public void setHeightDip(int i) {
-        this.height = com.baidu.adp.lib.util.l.dip2px(getContext(), i);
-    }
-
-    public void setWidthDip(int i) {
-        this.width = com.baidu.adp.lib.util.l.dip2px(getContext(), i);
+        this.f13361e = 0;
+        this.f13362f = 0;
     }
 }

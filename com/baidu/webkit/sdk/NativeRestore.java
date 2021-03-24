@@ -1,23 +1,25 @@
 package com.baidu.webkit.sdk;
-
-import com.xiaomi.mipush.sdk.Constants;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public abstract class NativeRestore {
-    private static final String CRASH_IMEI = "imei";
-    private static final String CRASH_IS_NATIVE = "is_native";
-    private static final String CRASH_SIGNAL = "signal";
-    private static final String CRASH_TIME = "time_crash";
+    public static final String CRASH_IMEI = "imei";
+    public static final String CRASH_IS_NATIVE = "is_native";
+    public static final String CRASH_SIGNAL = "signal";
+    public static final String CRASH_TIME = "time_crash";
 
     public static NativeRestore createInstance(String str) {
         try {
             NativeRestore nativeRestoreImpl = WebViewFactory.getProvider().getNativeRestoreImpl(str);
-            if (nativeRestoreImpl != null && nativeRestoreImpl.isValid()) {
-                return nativeRestoreImpl;
+            if (nativeRestoreImpl != null) {
+                if (nativeRestoreImpl.isValid()) {
+                    return nativeRestoreImpl;
+                }
+                return null;
             }
-        } catch (Exception e) {
-            e.printStackTrace();
+            return null;
+        } catch (Exception e2) {
+            e2.printStackTrace();
+            return null;
         }
-        return null;
     }
 
     public void clear() {
@@ -33,7 +35,7 @@ public abstract class NativeRestore {
 
     public String getCrashID() {
         if (isNativeCrash()) {
-            return getCrashImei() + Constants.ACCEPT_TIME_SEPARATOR_SERVER + getCrashTime();
+            return getCrashImei() + "-" + getCrashTime();
         }
         return null;
     }
@@ -43,11 +45,11 @@ public abstract class NativeRestore {
     }
 
     public String getCrashSingal() {
-        return getString(CRASH_SIGNAL);
+        return getString("signal");
     }
 
     public String getCrashTime() {
-        return getString(CRASH_TIME);
+        return getString("time_crash");
     }
 
     public int getInt(String str, int i) {
@@ -63,7 +65,7 @@ public abstract class NativeRestore {
     }
 
     public boolean isNativeCrash() {
-        String string = getString(CRASH_IS_NATIVE);
+        String string = getString("is_native");
         return string != null && string.equalsIgnoreCase("TRUE");
     }
 
@@ -92,7 +94,7 @@ public abstract class NativeRestore {
     }
 
     public void setNativeCrash(boolean z) {
-        putString(CRASH_IS_NATIVE, String.valueOf(z));
+        putString("is_native", String.valueOf(z));
     }
 
     public int size() {

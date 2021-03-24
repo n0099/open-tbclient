@@ -1,28 +1,17 @@
 package com.baidu.tbadk.message.http;
 
 import android.text.TextUtils;
-import com.baidu.adp.lib.network.http.e;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.ErrorData;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
+import d.b.b.e.j.a.e;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class JsonHttpResponsedMessage extends TbHttpResponsedMessage {
     public JsonHttpResponsedMessage(int i) {
         super(i);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tbadk.message.http.TbHttpResponsedMessage, com.baidu.adp.framework.message.a
-    public final void decodeInBackGround(int i, byte[] bArr) throws Exception {
-        JSONObject jSONObject = null;
-        String parseToString = parseToString(bArr);
-        if (!TextUtils.isEmpty(parseToString)) {
-            jSONObject = parseServerResponsedData(parseToString);
-        }
-        decodeLogicInBackGround(i, jSONObject);
     }
 
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
@@ -34,14 +23,17 @@ public class JsonHttpResponsedMessage extends TbHttpResponsedMessage {
         TiebaStatic.netJson(eVar, getError(), getErrorString());
     }
 
-    protected JSONObject parseServerResponsedData(String str) {
+    public JSONObject parseServerResponsedData(String str) {
+        ErrorData errorData;
         JSONObject jSONObject;
-        if (str == null) {
-            return null;
-        }
-        try {
-            ErrorData errorData = new ErrorData();
-            jSONObject = new JSONObject(str);
+        JSONObject jSONObject2 = null;
+        if (str != null) {
+            try {
+                errorData = new ErrorData();
+                jSONObject = new JSONObject(str);
+            } catch (Exception e2) {
+                e = e2;
+            }
             try {
                 errorData.parserJson(str);
                 setError(errorData.getError_code());
@@ -51,16 +43,22 @@ public class JsonHttpResponsedMessage extends TbHttpResponsedMessage {
                     setErrorString(errorData.getError_msg());
                 }
                 return jSONObject;
-            } catch (Exception e) {
-                e = e;
+            } catch (Exception e3) {
+                e = e3;
+                jSONObject2 = jSONObject;
                 BdLog.e(e.getMessage());
                 setError(-1);
                 setErrorString(TbadkCoreApplication.getInst().getApp().getString(R.string.error_unkown_try_again));
-                return jSONObject;
+                return jSONObject2;
             }
-        } catch (Exception e2) {
-            e = e2;
-            jSONObject = null;
         }
+        return null;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tbadk.message.http.TbHttpResponsedMessage, com.baidu.adp.framework.message.HttpResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
+    public final void decodeInBackGround(int i, byte[] bArr) throws Exception {
+        String parseToString = parseToString(bArr);
+        decodeLogicInBackGround(i, !TextUtils.isEmpty(parseToString) ? parseServerResponsedData(parseToString) : null);
     }
 }

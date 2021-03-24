@@ -12,31 +12,39 @@ public class PluginStatus extends OrmObject {
     public static final int STATUS_INSTALL_UNKNOWN = 1;
     public static final int STATUS_LOAD_UNKNOWN = 100;
     public static final int STATUS_SUCCESS = 0;
-    PluginPackageManager.PluginStatus WO;
-    String WP;
-    boolean WQ;
-    int errorCode;
-    String errorMsg;
-    String pkgName;
-    int priority;
 
-    public String getPkgName() {
-        return this.pkgName;
-    }
+    /* renamed from: e  reason: collision with root package name */
+    public String f2227e;
 
-    public int getPriority() {
-        return this.priority;
-    }
+    /* renamed from: f  reason: collision with root package name */
+    public int f2228f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public PluginPackageManager.PluginStatus f2229g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public int f2230h;
+    public String i;
+    public String j;
+    public boolean k;
 
     public int getErrorCode() {
-        return this.errorCode;
+        return this.f2230h;
     }
 
     public String getErrorMsg() {
-        return this.errorMsg;
+        return this.i;
     }
 
-    public String qc() {
-        return this.WP;
+    public String getPkgName() {
+        return this.f2227e;
+    }
+
+    public int s() {
+        return this.f2228f;
+    }
+
+    public String t() {
+        return this.j;
     }
 }

@@ -3,25 +3,14 @@ package alaim.AlaPushAlert;
 import alaim.Error;
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes9.dex */
+/* loaded from: classes.dex */
 public final class AlaPushAlertResIdl extends Message {
     @ProtoField(tag = 2)
     public final DataRes data;
     @ProtoField(tag = 1)
     public final Error error;
 
-    private AlaPushAlertResIdl(Builder builder, boolean z) {
-        super(builder);
-        if (z) {
-            this.error = builder.error;
-            this.data = builder.data;
-            return;
-        }
-        this.error = builder.error;
-        this.data = builder.data;
-    }
-
-    /* loaded from: classes9.dex */
+    /* loaded from: classes.dex */
     public static final class Builder extends Message.Builder<AlaPushAlertResIdl> {
         public DataRes data;
         public Error error;
@@ -31,10 +20,11 @@ public final class AlaPushAlertResIdl extends Message {
 
         public Builder(AlaPushAlertResIdl alaPushAlertResIdl) {
             super(alaPushAlertResIdl);
-            if (alaPushAlertResIdl != null) {
-                this.error = alaPushAlertResIdl.error;
-                this.data = alaPushAlertResIdl.data;
+            if (alaPushAlertResIdl == null) {
+                return;
             }
+            this.error = alaPushAlertResIdl.error;
+            this.data = alaPushAlertResIdl.data;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -43,5 +33,16 @@ public final class AlaPushAlertResIdl extends Message {
         public AlaPushAlertResIdl build(boolean z) {
             return new AlaPushAlertResIdl(this, z);
         }
+    }
+
+    public AlaPushAlertResIdl(Builder builder, boolean z) {
+        super(builder);
+        if (z) {
+            this.error = builder.error;
+            this.data = builder.data;
+            return;
+        }
+        this.error = builder.error;
+        this.data = builder.data;
     }
 }

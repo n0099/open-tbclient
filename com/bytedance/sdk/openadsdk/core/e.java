@@ -7,108 +7,79 @@ import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.ProviderInfo;
 import android.content.pm.ServiceInfo;
-import com.baidu.searchbox.config.DefaultSharedPrefsWrapper;
-import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
-import com.bytedance.sdk.openadsdk.utils.aj;
-import com.meizu.cloud.pushsdk.constants.PushConstants;
+import com.bytedance.sdk.openadsdk.utils.ak;
+import com.xiaomi.mipush.sdk.Constants;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class e {
-    private static volatile e b;
-    private Map<String, String> c = new HashMap();
-    private long l;
-    private boolean m;
 
     /* renamed from: a  reason: collision with root package name */
-    private static String f4422a = "AppEnvironment";
-    private static String d = "ad_style";
-    private static String e = LegoListActivityConfig.AD_ID;
-    private static String f = "rit";
-    private static String g = "request_id";
-    private static String h = "ad_slot_type";
-    private static String i = "net_type";
-    private static String j = "low_memory";
-    private static String k = "total_max_memory_rate";
+    public static String f28312a = "AppEnvironment";
 
-    private e() {
-        this.c.put(d, DefaultSharedPrefsWrapper.SP_FILE_DEFAULT);
-        this.c.put(e, DefaultSharedPrefsWrapper.SP_FILE_DEFAULT);
-        this.c.put(f, DefaultSharedPrefsWrapper.SP_FILE_DEFAULT);
-        this.c.put(g, DefaultSharedPrefsWrapper.SP_FILE_DEFAULT);
-        this.c.put(h, DefaultSharedPrefsWrapper.SP_FILE_DEFAULT);
-        this.c.put(i, DefaultSharedPrefsWrapper.SP_FILE_DEFAULT);
-        this.c.put(j, DefaultSharedPrefsWrapper.SP_FILE_DEFAULT);
-        this.c.put(k, DefaultSharedPrefsWrapper.SP_FILE_DEFAULT);
+    /* renamed from: b  reason: collision with root package name */
+    public static volatile e f28313b = null;
+
+    /* renamed from: d  reason: collision with root package name */
+    public static String f28314d = "ad_style";
+
+    /* renamed from: e  reason: collision with root package name */
+    public static String f28315e = "ad_id";
+
+    /* renamed from: f  reason: collision with root package name */
+    public static String f28316f = "rit";
+
+    /* renamed from: g  reason: collision with root package name */
+    public static String f28317g = "request_id";
+
+    /* renamed from: h  reason: collision with root package name */
+    public static String f28318h = "ad_slot_type";
+    public static String i = "net_type";
+    public static String j = "low_memory";
+    public static String k = "total_max_memory_rate";
+
+    /* renamed from: c  reason: collision with root package name */
+    public Map<String, String> f28319c;
+    public long l;
+    public boolean m;
+
+    public e() {
+        HashMap hashMap = new HashMap();
+        this.f28319c = hashMap;
+        hashMap.put(f28314d, "default");
+        this.f28319c.put(f28315e, "default");
+        this.f28319c.put(f28316f, "default");
+        this.f28319c.put(f28317g, "default");
+        this.f28319c.put(f28318h, "default");
+        this.f28319c.put(i, "default");
+        this.f28319c.put(j, "default");
+        this.f28319c.put(k, "default");
         this.l = com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sp_app_env", "last_app_env_time", 0L);
         this.m = false;
     }
 
-    public static e a() {
-        if (b == null) {
-            synchronized (e.class) {
-                if (b == null) {
-                    b = new e();
-                }
-            }
-        }
-        return b;
-    }
-
-    public void a(com.bytedance.sdk.openadsdk.core.d.l lVar) {
-        if (lVar != null) {
-            this.c.put(e, lVar.ag());
-            this.c.put(f, "" + aj.d(lVar.aj()));
-            this.c.put(g, aj.h(lVar.aj()));
-            this.c.put(h, "" + aj.c(lVar.aj()));
-            this.c.put(i, com.bytedance.sdk.openadsdk.utils.x.f(p.a()));
-            if (lVar.C()) {
-                this.c.put(d, "is_playable");
-            }
-            d();
-        }
-    }
-
     private void d() {
+        double d2;
         Runtime runtime = Runtime.getRuntime();
-        float maxMemory = (float) ((runtime.maxMemory() * 1.0d) / 1048576.0d);
-        float f2 = (float) ((runtime.totalMemory() * 1.0d) / 1048576.0d);
-        float freeMemory = (float) ((runtime.freeMemory() * 1.0d) / 1048576.0d);
+        double maxMemory = runtime.maxMemory();
+        Double.isNaN(maxMemory);
+        float f2 = (float) ((maxMemory * 1.0d) / 1048576.0d);
+        double d3 = runtime.totalMemory();
+        Double.isNaN(d3);
+        float f3 = (float) ((d3 * 1.0d) / 1048576.0d);
+        Double.isNaN(runtime.freeMemory());
         ActivityManager.MemoryInfo memoryInfo = new ActivityManager.MemoryInfo();
-        ((ActivityManager) p.a().getSystemService(PushConstants.INTENT_ACTIVITY_NAME)).getMemoryInfo(memoryInfo);
-        com.bytedance.sdk.openadsdk.utils.u.f(f4422a, "系统是否处于低内存运行：" + memoryInfo.lowMemory);
-        com.bytedance.sdk.openadsdk.utils.u.f(f4422a, "maxMemory: " + maxMemory);
-        com.bytedance.sdk.openadsdk.utils.u.f(f4422a, "totalMemory: " + f2);
-        com.bytedance.sdk.openadsdk.utils.u.f(f4422a, "freeMemory: " + freeMemory);
-        int i2 = (int) ((f2 / maxMemory) * 100.0f);
-        com.bytedance.sdk.openadsdk.utils.u.f(f4422a, "totalMaxRate: " + i2);
-        this.c.put(j, String.valueOf(memoryInfo.lowMemory));
-        this.c.put(k, String.valueOf(i2));
-    }
-
-    public Map<String, String> b() {
-        return this.c;
-    }
-
-    public void c() {
-        if (!this.m && !aj.a(this.l, System.currentTimeMillis())) {
-            this.m = true;
-            com.bytedance.sdk.openadsdk.j.e.a(new Runnable() { // from class: com.bytedance.sdk.openadsdk.core.e.1
-                @Override // java.lang.Runnable
-                public void run() {
-                    JSONObject e2 = e.this.e();
-                    if (e2 != null) {
-                        long currentTimeMillis = System.currentTimeMillis();
-                        e.this.l = currentTimeMillis;
-                        com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sp_app_env", "last_app_env_time", Long.valueOf(currentTimeMillis));
-                        com.bytedance.sdk.openadsdk.g.a.a().a(e2);
-                    }
-                    e.this.m = false;
-                }
-            }, 1);
-        }
+        ((ActivityManager) p.a().getSystemService("activity")).getMemoryInfo(memoryInfo);
+        com.bytedance.sdk.openadsdk.utils.u.f(f28312a, "系统是否处于低内存运行：" + memoryInfo.lowMemory);
+        com.bytedance.sdk.openadsdk.utils.u.f(f28312a, "maxMemory: " + f2);
+        com.bytedance.sdk.openadsdk.utils.u.f(f28312a, "totalMemory: " + f3);
+        com.bytedance.sdk.openadsdk.utils.u.f(f28312a, "freeMemory: " + ((float) ((d2 * 1.0d) / 1048576.0d)));
+        int i2 = (int) ((f3 / f2) * 100.0f);
+        com.bytedance.sdk.openadsdk.utils.u.f(f28312a, "totalMaxRate: " + i2);
+        this.f28319c.put(j, String.valueOf(memoryInfo.lowMemory));
+        this.f28319c.put(k, String.valueOf(i2));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -124,7 +95,7 @@ public class e {
             if (applicationInfo != null) {
                 jSONObject.put("application_name", applicationInfo.name);
             }
-            jSONObject.put("app_id", i.d().f());
+            jSONObject.put(Constants.APP_ID, i.d().g());
             if (packageInfo != null) {
                 ActivityInfo[] activityInfoArr = packageInfo.activities;
                 String[] strArr = packageInfo.requestedPermissions;
@@ -168,8 +139,62 @@ public class e {
                 }
             }
             return jSONObject;
-        } catch (Throwable th) {
+        } catch (Throwable unused) {
             return null;
         }
+    }
+
+    public Map<String, String> b() {
+        return this.f28319c;
+    }
+
+    public void c() {
+        if (this.m || ak.a(this.l, System.currentTimeMillis())) {
+            return;
+        }
+        this.m = true;
+        com.bytedance.sdk.openadsdk.l.e.a(new com.bytedance.sdk.openadsdk.l.g("trySendAppManifestInfo") { // from class: com.bytedance.sdk.openadsdk.core.e.1
+            @Override // java.lang.Runnable
+            public void run() {
+                JSONObject e2 = e.this.e();
+                if (e2 != null) {
+                    long currentTimeMillis = System.currentTimeMillis();
+                    e.this.l = currentTimeMillis;
+                    com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sp_app_env", "last_app_env_time", Long.valueOf(currentTimeMillis));
+                    com.bytedance.sdk.openadsdk.h.a.a().a(e2);
+                }
+                e.this.m = false;
+            }
+        }, 1);
+    }
+
+    public static e a() {
+        if (f28313b == null) {
+            synchronized (e.class) {
+                if (f28313b == null) {
+                    f28313b = new e();
+                }
+            }
+        }
+        return f28313b;
+    }
+
+    public void a(com.bytedance.sdk.openadsdk.core.d.l lVar) {
+        if (lVar == null) {
+            return;
+        }
+        this.f28319c.put(f28315e, lVar.am());
+        Map<String, String> map = this.f28319c;
+        String str = f28316f;
+        map.put(str, "" + ak.d(lVar.ap()));
+        this.f28319c.put(f28317g, ak.h(lVar.ap()));
+        Map<String, String> map2 = this.f28319c;
+        String str2 = f28318h;
+        map2.put(str2, "" + ak.c(lVar.ap()));
+        this.f28319c.put(i, com.bytedance.sdk.openadsdk.utils.x.f(p.a()));
+        if (lVar.C()) {
+            this.f28319c.put(f28314d, "is_playable");
+        }
+        d();
     }
 }

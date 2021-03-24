@@ -7,45 +7,18 @@ import com.googlecode.mp4parser.DataSource;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.channels.WritableByteChannel;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class SubtitleSampleEntry extends AbstractSampleEntry {
     public static final String TYPE1 = "stpp";
-    private String imageMimeType;
-    private String namespace;
-    private String schemaLocation;
+    public String imageMimeType;
+    public String namespace;
+    public String schemaLocation;
 
     public SubtitleSampleEntry() {
         super(TYPE1);
         this.namespace = "";
         this.schemaLocation = "";
         this.imageMimeType = "";
-    }
-
-    @Override // com.googlecode.mp4parser.AbstractContainerBox, com.coremedia.iso.boxes.Box
-    public long getSize() {
-        long containerSize = getContainerSize();
-        long length = this.namespace.length() + 8 + this.schemaLocation.length() + this.imageMimeType.length() + 3;
-        return ((this.largeBox || (containerSize + length) + 8 >= 4294967296L) ? 16 : 8) + containerSize + length;
-    }
-
-    @Override // com.coremedia.iso.boxes.sampleentry.AbstractSampleEntry, com.googlecode.mp4parser.AbstractContainerBox, com.coremedia.iso.boxes.Box
-    public void parse(DataSource dataSource, ByteBuffer byteBuffer, long j, BoxParser boxParser) throws IOException {
-        ByteBuffer allocate = ByteBuffer.allocate(8);
-        dataSource.read((ByteBuffer) allocate.rewind());
-        allocate.position(6);
-        this.dataReferenceIndex = IsoTypeReader.readUInt16(allocate);
-        long position = dataSource.position();
-        ByteBuffer allocate2 = ByteBuffer.allocate(1024);
-        dataSource.read((ByteBuffer) allocate2.rewind());
-        this.namespace = IsoTypeReader.readString((ByteBuffer) allocate2.rewind());
-        dataSource.position(this.namespace.length() + position + 1);
-        dataSource.read((ByteBuffer) allocate2.rewind());
-        this.schemaLocation = IsoTypeReader.readString((ByteBuffer) allocate2.rewind());
-        dataSource.position(this.namespace.length() + position + this.schemaLocation.length() + 2);
-        dataSource.read((ByteBuffer) allocate2.rewind());
-        this.imageMimeType = IsoTypeReader.readString((ByteBuffer) allocate2.rewind());
-        dataSource.position(this.namespace.length() + position + this.schemaLocation.length() + this.imageMimeType.length() + 3);
-        parseContainer(dataSource, j - ((((byteBuffer.remaining() + this.namespace.length()) + this.schemaLocation.length()) + this.imageMimeType.length()) + 3), boxParser);
     }
 
     @Override // com.coremedia.iso.boxes.sampleentry.AbstractSampleEntry, com.googlecode.mp4parser.AbstractContainerBox, com.coremedia.iso.boxes.Box
@@ -61,27 +34,55 @@ public class SubtitleSampleEntry extends AbstractSampleEntry {
         writeContainer(writableByteChannel);
     }
 
-    public String getNamespace() {
-        return this.namespace;
+    public String getImageMimeType() {
+        return this.imageMimeType;
     }
 
-    public void setNamespace(String str) {
-        this.namespace = str;
+    public String getNamespace() {
+        return this.namespace;
     }
 
     public String getSchemaLocation() {
         return this.schemaLocation;
     }
 
-    public void setSchemaLocation(String str) {
-        this.schemaLocation = str;
+    @Override // com.googlecode.mp4parser.AbstractContainerBox, com.coremedia.iso.boxes.Box
+    public long getSize() {
+        int i = 8;
+        long containerSize = getContainerSize() + this.namespace.length() + 8 + this.schemaLocation.length() + this.imageMimeType.length() + 3;
+        return containerSize + ((this.largeBox || 8 + containerSize >= 4294967296L) ? 16 : 16);
     }
 
-    public String getImageMimeType() {
-        return this.imageMimeType;
+    @Override // com.coremedia.iso.boxes.sampleentry.AbstractSampleEntry, com.googlecode.mp4parser.AbstractContainerBox, com.coremedia.iso.boxes.Box
+    public void parse(DataSource dataSource, ByteBuffer byteBuffer, long j, BoxParser boxParser) throws IOException {
+        ByteBuffer allocate = ByteBuffer.allocate(8);
+        dataSource.read((ByteBuffer) allocate.rewind());
+        allocate.position(6);
+        this.dataReferenceIndex = IsoTypeReader.readUInt16(allocate);
+        long position = dataSource.position();
+        ByteBuffer allocate2 = ByteBuffer.allocate(1024);
+        dataSource.read((ByteBuffer) allocate2.rewind());
+        String readString = IsoTypeReader.readString((ByteBuffer) allocate2.rewind());
+        this.namespace = readString;
+        dataSource.position(readString.length() + position + 1);
+        dataSource.read((ByteBuffer) allocate2.rewind());
+        this.schemaLocation = IsoTypeReader.readString((ByteBuffer) allocate2.rewind());
+        dataSource.position(this.namespace.length() + position + this.schemaLocation.length() + 2);
+        dataSource.read((ByteBuffer) allocate2.rewind());
+        this.imageMimeType = IsoTypeReader.readString((ByteBuffer) allocate2.rewind());
+        dataSource.position(position + this.namespace.length() + this.schemaLocation.length() + this.imageMimeType.length() + 3);
+        parseContainer(dataSource, j - ((((byteBuffer.remaining() + this.namespace.length()) + this.schemaLocation.length()) + this.imageMimeType.length()) + 3), boxParser);
     }
 
     public void setImageMimeType(String str) {
         this.imageMimeType = str;
+    }
+
+    public void setNamespace(String str) {
+        this.namespace = str;
+    }
+
+    public void setSchemaLocation(String str) {
+        this.schemaLocation = str;
     }
 }

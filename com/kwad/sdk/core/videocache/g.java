@@ -8,28 +8,40 @@ import java.net.Socket;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes3.dex */
-final class g {
-    private final String b;
-    private volatile e c;
-    private final b e;
-    private final c f;
+/* loaded from: classes6.dex */
+public final class g {
+
+    /* renamed from: b  reason: collision with root package name */
+    public final String f34194b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public volatile e f34195c;
+
+    /* renamed from: e  reason: collision with root package name */
+    public final b f34197e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public final c f34198f;
 
     /* renamed from: a  reason: collision with root package name */
-    private final AtomicInteger f6296a = new AtomicInteger(0);
-    private final List<b> d = new CopyOnWriteArrayList();
+    public final AtomicInteger f34193a = new AtomicInteger(0);
 
-    /* loaded from: classes3.dex */
-    private static final class a extends Handler implements b {
+    /* renamed from: d  reason: collision with root package name */
+    public final List<b> f34196d = new CopyOnWriteArrayList();
+
+    /* loaded from: classes6.dex */
+    public static final class a extends Handler implements b {
 
         /* renamed from: a  reason: collision with root package name */
-        private final String f6297a;
-        private final List<b> b;
+        public final String f34199a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public final List<b> f34200b;
 
         public a(String str, List<b> list) {
             super(Looper.getMainLooper());
-            this.f6297a = str;
-            this.b = list;
+            this.f34199a = str;
+            this.f34200b = list;
         }
 
         @Override // com.kwad.sdk.core.videocache.b
@@ -42,56 +54,58 @@ final class g {
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
-            for (b bVar : this.b) {
-                bVar.a((File) message.obj, this.f6297a, message.arg1);
+            for (b bVar : this.f34200b) {
+                bVar.a((File) message.obj, this.f34199a, message.arg1);
             }
         }
     }
 
     public g(String str, c cVar) {
-        this.b = (String) j.a(str);
-        this.f = (c) j.a(cVar);
-        this.e = new a(str, this.d);
+        this.f34194b = (String) j.a(str);
+        this.f34198f = (c) j.a(cVar);
+        this.f34197e = new a(str, this.f34196d);
     }
 
     private synchronized void c() {
-        this.c = this.c == null ? e() : this.c;
+        this.f34195c = this.f34195c == null ? e() : this.f34195c;
     }
 
     private synchronized void d() {
-        if (this.f6296a.decrementAndGet() <= 0) {
-            this.c.a();
-            this.c = null;
+        if (this.f34193a.decrementAndGet() <= 0) {
+            this.f34195c.a();
+            this.f34195c = null;
         }
     }
 
     private e e() {
-        e eVar = new e(new h(this.b, this.f.d, this.f.e), new com.kwad.sdk.core.videocache.a.b(this.f.a(this.b), this.f.c));
-        eVar.a(this.e);
+        String str = this.f34194b;
+        c cVar = this.f34198f;
+        e eVar = new e(new h(str, cVar.f34165d, cVar.f34166e), new com.kwad.sdk.core.videocache.a.b(this.f34198f.a(this.f34194b), this.f34198f.f34164c));
+        eVar.a(this.f34197e);
         return eVar;
     }
 
     public void a() {
-        this.d.clear();
-        if (this.c != null) {
-            this.c.a((b) null);
-            this.c.a();
-            this.c = null;
+        this.f34196d.clear();
+        if (this.f34195c != null) {
+            this.f34195c.a((b) null);
+            this.f34195c.a();
+            this.f34195c = null;
         }
-        this.f6296a.set(0);
+        this.f34193a.set(0);
     }
 
     public void a(d dVar, Socket socket) {
         c();
         try {
-            this.f6296a.incrementAndGet();
-            this.c.a(dVar, socket);
+            this.f34193a.incrementAndGet();
+            this.f34195c.a(dVar, socket);
         } finally {
             d();
         }
     }
 
     public int b() {
-        return this.f6296a.get();
+        return this.f34193a.get();
     }
 }

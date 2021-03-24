@@ -3,28 +3,39 @@ package com.vivo.push.util;
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Color;
-import androidx.core.view.ViewCompat;
-/* loaded from: classes14.dex */
+/* loaded from: classes7.dex */
 public final class j implements BaseNotifyLayoutAdapter {
 
     /* renamed from: a  reason: collision with root package name */
-    private Resources f8077a;
-    private String b;
+    public Resources f39545a;
 
-    @Override // com.vivo.push.util.BaseNotifyLayoutAdapter
-    public final void init(Context context) {
-        this.b = context.getPackageName();
-        this.f8077a = context.getResources();
-    }
+    /* renamed from: b  reason: collision with root package name */
+    public String f39546b;
 
     @Override // com.vivo.push.util.BaseNotifyLayoutAdapter
     public final int getNotificationLayout() {
-        return this.f8077a.getIdentifier("push_notify", "layout", this.b);
+        return this.f39545a.getIdentifier("push_notify", "layout", this.f39546b);
     }
 
     @Override // com.vivo.push.util.BaseNotifyLayoutAdapter
     public final int getSuitIconId() {
-        return k.g ? this.f8077a.getIdentifier("notify_icon_rom30", "id", this.b) : k.f ? this.f8077a.getIdentifier("notify_icon_rom20", "id", this.b) : this.f8077a.getIdentifier("notify_icon", "id", this.b);
+        Resources resources;
+        String str;
+        String str2;
+        if (k.f39553g) {
+            resources = this.f39545a;
+            str = this.f39546b;
+            str2 = "notify_icon_rom30";
+        } else if (k.f39552f) {
+            resources = this.f39545a;
+            str = this.f39546b;
+            str2 = "notify_icon_rom20";
+        } else {
+            resources = this.f39545a;
+            str = this.f39546b;
+            str2 = "notify_icon";
+        }
+        return resources.getIdentifier(str2, "id", str);
     }
 
     @Override // com.vivo.push.util.BaseNotifyLayoutAdapter
@@ -32,22 +43,28 @@ public final class j implements BaseNotifyLayoutAdapter {
         int i;
         try {
             i = ((Integer) z.a("com.android.internal.R$color", "vivo_notification_title_text_color")).intValue();
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (Exception e2) {
+            e2.printStackTrace();
             i = 0;
         }
         if (i > 0) {
-            return this.f8077a.getColor(i);
+            return this.f39545a.getColor(i);
         }
-        if (k.g) {
+        if (k.f39553g) {
             return -1;
         }
-        if (k.f) {
-            if (k.g) {
+        if (k.f39552f) {
+            if (k.f39553g) {
                 return Color.parseColor("#ff999999");
             }
             return -1;
         }
-        return ViewCompat.MEASURED_STATE_MASK;
+        return -16777216;
+    }
+
+    @Override // com.vivo.push.util.BaseNotifyLayoutAdapter
+    public final void init(Context context) {
+        this.f39546b = context.getPackageName();
+        this.f39545a = context.getResources();
     }
 }

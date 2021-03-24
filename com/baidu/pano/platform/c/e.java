@@ -5,26 +5,30 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.wifi.WifiManager;
 import android.telephony.TelephonyManager;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f2723a = false;
-    public static String b = "";
-    public static int c = 0;
+    public static boolean f9441a = false;
+
+    /* renamed from: b  reason: collision with root package name */
+    public static String f9442b = "";
+
+    /* renamed from: c  reason: collision with root package name */
+    public static int f9443c;
 
     public static NetworkInfo a(Context context) {
         try {
             return ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo();
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (Exception e2) {
+            e2.printStackTrace();
             return null;
         }
     }
 
     public static String b(Context context) {
-        int i = 1;
         NetworkInfo a2 = a(context);
+        int i = 1;
         if (a2 != null) {
             if (a2.getType() != 1) {
                 switch (((TelephonyManager) context.getSystemService("phone")).getNetworkType()) {
@@ -68,13 +72,10 @@ public class e {
     }
 
     public static boolean c(Context context) {
+        NetworkInfo activeNetworkInfo;
         if (((WifiManager) context.getSystemService("wifi")).getWifiState() == 3) {
             return true;
         }
-        if (((TelephonyManager) context.getSystemService("phone")).getSimState() != 5) {
-            return false;
-        }
-        NetworkInfo activeNetworkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo();
-        return activeNetworkInfo != null && activeNetworkInfo.isConnectedOrConnecting();
+        return ((TelephonyManager) context.getSystemService("phone")).getSimState() == 5 && (activeNetworkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo()) != null && activeNetworkInfo.isConnectedOrConnecting();
     }
 }

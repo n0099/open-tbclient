@@ -4,19 +4,19 @@ import java.io.IOException;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.util.Enumeration;
-/* loaded from: classes4.dex */
+/* loaded from: classes.dex */
 public class EnumerationSerializer implements ObjectSerializer {
     public static EnumerationSerializer instance = new EnumerationSerializer();
 
     @Override // com.alibaba.fastjson.serializer.ObjectSerializer
     public void write(JSONSerializer jSONSerializer, Object obj, Object obj2, Type type, int i) throws IOException {
-        int i2 = 0;
         SerializeWriter serializeWriter = jSONSerializer.out;
         if (obj == null) {
             serializeWriter.writeNull(SerializerFeature.WriteNullListAsEmpty);
             return;
         }
         Type type2 = null;
+        int i2 = 0;
         if (serializeWriter.isEnabled(SerializerFeature.WriteClassName) && (type instanceof ParameterizedType)) {
             type2 = ((ParameterizedType) type).getActualTypeArguments()[0];
         }
@@ -33,11 +33,10 @@ public class EnumerationSerializer implements ObjectSerializer {
                 }
                 if (nextElement == null) {
                     serializeWriter.writeNull();
-                    i2 = i3;
                 } else {
                     jSONSerializer.getObjectWriter(nextElement.getClass()).write(jSONSerializer, nextElement, Integer.valueOf(i3 - 1), type2, 0);
-                    i2 = i3;
                 }
+                i2 = i3;
             }
             serializeWriter.append(']');
         } finally {

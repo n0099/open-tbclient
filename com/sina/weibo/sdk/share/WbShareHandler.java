@@ -21,22 +21,16 @@ import com.sina.weibo.sdk.utils.Utility;
 import com.sina.weibo.sdk.utils.WbSdkVersion;
 import com.sina.weibo.sdk.web.WebRequestType;
 import com.sina.weibo.sdk.web.param.ShareWebViewRequestParam;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class WbShareHandler {
     public static final int WB_SHARE_REQUEST = 1;
-    private Activity context;
-    private boolean hasRegister = false;
-    private int progressColor = -1;
-    private int progressId = -1;
+    public Activity context;
+    public boolean hasRegister = false;
+    public int progressColor = -1;
+    public int progressId = -1;
 
     public WbShareHandler(Activity activity) {
         this.context = activity;
-    }
-
-    public boolean registerApp() {
-        sendBroadcast(this.context, WBConstants.ACTION_WEIBO_REGISTER, WbSdk.getAuthInfo().getAppKey(), null, null);
-        this.hasRegister = true;
-        return true;
     }
 
     private void sendBroadcast(Context context, String str, String str2, String str3, Bundle bundle) {
@@ -56,42 +50,6 @@ public class WbShareHandler {
         context.sendBroadcast(intent, WBConstants.ACTION_WEIBO_SDK_PERMISSION);
     }
 
-    public void shareMessage(WeiboMultiMessage weiboMultiMessage, boolean z) {
-        if (!this.hasRegister) {
-            throw new RuntimeException("please call WbShareHandler.registerApp(),before use share function");
-        }
-        if (WbSdk.isWbInstall(this.context) || !z) {
-            if (z) {
-                startClientShare(weiboMultiMessage);
-                return;
-            }
-            WbAppInfo wbAppInfo = WeiboAppManager.getInstance(this.context).getWbAppInfo();
-            if (WbSdk.isWbInstall(this.context) && wbAppInfo != null && wbAppInfo.getSupportVersion() > 10000) {
-                startClientShare(weiboMultiMessage);
-            } else {
-                startWebShare(weiboMultiMessage);
-            }
-        }
-    }
-
-    public void shareToStory(StoryMessage storyMessage) {
-        Uri imageUri = storyMessage.getImageUri();
-        Uri videoUri = storyMessage.getVideoUri();
-        if ((imageUri != null && FileUtils.isImageFile(this.context, imageUri)) || (videoUri != null && FileUtils.isVideoFile(this.context, videoUri))) {
-            Intent intent = new Intent();
-            intent.putExtra(WBConstants.Msg.STORY, storyMessage);
-            intent.putExtra(WBConstants.SHARE_START_ACTIVITY, this.context.getClass().getName());
-            intent.putExtra(WBConstants.SHARE_START_PACKAGE, WeiboAppManager.getInstance(this.context).getWbAppInfo().getPackageName());
-            intent.putExtra(WBConstants.TRANS_PROGRESS_COLOR, this.progressColor);
-            intent.putExtra(WBConstants.TRANS_PROGRESS_ID, this.progressId);
-            intent.putExtra(WBConstants.SHARE_START_FLAG, 0);
-            intent.setClass(this.context, WbShareToStoryActivity.class);
-            this.context.startActivityForResult(intent, 1);
-            return;
-        }
-        throw new IllegalStateException("File only can be Image or Video. ");
-    }
-
     private void startClientShare(WeiboMultiMessage weiboMultiMessage) {
         Bundle bundle = new Bundle();
         bundle.putInt(WBConstants.COMMAND_TYPE_KEY, 1);
@@ -107,8 +65,8 @@ public class WbShareHandler {
         intent.putExtras(bundle);
         try {
             this.context.startActivityForResult(intent, 1);
-        } catch (Exception e) {
-            LogUtil.v("weibo sdk error ", e.toString());
+        } catch (Exception e2) {
+            LogUtil.v("weibo sdk error ", e2.toString());
         }
     }
 
@@ -135,32 +93,31 @@ public class WbShareHandler {
         this.context.startActivityForResult(intent, 1);
     }
 
+    public void doResultIntent(Intent intent, WbShareCallback wbShareCallback) {
+        Bundle extras;
+        if (wbShareCallback == null || intent == null || (extras = intent.getExtras()) == null) {
+            return;
+        }
+        int i = extras.getInt(WBConstants.Response.ERRCODE, -1);
+        if (i == 0) {
+            wbShareCallback.onWbShareSuccess();
+        } else if (i == 1) {
+            wbShareCallback.onWbShareCancel();
+        } else if (i != 2) {
+        } else {
+            wbShareCallback.onWbShareFail();
+        }
+    }
+
     @Deprecated
     public boolean isWbAppInstalled() {
         return WbSdk.isWbInstall(this.context);
     }
 
-    public void doResultIntent(Intent intent, WbShareCallback wbShareCallback) {
-        Bundle extras;
-        if (wbShareCallback != null && intent != null && (extras = intent.getExtras()) != null) {
-            switch (extras.getInt(WBConstants.Response.ERRCODE, -1)) {
-                case 0:
-                    wbShareCallback.onWbShareSuccess();
-                    return;
-                case 1:
-                    wbShareCallback.onWbShareCancel();
-                    return;
-                case 2:
-                    wbShareCallback.onWbShareFail();
-                    return;
-                default:
-                    return;
-            }
-        }
-    }
-
-    public boolean supportMulti() {
-        return false;
+    public boolean registerApp() {
+        sendBroadcast(this.context, WBConstants.ACTION_WEIBO_REGISTER, WbSdk.getAuthInfo().getAppKey(), null, null);
+        this.hasRegister = true;
+        return true;
     }
 
     public void setProgressColor(int i) {
@@ -169,5 +126,48 @@ public class WbShareHandler {
 
     public void setProgressId(int i) {
         this.progressId = i;
+    }
+
+    public void shareMessage(WeiboMultiMessage weiboMultiMessage, boolean z) {
+        if (this.hasRegister) {
+            if (WbSdk.isWbInstall(this.context) || !z) {
+                if (z) {
+                    startClientShare(weiboMultiMessage);
+                    return;
+                }
+                WbAppInfo wbAppInfo = WeiboAppManager.getInstance(this.context).getWbAppInfo();
+                if (WbSdk.isWbInstall(this.context) && wbAppInfo != null && wbAppInfo.getSupportVersion() > 10000) {
+                    startClientShare(weiboMultiMessage);
+                    return;
+                } else {
+                    startWebShare(weiboMultiMessage);
+                    return;
+                }
+            }
+            return;
+        }
+        throw new RuntimeException("please call WbShareHandler.registerApp(),before use share function");
+    }
+
+    public void shareToStory(StoryMessage storyMessage) {
+        Uri imageUri = storyMessage.getImageUri();
+        Uri videoUri = storyMessage.getVideoUri();
+        if ((imageUri != null && FileUtils.isImageFile(this.context, imageUri)) || (videoUri != null && FileUtils.isVideoFile(this.context, videoUri))) {
+            Intent intent = new Intent();
+            intent.putExtra(WBConstants.Msg.STORY, storyMessage);
+            intent.putExtra(WBConstants.SHARE_START_ACTIVITY, this.context.getClass().getName());
+            intent.putExtra(WBConstants.SHARE_START_PACKAGE, WeiboAppManager.getInstance(this.context).getWbAppInfo().getPackageName());
+            intent.putExtra(WBConstants.TRANS_PROGRESS_COLOR, this.progressColor);
+            intent.putExtra(WBConstants.TRANS_PROGRESS_ID, this.progressId);
+            intent.putExtra(WBConstants.SHARE_START_FLAG, 0);
+            intent.setClass(this.context, WbShareToStoryActivity.class);
+            this.context.startActivityForResult(intent, 1);
+            return;
+        }
+        throw new IllegalStateException("File only can be Image or Video. ");
+    }
+
+    public boolean supportMulti() {
+        return false;
     }
 }

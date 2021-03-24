@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.text.TextUtils;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.meizu.cloud.pushsdk.platform.message.RegisterStatus;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class c extends com.meizu.cloud.pushsdk.handler.a.a<RegisterStatus> {
     public c(Context context, com.meizu.cloud.pushsdk.handler.a aVar) {
         super(context, aVar);
@@ -17,7 +17,6 @@ public class c extends com.meizu.cloud.pushsdk.handler.a.a<RegisterStatus> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.meizu.cloud.pushsdk.handler.a.a
     public void a(RegisterStatus registerStatus, com.meizu.cloud.pushsdk.notification.c cVar) {
         if (b() == null || registerStatus == null) {
@@ -28,12 +27,11 @@ public class c extends com.meizu.cloud.pushsdk.handler.a.a<RegisterStatus> {
 
     @Override // com.meizu.cloud.pushsdk.handler.c
     public boolean a(Intent intent) {
-        com.meizu.cloud.a.a.i("AbstractMessageHandler", "start RegisterStatusHandler match");
+        d.j.a.a.a.d("AbstractMessageHandler", "start RegisterStatusHandler match");
         return PushConstants.MZ_PUSH_ON_MESSAGE_ACTION.equals(intent.getAction()) && PushConstants.MZ_PUSH_MESSAGE_METHOD_ACTION_REGISTER_STATUS.equals(i(intent));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.meizu.cloud.pushsdk.handler.a.a
     /* renamed from: j */
     public RegisterStatus c(Intent intent) {

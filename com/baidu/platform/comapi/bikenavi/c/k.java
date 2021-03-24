@@ -1,13 +1,11 @@
 package com.baidu.platform.comapi.bikenavi.c;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class k implements com.baidu.platform.comapi.wnplatform.walkmap.c {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ b f2883a;
+    public final /* synthetic */ b f9848a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public k(b bVar) {
-        this.f2883a = bVar;
+        this.f9848a = bVar;
     }
 }

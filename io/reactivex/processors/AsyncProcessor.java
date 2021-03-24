@@ -1,176 +1,46 @@
 package io.reactivex.processors;
 
+import f.a.b0.a;
+import g.d.c;
 import io.reactivex.internal.subscriptions.DeferredScalarSubscription;
-import java.util.concurrent.atomic.AtomicReference;
-import org.a.c;
-import org.a.d;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class AsyncProcessor<T> extends a<T> {
-    static final AsyncSubscription[] qtc = new AsyncSubscription[0];
-    static final AsyncSubscription[] qtd = new AsyncSubscription[0];
-    Throwable error;
-    final AtomicReference<AsyncSubscription<T>[]> subscribers;
-    T value;
 
-    @Override // io.reactivex.j, org.a.c
-    public void onSubscribe(d dVar) {
-        if (this.subscribers.get() == qtd) {
-            dVar.cancel();
-        } else {
-            dVar.request(Long.MAX_VALUE);
-        }
-    }
-
-    @Override // org.a.c
-    public void onNext(T t) {
-        io.reactivex.internal.functions.a.n(t, "onNext called with null. Null values are generally not allowed in 2.x operators and sources.");
-        if (this.subscribers.get() != qtd) {
-            this.value = t;
-        }
-    }
-
-    @Override // org.a.c
-    public void onError(Throwable th) {
-        io.reactivex.internal.functions.a.n(th, "onError called with null. Null values are generally not allowed in 2.x operators and sources.");
-        if (this.subscribers.get() == qtd) {
-            io.reactivex.d.a.onError(th);
-            return;
-        }
-        this.value = null;
-        this.error = th;
-        for (AsyncSubscription<T> asyncSubscription : this.subscribers.getAndSet(qtd)) {
-            asyncSubscription.onError(th);
-        }
-    }
-
-    @Override // org.a.c
-    public void onComplete() {
-        int i = 0;
-        if (this.subscribers.get() != qtd) {
-            T t = this.value;
-            AsyncSubscription<T>[] andSet = this.subscribers.getAndSet(qtd);
-            if (t == null) {
-                int length = andSet.length;
-                while (i < length) {
-                    andSet[i].onComplete();
-                    i++;
-                }
-                return;
-            }
-            int length2 = andSet.length;
-            while (i < length2) {
-                andSet[i].complete(t);
-                i++;
-            }
-        }
-    }
-
-    @Override // io.reactivex.g
-    protected void a(c<? super T> cVar) {
-        AsyncSubscription<T> asyncSubscription = new AsyncSubscription<>(cVar, this);
-        cVar.onSubscribe(asyncSubscription);
-        if (a(asyncSubscription)) {
-            if (asyncSubscription.isCancelled()) {
-                b(asyncSubscription);
-                return;
-            }
-            return;
-        }
-        Throwable th = this.error;
-        if (th != null) {
-            cVar.onError(th);
-            return;
-        }
-        T t = this.value;
-        if (t != null) {
-            asyncSubscription.complete(t);
-        } else {
-            asyncSubscription.onComplete();
-        }
-    }
-
-    boolean a(AsyncSubscription<T> asyncSubscription) {
-        AsyncSubscription<T>[] asyncSubscriptionArr;
-        AsyncSubscription<T>[] asyncSubscriptionArr2;
-        do {
-            asyncSubscriptionArr = this.subscribers.get();
-            if (asyncSubscriptionArr == qtd) {
-                return false;
-            }
-            int length = asyncSubscriptionArr.length;
-            asyncSubscriptionArr2 = new AsyncSubscription[length + 1];
-            System.arraycopy(asyncSubscriptionArr, 0, asyncSubscriptionArr2, 0, length);
-            asyncSubscriptionArr2[length] = asyncSubscription;
-        } while (!this.subscribers.compareAndSet(asyncSubscriptionArr, asyncSubscriptionArr2));
-        return true;
-    }
-
-    void b(AsyncSubscription<T> asyncSubscription) {
-        AsyncSubscription<T>[] asyncSubscriptionArr;
-        AsyncSubscription<T>[] asyncSubscriptionArr2;
-        do {
-            asyncSubscriptionArr = this.subscribers.get();
-            int length = asyncSubscriptionArr.length;
-            if (length != 0) {
-                int i = -1;
-                int i2 = 0;
-                while (true) {
-                    if (i2 >= length) {
-                        break;
-                    } else if (asyncSubscriptionArr[i2] == asyncSubscription) {
-                        i = i2;
-                        break;
-                    } else {
-                        i2++;
-                    }
-                }
-                if (i >= 0) {
-                    if (length == 1) {
-                        asyncSubscriptionArr2 = qtc;
-                    } else {
-                        asyncSubscriptionArr2 = new AsyncSubscription[length - 1];
-                        System.arraycopy(asyncSubscriptionArr, 0, asyncSubscriptionArr2, 0, i);
-                        System.arraycopy(asyncSubscriptionArr, i + 1, asyncSubscriptionArr2, i, (length - i) - 1);
-                    }
-                } else {
-                    return;
-                }
-            } else {
-                return;
-            }
-        } while (!this.subscribers.compareAndSet(asyncSubscriptionArr, asyncSubscriptionArr2));
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static final class AsyncSubscription<T> extends DeferredScalarSubscription<T> {
-        private static final long serialVersionUID = 5629876084736248016L;
-        final AsyncProcessor<T> parent;
+        public static final long serialVersionUID = 5629876084736248016L;
+        public final AsyncProcessor<T> parent;
 
-        AsyncSubscription(c<? super T> cVar, AsyncProcessor<T> asyncProcessor) {
+        public AsyncSubscription(c<? super T> cVar, AsyncProcessor<T> asyncProcessor) {
             super(cVar);
             this.parent = asyncProcessor;
         }
 
-        @Override // io.reactivex.internal.subscriptions.DeferredScalarSubscription, org.a.d
+        @Override // io.reactivex.internal.subscriptions.DeferredScalarSubscription, io.reactivex.internal.subscriptions.BasicIntQueueSubscription, g.d.d
         public void cancel() {
             if (super.tryCancel()) {
-                this.parent.b(this);
+                this.parent.d(this);
+                throw null;
             }
         }
 
-        void onComplete() {
-            if (!isCancelled()) {
-                this.actual.onComplete();
-            }
-        }
-
-        void onError(Throwable th) {
+        public void onComplete() {
             if (isCancelled()) {
-                io.reactivex.d.a.onError(th);
+                return;
+            }
+            this.actual.onComplete();
+        }
+
+        public void onError(Throwable th) {
+            if (isCancelled()) {
+                f.a.a0.a.f(th);
             } else {
                 this.actual.onError(th);
             }
         }
+    }
+
+    public void d(AsyncSubscription<T> asyncSubscription) {
+        throw null;
     }
 }

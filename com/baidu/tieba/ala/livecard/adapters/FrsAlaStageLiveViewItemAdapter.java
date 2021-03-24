@@ -5,99 +5,112 @@ import android.view.ViewGroup;
 import androidx.viewpager.widget.PagerAdapter;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.cb;
-import com.baidu.tbadk.core.util.y;
+import com.baidu.tbadk.core.util.ListUtils;
+import d.b.h0.r.q.a2;
+import d.b.i0.t.i.b.a;
+import d.b.i0.t.i.d.c;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes4.dex */
 public class FrsAlaStageLiveViewItemAdapter extends PagerAdapter {
-    private BdUniqueId ahU;
-    private ArrayList<com.baidu.tieba.ala.livecard.holder.a> hoU = new ArrayList<>();
-    private List<cb> mDataList = new ArrayList();
-    private String mForumName;
-    private TbPageContext<?> mPageContext;
+
+    /* renamed from: a  reason: collision with root package name */
+    public TbPageContext<?> f15024a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public ArrayList<a> f15025b = new ArrayList<>();
+
+    /* renamed from: c  reason: collision with root package name */
+    public List<a2> f15026c = new ArrayList();
+
+    /* renamed from: d  reason: collision with root package name */
+    public String f15027d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public BdUniqueId f15028e;
 
     public FrsAlaStageLiveViewItemAdapter(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
-        this.mPageContext = tbPageContext;
-        this.ahU = bdUniqueId;
+        this.f15024a = tbPageContext;
+        this.f15028e = bdUniqueId;
     }
 
-    public void setForumName(String str) {
-        this.mForumName = str;
+    @Override // androidx.viewpager.widget.PagerAdapter
+    public void destroyItem(ViewGroup viewGroup, int i, Object obj) {
+        viewGroup.removeView(this.f15025b.get(i).c());
     }
 
-    public void a(List<cb> list, com.baidu.tieba.ala.livecard.vc.c cVar) {
-        com.baidu.tieba.ala.livecard.holder.a aVar;
-        if (list != null && !list.isEmpty()) {
-            this.mDataList.clear();
-            this.mDataList.addAll(list);
-            int size = this.hoU.size();
-            int size2 = this.mDataList.size();
-            if (size > size2) {
-                ArrayList arrayList = new ArrayList();
-                for (int i = size2; i < size; i++) {
-                    arrayList.add(this.hoU.get(i));
-                }
-                for (int i2 = 0; i2 < arrayList.size(); i2++) {
-                    com.baidu.tieba.ala.livecard.holder.a aVar2 = (com.baidu.tieba.ala.livecard.holder.a) arrayList.get(i2);
-                    if (aVar2.getRootView() != null && aVar2.getRootView().getParent() != null) {
-                        ((ViewGroup) aVar2.getRootView().getParent()).removeView(aVar2.getRootView());
-                    }
-                    this.hoU.remove(aVar2);
-                }
-                arrayList.clear();
-            }
-            for (int i3 = 0; i3 < size2; i3++) {
-                if (i3 >= size) {
-                    com.baidu.tieba.ala.livecard.holder.a bYZ = bYZ();
-                    bYZ.o(this.mPageContext.getUniqueId());
-                    bYZ.a(cVar);
-                    this.hoU.add(bYZ);
-                    aVar = bYZ;
-                } else {
-                    aVar = this.hoU.get(i3);
-                }
-                if (this.mDataList.get(i3) != null && aVar != null) {
-                    aVar.k(this.mDataList.get(i3), this.mForumName);
-                }
-            }
-            notifyDataSetChanged();
+    public final a e() {
+        return new a(this.f15024a, this.f15028e);
+    }
+
+    public void f(List<a2> list, c cVar) {
+        a aVar;
+        if (list == null || list.isEmpty()) {
+            return;
         }
+        this.f15026c.clear();
+        this.f15026c.addAll(list);
+        int size = this.f15025b.size();
+        int size2 = this.f15026c.size();
+        if (size > size2) {
+            ArrayList arrayList = new ArrayList();
+            for (int i = size2; i < size; i++) {
+                arrayList.add(this.f15025b.get(i));
+            }
+            for (int i2 = 0; i2 < arrayList.size(); i2++) {
+                a aVar2 = (a) arrayList.get(i2);
+                if (aVar2.c() != null && aVar2.c().getParent() != null) {
+                    ((ViewGroup) aVar2.c().getParent()).removeView(aVar2.c());
+                }
+                this.f15025b.remove(aVar2);
+            }
+            arrayList.clear();
+        }
+        for (int i3 = 0; i3 < size2; i3++) {
+            if (i3 >= size) {
+                aVar = e();
+                aVar.g(this.f15024a.getUniqueId());
+                aVar.h(cVar);
+                this.f15025b.add(aVar);
+            } else {
+                aVar = this.f15025b.get(i3);
+            }
+            if (this.f15026c.get(i3) != null && aVar != null) {
+                aVar.f(this.f15026c.get(i3), this.f15027d);
+            }
+        }
+        notifyDataSetChanged();
     }
 
-    private com.baidu.tieba.ala.livecard.holder.a bYZ() {
-        return new com.baidu.tieba.ala.livecard.holder.a(this.mPageContext, this.ahU);
+    public void g(String str) {
+        this.f15027d = str;
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
     public int getCount() {
-        return y.getCount(this.hoU);
+        return ListUtils.getCount(this.f15025b);
+    }
+
+    @Override // androidx.viewpager.widget.PagerAdapter
+    public Object instantiateItem(ViewGroup viewGroup, int i) {
+        ArrayList<a> arrayList = this.f15025b;
+        if (arrayList == null) {
+            return super.instantiateItem(viewGroup, i);
+        }
+        a aVar = (a) ListUtils.getItem(arrayList, i);
+        if (aVar == null) {
+            return super.instantiateItem(viewGroup, i);
+        }
+        if (aVar.c().getParent() == null) {
+            viewGroup.addView(aVar.c(), new ViewGroup.LayoutParams(-2, -2));
+        }
+        aVar.e();
+        aVar.c().setTag(Integer.valueOf(i));
+        return aVar.c();
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
     public boolean isViewFromObject(View view, Object obj) {
         return view == obj;
-    }
-
-    @Override // androidx.viewpager.widget.PagerAdapter
-    public void destroyItem(ViewGroup viewGroup, int i, Object obj) {
-        viewGroup.removeView(this.hoU.get(i).getRootView());
-    }
-
-    @Override // androidx.viewpager.widget.PagerAdapter
-    public Object instantiateItem(ViewGroup viewGroup, int i) {
-        if (this.hoU == null) {
-            return super.instantiateItem(viewGroup, i);
-        }
-        com.baidu.tieba.ala.livecard.holder.a aVar = (com.baidu.tieba.ala.livecard.holder.a) y.getItem(this.hoU, i);
-        if (aVar == null) {
-            return super.instantiateItem(viewGroup, i);
-        }
-        if (aVar.getRootView().getParent() == null) {
-            viewGroup.addView(aVar.getRootView(), new ViewGroup.LayoutParams(-2, -2));
-        }
-        aVar.refreshView();
-        aVar.getRootView().setTag(Integer.valueOf(i));
-        return aVar.getRootView();
     }
 }

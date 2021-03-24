@@ -5,22 +5,32 @@ import javax.crypto.Cipher;
 import javax.crypto.NoSuchPaddingException;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class AES {
 
+    /* renamed from: d  reason: collision with root package name */
+    public static final String f9553d = "UTF-8";
+
+    /* renamed from: e  reason: collision with root package name */
+    public static final String f9554e = "AES/CBC/NoPadding";
+
+    /* renamed from: f  reason: collision with root package name */
+    public static final String f9555f = "AES";
+
     /* renamed from: a  reason: collision with root package name */
-    private static final String f2761a = "UTF-8";
-    private static final String b = "AES/CBC/NoPadding";
-    private static final String c = "AES";
-    private String d;
-    private String e;
-    private String f;
+    public String f9556a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public String f9557b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public String f9558c;
 
     public AES() {
-        this("AES", b, "UTF-8");
+        this("AES", "AES/CBC/NoPadding", "UTF-8");
     }
 
-    private static String a(String str) {
+    public static String a(String str) {
         int length = 16 - (str.getBytes().length % 16);
         for (int i = 0; i < length; i++) {
             str = str + ' ';
@@ -32,12 +42,12 @@ public class AES {
         if (bArr != null && bArr.length != 0) {
             byte[] bArr2 = new byte[0];
             try {
-                IvParameterSpec ivParameterSpec = new IvParameterSpec(str.getBytes(this.d));
-                SecretKeySpec secretKeySpec = new SecretKeySpec(str2.getBytes(), this.f);
-                Cipher cipher = Cipher.getInstance(this.e);
+                IvParameterSpec ivParameterSpec = new IvParameterSpec(str.getBytes(this.f9556a));
+                SecretKeySpec secretKeySpec = new SecretKeySpec(str2.getBytes(), this.f9558c);
+                Cipher cipher = Cipher.getInstance(this.f9557b);
                 cipher.init(2, secretKeySpec, ivParameterSpec);
                 return cipher.doFinal(bArr);
-            } catch (Throwable th) {
+            } catch (Throwable unused) {
                 return bArr2;
             }
         }
@@ -47,14 +57,12 @@ public class AES {
     public byte[] encrypt(String str, String str2, String str3) throws Exception {
         if (str != null && str.length() != 0) {
             try {
-                IvParameterSpec ivParameterSpec = new IvParameterSpec(str2.getBytes(this.d));
-                SecretKeySpec secretKeySpec = new SecretKeySpec(str3.getBytes(), this.f);
-                Cipher cipher = Cipher.getInstance(this.e);
+                IvParameterSpec ivParameterSpec = new IvParameterSpec(str2.getBytes(this.f9556a));
+                SecretKeySpec secretKeySpec = new SecretKeySpec(str3.getBytes(), this.f9558c);
+                Cipher cipher = Cipher.getInstance(this.f9557b);
                 cipher.init(1, secretKeySpec, ivParameterSpec);
                 return cipher.doFinal(a(str).getBytes());
-            } catch (NoSuchAlgorithmException e) {
-                return null;
-            } catch (NoSuchPaddingException e2) {
+            } catch (NoSuchAlgorithmException | NoSuchPaddingException unused) {
                 return null;
             }
         }
@@ -66,11 +74,11 @@ public class AES {
     }
 
     public AES(String str, String str2, String str3) {
-        this.d = "UTF-8";
-        this.e = b;
-        this.f = "AES";
-        this.f = str;
-        this.e = str2;
-        this.d = str3;
+        this.f9556a = "UTF-8";
+        this.f9557b = "AES/CBC/NoPadding";
+        this.f9558c = "AES";
+        this.f9558c = str;
+        this.f9557b = str2;
+        this.f9556a = str3;
     }
 }

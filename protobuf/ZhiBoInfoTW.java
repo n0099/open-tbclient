@@ -4,7 +4,7 @@ import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public final class ZhiBoInfoTW extends Message {
     public static final String DEFAULT_CONTENT = "";
     public static final String DEFAULT_FORUMNAME = "";
@@ -56,109 +56,7 @@ public final class ZhiBoInfoTW extends Message {
     public static final Integer DEFAULT_ISNEWHEADLINE = 0;
     public static final Integer DEFAULT_ISHEADLINEAVAILABLE = 0;
 
-    private ZhiBoInfoTW(Builder builder, boolean z) {
-        super(builder);
-        if (z) {
-            if (builder.threadId == null) {
-                this.threadId = DEFAULT_THREADID;
-            } else {
-                this.threadId = builder.threadId;
-            }
-            if (builder.livecoverSrc == null) {
-                this.livecoverSrc = "";
-            } else {
-                this.livecoverSrc = builder.livecoverSrc;
-            }
-            if (builder.livecoverSrcBsize == null) {
-                this.livecoverSrcBsize = "";
-            } else {
-                this.livecoverSrcBsize = builder.livecoverSrcBsize;
-            }
-            if (builder.postNum == null) {
-                this.postNum = DEFAULT_POSTNUM;
-            } else {
-                this.postNum = builder.postNum;
-            }
-            if (builder.replyNum == null) {
-                this.replyNum = DEFAULT_REPLYNUM;
-            } else {
-                this.replyNum = builder.replyNum;
-            }
-            this.zan = builder.zan;
-            if (builder.forumName == null) {
-                this.forumName = "";
-            } else {
-                this.forumName = builder.forumName;
-            }
-            if (builder.forumId == null) {
-                this.forumId = DEFAULT_FORUMID;
-            } else {
-                this.forumId = builder.forumId;
-            }
-            if (builder.lastModifiedTime == null) {
-                this.lastModifiedTime = DEFAULT_LASTMODIFIEDTIME;
-            } else {
-                this.lastModifiedTime = builder.lastModifiedTime;
-            }
-            if (builder.title == null) {
-                this.title = "";
-            } else {
-                this.title = builder.title;
-            }
-            if (builder.content == null) {
-                this.content = "";
-            } else {
-                this.content = builder.content;
-            }
-            this.userInfo = builder.userInfo;
-            if (builder.labels == null) {
-                this.labels = DEFAULT_LABELS;
-            } else {
-                this.labels = immutableCopyOf(builder.labels);
-            }
-            if (builder.rank == null) {
-                this.rank = DEFAULT_RANK;
-            } else {
-                this.rank = builder.rank;
-            }
-            if (builder.isHeadline == null) {
-                this.isHeadline = DEFAULT_ISHEADLINE;
-            } else {
-                this.isHeadline = builder.isHeadline;
-            }
-            if (builder.isNewHeadline == null) {
-                this.isNewHeadline = DEFAULT_ISNEWHEADLINE;
-            } else {
-                this.isNewHeadline = builder.isNewHeadline;
-            }
-            if (builder.isHeadlineAvailable == null) {
-                this.isHeadlineAvailable = DEFAULT_ISHEADLINEAVAILABLE;
-                return;
-            } else {
-                this.isHeadlineAvailable = builder.isHeadlineAvailable;
-                return;
-            }
-        }
-        this.threadId = builder.threadId;
-        this.livecoverSrc = builder.livecoverSrc;
-        this.livecoverSrcBsize = builder.livecoverSrcBsize;
-        this.postNum = builder.postNum;
-        this.replyNum = builder.replyNum;
-        this.zan = builder.zan;
-        this.forumName = builder.forumName;
-        this.forumId = builder.forumId;
-        this.lastModifiedTime = builder.lastModifiedTime;
-        this.title = builder.title;
-        this.content = builder.content;
-        this.userInfo = builder.userInfo;
-        this.labels = immutableCopyOf(builder.labels);
-        this.rank = builder.rank;
-        this.isHeadline = builder.isHeadline;
-        this.isNewHeadline = builder.isNewHeadline;
-        this.isHeadlineAvailable = builder.isHeadlineAvailable;
-    }
-
-    /* loaded from: classes2.dex */
+    /* loaded from: classes7.dex */
     public static final class Builder extends Message.Builder<ZhiBoInfoTW> {
         public String content;
         public Long forumId;
@@ -183,25 +81,26 @@ public final class ZhiBoInfoTW extends Message {
 
         public Builder(ZhiBoInfoTW zhiBoInfoTW) {
             super(zhiBoInfoTW);
-            if (zhiBoInfoTW != null) {
-                this.threadId = zhiBoInfoTW.threadId;
-                this.livecoverSrc = zhiBoInfoTW.livecoverSrc;
-                this.livecoverSrcBsize = zhiBoInfoTW.livecoverSrcBsize;
-                this.postNum = zhiBoInfoTW.postNum;
-                this.replyNum = zhiBoInfoTW.replyNum;
-                this.zan = zhiBoInfoTW.zan;
-                this.forumName = zhiBoInfoTW.forumName;
-                this.forumId = zhiBoInfoTW.forumId;
-                this.lastModifiedTime = zhiBoInfoTW.lastModifiedTime;
-                this.title = zhiBoInfoTW.title;
-                this.content = zhiBoInfoTW.content;
-                this.userInfo = zhiBoInfoTW.userInfo;
-                this.labels = ZhiBoInfoTW.copyOf(zhiBoInfoTW.labels);
-                this.rank = zhiBoInfoTW.rank;
-                this.isHeadline = zhiBoInfoTW.isHeadline;
-                this.isNewHeadline = zhiBoInfoTW.isNewHeadline;
-                this.isHeadlineAvailable = zhiBoInfoTW.isHeadlineAvailable;
+            if (zhiBoInfoTW == null) {
+                return;
             }
+            this.threadId = zhiBoInfoTW.threadId;
+            this.livecoverSrc = zhiBoInfoTW.livecoverSrc;
+            this.livecoverSrcBsize = zhiBoInfoTW.livecoverSrcBsize;
+            this.postNum = zhiBoInfoTW.postNum;
+            this.replyNum = zhiBoInfoTW.replyNum;
+            this.zan = zhiBoInfoTW.zan;
+            this.forumName = zhiBoInfoTW.forumName;
+            this.forumId = zhiBoInfoTW.forumId;
+            this.lastModifiedTime = zhiBoInfoTW.lastModifiedTime;
+            this.title = zhiBoInfoTW.title;
+            this.content = zhiBoInfoTW.content;
+            this.userInfo = zhiBoInfoTW.userInfo;
+            this.labels = Message.copyOf(zhiBoInfoTW.labels);
+            this.rank = zhiBoInfoTW.rank;
+            this.isHeadline = zhiBoInfoTW.isHeadline;
+            this.isNewHeadline = zhiBoInfoTW.isNewHeadline;
+            this.isHeadlineAvailable = zhiBoInfoTW.isHeadlineAvailable;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -209,5 +108,122 @@ public final class ZhiBoInfoTW extends Message {
         public ZhiBoInfoTW build(boolean z) {
             return new ZhiBoInfoTW(this, z);
         }
+    }
+
+    public ZhiBoInfoTW(Builder builder, boolean z) {
+        super(builder);
+        if (z) {
+            Long l = builder.threadId;
+            if (l == null) {
+                this.threadId = DEFAULT_THREADID;
+            } else {
+                this.threadId = l;
+            }
+            String str = builder.livecoverSrc;
+            if (str == null) {
+                this.livecoverSrc = "";
+            } else {
+                this.livecoverSrc = str;
+            }
+            String str2 = builder.livecoverSrcBsize;
+            if (str2 == null) {
+                this.livecoverSrcBsize = "";
+            } else {
+                this.livecoverSrcBsize = str2;
+            }
+            Integer num = builder.postNum;
+            if (num == null) {
+                this.postNum = DEFAULT_POSTNUM;
+            } else {
+                this.postNum = num;
+            }
+            Integer num2 = builder.replyNum;
+            if (num2 == null) {
+                this.replyNum = DEFAULT_REPLYNUM;
+            } else {
+                this.replyNum = num2;
+            }
+            this.zan = builder.zan;
+            String str3 = builder.forumName;
+            if (str3 == null) {
+                this.forumName = "";
+            } else {
+                this.forumName = str3;
+            }
+            Long l2 = builder.forumId;
+            if (l2 == null) {
+                this.forumId = DEFAULT_FORUMID;
+            } else {
+                this.forumId = l2;
+            }
+            Long l3 = builder.lastModifiedTime;
+            if (l3 == null) {
+                this.lastModifiedTime = DEFAULT_LASTMODIFIEDTIME;
+            } else {
+                this.lastModifiedTime = l3;
+            }
+            String str4 = builder.title;
+            if (str4 == null) {
+                this.title = "";
+            } else {
+                this.title = str4;
+            }
+            String str5 = builder.content;
+            if (str5 == null) {
+                this.content = "";
+            } else {
+                this.content = str5;
+            }
+            this.userInfo = builder.userInfo;
+            List<LabelInfoForLivePost> list = builder.labels;
+            if (list == null) {
+                this.labels = DEFAULT_LABELS;
+            } else {
+                this.labels = Message.immutableCopyOf(list);
+            }
+            Integer num3 = builder.rank;
+            if (num3 == null) {
+                this.rank = DEFAULT_RANK;
+            } else {
+                this.rank = num3;
+            }
+            Integer num4 = builder.isHeadline;
+            if (num4 == null) {
+                this.isHeadline = DEFAULT_ISHEADLINE;
+            } else {
+                this.isHeadline = num4;
+            }
+            Integer num5 = builder.isNewHeadline;
+            if (num5 == null) {
+                this.isNewHeadline = DEFAULT_ISNEWHEADLINE;
+            } else {
+                this.isNewHeadline = num5;
+            }
+            Integer num6 = builder.isHeadlineAvailable;
+            if (num6 == null) {
+                this.isHeadlineAvailable = DEFAULT_ISHEADLINEAVAILABLE;
+                return;
+            } else {
+                this.isHeadlineAvailable = num6;
+                return;
+            }
+        }
+        this.threadId = builder.threadId;
+        this.livecoverSrc = builder.livecoverSrc;
+        this.livecoverSrcBsize = builder.livecoverSrcBsize;
+        this.postNum = builder.postNum;
+        this.replyNum = builder.replyNum;
+        this.zan = builder.zan;
+        this.forumName = builder.forumName;
+        this.forumId = builder.forumId;
+        this.lastModifiedTime = builder.lastModifiedTime;
+        this.title = builder.title;
+        this.content = builder.content;
+        this.userInfo = builder.userInfo;
+        this.labels = Message.immutableCopyOf(builder.labels);
+        this.rank = builder.rank;
+        this.isHeadline = builder.isHeadline;
+        this.isNewHeadline = builder.isNewHeadline;
+        this.isHeadlineAvailable = builder.isHeadlineAvailable;
     }
 }

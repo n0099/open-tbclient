@@ -1,11 +1,12 @@
 package com.qq.e.mediation.interfaces;
 
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.view.View;
 import android.view.ViewGroup;
 import com.qq.e.comm.adevent.ADListener;
 import com.qq.e.comm.constants.LoadAdParams;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public abstract class BaseSplashAd {
     public static final int DEFAULT_PRIORITY = -1;
     public static final int EVENT_TYPE_AD_CLICKED = 4;
@@ -16,12 +17,10 @@ public abstract class BaseSplashAd {
     public static final int EVENT_TYPE_AD_TICK = 5;
     public static final int EVENT_TYPE_NO_AD = 2;
 
-    public BaseSplashAd(Context context, String str, String str2) {
+    public BaseSplashAd(Context context, String str, String str2, String str3) {
     }
 
     public abstract void fetchAdOnly();
-
-    public abstract void fetchAndShowIn(ViewGroup viewGroup);
 
     public int getAdapterPriority() {
         return -1;
@@ -31,9 +30,9 @@ public abstract class BaseSplashAd {
 
     public abstract String getECPMLevel();
 
-    public abstract void preload();
+    public abstract Bitmap getZoomOutBitmap();
 
-    public abstract void setAdListener(ADListener aDListener);
+    public abstract void setADListener(ADListener aDListener);
 
     public abstract void setFetchDelay(int i);
 
@@ -41,5 +40,9 @@ public abstract class BaseSplashAd {
 
     public abstract void setSkipView(View view);
 
+    public abstract void setSupportZoomOut(boolean z);
+
     public abstract void showAd(ViewGroup viewGroup);
+
+    public abstract void zoomOutAnimationFinish();
 }

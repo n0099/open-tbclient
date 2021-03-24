@@ -1,12 +1,12 @@
 package com.baidu.tieba.faceshop;
 
 import com.baidu.tbadk.core.util.AbstractImageProvider;
-import com.baidu.tbadk.core.util.au;
+import d.b.b.e.p.k;
 import java.io.Serializable;
 import java.util.ArrayList;
-/* loaded from: classes8.dex */
+/* loaded from: classes4.dex */
 public class FacePackageData extends AbstractImageProvider implements Serializable {
-    private static final long serialVersionUID = 0;
+    public static final long serialVersionUID = 0;
     public String banner_url;
     public int buy_status;
     public int can_download;
@@ -31,16 +31,16 @@ public class FacePackageData extends AbstractImageProvider implements Serializab
     public long downloadNow = 0;
     public String orderId = "";
 
-    @Override // com.baidu.tbadk.core.util.AbstractImageProvider
+    @Override // com.baidu.tbadk.core.util.AbstractImageProvider, com.baidu.tbadk.core.util.ImageProvider
     public ArrayList<String> getImageUrl() {
         ArrayList<String> arrayList = new ArrayList<>();
-        if (!au.isEmpty(this.banner_url)) {
+        if (!k.isEmpty(this.banner_url)) {
             arrayList.add(this.banner_url);
         }
-        if (!au.isEmpty(this.new_icon)) {
+        if (!k.isEmpty(this.new_icon)) {
             arrayList.add(this.new_icon);
         }
-        if (!au.isEmpty(this.tag_url)) {
+        if (!k.isEmpty(this.tag_url)) {
             arrayList.add(this.tag_url);
         }
         return arrayList;

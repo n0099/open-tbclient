@@ -1,7 +1,7 @@
 package com.baidu.down.common;
 
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class DownDetail {
     public static final int RETRY_STRATEGY_DOWNFLOW_FAIL = 2;
     public static final int RETRY_STRATEGY_DOWNFLOW_FAIL_DATA_NO_MATCH = 5;
@@ -20,8 +20,25 @@ public class DownDetail {
 
     public String toString() {
         StringBuffer stringBuffer = new StringBuffer();
-        stringBuffer.append("[retryType=").append(this.retryType).append("]").append("[retryException=").append(this.retryException).append("]").append("[retryStrategyInfo=").append(this.retryStrategyInfo).append("]").append("[extendType=").append(this.extendType).append("]").append("[extendInfo=").append(this.extendInfo).append("[allInfo=").append(this.allInfo).append("]");
-        if (this.domainNameAndIpInfo != null && !this.domainNameAndIpInfo.isEmpty()) {
+        stringBuffer.append("[retryType=");
+        stringBuffer.append(this.retryType);
+        stringBuffer.append("]");
+        stringBuffer.append("[retryException=");
+        stringBuffer.append(this.retryException);
+        stringBuffer.append("]");
+        stringBuffer.append("[retryStrategyInfo=");
+        stringBuffer.append(this.retryStrategyInfo);
+        stringBuffer.append("]");
+        stringBuffer.append("[extendType=");
+        stringBuffer.append(this.extendType);
+        stringBuffer.append("]");
+        stringBuffer.append("[extendInfo=");
+        stringBuffer.append(this.extendInfo);
+        stringBuffer.append("[allInfo=");
+        stringBuffer.append(this.allInfo);
+        stringBuffer.append("]");
+        List<UrlDNSInfo> list = this.domainNameAndIpInfo;
+        if (list != null && !list.isEmpty()) {
             for (UrlDNSInfo urlDNSInfo : this.domainNameAndIpInfo) {
                 stringBuffer.append("host:" + urlDNSInfo.host + "ip:" + urlDNSInfo.ip + "t:" + urlDNSInfo.dnsTime);
             }

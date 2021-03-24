@@ -5,9 +5,9 @@ import com.kwad.sdk.core.b;
 import com.kwad.sdk.utils.o;
 import java.io.Serializable;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public final class ThreadInfo implements b, Serializable {
-    private static final long serialVersionUID = -1743841938230203418L;
+    public static final long serialVersionUID = -1743841938230203418L;
     public int mIndex;
     public String mName;
     public int mTid;

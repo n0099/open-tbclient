@@ -3,7 +3,7 @@ package com.baidu.swan.apps.inlinewidget.rtcroom.model;
 import com.baidu.android.util.devices.RomUtils;
 import com.baidu.mapapi.SDKInitializer;
 import com.kwai.video.player.PlayerProps;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public enum RtcStatus {
     UNKNOWN(-1, RomUtils.UNKNOWN),
     LOCAL_JOIN(1001, "LOCAL_JOIN"),
@@ -36,9 +36,9 @@ public enum RtcStatus {
     AUTHORIZE_TYPE_IGNORE(10001, "internal error"),
     AUTHORIZE_TYPE_GRANT(10009, "AUTHORIZE_TYPE_GRANT");
     
-    private static final long serialVersionUID = 1;
-    private int mCode;
-    private String mMsg;
+    public static final long serialVersionUID = 1;
+    public int mCode;
+    public String mMsg;
 
     RtcStatus(int i, String str) {
         this.mCode = i;

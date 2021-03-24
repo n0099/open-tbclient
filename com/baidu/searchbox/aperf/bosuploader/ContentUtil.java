@@ -12,25 +12,36 @@ import java.util.Iterator;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public class ContentUtil {
-    private static final String KEY_LOCAL_EXPIRED_AT = "localExpireAt";
-    private static final String REQ_KEY_REQ = "req";
-    private static final String REQ_KEY_SIGN = "sign";
-    private static final String REQ_KEY_TIMESTAMP = "timestamp";
-    private static final String REQ_KEY_TYPE = "type";
-    private static final String RESULT_KEY_AK = "ak";
-    private static final String RESULT_KEY_BUCKET = "bucket";
-    private static final String RESULT_KEY_ENDPOINT = "endpoint";
-    private static final String RESULT_KEY_EXPIRE = "expire";
-    private static final String RESULT_KEY_EXPIRED_AT = "expireAt";
-    private static final String RESULT_KEY_SK = "sk";
-    private static final String RESULT_KEY_TOKEN = "token";
-    private static final String TAG_DATA = "data";
-    private static final String TAG_ERRNO = "errno";
-    private static final String TAG_ERRNO_INVALID = "-1";
-    private static final String TAG_ERRNO_NO_ERROR = "0";
-    private static final String TOKEN = "gettoken";
+    public static final String KEY_LOCAL_EXPIRED_AT = "localExpireAt";
+    public static final String REQ_KEY_REQ = "req";
+    public static final String REQ_KEY_SIGN = "sign";
+    public static final String REQ_KEY_TIMESTAMP = "timestamp";
+    public static final String REQ_KEY_TYPE = "type";
+    public static final String RESULT_KEY_AK = "ak";
+    public static final String RESULT_KEY_BUCKET = "bucket";
+    public static final String RESULT_KEY_ENDPOINT = "endpoint";
+    public static final String RESULT_KEY_EXPIRE = "expire";
+    public static final String RESULT_KEY_EXPIRED_AT = "expireAt";
+    public static final String RESULT_KEY_SK = "sk";
+    public static final String RESULT_KEY_TOKEN = "token";
+    public static final String TAG_DATA = "data";
+    public static final String TAG_ERRNO = "errno";
+    public static final String TAG_ERRNO_INVALID = "-1";
+    public static final String TAG_ERRNO_NO_ERROR = "0";
+    public static final String TOKEN = "gettoken";
+
+    public static boolean checkStsValid(STSInfo sTSInfo) {
+        if (sTSInfo == null || TextUtils.isEmpty(sTSInfo.ak) || TextUtils.isEmpty(sTSInfo.sk) || TextUtils.isEmpty(sTSInfo.token) || TextUtils.isEmpty(sTSInfo.expired) || TextUtils.isEmpty(sTSInfo.bucket) || TextUtils.isEmpty(sTSInfo.endpoint)) {
+            return false;
+        }
+        try {
+            return sTSInfo.expiredAt >= System.currentTimeMillis();
+        } catch (NumberFormatException unused) {
+            return false;
+        }
+    }
 
     public static String createRequest(String str) {
         JSONObject jSONObject = new JSONObject();
@@ -42,8 +53,8 @@ public class ContentUtil {
             jSONObject2.put("sign", createSign(jSONObject2));
             jSONObject.put(REQ_KEY_REQ, jSONObject2);
             return jSONObject.toString();
-        } catch (JSONException e) {
-            e.printStackTrace();
+        } catch (JSONException e2) {
+            e2.printStackTrace();
             return null;
         }
     }
@@ -55,42 +66,24 @@ public class ContentUtil {
             if (!"0".equals(jSONObject.optString("errno", "-1")) || (optJSONObject = jSONObject.optJSONObject("data")) == null) {
                 return null;
             }
-            optJSONObject.put(KEY_LOCAL_EXPIRED_AT, (optJSONObject.optLong(RESULT_KEY_EXPIRE) * 1000) + System.currentTimeMillis());
+            optJSONObject.put(KEY_LOCAL_EXPIRED_AT, System.currentTimeMillis() + (optJSONObject.optLong(RESULT_KEY_EXPIRE) * 1000));
             return createSTSInfo(optJSONObject);
-        } catch (JSONException e) {
-            e.printStackTrace();
-            return null;
+        } catch (JSONException e2) {
+            e2.printStackTrace();
         }
+        return null;
     }
 
     public static STSInfo createSTSInfo(String str) {
         try {
             return createSTSInfo(new JSONObject(str));
-        } catch (JSONException e) {
-            e.printStackTrace();
+        } catch (JSONException e2) {
+            e2.printStackTrace();
             return null;
         }
     }
 
-    public static STSInfo createSTSInfo(@NonNull JSONObject jSONObject) {
-        STSInfo sTSInfo = new STSInfo(jSONObject.optString(RESULT_KEY_AK), jSONObject.optString(RESULT_KEY_SK), jSONObject.optString("token"), jSONObject.optLong(KEY_LOCAL_EXPIRED_AT), jSONObject.optString(RESULT_KEY_EXPIRE), jSONObject.optString(RESULT_KEY_BUCKET), jSONObject.optString(RESULT_KEY_ENDPOINT));
-        sTSInfo.setOrigin(jSONObject.toString());
-        return sTSInfo;
-    }
-
-    public static boolean checkStsValid(STSInfo sTSInfo) {
-        if (sTSInfo != null && !TextUtils.isEmpty(sTSInfo.ak) && !TextUtils.isEmpty(sTSInfo.sk) && !TextUtils.isEmpty(sTSInfo.token) && !TextUtils.isEmpty(sTSInfo.expired) && !TextUtils.isEmpty(sTSInfo.bucket) && !TextUtils.isEmpty(sTSInfo.endpoint)) {
-            try {
-                if (sTSInfo.expiredAt >= System.currentTimeMillis()) {
-                    return true;
-                }
-            } catch (NumberFormatException e) {
-            }
-        }
-        return false;
-    }
-
-    private static String createSign(JSONObject jSONObject) {
+    public static String createSign(JSONObject jSONObject) {
         if (jSONObject != null) {
             StringBuffer stringBuffer = new StringBuffer();
             HashMap hashMap = new HashMap();
@@ -102,8 +95,8 @@ public class ContentUtil {
                     if (!TextUtils.isEmpty(string)) {
                         hashMap.put(next, string);
                     }
-                } catch (JSONException e) {
-                    e.printStackTrace();
+                } catch (JSONException e2) {
+                    e2.printStackTrace();
                 }
             }
             ArrayList<Map.Entry> arrayList = new ArrayList(hashMap.entrySet());
@@ -115,15 +108,23 @@ public class ContentUtil {
                 }
             });
             for (Map.Entry entry : arrayList) {
-                stringBuffer.append((String) entry.getKey()).append("=").append((String) entry.getValue());
+                stringBuffer.append((String) entry.getKey());
+                stringBuffer.append("=");
+                stringBuffer.append((String) entry.getValue());
             }
             stringBuffer.append(TOKEN);
             try {
                 return MD5Util.toMd5(stringBuffer.toString().getBytes("UTF-8"), false);
-            } catch (UnsupportedEncodingException e2) {
-                e2.printStackTrace();
+            } catch (UnsupportedEncodingException e3) {
+                e3.printStackTrace();
             }
         }
         return "";
+    }
+
+    public static STSInfo createSTSInfo(@NonNull JSONObject jSONObject) {
+        STSInfo sTSInfo = new STSInfo(jSONObject.optString(RESULT_KEY_AK), jSONObject.optString(RESULT_KEY_SK), jSONObject.optString("token"), jSONObject.optLong(KEY_LOCAL_EXPIRED_AT), jSONObject.optString(RESULT_KEY_EXPIRE), jSONObject.optString(RESULT_KEY_BUCKET), jSONObject.optString(RESULT_KEY_ENDPOINT));
+        sTSInfo.setOrigin(jSONObject.toString());
+        return sTSInfo;
     }
 }

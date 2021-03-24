@@ -8,94 +8,105 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import com.baidu.adp.lib.util.l;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.SvgManager;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.au;
+import com.baidu.tbadk.core.util.tbselector.TBSelector;
+import com.baidu.tbadk.core.util.tbselector.selector.DrawableSelector;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.im.message.chat.a;
-/* loaded from: classes7.dex */
+import d.b.b.e.p.l;
+import d.b.i0.d1.i.a.b.b;
+import d.b.i0.d1.l.c.a;
+/* loaded from: classes4.dex */
 public class OfficialFeedItemImage extends RelativeLayout {
-    private boolean kEi;
-    private TextView kGb;
-    private TbImageView kGd;
-    private ImageView kGe;
-    private TextView kGf;
-    private View kGg;
-    private View kGh;
-    private View kGi;
-    private Context mContext;
+
+    /* renamed from: e  reason: collision with root package name */
+    public Context f17877e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public TbImageView f17878f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public ImageView f17879g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public TextView f17880h;
+    public TextView i;
+    public View j;
+    public View k;
+    public View l;
+    public boolean m;
 
     public OfficialFeedItemImage(Context context, boolean z) {
         this(context, (AttributeSet) null);
-        this.kEi = z;
+        this.m = z;
+    }
+
+    public void a() {
+        this.f17878f.setRadius(l.g(this.f17877e, R.dimen.tbds31));
+        this.f17878f.setConrers(3);
+        ViewGroup.LayoutParams layoutParams = this.k.getLayoutParams();
+        layoutParams.height = l.g(this.f17877e, R.dimen.tbds579);
+        this.k.setLayoutParams(layoutParams);
+        RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.l.getLayoutParams();
+        layoutParams2.leftMargin = l.g(this.f17877e, R.dimen.tbds27);
+        this.l.setLayoutParams(layoutParams2);
+        RelativeLayout.LayoutParams layoutParams3 = (RelativeLayout.LayoutParams) this.i.getLayoutParams();
+        layoutParams3.leftMargin = l.g(this.f17877e, R.dimen.tbds30);
+        layoutParams3.bottomMargin = l.g(this.f17877e, R.dimen.tbds27);
+        this.i.setLayoutParams(layoutParams3);
+    }
+
+    public final void b() {
+        LayoutInflater.from(this.f17877e).inflate(R.layout.official_feed_item_image, (ViewGroup) this, true);
+        this.f17878f = (TbImageView) findViewById(R.id.message_image);
+        this.f17879g = (ImageView) findViewById(R.id.message_read_icon);
+        this.f17880h = (TextView) findViewById(R.id.message_read_count);
+        this.i = (TextView) findViewById(R.id.message_title);
+        this.j = findViewById(R.id.black_mask);
+        this.f17878f.setConrers(15);
+        this.f17878f.setRadius(l.g(this.f17877e, R.dimen.tbds21));
+        this.k = findViewById(R.id.image_container);
+        this.l = findViewById(R.id.msg_read_container);
+        c();
+    }
+
+    public void c() {
+        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f17879g, R.drawable.icon_pure_broadcast_read16_svg, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL);
+        DrawableSelector gradientLinear = TBSelector.makeDrawableSelector().setShape(0).gradientLinear(R.color.CAM_X0601, R.color.CAM_X0606);
+        if (this.m) {
+            gradientLinear.into(this.j);
+        } else {
+            gradientLinear.blRadius(l.g(getContext(), R.dimen.tbds21)).brRadius(l.g(getContext(), R.dimen.tbds21)).into(this.j);
+        }
+        SkinManager.setViewTextColor(this.f17880h, R.color.CAM_X0101);
+        SkinManager.setViewTextColor(this.i, R.color.CAM_X0101);
+    }
+
+    public void d(int i) {
+        if (i > 0) {
+            this.f17880h.setText(this.f17877e.getString(R.string.person_view_num, StringHelper.numberUniformFormatExtraWithRound(i)));
+            this.f17880h.setVisibility(0);
+            this.f17879g.setVisibility(0);
+            return;
+        }
+        this.f17880h.setVisibility(8);
+        this.f17879g.setVisibility(8);
+    }
+
+    public void setData(a.C1202a c1202a, int i, b bVar) {
+        this.f17878f.W(c1202a.f53908c, 10, false);
+        this.i.setText(c1202a.f53906a);
+        if (bVar != null) {
+            i = bVar.i();
+        }
+        d(i);
     }
 
     public OfficialFeedItemImage(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.mContext = context;
-        initView();
-    }
-
-    private void initView() {
-        LayoutInflater.from(this.mContext).inflate(R.layout.official_feed_item_image, (ViewGroup) this, true);
-        this.kGd = (TbImageView) findViewById(R.id.message_image);
-        this.kGe = (ImageView) findViewById(R.id.message_read_icon);
-        this.kGf = (TextView) findViewById(R.id.message_read_count);
-        this.kGb = (TextView) findViewById(R.id.message_title);
-        this.kGg = findViewById(R.id.black_mask);
-        this.kGd.setConrers(15);
-        this.kGd.setRadius(l.getDimens(this.mContext, R.dimen.tbds21));
-        this.kGh = findViewById(R.id.image_container);
-        this.kGi = findViewById(R.id.msg_read_container);
-        cVt();
-    }
-
-    public void cVu() {
-        this.kGd.setRadius(l.getDimens(this.mContext, R.dimen.tbds31));
-        this.kGd.setConrers(3);
-        ViewGroup.LayoutParams layoutParams = this.kGh.getLayoutParams();
-        layoutParams.height = l.getDimens(this.mContext, R.dimen.tbds579);
-        this.kGh.setLayoutParams(layoutParams);
-        RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.kGi.getLayoutParams();
-        layoutParams2.leftMargin = l.getDimens(this.mContext, R.dimen.tbds27);
-        this.kGi.setLayoutParams(layoutParams2);
-        RelativeLayout.LayoutParams layoutParams3 = (RelativeLayout.LayoutParams) this.kGb.getLayoutParams();
-        layoutParams3.leftMargin = l.getDimens(this.mContext, R.dimen.tbds30);
-        layoutParams3.bottomMargin = l.getDimens(this.mContext, R.dimen.tbds27);
-        this.kGb.setLayoutParams(layoutParams3);
-    }
-
-    public void cVt() {
-        SvgManager.bsU().a(this.kGe, R.drawable.icon_pure_broadcast_read16_svg, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL);
-        com.baidu.tbadk.core.util.f.a.b m = com.baidu.tbadk.core.util.f.a.bty().oP(0).m(R.color.CAM_X0601, R.color.CAM_X0606);
-        if (this.kEi) {
-            m.bv(this.kGg);
-        } else {
-            m.an(l.getDimens(getContext(), R.dimen.tbds21)).am(l.getDimens(getContext(), R.dimen.tbds21)).bv(this.kGg);
-        }
-        ap.setViewTextColor(this.kGf, R.color.CAM_X0101);
-        ap.setViewTextColor(this.kGb, R.color.CAM_X0101);
-    }
-
-    public void setData(a.C0767a c0767a, int i, com.baidu.tieba.im.forum.broadcast.data.b bVar) {
-        this.kGd.startLoad(c0767a.src, 10, false);
-        this.kGb.setText(c0767a.title);
-        if (bVar != null) {
-            i = bVar.cWl();
-        }
-        CQ(i);
-    }
-
-    public void CQ(int i) {
-        if (i > 0) {
-            this.kGf.setText(this.mContext.getString(R.string.person_view_num, au.eb(i)));
-            this.kGf.setVisibility(0);
-            this.kGe.setVisibility(0);
-            return;
-        }
-        this.kGf.setVisibility(8);
-        this.kGe.setVisibility(8);
+        this.f17877e = context;
+        b();
     }
 }

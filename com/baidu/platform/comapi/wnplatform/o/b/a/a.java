@@ -3,60 +3,81 @@ package com.baidu.platform.comapi.wnplatform.o.b.a;
 import android.content.Context;
 import android.os.Build;
 import android.util.DisplayMetrics;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f3076a = -1;
-    private int b = -1;
-    private float c = -1.0f;
-    private int d = -1;
-    private int e = -1;
-    private int f = -1;
-    private double g = -1.0d;
+    public int f10343a = -1;
+
+    /* renamed from: b  reason: collision with root package name */
+    public int f10344b = -1;
+
+    /* renamed from: c  reason: collision with root package name */
+    public float f10345c = -1.0f;
+
+    /* renamed from: d  reason: collision with root package name */
+    public int f10346d = -1;
+
+    /* renamed from: e  reason: collision with root package name */
+    public int f10347e = -1;
+
+    /* renamed from: f  reason: collision with root package name */
+    public int f10348f = -1;
+
+    /* renamed from: g  reason: collision with root package name */
+    public double f10349g = -1.0d;
 
     public void a(Context context) {
+        int i;
+        int i2;
         DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
-        this.f3076a = displayMetrics.widthPixels;
-        this.b = displayMetrics.heightPixels;
-        this.c = displayMetrics.density;
-        this.d = (int) displayMetrics.xdpi;
-        this.e = (int) displayMetrics.ydpi;
+        this.f10343a = displayMetrics.widthPixels;
+        this.f10344b = displayMetrics.heightPixels;
+        this.f10345c = displayMetrics.density;
+        this.f10346d = (int) displayMetrics.xdpi;
+        this.f10347e = (int) displayMetrics.ydpi;
         if (Build.VERSION.SDK_INT > 3) {
-            double sqrt = Math.sqrt((displayMetrics.heightPixels * displayMetrics.heightPixels) + (displayMetrics.widthPixels * displayMetrics.widthPixels));
-            double d = displayMetrics.widthPixels / displayMetrics.xdpi;
-            double d2 = displayMetrics.heightPixels / displayMetrics.ydpi;
-            this.f = (int) Math.ceil(sqrt / Math.sqrt((d * d) + (d2 * d2)));
-            if (this.f < 240) {
-                this.f = displayMetrics.densityDpi;
+            double sqrt = Math.sqrt((i2 * i2) + (i * i));
+            double d2 = displayMetrics.widthPixels / displayMetrics.xdpi;
+            double d3 = displayMetrics.heightPixels / displayMetrics.ydpi;
+            Double.isNaN(d2);
+            Double.isNaN(d2);
+            Double.isNaN(d3);
+            Double.isNaN(d3);
+            int ceil = (int) Math.ceil(sqrt / Math.sqrt((d2 * d2) + (d3 * d3)));
+            this.f10348f = ceil;
+            if (ceil < 240) {
+                this.f10348f = displayMetrics.densityDpi;
             }
         } else {
-            this.f = 160;
+            this.f10348f = 160;
         }
-        if (this.f == 0) {
-            this.f = 160;
+        if (this.f10348f == 0) {
+            this.f10348f = 160;
         }
-        this.g = this.f / 240.0d;
-    }
-
-    public int a() {
-        if (this.f3076a == -1) {
-            a(com.baidu.platform.comapi.wnplatform.o.b.a.a());
-        }
-        return this.f3076a;
+        double d4 = this.f10348f;
+        Double.isNaN(d4);
+        this.f10349g = d4 / 240.0d;
     }
 
     public int b() {
-        if (this.b == -1) {
+        if (this.f10344b == -1) {
             a(com.baidu.platform.comapi.wnplatform.o.b.a.a());
         }
-        return this.b;
+        return this.f10344b;
     }
 
     public float c() {
-        if (this.c == -1.0f) {
+        if (this.f10345c == -1.0f) {
             a(com.baidu.platform.comapi.wnplatform.o.b.a.a());
         }
-        return this.c;
+        return this.f10345c;
+    }
+
+    public int a() {
+        if (this.f10343a == -1) {
+            a(com.baidu.platform.comapi.wnplatform.o.b.a.a());
+        }
+        return this.f10343a;
     }
 }

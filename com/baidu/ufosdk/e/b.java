@@ -1,6 +1,6 @@
 package com.baidu.ufosdk.e;
 
-import com.baidu.tbadk.core.atomData.CameraActivityConfig;
+import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.ufosdk.b.e;
 import com.baidu.ufosdk.f.c;
 import java.io.BufferedReader;
@@ -8,298 +8,292 @@ import java.io.DataOutputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public final class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private static String f3616a;
+    public static String f22936a;
 
-    /* JADX WARN: Removed duplicated region for block: B:22:0x00f5 A[Catch: Exception -> 0x0140, TryCatch #6 {Exception -> 0x0140, blocks: (B:20:0x00f0, B:22:0x00f5, B:24:0x00fa, B:26:0x00ff), top: B:76:0x00f0 }] */
-    /* JADX WARN: Removed duplicated region for block: B:24:0x00fa A[Catch: Exception -> 0x0140, TryCatch #6 {Exception -> 0x0140, blocks: (B:20:0x00f0, B:22:0x00f5, B:24:0x00fa, B:26:0x00ff), top: B:76:0x00f0 }] */
-    /* JADX WARN: Removed duplicated region for block: B:26:0x00ff A[Catch: Exception -> 0x0140, TRY_LEAVE, TryCatch #6 {Exception -> 0x0140, blocks: (B:20:0x00f0, B:22:0x00f5, B:24:0x00fa, B:26:0x00ff), top: B:76:0x00f0 }] */
-    /* JADX WARN: Removed duplicated region for block: B:47:0x0152 A[Catch: Exception -> 0x0160, TryCatch #5 {Exception -> 0x0160, blocks: (B:45:0x014d, B:47:0x0152, B:49:0x0157, B:51:0x015c), top: B:74:0x014d }] */
-    /* JADX WARN: Removed duplicated region for block: B:49:0x0157 A[Catch: Exception -> 0x0160, TryCatch #5 {Exception -> 0x0160, blocks: (B:45:0x014d, B:47:0x0152, B:49:0x0157, B:51:0x015c), top: B:74:0x014d }] */
-    /* JADX WARN: Removed duplicated region for block: B:51:0x015c A[Catch: Exception -> 0x0160, TRY_LEAVE, TryCatch #5 {Exception -> 0x0160, blocks: (B:45:0x014d, B:47:0x0152, B:49:0x0157, B:51:0x015c), top: B:74:0x014d }] */
-    /* JADX WARN: Removed duplicated region for block: B:74:0x014d A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:76:0x00f0 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:93:? A[RETURN, SYNTHETIC] */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:68:0x0158 */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Removed duplicated region for block: B:60:0x0146 A[Catch: Exception -> 0x0142, TryCatch #13 {Exception -> 0x0142, blocks: (B:56:0x013e, B:60:0x0146, B:62:0x014b, B:64:0x0150), top: B:90:0x013e }] */
+    /* JADX WARN: Removed duplicated region for block: B:62:0x014b A[Catch: Exception -> 0x0142, TryCatch #13 {Exception -> 0x0142, blocks: (B:56:0x013e, B:60:0x0146, B:62:0x014b, B:64:0x0150), top: B:90:0x013e }] */
+    /* JADX WARN: Removed duplicated region for block: B:64:0x0150 A[Catch: Exception -> 0x0142, TRY_LEAVE, TryCatch #13 {Exception -> 0x0142, blocks: (B:56:0x013e, B:60:0x0146, B:62:0x014b, B:64:0x0150), top: B:90:0x013e }] */
+    /* JADX WARN: Removed duplicated region for block: B:74:0x0163 A[Catch: Exception -> 0x015f, TryCatch #6 {Exception -> 0x015f, blocks: (B:70:0x015b, B:74:0x0163, B:76:0x0168, B:78:0x016d), top: B:84:0x015b }] */
+    /* JADX WARN: Removed duplicated region for block: B:76:0x0168 A[Catch: Exception -> 0x015f, TryCatch #6 {Exception -> 0x015f, blocks: (B:70:0x015b, B:74:0x0163, B:76:0x0168, B:78:0x016d), top: B:84:0x015b }] */
+    /* JADX WARN: Removed duplicated region for block: B:78:0x016d A[Catch: Exception -> 0x015f, TRY_LEAVE, TryCatch #6 {Exception -> 0x015f, blocks: (B:70:0x015b, B:74:0x0163, B:76:0x0168, B:78:0x016d), top: B:84:0x015b }] */
+    /* JADX WARN: Removed duplicated region for block: B:84:0x015b A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:90:0x013e A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Type inference failed for: r3v0 */
+    /* JADX WARN: Type inference failed for: r3v1 */
+    /* JADX WARN: Type inference failed for: r3v14 */
+    /* JADX WARN: Type inference failed for: r3v15 */
+    /* JADX WARN: Type inference failed for: r3v2, types: [java.io.BufferedReader] */
+    /* JADX WARN: Type inference failed for: r3v22 */
+    /* JADX WARN: Type inference failed for: r3v23 */
+    /* JADX WARN: Type inference failed for: r3v26 */
+    /* JADX WARN: Type inference failed for: r3v3, types: [java.io.BufferedReader] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public static String a(String str, String str2) {
-        Throwable th;
+        HttpURLConnection httpURLConnection;
         InputStreamReader inputStreamReader;
         BufferedReader bufferedReader;
-        HttpURLConnection httpURLConnection;
+        InputStreamReader inputStreamReader2;
         DataOutputStream dataOutputStream;
-        Exception e;
         StringBuffer stringBuffer = new StringBuffer();
+        DataOutputStream dataOutputStream2 = null;
+        r2 = null;
+        r2 = null;
+        BufferedReader bufferedReader2 = null;
+        dataOutputStream2 = null;
         try {
             c.b("params is " + str2);
-            HttpURLConnection httpURLConnection2 = (HttpURLConnection) new URL(str).openConnection();
+            httpURLConnection = (HttpURLConnection) new URL(str).openConnection();
+        } catch (Exception e2) {
+            e = e2;
+            httpURLConnection = null;
+            inputStreamReader = null;
+        } catch (Throwable th) {
+            th = th;
+            httpURLConnection = null;
+            inputStreamReader = null;
+        }
+        try {
+            httpURLConnection.setRequestMethod("POST");
+            httpURLConnection.setDoInput(true);
+            httpURLConnection.setDoOutput(true);
+            httpURLConnection.setUseCaches(false);
+            httpURLConnection.setInstanceFollowRedirects(true);
+            if (f22936a == null) {
+                f22936a = "UfoSDK/2.9.10 (" + e.a() + " " + e.b() + SmallTailInfo.EMOTION_SUFFIX;
+            }
+            httpURLConnection.setRequestProperty("User-Agent", f22936a);
+            httpURLConnection.setConnectTimeout(5000);
+            httpURLConnection.setReadTimeout(5000);
+            httpURLConnection.setChunkedStreamingMode(0);
+            httpURLConnection.setRequestProperty("Accept-Charset", "utf-8");
+            httpURLConnection.setRequestProperty("contentType", "utf-8");
+            DataOutputStream dataOutputStream3 = new DataOutputStream(httpURLConnection.getOutputStream());
             try {
-                httpURLConnection2.setRequestMethod("POST");
-                httpURLConnection2.setDoInput(true);
-                httpURLConnection2.setDoOutput(true);
-                httpURLConnection2.setUseCaches(false);
-                httpURLConnection2.setInstanceFollowRedirects(true);
-                if (f3616a == null) {
-                    f3616a = "UfoSDK/2.9.10 (" + e.a() + " " + e.b() + ")";
-                }
-                httpURLConnection2.setRequestProperty("User-Agent", f3616a);
-                httpURLConnection2.setConnectTimeout(5000);
-                httpURLConnection2.setReadTimeout(5000);
-                httpURLConnection2.setChunkedStreamingMode(0);
-                httpURLConnection2.setRequestProperty("Accept-Charset", "utf-8");
-                httpURLConnection2.setRequestProperty(CameraActivityConfig.KEY_CONTENT_TYPE, "utf-8");
-                dataOutputStream = new DataOutputStream(httpURLConnection2.getOutputStream());
-                try {
-                    dataOutputStream.writeBytes(str2);
-                    dataOutputStream.flush();
-                    dataOutputStream.close();
-                    c.b("responseCode is " + httpURLConnection2.getResponseCode());
-                    if (httpURLConnection2.getResponseCode() == 200) {
-                        inputStreamReader = new InputStreamReader(httpURLConnection2.getInputStream());
-                        try {
-                            bufferedReader = new BufferedReader(inputStreamReader);
-                            while (true) {
+                dataOutputStream3.writeBytes(str2);
+                dataOutputStream3.flush();
+                dataOutputStream3.close();
+                c.b("responseCode is " + httpURLConnection.getResponseCode());
+                if (httpURLConnection.getResponseCode() == 200) {
+                    inputStreamReader2 = new InputStreamReader(httpURLConnection.getInputStream());
+                    try {
+                        bufferedReader = new BufferedReader(inputStreamReader2);
+                        while (true) {
+                            try {
+                                String readLine = bufferedReader.readLine();
+                                if (readLine == null) {
+                                    break;
+                                }
+                                stringBuffer.append(readLine);
+                                stringBuffer.append("\n");
+                            } catch (Exception e3) {
+                                dataOutputStream = dataOutputStream3;
+                                inputStreamReader = inputStreamReader2;
+                                e = e3;
+                                dataOutputStream2 = dataOutputStream;
+                                bufferedReader = bufferedReader;
                                 try {
-                                    String readLine = bufferedReader.readLine();
-                                    if (readLine == null) {
-                                        break;
-                                    }
-                                    stringBuffer.append(readLine).append("\n");
-                                } catch (Exception e2) {
-                                    e = e2;
-                                    httpURLConnection = httpURLConnection2;
-                                    try {
-                                        c.a("httpURLConnSender exp!", e);
-                                        String stringBuffer2 = stringBuffer.toString();
-                                        if (dataOutputStream != null) {
-                                        }
-                                        if (httpURLConnection != null) {
-                                        }
-                                        if (bufferedReader != null) {
-                                        }
-                                        if (inputStreamReader == null) {
-                                        }
-                                    } catch (Throwable th2) {
-                                        th = th2;
-                                        if (dataOutputStream != null) {
-                                            try {
-                                                dataOutputStream.close();
-                                            } catch (Exception e3) {
-                                                e3.printStackTrace();
-                                                throw th;
-                                            }
-                                        }
-                                        if (httpURLConnection != null) {
-                                            httpURLConnection.disconnect();
-                                        }
-                                        if (bufferedReader != null) {
-                                            bufferedReader.close();
-                                        }
-                                        if (inputStreamReader != null) {
-                                            inputStreamReader.close();
-                                        }
-                                        throw th;
-                                    }
-                                } catch (Throwable th3) {
-                                    th = th3;
-                                    httpURLConnection = httpURLConnection2;
-                                    if (dataOutputStream != null) {
+                                    c.a("httpURLConnSender exp!", e);
+                                    String stringBuffer2 = stringBuffer.toString();
+                                    if (dataOutputStream2 != null) {
                                     }
                                     if (httpURLConnection != null) {
                                     }
-                                    if (bufferedReader != null) {
+                                    if (bufferedReader != 0) {
                                     }
                                     if (inputStreamReader != null) {
                                     }
+                                    return stringBuffer2;
+                                } catch (Throwable th2) {
+                                    th = th2;
+                                    if (dataOutputStream2 != null) {
+                                        try {
+                                            dataOutputStream2.close();
+                                        } catch (Exception e4) {
+                                            e4.printStackTrace();
+                                            throw th;
+                                        }
+                                    }
+                                    if (httpURLConnection != null) {
+                                        httpURLConnection.disconnect();
+                                    }
+                                    if (bufferedReader != 0) {
+                                        bufferedReader.close();
+                                    }
+                                    if (inputStreamReader != null) {
+                                        inputStreamReader.close();
+                                    }
                                     throw th;
                                 }
-                            }
-                            c.a("httpURLConnSender response: " + stringBuffer.toString());
-                            inputStreamReader.close();
-                            bufferedReader.close();
-                        } catch (Exception e4) {
-                            e = e4;
-                            bufferedReader = null;
-                            httpURLConnection = httpURLConnection2;
-                            c.a("httpURLConnSender exp!", e);
-                            String stringBuffer22 = stringBuffer.toString();
-                            if (dataOutputStream != null) {
-                                try {
-                                    dataOutputStream.close();
-                                } catch (Exception e5) {
-                                    e5.printStackTrace();
-                                    return stringBuffer22;
+                            } catch (Throwable th3) {
+                                th = th3;
+                                dataOutputStream2 = dataOutputStream3;
+                                inputStreamReader = inputStreamReader2;
+                                th = th;
+                                if (dataOutputStream2 != null) {
                                 }
+                                if (httpURLConnection != null) {
+                                }
+                                if (bufferedReader != 0) {
+                                }
+                                if (inputStreamReader != null) {
+                                }
+                                throw th;
                             }
-                            if (httpURLConnection != null) {
-                                httpURLConnection.disconnect();
-                            }
-                            if (bufferedReader != null) {
-                                bufferedReader.close();
-                            }
-                            if (inputStreamReader == null) {
-                                inputStreamReader.close();
-                                return stringBuffer22;
-                            }
-                            return stringBuffer22;
-                        } catch (Throwable th4) {
-                            th = th4;
-                            bufferedReader = null;
-                            httpURLConnection = httpURLConnection2;
-                            if (dataOutputStream != null) {
-                            }
-                            if (httpURLConnection != null) {
-                            }
-                            if (bufferedReader != null) {
-                            }
-                            if (inputStreamReader != null) {
-                            }
-                            throw th;
                         }
-                    } else {
-                        inputStreamReader = null;
-                        bufferedReader = null;
+                        c.a("httpURLConnSender response: " + stringBuffer.toString());
+                        inputStreamReader2.close();
+                        bufferedReader.close();
+                        bufferedReader2 = bufferedReader;
+                    } catch (Exception e5) {
+                        dataOutputStream = dataOutputStream3;
+                        inputStreamReader = inputStreamReader2;
+                        e = e5;
+                        bufferedReader = bufferedReader2;
+                    } catch (Throwable th4) {
+                        th = th4;
+                        bufferedReader = bufferedReader2;
                     }
-                    httpURLConnection2.disconnect();
-                    String stringBuffer3 = stringBuffer.toString();
-                    try {
-                        dataOutputStream.close();
-                        if (httpURLConnection2 != null) {
-                            httpURLConnection2.disconnect();
-                        }
-                        if (bufferedReader != null) {
-                            bufferedReader.close();
-                        }
-                        if (inputStreamReader != null) {
-                            inputStreamReader.close();
-                        }
-                    } catch (Exception e6) {
-                        e6.printStackTrace();
-                    }
-                    return stringBuffer3;
-                } catch (Exception e7) {
-                    e = e7;
-                    inputStreamReader = null;
-                    bufferedReader = null;
-                    httpURLConnection = httpURLConnection2;
-                } catch (Throwable th5) {
-                    th = th5;
-                    inputStreamReader = null;
-                    bufferedReader = null;
-                    httpURLConnection = httpURLConnection2;
+                } else {
+                    inputStreamReader2 = null;
                 }
-            } catch (Exception e8) {
-                e = e8;
+                httpURLConnection.disconnect();
+                String stringBuffer3 = stringBuffer.toString();
+                try {
+                    dataOutputStream3.close();
+                    if (httpURLConnection != null) {
+                        httpURLConnection.disconnect();
+                    }
+                    if (bufferedReader2 != null) {
+                        bufferedReader2.close();
+                    }
+                    if (inputStreamReader2 != null) {
+                        inputStreamReader2.close();
+                    }
+                } catch (Exception e6) {
+                    e6.printStackTrace();
+                }
+                return stringBuffer3;
+            } catch (Exception e7) {
+                e = e7;
+                bufferedReader = 0;
+                dataOutputStream2 = dataOutputStream3;
                 inputStreamReader = null;
-                bufferedReader = null;
-                httpURLConnection = httpURLConnection2;
-                dataOutputStream = null;
-            } catch (Throwable th6) {
-                th = th6;
+            } catch (Throwable th5) {
+                th = th5;
+                bufferedReader = 0;
+                dataOutputStream2 = dataOutputStream3;
                 inputStreamReader = null;
-                bufferedReader = null;
-                httpURLConnection = httpURLConnection2;
-                dataOutputStream = null;
             }
-        } catch (Exception e9) {
-            e = e9;
+        } catch (Exception e8) {
+            e = e8;
             inputStreamReader = null;
-            bufferedReader = null;
-            httpURLConnection = null;
-            dataOutputStream = null;
-        } catch (Throwable th7) {
-            th = th7;
+            bufferedReader = inputStreamReader;
+            c.a("httpURLConnSender exp!", e);
+            String stringBuffer22 = stringBuffer.toString();
+            if (dataOutputStream2 != null) {
+                try {
+                    dataOutputStream2.close();
+                } catch (Exception e9) {
+                    e9.printStackTrace();
+                    return stringBuffer22;
+                }
+            }
+            if (httpURLConnection != null) {
+                httpURLConnection.disconnect();
+            }
+            if (bufferedReader != 0) {
+                bufferedReader.close();
+            }
+            if (inputStreamReader != null) {
+                inputStreamReader.close();
+            }
+            return stringBuffer22;
+        } catch (Throwable th6) {
+            th = th6;
             inputStreamReader = null;
-            bufferedReader = null;
-            httpURLConnection = null;
-            dataOutputStream = null;
+            bufferedReader = inputStreamReader;
+            if (dataOutputStream2 != null) {
+            }
+            if (httpURLConnection != null) {
+            }
+            if (bufferedReader != 0) {
+            }
+            if (inputStreamReader != null) {
+            }
+            throw th;
         }
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:42:0x0003 */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r0v11 */
-    /* JADX WARN: Type inference failed for: r0v12, types: [boolean] */
-    /* JADX WARN: Type inference failed for: r0v14 */
-    /* JADX WARN: Type inference failed for: r3v17, types: [java.lang.String] */
     public static boolean a(String str) {
-        Exception e;
-        Throwable th;
         HttpURLConnection httpURLConnection;
-        HttpURLConnection httpURLConnection2;
-        ?? r0;
-        int i = null;
-        HttpURLConnection httpURLConnection3 = null;
+        HttpURLConnection httpURLConnection2 = null;
         try {
             try {
-                httpURLConnection2 = (HttpURLConnection) new URL(str).openConnection();
-            } catch (Throwable th2) {
-                th = th2;
-                httpURLConnection = i;
+                httpURLConnection = (HttpURLConnection) new URL(str).openConnection();
+            } catch (Exception e2) {
+                e = e2;
             }
-        } catch (Exception e2) {
-            e = e2;
+        } catch (Throwable th) {
+            th = th;
         }
         try {
-            httpURLConnection2.setRequestMethod("GET");
-            httpURLConnection2.setDoInput(true);
-            httpURLConnection2.setDoOutput(true);
-            httpURLConnection2.setUseCaches(false);
-            httpURLConnection2.setInstanceFollowRedirects(true);
-            httpURLConnection2.setConnectTimeout(5000);
-            httpURLConnection2.setReadTimeout(5000);
-            httpURLConnection2.setRequestProperty("Accept-Charset", "utf-8");
-            httpURLConnection2.setRequestProperty(CameraActivityConfig.KEY_CONTENT_TYPE, "utf-8");
-            int responseCode = httpURLConnection2.getResponseCode();
-            if (responseCode == 200) {
-                ?? r3 = "^^ httpURLConnGet success! ^^";
+            httpURLConnection.setRequestMethod("GET");
+            httpURLConnection.setDoInput(true);
+            httpURLConnection.setDoOutput(true);
+            httpURLConnection.setUseCaches(false);
+            httpURLConnection.setInstanceFollowRedirects(true);
+            httpURLConnection.setConnectTimeout(5000);
+            httpURLConnection.setReadTimeout(5000);
+            httpURLConnection.setRequestProperty("Accept-Charset", "utf-8");
+            httpURLConnection.setRequestProperty("contentType", "utf-8");
+            if (httpURLConnection.getResponseCode() == 200) {
                 c.a("^^ httpURLConnGet success! ^^");
-                httpURLConnection2.disconnect();
-                if (httpURLConnection2 != null) {
+                httpURLConnection.disconnect();
+                if (httpURLConnection != null) {
                     try {
-                        httpURLConnection2.disconnect();
+                        httpURLConnection.disconnect();
                     } catch (Exception e3) {
                         e3.printStackTrace();
                     }
                 }
-                r0 = 1;
-                i = r3;
-            } else {
-                c.a("^^ httpURLConnGet false! ^^");
-                httpURLConnection2.disconnect();
-                if (httpURLConnection2 != null) {
-                    try {
-                        httpURLConnection2.disconnect();
-                    } catch (Exception e4) {
-                        e4.printStackTrace();
-                    }
-                }
-                r0 = 0;
-                i = responseCode;
+                return true;
             }
-            return r0;
+            c.a("^^ httpURLConnGet false! ^^");
+            httpURLConnection.disconnect();
+            if (httpURLConnection != null) {
+                try {
+                    httpURLConnection.disconnect();
+                } catch (Exception e4) {
+                    e4.printStackTrace();
+                }
+            }
+            return false;
         } catch (Exception e5) {
             e = e5;
-            httpURLConnection3 = r0;
+            httpURLConnection2 = httpURLConnection;
             e.printStackTrace();
-            if (httpURLConnection3 != null) {
+            if (httpURLConnection2 != null) {
                 try {
-                    httpURLConnection3.disconnect();
+                    httpURLConnection2.disconnect();
                 } catch (Exception e6) {
                     e6.printStackTrace();
                 }
             }
             return false;
-        } catch (Throwable th3) {
-            th = th3;
-            httpURLConnection = r0;
-            if (httpURLConnection != null) {
+        } catch (Throwable th2) {
+            th = th2;
+            httpURLConnection2 = httpURLConnection;
+            if (httpURLConnection2 != null) {
                 try {
-                    httpURLConnection.disconnect();
+                    httpURLConnection2.disconnect();
                 } catch (Exception e7) {
                     e7.printStackTrace();
                 }

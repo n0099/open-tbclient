@@ -3,33 +3,33 @@ package androidx.transition;
 import android.annotation.SuppressLint;
 import androidx.annotation.StyleableRes;
 @SuppressLint({"InlinedApi"})
-/* loaded from: classes5.dex */
-class Styleable {
+/* loaded from: classes.dex */
+public class Styleable {
     @StyleableRes
-    static final int[] TRANSITION_TARGET = {16842799, 16843740, 16843841, 16843842, 16843853, 16843854};
+    public static final int[] TRANSITION_TARGET = {16842799, 16843740, 16843841, 16843842, 16843853, 16843854};
     @StyleableRes
-    static final int[] TRANSITION_MANAGER = {16843741, 16843742, 16843743};
+    public static final int[] TRANSITION_MANAGER = {16843741, 16843742, 16843743};
     @StyleableRes
-    static final int[] TRANSITION = {16843073, 16843160, 16843746, 16843855};
+    public static final int[] TRANSITION = {16843073, 16843160, 16843746, 16843855};
     @StyleableRes
-    static final int[] CHANGE_BOUNDS = {16843983};
+    public static final int[] CHANGE_BOUNDS = {16843983};
     @StyleableRes
-    static final int[] VISIBILITY_TRANSITION = {16843900};
+    public static final int[] VISIBILITY_TRANSITION = {16843900};
     @StyleableRes
-    static final int[] FADE = {16843745};
+    public static final int[] FADE = {16843745};
     @StyleableRes
-    static final int[] CHANGE_TRANSFORM = {16843964, 16843965};
+    public static final int[] CHANGE_TRANSFORM = {16843964, 16843965};
     @StyleableRes
-    static final int[] SLIDE = {16843824};
+    public static final int[] SLIDE = {16843824};
     @StyleableRes
-    static final int[] TRANSITION_SET = {16843744};
+    public static final int[] TRANSITION_SET = {16843744};
     @StyleableRes
-    static final int[] ARC_MOTION = {16843901, 16843902, 16843903};
+    public static final int[] ARC_MOTION = {16843901, 16843902, 16843903};
     @StyleableRes
-    static final int[] PATTERN_PATH_MOTION = {16843978};
+    public static final int[] PATTERN_PATH_MOTION = {16843978};
 
-    /* loaded from: classes5.dex */
-    interface ArcMotion {
+    /* loaded from: classes.dex */
+    public interface ArcMotion {
         @StyleableRes
         public static final int MAXIMUM_ANGLE = 2;
         @StyleableRes
@@ -38,40 +38,40 @@ class Styleable {
         public static final int MINIMUM_VERTICAL_ANGLE = 1;
     }
 
-    /* loaded from: classes5.dex */
-    interface ChangeBounds {
+    /* loaded from: classes.dex */
+    public interface ChangeBounds {
         @StyleableRes
         public static final int RESIZE_CLIP = 0;
     }
 
-    /* loaded from: classes5.dex */
-    interface ChangeTransform {
+    /* loaded from: classes.dex */
+    public interface ChangeTransform {
         @StyleableRes
         public static final int REPARENT = 0;
         @StyleableRes
         public static final int REPARENT_WITH_OVERLAY = 1;
     }
 
-    /* loaded from: classes5.dex */
-    interface Fade {
+    /* loaded from: classes.dex */
+    public interface Fade {
         @StyleableRes
         public static final int FADING_MODE = 0;
     }
 
-    /* loaded from: classes5.dex */
-    interface PatternPathMotion {
+    /* loaded from: classes.dex */
+    public interface PatternPathMotion {
         @StyleableRes
         public static final int PATTERN_PATH_DATA = 0;
     }
 
-    /* loaded from: classes5.dex */
-    interface Slide {
+    /* loaded from: classes.dex */
+    public interface Slide {
         @StyleableRes
         public static final int SLIDE_EDGE = 0;
     }
 
-    /* loaded from: classes5.dex */
-    interface Transition {
+    /* loaded from: classes.dex */
+    public interface Transition {
         @StyleableRes
         public static final int DURATION = 1;
         @StyleableRes
@@ -82,8 +82,8 @@ class Styleable {
         public static final int START_DELAY = 2;
     }
 
-    /* loaded from: classes5.dex */
-    interface TransitionManager {
+    /* loaded from: classes.dex */
+    public interface TransitionManager {
         @StyleableRes
         public static final int FROM_SCENE = 0;
         @StyleableRes
@@ -92,14 +92,14 @@ class Styleable {
         public static final int TRANSITION = 2;
     }
 
-    /* loaded from: classes5.dex */
-    interface TransitionSet {
+    /* loaded from: classes.dex */
+    public interface TransitionSet {
         @StyleableRes
         public static final int TRANSITION_ORDERING = 0;
     }
 
-    /* loaded from: classes5.dex */
-    interface TransitionTarget {
+    /* loaded from: classes.dex */
+    public interface TransitionTarget {
         @StyleableRes
         public static final int EXCLUDE_CLASS = 3;
         @StyleableRes
@@ -114,12 +114,9 @@ class Styleable {
         public static final int TARGET_NAME = 4;
     }
 
-    /* loaded from: classes5.dex */
-    interface VisibilityTransition {
+    /* loaded from: classes.dex */
+    public interface VisibilityTransition {
         @StyleableRes
         public static final int TRANSITION_VISIBILITY_MODE = 0;
-    }
-
-    private Styleable() {
     }
 }

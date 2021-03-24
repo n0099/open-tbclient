@@ -1,211 +1,120 @@
 package com.ss.android.downloadlib.a.a;
 
-import android.content.Context;
-import android.content.DialogInterface;
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import com.ss.android.a.a.a.k;
-import com.ss.android.a.a.d.c;
-import com.ss.android.downloadlib.a.j;
-import com.ss.android.downloadlib.activity.TTDelegateActivity;
-import com.ss.android.downloadlib.f.h;
-import com.ss.android.downloadlib.f.i;
-import com.ss.android.socialbase.downloader.downloader.f;
-import java.io.File;
-import java.util.List;
-import java.util.ListIterator;
-import java.util.concurrent.CopyOnWriteArrayList;
+import android.os.Parcel;
+import android.os.Parcelable;
+import d.o.a.d.e$g.c;
+import d.o.a.d.f.n;
+import d.o.a.e.a.h.b;
+import java.lang.reflect.Field;
+import java.lang.reflect.TypeVariable;
+import java.util.ArrayList;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class a {
-
-    /* renamed from: a  reason: collision with root package name */
-    private static final String f7688a = a.class.getSimpleName();
-    private static a qcb;
-    private String e;
-    private boolean d = false;
-    private b qcc = new b();
-    @NonNull
-    private CopyOnWriteArrayList<com.ss.android.downloadlib.a.b.a> c = this.qcc.hA("sp_ad_install_back_dialog", "key_uninstalled_list");
-
-    /* renamed from: com.ss.android.downloadlib.a.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
-    public interface InterfaceC1212a {
-        void a();
+public abstract class a implements Parcelable {
+    public static int a(Parcel parcel, int i) {
+        parcel.writeInt(i | (-65536));
+        parcel.writeInt(0);
+        return parcel.dataPosition();
     }
 
-    private a() {
+    public static void b(Parcel parcel, int i, int i2) {
+        if (i2 >= 65535) {
+            parcel.writeInt(i | (-65536));
+            parcel.writeInt(i2);
+            return;
+        }
+        parcel.writeInt(i | (i2 << 16));
     }
 
-    public static a eEC() {
-        if (qcb == null) {
-            qcb = new a();
+    public static void c(Parcel parcel, Field field, int i, Parcelable parcelable, int i2, boolean z) {
+        if (parcelable == null) {
+            if (z) {
+                b(parcel, i, 0);
+                return;
+            }
+            return;
         }
-        return qcb;
+        int a2 = a(parcel, i);
+        parcelable.writeToParcel(parcel, i2);
+        i(parcel, a2);
     }
 
-    public boolean a(Context context, boolean z, InterfaceC1212a interfaceC1212a) {
-        long j;
-        boolean z2;
-        h.i(f7688a, "tryShowInstallDialog canBackRefresh:" + z, null);
-        if (j.i().optInt("disable_install_app_dialog") == 1 || this.d) {
-            return false;
+    public static void d(Parcel parcel, Field field, int i, Integer num, int i2, boolean z) {
+        if (num == null) {
+            return;
         }
-        com.ss.android.socialbase.downloader.g.c ix = ix(context);
-        if (ix == null && this.c.isEmpty()) {
-            return false;
-        }
-        if (ix != null && this.c.isEmpty()) {
-            a(context, new com.ss.android.downloadlib.a.b.a(ix.g(), 0L, 0L, ix.D(), ix.i(), null, ix.n()), z, interfaceC1212a);
-            return true;
-        }
-        if (ix == null) {
-            j = 0;
+        b(parcel, i, 4);
+        parcel.writeInt(num.intValue());
+    }
+
+    public static void e(Parcel parcel, Field field, int i, Object obj, int i2, boolean z) {
+        if (field.getType() == String.class) {
+            f(parcel, field, i, (String) obj, i2, z);
+        } else if (field.getType() != Integer.class && field.getType() != Integer.TYPE) {
+            if (Parcelable.class.isAssignableFrom(field.getType())) {
+                c(parcel, field, i, (Parcelable) obj, i2, z);
+            }
         } else {
-            j = new File(ix.n()).lastModified();
+            d(parcel, field, i, (Integer) obj, i2, z);
         }
-        ListIterator<com.ss.android.downloadlib.a.b.a> listIterator = this.c.listIterator(this.c.size());
-        while (true) {
-            if (!listIterator.hasPrevious()) {
-                z2 = false;
-                break;
-            }
-            com.ss.android.downloadlib.a.b.a previous = listIterator.previous();
-            if (previous != null && !i.d(context, previous.d) && i.a(previous.g)) {
-                if (new File(previous.g).lastModified() >= j) {
-                    a(context, previous, z, interfaceC1212a);
-                    z2 = true;
-                } else {
-                    a(context, new com.ss.android.downloadlib.a.b.a(ix.g(), 0L, 0L, ix.D(), ix.i(), null, ix.n()), z, interfaceC1212a);
-                    z2 = true;
-                }
-            }
-        }
-        h.i(f7688a, "tryShowInstallDialog isShow:" + z2, null);
-        return z2;
     }
 
-    public void a(Context context, com.ss.android.downloadlib.a.b.a aVar, boolean z, InterfaceC1212a interfaceC1212a) {
-        this.c.clear();
-        a(context, aVar, interfaceC1212a, z);
-        this.d = true;
-        com.ss.android.downloadlib.i.iB(context).c();
-        this.qcc.b("sp_ad_install_back_dialog", "key_uninstalled_list");
-        h.i(f7688a, "tryShowInstallDialog isShow:true", null);
+    public static void f(Parcel parcel, Field field, int i, String str, int i2, boolean z) {
+        int a2 = a(parcel, i);
+        parcel.writeString(str);
+        i(parcel, a2);
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:28:0x0086, code lost:
-        if (r2 > r4) goto L32;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public com.ss.android.socialbase.downloader.g.c ix(Context context) {
-        List<com.ss.android.socialbase.downloader.g.c> b;
-        long j;
-        long lastModified;
-        com.ss.android.socialbase.downloader.g.c cVar = null;
-        long b2 = com.ss.android.downloadlib.i.iB(context).b();
-        if (j.i().optInt("enable_miniapp_dialog", 0) != 0 && (b = f.iC(context).b("application/vnd.android.package-archive")) != null && !b.isEmpty()) {
-            j = 0;
-            for (com.ss.android.socialbase.downloader.g.c cVar2 : b) {
-                if (cVar2 != null && !i.d(context, cVar2.D()) && i.a(cVar2.n())) {
-                    lastModified = new File(cVar2.n()).lastModified();
-                    if (lastModified >= b2 && cVar2.C() != null) {
-                        try {
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        }
-                        if (new JSONObject(cVar2.C()).has("isMiniApp")) {
-                            if (j != 0) {
-                            }
-                            j = lastModified;
-                            cVar = cVar2;
-                        }
+    public static void g(a aVar, Parcel parcel, Class cls) {
+        TypeVariable<Class<?>>[] typeParameters = aVar.getClass().getTypeParameters();
+        int a2 = a(parcel, 0);
+        ArrayList arrayList = new ArrayList();
+        if (typeParameters.length > 0) {
+            JSONObject s = n.s();
+            arrayList.add(b.b(s.optString("aw"), s.optString("s")));
+        }
+        parcel.writeStringArray((String[]) arrayList.toArray(new String[typeParameters.length]));
+        i(parcel, a2);
+    }
+
+    public static void h(a aVar, Parcel parcel, Field field, int i) throws IllegalAccessException {
+        int b2 = ((c) field.getAnnotation(c.class)).b();
+        boolean a2 = ((c) field.getAnnotation(c.class)).a();
+        boolean isAccessible = field.isAccessible();
+        field.setAccessible(true);
+        e(parcel, field, b2, field.get(aVar), i, a2);
+        field.setAccessible(isAccessible);
+    }
+
+    public static void i(Parcel parcel, int i) {
+        int dataPosition = parcel.dataPosition();
+        parcel.setDataPosition(i - 4);
+        parcel.writeInt(dataPosition - i);
+        parcel.setDataPosition(dataPosition);
+    }
+
+    @Override // android.os.Parcelable
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override // android.os.Parcelable
+    public void writeToParcel(Parcel parcel, int i) {
+        Field[] declaredFields;
+        Class<?> cls = getClass();
+        int a2 = a(parcel, 20293);
+        g(this, parcel, cls);
+        while (cls != null) {
+            for (Field field : cls.getDeclaredFields()) {
+                if (field.isAnnotationPresent(c.class)) {
+                    try {
+                        h(this, parcel, field, i);
+                    } catch (Throwable unused) {
                     }
                 }
             }
+            cls = cls.getSuperclass();
         }
-        return cVar;
-        lastModified = j;
-        cVar2 = cVar;
-        j = lastModified;
-        cVar = cVar2;
-    }
-
-    public void a(long j, long j2, long j3, String str, String str2, String str3, String str4) {
-        int i = 0;
-        while (true) {
-            int i2 = i;
-            if (i2 < this.c.size()) {
-                com.ss.android.downloadlib.a.b.a aVar = this.c.get(i2);
-                if (aVar == null || aVar.b != j2) {
-                    i = i2 + 1;
-                } else {
-                    this.c.set(i2, new com.ss.android.downloadlib.a.b.a(j, j2, j3, str, str2, str3, str4));
-                    this.qcc.a("sp_ad_install_back_dialog", "key_uninstalled_list", this.c);
-                    return;
-                }
-            } else {
-                this.c.add(new com.ss.android.downloadlib.a.b.a(j, j2, j3, str, str2, str3, str4));
-                this.qcc.a("sp_ad_install_back_dialog", "key_uninstalled_list", this.c);
-                return;
-            }
-        }
-    }
-
-    private void a(final Context context, final com.ss.android.downloadlib.a.b.a aVar, final InterfaceC1212a interfaceC1212a, boolean z) {
-        final com.ss.android.b.a.b.a je = com.ss.android.downloadlib.a.b.d.eEF().je(aVar.b);
-        if (je == null) {
-            i.b();
-            return;
-        }
-        k eER = j.eER();
-        c.a aaw = new c.a(context).aaw(z ? "应用安装确认" : "退出确认");
-        Object[] objArr = new Object[1];
-        objArr[0] = TextUtils.isEmpty(aVar.e) ? "刚刚下载的应用" : aVar.e;
-        eER.b(aaw.aax(String.format("%1$s下载完成，是否立即安装？", objArr)).aay("立即安装").aaz(z ? "暂不安装" : String.format("退出%1$s", context.getResources().getString(context.getApplicationContext().getApplicationInfo().labelRes))).BH(false).I(i.a(context, aVar.g)).a(new c.b() { // from class: com.ss.android.downloadlib.a.a.a.1
-            @Override // com.ss.android.a.a.d.c.b
-            public void a(DialogInterface dialogInterface) {
-                com.ss.android.downloadlib.e.a.eFo().a("backdialog_install", je);
-                com.ss.android.socialbase.appdownloader.d.a(context, (int) aVar.f7691a);
-                dialogInterface.dismiss();
-            }
-
-            @Override // com.ss.android.a.a.d.c.b
-            public void b(DialogInterface dialogInterface) {
-                com.ss.android.downloadlib.e.a.eFo().a("backdialog_exit", je);
-                if (interfaceC1212a != null) {
-                    interfaceC1212a.a();
-                }
-                a.this.b("");
-                dialogInterface.dismiss();
-            }
-
-            @Override // com.ss.android.a.a.d.c.b
-            public void c(DialogInterface dialogInterface) {
-                a.this.b("");
-            }
-        }).QQ(1).eEo());
-        com.ss.android.downloadlib.e.a.eFo().a("backdialog_show", je);
-        this.e = aVar.d;
-    }
-
-    public boolean a(String str) {
-        return TextUtils.equals(this.e, str);
-    }
-
-    public void b(String str) {
-        if (TextUtils.isEmpty(str)) {
-            this.e = "";
-        } else if (TextUtils.equals(this.e, str)) {
-            this.e = "";
-        }
-    }
-
-    public void a(long j) {
-        if (j.i().optInt("enable_open_app_dialog", 0) == 1) {
-            TTDelegateActivity.a(j);
-        }
+        i(parcel, a2);
     }
 }

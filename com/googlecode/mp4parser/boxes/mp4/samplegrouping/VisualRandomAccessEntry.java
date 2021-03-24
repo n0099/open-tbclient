@@ -1,33 +1,22 @@
 package com.googlecode.mp4parser.boxes.mp4.samplegrouping;
 
 import java.nio.ByteBuffer;
-/* loaded from: classes5.dex */
+import kotlin.jvm.internal.ByteCompanionObject;
+/* loaded from: classes6.dex */
 public class VisualRandomAccessEntry extends GroupEntry {
     public static final String TYPE = "rap ";
-    private short numLeadingSamples;
-    private boolean numLeadingSamplesKnown;
+    public short numLeadingSamples;
+    public boolean numLeadingSamplesKnown;
 
-    public boolean isNumLeadingSamplesKnown() {
-        return this.numLeadingSamplesKnown;
-    }
-
-    public void setNumLeadingSamplesKnown(boolean z) {
-        this.numLeadingSamplesKnown = z;
-    }
-
-    public short getNumLeadingSamples() {
-        return this.numLeadingSamples;
-    }
-
-    public void setNumLeadingSamples(short s) {
-        this.numLeadingSamples = s;
-    }
-
-    @Override // com.googlecode.mp4parser.boxes.mp4.samplegrouping.GroupEntry
-    public void parse(ByteBuffer byteBuffer) {
-        byte b = byteBuffer.get();
-        this.numLeadingSamplesKnown = (b & 128) == 128;
-        this.numLeadingSamples = (short) (b & Byte.MAX_VALUE);
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || VisualRandomAccessEntry.class != obj.getClass()) {
+            return false;
+        }
+        VisualRandomAccessEntry visualRandomAccessEntry = (VisualRandomAccessEntry) obj;
+        return this.numLeadingSamples == visualRandomAccessEntry.numLeadingSamples && this.numLeadingSamplesKnown == visualRandomAccessEntry.numLeadingSamplesKnown;
     }
 
     @Override // com.googlecode.mp4parser.boxes.mp4.samplegrouping.GroupEntry
@@ -38,27 +27,34 @@ public class VisualRandomAccessEntry extends GroupEntry {
         return allocate;
     }
 
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null || getClass() != obj.getClass()) {
-            return false;
-        }
-        VisualRandomAccessEntry visualRandomAccessEntry = (VisualRandomAccessEntry) obj;
-        return this.numLeadingSamples == visualRandomAccessEntry.numLeadingSamples && this.numLeadingSamplesKnown == visualRandomAccessEntry.numLeadingSamplesKnown;
+    public short getNumLeadingSamples() {
+        return this.numLeadingSamples;
     }
 
     public int hashCode() {
         return ((this.numLeadingSamplesKnown ? 1 : 0) * 31) + this.numLeadingSamples;
     }
 
+    public boolean isNumLeadingSamplesKnown() {
+        return this.numLeadingSamplesKnown;
+    }
+
+    @Override // com.googlecode.mp4parser.boxes.mp4.samplegrouping.GroupEntry
+    public void parse(ByteBuffer byteBuffer) {
+        byte b2 = byteBuffer.get();
+        this.numLeadingSamplesKnown = (b2 & ByteCompanionObject.MIN_VALUE) == 128;
+        this.numLeadingSamples = (short) (b2 & ByteCompanionObject.MAX_VALUE);
+    }
+
+    public void setNumLeadingSamples(short s) {
+        this.numLeadingSamples = s;
+    }
+
+    public void setNumLeadingSamplesKnown(boolean z) {
+        this.numLeadingSamplesKnown = z;
+    }
+
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("VisualRandomAccessEntry");
-        sb.append("{numLeadingSamplesKnown=").append(this.numLeadingSamplesKnown);
-        sb.append(", numLeadingSamples=").append((int) this.numLeadingSamples);
-        sb.append('}');
-        return sb.toString();
+        return "VisualRandomAccessEntry{numLeadingSamplesKnown=" + this.numLeadingSamplesKnown + ", numLeadingSamples=" + ((int) this.numLeadingSamples) + '}';
     }
 }

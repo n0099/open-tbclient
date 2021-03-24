@@ -2,30 +2,31 @@ package com.baidu.tieba.videoplay.verticalviewpager.transforms;
 
 import android.view.View;
 import androidx.viewpager.widget.ViewPager;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class ZoomOutTransformer implements ViewPager.PageTransformer {
     @Override // androidx.viewpager.widget.ViewPager.PageTransformer
-    public void transformPage(View view, float f) {
-        float f2 = 0.0f;
+    public void transformPage(View view, float f2) {
         int width = view.getWidth();
         int height = view.getHeight();
-        if (0.0f <= f && f <= 1.0f) {
-            f2 = 1.0f - f;
-        } else if (-1.0f < f && f < 0.0f) {
-            float max = Math.max(0.9f, 1.0f - Math.abs(f));
-            float f3 = (height * (1.0f - max)) / 2.0f;
-            float f4 = (width * (1.0f - max)) / 2.0f;
-            if (f < 0.0f) {
-                view.setTranslationX(f4 - (f3 / 2.0f));
+        float f3 = 0.0f;
+        if (0.0f <= f2 && f2 <= 1.0f) {
+            f3 = 1.0f - f2;
+        } else if (-1.0f < f2 && f2 < 0.0f) {
+            float max = Math.max(0.9f, 1.0f - Math.abs(f2));
+            float f4 = 1.0f - max;
+            float f5 = (height * f4) / 2.0f;
+            float f6 = (width * f4) / 2.0f;
+            if (f2 < 0.0f) {
+                view.setTranslationX(f6 - (f5 / 2.0f));
             } else {
-                view.setTranslationX((-f4) + (f3 / 2.0f));
+                view.setTranslationX((-f6) + (f5 / 2.0f));
             }
             view.setScaleX(max);
             view.setScaleY(max);
-            f2 = f + 1.0f;
+            f3 = f2 + 1.0f;
         }
-        view.setAlpha(f2);
-        view.setTranslationX(view.getWidth() * (-f));
-        view.setTranslationY(view.getHeight() * f);
+        view.setAlpha(f3);
+        view.setTranslationX(view.getWidth() * (-f2));
+        view.setTranslationY(f2 * view.getHeight());
     }
 }

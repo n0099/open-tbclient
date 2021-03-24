@@ -5,87 +5,88 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
-import com.baidu.adp.lib.util.l;
-import com.baidu.tbadk.core.util.au;
+import android.widget.TextView;
+import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tieba.R;
 import com.baidu.tieba.play.operableVideoView.OperableVideoMediaControllerView;
-/* loaded from: classes2.dex */
+import d.b.b.e.p.l;
+/* loaded from: classes5.dex */
 public class PbVideoMediaController extends OperableVideoMediaControllerView {
-    private ProgressBar mpv;
+    public ProgressBar t;
 
     public PbVideoMediaController(Context context) {
         super(context);
-        init();
-    }
-
-    public PbVideoMediaController(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        init();
-    }
-
-    public PbVideoMediaController(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        init();
-    }
-
-    private void init() {
-        this.mpv = (ProgressBar) findViewById(R.id.pb_bottom_progress_bar);
+        u();
     }
 
     @Override // com.baidu.tieba.play.operableVideoView.OperableVideoMediaControllerView, com.baidu.tieba.play.VideoControllerView
-    protected View fD(Context context) {
+    public View l(Context context) {
         return View.inflate(context, R.layout.pb_video_media_controller, null);
     }
 
     @Override // com.baidu.tieba.play.VideoControllerView
-    public void bx(int i, int i2) {
-        super.bx(i, i2);
-        this.mpv.setProgress(this.gjx.getProgress());
+    public void o(int i, int i2) {
+        super.o(i, i2);
+        this.t.setProgress(this.l.getProgress());
     }
 
     @Override // com.baidu.tieba.play.VideoControllerView
-    public void aRr() {
-        super.aRr();
-        this.mpv.setProgress(0);
+    public void q() {
+        super.q();
+        this.t.setProgress(0);
+    }
+
+    @Override // com.baidu.tieba.play.VideoControllerView
+    public int r() {
+        int r = super.r();
+        this.t.setProgress(this.l.getProgress());
+        return r;
+    }
+
+    public void setBottomBarShow(boolean z) {
+        this.t.setVisibility(z ? 0 : 8);
+        this.l.setVisibility(z ? 8 : 0);
+        this.f20500h.setVisibility(z ? 8 : 0);
+        this.i.setVisibility(z ? 8 : 0);
     }
 
     @Override // com.baidu.tieba.play.VideoControllerView
     public void setCurrentDuration(int i, boolean z) {
         super.setCurrentDuration(i, z);
         if (!z) {
-            this.gjx.setProgress((int) (((i * 1.0f) / this.mDuration) * 10000.0f));
-            if (this.gjv != null) {
-                this.gjv.setText(au.stringForVideoTime(i));
+            this.l.setProgress((int) (((i * 1.0f) / this.p) * 10000.0f));
+            TextView textView = this.f20500h;
+            if (textView != null) {
+                textView.setText(StringHelper.stringForVideoTime(i));
             }
         }
-        this.mpv.setProgress(this.gjx.getProgress());
+        this.t.setProgress(this.l.getProgress());
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.play.VideoControllerView
-    public int bLO() {
-        int bLO = super.bLO();
-        this.mpv.setProgress(this.gjx.getProgress());
-        return bLO;
-    }
-
-    public void setBottomBarShow(boolean z) {
-        this.mpv.setVisibility(z ? 0 : 8);
-        this.gjx.setVisibility(z ? 8 : 0);
-        this.gjv.setVisibility(z ? 8 : 0);
-        this.gjw.setVisibility(z ? 8 : 0);
-    }
-
-    public void au(boolean z, boolean z2) {
+    public void t(boolean z, boolean z2) {
         RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) getLayoutParams();
-        int dimens = l.getDimens(getContext(), R.dimen.tbds126);
+        int g2 = l.g(getContext(), R.dimen.tbds126);
         if (z2 && z) {
-            dimens = l.getDimens(getContext(), R.dimen.tbds210);
+            g2 = l.g(getContext(), R.dimen.tbds210);
         }
-        layoutParams.height = dimens;
-        RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.gjv.getLayoutParams();
-        RelativeLayout.LayoutParams layoutParams3 = (RelativeLayout.LayoutParams) this.gjw.getLayoutParams();
-        layoutParams2.leftMargin = l.getDimens(getContext(), (!z2 || z) ? R.dimen.tbds44 : R.dimen.tbds78);
-        layoutParams3.rightMargin = l.getDimens(getContext(), (!z2 || z) ? R.dimen.tbds150 : R.dimen.tbds184);
+        layoutParams.height = g2;
+        RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.f20500h.getLayoutParams();
+        RelativeLayout.LayoutParams layoutParams3 = (RelativeLayout.LayoutParams) this.i.getLayoutParams();
+        layoutParams2.leftMargin = l.g(getContext(), (!z2 || z) ? R.dimen.tbds44 : R.dimen.tbds78);
+        layoutParams3.rightMargin = l.g(getContext(), (!z2 || z) ? R.dimen.tbds150 : R.dimen.tbds184);
+    }
+
+    public final void u() {
+        this.t = (ProgressBar) findViewById(R.id.pb_bottom_progress_bar);
+    }
+
+    public PbVideoMediaController(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        u();
+    }
+
+    public PbVideoMediaController(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        u();
     }
 }

@@ -13,28 +13,66 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URLConnection;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class b {
     public static int a(int i, int i2, int i3, int i4) {
-        float f = 1.0f;
-        while (f * 2.0f <= Math.min(i / i3, i2 / i4)) {
-            f *= 2.0f;
+        double d2 = i;
+        double d3 = i3;
+        Double.isNaN(d2);
+        Double.isNaN(d3);
+        double d4 = i2;
+        double d5 = i4;
+        Double.isNaN(d4);
+        Double.isNaN(d5);
+        double min = Math.min(d2 / d3, d4 / d5);
+        float f2 = 1.0f;
+        while (true) {
+            float f3 = 2.0f * f2;
+            if (f3 > min) {
+                return (int) f2;
+            }
+            f2 = f3;
         }
-        return (int) f;
     }
 
-    private static int a(int i, int i2, int i3, int i4, ImageView.ScaleType scaleType) {
+    public static int a(int i, int i2, int i3, int i4, ImageView.ScaleType scaleType) {
         if (i == 0 && i2 == 0) {
             return i3;
         }
         if (scaleType == ImageView.ScaleType.FIT_XY) {
             return i == 0 ? i3 : i;
         } else if (i == 0) {
-            return (int) ((i2 / i4) * i3);
+            double d2 = i2;
+            double d3 = i4;
+            Double.isNaN(d2);
+            Double.isNaN(d3);
+            double d4 = i3;
+            Double.isNaN(d4);
+            return (int) (d4 * (d2 / d3));
+        } else if (i2 == 0) {
+            return i;
         } else {
-            if (i2 != 0) {
-                double d = i4 / i3;
-                return scaleType == ImageView.ScaleType.CENTER_CROP ? ((double) i) * d < ((double) i2) ? (int) (i2 / d) : i : ((double) i) * d > ((double) i2) ? (int) (i2 / d) : i;
+            double d5 = i4;
+            double d6 = i3;
+            Double.isNaN(d5);
+            Double.isNaN(d6);
+            double d7 = d5 / d6;
+            if (scaleType == ImageView.ScaleType.CENTER_CROP) {
+                double d8 = i;
+                Double.isNaN(d8);
+                double d9 = i2;
+                if (d8 * d7 < d9) {
+                    Double.isNaN(d9);
+                    return (int) (d9 / d7);
+                }
+                return i;
+            }
+            double d10 = i;
+            Double.isNaN(d10);
+            double d11 = i2;
+            if (d10 * d7 > d11) {
+                Double.isNaN(d11);
+                return (int) (d11 / d7);
             }
             return i;
         }
@@ -45,8 +83,8 @@ public class b {
         byte[] bArr = new byte[0];
         try {
             bArr = g.a(kVar.b().a()).i();
-        } catch (IOException e) {
-            e.printStackTrace();
+        } catch (IOException e2) {
+            e2.printStackTrace();
         }
         BitmapFactory.Options options = new BitmapFactory.Options();
         if (i == 0 && i2 == 0) {
@@ -88,11 +126,7 @@ public class b {
 
     public static com.meizu.cloud.pushsdk.b.b.a a(Exception exc) {
         com.meizu.cloud.pushsdk.b.b.a aVar = new com.meizu.cloud.pushsdk.b.b.a(exc);
-        if (Build.VERSION.SDK_INT < 11 || !(exc instanceof NetworkOnMainThreadException)) {
-            aVar.a("connectionError");
-        } else {
-            aVar.a("networkOnMainThreadError");
-        }
+        aVar.a((Build.VERSION.SDK_INT < 11 || !(exc instanceof NetworkOnMainThreadException)) ? "connectionError" : "networkOnMainThreadError");
         aVar.a(0);
         return aVar;
     }
@@ -104,10 +138,10 @@ public class b {
 
     public static void a(k kVar, String str, String str2) throws IOException {
         FileOutputStream fileOutputStream;
-        InputStream inputStream;
         byte[] bArr = new byte[2048];
+        InputStream inputStream = null;
         try {
-            inputStream = kVar.b().b();
+            InputStream b2 = kVar.b().b();
             try {
                 File file = new File(str);
                 if (!file.exists()) {
@@ -116,44 +150,43 @@ public class b {
                 fileOutputStream = new FileOutputStream(new File(file, str2));
                 while (true) {
                     try {
-                        int read = inputStream.read(bArr);
+                        int read = b2.read(bArr);
                         if (read == -1) {
                             break;
                         }
                         fileOutputStream.write(bArr, 0, read);
                     } catch (Throwable th) {
                         th = th;
+                        inputStream = b2;
                         if (inputStream != null) {
                             try {
                                 inputStream.close();
-                            } catch (IOException e) {
-                                e.printStackTrace();
+                            } catch (IOException e2) {
+                                e2.printStackTrace();
                             }
                         }
                         if (fileOutputStream != null) {
                             try {
                                 fileOutputStream.close();
-                            } catch (IOException e2) {
-                                e2.printStackTrace();
+                            } catch (IOException e3) {
+                                e3.printStackTrace();
                             }
                         }
                         throw th;
                     }
                 }
                 fileOutputStream.flush();
-                if (inputStream != null) {
+                if (b2 != null) {
                     try {
-                        inputStream.close();
-                    } catch (IOException e3) {
-                        e3.printStackTrace();
-                    }
-                }
-                if (fileOutputStream != null) {
-                    try {
-                        fileOutputStream.close();
+                        b2.close();
                     } catch (IOException e4) {
                         e4.printStackTrace();
                     }
+                }
+                try {
+                    fileOutputStream.close();
+                } catch (IOException e5) {
+                    e5.printStackTrace();
                 }
             } catch (Throwable th2) {
                 th = th2;
@@ -162,7 +195,6 @@ public class b {
         } catch (Throwable th3) {
             th = th3;
             fileOutputStream = null;
-            inputStream = null;
         }
     }
 

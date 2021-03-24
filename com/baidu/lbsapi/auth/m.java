@@ -2,64 +2,66 @@ package com.baidu.lbsapi.auth;
 
 import android.os.Handler;
 import android.os.Looper;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class m extends Thread {
 
     /* renamed from: a  reason: collision with root package name */
-    Handler f1885a;
-    private Object b;
-    private boolean c;
+    public Handler f6347a;
 
-    m() {
-        this.f1885a = null;
-        this.b = new Object();
-        this.c = false;
+    /* renamed from: b  reason: collision with root package name */
+    public Object f6348b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public boolean f6349c;
+
+    public m() {
+        this.f6347a = null;
+        this.f6348b = new Object();
+        this.f6349c = false;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public m(String str) {
         super(str);
-        this.f1885a = null;
-        this.b = new Object();
-        this.c = false;
+        this.f6347a = null;
+        this.f6348b = new Object();
+        this.f6349c = false;
     }
 
     public void a() {
-        if (a.f1874a) {
+        if (a.f6321a) {
             a.a("Looper thread quit()");
         }
-        this.f1885a.getLooper().quit();
+        this.f6347a.getLooper().quit();
     }
 
     public void b() {
-        synchronized (this.b) {
+        synchronized (this.f6348b) {
             try {
-                if (!this.c) {
-                    this.b.wait();
+                if (!this.f6349c) {
+                    this.f6348b.wait();
                 }
-            } catch (InterruptedException e) {
-                e.printStackTrace();
+            } catch (InterruptedException e2) {
+                e2.printStackTrace();
             }
         }
     }
 
     public void c() {
-        synchronized (this.b) {
-            this.c = true;
-            this.b.notifyAll();
+        synchronized (this.f6348b) {
+            this.f6349c = true;
+            this.f6348b.notifyAll();
         }
     }
 
     @Override // java.lang.Thread, java.lang.Runnable
     public void run() {
         Looper.prepare();
-        this.f1885a = new Handler();
-        if (a.f1874a) {
+        this.f6347a = new Handler();
+        if (a.f6321a) {
             a.a("new Handler() finish!!");
         }
         Looper.loop();
-        if (a.f1874a) {
+        if (a.f6321a) {
             a.a("LooperThread run() thread id:" + String.valueOf(Thread.currentThread().getId()));
         }
     }

@@ -1,25 +1,44 @@
 package com.airbnb.lottie.model.content;
 
 import android.graphics.PointF;
-import com.airbnb.lottie.model.a.m;
-/* loaded from: classes5.dex */
+import d.a.a.f;
+import d.a.a.s.i.m;
+import d.a.a.s.j.b;
+import d.a.a.s.k.a;
+/* loaded from: classes.dex */
 public class PolystarShape implements b {
-    private final Type Fs;
-    private final m<PointF, PointF> GR;
-    private final com.airbnb.lottie.model.a.b GV;
-    private final com.airbnb.lottie.model.a.b Ht;
-    private final com.airbnb.lottie.model.a.b Hu;
-    private final com.airbnb.lottie.model.a.b Hv;
-    private final com.airbnb.lottie.model.a.b Hw;
-    private final com.airbnb.lottie.model.a.b Hx;
-    private final String name;
 
-    /* loaded from: classes5.dex */
+    /* renamed from: a  reason: collision with root package name */
+    public final String f1593a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public final Type f1594b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public final d.a.a.s.i.b f1595c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public final m<PointF, PointF> f1596d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public final d.a.a.s.i.b f1597e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public final d.a.a.s.i.b f1598f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public final d.a.a.s.i.b f1599g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public final d.a.a.s.i.b f1600h;
+    public final d.a.a.s.i.b i;
+
+    /* loaded from: classes.dex */
     public enum Type {
         Star(1),
         Polygon(2);
         
-        private final int value;
+        public final int value;
 
         Type(int i) {
             this.value = i;
@@ -36,56 +55,56 @@ public class PolystarShape implements b {
         }
     }
 
-    public PolystarShape(String str, Type type, com.airbnb.lottie.model.a.b bVar, m<PointF, PointF> mVar, com.airbnb.lottie.model.a.b bVar2, com.airbnb.lottie.model.a.b bVar3, com.airbnb.lottie.model.a.b bVar4, com.airbnb.lottie.model.a.b bVar5, com.airbnb.lottie.model.a.b bVar6) {
-        this.name = str;
-        this.Fs = type;
-        this.Ht = bVar;
-        this.GR = mVar;
-        this.GV = bVar2;
-        this.Hu = bVar3;
-        this.Hv = bVar4;
-        this.Hw = bVar5;
-        this.Hx = bVar6;
+    public PolystarShape(String str, Type type, d.a.a.s.i.b bVar, m<PointF, PointF> mVar, d.a.a.s.i.b bVar2, d.a.a.s.i.b bVar3, d.a.a.s.i.b bVar4, d.a.a.s.i.b bVar5, d.a.a.s.i.b bVar6) {
+        this.f1593a = str;
+        this.f1594b = type;
+        this.f1595c = bVar;
+        this.f1596d = mVar;
+        this.f1597e = bVar2;
+        this.f1598f = bVar3;
+        this.f1599g = bVar4;
+        this.f1600h = bVar5;
+        this.i = bVar6;
     }
 
-    public String getName() {
-        return this.name;
+    @Override // d.a.a.s.j.b
+    public d.a.a.q.a.b a(f fVar, a aVar) {
+        return new d.a.a.q.a.m(fVar, aVar, this);
     }
 
-    public Type jB() {
-        return this.Fs;
+    public d.a.a.s.i.b b() {
+        return this.f1598f;
     }
 
-    public com.airbnb.lottie.model.a.b jC() {
-        return this.Ht;
+    public d.a.a.s.i.b c() {
+        return this.f1600h;
     }
 
-    public m<PointF, PointF> je() {
-        return this.GR;
+    public String d() {
+        return this.f1593a;
     }
 
-    public com.airbnb.lottie.model.a.b jg() {
-        return this.GV;
+    public d.a.a.s.i.b e() {
+        return this.f1599g;
     }
 
-    public com.airbnb.lottie.model.a.b jD() {
-        return this.Hu;
+    public d.a.a.s.i.b f() {
+        return this.i;
     }
 
-    public com.airbnb.lottie.model.a.b jE() {
-        return this.Hv;
+    public d.a.a.s.i.b g() {
+        return this.f1595c;
     }
 
-    public com.airbnb.lottie.model.a.b jF() {
-        return this.Hw;
+    public m<PointF, PointF> h() {
+        return this.f1596d;
     }
 
-    public com.airbnb.lottie.model.a.b jG() {
-        return this.Hx;
+    public d.a.a.s.i.b i() {
+        return this.f1597e;
     }
 
-    @Override // com.airbnb.lottie.model.content.b
-    public com.airbnb.lottie.a.a.b a(com.airbnb.lottie.f fVar, com.airbnb.lottie.model.layer.a aVar) {
-        return new com.airbnb.lottie.a.a.m(fVar, aVar, this);
+    public Type j() {
+        return this.f1594b;
     }
 }

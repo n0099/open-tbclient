@@ -11,508 +11,530 @@ import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.adp.lib.util.l;
-import com.baidu.live.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.au;
-import com.baidu.tbadk.core.util.y;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tbadk.pay.PayConfig;
 import com.baidu.tbadk.util.PageDialogHelper;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.memberCenter.memberpay.f;
+import d.b.b.e.p.k;
+import d.b.b.e.p.l;
+import d.b.i0.q1.f.f;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class MemberPayView extends LinearLayout {
-    private NoNetworkView gCe;
-    private int lqZ;
-    private f.g lrJ;
-    private f.b lrK;
-    private f.c lrL;
-    private f.a lrM;
-    private String lrN;
-    private String lrO;
-    private String lrP;
-    private long lrQ;
-    private Boolean lrc;
-    private MemberPayActivity lsL;
-    private RadioGroup lsM;
-    private RadioButton lsN;
-    private RadioButton lsO;
-    private LinearLayout lsP;
-    private LinearLayout lsQ;
-    private TextView lsR;
-    private View lsS;
-    private TextView lsT;
-    private View lsU;
-    private TextView lsV;
-    private TextView lsW;
-    private TbImageView lsX;
-    private TbImageView lsY;
-    private ImageView lsZ;
-    private ImageView lta;
-    private String ltb;
-    private String ltc;
-    private String ltd;
-    private String lte;
-    private int ltf;
-    private int ltg;
-    private int lth;
-    private boolean lti;
-    private f mData;
-    private NavigationBar mNavigationBar;
-    private View mRootView;
-    private String mTitle;
+    public f.c A;
+    public f.a B;
+    public String C;
+    public String D;
+    public String E;
+    public String F;
+    public String G;
+    public String H;
+    public int I;
+    public int J;
+    public long K;
+    public int L;
+    public boolean M;
+    public Boolean N;
 
-    public MemberPayView(MemberPayActivity memberPayActivity, int i, boolean z) {
-        super(memberPayActivity.getPageContext().getPageActivity());
-        this.ltf = 35;
-        this.ltg = 12;
-        this.lqZ = 2;
-        this.lti = false;
-        this.lrc = false;
-        this.lsL = memberPayActivity;
-        this.lth = i;
-        this.lrc = Boolean.valueOf(z);
-        initView();
-    }
+    /* renamed from: e  reason: collision with root package name */
+    public MemberPayActivity f18979e;
 
-    private void initView() {
-        this.lsL.setContentView(R.layout.member_pay_activity);
-        this.mRootView = this.lsL.findViewById(R.id.root);
-        this.mNavigationBar = (NavigationBar) this.lsL.findViewById(R.id.navigationbar);
-        this.mNavigationBar.setTitleText("");
-        this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.gCe = (NoNetworkView) this.lsL.findViewById(R.id.view_no_network);
-        this.lsP = (LinearLayout) this.lsL.findViewById(R.id.container);
-        this.lsM = (RadioGroup) this.lsL.findViewById(R.id.btns_mem_select);
-        this.lsM.setOnCheckedChangeListener(this.lsL);
-        this.lsN = (RadioButton) this.lsL.findViewById(R.id.btn_mem1);
-        this.lsO = (RadioButton) this.lsL.findViewById(R.id.btn_mem2);
-        this.lsU = this.lsL.findViewById(R.id.v_blank);
-        this.lsW = (TextView) this.lsL.findViewById(R.id.goods_des);
-        this.lsX = (TbImageView) this.lsL.findViewById(R.id.bdimg_adv);
-        this.lsY = (TbImageView) this.lsL.findViewById(R.id.bdimg_comm);
-        this.lsZ = (ImageView) this.lsL.findViewById(R.id.crumb_adv);
-        this.lta = (ImageView) this.lsL.findViewById(R.id.crumb_comm);
-        this.lsV = (TextView) this.lsL.findViewById(R.id.aotu_pay_law);
-        this.lsV.setOnClickListener(this.lsL);
-    }
+    /* renamed from: f  reason: collision with root package name */
+    public NavigationBar f18980f;
 
-    public void setDataAndRefreshUI(f fVar) {
-        if (fVar == null) {
-            this.mRootView.setVisibility(8);
-            return;
-        }
-        this.mData = fVar;
-        initData();
-        EF(this.lqZ);
-    }
+    /* renamed from: g  reason: collision with root package name */
+    public NoNetworkView f18981g;
 
-    public void tU(boolean z) {
-        List<f.d> list;
-        if (this.mData != null) {
-            if (2 == this.lqZ) {
-                if (this.lrM != null && this.lrM.lsh != null) {
-                    list = this.lrM.lsh;
-                }
-                list = null;
-            } else {
-                if (this.lrL != null && this.lrL.lsh != null) {
-                    list = this.lrL.lsh;
-                }
-                list = null;
-            }
-            if (!y.isEmpty(list)) {
-                int i = 0;
-                while (true) {
-                    int i2 = i;
-                    if (i2 < list.size()) {
-                        f.d dVar = list.get(i2);
-                        if (dVar == null || dVar.lss < 0 || dVar.isAutoPay != 1) {
-                            i = i2 + 1;
-                        } else {
-                            dVar.lsv = z;
-                            return;
-                        }
-                    } else {
-                        return;
-                    }
-                }
-            }
+    /* renamed from: h  reason: collision with root package name */
+    public View f18982h;
+    public RadioGroup i;
+    public RadioButton j;
+    public RadioButton k;
+    public LinearLayout l;
+    public LinearLayout m;
+    public TextView n;
+    public View o;
+    public TextView p;
+    public View q;
+    public TextView r;
+    public TextView s;
+    public TbImageView t;
+    public TbImageView u;
+    public ImageView v;
+    public ImageView w;
+    public f x;
+    public f.g y;
+    public f.b z;
+
+    /* loaded from: classes3.dex */
+    public static class b {
+
+        /* renamed from: a  reason: collision with root package name */
+        public RelativeLayout f18983a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public TextView f18984b;
+
+        /* renamed from: c  reason: collision with root package name */
+        public TextView f18985c;
+
+        /* renamed from: d  reason: collision with root package name */
+        public TbImageView f18986d;
+
+        /* renamed from: e  reason: collision with root package name */
+        public TextView f18987e;
+
+        /* renamed from: f  reason: collision with root package name */
+        public TextView f18988f;
+
+        /* renamed from: g  reason: collision with root package name */
+        public View f18989g;
+
+        public b() {
         }
     }
 
-    public void EF(int i) {
-        if (i >= 0 && i <= 2) {
-            this.lqZ = i;
-            refreshUI();
-        }
-    }
+    /* loaded from: classes3.dex */
+    public class c implements View.OnClickListener {
 
-    private void refreshUI() {
-        if (this.mData == null) {
-            this.mRootView.setVisibility(8);
-        } else if (this.lrK == null || this.lrJ == null) {
-            this.mRootView.setVisibility(8);
-        } else if (this.lrJ.lsB == null) {
-            this.mRootView.setVisibility(8);
-        } else if (this.lrM == null && this.lrL == null) {
-            this.mRootView.setVisibility(8);
-        } else if (this.lti && y.isEmpty(this.lrM.lsh)) {
-            this.mRootView.setVisibility(8);
-        } else {
-            this.mRootView.setVisibility(0);
-            dfN();
-            dfU();
-            dfP();
-            dfV();
-        }
-    }
+        /* renamed from: e  reason: collision with root package name */
+        public List<f.d> f18990e;
 
-    private void initData() {
-        if (this.mData != null) {
-            this.lrK = this.mData.lrK;
-            this.lrJ = this.mData.lrJ;
-            if (this.lrK != null && this.lrJ != null && this.lrJ.lsB != null) {
-                this.lrQ = this.lrJ.lsB.lsw;
-                this.lti = this.lrQ == 2 || this.lth == 2;
-                this.lrM = this.lrK.lsm;
-                if (this.lrM != null) {
-                    this.lrN = this.lrM.mContent;
-                    this.ltb = this.lrM.lsj;
-                    this.ltc = this.lrM.lsk;
-                    this.lrL = this.lrK.lsl;
-                    if (this.lrL != null) {
-                        this.lrO = this.lrL.mContent;
-                        this.ltd = this.lrL.lsj;
-                        this.lte = this.lrL.lsk;
-                    }
-                }
-            }
-        }
-    }
-
-    private void dfU() {
-        this.lsN.setText(bC(this.lrN, this.ltg));
-        if (2 == this.lqZ) {
-            if (au.isEmpty(this.ltb)) {
-                this.lsW.setVisibility(8);
-                this.lsZ.setVisibility(8);
-            } else {
-                this.lsW.setVisibility(0);
-                this.lsZ.setVisibility(0);
-                this.lsW.setText(this.ltb);
-            }
-        } else if (au.isEmpty(this.ltd)) {
-            this.lsW.setVisibility(8);
-            this.lta.setVisibility(8);
-        } else {
-            this.lsW.setVisibility(0);
-            this.lta.setVisibility(0);
-            this.lsW.setText(this.ltd);
-        }
-        this.lsX.setDefaultBgResource(0);
-        this.lsY.setDefaultBgResource(0);
-        this.lsX.setAutoChangeStyle(false);
-        this.lsY.setAutoChangeStyle(false);
-        if (au.isEmpty(this.lrM.lsk)) {
-            ap.setImageResource(this.lsX, R.drawable.icon_vip_advanced, 0);
-        } else {
-            this.lsX.startLoad(this.lrM.lsk, 10, false);
-        }
-        if (this.lti || this.lrL == null || y.isEmpty(this.lrL.lsh)) {
-            this.lsO.setVisibility(8);
-            this.lsY.setVisibility(8);
-            this.lta.setLayoutParams(new LinearLayout.LayoutParams(0, -2, 0.0f));
-            this.lta.setVisibility(8);
-        } else {
-            this.lsO.setVisibility(0);
-            this.lsO.setText(bC(this.lrO, this.ltg));
-            this.lsY.setVisibility(0);
-            if (au.isEmpty(this.lrL.lsk)) {
-                ap.setImageResource(this.lsY, R.drawable.icon_vip_member, 0);
-            } else {
-                this.lsY.startLoad(this.lrL.lsk, 21, false);
-            }
-        }
-        if (this.lsU != null) {
-            this.lsU.setVisibility(8);
-        }
-    }
-
-    private void dfN() {
-        List<f.d> list;
-        Boolean bool = false;
-        if (2 == this.lqZ) {
-            if (this.lrM != null && this.lrM.lsh != null) {
-                list = this.lrM.lsh;
-            }
-            list = null;
-        } else {
-            if (this.lrL != null && this.lrL.lsh != null) {
-                list = this.lrL.lsh;
-            }
-            list = null;
-        }
-        if (!y.isEmpty(list)) {
-            this.lsP.removeAllViews();
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
-            layoutParams.setMargins(0, 0, 0, 0);
-            int i = 0;
-            while (true) {
-                int i2 = i;
-                if (i2 >= list.size()) {
-                    break;
-                }
-                f.d dVar = list.get(i2);
-                if (dVar != null && dVar.lss >= 0) {
-                    Boolean bool2 = dVar.isAutoPay == 1 ? true : bool;
-                    a aVar = new a();
-                    View inflate = LayoutInflater.from(this.lsL.getPageContext().getPageActivity()).inflate(R.layout.memberpaylist_item, (ViewGroup) null);
-                    aVar.ltj = (TextView) inflate.findViewById(R.id.cb);
-                    aVar.ltk = (TextView) inflate.findViewById(R.id.tv_month);
-                    aVar.ltl = (TbImageView) inflate.findViewById(R.id.member_price_item_sicon);
-                    aVar.ltm = (TextView) inflate.findViewById(R.id.tv_discount);
-                    aVar.ltn = (TextView) inflate.findViewById(R.id.tv_money);
-                    aVar.mRootView = (RelativeLayout) inflate.findViewById(R.id.root);
-                    aVar.lto = inflate.findViewById(R.id.v_line);
-                    aVar.ltk.setText(bC(dVar.mTitle, 7));
-                    if (!TextUtils.isEmpty(dVar.mIcon)) {
-                        aVar.ltl.setVisibility(0);
-                        aVar.ltl.startLoad(dVar.mIcon, 10, false);
-                    }
-                    if (TextUtils.isEmpty(dVar.mDiscount)) {
-                        aVar.ltm.setVisibility(8);
-                    } else {
-                        aVar.ltm.setVisibility(0);
-                        aVar.ltm.setText(bC(dVar.mDiscount, 10));
-                    }
-                    aVar.ltn.setText("¥" + (dVar.lss / 100));
-                    if (dVar.isChecked) {
-                        ap.setBackgroundResource(aVar.ltj, R.drawable.btn_non_orange_s);
-                        ap.setViewTextColor(aVar.ltj, R.color.CAM_X0101);
-                    } else {
-                        ap.setBackgroundResource(aVar.ltj, R.drawable.btn_non_orange_n);
-                        ap.setViewTextColor(aVar.ltj, R.color.CAM_X0305);
-                    }
-                    aVar.ltj.setTag(dVar);
-                    aVar.ltj.setText(R.string.click_open);
-                    inflate.setContentDescription(bC(dVar.mTitle, 7));
-                    inflate.setOnClickListener(new b(list));
-                    inflate.setTag(aVar);
-                    inflate.setLayoutParams(layoutParams);
-                    com.baidu.tbadk.r.a.a(this.lsL.getPageContext(), inflate);
-                    a(list, i2, aVar);
-                    this.lsP.addView(inflate);
-                    bool = bool2;
-                }
-                i = i2 + 1;
-            }
-            if (bool.booleanValue()) {
-                this.lsQ = (LinearLayout) LayoutInflater.from(this.lsL.getPageContext().getPageActivity()).inflate(R.layout.memberpaylist_auto_pay_agreement_item, (ViewGroup) null);
-                this.lsR = (TextView) this.lsQ.findViewById(R.id.tv_member_agreement_auto_pay);
-                this.lsS = this.lsQ.findViewById(R.id.view_agreement_divider_auto_pay);
-                this.lsT = (TextView) this.lsQ.findViewById(R.id.tv_auto_pay_agreement_auto_pay);
-                this.lsR.setOnClickListener(this.lsL);
-                if (TbadkCoreApplication.getInst().getSkinType() == 1) {
-                    ap.setBackgroundColor(this.lsS, R.color.CAM_X0204_1);
-                }
-                this.lsT.setOnClickListener(this.lsL);
-                this.lsP.addView(this.lsQ);
-                return;
-            }
-            this.lsQ = (LinearLayout) LayoutInflater.from(this.lsL.getPageContext().getPageActivity()).inflate(R.layout.memberpaylist_normal_agreement_item, (ViewGroup) null);
-            this.lsR = (TextView) this.lsQ.findViewById(R.id.tv_member_agreement_normal);
-            this.lsR.setOnClickListener(this.lsL);
-            this.lsP.addView(this.lsQ);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes8.dex */
-    public class b implements View.OnClickListener {
-        private List<f.d> iyh;
-
-        public b(List<f.d> list) {
-            this.iyh = list;
+        public c(List<f.d> list) {
+            this.f18990e = list;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             TextView textView;
-            f.d dVar;
-            if (MemberPayView.this.lsP != null) {
-                f.d dVar2 = null;
-                for (int i = 0; i < MemberPayView.this.lsP.getChildCount(); i++) {
-                    View childAt = MemberPayView.this.lsP.getChildAt(i);
-                    if (childAt != null && childAt.getTag() != null && (childAt.getTag() instanceof a) && (textView = (TextView) childAt.findViewById(R.id.cb)) != null && textView.getTag() != null) {
-                        if (textView.getTag() instanceof f.d) {
-                            dVar = (f.d) textView.getTag();
-                            if (view == childAt) {
-                                dVar.isChecked = true;
-                                ap.setBackgroundResource(textView, R.drawable.btn_non_orange_s);
-                                ap.setViewTextColor(textView, R.color.CAM_X0101);
-                                MemberPayView.this.a(this.iyh, i, (a) childAt.getTag());
-                                dVar2 = dVar;
-                            } else {
-                                dVar.isChecked = false;
-                                ap.setBackgroundResource(textView, R.drawable.btn_non_orange_n);
-                                ap.setViewTextColor(textView, R.color.CAM_X0305);
-                            }
+            if (MemberPayView.this.l == null) {
+                return;
+            }
+            f.d dVar = null;
+            for (int i = 0; i < MemberPayView.this.l.getChildCount(); i++) {
+                View childAt = MemberPayView.this.l.getChildAt(i);
+                if (childAt != null && childAt.getTag() != null && (childAt.getTag() instanceof b) && (textView = (TextView) childAt.findViewById(R.id.cb)) != null && textView.getTag() != null) {
+                    if (textView.getTag() instanceof f.d) {
+                        f.d dVar2 = (f.d) textView.getTag();
+                        if (view == childAt) {
+                            dVar2.m = true;
+                            SkinManager.setBackgroundResource(textView, R.drawable.btn_non_orange_s);
+                            SkinManager.setViewTextColor(textView, R.color.CAM_X0101);
+                            dVar = dVar2;
+                        } else {
+                            dVar2.m = false;
+                            SkinManager.setBackgroundResource(textView, R.drawable.btn_non_orange_n);
+                            SkinManager.setViewTextColor(textView, R.color.CAM_X0305);
                         }
-                        dVar = dVar2;
-                        MemberPayView.this.a(this.iyh, i, (a) childAt.getTag());
-                        dVar2 = dVar;
                     }
+                    MemberPayView.this.i(this.f18990e, i, (b) childAt.getTag());
                 }
-                if (dVar2 != null) {
-                    if (dVar2.isAutoPay != 1 || !dVar2.lsv) {
-                        MemberPayView.this.b(dVar2.lsr, dVar2.lss / 100, dVar2.lsu, dVar2.isAutoPay);
-                    } else {
-                        l.showToast(MemberPayView.this.getContext(), R.string.tips_auto_pay_succ);
-                    }
-                }
+            }
+            if (dVar == null) {
+                return;
+            }
+            if (dVar.n != 1 || !dVar.o) {
+                MemberPayView.this.j(dVar.i, dVar.j / 100, dVar.l, dVar.n);
+            } else {
+                l.K(MemberPayView.this.getContext(), R.string.tips_auto_pay_succ);
             }
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void b(long j, long j2, long j3, int i) {
-        PayConfig payConfig = new PayConfig(1, "0", String.valueOf(j), String.valueOf(j2), String.valueOf(j3), true, this.lrc.booleanValue(), PageDialogHelper.PayForm.NOT_SET, this.lsL.getReferPage(), this.lsL.getClickZone());
+    public MemberPayView(MemberPayActivity memberPayActivity, int i, boolean z) {
+        super(memberPayActivity.getPageContext().getPageActivity());
+        this.I = 12;
+        this.J = 2;
+        this.M = false;
+        this.N = Boolean.FALSE;
+        this.f18979e = memberPayActivity;
+        this.L = i;
+        this.N = Boolean.valueOf(z);
+        e();
+    }
+
+    public final void d() {
+        f.e eVar;
+        f fVar = this.x;
+        if (fVar == null) {
+            return;
+        }
+        f.b bVar = fVar.f59404b;
+        this.z = bVar;
+        f.g gVar = fVar.f59403a;
+        this.y = gVar;
+        if (bVar == null || gVar == null || (eVar = gVar.f59429c) == null) {
+            return;
+        }
+        long j = eVar.f59425a;
+        this.K = j;
+        this.M = j == 2 || this.L == 2;
+        f.b bVar2 = this.z;
+        f.a aVar = bVar2.f59411b;
+        this.B = aVar;
+        if (aVar == null) {
+            return;
+        }
+        this.C = aVar.f59407c;
+        this.G = aVar.f59408d;
+        String str = aVar.f59409e;
+        f.c cVar = bVar2.f59410a;
+        this.A = cVar;
+        if (cVar == null) {
+            return;
+        }
+        this.D = cVar.f59414c;
+        this.H = cVar.f59415d;
+        String str2 = cVar.f59416e;
+    }
+
+    public final void e() {
+        this.f18979e.setContentView(R.layout.member_pay_activity);
+        this.f18982h = this.f18979e.findViewById(R.id.root);
+        NavigationBar navigationBar = (NavigationBar) this.f18979e.findViewById(R.id.navigationbar);
+        this.f18980f = navigationBar;
+        navigationBar.setTitleText("");
+        this.f18980f.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.f18981g = (NoNetworkView) this.f18979e.findViewById(R.id.view_no_network);
+        this.l = (LinearLayout) this.f18979e.findViewById(R.id.container);
+        RadioGroup radioGroup = (RadioGroup) this.f18979e.findViewById(R.id.btns_mem_select);
+        this.i = radioGroup;
+        radioGroup.setOnCheckedChangeListener(this.f18979e);
+        this.j = (RadioButton) this.f18979e.findViewById(R.id.btn_mem1);
+        this.k = (RadioButton) this.f18979e.findViewById(R.id.btn_mem2);
+        this.q = this.f18979e.findViewById(R.id.v_blank);
+        this.s = (TextView) this.f18979e.findViewById(R.id.goods_des);
+        this.t = (TbImageView) this.f18979e.findViewById(R.id.bdimg_adv);
+        this.u = (TbImageView) this.f18979e.findViewById(R.id.bdimg_comm);
+        this.v = (ImageView) this.f18979e.findViewById(R.id.crumb_adv);
+        this.w = (ImageView) this.f18979e.findViewById(R.id.crumb_comm);
+        TextView textView = (TextView) this.f18979e.findViewById(R.id.aotu_pay_law);
+        this.r = textView;
+        textView.setOnClickListener(this.f18979e);
+    }
+
+    public void f(int i) {
+        this.f18979e.getLayoutMode().k(i == 1);
+        this.f18979e.getLayoutMode().j(this.f18982h);
+        this.f18980f.onChangeSkinType(this.f18979e.getPageContext(), i);
+        this.f18981g.c(this.f18979e.getPageContext(), i);
+    }
+
+    public void g(boolean z) {
+        f.c cVar;
+        List<f.d> list;
+        f.a aVar;
+        if (this.x == null) {
+            return;
+        }
+        List<f.d> list2 = null;
+        if (2 != this.J ? !((cVar = this.A) == null || (list = cVar.f59412a) == null) : !((aVar = this.B) == null || (list = aVar.f59405a) == null)) {
+            list2 = list;
+        }
+        if (ListUtils.isEmpty(list2)) {
+            return;
+        }
+        for (int i = 0; i < list2.size(); i++) {
+            f.d dVar = list2.get(i);
+            if (dVar != null && dVar.j >= 0 && dVar.n == 1) {
+                dVar.o = z;
+                return;
+            }
+        }
+    }
+
+    public String getCurrentContent() {
+        return this.F;
+    }
+
+    public int getCurrentShowType() {
+        return this.J;
+    }
+
+    public NoNetworkView getNoNetworkView() {
+        return this.f18981g;
+    }
+
+    public String getTitle() {
+        return this.E;
+    }
+
+    public final void h() {
+        f.g gVar;
+        if (this.x == null) {
+            this.f18982h.setVisibility(8);
+        } else if (this.z != null && (gVar = this.y) != null) {
+            if (gVar.f59429c == null) {
+                this.f18982h.setVisibility(8);
+            } else if (this.B == null && this.A == null) {
+                this.f18982h.setVisibility(8);
+            } else if (this.M && ListUtils.isEmpty(this.B.f59405a)) {
+                this.f18982h.setVisibility(8);
+            } else {
+                this.f18982h.setVisibility(0);
+                n();
+                o();
+                p();
+                m();
+            }
+        } else {
+            this.f18982h.setVisibility(8);
+        }
+    }
+
+    public final void i(List<f.d> list, int i, b bVar) {
+        f.d dVar;
+        if (list == null || i >= list.size() || bVar == null || (dVar = list.get(i)) == null) {
+            return;
+        }
+        if (i == 0) {
+            if (dVar.m) {
+                SkinManager.setBackgroundResource(bVar.f18983a, R.drawable.bg_pay_list_up_s);
+            } else {
+                SkinManager.setBackgroundResource(bVar.f18983a, R.drawable.bg_pay_list_up_n);
+            }
+            bVar.f18989g.setVisibility(0);
+        } else if (i == list.size() - 1) {
+            if (dVar.m) {
+                SkinManager.setBackgroundResource(bVar.f18983a, R.drawable.bg_pay_list_down_s);
+            } else {
+                SkinManager.setBackgroundResource(bVar.f18983a, R.drawable.bg_pay_list_down_n);
+            }
+            bVar.f18989g.setVisibility(8);
+        } else {
+            if (dVar.m) {
+                SkinManager.setBackgroundResource(bVar.f18983a, R.drawable.bg_pay_list_center_s);
+            } else {
+                SkinManager.setBackgroundResource(bVar.f18983a, R.drawable.bg_pay_list_center_n);
+            }
+            bVar.f18989g.setVisibility(0);
+        }
+    }
+
+    public final void j(long j, long j2, long j3, int i) {
+        PayConfig payConfig = new PayConfig(1, "0", String.valueOf(j), String.valueOf(j2), String.valueOf(j3), true, this.N.booleanValue(), PageDialogHelper.PayForm.NOT_SET, this.f18979e.getReferPage(), this.f18979e.getClickZone());
         payConfig.setTitle(getTitle());
-        payConfig.setOrderName(getCurrentContent() + this.lsL.getPageContext().getPageActivity().getString(R.string.member_month, new Object[]{String.valueOf(j3)}));
+        payConfig.setOrderName(getCurrentContent() + this.f18979e.getPageContext().getPageActivity().getString(R.string.member_month, new Object[]{String.valueOf(j3)}));
         payConfig.setAutoPay(i);
-        if (this.lsL.getFrom() == 23) {
+        if (this.f18979e.getFrom() == 23) {
             payConfig.paymentPosKey = PayConfig.PAYMENT_POS_KEY_MANGA;
-        } else if (this.lsL.getFrom() == 25) {
+        } else if (this.f18979e.getFrom() == 25) {
             payConfig.paymentPosKey = PayConfig.PAYMENT_POS_KEY_DUIBA;
         }
-        com.baidu.tbadk.pay.c.bDZ().a(payConfig, this.lsL.getPageContext().getPageActivity());
+        d.b.h0.l0.c.c().a(payConfig, this.f18979e.getPageContext().getPageActivity());
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(List<f.d> list, int i, a aVar) {
-        f.d dVar;
-        if (list != null && i < list.size() && aVar != null && (dVar = list.get(i)) != null) {
-            if (i == 0) {
-                if (dVar.isChecked) {
-                    ap.setBackgroundResource(aVar.mRootView, R.drawable.bg_pay_list_up_s);
-                } else {
-                    ap.setBackgroundResource(aVar.mRootView, R.drawable.bg_pay_list_up_n);
-                }
-                aVar.lto.setVisibility(0);
-            } else if (i == list.size() - 1) {
-                if (dVar.isChecked) {
-                    ap.setBackgroundResource(aVar.mRootView, R.drawable.bg_pay_list_down_s);
-                } else {
-                    ap.setBackgroundResource(aVar.mRootView, R.drawable.bg_pay_list_down_n);
-                }
-                aVar.lto.setVisibility(8);
-            } else {
-                if (dVar.isChecked) {
-                    ap.setBackgroundResource(aVar.mRootView, R.drawable.bg_pay_list_center_s);
-                } else {
-                    ap.setBackgroundResource(aVar.mRootView, R.drawable.bg_pay_list_center_n);
-                }
-                aVar.lto.setVisibility(0);
-            }
+    public void k(int i) {
+        if (i < 0 || i > 2) {
+            return;
         }
+        this.J = i;
+        h();
     }
 
-    private void dfP() {
-        String str = null;
-        if (2 == this.lqZ) {
-            if (this.lrQ == 2) {
-                str = this.lsL.getPageContext().getPageActivity().getString(R.string.continue_dredge, new Object[]{this.lrN});
-            } else {
-                str = this.lsL.getPageContext().getPageActivity().getString(R.string.dredge, new Object[]{this.lrN});
-            }
-            this.lrP = this.lrN;
-        } else if (1 == this.lqZ) {
-            if (this.lrQ == 1) {
-                str = this.lsL.getPageContext().getPageActivity().getString(R.string.continue_dredge, new Object[]{this.lrO});
-            } else if (this.lrQ == 0) {
-                str = this.lsL.getPageContext().getPageActivity().getString(R.string.dredge, new Object[]{this.lrO});
-            }
-            this.lrP = this.lrO;
-        } else {
-            str = this.lsL.getPageContext().getPageActivity().getString(R.string.dredge, new Object[]{this.lrO});
-            this.lrP = this.lrO;
-        }
-        this.mTitle = str;
-        if (!StringUtils.isNULL(str)) {
-            this.mNavigationBar.setTitleText(bC(str, 10));
-        }
-    }
-
-    private void dfV() {
-        if (2 == this.lqZ) {
-            if (!au.isEmpty(this.ltb)) {
-                this.lsW.setText(this.ltb);
-                this.lsZ.setVisibility(0);
-                this.lta.setVisibility(4);
-                return;
-            }
-            this.lsZ.setVisibility(4);
-            this.lta.setVisibility(4);
-        } else if (1 == this.lqZ) {
-            if (!au.isEmpty(this.ltd)) {
-                this.lsW.setText(this.ltd);
-                this.lsZ.setVisibility(4);
-                this.lta.setVisibility(0);
-                return;
-            }
-            this.lsZ.setVisibility(4);
-            this.lta.setVisibility(4);
-        }
-    }
-
-    public String bC(String str, int i) {
+    public String l(String str, int i) {
         if (str.length() > i) {
             return str.substring(0, i - 1) + StringHelper.STRING_MORE;
         }
         return str;
     }
 
-    public String getTitle() {
-        return this.mTitle;
-    }
-
-    public String getCurrentContent() {
-        return this.lrP;
-    }
-
-    public int getCurrentShowType() {
-        return this.lqZ;
-    }
-
-    public NoNetworkView getNoNetworkView() {
-        return this.gCe;
-    }
-
-    public void onChangeSkinType(int i) {
-        this.lsL.getLayoutMode().setNightMode(i == 1);
-        this.lsL.getLayoutMode().onModeChanged(this.mRootView);
-        this.mNavigationBar.onChangeSkinType(this.lsL.getPageContext(), i);
-        this.gCe.onChangeSkinType(this.lsL.getPageContext(), i);
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes8.dex */
-    public static class a {
-        public TextView ltj;
-        public TextView ltk;
-        public TbImageView ltl;
-        public TextView ltm;
-        public TextView ltn;
-        public View lto;
-        public RelativeLayout mRootView;
-
-        private a() {
+    public final void m() {
+        int i = this.J;
+        if (2 == i) {
+            if (!k.isEmpty(this.G)) {
+                this.s.setText(this.G);
+                this.v.setVisibility(0);
+                this.w.setVisibility(4);
+                return;
+            }
+            this.v.setVisibility(4);
+            this.w.setVisibility(4);
+        } else if (1 == i) {
+            if (!k.isEmpty(this.H)) {
+                this.s.setText(this.H);
+                this.v.setVisibility(4);
+                this.w.setVisibility(0);
+                return;
+            }
+            this.v.setVisibility(4);
+            this.w.setVisibility(4);
         }
+    }
+
+    public final void n() {
+        f.c cVar;
+        List<f.d> list;
+        f.a aVar;
+        Boolean bool = Boolean.FALSE;
+        if (2 != this.J ? (cVar = this.A) == null || (list = cVar.f59412a) == null : (aVar = this.B) == null || (list = aVar.f59405a) == null) {
+            list = null;
+        }
+        if (ListUtils.isEmpty(list)) {
+            return;
+        }
+        this.l.removeAllViews();
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
+        layoutParams.setMargins(0, 0, 0, 0);
+        for (int i = 0; i < list.size(); i++) {
+            f.d dVar = list.get(i);
+            if (dVar != null && dVar.j >= 0) {
+                if (dVar.n == 1) {
+                    bool = Boolean.TRUE;
+                }
+                b bVar = new b();
+                View inflate = LayoutInflater.from(this.f18979e.getPageContext().getPageActivity()).inflate(R.layout.memberpaylist_item, (ViewGroup) null);
+                bVar.f18984b = (TextView) inflate.findViewById(R.id.cb);
+                bVar.f18985c = (TextView) inflate.findViewById(R.id.tv_month);
+                bVar.f18986d = (TbImageView) inflate.findViewById(R.id.member_price_item_sicon);
+                bVar.f18987e = (TextView) inflate.findViewById(R.id.tv_discount);
+                bVar.f18988f = (TextView) inflate.findViewById(R.id.tv_money);
+                bVar.f18983a = (RelativeLayout) inflate.findViewById(R.id.root);
+                bVar.f18989g = inflate.findViewById(R.id.v_line);
+                bVar.f18985c.setText(l(dVar.f59418b, 7));
+                if (!TextUtils.isEmpty(dVar.f59421e)) {
+                    bVar.f18986d.setVisibility(0);
+                    bVar.f18986d.W(dVar.f59421e, 10, false);
+                }
+                if (TextUtils.isEmpty(dVar.f59419c)) {
+                    bVar.f18987e.setVisibility(8);
+                } else {
+                    bVar.f18987e.setVisibility(0);
+                    bVar.f18987e.setText(l(dVar.f59419c, 10));
+                }
+                bVar.f18988f.setText("¥" + (dVar.j / 100));
+                if (dVar.m) {
+                    SkinManager.setBackgroundResource(bVar.f18984b, R.drawable.btn_non_orange_s);
+                    SkinManager.setViewTextColor(bVar.f18984b, R.color.CAM_X0101);
+                } else {
+                    SkinManager.setBackgroundResource(bVar.f18984b, R.drawable.btn_non_orange_n);
+                    SkinManager.setViewTextColor(bVar.f18984b, R.color.CAM_X0305);
+                }
+                bVar.f18984b.setTag(dVar);
+                bVar.f18984b.setText(R.string.click_open);
+                inflate.setContentDescription(l(dVar.f59418b, 7));
+                inflate.setOnClickListener(new c(list));
+                inflate.setTag(bVar);
+                inflate.setLayoutParams(layoutParams);
+                d.b.h0.s0.a.a(this.f18979e.getPageContext(), inflate);
+                i(list, i, bVar);
+                this.l.addView(inflate);
+            }
+        }
+        if (bool.booleanValue()) {
+            LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this.f18979e.getPageContext().getPageActivity()).inflate(R.layout.memberpaylist_auto_pay_agreement_item, (ViewGroup) null);
+            this.m = linearLayout;
+            this.n = (TextView) linearLayout.findViewById(R.id.tv_member_agreement_auto_pay);
+            this.o = this.m.findViewById(R.id.view_agreement_divider_auto_pay);
+            this.p = (TextView) this.m.findViewById(R.id.tv_auto_pay_agreement_auto_pay);
+            this.n.setOnClickListener(this.f18979e);
+            if (TbadkCoreApplication.getInst().getSkinType() == 1) {
+                SkinManager.setBackgroundColor(this.o, R.color.CAM_X0204_1);
+            }
+            this.p.setOnClickListener(this.f18979e);
+            this.l.addView(this.m);
+            return;
+        }
+        LinearLayout linearLayout2 = (LinearLayout) LayoutInflater.from(this.f18979e.getPageContext().getPageActivity()).inflate(R.layout.memberpaylist_normal_agreement_item, (ViewGroup) null);
+        this.m = linearLayout2;
+        TextView textView = (TextView) linearLayout2.findViewById(R.id.tv_member_agreement_normal);
+        this.n = textView;
+        textView.setOnClickListener(this.f18979e);
+        this.l.addView(this.m);
+    }
+
+    public final void o() {
+        f.c cVar;
+        this.j.setText(l(this.C, this.I));
+        if (2 == this.J) {
+            if (k.isEmpty(this.G)) {
+                this.s.setVisibility(8);
+                this.v.setVisibility(8);
+            } else {
+                this.s.setVisibility(0);
+                this.v.setVisibility(0);
+                this.s.setText(this.G);
+            }
+        } else if (k.isEmpty(this.H)) {
+            this.s.setVisibility(8);
+            this.w.setVisibility(8);
+        } else {
+            this.s.setVisibility(0);
+            this.w.setVisibility(0);
+            this.s.setText(this.H);
+        }
+        this.t.setDefaultBgResource(0);
+        this.u.setDefaultBgResource(0);
+        this.t.setAutoChangeStyle(false);
+        this.u.setAutoChangeStyle(false);
+        if (k.isEmpty(this.B.f59409e)) {
+            SkinManager.setImageResource(this.t, R.drawable.icon_vip_advanced, 0);
+        } else {
+            this.t.W(this.B.f59409e, 10, false);
+        }
+        if (!this.M && (cVar = this.A) != null && !ListUtils.isEmpty(cVar.f59412a)) {
+            this.k.setVisibility(0);
+            this.k.setText(l(this.D, this.I));
+            this.u.setVisibility(0);
+            if (k.isEmpty(this.A.f59416e)) {
+                SkinManager.setImageResource(this.u, R.drawable.icon_vip_member, 0);
+            } else {
+                this.u.W(this.A.f59416e, 21, false);
+            }
+        } else {
+            this.k.setVisibility(8);
+            this.u.setVisibility(8);
+            this.w.setLayoutParams(new LinearLayout.LayoutParams(0, -2, 0.0f));
+            this.w.setVisibility(8);
+        }
+        View view = this.q;
+        if (view != null) {
+            view.setVisibility(8);
+        }
+    }
+
+    public final void p() {
+        String string;
+        int i = this.J;
+        if (2 == i) {
+            if (this.K == 2) {
+                string = this.f18979e.getPageContext().getPageActivity().getString(R.string.continue_dredge, new Object[]{this.C});
+            } else {
+                string = this.f18979e.getPageContext().getPageActivity().getString(R.string.dredge, new Object[]{this.C});
+            }
+            this.F = this.C;
+        } else if (1 == i) {
+            long j = this.K;
+            if (j == 1) {
+                string = this.f18979e.getPageContext().getPageActivity().getString(R.string.continue_dredge, new Object[]{this.D});
+            } else {
+                string = j == 0 ? this.f18979e.getPageContext().getPageActivity().getString(R.string.dredge, new Object[]{this.D}) : null;
+            }
+            this.F = this.D;
+        } else {
+            string = this.f18979e.getPageContext().getPageActivity().getString(R.string.dredge, new Object[]{this.D});
+            this.F = this.D;
+        }
+        this.E = string;
+        if (StringUtils.isNULL(string)) {
+            return;
+        }
+        this.f18980f.setTitleText(l(string, 10));
+    }
+
+    public void setDataAndRefreshUI(f fVar) {
+        if (fVar == null) {
+            this.f18982h.setVisibility(8);
+            return;
+        }
+        this.x = fVar;
+        d();
+        k(this.J);
     }
 }

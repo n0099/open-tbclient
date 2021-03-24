@@ -1,35 +1,22 @@
 package com.baidu.sofire.k;
 
-import android.content.Context;
-import android.content.ServiceConnection;
-import android.text.TextUtils;
-/* loaded from: classes4.dex */
-public final class a {
+import android.database.ContentObserver;
+/* loaded from: classes3.dex */
+public final class a extends ContentObserver {
 
     /* renamed from: a  reason: collision with root package name */
-    Context f3557a;
-    c b;
-    ServiceConnection c;
-    private com.baidu.sofire.j.c d;
-    private String e;
+    public c f11827a;
 
-    public a(Context context, com.baidu.sofire.j.c cVar) {
-        this.f3557a = null;
-        this.f3557a = context;
-        this.d = cVar;
+    public a(c cVar) {
+        super(null);
+        this.f11827a = cVar;
     }
 
-    public final String a() {
-        try {
-        } catch (Throwable th) {
-            th.printStackTrace();
+    @Override // android.database.ContentObserver
+    public final void onChange(boolean z) {
+        c cVar = this.f11827a;
+        if (cVar != null) {
+            cVar.f11830b = cVar.f11829a.a();
         }
-        if (TextUtils.isEmpty(this.e)) {
-            if (this.b != null) {
-                this.e = this.b.a();
-            }
-            return this.e;
-        }
-        return this.e;
     }
 }

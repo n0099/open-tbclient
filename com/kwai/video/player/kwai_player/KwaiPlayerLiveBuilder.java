@@ -6,18 +6,18 @@ import com.kwai.player.KwaiPlayerConfig;
 import com.kwai.video.hodor.util.Timber;
 import com.kwai.video.player.IKwaiMediaPlayer;
 import com.kwai.video.player.PlayerProps;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public final class KwaiPlayerLiveBuilder extends KwaiPlayerBaseBuilder<KwaiPlayerLiveBuilder> {
-    private float mBufferTimeMaxSec;
-    private String mConfigJson;
-    private boolean mIsLiveManifest;
-    private KwaiPlayerConfig mKwaiPlayerConfig;
-    private String mLiveLowDelayConfigJson;
-    private int mNetType;
-    private int mSpbBufferMs;
-    private int mSpbMaxBufferCostMs;
-    private boolean mUseAlignedPts;
-    private boolean mUseSpbBuffer;
+    public float mBufferTimeMaxSec;
+    public String mConfigJson;
+    public boolean mIsLiveManifest;
+    public KwaiPlayerConfig mKwaiPlayerConfig;
+    public String mLiveLowDelayConfigJson;
+    public int mNetType;
+    public int mSpbBufferMs;
+    public int mSpbMaxBufferCostMs;
+    public boolean mUseAlignedPts;
+    public boolean mUseSpbBuffer;
 
     public KwaiPlayerLiveBuilder(Context context) {
         super(context);
@@ -31,13 +31,13 @@ public final class KwaiPlayerLiveBuilder extends KwaiPlayerBaseBuilder<KwaiPlaye
         this.mUseNatvieCache = false;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwai.video.player.kwai_player.KwaiPlayerBaseBuilder
     public void applyTo(KwaiMediaPlayer kwaiMediaPlayer) {
         super.applyTo(kwaiMediaPlayer);
         Timber.d("applyTo", new Object[0]);
-        if (this.mKwaiPlayerConfig != null) {
-            kwaiMediaPlayer.setupAspectLiveRealTimeReporter(true, this.mKwaiPlayerConfig);
+        KwaiPlayerConfig kwaiPlayerConfig = this.mKwaiPlayerConfig;
+        if (kwaiPlayerConfig != null) {
+            kwaiMediaPlayer.setupAspectLiveRealTimeReporter(true, kwaiPlayerConfig);
             kwaiMediaPlayer.setConfig(this.mKwaiPlayerConfig);
         } else {
             kwaiMediaPlayer.setupAspectLiveRealTimeReporter(false, null);
@@ -61,8 +61,9 @@ public final class KwaiPlayerLiveBuilder extends KwaiPlayerBaseBuilder<KwaiPlaye
         kwaiMediaPlayer.setOption(4, "islive", 1L);
         kwaiMediaPlayer.setOption(4, "framedrop", 150L);
         kwaiMediaPlayer._setPropertyFloat(PlayerProps.FFP_PROP_FLOAT_BUFFERSIZE_MAX, this.mBufferTimeMaxSec);
-        if (this.mNetType > 0) {
-            kwaiMediaPlayer.setOption(1, "device-network-type", this.mNetType);
+        int i = this.mNetType;
+        if (i > 0) {
+            kwaiMediaPlayer.setOption(1, "device-network-type", i);
         }
         kwaiMediaPlayer.setupAspectKlv(this.mIsLiveManifest);
     }
@@ -75,7 +76,6 @@ public final class KwaiPlayerLiveBuilder extends KwaiPlayerBaseBuilder<KwaiPlaye
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwai.video.player.kwai_player.KwaiPlayerBaseBuilder
     public KwaiPlayerLiveBuilder self() {
         return this;
@@ -86,8 +86,8 @@ public final class KwaiPlayerLiveBuilder extends KwaiPlayerBaseBuilder<KwaiPlaye
         return this;
     }
 
-    public KwaiPlayerLiveBuilder setBufferTimeMaxSec(float f) {
-        this.mBufferTimeMaxSec = f;
+    public KwaiPlayerLiveBuilder setBufferTimeMaxSec(float f2) {
+        this.mBufferTimeMaxSec = f2;
         return this;
     }
 

@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.atomData;
 import android.content.Context;
 import android.content.Intent;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class BigdayActivityConfig extends IntentConfig {
     public static final String BIGDAY_ID = "bigday_id";
     public static final String IMG_URL = "img_url";
@@ -13,7 +13,7 @@ public class BigdayActivityConfig extends IntentConfig {
         super(context);
         Intent intent = getIntent();
         intent.putExtra(IMG_URL, str);
-        intent.putExtra(JUMP_URL, str2);
+        intent.putExtra("jump_url", str2);
         intent.putExtra(BIGDAY_ID, j);
     }
 }

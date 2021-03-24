@@ -2,34 +2,38 @@ package com.xiaomi.push;
 
 import android.content.SharedPreferences;
 import com.xiaomi.push.ai;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class aj extends ai.b {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ai f8254a;
+    public final /* synthetic */ ai f40225a;
 
     /* renamed from: a  reason: collision with other field name */
-    final /* synthetic */ String f98a;
+    public final /* synthetic */ String f107a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    /* renamed from: a  reason: collision with other field name */
+    public final /* synthetic */ boolean f108a;
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public aj(ai aiVar, ai.a aVar, String str) {
+    public aj(ai aiVar, ai.a aVar, boolean z, String str) {
         super(aVar);
-        this.f8254a = aiVar;
-        this.f98a = str;
+        this.f40225a = aiVar;
+        this.f108a = z;
+        this.f107a = str;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     @Override // com.xiaomi.push.ai.b
     public void a() {
         super.a();
     }
 
     @Override // com.xiaomi.push.ai.b
-    void b() {
+    public void b() {
         SharedPreferences sharedPreferences;
-        sharedPreferences = this.f8254a.f94a;
-        sharedPreferences.edit().putLong(this.f98a, System.currentTimeMillis()).commit();
+        if (this.f108a) {
+            return;
+        }
+        sharedPreferences = this.f40225a.f103a;
+        sharedPreferences.edit().putLong(this.f107a, System.currentTimeMillis()).commit();
     }
 }

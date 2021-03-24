@@ -3,33 +3,36 @@ package com.baidu.tieba.memberCenter.memberpay;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class MemberPayListAdapter extends FragmentPagerAdapter {
-    private List<MemberPayFragment> list;
+
+    /* renamed from: a  reason: collision with root package name */
+    public List<MemberPayFragment> f18978a;
 
     public MemberPayListAdapter(FragmentManager fragmentManager) {
         super(fragmentManager);
     }
 
-    public void cq(List<MemberPayFragment> list) {
-        this.list = list;
+    @Override // androidx.viewpager.widget.PagerAdapter
+    public int getCount() {
+        List<MemberPayFragment> list = this.f18978a;
+        if (list != null) {
+            return list.size();
+        }
+        return 0;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.fragment.app.FragmentPagerAdapter
-    /* renamed from: EB */
+    /* renamed from: i */
     public MemberPayFragment getItem(int i) {
-        if (this.list.size() > i) {
-            return this.list.get(i);
+        if (this.f18978a.size() > i) {
+            return this.f18978a.get(i);
         }
         return null;
     }
 
-    @Override // androidx.viewpager.widget.PagerAdapter
-    public int getCount() {
-        if (this.list != null) {
-            return this.list.size();
-        }
-        return 0;
+    public void j(List<MemberPayFragment> list) {
+        this.f18978a = list;
     }
 }

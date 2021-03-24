@@ -4,7 +4,7 @@ import android.content.Context;
 import com.baidu.tbadk.core.data.ForumRuleBaseData;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class ForumRuleEditActivityConfig extends IntentConfig {
     public static final String FORUM_RULE_EDIT_FROM_DELETED_REASON_DIALOG = "forum_rule_edit_from_deleted_reason_dialog";
     public static final String FORUM_RULE_EDIT_FROM_FRS = "forum_rule_edit_from_frs";
@@ -26,7 +26,7 @@ public class ForumRuleEditActivityConfig extends IntentConfig {
         getIntent().putExtra("from", str3);
         getIntent().putExtra("url", str4);
         getIntent().putExtra(IntentConfig.USER_LEVEL, i);
-        getIntent().putExtra("datas", forumRuleBaseData);
+        getIntent().putExtra(IntentConfig.DATAS, forumRuleBaseData);
         setRequestCode(i2);
         setIntentAction(IntentAction.ActivityForResult);
     }

@@ -5,135 +5,99 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import androidx.viewpager.widget.PagerAdapter;
-import com.baidu.adp.lib.util.l;
-import com.baidu.tbadk.core.data.aa;
-import com.baidu.tbadk.core.flow.a.a;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.y;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.frs.h;
-import com.baidu.tieba.recapp.t;
+import d.b.b.e.p.l;
+import d.b.h0.r.q.a0;
+import d.b.h0.r.w.b.a;
+import d.b.i0.p0.h;
+import d.b.i0.r2.t;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes.dex */
-public class CoverFlowAdapter<T extends com.baidu.tbadk.core.flow.a.a> extends PagerAdapter {
-    private Context context;
-    private View.OnClickListener eYr;
-    private a eYu;
-    private ArrayList<TbImageView> eYq = new ArrayList<>();
-    private ArrayList<T> dataList = new ArrayList<>();
-    private ArrayList<TbImageView> eYs = new ArrayList<>();
-    private ArrayList<RelativeLayout> eYt = new ArrayList<>();
+/* loaded from: classes3.dex */
+public class CoverFlowAdapter<T extends a> extends PagerAdapter {
+
+    /* renamed from: c  reason: collision with root package name */
+    public Context f13264c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public View.OnClickListener f13265d;
+
+    /* renamed from: g  reason: collision with root package name */
+    public d.b.h0.r.w.a f13268g;
+
+    /* renamed from: a  reason: collision with root package name */
+    public ArrayList<TbImageView> f13262a = new ArrayList<>();
+
+    /* renamed from: b  reason: collision with root package name */
+    public ArrayList<T> f13263b = new ArrayList<>();
+
+    /* renamed from: e  reason: collision with root package name */
+    public ArrayList<TbImageView> f13266e = new ArrayList<>();
+
+    /* renamed from: f  reason: collision with root package name */
+    public ArrayList<RelativeLayout> f13267f = new ArrayList<>();
 
     public CoverFlowAdapter(Context context) {
-        this.context = context;
+        this.f13264c = context;
     }
 
-    public void setOnClickListener(View.OnClickListener onClickListener) {
-        this.eYr = onClickListener;
-    }
-
-    public T op(int i) {
-        if (this.dataList == null || this.dataList.isEmpty() || i < 0 || i >= this.dataList.size()) {
-            return null;
-        }
-        return this.dataList.get(i);
-    }
-
-    public void a(List<T> list, a aVar) {
-        TbImageView tbImageView;
-        TbImageView tbImageView2;
-        if (list != null && !list.isEmpty()) {
-            this.eYu = aVar;
-            this.dataList.clear();
-            this.dataList.addAll(list);
-            D(this.dataList);
-            int size = this.eYq.size();
-            int size2 = this.dataList.size();
-            for (int i = 0; i < size2; i++) {
-                if (i >= size) {
-                    TbImageView U = aVar.U(this.context);
-                    this.eYq.add(U);
-                    tbImageView = aVar.U(this.context);
-                    this.eYs.add(tbImageView);
-                    this.eYt.add(new RelativeLayout(this.context));
-                    tbImageView2 = U;
-                } else {
-                    tbImageView = this.eYs.get(i);
-                    this.eYt.get(i);
-                    tbImageView2 = this.eYq.get(i);
-                }
-                if (this.dataList.get(i) != null && tbImageView2 != null) {
-                    if (this.dataList.get(i) instanceof h) {
-                        tbImageView2.setImageDrawable(ap.getDrawable(Integer.valueOf(this.dataList.get(i).getPicUrl()).intValue()));
-                    } else {
-                        tbImageView2.startLoad(this.dataList.get(i).getPicUrl(), 10, false);
-                    }
-                    tbImageView2.setOnClickListener(this.eYr);
-                    if ((this.dataList.get(i) instanceof aa) && !((aa) this.dataList.get(i)).bma()) {
-                        aa aaVar = (aa) this.dataList.get(i);
-                        t.b(aaVar.blX(), tbImageView, aaVar.blY(), l.getDimens(this.context, R.dimen.ds24));
-                    }
-                }
-            }
-            int count = y.getCount(this.dataList);
-            int count2 = y.getCount(this.eYq);
-            if (count2 > count) {
-                y.removeSubList(this.eYq, count, count2);
-            }
-            int count3 = y.getCount(this.eYs);
-            if (count3 > count) {
-                y.removeSubList(this.eYs, count, count3);
-            }
-            int count4 = y.getCount(this.eYt);
-            if (count4 > count) {
-                y.removeSubList(this.eYt, count, count4);
-            }
-            notifyDataSetChanged();
-        }
-    }
-
-    private void D(ArrayList<T> arrayList) {
-        int size;
-        if (arrayList != null && (size = arrayList.size()) > 1) {
-            arrayList.add(0, arrayList.get(size - 1));
-            arrayList.add(arrayList.get(0));
+    @Override // androidx.viewpager.widget.PagerAdapter
+    public void destroyItem(ViewGroup viewGroup, int i, Object obj) {
+        if (obj instanceof View) {
+            viewGroup.removeView((View) obj);
         }
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
     public int getCount() {
-        if (this.eYq != null && this.eYq.size() > 0) {
-            return this.eYq.size();
+        ArrayList<TbImageView> arrayList = this.f13262a;
+        if (arrayList != null && arrayList.size() > 0) {
+            return this.f13262a.size();
         }
         return 0;
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
+    public int getItemPosition(Object obj) {
+        return -2;
+    }
+
+    public T i(int i) {
+        ArrayList<T> arrayList = this.f13263b;
+        if (arrayList == null || arrayList.isEmpty() || i < 0 || i >= this.f13263b.size()) {
+            return null;
+        }
+        return this.f13263b.get(i);
+    }
+
+    @Override // androidx.viewpager.widget.PagerAdapter
     public Object instantiateItem(ViewGroup viewGroup, int i) {
-        if (this.eYq == null) {
+        ArrayList<TbImageView> arrayList = this.f13262a;
+        if (arrayList == null) {
             return super.instantiateItem(viewGroup, i);
         }
-        TbImageView tbImageView = (TbImageView) y.getItem(this.eYq, i);
+        TbImageView tbImageView = (TbImageView) ListUtils.getItem(arrayList, i);
         if (tbImageView == null) {
             return super.instantiateItem(viewGroup, i);
         }
-        if ((y.getItem(this.dataList, i) instanceof aa) && !((aa) y.getItem(this.dataList, i)).bma()) {
-            RelativeLayout relativeLayout = (RelativeLayout) y.getItem(this.eYt, i);
-            TbImageView tbImageView2 = (TbImageView) y.getItem(this.eYs, i);
+        if ((ListUtils.getItem(this.f13263b, i) instanceof a0) && !((a0) ListUtils.getItem(this.f13263b, i)).i()) {
+            RelativeLayout relativeLayout = (RelativeLayout) ListUtils.getItem(this.f13267f, i);
+            TbImageView tbImageView2 = (TbImageView) ListUtils.getItem(this.f13266e, i);
             relativeLayout.removeView(tbImageView2);
             if (tbImageView.getParent() != null) {
                 ((ViewGroup) tbImageView.getParent()).removeView(tbImageView);
             }
             relativeLayout.addView(tbImageView, new RelativeLayout.LayoutParams(-1, -1));
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
-            if (this.eYu.bri() == null) {
+            if (this.f13268g.b() == null) {
                 layoutParams.addRule(12);
                 layoutParams.addRule(9);
             } else {
-                layoutParams.setMargins(0, l.getDimens(this.context, R.dimen.ds220) - l.getDimens(this.context, R.dimen.ds24), 0, 0);
+                layoutParams.setMargins(0, l.g(this.f13264c, R.dimen.ds220) - l.g(this.f13264c, R.dimen.ds24), 0, 0);
             }
             relativeLayout.addView(tbImageView2, layoutParams);
             if (relativeLayout.getParent() == null) {
@@ -158,24 +122,79 @@ public class CoverFlowAdapter<T extends com.baidu.tbadk.core.flow.a.a> extends P
         return view == obj;
     }
 
-    @Override // androidx.viewpager.widget.PagerAdapter
-    public void destroyItem(ViewGroup viewGroup, int i, Object obj) {
-        if (obj instanceof View) {
-            viewGroup.removeView((View) obj);
+    public void j() {
+        ArrayList<TbImageView> arrayList = this.f13262a;
+        if (arrayList == null || arrayList.size() <= 0) {
+            return;
+        }
+        Iterator<TbImageView> it = this.f13262a.iterator();
+        while (it.hasNext()) {
+            it.next().refresh();
         }
     }
 
-    @Override // androidx.viewpager.widget.PagerAdapter
-    public int getItemPosition(Object obj) {
-        return -2;
+    public final void k(ArrayList<T> arrayList) {
+        int size;
+        if (arrayList != null && (size = arrayList.size()) > 1) {
+            arrayList.add(0, arrayList.get(size - 1));
+            arrayList.add(arrayList.get(0));
+        }
     }
 
-    public void onChangeSkinType() {
-        if (this.eYq != null && this.eYq.size() > 0) {
-            Iterator<TbImageView> it = this.eYq.iterator();
-            while (it.hasNext()) {
-                it.next().refresh();
+    public void l(List<T> list, d.b.h0.r.w.a aVar) {
+        TbImageView tbImageView;
+        TbImageView tbImageView2;
+        if (list == null || list.isEmpty()) {
+            return;
+        }
+        this.f13268g = aVar;
+        this.f13263b.clear();
+        this.f13263b.addAll(list);
+        k(this.f13263b);
+        int size = this.f13262a.size();
+        int size2 = this.f13263b.size();
+        for (int i = 0; i < size2; i++) {
+            if (i >= size) {
+                tbImageView = aVar.c(this.f13264c);
+                this.f13262a.add(tbImageView);
+                tbImageView2 = aVar.c(this.f13264c);
+                this.f13266e.add(tbImageView2);
+                this.f13267f.add(new RelativeLayout(this.f13264c));
+            } else {
+                tbImageView = this.f13262a.get(i);
+                tbImageView2 = this.f13266e.get(i);
+                this.f13267f.get(i);
+            }
+            if (this.f13263b.get(i) != null && tbImageView != null) {
+                if (this.f13263b.get(i) instanceof h) {
+                    tbImageView.setImageDrawable(SkinManager.getDrawable(Integer.valueOf(this.f13263b.get(i).a()).intValue()));
+                } else {
+                    tbImageView.W(this.f13263b.get(i).a(), 10, false);
+                }
+                tbImageView.setOnClickListener(this.f13265d);
+                if ((this.f13263b.get(i) instanceof a0) && !((a0) this.f13263b.get(i)).i()) {
+                    a0 a0Var = (a0) this.f13263b.get(i);
+                    t.t(a0Var.g(), tbImageView2, a0Var.h(), l.g(this.f13264c, R.dimen.ds24));
+                }
             }
         }
+        int count = ListUtils.getCount(this.f13263b);
+        int count2 = ListUtils.getCount(this.f13262a);
+        if (count2 > count) {
+            ListUtils.removeSubList(this.f13262a, count, count2);
+        }
+        int count3 = ListUtils.getCount(this.f13266e);
+        if (count3 > count) {
+            ListUtils.removeSubList(this.f13266e, count, count3);
+        }
+        int count4 = ListUtils.getCount(this.f13267f);
+        if (count4 > count) {
+            ListUtils.removeSubList(this.f13267f, count, count4);
+        }
+        notifyDataSetChanged();
+    }
+
+    public void m(View.OnClickListener onClickListener) {
+        this.f13265d = onClickListener;
     }
 }

@@ -1,13 +1,15 @@
 package com.baidu.tieba.setting.im.more;
 
+import android.text.TextUtils;
 import com.baidu.adp.framework.message.HttpMessage;
-/* loaded from: classes7.dex */
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+/* loaded from: classes5.dex */
 public class PrivacySettingMessage extends HttpMessage {
-    private String opt;
-    private int val;
+    public String opt;
+    public int val;
 
     public PrivacySettingMessage(String str, int i) {
-        super(1001506);
+        super(CmdConfigHttp.SET_PRIVATE_CMD);
         this.opt = str;
         this.val = i;
         addParam("opt", str);
@@ -20,5 +22,12 @@ public class PrivacySettingMessage extends HttpMessage {
 
     public int getType() {
         return this.val;
+    }
+
+    public void setTid(String str) {
+        if (TextUtils.isEmpty(str)) {
+            return;
+        }
+        addParam("tid", str);
     }
 }

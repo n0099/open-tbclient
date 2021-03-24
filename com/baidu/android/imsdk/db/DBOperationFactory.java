@@ -5,19 +5,23 @@ import android.text.TextUtils;
 import com.baidu.android.imsdk.account.AccountManagerImpl;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.utils.LogUtils;
-import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import java.util.HashMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class DBOperationFactory {
-    private static final String TAG = "DBOperationFactory";
-    private static String sUid = null;
-    private static long sUk = 0;
-    private static long sAppid = -1;
-    private static long sEnv = -1;
-    private static HashMap<String, DBOperation> sDbOperatioContainer = new HashMap<>();
+    public static final String TAG = "DBOperationFactory";
+    public static long sAppid = -1;
+    public static HashMap<String, DBOperation> sDbOperatioContainer = new HashMap<>();
+    public static long sEnv = -1;
+    public static String sUid;
+    public static long sUk;
 
-    private static DBOperation getDbOperation(Context context, String str) {
-        DBOperation dBOperation;
+    public static void closeDb(String str) {
+        if (sDbOperatioContainer.containsKey(str)) {
+            sDbOperatioContainer.remove(str).closeDb();
+        }
+    }
+
+    public static DBOperation getDbOperation(Context context, String str) {
         if (str == null) {
             LogUtils.e(TAG, "dbname should not be null!");
             return null;
@@ -25,7 +29,8 @@ public class DBOperationFactory {
         if (!sDbOperatioContainer.containsKey(str)) {
             synchronized (sDbOperatioContainer) {
                 LogUtils.e(TAG, "dbname : " + str);
-                if (!sDbOperatioContainer.containsKey(str) && (dBOperation = new DBOperation(context, new DBConnection(context, str, 49))) != null) {
+                if (!sDbOperatioContainer.containsKey(str)) {
+                    DBOperation dBOperation = new DBOperation(context, new DBConnection(context, str, 49));
                     DBGroupTableManager dBGroupTableManager = new DBGroupTableManager();
                     dBGroupTableManager.init(dBOperation);
                     dBOperation.setTag(DBGroupTableManager.KEY, dBGroupTableManager);
@@ -36,12 +41,12 @@ public class DBOperationFactory {
         return sDbOperatioContainer.get(str);
     }
 
-    private static void closeDb(String str) {
-        if (sDbOperatioContainer.containsKey(str)) {
-            sDbOperatioContainer.remove(str).closeDb();
-        }
-    }
-
+    /* JADX WARN: Code restructure failed: missing block: B:18:0x0040, code lost:
+        if (r0 != r2) goto L14;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     public static DBOperation getNewDb(Context context) {
         if (context == null) {
             LogUtils.d(TAG, "pls call init method first!");
@@ -49,54 +54,78 @@ public class DBOperationFactory {
         }
         long uk = AccountManagerImpl.getInstance(context).getUK();
         long appid = AccountManagerImpl.getInstance(context).getAppid();
-        if (0 == uk || -1 == appid) {
-            LogUtils.d(TAG, "UK OR appid Not initialize!");
-            if (0 == uk) {
-                LogUtils.d(TAG, "mUid Not initialize!");
+        if (0 != uk && -1 != appid) {
+            long j = sAppid;
+            if (j == -1 || j == appid) {
+                long j2 = sUk;
+                if (j2 != 0) {
+                }
+                sUk = uk;
+                sAppid = appid;
+                return getDbOperation(context, context.getDatabasePath(DBTableDefine.DB_NAME_PREFIX + uk + "_" + appid + ".db").getPath());
             }
-            if (-1 == appid) {
-                LogUtils.d(TAG, "appid Not initialize!");
-                return null;
-            }
-            return null;
+            closeDb(context.getDatabasePath(DBTableDefine.DB_NAME_PREFIX + sUk + "_" + sAppid + ".db").getPath());
+            sUk = uk;
+            sAppid = appid;
+            return getDbOperation(context, context.getDatabasePath(DBTableDefine.DB_NAME_PREFIX + uk + "_" + appid + ".db").getPath());
         }
-        if ((sAppid != -1 && sAppid != appid) || (sUk != 0 && sUk != uk)) {
-            closeDb(context.getDatabasePath(DBTableDefine.DB_NAME_PREFIX + sUk + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + sAppid + ".db").getPath());
+        LogUtils.d(TAG, "UK OR appid Not initialize!");
+        if (0 == uk) {
+            LogUtils.d(TAG, "mUid Not initialize!");
         }
-        sUk = uk;
-        sAppid = appid;
-        return getDbOperation(context, context.getDatabasePath(DBTableDefine.DB_NAME_PREFIX + uk + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + appid + ".db").getPath());
+        if (-1 == appid) {
+            LogUtils.d(TAG, "appid Not initialize!");
+        }
+        return null;
     }
 
+    /* JADX WARN: Code restructure failed: missing block: B:22:0x004e, code lost:
+        if (r8 != r0) goto L14;
+     */
+    /* JADX WARN: Removed duplicated region for block: B:26:0x009d  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     public static DBOperation getOldDb(Context context) {
+        String str;
         if (context == null) {
             LogUtils.d(TAG, "pls call init method first!");
             return null;
         }
         String uid = AccountManagerImpl.getInstance(context).getUid();
         long appid = AccountManagerImpl.getInstance(context).getAppid();
-        if (TextUtils.isEmpty(uid) || -1 == appid) {
-            LogUtils.d(TAG, "UK OR appid Not initialize!");
-            if (TextUtils.isEmpty(uid)) {
-                LogUtils.d(TAG, "mUid Not initialize!");
+        if (!TextUtils.isEmpty(uid) && -1 != appid) {
+            int env = Constants.getEnv(context);
+            long j = sAppid;
+            if ((j == -1 || j == appid) && ((str = sUid) == null || str.equals(uid))) {
+                long j2 = sEnv;
+                if (j2 != -1) {
+                }
+                sUid = uid;
+                sAppid = appid;
+                sEnv = env;
+                String str2 = TableDefine.DB_NAME_PREFIX + uid + "_" + appid + ".db";
+                if (1 == env) {
+                    str2 = TableDefine.DB_NAME_PREFIX + uid + "_" + appid + "_rd.db";
+                }
+                return getDbOperation(context, context.getDatabasePath(str2).getPath());
             }
-            if (-1 == appid) {
-                LogUtils.d(TAG, "appid Not initialize!");
-                return null;
+            closeDb(context.getDatabasePath("bdimsdk_new_" + sUid + "_" + sAppid + ".db").getPath());
+            sUid = uid;
+            sAppid = appid;
+            sEnv = env;
+            String str22 = TableDefine.DB_NAME_PREFIX + uid + "_" + appid + ".db";
+            if (1 == env) {
             }
-            return null;
+            return getDbOperation(context, context.getDatabasePath(str22).getPath());
         }
-        int env = Constants.getEnv(context);
-        if ((sAppid != -1 && sAppid != appid) || ((sUid != null && !sUid.equals(uid)) || (sEnv != -1 && sEnv != env))) {
-            closeDb(context.getDatabasePath("bdimsdk_new_" + sUid + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + sAppid + ".db").getPath());
+        LogUtils.d(TAG, "UK OR appid Not initialize!");
+        if (TextUtils.isEmpty(uid)) {
+            LogUtils.d(TAG, "mUid Not initialize!");
         }
-        sUid = uid;
-        sAppid = appid;
-        sEnv = env;
-        String str = TableDefine.DB_NAME_PREFIX + uid + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + appid + ".db";
-        if (1 == env) {
-            str = TableDefine.DB_NAME_PREFIX + uid + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + appid + "_rd.db";
+        if (-1 == appid) {
+            LogUtils.d(TAG, "appid Not initialize!");
         }
-        return getDbOperation(context, context.getDatabasePath(str).getPath());
+        return null;
     }
 }

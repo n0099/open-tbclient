@@ -1,26 +1,43 @@
 package com.baidu.tieba.interestlabel.message;
 
 import com.baidu.adp.framework.message.NetMessage;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
-import com.baidu.tbadk.util.v;
-import com.baidu.tieba.interestlabel.b.b;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import d.b.h0.z0.w;
+import d.b.i0.g1.b.b;
 import tbclient.CommonReq;
 import tbclient.GetTagList.DataReq;
 import tbclient.GetTagList.GetTagListReqIdl;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class RequestGetLabelMessage extends NetMessage {
 
     /* renamed from: common  reason: collision with root package name */
-    private CommonReq f3596common;
-    private int from;
-    private b mLabelDataSet;
+    public CommonReq f18482common;
+    public int from;
+    public b mLabelDataSet;
 
     public RequestGetLabelMessage() {
-        super(1003333, CmdConfigSocket.CMD_GET_INTEREST_LABEL_LIST);
+        super(CmdConfigHttp.CMD_GET_INTEREST_LABEL_LIST, 309467);
+    }
+
+    @Override // com.baidu.adp.framework.message.NetMessage
+    public Object encode(boolean z) {
+        DataReq.Builder builder = new DataReq.Builder();
+        builder.f68488common = this.f18482common;
+        builder.from = Integer.valueOf(this.from);
+        if (z) {
+            w.a(builder, true);
+        }
+        GetTagListReqIdl.Builder builder2 = new GetTagListReqIdl.Builder();
+        builder2.data = builder.build(false);
+        return builder2.build(false);
+    }
+
+    public b getLabelDataSet() {
+        return this.mLabelDataSet;
     }
 
     public void setCommon(CommonReq commonReq) {
-        this.f3596common = commonReq;
+        this.f18482common = commonReq;
     }
 
     public void setFrom(int i) {
@@ -29,22 +46,5 @@ public class RequestGetLabelMessage extends NetMessage {
 
     public void setLabelDataSet(b bVar) {
         this.mLabelDataSet = bVar;
-    }
-
-    public b getLabelDataSet() {
-        return this.mLabelDataSet;
-    }
-
-    @Override // com.baidu.adp.framework.message.NetMessage
-    protected Object encode(boolean z) {
-        DataReq.Builder builder = new DataReq.Builder();
-        builder.f8816common = this.f3596common;
-        builder.from = Integer.valueOf(this.from);
-        if (z) {
-            v.b(builder, true);
-        }
-        GetTagListReqIdl.Builder builder2 = new GetTagListReqIdl.Builder();
-        builder2.data = builder.build(false);
-        return builder2.build(false);
     }
 }

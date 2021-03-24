@@ -3,55 +3,44 @@ package com.baidu.tbadk.coreExtra;
 import android.os.Bundle;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.InitUserNameDialogActivityConfig;
 import com.baidu.tbadk.core.data.AccountData;
-import com.baidu.tbadk.coreExtra.view.b;
-/* loaded from: classes.dex */
+import d.b.h0.s.i.b;
+/* loaded from: classes3.dex */
 public class InitUserNameDialogActivity extends BaseActivity {
-    b frx;
+    public d.b.h0.s.i.b mInputUserNameDialog;
 
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
-    public void onCreate(Bundle bundle) {
-        setIsAddSwipeBackLayout(false);
-        super.onCreate(bundle);
-        this.frx = new b(this);
-        this.frx.b(new b.a() { // from class: com.baidu.tbadk.coreExtra.InitUserNameDialogActivity.1
-            @Override // com.baidu.tbadk.coreExtra.view.b.a
-            public void g(AccountData accountData) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_GET_LIVE_BC_CHAT_HANGUP));
-                InitUserNameDialogActivity.this.finish();
-            }
-        });
-        this.frx.a(new b.a() { // from class: com.baidu.tbadk.coreExtra.InitUserNameDialogActivity.2
-            @Override // com.baidu.tbadk.coreExtra.view.b.a
-            public void g(AccountData accountData) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_GET_LIVE_BC_CHAT_HANGUP));
-                InitUserNameDialogActivity.this.finish();
-            }
-        });
-        this.frx.bzD();
-        AccountData currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo();
-        if (currentAccountInfo == null && getIntent() != null && (getIntent().getSerializableExtra(InitUserNameDialogActivityConfig.ACCOUNT_DATA) instanceof AccountData)) {
-            currentAccountInfo = (AccountData) getIntent().getSerializableExtra(InitUserNameDialogActivityConfig.ACCOUNT_DATA);
+    /* loaded from: classes3.dex */
+    public class a implements b.e {
+        public a() {
         }
-        this.frx.setAccountData(currentAccountInfo);
+
+        @Override // d.b.h0.s.i.b.e
+        public void a(AccountData accountData) {
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921350));
+            InitUserNameDialogActivity.this.finish();
+        }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
-    public void onResume() {
-        super.onResume();
-        this.frx.qE(1);
+    /* loaded from: classes3.dex */
+    public class b implements b.e {
+        public b() {
+        }
+
+        @Override // d.b.h0.s.i.b.e
+        public void a(AccountData accountData) {
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921350));
+            InitUserNameDialogActivity.this.finish();
+        }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
-    public void onDestroy() {
-        super.onDestroy();
-        this.frx.onDestroy();
+    @Override // com.baidu.tbadk.BaseActivity
+    public void closeAnimation() {
+        clearAnimatable();
+        clearAnimation();
+        overridePendingTransition(0, 0);
     }
 
     @Override // com.baidu.tbadk.BaseActivity
@@ -61,10 +50,31 @@ public class InitUserNameDialogActivity extends BaseActivity {
         overridePendingTransition(0, 0);
     }
 
-    @Override // com.baidu.tbadk.BaseActivity
-    public void closeAnimation() {
-        clearAnimatable();
-        clearAnimation();
-        overridePendingTransition(0, 0);
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
+    public void onCreate(Bundle bundle) {
+        setIsAddSwipeBackLayout(false);
+        super.onCreate(bundle);
+        d.b.h0.s.i.b bVar = new d.b.h0.s.i.b(this);
+        this.mInputUserNameDialog = bVar;
+        bVar.v(new a());
+        this.mInputUserNameDialog.w(new b());
+        this.mInputUserNameDialog.p();
+        AccountData currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo();
+        if (currentAccountInfo == null && getIntent() != null && (getIntent().getSerializableExtra(InitUserNameDialogActivityConfig.ACCOUNT_DATA) instanceof AccountData)) {
+            currentAccountInfo = (AccountData) getIntent().getSerializableExtra(InitUserNameDialogActivityConfig.ACCOUNT_DATA);
+        }
+        this.mInputUserNameDialog.u(currentAccountInfo);
+    }
+
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
+    public void onDestroy() {
+        super.onDestroy();
+        this.mInputUserNameDialog.s();
+    }
+
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
+    public void onResume() {
+        super.onResume();
+        this.mInputUserNameDialog.z(1);
     }
 }

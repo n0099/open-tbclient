@@ -1,23 +1,24 @@
 package com.kwad.sdk.core.c.a;
 
-import com.baidu.live.tbadk.statics.AlaStaticKeys;
+import com.baidu.searchbox.pms.db.PackageTable;
+import com.heytap.mcssdk.PushManager;
 import com.kwad.sdk.core.webview.jshandler.l;
 import com.vivo.push.PushClientConstants;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class i implements com.kwad.sdk.core.c<l.b> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.core.c
     public JSONObject a(l.b bVar) {
         JSONObject jSONObject = new JSONObject();
-        com.kwad.sdk.utils.o.a(jSONObject, "appName", bVar.f6358a);
-        com.kwad.sdk.utils.o.a(jSONObject, PushClientConstants.TAG_PKG_NAME, bVar.b);
-        com.kwad.sdk.utils.o.a(jSONObject, "version", bVar.c);
-        com.kwad.sdk.utils.o.a(jSONObject, "versionCode", bVar.d);
-        com.kwad.sdk.utils.o.a(jSONObject, "appSize", bVar.e);
-        com.kwad.sdk.utils.o.a(jSONObject, "md5", bVar.f);
-        com.kwad.sdk.utils.o.a(jSONObject, "url", bVar.g);
-        com.kwad.sdk.utils.o.a(jSONObject, AlaStaticKeys.ALA_STATIC_VALUE_ICON, bVar.h);
+        com.kwad.sdk.utils.o.a(jSONObject, "appName", bVar.f34382a);
+        com.kwad.sdk.utils.o.a(jSONObject, PushClientConstants.TAG_PKG_NAME, bVar.f34383b);
+        com.kwad.sdk.utils.o.a(jSONObject, "version", bVar.f34384c);
+        com.kwad.sdk.utils.o.a(jSONObject, PushManager.APP_VERSION_CODE, bVar.f34385d);
+        com.kwad.sdk.utils.o.a(jSONObject, "appSize", bVar.f34386e);
+        com.kwad.sdk.utils.o.a(jSONObject, PackageTable.MD5, bVar.f34387f);
+        com.kwad.sdk.utils.o.a(jSONObject, "url", bVar.f34388g);
+        com.kwad.sdk.utils.o.a(jSONObject, "icon", bVar.f34389h);
         com.kwad.sdk.utils.o.a(jSONObject, "desc", bVar.i);
         return jSONObject;
     }
@@ -28,14 +29,14 @@ public class i implements com.kwad.sdk.core.c<l.b> {
         if (jSONObject == null) {
             return;
         }
-        bVar.f6358a = jSONObject.optString("appName");
-        bVar.b = jSONObject.optString(PushClientConstants.TAG_PKG_NAME);
-        bVar.c = jSONObject.optString("version");
-        bVar.d = jSONObject.optInt("versionCode");
-        bVar.e = jSONObject.optLong("appSize");
-        bVar.f = jSONObject.optString("md5");
-        bVar.g = jSONObject.optString("url");
-        bVar.h = jSONObject.optString(AlaStaticKeys.ALA_STATIC_VALUE_ICON);
+        bVar.f34382a = jSONObject.optString("appName");
+        bVar.f34383b = jSONObject.optString(PushClientConstants.TAG_PKG_NAME);
+        bVar.f34384c = jSONObject.optString("version");
+        bVar.f34385d = jSONObject.optInt(PushManager.APP_VERSION_CODE);
+        bVar.f34386e = jSONObject.optLong("appSize");
+        bVar.f34387f = jSONObject.optString(PackageTable.MD5);
+        bVar.f34388g = jSONObject.optString("url");
+        bVar.f34389h = jSONObject.optString("icon");
         bVar.i = jSONObject.optString("desc");
     }
 }

@@ -1,34 +1,35 @@
 package com.baidu.tieba.myCollection.message;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.squareup.wire.Wire;
+import tbclient.QueryCollectUpdateNum.DataRes;
 import tbclient.QueryCollectUpdateNum.QueryCollectUpdateNumResIdl;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class ResponseQueryCollectUpdateNumMessage extends SocketResponsedMessage {
-    private int mCollectUpdateNum;
+    public int mCollectUpdateNum;
 
     public ResponseQueryCollectUpdateNumMessage() {
-        super(CmdConfigSocket.CMD_QUERY_COLLECT_UPDATE_NUM);
+        super(303005);
         this.mCollectUpdateNum = 0;
-    }
-
-    public void setCollectUpdateNum(int i) {
-        this.mCollectUpdateNum = i;
     }
 
     public int getCollectUpdateNum() {
         return this.mCollectUpdateNum;
     }
 
+    public void setCollectUpdateNum(int i) {
+        this.mCollectUpdateNum = i;
+    }
+
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.message.a
+    @Override // com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
     public void decodeInBackGround(int i, byte[] bArr) throws Exception {
+        DataRes dataRes;
         QueryCollectUpdateNumResIdl queryCollectUpdateNumResIdl = (QueryCollectUpdateNumResIdl) new Wire(new Class[0]).parseFrom(bArr, QueryCollectUpdateNumResIdl.class);
         setError(queryCollectUpdateNumResIdl.error.errorno.intValue());
         setErrorString(queryCollectUpdateNumResIdl.error.usermsg);
-        if (getError() == 0 && queryCollectUpdateNumResIdl.data != null) {
-            setCollectUpdateNum(queryCollectUpdateNumResIdl.data.collect_update_num.intValue());
+        if (getError() == 0 && (dataRes = queryCollectUpdateNumResIdl.data) != null) {
+            setCollectUpdateNum(dataRes.collect_update_num.intValue());
         }
     }
 }

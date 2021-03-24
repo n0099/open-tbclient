@@ -3,133 +3,134 @@ package com.baidu.tbadk.browser;
 import android.net.Uri;
 import android.text.TextUtils;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.tbadk.core.BaseFragment;
+import com.baidu.tbadk.core.util.NewUrlSchemaHelper;
 import com.baidu.tbadk.coreExtra.share.ShareItem;
 import com.baidu.tieba.R;
-import com.baidu.webkit.internal.ETAG;
 import java.net.MalformedURLException;
 import java.net.URL;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class BaseWebViewFragment extends BaseFragment {
-    private String mSource;
-    public String mUrl;
-    private String mUrlTitle;
 
-    public void zD(String str) {
-        this.mUrlTitle = str;
-    }
+    /* renamed from: e  reason: collision with root package name */
+    public String f13090e;
 
-    public void setUrl(String str) {
-        if (!StringUtils.isNull(str) && str.startsWith("com.baidu.tieba://tbwebview")) {
-            this.mUrl = str;
-        } else {
-            this.mUrl = parseWebViewUrl(str);
-        }
-    }
+    /* renamed from: f  reason: collision with root package name */
+    public String f13091f;
 
-    private String parseWebViewUrl(String str) {
-        if (str != null && !str.startsWith("http://") && !str.startsWith(SapiUtils.COOKIE_HTTPS_URL_PREFIX)) {
-            return "http://".concat(str);
-        }
-        return str;
-    }
+    /* renamed from: g  reason: collision with root package name */
+    public String f13092g;
 
-    public boolean isNeedShowNavigationBar() {
-        return dB(this.mUrl, "nonavigationbar");
-    }
-
-    public boolean isNeedShowShareItem() {
-        return dB(this.mUrl, "noshare");
-    }
-
-    public boolean isNeedShowMenuItem() {
-        return dB(this.mUrl, "nomenu");
-    }
-
-    public boolean zE(String str) {
-        return dB(str, "blank");
-    }
-
-    public boolean dB(String str, String str2) {
-        String[] split;
-        if (StringUtils.isNull(str) || StringUtils.isNull(str2)) {
-            return true;
-        }
-        try {
-            String query = new URL(str).getQuery();
-            if (StringUtils.isNull(query) || (split = query.split(ETAG.ITEM_SEPARATOR)) == null) {
-                return true;
-            }
-            for (String str3 : split) {
-                String[] split2 = str3.split("=");
-                if (split2 != null && split2.length == 2) {
-                    String str4 = split2[0];
-                    String str5 = split2[1];
-                    if (str2.equalsIgnoreCase(str4) && "1".equalsIgnoreCase(str5)) {
-                        return false;
-                    }
-                }
-            }
-            return true;
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-            return true;
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public ShareItem createShareContent(String str, String str2, String str3, String str4) {
+    public ShareItem E0(String str, String str2, String str3, String str4) {
         ShareItem shareItem = new ShareItem();
-        if (StringUtils.isNull(this.mUrlTitle, true)) {
-            shareItem.title = getResources().getString(R.string.share_from_tieba);
+        if (StringUtils.isNull(this.f13092g, true)) {
+            shareItem.r = getResources().getString(R.string.share_from_tieba);
         } else {
-            shareItem.title = this.mUrlTitle;
+            shareItem.r = this.f13092g;
         }
-        shareItem.linkUrl = this.mUrl;
-        if (StringUtils.isNull(this.mSource, true)) {
-            shareItem.content = this.mUrl;
+        shareItem.t = this.f13090e;
+        if (StringUtils.isNull(this.f13091f, true)) {
+            shareItem.s = this.f13090e;
         } else {
-            String findSubString = findSubString("<meta name=\"description\" content=\"", "\"");
-            if (StringUtils.isNull(findSubString, true)) {
-                shareItem.content = this.mUrl;
+            String F0 = F0("<meta name=\"description\" content=\"", "\"");
+            if (StringUtils.isNull(F0, true)) {
+                shareItem.s = this.f13090e;
             } else {
-                shareItem.content = findSubString;
+                shareItem.s = F0;
             }
-            String findSubString2 = findSubString("<img src=\"", "\"");
-            if (!StringUtils.isNull(findSubString2, true)) {
-                shareItem.imageUri = Uri.parse(findSubString2);
+            String F02 = F0("<img src=\"", "\"");
+            if (!StringUtils.isNull(F02, true)) {
+                shareItem.v = Uri.parse(F02);
             }
-            String findSubString3 = findSubString("<meta name=\"shareurl\" content=\"", "\"");
-            if (!StringUtils.isNull(findSubString3, true)) {
-                shareItem.linkUrl = findSubString3;
+            String F03 = F0("<meta name=\"shareurl\" content=\"", "\"");
+            if (!StringUtils.isNull(F03, true)) {
+                shareItem.t = F03;
             }
         }
         if (!TextUtils.isEmpty(str)) {
-            shareItem.title = str;
+            shareItem.r = str;
         }
         if (!TextUtils.isEmpty(str2)) {
-            shareItem.linkUrl = str2;
+            shareItem.t = str2;
         }
         if (!TextUtils.isEmpty(str3)) {
-            shareItem.content = str3;
+            shareItem.s = str3;
         }
         if (!TextUtils.isEmpty(str4)) {
-            shareItem.imageUri = Uri.parse(str4);
+            shareItem.v = Uri.parse(str4);
         }
         return shareItem;
     }
 
-    private String findSubString(String str, String str2) {
+    public final String F0(String str, String str2) {
         int indexOf;
-        if (StringUtils.isNull(str, true) || StringUtils.isNull(str2, true) || (indexOf = this.mSource.indexOf(str)) < 0) {
+        if (StringUtils.isNull(str, true) || StringUtils.isNull(str2, true) || (indexOf = this.f13091f.indexOf(str)) < 0) {
             return null;
         }
-        String substring = this.mSource.substring(indexOf + str.length(), this.mSource.length());
+        int length = indexOf + str.length();
+        String str3 = this.f13091f;
+        String substring = str3.substring(length, str3.length());
         int indexOf2 = substring.indexOf(str2);
-        if (indexOf2 >= 0) {
-            return substring.substring(0, indexOf2);
+        if (indexOf2 < 0) {
+            return null;
         }
-        return null;
+        return substring.substring(0, indexOf2);
+    }
+
+    public boolean G0(String str) {
+        return K0(str, "blank");
+    }
+
+    public boolean H0() {
+        return K0(this.f13090e, "nomenu");
+    }
+
+    public boolean I0() {
+        return K0(this.f13090e, "nonavigationbar");
+    }
+
+    public boolean J0() {
+        return K0(this.f13090e, "noshare");
+    }
+
+    public boolean K0(String str, String str2) {
+        String[] split;
+        if (!StringUtils.isNull(str) && !StringUtils.isNull(str2)) {
+            try {
+                String query = new URL(str).getQuery();
+                if (StringUtils.isNull(query) || (split = query.split("&")) == null) {
+                    return true;
+                }
+                for (String str3 : split) {
+                    String[] split2 = str3.split("=");
+                    if (split2 != null && split2.length == 2) {
+                        String str4 = split2[0];
+                        String str5 = split2[1];
+                        if (str2.equalsIgnoreCase(str4) && "1".equalsIgnoreCase(str5)) {
+                            return false;
+                        }
+                    }
+                }
+            } catch (MalformedURLException e2) {
+                e2.printStackTrace();
+            }
+        }
+        return true;
+    }
+
+    public final String L0(String str) {
+        return (str == null || str.startsWith("http://") || str.startsWith("https://")) ? str : "http://".concat(str);
+    }
+
+    public void M0(String str) {
+        if (!StringUtils.isNull(str) && str.startsWith(NewUrlSchemaHelper.Jump.JUMP_TO_TBWEBVIEW)) {
+            this.f13090e = str;
+        } else {
+            this.f13090e = L0(str);
+        }
+    }
+
+    public void N0(String str) {
+        this.f13092g = str;
     }
 }

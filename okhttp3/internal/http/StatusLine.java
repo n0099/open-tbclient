@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.net.ProtocolException;
 import okhttp3.Protocol;
 import okhttp3.Response;
-/* loaded from: classes14.dex */
+/* loaded from: classes7.dex */
 public final class StatusLine {
     public static final int HTTP_CONTINUE = 100;
     public static final int HTTP_PERM_REDIRECT = 308;
@@ -28,14 +28,15 @@ public final class StatusLine {
         String str2;
         int i = 9;
         if (str.startsWith("HTTP/1.")) {
-            if (str.length() < 9 || str.charAt(8) != ' ') {
-                throw new ProtocolException("Unexpected status line: " + str);
-            }
-            int charAt = str.charAt(7) - '0';
-            if (charAt == 0) {
-                protocol = Protocol.HTTP_1_0;
-            } else if (charAt == 1) {
-                protocol = Protocol.HTTP_1_1;
+            if (str.length() >= 9 && str.charAt(8) == ' ') {
+                int charAt = str.charAt(7) - '0';
+                if (charAt == 0) {
+                    protocol = Protocol.HTTP_1_0;
+                } else if (charAt == 1) {
+                    protocol = Protocol.HTTP_1_1;
+                } else {
+                    throw new ProtocolException("Unexpected status line: " + str);
+                }
             } else {
                 throw new ProtocolException("Unexpected status line: " + str);
             }
@@ -45,30 +46,33 @@ public final class StatusLine {
         } else {
             throw new ProtocolException("Unexpected status line: " + str);
         }
-        if (str.length() < i + 3) {
-            throw new ProtocolException("Unexpected status line: " + str);
-        }
-        try {
-            int parseInt = Integer.parseInt(str.substring(i, i + 3));
-            if (str.length() <= i + 3) {
-                str2 = "";
-            } else if (str.charAt(i + 3) != ' ') {
+        int i2 = i + 3;
+        if (str.length() >= i2) {
+            try {
+                int parseInt = Integer.parseInt(str.substring(i, i2));
+                if (str.length() <= i2) {
+                    str2 = "";
+                } else if (str.charAt(i2) == ' ') {
+                    str2 = str.substring(i + 4);
+                } else {
+                    throw new ProtocolException("Unexpected status line: " + str);
+                }
+                return new StatusLine(protocol, parseInt, str2);
+            } catch (NumberFormatException unused) {
                 throw new ProtocolException("Unexpected status line: " + str);
-            } else {
-                str2 = str.substring(i + 4);
             }
-            return new StatusLine(protocol, parseInt, str2);
-        } catch (NumberFormatException e) {
-            throw new ProtocolException("Unexpected status line: " + str);
         }
+        throw new ProtocolException("Unexpected status line: " + str);
     }
 
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append(this.protocol == Protocol.HTTP_1_0 ? "HTTP/1.0" : "HTTP/1.1");
-        sb.append(' ').append(this.code);
+        sb.append(' ');
+        sb.append(this.code);
         if (this.message != null) {
-            sb.append(' ').append(this.message);
+            sb.append(' ');
+            sb.append(this.message);
         }
         return sb.toString();
     }

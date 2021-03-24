@@ -1,31 +1,30 @@
 package com.kwad.sdk.glide.load.a;
 
 import androidx.annotation.NonNull;
-import com.baidubce.services.bos.BosClientConfiguration;
 import com.kwad.sdk.glide.load.a.e;
 import com.kwad.sdk.glide.load.resource.bitmap.RecyclableBufferedInputStream;
 import java.io.InputStream;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public final class k implements e<InputStream> {
 
     /* renamed from: a  reason: collision with root package name */
-    private final RecyclableBufferedInputStream f6650a;
+    public final RecyclableBufferedInputStream f35267a;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static final class a implements e.a<InputStream> {
 
         /* renamed from: a  reason: collision with root package name */
-        private final com.kwad.sdk.glide.load.engine.bitmap_recycle.b f6651a;
+        public final com.kwad.sdk.glide.load.engine.bitmap_recycle.b f35268a;
 
         public a(com.kwad.sdk.glide.load.engine.bitmap_recycle.b bVar) {
-            this.f6651a = bVar;
+            this.f35268a = bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.kwad.sdk.glide.load.a.e.a
         @NonNull
         public e<InputStream> a(InputStream inputStream) {
-            return new k(inputStream, this.f6651a);
+            return new k(inputStream, this.f35268a);
         }
 
         @Override // com.kwad.sdk.glide.load.a.e.a
@@ -35,14 +34,15 @@ public final class k implements e<InputStream> {
         }
     }
 
-    k(InputStream inputStream, com.kwad.sdk.glide.load.engine.bitmap_recycle.b bVar) {
-        this.f6650a = new RecyclableBufferedInputStream(inputStream, bVar);
-        this.f6650a.mark(BosClientConfiguration.DEFAULT_STREAM_BUFFER_SIZE);
+    public k(InputStream inputStream, com.kwad.sdk.glide.load.engine.bitmap_recycle.b bVar) {
+        RecyclableBufferedInputStream recyclableBufferedInputStream = new RecyclableBufferedInputStream(inputStream, bVar);
+        this.f35267a = recyclableBufferedInputStream;
+        recyclableBufferedInputStream.mark(5242880);
     }
 
     @Override // com.kwad.sdk.glide.load.a.e
     public void b() {
-        this.f6650a.b();
+        this.f35267a.b();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -50,7 +50,7 @@ public final class k implements e<InputStream> {
     @NonNull
     /* renamed from: c */
     public InputStream a() {
-        this.f6650a.reset();
-        return this.f6650a;
+        this.f35267a.reset();
+        return this.f35267a;
     }
 }

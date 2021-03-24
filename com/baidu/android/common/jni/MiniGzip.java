@@ -1,33 +1,33 @@
 package com.baidu.android.common.jni;
 
 import android.os.SystemClock;
-import com.baidu.a.a.a;
 import com.baidu.util.LogUtil;
+import d.b.a.a.a;
 import java.io.File;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public final class MiniGzip {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f1059a = MiniGzip.class.getSimpleName();
+    public static final String f2512a = "MiniGzip";
 
     static {
         System.loadLibrary("minigzip_v1");
     }
 
-    private MiniGzip() {
-    }
-
     public static void unGzipFile(String str, String str2) {
         long elapsedRealtime = SystemClock.elapsedRealtime();
         if (str == null || str2 == null || str.equals("") || str2.equals("")) {
-            LogUtil.logD(f1059a, "parameters invalid : srcFile=" + str + "//destFile=" + str2);
+            String str3 = f2512a;
+            LogUtil.logD(str3, "parameters invalid : srcFile=" + str + "//destFile=" + str2);
         } else if (!new File(str).exists()) {
-            LogUtil.logD(f1059a, str + "  not exists.");
+            String str4 = f2512a;
+            LogUtil.logD(str4, str + "  not exists.");
         } else if (new a(new File(str)).a()) {
             uncompressFile(str, str2);
-            LogUtil.logD(f1059a, "native ungzip use time : " + (SystemClock.elapsedRealtime() - elapsedRealtime));
+            String str5 = f2512a;
+            LogUtil.logD(str5, "native ungzip use time : " + (SystemClock.elapsedRealtime() - elapsedRealtime));
         }
     }
 
-    private static native void uncompressFile(String str, String str2);
+    public static native void uncompressFile(String str, String str2);
 }

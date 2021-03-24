@@ -1,25 +1,25 @@
 package com.baidu.tieba.route;
 
-import com.baidu.adp.framework.a.d;
+import com.baidu.adp.framework.cmdRouter.ICmdRouter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes8.dex */
-public final class UserMuteAddAndDelStaticAutoGenerateUrlCollectorImpl implements d {
-    @Override // com.baidu.adp.framework.a.d
-    public Map<String, ArrayList<String>> getConfigRouterMap() {
-        HashMap hashMap = new HashMap();
-        hashMap.put("com.baidu.tieba.userconsume.usermute.UserMuteAddAndDelStatic", new ArrayList());
-        return hashMap;
-    }
-
-    @Override // com.baidu.adp.framework.a.d
+/* loaded from: classes5.dex */
+public final class UserMuteAddAndDelStaticAutoGenerateUrlCollectorImpl implements ICmdRouter {
+    @Override // com.baidu.adp.framework.cmdRouter.ICmdRouter
     public Map<String, String> getCmdRouterMap() {
         HashMap hashMap = new HashMap();
         new ArrayList();
         hashMap.put("2001431", "com.baidu.tieba.userconsume.usermute.UserMuteAddAndDelStatic");
         hashMap.put("2001429", "com.baidu.tieba.userconsume.usermute.UserMuteAddAndDelStatic");
         hashMap.put("2001430", "com.baidu.tieba.userconsume.usermute.UserMuteAddAndDelStatic");
+        return hashMap;
+    }
+
+    @Override // com.baidu.adp.framework.cmdRouter.ICmdRouter
+    public Map<String, ArrayList<String>> getConfigRouterMap() {
+        HashMap hashMap = new HashMap();
+        hashMap.put("com.baidu.tieba.userconsume.usermute.UserMuteAddAndDelStatic", new ArrayList());
         return hashMap;
     }
 }

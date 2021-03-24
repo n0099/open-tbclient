@@ -10,328 +10,347 @@ import android.widget.RelativeLayout;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.util.HeadIconRefreshHelper;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.r;
 import com.baidu.tbadk.data.MetaData;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import org.apache.http.HttpHost;
-/* loaded from: classes.dex */
+import d.b.b.e.p.l;
+/* loaded from: classes3.dex */
 public class HeadPendantView extends RelativeLayout {
-    private int fhA;
-    private boolean fhB;
-    private boolean fhC;
-    private TbImageView fhr;
-    private ImageView fhs;
-    private HeadImageView fht;
-    private boolean fhu;
-    private boolean fhv;
-    private boolean fhw;
-    private boolean fhx;
-    private int fhy;
-    private int fhz;
-    private Context mContext;
-    private BdUniqueId mPageId;
+
+    /* renamed from: e  reason: collision with root package name */
+    public Context f13365e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public BdUniqueId f13366f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public TbImageView f13367g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public ImageView f13368h;
+    public HeadImageView i;
+    public boolean j;
+    public boolean k;
+    public boolean l;
+    public int m;
+    public int n;
+    public boolean o;
+    public boolean p;
 
     public HeadPendantView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.fhu = false;
-        this.fhv = false;
-        this.fhw = false;
-        this.fhx = false;
-        this.fhy = R.drawable.ic_icon_mask_shen20_n;
-        this.fhz = com.baidu.adp.lib.util.l.getDimens(TbadkApplication.getInst(), R.dimen.tbds36);
-        this.fhA = 0;
-        this.fhC = true;
-        this.mContext = context;
-        init();
+        this.j = false;
+        this.k = false;
+        this.l = false;
+        this.m = l.g(TbadkApplication.getInst(), R.dimen.tbds36);
+        this.n = 0;
+        this.p = true;
+        this.f13365e = context;
+        d();
     }
 
-    public HeadPendantView(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        this.fhu = false;
-        this.fhv = false;
-        this.fhw = false;
-        this.fhx = false;
-        this.fhy = R.drawable.ic_icon_mask_shen20_n;
-        this.fhz = com.baidu.adp.lib.util.l.getDimens(TbadkApplication.getInst(), R.dimen.tbds36);
-        this.fhA = 0;
-        this.fhC = true;
-        this.mContext = context;
-        init();
+    public final void a() {
+        ImageView imageView = new ImageView(this.f13365e);
+        this.f13368h = imageView;
+        imageView.setImageDrawable(null);
+        int i = this.m;
+        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(i, i);
+        layoutParams.addRule(12, -1);
+        layoutParams.addRule(11, -1);
+        this.f13368h.setLayoutParams(layoutParams);
+        this.f13368h.setVisibility(8);
+        addView(this.f13368h);
     }
 
-    public HeadPendantView(Context context) {
-        super(context);
-        this.fhu = false;
-        this.fhv = false;
-        this.fhw = false;
-        this.fhx = false;
-        this.fhy = R.drawable.ic_icon_mask_shen20_n;
-        this.fhz = com.baidu.adp.lib.util.l.getDimens(TbadkApplication.getInst(), R.dimen.tbds36);
-        this.fhA = 0;
-        this.fhC = true;
-        this.mContext = context;
-        init();
+    public final void b() {
+        HeadImageView headImageView = new HeadImageView(this.f13365e);
+        this.i = headImageView;
+        headImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.i.setPlaceHolder(1);
+        this.i.setDefaultResource(R.color.CAM_X0205);
+        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -1);
+        layoutParams.addRule(14, -1);
+        layoutParams.addRule(15, -1);
+        this.i.setLayoutParams(layoutParams);
+        addView(this.i);
     }
 
-    public void setHasPendantStyle() {
-        this.fhu = true;
+    public final void c() {
+        TbImageView tbImageView = new TbImageView(this.f13365e);
+        this.f13367g = tbImageView;
+        tbImageView.setPageId(this.f13366f);
+        this.f13367g.setDefaultBgResource(0);
+        this.f13367g.setDefaultResource(0);
+        this.f13367g.setImageDrawable(null);
+        this.f13367g.setLayoutParams(new RelativeLayout.LayoutParams(-1, -1));
+        this.f13367g.setVisibility(8);
+        addView(this.f13367g);
     }
 
-    public void setHasPendantStyle(boolean z) {
-        if (this.fhu && !z && this.fht != null) {
-            ((RelativeLayout.LayoutParams) this.fht.getLayoutParams()).setMargins(0, 0, 0, 0);
-            if (this.fhs != null) {
-                ((RelativeLayout.LayoutParams) this.fhs.getLayoutParams()).setMargins(0, 0, 0, 0);
-            }
-            if (this.fhr != null) {
-                this.fhr.setVisibility(8);
-            }
-            this.fhv = false;
-            invalidate();
-        } else if (!this.fhu && z && this.fht != null) {
-            int width = (int) (this.fht.getWidth() * 0.13f);
-            int height = (int) (this.fht.getHeight() * 0.13f);
-            ((RelativeLayout.LayoutParams) this.fht.getLayoutParams()).setMargins(width, height, width, height);
-            if (this.fhs != null) {
-                ((RelativeLayout.LayoutParams) this.fhs.getLayoutParams()).setMargins(width, height, width, height);
-            }
-            invalidate();
+    public void d() {
+        this.m = l.g(getContext(), R.dimen.tbds42);
+        b();
+        c();
+        a();
+    }
+
+    @Override // android.view.ViewGroup, android.view.View
+    public void dispatchDraw(Canvas canvas) {
+        super.dispatchDraw(canvas);
+    }
+
+    public final void e() {
+        ImageView imageView;
+        if (this.m <= 0 || (imageView = this.f13368h) == null) {
+            return;
         }
-        this.fhu = z;
+        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) imageView.getLayoutParams();
+        int i = this.m;
+        layoutParams.width = i;
+        layoutParams.height = i;
+        this.f13368h.setLayoutParams(layoutParams);
     }
 
-    public void setBjhPbFirstFloor(boolean z) {
-        this.fhw = z;
+    public final void f(MetaData metaData) {
+        if (metaData == null) {
+            return;
+        }
+        if (this.o) {
+            this.f13368h.setVisibility(8);
+            return;
+        }
+        this.i.setShowV(false);
+        if (UtilHelper.showOfficialIcon(this.f13368h, metaData)) {
+            return;
+        }
+        if (metaData.isNewGod()) {
+            SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.f13368h, R.drawable.icon_mask_shen_liang20_svg, SvgManager.SvgResourceStateType.NORMAL);
+            g(true);
+            return;
+        }
+        g(false);
+        if (this.l || !UtilHelper.showHeadBazhuIcon(this.f13368h, metaData, this.p)) {
+            UtilHelper.showHeadBjhBigVIcon(this.f13368h, metaData, this.n);
+        }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
+    public void g(boolean z) {
+        ImageView imageView = this.f13368h;
+        if (imageView == null) {
+            return;
+        }
+        imageView.setVisibility(z ? 0 : 8);
+    }
+
+    public ImageView getBigVIconView() {
+        return this.f13368h;
+    }
+
+    public HeadImageView getHeadView() {
+        return this.i;
+    }
+
+    public TbImageView getPendantView() {
+        return this.f13367g;
+    }
+
+    public void h(MetaData metaData) {
+        if (metaData == null) {
+            return;
+        }
+        if (metaData.getPendantData() != null) {
+            l(metaData.getPendantData().a());
+        } else {
+            l(null);
+        }
+        f(metaData);
+    }
+
+    public void i(MetaData metaData, int i) {
+        if (metaData == null) {
+            return;
+        }
+        this.n = i;
+        h(metaData);
+    }
+
+    public void j(String str, int i, boolean z) {
+        this.i.T(str, i, 0, 0, z);
+    }
+
+    public void k(String str) {
+        if (StringUtils.isNull(str)) {
+            return;
+        }
+        String headPortraitFilter = HeadIconRefreshHelper.headPortraitFilter(str);
+        this.i.setImageBitmap(null);
+        this.i.setUrl(headPortraitFilter);
+        if (headPortraitFilter.startsWith("http")) {
+            j(headPortraitFilter, 10, false);
+        } else {
+            j(headPortraitFilter, 25, false);
+        }
+    }
+
+    public void l(String str) {
+        if (this.f13367g == null) {
+            return;
+        }
+        if (this.j && !StringUtils.isNull(str)) {
+            this.f13367g.setVisibility(0);
+            this.f13367g.setImageDrawable(null);
+            this.f13367g.W(str, 10, false);
+            return;
+        }
+        this.f13367g.setVisibility(8);
+    }
+
+    public void m(MetaData metaData) {
+        if (metaData == null || TextUtils.isEmpty(metaData.getPortrait())) {
+            return;
+        }
+        String headPortraitFilter = HeadIconRefreshHelper.headPortraitFilter(metaData.getAvater());
+        setUrl(headPortraitFilter);
+        if (headPortraitFilter.startsWith("http")) {
+            j(headPortraitFilter, 10, false);
+        } else {
+            j(headPortraitFilter, 25, false);
+        }
+        h(metaData);
+    }
+
     @Override // android.widget.RelativeLayout, android.view.View
     public void onMeasure(int i, int i2) {
-        if (this.fhu) {
+        if (this.j) {
             int size = View.MeasureSpec.getSize(i);
             int i3 = (int) (size * 0.13f);
             int size2 = (int) (View.MeasureSpec.getSize(i2) * 0.13f);
-            ((RelativeLayout.LayoutParams) this.fht.getLayoutParams()).setMargins(i3, size2, i3, size2);
-            if (this.fhs != null) {
-                ((RelativeLayout.LayoutParams) this.fhs.getLayoutParams()).setMargins(i3, size2, i3, size2);
+            ((RelativeLayout.LayoutParams) this.i.getLayoutParams()).setMargins(i3, size2, i3, size2);
+            ImageView imageView = this.f13368h;
+            if (imageView != null) {
+                ((RelativeLayout.LayoutParams) imageView.getLayoutParams()).setMargins(i3, size2, i3, size2);
             }
         }
-        if (this.fhw) {
-            ((RelativeLayout.LayoutParams) this.fht.getLayoutParams()).setMargins(0, 0, 0, 0);
-            if (this.fhs != null) {
-                ((RelativeLayout.LayoutParams) this.fhs.getLayoutParams()).setMargins(0, 0, 0, 0);
+        if (this.k) {
+            ((RelativeLayout.LayoutParams) this.i.getLayoutParams()).setMargins(0, 0, 0, 0);
+            ImageView imageView2 = this.f13368h;
+            if (imageView2 != null) {
+                ((RelativeLayout.LayoutParams) imageView2.getLayoutParams()).setMargins(0, 0, 0, 0);
             }
         }
         super.onMeasure(i, i2);
     }
 
-    public void BG(String str) {
-        if (this.fhr != null) {
-            if (this.fhu && !StringUtils.isNull(str)) {
-                this.fhv = true;
-                this.fhr.setVisibility(0);
-                this.fhr.setImageDrawable(null);
-                this.fhr.startLoad(str, 10, false);
-                return;
-            }
-            this.fhr.setVisibility(8);
-            this.fhv = false;
-        }
+    public void setAuthIconType(int i) {
+        this.n = i;
     }
 
     public void setAutoChangeStyle(boolean z) {
-        this.fhr.setAutoChangeStyle(z);
-        this.fht.setAutoChangeStyle(z);
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void init() {
-        this.fhz = com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds42);
-        btS();
-        btT();
-        btU();
-    }
-
-    private void btS() {
-        this.fht = new HeadImageView(this.mContext);
-        this.fht.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.fht.setPlaceHolder(1);
-        this.fht.setDefaultResource(R.color.CAM_X0205);
-        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -1);
-        layoutParams.addRule(14, -1);
-        layoutParams.addRule(15, -1);
-        this.fht.setLayoutParams(layoutParams);
-        addView(this.fht);
-    }
-
-    private void btT() {
-        this.fhr = new TbImageView(this.mContext);
-        this.fhr.setPageId(this.mPageId);
-        this.fhr.setDefaultBgResource(0);
-        this.fhr.setDefaultResource(0);
-        this.fhr.setImageDrawable(null);
-        this.fhr.setLayoutParams(new RelativeLayout.LayoutParams(-1, -1));
-        this.fhr.setVisibility(8);
-        addView(this.fhr);
-    }
-
-    private void btU() {
-        this.fhs = new ImageView(this.mContext);
-        this.fhs.setImageDrawable(null);
-        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(this.fhz, this.fhz);
-        layoutParams.addRule(12, -1);
-        layoutParams.addRule(11, -1);
-        this.fhs.setLayoutParams(layoutParams);
-        this.fhs.setVisibility(8);
-        addView(this.fhs);
-    }
-
-    public void setPageId(BdUniqueId bdUniqueId) {
-        this.mPageId = bdUniqueId;
-        if (this.fht != null) {
-            this.fht.setPageId(bdUniqueId);
-        }
-        if (this.fhr != null) {
-            this.fhr.setPageId(bdUniqueId);
-        }
-    }
-
-    public TbImageView getPendantView() {
-        return this.fhr;
-    }
-
-    public HeadImageView getHeadView() {
-        return this.fht;
-    }
-
-    public ImageView getBigVIconView() {
-        return this.fhs;
-    }
-
-    @Override // android.view.ViewGroup, android.view.View
-    protected void dispatchDraw(Canvas canvas) {
-        super.dispatchDraw(canvas);
+        this.f13367g.setAutoChangeStyle(z);
+        this.i.setAutoChangeStyle(z);
     }
 
     public void setBigVDimenSize(int i) {
         if (i > 0) {
-            this.fhz = com.baidu.adp.lib.util.l.getDimens(getContext(), i);
+            this.m = l.g(getContext(), i);
         }
-        btV();
-    }
-
-    private void btV() {
-        if (this.fhz > 0 && this.fhs != null) {
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.fhs.getLayoutParams();
-            layoutParams.width = this.fhz;
-            layoutParams.height = this.fhz;
-            this.fhs.setLayoutParams(layoutParams);
-        }
+        e();
     }
 
     public void setBigVIconResId(int i) {
-        this.fhy = i;
     }
 
-    public void setAuthIconType(int i) {
-        this.fhA = i;
-    }
-
-    public void setUrl(String str) {
-        this.fht.setUrl(str);
+    public void setBjhPbFirstFloor(boolean z) {
+        this.k = z;
     }
 
     public void setDefalutResid(int i) {
-        this.fht.setDefaultResource(i);
+        this.i.setDefaultResource(i);
     }
 
-    public void BH(String str) {
-        if (!StringUtils.isNull(str)) {
-            String Bc = r.Bc(str);
-            this.fht.setImageBitmap(null);
-            this.fht.setUrl(Bc);
-            if (Bc.startsWith(HttpHost.DEFAULT_SCHEME_NAME)) {
-                startLoad(Bc, 10, false);
-            } else {
-                startLoad(Bc, 25, false);
-            }
-        }
-    }
-
-    public void startLoad(String str, int i, boolean z) {
-        this.fht.a(str, i, 0, 0, z);
-    }
-
-    public void a(MetaData metaData) {
-        if (metaData != null && !TextUtils.isEmpty(metaData.getPortrait())) {
-            String Bc = r.Bc(metaData.getAvater());
-            setUrl(Bc);
-            if (Bc.startsWith(HttpHost.DEFAULT_SCHEME_NAME)) {
-                startLoad(Bc, 10, false);
-            } else {
-                startLoad(Bc, 25, false);
-            }
-            b(metaData);
-        }
-    }
-
-    public void b(MetaData metaData) {
-        if (metaData != null) {
-            if (metaData.getPendantData() != null) {
-                BG(metaData.getPendantData().getImgUrl());
-            } else {
-                BG(null);
-            }
-            c(metaData);
-        }
-    }
-
-    public void a(MetaData metaData, int i) {
-        if (metaData != null) {
-            this.fhA = i;
-            b(metaData);
-        }
-    }
-
-    private void c(MetaData metaData) {
-        if (metaData != null) {
-            if (this.fhB) {
-                this.fhs.setVisibility(8);
-                return;
-            }
-            this.fht.setShowV(false);
-            if (!UtilHelper.showOfficialIcon(this.fhs, metaData)) {
-                if (metaData.isNewGod()) {
-                    SvgManager.bsU().a(this.fhs, R.drawable.icon_mask_shen_liang20_svg, SvgManager.SvgResourceStateType.NORMAL);
-                    jY(true);
-                    return;
-                }
-                jY(false);
-                if (this.fhx || !UtilHelper.showHeadBazhuIcon(this.fhs, metaData, this.fhC)) {
-                    UtilHelper.showHeadBjhBigVIcon(this.fhs, metaData, this.fhA);
-                }
-            }
-        }
-    }
-
-    public void jY(boolean z) {
-        if (this.fhs != null) {
-            this.fhs.setVisibility(z ? 0 : 8);
-        }
-    }
-
-    public void setIsclearmode(boolean z) {
-        this.fhB = z;
+    public void setHasPendantStyle() {
+        this.j = true;
     }
 
     public void setIsHomePage(boolean z) {
-        this.fhx = z;
+        this.l = z;
+    }
+
+    public void setIsclearmode(boolean z) {
+        this.o = z;
+    }
+
+    public void setPageId(BdUniqueId bdUniqueId) {
+        this.f13366f = bdUniqueId;
+        HeadImageView headImageView = this.i;
+        if (headImageView != null) {
+            headImageView.setPageId(bdUniqueId);
+        }
+        TbImageView tbImageView = this.f13367g;
+        if (tbImageView != null) {
+            tbImageView.setPageId(bdUniqueId);
+        }
     }
 
     public void setShowSimpleIcon(boolean z) {
-        this.fhC = z;
+        this.p = z;
+    }
+
+    public void setUrl(String str) {
+        this.i.setUrl(str);
+    }
+
+    public void setHasPendantStyle(boolean z) {
+        HeadImageView headImageView;
+        HeadImageView headImageView2;
+        if (this.j && !z && (headImageView2 = this.i) != null) {
+            ((RelativeLayout.LayoutParams) headImageView2.getLayoutParams()).setMargins(0, 0, 0, 0);
+            ImageView imageView = this.f13368h;
+            if (imageView != null) {
+                ((RelativeLayout.LayoutParams) imageView.getLayoutParams()).setMargins(0, 0, 0, 0);
+            }
+            TbImageView tbImageView = this.f13367g;
+            if (tbImageView != null) {
+                tbImageView.setVisibility(8);
+            }
+            invalidate();
+        } else if (!this.j && z && (headImageView = this.i) != null) {
+            int width = (int) (this.i.getWidth() * 0.13f);
+            int height = (int) (this.i.getHeight() * 0.13f);
+            ((RelativeLayout.LayoutParams) headImageView.getLayoutParams()).setMargins(width, height, width, height);
+            ImageView imageView2 = this.f13368h;
+            if (imageView2 != null) {
+                ((RelativeLayout.LayoutParams) imageView2.getLayoutParams()).setMargins(width, height, width, height);
+            }
+            invalidate();
+        }
+        this.j = z;
+    }
+
+    public HeadPendantView(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        this.j = false;
+        this.k = false;
+        this.l = false;
+        this.m = l.g(TbadkApplication.getInst(), R.dimen.tbds36);
+        this.n = 0;
+        this.p = true;
+        this.f13365e = context;
+        d();
+    }
+
+    public HeadPendantView(Context context) {
+        super(context);
+        this.j = false;
+        this.k = false;
+        this.l = false;
+        this.m = l.g(TbadkApplication.getInst(), R.dimen.tbds36);
+        this.n = 0;
+        this.p = true;
+        this.f13365e = context;
+        d();
     }
 }

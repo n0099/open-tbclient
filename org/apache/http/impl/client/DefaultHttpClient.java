@@ -17,10 +17,95 @@ import org.apache.http.protocol.BasicHttpProcessor;
 import org.apache.http.protocol.HttpContext;
 import org.apache.http.protocol.HttpRequestExecutor;
 @Deprecated
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class DefaultHttpClient extends AbstractHttpClient {
     public DefaultHttpClient(ClientConnectionManager clientConnectionManager, HttpParams httpParams) {
         super(null, null);
+        throw new RuntimeException("Stub!");
+    }
+
+    @Override // org.apache.http.impl.client.AbstractHttpClient
+    public AuthSchemeRegistry createAuthSchemeRegistry() {
+        throw new RuntimeException("Stub!");
+    }
+
+    @Override // org.apache.http.impl.client.AbstractHttpClient
+    public ClientConnectionManager createClientConnectionManager() {
+        throw new RuntimeException("Stub!");
+    }
+
+    @Override // org.apache.http.impl.client.AbstractHttpClient
+    public ConnectionKeepAliveStrategy createConnectionKeepAliveStrategy() {
+        throw new RuntimeException("Stub!");
+    }
+
+    @Override // org.apache.http.impl.client.AbstractHttpClient
+    public ConnectionReuseStrategy createConnectionReuseStrategy() {
+        throw new RuntimeException("Stub!");
+    }
+
+    @Override // org.apache.http.impl.client.AbstractHttpClient
+    public CookieSpecRegistry createCookieSpecRegistry() {
+        throw new RuntimeException("Stub!");
+    }
+
+    @Override // org.apache.http.impl.client.AbstractHttpClient
+    public CookieStore createCookieStore() {
+        throw new RuntimeException("Stub!");
+    }
+
+    @Override // org.apache.http.impl.client.AbstractHttpClient
+    public CredentialsProvider createCredentialsProvider() {
+        throw new RuntimeException("Stub!");
+    }
+
+    @Override // org.apache.http.impl.client.AbstractHttpClient
+    public HttpContext createHttpContext() {
+        throw new RuntimeException("Stub!");
+    }
+
+    @Override // org.apache.http.impl.client.AbstractHttpClient
+    public HttpParams createHttpParams() {
+        throw new RuntimeException("Stub!");
+    }
+
+    @Override // org.apache.http.impl.client.AbstractHttpClient
+    public BasicHttpProcessor createHttpProcessor() {
+        throw new RuntimeException("Stub!");
+    }
+
+    @Override // org.apache.http.impl.client.AbstractHttpClient
+    public HttpRequestRetryHandler createHttpRequestRetryHandler() {
+        throw new RuntimeException("Stub!");
+    }
+
+    @Override // org.apache.http.impl.client.AbstractHttpClient
+    public HttpRoutePlanner createHttpRoutePlanner() {
+        throw new RuntimeException("Stub!");
+    }
+
+    @Override // org.apache.http.impl.client.AbstractHttpClient
+    public AuthenticationHandler createProxyAuthenticationHandler() {
+        throw new RuntimeException("Stub!");
+    }
+
+    @Override // org.apache.http.impl.client.AbstractHttpClient
+    public RedirectHandler createRedirectHandler() {
+        throw new RuntimeException("Stub!");
+    }
+
+    @Override // org.apache.http.impl.client.AbstractHttpClient
+    public HttpRequestExecutor createRequestExecutor() {
+        throw new RuntimeException("Stub!");
+    }
+
+    @Override // org.apache.http.impl.client.AbstractHttpClient
+    public AuthenticationHandler createTargetAuthenticationHandler() {
+        throw new RuntimeException("Stub!");
+    }
+
+    @Override // org.apache.http.impl.client.AbstractHttpClient
+    public UserTokenHandler createUserTokenHandler() {
         throw new RuntimeException("Stub!");
     }
 
@@ -31,92 +116,6 @@ public class DefaultHttpClient extends AbstractHttpClient {
 
     public DefaultHttpClient() {
         super(null, null);
-        throw new RuntimeException("Stub!");
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // org.apache.http.impl.client.AbstractHttpClient
-    public HttpParams createHttpParams() {
-        throw new RuntimeException("Stub!");
-    }
-
-    @Override // org.apache.http.impl.client.AbstractHttpClient
-    protected HttpRequestExecutor createRequestExecutor() {
-        throw new RuntimeException("Stub!");
-    }
-
-    @Override // org.apache.http.impl.client.AbstractHttpClient
-    protected ClientConnectionManager createClientConnectionManager() {
-        throw new RuntimeException("Stub!");
-    }
-
-    @Override // org.apache.http.impl.client.AbstractHttpClient
-    protected HttpContext createHttpContext() {
-        throw new RuntimeException("Stub!");
-    }
-
-    @Override // org.apache.http.impl.client.AbstractHttpClient
-    protected ConnectionReuseStrategy createConnectionReuseStrategy() {
-        throw new RuntimeException("Stub!");
-    }
-
-    @Override // org.apache.http.impl.client.AbstractHttpClient
-    protected ConnectionKeepAliveStrategy createConnectionKeepAliveStrategy() {
-        throw new RuntimeException("Stub!");
-    }
-
-    @Override // org.apache.http.impl.client.AbstractHttpClient
-    protected AuthSchemeRegistry createAuthSchemeRegistry() {
-        throw new RuntimeException("Stub!");
-    }
-
-    @Override // org.apache.http.impl.client.AbstractHttpClient
-    protected CookieSpecRegistry createCookieSpecRegistry() {
-        throw new RuntimeException("Stub!");
-    }
-
-    @Override // org.apache.http.impl.client.AbstractHttpClient
-    protected BasicHttpProcessor createHttpProcessor() {
-        throw new RuntimeException("Stub!");
-    }
-
-    @Override // org.apache.http.impl.client.AbstractHttpClient
-    protected HttpRequestRetryHandler createHttpRequestRetryHandler() {
-        throw new RuntimeException("Stub!");
-    }
-
-    @Override // org.apache.http.impl.client.AbstractHttpClient
-    protected RedirectHandler createRedirectHandler() {
-        throw new RuntimeException("Stub!");
-    }
-
-    @Override // org.apache.http.impl.client.AbstractHttpClient
-    protected AuthenticationHandler createTargetAuthenticationHandler() {
-        throw new RuntimeException("Stub!");
-    }
-
-    @Override // org.apache.http.impl.client.AbstractHttpClient
-    protected AuthenticationHandler createProxyAuthenticationHandler() {
-        throw new RuntimeException("Stub!");
-    }
-
-    @Override // org.apache.http.impl.client.AbstractHttpClient
-    protected CookieStore createCookieStore() {
-        throw new RuntimeException("Stub!");
-    }
-
-    @Override // org.apache.http.impl.client.AbstractHttpClient
-    protected CredentialsProvider createCredentialsProvider() {
-        throw new RuntimeException("Stub!");
-    }
-
-    @Override // org.apache.http.impl.client.AbstractHttpClient
-    protected HttpRoutePlanner createHttpRoutePlanner() {
-        throw new RuntimeException("Stub!");
-    }
-
-    @Override // org.apache.http.impl.client.AbstractHttpClient
-    protected UserTokenHandler createUserTokenHandler() {
         throw new RuntimeException("Stub!");
     }
 }

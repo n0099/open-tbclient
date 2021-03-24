@@ -4,15 +4,15 @@ import android.content.Context;
 import android.text.TextUtils;
 import com.kwad.sdk.R;
 import com.kwad.sdk.core.config.item.TipsConfigItem;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public final class q {
     public static String a(Context context) {
-        String a2 = com.kwad.sdk.core.config.c.a("bottom");
+        String a2 = com.kwad.sdk.core.config.c.a(TipsConfigItem.TipConfigData.BOTTOM);
         return (!TextUtils.isEmpty(a2) || context == null) ? a2 : context.getString(R.string.ksad_default_no_more_tip_or_toast_txt);
     }
 
     public static String b(Context context) {
-        String a2 = com.kwad.sdk.core.config.c.a(TipsConfigItem.TipConfigData.TOAST);
+        String a2 = com.kwad.sdk.core.config.c.a("toast");
         return (!TextUtils.isEmpty(a2) || context == null) ? a2 : context.getString(R.string.ksad_default_no_more_tip_or_toast_txt);
     }
 

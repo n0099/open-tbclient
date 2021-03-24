@@ -5,195 +5,231 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.AbsListView;
 import android.widget.FrameLayout;
-import com.baidu.adp.base.f;
-import com.baidu.adp.base.j;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.l;
 import com.baidu.adp.widget.ListView.BdTypeListView;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.view.f;
-import com.baidu.tbadk.l.g;
-import com.baidu.tbadk.l.h;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.util.BdListViewHelper;
 import com.baidu.tieba.R;
 import com.baidu.tieba.hottopic.controller.HotRanklistActivity;
-/* loaded from: classes7.dex */
+import d.b.b.e.p.j;
+import d.b.b.e.p.l;
+import d.b.h0.d0.h;
+import d.b.h0.r.f0.f;
+import d.b.h0.r.f0.g;
+/* loaded from: classes4.dex */
 public class HotRankView extends FrameLayout {
-    private BdTypeListView gAY;
-    private g gLk;
-    private View iXG;
-    private com.baidu.tieba.hottopic.adapter.a kyE;
-    private com.baidu.tbadk.core.view.g mPullView;
-    private TbPageContext<?> pageContext;
-    private h refreshView;
+
+    /* renamed from: e  reason: collision with root package name */
+    public TbPageContext<?> f17620e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public BdTypeListView f17621f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public d.b.i0.b1.a.a f17622g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public g f17623h;
+    public View i;
+    public d.b.h0.d0.g j;
+    public h k;
+
+    /* loaded from: classes4.dex */
+    public class a implements f.g {
+        public a() {
+        }
+
+        @Override // d.b.h0.r.f0.f.g
+        public void onListPullRefresh(boolean z) {
+            if (!j.z()) {
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004011));
+                HotRankView.this.f17621f.A(0L);
+                return;
+            }
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004012));
+            ((HotRanklistActivity) HotRankView.this.f17620e.getOrignalPage()).loadHotTopicRanklistData();
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class b implements AbsListView.OnScrollListener {
+        public b() {
+        }
+
+        @Override // android.widget.AbsListView.OnScrollListener
+        public void onScroll(AbsListView absListView, int i, int i2, int i3) {
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004013));
+        }
+
+        @Override // android.widget.AbsListView.OnScrollListener
+        public void onScrollStateChanged(AbsListView absListView, int i) {
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class c implements View.OnClickListener {
+        public c() {
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            if (j.A()) {
+                HotRankView.this.e();
+                HotRankView hotRankView = HotRankView.this;
+                hotRankView.l(true, l.g(hotRankView.f17620e.getPageActivity(), R.dimen.ds500));
+                ((HotRanklistActivity) HotRankView.this.f17620e.getOrignalPage()).loadHotTopicRanklistData();
+            }
+        }
+    }
 
     public HotRankView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.gAY = null;
-        this.kyE = null;
-        this.mPullView = null;
-        init(context);
+        this.f17621f = null;
+        this.f17622g = null;
+        this.f17623h = null;
+        f(context);
+    }
+
+    public void c(boolean z) {
+        BdTypeListView bdTypeListView = this.f17621f;
+        if (bdTypeListView != null) {
+            if (z) {
+                bdTypeListView.z();
+            } else {
+                bdTypeListView.A(0L);
+            }
+        }
+    }
+
+    public void d() {
+        d.b.h0.d0.g gVar = this.j;
+        if (gVar != null) {
+            gVar.dettachView(this);
+            this.j = null;
+        }
+    }
+
+    public void e() {
+        h hVar = this.k;
+        if (hVar != null) {
+            hVar.dettachView(this);
+            this.k = null;
+        }
+    }
+
+    public final void f(Context context) {
+        BdTypeListView bdTypeListView = new BdTypeListView(context);
+        this.f17621f = bdTypeListView;
+        bdTypeListView.setVerticalScrollBarEnabled(false);
+        this.f17621f.setDividerHeight(0);
+        this.f17621f.setSelector(17170445);
+        d.b.b.a.f<?> a2 = d.b.b.a.j.a(context);
+        if (a2 instanceof TbPageContext) {
+            this.f17620e = (TbPageContext) a2;
+        }
+        g gVar = new g(this.f17620e);
+        this.f17623h = gVar;
+        gVar.b(new a());
+        this.f17621f.setPullRefresh(this.f17623h);
+        this.i = BdListViewHelper.d(context, this.f17621f, BdListViewHelper.HeadType.HASTAB);
+        this.f17621f.setOnScrollListener(new b());
+        this.f17622g = new d.b.i0.b1.a.a((HotRanklistActivity) this.f17620e.getOrignalPage(), this.f17621f);
+        addView(this.f17621f);
+    }
+
+    public boolean g() {
+        d.b.h0.d0.g gVar = this.j;
+        if (gVar != null) {
+            return gVar.isViewAttached();
+        }
+        return false;
+    }
+
+    public boolean h() {
+        h hVar = this.k;
+        if (hVar != null) {
+            return hVar.isViewAttached();
+        }
+        return false;
+    }
+
+    public void i() {
+        SkinManager.setBackgroundColor(this, R.color.CAM_X0201);
+        SkinManager.setBackgroundColor(this.f17621f, R.color.CAM_X0201);
+        this.f17621f.getListAdapter().notifyDataSetChanged();
+        d.b.h0.d0.g gVar = this.j;
+        if (gVar != null) {
+            gVar.onChangeSkinType();
+        }
+        h hVar = this.k;
+        if (hVar != null) {
+            hVar.onChangeSkinType();
+        }
+    }
+
+    public void j(View view, int i, int i2, int i3, int i4) {
+        AbsListView.LayoutParams layoutParams = (AbsListView.LayoutParams) this.i.getLayoutParams();
+        layoutParams.height = i2;
+        this.i.setLayoutParams(layoutParams);
+    }
+
+    public void k(d.b.i0.b1.c.j jVar, String str) {
+        if (this.f17622g == null) {
+            return;
+        }
+        if (jVar == null) {
+            jVar = new d.b.i0.b1.c.j();
+        }
+        this.f17621f.setVisibility(0);
+        this.f17622g.b(jVar, str);
+    }
+
+    public void l(boolean z, int i) {
+        if (g()) {
+            return;
+        }
+        if (this.j == null) {
+            if (i <= 0) {
+                this.j = new d.b.h0.d0.g(getContext());
+            } else {
+                d.b.h0.d0.g gVar = new d.b.h0.d0.g(getContext(), i);
+                this.j = gVar;
+                gVar.h();
+            }
+            this.j.onChangeSkinType();
+        }
+        this.j.attachView(this, z);
+        this.f17621f.setVisibility(8);
+    }
+
+    public void m(String str, boolean z) {
+        if (h()) {
+            return;
+        }
+        if (this.k == null) {
+            this.k = new h(getContext(), new c());
+        }
+        this.k.j(getContext().getResources().getDimensionPixelSize(R.dimen.ds280));
+        this.k.attachView(this, z);
+        this.k.o();
+        this.f17621f.setVisibility(8);
     }
 
     public HotRankView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.gAY = null;
-        this.kyE = null;
-        this.mPullView = null;
-        init(context);
+        this.f17621f = null;
+        this.f17622g = null;
+        this.f17623h = null;
+        f(context);
     }
 
     public HotRankView(Context context) {
         super(context);
-        this.gAY = null;
-        this.kyE = null;
-        this.mPullView = null;
-        init(context);
-    }
-
-    private void init(Context context) {
-        this.gAY = new BdTypeListView(context);
-        this.gAY.setVerticalScrollBarEnabled(false);
-        this.gAY.setDividerHeight(0);
-        this.gAY.setSelector(17170445);
-        f<?> J = j.J(context);
-        if (J instanceof TbPageContext) {
-            this.pageContext = (TbPageContext) J;
-        }
-        this.mPullView = new com.baidu.tbadk.core.view.g(this.pageContext);
-        this.mPullView.setListPullRefreshListener(new f.c() { // from class: com.baidu.tieba.hottopic.view.HotRankView.1
-            @Override // com.baidu.tbadk.core.view.f.c
-            public void onListPullRefresh(boolean z) {
-                if (!com.baidu.adp.lib.util.j.isNetWorkAvailable()) {
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.PB_PAUSE_VIDEO));
-                    HotRankView.this.gAY.completePullRefreshPostDelayed(0L);
-                    return;
-                }
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.PB_REFRESH_VIDEO));
-                ((HotRanklistActivity) HotRankView.this.pageContext.getOrignalPage()).cSV();
-            }
-        });
-        this.gAY.setPullRefresh(this.mPullView);
-        this.iXG = BdListViewHelper.a(context, this.gAY, BdListViewHelper.HeadType.HASTAB);
-        this.gAY.setOnScrollListener(new AbsListView.OnScrollListener() { // from class: com.baidu.tieba.hottopic.view.HotRankView.2
-            @Override // android.widget.AbsListView.OnScrollListener
-            public void onScrollStateChanged(AbsListView absListView, int i) {
-                if (i == 0) {
-                }
-            }
-
-            @Override // android.widget.AbsListView.OnScrollListener
-            public void onScroll(AbsListView absListView, int i, int i2, int i3) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.PB_ON_SCROLL));
-            }
-        });
-        this.kyE = new com.baidu.tieba.hottopic.adapter.a((HotRanklistActivity) this.pageContext.getOrignalPage(), this.gAY);
-        addView(this.gAY);
-    }
-
-    public void h(View view, int i, int i2, int i3, int i4) {
-        AbsListView.LayoutParams layoutParams = (AbsListView.LayoutParams) this.iXG.getLayoutParams();
-        layoutParams.height = i2;
-        this.iXG.setLayoutParams(layoutParams);
-    }
-
-    public void b(com.baidu.tieba.hottopic.data.j jVar, String str) {
-        if (this.kyE != null) {
-            if (jVar == null) {
-                jVar = new com.baidu.tieba.hottopic.data.j();
-            }
-            this.gAY.setVisibility(0);
-            this.kyE.a(jVar, str);
-        }
-    }
-
-    public void sx(boolean z) {
-        if (this.gAY != null) {
-            if (z) {
-                this.gAY.completePullRefresh();
-            } else {
-                this.gAY.completePullRefreshPostDelayed(0L);
-            }
-        }
-    }
-
-    public void C(boolean z, int i) {
-        if (!cqY()) {
-            if (this.gLk == null) {
-                if (i <= 0) {
-                    this.gLk = new g(getContext());
-                } else {
-                    this.gLk = new g(getContext(), i);
-                    this.gLk.bCV();
-                }
-                this.gLk.onChangeSkinType();
-            }
-            this.gLk.attachView(this, z);
-            this.gAY.setVisibility(8);
-        }
-    }
-
-    public void hideLoadingView() {
-        if (this.gLk != null) {
-            this.gLk.dettachView(this);
-            this.gLk = null;
-        }
-    }
-
-    public boolean cqY() {
-        if (this.gLk != null) {
-            return this.gLk.isViewAttached();
-        }
-        return false;
-    }
-
-    public void aQ(String str, boolean z) {
-        if (!cqZ()) {
-            if (this.refreshView == null) {
-                this.refreshView = new h(getContext(), new View.OnClickListener() { // from class: com.baidu.tieba.hottopic.view.HotRankView.3
-                    @Override // android.view.View.OnClickListener
-                    public void onClick(View view) {
-                        if (com.baidu.adp.lib.util.j.isNetworkAvailableForImmediately()) {
-                            HotRankView.this.Xc();
-                            HotRankView.this.C(true, l.getDimens(HotRankView.this.pageContext.getPageActivity(), R.dimen.ds500));
-                            ((HotRanklistActivity) HotRankView.this.pageContext.getOrignalPage()).cSV();
-                        }
-                    }
-                });
-            }
-            this.refreshView.setLayoutMargin(getContext().getResources().getDimensionPixelSize(R.dimen.ds280));
-            this.refreshView.attachView(this, z);
-            this.refreshView.showRefreshButton();
-            this.gAY.setVisibility(8);
-        }
-    }
-
-    public void Xc() {
-        if (this.refreshView != null) {
-            this.refreshView.dettachView(this);
-            this.refreshView = null;
-        }
-    }
-
-    public boolean cqZ() {
-        if (this.refreshView != null) {
-            return this.refreshView.isViewAttached();
-        }
-        return false;
-    }
-
-    public void onChangeSkinType() {
-        ap.setBackgroundColor(this, R.color.CAM_X0201);
-        ap.setBackgroundColor(this.gAY, R.color.CAM_X0201);
-        this.gAY.getListAdapter().notifyDataSetChanged();
-        if (this.gLk != null) {
-            this.gLk.onChangeSkinType();
-        }
-        if (this.refreshView != null) {
-            this.refreshView.onChangeSkinType();
-        }
+        this.f17621f = null;
+        this.f17622g = null;
+        this.f17623h = null;
+        f(context);
     }
 }

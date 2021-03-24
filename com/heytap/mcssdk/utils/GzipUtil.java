@@ -5,77 +5,74 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.zip.GZIPInputStream;
 import java.util.zip.GZIPOutputStream;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class GzipUtil {
-    private static final int IO_BUF_SIZE = 1024;
+    public static final int IO_BUF_SIZE = 1024;
 
-    /* JADX WARN: Removed duplicated region for block: B:32:0x0065 A[Catch: IOException -> 0x006c, TryCatch #6 {IOException -> 0x006c, blocks: (B:30:0x0060, B:32:0x0065, B:33:0x0068), top: B:48:0x0060 }] */
+    /* JADX WARN: Removed duplicated region for block: B:35:0x0063 A[Catch: IOException -> 0x006a, TryCatch #0 {IOException -> 0x006a, blocks: (B:33:0x005e, B:35:0x0063, B:36:0x0066), top: B:43:0x005e }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public static byte[] compress(String str) {
         GZIPOutputStream gZIPOutputStream;
+        Throwable th;
+        IOException e2;
         if (str == null || str.length() == 0) {
             return "".getBytes();
         }
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(str.getBytes());
-        GZIPOutputStream gZIPOutputStream2 = null;
         try {
             try {
                 gZIPOutputStream = new GZIPOutputStream(byteArrayOutputStream);
                 try {
-                    byte[] bArr = new byte[1024];
-                    while (true) {
-                        int read = byteArrayInputStream.read(bArr);
-                        if (read > 0) {
+                    try {
+                        byte[] bArr = new byte[1024];
+                        while (true) {
+                            int read = byteArrayInputStream.read(bArr);
+                            if (read <= 0) {
+                                break;
+                            }
                             gZIPOutputStream.write(bArr, 0, read);
                             gZIPOutputStream.flush();
-                        } else {
-                            try {
-                                break;
-                            } catch (IOException e) {
-                                e.printStackTrace();
-                            }
                         }
+                        byteArrayInputStream.close();
+                        gZIPOutputStream.close();
+                        byteArrayOutputStream.close();
+                    } catch (IOException e3) {
+                        e2 = e3;
+                        LogUtil.e(e2);
+                        byteArrayInputStream.close();
+                        if (gZIPOutputStream != null) {
+                            gZIPOutputStream.close();
+                        }
+                        byteArrayOutputStream.close();
+                        return byteArrayOutputStream.toByteArray();
                     }
-                    byteArrayInputStream.close();
-                    gZIPOutputStream.close();
-                    byteArrayOutputStream.close();
-                } catch (IOException e2) {
-                    e = e2;
-                    LogUtil.e(e);
+                } catch (Throwable th2) {
+                    th = th2;
                     try {
                         byteArrayInputStream.close();
                         if (gZIPOutputStream != null) {
                             gZIPOutputStream.close();
                         }
                         byteArrayOutputStream.close();
-                    } catch (IOException e3) {
-                        e3.printStackTrace();
+                    } catch (IOException e4) {
+                        e4.printStackTrace();
                     }
-                    return byteArrayOutputStream.toByteArray();
+                    throw th;
                 }
-            } catch (Throwable th) {
-                th = th;
-                try {
-                    byteArrayInputStream.close();
-                    if (0 != 0) {
-                        gZIPOutputStream2.close();
-                    }
-                    byteArrayOutputStream.close();
-                } catch (IOException e4) {
-                    e4.printStackTrace();
-                }
-                throw th;
+            } catch (IOException e5) {
+                e5.printStackTrace();
             }
-        } catch (IOException e5) {
-            e = e5;
+        } catch (IOException e6) {
             gZIPOutputStream = null;
-        } catch (Throwable th2) {
-            th = th2;
+            e2 = e6;
+        } catch (Throwable th3) {
+            gZIPOutputStream = null;
+            th = th3;
             byteArrayInputStream.close();
-            if (0 != 0) {
+            if (gZIPOutputStream != null) {
             }
             byteArrayOutputStream.close();
             throw th;
@@ -83,12 +80,14 @@ public class GzipUtil {
         return byteArrayOutputStream.toByteArray();
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:42:0x0057 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:42:0x0058 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public static String uncompress(byte[] bArr) {
+        Throwable th;
         GZIPInputStream gZIPInputStream;
+        IOException e2;
         if (bArr == null || bArr.length == 0) {
             return "";
         }
@@ -97,63 +96,58 @@ public class GzipUtil {
         GZIPInputStream gZIPInputStream2 = null;
         try {
             try {
-                gZIPInputStream = new GZIPInputStream(byteArrayInputStream);
                 try {
-                    byte[] bArr2 = new byte[1024];
-                    while (true) {
-                        int read = gZIPInputStream.read(bArr2);
-                        if (read > 0) {
+                    gZIPInputStream = new GZIPInputStream(byteArrayInputStream);
+                    try {
+                        byte[] bArr2 = new byte[1024];
+                        while (true) {
+                            int read = gZIPInputStream.read(bArr2);
+                            if (read <= 0) {
+                                break;
+                            }
                             byteArrayOutputStream.write(bArr2, 0, read);
                             byteArrayOutputStream.flush();
-                        } else {
-                            try {
-                                break;
-                            } catch (IOException e) {
-                                e.printStackTrace();
-                            }
                         }
-                    }
-                    gZIPInputStream.close();
-                    byteArrayInputStream.close();
-                    byteArrayOutputStream.close();
-                } catch (IOException e2) {
-                    e = e2;
-                    LogUtil.e(e);
-                    if (gZIPInputStream != null) {
-                        try {
+                        gZIPInputStream.close();
+                        byteArrayInputStream.close();
+                        byteArrayOutputStream.close();
+                    } catch (IOException e3) {
+                        e2 = e3;
+                        LogUtil.e(e2);
+                        if (gZIPInputStream != null) {
                             gZIPInputStream.close();
-                        } catch (IOException e3) {
-                            e3.printStackTrace();
+                        }
+                        byteArrayInputStream.close();
+                        byteArrayOutputStream.close();
+                        return byteArrayOutputStream.toString();
+                    }
+                } catch (Throwable th2) {
+                    th = th2;
+                    if (0 != 0) {
+                        try {
+                            gZIPInputStream2.close();
+                        } catch (IOException e4) {
+                            e4.printStackTrace();
+                            throw th;
                         }
                     }
                     byteArrayInputStream.close();
                     byteArrayOutputStream.close();
-                    return byteArrayOutputStream.toString();
+                    throw th;
                 }
-            } catch (Throwable th) {
-                th = th;
+            } catch (IOException e5) {
+                gZIPInputStream = null;
+                e2 = e5;
+            } catch (Throwable th3) {
+                th = th3;
                 if (0 != 0) {
-                    try {
-                        gZIPInputStream2.close();
-                    } catch (IOException e4) {
-                        e4.printStackTrace();
-                        throw th;
-                    }
                 }
                 byteArrayInputStream.close();
                 byteArrayOutputStream.close();
                 throw th;
             }
-        } catch (IOException e5) {
-            e = e5;
-            gZIPInputStream = null;
-        } catch (Throwable th2) {
-            th = th2;
-            if (0 != 0) {
-            }
-            byteArrayInputStream.close();
-            byteArrayOutputStream.close();
-            throw th;
+        } catch (IOException e6) {
+            e6.printStackTrace();
         }
         return byteArrayOutputStream.toString();
     }

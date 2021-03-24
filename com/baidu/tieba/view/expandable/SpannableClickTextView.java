@@ -10,12 +10,75 @@ import android.text.style.ClickableSpan;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.widget.TextView;
-/* loaded from: classes.dex */
+/* loaded from: classes5.dex */
 public class SpannableClickTextView extends TextView {
-    private boolean jDK;
+
+    /* renamed from: e  reason: collision with root package name */
+    public boolean f22229e;
+
+    /* loaded from: classes5.dex */
+    public static class a extends LinkMovementMethod {
+
+        /* renamed from: a  reason: collision with root package name */
+        public static a f22230a;
+
+        public static a a() {
+            if (f22230a == null) {
+                f22230a = new a();
+            }
+            return f22230a;
+        }
+
+        @Override // android.text.method.LinkMovementMethod, android.text.method.ScrollingMovementMethod, android.text.method.BaseMovementMethod, android.text.method.MovementMethod
+        public boolean onTouchEvent(TextView textView, Spannable spannable, MotionEvent motionEvent) {
+            int action = motionEvent.getAction();
+            if (action != 1 && action != 0) {
+                return Touch.onTouchEvent(textView, spannable, motionEvent);
+            }
+            int x = ((int) motionEvent.getX()) - textView.getTotalPaddingLeft();
+            int y = ((int) motionEvent.getY()) - textView.getTotalPaddingTop();
+            int scrollX = x + textView.getScrollX();
+            int scrollY = y + textView.getScrollY();
+            Layout layout = textView.getLayout();
+            int offsetForHorizontal = layout.getOffsetForHorizontal(layout.getLineForVertical(scrollY), scrollX);
+            Object[] objArr = (ClickableSpan[]) spannable.getSpans(offsetForHorizontal, offsetForHorizontal, ClickableSpan.class);
+            if (objArr.length != 0) {
+                if (action == 1) {
+                    objArr[0].onClick(textView);
+                } else if (action == 0) {
+                    Selection.setSelection(spannable, spannable.getSpanStart(objArr[0]), spannable.getSpanEnd(objArr[0]));
+                }
+                if (textView instanceof SpannableClickTextView) {
+                    ((SpannableClickTextView) textView).f22229e = true;
+                }
+                return true;
+            }
+            Selection.removeSelection(spannable);
+            super.onTouchEvent(textView, spannable, motionEvent);
+            return false;
+        }
+    }
 
     public SpannableClickTextView(Context context) {
         super(context);
+    }
+
+    @Override // android.widget.TextView, android.view.View
+    public boolean onTouchEvent(MotionEvent motionEvent) {
+        this.f22229e = false;
+        return super.onTouchEvent(motionEvent);
+    }
+
+    @Override // android.view.View
+    public boolean performClick() {
+        if (this.f22229e) {
+            return true;
+        }
+        return super.performClick();
+    }
+
+    public void setCustomMovementMethod() {
+        setMovementMethod(a.a());
     }
 
     public SpannableClickTextView(Context context, AttributeSet attributeSet) {
@@ -24,67 +87,5 @@ public class SpannableClickTextView extends TextView {
 
     public SpannableClickTextView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-    }
-
-    @Override // android.view.View
-    public boolean performClick() {
-        if (this.jDK) {
-            return true;
-        }
-        return super.performClick();
-    }
-
-    @Override // android.widget.TextView, android.view.View
-    public boolean onTouchEvent(MotionEvent motionEvent) {
-        this.jDK = false;
-        return super.onTouchEvent(motionEvent);
-    }
-
-    public void setCustomMovementMethod() {
-        setMovementMethod(a.dWA());
-    }
-
-    /* loaded from: classes.dex */
-    private static class a extends LinkMovementMethod {
-        private static a odM;
-
-        private a() {
-        }
-
-        @Override // android.text.method.LinkMovementMethod, android.text.method.ScrollingMovementMethod, android.text.method.BaseMovementMethod, android.text.method.MovementMethod
-        public boolean onTouchEvent(TextView textView, Spannable spannable, MotionEvent motionEvent) {
-            int action = motionEvent.getAction();
-            if (action == 1 || action == 0) {
-                int x = ((int) motionEvent.getX()) - textView.getTotalPaddingLeft();
-                int y = ((int) motionEvent.getY()) - textView.getTotalPaddingTop();
-                int scrollX = x + textView.getScrollX();
-                int scrollY = y + textView.getScrollY();
-                Layout layout = textView.getLayout();
-                int offsetForHorizontal = layout.getOffsetForHorizontal(layout.getLineForVertical(scrollY), scrollX);
-                Object[] objArr = (ClickableSpan[]) spannable.getSpans(offsetForHorizontal, offsetForHorizontal, ClickableSpan.class);
-                if (objArr.length != 0) {
-                    if (action == 1) {
-                        objArr[0].onClick(textView);
-                    } else if (action == 0) {
-                        Selection.setSelection(spannable, spannable.getSpanStart(objArr[0]), spannable.getSpanEnd(objArr[0]));
-                    }
-                    if (textView instanceof SpannableClickTextView) {
-                        ((SpannableClickTextView) textView).jDK = true;
-                    }
-                    return true;
-                }
-                Selection.removeSelection(spannable);
-                super.onTouchEvent(textView, spannable, motionEvent);
-                return false;
-            }
-            return Touch.onTouchEvent(textView, spannable, motionEvent);
-        }
-
-        public static a dWA() {
-            if (odM == null) {
-                odM = new a();
-            }
-            return odM;
-        }
     }
 }

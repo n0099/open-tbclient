@@ -5,7 +5,7 @@ import android.os.Build;
 import android.os.Process;
 import android.text.TextUtils;
 import androidx.annotation.Keep;
-import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
+import com.baidu.searchbox.v8engine.V8Engine;
 import com.baidu.webkit.internal.CpuInfo;
 import com.baidu.webkit.internal.ETAG;
 import com.baidu.webkit.internal.GlobalConstants;
@@ -34,64 +34,63 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public final class WebKitFactory {
-    private static final String ARCH_ARM = "armv";
-    private static final int ARCH_ARM_INT = 7;
-    private static final int DEFAULT_INIT = 0;
+    public static final String ARCH_ARM = "armv";
+    public static final int ARCH_ARM_INT = 7;
+    public static final int DEFAULT_INIT = 0;
     public static final int ENGINE_BLINK = 1;
     public static final int ENGINE_INVALID = -1;
     public static final int ENGINE_ORIGINAL = 0;
     public static final int FORCE_INIT_ZEUS = 1;
-    private static final String OS_64 = "64";
-    private static final String OS_ARCH = "os.arch";
+    public static final String OS_64 = "64";
+    public static final String OS_ARCH = "os.arch";
     public static final String PROCESS_TYPE_BROWSER = "3";
     public static final String PROCESS_TYPE_RENDERER = "2";
     public static final String PROCESS_TYPE_SINGLE_PROCESS = "0";
     public static final String PROCESS_TYPE_SWAN = "1";
     public static final String PROCESS_TYPE_UNKOWN = "-1";
     public static final String START_UP_RECORD_PATH = "start_up_record.dat";
-    private static final String TAG = "WebKitFactory";
-    private static final String X64_BL = "asus_t00i,asus_t00q,asus_t00j,asus_t00k,asus_t00g,asus_z002,asus_z007,asus_z00d,asus_z008d,asus_z00ad,asus_z00adb,lenovoyt3-x90f,mipad2";
-    private static DelayedInitTask mDelayedInitTask;
-    private static JsUploadTask mJavaScriptInterface;
-    private static List<IForceInitZeusListener> mListenerLst;
-    private static String sAppId;
-    private static String sAppVersion;
-    private static String sCrashCallback;
-    private static String sEmulator;
-    private static int sHashSign;
-    private static volatile boolean sInited;
-    public static volatile boolean sIsWebKitBuiltin;
-    private static String sKernelSessionId;
-    public static volatile String sLoadPath;
-    private static long sPageStartTimeStamp;
-    private static String sProcessType;
-    private static String sSearchId;
-    private static String sStatisticsSessionId;
-    private static HashMap<String, String> sUploadParams;
-    private static WebKitClient sWebKitClient;
-    private static String sZID;
-    private static boolean sZeusSupportedLoaded;
-    public static int sStartUpFreq = -1;
-    private static String sCUID = "0";
-    private static volatile boolean sIsNeedDownloadCloudResource = true;
-    private static volatile boolean sUserPrivacyConfirm = true;
+    public static final String TAG = "WebKitFactory";
+    public static final String X64_BL = "asus_t00i,asus_t00q,asus_t00j,asus_t00k,asus_t00g,asus_z002,asus_z007,asus_z00d,asus_z008d,asus_z00ad,asus_z00adb,lenovoyt3-x90f,mipad2";
+    public static DelayedInitTask mDelayedInitTask = null;
     public static int mInitWebkitType = 0;
-    private static boolean sZeusSupported = true;
-    private static boolean sEnableIntegratedCrashpad = true;
-    private static SwitchState sEnableMultipleProcess = SwitchState.Invalid;
+    public static JsUploadTask mJavaScriptInterface = null;
+    public static List<IForceInitZeusListener> mListenerLst = null;
+    public static String sAppId = null;
+    public static String sAppVersion = null;
+    public static String sCUID = "0";
+    public static String sCrashCallback = null;
+    public static String sEmulator = null;
+    public static boolean sEnableIntegratedCrashpad = true;
+    public static SwitchState sEnableMultipleProcess = SwitchState.Invalid;
+    public static int sHashSign = 0;
+    public static volatile boolean sInited = false;
+    public static volatile boolean sIsNeedDownloadCloudResource = true;
+    public static volatile boolean sIsWebKitBuiltin = false;
+    public static String sKernelSessionId = null;
+    public static volatile String sLoadPath = null;
+    public static long sPageStartTimeStamp = 0;
+    public static String sProcessType = null;
+    public static String sSearchId = null;
+    public static int sStartUpFreq = -1;
+    public static String sStatisticsSessionId = null;
+    public static HashMap<String, String> sUploadParams = null;
+    public static volatile boolean sUserPrivacyConfirm = true;
+    public static WebKitClient sWebKitClient = null;
+    public static String sZID = null;
+    public static boolean sZeusSupported = true;
+    public static boolean sZeusSupportedLoaded;
 
-    /* loaded from: classes14.dex */
-    private static class DelayedInitTask extends Thread {
-        private boolean mResult;
+    /* loaded from: classes5.dex */
+    public static class DelayedInitTask extends Thread {
+        public boolean mResult;
 
-        DelayedInitTask(boolean z) {
+        public DelayedInitTask(boolean z) {
             this.mResult = z;
         }
 
         private void doInitStatistics() {
-            byte[] bArr;
             try {
                 String str = WebKitFactory.getContext().getFilesDir().getCanonicalPath() + "/zeus/statistics/";
                 File file = new File(str);
@@ -101,22 +100,20 @@ public final class WebKitFactory {
                 String str2 = "[[19, \"aosmith.com.cn\", \"aosmith.com.cn/query=\", \"/lookup.dll\", 1, \"AST=.*\", 88715],[20, \"028hk.net\", \"028hk.net/option.php\\\\?\", \"/search.htm\", 0, \"\", 89519],[21, \"ssk.com.cn\", \"ssk.com.cn/mongo.*\", \"/InfoCheck\", 0, \"\", 58003],[31, \"m.baidu.com\", \"m.biadu.com/baike\", \"/CH/webid=\", 0, \"\", 44232],[221, \"youth.net\", \"youth.net/newsid=.*\", \"newstitle=\", 0, \"\", 69022],[34, \"weiphone.com\", \"weiphone.com/bbs\", \"postid=\", 0, \"\", 21802],[41, \"ymyjy.com\", \"ymyjy.com/daily.*\", \"searchitem=.*\", 0, \"\", 39800],[1, \"kuaishang.com.cn\", \"kuaishang.com.cn/bs/im.htm\", \"/msg.htm\", 0, \"\", 31125],[4, \"eic.org.cn\", \"/chatClient/chatbox.jsp\", \"/ChaterServer\\\\?cmd=203.*&msgContent=\", 0, \" \", 99233],[14, \"gaodun.com\", \"/LR/Chatpre.aspx\\\\?\", \"/LR/CdCheck.aspx\", 1, \"_text=%2CACT_TEMP%7C0%7C%2C\", 56423],[2, \"meiqia.com\", \"meiqia.com/widget/phone/index.html\",\"meiqia.com/mobile/sendMsg\", 0, \" \", 52398], [3, \"qiao.baidu.com\", \"qiao.baidu.com/im/index\\\\?siteid\", \"qiao.baidu.com/communicate\\\\?\", 0, \" \", 86929], [5, \"looyu.com\", \"chat/chat/p.do\\\\?\", \"chat/msg.dll\\\\?cmd=postMessage.*&msg=\", 0, \" \", 98323], [51, \"talk99.cn\", \"chat/chat/p.do\\\\?\", \"chat/msg.dll\\\\?cmd=postMessage.*&msg=\", 0, \" \", 15720], [52, \"looyuoms.com\", \"chat/chat/p.do\\\\?\", \"chat/msg.dll\\\\?cmd=postMessage.*&msg=\", 0, \" \", 15720],[6, \"tq.cn\", \"tq.cn/sendmain.jsp\\\\?\", \"tq.cn/sendmsg.jsp\\\\?.*&msg=[^&]*&type_code=\", 0, \" \", 97521],[11, \"53kf.com\", \"53kf.com/m.php\\\\?cid\", \"53kf.com/sendmsg.jsp\\\\?_=\", 1, \"QST\", 32100],[13, \"zoosnet.net\", \"/LR/Chatpre.aspx\\\\?\", \"/LR/CdCheck.aspx\", 1, \"_text=%2C.\\\\{1,\\\\}&lng=\", 42083],[222, \"linking.baidu.com\", \"linking.baidu.com/actionads/*\", \"linking.baidu.com/communicate?*\", 0, \"\", 12945]]";
                 File file2 = new File(WebKitFactory.getContext().getCacheDir(), "phoenix.dudu");
                 if (file2.exists()) {
+                    byte[] bArr = null;
                     FileInputStream fileInputStream = new FileInputStream(file2);
                     if (fileInputStream.available() > 0) {
-                        byte[] bArr2 = new byte[fileInputStream.available()];
-                        fileInputStream.read(bArr2);
-                        bArr = bArr2;
-                    } else {
-                        bArr = null;
+                        bArr = new byte[fileInputStream.available()];
+                        fileInputStream.read(bArr);
                     }
                     fileInputStream.close();
                     str2 = new String(bArr, "utf-8");
                 }
                 Statistics.init(str + "error.log", str + "phoenix_ad.log", str2);
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
-            } catch (IOException e2) {
+            } catch (FileNotFoundException e2) {
                 e2.printStackTrace();
+            } catch (IOException e3) {
+                e3.printStackTrace();
             } catch (Throwable th) {
                 th.printStackTrace();
             }
@@ -143,7 +140,8 @@ public final class WebKitFactory {
             ZeusPerformanceTiming.recordWebkitInitStatistics(2);
         }
 
-        protected void doDelayedTask() {
+        /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:8:0x006e -> B:15:0x0071). Please submit an issue!!! */
+        public void doDelayedTask() {
             try {
                 WebKitFactory.setAppidJs(WebKitFactory.getAppIdString());
                 WebKitFactory.setAppVersionJs(WebKitFactory.getAppVersionString());
@@ -191,11 +189,16 @@ public final class WebKitFactory {
             if (!WebSettingsGlobalBlink.getHttpDnsUpdateEnabled() && (WebSettingsGlobalBlink.GetCloudSettingsValue(ETAG.KEY_HTTP_DNS_ENABLE) == null || !WebSettingsGlobalBlink.GetCloudSettingsValue(ETAG.KEY_HTTP_DNS_ENABLE).equals("false"))) {
                 HttpDnsCache.tryToUpdateHttpDnsCache(WebViewFactory.getContext());
             }
-            ZeusLogUploader.UploadLogDirectory(WebViewFactory.getContext().getDir(WebViewFactory.getDataDirectorySuffix() != null ? "webview_baidu" + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + WebViewFactory.getDataDirectorySuffix() : "webview_baidu", 0).getPath() + "/nr/", "nrlog", true, null);
+            Context context = WebViewFactory.getContext();
+            String str = V8Engine.ALTERNATIVE_CACHE_PATH;
+            if (WebViewFactory.getDataDirectorySuffix() != null) {
+                str = V8Engine.ALTERNATIVE_CACHE_PATH + "_" + WebViewFactory.getDataDirectorySuffix();
+            }
+            ZeusLogUploader.UploadLogDirectory(context.getDir(str, 0).getPath() + "/nr/", "nrlog", true, null);
         }
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public interface IForceInitZeusListener {
         @Keep
         void onForceInitZeusFinish(boolean z);
@@ -204,14 +207,14 @@ public final class WebKitFactory {
         void onForceInitZeusStart();
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public enum SwitchState {
         Invalid,
         On,
         Off
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public interface WebkitInstallListener {
         public static final int RET_CANCELED = 3;
         public static final int RET_FAILED_ALREADY_RUNNING = 8;
@@ -234,8 +237,9 @@ public final class WebKitFactory {
     }
 
     public static Object JavascriptInterface() {
-        if (mJavaScriptInterface != null) {
-            return mJavaScriptInterface;
+        JsUploadTask jsUploadTask = mJavaScriptInterface;
+        if (jsUploadTask != null) {
+            return jsUploadTask;
         }
         Log.w(TAG, "mJavaScriptInterface = null");
         return null;
@@ -332,7 +336,8 @@ public final class WebKitFactory {
     }
 
     public static String getEmulatorString() {
-        return sEmulator != null ? sEmulator : "";
+        String str = sEmulator;
+        return str != null ? str : "";
     }
 
     public static SwitchState getEnableMultipleProcess() {
@@ -380,7 +385,8 @@ public final class WebKitFactory {
     }
 
     public static String getProcessTypeString() {
-        return sProcessType != null ? sProcessType : "-1";
+        String str = sProcessType;
+        return str != null ? str : "-1";
     }
 
     public static String getSdkVersionCode() {
@@ -402,54 +408,101 @@ public final class WebKitFactory {
         return false;
     }
 
+    /* JADX WARN: Can't wrap try/catch for region: R(13:7|(4:8|9|(1:11)|12)|13|(3:15|(5:18|19|(2:23|24)|25|16)|31)|32|(1:34)|35|36|(2:39|37)|40|41|42|43) */
+    /* JADX WARN: Code restructure failed: missing block: B:41:0x0106, code lost:
+        r0 = move-exception;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:42:0x0107, code lost:
+        r0 = "read private file " + r6 + " failed: " + r0.getMessage();
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:43:0x011e, code lost:
+        r0 = "private file " + r6 + " is not found when reading";
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:44:0x012d, code lost:
+        com.baidu.webkit.sdk.Log.v(com.baidu.webkit.sdk.WebKitFactory.TAG, r0);
+     */
+    /* JADX WARN: Removed duplicated region for block: B:21:0x008b  */
+    /* JADX WARN: Removed duplicated region for block: B:34:0x00d3  */
+    /* JADX WARN: Removed duplicated region for block: B:38:0x00e5 A[Catch: IOException -> 0x0106, FileNotFoundException -> 0x011e, LOOP:1: B:36:0x00df->B:38:0x00e5, LOOP_END, TryCatch #5 {FileNotFoundException -> 0x011e, IOException -> 0x0106, blocks: (B:35:0x00d6, B:36:0x00df, B:38:0x00e5, B:39:0x0102), top: B:51:0x00d6 }] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     public static int getStartUpFreq() {
+        String str;
+        String str2;
+        Iterator it;
         if (sStartUpFreq <= 0 && getNeedDownloadCloudResource() && WebSettingsGlobalBlink.getDitingMaxForceLoadSwitch()) {
-            String str = getContext().getFilesDir().getAbsolutePath() + File.separator + START_UP_RECORD_PATH;
+            String str3 = getContext().getFilesDir().getAbsolutePath() + File.separator + START_UP_RECORD_PATH;
             byte[] bArr = null;
             try {
-                FileInputStream fileInputStream = new FileInputStream(str);
+                FileInputStream fileInputStream = new FileInputStream(str3);
                 if (fileInputStream.available() > 0) {
                     bArr = new byte[fileInputStream.available()];
                     fileInputStream.read(bArr);
                 }
                 fileInputStream.close();
-            } catch (FileNotFoundException e) {
-                Log.v(TAG, "private file " + str + " is not found when reading");
+            } catch (FileNotFoundException unused) {
+                str = "private file " + str3 + " is not found when reading";
+                Log.v(TAG, str);
+                ArrayList arrayList = new ArrayList();
+                if (bArr != null) {
+                }
+                str2 = sStatisticsSessionId;
+                if (str2 != null) {
+                }
+                FileOutputStream fileOutputStream = new FileOutputStream(str3, false);
+                it = arrayList.iterator();
+                while (it.hasNext()) {
+                }
+                fileOutputStream.close();
+                int size = arrayList.size();
+                sStartUpFreq = size;
+                return size;
             } catch (IOException e2) {
-                Log.v(TAG, "read private file " + str + " failed: " + e2.getMessage());
+                str = "read private file " + str3 + " failed: " + e2.getMessage();
+                Log.v(TAG, str);
+                ArrayList arrayList2 = new ArrayList();
+                if (bArr != null) {
+                }
+                str2 = sStatisticsSessionId;
+                if (str2 != null) {
+                }
+                FileOutputStream fileOutputStream2 = new FileOutputStream(str3, false);
+                it = arrayList2.iterator();
+                while (it.hasNext()) {
+                }
+                fileOutputStream2.close();
+                int size2 = arrayList2.size();
+                sStartUpFreq = size2;
+                return size2;
             }
-            ArrayList arrayList = new ArrayList();
+            ArrayList arrayList22 = new ArrayList();
             if (bArr != null) {
                 String[] split = new String(bArr).split("\n");
                 long parseLong = Long.parseLong(sStatisticsSessionId);
                 for (int i = 0; i < split.length; i++) {
                     try {
                         if (Long.parseLong(split[i]) >= parseLong - 86400000 && split.length - i < 100) {
-                            arrayList.add(split[i]);
+                            arrayList22.add(split[i]);
                         }
-                    } catch (NumberFormatException e3) {
+                    } catch (NumberFormatException unused2) {
                         Log.e(TAG, "parseLong err: " + split[i]);
                     }
                 }
             }
-            if (sStatisticsSessionId != null) {
-                arrayList.add(sStatisticsSessionId);
+            str2 = sStatisticsSessionId;
+            if (str2 != null) {
+                arrayList22.add(str2);
             }
-            try {
-                FileOutputStream fileOutputStream = new FileOutputStream(str, false);
-                Iterator it = arrayList.iterator();
-                while (it.hasNext()) {
-                    fileOutputStream.write((((String) it.next()) + "\n").getBytes());
-                }
-                fileOutputStream.close();
-            } catch (FileNotFoundException e4) {
-                Log.v(TAG, "private file " + str + " is not found when reading");
-            } catch (IOException e5) {
-                Log.v(TAG, "read private file " + str + " failed: " + e5.getMessage());
+            FileOutputStream fileOutputStream22 = new FileOutputStream(str3, false);
+            it = arrayList22.iterator();
+            while (it.hasNext()) {
+                fileOutputStream22.write((((String) it.next()) + "\n").getBytes());
             }
-            int size = arrayList.size();
-            sStartUpFreq = size;
-            return size;
+            fileOutputStream22.close();
+            int size22 = arrayList22.size();
+            sStartUpFreq = size22;
+            return size22;
         }
         return sStartUpFreq;
     }
@@ -477,7 +530,6 @@ public final class WebKitFactory {
         return sZID;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     public static void getZeusInitModeOptABValue() {
         b.a();
     }
@@ -488,31 +540,32 @@ public final class WebKitFactory {
 
     public static synchronized boolean init(Context context, String str, String str2) {
         synchronized (WebKitFactory.class) {
-            if (!sInited) {
-                sInited = true;
-                sAppId = str;
-                if (context != null) {
-                    try {
-                        sAppVersion = context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionName;
-                    } catch (Exception e) {
-                        Log.e(TAG, "Get App Version Name Failed!");
-                    }
-                }
-                if (context != null) {
-                    try {
-                        sHashSign = context.getPackageManager().getPackageInfo(context.getPackageName(), 64).signatures[0].hashCode();
-                        Log.e("WebkitFactory", "get sHashSign:" + sHashSign);
-                    } catch (Exception e2) {
-                        Log.e(TAG, "Get App sign Name Failed!");
-                    }
-                }
-                setCUIDString(str2);
-                sStatisticsSessionId = String.valueOf(System.currentTimeMillis());
-                mJavaScriptInterface = new JsUploadTask();
-                ZwDebug.init(WebViewFactory.getContext());
+            if (sInited) {
+                return true;
             }
+            sInited = true;
+            sAppId = str;
+            if (context != null) {
+                try {
+                    sAppVersion = context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionName;
+                } catch (Exception unused) {
+                    Log.e(TAG, "Get App Version Name Failed!");
+                }
+            }
+            if (context != null) {
+                try {
+                    sHashSign = context.getPackageManager().getPackageInfo(context.getPackageName(), 64).signatures[0].hashCode();
+                    Log.e("WebkitFactory", "get sHashSign:" + sHashSign);
+                } catch (Exception unused2) {
+                    Log.e(TAG, "Get App sign Name Failed!");
+                }
+            }
+            setCUIDString(str2);
+            sStatisticsSessionId = String.valueOf(System.currentTimeMillis());
+            mJavaScriptInterface = new JsUploadTask();
+            ZwDebug.init(WebViewFactory.getContext());
+            return true;
         }
-        return true;
     }
 
     public static void installAsync(String str, WebkitInstallListener webkitInstallListener) {
@@ -532,7 +585,8 @@ public final class WebKitFactory {
     }
 
     public static boolean isPlatformSupported() {
-        return Build.VERSION.SDK_INT >= 14 && Build.VERSION.SDK_INT <= 29;
+        int i = Build.VERSION.SDK_INT;
+        return i >= 14 && i <= 29;
     }
 
     public static boolean isUserPrivacyEnabled() {
@@ -546,17 +600,16 @@ public final class WebKitFactory {
                 Log.w(TAG, "not support intel x86");
                 sZeusSupported = false;
                 sZeusSupportedLoaded = true;
-                return sZeusSupported;
+                return false;
             }
-            String property = System.getProperty(OS_ARCH);
+            String property = System.getProperty("os.arch");
             boolean z2 = !TextUtils.isEmpty(property) && property.endsWith(OS_64);
             if (!TextUtils.isEmpty(property) && property.toLowerCase().contains("armv")) {
                 try {
-                } catch (NumberFormatException e) {
-                    e.printStackTrace();
-                    z = false;
-                } catch (Exception e2) {
+                } catch (NumberFormatException e2) {
                     e2.printStackTrace();
+                } catch (Exception e3) {
+                    e3.printStackTrace();
                 }
                 if (Integer.valueOf(property.substring(4, 5)).intValue() >= 7) {
                     z = true;
@@ -577,7 +630,7 @@ public final class WebKitFactory {
         return sZeusSupported;
     }
 
-    private static void notifyCuidChanged() {
+    public static void notifyCuidChanged() {
         setCuidJs(getCUIDString());
         if (WebViewFactory.isZeusProvider()) {
             WebSettingsGlobalBlink.setCuid(getCUIDString());
@@ -595,7 +648,7 @@ public final class WebKitFactory {
         }
     }
 
-    private static void notifyUserPrivacyConfirmedInner() {
+    public static void notifyUserPrivacyConfirmedInner() {
         if (WebViewFactory.getProvider() != null) {
             ZeusThreadPoolUtil.executeIgnoreZeus(new Runnable() { // from class: com.baidu.webkit.sdk.WebKitFactory.1
                 @Override // java.lang.Runnable
@@ -699,7 +752,7 @@ public final class WebKitFactory {
     }
 
     public static synchronized boolean setEngine(int i) {
-        boolean z;
+        int curEngine;
         synchronized (WebKitFactory.class) {
             WebViewFactory.installZesEngineIfNeeded(!ZeusSDK.usingZeusSDK(), false);
             WebViewFactory.setUseSystemWebView(1 != i);
@@ -712,14 +765,15 @@ public final class WebKitFactory {
                 mDelayedInitTask = delayedInitTask;
                 delayedInitTask.start();
             }
-            z = getCurEngine() == 1;
+            curEngine = getCurEngine();
         }
-        return z;
+        return curEngine == 1;
     }
 
     public static void setEngineJs(int i) {
-        if (mJavaScriptInterface != null) {
-            mJavaScriptInterface.setEngine(i);
+        JsUploadTask jsUploadTask = mJavaScriptInterface;
+        if (jsUploadTask != null) {
+            jsUploadTask.setEngine(i);
         }
     }
 
@@ -742,8 +796,9 @@ public final class WebKitFactory {
     }
 
     public static void setFirstScreenTimeJs(long j) {
-        if (mJavaScriptInterface != null) {
-            mJavaScriptInterface.setFirstScreenTime(j);
+        JsUploadTask jsUploadTask = mJavaScriptInterface;
+        if (jsUploadTask != null) {
+            jsUploadTask.setFirstScreenTime(j);
         }
     }
 
@@ -760,8 +815,9 @@ public final class WebKitFactory {
     }
 
     public static void setHttpcode(int i) {
-        if (mJavaScriptInterface != null) {
-            mJavaScriptInterface.setHttpcode(i);
+        JsUploadTask jsUploadTask = mJavaScriptInterface;
+        if (jsUploadTask != null) {
+            jsUploadTask.setHttpcode(i);
         }
     }
 
@@ -809,8 +865,9 @@ public final class WebKitFactory {
     }
 
     public static void setNetcode(int i) {
-        if (mJavaScriptInterface != null) {
-            mJavaScriptInterface.setNetcode(i);
+        JsUploadTask jsUploadTask = mJavaScriptInterface;
+        if (jsUploadTask != null) {
+            jsUploadTask.setNetcode(i);
         }
     }
 
@@ -882,8 +939,9 @@ public final class WebKitFactory {
     }
 
     public static void setWiseLandingPageType(int i) {
-        if (mJavaScriptInterface != null) {
-            mJavaScriptInterface.setWiseLandingPageType(i);
+        JsUploadTask jsUploadTask = mJavaScriptInterface;
+        if (jsUploadTask != null) {
+            jsUploadTask.setWiseLandingPageType(i);
         }
     }
 

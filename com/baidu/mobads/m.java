@@ -1,18 +1,17 @@
 package com.baidu.mobads;
-/* loaded from: classes4.dex */
-final class m extends com.baidu.mobads.f.a {
+/* loaded from: classes2.dex */
+public final class m extends com.baidu.mobads.f.a {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ Runnable f2420a;
+    public final /* synthetic */ Runnable f8364a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public m(Runnable runnable) {
-        this.f2420a = runnable;
+        this.f8364a = runnable;
     }
 
     @Override // com.baidu.mobads.f.a
-    protected Object a() {
-        this.f2420a.run();
+    public Object a() {
+        this.f8364a.run();
         return null;
     }
 }

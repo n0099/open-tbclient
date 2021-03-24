@@ -6,69 +6,74 @@ import com.baidu.webkit.internal.blink.WebSettingsGlobalBlink;
 import com.baidu.webkit.sdk.Log;
 import com.baidu.webkit.sdk.WebKitFactory;
 import java.io.IOException;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public final class d implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ String f3839a;
-    final /* synthetic */ String b;
-    final /* synthetic */ String c;
-    final /* synthetic */ boolean d;
-    final /* synthetic */ SessionMonitorNetWorker e;
+    public final /* synthetic */ String f26946a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    /* renamed from: b  reason: collision with root package name */
+    public final /* synthetic */ String f26947b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public final /* synthetic */ String f26948c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public final /* synthetic */ boolean f26949d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public final /* synthetic */ SessionMonitorNetWorker f26950e;
+
     public d(SessionMonitorNetWorker sessionMonitorNetWorker, String str, String str2, String str3, boolean z) {
-        this.e = sessionMonitorNetWorker;
-        this.f3839a = str;
-        this.b = str2;
-        this.c = str3;
-        this.d = z;
+        this.f26950e = sessionMonitorNetWorker;
+        this.f26946a = str;
+        this.f26947b = str2;
+        this.f26948c = str3;
+        this.f26949d = z;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
         boolean z;
         boolean z2;
-        if (TextUtils.isEmpty(this.f3839a)) {
+        if (TextUtils.isEmpty(this.f26946a)) {
             return;
         }
         if (WebSettingsGlobalBlink.isSessionDataEnable()) {
-            Log.i("ZeusMonitorEngine", "aContent=" + this.f3839a);
+            Log.i(SessionMonitorNetWorker.LOG_TAG, "aContent=" + this.f26946a);
             String GetCloudSettingsValue = WebSettingsGlobalBlink.GetCloudSettingsValue("gzip_support");
             if (GetCloudSettingsValue == null || !GetCloudSettingsValue.equals("false")) {
                 try {
-                    if (WebSettingsGlobalBlink.getLogsdkEnabled() || WebSettingsGlobalBlink.getDoubleLogEnabled()) {
-                        z = SessionMonitorNetWorker.mLogSdkInit;
-                        if (!z) {
-                            Log.i("ZeusMonitorEngine", "BdLogSDK.init1");
-                            com.baidu.webkit.logsdk.a.a(WebKitFactory.getContext(), new c());
-                            boolean unused = SessionMonitorNetWorker.mLogSdkInit = true;
-                        }
-                        com.baidu.webkit.logsdk.a.a(this.b, this.f3839a);
-                        if (WebSettingsGlobalBlink.getDoubleLogEnabled()) {
-                            this.e.sendStatisticsDataToServer(com.baidu.webkit.internal.d.b(com.baidu.webkit.internal.d.c(this.f3839a.getBytes())), this.c, this.d);
-                        }
-                    } else {
-                        this.e.sendStatisticsDataToServer(com.baidu.webkit.internal.d.b(com.baidu.webkit.internal.d.c(this.f3839a.getBytes())), this.c, this.d);
+                    if (!WebSettingsGlobalBlink.getLogsdkEnabled() && !WebSettingsGlobalBlink.getDoubleLogEnabled()) {
+                        this.f26950e.sendStatisticsDataToServer(com.baidu.webkit.internal.d.b(com.baidu.webkit.internal.d.c(this.f26946a.getBytes())), this.f26948c, this.f26949d);
                     }
-                } catch (IOException e) {
-                    e.printStackTrace();
+                    z = SessionMonitorNetWorker.mLogSdkInit;
+                    if (!z) {
+                        Log.i(SessionMonitorNetWorker.LOG_TAG, "BdLogSDK.init1");
+                        com.baidu.webkit.logsdk.a.a(WebKitFactory.getContext(), new c());
+                        boolean unused = SessionMonitorNetWorker.mLogSdkInit = true;
+                    }
+                    com.baidu.webkit.logsdk.a.a(this.f26947b, this.f26946a);
+                    if (WebSettingsGlobalBlink.getDoubleLogEnabled()) {
+                        this.f26950e.sendStatisticsDataToServer(com.baidu.webkit.internal.d.b(com.baidu.webkit.internal.d.c(this.f26946a.getBytes())), this.f26948c, this.f26949d);
+                    }
+                } catch (IOException e2) {
+                    e2.printStackTrace();
                 }
             } else if (WebSettingsGlobalBlink.useLogSdk()) {
                 z2 = SessionMonitorNetWorker.mLogSdkInit;
                 if (!z2) {
-                    Log.i("ZeusMonitorEngine", "BdLogSDK.init2");
+                    Log.i(SessionMonitorNetWorker.LOG_TAG, "BdLogSDK.init2");
                     com.baidu.webkit.logsdk.a.a(WebKitFactory.getContext(), new c());
                     boolean unused2 = SessionMonitorNetWorker.mLogSdkInit = true;
                 }
-                com.baidu.webkit.logsdk.a.a(this.b, this.f3839a);
+                com.baidu.webkit.logsdk.a.a(this.f26947b, this.f26946a);
             } else {
-                this.e.sendStatisticsDataToServer(com.baidu.webkit.internal.d.b(Base64.encode(this.f3839a.getBytes(), false)), this.c, this.d);
+                this.f26950e.sendStatisticsDataToServer(com.baidu.webkit.internal.d.b(Base64.encode(this.f26946a.getBytes(), false)), this.f26948c, this.f26949d);
             }
         }
         if (WebSettingsGlobalBlink.useT5Log()) {
-            this.e.sendStatisticsDataToServer(com.baidu.webkit.internal.d.b(Base64.encode(this.f3839a.getBytes(), false)), this.c, this.d);
+            this.f26950e.sendStatisticsDataToServer(com.baidu.webkit.internal.d.b(Base64.encode(this.f26946a.getBytes(), false)), this.f26948c, this.f26949d);
         }
     }
 }

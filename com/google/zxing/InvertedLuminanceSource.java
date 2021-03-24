@@ -1,11 +1,27 @@
 package com.google.zxing;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class InvertedLuminanceSource extends LuminanceSource {
-    private final LuminanceSource delegate;
+    public final LuminanceSource delegate;
 
     public InvertedLuminanceSource(LuminanceSource luminanceSource) {
         super(luminanceSource.getWidth(), luminanceSource.getHeight());
         this.delegate = luminanceSource;
+    }
+
+    @Override // com.google.zxing.LuminanceSource
+    public LuminanceSource crop(int i, int i2, int i3, int i4) {
+        return new InvertedLuminanceSource(this.delegate.crop(i, i2, i3, i4));
+    }
+
+    @Override // com.google.zxing.LuminanceSource
+    public byte[] getMatrix() {
+        byte[] matrix = this.delegate.getMatrix();
+        int width = getWidth() * getHeight();
+        byte[] bArr = new byte[width];
+        for (int i = 0; i < width; i++) {
+            bArr[i] = (byte) (255 - (matrix[i] & 255));
+        }
+        return bArr;
     }
 
     @Override // com.google.zxing.LuminanceSource
@@ -19,14 +35,8 @@ public final class InvertedLuminanceSource extends LuminanceSource {
     }
 
     @Override // com.google.zxing.LuminanceSource
-    public byte[] getMatrix() {
-        byte[] matrix = this.delegate.getMatrix();
-        int height = getHeight() * getWidth();
-        byte[] bArr = new byte[height];
-        for (int i = 0; i < height; i++) {
-            bArr[i] = (byte) (255 - (matrix[i] & 255));
-        }
-        return bArr;
+    public LuminanceSource invert() {
+        return this.delegate;
     }
 
     @Override // com.google.zxing.LuminanceSource
@@ -35,18 +45,8 @@ public final class InvertedLuminanceSource extends LuminanceSource {
     }
 
     @Override // com.google.zxing.LuminanceSource
-    public LuminanceSource crop(int i, int i2, int i3, int i4) {
-        return new InvertedLuminanceSource(this.delegate.crop(i, i2, i3, i4));
-    }
-
-    @Override // com.google.zxing.LuminanceSource
     public boolean isRotateSupported() {
         return this.delegate.isRotateSupported();
-    }
-
-    @Override // com.google.zxing.LuminanceSource
-    public LuminanceSource invert() {
-        return this.delegate;
     }
 
     @Override // com.google.zxing.LuminanceSource

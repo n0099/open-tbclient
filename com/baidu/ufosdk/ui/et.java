@@ -2,18 +2,17 @@ package com.baidu.ufosdk.ui;
 
 import android.view.View;
 import com.baidu.tieba.R;
-/* loaded from: classes7.dex */
-final class et implements View.OnClickListener {
+/* loaded from: classes5.dex */
+public final class et implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ er f3772a;
+    public final /* synthetic */ er f23240a;
 
-    private et(er erVar) {
-        this.f3772a = erVar;
+    public et(er erVar) {
+        this.f23240a = erVar;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ et(er erVar, byte b) {
+    public /* synthetic */ et(er erVar, byte b2) {
         this(erVar);
     }
 
@@ -21,12 +20,12 @@ final class et implements View.OnClickListener {
     public final void onClick(View view) {
         switch (view.getId()) {
             case R.dimen.L_X06 /* 2131165189 */:
-                eu b = er.b(this.f3772a);
-                er.a(this.f3772a).getText().toString();
-                b.a();
+                eu b2 = er.b(this.f23240a);
+                er.a(this.f23240a).getText().toString();
+                b2.a();
                 return;
             case R.dimen.M_H_X001 /* 2131165190 */:
-                er.b(this.f3772a).a(er.a(this.f3772a).getText().toString());
+                er.b(this.f23240a).a(er.a(this.f23240a).getText().toString());
                 return;
             default:
                 return;

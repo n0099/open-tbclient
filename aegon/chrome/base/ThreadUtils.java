@@ -7,18 +7,16 @@ import android.os.Process;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.FutureTask;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class ThreadUtils {
-    public static final /* synthetic */ boolean $assertionsDisabled = !ThreadUtils.class.desiredAssertionStatus();
+    public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static final Object sLock = new Object();
     public static boolean sThreadAssertsDisabled;
     public static Handler sUiThreadHandler;
     public static boolean sWillOverride;
 
     public static void assertOnUiThread() {
-        if (!sThreadAssertsDisabled && !$assertionsDisabled && !runningOnUiThread()) {
-            throw new AssertionError("Must be called on the UI thread.");
-        }
+        boolean z = sThreadAssertsDisabled;
     }
 
     public static Handler getUiThreadHandler() {
@@ -51,11 +49,11 @@ public class ThreadUtils {
             }
             try {
                 return (T) futureTask.get();
-            } catch (InterruptedException e) {
-                throw new RuntimeException("Interrupted waiting for callable", e);
+            } catch (InterruptedException e2) {
+                throw new RuntimeException("Interrupted waiting for callable", e2);
             }
-        } catch (ExecutionException e2) {
-            throw new RuntimeException("Error occurred waiting for callable", e2);
+        } catch (ExecutionException e3) {
+            throw new RuntimeException("Error occurred waiting for callable", e3);
         }
     }
 

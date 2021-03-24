@@ -4,16 +4,14 @@ import android.content.Context;
 import android.os.Bundle;
 import com.baidu.mapsdkplatform.comapi.map.ai;
 import java.util.concurrent.locks.Lock;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class d implements ai {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ BaiduMap f2064a;
+    public final /* synthetic */ BaiduMap f7065a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public d(BaiduMap baiduMap) {
-        this.f2064a = baiduMap;
+        this.f7065a = baiduMap;
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.map.ai
@@ -23,22 +21,22 @@ public class d implements ai {
         TileOverlay tileOverlay;
         Lock lock3;
         TileOverlay tileOverlay2;
-        lock = this.f2064a.G;
+        lock = this.f7065a.G;
         lock.lock();
         try {
-            tileOverlay = this.f2064a.D;
+            tileOverlay = this.f7065a.D;
             if (tileOverlay != null) {
-                tileOverlay2 = this.f2064a.D;
+                tileOverlay2 = this.f7065a.D;
                 Tile a2 = tileOverlay2.a(i, i2, i3);
                 if (a2 != null) {
                     return a2.toBundle();
                 }
             }
-            lock3 = this.f2064a.G;
+            lock3 = this.f7065a.G;
             lock3.unlock();
             return null;
         } finally {
-            lock2 = this.f2064a.G;
+            lock2 = this.f7065a.G;
             lock2.unlock();
         }
     }

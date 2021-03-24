@@ -17,221 +17,253 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.Nullable;
-import com.baidu.adp.lib.e.c;
-import com.baidu.adp.lib.e.d;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ala.personcenter.privilege.entereffect.b;
 import com.baidu.tieba.ala.personcenter.privilege.entereffect.data.AlaEnterEffectData;
-/* loaded from: classes9.dex */
+import d.b.b.e.p.l;
+import d.b.i0.t.j.g.d.b;
+/* loaded from: classes4.dex */
 public class AlaEffectPreviewView extends LinearLayout {
-    private int bfj;
-    private TextView cVd;
-    private LinearLayout gpQ;
-    private b.a idS;
-    private ObjectAnimator idT;
-    private ImageView idU;
-    private ImageView mIconView;
-    private View mRootView;
-    private int mScreenWidth;
 
-    public AlaEffectPreviewView(Context context) {
-        super(context);
-        initView();
-    }
+    /* renamed from: e  reason: collision with root package name */
+    public int f15065e;
 
-    public AlaEffectPreviewView(Context context, @Nullable AttributeSet attributeSet) {
-        super(context, attributeSet);
-        initView();
-    }
+    /* renamed from: f  reason: collision with root package name */
+    public int f15066f;
 
-    public AlaEffectPreviewView(Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        initView();
-    }
+    /* renamed from: g  reason: collision with root package name */
+    public View f15067g;
 
-    private void initView() {
-        this.mRootView = inflate(getContext(), R.layout.ala_enter_effect_preview_view, this);
-        this.mIconView = (ImageView) findViewById(R.id.ala_im_user_enter_icon_view);
-        this.cVd = (TextView) findViewById(R.id.ala_im_user_enter_content);
-        this.gpQ = (LinearLayout) findViewById(R.id.ala_enter_effect_content_layout);
-        this.idU = (ImageView) findViewById(R.id.ala_im_user_enter_tail);
-    }
+    /* renamed from: h  reason: collision with root package name */
+    public ImageView f15068h;
+    public TextView i;
+    public b.c j;
+    public ObjectAnimator k;
+    public LinearLayout l;
+    public ImageView m;
 
-    public void setAnimCompleteCallback(b.a aVar) {
-        this.idS = aVar;
-    }
+    /* loaded from: classes4.dex */
+    public class a extends d.b.b.e.l.c<d.b.b.j.d.a> {
+        public a() {
+        }
 
-    public void setData(AlaEnterEffectData alaEnterEffectData) {
-        GradientDrawable gradientDrawable;
-        if (alaEnterEffectData != null) {
-            String str = alaEnterEffectData.content_first;
-            String str2 = alaEnterEffectData.content_last;
-            String currentAccountNameShow = TbadkCoreApplication.getCurrentAccountNameShow();
-            if (StringUtils.isNull(currentAccountNameShow)) {
-                currentAccountNameShow = "";
-            }
-            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-            if (StringUtils.isNull(str) && StringUtils.isNull(str2)) {
-                spannableStringBuilder.append((CharSequence) currentAccountNameShow);
-                spannableStringBuilder.append((CharSequence) SpannableString.valueOf(getResources().getString(R.string.ala_contribute_rank_enter_suffix)));
-            } else {
-                if (!StringUtils.isNull(str)) {
-                    spannableStringBuilder.append((CharSequence) SpannableString.valueOf(str + " "));
-                }
-                spannableStringBuilder.append((CharSequence) currentAccountNameShow);
-                if (!StringUtils.isNull(str2)) {
-                    spannableStringBuilder.append((CharSequence) SpannableString.valueOf(" " + str2));
-                }
-            }
-            String str3 = alaEnterEffectData.icon_url;
-            if (StringUtils.isNull(str3)) {
-                this.mIconView.setVisibility(8);
-            } else {
-                this.mIconView.setVisibility(0);
-                d.mw().a(str3, 10, new c<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tieba.ala.personcenter.privilege.entereffect.AlaEffectPreviewView.1
-                    /* JADX DEBUG: Method merged with bridge method */
-                    /* JADX INFO: Access modifiers changed from: protected */
-                    @Override // com.baidu.adp.lib.e.c
-                    public void onLoaded(com.baidu.adp.widget.ImageView.a aVar, String str4, int i) {
-                        Bitmap rawBitmap;
-                        Bitmap copy;
-                        Bitmap copy2;
-                        super.onLoaded((AnonymousClass1) aVar, str4, i);
-                        if (aVar != null && (rawBitmap = aVar.getRawBitmap()) != null) {
-                            try {
-                                if (rawBitmap.getConfig() == null) {
-                                    copy2 = rawBitmap.copy(Bitmap.Config.ARGB_8888, false);
-                                } else {
-                                    copy2 = rawBitmap.copy(rawBitmap.getConfig(), false);
-                                }
-                                copy = copy2;
-                            } catch (OutOfMemoryError e) {
-                                BdLog.e(e);
-                                if (rawBitmap.getConfig() == null) {
-                                    try {
-                                        copy = rawBitmap.copy(Bitmap.Config.RGB_565, false);
-                                    } catch (OutOfMemoryError e2) {
-                                        BdLog.e(e2);
-                                        return;
-                                    }
-                                } else {
-                                    return;
-                                }
-                            }
-                            if (copy != null) {
-                                try {
-                                    Bitmap resizeBitmap = com.baidu.adp.lib.util.d.nH().resizeBitmap(copy, l.getEquipmentWidth(AlaEffectPreviewView.this.getContext()), AlaEffectPreviewView.this.getContext().getResources().getDimensionPixelSize(R.dimen.tbds42));
-                                    if (resizeBitmap != copy) {
-                                        copy.recycle();
-                                    }
-                                    AlaEffectPreviewView.this.mIconView.setImageBitmap(resizeBitmap);
-                                } catch (OutOfMemoryError e3) {
-                                    BdLog.e(e3);
-                                    if (copy != null) {
-                                        copy.recycle();
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }, null);
-            }
-            this.cVd.setText(spannableStringBuilder);
-            String str4 = alaEnterEffectData.color;
-            if (StringUtils.isNull(str4)) {
-                str4 = "#B2FF5460";
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // d.b.b.e.l.c
+        public void onLoaded(d.b.b.j.d.a aVar, String str, int i) {
+            Bitmap p;
+            super.onLoaded((a) aVar, str, i);
+            if (aVar == null || (p = aVar.p()) == null) {
+                return;
             }
             try {
-                if (!TextUtils.isEmpty(alaEnterEffectData.startColor) && !TextUtils.isEmpty(alaEnterEffectData.endColor)) {
-                    gradientDrawable = new GradientDrawable(GradientDrawable.Orientation.LEFT_RIGHT, new int[]{Color.parseColor(alaEnterEffectData.startColor), Color.parseColor(alaEnterEffectData.endColor)});
+                if (p.getConfig() == null) {
+                    p = p.copy(Bitmap.Config.ARGB_8888, false);
                 } else {
-                    GradientDrawable gradientDrawable2 = new GradientDrawable();
-                    gradientDrawable2.setColor(Color.parseColor(str4));
-                    gradientDrawable = gradientDrawable2;
+                    p = p.copy(p.getConfig(), false);
                 }
-                if (!TextUtils.isEmpty(alaEnterEffectData.strokeColor)) {
-                    gradientDrawable.setStroke(1, Color.parseColor(alaEnterEffectData.strokeColor));
+            } catch (OutOfMemoryError e2) {
+                BdLog.e(e2);
+                if (p.getConfig() != null) {
+                    return;
                 }
-            } catch (IllegalArgumentException e) {
-                gradientDrawable = new GradientDrawable();
-                gradientDrawable.setColor(-1291889568);
+                try {
+                    p = p.copy(Bitmap.Config.RGB_565, false);
+                } catch (OutOfMemoryError e3) {
+                    BdLog.e(e3);
+                    return;
+                }
             }
-            gradientDrawable.setCornerRadius(getContext().getResources().getDimensionPixelSize(R.dimen.tbds10));
-            this.gpQ.setBackgroundDrawable(gradientDrawable);
-            if (3 == alaEnterEffectData.categoryType) {
-                this.idU.setVisibility(0);
+            if (p == null) {
+                return;
+            }
+            try {
+                Bitmap g2 = d.b.b.e.p.d.d().g(p, l.k(AlaEffectPreviewView.this.getContext()), AlaEffectPreviewView.this.getContext().getResources().getDimensionPixelSize(R.dimen.tbds42));
+                if (g2 != p) {
+                    p.recycle();
+                }
+                AlaEffectPreviewView.this.f15068h.setImageBitmap(g2);
+            } catch (OutOfMemoryError e4) {
+                BdLog.e(e4);
+                if (p != null) {
+                    p.recycle();
+                }
             }
         }
     }
 
-    public void cnx() {
-        if (getMeasuredWidth() <= 0) {
-            measure(0, 0);
+    /* loaded from: classes4.dex */
+    public class b implements TimeInterpolator {
+        public b() {
         }
-        this.mScreenWidth = l.getEquipmentWidth(getContext());
-        this.bfj = (this.mScreenWidth - getMeasuredWidth()) / 2;
-        this.idT = ObjectAnimator.ofFloat(this.mRootView, "TranslationX", this.mScreenWidth, -this.mScreenWidth);
-        this.idT.setDuration(3500L);
-        this.idT.setInterpolator(new TimeInterpolator() { // from class: com.baidu.tieba.ala.personcenter.privilege.entereffect.AlaEffectPreviewView.2
-            @Override // android.animation.TimeInterpolator
-            public float getInterpolation(float f) {
-                return f;
-            }
-        });
-        this.idT.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.ala.personcenter.privilege.entereffect.AlaEffectPreviewView.3
-            @Override // android.animation.Animator.AnimatorListener
-            public void onAnimationStart(Animator animator) {
-            }
 
-            @Override // android.animation.Animator.AnimatorListener
-            public void onAnimationEnd(Animator animator) {
-                if (AlaEffectPreviewView.this.idS != null) {
-                    AlaEffectPreviewView.this.idS.cnz();
-                }
-            }
-
-            @Override // android.animation.Animator.AnimatorListener
-            public void onAnimationCancel(Animator animator) {
-            }
-
-            @Override // android.animation.Animator.AnimatorListener
-            public void onAnimationRepeat(Animator animator) {
-            }
-        });
-        this.idT.setEvaluator(new a());
-        this.idT.start();
-    }
-
-    public void onDestory() {
-        if (this.idT != null) {
-            this.idT.cancel();
+        @Override // android.animation.TimeInterpolator
+        public float getInterpolation(float f2) {
+            return f2;
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes9.dex */
-    public class a extends FloatEvaluator {
-        private a() {
+    /* loaded from: classes4.dex */
+    public class c implements Animator.AnimatorListener {
+        public c() {
+        }
+
+        @Override // android.animation.Animator.AnimatorListener
+        public void onAnimationCancel(Animator animator) {
+        }
+
+        @Override // android.animation.Animator.AnimatorListener
+        public void onAnimationEnd(Animator animator) {
+            if (AlaEffectPreviewView.this.j != null) {
+                AlaEffectPreviewView.this.j.a();
+            }
+        }
+
+        @Override // android.animation.Animator.AnimatorListener
+        public void onAnimationRepeat(Animator animator) {
+        }
+
+        @Override // android.animation.Animator.AnimatorListener
+        public void onAnimationStart(Animator animator) {
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class d extends FloatEvaluator {
+        public d() {
+        }
+
+        public /* synthetic */ d(AlaEffectPreviewView alaEffectPreviewView, a aVar) {
+            this();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // android.animation.TypeEvaluator
-        public Float evaluate(float f, Number number, Number number2) {
-            float f2;
-            float f3 = f * 3500.0f;
-            if (f3 <= 500.0f) {
-                f2 = (((f3 / 500.0f) - 1.0f) * AlaEffectPreviewView.this.mScreenWidth) + AlaEffectPreviewView.this.bfj;
-            } else if (3500.0f - f3 > 500.0f) {
-                f2 = AlaEffectPreviewView.this.bfj;
+        public Float evaluate(float f2, Number number, Number number2) {
+            float f3;
+            float f4 = f2 * 3500.0f;
+            if (f4 <= 500.0f) {
+                f3 = (AlaEffectPreviewView.this.f15065e * ((f4 / 500.0f) - 1.0f)) + AlaEffectPreviewView.this.f15066f;
             } else {
-                f2 = ((1.0f - ((3500.0f - f3) / 500.0f)) * AlaEffectPreviewView.this.mScreenWidth) + AlaEffectPreviewView.this.bfj;
+                float f5 = 3500.0f - f4;
+                if (f5 <= 500.0f) {
+                    f3 = AlaEffectPreviewView.this.f15066f + (AlaEffectPreviewView.this.f15065e * (1.0f - (f5 / 500.0f)));
+                } else {
+                    f3 = AlaEffectPreviewView.this.f15066f;
+                }
             }
-            return Float.valueOf(f2);
+            return Float.valueOf(f3);
         }
+    }
+
+    public AlaEffectPreviewView(Context context) {
+        super(context);
+        e();
+    }
+
+    public final void e() {
+        this.f15067g = LinearLayout.inflate(getContext(), R.layout.ala_enter_effect_preview_view, this);
+        this.f15068h = (ImageView) findViewById(R.id.ala_im_user_enter_icon_view);
+        this.i = (TextView) findViewById(R.id.ala_im_user_enter_content);
+        this.l = (LinearLayout) findViewById(R.id.ala_enter_effect_content_layout);
+        this.m = (ImageView) findViewById(R.id.ala_im_user_enter_tail);
+    }
+
+    public void f() {
+        ObjectAnimator objectAnimator = this.k;
+        if (objectAnimator != null) {
+            objectAnimator.cancel();
+        }
+    }
+
+    public void g() {
+        if (getMeasuredWidth() <= 0) {
+            measure(0, 0);
+        }
+        int k = l.k(getContext());
+        this.f15065e = k;
+        this.f15066f = (k - getMeasuredWidth()) / 2;
+        View view = this.f15067g;
+        int i = this.f15065e;
+        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view, "TranslationX", i, -i);
+        this.k = ofFloat;
+        ofFloat.setDuration(3500L);
+        this.k.setInterpolator(new b());
+        this.k.addListener(new c());
+        this.k.setEvaluator(new d(this, null));
+        this.k.start();
+    }
+
+    public void setAnimCompleteCallback(b.c cVar) {
+        this.j = cVar;
+    }
+
+    public void setData(AlaEnterEffectData alaEnterEffectData) {
+        GradientDrawable gradientDrawable;
+        if (alaEnterEffectData == null) {
+            return;
+        }
+        String str = alaEnterEffectData.content_first;
+        String str2 = alaEnterEffectData.content_last;
+        String currentAccountNameShow = TbadkCoreApplication.getCurrentAccountNameShow();
+        if (StringUtils.isNull(currentAccountNameShow)) {
+            currentAccountNameShow = "";
+        }
+        SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
+        if (StringUtils.isNull(str) && StringUtils.isNull(str2)) {
+            spannableStringBuilder.append((CharSequence) currentAccountNameShow);
+            spannableStringBuilder.append((CharSequence) SpannableString.valueOf(getResources().getString(R.string.ala_contribute_rank_enter_suffix)));
+        } else {
+            if (!StringUtils.isNull(str)) {
+                spannableStringBuilder.append((CharSequence) SpannableString.valueOf(str + " "));
+            }
+            spannableStringBuilder.append((CharSequence) currentAccountNameShow);
+            if (!StringUtils.isNull(str2)) {
+                spannableStringBuilder.append((CharSequence) SpannableString.valueOf(" " + str2));
+            }
+        }
+        String str3 = alaEnterEffectData.icon_url;
+        if (StringUtils.isNull(str3)) {
+            this.f15068h.setVisibility(8);
+        } else {
+            this.f15068h.setVisibility(0);
+            d.b.b.e.l.d.h().m(str3, 10, new a(), null);
+        }
+        this.i.setText(spannableStringBuilder);
+        String str4 = alaEnterEffectData.color;
+        if (StringUtils.isNull(str4)) {
+            str4 = "#B2FF5460";
+        }
+        try {
+            if (!TextUtils.isEmpty(alaEnterEffectData.startColor) && !TextUtils.isEmpty(alaEnterEffectData.endColor)) {
+                gradientDrawable = new GradientDrawable(GradientDrawable.Orientation.LEFT_RIGHT, new int[]{Color.parseColor(alaEnterEffectData.startColor), Color.parseColor(alaEnterEffectData.endColor)});
+            } else {
+                gradientDrawable = new GradientDrawable();
+                gradientDrawable.setColor(Color.parseColor(str4));
+            }
+            if (!TextUtils.isEmpty(alaEnterEffectData.strokeColor)) {
+                gradientDrawable.setStroke(1, Color.parseColor(alaEnterEffectData.strokeColor));
+            }
+        } catch (IllegalArgumentException unused) {
+            gradientDrawable = new GradientDrawable();
+            gradientDrawable.setColor(-1291889568);
+        }
+        gradientDrawable.setCornerRadius(getContext().getResources().getDimensionPixelSize(R.dimen.tbds10));
+        this.l.setBackgroundDrawable(gradientDrawable);
+        if (3 == alaEnterEffectData.categoryType) {
+            this.m.setVisibility(0);
+        }
+    }
+
+    public AlaEffectPreviewView(Context context, @Nullable AttributeSet attributeSet) {
+        super(context, attributeSet);
+        e();
+    }
+
+    public AlaEffectPreviewView(Context context, @Nullable AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        e();
     }
 }

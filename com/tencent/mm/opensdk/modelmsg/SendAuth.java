@@ -4,13 +4,13 @@ import android.os.Bundle;
 import com.tencent.mm.opensdk.modelbase.BaseReq;
 import com.tencent.mm.opensdk.modelbase.BaseResp;
 import com.tencent.mm.opensdk.utils.Log;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public final class SendAuth {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class Req extends BaseReq {
-        private static final int LENGTH_LIMIT = 1024;
-        private static final String TAG = "MicroMsg.SDK.SendAuth.Req";
+        public static final int LENGTH_LIMIT = 1024;
+        public static final String TAG = "MicroMsg.SDK.SendAuth.Req";
         public String scope;
         public String state;
 
@@ -23,15 +23,19 @@ public final class SendAuth {
 
         @Override // com.tencent.mm.opensdk.modelbase.BaseReq
         public boolean checkArgs() {
-            if (this.scope == null || this.scope.length() == 0 || this.scope.length() > 1024) {
-                Log.e(TAG, "checkArgs fail, scope is invalid");
-                return false;
-            } else if (this.state == null || this.state.length() <= 1024) {
-                return true;
+            String str;
+            String str2 = this.scope;
+            if (str2 == null || str2.length() == 0 || this.scope.length() > 1024) {
+                str = "checkArgs fail, scope is invalid";
             } else {
-                Log.e(TAG, "checkArgs fail, state is invalid");
-                return false;
+                String str3 = this.state;
+                if (str3 == null || str3.length() <= 1024) {
+                    return true;
+                }
+                str = "checkArgs fail, state is invalid";
             }
+            Log.e("MicroMsg.SDK.SendAuth.Req", str);
+            return false;
         }
 
         @Override // com.tencent.mm.opensdk.modelbase.BaseReq
@@ -54,10 +58,12 @@ public final class SendAuth {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class Resp extends BaseResp {
-        private static final int LENGTH_LIMIT = 1024;
-        private static final String TAG = "MicroMsg.SDK.SendAuth.Resp";
+        public static final int ERR_SCOPE_SNSAPI_WXAAPP_INFO_CAN_ONLY_AUTHORIZED_SEPARATELY = -1000;
+        public static final int LENGTH_LIMIT = 1024;
+        public static final String TAG = "MicroMsg.SDK.SendAuth.Resp";
+        public boolean authResult = false;
         public String code;
         public String country;
         public String lang;
@@ -73,10 +79,11 @@ public final class SendAuth {
 
         @Override // com.tencent.mm.opensdk.modelbase.BaseResp
         public boolean checkArgs() {
-            if (this.state == null || this.state.length() <= 1024) {
+            String str = this.state;
+            if (str == null || str.length() <= 1024) {
                 return true;
             }
-            Log.e(TAG, "checkArgs fail, state is invalid");
+            Log.e("MicroMsg.SDK.SendAuth.Resp", "checkArgs fail, state is invalid");
             return false;
         }
 
@@ -88,6 +95,7 @@ public final class SendAuth {
             this.url = bundle.getString("_wxapi_sendauth_resp_url");
             this.lang = bundle.getString("_wxapi_sendauth_resp_lang");
             this.country = bundle.getString("_wxapi_sendauth_resp_country");
+            this.authResult = bundle.getBoolean("_wxapi_sendauth_resp_auth_result");
         }
 
         @Override // com.tencent.mm.opensdk.modelbase.BaseResp
@@ -103,9 +111,7 @@ public final class SendAuth {
             bundle.putString("_wxapi_sendauth_resp_url", this.url);
             bundle.putString("_wxapi_sendauth_resp_lang", this.lang);
             bundle.putString("_wxapi_sendauth_resp_country", this.country);
+            bundle.putBoolean("_wxapi_sendauth_resp_auth_result", this.authResult);
         }
-    }
-
-    private SendAuth() {
     }
 }

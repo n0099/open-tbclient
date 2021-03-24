@@ -11,7 +11,7 @@ import java.net.InetAddress;
 import java.net.NetworkInterface;
 import java.net.SocketException;
 import java.util.Enumeration;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public final class NetworkUtils {
     public static final int NETWORK_2G = 2;
     public static final int NETWORK_3G = 3;
@@ -23,71 +23,35 @@ public final class NetworkUtils {
     public static final int NETWORK_WIFI = 1;
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f1558a = "NetworkUtils";
+    public static final String f5378a = "NetworkUtils";
 
-    private NetworkUtils() {
+    public static String getLocalIpAddress() {
+        try {
+            Enumeration<NetworkInterface> networkInterfaces = NetworkInterface.getNetworkInterfaces();
+            while (networkInterfaces.hasMoreElements()) {
+                Enumeration<InetAddress> inetAddresses = networkInterfaces.nextElement().getInetAddresses();
+                while (inetAddresses.hasMoreElements()) {
+                    InetAddress nextElement = inetAddresses.nextElement();
+                    if (!nextElement.isLoopbackAddress()) {
+                        return nextElement.getHostAddress().toString();
+                    }
+                }
+            }
+            return null;
+        } catch (SocketException e2) {
+            LogUtil.e("", "NetworkStatus", e2);
+            return null;
+        }
     }
 
-    public static boolean isNetworkAvailable(Context context) {
-        if (context == null) {
-            if (ApollonConstants.DEBUG) {
-                LogUtil.d(f1558a, "context is null!");
-            }
-            return false;
-        }
-        ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
-        if (connectivityManager == null) {
-            if (ApollonConstants.DEBUG) {
-                LogUtil.d(f1558a, "couldn't get connectivity manager");
-            }
-            return false;
-        }
-        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
-        if (activeNetworkInfo == null || !activeNetworkInfo.isAvailable()) {
-            if (ApollonConstants.DEBUG) {
-                LogUtil.d(f1558a, "network is not available");
-            }
-            return false;
-        }
-        if (ApollonConstants.DEBUG) {
-            LogUtil.d(f1558a, "network is available");
-        }
-        return true;
+    public static String getLocalMacAddress(Context context) {
+        return ((WifiManager) context.getSystemService("wifi")).getConnectionInfo().getMacAddress();
     }
 
-    public static boolean isNetworkRoaming(Context context) {
-        TelephonyManager telephonyManager;
+    public static String getNetName(Context context) {
+        NetworkInfo activeNetworkInfo;
         ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
-        if (connectivityManager == null) {
-            if (ApollonConstants.DEBUG) {
-                LogUtil.v(f1558a, "couldn't get connectivity manager");
-            }
-            return false;
-        }
-        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
-        if (activeNetworkInfo == null || activeNetworkInfo.getType() != 0 || (telephonyManager = (TelephonyManager) context.getSystemService("phone")) == null || !telephonyManager.isNetworkRoaming()) {
-            return false;
-        }
-        if (ApollonConstants.DEBUG) {
-            LogUtil.v(f1558a, "network is roaming");
-        }
-        return true;
-    }
-
-    public static boolean isWifiNetworkAvailable(Context context) {
-        ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
-        if (connectivityManager == null) {
-            if (ApollonConstants.DEBUG) {
-                LogUtil.d(f1558a, "couldn't get connectivity manager");
-                return false;
-            }
-            return false;
-        }
-        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
-        if (activeNetworkInfo == null || !activeNetworkInfo.isConnected()) {
-            return false;
-        }
-        return activeNetworkInfo.getType() == 1;
+        return (connectivityManager == null || (activeNetworkInfo = connectivityManager.getActiveNetworkInfo()) == null) ? "" : activeNetworkInfo.getType() == 1 ? "wifi" : (activeNetworkInfo.getTypeName() == null || activeNetworkInfo.getExtraInfo() == null) ? "" : activeNetworkInfo.getExtraInfo().toLowerCase();
     }
 
     public static int getNetworkType(Context context) {
@@ -125,60 +89,85 @@ public final class NetworkUtils {
         return 0;
     }
 
-    public static String getLocalIpAddress() {
-        try {
-            Enumeration<NetworkInterface> networkInterfaces = NetworkInterface.getNetworkInterfaces();
-            while (networkInterfaces.hasMoreElements()) {
-                Enumeration<InetAddress> inetAddresses = networkInterfaces.nextElement().getInetAddresses();
-                while (inetAddresses.hasMoreElements()) {
-                    InetAddress nextElement = inetAddresses.nextElement();
-                    if (!nextElement.isLoopbackAddress()) {
-                        return nextElement.getHostAddress().toString();
-                    }
-                }
+    public static boolean isNetworkAvailable(Context context) {
+        if (context == null) {
+            if (ApollonConstants.DEBUG) {
+                LogUtil.d("NetworkUtils", "context is null!");
             }
-        } catch (SocketException e) {
-            LogUtil.e("", "NetworkStatus", e);
+            return false;
         }
-        return null;
-    }
-
-    public static String getLocalMacAddress(Context context) {
-        return ((WifiManager) context.getSystemService("wifi")).getConnectionInfo().getMacAddress();
+        ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
+        if (connectivityManager == null) {
+            if (ApollonConstants.DEBUG) {
+                LogUtil.d("NetworkUtils", "couldn't get connectivity manager");
+            }
+            return false;
+        }
+        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+        if (activeNetworkInfo != null && activeNetworkInfo.isAvailable()) {
+            if (ApollonConstants.DEBUG) {
+                LogUtil.d("NetworkUtils", "network is available");
+                return true;
+            }
+            return true;
+        }
+        if (ApollonConstants.DEBUG) {
+            LogUtil.d("NetworkUtils", "network is not available");
+        }
+        return false;
     }
 
     public static boolean isNetworkConnected(Context context) {
         ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
         if (connectivityManager == null) {
             if (ApollonConstants.DEBUG) {
-                Log.d(f1558a, "couldn't get connectivity manager");
+                Log.d("NetworkUtils", "couldn't get connectivity manager");
             }
             return false;
         }
         NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
-        if (activeNetworkInfo == null || !activeNetworkInfo.isAvailable()) {
+        if (activeNetworkInfo != null && activeNetworkInfo.isAvailable()) {
             if (ApollonConstants.DEBUG) {
-                Log.d(f1558a, "network is not available");
+                Log.d("NetworkUtils", "network is available");
+                return true;
+            }
+            return true;
+        }
+        if (ApollonConstants.DEBUG) {
+            Log.d("NetworkUtils", "network is not available");
+        }
+        return false;
+    }
+
+    public static boolean isNetworkRoaming(Context context) {
+        TelephonyManager telephonyManager;
+        ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
+        if (connectivityManager == null) {
+            if (ApollonConstants.DEBUG) {
+                LogUtil.v("NetworkUtils", "couldn't get connectivity manager");
             }
             return false;
         }
+        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+        if (activeNetworkInfo == null || activeNetworkInfo.getType() != 0 || (telephonyManager = (TelephonyManager) context.getSystemService("phone")) == null || !telephonyManager.isNetworkRoaming()) {
+            return false;
+        }
         if (ApollonConstants.DEBUG) {
-            Log.d(f1558a, "network is available");
+            LogUtil.v("NetworkUtils", "network is roaming");
+            return true;
         }
         return true;
     }
 
-    public static String getNetName(Context context) {
-        NetworkInfo activeNetworkInfo;
+    public static boolean isWifiNetworkAvailable(Context context) {
         ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
-        if (connectivityManager != null && (activeNetworkInfo = connectivityManager.getActiveNetworkInfo()) != null) {
-            if (activeNetworkInfo.getType() == 1) {
-                return "wifi";
+        if (connectivityManager == null) {
+            if (ApollonConstants.DEBUG) {
+                LogUtil.d("NetworkUtils", "couldn't get connectivity manager");
             }
-            if (activeNetworkInfo.getTypeName() != null && activeNetworkInfo.getExtraInfo() != null) {
-                return activeNetworkInfo.getExtraInfo().toLowerCase();
-            }
+            return false;
         }
-        return "";
+        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+        return activeNetworkInfo != null && activeNetworkInfo.isConnected() && activeNetworkInfo.getType() == 1;
     }
 }

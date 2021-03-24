@@ -11,139 +11,158 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.core.graphics.drawable.DrawableCompat;
-import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.atomData.HotTopicActivityConfig;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.TagTextHelper;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.au;
-import com.baidu.tbadk.core.util.f.a;
-import com.baidu.tbadk.h.f;
+import com.baidu.tbadk.core.util.tbselector.TBSelector;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.newlist.b.b;
-/* loaded from: classes7.dex */
+import d.b.b.e.p.l;
+import d.b.h0.m.f;
+import d.b.i0.z1.d.b;
+/* loaded from: classes4.dex */
 public class HotTopicListInfoItem extends RelativeLayout implements View.OnClickListener {
-    private f<b> akI;
-    private TextView alh;
-    private TextView ali;
-    private TextView eIY;
-    private int kiZ;
-    private TbImageView kjh;
-    private View kjm;
-    private TextView kyk;
-    private TextView lHV;
-    private TextView lHW;
-    private TextView lHX;
-    private b lHY;
+
+    /* renamed from: e  reason: collision with root package name */
+    public int f19391e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public TbImageView f19392f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public TextView f19393g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public TextView f19394h;
+    public TextView i;
+    public TextView j;
+    public TextView k;
+    public TextView l;
+    public TextView m;
+    public View n;
+    public b o;
+    public f<b> p;
 
     public HotTopicListInfoItem(Context context) {
         super(context);
-        this.kiZ = 3;
-        initView();
-    }
-
-    public HotTopicListInfoItem(Context context, @Nullable AttributeSet attributeSet) {
-        super(context, attributeSet);
-        this.kiZ = 3;
-        initView();
-    }
-
-    public HotTopicListInfoItem(Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        this.kiZ = 3;
-        initView();
-    }
-
-    private void initView() {
-        LayoutInflater.from(getContext()).inflate(R.layout.hot_topic_list_info_item, (ViewGroup) this, true);
-        this.kjm = findViewById(R.id.rootLayout);
-        this.kjh = (TbImageView) findViewById(R.id.coverView);
-        this.alh = (TextView) findViewById(R.id.indexView);
-        this.eIY = (TextView) findViewById(R.id.titleView);
-        this.ali = (TextView) findViewById(R.id.tagView);
-        this.lHV = (TextView) findViewById(R.id.numView);
-        this.kyk = (TextView) findViewById(R.id.descView);
-        this.lHW = (TextView) findViewById(R.id.titlePre);
-        this.lHX = (TextView) findViewById(R.id.titleNext);
-        this.kjh.setPlaceHolder(1);
-        this.kjh.setRadius(l.getDimens(getContext(), R.dimen.tbds10));
-        this.kjh.setConrers(15);
-        findViewById(R.id.rootLayout).setOnClickListener(this);
-    }
-
-    public void setOnItemCoverListener(f<b> fVar) {
-        this.akI = fVar;
+        this.f19391e = 3;
+        c();
     }
 
     public void a(b bVar) {
         if (bVar != null) {
-            this.lHY = bVar;
-            this.kjh.startLoad(bVar.cover, 10, false);
-            this.eIY.setText(bVar.title);
-            this.kyk.setText(bVar.desc);
-            String D = TagTextHelper.D(this.ali.getContext(), bVar.tag);
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.eIY.getLayoutParams();
-            RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.lHX.getLayoutParams();
-            if (TextUtils.isEmpty(D)) {
-                this.ali.setVisibility(8);
-                layoutParams.rightMargin = l.getDimens(this.ali.getContext(), R.dimen.tbds42);
-                this.eIY.setLayoutParams(layoutParams);
+            this.o = bVar;
+            this.f19392f.W(bVar.j, 10, false);
+            this.f19394h.setText(bVar.f63436g);
+            this.k.setText(bVar.f63437h);
+            String hotTopicTagStr = TagTextHelper.getHotTopicTagStr(this.i.getContext(), bVar.k);
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f19394h.getLayoutParams();
+            RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.m.getLayoutParams();
+            if (TextUtils.isEmpty(hotTopicTagStr)) {
+                this.i.setVisibility(8);
+                layoutParams.rightMargin = l.g(this.i.getContext(), R.dimen.tbds42);
+                this.f19394h.setLayoutParams(layoutParams);
                 layoutParams2.leftMargin = -layoutParams.rightMargin;
-                this.lHX.setLayoutParams(layoutParams2);
+                this.m.setLayoutParams(layoutParams2);
             } else {
-                layoutParams.rightMargin = l.getDimens(this.ali.getContext(), R.dimen.tbds100);
-                this.eIY.setLayoutParams(layoutParams);
+                layoutParams.rightMargin = l.g(this.i.getContext(), R.dimen.tbds100);
+                this.f19394h.setLayoutParams(layoutParams);
                 layoutParams2.leftMargin = -layoutParams.rightMargin;
-                this.lHX.setLayoutParams(layoutParams2);
-                this.ali.setVisibility(0);
-                this.ali.setText(D);
+                this.m.setLayoutParams(layoutParams2);
+                this.i.setVisibility(0);
+                this.i.setText(hotTopicTagStr);
             }
-            cRa();
-            if (bVar.replyNum > 0) {
-                this.lHV.setVisibility(0);
-                this.lHV.setText(this.lHV.getContext().getResources().getString(R.string.hot_topic_rank_item_tag, au.ed(bVar.replyNum)));
+            b();
+            if (bVar.i > 0) {
+                this.j.setVisibility(0);
+                String numberUniformFormatExtraWithRoundInt = StringHelper.numberUniformFormatExtraWithRoundInt(bVar.i);
+                TextView textView = this.j;
+                textView.setText(textView.getContext().getResources().getString(R.string.hot_topic_rank_item_tag, numberUniformFormatExtraWithRoundInt));
             } else {
-                this.lHV.setVisibility(4);
+                this.j.setVisibility(4);
             }
-            this.alh.setText("" + bVar.index);
+            TextView textView2 = this.f19393g;
+            textView2.setText("" + bVar.f63435f);
         }
     }
 
-    private void cRa() {
-        if (this.lHY != null) {
-            int oJ = TagTextHelper.oJ(this.lHY.tag);
-            Drawable background = this.ali.getBackground();
-            DrawableCompat.setTint(background, ap.getColor(oJ));
-            this.ali.setBackgroundDrawable(background);
-            int oK = TagTextHelper.oK(this.lHY.index);
-            Drawable background2 = this.alh.getBackground();
-            DrawableCompat.setTint(background2, ap.getColor(oK));
-            this.alh.setBackgroundDrawable(background2);
+    public final void b() {
+        b bVar = this.o;
+        if (bVar != null) {
+            int hotTopicTagColorRes = TagTextHelper.getHotTopicTagColorRes(bVar.k);
+            Drawable background = this.i.getBackground();
+            DrawableCompat.setTint(background, SkinManager.getColor(hotTopicTagColorRes));
+            this.i.setBackgroundDrawable(background);
+            int indexTextColorRes = TagTextHelper.getIndexTextColorRes(this.o.f63435f);
+            Drawable background2 = this.f19393g.getBackground();
+            DrawableCompat.setTint(background2, SkinManager.getColor(indexTextColorRes));
+            this.f19393g.setBackgroundDrawable(background2);
         }
     }
 
-    public void onChangeSkinType(int i) {
-        if (this.kiZ != i) {
-            a.m(this.kjm, R.color.CAM_X0205, R.color.CAM_X0204);
-            ap.setViewTextColor(this.ali, R.color.CAM_X0101);
-            ap.setViewTextColor(this.alh, R.color.CAM_X0101);
-            ap.setViewTextColor(this.kyk, R.color.CAM_X0109);
-            ap.setViewTextColor(this.lHV, R.color.CAM_X0109);
-            ap.setViewTextColor(this.eIY, R.color.CAM_X0105);
-            ap.setViewTextColor(this.lHW, R.color.CAM_X0105);
-            ap.setViewTextColor(this.lHX, R.color.CAM_X0105);
-            cRa();
-            this.kiZ = i;
+    public final void c() {
+        LayoutInflater.from(getContext()).inflate(R.layout.hot_topic_list_info_item, (ViewGroup) this, true);
+        this.n = findViewById(R.id.rootLayout);
+        this.f19392f = (TbImageView) findViewById(R.id.coverView);
+        this.f19393g = (TextView) findViewById(R.id.indexView);
+        this.f19394h = (TextView) findViewById(R.id.titleView);
+        this.i = (TextView) findViewById(R.id.tagView);
+        this.j = (TextView) findViewById(R.id.numView);
+        this.k = (TextView) findViewById(R.id.descView);
+        this.l = (TextView) findViewById(R.id.titlePre);
+        this.m = (TextView) findViewById(R.id.titleNext);
+        this.f19392f.setPlaceHolder(1);
+        this.f19392f.setRadius(l.g(getContext(), R.dimen.tbds10));
+        this.f19392f.setConrers(15);
+        findViewById(R.id.rootLayout).setOnClickListener(this);
+    }
+
+    public void d(int i) {
+        if (this.f19391e != i) {
+            TBSelector.setViewBackgroundColorWithPressedState(this.n, R.color.CAM_X0205, R.color.CAM_X0204);
+            SkinManager.setViewTextColor(this.i, R.color.CAM_X0101);
+            SkinManager.setViewTextColor(this.f19393g, R.color.CAM_X0101);
+            SkinManager.setViewTextColor(this.k, R.color.CAM_X0109);
+            SkinManager.setViewTextColor(this.j, R.color.CAM_X0109);
+            SkinManager.setViewTextColor(this.f19394h, R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.l, R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.m, R.color.CAM_X0105);
+            b();
+            this.f19391e = i;
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.lHY != null && this.lHY.topicId > 0) {
-            if (this.akI != null) {
-                this.akI.a(view, this.lHY, this.lHY.index, this.lHY.topicId);
+        b bVar = this.o;
+        if (bVar != null) {
+            long j = bVar.f63434e;
+            if (j <= 0) {
+                return;
             }
-            new HotTopicActivityConfig(getContext()).createNormalConfig("" + this.lHY.topicId, null, "5").start();
+            f<b> fVar = this.p;
+            if (fVar != null) {
+                fVar.a(view, bVar, bVar.f63435f, j);
+            }
+            HotTopicActivityConfig hotTopicActivityConfig = new HotTopicActivityConfig(getContext());
+            hotTopicActivityConfig.createNormalConfig("" + this.o.f63434e, null, "5").start();
         }
+    }
+
+    public void setOnItemCoverListener(f<b> fVar) {
+        this.p = fVar;
+    }
+
+    public HotTopicListInfoItem(Context context, @Nullable AttributeSet attributeSet) {
+        super(context, attributeSet);
+        this.f19391e = 3;
+        c();
+    }
+
+    public HotTopicListInfoItem(Context context, @Nullable AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        this.f19391e = 3;
+        c();
     }
 }

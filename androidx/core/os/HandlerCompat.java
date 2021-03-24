@@ -5,7 +5,7 @@ import android.os.Handler;
 import android.os.Message;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-/* loaded from: classes14.dex */
+/* loaded from: classes.dex */
 public final class HandlerCompat {
     public static boolean postDelayed(@NonNull Handler handler, @NonNull Runnable runnable, @Nullable Object obj, long j) {
         if (Build.VERSION.SDK_INT >= 28) {
@@ -14,8 +14,5 @@ public final class HandlerCompat {
         Message obtain = Message.obtain(handler, runnable);
         obtain.obj = obj;
         return handler.sendMessageDelayed(obtain, j);
-    }
-
-    private HandlerCompat() {
     }
 }

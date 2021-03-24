@@ -10,22 +10,36 @@ import androidx.core.view.ViewCompat;
 import com.kwad.sdk.utils.ao;
 import com.kwad.sdk.utils.aq;
 import com.kwad.sdk.utils.n;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class DetailWebRecycleView extends b {
 
     /* renamed from: a  reason: collision with root package name */
-    a f6207a;
-    private int b;
-    private boolean c;
-    private boolean d;
-    private int e;
-    private int f;
-    private boolean g;
-    private int h;
-    private Runnable i;
-    private aq j;
+    public a f33911a;
 
-    /* loaded from: classes3.dex */
+    /* renamed from: b  reason: collision with root package name */
+    public int f33912b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public boolean f33913c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public boolean f33914d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public int f33915e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public int f33916f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public boolean f33917g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public int f33918h;
+    public Runnable i;
+    public aq j;
+
+    /* loaded from: classes6.dex */
     public interface a {
         boolean a(MotionEvent motionEvent);
     }
@@ -40,38 +54,33 @@ public class DetailWebRecycleView extends b {
 
     public DetailWebRecycleView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.b = 1000;
-        this.c = false;
-        this.d = false;
-        this.i = new Runnable() { // from class: com.kwad.sdk.core.page.recycle.DetailWebRecycleView.1
+        this.f33912b = 1000;
+        this.f33913c = false;
+        this.f33914d = false;
+        Runnable runnable = new Runnable() { // from class: com.kwad.sdk.core.page.recycle.DetailWebRecycleView.1
             @Override // java.lang.Runnable
             public void run() {
                 try {
                     Object a2 = n.a(DetailWebRecycleView.this, "mGapWorker");
                     if (a2 != null) {
-                        n.a(a2, "postFromTraversal", DetailWebRecycleView.this, 0, Integer.valueOf(DetailWebRecycleView.this.b));
+                        n.a(a2, "postFromTraversal", DetailWebRecycleView.this, 0, Integer.valueOf(DetailWebRecycleView.this.f33912b));
                     }
-                } catch (RuntimeException e) {
-                    com.kwad.sdk.core.d.a.a(e);
+                } catch (RuntimeException e2) {
+                    com.kwad.sdk.core.d.a.a(e2);
                 }
             }
         };
-        this.j = new aq(this.i);
-        if (context instanceof Activity) {
-            this.h = ao.d((Activity) context);
-        } else {
-            this.h = ao.b(context);
-        }
+        this.i = runnable;
+        this.j = new aq(runnable);
+        this.f33918h = context instanceof Activity ? ao.d((Activity) context) : ao.b(context);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // androidx.recyclerview.widget.RecyclerView, android.view.ViewGroup, android.view.View
     public void onAttachedToWindow() {
         super.onAttachedToWindow();
         postDelayed(this.j, 50L);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.core.page.recycle.b, androidx.recyclerview.widget.RecyclerView, android.view.ViewGroup, android.view.View
     public void onDetachedFromWindow() {
         super.onDetachedFromWindow();
@@ -80,9 +89,10 @@ public class DetailWebRecycleView extends b {
 
     @Override // com.kwad.sdk.core.page.recycle.b, androidx.recyclerview.widget.RecyclerView, android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        if (this.f6207a == null || !this.f6207a.a(motionEvent)) {
-            this.f = computeVerticalScrollOffset();
-            if (motionEvent.getY() <= this.e - this.f) {
+        a aVar = this.f33911a;
+        if (aVar == null || !aVar.a(motionEvent)) {
+            this.f33916f = computeVerticalScrollOffset();
+            if (motionEvent.getY() <= this.f33915e - this.f33916f) {
                 return super.onInterceptTouchEvent(motionEvent);
             }
             return false;
@@ -91,23 +101,25 @@ public class DetailWebRecycleView extends b {
     }
 
     @Override // android.view.ViewGroup, android.view.ViewParent
-    public boolean onNestedPreFling(View view, float f, float f2) {
-        this.f = computeVerticalScrollOffset();
-        if (this.f >= this.e) {
+    public boolean onNestedPreFling(View view, float f2, float f3) {
+        int computeVerticalScrollOffset = computeVerticalScrollOffset();
+        this.f33916f = computeVerticalScrollOffset;
+        if (computeVerticalScrollOffset >= this.f33915e) {
             return false;
         }
-        fling((int) f, (int) f2);
+        fling((int) f2, (int) f3);
         return true;
     }
 
     @Override // android.view.ViewGroup, android.view.ViewParent
     public void onNestedPreScroll(View view, int i, int i2, int[] iArr) {
-        this.f = computeVerticalScrollOffset();
-        if ((i2 > 0 && this.f < this.e) && !this.g && this.f < this.h) {
+        int computeVerticalScrollOffset = computeVerticalScrollOffset();
+        this.f33916f = computeVerticalScrollOffset;
+        if ((i2 > 0 && computeVerticalScrollOffset < this.f33915e) && !this.f33917g && this.f33916f < this.f33918h) {
             scrollBy(0, i2);
             iArr[1] = i2;
         }
-        if (i2 < 0 && this.f > 0 && !ViewCompat.canScrollVertically(view, -1)) {
+        if (i2 < 0 && this.f33916f > 0 && !ViewCompat.canScrollVertically(view, -1)) {
             scrollBy(0, i2);
             iArr[1] = i2;
         }
@@ -123,11 +135,11 @@ public class DetailWebRecycleView extends b {
                 int bottom2 = getBottom() - getPaddingBottom();
                 int position = getLayoutManager().getPosition(childAt);
                 if (bottom == bottom2 && position == getLayoutManager().getItemCount() - 1) {
-                    this.g = true;
+                    this.f33917g = true;
                     return;
                 }
             }
-            this.g = false;
+            this.f33917g = false;
         }
     }
 
@@ -138,27 +150,27 @@ public class DetailWebRecycleView extends b {
 
     @Override // androidx.recyclerview.widget.RecyclerView, android.view.ViewGroup, android.view.ViewParent
     public void requestChildFocus(View view, View view2) {
-        if (this.d) {
-            this.d = false;
-        } else if (this.c) {
+        if (this.f33914d) {
+            this.f33914d = false;
+        } else if (this.f33913c) {
         } else {
             super.requestChildFocus(view, view2);
         }
     }
 
     public void setInterceptRequestFocusForWeb(boolean z) {
-        this.c = z;
+        this.f33913c = z;
     }
 
     public void setInterceptRequestFocusForWebFiredOnce(boolean z) {
-        this.d = z;
+        this.f33914d = z;
     }
 
     public void setInterceptTouchListener(a aVar) {
-        this.f6207a = aVar;
+        this.f33911a = aVar;
     }
 
     public void setTopViewHeight(int i) {
-        this.e = i;
+        this.f33915e = i;
     }
 }

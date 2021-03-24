@@ -4,6 +4,7 @@ import android.content.Context;
 import android.text.TextUtils;
 import android.view.View;
 import androidx.annotation.NonNull;
+import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
 import com.bytedance.sdk.openadsdk.TTNativeAd;
 import com.bytedance.sdk.openadsdk.TTNativeExpressAd;
 import com.bytedance.sdk.openadsdk.core.d.f;
@@ -12,49 +13,85 @@ import com.bytedance.sdk.openadsdk.core.d.l;
 import com.bytedance.sdk.openadsdk.core.i;
 import com.bytedance.sdk.openadsdk.core.p;
 import com.bytedance.sdk.openadsdk.core.z;
-import com.bytedance.sdk.openadsdk.utils.aj;
 import com.bytedance.sdk.openadsdk.utils.ak;
+import com.bytedance.sdk.openadsdk.utils.al;
 import java.lang.ref.WeakReference;
 import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes6.dex */
 public class b extends c {
-    protected Context c;
-    protected final l d;
-    protected final String e;
-    protected final int f;
-    protected WeakReference<View> g;
-    protected WeakReference<View> h;
-    protected f i;
-    protected a j;
-    protected TTNativeAd k;
-    protected com.bytedance.sdk.openadsdk.core.video.nativevideo.c l;
-    protected com.bytedance.sdk.openadsdk.downloadnew.core.a n;
-    protected TTNativeExpressAd p;
-    protected com.bytedance.sdk.openadsdk.core.nativeexpress.a q;
-    protected boolean m = false;
-    protected boolean r = false;
-    protected Map<String, Object> o = new HashMap();
+
+    /* renamed from: c  reason: collision with root package name */
+    public Context f28017c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public final l f28018d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public final String f28019e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public final int f28020f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public WeakReference<View> f28021g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public WeakReference<View> f28022h;
+    public f i;
+    public a j;
+    public TTNativeAd k;
+    public com.bytedance.sdk.openadsdk.core.video.nativevideo.c l;
+    public com.bytedance.sdk.openadsdk.downloadnew.core.a n;
+    public TTNativeExpressAd p;
+    public com.bytedance.sdk.openadsdk.core.nativeexpress.a q;
+    public boolean m = false;
+    public boolean r = false;
+    public Map<String, Object> o = new HashMap();
 
     /* loaded from: classes6.dex */
     public interface a {
         void a(View view, int i);
     }
 
-    public void d(boolean z) {
-        this.r = z;
+    public b(@NonNull Context context, @NonNull l lVar, @NonNull String str, int i) {
+        this.f28017c = context;
+        this.f28018d = lVar;
+        this.f28019e = str;
+        this.f28020f = i;
     }
 
     public void a(com.bytedance.sdk.openadsdk.downloadnew.core.a aVar) {
         this.n = aVar;
     }
 
-    public com.bytedance.sdk.openadsdk.downloadnew.core.a d() {
-        return this.n;
+    public void b(View view) {
+        this.f28022h = new WeakReference<>(view);
+    }
+
+    public void d(boolean z) {
+        this.r = z;
+    }
+
+    public void e(boolean z) {
+        this.m = z;
     }
 
     public void a(com.bytedance.sdk.openadsdk.core.nativeexpress.a aVar) {
         this.q = aVar;
+    }
+
+    public com.bytedance.sdk.openadsdk.downloadnew.core.a d() {
+        return this.n;
+    }
+
+    public void e() {
+        l lVar = this.f28018d;
+        if (lVar == null) {
+            return;
+        }
+        boolean C = lVar.C();
+        z.a(this.f28017c, this.f28018d, this.f28020f, this.k, this.p, C ? this.f28019e : ak.a(this.f28020f), this.n, C, this.o, this.r, a(this.f28019e));
     }
 
     public void a(TTNativeAd tTNativeAd) {
@@ -65,19 +102,8 @@ public class b extends c {
         this.p = tTNativeExpressAd;
     }
 
-    public void e(boolean z) {
-        this.m = z;
-    }
-
     public void a(com.bytedance.sdk.openadsdk.core.video.nativevideo.c cVar) {
         this.l = cVar;
-    }
-
-    public b(@NonNull Context context, @NonNull l lVar, @NonNull String str, int i) {
-        this.c = context;
-        this.d = lVar;
-        this.e = str;
-        this.f = i;
     }
 
     public void a(a aVar) {
@@ -85,45 +111,44 @@ public class b extends c {
     }
 
     public void a(View view) {
-        this.g = new WeakReference<>(view);
-    }
-
-    public void b(View view) {
-        this.h = new WeakReference<>(view);
+        this.f28021g = new WeakReference<>(view);
     }
 
     public void a(Map<String, Object> map) {
-        if (this.o == null) {
+        Map<String, Object> map2 = this.o;
+        if (map2 == null) {
             this.o = map;
         } else {
-            this.o.putAll(map);
+            map2.putAll(map);
         }
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.a.c
     public void a(View view, int i, int i2, int i3, int i4) {
-        if (!a(1)) {
-            if (this.c == null) {
-                this.c = p.a();
-            }
-            if (this.c != null) {
-                this.i = a(i, i2, i3, i4, this.w, this.x, this.g == null ? null : this.g.get(), this.h == null ? null : this.h.get());
-                if (this.j != null) {
-                    this.j.a(view, -1);
-                }
-                boolean C = this.d.C();
-                boolean a2 = z.a(this.c, this.d, this.f, this.k, this.p, C ? this.e : aj.a(this.f), this.n, C, this.o, this.r, a(this.e));
-                if (a2 || this.d == null || this.d.ai() == null || this.d.ai().c() != 2) {
-                    com.bytedance.sdk.openadsdk.c.d.a(this.c, "click", this.d, this.i, this.e, a2, this.o);
-                }
-            }
+        l lVar;
+        if (a(1)) {
+            return;
         }
-    }
-
-    public void e() {
-        if (this.d != null) {
-            boolean C = this.d.C();
-            z.a(this.c, this.d, this.f, this.k, this.p, C ? this.e : aj.a(this.f), this.n, C, this.o, this.r, a(this.e));
+        if (this.f28017c == null) {
+            this.f28017c = p.a();
+        }
+        if (this.f28017c == null) {
+            return;
+        }
+        long j = this.w;
+        long j2 = this.x;
+        WeakReference<View> weakReference = this.f28021g;
+        View view2 = weakReference == null ? null : weakReference.get();
+        WeakReference<View> weakReference2 = this.f28022h;
+        this.i = a(i, i2, i3, i4, j, j2, view2, weakReference2 == null ? null : weakReference2.get());
+        a aVar = this.j;
+        if (aVar != null) {
+            aVar.a(view, -1);
+        }
+        boolean C = this.f28018d.C();
+        boolean a2 = z.a(this.f28017c, this.f28018d, this.f28020f, this.k, this.p, C ? this.f28019e : ak.a(this.f28020f), this.n, C, this.o, this.r, a(this.f28019e));
+        if (a2 || (lVar = this.f28018d) == null || lVar.ao() == null || this.f28018d.ao().c() != 2) {
+            com.bytedance.sdk.openadsdk.c.d.a(this.f28017c, PrefetchEvent.STATE_CLICK, this.f28018d, this.i, this.f28019e, a2, this.o);
         }
     }
 
@@ -131,19 +156,18 @@ public class b extends c {
         return !TextUtils.isEmpty(str) && str.equals("feed_video_middle_page");
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     public f a(int i, int i2, int i3, int i4, long j, long j2, View view, View view2) {
-        return new f.a().e(i).d(i2).c(i3).b(i4).b(j).a(j2).b(ak.a(view)).a(ak.a(view2)).c(ak.c(view)).d(ak.c(view2)).f(this.y).g(this.z).h(this.A).a(this.C).a(i.d().b() ? 1 : 2).a();
+        return new f.a().e(i).d(i2).c(i3).b(i4).b(j).a(j2).b(al.a(view)).a(al.a(view2)).c(al.c(view)).d(al.c(view2)).f(this.y).g(this.z).h(this.A).a(this.C).a(i.d().b() ? 1 : 2).a();
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     public boolean a(int i) {
         if (this.q != null) {
             int[] iArr = new int[2];
             int[] iArr2 = new int[2];
-            if (this.h != null) {
-                iArr = ak.a(this.h.get());
-                iArr2 = ak.c(this.h.get());
+            WeakReference<View> weakReference = this.f28022h;
+            if (weakReference != null) {
+                iArr = al.a(weakReference.get());
+                iArr2 = al.c(this.f28022h.get());
             }
             this.q.a(i, new j.a().d(this.s).c(this.t).b(this.u).a(this.v).b(this.w).a(this.x).e(iArr[0]).f(iArr[1]).g(iArr2[0]).h(iArr2[1]).a());
             return true;

@@ -4,59 +4,40 @@ import android.content.Context;
 import android.util.AttributeSet;
 import com.baidu.cyberplayer.sdk.config.CyberCfgManager;
 import com.baidu.cyberplayer.sdk.d;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static a f1464a = null;
+    public static a f5052a;
 
-    private a() {
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
     public static synchronized a a() {
         a aVar;
         synchronized (a.class) {
-            if (f1464a == null) {
-                f1464a = new a();
+            if (f5052a == null) {
+                f5052a = new a();
             }
-            aVar = f1464a;
+            aVar = f5052a;
         }
         return aVar;
     }
 
     public CaptureManagerProvider a(Context context, int i, int i2, int i3, int i4, int i5, boolean z) {
         if (CyberCfgManager.getInstance().getCfgBoolValue("enable_rtc", true)) {
-            if (z) {
-            }
-            if (0 == 0) {
-                return d.a(context, i, i2, i3, i4, i5);
-            }
-            return null;
+            return d.a(context, i, i2, i3, i4, i5);
         }
         return null;
     }
 
     public RTCRoomProvider a(boolean z) {
         if (CyberCfgManager.getInstance().getCfgBoolValue("enable_rtc", true)) {
-            if (z) {
-            }
-            if (0 == 0) {
-                return d.e();
-            }
-            return null;
+            return d.e();
         }
         return null;
     }
 
     public RTCVideoViewProvider a(Context context, AttributeSet attributeSet, boolean z) {
         if (CyberCfgManager.getInstance().getCfgBoolValue("enable_rtc", true)) {
-            if (z) {
-            }
-            if (0 == 0) {
-                return d.a(context, attributeSet);
-            }
-            return null;
+            return d.a(context, attributeSet);
         }
         return null;
     }

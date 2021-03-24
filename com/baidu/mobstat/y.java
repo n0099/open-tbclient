@@ -5,66 +5,77 @@ import android.text.TextUtils;
 import java.text.SimpleDateFormat;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class y {
 
     /* renamed from: a  reason: collision with root package name */
-    private static y f2686a;
-    private Context b;
-    private JSONObject c = new JSONObject();
-    private long d = 24;
-    private long e = 0;
-    private long f = 0;
-    private long g = 0;
-    private long h = 5;
-    private long i = 24;
-    private long j = 15;
-    private long k = 15;
-    private long l = 30;
-    private long m = 12;
-    private long n = 1;
-    private long o = 24;
-    private String p = "";
-    private String q = "";
+    public static y f9267a;
 
-    public static y a(Context context) {
-        if (f2686a == null) {
-            synchronized (y.class) {
-                if (f2686a == null) {
-                    f2686a = new y(context);
-                }
-            }
-        }
-        return f2686a;
-    }
+    /* renamed from: b  reason: collision with root package name */
+    public Context f9268b;
 
-    private y(Context context) {
-        this.b = context;
+    /* renamed from: c  reason: collision with root package name */
+    public JSONObject f9269c = new JSONObject();
+
+    /* renamed from: d  reason: collision with root package name */
+    public long f9270d = 24;
+
+    /* renamed from: e  reason: collision with root package name */
+    public long f9271e = 0;
+
+    /* renamed from: f  reason: collision with root package name */
+    public long f9272f = 0;
+
+    /* renamed from: g  reason: collision with root package name */
+    public long f9273g = 0;
+
+    /* renamed from: h  reason: collision with root package name */
+    public long f9274h = 5;
+    public long i = 24;
+    public long j = 15;
+    public long k = 15;
+    public long l = 30;
+    public long m = 12;
+    public long n = 1;
+    public long o = 24;
+    public String p = "";
+    public String q = "";
+
+    public y(Context context) {
+        this.f9268b = context;
         m();
         j();
         k();
     }
 
-    private void m() {
-        String b = bo.b("backups/system/.timestamp");
-        try {
-            if (!TextUtils.isEmpty(b)) {
-                this.c = new JSONObject(b);
+    public static y a(Context context) {
+        if (f9267a == null) {
+            synchronized (y.class) {
+                if (f9267a == null) {
+                    f9267a = new y(context);
+                }
             }
-        } catch (Exception e) {
+        }
+        return f9267a;
+    }
+
+    private void m() {
+        String b2 = bo.b("backups/system/.timestamp");
+        try {
+            if (TextUtils.isEmpty(b2)) {
+                return;
+            }
+            this.f9269c = new JSONObject(b2);
+        } catch (Exception unused) {
         }
     }
 
-    public boolean a() {
-        return this.e != 0;
-    }
-
     public boolean b() {
-        return this.f != 0;
+        return this.f9272f != 0;
     }
 
     public long c() {
-        return this.d * 60 * 60 * 1000;
+        return this.f9270d * 60 * 60 * 1000;
     }
 
     public long d() {
@@ -72,7 +83,7 @@ public class y {
     }
 
     public long e() {
-        return this.h * 60 * 1000;
+        return this.f9274h * 60 * 1000;
     }
 
     public long f() {
@@ -93,103 +104,109 @@ public class y {
 
     public void j() {
         try {
-            String str = new String(bv.b(false, br.a(), bp.a(bo.a(this.b, ".config2").getBytes())));
-            if (!TextUtils.isEmpty(str)) {
-                JSONObject jSONObject = new JSONObject(str);
-                try {
-                    this.e = jSONObject.getLong("c");
-                } catch (JSONException e) {
-                    bb.c().b(e);
-                }
-                try {
-                    this.h = jSONObject.getLong("d");
-                } catch (JSONException e2) {
-                    bb.c().b(e2);
-                }
-                try {
-                    this.i = jSONObject.getLong("e");
-                } catch (JSONException e3) {
-                    bb.c().b(e3);
-                }
-                try {
-                    this.j = jSONObject.getLong("i");
-                } catch (JSONException e4) {
-                    bb.c().b(e4);
-                }
-                try {
-                    this.d = jSONObject.getLong("f");
-                } catch (JSONException e5) {
-                    bb.c().b(e5);
-                }
-                try {
-                    this.o = jSONObject.getLong("s");
-                } catch (JSONException e6) {
-                    bb.c().b(e6);
-                }
-                try {
-                    this.k = jSONObject.getLong("pk");
-                } catch (JSONException e7) {
-                    bb.c().b(e7);
-                }
-                try {
-                    this.l = jSONObject.getLong("at");
-                } catch (JSONException e8) {
-                    bb.c().b(e8);
-                }
-                try {
-                    this.m = jSONObject.getLong("as");
-                } catch (JSONException e9) {
-                    bb.c().b(e9);
-                }
-                try {
-                    this.n = jSONObject.getLong("ac");
-                } catch (JSONException e10) {
-                    bb.c().b(e10);
-                }
-                try {
-                    this.f = jSONObject.getLong(Config.DEVICE_MAC_ID);
-                } catch (JSONException e11) {
-                    bb.c().b(e11);
-                }
-                try {
-                    this.g = jSONObject.getLong("lsc");
-                } catch (JSONException e12) {
-                    bb.c().b(e12);
-                }
+            String str = new String(bv.b(false, br.a(), bp.a(bo.a(this.f9268b, ".config2").getBytes())));
+            if (TextUtils.isEmpty(str)) {
+                return;
             }
-        } catch (Exception e13) {
-            bb.c().b(e13);
+            JSONObject jSONObject = new JSONObject(str);
+            try {
+                this.f9271e = jSONObject.getLong("c");
+            } catch (JSONException e2) {
+                bb.c().b(e2);
+            }
+            try {
+                this.f9274h = jSONObject.getLong("d");
+            } catch (JSONException e3) {
+                bb.c().b(e3);
+            }
+            try {
+                this.i = jSONObject.getLong("e");
+            } catch (JSONException e4) {
+                bb.c().b(e4);
+            }
+            try {
+                this.j = jSONObject.getLong("i");
+            } catch (JSONException e5) {
+                bb.c().b(e5);
+            }
+            try {
+                this.f9270d = jSONObject.getLong("f");
+            } catch (JSONException e6) {
+                bb.c().b(e6);
+            }
+            try {
+                this.o = jSONObject.getLong("s");
+            } catch (JSONException e7) {
+                bb.c().b(e7);
+            }
+            try {
+                this.k = jSONObject.getLong("pk");
+            } catch (JSONException e8) {
+                bb.c().b(e8);
+            }
+            try {
+                this.l = jSONObject.getLong("at");
+            } catch (JSONException e9) {
+                bb.c().b(e9);
+            }
+            try {
+                this.m = jSONObject.getLong("as");
+            } catch (JSONException e10) {
+                bb.c().b(e10);
+            }
+            try {
+                this.n = jSONObject.getLong("ac");
+            } catch (JSONException e11) {
+                bb.c().b(e11);
+            }
+            try {
+                this.f9272f = jSONObject.getLong(Config.DEVICE_MAC_ID);
+            } catch (JSONException e12) {
+                bb.c().b(e12);
+            }
+            try {
+                this.f9273g = jSONObject.getLong("lsc");
+            } catch (JSONException e13) {
+                bb.c().b(e13);
+            }
+        } catch (Exception e14) {
+            bb.c().b(e14);
         }
     }
 
     public void k() {
         try {
-            String str = new String(bv.b(false, br.a(), bp.a(bo.a(this.b, ".sign").getBytes())));
-            if (!TextUtils.isEmpty(str)) {
-                JSONObject jSONObject = new JSONObject(str);
-                try {
-                    this.q = jSONObject.getString("sign");
-                } catch (Exception e) {
-                    bb.c().b(e);
-                }
-                try {
-                    this.p = jSONObject.getString("ver");
-                } catch (Exception e2) {
-                    bb.c().b(e2);
-                }
+            String str = new String(bv.b(false, br.a(), bp.a(bo.a(this.f9268b, ".sign").getBytes())));
+            if (TextUtils.isEmpty(str)) {
+                return;
             }
-        } catch (Exception e3) {
-            bb.c().b(e3);
+            JSONObject jSONObject = new JSONObject(str);
+            try {
+                this.q = jSONObject.getString("sign");
+            } catch (Exception e2) {
+                bb.c().b(e2);
+            }
+            try {
+                this.p = jSONObject.getString("ver");
+            } catch (Exception e3) {
+                bb.c().b(e3);
+            }
+        } catch (Exception e4) {
+            bb.c().b(e4);
         }
     }
 
-    public void a(String str) {
-        bo.a(this.b, ".config2", str, false);
-        j();
+    public boolean l() {
+        long currentTimeMillis = System.currentTimeMillis();
+        long a2 = a(g.LAST_SEND);
+        long d2 = d();
+        bb c2 = bb.c();
+        c2.a("canSend now=" + currentTimeMillis + ";lastSendTime=" + a2 + ";sendLogTimeInterval=" + d2);
+        return currentTimeMillis - a2 > d2 || !a(a2);
     }
 
     public void b(String str) {
-        bo.a(this.b, ".sign", str, false);
+        bo.a(this.f9268b, ".sign", str, false);
         k();
     }
 
@@ -197,15 +214,31 @@ public class y {
         return (TextUtils.isEmpty(this.p) || !this.p.equals(str) || TextUtils.isEmpty(this.q)) ? "" : this.q;
     }
 
+    private long b(long j) {
+        if (j - System.currentTimeMillis() > 0) {
+            return 0L;
+        }
+        return j;
+    }
+
+    public boolean a() {
+        return this.f9271e != 0;
+    }
+
+    public void a(String str) {
+        bo.a(this.f9268b, ".config2", str, false);
+        j();
+    }
+
     public long a(g gVar) {
         long j = gVar.j;
         try {
-            String gVar2 = gVar.toString();
-            if (this.c.has(gVar2)) {
-                j = this.c.getLong(gVar2);
+            String str = gVar.toString();
+            if (this.f9269c.has(str)) {
+                j = this.f9269c.getLong(str);
             }
-        } catch (Exception e) {
-            bb.c().a(e);
+        } catch (Exception e2) {
+            bb.c().a(e2);
         }
         return b(j);
     }
@@ -213,34 +246,19 @@ public class y {
     public void a(g gVar, long j) {
         gVar.j = j;
         try {
-            this.c.put(gVar.toString(), j);
-        } catch (Exception e) {
-            bb.c().a(e);
-        }
-        try {
-            bo.a("backups/system/.timestamp", this.c.toString(), false);
+            this.f9269c.put(gVar.toString(), j);
         } catch (Exception e2) {
             bb.c().a(e2);
         }
-    }
-
-    public boolean l() {
-        long currentTimeMillis = System.currentTimeMillis();
-        long a2 = a(g.LAST_SEND);
-        long d = d();
-        bb.c().a("canSend now=" + currentTimeMillis + ";lastSendTime=" + a2 + ";sendLogTimeInterval=" + d);
-        return currentTimeMillis - a2 > d || !a(a2);
+        try {
+            bo.a("backups/system/.timestamp", this.f9269c.toString(), false);
+        } catch (Exception e3) {
+            bb.c().a(e3);
+        }
     }
 
     public boolean a(long j) {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyyMMdd");
         return simpleDateFormat.format(Long.valueOf(j)).equals(simpleDateFormat.format(Long.valueOf(System.currentTimeMillis())));
-    }
-
-    private long b(long j) {
-        if (j - System.currentTimeMillis() > 0) {
-            return 0L;
-        }
-        return j;
     }
 }

@@ -7,20 +7,26 @@ import com.kwad.sdk.R;
 import com.kwad.sdk.api.KsVideoPlayConfig;
 import com.kwad.sdk.contentalliance.detail.video.f;
 import com.kwad.sdk.utils.g;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class d extends com.kwad.sdk.reward.d implements View.OnClickListener {
-    private ImageView b;
+
+    /* renamed from: b  reason: collision with root package name */
+    public ImageView f36336b;
     @NonNull
-    private com.kwad.sdk.reward.c.a c;
-    private g.a d = new g.a() { // from class: com.kwad.sdk.reward.b.b.b.d.1
+
+    /* renamed from: c  reason: collision with root package name */
+    public com.kwad.sdk.reward.c.a f36337c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public g.a f36338d = new g.a() { // from class: com.kwad.sdk.reward.b.b.b.d.1
         @Override // com.kwad.sdk.utils.g.a
         public void a() {
-            if (d.this.b != null) {
-                d.this.b.post(new Runnable() { // from class: com.kwad.sdk.reward.b.b.b.d.1.1
+            if (d.this.f36336b != null) {
+                d.this.f36336b.post(new Runnable() { // from class: com.kwad.sdk.reward.b.b.b.d.1.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        d.this.b.setSelected(false);
-                        d.this.c.a(false, false);
+                        d.this.f36336b.setSelected(false);
+                        d.this.f36337c.a(false, false);
                     }
                 });
             }
@@ -30,7 +36,9 @@ public class d extends com.kwad.sdk.reward.d implements View.OnClickListener {
         public void b() {
         }
     };
-    private com.kwad.sdk.contentalliance.detail.video.e e = new f() { // from class: com.kwad.sdk.reward.b.b.b.d.2
+
+    /* renamed from: e  reason: collision with root package name */
+    public com.kwad.sdk.contentalliance.detail.video.e f36339e = new f() { // from class: com.kwad.sdk.reward.b.b.b.d.2
         @Override // com.kwad.sdk.contentalliance.detail.video.f, com.kwad.sdk.contentalliance.detail.video.e
         public void b() {
             d.this.e();
@@ -39,46 +47,53 @@ public class d extends com.kwad.sdk.reward.d implements View.OnClickListener {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void e() {
-        this.b.setOnClickListener(this);
+        this.f36336b.setOnClickListener(this);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.reward.d, com.kwad.sdk.mvp.Presenter
     public void a() {
+        ImageView imageView;
+        boolean z;
         super.a();
-        this.c = this.f7028a.i;
-        KsVideoPlayConfig ksVideoPlayConfig = this.f7028a.c;
+        com.kwad.sdk.reward.a aVar = ((com.kwad.sdk.reward.d) this).f36457a;
+        this.f36337c = aVar.i;
+        KsVideoPlayConfig ksVideoPlayConfig = aVar.f36218c;
         if (com.kwad.sdk.utils.b.a().b()) {
-            this.b.setSelected(false);
+            imageView = this.f36336b;
+            z = false;
         } else if (ksVideoPlayConfig != null) {
-            this.b.setSelected(ksVideoPlayConfig.isVideoSoundEnable());
+            this.f36336b.setSelected(ksVideoPlayConfig.isVideoSoundEnable());
+            this.f36337c.a(this.f36339e);
+            this.f36337c.a(this.f36338d);
         } else {
-            this.b.setSelected(true);
+            imageView = this.f36336b;
+            z = true;
         }
-        this.c.a(this.e);
-        this.c.a(this.d);
+        imageView.setSelected(z);
+        this.f36337c.a(this.f36339e);
+        this.f36337c.a(this.f36338d);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.mvp.Presenter
     public void b_() {
         super.b_();
-        this.c.b(this.e);
-        this.c.b(this.d);
+        this.f36337c.b(this.f36339e);
+        this.f36337c.b(this.f36338d);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.mvp.Presenter
     public void c() {
         super.c();
-        this.b = (ImageView) b(R.id.ksad_video_sound_switch);
+        this.f36336b = (ImageView) b(R.id.ksad_video_sound_switch);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.b) {
-            this.c.a(!this.b.isSelected(), true);
-            this.b.setSelected(this.b.isSelected() ? false : true);
+        ImageView imageView = this.f36336b;
+        if (view == imageView) {
+            this.f36337c.a(!imageView.isSelected(), true);
+            ImageView imageView2 = this.f36336b;
+            imageView2.setSelected(!imageView2.isSelected());
         }
     }
 }

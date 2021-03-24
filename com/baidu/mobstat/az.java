@@ -10,40 +10,137 @@ import android.view.Window;
 import android.webkit.WebView;
 import com.baidu.mobstat.al;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class az {
-    private static final az k = new az();
-    private static volatile boolean l = true;
+    public static final az k = new az();
+    public static volatile boolean l = true;
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f2624a;
-    private Activity b;
-    private volatile boolean c;
-    private volatile boolean d;
-    private volatile String e;
-    private long f;
-    private long g;
-    private String h;
-    private PointF i;
-    private bf j = bf.a();
+    public Context f9048a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public Activity f9049b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public volatile boolean f9050c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public volatile boolean f9051d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public volatile String f9052e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public long f9053f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public long f9054g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public String f9055h;
+    public PointF i;
+    public bf j = bf.a();
+
+    private void e() {
+        if (bw.s(this.f9048a) && !this.f9050c) {
+            if (!this.f9051d) {
+                this.f9052e = bo.a(this.f9048a, "mtj_autoTracker.js");
+                this.f9051d = true;
+            }
+            if (this.f9053f == 0) {
+                this.f9053f = bq.a().n(this.f9048a);
+                this.f9054g = bq.a().o(this.f9048a);
+            }
+            if (!(this.f9051d && TextUtils.isEmpty(this.f9052e)) && System.currentTimeMillis() - this.f9053f <= this.f9054g) {
+                return;
+            }
+            f();
+        }
+    }
+
+    private void f() {
+        Thread thread = new Thread(new Runnable() { // from class: com.baidu.mobstat.az.2
+            @Override // java.lang.Runnable
+            public void run() {
+                if (az.this.f9050c) {
+                    return;
+                }
+                boolean a2 = bg.a(az.this.f9048a, az.this.f9055h, 1, false);
+                az.this.f9050c = true;
+                if (a2) {
+                    az azVar = az.this;
+                    azVar.f9052e = bo.a(azVar.f9048a, "mtj_autoTracker.js");
+                }
+            }
+        });
+        thread.setName("downloadThread");
+        thread.start();
+    }
+
+    public static boolean c() {
+        return l;
+    }
+
+    private void d(Activity activity) {
+        Window window;
+        if (activity == null || (window = activity.getWindow()) == null) {
+            return;
+        }
+        window.setCallback(a(window.getCallback()));
+    }
+
+    public void b(String str) {
+        this.f9055h = str;
+    }
+
+    private void c(Activity activity) {
+        Window window;
+        Window.Callback callback;
+        if (activity == null || (window = activity.getWindow()) == null || (callback = window.getCallback()) == null) {
+            return;
+        }
+        window.setCallback(new al(callback, new al.a() { // from class: com.baidu.mobstat.az.1
+            @Override // com.baidu.mobstat.al.a
+            public void a(MotionEvent motionEvent) {
+                if (motionEvent.getActionMasked() != 1) {
+                    return;
+                }
+                az.a(true);
+                if (az.this.i == null) {
+                    az.this.i = new PointF();
+                }
+                az.this.i.set(motionEvent.getRawX(), motionEvent.getRawY());
+            }
+
+            @Override // com.baidu.mobstat.al.a
+            public void a(KeyEvent keyEvent) {
+                ar.a(keyEvent);
+            }
+        }));
+    }
+
+    public PointF b() {
+        return this.i;
+    }
+
+    public void b(Activity activity) {
+        if (d()) {
+            d(this.f9049b);
+            this.f9049b = null;
+            a(activity, false);
+        }
+    }
 
     public static az a() {
         return k;
     }
 
-    private az() {
+    private boolean d() {
+        return !TextUtils.isEmpty(this.f9055h);
     }
 
     public void a(String str) {
         ax.a().a(str);
-    }
-
-    public void b(String str) {
-        this.h = str;
-    }
-
-    public PointF b() {
-        return this.i;
     }
 
     public static void a(boolean z) {
@@ -53,49 +150,18 @@ public class az {
         l = z;
     }
 
-    public static boolean c() {
-        return l;
-    }
-
-    private void c(Activity activity) {
-        Window window;
-        Window.Callback callback;
-        if (activity != null && (window = activity.getWindow()) != null && (callback = window.getCallback()) != null) {
-            window.setCallback(new al(callback, new al.a() { // from class: com.baidu.mobstat.az.1
-                @Override // com.baidu.mobstat.al.a
-                public void a(MotionEvent motionEvent) {
-                    switch (motionEvent.getActionMasked()) {
-                        case 0:
-                        case 2:
-                        case 3:
-                        case 4:
-                        case 5:
-                        case 6:
-                        default:
-                            return;
-                        case 1:
-                            az.a(true);
-                            if (az.this.i == null) {
-                                az.this.i = new PointF();
-                            }
-                            az.this.i.set(motionEvent.getRawX(), motionEvent.getRawY());
-                            return;
-                    }
-                }
-
-                @Override // com.baidu.mobstat.al.a
-                public void a(KeyEvent keyEvent) {
-                    ar.a(keyEvent);
-                }
-            }));
+    private void b(WebView webView, String str, bl blVar) {
+        if (blVar == null) {
+            return;
         }
+        blVar.a(this.f9049b, webView, str, (JSONObject) null, false);
     }
 
     public void a(Activity activity) {
         if (d()) {
             a(true);
-            this.f2624a = activity.getApplicationContext();
-            this.b = activity;
+            this.f9048a = activity.getApplicationContext();
+            this.f9049b = activity;
             e();
             c(activity);
             a(activity, true);
@@ -103,85 +169,27 @@ public class az {
     }
 
     public void a(Activity activity, boolean z) {
-        if (!(activity instanceof IIgnoreAutoEvent)) {
-            if (z) {
-                this.j.a(activity, false, null, false);
-            } else {
-                this.j.a(activity, false);
-            }
+        if (activity instanceof IIgnoreAutoEvent) {
+            return;
         }
-    }
-
-    private void d(Activity activity) {
-        Window window;
-        if (activity != null && (window = activity.getWindow()) != null) {
-            window.setCallback(a(window.getCallback()));
+        if (z) {
+            this.j.a(activity, false, null, false);
+        } else {
+            this.j.a(activity, false);
         }
     }
 
     private Window.Callback a(Window.Callback callback) {
-        Window.Callback callback2 = callback;
-        while (callback2 != null && (callback2 instanceof al)) {
-            callback2 = ((al) callback2).a();
+        while (callback != null && (callback instanceof al)) {
+            callback = ((al) callback).a();
         }
-        return callback2;
-    }
-
-    public void b(Activity activity) {
-        if (d()) {
-            d(this.b);
-            this.b = null;
-            a(activity, false);
-        }
+        return callback;
     }
 
     public void a(WebView webView, String str, bl blVar) {
-        if (TextUtils.isEmpty(this.e)) {
-            this.e = bo.a(this.f2624a, "mtj_autoTracker.js");
+        if (TextUtils.isEmpty(this.f9052e)) {
+            this.f9052e = bo.a(this.f9048a, "mtj_autoTracker.js");
         }
-        b(webView, this.e, blVar);
-    }
-
-    private boolean d() {
-        return !TextUtils.isEmpty(this.h);
-    }
-
-    private void e() {
-        if (bw.s(this.f2624a) && !this.c) {
-            if (!this.d) {
-                this.e = bo.a(this.f2624a, "mtj_autoTracker.js");
-                this.d = true;
-            }
-            if (this.f == 0) {
-                this.f = bq.a().n(this.f2624a);
-                this.g = bq.a().o(this.f2624a);
-            }
-            if ((this.d && TextUtils.isEmpty(this.e)) || System.currentTimeMillis() - this.f > this.g) {
-                f();
-            }
-        }
-    }
-
-    private void f() {
-        Thread thread = new Thread(new Runnable() { // from class: com.baidu.mobstat.az.2
-            @Override // java.lang.Runnable
-            public void run() {
-                if (!az.this.c) {
-                    boolean a2 = bg.a(az.this.f2624a, az.this.h, 1, false);
-                    az.this.c = true;
-                    if (a2) {
-                        az.this.e = bo.a(az.this.f2624a, "mtj_autoTracker.js");
-                    }
-                }
-            }
-        });
-        thread.setName("downloadThread");
-        thread.start();
-    }
-
-    private void b(WebView webView, String str, bl blVar) {
-        if (blVar != null) {
-            blVar.a(this.b, webView, str, (JSONObject) null, false);
-        }
+        b(webView, this.f9052e, blVar);
     }
 }

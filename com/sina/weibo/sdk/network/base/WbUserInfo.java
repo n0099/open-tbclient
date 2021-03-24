@@ -1,9 +1,9 @@
 package com.sina.weibo.sdk.network.base;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class WbUserInfo {
-    private String gsid;
-    private String token;
-    private String uid;
+    public String gsid;
+    public String token;
+    public String uid;
 
     public WbUserInfo(String str, String str2, String str3) {
         this.gsid = str;
@@ -15,11 +15,11 @@ public class WbUserInfo {
         return this.gsid;
     }
 
-    public String getUid() {
-        return this.uid;
-    }
-
     public String getToken() {
         return this.token;
+    }
+
+    public String getUid() {
+        return this.uid;
     }
 }

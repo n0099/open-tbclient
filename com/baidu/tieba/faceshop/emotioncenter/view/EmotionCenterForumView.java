@@ -8,60 +8,68 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.FrsActivityConfig;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.faceshop.emotioncenter.data.EmotionCenterData;
-/* loaded from: classes8.dex */
+/* loaded from: classes4.dex */
 public class EmotionCenterForumView extends RelativeLayout implements View.OnClickListener {
-    private TbPageContext eWx;
-    private TextView jaF;
-    private TextView jaG;
-    private EmotionCenterData.EmotionForumData jaH;
-    private ImageView mArrow;
+
+    /* renamed from: e  reason: collision with root package name */
+    public TbPageContext f15778e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public TextView f15779f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public TextView f15780g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public ImageView f15781h;
+    public EmotionCenterData.EmotionForumData i;
 
     public EmotionCenterForumView(TbPageContext tbPageContext) {
         super(tbPageContext.getPageActivity());
-        this.eWx = tbPageContext;
-        initView();
+        this.f15778e = tbPageContext;
+        a();
     }
 
-    public EmotionCenterForumView(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        initView();
-    }
-
-    public EmotionCenterForumView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        initView();
-    }
-
-    private void initView() {
+    public final void a() {
         LayoutInflater.from(getContext()).inflate(R.layout.emotion_forum_layout, this);
-        this.jaF = (TextView) findViewById(R.id.forum_title_tv);
-        this.jaG = (TextView) findViewById(R.id.forum_recommend_tv);
-        this.mArrow = (ImageView) findViewById(R.id.forum_arrow);
+        this.f15779f = (TextView) findViewById(R.id.forum_title_tv);
+        this.f15780g = (TextView) findViewById(R.id.forum_recommend_tv);
+        this.f15781h = (ImageView) findViewById(R.id.forum_arrow);
         setOnClickListener(this);
     }
 
-    public void setData(EmotionCenterData.EmotionForumData emotionForumData) {
-        onChangeSkin(TbadkCoreApplication.getInst().getSkinType());
-        this.jaH = emotionForumData;
-    }
-
-    public void onChangeSkin(int i) {
-        ap.setViewTextColor(this.jaF, R.color.CAM_X0105, i);
-        ap.setViewTextColor(this.jaG, R.color.cp_cont_r, i);
-        ap.setBackgroundResource(this.mArrow, R.drawable.emotion_center_arrow, i);
+    public void b(int i) {
+        SkinManager.setViewTextColor(this.f15779f, R.color.CAM_X0105, i);
+        SkinManager.setViewTextColor(this.f15780g, R.color.cp_cont_r, i);
+        SkinManager.setBackgroundResource(this.f15781h, R.drawable.emotion_center_arrow, i);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this && this.jaH != null) {
-            this.eWx.sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(this.eWx.getPageActivity()).createNormalCfg(this.jaH.forum_name, null)));
+        if (view != this || this.i == null) {
+            return;
         }
+        this.f15778e.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.f15778e.getPageActivity()).createNormalCfg(this.i.forum_name, null)));
+    }
+
+    public void setData(EmotionCenterData.EmotionForumData emotionForumData) {
+        b(TbadkCoreApplication.getInst().getSkinType());
+        this.i = emotionForumData;
+    }
+
+    public EmotionCenterForumView(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        a();
+    }
+
+    public EmotionCenterForumView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        a();
     }
 }

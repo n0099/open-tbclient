@@ -6,159 +6,154 @@ import android.net.wifi.WifiManager;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import com.bytedance.sdk.openadsdk.TTCustomController;
+import com.xiaomi.mipush.sdk.Constants;
 import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class t {
 
     /* renamed from: a  reason: collision with root package name */
-    private static t f4515a;
-    private String d;
-    private volatile boolean c = false;
-    private com.pgl.sys.ces.d.b b = com.pgl.sys.ces.d.c.b(p.a(), "df979cdb-05a7-448c-bece-92d5005a1247", 0, c());
+    public static t f28629a;
 
-    private t(String str) {
-        this.d = null;
-        this.d = str;
-        if (!TextUtils.isEmpty(this.d)) {
-            this.b.setParams(str, null);
+    /* renamed from: c  reason: collision with root package name */
+    public volatile boolean f28631c = false;
+
+    /* renamed from: d  reason: collision with root package name */
+    public String f28632d = null;
+
+    /* renamed from: b  reason: collision with root package name */
+    public d.m.b.b.d.b f28630b = d.m.b.b.d.c.a(p.a(), "df979cdb-05a7-448c-bece-92d5005a1247", 0, d());
+
+    public t() {
+        if (TextUtils.isEmpty(i.d().g())) {
+            return;
         }
-        if (i.d().f() != null) {
-            HashMap<String, Object> hashMap = new HashMap<>();
-            hashMap.put("app_id", i.d().f());
-            this.b.setCustomInfo(hashMap);
-        }
+        HashMap<String, Object> hashMap = new HashMap<>();
+        hashMap.put(Constants.APP_ID, i.d().g());
+        this.f28630b.setCustomInfo(hashMap);
     }
 
-    private com.pgl.sys.ces.d.a c() {
-        final TTCustomController e = i.d().e();
-        return new com.pgl.sys.ces.d.a() { // from class: com.bytedance.sdk.openadsdk.core.t.1
-            @Override // com.pgl.sys.ces.d.a
-            public String getDeviceId() {
+    public static t b() {
+        if (f28629a == null) {
+            synchronized (t.class) {
+                if (f28629a == null) {
+                    f28629a = new t();
+                }
+            }
+        }
+        return f28629a;
+    }
+
+    private d.m.b.b.d.a d() {
+        final TTCustomController e2 = i.d().e();
+        return new d.m.b.b.d.a() { // from class: com.bytedance.sdk.openadsdk.core.t.1
+            @Override // d.m.b.b.d.a
+            public String a() {
                 return "";
             }
 
-            @Override // com.pgl.sys.ces.d.a
-            public String getSubscriberId() {
-                if (e == null || e.isCanUsePhoneState()) {
+            @Override // d.m.b.b.d.a
+            public String b() {
+                TTCustomController tTCustomController = e2;
+                if (tTCustomController == null || tTCustomController.isCanUsePhoneState()) {
                     return k.f(p.a());
                 }
                 return null;
             }
 
-            @Override // com.pgl.sys.ces.d.a
-            public WifiInfo getConnectionInfo() {
-                if (e == null || e.isCanUseWifiState()) {
-                    WifiManager wifiManager = (WifiManager) p.a().getSystemService("wifi");
-                    return wifiManager != null ? wifiManager.getConnectionInfo() : null;
+            @Override // d.m.b.b.d.a
+            public WifiInfo c() {
+                WifiManager wifiManager;
+                TTCustomController tTCustomController = e2;
+                if ((tTCustomController == null || tTCustomController.isCanUseWifiState()) && (wifiManager = (WifiManager) p.a().getSystemService("wifi")) != null) {
+                    return wifiManager.getConnectionInfo();
                 }
                 return null;
             }
 
-            @Override // com.pgl.sys.ces.d.a
-            public List<ScanResult> getScanResults() {
-                if (e == null || e.isCanUseWifiState()) {
-                    WifiManager wifiManager = (WifiManager) p.a().getSystemService("wifi");
-                    return wifiManager != null ? wifiManager.getScanResults() : null;
+            @Override // d.m.b.b.d.a
+            public List<ScanResult> d() {
+                WifiManager wifiManager;
+                TTCustomController tTCustomController = e2;
+                if ((tTCustomController == null || tTCustomController.isCanUseWifiState()) && (wifiManager = (WifiManager) p.a().getSystemService("wifi")) != null) {
+                    return wifiManager.getScanResults();
                 }
                 return null;
             }
 
-            @Override // com.pgl.sys.ces.d.a
-            public String getHardwareAddress() {
-                if (e == null || e.isCanUseWifiState()) {
+            @Override // d.m.b.b.d.a
+            public String e() {
+                TTCustomController tTCustomController = e2;
+                if (tTCustomController == null || tTCustomController.isCanUseWifiState()) {
                     return k.h(p.a());
                 }
                 return null;
             }
 
-            @Override // com.pgl.sys.ces.d.a
-            public String getLongitude() {
-                if (e != null && !e.isCanUseLocation()) {
-                    if (e.getTTLocation() == null) {
+            @Override // d.m.b.b.d.a
+            public String f() {
+                TTCustomController tTCustomController = e2;
+                if (tTCustomController != null && !tTCustomController.isCanUseLocation()) {
+                    if (e2.getTTLocation() == null) {
                         return null;
                     }
-                    return String.valueOf(e.getTTLocation().getLongitude());
-                } else if (com.bytedance.sdk.openadsdk.utils.d.a(p.a()) != null) {
-                    return String.valueOf(com.bytedance.sdk.openadsdk.utils.d.a(p.a()).b);
-                } else {
+                    return String.valueOf(e2.getTTLocation().getLongitude());
+                } else if (com.bytedance.sdk.openadsdk.utils.d.a(p.a()) == null) {
                     return null;
+                } else {
+                    return String.valueOf(com.bytedance.sdk.openadsdk.utils.d.a(p.a()).f30397b);
                 }
             }
 
-            @Override // com.pgl.sys.ces.d.a
-            public String getLatitude() {
-                if (e != null && !e.isCanUseLocation()) {
-                    if (e.getTTLocation() == null) {
+            @Override // d.m.b.b.d.a
+            public String g() {
+                TTCustomController tTCustomController = e2;
+                if (tTCustomController != null && !tTCustomController.isCanUseLocation()) {
+                    if (e2.getTTLocation() == null) {
                         return null;
                     }
-                    return String.valueOf(e.getTTLocation().getLatitude());
-                } else if (com.bytedance.sdk.openadsdk.utils.d.a(p.a()) != null) {
-                    return String.valueOf(com.bytedance.sdk.openadsdk.utils.d.a(p.a()).f5126a);
-                } else {
+                    return String.valueOf(e2.getTTLocation().getLatitude());
+                } else if (com.bytedance.sdk.openadsdk.utils.d.a(p.a()) == null) {
                     return null;
+                } else {
+                    return String.valueOf(com.bytedance.sdk.openadsdk.utils.d.a(p.a()).f30396a);
                 }
             }
         };
     }
 
     public String a() {
-        return this.b.onEvent();
+        return this.f28630b.onEvent();
     }
 
-    public void a(String str) {
-        if (!TextUtils.isEmpty(str)) {
-            if (TextUtils.isEmpty(this.d)) {
-                this.d = str;
-                this.b.setParams(this.d, null);
-            }
-            if (i.d().f() != null) {
-                HashMap<String, Object> hashMap = new HashMap<>();
-                hashMap.put("app_id", i.d().f());
-                this.b.setCustomInfo(hashMap);
-            }
-        }
-    }
-
-    public static t b(String str) {
-        if (f4515a == null) {
-            synchronized (t.class) {
-                if (f4515a == null) {
-                    f4515a = new t(str);
-                }
-            }
-        }
-        return f4515a;
-    }
-
-    public void c(@NonNull String str) {
-        if (!this.c) {
-            this.b.reportNow(str);
-            this.c = true;
-        }
-    }
-
-    public String b() {
-        String str;
+    public String c() {
         try {
-            String pullSg = this.b.pullSg();
-            if (e(pullSg)) {
-                str = pullSg.toUpperCase();
-            } else {
-                String a2 = com.bytedance.sdk.openadsdk.utils.e.a(p.a());
-                if (e(a2)) {
-                    str = a2.toUpperCase();
-                } else {
-                    str = "";
-                }
+            String pullSg = this.f28630b.pullSg();
+            if (d(pullSg)) {
+                return pullSg.toUpperCase();
             }
-            return str;
-        } catch (Exception e) {
+            String a2 = com.bytedance.sdk.openadsdk.utils.e.a(p.a());
+            return d(a2) ? a2.toUpperCase() : "";
+        } catch (Exception unused) {
             return "";
         }
     }
 
-    private boolean e(String str) {
+    public void a(String str) {
+        if (TextUtils.isEmpty(str)) {
+            return;
+        }
+        this.f28632d = str;
+        this.f28630b.setParams(str, null);
+        if (TextUtils.isEmpty(i.d().g())) {
+            return;
+        }
+        HashMap<String, Object> hashMap = new HashMap<>();
+        hashMap.put(Constants.APP_ID, i.d().g());
+        this.f28630b.setCustomInfo(hashMap);
+    }
+
+    private boolean d(String str) {
         String[] split;
         if (TextUtils.isEmpty(str) || (split = str.split(":")) == null || split.length < 20) {
             return false;
@@ -171,14 +166,19 @@ public class t {
         return false;
     }
 
-    public String d(String str) {
+    public void b(@NonNull String str) {
+        if (this.f28631c) {
+            return;
+        }
+        this.f28630b.reportNow(str);
+        this.f28631c = true;
+    }
+
+    public String c(String str) {
         if (TextUtils.isEmpty(str)) {
             return "";
         }
         String a2 = com.bytedance.sdk.openadsdk.utils.j.a(str);
-        if (TextUtils.isEmpty(a2)) {
-            return "";
-        }
-        return this.b.pullVer(a2);
+        return TextUtils.isEmpty(a2) ? "" : this.f28630b.pullVer(a2);
     }
 }

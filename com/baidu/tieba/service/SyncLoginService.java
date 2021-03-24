@@ -7,26 +7,43 @@ import android.os.IBinder;
 import com.baidu.adp.base.BdBaseService;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.l;
-import com.baidu.live.tbadk.data.Config;
+import com.baidu.searchbox.pms.db.PackageTable;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.k;
-import com.baidu.tbadk.core.util.aa;
-import com.baidu.tbadk.core.util.aw;
-import com.baidu.tieba.j;
-import com.baidu.tieba.model.d;
-/* loaded from: classes.dex */
+import com.baidu.tbadk.core.util.NetWork;
+import com.baidu.tbadk.core.util.TbMd5;
+import com.baidu.tieba.recapp.report.AdUploadHttpRequest;
+import d.b.b.e.p.l;
+import d.b.h0.r.k;
+import d.b.i0.r1.d;
+/* loaded from: classes5.dex */
 public class SyncLoginService extends BdBaseService {
-    private static String mStatistics = null;
-    private a mSyncTask = null;
-    private Handler mHandler = new Handler();
-    private Runnable mRunnable = new Runnable() { // from class: com.baidu.tieba.service.SyncLoginService.1
+    public static String mStatistics;
+    public b mSyncTask = null;
+    public Handler mHandler = new Handler();
+    public Runnable mRunnable = new a();
+
+    /* loaded from: classes5.dex */
+    public class a implements Runnable {
+        public a() {
+        }
+
         @Override // java.lang.Runnable
         public void run() {
             SyncLoginService.this.checkPassV6Switch();
         }
-    };
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void checkPassV6Switch() {
+        b bVar = this.mSyncTask;
+        if (bVar != null) {
+            bVar.cancel();
+        }
+        b bVar2 = new b(this, null);
+        this.mSyncTask = bVar2;
+        bVar2.execute(new String[0]);
+    }
 
     public static void setMsgType(String str) {
         mStatistics = str;
@@ -37,19 +54,11 @@ public class SyncLoginService extends BdBaseService {
         return null;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void checkPassV6Switch() {
-        if (this.mSyncTask != null) {
-            this.mSyncTask.cancel();
-        }
-        this.mSyncTask = new a();
-        this.mSyncTask.execute(new String[0]);
-    }
-
     @Override // android.app.Service
     public void onDestroy() {
-        if (this.mSyncTask != null) {
-            this.mSyncTask.cancel();
+        b bVar = this.mSyncTask;
+        if (bVar != null) {
+            bVar.cancel();
         }
         this.mHandler.removeCallbacks(this.mRunnable);
         super.onDestroy();
@@ -61,89 +70,97 @@ public class SyncLoginService extends BdBaseService {
         checkPassV6Switch();
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes.dex */
-    public class a extends BdAsyncTask<String, Integer, d> {
-        aa cnM;
+    /* loaded from: classes5.dex */
+    public class b extends BdAsyncTask<String, Integer, d> {
 
-        private a() {
-            this.cnM = null;
+        /* renamed from: a  reason: collision with root package name */
+        public NetWork f20928a;
+
+        public b() {
+            this.f20928a = null;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: Y */
+        /* renamed from: b */
         public d doInBackground(String... strArr) {
-            d dVar;
+            d dVar = null;
             try {
-                this.cnM = new aa(TbConfig.SERVER_ADDRESS + Config.SYNC_LOGIN);
-                this.cnM.addPostData("_os_version", Build.VERSION.RELEASE);
+                NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + "c/s/switch");
+                this.f20928a = netWork;
+                netWork.addPostData(AdUploadHttpRequest.KEY_OS_VERSION, Build.VERSION.RELEASE);
                 StringBuffer stringBuffer = new StringBuffer(15);
-                stringBuffer.append(String.valueOf(l.getEquipmentWidth(TbadkCoreApplication.getInst().getApp())));
+                stringBuffer.append(String.valueOf(l.k(TbadkCoreApplication.getInst().getApp())));
                 stringBuffer.append(",");
-                stringBuffer.append(String.valueOf(l.getEquipmentHeight(TbadkCoreApplication.getInst().getApp())));
-                this.cnM.addPostData("_phone_screen", stringBuffer.toString());
-                this.cnM.addPostData("scr_w", String.valueOf(l.getEquipmentWidth(TbadkCoreApplication.getInst().getApp())));
-                this.cnM.addPostData("scr_h", String.valueOf(l.getEquipmentHeight(TbadkCoreApplication.getInst().getApp())));
-                this.cnM.addPostData("scr_dip", String.valueOf(l.getEquipmentDensity(TbadkCoreApplication.getInst().getApp())));
-                if (com.baidu.tbadk.coreExtra.messageCenter.d.byh().byk() > 0) {
-                    this.cnM.addPostData("_msg_status", "0");
+                stringBuffer.append(String.valueOf(l.i(TbadkCoreApplication.getInst().getApp())));
+                this.f20928a.addPostData("_phone_screen", stringBuffer.toString());
+                this.f20928a.addPostData("scr_w", String.valueOf(l.k(TbadkCoreApplication.getInst().getApp())));
+                this.f20928a.addPostData("scr_h", String.valueOf(l.i(TbadkCoreApplication.getInst().getApp())));
+                this.f20928a.addPostData("scr_dip", String.valueOf(l.h(TbadkCoreApplication.getInst().getApp())));
+                String str = "0";
+                if (d.b.h0.s.d.d.d().e() > 0) {
+                    this.f20928a.addPostData("_msg_status", "0");
                 } else {
-                    this.cnM.addPostData("_msg_status", "1");
+                    this.f20928a.addPostData("_msg_status", "1");
                 }
                 String activeVersion = TbadkCoreApplication.getInst().getActiveVersion();
                 if (activeVersion != null) {
-                    if (activeVersion.length() < 1) {
-                        activeVersion = "0";
+                    if (activeVersion.length() >= 1) {
+                        str = activeVersion;
                     }
-                    this.cnM.addPostData("_active", activeVersion);
+                    this.f20928a.addPostData("_active", str);
                 }
-                this.cnM.addPostData("_pic_quality", String.valueOf(k.bkV().getViewImageQuality()));
+                this.f20928a.addPostData("_pic_quality", String.valueOf(k.c().e()));
                 if (SyncLoginService.mStatistics != null) {
-                    this.cnM.addPostData("_msg_type", SyncLoginService.mStatistics);
+                    this.f20928a.addPostData("_msg_type", SyncLoginService.mStatistics);
                 }
                 String packageName = TbadkCoreApplication.getInst().getPackageName();
-                this.cnM.addPostData("package", packageName);
-                this.cnM.addPostData("versioncode", TbadkCoreApplication.getInst().getVersionCode() + "");
-                this.cnM.addPostData("signmd5", aw.getAPKMd5(TbadkCoreApplication.getInst().getPackageManager().getPackageInfo(packageName, 64)));
-                this.cnM.addPostData("md5", j.getTiebaApkMd5());
-                String postNetData = this.cnM.postNetData();
-                if (this.cnM.bsu().bte().isRequestSuccess()) {
-                    dVar = new d();
+                this.f20928a.addPostData("package", packageName);
+                int versionCode = TbadkCoreApplication.getInst().getVersionCode();
+                NetWork netWork2 = this.f20928a;
+                netWork2.addPostData("versioncode", versionCode + "");
+                this.f20928a.addPostData("signmd5", TbMd5.getAPKMd5(TbadkCoreApplication.getInst().getPackageManager().getPackageInfo(packageName, 64)));
+                this.f20928a.addPostData(PackageTable.MD5, d.b.i0.l.a());
+                String postNetData = this.f20928a.postNetData();
+                if (this.f20928a.getNetContext().getResponse().isRequestSuccess()) {
+                    d dVar2 = new d();
                     try {
-                        dVar.parserJson(postNetData);
+                        dVar2.a(postNetData);
                         String unused = SyncLoginService.mStatistics = null;
-                        return dVar;
-                    } catch (Exception e) {
-                        e = e;
+                        return dVar2;
+                    } catch (Exception e2) {
+                        e = e2;
+                        dVar = dVar2;
                         BdLog.e(e.getMessage());
                         return dVar;
                     }
                 }
                 return null;
-            } catch (Exception e2) {
-                e = e2;
-                dVar = null;
+            } catch (Exception e3) {
+                e = e3;
             }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: c */
+        public void onPostExecute(d dVar) {
+            super.onPostExecute(dVar);
+            SyncLoginService.this.mSyncTask = null;
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             SyncLoginService.this.mSyncTask = null;
-            if (this.cnM != null) {
-                this.cnM.cancelNetConnect();
+            NetWork netWork = this.f20928a;
+            if (netWork != null) {
+                netWork.cancelNetConnect();
             }
             super.cancel(true);
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX INFO: Access modifiers changed from: protected */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: a */
-        public void onPostExecute(d dVar) {
-            super.onPostExecute(dVar);
-            SyncLoginService.this.mSyncTask = null;
+        public /* synthetic */ b(SyncLoginService syncLoginService, a aVar) {
+            this();
         }
     }
 }

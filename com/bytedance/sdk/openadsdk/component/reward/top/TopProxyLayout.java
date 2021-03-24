@@ -15,10 +15,110 @@ import com.bytedance.sdk.openadsdk.utils.u;
 public class TopProxyLayout extends View implements a<TopProxyLayout> {
 
     /* renamed from: a  reason: collision with root package name */
-    private a f4301a;
+    public a f27853a;
 
     public TopProxyLayout(Context context) {
         this(context, null);
+    }
+
+    public TopProxyLayout a(boolean z, @NonNull l lVar) {
+        TopLayoutDislike2 a2 = new TopLayoutDislike2(getContext()).a(z, lVar);
+        if (a2 instanceof a) {
+            this.f27853a = a2;
+            ViewParent parent = getParent();
+            if (parent != null && (parent instanceof ViewGroup)) {
+                a(a2, (ViewGroup) parent);
+            }
+            return this;
+        }
+        u.f("TopProxyLayout", "view not implements ITopLayout interface");
+        return this;
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.component.reward.top.a
+    public void b() {
+        a aVar = this.f27853a;
+        if (aVar != null) {
+            aVar.b();
+        }
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.component.reward.top.a
+    public void c() {
+        a aVar = this.f27853a;
+        if (aVar != null) {
+            aVar.c();
+        }
+    }
+
+    @Override // android.view.View
+    public void dispatchDraw(Canvas canvas) {
+    }
+
+    @Override // android.view.View
+    @SuppressLint({"MissingSuperCall"})
+    public void draw(Canvas canvas) {
+    }
+
+    @Override // android.view.View
+    public void onMeasure(int i, int i2) {
+        setMeasuredDimension(0, 0);
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.component.reward.top.a
+    public void setListener(b bVar) {
+        a aVar = this.f27853a;
+        if (aVar != null) {
+            aVar.setListener(bVar);
+        }
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.component.reward.top.a
+    public void setShowCountDown(boolean z) {
+        a aVar = this.f27853a;
+        if (aVar != null) {
+            aVar.setShowCountDown(z);
+        }
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.component.reward.top.a
+    public void setShowDislike(boolean z) {
+        a aVar = this.f27853a;
+        if (aVar != null) {
+            aVar.setShowDislike(z);
+        }
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.component.reward.top.a
+    public void setShowSkip(boolean z) {
+        a aVar = this.f27853a;
+        if (aVar != null) {
+            aVar.setShowSkip(z);
+        }
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.component.reward.top.a
+    public void setShowSound(boolean z) {
+        a aVar = this.f27853a;
+        if (aVar != null) {
+            aVar.setShowSound(z);
+        }
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.component.reward.top.a
+    public void setSkipEnable(boolean z) {
+        a aVar = this.f27853a;
+        if (aVar != null) {
+            aVar.setSkipEnable(z);
+        }
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.component.reward.top.a
+    public void setSoundMute(boolean z) {
+        a aVar = this.f27853a;
+        if (aVar != null) {
+            aVar.setSoundMute(z);
+        }
     }
 
     public TopProxyLayout(Context context, @Nullable AttributeSet attributeSet) {
@@ -29,20 +129,6 @@ public class TopProxyLayout extends View implements a<TopProxyLayout> {
         super(context, attributeSet, i);
         setVisibility(8);
         setWillNotDraw(true);
-    }
-
-    public TopProxyLayout a(boolean z, @NonNull l lVar) {
-        TopLayoutDislike2 a2 = new TopLayoutDislike2(getContext()).a(z, lVar);
-        if (a2 instanceof a) {
-            this.f4301a = a2;
-            ViewParent parent = getParent();
-            if (parent != null && (parent instanceof ViewGroup)) {
-                a(a2, (ViewGroup) parent);
-            }
-        } else {
-            u.f("TopProxyLayout", "view not implements ITopLayout interface");
-        }
-        return this;
     }
 
     private void a(View view, ViewGroup viewGroup) {
@@ -56,94 +142,19 @@ public class TopProxyLayout extends View implements a<TopProxyLayout> {
         }
     }
 
-    @Override // android.view.View
-    protected void onMeasure(int i, int i2) {
-        setMeasuredDimension(0, 0);
-    }
-
-    @Override // android.view.View
-    @SuppressLint({"MissingSuperCall"})
-    public void draw(Canvas canvas) {
-    }
-
-    @Override // android.view.View
-    protected void dispatchDraw(Canvas canvas) {
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.component.reward.top.a
-    public void setShowSkip(boolean z) {
-        if (this.f4301a != null) {
-            this.f4301a.setShowSkip(z);
-        }
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.component.reward.top.a
-    public void setSkipEnable(boolean z) {
-        if (this.f4301a != null) {
-            this.f4301a.setSkipEnable(z);
-        }
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.component.reward.top.a
-    public void c() {
-        if (this.f4301a != null) {
-            this.f4301a.c();
-        }
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.component.reward.top.a
-    public void setShowSound(boolean z) {
-        if (this.f4301a != null) {
-            this.f4301a.setShowSound(z);
-        }
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.component.reward.top.a
-    public void setSoundMute(boolean z) {
-        if (this.f4301a != null) {
-            this.f4301a.setSoundMute(z);
-        }
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.component.reward.top.a
-    public void setShowCountDown(boolean z) {
-        if (this.f4301a != null) {
-            this.f4301a.setShowCountDown(z);
-        }
-    }
-
     @Override // com.bytedance.sdk.openadsdk.component.reward.top.a
     public void a(CharSequence charSequence, CharSequence charSequence2) {
-        if (this.f4301a != null) {
-            this.f4301a.a(charSequence, charSequence2);
-        }
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.component.reward.top.a
-    public void setShowDislike(boolean z) {
-        if (this.f4301a != null) {
-            this.f4301a.setShowDislike(z);
-        }
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.component.reward.top.a
-    public void setListener(b bVar) {
-        if (this.f4301a != null) {
-            this.f4301a.setListener(bVar);
+        a aVar = this.f27853a;
+        if (aVar != null) {
+            aVar.a(charSequence, charSequence2);
         }
     }
 
     @Override // com.bytedance.sdk.openadsdk.component.reward.top.a
     public void a() {
-        if (this.f4301a != null) {
-            this.f4301a.a();
-        }
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.component.reward.top.a
-    public void b() {
-        if (this.f4301a != null) {
-            this.f4301a.b();
+        a aVar = this.f27853a;
+        if (aVar != null) {
+            aVar.a();
         }
     }
 }

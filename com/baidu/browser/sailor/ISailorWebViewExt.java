@@ -6,7 +6,7 @@ import com.baidu.browser.core.INoProGuard;
 import com.baidu.webkit.sdk.WebView;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes14.dex */
+/* loaded from: classes2.dex */
 public interface ISailorWebViewExt extends INoProGuard {
     void addNoStatePrefetch(String str, String str2);
 
@@ -114,9 +114,9 @@ public interface ISailorWebViewExt extends INoProGuard {
 
     void loadUrl(String str, Map<String, String> map, boolean z);
 
-    void mediaPlayerStatusChangedExt(int i, float f, float f2);
+    void mediaPlayerStatusChangedExt(int i, float f2, float f3);
 
-    void mediaPlayerTimeChangedExt(float f, float f2);
+    void mediaPlayerTimeChangedExt(float f2, float f3);
 
     @Deprecated
     void moveMagnifierExt(int i, int i2);
@@ -173,7 +173,7 @@ public interface ISailorWebViewExt extends INoProGuard {
 
     boolean setNightModeColorStyleExt(int i);
 
-    boolean setPreviewZoomScaleExt(float f);
+    boolean setPreviewZoomScaleExt(float f2);
 
     void setShiftPressedModeExt(boolean z);
 

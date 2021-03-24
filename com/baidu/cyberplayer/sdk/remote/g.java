@@ -13,46 +13,60 @@ import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile g f1449a;
-    private c b;
-    private String c;
-    private int d;
-    private Class<?> e;
-    private final Object f = new Object();
-    private ArrayList<WeakReference<b>> g = new ArrayList<>();
-    private ServiceConnection h = new ServiceConnection() { // from class: com.baidu.cyberplayer.sdk.remote.g.1
+    public static volatile g f5019a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public c f5020b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public String f5021c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public int f5022d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public Class<?> f5023e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public final Object f5024f = new Object();
+
+    /* renamed from: g  reason: collision with root package name */
+    public ArrayList<WeakReference<b>> f5025g = new ArrayList<>();
+
+    /* renamed from: h  reason: collision with root package name */
+    public ServiceConnection f5026h = new ServiceConnection() { // from class: com.baidu.cyberplayer.sdk.remote.g.1
         @Override // android.content.ServiceConnection
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
             CyberLog.i("RemotePlayer", "RemotePlayer service connected");
-            g.this.b = c.a.a(iBinder);
+            g.this.f5020b = c.a.a(iBinder);
             try {
-                g.this.b.asBinder().linkToDeath(g.this.i, 0);
-            } catch (RemoteException e) {
-                e.printStackTrace();
-                g.this.b = null;
+                g.this.f5020b.asBinder().linkToDeath(g.this.i, 0);
+            } catch (RemoteException e2) {
+                e2.printStackTrace();
+                g.this.f5020b = null;
             }
         }
 
         @Override // android.content.ServiceConnection
         public void onServiceDisconnected(ComponentName componentName) {
             CyberLog.e("RemotePlayer", "RemotePlayer service disconnected");
-            g.this.b = null;
+            g.this.f5020b = null;
         }
     };
-    private IBinder.DeathRecipient i = new IBinder.DeathRecipient() { // from class: com.baidu.cyberplayer.sdk.remote.g.2
+    public IBinder.DeathRecipient i = new IBinder.DeathRecipient() { // from class: com.baidu.cyberplayer.sdk.remote.g.2
         @Override // android.os.IBinder.DeathRecipient
         public void binderDied() {
             CyberLog.i("RemotePlayer", "RemotePlayer service binder died");
-            if (g.this.b != null) {
-                g.this.b.asBinder().unlinkToDeath(g.this.i, 0);
-                g.this.b = null;
+            if (g.this.f5020b != null) {
+                g.this.f5020b.asBinder().unlinkToDeath(g.this.i, 0);
+                g.this.f5020b = null;
             }
-            synchronized (g.this.f) {
-                Iterator it = g.this.g.iterator();
+            synchronized (g.this.f5024f) {
+                Iterator it = g.this.f5025g.iterator();
                 while (it.hasNext()) {
                     b bVar = (b) ((WeakReference) it.next()).get();
                     if (bVar != null) {
@@ -62,24 +76,25 @@ public class g {
                     }
                 }
             }
-            g.this.a(g.this.e, g.this.c, g.this.d, CyberPlayerManager.getInstallOpts());
+            g gVar = g.this;
+            gVar.a(gVar.f5023e, g.this.f5021c, g.this.f5022d, CyberPlayerManager.getInstallOpts());
         }
     };
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class a extends c.a {
 
         /* renamed from: a  reason: collision with root package name */
-        RemotePlayerService f1452a;
+        public RemotePlayerService f5029a;
 
         public a(RemotePlayerService remotePlayerService) {
-            this.f1452a = remotePlayerService;
+            this.f5029a = remotePlayerService;
         }
 
         @Override // com.baidu.cyberplayer.sdk.remote.c
         public IBinder a() {
             if (CyberPlayerManager.isCoreLoaded(1)) {
-                return new com.baidu.cyberplayer.sdk.extractor.c(this.f1452a);
+                return new com.baidu.cyberplayer.sdk.extractor.c(this.f5029a);
             }
             CyberLog.w("RemotePlayer", "RemoteExtractor has not load kernel, create failed!");
             return null;
@@ -88,7 +103,7 @@ public class g {
         @Override // com.baidu.cyberplayer.sdk.remote.c
         public IBinder a(int i) {
             if (CyberPlayerManager.isCoreLoaded(1)) {
-                return new f(i, this.f1452a);
+                return new f(i, this.f5029a);
             }
             CyberLog.w("RemotePlayer", "RemotePlayer has not load kernel, create failed!");
             return null;
@@ -111,48 +126,46 @@ public class g {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public interface b {
         void a();
     }
 
-    private g() {
-    }
-
     public static g a() {
-        if (f1449a == null) {
-            f1449a = new g();
+        if (f5019a == null) {
+            f5019a = new g();
         }
-        return f1449a;
+        return f5019a;
     }
 
     public int a(String str) {
-        if (this.b == null) {
+        c cVar = this.f5020b;
+        if (cVar == null) {
             return -1;
         }
         try {
-            return this.b.a(str) ? 1 : 0;
-        } catch (RemoteException e) {
-            e.printStackTrace();
+            return cVar.a(str) ? 1 : 0;
+        } catch (RemoteException e2) {
+            e2.printStackTrace();
             return 0;
         }
     }
 
     public IBinder a(int i) {
-        if (this.b != null) {
+        c cVar = this.f5020b;
+        if (cVar != null) {
             try {
-                return this.b.a(i);
-            } catch (RemoteException e) {
-                e.printStackTrace();
-                return null;
+                return cVar.a(i);
+            } catch (RemoteException e2) {
+                e2.printStackTrace();
             }
         }
         return null;
     }
 
     public void a(b bVar) {
-        synchronized (this.f) {
-            this.g.add(new WeakReference<>(bVar));
+        synchronized (this.f5024f) {
+            this.f5025g.add(new WeakReference<>(bVar));
         }
     }
 
@@ -161,17 +174,17 @@ public class g {
             return;
         }
         CyberLog.i("RemotePlayer", "RemotePlayer connect service");
-        this.e = cls;
-        this.c = str;
-        this.d = i;
-        Intent intent = new Intent(CyberPlayerManager.getApplicationContext(), this.e);
-        intent.putExtra("clientID", this.c);
-        intent.putExtra("installType", this.d);
+        this.f5023e = cls;
+        this.f5021c = str;
+        this.f5022d = i;
+        Intent intent = new Intent(CyberPlayerManager.getApplicationContext(), this.f5023e);
+        intent.putExtra("clientID", this.f5021c);
+        intent.putExtra("installType", this.f5022d);
         intent.putExtra("installOpts", (Serializable) map);
         boolean z = false;
         try {
-            z = CyberPlayerManager.getApplicationContext().bindService(intent, this.h, 1);
-        } catch (Exception e) {
+            z = CyberPlayerManager.getApplicationContext().bindService(intent, this.f5026h, 1);
+        } catch (Exception unused) {
             CyberLog.e("RemotePlayer", "Failed binding to service!");
         }
         if (z) {
@@ -181,33 +194,34 @@ public class g {
     }
 
     public boolean a(String str, String str2, String str3, int i, int i2, int i3) {
-        if (this.b == null) {
+        c cVar = this.f5020b;
+        if (cVar == null) {
             return false;
         }
         try {
-            this.b.a(str, str2, str3, i, i2, i3);
+            cVar.a(str, str2, str3, i, i2, i3);
             return true;
-        } catch (RemoteException e) {
-            e.printStackTrace();
+        } catch (RemoteException e2) {
+            e2.printStackTrace();
             return false;
         }
     }
 
     public IBinder b() {
-        if (this.b != null) {
+        c cVar = this.f5020b;
+        if (cVar != null) {
             try {
-                return this.b.a();
-            } catch (RemoteException e) {
-                e.printStackTrace();
-                return null;
+                return cVar.a();
+            } catch (RemoteException e2) {
+                e2.printStackTrace();
             }
         }
         return null;
     }
 
     public void b(b bVar) {
-        synchronized (this.f) {
-            Iterator<WeakReference<b>> it = this.g.iterator();
+        synchronized (this.f5024f) {
+            Iterator<WeakReference<b>> it = this.f5025g.iterator();
             while (it.hasNext()) {
                 b bVar2 = it.next().get();
                 if (bVar2 == null || bVar2.equals(bVar)) {

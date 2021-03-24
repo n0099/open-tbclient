@@ -3,272 +3,294 @@ package com.baidu.tieba.frs.loadmore;
 import android.text.TextUtils;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.adp.lib.f.b;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.adp.widget.ListView.n;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.tbadk.core.data.ca;
-import com.baidu.tbadk.core.data.cb;
-import com.baidu.tbadk.core.util.y;
-import com.baidu.tbadk.n.h;
-import com.baidu.tbadk.util.ab;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.R;
 import com.baidu.tieba.frs.FrsFragment;
-import com.baidu.tieba.frs.mc.c;
-import com.baidu.tieba.frs.mc.k;
-import com.baidu.tieba.recapp.s;
 import com.baidu.tieba.tbadkCore.FrsViewData;
-import com.baidu.tieba.tbadkCore.data.f;
+import d.b.b.j.e.n;
+import d.b.h0.m0.h;
+import d.b.h0.r.q.a2;
+import d.b.h0.r.q.z1;
+import d.b.h0.z0.c0;
+import d.b.i0.c3.h0.f;
+import d.b.i0.p0.e2.c;
+import d.b.i0.p0.e2.k;
+import d.b.i0.r2.s;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class FrsLoadMoreModel extends BdBaseModel<BaseFragmentActivity> {
     public static final int LOAD_MORE_COUNT = 30;
     public static final String LOAD_MORE_URL = "c/f/frs/threadlist";
     public static final int LOAD_THREAD_LIST = 30;
-    private com.baidu.tieba.funad.a funAdController;
-    private int hYW;
+
+    /* renamed from: e  reason: collision with root package name */
+    public final d.b.i0.p0.d2.a f16532e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public boolean f16533f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public long f16534g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public final ArrayList<n> f16535h;
+    public final ArrayList<String> i;
     public boolean isLoading;
-    private final com.baidu.tieba.frs.loadmore.a jGl;
-    private boolean jGm;
-    private long jGn;
-    private final ArrayList<n> jGo;
-    private final ArrayList<String> jGp;
-    private final ArrayList<n> jGq;
-    private boolean jGr;
-    private c.a jGs;
-    private final com.baidu.adp.framework.listener.a jGt;
-    private k jjN;
+    public final ArrayList<n> j;
+    public int k;
+    public int l;
     public int loadIndex;
     public boolean loadingDone;
-    private int mPageType;
-    private int mPn;
-    private int mSortType;
+    public int m;
+    public boolean n;
+    public int o;
+    public k p;
+    public c.b q;
+    public d.b.i0.r0.a r;
+    public final d.b.b.c.g.a s;
 
-    /* loaded from: classes2.dex */
-    public interface a {
-        void at(ArrayList<n> arrayList);
+    /* loaded from: classes4.dex */
+    public class a extends d.b.b.c.g.a {
+        public a(int i, int i2) {
+            super(i, i2);
+        }
+
+        @Override // d.b.b.c.g.a
+        public void onMessage(ResponsedMessage<?> responsedMessage) {
+            if (FrsLoadMoreModel.this.f16532e == null) {
+                return;
+            }
+            FrsLoadMoreModel frsLoadMoreModel = FrsLoadMoreModel.this;
+            frsLoadMoreModel.isLoading = false;
+            if (responsedMessage == null) {
+                frsLoadMoreModel.f16532e.onFailed(FrsLoadMoreModel.this.f16532e.getPageContext().getString(R.string.neterror));
+            } else if (responsedMessage.getError() != 0) {
+                if (!TextUtils.isEmpty(responsedMessage.getErrorString())) {
+                    FrsLoadMoreModel.this.f16532e.onFailed(responsedMessage.getErrorString());
+                } else {
+                    FrsLoadMoreModel.this.f16532e.onFailed(FrsLoadMoreModel.this.f16532e.getPageContext().getString(R.string.neterror));
+                }
+            } else {
+                long currentTimeMillis = System.currentTimeMillis();
+                FrsViewData S = FrsLoadMoreModel.this.f16532e.S();
+                if (responsedMessage instanceof LoadMoreHttpResponseMessage) {
+                    LoadMoreHttpResponseMessage loadMoreHttpResponseMessage = (LoadMoreHttpResponseMessage) responsedMessage;
+                    if (S != null) {
+                        S.updateLoadMoreBannerListData(loadMoreHttpResponseMessage.getBannerListData());
+                    }
+                    FrsLoadMoreModel.this.f16532e.d(loadMoreHttpResponseMessage.getThreadList());
+                    if (FrsLoadMoreModel.this.f16532e instanceof FrsFragment) {
+                        ((FrsFragment) FrsLoadMoreModel.this.f16532e).H = System.currentTimeMillis() - currentTimeMillis;
+                        FrsLoadMoreModel.this.C(true, responsedMessage);
+                    }
+                    FrsLoadMoreModel.this.B(loadMoreHttpResponseMessage);
+                } else if (responsedMessage instanceof LoadMoreResponseSocketMessage) {
+                    LoadMoreResponseSocketMessage loadMoreResponseSocketMessage = (LoadMoreResponseSocketMessage) responsedMessage;
+                    if (S != null) {
+                        S.updateLoadMoreBannerListData(loadMoreResponseSocketMessage.getBannerListData());
+                    }
+                    FrsLoadMoreModel.this.f16532e.d(loadMoreResponseSocketMessage.getThreadList());
+                    if (FrsLoadMoreModel.this.f16532e instanceof FrsFragment) {
+                        ((FrsFragment) FrsLoadMoreModel.this.f16532e).H = System.currentTimeMillis() - currentTimeMillis;
+                        FrsLoadMoreModel.this.C(false, responsedMessage);
+                    }
+                    FrsLoadMoreModel.this.D(loadMoreResponseSocketMessage);
+                }
+                if (!TextUtils.isEmpty(FrsLoadMoreModel.this.f16532e.i()) && s.o().b() != null) {
+                    s.o().b().g(FrsLoadMoreModel.this.f16532e.i(), 2, false);
+                }
+                FrsLoadMoreModel.this.loadIndex++;
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public interface b {
+        void d(ArrayList<n> arrayList);
 
         void onFailed(String str);
     }
 
-    public void setFunAdController(com.baidu.tieba.funad.a aVar) {
-        this.funAdController = aVar;
-    }
-
-    public FrsLoadMoreModel(com.baidu.tieba.frs.loadmore.a aVar, k kVar) {
+    public FrsLoadMoreModel(d.b.i0.p0.d2.a aVar, k kVar) {
         super(aVar.getPageContext());
         this.isLoading = false;
         this.loadingDone = false;
         this.loadIndex = 0;
-        this.jGm = false;
-        this.jGn = 0L;
-        this.jGo = new ArrayList<>();
-        this.jGp = new ArrayList<>();
-        this.jGq = new ArrayList<>();
-        this.mPn = 1;
-        this.hYW = -1;
-        this.jGr = false;
-        this.mPageType = 1;
-        this.jGt = new com.baidu.adp.framework.listener.a(1001704, CmdConfigSocket.CMD_FRS_LOAD_MORE) { // from class: com.baidu.tieba.frs.loadmore.FrsLoadMoreModel.1
-            @Override // com.baidu.adp.framework.listener.a
-            public void onMessage(ResponsedMessage<?> responsedMessage) {
-                if (FrsLoadMoreModel.this.jGl != null) {
-                    FrsLoadMoreModel.this.isLoading = false;
-                    if (responsedMessage == null) {
-                        FrsLoadMoreModel.this.jGl.onFailed(FrsLoadMoreModel.this.jGl.getPageContext().getString(R.string.neterror));
-                    } else if (responsedMessage.getError() != 0) {
-                        if (!TextUtils.isEmpty(responsedMessage.getErrorString())) {
-                            FrsLoadMoreModel.this.jGl.onFailed(responsedMessage.getErrorString());
-                        } else {
-                            FrsLoadMoreModel.this.jGl.onFailed(FrsLoadMoreModel.this.jGl.getPageContext().getString(R.string.neterror));
-                        }
-                    } else {
-                        long currentTimeMillis = System.currentTimeMillis();
-                        FrsViewData cDm = FrsLoadMoreModel.this.jGl.cDm();
-                        if (responsedMessage instanceof LoadMoreHttpResponseMessage) {
-                            LoadMoreHttpResponseMessage loadMoreHttpResponseMessage = (LoadMoreHttpResponseMessage) responsedMessage;
-                            if (cDm != null) {
-                                cDm.updateLoadMoreBannerListData(loadMoreHttpResponseMessage.getBannerListData());
-                            }
-                            FrsLoadMoreModel.this.jGl.at(loadMoreHttpResponseMessage.getThreadList());
-                            if (FrsLoadMoreModel.this.jGl instanceof FrsFragment) {
-                                ((FrsFragment) FrsLoadMoreModel.this.jGl).fKU = System.currentTimeMillis() - currentTimeMillis;
-                                FrsLoadMoreModel.this.a(true, responsedMessage);
-                            }
-                            FrsLoadMoreModel.this.a((LoadMoreHttpResponseMessage) responsedMessage);
-                        } else if (responsedMessage instanceof LoadMoreResponseSocketMessage) {
-                            LoadMoreResponseSocketMessage loadMoreResponseSocketMessage = (LoadMoreResponseSocketMessage) responsedMessage;
-                            if (cDm != null) {
-                                cDm.updateLoadMoreBannerListData(loadMoreResponseSocketMessage.getBannerListData());
-                            }
-                            FrsLoadMoreModel.this.jGl.at(loadMoreResponseSocketMessage.getThreadList());
-                            if (FrsLoadMoreModel.this.jGl instanceof FrsFragment) {
-                                ((FrsFragment) FrsLoadMoreModel.this.jGl).fKU = System.currentTimeMillis() - currentTimeMillis;
-                                FrsLoadMoreModel.this.a(false, responsedMessage);
-                            }
-                            FrsLoadMoreModel.this.a((LoadMoreResponseSocketMessage) responsedMessage);
-                        }
-                        if (!TextUtils.isEmpty(FrsLoadMoreModel.this.jGl.getForumName()) && s.dDB().dDv() != null) {
-                            s.dDB().dDv().f(FrsLoadMoreModel.this.jGl.getForumName(), 2, false);
-                        }
-                        FrsLoadMoreModel.this.loadIndex++;
-                    }
-                }
-            }
-        };
-        this.jGl = aVar;
-        setUniqueId(this.jGl.getUniqueId());
-        this.jjN = kVar;
-        this.jGt.getHttpMessageListener().setSelfListener(true);
-        this.jGt.getSocketMessageListener().setSelfListener(true);
-        registerListener(this.jGt);
+        this.f16533f = false;
+        this.f16534g = 0L;
+        this.f16535h = new ArrayList<>();
+        this.i = new ArrayList<>();
+        this.j = new ArrayList<>();
+        this.l = 1;
+        this.m = -1;
+        this.n = false;
+        this.o = 1;
+        this.s = new a(CmdConfigHttp.FRS_LOAD_MORE_CMD, 301002);
+        this.f16532e = aVar;
+        setUniqueId(aVar.getUniqueId());
+        this.p = kVar;
+        this.s.getHttpMessageListener().setSelfListener(true);
+        this.s.getSocketMessageListener().setSelfListener(true);
+        registerListener(this.s);
     }
 
-    public int cCI() {
-        return this.hYW;
+    public int A() {
+        return this.m;
     }
 
-    public void setHasMore(int i) {
-        this.hYW = i;
-    }
-
-    public int getPn() {
-        return this.mPn;
-    }
-
-    public void setPn(int i) {
-        this.mPn = i;
-    }
-
-    public void setSortType(int i) {
-        this.mSortType = i;
-    }
-
-    public void setPageType(int i) {
-        this.mPageType = i;
-    }
-
-    public void rs(boolean z) {
-        this.jGr = z;
-    }
-
-    public void registerListener() {
-        registerListener(this.jGt);
-    }
-
-    public void a(long j, List<Long> list, String str, int i, boolean z, String str2) {
-        if (j == 0 || y.isEmpty(list)) {
-            this.loadingDone = true;
+    public final void B(LoadMoreHttpResponseMessage loadMoreHttpResponseMessage) {
+        if (this.f16533f) {
             return;
         }
-        String dz = dz(list);
-        if (!TextUtils.isEmpty(dz)) {
+        this.f16533f = true;
+        if (d.b.h0.m0.k.d().g()) {
+            new h(1000, true, loadMoreHttpResponseMessage, 0L, 0L, 0L, true, 0L, 0L, System.currentTimeMillis() - this.f16534g).c();
+        }
+    }
+
+    public void C(boolean z, ResponsedMessage<?> responsedMessage) {
+        if (d.b.h0.m0.k.d().g() && (this.f16532e instanceof FrsFragment)) {
+            long currentTimeMillis = System.currentTimeMillis() - this.f16534g;
+            h hVar = new h(1000, z, responsedMessage, 0L, 0L, ((FrsFragment) this.f16532e).H, false, 0L, 0L, currentTimeMillis);
+            hVar.B = currentTimeMillis;
+            hVar.e(true);
+        }
+    }
+
+    public final void D(LoadMoreResponseSocketMessage loadMoreResponseSocketMessage) {
+        if (this.f16533f) {
+            return;
+        }
+        this.f16533f = true;
+        if (d.b.h0.m0.k.d().g()) {
+            new h(1000, false, loadMoreResponseSocketMessage, 0L, 0L, 0L, true, 0L, 0L, System.currentTimeMillis() - this.f16534g).c();
+        }
+    }
+
+    public void E(String str) {
+        if (StringUtils.isNull(str)) {
+            return;
+        }
+        if (!ListUtils.isEmpty(this.f16535h)) {
+            F(this.f16535h, str);
+        }
+        if (ListUtils.isEmpty(this.j)) {
+            return;
+        }
+        F(this.j, str);
+    }
+
+    public final void F(ArrayList<n> arrayList, String str) {
+        Iterator<n> it = arrayList.iterator();
+        while (it.hasNext()) {
+            n next = it.next();
+            if (next instanceof d.b.i0.e.c) {
+                d.b.i0.e.c cVar = (d.b.i0.e.c) next;
+                if ((cVar.a() instanceof AdvertAppInfo) && str.equals(((AdvertAppInfo) cVar.a()).E3)) {
+                    it.remove();
+                }
+            }
+        }
+    }
+
+    public void G(n nVar) {
+        if (nVar == null) {
+            return;
+        }
+        ArrayList<n> arrayList = this.f16535h;
+        if (arrayList != null) {
+            arrayList.remove(nVar);
+        }
+        ArrayList<n> arrayList2 = this.j;
+        if (arrayList2 != null) {
+            arrayList2.remove(nVar);
+        }
+    }
+
+    public ArrayList<n> H() {
+        int i;
+        int size = this.j.size() + 30;
+        int a2 = TbadkCoreApplication.getInst().getListItemRule().a() * 3;
+        if (size > a2 && this.j.size() > (i = size - a2)) {
+            for (int i2 = 0; i2 < i; i2++) {
+                this.j.remove(0);
+            }
+        }
+        ArrayList<n> arrayList = new ArrayList<>();
+        arrayList.addAll(this.f16535h);
+        arrayList.addAll(this.j);
+        return arrayList;
+    }
+
+    public void I(long j, List<Long> list, String str, int i, boolean z, String str2) {
+        if (j != 0 && !ListUtils.isEmpty(list)) {
+            String z2 = z(list);
+            if (TextUtils.isEmpty(z2)) {
+                return;
+            }
             LoadMoreRequestMessage loadMoreRequestMessage = new LoadMoreRequestMessage();
             loadMoreRequestMessage.setForumId(j);
-            loadMoreRequestMessage.setThreadIds(dz);
+            loadMoreRequestMessage.setThreadIds(z2);
             loadMoreRequestMessage.setNeedAbstract(0);
             loadMoreRequestMessage.setForumName(str);
             loadMoreRequestMessage.setPageNumber(i);
-            loadMoreRequestMessage.setLastClickTid(b.toLong(ab.bFL(), 0L));
-            loadMoreRequestMessage.setSortType(this.mSortType);
-            loadMoreRequestMessage.setPageType(this.mPageType);
+            loadMoreRequestMessage.setLastClickTid(d.b.b.e.m.b.f(c0.a(), 0L));
+            loadMoreRequestMessage.setSortType(this.k);
+            loadMoreRequestMessage.setPageType(this.o);
             loadMoreRequestMessage.setAdFloorInfo(str2);
             loadMoreRequestMessage.setBrandForum(z);
             if (!TextUtils.isEmpty(str)) {
-                a(str, loadMoreRequestMessage);
+                v(str, loadMoreRequestMessage);
             }
             sendMessage(loadMoreRequestMessage);
             this.isLoading = true;
-            this.jGn = System.currentTimeMillis();
+            this.f16534g = System.currentTimeMillis();
+            return;
         }
+        this.loadingDone = true;
     }
 
-    private void a(String str, LoadMoreRequestMessage loadMoreRequestMessage) {
-        if (s.dDB().dDv() != null) {
-            loadMoreRequestMessage.setLoadCount(s.dDB().dDv().bb(str, false) + 1);
-        }
+    public void J() {
+        this.loadIndex = 0;
+        this.loadingDone = false;
+        this.f16535h.clear();
+        this.i.clear();
+        this.j.clear();
+        this.m = -1;
+        this.l = 1;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(LoadMoreResponseSocketMessage loadMoreResponseSocketMessage) {
-        h hVar;
-        if (!this.jGm) {
-            this.jGm = true;
-            if (com.baidu.tbadk.n.k.bEk().isSmallFlow() && (hVar = new h(1000, false, loadMoreResponseSocketMessage, 0L, 0L, 0L, true, 0L, 0L, System.currentTimeMillis() - this.jGn)) != null) {
-                hVar.bEh();
-            }
-        }
+    public void K(d.b.i0.r0.a aVar) {
+        this.r = aVar;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(LoadMoreHttpResponseMessage loadMoreHttpResponseMessage) {
-        h hVar;
-        if (!this.jGm) {
-            this.jGm = true;
-            if (com.baidu.tbadk.n.k.bEk().isSmallFlow() && (hVar = new h(1000, true, loadMoreHttpResponseMessage, 0L, 0L, 0L, true, 0L, 0L, System.currentTimeMillis() - this.jGn)) != null) {
-                hVar.bEh();
-            }
-        }
-    }
-
-    public void a(boolean z, ResponsedMessage<?> responsedMessage) {
-        if (com.baidu.tbadk.n.k.bEk().isSmallFlow() && (this.jGl instanceof FrsFragment)) {
-            long currentTimeMillis = System.currentTimeMillis() - this.jGn;
-            h hVar = new h(1000, z, responsedMessage, 0L, 0L, ((FrsFragment) this.jGl).fKU, false, 0L, 0L, currentTimeMillis);
-            if (hVar != null) {
-                hVar.fLd = currentTimeMillis;
-                hVar.lm(true);
-            }
-        }
-    }
-
-    private String dz(List<Long> list) {
-        if (list == null || list.size() == 0) {
-            this.loadingDone = true;
-            return "";
-        }
-        StringBuilder sb = new StringBuilder();
-        int size = list.size();
-        int i = 0;
-        if (this.loadIndex == 0) {
-            size = 30;
-        } else if (this.loadIndex != 1) {
-            return "";
-        } else {
-            i = 30;
-        }
-        if (size > list.size()) {
-            size = list.size();
-        }
-        if (i >= list.size()) {
-            this.loadingDone = true;
-            return "";
-        }
-        for (int i2 = i; i2 < size; i2++) {
-            if (i2 == list.size() - 1) {
-                this.loadingDone = true;
-            }
-            Long l = list.get(i2);
-            if (l != null) {
-                if (i2 == size - 1) {
-                    sb.append(l);
-                } else {
-                    sb.append(l).append(",");
-                }
-            }
-        }
-        return sb.toString();
+    public void L(boolean z) {
+        this.n = z;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
-    protected boolean LoadData() {
+    public boolean LoadData() {
         return false;
+    }
+
+    public void M(int i) {
+        this.m = i;
+    }
+
+    public void N(c.b bVar) {
+        this.q = bVar;
+    }
+
+    public void O(int i) {
+        this.o = i;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -276,17 +298,30 @@ public class FrsLoadMoreModel extends BdBaseModel<BaseFragmentActivity> {
         return false;
     }
 
-    public void resetData() {
-        this.loadIndex = 0;
-        this.loadingDone = false;
-        this.jGo.clear();
-        this.jGp.clear();
-        this.jGq.clear();
-        this.hYW = -1;
-        this.mPn = 1;
+    public int getPn() {
+        return this.l;
     }
 
-    public boolean dA(List<Long> list) {
+    public void registerListener() {
+        registerListener(this.s);
+    }
+
+    public void setPn(int i) {
+        this.l = i;
+    }
+
+    public void setSortType(int i) {
+        this.k = i;
+    }
+
+    public final void v(String str, LoadMoreRequestMessage loadMoreRequestMessage) {
+        if (s.o().b() == null) {
+            return;
+        }
+        loadMoreRequestMessage.setLoadCount(s.o().b().e(str, false) + 1);
+    }
+
+    public boolean w(List<Long> list) {
         if (list != null && list.size() != 0) {
             return (this.loadIndex == 2 || this.loadingDone) ? false : true;
         }
@@ -294,80 +329,110 @@ public class FrsLoadMoreModel extends BdBaseModel<BaseFragmentActivity> {
         return false;
     }
 
-    public ArrayList<n> a(boolean z, boolean z2, boolean z3, ArrayList<n> arrayList, f fVar) {
+    public void x() {
+        int i;
+        int size = this.j.size() + 30;
+        int a2 = TbadkCoreApplication.getInst().getListItemRule().a() * 3;
+        int count = ListUtils.getCount(this.f16535h);
+        if (size <= a2 || this.j.size() <= (i = size - a2)) {
+            return;
+        }
+        for (int i2 = 0; i2 < i; i2++) {
+            ArrayList<n> arrayList = new ArrayList<>();
+            arrayList.add(this.j.remove(0));
+            ArrayList<n> arrayList2 = null;
+            d.b.i0.p0.d2.a aVar = this.f16532e;
+            if (aVar != null && aVar.S() != null) {
+                arrayList2 = this.f16532e.S().switchThreadDataToThreadCardInfo(arrayList);
+            }
+            if (arrayList2 != null) {
+                for (int i3 = 0; i3 < arrayList2.size(); i3++) {
+                    c.b bVar = this.q;
+                    if (bVar != null) {
+                        bVar.removeItem(count + i3);
+                    }
+                }
+            }
+        }
+    }
+
+    public ArrayList<n> y(boolean z, boolean z2, boolean z3, ArrayList<n> arrayList, f fVar) {
         if (z3) {
-            this.jGo.clear();
-            this.jGp.clear();
-            this.jGq.clear();
+            this.f16535h.clear();
+            this.i.clear();
+            this.j.clear();
         }
         HashSet hashSet = new HashSet();
-        Iterator<n> it = this.jGo.iterator();
+        Iterator<n> it = this.f16535h.iterator();
         while (it.hasNext()) {
             n next = it.next();
-            if (next instanceof ca) {
-                cb cbVar = ((ca) next).eLr;
-                if (cbVar.getTid() != null) {
-                    hashSet.add(cbVar.getTid());
+            if (next instanceof z1) {
+                a2 a2Var = ((z1) next).w;
+                if (a2Var.w1() != null) {
+                    hashSet.add(a2Var.w1());
                 }
-            } else if (next instanceof cb) {
-                cb cbVar2 = (cb) next;
-                if (cbVar2.getTid() != null) {
-                    hashSet.add(cbVar2.getTid());
+            } else if (next instanceof a2) {
+                a2 a2Var2 = (a2) next;
+                if (a2Var2.w1() != null) {
+                    hashSet.add(a2Var2.w1());
                 }
             }
         }
         ArrayList<n> arrayList2 = new ArrayList<>();
         ArrayList arrayList3 = new ArrayList();
-        if (!y.isEmpty(arrayList)) {
+        if (!ListUtils.isEmpty(arrayList)) {
             Iterator<n> it2 = arrayList.iterator();
             while (it2.hasNext()) {
                 n next2 = it2.next();
-                if (next2 instanceof ca) {
-                    cb cbVar3 = ((ca) next2).eLr;
-                    cbVar3.Ap(this.jGl.getForumName());
-                    if (this.jGl != null && this.jGl.cDm() != null && this.jGl.cDm().getForum() != null) {
-                        if (!StringUtils.isNull(this.jGl.cDm().getForum().getFirst_class())) {
-                            cbVar3.Au(this.jGl.cDm().getForum().getFirst_class());
+                if (next2 instanceof z1) {
+                    z1 z1Var = (z1) next2;
+                    a2 a2Var3 = z1Var.w;
+                    a2Var3.x3(this.f16532e.i());
+                    d.b.i0.p0.d2.a aVar = this.f16532e;
+                    if (aVar != null && aVar.S() != null && this.f16532e.S().getForum() != null) {
+                        if (!StringUtils.isNull(this.f16532e.S().getForum().getFirst_class())) {
+                            a2Var3.u3(this.f16532e.S().getForum().getFirst_class());
                         }
-                        if (!StringUtils.isNull(this.jGl.cDm().getForum().getSecond_class())) {
-                            cbVar3.Av(this.jGl.cDm().getForum().getSecond_class());
+                        if (!StringUtils.isNull(this.f16532e.S().getForum().getSecond_class())) {
+                            a2Var3.c4(this.f16532e.S().getForum().getSecond_class());
                         }
                     }
-                    if (cbVar3.bop()) {
-                        if (!hashSet.contains(cbVar3.getTid())) {
+                    if (a2Var3.l2()) {
+                        if (!hashSet.contains(a2Var3.w1())) {
                             arrayList2.add(next2);
-                            if (!arrayList3.contains(((ca) next2).eLr.tid)) {
-                                arrayList3.add(((ca) next2).eLr.tid);
+                            if (!arrayList3.contains(z1Var.w.A)) {
+                                arrayList3.add(z1Var.w.A);
                             }
                         }
                     } else {
                         arrayList2.add(next2);
-                        if (!arrayList3.contains(((ca) next2).eLr.tid)) {
-                            arrayList3.add(((ca) next2).eLr.tid);
+                        if (!arrayList3.contains(z1Var.w.A)) {
+                            arrayList3.add(z1Var.w.A);
                         }
                     }
-                } else if (next2 instanceof cb) {
-                    cb cbVar4 = (cb) next2;
-                    cbVar4.Ap(this.jGl.getForumName());
-                    if (this.jGl != null && this.jGl.cDm() != null && this.jGl.cDm().getForum() != null) {
-                        if (!StringUtils.isNull(this.jGl.cDm().getForum().getFirst_class())) {
-                            cbVar4.Au(this.jGl.cDm().getForum().getFirst_class());
+                } else if (next2 instanceof a2) {
+                    a2 a2Var4 = (a2) next2;
+                    a2Var4.x3(this.f16532e.i());
+                    d.b.i0.p0.d2.a aVar2 = this.f16532e;
+                    if (aVar2 != null && aVar2.S() != null && this.f16532e.S().getForum() != null) {
+                        if (!StringUtils.isNull(this.f16532e.S().getForum().getFirst_class())) {
+                            a2Var4.u3(this.f16532e.S().getForum().getFirst_class());
                         }
-                        if (!StringUtils.isNull(this.jGl.cDm().getForum().getSecond_class())) {
-                            cbVar4.Av(this.jGl.cDm().getForum().getSecond_class());
+                        if (!StringUtils.isNull(this.f16532e.S().getForum().getSecond_class())) {
+                            a2Var4.c4(this.f16532e.S().getForum().getSecond_class());
                         }
                     }
-                    if (cbVar4.bop()) {
-                        if (!hashSet.contains(cbVar4.getTid())) {
+                    if (a2Var4.l2()) {
+                        if (!hashSet.contains(a2Var4.w1())) {
                             arrayList2.add(next2);
-                            if (!arrayList3.contains(cbVar4.tid)) {
-                                arrayList3.add(cbVar4.tid);
+                            if (!arrayList3.contains(a2Var4.A)) {
+                                arrayList3.add(a2Var4.A);
                             }
                         }
                     } else {
                         arrayList2.add(next2);
-                        if (!arrayList3.contains(cbVar4.tid)) {
-                            arrayList3.add(cbVar4.tid);
+                        if (!arrayList3.contains(a2Var4.A)) {
+                            arrayList3.add(a2Var4.A);
                         }
                     }
                 } else {
@@ -375,117 +440,83 @@ public class FrsLoadMoreModel extends BdBaseModel<BaseFragmentActivity> {
                 }
             }
         }
-        if (this.jjN != null) {
-            this.jjN.a(this.mSortType, z2, arrayList2.size(), z, arrayList2, false);
+        if (this.p != null) {
+            this.p.a(this.k, z2, arrayList2.size(), z, arrayList2, false);
         }
-        if (com.baidu.tieba.funad.a.cNC()) {
-            if (this.funAdController != null) {
-                this.funAdController.r(arrayList2, z3);
+        if (d.b.i0.r0.a.d()) {
+            d.b.i0.r0.a aVar3 = this.r;
+            if (aVar3 != null) {
+                aVar3.b(arrayList2, z3);
             }
-        } else if (this.jGl != null) {
-            FrsViewData cDm = this.jGl.cDm();
-            if (this.jGr && cDm != null && (this.jGl instanceof com.baidu.tieba.InjectPlugin.a.b)) {
-                ArrayList<n> arrayList4 = new ArrayList<>(this.jGo);
-                arrayList4.addAll(this.jGq);
-                cDm.addRecommendAppToThreadList((com.baidu.tieba.InjectPlugin.a.b) this.jGl, true, arrayList2, arrayList4, z2);
+        } else {
+            d.b.i0.p0.d2.a aVar4 = this.f16532e;
+            if (aVar4 != null) {
+                FrsViewData S = aVar4.S();
+                if (this.n && S != null && (this.f16532e instanceof d.b.i0.e.e.b)) {
+                    ArrayList<n> arrayList4 = new ArrayList<>(this.f16535h);
+                    arrayList4.addAll(this.j);
+                    S.addRecommendAppToThreadList((d.b.i0.e.e.b) this.f16532e, true, arrayList2, arrayList4, z2);
+                }
             }
         }
-        int frsPn = TbadkCoreApplication.getInst().getListItemRule().getFrsPn() - this.jGo.size();
+        int b2 = TbadkCoreApplication.getInst().getListItemRule().b() - this.f16535h.size();
         int size = arrayList2.size();
         for (int i = 0; i < size; i++) {
-            if (i < frsPn) {
-                this.jGo.add(arrayList2.get(i));
+            if (i < b2) {
+                this.f16535h.add(arrayList2.get(i));
             } else {
-                this.jGq.add(arrayList2.get(i));
+                this.j.add(arrayList2.get(i));
             }
         }
         ArrayList<n> arrayList5 = new ArrayList<>();
-        arrayList5.addAll(this.jGo);
-        arrayList5.addAll(this.jGq);
-        if (this.jGl instanceof com.baidu.tieba.InjectPlugin.a.b) {
-            com.baidu.tieba.frs.d.a.a((com.baidu.tieba.InjectPlugin.a.b) this.jGl, this.jGl.cDm(), arrayList2, getPn());
-            com.baidu.tieba.frs.d.a.a(fVar, arrayList2, arrayList5);
+        arrayList5.addAll(this.f16535h);
+        arrayList5.addAll(this.j);
+        d.b.i0.p0.d2.a aVar5 = this.f16532e;
+        if (aVar5 instanceof d.b.i0.e.e.b) {
+            d.b.i0.p0.m2.a.b((d.b.i0.e.e.b) aVar5, aVar5.S(), arrayList2, getPn());
+            d.b.i0.p0.m2.a.c(fVar, arrayList2, arrayList5);
         }
         return arrayList5;
     }
 
-    public ArrayList<n> cJB() {
-        int i;
-        int size = this.jGq.size() + 30;
-        int frsMaxCache = TbadkCoreApplication.getInst().getListItemRule().getFrsMaxCache() * 3;
-        if (size > frsMaxCache && this.jGq.size() > (i = size - frsMaxCache)) {
-            for (int i2 = 0; i2 < i; i2++) {
-                this.jGq.remove(0);
+    public final String z(List<Long> list) {
+        if (list != null && list.size() != 0) {
+            StringBuilder sb = new StringBuilder();
+            int size = list.size();
+            int i = 0;
+            int i2 = this.loadIndex;
+            if (i2 == 0) {
+                size = 30;
+            } else if (i2 != 1) {
+                return "";
+            } else {
+                i = 30;
             }
-        }
-        ArrayList<n> arrayList = new ArrayList<>();
-        arrayList.addAll(this.jGo);
-        arrayList.addAll(this.jGq);
-        return arrayList;
-    }
-
-    public void a(c.a aVar) {
-        this.jGs = aVar;
-    }
-
-    public void cJC() {
-        int i;
-        ArrayList<n> arrayList;
-        int size = this.jGq.size() + 30;
-        int frsMaxCache = TbadkCoreApplication.getInst().getListItemRule().getFrsMaxCache() * 3;
-        int count = y.getCount(this.jGo);
-        if (size > frsMaxCache && this.jGq.size() > (i = size - frsMaxCache)) {
-            for (int i2 = 0; i2 < i; i2++) {
-                ArrayList<n> arrayList2 = new ArrayList<>();
-                arrayList2.add(this.jGq.remove(0));
-                if (this.jGl == null || this.jGl.cDm() == null) {
-                    arrayList = null;
-                } else {
-                    arrayList = this.jGl.cDm().switchThreadDataToThreadCardInfo(arrayList2);
+            if (size > list.size()) {
+                size = list.size();
+            }
+            if (i >= list.size()) {
+                this.loadingDone = true;
+                return "";
+            }
+            while (i < size) {
+                if (i == list.size() - 1) {
+                    this.loadingDone = true;
                 }
-                if (arrayList != null) {
-                    for (int i3 = 0; i3 < arrayList.size(); i3++) {
-                        if (this.jGs != null) {
-                            this.jGs.removeItem(count + i3);
-                        }
+                Long l = list.get(i);
+                if (l != null) {
+                    if (i == size - 1) {
+                        sb.append(l);
+                    } else {
+                        sb.append(l);
+                        sb.append(",");
                     }
                 }
+                i++;
             }
+            return sb.toString();
         }
-    }
-
-    public void d(n nVar) {
-        if (nVar != null) {
-            if (this.jGo != null) {
-                this.jGo.remove(nVar);
-            }
-            if (this.jGq != null) {
-                this.jGq.remove(nVar);
-            }
-        }
-    }
-
-    public void Li(String str) {
-        if (!StringUtils.isNull(str)) {
-            if (!y.isEmpty(this.jGo)) {
-                f(this.jGo, str);
-            }
-            if (!y.isEmpty(this.jGq)) {
-                f(this.jGq, str);
-            }
-        }
-    }
-
-    private void f(ArrayList<n> arrayList, String str) {
-        Iterator<n> it = arrayList.iterator();
-        while (it.hasNext()) {
-            n next = it.next();
-            if (next instanceof com.baidu.tieba.InjectPlugin.a) {
-                com.baidu.tieba.InjectPlugin.a aVar = (com.baidu.tieba.InjectPlugin.a) next;
-                if ((aVar.bJz() instanceof AdvertAppInfo) && str.equals(((AdvertAppInfo) aVar.bJz()).eMU)) {
-                    it.remove();
-                }
-            }
-        }
+        this.loadingDone = true;
+        return "";
     }
 }

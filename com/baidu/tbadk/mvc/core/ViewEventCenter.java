@@ -1,6 +1,6 @@
 package com.baidu.tbadk.mvc.core;
 
-import com.baidu.tbadk.mvc.c.a.a;
-/* loaded from: classes.dex */
+import d.b.h0.g0.c.c.a;
+/* loaded from: classes3.dex */
 public final class ViewEventCenter extends a {
 }

@@ -1,19 +1,33 @@
 package com.xiaomi.push;
-/* loaded from: classes5.dex */
-public final class jm {
+/* loaded from: classes7.dex */
+public class jm extends iv {
 
     /* renamed from: a  reason: collision with root package name */
-    public final byte f8469a;
-
-    /* renamed from: a  reason: collision with other field name */
-    public final int f781a;
+    public int f40887a;
 
     public jm() {
-        this((byte) 0, 0);
+        this.f40887a = 0;
     }
 
-    public jm(byte b, int i) {
-        this.f8469a = b;
-        this.f781a = i;
+    public jm(int i) {
+        this.f40887a = 0;
+        this.f40887a = i;
+    }
+
+    public jm(int i, String str) {
+        super(str);
+        this.f40887a = 0;
+        this.f40887a = i;
+    }
+
+    public jm(int i, Throwable th) {
+        super(th);
+        this.f40887a = 0;
+        this.f40887a = i;
+    }
+
+    public jm(String str) {
+        super(str);
+        this.f40887a = 0;
     }
 }

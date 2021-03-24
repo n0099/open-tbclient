@@ -3,128 +3,145 @@ package com.baidu.tieba.lego.card.view;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import com.baidu.live.tbadk.log.LogConfig;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.R;
 import com.baidu.tieba.lego.card.model.ImmersiveVideoCardEx;
-/* loaded from: classes8.dex */
-public class ImmersiveVideoCardViewEx extends BaseCardView<ImmersiveVideoCardEx> implements com.baidu.tieba.play.d, com.baidu.tieba.play.e {
-    private o lgg;
-    private a lgh;
-    private ViewGroup mRootView;
+import d.b.i0.i1.o.l.a;
+import d.b.i0.i1.o.l.o;
+import d.b.i0.i2.d;
+import d.b.i0.i2.e;
+/* loaded from: classes4.dex */
+public class ImmersiveVideoCardViewEx extends BaseCardView<ImmersiveVideoCardEx> implements e, d {
+    public ViewGroup r;
+    public o s;
+    public a t;
 
     public ImmersiveVideoCardViewEx(TbPageContext tbPageContext) {
         super(tbPageContext);
     }
 
-    @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView
-    protected View dce() {
-        this.mRootView = (ViewGroup) LayoutInflater.from(getContext()).inflate(R.layout.card_item_video_thread, (ViewGroup) null);
-        this.lgg = new o(this.eWx, this.mRootView.findViewById(R.id.layout_video_container));
-        this.lgh = new a(this.eWx, this.mRootView);
-        this.lgg.d(this.lgh);
-        return this.mRootView;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView
-    public void a(ImmersiveVideoCardEx immersiveVideoCardEx, int i) {
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView
-    /* renamed from: a */
-    public void d(ImmersiveVideoCardEx immersiveVideoCardEx) {
-        if (immersiveVideoCardEx.getVideoInfo() != null) {
-            this.lgg.fK(immersiveVideoCardEx.getShowExtra(), LogConfig.KEY_FEED);
-            this.lgg.a(immersiveVideoCardEx.getVideoInfo(), immersiveVideoCardEx.getPage());
-            boolean z = immersiveVideoCardEx.getVideoInfo().lej;
-            this.lgg.tL(z);
-            this.lgg.tJ(z);
-            this.lgh.tJ(z);
-            setTag(this);
-            dcp();
-        }
-    }
-
-    @Override // com.baidu.tieba.play.d
-    public void dcn() {
-        if (this.lgh != null) {
-            this.lgh.dcn();
-        }
-    }
-
-    @Override // com.baidu.tieba.play.d
-    public void cqc() {
-        if (this.lgh != null) {
-            this.lgh.cqc();
-        }
-    }
-
-    @Override // com.baidu.tieba.play.d
-    public void dco() {
-        if (this.lgh != null) {
-            this.lgh.dco();
-        }
-    }
-
-    public void dcp() {
-        if (this.lgh != null) {
-            this.lgh.dcp();
-        }
-    }
-
-    @Override // com.baidu.tieba.play.e
-    public boolean isPlayStarted() {
-        return this.lgg != null && this.lgg.isPlayStarted();
-    }
-
-    @Override // com.baidu.tieba.play.e
-    public boolean isPlaying() {
-        return this.lgg != null && this.lgg.isPlaying();
-    }
-
-    @Override // com.baidu.tieba.play.e
-    public boolean isFullScreen() {
+    @Override // d.b.i0.i2.e
+    public boolean D() {
         return false;
     }
 
-    @Override // com.baidu.tieba.play.e
-    public void startPlay() {
-        if (this.lgg != null) {
-            this.lgg.startPlay();
+    public void K() {
+        a aVar = this.t;
+        if (aVar != null) {
+            aVar.n();
         }
     }
 
-    @Override // com.baidu.tieba.play.e
-    public void stopPlay() {
-        if (this.lgg != null) {
-            this.lgg.stopPlay();
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView
+    /* renamed from: L */
+    public void y(ImmersiveVideoCardEx immersiveVideoCardEx, int i) {
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView
+    /* renamed from: M */
+    public void z(ImmersiveVideoCardEx immersiveVideoCardEx) {
+        if (immersiveVideoCardEx.getVideoInfo() == null) {
+            return;
+        }
+        this.s.y(immersiveVideoCardEx.getShowExtra(), "feed");
+        this.s.x(immersiveVideoCardEx.getVideoInfo(), immersiveVideoCardEx.getPage());
+        boolean z = immersiveVideoCardEx.getVideoInfo().i;
+        this.s.u(z);
+        this.s.t(z);
+        this.t.u(z);
+        setTag(this);
+        K();
+    }
+
+    @Override // d.b.i0.i2.d
+    public void b() {
+        a aVar = this.t;
+        if (aVar != null) {
+            aVar.j();
         }
     }
 
-    @Override // com.baidu.tieba.play.e
-    public View getVideoContainer() {
-        if (this.lgg != null) {
-            return this.lgg.getView();
+    @Override // d.b.i0.i2.d
+    public void d() {
+        a aVar = this.t;
+        if (aVar != null) {
+            aVar.k();
         }
-        return null;
     }
 
-    @Override // com.baidu.tieba.play.e
-    public String getPlayUrl() {
-        if (this.lgg != null) {
-            return this.lgg.getPlayUrl();
-        }
-        return null;
-    }
-
-    @Override // com.baidu.tieba.play.e
+    @Override // d.b.i0.i2.e
     public int getCurrentPosition() {
-        if (this.lgg != null) {
-            return this.lgg.getCurrentPosition();
+        o oVar = this.s;
+        if (oVar != null) {
+            return oVar.k();
         }
         return 0;
+    }
+
+    @Override // d.b.i0.i2.e
+    public String getPlayUrl() {
+        o oVar = this.s;
+        if (oVar != null) {
+            return oVar.m();
+        }
+        return null;
+    }
+
+    @Override // d.b.i0.i2.e
+    public View getVideoContainer() {
+        o oVar = this.s;
+        if (oVar != null) {
+            return oVar.n();
+        }
+        return null;
+    }
+
+    @Override // d.b.i0.i2.d
+    public void i() {
+        a aVar = this.t;
+        if (aVar != null) {
+            aVar.m();
+        }
+    }
+
+    @Override // d.b.i0.i2.e
+    public boolean isPlayStarted() {
+        o oVar = this.s;
+        return oVar != null && oVar.p();
+    }
+
+    @Override // d.b.i0.i2.e
+    public boolean isPlaying() {
+        o oVar = this.s;
+        return oVar != null && oVar.q();
+    }
+
+    @Override // d.b.i0.i2.e
+    public void startPlay() {
+        o oVar = this.s;
+        if (oVar != null) {
+            oVar.v();
+        }
+    }
+
+    @Override // d.b.i0.i2.e
+    public void stopPlay() {
+        o oVar = this.s;
+        if (oVar != null) {
+            oVar.w();
+        }
+    }
+
+    @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView
+    public View v() {
+        ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(getContext()).inflate(R.layout.card_item_video_thread, (ViewGroup) null);
+        this.r = viewGroup;
+        this.s = new o(this.m, viewGroup.findViewById(R.id.layout_video_container));
+        a aVar = new a(this.m, this.r);
+        this.t = aVar;
+        this.s.s(aVar);
+        return this.r;
     }
 }

@@ -8,12 +8,14 @@ import android.widget.LinearLayout;
 import androidx.annotation.MainThread;
 import androidx.annotation.Nullable;
 import com.kwad.sdk.utils.s;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class AdBaseLinearLayout extends LinearLayout {
-    private static final s.a b = new s.a();
+
+    /* renamed from: b  reason: collision with root package name */
+    public static final s.a f34224b = new s.a();
 
     /* renamed from: a  reason: collision with root package name */
-    private View.OnTouchListener f6304a;
+    public View.OnTouchListener f34225a;
 
     public AdBaseLinearLayout(Context context) {
         super(context);
@@ -29,27 +31,26 @@ public class AdBaseLinearLayout extends LinearLayout {
 
     @Override // android.view.ViewGroup, android.view.View
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
-        if (this.f6304a != null) {
-            this.f6304a.onTouch(this, motionEvent);
+        View.OnTouchListener onTouchListener = this.f34225a;
+        if (onTouchListener != null) {
+            onTouchListener.onTouch(this, motionEvent);
         }
-        switch (motionEvent.getAction()) {
-            case 0:
-                b.a(getWidth(), getHeight());
-                b.a(motionEvent.getX(), motionEvent.getY());
-                break;
-            case 1:
-                b.b(motionEvent.getX(), motionEvent.getY());
-                break;
+        int action = motionEvent.getAction();
+        if (action == 0) {
+            f34224b.a(getWidth(), getHeight());
+            f34224b.a(motionEvent.getX(), motionEvent.getY());
+        } else if (action == 1) {
+            f34224b.b(motionEvent.getX(), motionEvent.getY());
         }
         return super.dispatchTouchEvent(motionEvent);
     }
 
     @MainThread
     public s.a getTouchCoords() {
-        return b;
+        return f34224b;
     }
 
     public void setDispatchTouchListener(View.OnTouchListener onTouchListener) {
-        this.f6304a = onTouchListener;
+        this.f34225a = onTouchListener;
     }
 }

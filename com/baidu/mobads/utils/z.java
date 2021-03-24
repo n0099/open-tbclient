@@ -2,30 +2,30 @@ package com.baidu.mobads.utils;
 
 import android.content.Context;
 import android.telephony.TelephonyManager;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class z extends com.baidu.mobads.f.a<Object> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ Context f2500a;
-    final /* synthetic */ t c;
+    public final /* synthetic */ Context f8581a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    /* renamed from: c  reason: collision with root package name */
+    public final /* synthetic */ t f8582c;
+
     public z(t tVar, Context context) {
-        this.c = tVar;
-        this.f2500a = context;
+        this.f8582c = tVar;
+        this.f8581a = context;
     }
 
     @Override // com.baidu.mobads.f.a
     public Object a() {
         String str;
         try {
-            TelephonyManager telephonyManager = (TelephonyManager) this.f2500a.getSystemService("phone");
-            this.c.t = telephonyManager.getClass().getDeclaredMethod("getImei", Integer.TYPE).invoke(telephonyManager, 1).toString();
-            t.a(this.c);
-        } catch (Throwable th) {
+            TelephonyManager telephonyManager = (TelephonyManager) this.f8581a.getSystemService("phone");
+            this.f8582c.t = telephonyManager.getClass().getDeclaredMethod("getImei", Integer.TYPE).invoke(telephonyManager, 1).toString();
+            t.a(this.f8582c);
+        } catch (Throwable unused) {
         }
-        str = this.c.t;
+        str = this.f8582c.t;
         return str;
     }
 }

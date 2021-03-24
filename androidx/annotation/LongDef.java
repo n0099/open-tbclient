@@ -6,7 +6,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 @Target({ElementType.ANNOTATION_TYPE})
 @Retention(RetentionPolicy.SOURCE)
-/* loaded from: classes4.dex */
+/* loaded from: classes.dex */
 public @interface LongDef {
     boolean flag() default false;
 

@@ -2,12 +2,11 @@ package com.meizu.cloud.pushsdk.util;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class b {
     public static String a(Context context, String str) {
-        return a(context, PushConstants.PUSH_ID_PREFERENCE_NAME, str + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + PushConstants.KEY_PUSH_ID);
+        return a(context, "com.meizu.flyme.push", str + "_pushId");
     }
 
     public static String a(Context context, String str, String str2) {
@@ -15,7 +14,7 @@ public class b {
     }
 
     public static void a(Context context, int i, String str) {
-        a(context, PushConstants.PUSH_ID_PREFERENCE_NAME, str + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + PushConstants.KEY_PUSH_ID_EXPIRE_TIME, i);
+        a(context, "com.meizu.flyme.push", str + "_" + PushConstants.KEY_PUSH_ID_EXPIRE_TIME, i);
     }
 
     public static void a(Context context, String str, int i) {
@@ -43,7 +42,7 @@ public class b {
     }
 
     public static int b(Context context, String str) {
-        return b(context, PushConstants.PUSH_ID_PREFERENCE_NAME, str + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + PushConstants.KEY_PUSH_ID_EXPIRE_TIME);
+        return b(context, "com.meizu.flyme.push", str + "_" + PushConstants.KEY_PUSH_ID_EXPIRE_TIME);
     }
 
     public static int b(Context context, String str, String str2) {
@@ -63,7 +62,8 @@ public class b {
     }
 
     public static int c(Context context, String str) {
-        return l(context, "mz_push_preference").getInt(str + ".notification_id", 0);
+        SharedPreferences l = l(context, "mz_push_preference");
+        return l.getInt(str + ".notification_id", 0);
     }
 
     public static long c(Context context, String str, String str2) {
@@ -75,7 +75,8 @@ public class b {
     }
 
     public static int d(Context context, String str) {
-        return l(context, "mz_push_preference").getInt(str + ".notification_push_task_id", 0);
+        SharedPreferences l = l(context, "mz_push_preference");
+        return l.getInt(str + ".notification_push_task_id", 0);
     }
 
     public static boolean d(Context context, String str, String str2) {
@@ -103,7 +104,7 @@ public class b {
     }
 
     public static void g(Context context, String str, String str2) {
-        a(context, PushConstants.PUSH_ID_PREFERENCE_NAME, str2 + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + PushConstants.KEY_PUSH_ID, str);
+        a(context, "com.meizu.flyme.push", str2 + "_pushId", str);
     }
 
     public static void h(Context context, String str, String str2) {
@@ -123,10 +124,10 @@ public class b {
     }
 
     public static int j(Context context, String str) {
-        int b = b(context, "mz_push_preference", str + ".message_seq") + 1;
-        c(context, str, b);
-        com.meizu.cloud.a.a.e("mz_push_preference", "current messageSeq " + b);
-        return b;
+        int b2 = b(context, "mz_push_preference", str + ".message_seq") + 1;
+        c(context, str, b2);
+        d.j.a.a.a.b("mz_push_preference", "current messageSeq " + b2);
+        return b2;
     }
 
     public static boolean j(Context context, String str, String str2) {
@@ -141,7 +142,7 @@ public class b {
         a(context, "mz_push_preference", str + ".encryption_public_key", str2);
     }
 
-    private static SharedPreferences l(Context context, String str) {
+    public static SharedPreferences l(Context context, String str) {
         return context.getSharedPreferences(str, 0);
     }
 }

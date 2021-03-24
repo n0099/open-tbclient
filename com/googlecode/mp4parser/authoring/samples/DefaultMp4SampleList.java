@@ -12,147 +12,136 @@ import java.lang.ref.SoftReference;
 import java.lang.reflect.Array;
 import java.util.AbstractList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class DefaultMp4SampleList extends AbstractList<Sample> {
-    SoftReference<Sample>[] cache;
-    int[] chunkNumsStartSampleNum;
-    long[] chunkOffsets;
-    int lastChunk = 0;
-    SampleSizeBox ssb;
-    Container topLevel;
-    TrackBox trackBox;
+    public SoftReference<Sample>[] cache;
+    public int[] chunkNumsStartSampleNum;
+    public long[] chunkOffsets;
+    public int lastChunk = 0;
+    public SampleSizeBox ssb;
+    public Container topLevel;
+    public TrackBox trackBox;
 
     public DefaultMp4SampleList(long j, Container container) {
-        int i;
-        int i2;
-        int i3;
         this.trackBox = null;
         this.cache = null;
+        int i = 0;
         this.topLevel = container;
         for (TrackBox trackBox : ((MovieBox) container.getBoxes(MovieBox.class).get(0)).getBoxes(TrackBox.class)) {
             if (trackBox.getTrackHeaderBox().getTrackId() == j) {
                 this.trackBox = trackBox;
             }
         }
-        if (this.trackBox == null) {
+        TrackBox trackBox2 = this.trackBox;
+        if (trackBox2 != null) {
+            this.chunkOffsets = trackBox2.getSampleTableBox().getChunkOffsetBox().getChunkOffsets();
+            this.cache = (SoftReference[]) Array.newInstance(SoftReference.class, size());
+            this.ssb = this.trackBox.getSampleTableBox().getSampleSizeBox();
+            List<SampleToChunkBox.Entry> entries = this.trackBox.getSampleTableBox().getSampleToChunkBox().getEntries();
+            SampleToChunkBox.Entry[] entryArr = (SampleToChunkBox.Entry[]) entries.toArray(new SampleToChunkBox.Entry[entries.size()]);
+            SampleToChunkBox.Entry entry = entryArr[0];
+            long firstChunk = entry.getFirstChunk();
+            int l2i = CastUtils.l2i(entry.getSamplesPerChunk());
+            int size = size();
+            int i2 = 1;
+            int i3 = 0;
+            int i4 = 1;
+            int i5 = 0;
+            int i6 = 1;
+            do {
+                i3++;
+                if (i3 == firstChunk) {
+                    if (entryArr.length > i4) {
+                        SampleToChunkBox.Entry entry2 = entryArr[i4];
+                        i5 = l2i;
+                        l2i = CastUtils.l2i(entry2.getSamplesPerChunk());
+                        i4++;
+                        firstChunk = entry2.getFirstChunk();
+                    } else {
+                        i5 = l2i;
+                        firstChunk = Long.MAX_VALUE;
+                        l2i = -1;
+                    }
+                }
+                i6 += i5;
+            } while (i6 <= size);
+            this.chunkNumsStartSampleNum = new int[i3 + 1];
+            SampleToChunkBox.Entry entry3 = entryArr[0];
+            long firstChunk2 = entry3.getFirstChunk();
+            int l2i2 = CastUtils.l2i(entry3.getSamplesPerChunk());
+            int i7 = 0;
+            int i8 = 1;
+            while (true) {
+                int i9 = i + 1;
+                this.chunkNumsStartSampleNum[i] = i2;
+                if (i9 == firstChunk2) {
+                    if (entryArr.length > i8) {
+                        SampleToChunkBox.Entry entry4 = entryArr[i8];
+                        i7 = l2i2;
+                        l2i2 = CastUtils.l2i(entry4.getSamplesPerChunk());
+                        firstChunk2 = entry4.getFirstChunk();
+                        i8++;
+                    } else {
+                        i7 = l2i2;
+                        firstChunk2 = Long.MAX_VALUE;
+                        l2i2 = -1;
+                    }
+                }
+                i2 += i7;
+                if (i2 > size) {
+                    this.chunkNumsStartSampleNum[i9] = Integer.MAX_VALUE;
+                    return;
+                }
+                i = i9;
+            }
+        } else {
             throw new RuntimeException("This MP4 does not contain track " + j);
         }
-        this.chunkOffsets = this.trackBox.getSampleTableBox().getChunkOffsetBox().getChunkOffsets();
-        this.cache = (SoftReference[]) Array.newInstance(SoftReference.class, size());
-        this.ssb = this.trackBox.getSampleTableBox().getSampleSizeBox();
-        List<SampleToChunkBox.Entry> entries = this.trackBox.getSampleTableBox().getSampleToChunkBox().getEntries();
-        SampleToChunkBox.Entry[] entryArr = (SampleToChunkBox.Entry[]) entries.toArray(new SampleToChunkBox.Entry[entries.size()]);
-        int i4 = 1;
-        SampleToChunkBox.Entry entry = entryArr[0];
-        int i5 = 0;
-        long firstChunk = entry.getFirstChunk();
-        int l2i = CastUtils.l2i(entry.getSamplesPerChunk());
-        int size = size();
-        int i6 = 1;
-        int i7 = 0;
-        while (true) {
-            i7++;
-            if (i7 != firstChunk) {
-                i = l2i;
-                i2 = i4;
-            } else if (entryArr.length > i4) {
-                i2 = i4 + 1;
-                SampleToChunkBox.Entry entry2 = entryArr[i4];
-                i = CastUtils.l2i(entry2.getSamplesPerChunk());
-                firstChunk = entry2.getFirstChunk();
-                i5 = l2i;
-            } else {
-                i = -1;
-                firstChunk = Long.MAX_VALUE;
-                i5 = l2i;
-                i2 = i4;
-            }
-            i6 += i5;
-            if (i6 > size) {
-                break;
-            }
-            l2i = i;
-            i4 = i2;
-        }
-        this.chunkNumsStartSampleNum = new int[i7 + 1];
-        SampleToChunkBox.Entry entry3 = entryArr[0];
-        int i8 = 0;
-        long firstChunk2 = entry3.getFirstChunk();
-        int l2i2 = CastUtils.l2i(entry3.getSamplesPerChunk());
-        int i9 = 1;
-        int i10 = 0;
-        int i11 = 1;
-        while (true) {
-            int i12 = i8 + 1;
-            this.chunkNumsStartSampleNum[i8] = i9;
-            if (i12 != firstChunk2) {
-                i3 = l2i2;
-            } else if (entryArr.length > i11) {
-                SampleToChunkBox.Entry entry4 = entryArr[i11];
-                i3 = CastUtils.l2i(entry4.getSamplesPerChunk());
-                firstChunk2 = entry4.getFirstChunk();
-                i10 = l2i2;
-                i11++;
-            } else {
-                i3 = -1;
-                firstChunk2 = Long.MAX_VALUE;
-                i10 = l2i2;
-            }
-            i9 += i10;
-            if (i9 > size) {
-                this.chunkNumsStartSampleNum[i12] = Integer.MAX_VALUE;
-                return;
-            } else {
-                l2i2 = i3;
-                i8 = i12;
-            }
-        }
     }
 
-    synchronized int getChunkForSample(int i) {
-        int i2;
-        int i3 = i + 1;
-        if (i3 >= this.chunkNumsStartSampleNum[this.lastChunk] && i3 < this.chunkNumsStartSampleNum[this.lastChunk + 1]) {
-            i2 = this.lastChunk;
-        } else if (i3 < this.chunkNumsStartSampleNum[this.lastChunk]) {
+    public synchronized int getChunkForSample(int i) {
+        int i2 = i + 1;
+        if (i2 >= this.chunkNumsStartSampleNum[this.lastChunk] && i2 < this.chunkNumsStartSampleNum[this.lastChunk + 1]) {
+            return this.lastChunk;
+        } else if (i2 < this.chunkNumsStartSampleNum[this.lastChunk]) {
             this.lastChunk = 0;
-            while (this.chunkNumsStartSampleNum[this.lastChunk + 1] <= i3) {
+            while (this.chunkNumsStartSampleNum[this.lastChunk + 1] <= i2) {
                 this.lastChunk++;
             }
-            i2 = this.lastChunk;
+            return this.lastChunk;
         } else {
             this.lastChunk++;
-            while (this.chunkNumsStartSampleNum[this.lastChunk + 1] <= i3) {
+            while (this.chunkNumsStartSampleNum[this.lastChunk + 1] <= i2) {
                 this.lastChunk++;
             }
-            i2 = this.lastChunk;
+            return this.lastChunk;
         }
-        return i2;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // java.util.AbstractList, java.util.List
-    public Sample get(int i) {
-        if (i >= this.cache.length) {
-            throw new IndexOutOfBoundsException();
-        }
-        if (this.cache[i] != null && this.cache[i].get() != null) {
-            return this.cache[i].get();
-        }
-        int chunkForSample = getChunkForSample(i);
-        int i2 = this.chunkNumsStartSampleNum[chunkForSample];
-        long j = this.chunkOffsets[CastUtils.l2i(chunkForSample)];
-        while (i2 < i + 1) {
-            j += this.ssb.getSampleSizeAtIndex(i2 - 1);
-            i2++;
-        }
-        SampleImpl sampleImpl = new SampleImpl(j, this.ssb.getSampleSizeAtIndex(i2 - 1), this.topLevel);
-        this.cache[i] = new SoftReference<>(sampleImpl);
-        return sampleImpl;
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection, java.util.List
     public int size() {
         return CastUtils.l2i(this.trackBox.getSampleTableBox().getSampleSizeBox().getSampleCount());
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // java.util.AbstractList, java.util.List
+    public Sample get(int i) {
+        SoftReference<Sample>[] softReferenceArr = this.cache;
+        if (i < softReferenceArr.length) {
+            if (softReferenceArr[i] != null && softReferenceArr[i].get() != null) {
+                return this.cache[i].get();
+            }
+            int chunkForSample = getChunkForSample(i);
+            int i2 = this.chunkNumsStartSampleNum[chunkForSample];
+            long j = this.chunkOffsets[CastUtils.l2i(chunkForSample)];
+            while (i2 < i + 1) {
+                j += this.ssb.getSampleSizeAtIndex(i2 - 1);
+                i2++;
+            }
+            SampleImpl sampleImpl = new SampleImpl(j, this.ssb.getSampleSizeAtIndex(i2 - 1), this.topLevel);
+            this.cache[i] = new SoftReference<>(sampleImpl);
+            return sampleImpl;
+        }
+        throw new IndexOutOfBoundsException();
     }
 }

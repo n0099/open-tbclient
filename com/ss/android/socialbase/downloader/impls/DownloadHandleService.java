@@ -4,16 +4,61 @@ import android.app.Service;
 import android.content.Intent;
 import android.os.IBinder;
 import android.text.TextUtils;
-/* loaded from: classes6.dex */
+import d.o.a.e.b.g.d;
+import d.o.a.e.b.g.e;
+/* loaded from: classes7.dex */
 public class DownloadHandleService extends Service {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f7848a = DownloadHandleService.class.getSimpleName();
+    public static final String f38916a = DownloadHandleService.class.getSimpleName();
+
+    /* loaded from: classes7.dex */
+    public class a implements Runnable {
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ int f38917e;
+
+        public a(int i) {
+            this.f38917e = i;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            try {
+                e.c().J(this.f38917e);
+            } catch (Exception e2) {
+                e2.printStackTrace();
+            }
+        }
+    }
+
+    private void a(Intent intent) {
+        int intExtra;
+        if (intent == null) {
+            return;
+        }
+        String action = intent.getAction();
+        if (TextUtils.isEmpty(action) || (intExtra = intent.getIntExtra("extra_download_id", 0)) == 0) {
+            return;
+        }
+        if (action.equals("com.ss.android.downloader.action.DOWNLOAD_WAKEUP")) {
+            d.w0().execute(new a(intExtra));
+        } else if (action.equals("com.ss.android.downloader.action.PROCESS_NOTIFY")) {
+            e.c().K(intExtra);
+        } else if (action.equals("com.ss.android.downloader.action.MULTI_PROCESS_NOTIFY")) {
+            d.Y();
+        }
+    }
+
+    @Override // android.app.Service
+    public IBinder onBind(Intent intent) {
+        return null;
+    }
 
     @Override // android.app.Service
     public void onCreate() {
         super.onCreate();
-        com.ss.android.socialbase.downloader.downloader.b.a(this);
+        d.y(this);
     }
 
     @Override // android.app.Service
@@ -21,35 +66,5 @@ public class DownloadHandleService extends Service {
         super.onStartCommand(intent, i, i2);
         a(intent);
         return 2;
-    }
-
-    private void a(Intent intent) {
-        final int intExtra;
-        if (intent != null) {
-            String action = intent.getAction();
-            if (!TextUtils.isEmpty(action) && (intExtra = intent.getIntExtra("extra_download_id", 0)) != 0) {
-                if (action.equals("com.ss.android.downloader.action.DOWNLOAD_WAKEUP")) {
-                    com.ss.android.socialbase.downloader.downloader.b.eGo().execute(new Runnable() { // from class: com.ss.android.socialbase.downloader.impls.DownloadHandleService.1
-                        @Override // java.lang.Runnable
-                        public void run() {
-                            try {
-                                com.ss.android.socialbase.downloader.downloader.c.eGK().Rv(intExtra);
-                            } catch (Exception e) {
-                                e.printStackTrace();
-                            }
-                        }
-                    });
-                } else if (action.equals("com.ss.android.downloader.action.PROCESS_NOTIFY")) {
-                    com.ss.android.socialbase.downloader.downloader.c.eGK().n(intExtra);
-                } else if (action.equals("com.ss.android.downloader.action.MULTI_PROCESS_NOTIFY")) {
-                    com.ss.android.socialbase.downloader.downloader.b.a();
-                }
-            }
-        }
-    }
-
-    @Override // android.app.Service
-    public IBinder onBind(Intent intent) {
-        return null;
     }
 }

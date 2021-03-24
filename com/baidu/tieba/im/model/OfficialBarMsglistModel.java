@@ -4,20 +4,15 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
-import com.baidu.live.tbadk.core.util.TbEnum;
 import com.baidu.tbadk.core.data.UserData;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbEnum;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ar;
-import com.baidu.tbadk.util.ae;
-import com.baidu.tbadk.util.af;
 import com.baidu.tieba.R;
 import com.baidu.tieba.im.chat.MsglistActivity;
 import com.baidu.tieba.im.data.GroupMsgData;
 import com.baidu.tieba.im.data.MsgLocalData;
-import com.baidu.tieba.im.data.c;
-import com.baidu.tieba.im.db.l;
-import com.baidu.tieba.im.memorycache.b;
+import com.baidu.tieba.im.data.MsgPageData;
 import com.baidu.tieba.im.message.LoadDraftMessage;
 import com.baidu.tieba.im.message.LoadHistoryMessage;
 import com.baidu.tieba.im.message.LoadHistoryResponsedMessage;
@@ -31,19 +26,24 @@ import com.baidu.tieba.im.message.SaveDraftMessage;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 import com.baidu.tieba.im.message.chat.OfficialChatMessage;
 import com.baidu.tieba.im.model.MsglistModel;
-import com.baidu.tieba.im.sendmessage.a;
+import d.b.h0.z0.f0;
+import d.b.h0.z0.h0;
+import d.b.i0.d1.g.c;
+import d.b.i0.d1.h.l;
+import d.b.i0.d1.k.b;
+import d.b.i0.d1.s.a;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class OfficialBarMsglistModel extends CommonPersonalMsglistModel {
-    private static final int MSG_COUNT_PER = 10;
-    private boolean hasFake;
-    private CustomMessageListener mCustomMessageListener;
-    private int mUserType;
-    private c officialBarMenuDatas;
+    public static final int MSG_COUNT_PER = 10;
+    public boolean hasFake;
+    public CustomMessageListener mCustomMessageListener;
+    public int mUserType;
+    public c officialBarMenuDatas;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes4.dex */
     public static class MsgContent extends OrmObject {
         public String eventId;
         public String userMsg;
@@ -56,19 +56,22 @@ public class OfficialBarMsglistModel extends CommonPersonalMsglistModel {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (customResponsedMessage != null) {
-                    if (customResponsedMessage.getCmd() == 2012123) {
-                        OfficialBarMsglistModel.this.processServerMsg(customResponsedMessage);
-                    } else if (customResponsedMessage.getCmd() == 2001144) {
-                        OfficialBarMsglistModel.this.processDraft(customResponsedMessage);
-                    } else if (customResponsedMessage.getCmd() == 2001147) {
-                        OfficialBarMsglistModel.this.processHistoryFake(customResponsedMessage);
-                    } else if (customResponsedMessage.getCmd() == 2001151) {
-                        String str = (String) customResponsedMessage.getData();
-                        if (OfficialBarMsglistModel.this.mUser != null && OfficialBarMsglistModel.this.mUser.getUserId().equals(str)) {
-                            OfficialBarMsglistModel.this.refreshAfterClearHistory();
-                        }
+                if (customResponsedMessage == null) {
+                    return;
+                }
+                if (customResponsedMessage.getCmd() == 2012123) {
+                    OfficialBarMsglistModel.this.processServerMsg(customResponsedMessage);
+                } else if (customResponsedMessage.getCmd() == 2001144) {
+                    OfficialBarMsglistModel.this.processDraft(customResponsedMessage);
+                } else if (customResponsedMessage.getCmd() == 2001147) {
+                    OfficialBarMsglistModel.this.processHistoryFake(customResponsedMessage);
+                } else if (customResponsedMessage.getCmd() == 2001151) {
+                    String str = (String) customResponsedMessage.getData();
+                    UserData userData = OfficialBarMsglistModel.this.mUser;
+                    if (userData == null || !userData.getUserId().equals(str)) {
+                        return;
                     }
+                    OfficialBarMsglistModel.this.refreshAfterClearHistory();
                 }
             }
         };
@@ -76,166 +79,21 @@ public class OfficialBarMsglistModel extends CommonPersonalMsglistModel {
         this.customGroupType = 4;
     }
 
-    public c getOfficialBarMenuDatas() {
-        return this.officialBarMenuDatas;
-    }
-
-    public void setOfficialBarMenuDatas(c cVar) {
-        this.officialBarMenuDatas = cVar;
-    }
-
-    @Override // com.baidu.tieba.im.model.CommonPersonalMsglistModel, com.baidu.tieba.im.model.MsglistModel
-    public void onDestroy() {
-        super.onDestroy();
-        unRegisterListener();
-    }
-
-    public void setUserType(int i) {
-        this.mUserType = i;
-    }
-
-    @Override // com.baidu.tieba.im.model.MsglistModel
-    protected ChatMessage genChatMessage() {
+    private ChatMessage createFakeMessage() {
+        String format;
         if (this.mUser == null) {
             return null;
         }
-        OfficialChatMessage officialChatMessage = new OfficialChatMessage();
-        officialChatMessage.setBornTime(System.currentTimeMillis());
-        officialChatMessage.setToUserId(this.mUser.getUserIdLong());
-        UserData userData = new UserData();
-        userData.setUserId(String.valueOf(this.mUser.getUserId()));
-        userData.setUserName(this.mUser.getUserName());
-        userData.setPortrait(this.mUser.getPortrait());
-        userData.setName_show(this.mUser.getName_show());
-        userData.setUserType(this.mUserType);
-        officialChatMessage.setToUserInfo(userData);
-        return officialChatMessage;
-    }
-
-    @Override // com.baidu.tieba.im.model.MsglistModel
-    public boolean loadFirst(com.baidu.tieba.im.chat.c cVar) {
-        if (this.mUser == null) {
-            return false;
-        }
-        LoadHistoryMessage.a aVar = new LoadHistoryMessage.a();
-        aVar.limit = 10;
-        aVar.kLu = null;
-        aVar.kLv = null;
-        aVar.id = this.mUser.getUserIdLong() + "";
-        super.sendMessage(new LoadOfficialHistoryMessage(aVar));
-        return true;
-    }
-
-    public String getForumId() {
-        UserData user = getUser();
-        return user != null ? user.getUserId() : "";
-    }
-
-    @Override // com.baidu.tieba.im.model.MsglistModel
-    public boolean loadPrepage() {
-        long j;
-        long j2;
-        if (this.mUser == null) {
-            return false;
-        }
-        LoadHistoryMessage.a aVar = new LoadHistoryMessage.a();
-        aVar.limit = 10;
-        if (this.mDatas == null || this.mDatas.getChatMessages() == null || this.mDatas.getChatMessages().size() <= 0 || this.mDatas.getChatMessages().get(0) == null) {
-            j = 0;
-            j2 = 0;
+        int i = this.mUserType;
+        if (i == 1) {
+            format = String.format(this.mActivity.getPageContext().getString(R.string.official_fake_message_official_bar), this.mUser.getUserName());
         } else {
-            long msgId = this.mDatas.getChatMessages().get(0).getMsgId();
-            j = this.mDatas.getChatMessages().get(0).getRecordId();
-            j2 = msgId;
+            format = i == 4 ? String.format(this.mActivity.getPageContext().getString(R.string.official_fake_message_official_account), this.mUser.getUserName()) : "";
         }
-        aVar.kLu = String.valueOf(j2);
-        aVar.kLv = String.valueOf(j);
-        aVar.id = this.mUser.getUserIdLong() + "";
-        super.sendMessage(new LoadOfficialHistoryMessage(aVar));
-        return true;
-    }
-
-    @Override // com.baidu.tieba.im.model.MsglistModel
-    public boolean loadDraft() {
-        if (this.mUser == null) {
-            return false;
-        }
-        LoadDraftMessage.a aVar = new LoadDraftMessage.a();
-        aVar.id = this.mUser.getUserId();
-        super.sendMessage(new LoadOfficialBarDraftMessage(aVar));
-        return true;
-    }
-
-    @Override // com.baidu.tieba.im.model.MsglistModel
-    public boolean saveDraftContent(String str) {
-        SaveDraftMessage.a aVar = new SaveDraftMessage.a();
-        if (this.mUser == null) {
-            return false;
-        }
-        aVar.mId = String.valueOf(String.valueOf(this.mUser.getUserId()));
-        aVar.mDraft = str;
-        super.sendMessage(new OfficialBarSaveDraftMessage(aVar));
-        return true;
-    }
-
-    @Override // com.baidu.tieba.im.model.MsglistModel
-    protected void deleteMsg(final ChatMessage chatMessage) {
-        if (this.mUser != null && chatMessage != null) {
-            af.b(new ae<Boolean>() { // from class: com.baidu.tieba.im.model.OfficialBarMsglistModel.1
-                /* JADX DEBUG: Method merged with bridge method */
-                /* JADX WARN: Can't rename method to resolve collision */
-                @Override // com.baidu.tbadk.util.ae
-                public Boolean doInBackground() {
-                    return Boolean.valueOf(l.cVX().ft(String.valueOf(OfficialBarMsglistModel.this.mUser.getUserId()), String.valueOf(chatMessage.getMsgId())));
-                }
-            }, null);
-        }
-    }
-
-    @Override // com.baidu.tieba.im.model.MsglistModel
-    protected void markDeleteMsg(final ChatMessage chatMessage) {
-        if (this.mUser != null && chatMessage != null) {
-            af.b(new ae<Boolean>() { // from class: com.baidu.tieba.im.model.OfficialBarMsglistModel.2
-                /* JADX DEBUG: Method merged with bridge method */
-                /* JADX WARN: Can't rename method to resolve collision */
-                @Override // com.baidu.tbadk.util.ae
-                public Boolean doInBackground() {
-                    return Boolean.valueOf(l.cVX().fs(String.valueOf(OfficialBarMsglistModel.this.mUser.getUserId()), String.valueOf(chatMessage.getMsgId())));
-                }
-            }, null);
-        }
-    }
-
-    private void registerListener() {
-        MessageManager.getInstance().registerListener(CmdConfigCustom.MESSAGE_LIST_OFFICIAL_CMD, this.mCustomMessageListener);
-        MessageManager.getInstance().registerListener(CmdConfigCustom.CMD_LOAD_DRAFT_OFFICIAL, this.mCustomMessageListener);
-        MessageManager.getInstance().registerListener(CmdConfigCustom.CMD_LOAD_HISTORY_OFFICICAL, this.mCustomMessageListener);
-        MessageManager.getInstance().registerListener(CmdConfigCustom.CMD_DEL_OFFICIAL_DB, this.mCustomMessageListener);
-    }
-
-    private void unRegisterListener() {
-        MessageManager.getInstance().unRegisterListener(this.mCustomMessageListener);
-    }
-
-    public void sendGetMenuNetMessage(String str, long j) {
-        RequestOfficialBarMenuMessage requestOfficialBarMenuMessage = new RequestOfficialBarMenuMessage();
-        requestOfficialBarMenuMessage.setForum_id(str);
-        requestOfficialBarMenuMessage.setTimestamp(j);
-        sendMessage(requestOfficialBarMenuMessage);
-    }
-
-    public void sendGetMenuLocalMessage(String str) {
-        RequestOfficialBarMenuLocalMessage requestOfficialBarMenuLocalMessage = new RequestOfficialBarMenuLocalMessage();
-        requestOfficialBarMenuLocalMessage.setForum_id(str);
-        sendMessage(requestOfficialBarMenuLocalMessage);
-    }
-
-    public void sendClickMenuMessage(String str, String str2, String str3) {
-        RequestSendOfficialBarMenuMessage requestSendOfficialBarMenuMessage = new RequestSendOfficialBarMenuMessage();
-        requestSendOfficialBarMenuMessage.setRid(str);
-        requestSendOfficialBarMenuMessage.setUser_id(str2);
-        requestSendOfficialBarMenuMessage.setForum_id(str3);
-        sendMessage(requestSendOfficialBarMenuMessage);
+        HashMap hashMap = new HashMap();
+        hashMap.put(TbEnum.SystemMessage.KEY_EVENT_ID, TbEnum.SystemMessage.EVENT_ID_FAKE);
+        hashMap.put(TbEnum.SystemMessage.KEY_USER_MSG, format);
+        return createMessage((short) 11, OrmObject.jsonStrWithObject((MsgContent) OrmObject.objectWithMap(hashMap, MsgContent.class)));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -243,55 +101,43 @@ public class OfficialBarMsglistModel extends CommonPersonalMsglistModel {
         ChatMessage createFakeMessage;
         if (customResponsedMessage != null && (customResponsedMessage instanceof LoadHistoryResponsedMessage)) {
             LoadHistoryResponsedMessage loadHistoryResponsedMessage = (LoadHistoryResponsedMessage) customResponsedMessage;
-            if (loadHistoryResponsedMessage.getData() != null) {
-                List<ChatMessage> list = loadHistoryResponsedMessage.getData().msgList;
-                LinkedList linkedList = list == null ? new LinkedList() : list;
-                if (linkedList.size() > 0) {
-                    for (ChatMessage chatMessage : linkedList) {
-                        if (chatMessage != null) {
-                            ar arVar = new ar("official_message_open");
-                            arVar.v("msg_id", chatMessage.getMsgId() / 100);
-                            if (chatMessage.getUserInfo() != null) {
-                                arVar.dR("official_id", chatMessage.getUserInfo().getUserId());
-                                arVar.aq("official_type", chatMessage.getUserInfo().getUserType());
-                            }
-                            arVar.v("operate_time", System.currentTimeMillis() / 1000);
-                            arVar.v("task_id", chatMessage.getStatTaskId());
-                            TiebaStatic.log(arVar);
-                        }
-                    }
-                }
-                if ((this.mUserType == 1 || this.mUserType == 4) && linkedList.size() < 10 && !this.hasFake && (createFakeMessage = createFakeMessage()) != null) {
-                    createFakeMessage.setRecordId(-1L);
-                    if (createFakeMessage.getLocalData() != null) {
-                        createFakeMessage.getLocalData().setStatus((short) 3);
-                    } else {
-                        MsgLocalData msgLocalData = new MsgLocalData();
-                        msgLocalData.setStatus((short) 3);
-                        createFakeMessage.setLocalData(msgLocalData);
-                    }
-                    linkedList.add(0, createFakeMessage);
-                    this.hasFake = true;
-                }
-                processHistory(loadHistoryResponsedMessage);
+            if (loadHistoryResponsedMessage.getData() == null) {
+                return;
             }
+            List<ChatMessage> list = loadHistoryResponsedMessage.getData().f18044b;
+            if (list == null) {
+                list = new LinkedList();
+            }
+            if (list.size() > 0) {
+                for (ChatMessage chatMessage : list) {
+                    if (chatMessage != null) {
+                        StatisticItem statisticItem = new StatisticItem("official_message_open");
+                        statisticItem.param("msg_id", chatMessage.getMsgId() / 100);
+                        if (chatMessage.getUserInfo() != null) {
+                            statisticItem.param("official_id", chatMessage.getUserInfo().getUserId());
+                            statisticItem.param("official_type", chatMessage.getUserInfo().getUserType());
+                        }
+                        statisticItem.param("operate_time", System.currentTimeMillis() / 1000);
+                        statisticItem.param("task_id", chatMessage.getStatTaskId());
+                        TiebaStatic.log(statisticItem);
+                    }
+                }
+            }
+            int i = this.mUserType;
+            if ((i == 1 || i == 4) && list.size() < 10 && !this.hasFake && (createFakeMessage = createFakeMessage()) != null) {
+                createFakeMessage.setRecordId(-1L);
+                if (createFakeMessage.getLocalData() != null) {
+                    createFakeMessage.getLocalData().setStatus((short) 3);
+                } else {
+                    MsgLocalData msgLocalData = new MsgLocalData();
+                    msgLocalData.setStatus((short) 3);
+                    createFakeMessage.setLocalData(msgLocalData);
+                }
+                list.add(0, createFakeMessage);
+                this.hasFake = true;
+            }
+            processHistory(loadHistoryResponsedMessage);
         }
-    }
-
-    private ChatMessage createFakeMessage() {
-        if (this.mUser == null) {
-            return null;
-        }
-        String str = "";
-        if (this.mUserType == 1) {
-            str = String.format(this.mActivity.getPageContext().getString(R.string.official_fake_message_official_bar), this.mUser.getUserName());
-        } else if (this.mUserType == 4) {
-            str = String.format(this.mActivity.getPageContext().getString(R.string.official_fake_message_official_account), this.mUser.getUserName());
-        }
-        HashMap hashMap = new HashMap();
-        hashMap.put(TbEnum.SystemMessage.KEY_EVENT_ID, TbEnum.SystemMessage.EVENT_ID_FAKE);
-        hashMap.put(TbEnum.SystemMessage.KEY_USER_MSG, str);
-        return createMessage((short) 11, OrmObject.jsonStrWithObject((MsgContent) OrmObject.objectWithMap(hashMap, MsgContent.class)));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -309,23 +155,67 @@ public class OfficialBarMsglistModel extends CommonPersonalMsglistModel {
                             linkedList.add(chatMessage);
                         }
                     }
-                    ar arVar = new ar("official_message_open");
-                    arVar.v("msg_id", chatMessage.getMsgId() / 100);
+                    StatisticItem statisticItem = new StatisticItem("official_message_open");
+                    statisticItem.param("msg_id", chatMessage.getMsgId() / 100);
                     if (chatMessage.getUserInfo() != null) {
-                        arVar.dR("official_id", chatMessage.getUserInfo().getUserId());
-                        arVar.aq("official_type", chatMessage.getUserInfo().getUserType());
+                        statisticItem.param("official_id", chatMessage.getUserInfo().getUserId());
+                        statisticItem.param("official_type", chatMessage.getUserInfo().getUserType());
                     }
-                    arVar.v("operate_time", System.currentTimeMillis() / 1000);
-                    arVar.v("task_id", chatMessage.getStatTaskId());
-                    TiebaStatic.log(arVar);
+                    statisticItem.param("operate_time", System.currentTimeMillis() / 1000);
+                    statisticItem.param("task_id", chatMessage.getStatTaskId());
+                    TiebaStatic.log(statisticItem);
                 }
                 processMsgFromServerCommon(linkedList);
             }
         }
     }
 
+    private void registerListener() {
+        MessageManager.getInstance().registerListener(2012123, this.mCustomMessageListener);
+        MessageManager.getInstance().registerListener(2001144, this.mCustomMessageListener);
+        MessageManager.getInstance().registerListener(2001147, this.mCustomMessageListener);
+        MessageManager.getInstance().registerListener(2001151, this.mCustomMessageListener);
+    }
+
+    private void unRegisterListener() {
+        MessageManager.getInstance().unRegisterListener(this.mCustomMessageListener);
+    }
+
     @Override // com.baidu.tieba.im.model.MsglistModel
-    protected MsglistModel.CacheInfo getCacheInfo() {
+    public void deleteMsg(final ChatMessage chatMessage) {
+        if (this.mUser == null || chatMessage == null) {
+            return;
+        }
+        h0.c(new f0<Boolean>() { // from class: com.baidu.tieba.im.model.OfficialBarMsglistModel.1
+            /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
+            @Override // d.b.h0.z0.f0
+            public Boolean doInBackground() {
+                return Boolean.valueOf(l.t().c(String.valueOf(OfficialBarMsglistModel.this.mUser.getUserId()), String.valueOf(chatMessage.getMsgId())));
+            }
+        }, null);
+    }
+
+    @Override // com.baidu.tieba.im.model.MsglistModel
+    public ChatMessage genChatMessage() {
+        if (this.mUser == null) {
+            return null;
+        }
+        OfficialChatMessage officialChatMessage = new OfficialChatMessage();
+        officialChatMessage.setBornTime(System.currentTimeMillis());
+        officialChatMessage.setToUserId(this.mUser.getUserIdLong());
+        UserData userData = new UserData();
+        userData.setUserId(String.valueOf(this.mUser.getUserId()));
+        userData.setUserName(this.mUser.getUserName());
+        userData.setPortrait(this.mUser.getPortrait());
+        userData.setName_show(this.mUser.getName_show());
+        userData.setUserType(this.mUserType);
+        officialChatMessage.setToUserInfo(userData);
+        return officialChatMessage;
+    }
+
+    @Override // com.baidu.tieba.im.model.MsglistModel
+    public MsglistModel.CacheInfo getCacheInfo() {
         if (this.mUser == null) {
             return null;
         }
@@ -335,8 +225,128 @@ public class OfficialBarMsglistModel extends CommonPersonalMsglistModel {
         return cacheInfo;
     }
 
+    public String getForumId() {
+        UserData user = getUser();
+        return user != null ? user.getUserId() : "";
+    }
+
     @Override // com.baidu.tieba.im.model.MsglistModel
     public long getMaxMid() {
-        return b.cWS().bv(String.valueOf(a.kNR), -9);
+        return b.o().p(String.valueOf(a.j), -9);
+    }
+
+    public c getOfficialBarMenuDatas() {
+        return this.officialBarMenuDatas;
+    }
+
+    @Override // com.baidu.tieba.im.model.MsglistModel
+    public boolean loadDraft() {
+        if (this.mUser == null) {
+            return false;
+        }
+        LoadDraftMessage.a aVar = new LoadDraftMessage.a();
+        aVar.f18037a = this.mUser.getUserId();
+        super.sendMessage(new LoadOfficialBarDraftMessage(aVar));
+        return true;
+    }
+
+    @Override // com.baidu.tieba.im.model.MsglistModel
+    public boolean loadFirst(d.b.i0.d1.f.c cVar) {
+        if (this.mUser == null) {
+            return false;
+        }
+        LoadHistoryMessage.a aVar = new LoadHistoryMessage.a();
+        aVar.f18041c = 10;
+        aVar.f18039a = null;
+        aVar.f18040b = null;
+        aVar.f18042d = this.mUser.getUserIdLong() + "";
+        super.sendMessage(new LoadOfficialHistoryMessage(aVar));
+        return true;
+    }
+
+    @Override // com.baidu.tieba.im.model.MsglistModel
+    public boolean loadPrepage() {
+        long j;
+        if (this.mUser == null) {
+            return false;
+        }
+        LoadHistoryMessage.a aVar = new LoadHistoryMessage.a();
+        aVar.f18041c = 10;
+        MsgPageData msgPageData = this.mDatas;
+        long j2 = 0;
+        if (msgPageData == null || msgPageData.getChatMessages() == null || this.mDatas.getChatMessages().size() <= 0 || this.mDatas.getChatMessages().get(0) == null) {
+            j = 0;
+        } else {
+            j2 = this.mDatas.getChatMessages().get(0).getMsgId();
+            j = this.mDatas.getChatMessages().get(0).getRecordId();
+        }
+        aVar.f18039a = String.valueOf(j2);
+        aVar.f18040b = String.valueOf(j);
+        aVar.f18042d = this.mUser.getUserIdLong() + "";
+        super.sendMessage(new LoadOfficialHistoryMessage(aVar));
+        return true;
+    }
+
+    @Override // com.baidu.tieba.im.model.MsglistModel
+    public void markDeleteMsg(final ChatMessage chatMessage) {
+        if (this.mUser == null || chatMessage == null) {
+            return;
+        }
+        h0.c(new f0<Boolean>() { // from class: com.baidu.tieba.im.model.OfficialBarMsglistModel.2
+            /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
+            @Override // d.b.h0.z0.f0
+            public Boolean doInBackground() {
+                return Boolean.valueOf(l.t().n(String.valueOf(OfficialBarMsglistModel.this.mUser.getUserId()), String.valueOf(chatMessage.getMsgId())));
+            }
+        }, null);
+    }
+
+    @Override // com.baidu.tieba.im.model.CommonPersonalMsglistModel, com.baidu.tieba.im.model.MsglistModel
+    public void onDestroy() {
+        super.onDestroy();
+        unRegisterListener();
+    }
+
+    @Override // com.baidu.tieba.im.model.MsglistModel
+    public boolean saveDraftContent(String str) {
+        SaveDraftMessage.a aVar = new SaveDraftMessage.a();
+        UserData userData = this.mUser;
+        if (userData == null) {
+            return false;
+        }
+        aVar.f18065b = String.valueOf(String.valueOf(userData.getUserId()));
+        aVar.f18064a = str;
+        super.sendMessage(new OfficialBarSaveDraftMessage(aVar));
+        return true;
+    }
+
+    public void sendClickMenuMessage(String str, String str2, String str3) {
+        RequestSendOfficialBarMenuMessage requestSendOfficialBarMenuMessage = new RequestSendOfficialBarMenuMessage();
+        requestSendOfficialBarMenuMessage.setRid(str);
+        requestSendOfficialBarMenuMessage.setUser_id(str2);
+        requestSendOfficialBarMenuMessage.setForum_id(str3);
+        sendMessage(requestSendOfficialBarMenuMessage);
+    }
+
+    public void sendGetMenuLocalMessage(String str) {
+        RequestOfficialBarMenuLocalMessage requestOfficialBarMenuLocalMessage = new RequestOfficialBarMenuLocalMessage();
+        requestOfficialBarMenuLocalMessage.setForum_id(str);
+        sendMessage(requestOfficialBarMenuLocalMessage);
+    }
+
+    public void sendGetMenuNetMessage(String str, long j) {
+        RequestOfficialBarMenuMessage requestOfficialBarMenuMessage = new RequestOfficialBarMenuMessage();
+        requestOfficialBarMenuMessage.setForum_id(str);
+        requestOfficialBarMenuMessage.setTimestamp(j);
+        sendMessage(requestOfficialBarMenuMessage);
+    }
+
+    public void setOfficialBarMenuDatas(c cVar) {
+        this.officialBarMenuDatas = cVar;
+    }
+
+    public void setUserType(int i) {
+        this.mUserType = i;
     }
 }

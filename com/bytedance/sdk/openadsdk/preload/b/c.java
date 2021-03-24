@@ -6,15 +6,14 @@ import java.util.Collections;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class c {
-    /* JADX INFO: Access modifiers changed from: package-private */
     public static <IN> b<IN> a(List<h> list, e eVar, d dVar) {
-        if (list == null) {
-            throw new IllegalArgumentException("interceptors == null !");
+        if (list != null) {
+            if (eVar == null) {
+                eVar = new e.a();
+            }
+            return new i(Collections.unmodifiableList(new ArrayList(list)), 0, eVar, dVar);
         }
-        if (eVar == null) {
-            eVar = new e.a();
-        }
-        return new i(Collections.unmodifiableList(new ArrayList(list)), 0, eVar, dVar);
+        throw new IllegalArgumentException("interceptors == null !");
     }
 
     public static <IN> b<IN> a(List<h> list, e eVar) {

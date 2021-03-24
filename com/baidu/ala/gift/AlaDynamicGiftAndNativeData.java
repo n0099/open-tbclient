@@ -1,41 +1,36 @@
 package com.baidu.ala.gift;
 
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.util.y;
+import com.baidu.tbadk.core.util.ListUtils;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
-/* loaded from: classes9.dex */
+/* loaded from: classes.dex */
 public class AlaDynamicGiftAndNativeData {
     public AlaDynamicGift mAlaDynamicGift;
-    private ArrayList<String> unZipFilesPathList;
+    public ArrayList<String> unZipFilesPathList;
     public String upZipDirPath;
 
     public String getDynamicGiftId() {
-        if (this.mAlaDynamicGift == null) {
+        AlaDynamicGift alaDynamicGift = this.mAlaDynamicGift;
+        if (alaDynamicGift == null) {
             return null;
         }
-        return this.mAlaDynamicGift.giftId;
+        return alaDynamicGift.giftId;
     }
 
     public String getDynamicGiftName() {
-        if (this.mAlaDynamicGift == null) {
+        AlaDynamicGift alaDynamicGift = this.mAlaDynamicGift;
+        if (alaDynamicGift == null) {
             return null;
         }
-        return this.mAlaDynamicGift.giftName;
-    }
-
-    public boolean isLandScapeZip() {
-        if (this.mAlaDynamicGift == null || this.mAlaDynamicGift.giftZip == null) {
-            return false;
-        }
-        return this.mAlaDynamicGift.giftZip.isLandScape();
+        return alaDynamicGift.giftName;
     }
 
     public ArrayList<String> getDynamicGiftPicPathList() {
         File[] listFiles;
-        if (!y.isEmpty(this.unZipFilesPathList)) {
+        if (!ListUtils.isEmpty(this.unZipFilesPathList)) {
             return this.unZipFilesPathList;
         }
         if (StringUtils.isNull(this.upZipDirPath) || (listFiles = new File(this.upZipDirPath).listFiles()) == null) {
@@ -56,5 +51,14 @@ public class AlaDynamicGiftAndNativeData {
         });
         this.unZipFilesPathList = arrayList;
         return arrayList;
+    }
+
+    public boolean isLandScapeZip() {
+        AlaDynamicGiftZip alaDynamicGiftZip;
+        AlaDynamicGift alaDynamicGift = this.mAlaDynamicGift;
+        if (alaDynamicGift == null || (alaDynamicGiftZip = alaDynamicGift.giftZip) == null) {
+            return false;
+        }
+        return alaDynamicGiftZip.isLandScape();
     }
 }

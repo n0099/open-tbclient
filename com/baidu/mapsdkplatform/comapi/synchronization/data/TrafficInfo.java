@@ -3,49 +3,52 @@ package com.baidu.mapsdkplatform.comapi.synchronization.data;
 import android.os.Parcel;
 import android.os.Parcelable;
 import java.util.ArrayList;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public final class TrafficInfo implements Parcelable {
     public static final Parcelable.Creator<TrafficInfo> CREATOR = new n();
 
     /* renamed from: a  reason: collision with root package name */
-    private boolean f2256a;
-    private String b;
-    private ArrayList<Integer> c;
+    public boolean f7771a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public String f7772b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public ArrayList<Integer> f7773c;
 
     public TrafficInfo() {
-        this.f2256a = false;
-        this.b = null;
-        this.f2256a = false;
-        this.b = null;
-        this.c = new ArrayList<>();
+        this.f7771a = false;
+        this.f7772b = null;
+        this.f7771a = false;
+        this.f7772b = null;
+        this.f7773c = new ArrayList<>();
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     public TrafficInfo(Parcel parcel) {
-        this.f2256a = false;
-        this.b = null;
-        this.f2256a = parcel.readByte() != 0;
-        this.b = parcel.readString();
+        this.f7771a = false;
+        this.f7772b = null;
+        this.f7771a = parcel.readByte() != 0;
+        this.f7772b = parcel.readString();
     }
 
     public String a() {
-        return this.b;
+        return this.f7772b;
     }
 
     public void a(String str) {
-        this.b = str;
+        this.f7772b = str;
     }
 
     public void a(ArrayList<Integer> arrayList) {
-        this.c = arrayList;
+        this.f7773c = arrayList;
     }
 
     public void a(boolean z) {
-        this.f2256a = z;
+        this.f7771a = z;
     }
 
     public ArrayList<Integer> b() {
-        return this.c;
+        return this.f7773c;
     }
 
     @Override // android.os.Parcelable
@@ -55,7 +58,7 @@ public final class TrafficInfo implements Parcelable {
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeByte((byte) (this.f2256a ? 1 : 0));
-        parcel.writeString(this.b);
+        parcel.writeByte(this.f7771a ? (byte) 1 : (byte) 0);
+        parcel.writeString(this.f7772b);
     }
 }

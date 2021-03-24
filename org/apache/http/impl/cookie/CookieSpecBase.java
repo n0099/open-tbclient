@@ -6,31 +6,31 @@ import org.apache.http.cookie.Cookie;
 import org.apache.http.cookie.CookieOrigin;
 import org.apache.http.cookie.MalformedCookieException;
 @Deprecated
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public abstract class CookieSpecBase extends AbstractCookieSpec {
     public CookieSpecBase() {
         throw new RuntimeException("Stub!");
     }
 
-    protected static String getDefaultPath(CookieOrigin cookieOrigin) {
+    public static String getDefaultDomain(CookieOrigin cookieOrigin) {
         throw new RuntimeException("Stub!");
     }
 
-    protected static String getDefaultDomain(CookieOrigin cookieOrigin) {
-        throw new RuntimeException("Stub!");
-    }
-
-    protected List<Cookie> parse(HeaderElement[] headerElementArr, CookieOrigin cookieOrigin) throws MalformedCookieException {
-        throw new RuntimeException("Stub!");
-    }
-
-    @Override // org.apache.http.cookie.CookieSpec
-    public void validate(Cookie cookie, CookieOrigin cookieOrigin) throws MalformedCookieException {
+    public static String getDefaultPath(CookieOrigin cookieOrigin) {
         throw new RuntimeException("Stub!");
     }
 
     @Override // org.apache.http.cookie.CookieSpec
     public boolean match(Cookie cookie, CookieOrigin cookieOrigin) {
+        throw new RuntimeException("Stub!");
+    }
+
+    public List<Cookie> parse(HeaderElement[] headerElementArr, CookieOrigin cookieOrigin) throws MalformedCookieException {
+        throw new RuntimeException("Stub!");
+    }
+
+    @Override // org.apache.http.cookie.CookieSpec
+    public void validate(Cookie cookie, CookieOrigin cookieOrigin) throws MalformedCookieException {
         throw new RuntimeException("Stub!");
     }
 }

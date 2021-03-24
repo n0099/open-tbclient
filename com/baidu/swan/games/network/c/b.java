@@ -1,9 +1,0 @@
-package com.baidu.swan.games.network.c;
-
-import com.baidu.searchbox.v8engine.V8JavascriptField;
-/* loaded from: classes8.dex */
-public class b extends com.baidu.swan.games.binding.model.b {
-    @V8JavascriptField
-    public int statusCode;
-    public String url;
-}

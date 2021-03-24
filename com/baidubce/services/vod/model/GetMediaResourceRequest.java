@@ -2,9 +2,9 @@ package com.baidubce.services.vod.model;
 
 import com.baidubce.auth.BceCredentials;
 import com.baidubce.model.AbstractBceRequest;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class GetMediaResourceRequest extends VodBceRequest {
-    private String mediaId;
+    public String mediaId;
 
     public String getMediaId() {
         return this.mediaId;
@@ -12,6 +12,15 @@ public class GetMediaResourceRequest extends VodBceRequest {
 
     public void setMediaId(String str) {
         this.mediaId = str;
+    }
+
+    @Override // com.baidubce.services.vod.model.VodBceRequest
+    public String toJsonString() {
+        return "";
+    }
+
+    public String toString() {
+        return "GetMediaResourceRequest { \n  mediaId = " + this.mediaId + "\n}\n";
     }
 
     public GetMediaResourceRequest withMediaId(String str) {
@@ -23,17 +32,5 @@ public class GetMediaResourceRequest extends VodBceRequest {
     public AbstractBceRequest withRequestCredentials(BceCredentials bceCredentials) {
         setRequestCredentials(bceCredentials);
         return this;
-    }
-
-    public String toString() {
-        StringBuilder sb = new StringBuilder("GetMediaResourceRequest { \n");
-        sb.append("  mediaId = ").append(this.mediaId).append("\n");
-        sb.append("}\n");
-        return sb.toString();
-    }
-
-    @Override // com.baidubce.services.vod.model.VodBceRequest
-    public String toJsonString() {
-        return "";
     }
 }

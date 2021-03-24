@@ -10,20 +10,15 @@ import com.bumptech.glide.load.ResourceDecoder;
 import com.bumptech.glide.load.engine.Resource;
 import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool;
 import com.bumptech.glide.load.resource.drawable.ResourceDrawableDecoder;
-/* loaded from: classes14.dex */
+import com.facebook.common.util.UriUtil;
+/* loaded from: classes5.dex */
 public class ResourceBitmapDecoder implements ResourceDecoder<Uri, Bitmap> {
-    private final BitmapPool bitmapPool;
-    private final ResourceDrawableDecoder drawableDecoder;
+    public final BitmapPool bitmapPool;
+    public final ResourceDrawableDecoder drawableDecoder;
 
     public ResourceBitmapDecoder(ResourceDrawableDecoder resourceDrawableDecoder, BitmapPool bitmapPool) {
         this.drawableDecoder = resourceDrawableDecoder;
         this.bitmapPool = bitmapPool;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.bumptech.glide.load.ResourceDecoder
-    public boolean handles(@NonNull Uri uri, @NonNull Options options) {
-        return "android.resource".equals(uri.getScheme());
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -35,5 +30,11 @@ public class ResourceBitmapDecoder implements ResourceDecoder<Uri, Bitmap> {
             return null;
         }
         return DrawableToBitmapConverter.convert(this.bitmapPool, decode.get(), i, i2);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.bumptech.glide.load.ResourceDecoder
+    public boolean handles(@NonNull Uri uri, @NonNull Options options) {
+        return UriUtil.QUALIFIED_RESOURCE_SCHEME.equals(uri.getScheme());
     }
 }

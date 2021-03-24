@@ -7,13 +7,29 @@ import org.apache.http.cookie.CookieOrigin;
 import org.apache.http.cookie.MalformedCookieException;
 import org.apache.http.util.CharArrayBuffer;
 @Deprecated
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class RFC2965Spec extends RFC2109Spec {
     public RFC2965Spec() {
         throw new RuntimeException("Stub!");
     }
 
-    public RFC2965Spec(String[] strArr, boolean z) {
+    @Override // org.apache.http.impl.cookie.RFC2109Spec
+    public void formatCookieAsVer(CharArrayBuffer charArrayBuffer, Cookie cookie, int i) {
+        throw new RuntimeException("Stub!");
+    }
+
+    @Override // org.apache.http.impl.cookie.RFC2109Spec, org.apache.http.cookie.CookieSpec
+    public int getVersion() {
+        throw new RuntimeException("Stub!");
+    }
+
+    @Override // org.apache.http.impl.cookie.RFC2109Spec, org.apache.http.cookie.CookieSpec
+    public Header getVersionHeader() {
+        throw new RuntimeException("Stub!");
+    }
+
+    @Override // org.apache.http.impl.cookie.CookieSpecBase, org.apache.http.cookie.CookieSpec
+    public boolean match(Cookie cookie, CookieOrigin cookieOrigin) {
         throw new RuntimeException("Stub!");
     }
 
@@ -27,23 +43,7 @@ public class RFC2965Spec extends RFC2109Spec {
         throw new RuntimeException("Stub!");
     }
 
-    @Override // org.apache.http.impl.cookie.CookieSpecBase, org.apache.http.cookie.CookieSpec
-    public boolean match(Cookie cookie, CookieOrigin cookieOrigin) {
-        throw new RuntimeException("Stub!");
-    }
-
-    @Override // org.apache.http.impl.cookie.RFC2109Spec
-    protected void formatCookieAsVer(CharArrayBuffer charArrayBuffer, Cookie cookie, int i) {
-        throw new RuntimeException("Stub!");
-    }
-
-    @Override // org.apache.http.impl.cookie.RFC2109Spec, org.apache.http.cookie.CookieSpec
-    public int getVersion() {
-        throw new RuntimeException("Stub!");
-    }
-
-    @Override // org.apache.http.impl.cookie.RFC2109Spec, org.apache.http.cookie.CookieSpec
-    public Header getVersionHeader() {
+    public RFC2965Spec(String[] strArr, boolean z) {
         throw new RuntimeException("Stub!");
     }
 }

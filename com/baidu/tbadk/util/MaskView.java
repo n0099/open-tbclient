@@ -6,56 +6,67 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.TextView;
 import androidx.annotation.Nullable;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class MaskView extends View {
+
+    /* loaded from: classes3.dex */
+    public class a implements View.OnClickListener {
+        public a() {
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public static class b implements View.OnClickListener {
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+        }
+    }
+
     public MaskView(Context context) {
         super(context);
-        init();
-    }
-
-    public MaskView(Context context, @Nullable AttributeSet attributeSet) {
-        super(context, attributeSet);
-        init();
-    }
-
-    public MaskView(Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        init();
-    }
-
-    private void init() {
-        setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.util.MaskView.1
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
-            }
-        });
-        setVisibility(8);
-        bzq();
-    }
-
-    public void bzq() {
-        ap.setBackgroundColor(this, R.color.CAM_X0201);
-        setAlpha(0.67f);
+        a();
     }
 
     public static void b(TextView textView, boolean z) {
         Drawable[] compoundDrawables;
-        if (textView != null && z) {
-            textView.setTextColor(textView.getTextColors().withAlpha(84));
-            textView.setClickable(false);
-            textView.setEnabled(false);
-            textView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.util.MaskView.2
-                @Override // android.view.View.OnClickListener
-                public void onClick(View view) {
-                }
-            });
-            for (Drawable drawable : textView.getCompoundDrawables()) {
-                if (drawable != null) {
-                    drawable.setAlpha(84);
-                }
+        if (textView == null || !z) {
+            return;
+        }
+        textView.setTextColor(textView.getTextColors().withAlpha(84));
+        textView.setClickable(false);
+        textView.setEnabled(false);
+        textView.setOnClickListener(new b());
+        for (Drawable drawable : textView.getCompoundDrawables()) {
+            if (drawable != null) {
+                drawable.setAlpha(84);
             }
         }
+    }
+
+    public final void a() {
+        setOnClickListener(new a());
+        setVisibility(8);
+        c();
+    }
+
+    public void c() {
+        SkinManager.setBackgroundColor(this, R.color.CAM_X0201);
+        setAlpha(0.67f);
+    }
+
+    public MaskView(Context context, @Nullable AttributeSet attributeSet) {
+        super(context, attributeSet);
+        a();
+    }
+
+    public MaskView(Context context, @Nullable AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        a();
     }
 }

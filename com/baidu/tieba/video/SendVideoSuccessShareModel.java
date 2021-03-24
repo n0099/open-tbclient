@@ -7,56 +7,21 @@ import com.baidu.adp.framework.listener.HttpMessageListener;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
 import com.baidu.tbadk.core.data.OriginalThreadInfo;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes5.dex */
 public class SendVideoSuccessShareModel extends BdBaseModel {
-    private HttpMessageListener fvi = new HttpMessageListener(1003384) { // from class: com.baidu.tieba.video.SendVideoSuccessShareModel.1
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003384 && (httpResponsedMessage instanceof SendVideoSuccessShareOriginalThreadInfoResponse) && ((SendVideoSuccessShareOriginalThreadInfoResponse) httpResponsedMessage).threadInfo != null && SendVideoSuccessShareModel.this.mLoadDataCallBack != null) {
-                SendVideoSuccessShareModel.this.mLoadDataCallBack.callback(((SendVideoSuccessShareOriginalThreadInfoResponse) httpResponsedMessage).getThreadInfo());
-            }
-        }
-    };
 
-    public SendVideoSuccessShareModel() {
-        setUniqueId(BdUniqueId.gen());
-        registerTask();
-        this.fvi.setTag(getUniqueId());
-        this.fvi.setSelfListener(true);
-        registerListener(this.fvi);
-    }
+    /* renamed from: e  reason: collision with root package name */
+    public HttpMessageListener f21695e = new a(CmdConfigHttp.CMD_GET_VIDEO_INFO_BY_LOGVID);
 
-    private void registerTask() {
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003384, TbConfig.SERVER_ADDRESS + TbConfig.URL_GET_VIDEO_INFO_BY_VLOGID);
-        tbHttpMessageTask.setResponsedClass(SendVideoSuccessShareOriginalThreadInfoResponse.class);
-        MessageManager.getInstance().registerTask(tbHttpMessageTask);
-    }
-
-    @Override // com.baidu.adp.base.BdBaseModel
-    protected boolean LoadData() {
-        return false;
-    }
-
-    @Override // com.baidu.adp.base.BdBaseModel
-    public boolean cancelLoadData() {
-        MessageManager.getInstance().unRegisterListener(this.fvi);
-        return false;
-    }
-
-    public void Us(String str) {
-        HttpMessage httpMessage = new HttpMessage(1003384);
-        httpMessage.addParam("video_id", str);
-        sendMessage(httpMessage);
-    }
-
-    /* loaded from: classes.dex */
+    /* loaded from: classes5.dex */
     public static class SendVideoSuccessShareOriginalThreadInfoResponse extends JsonHttpResponsedMessage {
-        private OriginalThreadInfo threadInfo;
+        public OriginalThreadInfo threadInfo;
 
         public SendVideoSuccessShareOriginalThreadInfoResponse(int i) {
             super(i);
@@ -67,20 +32,72 @@ public class SendVideoSuccessShareModel extends BdBaseModel {
             super.decodeLogicInBackGround(i, jSONObject);
             int statusCode = getStatusCode();
             int error = getError();
-            if (statusCode == 200 && error >= 0 && jSONObject != null) {
-                this.threadInfo = new OriginalThreadInfo();
-                String optString = jSONObject.optString("title");
-                String optString2 = jSONObject.optString("cover");
-                String optString3 = jSONObject.optString("video_id");
-                this.threadInfo.showPicUrl = optString2;
-                this.threadInfo.showType = 3;
-                this.threadInfo.showText = optString;
-                this.threadInfo.videoId = optString3;
+            if (statusCode != 200 || error < 0 || jSONObject == null) {
+                return;
             }
+            this.threadInfo = new OriginalThreadInfo();
+            String optString = jSONObject.optString("title");
+            String optString2 = jSONObject.optString(AlaLiveRoomActivityConfig.SDK_LIVE_COVER_KEY);
+            String optString3 = jSONObject.optString("video_id");
+            OriginalThreadInfo originalThreadInfo = this.threadInfo;
+            originalThreadInfo.f13212c = optString2;
+            originalThreadInfo.f13210a = 3;
+            originalThreadInfo.f13211b = optString;
+            originalThreadInfo.l = optString3;
         }
 
         public OriginalThreadInfo getThreadInfo() {
             return this.threadInfo;
         }
+    }
+
+    /* loaded from: classes5.dex */
+    public class a extends HttpMessageListener {
+        public a(int i) {
+            super(i);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+            if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003384 && (httpResponsedMessage instanceof SendVideoSuccessShareOriginalThreadInfoResponse)) {
+                SendVideoSuccessShareOriginalThreadInfoResponse sendVideoSuccessShareOriginalThreadInfoResponse = (SendVideoSuccessShareOriginalThreadInfoResponse) httpResponsedMessage;
+                if (sendVideoSuccessShareOriginalThreadInfoResponse.threadInfo == null || SendVideoSuccessShareModel.this.mLoadDataCallBack == null) {
+                    return;
+                }
+                SendVideoSuccessShareModel.this.mLoadDataCallBack.c(sendVideoSuccessShareOriginalThreadInfoResponse.getThreadInfo());
+            }
+        }
+    }
+
+    public SendVideoSuccessShareModel() {
+        setUniqueId(BdUniqueId.gen());
+        registerTask();
+        this.f21695e.setTag(getUniqueId());
+        this.f21695e.setSelfListener(true);
+        registerListener(this.f21695e);
+    }
+
+    @Override // com.baidu.adp.base.BdBaseModel
+    public boolean LoadData() {
+        return false;
+    }
+
+    @Override // com.baidu.adp.base.BdBaseModel
+    public boolean cancelLoadData() {
+        MessageManager.getInstance().unRegisterListener(this.f21695e);
+        return false;
+    }
+
+    public final void registerTask() {
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_VIDEO_INFO_BY_LOGVID, TbConfig.SERVER_ADDRESS + TbConfig.URL_GET_VIDEO_INFO_BY_VLOGID);
+        tbHttpMessageTask.setResponsedClass(SendVideoSuccessShareOriginalThreadInfoResponse.class);
+        MessageManager.getInstance().registerTask(tbHttpMessageTask);
+    }
+
+    public void u(String str) {
+        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_VIDEO_INFO_BY_LOGVID);
+        httpMessage.addParam("video_id", str);
+        sendMessage(httpMessage);
     }
 }

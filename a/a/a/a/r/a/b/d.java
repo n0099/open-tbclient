@@ -1,30 +1,35 @@
 package a.a.a.a.r.a.b;
 
-import a.a.a.a.a.e;
-import a.a.a.a.l;
-import a.a.a.a.n;
+import a.a.a.a.k;
+import a.a.a.a.m;
+import a.a.a.a.s.e;
 import com.fun.ad.sdk.FunAdType;
-/* loaded from: classes4.dex */
-public class d implements n.a {
-    @Override // a.a.a.a.n.a
-    public l b(e.a aVar) {
-        String str = aVar.d;
-        char c = 65535;
+/* loaded from: classes.dex */
+public class d implements m.a {
+    @Override // a.a.a.a.m.a
+    public k a(e.a aVar) {
+        char c2;
+        String str = aVar.f1335d;
         int hashCode = str.hashCode();
-        if (hashCode != -1900686778) {
-            if (hashCode != -39027267) {
-                if (hashCode == 1872382491 && str.equals(FunAdType.JY_INTERSTITIAL)) {
-                    c = 1;
-                }
-            } else if (str.equals(FunAdType.JY_REWARD_VIDEO)) {
-                c = 2;
+        if (hashCode == -1900686778) {
+            if (str.equals(FunAdType.JY_NATIVE)) {
+                c2 = 0;
             }
-        } else if (str.equals(FunAdType.JY_NATIVE)) {
-            c = 0;
+            c2 = 65535;
+        } else if (hashCode != -39027267) {
+            if (hashCode == 1872382491 && str.equals(FunAdType.JY_INTERSTITIAL)) {
+                c2 = 1;
+            }
+            c2 = 65535;
+        } else {
+            if (str.equals(FunAdType.JY_REWARD_VIDEO)) {
+                c2 = 2;
+            }
+            c2 = 65535;
         }
-        if (c != 0) {
-            if (c != 1) {
-                if (c != 2) {
+        if (c2 != 0) {
+            if (c2 != 1) {
+                if (c2 != 2) {
                     return null;
                 }
                 return new a.a.a.a.r.a.e.c(aVar);

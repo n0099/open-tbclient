@@ -6,10 +6,12 @@ import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.kwad.sdk.glide.request.b.b;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public abstract class e<Z> extends k<ImageView, Z> implements b.a {
     @Nullable
-    private Animatable b;
+
+    /* renamed from: b  reason: collision with root package name */
+    public Animatable f35775b;
 
     public e(ImageView imageView) {
         super(imageView);
@@ -22,24 +24,26 @@ public abstract class e<Z> extends k<ImageView, Z> implements b.a {
 
     private void c(@Nullable Z z) {
         if (!(z instanceof Animatable)) {
-            this.b = null;
+            this.f35775b = null;
             return;
         }
-        this.b = (Animatable) z;
-        this.b.start();
+        Animatable animatable = (Animatable) z;
+        this.f35775b = animatable;
+        animatable.start();
     }
 
     @Override // com.kwad.sdk.glide.request.a.k, com.kwad.sdk.glide.request.a.a, com.kwad.sdk.glide.request.a.j
     public void a(@Nullable Drawable drawable) {
         super.a(drawable);
-        if (this.b != null) {
-            this.b.stop();
+        Animatable animatable = this.f35775b;
+        if (animatable != null) {
+            animatable.stop();
         }
         b((e<Z>) null);
         e(drawable);
     }
 
-    protected abstract void a(@Nullable Z z);
+    public abstract void a(@Nullable Z z);
 
     @Override // com.kwad.sdk.glide.request.a.j
     public void a(@NonNull Z z, @Nullable com.kwad.sdk.glide.request.b.b<? super Z> bVar) {
@@ -59,8 +63,9 @@ public abstract class e<Z> extends k<ImageView, Z> implements b.a {
 
     @Override // com.kwad.sdk.glide.request.a.a, com.kwad.sdk.glide.c.i
     public void c() {
-        if (this.b != null) {
-            this.b.start();
+        Animatable animatable = this.f35775b;
+        if (animatable != null) {
+            animatable.start();
         }
     }
 
@@ -73,12 +78,13 @@ public abstract class e<Z> extends k<ImageView, Z> implements b.a {
 
     @Override // com.kwad.sdk.glide.request.a.a, com.kwad.sdk.glide.c.i
     public void d() {
-        if (this.b != null) {
-            this.b.stop();
+        Animatable animatable = this.f35775b;
+        if (animatable != null) {
+            animatable.stop();
         }
     }
 
     public void e(Drawable drawable) {
-        ((ImageView) this.f6827a).setImageDrawable(drawable);
+        ((ImageView) ((k) this).f35782a).setImageDrawable(drawable);
     }
 }

@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.os.Build;
-import com.baidu.ar.constants.HttpConstants;
 import com.heytap.mcssdk.callback.PushCallback;
 import com.heytap.mcssdk.mode.AppMessage;
 import com.heytap.mcssdk.mode.CommandMessage;
@@ -19,12 +18,12 @@ import java.util.Iterator;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class PushManager implements b {
-    private static final String APP_PACKAGE = "appPackage";
-    private static final String APP_VERSION_CODE = "versionCode";
-    private static final String APP_VERSION_NAME = "versionName";
-    private static final String EVENT_ID = "eventID";
+    public static final String APP_PACKAGE = "appPackage";
+    public static final String APP_VERSION_CODE = "versionCode";
+    public static final String APP_VERSION_NAME = "versionName";
+    public static final String EVENT_ID = "eventID";
     public static final String EVENT_ID_APP_BLACK_LIST = "app_black_list";
     public static final String EVENT_ID_PUSH_ADD_MESSAGE_NO_DISTURBING = "add_message_no_disturbing";
     public static final String EVENT_ID_PUSH_ADD_MESSAGE_TOP = "add_message_top";
@@ -40,35 +39,35 @@ public class PushManager implements b {
     public static final String EVENT_ID_PUSH_SHOW = "push_show";
     public static final String EVENT_ID_PUSH_TRANSMIT = "push_transmit";
     public static final String EVENT_ID_READ_MESSAGE = "push_read_message";
-    private static final String EXTRA = "extra";
-    private static final String GLOBAL_ID = "globalID";
-    private static final int MAX_HOUR_IN_DAY = 23;
-    private static final int MAX_MIN_IN_HOUR = 59;
-    private static final int MCS_SUPPORT_VERSION = 1012;
-    private static final String MESSAGE_ID = "messageID";
-    private static final String MESSAGE_TYPE = "messageType";
-    private static final String NEW_MCS_RECEIVE_SDK_ACTION = "com.mcs.action.RECEIVE_SDK_MESSAGE";
-    private static final String PUSH_SDK_VERSION = "pushSdkVersion";
-    private static final int SDK_INT_24 = 24;
-    private static final String SUPPORT_OPEN_PUSH = "supportOpenPush";
-    private static final int SYSTEM_UID = 1000;
-    private static final String TASK_ID = "taskID";
-    private static final String TYPE = "type";
-    private static boolean sIsNewMcsPkg;
-    private static String sMcsPkgName;
-    private String mAppKey;
-    private String mAppSecret;
-    private Context mContext;
-    private final Object mMcsServiceLock;
-    private List<com.heytap.mcssdk.a.d> mParsers;
-    private List<com.heytap.mcssdk.b.c> mProcessors;
-    private PushCallback mPushCallback;
-    private String mRegisterID;
-    private static final int[] OLD_MCS_PACKAGE = {99, 111, 109, 46, 99, 111, 108, 111, 114, 111, 115, 46, 109, 99, 115};
-    private static final int[] OLD_MCS_RECEIVE_SDK_ACTION = {99, 111, 109, 46, 99, 111, 108, 111, 114, 111, 115, 46, 109, 99, 115, 115, 100, 107, 46, 97, 99, 116, 105, 111, 110, 46, 82, 69, 67, 69, 73, 86, 69, 95, 83, 68, 75, 95, 77, 69, 83, 83, 65, 71, 69};
-    private static int sCount = 0;
+    public static final String EXTRA = "extra";
+    public static final String GLOBAL_ID = "globalID";
+    public static final int MAX_HOUR_IN_DAY = 23;
+    public static final int MAX_MIN_IN_HOUR = 59;
+    public static final int MCS_SUPPORT_VERSION = 1012;
+    public static final String MESSAGE_ID = "messageID";
+    public static final String MESSAGE_TYPE = "messageType";
+    public static final String NEW_MCS_RECEIVE_SDK_ACTION = "com.mcs.action.RECEIVE_SDK_MESSAGE";
+    public static final String PUSH_SDK_VERSION = "pushSdkVersion";
+    public static final int SDK_INT_24 = 24;
+    public static final String SUPPORT_OPEN_PUSH = "supportOpenPush";
+    public static final int SYSTEM_UID = 1000;
+    public static final String TASK_ID = "taskID";
+    public static final String TYPE = "type";
+    public static boolean sIsNewMcsPkg;
+    public static String sMcsPkgName;
+    public String mAppKey;
+    public String mAppSecret;
+    public Context mContext;
+    public final Object mMcsServiceLock;
+    public List<com.heytap.mcssdk.a.d> mParsers;
+    public List<com.heytap.mcssdk.b.c> mProcessors;
+    public PushCallback mPushCallback;
+    public String mRegisterID;
+    public static final int[] OLD_MCS_PACKAGE = {99, 111, 109, 46, 99, 111, 108, 111, 114, 111, 115, 46, 109, 99, 115};
+    public static final int[] OLD_MCS_RECEIVE_SDK_ACTION = {99, 111, 109, 46, 99, 111, 108, 111, 114, 111, 115, 46, 109, 99, 115, 115, 100, 107, 46, 97, 99, 116, 105, 111, 110, 46, 82, 69, 67, 69, 73, 86, 69, 95, 83, 68, 75, 95, 77, 69, 83, 83, 65, 71, 69};
+    public static int sCount = 0;
 
-    private PushManager() {
+    public PushManager() {
         this.mMcsServiceLock = new Object();
         this.mProcessors = new ArrayList();
         this.mParsers = new ArrayList();
@@ -87,7 +86,6 @@ public class PushManager implements b {
         addProcessor(new com.heytap.mcssdk.b.b());
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public /* synthetic */ PushManager(d dVar) {
         this();
     }
@@ -141,10 +139,12 @@ public class PushManager implements b {
                     jSONObject2.putOpt(next, jSONObject.get(next));
                 }
             }
-        } catch (Exception e) {
-        } finally {
+        } catch (Exception unused) {
+        } catch (Throwable th) {
             intent.putExtra("extra", jSONObject2.toString());
+            throw th;
         }
+        intent.putExtra("extra", jSONObject2.toString());
         intent.putExtra("params", str);
         intent.putExtra("appPackage", this.mContext.getPackageName());
         intent.putExtra("appKey", this.mAppKey);
@@ -155,20 +155,22 @@ public class PushManager implements b {
     }
 
     public static String getMcsPackageName(Context context) {
+        boolean z;
         if (sMcsPkgName == null) {
             String newMcsPackageName = getNewMcsPackageName(context);
             if (newMcsPackageName == null) {
                 sMcsPkgName = Utils.getString(OLD_MCS_PACKAGE);
-                sIsNewMcsPkg = false;
+                z = false;
             } else {
                 sMcsPkgName = newMcsPackageName;
-                sIsNewMcsPkg = true;
+                z = true;
             }
+            sIsNewMcsPkg = z;
         }
         return sMcsPkgName;
     }
 
-    private static String getNewMcsPackageName(Context context) {
+    public static String getNewMcsPackageName(Context context) {
         boolean z;
         boolean z2;
         List<ResolveInfo> queryIntentServices = context.getPackageManager().queryIntentServices(new Intent(NEW_MCS_RECEIVE_SDK_ACTION), 8192);
@@ -177,13 +179,14 @@ public class PushManager implements b {
                 String str = resolveInfo.serviceInfo.packageName;
                 try {
                     z = (context.getPackageManager().getApplicationInfo(str, 0).flags & 1) == 1;
-                    z2 = context.getPackageManager().getPackageUid(str, 0) == context.getPackageManager().getPackageUid(HttpConstants.OS_TYPE_VALUE, 0);
-                } catch (PackageManager.NameNotFoundException e) {
+                    z2 = context.getPackageManager().getPackageUid(str, 0) == context.getPackageManager().getPackageUid("android", 0);
+                } catch (PackageManager.NameNotFoundException unused) {
                 }
                 if (z || z2) {
                     return str;
                 }
             }
+            return null;
         }
         return null;
     }
@@ -196,7 +199,7 @@ public class PushManager implements b {
     }
 
     public static String getSDKVersion() {
-        return a.f;
+        return a.f31083f;
     }
 
     public static boolean isSupportPush(Context context) {
@@ -205,7 +208,7 @@ public class PushManager implements b {
     }
 
     @Deprecated
-    private static void onAppStart(Context context) {
+    public static void onAppStart(Context context) {
         statisticMessage(context, new MessageStat(context.getPackageName(), "app_start", null));
     }
 
@@ -229,11 +232,11 @@ public class PushManager implements b {
             intent.putExtra("appPackage", appMessage.getAppPackage());
             intent.putExtra("messageID", String.valueOf(appMessage.getMessageID()));
             intent.putExtra("globalID", String.valueOf(appMessage.getMessageID()));
-            intent.putExtra(MESSAGE_TYPE, appMessage.getType());
-            intent.putExtra(EVENT_ID, str);
+            intent.putExtra("messageType", appMessage.getType());
+            intent.putExtra("eventID", str);
             context.startService(intent);
-        } catch (Exception e) {
-            LogUtil.e("statisticMessage--Exception" + e.getMessage());
+        } catch (Exception e2) {
+            LogUtil.e("statisticMessage--Exception" + e2.getMessage());
         }
     }
 
@@ -251,11 +254,11 @@ public class PushManager implements b {
             intent.putExtra("appPackage", sptDataMessage.getAppPackage());
             intent.putExtra("messageID", sptDataMessage.getMessageID());
             intent.putExtra("globalID", sptDataMessage.getGlobalID());
-            intent.putExtra(MESSAGE_TYPE, sptDataMessage.getType());
-            intent.putExtra(EVENT_ID, str);
+            intent.putExtra("messageType", sptDataMessage.getType());
+            intent.putExtra("eventID", str);
             context.startService(intent);
-        } catch (Exception e) {
-            LogUtil.e("statisticMessage--Exception" + e.getMessage());
+        } catch (Exception e2) {
+            LogUtil.e("statisticMessage--Exception" + e2.getMessage());
         }
     }
 
@@ -278,8 +281,8 @@ public class PushManager implements b {
         try {
             checkAll();
             startMcsService(CommandMessage.COMMAND_CLEAR_NOTIFICATION_TYPE, jSONObject);
-        } catch (Exception e) {
-            LogUtil.e(LogUtil.TAG, e);
+        } catch (Exception e2) {
+            LogUtil.e(LogUtil.TAG, e2);
         }
     }
 
@@ -293,8 +296,8 @@ public class PushManager implements b {
         try {
             checkContext();
             startMcsService(CommandMessage.COMMAND_CLEAR_PKG_NOTIFICATION, jSONObject);
-        } catch (Exception e) {
-            LogUtil.e(LogUtil.TAG, e);
+        } catch (Exception e2) {
+            LogUtil.e(LogUtil.TAG, e2);
         }
     }
 
@@ -308,7 +311,7 @@ public class PushManager implements b {
         try {
             checkAll();
             startMcsService(CommandMessage.COMMAND_GET_ALIAS, jSONObject);
-        } catch (Exception e) {
+        } catch (Exception unused) {
             if (getPushCallback() != null) {
                 getPushCallback().onGetAliases(-2, null);
             }
@@ -325,7 +328,7 @@ public class PushManager implements b {
         try {
             checkAll();
             startMcsService(CommandMessage.COMMAND_GET_NOTIFICATION_STATUS, jSONObject);
-        } catch (Exception e) {
+        } catch (Exception unused) {
             if (getPushCallback() != null) {
                 getPushCallback().onGetNotificationStatus(-2, 0);
             }
@@ -347,8 +350,8 @@ public class PushManager implements b {
     public void getPushStatus() {
         try {
             checkAll();
-            startMcsService(12306, null);
-        } catch (Exception e) {
+            startMcsService(CommandMessage.COMMAND_GET_PUSH_STATUS, null);
+        } catch (Exception unused) {
             if (getPushCallback() != null) {
                 getPushCallback().onGetPushStatus(-2, 0);
             }
@@ -357,12 +360,14 @@ public class PushManager implements b {
 
     public int getPushVersionCode() {
         checkContext();
-        return Utils.getVersionCode(this.mContext, getMcsPackageName(this.mContext));
+        Context context = this.mContext;
+        return Utils.getVersionCode(context, getMcsPackageName(context));
     }
 
     public String getPushVersionName() {
         checkContext();
-        return Utils.getVersionName(this.mContext, getMcsPackageName(this.mContext));
+        Context context = this.mContext;
+        return Utils.getVersionName(context, getMcsPackageName(context));
     }
 
     @Override // com.heytap.mcssdk.b
@@ -375,7 +380,7 @@ public class PushManager implements b {
         try {
             checkContext();
             startMcsService(12289, jSONObject);
-        } catch (Exception e) {
+        } catch (Exception unused) {
             if (getPushCallback() != null) {
                 getPushCallback().onRegister(-2, null);
             }
@@ -397,7 +402,7 @@ public class PushManager implements b {
         try {
             checkAll();
             startMcsService(CommandMessage.COMMAND_GET_TAGS, jSONObject);
-        } catch (Exception e) {
+        } catch (Exception unused) {
             if (getPushCallback() != null) {
                 getPushCallback().onGetTags(-2, null);
             }
@@ -414,7 +419,7 @@ public class PushManager implements b {
         try {
             checkAll();
             startMcsService(12302, jSONObject);
-        } catch (Exception e) {
+        } catch (Exception unused) {
             if (getPushCallback() != null) {
                 getPushCallback().onGetUserAccounts(-2, null);
             }
@@ -431,8 +436,8 @@ public class PushManager implements b {
         try {
             checkAll();
             startMcsService(CommandMessage.COMMAND_SET_NOTIFICATION_SETTINGS, jSONObject);
-        } catch (Exception e) {
-            LogUtil.e(LogUtil.TAG, e);
+        } catch (Exception e2) {
+            LogUtil.e(LogUtil.TAG, e2);
         }
     }
 
@@ -446,8 +451,8 @@ public class PushManager implements b {
         try {
             checkAll();
             startMcsService(CommandMessage.COMMAND_PAUSE_PUSH, jSONObject);
-        } catch (Exception e) {
-            LogUtil.e(LogUtil.TAG, e);
+        } catch (Exception e2) {
+            LogUtil.e(LogUtil.TAG, e2);
         }
     }
 
@@ -471,7 +476,7 @@ public class PushManager implements b {
             this.mContext = context.getApplicationContext();
             this.mPushCallback = pushCallback;
             startMcsService(12289, jSONObject);
-        } catch (Exception e) {
+        } catch (Exception unused) {
             if (getPushCallback() != null) {
                 getPushCallback().onRegister(-2, null);
             }
@@ -483,8 +488,8 @@ public class PushManager implements b {
         try {
             checkContext();
             bindMcsService(CommandMessage.COMMANAD_NOTIFICATION_ALLOWANCE);
-        } catch (Exception e) {
-            LogUtil.e(LogUtil.TAG, e);
+        } catch (Exception e2) {
+            LogUtil.e(LogUtil.TAG, e2);
         }
     }
 
@@ -497,9 +502,9 @@ public class PushManager implements b {
     public void resumePush(JSONObject jSONObject) {
         try {
             checkAll();
-            startMcsService(CommandMessage.COMMAND_RESUME_PUSH, jSONObject);
-        } catch (Exception e) {
-            LogUtil.e(LogUtil.TAG, e);
+            startMcsService(12300, jSONObject);
+        } catch (Exception e2) {
+            LogUtil.e(LogUtil.TAG, e2);
         }
     }
 
@@ -512,11 +517,10 @@ public class PushManager implements b {
     public void setAliases(List<String> list, JSONObject jSONObject) {
         try {
             checkAll();
-            if (list == null || list.size() == 0) {
-                return;
+            if (list != null && list.size() != 0) {
+                startMcsService(CommandMessage.COMMAND_SET_ALIAS, CommandMessage.parseToString(list), jSONObject);
             }
-            startMcsService(CommandMessage.COMMAND_SET_ALIAS, CommandMessage.parseToString(list), jSONObject);
-        } catch (Exception e) {
+        } catch (Exception unused) {
             if (getPushCallback() != null) {
                 getPushCallback().onSetAliases(-2, null);
             }
@@ -538,8 +542,8 @@ public class PushManager implements b {
         try {
             checkAll();
             startMcsService(CommandMessage.COMMAND_SET_NOTIFICATION_TYPE, String.valueOf(i), jSONObject);
-        } catch (Exception e) {
-            LogUtil.e(LogUtil.TAG, e);
+        } catch (Exception e2) {
+            LogUtil.e(LogUtil.TAG, e2);
         }
     }
 
@@ -567,12 +571,12 @@ public class PushManager implements b {
                 jSONObject2.put("endHour", i3);
                 jSONObject2.put("endMin", i4);
                 startMcsService(CommandMessage.COMMAND_SET_PUSH_TIME, jSONObject2.toString(), jSONObject);
-            } catch (JSONException e) {
-                e.printStackTrace();
+            } catch (JSONException e2) {
+                e2.printStackTrace();
             }
-        } catch (Exception e2) {
+        } catch (Exception e3) {
             if (getPushCallback() != null) {
-                getPushCallback().onSetPushTime(-2, e2.getMessage());
+                getPushCallback().onSetPushTime(-2, e3.getMessage());
             }
         }
     }
@@ -591,11 +595,10 @@ public class PushManager implements b {
     public void setTags(List<String> list, JSONObject jSONObject) {
         try {
             checkAll();
-            if (list == null || list.size() == 0) {
-                return;
+            if (list != null && list.size() != 0) {
+                startMcsService(CommandMessage.COMMAND_SET_TAGS, CommandMessage.parseToString(list), jSONObject);
             }
-            startMcsService(CommandMessage.COMMAND_SET_TAGS, CommandMessage.parseToString(list), jSONObject);
-        } catch (Exception e) {
+        } catch (Exception unused) {
             if (getPushCallback() != null) {
                 getPushCallback().onSetTags(-2, null);
             }
@@ -614,7 +617,7 @@ public class PushManager implements b {
             ArrayList arrayList = new ArrayList();
             arrayList.add(str);
             setUserAccounts(arrayList, jSONObject);
-        } catch (Exception e) {
+        } catch (Exception unused) {
             if (getPushCallback() != null) {
                 getPushCallback().onSetUserAccounts(-2, null);
             }
@@ -631,11 +634,10 @@ public class PushManager implements b {
     public void setUserAccounts(List<String> list, JSONObject jSONObject) {
         try {
             checkAll();
-            if (list == null || list.size() == 0) {
-                return;
+            if (list != null && list.size() != 0) {
+                startMcsService(CommandMessage.COMMAND_SET_ACCOUNTS, CommandMessage.parseToString(list), jSONObject);
             }
-            startMcsService(CommandMessage.COMMAND_SET_ACCOUNTS, CommandMessage.parseToString(list), jSONObject);
-        } catch (Exception e) {
+        } catch (Exception unused) {
             if (getPushCallback() != null) {
                 getPushCallback().onSetUserAccounts(-2, null);
             }
@@ -660,7 +662,7 @@ public class PushManager implements b {
         try {
             checkContext();
             startMcsService(CommandMessage.COMMAND_UNREGISTER, jSONObject);
-        } catch (Exception e) {
+        } catch (Exception unused) {
             if (getPushCallback() != null) {
                 getPushCallback().onUnRegister(-2);
             }
@@ -679,7 +681,7 @@ public class PushManager implements b {
             ArrayList arrayList = new ArrayList();
             arrayList.add(str);
             unsetAliases(arrayList, jSONObject);
-        } catch (Exception e) {
+        } catch (Exception unused) {
             if (getPushCallback() != null) {
                 getPushCallback().onUnsetAliases(-2, null);
             }
@@ -696,11 +698,10 @@ public class PushManager implements b {
     public void unsetAliases(List<String> list, JSONObject jSONObject) {
         try {
             checkAll();
-            if (list == null || list.size() == 0) {
-                return;
+            if (list != null && list.size() != 0) {
+                startMcsService(CommandMessage.COMMAND_UNSET_ALIAS, CommandMessage.parseToString(list), jSONObject);
             }
-            startMcsService(CommandMessage.COMMAND_UNSET_ALIAS, CommandMessage.parseToString(list), jSONObject);
-        } catch (Exception e) {
+        } catch (Exception unused) {
             if (getPushCallback() != null) {
                 getPushCallback().onUnsetAliases(-2, null);
             }
@@ -716,11 +717,10 @@ public class PushManager implements b {
     public void unsetTags(List<String> list, JSONObject jSONObject) {
         try {
             checkAll();
-            if (list == null || list.size() == 0) {
-                return;
+            if (list != null && list.size() != 0) {
+                startMcsService(CommandMessage.COMMAND_UNSET_TAGS, CommandMessage.parseToString(list), jSONObject);
             }
-            startMcsService(CommandMessage.COMMAND_UNSET_TAGS, CommandMessage.parseToString(list), jSONObject);
-        } catch (Exception e) {
+        } catch (Exception unused) {
             if (getPushCallback() != null) {
                 getPushCallback().onUnsetTags(-2, null);
             }
@@ -736,11 +736,10 @@ public class PushManager implements b {
     public void unsetUserAccounts(List<String> list, JSONObject jSONObject) {
         try {
             checkAll();
-            if (list == null || list.size() == 0) {
-                return;
+            if (list != null && list.size() != 0) {
+                startMcsService(CommandMessage.COMMAND_UNSET_ACCOUNTS, CommandMessage.parseToString(list), jSONObject);
             }
-            startMcsService(CommandMessage.COMMAND_UNSET_ACCOUNTS, CommandMessage.parseToString(list), jSONObject);
-        } catch (Exception e) {
+        } catch (Exception unused) {
             if (getPushCallback() != null) {
                 getPushCallback().onUnsetUserAccounts(-2, null);
             }

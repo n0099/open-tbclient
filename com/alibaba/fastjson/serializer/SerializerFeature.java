@@ -1,5 +1,5 @@
 package com.alibaba.fastjson.serializer;
-/* loaded from: classes4.dex */
+/* loaded from: classes.dex */
 public enum SerializerFeature {
     QuoteFieldNames,
     UseSingleQuotes,
@@ -32,31 +32,28 @@ public enum SerializerFeature {
     WriteBigDecimalAsPlain,
     MapSortField;
     
+    public static final SerializerFeature[] EMPTY;
+    public static final int WRITE_MAP_NULL_FEATURES;
     public final int mask = 1 << ordinal();
-    public static final SerializerFeature[] EMPTY = new SerializerFeature[0];
-    public static final int WRITE_MAP_NULL_FEATURES = (((WriteMapNullValue.getMask() | WriteNullBooleanAsFalse.getMask()) | WriteNullListAsEmpty.getMask()) | WriteNullNumberAsZero.getMask()) | WriteNullStringAsEmpty.getMask();
+
+    static {
+        SerializerFeature serializerFeature = WriteMapNullValue;
+        EMPTY = new SerializerFeature[0];
+        WRITE_MAP_NULL_FEATURES = serializerFeature.getMask() | WriteNullBooleanAsFalse.getMask() | WriteNullListAsEmpty.getMask() | WriteNullNumberAsZero.getMask() | WriteNullStringAsEmpty.getMask();
+    }
 
     SerializerFeature() {
     }
 
-    public final int getMask() {
-        return this.mask;
+    public static int config(int i, SerializerFeature serializerFeature, boolean z) {
+        if (z) {
+            return i | serializerFeature.mask;
+        }
+        return i & (serializerFeature.mask ^ (-1));
     }
 
     public static boolean isEnabled(int i, SerializerFeature serializerFeature) {
-        return (serializerFeature.mask & i) != 0;
-    }
-
-    public static boolean isEnabled(int i, int i2, SerializerFeature serializerFeature) {
-        int i3 = serializerFeature.mask;
-        return ((i & i3) == 0 && (i3 & i2) == 0) ? false : true;
-    }
-
-    public static int config(int i, SerializerFeature serializerFeature, boolean z) {
-        if (z) {
-            return serializerFeature.mask | i;
-        }
-        return (serializerFeature.mask ^ (-1)) & i;
+        return (i & serializerFeature.mask) != 0;
     }
 
     public static int of(SerializerFeature[] serializerFeatureArr) {
@@ -68,5 +65,14 @@ public enum SerializerFeature {
             i |= serializerFeature.mask;
         }
         return i;
+    }
+
+    public final int getMask() {
+        return this.mask;
+    }
+
+    public static boolean isEnabled(int i, int i2, SerializerFeature serializerFeature) {
+        int i3 = serializerFeature.mask;
+        return ((i & i3) == 0 && (i2 & i3) == 0) ? false : true;
     }
 }

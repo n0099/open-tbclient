@@ -5,66 +5,20 @@ import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcel;
 import android.os.RemoteException;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public interface OpenDeviceIdentifierService extends IInterface {
-    String getOaid() throws RemoteException;
 
-    boolean isOaidTrackLimited() throws RemoteException;
-
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static abstract class Stub extends Binder implements OpenDeviceIdentifierService {
-        private static final String DESCRIPTOR = "com.uodis.opendevice.aidl.OpenDeviceIdentifierService";
-        static final int TRANSACTION_getOaid = 1;
-        static final int TRANSACTION_isOaidTrackLimited = 2;
+        public static final String DESCRIPTOR = "com.uodis.opendevice.aidl.OpenDeviceIdentifierService";
+        public static final int TRANSACTION_getOaid = 1;
+        public static final int TRANSACTION_isOaidTrackLimited = 2;
 
-        public Stub() {
-            attachInterface(this, DESCRIPTOR);
-        }
+        /* loaded from: classes7.dex */
+        public static class Proxy implements OpenDeviceIdentifierService {
+            public IBinder mRemote;
 
-        public static OpenDeviceIdentifierService asInterface(IBinder iBinder) {
-            if (iBinder == null) {
-                return null;
-            }
-            IInterface queryLocalInterface = iBinder.queryLocalInterface(DESCRIPTOR);
-            if (queryLocalInterface != null && (queryLocalInterface instanceof OpenDeviceIdentifierService)) {
-                return (OpenDeviceIdentifierService) queryLocalInterface;
-            }
-            return new Proxy(iBinder);
-        }
-
-        @Override // android.os.IInterface
-        public IBinder asBinder() {
-            return this;
-        }
-
-        @Override // android.os.Binder
-        public boolean onTransact(int i, Parcel parcel, Parcel parcel2, int i2) throws RemoteException {
-            switch (i) {
-                case 1:
-                    parcel.enforceInterface(DESCRIPTOR);
-                    String oaid = getOaid();
-                    parcel2.writeNoException();
-                    parcel2.writeString(oaid);
-                    return true;
-                case 2:
-                    parcel.enforceInterface(DESCRIPTOR);
-                    boolean isOaidTrackLimited = isOaidTrackLimited();
-                    parcel2.writeNoException();
-                    parcel2.writeInt(isOaidTrackLimited ? 1 : 0);
-                    return true;
-                case 1598968902:
-                    parcel2.writeString(DESCRIPTOR);
-                    return true;
-                default:
-                    return super.onTransact(i, parcel, parcel2, i2);
-            }
-        }
-
-        /* loaded from: classes6.dex */
-        private static class Proxy implements OpenDeviceIdentifierService {
-            private IBinder mRemote;
-
-            Proxy(IBinder iBinder) {
+            public Proxy(IBinder iBinder) {
                 this.mRemote = iBinder;
             }
 
@@ -107,5 +61,52 @@ public interface OpenDeviceIdentifierService extends IInterface {
                 }
             }
         }
+
+        public Stub() {
+            attachInterface(this, DESCRIPTOR);
+        }
+
+        public static OpenDeviceIdentifierService asInterface(IBinder iBinder) {
+            if (iBinder == null) {
+                return null;
+            }
+            IInterface queryLocalInterface = iBinder.queryLocalInterface(DESCRIPTOR);
+            if (queryLocalInterface != null && (queryLocalInterface instanceof OpenDeviceIdentifierService)) {
+                return (OpenDeviceIdentifierService) queryLocalInterface;
+            }
+            return new Proxy(iBinder);
+        }
+
+        @Override // android.os.IInterface
+        public IBinder asBinder() {
+            return this;
+        }
+
+        @Override // android.os.Binder
+        public boolean onTransact(int i, Parcel parcel, Parcel parcel2, int i2) throws RemoteException {
+            if (i == 1) {
+                parcel.enforceInterface(DESCRIPTOR);
+                String oaid = getOaid();
+                parcel2.writeNoException();
+                parcel2.writeString(oaid);
+                return true;
+            } else if (i != 2) {
+                if (i != 1598968902) {
+                    return super.onTransact(i, parcel, parcel2, i2);
+                }
+                parcel2.writeString(DESCRIPTOR);
+                return true;
+            } else {
+                parcel.enforceInterface(DESCRIPTOR);
+                boolean isOaidTrackLimited = isOaidTrackLimited();
+                parcel2.writeNoException();
+                parcel2.writeInt(isOaidTrackLimited ? 1 : 0);
+                return true;
+            }
+        }
     }
+
+    String getOaid() throws RemoteException;
+
+    boolean isOaidTrackLimited() throws RemoteException;
 }

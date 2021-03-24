@@ -1,88 +1,101 @@
 package com.baidu.card;
 
 import android.view.View;
-import com.baidu.tbadk.core.data.a;
-/* loaded from: classes.dex */
-public class AutoVideoCardViewHolder<T extends com.baidu.tbadk.core.data.a> extends ThreadCardViewHolder<T> implements com.baidu.tieba.play.e {
-    private as ahv;
+import d.b.h0.r.q.a;
+import d.b.i.k0;
+import d.b.i.s0;
+import d.b.i0.i2.e;
+import d.b.i0.i2.o;
+/* loaded from: classes2.dex */
+public class AutoVideoCardViewHolder<T extends a> extends ThreadCardViewHolder<T> implements e {
+    public s0 n;
 
-    public AutoVideoCardViewHolder(ak<T> akVar) {
-        super(akVar);
-        this.ahv = null;
-        if (akVar.tc() instanceof as) {
-            this.ahv = (as) akVar.tc();
+    public AutoVideoCardViewHolder(k0<T> k0Var) {
+        super(k0Var);
+        this.n = null;
+        if (k0Var.f() instanceof s0) {
+            this.n = (s0) k0Var.f();
         }
     }
 
-    public void setVideoStatsData(com.baidu.tieba.play.o oVar) {
-        if (this.ahv != null) {
-            this.ahv.setVideoStatData(oVar);
-        }
-    }
-
-    public as sM() {
-        return this.ahv;
-    }
-
-    @Override // com.baidu.tieba.play.e
-    public boolean isPlayStarted() {
-        if (this.ahv == null) {
+    @Override // d.b.i0.i2.e
+    public boolean D() {
+        s0 s0Var = this.n;
+        if (s0Var == null) {
             return false;
         }
-        return this.ahv.isPlayStarted();
+        return s0Var.D();
     }
 
-    @Override // com.baidu.tieba.play.e
-    public boolean isPlaying() {
-        if (this.ahv == null) {
-            return false;
-        }
-        return this.ahv.isPlaying();
-    }
-
-    @Override // com.baidu.tieba.play.e
-    public boolean isFullScreen() {
-        if (this.ahv == null) {
-            return false;
-        }
-        return this.ahv.isFullScreen();
-    }
-
-    @Override // com.baidu.tieba.play.e
-    public void startPlay() {
-        if (this.ahv != null) {
-            this.ahv.startPlay();
-        }
-    }
-
-    @Override // com.baidu.tieba.play.e
-    public void stopPlay() {
-        if (this.ahv != null) {
-            this.ahv.stopPlay();
-        }
-    }
-
-    @Override // com.baidu.tieba.play.e
-    public View getVideoContainer() {
-        if (this.ahv == null) {
-            return null;
-        }
-        return this.ahv.getVideoContainer();
-    }
-
-    @Override // com.baidu.tieba.play.e
-    public String getPlayUrl() {
-        if (this.ahv == null) {
-            return null;
-        }
-        return this.ahv.getPlayUrl();
-    }
-
-    @Override // com.baidu.tieba.play.e
+    @Override // d.b.i0.i2.e
     public int getCurrentPosition() {
-        if (this.ahv == null) {
+        s0 s0Var = this.n;
+        if (s0Var == null) {
             return 0;
         }
-        return this.ahv.getCurrentPosition();
+        return s0Var.getCurrentPosition();
+    }
+
+    @Override // d.b.i0.i2.e
+    public String getPlayUrl() {
+        s0 s0Var = this.n;
+        if (s0Var == null) {
+            return null;
+        }
+        return s0Var.getPlayUrl();
+    }
+
+    @Override // d.b.i0.i2.e
+    public View getVideoContainer() {
+        s0 s0Var = this.n;
+        if (s0Var == null) {
+            return null;
+        }
+        return s0Var.getVideoContainer();
+    }
+
+    @Override // d.b.i0.i2.e
+    public boolean isPlayStarted() {
+        s0 s0Var = this.n;
+        if (s0Var == null) {
+            return false;
+        }
+        return s0Var.isPlayStarted();
+    }
+
+    @Override // d.b.i0.i2.e
+    public boolean isPlaying() {
+        s0 s0Var = this.n;
+        if (s0Var == null) {
+            return false;
+        }
+        return s0Var.isPlaying();
+    }
+
+    @Override // d.b.i0.i2.e
+    public void startPlay() {
+        s0 s0Var = this.n;
+        if (s0Var != null) {
+            s0Var.startPlay();
+        }
+    }
+
+    @Override // d.b.i0.i2.e
+    public void stopPlay() {
+        s0 s0Var = this.n;
+        if (s0Var != null) {
+            s0Var.stopPlay();
+        }
+    }
+
+    public s0 v() {
+        return this.n;
+    }
+
+    public void w(o oVar) {
+        s0 s0Var = this.n;
+        if (s0Var != null) {
+            s0Var.z(oVar);
+        }
     }
 }

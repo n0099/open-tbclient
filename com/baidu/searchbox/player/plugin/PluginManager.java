@@ -5,10 +5,10 @@ import com.baidu.searchbox.player.BDVideoPlayer;
 import com.baidu.searchbox.player.annotation.PublicMethod;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class PluginManager {
-    private BDVideoPlayer mPlayer;
-    private ArrayList<AbsPlugin> mPlugins = new ArrayList<>();
+    public BDVideoPlayer mPlayer;
+    public ArrayList<AbsPlugin> mPlugins = new ArrayList<>();
 
     public PluginManager(@NonNull BDVideoPlayer bDVideoPlayer) {
         this.mPlayer = bDVideoPlayer;
@@ -18,12 +18,6 @@ public class PluginManager {
     public void addPlugin(AbsPlugin absPlugin) {
         absPlugin.attachManager(this);
         this.mPlugins.add(absPlugin);
-    }
-
-    @PublicMethod
-    public void removePlugin(AbsPlugin absPlugin) {
-        absPlugin.detachManager();
-        this.mPlugins.remove(absPlugin);
     }
 
     @NonNull
@@ -42,5 +36,11 @@ public class PluginManager {
             next.onPluginRelease();
         }
         this.mPlugins.clear();
+    }
+
+    @PublicMethod
+    public void removePlugin(AbsPlugin absPlugin) {
+        absPlugin.detachManager();
+        this.mPlugins.remove(absPlugin);
     }
 }

@@ -3,7 +3,7 @@ package com.baidu.ala.data;
 import android.text.TextUtils;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes.dex */
 public class AlaUserInfoData extends OrmObject {
     public static final int IS_LIVING = 1;
     public long ala_id;
@@ -61,8 +61,16 @@ public class AlaUserInfoData extends OrmObject {
     public int verify_status;
     public int verify_type;
     public int verify_video_status;
+    public long yy_level_exp;
+    public int yy_level_id;
+    public String yy_level_name;
+    public String yy_level_next_name;
+    public long yy_levelup_exp;
 
     public String getNameShow() {
-        return TextUtils.isEmpty(this.user_nickname) ? this.user_name : this.user_nickname;
+        if (TextUtils.isEmpty(this.user_nickname)) {
+            return this.user_name;
+        }
+        return this.user_nickname;
     }
 }

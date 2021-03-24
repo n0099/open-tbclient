@@ -1,13 +1,13 @@
 package com.baidu.mapsdkvi;
 
 import android.content.Context;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    static Context f2298a;
+    public static Context f7914a;
 
     public static Context a() {
-        return f2298a;
+        return f7914a;
     }
 }

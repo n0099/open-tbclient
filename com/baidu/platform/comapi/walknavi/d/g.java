@@ -2,48 +2,62 @@ package com.baidu.platform.comapi.walknavi.d;
 
 import android.text.TextUtils;
 import com.baidu.ar.npc.BaiduArView;
+import com.baidu.platform.comapi.walknavi.fsm.RGState;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import java.util.HashMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class g implements com.baidu.platform.comapi.walknavi.d.a.b.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f2944a = true;
-    private com.baidu.platform.comapi.walknavi.d.b d;
-    private com.baidu.platform.comapi.walknavi.d.a.d e;
-    private boolean g;
-    private boolean l;
-    private a o;
-    private boolean h = false;
-    private String i = null;
-    private boolean j = false;
-    private boolean k = true;
-    public String c = "";
-    private boolean m = true;
-    private boolean n = false;
-    public b b = new b();
-    private com.baidu.platform.comapi.walknavi.d.a.b f = new com.baidu.platform.comapi.walknavi.d.a.b(com.baidu.platform.comapi.wnplatform.o.b.a.a());
+    public static boolean f10021a = true;
 
-    /* loaded from: classes4.dex */
+    /* renamed from: d  reason: collision with root package name */
+    public com.baidu.platform.comapi.walknavi.d.b f10024d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public com.baidu.platform.comapi.walknavi.d.a.d f10025e;
+
+    /* renamed from: g  reason: collision with root package name */
+    public boolean f10027g;
+    public boolean l;
+    public a o;
+
+    /* renamed from: h  reason: collision with root package name */
+    public boolean f10028h = false;
+    public String i = null;
+    public boolean j = false;
+    public boolean k = true;
+
+    /* renamed from: c  reason: collision with root package name */
+    public String f10023c = "";
+    public boolean m = true;
+    public boolean n = false;
+
+    /* renamed from: b  reason: collision with root package name */
+    public b f10022b = new b();
+
+    /* renamed from: f  reason: collision with root package name */
+    public com.baidu.platform.comapi.walknavi.d.a.b f10026f = new com.baidu.platform.comapi.walknavi.d.a.b(com.baidu.platform.comapi.wnplatform.o.b.a.a());
+
+    /* loaded from: classes2.dex */
     public interface a {
         void a(b bVar);
     }
 
-    public String a() {
-        return this.c;
-    }
+    /* loaded from: classes2.dex */
+    public class b {
 
-    public void a(String str) {
-        com.baidu.platform.comapi.walknavi.b.a().H().b("walknavi_current_npc_token", str);
-        this.c = str;
-        this.b.f2945a = str;
-        if (this.o != null) {
-            this.o.a(this.b);
+        /* renamed from: a  reason: collision with root package name */
+        public String f10029a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public String f10030b;
+
+        /* renamed from: c  reason: collision with root package name */
+        public int f10031c;
+
+        public b() {
         }
-    }
-
-    public void a(boolean z) {
-        this.k = z;
     }
 
     public boolean b() {
@@ -54,150 +68,69 @@ public class g implements com.baidu.platform.comapi.walknavi.d.a.b.a {
         return this.l;
     }
 
-    public void b(boolean z) {
-        this.l = z;
-    }
-
-    @Override // com.baidu.platform.comapi.walknavi.d.a.b.a
-    public void a(int i, HashMap<String, Object> hashMap) {
-        if (this.d != null) {
-            this.d.a(i, hashMap);
-        }
-    }
-
-    private void a(long j, String str) {
-        if (f2944a) {
-            com.baidu.platform.comapi.wnplatform.d.a.a("NpcSDKManagerImp", str + "time:" + (System.currentTimeMillis() - j));
-        } else {
-            com.baidu.platform.comapi.wnplatform.d.a.a("NpcSDKManagerImp", str);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void a(com.baidu.platform.comapi.walknavi.d.b bVar) {
-        long currentTimeMillis = System.currentTimeMillis();
-        this.d = bVar;
-        this.e = new com.baidu.platform.comapi.walknavi.d.a.d(com.baidu.platform.comapi.wnplatform.o.b.a.a(), this);
-        a(currentTimeMillis, "createArManager");
-    }
-
     public void d() {
-        this.e.a(45.0f);
+        this.f10025e.a(45.0f);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public boolean e() {
-        if (this.e != null) {
-            this.g = true;
+        if (this.f10025e != null) {
+            this.f10027g = true;
         } else {
-            this.g = false;
+            this.f10027g = false;
         }
-        return this.g;
+        return this.f10027g;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void a(String str, int i, int i2) {
-        if (this.e != null) {
-            long currentTimeMillis = System.currentTimeMillis();
-            this.e.b(str, i, i2);
-            this.i = null;
-            a(currentTimeMillis, "switchCase");
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void b(String str, int i, int i2) {
-        if (this.e != null) {
-            long currentTimeMillis = System.currentTimeMillis();
-            this.e.a(str, i, i2);
-            a(currentTimeMillis, MissionEvent.MESSAGE_CREATE);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
     public void f() {
-        if (this.e != null) {
+        if (this.f10025e != null) {
             long currentTimeMillis = System.currentTimeMillis();
-            this.e.d();
+            this.f10025e.d();
             a(currentTimeMillis, MissionEvent.MESSAGE_PAUSE);
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public void g() {
-        if (this.e != null) {
+        if (this.f10025e != null) {
             long currentTimeMillis = System.currentTimeMillis();
-            this.e.e();
+            this.f10025e.e();
             a(currentTimeMillis, "pauseByUser");
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public void h() {
-        if (this.e != null) {
+        if (this.f10025e != null) {
             long currentTimeMillis = System.currentTimeMillis();
-            this.e.c();
+            this.f10025e.c();
             a(currentTimeMillis, "resumeByUser");
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public void i() {
-        if (this.e != null) {
+        if (this.f10025e != null) {
             long currentTimeMillis = System.currentTimeMillis();
-            this.e.b();
+            this.f10025e.b();
             a(currentTimeMillis, MissionEvent.MESSAGE_RESUME);
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public void j() {
-        if (this.e != null) {
+        if (this.f10025e != null) {
             long currentTimeMillis = System.currentTimeMillis();
-            this.e.f();
+            this.f10025e.f();
             this.i = null;
-            this.g = false;
-            this.e = null;
-            this.d = null;
-            this.h = false;
+            this.f10027g = false;
+            this.f10025e = null;
+            this.f10024d = null;
+            this.f10028h = false;
             this.l = false;
             a(currentTimeMillis, MissionEvent.MESSAGE_DESTROY);
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void c(boolean z) {
-        this.h = z;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void a(double d, double d2, double d3, String str) {
-        if (this.h && this.e != null) {
-            this.e.a((float) d, (float) d2, (float) d3, str);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void a(String str, String str2) {
-        if (this.e != null && this.k) {
-            if (!TextUtils.equals(str2, this.i) || TextUtils.equals(str2, "turnAndSayHi")) {
-                this.e.a(str, str2);
-                this.i = str2;
-            }
-        }
-    }
-
-    public boolean b(String str) {
-        if (TextUtils.isEmpty(this.i)) {
-            return TextUtils.equals(str, "enter");
-        }
-        return TextUtils.equals(str, "withoutGPS") || TextUtils.equals(str, "turnRight") || TextUtils.equals(str, "turnLeft") || TextUtils.equals(str, "helpless") || TextUtils.equals(str, "turnAndCry");
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
     public BaiduArView k() {
-        if (this.e != null) {
-            return this.e.a();
+        com.baidu.platform.comapi.walknavi.d.a.d dVar = this.f10025e;
+        if (dVar != null) {
+            return dVar.a();
         }
         return null;
     }
@@ -206,61 +139,145 @@ public class g implements com.baidu.platform.comapi.walknavi.d.a.b.a {
         return this.n;
     }
 
-    public void a(String str, c cVar) {
-        com.baidu.platform.comapi.wnplatform.d.a.a("NpcSDKManagerImp", "download start = ");
-        this.n = true;
-        this.b.b = str;
-        if (this.o != null) {
-            this.o.a(this.b);
-        }
-        this.f.a(str, new h(this, cVar));
-    }
-
-    public void b(String str, c cVar) {
-        this.f.b(str, new i(this, cVar));
-    }
-
     public void m() {
         com.baidu.platform.comapi.wnplatform.d.a.a("NpcSDKManagerImp", "downloadCancel");
         long currentTimeMillis = System.currentTimeMillis();
-        this.f.b();
+        this.f10026f.b();
         a(currentTimeMillis, "downloadCancel");
         this.n = false;
-        this.b.c = 0;
-        this.b.b = "";
+        b bVar = this.f10022b;
+        bVar.f10031c = 0;
+        bVar.f10030b = "";
+    }
+
+    public boolean n() {
+        return this.f10026f.a();
+    }
+
+    public void b(boolean z) {
+        this.l = z;
+    }
+
+    public void c(boolean z) {
+        this.f10028h = z;
+    }
+
+    public String a() {
+        return this.f10023c;
+    }
+
+    public void b(String str, int i, int i2) {
+        if (this.f10025e != null) {
+            long currentTimeMillis = System.currentTimeMillis();
+            this.f10025e.a(str, i, i2);
+            a(currentTimeMillis, MissionEvent.MESSAGE_CREATE);
+        }
     }
 
     public String c(String str) {
         long currentTimeMillis = System.currentTimeMillis();
-        String a2 = this.f.a(str);
+        String a2 = this.f10026f.a(str);
         a(currentTimeMillis, "queryLocalResource");
         return a2;
     }
 
+    public void a(String str) {
+        com.baidu.platform.comapi.walknavi.b.a().H().b("walknavi_current_npc_token", str);
+        this.f10023c = str;
+        b bVar = this.f10022b;
+        bVar.f10029a = str;
+        a aVar = this.o;
+        if (aVar != null) {
+            aVar.a(bVar);
+        }
+    }
+
+    public boolean b(String str) {
+        if (TextUtils.isEmpty(this.i)) {
+            return TextUtils.equals(str, RGState.METHOD_NAME_ENTER);
+        }
+        return TextUtils.equals(str, "withoutGPS") || TextUtils.equals(str, "turnRight") || TextUtils.equals(str, "turnLeft") || TextUtils.equals(str, "helpless") || TextUtils.equals(str, "turnAndCry");
+    }
+
+    public void a(boolean z) {
+        this.k = z;
+    }
+
+    @Override // com.baidu.platform.comapi.walknavi.d.a.b.a
+    public void a(int i, HashMap<String, Object> hashMap) {
+        com.baidu.platform.comapi.walknavi.d.b bVar = this.f10024d;
+        if (bVar == null) {
+            return;
+        }
+        bVar.a(i, hashMap);
+    }
+
+    private void a(long j, String str) {
+        if (f10021a) {
+            com.baidu.platform.comapi.wnplatform.d.a.a("NpcSDKManagerImp", str + "time:" + (System.currentTimeMillis() - j));
+            return;
+        }
+        com.baidu.platform.comapi.wnplatform.d.a.a("NpcSDKManagerImp", str);
+    }
+
+    public void b(String str, c cVar) {
+        this.f10026f.b(str, new i(this, cVar));
+    }
+
+    public void a(com.baidu.platform.comapi.walknavi.d.b bVar) {
+        long currentTimeMillis = System.currentTimeMillis();
+        this.f10024d = bVar;
+        this.f10025e = new com.baidu.platform.comapi.walknavi.d.a.d(com.baidu.platform.comapi.wnplatform.o.b.a.a(), this);
+        a(currentTimeMillis, "createArManager");
+    }
+
+    public void a(String str, int i, int i2) {
+        if (this.f10025e != null) {
+            long currentTimeMillis = System.currentTimeMillis();
+            this.f10025e.b(str, i, i2);
+            this.i = null;
+            a(currentTimeMillis, "switchCase");
+        }
+    }
+
+    public void a(double d2, double d3, double d4, String str) {
+        com.baidu.platform.comapi.walknavi.d.a.d dVar;
+        if (!this.f10028h || (dVar = this.f10025e) == null) {
+            return;
+        }
+        dVar.a((float) d2, (float) d3, (float) d4, str);
+    }
+
+    public void a(String str, String str2) {
+        if (this.f10025e == null || !this.k) {
+            return;
+        }
+        if (!TextUtils.equals(str2, this.i) || TextUtils.equals(str2, "turnAndSayHi")) {
+            this.f10025e.a(str, str2);
+            this.i = str2;
+        }
+    }
+
+    public void a(String str, c cVar) {
+        com.baidu.platform.comapi.wnplatform.d.a.a("NpcSDKManagerImp", "download start = ");
+        this.n = true;
+        b bVar = this.f10022b;
+        bVar.f10030b = str;
+        a aVar = this.o;
+        if (aVar != null) {
+            aVar.a(bVar);
+        }
+        this.f10026f.a(str, new h(this, cVar));
+    }
+
     public boolean a(String str, boolean z) {
         long currentTimeMillis = System.currentTimeMillis();
-        boolean a2 = this.f.a(str, z);
+        boolean a2 = this.f10026f.a(str, z);
         a(currentTimeMillis, "clearARResource");
         return a2;
     }
 
-    public boolean n() {
-        return this.f.a();
-    }
-
     public void a(a aVar) {
         this.o = aVar;
-    }
-
-    /* loaded from: classes4.dex */
-    public class b {
-
-        /* renamed from: a  reason: collision with root package name */
-        public String f2945a;
-        public String b;
-        public int c;
-
-        public b() {
-        }
     }
 }

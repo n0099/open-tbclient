@@ -2,67 +2,85 @@ package com.baidu.webkit.net;
 
 import com.baidu.webkit.net.BdNetTask;
 import com.baidu.webkit.sdk.Log;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class f {
-    private static final String b = f.class.getSimpleName();
+
+    /* renamed from: b  reason: collision with root package name */
+    public static final String f27051b = "f";
 
     /* renamed from: a  reason: collision with root package name */
-    BdNetTask f3869a;
-    private BdNet c;
-    private BdNetEngine d;
+    public BdNetTask f27052a;
+
+    /* renamed from: c  reason: collision with root package name */
+    public BdNet f27053c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public BdNetEngine f27054d;
 
     public f(BdNet bdNet) {
-        this.c = bdNet;
+        this.f27053c = bdNet;
     }
 
     public final void a(BdNetEngine bdNetEngine) {
-        this.d = bdNetEngine;
-        this.d.setEventListener(this.c);
+        this.f27054d = bdNetEngine;
+        bdNetEngine.setEventListener(this.f27053c);
     }
 
     public final boolean a() {
-        return this.f3869a != null;
+        return this.f27052a != null;
     }
 
     public final boolean a(BdNetTask bdNetTask) {
+        e a2;
+        int taskPriority$78f3a484;
+        BdNetEngine bdNetEngine;
+        BdNetTask bdNetTask2;
         if (bdNetTask == null) {
             return false;
         }
         try {
-            this.f3869a = bdNetTask;
-            this.f3869a.setNet(this.c);
-            this.f3869a.setWorker(this);
-            if (e.a().c == null) {
-                e.a().c = this.c.getContext();
+            this.f27052a = bdNetTask;
+            bdNetTask.setNet(this.f27053c);
+            this.f27052a.setWorker(this);
+            if (e.a().f27050c == null) {
+                e.a().f27050c = this.f27053c.getContext();
             }
-            this.d = e.a().e();
-            if (this.d != null) {
-                this.d.setEventListener(this.c);
+            BdNetEngine e2 = e.a().e();
+            this.f27054d = e2;
+            if (e2 != null) {
+                e2.setEventListener(this.f27053c);
                 e.a();
                 if (!e.b()) {
-                    this.d.startDownload(this.f3869a);
-                } else if (this.f3869a.isHigherPriority()) {
-                    this.d.startDownload(this.f3869a);
+                    bdNetEngine = this.f27054d;
+                    bdNetTask2 = this.f27052a;
+                } else if (this.f27052a.isHigherPriority()) {
+                    bdNetEngine = this.f27054d;
+                    bdNetTask2 = this.f27052a;
                 }
+                bdNetEngine.startDownload(bdNetTask2);
             } else {
                 e.a();
-                if (!e.b() || this.f3869a.isHigherPriority()) {
-                    BdNetTask bdNetTask2 = this.f3869a;
-                    if (bdNetTask2.getTaskPriority$78f3a484() == 0) {
-                        e.a().a(bdNetTask2, BdNetTask.b.b - 1);
+                if (!e.b() || this.f27052a.isHigherPriority()) {
+                    BdNetTask bdNetTask3 = this.f27052a;
+                    if (bdNetTask3.getTaskPriority$78f3a484() == 0) {
+                        a2 = e.a();
+                        taskPriority$78f3a484 = BdNetTask.b.f27038b;
                     } else {
-                        e.a().a(bdNetTask2, bdNetTask2.getTaskPriority$78f3a484() - 1);
+                        a2 = e.a();
+                        taskPriority$78f3a484 = bdNetTask3.getTaskPriority$78f3a484();
                     }
+                    a2.a(bdNetTask3, taskPriority$78f3a484 - 1);
                 }
             }
             return true;
-        } catch (Exception e) {
-            if (this.d != null) {
-                this.d.recycle();
+        } catch (Exception unused) {
+            BdNetEngine bdNetEngine2 = this.f27054d;
+            if (bdNetEngine2 != null) {
+                bdNetEngine2.recycle();
             }
-            if (this.c != null) {
-                this.c.startError(bdNetTask);
-                return false;
+            BdNet bdNet = this.f27053c;
+            if (bdNet != null) {
+                bdNet.startError(bdNetTask);
             }
             return false;
         }
@@ -70,13 +88,13 @@ public class f {
 
     public final void b() {
         try {
-            if (this.f3869a != null) {
-                this.f3869a.setWorker(null);
-                this.f3869a.stop();
-                this.f3869a = null;
+            if (this.f27052a != null) {
+                this.f27052a.setWorker(null);
+                this.f27052a.stop();
+                this.f27052a = null;
             }
-        } catch (Exception e) {
-            Log.d(b, "stop Exception", e);
+        } catch (Exception e2) {
+            Log.d(f27051b, "stop Exception", e2);
         }
     }
 }

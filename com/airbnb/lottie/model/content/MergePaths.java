@@ -1,12 +1,21 @@
 package com.airbnb.lottie.model.content;
 
 import androidx.annotation.Nullable;
-/* loaded from: classes5.dex */
+import d.a.a.c;
+import d.a.a.f;
+import d.a.a.q.a.k;
+import d.a.a.s.j.b;
+import d.a.a.s.k.a;
+/* loaded from: classes.dex */
 public class MergePaths implements b {
-    private final MergePathsMode Hs;
-    private final String name;
 
-    /* loaded from: classes5.dex */
+    /* renamed from: a  reason: collision with root package name */
+    public final String f1591a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public final MergePathsMode f1592b;
+
+    /* loaded from: classes.dex */
     public enum MergePathsMode {
         Merge,
         Add,
@@ -15,47 +24,49 @@ public class MergePaths implements b {
         ExcludeIntersections;
 
         public static MergePathsMode forId(int i) {
-            switch (i) {
-                case 1:
-                    return Merge;
-                case 2:
-                    return Add;
-                case 3:
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
+                        if (i != 4) {
+                            if (i != 5) {
+                                return Merge;
+                            }
+                            return ExcludeIntersections;
+                        }
+                        return Intersect;
+                    }
                     return Subtract;
-                case 4:
-                    return Intersect;
-                case 5:
-                    return ExcludeIntersections;
-                default:
-                    return Merge;
+                }
+                return Add;
             }
+            return Merge;
         }
     }
 
     public MergePaths(String str, MergePathsMode mergePathsMode) {
-        this.name = str;
-        this.Hs = mergePathsMode;
+        this.f1591a = str;
+        this.f1592b = mergePathsMode;
     }
 
-    public String getName() {
-        return this.name;
-    }
-
-    public MergePathsMode jA() {
-        return this.Hs;
-    }
-
-    @Override // com.airbnb.lottie.model.content.b
+    @Override // d.a.a.s.j.b
     @Nullable
-    public com.airbnb.lottie.a.a.b a(com.airbnb.lottie.f fVar, com.airbnb.lottie.model.layer.a aVar) {
-        if (fVar.ic()) {
-            return new com.airbnb.lottie.a.a.k(this);
+    public d.a.a.q.a.b a(f fVar, a aVar) {
+        if (!fVar.j()) {
+            c.d("Animation contains merge paths but they are disabled.");
+            return null;
         }
-        com.airbnb.lottie.c.warn("Animation contains merge paths but they are disabled.");
-        return null;
+        return new k(this);
+    }
+
+    public MergePathsMode b() {
+        return this.f1592b;
+    }
+
+    public String c() {
+        return this.f1591a;
     }
 
     public String toString() {
-        return "MergePaths{mode=" + this.Hs + '}';
+        return "MergePaths{mode=" + this.f1592b + '}';
     }
 }

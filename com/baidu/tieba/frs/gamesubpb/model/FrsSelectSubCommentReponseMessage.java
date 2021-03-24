@@ -1,21 +1,24 @@
 package com.baidu.tieba.frs.gamesubpb.model;
 
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
+import d.b.i0.p0.w1.d.c;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class FrsSelectSubCommentReponseMessage extends JsonHttpResponsedMessage {
-    private c mData;
+    public c mData;
 
     public FrsSelectSubCommentReponseMessage() {
-        super(1003379);
+        super(CmdConfigHttp.CMD_SELECT_SUB_COMMENT);
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         super.decodeLogicInBackGround(i, jSONObject);
-        if (!hasError() && jSONObject != null) {
-            this.mData = new c(jSONObject.optJSONObject("data"));
+        if (hasError() || jSONObject == null) {
+            return;
         }
+        this.mData = new c(jSONObject.optJSONObject("data"));
     }
 
     public c getSelectSubCommentData() {

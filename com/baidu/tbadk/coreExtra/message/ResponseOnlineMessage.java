@@ -1,28 +1,37 @@
 package com.baidu.tbadk.coreExtra.message;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.tbadk.lcs.a;
 import com.squareup.wire.Wire;
+import d.b.h0.c0.a;
 import java.util.ArrayList;
 import java.util.List;
 import protobuf.ConfigVersion;
 import protobuf.GroupInfo;
 import protobuf.MaskInfo;
+import protobuf.UpdateClientInfo.DataRes;
 import protobuf.UpdateClientInfo.UpdateClientInfoResIdl;
 import protobuf.UserInfo;
 /* loaded from: classes.dex */
 public class ResponseOnlineMessage extends SocketResponsedMessage {
-    private ConfigVersion configVersion;
-    private List<GroupUpdateMessage> groupInfos;
-    private boolean isUserAvailable;
-    private MaskInfo maskInfo;
+    public ConfigVersion configVersion;
+    public List<GroupUpdateMessage> groupInfos;
+    public boolean isUserAvailable;
+    public MaskInfo maskInfo;
 
     public ResponseOnlineMessage() {
         super(1001);
     }
 
+    public ConfigVersion getConfigVersion() {
+        return this.configVersion;
+    }
+
     public List<GroupUpdateMessage> getGroupInfos() {
         return this.groupInfos;
+    }
+
+    public MaskInfo getMaskInfo() {
+        return this.maskInfo;
     }
 
     public boolean isUserAvailable() {
@@ -33,28 +42,22 @@ public class ResponseOnlineMessage extends SocketResponsedMessage {
         this.isUserAvailable = z;
     }
 
-    public ConfigVersion getConfigVersion() {
-        return this.configVersion;
-    }
-
-    public MaskInfo getMaskInfo() {
-        return this.maskInfo;
-    }
-
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.message.a
+    @Override // com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
     public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         UpdateClientInfoResIdl updateClientInfoResIdl = (UpdateClientInfoResIdl) new Wire(new Class[0]).parseFrom(bArr, UpdateClientInfoResIdl.class);
         setError(updateClientInfoResIdl.error.errorno.intValue());
         setErrorString(updateClientInfoResIdl.error.usermsg);
         if (getError() != 0) {
-            a.d(1001, 0, 2, 0, 0);
+            a.b(1001, 0, 2, 0, 0);
             return;
         }
-        a.d(1001, 0, 1, 0, 0);
+        a.b(1001, 0, 1, 0, 0);
         this.groupInfos = new ArrayList();
-        if (updateClientInfoResIdl.data != null) {
-            int size = updateClientInfoResIdl.data.groupInfo == null ? 0 : updateClientInfoResIdl.data.groupInfo.size();
+        DataRes dataRes = updateClientInfoResIdl.data;
+        if (dataRes != null) {
+            List<GroupInfo> list = dataRes.groupInfo;
+            int size = list == null ? 0 : list.size();
             for (int i2 = 0; i2 < size; i2++) {
                 GroupInfo groupInfo = updateClientInfoResIdl.data.groupInfo.get(i2);
                 GroupUpdateMessage groupUpdateMessage = new GroupUpdateMessage();
@@ -77,9 +80,10 @@ public class ResponseOnlineMessage extends SocketResponsedMessage {
                     settingsSyncMessage.setData(userInfo.portrait);
                 }
             }
-            this.maskInfo = updateClientInfoResIdl.data.maskInfo;
-            this.configVersion = updateClientInfoResIdl.data.configVersion;
-            this.isUserAvailable = updateClientInfoResIdl.data.isUserAvailable.longValue() != 0;
+            DataRes dataRes2 = updateClientInfoResIdl.data;
+            this.maskInfo = dataRes2.maskInfo;
+            this.configVersion = dataRes2.configVersion;
+            this.isUserAvailable = dataRes2.isUserAvailable.longValue() != 0;
         }
     }
 }

@@ -2,24 +2,22 @@ package com.kwad.sdk.crash.model.message;
 
 import androidx.annotation.Nullable;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class JavaExceptionMessage extends ExceptionMessage {
-    private static final long serialVersionUID = -2410125079234148135L;
+    public static final long serialVersionUID = -2410125079234148135L;
 
     public JavaExceptionMessage() {
         this.mExceptionType = 1;
     }
 
     @Override // com.kwad.sdk.crash.model.message.ExceptionMessage
-    protected String getTypePrefix() {
+    public String getTypePrefix() {
         return "";
     }
 
     @Override // com.kwad.sdk.crash.model.message.ExceptionMessage
     public void parseJson(@Nullable JSONObject jSONObject) {
         super.parseJson(jSONObject);
-        if (jSONObject == null) {
-        }
     }
 
     @Override // com.kwad.sdk.crash.model.message.ExceptionMessage, com.kwad.sdk.core.b

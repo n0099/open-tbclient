@@ -1,5 +1,5 @@
 package com.baidu.swan.game.ad.jsbridge;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public enum CommandType {
     ACTION_URL("setActionUrl"),
     GET_CONFS("getConfs"),
@@ -12,7 +12,7 @@ public enum CommandType {
     BANNER_VIEW("banner"),
     UNSPECIFIED("");
     
-    private final String mJavascriptString;
+    public final String mJavascriptString;
 
     CommandType(String str) {
         this.mJavascriptString = str;

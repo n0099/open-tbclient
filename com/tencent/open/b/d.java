@@ -2,22 +2,19 @@ package com.tencent.open.b;
 
 import android.os.SystemClock;
 import com.tencent.open.utils.j;
-/* loaded from: classes14.dex */
+/* loaded from: classes7.dex */
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    protected static d f7964a;
-
-    protected d() {
-    }
+    public static d f39231a;
 
     public static synchronized d a() {
         d dVar;
         synchronized (d.class) {
-            if (f7964a == null) {
-                f7964a = new d();
+            if (f39231a == null) {
+                f39231a = new d();
             }
-            dVar = f7964a;
+            dVar = f39231a;
         }
         return dVar;
     }
@@ -36,9 +33,21 @@ public class d {
 
     public void a(int i, String str, String str2, String str3, String str4, Long l, int i2, int i3, String str5) {
         long elapsedRealtime = SystemClock.elapsedRealtime() - l.longValue();
-        long j = (l.longValue() == 0 || elapsedRealtime < 0) ? 0L : elapsedRealtime;
+        if (l.longValue() == 0 || elapsedRealtime < 0) {
+            elapsedRealtime = 0;
+        }
         StringBuffer stringBuffer = new StringBuffer("https://huatuocode.huatuo.qq.com");
-        stringBuffer.append("?domain=mobile.opensdk.com&cgi=opensdk&type=").append(i).append("&code=").append(i2).append("&time=").append(j).append("&rate=").append(i3).append("&uin=").append(str2).append("&data=");
-        g.a().a(stringBuffer.toString(), "GET", j.a(String.valueOf(i), String.valueOf(i2), String.valueOf(j), String.valueOf(i3), str, str2, str3, str4, str5), true);
+        stringBuffer.append("?domain=mobile.opensdk.com&cgi=opensdk&type=");
+        stringBuffer.append(i);
+        stringBuffer.append("&code=");
+        stringBuffer.append(i2);
+        stringBuffer.append("&time=");
+        stringBuffer.append(elapsedRealtime);
+        stringBuffer.append("&rate=");
+        stringBuffer.append(i3);
+        stringBuffer.append("&uin=");
+        stringBuffer.append(str2);
+        stringBuffer.append("&data=");
+        g.a().a(stringBuffer.toString(), "GET", j.a(String.valueOf(i), String.valueOf(i2), String.valueOf(elapsedRealtime), String.valueOf(i3), str, str2, str3, str4, str5), true);
     }
 }

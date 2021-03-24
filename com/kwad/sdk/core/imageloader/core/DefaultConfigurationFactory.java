@@ -22,7 +22,6 @@ import com.kwad.sdk.core.imageloader.core.download.ImageDownloader;
 import com.kwad.sdk.core.imageloader.utils.L;
 import com.kwad.sdk.core.imageloader.utils.StorageUtils;
 import com.kwad.sdk.utils.ad;
-import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.io.File;
 import java.io.IOException;
 import java.util.concurrent.Executor;
@@ -32,26 +31,26 @@ import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class DefaultConfigurationFactory {
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class DefaultThreadFactory implements ThreadFactory {
-        private static final AtomicInteger poolNumber = new AtomicInteger(1);
-        private final String namePrefix;
-        private final int threadPriority;
-        private final AtomicInteger threadNumber = new AtomicInteger(1);
-        private final ThreadGroup group = Thread.currentThread().getThreadGroup();
+        public static final AtomicInteger poolNumber = new AtomicInteger(1);
+        public final String namePrefix;
+        public final int threadPriority;
+        public final AtomicInteger threadNumber = new AtomicInteger(1);
+        public final ThreadGroup group = Thread.currentThread().getThreadGroup();
 
-        DefaultThreadFactory(int i, String str) {
+        public DefaultThreadFactory(int i, String str) {
             this.threadPriority = i;
             this.namePrefix = str + poolNumber.getAndIncrement() + "-thread-";
         }
 
         @Override // java.util.concurrent.ThreadFactory
         public Thread newThread(Runnable runnable) {
-            Thread thread = new Thread(this.group, runnable, this.namePrefix + this.threadNumber.getAndIncrement(), 0L);
+            ThreadGroup threadGroup = this.group;
+            Thread thread = new Thread(threadGroup, runnable, this.namePrefix + this.threadNumber.getAndIncrement(), 0L);
             if (thread.isDaemon()) {
                 thread.setDaemon(false);
             }
@@ -69,8 +68,8 @@ public class DefaultConfigurationFactory {
         if (j > 0 || i > 0) {
             try {
                 return new LruDiskCache(StorageUtils.getIndividualCacheDirectory(context), createReserveDiskCacheDir, fileNameGenerator, j, i);
-            } catch (IOException e) {
-                L.e(e);
+            } catch (IOException e2) {
+                L.e(e2);
             }
         }
         return new UnlimitedDiskCache(ad.b(context), createReserveDiskCacheDir, fileNameGenerator);
@@ -94,37 +93,41 @@ public class DefaultConfigurationFactory {
 
     public static MemoryCache createMemoryCache(Context context, int i) {
         if (i == 0) {
-            ActivityManager activityManager = (ActivityManager) context.getSystemService(PushConstants.INTENT_ACTIVITY_NAME);
-            i = (((hasHoneycomb() && isLargeHeap(context)) ? getLargeMemoryClass(activityManager) : activityManager.getMemoryClass()) * 1048576) / 8;
+            ActivityManager activityManager = (ActivityManager) context.getSystemService("activity");
+            int memoryClass = activityManager.getMemoryClass();
+            if (hasHoneycomb() && isLargeHeap(context)) {
+                memoryClass = getLargeMemoryClass(activityManager);
+            }
+            i = (memoryClass * 1048576) / 8;
         }
         return new LruMemoryCache(i);
     }
 
-    private static File createReserveDiskCacheDir(Context context) {
-        File b = ad.b(context);
-        File file = new File(b, StorageUtils.INDIVIDUAL_DIR_NAME);
-        return (file.exists() || file.mkdir()) ? file : b;
+    public static File createReserveDiskCacheDir(Context context) {
+        File b2 = ad.b(context);
+        File file = new File(b2, StorageUtils.INDIVIDUAL_DIR_NAME);
+        return (file.exists() || file.mkdir()) ? file : b2;
     }
 
     public static Executor createTaskDistributor() {
         return Executors.newCachedThreadPool(createThreadFactory(5, "uil-pool-d-"));
     }
 
-    private static ThreadFactory createThreadFactory(int i, String str) {
+    public static ThreadFactory createThreadFactory(int i, String str) {
         return new DefaultThreadFactory(i, str);
     }
 
     @TargetApi(11)
-    private static int getLargeMemoryClass(ActivityManager activityManager) {
+    public static int getLargeMemoryClass(ActivityManager activityManager) {
         return activityManager.getLargeMemoryClass();
     }
 
-    private static boolean hasHoneycomb() {
+    public static boolean hasHoneycomb() {
         return Build.VERSION.SDK_INT >= 11;
     }
 
     @TargetApi(11)
-    private static boolean isLargeHeap(Context context) {
+    public static boolean isLargeHeap(Context context) {
         return (context.getApplicationInfo().flags & 1048576) != 0;
     }
 }

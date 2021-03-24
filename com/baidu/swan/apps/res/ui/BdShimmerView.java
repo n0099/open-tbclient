@@ -4,15 +4,73 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
-import com.baidu.swan.apps.a;
 import com.baidu.swan.apps.res.ui.ShimmerFrameLayout;
-/* loaded from: classes8.dex */
-public class BdShimmerView extends ShimmerFrameLayout implements com.baidu.swan.apps.res.widget.loadingview.b<BdShimmerView> {
-    private ImageView dwE;
-    private int mType;
+import d.b.g0.a.e;
+import d.b.g0.a.q1.b.d.b;
+/* loaded from: classes3.dex */
+public class BdShimmerView extends ShimmerFrameLayout implements b<BdShimmerView> {
+    public ImageView w;
+    public int x;
+
+    /* loaded from: classes3.dex */
+    public class a implements d.b.g0.a.x1.a {
+        public a() {
+        }
+    }
 
     public BdShimmerView(Context context) {
         this(context, null, 0);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // d.b.g0.a.q1.b.d.b
+    public BdShimmerView getLoadingView() {
+        return this;
+    }
+
+    @Override // com.baidu.swan.apps.res.ui.ShimmerFrameLayout, android.view.ViewGroup, android.view.View
+    public void onAttachedToWindow() {
+        super.onAttachedToWindow();
+        d.b.g0.a.w0.a.z().f(this, new a());
+    }
+
+    @Override // com.baidu.swan.apps.res.ui.ShimmerFrameLayout, android.view.ViewGroup, android.view.View
+    public void onDetachedFromWindow() {
+        super.onDetachedFromWindow();
+        d.b.g0.a.w0.a.z().g(this);
+    }
+
+    public void setPageResources() {
+        v();
+    }
+
+    public void setType(int i) {
+        this.x = i;
+        v();
+    }
+
+    public void u(Context context) {
+        this.w = new ImageView(context);
+        this.w.setLayoutParams(new FrameLayout.LayoutParams(-2, -2));
+        addView(this.w);
+    }
+
+    public final void v() {
+        int i = this.x;
+        if (i != 0) {
+            if (i != 1) {
+                return;
+            }
+            this.w.setImageDrawable(getResources().getDrawable(e.aiapps_white_shimmer_loading));
+            setMaskShape(ShimmerFrameLayout.MaskShape.WHITE_LINEAR);
+            return;
+        }
+        this.w.setImageDrawable(getResources().getDrawable(e.aiapps_black_shimmer_loading));
+        ShimmerFrameLayout.MaskShape maskShape = ShimmerFrameLayout.MaskShape.LINEAR;
+        if (d.b.g0.a.w0.a.z().a()) {
+            maskShape = ShimmerFrameLayout.MaskShape.WHITE_LINEAR;
+        }
+        setMaskShape(maskShape);
     }
 
     public BdShimmerView(Context context, AttributeSet attributeSet) {
@@ -21,61 +79,6 @@ public class BdShimmerView extends ShimmerFrameLayout implements com.baidu.swan.
 
     public BdShimmerView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        init(context);
-    }
-
-    protected void init(Context context) {
-        this.dwE = new ImageView(context);
-        this.dwE.setLayoutParams(new FrameLayout.LayoutParams(-2, -2));
-        addView(this.dwE);
-    }
-
-    public void setType(int i) {
-        this.mType = i;
-        aGI();
-    }
-
-    private void aGI() {
-        switch (this.mType) {
-            case 0:
-                this.dwE.setImageDrawable(getResources().getDrawable(a.e.aiapps_black_shimmer_loading));
-                ShimmerFrameLayout.MaskShape maskShape = ShimmerFrameLayout.MaskShape.LINEAR;
-                if (com.baidu.swan.apps.t.a.axv().ail()) {
-                    maskShape = ShimmerFrameLayout.MaskShape.WHITE_LINEAR;
-                }
-                setMaskShape(maskShape);
-                return;
-            case 1:
-                this.dwE.setImageDrawable(getResources().getDrawable(a.e.aiapps_white_shimmer_loading));
-                setMaskShape(ShimmerFrameLayout.MaskShape.WHITE_LINEAR);
-                return;
-            default:
-                return;
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.swan.apps.res.ui.ShimmerFrameLayout, android.view.ViewGroup, android.view.View
-    public void onAttachedToWindow() {
-        super.onAttachedToWindow();
-        com.baidu.swan.apps.t.a.axv().a(this, new com.baidu.swan.apps.ai.a() { // from class: com.baidu.swan.apps.res.ui.BdShimmerView.1
-        });
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.swan.apps.res.ui.ShimmerFrameLayout, android.view.ViewGroup, android.view.View
-    public void onDetachedFromWindow() {
-        super.onDetachedFromWindow();
-        com.baidu.swan.apps.t.a.axv().Q(this);
-    }
-
-    public void setPageResources() {
-        aGI();
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.swan.apps.res.widget.loadingview.b
-    public BdShimmerView getLoadingView() {
-        return this;
+        u(context);
     }
 }

@@ -8,35 +8,69 @@ import java.io.ByteArrayOutputStream;
 import java.math.BigInteger;
 import java.nio.charset.Charset;
 import java.util.Arrays;
-/* loaded from: classes4.dex */
-final class DecodedBitStreamParser {
-    private static final int AL = 28;
-    private static final int AS = 27;
-    private static final int BEGIN_MACRO_PDF417_CONTROL_BLOCK = 928;
-    private static final int BEGIN_MACRO_PDF417_OPTIONAL_FIELD = 923;
-    private static final int BYTE_COMPACTION_MODE_LATCH = 901;
-    private static final int BYTE_COMPACTION_MODE_LATCH_6 = 924;
-    private static final int ECI_CHARSET = 927;
-    private static final int ECI_GENERAL_PURPOSE = 926;
-    private static final int ECI_USER_DEFINED = 925;
-    private static final BigInteger[] EXP900;
-    private static final int LL = 27;
-    private static final int MACRO_PDF417_TERMINATOR = 922;
-    private static final int MAX_NUMERIC_CODEWORDS = 15;
-    private static final int ML = 28;
-    private static final int MODE_SHIFT_TO_BYTE_COMPACTION_MODE = 913;
-    private static final int NUMBER_OF_SEQUENCE_CODEWORDS = 2;
-    private static final int NUMERIC_COMPACTION_MODE_LATCH = 902;
-    private static final int PAL = 29;
-    private static final int PL = 25;
-    private static final int PS = 29;
-    private static final int TEXT_COMPACTION_MODE_LATCH = 900;
-    private static final char[] PUNCT_CHARS = ";<>@[\\]_`~!\r\t,:\n-.$/\"|*()?{}'".toCharArray();
-    private static final char[] MIXED_CHARS = "0123456789&\r\t,:#-.$/+%*=^".toCharArray();
-    private static final Charset DEFAULT_ENCODING = Charset.forName("ISO-8859-1");
+/* loaded from: classes6.dex */
+public final class DecodedBitStreamParser {
+    public static final int AL = 28;
+    public static final int AS = 27;
+    public static final int BEGIN_MACRO_PDF417_CONTROL_BLOCK = 928;
+    public static final int BEGIN_MACRO_PDF417_OPTIONAL_FIELD = 923;
+    public static final int BYTE_COMPACTION_MODE_LATCH = 901;
+    public static final int BYTE_COMPACTION_MODE_LATCH_6 = 924;
+    public static final int ECI_CHARSET = 927;
+    public static final int ECI_GENERAL_PURPOSE = 926;
+    public static final int ECI_USER_DEFINED = 925;
+    public static final BigInteger[] EXP900;
+    public static final int LL = 27;
+    public static final int MACRO_PDF417_TERMINATOR = 922;
+    public static final int MAX_NUMERIC_CODEWORDS = 15;
+    public static final int ML = 28;
+    public static final int MODE_SHIFT_TO_BYTE_COMPACTION_MODE = 913;
+    public static final int NUMBER_OF_SEQUENCE_CODEWORDS = 2;
+    public static final int NUMERIC_COMPACTION_MODE_LATCH = 902;
+    public static final int PAL = 29;
+    public static final int PL = 25;
+    public static final int PS = 29;
+    public static final int TEXT_COMPACTION_MODE_LATCH = 900;
+    public static final char[] PUNCT_CHARS = ";<>@[\\]_`~!\r\t,:\n-.$/\"|*()?{}'".toCharArray();
+    public static final char[] MIXED_CHARS = "0123456789&\r\t,:#-.$/+%*=^".toCharArray();
+    public static final Charset DEFAULT_ENCODING = Charset.forName("ISO-8859-1");
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* renamed from: com.google.zxing.pdf417.decoder.DecodedBitStreamParser$1  reason: invalid class name */
+    /* loaded from: classes6.dex */
+    public static /* synthetic */ class AnonymousClass1 {
+        public static final /* synthetic */ int[] $SwitchMap$com$google$zxing$pdf417$decoder$DecodedBitStreamParser$Mode;
+
+        static {
+            int[] iArr = new int[Mode.values().length];
+            $SwitchMap$com$google$zxing$pdf417$decoder$DecodedBitStreamParser$Mode = iArr;
+            try {
+                iArr[Mode.ALPHA.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
+            }
+            try {
+                $SwitchMap$com$google$zxing$pdf417$decoder$DecodedBitStreamParser$Mode[Mode.LOWER.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
+            }
+            try {
+                $SwitchMap$com$google$zxing$pdf417$decoder$DecodedBitStreamParser$Mode[Mode.MIXED.ordinal()] = 3;
+            } catch (NoSuchFieldError unused3) {
+            }
+            try {
+                $SwitchMap$com$google$zxing$pdf417$decoder$DecodedBitStreamParser$Mode[Mode.PUNCT.ordinal()] = 4;
+            } catch (NoSuchFieldError unused4) {
+            }
+            try {
+                $SwitchMap$com$google$zxing$pdf417$decoder$DecodedBitStreamParser$Mode[Mode.ALPHA_SHIFT.ordinal()] = 5;
+            } catch (NoSuchFieldError unused5) {
+            }
+            try {
+                $SwitchMap$com$google$zxing$pdf417$decoder$DecodedBitStreamParser$Mode[Mode.PUNCT_SHIFT.ordinal()] = 6;
+            } catch (NoSuchFieldError unused6) {
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
     public enum Mode {
         ALPHA,
         LOWER,
@@ -52,465 +86,392 @@ final class DecodedBitStreamParser {
         bigIntegerArr[0] = BigInteger.ONE;
         BigInteger valueOf = BigInteger.valueOf(900L);
         EXP900[1] = valueOf;
-        for (int i = 2; i < EXP900.length; i++) {
-            EXP900[i] = EXP900[i - 1].multiply(valueOf);
+        int i = 2;
+        while (true) {
+            BigInteger[] bigIntegerArr2 = EXP900;
+            if (i >= bigIntegerArr2.length) {
+                return;
+            }
+            bigIntegerArr2[i] = bigIntegerArr2[i - 1].multiply(valueOf);
+            i++;
         }
     }
 
-    private DecodedBitStreamParser() {
+    public static int byteCompaction(int i, int[] iArr, Charset charset, int i2, StringBuilder sb) {
+        int i3;
+        int i4;
+        int i5;
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        int i6 = 922;
+        int i7 = 923;
+        int i8 = 928;
+        int i9 = 902;
+        long j = 900;
+        if (i == 901) {
+            int[] iArr2 = new int[6];
+            i3 = i2 + 1;
+            int i10 = iArr[i2];
+            boolean z = false;
+            loop0: while (true) {
+                i4 = 0;
+                long j2 = 0;
+                while (i3 < iArr[0] && !z) {
+                    int i11 = i4 + 1;
+                    iArr2[i4] = i10;
+                    j2 = (j2 * j) + i10;
+                    int i12 = i3 + 1;
+                    i10 = iArr[i3];
+                    if (i10 == 900 || i10 == 901 || i10 == 902 || i10 == 924 || i10 == 928 || i10 == i7 || i10 == i6) {
+                        i3 = i12 - 1;
+                        i4 = i11;
+                        i6 = 922;
+                        i7 = 923;
+                        j = 900;
+                        z = true;
+                    } else if (i11 % 5 != 0 || i11 <= 0) {
+                        i3 = i12;
+                        i4 = i11;
+                        i6 = 922;
+                        i7 = 923;
+                        j = 900;
+                    } else {
+                        int i13 = 0;
+                        while (i13 < 6) {
+                            byteArrayOutputStream.write((byte) (j2 >> ((5 - i13) * 8)));
+                            i13++;
+                            i6 = 922;
+                            i7 = 923;
+                        }
+                        i3 = i12;
+                        j = 900;
+                    }
+                }
+            }
+            if (i3 != iArr[0] || i10 >= 900) {
+                i5 = i4;
+            } else {
+                i5 = i4 + 1;
+                iArr2[i4] = i10;
+            }
+            for (int i14 = 0; i14 < i5; i14++) {
+                byteArrayOutputStream.write((byte) iArr2[i14]);
+            }
+        } else if (i == 924) {
+            int i15 = i2;
+            boolean z2 = false;
+            int i16 = 0;
+            long j3 = 0;
+            while (i15 < iArr[0] && !z2) {
+                int i17 = i15 + 1;
+                int i18 = iArr[i15];
+                if (i18 < 900) {
+                    i16++;
+                    j3 = (j3 * 900) + i18;
+                    i15 = i17;
+                } else {
+                    if (i18 != 900 && i18 != 901 && i18 != i9 && i18 != 924 && i18 != i8) {
+                        if (i18 != 923 && i18 != 922) {
+                            i15 = i17;
+                        }
+                    }
+                    i15 = i17 - 1;
+                    z2 = true;
+                }
+                if (i16 % 5 == 0 && i16 > 0) {
+                    for (int i19 = 0; i19 < 6; i19++) {
+                        byteArrayOutputStream.write((byte) (j3 >> ((5 - i19) * 8)));
+                    }
+                    i16 = 0;
+                    j3 = 0;
+                }
+                i8 = 928;
+                i9 = 902;
+            }
+            i3 = i15;
+        } else {
+            i3 = i2;
+        }
+        sb.append(new String(byteArrayOutputStream.toByteArray(), charset));
+        return i3;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
+    /* JADX WARN: Removed duplicated region for block: B:17:0x004e  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     public static DecoderResult decode(int[] iArr, String str) throws FormatException {
-        int decodeMacroBlock;
+        int i;
         StringBuilder sb = new StringBuilder(iArr.length << 1);
         Charset charset = DEFAULT_ENCODING;
-        int i = 2;
         int i2 = iArr[1];
         PDF417ResultMetadata pDF417ResultMetadata = new PDF417ResultMetadata();
-        while (i < iArr[0]) {
-            switch (i2) {
-                case 900:
-                    decodeMacroBlock = textCompaction(iArr, i, sb);
-                    break;
-                case 901:
-                case 924:
-                    decodeMacroBlock = byteCompaction(i2, iArr, charset, i, sb);
-                    break;
-                case 902:
-                    decodeMacroBlock = numericCompaction(iArr, i, sb);
-                    break;
-                case MODE_SHIFT_TO_BYTE_COMPACTION_MODE /* 913 */:
-                    decodeMacroBlock = i + 1;
-                    sb.append((char) iArr[i]);
-                    break;
-                case 922:
-                case 923:
-                    throw FormatException.getFormatInstance();
-                case 925:
-                    decodeMacroBlock = i + 1;
-                    break;
-                case ECI_GENERAL_PURPOSE /* 926 */:
-                    decodeMacroBlock = i + 2;
-                    break;
-                case ECI_CHARSET /* 927 */:
-                    decodeMacroBlock = i + 1;
-                    charset = Charset.forName(CharacterSetECI.getCharacterSetECIByValue(iArr[i]).name());
-                    break;
-                case 928:
-                    decodeMacroBlock = decodeMacroBlock(iArr, i, pDF417ResultMetadata);
-                    break;
-                default:
-                    decodeMacroBlock = textCompaction(iArr, i - 1, sb);
-                    break;
+        int i3 = 2;
+        while (i3 < iArr[0]) {
+            if (i2 != 913) {
+                switch (i2) {
+                    case 900:
+                        i = textCompaction(iArr, i3, sb);
+                        break;
+                    case 901:
+                        i = byteCompaction(i2, iArr, charset, i3, sb);
+                        break;
+                    case 902:
+                        i = numericCompaction(iArr, i3, sb);
+                        break;
+                    default:
+                        switch (i2) {
+                            case 922:
+                            case 923:
+                                throw FormatException.getFormatInstance();
+                            case 924:
+                                break;
+                            case 925:
+                                i = i3 + 1;
+                                break;
+                            case 926:
+                                i = i3 + 2;
+                                break;
+                            case 927:
+                                i = i3 + 1;
+                                charset = Charset.forName(CharacterSetECI.getCharacterSetECIByValue(iArr[i3]).name());
+                                break;
+                            case 928:
+                                i = decodeMacroBlock(iArr, i3, pDF417ResultMetadata);
+                                break;
+                            default:
+                                i = textCompaction(iArr, i3 - 1, sb);
+                                break;
+                        }
+                }
+            } else {
+                i = i3 + 1;
+                sb.append((char) iArr[i3]);
             }
-            if (decodeMacroBlock < iArr.length) {
-                i = decodeMacroBlock + 1;
-                i2 = iArr[decodeMacroBlock];
+            if (i < iArr.length) {
+                i3 = i + 1;
+                i2 = iArr[i];
             } else {
                 throw FormatException.getFormatInstance();
             }
         }
-        if (sb.length() == 0) {
-            throw FormatException.getFormatInstance();
+        if (sb.length() != 0) {
+            DecoderResult decoderResult = new DecoderResult(null, sb.toString(), null, str);
+            decoderResult.setOther(pDF417ResultMetadata);
+            return decoderResult;
         }
-        DecoderResult decoderResult = new DecoderResult(null, sb.toString(), null, str);
-        decoderResult.setOther(pDF417ResultMetadata);
-        return decoderResult;
+        throw FormatException.getFormatInstance();
     }
 
-    private static int decodeMacroBlock(int[] iArr, int i, PDF417ResultMetadata pDF417ResultMetadata) throws FormatException {
-        if (i + 2 > iArr[0]) {
-            throw FormatException.getFormatInstance();
+    public static String decodeBase900toBase10(int[] iArr, int i) throws FormatException {
+        BigInteger bigInteger = BigInteger.ZERO;
+        for (int i2 = 0; i2 < i; i2++) {
+            bigInteger = bigInteger.add(EXP900[(i - i2) - 1].multiply(BigInteger.valueOf(iArr[i2])));
         }
-        int[] iArr2 = new int[2];
-        int i2 = 0;
-        while (i2 < 2) {
-            iArr2[i2] = iArr[i];
-            i2++;
-            i++;
+        String bigInteger2 = bigInteger.toString();
+        if (bigInteger2.charAt(0) == '1') {
+            return bigInteger2.substring(1);
         }
-        pDF417ResultMetadata.setSegmentIndex(Integer.parseInt(decodeBase900toBase10(iArr2, 2)));
-        StringBuilder sb = new StringBuilder();
-        int textCompaction = textCompaction(iArr, i, sb);
-        pDF417ResultMetadata.setFileId(sb.toString());
-        if (iArr[textCompaction] == 923) {
-            int i3 = textCompaction + 1;
-            int[] iArr3 = new int[iArr[0] - i3];
-            boolean z = false;
-            int i4 = 0;
-            int i5 = i3;
-            while (i5 < iArr[0] && !z) {
-                int i6 = i5 + 1;
-                int i7 = iArr[i5];
-                if (i7 < 900) {
-                    iArr3[i4] = i7;
-                    i4++;
-                    i5 = i6;
-                } else {
-                    switch (i7) {
-                        case 922:
-                            pDF417ResultMetadata.setLastSegment(true);
-                            z = true;
-                            i5 = i6 + 1;
-                            break;
-                        default:
-                            throw FormatException.getFormatInstance();
+        throw FormatException.getFormatInstance();
+    }
+
+    public static int decodeMacroBlock(int[] iArr, int i, PDF417ResultMetadata pDF417ResultMetadata) throws FormatException {
+        if (i + 2 <= iArr[0]) {
+            int[] iArr2 = new int[2];
+            int i2 = 0;
+            while (i2 < 2) {
+                iArr2[i2] = iArr[i];
+                i2++;
+                i++;
+            }
+            pDF417ResultMetadata.setSegmentIndex(Integer.parseInt(decodeBase900toBase10(iArr2, 2)));
+            StringBuilder sb = new StringBuilder();
+            int textCompaction = textCompaction(iArr, i, sb);
+            pDF417ResultMetadata.setFileId(sb.toString());
+            if (iArr[textCompaction] == 923) {
+                int i3 = textCompaction + 1;
+                int[] iArr3 = new int[iArr[0] - i3];
+                boolean z = false;
+                int i4 = 0;
+                while (i3 < iArr[0] && !z) {
+                    int i5 = i3 + 1;
+                    int i6 = iArr[i3];
+                    if (i6 < 900) {
+                        iArr3[i4] = i6;
+                        i3 = i5;
+                        i4++;
+                    } else if (i6 == 922) {
+                        pDF417ResultMetadata.setLastSegment(true);
+                        i3 = i5 + 1;
+                        z = true;
+                    } else {
+                        throw FormatException.getFormatInstance();
                     }
                 }
-            }
-            pDF417ResultMetadata.setOptionalData(Arrays.copyOf(iArr3, i4));
-            return i5;
-        } else if (iArr[textCompaction] == 922) {
-            pDF417ResultMetadata.setLastSegment(true);
-            return textCompaction + 1;
-        } else {
-            return textCompaction;
-        }
-    }
-
-    private static int textCompaction(int[] iArr, int i, StringBuilder sb) {
-        int[] iArr2 = new int[(iArr[0] - i) << 1];
-        int[] iArr3 = new int[(iArr[0] - i) << 1];
-        boolean z = false;
-        int i2 = 0;
-        while (i < iArr[0] && !z) {
-            int i3 = i + 1;
-            int i4 = iArr[i];
-            if (i4 < 900) {
-                iArr2[i2] = i4 / 30;
-                iArr2[i2 + 1] = i4 % 30;
-                i2 += 2;
-                i = i3;
+                pDF417ResultMetadata.setOptionalData(Arrays.copyOf(iArr3, i4));
+                return i3;
+            } else if (iArr[textCompaction] == 922) {
+                pDF417ResultMetadata.setLastSegment(true);
+                return textCompaction + 1;
             } else {
-                switch (i4) {
-                    case 900:
-                        iArr2[i2] = 900;
-                        i2++;
-                        i = i3;
-                        continue;
-                    case 901:
-                    case 902:
-                    case 922:
-                    case 923:
-                    case 924:
-                    case 928:
-                        i = i3 - 1;
-                        z = true;
-                        continue;
-                    case MODE_SHIFT_TO_BYTE_COMPACTION_MODE /* 913 */:
-                        iArr2[i2] = MODE_SHIFT_TO_BYTE_COMPACTION_MODE;
-                        i = i3 + 1;
-                        iArr3[i2] = iArr[i3];
-                        i2++;
-                        continue;
-                    default:
-                        i = i3;
-                        continue;
-                }
+                return textCompaction;
             }
         }
-        decodeTextCompaction(iArr2, iArr3, i2, sb);
-        return i;
+        throw FormatException.getFormatInstance();
     }
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    private static void decodeTextCompaction(int[] iArr, int[] iArr2, int i, StringBuilder sb) {
+    public static void decodeTextCompaction(int[] iArr, int[] iArr2, int i, StringBuilder sb) {
         Mode mode;
-        Mode mode2;
-        Mode mode3 = Mode.ALPHA;
-        Mode mode4 = Mode.ALPHA;
-        int i2 = 0;
-        while (i2 < i) {
-            int i3 = iArr[i2];
-            char c = 0;
-            switch (mode3) {
-                case ALPHA:
-                    if (i3 < 26) {
-                        c = (char) (i3 + 65);
-                        mode = mode4;
-                        mode2 = mode3;
+        int i2;
+        Mode mode2 = Mode.ALPHA;
+        Mode mode3 = mode2;
+        for (int i3 = 0; i3 < i; i3++) {
+            int i4 = iArr[i3];
+            char c2 = ' ';
+            switch (AnonymousClass1.$SwitchMap$com$google$zxing$pdf417$decoder$DecodedBitStreamParser$Mode[mode2.ordinal()]) {
+                case 1:
+                    if (i4 < 26) {
+                        i2 = i4 + 65;
+                        c2 = (char) i2;
                         break;
-                    } else if (i3 != 26) {
-                        if (i3 == 27) {
-                            mode = mode4;
+                    } else if (i4 != 26) {
+                        if (i4 == 27) {
                             mode2 = Mode.LOWER;
-                            break;
-                        } else if (i3 == 28) {
-                            mode = mode4;
+                        } else if (i4 == 28) {
                             mode2 = Mode.MIXED;
+                        } else if (i4 == 29) {
+                            mode = Mode.PUNCT_SHIFT;
+                            c2 = 0;
+                            Mode mode4 = mode;
+                            mode3 = mode2;
+                            mode2 = mode4;
                             break;
-                        } else if (i3 == 29) {
-                            mode = mode3;
-                            mode2 = Mode.PUNCT_SHIFT;
-                            break;
-                        } else if (i3 == MODE_SHIFT_TO_BYTE_COMPACTION_MODE) {
-                            sb.append((char) iArr2[i2]);
-                            mode = mode4;
-                            mode2 = mode3;
+                        } else if (i4 == 913) {
+                            sb.append((char) iArr2[i3]);
+                        } else if (i4 == 900) {
+                            mode2 = Mode.ALPHA;
+                        }
+                        c2 = 0;
+                        break;
+                    }
+                    break;
+                case 2:
+                    if (i4 < 26) {
+                        i2 = i4 + 97;
+                        c2 = (char) i2;
+                        break;
+                    } else if (i4 != 26) {
+                        if (i4 != 27) {
+                            if (i4 == 28) {
+                                mode2 = Mode.MIXED;
+                            } else if (i4 == 29) {
+                                mode = Mode.PUNCT_SHIFT;
+                            } else if (i4 == 913) {
+                                sb.append((char) iArr2[i3]);
+                            } else if (i4 == 900) {
+                                mode2 = Mode.ALPHA;
+                            }
+                            c2 = 0;
                             break;
                         } else {
-                            if (i3 == 900) {
-                                mode = mode4;
-                                mode2 = Mode.ALPHA;
-                                break;
-                            }
-                            mode = mode4;
-                            mode2 = mode3;
-                            break;
+                            mode = Mode.ALPHA_SHIFT;
                         }
-                    } else {
-                        c = ' ';
-                        mode = mode4;
-                        mode2 = mode3;
+                        c2 = 0;
+                        Mode mode42 = mode;
+                        mode3 = mode2;
+                        mode2 = mode42;
                         break;
                     }
-                case LOWER:
-                    if (i3 < 26) {
-                        c = (char) (i3 + 97);
-                        mode = mode4;
+                    break;
+                case 3:
+                    if (i4 < 25) {
+                        c2 = MIXED_CHARS[i4];
+                        break;
+                    } else {
+                        if (i4 == 25) {
+                            mode2 = Mode.PUNCT;
+                        } else if (i4 != 26) {
+                            if (i4 == 27) {
+                                mode2 = Mode.LOWER;
+                            } else if (i4 == 28) {
+                                mode2 = Mode.ALPHA;
+                            } else if (i4 == 29) {
+                                mode = Mode.PUNCT_SHIFT;
+                                c2 = 0;
+                                Mode mode422 = mode;
+                                mode3 = mode2;
+                                mode2 = mode422;
+                                break;
+                            } else if (i4 == 913) {
+                                sb.append((char) iArr2[i3]);
+                            } else if (i4 == 900) {
+                                mode2 = Mode.ALPHA;
+                            }
+                        }
+                        c2 = 0;
+                        break;
+                    }
+                    break;
+                case 4:
+                    if (i4 < 29) {
+                        c2 = PUNCT_CHARS[i4];
+                        break;
+                    } else {
+                        if (i4 == 29) {
+                            mode2 = Mode.ALPHA;
+                        } else if (i4 == 913) {
+                            sb.append((char) iArr2[i3]);
+                        } else if (i4 == 900) {
+                            mode2 = Mode.ALPHA;
+                        }
+                        c2 = 0;
+                        break;
+                    }
+                case 5:
+                    if (i4 < 26) {
+                        c2 = (char) (i4 + 65);
+                    } else if (i4 != 26) {
+                        if (i4 == 900) {
+                            mode2 = Mode.ALPHA;
+                            c2 = 0;
+                            break;
+                        }
+                        mode2 = mode3;
+                        c2 = 0;
+                    }
+                    mode2 = mode3;
+                    break;
+                case 6:
+                    if (i4 < 29) {
+                        c2 = PUNCT_CHARS[i4];
                         mode2 = mode3;
                         break;
-                    } else if (i3 != 26) {
-                        if (i3 == 27) {
-                            mode = mode3;
-                            mode2 = Mode.ALPHA_SHIFT;
-                            break;
-                        } else if (i3 == 28) {
-                            mode = mode4;
-                            mode2 = Mode.MIXED;
-                            break;
-                        } else if (i3 == 29) {
-                            mode = mode3;
-                            mode2 = Mode.PUNCT_SHIFT;
-                            break;
-                        } else if (i3 == MODE_SHIFT_TO_BYTE_COMPACTION_MODE) {
-                            sb.append((char) iArr2[i2]);
-                            mode = mode4;
-                            mode2 = mode3;
-                            break;
+                    } else {
+                        if (i4 == 29) {
+                            mode2 = Mode.ALPHA;
                         } else {
-                            if (i3 == 900) {
-                                mode = mode4;
+                            if (i4 == 913) {
+                                sb.append((char) iArr2[i3]);
+                            } else if (i4 == 900) {
                                 mode2 = Mode.ALPHA;
-                                break;
                             }
-                            mode = mode4;
                             mode2 = mode3;
-                            break;
                         }
-                    } else {
-                        c = ' ';
-                        mode = mode4;
-                        mode2 = mode3;
-                        break;
-                    }
-                case MIXED:
-                    if (i3 < 25) {
-                        c = MIXED_CHARS[i3];
-                        mode = mode4;
-                        mode2 = mode3;
-                        break;
-                    } else if (i3 == 25) {
-                        mode = mode4;
-                        mode2 = Mode.PUNCT;
-                        break;
-                    } else if (i3 != 26) {
-                        if (i3 == 27) {
-                            mode = mode4;
-                            mode2 = Mode.LOWER;
-                            break;
-                        } else if (i3 == 28) {
-                            mode = mode4;
-                            mode2 = Mode.ALPHA;
-                            break;
-                        } else if (i3 == 29) {
-                            mode = mode3;
-                            mode2 = Mode.PUNCT_SHIFT;
-                            break;
-                        } else if (i3 == MODE_SHIFT_TO_BYTE_COMPACTION_MODE) {
-                            sb.append((char) iArr2[i2]);
-                            mode = mode4;
-                            mode2 = mode3;
-                            break;
-                        } else {
-                            if (i3 == 900) {
-                                mode = mode4;
-                                mode2 = Mode.ALPHA;
-                                break;
-                            }
-                            mode = mode4;
-                            mode2 = mode3;
-                            break;
-                        }
-                    } else {
-                        c = ' ';
-                        mode = mode4;
-                        mode2 = mode3;
-                        break;
-                    }
-                case PUNCT:
-                    if (i3 < 29) {
-                        c = PUNCT_CHARS[i3];
-                        mode = mode4;
-                        mode2 = mode3;
-                        break;
-                    } else if (i3 == 29) {
-                        mode = mode4;
-                        mode2 = Mode.ALPHA;
-                        break;
-                    } else if (i3 == MODE_SHIFT_TO_BYTE_COMPACTION_MODE) {
-                        sb.append((char) iArr2[i2]);
-                        mode = mode4;
-                        mode2 = mode3;
-                        break;
-                    } else {
-                        if (i3 == 900) {
-                            mode = mode4;
-                            mode2 = Mode.ALPHA;
-                            break;
-                        }
-                        mode = mode4;
-                        mode2 = mode3;
-                        break;
-                    }
-                case ALPHA_SHIFT:
-                    if (i3 < 26) {
-                        c = (char) (i3 + 65);
-                        mode = mode4;
-                        mode2 = mode4;
-                        break;
-                    } else if (i3 != 26) {
-                        if (i3 == 900) {
-                            mode = mode4;
-                            mode2 = Mode.ALPHA;
-                            break;
-                        }
-                        mode = mode4;
-                        mode2 = mode4;
-                        break;
-                    } else {
-                        c = ' ';
-                        mode = mode4;
-                        mode2 = mode4;
-                        break;
-                    }
-                case PUNCT_SHIFT:
-                    if (i3 < 29) {
-                        c = PUNCT_CHARS[i3];
-                        mode = mode4;
-                        mode2 = mode4;
-                        break;
-                    } else if (i3 == 29) {
-                        mode = mode4;
-                        mode2 = Mode.ALPHA;
-                        break;
-                    } else if (i3 == MODE_SHIFT_TO_BYTE_COMPACTION_MODE) {
-                        sb.append((char) iArr2[i2]);
-                        mode = mode4;
-                        mode2 = mode4;
-                        break;
-                    } else {
-                        if (i3 == 900) {
-                            mode = mode4;
-                            mode2 = Mode.ALPHA;
-                            break;
-                        }
-                        mode = mode4;
-                        mode2 = mode4;
+                        c2 = 0;
                         break;
                     }
                 default:
-                    mode = mode4;
-                    mode2 = mode3;
+                    c2 = 0;
                     break;
             }
-            if (c != 0) {
-                sb.append(c);
+            if (c2 != 0) {
+                sb.append(c2);
             }
-            i2++;
-            mode4 = mode;
-            mode3 = mode2;
         }
     }
 
-    private static int byteCompaction(int i, int[] iArr, Charset charset, int i2, StringBuilder sb) {
-        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-        if (i == 901) {
-            int i3 = 0;
-            long j = 0;
-            int[] iArr2 = new int[6];
-            boolean z = false;
-            int i4 = iArr[i2];
-            int i5 = i2 + 1;
-            while (i5 < iArr[0] && !z) {
-                int i6 = i3 + 1;
-                iArr2[i3] = i4;
-                j = (j * 900) + i4;
-                int i7 = i5 + 1;
-                i4 = iArr[i5];
-                if (i4 == 900 || i4 == 901 || i4 == 902 || i4 == 924 || i4 == 928 || i4 == 923 || i4 == 922) {
-                    i5 = i7 - 1;
-                    z = true;
-                    i3 = i6;
-                } else if (i6 % 5 != 0 || i6 <= 0) {
-                    i3 = i6;
-                    i5 = i7;
-                } else {
-                    for (int i8 = 0; i8 < 6; i8++) {
-                        byteArrayOutputStream.write((byte) (j >> ((5 - i8) * 8)));
-                    }
-                    j = 0;
-                    i3 = 0;
-                    i5 = i7;
-                }
-            }
-            if (i5 == iArr[0] && i4 < 900) {
-                iArr2[i3] = i4;
-                i3++;
-            }
-            for (int i9 = 0; i9 < i3; i9++) {
-                byteArrayOutputStream.write((byte) iArr2[i9]);
-            }
-            i2 = i5;
-        } else if (i == 924) {
-            int i10 = 0;
-            long j2 = 0;
-            boolean z2 = false;
-            while (i2 < iArr[0] && !z2) {
-                int i11 = i2 + 1;
-                int i12 = iArr[i2];
-                if (i12 < 900) {
-                    i10++;
-                    j2 = (j2 * 900) + i12;
-                    i2 = i11;
-                } else if (i12 == 900 || i12 == 901 || i12 == 902 || i12 == 924 || i12 == 928 || i12 == 923 || i12 == 922) {
-                    i2 = i11 - 1;
-                    z2 = true;
-                } else {
-                    i2 = i11;
-                }
-                if (i10 % 5 == 0 && i10 > 0) {
-                    for (int i13 = 0; i13 < 6; i13++) {
-                        byteArrayOutputStream.write((byte) (j2 >> ((5 - i13) * 8)));
-                    }
-                    j2 = 0;
-                    i10 = 0;
-                }
-            }
-        }
-        sb.append(new String(byteArrayOutputStream.toByteArray(), charset));
-        return i2;
-    }
-
-    /* JADX WARN: Code restructure failed: missing block: B:17:0x002c, code lost:
-        r11.append(decodeBase900toBase10(r5, r2));
-        r2 = 0;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    private static int numericCompaction(int[] iArr, int i, StringBuilder sb) throws FormatException {
+    public static int numericCompaction(int[] iArr, int i, StringBuilder sb) throws FormatException {
         int[] iArr2 = new int[15];
         boolean z = false;
         int i2 = 0;
@@ -523,28 +484,57 @@ final class DecodedBitStreamParser {
             if (i4 < 900) {
                 iArr2[i2] = i4;
                 i2++;
-                i = i3;
             } else if (i4 == 900 || i4 == 901 || i4 == 924 || i4 == 928 || i4 == 923 || i4 == 922) {
-                i = i3 - 1;
+                i3--;
                 z = true;
-            } else {
-                i = i3;
             }
-            if (i2 % 15 == 0 || i4 == 902 || z) {
+            if ((i2 % 15 == 0 || i4 == 902 || z) && i2 > 0) {
+                sb.append(decodeBase900toBase10(iArr2, i2));
+                i2 = 0;
             }
+            i = i3;
         }
         return i;
     }
 
-    private static String decodeBase900toBase10(int[] iArr, int i) throws FormatException {
-        BigInteger bigInteger = BigInteger.ZERO;
-        for (int i2 = 0; i2 < i; i2++) {
-            bigInteger = bigInteger.add(EXP900[(i - i2) - 1].multiply(BigInteger.valueOf(iArr[i2])));
+    public static int textCompaction(int[] iArr, int i, StringBuilder sb) {
+        int[] iArr2 = new int[(iArr[0] - i) << 1];
+        int[] iArr3 = new int[(iArr[0] - i) << 1];
+        boolean z = false;
+        int i2 = 0;
+        while (i < iArr[0] && !z) {
+            int i3 = i + 1;
+            int i4 = iArr[i];
+            if (i4 < 900) {
+                iArr2[i2] = i4 / 30;
+                iArr2[i2 + 1] = i4 % 30;
+                i2 += 2;
+            } else if (i4 != 913) {
+                if (i4 != 928) {
+                    switch (i4) {
+                        case 900:
+                            iArr2[i2] = 900;
+                            i2++;
+                            break;
+                        case 901:
+                        case 902:
+                            break;
+                        default:
+                            switch (i4) {
+                            }
+                    }
+                }
+                i = i3 - 1;
+                z = true;
+            } else {
+                iArr2[i2] = 913;
+                i = i3 + 1;
+                iArr3[i2] = iArr[i3];
+                i2++;
+            }
+            i = i3;
         }
-        String bigInteger2 = bigInteger.toString();
-        if (bigInteger2.charAt(0) != '1') {
-            throw FormatException.getFormatInstance();
-        }
-        return bigInteger2.substring(1);
+        decodeTextCompaction(iArr2, iArr3, i2, sb);
+        return i;
     }
 }

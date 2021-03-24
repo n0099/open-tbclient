@@ -3,31 +3,33 @@ package com.baidu.mapapi.synchronization;
 import com.baidu.mapapi.model.CoordUtil;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapsdkplatform.comapi.util.CoordTrans;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class SyncCoordinateConverter {
 
     /* renamed from: a  reason: collision with root package name */
-    private LatLng f2152a;
-    private CoordType b;
+    public LatLng f7356a;
 
-    /* loaded from: classes4.dex */
+    /* renamed from: b  reason: collision with root package name */
+    public CoordType f7357b;
+
+    /* loaded from: classes2.dex */
     public enum CoordType {
         COMMON,
         BD09LL
     }
 
-    private static LatLng a(LatLng latLng) {
+    public static LatLng a(LatLng latLng) {
         return a(latLng, "gcj02");
     }
 
-    private static LatLng a(LatLng latLng, String str) {
+    public static LatLng a(LatLng latLng, String str) {
         if (latLng == null) {
             return null;
         }
         return CoordUtil.Coordinate_encryptEx((float) latLng.longitude, (float) latLng.latitude, str);
     }
 
-    private static LatLng b(LatLng latLng) {
+    public static LatLng b(LatLng latLng) {
         if (latLng == null) {
             return null;
         }
@@ -35,29 +37,29 @@ public class SyncCoordinateConverter {
     }
 
     public LatLng convert() {
-        if (this.f2152a == null) {
+        if (this.f7356a == null) {
             return null;
         }
-        if (this.b == null) {
-            this.b = CoordType.BD09LL;
+        if (this.f7357b == null) {
+            this.f7357b = CoordType.BD09LL;
         }
-        switch (this.b) {
-            case COMMON:
-                return a(this.f2152a);
-            case BD09LL:
-                return b(this.f2152a);
-            default:
+        int i = a.f7361a[this.f7357b.ordinal()];
+        if (i != 1) {
+            if (i != 2) {
                 return null;
+            }
+            return b(this.f7356a);
         }
+        return a(this.f7356a);
     }
 
     public SyncCoordinateConverter coord(LatLng latLng) {
-        this.f2152a = latLng;
+        this.f7356a = latLng;
         return this;
     }
 
     public SyncCoordinateConverter from(CoordType coordType) {
-        this.b = coordType;
+        this.f7357b = coordType;
         return this;
     }
 }

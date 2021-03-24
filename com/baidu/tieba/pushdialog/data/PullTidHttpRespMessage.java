@@ -3,9 +3,9 @@ package com.baidu.tieba.pushdialog.data;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.tieba.pushdialog.PushDialogStatic;
 import tbclient.GetLockWindowTid.GetLockWindowTidResIdl;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class PullTidHttpRespMessage extends HttpResponsedMessage {
-    private String tid;
+    public String tid;
 
     public PullTidHttpRespMessage(int i) {
         super(i);
@@ -16,11 +16,11 @@ public class PullTidHttpRespMessage extends HttpResponsedMessage {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.message.a
+    @Override // com.baidu.adp.framework.message.HttpResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
     public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         try {
-            this.tid = Long.toString(((GetLockWindowTidResIdl) PushDialogStatic.WIRE.parseFrom(bArr, GetLockWindowTidResIdl.class)).data.tid.longValue());
-        } catch (Throwable th) {
+            this.tid = Long.toString(((GetLockWindowTidResIdl) PushDialogStatic.f20620a.parseFrom(bArr, GetLockWindowTidResIdl.class)).data.tid.longValue());
+        } catch (Throwable unused) {
         }
     }
 }

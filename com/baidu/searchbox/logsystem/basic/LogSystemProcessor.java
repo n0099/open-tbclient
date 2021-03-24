@@ -9,6 +9,7 @@ import android.util.Log;
 import android.util.Pair;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.util.io.Closeables;
 import com.baidu.android.util.io.FileUtils;
 import com.baidu.searchbox.logsystem.basic.LokiService;
@@ -30,8 +31,8 @@ import com.baidu.searchbox.logsystem.logsys.eventscene.handler.ForwardingDeviceE
 import com.baidu.searchbox.logsystem.logsys.eventscene.snapshot.DeviceSnapshotType;
 import com.baidu.searchbox.logsystem.util.LLog;
 import com.baidu.searchbox.logsystem.util.Utility;
-import com.kwad.sdk.collector.AppStatusRules;
 import java.io.BufferedReader;
+import java.io.Closeable;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
@@ -44,155 +45,41 @@ import java.util.Set;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class LogSystemProcessor {
-    private static final int KEEP_ALIVE_TIME = 60000;
-    protected static final String TAG = "LogSystemProcessor";
-    private ForwardingDeviceEventSceneHandler mForwardingEventSceneHandler;
-    private Handler mHandler;
+    public static final int KEEP_ALIVE_TIME = 60000;
+    public static final String TAG = "LogSystemProcessor";
+    public ForwardingDeviceEventSceneHandler mForwardingEventSceneHandler;
+    public Handler mHandler;
     @NonNull
-    private ThreadPoolExecutor mProcessExecutor;
-    private List<BaseUploaderStrategy> mUploaderStrategies;
+    public ThreadPoolExecutor mProcessExecutor;
+    public List<BaseUploaderStrategy> mUploaderStrategies;
+
+    /* renamed from: com.baidu.searchbox.logsystem.basic.LogSystemProcessor$4  reason: invalid class name */
+    /* loaded from: classes3.dex */
+    public static /* synthetic */ class AnonymousClass4 {
+        public static final /* synthetic */ int[] $SwitchMap$com$baidu$searchbox$logsystem$logsys$LogType;
+
+        static {
+            int[] iArr = new int[LogType.values().length];
+            $SwitchMap$com$baidu$searchbox$logsystem$logsys$LogType = iArr;
+            try {
+                iArr[LogType.NATIVE_CRASH.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
+            }
+            try {
+                $SwitchMap$com$baidu$searchbox$logsystem$logsys$LogType[LogType.JAVA_CRASH.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
+            }
+            try {
+                $SwitchMap$com$baidu$searchbox$logsystem$logsys$LogType[LogType.NONE.ordinal()] = 3;
+            } catch (NoSuchFieldError unused3) {
+            }
+        }
+    }
 
     public LogSystemProcessor() {
         this(null, null);
-    }
-
-    public LogSystemProcessor(@Nullable ForwardingDeviceEventSceneHandler forwardingDeviceEventSceneHandler) {
-        this(forwardingDeviceEventSceneHandler, null);
-    }
-
-    public LogSystemProcessor(@Nullable ForwardingDeviceEventSceneHandler forwardingDeviceEventSceneHandler, @Nullable List<BaseUploaderStrategy> list) {
-        if (forwardingDeviceEventSceneHandler == null) {
-            this.mForwardingEventSceneHandler = new ForwardingDeviceEventSceneHandler();
-        } else {
-            this.mForwardingEventSceneHandler = forwardingDeviceEventSceneHandler;
-        }
-        this.mForwardingEventSceneHandler.addEventHandleCallback(new DefaultDeviceEventSceneHandler());
-        this.mForwardingEventSceneHandler.addEventHandleCallback(new OOMDeviceEventSceneSceneHandler());
-        this.mForwardingEventSceneHandler.addEventHandleCallback(new SOEventSceneSceneHandler());
-        this.mForwardingEventSceneHandler.addEventHandleCallback(new SQLiteFullSceneHandler());
-        this.mProcessExecutor = new ThreadPoolExecutor(1, 1, AppStatusRules.DEFAULT_GRANULARITY, TimeUnit.MILLISECONDS, new LinkedBlockingQueue());
-        if (list == null) {
-            list = new LinkedList<>();
-            list.add(new LogSystemUploaderStrategy());
-        }
-        this.mUploaderStrategies = list;
-        this.mHandler = new Handler(Looper.getMainLooper());
-    }
-
-    public void process(@NonNull final Service service, final int i, @NonNull LogBaseObject logBaseObject) {
-        Runnable runnable = null;
-        switch (logBaseObject.mLogType) {
-            case NATIVE_CRASH:
-            case JAVA_CRASH:
-                if (logBaseObject instanceof LogObject) {
-                    final LogObject logObject = (LogObject) logBaseObject;
-                    if (TextUtils.isEmpty(logObject.getLogBasicData()) && logObject.getLogBasicDataFile() == null) {
-                        if (LLog.sDebug) {
-                            throw new RuntimeException("if the logType = " + logObject.mLogType.getTypeName() + ", mLogBasicData should not be empty and mLogBasicDataFile should not be null");
-                        }
-                        stopSelfIfNeed(service, i);
-                        return;
-                    } else if (TextUtils.isEmpty(logObject.getProcessName())) {
-                        if (LLog.sDebug) {
-                            throw new RuntimeException("if the logType = " + logObject.mLogType.getTypeName() + "mProcessName should not be null or its length = 0");
-                        }
-                        stopSelfIfNeed(service, i);
-                        return;
-                    } else {
-                        runnable = new Runnable() { // from class: com.baidu.searchbox.logsystem.basic.LogSystemProcessor.1
-                            @Override // java.lang.Runnable
-                            public void run() {
-                                List<LogFile> list;
-                                File file;
-                                File obtainFileDirWithProcessName = LogPipelineSingleton.obtainFileDirWithProcessName(logObject.getProcessName());
-                                if (!obtainFileDirWithProcessName.exists()) {
-                                    obtainFileDirWithProcessName.mkdirs();
-                                }
-                                Context applicationContext = service.getApplicationContext();
-                                if (logObject.getLogBasicDataFile() != null) {
-                                    Pair<String, Boolean> readFile = Utility.readFile(logObject.getLogBasicDataFile(), LokiService.Constant.MAX_LENGTH_OF_STRING_TO_DIRECT_TRANS_WITH_BINDER);
-                                    if (readFile != null && readFile.first != null) {
-                                        logObject.setLogBasicData((String) readFile.first);
-                                        logObject.setLogBasicDataOverflow(((Boolean) readFile.second).booleanValue());
-                                    } else {
-                                        logObject.setLogBasicData("logsystem read file error");
-                                        logObject.setLogBasicDataOverflow(false);
-                                    }
-                                } else {
-                                    logObject.setLogBasicDataFile(new File(obtainFileDirWithProcessName, SnapshotConstant.ProcessConstants.PROCESS_LOG_BASIC_DATA));
-                                    if (Utility.createNewEmptyFile(logObject.getLogBasicDataFile())) {
-                                        FileUtils.saveToFile(logObject.getLogBasicData(), logObject.getLogBasicDataFile(), true);
-                                    }
-                                }
-                                ArrayList obtainProcessLogFiles = logObject.getLogExtraPathNameKeeper() != null ? LogSystemProcessor.this.obtainProcessLogFiles(logObject.getLogExtraPathNameKeeper()) : null;
-                                if (LLog.sDebug) {
-                                    Log.d(LogSystemProcessor.TAG, "processFiles.size = " + (obtainProcessLogFiles != null ? Integer.valueOf(obtainProcessLogFiles.size()) : "null"));
-                                }
-                                Set<LogFile> generateDeviceUploadFile = LogSystemProcessor.this.generateDeviceUploadFile(applicationContext, new EventObject(logObject.mLogType, logObject.getLogBasicData()), obtainFileDirWithProcessName);
-                                if (LLog.sDebug) {
-                                    Log.d(LogSystemProcessor.TAG, "devicesLogFiles.size = " + (generateDeviceUploadFile != null ? Integer.valueOf(generateDeviceUploadFile.size()) : "null"));
-                                }
-                                if (logObject.mLogType == LogType.NATIVE_CRASH) {
-                                    File processCrashpadDir = LogPipelineSingleton.getInstance().getProcessCrashpadDir(logObject.getCrashTAG());
-                                    if (processCrashpadDir != null) {
-                                        list = LogSystemProcessor.this.getCrashpadFile(processCrashpadDir);
-                                        file = processCrashpadDir;
-                                    } else {
-                                        list = null;
-                                        file = processCrashpadDir;
-                                    }
-                                } else {
-                                    list = null;
-                                    file = null;
-                                }
-                                if (LLog.sDebug) {
-                                    Log.d(LogSystemProcessor.TAG, "crashFiles.size = " + (list != null ? Integer.valueOf(list.size()) : "null"));
-                                }
-                                for (int i2 = 0; i2 < LogSystemProcessor.this.mUploaderStrategies.size(); i2++) {
-                                    BaseUploaderStrategy baseUploaderStrategy = (BaseUploaderStrategy) LogSystemProcessor.this.mUploaderStrategies.get(i2);
-                                    if (LLog.sDebug) {
-                                        Log.d(LogSystemProcessor.TAG, "uploaderStrategy = " + baseUploaderStrategy.getClass().getName());
-                                    }
-                                    try {
-                                        baseUploaderStrategy.upload(applicationContext, logObject, obtainProcessLogFiles, generateDeviceUploadFile, list);
-                                    } catch (Exception e) {
-                                        if (LLog.sDebug) {
-                                            e.printStackTrace();
-                                        }
-                                    }
-                                }
-                                LogSystemProcessor.this.deleteLogFiles(logObject, obtainProcessLogFiles, generateDeviceUploadFile, file);
-                                LogSystemProcessor.this.stopSelfIfNeed(service, i);
-                            }
-                        };
-                        break;
-                    }
-                }
-                break;
-            case NONE:
-                runnable = new Runnable() { // from class: com.baidu.searchbox.logsystem.basic.LogSystemProcessor.2
-                    @Override // java.lang.Runnable
-                    public void run() {
-                        int i2 = 0;
-                        while (true) {
-                            int i3 = i2;
-                            if (i3 >= LogSystemProcessor.this.mUploaderStrategies.size()) {
-                                LogSystemProcessor.this.stopSelfIfNeed(service, i);
-                                return;
-                            } else {
-                                ((BaseUploaderStrategy) LogSystemProcessor.this.mUploaderStrategies.get(i3)).upload(service.getApplicationContext());
-                                i2 = i3 + 1;
-                            }
-                        }
-                    }
-                };
-                break;
-        }
-        if (runnable != null) {
-            this.mProcessExecutor.submit(runnable);
-        }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -231,9 +118,115 @@ public class LogSystemProcessor {
                 }
             }
         }
-        if (file != null && file.exists()) {
-            FileUtils.deleteFile(file);
+        if (file == null || !file.exists()) {
+            return;
         }
+        FileUtils.deleteFile(file);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public Set<LogFile> generateDeviceUploadFile(@NonNull Context context, @NonNull EventObject eventObject, @NonNull File file) {
+        Set<LogFile> obtainDeviceSnapShots;
+        if (this.mForwardingEventSceneHandler != null) {
+            HashSet hashSet = new HashSet(5);
+            Set<DeviceSnapshotType> requireGeneralSnapshots = this.mForwardingEventSceneHandler.requireGeneralSnapshots(context, eventObject);
+            if (requireGeneralSnapshots != null && requireGeneralSnapshots.size() > 0 && (obtainDeviceSnapShots = SnapshotUtil.obtainDeviceSnapShots(context, requireGeneralSnapshots, file)) != null && obtainDeviceSnapShots.size() > 0) {
+                hashSet.addAll(obtainDeviceSnapShots);
+            }
+            Set<LogFile> customizedSnapshots = this.mForwardingEventSceneHandler.getCustomizedSnapshots(context, file, eventObject);
+            if (customizedSnapshots != null && customizedSnapshots.size() > 0) {
+                hashSet.addAll(customizedSnapshots);
+            }
+            LogFile obtainFragmentSnapShot = SnapshotUtil.obtainFragmentSnapShot(context, this.mForwardingEventSceneHandler, eventObject, file, SnapshotConstant.DeviceConstants.DEVICE_APP_SHARED_FRAGMENT_FILE);
+            if (obtainFragmentSnapShot == null || !obtainFragmentSnapShot.mFile.exists()) {
+                return hashSet;
+            }
+            hashSet.add(obtainFragmentSnapShot);
+            return hashSet;
+        }
+        return null;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public List<LogFile> getCrashpadFile(@NonNull File file) {
+        File[] listFiles;
+        if (file == null || !file.exists() || (listFiles = file.listFiles()) == null || listFiles.length <= 0) {
+            return null;
+        }
+        LinkedList linkedList = new LinkedList();
+        for (File file2 : listFiles) {
+            LogFile logFile = new LogFile(file2, true, true);
+            if (LLog.sDebug) {
+                Log.d(TAG, logFile.mFile.getAbsolutePath() + StringUtil.ARRAY_ELEMENT_SEPARATOR + logFile.mCanDelete + StringUtil.ARRAY_ELEMENT_SEPARATOR + logFile.mNecessary);
+            }
+            linkedList.add(logFile);
+        }
+        return linkedList;
+    }
+
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:42:0x00c4 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:51:0x0015 */
+    /* JADX INFO: Access modifiers changed from: private */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r0v0 */
+    /* JADX WARN: Type inference failed for: r0v1 */
+    /* JADX WARN: Type inference failed for: r0v2, types: [java.io.Closeable] */
+    /* JADX WARN: Type inference failed for: r0v4, types: [java.util.ArrayList<com.baidu.searchbox.logsystem.logsys.LogFile>] */
+    @Nullable
+    public ArrayList<LogFile> obtainProcessLogFiles(@NonNull File file) {
+        BufferedReader bufferedReader = 0;
+        BufferedReader bufferedReader2 = null;
+        if (file != null && file.exists() && file.isFile()) {
+            ArrayList arrayList = new ArrayList(5);
+            try {
+                try {
+                    BufferedReader bufferedReader3 = new BufferedReader(new FileReader(file));
+                    while (true) {
+                        try {
+                            String readLine = bufferedReader3.readLine();
+                            if (readLine == null) {
+                                break;
+                            } else if (!TextUtils.isEmpty(readLine)) {
+                                if (LLog.sDebug) {
+                                    Log.d(TAG, "pathNameKeep line = " + readLine);
+                                }
+                                String[] split = readLine.split("=");
+                                if (split != null && split.length == 3 && split[0] != null && split[1] != null && split[2] != null) {
+                                    File file2 = new File(split[0].trim());
+                                    if (file2.exists() && file2.isFile()) {
+                                        LogFile logFile = new LogFile(file2, Boolean.valueOf(split[1].trim()).booleanValue(), Boolean.valueOf(split[2].trim()).booleanValue());
+                                        arrayList.add(logFile);
+                                        if (LLog.sDebug) {
+                                            Log.d(TAG, "LogFile = " + logFile.toString());
+                                        }
+                                    }
+                                }
+                            }
+                        } catch (IOException e2) {
+                            e = e2;
+                            bufferedReader2 = bufferedReader3;
+                            e.printStackTrace();
+                            Closeables.closeSafely(bufferedReader2);
+                            bufferedReader = arrayList;
+                            return bufferedReader;
+                        } catch (Throwable th) {
+                            th = th;
+                            bufferedReader = bufferedReader3;
+                            Closeables.closeSafely((Closeable) bufferedReader);
+                            throw th;
+                        }
+                    }
+                    Closeables.closeSafely(bufferedReader3);
+                } catch (Throwable th2) {
+                    th = th2;
+                }
+            } catch (IOException e3) {
+                e = e3;
+            }
+            bufferedReader = arrayList;
+            return bufferedReader;
+        }
+        return null;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -254,103 +247,148 @@ public class LogSystemProcessor {
                     service.stopSelf(i);
                 }
             }
-        }, AppStatusRules.DEFAULT_GRANULARITY);
+        }, 60000L);
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    @Nullable
-    public ArrayList<LogFile> obtainProcessLogFiles(@NonNull File file) {
-        BufferedReader bufferedReader;
-        LogFile logFile;
-        if (file == null || !file.exists() || !file.isFile()) {
-            return null;
-        }
-        ArrayList<LogFile> arrayList = new ArrayList<>(5);
-        try {
-            bufferedReader = new BufferedReader(new FileReader(file));
-            while (true) {
-                try {
-                    try {
-                        String readLine = bufferedReader.readLine();
-                        if (readLine != null) {
-                            if (!TextUtils.isEmpty(readLine)) {
-                                if (LLog.sDebug) {
-                                    Log.d(TAG, "pathNameKeep line = " + readLine);
+    public void process(@NonNull final Service service, final int i, @NonNull LogBaseObject logBaseObject) {
+        Runnable runnable;
+        int i2 = AnonymousClass4.$SwitchMap$com$baidu$searchbox$logsystem$logsys$LogType[logBaseObject.mLogType.ordinal()];
+        if (i2 == 1 || i2 == 2) {
+            if (logBaseObject instanceof LogObject) {
+                final LogObject logObject = (LogObject) logBaseObject;
+                if (TextUtils.isEmpty(logObject.getLogBasicData()) && logObject.getLogBasicDataFile() == null) {
+                    if (!LLog.sDebug) {
+                        stopSelfIfNeed(service, i);
+                        return;
+                    }
+                    throw new RuntimeException("if the logType = " + logObject.mLogType.getTypeName() + ", mLogBasicData should not be empty and mLogBasicDataFile should not be null");
+                } else if (TextUtils.isEmpty(logObject.getProcessName())) {
+                    if (!LLog.sDebug) {
+                        stopSelfIfNeed(service, i);
+                        return;
+                    }
+                    throw new RuntimeException("if the logType = " + logObject.mLogType.getTypeName() + "mProcessName should not be null or its length = 0");
+                } else {
+                    runnable = new Runnable() { // from class: com.baidu.searchbox.logsystem.basic.LogSystemProcessor.1
+                        @Override // java.lang.Runnable
+                        public void run() {
+                            List<LogFile> list;
+                            File file;
+                            Object obj;
+                            File obtainFileDirWithProcessName = LogPipelineSingleton.obtainFileDirWithProcessName(logObject.getProcessName());
+                            if (!obtainFileDirWithProcessName.exists()) {
+                                obtainFileDirWithProcessName.mkdirs();
+                            }
+                            Context applicationContext = service.getApplicationContext();
+                            if (logObject.getLogBasicDataFile() != null) {
+                                Pair<String, Boolean> readFile = Utility.readFile(logObject.getLogBasicDataFile(), LokiService.Constant.MAX_LENGTH_OF_STRING_TO_DIRECT_TRANS_WITH_BINDER);
+                                if (readFile != null && (obj = readFile.first) != null) {
+                                    logObject.setLogBasicData((String) obj);
+                                    logObject.setLogBasicDataOverflow(((Boolean) readFile.second).booleanValue());
+                                } else {
+                                    logObject.setLogBasicData("logsystem read file error");
+                                    logObject.setLogBasicDataOverflow(false);
                                 }
-                                String[] split = readLine.split("=");
-                                if (split != null && split.length == 3 && split[0] != null && split[1] != null && split[2] != null) {
-                                    File file2 = new File(split[0].trim());
-                                    if (file2.exists() && file2.isFile()) {
-                                        arrayList.add(new LogFile(file2, Boolean.valueOf(split[1].trim()).booleanValue(), Boolean.valueOf(split[2].trim()).booleanValue()));
-                                        if (LLog.sDebug) {
-                                            Log.d(TAG, "LogFile = " + logFile.toString());
-                                        }
+                            } else {
+                                logObject.setLogBasicDataFile(new File(obtainFileDirWithProcessName, SnapshotConstant.ProcessConstants.PROCESS_LOG_BASIC_DATA));
+                                if (Utility.createNewEmptyFile(logObject.getLogBasicDataFile())) {
+                                    FileUtils.saveToFile(logObject.getLogBasicData(), logObject.getLogBasicDataFile(), true);
+                                }
+                            }
+                            ArrayList obtainProcessLogFiles = logObject.getLogExtraPathNameKeeper() != null ? LogSystemProcessor.this.obtainProcessLogFiles(logObject.getLogExtraPathNameKeeper()) : null;
+                            boolean z = LLog.sDebug;
+                            Object obj2 = StringUtil.NULL_STRING;
+                            if (z) {
+                                StringBuilder sb = new StringBuilder();
+                                sb.append("processFiles.size = ");
+                                sb.append(obtainProcessLogFiles != null ? Integer.valueOf(obtainProcessLogFiles.size()) : StringUtil.NULL_STRING);
+                                Log.d(LogSystemProcessor.TAG, sb.toString());
+                            }
+                            LogSystemProcessor logSystemProcessor = LogSystemProcessor.this;
+                            LogObject logObject2 = logObject;
+                            Set<LogFile> generateDeviceUploadFile = logSystemProcessor.generateDeviceUploadFile(applicationContext, new EventObject(logObject2.mLogType, logObject2.getLogBasicData()), obtainFileDirWithProcessName);
+                            if (LLog.sDebug) {
+                                StringBuilder sb2 = new StringBuilder();
+                                sb2.append("devicesLogFiles.size = ");
+                                sb2.append(generateDeviceUploadFile != null ? Integer.valueOf(generateDeviceUploadFile.size()) : StringUtil.NULL_STRING);
+                                Log.d(LogSystemProcessor.TAG, sb2.toString());
+                            }
+                            if (logObject.mLogType == LogType.NATIVE_CRASH) {
+                                File processCrashpadDir = LogPipelineSingleton.getInstance().getProcessCrashpadDir(logObject.getCrashTAG());
+                                file = processCrashpadDir;
+                                list = processCrashpadDir != null ? LogSystemProcessor.this.getCrashpadFile(processCrashpadDir) : null;
+                            } else {
+                                list = null;
+                                file = null;
+                            }
+                            if (LLog.sDebug) {
+                                StringBuilder sb3 = new StringBuilder();
+                                sb3.append("crashFiles.size = ");
+                                if (list != null) {
+                                    obj2 = Integer.valueOf(list.size());
+                                }
+                                sb3.append(obj2);
+                                Log.d(LogSystemProcessor.TAG, sb3.toString());
+                            }
+                            for (int i3 = 0; i3 < LogSystemProcessor.this.mUploaderStrategies.size(); i3++) {
+                                BaseUploaderStrategy baseUploaderStrategy = (BaseUploaderStrategy) LogSystemProcessor.this.mUploaderStrategies.get(i3);
+                                if (LLog.sDebug) {
+                                    Log.d(LogSystemProcessor.TAG, "uploaderStrategy = " + baseUploaderStrategy.getClass().getName());
+                                }
+                                try {
+                                    baseUploaderStrategy.upload(applicationContext, logObject, obtainProcessLogFiles, generateDeviceUploadFile, list);
+                                } catch (Exception e2) {
+                                    if (LLog.sDebug) {
+                                        e2.printStackTrace();
                                     }
                                 }
                             }
-                        } else {
-                            Closeables.closeSafely(bufferedReader);
-                            return arrayList;
+                            LogSystemProcessor.this.deleteLogFiles(logObject, obtainProcessLogFiles, generateDeviceUploadFile, file);
+                            LogSystemProcessor.this.stopSelfIfNeed(service, i);
                         }
-                    } catch (IOException e) {
-                        e = e;
-                        e.printStackTrace();
-                        Closeables.closeSafely(bufferedReader);
-                        return arrayList;
-                    }
-                } catch (Throwable th) {
-                    th = th;
-                    Closeables.closeSafely(bufferedReader);
-                    throw th;
+                    };
                 }
             }
-        } catch (IOException e2) {
-            e = e2;
-            bufferedReader = null;
-        } catch (Throwable th2) {
-            th = th2;
-            bufferedReader = null;
-            Closeables.closeSafely(bufferedReader);
-            throw th;
+            runnable = null;
+        } else {
+            if (i2 == 3) {
+                runnable = new Runnable() { // from class: com.baidu.searchbox.logsystem.basic.LogSystemProcessor.2
+                    @Override // java.lang.Runnable
+                    public void run() {
+                        for (int i3 = 0; i3 < LogSystemProcessor.this.mUploaderStrategies.size(); i3++) {
+                            ((BaseUploaderStrategy) LogSystemProcessor.this.mUploaderStrategies.get(i3)).upload(service.getApplicationContext());
+                        }
+                        LogSystemProcessor.this.stopSelfIfNeed(service, i);
+                    }
+                };
+            }
+            runnable = null;
+        }
+        if (runnable != null) {
+            this.mProcessExecutor.submit(runnable);
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public List<LogFile> getCrashpadFile(@NonNull File file) {
-        File[] listFiles;
-        if (file == null || !file.exists() || (listFiles = file.listFiles()) == null || listFiles.length <= 0) {
-            return null;
-        }
-        LinkedList linkedList = new LinkedList();
-        for (File file2 : listFiles) {
-            LogFile logFile = new LogFile(file2, true, true);
-            if (LLog.sDebug) {
-                Log.d(TAG, logFile.mFile.getAbsolutePath() + ", " + logFile.mCanDelete + ", " + logFile.mNecessary);
-            }
-            linkedList.add(logFile);
-        }
-        return linkedList;
+    public LogSystemProcessor(@Nullable ForwardingDeviceEventSceneHandler forwardingDeviceEventSceneHandler) {
+        this(forwardingDeviceEventSceneHandler, null);
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public Set<LogFile> generateDeviceUploadFile(@NonNull Context context, @NonNull EventObject eventObject, @NonNull File file) {
-        Set<LogFile> obtainDeviceSnapShots;
-        HashSet hashSet = null;
-        if (this.mForwardingEventSceneHandler != null) {
-            hashSet = new HashSet(5);
-            Set<DeviceSnapshotType> requireGeneralSnapshots = this.mForwardingEventSceneHandler.requireGeneralSnapshots(context, eventObject);
-            if (requireGeneralSnapshots != null && requireGeneralSnapshots.size() > 0 && (obtainDeviceSnapShots = SnapshotUtil.obtainDeviceSnapShots(context, requireGeneralSnapshots, file)) != null && obtainDeviceSnapShots.size() > 0) {
-                hashSet.addAll(obtainDeviceSnapShots);
-            }
-            Set<LogFile> customizedSnapshots = this.mForwardingEventSceneHandler.getCustomizedSnapshots(context, file, eventObject);
-            if (customizedSnapshots != null && customizedSnapshots.size() > 0) {
-                hashSet.addAll(customizedSnapshots);
-            }
-            LogFile obtainFragmentSnapShot = SnapshotUtil.obtainFragmentSnapShot(context, this.mForwardingEventSceneHandler, eventObject, file, SnapshotConstant.DeviceConstants.DEVICE_APP_SHARED_FRAGMENT_FILE);
-            if (obtainFragmentSnapShot != null && obtainFragmentSnapShot.mFile.exists()) {
-                hashSet.add(obtainFragmentSnapShot);
-            }
+    public LogSystemProcessor(@Nullable ForwardingDeviceEventSceneHandler forwardingDeviceEventSceneHandler, @Nullable List<BaseUploaderStrategy> list) {
+        if (forwardingDeviceEventSceneHandler == null) {
+            this.mForwardingEventSceneHandler = new ForwardingDeviceEventSceneHandler();
+        } else {
+            this.mForwardingEventSceneHandler = forwardingDeviceEventSceneHandler;
         }
-        return hashSet;
+        this.mForwardingEventSceneHandler.addEventHandleCallback(new DefaultDeviceEventSceneHandler());
+        this.mForwardingEventSceneHandler.addEventHandleCallback(new OOMDeviceEventSceneSceneHandler());
+        this.mForwardingEventSceneHandler.addEventHandleCallback(new SOEventSceneSceneHandler());
+        this.mForwardingEventSceneHandler.addEventHandleCallback(new SQLiteFullSceneHandler());
+        this.mProcessExecutor = new ThreadPoolExecutor(1, 1, 60000L, TimeUnit.MILLISECONDS, new LinkedBlockingQueue());
+        if (list == null) {
+            list = new LinkedList<>();
+            list.add(new LogSystemUploaderStrategy());
+        }
+        this.mUploaderStrategies = list;
+        this.mHandler = new Handler(Looper.getMainLooper());
     }
 }

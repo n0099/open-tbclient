@@ -1,26 +1,26 @@
 package com.baidu.tieba.gift.giftTab;
 
 import com.baidu.adp.framework.message.NetMessage;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
-import com.baidu.tbadk.util.v;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import d.b.h0.z0.w;
 import tbclient.GetGiftList.DataReq;
 import tbclient.GetGiftList.GetGiftListReqIdl;
-/* loaded from: classes8.dex */
+/* loaded from: classes4.dex */
 public class DefaultGiftListRequest extends NetMessage {
-    private String from;
-    private long toUserId;
+    public String from;
+    public long toUserId;
 
     public DefaultGiftListRequest() {
-        super(1003045, CmdConfigSocket.CMD_DEFAULT_GIFT_LIST);
+        super(CmdConfigHttp.CMD_DEFAULT_GIFT_LIST, 309054);
     }
 
     @Override // com.baidu.adp.framework.message.NetMessage
-    protected Object encode(boolean z) {
+    public Object encode(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
         builder.scene_from = this.from;
         builder.benefit_userid = Long.valueOf(this.toUserId);
         if (z) {
-            v.b(builder, true);
+            w.a(builder, true);
         }
         GetGiftListReqIdl.Builder builder2 = new GetGiftListReqIdl.Builder();
         builder2.data = builder.build(false);
@@ -31,12 +31,12 @@ public class DefaultGiftListRequest extends NetMessage {
         return this.from;
     }
 
-    public void setFrom(String str) {
-        this.from = str;
-    }
-
     public long getToUserId() {
         return this.toUserId;
+    }
+
+    public void setFrom(String str) {
+        this.from = str;
     }
 
     public void setToUserId(long j) {

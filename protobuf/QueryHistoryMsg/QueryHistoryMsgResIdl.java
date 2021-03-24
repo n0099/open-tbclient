@@ -3,23 +3,12 @@ package protobuf.QueryHistoryMsg;
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
 import protobuf.Error;
-/* loaded from: classes7.dex */
+/* loaded from: classes.dex */
 public final class QueryHistoryMsgResIdl extends Message {
     @ProtoField(tag = 2)
     public final DataRes data;
     @ProtoField(tag = 1)
     public final Error error;
-
-    private QueryHistoryMsgResIdl(Builder builder, boolean z) {
-        super(builder);
-        if (z) {
-            this.error = builder.error;
-            this.data = builder.data;
-            return;
-        }
-        this.error = builder.error;
-        this.data = builder.data;
-    }
 
     /* loaded from: classes7.dex */
     public static final class Builder extends Message.Builder<QueryHistoryMsgResIdl> {
@@ -31,10 +20,11 @@ public final class QueryHistoryMsgResIdl extends Message {
 
         public Builder(QueryHistoryMsgResIdl queryHistoryMsgResIdl) {
             super(queryHistoryMsgResIdl);
-            if (queryHistoryMsgResIdl != null) {
-                this.error = queryHistoryMsgResIdl.error;
-                this.data = queryHistoryMsgResIdl.data;
+            if (queryHistoryMsgResIdl == null) {
+                return;
             }
+            this.error = queryHistoryMsgResIdl.error;
+            this.data = queryHistoryMsgResIdl.data;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -42,5 +32,16 @@ public final class QueryHistoryMsgResIdl extends Message {
         public QueryHistoryMsgResIdl build(boolean z) {
             return new QueryHistoryMsgResIdl(this, z);
         }
+    }
+
+    public QueryHistoryMsgResIdl(Builder builder, boolean z) {
+        super(builder);
+        if (z) {
+            this.error = builder.error;
+            this.data = builder.data;
+            return;
+        }
+        this.error = builder.error;
+        this.data = builder.data;
     }
 }

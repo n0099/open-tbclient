@@ -10,12 +10,12 @@ import java.util.Collections;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public final class Timber {
-    private static final Tree[] TREE_ARRAY_EMPTY = new Tree[0];
-    private static final List<Tree> FOREST = new ArrayList();
-    static volatile Tree[] forestAsArray = TREE_ARRAY_EMPTY;
-    private static final Tree TREE_OF_SOULS = new Tree() { // from class: com.kwai.video.hodor.util.Timber.1
+    public static final Tree[] TREE_ARRAY_EMPTY = new Tree[0];
+    public static final List<Tree> FOREST = new ArrayList();
+    public static volatile Tree[] forestAsArray = TREE_ARRAY_EMPTY;
+    public static final Tree TREE_OF_SOULS = new Tree() { // from class: com.kwai.video.hodor.util.Timber.1
         @Override // com.kwai.video.hodor.util.Timber.Tree
         public void d(String str, Object... objArr) {
             for (Tree tree : Timber.forestAsArray) {
@@ -80,7 +80,7 @@ public final class Timber {
         }
 
         @Override // com.kwai.video.hodor.util.Timber.Tree
-        protected void log(int i, String str, String str2, Throwable th) {
+        public void log(int i, String str, String str2, Throwable th) {
             throw new AssertionError("Missing override for log method.");
         }
 
@@ -169,14 +169,14 @@ public final class Timber {
         }
     };
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class DebugTree extends Tree {
-        private static final Pattern ANONYMOUS_CLASS = Pattern.compile("(\\$\\d+)+$");
-        private static final int CALL_STACK_INDEX = 5;
-        private static final int MAX_LOG_LENGTH = 4000;
-        private static final int MAX_TAG_LENGTH = 23;
+        public static final Pattern ANONYMOUS_CLASS = Pattern.compile("(\\$\\d+)+$");
+        public static final int CALL_STACK_INDEX = 5;
+        public static final int MAX_LOG_LENGTH = 4000;
+        public static final int MAX_TAG_LENGTH = 23;
 
-        protected String createStackElementTag(StackTraceElement stackTraceElement) {
+        public String createStackElementTag(StackTraceElement stackTraceElement) {
             String className = stackTraceElement.getClassName();
             Matcher matcher = ANONYMOUS_CLASS.matcher(className);
             if (matcher.find()) {
@@ -187,20 +187,20 @@ public final class Timber {
         }
 
         @Override // com.kwai.video.hodor.util.Timber.Tree
-        final String getTag() {
+        public final String getTag() {
             String tag = super.getTag();
             if (tag != null) {
                 return tag;
             }
             StackTraceElement[] stackTrace = new Throwable().getStackTrace();
-            if (stackTrace.length <= 5) {
-                throw new IllegalStateException("Synthetic stacktrace didn't have enough elements: are you using proguard?");
+            if (stackTrace.length > 5) {
+                return createStackElementTag(stackTrace[5]);
             }
-            return createStackElementTag(stackTrace[5]);
+            throw new IllegalStateException("Synthetic stacktrace didn't have enough elements: are you using proguard?");
         }
 
         @Override // com.kwai.video.hodor.util.Timber.Tree
-        protected void log(int i, String str, String str2, Throwable th) {
+        public void log(int i, String str, String str2, Throwable th) {
             int min;
             if (str2.length() < 4000) {
                 if (i == 7) {
@@ -236,9 +236,9 @@ public final class Timber {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static abstract class Tree {
-        final ThreadLocal<String> explicitTag = new ThreadLocal<>();
+        public final ThreadLocal<String> explicitTag = new ThreadLocal<>();
 
         private String getStackTraceString(Throwable th) {
             StringWriter stringWriter = new StringWriter(256);
@@ -251,20 +251,22 @@ public final class Timber {
         private void prepareLog(int i, Throwable th, String str, Object... objArr) {
             String tag = getTag();
             if (isLoggable(tag, i)) {
-                String str2 = (str == null || str.length() != 0) ? str : null;
-                if (str2 != null) {
+                if (str != null && str.length() == 0) {
+                    str = null;
+                }
+                if (str != null) {
                     if (objArr != null && objArr.length > 0) {
-                        str2 = formatMessage(str2, objArr);
+                        str = formatMessage(str, objArr);
                     }
                     if (th != null) {
-                        str2 = str2 + "\n" + getStackTraceString(th);
+                        str = str + "\n" + getStackTraceString(th);
                     }
                 } else if (th == null) {
                     return;
                 } else {
-                    str2 = getStackTraceString(th);
+                    str = getStackTraceString(th);
                 }
-                log(i, tag, str2, th);
+                log(i, tag, str, th);
             }
         }
 
@@ -292,11 +294,11 @@ public final class Timber {
             prepareLog(6, th, str, objArr);
         }
 
-        protected String formatMessage(String str, Object[] objArr) {
+        public String formatMessage(String str, Object[] objArr) {
             return String.format(str, objArr);
         }
 
-        String getTag() {
+        public String getTag() {
             String str = this.explicitTag.get();
             if (str != null) {
                 this.explicitTag.remove();
@@ -317,15 +319,15 @@ public final class Timber {
         }
 
         @Deprecated
-        protected boolean isLoggable(int i) {
+        public boolean isLoggable(int i) {
             return true;
         }
 
-        protected boolean isLoggable(String str, int i) {
+        public boolean isLoggable(String str, int i) {
             return isLoggable(i);
         }
 
-        protected abstract void log(int i, String str, String str2, Throwable th);
+        public abstract void log(int i, String str, String str2, Throwable th);
 
         public void log(int i, String str, Object... objArr) {
             prepareLog(i, null, str, objArr);
@@ -376,7 +378,7 @@ public final class Timber {
         }
     }
 
-    private Timber() {
+    public Timber() {
         throw new AssertionError("No instances.");
     }
 

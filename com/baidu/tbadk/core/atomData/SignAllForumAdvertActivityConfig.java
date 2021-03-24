@@ -2,7 +2,7 @@ package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class SignAllForumAdvertActivityConfig extends IntentConfig {
     public static final String AD_PIC = "ad_pic";
     public static final String AD_URL = "ad_url";
@@ -15,7 +15,7 @@ public class SignAllForumAdvertActivityConfig extends IntentConfig {
     public SignAllForumAdvertActivityConfig(Context context, String str, String str2, Boolean bool) {
         super(context);
         getIntent().putExtra(AD_PIC, str);
-        getIntent().putExtra("ad_url", str2);
+        getIntent().putExtra(AD_URL, str2);
         getIntent().putExtra(HAS_PRIVILEGE, bool);
     }
 }

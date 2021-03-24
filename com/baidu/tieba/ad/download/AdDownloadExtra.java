@@ -2,29 +2,43 @@ package com.baidu.tieba.ad.download;
 
 import com.baidu.tieba.ad.download.state.DownloadStatus;
 import java.io.Serializable;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class AdDownloadExtra implements Serializable {
-    private final AdDownloadData mAdDownload;
-    private int mDownloadFakePercent;
-    private String mDownloadFilePath;
+    public final AdDownloadData mAdDownload;
+    public int mDownloadFakePercent;
+    public String mDownloadFilePath;
     public String mDownloadId;
-    private int mPercent;
-    private DownloadStatus mState = DownloadStatus.STATUS_NONE;
+    public int mPercent;
+    public DownloadStatus mState = DownloadStatus.STATUS_NONE;
 
     public AdDownloadExtra(AdDownloadData adDownloadData) {
         this.mAdDownload = adDownloadData;
+    }
+
+    public int getDownloadFakePercent() {
+        return this.mDownloadFakePercent;
+    }
+
+    public String getDownloadFilePath() {
+        return this.mDownloadFilePath;
+    }
+
+    public int getPercent() {
+        int i = this.mPercent;
+        int i2 = this.mDownloadFakePercent;
+        return i > i2 ? i : i2;
     }
 
     public DownloadStatus getStatus() {
         return this.mState;
     }
 
-    public void setStatus(DownloadStatus downloadStatus) {
-        this.mState = downloadStatus;
+    public void setDownloadFakePercent(int i) {
+        this.mDownloadFakePercent = i;
     }
 
-    public int getPercent() {
-        return this.mPercent > this.mDownloadFakePercent ? this.mPercent : this.mDownloadFakePercent;
+    public void setDownloadPath(String str) {
+        this.mDownloadFilePath = str;
     }
 
     public void setPercent(int i) {
@@ -36,19 +50,7 @@ public class AdDownloadExtra implements Serializable {
         setStatus(downloadStatus);
     }
 
-    public void setDownloadPath(String str) {
-        this.mDownloadFilePath = str;
-    }
-
-    public String getDownloadFilePath() {
-        return this.mDownloadFilePath;
-    }
-
-    public void setDownloadFakePercent(int i) {
-        this.mDownloadFakePercent = i;
-    }
-
-    public int getDownloadFakePercent() {
-        return this.mDownloadFakePercent;
+    public void setStatus(DownloadStatus downloadStatus) {
+        this.mState = downloadStatus;
     }
 }

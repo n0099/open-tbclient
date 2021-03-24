@@ -3,43 +3,44 @@ package com.kwai.video.player.kwai_player;
 import android.content.Context;
 import android.text.TextUtils;
 import androidx.annotation.Nullable;
+import com.alipay.sdk.sys.a;
 import com.kwai.video.hodor.util.Timber;
 import com.kwai.video.player.IKwaiMediaPlayer;
 import com.kwai.video.player.PlayerSettingConstants;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public final class KwaiPlayerVodBuilder extends KwaiPlayerBaseBuilder<KwaiPlayerVodBuilder> {
-    private long mAbLoopEndMs;
-    private long mAbLoopStartMs;
-    private long mAppStartTime;
-    private String mAudioStr;
-    private String mCacheKey;
-    private Context mContext;
-    private boolean mDccAlgEnable;
-    private int mDccAlgPreReadMs;
-    private boolean mDisableVodAudio;
-    private boolean mEnableAccurateSeek;
-    private boolean mEnableAudioGain;
-    private boolean mEnableCacheSeek;
-    private boolean mEnableSeekForwardOffset;
-    private boolean mEnableVodAdaptive;
-    private int mManifestType;
-    private long mPreLoadDurationMs;
-    private int mPreLoadVer;
-    private long mSeekAtStart;
-    private int mSpbBufferMs;
-    private int mSpbMaxBufferCostMs;
-    private int mSwitchCode;
-    private int mTh_10;
-    private boolean mUseSpbBuffer;
-    private boolean mVodManifestEnable;
-    private long mVodManifestHeight;
-    private int mVodManifestLowDevice;
-    private int mVodManifestMaxResolution;
-    private int mVodManifestNetType;
-    private String mVodManifestRateConfig;
-    private int mVodManifestSignalStrength;
-    private long mVodManifestWidth;
-    int mVodMaxBufferStrategy;
+    public long mAbLoopEndMs;
+    public long mAbLoopStartMs;
+    public long mAppStartTime;
+    public String mAudioStr;
+    public String mCacheKey;
+    public Context mContext;
+    public boolean mDccAlgEnable;
+    public int mDccAlgPreReadMs;
+    public boolean mDisableVodAudio;
+    public boolean mEnableAccurateSeek;
+    public boolean mEnableAudioGain;
+    public boolean mEnableCacheSeek;
+    public boolean mEnableSeekForwardOffset;
+    public boolean mEnableVodAdaptive;
+    public int mManifestType;
+    public long mPreLoadDurationMs;
+    public int mPreLoadVer;
+    public long mSeekAtStart;
+    public int mSpbBufferMs;
+    public int mSpbMaxBufferCostMs;
+    public int mSwitchCode;
+    public int mTh_10;
+    public boolean mUseSpbBuffer;
+    public boolean mVodManifestEnable;
+    public long mVodManifestHeight;
+    public int mVodManifestLowDevice;
+    public int mVodManifestMaxResolution;
+    public int mVodManifestNetType;
+    public String mVodManifestRateConfig;
+    public int mVodManifestSignalStrength;
+    public long mVodManifestWidth;
+    public int mVodMaxBufferStrategy;
 
     public KwaiPlayerVodBuilder(Context context) {
         super(context);
@@ -77,24 +78,26 @@ public final class KwaiPlayerVodBuilder extends KwaiPlayerBaseBuilder<KwaiPlayer
         this.mContext = context.getApplicationContext();
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwai.video.player.kwai_player.KwaiPlayerBaseBuilder
     public void applyTo(KwaiMediaPlayer kwaiMediaPlayer) {
         super.applyTo(kwaiMediaPlayer);
         Timber.d("applyTo", new Object[0]);
         kwaiMediaPlayer.setupAspectLiveRealTimeReporter(false, null);
         kwaiMediaPlayer.getAspectAwesomeCache().setCacheKey(this.mCacheKey);
-        if (this.mPreLoadDurationMs > 0) {
-            kwaiMediaPlayer._enablePreDemux(this.mPreLoadVer, this.mPreLoadDurationMs);
+        long j = this.mPreLoadDurationMs;
+        if (j > 0) {
+            kwaiMediaPlayer._enablePreDemux(this.mPreLoadVer, j);
         }
-        if (this.mAbLoopEndMs > 0) {
-            kwaiMediaPlayer._enableAbLoop(this.mAbLoopStartMs, this.mAbLoopEndMs);
+        long j2 = this.mAbLoopEndMs;
+        if (j2 > 0) {
+            kwaiMediaPlayer._enableAbLoop(this.mAbLoopStartMs, j2);
         }
-        if (this.mSeekAtStart > 0) {
-            kwaiMediaPlayer.setOption(4, "seek-at-start", this.mSeekAtStart);
+        long j3 = this.mSeekAtStart;
+        if (j3 > 0) {
+            kwaiMediaPlayer.setOption(4, "seek-at-start", j3);
         }
         if (this.mDisableVodAudio) {
-            kwaiMediaPlayer.setOption(4, "an", 1L);
+            kwaiMediaPlayer.setOption(4, a.i, 1L);
         }
         kwaiMediaPlayer.setOption(4, "dcc-alg.config_enabled", this.mDccAlgEnable ? 1L : 0L);
         if (this.mDccAlgEnable) {
@@ -104,8 +107,9 @@ public final class KwaiPlayerVodBuilder extends KwaiPlayerBaseBuilder<KwaiPlayer
         if (this.mUseSpbBuffer) {
             kwaiMediaPlayer._setStartPlayBlockBufferMs(this.mSpbBufferMs, this.mSpbMaxBufferCostMs);
         }
-        if (this.mVodMaxBufferStrategy > 0) {
-            kwaiMediaPlayer.setOption(4, "dcc.max-buffer-strategy", this.mVodMaxBufferStrategy);
+        int i = this.mVodMaxBufferStrategy;
+        if (i > 0) {
+            kwaiMediaPlayer.setOption(4, "dcc.max-buffer-strategy", i);
         }
         kwaiMediaPlayer.setOption(4, "app-start-time", this.mAppStartTime);
         kwaiMediaPlayer.setOption(4, "islive", 0L);
@@ -126,8 +130,9 @@ public final class KwaiPlayerVodBuilder extends KwaiPlayerBaseBuilder<KwaiPlayer
             kwaiMediaPlayer.setOption(1, "manifest_type", this.mManifestType);
             kwaiMediaPlayer.setIsVodAdaptive(true);
         }
-        if (this.mEnableAudioGain) {
-            kwaiMediaPlayer.setOption(4, "audio-gain.enable", this.mEnableAudioGain ? 1L : 0L);
+        boolean z = this.mEnableAudioGain;
+        if (z) {
+            kwaiMediaPlayer.setOption(4, "audio-gain.enable", z ? 1L : 0L);
             kwaiMediaPlayer.setOption(4, "audio-gain.audio_str", this.mAudioStr);
         }
         if (this.mEnableVodAdaptive) {
@@ -149,7 +154,6 @@ public final class KwaiPlayerVodBuilder extends KwaiPlayerBaseBuilder<KwaiPlayer
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwai.video.player.kwai_player.KwaiPlayerBaseBuilder
     public KwaiPlayerVodBuilder self() {
         return this;

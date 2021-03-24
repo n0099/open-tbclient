@@ -12,21 +12,20 @@ import android.view.WindowManager;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.message.ConfigChangeMessage;
 import com.baidu.tbadk.core.message.KeyBoardSwitchMessage;
 import com.baidu.tbadk.core.message.WindowSwitchMessage;
 import com.baidu.tieba.R;
-import com.baidu.tieba.v.c;
-import com.baidu.webkit.internal.GlobalConstants;
-/* loaded from: classes.dex */
+import d.b.b.e.p.l;
+import d.b.i0.o3.c;
+/* loaded from: classes3.dex */
 public class KuangFloatingWindowController {
-    private View mFloatingView;
-    private WindowManager manager;
-    private static KuangFloatingWindowController instance = null;
     public static boolean currentStatus = false;
-    private CustomMessageListener mKeyBoardSwitchListener = new CustomMessageListener(2001013) { // from class: com.baidu.tbadk.KuangFloatingWindowController.1
+    public static KuangFloatingWindowController instance;
+    public View mFloatingView;
+    public WindowManager manager;
+    public CustomMessageListener mKeyBoardSwitchListener = new CustomMessageListener(2001013) { // from class: com.baidu.tbadk.KuangFloatingWindowController.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -40,7 +39,7 @@ public class KuangFloatingWindowController {
             }
         }
     };
-    private CustomMessageListener mDialogListener = new CustomMessageListener(2001014) { // from class: com.baidu.tbadk.KuangFloatingWindowController.2
+    public CustomMessageListener mDialogListener = new CustomMessageListener(2001014) { // from class: com.baidu.tbadk.KuangFloatingWindowController.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -54,7 +53,7 @@ public class KuangFloatingWindowController {
             }
         }
     };
-    private CustomMessageListener mConfigChange = new CustomMessageListener(2001015) { // from class: com.baidu.tbadk.KuangFloatingWindowController.3
+    public CustomMessageListener mConfigChange = new CustomMessageListener(2001015) { // from class: com.baidu.tbadk.KuangFloatingWindowController.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -68,6 +67,21 @@ public class KuangFloatingWindowController {
         }
     };
 
+    private int getHeightPx() {
+        DisplayMetrics displayMetrics = new DisplayMetrics();
+        Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
+        if (currentActivity == null) {
+            return l.g(TbadkCoreApplication.getInst(), R.dimen.tbds800);
+        }
+        WindowManager windowManager = (WindowManager) currentActivity.getSystemService("window");
+        windowManager.getDefaultDisplay().getMetrics(displayMetrics);
+        int orientation = windowManager.getDefaultDisplay().getOrientation();
+        if (orientation != 1 && orientation != 3) {
+            return displayMetrics.heightPixels;
+        }
+        return displayMetrics.widthPixels;
+    }
+
     public static KuangFloatingWindowController getInstance() {
         if (instance == null) {
             instance = new KuangFloatingWindowController();
@@ -75,40 +89,65 @@ public class KuangFloatingWindowController {
         return instance;
     }
 
-    public boolean init() {
-        if (this.mFloatingView == null) {
-            this.mFloatingView = LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(R.layout.floating_window_from_kuang, (ViewGroup) null);
-            this.mFloatingView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.KuangFloatingWindowController.4
-                @Override // android.view.View.OnClickListener
-                public void onClick(View view) {
-                    TbSingleton.getInstance().isShowBackLabel = false;
-                    KuangFloatingWindowController.this.hideFloatingView();
-                    Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
-                    if (currentActivity != null) {
-                        currentActivity.moveTaskToBack(true);
-                    }
-                    Intent launchIntentForPackage = TbadkCoreApplication.getInst().getPackageManager().getLaunchIntentForPackage(GlobalConstants.SEARCHBOX_PACKAGE_NAME);
-                    if (launchIntentForPackage != null) {
-                        launchIntentForPackage.addFlags(268435456);
-                        TbadkCoreApplication.getInst().startActivity(launchIntentForPackage);
-                    }
-                }
-            });
-        } else if (this.mFloatingView.getParent() != null) {
-            return false;
+    public void hideFloatingView() {
+        if (this.manager == null) {
+            this.manager = (WindowManager) TbadkCoreApplication.getInst().getSystemService("window");
         }
+        View view = this.mFloatingView;
+        if (view == null || view.getParent() == null) {
+            return;
+        }
+        try {
+            if (Build.VERSION.SDK_INT >= 23 && !Settings.canDrawOverlays(TbadkCoreApplication.getInst().getContext())) {
+                this.manager = null;
+                this.mFloatingView = null;
+                return;
+            }
+            this.manager.removeView(this.mFloatingView);
+            currentStatus = false;
+        } catch (SecurityException unused) {
+            this.manager = null;
+            this.mFloatingView = null;
+        }
+    }
+
+    public boolean init() {
+        View view = this.mFloatingView;
+        if (view != null) {
+            return view.getParent() == null;
+        }
+        View inflate = LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(R.layout.floating_window_from_kuang, (ViewGroup) null);
+        this.mFloatingView = inflate;
+        inflate.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.KuangFloatingWindowController.4
+            @Override // android.view.View.OnClickListener
+            public void onClick(View view2) {
+                TbSingleton.getInstance().isShowBackLabel = false;
+                KuangFloatingWindowController.this.hideFloatingView();
+                Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
+                if (currentActivity != null) {
+                    currentActivity.moveTaskToBack(true);
+                }
+                Intent launchIntentForPackage = TbadkCoreApplication.getInst().getPackageManager().getLaunchIntentForPackage("com.baidu.searchbox");
+                if (launchIntentForPackage != null) {
+                    launchIntentForPackage.addFlags(268435456);
+                    TbadkCoreApplication.getInst().startActivity(launchIntentForPackage);
+                }
+            }
+        });
         return true;
     }
 
     public void showFloatingView() {
         WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams();
-        layoutParams.type = c.Kw(2002);
+        layoutParams.type = c.a(2002);
         layoutParams.flags = 65800;
         layoutParams.format = -3;
         layoutParams.x = 0;
-        layoutParams.y = (int) (0.75d * getHeightPx());
+        double heightPx = getHeightPx();
+        Double.isNaN(heightPx);
+        layoutParams.y = (int) (heightPx * 0.75d);
         layoutParams.width = -2;
-        layoutParams.height = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds84);
+        layoutParams.height = l.g(TbadkCoreApplication.getInst(), R.dimen.tbds84);
         layoutParams.gravity = 51;
         if (this.manager == null) {
             this.manager = (WindowManager) TbadkCoreApplication.getInst().getSystemService("window");
@@ -126,44 +165,9 @@ public class KuangFloatingWindowController {
                 MessageManager.getInstance().registerListener(this.mDialogListener);
                 MessageManager.getInstance().registerListener(this.mConfigChange);
             }
-        } catch (SecurityException e) {
+        } catch (SecurityException unused) {
             this.manager = null;
             this.mFloatingView = null;
         }
-    }
-
-    public void hideFloatingView() {
-        if (this.manager == null) {
-            this.manager = (WindowManager) TbadkCoreApplication.getInst().getSystemService("window");
-        }
-        if (this.mFloatingView != null && this.mFloatingView.getParent() != null) {
-            try {
-                if (Build.VERSION.SDK_INT >= 23 && !Settings.canDrawOverlays(TbadkCoreApplication.getInst().getContext())) {
-                    this.manager = null;
-                    this.mFloatingView = null;
-                } else {
-                    this.manager.removeView(this.mFloatingView);
-                    currentStatus = false;
-                }
-            } catch (SecurityException e) {
-                this.manager = null;
-                this.mFloatingView = null;
-            }
-        }
-    }
-
-    private int getHeightPx() {
-        DisplayMetrics displayMetrics = new DisplayMetrics();
-        Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
-        if (currentActivity == null) {
-            return l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds800);
-        }
-        WindowManager windowManager = (WindowManager) currentActivity.getSystemService("window");
-        windowManager.getDefaultDisplay().getMetrics(displayMetrics);
-        int orientation = windowManager.getDefaultDisplay().getOrientation();
-        if (orientation == 1 || orientation == 3) {
-            return displayMetrics.widthPixels;
-        }
-        return displayMetrics.heightPixels;
     }
 }

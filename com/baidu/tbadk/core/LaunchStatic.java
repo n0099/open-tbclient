@@ -7,8 +7,7 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
-import com.baidu.live.adp.lib.stats.BdStatsConstant;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.browser.ShareWebActivity;
 import com.baidu.tbadk.browser.TbWebViewActivity;
 import com.baidu.tbadk.clientConfig.ClientConfigHttpProtoResponse;
@@ -22,15 +21,24 @@ import com.baidu.tbadk.core.atomData.UpdateDialogConfig;
 import com.baidu.tbadk.core.atomData.UpdateInfoServiceConfig;
 import com.baidu.tbadk.core.data.ExceptionData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.d.l;
-import com.baidu.tbadk.core.util.d.m;
-import com.baidu.tbadk.core.util.d.n;
-import com.baidu.tbadk.core.util.d.o;
-import com.baidu.tbadk.core.util.d.p;
-import com.baidu.tbadk.core.util.d.q;
-import com.baidu.tbadk.core.util.d.r;
-import com.baidu.tbadk.core.util.d.s;
-import com.baidu.tbadk.core.util.d.t;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.baidu.tbadk.core.util.resourceLoaderProc.BigImageLoaderProc;
+import com.baidu.tbadk.core.util.resourceLoaderProc.BigdayImageLoaderProc;
+import com.baidu.tbadk.core.util.resourceLoaderProc.EmotionShareLoaderProc;
+import com.baidu.tbadk.core.util.resourceLoaderProc.FlutterLoaderProc;
+import com.baidu.tbadk.core.util.resourceLoaderProc.ImageLoaderProc;
+import com.baidu.tbadk.core.util.resourceLoaderProc.LocalFileDrawableLoaderProc;
+import com.baidu.tbadk.core.util.resourceLoaderProc.LocalFileImageLoaderProc;
+import com.baidu.tbadk.core.util.resourceLoaderProc.LocalFileImageLoaderProc2;
+import com.baidu.tbadk.core.util.resourceLoaderProc.LocalPicDrawableLoaderProc;
+import com.baidu.tbadk.core.util.resourceLoaderProc.LocalVideoThumbLoaderProc;
+import com.baidu.tbadk.core.util.resourceLoaderProc.MemeLoaderProc2;
+import com.baidu.tbadk.core.util.resourceLoaderProc.NinePatchLoaderProc;
+import com.baidu.tbadk.core.util.resourceLoaderProc.PortraitBlurLoaderProc;
+import com.baidu.tbadk.core.util.resourceLoaderProc.PortraitLoaderProc;
+import com.baidu.tbadk.core.util.resourceLoaderProc.SimpleBlurLoaderProc;
+import com.baidu.tbadk.core.util.resourceLoaderProc.SimpleForeverLoaderProc;
+import com.baidu.tbadk.core.util.resourceLoaderProc.SimpleLoaderProc;
 import com.baidu.tbadk.coreExtra.InitUserNameDialogActivity;
 import com.baidu.tbadk.switchs.SyncSwitch;
 import com.baidu.tbadk.task.TbHttpMessageTask;
@@ -41,30 +49,84 @@ import com.baidu.tieba.service.FatalErrorService;
 import com.baidu.tieba.service.TiebaSyncService;
 import com.baidu.tieba.service.UpdateInfoService;
 import com.baidu.tieba.wallet.WalletStaticInit;
+import d.b.b.e.l.d;
+import d.b.i0.d1.h.i;
 import java.util.HashMap;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class LaunchStatic {
-    static {
-        initRegisterIntent();
-        initRegisterTask();
-        initRegisterListeners();
-        bkU();
-        SyncSwitch.initSyncSwitch();
-        com.baidu.tieba.tbadkCore.location.a.init();
-        com.baidu.tieba.im.widget.b.cYr();
-        com.baidu.tieba.im.b.init();
-        ImMemoryCacheRegister.cXf();
-        com.baidu.tieba.im.db.i.cVQ();
-        com.baidu.tbadk.browser.c.init();
-        i.init();
-        WalletStaticInit.init();
-        com.baidu.tbadk.core.diskCache.a.init();
-        com.baidu.tbadk.core.frameworkData.c.init();
-        com.baidu.tbadk.plugin.a.init();
-        com.baidu.tbadk.j.a.init();
+
+    /* loaded from: classes3.dex */
+    public static class a implements CustomMessageTask.CustomRunnable<HashMap<String, String>> {
+        @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+        public CustomResponsedMessage<String> run(CustomMessage<HashMap<String, String>> customMessage) {
+            HashMap<String, String> data = customMessage.getData();
+            Intent intent = new Intent(TbadkCoreApplication.getInst().getContext(), FatalErrorService.class);
+            if (data != null && IntentConfig.START.equals(data.get("type"))) {
+                intent.putExtra("uname", data.get("uname"));
+                intent.putExtra("uid", data.get("uid"));
+                TbadkCoreApplication.getInst().getContext().startService(intent);
+                return null;
+            } else if (IntentConfig.STOP.equals(data)) {
+                TbadkCoreApplication.getInst().getContext().stopService(intent);
+                return null;
+            } else {
+                return null;
+            }
+        }
     }
 
-    private static void initRegisterIntent() {
+    /* loaded from: classes3.dex */
+    public static class b extends CustomMessageListener {
+        public b(int i) {
+            super(i);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            if (customResponsedMessage == null || customResponsedMessage.getData() == null || !(customResponsedMessage.getData() instanceof ExceptionData) || !((ExceptionData) customResponsedMessage.getData()).info.contains("java.lang.SecurityException: No permission to modify given thread")) {
+                return;
+            }
+            TbadkCoreApplication.getInst().setWebviewCrashCount(TbadkCoreApplication.getInst().getWebviewCrashCount() + 1);
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public static class c extends CustomMessageListener {
+        public c(int i) {
+            super(i);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2010001 && (customResponsedMessage.getData() instanceof String)) {
+                BdStatisticsManager.getInstance().resetSwitch((String) customResponsedMessage.getData());
+            }
+        }
+    }
+
+    static {
+        a();
+        d();
+        b();
+        c();
+        SyncSwitch.initSyncSwitch();
+        d.b.i0.c3.m0.a.a();
+        d.b.i0.d1.y.b.a();
+        d.b.i0.d1.b.a();
+        ImMemoryCacheRegister.j();
+        i.i();
+        d.b.h0.l.c.e();
+        d.b.h0.r.i.a();
+        WalletStaticInit.init();
+        d.b.h0.r.t.a.d();
+        d.b.h0.r.x.c.a();
+        d.b.h0.n0.a.c();
+        d.b.h0.o.a.d();
+    }
+
+    public static void a() {
         TbadkCoreApplication.getInst().RegisterIntent(UpdateDialogConfig.class, UpdateDialog.class);
         TbadkCoreApplication.getInst().RegisterIntent(LcUpdateDialogActivityConfig.class, LcUpdateDialogActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(UpdateInfoServiceConfig.class, UpdateInfoService.class);
@@ -74,88 +136,55 @@ public class LaunchStatic {
         TbadkCoreApplication.getInst().RegisterIntent(InitUserNameDialogActivityConfig.class, InitUserNameDialogActivity.class);
     }
 
-    private static void initRegisterTask() {
-        CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.TIEBA_FATAL_ERROR, new CustomMessageTask.CustomRunnable<HashMap<String, String>>() { // from class: com.baidu.tbadk.core.LaunchStatic.1
-            @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-            public CustomResponsedMessage<String> run(CustomMessage<HashMap<String, String>> customMessage) {
-                HashMap<String, String> data = customMessage.getData();
-                Intent intent = new Intent(TbadkCoreApplication.getInst().getContext(), FatalErrorService.class);
-                if (data != null && "start".equals(data.get("type"))) {
-                    intent.putExtra(BdStatsConstant.StatsKey.UNAME, data.get(BdStatsConstant.StatsKey.UNAME));
-                    intent.putExtra("uid", data.get("uid"));
-                    TbadkCoreApplication.getInst().getContext().startService(intent);
-                    return null;
-                } else if ("stop".equals(data)) {
-                    TbadkCoreApplication.getInst().getContext().stopService(intent);
-                    return null;
-                } else {
-                    return null;
-                }
-            }
-        });
+    public static void b() {
+        MessageManager.getInstance().registerListener(new b(2016301));
+        MessageManager.getInstance().registerListener(new c(2010001));
+    }
+
+    public static void c() {
+        d.h().o(10, new SimpleLoaderProc(true, true, false, 10));
+        d.h().o(11, new SimpleLoaderProc(false, true, false, 10));
+        d.h().o(42, new SimpleLoaderProc(true, false, false, 10));
+        d.h().o(13, new SimpleLoaderProc(true, true, false, 13));
+        d.h().o(14, new SimpleLoaderProc(false, true, false, 13));
+        d.h().o(17, new SimpleLoaderProc(true, true, false, 17));
+        d.h().o(18, new SimpleLoaderProc(false, true, false, 17));
+        d.h().o(39, new SimpleBlurLoaderProc(true, 39));
+        d.h().o(12, new PortraitLoaderProc(false, false, 12));
+        d.h().o(26, new PortraitLoaderProc(true, false, 26));
+        d.h().o(28, new PortraitLoaderProc(false, false, 26));
+        d.h().o(40, new PortraitBlurLoaderProc(false, false, 40));
+        d.h().o(19, new NinePatchLoaderProc(19));
+        d.h().o(24, new LocalPicDrawableLoaderProc(24));
+        d.h().o(25, new PortraitLoaderProc(false, true, 26));
+        d.h().o(27, new BigImageLoaderProc(27));
+        d.h().o(29, new SimpleForeverLoaderProc(true, 29));
+        d.h().o(32, new LocalFileDrawableLoaderProc(32));
+        d.h().o(23, new d.b.h0.r.g0.b.c());
+        d.h().o(33, new MemeLoaderProc2());
+        d.h().o(34, new EmotionShareLoaderProc());
+        d.h().o(35, new LocalFileImageLoaderProc(160, 160));
+        d.h().o(36, new LocalFileImageLoaderProc());
+        d.h().o(43, new LocalFileImageLoaderProc2());
+        d.h().o(37, new LocalVideoThumbLoaderProc());
+        d.h().o(38, new ImageLoaderProc());
+        d.h().o(41, new BigdayImageLoaderProc());
+        d.h().o(44, new FlutterLoaderProc(true, 44, false));
+        d.h().o(15, new SimpleLoaderProc(false, true, true, 15));
+        d.h().o(16, new SimpleLoaderProc(false, true, true, 16));
+        d.h().o(21, new SimpleLoaderProc(false, true, true, 21));
+        d.h().o(30, new SimpleLoaderProc(true, true, false, 30));
+        d.h().o(31, new SimpleLoaderProc(false, true, false, 30));
+    }
+
+    public static void d() {
+        CustomMessageTask customMessageTask = new CustomMessageTask(2006002, new a());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
-        com.baidu.tbadk.getUserInfo.b.bCL().registerTask();
-        com.baidu.tieba.tbadkCore.a.a.c(303039, ClientConfigSocketResponse.class, false);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CLIENT_CONFIG, com.baidu.tieba.tbadkCore.a.a.bV("c/s/getClientConfig", 303039));
+        d.b.h0.z.b.a().c();
+        d.b.i0.c3.d0.a.f(303039, ClientConfigSocketResponse.class, false);
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CLIENT_CONFIG, d.b.i0.c3.d0.a.a(TbConfig.GET_PAY_CONFIG, 303039));
         tbHttpMessageTask.setResponsedClass(ClientConfigHttpProtoResponse.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
-    }
-
-    private static void initRegisterListeners() {
-        MessageManager.getInstance().registerListener(new CustomMessageListener(CmdConfigCustom.UEXCEPTION_MESSAGE) { // from class: com.baidu.tbadk.core.LaunchStatic.2
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.adp.framework.listener.MessageListener
-            public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof ExceptionData) && ((ExceptionData) customResponsedMessage.getData()).info.contains("java.lang.SecurityException: No permission to modify given thread")) {
-                    TbadkCoreApplication.getInst().setWebviewCrashCount(TbadkCoreApplication.getInst().getWebviewCrashCount() + 1);
-                }
-            }
-        });
-        MessageManager.getInstance().registerListener(new CustomMessageListener(CmdConfigCustom.CMD_DEBUGLOG_SPECIFIED) { // from class: com.baidu.tbadk.core.LaunchStatic.3
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.adp.framework.listener.MessageListener
-            public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2010001 && (customResponsedMessage.getData() instanceof String)) {
-                    BdStatisticsManager.getInstance().resetSwitch((String) customResponsedMessage.getData());
-                }
-            }
-        });
-    }
-
-    private static void bkU() {
-        com.baidu.adp.lib.e.d.mw().a(10, new t(true, true, false, 10));
-        com.baidu.adp.lib.e.d.mw().a(11, new t(false, true, false, 10));
-        com.baidu.adp.lib.e.d.mw().a(42, new t(true, false, false, 10));
-        com.baidu.adp.lib.e.d.mw().a(13, new t(true, true, false, 13));
-        com.baidu.adp.lib.e.d.mw().a(14, new t(false, true, false, 13));
-        com.baidu.adp.lib.e.d.mw().a(17, new t(true, true, false, 17));
-        com.baidu.adp.lib.e.d.mw().a(18, new t(false, true, false, 17));
-        com.baidu.adp.lib.e.d.mw().a(39, new r(true, 39));
-        com.baidu.adp.lib.e.d.mw().a(12, new q(false, false, 12));
-        com.baidu.adp.lib.e.d.mw().a(26, new q(true, false, 26));
-        com.baidu.adp.lib.e.d.mw().a(28, new q(false, false, 26));
-        com.baidu.adp.lib.e.d.mw().a(40, new p(false, false, 40));
-        com.baidu.adp.lib.e.d.mw().a(19, new o(19));
-        com.baidu.adp.lib.e.d.mw().a(24, new l(24));
-        com.baidu.adp.lib.e.d.mw().a(25, new q(false, true, 26));
-        com.baidu.adp.lib.e.d.mw().a(27, new com.baidu.tbadk.core.util.d.b(27));
-        com.baidu.adp.lib.e.d.mw().a(29, new s(true, 29));
-        com.baidu.adp.lib.e.d.mw().a(32, new com.baidu.tbadk.core.util.d.i(32));
-        com.baidu.adp.lib.e.d.mw().a(23, new com.baidu.tbadk.core.voice.a.c());
-        com.baidu.adp.lib.e.d.mw().a(33, new n());
-        com.baidu.adp.lib.e.d.mw().a(34, new com.baidu.tbadk.core.util.d.e());
-        com.baidu.adp.lib.e.d.mw().a(35, new com.baidu.tbadk.core.util.d.j(160, 160));
-        com.baidu.adp.lib.e.d.mw().a(36, new com.baidu.tbadk.core.util.d.j());
-        com.baidu.adp.lib.e.d.mw().a(43, new com.baidu.tbadk.core.util.d.k());
-        com.baidu.adp.lib.e.d.mw().a(37, new m());
-        com.baidu.adp.lib.e.d.mw().a(38, new com.baidu.tbadk.core.util.d.h());
-        com.baidu.adp.lib.e.d.mw().a(41, new com.baidu.tbadk.core.util.d.c());
-        com.baidu.adp.lib.e.d.mw().a(44, new com.baidu.tbadk.core.util.d.f(true, 44, false));
-        com.baidu.adp.lib.e.d.mw().a(15, new t(false, true, true, 15));
-        com.baidu.adp.lib.e.d.mw().a(16, new t(false, true, true, 16));
-        com.baidu.adp.lib.e.d.mw().a(21, new t(false, true, true, 21));
-        com.baidu.adp.lib.e.d.mw().a(30, new t(true, true, false, 30));
-        com.baidu.adp.lib.e.d.mw().a(31, new t(false, true, false, 30));
     }
 }

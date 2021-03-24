@@ -1,6 +1,6 @@
 package io.flutter.plugin.common;
 
-import com.baidu.appsearch.update.patchupdate.GDiffPatcher;
+import com.google.zxing.common.StringUtils;
 import java.io.ByteArrayOutputStream;
 import java.math.BigInteger;
 import java.nio.ByteBuffer;
@@ -10,70 +10,81 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes14.dex */
+/* loaded from: classes7.dex */
 public class StandardMessageCodec implements MessageCodec<Object> {
-    private static final byte BIGINT = 5;
-    private static final byte BYTE_ARRAY = 8;
-    private static final byte DOUBLE = 6;
-    private static final byte DOUBLE_ARRAY = 11;
-    private static final byte FALSE = 2;
+    public static final byte BIGINT = 5;
+    public static final byte BYTE_ARRAY = 8;
+    public static final byte DOUBLE = 6;
+    public static final byte DOUBLE_ARRAY = 11;
+    public static final byte FALSE = 2;
     public static final StandardMessageCodec INSTANCE = new StandardMessageCodec();
-    private static final byte INT = 3;
-    private static final byte INT_ARRAY = 9;
-    private static final byte LIST = 12;
-    private static final boolean LITTLE_ENDIAN;
-    private static final byte LONG = 4;
-    private static final byte LONG_ARRAY = 10;
-    private static final byte MAP = 13;
-    private static final byte NULL = 0;
-    private static final byte STRING = 7;
-    private static final String TAG = "StandardMessageCodec#";
-    private static final byte TRUE = 1;
-    private static final Charset UTF8;
+    public static final byte INT = 3;
+    public static final byte INT_ARRAY = 9;
+    public static final byte LIST = 12;
+    public static final boolean LITTLE_ENDIAN;
+    public static final byte LONG = 4;
+    public static final byte LONG_ARRAY = 10;
+    public static final byte MAP = 13;
+    public static final byte NULL = 0;
+    public static final byte STRING = 7;
+    public static final String TAG = "StandardMessageCodec#";
+    public static final byte TRUE = 1;
+    public static final Charset UTF8;
+
+    /* loaded from: classes7.dex */
+    public static final class ExposedByteArrayOutputStream extends ByteArrayOutputStream {
+        public byte[] buffer() {
+            return ((ByteArrayOutputStream) this).buf;
+        }
+    }
 
     static {
         LITTLE_ENDIAN = ByteOrder.nativeOrder() == ByteOrder.LITTLE_ENDIAN;
-        UTF8 = Charset.forName("UTF8");
+        UTF8 = Charset.forName(StringUtils.UTF8);
     }
 
-    @Override // io.flutter.plugin.common.MessageCodec
-    public ByteBuffer encodeMessage(Object obj) {
-        if (obj == null) {
-            return null;
+    public static final void readAlignment(ByteBuffer byteBuffer, int i) {
+        int position = byteBuffer.position() % i;
+        if (position != 0) {
+            byteBuffer.position((byteBuffer.position() + i) - position);
         }
-        ExposedByteArrayOutputStream exposedByteArrayOutputStream = new ExposedByteArrayOutputStream();
-        writeValue(exposedByteArrayOutputStream, obj);
-        ByteBuffer allocateDirect = ByteBuffer.allocateDirect(exposedByteArrayOutputStream.size());
-        allocateDirect.put(exposedByteArrayOutputStream.buffer(), 0, exposedByteArrayOutputStream.size());
-        return allocateDirect;
     }
 
-    @Override // io.flutter.plugin.common.MessageCodec
-    public Object decodeMessage(ByteBuffer byteBuffer) {
-        if (byteBuffer == null) {
-            return null;
-        }
-        byteBuffer.order(ByteOrder.nativeOrder());
-        Object readValue = readValue(byteBuffer);
+    public static final byte[] readBytes(ByteBuffer byteBuffer) {
+        byte[] bArr = new byte[readSize(byteBuffer)];
+        byteBuffer.get(bArr);
+        return bArr;
+    }
+
+    public static final int readSize(ByteBuffer byteBuffer) {
         if (byteBuffer.hasRemaining()) {
-            throw new IllegalArgumentException("Message corrupted");
+            int i = byteBuffer.get() & 255;
+            if (i < 254) {
+                return i;
+            }
+            if (i == 254) {
+                return byteBuffer.getChar();
+            }
+            return byteBuffer.getInt();
         }
-        return readValue;
+        throw new IllegalArgumentException("Message corrupted");
     }
 
-    protected static final void writeSize(ByteArrayOutputStream byteArrayOutputStream, int i) {
-        if (i < 254) {
-            byteArrayOutputStream.write(i);
-        } else if (i <= 65535) {
-            byteArrayOutputStream.write(GDiffPatcher.COPY_INT_INT);
-            writeChar(byteArrayOutputStream, i);
-        } else {
-            byteArrayOutputStream.write(255);
-            writeInt(byteArrayOutputStream, i);
+    public static final void writeAlignment(ByteArrayOutputStream byteArrayOutputStream, int i) {
+        int size = byteArrayOutputStream.size() % i;
+        if (size != 0) {
+            for (int i2 = 0; i2 < i - size; i2++) {
+                byteArrayOutputStream.write(0);
+            }
         }
     }
 
-    protected static final void writeChar(ByteArrayOutputStream byteArrayOutputStream, int i) {
+    public static final void writeBytes(ByteArrayOutputStream byteArrayOutputStream, byte[] bArr) {
+        writeSize(byteArrayOutputStream, bArr.length);
+        byteArrayOutputStream.write(bArr, 0, bArr.length);
+    }
+
+    public static final void writeChar(ByteArrayOutputStream byteArrayOutputStream, int i) {
         if (LITTLE_ENDIAN) {
             byteArrayOutputStream.write(i);
             byteArrayOutputStream.write(i >>> 8);
@@ -83,7 +94,11 @@ public class StandardMessageCodec implements MessageCodec<Object> {
         byteArrayOutputStream.write(i);
     }
 
-    protected static final void writeInt(ByteArrayOutputStream byteArrayOutputStream, int i) {
+    public static final void writeDouble(ByteArrayOutputStream byteArrayOutputStream, double d2) {
+        writeLong(byteArrayOutputStream, Double.doubleToLongBits(d2));
+    }
+
+    public static final void writeInt(ByteArrayOutputStream byteArrayOutputStream, int i) {
         if (LITTLE_ENDIAN) {
             byteArrayOutputStream.write(i);
             byteArrayOutputStream.write(i >>> 8);
@@ -97,7 +112,7 @@ public class StandardMessageCodec implements MessageCodec<Object> {
         byteArrayOutputStream.write(i);
     }
 
-    protected static final void writeLong(ByteArrayOutputStream byteArrayOutputStream, long j) {
+    public static final void writeLong(ByteArrayOutputStream byteArrayOutputStream, long j) {
         if (LITTLE_ENDIAN) {
             byteArrayOutputStream.write((byte) j);
             byteArrayOutputStream.write((byte) (j >>> 8));
@@ -119,150 +134,60 @@ public class StandardMessageCodec implements MessageCodec<Object> {
         byteArrayOutputStream.write((byte) j);
     }
 
-    protected static final void writeDouble(ByteArrayOutputStream byteArrayOutputStream, double d) {
-        writeLong(byteArrayOutputStream, Double.doubleToLongBits(d));
-    }
-
-    protected static final void writeBytes(ByteArrayOutputStream byteArrayOutputStream, byte[] bArr) {
-        writeSize(byteArrayOutputStream, bArr.length);
-        byteArrayOutputStream.write(bArr, 0, bArr.length);
-    }
-
-    protected static final void writeAlignment(ByteArrayOutputStream byteArrayOutputStream, int i) {
-        int size = byteArrayOutputStream.size() % i;
-        if (size != 0) {
-            for (int i2 = 0; i2 < i - size; i2++) {
-                byteArrayOutputStream.write(0);
-            }
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void writeValue(ByteArrayOutputStream byteArrayOutputStream, Object obj) {
-        int i = 0;
-        if (obj == null || obj.equals(null)) {
-            byteArrayOutputStream.write(0);
-        } else if (obj == Boolean.TRUE) {
-            byteArrayOutputStream.write(1);
-        } else if (obj == Boolean.FALSE) {
-            byteArrayOutputStream.write(2);
-        } else if (obj instanceof Number) {
-            if ((obj instanceof Integer) || (obj instanceof Short) || (obj instanceof Byte)) {
-                byteArrayOutputStream.write(3);
-                writeInt(byteArrayOutputStream, ((Number) obj).intValue());
-            } else if (obj instanceof Long) {
-                byteArrayOutputStream.write(4);
-                writeLong(byteArrayOutputStream, ((Long) obj).longValue());
-            } else if ((obj instanceof Float) || (obj instanceof Double)) {
-                byteArrayOutputStream.write(6);
-                writeAlignment(byteArrayOutputStream, 8);
-                writeDouble(byteArrayOutputStream, ((Number) obj).doubleValue());
-            } else if (obj instanceof BigInteger) {
-                byteArrayOutputStream.write(5);
-                writeBytes(byteArrayOutputStream, ((BigInteger) obj).toString(16).getBytes(UTF8));
-            } else {
-                throw new IllegalArgumentException("Unsupported Number type: " + obj.getClass());
-            }
-        } else if (obj instanceof String) {
-            byteArrayOutputStream.write(7);
-            writeBytes(byteArrayOutputStream, ((String) obj).getBytes(UTF8));
-        } else if (obj instanceof byte[]) {
-            byteArrayOutputStream.write(8);
-            writeBytes(byteArrayOutputStream, (byte[]) obj);
-        } else if (obj instanceof int[]) {
-            byteArrayOutputStream.write(9);
-            int[] iArr = (int[]) obj;
-            writeSize(byteArrayOutputStream, iArr.length);
-            writeAlignment(byteArrayOutputStream, 4);
-            int length = iArr.length;
-            while (i < length) {
-                writeInt(byteArrayOutputStream, iArr[i]);
-                i++;
-            }
-        } else if (obj instanceof long[]) {
-            byteArrayOutputStream.write(10);
-            long[] jArr = (long[]) obj;
-            writeSize(byteArrayOutputStream, jArr.length);
-            writeAlignment(byteArrayOutputStream, 8);
-            int length2 = jArr.length;
-            while (i < length2) {
-                writeLong(byteArrayOutputStream, jArr[i]);
-                i++;
-            }
-        } else if (obj instanceof double[]) {
-            byteArrayOutputStream.write(11);
-            double[] dArr = (double[]) obj;
-            writeSize(byteArrayOutputStream, dArr.length);
-            writeAlignment(byteArrayOutputStream, 8);
-            int length3 = dArr.length;
-            while (i < length3) {
-                writeDouble(byteArrayOutputStream, dArr[i]);
-                i++;
-            }
-        } else if (obj instanceof List) {
-            byteArrayOutputStream.write(12);
-            List<Object> list = (List) obj;
-            writeSize(byteArrayOutputStream, list.size());
-            for (Object obj2 : list) {
-                writeValue(byteArrayOutputStream, obj2);
-            }
-        } else if (obj instanceof Map) {
-            byteArrayOutputStream.write(13);
-            Map map = (Map) obj;
-            writeSize(byteArrayOutputStream, map.size());
-            for (Map.Entry entry : map.entrySet()) {
-                writeValue(byteArrayOutputStream, entry.getKey());
-                writeValue(byteArrayOutputStream, entry.getValue());
-            }
+    public static final void writeSize(ByteArrayOutputStream byteArrayOutputStream, int i) {
+        if (i < 254) {
+            byteArrayOutputStream.write(i);
+        } else if (i <= 65535) {
+            byteArrayOutputStream.write(254);
+            writeChar(byteArrayOutputStream, i);
         } else {
-            throw new IllegalArgumentException("Unsupported value: " + obj);
+            byteArrayOutputStream.write(255);
+            writeInt(byteArrayOutputStream, i);
         }
     }
 
-    protected static final int readSize(ByteBuffer byteBuffer) {
-        if (!byteBuffer.hasRemaining()) {
+    @Override // io.flutter.plugin.common.MessageCodec
+    public Object decodeMessage(ByteBuffer byteBuffer) {
+        if (byteBuffer == null) {
+            return null;
+        }
+        byteBuffer.order(ByteOrder.nativeOrder());
+        Object readValue = readValue(byteBuffer);
+        if (byteBuffer.hasRemaining()) {
             throw new IllegalArgumentException("Message corrupted");
         }
-        int i = byteBuffer.get() & 255;
-        if (i >= 254) {
-            if (i == 254) {
-                return byteBuffer.getChar();
-            }
-            return byteBuffer.getInt();
+        return readValue;
+    }
+
+    @Override // io.flutter.plugin.common.MessageCodec
+    public ByteBuffer encodeMessage(Object obj) {
+        if (obj == null) {
+            return null;
         }
-        return i;
+        ExposedByteArrayOutputStream exposedByteArrayOutputStream = new ExposedByteArrayOutputStream();
+        writeValue(exposedByteArrayOutputStream, obj);
+        ByteBuffer allocateDirect = ByteBuffer.allocateDirect(exposedByteArrayOutputStream.size());
+        allocateDirect.put(exposedByteArrayOutputStream.buffer(), 0, exposedByteArrayOutputStream.size());
+        return allocateDirect;
     }
 
-    protected static final byte[] readBytes(ByteBuffer byteBuffer) {
-        byte[] bArr = new byte[readSize(byteBuffer)];
-        byteBuffer.get(bArr);
-        return bArr;
-    }
-
-    protected static final void readAlignment(ByteBuffer byteBuffer, int i) {
-        int position = byteBuffer.position() % i;
-        if (position != 0) {
-            byteBuffer.position((byteBuffer.position() + i) - position);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
     public final Object readValue(ByteBuffer byteBuffer) {
-        if (!byteBuffer.hasRemaining()) {
-            throw new IllegalArgumentException("Message corrupted");
+        if (byteBuffer.hasRemaining()) {
+            return readValueOfType(byteBuffer.get(), byteBuffer);
         }
-        return readValueOfType(byteBuffer.get(), byteBuffer);
+        throw new IllegalArgumentException("Message corrupted");
     }
 
-    protected Object readValueOfType(byte b, ByteBuffer byteBuffer) {
+    public Object readValueOfType(byte b2, ByteBuffer byteBuffer) {
+        long[] jArr;
         int i = 0;
-        switch (b) {
+        switch (b2) {
             case 0:
                 return null;
             case 1:
-                return true;
+                return Boolean.TRUE;
             case 2:
-                return false;
+                return Boolean.FALSE;
             case 3:
                 return Integer.valueOf(byteBuffer.getInt());
             case 4:
@@ -281,22 +206,24 @@ public class StandardMessageCodec implements MessageCodec<Object> {
                 int[] iArr = new int[readSize];
                 readAlignment(byteBuffer, 4);
                 byteBuffer.asIntBuffer().get(iArr);
-                byteBuffer.position((readSize * 4) + byteBuffer.position());
+                byteBuffer.position(byteBuffer.position() + (readSize * 4));
                 return iArr;
             case 10:
                 int readSize2 = readSize(byteBuffer);
-                long[] jArr = new long[readSize2];
+                long[] jArr2 = new long[readSize2];
                 readAlignment(byteBuffer, 8);
-                byteBuffer.asLongBuffer().get(jArr);
-                byteBuffer.position((readSize2 * 8) + byteBuffer.position());
-                return jArr;
+                byteBuffer.asLongBuffer().get(jArr2);
+                byteBuffer.position(byteBuffer.position() + (readSize2 * 8));
+                jArr = jArr2;
+                break;
             case 11:
                 int readSize3 = readSize(byteBuffer);
                 double[] dArr = new double[readSize3];
                 readAlignment(byteBuffer, 8);
                 byteBuffer.asDoubleBuffer().get(dArr);
-                byteBuffer.position((readSize3 * 8) + byteBuffer.position());
-                return dArr;
+                byteBuffer.position(byteBuffer.position() + (readSize3 * 8));
+                jArr = dArr;
+                break;
             case 12:
                 int readSize4 = readSize(byteBuffer);
                 ArrayList arrayList = new ArrayList(readSize4);
@@ -316,13 +243,103 @@ public class StandardMessageCodec implements MessageCodec<Object> {
             default:
                 throw new IllegalArgumentException("Message corrupted");
         }
+        return jArr;
     }
 
-    /* loaded from: classes14.dex */
-    static final class ExposedByteArrayOutputStream extends ByteArrayOutputStream {
-        /* JADX INFO: Access modifiers changed from: package-private */
-        public byte[] buffer() {
-            return this.buf;
+    public void writeValue(ByteArrayOutputStream byteArrayOutputStream, Object obj) {
+        int i = 0;
+        if (obj != null && !obj.equals(null)) {
+            if (obj == Boolean.TRUE) {
+                byteArrayOutputStream.write(1);
+                return;
+            } else if (obj == Boolean.FALSE) {
+                byteArrayOutputStream.write(2);
+                return;
+            } else if (obj instanceof Number) {
+                if (!(obj instanceof Integer) && !(obj instanceof Short) && !(obj instanceof Byte)) {
+                    if (obj instanceof Long) {
+                        byteArrayOutputStream.write(4);
+                        writeLong(byteArrayOutputStream, ((Long) obj).longValue());
+                        return;
+                    } else if (!(obj instanceof Float) && !(obj instanceof Double)) {
+                        if (obj instanceof BigInteger) {
+                            byteArrayOutputStream.write(5);
+                            writeBytes(byteArrayOutputStream, ((BigInteger) obj).toString(16).getBytes(UTF8));
+                            return;
+                        }
+                        throw new IllegalArgumentException("Unsupported Number type: " + obj.getClass());
+                    } else {
+                        byteArrayOutputStream.write(6);
+                        writeAlignment(byteArrayOutputStream, 8);
+                        writeDouble(byteArrayOutputStream, ((Number) obj).doubleValue());
+                        return;
+                    }
+                }
+                byteArrayOutputStream.write(3);
+                writeInt(byteArrayOutputStream, ((Number) obj).intValue());
+                return;
+            } else if (obj instanceof String) {
+                byteArrayOutputStream.write(7);
+                writeBytes(byteArrayOutputStream, ((String) obj).getBytes(UTF8));
+                return;
+            } else if (obj instanceof byte[]) {
+                byteArrayOutputStream.write(8);
+                writeBytes(byteArrayOutputStream, (byte[]) obj);
+                return;
+            } else if (obj instanceof int[]) {
+                byteArrayOutputStream.write(9);
+                int[] iArr = (int[]) obj;
+                writeSize(byteArrayOutputStream, iArr.length);
+                writeAlignment(byteArrayOutputStream, 4);
+                int length = iArr.length;
+                while (i < length) {
+                    writeInt(byteArrayOutputStream, iArr[i]);
+                    i++;
+                }
+                return;
+            } else if (obj instanceof long[]) {
+                byteArrayOutputStream.write(10);
+                long[] jArr = (long[]) obj;
+                writeSize(byteArrayOutputStream, jArr.length);
+                writeAlignment(byteArrayOutputStream, 8);
+                int length2 = jArr.length;
+                while (i < length2) {
+                    writeLong(byteArrayOutputStream, jArr[i]);
+                    i++;
+                }
+                return;
+            } else if (obj instanceof double[]) {
+                byteArrayOutputStream.write(11);
+                double[] dArr = (double[]) obj;
+                writeSize(byteArrayOutputStream, dArr.length);
+                writeAlignment(byteArrayOutputStream, 8);
+                int length3 = dArr.length;
+                while (i < length3) {
+                    writeDouble(byteArrayOutputStream, dArr[i]);
+                    i++;
+                }
+                return;
+            } else if (obj instanceof List) {
+                byteArrayOutputStream.write(12);
+                List<Object> list = (List) obj;
+                writeSize(byteArrayOutputStream, list.size());
+                for (Object obj2 : list) {
+                    writeValue(byteArrayOutputStream, obj2);
+                }
+                return;
+            } else if (obj instanceof Map) {
+                byteArrayOutputStream.write(13);
+                Map map = (Map) obj;
+                writeSize(byteArrayOutputStream, map.size());
+                for (Map.Entry entry : map.entrySet()) {
+                    writeValue(byteArrayOutputStream, entry.getKey());
+                    writeValue(byteArrayOutputStream, entry.getValue());
+                }
+                return;
+            } else {
+                throw new IllegalArgumentException("Unsupported value: " + obj);
+            }
         }
+        byteArrayOutputStream.write(0);
     }
 }

@@ -20,7 +20,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import com.baidu.live.tbadk.pay.PayHelper;
 import com.sina.weibo.sdk.auth.BaseSsoHandler;
 import com.sina.weibo.sdk.utils.LogUtil;
 import com.sina.weibo.sdk.utils.ResourceManager;
@@ -35,42 +34,71 @@ import com.sina.weibo.sdk.web.param.BaseWebViewRequestParam;
 import com.sina.weibo.sdk.web.param.DefaultWebViewRequestParam;
 import com.sina.weibo.sdk.web.param.ShareWebViewRequestParam;
 import com.sina.weibo.sdk.web.view.LoadingBar;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class WeiboSdkWebActivity extends Activity implements WebViewRequestCallback {
     public static final String BROWSER_CLOSE_SCHEME = "sinaweibo://browser/close";
-    private static final String CANCEL_EN = "Close";
-    private static final String CANCEL_ZH_CN = "关闭";
-    private static final String CANCEL_ZH_TW = "关闭";
-    private static final String CHANNEL_DATA_ERROR_EN = "channel_data_error";
-    private static final String CHANNEL_DATA_ERROR_ZH_CN = "重新加载";
-    private static final String CHANNEL_DATA_ERROR_ZH_TW = "重新載入";
-    private static final String EMPTY_PROMPT_BAD_NETWORK_UI_EN = "A network error occurs, please tap the button to reload";
-    private static final String EMPTY_PROMPT_BAD_NETWORK_UI_ZH_CN = "网络出错啦，请点击按钮重新加载";
-    private static final String EMPTY_PROMPT_BAD_NETWORK_UI_ZH_TW = "網路出錯啦，請點擊按鈕重新載入";
-    private static final String LOADINFO_EN = "Loading....";
-    private static final String LOADINFO_ZH_CN = "加载中....";
-    private static final String LOADINFO_ZH_TW = "載入中....";
-    private static final String WEIBOBROWSER_NO_TITLE_EN = "No Title";
-    private static final String WEIBOBROWSER_NO_TITLE_ZH_CN = "无标题";
-    private static final String WEIBOBROWSER_NO_TITLE_ZH_TW = "無標題";
-    private BaseWebViewRequestParam baseParam;
-    private TextView leftBtn;
-    private LoadingBar loadingBar;
-    private int pageStatus = 0;
-    private Button retryBtn;
-    private LinearLayout retryLayout;
-    private TextView retryTitle;
-    private TextView titleText;
-    private WebView webView;
-    private BaseWebViewClient webViewClient;
+    public static final String CANCEL_EN = "Close";
+    public static final String CANCEL_ZH_CN = "关闭";
+    public static final String CANCEL_ZH_TW = "关闭";
+    public static final String CHANNEL_DATA_ERROR_EN = "channel_data_error";
+    public static final String CHANNEL_DATA_ERROR_ZH_CN = "重新加载";
+    public static final String CHANNEL_DATA_ERROR_ZH_TW = "重新載入";
+    public static final String EMPTY_PROMPT_BAD_NETWORK_UI_EN = "A network error occurs, please tap the button to reload";
+    public static final String EMPTY_PROMPT_BAD_NETWORK_UI_ZH_CN = "网络出错啦，请点击按钮重新加载";
+    public static final String EMPTY_PROMPT_BAD_NETWORK_UI_ZH_TW = "網路出錯啦，請點擊按鈕重新載入";
+    public static final String LOADINFO_EN = "Loading....";
+    public static final String LOADINFO_ZH_CN = "加载中....";
+    public static final String LOADINFO_ZH_TW = "載入中....";
+    public static final String WEIBOBROWSER_NO_TITLE_EN = "No Title";
+    public static final String WEIBOBROWSER_NO_TITLE_ZH_CN = "无标题";
+    public static final String WEIBOBROWSER_NO_TITLE_ZH_TW = "無標題";
+    public BaseWebViewRequestParam baseParam;
+    public TextView leftBtn;
+    public LoadingBar loadingBar;
+    public int pageStatus = 0;
+    public Button retryBtn;
+    public LinearLayout retryLayout;
+    public TextView retryTitle;
+    public TextView titleText;
+    public WebView webView;
+    public BaseWebViewClient webViewClient;
 
-    @Override // android.app.Activity
-    protected void onCreate(Bundle bundle) {
-        LogUtil.i("Share", "startWebActivity");
-        requestWindowFeature(1);
-        super.onCreate(bundle);
-        setContentView(initView());
-        initLoad();
+    /* loaded from: classes6.dex */
+    public class MyChromeClient extends WebChromeClient {
+        public MyChromeClient() {
+        }
+
+        @Override // android.webkit.WebChromeClient
+        public void onProgressChanged(WebView webView, int i) {
+            super.onProgressChanged(webView, i);
+            WeiboSdkWebActivity.this.loadingBar.drawProgress(i);
+            if (i == 100) {
+                WeiboSdkWebActivity.this.loadingBar.setVisibility(4);
+            } else {
+                WeiboSdkWebActivity.this.loadingBar.setVisibility(0);
+            }
+        }
+
+        @Override // android.webkit.WebChromeClient
+        public void onReceivedTitle(WebView webView, String str) {
+            super.onReceivedTitle(webView, str);
+            if (TextUtils.isEmpty(WeiboSdkWebActivity.this.baseParam.getBaseData().getSpecifyTitle())) {
+                WeiboSdkWebActivity.this.titleText.setText(str);
+            }
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public boolean checkRequestUrl(String str) {
+        if (TextUtils.isEmpty(str)) {
+            return false;
+        }
+        return str.startsWith(ShareWebViewRequestParam.SHARE_URL) || str.startsWith(BaseSsoHandler.OAUTH2_BASE_URL);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void closeActivity() {
+        finish();
     }
 
     private void initLoad() {
@@ -85,19 +113,15 @@ public class WeiboSdkWebActivity extends Activity implements WebViewRequestCallb
             finish();
             return;
         }
-        switch (i) {
-            case 0:
-                this.baseParam = new DefaultWebViewRequestParam();
-                this.webViewClient = new DefaultWebViewClient(this, this.baseParam);
-                break;
-            case 1:
-                this.baseParam = new ShareWebViewRequestParam(this);
-                this.webViewClient = new ShareWebViewClient(this, this, this.baseParam);
-                break;
-            case 2:
-                this.baseParam = new AuthWebViewRequestParam();
-                this.webViewClient = new AuthWebViewClient(this, this, this.baseParam);
-                break;
+        if (i == 0) {
+            this.baseParam = new DefaultWebViewRequestParam();
+            this.webViewClient = new DefaultWebViewClient(this, this.baseParam);
+        } else if (i == 1) {
+            this.baseParam = new ShareWebViewRequestParam(this);
+            this.webViewClient = new ShareWebViewClient(this, this, this.baseParam);
+        } else if (i == 2) {
+            this.baseParam = new AuthWebViewRequestParam();
+            this.webViewClient = new AuthWebViewClient(this, this, this.baseParam);
         }
         this.webView.setWebViewClient(this.webViewClient);
         this.baseParam.transformBundle(extras);
@@ -107,7 +131,8 @@ public class WeiboSdkWebActivity extends Activity implements WebViewRequestCallb
                 @Override // com.sina.weibo.sdk.web.param.BaseWebViewRequestParam.ExtraTaskCallback
                 public void onComplete(String str) {
                     LogUtil.i("Share", "WebActivity.sharePic.onComplete()");
-                    if (WeiboSdkWebActivity.this.checkRequestUrl(WeiboSdkWebActivity.this.baseParam.getRequestUrl())) {
+                    WeiboSdkWebActivity weiboSdkWebActivity = WeiboSdkWebActivity.this;
+                    if (weiboSdkWebActivity.checkRequestUrl(weiboSdkWebActivity.baseParam.getRequestUrl())) {
                         WeiboSdkWebActivity.this.webView.loadUrl(WeiboSdkWebActivity.this.baseParam.getRequestUrl());
                     }
                 }
@@ -128,17 +153,13 @@ public class WeiboSdkWebActivity extends Activity implements WebViewRequestCallb
         LogUtil.i("Share", "WebActivity.initLoad().end");
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public boolean checkRequestUrl(String str) {
-        return !TextUtils.isEmpty(str) && (str.startsWith(ShareWebViewRequestParam.SHARE_URL) || str.startsWith(BaseSsoHandler.OAUTH2_BASE_URL));
-    }
-
     private View initView() {
         RelativeLayout relativeLayout = new RelativeLayout(this);
         relativeLayout.setBackgroundColor(-1);
         RelativeLayout relativeLayout2 = new RelativeLayout(this);
-        this.leftBtn = new TextView(this);
-        this.leftBtn.setTextSize(17.0f);
+        TextView textView = new TextView(this);
+        this.leftBtn = textView;
+        textView.setTextSize(17.0f);
         this.leftBtn.setTextColor(ResourceManager.createColorStateList(-32256, 1728020992));
         this.leftBtn.setText(ResourceManager.getString(this, "Close", "关闭", "关闭"));
         this.leftBtn.setOnClickListener(new View.OnClickListener() { // from class: com.sina.weibo.sdk.web.WeiboSdkWebActivity.2
@@ -148,8 +169,9 @@ public class WeiboSdkWebActivity extends Activity implements WebViewRequestCallb
                 WeiboSdkWebActivity.this.closeActivity();
             }
         });
-        this.titleText = new TextView(this);
-        this.titleText.setTextSize(18.0f);
+        TextView textView2 = new TextView(this);
+        this.titleText = textView2;
+        textView2.setTextSize(18.0f);
         this.titleText.setTextColor(-11382190);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
         RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-2, -2);
@@ -159,8 +181,9 @@ public class WeiboSdkWebActivity extends Activity implements WebViewRequestCallb
         relativeLayout2.addView(this.leftBtn, layoutParams);
         relativeLayout2.addView(this.titleText, layoutParams2);
         relativeLayout.addView(relativeLayout2, new RelativeLayout.LayoutParams(-1, UIUtils.dip2px(55, this)));
-        this.webView = new WebView(getApplicationContext());
-        this.webView.getSettings().setSavePassword(false);
+        WebView webView = new WebView(getApplicationContext());
+        this.webView = webView;
+        webView.getSettings().setSavePassword(false);
         this.webView.getSettings().setAllowFileAccess(false);
         this.webView.getSettings().setAllowContentAccess(false);
         RelativeLayout.LayoutParams layoutParams3 = new RelativeLayout.LayoutParams(-1, -1);
@@ -175,20 +198,23 @@ public class WeiboSdkWebActivity extends Activity implements WebViewRequestCallb
         RelativeLayout.LayoutParams layoutParams5 = new RelativeLayout.LayoutParams(-1, UIUtils.dip2px(3, this));
         layoutParams5.topMargin = UIUtils.dip2px(55, this);
         relativeLayout.addView(view, layoutParams5);
-        this.retryLayout = new LinearLayout(this);
-        this.retryLayout.setOrientation(1);
+        LinearLayout linearLayout = new LinearLayout(this);
+        this.retryLayout = linearLayout;
+        linearLayout.setOrientation(1);
         ImageView imageView = new ImageView(this);
         imageView.setImageResource(getResources().getIdentifier("weibosdk_empty_failed", "drawable", getPackageName()));
         this.retryLayout.addView(imageView);
-        this.retryTitle = new TextView(this);
-        this.retryTitle.setTextSize(14.0f);
+        TextView textView3 = new TextView(this);
+        this.retryTitle = textView3;
+        textView3.setTextSize(14.0f);
         this.retryTitle.setTextColor(-4342339);
         LinearLayout.LayoutParams layoutParams6 = new LinearLayout.LayoutParams(-2, -2);
         layoutParams6.topMargin = UIUtils.dip2px(18, this);
         layoutParams6.bottomMargin = UIUtils.dip2px(20, this);
         this.retryLayout.addView(this.retryTitle, layoutParams6);
-        this.retryBtn = new Button(this);
-        this.retryBtn.setTextSize(16.0f);
+        Button button = new Button(this);
+        this.retryBtn = button;
+        button.setTextSize(16.0f);
         this.retryBtn.setTextColor(-8882056);
         LinearLayout.LayoutParams layoutParams7 = new LinearLayout.LayoutParams(UIUtils.dip2px(142, this), UIUtils.dip2px(46, this));
         layoutParams7.gravity = 17;
@@ -233,45 +259,9 @@ public class WeiboSdkWebActivity extends Activity implements WebViewRequestCallb
     public static void removeJavascriptInterface(WebView webView, String str) {
         try {
             WebView.class.getDeclaredMethod("removeJavascriptInterface", String.class).invoke(webView, str);
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (Exception e2) {
+            e2.printStackTrace();
         }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void closeActivity() {
-        finish();
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
-    public class MyChromeClient extends WebChromeClient {
-        private MyChromeClient() {
-        }
-
-        @Override // android.webkit.WebChromeClient
-        public void onProgressChanged(WebView webView, int i) {
-            super.onProgressChanged(webView, i);
-            WeiboSdkWebActivity.this.loadingBar.drawProgress(i);
-            if (i == 100) {
-                WeiboSdkWebActivity.this.loadingBar.setVisibility(4);
-            } else {
-                WeiboSdkWebActivity.this.loadingBar.setVisibility(0);
-            }
-        }
-
-        @Override // android.webkit.WebChromeClient
-        public void onReceivedTitle(WebView webView, String str) {
-            super.onReceivedTitle(webView, str);
-            if (TextUtils.isEmpty(WeiboSdkWebActivity.this.baseParam.getBaseData().getSpecifyTitle())) {
-                WeiboSdkWebActivity.this.titleText.setText(str);
-            }
-        }
-    }
-
-    private void showErrorPage() {
-        this.retryLayout.setVisibility(0);
-        this.webView.setVisibility(8);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -280,62 +270,23 @@ public class WeiboSdkWebActivity extends Activity implements WebViewRequestCallb
         this.webView.setVisibility(0);
     }
 
-    @Override // com.sina.weibo.sdk.web.WebViewRequestCallback
-    public void onPageStartedCallBack(WebView webView, String str, Bitmap bitmap) {
-    }
-
-    @Override // com.sina.weibo.sdk.web.WebViewRequestCallback
-    public void onPageFinishedCallBack(WebView webView, String str) {
-        if (this.pageStatus == -1) {
-            showErrorPage();
-        } else {
-            showDefaultPage();
-        }
-    }
-
-    @Override // com.sina.weibo.sdk.web.WebViewRequestCallback
-    public boolean shouldOverrideUrlLoadingCallBack(WebView webView, String str) {
-        return false;
-    }
-
-    @Override // com.sina.weibo.sdk.web.WebViewRequestCallback
-    public void onReceivedErrorCallBack(WebView webView, int i, String str, String str2) {
-        String url = webView.getUrl();
-        try {
-            if (!TextUtils.isEmpty(url) && !TextUtils.isEmpty(str2)) {
-                Uri parse = Uri.parse(url);
-                Uri parse2 = Uri.parse(str2);
-                if (parse.getHost().equals(parse2.getHost()) && parse.getScheme().equals(parse2.getScheme())) {
-                    this.pageStatus = -1;
-                }
-            }
-        } catch (Exception e) {
-        }
-    }
-
-    @Override // com.sina.weibo.sdk.web.WebViewRequestCallback
-    public void onReceivedSslErrorCallBack(WebView webView, final SslErrorHandler sslErrorHandler, SslError sslError) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("警告");
-        builder.setMessage("你访问的连接可能存在隐患，是否继续访问");
-        builder.setPositiveButton("继续", new DialogInterface.OnClickListener() { // from class: com.sina.weibo.sdk.web.WeiboSdkWebActivity.4
-            @Override // android.content.DialogInterface.OnClickListener
-            public void onClick(DialogInterface dialogInterface, int i) {
-                sslErrorHandler.proceed();
-            }
-        });
-        builder.setNegativeButton(PayHelper.STATUS_CANCEL_DESC, new DialogInterface.OnClickListener() { // from class: com.sina.weibo.sdk.web.WeiboSdkWebActivity.5
-            @Override // android.content.DialogInterface.OnClickListener
-            public void onClick(DialogInterface dialogInterface, int i) {
-                sslErrorHandler.cancel();
-            }
-        });
-        builder.create().show();
+    private void showErrorPage() {
+        this.retryLayout.setVisibility(0);
+        this.webView.setVisibility(8);
     }
 
     @Override // com.sina.weibo.sdk.web.WebViewRequestCallback
     public void closePage() {
         finish();
+    }
+
+    @Override // android.app.Activity
+    public void onCreate(Bundle bundle) {
+        LogUtil.i("Share", "startWebActivity");
+        requestWindowFeature(1);
+        super.onCreate(bundle);
+        setContentView(initView());
+        initLoad();
     }
 
     @Override // android.app.Activity, android.view.KeyEvent.Callback
@@ -350,5 +301,59 @@ public class WeiboSdkWebActivity extends Activity implements WebViewRequestCallb
             }
         }
         return super.onKeyDown(i, keyEvent);
+    }
+
+    @Override // com.sina.weibo.sdk.web.WebViewRequestCallback
+    public void onPageFinishedCallBack(WebView webView, String str) {
+        if (this.pageStatus == -1) {
+            showErrorPage();
+        } else {
+            showDefaultPage();
+        }
+    }
+
+    @Override // com.sina.weibo.sdk.web.WebViewRequestCallback
+    public void onPageStartedCallBack(WebView webView, String str, Bitmap bitmap) {
+    }
+
+    @Override // com.sina.weibo.sdk.web.WebViewRequestCallback
+    public void onReceivedErrorCallBack(WebView webView, int i, String str, String str2) {
+        String url = webView.getUrl();
+        try {
+            if (TextUtils.isEmpty(url) || TextUtils.isEmpty(str2)) {
+                return;
+            }
+            Uri parse = Uri.parse(url);
+            Uri parse2 = Uri.parse(str2);
+            if (parse.getHost().equals(parse2.getHost()) && parse.getScheme().equals(parse2.getScheme())) {
+                this.pageStatus = -1;
+            }
+        } catch (Exception unused) {
+        }
+    }
+
+    @Override // com.sina.weibo.sdk.web.WebViewRequestCallback
+    public void onReceivedSslErrorCallBack(WebView webView, final SslErrorHandler sslErrorHandler, SslError sslError) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("警告");
+        builder.setMessage("你访问的连接可能存在隐患，是否继续访问");
+        builder.setPositiveButton("继续", new DialogInterface.OnClickListener() { // from class: com.sina.weibo.sdk.web.WeiboSdkWebActivity.4
+            @Override // android.content.DialogInterface.OnClickListener
+            public void onClick(DialogInterface dialogInterface, int i) {
+                sslErrorHandler.proceed();
+            }
+        });
+        builder.setNegativeButton("取消", new DialogInterface.OnClickListener() { // from class: com.sina.weibo.sdk.web.WeiboSdkWebActivity.5
+            @Override // android.content.DialogInterface.OnClickListener
+            public void onClick(DialogInterface dialogInterface, int i) {
+                sslErrorHandler.cancel();
+            }
+        });
+        builder.create().show();
+    }
+
+    @Override // com.sina.weibo.sdk.web.WebViewRequestCallback
+    public boolean shouldOverrideUrlLoadingCallBack(WebView webView, String str) {
+        return false;
     }
 }

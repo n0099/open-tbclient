@@ -1,49 +1,51 @@
 package com.xiaomi.push.service;
 
+import com.tencent.connect.common.Constants;
 import com.xiaomi.push.ai;
-import com.xiaomi.push.hm;
-import com.xiaomi.push.il;
-import com.xiaomi.push.iw;
+import com.xiaomi.push.hf;
+import com.xiaomi.push.ie;
+import com.xiaomi.push.ip;
 import java.lang.ref.WeakReference;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class b extends ai.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private il f8535a;
+    public ie f40987a;
 
     /* renamed from: a  reason: collision with other field name */
-    private WeakReference<XMPushService> f874a;
+    public WeakReference<XMPushService> f917a;
 
     /* renamed from: a  reason: collision with other field name */
-    private boolean f875a;
+    public boolean f918a;
 
-    public b(il ilVar, WeakReference<XMPushService> weakReference, boolean z) {
-        this.f875a = false;
-        this.f8535a = ilVar;
-        this.f874a = weakReference;
-        this.f875a = z;
+    public b(ie ieVar, WeakReference<XMPushService> weakReference, boolean z) {
+        this.f918a = false;
+        this.f40987a = ieVar;
+        this.f917a = weakReference;
+        this.f918a = z;
     }
 
     @Override // com.xiaomi.push.ai.a
     /* renamed from: a */
-    public int mo170a() {
-        return 22;
+    public String mo165a() {
+        return Constants.VIA_REPORT_TYPE_DATALINE;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         XMPushService xMPushService;
-        if (this.f874a == null || this.f8535a == null || (xMPushService = this.f874a.get()) == null) {
+        WeakReference<XMPushService> weakReference = this.f917a;
+        if (weakReference == null || this.f40987a == null || (xMPushService = weakReference.get()) == null) {
             return;
         }
-        this.f8535a.a(an.a());
-        this.f8535a.a(false);
-        com.xiaomi.channel.commonutils.logger.b.c("MoleInfo aw_ping : send aw_Ping msg " + this.f8535a.a());
+        this.f40987a.a(at.a());
+        this.f40987a.a(false);
+        com.xiaomi.channel.commonutils.logger.b.c("MoleInfo aw_ping : send aw_Ping msg " + this.f40987a.m446a());
         try {
-            String c = this.f8535a.c();
-            xMPushService.a(c, iw.a(w.a(c, this.f8535a.b(), this.f8535a, hm.Notification)), this.f875a);
-        } catch (Exception e) {
-            com.xiaomi.channel.commonutils.logger.b.d("MoleInfo aw_ping : send help app ping error" + e.toString());
+            String c2 = this.f40987a.c();
+            xMPushService.a(c2, ip.a(y.a(c2, this.f40987a.b(), this.f40987a, hf.Notification)), this.f918a);
+        } catch (Exception e2) {
+            com.xiaomi.channel.commonutils.logger.b.d("MoleInfo aw_ping : send help app ping error" + e2.toString());
         }
     }
 }

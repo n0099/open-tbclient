@@ -1,20 +1,17 @@
 package com.baidu.searchbox.anr.impl;
 
 import android.util.Log;
-import com.baidu.pyramid.a.a.b;
-import com.baidu.pyramid.a.a.d;
+import com.baidu.pyramid.annotation.Inject;
 import com.baidu.searchbox.anr.ioc.IANRRegister;
 import com.baidu.searchbox.anr.ioc.IANRRegister_ANRRuntime_ListProvider;
 import com.baidu.searchbox.config.AppConfig;
-/* loaded from: classes6.dex */
+import d.b.d0.a.b.b;
+import d.b.d0.a.b.d;
+/* loaded from: classes2.dex */
 public class ANRRuntime {
-    private static ANRRuntime sInstance;
-    private d<IANRRegister> mIANRMonitorList;
-
-    public void initmIANRMonitorList() {
-        this.mIANRMonitorList = b.aeb();
-        this.mIANRMonitorList.b(new IANRRegister_ANRRuntime_ListProvider());
-    }
+    public static ANRRuntime sInstance;
+    @Inject
+    public d<IANRRegister> mIANRMonitorList;
 
     public ANRRuntime() {
         initmIANRMonitorList();
@@ -32,14 +29,17 @@ public class ANRRuntime {
     }
 
     public boolean enableANR() {
-        if (this.mIANRMonitorList != null && this.mIANRMonitorList.getList() != null) {
-            for (IANRRegister iANRRegister : this.mIANRMonitorList.getList()) {
-                if (iANRRegister != null && iANRRegister.checkEnable()) {
-                    if (AppConfig.isDebug()) {
-                        Log.d("Ruka", "enableANR = true");
-                    }
+        d<IANRRegister> dVar = this.mIANRMonitorList;
+        if (dVar == null || dVar.a() == null) {
+            return false;
+        }
+        for (IANRRegister iANRRegister : this.mIANRMonitorList.a()) {
+            if (iANRRegister != null && iANRRegister.checkEnable()) {
+                if (AppConfig.isDebug()) {
+                    Log.d("Ruka", "enableANR = true");
                     return true;
                 }
+                return true;
             }
         }
         return false;
@@ -47,5 +47,11 @@ public class ANRRuntime {
 
     public d<IANRRegister> getIANRUploadList() {
         return this.mIANRMonitorList;
+    }
+
+    public void initmIANRMonitorList() {
+        b c2 = b.c();
+        this.mIANRMonitorList = c2;
+        c2.b(new IANRRegister_ANRRuntime_ListProvider());
     }
 }

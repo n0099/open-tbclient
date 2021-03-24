@@ -8,23 +8,80 @@ import androidx.annotation.RequiresApi;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 @RequiresApi(21)
-/* loaded from: classes5.dex */
-class ViewUtilsApi21 extends ViewUtilsApi19 {
-    private static final String TAG = "ViewUtilsApi21";
-    private static Method sSetAnimationMatrixMethod;
-    private static boolean sSetAnimationMatrixMethodFetched;
-    private static Method sTransformMatrixToGlobalMethod;
-    private static boolean sTransformMatrixToGlobalMethodFetched;
-    private static Method sTransformMatrixToLocalMethod;
-    private static boolean sTransformMatrixToLocalMethodFetched;
+/* loaded from: classes.dex */
+public class ViewUtilsApi21 extends ViewUtilsApi19 {
+    public static final String TAG = "ViewUtilsApi21";
+    public static Method sSetAnimationMatrixMethod;
+    public static boolean sSetAnimationMatrixMethodFetched;
+    public static Method sTransformMatrixToGlobalMethod;
+    public static boolean sTransformMatrixToGlobalMethodFetched;
+    public static Method sTransformMatrixToLocalMethod;
+    public static boolean sTransformMatrixToLocalMethodFetched;
+
+    private void fetchSetAnimationMatrix() {
+        if (sSetAnimationMatrixMethodFetched) {
+            return;
+        }
+        try {
+            Method declaredMethod = View.class.getDeclaredMethod("setAnimationMatrix", Matrix.class);
+            sSetAnimationMatrixMethod = declaredMethod;
+            declaredMethod.setAccessible(true);
+        } catch (NoSuchMethodException e2) {
+            Log.i(TAG, "Failed to retrieve setAnimationMatrix method", e2);
+        }
+        sSetAnimationMatrixMethodFetched = true;
+    }
+
+    private void fetchTransformMatrixToGlobalMethod() {
+        if (sTransformMatrixToGlobalMethodFetched) {
+            return;
+        }
+        try {
+            Method declaredMethod = View.class.getDeclaredMethod("transformMatrixToGlobal", Matrix.class);
+            sTransformMatrixToGlobalMethod = declaredMethod;
+            declaredMethod.setAccessible(true);
+        } catch (NoSuchMethodException e2) {
+            Log.i(TAG, "Failed to retrieve transformMatrixToGlobal method", e2);
+        }
+        sTransformMatrixToGlobalMethodFetched = true;
+    }
+
+    private void fetchTransformMatrixToLocalMethod() {
+        if (sTransformMatrixToLocalMethodFetched) {
+            return;
+        }
+        try {
+            Method declaredMethod = View.class.getDeclaredMethod("transformMatrixToLocal", Matrix.class);
+            sTransformMatrixToLocalMethod = declaredMethod;
+            declaredMethod.setAccessible(true);
+        } catch (NoSuchMethodException e2) {
+            Log.i(TAG, "Failed to retrieve transformMatrixToLocal method", e2);
+        }
+        sTransformMatrixToLocalMethodFetched = true;
+    }
+
+    @Override // androidx.transition.ViewUtilsBase
+    public void setAnimationMatrix(@NonNull View view, Matrix matrix) {
+        fetchSetAnimationMatrix();
+        Method method = sSetAnimationMatrixMethod;
+        if (method != null) {
+            try {
+                method.invoke(view, matrix);
+            } catch (IllegalAccessException e2) {
+                throw new RuntimeException(e2.getCause());
+            } catch (InvocationTargetException unused) {
+            }
+        }
+    }
 
     @Override // androidx.transition.ViewUtilsBase
     public void transformMatrixToGlobal(@NonNull View view, @NonNull Matrix matrix) {
         fetchTransformMatrixToGlobalMethod();
-        if (sTransformMatrixToGlobalMethod != null) {
+        Method method = sTransformMatrixToGlobalMethod;
+        if (method != null) {
             try {
-                sTransformMatrixToGlobalMethod.invoke(view, matrix);
-            } catch (IllegalAccessException e) {
+                method.invoke(view, matrix);
+            } catch (IllegalAccessException unused) {
             } catch (InvocationTargetException e2) {
                 throw new RuntimeException(e2.getCause());
             }
@@ -34,62 +91,14 @@ class ViewUtilsApi21 extends ViewUtilsApi19 {
     @Override // androidx.transition.ViewUtilsBase
     public void transformMatrixToLocal(@NonNull View view, @NonNull Matrix matrix) {
         fetchTransformMatrixToLocalMethod();
-        if (sTransformMatrixToLocalMethod != null) {
+        Method method = sTransformMatrixToLocalMethod;
+        if (method != null) {
             try {
-                sTransformMatrixToLocalMethod.invoke(view, matrix);
-            } catch (IllegalAccessException e) {
+                method.invoke(view, matrix);
+            } catch (IllegalAccessException unused) {
             } catch (InvocationTargetException e2) {
                 throw new RuntimeException(e2.getCause());
             }
-        }
-    }
-
-    @Override // androidx.transition.ViewUtilsBase
-    public void setAnimationMatrix(@NonNull View view, Matrix matrix) {
-        fetchSetAnimationMatrix();
-        if (sSetAnimationMatrixMethod != null) {
-            try {
-                sSetAnimationMatrixMethod.invoke(view, matrix);
-            } catch (IllegalAccessException e) {
-                throw new RuntimeException(e.getCause());
-            } catch (InvocationTargetException e2) {
-            }
-        }
-    }
-
-    private void fetchTransformMatrixToGlobalMethod() {
-        if (!sTransformMatrixToGlobalMethodFetched) {
-            try {
-                sTransformMatrixToGlobalMethod = View.class.getDeclaredMethod("transformMatrixToGlobal", Matrix.class);
-                sTransformMatrixToGlobalMethod.setAccessible(true);
-            } catch (NoSuchMethodException e) {
-                Log.i(TAG, "Failed to retrieve transformMatrixToGlobal method", e);
-            }
-            sTransformMatrixToGlobalMethodFetched = true;
-        }
-    }
-
-    private void fetchTransformMatrixToLocalMethod() {
-        if (!sTransformMatrixToLocalMethodFetched) {
-            try {
-                sTransformMatrixToLocalMethod = View.class.getDeclaredMethod("transformMatrixToLocal", Matrix.class);
-                sTransformMatrixToLocalMethod.setAccessible(true);
-            } catch (NoSuchMethodException e) {
-                Log.i(TAG, "Failed to retrieve transformMatrixToLocal method", e);
-            }
-            sTransformMatrixToLocalMethodFetched = true;
-        }
-    }
-
-    private void fetchSetAnimationMatrix() {
-        if (!sSetAnimationMatrixMethodFetched) {
-            try {
-                sSetAnimationMatrixMethod = View.class.getDeclaredMethod("setAnimationMatrix", Matrix.class);
-                sSetAnimationMatrixMethod.setAccessible(true);
-            } catch (NoSuchMethodException e) {
-                Log.i(TAG, "Failed to retrieve setAnimationMatrix method", e);
-            }
-            sSetAnimationMatrixMethodFetched = true;
         }
     }
 }

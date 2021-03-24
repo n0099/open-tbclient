@@ -7,44 +7,16 @@ import com.bumptech.glide.Priority;
 import com.bumptech.glide.load.DataSource;
 import com.bumptech.glide.load.data.DataFetcher;
 import java.io.IOException;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public abstract class AssetPathFetcher<T> implements DataFetcher<T> {
-    private static final String TAG = "AssetPathFetcher";
-    private final AssetManager assetManager;
-    private final String assetPath;
-    private T data;
-
-    protected abstract void close(T t) throws IOException;
-
-    protected abstract T loadResource(AssetManager assetManager, String str) throws IOException;
+    public static final String TAG = "AssetPathFetcher";
+    public final AssetManager assetManager;
+    public final String assetPath;
+    public T data;
 
     public AssetPathFetcher(AssetManager assetManager, String str) {
         this.assetManager = assetManager;
         this.assetPath = str;
-    }
-
-    /* JADX DEBUG: Type inference failed for r0v3. Raw type applied. Possible types: T, ? super T */
-    @Override // com.bumptech.glide.load.data.DataFetcher
-    public void loadData(@NonNull Priority priority, @NonNull DataFetcher.DataCallback<? super T> dataCallback) {
-        try {
-            this.data = loadResource(this.assetManager, this.assetPath);
-            dataCallback.onDataReady((T) this.data);
-        } catch (IOException e) {
-            if (Log.isLoggable(TAG, 3)) {
-                Log.d(TAG, "Failed to load data from asset manager", e);
-            }
-            dataCallback.onLoadFailed(e);
-        }
-    }
-
-    @Override // com.bumptech.glide.load.data.DataFetcher
-    public void cleanup() {
-        if (this.data != null) {
-            try {
-                close(this.data);
-            } catch (IOException e) {
-            }
-        }
     }
 
     @Override // com.bumptech.glide.load.data.DataFetcher
@@ -52,8 +24,38 @@ public abstract class AssetPathFetcher<T> implements DataFetcher<T> {
     }
 
     @Override // com.bumptech.glide.load.data.DataFetcher
+    public void cleanup() {
+        T t = this.data;
+        if (t == null) {
+            return;
+        }
+        try {
+            close(t);
+        } catch (IOException unused) {
+        }
+    }
+
+    public abstract void close(T t) throws IOException;
+
+    @Override // com.bumptech.glide.load.data.DataFetcher
     @NonNull
     public DataSource getDataSource() {
         return DataSource.LOCAL;
     }
+
+    @Override // com.bumptech.glide.load.data.DataFetcher
+    public void loadData(@NonNull Priority priority, @NonNull DataFetcher.DataCallback<? super T> dataCallback) {
+        try {
+            T loadResource = loadResource(this.assetManager, this.assetPath);
+            this.data = loadResource;
+            dataCallback.onDataReady(loadResource);
+        } catch (IOException e2) {
+            if (Log.isLoggable(TAG, 3)) {
+                Log.d(TAG, "Failed to load data from asset manager", e2);
+            }
+            dataCallback.onLoadFailed(e2);
+        }
+    }
+
+    public abstract T loadResource(AssetManager assetManager, String str) throws IOException;
 }

@@ -8,7 +8,7 @@ import com.baidu.searchbox.logsystem.logsys.eventscene.handler.DeviceEventSceneH
 import com.baidu.searchbox.logsystem.logsys.eventscene.snapshot.DeviceSnapshotType;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class DefaultDeviceEventSceneHandler extends DeviceEventSceneHandler {
     @Override // com.baidu.searchbox.logsystem.logsys.eventscene.handler.DeviceEventSceneHandler, com.baidu.searchbox.logsystem.logsys.eventscene.handler.BaseEventSceneHandler, com.baidu.searchbox.logsystem.logsys.eventscene.handler.EventSceneHandler
     @Nullable

@@ -2,7 +2,7 @@ package protobuf;
 
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public final class PusherMsgInfo extends Message {
     public static final String DEFAULT_CONTENT = "";
     public static final String DEFAULT_ET = "";
@@ -35,75 +35,7 @@ public final class PusherMsgInfo extends Message {
     public static final Integer DEFAULT_TYPE = 0;
     public static final Integer DEFAULT_GROUPTYPE = 0;
 
-    private PusherMsgInfo(Builder builder, boolean z) {
-        super(builder);
-        if (z) {
-            if (builder.groupId == null) {
-                this.groupId = DEFAULT_GROUPID;
-            } else {
-                this.groupId = builder.groupId;
-            }
-            if (builder.msgId == null) {
-                this.msgId = DEFAULT_MSGID;
-            } else {
-                this.msgId = builder.msgId;
-            }
-            if (builder.pushTime == null) {
-                this.pushTime = DEFAULT_PUSHTIME;
-            } else {
-                this.pushTime = builder.pushTime;
-            }
-            if (builder.type == null) {
-                this.type = DEFAULT_TYPE;
-            } else {
-                this.type = builder.type;
-            }
-            if (builder.content == null) {
-                this.content = "";
-            } else {
-                this.content = builder.content;
-            }
-            if (builder.et == null) {
-                this.et = "";
-            } else {
-                this.et = builder.et;
-            }
-            if (builder.groupType == null) {
-                this.groupType = DEFAULT_GROUPTYPE;
-            } else {
-                this.groupType = builder.groupType;
-            }
-            if (builder.task_id == null) {
-                this.task_id = "";
-            } else {
-                this.task_id = builder.task_id;
-            }
-            if (builder.follow_id == null) {
-                this.follow_id = "";
-            } else {
-                this.follow_id = builder.follow_id;
-            }
-            if (builder.follow_type == null) {
-                this.follow_type = "";
-                return;
-            } else {
-                this.follow_type = builder.follow_type;
-                return;
-            }
-        }
-        this.groupId = builder.groupId;
-        this.msgId = builder.msgId;
-        this.pushTime = builder.pushTime;
-        this.type = builder.type;
-        this.content = builder.content;
-        this.et = builder.et;
-        this.groupType = builder.groupType;
-        this.task_id = builder.task_id;
-        this.follow_id = builder.follow_id;
-        this.follow_type = builder.follow_type;
-    }
-
-    /* loaded from: classes2.dex */
+    /* loaded from: classes7.dex */
     public static final class Builder extends Message.Builder<PusherMsgInfo> {
         public String content;
         public String et;
@@ -121,18 +53,19 @@ public final class PusherMsgInfo extends Message {
 
         public Builder(PusherMsgInfo pusherMsgInfo) {
             super(pusherMsgInfo);
-            if (pusherMsgInfo != null) {
-                this.groupId = pusherMsgInfo.groupId;
-                this.msgId = pusherMsgInfo.msgId;
-                this.pushTime = pusherMsgInfo.pushTime;
-                this.type = pusherMsgInfo.type;
-                this.content = pusherMsgInfo.content;
-                this.et = pusherMsgInfo.et;
-                this.groupType = pusherMsgInfo.groupType;
-                this.task_id = pusherMsgInfo.task_id;
-                this.follow_id = pusherMsgInfo.follow_id;
-                this.follow_type = pusherMsgInfo.follow_type;
+            if (pusherMsgInfo == null) {
+                return;
             }
+            this.groupId = pusherMsgInfo.groupId;
+            this.msgId = pusherMsgInfo.msgId;
+            this.pushTime = pusherMsgInfo.pushTime;
+            this.type = pusherMsgInfo.type;
+            this.content = pusherMsgInfo.content;
+            this.et = pusherMsgInfo.et;
+            this.groupType = pusherMsgInfo.groupType;
+            this.task_id = pusherMsgInfo.task_id;
+            this.follow_id = pusherMsgInfo.follow_id;
+            this.follow_type = pusherMsgInfo.follow_type;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -140,5 +73,83 @@ public final class PusherMsgInfo extends Message {
         public PusherMsgInfo build(boolean z) {
             return new PusherMsgInfo(this, z);
         }
+    }
+
+    public PusherMsgInfo(Builder builder, boolean z) {
+        super(builder);
+        if (z) {
+            Long l = builder.groupId;
+            if (l == null) {
+                this.groupId = DEFAULT_GROUPID;
+            } else {
+                this.groupId = l;
+            }
+            Long l2 = builder.msgId;
+            if (l2 == null) {
+                this.msgId = DEFAULT_MSGID;
+            } else {
+                this.msgId = l2;
+            }
+            Long l3 = builder.pushTime;
+            if (l3 == null) {
+                this.pushTime = DEFAULT_PUSHTIME;
+            } else {
+                this.pushTime = l3;
+            }
+            Integer num = builder.type;
+            if (num == null) {
+                this.type = DEFAULT_TYPE;
+            } else {
+                this.type = num;
+            }
+            String str = builder.content;
+            if (str == null) {
+                this.content = "";
+            } else {
+                this.content = str;
+            }
+            String str2 = builder.et;
+            if (str2 == null) {
+                this.et = "";
+            } else {
+                this.et = str2;
+            }
+            Integer num2 = builder.groupType;
+            if (num2 == null) {
+                this.groupType = DEFAULT_GROUPTYPE;
+            } else {
+                this.groupType = num2;
+            }
+            String str3 = builder.task_id;
+            if (str3 == null) {
+                this.task_id = "";
+            } else {
+                this.task_id = str3;
+            }
+            String str4 = builder.follow_id;
+            if (str4 == null) {
+                this.follow_id = "";
+            } else {
+                this.follow_id = str4;
+            }
+            String str5 = builder.follow_type;
+            if (str5 == null) {
+                this.follow_type = "";
+                return;
+            } else {
+                this.follow_type = str5;
+                return;
+            }
+        }
+        this.groupId = builder.groupId;
+        this.msgId = builder.msgId;
+        this.pushTime = builder.pushTime;
+        this.type = builder.type;
+        this.content = builder.content;
+        this.et = builder.et;
+        this.groupType = builder.groupType;
+        this.task_id = builder.task_id;
+        this.follow_id = builder.follow_id;
+        this.follow_type = builder.follow_type;
     }
 }

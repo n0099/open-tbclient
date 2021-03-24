@@ -4,57 +4,72 @@ import android.os.Bundle;
 import android.view.View;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tieba.R;
-import com.baidu.tieba.memberCenter.tail.management.a;
-/* loaded from: classes8.dex */
+import d.b.i0.q1.h.c.a;
+import d.b.i0.q1.h.c.d;
+import d.b.i0.q1.h.c.e;
+/* loaded from: classes3.dex */
 public class TailManagementActivity extends BaseActivity<TailManagementActivity> {
-    a luO;
-    d luP;
-    e luQ;
-    private a.InterfaceC0804a luR = new a.InterfaceC0804a() { // from class: com.baidu.tieba.memberCenter.tail.management.TailManagementActivity.1
-        @Override // com.baidu.tieba.memberCenter.tail.management.a.InterfaceC0804a
-        public void dgr() {
-            boolean dgw = TailManagementActivity.this.luP.dgw();
-            if (TailManagementActivity.this.luP.getTails().size() == 0 && dgw) {
-                dgw = !TailManagementActivity.this.luP.dgw();
-                TailManagementActivity.this.luP.tX(dgw);
-            }
-            TailManagementActivity.this.luQ.an(dgw, TailManagementActivity.this.luP.getTails().size() == 0);
+    public d.b.i0.q1.h.c.a mAdapter;
+    public d mModel;
+    public e mView;
+    public a.f mRefreshCallbackListener = new a();
+    public View.OnClickListener mNavBtnClickListener = new b();
+
+    /* loaded from: classes3.dex */
+    public class a implements a.f {
+        public a() {
         }
-    };
-    private View.OnClickListener luS = new View.OnClickListener() { // from class: com.baidu.tieba.memberCenter.tail.management.TailManagementActivity.2
+
+        @Override // d.b.i0.q1.h.c.a.f
+        public void callback() {
+            boolean g2 = TailManagementActivity.this.mModel.g();
+            if (TailManagementActivity.this.mModel.h().size() == 0 && g2) {
+                g2 = !TailManagementActivity.this.mModel.g();
+                TailManagementActivity.this.mModel.l(g2);
+            }
+            TailManagementActivity tailManagementActivity = TailManagementActivity.this;
+            tailManagementActivity.mView.e(g2, tailManagementActivity.mModel.h().size() == 0);
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class b implements View.OnClickListener {
+        public b() {
+        }
+
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (view == TailManagementActivity.this.luQ.dgy()) {
+            if (view == TailManagementActivity.this.mView.a()) {
                 TailManagementActivity.this.finish();
-            } else if (view == TailManagementActivity.this.luQ.dgx()) {
-                boolean z = !TailManagementActivity.this.luP.dgw();
-                TailManagementActivity.this.luP.tX(z);
-                TailManagementActivity.this.luQ.an(z, TailManagementActivity.this.luP.getTails().size() == 0);
-                TailManagementActivity.this.luO.refresh();
+            } else if (view == TailManagementActivity.this.mView.b()) {
+                boolean z = !TailManagementActivity.this.mModel.g();
+                TailManagementActivity.this.mModel.l(z);
+                TailManagementActivity tailManagementActivity = TailManagementActivity.this;
+                tailManagementActivity.mView.e(z, tailManagementActivity.mModel.h().size() == 0);
+                TailManagementActivity.this.mAdapter.j();
             }
         }
-    };
+    }
 
-    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tbadk.BaseActivity
+    public void onChangeSkinType(int i) {
+        super.onChangeSkinType(i);
+        this.mView.c(i);
+        this.mAdapter.notifyDataSetChanged();
+    }
+
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.tail_management_activity);
-        this.luP = new d(getPageContext());
-        this.luO = new a(getPageContext(), this.luP, this.luR);
-        this.luQ = new e(this, this.luS);
-        this.luQ.d(this.luO);
-        this.luQ.an(false, this.luP.getTails().size() == 0);
-        if (this.luP.b(getIntent().getSerializableExtra("list"))) {
-            this.luO.refresh();
+        this.mModel = new d(getPageContext());
+        this.mAdapter = new d.b.i0.q1.h.c.a(getPageContext(), this.mModel, this.mRefreshCallbackListener);
+        e eVar = new e(this, this.mNavBtnClickListener);
+        this.mView = eVar;
+        eVar.d(this.mAdapter);
+        this.mView.e(false, this.mModel.h().size() == 0);
+        if (this.mModel.i(getIntent().getSerializableExtra("list"))) {
+            this.mAdapter.j();
         }
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i) {
-        super.onChangeSkinType(i);
-        this.luQ.onChangeSkinType(i);
-        this.luO.notifyDataSetChanged();
     }
 }

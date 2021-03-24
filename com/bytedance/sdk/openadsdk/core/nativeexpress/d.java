@@ -4,64 +4,77 @@ import android.content.Context;
 import android.view.View;
 import androidx.annotation.NonNull;
 import com.bytedance.sdk.openadsdk.core.d.f;
-import com.bytedance.sdk.openadsdk.utils.ak;
+import com.bytedance.sdk.openadsdk.utils.al;
 /* loaded from: classes6.dex */
 public class d extends com.bytedance.sdk.openadsdk.core.a.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private com.bytedance.sdk.openadsdk.core.d.j f4485a;
+    public com.bytedance.sdk.openadsdk.core.d.j f28525a;
 
     public d(@NonNull Context context, @NonNull com.bytedance.sdk.openadsdk.core.d.l lVar, @NonNull String str, int i) {
         super(context, lVar, str, i);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    /* JADX WARN: Removed duplicated region for block: B:15:0x00f4  */
-    /* JADX WARN: Removed duplicated region for block: B:18:0x0104  */
     @Override // com.bytedance.sdk.openadsdk.core.a.b
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
     public com.bytedance.sdk.openadsdk.core.d.f a(int i, int i2, int i3, int i4, long j, long j2, View view, View view2) {
-        int[] iArr;
-        int[] iArr2;
+        int i5;
+        int i6;
+        int i7;
+        int i8;
+        int i9;
+        int i10;
+        int i11;
+        long j3;
+        long j4;
         this.y = 1;
         this.z = 0;
         this.A = 0;
-        int i5 = 0;
-        int i6 = 0;
-        int[] a2 = ak.a(view);
-        if (a2 != null && a2.length == 2) {
-            i5 = a2[0];
-            i6 = a2[1];
-            i = ((int) ak.a(this.c, i)) + i5;
-            i2 = ((int) ak.a(this.c, i2)) + i6;
-            i3 = ((int) ak.a(this.c, i3)) + i5;
-            i4 = ((int) ak.a(this.c, i4)) + i6;
+        int[] a2 = al.a(view);
+        if (a2 == null || a2.length != 2) {
+            i5 = i;
+            i6 = i2;
+            i7 = i3;
+            i8 = i4;
+            i9 = 0;
+            i10 = 0;
+        } else {
+            i9 = a2[0];
+            i10 = a2[1];
+            i5 = ((int) al.a(this.f28017c, i)) + i9;
+            i6 = ((int) al.a(this.f28017c, i2)) + i10;
+            i7 = ((int) al.a(this.f28017c, i3)) + i9;
+            i8 = ((int) al.a(this.f28017c, i4)) + i10;
         }
-        int[] iArr3 = new int[2];
-        int[] iArr4 = new int[2];
-        if (this.f4485a != null) {
-            j = this.f4485a.e;
-            j2 = this.f4485a.f;
-            iArr3[0] = i5 + ((int) ak.a(this.c, this.f4485a.g));
-            iArr3[1] = i6 + ((int) ak.a(this.c, this.f4485a.h));
-            int a3 = (int) ak.a(this.c, this.f4485a.i);
-            int a4 = (int) ak.a(this.c, this.f4485a.j);
-            iArr4[0] = a3;
-            iArr4[1] = a4;
+        int[] iArr = new int[2];
+        int[] iArr2 = new int[2];
+        com.bytedance.sdk.openadsdk.core.d.j jVar = this.f28525a;
+        if (jVar != null) {
+            j3 = jVar.f28161e;
+            j4 = jVar.f28162f;
+            iArr[0] = ((int) al.a(this.f28017c, jVar.f28163g)) + i9;
+            iArr[1] = ((int) al.a(this.f28017c, this.f28525a.f28164h)) + i10;
+            int a3 = (int) al.a(this.f28017c, this.f28525a.i);
+            int a4 = (int) al.a(this.f28017c, this.f28525a.j);
+            iArr2[0] = a3;
+            i11 = 1;
+            iArr2[1] = a4;
             if (a3 == 0 && a4 == 0) {
-                iArr2 = ak.a(view2);
-                iArr = ak.c(view2);
-                return new f.a().e(i).d(i2).c(i3).b(i4).b(j).a(j2).b(a2).a(iArr2).c(ak.c(view)).d(iArr).f(this.y).g(this.z).h(this.A).a(!com.bytedance.sdk.openadsdk.core.i.d().b() ? 1 : 2).a(this.C).a();
+                iArr = al.a(view2);
+                iArr2 = al.c(view2);
             }
+        } else {
+            i11 = 1;
+            j3 = j;
+            j4 = j2;
         }
-        iArr = iArr4;
-        iArr2 = iArr3;
-        return new f.a().e(i).d(i2).c(i3).b(i4).b(j).a(j2).b(a2).a(iArr2).c(ak.c(view)).d(iArr).f(this.y).g(this.z).h(this.A).a(!com.bytedance.sdk.openadsdk.core.i.d().b() ? 1 : 2).a(this.C).a();
+        f.a h2 = new f.a().e(i5).d(i6).c(i7).b(i8).b(j3).a(j4).b(a2).a(iArr).c(al.c(view)).d(iArr2).f(this.y).g(this.z).h(this.A);
+        if (!com.bytedance.sdk.openadsdk.core.i.d().b()) {
+            i11 = 2;
+        }
+        return h2.a(i11).a(this.C).a();
     }
 
     public void a(com.bytedance.sdk.openadsdk.core.d.j jVar) {
-        this.f4485a = jVar;
+        this.f28525a = jVar;
     }
 }

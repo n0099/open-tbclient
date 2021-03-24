@@ -7,29 +7,96 @@ import com.sina.weibo.sdk.auth.AuthInfo;
 import com.sina.weibo.sdk.constant.WBConstants;
 import com.sina.weibo.sdk.web.BaseWebViewRequestData;
 import com.sina.weibo.sdk.web.WebRequestType;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public abstract class BaseWebViewRequestParam {
-    private BaseWebViewRequestData baseData;
-    protected Context context;
-    private String transaction;
+    public BaseWebViewRequestData baseData;
+    public Context context;
+    public String transaction;
 
-    /* loaded from: classes4.dex */
+    /* renamed from: com.sina.weibo.sdk.web.param.BaseWebViewRequestParam$1  reason: invalid class name */
+    /* loaded from: classes6.dex */
+    public static /* synthetic */ class AnonymousClass1 {
+        public static final /* synthetic */ int[] $SwitchMap$com$sina$weibo$sdk$web$WebRequestType;
+
+        static {
+            int[] iArr = new int[WebRequestType.values().length];
+            $SwitchMap$com$sina$weibo$sdk$web$WebRequestType = iArr;
+            try {
+                iArr[WebRequestType.DEFAULT.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
+            }
+            try {
+                $SwitchMap$com$sina$weibo$sdk$web$WebRequestType[WebRequestType.SHARE.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
+            }
+            try {
+                $SwitchMap$com$sina$weibo$sdk$web$WebRequestType[WebRequestType.AUTH.ordinal()] = 3;
+            } catch (NoSuchFieldError unused3) {
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
     public interface ExtraTaskCallback {
         void onComplete(String str);
 
         void onException(String str);
     }
 
-    protected abstract void childFillBundle(Bundle bundle);
+    public BaseWebViewRequestParam() {
+    }
+
+    public abstract void childFillBundle(Bundle bundle);
+
+    public void doExtraTask(ExtraTaskCallback extraTaskCallback) {
+    }
+
+    public Bundle fillBundle(Bundle bundle) {
+        BaseWebViewRequestData baseWebViewRequestData = this.baseData;
+        if (baseWebViewRequestData != null) {
+            bundle.putSerializable(SchemeCollecter.CLASSIFY_BASE, baseWebViewRequestData);
+            int i = AnonymousClass1.$SwitchMap$com$sina$weibo$sdk$web$WebRequestType[this.baseData.getType().ordinal()];
+            if (i == 1) {
+                bundle.putInt("type", 0);
+            } else if (i == 2) {
+                bundle.putInt("type", 1);
+            } else if (i == 3) {
+                bundle.putInt("type", 2);
+            }
+            bundle.putString(WBConstants.TRAN, this.transaction);
+            childFillBundle(bundle);
+            return bundle;
+        }
+        throw new NullPointerException("构造方法错误，请使用全参数的构造方法构建");
+    }
+
+    public BaseWebViewRequestData getBaseData() {
+        return this.baseData;
+    }
+
+    public Context getContext() {
+        return this.context;
+    }
 
     public abstract String getRequestUrl();
 
-    protected abstract void transformChildBundle(Bundle bundle);
+    public boolean hasExtraTask() {
+        return false;
+    }
+
+    public void setContext(Context context) {
+        this.context = context;
+    }
+
+    public void transformBundle(Bundle bundle) {
+        this.baseData = (BaseWebViewRequestData) bundle.getSerializable(SchemeCollecter.CLASSIFY_BASE);
+        this.transaction = bundle.getString(WBConstants.TRAN);
+        transformChildBundle(bundle);
+    }
+
+    public abstract void transformChildBundle(Bundle bundle);
 
     public abstract void updateRequestUrl(String str);
-
-    public BaseWebViewRequestParam() {
-    }
 
     public BaseWebViewRequestParam(AuthInfo authInfo, WebRequestType webRequestType, String str, String str2, String str3, Context context) {
         this(authInfo, webRequestType, str, 0, str2, str3, context);
@@ -39,51 +106,5 @@ public abstract class BaseWebViewRequestParam {
         this.baseData = new BaseWebViewRequestData(authInfo, webRequestType, str, i, str2, str3);
         this.context = context;
         this.transaction = String.valueOf(System.currentTimeMillis());
-    }
-
-    public void setContext(Context context) {
-        this.context = context;
-    }
-
-    public Context getContext() {
-        return this.context;
-    }
-
-    public Bundle fillBundle(Bundle bundle) {
-        if (this.baseData == null) {
-            throw new NullPointerException("构造方法错误，请使用全参数的构造方法构建");
-        }
-        bundle.putSerializable(SchemeCollecter.CLASSIFY_BASE, this.baseData);
-        switch (this.baseData.getType()) {
-            case DEFAULT:
-                bundle.putInt("type", 0);
-                break;
-            case SHARE:
-                bundle.putInt("type", 1);
-                break;
-            case AUTH:
-                bundle.putInt("type", 2);
-                break;
-        }
-        bundle.putString(WBConstants.TRAN, this.transaction);
-        childFillBundle(bundle);
-        return bundle;
-    }
-
-    public void transformBundle(Bundle bundle) {
-        this.baseData = (BaseWebViewRequestData) bundle.getSerializable(SchemeCollecter.CLASSIFY_BASE);
-        this.transaction = bundle.getString(WBConstants.TRAN);
-        transformChildBundle(bundle);
-    }
-
-    public boolean hasExtraTask() {
-        return false;
-    }
-
-    public void doExtraTask(ExtraTaskCallback extraTaskCallback) {
-    }
-
-    public BaseWebViewRequestData getBaseData() {
-        return this.baseData;
     }
 }

@@ -4,23 +4,23 @@ import android.content.ContentResolver;
 import android.content.res.AssetFileDescriptor;
 import android.net.Uri;
 import androidx.annotation.NonNull;
+import com.baidu.mapsdkplatform.comapi.map.r;
 import java.io.FileNotFoundException;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public final class a extends l<AssetFileDescriptor> {
     public a(ContentResolver contentResolver, Uri uri) {
         super(contentResolver, uri);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.glide.load.a.l
     /* renamed from: a */
     public AssetFileDescriptor b(Uri uri, ContentResolver contentResolver) {
-        AssetFileDescriptor openAssetFileDescriptor = contentResolver.openAssetFileDescriptor(uri, "r");
-        if (openAssetFileDescriptor == null) {
-            throw new FileNotFoundException("FileDescriptor is null for: " + uri);
+        AssetFileDescriptor openAssetFileDescriptor = contentResolver.openAssetFileDescriptor(uri, r.f7663a);
+        if (openAssetFileDescriptor != null) {
+            return openAssetFileDescriptor;
         }
-        return openAssetFileDescriptor;
+        throw new FileNotFoundException("FileDescriptor is null for: " + uri);
     }
 
     @Override // com.kwad.sdk.glide.load.a.d
@@ -30,7 +30,6 @@ public final class a extends l<AssetFileDescriptor> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.glide.load.a.l
     public void a(AssetFileDescriptor assetFileDescriptor) {
         assetFileDescriptor.close();

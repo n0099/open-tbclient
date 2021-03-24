@@ -3,22 +3,14 @@ package org.apache.commons.logging;
 import java.lang.reflect.Constructor;
 import java.util.Hashtable;
 @Deprecated
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class LogSource {
-    protected static boolean jdk14IsAvailable;
-    protected static boolean log4jIsAvailable;
-    protected static Constructor logImplctor;
-    protected static Hashtable logs;
+    public static boolean jdk14IsAvailable;
+    public static boolean log4jIsAvailable;
+    public static Constructor logImplctor;
+    public static Hashtable logs;
 
-    LogSource() {
-        throw new RuntimeException("Stub!");
-    }
-
-    public static void setLogImplementation(String str) throws LinkageError, ExceptionInInitializerError, NoSuchMethodException, SecurityException, ClassNotFoundException {
-        throw new RuntimeException("Stub!");
-    }
-
-    public static void setLogImplementation(Class cls) throws LinkageError, ExceptionInInitializerError, NoSuchMethodException, SecurityException {
+    public LogSource() {
         throw new RuntimeException("Stub!");
     }
 
@@ -26,7 +18,7 @@ public class LogSource {
         throw new RuntimeException("Stub!");
     }
 
-    public static Log getInstance(Class cls) {
+    public static String[] getLogNames() {
         throw new RuntimeException("Stub!");
     }
 
@@ -34,7 +26,15 @@ public class LogSource {
         throw new RuntimeException("Stub!");
     }
 
-    public static String[] getLogNames() {
+    public static void setLogImplementation(String str) throws LinkageError, ExceptionInInitializerError, NoSuchMethodException, SecurityException, ClassNotFoundException {
+        throw new RuntimeException("Stub!");
+    }
+
+    public static Log getInstance(Class cls) {
+        throw new RuntimeException("Stub!");
+    }
+
+    public static void setLogImplementation(Class cls) throws LinkageError, ExceptionInInitializerError, NoSuchMethodException, SecurityException {
         throw new RuntimeException("Stub!");
     }
 }

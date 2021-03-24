@@ -1,0 +1,424 @@
+package com.baidu.wallet.paysdk.api;
+
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
+import android.text.TextUtils;
+import android.view.View;
+import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.apollon.beans.IBeanResponseCallback;
+import com.baidu.apollon.eventbus.EventBus;
+import com.baidu.apollon.utils.GlobalUtils;
+import com.baidu.apollon.utils.ResUtils;
+import com.baidu.wallet.api.BaiduWalletDelegate;
+import com.baidu.wallet.api.WalletLoginHelper;
+import com.baidu.wallet.base.controllers.PasswordController;
+import com.baidu.wallet.base.datamodel.AccountManager;
+import com.baidu.wallet.base.datamodel.UserData;
+import com.baidu.wallet.base.statistics.PayStatServiceEvent;
+import com.baidu.wallet.base.widget.dialog.PromptTipDialog;
+import com.baidu.wallet.core.BaseActivity;
+import com.baidu.wallet.core.beans.BeanErrorContent;
+import com.baidu.wallet.core.beans.NetworkBean;
+import com.baidu.wallet.core.lollipop.json.JSONObject;
+import com.baidu.wallet.core.utils.BaiduWalletUtils;
+import com.baidu.wallet.paysdk.api.BaiduPay;
+import com.baidu.wallet.paysdk.beans.BeanConstants;
+import com.baidu.wallet.paysdk.beans.d;
+import com.baidu.wallet.paysdk.datamodel.BindFastRequest;
+import com.baidu.wallet.paysdk.datamodel.CardAddErrorContent;
+import com.baidu.wallet.paysdk.datamodel.CardAddResponse;
+import com.baidu.wallet.paysdk.payresult.presenter.H5LifeCycleCallback;
+import com.baidu.wallet.paysdk.storage.PayRequestCache;
+import com.baidu.wallet.paysdk.ui.WelcomeActivity;
+import com.baidu.wallet.statistics.api.StatisticManager;
+import com.baidu.wallet.util.StatHelper;
+import java.lang.ref.WeakReference;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+/* loaded from: classes5.dex */
+public class BindCardEntry implements IBeanResponseCallback {
+
+    /* renamed from: a  reason: collision with root package name */
+    public Handler f25412a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public PayRequestCache.BindCategory f25413b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public String f25414c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public WeakReference<? extends Context> f25415d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public d f25416e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public OnReturn f25417f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public WelcomeActivity f25418g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public boolean f25419h;
+    public boolean i;
+
+    /* loaded from: classes5.dex */
+    public interface OnReturn {
+        void onFailed(int i, String str);
+
+        void onResponse(CardAddResponse cardAddResponse);
+    }
+
+    /* loaded from: classes5.dex */
+    public static class SingletonHolder {
+        public static BindCardEntry sInstance = new BindCardEntry();
+    }
+
+    public static BindFastRequest createBindRequest(PayRequestCache.BindCategory bindCategory) {
+        BindFastRequest bindFastRequest = new BindFastRequest();
+        if (bindCategory != null && PayRequestCache.BindCategory.Other != bindCategory) {
+            SingletonHolder.sInstance.f25413b = bindCategory;
+            PayRequestCache.getInstance().addBeanRequestToCache(bindCategory.name(), bindFastRequest);
+            SingletonHolder.sInstance.f25416e.a(bindFastRequest);
+            return bindFastRequest;
+        }
+        throw new IllegalStateException("not support bind card for Paying");
+    }
+
+    public static OnReturn createCb4CheckPwdAndBind(final Context context, final BaiduPay.IBindCardCallback iBindCardCallback, final Bundle bundle, final boolean z, final String str) {
+        return new OnReturn() { // from class: com.baidu.wallet.paysdk.api.BindCardEntry.3
+            @Override // com.baidu.wallet.paysdk.api.BindCardEntry.OnReturn
+            public void onFailed(int i, String str2) {
+                BaiduPay.IBindCardCallback iBindCardCallback2 = iBindCardCallback;
+                if (iBindCardCallback2 != null) {
+                    iBindCardCallback2.onChangeFailed(str2);
+                }
+                BaiduPay.getInstance().clearBindCallbackExt();
+            }
+
+            @Override // com.baidu.wallet.paysdk.api.BindCardEntry.OnReturn
+            public void onResponse(CardAddResponse cardAddResponse) {
+                UserData.UserModel userModel;
+                Activity loadingUi = BindCardEntry.getLoadingUi();
+                if (loadingUi != null) {
+                    if (z && (userModel = cardAddResponse.user) != null && userModel.hasMobilePwd()) {
+                        PasswordController.getPassWordInstance().checkPwd(loadingUi, str, new PasswordController.IPwdListener() { // from class: com.baidu.wallet.paysdk.api.BindCardEntry.3.1
+                            @Override // com.baidu.wallet.base.controllers.PasswordController.IPwdListener
+                            public void onFail(int i, String str2) {
+                                String sessionId = StatHelper.getSessionId();
+                                StatisticManager.onEventWithValues(PayStatServiceEvent.INITIVATIVE_BIND_CARD_FAILED, StatHelper.collectData(sessionId, i + "", str2));
+                                PasswordController.getPassWordInstance().clearCheckPwdListener();
+                                BaiduPay.getInstance().clearBindCallbackExt();
+                            }
+
+                            @Override // com.baidu.wallet.base.controllers.PasswordController.IPwdListener
+                            public void onSucceed(String str2) {
+                                PasswordController.getPassWordInstance().clearCheckPwdListener();
+                                Context loadingUi2 = BindCardEntry.getLoadingUi();
+                                if (loadingUi2 == null) {
+                                    loadingUi2 = context;
+                                }
+                                BaiduPay baiduPay = BaiduPay.getInstance();
+                                AnonymousClass3 anonymousClass3 = AnonymousClass3.this;
+                                baiduPay.launchBindCardActivity(loadingUi2, iBindCardCallback, bundle);
+                            }
+                        });
+                        return;
+                    }
+                    Context loadingUi2 = BindCardEntry.getLoadingUi();
+                    if (loadingUi2 == null) {
+                        loadingUi2 = context;
+                    }
+                    BaiduPay.getInstance().launchBindCardActivity(loadingUi2, iBindCardCallback, bundle);
+                }
+            }
+        };
+    }
+
+    public static PayRequestCache.BindCategory getBindScenario() {
+        return SingletonHolder.sInstance.f25413b;
+    }
+
+    public static Activity getLoadingUi() {
+        if (SingletonHolder.sInstance.f25418g == null) {
+            return null;
+        }
+        return SingletonHolder.sInstance.f25418g.getActivity();
+    }
+
+    public static void init(Context context) {
+        if (context instanceof Activity) {
+            SingletonHolder.sInstance.f25415d = new WeakReference<>(context);
+        } else if (!(context instanceof BaseActivity)) {
+            SingletonHolder.sInstance.f25415d = null;
+        } else {
+            Activity activity = ((BaseActivity) context).getActivity();
+            SingletonHolder.sInstance.f25415d = new WeakReference<>(activity);
+        }
+        EventBus.getInstance().register(SingletonHolder.sInstance, "ev_bean_execut_err_content", 0, EventBus.ThreadMode.MainThread);
+        SingletonHolder.sInstance.f25416e.setResponseCallback(SingletonHolder.sInstance);
+    }
+
+    public static void innerRun() {
+        StringBuilder sb = new StringBuilder();
+        if (!TextUtils.isEmpty(SingletonHolder.sInstance.f25414c)) {
+            sb.append(SingletonHolder.sInstance.f25414c);
+            sb.setCharAt(sb.length() - 1, ',');
+        } else {
+            sb.append(StringUtil.ARRAY_START);
+        }
+        sb.append("request_type:");
+        if (SingletonHolder.sInstance.f25413b != null) {
+            sb.append(SingletonHolder.sInstance.f25413b.getScenario());
+        } else {
+            sb.append(PayRequestCache.BindCategory.Initiative.getScenario());
+        }
+        sb.append("}");
+        SingletonHolder.sInstance.f25416e.a(sb.toString());
+        SingletonHolder.sInstance.f25416e.execBean();
+    }
+
+    public static void run() {
+        Activity activity;
+        Context context = SingletonHolder.sInstance.f25415d != null ? SingletonHolder.sInstance.f25415d.get() : null;
+        if (context == null) {
+            return;
+        }
+        if (SingletonHolder.sInstance.f25416e.a() != null) {
+            Intent intent = new Intent(context, WelcomeActivity.class);
+            intent.putExtra("fromType", 4);
+            if (BaiduWalletUtils.isActivity(context)) {
+                if (context instanceof BaseActivity) {
+                    BaseActivity baseActivity = (BaseActivity) context;
+                    baseActivity.startActivityWithoutAnim(intent);
+                    activity = baseActivity.getActivity();
+                } else {
+                    context.startActivity(intent);
+                    activity = (Activity) context;
+                }
+                BaiduWalletUtils.overridePendingTransitionNoAnim(activity);
+                return;
+            }
+            intent.addFlags(268435456);
+            context.getApplicationContext().startActivity(intent);
+            return;
+        }
+        throw new RuntimeException("should call createBindRequest() before running");
+    }
+
+    public static void setCallback(OnReturn onReturn) {
+        SingletonHolder.sInstance.f25417f = onReturn;
+    }
+
+    public static void setExtrParam(String str) {
+        SingletonHolder.sInstance.f25414c = str;
+    }
+
+    public static void setLoadingUi(WelcomeActivity welcomeActivity) {
+        SingletonHolder.sInstance.f25418g = welcomeActivity;
+    }
+
+    @Override // com.baidu.apollon.beans.IBeanResponseCallback
+    public void onBeanExecFailure(int i, int i2, String str) {
+        CardAddResponse.updateContent(null);
+        if (SingletonHolder.sInstance.f25413b == PayRequestCache.BindCategory.Initiative) {
+            String b2 = b();
+            StatisticManager.onEventWithValues(PayStatServiceEvent.INITIVATIVE_BIND_CARD_ENTER, StatHelper.collectData(b2, "cardAdd is failed"));
+            StatisticManager.onEventWithValues(PayStatServiceEvent.INITIVATIVE_BIND_CARD_FAILED, StatHelper.collectData(b2, i2 + "", str));
+        }
+        if (this.f25417f != null) {
+            this.f25412a.obtainMessage(2, i2, 0, str).sendToTarget();
+        }
+    }
+
+    public void onBeanExecFailureWithErrContent(int i, int i2, String str, Object obj) {
+        CardAddErrorContent cardAddErrorContent;
+        CardAddResponse.updateContent(null);
+        if (i2 != 16254 || obj == null || !(obj instanceof CardAddErrorContent) || SingletonHolder.sInstance.f25418g == null) {
+            SingletonHolder.sInstance.f25412a.obtainMessage(2, i2, 0, str).sendToTarget();
+            return;
+        }
+        if (TextUtils.isEmpty(((CardAddErrorContent) obj).goto_url)) {
+            SingletonHolder.sInstance.f25412a.obtainMessage(2, i2, 0, str).sendToTarget();
+            return;
+        }
+        StatisticManager.onEvent(PayStatServiceEvent.BIND_CARD_PASS_ENTER);
+        H5LifeCycleCallback h5LifeCycleCallback = new H5LifeCycleCallback() { // from class: com.baidu.wallet.paysdk.api.BindCardEntry.2
+            @Override // com.baidu.wallet.paysdk.payresult.presenter.H5LifeCycleCallback, android.app.Application.ActivityLifecycleCallbacks
+            public void onActivityDestroyed(Activity activity) {
+                pop();
+                if (!SingletonHolder.sInstance.f25419h) {
+                    StatisticManager.onEvent(PayStatServiceEvent.BIND_CARD_PASS_FAILED);
+                    BindCardEntry.this.i = false;
+                    SingletonHolder.sInstance.f25412a.obtainMessage(2, -1, 0, "").sendToTarget();
+                }
+                SingletonHolder.sInstance.f25419h = false;
+            }
+        };
+        h5LifeCycleCallback.push();
+        EventBus.getInstance().register(SingletonHolder.sInstance, BeanConstants.EVENT_H5_AUTH_ADMIT_SUBMIT, 0, EventBus.ThreadMode.MainThread);
+        Bundle bundle = new Bundle();
+        bundle.putBoolean("with_anim", false);
+        bundle.putBoolean("show_share", false);
+        bundle.putString("url", cardAddErrorContent.goto_url + "?is_from_sdk=1");
+        bundle.putParcelable("lifecycleLsnr", h5LifeCycleCallback);
+        BaiduWalletDelegate.getInstance().openH5Module(SingletonHolder.sInstance.f25418g, bundle);
+        SingletonHolder.sInstance.f25418g.finishWithoutAnim();
+        SingletonHolder.sInstance.f25418g = null;
+    }
+
+    @Override // com.baidu.apollon.beans.IBeanResponseCallback
+    public void onBeanExecSuccess(int i, Object obj, String str) {
+        CardAddResponse.updateContent(obj);
+        if (SingletonHolder.sInstance.f25413b == PayRequestCache.BindCategory.Initiative) {
+            String sessionId = NetworkBean.SessionCache.getInstance().getSessionId(NetworkBean.BizType.BindCard);
+            StatHelper.cacheSessionId(sessionId);
+            StatisticManager.onEventWithValue(PayStatServiceEvent.INITIVATIVE_BIND_CARD_ENTER, sessionId);
+        }
+        if (this.f25417f != null) {
+            this.f25412a.sendEmptyMessage(0);
+        }
+    }
+
+    public void onModuleEvent(EventBus.Event event) {
+        if (event == null) {
+            return;
+        }
+        if (event.mEventKey.equals("ev_bean_execut_err_content")) {
+            Object obj = event.mEventObj;
+            if (obj instanceof BeanErrorContent) {
+                BeanErrorContent beanErrorContent = (BeanErrorContent) obj;
+                onBeanExecFailureWithErrContent(beanErrorContent.getBeanId(), beanErrorContent.getRet(), beanErrorContent.getMsg(), beanErrorContent.getErrContent());
+                EventBus.getInstance().removeStickyEvent("ev_bean_execut_err_content");
+                return;
+            }
+        }
+        if (!BeanConstants.EVENT_H5_AUTH_ADMIT_SUBMIT.equals(event.mEventKey) || SingletonHolder.sInstance.f25415d == null || SingletonHolder.sInstance.f25415d.get() == null) {
+            return;
+        }
+        if (event.mEventObj != null) {
+            try {
+                JSONObject jSONObject = new JSONObject((String) event.mEventObj);
+                if (jSONObject.has("confirm_result") && 1 == jSONObject.getInt("confirm_result")) {
+                    StatisticManager.onEvent(PayStatServiceEvent.BIND_CARD_PASS_AGREE);
+                    SingletonHolder.sInstance.f25419h = true;
+                    init(SingletonHolder.sInstance.f25415d.get());
+                    run();
+                } else {
+                    StatisticManager.onEvent(PayStatServiceEvent.BIND_CARD_PASS_FAILED);
+                    this.i = false;
+                    SingletonHolder.sInstance.f25412a.obtainMessage(2, -1, 0, "").sendToTarget();
+                }
+                return;
+            } catch (Exception e2) {
+                e2.printStackTrace();
+                return;
+            }
+        }
+        StatisticManager.onEvent(PayStatServiceEvent.BIND_CARD_PASS_FAILED);
+        this.i = false;
+        SingletonHolder.sInstance.f25412a.obtainMessage(2, -1, 0, "").sendToTarget();
+    }
+
+    public BindCardEntry() {
+        this.f25413b = null;
+        this.f25419h = false;
+        this.i = true;
+        d dVar = new d(BaiduWalletDelegate.getInstance().getAppContext());
+        this.f25416e = dVar;
+        dVar.setResponseCallback(this);
+        this.f25412a = new Handler(Looper.getMainLooper()) { // from class: com.baidu.wallet.paysdk.api.BindCardEntry.1
+            @Override // android.os.Handler
+            public void handleMessage(Message message) {
+                int i = message.what;
+                if (1 == i) {
+                    if (BindCardEntry.this.f25417f != null) {
+                        BindCardEntry.this.f25417f.onResponse(CardAddResponse.getInstance());
+                    }
+                    if (BindCardEntry.this.f25418g != null) {
+                        BindCardEntry.this.f25418g.finishWithoutAnim();
+                        BindCardEntry.this.f25418g = null;
+                    }
+                    BindCardEntry.this.a();
+                } else if (i != 0) {
+                    if (2 == i) {
+                        if (BindCardEntry.this.i) {
+                            BindCardEntry.this.a(message.arg1, (String) message.obj);
+                        }
+                        if (BindCardEntry.this.f25417f != null) {
+                            BindCardEntry.this.f25417f.onFailed(message.arg1, (String) message.obj);
+                        }
+                        if (BindCardEntry.this.f25418g != null) {
+                            BindCardEntry.this.f25418g.finishWithoutAnim();
+                            BindCardEntry.this.f25418g = null;
+                        }
+                        BindCardEntry.this.a();
+                    }
+                } else {
+                    boolean z = false;
+                    CardAddResponse.ConfirmWindow confirmWindow = CardAddResponse.getInstance().confirm_window;
+                    if (confirmWindow != null && BindCardEntry.this.f25418g != null && !TextUtils.isEmpty(confirmWindow.content)) {
+                        PromptTipDialog promptTipDialog = new PromptTipDialog(BindCardEntry.this.f25418g);
+                        promptTipDialog.setTitleMessage(confirmWindow.title);
+                        promptTipDialog.setMessage(confirmWindow.content);
+                        promptTipDialog.setButtonMessage(TextUtils.isEmpty(confirmWindow.btn_name) ? "确认" : confirmWindow.btn_name);
+                        promptTipDialog.setDefaultBtnListener(new View.OnClickListener() { // from class: com.baidu.wallet.paysdk.api.BindCardEntry.1.1
+                            @Override // android.view.View.OnClickListener
+                            public void onClick(View view) {
+                                sendEmptyMessage(1);
+                            }
+                        });
+                        promptTipDialog.show();
+                        z = true;
+                    }
+                    if (z) {
+                        return;
+                    }
+                    sendEmptyMessage(1);
+                }
+            }
+        };
+    }
+
+    private String b() {
+        return new SimpleDateFormat("yyyyMMddHHmmss").format(new Date());
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void a() {
+        this.f25417f = null;
+        this.f25415d = null;
+        this.f25414c = null;
+        this.f25413b = null;
+        this.f25416e.a((BindFastRequest) null);
+        this.f25419h = false;
+        this.i = true;
+        EventBus.getInstance().unregister(this, "ev_bean_execut_err_content");
+        EventBus.getInstance().unregister(this, BeanConstants.EVENT_H5_AUTH_ADMIT_SUBMIT);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void a(int i, String str) {
+        Context appContext = BaiduWalletDelegate.getInstance().getAppContext();
+        if (i == 5003) {
+            GlobalUtils.toast(appContext, ResUtils.getString(appContext, "wallet_base_please_login"));
+            AccountManager.getInstance(appContext).logout();
+            WalletLoginHelper.getInstance().logout(false);
+        } else if (-2 == i || -3 == i) {
+            GlobalUtils.toast(appContext, ResUtils.getString(appContext, "fp_get_data_fail"));
+        } else if (-8 == i) {
+            GlobalUtils.toast(appContext, ResUtils.getString(appContext, "ebpay_no_network"));
+        } else {
+            if (TextUtils.isEmpty(str)) {
+                str = ResUtils.getString(appContext, "fp_get_data_fail");
+            }
+            GlobalUtils.toast(appContext, str);
+        }
+    }
+}

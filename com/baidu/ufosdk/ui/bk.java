@@ -1,16 +1,14 @@
 package com.baidu.ufosdk.ui;
 
 import android.content.SharedPreferences;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public final class bk implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FeedbackInputActivity f3684a;
+    public final /* synthetic */ FeedbackInputActivity f23086a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public bk(FeedbackInputActivity feedbackInputActivity) {
-        this.f3684a = feedbackInputActivity;
+        this.f23086a = feedbackInputActivity;
     }
 
     @Override // java.lang.Runnable
@@ -18,19 +16,22 @@ public final class bk implements Runnable {
         String str;
         String str2;
         String str3;
-        SharedPreferences.Editor edit = this.f3684a.getSharedPreferences("UfoSharePreference", 0).edit();
-        str = this.f3684a.aA;
+        String str4;
+        SharedPreferences.Editor edit = this.f23086a.getSharedPreferences("UfoSharePreference", 0).edit();
+        str = this.f23086a.aA;
         if (str != null) {
-            str2 = this.f3684a.aA;
-            if (str2.trim().length() > 0) {
-                str3 = this.f3684a.aA;
-                edit.putString("cryptContactData", com.baidu.ufosdk.f.k.a(str3));
+            str3 = this.f23086a.aA;
+            if (str3.trim().length() > 0) {
+                str4 = this.f23086a.aA;
+                str2 = com.baidu.ufosdk.f.k.a(str4);
+                edit.putString("cryptContactData", str2);
                 edit.commit();
-                FeedbackInputActivity.j(this.f3684a);
+                FeedbackInputActivity.j(this.f23086a);
             }
         }
-        edit.putString("cryptContactData", "");
+        str2 = "";
+        edit.putString("cryptContactData", str2);
         edit.commit();
-        FeedbackInputActivity.j(this.f3684a);
+        FeedbackInputActivity.j(this.f23086a);
     }
 }

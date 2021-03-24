@@ -3,7 +3,7 @@ package com.baidu.fsg.face.liveness.datamodel;
 import android.content.Context;
 import com.baidu.fsg.base.restnet.beans.IBeanResponse;
 import java.io.Serializable;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public class VideoFaceMatchModel implements IBeanResponse, Serializable {
     public String authsid;
     public String callbackkey;
@@ -17,10 +17,6 @@ public class VideoFaceMatchModel implements IBeanResponse, Serializable {
         return true;
     }
 
-    @Override // com.baidu.fsg.base.restnet.beans.IBeanResponse
-    public void storeResponse(Context context) {
-    }
-
     public boolean isContrastPass() {
         return 1 == this.contrastres;
     }
@@ -31,5 +27,9 @@ public class VideoFaceMatchModel implements IBeanResponse, Serializable {
 
     public boolean isTrustResult() {
         return 1 == this.forceswitch;
+    }
+
+    @Override // com.baidu.fsg.base.restnet.beans.IBeanResponse
+    public void storeResponse(Context context) {
     }
 }

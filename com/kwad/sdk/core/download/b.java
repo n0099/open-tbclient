@@ -2,7 +2,7 @@ package com.kwad.sdk.core.download;
 
 import com.ksad.download.DownloadTask;
 import com.kwad.sdk.utils.t;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class b extends com.ksad.download.c {
     private String g(DownloadTask downloadTask) {
         return t.a(downloadTask.getUrl());
@@ -22,8 +22,10 @@ public class b extends com.ksad.download.c {
 
     @Override // com.ksad.download.c
     public void a(DownloadTask downloadTask, Throwable th) {
-        String str = "";
-        if (th != null && th.getStackTrace().length > 0) {
+        String str;
+        if (th == null || th.getStackTrace().length <= 0) {
+            str = "";
+        } else {
             str = th.getMessage() + " @ " + th.getStackTrace()[0].getFileName() + th.getStackTrace()[0].getClassName() + th.getStackTrace()[0].getLineNumber();
         }
         c.a(g(downloadTask), 0, str);

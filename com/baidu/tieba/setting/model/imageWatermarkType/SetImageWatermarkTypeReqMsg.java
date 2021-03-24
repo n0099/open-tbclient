@@ -2,9 +2,9 @@ package com.baidu.tieba.setting.model.imageWatermarkType;
 
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class SetImageWatermarkTypeReqMsg extends HttpMessage {
-    private static final String SWITCH = "switch";
+    public static final String SWITCH = "switch";
 
     public SetImageWatermarkTypeReqMsg(int i) {
         super(CmdConfigHttp.CMD_SET_IMAGE_WATERMARK_TYPE);

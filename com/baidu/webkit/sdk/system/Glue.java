@@ -12,148 +12,160 @@ import com.baidu.webkit.sdk.Log;
 import com.baidu.webkit.sdk.WebSettings;
 import com.baidu.webkit.sdk.WebView;
 import java.lang.reflect.Field;
-/* loaded from: classes14.dex */
-final class Glue {
-    private static Field ImmutableField;
+/* loaded from: classes5.dex */
+public final class Glue {
+    public static Field ImmutableField;
 
     /* renamed from: com.baidu.webkit.sdk.system.Glue$1  reason: invalid class name */
-    /* loaded from: classes14.dex */
-    /* synthetic */ class AnonymousClass1 {
-        static final /* synthetic */ int[] $SwitchMap$android$webkit$WebSettings$LayoutAlgorithm;
-        static final /* synthetic */ int[] $SwitchMap$android$webkit$WebSettings$PluginState;
-        static final /* synthetic */ int[] $SwitchMap$android$webkit$WebSettings$ZoomDensity;
+    /* loaded from: classes5.dex */
+    public /* synthetic */ class AnonymousClass1 {
+        public static final /* synthetic */ int[] $SwitchMap$android$webkit$WebSettings$LayoutAlgorithm;
+        public static final /* synthetic */ int[] $SwitchMap$android$webkit$WebSettings$PluginState;
+        public static final /* synthetic */ int[] $SwitchMap$android$webkit$WebSettings$ZoomDensity;
+        public static final /* synthetic */ int[] $SwitchMap$com$baidu$webkit$sdk$WebSettings$LayoutAlgorithm;
+        public static final /* synthetic */ int[] $SwitchMap$com$baidu$webkit$sdk$WebSettings$PluginState;
+        public static final /* synthetic */ int[] $SwitchMap$com$baidu$webkit$sdk$WebSettings$RenderPriority;
+        public static final /* synthetic */ int[] $SwitchMap$com$baidu$webkit$sdk$WebSettings$ZoomDensity;
 
         static {
+            int[] iArr = new int[WebSettings.RenderPriority.values().length];
+            $SwitchMap$com$baidu$webkit$sdk$WebSettings$RenderPriority = iArr;
             try {
-                $SwitchMap$com$baidu$webkit$sdk$WebSettings$RenderPriority[WebSettings.RenderPriority.NORMAL.ordinal()] = 1;
-            } catch (NoSuchFieldError e) {
+                iArr[WebSettings.RenderPriority.NORMAL.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
             }
             try {
                 $SwitchMap$com$baidu$webkit$sdk$WebSettings$RenderPriority[WebSettings.RenderPriority.HIGH.ordinal()] = 2;
-            } catch (NoSuchFieldError e2) {
+            } catch (NoSuchFieldError unused2) {
             }
             try {
                 $SwitchMap$com$baidu$webkit$sdk$WebSettings$RenderPriority[WebSettings.RenderPriority.LOW.ordinal()] = 3;
-            } catch (NoSuchFieldError e3) {
+            } catch (NoSuchFieldError unused3) {
             }
-            $SwitchMap$com$baidu$webkit$sdk$WebSettings$PluginState = new int[WebSettings.PluginState.values().length];
+            int[] iArr2 = new int[WebSettings.PluginState.values().length];
+            $SwitchMap$com$baidu$webkit$sdk$WebSettings$PluginState = iArr2;
             try {
-                $SwitchMap$com$baidu$webkit$sdk$WebSettings$PluginState[WebSettings.PluginState.ON.ordinal()] = 1;
-            } catch (NoSuchFieldError e4) {
+                iArr2[WebSettings.PluginState.ON.ordinal()] = 1;
+            } catch (NoSuchFieldError unused4) {
             }
             try {
                 $SwitchMap$com$baidu$webkit$sdk$WebSettings$PluginState[WebSettings.PluginState.ON_DEMAND.ordinal()] = 2;
-            } catch (NoSuchFieldError e5) {
+            } catch (NoSuchFieldError unused5) {
             }
             try {
                 $SwitchMap$com$baidu$webkit$sdk$WebSettings$PluginState[WebSettings.PluginState.OFF.ordinal()] = 3;
-            } catch (NoSuchFieldError e6) {
+            } catch (NoSuchFieldError unused6) {
             }
-            $SwitchMap$android$webkit$WebSettings$PluginState = new int[WebSettings.PluginState.values().length];
+            int[] iArr3 = new int[WebSettings.PluginState.values().length];
+            $SwitchMap$android$webkit$WebSettings$PluginState = iArr3;
             try {
-                $SwitchMap$android$webkit$WebSettings$PluginState[WebSettings.PluginState.ON.ordinal()] = 1;
-            } catch (NoSuchFieldError e7) {
+                iArr3[WebSettings.PluginState.ON.ordinal()] = 1;
+            } catch (NoSuchFieldError unused7) {
             }
             try {
                 $SwitchMap$android$webkit$WebSettings$PluginState[WebSettings.PluginState.ON_DEMAND.ordinal()] = 2;
-            } catch (NoSuchFieldError e8) {
+            } catch (NoSuchFieldError unused8) {
             }
             try {
                 $SwitchMap$android$webkit$WebSettings$PluginState[WebSettings.PluginState.OFF.ordinal()] = 3;
-            } catch (NoSuchFieldError e9) {
+            } catch (NoSuchFieldError unused9) {
             }
-            $SwitchMap$com$baidu$webkit$sdk$WebSettings$LayoutAlgorithm = new int[WebSettings.LayoutAlgorithm.values().length];
+            int[] iArr4 = new int[WebSettings.LayoutAlgorithm.values().length];
+            $SwitchMap$com$baidu$webkit$sdk$WebSettings$LayoutAlgorithm = iArr4;
             try {
-                $SwitchMap$com$baidu$webkit$sdk$WebSettings$LayoutAlgorithm[WebSettings.LayoutAlgorithm.NORMAL.ordinal()] = 1;
-            } catch (NoSuchFieldError e10) {
+                iArr4[WebSettings.LayoutAlgorithm.NORMAL.ordinal()] = 1;
+            } catch (NoSuchFieldError unused10) {
             }
             try {
                 $SwitchMap$com$baidu$webkit$sdk$WebSettings$LayoutAlgorithm[WebSettings.LayoutAlgorithm.SINGLE_COLUMN.ordinal()] = 2;
-            } catch (NoSuchFieldError e11) {
+            } catch (NoSuchFieldError unused11) {
             }
             try {
                 $SwitchMap$com$baidu$webkit$sdk$WebSettings$LayoutAlgorithm[WebSettings.LayoutAlgorithm.NARROW_COLUMNS.ordinal()] = 3;
-            } catch (NoSuchFieldError e12) {
+            } catch (NoSuchFieldError unused12) {
             }
             try {
                 $SwitchMap$com$baidu$webkit$sdk$WebSettings$LayoutAlgorithm[WebSettings.LayoutAlgorithm.TEXT_AUTOSIZING.ordinal()] = 4;
-            } catch (NoSuchFieldError e13) {
+            } catch (NoSuchFieldError unused13) {
             }
-            $SwitchMap$android$webkit$WebSettings$LayoutAlgorithm = new int[WebSettings.LayoutAlgorithm.values().length];
+            int[] iArr5 = new int[WebSettings.LayoutAlgorithm.values().length];
+            $SwitchMap$android$webkit$WebSettings$LayoutAlgorithm = iArr5;
             try {
-                $SwitchMap$android$webkit$WebSettings$LayoutAlgorithm[WebSettings.LayoutAlgorithm.NORMAL.ordinal()] = 1;
-            } catch (NoSuchFieldError e14) {
+                iArr5[WebSettings.LayoutAlgorithm.NORMAL.ordinal()] = 1;
+            } catch (NoSuchFieldError unused14) {
             }
             try {
                 $SwitchMap$android$webkit$WebSettings$LayoutAlgorithm[WebSettings.LayoutAlgorithm.SINGLE_COLUMN.ordinal()] = 2;
-            } catch (NoSuchFieldError e15) {
+            } catch (NoSuchFieldError unused15) {
             }
             try {
                 $SwitchMap$android$webkit$WebSettings$LayoutAlgorithm[WebSettings.LayoutAlgorithm.NARROW_COLUMNS.ordinal()] = 3;
-            } catch (NoSuchFieldError e16) {
+            } catch (NoSuchFieldError unused16) {
             }
             try {
                 $SwitchMap$android$webkit$WebSettings$LayoutAlgorithm[WebSettings.LayoutAlgorithm.TEXT_AUTOSIZING.ordinal()] = 4;
-            } catch (NoSuchFieldError e17) {
+            } catch (NoSuchFieldError unused17) {
             }
-            $SwitchMap$com$baidu$webkit$sdk$WebSettings$ZoomDensity = new int[WebSettings.ZoomDensity.values().length];
+            int[] iArr6 = new int[WebSettings.ZoomDensity.values().length];
+            $SwitchMap$com$baidu$webkit$sdk$WebSettings$ZoomDensity = iArr6;
             try {
-                $SwitchMap$com$baidu$webkit$sdk$WebSettings$ZoomDensity[WebSettings.ZoomDensity.FAR.ordinal()] = 1;
-            } catch (NoSuchFieldError e18) {
+                iArr6[WebSettings.ZoomDensity.FAR.ordinal()] = 1;
+            } catch (NoSuchFieldError unused18) {
             }
             try {
                 $SwitchMap$com$baidu$webkit$sdk$WebSettings$ZoomDensity[WebSettings.ZoomDensity.MEDIUM.ordinal()] = 2;
-            } catch (NoSuchFieldError e19) {
+            } catch (NoSuchFieldError unused19) {
             }
             try {
                 $SwitchMap$com$baidu$webkit$sdk$WebSettings$ZoomDensity[WebSettings.ZoomDensity.CLOSE.ordinal()] = 3;
-            } catch (NoSuchFieldError e20) {
+            } catch (NoSuchFieldError unused20) {
             }
-            $SwitchMap$android$webkit$WebSettings$ZoomDensity = new int[WebSettings.ZoomDensity.values().length];
+            int[] iArr7 = new int[WebSettings.ZoomDensity.values().length];
+            $SwitchMap$android$webkit$WebSettings$ZoomDensity = iArr7;
             try {
-                $SwitchMap$android$webkit$WebSettings$ZoomDensity[WebSettings.ZoomDensity.FAR.ordinal()] = 1;
-            } catch (NoSuchFieldError e21) {
+                iArr7[WebSettings.ZoomDensity.FAR.ordinal()] = 1;
+            } catch (NoSuchFieldError unused21) {
             }
             try {
                 $SwitchMap$android$webkit$WebSettings$ZoomDensity[WebSettings.ZoomDensity.MEDIUM.ordinal()] = 2;
-            } catch (NoSuchFieldError e22) {
+            } catch (NoSuchFieldError unused22) {
             }
             try {
                 $SwitchMap$android$webkit$WebSettings$ZoomDensity[WebSettings.ZoomDensity.CLOSE.ordinal()] = 3;
-            } catch (NoSuchFieldError e23) {
+            } catch (NoSuchFieldError unused23) {
             }
         }
     }
 
-    /* loaded from: classes14.dex */
-    private static class ResultReceiverWrapper implements JsResult.ResultReceiver {
-        private android.webkit.JsResult mJsResult;
+    /* loaded from: classes5.dex */
+    public static class ResultReceiverWrapper implements JsResult.ResultReceiver {
+        public android.webkit.JsResult mJsResult;
 
-        private ResultReceiverWrapper(android.webkit.JsResult jsResult) {
+        public ResultReceiverWrapper(android.webkit.JsResult jsResult) {
             try {
                 this.mJsResult = jsResult;
-            } catch (Exception e) {
-                e.printStackTrace();
+            } catch (Exception e2) {
+                e2.printStackTrace();
             }
         }
 
-        /* synthetic */ ResultReceiverWrapper(android.webkit.JsResult jsResult, AnonymousClass1 anonymousClass1) {
+        public /* synthetic */ ResultReceiverWrapper(android.webkit.JsResult jsResult, AnonymousClass1 anonymousClass1) {
             this(jsResult);
         }
 
         @Override // com.baidu.webkit.sdk.JsResult.ResultReceiver
         public void onJsResultComplete(JsResult jsResult) {
             try {
-                if (jsResult instanceof JsPromptResult) {
-                    JsPromptResult jsPromptResult = (JsPromptResult) jsResult;
-                    if (this.mJsResult instanceof android.webkit.JsPromptResult) {
-                        ((android.webkit.JsPromptResult) this.mJsResult).confirm(jsPromptResult.getStringResult());
-                    }
-                } else {
+                if (!(jsResult instanceof JsPromptResult)) {
                     this.mJsResult.confirm();
+                    return;
                 }
-            } catch (Exception e) {
-                e.printStackTrace();
+                JsPromptResult jsPromptResult = (JsPromptResult) jsResult;
+                if (this.mJsResult instanceof android.webkit.JsPromptResult) {
+                    ((android.webkit.JsPromptResult) this.mJsResult).confirm(jsPromptResult.getStringResult());
+                }
+            } catch (Exception e2) {
+                e2.printStackTrace();
                 this.mJsResult.confirm();
             }
         }
@@ -164,12 +176,9 @@ final class Glue {
             Field declaredField = WebResourceResponse.class.getDeclaredField("mImmutable");
             ImmutableField = declaredField;
             declaredField.setAccessible(true);
-        } catch (Exception e) {
+        } catch (Exception unused) {
             Log.e("Glue", "WebResourceResponse.getDeclaredField.mImmutable Exception.");
         }
-    }
-
-    Glue() {
     }
 
     @TargetApi(23)
@@ -187,64 +196,63 @@ final class Glue {
         }
         try {
             return new WebResourceResponse(webResourceResponse.getMimeType(), webResourceResponse.getEncoding(), webResourceResponse.getStatusCode(), webResourceResponse.getReasonPhrase(), webResourceResponse.getResponseHeaders(), webResourceResponse.getData());
-        } catch (Throwable th) {
+        } catch (Throwable unused) {
             return new WebResourceResponse(webResourceResponse.getMimeType(), webResourceResponse.getEncoding(), webResourceResponse.getData());
         }
     }
 
     @SuppressLint({"NewApi"})
     public static WebSettings.LayoutAlgorithm cast(WebSettings.LayoutAlgorithm layoutAlgorithm) {
-        switch (layoutAlgorithm) {
-            case NORMAL:
-                return WebSettings.LayoutAlgorithm.NORMAL;
-            case SINGLE_COLUMN:
-                return WebSettings.LayoutAlgorithm.SINGLE_COLUMN;
-            case NARROW_COLUMNS:
+        int i = AnonymousClass1.$SwitchMap$com$baidu$webkit$sdk$WebSettings$LayoutAlgorithm[layoutAlgorithm.ordinal()];
+        if (i != 1) {
+            if (i != 2) {
+                if (i != 3) {
+                    if (i != 4) {
+                        return null;
+                    }
+                    return WebSettings.LayoutAlgorithm.TEXT_AUTOSIZING;
+                }
                 return WebSettings.LayoutAlgorithm.NARROW_COLUMNS;
-            case TEXT_AUTOSIZING:
-                return WebSettings.LayoutAlgorithm.TEXT_AUTOSIZING;
-            default:
-                return null;
+            }
+            return WebSettings.LayoutAlgorithm.SINGLE_COLUMN;
         }
+        return WebSettings.LayoutAlgorithm.NORMAL;
     }
 
     public static WebSettings.PluginState cast(WebSettings.PluginState pluginState) {
-        switch (pluginState) {
-            case ON:
-                return WebSettings.PluginState.ON;
-            case ON_DEMAND:
-                return WebSettings.PluginState.ON_DEMAND;
-            case OFF:
+        int i = AnonymousClass1.$SwitchMap$com$baidu$webkit$sdk$WebSettings$PluginState[pluginState.ordinal()];
+        if (i != 1) {
+            if (i != 2) {
+                if (i != 3) {
+                    return null;
+                }
                 return WebSettings.PluginState.OFF;
-            default:
-                return null;
+            }
+            return WebSettings.PluginState.ON_DEMAND;
         }
+        return WebSettings.PluginState.ON;
     }
 
     public static WebSettings.RenderPriority cast(WebSettings.RenderPriority renderPriority) {
-        switch (renderPriority) {
-            case NORMAL:
-                return WebSettings.RenderPriority.NORMAL;
-            case HIGH:
-                return WebSettings.RenderPriority.NORMAL;
-            case LOW:
-                return WebSettings.RenderPriority.NORMAL;
-            default:
-                return null;
+        int i = AnonymousClass1.$SwitchMap$com$baidu$webkit$sdk$WebSettings$RenderPriority[renderPriority.ordinal()];
+        if (i == 1 || i == 2 || i == 3) {
+            return WebSettings.RenderPriority.NORMAL;
         }
+        return null;
     }
 
     public static WebSettings.ZoomDensity cast(WebSettings.ZoomDensity zoomDensity) {
-        switch (zoomDensity) {
-            case FAR:
-                return WebSettings.ZoomDensity.FAR;
-            case MEDIUM:
-                return WebSettings.ZoomDensity.MEDIUM;
-            case CLOSE:
+        int i = AnonymousClass1.$SwitchMap$com$baidu$webkit$sdk$WebSettings$ZoomDensity[zoomDensity.ordinal()];
+        if (i != 1) {
+            if (i != 2) {
+                if (i != 3) {
+                    return null;
+                }
                 return WebSettings.ZoomDensity.CLOSE;
-            default:
-                return null;
+            }
+            return WebSettings.ZoomDensity.MEDIUM;
         }
+        return WebSettings.ZoomDensity.FAR;
     }
 
     public static JsPromptResult cast(android.webkit.JsPromptResult jsPromptResult) {
@@ -276,51 +284,55 @@ final class Glue {
         }
         try {
             return new com.baidu.webkit.sdk.WebResourceResponse(webResourceResponse.getMimeType(), webResourceResponse.getEncoding(), webResourceResponse.getStatusCode(), webResourceResponse.getReasonPhrase(), webResourceResponse.getResponseHeaders(), webResourceResponse.getData());
-        } catch (Throwable th) {
+        } catch (Throwable unused) {
             return new com.baidu.webkit.sdk.WebResourceResponse(webResourceResponse.getMimeType(), webResourceResponse.getEncoding(), webResourceResponse.getData());
         }
     }
 
     @SuppressLint({"NewApi"})
     public static WebSettings.LayoutAlgorithm cast(WebSettings.LayoutAlgorithm layoutAlgorithm) {
-        switch (AnonymousClass1.$SwitchMap$android$webkit$WebSettings$LayoutAlgorithm[layoutAlgorithm.ordinal()]) {
-            case 1:
-                return WebSettings.LayoutAlgorithm.NORMAL;
-            case 2:
-                return WebSettings.LayoutAlgorithm.SINGLE_COLUMN;
-            case 3:
+        int i = AnonymousClass1.$SwitchMap$android$webkit$WebSettings$LayoutAlgorithm[layoutAlgorithm.ordinal()];
+        if (i != 1) {
+            if (i != 2) {
+                if (i != 3) {
+                    if (i != 4) {
+                        return null;
+                    }
+                    return WebSettings.LayoutAlgorithm.TEXT_AUTOSIZING;
+                }
                 return WebSettings.LayoutAlgorithm.NARROW_COLUMNS;
-            case 4:
-                return WebSettings.LayoutAlgorithm.TEXT_AUTOSIZING;
-            default:
-                return null;
+            }
+            return WebSettings.LayoutAlgorithm.SINGLE_COLUMN;
         }
+        return WebSettings.LayoutAlgorithm.NORMAL;
     }
 
     public static WebSettings.PluginState cast(WebSettings.PluginState pluginState) {
-        switch (AnonymousClass1.$SwitchMap$android$webkit$WebSettings$PluginState[pluginState.ordinal()]) {
-            case 1:
-                return WebSettings.PluginState.ON;
-            case 2:
-                return WebSettings.PluginState.ON_DEMAND;
-            case 3:
+        int i = AnonymousClass1.$SwitchMap$android$webkit$WebSettings$PluginState[pluginState.ordinal()];
+        if (i != 1) {
+            if (i != 2) {
+                if (i != 3) {
+                    return null;
+                }
                 return WebSettings.PluginState.OFF;
-            default:
-                return null;
+            }
+            return WebSettings.PluginState.ON_DEMAND;
         }
+        return WebSettings.PluginState.ON;
     }
 
     public static WebSettings.ZoomDensity cast(WebSettings.ZoomDensity zoomDensity) {
-        switch (AnonymousClass1.$SwitchMap$android$webkit$WebSettings$ZoomDensity[zoomDensity.ordinal()]) {
-            case 1:
-                return WebSettings.ZoomDensity.FAR;
-            case 2:
-                return WebSettings.ZoomDensity.MEDIUM;
-            case 3:
+        int i = AnonymousClass1.$SwitchMap$android$webkit$WebSettings$ZoomDensity[zoomDensity.ordinal()];
+        if (i != 1) {
+            if (i != 2) {
+                if (i != 3) {
+                    return null;
+                }
                 return WebSettings.ZoomDensity.CLOSE;
-            default:
-                return null;
+            }
+            return WebSettings.ZoomDensity.MEDIUM;
         }
+        return WebSettings.ZoomDensity.FAR;
     }
 
     public static WebView.HitTestResult cast(WebView.HitTestResult hitTestResult) {

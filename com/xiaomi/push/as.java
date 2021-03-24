@@ -1,85 +1,315 @@
 package com.xiaomi.push;
 
 import android.content.Context;
+import android.os.Looper;
+import android.os.SystemClock;
+import android.text.TextUtils;
+import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
-/* loaded from: classes5.dex */
-class as implements ar {
+import java.lang.reflect.Proxy;
+/* loaded from: classes7.dex */
+public class as implements ar, InvocationHandler {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f8262a;
+    public static final String[][] f40235a = {new String[]{"com.bun.supplier.IIdentifierListener", "com.bun.supplier.IdSupplier"}, new String[]{"com.bun.miitmdid.core.IIdentifierListener", "com.bun.miitmdid.supplier.IdSupplier"}};
 
     /* renamed from: a  reason: collision with other field name */
-    private Class<?> f111a;
+    public Context f123a;
 
     /* renamed from: a  reason: collision with other field name */
-    private Object f112a;
+    public Class f125a = null;
+
+    /* renamed from: b  reason: collision with root package name */
+    public Class f40236b = null;
 
     /* renamed from: a  reason: collision with other field name */
-    private Method f113a = null;
-    private Method b = null;
-    private Method c = null;
-    private Method d = null;
+    public Method f127a = null;
 
-    public as(Context context) {
-        this.f8262a = context;
-        a(context);
+    /* renamed from: b  reason: collision with other field name */
+    public Method f128b = null;
+
+    /* renamed from: c  reason: collision with root package name */
+    public Method f40237c = null;
+
+    /* renamed from: d  reason: collision with root package name */
+    public Method f40238d = null;
+
+    /* renamed from: e  reason: collision with root package name */
+    public Method f40239e = null;
+
+    /* renamed from: f  reason: collision with root package name */
+    public Method f40240f = null;
+
+    /* renamed from: g  reason: collision with root package name */
+    public Method f40241g = null;
+
+    /* renamed from: a  reason: collision with other field name */
+    public final Object f126a = new Object();
+
+    /* renamed from: a  reason: collision with other field name */
+    public volatile int f121a = 0;
+
+    /* renamed from: a  reason: collision with other field name */
+    public volatile long f122a = 0;
+
+    /* renamed from: a  reason: collision with other field name */
+    public volatile a f124a = null;
+
+    /* loaded from: classes7.dex */
+    public class a {
+
+        /* renamed from: a  reason: collision with other field name */
+        public Boolean f129a;
+
+        /* renamed from: a  reason: collision with other field name */
+        public String f130a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public String f40243b;
+
+        /* renamed from: c  reason: collision with root package name */
+        public String f40244c;
+
+        /* renamed from: d  reason: collision with root package name */
+        public String f40245d;
+
+        public a() {
+            this.f129a = null;
+            this.f130a = null;
+            this.f40243b = null;
+            this.f40244c = null;
+            this.f40245d = null;
+        }
+
+        public boolean a() {
+            if (!TextUtils.isEmpty(this.f130a) || !TextUtils.isEmpty(this.f40243b) || !TextUtils.isEmpty(this.f40244c) || !TextUtils.isEmpty(this.f40245d)) {
+                this.f129a = Boolean.TRUE;
+            }
+            return this.f129a != null;
+        }
     }
 
-    private String a(Context context, Method method) {
-        if (this.f112a != null && method != null) {
+    public as(Context context) {
+        this.f123a = context.getApplicationContext();
+        a(context);
+        b(context);
+    }
+
+    public static Class<?> a(Context context, String str) {
+        try {
+            return t.a(context, str);
+        } catch (Throwable unused) {
+            return null;
+        }
+    }
+
+    public static <T> T a(Method method, Object obj, Object... objArr) {
+        if (method != null) {
             try {
-                Object invoke = method.invoke(this.f112a, context);
-                if (invoke != null) {
-                    return (String) invoke;
+                T t = (T) method.invoke(obj, objArr);
+                if (t != null) {
+                    return t;
                 }
-            } catch (Exception e) {
-                com.xiaomi.channel.commonutils.logger.b.a("miui invoke error", e);
+                return null;
+            } catch (Throwable unused) {
+                return null;
             }
         }
         return null;
     }
 
-    private void a(Context context) {
-        try {
-            this.f111a = t.a(context, "com.android.id.impl.IdProviderImpl");
-            this.f112a = this.f111a.newInstance();
-            this.f113a = this.f111a.getMethod("getUDID", Context.class);
-            this.b = this.f111a.getMethod("getOAID", Context.class);
-            this.c = this.f111a.getMethod("getVAID", Context.class);
-            this.d = this.f111a.getMethod("getAAID", Context.class);
-        } catch (Exception e) {
-            com.xiaomi.channel.commonutils.logger.b.a("miui load class error", e);
+    public static Method a(Class<?> cls, String str, Class<?>... clsArr) {
+        if (cls != null) {
+            try {
+                return cls.getMethod(str, clsArr);
+            } catch (Throwable unused) {
+                return null;
+            }
+        }
+        return null;
+    }
+
+    private void a() {
+        synchronized (this.f126a) {
+            try {
+                this.f126a.notifyAll();
+            } catch (Exception unused) {
+            }
         }
     }
 
-    /* renamed from: a  reason: collision with other method in class */
-    public static boolean m142a(Context context) {
-        return "com.xiaomi.xmsf".equals(context.getPackageName());
+    private void a(Context context) {
+        Class<?> a2 = a(context, "com.bun.miitmdid.core.MdidSdk");
+        Class<?> cls = null;
+        Class<?> cls2 = null;
+        int i = 0;
+        while (true) {
+            String[][] strArr = f40235a;
+            if (i >= strArr.length) {
+                break;
+            }
+            String[] strArr2 = strArr[i];
+            Class<?> a3 = a(context, strArr2[0]);
+            Class<?> a4 = a(context, strArr2[1]);
+            if (a3 != null && a4 != null) {
+                b("found class in index " + i);
+                cls2 = a4;
+                cls = a3;
+                break;
+            }
+            i++;
+            cls2 = a4;
+            cls = a3;
+        }
+        this.f125a = a2;
+        this.f127a = a(a2, "InitSdk", Context.class, cls);
+        this.f40236b = cls;
+        this.f128b = a(cls2, "getUDID", new Class[0]);
+        this.f40237c = a(cls2, "getOAID", new Class[0]);
+        this.f40238d = a(cls2, "getVAID", new Class[0]);
+        this.f40239e = a(cls2, "getAAID", new Class[0]);
+        this.f40240f = a(cls2, "isSupported", new Class[0]);
+        this.f40241g = a(cls2, "shutDown", new Class[0]);
+    }
+
+    private void a(String str) {
+        if (this.f124a != null) {
+            return;
+        }
+        long j = this.f122a;
+        long elapsedRealtime = SystemClock.elapsedRealtime() - Math.abs(j);
+        int i = this.f121a;
+        if (elapsedRealtime > 3000 && i < 3) {
+            synchronized (this.f126a) {
+                if (this.f122a == j && this.f121a == i) {
+                    b("retry, current count is " + i);
+                    this.f121a = this.f121a + 1;
+                    b(this.f123a);
+                    j = this.f122a;
+                    elapsedRealtime = SystemClock.elapsedRealtime() - Math.abs(j);
+                }
+            }
+        }
+        if (this.f124a != null || j < 0 || elapsedRealtime > 3000 || Looper.myLooper() == Looper.getMainLooper()) {
+            return;
+        }
+        synchronized (this.f126a) {
+            if (this.f124a == null) {
+                try {
+                    b(str + " wait...");
+                    this.f126a.wait(3000L);
+                } catch (Exception unused) {
+                }
+            }
+        }
+    }
+
+    public static boolean a(Object obj) {
+        return (obj instanceof Boolean) || (obj instanceof Character) || (obj instanceof Byte) || (obj instanceof Short) || (obj instanceof Integer) || (obj instanceof Long) || (obj instanceof Float) || (obj instanceof Double);
+    }
+
+    private void b(Context context) {
+        long elapsedRealtime = SystemClock.elapsedRealtime();
+        long j = -elapsedRealtime;
+        Class cls = this.f40236b;
+        if (cls != null) {
+            try {
+                ClassLoader classLoader = cls.getClassLoader();
+                if (classLoader == null) {
+                    classLoader = context.getClassLoader();
+                }
+                a(this.f127a, this.f125a.newInstance(), context, Proxy.newProxyInstance(classLoader, new Class[]{this.f40236b}, this));
+            } catch (Throwable th) {
+                b("call init sdk error:" + th);
+            }
+            this.f122a = elapsedRealtime;
+        }
+        elapsedRealtime = j;
+        this.f122a = elapsedRealtime;
+    }
+
+    public static void b(String str) {
+        com.xiaomi.channel.commonutils.logger.b.m51a("mdid:" + str);
     }
 
     @Override // com.xiaomi.push.ar
     public String a() {
-        return a(this.f8262a, this.f113a);
+        a("getUDID");
+        if (this.f124a == null) {
+            return null;
+        }
+        return this.f124a.f130a;
     }
 
     @Override // com.xiaomi.push.ar
     public boolean a() {
-        return (this.f111a == null || this.f112a == null) ? false : true;
+        a("isSupported");
+        return this.f124a != null && Boolean.TRUE.equals(this.f124a.f129a);
     }
 
     @Override // com.xiaomi.push.ar
     /* renamed from: b */
-    public String mo139b() {
-        return a(this.f8262a, this.b);
+    public String mo130b() {
+        a("getOAID");
+        if (this.f124a == null) {
+            return null;
+        }
+        return this.f124a.f40243b;
     }
 
     @Override // com.xiaomi.push.ar
     public String c() {
-        return a(this.f8262a, this.c);
+        a("getVAID");
+        if (this.f124a == null) {
+            return null;
+        }
+        return this.f124a.f40244c;
     }
 
     @Override // com.xiaomi.push.ar
     public String d() {
-        return a(this.f8262a, this.d);
+        a("getAAID");
+        if (this.f124a == null) {
+            return null;
+        }
+        return this.f124a.f40245d;
+    }
+
+    @Override // java.lang.reflect.InvocationHandler
+    public Object invoke(Object obj, Method method, Object[] objArr) {
+        this.f122a = SystemClock.elapsedRealtime();
+        if (objArr != null) {
+            a aVar = new a();
+            int length = objArr.length;
+            int i = 0;
+            while (true) {
+                if (i >= length) {
+                    break;
+                }
+                Object obj2 = objArr[i];
+                if (obj2 != null && !a(obj2)) {
+                    aVar.f130a = (String) a(this.f128b, obj2, new Object[0]);
+                    aVar.f40243b = (String) a(this.f40237c, obj2, new Object[0]);
+                    aVar.f40244c = (String) a(this.f40238d, obj2, new Object[0]);
+                    aVar.f40245d = (String) a(this.f40239e, obj2, new Object[0]);
+                    aVar.f129a = (Boolean) a(this.f40240f, obj2, new Object[0]);
+                    a(this.f40241g, obj2, new Object[0]);
+                    if (aVar.a()) {
+                        StringBuilder sb = new StringBuilder();
+                        sb.append("has get succ, check duplicate:");
+                        sb.append(this.f124a != null);
+                        b(sb.toString());
+                        synchronized (as.class) {
+                            if (this.f124a == null) {
+                                this.f124a = aVar;
+                            }
+                        }
+                    }
+                }
+                i++;
+            }
+        }
+        a();
+        return null;
     }
 }

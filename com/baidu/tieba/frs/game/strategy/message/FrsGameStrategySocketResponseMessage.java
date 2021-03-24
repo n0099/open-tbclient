@@ -2,49 +2,22 @@ package com.baidu.tieba.frs.game.strategy.message;
 
 import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.adp.widget.ListView.n;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
-import com.baidu.tieba.frs.game.strategy.tab.e;
 import com.squareup.wire.Wire;
+import d.b.b.j.e.n;
+import d.b.i0.p0.s1.a.c.a;
+import d.b.i0.p0.s1.a.d.e;
 import java.util.List;
+import tbclient.Error;
 import tbclient.GameForumGuideTab.GameForumGuideTabResIdl;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class FrsGameStrategySocketResponseMessage extends SocketResponsedMessage {
-    private boolean mHasMore;
-    private List<e> mTabList;
-    private List<n> mThreadList;
+    public boolean mHasMore;
+    public List<e> mTabList;
+    public List<n> mThreadList;
 
     public FrsGameStrategySocketResponseMessage() {
-        super(CmdConfigSocket.CMD_FRS_GAME_STRATEGY);
+        super(309478);
         this.mHasMore = false;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.message.a
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
-        GameForumGuideTabResIdl gameForumGuideTabResIdl = (GameForumGuideTabResIdl) new Wire(new Class[0]).parseFrom(bArr, GameForumGuideTabResIdl.class);
-        if (gameForumGuideTabResIdl != null) {
-            if (gameForumGuideTabResIdl.error != null) {
-                setError(gameForumGuideTabResIdl.error.errorno.intValue());
-                setErrorString(gameForumGuideTabResIdl.error.errmsg);
-            }
-            this.mTabList = a.dv(gameForumGuideTabResIdl.data.sub_tab_list);
-            this.mThreadList = a.dw(gameForumGuideTabResIdl.data.thread_list);
-            this.mHasMore = gameForumGuideTabResIdl.data.has_more.intValue() == 1;
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.message.ResponsedMessage
-    public void afterDispatchInBackGround(int i, byte[] bArr) {
-        Message<?> orginalMessage = getOrginalMessage();
-        FrsGameStrategyRequestMessage frsGameStrategyRequestMessage = null;
-        if (orginalMessage != null && (orginalMessage.getExtra() instanceof FrsGameStrategyRequestMessage)) {
-            frsGameStrategyRequestMessage = (FrsGameStrategyRequestMessage) orginalMessage.getExtra();
-        }
-        if (frsGameStrategyRequestMessage != null) {
-            new com.baidu.tieba.frs.game.strategy.a.a().c(String.valueOf(frsGameStrategyRequestMessage.getFid()), bArr, false);
-        }
     }
 
     public List<e> getTabList() {
@@ -57,5 +30,32 @@ public class FrsGameStrategySocketResponseMessage extends SocketResponsedMessage
 
     public boolean hasMore() {
         return this.mHasMore;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.message.ResponsedMessage
+    public void afterDispatchInBackGround(int i, byte[] bArr) {
+        Message<?> orginalMessage = getOrginalMessage();
+        FrsGameStrategyRequestMessage frsGameStrategyRequestMessage = (orginalMessage == null || !(orginalMessage.getExtra() instanceof FrsGameStrategyRequestMessage)) ? null : (FrsGameStrategyRequestMessage) orginalMessage.getExtra();
+        if (frsGameStrategyRequestMessage != null) {
+            new a().d(String.valueOf(frsGameStrategyRequestMessage.getFid()), bArr, false);
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
+    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
+        GameForumGuideTabResIdl gameForumGuideTabResIdl = (GameForumGuideTabResIdl) new Wire(new Class[0]).parseFrom(bArr, GameForumGuideTabResIdl.class);
+        if (gameForumGuideTabResIdl == null) {
+            return;
+        }
+        Error error = gameForumGuideTabResIdl.error;
+        if (error != null) {
+            setError(error.errorno.intValue());
+            setErrorString(gameForumGuideTabResIdl.error.errmsg);
+        }
+        this.mTabList = d.b.i0.p0.s1.a.b.a.a(gameForumGuideTabResIdl.data.sub_tab_list);
+        this.mThreadList = d.b.i0.p0.s1.a.b.a.b(gameForumGuideTabResIdl.data.thread_list);
+        this.mHasMore = gameForumGuideTabResIdl.data.has_more.intValue() == 1;
     }
 }

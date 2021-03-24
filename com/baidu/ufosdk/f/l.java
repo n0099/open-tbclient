@@ -3,14 +3,15 @@ package com.baidu.ufosdk.f;
 import android.os.Build;
 import android.text.TextUtils;
 import com.baidu.android.util.devices.RomUtils;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public final class l {
 
     /* renamed from: a  reason: collision with root package name */
-    private static int f3626a = 0;
+    public static int f22956a;
 
     public static int a() {
-        if (f3626a == 0) {
+        int i;
+        if (f22956a == 0) {
             String str = Build.MODEL;
             String str2 = Build.MANUFACTURER;
             String str3 = Build.BRAND;
@@ -23,24 +24,24 @@ public final class l {
             if (str3 != null) {
                 str3 = str3.toLowerCase();
             }
-            if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || TextUtils.isEmpty(str3)) {
-                f3626a = 1;
-            } else if (str.contains(RomUtils.MANUFACTURER_XIAOMI) || str2.contains(RomUtils.MANUFACTURER_XIAOMI) || str3.contains(RomUtils.MANUFACTURER_XIAOMI)) {
-                f3626a = 2;
-            } else if (str.contains("samsung") || str2.contains("samsung") || str3.contains("samsung")) {
-                f3626a = 3;
-            } else if (str.contains(RomUtils.MANUFACTURER_HUAWEI) || str2.contains(RomUtils.MANUFACTURER_HUAWEI) || str3.contains(RomUtils.MANUFACTURER_HUAWEI)) {
-                f3626a = 4;
-            } else if (str.contains(RomUtils.MANUFACTURER_VIVO) || str2.contains(RomUtils.MANUFACTURER_VIVO) || str3.contains(RomUtils.MANUFACTURER_VIVO)) {
-                f3626a = 5;
-            } else if (str.contains(RomUtils.MANUFACTURER_OPPO) || str2.contains(RomUtils.MANUFACTURER_OPPO) || str3.contains(RomUtils.MANUFACTURER_OPPO)) {
-                f3626a = 6;
-            } else if (str.contains(RomUtils.MANUFACTURER_MEIZU) || str2.contains(RomUtils.MANUFACTURER_MEIZU) || str3.contains(RomUtils.MANUFACTURER_MEIZU)) {
-                f3626a = 7;
-            } else {
-                f3626a = 1;
+            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str3)) {
+                if (str.contains(RomUtils.MANUFACTURER_XIAOMI) || str2.contains(RomUtils.MANUFACTURER_XIAOMI) || str3.contains(RomUtils.MANUFACTURER_XIAOMI)) {
+                    i = 2;
+                } else if (str.contains("samsung") || str2.contains("samsung") || str3.contains("samsung")) {
+                    i = 3;
+                } else if (str.contains(RomUtils.MANUFACTURER_HUAWEI) || str2.contains(RomUtils.MANUFACTURER_HUAWEI) || str3.contains(RomUtils.MANUFACTURER_HUAWEI)) {
+                    i = 4;
+                } else if (str.contains(RomUtils.MANUFACTURER_VIVO) || str2.contains(RomUtils.MANUFACTURER_VIVO) || str3.contains(RomUtils.MANUFACTURER_VIVO)) {
+                    i = 5;
+                } else if (str.contains(RomUtils.MANUFACTURER_OPPO) || str2.contains(RomUtils.MANUFACTURER_OPPO) || str3.contains(RomUtils.MANUFACTURER_OPPO)) {
+                    i = 6;
+                } else if (str.contains(RomUtils.MANUFACTURER_MEIZU) || str2.contains(RomUtils.MANUFACTURER_MEIZU) || str3.contains(RomUtils.MANUFACTURER_MEIZU)) {
+                    i = 7;
+                }
+                f22956a = i;
             }
+            f22956a = 1;
         }
-        return f3626a;
+        return f22956a;
     }
 }

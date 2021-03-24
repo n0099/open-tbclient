@@ -1,5 +1,5 @@
 package com.baidu.fsg.face.liveness.utils;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public class LivenessVideoState {
     public static final int STATE_RECOG_FIRST = 1;
     public static final int STATE_RECOG_INIT = 0;
@@ -10,81 +10,86 @@ public class LivenessVideoState {
     public static final int STATE_VIDEO_DONE = 6;
 
     /* renamed from: a  reason: collision with root package name */
-    private long f1768a;
-    private long b;
+    public long f5983a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public long f5984b;
     public boolean isLrcTipAnimCalling;
     public boolean isWarningTipAnimCalled;
     public long lrcTextStartTime;
     public int reqTimes;
     public int currentState = 0;
     public int currentCount = 0;
-    private boolean c = false;
+
+    /* renamed from: c  reason: collision with root package name */
+    public boolean f5985c = false;
     public boolean isLrcTipViewHadGone = false;
+
+    public String getLrcStartTimeOffset() {
+        return ((this.lrcTextStartTime - this.f5983a) / 1000) + "";
+    }
+
+    public long getVideoTime() {
+        return (System.currentTimeMillis() - this.f5983a) / 1000;
+    }
 
     public boolean isFirstRecog() {
         return this.currentState == 1;
     }
 
-    public void updateState(int i) {
-        this.currentState = i;
-    }
-
-    public void setLrcTextStartTime() {
-        this.lrcTextStartTime = System.currentTimeMillis();
-    }
-
-    public String getLrcStartTimeOffset() {
-        return ((this.lrcTextStartTime - this.f1768a) / 1000) + "";
-    }
-
-    public void setProcessStartTime() {
-        this.f1768a = System.currentTimeMillis();
-        setLastFindFaceStartTime();
-    }
-
     public boolean isFirstRecogTimeout() {
-        return this.currentState < 5 && System.currentTimeMillis() - this.f1768a > 20000;
-    }
-
-    public long getVideoTime() {
-        return (System.currentTimeMillis() - this.f1768a) / 1000;
-    }
-
-    public void setLastFindFaceStartTime() {
-        this.b = System.currentTimeMillis();
-    }
-
-    public boolean isVideoStateLostFaceTimeout() {
-        return this.currentState == 5 && System.currentTimeMillis() - this.b > 5000;
+        return this.currentState < 5 && System.currentTimeMillis() - this.f5983a > 20000;
     }
 
     public boolean isGotoRecogFace(long[] jArr) {
-        if (this.currentState < 5 && !this.c) {
-            this.c = true;
+        if (this.currentState < 5 && !this.f5985c) {
+            this.f5985c = true;
             return true;
-        } else if (this.currentState == 5) {
-            if (jArr == null || jArr.length == 0) {
-                return false;
-            }
-            if (jArr.length > this.currentCount && (System.currentTimeMillis() - this.lrcTextStartTime) / 1000 == jArr[this.currentCount]) {
-                this.currentCount++;
-                return true;
-            } else if (jArr.length <= this.currentCount || (System.currentTimeMillis() - this.lrcTextStartTime) / 1000 <= jArr[this.currentCount]) {
-                return false;
-            } else {
-                this.currentCount++;
-                return false;
-            }
-        } else {
-            return false;
         }
+        if (this.currentState == 5 && jArr != null && jArr.length != 0) {
+            if (jArr.length > this.currentCount) {
+                int i = this.currentCount;
+                if ((System.currentTimeMillis() - this.lrcTextStartTime) / 1000 == jArr[i]) {
+                    this.currentCount = i + 1;
+                    return true;
+                }
+            }
+            if (jArr.length > this.currentCount) {
+                int i2 = this.currentCount;
+                if ((System.currentTimeMillis() - this.lrcTextStartTime) / 1000 > jArr[i2]) {
+                    this.currentCount = i2 + 1;
+                }
+            }
+        }
+        return false;
+    }
+
+    public boolean isInitOk() {
+        return this.currentState > 0;
+    }
+
+    public boolean isVideoStateLostFaceTimeout() {
+        return this.currentState == 5 && System.currentTimeMillis() - this.f5984b > 5000;
     }
 
     public boolean isWarnCancleTipAfterOnPause() {
         return this.currentState < 6;
     }
 
-    public boolean isInitOk() {
-        return this.currentState > 0;
+    public void setLastFindFaceStartTime() {
+        this.f5984b = System.currentTimeMillis();
+    }
+
+    public void setLrcTextStartTime() {
+        this.lrcTextStartTime = System.currentTimeMillis();
+    }
+
+    public void setProcessStartTime() {
+        this.f5983a = System.currentTimeMillis();
+        setLastFindFaceStartTime();
+    }
+
+    public void updateState(int i) {
+        this.currentState = i;
     }
 }

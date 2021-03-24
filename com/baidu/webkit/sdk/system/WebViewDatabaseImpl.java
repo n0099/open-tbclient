@@ -2,11 +2,10 @@ package com.baidu.webkit.sdk.system;
 
 import android.content.Context;
 import com.baidu.webkit.sdk.WebViewDatabase;
-/* loaded from: classes14.dex */
-final class WebViewDatabaseImpl extends WebViewDatabase {
-    private Context mContext;
+/* loaded from: classes5.dex */
+public final class WebViewDatabaseImpl extends WebViewDatabase {
+    public Context mContext;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public WebViewDatabaseImpl(Context context) {
         this.mContext = context;
     }

@@ -7,19 +7,23 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import androidx.fragment.app.Fragment;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class SupportMapFragment extends Fragment {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f2045a = SupportMapFragment.class.getSimpleName();
-    private MapView b;
-    private BaiduMapOptions c;
+    public static final String f6991a = SupportMapFragment.class.getSimpleName();
+
+    /* renamed from: b  reason: collision with root package name */
+    public MapView f6992b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public BaiduMapOptions f6993c;
 
     public SupportMapFragment() {
     }
 
-    private SupportMapFragment(BaiduMapOptions baiduMapOptions) {
-        this.c = baiduMapOptions;
+    public SupportMapFragment(BaiduMapOptions baiduMapOptions) {
+        this.f6993c = baiduMapOptions;
     }
 
     public static SupportMapFragment newInstance() {
@@ -31,14 +35,15 @@ public class SupportMapFragment extends Fragment {
     }
 
     public BaiduMap getBaiduMap() {
-        if (this.b == null) {
+        MapView mapView = this.f6992b;
+        if (mapView == null) {
             return null;
         }
-        return this.b.getMap();
+        return mapView.getMap();
     }
 
     public MapView getMapView() {
-        return this.b;
+        return this.f6992b;
     }
 
     @Override // androidx.fragment.app.Fragment
@@ -63,8 +68,9 @@ public class SupportMapFragment extends Fragment {
 
     @Override // androidx.fragment.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        this.b = new MapView(getActivity(), this.c);
-        return this.b;
+        MapView mapView = new MapView(getActivity(), this.f6993c);
+        this.f6992b = mapView;
+        return mapView;
     }
 
     @Override // androidx.fragment.app.Fragment
@@ -75,7 +81,7 @@ public class SupportMapFragment extends Fragment {
     @Override // androidx.fragment.app.Fragment
     public void onDestroyView() {
         super.onDestroyView();
-        this.b.onDestroy();
+        this.f6992b.onDestroy();
     }
 
     @Override // androidx.fragment.app.Fragment
@@ -86,13 +92,13 @@ public class SupportMapFragment extends Fragment {
     @Override // androidx.fragment.app.Fragment
     public void onPause() {
         super.onPause();
-        this.b.onPause();
+        this.f6992b.onPause();
     }
 
     @Override // androidx.fragment.app.Fragment
     public void onResume() {
         super.onResume();
-        this.b.onResume();
+        this.f6992b.onResume();
     }
 
     @Override // androidx.fragment.app.Fragment
@@ -118,7 +124,5 @@ public class SupportMapFragment extends Fragment {
     @Override // androidx.fragment.app.Fragment
     public void onViewStateRestored(Bundle bundle) {
         super.onViewStateRestored(bundle);
-        if (bundle == null) {
-        }
     }
 }

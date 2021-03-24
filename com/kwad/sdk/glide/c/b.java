@@ -1,8 +1,8 @@
 package com.kwad.sdk.glide.c;
 
 import androidx.annotation.NonNull;
-/* loaded from: classes3.dex */
-class b implements h {
+/* loaded from: classes6.dex */
+public class b implements h {
     @Override // com.kwad.sdk.glide.c.h
     public void a(@NonNull i iVar) {
         iVar.c();

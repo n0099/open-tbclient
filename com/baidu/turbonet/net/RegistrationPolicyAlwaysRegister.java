@@ -3,14 +3,13 @@ package com.baidu.turbonet.net;
 import com.baidu.turbonet.net.NetworkChangeNotifierAutoDetect;
 /* loaded from: classes5.dex */
 public class RegistrationPolicyAlwaysRegister extends NetworkChangeNotifierAutoDetect.RegistrationPolicy {
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.turbonet.net.NetworkChangeNotifierAutoDetect.RegistrationPolicy
-    public void a(NetworkChangeNotifierAutoDetect networkChangeNotifierAutoDetect) {
-        super.a(networkChangeNotifierAutoDetect);
-        register();
+    public void a() {
     }
 
     @Override // com.baidu.turbonet.net.NetworkChangeNotifierAutoDetect.RegistrationPolicy
-    protected void destroy() {
+    public void b(NetworkChangeNotifierAutoDetect networkChangeNotifierAutoDetect) {
+        super.b(networkChangeNotifierAutoDetect);
+        c();
     }
 }

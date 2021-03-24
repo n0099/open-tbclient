@@ -6,19 +6,19 @@ import android.content.pm.ResolveInfo;
 import android.text.TextUtils;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class d {
     public static int a(Context context, AdTemplate adTemplate, int i) {
-        int i2 = 0;
-        if (adTemplate != null && context != null) {
-            i2 = a(context, com.kwad.sdk.core.response.b.c.j(adTemplate).adConversionInfo.deeplinkUrl);
-            if (i2 == 1) {
-                com.kwad.sdk.core.report.b.a(adTemplate, i);
-            } else if (i2 == -1) {
-                com.kwad.sdk.core.report.b.b(adTemplate, i);
-            }
+        if (adTemplate == null || context == null) {
+            return 0;
         }
-        return i2;
+        int a2 = a(context, com.kwad.sdk.core.response.b.c.j(adTemplate).adConversionInfo.deeplinkUrl);
+        if (a2 == 1) {
+            com.kwad.sdk.core.report.b.a(adTemplate, i);
+        } else if (a2 == -1) {
+            com.kwad.sdk.core.report.b.b(adTemplate, i);
+        }
+        return a2;
     }
 
     public static int a(Context context, String str) {
@@ -35,8 +35,8 @@ public class d {
             }
             context.startActivity(parseUri);
             return 1;
-        } catch (Exception e) {
-            com.kwad.sdk.core.d.a.a(e);
+        } catch (Exception e2) {
+            com.kwad.sdk.core.d.a.a(e2);
             return -1;
         }
     }

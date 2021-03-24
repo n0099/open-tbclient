@@ -1,0 +1,31 @@
+package d.b.g0.g.o.c.c;
+
+import com.baidu.searchbox.v8engine.V8JavascriptField;
+/* loaded from: classes3.dex */
+public class b {
+    @V8JavascriptField
+    public double clientX;
+    @V8JavascriptField
+    public double clientY;
+    @V8JavascriptField
+    public int identifier;
+
+    public boolean equals(Object obj) {
+        if (obj instanceof b) {
+            b bVar = (b) obj;
+            return this.identifier == bVar.identifier && this.clientX == bVar.clientX && this.clientY == bVar.clientY;
+        }
+        return false;
+    }
+
+    public int hashCode() {
+        double d2 = this.identifier;
+        double d3 = this.clientX;
+        Double.isNaN(d2);
+        return Double.valueOf(d2 + d3 + this.clientY).hashCode();
+    }
+
+    public String toString() {
+        return "{identifier=" + this.identifier + ", clientX=" + this.clientX + ", clientY=" + this.clientY + '}';
+    }
+}

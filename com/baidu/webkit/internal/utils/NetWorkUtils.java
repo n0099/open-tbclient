@@ -4,31 +4,30 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.net.NetworkInfo;
 import android.telephony.TelephonyManager;
-import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.webkit.internal.INoProGuard;
 import com.baidu.webkit.sdk.Log;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public final class NetWorkUtils implements INoProGuard {
-    private static final int CELL_2G = 2;
-    private static final int CELL_3G = 3;
-    private static final int CELL_4G = 4;
-    private static final int CELL_UNKNOWN = 1;
-    private static final int CHINA_MOBILE = 1;
-    private static final int CHINA_TELECOM = 2;
-    private static final int CHINA_UNICOM = 3;
-    private static final int CONNECTION_UNKNOWN = 0;
-    private static final int ETHERNET = 101;
-    private static final int NEW_TYPE = 999;
-    private static final int OTHER_OPERATOR = 99;
-    private static final int UNKNOWN_OPERATOR = 0;
-    private static final int WIFI = 100;
-    private static boolean sLaunchState;
-    private static boolean sNetTypeMobile;
-    private static int sConnectionType = 0;
-    private static int sOperatorType = 0;
-    private static boolean sIsOnline = true;
+    public static final int CELL_2G = 2;
+    public static final int CELL_3G = 3;
+    public static final int CELL_4G = 4;
+    public static final int CELL_UNKNOWN = 1;
+    public static final int CHINA_MOBILE = 1;
+    public static final int CHINA_TELECOM = 2;
+    public static final int CHINA_UNICOM = 3;
+    public static final int CONNECTION_UNKNOWN = 0;
+    public static final int ETHERNET = 101;
+    public static final int NEW_TYPE = 999;
+    public static final int OTHER_OPERATOR = 99;
+    public static final int UNKNOWN_OPERATOR = 0;
+    public static final int WIFI = 100;
+    public static int sConnectionType = 0;
+    public static boolean sIsOnline = true;
+    public static boolean sLaunchState;
+    public static boolean sNetTypeMobile;
+    public static int sOperatorType;
 
-    private static void doNetworkConnectionChanged(Context context) {
+    public static void doNetworkConnectionChanged(Context context) {
     }
 
     public static boolean getIsOnline() {
@@ -47,23 +46,36 @@ public final class NetWorkUtils implements INoProGuard {
         return sOperatorType;
     }
 
+    /* JADX WARN: Can't wrap try/catch for region: R(6:1|(1:3)(2:45|(1:47)(7:49|(6:51|52|54|7|8|(2:10|11)(5:13|(2:17|(1:19)(4:20|21|22|(3:24|(2:29|(1:31)(2:32|(1:34)(1:35)))|36)))|(1:40)|41|42))(2:59|(1:61)(2:62|(1:64)(1:65)))|56|54|7|8|(0)(0)))|6|7|8|(0)(0)) */
+    /* JADX WARN: Code restructure failed: missing block: B:12:0x001e, code lost:
+        if (com.baidu.webkit.internal.utils.NetWorkUtils.sIsOnline == true) goto L5;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:5:0x000a, code lost:
+        if (com.baidu.webkit.internal.utils.NetWorkUtils.sIsOnline == true) goto L5;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:61:0x00af, code lost:
+        com.baidu.webkit.internal.utils.NetWorkUtils.sOperatorType = 99;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:6:0x000c, code lost:
+        r7 = true;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:7:0x000e, code lost:
+        r7 = false;
+     */
+    /* JADX WARN: Removed duplicated region for block: B:33:0x0060 A[Catch: all -> 0x00af, TRY_ENTER, TryCatch #1 {all -> 0x00af, blocks: (B:33:0x0060, B:35:0x0063, B:37:0x0067, B:39:0x006d, B:43:0x0079, B:47:0x0082, B:49:0x008a, B:52:0x0093, B:54:0x009b, B:55:0x009e, B:57:0x00a6, B:58:0x00a9, B:59:0x00ac, B:45:0x007e), top: B:68:0x005e, inners: #0 }] */
+    /* JADX WARN: Removed duplicated region for block: B:35:0x0063 A[Catch: all -> 0x00af, TryCatch #1 {all -> 0x00af, blocks: (B:33:0x0060, B:35:0x0063, B:37:0x0067, B:39:0x006d, B:43:0x0079, B:47:0x0082, B:49:0x008a, B:52:0x0093, B:54:0x009b, B:55:0x009e, B:57:0x00a6, B:58:0x00a9, B:59:0x00ac, B:45:0x007e), top: B:68:0x005e, inners: #0 }] */
     @SuppressLint({"HardwareIds"})
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     public static void onNetWorkChanged(Context context, NetworkInfo networkInfo) {
-        boolean z;
-        boolean z2;
-        String str;
+        int i;
         if (networkInfo == null) {
             sConnectionType = 0;
-            z2 = sIsOnline;
-            sIsOnline = false;
-            z = z2;
         } else if (networkInfo.getState() != NetworkInfo.State.CONNECTED) {
             sConnectionType = 0;
-            z2 = sIsOnline;
-            sIsOnline = false;
-            z = z2;
         } else {
-            z = !sIsOnline;
+            boolean z = !sIsOnline;
             sIsOnline = true;
             sNetTypeMobile = false;
             if (networkInfo.getType() == 0) {
@@ -89,55 +101,56 @@ public final class NetWorkUtils implements INoProGuard {
                         sConnectionType = 3;
                         break;
                     case 13:
-                        sConnectionType = 4;
+                        i = 4;
                         break;
                     default:
                         sConnectionType = 1;
                         break;
                 }
-            } else if (networkInfo.getType() == 1) {
-                sConnectionType = 100;
-            } else if (networkInfo.getType() == 9) {
-                sConnectionType = 101;
-            } else {
-                sConnectionType = NEW_TYPE;
-            }
-        }
-        try {
-        } catch (Throwable th) {
-            sOperatorType = 99;
-        }
-        if (context == null) {
-            sOperatorType = 99;
-            return;
-        }
-        if (sLaunchState && CommonUtils.checkPhonePermission(context)) {
-            TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
-            if (telephonyManager == null) {
+                boolean z2 = z;
+                if (context == null) {
+                    sOperatorType = 99;
+                    return;
+                }
+                if (sLaunchState && CommonUtils.checkPhonePermission(context)) {
+                    TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
+                    if (telephonyManager == null) {
+                        return;
+                    }
+                    String str = null;
+                    try {
+                        str = telephonyManager.getSubscriberId();
+                    } catch (SecurityException unused) {
+                        sOperatorType = 99;
+                    }
+                    if (str != null) {
+                        if (!str.startsWith("46000") && !str.startsWith("46002")) {
+                            if (str.startsWith("46001")) {
+                                sOperatorType = 3;
+                            } else if (str.startsWith("46003")) {
+                                sOperatorType = 2;
+                            } else {
+                                sOperatorType = 99;
+                            }
+                        }
+                        sOperatorType = 1;
+                    }
+                }
+                if (z2) {
+                    doNetworkConnectionChanged(context);
+                }
+                Log.d("linhua01", "network changed: " + sConnectionType + "_" + sOperatorType);
                 return;
             }
-            try {
-                str = telephonyManager.getSubscriberId();
-            } catch (SecurityException e) {
-                sOperatorType = 99;
-                str = null;
-            }
-            if (str != null) {
-                if (str.startsWith("46000") || str.startsWith("46002")) {
-                    sOperatorType = 1;
-                } else if (str.startsWith("46001")) {
-                    sOperatorType = 3;
-                } else if (str.startsWith("46003")) {
-                    sOperatorType = 2;
-                } else {
-                    sOperatorType = 99;
-                }
+            i = networkInfo.getType() == 1 ? 100 : networkInfo.getType() == 9 ? 101 : 999;
+            sConnectionType = i;
+            boolean z22 = z;
+            if (context == null) {
             }
         }
-        if (z) {
-            doNetworkConnectionChanged(context);
+        sIsOnline = false;
+        if (context == null) {
         }
-        Log.d("linhua01", "network changed: " + sConnectionType + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + sOperatorType);
     }
 
     public static void setLaunchState(boolean z) {

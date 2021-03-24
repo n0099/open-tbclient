@@ -1,0 +1,118 @@
+package d.b.i0.a0;
+
+import com.baidu.adp.lib.util.StringUtils;
+import org.json.JSONObject;
+import tbclient.OrderList;
+/* loaded from: classes4.dex */
+public class a {
+
+    /* renamed from: a  reason: collision with root package name */
+    public String f51841a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public long f51842b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public int f51843c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public long f51844d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public long f51845e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public String f51846f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public long f51847g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public String f51848h;
+    public String i;
+    public String j;
+    public String k;
+    public String l;
+
+    public String a() {
+        return this.j;
+    }
+
+    public String b() {
+        return this.f51848h;
+    }
+
+    public String c() {
+        return this.i;
+    }
+
+    public long d() {
+        return this.f51844d;
+    }
+
+    public long e() {
+        return this.f51845e;
+    }
+
+    public long f() {
+        return this.f51847g;
+    }
+
+    public String g() {
+        return this.f51841a;
+    }
+
+    public String h() {
+        return StringUtils.isNull(this.l) ? this.k : this.l;
+    }
+
+    public int i() {
+        return this.f51843c;
+    }
+
+    public String j() {
+        return this.f51846f;
+    }
+
+    public long k() {
+        return this.f51842b;
+    }
+
+    public void l(JSONObject jSONObject) {
+        if (jSONObject == null) {
+            return;
+        }
+        this.f51841a = jSONObject.optString("order_id");
+        jSONObject.optLong("scene_id");
+        this.f51842b = jSONObject.optLong("scores");
+        this.f51843c = jSONObject.optInt("status");
+        this.f51844d = jSONObject.optLong("create_time");
+        this.f51845e = jSONObject.optLong("finish_time");
+        this.f51846f = jSONObject.optString("title");
+        this.f51847g = jSONObject.optLong("money");
+        jSONObject.optString("preg_field");
+        this.k = jSONObject.optString("user_name");
+        this.l = jSONObject.optString("user_nickname");
+        this.f51848h = jSONObject.optString("activity_desc");
+        this.i = jSONObject.optString("activity_url");
+        this.j = jSONObject.optString("button_name");
+    }
+
+    public void m(OrderList orderList) {
+        if (orderList == null) {
+            return;
+        }
+        this.f51841a = orderList.order_id;
+        orderList.scene_id.intValue();
+        this.f51842b = orderList.scores.longValue();
+        this.f51843c = orderList.status.intValue();
+        this.f51844d = orderList.create_time.longValue();
+        this.f51845e = orderList.finish_time.longValue();
+        this.f51846f = orderList.title;
+        this.f51847g = orderList.money.longValue();
+        String str = orderList.preg_field;
+        this.f51848h = orderList.activity_desc;
+        this.i = orderList.activity_url;
+        this.j = orderList.button_name;
+    }
+}

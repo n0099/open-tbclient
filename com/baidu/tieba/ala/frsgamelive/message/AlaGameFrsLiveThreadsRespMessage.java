@@ -1,20 +1,20 @@
 package com.baidu.tieba.ala.frsgamelive.message;
 
-import com.baidu.adp.widget.ListView.n;
 import com.baidu.ala.AlaCmdConfigHttp;
-import com.baidu.tbadk.core.data.cb;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.ala.frsgamelive.b.c;
+import d.b.b.j.e.n;
+import d.b.h0.r.q.a2;
+import d.b.i0.t.e.b.c;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes4.dex */
 public class AlaGameFrsLiveThreadsRespMessage extends JsonHttpResponsedMessage {
-    private boolean hasMore;
-    private int liveCount;
-    private List<n> liveList;
-    private List<n> recommandList;
+    public boolean hasMore;
+    public int liveCount;
+    public List<n> liveList;
+    public List<n> recommandList;
 
     public AlaGameFrsLiveThreadsRespMessage() {
         super(AlaCmdConfigHttp.CMD_ALA_LIVE_FRS_GAME);
@@ -39,9 +39,9 @@ public class AlaGameFrsLiveThreadsRespMessage extends JsonHttpResponsedMessage {
                 JSONObject optJSONObject2 = optJSONArray.optJSONObject(i2);
                 if (optJSONObject2 != null) {
                     c cVar = new c();
-                    cb cbVar = new cb();
-                    cbVar.parserJson(optJSONObject2);
-                    cVar.eLr = cbVar;
+                    a2 a2Var = new a2();
+                    a2Var.P2(optJSONObject2);
+                    cVar.f60685e = a2Var;
                     this.liveList.add(cVar);
                 }
             }
@@ -53,13 +53,17 @@ public class AlaGameFrsLiveThreadsRespMessage extends JsonHttpResponsedMessage {
                 JSONObject optJSONObject3 = optJSONArray2.optJSONObject(i3);
                 if (optJSONObject3 != null) {
                     c cVar2 = new c();
-                    cb cbVar2 = new cb();
-                    cbVar2.parserJson(optJSONObject3);
-                    cVar2.eLr = cbVar2;
+                    a2 a2Var2 = new a2();
+                    a2Var2.P2(optJSONObject3);
+                    cVar2.f60685e = a2Var2;
                     this.recommandList.add(cVar2);
                 }
             }
         }
+    }
+
+    public int getLiveCount() {
+        return this.liveCount;
     }
 
     public List<n> getLiveList() {
@@ -72,9 +76,5 @@ public class AlaGameFrsLiveThreadsRespMessage extends JsonHttpResponsedMessage {
 
     public boolean hasMore() {
         return this.hasMore;
-    }
-
-    public int getLiveCount() {
-        return this.liveCount;
     }
 }

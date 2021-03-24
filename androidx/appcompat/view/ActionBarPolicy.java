@@ -9,44 +9,53 @@ import android.view.ViewConfiguration;
 import androidx.annotation.RestrictTo;
 import androidx.appcompat.R;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes5.dex */
+/* loaded from: classes.dex */
 public class ActionBarPolicy {
-    private Context mContext;
+    public Context mContext;
+
+    public ActionBarPolicy(Context context) {
+        this.mContext = context;
+    }
 
     public static ActionBarPolicy get(Context context) {
         return new ActionBarPolicy(context);
     }
 
-    private ActionBarPolicy(Context context) {
-        this.mContext = context;
-    }
-
-    public int getMaxActionButtons() {
-        Configuration configuration = this.mContext.getResources().getConfiguration();
-        int i = configuration.screenWidthDp;
-        int i2 = configuration.screenHeightDp;
-        if (configuration.smallestScreenWidthDp > 600 || i > 600 || ((i > 960 && i2 > 720) || (i > 720 && i2 > 960))) {
-            return 5;
-        }
-        if (i >= 500 || ((i > 640 && i2 > 480) || (i > 480 && i2 > 640))) {
-            return 4;
-        }
-        if (i >= 360) {
-            return 3;
-        }
-        return 2;
-    }
-
-    public boolean showsOverflowMenuButton() {
-        return Build.VERSION.SDK_INT >= 19 || !ViewConfiguration.get(this.mContext).hasPermanentMenuKey();
+    public boolean enableHomeButtonByDefault() {
+        return this.mContext.getApplicationInfo().targetSdkVersion < 14;
     }
 
     public int getEmbeddedMenuWidthLimit() {
         return this.mContext.getResources().getDisplayMetrics().widthPixels / 2;
     }
 
-    public boolean hasEmbeddedTabs() {
-        return this.mContext.getResources().getBoolean(R.bool.abc_action_bar_embed_tabs);
+    public int getMaxActionButtons() {
+        Configuration configuration = this.mContext.getResources().getConfiguration();
+        int i = configuration.screenWidthDp;
+        int i2 = configuration.screenHeightDp;
+        if (configuration.smallestScreenWidthDp > 600 || i > 600) {
+            return 5;
+        }
+        if (i <= 960 || i2 <= 720) {
+            if (i <= 720 || i2 <= 960) {
+                if (i < 500) {
+                    if (i <= 640 || i2 <= 480) {
+                        if (i <= 480 || i2 <= 640) {
+                            return i >= 360 ? 3 : 2;
+                        }
+                        return 4;
+                    }
+                    return 4;
+                }
+                return 4;
+            }
+            return 5;
+        }
+        return 5;
+    }
+
+    public int getStackedTabMaxWidth() {
+        return this.mContext.getResources().getDimensionPixelSize(R.dimen.abc_action_bar_stacked_tab_max_width);
     }
 
     public int getTabContainerHeight() {
@@ -60,11 +69,14 @@ public class ActionBarPolicy {
         return layoutDimension;
     }
 
-    public boolean enableHomeButtonByDefault() {
-        return this.mContext.getApplicationInfo().targetSdkVersion < 14;
+    public boolean hasEmbeddedTabs() {
+        return this.mContext.getResources().getBoolean(R.bool.abc_action_bar_embed_tabs);
     }
 
-    public int getStackedTabMaxWidth() {
-        return this.mContext.getResources().getDimensionPixelSize(R.dimen.abc_action_bar_stacked_tab_max_width);
+    public boolean showsOverflowMenuButton() {
+        if (Build.VERSION.SDK_INT >= 19) {
+            return true;
+        }
+        return !ViewConfiguration.get(this.mContext).hasPermanentMenuKey();
     }
 }

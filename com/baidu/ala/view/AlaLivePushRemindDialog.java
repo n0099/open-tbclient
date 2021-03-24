@@ -2,70 +2,42 @@ package com.baidu.ala.view;
 
 import android.content.Intent;
 import android.net.Uri;
-import com.baidu.adp.framework.listener.c;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.dialog.a;
 import com.baidu.tbadk.core.message.RequestUpdateMaskInfoMessage;
 import com.baidu.tbadk.core.message.ResponseUpdateMaskInfoMessage;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.coreExtra.messageCenter.d;
 import com.baidu.tieba.R;
-/* loaded from: classes9.dex */
+import d.b.b.c.g.c;
+import d.b.h0.r.s.a;
+import d.b.h0.s.d.d;
+/* loaded from: classes2.dex */
 public class AlaLivePushRemindDialog {
-    private TbPageContext mPageContext;
-    private c msgRemindListener = new c(CmdConfigSocket.CMD_UPDATE_MASK_INFO) { // from class: com.baidu.ala.view.AlaLivePushRemindDialog.1
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-            if ((socketResponsedMessage instanceof ResponseUpdateMaskInfoMessage) && (socketResponsedMessage.getOrginalMessage() instanceof RequestUpdateMaskInfoMessage) && ((ResponseUpdateMaskInfoMessage) socketResponsedMessage).getError() == 0) {
-                d.byh().qv(300);
-                d.byh().ku(true);
-                d.byh().kv(true);
-                d.byh().kt(true);
-                d.byh().kl(true);
-                d.byh().km(true);
-                d.byh().kk(true);
-                AlaLivePushRemindDialog.this.jumpSystemPermissionSetting();
-            }
-        }
-    };
+    public TbPageContext mPageContext;
+    public c msgRemindListener;
 
     public AlaLivePushRemindDialog(TbPageContext tbPageContext) {
+        c cVar = new c(104102) { // from class: com.baidu.ala.view.AlaLivePushRemindDialog.1
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.adp.framework.listener.MessageListener
+            public void onMessage(SocketResponsedMessage socketResponsedMessage) {
+                if ((socketResponsedMessage instanceof ResponseUpdateMaskInfoMessage) && (socketResponsedMessage.getOrginalMessage() instanceof RequestUpdateMaskInfoMessage) && ((ResponseUpdateMaskInfoMessage) socketResponsedMessage).getError() == 0) {
+                    d.d().E(300);
+                    d.d().C(true);
+                    d.d().G(true);
+                    d.d().H(true);
+                    d.d().B(true);
+                    d.d().K(true);
+                    d.d().D(true);
+                    AlaLivePushRemindDialog.this.jumpSystemPermissionSetting();
+                }
+            }
+        };
+        this.msgRemindListener = cVar;
         this.mPageContext = tbPageContext;
-        this.mPageContext.registerListener(this.msgRemindListener);
-    }
-
-    public void showDialog(final boolean z) {
-        a aVar = new a(this.mPageContext.getPageActivity());
-        aVar.setAutoNight(false);
-        aVar.nx(R.string.ala_live_push_remind);
-        aVar.a(R.string.ala_live_push_remind_open, new a.b() { // from class: com.baidu.ala.view.AlaLivePushRemindDialog.2
-            @Override // com.baidu.tbadk.core.dialog.a.b
-            public void onClick(a aVar2) {
-                TiebaStatic.log("c12670");
-                AlaLivePushRemindDialog.this.openMsgRemind();
-                aVar2.dismiss();
-                if (z) {
-                    AlaAttentionManager.getInstance().showAttentionSucceedTip(AlaLivePushRemindDialog.this.mPageContext);
-                }
-            }
-        });
-        aVar.b(R.string.ala_live_push_remind_close, new a.b() { // from class: com.baidu.ala.view.AlaLivePushRemindDialog.3
-            @Override // com.baidu.tbadk.core.dialog.a.b
-            public void onClick(a aVar2) {
-                TiebaStatic.log("c12671");
-                aVar2.dismiss();
-                if (z) {
-                    AlaAttentionManager.getInstance().showAttentionSucceedTip(AlaLivePushRemindDialog.this.mPageContext);
-                }
-            }
-        });
-        aVar.b(this.mPageContext).bqz();
-        TiebaStatic.log("c12669");
+        tbPageContext.registerListener(cVar);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -85,5 +57,34 @@ public class AlaLivePushRemindDialog {
         requestUpdateMaskInfoMessage.setMaskType(14);
         requestUpdateMaskInfoMessage.setSettingMask(true);
         this.mPageContext.sendMessage(requestUpdateMaskInfoMessage);
+    }
+
+    public void showDialog(final boolean z) {
+        a aVar = new a(this.mPageContext.getPageActivity());
+        aVar.setAutoNight(false);
+        aVar.setTitle(R.string.ala_live_push_remind);
+        aVar.setPositiveButton(R.string.ala_live_push_remind_open, new a.e() { // from class: com.baidu.ala.view.AlaLivePushRemindDialog.2
+            @Override // d.b.h0.r.s.a.e
+            public void onClick(a aVar2) {
+                TiebaStatic.log("c12670");
+                AlaLivePushRemindDialog.this.openMsgRemind();
+                aVar2.dismiss();
+                if (z) {
+                    AlaAttentionManager.getInstance().showAttentionSucceedTip(AlaLivePushRemindDialog.this.mPageContext);
+                }
+            }
+        });
+        aVar.setNegativeButton(R.string.ala_live_push_remind_close, new a.e() { // from class: com.baidu.ala.view.AlaLivePushRemindDialog.3
+            @Override // d.b.h0.r.s.a.e
+            public void onClick(a aVar2) {
+                TiebaStatic.log("c12671");
+                aVar2.dismiss();
+                if (z) {
+                    AlaAttentionManager.getInstance().showAttentionSucceedTip(AlaLivePushRemindDialog.this.mPageContext);
+                }
+            }
+        });
+        aVar.create(this.mPageContext).show();
+        TiebaStatic.log("c12669");
     }
 }

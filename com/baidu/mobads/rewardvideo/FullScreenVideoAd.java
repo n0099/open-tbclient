@@ -5,16 +5,30 @@ import com.baidu.mobads.interfaces.IXAdConstants4PDK;
 import com.baidu.mobads.production.rewardvideo.a;
 import com.baidu.mobads.rewardvideo.AbstractScreenVideoAd;
 import java.util.HashMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class FullScreenVideoAd extends AbstractScreenVideoAd {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
+    public class FullScreenIOEventListener extends AbstractScreenVideoAd.ScreenVideoIOAdEventListener {
+        public FullScreenIOEventListener() {
+            super();
+        }
+
+        @Override // com.baidu.mobads.rewardvideo.AbstractScreenVideoAd.ScreenVideoIOAdEventListener
+        public void handleCustomEvent(String str, HashMap<String, Object> hashMap) {
+            if ((FullScreenVideoAd.this.mAdListener instanceof FullScreenVideoAdListener) && "AdVideoSkip".equals(str)) {
+                ((FullScreenVideoAdListener) FullScreenVideoAd.this.mAdListener).onAdSkip(Float.parseFloat(hashMap != null ? hashMap.get("play_scale").toString() : "0"));
+            }
+        }
+    }
+
+    /* loaded from: classes2.dex */
     public interface FullScreenVideoAdListener extends AbstractScreenVideoAd.ScreenVideoAdListener {
         @Override // com.baidu.mobads.rewardvideo.AbstractScreenVideoAd.ScreenVideoAdListener
         void onAdClick();
 
         @Override // com.baidu.mobads.rewardvideo.AbstractScreenVideoAd.ScreenVideoAdListener
-        void onAdClose(float f);
+        void onAdClose(float f2);
 
         @Override // com.baidu.mobads.rewardvideo.AbstractScreenVideoAd.ScreenVideoAdListener
         void onAdFailed(String str);
@@ -22,7 +36,7 @@ public class FullScreenVideoAd extends AbstractScreenVideoAd {
         @Override // com.baidu.mobads.rewardvideo.AbstractScreenVideoAd.ScreenVideoAdListener
         void onAdShow();
 
-        void onAdSkip(float f);
+        void onAdSkip(float f2);
 
         @Override // com.baidu.mobads.rewardvideo.AbstractScreenVideoAd.ScreenVideoAdListener
         void onVideoDownloadFailed();
@@ -38,35 +52,15 @@ public class FullScreenVideoAd extends AbstractScreenVideoAd {
         this(context, str, fullScreenVideoAdListener, false);
     }
 
-    public FullScreenVideoAd(Context context, String str, FullScreenVideoAdListener fullScreenVideoAdListener, boolean z) {
-        super(context, fullScreenVideoAdListener);
-        this.mAdProd = new a(this.mContext, str, z, IXAdConstants4PDK.SlotType.SLOT_TYPE_FULLSCREEN_VIDEO);
-    }
-
     @Override // com.baidu.mobads.rewardvideo.AbstractScreenVideoAd
-    protected AbstractScreenVideoAd.ScreenVideoIOAdEventListener registerIOAdEventListener() {
+    public AbstractScreenVideoAd.ScreenVideoIOAdEventListener registerIOAdEventListener() {
         FullScreenIOEventListener fullScreenIOEventListener = new FullScreenIOEventListener();
         this.mAdProd.addEventListener("AdVideoSkip", fullScreenIOEventListener);
         return fullScreenIOEventListener;
     }
 
-    /* loaded from: classes4.dex */
-    private class FullScreenIOEventListener extends AbstractScreenVideoAd.ScreenVideoIOAdEventListener {
-        private FullScreenIOEventListener() {
-            super();
-        }
-
-        @Override // com.baidu.mobads.rewardvideo.AbstractScreenVideoAd.ScreenVideoIOAdEventListener
-        protected void handleCustomEvent(String str, HashMap<String, Object> hashMap) {
-            String str2;
-            if ((FullScreenVideoAd.this.mAdListener instanceof FullScreenVideoAdListener) && "AdVideoSkip".equals(str)) {
-                if (hashMap == null) {
-                    str2 = "0";
-                } else {
-                    str2 = hashMap.get("play_scale").toString();
-                }
-                ((FullScreenVideoAdListener) FullScreenVideoAd.this.mAdListener).onAdSkip(Float.parseFloat(str2));
-            }
-        }
+    public FullScreenVideoAd(Context context, String str, FullScreenVideoAdListener fullScreenVideoAdListener, boolean z) {
+        super(context, fullScreenVideoAdListener);
+        this.mAdProd = new a(this.mContext, str, z, IXAdConstants4PDK.SlotType.SLOT_TYPE_FULLSCREEN_VIDEO);
     }
 }

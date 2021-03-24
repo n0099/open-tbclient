@@ -6,49 +6,25 @@ import com.tencent.open.a;
 import com.tencent.open.a.f;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes14.dex */
-public class c extends a.C1259a {
-    private String d;
+/* loaded from: classes7.dex */
+public class c extends a.C0515a {
+
+    /* renamed from: d  reason: collision with root package name */
+    public String f39343d;
 
     public c(WebView webView, long j, String str, String str2) {
         super(webView, j, str);
-        this.d = str2;
-    }
-
-    @Override // com.tencent.open.a.C1259a
-    public void a(Object obj) {
-        f.a("openSDK_LOG.SecureJsListener", "-->onComplete, result: " + obj);
-    }
-
-    @Override // com.tencent.open.a.C1259a
-    public void a() {
-        f.b("openSDK_LOG.SecureJsListener", "-->onNoMatchMethod...");
-    }
-
-    @Override // com.tencent.open.a.C1259a
-    public void a(String str) {
-        f.a("openSDK_LOG.SecureJsListener", "-->onCustomCallback, js: " + str);
-        JSONObject jSONObject = new JSONObject();
-        int i = 0;
-        if (!com.tencent.open.c.c.f7976a) {
-            i = -4;
-        }
-        try {
-            jSONObject.put("result", i);
-            jSONObject.put(IXAdRequestInfo.SN, this.b);
-            jSONObject.put("data", str);
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        b(jSONObject.toString());
+        this.f39343d = str2;
     }
 
     private void b(String str) {
-        WebView webView = this.f7950a.get();
+        WebView webView = this.f39188a.get();
         if (webView != null) {
             StringBuffer stringBuffer = new StringBuffer("javascript:");
-            stringBuffer.append("if(!!").append(this.d).append("){");
-            stringBuffer.append(this.d);
+            stringBuffer.append("if(!!");
+            stringBuffer.append(this.f39343d);
+            stringBuffer.append("){");
+            stringBuffer.append(this.f39343d);
             stringBuffer.append("(");
             stringBuffer.append(str);
             stringBuffer.append(")}");
@@ -56,5 +32,29 @@ public class c extends a.C1259a {
             f.a("openSDK_LOG.SecureJsListener", "-->callback, callback: " + stringBuffer2);
             webView.loadUrl(stringBuffer2);
         }
+    }
+
+    @Override // com.tencent.open.a.C0515a
+    public void a(Object obj) {
+        f.a("openSDK_LOG.SecureJsListener", "-->onComplete, result: " + obj);
+    }
+
+    @Override // com.tencent.open.a.C0515a
+    public void a() {
+        f.b("openSDK_LOG.SecureJsListener", "-->onNoMatchMethod...");
+    }
+
+    @Override // com.tencent.open.a.C0515a
+    public void a(String str) {
+        f.a("openSDK_LOG.SecureJsListener", "-->onCustomCallback, js: " + str);
+        JSONObject jSONObject = new JSONObject();
+        try {
+            jSONObject.put("result", !com.tencent.open.c.c.f39273a ? -4 : 0);
+            jSONObject.put(IXAdRequestInfo.SN, this.f39189b);
+            jSONObject.put("data", str);
+        } catch (JSONException e2) {
+            e2.printStackTrace();
+        }
+        b(jSONObject.toString());
     }
 }

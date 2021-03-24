@@ -1,7 +1,7 @@
 package com.baidu.searchbox.looper.ioc;
 
 import android.util.Printer;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public interface ILooperNeedContext {
     void addLooperPrinter(Printer printer);
 

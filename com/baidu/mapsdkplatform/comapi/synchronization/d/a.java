@@ -1,45 +1,44 @@
 package com.baidu.mapsdkplatform.comapi.synchronization.d;
 
 import android.util.Log;
-import com.xiaomi.mipush.sdk.Constants;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static boolean f2249a = true;
+    public static boolean f7750a = true;
 
-    private static String a() {
+    public static String a() {
         StackTraceElement stackTraceElement = new Throwable().getStackTrace()[2];
         return stackTraceElement.getFileName() + ": Line " + stackTraceElement.getLineNumber();
     }
 
     public static void a(String str, String str2) {
-        if (f2249a) {
+        if (f7750a) {
             Log.d(str, str2);
         }
     }
 
     public static void a(String str, String str2, Throwable th) {
-        if (f2249a) {
+        if (f7750a) {
             Log.e(str, str2, th);
         }
     }
 
     public static void a(boolean z) {
-        f2249a = z;
+        f7750a = z;
     }
 
-    private static String b() {
+    public static String b() {
         return new Throwable().getStackTrace()[2].getMethodName();
     }
 
     public static void b(String str, String str2) {
-        if (f2249a) {
+        if (f7750a) {
             Log.e(str, str2);
         }
     }
 
     public static void c(String str, String str2) {
-        Log.d(str + Constants.ACCEPT_TIME_SEPARATOR_SERVER + b() + Constants.ACCEPT_TIME_SEPARATOR_SERVER + a(), str2);
+        Log.d(str + "-" + b() + "-" + a(), str2);
     }
 }

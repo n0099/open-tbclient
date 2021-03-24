@@ -1,23 +1,23 @@
 package com.bytedance.embedapplog.util;
 
-import com.bytedance.embedapplog.au;
-/* loaded from: classes6.dex */
+import d.c.b.r0;
+/* loaded from: classes5.dex */
 public class TTEncryptUtils {
-    private static native byte[] ttEncrypt(byte[] bArr, int i);
-
     static {
         try {
             System.loadLibrary("tobEmbedEncrypt");
-        } catch (UnsatisfiedLinkError e) {
-            au.a(e);
+        } catch (UnsatisfiedLinkError e2) {
+            r0.b(e2);
         }
     }
 
     public static byte[] a(byte[] bArr, int i) {
         try {
             return ttEncrypt(bArr, i);
-        } catch (Throwable th) {
+        } catch (Throwable unused) {
             return null;
         }
     }
+
+    public static native byte[] ttEncrypt(byte[] bArr, int i);
 }

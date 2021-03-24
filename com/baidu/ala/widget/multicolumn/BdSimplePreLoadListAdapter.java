@@ -9,16 +9,16 @@ import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.ListAdapter;
 import android.widget.WrapperListAdapter;
-import com.baidu.adp.widget.ListView.e;
-import com.baidu.adp.widget.ListView.o;
-/* loaded from: classes9.dex */
+import d.b.b.j.e.e;
+import d.b.b.j.e.o;
+/* loaded from: classes2.dex */
 public class BdSimplePreLoadListAdapter extends BaseAdapter implements o {
-    private DataSetObserver mAdapterDataSetObserver;
-    private Context mContext;
-    private ListAdapter mAdapter = null;
-    private boolean mIsFilterable = false;
-    private DataSetObserver mDataSetObserver = null;
-    private e.a mListPreLoad = null;
+    public DataSetObserver mAdapterDataSetObserver;
+    public Context mContext;
+    public ListAdapter mAdapter = null;
+    public boolean mIsFilterable = false;
+    public DataSetObserver mDataSetObserver = null;
+    public e.b mListPreLoad = null;
 
     public BdSimplePreLoadListAdapter(Context context) {
         this.mContext = null;
@@ -46,15 +46,107 @@ public class BdSimplePreLoadListAdapter extends BaseAdapter implements o {
         };
     }
 
-    public void setListPreLoad(e.a aVar) {
-        this.mListPreLoad = aVar;
+    @Override // android.widget.Adapter, d.b.b.j.e.o
+    public int getCount() {
+        ListAdapter listAdapter = this.mAdapter;
+        if (listAdapter != null) {
+            return listAdapter.getCount();
+        }
+        return 0;
+    }
+
+    public Filter getFilter() {
+        ListAdapter listAdapter;
+        if (!this.mIsFilterable || (listAdapter = this.mAdapter) == null) {
+            return null;
+        }
+        return ((Filterable) listAdapter).getFilter();
+    }
+
+    @Override // android.widget.Adapter, d.b.b.j.e.o
+    public Object getItem(int i) {
+        ListAdapter listAdapter = this.mAdapter;
+        if (listAdapter != null) {
+            return listAdapter.getItem(i);
+        }
+        return null;
+    }
+
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        ListAdapter listAdapter = this.mAdapter;
+        if (listAdapter != null) {
+            return listAdapter.getItemId(i);
+        }
+        return 0L;
+    }
+
+    @Override // android.widget.Adapter
+    public View getView(int i, View view, ViewGroup viewGroup) {
+        ListAdapter listAdapter = this.mAdapter;
+        if (listAdapter != null) {
+            return listAdapter.getView(i, view, viewGroup);
+        }
+        return null;
+    }
+
+    public ListAdapter getWrappedAdapter() {
+        return this.mAdapter;
     }
 
     public int getWrappedCount() {
-        if (this.mAdapter != null) {
-            return this.mAdapter.getCount();
+        ListAdapter listAdapter = this.mAdapter;
+        if (listAdapter != null) {
+            return listAdapter.getCount();
         }
         return 0;
+    }
+
+    @Override // android.widget.BaseAdapter, android.widget.Adapter
+    public boolean hasStableIds() {
+        ListAdapter listAdapter = this.mAdapter;
+        if (listAdapter != null) {
+            return listAdapter.hasStableIds();
+        }
+        return super.hasStableIds();
+    }
+
+    @Override // android.widget.BaseAdapter, d.b.b.j.e.o
+    public void notifyDataSetChanged() {
+        super.notifyDataSetChanged();
+        ListAdapter listAdapter = this.mAdapter;
+        if (listAdapter instanceof BaseAdapter) {
+            ((BaseAdapter) listAdapter).notifyDataSetChanged();
+        } else if (listAdapter instanceof WrapperListAdapter) {
+            ListAdapter wrappedAdapter = ((WrapperListAdapter) listAdapter).getWrappedAdapter();
+            if (wrappedAdapter instanceof BaseAdapter) {
+                ((BaseAdapter) wrappedAdapter).notifyDataSetChanged();
+            }
+        }
+    }
+
+    @Override // android.widget.BaseAdapter
+    public void notifyDataSetInvalidated() {
+        super.notifyDataSetInvalidated();
+        ListAdapter listAdapter = this.mAdapter;
+        if (listAdapter instanceof BaseAdapter) {
+            ((BaseAdapter) listAdapter).notifyDataSetInvalidated();
+        } else if (listAdapter instanceof WrapperListAdapter) {
+            ListAdapter wrappedAdapter = ((WrapperListAdapter) listAdapter).getWrappedAdapter();
+            if (wrappedAdapter instanceof BaseAdapter) {
+                ((BaseAdapter) wrappedAdapter).notifyDataSetInvalidated();
+            }
+        }
+    }
+
+    @Override // android.widget.BaseAdapter, android.widget.Adapter
+    public void registerDataSetObserver(DataSetObserver dataSetObserver) {
+        super.registerDataSetObserver(dataSetObserver);
+        this.mDataSetObserver = dataSetObserver;
+        ListAdapter listAdapter = this.mAdapter;
+        if (listAdapter != null) {
+            listAdapter.registerDataSetObserver(this.mAdapterDataSetObserver);
+        }
     }
 
     public void setAdaper(ListAdapter listAdapter) {
@@ -62,19 +154,14 @@ public class BdSimplePreLoadListAdapter extends BaseAdapter implements o {
             this.mIsFilterable = false;
         }
         this.mAdapter = listAdapter;
-        if (this.mAdapter != null) {
-            this.mIsFilterable = this.mAdapter instanceof Filterable;
+        if (listAdapter != null) {
+            this.mIsFilterable = listAdapter instanceof Filterable;
         }
         notifyDataSetChanged();
     }
 
-    @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public void registerDataSetObserver(DataSetObserver dataSetObserver) {
-        super.registerDataSetObserver(dataSetObserver);
-        this.mDataSetObserver = dataSetObserver;
-        if (this.mAdapter != null) {
-            this.mAdapter.registerDataSetObserver(this.mAdapterDataSetObserver);
-        }
+    public void setListPreLoad(e.b bVar) {
+        this.mListPreLoad = bVar;
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
@@ -85,81 +172,7 @@ public class BdSimplePreLoadListAdapter extends BaseAdapter implements o {
             if (this.mAdapter != null) {
                 this.mAdapter.unregisterDataSetObserver(this.mAdapterDataSetObserver);
             }
-        } catch (IllegalStateException e) {
-        }
-    }
-
-    public Filter getFilter() {
-        if (!this.mIsFilterable || this.mAdapter == null) {
-            return null;
-        }
-        return ((Filterable) this.mAdapter).getFilter();
-    }
-
-    public ListAdapter getWrappedAdapter() {
-        return this.mAdapter;
-    }
-
-    @Override // android.widget.Adapter, com.baidu.adp.widget.ListView.o
-    public int getCount() {
-        if (this.mAdapter != null) {
-            return this.mAdapter.getCount();
-        }
-        return 0;
-    }
-
-    @Override // android.widget.Adapter, com.baidu.adp.widget.ListView.o
-    public Object getItem(int i) {
-        if (this.mAdapter != null) {
-            return this.mAdapter.getItem(i);
-        }
-        return null;
-    }
-
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        if (this.mAdapter != null) {
-            return this.mAdapter.getItemId(i);
-        }
-        return 0L;
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view, ViewGroup viewGroup) {
-        if (this.mAdapter != null) {
-            return this.mAdapter.getView(i, view, viewGroup);
-        }
-        return null;
-    }
-
-    @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public boolean hasStableIds() {
-        return this.mAdapter != null ? this.mAdapter.hasStableIds() : super.hasStableIds();
-    }
-
-    @Override // android.widget.BaseAdapter, com.baidu.adp.widget.ListView.o
-    public void notifyDataSetChanged() {
-        super.notifyDataSetChanged();
-        if (this.mAdapter instanceof BaseAdapter) {
-            ((BaseAdapter) this.mAdapter).notifyDataSetChanged();
-        } else if (this.mAdapter instanceof WrapperListAdapter) {
-            ListAdapter wrappedAdapter = ((WrapperListAdapter) this.mAdapter).getWrappedAdapter();
-            if (wrappedAdapter instanceof BaseAdapter) {
-                ((BaseAdapter) wrappedAdapter).notifyDataSetChanged();
-            }
-        }
-    }
-
-    @Override // android.widget.BaseAdapter
-    public void notifyDataSetInvalidated() {
-        super.notifyDataSetInvalidated();
-        if (this.mAdapter instanceof BaseAdapter) {
-            ((BaseAdapter) this.mAdapter).notifyDataSetInvalidated();
-        } else if (this.mAdapter instanceof WrapperListAdapter) {
-            ListAdapter wrappedAdapter = ((WrapperListAdapter) this.mAdapter).getWrappedAdapter();
-            if (wrappedAdapter instanceof BaseAdapter) {
-                ((BaseAdapter) wrappedAdapter).notifyDataSetInvalidated();
-            }
+        } catch (IllegalStateException unused) {
         }
     }
 }

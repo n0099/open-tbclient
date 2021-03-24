@@ -5,7 +5,7 @@ import com.google.zxing.FormatException;
 import java.util.HashMap;
 import java.util.Map;
 import org.apache.commons.base.CharEncoding;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public enum CharacterSetECI {
     Cp437(new int[]{0, 2}, new String[0]),
     ISO8859_1(new int[]{1, 3}, "ISO-8859-1"),
@@ -35,10 +35,10 @@ public enum CharacterSetECI {
     GB18030(29, StringUtils.GB2312, "EUC_CN", "GBK"),
     EUC_KR(30, "EUC-KR");
     
-    private final String[] otherEncodingNames;
-    private final int[] values;
-    private static final Map<Integer, CharacterSetECI> VALUE_TO_ECI = new HashMap();
-    private static final Map<String, CharacterSetECI> NAME_TO_ECI = new HashMap();
+    public final String[] otherEncodingNames;
+    public final int[] values;
+    public static final Map<Integer, CharacterSetECI> VALUE_TO_ECI = new HashMap();
+    public static final Map<String, CharacterSetECI> NAME_TO_ECI = new HashMap();
 
     static {
         CharacterSetECI[] values;
@@ -57,6 +57,21 @@ public enum CharacterSetECI {
         this(new int[]{i}, new String[0]);
     }
 
+    public static CharacterSetECI getCharacterSetECIByName(String str) {
+        return NAME_TO_ECI.get(str);
+    }
+
+    public static CharacterSetECI getCharacterSetECIByValue(int i) throws FormatException {
+        if (i >= 0 && i < 900) {
+            return VALUE_TO_ECI.get(Integer.valueOf(i));
+        }
+        throw FormatException.getFormatInstance();
+    }
+
+    public int getValue() {
+        return this.values[0];
+    }
+
     CharacterSetECI(int i, String... strArr) {
         this.values = new int[]{i};
         this.otherEncodingNames = strArr;
@@ -65,20 +80,5 @@ public enum CharacterSetECI {
     CharacterSetECI(int[] iArr, String... strArr) {
         this.values = iArr;
         this.otherEncodingNames = strArr;
-    }
-
-    public int getValue() {
-        return this.values[0];
-    }
-
-    public static CharacterSetECI getCharacterSetECIByValue(int i) throws FormatException {
-        if (i < 0 || i >= 900) {
-            throw FormatException.getFormatInstance();
-        }
-        return VALUE_TO_ECI.get(Integer.valueOf(i));
-    }
-
-    public static CharacterSetECI getCharacterSetECIByName(String str) {
-        return NAME_TO_ECI.get(str);
     }
 }

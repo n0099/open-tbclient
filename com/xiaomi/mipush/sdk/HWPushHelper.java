@@ -5,27 +5,27 @@ import android.content.Intent;
 import android.text.TextUtils;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class HWPushHelper {
 
     /* renamed from: a  reason: collision with root package name */
-    private static boolean f8198a = false;
+    public static boolean f40139a = false;
 
     public static void convertMessage(Intent intent) {
-        h.a(intent);
+        i.a(intent);
     }
 
     public static boolean hasNetwork(Context context) {
-        return h.m118a(context);
+        return i.m113a(context);
     }
 
     public static boolean isHmsTokenSynced(Context context) {
-        String a2 = h.a(d.ASSEMBLE_PUSH_HUAWEI);
+        String a2 = i.a(e.ASSEMBLE_PUSH_HUAWEI);
         if (TextUtils.isEmpty(a2)) {
             return false;
         }
-        String a3 = h.a(context, a2);
-        String a4 = ag.a(context).a(av.UPLOAD_HUAWEI_TOKEN);
+        String a3 = i.a(context, a2);
+        String a4 = ae.a(context).a(at.UPLOAD_HUAWEI_TOKEN);
         return (TextUtils.isEmpty(a3) || TextUtils.isEmpty(a4) || !"synced".equals(a4)) ? false : true;
     }
 
@@ -34,11 +34,11 @@ public class HWPushHelper {
     }
 
     public static boolean needConnect() {
-        return f8198a;
+        return f40139a;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:13:0x002a, code lost:
-        r0 = r3.getString("pushMsg");
+    /* JADX WARN: Code restructure failed: missing block: B:12:0x002a, code lost:
+        r2 = r3.getString("pushMsg");
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -48,7 +48,7 @@ public class HWPushHelper {
         if (!TextUtils.isEmpty(str)) {
             try {
                 JSONArray jSONArray = new JSONArray(str);
-                if (jSONArray != null && jSONArray.length() > 0) {
+                if (jSONArray.length() > 0) {
                     int i = 0;
                     while (true) {
                         if (i >= jSONArray.length()) {
@@ -61,13 +61,13 @@ public class HWPushHelper {
                         i++;
                     }
                 }
-            } catch (Exception e) {
-                com.xiaomi.channel.commonutils.logger.b.d(e.toString());
+            } catch (Exception e2) {
+                com.xiaomi.channel.commonutils.logger.b.d(e2.toString());
             }
         }
-        PushMessageReceiver a2 = h.a(context);
+        PushMessageReceiver a2 = i.a(context);
         if (a2 != null) {
-            MiPushMessage a3 = h.a(str2);
+            MiPushMessage a3 = i.a(str2);
             if (a3.getExtra().containsKey("notify_effect")) {
                 return;
             }
@@ -84,24 +84,24 @@ public class HWPushHelper {
                     str2 = jSONObject.getString("content");
                 }
             }
-        } catch (Exception e) {
-            com.xiaomi.channel.commonutils.logger.b.d(e.toString());
+        } catch (Exception e2) {
+            com.xiaomi.channel.commonutils.logger.b.d(e2.toString());
         }
-        PushMessageReceiver a2 = h.a(context);
+        PushMessageReceiver a2 = i.a(context);
         if (a2 != null) {
-            a2.onReceivePassThroughMessage(context, h.a(str2));
+            a2.onReceivePassThroughMessage(context, i.a(str2));
         }
     }
 
     public static void registerHuaWeiAssemblePush(Context context) {
-        AbstractPushManager a2 = e.a(context).a(d.ASSEMBLE_PUSH_HUAWEI);
+        AbstractPushManager a2 = f.a(context).a(e.ASSEMBLE_PUSH_HUAWEI);
         if (a2 != null) {
             a2.register();
         }
     }
 
     public static void reportError(String str, int i) {
-        h.a(str, i);
+        i.a(str, i);
     }
 
     public static synchronized void setConnectTime(Context context) {
@@ -117,7 +117,7 @@ public class HWPushHelper {
     }
 
     public static void setNeedConnect(boolean z) {
-        f8198a = z;
+        f40139a = z;
     }
 
     public static synchronized boolean shouldGetToken(Context context) {
@@ -137,6 +137,6 @@ public class HWPushHelper {
     }
 
     public static void uploadToken(Context context, String str) {
-        h.a(context, d.ASSEMBLE_PUSH_HUAWEI, str);
+        i.a(context, e.ASSEMBLE_PUSH_HUAWEI, str);
     }
 }

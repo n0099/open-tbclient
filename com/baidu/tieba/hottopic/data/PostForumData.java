@@ -3,43 +3,46 @@ package com.baidu.tieba.hottopic.data;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.y;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.R;
+import d.b.b.j.e.n;
+import d.b.i0.x.e0.a;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.Hottopic.RelateForum;
-/* loaded from: classes7.dex */
-public class PostForumData extends com.baidu.tieba.card.data.a implements Serializable {
+/* loaded from: classes4.dex */
+public class PostForumData extends a implements Serializable {
     public static final BdUniqueId TYPE_POST_FORUM = BdUniqueId.gen();
-    private static final long serialVersionUID = -2078662294751243784L;
-    public List<com.baidu.adp.widget.ListView.n> mRelateForumDataList = null;
+    public static final long serialVersionUID = -2078662294751243784L;
+    public List<n> mRelateForumDataList = null;
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.n
+    public int getCount() {
+        return ListUtils.getCount(this.mRelateForumDataList);
+    }
+
+    public n getForumData(int i) {
+        return (n) ListUtils.getItem(this.mRelateForumDataList, i);
+    }
+
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, d.b.b.j.e.n
     public BdUniqueId getType() {
         return TYPE_POST_FORUM;
     }
 
     public void parserProtobuf(List<RelateForum> list) {
-        if (!y.isEmpty(list)) {
-            this.showTopDivider = true;
-            this.mGroupTitle = TbadkCoreApplication.getInst().getString(R.string.recommend_relative_forum);
-            this.mRelateForumDataList = new ArrayList();
-            for (RelateForum relateForum : list) {
-                if (relateForum != null && !StringUtils.isNull(relateForum.forum_name)) {
-                    RelateForumItemData relateForumItemData = new RelateForumItemData();
-                    relateForumItemData.parserProtobuf(relateForum);
-                    this.mRelateForumDataList.add(relateForumItemData);
-                }
+        if (ListUtils.isEmpty(list)) {
+            return;
+        }
+        this.showTopDivider = true;
+        this.mGroupTitle = TbadkCoreApplication.getInst().getString(R.string.recommend_relative_forum);
+        this.mRelateForumDataList = new ArrayList();
+        for (RelateForum relateForum : list) {
+            if (relateForum != null && !StringUtils.isNull(relateForum.forum_name)) {
+                RelateForumItemData relateForumItemData = new RelateForumItemData();
+                relateForumItemData.parserProtobuf(relateForum);
+                this.mRelateForumDataList.add(relateForumItemData);
             }
         }
-    }
-
-    public int getCount() {
-        return y.getCount(this.mRelateForumDataList);
-    }
-
-    public com.baidu.adp.widget.ListView.n getForumData(int i) {
-        return (com.baidu.adp.widget.ListView.n) y.getItem(this.mRelateForumDataList, i);
     }
 }

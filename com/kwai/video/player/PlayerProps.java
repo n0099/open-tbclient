@@ -1,5 +1,5 @@
 package com.kwai.video.player;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public interface PlayerProps {
     public static final int FFP_PROPV_DECODER_AVCODEC = 1;
     public static final int FFP_PROPV_DECODER_MEDIACODEC = 2;

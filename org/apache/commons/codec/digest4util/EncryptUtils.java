@@ -1,0 +1,110 @@
+package org.apache.commons.codec.digest4util;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+/* loaded from: classes7.dex */
+public class EncryptUtils {
+    public static final boolean DEBUG = false;
+    public static final String ENCRYPT_MD5 = "MD5";
+    public static final String ENCRYPT_SHA1 = "SHA-1";
+    public static final String ENCRYPT_SHA256 = "SHA-256";
+    public static final String ENCRYPT_SHA384 = "SHA-384";
+    public static final String ENCRYPT_SHA512 = "SHA-512";
+    public static final int FILE_STREAM_BUFFER_SIZE = 8192;
+
+    public static String encrypt(String str, byte[] bArr, boolean z) {
+        try {
+            MessageDigest messageDigest = MessageDigest.getInstance(str);
+            messageDigest.reset();
+            messageDigest.update(bArr);
+            return toHexString(messageDigest.digest(), "", z);
+        } catch (NoSuchAlgorithmException e2) {
+            throw new RuntimeException(e2);
+        }
+    }
+
+    public static String toHexString(byte[] bArr, String str, boolean z) {
+        StringBuilder sb = new StringBuilder();
+        for (byte b2 : bArr) {
+            String hexString = Integer.toHexString(b2 & 255);
+            if (z) {
+                hexString = hexString.toUpperCase();
+            }
+            if (hexString.length() == 1) {
+                sb.append("0");
+            }
+            sb.append(hexString);
+            sb.append(str);
+        }
+        return sb.toString();
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:22:0x003b, code lost:
+        if (r1 == null) goto L21;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:23:0x003d, code lost:
+        r1.close();
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:26:0x0042, code lost:
+        if (r1 == null) goto L21;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:29:0x0046, code lost:
+        if (r1 == null) goto L21;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:31:0x0049, code lost:
+        return null;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static String encrypt(String str, File file, boolean z) {
+        FileInputStream fileInputStream;
+        FileInputStream fileInputStream2 = null;
+        try {
+            MessageDigest messageDigest = MessageDigest.getInstance(str);
+            messageDigest.reset();
+            fileInputStream = new FileInputStream(file);
+            try {
+                byte[] bArr = new byte[8192];
+                while (true) {
+                    int read = fileInputStream.read(bArr);
+                    if (read <= 0) {
+                        break;
+                    }
+                    messageDigest.update(bArr, 0, read);
+                }
+                String hexString = toHexString(messageDigest.digest(), "", z);
+                try {
+                    fileInputStream.close();
+                } catch (IOException unused) {
+                }
+                return hexString;
+            } catch (FileNotFoundException unused2) {
+            } catch (IOException unused3) {
+            } catch (NoSuchAlgorithmException unused4) {
+            } catch (Throwable th) {
+                th = th;
+                fileInputStream2 = fileInputStream;
+                if (fileInputStream2 != null) {
+                    try {
+                        fileInputStream2.close();
+                    } catch (IOException unused5) {
+                    }
+                }
+                throw th;
+            }
+        } catch (FileNotFoundException unused6) {
+            fileInputStream = null;
+        } catch (IOException unused7) {
+            fileInputStream = null;
+        } catch (NoSuchAlgorithmException unused8) {
+            fileInputStream = null;
+        } catch (Throwable th2) {
+            th = th2;
+        }
+    }
+}

@@ -7,48 +7,60 @@ import java.util.Iterator;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class AegonLoggerDispatcher {
 
     /* renamed from: a  reason: collision with root package name */
-    public static ConcurrentLinkedQueue<f> f5409a = new ConcurrentLinkedQueue<>();
-    public static Executor b = null;
+    public static ConcurrentLinkedQueue<a> f31605a = new ConcurrentLinkedQueue<>();
+
+    /* renamed from: b  reason: collision with root package name */
+    public static Executor f31606b = null;
 
     public static Executor a() {
-        Executor executor = b;
-        if (executor == null) {
-            synchronized (AegonLoggerDispatcher.class) {
-                if (b == null) {
-                    b = Executors.newSingleThreadExecutor();
-                }
-                executor = b;
+        Executor executor;
+        Executor executor2 = f31606b;
+        if (executor2 != null) {
+            return executor2;
+        }
+        synchronized (AegonLoggerDispatcher.class) {
+            if (f31606b == null) {
+                f31606b = Executors.newSingleThreadExecutor();
             }
+            executor = f31606b;
         }
         return executor;
+    }
+
+    public static void a(a aVar) {
+        f31605a.add(aVar);
+    }
+
+    public static void b(a aVar) {
+        f31605a.remove(aVar);
     }
 
     @Keep
     public static void onConnectionStats(String str) {
         Log.i("AegonLogger", str);
-        if (f5409a.isEmpty()) {
+        if (f31605a.isEmpty()) {
             return;
         }
         Executor a2 = a();
-        Iterator<f> it = f5409a.iterator();
+        Iterator<a> it = f31605a.iterator();
         while (it.hasNext()) {
-            a2.execute(g.b(it.next(), str));
+            a2.execute(b.a(it.next(), str));
         }
     }
 
     @Keep
     public static void onRequestFinished(RequestFinishedInfo requestFinishedInfo, String str) {
-        if (f5409a.isEmpty()) {
+        if (f31605a.isEmpty()) {
             return;
         }
         Executor a2 = a();
-        Iterator<f> it = f5409a.iterator();
+        Iterator<a> it = f31605a.iterator();
         while (it.hasNext()) {
-            a2.execute(h.b(it.next(), requestFinishedInfo, str));
+            a2.execute(c.a(it.next(), requestFinishedInfo, str));
         }
     }
 }

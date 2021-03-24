@@ -1,14 +1,14 @@
 package rx.schedulers;
 
-import rx.g;
+import h.g;
 @Deprecated
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public final class ImmediateScheduler extends g {
-    private ImmediateScheduler() {
+    public ImmediateScheduler() {
         throw new IllegalStateException("No instances!");
     }
 
-    @Override // rx.g
+    @Override // h.g
     public g.a createWorker() {
         return null;
     }

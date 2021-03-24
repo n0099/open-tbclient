@@ -3,7 +3,7 @@ package com.baidu.tbadk.coreExtra.service;
 import android.content.Intent;
 import android.os.IBinder;
 import com.baidu.adp.base.BdBaseService;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class LocationReportService extends BdBaseService {
     @Override // android.app.Service
     public IBinder onBind(Intent intent) {

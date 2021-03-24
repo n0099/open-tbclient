@@ -1,38 +1,36 @@
 package com.xiaomi.push.service;
 
-import android.content.Context;
-import com.xiaomi.push.gd;
-import com.xiaomi.push.ii;
+import com.xiaomi.push.fw;
+import com.xiaomi.push.ib;
 import com.xiaomi.push.service.XMPushService;
-/* loaded from: classes5.dex */
-final class r extends XMPushService.i {
+/* loaded from: classes7.dex */
+public final class r extends XMPushService.i {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ii f8577a;
+    public final /* synthetic */ ib f41057a;
 
     /* renamed from: a  reason: collision with other field name */
-    final /* synthetic */ XMPushService f923a;
+    public final /* synthetic */ XMPushService f966a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public r(int i, XMPushService xMPushService, ii iiVar) {
+    public r(int i, XMPushService xMPushService, ib ibVar) {
         super(i);
-        this.f923a = xMPushService;
-        this.f8577a = iiVar;
+        this.f966a = xMPushService;
+        this.f41057a = ibVar;
     }
 
     @Override // com.xiaomi.push.service.XMPushService.i
     public String a() {
-        return "send ack message for message.";
+        return "send app absent message.";
     }
 
     @Override // com.xiaomi.push.service.XMPushService.i
     public void a() {
         try {
-            w.a(this.f923a, p.a((Context) this.f923a, this.f8577a));
-        } catch (gd e) {
-            com.xiaomi.channel.commonutils.logger.b.a(e);
-            this.f923a.a(10, e);
+            y.a(this.f966a, y.a(this.f41057a.b(), this.f41057a.m432a()));
+        } catch (fw e2) {
+            com.xiaomi.channel.commonutils.logger.b.a(e2);
+            this.f966a.a(10, e2);
         }
     }
 }

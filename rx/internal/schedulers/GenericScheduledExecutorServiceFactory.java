@@ -1,27 +1,31 @@
 package rx.internal.schedulers;
 
+import h.n.e;
+import h.r.c;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ThreadFactory;
 import rx.internal.util.RxThreadFactory;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public enum GenericScheduledExecutorServiceFactory {
     ;
     
-    static final String THREAD_NAME_PREFIX = "RxScheduledExecutorPool-";
-    static final RxThreadFactory THREAD_FACTORY = new RxThreadFactory(THREAD_NAME_PREFIX);
-
-    static ThreadFactory threadFactory() {
-        return THREAD_FACTORY;
-    }
+    public static final String THREAD_NAME_PREFIX = "RxScheduledExecutorPool-";
+    public static final RxThreadFactory THREAD_FACTORY = new RxThreadFactory(THREAD_NAME_PREFIX);
 
     public static ScheduledExecutorService create() {
-        rx.functions.e<? extends ScheduledExecutorService> eNx = rx.c.c.eNx();
-        return eNx == null ? createDefault() : eNx.call();
+        e<? extends ScheduledExecutorService> a2 = c.a();
+        if (a2 == null) {
+            return createDefault();
+        }
+        return a2.call();
     }
 
-    static ScheduledExecutorService createDefault() {
+    public static ScheduledExecutorService createDefault() {
         return Executors.newScheduledThreadPool(1, threadFactory());
+    }
+
+    public static ThreadFactory threadFactory() {
+        return THREAD_FACTORY;
     }
 }

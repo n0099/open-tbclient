@@ -8,17 +8,21 @@ import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.View;
 import com.baidu.cyberplayer.sdk.i;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class g extends SurfaceView implements i {
 
     /* renamed from: a  reason: collision with root package name */
-    private i.a f1426a;
-    private a b;
-    private Surface c;
+    public i.a f4942a;
 
-    /* loaded from: classes4.dex */
-    private class a implements SurfaceHolder.Callback {
-        private a() {
+    /* renamed from: b  reason: collision with root package name */
+    public a f4943b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public Surface f4944c;
+
+    /* loaded from: classes2.dex */
+    public class a implements SurfaceHolder.Callback {
+        public a() {
         }
 
         @Override // android.view.SurfaceHolder.Callback
@@ -27,15 +31,15 @@ public class g extends SurfaceView implements i {
 
         @Override // android.view.SurfaceHolder.Callback
         public void surfaceCreated(SurfaceHolder surfaceHolder) {
-            CyberLog.d("SurfaceCallback", "BVideoView surfaceCreated mCyberSurfaceListener:" + g.this.f1426a);
-            if (g.this.f1426a != null) {
-                g.this.f1426a.a(2);
+            CyberLog.d("SurfaceCallback", "BVideoView surfaceCreated mCyberSurfaceListener:" + g.this.f4942a);
+            if (g.this.f4942a != null) {
+                g.this.f4942a.a(2);
             }
         }
 
         @Override // android.view.SurfaceHolder.Callback
         public void surfaceDestroyed(SurfaceHolder surfaceHolder) {
-            CyberLog.d("SurfaceCallback", "surfaceDestroyed mCyberSurfaceListener:" + g.this.f1426a);
+            CyberLog.d("SurfaceCallback", "surfaceDestroyed mCyberSurfaceListener:" + g.this.f4942a);
         }
     }
 
@@ -43,22 +47,23 @@ public class g extends SurfaceView implements i {
         super(context);
         CyberLog.d("CyberSurfaceView", "CyberSurfaceView constructor called");
         getHolder().setType(0);
-        this.b = new a();
-        getHolder().addCallback(this.b);
+        this.f4943b = new a();
+        getHolder().addCallback(this.f4943b);
     }
 
     @Override // com.baidu.cyberplayer.sdk.i
-    public Bitmap a(float f, int i, int i2) {
+    public Bitmap a(float f2, int i, int i2) {
         return null;
     }
 
     @Override // com.baidu.cyberplayer.sdk.i
     public void a() {
-        if (this.c != null) {
-            this.c.release();
+        Surface surface = this.f4944c;
+        if (surface != null) {
+            surface.release();
         }
-        this.c = null;
-        CyberLog.d("BVideoView", "release mSurface:" + this.c);
+        this.f4944c = null;
+        CyberLog.d("BVideoView", "release mSurface:" + this.f4944c);
     }
 
     @Override // com.baidu.cyberplayer.sdk.i
@@ -76,8 +81,9 @@ public class g extends SurfaceView implements i {
 
     @Override // com.baidu.cyberplayer.sdk.i
     public Surface d() {
-        this.c = getHolder().getSurface();
-        return this.c;
+        Surface surface = getHolder().getSurface();
+        this.f4944c = surface;
+        return surface;
     }
 
     @Override // com.baidu.cyberplayer.sdk.i
@@ -85,13 +91,14 @@ public class g extends SurfaceView implements i {
         return true;
     }
 
-    protected void finalize() throws Throwable {
+    public void finalize() throws Throwable {
         super.finalize();
-        CyberLog.d("CyberSurfaceView", "CyberSurfaceView finalize called mSurface:" + this.c);
-        if (this.c != null) {
-            this.c.release();
-            this.c = null;
-            getHolder().removeCallback(this.b);
+        CyberLog.d("CyberSurfaceView", "CyberSurfaceView finalize called mSurface:" + this.f4944c);
+        Surface surface = this.f4944c;
+        if (surface != null) {
+            surface.release();
+            this.f4944c = null;
+            getHolder().removeCallback(this.f4943b);
         }
     }
 
@@ -110,7 +117,7 @@ public class g extends SurfaceView implements i {
 
     @Override // com.baidu.cyberplayer.sdk.i
     public void setCyberSurfaceListener(i.a aVar) {
-        this.f1426a = aVar;
+        this.f4942a = aVar;
     }
 
     @Override // com.baidu.cyberplayer.sdk.i

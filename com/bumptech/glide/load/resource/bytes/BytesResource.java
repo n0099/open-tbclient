@@ -3,9 +3,9 @@ package com.bumptech.glide.load.resource.bytes;
 import androidx.annotation.NonNull;
 import com.bumptech.glide.load.engine.Resource;
 import com.bumptech.glide.util.Preconditions;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class BytesResource implements Resource<byte[]> {
-    private final byte[] bytes;
+    public final byte[] bytes;
 
     public BytesResource(byte[] bArr) {
         this.bytes = (byte[]) Preconditions.checkNotNull(bArr);
@@ -17,13 +17,6 @@ public class BytesResource implements Resource<byte[]> {
         return byte[].class;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.bumptech.glide.load.engine.Resource
-    @NonNull
-    public byte[] get() {
-        return this.bytes;
-    }
-
     @Override // com.bumptech.glide.load.engine.Resource
     public int getSize() {
         return this.bytes.length;
@@ -31,5 +24,12 @@ public class BytesResource implements Resource<byte[]> {
 
     @Override // com.bumptech.glide.load.engine.Resource
     public void recycle() {
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.bumptech.glide.load.engine.Resource
+    @NonNull
+    public byte[] get() {
+        return this.bytes;
     }
 }

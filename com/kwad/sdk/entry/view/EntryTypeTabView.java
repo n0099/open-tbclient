@@ -21,24 +21,36 @@ import com.kwad.sdk.widget.RadiusPvFrameLayout;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class EntryTypeTabView extends a {
-    private TextView c;
-    private ImageView d;
-    private TextView e;
-    private AdTemplate f;
-    private PhotoInfo g;
-    private com.kwad.sdk.lib.widget.b<AdTemplate> h;
-    private RadiusPvFrameLayout i;
-    private volatile boolean j;
-    private g k;
-    private g.a l;
-    private boolean m;
-    private View.OnClickListener n;
+
+    /* renamed from: c  reason: collision with root package name */
+    public TextView f34758c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public ImageView f34759d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public TextView f34760e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public AdTemplate f34761f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public PhotoInfo f34762g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public com.kwad.sdk.lib.widget.b<AdTemplate> f34763h;
+    public RadiusPvFrameLayout i;
+    public volatile boolean j;
+    public g k;
+    public g.a l;
+    public boolean m;
+    public View.OnClickListener n;
 
     public EntryTypeTabView(Context context) {
         super(context);
-        this.h = new com.kwad.sdk.lib.widget.b<>(new ArrayList());
+        this.f34763h = new com.kwad.sdk.lib.widget.b<>(new ArrayList());
         this.j = false;
         this.l = new g.a() { // from class: com.kwad.sdk.entry.view.EntryTypeTabView.1
             @Override // com.kwad.sdk.core.view.g.a
@@ -56,14 +68,16 @@ public class EntryTypeTabView extends a {
         this.n = new View.OnClickListener() { // from class: com.kwad.sdk.entry.view.EntryTypeTabView.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                EntryTypeTabView.this.a(EntryTypeTabView.this.f, 0, EntryTypeTabView.this.d, EntryTypeTabView.this.c == view ? 2 : 1);
+                int i = EntryTypeTabView.this.f34758c == view ? 2 : 1;
+                EntryTypeTabView entryTypeTabView = EntryTypeTabView.this;
+                entryTypeTabView.a(entryTypeTabView.f34761f, 0, EntryTypeTabView.this.f34759d, i);
             }
         };
     }
 
     public EntryTypeTabView(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.h = new com.kwad.sdk.lib.widget.b<>(new ArrayList());
+        this.f34763h = new com.kwad.sdk.lib.widget.b<>(new ArrayList());
         this.j = false;
         this.l = new g.a() { // from class: com.kwad.sdk.entry.view.EntryTypeTabView.1
             @Override // com.kwad.sdk.core.view.g.a
@@ -81,50 +95,54 @@ public class EntryTypeTabView extends a {
         this.n = new View.OnClickListener() { // from class: com.kwad.sdk.entry.view.EntryTypeTabView.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                EntryTypeTabView.this.a(EntryTypeTabView.this.f, 0, EntryTypeTabView.this.d, EntryTypeTabView.this.c == view ? 2 : 1);
+                int i = EntryTypeTabView.this.f34758c == view ? 2 : 1;
+                EntryTypeTabView entryTypeTabView = EntryTypeTabView.this;
+                entryTypeTabView.a(entryTypeTabView.f34761f, 0, EntryTypeTabView.this.f34759d, i);
             }
         };
     }
 
     private void a(@NonNull ImageView imageView, int i, int i2) {
+        ImageView.ScaleType scaleType;
         ViewGroup.LayoutParams layoutParams = this.i.getLayoutParams();
+        Context context = getContext();
         if (i2 >= i) {
-            layoutParams.width = ao.a(getContext(), 247.0f);
+            layoutParams.width = ao.a(context, 247.0f);
             layoutParams.height = ao.a(getContext(), 330.0f);
             this.i.setRatio(1.3333334f);
-            if (i2 * 3 >= i * 4) {
-                imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            } else {
-                imageView.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+            if (i2 * 3 < i * 4) {
+                scaleType = ImageView.ScaleType.CENTER_INSIDE;
             }
+            scaleType = ImageView.ScaleType.CENTER_CROP;
         } else {
-            int c = ao.c(getContext()) - ao.a(getContext(), 32.0f);
-            layoutParams.width = c;
-            layoutParams.height = (int) ((c * 16.0f) / 9.0f);
+            int c2 = ao.c(context) - ao.a(getContext(), 32.0f);
+            layoutParams.width = c2;
+            layoutParams.height = (int) ((c2 * 16.0f) / 9.0f);
             this.i.setRatio(0.5625f);
-            if (i2 * 16 <= i * 9) {
-                imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            } else {
-                imageView.setScaleType(ImageView.ScaleType.FIT_CENTER);
+            if (i2 * 16 > i * 9) {
+                scaleType = ImageView.ScaleType.FIT_CENTER;
             }
+            scaleType = ImageView.ScaleType.CENTER_CROP;
         }
+        imageView.setScaleType(scaleType);
         this.i.setLayoutParams(layoutParams);
         com.kwad.sdk.core.d.a.a("EntryType5View", "w*h=" + layoutParams.width + " * " + layoutParams.height);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void g() {
-        a(this.f, 0, this.d, 3);
+        a(this.f34761f, 0, this.f34759d, 3);
     }
 
     private void h() {
-        this.c = (TextView) findViewById(R.id.ksad_entryitem5_title);
-        this.d = (ImageView) findViewById(R.id.ksad_entryitem5_thumb);
-        this.e = (TextView) findViewById(R.id.ksad_entryitem5_like_count);
-        this.i = (RadiusPvFrameLayout) findViewById(R.id.ksad_entryitem5_container);
-        this.i.setRadius(ao.a(getContext(), 4.0f));
+        this.f34758c = (TextView) findViewById(R.id.ksad_entryitem5_title);
+        this.f34759d = (ImageView) findViewById(R.id.ksad_entryitem5_thumb);
+        this.f34760e = (TextView) findViewById(R.id.ksad_entryitem5_like_count);
+        RadiusPvFrameLayout radiusPvFrameLayout = (RadiusPvFrameLayout) findViewById(R.id.ksad_entryitem5_container);
+        this.i = radiusPvFrameLayout;
+        radiusPvFrameLayout.setRadius(ao.a(getContext(), 4.0f));
         this.i.setOnClickListener(this.n);
-        this.c.setOnClickListener(this.n);
+        this.f34758c.setOnClickListener(this.n);
         c();
     }
 
@@ -133,54 +151,59 @@ public class EntryTypeTabView extends a {
     }
 
     private void j() {
-        String str = this.g.baseInfo.videoDesc;
+        TextView textView;
+        int i;
+        String str = this.f34762g.baseInfo.videoDesc;
         if (TextUtils.isEmpty(str)) {
-            this.c.setVisibility(8);
-            return;
+            textView = this.f34758c;
+            i = 8;
+        } else {
+            this.f34758c.setText(str);
+            textView = this.f34758c;
+            i = 0;
         }
-        this.c.setText(str);
-        this.c.setVisibility(0);
+        textView.setVisibility(i);
     }
 
     private void k() {
-        com.kwad.sdk.core.response.model.c E = d.E(this.g);
+        com.kwad.sdk.core.response.model.c E = d.E(this.f34762g);
         String a2 = E.a();
-        a(this.d, E.c(), E.b());
-        com.kwad.sdk.glide.c.b(getContext()).a(a2).a(getContext().getResources().getDrawable(R.drawable.ksad_loading_entry)).c(getContext().getResources().getDrawable(R.drawable.ksad_loading_entry)).a((e) new com.kwad.sdk.c(a2, this.f)).a(this.d);
+        a(this.f34759d, E.c(), E.b());
+        com.kwad.sdk.glide.c.b(getContext()).a(a2).a(getContext().getResources().getDrawable(R.drawable.ksad_loading_entry)).c(getContext().getResources().getDrawable(R.drawable.ksad_loading_entry)).a((e) new com.kwad.sdk.c(a2, this.f34761f)).a(this.f34759d);
     }
 
     private void l() {
-        this.e.setText(String.format(getContext().getString(R.string.ksad_entry_tab_like_format), ag.a(d.m(this.g), "0")));
+        this.f34760e.setText(String.format(getContext().getString(R.string.ksad_entry_tab_like_format), ag.a(d.m(this.f34762g), "0")));
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.entry.view.a, com.kwad.sdk.widget.b
     public void a() {
         super.a();
-        com.kwad.sdk.core.report.e.b(this.f, this.f6490a.e);
+        com.kwad.sdk.core.report.e.b(this.f34761f, ((a) this).f34780a.f34068e);
     }
 
     @Override // com.kwad.sdk.entry.view.a
-    protected boolean b() {
-        this.h.clear();
-        Iterator<AdTemplate> it = this.f6490a.k.iterator();
+    public boolean b() {
+        this.f34763h.clear();
+        Iterator<AdTemplate> it = ((a) this).f34780a.k.iterator();
         while (true) {
             if (!it.hasNext()) {
                 break;
             }
             AdTemplate next = it.next();
             if (!next.needHide) {
-                this.h.add(next);
+                this.f34763h.add(next);
                 break;
             }
         }
-        if (this.h.size() > 0) {
-            this.f = this.h.get(0);
-            this.g = this.f.photoInfo;
+        if (this.f34763h.size() > 0) {
+            AdTemplate adTemplate = this.f34763h.get(0);
+            this.f34761f = adTemplate;
+            this.f34762g = adTemplate.photoInfo;
         } else {
-            this.f = null;
+            this.f34761f = null;
         }
-        if (this.f == null) {
+        if (this.f34761f == null) {
             return false;
         }
         j();
@@ -191,8 +214,9 @@ public class EntryTypeTabView extends a {
 
     public void c() {
         if (i() && this.k == null) {
-            this.k = new g(this.d, 60);
-            this.k.a(this.l);
+            g gVar = new g(this.f34759d, 60);
+            this.k = gVar;
+            gVar.a(this.l);
             this.k.a();
         }
     }
@@ -204,20 +228,19 @@ public class EntryTypeTabView extends a {
 
     @Override // com.kwad.sdk.entry.view.a
     @NonNull
-    protected List<AdTemplate> getRealShowData() {
-        return this.h;
+    public List<AdTemplate> getRealShowData() {
+        return this.f34763h;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.widget.b, android.view.ViewGroup, android.view.View
     public void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        if (this.k != null) {
-            this.k.c();
+        g gVar = this.k;
+        if (gVar != null) {
+            gVar.c();
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.entry.view.a, android.view.View
     public void onFinishInflate() {
         super.onFinishInflate();

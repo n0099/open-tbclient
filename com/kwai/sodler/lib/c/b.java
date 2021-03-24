@@ -6,20 +6,21 @@ import android.content.pm.PackageManager;
 import android.content.pm.Signature;
 import androidx.annotation.Nullable;
 import com.kwad.sdk.utils.t;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private static String f7253a = "plugin.signature";
+    public static String f37155a = "plugin.signature";
 
     @Nullable
     @SuppressLint({"PackageManagerGetSignatures"})
     public static Signature[] a(Context context) {
         try {
             return context.getPackageManager().getPackageInfo(context.getPackageName(), 64).signatures;
-        } catch (PackageManager.NameNotFoundException e) {
-            com.kwai.sodler.lib.a.e(f7253a, "Can not get signature, error = " + e.getLocalizedMessage());
-            com.kwai.sodler.lib.a.a(f7253a, e);
+        } catch (PackageManager.NameNotFoundException e2) {
+            String str = f37155a;
+            com.kwai.sodler.lib.a.e(str, "Can not get signature, error = " + e2.getLocalizedMessage());
+            com.kwai.sodler.lib.a.a(f37155a, e2);
             return null;
         }
     }
@@ -27,9 +28,12 @@ public class b {
     public static String b(Context context) {
         try {
             Signature[] a2 = a(context);
-            return (a2 == null || a2.length < 1) ? "" : t.a(a2[0].toByteArray());
-        } catch (Exception e) {
-            com.kwai.sodler.lib.a.a(f7253a, e);
+            if (a2 != null && a2.length >= 1) {
+                return t.a(a2[0].toByteArray());
+            }
+            return "";
+        } catch (Exception e2) {
+            com.kwai.sodler.lib.a.a(f37155a, e2);
             return "";
         }
     }

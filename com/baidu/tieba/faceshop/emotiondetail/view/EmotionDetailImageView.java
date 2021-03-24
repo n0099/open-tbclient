@@ -6,123 +6,156 @@ import android.util.AttributeSet;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
-import com.baidu.adp.lib.e.c;
-import com.baidu.adp.lib.e.d;
-import com.baidu.adp.lib.util.l;
-import com.baidu.adp.widget.ImageView.a;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.gif.GifInfo;
 import com.baidu.tbadk.gif.GifView;
 import com.baidu.tbadk.widget.TbMemeImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.faceshop.emotiondetail.data.EmotionDetailData;
-/* loaded from: classes8.dex */
+import d.b.b.e.l.c;
+import d.b.b.e.l.d;
+import d.b.b.e.p.l;
+/* loaded from: classes4.dex */
 public class EmotionDetailImageView extends FrameLayout {
-    private static final float fXz = l.getEquipmentDensity(TbadkCoreApplication.getInst());
-    private int gBW;
-    private ImageView jbI;
-    private ProgressBar mProgressBar;
+
+    /* renamed from: h  reason: collision with root package name */
+    public static final float f15811h = l.h(TbadkCoreApplication.getInst());
+
+    /* renamed from: e  reason: collision with root package name */
+    public ImageView f15812e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public ProgressBar f15813f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public int f15814g;
+
+    /* loaded from: classes4.dex */
+    public class a extends c<d.b.b.j.d.a> {
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ EmotionDetailData f15815a;
+
+        public a(EmotionDetailData emotionDetailData) {
+            this.f15815a = emotionDetailData;
+        }
+
+        @Override // d.b.b.e.l.c
+        public void onCancelled(String str) {
+            EmotionDetailImageView.this.f15813f.setVisibility(8);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // d.b.b.e.l.c
+        public void onLoaded(d.b.b.j.d.a aVar, String str, int i) {
+            EmotionDetailImageView.this.f15813f.setVisibility(8);
+            if (aVar != null) {
+                EmotionDetailImageView.this.f15812e = new TbMemeImageView(EmotionDetailImageView.this.getContext());
+                ((TbMemeImageView) EmotionDetailImageView.this.f15812e).g(aVar);
+                EmotionDetailImageView emotionDetailImageView = EmotionDetailImageView.this;
+                ImageView imageView = emotionDetailImageView.f15812e;
+                EmotionDetailData.PicInfo picInfo = this.f15815a.pic_info;
+                emotionDetailImageView.g(imageView, picInfo.width, picInfo.height, 200, 200);
+                EmotionDetailImageView emotionDetailImageView2 = EmotionDetailImageView.this;
+                emotionDetailImageView2.addView(emotionDetailImageView2.f15812e);
+            }
+        }
+    }
 
     public EmotionDetailImageView(Context context) {
         super(context);
-        this.mProgressBar = null;
-        init();
+        this.f15813f = null;
+        e();
     }
 
-    public EmotionDetailImageView(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        this.mProgressBar = null;
-        init();
-    }
-
-    public EmotionDetailImageView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        this.mProgressBar = null;
-        init();
-    }
-
-    private void init() {
+    public final void e() {
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
-        this.mProgressBar = new ProgressBar(getContext(), null, 16843399);
-        this.mProgressBar.setIndeterminateDrawable(getResources().getDrawable(R.drawable.progressbar));
+        ProgressBar progressBar = new ProgressBar(getContext(), null, 16843399);
+        this.f15813f = progressBar;
+        progressBar.setIndeterminateDrawable(getResources().getDrawable(R.drawable.progressbar));
         layoutParams.gravity = 17;
-        this.mProgressBar.setLayoutParams(layoutParams);
-        this.mProgressBar.setIndeterminate(true);
-        addView(this.mProgressBar);
-        this.gBW = l.getEquipmentWidth(getContext());
+        this.f15813f.setLayoutParams(layoutParams);
+        this.f15813f.setIndeterminate(true);
+        addView(this.f15813f);
+        this.f15814g = l.k(getContext());
     }
 
-    public void a(final EmotionDetailData emotionDetailData, int i, boolean z) {
-        if (emotionDetailData != null && emotionDetailData.pic_info != null && !TextUtils.isEmpty(emotionDetailData.pic_info.pic_url)) {
-            if (z) {
-                this.jbI = new GifView(getContext());
-                ((GifView) this.jbI).setSupportNoImage(false);
-                GifInfo gifInfo = new GifInfo();
-                gifInfo.mSharpText = emotionDetailData.pic_info.thumbnail;
-                gifInfo.mDynamicUrl = emotionDetailData.pic_info.pic_url;
-                gifInfo.mStaticUrl = emotionDetailData.pic_info.pic_url;
-                gifInfo.mGifWidth = emotionDetailData.pic_info.width;
-                gifInfo.mGifHeight = emotionDetailData.pic_info.height;
-                this.jbI.setTag(gifInfo.mSharpText);
-                ((GifView) this.jbI).a(gifInfo);
-                a(this.jbI, emotionDetailData.pic_info.width, emotionDetailData.pic_info.height, 200, 200);
-                addView(this.jbI);
-                this.mProgressBar.setVisibility(8);
-                return;
-            }
-            this.mProgressBar.setVisibility(0);
-            d.mw().a(emotionDetailData.pic_info.pic_url, i, new c<a>() { // from class: com.baidu.tieba.faceshop.emotiondetail.view.EmotionDetailImageView.1
-                /* JADX INFO: Access modifiers changed from: protected */
-                @Override // com.baidu.adp.lib.e.c
-                public void onCancelled(String str) {
-                    EmotionDetailImageView.this.mProgressBar.setVisibility(8);
-                }
-
-                /* JADX DEBUG: Method merged with bridge method */
-                /* JADX INFO: Access modifiers changed from: protected */
-                @Override // com.baidu.adp.lib.e.c
-                public void onLoaded(a aVar, String str, int i2) {
-                    EmotionDetailImageView.this.mProgressBar.setVisibility(8);
-                    if (aVar != null) {
-                        EmotionDetailImageView.this.jbI = new TbMemeImageView(EmotionDetailImageView.this.getContext());
-                        ((TbMemeImageView) EmotionDetailImageView.this.jbI).f(aVar);
-                        EmotionDetailImageView.this.a(EmotionDetailImageView.this.jbI, emotionDetailData.pic_info.width, emotionDetailData.pic_info.height, 200, 200);
-                        EmotionDetailImageView.this.addView(EmotionDetailImageView.this.jbI);
-                    }
-                }
-            }, null);
+    public void f(EmotionDetailData emotionDetailData, int i, boolean z) {
+        EmotionDetailData.PicInfo picInfo;
+        if (emotionDetailData == null || (picInfo = emotionDetailData.pic_info) == null || TextUtils.isEmpty(picInfo.pic_url)) {
+            return;
         }
+        if (z) {
+            GifView gifView = new GifView(getContext());
+            this.f15812e = gifView;
+            gifView.setSupportNoImage(false);
+            GifInfo gifInfo = new GifInfo();
+            EmotionDetailData.PicInfo picInfo2 = emotionDetailData.pic_info;
+            String str = picInfo2.thumbnail;
+            gifInfo.mSharpText = str;
+            String str2 = picInfo2.pic_url;
+            gifInfo.mDynamicUrl = str2;
+            gifInfo.mStaticUrl = str2;
+            gifInfo.mGifWidth = picInfo2.width;
+            gifInfo.mGifHeight = picInfo2.height;
+            this.f15812e.setTag(str);
+            ((GifView) this.f15812e).w0(gifInfo);
+            ImageView imageView = this.f15812e;
+            EmotionDetailData.PicInfo picInfo3 = emotionDetailData.pic_info;
+            g(imageView, picInfo3.width, picInfo3.height, 200, 200);
+            addView(this.f15812e);
+            this.f15813f.setVisibility(8);
+            return;
+        }
+        this.f15813f.setVisibility(0);
+        d.h().m(emotionDetailData.pic_info.pic_url, i, new a(emotionDetailData), null);
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public boolean a(ImageView imageView, int i, int i2, int i3, int i4) {
-        if (this.gBW > 0) {
-            i3 = this.gBW;
-            i4 = (int) (i3 * 0.5f);
+    public final boolean g(ImageView imageView, int i, int i2, int i3, int i4) {
+        int i5 = this.f15814g;
+        if (i5 > 0) {
+            i4 = (int) (i5 * 0.5f);
+            i3 = i5;
         }
-        int[] imageResize = l.getImageResize(i, i2, i3, i4);
-        if (imageResize == null) {
+        int[] l = l.l(i, i2, i3, i4);
+        if (l == null) {
             return false;
         }
-        int[] iArr = {imageResize[0], imageResize[1]};
-        int i5 = iArr[0];
-        int i6 = iArr[1];
-        if (i3 > i5 && fXz > 1.0f) {
-            if (i5 * fXz > i3) {
-                i5 = i3 - (l.getDimens(getContext(), R.dimen.ds34) * 2);
-            } else if (i5 * fXz > i3 * 0.68f) {
-                i5 = (int) (i3 * 0.68f);
-            } else {
-                i5 = (int) (i5 * fXz);
-            }
-            if (iArr[0] > 0) {
-                i6 = (iArr[1] * i5) / iArr[0];
+        int[] iArr = {l[0], l[1]};
+        int i6 = iArr[0];
+        int i7 = iArr[1];
+        if (i3 > i6) {
+            float f2 = f15811h;
+            if (f2 > 1.0f) {
+                float f3 = i6;
+                float f4 = i3;
+                if (f3 * f2 > f4) {
+                    i6 = i3 - (l.g(getContext(), R.dimen.ds34) * 2);
+                } else {
+                    float f5 = f4 * 0.68f;
+                    i6 = f3 * f2 > f5 ? (int) f5 : (int) (f3 * f2);
+                }
+                if (iArr[0] > 0) {
+                    i7 = (iArr[1] * i6) / iArr[0];
+                }
             }
         }
-        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(i5, i6);
+        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(i6, i7);
         layoutParams.gravity = 17;
         imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
         imageView.setLayoutParams(layoutParams);
         return true;
+    }
+
+    public EmotionDetailImageView(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        this.f15813f = null;
+        e();
+    }
+
+    public EmotionDetailImageView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        this.f15813f = null;
+        e();
     }
 }

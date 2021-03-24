@@ -1,37 +1,55 @@
 package org.webrtc.audio;
 
 import android.media.AudioManager;
+import com.baidu.searchbox.elasticthread.statistic.StatisticRecorder;
+import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import java.util.Timer;
 import java.util.TimerTask;
 import javax.annotation.Nullable;
 import org.webrtc.Logging;
-/* loaded from: classes9.dex */
-class VolumeLogger {
-    private static final String TAG = "VolumeLogger";
-    private static final String THREAD_NAME = "WebRtcVolumeLevelLoggerThread";
-    private static final int TIMER_PERIOD_IN_SECONDS = 30;
-    private final AudioManager audioManager;
+/* loaded from: classes.dex */
+public class VolumeLogger {
+    public static final String TAG = "VolumeLogger";
+    public static final String THREAD_NAME = "WebRtcVolumeLevelLoggerThread";
+    public static final int TIMER_PERIOD_IN_SECONDS = 30;
+    public final AudioManager audioManager;
     @Nullable
-    private Timer timer;
+    public Timer timer;
 
-    /* loaded from: classes9.dex */
-    private class LogVolumeTask extends TimerTask {
-        private final int maxRingVolume;
-        private final int maxVoiceCallVolume;
+    /* loaded from: classes7.dex */
+    public class LogVolumeTask extends TimerTask {
+        public final int maxRingVolume;
+        public final int maxVoiceCallVolume;
 
-        LogVolumeTask(int i, int i2) {
+        public LogVolumeTask(int i, int i2) {
             this.maxRingVolume = i;
             this.maxVoiceCallVolume = i2;
         }
 
         @Override // java.util.TimerTask, java.lang.Runnable
         public void run() {
+            StringBuilder sb;
+            int i;
             int mode = VolumeLogger.this.audioManager.getMode();
             if (mode == 1) {
-                Logging.d(VolumeLogger.TAG, "STREAM_RING stream volume: " + VolumeLogger.this.audioManager.getStreamVolume(2) + " (max=" + this.maxRingVolume + ")");
-            } else if (mode == 3) {
-                Logging.d(VolumeLogger.TAG, "VOICE_CALL stream volume: " + VolumeLogger.this.audioManager.getStreamVolume(0) + " (max=" + this.maxVoiceCallVolume + ")");
+                sb = new StringBuilder();
+                sb.append("STREAM_RING stream volume: ");
+                sb.append(VolumeLogger.this.audioManager.getStreamVolume(2));
+                sb.append(" (max=");
+                i = this.maxRingVolume;
+            } else if (mode != 3) {
+                return;
+            } else {
+                sb = new StringBuilder();
+                sb.append("VOICE_CALL stream volume: ");
+                sb.append(VolumeLogger.this.audioManager.getStreamVolume(0));
+                sb.append(" (max=");
+                i = this.maxVoiceCallVolume;
             }
+            sb.append(i);
+            sb.append(SmallTailInfo.EMOTION_SUFFIX);
+            Logging.d(VolumeLogger.TAG, sb.toString());
         }
     }
 
@@ -40,19 +58,21 @@ class VolumeLogger {
     }
 
     public void start() {
-        Logging.d(TAG, "start" + WebRtcAudioUtils.getThreadInfo());
+        Logging.d(TAG, IntentConfig.START + WebRtcAudioUtils.getThreadInfo());
         if (this.timer != null) {
             return;
         }
         Logging.d(TAG, "audio mode is: " + WebRtcAudioUtils.modeToString(this.audioManager.getMode()));
-        this.timer = new Timer(THREAD_NAME);
-        this.timer.schedule(new LogVolumeTask(this.audioManager.getStreamMaxVolume(2), this.audioManager.getStreamMaxVolume(0)), 0L, 30000L);
+        Timer timer = new Timer("WebRtcVolumeLevelLoggerThread");
+        this.timer = timer;
+        timer.schedule(new LogVolumeTask(this.audioManager.getStreamMaxVolume(2), this.audioManager.getStreamMaxVolume(0)), 0L, StatisticRecorder.UPLOAD_DATA_TIME_THRESHOLD);
     }
 
     public void stop() {
-        Logging.d(TAG, "stop" + WebRtcAudioUtils.getThreadInfo());
-        if (this.timer != null) {
-            this.timer.cancel();
+        Logging.d(TAG, IntentConfig.STOP + WebRtcAudioUtils.getThreadInfo());
+        Timer timer = this.timer;
+        if (timer != null) {
+            timer.cancel();
             this.timer = null;
         }
     }

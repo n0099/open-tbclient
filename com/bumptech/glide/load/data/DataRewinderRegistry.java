@@ -6,9 +6,9 @@ import com.bumptech.glide.util.Preconditions;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class DataRewinderRegistry {
-    private static final DataRewinder.Factory<?> DEFAULT_FACTORY = new DataRewinder.Factory<Object>() { // from class: com.bumptech.glide.load.data.DataRewinderRegistry.1
+    public static final DataRewinder.Factory<?> DEFAULT_FACTORY = new DataRewinder.Factory<Object>() { // from class: com.bumptech.glide.load.data.DataRewinderRegistry.1
         @Override // com.bumptech.glide.load.data.DataRewinder.Factory
         @NonNull
         public DataRewinder<Object> build(@NonNull Object obj) {
@@ -21,10 +21,25 @@ public class DataRewinderRegistry {
             throw new UnsupportedOperationException("Not implemented");
         }
     };
-    private final Map<Class<?>, DataRewinder.Factory<?>> rewinders = new HashMap();
+    public final Map<Class<?>, DataRewinder.Factory<?>> rewinders = new HashMap();
 
-    public synchronized void register(@NonNull DataRewinder.Factory<?> factory) {
-        this.rewinders.put(factory.getDataClass(), factory);
+    /* loaded from: classes5.dex */
+    public static final class DefaultRewinder implements DataRewinder<Object> {
+        public final Object data;
+
+        public DefaultRewinder(@NonNull Object obj) {
+            this.data = obj;
+        }
+
+        @Override // com.bumptech.glide.load.data.DataRewinder
+        public void cleanup() {
+        }
+
+        @Override // com.bumptech.glide.load.data.DataRewinder
+        @NonNull
+        public Object rewindAndGet() {
+            return this.data;
+        }
     }
 
     @NonNull
@@ -51,22 +66,7 @@ public class DataRewinderRegistry {
         return (DataRewinder<T>) factory.build(t);
     }
 
-    /* loaded from: classes14.dex */
-    private static final class DefaultRewinder implements DataRewinder<Object> {
-        private final Object data;
-
-        DefaultRewinder(@NonNull Object obj) {
-            this.data = obj;
-        }
-
-        @Override // com.bumptech.glide.load.data.DataRewinder
-        @NonNull
-        public Object rewindAndGet() {
-            return this.data;
-        }
-
-        @Override // com.bumptech.glide.load.data.DataRewinder
-        public void cleanup() {
-        }
+    public synchronized void register(@NonNull DataRewinder.Factory<?> factory) {
+        this.rewinders.put(factory.getDataClass(), factory);
     }
 }

@@ -2,7 +2,7 @@ package com.kwad.sdk.core.response.model;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import com.baidu.live.tbadk.core.util.TbEnum;
+import com.baidu.tbadk.core.util.TbEnum;
 import com.kwad.sdk.core.download.DOWNLOADSTAUS;
 import com.kwad.sdk.utils.o;
 import com.kwad.sdk.utils.t;
@@ -11,9 +11,9 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class AdInfo implements com.kwad.sdk.core.b, Serializable {
-    private static final long serialVersionUID = -8738827282880419389L;
+    public static final long serialVersionUID = -8738827282880419389L;
     public String downloadFilePath;
     public String downloadId;
     public int progress;
@@ -37,9 +37,9 @@ public class AdInfo implements com.kwad.sdk.core.b, Serializable {
     @NonNull
     public AdStyleInfo adStyleInfo = new AdStyleInfo();
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class AdBaseInfo extends com.kwad.sdk.core.response.a.a implements Serializable {
-        private static final long serialVersionUID = 1615884096720946547L;
+        public static final long serialVersionUID = 1615884096720946547L;
         public String adActionBarColor;
         public String adActionDescription;
         public String adDescription;
@@ -74,9 +74,9 @@ public class AdInfo implements com.kwad.sdk.core.b, Serializable {
         public String videoPlayedNS;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class AdConversionInfo extends com.kwad.sdk.core.response.a.a implements com.kwad.sdk.core.b, Serializable {
-        private static final long serialVersionUID = -1623240707193173136L;
+        public static final long serialVersionUID = -1623240707193173136L;
         public String appDownloadUrl;
         public String deeplinkUrl;
         public int h5Type;
@@ -85,16 +85,16 @@ public class AdInfo implements com.kwad.sdk.core.b, Serializable {
         public int retryH5TimeStep;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class AdMaterialInfo extends com.kwad.sdk.core.response.a.a implements com.kwad.sdk.core.b, Serializable {
-        private static final long serialVersionUID = 8841259738296866924L;
+        public static final long serialVersionUID = 8841259738296866924L;
         @NonNull
         public List<MaterialFeature> materialFeatureList = new ArrayList();
         public int materialType;
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes6.dex */
         public static class MaterialFeature extends com.kwad.sdk.core.response.a.a implements com.kwad.sdk.core.b, Serializable {
-            private static final long serialVersionUID = -1118440558210936255L;
+            public static final long serialVersionUID = -1118440558210936255L;
             public String blurBackgroundUrl;
             public long commentCount;
             public String coverUrl;
@@ -137,9 +137,9 @@ public class AdInfo implements com.kwad.sdk.core.b, Serializable {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class AdPreloadInfo extends com.kwad.sdk.core.response.a.a implements Serializable {
-        private static final long serialVersionUID = -1208206464894428350L;
+        public static final long serialVersionUID = -1208206464894428350L;
         public String preloadId;
         public String preloadTips;
         public int preloadType;
@@ -150,13 +150,14 @@ public class AdInfo implements com.kwad.sdk.core.b, Serializable {
         }
 
         public int hashCode() {
-            return this.preloadId != null ? this.preloadId.hashCode() : super.hashCode();
+            String str = this.preloadId;
+            return str != null ? str.hashCode() : super.hashCode();
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class AdSplashInfo extends com.kwad.sdk.core.response.a.a implements Serializable {
-        private static final long serialVersionUID = 6666286195277235837L;
+        public static final long serialVersionUID = 6666286195277235837L;
         public int imageDisplaySecond;
         public int logoPosition;
         public int mute;
@@ -166,9 +167,9 @@ public class AdInfo implements com.kwad.sdk.core.b, Serializable {
         public String speakerMuteIconUrl;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class AdTrackInfo implements com.kwad.sdk.core.b, Serializable {
-        private static final long serialVersionUID = 1185757456598461137L;
+        public static final long serialVersionUID = 1185757456598461137L;
         public int type;
         public String[] urls;
 
@@ -191,8 +192,9 @@ public class AdInfo implements com.kwad.sdk.core.b, Serializable {
             JSONObject jSONObject = new JSONObject();
             o.a(jSONObject, "type", this.type);
             JSONArray jSONArray = new JSONArray();
-            if (this.urls != null) {
-                for (String str : this.urls) {
+            String[] strArr = this.urls;
+            if (strArr != null) {
+                for (String str : strArr) {
                     jSONArray.put(str);
                 }
             }
@@ -201,9 +203,9 @@ public class AdInfo implements com.kwad.sdk.core.b, Serializable {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class AdvertiserInfo implements com.kwad.sdk.core.b, Serializable {
-        private static final long serialVersionUID = 1779108296418044788L;
+        public static final long serialVersionUID = 1779108296418044788L;
         public String adAuthorText;
         public String authorIconGuide;
         public String portraitUrl;
@@ -216,7 +218,7 @@ public class AdInfo implements com.kwad.sdk.core.b, Serializable {
             if (jSONObject == null) {
                 return;
             }
-            this.userId = jSONObject.optLong(TbEnum.SystemMessage.KEY_USER_ID);
+            this.userId = jSONObject.optLong("userId");
             this.userName = jSONObject.optString(TbEnum.SystemMessage.KEY_USER_NAME);
             this.rawUserName = jSONObject.optString("rawUserName");
             this.userGender = jSONObject.optString("userGender");
@@ -228,7 +230,7 @@ public class AdInfo implements com.kwad.sdk.core.b, Serializable {
         @Override // com.kwad.sdk.core.b
         public JSONObject toJson() {
             JSONObject jSONObject = new JSONObject();
-            o.a(jSONObject, TbEnum.SystemMessage.KEY_USER_ID, this.userId);
+            o.a(jSONObject, "userId", this.userId);
             o.a(jSONObject, TbEnum.SystemMessage.KEY_USER_NAME, this.userName);
             o.a(jSONObject, "rawUserName", this.rawUserName);
             o.a(jSONObject, "userGender", this.userGender);
@@ -239,9 +241,9 @@ public class AdInfo implements com.kwad.sdk.core.b, Serializable {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class DownloadSafeInfo extends com.kwad.sdk.core.response.a.a implements Serializable {
-        private static final long serialVersionUID = -1575212648797728242L;
+        public static final long serialVersionUID = -1575212648797728242L;
         public String appPrivacyUrl;
         public String permissionInfo;
         public String webPageTipbarText;
@@ -251,9 +253,9 @@ public class AdInfo implements com.kwad.sdk.core.b, Serializable {
         public boolean webPageTipbarSwitch = false;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class MaterialSize extends com.kwad.sdk.core.response.a.a implements com.kwad.sdk.core.b, Serializable {
-        private static final long serialVersionUID = 4007237406277888273L;
+        public static final long serialVersionUID = 4007237406277888273L;
         public int height;
         public int width;
     }

@@ -6,15 +6,18 @@ import com.squareup.okhttp.internal.http.RealResponseBody;
 import java.lang.reflect.Field;
 /* loaded from: classes5.dex */
 public class OkHttpInterceptor implements Interceptor {
-    private static Field oTk;
+
+    /* renamed from: a  reason: collision with root package name */
+    public static Field f22794a;
 
     static {
         try {
-            oTk = RealResponseBody.class.getDeclaredField("source");
-            oTk.setAccessible(true);
-        } catch (NoSuchFieldException e) {
-            Log.e("tn_OkHttpIntercept", "Can not find source field from RealResponseBody.", e);
-            oTk = null;
+            Field declaredField = RealResponseBody.class.getDeclaredField("source");
+            f22794a = declaredField;
+            declaredField.setAccessible(true);
+        } catch (NoSuchFieldException e2) {
+            Log.e("tn_OkHttpIntercept", "Can not find source field from RealResponseBody.", e2);
+            f22794a = null;
         }
     }
 }

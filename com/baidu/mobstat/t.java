@@ -4,9 +4,9 @@ import android.app.ActivityManager;
 import android.content.Context;
 import android.content.Intent;
 import androidx.exifinterface.media.ExifInterface;
-import com.meizu.cloud.pushsdk.constants.PushConstants;
+import com.kwad.sdk.core.imageloader.utils.StorageUtils;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public enum t {
     SERVICE(1) { // from class: com.baidu.mobstat.t.1
         @Override // com.baidu.mobstat.t
@@ -29,9 +29,9 @@ public enum t {
                 Context applicationContext = context.getApplicationContext();
                 a a2 = u.a(context);
                 ac acVar = new ac();
-                acVar.f2570a = false;
-                acVar.b = "M";
-                acVar.c = false;
+                acVar.f8879a = false;
+                acVar.f8880b = "M";
+                acVar.f8881c = false;
                 a2.a(applicationContext, acVar.a());
             }
         }
@@ -43,9 +43,9 @@ public enum t {
                 Context applicationContext = context.getApplicationContext();
                 a a2 = u.a(context);
                 ac acVar = new ac();
-                acVar.f2570a = false;
-                acVar.b = "R";
-                acVar.c = false;
+                acVar.f8879a = false;
+                acVar.f8880b = "R";
+                acVar.f8881c = false;
                 a2.a(applicationContext, acVar.a());
             }
         }
@@ -57,31 +57,22 @@ public enum t {
                 Context applicationContext = context.getApplicationContext();
                 a a2 = u.a(context);
                 ac acVar = new ac();
-                acVar.f2570a = false;
-                acVar.b = ExifInterface.LONGITUDE_EAST;
-                acVar.c = false;
+                acVar.f8879a = false;
+                acVar.f8880b = ExifInterface.LONGITUDE_EAST;
+                acVar.f8881c = false;
                 a2.a(applicationContext, acVar.a());
             }
         }
     };
     
-    private int e;
 
-    public abstract void a(Context context);
-
-    t(int i) {
-        this.e = i;
-    }
-
-    @Override // java.lang.Enum
-    public String toString() {
-        return String.valueOf(this.e);
-    }
+    /* renamed from: e  reason: collision with root package name */
+    public int f9257e;
 
     public static t a(int i) {
         t[] values;
         for (t tVar : values()) {
-            if (tVar.e == i) {
+            if (tVar.f9257e == i) {
                 return tVar;
             }
         }
@@ -89,7 +80,7 @@ public enum t {
     }
 
     public static boolean b(Context context) {
-        ActivityManager activityManager = (ActivityManager) context.getSystemService(PushConstants.INTENT_ACTIVITY_NAME);
+        ActivityManager activityManager = (ActivityManager) context.getSystemService("activity");
         if (activityManager != null) {
             try {
                 List<ActivityManager.RunningServiceInfo> runningServices = activityManager.getRunningServices(Integer.MAX_VALUE);
@@ -97,21 +88,31 @@ public enum t {
                 while (runningServices != null) {
                     if (i >= runningServices.size()) {
                         break;
-                    } else if (!"com.baidu.bottom.service.BottomService".equals(runningServices.get(i).service.getClassName())) {
-                        i++;
-                    } else {
+                    } else if ("com.baidu.bottom.service.BottomService".equals(runningServices.get(i).service.getClassName())) {
                         return true;
+                    } else {
+                        i++;
                     }
                 }
-            } catch (Exception e) {
-                bb.c().a(e);
+            } catch (Exception e2) {
+                bb.c().a(e2);
             }
         }
         return false;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     public static boolean d(Context context) {
-        return bo.e(context, "android.permission.WRITE_EXTERNAL_STORAGE");
+        return bo.e(context, StorageUtils.EXTERNAL_STORAGE_PERMISSION);
+    }
+
+    public abstract void a(Context context);
+
+    @Override // java.lang.Enum
+    public String toString() {
+        return String.valueOf(this.f9257e);
+    }
+
+    t(int i) {
+        this.f9257e = i;
     }
 }

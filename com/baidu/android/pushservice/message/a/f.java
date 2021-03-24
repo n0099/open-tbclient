@@ -1,105 +1,139 @@
 package com.baidu.android.pushservice.message.a;
 
+import android.annotation.SuppressLint;
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.media.RingtoneManager;
+import android.net.NetworkInfo;
+import android.net.Uri;
+import android.os.Build;
 import android.text.TextUtils;
+import android.text.format.DateUtils;
 import android.util.Log;
-import com.baidu.android.pushservice.h.a.b;
-import com.baidu.android.pushservice.i.m;
+import android.widget.RemoteViews;
+import com.baidu.android.pushservice.PushService;
+import com.baidu.android.pushservice.i.a.b;
+import com.baidu.android.pushservice.j.m;
+import com.baidu.android.pushservice.message.CrossPushMessage;
 import com.baidu.android.pushservice.message.PublicMsg;
-import com.baidu.android.pushservice.message.k;
-import java.util.Iterator;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes5.dex */
-public class f extends b {
-    public f(Context context) {
-        super(context);
-    }
-
-    public static String[] a(Context context, int i, String str, String str2, byte[] bArr, byte[] bArr2) {
-        if (m.a(context, bArr, str2, bArr2)) {
-            String[] strArr = new String[2];
-            if (i == j.MSG_TYPE_SINGLE_PRIVATE.b() || i == j.MSG_TYPE_MULTI_PRIVATE.b()) {
-                strArr[0] = new String(bArr2);
-                strArr[1] = null;
-            } else if (i == j.MSG_TYPE_PRIVATE_MESSAGE.b()) {
-                PublicMsg a2 = h.a(context, str2, str, bArr2);
-                strArr[0] = a2.mDescription;
-                strArr[1] = a2.mCustomContent;
-            }
-            return strArr;
-        }
-        return null;
-    }
-
-    @Override // com.baidu.android.pushservice.message.a.b
-    public com.baidu.android.pushservice.message.g a(k kVar, byte[] bArr) {
-        int i;
-        String str;
-        String b = kVar.b();
-        String e = kVar.e();
-        int f = kVar.f();
-        byte[] h = kVar.h();
-        String c = kVar.c();
-        com.baidu.android.pushservice.a.d a2 = com.baidu.android.pushservice.a.d.a(this.f1237a, b);
-        if (TextUtils.isEmpty(c) || !m.b(this.f1237a, c)) {
-            c = a2.a() == com.baidu.android.pushservice.a.c.PUSH_CLIENT ? a2.f1081a.b() : null;
-        }
-        switch (a2.a()) {
-            case PUSH_CLIENT:
-                String a3 = a(c);
+import com.baidu.android.util.io.ActionJsonData;
+import com.meizu.cloud.pushsdk.constants.PushConstants;
+import com.xiaomi.mipush.sdk.Constants;
+import java.util.Locale;
+/* loaded from: classes2.dex */
+public class f {
+    public static void a(final Context context, final CrossPushMessage crossPushMessage, final String str, final byte[] bArr, final byte[] bArr2, final int i) {
+        com.baidu.android.pushservice.h.d.a().a(new com.baidu.android.pushservice.h.c("showCrossAppNotification", (short) 99) { // from class: com.baidu.android.pushservice.message.a.f.1
+            @Override // com.baidu.android.pushservice.h.c
+            public void a() {
+                Bitmap q;
                 try {
-                    this.f1237a.getPackageManager().getPackageInfo(a3, 128);
-                    PublicMsg a4 = h.a(this.f1237a, e, b, bArr);
-                    boolean a5 = a(bArr);
-                    if (a4 == null) {
-                        i = 0;
-                        break;
-                    } else {
-                        Intent intent = new Intent();
-                        if (a5) {
-                            str = "com.baidu.android.pushservice.action.FB_MESSAGE";
-                        } else {
-                            intent.putExtra("msg_id", e);
-                            str = "com.baidu.android.pushservice.action.MESSAGE";
-                        }
-                        intent.putExtra("message_string", a4.mDescription);
-                        intent.putExtra("message_id", e);
-                        intent.putExtra("baidu_message_type", f);
-                        intent.putExtra("baidu_message_body", bArr);
-                        intent.putExtra("app_id", b);
-                        intent.putExtra("baidu_message_secur_info", h);
-                        if (!TextUtils.isEmpty(a4.mCustomContent)) {
-                            try {
-                                JSONObject jSONObject = new JSONObject(a4.mCustomContent);
-                                Iterator<String> keys = jSONObject.keys();
-                                while (keys.hasNext()) {
-                                    String next = keys.next();
-                                    intent.putExtra(next, jSONObject.getString(next));
-                                }
-                                intent.putExtra("extra_extra_custom_content", a4.mCustomContent);
-                            } catch (JSONException e2) {
-                                new b.c(this.f1237a).a(Log.getStackTraceString(e2)).a();
-                            }
-                        }
-                        i = m.a(this.f1237a, intent, str, a3);
-                        m.a(">>> Deliver message to client: " + a3 + " msg: " + a4.mDescription + " result: " + i, this.f1237a);
-                        break;
+                    Intent parseUri = Intent.parseUri("baidupush://bdpush/cross?from=" + context.getPackageName() + "&to=" + crossPushMessage.f3420a, 0);
+                    parseUri.setPackage(crossPushMessage.f3420a);
+                    parseUri.addFlags(268435456);
+                    parseUri.putExtra("msgid", crossPushMessage.mMsgId);
+                    parseUri.putExtra("notification_title", crossPushMessage.mTitle);
+                    parseUri.putExtra("notification_content", crossPushMessage.mDescription);
+                    parseUri.putExtra("open_type", crossPushMessage.mOpenType);
+                    parseUri.putExtra("message_pkg_content", crossPushMessage.mPkgContent);
+                    parseUri.putExtra("extra_extra_custom_content", crossPushMessage.mCustomContent);
+                    parseUri.putExtra("com.baidu.pushservice.app_id", str);
+                    parseUri.putExtra("baidu_message_secur_info", bArr);
+                    parseUri.putExtra("baidu_message_body", bArr2);
+                    Notification.Builder autoCancel = new Notification.Builder(context).setContentIntent(PendingIntent.getActivity(context, (int) (System.currentTimeMillis() / 1000), parseUri, 0)).setAutoCancel(true);
+                    if (m.p(context)) {
+                        com.baidu.android.pushservice.j.h.a(context, "com.baidu.android.pushservice.push", "云推送");
+                        autoCancel.setChannelId("com.baidu.android.pushservice.push");
                     }
-                } catch (PackageManager.NameNotFoundException e3) {
-                    i = 8;
-                    m.a(">>> NOT deliver to app: " + a2.f1081a.b(), this.f1237a);
-                    break;
+                    String packageName = context.getPackageName();
+                    autoCancel.setSmallIcon(context.getResources().getIdentifier("stat_sys_third_app_notify", "drawable", packageName));
+                    RemoteViews remoteViews = new RemoteViews(packageName, context.getResources().getIdentifier("push_custom_notification", "layout", packageName));
+                    remoteViews.setTextViewText(context.getResources().getIdentifier("push_custom_msg_title", "id", packageName), crossPushMessage.mTitle);
+                    remoteViews.setTextViewText(context.getResources().getIdentifier("push_custom_msg_content", "id", packageName), crossPushMessage.mDescription);
+                    if (!TextUtils.isEmpty(crossPushMessage.f3421b) && (q = m.q(context, crossPushMessage.f3421b)) != null) {
+                        remoteViews.setImageViewBitmap(context.getResources().getIdentifier("push_custom_msg_icon", "id", packageName), q);
+                    }
+                    remoteViews.setTextViewText(context.getResources().getIdentifier("push_custom_msg_time", "id", packageName), DateUtils.formatDateTime(context, System.currentTimeMillis(), 1));
+                    autoCancel.setContent(remoteViews);
+                    Notification build = Build.VERSION.SDK_INT >= 16 ? autoCancel.build() : autoCancel.getNotification();
+                    int i2 = Build.VERSION.SDK_INT;
+                    if (i2 >= 24) {
+                        autoCancel.setCustomBigContentView(remoteViews);
+                    } else if (i2 >= 16) {
+                        build.bigContentView = remoteViews;
+                    }
+                    NotificationManager notificationManager = (NotificationManager) context.getSystemService(ActionJsonData.TAG_NOTIFICATION);
+                    if (notificationManager != null) {
+                        notificationManager.notify(i, build);
+                    }
+                } catch (Exception e2) {
+                    new b.c(context).a(Log.getStackTraceString(e2)).a();
                 }
-            default:
-                i = 7;
-                m.a(">>> NOT found client for privateMessageHandler appid " + b, this.f1237a);
-                break;
+            }
+        });
+    }
+
+    @SuppressLint({"NewApi"})
+    public static void a(Context context, PublicMsg publicMsg, String str, int i) {
+        NotificationManager notificationManager = (NotificationManager) context.getSystemService(ActionJsonData.TAG_NOTIFICATION);
+        Intent intent = new Intent(context, PushService.class);
+        intent.setAction("com.baidu.pushservice.action.publicmsg.CLICK_V2");
+        intent.setData(Uri.parse("content://" + str));
+        intent.putExtra("public_msg", publicMsg);
+        Intent intent2 = new Intent(context, PushService.class);
+        intent2.setAction("com.baidu.pushservice.action.publicmsg.DELETE_V2");
+        intent2.setData(Uri.parse("content://" + str));
+        intent2.putExtra("public_msg", publicMsg);
+        intent.setClass(context, PushService.class);
+        intent2.setClass(context, PushService.class);
+        Notification.Builder autoCancel = new Notification.Builder(context).setContentTitle(publicMsg.mTitle).setContentText(publicMsg.mDescription).setSmallIcon(17301569).setTicker(publicMsg.mTitle).setSound(RingtoneManager.getDefaultUri(2)).setDeleteIntent(PendingIntent.getService(context, 0, intent2, 0)).setContentIntent(PendingIntent.getService(context, 0, intent, 0)).setAutoCancel(true);
+        notificationManager.notify(i, Build.VERSION.SDK_INT >= 16 ? autoCancel.build() : autoCancel.getNotification());
+    }
+
+    public static void a(Context context, PublicMsg publicMsg, String str, String str2, int i, byte[] bArr, byte[] bArr2, int i2) {
+        Intent intent = new Intent();
+        intent.putExtra("public_msg", publicMsg);
+        intent.putExtra("pushService_package_name", context.getPackageName());
+        intent.putExtra("service_name", m.m() ? "com.baidu.pushservice.PushService" : "com.baidu.android.pushservice.PushService");
+        intent.putExtra("notify_type", PushConstants.MZ_PUSH_MESSAGE_METHOD_ACTION_PRIVATE);
+        intent.putExtra("message_id", str);
+        intent.putExtra(Constants.APP_ID, str2);
+        intent.putExtra("notify_id", i2);
+        intent.putExtra("baidu_message_type", i);
+        if (m.g(context, publicMsg.mPkgName) > 45) {
+            intent.putExtra("baidu_message_body", bArr2);
+            intent.putExtra("baidu_message_secur_info", bArr);
         }
-        com.baidu.android.pushservice.message.g gVar = new com.baidu.android.pushservice.message.g();
-        gVar.a(i);
-        return gVar;
+        m.b(context, intent, "com.baidu.android.pushservice.action.notification.SHOW", publicMsg.mPkgName);
+    }
+
+    public static boolean a(Context context, PublicMsg publicMsg) {
+        boolean z;
+        if (publicMsg.mNetType == 1) {
+            NetworkInfo c2 = com.baidu.android.pushservice.j.g.c(context);
+            if (!(c2 != null && "wifi".equals(c2.getTypeName().toLowerCase(Locale.getDefault())))) {
+                return false;
+            }
+        }
+        if (TextUtils.isEmpty(publicMsg.mSupportAppname)) {
+            return true;
+        }
+        try {
+        } catch (PackageManager.NameNotFoundException e2) {
+            new b.c(context).a(Log.getStackTraceString(e2)).a();
+        }
+        if (context.getPackageManager().getPackageInfo(publicMsg.mSupportAppname, 0) != null) {
+            z = true;
+            return (!publicMsg.mIsSupportApp && z) || !(publicMsg.mIsSupportApp || z);
+        }
+        z = false;
+        if (publicMsg.mIsSupportApp) {
+        }
+        return false;
     }
 }

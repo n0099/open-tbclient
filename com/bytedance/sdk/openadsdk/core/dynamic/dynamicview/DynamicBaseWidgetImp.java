@@ -13,15 +13,12 @@ public class DynamicBaseWidgetImp extends DynamicBaseWidget {
         setTag(Integer.valueOf(getClickArea()));
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public ViewGroup.LayoutParams getWidgetLayoutParams() {
-        return new ViewGroup.LayoutParams(this.e, this.f);
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
     @Override // com.bytedance.sdk.openadsdk.core.dynamic.dynamicview.DynamicBaseWidget
     public boolean b() {
-        View view = this.n == null ? this : this.n;
+        View view = this.n;
+        if (view == null) {
+            view = this;
+        }
         view.setBackgroundColor(0);
         view.setPadding(this.j.c(), this.j.b(), this.j.d(), this.j.a());
         if (this.o) {
@@ -32,26 +29,34 @@ public class DynamicBaseWidgetImp extends DynamicBaseWidget {
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.dynamic.dynamicview.DynamicBaseWidget
-    protected boolean c() {
+    public boolean c() {
         if (e()) {
-            View view = this.n == null ? this : this.n;
+            View view = this.n;
+            if (view == null) {
+                view = this;
+            }
             view.setOnTouchListener(getDynamicClickListener());
             view.setOnClickListener(getDynamicClickListener());
+            return true;
         }
         return true;
     }
 
-    @Override // android.view.View
-    protected void onMeasure(int i, int i2) {
-        super.onMeasure(i, i2);
-        setMeasuredDimension(this.e, this.f);
+    public ViewGroup.LayoutParams getWidgetLayoutParams() {
+        return new ViewGroup.LayoutParams(this.f28303e, this.f28304f);
     }
 
     @Override // android.view.ViewGroup, android.view.View
-    protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
+    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
         if (this.n != null) {
             u.f("DynamicBaseWidget", "widget mDynamicView onLayout l,t,r,b:" + i + "," + i2 + "," + i3 + "," + i4);
-            this.n.layout(0, 0, this.e, this.f);
+            this.n.layout(0, 0, this.f28303e, this.f28304f);
         }
+    }
+
+    @Override // android.view.View
+    public void onMeasure(int i, int i2) {
+        super.onMeasure(i, i2);
+        setMeasuredDimension(this.f28303e, this.f28304f);
     }
 }

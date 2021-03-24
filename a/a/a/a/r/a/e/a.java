@@ -1,6 +1,6 @@
 package a.a.a.a.r.a.e;
 
-import a.a.a.a.a.e;
+import a.a.a.a.s.e;
 import a.a.a.a.v.d;
 import android.app.Activity;
 import android.content.Context;
@@ -9,65 +9,69 @@ import com.fun.ad.sdk.FunAdSlot;
 import com.win.opensdk.PBError;
 import com.win.opensdk.PBInterstitial;
 import com.win.opensdk.PBInterstitialListener;
-/* loaded from: classes4.dex */
-public class a extends a.a.a.a.c<PBInterstitial> {
+/* loaded from: classes.dex */
+public class a extends a.a.a.a.b<PBInterstitial> {
 
     /* renamed from: a.a.a.a.r.a.e.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes.dex */
     public class C0002a implements PBInterstitialListener {
-        public final /* synthetic */ PBInterstitial AY;
 
         /* renamed from: a  reason: collision with root package name */
-        public boolean f990a;
-        public boolean b;
+        public boolean f1210a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public boolean f1211b;
+
+        /* renamed from: c  reason: collision with root package name */
+        public final /* synthetic */ PBInterstitial f1212c;
 
         public C0002a(PBInterstitial pBInterstitial) {
-            this.AY = pBInterstitial;
+            this.f1212c = pBInterstitial;
         }
 
         @Override // com.win.opensdk.PBListener
         public void onClicked() {
             d.a();
-            a.this.zk.a(this.b);
-            this.b = true;
+            a.this.f1010g.a(this.f1211b);
+            this.f1211b = true;
             a.this.e();
         }
 
         @Override // com.win.opensdk.PBListener
         public void onFail(PBError pBError) {
             d.b("onFail code: " + pBError.getCode() + ", message: " + pBError.getMsg(), new Object[0]);
-            a.this.zk.a(Integer.valueOf(pBError.getCode()));
+            a.this.f1010g.a(Integer.valueOf(pBError.getCode()));
             a.this.b(pBError.getCode(), pBError.getMsg());
         }
 
         @Override // com.win.opensdk.PBInterstitialListener
         public void onInterstitialDismissed() {
             d.a();
-            a.this.zk.d();
+            a.this.f1010g.d();
             a.this.f();
         }
 
         @Override // com.win.opensdk.PBInterstitialListener
         public void onInterstitialDisplayed() {
             d.a();
-            a.this.zk.b(this.f990a);
-            this.f990a = true;
+            a.this.f1010g.b(this.f1210a);
+            this.f1210a = true;
             a.this.a((a) null, (String) null);
         }
 
         @Override // com.win.opensdk.PBInterstitialListener
         public void onInterstitialShowFail(String str) {
             d.a();
-            a.this.zk.b((Object) 0);
+            a.this.f1010g.b((Object) 0);
             a.this.a(0, str);
         }
 
         @Override // com.win.opensdk.PBListener
         public void onLoaded() {
             d.a();
-            a.this.zk.b();
+            a.this.f1010g.b();
             a aVar = a.this;
-            aVar.a((a) this.AY);
+            aVar.a((a) this.f1212c);
             aVar.h();
         }
     }
@@ -76,20 +80,11 @@ public class a extends a.a.a.a.c<PBInterstitial> {
         super(aVar);
     }
 
-    @Override // a.a.a.a.c
-    public void a(Context context, FunAdSlot funAdSlot) {
-        PBInterstitial pBInterstitial = new PBInterstitial(context.getApplicationContext(), this.zl.c);
-        pBInterstitial.setInterstitialListener(new C0002a(pBInterstitial));
-        this.zk.a(funAdSlot, this.zl);
-        pBInterstitial.load();
-        g();
-    }
-
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, android.view.ViewGroup, java.lang.String, java.lang.Object] */
-    @Override // a.a.a.a.c
+    @Override // a.a.a.a.b
     public boolean a(Activity activity, ViewGroup viewGroup, String str, PBInterstitial pBInterstitial) {
         PBInterstitial pBInterstitial2 = pBInterstitial;
-        this.zk.g();
+        this.f1010g.g();
         if (pBInterstitial2.isReady()) {
             pBInterstitial2.show();
             return true;
@@ -98,8 +93,17 @@ public class a extends a.a.a.a.c<PBInterstitial> {
         return false;
     }
 
+    @Override // a.a.a.a.b
+    public void b(Context context, FunAdSlot funAdSlot) {
+        PBInterstitial pBInterstitial = new PBInterstitial(context.getApplicationContext(), this.f1011h.f1334c);
+        pBInterstitial.setInterstitialListener(new C0002a(pBInterstitial));
+        this.f1010g.a(funAdSlot, this.f1011h);
+        pBInterstitial.load();
+        g();
+    }
+
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-    @Override // a.a.a.a.c
+    @Override // a.a.a.a.b
     public void b(PBInterstitial pBInterstitial) {
         PBInterstitial pBInterstitial2 = pBInterstitial;
         if (pBInterstitial2 != null) {
@@ -108,7 +112,7 @@ public class a extends a.a.a.a.c<PBInterstitial> {
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-    @Override // a.a.a.a.c
+    @Override // a.a.a.a.b
     public boolean c(PBInterstitial pBInterstitial) {
         PBInterstitial pBInterstitial2 = pBInterstitial;
         return pBInterstitial2 != null && pBInterstitial2.isReady();

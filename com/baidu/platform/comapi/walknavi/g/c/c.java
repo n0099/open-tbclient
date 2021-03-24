@@ -4,30 +4,32 @@ import android.app.ActivityManager;
 import android.content.Context;
 import android.util.Log;
 import android.widget.Toast;
-import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    static Toast f3001a = null;
+    public static Toast f10129a;
 
     public static void a(Context context, String str) {
-        List<ActivityManager.RunningTaskInfo> list;
-        if (context != null) {
-            try {
-                list = ((ActivityManager) context.getSystemService(PushConstants.INTENT_ACTIVITY_NAME)).getRunningTasks(1);
-            } catch (SecurityException e) {
-                Log.e("TipTool", "catch SecurityException");
-                list = null;
-            }
-            if (list != null && list.get(0) != null && context.getPackageName().equals(list.get(0).baseActivity.getPackageName())) {
-                if (f3001a != null) {
-                    f3001a.cancel();
-                }
-                f3001a = Toast.makeText(context, str, str.length() > 15 ? 1 : 0);
-                f3001a.show();
-            }
+        if (context == null) {
+            return;
         }
+        List<ActivityManager.RunningTaskInfo> list = null;
+        try {
+            list = ((ActivityManager) context.getSystemService("activity")).getRunningTasks(1);
+        } catch (SecurityException unused) {
+            Log.e("TipTool", "catch SecurityException");
+        }
+        if (list == null || list.get(0) == null || !context.getPackageName().equals(list.get(0).baseActivity.getPackageName())) {
+            return;
+        }
+        Toast toast = f10129a;
+        if (toast != null) {
+            toast.cancel();
+        }
+        Toast makeText = Toast.makeText(context, str, str.length() <= 15 ? 0 : 1);
+        f10129a = makeText;
+        makeText.show();
     }
 }

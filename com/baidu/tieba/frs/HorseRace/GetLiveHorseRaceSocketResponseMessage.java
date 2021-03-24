@@ -2,10 +2,12 @@ package com.baidu.tieba.frs.HorseRace;
 
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
 import com.squareup.wire.Wire;
+import d.b.i0.p0.l0.a;
+import tbclient.Error;
 import tbclient.GetHorseRaceLampList.GetHorseRaceLampListResIdl;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class GetLiveHorseRaceSocketResponseMessage extends TbSocketReponsedMessage {
-    private a mData;
+    public a mData;
 
     public GetLiveHorseRaceSocketResponseMessage() {
         super(309667);
@@ -17,17 +19,18 @@ public class GetLiveHorseRaceSocketResponseMessage extends TbSocketReponsedMessa
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.message.a
+    @Override // com.baidu.tbadk.message.websockt.TbSocketReponsedMessage, com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
     public void decodeInBackGround(int i, byte[] bArr) throws Exception {
-        if (bArr != null) {
-            GetHorseRaceLampListResIdl getHorseRaceLampListResIdl = (GetHorseRaceLampListResIdl) new Wire(new Class[0]).parseFrom(bArr, GetHorseRaceLampListResIdl.class);
-            if (getHorseRaceLampListResIdl.error != null) {
-                setError(getHorseRaceLampListResIdl.error.errorno.intValue());
-                setErrorString(getHorseRaceLampListResIdl.error.usermsg);
-                if (getError() == 0) {
-                    this.mData.a(getHorseRaceLampListResIdl.data);
-                }
-            }
+        GetHorseRaceLampListResIdl getHorseRaceLampListResIdl;
+        Error error;
+        if (bArr == null || (error = (getHorseRaceLampListResIdl = (GetHorseRaceLampListResIdl) new Wire(new Class[0]).parseFrom(bArr, GetHorseRaceLampListResIdl.class)).error) == null) {
+            return;
         }
+        setError(error.errorno.intValue());
+        setErrorString(getHorseRaceLampListResIdl.error.usermsg);
+        if (getError() != 0) {
+            return;
+        }
+        this.mData.b(getHorseRaceLampListResIdl.data);
     }
 }

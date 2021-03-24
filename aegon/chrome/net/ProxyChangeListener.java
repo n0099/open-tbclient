@@ -19,9 +19,9 @@ import android.util.Log;
 import com.baidu.android.imsdk.upload.action.IMTrack;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class ProxyChangeListener {
-    public static final /* synthetic */ boolean $assertionsDisabled = !ProxyChangeListener.class.desiredAssertionStatus();
+    public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static boolean sEnabled = true;
     public long mNativePtr;
     public ProxyReceiver mProxyReceiver;
@@ -29,7 +29,7 @@ public class ProxyChangeListener {
     public final Looper mLooper = Looper.myLooper();
     public final Handler mHandler = new Handler(this.mLooper);
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static class ProxyConfig {
         public static final ProxyConfig DIRECT = new ProxyConfig("", 0, "", new String[0]);
         public final String[] mExclusionList;
@@ -53,48 +53,43 @@ public class ProxyChangeListener {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public class ProxyReceiver extends BroadcastReceiver {
         public /* synthetic */ ProxyReceiver(AnonymousClass1 anonymousClass1) {
             ProxyChangeListener.this = r1;
         }
 
         public static /* synthetic */ void lambda$onReceive$0(ProxyReceiver proxyReceiver, Intent intent) {
-            Object obj;
-            ProxyConfig proxyConfig;
             ProxyChangeListener proxyChangeListener = ProxyChangeListener.this;
             Bundle extras = intent.getExtras();
+            ProxyConfig proxyConfig = null;
             if (extras != null) {
                 if (Build.VERSION.SDK_INT >= 21) {
                     proxyConfig = ProxyConfig.access$100((ProxyInfo) extras.get("android.intent.extra.PROXY_INFO"));
-                    proxyChangeListener.proxySettingsChanged(proxyConfig);
-                }
-                try {
-                    obj = extras.get(IMTrack.AckBuilder.PROXY_TYPE);
-                } catch (ClassNotFoundException | IllegalAccessException | NoSuchMethodException | NullPointerException | InvocationTargetException e) {
-                    Log.e("ProxyChangeListener", "Using no proxy configuration due to exception:" + e);
-                    proxyConfig = null;
-                }
-                if (obj != null) {
-                    Class<?> cls = Class.forName("android.net.ProxyProperties");
-                    Method declaredMethod = cls.getDeclaredMethod("getHost", new Class[0]);
-                    Method declaredMethod2 = cls.getDeclaredMethod("getPort", new Class[0]);
-                    Method declaredMethod3 = cls.getDeclaredMethod("getExclusionList", new Class[0]);
-                    String str = (String) declaredMethod.invoke(obj, new Object[0]);
-                    int intValue = ((Integer) declaredMethod2.invoke(obj, new Object[0])).intValue();
-                    String[] split = ((String) declaredMethod3.invoke(obj, new Object[0])).split(",");
-                    if (Build.VERSION.SDK_INT >= 19) {
-                        String str2 = (String) cls.getDeclaredMethod("getPacFileUrl", new Class[0]).invoke(obj, new Object[0]);
-                        if (!TextUtils.isEmpty(str2)) {
-                            proxyConfig = new ProxyConfig(str, intValue, str2, split);
-                            proxyChangeListener.proxySettingsChanged(proxyConfig);
+                } else {
+                    try {
+                        Object obj = extras.get(IMTrack.AckBuilder.PROXY_TYPE);
+                        if (obj != null) {
+                            Class<?> cls = Class.forName("android.net.ProxyProperties");
+                            Method declaredMethod = cls.getDeclaredMethod("getHost", new Class[0]);
+                            Method declaredMethod2 = cls.getDeclaredMethod("getPort", new Class[0]);
+                            Method declaredMethod3 = cls.getDeclaredMethod("getExclusionList", new Class[0]);
+                            String str = (String) declaredMethod.invoke(obj, new Object[0]);
+                            int intValue = ((Integer) declaredMethod2.invoke(obj, new Object[0])).intValue();
+                            String[] split = ((String) declaredMethod3.invoke(obj, new Object[0])).split(",");
+                            if (Build.VERSION.SDK_INT >= 19) {
+                                String str2 = (String) cls.getDeclaredMethod("getPacFileUrl", new Class[0]).invoke(obj, new Object[0]);
+                                if (!TextUtils.isEmpty(str2)) {
+                                    proxyConfig = new ProxyConfig(str, intValue, str2, split);
+                                }
+                            }
+                            proxyConfig = new ProxyConfig(str, intValue, null, split);
                         }
+                    } catch (ClassNotFoundException | IllegalAccessException | NoSuchMethodException | NullPointerException | InvocationTargetException e2) {
+                        Log.e("ProxyChangeListener", "Using no proxy configuration due to exception:" + e2);
                     }
-                    proxyConfig = new ProxyConfig(str, intValue, null, split);
-                    proxyChangeListener.proxySettingsChanged(proxyConfig);
                 }
             }
-            proxyConfig = null;
             proxyChangeListener.proxySettingsChanged(proxyConfig);
         }
 
@@ -137,12 +132,13 @@ public class ProxyChangeListener {
         assertOnThread();
         if (sEnabled) {
             long j = this.mNativePtr;
-            if (j != 0) {
-                if (proxyConfig != null) {
-                    nativeProxySettingsChangedTo(j, proxyConfig.mHost, proxyConfig.mPort, proxyConfig.mPacUrl, proxyConfig.mExclusionList);
-                } else {
-                    nativeProxySettingsChanged(j);
-                }
+            if (j == 0) {
+                return;
+            }
+            if (proxyConfig != null) {
+                nativeProxySettingsChangedTo(j, proxyConfig.mHost, proxyConfig.mPort, proxyConfig.mPacUrl, proxyConfig.mExclusionList);
+            } else {
+                nativeProxySettingsChanged(j);
             }
         }
     }
@@ -158,27 +154,20 @@ public class ProxyChangeListener {
     @CalledByNative
     public void start(long j) {
         assertOnThread();
-        if (!$assertionsDisabled && this.mNativePtr != 0) {
-            throw new AssertionError();
-        }
         this.mNativePtr = j;
         assertOnThread();
-        if (!$assertionsDisabled && this.mProxyReceiver != null) {
-            throw new AssertionError();
-        }
-        if (!$assertionsDisabled && this.mRealProxyReceiver != null) {
-            throw new AssertionError();
-        }
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction("android.intent.action.PROXY_CHANGE");
-        this.mProxyReceiver = new ProxyReceiver(null);
-        if (Build.VERSION.SDK_INT < 23) {
-            ContextUtils.sApplicationContext.registerReceiver(this.mProxyReceiver, intentFilter);
-            return;
+        ProxyReceiver proxyReceiver = new ProxyReceiver(null);
+        this.mProxyReceiver = proxyReceiver;
+        BroadcastReceiver broadcastReceiver = proxyReceiver;
+        if (Build.VERSION.SDK_INT >= 23) {
+            ContextUtils.sApplicationContext.registerReceiver(proxyReceiver, new IntentFilter());
+            BroadcastReceiver proxyBroadcastReceiver = new ProxyBroadcastReceiver(this);
+            this.mRealProxyReceiver = proxyBroadcastReceiver;
+            broadcastReceiver = proxyBroadcastReceiver;
         }
-        ContextUtils.sApplicationContext.registerReceiver(this.mProxyReceiver, new IntentFilter());
-        this.mRealProxyReceiver = new ProxyBroadcastReceiver(this);
-        ContextUtils.sApplicationContext.registerReceiver(this.mRealProxyReceiver, intentFilter);
+        ContextUtils.sApplicationContext.registerReceiver(broadcastReceiver, intentFilter);
     }
 
     @CalledByNative
@@ -186,9 +175,6 @@ public class ProxyChangeListener {
         assertOnThread();
         this.mNativePtr = 0L;
         assertOnThread();
-        if (!$assertionsDisabled && this.mProxyReceiver == null) {
-            throw new AssertionError();
-        }
         ContextUtils.sApplicationContext.unregisterReceiver(this.mProxyReceiver);
         BroadcastReceiver broadcastReceiver = this.mRealProxyReceiver;
         if (broadcastReceiver != null) {

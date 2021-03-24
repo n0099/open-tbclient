@@ -5,15 +5,15 @@ import com.kwad.sdk.api.core.KsAdSdkApi;
 import com.kwad.sdk.api.loader.Loader;
 @KsAdSdkApi
 @Keep
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public interface KsAdVideoPlayConfig {
 
     @KsAdSdkApi
     @Keep
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class Builder {
-        private boolean dataFlowAutoStart;
-        private boolean videoSoundEnable;
+        public boolean dataFlowAutoStart;
+        public boolean videoSoundEnable;
 
         @KsAdSdkApi
         @Keep

@@ -2,12 +2,20 @@ package com.baidu.tieba.lego.card.model;
 
 import android.text.TextUtils;
 import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
-import com.baidu.tieba.lego.a.b;
+import d.b.i0.i1.m.b;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes4.dex */
 public class BaseCardInfo extends BaseLegoCardInfo {
     public BaseCardInfo(JSONObject jSONObject) {
         super(jSONObject);
+    }
+
+    public String getFidFromPostUrl(String str) {
+        return !TextUtils.isEmpty(str) ? b.C1300b.a(str).d("fid") : "";
+    }
+
+    public String getTouidFromPostUrl(String str) {
+        return !TextUtils.isEmpty(str) ? b.C1300b.a(str).d("touid") : "";
     }
 
     @Override // com.baidu.tieba.lego.card.model.BaseLegoCardInfo, com.baidu.tieba.lego.card.model.ICardInfo
@@ -15,37 +23,26 @@ public class BaseCardInfo extends BaseLegoCardInfo {
         if (shouldResponseAttention()) {
             if (obj instanceof UpdateAttentionMessage.a) {
                 UpdateAttentionMessage.a aVar = (UpdateAttentionMessage.a) obj;
-                return responseAttentionUser(aVar.toUid, aVar.isAttention);
-            } else if (obj instanceof com.baidu.tieba.lego.c.b) {
-                com.baidu.tieba.lego.c.b bVar = (com.baidu.tieba.lego.c.b) obj;
-                return responseAttentionForum(bVar.fid, bVar.eRl);
+                return responseAttentionUser(aVar.f13694c, aVar.f13695d);
+            } else if (obj instanceof d.b.i0.i1.p.b) {
+                d.b.i0.i1.p.b bVar = (d.b.i0.i1.p.b) obj;
+                return responseAttentionForum(bVar.f56012a, bVar.f56013b);
+            } else {
+                return false;
             }
         }
         return false;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public boolean shouldResponseAttention() {
-        return false;
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public boolean responseAttentionUser(String str, boolean z) {
-        return false;
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
     public boolean responseAttentionForum(String str, boolean z) {
         return false;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public String getTouidFromPostUrl(String str) {
-        return !TextUtils.isEmpty(str) ? b.a.NH(str).NG("touid") : "";
+    public boolean responseAttentionUser(String str, boolean z) {
+        return false;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public String getFidFromPostUrl(String str) {
-        return !TextUtils.isEmpty(str) ? b.a.NH(str).NG("fid") : "";
+    public boolean shouldResponseAttention() {
+        return false;
     }
 }

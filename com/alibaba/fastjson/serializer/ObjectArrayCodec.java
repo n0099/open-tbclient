@@ -11,13 +11,124 @@ import java.lang.reflect.GenericArrayType;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.lang.reflect.TypeVariable;
-/* loaded from: classes4.dex */
-public class ObjectArrayCodec implements ObjectDeserializer, ObjectSerializer {
+/* loaded from: classes.dex */
+public class ObjectArrayCodec implements ObjectSerializer, ObjectDeserializer {
     public static final ObjectArrayCodec instance = new ObjectArrayCodec();
+
+    /* JADX WARN: Removed duplicated region for block: B:29:0x0057  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    private <T> T toObjectArray(DefaultJSONParser defaultJSONParser, Class<?> cls, JSONArray jSONArray) {
+        Object obj;
+        if (jSONArray == null) {
+            return null;
+        }
+        int size = jSONArray.size();
+        T t = (T) Array.newInstance(cls, size);
+        for (int i = 0; i < size; i++) {
+            Object obj2 = jSONArray.get(i);
+            if (obj2 == jSONArray) {
+                Array.set(t, i, t);
+            } else if (cls.isArray()) {
+                if (!cls.isInstance(obj2)) {
+                    obj2 = toObjectArray(defaultJSONParser, cls, (JSONArray) obj2);
+                }
+                Array.set(t, i, obj2);
+            } else {
+                if (obj2 instanceof JSONArray) {
+                    JSONArray jSONArray2 = (JSONArray) obj2;
+                    int size2 = jSONArray2.size();
+                    boolean z = false;
+                    for (int i2 = 0; i2 < size2; i2++) {
+                        if (jSONArray2.get(i2) == jSONArray) {
+                            jSONArray2.set(i, t);
+                            z = true;
+                        }
+                    }
+                    if (z) {
+                        obj = jSONArray2.toArray();
+                        if (obj == null) {
+                            obj = TypeUtils.cast(obj2, (Class<Object>) cls, defaultJSONParser.getConfig());
+                        }
+                        Array.set(t, i, obj);
+                    }
+                }
+                obj = null;
+                if (obj == null) {
+                }
+                Array.set(t, i, obj);
+            }
+        }
+        jSONArray.setRelatedArray(t);
+        jSONArray.setComponentType(cls);
+        return t;
+    }
+
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:43:0x005f */
+    /* JADX WARN: Type inference failed for: r8v1, types: [byte[], T] */
+    @Override // com.alibaba.fastjson.parser.deserializer.ObjectDeserializer
+    public <T> T deserialze(DefaultJSONParser defaultJSONParser, Type type, Object obj) {
+        Type componentType;
+        Class<?> cls;
+        JSONLexer jSONLexer = defaultJSONParser.lexer;
+        int i = jSONLexer.token();
+        Type type2 = 0;
+        if (i == 8) {
+            jSONLexer.nextToken(16);
+            return null;
+        } else if (i != 4 && i != 26) {
+            if (type instanceof GenericArrayType) {
+                componentType = ((GenericArrayType) type).getGenericComponentType();
+                if (componentType instanceof TypeVariable) {
+                    TypeVariable typeVariable = (TypeVariable) componentType;
+                    Type type3 = defaultJSONParser.getContext().type;
+                    if (type3 instanceof ParameterizedType) {
+                        ParameterizedType parameterizedType = (ParameterizedType) type3;
+                        Type rawType = parameterizedType.getRawType();
+                        if (rawType instanceof Class) {
+                            TypeVariable<Class<T>>[] typeParameters = ((Class) rawType).getTypeParameters();
+                            for (int i2 = 0; i2 < typeParameters.length; i2++) {
+                                if (typeParameters[i2].getName().equals(typeVariable.getName())) {
+                                    type2 = parameterizedType.getActualTypeArguments()[i2];
+                                }
+                            }
+                        }
+                        if (type2 instanceof Class) {
+                            cls = type2;
+                        } else {
+                            cls = Object.class;
+                        }
+                    } else {
+                        cls = TypeUtils.getClass(typeVariable.getBounds()[0]);
+                    }
+                } else {
+                    cls = TypeUtils.getClass(componentType);
+                }
+            } else {
+                componentType = ((Class) type).getComponentType();
+                cls = componentType;
+            }
+            JSONArray jSONArray = new JSONArray();
+            defaultJSONParser.parseArray(componentType, jSONArray, obj);
+            return (T) toObjectArray(defaultJSONParser, cls, jSONArray);
+        } else {
+            ?? r8 = (T) jSONLexer.bytesValue();
+            jSONLexer.nextToken(16);
+            if (r8.length != 0 || type == byte[].class) {
+                return r8;
+            }
+            return null;
+        }
+    }
+
+    @Override // com.alibaba.fastjson.parser.deserializer.ObjectDeserializer
+    public int getFastMatchToken() {
+        return 14;
+    }
 
     @Override // com.alibaba.fastjson.serializer.ObjectSerializer
     public final void write(JSONSerializer jSONSerializer, Object obj, Object obj2, Type type, int i) throws IOException {
-        Class<?> cls;
         SerializeWriter serializeWriter = jSONSerializer.out;
         Object[] objArr = (Object[]) obj;
         if (obj == null) {
@@ -32,8 +143,6 @@ public class ObjectArrayCodec implements ObjectDeserializer, ObjectSerializer {
         }
         SerialContext serialContext = jSONSerializer.context;
         jSONSerializer.setContext(serialContext, obj, obj2, 0);
-        Class<?> cls2 = null;
-        ObjectSerializer objectSerializer = null;
         try {
             serializeWriter.append('[');
             if (serializeWriter.isEnabled(SerializerFeature.PrettyFormat)) {
@@ -51,31 +160,27 @@ public class ObjectArrayCodec implements ObjectDeserializer, ObjectSerializer {
                 serializeWriter.write(93);
                 return;
             }
-            int i4 = 0;
-            while (i4 < i2) {
+            Class<?> cls = null;
+            ObjectSerializer objectSerializer = null;
+            for (int i4 = 0; i4 < i2; i4++) {
                 Object obj3 = objArr[i4];
                 if (obj3 == null) {
                     serializeWriter.append((CharSequence) "null,");
-                    cls = cls2;
                 } else {
                     if (jSONSerializer.containsReference(obj3)) {
                         jSONSerializer.writeReference(obj3);
-                        cls = cls2;
                     } else {
-                        Class<?> cls3 = obj3.getClass();
-                        if (cls3 == cls2) {
+                        Class<?> cls2 = obj3.getClass();
+                        if (cls2 == cls) {
+                            objectSerializer.write(jSONSerializer, obj3, null, null, 0);
+                        } else {
+                            objectSerializer = jSONSerializer.getObjectWriter(cls2);
                             objectSerializer.write(jSONSerializer, obj3, null, null, 0);
                             cls = cls2;
-                        } else {
-                            objectSerializer = jSONSerializer.getObjectWriter(cls3);
-                            objectSerializer.write(jSONSerializer, obj3, null, null, 0);
-                            cls = cls3;
                         }
                     }
                     serializeWriter.append(',');
                 }
-                i4++;
-                cls2 = cls;
             }
             Object obj4 = objArr[i2];
             if (obj4 == null) {
@@ -91,123 +196,5 @@ public class ObjectArrayCodec implements ObjectDeserializer, ObjectSerializer {
         } finally {
             jSONSerializer.context = serialContext;
         }
-    }
-
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:43:0x006e */
-    /* JADX WARN: Type inference failed for: r0v1, types: [byte[], T] */
-    @Override // com.alibaba.fastjson.parser.deserializer.ObjectDeserializer
-    public <T> T deserialze(DefaultJSONParser defaultJSONParser, Type type, Object obj) {
-        Type type2;
-        Class<?> cls;
-        Class<?> cls2;
-        Object[] objArr;
-        int i = 0;
-        JSONLexer jSONLexer = defaultJSONParser.lexer;
-        int i2 = jSONLexer.token();
-        if (i2 == 8) {
-            jSONLexer.nextToken(16);
-            return null;
-        } else if (i2 == 4 || i2 == 26) {
-            ?? r0 = (T) jSONLexer.bytesValue();
-            jSONLexer.nextToken(16);
-            if (r0.length != 0 || type == byte[].class) {
-                return r0;
-            }
-            return null;
-        } else {
-            if (type instanceof GenericArrayType) {
-                type2 = ((GenericArrayType) type).getGenericComponentType();
-                if (type2 instanceof TypeVariable) {
-                    TypeVariable typeVariable = (TypeVariable) type2;
-                    Type type3 = defaultJSONParser.getContext().type;
-                    if (type3 instanceof ParameterizedType) {
-                        ParameterizedType parameterizedType = (ParameterizedType) type3;
-                        Type rawType = parameterizedType.getRawType();
-                        if (rawType instanceof Class) {
-                            TypeVariable<Class<T>>[] typeParameters = ((Class) rawType).getTypeParameters();
-                            Object[] objArr2 = null;
-                            while (i < typeParameters.length) {
-                                if (typeParameters[i].getName().equals(typeVariable.getName())) {
-                                    objArr2 = parameterizedType.getActualTypeArguments()[i];
-                                }
-                                i++;
-                                objArr2 = objArr2;
-                            }
-                            objArr = objArr2;
-                        } else {
-                            objArr = null;
-                        }
-                        if (objArr instanceof Class) {
-                            cls2 = (Class) objArr;
-                        } else {
-                            cls2 = Object.class;
-                        }
-                    } else {
-                        cls2 = TypeUtils.getClass(typeVariable.getBounds()[0]);
-                    }
-                } else {
-                    cls2 = TypeUtils.getClass(type2);
-                }
-                cls = cls2;
-            } else {
-                Class<?> componentType = ((Class) type).getComponentType();
-                type2 = componentType;
-                cls = componentType;
-            }
-            JSONArray jSONArray = new JSONArray();
-            defaultJSONParser.parseArray(type2, jSONArray, obj);
-            return (T) toObjectArray(defaultJSONParser, cls, jSONArray);
-        }
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:29:0x0059  */
-    /* JADX WARN: Removed duplicated region for block: B:32:0x006d  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    private <T> T toObjectArray(DefaultJSONParser defaultJSONParser, Class<?> cls, JSONArray jSONArray) {
-        Object[] objArr;
-        if (jSONArray == null) {
-            return null;
-        }
-        int size = jSONArray.size();
-        T t = (T) Array.newInstance(cls, size);
-        for (int i = 0; i < size; i++) {
-            Object obj = jSONArray.get(i);
-            if (obj == jSONArray) {
-                Array.set(t, i, t);
-            } else if (cls.isArray()) {
-                if (!cls.isInstance(obj)) {
-                    obj = toObjectArray(defaultJSONParser, cls, (JSONArray) obj);
-                }
-                Array.set(t, i, obj);
-            } else {
-                if (obj instanceof JSONArray) {
-                    JSONArray jSONArray2 = (JSONArray) obj;
-                    int size2 = jSONArray2.size();
-                    boolean z = false;
-                    for (int i2 = 0; i2 < size2; i2++) {
-                        if (jSONArray2.get(i2) == jSONArray) {
-                            jSONArray2.set(i, t);
-                            z = true;
-                        }
-                    }
-                    if (z) {
-                        objArr = jSONArray2.toArray();
-                        Array.set(t, i, objArr != null ? TypeUtils.cast(obj, (Class<Object>) cls, defaultJSONParser.getConfig()) : objArr);
-                    }
-                }
-                objArr = null;
-                Array.set(t, i, objArr != null ? TypeUtils.cast(obj, (Class<Object>) cls, defaultJSONParser.getConfig()) : objArr);
-            }
-        }
-        jSONArray.setRelatedArray(t);
-        jSONArray.setComponentType(cls);
-        return t;
-    }
-
-    @Override // com.alibaba.fastjson.parser.deserializer.ObjectDeserializer
-    public int getFastMatchToken() {
-        return 14;
     }
 }

@@ -6,26 +6,36 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.ViewGroup;
 import androidx.constraintlayout.widget.ConstraintLayout;
-/* loaded from: classes4.dex */
+/* loaded from: classes.dex */
 public class Constraints extends ViewGroup {
     public static final String TAG = "Constraints";
-    ConstraintSet myConstraintSet;
+    public ConstraintSet myConstraintSet;
 
     public Constraints(Context context) {
         super(context);
         super.setVisibility(8);
     }
 
-    public Constraints(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        init(attributeSet);
-        super.setVisibility(8);
+    private void init(AttributeSet attributeSet) {
+        Log.v(TAG, " ################# init");
     }
 
-    public Constraints(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        init(attributeSet);
-        super.setVisibility(8);
+    public ConstraintSet getConstraintSet() {
+        if (this.myConstraintSet == null) {
+            this.myConstraintSet = new ConstraintSet();
+        }
+        this.myConstraintSet.clone(this);
+        return this.myConstraintSet;
+    }
+
+    @Override // android.view.ViewGroup, android.view.View
+    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.view.ViewGroup
+    public LayoutParams generateDefaultLayoutParams() {
+        return new LayoutParams(-2, -2);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -34,7 +44,24 @@ public class Constraints extends ViewGroup {
         return new LayoutParams(getContext(), attributeSet);
     }
 
-    /* loaded from: classes4.dex */
+    public Constraints(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        init(attributeSet);
+        super.setVisibility(8);
+    }
+
+    @Override // android.view.ViewGroup
+    public ViewGroup.LayoutParams generateLayoutParams(ViewGroup.LayoutParams layoutParams) {
+        return new ConstraintLayout.LayoutParams(layoutParams);
+    }
+
+    public Constraints(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        init(attributeSet);
+        super.setVisibility(8);
+    }
+
+    /* loaded from: classes.dex */
     public static class LayoutParams extends ConstraintLayout.LayoutParams {
         public float alpha;
         public boolean applyElevation;
@@ -84,7 +111,6 @@ public class Constraints extends ViewGroup {
             this.translationZ = 0.0f;
         }
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public LayoutParams(Context context, AttributeSet attributeSet) {
             super(context, attributeSet);
             this.alpha = 1.0f;
@@ -132,33 +158,5 @@ public class Constraints extends ViewGroup {
                 }
             }
         }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.view.ViewGroup
-    public LayoutParams generateDefaultLayoutParams() {
-        return new LayoutParams(-2, -2);
-    }
-
-    private void init(AttributeSet attributeSet) {
-        Log.v(TAG, " ################# init");
-    }
-
-    @Override // android.view.ViewGroup
-    protected ViewGroup.LayoutParams generateLayoutParams(ViewGroup.LayoutParams layoutParams) {
-        return new ConstraintLayout.LayoutParams(layoutParams);
-    }
-
-    public ConstraintSet getConstraintSet() {
-        if (this.myConstraintSet == null) {
-            this.myConstraintSet = new ConstraintSet();
-        }
-        this.myConstraintSet.clone(this);
-        return this.myConstraintSet;
-    }
-
-    @Override // android.view.ViewGroup, android.view.View
-    protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
     }
 }

@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class k extends a<List<String>> {
     public k(String str, List<String> list) {
         super(str, list);

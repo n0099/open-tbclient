@@ -4,33 +4,21 @@ import com.baidu.android.imsdk.IMConstants;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import com.baidu.down.manage.DownloadConstants;
 import com.baidu.mapapi.UIMsg;
-import com.baidu.tieba.recapp.lego.model.FormCard;
+import com.baidu.sapi2.outsdk.OneKeyLoginSdkCall;
+import com.baidu.searchbox.config.AppConfig;
+import com.baidu.tieba.aiapps.apps.guide.AiAppGuideActivity;
+import com.baidu.wallet.core.beans.BeanConstants;
+import com.baidu.wallet.paysdk.banksign.beans.BankSignFactory;
+import com.baidu.wallet.paysdk.beans.PayBeanFactory;
+import com.baidu.wallet.paysdk.fingerprint.bean.FingerprintBeanFactory;
+import com.bytedance.sdk.adnet.err.VAdError;
 import com.google.zxing.client.result.ExpandedProductParsedResult;
-import com.qq.e.comm.constants.ErrorCode;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
-final class EANManufacturerOrgSupport {
-    private final List<int[]> ranges = new ArrayList();
-    private final List<String> countryIdentifiers = new ArrayList();
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public String lookupCountryIdentifier(String str) {
-        initIfNeeded();
-        int parseInt = Integer.parseInt(str.substring(0, 3));
-        int size = this.ranges.size();
-        for (int i = 0; i < size; i++) {
-            int[] iArr = this.ranges.get(i);
-            int i2 = iArr[0];
-            if (parseInt < i2) {
-                return null;
-            }
-            if (parseInt <= (iArr.length == 1 ? i2 : iArr[1])) {
-                return this.countryIdentifiers.get(i);
-            }
-        }
-        return null;
-    }
+/* loaded from: classes6.dex */
+public final class EANManufacturerOrgSupport {
+    public final List<int[]> ranges = new ArrayList();
+    public final List<String> countryIdentifiers = new ArrayList();
 
     private void add(int[] iArr, String str) {
         this.ranges.add(iArr);
@@ -68,23 +56,23 @@ final class EANManufacturerOrgSupport {
             add(new int[]{490, DownloadConstants.STATUS_DEVICE_NOT_FOUND_ERROR}, "JP");
             add(new int[]{500, 509}, "GB");
             add(new int[]{UIMsg.m_AppUI.MSG_PLACEFIELD_RELOAD}, "GR");
-            add(new int[]{528}, ExpandedProductParsedResult.POUND);
-            add(new int[]{529}, "CY");
-            add(new int[]{531}, "MK");
+            add(new int[]{PayBeanFactory.BEAN_ID_CHARGE_RESULT_BANNER}, ExpandedProductParsedResult.POUND);
+            add(new int[]{PayBeanFactory.BEAN_ID_CHECK_PWD}, "CY");
+            add(new int[]{PayBeanFactory.BEAN_ID_RCS_APPLY_NO_PWD}, "MK");
             add(new int[]{535}, "MT");
             add(new int[]{539}, "IE");
             add(new int[]{540, 549}, "BE/LU");
-            add(new int[]{560}, "PT");
+            add(new int[]{PayBeanFactory.BEAN_ID_PAY_SORT_SAVE}, "PT");
             add(new int[]{569}, "IS");
             add(new int[]{570, 579}, "DK");
             add(new int[]{590}, "PL");
-            add(new int[]{594}, "RO");
-            add(new int[]{599}, "HU");
+            add(new int[]{PayBeanFactory.BEAN_ID_SCANCODE_PAY}, "RO");
+            add(new int[]{PayBeanFactory.BEAN_ID_CARD_LIST}, "HU");
             add(new int[]{600, 601}, "ZA");
             add(new int[]{603}, "GH");
-            add(new int[]{ErrorCode.OtherError.SKIP_VIEW_SIZE_ERROR}, "BH");
-            add(new int[]{609}, "MU");
-            add(new int[]{611}, "MA");
+            add(new int[]{VAdError.NETWORK_DISPATCH_FAIL_CODE}, "BH");
+            add(new int[]{VAdError.RENAME_DOWNLOAD_FILE_FAIL_CODE}, "MU");
+            add(new int[]{VAdError.DOWNLOAD_FILE_CANCEL_FAIL_CODE}, "MA");
             add(new int[]{613}, "DZ");
             add(new int[]{IMConstants.ERROR_MSG_SHEILD_ME_TIPS}, "KE");
             add(new int[]{618}, "CI");
@@ -109,23 +97,23 @@ final class EANManufacturerOrgSupport {
             add(new int[]{744}, "CR");
             add(new int[]{745}, "PA");
             add(new int[]{746}, "DO");
-            add(new int[]{FormCard.WIDTH_DEFAULT_SIZE}, "MX");
+            add(new int[]{750}, "MX");
             add(new int[]{754, 755}, "CA");
             add(new int[]{759}, "VE");
-            add(new int[]{760, 769}, "CH");
-            add(new int[]{770}, "CO");
-            add(new int[]{773}, "UY");
+            add(new int[]{AiAppGuideActivity.GIF_WIDTH, BankSignFactory.BEAN_ID_POLLING}, "CH");
+            add(new int[]{BankSignFactory.BEAN_ID_QUERY}, "CO");
+            add(new int[]{FingerprintBeanFactory.BEAN_ID_SYS_FINGERPRINT_CLOSE}, "UY");
             add(new int[]{775}, "PE");
             add(new int[]{777}, "BO");
             add(new int[]{779}, "AR");
             add(new int[]{780}, "CL");
             add(new int[]{784}, "PY");
             add(new int[]{785}, "PE");
-            add(new int[]{786}, "EC");
-            add(new int[]{789, 790}, "BR");
+            add(new int[]{BeanConstants.BEAN_ID_FOR_NEW_INIT}, "EC");
+            add(new int[]{789, AppConfig.VOICE_ID}, "BR");
             add(new int[]{800, 839}, "IT");
             add(new int[]{840, 849}, "ES");
-            add(new int[]{850}, "CU");
+            add(new int[]{850}, OneKeyLoginSdkCall.OPERATOR_TYPE_CUCC);
             add(new int[]{858}, "SK");
             add(new int[]{859}, "CZ");
             add(new int[]{860}, "YU");
@@ -146,5 +134,22 @@ final class EANManufacturerOrgSupport {
             add(new int[]{CyberPlayerManager.MEDIA_INFO_LOOP_REPLAYED}, "MY");
             add(new int[]{958}, "MO");
         }
+    }
+
+    public String lookupCountryIdentifier(String str) {
+        int[] iArr;
+        int i;
+        initIfNeeded();
+        int parseInt = Integer.parseInt(str.substring(0, 3));
+        int size = this.ranges.size();
+        for (int i2 = 0; i2 < size && parseInt >= (i = (iArr = this.ranges.get(i2))[0]); i2++) {
+            if (iArr.length != 1) {
+                i = iArr[1];
+            }
+            if (parseInt <= i) {
+                return this.countryIdentifiers.get(i2);
+            }
+        }
+        return null;
     }
 }

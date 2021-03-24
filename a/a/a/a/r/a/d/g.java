@@ -1,6 +1,6 @@
 package a.a.a.a.r.a.d;
 
-import a.a.a.a.a.e;
+import a.a.a.a.s.e;
 import android.app.Activity;
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -25,11 +25,46 @@ import com.qq.e.comm.util.AdError;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes4.dex */
-public class g extends a.a.a.a.c<NativeUnifiedADData> {
+/* loaded from: classes.dex */
+public class g extends a.a.a.a.b<NativeUnifiedADData> {
     public final HashMap<NativeUnifiedADData, c> m;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes.dex */
+    public class a implements NativeADUnifiedListener {
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ FunAdSlot f1174a;
+
+        public a(FunAdSlot funAdSlot) {
+            this.f1174a = funAdSlot;
+        }
+
+        @Override // com.qq.e.ads.nativ.NativeADUnifiedListener
+        public void onADLoaded(List<NativeUnifiedADData> list) {
+            a.a.a.a.v.d.a();
+            if (list != null && !list.isEmpty()) {
+                g.this.f1010g.b();
+                NativeUnifiedADData nativeUnifiedADData = list.get(0);
+                g gVar = g.this;
+                gVar.a((g) nativeUnifiedADData);
+                gVar.h();
+                g.this.k.b(nativeUnifiedADData, this.f1174a.getSid());
+                return;
+            }
+            a.a.a.a.v.d.b("onADLoaded error: adList is null or empty", new Object[0]);
+            g.this.f1010g.a("NoFill");
+            g.this.b(0, "NoFill");
+        }
+
+        @Override // com.qq.e.ads.AbstractAD.BasicADListener
+        public void onNoAD(AdError adError) {
+            a.a.a.a.v.d.b("onError code: " + adError.getErrorCode() + ", message: " + adError.getErrorMsg(), new Object[0]);
+            g.this.f1010g.a(Integer.valueOf(adError.getErrorCode()));
+            g.this.b(adError.getErrorCode(), adError.getErrorMsg());
+        }
+    }
+
+    /* loaded from: classes.dex */
     public static class b implements NativeADMediaListener {
         @Override // com.qq.e.ads.nativ.NativeADMediaListener
         public void onVideoClicked() {
@@ -76,69 +111,79 @@ public class g extends a.a.a.a.c<NativeUnifiedADData> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes.dex */
     public class c implements NativeADEventListener {
-        public d AG;
-        public final FunAdInteractionListener Aa;
 
         /* renamed from: a  reason: collision with root package name */
-        public final NativeUnifiedADData f985a;
-        public final String b;
-        public boolean d;
-        public boolean e;
+        public final NativeUnifiedADData f1176a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public final String f1177b;
+
+        /* renamed from: c  reason: collision with root package name */
+        public final FunAdInteractionListener f1178c;
+
+        /* renamed from: d  reason: collision with root package name */
+        public boolean f1179d;
+
+        /* renamed from: e  reason: collision with root package name */
+        public boolean f1180e;
+
+        /* renamed from: f  reason: collision with root package name */
+        public d f1181f;
 
         public c(NativeUnifiedADData nativeUnifiedADData, String str, FunAdInteractionListener funAdInteractionListener) {
-            this.f985a = nativeUnifiedADData;
-            this.b = str;
-            this.Aa = funAdInteractionListener;
+            this.f1176a = nativeUnifiedADData;
+            this.f1177b = str;
+            this.f1178c = funAdInteractionListener;
         }
 
         @Override // com.qq.e.ads.nativ.NativeADEventListener
         public void onADClicked() {
             a.a.a.a.v.d.a();
-            g.this.zk.a(this.e);
-            this.e = true;
+            g.this.f1010g.a(this.f1180e);
+            this.f1180e = true;
             g.this.e();
-            FunAdInteractionListener funAdInteractionListener = this.Aa;
+            FunAdInteractionListener funAdInteractionListener = this.f1178c;
             if (funAdInteractionListener != null) {
-                funAdInteractionListener.onAdClicked(this.b);
+                funAdInteractionListener.onAdClicked(this.f1177b);
             }
         }
 
         @Override // com.qq.e.ads.nativ.NativeADEventListener
         public void onADError(AdError adError) {
             a.a.a.a.v.d.a();
-            g.this.zk.b(Integer.valueOf(adError.getErrorCode()));
+            g.this.f1010g.b(Integer.valueOf(adError.getErrorCode()));
             g.this.a(adError.getErrorCode(), adError.getErrorMsg());
-            FunAdInteractionListener funAdInteractionListener = this.Aa;
+            FunAdInteractionListener funAdInteractionListener = this.f1178c;
             if (funAdInteractionListener != null) {
-                funAdInteractionListener.onAdError(this.b);
+                funAdInteractionListener.onAdError(this.f1177b);
             }
         }
 
         @Override // com.qq.e.ads.nativ.NativeADEventListener
         public void onADExposed() {
             a.a.a.a.v.d.a();
-            g.this.zk.b(this.d);
-            this.d = true;
-            g.this.a((g) this.f985a, this.b);
-            FunAdInteractionListener funAdInteractionListener = this.Aa;
+            g.this.f1010g.b(this.f1179d);
+            this.f1179d = true;
+            g.this.a((g) this.f1176a, this.f1177b);
+            FunAdInteractionListener funAdInteractionListener = this.f1178c;
             if (funAdInteractionListener != null) {
-                funAdInteractionListener.onAdShow(this.b);
+                funAdInteractionListener.onAdShow(this.f1177b);
             }
         }
 
         @Override // com.qq.e.ads.nativ.NativeADEventListener
         public void onADStatusChanged() {
             a.a.a.a.v.d.a();
-            d dVar = this.AG;
+            d dVar = this.f1181f;
             if (dVar != null) {
                 dVar.onADStatusChanged();
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes.dex */
     public interface d {
         void onADStatusChanged();
     }
@@ -148,38 +193,37 @@ public class g extends a.a.a.a.c<NativeUnifiedADData> {
         this.m = new HashMap<>();
     }
 
-    @Override // a.a.a.a.c
-    public a.a.a.a.c.a a(e.a aVar) {
-        return new a.a.a.a.c.h(aVar);
+    @Override // a.a.a.a.b
+    public a.a.a.a.u.a a(e.a aVar) {
+        return new a.a.a.a.u.h(aVar);
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.content.Context, java.lang.String, java.lang.Object] */
-    @Override // a.a.a.a.c
+    @Override // a.a.a.a.b
     public FunNativeAd a(Context context, String str, NativeUnifiedADData nativeUnifiedADData) {
         NativeUnifiedADData nativeUnifiedADData2 = nativeUnifiedADData;
         return new a.a.a.a.r.b.c.a(nativeUnifiedADData2, nativeUnifiedADData2.getAdPatternType() == 2 ? new MediaView(context) : null, str, this);
     }
 
     public final NativeADEventListener a(NativeUnifiedADData nativeUnifiedADData, String str, FunAdInteractionListener funAdInteractionListener, d dVar) {
-        c cVar;
         synchronized (this.m) {
-            cVar = this.m.get(nativeUnifiedADData);
+            c cVar = this.m.get(nativeUnifiedADData);
             if (cVar != null) {
-                cVar.AG = dVar;
-            } else {
-                cVar = new c(nativeUnifiedADData, str, funAdInteractionListener);
-                cVar.AG = dVar;
-                this.m.put(nativeUnifiedADData, cVar);
+                cVar.f1181f = dVar;
+                return cVar;
             }
+            c cVar2 = new c(nativeUnifiedADData, str, funAdInteractionListener);
+            cVar2.f1181f = dVar;
+            this.m.put(nativeUnifiedADData, cVar2);
+            return cVar2;
         }
-        return cVar;
     }
 
-    @Override // a.a.a.a.c
-    public void a(Context context, FunAdSlot funAdSlot) {
+    @Override // a.a.a.a.b
+    public void b(Context context, FunAdSlot funAdSlot) {
         a aVar = new a(funAdSlot);
-        this.zk.a(funAdSlot, this.zl);
-        NativeUnifiedAD nativeUnifiedAD = new NativeUnifiedAD(context.getApplicationContext(), this.zl.c, aVar);
+        this.f1010g.a(funAdSlot, this.f1011h);
+        NativeUnifiedAD nativeUnifiedAD = new NativeUnifiedAD(context.getApplicationContext(), this.f1011h.f1334c, aVar);
         nativeUnifiedAD.setMinVideoDuration(0);
         nativeUnifiedAD.setMaxVideoDuration(0);
         nativeUnifiedAD.setVideoPlayPolicy(1);
@@ -189,7 +233,7 @@ public class g extends a.a.a.a.c<NativeUnifiedADData> {
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-    @Override // a.a.a.a.c
+    @Override // a.a.a.a.b
     public void b(NativeUnifiedADData nativeUnifiedADData) {
         NativeUnifiedADData nativeUnifiedADData2 = nativeUnifiedADData;
         if (nativeUnifiedADData2 != null) {
@@ -201,29 +245,26 @@ public class g extends a.a.a.a.c<NativeUnifiedADData> {
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, android.view.ViewGroup, java.lang.String, java.lang.Object] */
-    @Override // a.a.a.a.c
+    @Override // a.a.a.a.b
     public boolean a(Activity activity, ViewGroup viewGroup, String str, NativeUnifiedADData nativeUnifiedADData) {
         int i;
         NativeUnifiedADData nativeUnifiedADData2 = nativeUnifiedADData;
-        switch (nativeUnifiedADData2.getAdPatternType()) {
-            case 1:
-                i = R.layout.gdt_ad_native_unified_img2_view;
-                break;
-            case 2:
-                i = R.layout.gdt_ad_native_unified_video_view;
-                break;
-            case 3:
-                if (nativeUnifiedADData2.getImgList().size() == 3) {
-                    i = R.layout.gdt_ad_native_unified_img3_view;
-                    break;
+        int adPatternType = nativeUnifiedADData2.getAdPatternType();
+        if (adPatternType == 1) {
+            i = R.layout.gdt_ad_native_unified_img2_view;
+        } else if (adPatternType != 2) {
+            if (adPatternType != 3) {
+                if (adPatternType != 4) {
+                    return false;
                 }
-            case 4:
-                i = R.layout.gdt_ad_native_unified_img_view;
-                break;
-            default:
-                return false;
+            } else if (nativeUnifiedADData2.getImgList().size() == 3) {
+                i = R.layout.gdt_ad_native_unified_img3_view;
+            }
+            i = R.layout.gdt_ad_native_unified_img_view;
+        } else {
+            i = R.layout.gdt_ad_native_unified_video_view;
         }
-        this.zk.g();
+        this.f1010g.g();
         a.a.a.a.r.b.c.b bVar = (a.a.a.a.r.b.c.b) LayoutInflater.from(activity).inflate(i, viewGroup, false);
         if (bVar instanceof GDTNativeUnifiedVideoView) {
             ((GDTNativeUnifiedVideoView) bVar).setVideoOnClickListener(new h(this));
@@ -235,41 +276,8 @@ public class g extends a.a.a.a.c<NativeUnifiedADData> {
         return true;
     }
 
-    /* loaded from: classes4.dex */
-    public class a implements NativeADUnifiedListener {
-        public final /* synthetic */ FunAdSlot zR;
-
-        public a(FunAdSlot funAdSlot) {
-            this.zR = funAdSlot;
-        }
-
-        @Override // com.qq.e.ads.AbstractAD.BasicADListener
-        public void onNoAD(AdError adError) {
-            a.a.a.a.v.d.b("onError code: " + adError.getErrorCode() + ", message: " + adError.getErrorMsg(), new Object[0]);
-            g.this.zk.a(Integer.valueOf(adError.getErrorCode()));
-            g.this.b(adError.getErrorCode(), adError.getErrorMsg());
-        }
-
-        @Override // com.qq.e.ads.nativ.NativeADUnifiedListener
-        public void onADLoaded(List<NativeUnifiedADData> list) {
-            a.a.a.a.v.d.a();
-            if (list != null && !list.isEmpty()) {
-                g.this.zk.b();
-                NativeUnifiedADData nativeUnifiedADData = list.get(0);
-                g gVar = g.this;
-                gVar.a((g) nativeUnifiedADData);
-                gVar.h();
-                g.this.zm.b(nativeUnifiedADData, this.zR.getSid());
-                return;
-            }
-            a.a.a.a.v.d.b("onADLoaded error: adList is null or empty", new Object[0]);
-            g.this.zk.a("NoFill");
-            g.this.b(0, "NoFill");
-        }
-    }
-
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, java.lang.String, com.fun.ad.sdk.FunNativeAdInflater, java.lang.Object] */
-    @Override // a.a.a.a.c
+    @Override // a.a.a.a.b
     public boolean a(Activity activity, String str, FunNativeAdInflater funNativeAdInflater, NativeUnifiedADData nativeUnifiedADData) {
         NativeUnifiedADData nativeUnifiedADData2 = nativeUnifiedADData;
         MediaView mediaView = nativeUnifiedADData2.getAdPatternType() == 2 ? new MediaView(activity) : null;

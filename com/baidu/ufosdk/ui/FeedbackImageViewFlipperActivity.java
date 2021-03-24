@@ -8,16 +8,18 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ViewFlipper;
-import androidx.core.view.ViewCompat;
-/* loaded from: classes7.dex */
+import com.baidu.ufosdk.ResumeCallBack;
+/* loaded from: classes5.dex */
 public class FeedbackImageViewFlipperActivity extends Activity implements GestureDetector.OnGestureListener {
 
     /* renamed from: a  reason: collision with root package name */
-    private GestureDetector f3642a;
-    private ViewFlipper b;
+    public GestureDetector f23012a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public ViewFlipper f23013b;
 
     @Override // android.app.Activity
-    protected void onCreate(Bundle bundle) {
+    public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         requestWindowFeature(1);
         com.baidu.ufosdk.f.r.a(this, getWindow());
@@ -29,28 +31,29 @@ public class FeedbackImageViewFlipperActivity extends Activity implements Gestur
         linearLayout.setLayoutParams(layoutParams);
         linearLayout.setOrientation(1);
         linearLayout.setGravity(17);
-        linearLayout.setBackgroundColor(ViewCompat.MEASURED_STATE_MASK);
-        this.b = new ViewFlipper(this);
-        linearLayout.addView(this.b, layoutParams);
+        linearLayout.setBackgroundColor(-16777216);
+        ViewFlipper viewFlipper = new ViewFlipper(this);
+        this.f23013b = viewFlipper;
+        linearLayout.addView(viewFlipper, layoutParams);
         setContentView(linearLayout);
-        this.f3642a = new GestureDetector(this);
+        this.f23012a = new GestureDetector(this);
         ImageView imageView = new ImageView(this);
         imageView.setAdjustViewBounds(true);
         imageView.setScaleType(ImageView.ScaleType.FIT_CENTER);
-        imageView.setImageBitmap(FeedbackInputActivity.f3643a);
-        this.b.addView(imageView, new ViewGroup.LayoutParams(-1, -1));
-        this.b.setAutoStart(false);
-        this.b.setFlipInterval(3000);
-        if (!this.b.isAutoStart() || this.b.isFlipping()) {
+        imageView.setImageBitmap(FeedbackInputActivity.f23014a);
+        this.f23013b.addView(imageView, new ViewGroup.LayoutParams(-1, -1));
+        this.f23013b.setAutoStart(false);
+        this.f23013b.setFlipInterval(3000);
+        if (!this.f23013b.isAutoStart() || this.f23013b.isFlipping()) {
             return;
         }
-        this.b.startFlipping();
+        this.f23013b.startFlipping();
     }
 
     @Override // android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        FeedbackInputActivity.f3643a = null;
+        FeedbackInputActivity.f23014a = null;
     }
 
     @Override // android.view.GestureDetector.OnGestureListener
@@ -59,7 +62,7 @@ public class FeedbackImageViewFlipperActivity extends Activity implements Gestur
     }
 
     @Override // android.view.GestureDetector.OnGestureListener
-    public boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
+    public boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent2, float f2, float f3) {
         finish();
         return true;
     }
@@ -69,20 +72,21 @@ public class FeedbackImageViewFlipperActivity extends Activity implements Gestur
     }
 
     @Override // android.app.Activity
-    protected void onRestart() {
+    public void onRestart() {
         super.onRestart();
     }
 
     @Override // android.app.Activity
-    protected void onResume() {
+    public void onResume() {
         super.onResume();
-        if (com.baidu.ufosdk.b.ac != null) {
-            com.baidu.ufosdk.b.ac.onResumeCallback();
+        ResumeCallBack resumeCallBack = com.baidu.ufosdk.b.ac;
+        if (resumeCallBack != null) {
+            resumeCallBack.onResumeCallback();
         }
     }
 
     @Override // android.view.GestureDetector.OnGestureListener
-    public boolean onScroll(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
+    public boolean onScroll(MotionEvent motionEvent, MotionEvent motionEvent2, float f2, float f3) {
         return false;
     }
 
@@ -98,8 +102,8 @@ public class FeedbackImageViewFlipperActivity extends Activity implements Gestur
 
     @Override // android.app.Activity
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        this.b.stopFlipping();
-        this.b.setAutoStart(false);
-        return this.f3642a.onTouchEvent(motionEvent);
+        this.f23013b.stopFlipping();
+        this.f23013b.setAutoStart(false);
+        return this.f23012a.onTouchEvent(motionEvent);
     }
 }

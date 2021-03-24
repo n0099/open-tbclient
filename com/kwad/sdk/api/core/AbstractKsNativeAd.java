@@ -9,7 +9,7 @@ import com.kwad.sdk.api.KsNativeAd;
 import com.kwad.sdk.api.loader.Wrapper;
 @KsAdSdkDynamicApi
 @Keep
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public abstract class AbstractKsNativeAd implements KsNativeAd {
     @Override // com.kwad.sdk.api.KsNativeAd
     @Nullable
@@ -29,9 +29,9 @@ public abstract class AbstractKsNativeAd implements KsNativeAd {
 
     @KsAdSdkDynamicApi
     @Keep
-    protected abstract View getVideoView2(Context context, @Nullable KsAdVideoPlayConfig ksAdVideoPlayConfig);
+    public abstract View getVideoView2(Context context, @Nullable KsAdVideoPlayConfig ksAdVideoPlayConfig);
 
     @KsAdSdkDynamicApi
     @Keep
-    protected abstract View getVideoView2(Context context, boolean z);
+    public abstract View getVideoView2(Context context, boolean z);
 }

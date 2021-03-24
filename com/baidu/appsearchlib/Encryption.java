@@ -1,15 +1,14 @@
 package com.baidu.appsearchlib;
 
 import android.util.Base64;
-import com.baidu.sapi2.utils.e;
 import java.io.UnsupportedEncodingException;
 import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes14.dex */
+/* loaded from: classes2.dex */
 public class Encryption {
-    private static SecretKeySpec createKey(String str) {
-        byte[] bArr = null;
+    public static SecretKeySpec createKey(String str) {
+        byte[] bArr;
         if (str == null) {
             str = "";
         }
@@ -23,10 +22,11 @@ public class Encryption {
         }
         try {
             bArr = stringBuffer.toString().getBytes("UTF-8");
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
+        } catch (UnsupportedEncodingException e2) {
+            e2.printStackTrace();
+            bArr = null;
         }
-        return new SecretKeySpec(bArr, e.q);
+        return new SecretKeySpec(bArr, "AES");
     }
 
     public static String desEncrypt(String str) throws Exception {
@@ -35,8 +35,8 @@ public class Encryption {
             Cipher cipher = Cipher.getInstance("AES/CBC/NoPadding");
             cipher.init(2, createKey(Info.PASSWORD), new IvParameterSpec(Info.IV.getBytes()));
             return new String(cipher.doFinal(decode), "utf-8");
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (Exception e2) {
+            e2.printStackTrace();
             return null;
         }
     }

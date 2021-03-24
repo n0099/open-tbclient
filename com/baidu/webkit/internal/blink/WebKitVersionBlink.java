@@ -4,9 +4,9 @@ import com.baidu.webkit.internal.GlobalConstants;
 import com.baidu.webkit.internal.INoProGuard;
 import com.baidu.webkit.sdk.WebKitFactory;
 import com.baidu.webkit.sdk.WebViewFactory;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class WebKitVersionBlink implements INoProGuard {
-    private static final String TAG = "WebKitBlinkVer";
+    public static final String TAG = "WebKitBlinkVer";
 
     public static String getVersionName() {
         if (WebViewFactory.hasProvider()) {
@@ -15,6 +15,7 @@ public class WebKitVersionBlink implements INoProGuard {
                 return WebViewFactory.getLoadedPackageInfo().versionName;
             } catch (Throwable th) {
                 th.printStackTrace();
+                return GlobalConstants.DEFAULT_VERSION;
             }
         }
         return GlobalConstants.DEFAULT_VERSION;
@@ -27,6 +28,7 @@ public class WebKitVersionBlink implements INoProGuard {
                 return WebViewFactory.getLoadedPackageInfo().versionName;
             } catch (Throwable th) {
                 th.printStackTrace();
+                return GlobalConstants.ZEUS_VERSION_NAME;
             }
         }
         return GlobalConstants.ZEUS_VERSION_NAME;

@@ -3,14 +3,10 @@ package com.facebook.common.internal;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class ImmutableList<E> extends ArrayList<E> {
-    private ImmutableList(int i) {
+    public ImmutableList(int i) {
         super(i);
-    }
-
-    private ImmutableList(List<E> list) {
-        super(list);
     }
 
     public static <E> ImmutableList<E> copyOf(List<E> list) {
@@ -21,5 +17,9 @@ public class ImmutableList<E> extends ArrayList<E> {
         ImmutableList<E> immutableList = new ImmutableList<>(eArr.length);
         Collections.addAll(immutableList, eArr);
         return immutableList;
+    }
+
+    public ImmutableList(List<E> list) {
+        super(list);
     }
 }

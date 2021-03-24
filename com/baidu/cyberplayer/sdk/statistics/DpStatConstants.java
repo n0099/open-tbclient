@@ -2,7 +2,7 @@ package com.baidu.cyberplayer.sdk.statistics;
 
 import com.baidu.cyberplayer.sdk.Keep;
 @Keep
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class DpStatConstants {
     public static final int ACTION_ACTIVATE_CORE_RESULT = 20737;
     public static final int ACTION_LIB_LOAD_RESULT = 20736;

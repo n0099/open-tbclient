@@ -6,8 +6,23 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tieba.R;
-/* loaded from: classes8.dex */
+/* loaded from: classes4.dex */
 public class SingleBarFragment extends BaseFragment {
+    @Override // com.baidu.tbadk.core.BaseFragment, d.b.h0.k0.a
+    public String getCurrentPageKey() {
+        return null;
+    }
+
+    @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
+    public void onActivityCreated(Bundle bundle) {
+        super.onActivityCreated(bundle);
+    }
+
+    @Override // com.baidu.tbadk.core.BaseFragment
+    public void onChangeSkinType(int i) {
+        super.onChangeSkinType(i);
+    }
+
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
@@ -20,8 +35,13 @@ public class SingleBarFragment extends BaseFragment {
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
-    public void onActivityCreated(Bundle bundle) {
-        super.onActivityCreated(bundle);
+    public void onDestroy() {
+        super.onDestroy();
+    }
+
+    @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
+    public void onPause() {
+        super.onPause();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
@@ -30,27 +50,7 @@ public class SingleBarFragment extends BaseFragment {
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
-    public void onPause() {
-        super.onPause();
-    }
-
-    @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onResume() {
         super.onResume();
-    }
-
-    @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
-    public void onDestroy() {
-        super.onDestroy();
-    }
-
-    @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tbadk.m.a
-    public String getCurrentPageKey() {
-        return null;
-    }
-
-    @Override // com.baidu.tbadk.core.BaseFragment
-    public void onChangeSkinType(int i) {
-        super.onChangeSkinType(i);
     }
 }

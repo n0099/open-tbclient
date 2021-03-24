@@ -1,12 +1,12 @@
 package com.alibaba.fastjson.parser;
 
 import java.lang.reflect.Type;
-/* loaded from: classes4.dex */
+/* loaded from: classes.dex */
 public class ParseContext {
     public final Object fieldName;
     public Object object;
     public final ParseContext parent;
-    private transient String path;
+    public transient String path;
     public Type type;
 
     public ParseContext(ParseContext parseContext, Object obj, Object obj2) {

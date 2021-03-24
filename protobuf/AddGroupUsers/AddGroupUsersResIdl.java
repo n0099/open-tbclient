@@ -10,18 +10,7 @@ public final class AddGroupUsersResIdl extends Message {
     @ProtoField(tag = 1)
     public final Error error;
 
-    private AddGroupUsersResIdl(Builder builder, boolean z) {
-        super(builder);
-        if (z) {
-            this.error = builder.error;
-            this.data = builder.data;
-            return;
-        }
-        this.error = builder.error;
-        this.data = builder.data;
-    }
-
-    /* loaded from: classes.dex */
+    /* loaded from: classes7.dex */
     public static final class Builder extends Message.Builder<AddGroupUsersResIdl> {
         public DataRes data;
         public Error error;
@@ -31,10 +20,11 @@ public final class AddGroupUsersResIdl extends Message {
 
         public Builder(AddGroupUsersResIdl addGroupUsersResIdl) {
             super(addGroupUsersResIdl);
-            if (addGroupUsersResIdl != null) {
-                this.error = addGroupUsersResIdl.error;
-                this.data = addGroupUsersResIdl.data;
+            if (addGroupUsersResIdl == null) {
+                return;
             }
+            this.error = addGroupUsersResIdl.error;
+            this.data = addGroupUsersResIdl.data;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -42,5 +32,16 @@ public final class AddGroupUsersResIdl extends Message {
         public AddGroupUsersResIdl build(boolean z) {
             return new AddGroupUsersResIdl(this, z);
         }
+    }
+
+    public AddGroupUsersResIdl(Builder builder, boolean z) {
+        super(builder);
+        if (z) {
+            this.error = builder.error;
+            this.data = builder.data;
+            return;
+        }
+        this.error = builder.error;
+        this.data = builder.data;
     }
 }

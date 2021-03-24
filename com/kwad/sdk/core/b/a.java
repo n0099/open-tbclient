@@ -6,11 +6,14 @@ import com.kwad.sdk.KsAdSDKImpl;
 import com.kwad.sdk.utils.j;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public final class a implements i {
-    private static String a() {
+    public static String a() {
         Context context = KsAdSDKImpl.get().getContext();
-        return context == null ? "" : context.getPackageName() + com.kwai.sodler.lib.c.b.b(context);
+        if (context == null) {
+            return "";
+        }
+        return context.getPackageName() + com.kwai.sodler.lib.c.b.b(context);
     }
 
     @Override // com.kwad.sdk.core.b.i
@@ -18,8 +21,8 @@ public final class a implements i {
         try {
             String a2 = j.a(0);
             return new String(c.a().a(b.a(a2.getBytes("UTF-8"), b.a(str.getBytes()))), "UTF-8");
-        } catch (Exception e) {
-            com.kwad.sdk.core.d.a.a(e);
+        } catch (Exception e2) {
+            com.kwad.sdk.core.d.a.a(e2);
             return str;
         }
     }
@@ -39,8 +42,8 @@ public final class a implements i {
     public String b(String str) {
         try {
             return new String(b.b(b.a(j.a(0), c.b().a(str.getBytes()))), "UTF-8");
-        } catch (Exception e) {
-            com.kwad.sdk.core.d.a.b(e);
+        } catch (Exception e2) {
+            com.kwad.sdk.core.d.a.b(e2);
             return str;
         }
     }

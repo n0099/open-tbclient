@@ -3,14 +3,14 @@ package com.baidu.crabsdk.sender;
 import android.content.Context;
 import android.os.Build;
 import com.baidu.crabsdk.CrabSDK;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public class NativeCrashHandler {
-    private static NativeCrashHandler bZ = null;
-    private boolean ca = false;
-    private s cb;
-    private Context mContext;
+    public static NativeCrashHandler bZ;
+    public boolean ca = false;
+    public s cb;
+    public Context mContext;
 
-    private NativeCrashHandler(Context context) {
+    public NativeCrashHandler(Context context) {
         this.mContext = context;
         this.cb = new s(context, context.getFilesDir().getPath());
     }
@@ -31,33 +31,35 @@ public class NativeCrashHandler {
     }
 
     public final void aj() {
+        String str;
         try {
             if (this.mContext == null) {
-                com.baidu.crabsdk.c.a.dw("NativeCrashHandler openNativeCrashHandler failed context is null!");
+                str = "NativeCrashHandler openNativeCrashHandler failed context is null!";
             } else {
                 System.loadLibrary("crab_native");
                 this.ca = true;
-                com.baidu.crabsdk.c.a.dw("Native version is:" + CrabSDK.NDK_VERSION);
+                com.baidu.crabsdk.c.a.b("Native version is:" + CrabSDK.NDK_VERSION);
                 if (CrabSDK.NDK_VERSION.equals("-1")) {
                     CrabSDK.NDK_VERSION = "3.2.0";
                 }
-                com.baidu.crabsdk.c.a.dw("NativeCrashHandler openNativeCrashHandler success!  CPU_ABI is " + Build.CPU_ABI);
+                str = "NativeCrashHandler openNativeCrashHandler success!  CPU_ABI is " + Build.CPU_ABI;
             }
-        } catch (Exception e) {
+            com.baidu.crabsdk.c.a.b(str);
+        } catch (Exception e2) {
             this.ca = false;
             CrabSDK.NDK_VERSION = "-1";
-            com.baidu.crabsdk.c.a.a("loadSysLib Error!", e);
-        } catch (UnsatisfiedLinkError e2) {
+            com.baidu.crabsdk.c.a.a("loadSysLib Error!", e2);
+        } catch (UnsatisfiedLinkError e3) {
             this.ca = false;
             CrabSDK.NDK_VERSION = "-1";
-            com.baidu.crabsdk.c.a.w("loadSysLib Error! " + e2.getMessage());
+            com.baidu.crabsdk.c.a.d("loadSysLib Error! " + e3.getMessage());
         }
         if (this.ca) {
             try {
                 this.cb.startWatching();
-                nRequiredVarParams(com.baidu.crabsdk.c.d.dB(g.ae(this.mContext).toString()));
-            } catch (Exception e3) {
-                com.baidu.crabsdk.c.a.a("Init gather java info error!", e3);
+                nRequiredVarParams(com.baidu.crabsdk.c.d.b(g.j(this.mContext).toString()));
+            } catch (Exception e4) {
+                com.baidu.crabsdk.c.a.a("Init gather java info error!", e4);
             }
         }
     }
@@ -66,8 +68,8 @@ public class NativeCrashHandler {
         if (this.ca) {
             try {
                 nSetLogcatLineCount(i);
-            } catch (UnsatisfiedLinkError e) {
-                com.baidu.crabsdk.c.a.w("nSetLogcatLineCount Error! " + e.getMessage());
+            } catch (UnsatisfiedLinkError e2) {
+                com.baidu.crabsdk.c.a.d("nSetLogcatLineCount Error! " + e2.getMessage());
             }
         }
     }

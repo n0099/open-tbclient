@@ -5,18 +5,18 @@ import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.graphics.drawable.Drawable;
-import com.sdk.base.framework.f.d.a;
+import com.sdk.base.framework.f.c.a;
 import java.io.File;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class ApkItemInfo {
-    private String apkfile;
-    private Drawable icon;
-    private int isSystemApp = -1;
-    private CharSequence lable;
-    private PackageInfo packageInfo;
-    private String pkName;
-    private int versionCode;
-    private String versionName;
+    public String apkfile;
+    public Drawable icon;
+    public int isSystemApp = -1;
+    public CharSequence lable;
+    public PackageInfo packageInfo;
+    public String pkName;
+    public int versionCode;
+    public String versionName;
 
     public ApkItemInfo(Context context, File file) {
         if (file != null) {
@@ -37,20 +37,16 @@ public class ApkItemInfo {
     public void getApkItemInfo(PackageManager packageManager, PackageInfo packageInfo, ApplicationInfo applicationInfo) {
         try {
             this.icon = packageManager.getApplicationIcon(packageInfo.applicationInfo);
-        } catch (Exception e) {
+        } catch (Exception unused) {
             this.icon = packageManager.getDefaultActivityIcon();
         }
         try {
             this.lable = packageManager.getApplicationLabel(packageInfo.applicationInfo);
-        } catch (Exception e2) {
+        } catch (Exception unused2) {
         }
         try {
-            if ((packageInfo.applicationInfo.flags & 1) == 0) {
-                this.isSystemApp = 0;
-            } else {
-                this.isSystemApp = 1;
-            }
-        } catch (Exception e3) {
+            this.isSystemApp = (packageInfo.applicationInfo.flags & 1) == 0 ? 0 : 1;
+        } catch (Exception unused3) {
         }
         this.pkName = applicationInfo.packageName;
         this.versionName = packageInfo.versionName;

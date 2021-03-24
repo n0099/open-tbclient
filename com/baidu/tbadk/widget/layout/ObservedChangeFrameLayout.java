@@ -3,12 +3,32 @@ package com.baidu.tbadk.widget.layout;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.FrameLayout;
-/* loaded from: classes.dex */
+import d.b.h0.b1.j.e;
+/* loaded from: classes3.dex */
 public class ObservedChangeFrameLayout extends FrameLayout {
-    private e fWg;
+
+    /* renamed from: e  reason: collision with root package name */
+    public e f14215e;
 
     public ObservedChangeFrameLayout(Context context) {
         super(context);
+    }
+
+    public e getOnSizeChangeListener() {
+        return this.f14215e;
+    }
+
+    @Override // android.view.View
+    public void onSizeChanged(int i, int i2, int i3, int i4) {
+        super.onSizeChanged(i, i2, i3, i4);
+        e eVar = this.f14215e;
+        if (eVar != null) {
+            eVar.a(this, i, i2, i3, i4);
+        }
+    }
+
+    public void setOnSizeChangeListener(e eVar) {
+        this.f14215e = eVar;
     }
 
     public ObservedChangeFrameLayout(Context context, AttributeSet attributeSet) {
@@ -17,21 +37,5 @@ public class ObservedChangeFrameLayout extends FrameLayout {
 
     public ObservedChangeFrameLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-    }
-
-    public void setOnSizeChangeListener(e eVar) {
-        this.fWg = eVar;
-    }
-
-    public e getOnSizeChangeListener() {
-        return this.fWg;
-    }
-
-    @Override // android.view.View
-    protected void onSizeChanged(int i, int i2, int i3, int i4) {
-        super.onSizeChanged(i, i2, i3, i4);
-        if (this.fWg != null) {
-            this.fWg.f(this, i, i2, i3, i4);
-        }
     }
 }

@@ -1,17 +1,26 @@
 package com.baidu.tieba.quickWebView;
 
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.quickWebView.message.WebViewCacheResHttpMsg;
 import com.baidu.tieba.quickWebView.message.WebViewCacheResSocketMsg;
-/* loaded from: classes.dex */
+import d.b.i0.c3.d0.a;
+/* loaded from: classes5.dex */
 public class QuickWebViewStatic {
     static {
-        com.baidu.tieba.tbadkCore.a.a.a(CmdConfigSocket.WEBVIEW_CACHE_INFO, WebViewCacheResSocketMsg.class, false, false);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003365, com.baidu.tieba.tbadkCore.a.a.bV(TbConfig.WEBVIEW_CACHE_URL, CmdConfigSocket.WEBVIEW_CACHE_INFO));
+        a.h(309485, WebViewCacheResSocketMsg.class, false, false);
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.WEBVIEW_CACHE_INFO, a.a(TbConfig.WEBVIEW_CACHE_URL, 309485));
         tbHttpMessageTask.setResponsedClass(WebViewCacheResHttpMsg.class);
+        if (TbSingleton.getInstance().isDebugToolMode()) {
+            if (MessageManager.getInstance().findTask(tbHttpMessageTask.getCmd()) == null) {
+                MessageManager.getInstance().registerTask(tbHttpMessageTask);
+                return;
+            }
+            return;
+        }
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 }

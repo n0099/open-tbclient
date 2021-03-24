@@ -1,7 +1,7 @@
 package com.bytedance.sdk.openadsdk.preload.geckox.statistic.model;
 
 import androidx.annotation.Keep;
-import com.baidu.live.tbadk.core.util.TiebaInitialize;
+import com.baidu.searchbox.pms.constants.PmsConstant;
 import com.bytedance.sdk.openadsdk.preload.a.a.c;
 import com.bytedance.sdk.openadsdk.preload.geckox.model.Common;
 import java.util.ArrayList;
@@ -12,7 +12,7 @@ public class StatisticModel {
     @c(a = "common")
 
     /* renamed from: common  reason: collision with root package name */
-    public Common f5100common;
+    public Common f30324common;
     @c(a = "packages")
     public List<PackageStatisticModel> packages = new ArrayList();
 
@@ -43,9 +43,9 @@ public class StatisticModel {
         public Integer downloadRetryTimes;
         @c(a = "download_url")
         public String downloadUrl;
-        @c(a = "err_code")
+        @c(a = PmsConstant.Statistic.STATISTIC_ERRCODE)
         public String errCode;
-        @c(a = "err_msg")
+        @c(a = PmsConstant.Statistic.STATISTIC_ERRMSG)
         public String errMsg;
         @c(a = "group_name")
         public String groupName;
@@ -63,7 +63,7 @@ public class StatisticModel {
         public static class DownloadFailRecords {
             @c(a = "domain")
             public String domain;
-            @c(a = TiebaInitialize.LogFields.REASON)
+            @c(a = "reason")
             public String reason;
 
             public DownloadFailRecords(String str, String str2) {

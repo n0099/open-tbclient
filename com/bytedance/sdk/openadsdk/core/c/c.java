@@ -6,6 +6,7 @@ import com.bytedance.sdk.openadsdk.AdSlot;
 import com.bytedance.sdk.openadsdk.TTNativeExpressAd;
 import com.bytedance.sdk.openadsdk.core.d.l;
 import com.bytedance.sdk.openadsdk.core.nativeexpress.NativeExpressVideoView;
+import com.bytedance.sdk.openadsdk.core.nativeexpress.NativeExpressView;
 /* loaded from: classes6.dex */
 public class c extends b {
     public c(Context context, l lVar, AdSlot adSlot) {
@@ -13,22 +14,24 @@ public class c extends b {
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.c.b
-    protected void a(@NonNull Context context, l lVar, AdSlot adSlot, String str) {
-        this.f4378a = new NativeExpressVideoView(context, lVar, adSlot, str);
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.core.nativeexpress.l, com.bytedance.sdk.openadsdk.TTNativeExpressAd
-    public void setVideoAdListener(TTNativeExpressAd.ExpressVideoAdListener expressVideoAdListener) {
-        if (this.f4378a != null) {
-            this.f4378a.setVideoAdListener(expressVideoAdListener);
-        }
+    public void a(@NonNull Context context, l lVar, AdSlot adSlot, String str) {
+        this.f28083a = new NativeExpressVideoView(context, lVar, adSlot, str);
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.nativeexpress.l, com.bytedance.sdk.openadsdk.TTNativeExpressAd
     public com.bytedance.sdk.openadsdk.multipro.b.a getVideoModel() {
-        if (this.f4378a != null) {
-            return ((NativeExpressVideoView) this.f4378a).getVideoModel();
+        NativeExpressView nativeExpressView = this.f28083a;
+        if (nativeExpressView != null) {
+            return ((NativeExpressVideoView) nativeExpressView).getVideoModel();
         }
         return null;
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.core.nativeexpress.l, com.bytedance.sdk.openadsdk.TTNativeExpressAd
+    public void setVideoAdListener(TTNativeExpressAd.ExpressVideoAdListener expressVideoAdListener) {
+        NativeExpressView nativeExpressView = this.f28083a;
+        if (nativeExpressView != null) {
+            nativeExpressView.setVideoAdListener(expressVideoAdListener);
+        }
     }
 }

@@ -18,22 +18,33 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
-import androidx.core.view.ViewCompat;
 import com.bytedance.sdk.openadsdk.FilterWord;
 import com.bytedance.sdk.openadsdk.core.d.l;
-import com.bytedance.sdk.openadsdk.utils.ac;
+import com.bytedance.sdk.openadsdk.utils.ad;
 import java.util.ArrayList;
 /* loaded from: classes6.dex */
 public class c extends Dialog {
 
     /* renamed from: a  reason: collision with root package name */
-    private View f4684a;
-    private ImageView b;
-    private EditText c;
-    private TextView d;
-    private TextView e;
-    private l f;
-    private a g;
+    public View f29142a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public ImageView f29143b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public EditText f29144c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public TextView f29145d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public TextView f29146e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public l f29147f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public a f29148g;
 
     /* loaded from: classes6.dex */
     public interface a {
@@ -45,20 +56,103 @@ public class c extends Dialog {
     }
 
     public c(@NonNull Context context, l lVar) {
-        super(context, ac.g(context, "quick_option_dialog"));
-        this.f = lVar;
+        super(context, ad.g(context, "quick_option_dialog"));
+        this.f29147f = lVar;
+    }
+
+    @Override // android.app.Dialog, android.content.DialogInterface
+    public void dismiss() {
+        InputMethodManager inputMethodManager = (InputMethodManager) this.f29144c.getContext().getSystemService("input_method");
+        if (inputMethodManager != null) {
+            inputMethodManager.hideSoftInputFromWindow(this.f29142a.getWindowToken(), 0);
+        }
+        super.dismiss();
     }
 
     @Override // android.app.Dialog
-    protected void onCreate(Bundle bundle) {
+    public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.f4684a = LayoutInflater.from(getContext()).inflate(ac.f(getContext(), "tt_dislike_comment_layout"), (ViewGroup) null);
-        setContentView(this.f4684a);
+        View inflate = LayoutInflater.from(getContext()).inflate(ad.f(getContext(), "tt_dislike_comment_layout"), (ViewGroup) null);
+        this.f29142a = inflate;
+        setContentView(inflate);
         setCanceledOnTouchOutside(true);
         setCancelable(true);
         a(getContext());
         c();
         b();
+    }
+
+    @Override // android.app.Dialog
+    public void show() {
+        super.show();
+        InputMethodManager inputMethodManager = (InputMethodManager) this.f29144c.getContext().getSystemService("input_method");
+        if (inputMethodManager != null) {
+            inputMethodManager.hideSoftInputFromWindow(this.f29142a.getWindowToken(), 0);
+        }
+        this.f29144c.clearFocus();
+        Window window = getWindow();
+        WindowManager.LayoutParams attributes = window.getAttributes();
+        attributes.gravity = 80;
+        window.setAttributes(attributes);
+    }
+
+    private void a(Context context) {
+        EditText editText = (EditText) findViewById(ad.e(getContext(), "tt_comment_content"));
+        this.f29144c = editText;
+        a(editText);
+        TextView textView = (TextView) findViewById(ad.e(getContext(), "tt_comment_commit"));
+        this.f29145d = textView;
+        textView.setOnClickListener(new View.OnClickListener() { // from class: com.bytedance.sdk.openadsdk.dislike.c.1
+            @Override // android.view.View.OnClickListener
+            public void onClick(View view) {
+                String obj = c.this.f29144c.getText().toString();
+                if (obj.length() <= 0 || obj.isEmpty()) {
+                    return;
+                }
+                FilterWord filterWord = new FilterWord("0:00", obj);
+                ArrayList arrayList = new ArrayList();
+                arrayList.add(filterWord);
+                com.bytedance.sdk.openadsdk.c.d.a(c.this.f29147f, arrayList);
+                if (c.this.f29148g != null) {
+                    try {
+                        c.this.f29148g.a(0, filterWord);
+                    } catch (Throwable unused) {
+                    }
+                }
+                c.this.dismiss();
+            }
+        });
+        ImageView imageView = (ImageView) findViewById(ad.e(getContext(), "tt_comment_close"));
+        this.f29143b = imageView;
+        imageView.setOnClickListener(new View.OnClickListener() { // from class: com.bytedance.sdk.openadsdk.dislike.c.2
+            @Override // android.view.View.OnClickListener
+            public void onClick(View view) {
+                c.this.dismiss();
+            }
+        });
+        this.f29146e = (TextView) findViewById(ad.e(getContext(), "tt_comment_number"));
+        this.f29144c.addTextChangedListener(new TextWatcher() { // from class: com.bytedance.sdk.openadsdk.dislike.c.3
+            @Override // android.text.TextWatcher
+            public void afterTextChanged(Editable editable) {
+            }
+
+            @Override // android.text.TextWatcher
+            public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+            }
+
+            @Override // android.text.TextWatcher
+            public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+                int round = Math.round(charSequence.length());
+                c.this.f29146e.setText(round + "");
+                if (round > 0) {
+                    c.this.f29145d.setTextColor(-16777216);
+                    c.this.f29145d.setClickable(true);
+                    return;
+                }
+                c.this.f29145d.setTextColor(-7829368);
+                c.this.f29145d.setClickable(false);
+            }
+        });
     }
 
     private void b() {
@@ -70,117 +164,41 @@ public class c extends Dialog {
         window.setAttributes(attributes);
     }
 
-    private void a(Context context) {
-        this.c = (EditText) findViewById(ac.e(getContext(), "tt_comment_content"));
-        a(this.c);
-        this.d = (TextView) findViewById(ac.e(getContext(), "tt_comment_commit"));
-        this.d.setOnClickListener(new View.OnClickListener() { // from class: com.bytedance.sdk.openadsdk.dislike.c.1
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
-                String obj = c.this.c.getText().toString();
-                if (obj.length() > 0 && !obj.isEmpty()) {
-                    FilterWord filterWord = new FilterWord("0:00", obj);
-                    ArrayList arrayList = new ArrayList();
-                    arrayList.add(filterWord);
-                    com.bytedance.sdk.openadsdk.c.d.a(c.this.f, arrayList);
-                    if (c.this.g != null) {
-                        try {
-                            c.this.g.a(0, filterWord);
-                        } catch (Throwable th) {
-                        }
-                    }
-                    c.this.dismiss();
-                }
-            }
-        });
-        this.b = (ImageView) findViewById(ac.e(getContext(), "tt_comment_close"));
-        this.b.setOnClickListener(new View.OnClickListener() { // from class: com.bytedance.sdk.openadsdk.dislike.c.2
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
-                c.this.dismiss();
-            }
-        });
-        this.e = (TextView) findViewById(ac.e(getContext(), "tt_comment_number"));
-        this.c.addTextChangedListener(new TextWatcher() { // from class: com.bytedance.sdk.openadsdk.dislike.c.3
-            @Override // android.text.TextWatcher
-            public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-            }
-
-            @Override // android.text.TextWatcher
-            public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-                int round = Math.round(charSequence.length());
-                c.this.e.setText(round + "");
-                if (round > 0) {
-                    c.this.d.setTextColor(ViewCompat.MEASURED_STATE_MASK);
-                    c.this.d.setClickable(true);
-                    return;
-                }
-                c.this.d.setTextColor(-7829368);
-                c.this.d.setClickable(false);
-            }
-
-            @Override // android.text.TextWatcher
-            public void afterTextChanged(Editable editable) {
-            }
-        });
-    }
-
-    @Override // android.app.Dialog
-    public void show() {
-        super.show();
-        InputMethodManager inputMethodManager = (InputMethodManager) this.c.getContext().getSystemService("input_method");
-        if (inputMethodManager != null) {
-            inputMethodManager.hideSoftInputFromWindow(this.f4684a.getWindowToken(), 0);
-        }
-        this.c.clearFocus();
-        Window window = getWindow();
-        WindowManager.LayoutParams attributes = window.getAttributes();
-        attributes.gravity = 80;
-        window.setAttributes(attributes);
-    }
-
-    @Override // android.app.Dialog, android.content.DialogInterface
-    public void dismiss() {
-        InputMethodManager inputMethodManager = (InputMethodManager) this.c.getContext().getSystemService("input_method");
-        if (inputMethodManager != null) {
-            inputMethodManager.hideSoftInputFromWindow(this.f4684a.getWindowToken(), 0);
-        }
-        super.dismiss();
-    }
-
     private void c() {
         setOnShowListener(new DialogInterface.OnShowListener() { // from class: com.bytedance.sdk.openadsdk.dislike.c.4
             @Override // android.content.DialogInterface.OnShowListener
             public void onShow(DialogInterface dialogInterface) {
-                if (c.this.g != null) {
-                    c.this.g.a();
+                if (c.this.f29148g != null) {
+                    c.this.f29148g.a();
                 }
             }
         });
         setOnDismissListener(new DialogInterface.OnDismissListener() { // from class: com.bytedance.sdk.openadsdk.dislike.c.5
             @Override // android.content.DialogInterface.OnDismissListener
             public void onDismiss(DialogInterface dialogInterface) {
-                if (c.this.g != null) {
-                    c.this.g.b();
+                if (c.this.f29148g != null) {
+                    c.this.f29148g.b();
                 }
             }
         });
     }
 
     public void a(l lVar) {
-        if (lVar != null) {
-            this.f = lVar;
+        if (lVar == null) {
+            return;
         }
+        this.f29147f = lVar;
     }
 
     public void a() {
-        if (this.c != null) {
-            this.c.setText((CharSequence) null);
+        EditText editText = this.f29144c;
+        if (editText != null) {
+            editText.setText((CharSequence) null);
         }
     }
 
     public void a(a aVar) {
-        this.g = aVar;
+        this.f29148g = aVar;
     }
 
     public static void a(EditText editText) {
@@ -189,11 +207,10 @@ public class c extends Dialog {
             public CharSequence filter(CharSequence charSequence, int i, int i2, Spanned spanned, int i3, int i4) {
                 while (i < i2) {
                     int type = Character.getType(charSequence.charAt(i));
-                    if (type != 19 && type != 28) {
-                        i++;
-                    } else {
+                    if (type == 19 || type == 28) {
                         return "";
                     }
+                    i++;
                 }
                 return null;
             }

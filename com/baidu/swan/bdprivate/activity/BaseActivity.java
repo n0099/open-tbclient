@@ -5,55 +5,57 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import androidx.annotation.Nullable;
-import com.baidu.swan.bdprivate.b;
-/* loaded from: classes8.dex */
+import d.b.g0.b.b;
+/* loaded from: classes3.dex */
 public class BaseActivity extends Activity {
-    private boolean dUW = false;
+    public static final int ACTION_BAR_TEXT_SIZE = 14;
+    public boolean mIsSlideInFromBottom = false;
 
-    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // android.app.Activity
+    public void finish() {
+        super.finish();
+        if (this.mIsSlideInFromBottom) {
+            overridePendingTransition(b.aiapps_hold, b.aiapps_slide_out_to_bottom_zadjustment_top);
+        } else {
+            overridePendingTransition(b.aiapps_hold, b.aiapps_slide_out_to_right_zadjustment_top);
+        }
+    }
+
     @Override // android.app.Activity
     public void onCreate(@Nullable Bundle bundle) {
-        if (this.dUW) {
-            overridePendingTransition(b.a.aiapps_slide_in_from_bottom, b.a.aiapps_hold);
+        if (this.mIsSlideInFromBottom) {
+            overridePendingTransition(b.aiapps_slide_in_from_bottom, b.aiapps_hold);
         } else {
-            overridePendingTransition(b.a.aiapps_slide_in_from_right, b.a.aiapps_hold);
+            overridePendingTransition(b.aiapps_slide_in_from_right, b.aiapps_hold);
         }
         super.onCreate(bundle);
     }
 
     @Override // android.app.Activity
-    protected void onNewIntent(Intent intent) {
-        if (this.dUW) {
-            overridePendingTransition(b.a.aiapps_slide_in_from_bottom, b.a.aiapps_hold);
+    public void onDestroy() {
+        super.onDestroy();
+    }
+
+    @Override // android.app.Activity
+    public void onNewIntent(Intent intent) {
+        if (this.mIsSlideInFromBottom) {
+            overridePendingTransition(b.aiapps_slide_in_from_bottom, b.aiapps_hold);
         } else {
-            overridePendingTransition(b.a.aiapps_slide_in_from_right, b.a.aiapps_hold);
+            overridePendingTransition(b.aiapps_slide_in_from_right, b.aiapps_hold);
         }
         super.onNewIntent(intent);
     }
 
     @Override // android.app.Activity
-    public void finish() {
-        super.finish();
-        if (this.dUW) {
-            overridePendingTransition(b.a.aiapps_hold, b.a.aiapps_slide_out_to_bottom_zadjustment_top);
-        } else {
-            overridePendingTransition(b.a.aiapps_hold, b.a.aiapps_slide_out_to_right_zadjustment_top);
-        }
-    }
-
-    @Override // android.app.Activity
-    protected void onDestroy() {
-        super.onDestroy();
-    }
-
-    @Override // android.app.Activity
     public boolean onOptionsItemSelected(MenuItem menuItem) {
-        switch (menuItem.getItemId()) {
-            case 16908332:
-                onBackPressed();
-                return true;
-            default:
-                return super.onOptionsItemSelected(menuItem);
+        if (menuItem.getItemId() != 16908332) {
+            return super.onOptionsItemSelected(menuItem);
         }
+        onBackPressed();
+        return true;
+    }
+
+    public void setIsSlideInFromBottom(boolean z) {
+        this.mIsSlideInFromBottom = z;
     }
 }

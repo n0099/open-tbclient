@@ -1,13 +1,9 @@
 package aegon.chrome.net;
 
 import android.content.Context;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public abstract class CronetProvider {
     public final Context mContext;
-
-    static {
-        CronetProvider.class.getSimpleName();
-    }
 
     public CronetProvider(Context context) {
         if (context == null) {

@@ -4,17 +4,17 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import com.kwad.sdk.KsAdSDKImpl;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final boolean f6064a = KsAdSDKImpl.get().isDebugLogEnable();
+    public static final boolean f33583a = KsAdSDKImpl.get().isDebugLogEnable();
 
     public static void a(String str) {
-        if (f6064a) {
+        if (f33583a) {
             com.kwad.sdk.core.d.a.a("DownloadMonitor", "onDownloadStart(), id=" + str);
         }
-        Intent intent = new Intent(a.b);
+        Intent intent = new Intent(a.f33529b);
         Bundle bundle = new Bundle();
         bundle.putString("RESULT_DOWNLOAD_ID", str);
         intent.putExtras(bundle);
@@ -25,10 +25,10 @@ public class c {
     }
 
     public static void a(String str, int i, int i2, int i3) {
-        if (f6064a) {
+        if (f33583a) {
             com.kwad.sdk.core.d.a.a("DownloadMonitor", "onProgressUpdate(), id=" + str + " progress=" + i);
         }
-        Intent intent = new Intent(a.c);
+        Intent intent = new Intent(a.f33530c);
         Bundle bundle = new Bundle();
         bundle.putString("RESULT_DOWNLOAD_ID", str);
         bundle.putInt("KEY_RESULT_PROGRESS", i);
@@ -42,10 +42,10 @@ public class c {
     }
 
     public static void a(String str, int i, String str2) {
-        if (f6064a) {
+        if (f33583a) {
             com.kwad.sdk.core.d.a.a("DownloadMonitor", "onDownloadFail(), id=" + str + " error=" + i);
         }
-        Intent intent = new Intent(a.e);
+        Intent intent = new Intent(a.f33532e);
         Bundle bundle = new Bundle();
         bundle.putString("RESULT_DOWNLOAD_ID", str);
         bundle.putInt("KEY_RESULT_ERROR_CODE", i);
@@ -58,10 +58,10 @@ public class c {
     }
 
     public static void a(String str, String str2) {
-        if (f6064a) {
+        if (f33583a) {
             com.kwad.sdk.core.d.a.a("DownloadMonitor", "onDownloadFinished(), id=" + str);
         }
-        Intent intent = new Intent(a.d);
+        Intent intent = new Intent(a.f33531d);
         Bundle bundle = new Bundle();
         bundle.putString("RESULT_DOWNLOAD_ID", str);
         bundle.putString("KEY_REUSLT_FILEPATH", str2);
@@ -73,10 +73,10 @@ public class c {
     }
 
     public static void b(String str) {
-        if (f6064a) {
+        if (f33583a) {
             com.kwad.sdk.core.d.a.a("DownloadMonitor", "onDownloadPaused(), id=" + str);
         }
-        Intent intent = new Intent(a.f);
+        Intent intent = new Intent(a.f33533f);
         Bundle bundle = new Bundle();
         bundle.putString("RESULT_DOWNLOAD_ID", str);
         intent.putExtras(bundle);
@@ -87,10 +87,10 @@ public class c {
     }
 
     public static void c(String str) {
-        if (f6064a) {
+        if (f33583a) {
             com.kwad.sdk.core.d.a.a("DownloadMonitor", "onDownloadResumed(), id=" + str);
         }
-        Intent intent = new Intent(a.g);
+        Intent intent = new Intent(a.f33534g);
         Bundle bundle = new Bundle();
         bundle.putString("RESULT_DOWNLOAD_ID", str);
         intent.putExtras(bundle);
@@ -101,10 +101,10 @@ public class c {
     }
 
     public static void d(String str) {
-        if (f6064a) {
+        if (f33583a) {
             com.kwad.sdk.core.d.a.a("DownloadMonitor", "onDownloadCanceled(), id=" + str);
         }
-        Intent intent = new Intent(a.h);
+        Intent intent = new Intent(a.f33535h);
         Bundle bundle = new Bundle();
         bundle.putString("RESULT_DOWNLOAD_ID", str);
         intent.putExtras(bundle);
@@ -115,7 +115,7 @@ public class c {
     }
 
     public static void e(String str) {
-        if (f6064a) {
+        if (f33583a) {
             com.kwad.sdk.core.d.a.a("DownloadMonitor", "onDownloadCanceled(), id=" + str);
         }
         Intent intent = new Intent(a.m);

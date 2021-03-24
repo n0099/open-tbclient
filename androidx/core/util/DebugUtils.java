@@ -1,13 +1,14 @@
 package androidx.core.util;
 
 import androidx.annotation.RestrictTo;
+import com.baidu.android.common.others.lang.StringUtil;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes14.dex */
+/* loaded from: classes.dex */
 public class DebugUtils {
     public static void buildShortClassTag(Object obj, StringBuilder sb) {
         int lastIndexOf;
         if (obj == null) {
-            sb.append("null");
+            sb.append(StringUtil.NULL_STRING);
             return;
         }
         String simpleName = obj.getClass().getSimpleName();
@@ -17,8 +18,5 @@ public class DebugUtils {
         sb.append(simpleName);
         sb.append('{');
         sb.append(Integer.toHexString(System.identityHashCode(obj)));
-    }
-
-    private DebugUtils() {
     }
 }

@@ -1,220 +1,227 @@
 package com.ksad.lottie.c;
 
 import android.util.JsonReader;
-import com.baidu.mobads.interfaces.IXAdRequestInfo;
+import androidx.appcompat.widget.SearchView;
 import com.baidu.mobstat.Config;
 import com.ksad.lottie.model.content.GradientType;
 import com.ksad.lottie.model.content.ShapeStroke;
 import java.util.ArrayList;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class n {
-    /* JADX INFO: Access modifiers changed from: package-private */
     public static com.ksad.lottie.model.content.e a(JsonReader jsonReader, com.ksad.lottie.d dVar) {
+        char c2;
+        ShapeStroke.LineCapType lineCapType;
+        ShapeStroke.LineJoinType lineJoinType;
+        char c3;
+        char c4;
+        ArrayList arrayList = new ArrayList();
         String str = null;
+        GradientType gradientType = null;
         com.ksad.lottie.model.a.c cVar = null;
         com.ksad.lottie.model.a.d dVar2 = null;
-        GradientType gradientType = null;
         com.ksad.lottie.model.a.f fVar = null;
         com.ksad.lottie.model.a.f fVar2 = null;
         com.ksad.lottie.model.a.b bVar = null;
-        ShapeStroke.LineCapType lineCapType = null;
-        ShapeStroke.LineJoinType lineJoinType = null;
+        ShapeStroke.LineCapType lineCapType2 = null;
+        ShapeStroke.LineJoinType lineJoinType2 = null;
+        float f2 = 0.0f;
         com.ksad.lottie.model.a.b bVar2 = null;
-        float f = 0.0f;
-        ArrayList arrayList = new ArrayList();
         while (jsonReader.hasNext()) {
             String nextName = jsonReader.nextName();
-            char c = 65535;
-            switch (nextName.hashCode()) {
-                case 100:
-                    if (nextName.equals("d")) {
-                        c = '\n';
-                        break;
-                    }
-                    break;
-                case 101:
-                    if (nextName.equals("e")) {
-                        c = 5;
-                        break;
-                    }
-                    break;
-                case 103:
-                    if (nextName.equals(IXAdRequestInfo.GPS)) {
-                        c = 1;
-                        break;
-                    }
-                    break;
-                case 111:
-                    if (nextName.equals(Config.OS)) {
-                        c = 2;
-                        break;
-                    }
-                    break;
-                case 115:
-                    if (nextName.equals("s")) {
-                        c = 4;
-                        break;
-                    }
-                    break;
-                case 116:
-                    if (nextName.equals("t")) {
-                        c = 3;
-                        break;
-                    }
-                    break;
-                case 119:
-                    if (nextName.equals("w")) {
-                        c = 6;
-                        break;
-                    }
-                    break;
-                case 3447:
-                    if (nextName.equals(com.baidu.fsg.base.statistics.j.g)) {
-                        c = 7;
-                        break;
-                    }
-                    break;
-                case 3454:
-                    if (nextName.equals("lj")) {
-                        c = '\b';
-                        break;
-                    }
-                    break;
-                case 3487:
-                    if (nextName.equals("ml")) {
-                        c = '\t';
-                        break;
-                    }
-                    break;
-                case 3519:
-                    if (nextName.equals("nm")) {
-                        c = 0;
-                        break;
-                    }
-                    break;
+            int hashCode = nextName.hashCode();
+            com.ksad.lottie.model.a.b bVar3 = bVar2;
+            float f3 = f2;
+            if (hashCode == 100) {
+                if (nextName.equals("d")) {
+                    c2 = '\n';
+                }
+                c2 = 65535;
+            } else if (hashCode == 101) {
+                if (nextName.equals("e")) {
+                    c2 = 5;
+                }
+                c2 = 65535;
+            } else if (hashCode == 103) {
+                if (nextName.equals("g")) {
+                    c2 = 1;
+                }
+                c2 = 65535;
+            } else if (hashCode == 111) {
+                if (nextName.equals(Config.OS)) {
+                    c2 = 2;
+                }
+                c2 = 65535;
+            } else if (hashCode == 119) {
+                if (nextName.equals("w")) {
+                    c2 = 6;
+                }
+                c2 = 65535;
+            } else if (hashCode == 3447) {
+                if (nextName.equals("lc")) {
+                    c2 = 7;
+                }
+                c2 = 65535;
+            } else if (hashCode == 3454) {
+                if (nextName.equals("lj")) {
+                    c2 = '\b';
+                }
+                c2 = 65535;
+            } else if (hashCode == 3487) {
+                if (nextName.equals("ml")) {
+                    c2 = '\t';
+                }
+                c2 = 65535;
+            } else if (hashCode == 3519) {
+                if (nextName.equals(SearchView.IME_OPTION_NO_MICROPHONE)) {
+                    c2 = 0;
+                }
+                c2 = 65535;
+            } else if (hashCode != 115) {
+                if (hashCode == 116 && nextName.equals("t")) {
+                    c2 = 3;
+                }
+                c2 = 65535;
+            } else {
+                if (nextName.equals("s")) {
+                    c2 = 4;
+                }
+                c2 = 65535;
             }
-            switch (c) {
+            switch (c2) {
                 case 0:
+                    lineCapType = lineCapType2;
                     str = jsonReader.nextString();
                     break;
                 case 1:
-                    int i = -1;
+                    lineCapType = lineCapType2;
+                    lineJoinType = lineJoinType2;
                     jsonReader.beginObject();
+                    int i = -1;
                     while (jsonReader.hasNext()) {
                         String nextName2 = jsonReader.nextName();
-                        char c2 = 65535;
-                        switch (nextName2.hashCode()) {
-                            case 107:
-                                if (nextName2.equals("k")) {
-                                    c2 = 1;
-                                    break;
-                                }
-                                break;
-                            case 112:
-                                if (nextName2.equals("p")) {
-                                    c2 = 0;
-                                    break;
-                                }
-                                break;
+                        int hashCode2 = nextName2.hashCode();
+                        if (hashCode2 != 107) {
+                            if (hashCode2 == 112 && nextName2.equals("p")) {
+                                c3 = 0;
+                            }
+                            c3 = 65535;
+                        } else {
+                            if (nextName2.equals(Config.APP_KEY)) {
+                                c3 = 1;
+                            }
+                            c3 = 65535;
                         }
-                        switch (c2) {
-                            case 0:
-                                i = jsonReader.nextInt();
-                                break;
-                            case 1:
-                                cVar = d.a(jsonReader, dVar, i);
-                                break;
-                            default:
-                                jsonReader.skipValue();
-                                break;
+                        if (c3 == 0) {
+                            i = jsonReader.nextInt();
+                        } else if (c3 != 1) {
+                            jsonReader.skipValue();
+                        } else {
+                            cVar = d.a(jsonReader, dVar, i);
                         }
                     }
                     jsonReader.endObject();
+                    lineJoinType2 = lineJoinType;
                     break;
                 case 2:
+                    lineCapType = lineCapType2;
                     dVar2 = d.b(jsonReader, dVar);
                     break;
                 case 3:
-                    if (jsonReader.nextInt() != 1) {
-                        gradientType = GradientType.Radial;
-                        break;
-                    } else {
-                        gradientType = GradientType.Linear;
-                        break;
-                    }
+                    lineCapType = lineCapType2;
+                    lineJoinType = lineJoinType2;
+                    gradientType = jsonReader.nextInt() == 1 ? GradientType.Linear : GradientType.Radial;
+                    lineJoinType2 = lineJoinType;
+                    break;
                 case 4:
+                    lineCapType = lineCapType2;
                     fVar = d.c(jsonReader, dVar);
                     break;
                 case 5:
+                    lineCapType = lineCapType2;
                     fVar2 = d.c(jsonReader, dVar);
                     break;
                 case 6:
+                    lineCapType = lineCapType2;
                     bVar = d.a(jsonReader, dVar);
                     break;
                 case 7:
                     lineCapType = ShapeStroke.LineCapType.values()[jsonReader.nextInt() - 1];
-                    break;
+                    lineJoinType2 = lineJoinType2;
+                    f2 = f3;
+                    continue;
+                    bVar2 = bVar3;
+                    lineCapType2 = lineCapType;
                 case '\b':
-                    lineJoinType = ShapeStroke.LineJoinType.values()[jsonReader.nextInt() - 1];
+                    lineCapType = lineCapType2;
+                    lineJoinType2 = ShapeStroke.LineJoinType.values()[jsonReader.nextInt() - 1];
                     break;
                 case '\t':
-                    f = (float) jsonReader.nextDouble();
-                    break;
+                    lineCapType = lineCapType2;
+                    f2 = (float) jsonReader.nextDouble();
+                    lineJoinType2 = lineJoinType2;
+                    continue;
+                    bVar2 = bVar3;
+                    lineCapType2 = lineCapType;
                 case '\n':
                     jsonReader.beginArray();
                     while (jsonReader.hasNext()) {
-                        String str2 = null;
-                        com.ksad.lottie.model.a.b bVar3 = null;
                         jsonReader.beginObject();
+                        String str2 = null;
+                        com.ksad.lottie.model.a.b bVar4 = null;
                         while (jsonReader.hasNext()) {
                             String nextName3 = jsonReader.nextName();
-                            char c3 = 65535;
-                            switch (nextName3.hashCode()) {
-                                case 110:
-                                    if (nextName3.equals("n")) {
-                                        c3 = 0;
-                                        break;
-                                    }
-                                    break;
-                                case 118:
-                                    if (nextName3.equals("v")) {
-                                        c3 = 1;
-                                        break;
-                                    }
-                                    break;
+                            ShapeStroke.LineJoinType lineJoinType3 = lineJoinType2;
+                            int hashCode3 = nextName3.hashCode();
+                            ShapeStroke.LineCapType lineCapType3 = lineCapType2;
+                            if (hashCode3 != 110) {
+                                if (hashCode3 == 118 && nextName3.equals("v")) {
+                                    c4 = 1;
+                                }
+                                c4 = 65535;
+                            } else {
+                                if (nextName3.equals("n")) {
+                                    c4 = 0;
+                                }
+                                c4 = 65535;
                             }
-                            switch (c3) {
-                                case 0:
-                                    str2 = jsonReader.nextString();
-                                    break;
-                                case 1:
-                                    bVar3 = d.a(jsonReader, dVar);
-                                    break;
-                                default:
-                                    jsonReader.skipValue();
-                                    break;
+                            if (c4 == 0) {
+                                str2 = jsonReader.nextString();
+                            } else if (c4 != 1) {
+                                jsonReader.skipValue();
+                            } else {
+                                bVar4 = d.a(jsonReader, dVar);
                             }
+                            lineJoinType2 = lineJoinType3;
+                            lineCapType2 = lineCapType3;
                         }
+                        ShapeStroke.LineCapType lineCapType4 = lineCapType2;
+                        ShapeStroke.LineJoinType lineJoinType4 = lineJoinType2;
                         jsonReader.endObject();
                         if (str2.equals(Config.OS)) {
-                            bVar2 = bVar3;
-                        } else if (str2.equals("d") || str2.equals(IXAdRequestInfo.GPS)) {
-                            arrayList.add(bVar3);
+                            bVar3 = bVar4;
+                        } else if (str2.equals("d") || str2.equals("g")) {
+                            arrayList.add(bVar4);
                         }
+                        lineJoinType2 = lineJoinType4;
+                        lineCapType2 = lineCapType4;
                     }
+                    lineCapType = lineCapType2;
+                    lineJoinType = lineJoinType2;
                     jsonReader.endArray();
-                    if (arrayList.size() != 1) {
-                        break;
-                    } else {
+                    if (arrayList.size() == 1) {
                         arrayList.add(arrayList.get(0));
-                        break;
                     }
+                    lineJoinType2 = lineJoinType;
+                    break;
                 default:
+                    lineCapType = lineCapType2;
                     jsonReader.skipValue();
                     break;
             }
+            f2 = f3;
+            bVar2 = bVar3;
+            lineCapType2 = lineCapType;
         }
-        return new com.ksad.lottie.model.content.e(str, gradientType, cVar, dVar2, fVar, fVar2, bVar, lineCapType, lineJoinType, f, arrayList, bVar2);
+        return new com.ksad.lottie.model.content.e(str, gradientType, cVar, dVar2, fVar, fVar2, bVar, lineCapType2, lineJoinType2, f2, arrayList, bVar2);
     }
 }

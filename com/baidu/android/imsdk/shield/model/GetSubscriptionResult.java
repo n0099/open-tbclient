@@ -5,7 +5,7 @@ import android.os.Parcelable;
 import com.baidu.android.imsdk.utils.HttpHelper;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class GetSubscriptionResult extends HttpHelper.ResponseResult implements Parcelable {
     public static final Parcelable.Creator<GetSubscriptionResult> CREATOR = new Parcelable.Creator<GetSubscriptionResult>() { // from class: com.baidu.android.imsdk.shield.model.GetSubscriptionResult.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -23,31 +23,18 @@ public class GetSubscriptionResult extends HttpHelper.ResponseResult implements 
         }
     };
     public static final String TAG = "GetSubscriptionResult";
-    private String mPaAvatar;
-    private String mPaNickName;
-    private long mPauid;
-    private List<SubscriptionInfo> mSubscriptionList;
+    public String mPaAvatar;
+    public String mPaNickName;
+    public long mPauid;
+    public List<SubscriptionInfo> mSubscriptionList;
 
     public GetSubscriptionResult() {
         this.mSubscriptionList = new ArrayList();
     }
 
-    protected GetSubscriptionResult(Parcel parcel) {
-        this.mErrorCode = parcel.readInt();
-        this.mErrorMsg = parcel.readString();
-        this.mSubscriptionList = new ArrayList();
-        parcel.readList(this.mSubscriptionList, SubscriptionInfo.class.getClassLoader());
-        this.mPauid = parcel.readLong();
-        this.mPaAvatar = parcel.readString();
-        this.mPaNickName = parcel.readString();
-    }
-
-    public List<SubscriptionInfo> getSubscriptionList() {
-        return this.mSubscriptionList;
-    }
-
-    public long getPauid() {
-        return this.mPauid;
+    @Override // android.os.Parcelable
+    public int describeContents() {
+        return 0;
     }
 
     public String getPaAvatar() {
@@ -58,8 +45,12 @@ public class GetSubscriptionResult extends HttpHelper.ResponseResult implements 
         return this.mPaNickName;
     }
 
-    public void setPauid(long j) {
-        this.mPauid = j;
+    public long getPauid() {
+        return this.mPauid;
+    }
+
+    public List<SubscriptionInfo> getSubscriptionList() {
+        return this.mSubscriptionList;
     }
 
     public void setPaAvatar(String str) {
@@ -70,14 +61,13 @@ public class GetSubscriptionResult extends HttpHelper.ResponseResult implements 
         this.mPaNickName = str;
     }
 
+    public void setPauid(long j) {
+        this.mPauid = j;
+    }
+
     public void setSubscriptionList(List<SubscriptionInfo> list) {
         this.mSubscriptionList.clear();
         this.mSubscriptionList.addAll(list);
-    }
-
-    @Override // android.os.Parcelable
-    public int describeContents() {
-        return 0;
     }
 
     @Override // android.os.Parcelable
@@ -90,7 +80,18 @@ public class GetSubscriptionResult extends HttpHelper.ResponseResult implements 
         parcel.writeString(this.mPaNickName);
     }
 
-    /* loaded from: classes3.dex */
+    public GetSubscriptionResult(Parcel parcel) {
+        this.mErrorCode = parcel.readInt();
+        this.mErrorMsg = parcel.readString();
+        ArrayList arrayList = new ArrayList();
+        this.mSubscriptionList = arrayList;
+        parcel.readList(arrayList, SubscriptionInfo.class.getClassLoader());
+        this.mPauid = parcel.readLong();
+        this.mPaAvatar = parcel.readString();
+        this.mPaNickName = parcel.readString();
+    }
+
+    /* loaded from: classes2.dex */
     public static class SubscriptionInfo implements Parcelable {
         public static final Parcelable.Creator<SubscriptionInfo> CREATOR = new Parcelable.Creator<SubscriptionInfo>() { // from class: com.baidu.android.imsdk.shield.model.GetSubscriptionResult.SubscriptionInfo.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -107,12 +108,12 @@ public class GetSubscriptionResult extends HttpHelper.ResponseResult implements 
                 return new SubscriptionInfo[i];
             }
         };
-        private static final String TAG = "SubscriptionInfo";
-        private String mDescription;
-        private String mMiNiTopicId;
-        private int mStatus;
-        private long mTopicId;
-        private String mTopicName;
+        public static final String TAG = "SubscriptionInfo";
+        public String mDescription;
+        public String mMiNiTopicId;
+        public int mStatus;
+        public long mTopicId;
+        public String mTopicName;
 
         public SubscriptionInfo(long j, String str, String str2, int i) {
             this.mTopicName = "";
@@ -123,64 +124,49 @@ public class GetSubscriptionResult extends HttpHelper.ResponseResult implements 
             this.mStatus = i;
         }
 
-        public SubscriptionInfo() {
-            this.mTopicName = "";
-            this.mDescription = "";
-        }
-
-        protected SubscriptionInfo(Parcel parcel) {
-            this.mTopicName = "";
-            this.mDescription = "";
-            this.mTopicId = parcel.readLong();
-            this.mMiNiTopicId = parcel.readString();
-            this.mTopicName = parcel.readString();
-            this.mDescription = parcel.readString();
-            this.mStatus = parcel.readInt();
-        }
-
-        public long getTopicId() {
-            return this.mTopicId;
-        }
-
-        public String getMiNiTopicId() {
-            return this.mMiNiTopicId;
-        }
-
-        public String getTopicName() {
-            return this.mTopicName;
+        @Override // android.os.Parcelable
+        public int describeContents() {
+            return 0;
         }
 
         public String getDescription() {
             return this.mDescription;
         }
 
+        public String getMiNiTopicId() {
+            return this.mMiNiTopicId;
+        }
+
         public int getStatus() {
             return this.mStatus;
         }
 
-        public void setTopicId(long j) {
-            this.mTopicId = j;
+        public long getTopicId() {
+            return this.mTopicId;
         }
 
-        public void setMiNiTopicId(String str) {
-            this.mMiNiTopicId = str;
-        }
-
-        public void setTopicName(String str) {
-            this.mTopicName = str;
+        public String getTopicName() {
+            return this.mTopicName;
         }
 
         public void setDescription(String str) {
             this.mDescription = str;
         }
 
+        public void setMiNiTopicId(String str) {
+            this.mMiNiTopicId = str;
+        }
+
         public void setStatus(int i) {
             this.mStatus = i;
         }
 
-        @Override // android.os.Parcelable
-        public int describeContents() {
-            return 0;
+        public void setTopicId(long j) {
+            this.mTopicId = j;
+        }
+
+        public void setTopicName(String str) {
+            this.mTopicName = str;
         }
 
         @Override // android.os.Parcelable
@@ -190,6 +176,21 @@ public class GetSubscriptionResult extends HttpHelper.ResponseResult implements 
             parcel.writeString(this.mTopicName);
             parcel.writeString(this.mDescription);
             parcel.writeInt(this.mStatus);
+        }
+
+        public SubscriptionInfo() {
+            this.mTopicName = "";
+            this.mDescription = "";
+        }
+
+        public SubscriptionInfo(Parcel parcel) {
+            this.mTopicName = "";
+            this.mDescription = "";
+            this.mTopicId = parcel.readLong();
+            this.mMiNiTopicId = parcel.readString();
+            this.mTopicName = parcel.readString();
+            this.mDescription = parcel.readString();
+            this.mStatus = parcel.readInt();
         }
     }
 }

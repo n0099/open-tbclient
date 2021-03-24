@@ -2,12 +2,12 @@ package com.baidu.webkit.sdk;
 
 import android.graphics.Bitmap;
 @Deprecated
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class WebIconDatabase {
-    private static final WebIconDatabase mInstance = new WebIconDatabase();
+    public static final WebIconDatabase mInstance = new WebIconDatabase();
 
     @Deprecated
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public interface IconListener {
         void onReceivedIcon(String str, Bitmap bitmap);
     }

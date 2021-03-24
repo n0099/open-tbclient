@@ -3,19 +3,29 @@ package com.baidu.tieba.barselect.data;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.squareup.wire.Wire;
+import d.b.i0.v.b.d;
+import d.b.i0.v.b.e;
+import d.b.i0.v.b.f;
 import java.util.ArrayList;
+import tbclient.ElectionInfo.Basic;
 import tbclient.ElectionInfo.ElectionInfoResIdl;
 import tbclient.ElectionList;
-/* loaded from: classes7.dex */
+import tbclient.ManagerElection;
+import tbclient.Myrecord;
+/* loaded from: classes4.dex */
 public class VoteElectionHttpResMessage extends TbHttpResponsedMessage {
-    private f mVoteData;
+    public f mVoteData;
 
     public VoteElectionHttpResMessage() {
         super(CmdConfigHttp.CMD_BAR_ELECTION);
     }
 
+    public f getVoteData() {
+        return this.mVoteData;
+    }
+
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tbadk.message.http.TbHttpResponsedMessage, com.baidu.adp.framework.message.a
+    @Override // com.baidu.tbadk.message.http.TbHttpResponsedMessage, com.baidu.adp.framework.message.HttpResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
     public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         ElectionInfoResIdl electionInfoResIdl = (ElectionInfoResIdl) new Wire(new Class[0]).parseFrom(bArr, ElectionInfoResIdl.class);
         if (electionInfoResIdl != null) {
@@ -28,27 +38,27 @@ public class VoteElectionHttpResMessage extends TbHttpResponsedMessage {
                 if (electionInfoResIdl.data.election_list != null) {
                     ArrayList<d> arrayList = new ArrayList<>();
                     for (ElectionList electionList : electionInfoResIdl.data.election_list) {
-                        arrayList.add(d.a(electionList));
+                        arrayList.add(d.o(electionList));
                     }
-                    this.mVoteData.aj(arrayList);
+                    this.mVoteData.h(arrayList);
                 }
-                if (electionInfoResIdl.data.basic != null) {
-                    this.mVoteData.a(e.a(electionInfoResIdl.data.basic));
+                Basic basic = electionInfoResIdl.data.basic;
+                if (basic != null) {
+                    this.mVoteData.m(e.i(basic));
                 }
-                if (electionInfoResIdl.data.my_record != null) {
-                    this.mVoteData.a(d.a(electionInfoResIdl.data.my_record));
+                Myrecord myrecord = electionInfoResIdl.data.my_record;
+                if (myrecord != null) {
+                    this.mVoteData.n(d.p(myrecord));
                 }
-                if (electionInfoResIdl.data.has_more != null) {
-                    this.mVoteData.setHasMore(electionInfoResIdl.data.has_more.intValue() == 1);
+                Integer num = electionInfoResIdl.data.has_more;
+                if (num != null) {
+                    this.mVoteData.j(num.intValue() == 1);
                 }
-                if (electionInfoResIdl.data.vote_limit != null) {
-                    this.mVoteData.a(electionInfoResIdl.data.vote_limit);
+                ManagerElection managerElection = electionInfoResIdl.data.vote_limit;
+                if (managerElection != null) {
+                    this.mVoteData.k(managerElection);
                 }
             }
         }
-    }
-
-    public f getVoteData() {
-        return this.mVoteData;
     }
 }

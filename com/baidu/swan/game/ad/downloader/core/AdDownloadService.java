@@ -7,44 +7,37 @@ import android.os.IBinder;
 import android.util.Log;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.swan.game.ad.downloader.model.DownloadInfo;
-/* loaded from: classes5.dex */
+import d.b.g0.a.k;
+import d.b.g0.e.a.l.i.c;
+/* loaded from: classes3.dex */
 public class AdDownloadService extends Service {
-    private a mBinder = new a();
-    private com.baidu.swan.game.ad.downloader.c.c mDownloadManager;
+    public a mBinder = new a();
+    public c mDownloadManager;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class a extends Binder {
         public a() {
         }
 
         public void a(DownloadInfo downloadInfo) {
-            AdDownloadService.this.mDownloadManager.e(downloadInfo);
+            AdDownloadService.this.mDownloadManager.b(downloadInfo);
         }
 
-        public void b(DownloadInfo downloadInfo) {
-            AdDownloadService.this.mDownloadManager.g(downloadInfo);
+        public DownloadInfo b(String str) {
+            return AdDownloadService.this.mDownloadManager.g(str);
         }
 
         public void c(DownloadInfo downloadInfo) {
-            AdDownloadService.this.mDownloadManager.i(downloadInfo);
+            AdDownloadService.this.mDownloadManager.d(downloadInfo);
         }
 
         public void d(DownloadInfo downloadInfo) {
-            AdDownloadService.this.mDownloadManager.h(downloadInfo);
+            AdDownloadService.this.mDownloadManager.a(downloadInfo);
         }
 
-        public DownloadInfo vh(String str) {
-            return AdDownloadService.this.mDownloadManager.vh(str);
+        public void e(DownloadInfo downloadInfo) {
+            AdDownloadService.this.mDownloadManager.c(downloadInfo);
         }
-    }
-
-    @Override // android.app.Service
-    public void onCreate() {
-        if (com.baidu.swan.apps.b.DEBUG) {
-            Log.d("AdDownload", "service create");
-        }
-        this.mDownloadManager = com.baidu.swan.game.ad.downloader.core.a.a(AppRuntime.getAppContext(), null);
-        super.onCreate();
     }
 
     @Override // android.app.Service
@@ -53,9 +46,19 @@ public class AdDownloadService extends Service {
     }
 
     @Override // android.app.Service
+    public void onCreate() {
+        if (k.f45050a) {
+            Log.d("AdDownload", "service create");
+        }
+        this.mDownloadManager = d.b.g0.e.a.l.g.a.m(AppRuntime.getAppContext(), null);
+        super.onCreate();
+    }
+
+    @Override // android.app.Service
     public void onDestroy() {
-        if (this.mDownloadManager != null) {
-            this.mDownloadManager.destroy();
+        c cVar = this.mDownloadManager;
+        if (cVar != null) {
+            cVar.destroy();
             this.mDownloadManager = null;
         }
         super.onDestroy();

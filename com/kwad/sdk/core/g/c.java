@@ -4,7 +4,7 @@ import com.kwad.sdk.KsAdSDKImpl;
 import com.kwad.sdk.utils.ae;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class c extends com.kwad.sdk.core.network.d {
     public c() {
         JSONArray jSONArray = new JSONArray();
@@ -19,7 +19,7 @@ public class c extends com.kwad.sdk.core.network.d {
     }
 
     @Override // com.kwad.sdk.core.network.d
-    protected boolean g() {
+    public boolean g() {
         return true;
     }
 }

@@ -11,78 +11,84 @@ import java.lang.reflect.Type;
 import java.util.Locale;
 import java.util.Map;
 import java.util.TimeZone;
-/* loaded from: classes4.dex */
+/* loaded from: classes.dex */
 public class JSONReader implements Closeable {
-    private JSONStreamContext context;
-    private final DefaultJSONParser parser;
+    public JSONStreamContext context;
+    public final DefaultJSONParser parser;
 
     public JSONReader(Reader reader) {
         this(reader, new Feature[0]);
     }
 
-    public JSONReader(Reader reader, Feature... featureArr) {
-        this(new JSONReaderScanner(reader));
-        for (Feature feature : featureArr) {
-            config(feature, true);
+    private void endStructure() {
+        int i;
+        JSONStreamContext jSONStreamContext = this.context.parent;
+        this.context = jSONStreamContext;
+        if (jSONStreamContext == null) {
+            return;
+        }
+        switch (jSONStreamContext.state) {
+            case 1001:
+            case 1003:
+                i = 1002;
+                break;
+            case 1002:
+                i = 1003;
+                break;
+            case 1004:
+                i = 1005;
+                break;
+            default:
+                i = -1;
+                break;
+        }
+        if (i != -1) {
+            this.context.state = i;
         }
     }
 
-    public JSONReader(JSONLexer jSONLexer) {
-        this(new DefaultJSONParser(jSONLexer));
-    }
-
-    public JSONReader(DefaultJSONParser defaultJSONParser) {
-        this.parser = defaultJSONParser;
-    }
-
-    public void setTimzeZone(TimeZone timeZone) {
-        this.parser.lexer.setTimeZone(timeZone);
-    }
-
-    public void setLocale(Locale locale) {
-        this.parser.lexer.setLocale(locale);
-    }
-
-    public void config(Feature feature, boolean z) {
-        this.parser.config(feature, z);
-    }
-
-    public Locale getLocal() {
-        return this.parser.lexer.getLocale();
-    }
-
-    public TimeZone getTimzeZone() {
-        return this.parser.lexer.getTimeZone();
-    }
-
-    public void startObject() {
-        if (this.context == null) {
-            this.context = new JSONStreamContext(null, 1001);
-        } else {
-            startStructure();
-            this.context = new JSONStreamContext(this.context, 1001);
+    private void readAfter() {
+        int i = this.context.state;
+        int i2 = 1002;
+        switch (i) {
+            case 1001:
+            case 1003:
+                break;
+            case 1002:
+                i2 = 1003;
+                break;
+            case 1004:
+                i2 = 1005;
+                break;
+            case 1005:
+                i2 = -1;
+                break;
+            default:
+                throw new JSONException("illegal state : " + i);
         }
-        this.parser.accept(12, 18);
-    }
-
-    public void endObject() {
-        this.parser.accept(13);
-        endStructure();
-    }
-
-    public void startArray() {
-        if (this.context == null) {
-            this.context = new JSONStreamContext(null, 1004);
-        } else {
-            startStructure();
-            this.context = new JSONStreamContext(this.context, 1004);
+        if (i2 != -1) {
+            this.context.state = i2;
         }
-        this.parser.accept(14);
     }
 
-    public void endArray() {
-        this.parser.accept(15);
-        endStructure();
+    private void readBefore() {
+        int i = this.context.state;
+        switch (i) {
+            case 1001:
+            case 1004:
+                return;
+            case 1002:
+                this.parser.accept(17);
+                return;
+            case 1003:
+                this.parser.accept(16, 18);
+                return;
+            case 1005:
+                this.parser.accept(16);
+                return;
+            default:
+                throw new JSONException("illegal state : " + i);
+        }
     }
 
     private void startStructure() {
@@ -102,57 +108,54 @@ public class JSONReader implements Closeable {
         }
     }
 
-    private void endStructure() {
-        int i;
-        this.context = this.context.parent;
-        if (this.context != null) {
-            switch (this.context.state) {
-                case 1001:
-                case 1003:
-                    i = 1002;
-                    break;
-                case 1002:
-                    i = 1003;
-                    break;
-                case 1004:
-                    i = 1005;
-                    break;
-                default:
-                    i = -1;
-                    break;
-            }
-            if (i != -1) {
-                this.context.state = i;
-            }
-        }
+    @Override // java.io.Closeable, java.lang.AutoCloseable
+    public void close() {
+        this.parser.close();
+    }
+
+    public void config(Feature feature, boolean z) {
+        this.parser.config(feature, z);
+    }
+
+    public void endArray() {
+        this.parser.accept(15);
+        endStructure();
+    }
+
+    public void endObject() {
+        this.parser.accept(13);
+        endStructure();
+    }
+
+    public Locale getLocal() {
+        return this.parser.lexer.getLocale();
+    }
+
+    public TimeZone getTimzeZone() {
+        return this.parser.lexer.getTimeZone();
     }
 
     public boolean hasNext() {
-        if (this.context == null) {
-            throw new JSONException("context is null");
+        if (this.context != null) {
+            int i = this.parser.lexer.token();
+            int i2 = this.context.state;
+            switch (i2) {
+                case 1001:
+                case 1003:
+                    return i != 13;
+                case 1002:
+                default:
+                    throw new JSONException("illegal state : " + i2);
+                case 1004:
+                case 1005:
+                    return i != 15;
+            }
         }
-        int i = this.parser.lexer.token();
-        int i2 = this.context.state;
-        switch (i2) {
-            case 1001:
-            case 1003:
-                return i != 13;
-            case 1002:
-            default:
-                throw new JSONException("illegal state : " + i2);
-            case 1004:
-            case 1005:
-                return i != 15;
-        }
+        throw new JSONException("context is null");
     }
 
     public int peek() {
         return this.parser.lexer.token();
-    }
-
-    @Override // java.io.Closeable, java.lang.AutoCloseable
-    public void close() {
-        this.parser.close();
     }
 
     public Integer readInteger() {
@@ -179,6 +182,10 @@ public class JSONReader implements Closeable {
         return TypeUtils.castToLong(parse);
     }
 
+    public <T> T readObject(TypeReference<T> typeReference) {
+        return (T) readObject(typeReference.getType());
+    }
+
     public String readString() {
         Object parse;
         if (this.context == null) {
@@ -187,8 +194,9 @@ public class JSONReader implements Closeable {
             readBefore();
             JSONLexer jSONLexer = this.parser.lexer;
             if (this.context.state == 1001 && jSONLexer.token() == 18) {
-                parse = jSONLexer.stringVal();
+                String stringVal = jSONLexer.stringVal();
                 jSONLexer.nextToken();
+                parse = stringVal;
             } else {
                 parse = this.parser.parse();
             }
@@ -197,8 +205,39 @@ public class JSONReader implements Closeable {
         return TypeUtils.castToString(parse);
     }
 
-    public <T> T readObject(TypeReference<T> typeReference) {
-        return (T) readObject(typeReference.getType());
+    public void setLocale(Locale locale) {
+        this.parser.lexer.setLocale(locale);
+    }
+
+    public void setTimzeZone(TimeZone timeZone) {
+        this.parser.lexer.setTimeZone(timeZone);
+    }
+
+    public void startArray() {
+        if (this.context == null) {
+            this.context = new JSONStreamContext(null, 1004);
+        } else {
+            startStructure();
+            this.context = new JSONStreamContext(this.context, 1004);
+        }
+        this.parser.accept(14);
+    }
+
+    public void startObject() {
+        if (this.context == null) {
+            this.context = new JSONStreamContext(null, 1001);
+        } else {
+            startStructure();
+            this.context = new JSONStreamContext(this.context, 1001);
+        }
+        this.parser.accept(12, 18);
+    }
+
+    public JSONReader(Reader reader, Feature... featureArr) {
+        this(new JSONReaderScanner(reader));
+        for (Feature feature : featureArr) {
+            config(feature, true);
+        }
     }
 
     public <T> T readObject(Type type) {
@@ -209,6 +248,14 @@ public class JSONReader implements Closeable {
         T t = (T) this.parser.parseObject(type);
         readAfter();
         return t;
+    }
+
+    public JSONReader(JSONLexer jSONLexer) {
+        this(new DefaultJSONParser(jSONLexer));
+    }
+
+    public JSONReader(DefaultJSONParser defaultJSONParser) {
+        this.parser = defaultJSONParser;
     }
 
     public <T> T readObject(Class<T> cls) {
@@ -237,15 +284,11 @@ public class JSONReader implements Closeable {
             return this.parser.parse();
         }
         readBefore();
-        switch (this.context.state) {
-            case 1001:
-            case 1003:
-                parseKey = this.parser.parseKey();
-                break;
-            case 1002:
-            default:
-                parseKey = this.parser.parse();
-                break;
+        int i = this.context.state;
+        if (i != 1001 && i != 1003) {
+            parseKey = this.parser.parse();
+        } else {
+            parseKey = this.parser.parseKey();
         }
         readAfter();
         return parseKey;
@@ -259,49 +302,5 @@ public class JSONReader implements Closeable {
         Object parseObject = this.parser.parseObject(map);
         readAfter();
         return parseObject;
-    }
-
-    private void readBefore() {
-        int i = this.context.state;
-        switch (i) {
-            case 1001:
-            case 1004:
-                return;
-            case 1002:
-                this.parser.accept(17);
-                return;
-            case 1003:
-                this.parser.accept(16, 18);
-                return;
-            case 1005:
-                this.parser.accept(16);
-                return;
-            default:
-                throw new JSONException("illegal state : " + i);
-        }
-    }
-
-    private void readAfter() {
-        int i = 1002;
-        int i2 = this.context.state;
-        switch (i2) {
-            case 1001:
-            case 1003:
-                break;
-            case 1002:
-                i = 1003;
-                break;
-            case 1004:
-                i = 1005;
-                break;
-            case 1005:
-                i = -1;
-                break;
-            default:
-                throw new JSONException("illegal state : " + i2);
-        }
-        if (i != -1) {
-            this.context.state = i;
-        }
     }
 }

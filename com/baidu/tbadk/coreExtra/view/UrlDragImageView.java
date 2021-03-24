@@ -24,504 +24,757 @@ import android.view.animation.Animation;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import com.baidu.adp.base.f;
-import com.baidu.adp.lib.e.d;
-import com.baidu.adp.lib.f.e;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.adp.lib.util.j;
-import com.baidu.adp.lib.util.l;
-import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
-import com.baidu.mobstat.Config;
-import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.tbadk.core.dialog.BdToast;
-import com.baidu.tbadk.core.dialog.a;
+import com.baidu.tbadk.core.util.FileHelper;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.StorageFile;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.core.util.TbMd5;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.ar;
-import com.baidu.tbadk.core.util.at;
-import com.baidu.tbadk.core.util.au;
-import com.baidu.tbadk.core.util.aw;
-import com.baidu.tbadk.core.util.o;
+import com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc;
+import com.baidu.tbadk.core.util.resourceLoaderProc.BigImageLoaderProc;
 import com.baidu.tbadk.download.DownloadData;
 import com.baidu.tbadk.img.ImageFileInfo;
-import com.baidu.tbadk.util.h;
 import com.baidu.tbadk.widget.DragImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.compatible.CompatibleUtile;
 import com.davemorrissey.labs.subscaleview.ImageSource;
 import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
+import d.b.h0.r.s.a;
 import java.io.File;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class UrlDragImageView extends RelativeLayout {
-    private boolean fAa;
-    private boolean fAb;
-    private boolean fAc;
-    public boolean fAd;
-    private com.baidu.tbadk.img.b fAe;
-    private View.OnTouchListener fAf;
-    private boolean fAg;
-    private float fAh;
-    private String fAi;
-    private CircleProgressView fAj;
-    private boolean fAk;
-    private boolean fAl;
-    private Runnable fAm;
-    private Runnable fAn;
-    private View.OnTouchListener fAo;
-    private ImageUrlData fxh;
-    private b fyb;
-    private boolean fyi;
-    private boolean fyk;
-    protected DragImageView fzE;
-    protected TextView fzF;
-    protected SubsamplingScaleImageView fzG;
-    private SubsamplingScaleImageView.OnImageEventListener fzH;
-    private a fzI;
-    private boolean fzJ;
-    private boolean fzK;
-    private boolean fzL;
-    private boolean fzM;
-    private boolean fzN;
-    private Bitmap fzO;
-    private RectF fzP;
-    private Rect fzQ;
-    private Rect fzR;
-    private Rect fzS;
-    private DragImageView.d fzT;
-    private String fzU;
-    private float fzV;
-    private float fzW;
-    private float fzX;
-    private float fzY;
-    private float fzZ;
-    private boolean isInDragScaleMode;
-    protected Context mContext;
-    private Rect mDisplayRect;
-    private final Matrix mDragMatrix;
-    private RectF mDstRect;
-    private float mLastMotionX;
-    private float mLastMotionY;
-    private View.OnLongClickListener mLongClickListener;
-    private int mMaxHeight;
-    private int mMaxWidth;
-    private float mMoveDistance;
-    private View.OnClickListener mOnClickListener;
-    protected ProgressBar mProgressBar;
-    private float mRatio;
-    private int mSkinType;
-    private String mUserId;
-    private static final String fzC = TbadkCoreApplication.getInst().getString(R.string.original_img_look);
-    private static long fzD = Config.RAVEN_LOG_LIMIT;
-    private static final int EXIT_DISTANCE = l.getEquipmentHeight(TbadkCoreApplication.getInst()) / 5;
-    private static final String TAG = UrlDragImageView.class.getSimpleName();
-    private static final int TOUCH_SLOP = ViewConfiguration.get(TbadkCoreApplication.getInst()).getScaledTouchSlop();
+    public static final String l0 = TbadkCoreApplication.getInst().getString(R.string.original_img_look);
+    public static long m0 = 52428800;
+    public static final int n0 = d.b.b.e.p.l.i(TbadkCoreApplication.getInst()) / 5;
+    public static final int o0 = ViewConfiguration.get(TbadkCoreApplication.getInst()).getScaledTouchSlop();
+    public Rect A;
+    public RectF B;
+    public RectF C;
+    public Rect D;
+    public Rect E;
+    public Rect F;
+    public DragImageView.h G;
+    public String H;
+    public float I;
+    public float J;
+    public float K;
+    public float L;
+    public float M;
+    public ImageUrlData N;
+    public boolean O;
+    public boolean P;
+    public boolean Q;
+    public d.b.h0.b0.b R;
+    public int S;
+    public int T;
+    public p U;
+    public View.OnTouchListener V;
+    public boolean W;
+    public float a0;
+    public View.OnClickListener b0;
+    public View.OnLongClickListener c0;
+    public String d0;
 
-    /* loaded from: classes.dex */
-    public interface a {
-        void k(String str, byte[] bArr);
-    }
+    /* renamed from: e  reason: collision with root package name */
+    public int f13781e;
+    public String e0;
 
-    /* loaded from: classes.dex */
-    public interface b {
-        void bzX();
-    }
+    /* renamed from: f  reason: collision with root package name */
+    public Context f13782f;
+    public CircleProgressView f0;
 
-    public void setUserId(String str) {
-        this.mUserId = str;
-    }
+    /* renamed from: g  reason: collision with root package name */
+    public ProgressBar f13783g;
+    public boolean g0;
 
-    public String getUserId() {
-        return this.mUserId;
-    }
+    /* renamed from: h  reason: collision with root package name */
+    public DragImageView f13784h;
+    public boolean h0;
+    public TextView i;
+    public Runnable i0;
+    public SubsamplingScaleImageView j;
+    public Runnable j0;
+    public SubsamplingScaleImageView.OnImageEventListener k;
+    public View.OnTouchListener k0;
+    public o l;
+    public boolean m;
+    public boolean n;
+    public boolean o;
+    public boolean p;
+    public boolean q;
+    public float r;
+    public float s;
+    public boolean t;
+    public boolean u;
+    public Bitmap v;
+    public boolean w;
+    public float x;
+    public float y;
+    public final Matrix z;
 
-    public void onChangeSkinType(int i) {
-        if (this.mSkinType != i) {
-            this.mSkinType = i;
+    /* loaded from: classes3.dex */
+    public class a implements d.b.h0.a0.b {
+        public a() {
+        }
+
+        @Override // d.b.h0.a0.b
+        public void a(d.b.b.j.d.a aVar, String str, boolean z) {
+            UrlDragImageView.this.o = true;
+            UrlDragImageView.this.f13783g.setVisibility(8);
+            UrlDragImageView.this.d0 = null;
+            UrlDragImageView.this.M(aVar);
         }
     }
 
-    public void setHeadImage(boolean z) {
-        if (this.fzE != null) {
-            this.fzE.setIsHeadImage(z);
+    /* loaded from: classes3.dex */
+    public class b implements d.b.h0.b1.i.b.a {
+        public b() {
+        }
+
+        @Override // d.b.h0.b1.i.b.a
+        public void onLoadFinished() {
+            UrlDragImageView.this.f13783g.setVisibility(8);
+            UrlDragImageView.this.d0 = null;
         }
     }
 
-    public void setCallback(a aVar) {
-        this.fzI = aVar;
+    /* loaded from: classes3.dex */
+    public class c implements a.e {
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ d.b.h0.r.s.a f13787e;
+
+        /* renamed from: f  reason: collision with root package name */
+        public final /* synthetic */ String f13788f;
+
+        public c(d.b.h0.r.s.a aVar, String str) {
+            this.f13787e = aVar;
+            this.f13788f = str;
+        }
+
+        @Override // d.b.h0.r.s.a.e
+        public void onClick(d.b.h0.r.s.a aVar) {
+            this.f13787e.dismiss();
+            UrlDragImageView.this.c0(this.f13788f);
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class d implements a.e {
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ d.b.h0.r.s.a f13790e;
+
+        public d(d.b.h0.r.s.a aVar) {
+            this.f13790e = aVar;
+        }
+
+        @Override // d.b.h0.r.s.a.e
+        public void onClick(d.b.h0.r.s.a aVar) {
+            this.f13790e.dismiss();
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class e implements d.b.h0.v.c {
+        public e() {
+        }
+
+        @Override // d.b.h0.v.c
+        public void onFileDownloadFailed(DownloadData downloadData, int i, String str) {
+            UrlDragImageView.this.f0.setVisibility(8);
+            UrlDragImageView.this.P = false;
+            BdToast c2 = BdToast.c(UrlDragImageView.this.f13782f, str);
+            c2.a();
+            c2.q();
+            UrlDragImageView.this.N.originalProcess = -1;
+            UrlDragImageView.this.b0();
+        }
+
+        @Override // d.b.h0.v.c
+        public void onFileDownloadSucceed(DownloadData downloadData) {
+            UrlDragImageView.this.f0.setVisibility(8);
+            d.b.b.e.m.e.a().postDelayed(UrlDragImageView.this.j0, 1500L);
+            UrlDragImageView.this.P = false;
+            UrlDragImageView urlDragImageView = UrlDragImageView.this;
+            urlDragImageView.O = urlDragImageView.E();
+            UrlDragImageView.this.F();
+        }
+
+        @Override // d.b.h0.v.c
+        public boolean onFileDownloaded(DownloadData downloadData) {
+            return true;
+        }
+
+        @Override // d.b.h0.v.c
+        public void onFileUpdateProgress(DownloadData downloadData) {
+            if (downloadData == null) {
+                return;
+            }
+            if (UrlDragImageView.this.N != null && UrlDragImageView.this.N.originalProcess != -1) {
+                UrlDragImageView.this.N.originalProcess = downloadData.getProcess();
+            }
+            if (UrlDragImageView.this.N == null || UrlDragImageView.this.N.originalProcess != -1) {
+                UrlDragImageView.this.f0.setProgress(downloadData.getProcess());
+            }
+        }
+
+        @Override // d.b.h0.v.c
+        public boolean onPreDownload(DownloadData downloadData) {
+            return true;
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class f implements Runnable {
+        public f() {
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            UrlDragImageView.this.W = true;
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class g implements Runnable {
+
+        /* loaded from: classes3.dex */
+        public class a implements Animation.AnimationListener {
+            public a() {
+            }
+
+            @Override // android.view.animation.Animation.AnimationListener
+            public void onAnimationEnd(Animation animation) {
+                UrlDragImageView.this.f0.setVisibility(8);
+                UrlDragImageView.this.d0 = null;
+                UrlDragImageView.this.Q = false;
+            }
+
+            @Override // android.view.animation.Animation.AnimationListener
+            public void onAnimationRepeat(Animation animation) {
+            }
+
+            @Override // android.view.animation.Animation.AnimationListener
+            public void onAnimationStart(Animation animation) {
+            }
+        }
+
+        public g() {
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            AlphaAnimation alphaAnimation = new AlphaAnimation(1.0f, 0.0f);
+            alphaAnimation.setDuration(200L);
+            alphaAnimation.setAnimationListener(new a());
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class h implements DragImageView.k {
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ DragImageView.k f13796a;
+
+        public h(DragImageView.k kVar) {
+            this.f13796a = kVar;
+        }
+
+        @Override // com.baidu.tbadk.widget.DragImageView.k
+        public void a(DragImageView dragImageView, boolean z, boolean z2) {
+            DragImageView.k kVar = this.f13796a;
+            if (kVar != null) {
+                kVar.a(dragImageView, z, z2);
+            }
+            UrlDragImageView.this.a0();
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class i implements ValueAnimator.AnimatorUpdateListener {
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ Rect f13798e;
+
+        /* renamed from: f  reason: collision with root package name */
+        public final /* synthetic */ Rect f13799f;
+
+        public i(Rect rect, Rect rect2) {
+            this.f13798e = rect;
+            this.f13799f = rect2;
+        }
+
+        @Override // android.animation.ValueAnimator.AnimatorUpdateListener
+        public void onAnimationUpdate(ValueAnimator valueAnimator) {
+            if (valueAnimator == null || this.f13798e == null || this.f13799f == null) {
+                return;
+            }
+            UrlDragImageView.this.A(valueAnimator.getAnimatedFraction());
+            UrlDragImageView.this.B(this.f13799f, valueAnimator.getAnimatedFraction(), UrlDragImageView.this.h0);
+            UrlDragImageView.this.invalidate();
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class j implements Animator.AnimatorListener {
+        public j() {
+        }
+
+        @Override // android.animation.Animator.AnimatorListener
+        public void onAnimationCancel(Animator animator) {
+        }
+
+        @Override // android.animation.Animator.AnimatorListener
+        public void onAnimationEnd(Animator animator) {
+            UrlDragImageView.this.w = false;
+            UrlDragImageView.this.invalidate();
+            if (UrlDragImageView.this.G != null) {
+                UrlDragImageView.this.G.a();
+            }
+        }
+
+        @Override // android.animation.Animator.AnimatorListener
+        public void onAnimationRepeat(Animator animator) {
+        }
+
+        @Override // android.animation.Animator.AnimatorListener
+        public void onAnimationStart(Animator animator) {
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class k implements View.OnTouchListener {
+        public k() {
+        }
+
+        @Override // android.view.View.OnTouchListener
+        public boolean onTouch(View view, MotionEvent motionEvent) {
+            if (UrlDragImageView.this.V != null) {
+                UrlDragImageView.this.V.onTouch(view, motionEvent);
+                return false;
+            }
+            return false;
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class l implements SubsamplingScaleImageView.OnImageEventListener {
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ int[] f13803a;
+
+        /* loaded from: classes3.dex */
+        public class a implements View.OnTouchListener {
+
+            /* renamed from: e  reason: collision with root package name */
+            public final /* synthetic */ float f13805e;
+
+            /* renamed from: f  reason: collision with root package name */
+            public final /* synthetic */ PointF f13806f;
+
+            public a(float f2, PointF pointF) {
+                this.f13805e = f2;
+                this.f13806f = pointF;
+            }
+
+            /* JADX WARN: Code restructure failed: missing block: B:12:0x0029, code lost:
+                if (r4 != 3) goto L12;
+             */
+            @Override // android.view.View.OnTouchListener
+            /*
+                Code decompiled incorrectly, please refer to instructions dump.
+            */
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                if (UrlDragImageView.this.V != null) {
+                    UrlDragImageView.this.V.onTouch(view, motionEvent);
+                }
+                int action = motionEvent.getAction() & CompatibleUtile.getActionMask();
+                if (action == 0) {
+                    UrlDragImageView.this.a0 = motionEvent.getY();
+                    UrlDragImageView urlDragImageView = UrlDragImageView.this;
+                    urlDragImageView.j.setOnClickListener(urlDragImageView.W ? UrlDragImageView.this.b0 : null);
+                    UrlDragImageView urlDragImageView2 = UrlDragImageView.this;
+                    urlDragImageView2.j.setOnLongClickListener(urlDragImageView2.W ? UrlDragImageView.this.c0 : null);
+                } else {
+                    if (action != 1) {
+                        if (action == 2) {
+                            if (Math.abs(motionEvent.getY() - UrlDragImageView.this.a0) > UrlDragImageView.o0) {
+                                UrlDragImageView.this.W = false;
+                                UrlDragImageView.this.j.setOnClickListener(null);
+                                UrlDragImageView.this.j.setOnLongClickListener(null);
+                            }
+                            UrlDragImageView.this.a0 = motionEvent.getY();
+                        }
+                    }
+                    float scale = UrlDragImageView.this.j.getScale();
+                    float f2 = this.f13805e;
+                    if (scale < f2) {
+                        UrlDragImageView.this.j.setScaleAndCenter(f2, this.f13806f);
+                    }
+                    d.b.b.e.m.e.a().removeCallbacks(UrlDragImageView.this.i0);
+                    d.b.b.e.m.e.a().postDelayed(UrlDragImageView.this.i0, 1000L);
+                }
+                return false;
+            }
+        }
+
+        public l(int[] iArr) {
+            this.f13803a = iArr;
+        }
+
+        @Override // com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView.OnImageEventListener
+        public void onImageLoadError(Exception exc) {
+        }
+
+        @Override // com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView.OnImageEventListener
+        public void onImageLoaded() {
+            if (!UrlDragImageView.this.N.isLongPic || this.f13803a[0] <= 0) {
+                return;
+            }
+            UrlDragImageView.this.f13784h.c0();
+            float measuredWidth = (UrlDragImageView.this.getMeasuredWidth() * 1.0f) / this.f13803a[0];
+            PointF pointF = new PointF((this.f13803a[0] * 1.0f) / 2.0f, 0.0f);
+            UrlDragImageView.this.j.setScaleAndCenter(measuredWidth, pointF);
+            float f2 = 2.0f * measuredWidth;
+            UrlDragImageView.this.j.setMaxScale(f2);
+            UrlDragImageView.this.j.setDoubleTapZoomScale(f2);
+            UrlDragImageView.this.j.setInitScale(measuredWidth);
+            UrlDragImageView.this.j.setDoubleTapZoomStyle(4);
+            UrlDragImageView.this.j.setOnTouchListener(new a(measuredWidth, pointF));
+            UrlDragImageView.this.f13784h.setVisibility(4);
+        }
+
+        @Override // com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView.OnImageEventListener
+        public void onPreviewLoadError(Exception exc) {
+        }
+
+        @Override // com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView.OnImageEventListener
+        public void onReady() {
+            UrlDragImageView.this.d0 = null;
+            UrlDragImageView.this.f13783g.setVisibility(8);
+            UrlDragImageView.this.f13784h.p0();
+            UrlDragImageView.this.f13784h.setVisibility(4);
+        }
+
+        @Override // com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView.OnImageEventListener
+        public void onTileLoadError(Exception exc) {
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class m implements d.b.h0.b1.i.b.a {
+        public m() {
+        }
+
+        @Override // d.b.h0.b1.i.b.a
+        public void onLoadFinished() {
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class n extends d.b.b.e.l.c<d.b.b.j.d.a> {
+        public n() {
+        }
+
+        @Override // d.b.b.e.l.c
+        public void onCancelled(String str) {
+            UrlDragImageView.this.p = false;
+            UrlDragImageView.this.f13784h.setVisibility(0);
+            UrlDragImageView.this.f13783g.setVisibility(8);
+            UrlDragImageView.this.d0 = null;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // d.b.b.e.l.c
+        public void onLoaded(d.b.b.j.d.a aVar, String str, int i) {
+            UrlDragImageView.this.p = false;
+            UrlDragImageView.this.o = true;
+            UrlDragImageView.this.M(aVar);
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public interface o {
+        void a(String str, byte[] bArr);
+    }
+
+    /* loaded from: classes3.dex */
+    public interface p {
+        void a();
     }
 
     public UrlDragImageView(Context context) {
         super(context);
-        this.mSkinType = 3;
-        this.mProgressBar = null;
-        this.fzE = null;
-        this.fzI = null;
-        this.fyi = false;
-        this.fzL = false;
-        this.isInDragScaleMode = false;
-        this.mRatio = 1.0f;
-        this.mMoveDistance = 0.0f;
-        this.mDragMatrix = new Matrix();
-        this.mDstRect = new RectF();
-        this.fzV = 0.0f;
-        this.fzW = 0.0f;
-        this.fzX = 1.0f;
-        this.fzY = 1.0f;
-        this.fzZ = 0.0f;
-        this.fAa = false;
-        this.fAb = false;
-        this.fAc = false;
-        this.fAd = false;
-        this.fAg = true;
-        this.fAh = 0.0f;
-        this.mOnClickListener = null;
-        this.mLongClickListener = null;
-        this.fAi = null;
-        this.fAm = new Runnable() { // from class: com.baidu.tbadk.coreExtra.view.UrlDragImageView.1
-            @Override // java.lang.Runnable
-            public void run() {
-                UrlDragImageView.this.fAg = true;
-            }
-        };
-        this.fAn = new Runnable() { // from class: com.baidu.tbadk.coreExtra.view.UrlDragImageView.7
-            @Override // java.lang.Runnable
-            public void run() {
-                AlphaAnimation alphaAnimation = new AlphaAnimation(1.0f, 0.0f);
-                alphaAnimation.setDuration(200L);
-                alphaAnimation.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tbadk.coreExtra.view.UrlDragImageView.7.1
-                    @Override // android.view.animation.Animation.AnimationListener
-                    public void onAnimationStart(Animation animation) {
-                    }
-
-                    @Override // android.view.animation.Animation.AnimationListener
-                    public void onAnimationRepeat(Animation animation) {
-                    }
-
-                    @Override // android.view.animation.Animation.AnimationListener
-                    public void onAnimationEnd(Animation animation) {
-                        UrlDragImageView.this.fAj.setVisibility(8);
-                        UrlDragImageView.this.fAi = null;
-                        UrlDragImageView.this.fAd = false;
-                    }
-                });
-            }
-        };
-        this.fAo = new View.OnTouchListener() { // from class: com.baidu.tbadk.coreExtra.view.UrlDragImageView.11
-            @Override // android.view.View.OnTouchListener
-            public boolean onTouch(View view, MotionEvent motionEvent) {
-                if (UrlDragImageView.this.fAf != null) {
-                    UrlDragImageView.this.fAf.onTouch(view, motionEvent);
-                    return false;
-                }
-                return false;
-            }
-        };
-        this.mContext = context;
-        this.fAe = new com.baidu.tbadk.img.b();
-        init();
+        this.f13781e = 3;
+        this.f13783g = null;
+        this.f13784h = null;
+        this.l = null;
+        this.m = false;
+        this.p = false;
+        this.w = false;
+        this.x = 1.0f;
+        this.y = 0.0f;
+        this.z = new Matrix();
+        this.B = new RectF();
+        this.I = 0.0f;
+        this.J = 0.0f;
+        this.K = 1.0f;
+        this.L = 1.0f;
+        this.M = 0.0f;
+        this.O = false;
+        this.P = false;
+        this.Q = false;
+        this.W = true;
+        this.a0 = 0.0f;
+        this.b0 = null;
+        this.c0 = null;
+        this.d0 = null;
+        this.i0 = new f();
+        this.j0 = new g();
+        this.k0 = new k();
+        this.f13782f = context;
+        this.R = new d.b.h0.b0.b();
+        N();
     }
 
-    public UrlDragImageView(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        this.mSkinType = 3;
-        this.mProgressBar = null;
-        this.fzE = null;
-        this.fzI = null;
-        this.fyi = false;
-        this.fzL = false;
-        this.isInDragScaleMode = false;
-        this.mRatio = 1.0f;
-        this.mMoveDistance = 0.0f;
-        this.mDragMatrix = new Matrix();
-        this.mDstRect = new RectF();
-        this.fzV = 0.0f;
-        this.fzW = 0.0f;
-        this.fzX = 1.0f;
-        this.fzY = 1.0f;
-        this.fzZ = 0.0f;
-        this.fAa = false;
-        this.fAb = false;
-        this.fAc = false;
-        this.fAd = false;
-        this.fAg = true;
-        this.fAh = 0.0f;
-        this.mOnClickListener = null;
-        this.mLongClickListener = null;
-        this.fAi = null;
-        this.fAm = new Runnable() { // from class: com.baidu.tbadk.coreExtra.view.UrlDragImageView.1
-            @Override // java.lang.Runnable
-            public void run() {
-                UrlDragImageView.this.fAg = true;
-            }
-        };
-        this.fAn = new Runnable() { // from class: com.baidu.tbadk.coreExtra.view.UrlDragImageView.7
-            @Override // java.lang.Runnable
-            public void run() {
-                AlphaAnimation alphaAnimation = new AlphaAnimation(1.0f, 0.0f);
-                alphaAnimation.setDuration(200L);
-                alphaAnimation.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tbadk.coreExtra.view.UrlDragImageView.7.1
-                    @Override // android.view.animation.Animation.AnimationListener
-                    public void onAnimationStart(Animation animation) {
-                    }
-
-                    @Override // android.view.animation.Animation.AnimationListener
-                    public void onAnimationRepeat(Animation animation) {
-                    }
-
-                    @Override // android.view.animation.Animation.AnimationListener
-                    public void onAnimationEnd(Animation animation) {
-                        UrlDragImageView.this.fAj.setVisibility(8);
-                        UrlDragImageView.this.fAi = null;
-                        UrlDragImageView.this.fAd = false;
-                    }
-                });
-            }
-        };
-        this.fAo = new View.OnTouchListener() { // from class: com.baidu.tbadk.coreExtra.view.UrlDragImageView.11
-            @Override // android.view.View.OnTouchListener
-            public boolean onTouch(View view, MotionEvent motionEvent) {
-                if (UrlDragImageView.this.fAf != null) {
-                    UrlDragImageView.this.fAf.onTouch(view, motionEvent);
-                    return false;
-                }
-                return false;
-            }
-        };
-        this.mContext = context;
-        this.fAe = new com.baidu.tbadk.img.b();
-        init();
-    }
-
-    public DragImageView getImageView() {
-        return this.fzE;
-    }
-
-    public void setGifSetListener(DragImageView.e eVar) {
-        this.fzE.setGifSetListener(eVar);
-    }
-
-    public void setImageOnClickListener(View.OnClickListener onClickListener) {
-        this.fzE.setImageOnClickListener(onClickListener);
-        this.fzG.setOnClickListener(onClickListener);
-        this.mOnClickListener = onClickListener;
-    }
-
-    public void setImageOnLongClickListener(View.OnLongClickListener onLongClickListener) {
-        this.mLongClickListener = onLongClickListener;
-        if (!this.fyk) {
-            this.fzE.setImageOnLongClickListener(this.mLongClickListener);
-            this.fzG.setOnLongClickListener(this.mLongClickListener);
+    private void setThumbBitmapToView(d.b.b.j.d.a aVar) {
+        Bitmap p2;
+        if (this.o || aVar == null || (p2 = aVar.p()) == null) {
+            return;
         }
-    }
-
-    public void setOnSizeChangedListener(final DragImageView.g gVar) {
-        this.fzE.setOnSizeChangedListener(new DragImageView.g() { // from class: com.baidu.tbadk.coreExtra.view.UrlDragImageView.8
-            @Override // com.baidu.tbadk.widget.DragImageView.g
-            public void a(DragImageView dragImageView, boolean z, boolean z2) {
-                if (gVar != null) {
-                    gVar.a(dragImageView, z, z2);
-                }
-                UrlDragImageView.this.bzL();
-            }
-        });
-    }
-
-    protected void init() {
-        this.fzU = TbadkCoreApplication.getInst().getCacheDir().getAbsolutePath();
-        this.mMaxWidth = l.getEquipmentWidth(this.mContext);
-        this.mMaxHeight = l.getEquipmentHeight(this.mContext) - ((int) this.mContext.getResources().getDimension(R.dimen.ds166));
-        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -1);
-        this.fzE = new DragImageView(this.mContext);
-        this.fzE.setLayoutParams(layoutParams);
-        this.fzE.setOnTouchListener(this.fAo);
-        addView(this.fzE);
-        this.fzG = new SubsamplingScaleImageView(this.mContext);
-        this.fzG.setMaxScale(50.0f);
-        this.fzG.setOnTouchListener(this.fAo);
-        this.fzG.setVisibility(4);
-        addView(this.fzG, layoutParams);
-        this.mProgressBar = new ProgressBar(this.mContext, null, 16843399);
-        this.mProgressBar.setIndeterminateDrawable(getResources().getDrawable(R.drawable.progressbar));
-        RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-2, -2);
-        layoutParams2.addRule(13);
-        this.mProgressBar.setLayoutParams(layoutParams2);
-        this.mProgressBar.setIndeterminate(true);
-        addView(this.mProgressBar);
-        bzK();
-        this.fAl = TbSingleton.getInstance().isCutoutScreen(TbadkApplication.getInst().getCurrentActivity());
-    }
-
-    private void bzK() {
-        this.fAj = new CircleProgressView(this.mContext);
-        this.fAj.setCircleBackgroundColor(ap.getColor(R.color.CAM_X0109));
-        this.fAj.setCircleForegroundColor(ap.getColor(R.color.CAM_X0302));
-        this.fAj.setProgress(0);
-        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(l.getDimens(getContext(), R.dimen.tbds80), l.getDimens(getContext(), R.dimen.tbds80));
-        layoutParams.addRule(13);
-        this.fAj.setVisibility(8);
-        addView(this.fAj, layoutParams);
-    }
-
-    public void setIsCanDrag(boolean z) {
-        this.fyk = z;
-    }
-
-    public String getmCheckOriginPicText() {
-        return this.fAi;
-    }
-
-    @Override // android.view.ViewGroup, android.view.View
-    public boolean dispatchTouchEvent(MotionEvent motionEvent) {
-        boolean z;
-        Bitmap imageBitmap;
-        int height;
-        int width;
-        if (this.fAa && !this.fAk && this.fzG.getVisibility() == 0 && !this.fzG.isImageLoaded()) {
-            return super.dispatchTouchEvent(motionEvent);
-        }
-        if (!this.fyk || !this.fzK) {
-            return super.dispatchTouchEvent(motionEvent);
-        }
-        if (!this.fzM && motionEvent.getPointerCount() >= 2) {
-            return super.dispatchTouchEvent(motionEvent);
-        }
-        if (this.fzM || this.fzN) {
-            requestDisallowInterceptTouchEvent(true);
-        }
-        int action = motionEvent.getAction();
-        float y = motionEvent.getY();
-        float x = motionEvent.getX();
-        int i = action & 255;
-        if (i == 0) {
-            if (this.fzO == null) {
-                if (this.fzG.getVisibility() == 0) {
-                    this.fzO = h.bV(this.fzG);
-                } else {
-                    this.fzO = h.bV(this.fzE);
-                }
-            }
-            if (this.mDisplayRect == null && this.fzO != null) {
-                int measuredWidth = getMeasuredWidth();
-                float measuredWidth2 = ((getMeasuredWidth() * 1.0f) / this.fzO.getWidth()) * this.fzO.getHeight();
-                if (measuredWidth2 > getMeasuredHeight()) {
-                    measuredWidth2 = getMeasuredHeight();
-                }
-                RectF rectInScreenFromPosition = getRectInScreenFromPosition(getMeasuredWidth() / 2, getMeasuredHeight() / 2, measuredWidth, measuredWidth2);
-                this.mDisplayRect = new Rect((int) rectInScreenFromPosition.left, (int) rectInScreenFromPosition.top, (int) rectInScreenFromPosition.right, (int) rectInScreenFromPosition.bottom);
-            }
-            if (this.fzR == null && this.fzO != null) {
-                if (this.fzG.getVisibility() == 0) {
-                    height = this.fzG.getSHeight();
-                    width = this.fzG.getSWidth();
-                } else {
-                    if (this.fzE.getImageType() == 1) {
-                        imageBitmap = (this.fzE.getCurrentFrame() == null || this.fzE.getCurrentFrame().bm == null) ? this.fzO : this.fzE.getCurrentFrame().bm;
-                    } else {
-                        imageBitmap = this.fzE.getImageBitmap() == null ? this.fzO : this.fzE.getImageBitmap();
-                    }
-                    height = imageBitmap.getHeight();
-                    width = imageBitmap.getWidth();
-                }
-                float equipmentDensity = l.getEquipmentDensity(getContext());
-                int i2 = (int) (height * equipmentDensity);
-                int i3 = (int) (width * equipmentDensity);
-                if (i3 > this.fzO.getWidth() && this.fzO.getWidth() != 0) {
-                    float width2 = (i3 * 1.0f) / this.fzO.getWidth();
-                    i3 = this.fzO.getWidth();
-                    i2 = (int) (i2 / width2);
-                }
-                if (i2 > this.fzO.getHeight() && this.fzO.getHeight() != 0) {
-                    i3 = (int) (i3 / ((i2 * 1.0f) / this.fzO.getHeight()));
-                    i2 = this.fzO.getHeight();
-                }
-                int equipmentHeight = (l.getEquipmentHeight(getContext()) - i2) / 2;
-                int equipmentWidth = (l.getEquipmentWidth(getContext()) - i3) / 2;
-                this.fzR = new Rect(equipmentWidth, equipmentHeight, i3 + equipmentWidth, i2 + equipmentHeight);
-                this.fzS = new Rect(this.fzR);
-                this.fzZ = equipmentHeight / l.getEquipmentHeight(getContext());
-                this.fzQ = new Rect(0, 0, this.fzO.getWidth(), this.fzO.getHeight());
-            }
-            this.mLastMotionX = x;
-            this.mLastMotionY = y;
-        }
-        if (i == 2) {
-            this.fzM = x(this.mLastMotionX - x, this.mLastMotionY - y);
-            this.mLastMotionX = x;
-            this.mLastMotionY = y;
-        }
-        if (this.fzM || this.fzN) {
-            this.fzE.setImageOnLongClickListener(null);
-            this.fzG.setOnLongClickListener(null);
-            z = true;
+        this.n = true;
+        if (aVar.t()) {
+            this.f13784h.setImageUrlData(this.N);
+            this.f13784h.setImageBitmap(p2);
+            this.d0 = null;
+            this.Q = false;
         } else {
-            this.fzE.setImageOnLongClickListener(this.mLongClickListener);
-            this.fzG.setOnLongClickListener(this.mLongClickListener);
-            z = super.dispatchTouchEvent(motionEvent);
-        }
-        if (i == 1 || i == 3) {
-            this.mLastMotionX = 0.0f;
-            this.mLastMotionY = 0.0f;
-            boolean z2 = (-this.mMoveDistance) > ((float) (EXIT_DISTANCE * 2));
-            boolean z3 = this.mMoveDistance > ((float) EXIT_DISTANCE);
-            if (z2 || z3) {
-                this.fzN = true;
-                startExitAnimation();
-                if (z2) {
-                    TiebaStatic.log(new ar("c13377").dR("obj_type", "3"));
-                } else if (z3) {
-                    TiebaStatic.log(new ar("c13377").dR("obj_type", "2"));
-                }
-            } else {
-                if (this.fzM && this.fzT != null) {
-                    this.fzT.bGe();
-                }
-                this.mRatio = 1.0f;
-                invalidate();
+            ImageUrlData imageUrlData = this.N;
+            if (imageUrlData != null && imageUrlData.isLongPic) {
+                this.f13784h.T();
+                this.f13784h.setImageLoadCallBack(new m());
             }
-            this.isInDragScaleMode = false;
-            this.mDragMatrix.reset();
-            this.fzM = false;
+            this.f13784h.setImageUrlData(this.N);
+            this.f13784h.setImageData(p2, aVar.k());
         }
-        return z;
+        a0();
     }
 
-    private boolean x(float f, float f2) {
-        if (this.fzG.getVisibility() != 0 || this.fzG.isCanDrag()) {
-            if (this.fxh == null || !this.fxh.isLongPic || this.fzG.getVisibility() != 0 || this.fzG.isViewTop()) {
-                if (this.fxh == null || !this.fxh.isLongPic || this.fzG.getVisibility() == 0 || this.fzE.isAtViewTop() || this.fzE.bGc()) {
-                    if (this.fzG.getVisibility() == 0 || this.fzE.pagerCantScroll()) {
-                        if (this.fzO != null && getScrollY() == 0) {
-                            boolean z = (this.fxh == null || !this.fxh.isLongPic) && ((f2 < -15.0f && !this.isInDragScaleMode) || (f2 > 15.0f && !this.isInDragScaleMode));
-                            boolean z2 = this.fxh != null && this.fxh.isLongPic && f2 < 0.0f && !this.isInDragScaleMode;
-                            if (z || (z2 && this.fzE.isViewTop())) {
-                                this.fzE.setImageOnLongClickListener(null);
-                                this.fzG.setOnLongClickListener(null);
-                                this.isInDragScaleMode = true;
-                                this.mMoveDistance = 0.0f;
-                                this.mRatio = 1.0f;
-                                if (this.fzT != null) {
-                                    this.fzT.onDragStart();
+    public final void A(float f2) {
+        Rect rect = this.E;
+        if (rect != null) {
+            Rect rect2 = this.F;
+            rect.left = (int) (rect2.left + (rect2.width() * this.I * f2));
+            Rect rect3 = this.E;
+            Rect rect4 = this.F;
+            rect3.top = (int) (rect4.top + (rect4.height() * this.J * f2));
+            Rect rect5 = this.E;
+            Rect rect6 = this.F;
+            float f3 = this.K;
+            float f4 = 1.0f - f2;
+            rect5.right = (int) (rect6.left + (rect6.width() * (((1.0f - f3) * f4) + f3)));
+            Rect rect7 = this.E;
+            Rect rect8 = this.F;
+            float f5 = this.L;
+            rect7.bottom = (int) (rect8.top + (rect8.height() * (((1.0f - f5) * f4) + f5)));
+        }
+    }
+
+    public final void B(Rect rect, float f2, boolean z) {
+        int g2 = z ? d.b.b.e.p.l.g(getContext(), R.dimen.tbds80) : 0;
+        RectF rectF = this.B;
+        if (rectF == null || rect == null) {
+            return;
+        }
+        RectF rectF2 = this.C;
+        float f3 = rectF2.left;
+        rectF.left = f3 + ((rect.left - f3) * f2);
+        float f4 = rectF2.top;
+        rectF.top = (f4 + ((rect.top - f4) * f2)) - g2;
+        float f5 = rectF2.right;
+        rectF.right = f5 + ((rect.right - f5) * f2);
+        float f6 = rectF2.bottom;
+        rectF.bottom = f6 + ((rect.bottom - f6) * f2);
+    }
+
+    public final void C(Rect rect, Rect rect2) {
+        this.I = 0.0f;
+        this.J = 0.0f;
+        this.K = 1.0f;
+        this.L = 1.0f;
+        if (rect == null || rect2 == null || !rect.contains(rect2)) {
+            return;
+        }
+        this.I = (rect2.left - rect.left) / rect.width();
+        this.J = (rect2.top - rect.top) / rect.height();
+        this.K = (rect2.right - rect.left) / rect.width();
+        this.L = (rect2.bottom - rect.top) / rect.height();
+    }
+
+    public void D(boolean z, boolean z2) {
+        String str;
+        DragImageView dragImageView = this.f13784h;
+        if (dragImageView == null || (str = (String) dragImageView.getTag()) == null) {
+            return;
+        }
+        if (this.f13784h.getImageType() == 1) {
+            if (this.f13784h.getGifCache() == null || !this.f13784h.Z()) {
+                U(str, z, z2);
+            }
+        } else if (this.f13784h.getImageType() == 2) {
+            U(str, z, z2);
+        } else if (S()) {
+            U(str, z, z2);
+        }
+    }
+
+    public final boolean E() {
+        ImageUrlData imageUrlData = this.N;
+        if (imageUrlData != null && !StringUtils.isNull(imageUrlData.originalUrl, true)) {
+            ImageUrlData imageUrlData2 = this.N;
+            if (imageUrlData2.originalSize >= 0 && !imageUrlData2.isBlockedPic) {
+                String nameMd5FromUrl = TbMd5.getNameMd5FromUrl(imageUrlData2.originalUrl);
+                if (new File(this.H + StorageFile.getInstance().getDirectoryName(nameMd5FromUrl) + "/" + nameMd5FromUrl).exists()) {
+                    this.N.originalProcess = 100;
+                    return true;
+                }
+                int i2 = this.N.originalProcess;
+                if (i2 < 0) {
+                    b0();
+                } else {
+                    this.f0.setProgress(i2);
+                }
+                this.Q = true;
+                return false;
+            }
+        }
+        this.d0 = null;
+        return false;
+    }
+
+    public void F() {
+        G(false);
+    }
+
+    public final boolean G(boolean z) {
+        ImageUrlData imageUrlData;
+        String nameMd5FromUrl;
+        if (!this.P || z) {
+            this.P = true;
+            if (this.O && (imageUrlData = this.N) != null && !StringUtils.isNull(imageUrlData.originalUrl, true)) {
+                ImageUrlData imageUrlData2 = this.N;
+                if (imageUrlData2.originalSize >= 0 && Build.VERSION.SDK_INT >= 10) {
+                    String str = this.H + StorageFile.getInstance().getDirectoryName(nameMd5FromUrl) + "/" + TbMd5.getNameMd5FromUrl(imageUrlData2.originalUrl);
+                    int[] imageFileWH = FileHelper.getImageFileWH(str);
+                    this.j.setVisibility(0);
+                    if (this.k == null) {
+                        this.k = new l(imageFileWH);
+                    }
+                    this.j.setOnImageEventListener(this.k);
+                    if (this.j.isImageLoaded() && this.N.isLongPic) {
+                        this.k.onImageLoaded();
+                    } else {
+                        this.j.setImage(ImageSource.uri(str));
+                    }
+                    return true;
+                }
+            }
+            return false;
+        }
+        return false;
+    }
+
+    public void H() {
+        if (this.N == null || P()) {
+            return;
+        }
+        ImageUrlData imageUrlData = this.N;
+        String str = imageUrlData.imageUrl;
+        int i2 = imageUrlData.urlType;
+        d.b.b.j.d.a loadBdImageFromLocal = AbstractImageLoaderProc.isImageFileExist(str, i2) ? AbstractImageLoaderProc.loadBdImageFromLocal(str, i2) : null;
+        if (loadBdImageFromLocal != null) {
+            setThumbBitmapToView(loadBdImageFromLocal);
+        }
+    }
+
+    public void I() {
+        String nameMd5FromUrl = TbMd5.getNameMd5FromUrl(this.N.originalUrl);
+        if (this.N.originalProcess >= 0) {
+            d.b.h0.v.d.j().f(nameMd5FromUrl, 13);
+            this.N.originalProcess = -1;
+            b0();
+            return;
+        }
+        p pVar = this.U;
+        if (pVar != null) {
+            pVar.a();
+        }
+        d.b.b.a.f<?> a2 = d.b.b.a.j.a(this.f13782f);
+        if (a2 == null) {
+            c0(nameMd5FromUrl);
+        } else if (d.b.b.e.p.j.z() && !d.b.b.e.p.j.H() && !d.b.h0.r.d0.b.i().g("original_img_down_tip", false)) {
+            d.b.h0.r.d0.b.i().s("original_img_down_tip", true);
+            d.b.h0.r.s.a aVar = new d.b.h0.r.s.a(a2.getPageActivity());
+            aVar.setMessageId(R.string.original_img_down_no_wifi_tip);
+            aVar.setPositiveButton(R.string.alert_yes_button, new c(aVar, nameMd5FromUrl));
+            aVar.setNegativeButton(R.string.cancel, new d(aVar));
+            aVar.create(a2);
+            aVar.show();
+        } else {
+            c0(nameMd5FromUrl);
+        }
+    }
+
+    public final boolean J(float f2, float f3) {
+        if (this.j.getVisibility() != 0 || this.j.isCanDrag()) {
+            ImageUrlData imageUrlData = this.N;
+            if (imageUrlData == null || !imageUrlData.isLongPic || this.j.getVisibility() != 0 || this.j.isViewTop()) {
+                ImageUrlData imageUrlData2 = this.N;
+                if (imageUrlData2 == null || !imageUrlData2.isLongPic || this.j.getVisibility() == 0 || this.f13784h.Y() || this.f13784h.a0()) {
+                    if (this.j.getVisibility() == 0 || this.f13784h.f0()) {
+                        if (this.v != null && getScrollY() == 0) {
+                            ImageUrlData imageUrlData3 = this.N;
+                            boolean z = (imageUrlData3 == null || !imageUrlData3.isLongPic) && ((f3 < -15.0f && !this.w) || (f3 > 15.0f && !this.w));
+                            ImageUrlData imageUrlData4 = this.N;
+                            boolean z2 = imageUrlData4 != null && imageUrlData4.isLongPic && f3 < 0.0f && !this.w;
+                            if (z || (z2 && this.f13784h.b0())) {
+                                this.f13784h.setImageOnLongClickListener(null);
+                                this.j.setOnLongClickListener(null);
+                                this.w = true;
+                                this.y = 0.0f;
+                                this.x = 1.0f;
+                                DragImageView.h hVar = this.G;
+                                if (hVar != null) {
+                                    hVar.b();
                                 }
                             }
                         }
-                        if (!this.isInDragScaleMode || this.fzO == null) {
+                        if (!this.w || this.v == null) {
                             return false;
                         }
-                        this.mMoveDistance -= f2;
-                        int measuredHeight = getMeasuredHeight();
-                        if (this.mMoveDistance > measuredHeight) {
-                            this.mMoveDistance = measuredHeight;
+                        this.y -= f3;
+                        float measuredHeight = getMeasuredHeight();
+                        if (this.y > measuredHeight) {
+                            this.y = measuredHeight;
                         }
-                        float f3 = f2 / measuredHeight;
-                        this.mDragMatrix.postTranslate((-f) * 1.5f * this.mRatio, (-1.5f) * f2 * this.mRatio);
-                        if (this.mRatio * (1.0f + f3) > 1.0f || this.mMoveDistance < 0.0f) {
-                            f3 = -f3;
+                        float f4 = f3 / measuredHeight;
+                        Matrix matrix = this.z;
+                        float f5 = this.x;
+                        matrix.postTranslate((-f2) * 1.5f * f5, f3 * (-1.5f) * f5);
+                        if (this.x * (f4 + 1.0f) > 1.0f || this.y < 0.0f) {
+                            f4 = -f4;
                         }
-                        this.mDragMatrix.preScale(1.0f + f3, 1.0f + f3, (this.mRatio * this.fzO.getWidth()) / 2.0f, this.mRatio * (this.fzO.getHeight() / 2));
-                        this.mRatio = (f3 + 1.0f) * this.mRatio;
+                        float f6 = f4 + 1.0f;
+                        this.z.preScale(f6, f6, (this.x * this.v.getWidth()) / 2.0f, this.x * (this.v.getHeight() / 2));
+                        this.x *= f6;
                         invalidate();
                         return true;
                     }
@@ -534,660 +787,596 @@ public class UrlDragImageView extends RelativeLayout {
         return false;
     }
 
-    @Override // android.view.ViewGroup, android.view.View
-    protected void dispatchDraw(Canvas canvas) {
-        if (this.fzM && this.fzO != null && !this.fzO.isRecycled() && this.isInDragScaleMode) {
-            canvas.drawColor(Color.argb((int) (this.mRatio * 255.0f), 0, 0, 0), PorterDuff.Mode.SRC);
-            if (this.mDstRect == null) {
-                this.mDstRect = new RectF();
-            }
-            this.mDragMatrix.mapRect(this.mDstRect, new RectF(this.mDisplayRect));
-            canvas.drawBitmap(this.fzO, this.fzQ, this.mDstRect, (Paint) null);
-        } else if (this.fzN && this.fzO != null && !this.fzO.isRecycled()) {
-            canvas.drawColor(Color.argb((int) (this.mRatio * 255.0f), 0, 0, 0), PorterDuff.Mode.SRC);
-            if (this.fxh == null || this.fxh.getSourceImageRectInScreen() == null) {
-                canvas.drawBitmap(this.fzO, this.fzQ, this.mDstRect, (Paint) null);
+    public final void K(Rect rect) {
+        if (rect == null) {
+            return;
+        }
+        float f2 = (rect.bottom - rect.top) / (rect.right - rect.left);
+        RectF rectF = this.B;
+        float f3 = f2 * (rectF.right - rectF.left);
+        rectF.top += rectF.height() * this.M;
+        RectF rectF2 = this.B;
+        rectF2.bottom = rectF2.top + f3;
+    }
+
+    public final RectF L(float f2, float f3, float f4, float f5) {
+        float f6 = f4 / 2.0f;
+        float f7 = f5 / 2.0f;
+        return new RectF(f2 - f6, f3 - f7, f2 + f6, f3 + f7);
+    }
+
+    public final void M(d.b.b.j.d.a aVar) {
+        o oVar;
+        if (aVar != null && (oVar = this.l) != null) {
+            oVar.a(aVar.q(), aVar.k());
+        }
+        if (aVar != null && aVar.p() != null) {
+            Bitmap p2 = aVar.p();
+            this.f13784h.setLoadBigImage(true);
+            if (aVar.t()) {
+                this.f13784h.setGifData(aVar.k(), p2);
+                this.f13784h.invalidate();
+                this.f13784h.h0();
+                this.Q = false;
+                this.d0 = null;
+                this.f13783g.setVisibility(8);
             } else {
-                canvas.drawBitmap(this.fzO, this.fzR, this.mDstRect, (Paint) null);
+                ImageUrlData imageUrlData = this.N;
+                if (imageUrlData != null && imageUrlData.isLongPic) {
+                    this.f13784h.T();
+                    this.f13784h.setImageLoadCallBack(new b());
+                } else {
+                    this.f13783g.setVisibility(8);
+                    this.d0 = null;
+                }
+                this.f13784h.setImageUrlData(this.N);
+                this.f13784h.setImageData(p2, aVar.k());
+                b0();
+            }
+            a0();
+            return;
+        }
+        Z();
+    }
+
+    public void N() {
+        this.H = TbadkCoreApplication.getInst().getCacheDir().getAbsolutePath();
+        this.S = d.b.b.e.p.l.k(this.f13782f);
+        this.T = d.b.b.e.p.l.i(this.f13782f) - ((int) this.f13782f.getResources().getDimension(R.dimen.ds166));
+        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -1);
+        DragImageView dragImageView = new DragImageView(this.f13782f);
+        this.f13784h = dragImageView;
+        dragImageView.setLayoutParams(layoutParams);
+        this.f13784h.setOnTouchListener(this.k0);
+        addView(this.f13784h);
+        SubsamplingScaleImageView subsamplingScaleImageView = new SubsamplingScaleImageView(this.f13782f);
+        this.j = subsamplingScaleImageView;
+        subsamplingScaleImageView.setMaxScale(50.0f);
+        this.j.setOnTouchListener(this.k0);
+        this.j.setVisibility(4);
+        addView(this.j, layoutParams);
+        ProgressBar progressBar = new ProgressBar(this.f13782f, null, 16843399);
+        this.f13783g = progressBar;
+        progressBar.setIndeterminateDrawable(getResources().getDrawable(R.drawable.progressbar));
+        RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-2, -2);
+        layoutParams2.addRule(13);
+        this.f13783g.setLayoutParams(layoutParams2);
+        this.f13783g.setIndeterminate(true);
+        addView(this.f13783g);
+        O();
+        this.h0 = TbSingleton.getInstance().isCutoutScreen(TbadkApplication.getInst().getCurrentActivity());
+    }
+
+    public final void O() {
+        CircleProgressView circleProgressView = new CircleProgressView(this.f13782f);
+        this.f0 = circleProgressView;
+        circleProgressView.setCircleBackgroundColor(SkinManager.getColor(R.color.CAM_X0109));
+        this.f0.setCircleForegroundColor(SkinManager.getColor(R.color.CAM_X0302));
+        this.f0.setProgress(0);
+        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(d.b.b.e.p.l.g(getContext(), R.dimen.tbds80), d.b.b.e.p.l.g(getContext(), R.dimen.tbds80));
+        layoutParams.addRule(13);
+        this.f0.setVisibility(8);
+        addView(this.f0, layoutParams);
+    }
+
+    public final boolean P() {
+        DragImageView dragImageView = this.f13784h;
+        return dragImageView != null && dragImageView.Z();
+    }
+
+    public final boolean Q(long j2) {
+        return j2 > m0;
+    }
+
+    public final boolean R(String str) {
+        return !TextUtils.isEmpty(str) && (str.startsWith("http://") || str.startsWith("https://"));
+    }
+
+    public final boolean S() {
+        if (this.f13784h.getImageBitmap() != null && this.f13784h.Z()) {
+            ImageUrlData imageUrlData = this.N;
+            if (imageUrlData == null || !imageUrlData.isLongPic || this.f13784h.W()) {
+                return false;
+            }
+            this.o = false;
+            this.P = false;
+            return true;
+        }
+        return true;
+    }
+
+    public final boolean T() {
+        ImageUrlData imageUrlData = this.N;
+        return (imageUrlData == null || !imageUrlData.mIsShowOrigonButton || imageUrlData.isBlockedPic || StringUtils.isNull(imageUrlData.originalUrl)) ? false : true;
+    }
+
+    public final void U(String str, boolean z, boolean z2) {
+        if (R(str)) {
+            if (z2 || !(this.p || this.o)) {
+                if (z2 && G(true)) {
+                    return;
+                }
+                this.p = true;
+                d.b.b.e.l.d.h().l(str, 27, new n(), 0, 0, false, null, Boolean.valueOf(z), this.f13784h.getImageData(), Boolean.valueOf(this.m));
+                return;
+            }
+            return;
+        }
+        this.f13783g.setVisibility(0);
+        ImageFileInfo imageFileInfo = new ImageFileInfo();
+        imageFileInfo.setFilePath(str);
+        imageFileInfo.setTempFile(true);
+        imageFileInfo.clearPageActions();
+        imageFileInfo.addPageAction(d.b.h0.b0.g.d.g(this.S, this.T));
+        d.b.b.j.d.a c2 = this.R.c(imageFileInfo, false);
+        if (c2 != null) {
+            this.o = true;
+            this.f13783g.setVisibility(8);
+            this.d0 = null;
+            M(c2);
+            return;
+        }
+        this.R.d(imageFileInfo, new a(), false);
+    }
+
+    public final boolean V(String str) {
+        return d.b.b.e.p.j.z() || BigImageLoaderProc.checkBigImageFileExist(str);
+    }
+
+    public void W(int i2) {
+        if (this.f13781e != i2) {
+            this.f13781e = i2;
+        }
+    }
+
+    public void X() {
+        DragImageView dragImageView = this.f13784h;
+        if (dragImageView != null) {
+            dragImageView.c0();
+        }
+        SubsamplingScaleImageView subsamplingScaleImageView = this.j;
+        if (subsamplingScaleImageView != null) {
+            subsamplingScaleImageView.recycle();
+        }
+        Bitmap bitmap = this.v;
+        if (bitmap != null) {
+            bitmap.recycle();
+            this.v = null;
+        }
+        ProgressBar progressBar = this.f13783g;
+        if (progressBar != null) {
+            this.d0 = null;
+            progressBar.setVisibility(8);
+        }
+        d.b.b.e.m.e.a().removeCallbacks(this.i0);
+        d.b.i0.t3.c.a().d(-1);
+    }
+
+    public void Y() {
+        DragImageView dragImageView = this.f13784h;
+        if (dragImageView != null) {
+            dragImageView.l0();
+        }
+        ProgressBar progressBar = this.f13783g;
+        if (progressBar != null) {
+            this.d0 = null;
+            progressBar.setVisibility(8);
+        }
+        this.d0 = null;
+    }
+
+    public final void Z() {
+        if (!this.n) {
+            this.f13784h.setDefaultBitmap();
+        } else {
+            this.o = false;
+        }
+        this.d0 = null;
+        this.f13783g.setVisibility(8);
+    }
+
+    public final void a0() {
+        ImageUrlData imageUrlData;
+        if (!(this.n || this.o) || (imageUrlData = this.N) == null || imageUrlData.mPicType != 1 || TextUtils.isEmpty(imageUrlData.mTagName)) {
+            return;
+        }
+        TextView textView = this.i;
+        if (textView != null) {
+            textView.setVisibility(8);
+            this.i = null;
+        }
+        TextView textView2 = new TextView(this.f13782f);
+        this.i = textView2;
+        textView2.setText(this.N.mTagName);
+        this.i.setTextSize(0, getResources().getDimensionPixelSize(R.dimen.fontsize26));
+        SkinManager.setViewTextColor(this.i, R.color.common_color_10013, 1, 0);
+        SkinManager.setBackgroundColor(this.i, R.color.common_color_10215);
+        this.i.setAlpha(0.75f);
+        this.i.setIncludeFontPadding(false);
+        this.i.setGravity(17);
+        int g2 = d.b.b.e.p.l.g(this.f13782f, R.dimen.ds2);
+        this.i.setPadding(g2, g2, g2, g2);
+        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
+        layoutParams.bottomMargin = this.f13784h.getBottomOffset();
+        layoutParams.leftMargin = this.f13784h.getLeftOffset();
+        layoutParams.addRule(12);
+        layoutParams.addRule(9);
+        addView(this.i, layoutParams);
+        this.i.setVisibility(0);
+    }
+
+    public void b0() {
+        if (this.N == null) {
+            return;
+        }
+        if (T() && this.Q) {
+            long j2 = this.N.originalSize;
+            if (j2 > 0 && !Q(j2)) {
+                this.d0 = l0 + "(" + StringHelper.getFormatSize(this.N.originalSize) + SmallTailInfo.EMOTION_SUFFIX;
+                return;
+            }
+            this.d0 = l0;
+            return;
+        }
+        this.d0 = null;
+    }
+
+    public final void c0(String str) {
+        ImageUrlData imageUrlData = this.N;
+        if (imageUrlData == null) {
+            return;
+        }
+        imageUrlData.originalProcess = 0;
+        this.f0.setProgress(0);
+        this.f0.setVisibility(0);
+        DownloadData downloadData = new DownloadData(str);
+        downloadData.setStatus(1);
+        downloadData.setUrl(this.N.originalUrl);
+        downloadData.setType(13);
+        downloadData.setPath(this.H + StorageFile.getInstance().getDirectoryName(str) + "/" + str);
+        downloadData.setCallback(new e());
+        d.b.h0.v.d.j().l(downloadData, 100);
+        this.g0 = true;
+    }
+
+    public final void d0() {
+        ImageUrlData imageUrlData = this.N;
+        if (imageUrlData == null) {
+            DragImageView.h hVar = this.G;
+            if (hVar != null) {
+                hVar.a();
+                return;
+            }
+            return;
+        }
+        Rect sourceImageRectInScreen = imageUrlData.getSourceImageRectInScreen();
+        Rect dstRectInScreen = this.N.getDstRectInScreen();
+        if (sourceImageRectInScreen != null && dstRectInScreen != null) {
+            C(sourceImageRectInScreen, dstRectInScreen);
+            K(sourceImageRectInScreen);
+            this.C = new RectF(this.B);
+            ValueAnimator ofFloat = ValueAnimator.ofFloat(0.0f, 1.0f);
+            ofFloat.setDuration(150L);
+            ofFloat.setInterpolator(new AccelerateDecelerateInterpolator());
+            ofFloat.addUpdateListener(new i(sourceImageRectInScreen, dstRectInScreen));
+            ofFloat.addListener(new j());
+            ofFloat.start();
+            return;
+        }
+        DragImageView.h hVar2 = this.G;
+        if (hVar2 != null) {
+            hVar2.a();
+        }
+    }
+
+    @Override // android.view.ViewGroup, android.view.View
+    public void dispatchDraw(Canvas canvas) {
+        Bitmap bitmap;
+        Bitmap bitmap2;
+        if (this.t && (bitmap2 = this.v) != null && !bitmap2.isRecycled() && this.w) {
+            canvas.drawColor(Color.argb((int) (this.x * 255.0f), 0, 0, 0), PorterDuff.Mode.SRC);
+            if (this.B == null) {
+                this.B = new RectF();
+            }
+            this.z.mapRect(this.B, new RectF(this.A));
+            canvas.drawBitmap(this.v, this.D, this.B, (Paint) null);
+        } else if (this.u && (bitmap = this.v) != null && !bitmap.isRecycled()) {
+            canvas.drawColor(Color.argb((int) (this.x * 255.0f), 0, 0, 0), PorterDuff.Mode.SRC);
+            ImageUrlData imageUrlData = this.N;
+            if (imageUrlData != null && imageUrlData.getSourceImageRectInScreen() != null) {
+                canvas.drawBitmap(this.v, this.E, this.B, (Paint) null);
+            } else {
+                canvas.drawBitmap(this.v, this.D, this.B, (Paint) null);
             }
         } else {
             super.dispatchDraw(canvas);
         }
     }
 
-    private void startExitAnimation() {
-        if (this.fxh == null) {
-            if (this.fzT != null) {
-                this.fzT.onDragEnd();
-                return;
-            }
-            return;
+    @Override // android.view.ViewGroup, android.view.View
+    public boolean dispatchTouchEvent(MotionEvent motionEvent) {
+        boolean z;
+        DragImageView.h hVar;
+        Bitmap imageBitmap;
+        int width;
+        int i2;
+        if (this.O && !this.g0 && this.j.getVisibility() == 0 && !this.j.isImageLoaded()) {
+            return super.dispatchTouchEvent(motionEvent);
         }
-        final Rect sourceImageRectInScreen = this.fxh.getSourceImageRectInScreen();
-        final Rect dstRectInScreen = this.fxh.getDstRectInScreen();
-        if (sourceImageRectInScreen == null || dstRectInScreen == null) {
-            if (this.fzT != null) {
-                this.fzT.onDragEnd();
-                return;
+        if (this.q && this.o) {
+            if (!this.t && motionEvent.getPointerCount() >= 2) {
+                return super.dispatchTouchEvent(motionEvent);
             }
-            return;
+            if (this.t || this.u) {
+                requestDisallowInterceptTouchEvent(true);
+            }
+            int action = motionEvent.getAction();
+            float y = motionEvent.getY();
+            float x = motionEvent.getX();
+            int i3 = action & 255;
+            if (i3 == 0) {
+                if (this.v == null) {
+                    if (this.j.getVisibility() == 0) {
+                        this.v = d.b.h0.z0.h.a(this.j);
+                    } else {
+                        this.v = d.b.h0.z0.h.a(this.f13784h);
+                    }
+                }
+                if (this.A == null && this.v != null) {
+                    int measuredWidth = getMeasuredWidth();
+                    float measuredWidth2 = ((getMeasuredWidth() * 1.0f) / this.v.getWidth()) * this.v.getHeight();
+                    if (measuredWidth2 > getMeasuredHeight()) {
+                        measuredWidth2 = getMeasuredHeight();
+                    }
+                    RectF L = L(getMeasuredWidth() / 2, getMeasuredHeight() / 2, measuredWidth, measuredWidth2);
+                    this.A = new Rect((int) L.left, (int) L.top, (int) L.right, (int) L.bottom);
+                }
+                if (this.E == null && this.v != null) {
+                    if (this.j.getVisibility() == 0) {
+                        i2 = this.j.getSHeight();
+                        width = this.j.getSWidth();
+                    } else {
+                        if (this.f13784h.getImageType() == 1) {
+                            imageBitmap = (this.f13784h.getCurrentFrame() == null || this.f13784h.getCurrentFrame().f14054a == null) ? this.v : this.f13784h.getCurrentFrame().f14054a;
+                        } else {
+                            imageBitmap = this.f13784h.getImageBitmap() == null ? this.v : this.f13784h.getImageBitmap();
+                        }
+                        int height = imageBitmap.getHeight();
+                        width = imageBitmap.getWidth();
+                        i2 = height;
+                    }
+                    float h2 = d.b.b.e.p.l.h(getContext());
+                    int i4 = (int) (i2 * h2);
+                    int i5 = (int) (width * h2);
+                    if (i5 > this.v.getWidth() && this.v.getWidth() != 0) {
+                        i4 = (int) (i4 / ((i5 * 1.0f) / this.v.getWidth()));
+                        i5 = this.v.getWidth();
+                    }
+                    if (i4 > this.v.getHeight() && this.v.getHeight() != 0) {
+                        i5 = (int) (i5 / ((i4 * 1.0f) / this.v.getHeight()));
+                        i4 = this.v.getHeight();
+                    }
+                    int i6 = (d.b.b.e.p.l.i(getContext()) - i4) / 2;
+                    int k2 = (d.b.b.e.p.l.k(getContext()) - i5) / 2;
+                    this.E = new Rect(k2, i6, i5 + k2, i4 + i6);
+                    this.F = new Rect(this.E);
+                    this.M = i6 / d.b.b.e.p.l.i(getContext());
+                    this.D = new Rect(0, 0, this.v.getWidth(), this.v.getHeight());
+                }
+                this.r = x;
+                this.s = y;
+            }
+            if (i3 == 2) {
+                this.t = J(this.r - x, this.s - y);
+                this.r = x;
+                this.s = y;
+            }
+            if (!this.t && !this.u) {
+                this.f13784h.setImageOnLongClickListener(this.c0);
+                this.j.setOnLongClickListener(this.c0);
+                z = super.dispatchTouchEvent(motionEvent);
+            } else {
+                this.f13784h.setImageOnLongClickListener(null);
+                this.j.setOnLongClickListener(null);
+                z = true;
+            }
+            if (i3 == 1 || i3 == 3) {
+                this.r = 0.0f;
+                this.s = 0.0f;
+                boolean z2 = (-this.y) > ((float) (n0 * 2));
+                boolean z3 = this.y > ((float) n0);
+                if (!z2 && !z3) {
+                    if (this.t && (hVar = this.G) != null) {
+                        hVar.c();
+                    }
+                    this.x = 1.0f;
+                    invalidate();
+                } else {
+                    this.u = true;
+                    d0();
+                    if (z2) {
+                        TiebaStatic.log(new StatisticItem("c13377").param("obj_type", "3"));
+                    } else if (z3) {
+                        TiebaStatic.log(new StatisticItem("c13377").param("obj_type", "2"));
+                    }
+                }
+                this.w = false;
+                this.z.reset();
+                this.t = false;
+            }
+            return z;
         }
-        a(sourceImageRectInScreen, dstRectInScreen);
-        a(sourceImageRectInScreen);
-        this.fzP = new RectF(this.mDstRect);
-        ValueAnimator ofFloat = ValueAnimator.ofFloat(0.0f, 1.0f);
-        ofFloat.setDuration(150L);
-        ofFloat.setInterpolator(new AccelerateDecelerateInterpolator());
-        ofFloat.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tbadk.coreExtra.view.UrlDragImageView.9
-            @Override // android.animation.ValueAnimator.AnimatorUpdateListener
-            public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                if (valueAnimator != null && sourceImageRectInScreen != null && dstRectInScreen != null) {
-                    UrlDragImageView.this.at(valueAnimator.getAnimatedFraction());
-                    UrlDragImageView.this.a(dstRectInScreen, valueAnimator.getAnimatedFraction(), UrlDragImageView.this.fAl);
-                    UrlDragImageView.this.invalidate();
-                }
-            }
-        });
-        ofFloat.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tbadk.coreExtra.view.UrlDragImageView.10
-            @Override // android.animation.Animator.AnimatorListener
-            public void onAnimationStart(Animator animator) {
-            }
-
-            @Override // android.animation.Animator.AnimatorListener
-            public void onAnimationEnd(Animator animator) {
-                UrlDragImageView.this.isInDragScaleMode = false;
-                UrlDragImageView.this.invalidate();
-                if (UrlDragImageView.this.fzT != null) {
-                    UrlDragImageView.this.fzT.onDragEnd();
-                }
-            }
-
-            @Override // android.animation.Animator.AnimatorListener
-            public void onAnimationCancel(Animator animator) {
-            }
-
-            @Override // android.animation.Animator.AnimatorListener
-            public void onAnimationRepeat(Animator animator) {
-            }
-        });
-        ofFloat.start();
+        return super.dispatchTouchEvent(motionEvent);
     }
 
-    private void a(Rect rect) {
-        if (rect != null) {
-            float f = ((rect.bottom - rect.top) / (rect.right - rect.left)) * (this.mDstRect.right - this.mDstRect.left);
-            this.mDstRect.top += this.mDstRect.height() * this.fzZ;
-            this.mDstRect.bottom = f + this.mDstRect.top;
+    public void e0() {
+        DragImageView dragImageView = this.f13784h;
+        if (dragImageView == null || dragImageView.getImageType() != 1) {
+            return;
         }
+        this.f13784h.s0();
+    }
+
+    public DragImageView getImageView() {
+        return this.f13784h;
+    }
+
+    public String getUserId() {
+        return this.e0;
+    }
+
+    public ImageUrlData getmAssistUrlData() {
+        return this.N;
+    }
+
+    public String getmCheckOriginPicText() {
+        return this.d0;
+    }
+
+    public void setAssistUrl(ImageUrlData imageUrlData) {
+        this.N = imageUrlData;
+    }
+
+    public void setCallback(o oVar) {
+        this.l = oVar;
     }
 
     public void setCanScale(boolean z) {
-        if (this.fzE != null) {
-            this.fzE.setCanScale(z);
+        DragImageView dragImageView = this.f13784h;
+        if (dragImageView != null) {
+            dragImageView.setCanScale(z);
         }
     }
 
-    private void a(Rect rect, Rect rect2) {
-        this.fzV = 0.0f;
-        this.fzW = 0.0f;
-        this.fzX = 1.0f;
-        this.fzY = 1.0f;
-        if (rect != null && rect2 != null && rect.contains(rect2)) {
-            this.fzV = (rect2.left - rect.left) / rect.width();
-            this.fzW = (rect2.top - rect.top) / rect.height();
-            this.fzX = (rect2.right - rect.left) / rect.width();
-            this.fzY = (rect2.bottom - rect.top) / rect.height();
+    public void setDragToExitListener(DragImageView.h hVar) {
+        this.G = hVar;
+        DragImageView dragImageView = this.f13784h;
+        if (dragImageView != null) {
+            dragImageView.setDragToExitListener(hVar);
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void at(float f) {
-        if (this.fzR != null) {
-            this.fzR.left = (int) (this.fzS.left + (this.fzS.width() * this.fzV * f));
-            this.fzR.top = (int) (this.fzS.top + (this.fzS.height() * this.fzW * f));
-            this.fzR.right = (int) (this.fzS.left + (this.fzS.width() * (((1.0f - this.fzX) * (1.0f - f)) + this.fzX)));
-            this.fzR.bottom = (int) (this.fzS.top + (this.fzS.height() * (((1.0f - this.fzY) * (1.0f - f)) + this.fzY)));
+    public void setGifMaxUseableMem(int i2) {
+        this.f13784h.setGifMaxUseableMem(i2);
+    }
+
+    public void setGifSetListener(DragImageView.i iVar) {
+        this.f13784h.setGifSetListener(iVar);
+    }
+
+    public void setHeadImage(boolean z) {
+        DragImageView dragImageView = this.f13784h;
+        if (dragImageView != null) {
+            dragImageView.setIsHeadImage(z);
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(Rect rect, float f, boolean z) {
-        int i = 0;
-        if (z) {
-            i = l.getDimens(getContext(), R.dimen.tbds80);
-        }
-        if (this.mDstRect != null && rect != null) {
-            this.mDstRect.left = this.fzP.left + ((rect.left - this.fzP.left) * f);
-            this.mDstRect.top = (this.fzP.top + ((rect.top - this.fzP.top) * f)) - i;
-            this.mDstRect.right = this.fzP.right + ((rect.right - this.fzP.right) * f);
-            this.mDstRect.bottom = this.fzP.bottom + ((rect.bottom - this.fzP.bottom) * f);
-        }
+    public void setImageOnClickListener(View.OnClickListener onClickListener) {
+        this.f13784h.setImageOnClickListener(onClickListener);
+        this.j.setOnClickListener(onClickListener);
+        this.b0 = onClickListener;
     }
 
-    private RectF getRectInScreenFromPosition(float f, float f2, float f3, float f4) {
-        return new RectF(f - (f3 / 2.0f), f2 - (f4 / 2.0f), (f3 / 2.0f) + f, (f4 / 2.0f) + f2);
+    public void setImageOnLongClickListener(View.OnLongClickListener onLongClickListener) {
+        this.c0 = onLongClickListener;
+        if (this.q) {
+            return;
+        }
+        this.f13784h.setImageOnLongClickListener(onLongClickListener);
+        this.j.setOnLongClickListener(this.c0);
+    }
+
+    public void setIsCanDrag(boolean z) {
+        this.q = z;
+    }
+
+    public void setIsCdn(boolean z) {
+        this.m = z;
+    }
+
+    public void setOnSizeChangedListener(DragImageView.k kVar) {
+        this.f13784h.setOnSizeChangedListener(new h(kVar));
+    }
+
+    public void setOriImgSelectedCallback(p pVar) {
+        this.U = pVar;
     }
 
     public void setOuterOnTouchListener(View.OnTouchListener onTouchListener) {
-        this.fAf = onTouchListener;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void bzL() {
-        if ((this.fzJ || this.fzK) && this.fxh != null && this.fxh.mPicType == 1 && !TextUtils.isEmpty(this.fxh.mTagName)) {
-            if (this.fzF != null) {
-                this.fzF.setVisibility(8);
-                this.fzF = null;
-            }
-            this.fzF = new TextView(this.mContext);
-            this.fzF.setText(this.fxh.mTagName);
-            this.fzF.setTextSize(0, getResources().getDimensionPixelSize(R.dimen.fontsize26));
-            ap.setViewTextColor(this.fzF, R.color.common_color_10013, 1, 0);
-            ap.setBackgroundColor(this.fzF, R.color.common_color_10215);
-            this.fzF.setAlpha(0.75f);
-            this.fzF.setIncludeFontPadding(false);
-            this.fzF.setGravity(17);
-            int dimens = l.getDimens(this.mContext, R.dimen.ds2);
-            this.fzF.setPadding(dimens, dimens, dimens, dimens);
-            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
-            layoutParams.bottomMargin = this.fzE.getBottomOffset();
-            layoutParams.leftMargin = this.fzE.getLeftOffset();
-            layoutParams.addRule(12);
-            layoutParams.addRule(9);
-            addView(this.fzF, layoutParams);
-            this.fzF.setVisibility(0);
-        }
+        this.V = onTouchListener;
     }
 
     public void setUrl(String str, boolean z) {
         if (str.contains("*")) {
             str = str.split("[*]")[0];
         }
-        this.fzE.setTag(str);
-        this.fzE.setLoadBigImage(false);
-        this.fzE.setImageDrawable(null);
-        this.fzJ = false;
-        this.fzK = false;
-        this.fAa = bzT();
-        this.fAi = null;
-        if (Cz(str)) {
-            e(str, z, false);
+        this.f13784h.setTag(str);
+        this.f13784h.setLoadBigImage(false);
+        this.f13784h.setImageDrawable(null);
+        this.n = false;
+        this.o = false;
+        this.O = E();
+        this.d0 = null;
+        if (V(str)) {
+            U(str, z, false);
         }
     }
 
-    private boolean bzM() {
-        return this.fzE != null && this.fzE.isLoadBigImage();
+    public void setUserId(String str) {
+        this.e0 = str;
     }
 
-    public void bzN() {
-        if (this.fxh != null && !bzM()) {
-            String str = this.fxh.imageUrl;
-            int i = this.fxh.urlType;
-            com.baidu.adp.widget.ImageView.a aVar = null;
-            if (com.baidu.tbadk.core.util.d.a.as(str, i)) {
-                aVar = com.baidu.tbadk.core.util.d.a.at(str, i);
-            }
-            if (aVar != null) {
-                setThumbBitmapToView(aVar);
-            }
-        }
-    }
-
-    private boolean kC(boolean z) {
-        String nameMd5FromUrl;
-        if (!this.fAb || z) {
-            this.fAb = true;
-            if (!this.fAa || this.fxh == null || StringUtils.isNull(this.fxh.originalUrl, true) || this.fxh.originalSize < 0 || Build.VERSION.SDK_INT < 10) {
-                return false;
-            }
-            String str = this.fzU + at.bsS().Bl(nameMd5FromUrl) + "/" + aw.getNameMd5FromUrl(this.fxh.originalUrl);
-            final int[] imageFileWH = o.getImageFileWH(str);
-            this.fzG.setVisibility(0);
-            if (this.fzH == null) {
-                this.fzH = new SubsamplingScaleImageView.OnImageEventListener() { // from class: com.baidu.tbadk.coreExtra.view.UrlDragImageView.12
-                    @Override // com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView.OnImageEventListener
-                    public void onReady() {
-                        UrlDragImageView.this.fAi = null;
-                        UrlDragImageView.this.mProgressBar.setVisibility(8);
-                        UrlDragImageView.this.fzE.restoreSize();
-                        UrlDragImageView.this.fzE.setVisibility(4);
-                    }
-
-                    @Override // com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView.OnImageEventListener
-                    public void onImageLoaded() {
-                        if (UrlDragImageView.this.fxh.isLongPic && imageFileWH[0] > 0) {
-                            UrlDragImageView.this.fzE.onDestroy();
-                            final float measuredWidth = (UrlDragImageView.this.getMeasuredWidth() * 1.0f) / imageFileWH[0];
-                            final PointF pointF = new PointF((imageFileWH[0] * 1.0f) / 2.0f, 0.0f);
-                            UrlDragImageView.this.fzG.setScaleAndCenter(measuredWidth, pointF);
-                            UrlDragImageView.this.fzG.setMaxScale(2.0f * measuredWidth);
-                            UrlDragImageView.this.fzG.setDoubleTapZoomScale(2.0f * measuredWidth);
-                            UrlDragImageView.this.fzG.setInitScale(measuredWidth);
-                            UrlDragImageView.this.fzG.setDoubleTapZoomStyle(4);
-                            UrlDragImageView.this.fzG.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tbadk.coreExtra.view.UrlDragImageView.12.1
-                                @Override // android.view.View.OnTouchListener
-                                public boolean onTouch(View view, MotionEvent motionEvent) {
-                                    if (UrlDragImageView.this.fAf != null) {
-                                        UrlDragImageView.this.fAf.onTouch(view, motionEvent);
-                                    }
-                                    switch (motionEvent.getAction() & CompatibleUtile.getActionMask()) {
-                                        case 0:
-                                            UrlDragImageView.this.fAh = motionEvent.getY();
-                                            UrlDragImageView.this.fzG.setOnClickListener(UrlDragImageView.this.fAg ? UrlDragImageView.this.mOnClickListener : null);
-                                            UrlDragImageView.this.fzG.setOnLongClickListener(UrlDragImageView.this.fAg ? UrlDragImageView.this.mLongClickListener : null);
-                                            break;
-                                        case 1:
-                                        case 3:
-                                            if (UrlDragImageView.this.fzG.getScale() < measuredWidth) {
-                                                UrlDragImageView.this.fzG.setScaleAndCenter(measuredWidth, pointF);
-                                            }
-                                            e.mA().removeCallbacks(UrlDragImageView.this.fAm);
-                                            e.mA().postDelayed(UrlDragImageView.this.fAm, 1000L);
-                                            break;
-                                        case 2:
-                                            if (Math.abs(motionEvent.getY() - UrlDragImageView.this.fAh) > UrlDragImageView.TOUCH_SLOP) {
-                                                UrlDragImageView.this.fAg = false;
-                                                UrlDragImageView.this.fzG.setOnClickListener(null);
-                                                UrlDragImageView.this.fzG.setOnLongClickListener(null);
-                                            }
-                                            UrlDragImageView.this.fAh = motionEvent.getY();
-                                            break;
-                                    }
-                                    return false;
-                                }
-                            });
-                            UrlDragImageView.this.fzE.setVisibility(4);
-                        }
-                    }
-
-                    @Override // com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView.OnImageEventListener
-                    public void onPreviewLoadError(Exception exc) {
-                    }
-
-                    @Override // com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView.OnImageEventListener
-                    public void onImageLoadError(Exception exc) {
-                    }
-
-                    @Override // com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView.OnImageEventListener
-                    public void onTileLoadError(Exception exc) {
-                    }
-                };
-            }
-            this.fzG.setOnImageEventListener(this.fzH);
-            if (this.fzG.isImageLoaded() && this.fxh.isLongPic) {
-                this.fzH.onImageLoaded();
-            } else {
-                this.fzG.setImage(ImageSource.uri(str));
-            }
-            return true;
-        }
-        return false;
-    }
-
-    public void setDragToExitListener(DragImageView.d dVar) {
-        this.fzT = dVar;
-        if (this.fzE != null) {
-            this.fzE.setDragToExitListener(dVar);
-        }
-    }
-
-    public void bzO() {
-        kC(false);
-    }
-
-    private boolean Cz(String str) {
-        return j.isNetWorkAvailable() || com.baidu.tbadk.core.util.d.b.By(str);
-    }
-
-    private void setThumbBitmapToView(com.baidu.adp.widget.ImageView.a aVar) {
-        Bitmap rawBitmap;
-        if (!this.fzK && aVar != null && (rawBitmap = aVar.getRawBitmap()) != null) {
-            this.fzJ = true;
-            if (aVar.isGif()) {
-                this.fzE.setImageUrlData(this.fxh);
-                this.fzE.setImageBitmap(rawBitmap);
-                this.fAi = null;
-                this.fAd = false;
-            } else {
-                if (this.fxh != null && this.fxh.isLongPic) {
-                    this.fzE.createLargeImageDelegate();
-                    this.fzE.setImageLoadCallBack(new com.baidu.tbadk.widget.largeImage.logic.a() { // from class: com.baidu.tbadk.coreExtra.view.UrlDragImageView.13
-                        @Override // com.baidu.tbadk.widget.largeImage.logic.a
-                        public void onLoadFinished() {
-                        }
-                    });
-                }
-                this.fzE.setImageUrlData(this.fxh);
-                this.fzE.setImageData(rawBitmap, aVar.getByteData());
-            }
-            bzL();
-        }
-    }
-
-    private void e(String str, boolean z, boolean z2) {
-        if (CA(str)) {
-            if (z2 || (!this.fzL && !this.fzK)) {
-                if (!z2 || !kC(true)) {
-                    this.fzL = true;
-                    d.mw().a(str, 27, new com.baidu.adp.lib.e.c<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tbadk.coreExtra.view.UrlDragImageView.14
-                        /* JADX INFO: Access modifiers changed from: protected */
-                        @Override // com.baidu.adp.lib.e.c
-                        public void onCancelled(String str2) {
-                            UrlDragImageView.this.fzL = false;
-                            UrlDragImageView.this.fzE.setVisibility(0);
-                            UrlDragImageView.this.mProgressBar.setVisibility(8);
-                            UrlDragImageView.this.fAi = null;
-                        }
-
-                        /* JADX DEBUG: Method merged with bridge method */
-                        /* JADX INFO: Access modifiers changed from: protected */
-                        @Override // com.baidu.adp.lib.e.c
-                        public void onLoaded(com.baidu.adp.widget.ImageView.a aVar, String str2, int i) {
-                            UrlDragImageView.this.fzL = false;
-                            UrlDragImageView.this.fzK = true;
-                            UrlDragImageView.this.b(aVar);
-                        }
-                    }, 0, 0, false, null, Boolean.valueOf(z), this.fzE.getImageData(), Boolean.valueOf(this.fyi));
-                    return;
-                }
-                return;
-            }
-            return;
-        }
-        this.mProgressBar.setVisibility(0);
-        ImageFileInfo imageFileInfo = new ImageFileInfo();
-        imageFileInfo.setFilePath(str);
-        imageFileInfo.setTempFile(true);
-        imageFileInfo.clearPageActions();
-        imageFileInfo.addPageAction(com.baidu.tbadk.img.effect.d.bd(this.mMaxWidth, this.mMaxHeight));
-        com.baidu.adp.widget.ImageView.a a2 = this.fAe.a(imageFileInfo, false);
-        if (a2 != null) {
-            this.fzK = true;
-            this.mProgressBar.setVisibility(8);
-            this.fAi = null;
-            b(a2);
-            return;
-        }
-        this.fAe.a(imageFileInfo, new com.baidu.tbadk.imageManager.b() { // from class: com.baidu.tbadk.coreExtra.view.UrlDragImageView.2
-            @Override // com.baidu.tbadk.imageManager.b
-            public void a(com.baidu.adp.widget.ImageView.a aVar, String str2, boolean z3) {
-                UrlDragImageView.this.fzK = true;
-                UrlDragImageView.this.mProgressBar.setVisibility(8);
-                UrlDragImageView.this.fAi = null;
-                UrlDragImageView.this.b(aVar);
-            }
-        }, false);
-    }
-
-    private boolean CA(String str) {
-        return !TextUtils.isEmpty(str) && (str.startsWith("http://") || str.startsWith(SapiUtils.COOKIE_HTTPS_URL_PREFIX));
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void b(com.baidu.adp.widget.ImageView.a aVar) {
-        if (aVar != null && this.fzI != null) {
-            this.fzI.k(aVar.getUrl(), aVar.getByteData());
-        }
-        if (aVar == null || aVar.getRawBitmap() == null) {
-            bzP();
-            return;
-        }
-        Bitmap rawBitmap = aVar.getRawBitmap();
-        this.fzE.setLoadBigImage(true);
-        if (aVar.isGif()) {
-            this.fzE.setGifData(aVar.getByteData(), rawBitmap);
-            this.fzE.invalidate();
-            this.fzE.play();
-            this.fAd = false;
-            this.fAi = null;
-            this.mProgressBar.setVisibility(8);
-        } else {
-            if (this.fxh != null && this.fxh.isLongPic) {
-                this.fzE.createLargeImageDelegate();
-                this.fzE.setImageLoadCallBack(new com.baidu.tbadk.widget.largeImage.logic.a() { // from class: com.baidu.tbadk.coreExtra.view.UrlDragImageView.3
-                    @Override // com.baidu.tbadk.widget.largeImage.logic.a
-                    public void onLoadFinished() {
-                        UrlDragImageView.this.mProgressBar.setVisibility(8);
-                        UrlDragImageView.this.fAi = null;
-                    }
-                });
-            } else {
-                this.mProgressBar.setVisibility(8);
-                this.fAi = null;
-            }
-            this.fzE.setImageUrlData(this.fxh);
-            this.fzE.setImageData(rawBitmap, aVar.getByteData());
-            bzU();
-        }
-        bzL();
-    }
-
-    private void bzP() {
-        if (!this.fzJ) {
-            this.fzE.setDefaultBitmap();
-        } else {
-            this.fzK = false;
-        }
-        this.fAi = null;
-        this.mProgressBar.setVisibility(8);
-    }
-
-    public void setGifMaxUseableMem(int i) {
-        this.fzE.setGifMaxUseableMem(i);
-    }
-
-    public void onDestroy() {
-        if (this.fzE != null) {
-            this.fzE.onDestroy();
-        }
-        if (this.fzG != null) {
-            this.fzG.recycle();
-        }
-        if (this.fzO != null) {
-            this.fzO.recycle();
-            this.fzO = null;
-        }
-        if (this.mProgressBar != null) {
-            this.fAi = null;
-            this.mProgressBar.setVisibility(8);
-        }
-        e.mA().removeCallbacks(this.fAm);
-        com.baidu.tieba.view.c.dWg().setColor(-1);
-    }
-
-    public void release() {
-        if (this.fzE != null) {
-            this.fzE.release();
-        }
-        if (this.mProgressBar != null) {
-            this.fAi = null;
-            this.mProgressBar.setVisibility(8);
-        }
-        this.fAi = null;
-    }
-
-    public void bzQ() {
-        if (this.fzE != null && this.fzE.getImageType() == 1) {
-            this.fzE.stop();
-        }
-    }
-
-    public void D(boolean z, boolean z2) {
-        String str;
-        if (this.fzE != null && (str = (String) this.fzE.getTag()) != null) {
-            if (this.fzE.getImageType() == 1) {
-                if (this.fzE.getGifCache() == null || !this.fzE.isLoadBigImage()) {
-                    e(str, z, z2);
-                }
-            } else if (this.fzE.getImageType() == 2) {
-                e(str, z, z2);
-            } else if (bzR()) {
-                e(str, z, z2);
-            }
-        }
-    }
-
-    private boolean bzR() {
-        if (this.fzE.getImageBitmap() != null && this.fzE.isLoadBigImage()) {
-            if (this.fxh == null || !this.fxh.isLongPic || this.fzE.hasLoadLongImage()) {
-                return false;
-            }
-            this.fzK = false;
-            this.fAb = false;
-            return true;
-        }
-        return true;
-    }
-
-    public void setAssistUrl(ImageUrlData imageUrlData) {
-        this.fxh = imageUrlData;
-    }
-
-    public ImageUrlData getmAssistUrlData() {
-        return this.fxh;
-    }
-
-    public void setIsCdn(boolean z) {
-        this.fyi = z;
-    }
-
-    public void bzS() {
-        final String nameMd5FromUrl = aw.getNameMd5FromUrl(this.fxh.originalUrl);
-        if (this.fxh.originalProcess >= 0) {
-            com.baidu.tbadk.download.d.bBg().cancelDownLoadById(nameMd5FromUrl, 13);
-            this.fxh.originalProcess = -1;
-            bzU();
-            return;
-        }
-        if (this.fyb != null) {
-            this.fyb.bzX();
-        }
-        f<?> J = com.baidu.adp.base.j.J(this.mContext);
-        if (J == null) {
-            CB(nameMd5FromUrl);
-        } else if (!j.isNetWorkAvailable() || j.isWifiNet() || com.baidu.tbadk.core.sharedPref.b.brR().getBoolean(SharedPrefConfig.ORIGINAL_IMG_DOWN_TIP, false)) {
-            CB(nameMd5FromUrl);
-        } else {
-            com.baidu.tbadk.core.sharedPref.b.brR().putBoolean(SharedPrefConfig.ORIGINAL_IMG_DOWN_TIP, true);
-            final com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(J.getPageActivity());
-            aVar.ny(R.string.original_img_down_no_wifi_tip);
-            aVar.a(R.string.alert_yes_button, new a.b() { // from class: com.baidu.tbadk.coreExtra.view.UrlDragImageView.4
-                @Override // com.baidu.tbadk.core.dialog.a.b
-                public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
-                    aVar.dismiss();
-                    UrlDragImageView.this.CB(nameMd5FromUrl);
-                }
-            });
-            aVar.b(R.string.cancel, new a.b() { // from class: com.baidu.tbadk.coreExtra.view.UrlDragImageView.5
-                @Override // com.baidu.tbadk.core.dialog.a.b
-                public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
-                    aVar.dismiss();
-                }
-            });
-            aVar.b(J);
-            aVar.bqz();
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void CB(String str) {
-        if (this.fxh != null) {
-            this.fxh.originalProcess = 0;
-            this.fAj.setProgress(0);
-            this.fAj.setVisibility(0);
-            DownloadData downloadData = new DownloadData(str);
-            downloadData.setStatus(1);
-            downloadData.setUrl(this.fxh.originalUrl);
-            downloadData.setType(13);
-            downloadData.setPath(this.fzU + at.bsS().Bl(str) + "/" + str);
-            downloadData.setCallback(new com.baidu.tbadk.download.c() { // from class: com.baidu.tbadk.coreExtra.view.UrlDragImageView.6
-                @Override // com.baidu.tbadk.download.c
-                public boolean onPreDownload(DownloadData downloadData2) {
-                    return true;
-                }
-
-                @Override // com.baidu.tbadk.download.c
-                public void onFileUpdateProgress(DownloadData downloadData2) {
-                    if (downloadData2 != null) {
-                        if (UrlDragImageView.this.fxh != null && UrlDragImageView.this.fxh.originalProcess != -1) {
-                            UrlDragImageView.this.fxh.originalProcess = downloadData2.getProcess();
-                        }
-                        if (UrlDragImageView.this.fxh == null || UrlDragImageView.this.fxh.originalProcess != -1) {
-                            UrlDragImageView.this.fAj.setProgress(downloadData2.getProcess());
-                        }
-                    }
-                }
-
-                @Override // com.baidu.tbadk.download.c
-                public boolean onFileDownloaded(DownloadData downloadData2) {
-                    return true;
-                }
-
-                @Override // com.baidu.tbadk.download.c
-                public void onFileDownloadSucceed(DownloadData downloadData2) {
-                    UrlDragImageView.this.fAj.setVisibility(8);
-                    e.mA().postDelayed(UrlDragImageView.this.fAn, 1500L);
-                    UrlDragImageView.this.fAb = false;
-                    UrlDragImageView.this.fAa = UrlDragImageView.this.bzT();
-                    UrlDragImageView.this.bzO();
-                }
-
-                @Override // com.baidu.tbadk.download.c
-                public void onFileDownloadFailed(DownloadData downloadData2, int i, String str2) {
-                    UrlDragImageView.this.fAj.setVisibility(8);
-                    UrlDragImageView.this.fAb = false;
-                    BdToast.b(UrlDragImageView.this.mContext, str2).bqE().bqF();
-                    UrlDragImageView.this.fxh.originalProcess = -1;
-                    UrlDragImageView.this.bzU();
-                }
-            });
-            com.baidu.tbadk.download.d.bBg().a(downloadData, 100);
-            this.fAk = true;
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public boolean bzT() {
-        if (this.fxh != null && !StringUtils.isNull(this.fxh.originalUrl, true) && this.fxh.originalSize >= 0 && !this.fxh.isBlockedPic) {
-            String nameMd5FromUrl = aw.getNameMd5FromUrl(this.fxh.originalUrl);
-            File file = new File(this.fzU + at.bsS().Bl(nameMd5FromUrl) + "/" + nameMd5FromUrl);
-            if (file != null && file.exists()) {
-                this.fxh.originalProcess = 100;
-                return true;
-            }
-            if (this.fxh.originalProcess < 0) {
-                bzU();
-            } else {
-                this.fAj.setProgress(this.fxh.originalProcess);
-            }
-            this.fAd = true;
-        } else {
-            this.fAi = null;
-        }
-        return false;
-    }
-
-    public void bzU() {
-        if (this.fxh != null) {
-            if (!bzV() || !this.fAd) {
-                this.fAi = null;
-            } else if (this.fxh.originalSize > 0 && !ej(this.fxh.originalSize)) {
-                this.fAi = fzC + "(" + au.getFormatSize(this.fxh.originalSize) + ")";
-            } else {
-                this.fAi = fzC;
-            }
-        }
-    }
-
-    private boolean bzV() {
-        return (this.fxh == null || !this.fxh.mIsShowOrigonButton || this.fxh.isBlockedPic || StringUtils.isNull(this.fxh.originalUrl)) ? false : true;
-    }
-
-    public void setOriImgSelectedCallback(b bVar) {
-        this.fyb = bVar;
-    }
-
-    private boolean ej(long j) {
-        return j > fzD;
+    public UrlDragImageView(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        this.f13781e = 3;
+        this.f13783g = null;
+        this.f13784h = null;
+        this.l = null;
+        this.m = false;
+        this.p = false;
+        this.w = false;
+        this.x = 1.0f;
+        this.y = 0.0f;
+        this.z = new Matrix();
+        this.B = new RectF();
+        this.I = 0.0f;
+        this.J = 0.0f;
+        this.K = 1.0f;
+        this.L = 1.0f;
+        this.M = 0.0f;
+        this.O = false;
+        this.P = false;
+        this.Q = false;
+        this.W = true;
+        this.a0 = 0.0f;
+        this.b0 = null;
+        this.c0 = null;
+        this.d0 = null;
+        this.i0 = new f();
+        this.j0 = new g();
+        this.k0 = new k();
+        this.f13782f = context;
+        this.R = new d.b.h0.b0.b();
+        N();
     }
 }

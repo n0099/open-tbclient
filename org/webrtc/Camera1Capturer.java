@@ -4,9 +4,9 @@ import android.content.Context;
 import javax.annotation.Nullable;
 import org.webrtc.CameraSession;
 import org.webrtc.CameraVideoCapturer;
-/* loaded from: classes9.dex */
+/* loaded from: classes.dex */
 public class Camera1Capturer extends CameraCapturer {
-    private final boolean captureToTexture;
+    public final boolean captureToTexture;
 
     public Camera1Capturer(String str, CameraVideoCapturer.CameraEventsHandler cameraEventsHandler, boolean z) {
         super(str, cameraEventsHandler, new Camera1Enumerator(z));
@@ -19,7 +19,7 @@ public class Camera1Capturer extends CameraCapturer {
     }
 
     @Override // org.webrtc.CameraCapturer
-    protected void createCameraSession(CameraSession.CreateSessionCallback createSessionCallback, CameraSession.Events events, Context context, SurfaceTextureHelper surfaceTextureHelper, String str, int i, int i2, int i3) {
+    public void createCameraSession(CameraSession.CreateSessionCallback createSessionCallback, CameraSession.Events events, Context context, SurfaceTextureHelper surfaceTextureHelper, String str, int i, int i2, int i3) {
         Camera1Session.create(createSessionCallback, events, this.captureToTexture, context, surfaceTextureHelper, Camera1Enumerator.getCameraIndex(str), i, i2, i3);
     }
 

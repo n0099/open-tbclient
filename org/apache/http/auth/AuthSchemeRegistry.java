@@ -4,17 +4,9 @@ import java.util.List;
 import java.util.Map;
 import org.apache.http.params.HttpParams;
 @Deprecated
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class AuthSchemeRegistry {
     public AuthSchemeRegistry() {
-        throw new RuntimeException("Stub!");
-    }
-
-    public synchronized void register(String str, AuthSchemeFactory authSchemeFactory) {
-        throw new RuntimeException("Stub!");
-    }
-
-    public synchronized void unregister(String str) {
         throw new RuntimeException("Stub!");
     }
 
@@ -26,7 +18,15 @@ public final class AuthSchemeRegistry {
         throw new RuntimeException("Stub!");
     }
 
+    public synchronized void register(String str, AuthSchemeFactory authSchemeFactory) {
+        throw new RuntimeException("Stub!");
+    }
+
     public synchronized void setItems(Map<String, AuthSchemeFactory> map) {
+        throw new RuntimeException("Stub!");
+    }
+
+    public synchronized void unregister(String str) {
         throw new RuntimeException("Stub!");
     }
 }

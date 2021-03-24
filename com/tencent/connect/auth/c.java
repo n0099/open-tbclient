@@ -9,24 +9,27 @@ import android.text.TextUtils;
 import android.widget.Toast;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
+import com.baidu.android.common.others.lang.StringUtil;
 import com.tencent.connect.common.BaseApi;
 import com.tencent.open.a.f;
 import com.tencent.open.utils.e;
 import com.tencent.tauth.IUiListener;
 import java.io.File;
 import java.util.Iterator;
-/* loaded from: classes14.dex */
+/* loaded from: classes7.dex */
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    private AuthAgent f7922a;
-    private QQToken b;
+    public AuthAgent f39089a;
 
-    private c(String str, Context context) {
+    /* renamed from: b  reason: collision with root package name */
+    public QQToken f39090b;
+
+    public c(String str, Context context) {
         f.c("openSDK_LOG.QQAuth", "new QQAuth() --start");
-        this.b = new QQToken(str);
-        this.f7922a = new AuthAgent(this.b);
-        com.tencent.connect.a.a.c(context, this.b);
+        this.f39090b = new QQToken(str);
+        this.f39089a = new AuthAgent(this.f39090b);
+        com.tencent.connect.a.a.c(context, this.f39090b);
         f.c("openSDK_LOG.QQAuth", "new QQAuth() --end");
     }
 
@@ -40,11 +43,29 @@ public class c {
             c cVar = new c(str, context);
             f.c("openSDK_LOG.QQAuth", "QQAuth -- createInstance()  --end");
             return cVar;
-        } catch (PackageManager.NameNotFoundException e) {
-            f.b("openSDK_LOG.QQAuth", "createInstance() error --end", e);
+        } catch (PackageManager.NameNotFoundException e2) {
+            f.b("openSDK_LOG.QQAuth", "createInstance() error --end", e2);
             Toast.makeText(context.getApplicationContext(), "请参照文档在Androidmanifest.xml加上AuthActivity和AssitActivity的定义 ", 1).show();
             return null;
         }
+    }
+
+    public int b(Activity activity, String str, IUiListener iUiListener) {
+        f.c("openSDK_LOG.QQAuth", "reAuth()");
+        return this.f39089a.doLogin(activity, str, iUiListener, true, null);
+    }
+
+    public boolean c() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("isSessionValid(), result = ");
+        sb.append(this.f39090b.isSessionValid() ? "true" : "false");
+        sb.append("");
+        f.a("openSDK_LOG.QQAuth", sb.toString());
+        return this.f39090b.isSessionValid();
+    }
+
+    public QQToken b() {
+        return this.f39090b;
     }
 
     public int a(Activity activity, String str, IUiListener iUiListener) {
@@ -64,13 +85,12 @@ public class c {
     }
 
     private int a(Activity activity, Fragment fragment, String str, IUiListener iUiListener, String str2) {
-        String str3;
         String packageName = activity.getApplicationContext().getPackageName();
+        String str3 = null;
         try {
             Iterator<ApplicationInfo> it = activity.getPackageManager().getInstalledApplications(128).iterator();
             while (true) {
                 if (!it.hasNext()) {
-                    str3 = null;
                     break;
                 }
                 ApplicationInfo next = it.next();
@@ -92,7 +112,7 @@ public class c {
         }
         f.b("openSDK_LOG.QQAuth", "-->login channelId is null ");
         BaseApi.isOEM = false;
-        return this.f7922a.doLogin(activity, str, iUiListener, false, fragment);
+        return this.f39089a.doLogin(activity, str, iUiListener, false, fragment);
     }
 
     @Deprecated
@@ -100,51 +120,37 @@ public class c {
         f.c("openSDK_LOG.QQAuth", "loginWithOEM");
         BaseApi.isOEM = true;
         if (str2.equals("")) {
-            str2 = "null";
+            str2 = StringUtil.NULL_STRING;
         }
         if (str3.equals("")) {
-            str3 = "null";
+            str3 = StringUtil.NULL_STRING;
         }
         if (str4.equals("")) {
-            str4 = "null";
+            str4 = StringUtil.NULL_STRING;
         }
         BaseApi.installChannel = str3;
         BaseApi.registerChannel = str2;
         BaseApi.businessId = str4;
-        return this.f7922a.doLogin(activity, str, iUiListener);
-    }
-
-    public int b(Activity activity, String str, IUiListener iUiListener) {
-        f.c("openSDK_LOG.QQAuth", "reAuth()");
-        return this.f7922a.doLogin(activity, str, iUiListener, true, null);
+        return this.f39089a.doLogin(activity, str, iUiListener);
     }
 
     public void a() {
-        this.f7922a.a((IUiListener) null);
+        this.f39089a.a((IUiListener) null);
     }
 
     public void a(IUiListener iUiListener) {
-        this.f7922a.b(iUiListener);
-    }
-
-    public QQToken b() {
-        return this.b;
+        this.f39089a.b(iUiListener);
     }
 
     public void a(String str, String str2) {
         f.a("openSDK_LOG.QQAuth", "setAccessToken(), validTimeInSecond = " + str2 + "");
-        this.b.setAccessToken(str, str2);
-    }
-
-    public boolean c() {
-        f.a("openSDK_LOG.QQAuth", "isSessionValid(), result = " + (this.b.isSessionValid() ? "true" : "false") + "");
-        return this.b.isSessionValid();
+        this.f39090b.setAccessToken(str, str2);
     }
 
     public void a(Context context, String str) {
         f.a("openSDK_LOG.QQAuth", "setOpenId() --start");
-        this.b.setOpenId(str);
-        com.tencent.connect.a.a.d(context, this.b);
+        this.f39090b.setOpenId(str);
+        com.tencent.connect.a.a.d(context, this.f39090b);
         f.a("openSDK_LOG.QQAuth", "setOpenId() --end");
     }
 }

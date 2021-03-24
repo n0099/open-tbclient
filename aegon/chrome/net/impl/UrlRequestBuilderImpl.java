@@ -6,11 +6,10 @@ import aegon.chrome.net.UploadDataProvider;
 import aegon.chrome.net.UrlRequest;
 import android.util.Log;
 import android.util.Pair;
-import com.baidubce.http.Headers;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.concurrent.Executor;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class UrlRequestBuilderImpl extends ExperimentalUrlRequest.Builder {
     public static final String TAG = "UrlRequestBuilderImpl";
     public boolean mAllowDirectExecutor;
@@ -55,7 +54,7 @@ public class UrlRequestBuilderImpl extends ExperimentalUrlRequest.Builder {
     public ExperimentalUrlRequest.Builder addHeader(String str, String str2) {
         if (str != null) {
             if (str2 != null) {
-                if (Headers.ACCEPT_ENCODING.equalsIgnoreCase(str)) {
+                if ("Accept-Encoding".equalsIgnoreCase(str)) {
                     Log.w(TAG, "It's not necessary to set Accept-Encoding on requests - cronet will do this automatically for you, and setting it yourself has no effect. See https://crbug.com/581399 for details.", new Exception());
                 } else {
                     this.mRequestHeaders.add(Pair.create(str, str2));

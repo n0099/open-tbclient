@@ -1,7 +1,8 @@
 package com.qq.e.ads.rewardvideo2;
 
 import com.qq.e.comm.util.AdError;
-/* loaded from: classes4.dex */
+import java.util.Map;
+/* loaded from: classes6.dex */
 public interface ExpressRewardVideoAdListener {
     void onAdLoaded();
 
@@ -13,7 +14,7 @@ public interface ExpressRewardVideoAdListener {
 
     void onExpose();
 
-    void onReward();
+    void onReward(Map<String, Object> map);
 
     void onShow();
 

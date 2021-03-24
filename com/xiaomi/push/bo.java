@@ -1,48 +1,36 @@
 package com.xiaomi.push;
 
-import java.util.Date;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
-public class bo implements fv {
+import android.content.Context;
+import com.xiaomi.push.ai;
+/* loaded from: classes7.dex */
+public class bo extends ai.a {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ bn f8281a;
+    public Context f40288a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public bo(bn bnVar) {
-        this.f8281a = bnVar;
+    public bo(Context context) {
+        this.f40288a = context;
     }
 
-    @Override // com.xiaomi.push.fv
-    public void a(fs fsVar) {
-        fs fsVar2;
-        StringBuilder append = new StringBuilder().append("[Slim] ").append(this.f8281a.f132a.format(new Date())).append(" Connection reconnected (");
-        fsVar2 = this.f8281a.f129a;
-        com.xiaomi.channel.commonutils.logger.b.c(append.append(fsVar2.hashCode()).append(")").toString());
+    private boolean a() {
+        return com.xiaomi.clientreport.manager.a.a(this.f40288a).m56a().isPerfUploadSwitchOpen();
     }
 
-    @Override // com.xiaomi.push.fv
-    public void a(fs fsVar, int i, Exception exc) {
-        fs fsVar2;
-        StringBuilder append = new StringBuilder().append("[Slim] ").append(this.f8281a.f132a.format(new Date())).append(" Connection closed (");
-        fsVar2 = this.f8281a.f129a;
-        com.xiaomi.channel.commonutils.logger.b.c(append.append(fsVar2.hashCode()).append(")").toString());
+    @Override // com.xiaomi.push.ai.a
+    /* renamed from: a */
+    public String mo165a() {
+        return "100887";
     }
 
-    @Override // com.xiaomi.push.fv
-    public void a(fs fsVar, Exception exc) {
-        fs fsVar2;
-        StringBuilder append = new StringBuilder().append("[Slim] ").append(this.f8281a.f132a.format(new Date())).append(" Reconnection failed due to an exception (");
-        fsVar2 = this.f8281a.f129a;
-        com.xiaomi.channel.commonutils.logger.b.c(append.append(fsVar2.hashCode()).append(")").toString());
-        exc.printStackTrace();
-    }
-
-    @Override // com.xiaomi.push.fv
-    public void b(fs fsVar) {
-        fs fsVar2;
-        StringBuilder append = new StringBuilder().append("[Slim] ").append(this.f8281a.f132a.format(new Date())).append(" Connection started (");
-        fsVar2 = this.f8281a.f129a;
-        com.xiaomi.channel.commonutils.logger.b.c(append.append(fsVar2.hashCode()).append(")").toString());
+    @Override // java.lang.Runnable
+    public void run() {
+        try {
+            if (a()) {
+                com.xiaomi.clientreport.manager.a.a(this.f40288a).c();
+                com.xiaomi.channel.commonutils.logger.b.c(this.f40288a.getPackageName() + "perf  begin upload");
+            }
+        } catch (Exception e2) {
+            com.xiaomi.channel.commonutils.logger.b.d("fail to send perf data. " + e2);
+        }
     }
 }

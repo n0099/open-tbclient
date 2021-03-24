@@ -3,103 +3,59 @@ package com.baidu.tieba.hottopic.controller;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.y;
-import com.baidu.tieba.hottopic.data.j;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.hottopic.message.RequestHotRanklistMessage;
 import com.baidu.tieba.hottopic.message.ResponseHttpHotRanklistMessage;
 import com.baidu.tieba.hottopic.message.ResponseSocketHotRanklistMessage;
-/* loaded from: classes7.dex */
+import d.b.i0.b1.c.j;
+/* loaded from: classes4.dex */
 public class HotRanklistModel extends BdBaseModel {
-    private j kvG;
-    private a kvH;
-    private com.baidu.adp.framework.listener.a netMessageListener;
 
-    /* loaded from: classes7.dex */
-    public interface a {
-        void a(boolean z, j jVar, int i, String str);
+    /* renamed from: e  reason: collision with root package name */
+    public b f17540e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public d.b.b.c.g.a f17541f;
+
+    /* loaded from: classes4.dex */
+    public class a extends d.b.b.c.g.a {
+        public a(int i, int i2) {
+            super(i, i2);
+        }
+
+        @Override // d.b.b.c.g.a
+        public void onMessage(ResponsedMessage<?> responsedMessage) {
+            if (responsedMessage == null) {
+                return;
+            }
+            if (((responsedMessage instanceof ResponseHttpHotRanklistMessage) || (responsedMessage instanceof ResponseSocketHotRanklistMessage)) && responsedMessage.getOrginalMessage().getTag() == HotRanklistModel.this.getUniqueId()) {
+                if (!responsedMessage.hasError()) {
+                    HotRanklistModel.this.v(responsedMessage);
+                } else {
+                    HotRanklistModel.this.f17540e.loadNetDataCallback(false, null, responsedMessage.getError(), responsedMessage.getErrorString());
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public interface b {
+        void loadNetDataCallback(boolean z, j jVar, int i, String str);
     }
 
     public HotRanklistModel(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.kvG = null;
-        this.kvH = null;
-        this.netMessageListener = new com.baidu.adp.framework.listener.a(1003078, CmdConfigSocket.CMD_HOT_TOPIC_RANKLIST) { // from class: com.baidu.tieba.hottopic.controller.HotRanklistModel.1
-            @Override // com.baidu.adp.framework.listener.a
-            public void onMessage(ResponsedMessage<?> responsedMessage) {
-                if (responsedMessage != null) {
-                    if (((responsedMessage instanceof ResponseHttpHotRanklistMessage) || (responsedMessage instanceof ResponseSocketHotRanklistMessage)) && responsedMessage.getOrginalMessage().getTag() == HotRanklistModel.this.getUniqueId()) {
-                        if (!responsedMessage.hasError()) {
-                            HotRanklistModel.this.i(responsedMessage);
-                        } else {
-                            HotRanklistModel.this.kvH.a(false, null, responsedMessage.getError(), responsedMessage.getErrorString());
-                        }
-                    }
-                }
-            }
-        };
-        registerListener(this.netMessageListener);
-        this.kvG = new j();
+        this.f17540e = null;
+        a aVar = new a(CmdConfigHttp.CMD_HOT_TOPIC_RANKLIST, 309289);
+        this.f17541f = aVar;
+        registerListener(aVar);
     }
 
-    public void f(String str, String str2, String str3, long j) {
-        g(str, str2, str3, j);
-    }
-
-    private void g(String str, String str2, String str3, long j) {
-        RequestHotRanklistMessage requestHotRanklistMessage = new RequestHotRanklistMessage();
-        requestHotRanklistMessage.setCallFrom(str);
-        requestHotRanklistMessage.setListType(str2);
-        requestHotRanklistMessage.setNeedTabList(str3);
-        requestHotRanklistMessage.setFid(j);
-        sendMessage(requestHotRanklistMessage);
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    /* JADX WARN: Removed duplicated region for block: B:27:0x0068  */
-    /* JADX WARN: Removed duplicated region for block: B:30:0x0078  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void i(ResponsedMessage<?> responsedMessage) {
-        String str;
-        j jVar = null;
-        if (responsedMessage != null) {
-            if (responsedMessage.getOrginalMessage() != null) {
-                Object extra = responsedMessage.getOrginalMessage().getExtra();
-                if (extra instanceof RequestHotRanklistMessage) {
-                    str = ((RequestHotRanklistMessage) extra).getListType();
-                    if ((responsedMessage instanceof ResponseHttpHotRanklistMessage) && ((ResponseHttpHotRanklistMessage) responsedMessage).getHotRanklistData() != null) {
-                        jVar = ((ResponseHttpHotRanklistMessage) responsedMessage).getHotRanklistData();
-                    }
-                    if ((responsedMessage instanceof ResponseSocketHotRanklistMessage) && ((ResponseSocketHotRanklistMessage) responsedMessage).getHotRanklistData() != null) {
-                        jVar = ((ResponseSocketHotRanklistMessage) responsedMessage).getHotRanklistData();
-                    }
-                    if (!StringUtils.isNull(str) && !y.isEmpty(jVar.kxk)) {
-                        jVar.type = jVar.kxk.get(0).heN;
-                    } else {
-                        jVar.type = str;
-                    }
-                    this.kvH.a(responsedMessage.hasError(), jVar, responsedMessage.getError(), responsedMessage.getErrorString());
-                }
-            }
-            str = null;
-            if (responsedMessage instanceof ResponseHttpHotRanklistMessage) {
-                jVar = ((ResponseHttpHotRanklistMessage) responsedMessage).getHotRanklistData();
-            }
-            if (responsedMessage instanceof ResponseSocketHotRanklistMessage) {
-                jVar = ((ResponseSocketHotRanklistMessage) responsedMessage).getHotRanklistData();
-            }
-            if (!StringUtils.isNull(str)) {
-            }
-            jVar.type = str;
-            this.kvH.a(responsedMessage.hasError(), jVar, responsedMessage.getError(), responsedMessage.getErrorString());
-        }
-    }
-
-    public void a(a aVar) {
-        this.kvH = aVar;
+    @Override // com.baidu.adp.base.BdBaseModel
+    public boolean LoadData() {
+        return false;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -108,8 +64,66 @@ public class HotRanklistModel extends BdBaseModel {
         return false;
     }
 
-    @Override // com.baidu.adp.base.BdBaseModel
-    protected boolean LoadData() {
-        return false;
+    public void u(String str, String str2, String str3, long j) {
+        w(str, str2, str3, j);
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:12:0x0022  */
+    /* JADX WARN: Removed duplicated region for block: B:17:0x0033  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public final void v(ResponsedMessage<?> responsedMessage) {
+        String str;
+        if (responsedMessage == null) {
+            return;
+        }
+        j jVar = null;
+        if (responsedMessage.getOrginalMessage() != null) {
+            Object extra = responsedMessage.getOrginalMessage().getExtra();
+            if (extra instanceof RequestHotRanklistMessage) {
+                str = ((RequestHotRanklistMessage) extra).getListType();
+                if (responsedMessage instanceof ResponseHttpHotRanklistMessage) {
+                    ResponseHttpHotRanklistMessage responseHttpHotRanklistMessage = (ResponseHttpHotRanklistMessage) responsedMessage;
+                    if (responseHttpHotRanklistMessage.getHotRanklistData() != null) {
+                        jVar = responseHttpHotRanklistMessage.getHotRanklistData();
+                    }
+                }
+                if (responsedMessage instanceof ResponseSocketHotRanklistMessage) {
+                    ResponseSocketHotRanklistMessage responseSocketHotRanklistMessage = (ResponseSocketHotRanklistMessage) responsedMessage;
+                    if (responseSocketHotRanklistMessage.getHotRanklistData() != null) {
+                        jVar = responseSocketHotRanklistMessage.getHotRanklistData();
+                    }
+                }
+                if (!StringUtils.isNull(str) && !ListUtils.isEmpty(jVar.f52122b)) {
+                    jVar.f52121a = jVar.f52122b.get(0).f52145f;
+                } else {
+                    jVar.f52121a = str;
+                }
+                this.f17540e.loadNetDataCallback(!responsedMessage.hasError(), jVar, responsedMessage.getError(), responsedMessage.getErrorString());
+            }
+        }
+        str = null;
+        if (responsedMessage instanceof ResponseHttpHotRanklistMessage) {
+        }
+        if (responsedMessage instanceof ResponseSocketHotRanklistMessage) {
+        }
+        if (!StringUtils.isNull(str)) {
+        }
+        jVar.f52121a = str;
+        this.f17540e.loadNetDataCallback(!responsedMessage.hasError(), jVar, responsedMessage.getError(), responsedMessage.getErrorString());
+    }
+
+    public final void w(String str, String str2, String str3, long j) {
+        RequestHotRanklistMessage requestHotRanklistMessage = new RequestHotRanklistMessage();
+        requestHotRanklistMessage.setCallFrom(str);
+        requestHotRanklistMessage.setListType(str2);
+        requestHotRanklistMessage.setNeedTabList(str3);
+        requestHotRanklistMessage.setFid(j);
+        sendMessage(requestHotRanklistMessage);
+    }
+
+    public void x(b bVar) {
+        this.f17540e = bVar;
     }
 }

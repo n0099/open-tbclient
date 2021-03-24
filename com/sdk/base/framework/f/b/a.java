@@ -4,30 +4,25 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.SharedPreferences;
 import com.sdk.base.framework.c.f;
-import com.sdk.base.framework.f.j.c;
+import com.sdk.base.framework.f.i.c;
 import java.nio.charset.Charset;
 @SuppressLint({"ApplySharedPref"})
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f7638a = a.class.getName();
-    private static final Boolean b = Boolean.valueOf(f.b);
+    public static final String f38539a = "com.sdk.base.framework.f.b.a";
+
+    /* renamed from: b  reason: collision with root package name */
+    public static final Boolean f38540b = Boolean.valueOf(f.f38519b);
 
     public static String a(Context context, String str) {
-        String string;
         String str2 = "";
         try {
-            string = context.getSharedPreferences("ZzxCache", 0).getString(str, "");
-        } catch (Exception e) {
-            e = e;
-        }
-        try {
-            return new String(c.a(string), Charset.defaultCharset());
+            str2 = context.getSharedPreferences("ZzxCache", 0).getString(str, "");
+            return new String(c.a(str2), Charset.defaultCharset());
         } catch (Exception e2) {
-            e = e2;
-            str2 = string;
-            com.sdk.base.framework.a.a.c.b(f7638a, e.getMessage(), b);
+            com.sdk.base.framework.a.a.c.b(f38539a, e2.getMessage(), f38540b);
             return str2;
         }
     }
@@ -37,8 +32,8 @@ public class a {
             SharedPreferences.Editor edit = context.getSharedPreferences("ZzxCache", 0).edit();
             edit.putLong(str, l.longValue());
             edit.commit();
-        } catch (Exception e) {
-            com.sdk.base.framework.a.a.c.b(f7638a, e.getMessage(), b);
+        } catch (Exception e2) {
+            com.sdk.base.framework.a.a.c.b(f38539a, e2.getMessage(), f38540b);
         }
     }
 
@@ -47,8 +42,8 @@ public class a {
             SharedPreferences.Editor edit = context.getSharedPreferences("ZzxCache", 0).edit();
             edit.putString(str, c.a(str2.getBytes(Charset.defaultCharset())));
             return edit.commit();
-        } catch (Exception e) {
-            com.sdk.base.framework.a.a.c.b(f7638a, e.getMessage(), b);
+        } catch (Exception e2) {
+            com.sdk.base.framework.a.a.c.b(f38539a, e2.getMessage(), f38540b);
             return false;
         }
     }
@@ -56,8 +51,8 @@ public class a {
     public static String b(Context context, String str) {
         try {
             return context.getSharedPreferences("ZzxCache", 0).getString(str, "");
-        } catch (Exception e) {
-            com.sdk.base.framework.a.a.c.b(f7638a, e.getMessage(), b);
+        } catch (Exception e2) {
+            com.sdk.base.framework.a.a.c.b(f38539a, e2.getMessage(), f38540b);
             return "";
         }
     }
@@ -67,8 +62,8 @@ public class a {
             SharedPreferences.Editor edit = context.getSharedPreferences("ZzxCache", 0).edit();
             edit.putString(str, str2);
             return edit.commit();
-        } catch (Exception e) {
-            com.sdk.base.framework.a.a.c.b(f7638a, e.getMessage(), b);
+        } catch (Exception e2) {
+            com.sdk.base.framework.a.a.c.b(f38539a, e2.getMessage(), f38540b);
             return false;
         }
     }
@@ -77,8 +72,8 @@ public class a {
         long j = 0;
         try {
             j = context.getSharedPreferences("ZzxCache", 0).getLong(str, 0L);
-        } catch (Exception e) {
-            com.sdk.base.framework.a.a.c.b(f7638a, e.getMessage(), b);
+        } catch (Exception e2) {
+            com.sdk.base.framework.a.a.c.b(f38539a, e2.getMessage(), f38540b);
         }
         return Long.valueOf(j);
     }

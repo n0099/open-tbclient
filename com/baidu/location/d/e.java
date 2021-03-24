@@ -4,10 +4,14 @@ import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Proxy;
+import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.webkit.internal.ConectivityUtils;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public abstract class e {
-    public String h = null;
+
+    /* renamed from: h  reason: collision with root package name */
+    public String f6705h = null;
     public int i = 3;
     public String j = null;
     public Map<String, Object> k = null;
@@ -15,67 +19,79 @@ public abstract class e {
     public byte[] m = null;
     public byte[] n = null;
     public String o = null;
-    public static int g = a.g;
+
+    /* renamed from: g  reason: collision with root package name */
+    public static int f6704g = a.f6674g;
 
     /* renamed from: a  reason: collision with root package name */
-    private static String f1969a = "10.0.0.172";
-    private static int b = 80;
-    protected static int p = 0;
+    public static String f6702a = "10.0.0.172";
 
-    private static int a(Context context, NetworkInfo networkInfo) {
+    /* renamed from: b  reason: collision with root package name */
+    public static int f6703b = 80;
+    public static int p = 0;
+
+    /* JADX WARN: Code restructure failed: missing block: B:53:0x00ad, code lost:
+        if ("10.0.0.200".equals(r5.trim()) != false) goto L22;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static int a(Context context, NetworkInfo networkInfo) {
         String lowerCase;
+        String str = "10.0.0.200";
+        String str2 = "10.0.0.172";
         if (networkInfo != null && networkInfo.getExtraInfo() != null && (lowerCase = networkInfo.getExtraInfo().toLowerCase()) != null) {
-            if (lowerCase.startsWith("cmwap") || lowerCase.startsWith("uniwap") || lowerCase.startsWith("3gwap")) {
+            if (lowerCase.startsWith(ConectivityUtils.APN_CMWAP) || lowerCase.startsWith(ConectivityUtils.APN_UNIWAP) || lowerCase.startsWith(ConectivityUtils.APN_3GWAP)) {
                 String defaultHost = Proxy.getDefaultHost();
-                f1969a = (defaultHost == null || defaultHost.equals("") || defaultHost.equals("null")) ? "10.0.0.172" : "10.0.0.172";
-                return a.d;
-            } else if (lowerCase.startsWith("ctwap")) {
+                if (defaultHost != null && !defaultHost.equals("") && !defaultHost.equals(StringUtil.NULL_STRING)) {
+                    str2 = defaultHost;
+                }
+                f6702a = str2;
+                return a.f6671d;
+            } else if (lowerCase.startsWith(ConectivityUtils.APN_CTWAP)) {
                 String defaultHost2 = Proxy.getDefaultHost();
-                f1969a = (defaultHost2 == null || defaultHost2.equals("") || defaultHost2.equals("null")) ? "10.0.0.200" : "10.0.0.200";
-                return a.d;
-            } else if (lowerCase.startsWith("cmnet") || lowerCase.startsWith("uninet") || lowerCase.startsWith("ctnet") || lowerCase.startsWith("3gnet")) {
-                return a.e;
+                if (defaultHost2 != null && !defaultHost2.equals("") && !defaultHost2.equals(StringUtil.NULL_STRING)) {
+                    str = defaultHost2;
+                }
+                f6702a = str;
+                return a.f6671d;
+            } else if (lowerCase.startsWith(ConectivityUtils.APN_CMNET) || lowerCase.startsWith(ConectivityUtils.APN_UNINET) || lowerCase.startsWith(ConectivityUtils.APN_CTNET) || lowerCase.startsWith(ConectivityUtils.APN_3GNET)) {
+                return a.f6672e;
             }
         }
         String defaultHost3 = Proxy.getDefaultHost();
         if (defaultHost3 != null && defaultHost3.length() > 0) {
-            if ("10.0.0.172".equals(defaultHost3.trim())) {
-                f1969a = "10.0.0.172";
-                return a.d;
-            } else if ("10.0.0.200".equals(defaultHost3.trim())) {
-                f1969a = "10.0.0.200";
-                return a.d;
+            if (!"10.0.0.172".equals(defaultHost3.trim())) {
             }
+            f6702a = str2;
+            return a.f6671d;
         }
-        return a.e;
+        return a.f6672e;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b() {
-        g = c();
+        f6704g = c();
     }
 
     private int c() {
-        int i;
         Context serviceContext = com.baidu.location.f.getServiceContext();
         try {
             ConnectivityManager connectivityManager = (ConnectivityManager) serviceContext.getSystemService("connectivity");
             if (connectivityManager == null) {
-                i = a.g;
-            } else {
-                NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
-                if (activeNetworkInfo == null || !activeNetworkInfo.isAvailable()) {
-                    i = a.g;
-                } else if (activeNetworkInfo.getType() == 1) {
-                    String defaultHost = Proxy.getDefaultHost();
-                    i = (defaultHost == null || defaultHost.length() <= 0) ? a.f : a.h;
-                } else {
-                    i = a(serviceContext, activeNetworkInfo);
-                }
+                return a.f6674g;
             }
-            return i;
-        } catch (Exception e) {
-            return a.g;
+            NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+            if (activeNetworkInfo != null && activeNetworkInfo.isAvailable()) {
+                if (activeNetworkInfo.getType() == 1) {
+                    String defaultHost = Proxy.getDefaultHost();
+                    return (defaultHost == null || defaultHost.length() <= 0) ? a.f6673f : a.f6675h;
+                }
+                return a(serviceContext, activeNetworkInfo);
+            }
+            return a.f6674g;
+        } catch (Exception unused) {
+            return a.f6674g;
         }
     }
 

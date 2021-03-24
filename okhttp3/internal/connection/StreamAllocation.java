@@ -3,19 +3,14 @@ package okhttp3.internal.connection;
 import com.baidu.searchbox.http.response.ResponseException;
 import java.io.IOException;
 import java.lang.ref.WeakReference;
-import java.net.Inet4Address;
-import java.net.Inet6Address;
 import java.net.Socket;
 import java.util.List;
-import java.util.Timer;
-import java.util.TimerTask;
 import okhttp3.Address;
 import okhttp3.Call;
 import okhttp3.ConnectionPool;
 import okhttp3.EventListener;
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
-import okhttp3.Request;
 import okhttp3.Route;
 import okhttp3.internal.Internal;
 import okhttp3.internal.Util;
@@ -24,30 +19,32 @@ import okhttp3.internal.http.HttpCodec;
 import okhttp3.internal.http2.ConnectionShutdownException;
 import okhttp3.internal.http2.ErrorCode;
 import okhttp3.internal.http2.StreamResetException;
-/* loaded from: classes14.dex */
+/* loaded from: classes7.dex */
 public final class StreamAllocation {
-    static final /* synthetic */ boolean $assertionsDisabled;
-    private static final String TAG = "StreamAllocation";
+    public static final /* synthetic */ boolean $assertionsDisabled = false;
     public final Address address;
     public final Call call;
-    private final Object callStackTrace;
-    private boolean canceled;
-    private HttpCodec codec;
-    private RealConnection connection;
-    private final ConnectionPool connectionPool;
+    public final Object callStackTrace;
+    public boolean canceled;
+    public HttpCodec codec;
+    public RealConnection connection;
+    public final ConnectionPool connectionPool;
     public final EventListener eventListener;
-    private boolean hasFallbackToIPv4;
-    private int ipv6FallbackTimerInMs;
-    private Timer mFallbackTimer;
-    private int refusedStreamCount;
-    private boolean released;
-    private boolean reportedAcquired;
-    private Route route;
-    private RouteSelector.Selection routeSelection;
-    private final RouteSelector routeSelector;
+    public int refusedStreamCount;
+    public boolean released;
+    public boolean reportedAcquired;
+    public Route route;
+    public RouteSelector.Selection routeSelection;
+    public final RouteSelector routeSelector;
 
-    static {
-        $assertionsDisabled = !StreamAllocation.class.desiredAssertionStatus();
+    /* loaded from: classes7.dex */
+    public static final class StreamAllocationReference extends WeakReference<StreamAllocation> {
+        public final Object callStackTrace;
+
+        public StreamAllocationReference(StreamAllocation streamAllocation, Object obj) {
+            super(streamAllocation);
+            this.callStackTrace = obj;
+        }
     }
 
     public StreamAllocation(ConnectionPool connectionPool, Address address, Call call, EventListener eventListener, Object obj) {
@@ -59,75 +56,88 @@ public final class StreamAllocation {
         this.callStackTrace = obj;
     }
 
-    public HttpCodec newStream(OkHttpClient okHttpClient, Interceptor.Chain chain, Request request, boolean z) {
-        int connectTimeoutMillis = chain.connectTimeoutMillis();
-        int readTimeoutMillis = chain.readTimeoutMillis();
-        int writeTimeoutMillis = chain.writeTimeoutMillis();
-        int pingIntervalMillis = okHttpClient.pingIntervalMillis();
-        boolean retryOnConnectionFailure = okHttpClient.retryOnConnectionFailure();
-        this.ipv6FallbackTimerInMs = okHttpClient.getFallbackConnectDelayMs();
-        try {
-            HttpCodec newCodec = findHealthyConnection(connectTimeoutMillis, readTimeoutMillis, writeTimeoutMillis, pingIntervalMillis, retryOnConnectionFailure, request, z).newCodec(okHttpClient, chain, this);
-            synchronized (this.connectionPool) {
-                this.codec = newCodec;
-            }
-            return newCodec;
-        } catch (IOException e) {
-            throw new RouteException(e);
+    private Socket deallocate(boolean z, boolean z2, boolean z3) {
+        Socket socket;
+        if (z3) {
+            this.codec = null;
         }
-    }
-
-    private RealConnection findHealthyConnection(int i, int i2, int i3, int i4, boolean z, Request request, boolean z2) throws IOException {
-        RealConnection findConnection;
-        while (true) {
-            findConnection = findConnection(i, i2, i3, i4, z, request);
-            synchronized (this.connectionPool) {
-                if (findConnection.successCount == 0 && !findConnection.isMultiplexed()) {
-                    break;
-                } else if (findConnection.isHealthy(z2)) {
-                    break;
-                } else {
-                    noNewStreams();
+        if (z2) {
+            this.released = true;
+        }
+        RealConnection realConnection = this.connection;
+        if (realConnection != null) {
+            if (z) {
+                realConnection.noNewStreams = true;
+            }
+            if (this.codec == null) {
+                if (this.released || this.connection.noNewStreams) {
+                    release(this.connection);
+                    if (this.connection.allocations.isEmpty()) {
+                        this.connection.idleAtNanos = System.nanoTime();
+                        if (Internal.instance.connectionBecameIdle(this.connectionPool, this.connection)) {
+                            socket = this.connection.socket();
+                            this.connection = null;
+                            return socket;
+                        }
+                    }
+                    socket = null;
+                    this.connection = null;
+                    return socket;
                 }
+                return null;
             }
+            return null;
         }
-        return findConnection;
+        return null;
     }
 
-    private RealConnection findConnection(int i, int i2, int i3, int i4, boolean z, Request request) throws IOException {
-        RealConnection realConnection;
+    private RealConnection findConnection(int i, int i2, int i3, int i4, boolean z) throws IOException {
         Socket releaseIfNoNewStreams;
+        Socket socket;
+        RealConnection realConnection;
         RealConnection realConnection2;
-        boolean z2 = false;
-        RealConnection realConnection3 = null;
-        Route route = null;
+        Route route;
+        boolean z2;
+        boolean z3;
+        RouteSelector.Selection selection;
         synchronized (this.connectionPool) {
-            if (this.released) {
-                throw new IllegalStateException("released");
-            }
-            if (this.codec != null) {
-                throw new IllegalStateException("codec != null");
-            }
-            if (this.canceled) {
-                throw new IOException(ResponseException.CANCELED);
-            }
-            realConnection = this.connection;
-            releaseIfNoNewStreams = releaseIfNoNewStreams();
-            if (this.connection != null) {
-                realConnection3 = this.connection;
-                realConnection = null;
-            }
-            if (!this.reportedAcquired) {
-                realConnection = null;
-            }
-            if (realConnection3 == null) {
-                Internal.instance.get(this.connectionPool, this.address, this, null);
-                if (this.connection != null) {
-                    z2 = true;
-                    realConnection3 = this.connection;
+            if (!this.released) {
+                if (this.codec == null) {
+                    if (!this.canceled) {
+                        RealConnection realConnection3 = this.connection;
+                        releaseIfNoNewStreams = releaseIfNoNewStreams();
+                        socket = null;
+                        if (this.connection != null) {
+                            realConnection2 = this.connection;
+                            realConnection = null;
+                        } else {
+                            realConnection = realConnection3;
+                            realConnection2 = null;
+                        }
+                        if (!this.reportedAcquired) {
+                            realConnection = null;
+                        }
+                        if (realConnection2 == null) {
+                            Internal.instance.get(this.connectionPool, this.address, this, null);
+                            if (this.connection != null) {
+                                realConnection2 = this.connection;
+                                route = null;
+                                z2 = true;
+                            } else {
+                                route = this.route;
+                            }
+                        } else {
+                            route = null;
+                        }
+                        z2 = false;
+                    } else {
+                        throw new IOException(ResponseException.CANCELED);
+                    }
                 } else {
-                    route = this.route;
+                    throw new IllegalStateException("codec != null");
                 }
+            } else {
+                throw new IllegalStateException("released");
             }
         }
         Util.closeQuietly(releaseIfNoNewStreams);
@@ -135,118 +145,242 @@ public final class StreamAllocation {
             this.eventListener.connectionReleased(this.call, realConnection);
         }
         if (z2) {
-            this.eventListener.connectionAcquired(this.call, realConnection3);
+            this.eventListener.connectionAcquired(this.call, realConnection2);
         }
-        if (realConnection3 != null) {
-            this.route = this.connection.route();
+        if (realConnection2 != null) {
+            return realConnection2;
+        }
+        if (route != null || ((selection = this.routeSelection) != null && selection.hasNext())) {
+            z3 = false;
         } else {
-            boolean z3 = false;
-            if (route == null && (this.routeSelection == null || !this.routeSelection.hasNext())) {
-                z3 = true;
-                this.routeSelection = this.routeSelector.next();
+            this.routeSelection = this.routeSelector.next();
+            z3 = true;
+        }
+        synchronized (this.connectionPool) {
+            if (this.canceled) {
+                throw new IOException(ResponseException.CANCELED);
             }
-            synchronized (this.connectionPool) {
-                if (this.canceled) {
-                    throw new IOException(ResponseException.CANCELED);
-                }
-                if (z3) {
-                    List<Route> all = this.routeSelection.getAll();
-                    int size = all.size();
-                    int i5 = 0;
-                    while (true) {
-                        if (i5 >= size) {
-                            break;
-                        }
-                        Route route2 = all.get(i5);
-                        Internal.instance.get(this.connectionPool, this.address, this, route2);
-                        if (this.connection == null) {
-                            i5++;
-                        } else {
-                            z2 = true;
-                            realConnection3 = this.connection;
-                            this.route = route2;
-                            break;
-                        }
+            if (z3) {
+                List<Route> all = this.routeSelection.getAll();
+                int size = all.size();
+                int i5 = 0;
+                while (true) {
+                    if (i5 >= size) {
+                        break;
                     }
-                }
-                if (!z2) {
-                    Route next = route == null ? this.routeSelection.next() : route;
-                    this.route = next;
-                    this.refusedStreamCount = 0;
-                    realConnection3 = new RealConnection(this.connectionPool, next);
-                    acquire(realConnection3, false);
+                    Route route2 = all.get(i5);
+                    Internal.instance.get(this.connectionPool, this.address, this, route2);
+                    if (this.connection != null) {
+                        realConnection2 = this.connection;
+                        this.route = route2;
+                        z2 = true;
+                        break;
+                    }
+                    i5++;
                 }
             }
-            if (z2) {
-                this.eventListener.connectionAcquired(this.call, realConnection3);
-            } else {
-                if (this.routeSelection == null) {
-                    this.routeSelection = this.routeSelector.next();
+            if (!z2) {
+                if (route == null) {
+                    route = this.routeSelection.next();
                 }
-                boolean z4 = this.ipv6FallbackTimerInMs > 0 && this.route != null && (this.route.socketAddress().getAddress() instanceof Inet6Address) && !AddressListOnlyContainsIPv6(this.routeSelection.getAll());
-                FallbackConnectTask fallbackConnectTask = null;
-                if (!z4) {
-                    realConnection2 = null;
-                } else {
-                    RealConnection realConnection4 = new RealConnection(this.connectionPool, findAddressListStartWithIPv4());
-                    fallbackConnectTask = new FallbackConnectTask(realConnection3, realConnection4, this.routeSelection, i, i2, i3, i4, z, request);
-                    if (this.mFallbackTimer == null) {
-                        this.mFallbackTimer = new Timer();
-                    }
-                    this.mFallbackTimer.schedule(fallbackConnectTask, this.ipv6FallbackTimerInMs);
-                    realConnection2 = realConnection4;
-                }
-                realConnection3.routeList = this.routeSelection.getAll();
-                try {
-                    realConnection3.connect(i, i2, i3, i4, z, this.call, this.eventListener, request);
-                } catch (RuntimeException e) {
-                    if (!z4) {
-                        throw e;
-                    }
-                    this.hasFallbackToIPv4 = true;
-                    if (fallbackConnectTask.isStarted() && ((realConnection3.socket() == null || !realConnection3.isHealthy(false)) && realConnection2.socket() != null && realConnection2.isHealthy(false))) {
-                        release(this.connection);
-                        this.connection = null;
-                        acquire(realConnection2, this.reportedAcquired);
-                        this.route = realConnection2.route();
-                        realConnection3 = realConnection2;
-                    } else {
-                        if (!fallbackConnectTask.isStarted()) {
-                            fallbackConnectTask.cancel();
-                        } else {
-                            fallbackConnectTask.cancel();
-                            this.route = this.routeSelection.markIndexStartWithIPv4();
-                        }
-                        throw e;
-                    }
-                }
-                realConnection3.isFallbackConn = this.hasFallbackToIPv4;
-                routeDatabase().connected(realConnection3.route());
-                Socket socket = null;
-                synchronized (this.connectionPool) {
-                    this.reportedAcquired = true;
-                    Internal.instance.put(this.connectionPool, realConnection3);
-                    if (realConnection3.isMultiplexed()) {
-                        socket = Internal.instance.deduplicate(this.connectionPool, this.address, this);
-                        realConnection3 = this.connection;
-                    }
-                }
-                Util.closeQuietly(socket);
-                this.eventListener.connectionAcquired(this.call, realConnection3);
+                this.route = route;
+                this.refusedStreamCount = 0;
+                realConnection2 = new RealConnection(this.connectionPool, route);
+                acquire(realConnection2, false);
             }
         }
-        return realConnection3;
+        if (z2) {
+            this.eventListener.connectionAcquired(this.call, realConnection2);
+            return realConnection2;
+        }
+        realConnection2.connect(i, i2, i3, i4, z, this.call, this.eventListener);
+        routeDatabase().connected(realConnection2.route());
+        synchronized (this.connectionPool) {
+            this.reportedAcquired = true;
+            Internal.instance.put(this.connectionPool, realConnection2);
+            if (realConnection2.isMultiplexed()) {
+                socket = Internal.instance.deduplicate(this.connectionPool, this.address, this);
+                realConnection2 = this.connection;
+            }
+        }
+        Util.closeQuietly(socket);
+        this.eventListener.connectionAcquired(this.call, realConnection2);
+        return realConnection2;
+    }
+
+    private RealConnection findHealthyConnection(int i, int i2, int i3, int i4, boolean z, boolean z2) throws IOException {
+        while (true) {
+            RealConnection findConnection = findConnection(i, i2, i3, i4, z);
+            synchronized (this.connectionPool) {
+                if (findConnection.successCount == 0) {
+                    return findConnection;
+                }
+                if (findConnection.isHealthy(z2)) {
+                    return findConnection;
+                }
+                noNewStreams();
+            }
+        }
     }
 
     private Socket releaseIfNoNewStreams() {
-        if ($assertionsDisabled || Thread.holdsLock(this.connectionPool)) {
-            RealConnection realConnection = this.connection;
-            if (realConnection == null || !realConnection.noNewStreams) {
-                return null;
-            }
-            return deallocate(false, false, true);
+        RealConnection realConnection = this.connection;
+        if (realConnection == null || !realConnection.noNewStreams) {
+            return null;
         }
-        throw new AssertionError();
+        return deallocate(false, false, true);
+    }
+
+    private RouteDatabase routeDatabase() {
+        return Internal.instance.routeDatabase(this.connectionPool);
+    }
+
+    public void acquire(RealConnection realConnection, boolean z) {
+        if (this.connection == null) {
+            this.connection = realConnection;
+            this.reportedAcquired = z;
+            realConnection.allocations.add(new StreamAllocationReference(this, this.callStackTrace));
+            return;
+        }
+        throw new IllegalStateException();
+    }
+
+    public void cancel() {
+        HttpCodec httpCodec;
+        RealConnection realConnection;
+        synchronized (this.connectionPool) {
+            this.canceled = true;
+            httpCodec = this.codec;
+            realConnection = this.connection;
+        }
+        if (httpCodec != null) {
+            httpCodec.cancel();
+        } else if (realConnection != null) {
+            realConnection.cancel();
+        }
+    }
+
+    public HttpCodec codec() {
+        HttpCodec httpCodec;
+        synchronized (this.connectionPool) {
+            httpCodec = this.codec;
+        }
+        return httpCodec;
+    }
+
+    public synchronized RealConnection connection() {
+        return this.connection;
+    }
+
+    public boolean hasMoreRoutes() {
+        RouteSelector.Selection selection;
+        return this.route != null || ((selection = this.routeSelection) != null && selection.hasNext()) || this.routeSelector.hasNext();
+    }
+
+    public HttpCodec newStream(OkHttpClient okHttpClient, Interceptor.Chain chain, boolean z) {
+        try {
+            HttpCodec newCodec = findHealthyConnection(chain.connectTimeoutMillis(), chain.readTimeoutMillis(), chain.writeTimeoutMillis(), okHttpClient.pingIntervalMillis(), okHttpClient.retryOnConnectionFailure(), z).newCodec(okHttpClient, chain, this);
+            synchronized (this.connectionPool) {
+                this.codec = newCodec;
+            }
+            return newCodec;
+        } catch (IOException e2) {
+            throw new RouteException(e2);
+        }
+    }
+
+    public void noNewStreams() {
+        RealConnection realConnection;
+        Socket deallocate;
+        synchronized (this.connectionPool) {
+            realConnection = this.connection;
+            deallocate = deallocate(true, false, false);
+            if (this.connection != null) {
+                realConnection = null;
+            }
+        }
+        Util.closeQuietly(deallocate);
+        if (realConnection != null) {
+            this.eventListener.connectionReleased(this.call, realConnection);
+        }
+    }
+
+    public void release() {
+        RealConnection realConnection;
+        Socket deallocate;
+        synchronized (this.connectionPool) {
+            realConnection = this.connection;
+            deallocate = deallocate(false, true, false);
+            if (this.connection != null) {
+                realConnection = null;
+            }
+        }
+        Util.closeQuietly(deallocate);
+        if (realConnection != null) {
+            this.eventListener.connectionReleased(this.call, realConnection);
+            this.eventListener.callEnd(this.call);
+        }
+    }
+
+    public Socket releaseAndAcquire(RealConnection realConnection) {
+        if (this.codec == null && this.connection.allocations.size() == 1) {
+            Socket deallocate = deallocate(true, false, false);
+            this.connection = realConnection;
+            realConnection.allocations.add(this.connection.allocations.get(0));
+            return deallocate;
+        }
+        throw new IllegalStateException();
+    }
+
+    public Route route() {
+        return this.route;
+    }
+
+    public void streamFailed(IOException iOException) {
+        RealConnection realConnection;
+        boolean z;
+        Socket deallocate;
+        synchronized (this.connectionPool) {
+            realConnection = null;
+            if (iOException instanceof StreamResetException) {
+                ErrorCode errorCode = ((StreamResetException) iOException).errorCode;
+                if (errorCode == ErrorCode.REFUSED_STREAM) {
+                    int i = this.refusedStreamCount + 1;
+                    this.refusedStreamCount = i;
+                    if (i > 1) {
+                        this.route = null;
+                        z = true;
+                    }
+                    z = false;
+                } else {
+                    if (errorCode != ErrorCode.CANCEL) {
+                        this.route = null;
+                        z = true;
+                    }
+                    z = false;
+                }
+            } else {
+                if (this.connection != null && (!this.connection.isMultiplexed() || (iOException instanceof ConnectionShutdownException))) {
+                    if (this.connection.successCount == 0) {
+                        if (this.route != null && iOException != null) {
+                            this.routeSelector.connectFailed(this.route, iOException);
+                        }
+                        this.route = null;
+                    }
+                    z = true;
+                }
+                z = false;
+            }
+            RealConnection realConnection2 = this.connection;
+            deallocate = deallocate(z, false, true);
+            if (this.connection == null && this.reportedAcquired) {
+                realConnection = realConnection2;
+            }
+        }
+        Util.closeQuietly(deallocate);
+        if (realConnection != null) {
+            this.eventListener.connectionReleased(this.call, realConnection);
+        }
     }
 
     public void streamFinished(boolean z, HttpCodec httpCodec, long j, IOException iOException) {
@@ -275,174 +409,15 @@ public final class StreamAllocation {
             this.eventListener.connectionReleased(this.call, realConnection);
         }
         if (iOException != null) {
-            this.eventListener.callFailed(this.call, Internal.instance.timeoutExit(this.call, iOException));
+            this.eventListener.callFailed(this.call, iOException);
         } else if (z2) {
-            Internal.instance.timeoutExit(this.call, null);
             this.eventListener.callEnd(this.call);
         }
     }
 
-    public HttpCodec codec() {
-        HttpCodec httpCodec;
-        synchronized (this.connectionPool) {
-            httpCodec = this.codec;
-        }
-        return httpCodec;
-    }
-
-    private RouteDatabase routeDatabase() {
-        return Internal.instance.routeDatabase(this.connectionPool);
-    }
-
-    public Route route() {
-        return this.route;
-    }
-
-    public synchronized RealConnection connection() {
-        return this.connection;
-    }
-
-    public void release() {
-        RealConnection realConnection;
-        Socket deallocate;
-        synchronized (this.connectionPool) {
-            realConnection = this.connection;
-            deallocate = deallocate(false, true, false);
-            if (this.connection != null) {
-                realConnection = null;
-            }
-        }
-        Util.closeQuietly(deallocate);
-        if (realConnection != null) {
-            Internal.instance.timeoutExit(this.call, null);
-            this.eventListener.connectionReleased(this.call, realConnection);
-            this.eventListener.callEnd(this.call);
-        }
-    }
-
-    public void noNewStreams() {
-        RealConnection realConnection;
-        Socket deallocate;
-        synchronized (this.connectionPool) {
-            realConnection = this.connection;
-            deallocate = deallocate(true, false, false);
-            if (this.connection != null) {
-                realConnection = null;
-            }
-        }
-        Util.closeQuietly(deallocate);
-        if (realConnection != null) {
-            this.eventListener.connectionReleased(this.call, realConnection);
-        }
-    }
-
-    private Socket deallocate(boolean z, boolean z2, boolean z3) {
-        Socket socket;
-        if ($assertionsDisabled || Thread.holdsLock(this.connectionPool)) {
-            if (z3) {
-                this.codec = null;
-            }
-            if (z2) {
-                this.released = true;
-            }
-            if (this.connection != null) {
-                if (z) {
-                    this.connection.noNewStreams = true;
-                }
-                if (this.codec == null) {
-                    if (this.released || this.connection.noNewStreams) {
-                        release(this.connection);
-                        if (this.connection.allocations.isEmpty()) {
-                            this.connection.idleAtNanos = System.nanoTime();
-                            if (Internal.instance.connectionBecameIdle(this.connectionPool, this.connection)) {
-                                socket = this.connection.socket();
-                                this.connection = null;
-                                return socket;
-                            }
-                        }
-                        socket = null;
-                        this.connection = null;
-                        return socket;
-                    }
-                    return null;
-                }
-                return null;
-            }
-            return null;
-        }
-        throw new AssertionError();
-    }
-
-    public void cancel() {
-        HttpCodec httpCodec;
-        RealConnection realConnection;
-        synchronized (this.connectionPool) {
-            this.canceled = true;
-            httpCodec = this.codec;
-            realConnection = this.connection;
-        }
-        if (httpCodec != null) {
-            httpCodec.cancel();
-        } else if (realConnection != null) {
-            realConnection.cancel();
-        }
-    }
-
-    public void streamFailed(IOException iOException) {
-        RealConnection realConnection;
-        Socket deallocate;
-        boolean z = false;
-        boolean z2 = true;
-        synchronized (this.connectionPool) {
-            if (iOException instanceof StreamResetException) {
-                ErrorCode errorCode = ((StreamResetException) iOException).errorCode;
-                if (errorCode == ErrorCode.REFUSED_STREAM) {
-                    this.refusedStreamCount++;
-                    if (this.refusedStreamCount > 1) {
-                        this.route = null;
-                        z = z2;
-                    }
-                    z2 = false;
-                    z = z2;
-                } else {
-                    if (errorCode != ErrorCode.CANCEL) {
-                        this.route = null;
-                        z = z2;
-                    }
-                    z2 = false;
-                    z = z2;
-                }
-            } else if (this.connection != null && (!this.connection.isMultiplexed() || (iOException instanceof ConnectionShutdownException))) {
-                if (this.connection.successCount == 0) {
-                    if (this.route != null && iOException != null) {
-                        this.routeSelector.connectFailed(this.route, iOException);
-                    }
-                    this.route = null;
-                }
-                z = true;
-            }
-            realConnection = this.connection;
-            deallocate = deallocate(z, false, true);
-            if (this.connection != null || !this.reportedAcquired) {
-                realConnection = null;
-            }
-        }
-        Util.closeQuietly(deallocate);
-        if (realConnection != null) {
-            this.eventListener.connectionReleased(this.call, realConnection);
-        }
-    }
-
-    public void acquire(RealConnection realConnection, boolean z) {
-        if (!$assertionsDisabled && !Thread.holdsLock(this.connectionPool)) {
-            throw new AssertionError();
-        }
-        if (this.connection != null) {
-            throw new IllegalStateException();
-        }
-        this.connection = realConnection;
-        this.reportedAcquired = z;
-        realConnection.allocations.add(new StreamAllocationReference(this, this.callStackTrace));
+    public String toString() {
+        RealConnection connection = connection();
+        return connection != null ? connection.toString() : this.address.toString();
     }
 
     private void release(RealConnection realConnection) {
@@ -454,129 +429,5 @@ public final class StreamAllocation {
             }
         }
         throw new IllegalStateException();
-    }
-
-    public Socket releaseAndAcquire(RealConnection realConnection) {
-        if ($assertionsDisabled || Thread.holdsLock(this.connectionPool)) {
-            if (this.codec == null && this.connection.allocations.size() == 1) {
-                Socket deallocate = deallocate(true, false, false);
-                this.connection = realConnection;
-                realConnection.allocations.add(this.connection.allocations.get(0));
-                return deallocate;
-            }
-            throw new IllegalStateException();
-        }
-        throw new AssertionError();
-    }
-
-    public boolean hasMoreRoutes() {
-        return this.route != null || (this.routeSelection != null && this.routeSelection.hasNext()) || this.routeSelector.hasNext();
-    }
-
-    public String toString() {
-        RealConnection connection = connection();
-        return connection != null ? connection.toString() : this.address.toString();
-    }
-
-    /* loaded from: classes14.dex */
-    public static final class StreamAllocationReference extends WeakReference<StreamAllocation> {
-        public final Object callStackTrace;
-
-        StreamAllocationReference(StreamAllocation streamAllocation, Object obj) {
-            super(streamAllocation);
-            this.callStackTrace = obj;
-        }
-    }
-
-    private boolean AddressListOnlyContainsIPv6(List<Route> list) {
-        if (list == null || list.isEmpty()) {
-            return false;
-        }
-        for (Route route : list) {
-            if (!(route.socketAddress().getAddress() instanceof Inet6Address)) {
-                return false;
-            }
-        }
-        return true;
-    }
-
-    private Route findAddressListStartWithIPv4() {
-        int i = 0;
-        while (true) {
-            int i2 = i;
-            if (i2 < this.routeSelection.getAll().size()) {
-                Route route = this.routeSelection.getAll().get(i2);
-                if (!(route.socketAddress().getAddress() instanceof Inet4Address)) {
-                    i = i2 + 1;
-                } else {
-                    return route;
-                }
-            } else {
-                return null;
-            }
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes14.dex */
-    public class FallbackConnectTask extends TimerTask {
-        private boolean canceled;
-        private int connectTimeout;
-        private boolean connectionRetryEnabled;
-        private RealConnection fallbackConnection;
-        private RealConnection mainConnection;
-        private int pingIntervalMillis;
-        private int readTimeout;
-        private Request request;
-        private RouteSelector.Selection routeSelection;
-        private boolean started;
-        private int writeTimeout;
-
-        public FallbackConnectTask(RealConnection realConnection, RealConnection realConnection2, RouteSelector.Selection selection, int i, int i2, int i3, int i4, boolean z, Request request) {
-            this.connectTimeout = i;
-            this.readTimeout = i2;
-            this.writeTimeout = i3;
-            this.pingIntervalMillis = i4;
-            this.connectionRetryEnabled = z;
-            this.request = request;
-            this.routeSelection = selection;
-            this.mainConnection = realConnection;
-            this.fallbackConnection = realConnection2;
-        }
-
-        @Override // java.util.TimerTask, java.lang.Runnable
-        public void run() {
-            try {
-                if (!this.canceled && !isMainConnectReady()) {
-                    this.started = true;
-                    StreamAllocation.this.route = this.routeSelection.markIndexStartWithIPv4();
-                    this.fallbackConnection.routeList = this.routeSelection.getAll();
-                    this.fallbackConnection.connect(this.connectTimeout, this.readTimeout, this.writeTimeout, this.pingIntervalMillis, this.connectionRetryEnabled, StreamAllocation.this.call, StreamAllocation.this.eventListener, this.request);
-                    if (isMainConnectReady()) {
-                        this.fallbackConnection.cancel();
-                    } else {
-                        this.mainConnection.cancel();
-                    }
-                }
-            } catch (RuntimeException e) {
-            }
-        }
-
-        private boolean isMainConnectReady() {
-            return (this.mainConnection == null || this.mainConnection.socket() == null || !this.mainConnection.isHealthy(false)) ? false : true;
-        }
-
-        public boolean isStarted() {
-            return this.started;
-        }
-
-        @Override // java.util.TimerTask
-        public boolean cancel() {
-            this.canceled = true;
-            if (this.started) {
-                this.fallbackConnection.cancel();
-            }
-            return super.cancel();
-        }
     }
 }

@@ -4,10 +4,10 @@ import android.graphics.Bitmap;
 import android.view.Surface;
 import android.view.View;
 import java.nio.Buffer;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public interface i {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public interface a {
         void a(int i, int i2, Buffer buffer);
 
@@ -16,7 +16,7 @@ public interface i {
         boolean a(int i);
     }
 
-    Bitmap a(float f, int i, int i2);
+    Bitmap a(float f2, int i, int i2);
 
     void a();
 

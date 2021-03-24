@@ -7,7 +7,8 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.text.TextUtils;
-/* loaded from: classes3.dex */
+import com.baidu.android.common.others.lang.StringUtil;
+/* loaded from: classes.dex */
 public class BuildInfo {
     public static PackageInfo sBrowserPackageInfo;
     public static String sFirebaseAppId;
@@ -24,8 +25,8 @@ public class BuildInfo {
     public final long versionCode;
     public final String versionName;
 
-    /* loaded from: classes3.dex */
-    private static class Holder {
+    /* loaded from: classes.dex */
+    public static class Holder {
         public static BuildInfo sInstance = new BuildInfo(null);
     }
 
@@ -35,13 +36,16 @@ public class BuildInfo {
     }
 
     public BuildInfo() {
-        PackageInfo packageInfo = null;
+        String str;
+        String str2;
         try {
             Context context = ContextUtils.sApplicationContext;
             String packageName = context.getPackageName();
             PackageManager packageManager = context.getPackageManager();
-            PackageInfo packageInfo2 = packageManager.getPackageInfo(packageName, 0);
-            this.hostVersionCode = packageVersionCode(packageInfo2);
+            PackageInfo packageInfo = packageManager.getPackageInfo(packageName, 0);
+            long packageVersionCode = packageVersionCode(packageInfo);
+            this.hostVersionCode = packageVersionCode;
+            PackageInfo packageInfo2 = null;
             if (sBrowserPackageInfo != null) {
                 this.packageName = sBrowserPackageInfo.packageName;
                 this.versionCode = packageVersionCode(sBrowserPackageInfo);
@@ -49,52 +53,52 @@ public class BuildInfo {
                 sBrowserPackageInfo = null;
             } else {
                 this.packageName = packageName;
-                this.versionCode = this.hostVersionCode;
-                this.versionName = nullToEmpty(packageInfo2.versionName);
+                this.versionCode = packageVersionCode;
+                this.versionName = nullToEmpty(packageInfo.versionName);
             }
-            this.hostPackageLabel = nullToEmpty(packageManager.getApplicationLabel(packageInfo2.applicationInfo));
+            this.hostPackageLabel = nullToEmpty(packageManager.getApplicationLabel(packageInfo.applicationInfo));
             this.installerPackageName = nullToEmpty(packageManager.getInstallerPackageName(this.packageName));
             try {
-                packageInfo = packageManager.getPackageInfo("com.google.android.gms", 0);
-            } catch (PackageManager.NameNotFoundException e) {
+                packageInfo2 = packageManager.getPackageInfo("com.google.android.gms", 0);
+            } catch (PackageManager.NameNotFoundException unused) {
             }
-            this.gmsVersionCode = packageInfo != null ? String.valueOf(packageVersionCode(packageInfo)) : "gms versionCode not available.";
-            String str = "true";
+            this.gmsVersionCode = packageInfo2 != null ? String.valueOf(packageVersionCode(packageInfo2)) : "gms versionCode not available.";
             try {
                 packageManager.getPackageInfo("projekt.substratum", 0);
-            } catch (PackageManager.NameNotFoundException e2) {
+                str = "true";
+            } catch (PackageManager.NameNotFoundException unused2) {
                 str = "false";
             }
             this.customThemes = str;
-            String str2 = "Not Enabled";
             if (BuildConfig.R_STRING_PRODUCT_VERSION != 0) {
                 try {
                     str2 = ContextUtils.sApplicationContext.getString(BuildConfig.R_STRING_PRODUCT_VERSION);
-                } catch (Exception e3) {
+                } catch (Exception unused3) {
                     str2 = "Not found";
                 }
+            } else {
+                str2 = "Not Enabled";
             }
             this.resourcesVersion = str2;
-            if (Build.VERSION.SDK_INT >= 21) {
-                this.abiString = TextUtils.join(", ", Build.SUPPORTED_ABIS);
-            } else {
-                this.abiString = String.format("ABI1: %s, ABI2: %s", Build.CPU_ABI, Build.CPU_ABI2);
-            }
-            this.extractedFileSuffix = String.format("@%x_%x", Long.valueOf(this.versionCode), Long.valueOf(packageInfo2.lastUpdateTime));
+            this.abiString = Build.VERSION.SDK_INT >= 21 ? TextUtils.join(StringUtil.ARRAY_ELEMENT_SEPARATOR, Build.SUPPORTED_ABIS) : String.format("ABI1: %s, ABI2: %s", Build.CPU_ABI, Build.CPU_ABI2);
+            this.extractedFileSuffix = String.format("@%x_%x", Long.valueOf(this.versionCode), Long.valueOf(packageInfo.lastUpdateTime));
             this.androidBuildFingerprint = Build.FINGERPRINT.substring(0, Math.min(Build.FINGERPRINT.length(), 128));
-        } catch (PackageManager.NameNotFoundException e4) {
-            throw new RuntimeException(e4);
+        } catch (PackageManager.NameNotFoundException e2) {
+            throw new RuntimeException(e2);
         }
     }
 
     public /* synthetic */ BuildInfo(AnonymousClass1 anonymousClass1) {
-        PackageInfo packageInfo = null;
+        String str;
+        String str2;
         try {
             Context context = ContextUtils.sApplicationContext;
             String packageName = context.getPackageName();
             PackageManager packageManager = context.getPackageManager();
-            PackageInfo packageInfo2 = packageManager.getPackageInfo(packageName, 0);
-            this.hostVersionCode = packageVersionCode(packageInfo2);
+            PackageInfo packageInfo = packageManager.getPackageInfo(packageName, 0);
+            long packageVersionCode = packageVersionCode(packageInfo);
+            this.hostVersionCode = packageVersionCode;
+            PackageInfo packageInfo2 = null;
             if (sBrowserPackageInfo != null) {
                 this.packageName = sBrowserPackageInfo.packageName;
                 this.versionCode = packageVersionCode(sBrowserPackageInfo);
@@ -102,41 +106,38 @@ public class BuildInfo {
                 sBrowserPackageInfo = null;
             } else {
                 this.packageName = packageName;
-                this.versionCode = this.hostVersionCode;
-                this.versionName = nullToEmpty(packageInfo2.versionName);
+                this.versionCode = packageVersionCode;
+                this.versionName = nullToEmpty(packageInfo.versionName);
             }
-            this.hostPackageLabel = nullToEmpty(packageManager.getApplicationLabel(packageInfo2.applicationInfo));
+            this.hostPackageLabel = nullToEmpty(packageManager.getApplicationLabel(packageInfo.applicationInfo));
             this.installerPackageName = nullToEmpty(packageManager.getInstallerPackageName(this.packageName));
             try {
-                packageInfo = packageManager.getPackageInfo("com.google.android.gms", 0);
-            } catch (PackageManager.NameNotFoundException e) {
+                packageInfo2 = packageManager.getPackageInfo("com.google.android.gms", 0);
+            } catch (PackageManager.NameNotFoundException unused) {
             }
-            this.gmsVersionCode = packageInfo != null ? String.valueOf(packageVersionCode(packageInfo)) : "gms versionCode not available.";
-            String str = "true";
+            this.gmsVersionCode = packageInfo2 != null ? String.valueOf(packageVersionCode(packageInfo2)) : "gms versionCode not available.";
             try {
                 packageManager.getPackageInfo("projekt.substratum", 0);
-            } catch (PackageManager.NameNotFoundException e2) {
+                str = "true";
+            } catch (PackageManager.NameNotFoundException unused2) {
                 str = "false";
             }
             this.customThemes = str;
-            String str2 = "Not Enabled";
             if (BuildConfig.R_STRING_PRODUCT_VERSION != 0) {
                 try {
                     str2 = ContextUtils.sApplicationContext.getString(BuildConfig.R_STRING_PRODUCT_VERSION);
-                } catch (Exception e3) {
+                } catch (Exception unused3) {
                     str2 = "Not found";
                 }
+            } else {
+                str2 = "Not Enabled";
             }
             this.resourcesVersion = str2;
-            if (Build.VERSION.SDK_INT >= 21) {
-                this.abiString = TextUtils.join(", ", Build.SUPPORTED_ABIS);
-            } else {
-                this.abiString = String.format("ABI1: %s, ABI2: %s", Build.CPU_ABI, Build.CPU_ABI2);
-            }
-            this.extractedFileSuffix = String.format("@%x_%x", Long.valueOf(this.versionCode), Long.valueOf(packageInfo2.lastUpdateTime));
+            this.abiString = Build.VERSION.SDK_INT >= 21 ? TextUtils.join(StringUtil.ARRAY_ELEMENT_SEPARATOR, Build.SUPPORTED_ABIS) : String.format("ABI1: %s, ABI2: %s", Build.CPU_ABI, Build.CPU_ABI2);
+            this.extractedFileSuffix = String.format("@%x_%x", Long.valueOf(this.versionCode), Long.valueOf(packageInfo.lastUpdateTime));
             this.androidBuildFingerprint = Build.FINGERPRINT.substring(0, Math.min(Build.FINGERPRINT.length(), 128));
-        } catch (PackageManager.NameNotFoundException e4) {
-            throw new RuntimeException(e4);
+        } catch (PackageManager.NameNotFoundException e2) {
+            throw new RuntimeException(e2);
         }
     }
 
@@ -145,6 +146,7 @@ public class BuildInfo {
         BuildInfo buildInfo = Holder.sInstance;
         String packageName = ContextUtils.sApplicationContext.getPackageName();
         String[] strArr = new String[24];
+        boolean z = false;
         strArr[0] = Build.BRAND;
         strArr[1] = Build.DEVICE;
         strArr[2] = Build.ID;
@@ -168,7 +170,7 @@ public class BuildInfo {
         strArr[20] = buildInfo.resourcesVersion;
         strArr[21] = buildInfo.extractedFileSuffix;
         strArr[22] = isAtLeastQ() ? "1" : "0";
-        strArr[23] = "eng".equals(Build.TYPE) || "userdebug".equals(Build.TYPE) ? "1" : "0";
+        strArr[23] = ("eng".equals(Build.TYPE) || "userdebug".equals(Build.TYPE)) ? true : true ? "1" : "0";
         return strArr;
     }
 

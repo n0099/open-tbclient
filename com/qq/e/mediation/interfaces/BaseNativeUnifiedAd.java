@@ -4,7 +4,7 @@ import android.content.Context;
 import com.qq.e.ads.cfg.DownAPPConfirmPolicy;
 import com.qq.e.comm.adevent.ADListener;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public abstract class BaseNativeUnifiedAd {
     public static final int CALLBACK_CLICK = 3;
     public static final int CALLBACK_IMPRESSION = 4;
@@ -12,7 +12,7 @@ public abstract class BaseNativeUnifiedAd {
     public static final int CALLBACK_NO_AD = 2;
     public static final int DEFAULT_PRIORITY = -1;
 
-    public BaseNativeUnifiedAd(Context context, String str, String str2) {
+    public BaseNativeUnifiedAd(Context context, String str, String str2, String str3) {
     }
 
     public int getAdapterPriority() {
@@ -34,8 +34,4 @@ public abstract class BaseNativeUnifiedAd {
     public abstract void setMaxVideoDuration(int i);
 
     public abstract void setMinVideoDuration(int i);
-
-    public abstract void setVideoADContainerRender(int i);
-
-    public abstract void setVideoPlayPolicy(int i);
 }

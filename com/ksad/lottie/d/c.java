@@ -6,27 +6,42 @@ import androidx.annotation.MainThread;
 import androidx.annotation.Nullable;
 import androidx.annotation.VisibleForTesting;
 import com.baidu.mapapi.map.WeightedLatLng;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class c extends a implements Choreographer.FrameCallback {
     @Nullable
-    private com.ksad.lottie.d i;
-    private float b = 1.0f;
-    private boolean c = false;
-    private long d = 0;
-    private float e = 0.0f;
-    private int f = 0;
-    private float g = -2.1474836E9f;
-    private float h = 2.1474836E9f;
+    public com.ksad.lottie.d i;
+
+    /* renamed from: b  reason: collision with root package name */
+    public float f31357b = 1.0f;
+
+    /* renamed from: c  reason: collision with root package name */
+    public boolean f31358c = false;
+
+    /* renamed from: d  reason: collision with root package name */
+    public long f31359d = 0;
+
+    /* renamed from: e  reason: collision with root package name */
+    public float f31360e = 0.0f;
+
+    /* renamed from: f  reason: collision with root package name */
+    public int f31361f = 0;
+
+    /* renamed from: g  reason: collision with root package name */
+    public float f31362g = -2.1474836E9f;
+
+    /* renamed from: h  reason: collision with root package name */
+    public float f31363h = 2.1474836E9f;
     @VisibleForTesting
 
     /* renamed from: a  reason: collision with root package name */
-    protected boolean f5341a = false;
+    public boolean f31356a = false;
 
     private float o() {
-        if (this.i == null) {
+        com.ksad.lottie.d dVar = this.i;
+        if (dVar == null) {
             return Float.MAX_VALUE;
         }
-        return (1.0E9f / this.i.f()) / Math.abs(this.b);
+        return (1.0E9f / dVar.f()) / Math.abs(this.f31357b);
     }
 
     private boolean p() {
@@ -37,57 +52,68 @@ public class c extends a implements Choreographer.FrameCallback {
         if (this.i == null) {
             return;
         }
-        if (this.e < this.g || this.e > this.h) {
-            throw new IllegalStateException(String.format("Frame must be [%f,%f]. It is %f", Float.valueOf(this.g), Float.valueOf(this.h), Float.valueOf(this.e)));
+        float f2 = this.f31360e;
+        if (f2 < this.f31362g || f2 > this.f31363h) {
+            throw new IllegalStateException(String.format("Frame must be [%f,%f]. It is %f", Float.valueOf(this.f31362g), Float.valueOf(this.f31363h), Float.valueOf(this.f31360e)));
         }
     }
 
-    public void a(float f) {
-        this.b = f;
+    public void a(float f2) {
+        this.f31357b = f2;
     }
 
     public void a(int i) {
-        if (this.e == i) {
+        float f2 = i;
+        if (this.f31360e == f2) {
             return;
         }
-        this.e = e.b(i, k(), l());
-        this.d = System.nanoTime();
+        this.f31360e = e.b(f2, k(), l());
+        this.f31359d = System.nanoTime();
         c();
     }
 
     public void a(int i, int i2) {
-        float d = this.i == null ? -3.4028235E38f : this.i.d();
-        float e = this.i == null ? Float.MAX_VALUE : this.i.e();
-        this.g = e.b(i, d, e);
-        this.h = e.b(i2, d, e);
-        a((int) e.b(this.e, i, i2));
+        com.ksad.lottie.d dVar = this.i;
+        float d2 = dVar == null ? -3.4028235E38f : dVar.d();
+        com.ksad.lottie.d dVar2 = this.i;
+        float e2 = dVar2 == null ? Float.MAX_VALUE : dVar2.e();
+        float f2 = i;
+        this.f31362g = e.b(f2, d2, e2);
+        float f3 = i2;
+        this.f31363h = e.b(f3, d2, e2);
+        a((int) e.b(this.f31360e, f2, f3));
     }
 
     public void a(com.ksad.lottie.d dVar) {
+        int d2;
+        float e2;
         boolean z = this.i == null;
         this.i = dVar;
         if (z) {
-            a((int) Math.max(this.g, dVar.d()), (int) Math.min(this.h, dVar.e()));
+            d2 = (int) Math.max(this.f31362g, dVar.d());
+            e2 = Math.min(this.f31363h, dVar.e());
         } else {
-            a((int) dVar.d(), (int) dVar.e());
+            d2 = (int) dVar.d();
+            e2 = dVar.e();
         }
-        a((int) this.e);
-        this.d = System.nanoTime();
+        a(d2, (int) e2);
+        a((int) this.f31360e);
+        this.f31359d = System.nanoTime();
     }
 
     public void b(int i) {
-        a(i, (int) this.h);
+        a(i, (int) this.f31363h);
     }
 
     public void c(int i) {
-        a((int) this.g, i);
+        a((int) this.f31362g, i);
     }
 
     @MainThread
-    protected void c(boolean z) {
+    public void c(boolean z) {
         Choreographer.getInstance().removeFrameCallback(this);
         if (z) {
-            this.f5341a = false;
+            this.f31356a = false;
         }
     }
 
@@ -100,10 +126,11 @@ public class c extends a implements Choreographer.FrameCallback {
 
     @FloatRange(from = 0.0d, to = WeightedLatLng.DEFAULT_INTENSITY)
     public float d() {
-        if (this.i == null) {
+        com.ksad.lottie.d dVar = this.i;
+        if (dVar == null) {
             return 0.0f;
         }
-        return (this.e - this.i.d()) / (this.i.e() - this.i.d());
+        return (this.f31360e - dVar.d()) / (this.i.e() - this.i.d());
     }
 
     @Override // android.view.Choreographer.FrameCallback
@@ -113,29 +140,30 @@ public class c extends a implements Choreographer.FrameCallback {
             return;
         }
         long nanoTime = System.nanoTime();
-        float o = ((float) (nanoTime - this.d)) / o();
-        float f = this.e;
+        float o = ((float) (nanoTime - this.f31359d)) / o();
+        float f2 = this.f31360e;
         if (p()) {
             o = -o;
         }
-        this.e = o + f;
-        boolean z = !e.c(this.e, k(), l());
-        this.e = e.b(this.e, k(), l());
-        this.d = nanoTime;
+        float f3 = f2 + o;
+        this.f31360e = f3;
+        boolean z = !e.c(f3, k(), l());
+        this.f31360e = e.b(this.f31360e, k(), l());
+        this.f31359d = nanoTime;
         c();
         if (z) {
-            if (getRepeatCount() == -1 || this.f < getRepeatCount()) {
+            if (getRepeatCount() == -1 || this.f31361f < getRepeatCount()) {
                 a();
-                this.f++;
+                this.f31361f++;
                 if (getRepeatMode() == 2) {
-                    this.c = this.c ? false : true;
+                    this.f31358c = !this.f31358c;
                     g();
                 } else {
-                    this.e = p() ? l() : k();
+                    this.f31360e = p() ? l() : k();
                 }
-                this.d = nanoTime;
+                this.f31359d = nanoTime;
             } else {
-                this.e = l();
+                this.f31360e = l();
                 n();
                 b(p());
             }
@@ -144,13 +172,13 @@ public class c extends a implements Choreographer.FrameCallback {
     }
 
     public float e() {
-        return this.e;
+        return this.f31360e;
     }
 
     public void f() {
         this.i = null;
-        this.g = -2.1474836E9f;
-        this.h = 2.1474836E9f;
+        this.f31362g = -2.1474836E9f;
+        this.f31363h = 2.1474836E9f;
     }
 
     public void g() {
@@ -160,10 +188,19 @@ public class c extends a implements Choreographer.FrameCallback {
     @Override // android.animation.ValueAnimator
     @FloatRange(from = 0.0d, to = WeightedLatLng.DEFAULT_INTENSITY)
     public float getAnimatedFraction() {
+        float f2;
+        float k;
         if (this.i == null) {
             return 0.0f;
         }
-        return p() ? (l() - this.e) / (l() - k()) : (this.e - k()) / (l() - k());
+        if (p()) {
+            f2 = l();
+            k = this.f31360e;
+        } else {
+            f2 = this.f31360e;
+            k = k();
+        }
+        return (f2 - k) / (l() - k());
     }
 
     @Override // android.animation.ValueAnimator
@@ -173,29 +210,30 @@ public class c extends a implements Choreographer.FrameCallback {
 
     @Override // android.animation.ValueAnimator, android.animation.Animator
     public long getDuration() {
-        if (this.i == null) {
+        com.ksad.lottie.d dVar = this.i;
+        if (dVar == null) {
             return 0L;
         }
-        return this.i.c();
+        return dVar.c();
     }
 
     public float h() {
-        return this.b;
+        return this.f31357b;
     }
 
     @MainThread
     public void i() {
-        this.f5341a = true;
+        this.f31356a = true;
         a(p());
         a((int) (p() ? l() : k()));
-        this.d = System.nanoTime();
-        this.f = 0;
+        this.f31359d = System.nanoTime();
+        this.f31361f = 0;
         m();
     }
 
     @Override // android.animation.ValueAnimator, android.animation.Animator
     public boolean isRunning() {
-        return this.f5341a;
+        return this.f31356a;
     }
 
     @MainThread
@@ -205,20 +243,24 @@ public class c extends a implements Choreographer.FrameCallback {
     }
 
     public float k() {
-        if (this.i == null) {
+        com.ksad.lottie.d dVar = this.i;
+        if (dVar == null) {
             return 0.0f;
         }
-        return this.g == -2.1474836E9f ? this.i.d() : this.g;
+        float f2 = this.f31362g;
+        return f2 == -2.1474836E9f ? dVar.d() : f2;
     }
 
     public float l() {
-        if (this.i == null) {
+        com.ksad.lottie.d dVar = this.i;
+        if (dVar == null) {
             return 0.0f;
         }
-        return this.h == 2.1474836E9f ? this.i.e() : this.h;
+        float f2 = this.f31363h;
+        return f2 == 2.1474836E9f ? dVar.e() : f2;
     }
 
-    protected void m() {
+    public void m() {
         if (isRunning()) {
             c(false);
             Choreographer.getInstance().postFrameCallback(this);
@@ -226,17 +268,17 @@ public class c extends a implements Choreographer.FrameCallback {
     }
 
     @MainThread
-    protected void n() {
+    public void n() {
         c(true);
     }
 
     @Override // android.animation.ValueAnimator
     public void setRepeatMode(int i) {
         super.setRepeatMode(i);
-        if (i == 2 || !this.c) {
+        if (i == 2 || !this.f31358c) {
             return;
         }
-        this.c = false;
+        this.f31358c = false;
         g();
     }
 }

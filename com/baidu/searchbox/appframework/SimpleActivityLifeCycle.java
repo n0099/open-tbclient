@@ -3,18 +3,14 @@ package com.baidu.searchbox.appframework;
 import android.app.Activity;
 import android.os.Bundle;
 import com.baidu.searchbox.appframework.BdBoxActivityLifecycle;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class SimpleActivityLifeCycle implements BdBoxActivityLifecycle.IActivityLifecycle {
     @Override // com.baidu.searchbox.appframework.BdBoxActivityLifecycle.IActivityLifecycle
     public void onActivityCreated(Activity activity, Bundle bundle) {
     }
 
     @Override // com.baidu.searchbox.appframework.BdBoxActivityLifecycle.IActivityLifecycle
-    public void onActivityStarted(Activity activity) {
-    }
-
-    @Override // com.baidu.searchbox.appframework.BdBoxActivityLifecycle.IActivityLifecycle
-    public void onActivityResumed(Activity activity) {
+    public void onActivityDestroyed(Activity activity) {
     }
 
     @Override // com.baidu.searchbox.appframework.BdBoxActivityLifecycle.IActivityLifecycle
@@ -22,7 +18,7 @@ public class SimpleActivityLifeCycle implements BdBoxActivityLifecycle.IActivity
     }
 
     @Override // com.baidu.searchbox.appframework.BdBoxActivityLifecycle.IActivityLifecycle
-    public void onActivityStopped(Activity activity) {
+    public void onActivityResumed(Activity activity) {
     }
 
     @Override // com.baidu.searchbox.appframework.BdBoxActivityLifecycle.IActivityLifecycle
@@ -30,7 +26,11 @@ public class SimpleActivityLifeCycle implements BdBoxActivityLifecycle.IActivity
     }
 
     @Override // com.baidu.searchbox.appframework.BdBoxActivityLifecycle.IActivityLifecycle
-    public void onActivityDestroyed(Activity activity) {
+    public void onActivityStarted(Activity activity) {
+    }
+
+    @Override // com.baidu.searchbox.appframework.BdBoxActivityLifecycle.IActivityLifecycle
+    public void onActivityStopped(Activity activity) {
     }
 
     @Override // com.baidu.searchbox.appframework.BdBoxActivityLifecycle.IActivityLifecycle

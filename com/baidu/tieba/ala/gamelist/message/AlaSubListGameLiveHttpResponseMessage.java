@@ -2,52 +2,54 @@ package com.baidu.tieba.ala.gamelist.message;
 
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.ala.AlaCmdConfigHttp;
-import com.baidu.tbadk.core.data.cb;
 import com.squareup.wire.Wire;
+import d.b.h0.r.q.a2;
 import java.util.LinkedList;
 import tbclient.LiveLabelInfo;
 import tbclient.LiveTabliveSubTab.LiveTabliveSubTabResIdl;
 import tbclient.ThreadInfo;
-/* loaded from: classes9.dex */
+/* loaded from: classes4.dex */
 public class AlaSubListGameLiveHttpResponseMessage extends HttpResponsedMessage {
-    private LinkedList<LiveLabelInfo> entryList;
-    private boolean mHasMore;
-    private LinkedList<cb> threadList;
+    public LinkedList<LiveLabelInfo> entryList;
+    public boolean mHasMore;
+    public LinkedList<a2> threadList;
 
     public AlaSubListGameLiveHttpResponseMessage() {
         super(AlaCmdConfigHttp.CMD_ALA_SUB_LIVE_LIST);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.message.a
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
-        LiveTabliveSubTabResIdl liveTabliveSubTabResIdl = (LiveTabliveSubTabResIdl) new Wire(new Class[0]).parseFrom(bArr, LiveTabliveSubTabResIdl.class);
-        setError(liveTabliveSubTabResIdl.error.errorno.intValue());
-        setErrorString(liveTabliveSubTabResIdl.error.usermsg);
-        if (!hasError()) {
-            this.threadList = new LinkedList<>();
-            this.entryList = new LinkedList<>();
-            this.entryList.addAll(liveTabliveSubTabResIdl.data.label);
-            for (ThreadInfo threadInfo : liveTabliveSubTabResIdl.data.live) {
-                if (threadInfo.thread_type.intValue() == 49) {
-                    cb cbVar = new cb();
-                    cbVar.a(threadInfo);
-                    this.threadList.add(cbVar);
-                }
-            }
-            this.mHasMore = liveTabliveSubTabResIdl.data.has_more.intValue() == 1;
-        }
-    }
-
-    public LinkedList<cb> getThreadLiveList() {
-        return this.threadList;
     }
 
     public LinkedList<LiveLabelInfo> getEntryList() {
         return this.entryList;
     }
 
+    public LinkedList<a2> getThreadLiveList() {
+        return this.threadList;
+    }
+
     public boolean hasMore() {
         return this.mHasMore;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.message.HttpResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
+    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
+        LiveTabliveSubTabResIdl liveTabliveSubTabResIdl = (LiveTabliveSubTabResIdl) new Wire(new Class[0]).parseFrom(bArr, LiveTabliveSubTabResIdl.class);
+        setError(liveTabliveSubTabResIdl.error.errorno.intValue());
+        setErrorString(liveTabliveSubTabResIdl.error.usermsg);
+        if (hasError()) {
+            return;
+        }
+        this.threadList = new LinkedList<>();
+        LinkedList<LiveLabelInfo> linkedList = new LinkedList<>();
+        this.entryList = linkedList;
+        linkedList.addAll(liveTabliveSubTabResIdl.data.label);
+        for (ThreadInfo threadInfo : liveTabliveSubTabResIdl.data.live) {
+            if (threadInfo.thread_type.intValue() == 49) {
+                a2 a2Var = new a2();
+                a2Var.Q2(threadInfo);
+                this.threadList.add(a2Var);
+            }
+        }
+        this.mHasMore = liveTabliveSubTabResIdl.data.has_more.intValue() == 1;
     }
 }

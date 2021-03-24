@@ -5,96 +5,107 @@ import android.os.Handler;
 import android.view.View;
 import android.widget.TextView;
 import java.lang.ref.WeakReference;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class CountDownTextView extends TextView {
-    private final Runnable gnd;
-    private int mCounter;
-    private Handler mHandler;
-    private String mText;
-    private b nEb;
 
-    /* loaded from: classes7.dex */
-    public interface b {
-        void cf(View view);
-    }
+    /* renamed from: e  reason: collision with root package name */
+    public int f21450e;
 
-    /* loaded from: classes7.dex */
-    private static class a implements Runnable {
-        private final WeakReference<CountDownTextView> glV;
+    /* renamed from: f  reason: collision with root package name */
+    public String f21451f;
 
-        private a(CountDownTextView countDownTextView) {
-            this.glV = new WeakReference<>(countDownTextView);
-        }
+    /* renamed from: g  reason: collision with root package name */
+    public c f21452g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public Handler f21453h;
+    public final Runnable i;
+
+    /* loaded from: classes5.dex */
+    public static class b implements Runnable {
+
+        /* renamed from: e  reason: collision with root package name */
+        public final WeakReference<CountDownTextView> f21454e;
 
         @Override // java.lang.Runnable
         public void run() {
-            CountDownTextView countDownTextView = this.glV.get();
+            CountDownTextView countDownTextView = this.f21454e.get();
             if (countDownTextView != null) {
-                countDownTextView.tj(1);
+                countDownTextView.b(1);
             }
         }
+
+        public b(CountDownTextView countDownTextView) {
+            this.f21454e = new WeakReference<>(countDownTextView);
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public interface c {
+        void a(View view);
     }
 
     public CountDownTextView(Context context) {
         super(context);
-        this.mCounter = 0;
-        this.mText = "";
-        this.nEb = null;
-        this.mHandler = new Handler();
-        this.gnd = new a();
+        this.f21450e = 0;
+        this.f21451f = "";
+        this.f21452g = null;
+        this.f21453h = new Handler();
+        this.i = new b();
     }
 
-    public void setTimeoutListener(b bVar) {
-        this.nEb = bVar;
+    public final void b(int i) {
+        int i2 = this.f21450e - i;
+        this.f21450e = i2;
+        if (i2 == 0) {
+            c cVar = this.f21452g;
+            if (cVar != null) {
+                cVar.a(this);
+            }
+            this.f21453h.removeCallbacksAndMessages(null);
+            return;
+        }
+        if (i2 > 0) {
+            setText(String.format("%s %s", this.f21451f, Integer.valueOf(i2)));
+        }
+        this.f21453h.removeCallbacks(this.i);
+        this.f21453h.postDelayed(this.i, 1000L);
+    }
+
+    public final void c() {
+        this.f21453h.removeCallbacksAndMessages(null);
+    }
+
+    public void d(String str, int i) {
+        this.f21451f = str;
+        if (i > 0) {
+            this.f21450e = i;
+        }
     }
 
     @Override // android.widget.TextView, android.view.View
-    protected void onAttachedToWindow() {
+    public void onAttachedToWindow() {
         super.onAttachedToWindow();
-        tj(0);
+        b(0);
     }
 
     @Override // android.view.View
-    protected void onDetachedFromWindow() {
+    public void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        bMU();
+        c();
     }
 
     @Override // android.view.View
-    protected void onWindowVisibilityChanged(int i) {
+    public void onWindowVisibilityChanged(int i) {
         super.onWindowVisibilityChanged(i);
         if (i == 0) {
-            tj(0);
+            b(0);
         } else {
-            bMU();
+            c();
         }
     }
 
-    public void aF(String str, int i) {
-        this.mText = str;
-        if (i > 0) {
-            this.mCounter = i;
-        }
-    }
-
-    private void bMU() {
-        this.mHandler.removeCallbacksAndMessages(null);
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void tj(int i) {
-        this.mCounter -= i;
-        if (this.mCounter == 0) {
-            if (this.nEb != null) {
-                this.nEb.cf(this);
-            }
-            this.mHandler.removeCallbacksAndMessages(null);
-            return;
-        }
-        if (this.mCounter > 0) {
-            setText(String.format("%s %s", this.mText, Integer.valueOf(this.mCounter)));
-        }
-        this.mHandler.removeCallbacks(this.gnd);
-        this.mHandler.postDelayed(this.gnd, 1000L);
+    public void setTimeoutListener(c cVar) {
+        this.f21452g = cVar;
     }
 }

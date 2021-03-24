@@ -16,41 +16,52 @@ import com.baidu.util.LogUtil;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.security.KeyStore;
 import java.security.cert.Certificate;
 import java.security.cert.CertificateFactory;
 import java.security.cert.X509Certificate;
-import javax.net.ssl.HttpsURLConnection;
-import javax.net.ssl.SSLContext;
-import javax.net.ssl.TrustManagerFactory;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public final class ClientUpdater {
-    private static ClientUpdater e = null;
-    private static Runnable l = null;
+
+    /* renamed from: e  reason: collision with root package name */
+    public static ClientUpdater f4548e;
+    public static Runnable l;
     public static long stime;
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f1352a;
-    private Handler b;
-    private String c;
-    private IClientUpdaterCallback f;
-    private IClientUpdaterCallback g;
-    private double h;
-    private BroadcastReceiver i;
-    private IntentFilter j;
-    private com.baidu.clientupdate.c.a n;
-    private d o;
-    private boolean d = false;
-    private boolean k = false;
-    private Boolean m = false;
+    public Context f4549a;
 
-    private ClientUpdater(Context context) {
-        this.f1352a = context.getApplicationContext();
-        this.o = d.a(this.f1352a);
-        if (this.b == null) {
-            this.b = new Handler(this.f1352a.getMainLooper());
+    /* renamed from: b  reason: collision with root package name */
+    public Handler f4550b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public String f4551c;
+
+    /* renamed from: f  reason: collision with root package name */
+    public IClientUpdaterCallback f4553f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public IClientUpdaterCallback f4554g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public double f4555h;
+    public BroadcastReceiver i;
+    public IntentFilter j;
+    public com.baidu.clientupdate.c.a n;
+    public d o;
+
+    /* renamed from: d  reason: collision with root package name */
+    public boolean f4552d = false;
+    public boolean k = false;
+    public Boolean m = Boolean.FALSE;
+
+    public ClientUpdater(Context context) {
+        Context applicationContext = context.getApplicationContext();
+        this.f4549a = applicationContext;
+        this.o = d.a(applicationContext);
+        if (this.f4550b == null) {
+            this.f4550b = new Handler(this.f4549a.getMainLooper());
         }
         if (l == null) {
             l = new a(this);
@@ -62,19 +73,25 @@ public final class ClientUpdater {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a() {
-        if (this.b == null) {
+        if (this.f4550b == null) {
             return;
         }
-        if (j.d(this.f1352a)) {
+        if (j.d(this.f4549a)) {
             LogUtil.logD("ClientUpdater", "应用位于前台，不发起自动检查更新请求;");
-        } else if (j.a(this.f1352a)) {
-            this.b.removeCallbacks(l);
+        } else if (j.a(this.f4549a)) {
+            this.f4550b.removeCallbacks(l);
             LogUtil.logD("ClientUpdater", "延迟20秒，因为有时CONNECTIVITY_CHANGE Action会很频繁");
-            this.b.postDelayed(l, 20000L);
+            this.f4550b.postDelayed(l, 20000L);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
+    /* JADX WARN: Code restructure failed: missing block: B:12:0x002b, code lost:
+        if (r4 != null) goto L7;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     public void a(Exception exc) {
         Log.w("ClientUpdater", exc);
         JSONObject jSONObject = new JSONObject();
@@ -84,19 +101,27 @@ public final class ClientUpdater {
         } catch (JSONException e2) {
             e2.printStackTrace();
         }
-        if (this.d) {
-            this.f.onException(jSONObject);
-        } else if (this.g != null) {
-            this.g.onException(jSONObject);
-        }
-        com.baidu.clientupdate.d.a.a(this.f1352a).c();
+        IClientUpdaterCallback iClientUpdaterCallback = this.f4552d ? this.f4553f : this.f4554g;
+        iClientUpdaterCallback.onException(jSONObject);
+        com.baidu.clientupdate.d.a.a(this.f4549a).c();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
+    /* JADX WARN: Code restructure failed: missing block: B:35:0x01aa, code lost:
+        if (r0 != null) goto L34;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     public void a(HttpURLConnection httpURLConnection, InputStream inputStream, StringBuilder sb) {
+        com.baidu.clientupdate.d.a a2;
+        IClientUpdaterCallback iClientUpdaterCallback;
         if (httpURLConnection.getResponseCode() != 200) {
             String responseMessage = httpURLConnection.getResponseMessage();
-            this.o.a(this.n.c(), "0", this.n.b(), "a3", "1", (System.currentTimeMillis() / 1000) + "", "", "sendUpdateRequest", responseMessage);
+            d dVar = this.o;
+            String c2 = this.n.c();
+            String b2 = this.n.b();
+            dVar.a(c2, "0", b2, "a3", "1", (System.currentTimeMillis() / 1000) + "", "", "sendUpdateRequest", responseMessage);
             LogUtil.logD("ClientUpdater", "更新请求失败：  " + responseMessage);
             JSONObject jSONObject = new JSONObject();
             try {
@@ -105,15 +130,15 @@ public final class ClientUpdater {
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }
-            if (this.d) {
-                this.f.onError(jSONObject);
-            } else if (this.g != null) {
-                this.g.onError(jSONObject);
-            }
-            com.baidu.clientupdate.d.a.a(this.f1352a).c();
+            IClientUpdaterCallback iClientUpdaterCallback2 = this.f4552d ? this.f4553f : this.f4554g;
+            iClientUpdaterCallback2.onError(jSONObject);
+            com.baidu.clientupdate.d.a.a(this.f4549a).c();
             return;
         }
-        this.o.a(this.n.c(), "0", this.n.b(), "a3", "0", (System.currentTimeMillis() / 1000) + "", "", "sendUpdateRequest", "");
+        d dVar2 = this.o;
+        String c3 = this.n.c();
+        String b3 = this.n.b();
+        dVar2.a(c3, "0", b3, "a3", "0", (System.currentTimeMillis() / 1000) + "", "", "sendUpdateRequest", "");
         InputStream inputStream2 = httpURLConnection.getInputStream();
         byte[] bArr = new byte[1024];
         while (true) {
@@ -126,98 +151,150 @@ public final class ClientUpdater {
         inputStream2.close();
         LogUtil.logD("ClientUpdater", "更新请求后的返回结果: " + sb.toString());
         JSONObject jSONObject2 = new JSONObject(sb.toString());
-        if (jSONObject2 != null) {
-            String optString = jSONObject2.optString("status");
-            if (!TextUtils.isEmpty(optString) && Integer.valueOf(optString).intValue() == 1) {
-                this.o.a(this.n.c(), "0", this.n.b(), "a4", "0", (System.currentTimeMillis() / 1000) + "", "", "haveUpdate", "");
-            } else if (!TextUtils.isEmpty(optString) && Integer.valueOf(optString).intValue() == 0) {
-                this.o.a(this.n.c(), "0", this.n.b(), "a4", "0", (System.currentTimeMillis() / 1000) + "", "", "notUpdate", "");
+        String optString = jSONObject2.optString("status");
+        if (!TextUtils.isEmpty(optString) && Integer.valueOf(optString).intValue() == 1) {
+            d dVar3 = this.o;
+            String c4 = this.n.c();
+            String b4 = this.n.b();
+            dVar3.a(c4, "0", b4, "a4", "0", (System.currentTimeMillis() / 1000) + "", "", "haveUpdate", "");
+        } else if (!TextUtils.isEmpty(optString) && Integer.valueOf(optString).intValue() == 0) {
+            d dVar4 = this.o;
+            String c5 = this.n.c();
+            String b5 = this.n.b();
+            dVar4.a(c5, "0", b5, "a4", "0", (System.currentTimeMillis() / 1000) + "", "", "notUpdate", "");
+        }
+        if (this.f4552d) {
+            this.f4553f.onFetched(jSONObject2);
+            a2 = com.baidu.clientupdate.d.a.a(this.f4549a);
+            iClientUpdaterCallback = this.f4553f;
+        } else {
+            IClientUpdaterCallback iClientUpdaterCallback3 = this.f4554g;
+            if (iClientUpdaterCallback3 == null) {
+                return;
             }
+            iClientUpdaterCallback3.onFetched(jSONObject2);
+            a2 = com.baidu.clientupdate.d.a.a(this.f4549a);
+            iClientUpdaterCallback = this.f4554g;
         }
-        if (this.d) {
-            this.f.onFetched(jSONObject2);
-            com.baidu.clientupdate.d.a.a(this.f1352a).a(jSONObject2, this.f);
-        } else if (this.g != null) {
-            this.g.onFetched(jSONObject2);
-            com.baidu.clientupdate.d.a.a(this.f1352a).a(jSONObject2, this.g);
-        }
+        a2.a(jSONObject2, iClientUpdaterCallback);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b() {
-        this.d = true;
+        this.f4552d = true;
         long currentTimeMillis = System.currentTimeMillis();
         LogUtil.logD("ClientUpdater", "接收到网络状态的变化，检测上次更新时间");
-        LogUtil.logD("ClientUpdater", "设置的检查更新的间隔时间： " + ((long) (this.h * 3600000.0d)) + "ms");
-        LogUtil.logD("ClientUpdater", "当前时间：" + currentTimeMillis);
-        LogUtil.logD("ClientUpdater", "上次检查更新时间： " + j.c(this.f1352a));
-        if (currentTimeMillis - j.c(this.f1352a) <= ((long) (this.h * 3600000.0d))) {
+        LogUtil.logD("ClientUpdater", "设置的检查更新的间隔时间： " + ((long) (this.f4555h * 3600000.0d)) + "ms");
+        StringBuilder sb = new StringBuilder();
+        sb.append("当前时间：");
+        sb.append(currentTimeMillis);
+        LogUtil.logD("ClientUpdater", sb.toString());
+        LogUtil.logD("ClientUpdater", "上次检查更新时间： " + j.c(this.f4549a));
+        if (currentTimeMillis - j.c(this.f4549a) <= ((long) (this.f4555h * 3600000.0d))) {
             LogUtil.logD("ClientUpdater", "离上一次更新检查的时间小于设置的时间间隔，不检查更新 ");
             return;
         }
         LogUtil.logD("ClientUpdater", "大于设置的时间间隔，当前存在网络连接时进行更新检查 ");
-        if (j.a(this.f1352a)) {
+        if (j.a(this.f4549a)) {
             new c(this).start();
             return;
         }
-        StringBuilder sb = new StringBuilder("当前网络不可用!");
+        StringBuilder sb2 = new StringBuilder("当前网络不可用!");
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("msgId", "2");
-            jSONObject.put("messageDetail", sb.toString());
+            jSONObject.put("messageDetail", sb2.toString());
         } catch (JSONException e2) {
             e2.printStackTrace();
         }
-        this.f.onError(jSONObject);
+        this.f4553f.onError(jSONObject);
         LogUtil.logD("ClientUpdater", "当前网络不可用! ");
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE, IF, INVOKE, INVOKE, IF, IF, INVOKE, INVOKE, IF, INVOKE, INVOKE, IF, IF] complete} */
     /* JADX INFO: Access modifiers changed from: private */
+    /* JADX WARN: Code restructure failed: missing block: B:28:0x00c7, code lost:
+        if (r4 != null) goto L17;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:30:0x00ca, code lost:
+        if (r6 == null) goto L26;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:31:0x00cc, code lost:
+        if (r7 == null) goto L25;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:32:0x00ce, code lost:
+        if (r1 == null) goto L24;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:33:0x00d0, code lost:
+        r0 = java.security.KeyStore.getInstance(java.security.KeyStore.getDefaultType());
+        r0.load(null, null);
+        r0.setCertificateEntry("ca1", r6);
+        r0.setCertificateEntry("ca2", r7);
+        r0.setCertificateEntry("ca3", r1);
+        r1 = javax.net.ssl.TrustManagerFactory.getInstance(javax.net.ssl.TrustManagerFactory.getDefaultAlgorithm());
+        r1.init(r0);
+        r0 = javax.net.ssl.SSLContext.getInstance("TLS");
+        r0.init(null, r1.getTrustManagers(), null);
+        r1 = new java.lang.StringBuilder();
+        r2 = (javax.net.ssl.HttpsURLConnection) new java.net.URL(r10.f4551c).openConnection();
+        r2.setSSLSocketFactory(r0.getSocketFactory());
+        r2.setConnectTimeout(5000);
+        r2.setReadTimeout(5000);
+        r2.connect();
+        a(r2, null, r1);
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:34:0x0129, code lost:
+        return;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:53:?, code lost:
+        return;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:54:?, code lost:
+        return;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:55:?, code lost:
+        return;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     public void c() {
         Certificate certificate;
         Certificate certificate2;
         Certificate certificate3;
         CertificateFactory certificateFactory = CertificateFactory.getInstance("X.509");
-        InputStream open = this.f1352a.getResources().getAssets().open("LCUpdate/ca-globalsign-nv-sa.pem");
-        InputStream open2 = this.f1352a.getResources().getAssets().open("LCUpdate/ca-verisign-class-3-public-primary-certification-authority-en.pem");
-        InputStream open3 = this.f1352a.getResources().getAssets().open("LCUpdate/ca-verisign-class-3-public-primary-certification-authority-g5-en.pem");
+        InputStream open = this.f4549a.getResources().getAssets().open("LCUpdate/ca-globalsign-nv-sa.pem");
+        InputStream open2 = this.f4549a.getResources().getAssets().open("LCUpdate/ca-verisign-class-3-public-primary-certification-authority-en.pem");
+        InputStream open3 = this.f4549a.getResources().getAssets().open("LCUpdate/ca-verisign-class-3-public-primary-certification-authority-g5-en.pem");
         try {
             try {
-                certificate3 = certificateFactory.generateCertificate(open);
+                certificate2 = certificateFactory.generateCertificate(open);
                 try {
-                    LogUtil.logD("ClientUpdater", "ca1=" + ((X509Certificate) certificate3).getSubjectDN());
-                    certificate2 = certificateFactory.generateCertificate(open2);
+                    LogUtil.logD("ClientUpdater", "ca1=" + ((X509Certificate) certificate2).getSubjectDN());
+                    certificate3 = certificateFactory.generateCertificate(open2);
                     try {
-                        LogUtil.logD("ClientUpdater", "ca2=" + ((X509Certificate) certificate2).getSubjectDN());
+                        LogUtil.logD("ClientUpdater", "ca2=" + ((X509Certificate) certificate3).getSubjectDN());
                         certificate = certificateFactory.generateCertificate(open3);
-                        try {
-                            LogUtil.logD("ClientUpdater", "ca3=" + ((X509Certificate) certificate).getSubjectDN());
-                        } catch (Exception e2) {
-                            e = e2;
-                            LogUtil.logE("ClientUpdater", Log.getStackTraceString(e));
-                            if (open != null) {
-                                open.close();
-                            }
-                            if (open2 != null) {
-                                open2.close();
-                            }
-                            if (open3 != null) {
-                                open3.close();
-                            }
-                            if (certificate3 != null) {
-                                return;
-                            }
-                            return;
-                        }
-                    } catch (Exception e3) {
-                        e = e3;
+                    } catch (Exception e2) {
+                        e = e2;
                         certificate = null;
                     }
+                } catch (Exception e3) {
+                    e = e3;
+                    certificate = null;
+                    certificate3 = null;
+                }
+                try {
+                    LogUtil.logD("ClientUpdater", "ca3=" + ((X509Certificate) certificate).getSubjectDN());
                 } catch (Exception e4) {
                     e = e4;
-                    certificate = null;
-                    certificate2 = null;
+                    LogUtil.logE("ClientUpdater", Log.getStackTraceString(e));
+                    if (open != null) {
+                        open.close();
+                    }
+                    if (open2 != null) {
+                        open2.close();
+                    }
                 }
             } catch (Exception e5) {
                 e = e5;
@@ -225,25 +302,6 @@ public final class ClientUpdater {
                 certificate2 = null;
                 certificate3 = null;
             }
-            if (certificate3 != null || certificate2 == null || certificate == null) {
-                return;
-            }
-            KeyStore keyStore = KeyStore.getInstance(KeyStore.getDefaultType());
-            keyStore.load(null, null);
-            keyStore.setCertificateEntry("ca1", certificate3);
-            keyStore.setCertificateEntry("ca2", certificate2);
-            keyStore.setCertificateEntry("ca3", certificate);
-            TrustManagerFactory trustManagerFactory = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
-            trustManagerFactory.init(keyStore);
-            SSLContext sSLContext = SSLContext.getInstance("TLS");
-            sSLContext.init(null, trustManagerFactory.getTrustManagers(), null);
-            StringBuilder sb = new StringBuilder();
-            HttpsURLConnection httpsURLConnection = (HttpsURLConnection) new URL(this.c).openConnection();
-            httpsURLConnection.setSSLSocketFactory(sSLContext.getSocketFactory());
-            httpsURLConnection.setConnectTimeout(5000);
-            httpsURLConnection.setReadTimeout(5000);
-            httpsURLConnection.connect();
-            a(httpsURLConnection, null, sb);
         } finally {
             if (open != null) {
                 open.close();
@@ -266,33 +324,34 @@ public final class ClientUpdater {
             if (httpURLConnection.getResponseCode() == 200) {
                 return httpURLConnection.getInputStream();
             }
+            return null;
         } catch (Exception e2) {
             e2.printStackTrace();
             LogUtil.logE("ClientUpdater", "getCAInputStream fail. ");
+            return null;
         }
-        return null;
     }
 
     public static synchronized ClientUpdater getInstance(Context context) {
         ClientUpdater clientUpdater;
         synchronized (ClientUpdater.class) {
-            if (e == null) {
-                e = new ClientUpdater(context);
+            if (f4548e == null) {
+                f4548e = new ClientUpdater(context);
             }
-            clientUpdater = e;
+            clientUpdater = f4548e;
         }
         return clientUpdater;
     }
 
     public static void release() {
         synchronized (ClientUpdater.class) {
-            if (e != null) {
-                e.g = null;
-                e.f = null;
-                e.n = null;
+            if (f4548e != null) {
+                f4548e.f4554g = null;
+                f4548e.f4553f = null;
+                f4548e.n = null;
                 l = null;
                 com.baidu.clientupdate.d.a.e();
-                e = null;
+                f4548e = null;
             }
         }
     }
@@ -307,103 +366,121 @@ public final class ClientUpdater {
     }
 
     public void cancelAutoCheckUpdate() {
-        this.d = false;
+        this.f4552d = false;
         if (this.m.booleanValue()) {
-            this.f1352a.unregisterReceiver(this.i);
+            this.f4549a.unregisterReceiver(this.i);
         }
-        this.m = false;
+        this.m = Boolean.FALSE;
     }
 
     public void cancelDownload(long j) {
-        DownloadManager.getInstance(this.f1352a).cancel(j);
+        DownloadManager.getInstance(this.f4549a).cancel(j);
     }
 
-    public void checkUpdate(double d, IClientUpdaterCallback iClientUpdaterCallback) {
-        if (d <= 0.0d || iClientUpdaterCallback == null) {
-            this.o.a(this.n.c(), "0", this.n.b(), "a1", "0", (System.currentTimeMillis() / 1000) + "", "", "autocheckUpdate", "intervalHour < 0 or clientUpdaterCallback=null");
+    public void checkUpdate(double d2, IClientUpdaterCallback iClientUpdaterCallback) {
+        if (d2 <= 0.0d || iClientUpdaterCallback == null) {
+            d dVar = this.o;
+            String c2 = this.n.c();
+            String b2 = this.n.b();
+            dVar.a(c2, "0", b2, "a1", "0", (System.currentTimeMillis() / 1000) + "", "", "autocheckUpdate", "intervalHour < 0 or clientUpdaterCallback=null");
             LogUtil.logE("ClientUpdater", "intervalHour < 0 或者 clientUpdaterCallback为null或者JSONObject为null");
             return;
         }
-        this.f = iClientUpdaterCallback;
-        this.h = d;
+        this.f4553f = iClientUpdaterCallback;
+        this.f4555h = d2;
         try {
         } catch (Exception e2) {
-            this.o.a(this.n.c(), "0", this.n.b(), "a1", "1", (System.currentTimeMillis() / 1000) + "", "", "autoCheckUpdate", e2.toString());
+            d dVar2 = this.o;
+            String c3 = this.n.c();
+            String b3 = this.n.b();
+            dVar2.a(c3, "0", b3, "a1", "1", (System.currentTimeMillis() / 1000) + "", "", "autoCheckUpdate", e2.toString());
         }
-        if (j.b(this.f1352a)) {
-            this.o.a(this.n.c(), "0", this.n.b(), "a1", "0", (System.currentTimeMillis() / 1000) + "", "", "autoCheckUpdate", "");
-            this.f1352a.registerReceiver(this.i, this.j);
-            this.m = true;
+        if (!j.b(this.f4549a)) {
+            StringBuilder sb = new StringBuilder("请加入权限：ACCESS_NETWORK_STATE、INTERNET、GET_TASKS");
+            JSONObject jSONObject = new JSONObject();
+            jSONObject.put("msgId", "1");
+            jSONObject.put("messageDetail", sb.toString());
+            this.f4553f.onError(jSONObject);
             return;
         }
-        StringBuilder sb = new StringBuilder("请加入权限：ACCESS_NETWORK_STATE、INTERNET、GET_TASKS");
-        JSONObject jSONObject = new JSONObject();
-        jSONObject.put("msgId", "1");
-        jSONObject.put("messageDetail", sb.toString());
-        this.f.onError(jSONObject);
+        d dVar3 = this.o;
+        String c4 = this.n.c();
+        String b4 = this.n.b();
+        dVar3.a(c4, "0", b4, "a1", "0", (System.currentTimeMillis() / 1000) + "", "", "autoCheckUpdate", "");
+        this.f4549a.registerReceiver(this.i, this.j);
+        this.m = Boolean.TRUE;
     }
 
     public void checkUpdate(IClientUpdaterCallback iClientUpdaterCallback) {
         stime = System.currentTimeMillis();
         if (iClientUpdaterCallback == null) {
-            this.o.a(this.n.c(), "0", this.n.b(), "a1", "1", (System.currentTimeMillis() / 1000) + "", "", "checkUpdate", "clientUpdaterCallback=null");
+            d dVar = this.o;
+            String c2 = this.n.c();
+            String b2 = this.n.b();
+            dVar.a(c2, "0", b2, "a1", "1", (System.currentTimeMillis() / 1000) + "", "", "checkUpdate", "clientUpdaterCallback=null");
             LogUtil.logE("ClientUpdater", " clientUpdaterCallback为null或者JSONObject为null");
             return;
         }
         try {
-            this.g = iClientUpdaterCallback;
+            this.f4554g = iClientUpdaterCallback;
         } catch (Exception e2) {
-            this.o.a(this.n.c(), "0", this.n.b(), "a1", "1", (System.currentTimeMillis() / 1000) + "", "", "checkUpdate", e2.toString());
+            d dVar2 = this.o;
+            String c3 = this.n.c();
+            String b3 = this.n.b();
+            dVar2.a(c3, "0", b3, "a1", "1", (System.currentTimeMillis() / 1000) + "", "", "checkUpdate", e2.toString());
         }
-        if (!j.b(this.f1352a)) {
+        if (!j.b(this.f4549a)) {
             StringBuilder sb = new StringBuilder("请加入权限：ACCESS_NETWORK_STATE、INTERNET");
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("msgId", "1");
             jSONObject.put("messageDetail", sb.toString());
-            if (this.g != null) {
-                this.g.onError(jSONObject);
+            if (this.f4554g != null) {
+                this.f4554g.onError(jSONObject);
             }
-        } else if (j.a(this.f1352a)) {
-            this.o.a(this.n.c(), "0", this.n.b(), "a1", "0", (System.currentTimeMillis() / 1000) + "", "", "checkUpdate", "");
-            this.d = false;
-            new c(this).start();
-        } else {
+        } else if (!j.a(this.f4549a)) {
             StringBuilder sb2 = new StringBuilder("当前网络不可用!");
             JSONObject jSONObject2 = new JSONObject();
             jSONObject2.put("msgId", "2");
             jSONObject2.put("messageDetail", sb2.toString());
-            if (this.g != null) {
-                this.g.onError(jSONObject2);
+            if (this.f4554g != null) {
+                this.f4554g.onError(jSONObject2);
             }
+        } else {
+            d dVar3 = this.o;
+            String c4 = this.n.c();
+            String b4 = this.n.b();
+            dVar3.a(c4, "0", b4, "a1", "0", (System.currentTimeMillis() / 1000) + "", "", "checkUpdate", "");
+            this.f4552d = false;
+            new c(this).start();
         }
     }
 
     public void deleteDownload(long j) {
-        DownloadManager.getInstance(this.f1352a).delete(j);
+        DownloadManager.getInstance(this.f4549a).delete(j);
     }
 
     public void launchSystemInstalller(String str, Download download) {
         try {
-            DownloadManager.getInstance(this.f1352a).launchSystemInstalller(str, download);
+            DownloadManager.getInstance(this.f4549a).launchSystemInstalller(str, download);
         } catch (Exception e2) {
             LogUtil.logE("ClientUpdater", e2.getMessage());
         }
     }
 
     public ClientUpdateInfo parseClientUpdateInfo(JSONObject jSONObject) {
-        return com.baidu.clientupdate.d.a.a(this.f1352a).a(jSONObject);
+        return com.baidu.clientupdate.d.a.a(this.f4549a).a(jSONObject);
     }
 
     public RuleInfo parseRule(JSONObject jSONObject) {
-        return com.baidu.clientupdate.d.a.a(this.f1352a).b(jSONObject);
+        return com.baidu.clientupdate.d.a.a(this.f4549a).b(jSONObject);
     }
 
     public void pauseDownload(long j) {
-        DownloadManager.getInstance(this.f1352a).pause(j);
+        DownloadManager.getInstance(this.f4549a).pause(j);
     }
 
     public void resumeDownload(long j) {
-        DownloadManager.getInstance(this.f1352a).resume(j);
+        DownloadManager.getInstance(this.f4549a).resume(j);
     }
 
     public void setCfrom(String str) {
@@ -411,11 +488,11 @@ public final class ClientUpdater {
     }
 
     public void setContext(Context context) {
-        this.f1352a = context;
+        this.f4549a = context;
     }
 
     public void setDownloadPublicKey(boolean z) {
-        DownloadManager.getInstance(this.f1352a).setDownloadPublicKey(z);
+        DownloadManager.getInstance(this.f4549a).setDownloadPublicKey(z);
     }
 
     public void setFileProvider(String str) {
@@ -432,7 +509,7 @@ public final class ClientUpdater {
 
     public void setOSPlatform(String str) {
         try {
-            com.baidu.clientupdate.c.a.a(this.f1352a).a(str);
+            com.baidu.clientupdate.c.a.a(this.f4549a).a(str);
         } catch (Exception e2) {
             LogUtil.logE("ClientUpdater", e2.getMessage());
         }
@@ -455,11 +532,11 @@ public final class ClientUpdater {
     }
 
     public void setUseCFG(boolean z) {
-        com.baidu.clientupdate.c.a.a(this.f1352a).a(z);
+        com.baidu.clientupdate.c.a.a(this.f4549a).a(z);
     }
 
     public void setUseRSA(boolean z) {
-        DownloadManager.getInstance(this.f1352a).setUseRSA(z);
+        DownloadManager.getInstance(this.f4549a).setUseRSA(z);
     }
 
     public void setVersionCode(String str) {
@@ -472,7 +549,7 @@ public final class ClientUpdater {
 
     public void startDownload(ClientUpdateInfo clientUpdateInfo, String str) {
         try {
-            com.baidu.clientupdate.d.a.a(this.f1352a).b(clientUpdateInfo, str);
+            com.baidu.clientupdate.d.a.a(this.f4549a).b(clientUpdateInfo, str);
         } catch (Exception e2) {
             LogUtil.logE("ClientUpdater", e2.getMessage());
         }
@@ -480,7 +557,7 @@ public final class ClientUpdater {
 
     public void startDownload(ClientUpdateInfo clientUpdateInfo, String str, boolean z) {
         try {
-            com.baidu.clientupdate.d.a.a(this.f1352a).a(clientUpdateInfo, str, z);
+            com.baidu.clientupdate.d.a.a(this.f4549a).a(clientUpdateInfo, str, z);
         } catch (Exception e2) {
             LogUtil.logE("ClientUpdater", e2.getMessage());
         }
@@ -488,19 +565,23 @@ public final class ClientUpdater {
 
     public void startPatchDownload(ClientUpdateInfo clientUpdateInfo, String str) {
         try {
-            com.baidu.clientupdate.d.a.a(this.f1352a).a(clientUpdateInfo, str);
+            com.baidu.clientupdate.d.a.a(this.f4549a).a(clientUpdateInfo, str);
         } catch (Exception e2) {
             LogUtil.logE("ClientUpdater", e2.getMessage());
         }
     }
 
     public void throwError(JSONObject jSONObject) {
+        IClientUpdaterCallback iClientUpdaterCallback;
         try {
-            if (this.d) {
-                this.f.onError(jSONObject);
-            } else if (this.g != null) {
-                this.g.onError(jSONObject);
+            if (this.f4552d) {
+                iClientUpdaterCallback = this.f4553f;
+            } else if (this.f4554g == null) {
+                return;
+            } else {
+                iClientUpdaterCallback = this.f4554g;
             }
+            iClientUpdaterCallback.onError(jSONObject);
         } catch (Exception e2) {
             e2.printStackTrace();
         }

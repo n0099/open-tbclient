@@ -8,9 +8,9 @@ import android.view.inputmethod.InputMethodManager;
 import android.webkit.WebView;
 import androidx.fragment.app.Fragment;
 import java.lang.reflect.Field;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class ComponentDestroyer {
-    private static final String TAG = "ComponentDestroyer";
+    public static final String TAG = "ComponentDestroyer";
 
     public static void destroyActivity(Activity activity) {
         if (activity == null) {
@@ -30,30 +30,32 @@ public class ComponentDestroyer {
         fixInputMethodManagerLeak(fragment.getContext(), view);
     }
 
-    private static synchronized void destroyWebViewInTree(View view) {
+    public static synchronized void destroyWebViewInTree(View view) {
         synchronized (ComponentDestroyer.class) {
-            if (view != null) {
-                if (view instanceof WebView) {
-                    ((WebView) view).destroy();
-                } else if (view instanceof ViewGroup) {
-                    ViewGroup viewGroup = (ViewGroup) view;
-                    int childCount = viewGroup.getChildCount();
-                    for (int i = 0; i < childCount; i++) {
-                        destroyWebViewInTree(viewGroup.getChildAt(i));
-                    }
+            if (view == null) {
+                return;
+            }
+            if (view instanceof WebView) {
+                ((WebView) view).destroy();
+            } else if (view instanceof ViewGroup) {
+                ViewGroup viewGroup = (ViewGroup) view;
+                int childCount = viewGroup.getChildCount();
+                for (int i = 0; i < childCount; i++) {
+                    destroyWebViewInTree(viewGroup.getChildAt(i));
                 }
             }
         }
     }
 
-    private static void fixInputMethodManagerLeak(Context context, View view) {
+    public static void fixInputMethodManagerLeak(Context context, View view) {
         InputMethodManager inputMethodManager;
         if (context == null || view == null || (inputMethodManager = (InputMethodManager) context.getSystemService("input_method")) == null) {
             return;
         }
-        for (String str : new String[]{"mCurRootView", "mServedView", "mNextServedView"}) {
+        String[] strArr = {"mCurRootView", "mServedView", "mNextServedView"};
+        for (int i = 0; i < 3; i++) {
             try {
-                Field declaredField = inputMethodManager.getClass().getDeclaredField(str);
+                Field declaredField = inputMethodManager.getClass().getDeclaredField(strArr[i]);
                 if (!declaredField.isAccessible()) {
                     declaredField.setAccessible(true);
                 }

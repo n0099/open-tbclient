@@ -13,209 +13,250 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.widget.design.TbTabLayout;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.atomData.AtListActivityConfig;
-import com.baidu.tbadk.core.data.VoiceData;
+import com.baidu.tbadk.core.data.VoiceData$VoiceModel;
+import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ar;
 import com.baidu.tbadk.core.voice.VoiceManager;
 import com.baidu.tbadk.coreExtra.messageCenter.NewsRemindMessage;
 import com.baidu.tieba.R;
-/* loaded from: classes2.dex */
-public class MessageCenterFragment extends BaseFragment implements VoiceManager.c {
-    private VoiceManager jie;
-    private g kTT;
-    private TbTabLayout.b kTU = new TbTabLayout.b() { // from class: com.baidu.tieba.imMessageCenter.mention.MessageCenterFragment.1
-        @Override // com.baidu.adp.widget.design.TbTabLayout.b
-        public void h(TbTabLayout.e eVar) {
-            if (eVar == null) {
+import d.b.i0.d1.h.e;
+import d.b.i0.e1.b.h;
+/* loaded from: classes4.dex */
+public class MessageCenterFragment extends BaseFragment implements VoiceManager.j {
+
+    /* renamed from: e  reason: collision with root package name */
+    public h f18312e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public VoiceManager f18313f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public TbTabLayout.c f18314g = new a();
+
+    /* renamed from: h  reason: collision with root package name */
+    public CustomMessageListener f18315h = new b(2001384);
+    public final CustomMessageListener i = new c(2001626);
+
+    /* loaded from: classes4.dex */
+    public class a implements TbTabLayout.c {
+        public a() {
+        }
+
+        @Override // com.baidu.adp.widget.design.TbTabLayout.c
+        public void b(TbTabLayout.f fVar) {
+        }
+
+        @Override // com.baidu.adp.widget.design.TbTabLayout.c
+        public void d(TbTabLayout.f fVar) {
+        }
+
+        @Override // com.baidu.adp.widget.design.TbTabLayout.c
+        public void f(TbTabLayout.f fVar) {
+            if (fVar == null) {
             }
         }
+    }
 
-        @Override // com.baidu.adp.widget.design.TbTabLayout.b
-        public void i(TbTabLayout.e eVar) {
+    /* loaded from: classes4.dex */
+    public class b extends CustomMessageListener {
+        public b(int i) {
+            super(i);
         }
-
-        @Override // com.baidu.adp.widget.design.TbTabLayout.b
-        public void j(TbTabLayout.e eVar) {
-        }
-    };
-    private CustomMessageListener kTV = new CustomMessageListener(CmdConfigCustom.CMD_MAIN_TAB_WIDGET_CLICK) { // from class: com.baidu.tieba.imMessageCenter.mention.MessageCenterFragment.2
-        private boolean kTY = true;
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof Integer) && ((Integer) customResponsedMessage.getData()).intValue() == 3 && MessageCenterFragment.this.isPrimary() && MessageCenterFragment.this.kTT != null) {
-                MessageCenterFragment.this.kTT.cPS();
+            if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof Integer) && ((Integer) customResponsedMessage.getData()).intValue() == 3 && MessageCenterFragment.this.isPrimary() && MessageCenterFragment.this.f18312e != null) {
+                MessageCenterFragment.this.f18312e.q();
             }
         }
-    };
-    private final CustomMessageListener kTW = new CustomMessageListener(CmdConfigCustom.CMD_MESSAGE_REMIND) { // from class: com.baidu.tieba.imMessageCenter.mention.MessageCenterFragment.3
+    }
+
+    /* loaded from: classes4.dex */
+    public class c extends CustomMessageListener {
+        public c(int i) {
+            super(i);
+        }
+
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001626) {
-                MessageCenterFragment.this.j(customResponsedMessage);
+                MessageCenterFragment.this.I0(customResponsedMessage);
             }
         }
-    };
-
-    @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
-    public void onCreate(Bundle bundle) {
-        super.onCreate(bundle);
-        registerListener(this.kTV);
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
-    @Nullable
-    public View onCreateView(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
-        View inflate = layoutInflater.inflate(R.layout.message_center_activity, viewGroup, false);
-        this.kTT = new g(this);
-        this.kTT.a(inflate, bundle);
-        this.kTT.DB(2);
-        this.kTT.a(this.kTU);
-        this.kTW.setPriority(Integer.MAX_VALUE);
-        registerListener(this.kTW);
-        a(getActivity().getIntent(), bundle);
-        this.jie = getVoiceManager();
-        this.jie.onCreate(getPageContext());
-        TiebaStatic.log(new ar("c11941"));
-        return inflate;
+    public void G0() {
+        getActivity().finish();
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void onNewIntent(Intent intent) {
-        com.baidu.tieba.im.db.e.cVI().cVJ();
-        if (this.jie == null) {
-            this.jie = getVoiceManager();
-            this.jie.onCreate(getPageContext());
+    public void H0() {
+        AtListActivityConfig atListActivityConfig = new AtListActivityConfig(getContext(), 0, false);
+        atListActivityConfig.setIsForChat(true);
+        sendMessage(new CustomMessage(2002001, atListActivityConfig));
+        TiebaStatic.log("c12929");
+    }
+
+    public final void I0(ResponsedMessage<?> responsedMessage) {
+        if (responsedMessage == null || (responsedMessage instanceof NewsRemindMessage)) {
+            return;
         }
-        if (intent != null) {
-            a(intent, (Bundle) null);
-        }
+        BdLog.e("transform error");
     }
 
-    @Override // androidx.fragment.app.Fragment
-    public void onActivityResult(int i, int i2, Intent intent) {
-        super.onActivityResult(i, i2, intent);
-        if (this.kTT != null) {
-            this.kTT.onActivityResult(i, i2, intent);
-        }
-    }
-
-    @Override // androidx.fragment.app.Fragment
-    public void onSaveInstanceState(Bundle bundle) {
-        TbTabLayout.e cZy;
-        if (this.kTT != null && (cZy = this.kTT.cZy()) != null) {
-            bundle.putInt("Selected_Tab", cZy.getId());
+    public final void J0(Intent intent, Bundle bundle) {
+        h hVar = this.f18312e;
+        if (hVar != null) {
+            hVar.s(1);
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void changeSkinType(int i) {
-        if (this.kTT != null) {
+        if (this.f18312e != null) {
             super.changeSkinType(i);
+        }
+    }
+
+    @Override // com.baidu.tbadk.core.voice.VoiceManager.j
+    public VoiceManager.i getRealView(VoiceData$VoiceModel voiceData$VoiceModel) {
+        return null;
+    }
+
+    @Override // com.baidu.tbadk.core.voice.VoiceManager.j
+    public VoiceManager getVoiceManager() {
+        if (this.f18313f == null) {
+            this.f18313f = VoiceManager.instance();
+        }
+        return this.f18313f;
+    }
+
+    @Override // androidx.fragment.app.Fragment
+    public void onActivityResult(int i, int i2, Intent intent) {
+        super.onActivityResult(i, i2, intent);
+        h hVar = this.f18312e;
+        if (hVar != null) {
+            hVar.n(i, i2, intent);
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.kTT != null) {
-            this.kTT.onChangeSkinType(this.mSkinType);
+        h hVar = this.f18312e;
+        if (hVar != null) {
+            hVar.onChangeSkinType(this.mSkinType);
         }
     }
 
-    public void cZw() {
-        getActivity().finish();
+    @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
+    public void onCreate(Bundle bundle) {
+        super.onCreate(bundle);
+        registerListener(this.f18315h);
     }
 
-    public void cZx() {
-        AtListActivityConfig atListActivityConfig = new AtListActivityConfig(getContext(), 0, false);
-        atListActivityConfig.setIsForChat(true);
-        sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, atListActivityConfig));
-        TiebaStatic.log("c12929");
-    }
-
-    private void a(Intent intent, Bundle bundle) {
-        if (this.kTT != null) {
-            this.kTT.DB(1);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void j(ResponsedMessage<?> responsedMessage) {
-        if (responsedMessage != null && !(responsedMessage instanceof NewsRemindMessage)) {
-            BdLog.e("transform error");
-        }
+    @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
+    @Nullable
+    public View onCreateView(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
+        View inflate = layoutInflater.inflate(R.layout.message_center_activity, viewGroup, false);
+        h hVar = new h(this);
+        this.f18312e = hVar;
+        hVar.k(inflate, bundle);
+        this.f18312e.s(2);
+        this.f18312e.e(this.f18314g);
+        this.i.setPriority(Integer.MAX_VALUE);
+        registerListener(this.i);
+        J0(getActivity().getIntent(), bundle);
+        VoiceManager voiceManager = getVoiceManager();
+        this.f18313f = voiceManager;
+        voiceManager.onCreate(getPageContext());
+        TiebaStatic.log(new StatisticItem("c11941"));
+        return inflate;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        com.baidu.tieba.im.db.e.cVI().cVJ();
-        MessageManager.getInstance().unRegisterListener(this.kTW);
-        if (this.kTT != null) {
-            this.kTT.ajW();
-            this.kTT.b(this.kTU);
+        e.m().c();
+        MessageManager.getInstance().unRegisterListener(this.i);
+        h hVar = this.f18312e;
+        if (hVar != null) {
+            hVar.o();
+            this.f18312e.r(this.f18314g);
         }
-        if (this.jie != null) {
-            this.jie.onDestory(getPageContext());
+        VoiceManager voiceManager = this.f18313f;
+        if (voiceManager != null) {
+            voiceManager.onDestory(getPageContext());
         }
     }
 
-    @Override // com.baidu.tbadk.core.voice.VoiceManager.c
-    public VoiceManager.b d(VoiceData.VoiceModel voiceModel) {
-        return null;
-    }
-
-    @Override // com.baidu.tbadk.core.voice.VoiceManager.c
-    public VoiceManager getVoiceManager() {
-        if (this.jie == null) {
-            this.jie = VoiceManager.instance();
+    public void onNewIntent(Intent intent) {
+        e.m().c();
+        if (this.f18313f == null) {
+            VoiceManager voiceManager = getVoiceManager();
+            this.f18313f = voiceManager;
+            voiceManager.onCreate(getPageContext());
         }
-        return this.jie;
-    }
-
-    @Override // androidx.fragment.app.Fragment
-    public void onStart() {
-        super.onStart();
-        if (this.jie != null) {
-            this.jie.onStart(getPageContext());
+        if (intent != null) {
+            J0(intent, null);
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onPause() {
         super.onPause();
-        if (this.jie != null) {
-            this.jie.onPause(getPageContext());
+        VoiceManager voiceManager = this.f18313f;
+        if (voiceManager != null) {
+            voiceManager.onPause(getPageContext());
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onResume() {
         super.onResume();
-        if (this.jie != null) {
-            this.jie.onResume(getPageContext());
+        VoiceManager voiceManager = this.f18313f;
+        if (voiceManager != null) {
+            voiceManager.onResume(getPageContext());
+        }
+    }
+
+    @Override // androidx.fragment.app.Fragment
+    public void onSaveInstanceState(Bundle bundle) {
+        TbTabLayout.f f2;
+        h hVar = this.f18312e;
+        if (hVar == null || (f2 = hVar.f()) == null) {
+            return;
+        }
+        bundle.putInt("Selected_Tab", f2.d());
+    }
+
+    @Override // androidx.fragment.app.Fragment
+    public void onStart() {
+        super.onStart();
+        VoiceManager voiceManager = this.f18313f;
+        if (voiceManager != null) {
+            voiceManager.onStart(getPageContext());
         }
     }
 
     @Override // androidx.fragment.app.Fragment
     public void onStop() {
         super.onStop();
-        if (this.jie != null) {
-            this.jie.onStop(getPageContext());
+        VoiceManager voiceManager = this.f18313f;
+        if (voiceManager != null) {
+            voiceManager.onStop(getPageContext());
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void setPrimary(boolean z) {
         super.setPrimary(z);
-        if (this.kTT != null) {
-            this.kTT.setPrimary(z);
+        h hVar = this.f18312e;
+        if (hVar != null) {
+            hVar.u(z);
         }
     }
 }

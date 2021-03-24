@@ -5,61 +5,73 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.view.View;
-import com.baidu.adp.lib.util.l;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.BdGridView;
 import com.baidu.tieba.R;
-/* loaded from: classes7.dex */
+import d.b.b.e.p.l;
+/* loaded from: classes4.dex */
 public class GridLineView extends BdGridView {
-    private int lai;
-    private Paint mPaint;
+
+    /* renamed from: e  reason: collision with root package name */
+    public Paint f18490e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public int f18491f;
 
     public GridLineView(Context context) {
         super(context);
-        init(context);
+        c(context);
     }
 
-    public GridLineView(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        init(context);
+    public final void c(Context context) {
+        Paint paint = new Paint();
+        this.f18490e = paint;
+        paint.setStyle(Paint.Style.STROKE);
+        this.f18490e.setColor(SkinManager.getColor(R.color.CAM_X0204));
+        this.f18490e.setStrokeWidth(1.0f);
+        this.f18491f = l.g(context, R.dimen.ds26);
     }
 
-    public GridLineView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        init(context);
+    public void d() {
+        this.f18490e.setColor(SkinManager.getColor(R.color.CAM_X0204));
     }
 
-    private void init(Context context) {
-        this.mPaint = new Paint();
-        this.mPaint.setStyle(Paint.Style.STROKE);
-        this.mPaint.setColor(ap.getColor(R.color.CAM_X0204));
-        this.mPaint.setStrokeWidth(1.0f);
-        this.lai = l.getDimens(context, R.dimen.ds26);
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.view.BdGridView, android.widget.AbsListView, android.view.ViewGroup, android.view.View
     public void dispatchDraw(Canvas canvas) {
         View childAt;
+        int i;
         super.dispatchDraw(canvas);
         int childCount = getChildCount();
         if (childCount > 0 && (childAt = getChildAt(0)) != null) {
             int numColumns = getNumColumns();
-            int i = childCount % numColumns == 0 ? childCount / numColumns : (childCount / numColumns) + 1;
+            int i2 = childCount % numColumns;
+            int i3 = childCount / numColumns;
+            if (i2 != 0) {
+                i3++;
+            }
             int width = childAt.getWidth() * numColumns;
             int width2 = childAt.getWidth();
             int height = childAt.getHeight();
             int top = childAt.getTop();
-            for (int i2 = 1; i2 <= i; i2++) {
-                canvas.drawLine(0.0f, (height * i2) + top, width, (height * i2) + top, this.mPaint);
-                for (int i3 = 1; i3 < numColumns; i3++) {
-                    canvas.drawLine(width2 * i3, ((i2 - 1) * height) + top + this.lai, width2 * i3, ((height * i2) + top) - this.lai, this.mPaint);
+            for (int i4 = 1; i4 <= i3; i4++) {
+                float f2 = top + (height * i4);
+                canvas.drawLine(0.0f, f2, width, f2, this.f18490e);
+                for (int i5 = 1; i5 < numColumns; i5++) {
+                    float f3 = width2 * i5;
+                    int i6 = this.f18491f;
+                    canvas.drawLine(f3, ((i4 - 1) * height) + top + i6, f3, i - i6, this.f18490e);
                 }
             }
         }
     }
 
-    public void onChangeSkinType() {
-        this.mPaint.setColor(ap.getColor(R.color.CAM_X0204));
+    public GridLineView(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        c(context);
+    }
+
+    public GridLineView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        c(context);
     }
 }

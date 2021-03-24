@@ -9,22 +9,22 @@ import com.baidu.tbadk.imageManager.TbFaceManager;
 import com.baidu.tieba.R;
 import java.io.Serializable;
 import java.util.List;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class SmallTailInfo extends OrmObject implements Serializable {
-    private static final String EMOTION_PREFIX = "#(";
-    private static final String EMOTION_SUFFIX = ")";
-    private static final int TAIL_CONTENT_TYPE_EMOTION = 2;
-    private static final int TAIL_CONTENT_TYPE_TEXT = 0;
-    private static final long serialVersionUID = -6548060282571779153L;
+    public static final String EMOTION_PREFIX = "#(";
+    public static final String EMOTION_SUFFIX = ")";
+    public static final int TAIL_CONTENT_TYPE_EMOTION = 2;
+    public static final int TAIL_CONTENT_TYPE_TEXT = 0;
+    public static final long serialVersionUID = -6548060282571779153L;
     public String color;
     public List<SmallTailInfoContent> content;
     public int id;
     public int showColorId;
     public transient SpannableString tailSpannable;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes3.dex */
     public class SmallTailInfoContent extends OrmObject implements Serializable {
-        private static final long serialVersionUID = -2017172862365526905L;
+        public static final long serialVersionUID = -2017172862365526905L;
         public String text;
         public int type;
 
@@ -37,38 +37,6 @@ public class SmallTailInfo extends OrmObject implements Serializable {
         }
     }
 
-    public void updateShowInfo() {
-        updateTailSpannable();
-        updateColor();
-    }
-
-    private void updateTailSpannable() {
-        if (this.content != null) {
-            StringBuilder sb = new StringBuilder();
-            for (SmallTailInfoContent smallTailInfoContent : this.content) {
-                if (smallTailInfoContent.type == 0) {
-                    if (smallTailInfoContent.text != null) {
-                        sb.append(smallTailInfoContent.text);
-                    }
-                } else if (smallTailInfoContent.type == 2 && !StringUtils.isNull(smallTailInfoContent.text)) {
-                    String CT = TbFaceManager.bCR().CT(smallTailInfoContent.text);
-                    if (!StringUtils.isNull(CT)) {
-                        sb.append(EMOTION_PREFIX + CT + EMOTION_SUFFIX);
-                    }
-                }
-            }
-            this.tailSpannable = TbFaceManager.bCR().a(TbadkCoreApplication.getInst(), sb.toString(), null);
-        }
-    }
-
-    private void updateColor() {
-        try {
-            this.showColorId = Color.parseColor(getShowColorText(this.color));
-        } catch (Exception e) {
-            this.showColorId = Color.parseColor(getShowColorText(TbadkCoreApplication.getInst().getString(R.string.tail_color_default)));
-        }
-    }
-
     private String getShowColorText(String str) {
         if (str == null) {
             return null;
@@ -77,5 +45,40 @@ public class SmallTailInfo extends OrmObject implements Serializable {
             return TbadkCoreApplication.getInst().getString(R.string.color_prefix) + TbadkCoreApplication.getInst().getString(R.string.tail_color_night) + str;
         }
         return TbadkCoreApplication.getInst().getString(R.string.color_prefix) + str;
+    }
+
+    private void updateColor() {
+        try {
+            this.showColorId = Color.parseColor(getShowColorText(this.color));
+        } catch (Exception unused) {
+            this.showColorId = Color.parseColor(getShowColorText(TbadkCoreApplication.getInst().getString(R.string.tail_color_default)));
+        }
+    }
+
+    private void updateTailSpannable() {
+        if (this.content == null) {
+            return;
+        }
+        StringBuilder sb = new StringBuilder();
+        for (SmallTailInfoContent smallTailInfoContent : this.content) {
+            int i = smallTailInfoContent.type;
+            if (i == 0) {
+                String str = smallTailInfoContent.text;
+                if (str != null) {
+                    sb.append(str);
+                }
+            } else if (i == 2 && !StringUtils.isNull(smallTailInfoContent.text)) {
+                String f2 = TbFaceManager.e().f(smallTailInfoContent.text);
+                if (!StringUtils.isNull(f2)) {
+                    sb.append(EMOTION_PREFIX + f2 + EMOTION_SUFFIX);
+                }
+            }
+        }
+        this.tailSpannable = TbFaceManager.e().l(TbadkCoreApplication.getInst(), sb.toString(), null);
+    }
+
+    public void updateShowInfo() {
+        updateTailSpannable();
+        updateColor();
     }
 }

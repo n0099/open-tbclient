@@ -1,8 +1,5 @@
 package com.baidu.mobads.interfaces;
-
-import com.baidu.live.adp.lib.stats.BdStatsConstant;
-import com.baidu.live.tbadk.log.LogConfig;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public interface IXAdConstants4PDK {
     public static final String EVENT_ERROR = "EVENT_ERROR";
     public static final String EVENT_REQUEST_COMPLETE = "EVENT_REQUEST_COMPLETE";
@@ -13,93 +10,7 @@ public interface IXAdConstants4PDK {
     public static final String EVENT_SLOT_PRELOADED = "EVENT_SLOT_PRELOADED";
     public static final String EVENT_SLOT_STARTED = "EVENT_SLOT_STARTED";
 
-    /* loaded from: classes4.dex */
-    public enum VideoAssetPlayMode {
-        VIDEO_ASSET_AUTO_PLAY_TYPE_ATTENDED("VIDEO_ASSET_AUTO_PLAY_TYPE_ATTENDED"),
-        VIDEO_ASSET_AUTO_PLAY_TYPE_UNATTENDED("VIDEO_ASSET_AUTO_PLAY_TYPE_UNATTENDED");
-        
-
-        /* renamed from: a  reason: collision with root package name */
-        private final String f2411a;
-
-        VideoAssetPlayMode(String str) {
-            this.f2411a = str;
-        }
-
-        public String getValue() {
-            return this.f2411a;
-        }
-
-        public static VideoAssetPlayMode parse(String str) {
-            VideoAssetPlayMode[] values;
-            for (VideoAssetPlayMode videoAssetPlayMode : values()) {
-                if (videoAssetPlayMode.f2411a.equalsIgnoreCase(str)) {
-                    return videoAssetPlayMode;
-                }
-            }
-            return null;
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public enum ScreenSizeMode {
-        NORMAL("normal"),
-        FULL_SCREEN("full_screen");
-        
-
-        /* renamed from: a  reason: collision with root package name */
-        private final String f2408a;
-
-        ScreenSizeMode(String str) {
-            this.f2408a = str;
-        }
-
-        public String getValue() {
-            return this.f2408a;
-        }
-
-        public static ScreenSizeMode parse(String str) {
-            ScreenSizeMode[] values;
-            for (ScreenSizeMode screenSizeMode : values()) {
-                if (screenSizeMode.f2408a.equalsIgnoreCase(str)) {
-                    return screenSizeMode;
-                }
-            }
-            return null;
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public enum VideoState {
-        IDLE("IDLE"),
-        PLAYING("PLAYING"),
-        PAUSED("PAUSED"),
-        COMPLETED("COMPLETED");
-        
-
-        /* renamed from: a  reason: collision with root package name */
-        private final String f2412a;
-
-        VideoState(String str) {
-            this.f2412a = str;
-        }
-
-        public String getValue() {
-            return this.f2412a;
-        }
-
-        public static VideoState parse(String str) {
-            VideoState[] values;
-            for (VideoState videoState : values()) {
-                if (videoState.f2412a.equalsIgnoreCase(str)) {
-                    return videoState;
-                }
-            }
-            return null;
-        }
-    }
-
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public enum ActivityState {
         CREATE("CREATE"),
         START("START"),
@@ -111,28 +22,56 @@ public interface IXAdConstants4PDK {
         
 
         /* renamed from: a  reason: collision with root package name */
-        private final String f2407a;
+        public final String f8335a;
 
         ActivityState(String str) {
-            this.f2407a = str;
-        }
-
-        public String getValue() {
-            return this.f2407a;
+            this.f8335a = str;
         }
 
         public static ActivityState parse(String str) {
             ActivityState[] values;
             for (ActivityState activityState : values()) {
-                if (activityState.f2407a.equalsIgnoreCase(str)) {
+                if (activityState.f8335a.equalsIgnoreCase(str)) {
                     return activityState;
                 }
             }
             return null;
         }
+
+        public String getValue() {
+            return this.f8335a;
+        }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
+    public enum ScreenSizeMode {
+        NORMAL("normal"),
+        FULL_SCREEN("full_screen");
+        
+
+        /* renamed from: a  reason: collision with root package name */
+        public final String f8337a;
+
+        ScreenSizeMode(String str) {
+            this.f8337a = str;
+        }
+
+        public static ScreenSizeMode parse(String str) {
+            ScreenSizeMode[] values;
+            for (ScreenSizeMode screenSizeMode : values()) {
+                if (screenSizeMode.f8337a.equalsIgnoreCase(str)) {
+                    return screenSizeMode;
+                }
+            }
+            return null;
+        }
+
+        public String getValue() {
+            return this.f8337a;
+        }
+    }
+
+    /* loaded from: classes2.dex */
     public enum SlotState {
         IDEL("idel"),
         LOADING("loading"),
@@ -140,39 +79,39 @@ public interface IXAdConstants4PDK {
         PLAYING("playing"),
         PAUSED("paused"),
         COMPLETED("completed"),
-        ERROR(BdStatsConstant.StatsType.ERROR);
+        ERROR("error");
         
 
         /* renamed from: a  reason: collision with root package name */
-        private final String f2409a;
+        public final String f8339a;
 
         SlotState(String str) {
-            this.f2409a = str;
-        }
-
-        public String getValue() {
-            return this.f2409a;
+            this.f8339a = str;
         }
 
         public static SlotState parse(String str) {
             SlotState[] values;
             for (SlotState slotState : values()) {
-                if (slotState.f2409a.equalsIgnoreCase(str)) {
+                if (slotState.f8339a.equalsIgnoreCase(str)) {
                     return slotState;
                 }
             }
             return null;
         }
+
+        public String getValue() {
+            return this.f8339a;
+        }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public enum SlotType {
         SLOT_TYPE_JSSDK("jssdk"),
         SLOT_TYPE_CPU("cpu"),
         SLOT_TYPE_BANNER("banner"),
         SLOT_TYPE_SPLASH("rsplash"),
         SLOT_TYPE_INTERSTITIAL("int"),
-        SLOT_TYPE_FEEDS(LogConfig.KEY_FEED),
+        SLOT_TYPE_FEEDS("feed"),
         SLOT_TYPE_INSITE("insite"),
         SLOT_TYPE_SUG("sug"),
         SLOT_TYPE_FULLSCREEN_VIDEO("fvideo"),
@@ -187,52 +126,110 @@ public interface IXAdConstants4PDK {
         
 
         /* renamed from: a  reason: collision with root package name */
-        private final String f2410a;
+        public final String f8341a;
 
         SlotType(String str) {
-            this.f2410a = str;
-        }
-
-        public String getValue() {
-            return this.f2410a;
+            this.f8341a = str;
         }
 
         public static SlotType parse(String str) {
             SlotType[] values;
             for (SlotType slotType : values()) {
-                if (slotType.f2410a.equalsIgnoreCase(str)) {
+                if (slotType.f8341a.equalsIgnoreCase(str)) {
                     return slotType;
                 }
             }
             return null;
         }
+
+        public String getValue() {
+            return this.f8341a;
+        }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
+    public enum VideoAssetPlayMode {
+        VIDEO_ASSET_AUTO_PLAY_TYPE_ATTENDED("VIDEO_ASSET_AUTO_PLAY_TYPE_ATTENDED"),
+        VIDEO_ASSET_AUTO_PLAY_TYPE_UNATTENDED("VIDEO_ASSET_AUTO_PLAY_TYPE_UNATTENDED");
+        
+
+        /* renamed from: a  reason: collision with root package name */
+        public final String f8343a;
+
+        VideoAssetPlayMode(String str) {
+            this.f8343a = str;
+        }
+
+        public static VideoAssetPlayMode parse(String str) {
+            VideoAssetPlayMode[] values;
+            for (VideoAssetPlayMode videoAssetPlayMode : values()) {
+                if (videoAssetPlayMode.f8343a.equalsIgnoreCase(str)) {
+                    return videoAssetPlayMode;
+                }
+            }
+            return null;
+        }
+
+        public String getValue() {
+            return this.f8343a;
+        }
+    }
+
+    /* loaded from: classes2.dex */
+    public enum VideoState {
+        IDLE("IDLE"),
+        PLAYING("PLAYING"),
+        PAUSED("PAUSED"),
+        COMPLETED("COMPLETED");
+        
+
+        /* renamed from: a  reason: collision with root package name */
+        public final String f8345a;
+
+        VideoState(String str) {
+            this.f8345a = str;
+        }
+
+        public static VideoState parse(String str) {
+            VideoState[] values;
+            for (VideoState videoState : values()) {
+                if (videoState.f8345a.equalsIgnoreCase(str)) {
+                    return videoState;
+                }
+            }
+            return null;
+        }
+
+        public String getValue() {
+            return this.f8345a;
+        }
+    }
+
+    /* loaded from: classes2.dex */
     public enum VisitorAction {
         PAUSE_BUTTON_CLICKED("PAUSE_BUTTON_CLICKED"),
         RESUME_BUTTON_CLICKED("RESUME_BUTTON_CLICKED");
         
 
         /* renamed from: a  reason: collision with root package name */
-        private final String f2413a;
+        public final String f8347a;
 
         VisitorAction(String str) {
-            this.f2413a = str;
-        }
-
-        public String getValue() {
-            return this.f2413a;
+            this.f8347a = str;
         }
 
         public static VisitorAction parse(String str) {
             VisitorAction[] values;
             for (VisitorAction visitorAction : values()) {
-                if (visitorAction.f2413a.equalsIgnoreCase(str)) {
+                if (visitorAction.f8347a.equalsIgnoreCase(str)) {
                     return visitorAction;
                 }
             }
             return null;
+        }
+
+        public String getValue() {
+            return this.f8347a;
         }
     }
 }

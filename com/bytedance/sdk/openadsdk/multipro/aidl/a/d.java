@@ -2,6 +2,7 @@ package com.bytedance.sdk.openadsdk.multipro.aidl.a;
 
 import android.os.RemoteCallbackList;
 import android.os.RemoteException;
+import com.baidu.android.common.others.lang.StringUtil;
 import com.bytedance.sdk.openadsdk.ICommonPermissionListener;
 import com.bytedance.sdk.openadsdk.utils.u;
 import java.util.HashMap;
@@ -9,49 +10,53 @@ import java.util.HashMap;
 public class d extends a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static HashMap<String, RemoteCallbackList<ICommonPermissionListener>> f4886a = new HashMap<>();
-    private static volatile d b;
+    public static HashMap<String, RemoteCallbackList<ICommonPermissionListener>> f29814a = new HashMap<>();
+
+    /* renamed from: b  reason: collision with root package name */
+    public static volatile d f29815b;
 
     public static d a() {
-        if (b == null) {
+        if (f29815b == null) {
             synchronized (d.class) {
-                if (b == null) {
-                    b = new d();
+                if (f29815b == null) {
+                    f29815b = new d();
                 }
             }
         }
-        return b;
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.multipro.aidl.a.a, com.bytedance.sdk.openadsdk.IListenerManager
-    public void registerPermissionListener(String str, ICommonPermissionListener iCommonPermissionListener) throws RemoteException {
-        if (iCommonPermissionListener != null) {
-            u.b("MultiProcess", "CommonPermissionListenerManagerImpl registerPermissionListener");
-            RemoteCallbackList<ICommonPermissionListener> remoteCallbackList = new RemoteCallbackList<>();
-            remoteCallbackList.register(iCommonPermissionListener);
-            f4886a.put(str, remoteCallbackList);
-        }
+        return f29815b;
     }
 
     @Override // com.bytedance.sdk.openadsdk.multipro.aidl.a.a, com.bytedance.sdk.openadsdk.IListenerManager
     public void broadcastPermissionListener(String str, String str2) throws RemoteException {
-        u.b("MultiProcess", "00000 CommonPermissionListenerManagerImpl broadcastDialogListener: 00000" + String.valueOf(str) + ", " + str2);
-        RemoteCallbackList<ICommonPermissionListener> remove = f4886a.remove(str);
-        if (remove != null) {
-            int beginBroadcast = remove.beginBroadcast();
-            for (int i = 0; i < beginBroadcast; i++) {
-                ICommonPermissionListener broadcastItem = remove.getBroadcastItem(i);
-                if (broadcastItem != null) {
-                    u.b("MultiProcess", "CommonPermissionListenerManagerImpl broadcastDialogListener: " + String.valueOf(str) + ", " + str2);
-                    if (str2 == null) {
-                        broadcastItem.onGranted();
-                    } else {
-                        broadcastItem.onDenied(str2);
-                    }
+        u.b("MultiProcess", "00000 CommonPermissionListenerManagerImpl broadcastDialogListener: 00000" + String.valueOf(str) + StringUtil.ARRAY_ELEMENT_SEPARATOR + str2);
+        RemoteCallbackList<ICommonPermissionListener> remove = f29814a.remove(str);
+        if (remove == null) {
+            return;
+        }
+        int beginBroadcast = remove.beginBroadcast();
+        for (int i = 0; i < beginBroadcast; i++) {
+            ICommonPermissionListener broadcastItem = remove.getBroadcastItem(i);
+            if (broadcastItem != null) {
+                u.b("MultiProcess", "CommonPermissionListenerManagerImpl broadcastDialogListener: " + String.valueOf(str) + StringUtil.ARRAY_ELEMENT_SEPARATOR + str2);
+                if (str2 == null) {
+                    broadcastItem.onGranted();
+                } else {
+                    broadcastItem.onDenied(str2);
                 }
             }
-            remove.finishBroadcast();
-            remove.kill();
         }
+        remove.finishBroadcast();
+        remove.kill();
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.multipro.aidl.a.a, com.bytedance.sdk.openadsdk.IListenerManager
+    public void registerPermissionListener(String str, ICommonPermissionListener iCommonPermissionListener) throws RemoteException {
+        if (iCommonPermissionListener == null) {
+            return;
+        }
+        u.b("MultiProcess", "CommonPermissionListenerManagerImpl registerPermissionListener");
+        RemoteCallbackList<ICommonPermissionListener> remoteCallbackList = new RemoteCallbackList<>();
+        remoteCallbackList.register(iCommonPermissionListener);
+        f29814a.put(str, remoteCallbackList);
     }
 }

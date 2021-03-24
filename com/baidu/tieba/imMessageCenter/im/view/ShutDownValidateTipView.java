@@ -10,128 +10,151 @@ import android.view.animation.Animation;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
 import java.util.ArrayList;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class ShutDownValidateTipView extends FrameLayout {
-    private boolean isVisible;
-    private TextView kSA;
-    private ImageView kSB;
-    private TextView kSC;
-    private TextView kSD;
-    private ArrayList<a> networkChangeListeners;
 
-    /* loaded from: classes2.dex */
-    public interface a {
-        void onNetworkChange(boolean z);
+    /* renamed from: e  reason: collision with root package name */
+    public TextView f18294e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public ImageView f18295f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public TextView f18296g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public TextView f18297h;
+    public boolean i;
+    public ArrayList<c> j;
+
+    /* loaded from: classes4.dex */
+    public class a implements Animation.AnimationListener {
+        public a() {
+        }
+
+        @Override // android.view.animation.Animation.AnimationListener
+        public void onAnimationEnd(Animation animation) {
+        }
+
+        @Override // android.view.animation.Animation.AnimationListener
+        public void onAnimationRepeat(Animation animation) {
+        }
+
+        @Override // android.view.animation.Animation.AnimationListener
+        public void onAnimationStart(Animation animation) {
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class b implements Animation.AnimationListener {
+        public b() {
+        }
+
+        @Override // android.view.animation.Animation.AnimationListener
+        public void onAnimationEnd(Animation animation) {
+            ShutDownValidateTipView.this.setVisibility(8);
+        }
+
+        @Override // android.view.animation.Animation.AnimationListener
+        public void onAnimationRepeat(Animation animation) {
+        }
+
+        @Override // android.view.animation.Animation.AnimationListener
+        public void onAnimationStart(Animation animation) {
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public interface c {
+        void b(boolean z);
     }
 
     public ShutDownValidateTipView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.networkChangeListeners = new ArrayList<>();
-        init(context);
+        this.j = new ArrayList<>();
+        a(context);
     }
 
-    public ShutDownValidateTipView(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        this.networkChangeListeners = new ArrayList<>();
-        init(context);
-    }
-
-    public ShutDownValidateTipView(Context context) {
-        super(context);
-        this.networkChangeListeners = new ArrayList<>();
-        init(context);
-    }
-
-    public void init(Context context) {
+    public void a(Context context) {
         addView(LayoutInflater.from(context).inflate(R.layout.shut_down_validate_tip, (ViewGroup) null));
-        this.kSB = (ImageView) findViewById(R.id.no_network_icon);
-        this.kSC = (TextView) findViewById(R.id.no_network_guide1);
-        this.kSD = (TextView) findViewById(R.id.no_network_guide2);
-        this.kSA = (TextView) findViewById(R.id.no_network_showmore);
+        this.f18295f = (ImageView) findViewById(R.id.no_network_icon);
+        this.f18296g = (TextView) findViewById(R.id.no_network_guide1);
+        this.f18297h = (TextView) findViewById(R.id.no_network_guide2);
+        this.f18294e = (TextView) findViewById(R.id.no_network_showmore);
     }
 
-    public void setShutDownClickListener(View.OnClickListener onClickListener) {
-        if (this.kSA != null) {
-            this.kSA.setOnClickListener(onClickListener);
+    public void b(int i) {
+        SkinManager.setImageResource(this.f18295f, R.drawable.icon_error);
+        SkinManager.setBackgroundResource(findViewById(R.id.no_network_parent), R.drawable.bg_no_network);
+        if (i != 1 && i != 4) {
+            this.f18296g.setTextColor(-14277082);
+            this.f18297h.setTextColor(-5065030);
+            this.f18294e.setTextColor(-14277082);
+            return;
         }
-    }
-
-    public void setVisible(boolean z) {
-        if (z != this.isVisible) {
-            this.isVisible = z;
-            if (z) {
-                AlphaAnimation alphaAnimation = new AlphaAnimation(0.0f, 1.0f);
-                alphaAnimation.setFillAfter(true);
-                alphaAnimation.setDuration(500L);
-                alphaAnimation.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.imMessageCenter.im.view.ShutDownValidateTipView.1
-                    @Override // android.view.animation.Animation.AnimationListener
-                    public void onAnimationStart(Animation animation) {
-                    }
-
-                    @Override // android.view.animation.Animation.AnimationListener
-                    public void onAnimationRepeat(Animation animation) {
-                    }
-
-                    @Override // android.view.animation.Animation.AnimationListener
-                    public void onAnimationEnd(Animation animation) {
-                    }
-                });
-                setVisibility(0);
-                startAnimation(alphaAnimation);
-                for (int i = 0; i < this.networkChangeListeners.size(); i++) {
-                    this.networkChangeListeners.get(i).onNetworkChange(false);
-                }
-            } else if (getVisibility() != 8) {
-                AlphaAnimation alphaAnimation2 = new AlphaAnimation(1.0f, 0.0f);
-                alphaAnimation2.setFillAfter(true);
-                alphaAnimation2.setDuration(500L);
-                alphaAnimation2.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.imMessageCenter.im.view.ShutDownValidateTipView.2
-                    @Override // android.view.animation.Animation.AnimationListener
-                    public void onAnimationStart(Animation animation) {
-                    }
-
-                    @Override // android.view.animation.Animation.AnimationListener
-                    public void onAnimationRepeat(Animation animation) {
-                    }
-
-                    @Override // android.view.animation.Animation.AnimationListener
-                    public void onAnimationEnd(Animation animation) {
-                        ShutDownValidateTipView.this.setVisibility(8);
-                    }
-                });
-                startAnimation(alphaAnimation2);
-                for (int i2 = 0; i2 < this.networkChangeListeners.size(); i2++) {
-                    this.networkChangeListeners.get(i2).onNetworkChange(true);
-                }
-            }
-        }
+        this.f18296g.setTextColor(-10523526);
+        this.f18297h.setTextColor(-8682095);
+        this.f18294e.setTextColor(-10523526);
     }
 
     @Override // android.view.ViewGroup, android.view.View
-    protected void onAttachedToWindow() {
+    public void onAttachedToWindow() {
         super.onAttachedToWindow();
     }
 
     @Override // android.view.ViewGroup, android.view.View
-    protected void onDetachedFromWindow() {
+    public void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        this.networkChangeListeners.clear();
+        this.j.clear();
     }
 
-    public void onChangeSkinType(int i) {
-        ap.setImageResource(this.kSB, R.drawable.icon_error);
-        ap.setBackgroundResource(findViewById(R.id.no_network_parent), R.drawable.bg_no_network);
-        if (i == 1 || i == 4) {
-            this.kSC.setTextColor(-10523526);
-            this.kSD.setTextColor(-8682095);
-            this.kSA.setTextColor(-10523526);
+    public void setShutDownClickListener(View.OnClickListener onClickListener) {
+        TextView textView = this.f18294e;
+        if (textView == null) {
             return;
         }
-        this.kSC.setTextColor(-14277082);
-        this.kSD.setTextColor(-5065030);
-        this.kSA.setTextColor(-14277082);
+        textView.setOnClickListener(onClickListener);
+    }
+
+    public void setVisible(boolean z) {
+        if (z == this.i) {
+            return;
+        }
+        this.i = z;
+        if (z) {
+            AlphaAnimation alphaAnimation = new AlphaAnimation(0.0f, 1.0f);
+            alphaAnimation.setFillAfter(true);
+            alphaAnimation.setDuration(500L);
+            alphaAnimation.setAnimationListener(new a());
+            setVisibility(0);
+            startAnimation(alphaAnimation);
+            for (int i = 0; i < this.j.size(); i++) {
+                this.j.get(i).b(false);
+            }
+        } else if (getVisibility() != 8) {
+            AlphaAnimation alphaAnimation2 = new AlphaAnimation(1.0f, 0.0f);
+            alphaAnimation2.setFillAfter(true);
+            alphaAnimation2.setDuration(500L);
+            alphaAnimation2.setAnimationListener(new b());
+            startAnimation(alphaAnimation2);
+            for (int i2 = 0; i2 < this.j.size(); i2++) {
+                this.j.get(i2).b(true);
+            }
+        }
+    }
+
+    public ShutDownValidateTipView(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        this.j = new ArrayList<>();
+        a(context);
+    }
+
+    public ShutDownValidateTipView(Context context) {
+        super(context);
+        this.j = new ArrayList<>();
+        a(context);
     }
 }

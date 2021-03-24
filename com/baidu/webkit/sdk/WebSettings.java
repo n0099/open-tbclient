@@ -2,7 +2,6 @@ package com.baidu.webkit.sdk;
 
 import android.content.Context;
 import androidx.core.view.ViewCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.webkit.internal.blink.WebSettingsGlobalBlink;
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -11,7 +10,7 @@ import java.lang.annotation.Target;
 import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Observer;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public abstract class WebSettings implements Observer {
     public static final int LOAD_CACHE_ELSE_NETWORK = 1;
     public static final int LOAD_CACHE_ONLY = 3;
@@ -19,7 +18,7 @@ public abstract class WebSettings implements Observer {
     @Deprecated
     public static final int LOAD_NORMAL = 0;
     public static final int LOAD_NO_CACHE = 2;
-    private static final String LOGTAG = "WebSettings";
+    public static final String LOGTAG = "WebSettings";
     public static final int MENU_ITEM_NONE = 0;
     public static final int MENU_ITEM_PROCESS_TEXT = 4;
     public static final int MENU_ITEM_SHARE = 1;
@@ -32,17 +31,17 @@ public abstract class WebSettings implements Observer {
     public static final int MSG_setUrlSecurityCheckEnable = 101;
     public static final int MSG_setUseGifLoadProxy = 105;
     public static final int MSG_setUseImageLoadProxy = 104;
-    private boolean mAdblockEnable;
+    public boolean mAdblockEnable;
     public String mWebviewFrameName;
-    private final Object lockObject = new Object();
+    public final Object lockObject = new Object();
     public boolean mEnableJsPrompt = true;
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes14.dex */
+    /* loaded from: classes.dex */
     public @interface CacheMode {
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public static class CodeCacheSetting {
         public String id;
         public int maxCount;
@@ -50,14 +49,14 @@ public abstract class WebSettings implements Observer {
         public int sizeLimit;
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public enum FlingAlgorithm {
         FAST,
         QUADRATIC,
         CUBIC
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public enum ImgQuality {
         NO_COMPRESS,
         LOW_COMPRESS,
@@ -65,7 +64,7 @@ public abstract class WebSettings implements Observer {
         HIGHT_COMPRESS
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public enum LayoutAlgorithm {
         NORMAL,
         SINGLE_COLUMN,
@@ -75,18 +74,18 @@ public abstract class WebSettings implements Observer {
 
     @Target({ElementType.PARAMETER, ElementType.METHOD})
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes14.dex */
-    private @interface MenuItemFlags {
+    /* loaded from: classes.dex */
+    public @interface MenuItemFlags {
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public enum PluginState {
         ON,
         ON_DEMAND,
         OFF
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public enum ProxyType {
         NO_PROXY,
         SPDY_PROXY,
@@ -94,14 +93,14 @@ public abstract class WebSettings implements Observer {
         SPDYANDOVERSEAS_PROXY
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public enum RemoveAdLevel {
         DISABLE,
         LOW_LEVEL,
         HIGH_LEVEL
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public enum RenderPriority {
         NORMAL,
         HIGH,
@@ -109,30 +108,30 @@ public abstract class WebSettings implements Observer {
     }
 
     @Deprecated
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public enum TextSize {
         SMALLEST(50),
         SMALLER(75),
         NORMAL(100),
-        LARGERLITTLE(Constants.METHOD_IM_FRIEND_GROUP_ASSIGN),
+        LARGERLITTLE(125),
         LARGER(150),
         LARGERMORE(175),
         LARGEST(200);
         
-        int value;
+        public int value;
 
         TextSize(int i) {
             this.value = i;
         }
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public enum ZoomDensity {
         FAR(150),
         MEDIUM(100),
         CLOSE(75);
         
-        int value;
+        public int value;
 
         ZoomDensity(int i) {
             this.value = i;
@@ -404,27 +403,21 @@ public abstract class WebSettings implements Observer {
     @Deprecated
     public TextSize getTextSize() {
         int textZoom;
-        TextSize textSize = null;
-        int i = Integer.MAX_VALUE;
+        TextSize[] values;
         synchronized (this.lockObject) {
             textZoom = getTextZoom();
         }
-        TextSize[] values = TextSize.values();
-        int length = values.length;
-        int i2 = 0;
-        while (i2 < length) {
-            TextSize textSize2 = values[i2];
+        TextSize textSize = null;
+        int i = Integer.MAX_VALUE;
+        for (TextSize textSize2 : TextSize.values()) {
             int abs = Math.abs(textZoom - textSize2.value);
             if (abs == 0) {
                 return textSize2;
             }
-            if (abs >= i) {
-                abs = i;
-                textSize2 = textSize;
+            if (abs < i) {
+                textSize = textSize2;
+                i = abs;
             }
-            i2++;
-            i = abs;
-            textSize = textSize2;
         }
         return textSize != null ? textSize : TextSize.NORMAL;
     }
@@ -567,7 +560,7 @@ public abstract class WebSettings implements Observer {
 
     public abstract void setFantasyFontFamily(String str);
 
-    public void setFastFlingDampFactor(float f) {
+    public void setFastFlingDampFactor(float f2) {
     }
 
     public void setFeatureDatabasePath(String str) {

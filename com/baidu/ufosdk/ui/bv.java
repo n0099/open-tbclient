@@ -4,25 +4,27 @@ import android.text.ClipboardManager;
 import android.view.View;
 import android.widget.PopupWindow;
 import android.widget.TextView;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public final class bv implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ View f3695a;
-    final /* synthetic */ PopupWindow b;
-    final /* synthetic */ FeedbackInputActivity c;
+    public final /* synthetic */ View f23099a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    /* renamed from: b  reason: collision with root package name */
+    public final /* synthetic */ PopupWindow f23100b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public final /* synthetic */ FeedbackInputActivity f23101c;
+
     public bv(FeedbackInputActivity feedbackInputActivity, View view, PopupWindow popupWindow) {
-        this.c = feedbackInputActivity;
-        this.f3695a = view;
-        this.b = popupWindow;
+        this.f23101c = feedbackInputActivity;
+        this.f23099a = view;
+        this.f23100b = popupWindow;
     }
 
     @Override // android.view.View.OnClickListener
     public final void onClick(View view) {
-        ((ClipboardManager) this.c.getSystemService("clipboard")).setText(((TextView) this.f3695a).getText().toString());
-        this.b.dismiss();
+        ((ClipboardManager) this.f23101c.getSystemService("clipboard")).setText(((TextView) this.f23099a).getText().toString());
+        this.f23100b.dismiss();
     }
 }

@@ -7,42 +7,52 @@ import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.NoProGuard;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public abstract class RealTimeMsg extends NormalMsg implements Parcelable, NoProGuard {
-    protected int mDuration;
-    protected boolean mSucess;
+    public int mDuration;
+    public boolean mSucess;
 
-    public boolean isSucess() {
-        return this.mSucess;
+    public RealTimeMsg() {
     }
 
     public int getDuration() {
         return this.mDuration;
     }
 
-    public RealTimeMsg() {
+    public String getRealTimeMsgJsonString(boolean z, int i) {
+        JSONObject jSONObject = new JSONObject();
+        try {
+            jSONObject.put("sucess", z);
+            jSONObject.put("duration", i);
+        } catch (JSONException e2) {
+            e2.printStackTrace();
+        }
+        return jSONObject.toString();
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public RealTimeMsg(Parcel parcel) {
-        super(parcel);
-        this.mSucess = parcel.readInt() != 0;
-        this.mDuration = parcel.readInt();
+    public boolean isSucess() {
+        return this.mSucess;
     }
 
     @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg
-    protected boolean parseJsonString() {
+    public boolean parseJsonString() {
         String jsonContent = getJsonContent();
-        if (!TextUtils.isEmpty(jsonContent)) {
-            try {
-                JSONObject jSONObject = new JSONObject(jsonContent);
-                this.mSucess = jSONObject.optBoolean("sucess");
-                this.mDuration = jSONObject.optInt("duration");
-            } catch (JSONException e) {
-                LogUtils.e(LogUtils.TAG, "parseJsonString", e);
-            }
+        if (TextUtils.isEmpty(jsonContent)) {
+            return false;
         }
-        return false;
+        try {
+            JSONObject jSONObject = new JSONObject(jsonContent);
+            this.mSucess = jSONObject.optBoolean("sucess");
+            this.mDuration = jSONObject.optInt("duration");
+            return false;
+        } catch (JSONException e2) {
+            LogUtils.e(LogUtils.TAG, "parseJsonString", e2);
+            return false;
+        }
+    }
+
+    public void setContent(boolean z, int i) {
+        setMsgContent(getRealTimeMsgJsonString(z, i));
     }
 
     @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg, android.os.Parcelable
@@ -52,18 +62,9 @@ public abstract class RealTimeMsg extends NormalMsg implements Parcelable, NoPro
         parcel.writeInt(this.mDuration);
     }
 
-    public void setContent(boolean z, int i) {
-        setMsgContent(getRealTimeMsgJsonString(z, i));
-    }
-
-    protected String getRealTimeMsgJsonString(boolean z, int i) {
-        JSONObject jSONObject = new JSONObject();
-        try {
-            jSONObject.put("sucess", z);
-            jSONObject.put("duration", i);
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        return jSONObject.toString();
+    public RealTimeMsg(Parcel parcel) {
+        super(parcel);
+        this.mSucess = parcel.readInt() != 0;
+        this.mDuration = parcel.readInt();
     }
 }

@@ -7,51 +7,59 @@ import android.widget.TextView;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-/* loaded from: classes2.dex */
-public class SubPbReplyAdapter extends a<com.baidu.tieba.pb.pb.sub.a.b, SubPbReplyViewHolder> {
-    public SubPbReplyAdapter(com.baidu.tieba.pb.pb.a aVar, BdUniqueId bdUniqueId) {
+import d.b.i0.c2.k.g.e.a;
+import d.b.i0.c2.k.g.f.b;
+/* loaded from: classes5.dex */
+public class SubPbReplyAdapter extends a<b, SubPbReplyViewHolder> {
+
+    /* loaded from: classes5.dex */
+    public static class SubPbReplyViewHolder extends TypeAdapter.ViewHolder {
+
+        /* renamed from: a  reason: collision with root package name */
+        public TextView f19952a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public View f19953b;
+
+        /* renamed from: c  reason: collision with root package name */
+        public int f19954c;
+
+        public SubPbReplyViewHolder(View view) {
+            super(view);
+            this.f19954c = 3;
+            this.f19952a = (TextView) view.findViewById(R.id.floor_reply_text);
+            this.f19953b = view.findViewById(R.id.floor_reply_top_line);
+        }
+
+        public void c() {
+            if (this.f19954c != TbadkApplication.getInst().getSkinType()) {
+                SkinManager.setViewTextColor(this.f19952a, R.color.CAM_X0105);
+                SkinManager.setBackgroundColor(this.f19953b, R.color.CAM_X0204);
+                SkinManager.setBackgroundColor(this.f19952a, R.color.CAM_X0201);
+            }
+            this.f19954c = TbadkApplication.getInst().getSkinType();
+        }
+    }
+
+    public SubPbReplyAdapter(d.b.i0.c2.k.a aVar, BdUniqueId bdUniqueId) {
         super(aVar, bdUniqueId);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: cG */
-    public SubPbReplyViewHolder e(ViewGroup viewGroup) {
-        return new SubPbReplyViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.sub_pb_reply_num_layout, viewGroup, false));
+    @Override // d.b.b.j.e.a
+    /* renamed from: h0 */
+    public SubPbReplyViewHolder R(ViewGroup viewGroup) {
+        return new SubPbReplyViewHolder(LayoutInflater.from(this.f42357e).inflate(R.layout.sub_pb_reply_num_layout, viewGroup, false));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.pb.pb.sub.adapter.a, com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.pb.pb.sub.a.b bVar, SubPbReplyViewHolder subPbReplyViewHolder) {
-        ((SubPbReplyViewHolder) this.XI).mkE.setText(String.format(TbadkApplication.getInst().getString(R.string.subpb_floor_reply_count), String.valueOf(bVar == null ? 0 : bVar.getReplyNum())));
-        ((SubPbReplyViewHolder) this.XI).onChangeSkinType();
-        return subPbReplyViewHolder.getView();
-    }
-
-    /* loaded from: classes2.dex */
-    public static class SubPbReplyViewHolder extends TypeAdapter.ViewHolder {
-        private View izo;
-        private int mSkinType;
-        private TextView mkE;
-
-        public SubPbReplyViewHolder(View view) {
-            super(view);
-            this.mSkinType = 3;
-            this.mkE = (TextView) view.findViewById(R.id.floor_reply_text);
-            this.izo = view.findViewById(R.id.floor_reply_top_line);
-        }
-
-        public void onChangeSkinType() {
-            if (this.mSkinType != TbadkApplication.getInst().getSkinType()) {
-                ap.setViewTextColor(this.mkE, R.color.CAM_X0105);
-                ap.setBackgroundColor(this.izo, R.color.CAM_X0204);
-                ap.setBackgroundColor(this.mkE, R.color.CAM_X0201);
-            }
-            this.mSkinType = TbadkApplication.getInst().getSkinType();
-        }
+    @Override // d.b.b.j.e.a
+    /* renamed from: i0 */
+    public View X(int i, View view, ViewGroup viewGroup, b bVar, SubPbReplyViewHolder subPbReplyViewHolder) {
+        ((SubPbReplyViewHolder) this.k).f19952a.setText(String.format(TbadkApplication.getInst().getString(R.string.subpb_floor_reply_count), String.valueOf(bVar == null ? 0 : bVar.a())));
+        ((SubPbReplyViewHolder) this.k).c();
+        return subPbReplyViewHolder.a();
     }
 }

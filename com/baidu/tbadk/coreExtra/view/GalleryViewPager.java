@@ -7,68 +7,32 @@ import android.view.MotionEvent;
 import com.baidu.tbadk.core.view.BaseViewPager;
 import com.baidu.tbadk.widget.DragImageView;
 import com.baidu.tieba.compatible.CompatibleUtile;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class GalleryViewPager extends BaseViewPager {
-    private PointF fxT;
-    private DragImageView fxU;
+    public PointF m;
+    public DragImageView n;
 
     public GalleryViewPager(Context context) {
         super(context);
     }
 
-    public GalleryViewPager(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-    }
-
-    public void setCurrentView(DragImageView dragImageView) {
-        this.fxU = dragImageView;
+    public final float[] f(MotionEvent motionEvent) {
+        int action = motionEvent.getAction() & CompatibleUtile.getActionMask();
+        if (action == 0) {
+            this.m = new PointF(motionEvent.getX(), motionEvent.getY());
+            return null;
+        } else if (action == 1 || action == 2) {
+            PointF pointF = new PointF(motionEvent.getX(), motionEvent.getY());
+            float f2 = pointF.x;
+            PointF pointF2 = this.m;
+            return new float[]{f2 - pointF2.x, pointF.y - pointF2.y};
+        } else {
+            return null;
+        }
     }
 
     public DragImageView getCurrentView() {
-        return this.fxU;
-    }
-
-    private float[] F(MotionEvent motionEvent) {
-        switch (motionEvent.getAction() & CompatibleUtile.getActionMask()) {
-            case 1:
-            case 2:
-                PointF pointF = new PointF(motionEvent.getX(), motionEvent.getY());
-                return new float[]{pointF.x - this.fxT.x, pointF.y - this.fxT.y};
-            case 0:
-                this.fxT = new PointF(motionEvent.getX(), motionEvent.getY());
-                break;
-        }
-        return null;
-    }
-
-    @Override // com.baidu.tbadk.core.view.BaseViewPager, com.baidu.tbadk.widget.TbViewPager, androidx.viewpager.widget.ViewPager, android.view.View
-    public boolean onTouchEvent(MotionEvent motionEvent) {
-        if ((motionEvent.getAction() & CompatibleUtile.getActionMask()) == 1) {
-            super.onTouchEvent(motionEvent);
-            if (this.fxU != null) {
-                this.fxU.actionUp();
-            }
-        }
-        if (this.fxU == null) {
-            return super.onTouchEvent(motionEvent);
-        }
-        float[] F = F(motionEvent);
-        if (this.fxU.pagerCantScroll()) {
-            return super.onTouchEvent(motionEvent);
-        }
-        if (F != null && this.fxU.onRightSide() && F[0] < 0.0f) {
-            return super.onTouchEvent(motionEvent);
-        }
-        if (F != null && this.fxU.onLeftSide() && F[0] > 0.0f) {
-            return super.onTouchEvent(motionEvent);
-        }
-        if (F == null) {
-            if (this.fxU.onLeftSide() || this.fxU.onRightSide()) {
-                return super.onTouchEvent(motionEvent);
-            }
-            return false;
-        }
-        return false;
+        return this.n;
     }
 
     @Override // com.baidu.tbadk.widget.TbViewPager, androidx.viewpager.widget.ViewPager, android.view.ViewGroup
@@ -76,25 +40,59 @@ public class GalleryViewPager extends BaseViewPager {
         if ((motionEvent.getAction() & CompatibleUtile.getActionMask()) == 1) {
             super.onInterceptTouchEvent(motionEvent);
         }
-        float[] F = F(motionEvent);
-        if (this.fxU == null) {
+        float[] f2 = f(motionEvent);
+        DragImageView dragImageView = this.n;
+        if (dragImageView == null) {
             return super.onInterceptTouchEvent(motionEvent);
         }
-        if (this.fxU.pagerCantScroll()) {
+        if (dragImageView.f0()) {
             return super.onInterceptTouchEvent(motionEvent);
         }
-        if (F != null && this.fxU.onRightSide() && F[0] < 0.0f) {
+        if (f2 != null && this.n.e0() && f2[0] < 0.0f) {
             return super.onInterceptTouchEvent(motionEvent);
         }
-        if (F != null && this.fxU.onLeftSide() && F[0] > 0.0f) {
+        if (f2 != null && this.n.d0() && f2[0] > 0.0f) {
             return super.onInterceptTouchEvent(motionEvent);
         }
-        if (F == null) {
-            if (this.fxU.onLeftSide() || this.fxU.onRightSide()) {
-                return super.onInterceptTouchEvent(motionEvent);
-            }
-            return false;
+        if (f2 == null && (this.n.d0() || this.n.e0())) {
+            return super.onInterceptTouchEvent(motionEvent);
         }
         return false;
+    }
+
+    @Override // com.baidu.tbadk.core.view.BaseViewPager, com.baidu.tbadk.widget.TbViewPager, androidx.viewpager.widget.ViewPager, android.view.View
+    public boolean onTouchEvent(MotionEvent motionEvent) {
+        if ((motionEvent.getAction() & CompatibleUtile.getActionMask()) == 1) {
+            super.onTouchEvent(motionEvent);
+            DragImageView dragImageView = this.n;
+            if (dragImageView != null) {
+                dragImageView.N();
+            }
+        }
+        if (this.n == null) {
+            return super.onTouchEvent(motionEvent);
+        }
+        float[] f2 = f(motionEvent);
+        if (this.n.f0()) {
+            return super.onTouchEvent(motionEvent);
+        }
+        if (f2 != null && this.n.e0() && f2[0] < 0.0f) {
+            return super.onTouchEvent(motionEvent);
+        }
+        if (f2 != null && this.n.d0() && f2[0] > 0.0f) {
+            return super.onTouchEvent(motionEvent);
+        }
+        if (f2 == null && (this.n.d0() || this.n.e0())) {
+            return super.onTouchEvent(motionEvent);
+        }
+        return false;
+    }
+
+    public void setCurrentView(DragImageView dragImageView) {
+        this.n = dragImageView;
+    }
+
+    public GalleryViewPager(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
     }
 }

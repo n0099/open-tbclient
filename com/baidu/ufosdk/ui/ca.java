@@ -1,31 +1,36 @@
 package com.baidu.ufosdk.ui;
 
 import android.view.View;
-/* loaded from: classes7.dex */
-final class ca implements View.OnClickListener {
+import android.widget.LinearLayout;
+/* loaded from: classes5.dex */
+public final class ca implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FeedbackInputActivity f3701a;
+    public final /* synthetic */ FeedbackInputActivity f23108a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public ca(FeedbackInputActivity feedbackInputActivity) {
-        this.f3701a = feedbackInputActivity;
+        this.f23108a = feedbackInputActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public final void onClick(View view) {
-        if (this.f3701a.D) {
+        LinearLayout linearLayout;
+        int i;
+        FeedbackInputActivity feedbackInputActivity = this.f23108a;
+        if (feedbackInputActivity.D) {
             return;
         }
-        if (this.f3701a.p.getVisibility() == 0) {
-            this.f3701a.p.setVisibility(8);
-            this.f3701a.C.setVisibility(8);
-            return;
+        if (feedbackInputActivity.p.getVisibility() == 0) {
+            linearLayout = this.f23108a.p;
+            i = 8;
+        } else {
+            if (this.f23108a.p.getChildCount() <= 0) {
+                this.f23108a.a(true);
+            }
+            linearLayout = this.f23108a.p;
+            i = 0;
         }
-        if (this.f3701a.p.getChildCount() <= 0) {
-            this.f3701a.a(true);
-        }
-        this.f3701a.p.setVisibility(0);
-        this.f3701a.C.setVisibility(0);
+        linearLayout.setVisibility(i);
+        this.f23108a.C.setVisibility(i);
     }
 }

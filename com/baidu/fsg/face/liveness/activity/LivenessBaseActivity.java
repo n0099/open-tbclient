@@ -13,9 +13,31 @@ import com.baidu.fsg.face.liveness.view.BioAlertDialog;
 import com.baidu.sapi2.biometrics.liveness.R;
 import java.io.Serializable;
 import java.lang.reflect.Field;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public class LivenessBaseActivity extends BeanActivity {
-    protected LivenessRecogDTO livenessRecogDTO;
+    public LivenessRecogDTO livenessRecogDTO;
+
+    @TargetApi(27)
+    public void customLiuHai() {
+        if (Build.VERSION.SDK_INT >= 27) {
+            WindowManager.LayoutParams attributes = getWindow().getAttributes();
+            try {
+                Field declaredField = attributes.getClass().getDeclaredField("layoutInDisplayCutoutMode");
+                declaredField.setAccessible(true);
+                declaredField.set(attributes, Integer.valueOf(WindowManager.LayoutParams.class.getField("LAYOUT_IN_DISPLAY_CUTOUT_MODE_SHORT_EDGES").getInt(WindowManager.LayoutParams.class)));
+            } catch (Exception unused) {
+            }
+            getWindow().setAttributes(attributes);
+        }
+    }
+
+    @Override // com.baidu.fsg.base.activity.BeanActivity
+    public void handleResponse(int i, Object obj, String str) {
+    }
+
+    public boolean isSupportLiuHai() {
+        return true;
+    }
 
     @Override // com.baidu.fsg.base.activity.BeanActivity, com.baidu.fsg.base.activity.BaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
@@ -34,36 +56,12 @@ public class LivenessBaseActivity extends BeanActivity {
         }
     }
 
-    protected boolean isSupportLiuHai() {
-        return true;
-    }
-
-    @TargetApi(27)
-    public void customLiuHai() {
-        if (Build.VERSION.SDK_INT >= 27) {
-            WindowManager.LayoutParams attributes = getWindow().getAttributes();
-            try {
-                Field declaredField = attributes.getClass().getDeclaredField("layoutInDisplayCutoutMode");
-                declaredField.setAccessible(true);
-                declaredField.set(attributes, Integer.valueOf(WindowManager.LayoutParams.class.getField("LAYOUT_IN_DISPLAY_CUTOUT_MODE_SHORT_EDGES").getInt(WindowManager.LayoutParams.class)));
-            } catch (Exception e) {
-            }
-            getWindow().setAttributes(attributes);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.app.Activity
     public void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
         bundle.putSerializable("LivenessRecogDTO", this.livenessRecogDTO);
     }
 
-    @Override // com.baidu.fsg.base.activity.BeanActivity
-    public void handleResponse(int i, Object obj, String str) {
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
     public void showNoNetWorkDialog() {
         final BioAlertDialog bioAlertDialog = new BioAlertDialog(this);
         bioAlertDialog.setDialogMsg(getString(R.string.rim_liveness_no_network_tip));
@@ -75,8 +73,8 @@ public class LivenessBaseActivity extends BeanActivity {
                 bioAlertDialog.dismiss();
                 try {
                     LivenessBaseActivity.this.startActivityForResult(new Intent("android.settings.SETTINGS"), 0);
-                } catch (Exception e) {
-                    e.printStackTrace();
+                } catch (Exception e2) {
+                    e2.printStackTrace();
                 }
             }
         });
@@ -87,8 +85,9 @@ public class LivenessBaseActivity extends BeanActivity {
             }
         });
         bioAlertDialog.setCancelable(false);
-        if (!isFinishing() && !bioAlertDialog.isShowing()) {
-            bioAlertDialog.show();
+        if (isFinishing() || bioAlertDialog.isShowing()) {
+            return;
         }
+        bioAlertDialog.show();
     }
 }

@@ -7,9 +7,9 @@ import androidx.annotation.Nullable;
 import com.baidu.webkit.sdk.ServiceWorkerClient;
 import com.baidu.webkit.sdk.ServiceWorkerController;
 import com.baidu.webkit.sdk.ServiceWorkerWebSettings;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class ServiceWorkerControllerImpl extends ServiceWorkerController {
-    private ServiceWorkerClient mClient;
+    public ServiceWorkerClient mClient;
 
     @Override // com.baidu.webkit.sdk.ServiceWorkerController
     public ServiceWorkerWebSettings getServiceWorkerWebSettings() {

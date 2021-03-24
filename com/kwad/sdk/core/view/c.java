@@ -8,52 +8,61 @@ import android.text.TextPaint;
 import android.text.style.ImageSpan;
 import androidx.annotation.NonNull;
 import java.lang.ref.WeakReference;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class c extends ImageSpan {
 
     /* renamed from: a  reason: collision with root package name */
-    private boolean f6315a;
-    private Rect b;
-    private Paint.FontMetricsInt c;
-    private WeakReference<Drawable> d;
+    public boolean f34255a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public Rect f34256b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public Paint.FontMetricsInt f34257c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public WeakReference<Drawable> f34258d;
 
     public c(Drawable drawable, String str) {
         super(drawable, str, 1);
-        this.f6315a = true;
-        this.c = new Paint.FontMetricsInt();
+        this.f34255a = true;
+        this.f34257c = new Paint.FontMetricsInt();
     }
 
     private Drawable a(Paint paint) {
-        WeakReference<Drawable> weakReference = this.d;
+        WeakReference<Drawable> weakReference = this.f34258d;
         Drawable drawable = weakReference != null ? weakReference.get() : null;
         if (drawable == null) {
             drawable = getDrawable();
-            if (this.f6315a) {
+            if (this.f34255a) {
                 int fontMetricsInt = paint.getFontMetricsInt(null);
                 drawable.setBounds(0, 0, fontMetricsInt, fontMetricsInt);
-            } else if (this.b != null) {
-                drawable.setBounds(this.b);
+            } else {
+                Rect rect = this.f34256b;
+                if (rect != null) {
+                    drawable.setBounds(rect);
+                }
             }
-            this.d = new WeakReference<>(drawable);
+            this.f34258d = new WeakReference<>(drawable);
         }
         return drawable;
     }
 
     public c a(int i, int i2) {
-        this.f6315a = false;
-        this.b = new Rect(0, 0, i, i2);
+        this.f34255a = false;
+        this.f34256b = new Rect(0, 0, i, i2);
         return this;
     }
 
     @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
-    public void draw(@NonNull Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, @NonNull Paint paint) {
+    public void draw(@NonNull Canvas canvas, CharSequence charSequence, int i, int i2, float f2, int i3, int i4, int i5, @NonNull Paint paint) {
         Drawable a2 = a(paint);
         if (paint instanceof TextPaint) {
             a2.setState(((TextPaint) paint).drawableState);
         }
-        int fontMetricsInt = (paint.getFontMetricsInt(this.c) - (a2.getBounds().bottom - a2.getBounds().top)) / 2;
+        int fontMetricsInt = paint.getFontMetricsInt(this.f34257c);
         canvas.save();
-        canvas.translate(f, fontMetricsInt + this.c.ascent + i4);
+        canvas.translate(f2, i4 + this.f34257c.ascent + ((fontMetricsInt - (a2.getBounds().bottom - a2.getBounds().top)) / 2));
         a2.draw(canvas);
         canvas.restore();
     }

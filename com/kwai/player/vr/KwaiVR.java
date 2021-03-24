@@ -4,30 +4,30 @@ import android.content.Context;
 import android.hardware.SensorEvent;
 import android.util.Log;
 import android.view.MotionEvent;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class KwaiVR {
     public static final int INTERACTIVE_MODE_MOTION = 0;
     public static final int INTERACTIVE_MODE_MOTION_WITH_TOUCH = 2;
     public static final int INTERACTIVE_MODE_TOUCH = 1;
     public static final int STEREO_TYPE_NON = 0;
     public static final int STEREO_TYPE_SPHERE = 1;
-    private static final String TAG = "KwaiVR";
-    private Context mContext;
-    private KwaiGestureHelper mGestureHelper;
-    private int mInteractiveMode;
-    private boolean mInteractiveValid = false;
-    private KwaiOrientationHelper mKwaiOrientationHelper = KwaiOrientationHelper.builder().build();
-    protected KwaiPlayerStereoMesh mKwaiPlayerStereoMesh;
-    private boolean mPinchEnabled;
-    private KwaiSensorHelper mSensorHelper;
-    private int mStereoType;
+    public static final String TAG = "KwaiVR";
+    public Context mContext;
+    public KwaiGestureHelper mGestureHelper;
+    public int mInteractiveMode;
+    public boolean mInteractiveValid = false;
+    public KwaiOrientationHelper mKwaiOrientationHelper = KwaiOrientationHelper.builder().build();
+    public KwaiPlayerStereoMesh mKwaiPlayerStereoMesh;
+    public boolean mPinchEnabled;
+    public KwaiSensorHelper mSensorHelper;
+    public int mStereoType;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class Builder {
-        private Context mContext;
-        private boolean mPinchEnabled = false;
-        private int mInteractiveMode = 2;
-        private int mStereoType = 1;
+        public Context mContext;
+        public boolean mPinchEnabled = false;
+        public int mInteractiveMode = 2;
+        public int mStereoType = 1;
 
         public KwaiVR build() {
             return new KwaiVR(this);
@@ -54,16 +54,14 @@ public class KwaiVR {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public interface IAdvanceGestureListener {
-        void onDrag(float f, float f2);
+        void onDrag(float f2, float f3);
 
-        void onPinch(float f);
+        void onPinch(float f2);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public interface IAdvanceSensorListener {
         void OnRotation(int i);
 
@@ -88,17 +86,22 @@ public class KwaiVR {
     }
 
     private void setGestureEnabled(boolean z) {
-        if (this.mGestureHelper != null) {
-            this.mGestureHelper.setGestureEnabled(z);
+        KwaiGestureHelper kwaiGestureHelper = this.mGestureHelper;
+        if (kwaiGestureHelper != null) {
+            kwaiGestureHelper.setGestureEnabled(z);
         }
         this.mGestureHelper.setPinchEnabled(this.mPinchEnabled);
     }
 
     private void setSensorEnabled(boolean z) {
-        if (this.mSensorHelper != null && z) {
-            this.mSensorHelper.turnOnInGL(this.mContext, true);
-        } else if (this.mSensorHelper != null) {
-            this.mSensorHelper.turnOffInGL(this.mContext);
+        KwaiSensorHelper kwaiSensorHelper = this.mSensorHelper;
+        if (kwaiSensorHelper != null && z) {
+            kwaiSensorHelper.turnOnInGL(this.mContext, true);
+            return;
+        }
+        KwaiSensorHelper kwaiSensorHelper2 = this.mSensorHelper;
+        if (kwaiSensorHelper2 != null) {
+            kwaiSensorHelper2.turnOffInGL(this.mContext);
         }
     }
 
@@ -107,30 +110,34 @@ public class KwaiVR {
     }
 
     public KwaiMesh getKwaiMesh() {
-        if (this.mKwaiPlayerStereoMesh != null) {
-            return this.mKwaiPlayerStereoMesh.getKwaiMesh();
+        KwaiPlayerStereoMesh kwaiPlayerStereoMesh = this.mKwaiPlayerStereoMesh;
+        if (kwaiPlayerStereoMesh != null) {
+            return kwaiPlayerStereoMesh.getKwaiMesh();
         }
         return null;
     }
 
     public float[] getMVPMatrix() {
-        if (this.mKwaiOrientationHelper != null) {
-            return this.mKwaiOrientationHelper.getMVPMatrix();
+        KwaiOrientationHelper kwaiOrientationHelper = this.mKwaiOrientationHelper;
+        if (kwaiOrientationHelper != null) {
+            return kwaiOrientationHelper.getMVPMatrix();
         }
         return null;
     }
 
     public int getOrientaionDegrees() {
-        if (this.mKwaiOrientationHelper != null) {
-            this.mKwaiOrientationHelper.getOrientaionDegrees();
+        KwaiOrientationHelper kwaiOrientationHelper = this.mKwaiOrientationHelper;
+        if (kwaiOrientationHelper != null) {
+            kwaiOrientationHelper.getOrientaionDegrees();
             return 0;
         }
         return 0;
     }
 
     public float[] getOrientation() {
-        if (this.mKwaiOrientationHelper != null) {
-            return this.mKwaiOrientationHelper.getOrientation();
+        KwaiOrientationHelper kwaiOrientationHelper = this.mKwaiOrientationHelper;
+        if (kwaiOrientationHelper != null) {
+            return kwaiOrientationHelper.getOrientation();
         }
         return null;
     }
@@ -138,46 +145,54 @@ public class KwaiVR {
     public void handleSensorEvent(SensorEvent sensorEvent) {
         if (!this.mInteractiveValid) {
             Log.d(TAG, "handleSensorEvent: mInteractive is not Valid");
-        } else if (this.mSensorHelper != null) {
-            this.mSensorHelper.onSensorChanged(sensorEvent);
+            return;
+        }
+        KwaiSensorHelper kwaiSensorHelper = this.mSensorHelper;
+        if (kwaiSensorHelper != null) {
+            kwaiSensorHelper.onSensorChanged(sensorEvent);
         } else {
             Log.d(TAG, "handleSensorEvent: mSensorHelper nil");
         }
     }
 
     public boolean handleTouchEvent(MotionEvent motionEvent) {
-        if (!this.mInteractiveValid) {
-            Log.d(TAG, "handleTouchEvent: mInteractive is not Valid");
-            return false;
-        } else if (this.mGestureHelper != null) {
-            return this.mGestureHelper.handleTouchEvent(motionEvent);
+        String str;
+        if (this.mInteractiveValid) {
+            KwaiGestureHelper kwaiGestureHelper = this.mGestureHelper;
+            if (kwaiGestureHelper != null) {
+                return kwaiGestureHelper.handleTouchEvent(motionEvent);
+            }
+            str = "handleTouchEvent: mGestureHelper nil";
         } else {
-            Log.d(TAG, "handleTouchEvent: mGestureHelper nil");
-            return false;
+            str = "handleTouchEvent: mInteractive is not Valid";
         }
+        Log.d(TAG, str);
+        return false;
     }
 
     public void initGeusture() {
-        this.mGestureHelper = new KwaiGestureHelper(this.mContext);
-        if (this.mGestureHelper != null) {
-            this.mGestureHelper.setAdvanceGestureListener(new IAdvanceGestureListener() { // from class: com.kwai.player.vr.KwaiVR.1
+        KwaiGestureHelper kwaiGestureHelper = new KwaiGestureHelper(this.mContext);
+        this.mGestureHelper = kwaiGestureHelper;
+        if (kwaiGestureHelper != null) {
+            kwaiGestureHelper.setAdvanceGestureListener(new IAdvanceGestureListener() { // from class: com.kwai.player.vr.KwaiVR.1
                 @Override // com.kwai.player.vr.KwaiVR.IAdvanceGestureListener
-                public void onDrag(float f, float f2) {
-                    KwaiVR.this.mKwaiOrientationHelper.setDelta(f, f2);
+                public void onDrag(float f2, float f3) {
+                    KwaiVR.this.mKwaiOrientationHelper.setDelta(f2, f3);
                 }
 
                 @Override // com.kwai.player.vr.KwaiVR.IAdvanceGestureListener
-                public void onPinch(float f) {
-                    KwaiVR.this.mKwaiOrientationHelper.setNearScale(f);
+                public void onPinch(float f2) {
+                    KwaiVR.this.mKwaiOrientationHelper.setNearScale(f2);
                 }
             });
         }
     }
 
     public void initSensor() {
-        this.mSensorHelper = new KwaiSensorHelper(this.mContext);
-        if (this.mSensorHelper != null) {
-            this.mSensorHelper.setAdvanceSensorListener(new IAdvanceSensorListener() { // from class: com.kwai.player.vr.KwaiVR.2
+        KwaiSensorHelper kwaiSensorHelper = new KwaiSensorHelper(this.mContext);
+        this.mSensorHelper = kwaiSensorHelper;
+        if (kwaiSensorHelper != null) {
+            kwaiSensorHelper.setAdvanceSensorListener(new IAdvanceSensorListener() { // from class: com.kwai.player.vr.KwaiVR.2
                 @Override // com.kwai.player.vr.KwaiVR.IAdvanceSensorListener
                 public void OnRotation(int i) {
                     KwaiVR.this.mKwaiOrientationHelper.setRotation(i);
@@ -197,62 +212,58 @@ public class KwaiVR {
     }
 
     public boolean isSupport() {
-        switch (this.mStereoType) {
-            case 1:
-                return true;
-            default:
-                return false;
-        }
+        return this.mStereoType == 1;
     }
 
     public void recenterOrientation() {
-        if (this.mSensorHelper != null) {
-            this.mSensorHelper.resetYaw();
+        KwaiSensorHelper kwaiSensorHelper = this.mSensorHelper;
+        if (kwaiSensorHelper != null) {
+            kwaiSensorHelper.resetYaw();
         }
     }
 
     public void registerSensorEvent() {
-        if (this.mSensorHelper != null) {
-            this.mSensorHelper.turnOnInGL(this.mContext, true);
+        KwaiSensorHelper kwaiSensorHelper = this.mSensorHelper;
+        if (kwaiSensorHelper != null) {
+            kwaiSensorHelper.turnOnInGL(this.mContext, true);
         }
     }
 
     public void release() {
-        if (this.mGestureHelper != null) {
-            this.mGestureHelper.setGestureEnabled(false);
+        KwaiGestureHelper kwaiGestureHelper = this.mGestureHelper;
+        if (kwaiGestureHelper != null) {
+            kwaiGestureHelper.setGestureEnabled(false);
             this.mGestureHelper = null;
         }
-        if (this.mSensorHelper != null) {
-            this.mSensorHelper.turnOffInGL(this.mContext);
+        KwaiSensorHelper kwaiSensorHelper = this.mSensorHelper;
+        if (kwaiSensorHelper != null) {
+            kwaiSensorHelper.turnOffInGL(this.mContext);
             this.mSensorHelper = null;
         }
     }
 
     public void resetGesture() {
-        if (this.mGestureHelper != null) {
-            this.mGestureHelper.reset();
+        KwaiGestureHelper kwaiGestureHelper = this.mGestureHelper;
+        if (kwaiGestureHelper != null) {
+            kwaiGestureHelper.reset();
         }
     }
 
     public void setInteractiveMode(int i) {
         Log.d(TAG, "setInteractiveMode: " + i);
         this.mInteractiveMode = i;
-        switch (this.mInteractiveMode) {
-            case 0:
-                setGestureEnabled(false);
-                setSensorEnabled(true);
-                return;
-            case 1:
-                setGestureEnabled(true);
-                setSensorEnabled(false);
-                return;
-            case 2:
-                setGestureEnabled(true);
-                setSensorEnabled(true);
-                return;
-            default:
-                return;
+        if (i == 0) {
+            setGestureEnabled(false);
+        } else if (i == 1) {
+            setGestureEnabled(true);
+            setSensorEnabled(false);
+            return;
+        } else if (i != 2) {
+            return;
+        } else {
+            setGestureEnabled(true);
         }
+        setSensorEnabled(true);
     }
 
     public void setInteractiveValid() {
@@ -262,7 +273,7 @@ public class KwaiVR {
 
     public void setPinchEnabled(boolean z) {
         this.mPinchEnabled = z;
-        this.mGestureHelper.setPinchEnabled(this.mPinchEnabled);
+        this.mGestureHelper.setPinchEnabled(z);
     }
 
     public void setUp() {
@@ -272,14 +283,16 @@ public class KwaiVR {
     }
 
     public void setViewport(int i, int i2) {
-        if (this.mKwaiOrientationHelper != null) {
-            this.mKwaiOrientationHelper.setViewport(i, i2);
+        KwaiOrientationHelper kwaiOrientationHelper = this.mKwaiOrientationHelper;
+        if (kwaiOrientationHelper != null) {
+            kwaiOrientationHelper.setViewport(i, i2);
         }
     }
 
     public void unRegisterSensorEvent() {
-        if (this.mSensorHelper != null) {
-            this.mSensorHelper.turnOffInGL(this.mContext);
+        KwaiSensorHelper kwaiSensorHelper = this.mSensorHelper;
+        if (kwaiSensorHelper != null) {
+            kwaiSensorHelper.turnOffInGL(this.mContext);
         }
     }
 }

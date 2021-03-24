@@ -1,0 +1,17 @@
+package d.b.k.b.c;
+/* loaded from: classes2.dex */
+public interface d {
+
+    /* loaded from: classes2.dex */
+    public interface a {
+        void a(String str, d dVar);
+    }
+
+    void cancel();
+
+    boolean isRunning();
+
+    void pause();
+
+    void start();
+}

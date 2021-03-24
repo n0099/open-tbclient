@@ -11,64 +11,72 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-import com.baidu.poly.a.k.a;
-import com.baidu.poly.b;
 import com.baidu.poly.widget.SwitchButton;
 import com.baidu.poly.widget.o;
-import com.xiaomi.mipush.sdk.Constants;
+import d.b.c0.f;
+import d.b.c0.g;
+import d.b.c0.h;
+import d.b.c0.k.j.a;
 import java.text.DecimalFormat;
-/* loaded from: classes14.dex */
+/* loaded from: classes2.dex */
 public class HostMarketView extends FrameLayout {
-    private ImageView csC;
-    private TextView csD;
-    private TextView csE;
-    private SwitchButton csF;
-    private o csG;
-    private a csH;
-    private boolean csI;
-    private TextView csa;
 
-    /* loaded from: classes14.dex */
+    /* renamed from: e  reason: collision with root package name */
+    public ImageView f10470e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public TextView f10471f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public TextView f10472g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public TextView f10473h;
+    public SwitchButton i;
+    public o j;
+    public a k;
+    public boolean l;
+
+    /* loaded from: classes2.dex */
     public interface a {
-        void a(boolean z, o oVar, com.baidu.poly.a.k.a aVar);
+        void a(a.C0569a c0569a);
 
-        void b(a.C0311a c0311a);
+        void b(boolean z, o oVar, d.b.c0.k.j.a aVar);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes2.dex */
     public class b implements CompoundButton.OnCheckedChangeListener {
-        b() {
+        public b() {
         }
 
         @Override // android.widget.CompoundButton.OnCheckedChangeListener
         public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
-            HostMarketView.this.c(z);
+            HostMarketView.this.h(z);
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes14.dex */
-    public class c implements com.baidu.poly.a.k.a {
-        c() {
+    /* loaded from: classes2.dex */
+    public class c implements d.b.c0.k.j.a {
+        public c() {
         }
 
-        @Override // com.baidu.poly.a.k.a
-        public void a(a.C0311a c0311a) {
-            HostMarketView.this.csH.b(c0311a);
-            if (c0311a != null) {
-                if (c0311a.statusCode == 0) {
-                    if (HostMarketView.this.csF.isChecked()) {
-                        HostMarketView.this.csE.setVisibility(0);
-                    } else {
-                        HostMarketView.this.csE.setVisibility(4);
-                    }
-                } else {
-                    HostMarketView.this.csF.o();
-                    Toast.makeText(HostMarketView.this.getContext(), HostMarketView.this.getResources().getString(b.g.host_market_calculate_error), 0).show();
-                }
-                HostMarketView.this.csG.i(HostMarketView.this.csF.isChecked() ? 1 : 0);
+        @Override // d.b.c0.k.j.a
+        public void a(a.C0569a c0569a) {
+            HostMarketView.this.k.a(c0569a);
+            if (c0569a == null) {
+                return;
             }
+            if (c0569a.f42665a == 0) {
+                if (HostMarketView.this.i.isChecked()) {
+                    HostMarketView.this.f10473h.setVisibility(0);
+                } else {
+                    HostMarketView.this.f10473h.setVisibility(4);
+                }
+            } else {
+                HostMarketView.this.i.j();
+                Toast.makeText(HostMarketView.this.getContext(), HostMarketView.this.getResources().getString(h.host_market_calculate_error), 0).show();
+            }
+            HostMarketView.this.j.i(HostMarketView.this.i.isChecked() ? 1 : 0);
         }
     }
 
@@ -76,78 +84,81 @@ public class HostMarketView extends FrameLayout {
         this(context, null);
     }
 
-    private void h() {
-        if (this.csG == null) {
+    public final String b(long j) {
+        double d2 = j;
+        Double.isNaN(d2);
+        return new DecimalFormat("0.00").format((d2 * 1.0d) / 100.0d);
+    }
+
+    public void d(o oVar) {
+        this.j = oVar;
+        if (oVar != null) {
+            this.l = oVar.P() == 1;
+        }
+        j();
+    }
+
+    public final void g(Context context) {
+        LayoutInflater.from(context).inflate(g.hostmarket_item, (ViewGroup) this, true);
+        this.f10470e = (ImageView) findViewById(f.icon);
+        this.f10471f = (TextView) findViewById(f.title);
+        this.f10472g = (TextView) findViewById(f.subtitle);
+        this.f10473h = (TextView) findViewById(f.cut_text);
+        SwitchButton switchButton = (SwitchButton) findViewById(f.switch_button);
+        this.i = switchButton;
+        switchButton.setOnCheckedChangeListener(new b());
+    }
+
+    public final void h(boolean z) {
+        if (this.k == null) {
+            return;
+        }
+        this.j.i(this.i.isChecked() ? 1 : 0);
+        this.k.b(z, this.j, new c());
+    }
+
+    public final void j() {
+        if (this.j == null) {
             setVisibility(8);
             return;
         }
         setVisibility(0);
-        com.baidu.poly.a.d.b.ads().b(this.csC, this.csG.getIcon());
-        this.csa.setText(this.csG.getDisplayName());
-        this.csD.setText(this.csG.S());
-        if (!TextUtils.isEmpty(this.csG.M())) {
+        d.b.c0.k.d.b.c().b(this.f10470e, this.j.getIcon());
+        this.f10471f.setText(this.j.getDisplayName());
+        this.f10472g.setText(this.j.S());
+        if (!TextUtils.isEmpty(this.j.M())) {
             try {
-                this.csD.setTextColor(Color.parseColor(this.csG.M()));
-            } catch (Exception e) {
+                this.f10472g.setTextColor(Color.parseColor(this.j.M()));
+            } catch (Exception unused) {
             }
         }
-        if (this.csI) {
-            this.csF.setVisibility(4);
-            this.csE.setVisibility(0);
-            this.csE.setText(Constants.ACCEPT_TIME_SEPARATOR_SERVER + a(this.csG.L()) + "元");
+        if (this.l) {
+            this.i.setVisibility(4);
+            this.f10473h.setVisibility(0);
+            TextView textView = this.f10473h;
+            textView.setText("-" + b(this.j.L()) + "元");
             return;
         }
-        this.csF.setVisibility(0);
-        this.csE.setVisibility(4);
-        if (this.csG.P() == 1) {
-            this.csF.setChecked(true);
+        this.i.setVisibility(0);
+        this.f10473h.setVisibility(4);
+        if (this.j.P() == 1) {
+            this.i.setChecked(true);
         } else {
-            this.csF.setChecked(false);
+            this.i.setChecked(false);
         }
     }
 
     public void setListener(a aVar) {
-        this.csH = aVar;
+        this.k = aVar;
     }
 
     public HostMarketView(Context context, AttributeSet attributeSet) {
         this(context, attributeSet, 0);
     }
 
-    private void c(Context context) {
-        LayoutInflater.from(context).inflate(b.f.hostmarket_item, (ViewGroup) this, true);
-        this.csC = (ImageView) findViewById(b.e.icon);
-        this.csa = (TextView) findViewById(b.e.title);
-        this.csD = (TextView) findViewById(b.e.subtitle);
-        this.csE = (TextView) findViewById(b.e.cut_text);
-        this.csF = (SwitchButton) findViewById(b.e.switch_button);
-        this.csF.setOnCheckedChangeListener(new b());
-    }
-
     public HostMarketView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.csI = false;
-        c(context);
-    }
-
-    public void a(o oVar) {
-        this.csG = oVar;
-        o oVar2 = this.csG;
-        if (oVar2 != null) {
-            this.csI = oVar2.P() == 1;
-        }
-        h();
-    }
-
-    private String a(long j) {
-        return new DecimalFormat("0.00").format((j * 1.0d) / 100.0d);
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void c(boolean z) {
-        if (this.csH != null) {
-            this.csG.i(this.csF.isChecked() ? 1 : 0);
-            this.csH.a(z, this.csG, new c());
-        }
+        this.l = false;
+        g(context);
     }
 }

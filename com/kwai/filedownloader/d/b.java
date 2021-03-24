@@ -5,7 +5,7 @@ import android.os.Parcelable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class b implements Parcelable {
     public static final Parcelable.Creator<b> CREATOR = new Parcelable.Creator<b>() { // from class: com.kwai.filedownloader.d.b.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -24,24 +24,25 @@ public class b implements Parcelable {
     };
 
     /* renamed from: a  reason: collision with root package name */
-    private HashMap<String, List<String>> f7189a;
+    public HashMap<String, List<String>> f36905a;
 
     public b() {
     }
 
-    protected b(Parcel parcel) {
-        this.f7189a = parcel.readHashMap(String.class.getClassLoader());
+    public b(Parcel parcel) {
+        this.f36905a = parcel.readHashMap(String.class.getClassLoader());
     }
 
     public HashMap<String, List<String>> a() {
-        return this.f7189a;
+        return this.f36905a;
     }
 
     public void a(String str) {
-        if (this.f7189a == null) {
+        HashMap<String, List<String>> hashMap = this.f36905a;
+        if (hashMap == null) {
             return;
         }
-        this.f7189a.remove(str);
+        hashMap.remove(str);
     }
 
     public void a(String str, String str2) {
@@ -54,13 +55,13 @@ public class b implements Parcelable {
         if (str2 == null) {
             throw new NullPointerException("value == null");
         }
-        if (this.f7189a == null) {
-            this.f7189a = new HashMap<>();
+        if (this.f36905a == null) {
+            this.f36905a = new HashMap<>();
         }
-        List<String> list = this.f7189a.get(str);
+        List<String> list = this.f36905a.get(str);
         if (list == null) {
             list = new ArrayList<>();
-            this.f7189a.put(str, list);
+            this.f36905a.put(str, list);
         }
         if (list.contains(str2)) {
             return;
@@ -74,11 +75,11 @@ public class b implements Parcelable {
     }
 
     public String toString() {
-        return this.f7189a.toString();
+        return this.f36905a.toString();
     }
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeMap(this.f7189a);
+        parcel.writeMap(this.f36905a);
     }
 }

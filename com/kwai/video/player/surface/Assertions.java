@@ -3,12 +3,9 @@ package com.kwai.video.player.surface;
 import android.os.Looper;
 import android.text.TextUtils;
 import androidx.annotation.Nullable;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public final class Assertions {
     public static final boolean ASSERTIONS_ENABLED = true;
-
-    private Assertions() {
-    }
 
     public static void checkArgument(boolean z) {
         if (!z) {
@@ -50,17 +47,17 @@ public final class Assertions {
     }
 
     public static <T> T checkNotNull(@Nullable T t) {
-        if (t == null) {
-            throw new NullPointerException();
+        if (t != null) {
+            return t;
         }
-        return t;
+        throw null;
     }
 
     public static <T> T checkNotNull(@Nullable T t, Object obj) {
-        if (t == null) {
-            throw new NullPointerException(String.valueOf(obj));
+        if (t != null) {
+            return t;
         }
-        return t;
+        throw new NullPointerException(String.valueOf(obj));
     }
 
     public static void checkState(boolean z) {
@@ -76,16 +73,16 @@ public final class Assertions {
     }
 
     public static <T> T checkStateNotNull(@Nullable T t) {
-        if (t == null) {
-            throw new IllegalStateException();
+        if (t != null) {
+            return t;
         }
-        return t;
+        throw new IllegalStateException();
     }
 
     public static <T> T checkStateNotNull(@Nullable T t, Object obj) {
-        if (t == null) {
-            throw new IllegalStateException(String.valueOf(obj));
+        if (t != null) {
+            return t;
         }
-        return t;
+        throw new IllegalStateException(String.valueOf(obj));
     }
 }

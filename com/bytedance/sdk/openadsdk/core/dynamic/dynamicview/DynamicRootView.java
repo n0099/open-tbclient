@@ -12,69 +12,80 @@ import com.bytedance.sdk.openadsdk.core.nativeexpress.j;
 public class DynamicRootView extends FrameLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    protected o f4421a;
-    private j b;
-    private g c;
-    private DynamicBaseWidget d;
-    private a e;
+    public o f28307a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public j f28308b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public g f28309c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public DynamicBaseWidget f28310d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public a f28311e;
 
     public DynamicRootView(@NonNull Context context) {
         super(context);
-        this.f4421a = new o();
-        this.f4421a.a(2);
-        this.e = new a();
-        this.e.a(this);
-    }
-
-    public void setRenderListener(j jVar) {
-        this.b = jVar;
-        this.e.a(jVar);
-    }
-
-    public void setExpressVideoListener(g gVar) {
-        this.c = gVar;
-    }
-
-    public void setDynamicBaseWidget(DynamicBaseWidget dynamicBaseWidget) {
-        this.d = dynamicBaseWidget;
-    }
-
-    public void a() {
-        this.f4421a.a(this.d.a() && c());
-        this.f4421a.a(this.d.c);
-        this.f4421a.b(this.d.d);
-        this.b.a(this.f4421a);
-    }
-
-    public void a(double d, double d2, double d3, double d4) {
-        this.f4421a.c(d);
-        this.f4421a.d(d2);
-        this.f4421a.e(d3);
-        this.f4421a.f(d4);
-    }
-
-    public void b() {
-        this.f4421a.a(false);
-        this.b.a(this.f4421a);
-    }
-
-    public void setDislikeView(View view) {
-        this.e.b(view);
-    }
-
-    public j getRenderListener() {
-        return this.b;
-    }
-
-    public g getExpressVideoListener() {
-        return this.c;
-    }
-
-    public a getDynamicClickListener() {
-        return this.e;
+        o oVar = new o();
+        this.f28307a = oVar;
+        oVar.a(2);
+        a aVar = new a();
+        this.f28311e = aVar;
+        aVar.a(this);
     }
 
     private boolean c() {
-        return this.d.c > 0.0f && this.d.d > 0.0f;
+        DynamicBaseWidget dynamicBaseWidget = this.f28310d;
+        return dynamicBaseWidget.f28301c > 0.0f && dynamicBaseWidget.f28302d > 0.0f;
+    }
+
+    public void a() {
+        this.f28307a.a(this.f28310d.a() && c());
+        this.f28307a.a(this.f28310d.f28301c);
+        this.f28307a.b(this.f28310d.f28302d);
+        this.f28308b.a(this.f28307a);
+    }
+
+    public void b() {
+        this.f28307a.a(false);
+        this.f28308b.a(this.f28307a);
+    }
+
+    public a getDynamicClickListener() {
+        return this.f28311e;
+    }
+
+    public g getExpressVideoListener() {
+        return this.f28309c;
+    }
+
+    public j getRenderListener() {
+        return this.f28308b;
+    }
+
+    public void setDislikeView(View view) {
+        this.f28311e.b(view);
+    }
+
+    public void setDynamicBaseWidget(DynamicBaseWidget dynamicBaseWidget) {
+        this.f28310d = dynamicBaseWidget;
+    }
+
+    public void setExpressVideoListener(g gVar) {
+        this.f28309c = gVar;
+    }
+
+    public void setRenderListener(j jVar) {
+        this.f28308b = jVar;
+        this.f28311e.a(jVar);
+    }
+
+    public void a(double d2, double d3, double d4, double d5) {
+        this.f28307a.c(d2);
+        this.f28307a.d(d3);
+        this.f28307a.e(d4);
+        this.f28307a.f(d5);
     }
 }

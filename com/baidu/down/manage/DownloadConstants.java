@@ -1,7 +1,7 @@
 package com.baidu.down.manage;
 
 import android.provider.BaseColumns;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public final class DownloadConstants {
     public static final long CTRL_FLAG_AUTO_PAUSED = 2;
     public static final long CTRL_FLAG_CHECK_CONTENT_TYPE = 8;
@@ -10,7 +10,7 @@ public final class DownloadConstants {
     public static final int DOWNLOAD_PRIORITY_DEFAULT = 3;
     public static final int DOWNLOAD_THREAD_MAX_NUM = 3;
     public static final int DOWNLOAD_THREAD_MIN_NUM = 1;
-    private static final boolean LOCAL_LOGVV = false;
+    public static final boolean LOCAL_LOGVV = false;
     public static final boolean LOGV = true;
     public static final boolean LOGVV = false;
     public static final String LOG_TRACE_TAG = "core>download";
@@ -31,10 +31,10 @@ public final class DownloadConstants {
     public static final String TAG = "DownloadManager";
     public static final int VISIBILITY_VISIBLE = 0;
     public static boolean mDebug = false;
-    private static String sDestinationDir;
-    private static DestinationMode sDestinationMode;
+    public static String sDestinationDir;
+    public static DestinationMode sDestinationMode;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public enum DestinationMode {
         AUTO,
         INTERNAL_ONLY,
@@ -42,14 +42,7 @@ public final class DownloadConstants {
         CUSTOM
     }
 
-    private DownloadConstants() {
-    }
-
-    public static boolean isStatusError(int i) {
-        return i >= 400 && i < 600;
-    }
-
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public static final class DownloadColumns implements BaseColumns {
         public static final String COLUMN_AUTO_PAUSE = "AUTO_PAUSE";
         public static final String COLUMN_CONTROL_FLAG = "CONTROL_FLAG";
@@ -70,24 +63,26 @@ public final class DownloadConstants {
         public static final String COLUMN_URI_HOST = "URI_HOST";
         public static final String FAILED_REASON = "FAILEDREASON";
         public static final String FAILED_TYPE = "FAILED_TYPE";
-
-        private DownloadColumns() {
-        }
     }
 
-    public static void setDestinationMode(DestinationMode destinationMode) {
-        sDestinationMode = destinationMode;
+    public static String getDestinationDir() {
+        return sDestinationDir;
+    }
+
+    public static DestinationMode getDestinationMode() {
+        DestinationMode destinationMode = sDestinationMode;
+        return destinationMode != null ? destinationMode : DestinationMode.AUTO;
+    }
+
+    public static boolean isStatusError(int i) {
+        return i >= 400 && i < 600;
     }
 
     public static void setDestinationDir(String str) {
         sDestinationDir = str;
     }
 
-    public static DestinationMode getDestinationMode() {
-        return sDestinationMode != null ? sDestinationMode : DestinationMode.AUTO;
-    }
-
-    public static String getDestinationDir() {
-        return sDestinationDir;
+    public static void setDestinationMode(DestinationMode destinationMode) {
+        sDestinationMode = destinationMode;
     }
 }

@@ -7,12 +7,14 @@ import android.view.MotionEvent;
 import android.widget.FrameLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class TouchHandleFrameLayout extends FrameLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    private GestureDetector f7163a;
-    private GestureDetector.OnGestureListener b;
+    public GestureDetector f36821a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public GestureDetector.OnGestureListener f36822b;
 
     public TouchHandleFrameLayout(@NonNull Context context) {
         super(context);
@@ -25,49 +27,49 @@ public class TouchHandleFrameLayout extends FrameLayout {
     }
 
     private void a() {
-        this.f7163a = new GestureDetector(new GestureDetector.OnGestureListener() { // from class: com.kwad.sdk.widget.TouchHandleFrameLayout.1
+        this.f36821a = new GestureDetector(new GestureDetector.OnGestureListener() { // from class: com.kwad.sdk.widget.TouchHandleFrameLayout.1
             @Override // android.view.GestureDetector.OnGestureListener
             public boolean onDown(MotionEvent motionEvent) {
-                if (TouchHandleFrameLayout.this.b != null) {
-                    return TouchHandleFrameLayout.this.b.onDown(motionEvent);
+                if (TouchHandleFrameLayout.this.f36822b != null) {
+                    return TouchHandleFrameLayout.this.f36822b.onDown(motionEvent);
                 }
                 return false;
             }
 
             @Override // android.view.GestureDetector.OnGestureListener
-            public boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
-                if (TouchHandleFrameLayout.this.b != null) {
-                    return TouchHandleFrameLayout.this.b.onFling(motionEvent, motionEvent2, f, f2);
+            public boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent2, float f2, float f3) {
+                if (TouchHandleFrameLayout.this.f36822b != null) {
+                    return TouchHandleFrameLayout.this.f36822b.onFling(motionEvent, motionEvent2, f2, f3);
                 }
                 return false;
             }
 
             @Override // android.view.GestureDetector.OnGestureListener
             public void onLongPress(MotionEvent motionEvent) {
-                if (TouchHandleFrameLayout.this.b != null) {
-                    TouchHandleFrameLayout.this.b.onLongPress(motionEvent);
+                if (TouchHandleFrameLayout.this.f36822b != null) {
+                    TouchHandleFrameLayout.this.f36822b.onLongPress(motionEvent);
                 }
             }
 
             @Override // android.view.GestureDetector.OnGestureListener
-            public boolean onScroll(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
-                if (TouchHandleFrameLayout.this.b != null) {
-                    return TouchHandleFrameLayout.this.b.onScroll(motionEvent, motionEvent2, f, f2);
+            public boolean onScroll(MotionEvent motionEvent, MotionEvent motionEvent2, float f2, float f3) {
+                if (TouchHandleFrameLayout.this.f36822b != null) {
+                    return TouchHandleFrameLayout.this.f36822b.onScroll(motionEvent, motionEvent2, f2, f3);
                 }
                 return false;
             }
 
             @Override // android.view.GestureDetector.OnGestureListener
             public void onShowPress(MotionEvent motionEvent) {
-                if (TouchHandleFrameLayout.this.b != null) {
-                    TouchHandleFrameLayout.this.b.onShowPress(motionEvent);
+                if (TouchHandleFrameLayout.this.f36822b != null) {
+                    TouchHandleFrameLayout.this.f36822b.onShowPress(motionEvent);
                 }
             }
 
             @Override // android.view.GestureDetector.OnGestureListener
             public boolean onSingleTapUp(MotionEvent motionEvent) {
-                if (TouchHandleFrameLayout.this.b != null) {
-                    return TouchHandleFrameLayout.this.b.onSingleTapUp(motionEvent);
+                if (TouchHandleFrameLayout.this.f36822b != null) {
+                    return TouchHandleFrameLayout.this.f36822b.onSingleTapUp(motionEvent);
                 }
                 return false;
             }
@@ -76,14 +78,14 @@ public class TouchHandleFrameLayout extends FrameLayout {
 
     @Override // android.view.ViewGroup, android.view.View
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
-        if (this.b != null) {
-            this.f7163a.onTouchEvent(motionEvent);
+        if (this.f36822b != null) {
+            this.f36821a.onTouchEvent(motionEvent);
         }
         super.dispatchTouchEvent(motionEvent);
         return true;
     }
 
     public void setOnGestureListener(GestureDetector.OnGestureListener onGestureListener) {
-        this.b = onGestureListener;
+        this.f36822b = onGestureListener;
     }
 }

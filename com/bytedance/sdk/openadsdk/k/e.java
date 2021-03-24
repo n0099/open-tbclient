@@ -1,39 +1,102 @@
 package com.bytedance.sdk.openadsdk.k;
-/* JADX INFO: Access modifiers changed from: package-private */
+
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.util.Log;
+import com.bytedance.sdk.openadsdk.k.a.c;
+import com.bytedance.sdk.openadsdk.utils.u;
+import java.util.Set;
 /* loaded from: classes6.dex */
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f4877a;
-    private String b;
-    private boolean c;
-    private int d;
+    public static volatile com.bytedance.sdk.openadsdk.k.a.b f29630a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public e(String str, String str2, boolean z, int i) {
-        this.f4877a = str;
-        this.b = str2;
-        this.c = z;
-        this.d = i;
+    /* renamed from: b  reason: collision with root package name */
+    public static volatile com.bytedance.sdk.openadsdk.k.a.c f29631b;
+
+    /* renamed from: d  reason: collision with root package name */
+    public static volatile boolean f29633d;
+
+    /* renamed from: f  reason: collision with root package name */
+    public static volatile boolean f29635f;
+    public static volatile Integer i;
+    public static volatile com.bytedance.sdk.openadsdk.k.b.c j;
+    @SuppressLint({"StaticFieldLeak"})
+    public static volatile Context k;
+
+    /* renamed from: c  reason: collision with root package name */
+    public static final boolean f29632c = u.c();
+
+    /* renamed from: e  reason: collision with root package name */
+    public static volatile boolean f29634e = true;
+
+    /* renamed from: g  reason: collision with root package name */
+    public static volatile int f29636g = 0;
+
+    /* renamed from: h  reason: collision with root package name */
+    public static volatile int f29637h = 3;
+
+    public static Context a() {
+        return k;
     }
 
-    public String a() {
-        return this.f4877a;
+    public static void b(boolean z) {
+        f29635f = z;
     }
 
-    public String b() {
-        return this.b;
+    public static com.bytedance.sdk.openadsdk.k.a.b c() {
+        return f29630a;
     }
 
-    public boolean c() {
-        return this.c;
+    public static void a(boolean z) {
+        f29634e = z;
     }
 
-    public int d() {
-        return this.d;
+    public static com.bytedance.sdk.openadsdk.k.a.c b() {
+        return f29631b;
     }
 
-    public void a(int i) {
-        this.d = i;
+    public static void a(int i2) {
+        f29636g = i2;
+    }
+
+    public static void a(com.bytedance.sdk.openadsdk.k.a.c cVar, Context context) {
+        if (cVar != null && context != null) {
+            k = context.getApplicationContext();
+            if (f29631b != null) {
+                return;
+            }
+            com.bytedance.sdk.openadsdk.k.a.b bVar = f29630a;
+            if (bVar != null && bVar.f29563a.getAbsolutePath().equals(cVar.f29565a.getAbsolutePath())) {
+                throw new IllegalArgumentException("DiskLruCache 和 DiskCache 不能使用相同的目录");
+            }
+            f29631b = cVar;
+            j = com.bytedance.sdk.openadsdk.k.b.c.a(context);
+            f29631b.a(new c.a() { // from class: com.bytedance.sdk.openadsdk.k.e.1
+                @Override // com.bytedance.sdk.openadsdk.k.a.c.a
+                public void a(String str) {
+                    if (e.f29632c) {
+                        Log.i("TAG_PROXY_DiskLruCache", "new cache created: " + str);
+                    }
+                }
+
+                @Override // com.bytedance.sdk.openadsdk.k.a.c.a
+                public void a(Set<String> set) {
+                    e.j.a(set, 0);
+                    if (e.f29632c) {
+                        Log.i("TAG_PROXY_DiskLruCache", "cache file removed, " + set);
+                    }
+                }
+            });
+            f a2 = f.a();
+            a2.a(cVar);
+            a2.a(j);
+            d c2 = d.c();
+            c2.a(cVar);
+            c2.a(j);
+            return;
+        }
+        throw new IllegalArgumentException("DiskLruCache and Context can't be null !!!");
     }
 }

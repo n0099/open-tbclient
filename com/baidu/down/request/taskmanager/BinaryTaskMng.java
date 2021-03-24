@@ -12,13 +12,14 @@ import android.os.Message;
 import android.os.PowerManager;
 import android.os.SystemClock;
 import android.text.TextUtils;
-import com.baidu.android.imsdk.IMConstants;
+import androidx.appcompat.widget.TooltipCompatHandler;
 import com.baidu.down.common.DownConstants;
 import com.baidu.down.common.FileMsg;
 import com.baidu.down.common.StatisticInfo;
 import com.baidu.down.common.TaskManagerConfiguration;
 import com.baidu.down.common.TaskMsg;
 import com.baidu.down.common.TaskObserverInterface;
+import com.baidu.down.common.intercepter.IIntercepter;
 import com.baidu.down.common.intercepter.InterceptResult;
 import com.baidu.down.loopj.android.http.AsyncHttpClient;
 import com.baidu.down.loopj.android.http.ConnectManager;
@@ -28,11 +29,12 @@ import com.baidu.down.request.task.AbstractTask;
 import com.baidu.down.request.task.BinaryReqTask;
 import com.baidu.down.request.task.MultiSrcBinaryReqTask;
 import com.baidu.down.statistic.SpeedStatData;
+import com.baidu.down.statistic.TaskSpeedStat;
 import com.baidu.down.utils.DownPrefUtils;
 import com.baidu.down.utils.PatternConfig;
 import com.baidu.down.utils.URLRegUtils;
 import com.baidu.down.utils.network.NetWorkDetector;
-import com.xiaomi.mipush.sdk.Constants;
+import com.baidu.searchbox.elasticthread.statistic.StatisticRecorder;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -41,47 +43,311 @@ import java.util.Map;
 import java.util.PriorityQueue;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.CopyOnWriteArrayList;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class BinaryTaskMng {
-    private static final boolean DEBUG = false;
-    private static final String TAG = "BinaryTaskMng";
-    private static final int TASK_ADD_ALLTASK_2_Q = 4;
-    private static final int TASK_ADD_TASK_2_Q = 3;
-    private static final int TASK_CHECK_APN_CHG = 2;
-    private static final int TASK_CHECK_MEMORY = 1;
-    private static final int TASK_CHECK_MSG = 0;
-    private static final int TASK_CHECK_NET_DELATY = 2500;
-    private static final int TASK_CHECK_TIME = 5000;
-    private static final int TASK_CHECK_TIME_MOMORY = 30000;
-    private static final int TASK_INTERRUPT_RETRY_WAITING = 5;
+    public static final boolean DEBUG = false;
+    public static final String TAG = "BinaryTaskMng";
+    public static final int TASK_ADD_ALLTASK_2_Q = 4;
+    public static final int TASK_ADD_TASK_2_Q = 3;
+    public static final int TASK_CHECK_APN_CHG = 2;
+    public static final int TASK_CHECK_MEMORY = 1;
+    public static final int TASK_CHECK_MSG = 0;
+    public static final int TASK_CHECK_NET_DELATY = 2500;
+    public static final int TASK_CHECK_TIME = 5000;
+    public static final int TASK_CHECK_TIME_MOMORY = 30000;
+    public static final int TASK_INTERRUPT_RETRY_WAITING = 5;
     public static final int THREAD_REQUEST_ADD_MSG = 6;
     public static final int THREAD_REQUEST_CANCEL_MSG = 7;
     public static final int THREAD_REQUEST_UPDATE_MSG = 8;
     public static boolean mAllowRequestConfig = false;
-    private ConcurrentHashMap<String, AbstractTask> mAllTaskMap;
-    private ByteArrayInfoMng mByteArrayInfoMng;
-    private AsyncHttpClient mClient;
-    private BroadcastReceiver mConnectivityReceiver;
-    Context mContext;
-    private List<AbstractTask> mCurTaskList;
-    private DatabaseMng mDbmng;
-    private Handler mHandler;
-    private CopyOnWriteArrayList mInfoTypeList;
-    private Looper mLooper;
-    private int mMaxThread;
-    private List<TaskObserverInterface> mObserverList;
-    private Map<Long, StatisticInfo> mStatsticMap;
-    private PriorityQueue<AbstractTask> mTaskPriorityQueue;
-    private WriteThreadMng mWriteThreadMng;
-    HandlerThread mThr = null;
-    private PowerManager.WakeLock mWakelock = null;
-    private HttpDNSCacheInfo mHttpDNSCacheInfo = null;
-    private DownConfig mDownConfig = new DownConfig();
-    private PatternConfig mPatternConfig = new PatternConfig();
+    public ConcurrentHashMap<String, AbstractTask> mAllTaskMap;
+    public ByteArrayInfoMng mByteArrayInfoMng;
+    public AsyncHttpClient mClient;
+    public BroadcastReceiver mConnectivityReceiver;
+    public Context mContext;
+    public List<AbstractTask> mCurTaskList;
+    public DatabaseMng mDbmng;
+    public Handler mHandler;
+    public CopyOnWriteArrayList mInfoTypeList;
+    public Looper mLooper;
+    public int mMaxThread;
+    public List<TaskObserverInterface> mObserverList;
+    public Map<Long, StatisticInfo> mStatsticMap;
+    public PriorityQueue<AbstractTask> mTaskPriorityQueue;
+    public WriteThreadMng mWriteThreadMng;
+    public HandlerThread mThr = null;
+    public PowerManager.WakeLock mWakelock = null;
+    public HttpDNSCacheInfo mHttpDNSCacheInfo = null;
+    public DownConfig mDownConfig = new DownConfig();
+    public PatternConfig mPatternConfig = new PatternConfig();
+
+    public BinaryTaskMng(Context context, TaskManagerConfiguration taskManagerConfiguration) {
+        this.mMaxThread = 3;
+        long[] jArr = null;
+        this.mContext = context;
+        if (taskManagerConfiguration != null) {
+            ByteArrayInfoMng.mMaxByteSize = taskManagerConfiguration.getMaxBufferCount();
+            int bufferSize = taskManagerConfiguration.getBufferSize();
+            AbstractTask.bufferSize = bufferSize;
+            AbstractTask.minSegLen = bufferSize * 32;
+            this.mMaxThread = taskManagerConfiguration.getMaxTaskCount();
+            long[] retryIntervals = taskManagerConfiguration.getRetryIntervals();
+            NetWorkDetector.getInstance().sNeedDetect = taskManagerConfiguration.isRetryNetDetect();
+            this.mDownConfig.mTrafficStatsTag = taskManagerConfiguration.getTrafficStatsTag();
+            this.mDownConfig.mDomainNameToIpEnable = taskManagerConfiguration.geDomainNameToIpEnable();
+            this.mDownConfig.mHttpRetryStrategyEnable = taskManagerConfiguration.getHttpRetryStrategyEnable();
+            this.mDownConfig.mDownSpeedStatEnable = taskManagerConfiguration.getDownSpeedStatEnable();
+            this.mDownConfig.mConfigSpeedStat = SpeedStatData.parseSpeedConfig(this.mContext, null);
+            URLRegUtils.setURLReg(taskManagerConfiguration.getURLRetryHostReg(), taskManagerConfiguration.getDomainNameToIpReg());
+            jArr = retryIntervals;
+        }
+        jArr = jArr == null ? DownConstants.DF_RETRY_INTERVALS : jArr;
+        DownConfig downConfig = this.mDownConfig;
+        if (downConfig != null && taskManagerConfiguration != null && downConfig.mDomainNameToIpEnable) {
+            initHttpDns(taskManagerConfiguration.getPreResolveDominName());
+            DownPrefUtils.setString(this.mContext, DownPrefUtils.PREF_CONFI_HOST_TYPE, DownPrefUtils.HOST_TYPE_IP);
+        }
+        this.mAllTaskMap = new ConcurrentHashMap<>();
+        this.mTaskPriorityQueue = new PriorityQueue<>();
+        this.mCurTaskList = new ArrayList();
+        this.mObserverList = new CopyOnWriteArrayList();
+        this.mStatsticMap = new HashMap();
+        setInfoTypeList(this.mContext);
+        this.mByteArrayInfoMng = new ByteArrayInfoMng();
+        this.mWriteThreadMng = new WriteThreadMng(3);
+        this.mClient = new AsyncHttpClient(this.mContext, jArr);
+        startTaskMng();
+        IntentFilter intentFilter = new IntentFilter();
+        intentFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE");
+        try {
+            if (this.mConnectivityReceiver != null) {
+                context.registerReceiver(this.mConnectivityReceiver, intentFilter);
+            } else {
+                BroadcastReceiver broadcastReceiver = new BroadcastReceiver() { // from class: com.baidu.down.request.taskmanager.BinaryTaskMng.2
+                    @Override // android.content.BroadcastReceiver
+                    public void onReceive(Context context2, Intent intent) {
+                        if (intent.getAction().equals("android.net.conn.CONNECTIVITY_CHANGE")) {
+                            if (BinaryTaskMng.this.mHandler != null) {
+                                BinaryTaskMng.this.mHandler.removeMessages(2);
+                                BinaryTaskMng.this.mHandler.sendMessageDelayed(BinaryTaskMng.this.mHandler.obtainMessage(2), TooltipCompatHandler.LONG_CLICK_HIDE_TIMEOUT_MS);
+                            }
+                            if (BinaryTaskMng.this.mDownConfig == null || !BinaryTaskMng.this.mDownConfig.mDomainNameToIpEnable) {
+                                return;
+                            }
+                            HttpDns.getInstance().resetCacheIps();
+                        }
+                    }
+                };
+                this.mConnectivityReceiver = broadcastReceiver;
+                context.registerReceiver(broadcastReceiver, intentFilter);
+            }
+        } catch (Exception unused) {
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void handleAPNChangeIntercept() {
+        Map<String, IIntercepter<?>> map;
+        InterceptResult process;
+        InterceptResult process2;
+        List<AbstractTask> list = this.mCurTaskList;
+        if (list != null && list.size() > 0) {
+            for (AbstractTask abstractTask : this.mCurTaskList) {
+                Map<String, IIntercepter<?>> map2 = abstractTask.mIntercepters;
+                if (map2 != null && map2.containsKey("network") && (process2 = abstractTask.mIntercepters.get("network").process(abstractTask.mContext, abstractTask.getTaskKey(), abstractTask.mDownloadId, null)) != null && process2.retCode == 1) {
+                    abstractTask.pause();
+                }
+            }
+        }
+        if (this.mTaskPriorityQueue.size() <= 0) {
+            return;
+        }
+        int size = this.mTaskPriorityQueue.size();
+        AbstractTask[] abstractTaskArr = new AbstractTask[size];
+        if (size > 0) {
+            for (int i = 0; i < size; i++) {
+                AbstractTask abstractTask2 = abstractTaskArr[i];
+                if (abstractTask2 != null && (map = abstractTask2.mIntercepters) != null && map.containsKey("network") && (process = abstractTask2.mIntercepters.get("network").process(abstractTask2.mContext, abstractTask2.getTaskKey(), abstractTask2.mDownloadId, null)) != null && process.retCode == 1) {
+                    abstractTask2.pause();
+                }
+            }
+        }
+    }
+
+    private void initHttpDns(String str) {
+        String[] split;
+        if (str != null && (split = str.split("-")) != null) {
+            HttpDns.getInstance().setPreResolveHosts(split);
+        }
+        HttpDns.getInstance().setExpiredIPAvailable(false);
+    }
+
+    private boolean isMatchInfoType(String str) {
+        CopyOnWriteArrayList copyOnWriteArrayList = this.mInfoTypeList;
+        return (copyOnWriteArrayList == null || copyOnWriteArrayList.isEmpty() || TextUtils.isEmpty(str) || !this.mInfoTypeList.contains(str)) ? false : true;
+    }
+
+    private void notifySpeedIdle(AbstractTask abstractTask) {
+        abstractTask.mLastNotifySpeed = 0L;
+        TaskMsg taskMsg = new TaskMsg();
+        taskMsg.status = 1002;
+        taskMsg._id = abstractTask.mDownloadId;
+        taskMsg.uKey = abstractTask.mUri + abstractTask.mDownloadId;
+        taskMsg.filePath = abstractTask.mFilePath;
+        taskMsg.fileSize = abstractTask.mTotalLength;
+        taskMsg.transferedSize = abstractTask.mProgressInfo.getCurrentLength();
+        taskMsg.progressMap = abstractTask.mProgressInfo.toString();
+        taskMsg.transferedSpeed = 0L;
+        notifyUi(taskMsg);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void priorityRunning() {
+        int i;
+        int i2;
+        int i3;
+        int i4;
+        int i5;
+        AbstractTask abstractTask;
+        int i6;
+        Iterator<AbstractTask> it = this.mCurTaskList.iterator();
+        while (true) {
+            i = 1006;
+            i2 = 1008;
+            i3 = 1003;
+            i4 = 1005;
+            if (!it.hasNext()) {
+                break;
+            }
+            AbstractTask next = it.next();
+            int i7 = next.mStatus;
+            if (i7 == 1004 || i7 == 1005 || i7 == 1003 || i7 == 1008 || i7 == 1006) {
+                it.remove();
+            }
+            long elapsedRealtime = SystemClock.elapsedRealtime();
+            int i8 = next.mStatus;
+            if (i8 == 1001 || i8 == 1002) {
+                if (next.mLastNotifySpeed != 0 && elapsedRealtime - next.mLastNotifyTime > 2000) {
+                    notifySpeedIdle(next);
+                }
+            }
+        }
+        while (this.mTaskPriorityQueue.size() > 0) {
+            if (this.mCurTaskList.size() < this.mMaxThread) {
+                AbstractTask abstractTask2 = this.mAllTaskMap.get(this.mTaskPriorityQueue.poll().getTaskKey());
+                if (abstractTask2 != null && (i5 = abstractTask2.mStatus) != 1004 && i5 != i4 && i5 != i3 && i5 != i2 && i5 != i && !this.mCurTaskList.contains(abstractTask2)) {
+                    this.mCurTaskList.add(abstractTask2);
+                    abstractTask2.start();
+                }
+            } else {
+                AbstractTask peek = this.mTaskPriorityQueue.peek();
+                long j = peek.mLastNotifyBytes;
+                if (j > 0) {
+                    long j2 = peek.mTotalLength;
+                    if (j2 > 0) {
+                        long j3 = peek.mLastNotifySpeed;
+                        if (j3 > 0 && (j2 - j) / j3 <= 3) {
+                            peek.setPriority(peek.getPriority() + 1);
+                        }
+                    }
+                }
+                Iterator<AbstractTask> it2 = this.mCurTaskList.iterator();
+                while (true) {
+                    if (!it2.hasNext()) {
+                        abstractTask = null;
+                        break;
+                    }
+                    AbstractTask next2 = it2.next();
+                    long j4 = next2.mLastNotifyBytes;
+                    Iterator<AbstractTask> it3 = it2;
+                    if (j4 > 0) {
+                        long j5 = next2.mTotalLength;
+                        if (j5 > 0) {
+                            long j6 = next2.mLastNotifySpeed;
+                            if (j6 > 0 && (j5 - j4) / j6 <= 3) {
+                                it2 = it3;
+                            }
+                        }
+                    }
+                    if (peek.getPriority() > next2.getPriority()) {
+                        abstractTask = next2;
+                        break;
+                    }
+                    it2 = it3;
+                }
+                if (abstractTask == null) {
+                    break;
+                }
+                this.mTaskPriorityQueue.remove(peek);
+                AbstractTask abstractTask3 = this.mAllTaskMap.get(peek.getTaskKey());
+                if (abstractTask3 == null || (i6 = abstractTask3.mStatus) == 1004) {
+                    i3 = 1003;
+                } else {
+                    i3 = 1003;
+                    if (i6 != 1005) {
+                        if (i6 != 1003) {
+                            if (i6 != 1008 && i6 != 1006 && !this.mCurTaskList.contains(abstractTask3)) {
+                                abstractTask.pend();
+                                this.mCurTaskList.remove(abstractTask);
+                                this.mTaskPriorityQueue.add(abstractTask);
+                                this.mCurTaskList.add(abstractTask3);
+                                abstractTask3.start();
+                            }
+                            i = 1006;
+                            i2 = 1008;
+                            i4 = 1005;
+                        }
+                        i = 1006;
+                        i2 = 1008;
+                        i4 = 1005;
+                    }
+                }
+                i = 1006;
+                i2 = 1008;
+                i4 = 1005;
+            }
+        }
+        if (this.mTaskPriorityQueue.size() <= 0 && this.mCurTaskList.size() <= 0) {
+            PowerManager.WakeLock wakeLock = this.mWakelock;
+            if (wakeLock == null || !wakeLock.isHeld()) {
+                return;
+            }
+            this.mWakelock.release();
+            return;
+        }
+        this.mHandler.sendEmptyMessageDelayed(0, 5000L);
+        if (this.mWakelock == null) {
+            PowerManager.WakeLock newWakeLock = ((PowerManager) this.mContext.getSystemService("power")).newWakeLock(1, "Async-Downloader");
+            this.mWakelock = newWakeLock;
+            newWakeLock.acquire();
+        }
+        PowerManager.WakeLock wakeLock2 = this.mWakelock;
+        if (wakeLock2 == null || wakeLock2.isHeld()) {
+            return;
+        }
+        this.mWakelock.acquire();
+    }
+
+    private void resumeDownload(String str, FileMsg fileMsg) {
+        AbstractTask abstractTask = this.mAllTaskMap.get(str);
+        abstractTask.setPriority(fileMsg.mPriority);
+        taskPriorityQueueOffer(abstractTask);
+        abstractTask.mIntercepters = fileMsg.mIntercepters;
+        if (abstractTask.mFileDir.equals(fileMsg.mSavePath)) {
+            return;
+        }
+        abstractTask.mFileDir = fileMsg.mSavePath;
+        abstractTask.mFilePath = null;
+    }
+
+    public static void setAllowRequestConfig(boolean z) {
+        mAllowRequestConfig = z;
+    }
 
     private void startTaskMng() {
-        this.mThr = new HandlerThread("DownloadLooperThread", 10);
-        this.mThr.start();
+        HandlerThread handlerThread = new HandlerThread("DownloadLooperThread", 10);
+        this.mThr = handlerThread;
+        handlerThread.start();
         this.mHandler = new Handler(this.mThr.getLooper()) { // from class: com.baidu.down.request.taskmanager.BinaryTaskMng.1
             @Override // android.os.Handler
             public void handleMessage(Message message) {
@@ -106,10 +372,11 @@ public class BinaryTaskMng {
                         BinaryTaskMng.this.handleAPNChangeIntercept();
                     } else if (message.what == 3) {
                         AbstractTask abstractTask = (AbstractTask) message.obj;
-                        if (abstractTask.mStatus == 1009) {
-                            BinaryTaskMng.this.mTaskPriorityQueue.offer(abstractTask);
-                            BinaryTaskMng.this.priorityRunning();
+                        if (abstractTask.mStatus != 1009) {
+                            return;
                         }
+                        BinaryTaskMng.this.mTaskPriorityQueue.offer(abstractTask);
+                        BinaryTaskMng.this.priorityRunning();
                     } else if (message.what == 4) {
                         for (AbstractTask abstractTask2 : BinaryTaskMng.this.mAllTaskMap.values()) {
                             if (abstractTask2.mStatus != 1009) {
@@ -129,173 +396,10 @@ public class BinaryTaskMng {
                     } else if (message.what == 8) {
                         ((MultiSrcTaskMsg) message.obj).updateAsyncRequestData();
                     }
-                } catch (Exception e) {
+                } catch (Exception unused) {
                 }
             }
         };
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void handleAPNChangeIntercept() {
-        AbstractTask[] abstractTaskArr;
-        InterceptResult process;
-        InterceptResult process2;
-        if (this.mCurTaskList != null && this.mCurTaskList.size() > 0) {
-            for (AbstractTask abstractTask : this.mCurTaskList) {
-                if (abstractTask.mIntercepters != null && abstractTask.mIntercepters.containsKey("network") && (process2 = abstractTask.mIntercepters.get("network").process(abstractTask.mContext, abstractTask.getTaskKey(), abstractTask.mDownloadId, null)) != null && process2.retCode == 1) {
-                    abstractTask.pause();
-                }
-            }
-        }
-        if (this.mTaskPriorityQueue.size() > 0 && (abstractTaskArr = new AbstractTask[this.mTaskPriorityQueue.size()]) != null && abstractTaskArr.length > 0) {
-            for (AbstractTask abstractTask2 : abstractTaskArr) {
-                if (abstractTask2 != null && abstractTask2.mIntercepters != null && abstractTask2.mIntercepters.containsKey("network") && (process = abstractTask2.mIntercepters.get("network").process(abstractTask2.mContext, abstractTask2.getTaskKey(), abstractTask2.mDownloadId, null)) != null && process.retCode == 1) {
-                    abstractTask2.pause();
-                }
-            }
-        }
-    }
-
-    public void release() {
-        this.mLooper.quit();
-        this.mThr.interrupt();
-        if (this.mConnectivityReceiver != null) {
-            this.mContext.unregisterReceiver(this.mConnectivityReceiver);
-            this.mConnectivityReceiver = null;
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public BinaryTaskMng(Context context, TaskManagerConfiguration taskManagerConfiguration) {
-        long[] jArr;
-        this.mMaxThread = 3;
-        this.mContext = context;
-        if (taskManagerConfiguration != null) {
-            ByteArrayInfoMng.mMaxByteSize = taskManagerConfiguration.getMaxBufferCount();
-            AbstractTask.bufferSize = taskManagerConfiguration.getBufferSize();
-            AbstractTask.minSegLen = AbstractTask.bufferSize * 32;
-            this.mMaxThread = taskManagerConfiguration.getMaxTaskCount();
-            jArr = taskManagerConfiguration.getRetryIntervals();
-            NetWorkDetector.getInstance().sNeedDetect = taskManagerConfiguration.isRetryNetDetect();
-            this.mDownConfig.mTrafficStatsTag = taskManagerConfiguration.getTrafficStatsTag();
-            this.mDownConfig.mDomainNameToIpEnable = taskManagerConfiguration.geDomainNameToIpEnable();
-            this.mDownConfig.mHttpRetryStrategyEnable = taskManagerConfiguration.getHttpRetryStrategyEnable();
-            this.mDownConfig.mDownSpeedStatEnable = taskManagerConfiguration.getDownSpeedStatEnable();
-            this.mDownConfig.mConfigSpeedStat = SpeedStatData.parseSpeedConfig(this.mContext, null);
-            URLRegUtils.setURLReg(taskManagerConfiguration.getURLRetryHostReg(), taskManagerConfiguration.getDomainNameToIpReg());
-        } else {
-            jArr = null;
-        }
-        jArr = jArr == null ? DownConstants.DF_RETRY_INTERVALS : jArr;
-        if (this.mDownConfig != null && taskManagerConfiguration != null && this.mDownConfig.mDomainNameToIpEnable) {
-            initHttpDns(taskManagerConfiguration.getPreResolveDominName());
-            DownPrefUtils.setString(this.mContext, DownPrefUtils.PREF_CONFI_HOST_TYPE, DownPrefUtils.HOST_TYPE_IP);
-        }
-        this.mAllTaskMap = new ConcurrentHashMap<>();
-        this.mTaskPriorityQueue = new PriorityQueue<>();
-        this.mCurTaskList = new ArrayList();
-        this.mObserverList = new CopyOnWriteArrayList();
-        this.mStatsticMap = new HashMap();
-        setInfoTypeList(this.mContext);
-        this.mByteArrayInfoMng = new ByteArrayInfoMng();
-        this.mWriteThreadMng = new WriteThreadMng(3);
-        this.mClient = new AsyncHttpClient(this.mContext, jArr);
-        startTaskMng();
-        IntentFilter intentFilter = new IntentFilter();
-        intentFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE");
-        try {
-            if (this.mConnectivityReceiver != null) {
-                context.registerReceiver(this.mConnectivityReceiver, intentFilter);
-            } else {
-                this.mConnectivityReceiver = new BroadcastReceiver() { // from class: com.baidu.down.request.taskmanager.BinaryTaskMng.2
-                    @Override // android.content.BroadcastReceiver
-                    public void onReceive(Context context2, Intent intent) {
-                        if (intent.getAction().equals("android.net.conn.CONNECTIVITY_CHANGE")) {
-                            if (BinaryTaskMng.this.mHandler != null) {
-                                BinaryTaskMng.this.mHandler.removeMessages(2);
-                                BinaryTaskMng.this.mHandler.sendMessageDelayed(BinaryTaskMng.this.mHandler.obtainMessage(2), 2500L);
-                            }
-                            if (BinaryTaskMng.this.mDownConfig != null && BinaryTaskMng.this.mDownConfig.mDomainNameToIpEnable) {
-                                HttpDns.getInstance().resetCacheIps();
-                            }
-                        }
-                    }
-                };
-                context.registerReceiver(this.mConnectivityReceiver, intentFilter);
-            }
-        } catch (Exception e) {
-        }
-    }
-
-    public AbstractTask getTaskByKey(String str) {
-        if (str == null) {
-            return null;
-        }
-        return this.mAllTaskMap.get(str);
-    }
-
-    public AsyncHttpClient getHttpClient() {
-        return this.mClient;
-    }
-
-    public void setMaxDownloadThread(int i) {
-        if (this.mMaxThread != i) {
-            this.mMaxThread = i;
-            if (this.mHandler != null) {
-                this.mHandler.removeMessages(0);
-                this.mHandler.sendEmptyMessage(0);
-            }
-        }
-    }
-
-    public void setMaxDownloadBufferCount(int i) {
-    }
-
-    public void setDownloadBufferSize(int i) {
-    }
-
-    public int getCurrentVacant() {
-        return this.mMaxThread - this.mCurTaskList.size();
-    }
-
-    public int getMaxDownloadThread() {
-        return this.mMaxThread;
-    }
-
-    public DatabaseMng getDatabaseMng() {
-        if (this.mDbmng == null) {
-            this.mDbmng = new DatabaseMng(this.mContext);
-        }
-        return this.mDbmng;
-    }
-
-    public ByteArrayInfoMng getByteArrayInfoMng() {
-        return this.mByteArrayInfoMng;
-    }
-
-    public WriteThreadMng getWriteThreadMng() {
-        return this.mWriteThreadMng;
-    }
-
-    public void resumeTaskFromDB() {
-        Cursor query;
-        if (this.mDbmng != null && (query = this.mDbmng.getDownLoad().query(this.mDbmng.getSQLiteDatabase(), null, null, null, null, null, null)) != null && query.moveToFirst()) {
-            do {
-                int i = query.getInt(query.getColumnIndex(DownloadDataConstants.Columns.COLUMN_TASK_TYPE));
-                int i2 = query.getInt(query.getColumnIndex("status"));
-                String string = query.getString(query.getColumnIndex(DownloadDataConstants.Columns.COLUMN_URI));
-                String string2 = query.getString(query.getColumnIndex("path"));
-                String string3 = query.getString(query.getColumnIndex("name"));
-                String string4 = query.getString(query.getColumnIndex(DownloadDataConstants.Columns.COLUMN_MIME_TYPE));
-                String string5 = query.getString(query.getColumnIndex("etag"));
-                long j = query.getLong(query.getColumnIndex(IMConstants.MSG_ROW_ID));
-                BinaryReqTask binaryReqTask = (i != 1 || i2 == 1003) ? null : new BinaryReqTask(this.mContext, new FileMsg(string, j, string2, string3, string4, false, string5));
-                if (binaryReqTask != null) {
-                    this.mAllTaskMap.put(string + j, binaryReqTask);
-                    taskPriorityQueueOffer(binaryReqTask);
-                }
-            } while (query.moveToNext());
-        }
     }
 
     public void addObserver(TaskObserverInterface taskObserverInterface) {
@@ -306,49 +410,301 @@ public class BinaryTaskMng {
         }
     }
 
+    public void addStatsticMap(Long l, StatisticInfo statisticInfo) {
+        this.mStatsticMap.put(l, statisticInfo);
+    }
+
+    public long findTaskCurrentLength(String str, long j) {
+        if (j > 0) {
+            str = str + j;
+        }
+        AbstractTask abstractTask = this.mAllTaskMap.get(str);
+        if (abstractTask != null) {
+            return abstractTask.mProgressInfo.getCurrentLength();
+        }
+        return 0L;
+    }
+
+    public String findTaskFilename(String str, long j) {
+        if (j > 0) {
+            str = str + j;
+        }
+        AbstractTask abstractTask = this.mAllTaskMap.get(str);
+        return abstractTask != null ? abstractTask.mFilename : "";
+    }
+
+    public String findTaskFilepath(String str, long j) {
+        if (j > 0) {
+            str = str + j;
+        }
+        AbstractTask abstractTask = this.mAllTaskMap.get(str);
+        return abstractTask != null ? abstractTask.mFileDir : "";
+    }
+
+    public String findTaskMimetype(String str, long j) {
+        if (j > 0) {
+            str = str + j;
+        }
+        AbstractTask abstractTask = this.mAllTaskMap.get(str);
+        return abstractTask != null ? abstractTask.mMimetype : "";
+    }
+
+    public int findTaskStatus(String str, long j) {
+        if (j > 0) {
+            str = str + j;
+        }
+        AbstractTask abstractTask = this.mAllTaskMap.get(str);
+        if (abstractTask != null) {
+            return abstractTask.mStatus;
+        }
+        return -1;
+    }
+
+    public long findTaskTotalLength(String str, long j) {
+        if (j > 0) {
+            str = str + j;
+        }
+        AbstractTask abstractTask = this.mAllTaskMap.get(str);
+        if (abstractTask != null) {
+            return abstractTask.mTotalLength;
+        }
+        return 0L;
+    }
+
+    public ByteArrayInfoMng getByteArrayInfoMng() {
+        return this.mByteArrayInfoMng;
+    }
+
+    public int getCurrentVacant() {
+        return this.mMaxThread - this.mCurTaskList.size();
+    }
+
+    public DatabaseMng getDatabaseMng() {
+        if (this.mDbmng == null) {
+            this.mDbmng = new DatabaseMng(this.mContext);
+        }
+        return this.mDbmng;
+    }
+
+    public DownConfig getDownConfig() {
+        return this.mDownConfig;
+    }
+
+    public String getDownThreadStat(String str, long j) {
+        if (j > 0) {
+            str = str + j;
+        }
+        return this.mAllTaskMap.get(str) == null ? "" : SpeedStatData.buildSpeedStat(this.mContext, this.mAllTaskMap.get(str).mTaskSpeedStat, null);
+    }
+
+    public AsyncHttpClient getHttpClient() {
+        return this.mClient;
+    }
+
+    public synchronized HttpDNSCacheInfo getHttpDNSCacheInfo() {
+        return this.mHttpDNSCacheInfo;
+    }
+
+    public int getMaxDownloadThread() {
+        return this.mMaxThread;
+    }
+
+    public PatternConfig getPatternConfig() {
+        return this.mPatternConfig;
+    }
+
+    public StatisticInfo getStatsticInfo(long j) {
+        Map<Long, StatisticInfo> map = this.mStatsticMap;
+        if (map != null) {
+            return map.get(Long.valueOf(j));
+        }
+        return null;
+    }
+
+    public AbstractTask getTaskByKey(String str) {
+        if (str == null) {
+            return null;
+        }
+        return this.mAllTaskMap.get(str);
+    }
+
+    public WriteThreadMng getWriteThreadMng() {
+        return this.mWriteThreadMng;
+    }
+
+    public void notifyMngTaskStatus(String str, long j) {
+        if (j > 0) {
+            str = str + j;
+        }
+        AbstractTask abstractTask = this.mAllTaskMap.get(str);
+        if (abstractTask == null) {
+            return;
+        }
+        int i = abstractTask.mStatus;
+        if (i == 1004 || i == 1008) {
+            synchronized (this.mAllTaskMap) {
+                this.mAllTaskMap.remove(str);
+            }
+            this.mHandler.removeMessages(1);
+            this.mHandler.sendEmptyMessageDelayed(1, StatisticRecorder.UPLOAD_DATA_TIME_THRESHOLD);
+        }
+        this.mHandler.removeMessages(0);
+        this.mHandler.sendEmptyMessage(0);
+        int i2 = abstractTask.mStatus;
+        if (i2 == 1004 || i2 == 1005 || i2 == 1006 || i2 == 1008) {
+            TaskSpeedStat taskSpeedStat = abstractTask.mTaskSpeedStat;
+            if (taskSpeedStat.speedStatEnable) {
+                taskSpeedStat.status = abstractTask.mStatus;
+                TaskNetRequestMng.sendSpeedStat(this.mContext, taskSpeedStat, this.mDownConfig.mConfigSpeedStat, false);
+            } else if (SpeedStatData.acquireSpeedStatConfig(this.mContext, this.mDownConfig)) {
+                TaskNetRequestMng.sendSpeedStat(this.mContext, null, this.mDownConfig.mConfigSpeedStat, true);
+            }
+        }
+        if (abstractTask instanceof MultiSrcBinaryReqTask) {
+            ((MultiSrcBinaryReqTask) abstractTask).notifyTaskStatus(abstractTask.mStatus);
+        }
+    }
+
+    public void notifyUi(Object obj) {
+        for (TaskObserverInterface taskObserverInterface : this.mObserverList) {
+            taskObserverInterface.onUpdate(obj);
+        }
+    }
+
+    public void notifyUiMessageType(String str, long j, int i, Object obj) {
+        for (TaskObserverInterface taskObserverInterface : this.mObserverList) {
+            taskObserverInterface.onDownloadMsgType(str, j, i, obj);
+        }
+    }
+
+    public void pauseAllTask() {
+        for (AbstractTask abstractTask : this.mAllTaskMap.values()) {
+            abstractTask.pause();
+        }
+    }
+
+    public void pauseDownload(String str, long j) {
+        if (j > 0) {
+            str = str + j;
+        }
+        AbstractTask abstractTask = this.mAllTaskMap.get(str);
+        if (abstractTask != null) {
+            abstractTask.pause();
+        }
+    }
+
+    public void release() {
+        this.mLooper.quit();
+        this.mThr.interrupt();
+        BroadcastReceiver broadcastReceiver = this.mConnectivityReceiver;
+        if (broadcastReceiver != null) {
+            this.mContext.unregisterReceiver(broadcastReceiver);
+            this.mConnectivityReceiver = null;
+        }
+    }
+
     public void removeObserver(TaskObserverInterface taskObserverInterface) {
         synchronized (this.mObserverList) {
             this.mObserverList.remove(taskObserverInterface);
         }
     }
 
-    public void taskPriorityQueueOffer(AbstractTask abstractTask) {
-        if (abstractTask.mStatus != 1002 && abstractTask.mStatus != 1009 && abstractTask.mStatus != 1001) {
-            abstractTask.mStatus = 1009;
-            Message obtainMessage = this.mHandler.obtainMessage();
-            obtainMessage.what = 3;
-            obtainMessage.obj = abstractTask;
-            this.mHandler.sendMessageAtFrontOfQueue(obtainMessage);
+    public void resumeTaskFromDB() {
+        Cursor query;
+        DatabaseMng databaseMng = this.mDbmng;
+        if (databaseMng == null || (query = databaseMng.getDownLoad().query(this.mDbmng.getSQLiteDatabase(), null, null, null, null, null, null)) == null || !query.moveToFirst()) {
+            return;
+        }
+        do {
+            int i = query.getInt(query.getColumnIndex(DownloadDataConstants.Columns.COLUMN_TASK_TYPE));
+            int i2 = query.getInt(query.getColumnIndex("status"));
+            String string = query.getString(query.getColumnIndex("uri"));
+            String string2 = query.getString(query.getColumnIndex("path"));
+            String string3 = query.getString(query.getColumnIndex("name"));
+            String string4 = query.getString(query.getColumnIndex(DownloadDataConstants.Columns.COLUMN_MIME_TYPE));
+            String string5 = query.getString(query.getColumnIndex("etag"));
+            long j = query.getLong(query.getColumnIndex("_id"));
+            BinaryReqTask binaryReqTask = null;
+            if (i == 1 && i2 != 1003) {
+                binaryReqTask = new BinaryReqTask(this.mContext, new FileMsg(string, j, string2, string3, string4, Boolean.FALSE, string5));
+            }
+            if (binaryReqTask != null) {
+                ConcurrentHashMap<String, AbstractTask> concurrentHashMap = this.mAllTaskMap;
+                concurrentHashMap.put(string + j, binaryReqTask);
+                taskPriorityQueueOffer(binaryReqTask);
+            }
+        } while (query.moveToNext());
+    }
+
+    public void runAllTask() {
+        this.mHandler.sendEmptyMessage(4);
+    }
+
+    public void sendMessage(int i, Object obj) {
+        Message obtainMessage = this.mHandler.obtainMessage();
+        obtainMessage.what = i;
+        obtainMessage.obj = obj;
+        this.mHandler.sendMessage(obtainMessage);
+    }
+
+    public void setDownloadBufferSize(int i) {
+    }
+
+    public synchronized void setHttpDNSCacheInfo(HttpDNSCacheInfo httpDNSCacheInfo) {
+        this.mHttpDNSCacheInfo = httpDNSCacheInfo;
+    }
+
+    public void setInfoTypeList(Context context) {
+        String[] split;
+        String string = DownPrefUtils.getString(context, DownPrefUtils.PREF_CONFI_IS_INFO_TYPE, "");
+        CopyOnWriteArrayList copyOnWriteArrayList = this.mInfoTypeList;
+        if (copyOnWriteArrayList == null) {
+            this.mInfoTypeList = new CopyOnWriteArrayList();
+        } else {
+            copyOnWriteArrayList.clear();
+        }
+        if (TextUtils.isEmpty(string) || (split = string.intern().replace(" ", "").toLowerCase().split(",")) == null || split.length <= 0) {
+            return;
+        }
+        for (int i = 0; i < split.length; i++) {
+            if (!TextUtils.isEmpty(split[i])) {
+                this.mInfoTypeList.add(split[i]);
+            }
+        }
+    }
+
+    public void setMaxDownloadBufferCount(int i) {
+    }
+
+    public void setMaxDownloadThread(int i) {
+        if (this.mMaxThread != i) {
+            this.mMaxThread = i;
+            Handler handler = this.mHandler;
+            if (handler != null) {
+                handler.removeMessages(0);
+                this.mHandler.sendEmptyMessage(0);
+            }
         }
     }
 
     public long startDownload(FileMsg fileMsg) {
         AbstractTask binaryReqTask;
-        long j;
         SystemClock.elapsedRealtime();
-        long j2 = fileMsg.mId;
+        long j = fileMsg.mId;
         String str = fileMsg.mUrl;
-        if (fileMsg.mId > -1) {
+        if (j > -1) {
             str = str + fileMsg.mId;
         }
         if (this.mAllTaskMap.containsKey(str)) {
             resumeDownload(str, fileMsg);
-            j = j2;
         } else {
             if (this.mClient.getNetWorkType() != ConnectManager.NetWorkType.TYPE_2G) {
-                switch (this.mPatternConfig.patternType) {
-                    case 1:
-                        if (fileMsg.mPattern == 1 && isMatchInfoType(fileMsg.mDownloadType)) {
-                            binaryReqTask = new MultiSrcBinaryReqTask(this.mContext, fileMsg);
-                            break;
-                        } else {
-                            binaryReqTask = new BinaryReqTask(this.mContext, fileMsg);
-                            break;
-                        }
-                        break;
-                    default:
-                        binaryReqTask = new BinaryReqTask(this.mContext, fileMsg);
-                        break;
+                if (this.mPatternConfig.patternType != 1) {
+                    binaryReqTask = new BinaryReqTask(this.mContext, fileMsg);
+                } else if (fileMsg.mPattern == 1 && isMatchInfoType(fileMsg.mDownloadType)) {
+                    binaryReqTask = new MultiSrcBinaryReqTask(this.mContext, fileMsg);
+                } else {
+                    binaryReqTask = new BinaryReqTask(this.mContext, fileMsg);
                 }
             } else {
                 binaryReqTask = new BinaryReqTask(this.mContext, fileMsg);
@@ -361,7 +717,7 @@ public class BinaryTaskMng {
                 binaryReqTask.mDownloadId = this.mDbmng.insertToDatabase(binaryReqTask.mUri, binaryReqTask.mFilename, binaryReqTask.mFileDir, 1);
                 str = str + binaryReqTask.mDownloadId;
             }
-            long j3 = binaryReqTask.mDownloadId;
+            long j2 = binaryReqTask.mDownloadId;
             binaryReqTask.setPriority(fileMsg.mPriority);
             synchronized (this.mAllTaskMap) {
                 if (this.mAllTaskMap.containsKey(str)) {
@@ -371,30 +727,15 @@ public class BinaryTaskMng {
                     taskPriorityQueueOffer(binaryReqTask);
                 }
             }
-            j = j3;
+            j = j2;
         }
         this.mByteArrayInfoMng.initByteArray(ByteArrayInfoMng.mMaxByteSize);
         return j;
     }
 
-    private void resumeDownload(String str, FileMsg fileMsg) {
-        AbstractTask abstractTask = this.mAllTaskMap.get(str);
-        abstractTask.setPriority(fileMsg.mPriority);
-        taskPriorityQueueOffer(abstractTask);
-        abstractTask.mIntercepters = fileMsg.mIntercepters;
-        if (!abstractTask.mFileDir.equals(fileMsg.mSavePath)) {
-            abstractTask.mFileDir = fileMsg.mSavePath;
-            abstractTask.mFilePath = null;
-        }
-    }
-
-    public void pauseDownload(String str, long j) {
-        if (j > 0) {
-            str = str + j;
-        }
-        AbstractTask abstractTask = this.mAllTaskMap.get(str);
-        if (abstractTask != null) {
-            abstractTask.pause();
+    public void stopAllTask(boolean z) {
+        for (AbstractTask abstractTask : this.mAllTaskMap.values()) {
+            abstractTask.stop(z);
         }
     }
 
@@ -417,286 +758,15 @@ public class BinaryTaskMng {
         }).start();
     }
 
-    public void stopAllTask(boolean z) {
-        for (AbstractTask abstractTask : this.mAllTaskMap.values()) {
-            abstractTask.stop(z);
+    public void taskPriorityQueueOffer(AbstractTask abstractTask) {
+        int i = abstractTask.mStatus;
+        if (i == 1002 || i == 1009 || i == 1001) {
+            return;
         }
-    }
-
-    public void pauseAllTask() {
-        for (AbstractTask abstractTask : this.mAllTaskMap.values()) {
-            abstractTask.pause();
-        }
-    }
-
-    public void runAllTask() {
-        this.mHandler.sendEmptyMessage(4);
-    }
-
-    private void notifySpeedIdle(AbstractTask abstractTask) {
-        abstractTask.mLastNotifySpeed = 0L;
-        TaskMsg taskMsg = new TaskMsg();
-        taskMsg.status = 1002;
-        taskMsg._id = abstractTask.mDownloadId;
-        taskMsg.uKey = abstractTask.mUri + abstractTask.mDownloadId;
-        taskMsg.filePath = abstractTask.mFilePath;
-        taskMsg.fileSize = abstractTask.mTotalLength;
-        taskMsg.transferedSize = abstractTask.mProgressInfo.getCurrentLength();
-        taskMsg.progressMap = abstractTask.mProgressInfo.toString();
-        taskMsg.transferedSpeed = 0L;
-        notifyUi(taskMsg);
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void priorityRunning() {
-        AbstractTask abstractTask;
-        Iterator<AbstractTask> it = this.mCurTaskList.iterator();
-        while (it.hasNext()) {
-            AbstractTask next = it.next();
-            if (next.mStatus == 1004 || next.mStatus == 1005 || next.mStatus == 1003 || next.mStatus == 1008 || next.mStatus == 1006) {
-                it.remove();
-            }
-            long elapsedRealtime = SystemClock.elapsedRealtime();
-            if (next.mStatus == 1001 || next.mStatus == 1002) {
-                if (next.mLastNotifySpeed != 0 && elapsedRealtime - next.mLastNotifyTime > 2000) {
-                    notifySpeedIdle(next);
-                }
-            }
-        }
-        while (this.mTaskPriorityQueue.size() > 0) {
-            if (this.mCurTaskList.size() < this.mMaxThread) {
-                AbstractTask abstractTask2 = this.mAllTaskMap.get(this.mTaskPriorityQueue.poll().getTaskKey());
-                if (abstractTask2 != null && abstractTask2.mStatus != 1004 && abstractTask2.mStatus != 1005 && abstractTask2.mStatus != 1003 && abstractTask2.mStatus != 1008 && abstractTask2.mStatus != 1006 && !this.mCurTaskList.contains(abstractTask2)) {
-                    this.mCurTaskList.add(abstractTask2);
-                    abstractTask2.start();
-                }
-            } else {
-                AbstractTask peek = this.mTaskPriorityQueue.peek();
-                if (peek.mLastNotifyBytes > 0 && peek.mTotalLength > 0 && peek.mLastNotifySpeed > 0 && (peek.mTotalLength - peek.mLastNotifyBytes) / peek.mLastNotifySpeed <= 3) {
-                    peek.setPriority(peek.getPriority() + 1);
-                }
-                Iterator<AbstractTask> it2 = this.mCurTaskList.iterator();
-                while (true) {
-                    if (!it2.hasNext()) {
-                        abstractTask = null;
-                        break;
-                    }
-                    abstractTask = it2.next();
-                    if (abstractTask.mLastNotifyBytes <= 0 || abstractTask.mTotalLength <= 0 || abstractTask.mLastNotifySpeed <= 0 || (abstractTask.mTotalLength - abstractTask.mLastNotifyBytes) / abstractTask.mLastNotifySpeed > 3) {
-                        if (peek.getPriority() > abstractTask.getPriority()) {
-                            break;
-                        }
-                    }
-                }
-                if (abstractTask == null) {
-                    break;
-                }
-                this.mTaskPriorityQueue.remove(peek);
-                AbstractTask abstractTask3 = this.mAllTaskMap.get(peek.getTaskKey());
-                if (abstractTask3 != null && abstractTask3.mStatus != 1004 && abstractTask3.mStatus != 1005 && abstractTask3.mStatus != 1003 && abstractTask3.mStatus != 1008 && abstractTask3.mStatus != 1006 && !this.mCurTaskList.contains(abstractTask3)) {
-                    abstractTask.pend();
-                    this.mCurTaskList.remove(abstractTask);
-                    this.mTaskPriorityQueue.add(abstractTask);
-                    this.mCurTaskList.add(abstractTask3);
-                    abstractTask3.start();
-                }
-            }
-        }
-        if (this.mTaskPriorityQueue.size() > 0 || this.mCurTaskList.size() > 0) {
-            this.mHandler.sendEmptyMessageDelayed(0, 5000L);
-            if (this.mWakelock == null) {
-                this.mWakelock = ((PowerManager) this.mContext.getSystemService("power")).newWakeLock(1, "Async-Downloader");
-                this.mWakelock.acquire();
-            }
-            if (this.mWakelock != null && !this.mWakelock.isHeld()) {
-                this.mWakelock.acquire();
-            }
-        } else if (this.mWakelock != null && this.mWakelock.isHeld()) {
-            this.mWakelock.release();
-        }
-    }
-
-    public int findTaskStatus(String str, long j) {
-        if (j > 0) {
-            str = str + j;
-        }
-        AbstractTask abstractTask = this.mAllTaskMap.get(str);
-        if (abstractTask == null) {
-            return -1;
-        }
-        return abstractTask.mStatus;
-    }
-
-    public long findTaskTotalLength(String str, long j) {
-        if (j > 0) {
-            str = str + j;
-        }
-        AbstractTask abstractTask = this.mAllTaskMap.get(str);
-        if (abstractTask != null) {
-            return abstractTask.mTotalLength;
-        }
-        return 0L;
-    }
-
-    public long findTaskCurrentLength(String str, long j) {
-        if (j > 0) {
-            str = str + j;
-        }
-        AbstractTask abstractTask = this.mAllTaskMap.get(str);
-        if (abstractTask != null) {
-            return abstractTask.mProgressInfo.getCurrentLength();
-        }
-        return 0L;
-    }
-
-    public String findTaskFilename(String str, long j) {
-        if (j > 0) {
-            str = str + j;
-        }
-        AbstractTask abstractTask = this.mAllTaskMap.get(str);
-        if (abstractTask == null) {
-            return "";
-        }
-        return abstractTask.mFilename;
-    }
-
-    public String findTaskFilepath(String str, long j) {
-        if (j > 0) {
-            str = str + j;
-        }
-        AbstractTask abstractTask = this.mAllTaskMap.get(str);
-        if (abstractTask == null) {
-            return "";
-        }
-        return abstractTask.mFileDir;
-    }
-
-    public String findTaskMimetype(String str, long j) {
-        if (j > 0) {
-            str = str + j;
-        }
-        AbstractTask abstractTask = this.mAllTaskMap.get(str);
-        if (abstractTask == null) {
-            return "";
-        }
-        return abstractTask.mMimetype;
-    }
-
-    public void notifyUi(Object obj) {
-        for (TaskObserverInterface taskObserverInterface : this.mObserverList) {
-            taskObserverInterface.onUpdate(obj);
-        }
-    }
-
-    public void notifyUiMessageType(String str, long j, int i, Object obj) {
-        for (TaskObserverInterface taskObserverInterface : this.mObserverList) {
-            taskObserverInterface.onDownloadMsgType(str, j, i, obj);
-        }
-    }
-
-    public void notifyMngTaskStatus(String str, long j) {
-        if (j > 0) {
-            str = str + j;
-        }
-        AbstractTask abstractTask = this.mAllTaskMap.get(str);
-        if (abstractTask != null) {
-            if (abstractTask.mStatus == 1004 || abstractTask.mStatus == 1008) {
-                synchronized (this.mAllTaskMap) {
-                    this.mAllTaskMap.remove(str);
-                }
-                this.mHandler.removeMessages(1);
-                this.mHandler.sendEmptyMessageDelayed(1, 30000L);
-            }
-            this.mHandler.removeMessages(0);
-            this.mHandler.sendEmptyMessage(0);
-            if (abstractTask.mStatus == 1004 || abstractTask.mStatus == 1005 || abstractTask.mStatus == 1006 || abstractTask.mStatus == 1008) {
-                if (abstractTask.mTaskSpeedStat.speedStatEnable) {
-                    abstractTask.mTaskSpeedStat.status = abstractTask.mStatus;
-                    TaskNetRequestMng.sendSpeedStat(this.mContext, abstractTask.mTaskSpeedStat, this.mDownConfig.mConfigSpeedStat, false);
-                } else if (SpeedStatData.acquireSpeedStatConfig(this.mContext, this.mDownConfig)) {
-                    TaskNetRequestMng.sendSpeedStat(this.mContext, null, this.mDownConfig.mConfigSpeedStat, true);
-                }
-            }
-            if (abstractTask instanceof MultiSrcBinaryReqTask) {
-                ((MultiSrcBinaryReqTask) abstractTask).notifyTaskStatus(abstractTask.mStatus);
-            }
-        }
-    }
-
-    public void sendMessage(int i, Object obj) {
+        abstractTask.mStatus = 1009;
         Message obtainMessage = this.mHandler.obtainMessage();
-        obtainMessage.what = i;
-        obtainMessage.obj = obj;
-        this.mHandler.sendMessage(obtainMessage);
-    }
-
-    public synchronized HttpDNSCacheInfo getHttpDNSCacheInfo() {
-        return this.mHttpDNSCacheInfo;
-    }
-
-    public synchronized void setHttpDNSCacheInfo(HttpDNSCacheInfo httpDNSCacheInfo) {
-        this.mHttpDNSCacheInfo = httpDNSCacheInfo;
-    }
-
-    public PatternConfig getPatternConfig() {
-        return this.mPatternConfig;
-    }
-
-    public StatisticInfo getStatsticInfo(long j) {
-        if (this.mStatsticMap != null) {
-            return this.mStatsticMap.get(Long.valueOf(j));
-        }
-        return null;
-    }
-
-    public void addStatsticMap(Long l, StatisticInfo statisticInfo) {
-        this.mStatsticMap.put(l, statisticInfo);
-    }
-
-    public void setInfoTypeList(Context context) {
-        String[] split;
-        String string = DownPrefUtils.getString(context, DownPrefUtils.PREF_CONFI_IS_INFO_TYPE, "");
-        if (this.mInfoTypeList == null) {
-            this.mInfoTypeList = new CopyOnWriteArrayList();
-        } else {
-            this.mInfoTypeList.clear();
-        }
-        if (!TextUtils.isEmpty(string) && (split = string.intern().replace(" ", "").toLowerCase().split(",")) != null && split.length > 0) {
-            for (int i = 0; i < split.length; i++) {
-                if (!TextUtils.isEmpty(split[i])) {
-                    this.mInfoTypeList.add(split[i]);
-                }
-            }
-        }
-    }
-
-    private boolean isMatchInfoType(String str) {
-        return (this.mInfoTypeList == null || this.mInfoTypeList.isEmpty() || TextUtils.isEmpty(str) || !this.mInfoTypeList.contains(str)) ? false : true;
-    }
-
-    public static void setAllowRequestConfig(boolean z) {
-        mAllowRequestConfig = z;
-    }
-
-    public DownConfig getDownConfig() {
-        return this.mDownConfig;
-    }
-
-    public String getDownThreadStat(String str, long j) {
-        if (j > 0) {
-            str = str + j;
-        }
-        if (this.mAllTaskMap.get(str) == null) {
-            return "";
-        }
-        return SpeedStatData.buildSpeedStat(this.mContext, this.mAllTaskMap.get(str).mTaskSpeedStat, null);
-    }
-
-    private void initHttpDns(String str) {
-        String[] split;
-        if (str != null && (split = str.split(Constants.ACCEPT_TIME_SEPARATOR_SERVER)) != null) {
-            HttpDns.getInstance().setPreResolveHosts(split);
-        }
-        HttpDns.getInstance().setExpiredIPAvailable(false);
+        obtainMessage.what = 3;
+        obtainMessage.obj = abstractTask;
+        this.mHandler.sendMessageAtFrontOfQueue(obtainMessage);
     }
 }

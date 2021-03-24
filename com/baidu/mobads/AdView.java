@@ -11,20 +11,99 @@ import com.baidu.mobads.interfaces.event.IXAdEvent;
 import com.baidu.mobads.openad.interfaces.event.IOAdEventListener;
 import com.baidu.mobads.utils.XAdSDKFoundationFacade;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public final class AdView extends RelativeLayout {
-    protected static final String P_VERSION = "3.61";
+    public static final String P_VERSION = "3.61";
 
     /* renamed from: a  reason: collision with root package name */
-    IOAdEventListener f2342a;
-    private AtomicBoolean b;
-    private com.baidu.mobads.production.a.a c;
-    private AdViewListener d;
+    public IOAdEventListener f8101a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public AtomicBoolean f8102b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public com.baidu.mobads.production.a.a f8103c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public AdViewListener f8104d;
 
     public AdView(Context context) {
         super(context);
-        this.b = new AtomicBoolean(false);
-        this.f2342a = new a(this);
+        this.f8102b = new AtomicBoolean(false);
+        this.f8101a = new a(this);
+    }
+
+    @Deprecated
+    public static void setAppSec(Context context, String str) {
+    }
+
+    public static void setAppSid(Context context, String str) {
+        XAdSDKFoundationFacade.getInstance().getCommonUtils().setAppId(str);
+    }
+
+    public void destroy() {
+        this.f8103c.p();
+    }
+
+    @Override // android.view.View
+    @Deprecated
+    public void setAlpha(float f2) {
+    }
+
+    @Override // android.view.View
+    @Deprecated
+    public void setBackgroundColor(int i) {
+    }
+
+    @Override // android.view.View
+    public void setLayoutParams(ViewGroup.LayoutParams layoutParams) {
+        XAdSDKFoundationFacade.getInstance().getAdLogger().d("AdView.setLayoutParams=", Integer.valueOf(layoutParams.width), Integer.valueOf(layoutParams.height), Integer.valueOf(getWidth()), Integer.valueOf(getHeight()));
+        int i = layoutParams.width;
+        int i2 = layoutParams.height;
+        DisplayMetrics displayMetrics = new DisplayMetrics();
+        ((WindowManager) getContext().getSystemService("window")).getDefaultDisplay().getMetrics(displayMetrics);
+        int i3 = displayMetrics.widthPixels;
+        int i4 = displayMetrics.heightPixels;
+        float f2 = displayMetrics.density;
+        XAdSDKFoundationFacade.getInstance().getAdLogger().d("AdView.setLayoutParams", Integer.valueOf(i3), Integer.valueOf(i4), Float.valueOf(f2));
+        if (i <= 0) {
+            i = Math.min(i3, i4);
+        } else if (i > 0) {
+            float f3 = 200.0f * f2;
+            if (i < f3) {
+                i = (int) f3;
+            }
+        }
+        if (i2 <= 0) {
+            i2 = (int) (Math.min(i3, i4) * 0.15f);
+        } else if (i2 > 0) {
+            float f4 = f2 * 30.0f;
+            if (i2 < f4) {
+                i2 = (int) f4;
+            }
+        }
+        layoutParams.width = i;
+        layoutParams.height = i2;
+        com.baidu.mobads.production.a.a aVar = this.f8103c;
+        if (aVar != null && aVar.getAdRequestInfo() != null) {
+            this.f8103c.getAdRequestInfo().d(layoutParams.width);
+            this.f8103c.getAdRequestInfo().e(layoutParams.height);
+        }
+        XAdSDKFoundationFacade.getInstance().getAdLogger().d("AdView.setLayoutParams adapter", Integer.valueOf(layoutParams.width), Integer.valueOf(layoutParams.height));
+        super.setLayoutParams(layoutParams);
+    }
+
+    public void setListener(AdViewListener adViewListener) {
+        this.f8104d = adViewListener;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void a() {
+        if (this.f8102b.get()) {
+            return;
+        }
+        this.f8102b.set(true);
+        this.f8103c.request();
     }
 
     public AdView(Context context, String str) {
@@ -35,89 +114,23 @@ public final class AdView extends RelativeLayout {
         this(context, true, adSize, str);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public AdView(Context context, boolean z, AdSize adSize, String str) {
         this(context, null, z, adSize, str);
     }
 
     public AdView(Context context, AttributeSet attributeSet, boolean z, AdSize adSize, String str) {
         super(context, attributeSet);
-        this.b = new AtomicBoolean(false);
-        this.f2342a = new a(this);
+        this.f8102b = new AtomicBoolean(false);
+        this.f8101a = new a(this);
         XAdView xAdView = new XAdView(context);
-        this.c = new com.baidu.mobads.production.a.a(context, xAdView, str, z);
-        this.c.addEventListener(IXAdEvent.AD_LOADED, this.f2342a);
-        this.c.addEventListener(IXAdEvent.AD_ERROR, this.f2342a);
-        this.c.addEventListener(IXAdEvent.AD_STARTED, this.f2342a);
-        this.c.addEventListener("AdUserClick", this.f2342a);
-        this.c.addEventListener(IXAdEvent.AD_USER_CLOSE, this.f2342a);
+        com.baidu.mobads.production.a.a aVar = new com.baidu.mobads.production.a.a(context, xAdView, str, z);
+        this.f8103c = aVar;
+        aVar.addEventListener(IXAdEvent.AD_LOADED, this.f8101a);
+        this.f8103c.addEventListener(IXAdEvent.AD_ERROR, this.f8101a);
+        this.f8103c.addEventListener(IXAdEvent.AD_STARTED, this.f8101a);
+        this.f8103c.addEventListener("AdUserClick", this.f8101a);
+        this.f8103c.addEventListener(IXAdEvent.AD_USER_CLOSE, this.f8101a);
         xAdView.setListener(new c(this));
         addView(xAdView, new ViewGroup.LayoutParams(-1, -1));
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a() {
-        if (!this.b.get()) {
-            this.b.set(true);
-            this.c.request();
-        }
-    }
-
-    @Override // android.view.View
-    public void setLayoutParams(ViewGroup.LayoutParams layoutParams) {
-        int i;
-        XAdSDKFoundationFacade.getInstance().getAdLogger().d("AdView.setLayoutParams=", Integer.valueOf(layoutParams.width), Integer.valueOf(layoutParams.height), Integer.valueOf(getWidth()), Integer.valueOf(getHeight()));
-        int i2 = layoutParams.width;
-        int i3 = layoutParams.height;
-        DisplayMetrics displayMetrics = new DisplayMetrics();
-        ((WindowManager) getContext().getSystemService("window")).getDefaultDisplay().getMetrics(displayMetrics);
-        int i4 = displayMetrics.widthPixels;
-        int i5 = displayMetrics.heightPixels;
-        float f = displayMetrics.density;
-        XAdSDKFoundationFacade.getInstance().getAdLogger().d("AdView.setLayoutParams", Integer.valueOf(i4), Integer.valueOf(i5), Float.valueOf(f));
-        if (i2 <= 0) {
-            i2 = Math.min(i4, i5);
-        } else if (i2 > 0 && i2 < 200.0f * f) {
-            i2 = (int) (200.0f * f);
-        }
-        if (i3 <= 0) {
-            i = (int) (Math.min(i4, i5) * 0.15f);
-        } else {
-            i = (i3 <= 0 || ((float) i3) >= 30.0f * f) ? i3 : (int) (30.0f * f);
-        }
-        layoutParams.width = i2;
-        layoutParams.height = i;
-        if (this.c != null && this.c.getAdRequestInfo() != null) {
-            this.c.getAdRequestInfo().d(layoutParams.width);
-            this.c.getAdRequestInfo().e(layoutParams.height);
-        }
-        XAdSDKFoundationFacade.getInstance().getAdLogger().d("AdView.setLayoutParams adapter", Integer.valueOf(layoutParams.width), Integer.valueOf(layoutParams.height));
-        super.setLayoutParams(layoutParams);
-    }
-
-    public void setListener(AdViewListener adViewListener) {
-        this.d = adViewListener;
-    }
-
-    @Override // android.view.View
-    @Deprecated
-    public void setAlpha(float f) {
-    }
-
-    @Override // android.view.View
-    @Deprecated
-    public void setBackgroundColor(int i) {
-    }
-
-    public void destroy() {
-        this.c.p();
-    }
-
-    public static void setAppSid(Context context, String str) {
-        XAdSDKFoundationFacade.getInstance().getCommonUtils().setAppId(str);
-    }
-
-    @Deprecated
-    public static void setAppSec(Context context, String str) {
     }
 }

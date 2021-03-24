@@ -5,49 +5,142 @@ import com.baidu.adp.framework.listener.HttpMessageListener;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.adp.framework.task.HttpMessageTask;
-import com.baidu.adp.lib.f.e;
-import com.baidu.live.tbadk.data.Config;
 import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.faceshop.EmotionPackageData;
 import com.baidu.tieba.faceshop.MyEmotionGroupData;
-import com.baidu.tieba.newfaceshop.c;
-import com.baidu.tieba.newfaceshop.nativemotionmanager.model.a.a;
 import com.baidu.tieba.newfaceshop.nativemotionmanager.model.data.NativeManageEmotionModel;
 import com.baidu.tieba.newfaceshop.nativemotionmanager.model.data.SingleThreadEmotionResponseMessage;
+import d.b.b.e.m.e;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
-/* loaded from: classes8.dex */
-public class SingleThreadEmotionModel extends NativeManageEmotionModel implements com.baidu.tieba.newfaceshop.nativemotionmanager.model.a.a {
-    private a.InterfaceC0821a lFz;
-    private final HttpMessageListener lFD = new HttpMessageListener(1003386) { // from class: com.baidu.tieba.newfaceshop.nativemotionmanager.model.SingleThreadEmotionModel.1
+/* loaded from: classes4.dex */
+public class SingleThreadEmotionModel extends NativeManageEmotionModel {
+
+    /* renamed from: e  reason: collision with root package name */
+    public d.b.i0.x1.h.e.a.a f19307e;
+
+    /* renamed from: g  reason: collision with root package name */
+    public final HttpMessageListener f19309g = new a(CmdConfigHttp.CMD_GET_EMOTION_SINGLE_THREAD);
+
+    /* renamed from: f  reason: collision with root package name */
+    public List<String> f19308f = new ArrayList();
+
+    /* loaded from: classes4.dex */
+    public class a extends HttpMessageListener {
+        public a(int i) {
+            super(i);
+        }
+
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003386 && (httpResponsedMessage instanceof SingleThreadEmotionResponseMessage)) {
                 SingleThreadEmotionResponseMessage singleThreadEmotionResponseMessage = (SingleThreadEmotionResponseMessage) httpResponsedMessage;
-                if (SingleThreadEmotionModel.this.lFz != null) {
+                if (SingleThreadEmotionModel.this.f19307e != null) {
                     if (singleThreadEmotionResponseMessage.data != null) {
-                        SingleThreadEmotionModel.this.lFz.onSuccess(SingleThreadEmotionModel.this.fc(singleThreadEmotionResponseMessage.data.pkg_list));
+                        SingleThreadEmotionModel.this.f19307e.onSuccess(SingleThreadEmotionModel.this.w(singleThreadEmotionResponseMessage.data.pkg_list));
                     } else {
-                        SingleThreadEmotionModel.this.lFz.onFail();
+                        SingleThreadEmotionModel.this.f19307e.onFail();
                     }
                 }
             }
         }
-    };
-    private List<String> lFA = new ArrayList();
+    }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public List<EmotionPackageData> fc(List<EmotionPackageData> list) {
+    /* loaded from: classes4.dex */
+    public class b implements Runnable {
+        public b() {
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            SingleThreadEmotionModel.this.A();
+            List<MyEmotionGroupData> f2 = d.b.i0.x1.c.i().f();
+            JSONArray jSONArray = new JSONArray();
+            if (f2 != null && !f2.isEmpty()) {
+                for (MyEmotionGroupData myEmotionGroupData : f2) {
+                    if (myEmotionGroupData != null) {
+                        jSONArray.put(myEmotionGroupData.getGroupId());
+                        SingleThreadEmotionModel.this.C(myEmotionGroupData.getGroupId());
+                    }
+                }
+            }
+            SingleThreadEmotionModel singleThreadEmotionModel = SingleThreadEmotionModel.this;
+            e.a().post(new c(singleThreadEmotionModel, singleThreadEmotionModel));
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class c implements Runnable {
+
+        /* renamed from: e  reason: collision with root package name */
+        public WeakReference<SingleThreadEmotionModel> f19312e;
+
+        public c(SingleThreadEmotionModel singleThreadEmotionModel, SingleThreadEmotionModel singleThreadEmotionModel2) {
+            this.f19312e = new WeakReference<>(singleThreadEmotionModel2);
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            SingleThreadEmotionModel singleThreadEmotionModel = this.f19312e.get();
+            if (singleThreadEmotionModel != null) {
+                singleThreadEmotionModel.sendMessage(new HttpMessage(CmdConfigHttp.CMD_GET_EMOTION_SINGLE_THREAD));
+            }
+        }
+    }
+
+    public SingleThreadEmotionModel() {
+        registerTask();
+        this.f19309g.setTag(getUniqueId());
+        this.f19309g.setSelfListener(true);
+        registerListener(this.f19309g);
+    }
+
+    public final synchronized void A() {
+        this.f19308f.clear();
+    }
+
+    public void B(d.b.i0.x1.h.e.a.a aVar) {
+        this.f19307e = aVar;
+    }
+
+    public final synchronized void C(String str) {
+        this.f19308f.add(str);
+    }
+
+    @Override // com.baidu.adp.base.BdBaseModel
+    public boolean LoadData() {
+        d.b.i0.x1.a.b().a(new b());
+        return false;
+    }
+
+    @Override // com.baidu.adp.base.BdBaseModel
+    public boolean cancelLoadData() {
+        return false;
+    }
+
+    public final void registerTask() {
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_EMOTION_SINGLE_THREAD, TbConfig.SERVER_ADDRESS + "c/e/meme/getMyForumPackage");
+        tbHttpMessageTask.setResponsedClass(SingleThreadEmotionResponseMessage.class);
+        tbHttpMessageTask.setIsNeedLogin(true);
+        tbHttpMessageTask.setIsNeedTbs(true);
+        tbHttpMessageTask.setMethod(HttpMessageTask.HTTP_METHOD.POST);
+        tbHttpMessageTask.setIsUseCurrentBDUSS(true);
+        MessageManager.getInstance().registerTask(tbHttpMessageTask);
+    }
+
+    public final List<EmotionPackageData> w(List<EmotionPackageData> list) {
         ArrayList arrayList = new ArrayList();
         if (list != null) {
-            List<String> djr = djr();
+            List<String> x = x();
             for (EmotionPackageData emotionPackageData : list) {
-                if (emotionPackageData.status == 5 || emotionPackageData.status == 1) {
-                    if (emotionPackageData.status == 1 && djr.contains(String.valueOf(emotionPackageData.id))) {
+                int i = emotionPackageData.status;
+                if (i == 5 || i == 1) {
+                    if (emotionPackageData.status == 1 && x.contains(String.valueOf(emotionPackageData.id))) {
                         emotionPackageData.ishasdownload = true;
                     }
                     arrayList.add(emotionPackageData);
@@ -57,92 +150,17 @@ public class SingleThreadEmotionModel extends NativeManageEmotionModel implement
         return arrayList;
     }
 
-    private void registerTask() {
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003386, TbConfig.SERVER_ADDRESS + Config.EMOTION_MANAGER_FORUMPACKAGE);
-        tbHttpMessageTask.setResponsedClass(SingleThreadEmotionResponseMessage.class);
-        tbHttpMessageTask.setIsNeedLogin(true);
-        tbHttpMessageTask.setIsNeedTbs(true);
-        tbHttpMessageTask.setMethod(HttpMessageTask.HTTP_METHOD.POST);
-        tbHttpMessageTask.setIsUseCurrentBDUSS(true);
-        MessageManager.getInstance().registerTask(tbHttpMessageTask);
+    public final synchronized List<String> x() {
+        return new ArrayList(this.f19308f);
     }
 
-    public SingleThreadEmotionModel() {
-        registerTask();
-        this.lFD.setTag(getUniqueId());
-        this.lFD.setSelfListener(true);
-        registerListener(this.lFD);
-    }
-
-    /* loaded from: classes8.dex */
-    public class a implements Runnable {
-        private WeakReference<SingleThreadEmotionModel> lFI;
-
-        public a(SingleThreadEmotionModel singleThreadEmotionModel) {
-            this.lFI = new WeakReference<>(singleThreadEmotionModel);
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            SingleThreadEmotionModel singleThreadEmotionModel = this.lFI.get();
-            if (singleThreadEmotionModel != null) {
-                singleThreadEmotionModel.sendMessage(new HttpMessage(1003386));
-            }
-        }
-    }
-
-    public void a(a.InterfaceC0821a interfaceC0821a) {
-        this.lFz = interfaceC0821a;
-    }
-
-    @Override // com.baidu.adp.base.BdBaseModel
-    protected boolean LoadData() {
-        com.baidu.tieba.newfaceshop.a.diz().execute(new Runnable() { // from class: com.baidu.tieba.newfaceshop.nativemotionmanager.model.SingleThreadEmotionModel.2
-            @Override // java.lang.Runnable
-            public void run() {
-                SingleThreadEmotionModel.this.djq();
-                List<MyEmotionGroupData> diC = c.diB().diC();
-                JSONArray jSONArray = new JSONArray();
-                if (diC != null && !diC.isEmpty()) {
-                    for (MyEmotionGroupData myEmotionGroupData : diC) {
-                        if (myEmotionGroupData != null) {
-                            jSONArray.put(myEmotionGroupData.getGroupId());
-                            SingleThreadEmotionModel.this.Pb(myEmotionGroupData.getGroupId());
-                        }
-                    }
-                }
-                e.mA().post(new a(SingleThreadEmotionModel.this));
-            }
-        });
-        return false;
-    }
-
-    public void loadData() {
+    public void y() {
         LoadData();
     }
 
-    @Override // com.baidu.adp.base.BdBaseModel
-    public boolean cancelLoadData() {
-        return false;
-    }
-
-    private synchronized List<String> djr() {
-        return new ArrayList(this.lFA);
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public synchronized void djq() {
-        this.lFA.clear();
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public synchronized void Pb(String str) {
-        this.lFA.add(str);
-    }
-
-    public void djs() {
-        if (this.lFD != null) {
-            MessageManager.getInstance().unRegisterListener(this.lFD);
+    public void z() {
+        if (this.f19309g != null) {
+            MessageManager.getInstance().unRegisterListener(this.f19309g);
         }
     }
 }

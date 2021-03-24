@@ -1,61 +1,16 @@
 package com.xiaomi.push;
+/* loaded from: classes7.dex */
+public enum ec {
+    ACTIVITY("activity"),
+    SERVICE_ACTION("service_action"),
+    SERVICE_COMPONENT("service_component"),
+    PROVIDER("provider");
+    
 
-import android.content.Context;
-import android.text.TextUtils;
-/* loaded from: classes5.dex */
-public class ec extends ed {
+    /* renamed from: a  reason: collision with other field name */
+    public String f316a;
 
-    /* renamed from: a  reason: collision with root package name */
-    public static String f8334a = "";
-    public static String b = "";
-
-    public ec(Context context, int i) {
-        super(context, i);
-    }
-
-    private String a(String str, String str2) {
-        if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
-            return "";
-        }
-        String[] split = str2.split(",");
-        if (split.length <= 10) {
-            return str2;
-        }
-        int length = split.length;
-        while (true) {
-            length--;
-            if (length < split.length - 10) {
-                return str;
-            }
-            str = str + split[length];
-        }
-    }
-
-    @Override // com.xiaomi.push.ed, com.xiaomi.push.ai.a
-    /* renamed from: a */
-    public int mo170a() {
-        return 12;
-    }
-
-    @Override // com.xiaomi.push.ed, com.xiaomi.push.ai.a
-    /* renamed from: a */
-    public ho mo170a() {
-        return ho.BroadcastAction;
-    }
-
-    @Override // com.xiaomi.push.ed, com.xiaomi.push.ai.a
-    /* renamed from: a */
-    public String mo170a() {
-        String str = "";
-        if (!TextUtils.isEmpty(f8334a)) {
-            str = "" + a(dv.f229a, f8334a);
-            f8334a = "";
-        }
-        if (TextUtils.isEmpty(b)) {
-            return str;
-        }
-        String str2 = str + a(dv.b, b);
-        b = "";
-        return str2;
+    ec(String str) {
+        this.f316a = str;
     }
 }

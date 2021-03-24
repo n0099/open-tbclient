@@ -11,7 +11,7 @@ import com.kwad.sdk.glide.load.d;
 import com.kwad.sdk.glide.load.h;
 import com.kwad.sdk.glide.load.resource.bitmap.DownsampleStrategy;
 import com.kwad.sdk.glide.request.f;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public final class a extends f implements Cloneable {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.glide.request.a
@@ -103,8 +103,8 @@ public final class a extends f implements Cloneable {
     @NonNull
     @CheckResult
     /* renamed from: b */
-    public a a(@FloatRange(from = 0.0d, to = 1.0d) float f) {
-        return (a) super.a(f);
+    public a a(@FloatRange(from = 0.0d, to = 1.0d) float f2) {
+        return (a) super.a(f2);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

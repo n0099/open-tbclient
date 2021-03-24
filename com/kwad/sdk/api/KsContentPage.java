@@ -11,12 +11,12 @@ import java.lang.annotation.RetentionPolicy;
 import java.util.List;
 @KsAdSdkApi
 @Keep
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public interface KsContentPage {
 
     @KsAdSdkApi
     @Keep
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class ContentItem {
         public String id;
         public int materialType = 0;
@@ -25,7 +25,7 @@ public interface KsContentPage {
         @KsAdSdkApi
         @Keep
         @Retention(RetentionPolicy.SOURCE)
-        /* loaded from: classes3.dex */
+        /* loaded from: classes.dex */
         public @interface MaterialType {
             public static final int AD = 2;
             public static final int CONTENT = 1;
@@ -36,7 +36,7 @@ public interface KsContentPage {
 
     @KsAdSdkApi
     @Keep
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public interface OnPageLoadListener {
         @KsAdSdkApi
         @Keep
@@ -53,7 +53,7 @@ public interface KsContentPage {
 
     @KsAdSdkApi
     @Keep
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public interface PageListener {
         @KsAdSdkApi
         @Keep
@@ -78,7 +78,7 @@ public interface KsContentPage {
 
     @KsAdSdkApi
     @Keep
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static abstract class SubShowItem {
         @KsAdSdkApi
         @Keep
@@ -114,7 +114,7 @@ public interface KsContentPage {
 
     @KsAdSdkApi
     @Keep
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public interface VideoListener {
         @KsAdSdkApi
         @Keep

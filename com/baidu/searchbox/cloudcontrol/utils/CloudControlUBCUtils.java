@@ -2,57 +2,58 @@ package com.baidu.searchbox.cloudcontrol.utils;
 
 import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.pyramid.runtime.service.c;
+import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.searchbox.cloudcontrol.data.CloudControlUBCData;
 import com.baidu.searchbox.config.AppConfig;
-import com.baidu.ubc.ab;
+import com.baidu.ubc.UBCManager;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class CloudControlUBCUtils {
-    private static final String KEY_CONTROL = "control";
+    public static final String KEY_CONTROL = "control";
     public static final String KEY_EXT = "ext";
     public static final String KEY_K = "product";
-    private static final String KEY_LOGID = "logid";
-    private static final String KEY_SERVICE = "service";
-    private static final String KEY_SOURCE = "source";
-    private static final String KEY_TRACE_ID = "traceid";
+    public static final String KEY_LOGID = "logid";
+    public static final String KEY_SERVICE = "service";
+    public static final String KEY_SOURCE = "source";
+    public static final String KEY_TRACE_ID = "traceid";
     public static final String KEY_V = "version";
     public static final String KEY_VALID = "valid";
-    private static final String TAG = "CloudControlUBCUtils";
-    private static final String UBC_CLOUD_CTROL_ID = "944";
+    public static final String TAG = "CloudControlUBCUtils";
+    public static final String UBC_CLOUD_CTROL_ID = "944";
 
     public void doStatistics(CloudControlUBCData cloudControlUBCData) {
-        if (cloudControlUBCData != null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("source", cloudControlUBCData.getRunType());
-                JSONObject jSONObject2 = new JSONObject();
-                jSONObject2.put("logid", cloudControlUBCData.getLogId());
-                JSONObject serviceJsonObject = cloudControlUBCData.getServiceJsonObject();
-                if (serviceJsonObject != null && serviceJsonObject.length() != 0) {
-                    jSONObject2.put("service", serviceJsonObject);
-                }
-                JSONObject controlJsonObject = cloudControlUBCData.getControlJsonObject();
-                if (controlJsonObject != null && controlJsonObject.length() != 0) {
-                    jSONObject2.put(KEY_CONTROL, controlJsonObject);
-                }
-                if (!TextUtils.isEmpty(cloudControlUBCData.getTraceId())) {
-                    jSONObject.put(KEY_TRACE_ID, cloudControlUBCData.getTraceId());
-                }
-                jSONObject.put("ext", jSONObject2);
-                ab abVar = (ab) c.a(ab.SERVICE_REFERENCE);
-                if (abVar != null) {
-                    abVar.onEvent(UBC_CLOUD_CTROL_ID, jSONObject);
-                }
-                if (AppConfig.isDebug()) {
-                    Log.d(TAG, "cloud control ubc is 944:" + jSONObject.toString());
-                }
-            } catch (JSONException e) {
-                if (AppConfig.isDebug()) {
-                    Log.d(TAG, "cloud control doStatistics error" + e.toString());
-                    e.printStackTrace();
-                }
+        if (cloudControlUBCData == null) {
+            return;
+        }
+        JSONObject jSONObject = new JSONObject();
+        try {
+            jSONObject.put("source", cloudControlUBCData.getRunType());
+            JSONObject jSONObject2 = new JSONObject();
+            jSONObject2.put("logid", cloudControlUBCData.getLogId());
+            JSONObject serviceJsonObject = cloudControlUBCData.getServiceJsonObject();
+            if (serviceJsonObject != null && serviceJsonObject.length() != 0) {
+                jSONObject2.put("service", serviceJsonObject);
+            }
+            JSONObject controlJsonObject = cloudControlUBCData.getControlJsonObject();
+            if (controlJsonObject != null && controlJsonObject.length() != 0) {
+                jSONObject2.put("control", controlJsonObject);
+            }
+            if (!TextUtils.isEmpty(cloudControlUBCData.getTraceId())) {
+                jSONObject.put("traceid", cloudControlUBCData.getTraceId());
+            }
+            jSONObject.put("ext", jSONObject2);
+            UBCManager uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
+            if (uBCManager != null) {
+                uBCManager.onEvent(UBC_CLOUD_CTROL_ID, jSONObject);
+            }
+            if (AppConfig.isDebug()) {
+                Log.d(TAG, "cloud control ubc is 944:" + jSONObject.toString());
+            }
+        } catch (JSONException e2) {
+            if (AppConfig.isDebug()) {
+                Log.d(TAG, "cloud control doStatistics error" + e2.toString());
+                e2.printStackTrace();
             }
         }
     }

@@ -2,7 +2,6 @@ package com.baidu.sapi2;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import com.baidu.pass.biometrics.face.liveness.callback.PassFaceRecogCallback;
 import com.baidu.sapi2.callback.AccountCenterCallback;
 import com.baidu.sapi2.callback.AccountRealNameCallback;
@@ -11,7 +10,6 @@ import com.baidu.sapi2.callback.ActivityResultCallback;
 import com.baidu.sapi2.callback.AuthWidgetCallback;
 import com.baidu.sapi2.callback.ExtendSysWebViewMethodCallback;
 import com.baidu.sapi2.callback.ImageCropCallback;
-import com.baidu.sapi2.callback.LoginStatusChangeCallback;
 import com.baidu.sapi2.callback.NormalizeGuestAccountCallback;
 import com.baidu.sapi2.callback.OneKeyLoginCallback;
 import com.baidu.sapi2.callback.QrLoginCallback;
@@ -39,21 +37,14 @@ import com.baidu.sapi2.ecommerce.dto.InvoiceBuildDTO;
 import com.baidu.sapi2.share.ShareStorage;
 import com.baidu.sapi2.shell.listener.WebAuthListener;
 import com.baidu.sapi2.utils.enums.SocialType;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class PassportSDK {
-    private PassportSDK() {
-    }
-
     public static synchronized PassportSDK getInstance() {
         PassportSDK passportSDK;
         synchronized (PassportSDK.class) {
             passportSDK = new PassportSDK();
         }
         return passportSDK;
-    }
-
-    public static void setLoginStatusChangeCallback(LoginStatusChangeCallback loginStatusChangeCallback) {
-        CoreViewRouter.setLoginStatusChangeCallback(loginStatusChangeCallback);
     }
 
     public void extendSysWebViewMethod(Activity activity, String str, ExtendSysWebViewMethodCallback extendSysWebViewMethodCallback) {
@@ -65,7 +56,7 @@ public final class PassportSDK {
     }
 
     public void invokeV2ShareLogin(Activity activity, WebAuthListener webAuthListener, ShareStorage.StorageModel storageModel) {
-        CoreViewRouter.getInstance().invokeV2ShareLogin(activity, webAuthListener, storageModel, "");
+        CoreViewRouter.getInstance().invokeV2ShareLogin(activity, storageModel, webAuthListener, "");
     }
 
     public void loadAccountCenter(AccountCenterCallback accountCenterCallback, AccountCenterDTO accountCenterDTO) {
@@ -92,8 +83,8 @@ public final class PassportSDK {
         EcommerceRouter.getInstance().loadInvoiceBuild(context, invoiceBuildDTO, invoiceBuildCallback);
     }
 
-    public void loadOneKeyLogin(Context context, String str, OneKeyLoginCallback oneKeyLoginCallback) {
-        CoreViewRouter.getInstance().loadOneKeyLogin(context, str, oneKeyLoginCallback);
+    public void loadOneKeyLogin(Context context, OneKeyLoginCallback oneKeyLoginCallback) {
+        CoreViewRouter.getInstance().loadOneKeyLogin(context, oneKeyLoginCallback);
     }
 
     public void loadQrLogin(QrLoginCallback qrLoginCallback, String str) {
@@ -106,10 +97,6 @@ public final class PassportSDK {
 
     public void loadThirdPartyLogin(WebAuthListener webAuthListener, SocialType socialType) {
         CoreViewRouter.getInstance().loadThirdPartyLogin(webAuthListener, socialType);
-    }
-
-    public void onActivityResult(int i, int i2, Intent intent) {
-        CoreViewRouter.getInstance().onActivityResult(i, i2, intent);
     }
 
     public void registerUserFaceID(Activity activity, RegisterUserFaceIDCallback registerUserFaceIDCallback, FaceIDRegDTO faceIDRegDTO) {
@@ -126,6 +113,10 @@ public final class PassportSDK {
 
     public void startAuth(AuthWidgetCallback authWidgetCallback, String str) {
         CoreViewRouter.getInstance().startAuth(authWidgetCallback, str);
+    }
+
+    public void startHorizontalScreenLogin(Context context, WebAuthListener webAuthListener, WebLoginDTO webLoginDTO) {
+        CoreViewRouter.getInstance().startHorizontalScreenLogin(context, webAuthListener, webLoginDTO);
     }
 
     public void startLogin(WebAuthListener webAuthListener, WebLoginDTO webLoginDTO) {
@@ -153,11 +144,12 @@ public final class PassportSDK {
     }
 
     public void invokeV2ShareLogin(Activity activity, WebAuthListener webAuthListener, ShareStorage.StorageModel storageModel, String str) {
-        CoreViewRouter.getInstance().invokeV2ShareLogin(activity, webAuthListener, storageModel, str);
+        CoreViewRouter.getInstance().invokeV2ShareLogin(activity, storageModel, webAuthListener, str);
     }
 
-    public void loadOneKeyLogin(Context context, String str, boolean z, OneKeyLoginCallback oneKeyLoginCallback) {
-        CoreViewRouter.getInstance().loadOneKeyLogin(context, str, z, oneKeyLoginCallback);
+    @Deprecated
+    public void loadOneKeyLogin(Context context, String str, OneKeyLoginCallback oneKeyLoginCallback) {
+        CoreViewRouter.getInstance().loadOneKeyLogin(context, str, oneKeyLoginCallback);
     }
 
     public void loadQrLogin(QrLoginCallback qrLoginCallback, String str, String str2) {
@@ -168,12 +160,12 @@ public final class PassportSDK {
         CoreViewRouter.getInstance().loadThirdPartyLogin(webAuthListener, webSocialLoginDTO);
     }
 
-    public void onActivityResult(int i, int i2, Intent intent, String str) {
-        CoreViewRouter.getInstance().onActivityResult(i, i2, intent, str);
-    }
-
     public void startLogin(Context context, WebAuthListener webAuthListener, WebLoginDTO webLoginDTO) {
         CoreViewRouter.getInstance().startLogin(context, webAuthListener, webLoginDTO);
+    }
+
+    public void loadOneKeyLogin(Context context, String str, boolean z, OneKeyLoginCallback oneKeyLoginCallback) {
+        CoreViewRouter.getInstance().loadOneKeyLogin(context, str, z, oneKeyLoginCallback);
     }
 
     public void loadQrLogin(QrLoginCallback qrLoginCallback, String str, String str2, boolean z) {

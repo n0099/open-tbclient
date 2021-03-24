@@ -3,150 +3,179 @@ package com.baidu.tbadk.core.view.commonBtn;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
 import androidx.annotation.ColorRes;
-import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.WebPManager;
-import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
-/* loaded from: classes.dex */
+import d.b.b.e.p.l;
+/* loaded from: classes3.dex */
 public abstract class TBSpecificationButtonConfig {
-    WebpType foA;
-    protected int foB;
-    int foC;
-    int foD;
-    IconType foF;
-    private int foG;
-    boolean foH;
-    protected a foO;
-    boolean foM = true;
-    int aln = 0;
-    GradientDrawable.Orientation foN = GradientDrawable.Orientation.LEFT_RIGHT;
-    final int[] foE = new int[2];
-    int foI = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds32);
-    int foJ = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds32);
-    int foK = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds21);
-    int foL = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X001);
-    int minWidth = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds176);
-    int minHeight = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds78);
-    int iconSize = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds42);
 
-    /* loaded from: classes.dex */
+    /* renamed from: a  reason: collision with root package name */
+    public WebpType f13605a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public int f13606b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public int f13607c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public int f13608d;
+
+    /* renamed from: f  reason: collision with root package name */
+    public IconType f13610f;
+
+    /* renamed from: h  reason: collision with root package name */
+    public int f13612h;
+    public boolean i;
+    public a s;
+    public boolean p = true;
+    public int q = 0;
+    public GradientDrawable.Orientation r = GradientDrawable.Orientation.LEFT_RIGHT;
+
+    /* renamed from: e  reason: collision with root package name */
+    public final int[] f13609e = new int[2];
+    public int j = l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds32);
+    public int k = l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds32);
+    public int l = l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds21);
+    public int m = l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X001);
+    public int n = l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds176);
+    public int o = l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds78);
+
+    /* renamed from: g  reason: collision with root package name */
+    public int f13611g = l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds42);
+
+    /* loaded from: classes3.dex */
     public enum IconType {
         SVG,
         WEBP,
         PIC
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes3.dex */
     public enum WebpType {
         MASK,
         PURE
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes.dex */
+    /* loaded from: classes3.dex */
     public interface a {
-        void buV();
+        void a();
 
-        void buW();
+        void b();
 
-        void buX();
+        void c();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public abstract Drawable ao(float f);
+    public abstract Drawable a(float f2);
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public Drawable buY() {
-        return pN(this.foE[0]);
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public Drawable buZ() {
-        return pN(this.foE[1]);
-    }
-
-    private Drawable pN(int i) {
+    public final Drawable b(int i) {
         Drawable drawable;
-        if (this.foF == IconType.SVG) {
-            drawable = SvgManager.bsU().c(i, ap.getColor(this.aln, this.foG > 0 ? this.foG : this.foB), SvgManager.SvgResourceStateType.NORMAL);
-        } else if (this.foF == IconType.WEBP) {
-            if (this.foA == WebpType.MASK) {
-                drawable = WebPManager.a(i, null);
+        IconType iconType = this.f13610f;
+        if (iconType == IconType.SVG) {
+            int i2 = this.f13612h;
+            if (i2 <= 0) {
+                i2 = this.f13606b;
+            }
+            drawable = SvgManager.getInstance().getPureDrawableColorInt(i, SkinManager.getColor(this.q, i2), SvgManager.SvgResourceStateType.NORMAL);
+        } else if (iconType == IconType.WEBP) {
+            if (this.f13605a == WebpType.MASK) {
+                drawable = WebPManager.getMaskDrawable(i, null);
             } else {
-                drawable = WebPManager.a(i, ap.getColor(this.aln, this.foG > 0 ? this.foG : this.foB), (WebPManager.ResourceStateType) null);
+                int i3 = this.f13612h;
+                if (i3 <= 0) {
+                    i3 = this.f13606b;
+                }
+                drawable = WebPManager.getPureDrawable(i, SkinManager.getColor(this.q, i3), null);
             }
         } else {
-            drawable = ap.getDrawable(this.aln, i);
+            drawable = SkinManager.getDrawable(this.q, i);
         }
         if (drawable != null) {
-            drawable.setBounds(0, 0, this.iconSize, this.iconSize);
+            int i4 = this.f13611g;
+            drawable.setBounds(0, 0, i4, i4);
         }
         return drawable;
     }
 
-    public void a(int i, int i2, IconType iconType) {
-        if (this.foE[0] != i || this.foE[1] != i2 || this.foF != iconType) {
-            this.foE[0] = i;
-            this.foE[1] = i2;
-            this.foF = iconType;
-            if (this.foO != null) {
-                this.foO.buW();
+    public Drawable c() {
+        return b(this.f13609e[0]);
+    }
+
+    public Drawable d() {
+        return b(this.f13609e[1]);
+    }
+
+    public void e(GradientDrawable.Orientation orientation) {
+        this.r = orientation;
+    }
+
+    public void f(int i) {
+        this.m = i;
+    }
+
+    public void g(int i) {
+        if (i <= 0 || this.f13611g == i) {
+            return;
+        }
+        this.f13611g = i;
+        a aVar = this.s;
+        if (aVar != null) {
+            aVar.a();
+        }
+    }
+
+    public void h(@ColorRes int i) {
+        if (this.f13612h != i) {
+            this.f13612h = i;
+            a aVar = this.s;
+            if (aVar != null) {
+                aVar.c();
             }
         }
     }
 
-    public void a(WebpType webpType) {
-        this.foA = webpType;
-    }
-
-    public void setIconSize(int i) {
-        if (i > 0 && this.iconSize != i) {
-            this.iconSize = i;
-            if (this.foO != null) {
-                this.foO.buV();
-            }
+    public void i(int i, int i2, IconType iconType) {
+        int[] iArr = this.f13609e;
+        if (iArr[0] == i && iArr[1] == i2 && this.f13610f == iconType) {
+            return;
+        }
+        int[] iArr2 = this.f13609e;
+        iArr2[0] = i;
+        iArr2[1] = i2;
+        this.f13610f = iconType;
+        a aVar = this.s;
+        if (aVar != null) {
+            aVar.c();
         }
     }
 
-    public void pO(@ColorRes int i) {
-        if (this.foG != i) {
-            this.foG = i;
-            if (this.foO != null) {
-                this.foO.buW();
-            }
-        }
-    }
-
-    public void aW(int i, int i2) {
+    public void j(int i, int i2) {
         if (i > 0) {
-            this.minWidth = i;
+            this.n = i;
         }
         if (i2 > 0) {
-            this.minHeight = i2;
+            this.o = i2;
         }
     }
 
-    public void pP(int i) {
-        this.foI = i;
-        this.foJ = i;
+    public void k(int i) {
+        this.j = i;
+        this.k = i;
     }
 
-    public void aX(int i, int i2) {
-        this.foI = i;
-        this.foJ = i2;
+    public void l(int i, int i2) {
+        this.j = i;
+        this.k = i2;
     }
 
-    public void pQ(int i) {
-        this.foK = i;
+    public void m(int i) {
+        this.l = i;
     }
 
-    public void a(GradientDrawable.Orientation orientation) {
-        this.foN = orientation;
-    }
-
-    public void pR(int i) {
-        this.foL = i;
+    public void n(WebpType webpType) {
+        this.f13605a = webpType;
     }
 }

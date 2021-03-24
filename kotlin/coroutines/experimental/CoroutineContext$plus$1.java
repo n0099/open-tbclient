@@ -1,34 +1,30 @@
 package kotlin.coroutines.experimental;
 
-import kotlin.coroutines.experimental.d;
+import kotlin.Metadata;
+import kotlin.coroutines.experimental.CoroutineContext;
+import kotlin.jvm.functions.Function2;
 import kotlin.jvm.internal.Lambda;
-import kotlin.jvm.internal.p;
-@kotlin.e
-/* loaded from: classes14.dex */
-final class CoroutineContext$plus$1 extends Lambda implements kotlin.jvm.a.c<d, d.b, d> {
+@Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0010\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\u0010\u0000\u001a\u00020\u00012\u0006\u0010\u0002\u001a\u00020\u00012\u0006\u0010\u0003\u001a\u00020\u0004H\n¢\u0006\u0002\b\u0005"}, d2 = {"<anonymous>", "Lkotlin/coroutines/experimental/CoroutineContext;", "acc", "element", "Lkotlin/coroutines/experimental/CoroutineContext$Element;", "invoke"}, k = 3, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+/* loaded from: classes7.dex */
+public final class CoroutineContext$plus$1 extends Lambda implements Function2<CoroutineContext, CoroutineContext.Element, CoroutineContext> {
     public static final CoroutineContext$plus$1 INSTANCE = new CoroutineContext$plus$1();
 
-    CoroutineContext$plus$1() {
+    public CoroutineContext$plus$1() {
         super(2);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // kotlin.jvm.a.c
-    public final d invoke(d dVar, d.b bVar) {
-        a aVar;
-        p.p(dVar, "acc");
-        p.p(bVar, "element");
-        d b = dVar.b(bVar.eKX());
-        if (b == e.quh) {
-            return bVar;
+    @Override // kotlin.jvm.functions.Function2
+    public final CoroutineContext invoke(CoroutineContext coroutineContext, CoroutineContext.Element element) {
+        CoroutineContext minusKey = coroutineContext.minusKey(element.getKey());
+        if (minusKey == EmptyCoroutineContext.INSTANCE) {
+            return element;
         }
-        c cVar = (c) b.a(c.quf);
-        if (cVar == null) {
-            aVar = new a(b, bVar);
-        } else {
-            d b2 = b.b(c.quf);
-            aVar = b2 == e.quh ? new a(bVar, cVar) : new a(new a(b2, bVar), cVar);
+        ContinuationInterceptor continuationInterceptor = (ContinuationInterceptor) minusKey.get(ContinuationInterceptor.Key);
+        if (continuationInterceptor == null) {
+            return new CombinedContext(minusKey, element);
         }
-        return aVar;
+        CoroutineContext minusKey2 = minusKey.minusKey(ContinuationInterceptor.Key);
+        return minusKey2 == EmptyCoroutineContext.INSTANCE ? new CombinedContext(element, continuationInterceptor) : new CombinedContext(new CombinedContext(minusKey2, element), continuationInterceptor);
     }
 }

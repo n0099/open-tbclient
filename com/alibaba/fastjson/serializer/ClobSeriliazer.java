@@ -6,7 +6,7 @@ import java.io.Reader;
 import java.lang.reflect.Type;
 import java.sql.Clob;
 import java.sql.SQLException;
-/* loaded from: classes4.dex */
+/* loaded from: classes.dex */
 public class ClobSeriliazer implements ObjectSerializer {
     public static final ClobSeriliazer instance = new ClobSeriliazer();
 
@@ -22,21 +22,20 @@ public class ClobSeriliazer implements ObjectSerializer {
             try {
                 char[] cArr = new char[2048];
                 while (true) {
-                    int read = characterStream.read(cArr, 0, cArr.length);
-                    if (read >= 0) {
-                        sb.append(cArr, 0, read);
-                    } else {
+                    int read = characterStream.read(cArr, 0, 2048);
+                    if (read < 0) {
                         String sb2 = sb.toString();
                         characterStream.close();
                         jSONSerializer.write(sb2);
                         return;
                     }
+                    sb.append(cArr, 0, read);
                 }
-            } catch (Exception e) {
-                throw new JSONException("read string from reader error", e);
+            } catch (Exception e2) {
+                throw new JSONException("read string from reader error", e2);
             }
-        } catch (SQLException e2) {
-            throw new IOException("write clob error", e2);
+        } catch (SQLException e3) {
+            throw new IOException("write clob error", e3);
         }
     }
 }

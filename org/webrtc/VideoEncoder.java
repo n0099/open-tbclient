@@ -1,11 +1,12 @@
 package org.webrtc;
 
+import com.baidu.android.common.others.lang.StringUtil;
 import javax.annotation.Nullable;
 import org.webrtc.EncodedImage;
-/* loaded from: classes9.dex */
+/* loaded from: classes.dex */
 public interface VideoEncoder {
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes7.dex */
     public static class BitrateAllocation {
         public final int[][] bitratesBbs;
 
@@ -26,28 +27,28 @@ public interface VideoEncoder {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes7.dex */
     public interface Callback {
         void onEncodedFrame(EncodedImage encodedImage, CodecSpecificInfo codecSpecificInfo);
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes7.dex */
     public static class CodecSpecificInfo {
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes7.dex */
     public static class CodecSpecificInfoH264 extends CodecSpecificInfo {
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes7.dex */
     public static class CodecSpecificInfoVP8 extends CodecSpecificInfo {
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes7.dex */
     public static class CodecSpecificInfoVP9 extends CodecSpecificInfo {
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes7.dex */
     public static class EncodeInfo {
         public final EncodedImage.FrameType[] frameTypes;
 
@@ -57,7 +58,7 @@ public interface VideoEncoder {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes.dex */
     public static class ScalingSettings {
         public static final ScalingSettings OFF = new ScalingSettings();
         @Nullable
@@ -66,7 +67,7 @@ public interface VideoEncoder {
         public final Integer low;
         public final boolean on;
 
-        private ScalingSettings() {
+        public ScalingSettings() {
             this.on = false;
             this.low = null;
             this.high = null;
@@ -94,13 +95,13 @@ public interface VideoEncoder {
 
         public String toString() {
             if (this.on) {
-                return "[ " + this.low + ", " + this.high + " ]";
+                return "[ " + this.low + StringUtil.ARRAY_ELEMENT_SEPARATOR + this.high + " ]";
             }
             return "OFF";
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes7.dex */
     public static class Settings {
         public final boolean automaticResizeOn;
         public final int height;

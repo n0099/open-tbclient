@@ -2,7 +2,7 @@ package com.baidu.tbadk.lcs;
 
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class LCSStatisticsResponseMessage extends JsonHttpResponsedMessage {
     public LCSStatisticsResponseMessage(int i) {
         super(i);

@@ -1,5 +1,5 @@
 package com.tencent.mm.sdk.constants;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class Build {
     public static final int EMOJI_SUPPORTED_SDK_INT = 553844737;
     public static final int FAVORITE_SUPPPORTED_SDK_INT = 570425345;
@@ -12,8 +12,8 @@ public final class Build {
     public static final String SDK_VERSION_NAME = "android 2.1.3";
     public static final int TIMELINE_SUPPORTED_SDK_INT = 553779201;
 
-    private Build() {
-        throw new RuntimeException(getClass().getSimpleName() + " should not be instantiated");
+    public Build() {
+        throw new RuntimeException(Build.class.getSimpleName() + " should not be instantiated");
     }
 
     public static int getMajorVersion() {

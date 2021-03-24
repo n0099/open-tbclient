@@ -6,84 +6,102 @@ import android.graphics.Path;
 import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.widget.RelativeLayout;
-import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-/* loaded from: classes.dex */
+import d.b.b.e.p.l;
+/* loaded from: classes5.dex */
 public class RoundRelativeLayout extends RelativeLayout {
-    private float[] mRadius;
-    private RectF mRectF;
-    private float mRoundLayoutRadius;
-    private Path mRoundPath;
+
+    /* renamed from: e  reason: collision with root package name */
+    public float f22172e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public Path f22173f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public RectF f22174g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public float[] f22175h;
 
     public RoundRelativeLayout(Context context) {
         super(context);
-        this.mRoundLayoutRadius = 100.0f;
-        this.mRadius = new float[]{this.mRoundLayoutRadius, this.mRoundLayoutRadius, this.mRoundLayoutRadius, this.mRoundLayoutRadius, this.mRoundLayoutRadius, this.mRoundLayoutRadius, this.mRoundLayoutRadius, this.mRoundLayoutRadius};
-        init();
+        this.f22172e = 100.0f;
+        this.f22175h = new float[]{100.0f, 100.0f, 100.0f, 100.0f, 100.0f, 100.0f, 100.0f, 100.0f};
+        a();
     }
 
-    public RoundRelativeLayout(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        this.mRoundLayoutRadius = 100.0f;
-        this.mRadius = new float[]{this.mRoundLayoutRadius, this.mRoundLayoutRadius, this.mRoundLayoutRadius, this.mRoundLayoutRadius, this.mRoundLayoutRadius, this.mRoundLayoutRadius, this.mRoundLayoutRadius, this.mRoundLayoutRadius};
-        init();
-    }
-
-    public RoundRelativeLayout(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        this.mRoundLayoutRadius = 100.0f;
-        this.mRadius = new float[]{this.mRoundLayoutRadius, this.mRoundLayoutRadius, this.mRoundLayoutRadius, this.mRoundLayoutRadius, this.mRoundLayoutRadius, this.mRoundLayoutRadius, this.mRoundLayoutRadius, this.mRoundLayoutRadius};
-        init();
-    }
-
-    private void init() {
+    public final void a() {
         setWillNotDraw(false);
-        this.mRoundPath = new Path();
-        this.mRectF = new RectF();
+        this.f22173f = new Path();
+        this.f22174g = new RectF();
     }
 
-    private void setRoundPath() {
-        this.mRoundPath.addRoundRect(this.mRectF, this.mRadius, Path.Direction.CW);
+    public final boolean b() {
+        return getWidth() > l.k(TbadkCoreApplication.getInst());
     }
 
-    public void setRoundLayoutRadius(float[] fArr) {
-        if (fArr != null && fArr.length > 0) {
-            this.mRadius = new float[fArr.length];
-            for (int i = 0; i < fArr.length; i++) {
-                this.mRadius[i] = fArr[i];
-            }
-            setRoundPath();
-            invalidate();
-        }
-    }
-
-    public void setAllCornerRound(float f) {
-        this.mRadius = new float[8];
-        for (int i = 0; i < this.mRadius.length; i++) {
-            this.mRadius[i] = f;
-        }
-        setRoundPath();
-        invalidate();
-    }
-
-    @Override // android.widget.RelativeLayout, android.view.ViewGroup, android.view.View
-    protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
-        if (!isFullScreen()) {
-            super.onLayout(z, i, i2, i3, i4);
-            this.mRectF.set(0.0f, 0.0f, getMeasuredWidth(), getMeasuredHeight());
-            setRoundPath();
-        }
+    public final void c() {
+        this.f22173f.addRoundRect(this.f22174g, this.f22175h, Path.Direction.CW);
     }
 
     @Override // android.view.View
     public void draw(Canvas canvas) {
-        if (!isFullScreen()) {
-            canvas.clipPath(this.mRoundPath);
-            super.draw(canvas);
+        if (b()) {
+            return;
+        }
+        canvas.clipPath(this.f22173f);
+        super.draw(canvas);
+    }
+
+    @Override // android.widget.RelativeLayout, android.view.ViewGroup, android.view.View
+    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
+        if (b()) {
+            return;
+        }
+        super.onLayout(z, i, i2, i3, i4);
+        this.f22174g.set(0.0f, 0.0f, getMeasuredWidth(), getMeasuredHeight());
+        c();
+    }
+
+    public void setAllCornerRound(float f2) {
+        this.f22175h = new float[8];
+        int i = 0;
+        while (true) {
+            float[] fArr = this.f22175h;
+            if (i < fArr.length) {
+                fArr[i] = f2;
+                i++;
+            } else {
+                c();
+                invalidate();
+                return;
+            }
         }
     }
 
-    private boolean isFullScreen() {
-        return getWidth() > l.getEquipmentWidth(TbadkCoreApplication.getInst());
+    public void setRoundLayoutRadius(float[] fArr) {
+        if (fArr == null || fArr.length <= 0) {
+            return;
+        }
+        this.f22175h = new float[fArr.length];
+        for (int i = 0; i < fArr.length; i++) {
+            this.f22175h[i] = fArr[i];
+        }
+        c();
+        invalidate();
+    }
+
+    public RoundRelativeLayout(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        this.f22172e = 100.0f;
+        this.f22175h = new float[]{100.0f, 100.0f, 100.0f, 100.0f, 100.0f, 100.0f, 100.0f, 100.0f};
+        a();
+    }
+
+    public RoundRelativeLayout(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        this.f22172e = 100.0f;
+        this.f22175h = new float[]{100.0f, 100.0f, 100.0f, 100.0f, 100.0f, 100.0f, 100.0f, 100.0f};
+        a();
     }
 }

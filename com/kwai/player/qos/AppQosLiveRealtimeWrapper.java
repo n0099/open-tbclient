@@ -1,15 +1,15 @@
 package com.kwai.player.qos;
 
 import com.kwai.video.player.IMediaPlayer;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class AppQosLiveRealtimeWrapper {
-    private static final int DEFAULT_MONITOR_INTERVAL = 1000;
-    private static final int DEFAULT_QOS_TICK_DURATION_SEC = 10;
-    private AppQosLiveRealtime mAppQosLiveRealtime;
-    private final boolean mEnable;
-    private IMediaPlayer.OnQosStatListener mOnQosStatListener;
-    private final AppLiveReatimeInfoProvider mProvider;
-    private long mTickDurMs = 10000;
+    public static final int DEFAULT_MONITOR_INTERVAL = 1000;
+    public static final int DEFAULT_QOS_TICK_DURATION_SEC = 10;
+    public AppQosLiveRealtime mAppQosLiveRealtime;
+    public final boolean mEnable;
+    public IMediaPlayer.OnQosStatListener mOnQosStatListener;
+    public final AppLiveReatimeInfoProvider mProvider;
+    public long mTickDurMs = 10000;
 
     public AppQosLiveRealtimeWrapper(AppLiveReatimeInfoProvider appLiveReatimeInfoProvider, boolean z) {
         this.mProvider = appLiveReatimeInfoProvider;
@@ -17,17 +17,20 @@ public class AppQosLiveRealtimeWrapper {
     }
 
     private synchronized void startQosStatTimer() {
-        if (this.mAppQosLiveRealtime == null) {
-            this.mAppQosLiveRealtime = new AppQosLiveRealtime(1000L, this.mTickDurMs, this.mProvider, new Object());
-            this.mAppQosLiveRealtime.startReport(this.mOnQosStatListener);
+        if (this.mAppQosLiveRealtime != null) {
+            return;
         }
+        AppQosLiveRealtime appQosLiveRealtime = new AppQosLiveRealtime(1000L, this.mTickDurMs, this.mProvider, new Object());
+        this.mAppQosLiveRealtime = appQosLiveRealtime;
+        appQosLiveRealtime.startReport(this.mOnQosStatListener);
     }
 
     private synchronized void stopQosStatTimer() {
-        if (this.mAppQosLiveRealtime != null) {
-            this.mAppQosLiveRealtime.stopReport();
-            this.mAppQosLiveRealtime = null;
+        if (this.mAppQosLiveRealtime == null) {
+            return;
         }
+        this.mAppQosLiveRealtime.stopReport();
+        this.mAppQosLiveRealtime = null;
     }
 
     public void setOnQosStatListener(IMediaPlayer.OnQosStatListener onQosStatListener) {

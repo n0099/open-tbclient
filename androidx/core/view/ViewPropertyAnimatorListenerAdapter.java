@@ -1,10 +1,10 @@
 package androidx.core.view;
 
 import android.view.View;
-/* loaded from: classes14.dex */
+/* loaded from: classes.dex */
 public class ViewPropertyAnimatorListenerAdapter implements ViewPropertyAnimatorListener {
     @Override // androidx.core.view.ViewPropertyAnimatorListener
-    public void onAnimationStart(View view) {
+    public void onAnimationCancel(View view) {
     }
 
     @Override // androidx.core.view.ViewPropertyAnimatorListener
@@ -12,6 +12,6 @@ public class ViewPropertyAnimatorListenerAdapter implements ViewPropertyAnimator
     }
 
     @Override // androidx.core.view.ViewPropertyAnimatorListener
-    public void onAnimationCancel(View view) {
+    public void onAnimationStart(View view) {
     }
 }

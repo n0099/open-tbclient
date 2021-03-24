@@ -11,127 +11,132 @@ import android.view.View;
 import android.view.ViewConfiguration;
 import android.view.animation.AccelerateInterpolator;
 import android.widget.Button;
-import com.baidu.swan.apps.a;
-import com.baidu.swan.apps.ao.ah;
+import com.baidu.swan.apps.res.ui.FullScreenFloatView;
 import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
+import d.b.g0.a.f;
+import d.b.g0.a.i2.h0;
+import d.b.g0.a.k;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class FloatButton extends FullScreenFloatView {
-    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
+    public static final boolean s = k.f45050a;
 
     public FloatButton(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
     }
 
-    public FloatButton(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-    }
-
-    public void setFloatButtonDrawable(Drawable drawable) {
-        if (drawable != null) {
-            View findViewById = findViewById(a.f.float_imgview);
-            if (findViewById instanceof Button) {
-                findViewById.setBackground(drawable);
-            }
+    private void d(float f2, float f3) {
+        if (this.f12463e == null) {
+            return;
         }
-    }
-
-    public void setFloatButtonDefaultPosition() {
-        findViewById(a.f.float_imgview).setBottom(ah.V(191.0f));
-    }
-
-    public void setFloatButtonStyle(JSONObject jSONObject) {
-        View findViewById = findViewById(a.f.float_imgview);
-        String optString = jSONObject != null ? jSONObject.optString("backgroundColor", "#4E4E4E") : "#4E4E4E";
-        if (findViewById instanceof Button) {
-            ((GradientDrawable) findViewById.getBackground()).setColor(SwanAppConfigData.rT(optString));
-            ((Button) findViewById).setTextColor(SwanAppConfigData.rT("#FFFFFF"));
-            findViewById.setAlpha((float) 0.8999999761581421d);
+        if (s) {
+            Log.e("FloatButton", "move--> x = " + f2 + ", y = " + f3);
         }
+        int i = this.f12464f;
+        int i2 = (int) (f2 - (i / 2));
+        int i3 = this.f12465g;
+        int i4 = (int) (f3 - (i3 / 2));
+        int i5 = this.f12466h - i;
+        int i6 = (this.i - i3) - 168;
+        if (i2 <= 0) {
+            i2 = 0;
+        }
+        if (i4 <= 288) {
+            i4 = 288;
+        }
+        if (i2 <= i5) {
+            i5 = i2;
+        }
+        if (i4 <= i6) {
+            i6 = i4;
+        }
+        if (s) {
+            Log.e("FloatButton", "move--> left = 0, top = 288, mStatusBarHeight = " + this.j);
+        }
+        this.f12463e.setX(i5);
+        this.f12463e.setY(i6);
+        requestLayout();
     }
 
     @Override // com.baidu.swan.apps.res.ui.FullScreenFloatView, android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
+        FullScreenFloatView.c cVar;
         float x = motionEvent.getX();
         float y = motionEvent.getY();
         Rect rect = new Rect();
-        switch (motionEvent.getAction()) {
-            case 0:
-                this.dxK.getHitRect(rect);
-                if (rect.contains((int) x, (int) y)) {
-                    this.dxQ = x;
-                    this.bNR = y;
-                    this.dxO = true;
-                    this.dxN = true;
-                    postDelayed(this.dxR, ViewConfiguration.getTapTimeout());
-                    break;
+        int action = motionEvent.getAction();
+        if (action == 0) {
+            this.f12463e.getHitRect(rect);
+            if (rect.contains((int) x, (int) y)) {
+                this.n = x;
+                this.o = y;
+                this.l = true;
+                this.k = true;
+                postDelayed(this.p, ViewConfiguration.getTapTimeout());
+            }
+        } else if (action == 1) {
+            if (this.k) {
+                FullScreenFloatView.c cVar2 = this.q;
+                if (cVar2 != null) {
+                    cVar2.onClick();
                 }
-                break;
-            case 1:
-                if (this.dxN) {
-                    if (this.dxS != null) {
-                        this.dxS.onClick();
-                    }
-                    removeCallbacks(this.dxR);
-                } else if (this.dxO && this.dxS != null) {
-                    this.dxS.aAd();
+                removeCallbacks(this.p);
+            } else if (this.l && (cVar = this.q) != null) {
+                cVar.a();
+            }
+            if (s) {
+                Log.e("FloatButton", "ACTION_UP--> x = " + x + ", y = " + y + ",mIsClickDrag = " + this.k);
+            }
+            if (this.m && !this.k && x >= 0.0f) {
+                int i = this.f12466h;
+                if (x <= i && y >= 0.0f && y <= this.i + this.f12465g) {
+                    this.f12463e.animate().x(i - this.f12464f).setInterpolator(new AccelerateInterpolator()).setDuration(300L).start();
                 }
-                if (DEBUG) {
-                    Log.e("FloatButton", "ACTION_UP--> x = " + x + ", y = " + y + ",mIsClickDrag = " + this.dxN);
-                }
-                if (this.dxP && !this.dxN && x >= 0.0f && x <= this.mParentWidth && y >= 0.0f && y <= this.mParentHeight + this.dxM) {
-                    this.dxK.animate().x(this.mParentWidth - this.dxL).setInterpolator(new AccelerateInterpolator()).setDuration(300L).start();
-                }
-                this.dxN = false;
-                this.dxO = false;
-                break;
-            case 2:
-                float abs = Math.abs(x - this.dxQ);
-                float abs2 = Math.abs(y - this.bNR);
-                if (Math.sqrt((abs * abs) + (abs2 * abs2)) > 10.0d) {
-                    this.dxN = false;
-                }
-                o(x, y);
-                break;
-            case 3:
-                this.dxN = false;
-                this.dxO = false;
-                break;
-            case 4:
-                this.dxN = false;
-                this.dxO = false;
-                break;
+            }
+            this.k = false;
+            this.l = false;
+        } else if (action == 2) {
+            float abs = Math.abs(x - this.n);
+            float abs2 = Math.abs(y - this.o);
+            if (Math.sqrt((abs2 * abs2) + (abs * abs)) > 10.0d) {
+                this.k = false;
+            }
+            d(x, y);
+        } else if (action == 3) {
+            this.k = false;
+            this.l = false;
+        } else if (action == 4) {
+            this.k = false;
+            this.l = false;
         }
-        return this.dxN | this.dxO;
+        return this.k | this.l;
     }
 
-    private void o(float f, float f2) {
-        if (this.dxK != null) {
-            if (DEBUG) {
-                Log.e("FloatButton", "move--> x = " + f + ", y = " + f2);
-            }
-            int i = (int) (f - (this.dxL / 2));
-            int i2 = (int) (f2 - (this.dxM / 2));
-            int i3 = this.mParentWidth - this.dxL;
-            int i4 = (this.mParentHeight - this.dxM) - 168;
-            if (i <= 0) {
-                i = 0;
-            }
-            if (i2 <= 288) {
-                i2 = 288;
-            }
-            if (i <= i3) {
-                i3 = i;
-            }
-            if (i2 <= i4) {
-                i4 = i2;
-            }
-            if (DEBUG) {
-                Log.e("FloatButton", "move--> left = 0, top = 288, mStatusBarHeight = " + this.mStatusBarHeight);
-            }
-            this.dxK.setX(i3);
-            this.dxK.setY(i4);
-            requestLayout();
+    public void setFloatButtonDefaultPosition() {
+        findViewById(f.float_imgview).setBottom(h0.H(191.0f));
+    }
+
+    public void setFloatButtonDrawable(Drawable drawable) {
+        if (drawable == null) {
+            return;
         }
+        View findViewById = findViewById(f.float_imgview);
+        if (findViewById instanceof Button) {
+            findViewById.setBackground(drawable);
+        }
+    }
+
+    public void setFloatButtonStyle(JSONObject jSONObject) {
+        View findViewById = findViewById(f.float_imgview);
+        String optString = jSONObject != null ? jSONObject.optString("backgroundColor", "#4E4E4E") : "#4E4E4E";
+        if (findViewById instanceof Button) {
+            ((GradientDrawable) findViewById.getBackground()).setColor(SwanAppConfigData.s(optString));
+            ((Button) findViewById).setTextColor(SwanAppConfigData.s("#FFFFFF"));
+            findViewById.setAlpha((float) 0.8999999761581421d);
+        }
+    }
+
+    public FloatButton(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
     }
 }

@@ -8,51 +8,59 @@ import android.widget.TextView;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.data.ShareFromPBMsgData;
 import com.baidu.tieba.R;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public final class ShareFromPBView extends LinearLayout {
-    private HeadImageView jTk;
-    private TextView kAm;
-    private ShareFromPBMsgData kPA;
-    private TextView title;
+
+    /* renamed from: e  reason: collision with root package name */
+    public TextView f18135e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public HeadImageView f18136f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public TextView f18137g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public ShareFromPBMsgData f18138h;
 
     public ShareFromPBView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        initUI();
+        a();
     }
 
-    public ShareFromPBView(Context context) {
-        super(context);
-        initUI();
-    }
-
-    private void initUI() {
+    public final void a() {
         LayoutInflater.from(getContext()).inflate(R.layout.share_from_pb_view, this);
         setOrientation(1);
-        this.title = (TextView) findViewById(R.id.chat_title);
-        this.jTk = (HeadImageView) findViewById(R.id.chat_group_img);
-        this.kAm = (TextView) findViewById(R.id.chat_group_desc);
+        this.f18135e = (TextView) findViewById(R.id.chat_title);
+        this.f18136f = (HeadImageView) findViewById(R.id.chat_group_img);
+        this.f18137g = (TextView) findViewById(R.id.chat_group_desc);
+    }
+
+    public final void b() {
+        this.f18135e.setText(this.f18138h.getTitle());
+        this.f18136f.setPlaceHolder(1);
+        this.f18136f.setAutoChangeStyle(false);
+        this.f18136f.W(this.f18138h.getImageUrl(), 10, false);
+        this.f18137g.setText(this.f18138h.getContent());
+    }
+
+    public void setData(ShareFromPBMsgData shareFromPBMsgData) {
+        this.f18138h = shareFromPBMsgData;
+        b();
     }
 
     public void setIsLeft(boolean z) {
         if (z) {
-            this.title.setTextColor(getContext().getResources().getColor(R.color.CAM_X0105));
-            this.kAm.setTextColor(getContext().getResources().getColor(R.color.CAM_X0106));
+            this.f18135e.setTextColor(getContext().getResources().getColor(R.color.CAM_X0105));
+            this.f18137g.setTextColor(getContext().getResources().getColor(R.color.CAM_X0106));
             return;
         }
-        this.title.setTextColor(getContext().getResources().getColor(R.color.CAM_X0111));
-        this.kAm.setTextColor(getContext().getResources().getColor(R.color.CAM_X0111));
+        this.f18135e.setTextColor(getContext().getResources().getColor(R.color.CAM_X0111));
+        this.f18137g.setTextColor(getContext().getResources().getColor(R.color.CAM_X0111));
     }
 
-    public void setData(ShareFromPBMsgData shareFromPBMsgData) {
-        this.kPA = shareFromPBMsgData;
-        updateUI();
-    }
-
-    private void updateUI() {
-        this.title.setText(this.kPA.getTitle());
-        this.jTk.setPlaceHolder(1);
-        this.jTk.setAutoChangeStyle(false);
-        this.jTk.startLoad(this.kPA.getImageUrl(), 10, false);
-        this.kAm.setText(this.kPA.getContent());
+    public ShareFromPBView(Context context) {
+        super(context);
+        a();
     }
 }

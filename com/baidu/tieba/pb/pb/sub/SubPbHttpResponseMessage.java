@@ -2,32 +2,33 @@ package com.baidu.tieba.pb.pb.sub;
 
 import android.content.Context;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.baidu.tieba.pb.data.q;
 import com.squareup.wire.Wire;
+import d.b.i0.c2.h.q;
 import tbclient.PbFloor.PbFloorResIdl;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class SubPbHttpResponseMessage extends TbHttpResponsedMessage {
     public q pbFloorData;
-    private boolean treatDelPage;
+    public boolean treatDelPage;
+
+    public SubPbHttpResponseMessage(int i) {
+        super(CmdConfigHttp.SubPb_HTTP_CMD);
+        this.pbFloorData = null;
+        this.treatDelPage = false;
+    }
 
     public boolean isTreatDelPage() {
         return this.treatDelPage;
     }
 
-    public SubPbHttpResponseMessage(int i) {
-        super(1002100);
-        this.pbFloorData = null;
-        this.treatDelPage = false;
-    }
-
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tbadk.message.http.TbHttpResponsedMessage, com.baidu.adp.framework.message.a
+    @Override // com.baidu.tbadk.message.http.TbHttpResponsedMessage, com.baidu.adp.framework.message.HttpResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
     public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         Context context;
-        q qVar = null;
         super.decodeInBackGround(i, bArr);
         Object extra = getOrginalMessage().getExtra();
+        q qVar = null;
         if (extra == null || !(extra instanceof SubPbRequestMessage)) {
             context = null;
         } else {
@@ -38,9 +39,9 @@ public class SubPbHttpResponseMessage extends TbHttpResponsedMessage {
         try {
             PbFloorResIdl pbFloorResIdl = (PbFloorResIdl) new Wire(new Class[0]).parseFrom(bArr, PbFloorResIdl.class);
             if (pbFloorResIdl != null && pbFloorResIdl.data != null) {
-                qVar = q.a(pbFloorResIdl.data, context);
+                qVar = q.w(pbFloorResIdl.data, context);
                 if (qVar != null) {
-                    qVar.lNX = pbFloorResIdl.error;
+                    qVar.m = pbFloorResIdl.error;
                 } else if (pbFloorResIdl.error != null) {
                     if (pbFloorResIdl.error.errorno != null) {
                         setError(pbFloorResIdl.error.errorno.intValue());
@@ -48,8 +49,8 @@ public class SubPbHttpResponseMessage extends TbHttpResponsedMessage {
                     setErrorString(pbFloorResIdl.error.errmsg);
                 }
             }
-        } catch (Exception e) {
-            BdLog.detailException(e);
+        } catch (Exception e2) {
+            BdLog.detailException(e2);
         }
         this.pbFloorData = qVar;
     }

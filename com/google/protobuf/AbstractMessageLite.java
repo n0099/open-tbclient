@@ -8,17 +8,10 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.Collection;
 import java.util.Iterator;
-/* loaded from: classes14.dex */
+/* loaded from: classes6.dex */
 public abstract class AbstractMessageLite implements MessageLite {
-    @Override // com.google.protobuf.MessageLite
-    public ByteString toByteString() {
-        try {
-            ByteString.CodedBuilder newCodedBuilder = ByteString.newCodedBuilder(getSerializedSize());
-            writeTo(newCodedBuilder.getCodedOutput());
-            return newCodedBuilder.build();
-        } catch (IOException e) {
-            throw new RuntimeException("Serializing to a ByteString threw an IOException (should never happen).", e);
-        }
+    public UninitializedMessageException newUninitializedMessageException() {
+        return new UninitializedMessageException(this);
     }
 
     @Override // com.google.protobuf.MessageLite
@@ -29,16 +22,20 @@ public abstract class AbstractMessageLite implements MessageLite {
             writeTo(newInstance);
             newInstance.checkNoSpaceLeft();
             return bArr;
-        } catch (IOException e) {
-            throw new RuntimeException("Serializing to a byte array threw an IOException (should never happen).", e);
+        } catch (IOException e2) {
+            throw new RuntimeException("Serializing to a byte array threw an IOException (should never happen).", e2);
         }
     }
 
     @Override // com.google.protobuf.MessageLite
-    public void writeTo(OutputStream outputStream) throws IOException {
-        CodedOutputStream newInstance = CodedOutputStream.newInstance(outputStream, CodedOutputStream.computePreferredBufferSize(getSerializedSize()));
-        writeTo(newInstance);
-        newInstance.flush();
+    public ByteString toByteString() {
+        try {
+            ByteString.CodedBuilder newCodedBuilder = ByteString.newCodedBuilder(getSerializedSize());
+            writeTo(newCodedBuilder.getCodedOutput());
+            return newCodedBuilder.build();
+        } catch (IOException e2) {
+            throw new RuntimeException("Serializing to a ByteString threw an IOException (should never happen).", e2);
+        }
     }
 
     @Override // com.google.protobuf.MessageLite
@@ -50,20 +47,114 @@ public abstract class AbstractMessageLite implements MessageLite {
         newInstance.flush();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public UninitializedMessageException newUninitializedMessageException() {
-        return new UninitializedMessageException(this);
+    @Override // com.google.protobuf.MessageLite
+    public void writeTo(OutputStream outputStream) throws IOException {
+        CodedOutputStream newInstance = CodedOutputStream.newInstance(outputStream, CodedOutputStream.computePreferredBufferSize(getSerializedSize()));
+        writeTo(newInstance);
+        newInstance.flush();
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes6.dex */
     public static abstract class Builder<BuilderType extends Builder> implements MessageLite.Builder {
+        public static <T> void addAll(Iterable<T> iterable, Collection<? super T> collection) {
+            if (iterable instanceof LazyStringList) {
+                checkForNullValues(((LazyStringList) iterable).getUnderlyingElements());
+            } else {
+                checkForNullValues(iterable);
+            }
+            if (iterable instanceof Collection) {
+                collection.addAll((Collection) iterable);
+                return;
+            }
+            for (T t : iterable) {
+                collection.add(t);
+            }
+        }
+
+        public static void checkForNullValues(Iterable<?> iterable) {
+            Iterator<?> it = iterable.iterator();
+            while (it.hasNext()) {
+                if (it.next() == null) {
+                    throw null;
+                }
+            }
+        }
+
+        public static UninitializedMessageException newUninitializedMessageException(MessageLite messageLite) {
+            return new UninitializedMessageException(messageLite);
+        }
+
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite.Builder
         public abstract BuilderType clone();
 
+        @Override // com.google.protobuf.MessageLite.Builder
+        public boolean mergeDelimitedFrom(InputStream inputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
+            int read = inputStream.read();
+            if (read == -1) {
+                return false;
+            }
+            mergeFrom((InputStream) new LimitedInputStream(inputStream, CodedInputStream.readRawVarint32(read, inputStream)), extensionRegistryLite);
+            return true;
+        }
+
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite.Builder
         public abstract BuilderType mergeFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException;
+
+        /* loaded from: classes6.dex */
+        public static final class LimitedInputStream extends FilterInputStream {
+            public int limit;
+
+            public LimitedInputStream(InputStream inputStream, int i) {
+                super(inputStream);
+                this.limit = i;
+            }
+
+            @Override // java.io.FilterInputStream, java.io.InputStream
+            public int available() throws IOException {
+                return Math.min(super.available(), this.limit);
+            }
+
+            @Override // java.io.FilterInputStream, java.io.InputStream
+            public int read() throws IOException {
+                if (this.limit <= 0) {
+                    return -1;
+                }
+                int read = super.read();
+                if (read >= 0) {
+                    this.limit--;
+                }
+                return read;
+            }
+
+            @Override // java.io.FilterInputStream, java.io.InputStream
+            public long skip(long j) throws IOException {
+                long skip = super.skip(Math.min(j, this.limit));
+                if (skip >= 0) {
+                    this.limit = (int) (this.limit - skip);
+                }
+                return skip;
+            }
+
+            @Override // java.io.FilterInputStream, java.io.InputStream
+            public int read(byte[] bArr, int i, int i2) throws IOException {
+                int i3 = this.limit;
+                if (i3 <= 0) {
+                    return -1;
+                }
+                int read = super.read(bArr, i, Math.min(i2, i3));
+                if (read >= 0) {
+                    this.limit -= read;
+                }
+                return read;
+            }
+        }
+
+        @Override // com.google.protobuf.MessageLite.Builder
+        public boolean mergeDelimitedFrom(InputStream inputStream) throws IOException {
+            return mergeDelimitedFrom(inputStream, ExtensionRegistryLite.getEmptyRegistry());
+        }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLite.Builder
@@ -79,10 +170,10 @@ public abstract class AbstractMessageLite implements MessageLite {
                 mergeFrom(newCodedInput);
                 newCodedInput.checkLastTagWas(0);
                 return this;
-            } catch (InvalidProtocolBufferException e) {
-                throw e;
-            } catch (IOException e2) {
-                throw new RuntimeException("Reading from a ByteString threw an IOException (should never happen).", e2);
+            } catch (InvalidProtocolBufferException e2) {
+                throw e2;
+            } catch (IOException e3) {
+                throw new RuntimeException("Reading from a ByteString threw an IOException (should never happen).", e3);
             }
         }
 
@@ -94,10 +185,10 @@ public abstract class AbstractMessageLite implements MessageLite {
                 mergeFrom(newCodedInput, extensionRegistryLite);
                 newCodedInput.checkLastTagWas(0);
                 return this;
-            } catch (InvalidProtocolBufferException e) {
-                throw e;
-            } catch (IOException e2) {
-                throw new RuntimeException("Reading from a ByteString threw an IOException (should never happen).", e2);
+            } catch (InvalidProtocolBufferException e2) {
+                throw e2;
+            } catch (IOException e3) {
+                throw new RuntimeException("Reading from a ByteString threw an IOException (should never happen).", e3);
             }
         }
 
@@ -115,10 +206,10 @@ public abstract class AbstractMessageLite implements MessageLite {
                 mergeFrom(newInstance);
                 newInstance.checkLastTagWas(0);
                 return this;
-            } catch (InvalidProtocolBufferException e) {
-                throw e;
-            } catch (IOException e2) {
-                throw new RuntimeException("Reading from a byte array threw an IOException (should never happen).", e2);
+            } catch (InvalidProtocolBufferException e2) {
+                throw e2;
+            } catch (IOException e3) {
+                throw new RuntimeException("Reading from a byte array threw an IOException (should never happen).", e3);
             }
         }
 
@@ -136,10 +227,10 @@ public abstract class AbstractMessageLite implements MessageLite {
                 mergeFrom(newInstance, extensionRegistryLite);
                 newInstance.checkLastTagWas(0);
                 return this;
-            } catch (InvalidProtocolBufferException e) {
-                throw e;
-            } catch (IOException e2) {
-                throw new RuntimeException("Reading from a byte array threw an IOException (should never happen).", e2);
+            } catch (InvalidProtocolBufferException e2) {
+                throw e2;
+            } catch (IOException e3) {
+                throw new RuntimeException("Reading from a byte array threw an IOException (should never happen).", e3);
             }
         }
 
@@ -159,103 +250,6 @@ public abstract class AbstractMessageLite implements MessageLite {
             mergeFrom(newInstance, extensionRegistryLite);
             newInstance.checkLastTagWas(0);
             return this;
-        }
-
-        /* JADX INFO: Access modifiers changed from: package-private */
-        /* loaded from: classes14.dex */
-        public static final class LimitedInputStream extends FilterInputStream {
-            private int limit;
-
-            /* JADX INFO: Access modifiers changed from: package-private */
-            public LimitedInputStream(InputStream inputStream, int i) {
-                super(inputStream);
-                this.limit = i;
-            }
-
-            @Override // java.io.FilterInputStream, java.io.InputStream
-            public int available() throws IOException {
-                return Math.min(super.available(), this.limit);
-            }
-
-            @Override // java.io.FilterInputStream, java.io.InputStream
-            public int read() throws IOException {
-                if (this.limit <= 0) {
-                    return -1;
-                }
-                int read = super.read();
-                if (read >= 0) {
-                    this.limit--;
-                    return read;
-                }
-                return read;
-            }
-
-            @Override // java.io.FilterInputStream, java.io.InputStream
-            public int read(byte[] bArr, int i, int i2) throws IOException {
-                if (this.limit <= 0) {
-                    return -1;
-                }
-                int read = super.read(bArr, i, Math.min(i2, this.limit));
-                if (read >= 0) {
-                    this.limit -= read;
-                    return read;
-                }
-                return read;
-            }
-
-            @Override // java.io.FilterInputStream, java.io.InputStream
-            public long skip(long j) throws IOException {
-                long skip = super.skip(Math.min(j, this.limit));
-                if (skip >= 0) {
-                    this.limit = (int) (this.limit - skip);
-                }
-                return skip;
-            }
-        }
-
-        @Override // com.google.protobuf.MessageLite.Builder
-        public boolean mergeDelimitedFrom(InputStream inputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
-            int read = inputStream.read();
-            if (read == -1) {
-                return false;
-            }
-            mergeFrom((InputStream) new LimitedInputStream(inputStream, CodedInputStream.readRawVarint32(read, inputStream)), extensionRegistryLite);
-            return true;
-        }
-
-        @Override // com.google.protobuf.MessageLite.Builder
-        public boolean mergeDelimitedFrom(InputStream inputStream) throws IOException {
-            return mergeDelimitedFrom(inputStream, ExtensionRegistryLite.getEmptyRegistry());
-        }
-
-        /* JADX INFO: Access modifiers changed from: protected */
-        public static UninitializedMessageException newUninitializedMessageException(MessageLite messageLite) {
-            return new UninitializedMessageException(messageLite);
-        }
-
-        /* JADX INFO: Access modifiers changed from: protected */
-        public static <T> void addAll(Iterable<T> iterable, Collection<? super T> collection) {
-            if (iterable instanceof LazyStringList) {
-                checkForNullValues(((LazyStringList) iterable).getUnderlyingElements());
-            } else {
-                checkForNullValues(iterable);
-            }
-            if (iterable instanceof Collection) {
-                collection.addAll((Collection) iterable);
-                return;
-            }
-            for (T t : iterable) {
-                collection.add(t);
-            }
-        }
-
-        private static void checkForNullValues(Iterable<?> iterable) {
-            Iterator<?> it = iterable.iterator();
-            while (it.hasNext()) {
-                if (it.next() == null) {
-                    throw new NullPointerException();
-                }
-            }
         }
     }
 }

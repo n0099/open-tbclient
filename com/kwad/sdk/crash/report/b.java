@@ -3,13 +3,11 @@ package com.kwad.sdk.crash.report;
 import android.annotation.SuppressLint;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
-import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.kwad.sdk.crash.model.message.ExceptionMessage;
 import com.kwad.sdk.crash.model.message.MemoryInfo;
 import com.kwad.sdk.crash.model.message.ThreadInfo;
 import com.kwad.sdk.crash.utils.f;
 import com.kwad.sdk.crash.utils.h;
-import com.xiaomi.mipush.sdk.Constants;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileFilter;
@@ -20,21 +18,23 @@ import java.io.Reader;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public abstract class b {
 
     /* renamed from: a  reason: collision with root package name */
-    protected c f6387a;
-    protected String b = "";
+    public c f34470a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public String f34471b = "";
 
     private String a(String str) {
-        return (str == null || !str.contains(Constants.ACCEPT_TIME_SEPARATOR_SERVER)) ? str : str.substring(0, str.lastIndexOf(45));
+        return (str == null || !str.contains("-")) ? str : str.substring(0, str.lastIndexOf(45));
     }
 
-    protected abstract ExceptionMessage a(@NonNull File file, File file2, File file3, String str);
+    public abstract ExceptionMessage a(@NonNull File file, File file2, File file3, String str);
 
     public void a(c cVar) {
-        this.f6387a = cVar;
+        this.f34470a = cVar;
     }
 
     @SuppressLint({"CheckResult"})
@@ -50,70 +50,79 @@ public abstract class b {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:31:0x008b */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:40:0x000d */
     public void a(File file, ExceptionMessage exceptionMessage) {
         BufferedReader bufferedReader;
+        String readLine;
+        String str;
         try {
             MemoryInfo memoryInfo = new MemoryInfo(exceptionMessage.mMemoryInfo);
             ArrayList arrayList = new ArrayList();
+            BufferedReader bufferedReader2 = null;
             try {
                 try {
                     bufferedReader = new BufferedReader(new FileReader(file));
-                    try {
-                        ThreadInfo threadInfo = new ThreadInfo();
-                        while (true) {
-                            String readLine = bufferedReader.readLine();
-                            if (readLine == null) {
-                                memoryInfo.mJavaThreads = arrayList;
-                                exceptionMessage.mMemoryInfo = memoryInfo.toJson().toString();
-                                com.kwad.sdk.crash.utils.b.a((Reader) bufferedReader);
-                                return;
-                            } else if (readLine.isEmpty()) {
-                                arrayList.add(threadInfo);
-                                threadInfo = new ThreadInfo();
-                            } else if (readLine.startsWith("at ") || readLine.startsWith("(no ")) {
-                                if (threadInfo.mTrace != null) {
-                                    readLine = threadInfo.mTrace + readLine;
-                                }
-                                threadInfo.mTrace = readLine;
-                                threadInfo.mTrace += "#";
-                            } else {
-                                threadInfo.mName = readLine;
-                            }
-                        }
-                    } catch (IOException e) {
-                        e = e;
-                        com.kwad.sdk.core.d.a.b(e);
-                        com.kwad.sdk.crash.utils.b.a((Reader) bufferedReader);
-                    }
                 } catch (Throwable th) {
                     th = th;
-                    com.kwad.sdk.crash.utils.b.a((Reader) null);
-                    throw th;
                 }
             } catch (IOException e2) {
                 e = e2;
-                bufferedReader = null;
+            }
+            try {
+                ThreadInfo threadInfo = new ThreadInfo();
+                while (true) {
+                    readLine = bufferedReader.readLine();
+                    if (readLine == null) {
+                        break;
+                    } else if (readLine.isEmpty()) {
+                        arrayList.add(threadInfo);
+                        threadInfo = new ThreadInfo();
+                    } else {
+                        if (!readLine.startsWith("at ") && !readLine.startsWith("(no ")) {
+                            threadInfo.mName = readLine;
+                        }
+                        if (threadInfo.mTrace == null) {
+                            str = readLine;
+                        } else {
+                            str = threadInfo.mTrace + readLine;
+                        }
+                        threadInfo.mTrace = str;
+                        threadInfo.mTrace += "#";
+                    }
+                }
+                memoryInfo.mJavaThreads = arrayList;
+                exceptionMessage.mMemoryInfo = memoryInfo.toJson().toString();
+                com.kwad.sdk.crash.utils.b.a((Reader) bufferedReader);
+                bufferedReader2 = readLine;
+            } catch (IOException e3) {
+                e = e3;
+                bufferedReader2 = bufferedReader;
+                com.kwad.sdk.core.d.a.b(e);
+                com.kwad.sdk.crash.utils.b.a((Reader) bufferedReader2);
+                bufferedReader2 = bufferedReader2;
             } catch (Throwable th2) {
                 th = th2;
-                com.kwad.sdk.crash.utils.b.a((Reader) null);
+                bufferedReader2 = bufferedReader;
+                com.kwad.sdk.crash.utils.b.a((Reader) bufferedReader2);
                 throw th;
             }
-        } catch (Exception e3) {
-            com.kwad.sdk.core.d.a.b(e3);
+        } catch (Exception e4) {
+            com.kwad.sdk.core.d.a.b(e4);
         }
     }
 
     public void b(File file) {
+        File[] listFiles;
         String a2 = f.a(file.getPath());
         File file2 = new File(a2 + ".msg");
-        File file3 = new File(a2 + BdStatsConstant.StatsFile.LOG_FILE_SUFFIX);
+        File file3 = new File(a2 + ".log");
         File file4 = new File(a2 + ".blog");
         File file5 = new File(a2 + ".jtrace");
         ArrayList<File> arrayList = new ArrayList();
         try {
             ExceptionMessage a3 = a(file, file2, file3, a2);
-            this.f6387a.a(a3);
+            this.f34470a.a(a3);
             f.a(file4);
             ArrayList arrayList2 = new ArrayList();
             Collections.addAll(arrayList2, file3, file4);
@@ -125,114 +134,139 @@ public abstract class b {
             }
             File file6 = new File(file.getParentFile().getParent(), "custom");
             if (file6.exists()) {
-                File[] listFiles = file6.listFiles();
-                for (File file7 : listFiles) {
+                for (File file7 : file6.listFiles()) {
                     if (!file7.isDirectory() && (file7.getName().startsWith(a3.mLogUUID) || file7.getName().startsWith(a(a3.mLogUUID)))) {
                         arrayList.add(file7);
                     }
                 }
                 arrayList2.addAll(arrayList);
             }
-            try {
-                h.b(file.getPath());
-                h.b(file3.getPath());
-                h.b(file4.getPath());
-                for (File file8 : arrayList) {
-                    h.b(file8.getPath());
-                }
-                h.b(file5.getPath());
-                f.b(com.kwad.sdk.crash.c.b.b);
-            } catch (Throwable th) {
-                com.kwad.sdk.core.d.a.b(th);
+            h.b(file.getPath());
+            h.b(file3.getPath());
+            h.b(file4.getPath());
+            for (File file8 : arrayList) {
+                h.b(file8.getPath());
             }
-        } catch (Throwable th2) {
-            try {
-                com.kwad.sdk.core.d.a.b(th2);
-                this.f6387a.b("report_ex_error", f.a(th2));
-                try {
-                    h.b(file.getPath());
-                    h.b(file3.getPath());
-                    h.b(file4.getPath());
-                    for (File file9 : arrayList) {
-                        h.b(file9.getPath());
-                    }
-                    h.b(file5.getPath());
-                    f.b(com.kwad.sdk.crash.c.b.b);
-                } catch (Throwable th3) {
-                    com.kwad.sdk.core.d.a.b(th3);
-                }
-            } catch (Throwable th4) {
-                try {
-                    h.b(file.getPath());
-                    h.b(file3.getPath());
-                    h.b(file4.getPath());
-                    for (File file10 : arrayList) {
-                        h.b(file10.getPath());
-                    }
-                    h.b(file5.getPath());
-                    f.b(com.kwad.sdk.crash.c.b.b);
-                } catch (Throwable th5) {
-                    com.kwad.sdk.core.d.a.b(th5);
-                }
-                throw th4;
-            }
+            h.b(file5.getPath());
+            f.b(com.kwad.sdk.crash.c.b.f34440b);
+        } catch (Throwable th) {
+            com.kwad.sdk.core.d.a.b(th);
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     public void b(File file, ExceptionMessage exceptionMessage) {
-        BufferedReader bufferedReader;
+        String str;
+        StringBuilder sb;
+        StringBuilder sb2;
+        StringBuilder sb3;
+        StringBuilder sb4;
+        StringBuilder sb5;
+        BufferedReader bufferedReader = null;
         try {
             try {
-                bufferedReader = new BufferedReader(new FileReader(file));
+                BufferedReader bufferedReader2 = new BufferedReader(new FileReader(file));
                 boolean z = false;
                 while (true) {
                     try {
-                        String readLine = bufferedReader.readLine();
+                        String readLine = bufferedReader2.readLine();
                         if (readLine == null) {
-                            com.kwad.sdk.crash.utils.b.a((Reader) bufferedReader);
+                            com.kwad.sdk.crash.utils.b.a((Reader) bufferedReader2);
                             return;
-                        } else if (!z && readLine.contains("JNI DETECTED ERROR IN APPLICATION")) {
+                        } else if (z || !readLine.contains("JNI DETECTED ERROR IN APPLICATION")) {
+                            if (!readLine.contains("Waiting for a blocking GC ") && !readLine.contains("WaitForGcToComplete")) {
+                                if (readLine.contains("dvm_lock_sample")) {
+                                    if (TextUtils.isEmpty(exceptionMessage.mLockInfo)) {
+                                        sb2 = new StringBuilder();
+                                        sb2.append(readLine);
+                                        sb2.append("\n");
+                                    } else {
+                                        sb2 = new StringBuilder();
+                                        sb2.append(exceptionMessage.mLockInfo);
+                                        sb2.append(readLine);
+                                        sb2.append("\n");
+                                    }
+                                    exceptionMessage.mLockInfo = sb2.toString();
+                                } else if (readLine.contains("Long monitor")) {
+                                    if (TextUtils.isEmpty(exceptionMessage.mMonitorInfo)) {
+                                        sb3 = new StringBuilder();
+                                        sb3.append(readLine);
+                                        sb3.append("\n");
+                                    } else {
+                                        sb3 = new StringBuilder();
+                                        sb3.append(exceptionMessage.mMonitorInfo);
+                                        sb3.append(readLine);
+                                        sb3.append("\n");
+                                    }
+                                    exceptionMessage.mMonitorInfo = sb3.toString();
+                                } else if (readLine.contains("Slow Looper")) {
+                                    if (TextUtils.isEmpty(exceptionMessage.mSlowLooper)) {
+                                        sb4 = new StringBuilder();
+                                        sb4.append(readLine);
+                                        sb4.append("\n");
+                                    } else {
+                                        sb4 = new StringBuilder();
+                                        sb4.append(exceptionMessage.mSlowLooper);
+                                        sb4.append(readLine);
+                                        sb4.append("\n");
+                                    }
+                                    exceptionMessage.mSlowLooper = sb4.toString();
+                                } else if (readLine.contains("Slow Operation")) {
+                                    if (TextUtils.isEmpty(exceptionMessage.mSlowOperation)) {
+                                        sb5 = new StringBuilder();
+                                        sb5.append(readLine);
+                                        sb5.append("\n");
+                                    } else {
+                                        sb5 = new StringBuilder();
+                                        sb5.append(exceptionMessage.mSlowOperation);
+                                        sb5.append(readLine);
+                                        sb5.append("\n");
+                                    }
+                                    exceptionMessage.mSlowOperation = sb5.toString();
+                                }
+                            }
+                            if (TextUtils.isEmpty(exceptionMessage.mGCInfo)) {
+                                sb = new StringBuilder();
+                                sb.append(readLine);
+                                sb.append("\n");
+                            } else {
+                                sb = new StringBuilder();
+                                sb.append(exceptionMessage.mGCInfo);
+                                sb.append(readLine);
+                                sb.append("\n");
+                            }
+                            exceptionMessage.mGCInfo = sb.toString();
+                        } else {
                             exceptionMessage.mJNIError = readLine.substring(readLine.indexOf("JNI DETECTED ERROR IN APPLICATION"));
                             z = true;
-                        } else if (readLine.contains("Waiting for a blocking GC ") || readLine.contains("WaitForGcToComplete")) {
-                            exceptionMessage.mGCInfo = TextUtils.isEmpty(exceptionMessage.mGCInfo) ? readLine + "\n" : exceptionMessage.mGCInfo + readLine + "\n";
-                        } else if (readLine.contains("dvm_lock_sample")) {
-                            exceptionMessage.mLockInfo = TextUtils.isEmpty(exceptionMessage.mLockInfo) ? readLine + "\n" : exceptionMessage.mLockInfo + readLine + "\n";
-                        } else if (readLine.contains("Long monitor")) {
-                            exceptionMessage.mMonitorInfo = TextUtils.isEmpty(exceptionMessage.mMonitorInfo) ? readLine + "\n" : exceptionMessage.mMonitorInfo + readLine + "\n";
-                        } else if (readLine.contains("Slow Looper")) {
-                            exceptionMessage.mSlowLooper = TextUtils.isEmpty(exceptionMessage.mSlowLooper) ? readLine + "\n" : exceptionMessage.mSlowLooper + readLine + "\n";
-                        } else if (readLine.contains("Slow Operation")) {
-                            exceptionMessage.mSlowOperation = TextUtils.isEmpty(exceptionMessage.mSlowOperation) ? readLine + "\n" : exceptionMessage.mSlowOperation + readLine + "\n";
                         }
-                    } catch (FileNotFoundException e) {
-                        e = e;
-                        this.b += e + "\n";
-                        com.kwad.sdk.crash.utils.b.a((Reader) bufferedReader);
-                        return;
-                    } catch (IOException e2) {
+                    } catch (FileNotFoundException e2) {
                         e = e2;
-                        this.b += e + "\n";
+                        bufferedReader = bufferedReader2;
+                        str = this.f34471b + e + "\n";
+                        this.f34471b = str;
                         com.kwad.sdk.crash.utils.b.a((Reader) bufferedReader);
                         return;
+                    } catch (IOException e3) {
+                        e = e3;
+                        bufferedReader = bufferedReader2;
+                        str = this.f34471b + e + "\n";
+                        this.f34471b = str;
+                        com.kwad.sdk.crash.utils.b.a((Reader) bufferedReader);
+                        return;
+                    } catch (Throwable th) {
+                        th = th;
+                        bufferedReader = bufferedReader2;
+                        com.kwad.sdk.crash.utils.b.a((Reader) bufferedReader);
+                        throw th;
                     }
                 }
-            } catch (Throwable th) {
-                th = th;
-                com.kwad.sdk.crash.utils.b.a((Reader) null);
-                throw th;
+            } catch (Throwable th2) {
+                th = th2;
             }
-        } catch (FileNotFoundException e3) {
-            e = e3;
-            bufferedReader = null;
-        } catch (IOException e4) {
+        } catch (FileNotFoundException e4) {
             e = e4;
-            bufferedReader = null;
-        } catch (Throwable th2) {
-            th = th2;
-            com.kwad.sdk.crash.utils.b.a((Reader) null);
-            throw th;
+        } catch (IOException e5) {
+            e = e5;
         }
     }
 }

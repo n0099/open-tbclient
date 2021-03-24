@@ -6,109 +6,121 @@ import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.TextView;
-import com.baidu.live.tbadk.pagestayduration.PageStayDurationConstants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.ar;
-import com.baidu.tbadk.core.util.au;
-import com.baidu.tbadk.core.util.y;
+import com.baidu.tbadk.core.util.tbselector.TBSelector;
+import com.baidu.tbadk.core.util.tbselector.selector.DrawableSelector;
 import com.baidu.tieba.R;
+import d.b.b.e.p.k;
+import d.b.b.e.p.l;
+import d.b.h0.k0.a;
+import d.b.h0.r.f0.q.b;
 import java.util.List;
-/* loaded from: classes7.dex */
-public class BlueLikeButton extends TextView implements com.baidu.tbadk.core.view.userLike.b {
-    private boolean isBJH;
-    private boolean mql;
+/* loaded from: classes5.dex */
+public class BlueLikeButton extends TextView implements b {
+
+    /* renamed from: e  reason: collision with root package name */
+    public boolean f20458e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public boolean f20459f;
 
     public BlueLikeButton(Context context) {
         super(context);
-        this.mql = false;
-        this.isBJH = false;
+        this.f20458e = false;
+        this.f20459f = false;
+    }
+
+    @Override // d.b.h0.r.f0.q.b
+    public void a(boolean z, int i) {
+        f(z);
+    }
+
+    @Override // d.b.h0.r.f0.q.b
+    public void b(View view) {
+        if (this.f20459f) {
+            return;
+        }
+        TiebaStatic.log(new StatisticItem("c12503").param("obj_locate", "4"));
+        if (!k.isEmpty(TbadkCoreApplication.getInst().getTaskId())) {
+            StatisticItem statisticItem = new StatisticItem("c12507");
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+            statisticItem.param("obj_locate", 2);
+            statisticItem.param("obj_source", TbadkCoreApplication.getInst().getTaskId());
+            TiebaStatic.log(statisticItem);
+        }
+        if (this.f20458e) {
+            return;
+        }
+        Context context = getContext();
+        if ((context instanceof Activity) && (context instanceof a)) {
+            String stringExtra = ((Activity) context).getIntent().getStringExtra("thread_id");
+            List<String> currentPageSourceKeyList = ((a) context).getCurrentPageSourceKeyList();
+            if (currentPageSourceKeyList == null || !StringHelper.equals((String) ListUtils.getItem(currentPageSourceKeyList, currentPageSourceKeyList.size() - 1), "a002") || k.isEmpty(stringExtra)) {
+                return;
+            }
+            TiebaStatic.log(new StatisticItem("c12613").param("obj_type", 1).param("tid", stringExtra));
+        }
+    }
+
+    @Override // d.b.h0.r.f0.q.b
+    public void c(View.OnClickListener onClickListener) {
+        setOnClickListener(onClickListener);
+    }
+
+    @Override // d.b.h0.r.f0.q.b
+    public void d(boolean z, int i, boolean z2) {
+        a(z, i);
+    }
+
+    @Override // d.b.h0.r.f0.q.b
+    public void e(int i) {
+    }
+
+    public void f(boolean z) {
+        this.f20458e = z;
+        if (z) {
+            if (this.f20459f) {
+                setText(R.string.followed);
+                TBSelector.makeDrawableSelector().setShape(0).setType(1).radius(l.g(getContext(), R.dimen.tbds42)).defaultColor(R.color.CAM_X0204).into(this);
+                SkinManager.setViewTextColor(this, R.color.CAM_X0105, 1);
+                return;
+            }
+            setText(R.string.followed);
+            setBackgroundDrawable(SkinManager.getDrawable(R.drawable.selector_like_button_gray_bg));
+            setPadding(0, 0, 0, 0);
+            setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
+            SkinManager.setViewTextColor(this, R.color.CAM_X0110, 1);
+        } else if (this.f20459f) {
+            setText(R.string.attention);
+            TBSelector.selectorBackgroundDrawable(DrawableSelector.make().setShape(0).setType(1).radius(l.g(getContext(), R.dimen.tbds42)).gradientLinear(DrawableSelector.TL_BR, R.color.CAM_X0303, R.color.CAM_X0302).build(), DrawableSelector.make().setShape(0).setType(1).radius(l.g(getContext(), R.dimen.tbds42)).gradientLinear(DrawableSelector.TL_BR, R.color.cp_link_tip_b_alpha50, R.color.cp_link_tip_a_alpha50).build()).into(this);
+            SkinManager.setViewTextColor(this, R.color.CAM_X0101, 1);
+        } else {
+            setText(R.string.attention);
+            setBackgroundDrawable(SkinManager.getDrawable(R.drawable.selector_like_button_bg));
+            setPadding(getResources().getDimensionPixelSize(R.dimen.tbds20), 0, 0, 0);
+            setCompoundDrawablesWithIntrinsicBounds(SkinManager.getDrawable(R.drawable.icon_add_follow_white), (Drawable) null, (Drawable) null, (Drawable) null);
+            SkinManager.setViewTextColor(this, R.color.CAM_X0111, 1);
+        }
+    }
+
+    public void setBJH(boolean z) {
+        this.f20459f = z;
     }
 
     public BlueLikeButton(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.mql = false;
-        this.isBJH = false;
+        this.f20458e = false;
+        this.f20459f = false;
     }
 
     public BlueLikeButton(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.mql = false;
-        this.isBJH = false;
-    }
-
-    public void setBJH(boolean z) {
-        this.isBJH = z;
-    }
-
-    public void aM(boolean z) {
-        this.mql = z;
-        if (z) {
-            if (this.isBJH) {
-                setText(R.string.followed);
-                com.baidu.tbadk.core.util.f.a.bty().oP(0).oY(1).aj(com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds42)).oQ(R.color.CAM_X0204).bv(this);
-                ap.setViewTextColor(this, R.color.CAM_X0105, 1);
-                return;
-            }
-            setText(R.string.followed);
-            setBackgroundDrawable(ap.getDrawable(R.drawable.selector_like_button_gray_bg));
-            setPadding(0, 0, 0, 0);
-            setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
-            ap.setViewTextColor(this, R.color.CAM_X0110, 1);
-        } else if (this.isBJH) {
-            setText(R.string.attention);
-            com.baidu.tbadk.core.util.f.a.c(com.baidu.tbadk.core.util.f.a.b.btz().oP(0).oY(1).aj(com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds42)).b("TL_BR", R.color.CAM_X0303, R.color.CAM_X0302).btB(), com.baidu.tbadk.core.util.f.a.b.btz().oP(0).oY(1).aj(com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds42)).b("TL_BR", R.color.cp_link_tip_b_alpha50, R.color.cp_link_tip_a_alpha50).btB()).bv(this);
-            ap.setViewTextColor(this, R.color.CAM_X0101, 1);
-        } else {
-            setText(R.string.attention);
-            setBackgroundDrawable(ap.getDrawable(R.drawable.selector_like_button_bg));
-            setPadding(getResources().getDimensionPixelSize(R.dimen.tbds20), 0, 0, 0);
-            setCompoundDrawablesWithIntrinsicBounds(ap.getDrawable(R.drawable.icon_add_follow_white), (Drawable) null, (Drawable) null, (Drawable) null);
-            ap.setViewTextColor(this, R.color.CAM_X0111, 1);
-        }
-    }
-
-    @Override // com.baidu.tbadk.core.view.userLike.b
-    public void r(boolean z, int i) {
-        aM(z);
-    }
-
-    @Override // com.baidu.tbadk.core.view.userLike.b
-    public void b(boolean z, int i, boolean z2) {
-        r(z, i);
-    }
-
-    @Override // com.baidu.tbadk.core.view.userLike.b
-    public void qc(int i) {
-    }
-
-    @Override // com.baidu.tbadk.core.view.userLike.b
-    public void bG(View view) {
-        if (!this.isBJH) {
-            TiebaStatic.log(new ar("c12503").dR("obj_locate", "4"));
-            if (!au.isEmpty(TbadkCoreApplication.getInst().getTaskId())) {
-                ar arVar = new ar("c12507");
-                arVar.dR("uid", TbadkCoreApplication.getCurrentAccount());
-                arVar.aq("obj_locate", 2);
-                arVar.dR("obj_source", TbadkCoreApplication.getInst().getTaskId());
-                TiebaStatic.log(arVar);
-            }
-            if (!this.mql) {
-                Context context = getContext();
-                if ((context instanceof Activity) && (context instanceof com.baidu.tbadk.m.a)) {
-                    String stringExtra = ((Activity) context).getIntent().getStringExtra("thread_id");
-                    List<String> currentPageSourceKeyList = ((com.baidu.tbadk.m.a) context).getCurrentPageSourceKeyList();
-                    if (currentPageSourceKeyList != null && au.equals((String) y.getItem(currentPageSourceKeyList, currentPageSourceKeyList.size() - 1), PageStayDurationConstants.PageName.HOMEPAGE_PERSONALIZE) && !au.isEmpty(stringExtra)) {
-                        TiebaStatic.log(new ar("c12613").aq("obj_type", 1).dR("tid", stringExtra));
-                    }
-                }
-            }
-        }
-    }
-
-    @Override // com.baidu.tbadk.core.view.userLike.b
-    public void i(View.OnClickListener onClickListener) {
-        setOnClickListener(onClickListener);
+        this.f20458e = false;
+        this.f20459f = false;
     }
 }

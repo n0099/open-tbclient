@@ -4,45 +4,58 @@ import android.text.TextUtils;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.adp.lib.util.j;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.BlockPopInfoData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-/* loaded from: classes.dex */
+import d.b.b.e.p.j;
+/* loaded from: classes5.dex */
 public class UEGCancelModel extends BdBaseModel {
-    private a nMi;
-    private final com.baidu.adp.framework.listener.a nMj = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_UEG_CANCEL, 309615) { // from class: com.baidu.tieba.ueg.UEGCancelModel.1
-        @Override // com.baidu.adp.framework.listener.a
+
+    /* renamed from: e  reason: collision with root package name */
+    public b f21679e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public final d.b.b.c.g.a f21680f = new a(CmdConfigHttp.CMD_UEG_CANCEL, 309615);
+
+    /* loaded from: classes5.dex */
+    public class a extends d.b.b.c.g.a {
+        public a(int i, int i2) {
+            super(i, i2);
+        }
+
+        @Override // d.b.b.c.g.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             UEGCancelResponsedMessage uEGCancelResponsedMessage;
-            if (responsedMessage != null) {
-                if (((responsedMessage instanceof UEGCancelSocketResponseMessage) || (responsedMessage instanceof UEGCancelResponsedMessage)) && UEGCancelModel.this.nMi != null) {
-                    if (responsedMessage instanceof UEGCancelSocketResponseMessage) {
-                        UEGCancelSocketResponseMessage uEGCancelSocketResponseMessage = (UEGCancelSocketResponseMessage) responsedMessage;
-                        if (uEGCancelSocketResponseMessage != null && uEGCancelSocketResponseMessage.getError() == 0) {
-                            UEGCancelModel.this.nMi.d(uEGCancelSocketResponseMessage.getData());
-                        }
-                    } else if ((responsedMessage instanceof UEGCancelResponsedMessage) && (uEGCancelResponsedMessage = (UEGCancelResponsedMessage) responsedMessage) != null && uEGCancelResponsedMessage.getError() == 0) {
-                        UEGCancelModel.this.nMi.d(uEGCancelResponsedMessage.getData());
+            if (responsedMessage == null) {
+                return;
+            }
+            boolean z = responsedMessage instanceof UEGCancelSocketResponseMessage;
+            if ((z || (responsedMessage instanceof UEGCancelResponsedMessage)) && UEGCancelModel.this.f21679e != null) {
+                if (z) {
+                    UEGCancelSocketResponseMessage uEGCancelSocketResponseMessage = (UEGCancelSocketResponseMessage) responsedMessage;
+                    if (uEGCancelSocketResponseMessage != null && uEGCancelSocketResponseMessage.getError() == 0) {
+                        UEGCancelModel.this.f21679e.a(uEGCancelSocketResponseMessage.getData());
                     }
+                } else if ((responsedMessage instanceof UEGCancelResponsedMessage) && (uEGCancelResponsedMessage = (UEGCancelResponsedMessage) responsedMessage) != null && uEGCancelResponsedMessage.getError() == 0) {
+                    UEGCancelModel.this.f21679e.a(uEGCancelResponsedMessage.getData());
                 }
             }
         }
-    };
+    }
 
-    /* loaded from: classes.dex */
-    public interface a {
-        void d(BlockPopInfoData blockPopInfoData);
+    /* loaded from: classes5.dex */
+    public interface b {
+        void a(BlockPopInfoData blockPopInfoData);
     }
 
     public UEGCancelModel() {
-        com.baidu.tieba.tbadkCore.a.a.a(309615, UEGCancelSocketResponseMessage.class, false, false);
-        com.baidu.tieba.tbadkCore.a.a.a(309615, CmdConfigHttp.CMD_UEG_CANCEL, "c/f/forum/queryBlockAndAppealInfo", UEGCancelResponsedMessage.class, false, false, true, false);
-        registerListener(this.nMj);
+        d.b.i0.c3.d0.a.h(309615, UEGCancelSocketResponseMessage.class, false, false);
+        d.b.i0.c3.d0.a.c(309615, CmdConfigHttp.CMD_UEG_CANCEL, "c/f/forum/queryBlockAndAppealInfo", UEGCancelResponsedMessage.class, false, false, true, false);
+        registerListener(this.f21680f);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
-    protected boolean LoadData() {
+    public boolean LoadData() {
         return false;
     }
 
@@ -51,19 +64,20 @@ public class UEGCancelModel extends BdBaseModel {
         return false;
     }
 
-    public void cancelRequest() {
-        if (j.isNetWorkAvailable() && !TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
-            UEGCancelRequestMessage uEGCancelRequestMessage = new UEGCancelRequestMessage();
-            uEGCancelRequestMessage.setUser_id(TbadkCoreApplication.getCurrentAccount());
-            MessageManager.getInstance().sendMessage(uEGCancelRequestMessage);
-        }
-    }
-
-    public void a(a aVar) {
-        this.nMi = aVar;
-    }
-
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.nMj);
+        MessageManager.getInstance().unRegisterListener(this.f21680f);
+    }
+
+    public void t() {
+        if (!j.z() || TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
+            return;
+        }
+        UEGCancelRequestMessage uEGCancelRequestMessage = new UEGCancelRequestMessage();
+        uEGCancelRequestMessage.setUser_id(TbadkCoreApplication.getCurrentAccount());
+        MessageManager.getInstance().sendMessage(uEGCancelRequestMessage);
+    }
+
+    public void u(b bVar) {
+        this.f21679e = bVar;
     }
 }

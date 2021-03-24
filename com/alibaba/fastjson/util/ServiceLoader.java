@@ -9,10 +9,10 @@ import java.util.Collections;
 import java.util.Enumeration;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes4.dex */
+/* loaded from: classes.dex */
 public class ServiceLoader {
-    private static final String PREFIX = "META-INF/services/";
-    private static final Set<String> loadedUrls = new HashSet();
+    public static final String PREFIX = "META-INF/services/";
+    public static final Set<String> loadedUrls = new HashSet();
 
     public static <T> Set<T> load(Class<T> cls, ClassLoader classLoader) {
         if (classLoader == null) {
@@ -30,43 +30,43 @@ public class ServiceLoader {
                     loadedUrls.add(nextElement.toString());
                 }
             }
-        } catch (IOException e) {
+        } catch (IOException unused) {
         }
         for (String str2 : hashSet2) {
             try {
                 hashSet.add(classLoader.loadClass(str2).newInstance());
-            } catch (Exception e2) {
+            } catch (Exception unused2) {
             }
         }
         return hashSet;
     }
 
     public static void load(URL url, Set<String> set) throws IOException {
-        BufferedReader bufferedReader;
         InputStream inputStream;
+        BufferedReader bufferedReader = null;
         try {
             inputStream = url.openStream();
             try {
-                bufferedReader = new BufferedReader(new InputStreamReader(inputStream, "utf-8"));
+                BufferedReader bufferedReader2 = new BufferedReader(new InputStreamReader(inputStream, "utf-8"));
                 while (true) {
                     try {
-                        String readLine = bufferedReader.readLine();
-                        if (readLine != null) {
-                            int indexOf = readLine.indexOf(35);
-                            if (indexOf >= 0) {
-                                readLine = readLine.substring(0, indexOf);
-                            }
-                            String trim = readLine.trim();
-                            if (trim.length() != 0) {
-                                set.add(trim);
-                            }
-                        } else {
-                            IOUtils.close(bufferedReader);
+                        String readLine = bufferedReader2.readLine();
+                        if (readLine == null) {
+                            IOUtils.close(bufferedReader2);
                             IOUtils.close(inputStream);
                             return;
                         }
+                        int indexOf = readLine.indexOf(35);
+                        if (indexOf >= 0) {
+                            readLine = readLine.substring(0, indexOf);
+                        }
+                        String trim = readLine.trim();
+                        if (trim.length() != 0) {
+                            set.add(trim);
+                        }
                     } catch (Throwable th) {
                         th = th;
+                        bufferedReader = bufferedReader2;
                         IOUtils.close(bufferedReader);
                         IOUtils.close(inputStream);
                         throw th;
@@ -74,11 +74,9 @@ public class ServiceLoader {
                 }
             } catch (Throwable th2) {
                 th = th2;
-                bufferedReader = null;
             }
         } catch (Throwable th3) {
             th = th3;
-            bufferedReader = null;
             inputStream = null;
         }
     }

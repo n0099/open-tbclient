@@ -1,32 +1,117 @@
 package com.xiaomi.mipush.sdk;
 
-import com.xiaomi.mipush.sdk.MiTinyDataClient;
-import java.util.concurrent.ScheduledFuture;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
-public class ae implements Runnable {
+import android.content.Context;
+import android.content.SharedPreferences;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+/* loaded from: classes7.dex */
+public class ae {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ MiTinyDataClient.a.C1265a f8208a;
+    public static volatile ae f40152a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ae(MiTinyDataClient.a.C1265a c1265a) {
-        this.f8208a = c1265a;
+    /* renamed from: a  reason: collision with other field name */
+    public Context f56a;
+
+    /* renamed from: a  reason: collision with other field name */
+    public List<w> f57a = new ArrayList();
+
+    public ae(Context context) {
+        Context applicationContext = context.getApplicationContext();
+        this.f56a = applicationContext;
+        if (applicationContext == null) {
+            this.f56a = context;
+        }
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        ScheduledFuture scheduledFuture;
-        ScheduledFuture scheduledFuture2;
-        if (this.f8208a.f34a.size() != 0) {
-            this.f8208a.b();
-            return;
+    public static ae a(Context context) {
+        if (f40152a == null) {
+            synchronized (ae.class) {
+                if (f40152a == null) {
+                    f40152a = new ae(context);
+                }
+            }
         }
-        scheduledFuture = this.f8208a.f35a;
-        if (scheduledFuture != null) {
-            scheduledFuture2 = this.f8208a.f35a;
-            scheduledFuture2.cancel(false);
-            this.f8208a.f35a = null;
+        return f40152a;
+    }
+
+    public int a(String str) {
+        synchronized (this.f57a) {
+            w wVar = new w();
+            wVar.f95a = str;
+            if (this.f57a.contains(wVar)) {
+                for (w wVar2 : this.f57a) {
+                    if (wVar2.equals(wVar)) {
+                        return wVar2.f40209a;
+                    }
+                }
+            }
+            return 0;
+        }
+    }
+
+    public synchronized String a(at atVar) {
+        return this.f56a.getSharedPreferences("mipush_extra", 0).getString(atVar.name(), "");
+    }
+
+    public synchronized void a(at atVar, String str) {
+        SharedPreferences sharedPreferences = this.f56a.getSharedPreferences("mipush_extra", 0);
+        sharedPreferences.edit().putString(atVar.name(), str).commit();
+    }
+
+    /* renamed from: a  reason: collision with other method in class */
+    public void m71a(String str) {
+        synchronized (this.f57a) {
+            w wVar = new w();
+            wVar.f40209a = 0;
+            wVar.f95a = str;
+            if (this.f57a.contains(wVar)) {
+                this.f57a.remove(wVar);
+            }
+            this.f57a.add(wVar);
+        }
+    }
+
+    /* renamed from: a  reason: collision with other method in class */
+    public boolean m72a(String str) {
+        synchronized (this.f57a) {
+            w wVar = new w();
+            wVar.f95a = str;
+            return this.f57a.contains(wVar);
+        }
+    }
+
+    public void b(String str) {
+        synchronized (this.f57a) {
+            w wVar = new w();
+            wVar.f95a = str;
+            if (this.f57a.contains(wVar)) {
+                Iterator<w> it = this.f57a.iterator();
+                while (true) {
+                    if (!it.hasNext()) {
+                        break;
+                    }
+                    w next = it.next();
+                    if (wVar.equals(next)) {
+                        wVar = next;
+                        break;
+                    }
+                }
+            }
+            wVar.f40209a++;
+            this.f57a.remove(wVar);
+            this.f57a.add(wVar);
+        }
+    }
+
+    public void c(String str) {
+        synchronized (this.f57a) {
+            w wVar = new w();
+            wVar.f95a = str;
+            if (this.f57a.contains(wVar)) {
+                this.f57a.remove(wVar);
+            }
         }
     }
 }

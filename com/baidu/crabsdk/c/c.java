@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import com.baidu.crabsdk.b.p;
-import com.baidu.searchbox.v8engine.util.TimeUtils;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
@@ -13,19 +12,23 @@ import java.util.Iterator;
 import java.util.zip.Deflater;
 import java.util.zip.DeflaterOutputStream;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public final class c {
-    private static SimpleDateFormat aqQ;
-    private static PackageManager aqR;
+
+    /* renamed from: a  reason: collision with root package name */
+    public static SimpleDateFormat f4708a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public static PackageManager f4709b;
 
     public static String a(Date date) {
-        if (aqQ == null) {
-            aqQ = new SimpleDateFormat("MM-dd HH:mm:ss");
+        if (f4708a == null) {
+            f4708a = new SimpleDateFormat("MM-dd HH:mm:ss");
         }
-        return aqQ.format(date);
+        return f4708a.format(date);
     }
 
-    public static JSONObject a(JSONObject jSONObject, JSONObject jSONObject2) {
+    public static JSONObject b(JSONObject jSONObject, JSONObject jSONObject2) {
         Iterator<String> keys = jSONObject2.keys();
         while (keys.hasNext()) {
             String next = keys.next();
@@ -34,7 +37,7 @@ public final class c {
         return jSONObject;
     }
 
-    public static void a(SharedPreferences.Editor editor, boolean z) {
+    public static void c(SharedPreferences.Editor editor, boolean z) {
         if (z) {
             editor.commit();
         } else {
@@ -42,142 +45,165 @@ public final class c {
         }
     }
 
-    private static byte[] a(byte[] bArr) {
-        Throwable th;
+    /* JADX WARN: Removed duplicated region for block: B:55:0x0063 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:67:0x006d A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static byte[] d(byte[] bArr) {
         Deflater deflater;
         DeflaterOutputStream deflaterOutputStream;
-        byte[] bArr2 = null;
-        if (bArr != null) {
+        DeflaterOutputStream deflaterOutputStream2 = null;
+        if (bArr == null || bArr.length == 0) {
+            return null;
+        }
+        try {
+            deflater = new Deflater(9, true);
             try {
-                if (bArr.length != 0) {
+                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+                deflaterOutputStream = new DeflaterOutputStream(byteArrayOutputStream, deflater);
+                try {
                     try {
-                        deflater = new Deflater(9, true);
-                    } catch (Exception e) {
-                        e = e;
-                        deflaterOutputStream = null;
-                        deflater = null;
-                    } catch (Throwable th2) {
-                        th = th2;
-                        deflaterOutputStream = null;
-                        deflater = null;
-                    }
-                    try {
-                        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-                        deflaterOutputStream = new DeflaterOutputStream(byteArrayOutputStream, deflater);
+                        deflaterOutputStream.write(bArr);
+                        deflaterOutputStream.close();
+                        deflater.end();
+                        byte[] byteArray = byteArrayOutputStream.toByteArray();
                         try {
-                            deflaterOutputStream.write(bArr);
                             deflaterOutputStream.close();
-                            deflater.end();
-                            bArr2 = byteArrayOutputStream.toByteArray();
-                            try {
-                                deflaterOutputStream.close();
-                            } catch (IOException e2) {
-                                e2.printStackTrace();
-                            }
-                            try {
-                                deflater.end();
-                            } catch (Exception e3) {
-                                e3.printStackTrace();
-                            }
-                        } catch (Exception e4) {
-                            e = e4;
-                            a.a("Compress error!", e);
-                            if (deflaterOutputStream != null) {
-                                try {
-                                    deflaterOutputStream.close();
-                                } catch (IOException e5) {
-                                    e5.printStackTrace();
-                                }
-                            }
-                            if (deflater != null) {
-                                try {
-                                    deflater.end();
-                                } catch (Exception e6) {
-                                    e6.printStackTrace();
-                                }
-                            }
-                            return bArr2;
+                        } catch (IOException e2) {
+                            e2.printStackTrace();
                         }
-                    } catch (Exception e7) {
-                        e = e7;
-                        deflaterOutputStream = null;
-                    } catch (Throwable th3) {
-                        th = th3;
-                        deflaterOutputStream = null;
+                        try {
+                            deflater.end();
+                        } catch (Exception e3) {
+                            e3.printStackTrace();
+                        }
+                        return byteArray;
+                    } catch (Exception e4) {
+                        e = e4;
+                        a.a("Compress error!", e);
                         if (deflaterOutputStream != null) {
                             try {
                                 deflaterOutputStream.close();
-                            } catch (IOException e8) {
-                                e8.printStackTrace();
+                            } catch (IOException e5) {
+                                e5.printStackTrace();
                             }
                         }
                         if (deflater != null) {
                             try {
                                 deflater.end();
-                            } catch (Exception e9) {
-                                e9.printStackTrace();
+                            } catch (Exception e6) {
+                                e6.printStackTrace();
                             }
                         }
-                        throw th;
+                        return null;
                     }
+                } catch (Throwable th) {
+                    th = th;
+                    deflaterOutputStream2 = deflaterOutputStream;
+                    if (deflaterOutputStream2 != null) {
+                        try {
+                            deflaterOutputStream2.close();
+                        } catch (IOException e7) {
+                            e7.printStackTrace();
+                        }
+                    }
+                    if (deflater != null) {
+                        try {
+                            deflater.end();
+                        } catch (Exception e8) {
+                            e8.printStackTrace();
+                        }
+                    }
+                    throw th;
                 }
-            } catch (Throwable th4) {
-                th = th4;
+            } catch (Exception e9) {
+                e = e9;
+                deflaterOutputStream = null;
+            } catch (Throwable th2) {
+                th = th2;
+                if (deflaterOutputStream2 != null) {
+                }
+                if (deflater != null) {
+                }
+                throw th;
             }
-        }
-        return bArr2;
-    }
-
-    public static String b(long j) {
-        return j / 1000000000 > 0 ? (((float) (j / 100000000)) / 10.0f) + "G" : j / TimeUtils.NANOS_PER_MS > 0 ? (((float) (j / 100000)) / 10.0f) + "M" : j / 1000 > 0 ? (((float) (j / 100)) / 10.0f) + "K" : j + "B";
-    }
-
-    public static byte[] dz(String str) {
-        if (str == null || str.length() == 0) {
-            return null;
-        }
-        return a(str.getBytes());
-    }
-
-    public static boolean g(Context context, String str) {
-        if (aqR == null) {
-            aqR = context.getPackageManager();
-        }
-        try {
-            return aqR.checkPermission(str, context.getPackageName()) == 0;
-        } catch (RuntimeException e) {
-            return false;
+        } catch (Exception e10) {
+            e = e10;
+            deflater = null;
+            deflaterOutputStream = null;
+        } catch (Throwable th3) {
+            th = th3;
+            deflater = null;
         }
     }
 
-    public static String h(Throwable th) {
+    public static String e() {
+        return new SimpleDateFormat("yyyyMMdd").format(new Date(System.currentTimeMillis()));
+    }
+
+    public static String f(long j) {
+        StringBuilder sb;
+        String str;
+        if (j / 1000000000 > 0) {
+            sb = new StringBuilder();
+            sb.append(((float) (j / 100000000)) / 10.0f);
+            str = "G";
+        } else if (j / 1000000 > 0) {
+            sb = new StringBuilder();
+            sb.append(((float) (j / 100000)) / 10.0f);
+            str = "M";
+        } else if (j / 1000 > 0) {
+            sb = new StringBuilder();
+            sb.append(((float) (j / 100)) / 10.0f);
+            str = "K";
+        } else {
+            sb = new StringBuilder();
+            sb.append(j);
+            str = "B";
+        }
+        sb.append(str);
+        return sb.toString();
+    }
+
+    public static String g(Throwable th) {
         if (th == null) {
-            a.w("getErrorLine thr is null.");
+            a.d("getErrorLine thr is null.");
             return "";
         }
         StackTraceElement[] stackTrace = th.getStackTrace();
         return stackTrace.length > 0 ? stackTrace[0].toString() : "N/A";
     }
 
-    public static String j(Throwable th) {
+    public static String h(Throwable th) {
         if (th == null) {
-            a.w("getErrorOriginalLine thr is null.");
+            a.d("getErrorOriginalLine thr is null.");
             return "";
         }
         while (th.getCause() != null) {
             th = th.getCause();
         }
         StackTraceElement[] stackTrace = th.getStackTrace();
-        String up = p.up();
+        String a2 = p.a();
         for (int i = 0; i < stackTrace.length; i++) {
-            if (stackTrace[i].getClassName().contains(up)) {
+            if (stackTrace[i].getClassName().contains(a2)) {
                 return stackTrace[i].toString();
             }
         }
         return stackTrace.length > 0 ? stackTrace[0].toString() : "N/A";
     }
 
-    public static String ut() {
-        return new SimpleDateFormat("yyyyMMdd").format(new Date(System.currentTimeMillis()));
+    public static boolean i(Context context, String str) {
+        if (f4709b == null) {
+            f4709b = context.getPackageManager();
+        }
+        return f4709b.checkPermission(str, context.getPackageName()) == 0;
+    }
+
+    public static byte[] j(String str) {
+        if (str == null || str.length() == 0) {
+            return null;
+        }
+        return d(str.getBytes());
     }
 }

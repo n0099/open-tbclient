@@ -5,15 +5,10 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.text.TextUtils;
 import com.alibaba.fastjson.asm.Opcodes;
-import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class b {
     public static int a() {
         return Opcodes.PUTFIELD;
-    }
-
-    public static String b() {
-        return "5.5.0";
     }
 
     public static String a(Context context) {
@@ -28,16 +23,20 @@ public class b {
                 if (packageInfo != null) {
                     String str = packageInfo.versionName;
                     if (!TextUtils.isEmpty(str)) {
-                        sb.append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
+                        sb.append("_");
                         sb.append(str);
                         a.a("appId = " + sb.toString());
                     }
                 }
-            } catch (Exception e) {
+            } catch (Exception unused) {
             }
             return sb.toString();
-        } catch (NullPointerException e2) {
+        } catch (NullPointerException unused2) {
             return null;
         }
+    }
+
+    public static String b() {
+        return "5.5.0";
     }
 }

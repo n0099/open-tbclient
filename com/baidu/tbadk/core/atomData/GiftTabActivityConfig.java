@@ -3,7 +3,8 @@ package com.baidu.tbadk.core.atomData;
 import android.content.Context;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-/* loaded from: classes.dex */
+import com.baidu.tbadk.core.util.MemberPayStatistic;
+/* loaded from: classes3.dex */
 public class GiftTabActivityConfig extends IntentConfig {
     public static final String ACCOUNT_TYPE = "account_type";
     public static final String FROM = "from";
@@ -20,6 +21,11 @@ public class GiftTabActivityConfig extends IntentConfig {
 
     public GiftTabActivityConfig(Context context, long j, String str, String str2) {
         this(context, j, str, str2, FROM_PERSON_CENTER);
+    }
+
+    public void setReferPageAndClickZone(String str, String str2) {
+        getIntent().putExtra(MemberPayStatistic.REFER_PAGE, str);
+        getIntent().putExtra(MemberPayStatistic.CLICK_ZONE, str2);
     }
 
     public GiftTabActivityConfig(Context context, long j, String str, String str2, String str3) {
@@ -48,10 +54,5 @@ public class GiftTabActivityConfig extends IntentConfig {
         getIntent().putExtra("from", str3);
         getIntent().putExtra(GIFT_THREAD_ID, j2);
         getIntent().putExtra(GIFT_POST_ID, j3);
-    }
-
-    public void setReferPageAndClickZone(String str, String str2) {
-        getIntent().putExtra("refer_page", str);
-        getIntent().putExtra("click_zone", str2);
     }
 }

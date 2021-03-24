@@ -13,18 +13,23 @@ import android.os.Looper;
 import android.os.Message;
 import android.text.TextUtils;
 import android.view.MotionEvent;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
+import com.baidu.rtc.PeerConnectionClient;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.o;
-import com.baidu.tieba.video.record.g;
-import com.faceunity.a.d;
+import com.baidu.tbadk.core.util.FileHelper;
 import com.faceunity.gles.Texture2dProgram;
 import com.faceunity.wrapper.faceunity;
+import d.b.i0.p3.m.f;
+import d.b.i0.p3.m.g;
+import d.b.i0.p3.m.h;
+import d.b.i0.s1.k;
+import d.e.b.d;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -33,238 +38,448 @@ import java.lang.ref.WeakReference;
 import java.nio.IntBuffer;
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class GLVideoPreviewView extends GLSurfaceView implements g {
-    private static int nSu = 720;
-    private static int nSv = 960;
-    private static boolean nSz;
-    private int mSurfaceViewHeight;
-    private int mSurfaceViewWidth;
-    private com.baidu.tieba.l.g nAz;
-    private a nSA;
-    private g.a nSB;
-    private boolean nSC;
-    protected h nSw;
-    private b nSx;
-    private com.faceunity.a.d nSy;
+    public static int n = 720;
+    public static int o = 960;
+    public static boolean p;
 
-    /* loaded from: classes7.dex */
-    public interface a {
-        void zd(boolean z);
-    }
+    /* renamed from: e  reason: collision with root package name */
+    public h f21807e;
 
-    public GLVideoPreviewView(Context context, h hVar) {
-        super(context);
-        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_GET_VIDEO_PLATFORM_FACTORY, com.baidu.tieba.l.k.class);
-        com.baidu.tieba.l.k kVar = runTask != null ? (com.baidu.tieba.l.k) runTask.getData() : null;
-        if (kVar != null) {
-            this.nAz = kVar.dho();
+    /* renamed from: f  reason: collision with root package name */
+    public c f21808f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public d f21809g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public b f21810h;
+    public int i;
+    public int j;
+    public g.a k;
+    public boolean l;
+    public d.b.i0.s1.g m;
+
+    /* loaded from: classes5.dex */
+    public class a implements Runnable {
+        public a() {
         }
-        this.nSw = hVar;
-        this.nSx = new b(context, this, this.nAz);
-        setEGLContextClientVersion(2);
-        setRenderer(this.nSx);
-        setRenderMode(0);
+
+        @Override // java.lang.Runnable
+        public void run() {
+            if (GLVideoPreviewView.this.f21808f != null) {
+                GLVideoPreviewView.this.f21808f.I();
+            }
+        }
     }
 
-    @Override // com.baidu.tieba.video.record.g
-    public void e(Camera camera) {
-        if (camera != null) {
-            try {
-                camera.setPreviewCallback(this.nSx);
-                camera.setPreviewTexture(this.nSx.nSF);
-                this.nSx.nSF.setOnFrameAvailableListener(this.nSx);
-                camera.startPreview();
-            } catch (Exception e) {
-                e.printStackTrace();
-                if (this.nAz != null) {
-                    this.nAz.bK(20, com.baidu.tieba.l.a.o(e));
+    /* loaded from: classes5.dex */
+    public interface b {
+        void onFaceIdentifyState(boolean z);
+    }
+
+    /* loaded from: classes5.dex */
+    public static class c implements GLSurfaceView.Renderer, Camera.PreviewCallback, SurfaceTexture.OnFrameAvailableListener {
+        public float A;
+        public byte[] E;
+        public boolean F;
+        public boolean G;
+        public d H;
+        public String I;
+        public boolean J;
+        public String K;
+        public d.b.i0.s1.g L;
+
+        /* renamed from: e  reason: collision with root package name */
+        public d.e.c.c f21812e;
+
+        /* renamed from: f  reason: collision with root package name */
+        public d.e.c.c f21813f;
+
+        /* renamed from: g  reason: collision with root package name */
+        public volatile SurfaceTexture f21814g;
+
+        /* renamed from: h  reason: collision with root package name */
+        public GLVideoPreviewView f21815h;
+        public int k;
+        public HandlerThread s;
+        public Handler t;
+        public float w;
+        public float x;
+        public float y;
+        public float z;
+        public int i = PeerConnectionClient.HD_VIDEO_HEIGHT;
+        public int j = TbConfig.HEAD_IMG_SIZE;
+        public int l = 0;
+        public int m = 0;
+        public int n = 0;
+        public int[] o = {0, 0, 0};
+        public boolean p = true;
+        public int q = 0;
+        public long r = 0;
+        public String u = "";
+        public String v = "origin";
+        public int B = 3;
+        public float C = 0.5f;
+        public int D = 0;
+
+        /* loaded from: classes5.dex */
+        public class a extends BdAsyncTask<Void, Void, Void> {
+
+            /* renamed from: a  reason: collision with root package name */
+            public final /* synthetic */ Bitmap f21816a;
+
+            public a(Bitmap bitmap) {
+                this.f21816a = bitmap;
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+            /* renamed from: b */
+            public void onPostExecute(Void r3) {
+                if (c.this.f21815h == null || c.this.f21815h.k == null) {
+                    return;
+                }
+                c.this.f21815h.k.a(true, c.this.K);
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+            public Void doInBackground(Void... voidArr) {
+                try {
+                    c.this.K = FileHelper.saveFileAsPic(d.b.i0.p3.c.f58892f, "pic_" + System.currentTimeMillis(), this.f21816a, 80, Bitmap.CompressFormat.JPEG);
+                    return null;
+                } finally {
+                    Bitmap bitmap = this.f21816a;
+                    if (bitmap != null && !bitmap.isRecycled()) {
+                        this.f21816a.recycle();
+                    }
                 }
             }
         }
-    }
 
-    @Override // com.baidu.tieba.video.record.g
-    public void f(Camera camera) {
-        try {
-            this.nSy = new com.faceunity.a.d();
-            this.nSx.a(this.nSy);
-            nSz = false;
-        } catch (Throwable th) {
-            BdLog.e(th);
-            if (this.nAz != null) {
-                this.nAz.bK(21, com.baidu.tieba.l.a.o(th));
+        /* loaded from: classes5.dex */
+        public class b implements Runnable {
+            public b() {
             }
-        }
-    }
 
-    @Override // com.baidu.tieba.video.record.g
-    public void g(Camera camera) {
-        try {
-            if (this.nSy != null) {
-                this.nSy.stopRecording();
-            }
-        } catch (Throwable th) {
-            BdLog.e(th);
-            if (this.nAz != null) {
-                this.nAz.bK(19, com.baidu.tieba.l.a.o(th));
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.video.record.g
-    public void setOnEncoderStatusUpdateListener(d.c cVar) {
-        if (this.nSy != null) {
-            this.nSy.setOnEncoderStatusUpdateListener(cVar);
-        }
-    }
-
-    @Override // com.baidu.tieba.video.record.g
-    public void h(Camera camera) {
-        try {
-            this.nSx.releaseResource();
-        } catch (Exception e) {
-            e.printStackTrace();
-            if (this.nAz != null) {
-                this.nAz.bK(18, com.baidu.tieba.l.a.o(e));
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.video.record.g
-    public void setPreviewSize(int i, int i2) {
-        if (i > 0 && i2 > 0) {
-            this.nSx.previewWidth = i;
-            this.nSx.previewHeight = i2;
-            int round = Math.round(((i * 1.0f) / i2) * nSu);
-            if (round % 2 == 1) {
-                round--;
-            }
-            if (nSv == 960) {
-                nSv = round;
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.video.record.g
-    public void a(g.a aVar) {
-        this.nSB = aVar;
-        this.nSC = true;
-        requestRender();
-    }
-
-    @Override // android.view.View
-    public boolean onTouchEvent(MotionEvent motionEvent) {
-        if (this.nSw == null) {
-            return false;
-        }
-        return this.nSw.a(motionEvent, getParent());
-    }
-
-    @Override // android.opengl.GLSurfaceView
-    public void onResume() {
-        super.onResume();
-        if (this.nSx == null) {
-            return;
-        }
-        this.nSx.dTZ();
-    }
-
-    public void dTV() {
-        if (this.nSx == null) {
-            return;
-        }
-        this.nSx.mCameraNV21Byte = null;
-    }
-
-    public void setBeautyLevel(com.baidu.tieba.video.a aVar) {
-        if (this.nSx != null) {
-            this.nSx.setBeautyLevel(aVar);
-        }
-    }
-
-    public void setFilter(String str) {
-        if (this.nSx != null) {
-            this.nSx.setFilter(str);
-        }
-    }
-
-    public void setSticker(StickerItem stickerItem) {
-        if (this.nSx != null) {
-            this.nSx.setSticker(stickerItem);
-        }
-    }
-
-    public void dTW() {
-        queueEvent(new Runnable() { // from class: com.baidu.tieba.video.record.GLVideoPreviewView.1
             @Override // java.lang.Runnable
             public void run() {
-                if (GLVideoPreviewView.this.nSx != null) {
-                    GLVideoPreviewView.this.nSx.dTW();
+                if (c.this.f21812e != null) {
+                    c.this.f21812e.c(false);
+                    c.this.f21812e = null;
                 }
+                if (c.this.f21813f != null) {
+                    c.this.f21813f.c(false);
+                    c.this.f21813f = null;
+                }
+                if (c.this.f21814g != null) {
+                    c.this.f21814g.release();
+                    c.this.f21814g = null;
+                }
+                faceunity.fuDestroyItem(c.this.m);
+                int[] iArr = c.this.o;
+                c.this.m = 0;
+                iArr[1] = 0;
+                faceunity.fuDestroyItem(c.this.l);
+                int[] iArr2 = c.this.o;
+                c.this.l = 0;
+                iArr2[0] = 0;
+                faceunity.fuOnDeviceLost();
+                c.this.E = null;
+                c.this.p = true;
             }
-        });
-    }
-
-    public void setIsChangingCamera(boolean z) {
-        this.nSx.nSQ = z;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public Handler getMainHandler() {
-        return this.nSw.getMainHandler();
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes7.dex */
-    public static class b implements SurfaceTexture.OnFrameAvailableListener, Camera.PreviewCallback, GLSurfaceView.Renderer {
-        private byte[] mCameraNV21Byte;
-        private float mFacebeautyBlurLevel;
-        private float mFacebeautyCheeckThin;
-        private float mFacebeautyColorLevel;
-        private float mFacebeautyEnlargeEye;
-        private float mFacebeautyRedLevel;
-        private com.baidu.tieba.l.g nAz;
-        private com.faceunity.gles.c nPg;
-        private com.faceunity.gles.c nSE;
-        private volatile SurfaceTexture nSF;
-        private GLVideoPreviewView nSG;
-        private int nSH;
-        private Handler nSM;
-        private boolean nSN;
-        private boolean nSO;
-        com.faceunity.a.d nSP;
-        private boolean nSQ;
-        private String nSR;
-        String videoFileName;
-        protected int previewWidth = 720;
-        protected int previewHeight = 960;
-        private int mFacebeautyItem = 0;
-        private int mEffectItem = 0;
-        private int nPf = 0;
-        private int[] itemsArray = {this.mFacebeautyItem, this.mEffectItem, this.nPf};
-        private boolean isNeedEffectItem = true;
-        private long nSI = 0;
-        private int nSJ = 0;
-        private long nSK = 0;
-        private String mEffectFileName = "";
-        private String mFilterName = "origin";
-        private int mFaceShape = 3;
-        private float mFaceShapeLevel = 0.5f;
-        private int mFrameId = 0;
-        private HandlerThread nSL = new HandlerThread("CreateItemThread");
-
-        public b(Context context, GLVideoPreviewView gLVideoPreviewView, com.baidu.tieba.l.g gVar) {
-            this.nSG = gLVideoPreviewView;
-            this.nAz = gVar;
-            this.nSL.start();
-            this.nSM = new a(this.nSL.getLooper(), context);
-            setBeautyLevel(com.baidu.tieba.video.a.Ky(2));
         }
 
-        /* JADX INFO: Access modifiers changed from: private */
-        public void dTZ() {
-            this.nSM.sendEmptyMessage(2);
+        /* renamed from: com.baidu.tieba.video.record.GLVideoPreviewView$c$c  reason: collision with other inner class name */
+        /* loaded from: classes5.dex */
+        public class HandlerC0225c extends Handler {
+
+            /* renamed from: a  reason: collision with root package name */
+            public WeakReference<Context> f21819a;
+
+            public HandlerC0225c(Looper looper, Context context) {
+                super(looper);
+                this.f21819a = new WeakReference<>(context);
+            }
+
+            @Override // android.os.Handler
+            public void handleMessage(Message message) {
+                this.f21819a.get();
+                super.handleMessage(message);
+                int i = message.what;
+                if (i != 1) {
+                    if (i != 2) {
+                        return;
+                    }
+                    try {
+                        InputStream open = TbadkCoreApplication.getInst().getResources().getAssets().open("beauty/v3.mp3");
+                        byte[] bArr = new byte[open.available()];
+                        open.read(bArr);
+                        open.close();
+                        faceunity.fuSetup(bArr, null, f.a());
+                        c.this.G = true;
+                    } catch (IOException e2) {
+                        e2.printStackTrace();
+                        if (c.this.L != null) {
+                            c.this.L.c(25, d.b.i0.s1.a.a(e2));
+                        }
+                    }
+                    try {
+                        InputStream open2 = TbadkCoreApplication.getInst().getResources().getAssets().open("beauty/face_beautification.mp3");
+                        byte[] bArr2 = new byte[open2.available()];
+                        open2.read(bArr2);
+                        open2.close();
+                        c.this.l = faceunity.fuCreateItemFromPackage(bArr2);
+                        c.this.o[0] = c.this.l;
+                        c.this.G = true;
+                        return;
+                    } catch (IOException e3) {
+                        e3.printStackTrace();
+                        if (c.this.L != null) {
+                            c.this.L.c(26, d.b.i0.s1.a.a(e3));
+                            return;
+                        }
+                        return;
+                    }
+                }
+                try {
+                    if (StringUtils.isNull(c.this.u)) {
+                        int[] iArr = c.this.o;
+                        c.this.m = 0;
+                        iArr[1] = 0;
+                        int[] iArr2 = c.this.o;
+                        c.this.n = 0;
+                        iArr2[2] = 0;
+                        return;
+                    }
+                    FileInputStream fileInputStream = new FileInputStream(new File(c.this.u));
+                    byte[] bArr3 = new byte[fileInputStream.available()];
+                    fileInputStream.read(bArr3);
+                    fileInputStream.close();
+                    int i2 = c.this.o[1] != 0 ? c.this.o[1] : c.this.o[2];
+                    double d2 = 270.0d;
+                    if (c.this.F) {
+                        c.this.n = faceunity.fuCreateItemFromPackage(bArr3);
+                        c.this.o[2] = c.this.n;
+                        c.this.m = 0;
+                        c.this.o[1] = c.this.m;
+                        faceunity.fuItemSetParam(c.this.n, "isAndroid", 1.0d);
+                        int i3 = c.this.n;
+                        if (!c.this.y()) {
+                            d2 = 90.0d;
+                        }
+                        faceunity.fuItemSetParam(i3, "rotationAngle", d2);
+                    } else {
+                        c.this.m = faceunity.fuCreateItemFromPackage(bArr3);
+                        c.this.o[1] = c.this.m;
+                        c.this.n = 0;
+                        c.this.o[2] = c.this.n;
+                        faceunity.fuItemSetParam(c.this.m, "isAndroid", 1.0d);
+                        int i4 = c.this.m;
+                        if (!c.this.y()) {
+                            d2 = 90.0d;
+                        }
+                        faceunity.fuItemSetParam(i4, "rotationAngle", d2);
+                    }
+                    if (i2 != 0) {
+                        faceunity.fuDestroyItem(i2);
+                    }
+                } catch (IOException e4) {
+                    e4.printStackTrace();
+                    if (c.this.L != null) {
+                        c.this.L.c(24, d.b.i0.s1.a.a(e4));
+                    }
+                }
+            }
+        }
+
+        public c(Context context, GLVideoPreviewView gLVideoPreviewView, d.b.i0.s1.g gVar) {
+            this.f21815h = gLVideoPreviewView;
+            this.L = gVar;
+            HandlerThread handlerThread = new HandlerThread("CreateItemThread");
+            this.s = handlerThread;
+            handlerThread.start();
+            this.t = new HandlerC0225c(this.s.getLooper(), context);
+            D(d.b.i0.p3.a.b(2));
+        }
+
+        public void A() {
+            this.f21815h.queueEvent(new b());
+        }
+
+        public final void B(Bitmap bitmap) {
+            this.K = null;
+            if (bitmap != null && !bitmap.isRecycled()) {
+                new a(bitmap).execute(new Void[0]);
+                return;
+            }
+            GLVideoPreviewView gLVideoPreviewView = this.f21815h;
+            if (gLVideoPreviewView == null || gLVideoPreviewView.k == null) {
+                return;
+            }
+            this.f21815h.k.a(false, this.K);
+        }
+
+        public final void C() {
+            GLVideoPreviewView gLVideoPreviewView = this.f21815h;
+            if (gLVideoPreviewView != null) {
+                Handler mainHandler = gLVideoPreviewView.getMainHandler();
+                mainHandler.sendMessage(mainHandler.obtainMessage(1));
+                int i = this.n;
+                if (i != 0) {
+                    faceunity.fuItemSetParam(i, "rotationAngle", y() ? 270.0d : 90.0d);
+                }
+                int i2 = this.m;
+                if (i2 != 0) {
+                    faceunity.fuItemSetParam(i2, "rotationAngle", y() ? 270.0d : 90.0d);
+                }
+            }
+        }
+
+        public void D(d.b.i0.p3.a aVar) {
+            if (aVar == null) {
+                return;
+            }
+            this.w = aVar.f58874b;
+            this.x = aVar.f58875c;
+            this.y = aVar.f58876d;
+            this.z = aVar.f58877e;
+            this.A = aVar.f58878f;
+        }
+
+        public void E(String str) {
+            if (TextUtils.isEmpty(str)) {
+                return;
+            }
+            this.v = str;
+        }
+
+        public void F(d dVar) {
+            if (dVar != null) {
+                this.H = dVar;
+            }
+        }
+
+        public void G(StickerItem stickerItem) {
+            if (stickerItem != null) {
+                this.u = stickerItem.localPath;
+                if (StringUtils.isNull(stickerItem.desc)) {
+                    this.F = false;
+                } else {
+                    this.F = true;
+                }
+            } else {
+                this.u = null;
+            }
+            this.t.sendEmptyMessage(1);
+        }
+
+        public final void H() {
+            this.t.sendEmptyMessage(2);
+        }
+
+        public void I() {
+            if (this.f21814g != null) {
+                faceunity.fuOnCameraChange();
+                this.f21814g.release();
+            }
+            this.f21814g = new SurfaceTexture(this.k);
+            C();
+        }
+
+        @Override // android.opengl.GLSurfaceView.Renderer
+        public void onDrawFrame(GL10 gl10) {
+            if (this.J) {
+                return;
+            }
+            int i = this.q + 1;
+            this.q = i;
+            if (i == 100) {
+                this.q = 0;
+                System.currentTimeMillis();
+                this.r = 0L;
+            }
+            float[] fArr = new float[16];
+            try {
+                this.f21814g.updateTexImage();
+                this.f21814g.getTransformMatrix(fArr);
+            } catch (Exception e2) {
+                e2.printStackTrace();
+                d.b.i0.s1.g gVar = this.L;
+                if (gVar != null) {
+                    gVar.c(22, d.b.i0.s1.a.a(e2));
+                }
+            }
+            if (this.p) {
+                this.p = false;
+                this.t.sendEmptyMessage(1);
+            }
+            if (this.f21815h.f21810h != null) {
+                this.f21815h.f21810h.onFaceIdentifyState(faceunity.fuIsTracking() > 0);
+            }
+            faceunity.fuItemSetParam(this.l, "color_level", this.w);
+            faceunity.fuItemSetParam(this.l, "blur_level", this.x);
+            faceunity.fuItemSetParam(this.l, "filter_name", this.v);
+            faceunity.fuItemSetParam(this.l, "cheek_thinning", this.y);
+            faceunity.fuItemSetParam(this.l, "eye_enlarging", this.z);
+            faceunity.fuItemSetParam(this.l, "face_shape", this.B);
+            faceunity.fuItemSetParam(this.l, "face_shape_level", this.C);
+            faceunity.fuItemSetParam(this.l, "red_level", this.A);
+            faceunity.fuItemSetParam(this.l, "eye_bright", 0.0d);
+            faceunity.fuItemSetParam(this.l, "tooth_whiten", 0.0d);
+            byte[] bArr = this.E;
+            if (bArr != null && bArr.length != 0 && this.G) {
+                int i2 = 1 | (this.f21815h.f21807e.l == 1 ? 0 : 32);
+                if (this.F) {
+                    faceunity.fuItemSetParam(this.n, "isAndroid", 1.0d);
+                    faceunity.fuItemSetParam(this.n, "rotationAngle", y() ? 270.0d : 90.0d);
+                } else {
+                    faceunity.fuItemSetParam(this.m, "isAndroid", 1.0d);
+                    faceunity.fuItemSetParam(this.m, "rotationAngle", y() ? 270.0d : 90.0d);
+                }
+                this.f21815h.f21807e.j();
+                long currentTimeMillis = System.currentTimeMillis();
+                byte[] bArr2 = this.E;
+                int i3 = this.k;
+                int i4 = this.i;
+                int i5 = this.j;
+                int i6 = this.D;
+                this.D = i6 + 1;
+                int fuDualInputToTexture = faceunity.fuDualInputToTexture(bArr2, i3, i2, i4, i5, i6, this.o);
+                this.r += System.currentTimeMillis() - currentTimeMillis;
+                try {
+                    this.f21812e.b(fuDualInputToTexture, fArr);
+                    if (this.f21815h.l) {
+                        z(gl10);
+                        this.f21815h.l = false;
+                    }
+                    if (this.H != null && this.H.s(2) && this.f21815h.f21807e != null) {
+                        this.I = this.f21815h.f21807e.o();
+                        this.H.E(new d.c(new File(this.I), GLVideoPreviewView.n, GLVideoPreviewView.o, 2097152, null, this.f21814g.getTimestamp()));
+                    }
+                    if (this.H == null || !this.H.s(1)) {
+                        return;
+                    }
+                    this.H.D(this.f21812e, fuDualInputToTexture, fArr);
+                    if (GLVideoPreviewView.p) {
+                        this.H.t(this.f21814g);
+                    }
+                    boolean unused = GLVideoPreviewView.p = true;
+                    return;
+                } catch (Throwable th) {
+                    BdLog.e(th);
+                    this.f21815h.d(null);
+                    d.b.i0.s1.g gVar2 = this.L;
+                    if (gVar2 != null) {
+                        gVar2.c(23, d.b.i0.s1.a.a(th));
+                        return;
+                    }
+                    return;
+                }
+            }
+            this.f21815h.requestRender();
         }
 
         @Override // android.graphics.SurfaceTexture.OnFrameAvailableListener
@@ -273,371 +488,239 @@ public class GLVideoPreviewView extends GLSurfaceView implements g {
 
         @Override // android.hardware.Camera.PreviewCallback
         public void onPreviewFrame(byte[] bArr, Camera camera) {
-            this.mCameraNV21Byte = bArr;
-            this.nSG.requestRender();
-        }
-
-        @Override // android.opengl.GLSurfaceView.Renderer
-        public void onSurfaceCreated(GL10 gl10, EGLConfig eGLConfig) {
-            this.nPg = new com.faceunity.gles.c(new Texture2dProgram(Texture2dProgram.ProgramType.TEXTURE_2D));
-            this.nSE = new com.faceunity.gles.c(new Texture2dProgram(Texture2dProgram.ProgramType.TEXTURE_EXT));
-            this.nSH = this.nSE.createTextureObject();
-            dTW();
-            boolean unused = GLVideoPreviewView.nSz = false;
+            this.E = bArr;
+            this.f21815h.requestRender();
         }
 
         @Override // android.opengl.GLSurfaceView.Renderer
         public void onSurfaceChanged(GL10 gl10, int i, int i2) {
-            this.nSG.mSurfaceViewWidth = i;
-            this.nSG.mSurfaceViewHeight = i2;
-        }
-
-        public void dTW() {
-            if (this.nSF != null) {
-                faceunity.fuOnCameraChange();
-                this.nSF.release();
-            }
-            this.nSF = new SurfaceTexture(this.nSH);
-            dUb();
-        }
-
-        public void setBeautyLevel(com.baidu.tieba.video.a aVar) {
-            if (aVar != null) {
-                this.mFacebeautyColorLevel = aVar.nMJ;
-                this.mFacebeautyBlurLevel = aVar.nMK;
-                this.mFacebeautyCheeckThin = aVar.nML;
-                this.mFacebeautyEnlargeEye = aVar.nMM;
-                this.mFacebeautyRedLevel = aVar.nMN;
-            }
-        }
-
-        public void setFilter(String str) {
-            if (!TextUtils.isEmpty(str)) {
-                this.mFilterName = str;
-            }
+            this.f21815h.i = i;
+            this.f21815h.j = i2;
         }
 
         @Override // android.opengl.GLSurfaceView.Renderer
-        public void onDrawFrame(GL10 gl10) {
-            if (!this.nSQ) {
-                int i = this.nSJ + 1;
-                this.nSJ = i;
-                if (i == 100) {
-                    this.nSJ = 0;
-                    this.nSI = System.currentTimeMillis();
-                    this.nSK = 0L;
-                }
-                float[] fArr = new float[16];
-                try {
-                    this.nSF.updateTexImage();
-                    this.nSF.getTransformMatrix(fArr);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    if (this.nAz != null) {
-                        this.nAz.bK(22, com.baidu.tieba.l.a.o(e));
-                    }
-                }
-                if (this.isNeedEffectItem) {
-                    this.isNeedEffectItem = false;
-                    this.nSM.sendEmptyMessage(1);
-                }
-                if (this.nSG.nSA != null) {
-                    this.nSG.nSA.zd(faceunity.fuIsTracking() > 0);
-                }
-                faceunity.fuItemSetParam(this.mFacebeautyItem, "color_level", this.mFacebeautyColorLevel);
-                faceunity.fuItemSetParam(this.mFacebeautyItem, "blur_level", this.mFacebeautyBlurLevel);
-                faceunity.fuItemSetParam(this.mFacebeautyItem, "filter_name", this.mFilterName);
-                faceunity.fuItemSetParam(this.mFacebeautyItem, "cheek_thinning", this.mFacebeautyCheeckThin);
-                faceunity.fuItemSetParam(this.mFacebeautyItem, "eye_enlarging", this.mFacebeautyEnlargeEye);
-                faceunity.fuItemSetParam(this.mFacebeautyItem, "face_shape", this.mFaceShape);
-                faceunity.fuItemSetParam(this.mFacebeautyItem, "face_shape_level", this.mFaceShapeLevel);
-                faceunity.fuItemSetParam(this.mFacebeautyItem, "red_level", this.mFacebeautyRedLevel);
-                faceunity.fuItemSetParam(this.mFacebeautyItem, "eye_bright", 0.0d);
-                faceunity.fuItemSetParam(this.mFacebeautyItem, "tooth_whiten", 0.0d);
-                if (this.mCameraNV21Byte == null || this.mCameraNV21Byte.length == 0 || !this.nSO) {
-                    this.nSG.requestRender();
-                    return;
-                }
-                int i2 = (this.nSG.nSw.mCameraId != 1 ? 32 : 0) | 1;
-                if (this.nSN) {
-                    faceunity.fuItemSetParam(this.nPf, "isAndroid", 1.0d);
-                    faceunity.fuItemSetParam(this.nPf, "rotationAngle", dUa() ? 270.0d : 90.0d);
-                } else {
-                    faceunity.fuItemSetParam(this.mEffectItem, "isAndroid", 1.0d);
-                    faceunity.fuItemSetParam(this.mEffectItem, "rotationAngle", dUa() ? 270.0d : 90.0d);
-                }
-                this.nSG.nSw.dUa();
-                long currentTimeMillis = System.currentTimeMillis();
-                byte[] bArr = this.mCameraNV21Byte;
-                int i3 = this.nSH;
-                int i4 = this.previewWidth;
-                int i5 = this.previewHeight;
-                int i6 = this.mFrameId;
-                this.mFrameId = i6 + 1;
-                int fuDualInputToTexture = faceunity.fuDualInputToTexture(bArr, i3, i2, i4, i5, i6, this.itemsArray);
-                this.nSK = (System.currentTimeMillis() - currentTimeMillis) + this.nSK;
-                try {
-                    this.nPg.drawFrame(fuDualInputToTexture, fArr);
-                    if (this.nSG.nSC) {
-                        b(gl10);
-                        this.nSG.nSC = false;
-                    }
-                    if (this.nSP != null && this.nSP.Qx(2) && this.nSG.nSw != null) {
-                        this.videoFileName = this.nSG.nSw.dUd();
-                        this.nSP.a(new d.b(new File(this.videoFileName), GLVideoPreviewView.nSu, GLVideoPreviewView.nSv, 2097152, null, this.nSF.getTimestamp()));
-                    }
-                    if (this.nSP != null && this.nSP.Qx(1)) {
-                        this.nSP.a(this.nPg, fuDualInputToTexture, fArr);
-                        if (GLVideoPreviewView.nSz) {
-                            this.nSP.d(this.nSF);
-                        }
-                        boolean unused = GLVideoPreviewView.nSz = true;
-                    }
-                } catch (Throwable th) {
-                    BdLog.e(th);
-                    this.nSG.g((Camera) null);
-                    if (this.nAz != null) {
-                        this.nAz.bK(23, com.baidu.tieba.l.a.o(th));
-                    }
-                }
-            }
+        public void onSurfaceCreated(GL10 gl10, EGLConfig eGLConfig) {
+            this.f21812e = new d.e.c.c(new Texture2dProgram(Texture2dProgram.ProgramType.TEXTURE_2D));
+            d.e.c.c cVar = new d.e.c.c(new Texture2dProgram(Texture2dProgram.ProgramType.TEXTURE_EXT));
+            this.f21813f = cVar;
+            this.k = cVar.a();
+            I();
+            boolean unused = GLVideoPreviewView.p = false;
         }
 
-        public void a(com.faceunity.a.d dVar) {
-            if (dVar != null) {
-                this.nSP = dVar;
-            }
+        public boolean y() {
+            return this.f21815h.f21807e.j();
         }
 
-        private void b(GL10 gl10) {
-            Bitmap bitmap;
+        public final void z(GL10 gl10) {
             Context context;
-            Bitmap bitmap2 = null;
+            Bitmap bitmap = null;
             try {
                 System.gc();
                 System.gc();
-                int i = this.nSG.mSurfaceViewWidth;
-                int i2 = this.nSG.mSurfaceViewHeight;
-                int[] iArr = new int[i * i2];
-                int[] iArr2 = new int[i * i2];
+                int i = this.f21815h.i;
+                int i2 = this.f21815h.j;
+                int i3 = i * i2;
+                int[] iArr = new int[i3];
+                int[] iArr2 = new int[i3];
                 IntBuffer wrap = IntBuffer.wrap(iArr);
                 wrap.position(0);
                 gl10.glReadPixels(0, 0, i, i2, 6408, 5121, wrap);
-                for (int i3 = 0; i3 < i2; i3++) {
-                    int i4 = i3 * i;
-                    int i5 = ((i2 - i3) - 1) * i;
-                    for (int i6 = 0; i6 < i; i6++) {
-                        int i7 = iArr[i4 + i6];
-                        iArr2[i5 + i6] = (i7 & (-16711936)) | ((i7 << 16) & 16711680) | ((i7 >> 16) & 255);
+                for (int i4 = 0; i4 < i2; i4++) {
+                    int i5 = i4 * i;
+                    int i6 = ((i2 - i4) - 1) * i;
+                    for (int i7 = 0; i7 < i; i7++) {
+                        int i8 = iArr[i5 + i7];
+                        iArr2[i6 + i7] = (i8 & (-16711936)) | ((i8 << 16) & ItemTouchHelper.ACTION_MODE_DRAG_MASK) | ((i8 >> 16) & 255);
                     }
                 }
                 bitmap = Bitmap.createBitmap(iArr2, i, i2, Bitmap.Config.ARGB_8888);
-            } catch (GLException e) {
-                bitmap = null;
-            } catch (OutOfMemoryError e2) {
-                if (0 != 0 && !bitmap2.isRecycled()) {
-                    bitmap2.recycle();
-                }
-                if (this.nSG != null && (context = this.nSG.getContext()) != null && (context instanceof Activity)) {
+            } catch (GLException unused) {
+            } catch (OutOfMemoryError unused2) {
+                GLVideoPreviewView gLVideoPreviewView = this.f21815h;
+                if (gLVideoPreviewView != null && (context = gLVideoPreviewView.getContext()) != null && (context instanceof Activity)) {
                     ((Activity) context).finish();
                 }
                 System.gc();
-                bitmap = null;
                 System.gc();
             }
-            if (bitmap != null && !bitmap.isRecycled()) {
-                R(bitmap);
-            }
-        }
-
-        private void R(final Bitmap bitmap) {
-            this.nSR = null;
             if (bitmap == null || bitmap.isRecycled()) {
-                if (this.nSG != null && this.nSG.nSB != null) {
-                    this.nSG.nSB.O(false, this.nSR);
-                    return;
-                }
                 return;
             }
-            new BdAsyncTask<Void, Void, Void>() { // from class: com.baidu.tieba.video.record.GLVideoPreviewView.b.1
-                /* JADX DEBUG: Method merged with bridge method */
-                /* JADX INFO: Access modifiers changed from: protected */
-                @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-                public Void doInBackground(Void... voidArr) {
-                    try {
-                        b.this.nSR = o.saveFileAsPic(com.baidu.tieba.video.c.nMU, "pic_" + System.currentTimeMillis(), bitmap, 80, Bitmap.CompressFormat.JPEG);
-                        return null;
-                    } finally {
-                        if (bitmap != null && !bitmap.isRecycled()) {
-                            bitmap.recycle();
-                        }
-                    }
-                }
-
-                /* JADX DEBUG: Method merged with bridge method */
-                /* JADX INFO: Access modifiers changed from: protected */
-                @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-                public void onPostExecute(Void r4) {
-                    if (b.this.nSG != null && b.this.nSG.nSB != null) {
-                        b.this.nSG.nSB.O(true, b.this.nSR);
-                    }
-                }
-            }.execute(new Void[0]);
-        }
-
-        public boolean dUa() {
-            return this.nSG.nSw.dUa();
-        }
-
-        /* loaded from: classes7.dex */
-        private class a extends Handler {
-            WeakReference<Context> mContext;
-
-            a(Looper looper, Context context) {
-                super(looper);
-                this.mContext = new WeakReference<>(context);
-            }
-
-            @Override // android.os.Handler
-            public void handleMessage(Message message) {
-                this.mContext.get();
-                super.handleMessage(message);
-                switch (message.what) {
-                    case 1:
-                        try {
-                            if (StringUtils.isNull(b.this.mEffectFileName)) {
-                                b.this.itemsArray[1] = b.this.mEffectItem = 0;
-                                b.this.itemsArray[2] = b.this.nPf = 0;
-                                return;
-                            }
-                            FileInputStream fileInputStream = new FileInputStream(new File(b.this.mEffectFileName));
-                            byte[] bArr = new byte[fileInputStream.available()];
-                            fileInputStream.read(bArr);
-                            fileInputStream.close();
-                            int i = b.this.itemsArray[1] != 0 ? b.this.itemsArray[1] : b.this.itemsArray[2];
-                            if (b.this.nSN) {
-                                b.this.nPf = faceunity.fuCreateItemFromPackage(bArr);
-                                b.this.itemsArray[2] = b.this.nPf;
-                                b.this.mEffectItem = 0;
-                                b.this.itemsArray[1] = b.this.mEffectItem;
-                                faceunity.fuItemSetParam(b.this.nPf, "isAndroid", 1.0d);
-                                faceunity.fuItemSetParam(b.this.nPf, "rotationAngle", b.this.dUa() ? 270.0d : 90.0d);
-                            } else {
-                                b.this.mEffectItem = faceunity.fuCreateItemFromPackage(bArr);
-                                b.this.itemsArray[1] = b.this.mEffectItem;
-                                b.this.nPf = 0;
-                                b.this.itemsArray[2] = b.this.nPf;
-                                faceunity.fuItemSetParam(b.this.mEffectItem, "isAndroid", 1.0d);
-                                faceunity.fuItemSetParam(b.this.mEffectItem, "rotationAngle", b.this.dUa() ? 270.0d : 90.0d);
-                            }
-                            if (i != 0) {
-                                faceunity.fuDestroyItem(i);
-                                return;
-                            }
-                            return;
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                            if (b.this.nAz != null) {
-                                b.this.nAz.bK(24, com.baidu.tieba.l.a.o(e));
-                                return;
-                            }
-                            return;
-                        }
-                    case 2:
-                        try {
-                            InputStream open = TbadkCoreApplication.getInst().getResources().getAssets().open("beauty/v3.mp3");
-                            byte[] bArr2 = new byte[open.available()];
-                            open.read(bArr2);
-                            open.close();
-                            faceunity.fuSetup(bArr2, null, f.A());
-                            b.this.nSO = true;
-                        } catch (IOException e2) {
-                            e2.printStackTrace();
-                            if (b.this.nAz != null) {
-                                b.this.nAz.bK(25, com.baidu.tieba.l.a.o(e2));
-                            }
-                        }
-                        try {
-                            InputStream open2 = TbadkCoreApplication.getInst().getResources().getAssets().open("beauty/face_beautification.mp3");
-                            byte[] bArr3 = new byte[open2.available()];
-                            open2.read(bArr3);
-                            open2.close();
-                            b.this.mFacebeautyItem = faceunity.fuCreateItemFromPackage(bArr3);
-                            b.this.itemsArray[0] = b.this.mFacebeautyItem;
-                            b.this.nSO = true;
-                            return;
-                        } catch (IOException e3) {
-                            e3.printStackTrace();
-                            if (b.this.nAz != null) {
-                                b.this.nAz.bK(26, com.baidu.tieba.l.a.o(e3));
-                                return;
-                            }
-                            return;
-                        }
-                    default:
-                        return;
-                }
-            }
-        }
-
-        public void releaseResource() {
-            this.nSG.queueEvent(new Runnable() { // from class: com.baidu.tieba.video.record.GLVideoPreviewView.b.2
-                @Override // java.lang.Runnable
-                public void run() {
-                    if (b.this.nPg != null) {
-                        b.this.nPg.release(false);
-                        b.this.nPg = null;
-                    }
-                    if (b.this.nSE != null) {
-                        b.this.nSE.release(false);
-                        b.this.nSE = null;
-                    }
-                    if (b.this.nSF != null) {
-                        b.this.nSF.release();
-                        b.this.nSF = null;
-                    }
-                    faceunity.fuDestroyItem(b.this.mEffectItem);
-                    b.this.itemsArray[1] = b.this.mEffectItem = 0;
-                    faceunity.fuDestroyItem(b.this.mFacebeautyItem);
-                    b.this.itemsArray[0] = b.this.mFacebeautyItem = 0;
-                    faceunity.fuOnDeviceLost();
-                    b.this.mCameraNV21Byte = null;
-                    b.this.isNeedEffectItem = true;
-                }
-            });
-        }
-
-        private void dUb() {
-            if (this.nSG != null) {
-                Handler mainHandler = this.nSG.getMainHandler();
-                mainHandler.sendMessage(mainHandler.obtainMessage(1));
-                if (this.nPf != 0) {
-                    faceunity.fuItemSetParam(this.nPf, "rotationAngle", dUa() ? 270.0d : 90.0d);
-                }
-                if (this.mEffectItem != 0) {
-                    faceunity.fuItemSetParam(this.mEffectItem, "rotationAngle", dUa() ? 270.0d : 90.0d);
-                }
-            }
-        }
-
-        public void setSticker(StickerItem stickerItem) {
-            if (stickerItem != null) {
-                this.mEffectFileName = stickerItem.localPath;
-                if (StringUtils.isNull(stickerItem.desc)) {
-                    this.nSN = false;
-                } else {
-                    this.nSN = true;
-                }
-            } else {
-                this.mEffectFileName = null;
-            }
-            this.nSM.sendEmptyMessage(1);
+            B(bitmap);
         }
     }
 
-    public void setFaceIdentifyStateListener(a aVar) {
-        if (aVar != null) {
-            this.nSA = aVar;
+    public GLVideoPreviewView(Context context, h hVar) {
+        super(context);
+        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921309, k.class);
+        k kVar = runTask != null ? (k) runTask.getData() : null;
+        if (kVar != null) {
+            this.m = kVar.get();
         }
+        this.f21807e = hVar;
+        this.f21808f = new c(context, this, this.m);
+        setEGLContextClientVersion(2);
+        setRenderer(this.f21808f);
+        setRenderMode(0);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public Handler getMainHandler() {
+        return this.f21807e.n();
+    }
+
+    @Override // d.b.i0.p3.m.g
+    public void a(Camera camera) {
+        if (camera != null) {
+            try {
+                camera.setPreviewCallback(this.f21808f);
+                camera.setPreviewTexture(this.f21808f.f21814g);
+                this.f21808f.f21814g.setOnFrameAvailableListener(this.f21808f);
+                camera.startPreview();
+            } catch (Exception e2) {
+                e2.printStackTrace();
+                d.b.i0.s1.g gVar = this.m;
+                if (gVar != null) {
+                    gVar.c(20, d.b.i0.s1.a.a(e2));
+                }
+            }
+        }
+    }
+
+    @Override // d.b.i0.p3.m.g
+    public void b(Camera camera) {
+        try {
+            d dVar = new d();
+            this.f21809g = dVar;
+            this.f21808f.F(dVar);
+            p = false;
+        } catch (Throwable th) {
+            BdLog.e(th);
+            d.b.i0.s1.g gVar = this.m;
+            if (gVar != null) {
+                gVar.c(21, d.b.i0.s1.a.a(th));
+            }
+        }
+    }
+
+    @Override // d.b.i0.p3.m.g
+    public void c(Camera camera) {
+        try {
+            this.f21808f.A();
+        } catch (Exception e2) {
+            e2.printStackTrace();
+            d.b.i0.s1.g gVar = this.m;
+            if (gVar != null) {
+                gVar.c(18, d.b.i0.s1.a.a(e2));
+            }
+        }
+    }
+
+    @Override // d.b.i0.p3.m.g
+    public void d(Camera camera) {
+        try {
+            if (this.f21809g != null) {
+                this.f21809g.F();
+            }
+        } catch (Throwable th) {
+            BdLog.e(th);
+            d.b.i0.s1.g gVar = this.m;
+            if (gVar != null) {
+                gVar.c(19, d.b.i0.s1.a.a(th));
+            }
+        }
+    }
+
+    @Override // d.b.i0.p3.m.g
+    public void e(g.a aVar) {
+        this.k = aVar;
+        this.l = true;
+        requestRender();
+    }
+
+    @Override // android.opengl.GLSurfaceView
+    public void onResume() {
+        super.onResume();
+        c cVar = this.f21808f;
+        if (cVar != null) {
+            cVar.H();
+        }
+    }
+
+    @Override // android.view.View
+    public boolean onTouchEvent(MotionEvent motionEvent) {
+        h hVar = this.f21807e;
+        if (hVar == null) {
+            return false;
+        }
+        return hVar.w(motionEvent, getParent());
+    }
+
+    public void setBeautyLevel(d.b.i0.p3.a aVar) {
+        c cVar = this.f21808f;
+        if (cVar != null) {
+            cVar.D(aVar);
+        }
+    }
+
+    public void setFaceIdentifyStateListener(b bVar) {
+        if (bVar != null) {
+            this.f21810h = bVar;
+        }
+    }
+
+    public void setFilter(String str) {
+        c cVar = this.f21808f;
+        if (cVar != null) {
+            cVar.E(str);
+        }
+    }
+
+    public void setIsChangingCamera(boolean z) {
+        this.f21808f.J = z;
+    }
+
+    @Override // d.b.i0.p3.m.g
+    public void setOnEncoderStatusUpdateListener(d.InterfaceC1804d interfaceC1804d) {
+        d dVar = this.f21809g;
+        if (dVar != null) {
+            dVar.C(interfaceC1804d);
+        }
+    }
+
+    @Override // d.b.i0.p3.m.g
+    public void setPreviewSize(int i, int i2) {
+        if (i <= 0 || i2 <= 0) {
+            return;
+        }
+        c cVar = this.f21808f;
+        cVar.i = i;
+        cVar.j = i2;
+        int round = Math.round(n * ((i * 1.0f) / i2));
+        if (round % 2 == 1) {
+            round--;
+        }
+        if (o == 960) {
+            o = round;
+        }
+    }
+
+    public void setSticker(StickerItem stickerItem) {
+        c cVar = this.f21808f;
+        if (cVar != null) {
+            cVar.G(stickerItem);
+        }
+    }
+
+    public void t() {
+        c cVar = this.f21808f;
+        if (cVar != null) {
+            cVar.E = null;
+        }
+    }
+
+    public void u() {
+        queueEvent(new a());
     }
 }

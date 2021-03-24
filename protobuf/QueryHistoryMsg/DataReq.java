@@ -2,7 +2,7 @@ package protobuf.QueryHistoryMsg;
 
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes7.dex */
+/* loaded from: classes.dex */
 public final class DataReq extends Message {
     @ProtoField(tag = 1, type = Message.Datatype.INT32)
     public final Integer forumId;
@@ -26,56 +26,6 @@ public final class DataReq extends Message {
     public static final Integer DEFAULT_SMALLWIDTH = 0;
     public static final Integer DEFAULT_SMALLHEIGHT = 0;
 
-    private DataReq(Builder builder, boolean z) {
-        super(builder);
-        if (z) {
-            if (builder.forumId == null) {
-                this.forumId = DEFAULT_FORUMID;
-            } else {
-                this.forumId = builder.forumId;
-            }
-            if (builder.userId == null) {
-                this.userId = DEFAULT_USERID;
-            } else {
-                this.userId = builder.userId;
-            }
-            if (builder.id == null) {
-                this.id = DEFAULT_ID;
-            } else {
-                this.id = builder.id;
-            }
-            if (builder.width == null) {
-                this.width = DEFAULT_WIDTH;
-            } else {
-                this.width = builder.width;
-            }
-            if (builder.height == null) {
-                this.height = DEFAULT_HEIGHT;
-            } else {
-                this.height = builder.height;
-            }
-            if (builder.smallWidth == null) {
-                this.smallWidth = DEFAULT_SMALLWIDTH;
-            } else {
-                this.smallWidth = builder.smallWidth;
-            }
-            if (builder.smallHeight == null) {
-                this.smallHeight = DEFAULT_SMALLHEIGHT;
-                return;
-            } else {
-                this.smallHeight = builder.smallHeight;
-                return;
-            }
-        }
-        this.forumId = builder.forumId;
-        this.userId = builder.userId;
-        this.id = builder.id;
-        this.width = builder.width;
-        this.height = builder.height;
-        this.smallWidth = builder.smallWidth;
-        this.smallHeight = builder.smallHeight;
-    }
-
     /* loaded from: classes7.dex */
     public static final class Builder extends Message.Builder<DataReq> {
         public Integer forumId;
@@ -91,15 +41,16 @@ public final class DataReq extends Message {
 
         public Builder(DataReq dataReq) {
             super(dataReq);
-            if (dataReq != null) {
-                this.forumId = dataReq.forumId;
-                this.userId = dataReq.userId;
-                this.id = dataReq.id;
-                this.width = dataReq.width;
-                this.height = dataReq.height;
-                this.smallWidth = dataReq.smallWidth;
-                this.smallHeight = dataReq.smallHeight;
+            if (dataReq == null) {
+                return;
             }
+            this.forumId = dataReq.forumId;
+            this.userId = dataReq.userId;
+            this.id = dataReq.id;
+            this.width = dataReq.width;
+            this.height = dataReq.height;
+            this.smallWidth = dataReq.smallWidth;
+            this.smallHeight = dataReq.smallHeight;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -107,5 +58,62 @@ public final class DataReq extends Message {
         public DataReq build(boolean z) {
             return new DataReq(this, z);
         }
+    }
+
+    public DataReq(Builder builder, boolean z) {
+        super(builder);
+        if (z) {
+            Integer num = builder.forumId;
+            if (num == null) {
+                this.forumId = DEFAULT_FORUMID;
+            } else {
+                this.forumId = num;
+            }
+            Long l = builder.userId;
+            if (l == null) {
+                this.userId = DEFAULT_USERID;
+            } else {
+                this.userId = l;
+            }
+            Integer num2 = builder.id;
+            if (num2 == null) {
+                this.id = DEFAULT_ID;
+            } else {
+                this.id = num2;
+            }
+            Integer num3 = builder.width;
+            if (num3 == null) {
+                this.width = DEFAULT_WIDTH;
+            } else {
+                this.width = num3;
+            }
+            Integer num4 = builder.height;
+            if (num4 == null) {
+                this.height = DEFAULT_HEIGHT;
+            } else {
+                this.height = num4;
+            }
+            Integer num5 = builder.smallWidth;
+            if (num5 == null) {
+                this.smallWidth = DEFAULT_SMALLWIDTH;
+            } else {
+                this.smallWidth = num5;
+            }
+            Integer num6 = builder.smallHeight;
+            if (num6 == null) {
+                this.smallHeight = DEFAULT_SMALLHEIGHT;
+                return;
+            } else {
+                this.smallHeight = num6;
+                return;
+            }
+        }
+        this.forumId = builder.forumId;
+        this.userId = builder.userId;
+        this.id = builder.id;
+        this.width = builder.width;
+        this.height = builder.height;
+        this.smallWidth = builder.smallWidth;
+        this.smallHeight = builder.smallHeight;
     }
 }

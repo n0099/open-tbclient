@@ -1,33 +1,60 @@
 package com.xiaomi.push;
 
+import android.content.Context;
 import android.text.TextUtils;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class l {
 
     /* renamed from: a  reason: collision with root package name */
-    private static int f8475a = 0;
-    private static int b = -1;
+    public static volatile int f40888a = 0;
 
     /* renamed from: a  reason: collision with other field name */
-    private static Map<String, o> f785a = null;
+    public static Map<String, o> f816a = null;
 
-    public static synchronized int a() {
+    /* renamed from: b  reason: collision with root package name */
+    public static int f40889b = -1;
+
+    /* JADX WARN: Removed duplicated region for block: B:13:0x0024  */
+    /* JADX WARN: Removed duplicated region for block: B:14:0x0025  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static int a() {
         int i;
-        boolean z = false;
-        synchronized (l.class) {
-            if (f8475a == 0) {
-                if (!TextUtils.isEmpty(m502a("ro.miui.ui.version.code")) || !TextUtils.isEmpty(m502a("ro.miui.ui.version.name"))) {
-                    z = true;
-                }
-                f8475a = z ? 1 : 2;
-                com.xiaomi.channel.commonutils.logger.b.b("isMIUI's value is: " + f8475a);
+        boolean z;
+        if (f40888a == 0) {
+            try {
+                i = 1;
+            } catch (Throwable th) {
+                com.xiaomi.channel.commonutils.logger.b.a("get isMIUI failed", th);
+                f40888a = 0;
             }
-            i = f8475a;
+            if (TextUtils.isEmpty(m514a("ro.miui.ui.version.code")) && TextUtils.isEmpty(m514a("ro.miui.ui.version.name"))) {
+                z = false;
+                if (z) {
+                    i = 2;
+                }
+                f40888a = i;
+                com.xiaomi.channel.commonutils.logger.b.b("isMIUI's value is: " + f40888a);
+            }
+            z = true;
+            if (z) {
+            }
+            f40888a = i;
+            com.xiaomi.channel.commonutils.logger.b.b("isMIUI's value is: " + f40888a);
         }
-        return i;
+        return f40888a;
+    }
+
+    public static int a(Context context) {
+        String m514a = m514a("ro.miui.ui.version.code");
+        if (TextUtils.isEmpty(m514a) || !TextUtils.isDigitsOnly(m514a)) {
+            return 0;
+        }
+        return Integer.parseInt(m514a);
     }
 
     public static o a(String str) {
@@ -36,94 +63,95 @@ public class l {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static synchronized String m501a() {
-        String str;
-        synchronized (l.class) {
-            int a2 = t.a();
-            str = (!m504a() || a2 <= 0) ? "" : a2 < 2 ? "alpha" : a2 < 3 ? "development" : "stable";
-        }
-        return str;
+    public static String m513a() {
+        int a2 = t.a();
+        return (!m516a() || a2 <= 0) ? "" : a2 < 2 ? "alpha" : a2 < 3 ? "development" : "stable";
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static String m502a(String str) {
-        String str2;
+    public static String m514a(String str) {
         try {
             try {
-                str2 = (String) ba.a("android.os.SystemProperties", "get", str, "");
-            } catch (Exception e) {
-                com.xiaomi.channel.commonutils.logger.b.a(e);
-                str2 = null;
+                return (String) bh.a("android.os.SystemProperties", "get", str, "");
+            } catch (Exception e2) {
+                com.xiaomi.channel.commonutils.logger.b.d("fail to get property. " + e2);
+                return null;
             }
-            return str2;
-        } catch (Throwable th) {
+        } catch (Throwable unused) {
             return null;
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private static void m503a() {
-        if (f785a != null) {
+    public static void m515a() {
+        if (f816a != null) {
             return;
         }
-        f785a = new HashMap();
-        f785a.put("CN", o.China);
-        f785a.put("FI", o.Europe);
-        f785a.put("SE", o.Europe);
-        f785a.put("NO", o.Europe);
-        f785a.put("FO", o.Europe);
-        f785a.put("EE", o.Europe);
-        f785a.put("LV", o.Europe);
-        f785a.put("LT", o.Europe);
-        f785a.put("BY", o.Europe);
-        f785a.put("MD", o.Europe);
-        f785a.put("UA", o.Europe);
-        f785a.put("PL", o.Europe);
-        f785a.put("CZ", o.Europe);
-        f785a.put("SK", o.Europe);
-        f785a.put("HU", o.Europe);
-        f785a.put("DE", o.Europe);
-        f785a.put("AT", o.Europe);
-        f785a.put("CH", o.Europe);
-        f785a.put("LI", o.Europe);
-        f785a.put("GB", o.Europe);
-        f785a.put("IE", o.Europe);
-        f785a.put("NL", o.Europe);
-        f785a.put("BE", o.Europe);
-        f785a.put("LU", o.Europe);
-        f785a.put("FR", o.Europe);
-        f785a.put("RO", o.Europe);
-        f785a.put("BG", o.Europe);
-        f785a.put("RS", o.Europe);
-        f785a.put("MK", o.Europe);
-        f785a.put("AL", o.Europe);
-        f785a.put("GR", o.Europe);
-        f785a.put("SI", o.Europe);
-        f785a.put("HR", o.Europe);
-        f785a.put("IT", o.Europe);
-        f785a.put("SM", o.Europe);
-        f785a.put("MT", o.Europe);
-        f785a.put("ES", o.Europe);
-        f785a.put("PT", o.Europe);
-        f785a.put("AD", o.Europe);
-        f785a.put("CY", o.Europe);
-        f785a.put("DK", o.Europe);
-        f785a.put("RU", o.Russia);
-        f785a.put("IN", o.India);
+        HashMap hashMap = new HashMap();
+        f816a = hashMap;
+        hashMap.put("CN", o.China);
+        f816a.put("FI", o.Europe);
+        f816a.put("SE", o.Europe);
+        f816a.put("NO", o.Europe);
+        f816a.put("FO", o.Europe);
+        f816a.put("EE", o.Europe);
+        f816a.put("LV", o.Europe);
+        f816a.put("LT", o.Europe);
+        f816a.put("BY", o.Europe);
+        f816a.put("MD", o.Europe);
+        f816a.put("UA", o.Europe);
+        f816a.put("PL", o.Europe);
+        f816a.put("CZ", o.Europe);
+        f816a.put("SK", o.Europe);
+        f816a.put("HU", o.Europe);
+        f816a.put("DE", o.Europe);
+        f816a.put("AT", o.Europe);
+        f816a.put("CH", o.Europe);
+        f816a.put("LI", o.Europe);
+        f816a.put("GB", o.Europe);
+        f816a.put("IE", o.Europe);
+        f816a.put("NL", o.Europe);
+        f816a.put("BE", o.Europe);
+        f816a.put("LU", o.Europe);
+        f816a.put("FR", o.Europe);
+        f816a.put("RO", o.Europe);
+        f816a.put("BG", o.Europe);
+        f816a.put("RS", o.Europe);
+        f816a.put("MK", o.Europe);
+        f816a.put("AL", o.Europe);
+        f816a.put("GR", o.Europe);
+        f816a.put("SI", o.Europe);
+        f816a.put("HR", o.Europe);
+        f816a.put("IT", o.Europe);
+        f816a.put("SM", o.Europe);
+        f816a.put("MT", o.Europe);
+        f816a.put("ES", o.Europe);
+        f816a.put("PT", o.Europe);
+        f816a.put("AD", o.Europe);
+        f816a.put("CY", o.Europe);
+        f816a.put("DK", o.Europe);
+        f816a.put("RU", o.Russia);
+        f816a.put("IN", o.India);
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static synchronized boolean m504a() {
-        boolean z;
-        synchronized (l.class) {
-            z = a() == 1;
-        }
-        return z;
+    public static boolean m516a() {
+        return a() == 1;
     }
 
-    private static o b(String str) {
-        m503a();
-        return f785a.get(str.toUpperCase());
+    /* renamed from: a  reason: collision with other method in class */
+    public static boolean m517a(Context context) {
+        return context != null && m518a(context.getPackageName());
+    }
+
+    /* renamed from: a  reason: collision with other method in class */
+    public static boolean m518a(String str) {
+        return "com.xiaomi.xmsf".equals(str);
+    }
+
+    public static o b(String str) {
+        m515a();
+        return f816a.get(str.toUpperCase());
     }
 
     public static String b() {
@@ -156,34 +184,30 @@ public class l {
             a2 = s.a("persist.sys.country", "");
         }
         if (!TextUtils.isEmpty(a2)) {
-            com.xiaomi.channel.commonutils.logger.b.m58a("get region from system, region = " + a2);
+            com.xiaomi.channel.commonutils.logger.b.m51a("get region from system, region = " + a2);
         }
         if (TextUtils.isEmpty(a2)) {
             String country = Locale.getDefault().getCountry();
-            com.xiaomi.channel.commonutils.logger.b.m58a("locale.default.country = " + country);
+            com.xiaomi.channel.commonutils.logger.b.m51a("locale.default.country = " + country);
             return country;
         }
         return a2;
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public static synchronized boolean m505b() {
-        boolean z;
-        synchronized (l.class) {
-            z = a() == 2;
-        }
-        return z;
+    public static boolean m519b() {
+        return a() == 2;
     }
 
     public static boolean c() {
-        if (b < 0) {
-            Object a2 = ba.a("miui.external.SdkHelper", "isMiuiSystem", new Object[0]);
-            b = 0;
+        if (f40889b < 0) {
+            Object a2 = bh.a("miui.external.SdkHelper", "isMiuiSystem", new Object[0]);
+            f40889b = 0;
             if (a2 != null && (a2 instanceof Boolean) && !((Boolean) Boolean.class.cast(a2)).booleanValue()) {
-                b = 1;
+                f40889b = 1;
             }
         }
-        return b > 0;
+        return f40889b > 0;
     }
 
     public static boolean d() {

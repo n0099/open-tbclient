@@ -31,20 +31,20 @@ import java.io.BufferedWriter;
 import java.lang.reflect.Method;
 import java.util.Map;
 import java.util.Objects;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public final class WebViewImpl extends WebView implements WebViewProvider {
-    private final WebView.DelegateAdapter mDelegate;
-    private WebSettings mSettings;
-    private WebChromeClient mWebChromeClient;
-    private final com.baidu.webkit.sdk.WebView mWebView;
-    private WebViewClient mWebViewClient;
-    private final WebView.PrivateAccess mWebViewPrivateAccess;
+    public final WebView.DelegateAdapter mDelegate;
+    public WebSettings mSettings;
+    public WebChromeClient mWebChromeClient;
+    public final com.baidu.webkit.sdk.WebView mWebView;
+    public WebViewClient mWebViewClient;
+    public final WebView.PrivateAccess mWebViewPrivateAccess;
 
-    /* loaded from: classes14.dex */
-    private class FindAdapter implements WebView.FindListener {
-        private final WebView.FindListener mListener;
+    /* loaded from: classes5.dex */
+    public class FindAdapter implements WebView.FindListener {
+        public final WebView.FindListener mListener;
 
-        private FindAdapter(WebView.FindListener findListener) {
+        public FindAdapter(WebView.FindListener findListener) {
             this.mListener = findListener;
         }
 
@@ -54,11 +54,11 @@ public final class WebViewImpl extends WebView implements WebViewProvider {
         }
     }
 
-    /* loaded from: classes14.dex */
-    private class PictureAdapter implements WebView.PictureListener {
-        private final WebView.PictureListener mListener;
+    /* loaded from: classes5.dex */
+    public class PictureAdapter implements WebView.PictureListener {
+        public final WebView.PictureListener mListener;
 
-        private PictureAdapter(WebView.PictureListener pictureListener) {
+        public PictureAdapter(WebView.PictureListener pictureListener) {
             this.mListener = pictureListener;
         }
 
@@ -68,10 +68,10 @@ public final class WebViewImpl extends WebView implements WebViewProvider {
         }
     }
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public class WebViewTransportImpl extends WebView.WebViewTransport {
-        private WebView.WebViewTransport mTransport;
-        private com.baidu.webkit.sdk.WebView mWebViewGeneric;
+        public WebView.WebViewTransport mTransport;
+        public com.baidu.webkit.sdk.WebView mWebViewGeneric;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public WebViewTransportImpl(com.baidu.webkit.sdk.WebView webView, WebView.WebViewTransport webViewTransport) {
@@ -80,7 +80,7 @@ public final class WebViewImpl extends WebView implements WebViewProvider {
             this.mTransport = webViewTransport;
         }
 
-        WebView.WebViewTransport getTransport() {
+        public WebView.WebViewTransport getTransport() {
             return this.mTransport;
         }
 
@@ -96,13 +96,11 @@ public final class WebViewImpl extends WebView implements WebViewProvider {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public WebViewImpl(com.baidu.webkit.sdk.WebView webView, WebView.PrivateAccess privateAccess) {
         super(webView.getContext());
         this.mWebView = webView;
         this.mWebViewPrivateAccess = privateAccess;
-        com.baidu.webkit.sdk.WebView webView2 = this.mWebView;
-        Objects.requireNonNull(webView2);
+        Objects.requireNonNull(webView);
         this.mDelegate = new WebView.DelegateAdapter(this);
     }
 
@@ -185,7 +183,7 @@ public final class WebViewImpl extends WebView implements WebViewProvider {
     public final WebBackForwardList copyBackForwardListZeus() {
         try {
             return WebBackForwardListImpl.from(copyBackForwardList());
-        } catch (Exception e) {
+        } catch (Exception unused) {
             return null;
         }
     }
@@ -277,7 +275,7 @@ public final class WebViewImpl extends WebView implements WebViewProvider {
     public final WebView.HitTestResult getHitTestResultZeus() {
         try {
             return Glue.cast(getHitTestResult());
-        } catch (Exception e) {
+        } catch (Exception unused) {
             return null;
         }
     }
@@ -386,7 +384,6 @@ public final class WebViewImpl extends WebView implements WebViewProvider {
         return this.mWebChromeClient;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public final com.baidu.webkit.sdk.WebView getWebView() {
         return this.mWebView;
     }
@@ -432,8 +429,9 @@ public final class WebViewImpl extends WebView implements WebViewProvider {
             postVisualStateCallback(j, new WebView.VisualStateCallback() { // from class: com.baidu.webkit.sdk.system.WebViewImpl.1
                 @Override // android.webkit.WebView.VisualStateCallback
                 public void onComplete(long j2) {
-                    if (visualStateCallback != null) {
-                        visualStateCallback.onComplete(j2);
+                    WebView.VisualStateCallback visualStateCallback2 = visualStateCallback;
+                    if (visualStateCallback2 != null) {
+                        visualStateCallback2.onComplete(j2);
                     }
                 }
             });
@@ -503,9 +501,10 @@ public final class WebViewImpl extends WebView implements WebViewProvider {
     }
 
     @Override // android.webkit.WebView, android.view.View
-    protected final void onOverScrolled(int i, int i2, boolean z, boolean z2) {
-        if (this.mWebViewPrivateAccess != null) {
-            this.mWebViewPrivateAccess.onOverScrolled(i, i2, z, z2);
+    public final void onOverScrolled(int i, int i2, boolean z, boolean z2) {
+        WebView.PrivateAccess privateAccess = this.mWebViewPrivateAccess;
+        if (privateAccess != null) {
+            privateAccess.onOverScrolled(i, i2, z, z2);
         }
     }
 
@@ -544,9 +543,10 @@ public final class WebViewImpl extends WebView implements WebViewProvider {
     }
 
     @Override // android.webkit.WebView, android.view.View
-    protected final void onScrollChanged(int i, int i2, int i3, int i4) {
-        if (this.mWebViewPrivateAccess != null) {
-            this.mWebViewPrivateAccess.onScrollChanged(i, i2, i3, i4);
+    public final void onScrollChanged(int i, int i2, int i3, int i4) {
+        WebView.PrivateAccess privateAccess = this.mWebViewPrivateAccess;
+        if (privateAccess != null) {
+            privateAccess.onScrollChanged(i, i2, i3, i4);
         }
     }
 
@@ -692,7 +692,7 @@ public final class WebViewImpl extends WebView implements WebViewProvider {
     }
 
     @Override // com.baidu.webkit.sdk.WebViewProvider
-    public final boolean setPreviewZoomScale(float f) {
+    public final boolean setPreviewZoomScale(float f2) {
         return false;
     }
 
@@ -788,10 +788,7 @@ public final class WebViewImpl extends WebView implements WebViewProvider {
     }
 
     public final boolean super_onTouchEvent(MotionEvent motionEvent) {
-        boolean z = false;
-        if (getInputMethodManager() != null && !getInputMethodManager().isActive(this)) {
-            z = true;
-        }
+        boolean z = (getInputMethodManager() == null || getInputMethodManager().isActive(this)) ? false : true;
         if (motionEvent.getAction() == 0 && (!this.mWebView.isFocused() || z)) {
             this.mWebView.requestFocus();
         }
@@ -820,9 +817,9 @@ public final class WebViewImpl extends WebView implements WebViewProvider {
 
     @Override // com.baidu.webkit.sdk.WebViewProvider
     @TargetApi(21)
-    public final boolean zoomByZeus(float f) {
+    public final boolean zoomByZeus(float f2) {
         if (Build.VERSION.SDK_INT >= 21) {
-            super.zoomBy(f);
+            super.zoomBy(f2);
             return true;
         }
         return false;

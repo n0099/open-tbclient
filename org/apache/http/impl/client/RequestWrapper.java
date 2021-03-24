@@ -8,13 +8,18 @@ import org.apache.http.RequestLine;
 import org.apache.http.client.methods.HttpUriRequest;
 import org.apache.http.message.AbstractHttpMessage;
 @Deprecated
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class RequestWrapper extends AbstractHttpMessage implements HttpUriRequest {
     public RequestWrapper(HttpRequest httpRequest) throws ProtocolException {
         throw new RuntimeException("Stub!");
     }
 
-    public void resetHeaders() {
+    @Override // org.apache.http.client.methods.HttpUriRequest, org.apache.http.client.methods.AbortableHttpRequest
+    public void abort() throws UnsupportedOperationException {
+        throw new RuntimeException("Stub!");
+    }
+
+    public int getExecCount() {
         throw new RuntimeException("Stub!");
     }
 
@@ -23,25 +28,12 @@ public class RequestWrapper extends AbstractHttpMessage implements HttpUriReques
         throw new RuntimeException("Stub!");
     }
 
-    public void setMethod(String str) {
+    public HttpRequest getOriginal() {
         throw new RuntimeException("Stub!");
     }
 
     @Override // org.apache.http.HttpMessage
     public ProtocolVersion getProtocolVersion() {
-        throw new RuntimeException("Stub!");
-    }
-
-    public void setProtocolVersion(ProtocolVersion protocolVersion) {
-        throw new RuntimeException("Stub!");
-    }
-
-    @Override // org.apache.http.client.methods.HttpUriRequest
-    public URI getURI() {
-        throw new RuntimeException("Stub!");
-    }
-
-    public void setURI(URI uri) {
         throw new RuntimeException("Stub!");
     }
 
@@ -51,7 +43,11 @@ public class RequestWrapper extends AbstractHttpMessage implements HttpUriReques
     }
 
     @Override // org.apache.http.client.methods.HttpUriRequest
-    public void abort() throws UnsupportedOperationException {
+    public URI getURI() {
+        throw new RuntimeException("Stub!");
+    }
+
+    public void incrementExecCount() {
         throw new RuntimeException("Stub!");
     }
 
@@ -60,19 +56,23 @@ public class RequestWrapper extends AbstractHttpMessage implements HttpUriReques
         throw new RuntimeException("Stub!");
     }
 
-    public HttpRequest getOriginal() {
-        throw new RuntimeException("Stub!");
-    }
-
     public boolean isRepeatable() {
         throw new RuntimeException("Stub!");
     }
 
-    public int getExecCount() {
+    public void resetHeaders() {
         throw new RuntimeException("Stub!");
     }
 
-    public void incrementExecCount() {
+    public void setMethod(String str) {
+        throw new RuntimeException("Stub!");
+    }
+
+    public void setProtocolVersion(ProtocolVersion protocolVersion) {
+        throw new RuntimeException("Stub!");
+    }
+
+    public void setURI(URI uri) {
         throw new RuntimeException("Stub!");
     }
 }

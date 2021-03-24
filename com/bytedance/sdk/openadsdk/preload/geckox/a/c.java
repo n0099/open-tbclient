@@ -23,28 +23,6 @@ public class c {
         });
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public static void d(String str) throws Exception {
-        com.bytedance.sdk.openadsdk.preload.geckox.g.a a2 = com.bytedance.sdk.openadsdk.preload.geckox.g.a.a(str + File.separator + "update.lock");
-        if (a2 != null) {
-            try {
-                com.bytedance.sdk.openadsdk.preload.geckox.g.b a3 = com.bytedance.sdk.openadsdk.preload.geckox.g.b.a(str + File.separator + "select.lock");
-                List<File> e = e(str);
-                if (e != null && !e.isEmpty()) {
-                    Iterator<File> it = e.iterator();
-                    while (it.hasNext()) {
-                        com.bytedance.sdk.openadsdk.preload.geckox.g.c.c(it.next().getAbsolutePath() + File.separator + "using.lock");
-                    }
-                    a3.a();
-                    return;
-                }
-                a3.a();
-            } finally {
-                a2.a();
-            }
-        }
-    }
-
     public static boolean b(String str) {
         try {
             com.bytedance.sdk.openadsdk.preload.geckox.g.a a2 = com.bytedance.sdk.openadsdk.preload.geckox.g.a.a(str + File.separator + "update.lock");
@@ -54,18 +32,39 @@ public class c {
             com.bytedance.sdk.openadsdk.preload.geckox.g.b a3 = com.bytedance.sdk.openadsdk.preload.geckox.g.b.a(str + File.separator + "select.lock");
             try {
                 d.c(new File(str));
-                a3.a();
-            } catch (Throwable th) {
-                a3.a();
+            } catch (Throwable unused) {
             }
+            a3.a();
             a2.a();
             return true;
-        } catch (Throwable th2) {
+        } catch (Throwable unused2) {
             return false;
         }
     }
 
-    private static List<File> e(String str) {
+    public static void d(String str) throws Exception {
+        com.bytedance.sdk.openadsdk.preload.geckox.g.a a2 = com.bytedance.sdk.openadsdk.preload.geckox.g.a.a(str + File.separator + "update.lock");
+        if (a2 == null) {
+            return;
+        }
+        try {
+            com.bytedance.sdk.openadsdk.preload.geckox.g.b a3 = com.bytedance.sdk.openadsdk.preload.geckox.g.b.a(str + File.separator + "select.lock");
+            List<File> e2 = e(str);
+            if (e2 != null && !e2.isEmpty()) {
+                Iterator<File> it = e2.iterator();
+                while (it.hasNext()) {
+                    com.bytedance.sdk.openadsdk.preload.geckox.g.c.c(it.next().getAbsolutePath() + File.separator + "using.lock");
+                }
+                a3.a();
+                return;
+            }
+            a3.a();
+        } finally {
+            a2.a();
+        }
+    }
+
+    public static List<File> e(String str) {
         File[] listFiles = new File(str).listFiles(new FileFilter() { // from class: com.bytedance.sdk.openadsdk.preload.geckox.a.c.2
             @Override // java.io.FileFilter
             public boolean accept(File file) {
@@ -78,11 +77,11 @@ public class c {
         return a(listFiles);
     }
 
-    private static List<File> a(File[] fileArr) {
+    public static List<File> a(File[] fileArr) {
         long j;
-        File file = null;
         ArrayList<File> arrayList = new ArrayList();
         ArrayList arrayList2 = new ArrayList();
+        File file = null;
         long j2 = -1;
         for (File file2 : fileArr) {
             String name = file2.getName();
@@ -97,19 +96,17 @@ public class c {
                         if (file != null) {
                             try {
                                 arrayList2.add(file);
-                            } catch (Exception e) {
+                            } catch (Exception unused) {
                                 j2 = parseLong;
                                 a(file2);
                             }
                         }
+                        file = file2;
+                        j2 = parseLong;
                     } else {
                         arrayList2.add(file2);
-                        file2 = file;
-                        parseLong = j2;
                     }
-                    file = file2;
-                    j2 = parseLong;
-                } catch (Exception e2) {
+                } catch (Exception unused2) {
                 }
             }
         }
@@ -121,8 +118,8 @@ public class c {
             } else {
                 try {
                     j = Long.parseLong(name2.substring(0, indexOf));
-                } catch (NumberFormatException e3) {
-                    e3.printStackTrace();
+                } catch (NumberFormatException e2) {
+                    e2.printStackTrace();
                     j = -1;
                 }
                 if (j <= j2) {
@@ -133,7 +130,7 @@ public class c {
         return arrayList2;
     }
 
-    private static void a(final File file) {
+    public static void a(final File file) {
         f.a().execute(new Runnable() { // from class: com.bytedance.sdk.openadsdk.preload.geckox.a.c.3
             @Override // java.lang.Runnable
             public void run() {

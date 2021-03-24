@@ -4,32 +4,13 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.support.config.FastJsonConfig;
 import org.springframework.data.redis.serializer.RedisSerializer;
 import org.springframework.data.redis.serializer.SerializationException;
-/* loaded from: classes4.dex */
+/* loaded from: classes.dex */
 public class FastJsonRedisSerializer<T> implements RedisSerializer<T> {
-    private FastJsonConfig fastJsonConfig = new FastJsonConfig();
-    private Class<T> type;
+    public FastJsonConfig fastJsonConfig = new FastJsonConfig();
+    public Class<T> type;
 
     public FastJsonRedisSerializer(Class<T> cls) {
         this.type = cls;
-    }
-
-    public FastJsonConfig getFastJsonConfig() {
-        return this.fastJsonConfig;
-    }
-
-    public void setFastJsonConfig(FastJsonConfig fastJsonConfig) {
-        this.fastJsonConfig = fastJsonConfig;
-    }
-
-    public byte[] serialize(T t) throws SerializationException {
-        if (t == null) {
-            return new byte[0];
-        }
-        try {
-            return JSON.toJSONBytes(t, this.fastJsonConfig.getSerializeConfig(), this.fastJsonConfig.getSerializerFeatures());
-        } catch (Exception e) {
-            throw new SerializationException("Could not serialize: " + e.getMessage(), e);
-        }
     }
 
     public T deserialize(byte[] bArr) throws SerializationException {
@@ -38,8 +19,27 @@ public class FastJsonRedisSerializer<T> implements RedisSerializer<T> {
         }
         try {
             return (T) JSON.parseObject(bArr, this.type, this.fastJsonConfig.getFeatures());
-        } catch (Exception e) {
-            throw new SerializationException("Could not deserialize: " + e.getMessage(), e);
+        } catch (Exception e2) {
+            throw new SerializationException("Could not deserialize: " + e2.getMessage(), e2);
         }
+    }
+
+    public FastJsonConfig getFastJsonConfig() {
+        return this.fastJsonConfig;
+    }
+
+    public byte[] serialize(T t) throws SerializationException {
+        if (t == null) {
+            return new byte[0];
+        }
+        try {
+            return JSON.toJSONBytes(t, this.fastJsonConfig.getSerializeConfig(), this.fastJsonConfig.getSerializerFeatures());
+        } catch (Exception e2) {
+            throw new SerializationException("Could not serialize: " + e2.getMessage(), e2);
+        }
+    }
+
+    public void setFastJsonConfig(FastJsonConfig fastJsonConfig) {
+        this.fastJsonConfig = fastJsonConfig;
     }
 }

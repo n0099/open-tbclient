@@ -1,5 +1,5 @@
 package com.tencent.mm.opensdk.diffdev;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public enum OAuthErrCode {
     WechatAuth_Err_OK(0),
     WechatAuth_Err_NormalErr(-1),
@@ -9,7 +9,7 @@ public enum OAuthErrCode {
     WechatAuth_Err_Timeout(-5),
     WechatAuth_Err_Auth_Stopped(-6);
     
-    private int code;
+    public int code;
 
     OAuthErrCode(int i) {
         this.code = i;

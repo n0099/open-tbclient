@@ -5,70 +5,79 @@ import android.os.Message;
 import android.view.View;
 import com.baidu.mapapi.synchronization.DisplayOptions;
 import com.baidu.mapapi.synchronization.RoleOptions;
-import com.kwad.sdk.collector.AppStatusRules;
 import java.lang.Thread;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class d {
-    private static g c;
-    private static Thread d;
-    private c f;
-    private boolean k;
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f2257a = d.class.getSimpleName();
-    private static int b = 0;
-    private static volatile boolean e = true;
-    private static volatile long g = 5000;
-    private static long h = 5000;
-    private static volatile boolean i = false;
-    private static int j = 1000;
+    public static final String f7774a = "d";
 
-    /* loaded from: classes4.dex */
-    private static class a {
+    /* renamed from: b  reason: collision with root package name */
+    public static int f7775b = 0;
+
+    /* renamed from: c  reason: collision with root package name */
+    public static g f7776c = null;
+
+    /* renamed from: d  reason: collision with root package name */
+    public static Thread f7777d = null;
+
+    /* renamed from: e  reason: collision with root package name */
+    public static volatile boolean f7778e = true;
+
+    /* renamed from: g  reason: collision with root package name */
+    public static volatile long f7779g = 5000;
+
+    /* renamed from: h  reason: collision with root package name */
+    public static long f7780h = 5000;
+    public static volatile boolean i = false;
+    public static int j = 1000;
+
+    /* renamed from: f  reason: collision with root package name */
+    public c f7781f;
+    public boolean k;
+
+    /* loaded from: classes2.dex */
+    public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private static final d f2258a = new d();
+        public static final d f7782a = new d();
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class b implements Runnable {
 
         /* renamed from: a  reason: collision with root package name */
-        private String f2259a;
+        public String f7783a;
 
-        b(String str) {
-            this.f2259a = str;
+        public b(String str) {
+            this.f7783a = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            while (!d.e) {
-                if (d.c != null) {
-                    d.c.a(d.b, d.i);
+            while (!d.f7778e) {
+                if (d.f7776c != null) {
+                    d.f7776c.a(d.f7775b, d.i);
                     boolean unused = d.i = false;
                 }
                 try {
-                    Thread.sleep(d.g);
-                } catch (InterruptedException e) {
+                    Thread.sleep(d.f7779g);
+                } catch (InterruptedException unused2) {
                     Thread.currentThread().interrupt();
                 }
-                int d = d.c != null ? d.c.d() : 0;
-                if (d >= 3) {
-                    int i = (d / 3) + 1;
-                    long unused2 = d.g = d.h * ((long) i) >= AppStatusRules.DEFAULT_GRANULARITY ? 60000L : i * d.h;
+                int d2 = d.f7776c != null ? d.f7776c.d() : 0;
+                if (d2 >= 3) {
+                    long j = (d2 / 3) + 1;
+                    long unused3 = d.f7779g = d.f7780h * j < 60000 ? d.f7780h * j : 60000L;
                 } else {
-                    long unused3 = d.g = d.h;
+                    long unused4 = d.f7779g = d.f7780h;
                 }
             }
         }
     }
 
-    /* loaded from: classes4.dex */
-    private static class c extends Handler {
-        c() {
-        }
-
+    /* loaded from: classes2.dex */
+    public static class c extends Handler {
         private void a(int i) {
             if (d.j == i) {
                 boolean unused = d.i = false;
@@ -80,116 +89,114 @@ public class d {
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(d.f2257a, "The order state is: " + message.what);
+            String str = d.f7774a;
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(str, "The order state is: " + message.what);
             a(message.what);
-            switch (message.what) {
-                case 0:
-                case 5:
-                    d.p();
-                    return;
-                case 1:
-                case 2:
-                case 3:
-                case 4:
+            int i = message.what;
+            if (i != 0) {
+                if (i == 1 || i == 2 || i == 3 || i == 4) {
                     d.q();
                     return;
-                default:
-                    com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(d.f2257a, "The order state is undefined");
+                } else if (i != 5) {
+                    com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(d.f7774a, "The order state is undefined");
                     return;
+                }
             }
+            d.p();
         }
     }
 
-    private d() {
+    public d() {
         this.k = true;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public static d a() {
-        return a.f2258a;
+        return a.f7782a;
     }
 
     private void o() {
-        e = true;
-        if (d != null) {
-            d.interrupt();
-            d = null;
+        f7778e = true;
+        Thread thread = f7777d;
+        if (thread != null) {
+            thread.interrupt();
+            f7777d = null;
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     public static synchronized void p() {
         synchronized (d.class) {
-            e = true;
+            f7778e = true;
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     public static synchronized void q() {
         synchronized (d.class) {
-            if (d != null) {
-                e = false;
-                if (Thread.State.NEW == d.getState()) {
-                    d.start();
-                }
-                if (Thread.State.TERMINATED == d.getState()) {
-                    d = null;
-                    d = new Thread(new b(Thread.currentThread().getName()));
-                    d.start();
-                }
+            if (f7777d == null) {
+                return;
+            }
+            f7778e = false;
+            if (Thread.State.NEW == f7777d.getState()) {
+                f7777d.start();
+            }
+            if (Thread.State.TERMINATED == f7777d.getState()) {
+                f7777d = null;
+                Thread thread = new Thread(new b(Thread.currentThread().getName()));
+                f7777d = thread;
+                thread.start();
             }
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public synchronized void a(int i2) {
-        com.baidu.mapsdkplatform.comapi.synchronization.d.a.c(f2257a, "The order state = " + i2);
-        b = i2;
-        if (this.f == null) {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f2257a, "SyncDataRequestHandler is null");
-        } else {
-            Message obtainMessage = this.f.obtainMessage();
-            obtainMessage.what = i2;
-            this.f.sendMessage(obtainMessage);
+        String str = f7774a;
+        com.baidu.mapsdkplatform.comapi.synchronization.d.a.c(str, "The order state = " + i2);
+        f7775b = i2;
+        if (this.f7781f == null) {
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f7774a, "SyncDataRequestHandler is null");
+            return;
         }
+        Message obtainMessage = this.f7781f.obtainMessage();
+        obtainMessage.what = i2;
+        this.f7781f.sendMessage(obtainMessage);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public void a(View view) {
-        if (c != null) {
-            c.a(view);
+        g gVar = f7776c;
+        if (gVar != null) {
+            gVar.a(view);
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public void a(DisplayOptions displayOptions) {
-        if (c != null) {
-            c.a(displayOptions);
+        g gVar = f7776c;
+        if (gVar != null) {
+            gVar.a(displayOptions);
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public void a(RoleOptions roleOptions) {
-        if (c != null) {
-            c.a(roleOptions);
+        g gVar = f7776c;
+        if (gVar != null) {
+            gVar.a(roleOptions);
         }
     }
 
     public void a(RoleOptions roleOptions, DisplayOptions displayOptions) {
-        c = g.a();
-        if (c != null) {
-            c.b();
-            c.a(roleOptions);
-            c.a(displayOptions);
+        g a2 = g.a();
+        f7776c = a2;
+        if (a2 != null) {
+            a2.b();
+            f7776c.a(roleOptions);
+            f7776c.a(displayOptions);
         }
-        d = new Thread(new b(Thread.currentThread().getName()));
-        this.f = new c();
+        f7777d = new Thread(new b(Thread.currentThread().getName()));
+        this.f7781f = new c();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public void a(k kVar) {
-        if (c != null) {
-            c.a(kVar);
+        g gVar = f7776c;
+        if (gVar != null) {
+            gVar.a(kVar);
         }
     }
 
@@ -201,16 +208,16 @@ public class d {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public void b(int i2) {
-        h = i2 * 1000;
-        g = i2 * 1000;
+        long j2 = i2 * 1000;
+        f7780h = j2;
+        f7779g = j2;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public void b(View view) {
-        if (c != null) {
-            c.b(view);
+        g gVar = f7776c;
+        if (gVar != null) {
+            gVar.b(view);
         }
     }
 
@@ -218,23 +225,24 @@ public class d {
         p();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public void c(View view) {
-        if (c != null) {
-            c.c(view);
+        g gVar = f7776c;
+        if (gVar != null) {
+            gVar.c(view);
         }
     }
 
     public void d() {
         o();
-        this.f.removeCallbacksAndMessages(null);
-        b = 0;
-        h = 5000L;
+        this.f7781f.removeCallbacksAndMessages(null);
+        f7775b = 0;
+        f7780h = 5000L;
         i = false;
         j = 1000;
         this.k = true;
-        if (c != null) {
-            c.h();
+        g gVar = f7776c;
+        if (gVar != null) {
+            gVar.h();
         }
     }
 }

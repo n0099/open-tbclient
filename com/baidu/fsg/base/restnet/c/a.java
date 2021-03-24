@@ -5,28 +5,55 @@ import android.text.TextUtils;
 import com.baidu.fsg.base.EnvConfig;
 import com.baidu.fsg.base.restnet.RestNameValuePair;
 import com.baidu.fsg.base.restnet.beans.business.BaseBean;
+import com.baidu.wallet.core.beans.NetworkBean;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public class a extends BaseBean {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f1509a = "/risk/init/stat";
-    public static final int b = 1;
-    private Context c;
-    private String d;
-    private String e;
-    private String f;
+    public static final String f5204a = "/risk/init/stat";
+
+    /* renamed from: b  reason: collision with root package name */
+    public static final int f5205b = 1;
+
+    /* renamed from: c  reason: collision with root package name */
+    public Context f5206c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public String f5207d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public String f5208e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public String f5209f;
 
     public <T> a(Context context) {
         super(context);
-        this.c = context;
+        this.f5206c = context;
     }
 
     public void a(String str, String str2, String str3) {
-        this.d = str;
-        this.e = str2;
-        this.f = str3;
+        this.f5207d = str;
+        this.f5208e = str2;
+        this.f5209f = str3;
+    }
+
+    @Override // com.baidu.fsg.base.restnet.beans.ApollonBean
+    public void execBean() {
+        super.execBean(String.class);
+    }
+
+    @Override // com.baidu.fsg.base.restnet.beans.business.NetworkBean
+    public List<RestNameValuePair> generateRequestParam() {
+        ArrayList arrayList = new ArrayList();
+        if (!TextUtils.isEmpty(this.f5207d)) {
+            arrayList.add(new RestNameValuePair(NetworkBean.PARAM_COOKIE, this.f5207d));
+        }
+        arrayList.add(new RestNameValuePair("ek", this.f5208e));
+        arrayList.add(new RestNameValuePair("ev", this.f5209f));
+        return arrayList;
     }
 
     @Override // com.baidu.fsg.base.restnet.beans.ApollonBean
@@ -34,25 +61,9 @@ public class a extends BaseBean {
         return 1;
     }
 
-    @Override // com.baidu.fsg.base.restnet.beans.business.NetworkBean
-    public List<RestNameValuePair> generateRequestParam() {
-        ArrayList arrayList = new ArrayList();
-        if (!TextUtils.isEmpty(this.d)) {
-            arrayList.add(new RestNameValuePair("atbc", this.d));
-        }
-        arrayList.add(new RestNameValuePair("ek", this.e));
-        arrayList.add(new RestNameValuePair("ev", this.f));
-        return arrayList;
-    }
-
     @Override // com.baidu.fsg.base.restnet.beans.ApollonBean
     public String getUrl() {
-        return EnvConfig.getInstance(this.c).getRimHttpsHost() + f1509a;
-    }
-
-    @Override // com.baidu.fsg.base.restnet.beans.ApollonBean
-    public void execBean() {
-        super.execBean(String.class);
+        return EnvConfig.getInstance(this.f5206c).getRimHttpsHost() + f5204a;
     }
 
     @Override // com.baidu.fsg.base.restnet.beans.ApollonBean

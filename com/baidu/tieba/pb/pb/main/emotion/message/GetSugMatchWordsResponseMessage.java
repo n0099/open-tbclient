@@ -6,22 +6,12 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class GetSugMatchWordsResponseMessage extends JsonHttpResponsedMessage {
-    private List<String> mData;
+    public List<String> mData;
 
     public GetSugMatchWordsResponseMessage(int i) {
         super(i);
-    }
-
-    @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
-    public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
-        JSONObject optJSONObject;
-        int statusCode = getStatusCode();
-        int error = getError();
-        if (statusCode == 200 && error == 0 && jSONObject != null && jSONObject != null && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
-            this.mData = parseSugMatchWordsData(optJSONObject.optJSONArray("sug_keywords"));
-        }
     }
 
     private List<String> parseSugMatchWordsData(JSONArray jSONArray) {
@@ -34,6 +24,17 @@ public class GetSugMatchWordsResponseMessage extends JsonHttpResponsedMessage {
             }
         }
         return arrayList;
+    }
+
+    @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
+    public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
+        JSONObject optJSONObject;
+        int statusCode = getStatusCode();
+        int error = getError();
+        if (statusCode != 200 || error != 0 || jSONObject == null || jSONObject == null || (optJSONObject = jSONObject.optJSONObject("data")) == null) {
+            return;
+        }
+        this.mData = parseSugMatchWordsData(optJSONObject.optJSONArray("sug_keywords"));
     }
 
     public List<String> getData() {

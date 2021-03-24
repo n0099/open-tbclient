@@ -26,69 +26,69 @@ import com.baidu.location.b.i;
 import com.baidu.location.d.b;
 import com.baidu.location.f;
 import java.lang.ref.WeakReference;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class a extends Service implements LLSInterface {
 
     /* renamed from: a  reason: collision with root package name */
-    static HandlerC0252a f1961a = null;
-    private static long f = 0;
-    private Looper c;
-    private HandlerThread d;
-    Messenger b = null;
-    private boolean e = false;
+    public static HandlerC0093a f6661a;
+
+    /* renamed from: f  reason: collision with root package name */
+    public static long f6662f;
+
+    /* renamed from: c  reason: collision with root package name */
+    public Looper f6664c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public HandlerThread f6665d;
+
+    /* renamed from: b  reason: collision with root package name */
+    public Messenger f6663b = null;
+
+    /* renamed from: e  reason: collision with root package name */
+    public boolean f6666e = false;
 
     /* renamed from: com.baidu.location.c.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public static class HandlerC0252a extends Handler {
+    /* loaded from: classes2.dex */
+    public static class HandlerC0093a extends Handler {
 
         /* renamed from: a  reason: collision with root package name */
-        private final WeakReference<a> f1962a;
+        public final WeakReference<a> f6667a;
 
-        public HandlerC0252a(Looper looper, a aVar) {
+        public HandlerC0093a(Looper looper, a aVar) {
             super(looper);
-            this.f1962a = new WeakReference<>(aVar);
+            this.f6667a = new WeakReference<>(aVar);
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
-            a aVar = this.f1962a.get();
+            a aVar = this.f6667a.get();
             if (aVar == null) {
                 return;
             }
             if (f.isServing) {
-                switch (message.what) {
-                    case 11:
-                        aVar.a(message);
-                        break;
-                    case 12:
-                        aVar.b(message);
-                        break;
-                    case 15:
-                        aVar.c(message);
-                        break;
-                    case 22:
-                        l.c().b(message);
-                        break;
-                    case 41:
-                        l.c().h();
-                        break;
-                    case 401:
-                        try {
-                            message.getData();
-                            break;
-                        } catch (Exception e) {
-                            break;
-                        }
-                    case 405:
-                        byte[] byteArray = message.getData().getByteArray("errorid");
-                        if (byteArray != null && byteArray.length > 0) {
-                            new String(byteArray);
-                            break;
-                        }
-                        break;
-                    case 406:
-                        h.a().e();
-                        break;
+                int i = message.what;
+                if (i == 11) {
+                    aVar.a(message);
+                } else if (i == 12) {
+                    aVar.b(message);
+                } else if (i == 15) {
+                    aVar.c(message);
+                } else if (i == 22) {
+                    l.c().b(message);
+                } else if (i == 41) {
+                    l.c().h();
+                } else if (i == 401) {
+                    try {
+                        message.getData();
+                    } catch (Exception unused) {
+                    }
+                } else if (i == 405) {
+                    byte[] byteArray = message.getData().getByteArray("errorid");
+                    if (byteArray != null && byteArray.length > 0) {
+                        new String(byteArray);
+                    }
+                } else if (i == 406) {
+                    h.a().e();
                 }
             }
             if (message.what == 1) {
@@ -133,7 +133,7 @@ public class a extends Service implements LLSInterface {
         com.baidu.location.a.a.a().b();
         n.a().c();
         Log.d("baidu_location_service", "baidu location service has stoped ...");
-        if (this.e) {
+        if (this.f6666e) {
             return;
         }
         Process.killProcess(Process.myPid());
@@ -157,38 +157,33 @@ public class a extends Service implements LLSInterface {
     @Override // android.app.Service, com.baidu.location.LLSInterface
     public IBinder onBind(Intent intent) {
         Bundle extras = intent.getExtras();
-        boolean z = false;
         if (extras != null) {
-            b.g = extras.getString("key");
-            b.f = extras.getString("sign");
-            this.e = extras.getBoolean("kill_process");
-            z = extras.getBoolean("cache_exception");
+            b.f6679g = extras.getString("key");
+            b.f6678f = extras.getString("sign");
+            this.f6666e = extras.getBoolean("kill_process");
+            extras.getBoolean("cache_exception");
         }
-        if (!z) {
-        }
-        return this.b.getBinder();
+        return this.f6663b.getBinder();
     }
 
     @Override // com.baidu.location.LLSInterface
     public void onCreate(Context context) {
-        f = System.currentTimeMillis();
-        this.d = v.a();
-        this.c = this.d.getLooper();
-        if (this.c == null) {
-            f1961a = new HandlerC0252a(Looper.getMainLooper(), this);
-        } else {
-            f1961a = new HandlerC0252a(this.c, this);
-        }
-        this.b = new Messenger(f1961a);
-        f1961a.sendEmptyMessage(0);
+        f6662f = System.currentTimeMillis();
+        HandlerThread a2 = v.a();
+        this.f6665d = a2;
+        Looper looper = a2.getLooper();
+        this.f6664c = looper;
+        f6661a = looper == null ? new HandlerC0093a(Looper.getMainLooper(), this) : new HandlerC0093a(this.f6664c, this);
+        this.f6663b = new Messenger(f6661a);
+        f6661a.sendEmptyMessage(0);
         Log.d("baidu_location_service", "baidu location service start1 ...20181022..." + Process.myPid());
     }
 
     @Override // android.app.Service, com.baidu.location.LLSInterface
     public void onDestroy() {
         try {
-            f1961a.sendEmptyMessage(1);
-        } catch (Exception e) {
+            f6661a.sendEmptyMessage(1);
+        } catch (Exception unused) {
             Log.d("baidu_location_service", "baidu location service stop exception...");
             b();
             Process.killProcess(Process.myPid());

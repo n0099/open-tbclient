@@ -14,64 +14,63 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes14.dex */
+/* loaded from: classes7.dex */
 public final class l extends AsyncTask<String, Void, List<Bitmap>> {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f8079a;
-    private InsideNotificationItem b;
-    private long c;
-    private boolean d;
-    private int e = 0;
+    public Context f39555a;
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-    @Override // android.os.AsyncTask
-    protected final /* synthetic */ void onPostExecute(List<Bitmap> list) {
-        List<Bitmap> list2 = list;
-        super.onPostExecute(list2);
-        p.c("ImageDownTask", "onPostExecute");
-        if (this.b == null) {
-            return;
-        }
-        w.b().a("com.vivo.push.notify_key", this.c);
-        NotifyAdapterUtil.pushNotification(this.f8079a, list2, this.b, this.c, this.e);
-    }
+    /* renamed from: b  reason: collision with root package name */
+    public InsideNotificationItem f39556b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public long f39557c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public boolean f39558d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public int f39559e = 0;
 
     public l(Context context, InsideNotificationItem insideNotificationItem, long j, boolean z) {
-        this.f8079a = context;
-        this.b = insideNotificationItem;
-        this.c = j;
-        this.d = z;
+        this.f39555a = context;
+        this.f39556b = insideNotificationItem;
+        this.f39557c = j;
+        this.f39558d = z;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [72=5, 74=4, 77=4] */
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: private */
-    /* JADX WARN: Removed duplicated region for block: B:59:0x00ca A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Code restructure failed: missing block: B:24:0x0090, code lost:
+        if (r5 == null) goto L41;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:25:0x0092, code lost:
+        r5.close();
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:29:0x009c, code lost:
+        if (r5 == null) goto L41;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:31:0x009f, code lost:
+        r6 = null;
+     */
     @Override // android.os.AsyncTask
     /* renamed from: a */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public List<Bitmap> doInBackground(String... strArr) {
-        Throwable th;
         InputStream inputStream;
-        InputStream inputStream2;
         Bitmap bitmap;
-        int i = 0;
-        this.e = ClientConfigManagerImpl.getInstance(this.f8079a).getNotifyStyle();
-        if (!this.d) {
+        this.f39559e = ClientConfigManagerImpl.getInstance(this.f39555a).getNotifyStyle();
+        InputStream inputStream2 = null;
+        if (!this.f39558d) {
             p.d("ImageDownTask", "bitmap is not display by forbid net");
             return null;
         }
         ArrayList arrayList = new ArrayList();
-        while (true) {
-            int i2 = i;
-            if (i2 >= 2) {
-                return arrayList;
-            }
-            String str = strArr[i2];
-            p.d("ImageDownTask", "imgUrl=" + str + " i=" + i2);
+        for (int i = 0; i < 2; i++) {
+            String str = strArr[i];
+            p.d("ImageDownTask", "imgUrl=" + str + " i=" + i);
             if (!TextUtils.isEmpty(str)) {
                 try {
                     HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(str).openConnection();
@@ -86,55 +85,21 @@ public final class l extends AsyncTask<String, Void, List<Bitmap>> {
                         try {
                             try {
                                 bitmap = BitmapFactory.decodeStream(inputStream);
-                            } catch (Throwable th2) {
-                                th = th2;
-                                if (inputStream != null) {
-                                    try {
-                                        inputStream.close();
-                                    } catch (Exception e) {
-                                    }
-                                }
-                                throw th;
-                            }
-                        } catch (MalformedURLException e2) {
-                            inputStream2 = inputStream;
-                            try {
-                                p.a("ImageDownTask", "MalformedURLException");
+                            } catch (Throwable th) {
+                                th = th;
+                                inputStream2 = inputStream;
                                 if (inputStream2 != null) {
                                     try {
                                         inputStream2.close();
-                                        bitmap = null;
-                                    } catch (Exception e3) {
-                                        bitmap = null;
+                                    } catch (Exception unused) {
                                     }
-                                    arrayList.add(bitmap);
-                                    i = i2 + 1;
-                                }
-                                bitmap = null;
-                                arrayList.add(bitmap);
-                                i = i2 + 1;
-                            } catch (Throwable th3) {
-                                th = th3;
-                                inputStream = inputStream2;
-                                if (inputStream != null) {
                                 }
                                 throw th;
                             }
-                        } catch (IOException e4) {
+                        } catch (MalformedURLException unused2) {
+                            p.a("ImageDownTask", "MalformedURLException");
+                        } catch (IOException unused3) {
                             p.a("ImageDownTask", "IOException");
-                            if (inputStream != null) {
-                                try {
-                                    inputStream.close();
-                                    bitmap = null;
-                                } catch (Exception e5) {
-                                    bitmap = null;
-                                }
-                                arrayList.add(bitmap);
-                                i = i2 + 1;
-                            }
-                            bitmap = null;
-                            arrayList.add(bitmap);
-                            i = i2 + 1;
                         }
                     } else {
                         inputStream = null;
@@ -143,22 +108,33 @@ public final class l extends AsyncTask<String, Void, List<Bitmap>> {
                     if (inputStream != null) {
                         try {
                             inputStream.close();
-                        } catch (Exception e6) {
+                        } catch (Exception unused4) {
                         }
                     }
-                } catch (MalformedURLException e7) {
-                    inputStream2 = null;
-                } catch (IOException e8) {
+                } catch (MalformedURLException unused5) {
                     inputStream = null;
-                } catch (Throwable th4) {
-                    th = th4;
+                } catch (IOException unused6) {
                     inputStream = null;
+                } catch (Throwable th2) {
+                    th = th2;
                 }
                 arrayList.add(bitmap);
-            } else if (i2 == 0) {
+            } else if (i == 0) {
                 arrayList.add(null);
             }
-            i = i2 + 1;
+        }
+        return arrayList;
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    @Override // android.os.AsyncTask
+    public final /* synthetic */ void onPostExecute(List<Bitmap> list) {
+        List<Bitmap> list2 = list;
+        super.onPostExecute(list2);
+        p.c("ImageDownTask", "onPostExecute");
+        if (this.f39556b != null) {
+            w.b().a("com.vivo.push.notify_key", this.f39557c);
+            NotifyAdapterUtil.pushNotification(this.f39555a, list2, this.f39556b, this.f39557c, this.f39559e);
         }
     }
 }

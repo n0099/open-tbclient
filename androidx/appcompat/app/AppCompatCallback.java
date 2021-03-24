@@ -2,7 +2,7 @@ package androidx.appcompat.app;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.view.ActionMode;
-/* loaded from: classes5.dex */
+/* loaded from: classes.dex */
 public interface AppCompatCallback {
     void onSupportActionModeFinished(ActionMode actionMode);
 

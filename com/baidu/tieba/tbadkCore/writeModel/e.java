@@ -1,8 +1,0 @@
-package com.baidu.tieba.tbadkCore.writeModel;
-/* loaded from: classes.dex */
-public class e {
-    public String errorMessage;
-    public long forumId;
-    public boolean isSuccess;
-    public int likeNum;
-}

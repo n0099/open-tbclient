@@ -1,37 +1,35 @@
 package com.kwai.player;
-
-import com.baidu.adp.lib.stats.BdStatisticsManager;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class KwaiPlayerConfig {
     public static final int DEFAULT_LIVE_ADAPTIVE_QOS_TICK_DURATION = 2000;
     public static final int DEFAULT_QOS_TICK_DURATION = 10000;
-    private int mBufferIncrementStep;
-    private int mBufferSmoothTime;
-    private EnumBufferStrategy mBufferStrategy;
-    private boolean mEnableLiveAdaptiveAdditionalQos;
-    private boolean mEnableLiveAdaptiveQos;
-    private boolean mEnableQos;
-    private int mFirstBufferTime;
-    private long mLiveAdaptiveQosDuration;
-    private int mMaxBufferDuration;
-    private int mMaxBufferTime;
-    private int mMinBufferTime;
-    private long mQosDuration;
+    public int mBufferIncrementStep;
+    public int mBufferSmoothTime;
+    public EnumBufferStrategy mBufferStrategy;
+    public boolean mEnableLiveAdaptiveAdditionalQos;
+    public boolean mEnableLiveAdaptiveQos;
+    public boolean mEnableQos;
+    public int mFirstBufferTime;
+    public long mLiveAdaptiveQosDuration;
+    public int mMaxBufferDuration;
+    public int mMaxBufferTime;
+    public int mMinBufferTime;
+    public long mQosDuration;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class Builder {
-        private boolean mEnableQos = false;
-        private long mQosDuration = 10000;
-        private boolean mEnableLiveAdaptiveQos = false;
-        private boolean mEnableLiveAdaptiveAdditionalQos = false;
-        private long mLiveAdaptiveQosDuration = 2000;
-        private int mFirstBufferTime = 100;
-        private int mMinBufferTime = 100;
-        private int mMaxBufferTime = 5000;
-        private int mBufferIncrementStep = 100;
-        private int mBufferSmoothTime = 20000;
-        private int mMaxBufferDurMs = BdStatisticsManager.UPLOAD_TIMER_INTERVAL;
-        private EnumBufferStrategy mBufferStrategy = EnumBufferStrategy.LINEAR_INCREASE_BUFFER_STRATEGY;
+        public boolean mEnableQos = false;
+        public long mQosDuration = 10000;
+        public boolean mEnableLiveAdaptiveQos = false;
+        public boolean mEnableLiveAdaptiveAdditionalQos = false;
+        public long mLiveAdaptiveQosDuration = 2000;
+        public int mFirstBufferTime = 100;
+        public int mMinBufferTime = 100;
+        public int mMaxBufferTime = 5000;
+        public int mBufferIncrementStep = 100;
+        public int mBufferSmoothTime = 20000;
+        public int mMaxBufferDurMs = 120000;
+        public EnumBufferStrategy mBufferStrategy = EnumBufferStrategy.LINEAR_INCREASE_BUFFER_STRATEGY;
 
         public KwaiPlayerConfig build() {
             return new KwaiPlayerConfig(this);
@@ -98,26 +96,25 @@ public class KwaiPlayerConfig {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public enum EnumBufferStrategy {
         LINEAR_INCREASE_BUFFER_STRATEGY(1),
         LOG_INCREASE_BUFFER_STRATEGY(2);
         
-        private final int value;
+        public final int value;
 
         EnumBufferStrategy(int i) {
             this.value = i;
         }
 
         public static EnumBufferStrategy valueOf(int i) {
-            switch (i) {
-                case 1:
-                    return LINEAR_INCREASE_BUFFER_STRATEGY;
-                case 2:
-                    return LOG_INCREASE_BUFFER_STRATEGY;
-                default:
+            if (i != 1) {
+                if (i != 2) {
                     return null;
+                }
+                return LOG_INCREASE_BUFFER_STRATEGY;
             }
+            return LINEAR_INCREASE_BUFFER_STRATEGY;
         }
 
         public int getValue() {

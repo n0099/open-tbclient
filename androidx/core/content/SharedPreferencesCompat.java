@@ -3,30 +3,24 @@ package androidx.core.content;
 import android.content.SharedPreferences;
 import androidx.annotation.NonNull;
 @Deprecated
-/* loaded from: classes14.dex */
+/* loaded from: classes.dex */
 public final class SharedPreferencesCompat {
 
     @Deprecated
-    /* loaded from: classes14.dex */
+    /* loaded from: classes.dex */
     public static final class EditorCompat {
-        private static EditorCompat sInstance;
-        private final Helper mHelper = new Helper();
+        public static EditorCompat sInstance;
+        public final Helper mHelper = new Helper();
 
-        /* loaded from: classes14.dex */
-        private static class Helper {
-            Helper() {
-            }
-
+        /* loaded from: classes.dex */
+        public static class Helper {
             public void apply(@NonNull SharedPreferences.Editor editor) {
                 try {
                     editor.apply();
-                } catch (AbstractMethodError e) {
+                } catch (AbstractMethodError unused) {
                     editor.commit();
                 }
             }
-        }
-
-        private EditorCompat() {
         }
 
         @Deprecated
@@ -41,8 +35,5 @@ public final class SharedPreferencesCompat {
         public void apply(@NonNull SharedPreferences.Editor editor) {
             this.mHelper.apply(editor);
         }
-    }
-
-    private SharedPreferencesCompat() {
     }
 }

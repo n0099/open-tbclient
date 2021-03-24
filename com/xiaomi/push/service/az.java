@@ -1,92 +1,110 @@
 package com.xiaomi.push.service;
-
-import com.xiaomi.push.he;
-import com.xiaomi.push.service.XMPushService;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
-public class az {
-    private static int d = 300000;
-
-    /* renamed from: a  reason: collision with other field name */
-    private XMPushService f873a;
-    private int b = 0;
-    private int c = 0;
+/* loaded from: classes7.dex */
+public abstract class az {
+    public static String A = "ext_pkg_name";
+    public static String B = "ext_notify_id";
+    public static String C = "ext_notify_type";
+    public static String D = "ext_session";
+    public static String E = "sig";
+    public static String F = "ext_notify_title";
+    public static String G = "ext_notify_description";
+    public static String H = "ext_messenger";
+    public static String I = "title";
+    public static String J = "description";
+    public static String K = "notifyId";
 
     /* renamed from: a  reason: collision with root package name */
-    private int f8534a = 500;
+    public static String f40979a = "1";
 
-    /* renamed from: a  reason: collision with other field name */
-    private long f872a = 0;
+    /* renamed from: b  reason: collision with root package name */
+    public static String f40980b = "2";
 
-    public az(XMPushService xMPushService) {
-        this.f873a = xMPushService;
-    }
+    /* renamed from: c  reason: collision with root package name */
+    public static String f40981c = "3";
 
-    private int a() {
-        if (this.b > 8) {
-            return 300000;
-        }
-        double random = 1.0d + (Math.random() * 2.0d);
-        if (this.b > 4) {
-            return (int) (60000.0d * random);
-        }
-        if (this.b > 1) {
-            return (int) (10000.0d * random);
-        }
-        if (this.f872a != 0) {
-            if (System.currentTimeMillis() - this.f872a >= 310000) {
-                this.f8534a = 1000;
-                this.c = 0;
-                return 0;
-            } else if (this.f8534a >= d) {
-                return this.f8534a;
-            } else {
-                int i = this.f8534a;
-                this.c++;
-                if (this.c >= 4) {
-                    return d;
-                }
-                this.f8534a = (int) (this.f8534a * 1.5d);
-                return i;
-            }
-        }
-        return 0;
-    }
+    /* renamed from: d  reason: collision with root package name */
+    public static String f40982d = "com.xiaomi.push.OPEN_CHANNEL";
 
-    /* renamed from: a  reason: collision with other method in class */
-    public void m559a() {
-        this.f872a = System.currentTimeMillis();
-        this.f873a.a(1);
-        this.b = 0;
-    }
+    /* renamed from: e  reason: collision with root package name */
+    public static String f40983e = "com.xiaomi.push.SEND_MESSAGE";
 
-    public void a(boolean z) {
-        if (!this.f873a.m526a()) {
-            com.xiaomi.channel.commonutils.logger.b.c("should not reconnect as no client or network.");
-        } else if (z) {
-            if (!this.f873a.m527a(1)) {
-                this.b++;
-            }
-            this.f873a.a(1);
-            XMPushService xMPushService = this.f873a;
-            XMPushService xMPushService2 = this.f873a;
-            xMPushService2.getClass();
-            xMPushService.a(new XMPushService.d());
-        } else if (this.f873a.m527a(1)) {
-        } else {
-            int a2 = a();
-            this.b++;
-            com.xiaomi.channel.commonutils.logger.b.m58a("schedule reconnect in " + a2 + "ms");
-            XMPushService xMPushService3 = this.f873a;
-            XMPushService xMPushService4 = this.f873a;
-            xMPushService4.getClass();
-            xMPushService3.a(new XMPushService.d(), a2);
-            if (this.b == 2 && he.m338a().m343a()) {
-                ad.b();
-            }
-            if (this.b == 3) {
-                ad.a();
-            }
+    /* renamed from: f  reason: collision with root package name */
+    public static String f40984f = "com.xiaomi.push.SEND_IQ";
+
+    /* renamed from: g  reason: collision with root package name */
+    public static String f40985g = "com.xiaomi.push.BATCH_SEND_MESSAGE";
+
+    /* renamed from: h  reason: collision with root package name */
+    public static String f40986h = "com.xiaomi.push.SEND_PRES";
+    public static String i = "com.xiaomi.push.CLOSE_CHANNEL";
+    public static String j = "com.xiaomi.push.FORCE_RECONN";
+    public static String k = "com.xiaomi.push.RESET_CONN";
+    public static String l = "com.xiaomi.push.UPDATE_CHANNEL_INFO";
+    public static String m = "com.xiaomi.push.SEND_STATS";
+    public static String n = "com.xiaomi.push.CHANGE_HOST";
+    public static String o = "com.xiaomi.push.PING_TIMER";
+    public static String p = "ext_user_id";
+    public static String q = "ext_user_server";
+    public static String r = "ext_user_res";
+    public static String s = "ext_chid";
+    public static String t = "ext_sid";
+    public static String u = "ext_token";
+    public static String v = "ext_auth_method";
+    public static String w = "ext_security";
+    public static String x = "ext_kick";
+    public static String y = "ext_client_attr";
+    public static String z = "ext_cloud_attr";
+
+    public static String a(int i2) {
+        switch (i2) {
+            case 0:
+                return "ERROR_OK";
+            case 1:
+                return "ERROR_SERVICE_NOT_INSTALLED";
+            case 2:
+                return "ERROR_NETWORK_NOT_AVAILABLE";
+            case 3:
+                return "ERROR_NETWORK_FAILED";
+            case 4:
+                return "ERROR_ACCESS_DENIED";
+            case 5:
+                return "ERROR_AUTH_FAILED";
+            case 6:
+                return "ERROR_MULTI_LOGIN";
+            case 7:
+                return "ERROR_SERVER_ERROR";
+            case 8:
+                return "ERROR_RECEIVE_TIMEOUT";
+            case 9:
+                return "ERROR_READ_ERROR";
+            case 10:
+                return "ERROR_SEND_ERROR";
+            case 11:
+                return "ERROR_RESET";
+            case 12:
+                return "ERROR_NO_CLIENT";
+            case 13:
+                return "ERROR_SERVER_STREAM";
+            case 14:
+                return "ERROR_THREAD_BLOCK";
+            case 15:
+                return "ERROR_SERVICE_DESTROY";
+            case 16:
+                return "ERROR_SESSION_CHANGED";
+            case 17:
+                return "ERROR_READ_TIMEOUT";
+            case 18:
+                return "ERROR_CONNECTIING_TIMEOUT";
+            case 19:
+                return "ERROR_USER_BLOCKED";
+            case 20:
+                return "ERROR_REDIRECT";
+            case 21:
+                return "ERROR_BIND_TIMEOUT";
+            case 22:
+                return "ERROR_PING_TIMEOUT";
+            default:
+                return String.valueOf(i2);
         }
     }
 }

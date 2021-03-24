@@ -5,200 +5,203 @@ import com.baidu.tbadk.core.util.AbstractImageProvider;
 import com.baidu.tieba.im.pushNotify.ChatSetting;
 import java.io.Serializable;
 import java.util.ArrayList;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class ImMessageCenterShowItemData extends AbstractImageProvider implements Serializable, Cloneable {
-    private static final long serialVersionUID = 3133087680118197014L;
-    protected String friendBjhAvatar;
-    protected String friendId;
-    protected String friendName;
-    protected String friendNameShow;
-    protected String friendPortrait;
-    private int friendStatus;
-    private ChatSetting groupSetting;
-    private boolean isSelected = false;
-    private boolean isSelf;
-    protected String msgContent;
-    protected String ownerId;
-    protected String ownerName;
-    private int sendStatus;
-    protected long serverTime;
-    protected int status;
-    private String title;
-    protected int unReadCount;
-    protected int unReadCountExtra;
-    private int userType;
+    public static final long serialVersionUID = 3133087680118197014L;
+    public String friendBjhAvatar;
+    public String friendId;
+    public String friendName;
+    public String friendNameShow;
+    public String friendPortrait;
+    public int friendStatus;
+    public ChatSetting groupSetting;
+    public boolean isSelected = false;
+    public boolean isSelf;
+    public String msgContent;
+    public String ownerId;
+    public String ownerName;
+    public int sendStatus;
+    public long serverTime;
+    public int status;
+    public String title;
+    public int unReadCount;
+    public int unReadCountExtra;
+    public int userType;
 
-    public String getPK() {
-        return this.ownerId + "@" + this.friendId;
-    }
-
-    public String getOwnerId() {
-        return this.ownerId;
-    }
-
-    public void setOwnerId(String str) {
-        this.ownerId = str;
+    public String getFriendBjhAvatar() {
+        return this.friendBjhAvatar;
     }
 
     public String getFriendId() {
         return this.friendId;
     }
 
-    public void setFriendId(String str) {
-        this.friendId = str;
+    public String getFriendName() {
+        return this.friendName;
+    }
+
+    public String getFriendNameShow() {
+        if (!StringUtils.isNull(this.friendNameShow)) {
+            return this.friendNameShow;
+        }
+        return this.friendName;
     }
 
     public String getFriendPortrait() {
         return this.friendPortrait;
     }
 
-    public void setFriendPortrait(String str) {
-        this.friendPortrait = str;
-    }
-
-    public int getStatus() {
-        return this.status;
-    }
-
-    public void setStatus(int i) {
-        this.status = i;
-    }
-
-    public long getServerTime() {
-        return this.serverTime;
-    }
-
-    public void setServerTime(long j) {
-        this.serverTime = j;
-    }
-
-    public String getMsgContent() {
-        return this.msgContent;
-    }
-
-    public void setMsgContent(String str) {
-        this.msgContent = str;
-    }
-
-    public int getUnReadCount() {
-        return this.unReadCount;
-    }
-
-    public void setUnReadCount(int i) {
-        this.unReadCount = i;
-    }
-
-    public String getOwnerName() {
-        return this.ownerName;
-    }
-
-    public void setOwnerName(String str) {
-        this.ownerName = str;
-    }
-
-    public String getFriendName() {
-        return this.friendName;
-    }
-
-    public void setFriendName(String str) {
-        this.friendName = str;
-    }
-
-    public String getFriendNameShow() {
-        return !StringUtils.isNull(this.friendNameShow) ? this.friendNameShow : this.friendName;
-    }
-
-    public void setFriendNameShow(String str) {
-        this.friendNameShow = str;
-    }
-
-    public String getFriendBjhAvatar() {
-        return this.friendBjhAvatar;
-    }
-
-    public void setFriendBjhAvatar(String str) {
-        this.friendBjhAvatar = str;
+    public int getFriendStatus() {
+        return this.friendStatus;
     }
 
     public ChatSetting getGroupSetting() {
         return this.groupSetting;
     }
 
-    public void setGroupSetting(ChatSetting chatSetting) {
-        this.groupSetting = chatSetting;
-    }
-
-    public int getUnReadCountExtra() {
-        return this.unReadCountExtra;
-    }
-
-    public void setUnReadCountExtra(int i) {
-        this.unReadCountExtra = i;
-    }
-
-    public String getTitle() {
-        return this.title;
-    }
-
-    public void setTitle(String str) {
-        this.title = str;
-    }
-
-    public boolean isSelf() {
-        return this.isSelf;
-    }
-
-    public void setSelf(boolean z) {
-        this.isSelf = z;
-    }
-
-    @Override // com.baidu.tbadk.core.util.AbstractImageProvider
+    @Override // com.baidu.tbadk.core.util.AbstractImageProvider, com.baidu.tbadk.core.util.ImageProvider
     public ArrayList<String> getImageUrl() {
         ArrayList<String> arrayList = new ArrayList<>();
         arrayList.add(getFriendPortrait());
         return arrayList;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* renamed from: clone */
-    public ImMessageCenterShowItemData m32clone() {
-        try {
-            return (ImMessageCenterShowItemData) super.clone();
-        } catch (CloneNotSupportedException e) {
-            e.printStackTrace();
-            return this;
-        }
+    public String getMsgContent() {
+        return this.msgContent;
     }
 
-    public void setFriendStatus(int i) {
-        this.friendStatus = i;
+    public String getOwnerId() {
+        return this.ownerId;
     }
 
-    public int getFriendStatus() {
-        return this.friendStatus;
+    public String getOwnerName() {
+        return this.ownerName;
+    }
+
+    public String getPK() {
+        return this.ownerId + "@" + this.friendId;
     }
 
     public int getSendStatus() {
         return this.sendStatus;
     }
 
-    public void setSendStatus(int i) {
-        this.sendStatus = i;
+    public long getServerTime() {
+        return this.serverTime;
+    }
+
+    public int getStatus() {
+        return this.status;
+    }
+
+    public String getTitle() {
+        return this.title;
+    }
+
+    public int getUnReadCount() {
+        return this.unReadCount;
+    }
+
+    public int getUnReadCountExtra() {
+        return this.unReadCountExtra;
     }
 
     public int getUserType() {
         return this.userType;
     }
 
-    public void setUserType(int i) {
-        this.userType = i;
-    }
-
     public boolean isSelected() {
         return this.isSelected;
     }
 
+    public boolean isSelf() {
+        return this.isSelf;
+    }
+
+    public void setFriendBjhAvatar(String str) {
+        this.friendBjhAvatar = str;
+    }
+
+    public void setFriendId(String str) {
+        this.friendId = str;
+    }
+
+    public void setFriendName(String str) {
+        this.friendName = str;
+    }
+
+    public void setFriendNameShow(String str) {
+        this.friendNameShow = str;
+    }
+
+    public void setFriendPortrait(String str) {
+        this.friendPortrait = str;
+    }
+
+    public void setFriendStatus(int i) {
+        this.friendStatus = i;
+    }
+
+    public void setGroupSetting(ChatSetting chatSetting) {
+        this.groupSetting = chatSetting;
+    }
+
+    public void setMsgContent(String str) {
+        this.msgContent = str;
+    }
+
+    public void setOwnerId(String str) {
+        this.ownerId = str;
+    }
+
+    public void setOwnerName(String str) {
+        this.ownerName = str;
+    }
+
     public void setSelected(boolean z) {
         this.isSelected = z;
+    }
+
+    public void setSelf(boolean z) {
+        this.isSelf = z;
+    }
+
+    public void setSendStatus(int i) {
+        this.sendStatus = i;
+    }
+
+    public void setServerTime(long j) {
+        this.serverTime = j;
+    }
+
+    public void setStatus(int i) {
+        this.status = i;
+    }
+
+    public void setTitle(String str) {
+        this.title = str;
+    }
+
+    public void setUnReadCount(int i) {
+        this.unReadCount = i;
+    }
+
+    public void setUnReadCountExtra(int i) {
+        this.unReadCountExtra = i;
+    }
+
+    public void setUserType(int i) {
+        this.userType = i;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* renamed from: clone */
+    public ImMessageCenterShowItemData m15clone() {
+        try {
+            return (ImMessageCenterShowItemData) super.clone();
+        } catch (CloneNotSupportedException e2) {
+            e2.printStackTrace();
+            return this;
+        }
     }
 }

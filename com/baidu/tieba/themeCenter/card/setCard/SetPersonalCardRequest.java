@@ -1,26 +1,26 @@
 package com.baidu.tieba.themeCenter.card.setCard;
 
 import com.baidu.adp.framework.message.NetMessage;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
-import com.baidu.tbadk.util.v;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import d.b.h0.z0.w;
 import tbclient.SetCard.DataReq;
 import tbclient.SetCard.SetCardReqIdl;
-/* loaded from: classes8.dex */
+/* loaded from: classes5.dex */
 public class SetPersonalCardRequest extends NetMessage {
-    private long cardId;
-    private int type;
+    public long cardId;
+    public int type;
 
     public SetPersonalCardRequest() {
-        super(1003095, CmdConfigSocket.CMD_SET_PERSONAL_CARD);
+        super(CmdConfigHttp.CMD_SET_PERSONAL_CARD, 309345);
     }
 
     @Override // com.baidu.adp.framework.message.NetMessage
-    protected Object encode(boolean z) {
+    public Object encode(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
         builder.props_id = Long.valueOf(this.cardId);
         builder.type = Integer.valueOf(this.type);
         if (z) {
-            v.b(builder, true);
+            w.a(builder, true);
         }
         SetCardReqIdl.Builder builder2 = new SetCardReqIdl.Builder();
         builder2.data = builder.build(false);
@@ -31,12 +31,12 @@ public class SetPersonalCardRequest extends NetMessage {
         return this.cardId;
     }
 
-    public void setCardId(long j) {
-        this.cardId = j;
-    }
-
     public int getType() {
         return this.type;
+    }
+
+    public void setCardId(long j) {
+        this.cardId = j;
     }
 
     public void setType(int i) {

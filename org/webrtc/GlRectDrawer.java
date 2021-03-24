@@ -1,13 +1,13 @@
 package org.webrtc;
 
 import org.webrtc.GlGenericDrawer;
-/* loaded from: classes9.dex */
+/* loaded from: classes7.dex */
 public class GlRectDrawer extends GlGenericDrawer {
-    private static final String FRAGMENT_SHADER = "void main() {\n  gl_FragColor = sample(tc);\n}\n";
+    public static final String FRAGMENT_SHADER = "void main() {\n  gl_FragColor = sample(tc);\n}\n";
 
-    /* loaded from: classes9.dex */
-    private static class ShaderCallbacks implements GlGenericDrawer.ShaderCallbacks {
-        private ShaderCallbacks() {
+    /* loaded from: classes7.dex */
+    public static class ShaderCallbacks implements GlGenericDrawer.ShaderCallbacks {
+        public ShaderCallbacks() {
         }
 
         @Override // org.webrtc.GlGenericDrawer.ShaderCallbacks

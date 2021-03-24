@@ -1,5 +1,5 @@
 package com.baidu.sapi2.result;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class OAuthResult extends SapiResult {
     public static final String ERROR_MSG_UNKNOWN = "授权失败";
     public static final String RESULT_MSG_SUCCESS = "授权成功";

@@ -2,7 +2,7 @@ package com.baidu.mapapi.model;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public final class LatLng implements Parcelable {
     public final double latitude;
     public final double latitudeE6;
@@ -10,26 +10,25 @@ public final class LatLng implements Parcelable {
     public final double longitudeE6;
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f2086a = LatLng.class.getSimpleName();
+    public static final String f7109a = LatLng.class.getSimpleName();
     public static final Parcelable.Creator<LatLng> CREATOR = new a();
 
-    public LatLng(double d, double d2) {
-        if (Double.isNaN(d) || Double.isNaN(d2) || Double.isInfinite(d) || Double.isInfinite(d2)) {
+    public LatLng(double d2, double d3) {
+        if (Double.isNaN(d2) || Double.isNaN(d3) || Double.isInfinite(d2) || Double.isInfinite(d3)) {
             this.latitudeE6 = 0.0d;
             this.longitudeE6 = 0.0d;
             this.latitude = 0.0d;
             this.longitude = 0.0d;
             return;
         }
-        double d3 = d * 1000000.0d;
         double d4 = d2 * 1000000.0d;
-        this.latitudeE6 = d3;
-        this.longitudeE6 = d4;
-        this.latitude = d3 / 1000000.0d;
-        this.longitude = d4 / 1000000.0d;
+        double d5 = d3 * 1000000.0d;
+        this.latitudeE6 = d4;
+        this.longitudeE6 = d5;
+        this.latitude = d4 / 1000000.0d;
+        this.longitude = d5 / 1000000.0d;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     public LatLng(Parcel parcel) {
         this.latitude = parcel.readDouble();
         this.longitude = parcel.readDouble();

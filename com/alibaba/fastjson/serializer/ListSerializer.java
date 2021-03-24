@@ -1,21 +1,22 @@
 package com.alibaba.fastjson.serializer;
 
 import com.alibaba.fastjson.util.TypeUtils;
+import com.baidu.android.common.others.lang.StringUtil;
 import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes.dex */
 public final class ListSerializer implements ObjectSerializer {
     public static final ListSerializer instance = new ListSerializer();
 
     @Override // com.alibaba.fastjson.serializer.ObjectSerializer
     public final void write(JSONSerializer jSONSerializer, Object obj, Object obj2, Type type, int i) throws IOException {
-        boolean z = jSONSerializer.out.isEnabled(SerializerFeature.WriteClassName) || SerializerFeature.isEnabled(i, SerializerFeature.WriteClassName);
+        int i2;
+        Object obj3;
+        boolean z;
+        boolean z2 = jSONSerializer.out.isEnabled(SerializerFeature.WriteClassName) || SerializerFeature.isEnabled(i, SerializerFeature.WriteClassName);
         SerializeWriter serializeWriter = jSONSerializer.out;
-        Type type2 = null;
-        if (z) {
-            type2 = TypeUtils.getCollectionItemType(type);
-        }
+        Type collectionItemType = z2 ? TypeUtils.getCollectionItemType(type) : null;
         if (obj == null) {
             serializeWriter.writeNull(SerializerFeature.WriteNullListAsEmpty);
             return;
@@ -28,74 +29,96 @@ public final class ListSerializer implements ObjectSerializer {
         SerialContext serialContext = jSONSerializer.context;
         jSONSerializer.setContext(serialContext, obj, obj2, 0);
         try {
+            char c2 = ',';
             if (serializeWriter.isEnabled(SerializerFeature.PrettyFormat)) {
                 serializeWriter.append('[');
                 jSONSerializer.incrementIndent();
-                int i2 = 0;
-                for (Object obj3 : list) {
-                    if (i2 != 0) {
-                        serializeWriter.append(',');
+                int i3 = 0;
+                for (Object obj4 : list) {
+                    if (i3 != 0) {
+                        serializeWriter.append(c2);
                     }
                     jSONSerializer.println();
-                    if (obj3 != null) {
-                        if (jSONSerializer.containsReference(obj3)) {
-                            jSONSerializer.writeReference(obj3);
+                    if (obj4 != null) {
+                        if (jSONSerializer.containsReference(obj4)) {
+                            jSONSerializer.writeReference(obj4);
                         } else {
-                            ObjectSerializer objectWriter = jSONSerializer.getObjectWriter(obj3.getClass());
+                            ObjectSerializer objectWriter = jSONSerializer.getObjectWriter(obj4.getClass());
                             jSONSerializer.context = new SerialContext(serialContext, obj, obj2, 0, 0);
-                            objectWriter.write(jSONSerializer, obj3, Integer.valueOf(i2), type2, i);
+                            objectWriter.write(jSONSerializer, obj4, Integer.valueOf(i3), collectionItemType, i);
                         }
                     } else {
                         jSONSerializer.out.writeNull();
                     }
-                    i2++;
+                    i3++;
+                    c2 = ',';
                 }
                 jSONSerializer.decrementIdent();
                 jSONSerializer.println();
                 serializeWriter.append(']');
                 return;
             }
+            char c3 = ']';
             serializeWriter.append('[');
             int size = list.size();
-            for (int i3 = 0; i3 < size; i3++) {
-                Object obj4 = list.get(i3);
-                if (i3 != 0) {
+            int i4 = 0;
+            while (i4 < size) {
+                Object obj5 = list.get(i4);
+                if (i4 != 0) {
                     serializeWriter.append(',');
                 }
-                if (obj4 == null) {
-                    serializeWriter.append((CharSequence) "null");
+                if (obj5 == null) {
+                    serializeWriter.append((CharSequence) StringUtil.NULL_STRING);
                 } else {
-                    Class<?> cls = obj4.getClass();
+                    Class<?> cls = obj5.getClass();
                     if (cls == Integer.class) {
-                        serializeWriter.writeInt(((Integer) obj4).intValue());
+                        serializeWriter.writeInt(((Integer) obj5).intValue());
                     } else if (cls == Long.class) {
-                        long longValue = ((Long) obj4).longValue();
-                        if (z) {
+                        long longValue = ((Long) obj5).longValue();
+                        if (z2) {
                             serializeWriter.writeLong(longValue);
                             serializeWriter.write(76);
                         } else {
                             serializeWriter.writeLong(longValue);
                         }
-                    } else if ((SerializerFeature.DisableCircularReferenceDetect.mask & i) != 0) {
-                        jSONSerializer.getObjectWriter(obj4.getClass()).write(jSONSerializer, obj4, Integer.valueOf(i3), type2, i);
                     } else {
-                        if (!serializeWriter.disableCircularReferenceDetect) {
-                            jSONSerializer.context = new SerialContext(serialContext, obj, obj2, 0, 0);
-                        }
-                        if (jSONSerializer.containsReference(obj4)) {
-                            jSONSerializer.writeReference(obj4);
+                        if ((SerializerFeature.DisableCircularReferenceDetect.mask & i) != 0) {
+                            i2 = i4;
+                            jSONSerializer.getObjectWriter(obj5.getClass()).write(jSONSerializer, obj5, Integer.valueOf(i4), collectionItemType, i);
+                            z = z2;
                         } else {
-                            ObjectSerializer objectWriter2 = jSONSerializer.getObjectWriter(obj4.getClass());
-                            if ((SerializerFeature.WriteClassName.mask & i) != 0 && (objectWriter2 instanceof JavaBeanSerializer)) {
-                                ((JavaBeanSerializer) objectWriter2).writeNoneASM(jSONSerializer, obj4, Integer.valueOf(i3), type2, i);
+                            i2 = i4;
+                            if (serializeWriter.disableCircularReferenceDetect) {
+                                obj3 = obj5;
+                                z = z2;
                             } else {
-                                objectWriter2.write(jSONSerializer, obj4, Integer.valueOf(i3), type2, i);
+                                obj3 = obj5;
+                                z = z2;
+                                jSONSerializer.context = new SerialContext(serialContext, obj, obj2, 0, 0);
+                            }
+                            if (jSONSerializer.containsReference(obj3)) {
+                                jSONSerializer.writeReference(obj3);
+                            } else {
+                                ObjectSerializer objectWriter2 = jSONSerializer.getObjectWriter(obj3.getClass());
+                                if ((SerializerFeature.WriteClassName.mask & i) != 0 && (objectWriter2 instanceof JavaBeanSerializer)) {
+                                    ((JavaBeanSerializer) objectWriter2).writeNoneASM(jSONSerializer, obj3, Integer.valueOf(i2), collectionItemType, i);
+                                } else {
+                                    objectWriter2.write(jSONSerializer, obj3, Integer.valueOf(i2), collectionItemType, i);
+                                }
                             }
                         }
+                        i4 = i2 + 1;
+                        z2 = z;
+                        c3 = ']';
                     }
                 }
+                i2 = i4;
+                z = z2;
+                i4 = i2 + 1;
+                z2 = z;
+                c3 = ']';
             }
-            serializeWriter.append(']');
+            serializeWriter.append(c3);
         } finally {
             jSONSerializer.context = serialContext;
         }

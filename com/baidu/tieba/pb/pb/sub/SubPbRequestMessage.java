@@ -2,32 +2,32 @@ package com.baidu.tieba.pb.pb.sub;
 
 import android.content.Context;
 import com.baidu.adp.framework.message.NetMessage;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
-import com.baidu.tbadk.util.v;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import d.b.h0.z0.w;
 import tbclient.PbFloor.DataReq;
 import tbclient.PbFloor.PbFloorReqIdl;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class SubPbRequestMessage extends NetMessage {
-    private long forumId;
-    private int is_comm_reverse;
-    private long kz;
-    private String oriUgcNid;
-    private String oriUgcTid;
-    private String oriUgcTopPid;
-    private int oriUgcType;
-    private String oriUgcVid;
-    private long pid;
-    private int pn;
-    private Context richTextClickListener;
-    private double scr_dip;
-    private int scr_h;
-    private int scr_w;
-    private long spid;
-    private String stType;
-    private boolean treatDelPage;
+    public long forumId;
+    public int is_comm_reverse;
+    public long kz;
+    public String oriUgcNid;
+    public String oriUgcTid;
+    public String oriUgcTopPid;
+    public int oriUgcType;
+    public String oriUgcVid;
+    public long pid;
+    public int pn;
+    public Context richTextClickListener;
+    public double scr_dip;
+    public int scr_h;
+    public int scr_w;
+    public long spid;
+    public String stType;
+    public boolean treatDelPage;
 
-    public SubPbRequestMessage(Context context, long j, long j2, long j3, int i, int i2, int i3, double d, String str, int i4) {
-        super(1002100, CmdConfigSocket.CMD_SUBPB_FLOOR);
+    public SubPbRequestMessage(Context context, long j, long j2, long j3, int i, int i2, int i3, double d2, String str, int i4) {
+        super(CmdConfigHttp.SubPb_HTTP_CMD, 302002);
         this.richTextClickListener = context;
         this.kz = j;
         this.pid = j2;
@@ -35,37 +35,13 @@ public class SubPbRequestMessage extends NetMessage {
         this.pn = i;
         this.scr_w = i2;
         this.scr_h = i3;
-        this.scr_dip = d;
+        this.scr_dip = d2;
         this.stType = str;
         this.is_comm_reverse = i4;
     }
 
-    public void setOriUgcNid(String str) {
-        this.oriUgcNid = str;
-    }
-
-    public void setOriUgcTid(String str) {
-        this.oriUgcTid = str;
-    }
-
-    public void setOriUgcType(int i) {
-        this.oriUgcType = i;
-    }
-
-    public void setOriUgcVid(String str) {
-        this.oriUgcVid = str;
-    }
-
-    public void setOriUgcTopPid(String str) {
-        this.oriUgcTopPid = str;
-    }
-
-    public void setForumId(long j) {
-        this.forumId = j;
-    }
-
     @Override // com.baidu.adp.framework.message.NetMessage
-    protected Object encode(boolean z) {
+    public Object encode(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
         builder.kz = Long.valueOf(this.kz);
         builder.pid = Long.valueOf(this.pid);
@@ -83,7 +59,7 @@ public class SubPbRequestMessage extends NetMessage {
         builder.top_ugc_pid = this.oriUgcTopPid;
         builder.forum_id = Long.valueOf(this.forumId);
         if (z) {
-            v.b(builder, true);
+            w.a(builder, true);
         }
         PbFloorReqIdl.Builder builder2 = new PbFloorReqIdl.Builder();
         builder2.data = builder.build(false);
@@ -96,6 +72,30 @@ public class SubPbRequestMessage extends NetMessage {
 
     public boolean isTreatDelPage() {
         return this.treatDelPage;
+    }
+
+    public void setForumId(long j) {
+        this.forumId = j;
+    }
+
+    public void setOriUgcNid(String str) {
+        this.oriUgcNid = str;
+    }
+
+    public void setOriUgcTid(String str) {
+        this.oriUgcTid = str;
+    }
+
+    public void setOriUgcTopPid(String str) {
+        this.oriUgcTopPid = str;
+    }
+
+    public void setOriUgcType(int i) {
+        this.oriUgcType = i;
+    }
+
+    public void setOriUgcVid(String str) {
+        this.oriUgcVid = str;
     }
 
     public void setTreatDelPage(boolean z) {

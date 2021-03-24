@@ -1,13 +1,10 @@
 package com.baidu.searchbox.aperf.bosuploader;
 
-import com.baidu.d.c.b;
-/* loaded from: classes5.dex */
+import com.baidu.common.param.CommonUrlParamManager;
+/* loaded from: classes2.dex */
 public class UploadUrlProvider {
-    private static volatile UploadUrlProvider sSingleton;
-    private UploadUrlListener mUploadUrlListener;
-
-    private UploadUrlProvider() {
-    }
+    public static volatile UploadUrlProvider sSingleton;
+    public UploadUrlListener mUploadUrlListener;
 
     public static UploadUrlProvider getInstance() {
         if (sSingleton == null) {
@@ -20,14 +17,15 @@ public class UploadUrlProvider {
         return sSingleton;
     }
 
-    public void setUploadUrlListener(UploadUrlListener uploadUrlListener) {
-        this.mUploadUrlListener = uploadUrlListener;
+    public String getUploadUrl() {
+        UploadUrlListener uploadUrlListener = this.mUploadUrlListener;
+        if (uploadUrlListener != null) {
+            return uploadUrlListener.processUrl();
+        }
+        return CommonUrlParamManager.getInstance().processUrl(BaseUrlManager.getBaseUploadUrl());
     }
 
-    public String getUploadUrl() {
-        if (this.mUploadUrlListener != null) {
-            return this.mUploadUrlListener.processUrl();
-        }
-        return b.ug().processUrl(BaseUrlManager.getBaseUploadUrl());
+    public void setUploadUrlListener(UploadUrlListener uploadUrlListener) {
+        this.mUploadUrlListener = uploadUrlListener;
     }
 }

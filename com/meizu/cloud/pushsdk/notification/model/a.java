@@ -6,7 +6,7 @@ import android.text.TextUtils;
 import com.meizu.cloud.pushsdk.handler.MessageV3;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class a implements Parcelable {
     public static final Parcelable.Creator<a> CREATOR = new Parcelable.Creator<a>() { // from class: com.meizu.cloud.pushsdk.notification.model.a.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -25,34 +25,35 @@ public class a implements Parcelable {
     };
 
     /* renamed from: a  reason: collision with root package name */
-    private int f7444a;
-    private String b;
+    public int f37861a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public String f37862b;
 
     public a() {
-        this.f7444a = 0;
+        this.f37861a = 0;
     }
 
-    protected a(Parcel parcel) {
-        this.f7444a = 0;
-        this.f7444a = parcel.readInt();
-        this.b = parcel.readString();
+    public a(Parcel parcel) {
+        this.f37861a = 0;
+        this.f37861a = parcel.readInt();
+        this.f37862b = parcel.readString();
     }
 
     public static a a(MessageV3 messageV3) {
-        a aVar = null;
+        a c2;
         try {
-            if (!TextUtils.isEmpty(messageV3.getNotificationMessage())) {
-                aVar = a(new JSONObject(messageV3.getNotificationMessage()).getJSONObject("data").getJSONObject("extra").getJSONObject("no"));
-            }
-        } catch (Exception e) {
-            com.meizu.cloud.a.a.e("NotifyOption", "parse flyme NotifyOption setting error " + e.getMessage() + " so get from notificationMessage");
-            aVar = c(messageV3.getNotificationMessage());
+            c2 = !TextUtils.isEmpty(messageV3.getNotificationMessage()) ? a(new JSONObject(messageV3.getNotificationMessage()).getJSONObject("data").getJSONObject("extra").getJSONObject("no")) : null;
+        } catch (Exception e2) {
+            d.j.a.a.a.b("NotifyOption", "parse flyme NotifyOption setting error " + e2.getMessage() + " so get from notificationMessage");
+            c2 = c(messageV3.getNotificationMessage());
         }
-        com.meizu.cloud.a.a.i("NotifyOption", "current notify option is " + aVar);
-        return aVar;
+        d.j.a.a.a.d("NotifyOption", "current notify option is " + c2);
+        return c2;
     }
 
     public static a a(JSONObject jSONObject) {
+        String str;
         a aVar = new a();
         if (jSONObject != null) {
             try {
@@ -62,12 +63,13 @@ public class a implements Parcelable {
                 if (!jSONObject.isNull("nk")) {
                     aVar.a(jSONObject.getString("nk"));
                 }
-            } catch (JSONException e) {
-                com.meizu.cloud.a.a.e("NotifyOption", "parse json obj error " + e.getMessage());
+            } catch (JSONException e2) {
+                str = "parse json obj error " + e2.getMessage();
             }
-        } else {
-            com.meizu.cloud.a.a.e("NotifyOption", "no such tag NotifyOption");
+            return aVar;
         }
+        str = "no such tag NotifyOption";
+        d.j.a.a.a.b("NotifyOption", str);
         return aVar;
     }
 
@@ -84,8 +86,8 @@ public class a implements Parcelable {
         if (!TextUtils.isEmpty(str)) {
             try {
                 jSONObject = new JSONObject(str);
-            } catch (JSONException e) {
-                com.meizu.cloud.a.a.e("NotifyOption", "parse json string error " + e.getMessage());
+            } catch (JSONException e2) {
+                d.j.a.a.a.b("NotifyOption", "parse json string error " + e2.getMessage());
             }
             return a(jSONObject);
         }
@@ -93,32 +95,32 @@ public class a implements Parcelable {
         return a(jSONObject);
     }
 
-    private static a c(String str) {
+    public static a c(String str) {
         try {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
             return b(new JSONObject(str).getString("no"));
-        } catch (JSONException e) {
-            com.meizu.cloud.a.a.e("NotifyOption", "parse notificationMessage error " + e.getMessage());
+        } catch (JSONException e2) {
+            d.j.a.a.a.b("NotifyOption", "parse notificationMessage error " + e2.getMessage());
             return null;
         }
     }
 
     public int a() {
-        return this.f7444a;
+        return this.f37861a;
     }
 
     public void a(int i) {
-        this.f7444a = i;
+        this.f37861a = i;
     }
 
     public void a(String str) {
-        this.b = str;
+        this.f37862b = str;
     }
 
     public String b() {
-        return this.b;
+        return this.f37862b;
     }
 
     @Override // android.os.Parcelable
@@ -127,12 +129,12 @@ public class a implements Parcelable {
     }
 
     public String toString() {
-        return "NotifyOption{notifyId=" + this.f7444a + ", notifyKey='" + this.b + "'}";
+        return "NotifyOption{notifyId=" + this.f37861a + ", notifyKey='" + this.f37862b + "'}";
     }
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeInt(this.f7444a);
-        parcel.writeString(this.b);
+        parcel.writeInt(this.f37861a);
+        parcel.writeString(this.f37862b);
     }
 }

@@ -1,18 +1,18 @@
 package com.win.opensdk;
 
 import android.content.Context;
-/* loaded from: classes14.dex */
+/* loaded from: classes7.dex */
 public class B0 extends C0 {
-    public t qkg;
+    public F0 q;
 
-    public B0(Context context, K0 k0, t tVar) {
+    public B0(Context context, K0 k0, F0 f0) {
         super(context, null, 0, k0);
-        this.qkg = tVar;
+        this.q = f0;
     }
 
     @Override // com.win.opensdk.C0
     public void b() {
-        ((ad) this.qkg).a();
+        ((I0) this.q).a();
     }
 
     @Override // com.win.opensdk.C0

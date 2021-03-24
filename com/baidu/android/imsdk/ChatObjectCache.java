@@ -1,12 +1,12 @@
 package com.baidu.android.imsdk;
 
 import android.util.LruCache;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class ChatObjectCache {
-    private static ChatObjectCache mInstance = null;
-    private LruCache<ChatObject, Object> mCache;
+    public static ChatObjectCache mInstance;
+    public LruCache<ChatObject, Object> mCache;
 
-    private ChatObjectCache() {
+    public ChatObjectCache() {
         this.mCache = null;
         this.mCache = new LruCache<>(100);
     }
@@ -20,19 +20,19 @@ public class ChatObjectCache {
         return mInstance;
     }
 
+    public Object get(ChatObject chatObject) {
+        if (chatObject == null) {
+            return null;
+        }
+        return this.mCache.get(chatObject);
+    }
+
     public boolean put(ChatObject chatObject, Object obj) {
         if (chatObject == null) {
             return false;
         }
         this.mCache.put(chatObject, obj);
         return true;
-    }
-
-    public Object get(ChatObject chatObject) {
-        if (chatObject == null) {
-            return null;
-        }
-        return this.mCache.get(chatObject);
     }
 
     public Object remove(ChatObject chatObject) {

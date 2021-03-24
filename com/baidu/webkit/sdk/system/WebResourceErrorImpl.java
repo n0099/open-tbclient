@@ -3,15 +3,14 @@ package com.baidu.webkit.sdk.system;
 import android.annotation.TargetApi;
 import com.baidu.webkit.sdk.WebResourceError;
 @TargetApi(23)
-/* loaded from: classes14.dex */
-final class WebResourceErrorImpl extends WebResourceError {
-    private final android.webkit.WebResourceError mError;
+/* loaded from: classes5.dex */
+public final class WebResourceErrorImpl extends WebResourceError {
+    public final android.webkit.WebResourceError mError;
 
-    private WebResourceErrorImpl(android.webkit.WebResourceError webResourceError) {
+    public WebResourceErrorImpl(android.webkit.WebResourceError webResourceError) {
         this.mError = webResourceError;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public static WebResourceError from(android.webkit.WebResourceError webResourceError) {
         if (webResourceError == null) {
             return null;

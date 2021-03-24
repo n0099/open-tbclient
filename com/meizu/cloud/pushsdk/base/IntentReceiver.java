@@ -6,19 +6,20 @@ import android.content.Intent;
 import android.os.Handler;
 import android.os.HandlerThread;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public abstract class IntentReceiver extends BroadcastReceiver {
-    private static AtomicInteger sAtomicInteger = new AtomicInteger(0);
-    private static Handler sHandler;
-    private static HandlerThread sHandlerThread;
+    public static AtomicInteger sAtomicInteger = new AtomicInteger(0);
+    public static Handler sHandler;
+    public static HandlerThread sHandlerThread;
 
-    protected abstract void onHandleIntent(Context context, Intent intent);
+    public abstract void onHandleIntent(Context context, Intent intent);
 
     @Override // android.content.BroadcastReceiver
     public void onReceive(final Context context, final Intent intent) {
         if (sAtomicInteger.getAndIncrement() == 0) {
-            sHandlerThread = new HandlerThread("IntentReceiver", 10);
-            sHandlerThread.start();
+            HandlerThread handlerThread = new HandlerThread("IntentReceiver", 10);
+            sHandlerThread = handlerThread;
+            handlerThread.start();
             sHandler = new Handler(sHandlerThread.getLooper());
         }
         sHandler.post(new Runnable() { // from class: com.meizu.cloud.pushsdk.base.IntentReceiver.1

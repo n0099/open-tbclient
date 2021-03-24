@@ -1,7 +1,7 @@
 package aegon.chrome.net.impl;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class BidirectionalStreamNetworkException extends NetworkExceptionImpl {
-    public static final /* synthetic */ boolean $assertionsDisabled = !BidirectionalStreamNetworkException.class.desiredAssertionStatus();
+    public static final /* synthetic */ boolean $assertionsDisabled = false;
 
     public BidirectionalStreamNetworkException(String str, int i, int i2) {
         super(str, i, i2);
@@ -9,23 +9,8 @@ public class BidirectionalStreamNetworkException extends NetworkExceptionImpl {
 
     @Override // aegon.chrome.net.impl.NetworkExceptionImpl
     public boolean immediatelyRetryable() {
-        int i = this.mCronetInternalErrorCode;
-        if (i != -358 && i != -352) {
-            switch (this.mErrorCode) {
-                case 3:
-                case 4:
-                case 5:
-                case 6:
-                case 8:
-                    return true;
-                case 7:
-                default:
-                    return false;
-            }
-        } else if ($assertionsDisabled || this.mErrorCode == 11) {
-            return true;
-        } else {
-            throw new AssertionError();
-        }
+        int i;
+        int i2 = this.mCronetInternalErrorCode;
+        return i2 == -358 || i2 == -352 || (i = this.mErrorCode) == 3 || i == 4 || i == 5 || i == 6 || i == 8;
     }
 }

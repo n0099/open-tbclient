@@ -1,18 +1,32 @@
 package com.baidu.mapsdkplatform.comapi.favrite;
 
 import com.baidu.mapapi.model.inner.Point;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class FavSyncPoi {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f2207a;
-    public String b;
-    public Point c;
-    public String d;
-    public String e;
-    public String f;
-    public int g;
-    public String h;
+    public String f7534a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public String f7535b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public Point f7536c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public String f7537d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public String f7538e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public String f7539f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public int f7540g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public String f7541h;
     public boolean i;
     public String j;
 }

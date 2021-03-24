@@ -1,300 +1,333 @@
 package rx.internal.util;
 
+import h.d;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 import rx.Notification;
-import rx.d;
 import rx.exceptions.OnErrorNotImplementedException;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public enum InternalObservableUtils {
     ;
     
-    public static final h LONG_COUNTER = new rx.functions.g<Long, Object, Long>() { // from class: rx.internal.util.InternalObservableUtils.h
+    public static final h LONG_COUNTER = new h.n.g<Long, Object, Long>() { // from class: rx.internal.util.InternalObservableUtils.h
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // rx.functions.g
-        /* renamed from: a */
-        public Long n(Long l2, Object obj) {
+        @Override // h.n.g
+        /* renamed from: b */
+        public Long a(Long l2, Object obj) {
             return Long.valueOf(l2.longValue() + 1);
         }
     };
-    public static final f OBJECT_EQUALS = new rx.functions.g<Object, Object, Boolean>() { // from class: rx.internal.util.InternalObservableUtils.f
+    public static final f OBJECT_EQUALS = new h.n.g<Object, Object, Boolean>() { // from class: rx.internal.util.InternalObservableUtils.f
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // rx.functions.g
-        /* renamed from: o */
-        public Boolean n(Object obj, Object obj2) {
+        @Override // h.n.g
+        /* renamed from: b */
+        public Boolean a(Object obj, Object obj2) {
             return Boolean.valueOf(obj == obj2 || (obj != null && obj.equals(obj2)));
         }
     };
-    public static final q TO_ARRAY = new rx.functions.f<List<? extends rx.d<?>>, rx.d<?>[]>() { // from class: rx.internal.util.InternalObservableUtils.q
+    public static final q TO_ARRAY = new h.n.f<List<? extends h.d<?>>, h.d<?>[]>() { // from class: rx.internal.util.InternalObservableUtils.q
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // rx.functions.f
-        /* renamed from: hk */
-        public rx.d<?>[] call(List<? extends rx.d<?>> list) {
-            return (rx.d[]) list.toArray(new rx.d[list.size()]);
+        @Override // h.n.f
+        /* renamed from: a */
+        public h.d<?>[] call(List<? extends h.d<?>> list) {
+            return (h.d[]) list.toArray(new h.d[list.size()]);
         }
     };
-    static final o RETURNS_VOID = new o();
-    public static final g COUNTER = new rx.functions.g<Integer, Object, Integer>() { // from class: rx.internal.util.InternalObservableUtils.g
+    public static final o RETURNS_VOID = new o();
+    public static final g COUNTER = new h.n.g<Integer, Object, Integer>() { // from class: rx.internal.util.InternalObservableUtils.g
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // rx.functions.g
-        /* renamed from: a */
-        public Integer n(Integer num, Object obj) {
+        @Override // h.n.g
+        /* renamed from: b */
+        public Integer a(Integer num, Object obj) {
             return Integer.valueOf(num.intValue() + 1);
         }
     };
-    static final e ERROR_EXTRACTOR = new e();
-    public static final rx.functions.b<Throwable> ERROR_NOT_IMPLEMENTED = new rx.functions.b<Throwable>() { // from class: rx.internal.util.InternalObservableUtils.c
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // rx.functions.b
-        public void call(Throwable th) {
+    public static final e ERROR_EXTRACTOR = new e();
+    public static final h.n.b<Throwable> ERROR_NOT_IMPLEMENTED = new h.n.b<Throwable>() { // from class: rx.internal.util.InternalObservableUtils.c
+        public void a(Throwable th) {
             throw new OnErrorNotImplementedException(th);
         }
-    };
-    public static final d.b<Boolean, Object> IS_EMPTY = new rx.internal.operators.h(UtilityFunctions.eNj(), true);
 
-    public static rx.functions.f<Object, Boolean> equalsWith(Object obj) {
-        return new b(obj);
+        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+        @Override // h.n.b
+        public /* bridge */ /* synthetic */ void call(Throwable th) {
+            a(th);
+            throw null;
+        }
+    };
+    public static final d.b<Boolean, Object> IS_EMPTY = new h.o.a.k(UtilityFunctions.a(), true);
+
+    /* loaded from: classes7.dex */
+    public static final class a<T, R> implements h.n.g<R, T, R> {
+
+        /* renamed from: a  reason: collision with root package name */
+        public final h.n.c<R, ? super T> f68235a;
+
+        public a(h.n.c<R, ? super T> cVar) {
+            this.f68235a = cVar;
+        }
+
+        @Override // h.n.g
+        public R a(R r, T t) {
+            this.f68235a.a(r, t);
+            return r;
+        }
     }
 
-    /* loaded from: classes4.dex */
-    static final class b implements rx.functions.f<Object, Boolean> {
-        final Object other;
+    /* loaded from: classes7.dex */
+    public static final class b implements h.n.f<Object, Boolean> {
+
+        /* renamed from: e  reason: collision with root package name */
+        public final Object f68236e;
 
         public b(Object obj) {
-            this.other = obj;
+            this.f68236e = obj;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        /* JADX WARN: Can't rename method to resolve collision */
-        @Override // rx.functions.f
+        @Override // h.n.f
+        /* renamed from: a */
         public Boolean call(Object obj) {
-            return Boolean.valueOf(obj == this.other || (obj != null && obj.equals(this.other)));
+            Object obj2 = this.f68236e;
+            return Boolean.valueOf(obj == obj2 || (obj != null && obj.equals(obj2)));
         }
     }
 
-    public static rx.functions.f<Object, Boolean> isInstanceOf(Class<?> cls) {
-        return new d(cls);
-    }
+    /* loaded from: classes7.dex */
+    public static final class d implements h.n.f<Object, Boolean> {
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
-    public static final class d implements rx.functions.f<Object, Boolean> {
-        final Class<?> clazz;
+        /* renamed from: e  reason: collision with root package name */
+        public final Class<?> f68237e;
 
         public d(Class<?> cls) {
-            this.clazz = cls;
+            this.f68237e = cls;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        /* JADX WARN: Can't rename method to resolve collision */
-        @Override // rx.functions.f
+        @Override // h.n.f
+        /* renamed from: a */
         public Boolean call(Object obj) {
-            return Boolean.valueOf(this.clazz.isInstance(obj));
+            return Boolean.valueOf(this.f68237e.isInstance(obj));
         }
     }
 
-    public static rx.functions.f<rx.d<? extends Notification<?>>, rx.d<?>> createRepeatDematerializer(rx.functions.f<? super rx.d<? extends Void>, ? extends rx.d<?>> fVar) {
-        return new i(fVar);
+    /* loaded from: classes7.dex */
+    public static final class e implements h.n.f<Notification<?>, Throwable> {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // h.n.f
+        /* renamed from: a */
+        public Throwable call(Notification<?> notification) {
+            return notification.e();
+        }
     }
 
-    /* loaded from: classes4.dex */
-    static final class i implements rx.functions.f<rx.d<? extends Notification<?>>, rx.d<?>> {
-        final rx.functions.f<? super rx.d<? extends Void>, ? extends rx.d<?>> qDY;
+    /* loaded from: classes7.dex */
+    public static final class i implements h.n.f<h.d<? extends Notification<?>>, h.d<?>> {
 
-        public i(rx.functions.f<? super rx.d<? extends Void>, ? extends rx.d<?>> fVar) {
-            this.qDY = fVar;
+        /* renamed from: e  reason: collision with root package name */
+        public final h.n.f<? super h.d<? extends Void>, ? extends h.d<?>> f68238e;
+
+        public i(h.n.f<? super h.d<? extends Void>, ? extends h.d<?>> fVar) {
+            this.f68238e = fVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // rx.functions.f
-        /* renamed from: c */
-        public rx.d<?> call(rx.d<? extends Notification<?>> dVar) {
-            return this.qDY.call(dVar.d(InternalObservableUtils.RETURNS_VOID));
+        @Override // h.n.f
+        /* renamed from: a */
+        public h.d<?> call(h.d<? extends Notification<?>> dVar) {
+            return this.f68238e.call(dVar.l(InternalObservableUtils.RETURNS_VOID));
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
-    public static final class o implements rx.functions.f<Object, Void> {
-        o() {
+    /* loaded from: classes7.dex */
+    public static final class j<T> implements h.n.e<h.p.a<T>> {
+
+        /* renamed from: e  reason: collision with root package name */
+        public final h.d<T> f68239e;
+
+        /* renamed from: f  reason: collision with root package name */
+        public final int f68240f;
+
+        public j(h.d<T> dVar, int i) {
+            this.f68239e = dVar;
+            this.f68240f = i;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // rx.functions.f
-        /* renamed from: cf */
+        @Override // h.n.e
+        /* renamed from: a */
+        public h.p.a<T> call() {
+            return this.f68239e.v(this.f68240f);
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static final class k<T> implements h.n.e<h.p.a<T>> {
+
+        /* renamed from: e  reason: collision with root package name */
+        public final TimeUnit f68241e;
+
+        /* renamed from: f  reason: collision with root package name */
+        public final h.d<T> f68242f;
+
+        /* renamed from: g  reason: collision with root package name */
+        public final long f68243g;
+
+        /* renamed from: h  reason: collision with root package name */
+        public final h.g f68244h;
+
+        public k(h.d<T> dVar, long j, TimeUnit timeUnit, h.g gVar) {
+            this.f68241e = timeUnit;
+            this.f68242f = dVar;
+            this.f68243g = j;
+            this.f68244h = gVar;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // h.n.e
+        /* renamed from: a */
+        public h.p.a<T> call() {
+            return this.f68242f.x(this.f68243g, this.f68241e, this.f68244h);
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static final class l<T> implements h.n.e<h.p.a<T>> {
+
+        /* renamed from: e  reason: collision with root package name */
+        public final h.d<T> f68245e;
+
+        public l(h.d<T> dVar) {
+            this.f68245e = dVar;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // h.n.e
+        /* renamed from: a */
+        public h.p.a<T> call() {
+            return this.f68245e.u();
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static final class m<T> implements h.n.e<h.p.a<T>> {
+
+        /* renamed from: e  reason: collision with root package name */
+        public final long f68246e;
+
+        /* renamed from: f  reason: collision with root package name */
+        public final TimeUnit f68247f;
+
+        /* renamed from: g  reason: collision with root package name */
+        public final h.g f68248g;
+
+        /* renamed from: h  reason: collision with root package name */
+        public final int f68249h;
+        public final h.d<T> i;
+
+        public m(h.d<T> dVar, int i, long j, TimeUnit timeUnit, h.g gVar) {
+            this.f68246e = j;
+            this.f68247f = timeUnit;
+            this.f68248g = gVar;
+            this.f68249h = i;
+            this.i = dVar;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // h.n.e
+        /* renamed from: a */
+        public h.p.a<T> call() {
+            return this.i.w(this.f68249h, this.f68246e, this.f68247f, this.f68248g);
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static final class n implements h.n.f<h.d<? extends Notification<?>>, h.d<?>> {
+
+        /* renamed from: e  reason: collision with root package name */
+        public final h.n.f<? super h.d<? extends Throwable>, ? extends h.d<?>> f68250e;
+
+        public n(h.n.f<? super h.d<? extends Throwable>, ? extends h.d<?>> fVar) {
+            this.f68250e = fVar;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // h.n.f
+        /* renamed from: a */
+        public h.d<?> call(h.d<? extends Notification<?>> dVar) {
+            return this.f68250e.call(dVar.l(InternalObservableUtils.ERROR_EXTRACTOR));
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static final class o implements h.n.f<Object, Void> {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // h.n.f
+        /* renamed from: a */
         public Void call(Object obj) {
             return null;
         }
     }
 
-    public static <T, R> rx.functions.f<rx.d<T>, rx.d<R>> createReplaySelectorAndObserveOn(rx.functions.f<? super rx.d<T>, ? extends rx.d<R>> fVar, rx.g gVar) {
-        return new p(fVar, gVar);
-    }
+    /* loaded from: classes7.dex */
+    public static final class p<T, R> implements h.n.f<h.d<T>, h.d<R>> {
 
-    /* loaded from: classes4.dex */
-    static final class p<T, R> implements rx.functions.f<rx.d<T>, rx.d<R>> {
-        final rx.functions.f<? super rx.d<T>, ? extends rx.d<R>> qDZ;
-        final rx.g scheduler;
+        /* renamed from: e  reason: collision with root package name */
+        public final h.n.f<? super h.d<T>, ? extends h.d<R>> f68251e;
 
-        public p(rx.functions.f<? super rx.d<T>, ? extends rx.d<R>> fVar, rx.g gVar) {
-            this.qDZ = fVar;
-            this.scheduler = gVar;
+        /* renamed from: f  reason: collision with root package name */
+        public final h.g f68252f;
+
+        public p(h.n.f<? super h.d<T>, ? extends h.d<R>> fVar, h.g gVar) {
+            this.f68251e = fVar;
+            this.f68252f = gVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // rx.functions.f
-        /* renamed from: c */
-        public rx.d<R> call(rx.d<T> dVar) {
-            return this.qDZ.call(dVar).c(this.scheduler);
+        @Override // h.n.f
+        /* renamed from: a */
+        public h.d<R> call(h.d<T> dVar) {
+            return this.f68251e.call(dVar).p(this.f68252f);
         }
     }
 
-    public static rx.functions.f<rx.d<? extends Notification<?>>, rx.d<?>> createRetryDematerializer(rx.functions.f<? super rx.d<? extends Throwable>, ? extends rx.d<?>> fVar) {
-        return new n(fVar);
-    }
-
-    /* loaded from: classes4.dex */
-    static final class n implements rx.functions.f<rx.d<? extends Notification<?>>, rx.d<?>> {
-        final rx.functions.f<? super rx.d<? extends Throwable>, ? extends rx.d<?>> qDY;
-
-        public n(rx.functions.f<? super rx.d<? extends Throwable>, ? extends rx.d<?>> fVar) {
-            this.qDY = fVar;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // rx.functions.f
-        /* renamed from: c */
-        public rx.d<?> call(rx.d<? extends Notification<?>> dVar) {
-            return this.qDY.call(dVar.d(InternalObservableUtils.ERROR_EXTRACTOR));
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
-    public static final class e implements rx.functions.f<Notification<?>, Throwable> {
-        e() {
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // rx.functions.f
-        /* renamed from: c */
-        public Throwable call(Notification<?> notification) {
-            return notification.eMm();
-        }
-    }
-
-    public static <T> rx.functions.e<rx.observables.a<T>> createReplaySupplier(rx.d<T> dVar) {
-        return new l(dVar);
-    }
-
-    /* loaded from: classes4.dex */
-    static final class l<T> implements rx.functions.e<rx.observables.a<T>> {
-        private final rx.d<T> qzq;
-
-        l(rx.d<T> dVar) {
-            this.qzq = dVar;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // rx.functions.e, java.util.concurrent.Callable
-        /* renamed from: eNa */
-        public rx.observables.a<T> call() {
-            return this.qzq.eMu();
-        }
-    }
-
-    public static <T> rx.functions.e<rx.observables.a<T>> createReplaySupplier(rx.d<T> dVar, int i2) {
-        return new j(dVar, i2);
-    }
-
-    /* loaded from: classes4.dex */
-    static final class j<T> implements rx.functions.e<rx.observables.a<T>> {
-        private final int bufferSize;
-        private final rx.d<T> qzq;
-
-        j(rx.d<T> dVar, int i) {
-            this.qzq = dVar;
-            this.bufferSize = i;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // rx.functions.e, java.util.concurrent.Callable
-        /* renamed from: eNa */
-        public rx.observables.a<T> call() {
-            return this.qzq.SG(this.bufferSize);
-        }
-    }
-
-    public static <T> rx.functions.e<rx.observables.a<T>> createReplaySupplier(rx.d<T> dVar, long j2, TimeUnit timeUnit, rx.g gVar) {
-        return new k(dVar, j2, timeUnit, gVar);
-    }
-
-    /* loaded from: classes4.dex */
-    static final class k<T> implements rx.functions.e<rx.observables.a<T>> {
-        private final rx.d<T> qzq;
-        private final rx.g scheduler;
-        private final long time;
-        private final TimeUnit unit;
-
-        k(rx.d<T> dVar, long j, TimeUnit timeUnit, rx.g gVar) {
-            this.unit = timeUnit;
-            this.qzq = dVar;
-            this.time = j;
-            this.scheduler = gVar;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // rx.functions.e, java.util.concurrent.Callable
-        /* renamed from: eNa */
-        public rx.observables.a<T> call() {
-            return this.qzq.a(this.time, this.unit, this.scheduler);
-        }
-    }
-
-    public static <T> rx.functions.e<rx.observables.a<T>> createReplaySupplier(rx.d<T> dVar, int i2, long j2, TimeUnit timeUnit, rx.g gVar) {
-        return new m(dVar, i2, j2, timeUnit, gVar);
-    }
-
-    /* loaded from: classes4.dex */
-    static final class m<T> implements rx.functions.e<rx.observables.a<T>> {
-        private final int bufferSize;
-        private final rx.d<T> qzq;
-        private final rx.g scheduler;
-        private final long time;
-        private final TimeUnit unit;
-
-        m(rx.d<T> dVar, int i, long j, TimeUnit timeUnit, rx.g gVar) {
-            this.time = j;
-            this.unit = timeUnit;
-            this.scheduler = gVar;
-            this.bufferSize = i;
-            this.qzq = dVar;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // rx.functions.e, java.util.concurrent.Callable
-        /* renamed from: eNa */
-        public rx.observables.a<T> call() {
-            return this.qzq.a(this.bufferSize, this.time, this.unit, this.scheduler);
-        }
-    }
-
-    public static <T, R> rx.functions.g<R, T, R> createCollectorCaller(rx.functions.c<R, ? super T> cVar) {
+    public static <T, R> h.n.g<R, T, R> createCollectorCaller(h.n.c<R, ? super T> cVar) {
         return new a(cVar);
     }
 
-    /* loaded from: classes4.dex */
-    static final class a<T, R> implements rx.functions.g<R, T, R> {
-        final rx.functions.c<R, ? super T> qDX;
+    public static h.n.f<h.d<? extends Notification<?>>, h.d<?>> createRepeatDematerializer(h.n.f<? super h.d<? extends Void>, ? extends h.d<?>> fVar) {
+        return new i(fVar);
+    }
 
-        public a(rx.functions.c<R, ? super T> cVar) {
-            this.qDX = cVar;
-        }
+    public static <T, R> h.n.f<h.d<T>, h.d<R>> createReplaySelectorAndObserveOn(h.n.f<? super h.d<T>, ? extends h.d<R>> fVar, h.g gVar) {
+        return new p(fVar, gVar);
+    }
 
-        @Override // rx.functions.g
-        public R n(R r, T t) {
-            this.qDX.m(r, t);
-            return r;
-        }
+    public static <T> h.n.e<h.p.a<T>> createReplaySupplier(h.d<T> dVar) {
+        return new l(dVar);
+    }
+
+    public static h.n.f<h.d<? extends Notification<?>>, h.d<?>> createRetryDematerializer(h.n.f<? super h.d<? extends Throwable>, ? extends h.d<?>> fVar) {
+        return new n(fVar);
+    }
+
+    public static h.n.f<Object, Boolean> equalsWith(Object obj) {
+        return new b(obj);
+    }
+
+    public static h.n.f<Object, Boolean> isInstanceOf(Class<?> cls) {
+        return new d(cls);
+    }
+
+    public static <T> h.n.e<h.p.a<T>> createReplaySupplier(h.d<T> dVar, int i2) {
+        return new j(dVar, i2);
+    }
+
+    public static <T> h.n.e<h.p.a<T>> createReplaySupplier(h.d<T> dVar, long j2, TimeUnit timeUnit, h.g gVar) {
+        return new k(dVar, j2, timeUnit, gVar);
+    }
+
+    public static <T> h.n.e<h.p.a<T>> createReplaySupplier(h.d<T> dVar, int i2, long j2, TimeUnit timeUnit, h.g gVar) {
+        return new m(dVar, i2, j2, timeUnit, gVar);
     }
 }

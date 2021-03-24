@@ -3,19 +3,37 @@ package com.baidu.tbadk.core.diskCache;
 import android.content.Intent;
 import android.os.IBinder;
 import com.baidu.adp.base.BdBaseService;
-import com.baidu.adp.lib.Disk.d;
 import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
-import com.baidu.tbadk.TbConfig;
+import d.b.b.e.a.d;
 import java.io.File;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class ImagesInvalidService extends BdBaseService {
     public static final int DELAY_TIMES = 10000;
-    private static final long FILE_VALID_TIME = 259200000;
+    public static final long FILE_VALID_TIME = 259200000;
     public static final int START_SERVICE = 1;
-    private DiskFileOperate mDiskFileOperate = null;
+    public DiskFileOperate mDiskFileOperate = null;
+
+    /* loaded from: classes3.dex */
+    public static class a extends DiskFileOperate implements d.b.b.e.a.a {
+        public a(String str, String str2, DiskFileOperate.Action action) {
+            super(str, str2, action);
+        }
+
+        @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
+        public void callback(boolean z) {
+            super.callback(z);
+            d.b.h0.r.t.a.g();
+            ImagesInvalidReceiver.broadcast(z);
+        }
+
+        @Override // d.b.b.e.a.a
+        public boolean compare(File file) {
+            return file != null && file.lastModified() + 259200000 < System.currentTimeMillis();
+        }
+    }
 
     public static void setSuccess(boolean z) {
-        com.baidu.tbadk.core.diskCache.a.setIsSuccess(z);
+        d.b.h0.r.t.a.e(z);
     }
 
     @Override // android.app.Service
@@ -26,33 +44,14 @@ public class ImagesInvalidService extends BdBaseService {
     @Override // com.baidu.adp.base.BdBaseService, android.app.Service
     public void onCreate() {
         super.onCreate();
-        this.mDiskFileOperate = new a(TbConfig.IMAGE_CACHE_DIR_NAME, null, DiskFileOperate.Action.DELETE_FILES);
-        d.lg().c(this.mDiskFileOperate);
+        this.mDiskFileOperate = new a("images", null, DiskFileOperate.Action.DELETE_FILES);
+        d.g().a(this.mDiskFileOperate);
     }
 
     @Override // android.app.Service
     public void onDestroy() {
         super.onDestroy();
-        d.lg().d(this.mDiskFileOperate);
+        d.g().e(this.mDiskFileOperate);
         this.mDiskFileOperate = null;
-    }
-
-    /* loaded from: classes.dex */
-    private static class a extends DiskFileOperate implements com.baidu.adp.lib.Disk.a {
-        public a(String str, String str2, DiskFileOperate.Action action) {
-            super(str, str2, action);
-        }
-
-        @Override // com.baidu.adp.lib.Disk.a
-        public boolean compare(File file) {
-            return file != null && file.lastModified() + 259200000 < System.currentTimeMillis();
-        }
-
-        @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
-        public void callback(boolean z) {
-            super.callback(z);
-            com.baidu.tbadk.core.diskCache.a.stopService();
-            ImagesInvalidReceiver.broadcast(z);
-        }
     }
 }

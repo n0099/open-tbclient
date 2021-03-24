@@ -8,21 +8,7 @@ public final class DataRes extends Message {
     @ProtoField(tag = 1, type = Message.Datatype.INT64)
     public final Long groupId;
 
-    private DataRes(Builder builder, boolean z) {
-        super(builder);
-        if (z) {
-            if (builder.groupId == null) {
-                this.groupId = DEFAULT_GROUPID;
-                return;
-            } else {
-                this.groupId = builder.groupId;
-                return;
-            }
-        }
-        this.groupId = builder.groupId;
-    }
-
-    /* loaded from: classes.dex */
+    /* loaded from: classes7.dex */
     public static final class Builder extends Message.Builder<DataRes> {
         public Long groupId;
 
@@ -31,9 +17,10 @@ public final class DataRes extends Message {
 
         public Builder(DataRes dataRes) {
             super(dataRes);
-            if (dataRes != null) {
-                this.groupId = dataRes.groupId;
+            if (dataRes == null) {
+                return;
             }
+            this.groupId = dataRes.groupId;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -41,5 +28,20 @@ public final class DataRes extends Message {
         public DataRes build(boolean z) {
             return new DataRes(this, z);
         }
+    }
+
+    public DataRes(Builder builder, boolean z) {
+        super(builder);
+        if (z) {
+            Long l = builder.groupId;
+            if (l == null) {
+                this.groupId = DEFAULT_GROUPID;
+                return;
+            } else {
+                this.groupId = l;
+                return;
+            }
+        }
+        this.groupId = builder.groupId;
     }
 }

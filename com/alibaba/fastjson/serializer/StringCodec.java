@@ -5,9 +5,45 @@ import com.alibaba.fastjson.parser.JSONLexer;
 import com.alibaba.fastjson.parser.deserializer.ObjectDeserializer;
 import java.io.IOException;
 import java.lang.reflect.Type;
-/* loaded from: classes4.dex */
-public class StringCodec implements ObjectDeserializer, ObjectSerializer {
+/* loaded from: classes.dex */
+public class StringCodec implements ObjectSerializer, ObjectDeserializer {
     public static StringCodec instance = new StringCodec();
+
+    @Override // com.alibaba.fastjson.parser.deserializer.ObjectDeserializer
+    public <T> T deserialze(DefaultJSONParser defaultJSONParser, Type type, Object obj) {
+        if (type == StringBuffer.class) {
+            JSONLexer jSONLexer = defaultJSONParser.lexer;
+            if (jSONLexer.token() == 4) {
+                String stringVal = jSONLexer.stringVal();
+                jSONLexer.nextToken(16);
+                return (T) new StringBuffer(stringVal);
+            }
+            Object parse = defaultJSONParser.parse();
+            if (parse == null) {
+                return null;
+            }
+            return (T) new StringBuffer(parse.toString());
+        } else if (type == StringBuilder.class) {
+            JSONLexer jSONLexer2 = defaultJSONParser.lexer;
+            if (jSONLexer2.token() == 4) {
+                String stringVal2 = jSONLexer2.stringVal();
+                jSONLexer2.nextToken(16);
+                return (T) new StringBuilder(stringVal2);
+            }
+            Object parse2 = defaultJSONParser.parse();
+            if (parse2 == null) {
+                return null;
+            }
+            return (T) new StringBuilder(parse2.toString());
+        } else {
+            return (T) deserialze(defaultJSONParser);
+        }
+    }
+
+    @Override // com.alibaba.fastjson.parser.deserializer.ObjectDeserializer
+    public int getFastMatchToken() {
+        return 4;
+    }
 
     @Override // com.alibaba.fastjson.serializer.ObjectSerializer
     public void write(JSONSerializer jSONSerializer, Object obj, Object obj2, Type type, int i) throws IOException {
@@ -20,37 +56,6 @@ public class StringCodec implements ObjectDeserializer, ObjectSerializer {
             serializeWriter.writeNull(SerializerFeature.WriteNullStringAsEmpty);
         } else {
             serializeWriter.writeString(str);
-        }
-    }
-
-    @Override // com.alibaba.fastjson.parser.deserializer.ObjectDeserializer
-    public <T> T deserialze(DefaultJSONParser defaultJSONParser, Type type, Object obj) {
-        if (type == StringBuffer.class) {
-            JSONLexer jSONLexer = defaultJSONParser.lexer;
-            if (jSONLexer.token() == 4) {
-                String stringVal = jSONLexer.stringVal();
-                jSONLexer.nextToken(16);
-                return (T) new StringBuffer(stringVal);
-            }
-            Object parse = defaultJSONParser.parse();
-            if (parse != null) {
-                return (T) new StringBuffer(parse.toString());
-            }
-            return null;
-        } else if (type == StringBuilder.class) {
-            JSONLexer jSONLexer2 = defaultJSONParser.lexer;
-            if (jSONLexer2.token() == 4) {
-                String stringVal2 = jSONLexer2.stringVal();
-                jSONLexer2.nextToken(16);
-                return (T) new StringBuilder(stringVal2);
-            }
-            Object parse2 = defaultJSONParser.parse();
-            if (parse2 != null) {
-                return (T) new StringBuilder(parse2.toString());
-            }
-            return null;
-        } else {
-            return (T) deserialze(defaultJSONParser);
         }
     }
 
@@ -71,10 +76,5 @@ public class StringCodec implements ObjectDeserializer, ObjectSerializer {
             }
             return (T) parse.toString();
         }
-    }
-
-    @Override // com.alibaba.fastjson.parser.deserializer.ObjectDeserializer
-    public int getFastMatchToken() {
-        return 4;
     }
 }

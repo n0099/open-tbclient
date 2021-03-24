@@ -7,37 +7,26 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.baidu.live.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.AlaUserInfoData;
-import com.baidu.tbadk.core.data.cb;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.au;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.view.HeadImageView;
-import com.baidu.tbadk.util.ag;
 import com.baidu.tieba.R;
 import com.baidu.tieba.view.AlaPlayAnimationView;
-/* loaded from: classes9.dex */
+import d.b.h0.r.q.a2;
+import d.b.h0.z0.i0;
+/* loaded from: classes2.dex */
 public class AlaCardBottomUserInfoLayout extends LinearLayout {
-    private static final int MAX_USERNAME_LENGTH = 10;
-    private HeadImageView alaCardUserHeadImg;
-    private TextView alaCardUserName;
-    private AlaPlayAnimationView alaPlayAnim;
-    private TextView alaWatchCount;
+    public static final int MAX_USERNAME_LENGTH = 10;
+    public HeadImageView alaCardUserHeadImg;
+    public TextView alaCardUserName;
+    public AlaPlayAnimationView alaPlayAnim;
+    public TextView alaWatchCount;
 
     public AlaCardBottomUserInfoLayout(Context context) {
         super(context);
-        init(context);
-    }
-
-    public AlaCardBottomUserInfoLayout(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        init(context);
-    }
-
-    public AlaCardBottomUserInfoLayout(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
         init(context);
     }
 
@@ -51,47 +40,62 @@ public class AlaCardBottomUserInfoLayout extends LinearLayout {
     }
 
     private void initHeaderImg() {
-        if (this.alaCardUserHeadImg != null) {
-            this.alaCardUserHeadImg.setDefaultResource(17170445);
-            this.alaCardUserHeadImg.setDefaultBgResource(R.color.CAM_X0205);
-            this.alaCardUserHeadImg.setIsRound(true);
+        HeadImageView headImageView = this.alaCardUserHeadImg;
+        if (headImageView == null) {
+            return;
         }
-    }
-
-    public void setData(cb cbVar) {
-        if (cbVar != null && cbVar.bol() != null) {
-            AlaUserInfoData alaUserInfoData = cbVar.bol().user_info;
-            String str = "";
-            if (cbVar.bnS() != null) {
-                str = cbVar.bnS().getName_show();
-            } else if (alaUserInfoData != null) {
-                str = alaUserInfoData.user_name;
-            }
-            if (ag.getTextLengthWithEmoji(str) > 10) {
-                str = ag.subStringWithEmoji(str, 10) + StringHelper.STRING_MORE;
-            }
-            if (alaUserInfoData != null) {
-                this.alaCardUserHeadImg.startLoad(alaUserInfoData.portrait, 28, false);
-            }
-            this.alaCardUserName.setText(str);
-            this.alaWatchCount.setText(String.format(getContext().getResources().getString(R.string.ala_card_watch_num_text), au.numFormatOverWan(cbVar.bol().audience_count)));
-        }
-    }
-
-    public void setUserHeadImgVisible(int i) {
-        if (this.alaCardUserHeadImg != null) {
-            this.alaCardUserHeadImg.setVisibility(i);
-        }
+        headImageView.setDefaultResource(17170445);
+        this.alaCardUserHeadImg.setDefaultBgResource(R.color.CAM_X0205);
+        this.alaCardUserHeadImg.setIsRound(true);
     }
 
     public void onChangeSkinType(TbPageContext<?> tbPageContext) {
-        ap.setViewTextColor(this.alaCardUserName, R.color.CAM_X0101, TbadkCoreApplication.getInst().getSkinType());
-        ap.setViewTextColor(this.alaWatchCount, R.color.CAM_X0101, TbadkCoreApplication.getInst().getSkinType());
+        SkinManager.setViewTextColor(this.alaCardUserName, R.color.CAM_X0101, TbadkCoreApplication.getInst().getSkinType());
+        SkinManager.setViewTextColor(this.alaWatchCount, R.color.CAM_X0101, TbadkCoreApplication.getInst().getSkinType());
+    }
+
+    public void setData(a2 a2Var) {
+        String str;
+        if (a2Var == null || a2Var.q1() == null) {
+            return;
+        }
+        AlaUserInfoData alaUserInfoData = a2Var.q1().user_info;
+        if (a2Var.T() != null) {
+            str = a2Var.T().getName_show();
+        } else {
+            str = alaUserInfoData != null ? alaUserInfoData.user_name : "";
+        }
+        if (i0.d(str) > 10) {
+            str = i0.m(str, 10) + StringHelper.STRING_MORE;
+        }
+        if (alaUserInfoData != null) {
+            this.alaCardUserHeadImg.W(alaUserInfoData.portrait, 28, false);
+        }
+        this.alaCardUserName.setText(str);
+        this.alaWatchCount.setText(String.format(getContext().getResources().getString(R.string.ala_card_watch_num_text), StringHelper.numFormatOverWan(a2Var.q1().audience_count)));
+    }
+
+    public void setUserHeadImgVisible(int i) {
+        HeadImageView headImageView = this.alaCardUserHeadImg;
+        if (headImageView != null) {
+            headImageView.setVisibility(i);
+        }
     }
 
     public void startPlayAnimation() {
-        if (this.alaPlayAnim != null) {
-            this.alaPlayAnim.startPlayAnimation();
+        AlaPlayAnimationView alaPlayAnimationView = this.alaPlayAnim;
+        if (alaPlayAnimationView != null) {
+            alaPlayAnimationView.b();
         }
+    }
+
+    public AlaCardBottomUserInfoLayout(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        init(context);
+    }
+
+    public AlaCardBottomUserInfoLayout(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        init(context);
     }
 }

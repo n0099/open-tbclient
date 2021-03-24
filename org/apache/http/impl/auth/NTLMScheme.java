@@ -7,14 +7,14 @@ import org.apache.http.auth.Credentials;
 import org.apache.http.auth.MalformedChallengeException;
 import org.apache.http.util.CharArrayBuffer;
 @Deprecated
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class NTLMScheme extends AuthSchemeBase {
     public NTLMScheme(NTLMEngine nTLMEngine) {
         throw new RuntimeException("Stub!");
     }
 
     @Override // org.apache.http.auth.AuthScheme
-    public String getSchemeName() {
+    public Header authenticate(Credentials credentials, HttpRequest httpRequest) throws AuthenticationException {
         throw new RuntimeException("Stub!");
     }
 
@@ -29,22 +29,22 @@ public class NTLMScheme extends AuthSchemeBase {
     }
 
     @Override // org.apache.http.auth.AuthScheme
-    public boolean isConnectionBased() {
-        throw new RuntimeException("Stub!");
-    }
-
-    @Override // org.apache.http.impl.auth.AuthSchemeBase
-    protected void parseChallenge(CharArrayBuffer charArrayBuffer, int i, int i2) throws MalformedChallengeException {
-        throw new RuntimeException("Stub!");
-    }
-
-    @Override // org.apache.http.auth.AuthScheme
-    public Header authenticate(Credentials credentials, HttpRequest httpRequest) throws AuthenticationException {
+    public String getSchemeName() {
         throw new RuntimeException("Stub!");
     }
 
     @Override // org.apache.http.auth.AuthScheme
     public boolean isComplete() {
+        throw new RuntimeException("Stub!");
+    }
+
+    @Override // org.apache.http.auth.AuthScheme
+    public boolean isConnectionBased() {
+        throw new RuntimeException("Stub!");
+    }
+
+    @Override // org.apache.http.impl.auth.AuthSchemeBase
+    public void parseChallenge(CharArrayBuffer charArrayBuffer, int i, int i2) throws MalformedChallengeException {
         throw new RuntimeException("Stub!");
     }
 }

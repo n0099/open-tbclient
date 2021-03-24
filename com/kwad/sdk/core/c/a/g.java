@@ -2,7 +2,7 @@ package com.kwad.sdk.core.c.a;
 
 import com.kwad.sdk.core.response.model.AdInfo;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class g implements com.kwad.sdk.core.c<AdInfo.AdSplashInfo> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.core.c

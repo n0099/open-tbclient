@@ -7,50 +7,60 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.data.cb;
-import com.baidu.tbadk.core.view.commonBtn.b;
-import com.baidu.tbadk.core.view.userLike.c;
 import com.baidu.tieba.R;
 import com.baidu.tieba.view.FollowUserButton;
-/* loaded from: classes.dex */
+import d.b.h0.r.f0.m.b;
+import d.b.h0.r.f0.q.c;
+import d.b.h0.r.q.a2;
+/* loaded from: classes2.dex */
 public class FollowUserDecorView extends FollowUserButton {
-    private c alS;
-    private boolean alT;
-    private BdUniqueId mBdUniqueId;
+    public BdUniqueId v;
+    public c w;
+    public boolean x;
 
     public FollowUserDecorView(Context context) {
         super(context);
     }
 
-    public FollowUserDecorView(Context context, @Nullable AttributeSet attributeSet) {
-        super(context, attributeSet);
-    }
-
-    public FollowUserDecorView(Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-    }
-
-    public void setData(cb cbVar) {
-        if (cbVar == null || cbVar.bnS() == null) {
-            setVisibility(8);
+    @Override // com.baidu.tieba.view.FollowUserButton
+    public void s(boolean z) {
+        super.s(z);
+        if (!this.x || z) {
             return;
         }
-        if (this.alS == null) {
-            this.alS = new c(V(getContext()), this);
-            this.alS.l(this.mBdUniqueId);
+        b bVar = new b();
+        bVar.q(R.color.CAM_X0304);
+        setConfig(bVar);
+    }
+
+    public void setData(a2 a2Var) {
+        if (a2Var != null && a2Var.T() != null) {
+            if (this.w == null) {
+                c cVar = new c(u(getContext()), this);
+                this.w = cVar;
+                cVar.l(this.v);
+            }
+            setVisibility(0);
+            this.w.p(true);
+            this.w.n(a2Var.T());
+            return;
         }
-        setVisibility(0);
-        this.alS.a(cbVar.bnS());
+        setVisibility(8);
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        this.mBdUniqueId = bdUniqueId;
-        if (this.alS != null) {
-            this.alS.l(this.mBdUniqueId);
+        this.v = bdUniqueId;
+        c cVar = this.w;
+        if (cVar != null) {
+            cVar.l(bdUniqueId);
         }
     }
 
-    private TbPageContext V(Context context) {
+    public void setUseNewStyle(boolean z) {
+        this.x = z;
+    }
+
+    public final TbPageContext u(Context context) {
         if (context instanceof BaseActivity) {
             return ((BaseActivity) context).getPageContext();
         }
@@ -60,17 +70,11 @@ public class FollowUserDecorView extends FollowUserButton {
         return null;
     }
 
-    @Override // com.baidu.tieba.view.FollowUserButton
-    public void aM(boolean z) {
-        super.aM(z);
-        if (this.alT && !z) {
-            b bVar = new b();
-            bVar.pS(R.color.CAM_X0304);
-            setConfig(bVar);
-        }
+    public FollowUserDecorView(Context context, @Nullable AttributeSet attributeSet) {
+        super(context, attributeSet);
     }
 
-    public void setUseNewStyle(boolean z) {
-        this.alT = z;
+    public FollowUserDecorView(Context context, @Nullable AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
     }
 }

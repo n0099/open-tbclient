@@ -1,10 +1,10 @@
 package com.googlecode.mp4parser;
 
+import g.a.a.a;
 import org.aspectj.lang.NoAspectBoundException;
-import org.aspectj.lang.a;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class RequiresParseDetailAspect {
-    private static /* synthetic */ Throwable ajc$initFailureCause;
+    public static /* synthetic */ Throwable ajc$initFailureCause;
     public static final /* synthetic */ RequiresParseDetailAspect ajc$perSingletonInstance = null;
 
     static {
@@ -15,15 +15,16 @@ public class RequiresParseDetailAspect {
         }
     }
 
-    private static /* synthetic */ void ajc$postClinit() {
+    public static /* synthetic */ void ajc$postClinit() {
         ajc$perSingletonInstance = new RequiresParseDetailAspect();
     }
 
     public static RequiresParseDetailAspect aspectOf() {
-        if (ajc$perSingletonInstance == null) {
-            throw new NoAspectBoundException("com.googlecode.mp4parser.RequiresParseDetailAspect", ajc$initFailureCause);
+        RequiresParseDetailAspect requiresParseDetailAspect = ajc$perSingletonInstance;
+        if (requiresParseDetailAspect != null) {
+            return requiresParseDetailAspect;
         }
-        return ajc$perSingletonInstance;
+        throw new NoAspectBoundException("com.googlecode.mp4parser.RequiresParseDetailAspect", ajc$initFailureCause);
     }
 
     public static boolean hasAspect() {
@@ -32,10 +33,10 @@ public class RequiresParseDetailAspect {
 
     public void before(a aVar) {
         if (aVar.getTarget() instanceof AbstractBox) {
-            if (!((AbstractBox) aVar.getTarget()).isParsed()) {
-                ((AbstractBox) aVar.getTarget()).parseDetails();
+            if (((AbstractBox) aVar.getTarget()).isParsed()) {
                 return;
             }
+            ((AbstractBox) aVar.getTarget()).parseDetails();
             return;
         }
         throw new RuntimeException("Only methods in subclasses of " + AbstractBox.class.getName() + " can  be annotated with ParseDetail");

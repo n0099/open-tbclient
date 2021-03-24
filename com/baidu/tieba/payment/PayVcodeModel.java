@@ -1,23 +1,25 @@
 package com.baidu.tieba.payment;
 
 import com.baidu.adp.base.BdBaseModel;
-import com.baidu.adp.base.f;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.live.tbadk.data.Config;
 import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.payment.message.ResponsePayNewVcodeInfoMessage;
-/* loaded from: classes8.dex */
+import d.b.b.a.f;
+/* loaded from: classes4.dex */
 public class PayVcodeModel extends BdBaseModel<PayVcodeModel> {
-    private f<?> lJC;
+
+    /* renamed from: e  reason: collision with root package name */
+    public f<?> f19434e;
 
     public PayVcodeModel(f<?> fVar) {
-        this.lJC = fVar;
+        this.f19434e = fVar;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
-    protected boolean LoadData() {
+    public boolean LoadData() {
         return false;
     }
 
@@ -26,14 +28,14 @@ public class PayVcodeModel extends BdBaseModel<PayVcodeModel> {
         return false;
     }
 
-    public void dkI() {
-        this.lJC.sendMessage(new HttpMessage(1001539));
-    }
-
-    public void dkJ() {
+    public void s() {
         MessageManager messageManager = MessageManager.getInstance();
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1001539, TbConfig.SERVER_ADDRESS + Config.PAY_NEW_VCODE);
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_PAY_NEW_VCODE, TbConfig.SERVER_ADDRESS + "c/c/encourage/consume/getVcode");
         tbHttpMessageTask.setResponsedClass(ResponsePayNewVcodeInfoMessage.class);
         messageManager.registerTask(tbHttpMessageTask);
+    }
+
+    public void t() {
+        this.f19434e.sendMessage(new HttpMessage(CmdConfigHttp.CMD_PAY_NEW_VCODE));
     }
 }

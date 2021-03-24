@@ -5,7 +5,12 @@ import com.squareup.wire.ProtoField;
 /* loaded from: classes.dex */
 public final class DataReq extends Message {
     public static final String DEFAULT_BUSINESS = "";
+    public static final Integer DEFAULT_FLAG;
+    public static final Integer DEFAULT_FORUMID = 0;
+    public static final Integer DEFAULT_GROUPTYPE;
     public static final String DEFAULT_INTRO = "";
+    public static final Double DEFAULT_LAT;
+    public static final Double DEFAULT_LNG;
     public static final String DEFAULT_NAME = "";
     public static final String DEFAULT_PAGE_FROM_DIM = "";
     public static final String DEFAULT_PORTRAIT = "";
@@ -32,87 +37,8 @@ public final class DataReq extends Message {
     public final String portrait;
     @ProtoField(tag = 5, type = Message.Datatype.STRING)
     public final String position;
-    public static final Integer DEFAULT_FORUMID = 0;
-    public static final Double DEFAULT_LNG = Double.valueOf(0.0d);
-    public static final Double DEFAULT_LAT = Double.valueOf(0.0d);
-    public static final Integer DEFAULT_GROUPTYPE = 0;
-    public static final Integer DEFAULT_FLAG = 0;
 
-    private DataReq(Builder builder, boolean z) {
-        super(builder);
-        if (z) {
-            if (builder.forumId == null) {
-                this.forumId = DEFAULT_FORUMID;
-            } else {
-                this.forumId = builder.forumId;
-            }
-            if (builder.name == null) {
-                this.name = "";
-            } else {
-                this.name = builder.name;
-            }
-            if (builder.intro == null) {
-                this.intro = "";
-            } else {
-                this.intro = builder.intro;
-            }
-            if (builder.portrait == null) {
-                this.portrait = "";
-            } else {
-                this.portrait = builder.portrait;
-            }
-            if (builder.position == null) {
-                this.position = "";
-            } else {
-                this.position = builder.position;
-            }
-            if (builder.business == null) {
-                this.business = "";
-            } else {
-                this.business = builder.business;
-            }
-            if (builder.lng == null) {
-                this.lng = DEFAULT_LNG;
-            } else {
-                this.lng = builder.lng;
-            }
-            if (builder.lat == null) {
-                this.lat = DEFAULT_LAT;
-            } else {
-                this.lat = builder.lat;
-            }
-            if (builder.groupType == null) {
-                this.groupType = DEFAULT_GROUPTYPE;
-            } else {
-                this.groupType = builder.groupType;
-            }
-            if (builder.flag == null) {
-                this.flag = DEFAULT_FLAG;
-            } else {
-                this.flag = builder.flag;
-            }
-            if (builder.page_from_dim == null) {
-                this.page_from_dim = "";
-                return;
-            } else {
-                this.page_from_dim = builder.page_from_dim;
-                return;
-            }
-        }
-        this.forumId = builder.forumId;
-        this.name = builder.name;
-        this.intro = builder.intro;
-        this.portrait = builder.portrait;
-        this.position = builder.position;
-        this.business = builder.business;
-        this.lng = builder.lng;
-        this.lat = builder.lat;
-        this.groupType = builder.groupType;
-        this.flag = builder.flag;
-        this.page_from_dim = builder.page_from_dim;
-    }
-
-    /* loaded from: classes.dex */
+    /* loaded from: classes7.dex */
     public static final class Builder extends Message.Builder<DataReq> {
         public String business;
         public Integer flag;
@@ -131,19 +57,20 @@ public final class DataReq extends Message {
 
         public Builder(DataReq dataReq) {
             super(dataReq);
-            if (dataReq != null) {
-                this.forumId = dataReq.forumId;
-                this.name = dataReq.name;
-                this.intro = dataReq.intro;
-                this.portrait = dataReq.portrait;
-                this.position = dataReq.position;
-                this.business = dataReq.business;
-                this.lng = dataReq.lng;
-                this.lat = dataReq.lat;
-                this.groupType = dataReq.groupType;
-                this.flag = dataReq.flag;
-                this.page_from_dim = dataReq.page_from_dim;
+            if (dataReq == null) {
+                return;
             }
+            this.forumId = dataReq.forumId;
+            this.name = dataReq.name;
+            this.intro = dataReq.intro;
+            this.portrait = dataReq.portrait;
+            this.position = dataReq.position;
+            this.business = dataReq.business;
+            this.lng = dataReq.lng;
+            this.lat = dataReq.lat;
+            this.groupType = dataReq.groupType;
+            this.flag = dataReq.flag;
+            this.page_from_dim = dataReq.page_from_dim;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -151,5 +78,98 @@ public final class DataReq extends Message {
         public DataReq build(boolean z) {
             return new DataReq(this, z);
         }
+    }
+
+    static {
+        Double valueOf = Double.valueOf(0.0d);
+        DEFAULT_LNG = valueOf;
+        DEFAULT_LAT = valueOf;
+        DEFAULT_GROUPTYPE = 0;
+        DEFAULT_FLAG = 0;
+    }
+
+    public DataReq(Builder builder, boolean z) {
+        super(builder);
+        if (z) {
+            Integer num = builder.forumId;
+            if (num == null) {
+                this.forumId = DEFAULT_FORUMID;
+            } else {
+                this.forumId = num;
+            }
+            String str = builder.name;
+            if (str == null) {
+                this.name = "";
+            } else {
+                this.name = str;
+            }
+            String str2 = builder.intro;
+            if (str2 == null) {
+                this.intro = "";
+            } else {
+                this.intro = str2;
+            }
+            String str3 = builder.portrait;
+            if (str3 == null) {
+                this.portrait = "";
+            } else {
+                this.portrait = str3;
+            }
+            String str4 = builder.position;
+            if (str4 == null) {
+                this.position = "";
+            } else {
+                this.position = str4;
+            }
+            String str5 = builder.business;
+            if (str5 == null) {
+                this.business = "";
+            } else {
+                this.business = str5;
+            }
+            Double d2 = builder.lng;
+            if (d2 == null) {
+                this.lng = DEFAULT_LNG;
+            } else {
+                this.lng = d2;
+            }
+            Double d3 = builder.lat;
+            if (d3 == null) {
+                this.lat = DEFAULT_LAT;
+            } else {
+                this.lat = d3;
+            }
+            Integer num2 = builder.groupType;
+            if (num2 == null) {
+                this.groupType = DEFAULT_GROUPTYPE;
+            } else {
+                this.groupType = num2;
+            }
+            Integer num3 = builder.flag;
+            if (num3 == null) {
+                this.flag = DEFAULT_FLAG;
+            } else {
+                this.flag = num3;
+            }
+            String str6 = builder.page_from_dim;
+            if (str6 == null) {
+                this.page_from_dim = "";
+                return;
+            } else {
+                this.page_from_dim = str6;
+                return;
+            }
+        }
+        this.forumId = builder.forumId;
+        this.name = builder.name;
+        this.intro = builder.intro;
+        this.portrait = builder.portrait;
+        this.position = builder.position;
+        this.business = builder.business;
+        this.lng = builder.lng;
+        this.lat = builder.lat;
+        this.groupType = builder.groupType;
+        this.flag = builder.flag;
+        this.page_from_dim = builder.page_from_dim;
     }
 }

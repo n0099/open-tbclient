@@ -2,194 +2,204 @@ package com.baidu.tieba.square.square;
 
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.cache.l;
 import com.baidu.tbadk.TbPageContext;
-/* loaded from: classes7.dex */
+import d.b.b.e.d.l;
+import d.b.i0.z2.j.f;
+/* loaded from: classes5.dex */
 public class SquareModel extends BdBaseModel<Object> {
-    private long iNA;
-    private long iNB;
-    private long iNy;
-    private long iNz;
-    private long mTimeStamp;
-    private h nvA;
-    private a nvB;
-    private b nvz;
 
-    /* loaded from: classes7.dex */
+    /* renamed from: e  reason: collision with root package name */
+    public b f21275e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public f f21276f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public a f21277g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public long f21278h;
+    public long i;
+    public long j;
+    public long k;
+    public long l;
+
+    /* loaded from: classes5.dex */
     public interface a {
-        void a(boolean z, String str, h hVar);
+        void a(boolean z, String str, f fVar);
     }
 
-    public SquareModel(TbPageContext<Object> tbPageContext) {
-        super(tbPageContext);
-        this.nvz = null;
-        this.nvA = null;
-        this.nvB = null;
-        this.iNy = 0L;
-        this.iNz = 0L;
-        this.iNA = 0L;
-        this.iNB = 0L;
-        this.nvA = new h();
-    }
+    /* loaded from: classes5.dex */
+    public class b extends BdAsyncTask<Object, f, f> {
 
-    public long cwN() {
-        return this.iNB;
-    }
+        /* renamed from: b  reason: collision with root package name */
+        public int f21280b;
 
-    public long cwO() {
-        return this.iNz;
-    }
+        /* renamed from: a  reason: collision with root package name */
+        public d.b.i0.z2.g.a f21279a = null;
 
-    public long cwP() {
-        return this.iNA;
-    }
-
-    public long cwQ() {
-        return this.iNy;
-    }
-
-    public h dMz() {
-        return this.nvA;
-    }
-
-    public void a(a aVar) {
-        this.nvB = aVar;
-    }
-
-    @Override // com.baidu.adp.base.BdBaseModel
-    protected boolean LoadData() {
-        return false;
-    }
-
-    @Override // com.baidu.adp.base.BdBaseModel
-    public boolean cancelLoadData() {
-        if (this.nvz != null) {
-            this.nvz.cancel();
-            return false;
-        }
-        return false;
-    }
-
-    public boolean dMA() {
-        return Ju(1);
-    }
-
-    public boolean dMB() {
-        return Ju(0);
-    }
-
-    public boolean Ju(int i) {
-        if (this.nvz != null) {
-            return false;
-        }
-        this.nvz = new b(i);
-        this.nvz.execute(new Object[0]);
-        return true;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes7.dex */
-    public class b extends BdAsyncTask<Object, h, h> {
-        private int nvD;
-        private com.baidu.tieba.square.a.a nvC = null;
-        private l<String> nvE = null;
+        /* renamed from: c  reason: collision with root package name */
+        public l<String> f21281c = null;
 
         public b(int i) {
-            this.nvD = 1;
-            this.nvD = i;
+            this.f21280b = 1;
+            this.f21280b = i;
             setPriority(3);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: I */
-        public h doInBackground(Object... objArr) {
-            h hVar;
-            String str;
-            h hVar2;
-            this.nvC = new com.baidu.tieba.square.a.a();
-            this.nvE = com.baidu.tbadk.core.c.a.bqt().Az("tb.square");
-            if (this.nvD == 0) {
-                str = this.nvE.get("square_cache_key");
-                if (str == null) {
+        /* renamed from: b */
+        public f doInBackground(Object... objArr) {
+            f fVar;
+            this.f21279a = new d.b.i0.z2.g.a();
+            l<String> g2 = d.b.h0.r.r.a.f().g("tb.square");
+            this.f21281c = g2;
+            String str = null;
+            if (this.f21280b == 0) {
+                String str2 = g2.get("square_cache_key");
+                if (str2 == null) {
                     return null;
                 }
-                hVar = new h();
-                hVar.parserJson(str);
-                SquareModel.this.mTimeStamp = hVar.getTimeStamp();
-                if (hVar.isEmpty()) {
-                    SquareModel.this.mTimeStamp = 0L;
+                f fVar2 = new f();
+                fVar2.j(str2);
+                SquareModel.this.l = fVar2.f();
+                if (fVar2.g()) {
+                    SquareModel.this.l = 0L;
                 }
-                if (!hVar.dMt()) {
-                    this.nvD = 1;
-                } else {
-                    return hVar;
+                if (fVar2.c()) {
+                    return fVar2;
                 }
+                this.f21280b = 1;
+                str = str2;
+                fVar = fVar2;
             } else {
-                hVar = null;
-                str = null;
+                fVar = null;
             }
-            if (this.nvD == 1) {
-                SquareModel.this.iNy = System.currentTimeMillis();
-                this.nvC.addPostData("prevtime", SquareModel.this.mTimeStamp + "");
-                str = this.nvC.dLW();
-                SquareModel.this.iNz = this.nvC.dLX();
-                SquareModel.this.iNA = this.nvC.dLY();
-                SquareModel.this.iNB = System.currentTimeMillis();
+            if (this.f21280b == 1) {
+                SquareModel.this.f21278h = System.currentTimeMillis();
+                this.f21279a.a("prevtime", SquareModel.this.l + "");
+                str = this.f21279a.i();
+                SquareModel.this.i = this.f21279a.h();
+                SquareModel.this.j = this.f21279a.g();
+                SquareModel.this.k = System.currentTimeMillis();
             }
-            String str2 = str;
-            if (this.nvC.isRequestSuccess()) {
-                h hVar3 = new h();
-                hVar3.parserJson(str2);
-                Long valueOf = Long.valueOf(hVar3.getTimeStamp());
-                if (valueOf.longValue() > SquareModel.this.mTimeStamp) {
-                    this.nvE.set("square_cache_key", str2, 86400000L);
-                    hVar2 = hVar3;
+            if (this.f21279a.e()) {
+                fVar = new f();
+                fVar.j(str);
+                Long valueOf = Long.valueOf(fVar.f());
+                if (valueOf.longValue() > SquareModel.this.l) {
+                    this.f21281c.e("square_cache_key", str, 86400000L);
                 } else {
-                    String str3 = this.nvE.get("square_cache_key");
+                    String str3 = this.f21281c.get("square_cache_key");
                     if (str3 != null) {
-                        h hVar4 = new h();
-                        hVar4.parserJson(str3);
-                        hVar4.be(hVar3.dMw());
-                        hVar4.setTimeStamp(valueOf.longValue());
-                        this.nvE.set("square_cache_key", hVar4.dMx(), 86400000L);
-                        hVar2 = hVar4;
+                        f fVar3 = new f();
+                        fVar3.j(str3);
+                        fVar3.m(fVar.e());
+                        fVar3.n(valueOf.longValue());
+                        this.f21281c.e("square_cache_key", fVar3.d(), 86400000L);
+                        fVar = fVar3;
                     } else {
-                        this.nvE.set("square_cache_key", str2, 86400000L);
-                        hVar2 = hVar3;
+                        this.f21281c.e("square_cache_key", str, 86400000L);
                     }
                 }
-                SquareModel.this.mTimeStamp = valueOf.longValue();
-            } else {
-                hVar2 = hVar;
+                SquareModel.this.l = valueOf.longValue();
             }
-            return hVar2;
+            return fVar;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: c */
+        public void onPostExecute(f fVar) {
+            SquareModel.this.f21275e = null;
+            SquareModel.this.f21276f = fVar;
+            if (SquareModel.this.f21277g != null) {
+                if (this.f21280b == 0 || this.f21279a.e()) {
+                    SquareModel.this.f21277g.a(true, null, fVar);
+                    return;
+                }
+                SquareModel.this.f21277g.a(false, this.f21279a.c(), fVar);
+            }
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             super.cancel();
-            if (this.nvC != null) {
-                this.nvC.cancel();
+            d.b.i0.z2.g.a aVar = this.f21279a;
+            if (aVar != null) {
+                aVar.b();
             }
-            SquareModel.this.nvz = null;
+            SquareModel.this.f21275e = null;
         }
+    }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX INFO: Access modifiers changed from: protected */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: b */
-        public void onPostExecute(h hVar) {
-            SquareModel.this.nvz = null;
-            SquareModel.this.nvA = hVar;
-            if (SquareModel.this.nvB != null) {
-                if (this.nvD == 0 || this.nvC.isRequestSuccess()) {
-                    SquareModel.this.nvB.a(true, null, hVar);
-                    return;
-                }
-                SquareModel.this.nvB.a(false, this.nvC.bkT(), hVar);
-            }
+    public SquareModel(TbPageContext<Object> tbPageContext) {
+        super(tbPageContext);
+        this.f21275e = null;
+        this.f21276f = null;
+        this.f21277g = null;
+        this.f21278h = 0L;
+        this.i = 0L;
+        this.j = 0L;
+        this.k = 0L;
+        this.f21276f = new f();
+    }
+
+    public f B() {
+        return this.f21276f;
+    }
+
+    public long C() {
+        return this.k;
+    }
+
+    public long D() {
+        return this.f21278h;
+    }
+
+    public long E() {
+        return this.j;
+    }
+
+    public long F() {
+        return this.i;
+    }
+
+    public boolean G(int i) {
+        if (this.f21275e != null) {
+            return false;
         }
+        b bVar = new b(i);
+        this.f21275e = bVar;
+        bVar.execute(new Object[0]);
+        return true;
+    }
+
+    public boolean H() {
+        return G(0);
+    }
+
+    public boolean I() {
+        return G(1);
+    }
+
+    public void J(a aVar) {
+        this.f21277g = aVar;
+    }
+
+    @Override // com.baidu.adp.base.BdBaseModel
+    public boolean LoadData() {
+        return false;
+    }
+
+    @Override // com.baidu.adp.base.BdBaseModel
+    public boolean cancelLoadData() {
+        b bVar = this.f21275e;
+        if (bVar != null) {
+            bVar.cancel();
+            return false;
+        }
+        return false;
     }
 }

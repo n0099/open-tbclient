@@ -2,14 +2,11 @@ package com.kwad.sdk.core.imageloader.utils;
 
 import android.util.Log;
 import com.kwad.sdk.core.imageloader.core.ImageLoader;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public final class L {
-    private static final String LOG_FORMAT = "%1$s\n%2$s";
-    private static volatile boolean writeDebugLogs = false;
-    private static volatile boolean writeLogs = true;
-
-    private L() {
-    }
+    public static final String LOG_FORMAT = "%1$s\n%2$s";
+    public static volatile boolean writeDebugLogs = false;
+    public static volatile boolean writeLogs = true;
 
     public static void d(String str, Object... objArr) {
         if (writeDebugLogs) {
@@ -43,16 +40,18 @@ public final class L {
         log(4, null, str, objArr);
     }
 
-    private static void log(int i, Throwable th, String str, Object... objArr) {
+    public static void log(int i, Throwable th, String str, Object... objArr) {
         if (writeLogs) {
-            String format = objArr.length > 0 ? String.format(str, objArr) : str;
-            if (th != null) {
-                if (format == null) {
-                    format = th.getMessage();
-                }
-                format = String.format(LOG_FORMAT, format, Log.getStackTraceString(th));
+            if (objArr.length > 0) {
+                str = String.format(str, objArr);
             }
-            Log.println(i, ImageLoader.TAG, format);
+            if (th != null) {
+                if (str == null) {
+                    str = th.getMessage();
+                }
+                str = String.format("%1$s\n%2$s", str, Log.getStackTraceString(th));
+            }
+            Log.println(i, ImageLoader.TAG, str);
         }
     }
 

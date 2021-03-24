@@ -1,26 +1,67 @@
 package com.xiaomi.push;
 
+import android.content.Context;
+import android.text.TextUtils;
 import com.xiaomi.push.service.XMPushService;
-/* loaded from: classes5.dex */
-class ha extends XMPushService.i {
+import java.io.File;
+/* loaded from: classes7.dex */
+public class ha implements XMPushService.l {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ gz f8405a;
+    public static boolean f40622a = false;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ha(gz gzVar, int i) {
-        super(i);
-        this.f8405a = gzVar;
+    /* renamed from: a  reason: collision with other field name */
+    public int f463a;
+
+    /* renamed from: a  reason: collision with other field name */
+    public Context f464a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public boolean f40623b;
+
+    public ha(Context context) {
+        this.f464a = context;
     }
 
-    @Override // com.xiaomi.push.service.XMPushService.i
-    public String a() {
-        return "Handling bind stats";
+    private String a(String str) {
+        return "com.xiaomi.xmsf".equals(str) ? "1000271" : this.f464a.getSharedPreferences("pref_registered_pkg_names", 0).getString(str, null);
     }
 
-    @Override // com.xiaomi.push.service.XMPushService.i
-    public void a() {
-        this.f8405a.c();
+    private void a(Context context) {
+        this.f40623b = com.xiaomi.push.service.aq.a(context).a(hk.TinyDataUploadSwitch.a(), true);
+        int a2 = com.xiaomi.push.service.aq.a(context).a(hk.TinyDataUploadFrequency.a(), 7200);
+        this.f463a = a2;
+        this.f463a = Math.max(60, a2);
+    }
+
+    public static void a(boolean z) {
+        f40622a = z;
+    }
+
+    private boolean a() {
+        return Math.abs((System.currentTimeMillis() / 1000) - this.f464a.getSharedPreferences("mipush_extra", 4).getLong("last_tiny_data_upload_timestamp", -1L)) > ((long) this.f463a);
+    }
+
+    private boolean a(he heVar) {
+        if (!bg.b(this.f464a) || heVar == null || TextUtils.isEmpty(a(this.f464a.getPackageName())) || !new File(this.f464a.getFilesDir(), "tiny_data.data").exists() || f40622a) {
+            return false;
+        }
+        return !com.xiaomi.push.service.aq.a(this.f464a).a(hk.ScreenOnOrChargingTinyDataUploadSwitch.a(), false) || i.m418a(this.f464a) || i.m421b(this.f464a);
+    }
+
+    @Override // com.xiaomi.push.service.XMPushService.l
+    /* renamed from: a  reason: collision with other method in class */
+    public void mo351a() {
+        a(this.f464a);
+        if (this.f40623b && a()) {
+            com.xiaomi.channel.commonutils.logger.b.m51a("TinyData TinyDataCacheProcessor.pingFollowUpAction ts:" + System.currentTimeMillis());
+            he a2 = hd.a(this.f464a).a();
+            if (a(a2)) {
+                f40622a = true;
+                hb.a(this.f464a, a2);
+                return;
+            }
+            com.xiaomi.channel.commonutils.logger.b.m51a("TinyData TinyDataCacheProcessor.pingFollowUpAction !canUpload(uploader) ts:" + System.currentTimeMillis());
+        }
     }
 }

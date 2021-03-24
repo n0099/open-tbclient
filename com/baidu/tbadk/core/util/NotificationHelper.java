@@ -15,18 +15,43 @@ import androidx.core.app.NotificationCompat;
 import androidx.core.content.ContextCompat;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.util.io.ActionJsonData;
-import com.baidu.searchbox.config.DefaultSharedPrefsWrapper;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
+import d.b.b.e.p.k;
+import d.b.b.e.q.h;
+import d.b.h0.s.d.b;
+import d.b.h0.s.d.d;
 /* loaded from: classes.dex */
 public class NotificationHelper {
-    private static NotificationCompat.Builder PROGRESS_BUILDER;
-    private static NotificationCompat.Builder PROGRESS_BUILDER_2;
-    private static int lastProgressNotifiyId = 0;
     public static boolean IS_SUPPORT_PROGRESS_NOTIFICATION = true;
-    private static String PRIMARY_CHANNEL = DefaultSharedPrefsWrapper.SP_FILE_DEFAULT;
-    private static String PRIMARY_CHANNEL_2 = "default_2";
-    private static String PRIMARY_CHANNEL_3 = "default_3";
+    public static String PRIMARY_CHANNEL = "default";
+    public static String PRIMARY_CHANNEL_2 = "default_2";
+    public static String PRIMARY_CHANNEL_3 = "default_3";
+    public static NotificationCompat.Builder PROGRESS_BUILDER;
+    public static NotificationCompat.Builder PROGRESS_BUILDER_2;
+    public static int lastProgressNotifiyId;
+
+    /* loaded from: classes3.dex */
+    public static class SwitchData {
+        public boolean isSound = false;
+        public boolean isVibrate = false;
+        public boolean isLight = false;
+    }
+
+    public static boolean canSupportClickPendingIntent() {
+        return Build.VERSION.SDK_INT >= 11;
+    }
+
+    public static void cancelAllNotification(Context context) {
+        if (context == null) {
+            return;
+        }
+        try {
+            ((NotificationManager) context.getSystemService(ActionJsonData.TAG_NOTIFICATION)).cancelAll();
+        } catch (Exception e2) {
+            BdLog.e(e2);
+        }
+    }
 
     public static boolean cancelNotification(Context context, int i) {
         if (context == null) {
@@ -35,71 +60,23 @@ public class NotificationHelper {
         try {
             ((NotificationManager) context.getSystemService(ActionJsonData.TAG_NOTIFICATION)).cancel(context.getPackageName(), i);
             return true;
-        } catch (Exception e) {
+        } catch (Exception unused) {
             return false;
         }
     }
 
     public static boolean cancelNotificationExceptSpecific(Context context, int i, int i2) {
-        if (context == null || i == i2) {
-            return false;
-        }
-        try {
-            ((NotificationManager) context.getSystemService(ActionJsonData.TAG_NOTIFICATION)).cancel(context.getPackageName(), i);
-            return true;
-        } catch (Exception e) {
-            return false;
-        }
-    }
-
-    public static void cancelAllNotification(Context context) {
-        if (context != null) {
+        if (context != null && i != i2) {
             try {
-                ((NotificationManager) context.getSystemService(ActionJsonData.TAG_NOTIFICATION)).cancelAll();
-            } catch (Exception e) {
-                BdLog.e(e);
+                ((NotificationManager) context.getSystemService(ActionJsonData.TAG_NOTIFICATION)).cancel(context.getPackageName(), i);
+                return true;
+            } catch (Exception unused) {
             }
         }
+        return false;
     }
 
-    public static boolean showNotification(Context context, int i, String str, String str2, String str3, PendingIntent pendingIntent, boolean z) {
-        return showBaseNotification(context, i, str, str2, str3, pendingIntent, null, null, z);
-    }
-
-    public static synchronized boolean showProgressNotification(Context context, int i, String str, int i2, String str2, String str3, PendingIntent pendingIntent, boolean z) {
-        boolean showProgressNotification;
-        synchronized (NotificationHelper.class) {
-            showProgressNotification = showProgressNotification(context, i, str, i2, str2, str3, pendingIntent, z, null, true);
-        }
-        return showProgressNotification;
-    }
-
-    public static synchronized boolean showProgressNotification(Context context, int i, String str, int i2, String str2, String str3, PendingIntent pendingIntent, boolean z, RemoteViews remoteViews, boolean z2) {
-        boolean processNotification;
-        synchronized (NotificationHelper.class) {
-            PendingIntent activity = pendingIntent == null ? PendingIntent.getActivity(context, 0, new Intent(), 0) : pendingIntent;
-            if (!IS_SUPPORT_PROGRESS_NOTIFICATION) {
-                processNotification = showNotification(context, i, str3, str3, str, activity, z);
-            } else {
-                Notification createNotificationByAPI = createNotificationByAPI(context, i, str, i2, str2, str3, activity, z, remoteViews, z2);
-                if (createNotificationByAPI == null) {
-                    processNotification = false;
-                } else {
-                    if (z2) {
-                        if (!z) {
-                            createNotificationByAPI.flags = 16;
-                        } else {
-                            createNotificationByAPI.flags = 2;
-                        }
-                    }
-                    processNotification = processNotification(context, i, createNotificationByAPI);
-                }
-            }
-        }
-        return processNotification;
-    }
-
-    private static Notification createNotificationByAPI(Context context, int i, String str, int i2, String str2, String str3, PendingIntent pendingIntent, boolean z, RemoteViews remoteViews, boolean z2) {
+    public static Notification createNotificationByAPI(Context context, int i, String str, int i2, String str2, String str3, PendingIntent pendingIntent, boolean z, RemoteViews remoteViews, boolean z2) {
         try {
             if (Build.VERSION.SDK_INT < 26) {
                 if (PROGRESS_BUILDER == null) {
@@ -127,129 +104,47 @@ public class NotificationHelper {
             Notification build2 = PROGRESS_BUILDER_2.build();
             build2.contentIntent = pendingIntent;
             return build2;
-        } catch (Exception e) {
+        } catch (Exception unused) {
             return notif_excption(context);
         }
     }
 
-    public static synchronized boolean showProgressNotification(Context context, int i, String str, int i2, String str2, String str3, boolean z) {
-        boolean showProgressNotification;
-        synchronized (NotificationHelper.class) {
-            showProgressNotification = showProgressNotification(context, i, str, i2, str2, str3, null, z);
-        }
-        return showProgressNotification;
-    }
-
-    private static boolean showBaseNotification(Context context, int i, String str, String str2, String str3, PendingIntent pendingIntent, RemoteViews remoteViews, Bitmap bitmap, boolean z) {
-        Notification notif_excption;
-        NotificationCompat.Builder builder;
-        if (pendingIntent == null) {
-            pendingIntent = PendingIntent.getActivity(context, 0, new Intent(), 0);
-        }
-        a switchData = getSwitchData(context);
-        if (switchData == null) {
-            return false;
-        }
-        if (au.isEmpty(str)) {
-            str = context.getString(R.string.app_name);
-        }
-        try {
-            if (Build.VERSION.SDK_INT < 26) {
-                builder = new NotificationCompat.Builder(TbadkCoreApplication.getInst(), PRIMARY_CHANNEL);
-            } else {
-                builder = new NotificationCompat.Builder(TbadkCoreApplication.getInst(), switchData.fbK ? PRIMARY_CHANNEL_3 : PRIMARY_CHANNEL_2);
-            }
-            builder.setContentTitle(str).setContentText(str2).setTicker(str3);
-            processNotificationIcon(builder);
-            if (bitmap != null) {
-                builder.setLargeIcon(bitmap);
-            }
-            builder.setContent(remoteViews);
-            notif_excption = builder.build();
-            notif_excption.contentIntent = pendingIntent;
-        } catch (Exception e) {
-            notif_excption = notif_excption(context);
-        }
-        if (notif_excption != null) {
-            notif_excption.defaults = -1;
-            if (!switchData.fbL) {
-                notif_excption.defaults &= -3;
-            }
-            notif_excption.audioStreamType = 1;
-            if (!switchData.fbK) {
-                notif_excption.defaults &= -2;
-            }
-            if (z) {
-                notif_excption.flags = 34;
-            } else {
-                notif_excption.flags |= 16;
-            }
-            if (switchData.fbM) {
-                notif_excption.defaults &= -5;
-                notif_excption.ledARGB = -16776961;
-                notif_excption.ledOnMS = 400;
-                notif_excption.ledOffMS = 700;
-                notif_excption.flags |= 1;
-            }
-            return processNotificationWithSoundAndVibration(context, i, notif_excption, switchData);
-        }
-        return false;
-    }
-
-    private static void processNotificationIcon(NotificationCompat.Builder builder) {
-        if (builder != null) {
-            if (an.bsL()) {
-                builder.setSmallIcon(R.drawable.tb_launcher_icon_notify_oneplus).setColor(ContextCompat.getColor(TbadkCoreApplication.getInst(), R.color.CAM_X0302));
-            } else {
-                builder.setSmallIcon(R.drawable.tb_launcher_icon_notify);
-            }
-        }
-    }
-
-    public static boolean showCustomViewNotification(Context context, int i, String str, String str2, PendingIntent pendingIntent, RemoteViews remoteViews, boolean z) {
-        return showBaseNotification(context, i, str, null, str2, pendingIntent, remoteViews, null, z);
-    }
-
-    public static boolean showLargeIconNotification(Context context, int i, String str, String str2, String str3, PendingIntent pendingIntent, Bitmap bitmap, boolean z) {
-        return showBaseNotification(context, i, str, str2, str3, pendingIntent, null, bitmap, z);
-    }
-
-    private static a getSwitchData(Context context) {
-        a aVar = new a();
-        if (!com.baidu.tbadk.coreExtra.messageCenter.b.bxG() && com.baidu.tbadk.coreExtra.messageCenter.b.bxF()) {
+    public static SwitchData getSwitchData(Context context) {
+        SwitchData switchData = new SwitchData();
+        if (!b.M() && b.R()) {
             long currentTimeMillis = System.currentTimeMillis();
             if (currentTimeMillis - TbadkCoreApplication.getInst().getLastNotifyTime() >= 5000) {
                 AudioManager audioManager = (AudioManager) context.getSystemService("audio");
                 boolean z = audioManager.getRingerMode() == 0;
                 boolean z2 = audioManager.getRingerMode() == 1;
-                if (com.baidu.tbadk.coreExtra.messageCenter.d.byh().byq()) {
-                    aVar.fbK = true;
+                if (d.d().u()) {
+                    switchData.isSound = true;
                     if (z || z2) {
-                        aVar.fbK = false;
+                        switchData.isSound = false;
                     }
                 }
-                if (com.baidu.tbadk.coreExtra.messageCenter.d.byh().byt()) {
-                    aVar.fbL = true;
+                if (d.d().v()) {
+                    switchData.isVibrate = true;
                     if (z) {
-                        aVar.fbL = false;
+                        switchData.isVibrate = false;
                     }
                     if (z2) {
-                        aVar.fbL = true;
+                        switchData.isVibrate = true;
                     }
                 }
                 TbadkCoreApplication.getInst().setLastNotifyTime(currentTimeMillis);
             }
         }
-        if (com.baidu.tbadk.coreExtra.messageCenter.d.byh().byr()) {
-            aVar.fbM = true;
+        if (d.d().q()) {
+            switchData.isLight = true;
         }
-        return aVar;
+        return switchData;
     }
 
-    private static Notification notif_excption(Context context) {
+    public static Notification notif_excption(Context context) {
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context, PRIMARY_CHANNEL);
         builder.setContentTitle(context.getString(R.string.notify_text));
-        if (an.bsL()) {
+        if (RomTypeUtil.isOnePlus()) {
             builder.setSmallIcon(R.drawable.tb_launcher_icon_notify_oneplus).setColor(ContextCompat.getColor(TbadkCoreApplication.getInst(), R.color.CAM_X0302));
         } else {
             builder.setSmallIcon(R.drawable.tb_launcher_icon_notify);
@@ -257,11 +152,11 @@ public class NotificationHelper {
         return builder.build();
     }
 
-    private static boolean processNotification(Context context, int i, Notification notification) {
+    public static boolean processNotification(Context context, int i, Notification notification) {
         try {
             NotificationManager notificationManager = (NotificationManager) context.getSystemService(ActionJsonData.TAG_NOTIFICATION);
             if (Build.VERSION.SDK_INT >= 26) {
-                NotificationChannel notificationChannel = new NotificationChannel(PRIMARY_CHANNEL_2, com.baidu.adp.lib.voice.h.getString(R.string.notify_channel_primary), 3);
+                NotificationChannel notificationChannel = new NotificationChannel(PRIMARY_CHANNEL_2, h.a(R.string.notify_channel_primary), 3);
                 notificationChannel.setLightColor(-16776961);
                 notificationChannel.setLockscreenVisibility(0);
                 notificationChannel.enableVibration(false);
@@ -273,24 +168,35 @@ public class NotificationHelper {
             }
             notificationManager.notify(context.getPackageName(), i, notification);
             return true;
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
+        } catch (Exception e2) {
+            BdLog.e(e2.getMessage());
             return false;
         }
     }
 
-    private static boolean processNotificationWithSoundAndVibration(Context context, int i, Notification notification, a aVar) {
+    public static void processNotificationIcon(NotificationCompat.Builder builder) {
+        if (builder == null) {
+            return;
+        }
+        if (RomTypeUtil.isOnePlus()) {
+            builder.setSmallIcon(R.drawable.tb_launcher_icon_notify_oneplus).setColor(ContextCompat.getColor(TbadkCoreApplication.getInst(), R.color.CAM_X0302));
+        } else {
+            builder.setSmallIcon(R.drawable.tb_launcher_icon_notify);
+        }
+    }
+
+    public static boolean processNotificationWithSoundAndVibration(Context context, int i, Notification notification, SwitchData switchData) {
         try {
             NotificationManager notificationManager = (NotificationManager) context.getSystemService(ActionJsonData.TAG_NOTIFICATION);
             if (Build.VERSION.SDK_INT >= 26) {
-                NotificationChannel notificationChannel = new NotificationChannel(aVar.fbK ? PRIMARY_CHANNEL_3 : PRIMARY_CHANNEL_2, com.baidu.adp.lib.voice.h.getString(R.string.notify_channel_primary), 3);
+                NotificationChannel notificationChannel = new NotificationChannel(switchData.isSound ? PRIMARY_CHANNEL_3 : PRIMARY_CHANNEL_2, h.a(R.string.notify_channel_primary), 3);
                 notificationChannel.setLightColor(-16776961);
                 notificationChannel.setLockscreenVisibility(0);
-                notificationChannel.enableVibration(aVar.fbL);
-                if (!aVar.fbK) {
+                notificationChannel.enableVibration(switchData.isVibrate);
+                if (!switchData.isSound) {
                     notificationChannel.setSound(null, null);
                 }
-                notificationChannel.enableLights(aVar.fbM);
+                notificationChannel.enableLights(switchData.isLight);
                 notificationManager.createNotificationChannel(notificationChannel);
             }
             if (notification == null || notificationManager == null) {
@@ -298,24 +204,114 @@ public class NotificationHelper {
             }
             notificationManager.notify(context.getPackageName(), i, notification);
             return true;
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
+        } catch (Exception e2) {
+            BdLog.e(e2.getMessage());
             return false;
         }
     }
 
-    public static boolean canSupportClickPendingIntent() {
-        return Build.VERSION.SDK_INT >= 11;
+    public static boolean showBaseNotification(Context context, int i, String str, String str2, String str3, PendingIntent pendingIntent, RemoteViews remoteViews, Bitmap bitmap, boolean z) {
+        Notification notif_excption;
+        NotificationCompat.Builder builder;
+        if (pendingIntent == null) {
+            pendingIntent = PendingIntent.getActivity(context, 0, new Intent(), 0);
+        }
+        SwitchData switchData = getSwitchData(context);
+        if (switchData == null) {
+            return false;
+        }
+        if (k.isEmpty(str)) {
+            str = context.getString(R.string.app_name);
+        }
+        try {
+            if (Build.VERSION.SDK_INT < 26) {
+                builder = new NotificationCompat.Builder(TbadkCoreApplication.getInst(), PRIMARY_CHANNEL);
+            } else {
+                builder = new NotificationCompat.Builder(TbadkCoreApplication.getInst(), switchData.isSound ? PRIMARY_CHANNEL_3 : PRIMARY_CHANNEL_2);
+            }
+            builder.setContentTitle(str).setContentText(str2).setTicker(str3);
+            processNotificationIcon(builder);
+            if (bitmap != null) {
+                builder.setLargeIcon(bitmap);
+            }
+            builder.setContent(remoteViews);
+            notif_excption = builder.build();
+            notif_excption.contentIntent = pendingIntent;
+        } catch (Exception unused) {
+            notif_excption = notif_excption(context);
+        }
+        if (notif_excption == null) {
+            return false;
+        }
+        notif_excption.defaults = -1;
+        if (!switchData.isVibrate) {
+            notif_excption.defaults = (-1) & (-3);
+        }
+        notif_excption.audioStreamType = 1;
+        if (!switchData.isSound) {
+            notif_excption.defaults &= -2;
+        }
+        if (z) {
+            notif_excption.flags = 34;
+        } else {
+            notif_excption.flags |= 16;
+        }
+        if (switchData.isLight) {
+            notif_excption.defaults &= -5;
+            notif_excption.ledARGB = -16776961;
+            notif_excption.ledOnMS = 400;
+            notif_excption.ledOffMS = 700;
+            notif_excption.flags = 1 | notif_excption.flags;
+        }
+        return processNotificationWithSoundAndVibration(context, i, notif_excption, switchData);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes.dex */
-    public static class a {
-        boolean fbK = false;
-        boolean fbL = false;
-        boolean fbM = false;
+    public static boolean showCustomViewNotification(Context context, int i, String str, String str2, PendingIntent pendingIntent, RemoteViews remoteViews, boolean z) {
+        return showBaseNotification(context, i, str, null, str2, pendingIntent, remoteViews, null, z);
+    }
 
-        a() {
+    public static boolean showLargeIconNotification(Context context, int i, String str, String str2, String str3, PendingIntent pendingIntent, Bitmap bitmap, boolean z) {
+        return showBaseNotification(context, i, str, str2, str3, pendingIntent, null, bitmap, z);
+    }
+
+    public static boolean showNotification(Context context, int i, String str, String str2, String str3, PendingIntent pendingIntent, boolean z) {
+        return showBaseNotification(context, i, str, str2, str3, pendingIntent, null, null, z);
+    }
+
+    public static synchronized boolean showProgressNotification(Context context, int i, String str, int i2, String str2, String str3, PendingIntent pendingIntent, boolean z) {
+        boolean showProgressNotification;
+        synchronized (NotificationHelper.class) {
+            showProgressNotification = showProgressNotification(context, i, str, i2, str2, str3, pendingIntent, z, null, true);
         }
+        return showProgressNotification;
+    }
+
+    public static synchronized boolean showProgressNotification(Context context, int i, String str, int i2, String str2, String str3, PendingIntent pendingIntent, boolean z, RemoteViews remoteViews, boolean z2) {
+        synchronized (NotificationHelper.class) {
+            PendingIntent activity = pendingIntent == null ? PendingIntent.getActivity(context, 0, new Intent(), 0) : pendingIntent;
+            if (!IS_SUPPORT_PROGRESS_NOTIFICATION) {
+                return showNotification(context, i, str3, str3, str, activity, z);
+            }
+            Notification createNotificationByAPI = createNotificationByAPI(context, i, str, i2, str2, str3, activity, z, remoteViews, z2);
+            if (createNotificationByAPI == null) {
+                return false;
+            }
+            if (z2) {
+                if (!z) {
+                    createNotificationByAPI.flags = 16;
+                } else {
+                    createNotificationByAPI.flags = 2;
+                }
+            }
+            return processNotification(context, i, createNotificationByAPI);
+        }
+    }
+
+    public static synchronized boolean showProgressNotification(Context context, int i, String str, int i2, String str2, String str3, boolean z) {
+        boolean showProgressNotification;
+        synchronized (NotificationHelper.class) {
+            showProgressNotification = showProgressNotification(context, i, str, i2, str2, str3, null, z);
+        }
+        return showProgressNotification;
     }
 }

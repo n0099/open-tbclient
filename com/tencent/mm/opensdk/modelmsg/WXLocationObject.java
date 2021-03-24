@@ -2,9 +2,9 @@ package com.tencent.mm.opensdk.modelmsg;
 
 import android.os.Bundle;
 import com.tencent.mm.opensdk.modelmsg.WXMediaMessage;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class WXLocationObject implements WXMediaMessage.IMediaObject {
-    private static final String TAG = "MicroMsg.SDK.WXLocationObject";
+    public static final String TAG = "MicroMsg.SDK.WXLocationObject";
     public double lat;
     public double lng;
 
@@ -12,9 +12,9 @@ public class WXLocationObject implements WXMediaMessage.IMediaObject {
         this(0.0d, 0.0d);
     }
 
-    public WXLocationObject(double d, double d2) {
-        this.lat = d;
-        this.lng = d2;
+    public WXLocationObject(double d2, double d3) {
+        this.lat = d2;
+        this.lng = d3;
     }
 
     @Override // com.tencent.mm.opensdk.modelmsg.WXMediaMessage.IMediaObject

@@ -3,22 +3,24 @@ package a.a.a.a.r.a.c;
 import android.view.View;
 import android.view.ViewGroup;
 import com.bytedance.sdk.openadsdk.TTAdDislike;
-/* loaded from: classes4.dex */
+/* loaded from: classes.dex */
 public class c implements TTAdDislike.DislikeInteractionCallback {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ View f970a;
-    public final /* synthetic */ a zW;
+    public final /* synthetic */ View f1099a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public final /* synthetic */ a f1100b;
 
     public c(a aVar, View view) {
-        this.zW = aVar;
-        this.f970a = view;
+        this.f1100b = aVar;
+        this.f1099a = view;
     }
 
     @Override // com.bytedance.sdk.openadsdk.TTAdDislike.DislikeInteractionCallback
     public void onCancel() {
         a.a.a.a.v.d.a("CSJBannerExpressAd dislike callback onCancel", new Object[0]);
-        a.a.a.a.v.f.g.c.a(this.zW.zk.BU, "unlike_canceled", new Object[0]);
+        a.a.a.a.v.f.g.c.a(this.f1100b.f1010g.f1391a, "unlike_canceled", new Object[0]);
     }
 
     @Override // com.bytedance.sdk.openadsdk.TTAdDislike.DislikeInteractionCallback
@@ -29,10 +31,10 @@ public class c implements TTAdDislike.DislikeInteractionCallback {
     @Override // com.bytedance.sdk.openadsdk.TTAdDislike.DislikeInteractionCallback
     public void onSelected(int i, String str) {
         a.a.a.a.v.d.a("dislike callback onSelected position: " + i + ", message: " + str, new Object[0]);
-        this.zW.zk.h();
-        if (this.f970a.getParent() != null) {
-            ((ViewGroup) this.f970a.getParent()).removeView(this.f970a);
+        this.f1100b.f1010g.h();
+        if (this.f1099a.getParent() != null) {
+            ((ViewGroup) this.f1099a.getParent()).removeView(this.f1099a);
         }
-        this.zW.f();
+        this.f1100b.f();
     }
 }

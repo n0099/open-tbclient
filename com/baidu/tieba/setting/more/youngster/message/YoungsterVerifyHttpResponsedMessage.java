@@ -2,11 +2,11 @@ package com.baidu.tieba.setting.more.youngster.message;
 
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.setting.more.youngster.a.a;
+import d.b.i0.u2.c.k.a.a;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class YoungsterVerifyHttpResponsedMessage extends JsonHttpResponsedMessage {
-    private a mSearchMajorResultData;
+    public a mSearchMajorResultData;
 
     public YoungsterVerifyHttpResponsedMessage() {
         super(CmdConfigHttp.CMD_GET_YOUNGSTER_VERIFY_AUTHID);
@@ -17,8 +17,9 @@ public class YoungsterVerifyHttpResponsedMessage extends JsonHttpResponsedMessag
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null) {
             JSONObject optJSONObject = jSONObject.optJSONObject("data");
-            this.mSearchMajorResultData = new a();
-            this.mSearchMajorResultData.parseJson(optJSONObject);
+            a aVar = new a();
+            this.mSearchMajorResultData = aVar;
+            aVar.a(optJSONObject);
         }
     }
 

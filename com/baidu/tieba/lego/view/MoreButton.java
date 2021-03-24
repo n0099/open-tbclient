@@ -6,12 +6,47 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.TextView;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.lego.card.model.c;
-import com.baidu.tieba.tbadkCore.v;
-/* loaded from: classes8.dex */
+import d.b.i0.c3.v;
+import d.b.i0.i1.o.j.c;
+/* loaded from: classes4.dex */
 public class MoreButton extends TextView {
+
+    /* loaded from: classes4.dex */
+    public class a implements View.OnClickListener {
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ TbPageContext f18753e;
+
+        /* renamed from: f  reason: collision with root package name */
+        public final /* synthetic */ c f18754f;
+
+        public a(TbPageContext tbPageContext, c cVar) {
+            this.f18753e = tbPageContext;
+            this.f18754f = cVar;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            v.c(this.f18753e, this.f18754f.d());
+        }
+    }
+
     public MoreButton(Context context, AttributeSet attributeSet) {
         this(context, attributeSet, 0);
+    }
+
+    public void setData(c cVar, TbPageContext tbPageContext) {
+        if (cVar == null) {
+            setVisibility(8);
+            return;
+        }
+        setVisibility(0);
+        setText(cVar.e());
+        if (!TextUtils.isEmpty(cVar.d())) {
+            setOnClickListener(new a(tbPageContext, cVar));
+        } else {
+            setOnClickListener(null);
+        }
     }
 
     public MoreButton(Context context) {
@@ -20,24 +55,5 @@ public class MoreButton extends TextView {
 
     public MoreButton(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-    }
-
-    public void setData(final c cVar, final TbPageContext tbPageContext) {
-        if (cVar == null) {
-            setVisibility(8);
-            return;
-        }
-        setVisibility(0);
-        setText(cVar.dbY());
-        if (!TextUtils.isEmpty(cVar.dca())) {
-            setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.lego.view.MoreButton.1
-                @Override // android.view.View.OnClickListener
-                public void onClick(View view) {
-                    v.j(tbPageContext, cVar.dca());
-                }
-            });
-        } else {
-            setOnClickListener(null);
-        }
     }
 }

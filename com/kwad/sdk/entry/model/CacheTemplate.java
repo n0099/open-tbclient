@@ -3,7 +3,7 @@ package com.kwad.sdk.entry.model;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.internal.api.SceneImpl;
 import java.util.UUID;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class CacheTemplate extends AdTemplate {
     public CacheTemplate(AdTemplate adTemplate, SceneImpl sceneImpl) {
         this.posId = adTemplate.posId;
@@ -24,8 +24,9 @@ public class CacheTemplate extends AdTemplate {
         this.mAdScene = sceneImpl;
         this.mIsTubeEpisodeList = adTemplate.mIsTubeEpisodeList;
         this.mPcursor = adTemplate.mPcursor;
-        this.mOriginJString = adTemplate.mOriginJString;
-        if (this.mOriginJString == null) {
+        String str = adTemplate.mOriginJString;
+        this.mOriginJString = str;
+        if (str == null) {
             this.mOriginJString = adTemplate.toJson().toString();
         }
     }

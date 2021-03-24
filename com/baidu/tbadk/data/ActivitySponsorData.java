@@ -2,13 +2,10 @@ package com.baidu.tbadk.data;
 
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import tbclient.ActivitySponsor;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class ActivitySponsorData extends OrmObject {
-    private Integer fBl;
-    private String fBm;
-
-    public void a(ActivitySponsor activitySponsor) {
-        this.fBl = activitySponsor.is_sponsor;
-        this.fBm = activitySponsor.sponsor_url;
+    public void s(ActivitySponsor activitySponsor) {
+        Integer num = activitySponsor.is_sponsor;
+        String str = activitySponsor.sponsor_url;
     }
 }

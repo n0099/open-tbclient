@@ -1,17 +1,13 @@
 package aegon.chrome.base;
 
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public abstract class CommandLine {
-    public static final /* synthetic */ boolean $assertionsDisabled = !CommandLine.class.desiredAssertionStatus();
+    public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static final AtomicReference<CommandLine> sCommandLine = new AtomicReference<>();
 
     public static CommandLine getInstance() {
-        CommandLine commandLine = sCommandLine.get();
-        if ($assertionsDisabled || commandLine != null) {
-            return commandLine;
-        }
-        throw new AssertionError();
+        return sCommandLine.get();
     }
 
     public static native void nativeAppendSwitch(String str);

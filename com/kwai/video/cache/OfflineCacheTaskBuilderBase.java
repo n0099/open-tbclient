@@ -1,31 +1,33 @@
 package com.kwai.video.cache;
 
 import com.kwai.video.cache.AwesomeCache;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class OfflineCacheTaskBuilderBase {
-    private static final int DEFAULT_CONNECT_TIMEOUT_MS = 3000;
-    private static final int DEFAULT_READ_TIMEOUT_MS = 5000;
-    private static final int DURATION_UNSET = -1;
-    private static final int LENGTH_UNSET = -1;
-    private static final int MAX_CONNECT_TIMEOUT_MS = 120000;
-    private static final int MAX_READ_TIMEOUT_MS = 120000;
-    private static final int MIN_CONNECT_TIMEOUT_MS = 500;
-    private static final int MIN_READ_TIMEOUT_MS = 500;
-    private static final int SOCKET_BUF_SIZE_UNSET = -1;
+    public static final int DEFAULT_CONNECT_TIMEOUT_MS = 3000;
+    public static final int DEFAULT_READ_TIMEOUT_MS = 5000;
+    public static final int DURATION_UNSET = -1;
+    public static final int LENGTH_UNSET = -1;
+    public static final int MAX_CONNECT_TIMEOUT_MS = 120000;
+    public static final int MAX_READ_TIMEOUT_MS = 120000;
+    public static final int MIN_CONNECT_TIMEOUT_MS = 500;
+    public static final int MIN_READ_TIMEOUT_MS = 500;
+    public static final int SOCKET_BUF_SIZE_UNSET = -1;
     public AwesomeCacheCallback mAwesomeCacheCallback;
-    public AwesomeCache.OfflineCacheDataSpec mDataSpec = new AwesomeCache.OfflineCacheDataSpec();
+    public AwesomeCache.OfflineCacheDataSpec mDataSpec;
 
     public OfflineCacheTaskBuilderBase() {
-        this.mDataSpec.cacheMode = 0;
-        this.mDataSpec.pos = 0L;
-        this.mDataSpec.len = -1L;
-        this.mDataSpec.durMs = -1L;
-        this.mDataSpec.connectTimeoutMs = 3000;
-        this.mDataSpec.readTimeoutMs = 5000;
-        this.mDataSpec.socketBufSizeKb = -1;
-        this.mDataSpec.maxSpeedKbps = -1;
-        this.mDataSpec.enableLimitSpeedWhenCancel = false;
-        this.mDataSpec.bandWidthThreshold = -1;
+        AwesomeCache.OfflineCacheDataSpec offlineCacheDataSpec = new AwesomeCache.OfflineCacheDataSpec();
+        this.mDataSpec = offlineCacheDataSpec;
+        offlineCacheDataSpec.cacheMode = 0;
+        offlineCacheDataSpec.pos = 0L;
+        offlineCacheDataSpec.len = -1L;
+        offlineCacheDataSpec.durMs = -1L;
+        offlineCacheDataSpec.connectTimeoutMs = 3000;
+        offlineCacheDataSpec.readTimeoutMs = 5000;
+        offlineCacheDataSpec.socketBufSizeKb = -1;
+        offlineCacheDataSpec.maxSpeedKbps = -1;
+        offlineCacheDataSpec.enableLimitSpeedWhenCancel = false;
+        offlineCacheDataSpec.bandWidthThreshold = -1;
     }
 
     public OfflineCacheTaskBuilderBase enableLimitSpeedWhenCancel(boolean z) {

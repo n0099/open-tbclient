@@ -15,30 +15,60 @@ import java.nio.ByteBuffer;
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes5.dex */
+import okhttp3.internal.publicsuffix.PublicSuffixDatabase;
+/* loaded from: classes6.dex */
 public class SilenceTrackImpl implements Track {
-    long[] decodingTimes;
-    List<Sample> samples = new LinkedList();
-    Track source;
+    public long[] decodingTimes;
+    public List<Sample> samples = new LinkedList();
+    public Track source;
 
     public SilenceTrackImpl(Track track, long j) {
         this.source = track;
         if (AudioSampleEntry.TYPE3.equals(track.getSampleDescriptionBox().getSampleEntry().getType())) {
             int l2i = CastUtils.l2i(((getTrackMetaData().getTimescale() * j) / 1000) / 1024);
-            this.decodingTimes = new long[l2i];
-            Arrays.fill(this.decodingTimes, ((getTrackMetaData().getTimescale() * j) / l2i) / 1000);
+            long[] jArr = new long[l2i];
+            this.decodingTimes = jArr;
+            Arrays.fill(jArr, ((getTrackMetaData().getTimescale() * j) / l2i) / 1000);
             while (true) {
                 int i = l2i - 1;
-                if (l2i > 0) {
-                    this.samples.add(new SampleImpl((ByteBuffer) ByteBuffer.wrap(new byte[]{33, 16, 4, 96, -116, 28}).rewind()));
-                    l2i = i;
-                } else {
+                if (l2i <= 0) {
                     return;
                 }
+                this.samples.add(new SampleImpl((ByteBuffer) ByteBuffer.wrap(new byte[]{PublicSuffixDatabase.EXCEPTION_MARKER, 16, 4, 96, -116, 28}).rewind()));
+                l2i = i;
             }
         } else {
             throw new RuntimeException("Tracks of type " + track.getClass().getSimpleName() + " are not supported");
         }
+    }
+
+    @Override // com.googlecode.mp4parser.authoring.Track
+    public List<CompositionTimeToSample.Entry> getCompositionTimeEntries() {
+        return null;
+    }
+
+    @Override // com.googlecode.mp4parser.authoring.Track
+    public long getDuration() {
+        long j = 0;
+        for (long j2 : this.decodingTimes) {
+            j += j2;
+        }
+        return j;
+    }
+
+    @Override // com.googlecode.mp4parser.authoring.Track
+    public String getHandler() {
+        return this.source.getHandler();
+    }
+
+    @Override // com.googlecode.mp4parser.authoring.Track
+    public Box getMediaHeaderBox() {
+        return this.source.getMediaHeaderBox();
+    }
+
+    @Override // com.googlecode.mp4parser.authoring.Track
+    public List<SampleDependencyTypeBox.Entry> getSampleDependencies() {
+        return null;
     }
 
     @Override // com.googlecode.mp4parser.authoring.Track
@@ -52,41 +82,12 @@ public class SilenceTrackImpl implements Track {
     }
 
     @Override // com.googlecode.mp4parser.authoring.Track
-    public long getDuration() {
-        long j = 0;
-        for (long j2 : this.decodingTimes) {
-            j += j2;
-        }
-        return j;
-    }
-
-    @Override // com.googlecode.mp4parser.authoring.Track
-    public TrackMetaData getTrackMetaData() {
-        return this.source.getTrackMetaData();
-    }
-
-    @Override // com.googlecode.mp4parser.authoring.Track
-    public String getHandler() {
-        return this.source.getHandler();
-    }
-
-    @Override // com.googlecode.mp4parser.authoring.Track
     public List<Sample> getSamples() {
         return this.samples;
     }
 
     @Override // com.googlecode.mp4parser.authoring.Track
-    public Box getMediaHeaderBox() {
-        return this.source.getMediaHeaderBox();
-    }
-
-    @Override // com.googlecode.mp4parser.authoring.Track
     public SubSampleInformationBox getSubsampleInformationBox() {
-        return null;
-    }
-
-    @Override // com.googlecode.mp4parser.authoring.Track
-    public List<CompositionTimeToSample.Entry> getCompositionTimeEntries() {
         return null;
     }
 
@@ -96,7 +97,7 @@ public class SilenceTrackImpl implements Track {
     }
 
     @Override // com.googlecode.mp4parser.authoring.Track
-    public List<SampleDependencyTypeBox.Entry> getSampleDependencies() {
-        return null;
+    public TrackMetaData getTrackMetaData() {
+        return this.source.getTrackMetaData();
     }
 }

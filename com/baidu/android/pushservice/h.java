@@ -1,77 +1,99 @@
 package com.baidu.android.pushservice;
 
 import android.content.Context;
-import android.os.Environment;
 import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.android.pushservice.h.a.b;
-import com.baidu.android.pushservice.i.m;
-import com.baidu.sapi2.utils.SapiUtils;
+import com.baidu.android.pushservice.i.a.b;
+import com.baidu.android.pushservice.j.m;
+import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
+import com.kwad.sdk.core.imageloader.utils.StorageUtils;
 import com.sina.weibo.sdk.utils.WbAuthConstants;
 import java.io.File;
 import java.io.FileInputStream;
 import java.util.Properties;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public final class h {
-    private static String c = "api.tuisong.baidu.com";
-    private static String[] d = {"api0.tuisong.baidu.com", "api1.tuisong.baidu.com", "api2.tuisong.baidu.com", "api3.tuisong.baidu.com", "api4.tuisong.baidu.com", "api5.tuisong.baidu.com", "api6.tuisong.baidu.com", "api7.tuisong.baidu.com", "api8.tuisong.baidu.com", "api9.tuisong.baidu.com"};
-    private static String e = "sa.tuisong.baidu.com";
-    private static String[] f = {"sa0.tuisong.baidu.com", "sa1.tuisong.baidu.com", "sa2.tuisong.baidu.com", "sa3.tuisong.baidu.com", "sa4.tuisong.baidu.com", "sa5.tuisong.baidu.com", "sa6.tuisong.baidu.com", "sa7.tuisong.baidu.com", "sa8.tuisong.baidu.com", "sa9.tuisong.baidu.com"};
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f1161a = 5287;
-    public static int b = 5288;
-    private static boolean g = false;
+    public static int f3064a = 5287;
+
+    /* renamed from: b  reason: collision with root package name */
+    public static int f3065b = 5288;
+
+    /* renamed from: c  reason: collision with root package name */
+    public static String f3066c = "https://info.tuisong.baidu.com";
+
+    /* renamed from: d  reason: collision with root package name */
+    public static String f3067d = "/setter";
+
+    /* renamed from: e  reason: collision with root package name */
+    public static String f3068e = "/v2/setter";
+
+    /* renamed from: f  reason: collision with root package name */
+    public static String f3069f = "/getter";
+
+    /* renamed from: g  reason: collision with root package name */
+    public static String f3070g = "/v2/getter";
+
+    /* renamed from: h  reason: collision with root package name */
+    public static String f3071h = "/bccs/upload";
+    public static String i = "https://ack.tuisong.baidu.com";
+    public static String j = "/click";
+    public static String k = "api.tuisong.baidu.com";
+    public static String m = "sa.tuisong.baidu.com";
+    public static boolean o = false;
+    public static String[] l = {"api0.tuisong.baidu.com", "api1.tuisong.baidu.com", "api2.tuisong.baidu.com", "api3.tuisong.baidu.com", "api4.tuisong.baidu.com", "api5.tuisong.baidu.com", "api6.tuisong.baidu.com", "api7.tuisong.baidu.com", "api8.tuisong.baidu.com", "api9.tuisong.baidu.com"};
+    public static String[] n = {"sa0.tuisong.baidu.com", "sa1.tuisong.baidu.com", "sa2.tuisong.baidu.com", "sa3.tuisong.baidu.com", "sa4.tuisong.baidu.com", "sa5.tuisong.baidu.com", "sa6.tuisong.baidu.com", "sa7.tuisong.baidu.com", "sa8.tuisong.baidu.com", "sa9.tuisong.baidu.com"};
 
     public static int a(Context context) {
-        return m.o(context) ? b : f1161a;
+        return m.o(context) ? f3065b : f3064a;
     }
 
     public static String a() {
-        return "http://" + c;
+        return "http://" + k;
     }
 
     public static String b() {
-        return SapiUtils.COOKIE_HTTPS_URL_PREFIX + c;
+        return "https://" + k;
     }
 
     public static void b(Context context) {
-        Throwable th;
-        FileInputStream fileInputStream;
-        FileInputStream fileInputStream2;
-        if (!context.getPackageName().startsWith("com.baidu.push")) {
+        if (!PushSettings.f(context)) {
             String a2 = PushSettings.a(context);
             if (TextUtils.isEmpty(a2) || a2.length() <= 0) {
                 return;
             }
             try {
                 int parseInt = Integer.parseInt(a2.substring(a2.length() - 1));
-                c = d[parseInt % 10];
-                e = f[parseInt % 10];
+                k = l[parseInt % 10];
+                m = n[parseInt % 10];
                 return;
             } catch (Exception e2) {
                 new b.c(context).a(Log.getStackTraceString(e2)).a();
                 return;
             }
         }
-        File file = new File(Environment.getExternalStorageDirectory(), "pushservice.cfg");
+        File file = new File(context.getExternalFilesDir("").getAbsolutePath(), "pushservice.cfg");
         if (!file.exists()) {
             return;
         }
         Properties properties = new Properties();
+        FileInputStream fileInputStream = null;
         try {
-            if (m.k(context, "android.permission.WRITE_EXTERNAL_STORAGE")) {
-                fileInputStream2 = new FileInputStream(file);
+            if (m.k(context, StorageUtils.EXTERNAL_STORAGE_PERMISSION)) {
+                FileInputStream fileInputStream2 = new FileInputStream(file);
                 try {
                     properties.load(fileInputStream2);
-                } catch (Exception e3) {
-                    com.baidu.android.pushservice.e.b.a(context, fileInputStream2);
-                    return;
-                } catch (Throwable th2) {
-                    th = th2;
                     fileInputStream = fileInputStream2;
-                    com.baidu.android.pushservice.e.b.a(context, fileInputStream);
+                } catch (Exception unused) {
+                    fileInputStream = fileInputStream2;
+                    com.baidu.android.pushservice.e.c.a(context, fileInputStream);
+                    return;
+                } catch (Throwable th) {
+                    th = th;
+                    fileInputStream = fileInputStream2;
+                    com.baidu.android.pushservice.e.c.a(context, fileInputStream);
                     throw th;
                 }
             } else {
@@ -82,85 +104,99 @@ public final class h {
                     properties.put("socket_server_port", WbAuthConstants.AUTH_FAILED_QUICK_NULL_TOKEN_ERROR_CODE);
                 }
                 properties.put("socket_server", "10.95.41.15");
-                fileInputStream2 = null;
             }
             String property = properties.getProperty("http_server");
             if (!TextUtils.isEmpty(property)) {
                 if (property.startsWith("http://")) {
                     property = property.replace("http://", "");
                 }
-                c = property;
+                k = property;
             }
             String property2 = properties.getProperty("socket_server");
             if (!TextUtils.isEmpty(property2)) {
-                e = property2;
+                m = property2;
+            }
+            String property3 = properties.getProperty("data_update_server");
+            if (!TextUtils.isEmpty(property3)) {
+                f3066c = property3;
+            }
+            String property4 = properties.getProperty("push_ack_server");
+            if (!TextUtils.isEmpty(property4)) {
+                i = property4;
             }
             if (m.o(context)) {
-                String property3 = properties.getProperty("socket_server_port_v3");
-                if (!TextUtils.isEmpty(property3)) {
-                    b = Integer.parseInt(property3);
+                String property5 = properties.getProperty("socket_server_port_v3");
+                if (!TextUtils.isEmpty(property5)) {
+                    f3065b = Integer.parseInt(property5);
                 }
             } else {
-                String property4 = properties.getProperty("socket_server_port");
-                if (!TextUtils.isEmpty(property4)) {
-                    f1161a = Integer.parseInt(property4);
+                String property6 = properties.getProperty("socket_server_port");
+                if (!TextUtils.isEmpty(property6)) {
+                    f3064a = Integer.parseInt(property6);
                 }
             }
-            if (f.f1146a == 0) {
-                String property5 = properties.getProperty(Constants.API_KEY);
-                if (TextUtils.equals(properties.getProperty("pkg_name"), context.getPackageName()) && !TextUtils.isEmpty(property5)) {
-                    f.b = property5;
+            if (f.f3008a == 0) {
+                String property7 = properties.getProperty(Constants.API_KEY);
+                if (TextUtils.equals(properties.getProperty(EmotionResourceInfo.JSON_KEY_PKG_NAME), context.getPackageName()) && !TextUtils.isEmpty(property7)) {
+                    f.f3009b = property7;
                 }
             }
-            g = true;
-            com.baidu.android.pushservice.e.b.a(context, fileInputStream2);
-        } catch (Exception e4) {
-            fileInputStream2 = null;
-        } catch (Throwable th3) {
-            th = th3;
-            fileInputStream = null;
+            o = true;
+            com.baidu.android.pushservice.e.c.a(context, fileInputStream);
+        } catch (Exception unused2) {
+        } catch (Throwable th2) {
+            th = th2;
         }
     }
 
     public static String c() {
-        return c;
+        return k;
     }
 
     public static String c(Context context) {
         String a2 = PushSettings.a(context);
-        if (TextUtils.isEmpty(a2) || a2.length() <= 0) {
-            return "sa.tuisong.baidu.com";
+        if (!TextUtils.isEmpty(a2) && a2.length() > 0) {
+            try {
+                return n[Integer.parseInt(a2.substring(a2.length() - 1)) % 10];
+            } catch (Exception e2) {
+                new b.c(context).a(Log.getStackTraceString(e2)).a();
+            }
         }
-        try {
-            return f[Integer.parseInt(a2.substring(a2.length() - 1)) % 10];
-        } catch (Exception e2) {
-            new b.c(context).a(Log.getStackTraceString(e2)).a();
-            return "sa.tuisong.baidu.com";
-        }
+        return "sa.tuisong.baidu.com";
     }
 
     public static String d() {
-        return e;
+        return m;
     }
 
     public static String d(Context context) {
         String a2 = PushSettings.a(context);
-        if (TextUtils.isEmpty(a2) || a2.length() <= 0) {
-            return "api.tuisong.baidu.com";
+        if (!TextUtils.isEmpty(a2) && a2.length() > 0) {
+            try {
+                return l[Integer.parseInt(a2.substring(a2.length() - 1)) % 10];
+            } catch (Exception e2) {
+                new b.c(context).a(Log.getStackTraceString(e2)).a();
+            }
         }
-        try {
-            return d[Integer.parseInt(a2.substring(a2.length() - 1)) % 10];
-        } catch (Exception e2) {
-            new b.c(context).a(Log.getStackTraceString(e2)).a();
-            return "api.tuisong.baidu.com";
-        }
+        return "api.tuisong.baidu.com";
     }
 
     public static String e() {
-        return g ? a() + "/rest/2.0/channel/" : b() + "/rest/2.0/channel/";
+        StringBuilder sb;
+        String b2;
+        if (o) {
+            sb = new StringBuilder();
+            b2 = a();
+        } else {
+            sb = new StringBuilder();
+            b2 = b();
+        }
+        sb.append(b2);
+        sb.append("/rest/2.0/channel/");
+        return sb.toString();
     }
 
     public static boolean f() {
-        return g;
+        return o;
     }
 }

@@ -3,114 +3,130 @@ package com.baidu.tieba.square.flist;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.cache.l;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
 import com.baidu.tieba.square.flist.ForumListModel;
-/* loaded from: classes7.dex */
+import d.b.b.e.d.l;
+/* loaded from: classes5.dex */
 public class ForumListDetailModel extends BdBaseModel<ForumListActivity> {
-    private TbPageContext<ForumListActivity> eWx;
-    private boolean isFirst;
-    private ForumListModel.RequestParams nsU;
-    private boolean nsz;
-    private a nts;
-    private b ntt;
 
-    /* loaded from: classes7.dex */
-    public interface a {
+    /* renamed from: e  reason: collision with root package name */
+    public TbPageContext<ForumListActivity> f21207e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public ForumListModel.RequestParams f21208f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public b f21209g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public c f21210h;
+    public boolean i;
+    public boolean j;
+
+    /* loaded from: classes5.dex */
+    public interface b {
         void a(boolean z, int i, ForumListModel forumListModel, String str, boolean z2);
     }
 
-    public ForumListDetailModel(TbPageContext<ForumListActivity> tbPageContext, ForumListModel.RequestParams requestParams) {
-        super(tbPageContext);
-        this.isFirst = true;
-        this.nsz = false;
-        this.eWx = tbPageContext;
-        this.nsU = requestParams;
-    }
+    /* loaded from: classes5.dex */
+    public class c extends BdAsyncTask<Void, Void, ForumListModel> {
 
-    public void a(ForumListModel.RequestParams requestParams) {
-        this.nsU = requestParams;
-    }
+        /* renamed from: a  reason: collision with root package name */
+        public ForumListModel f21211a;
 
-    public void a(a aVar) {
-        this.nts = aVar;
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.base.BdBaseModel
-    public boolean LoadData() {
-        this.ntt = new b();
-        this.ntt.execute(new Void[0]);
-        return true;
-    }
-
-    @Override // com.baidu.adp.base.BdBaseModel
-    public boolean cancelLoadData() {
-        if (this.ntt == null) {
-            return false;
-        }
-        this.ntt.cancel();
-        return true;
-    }
-
-    /* loaded from: classes7.dex */
-    private class b extends BdAsyncTask<Void, Void, ForumListModel> {
-        ForumListModel ntu;
-
-        private b() {
-            this.ntu = new ForumListModel(ForumListDetailModel.this.eWx);
+        public c() {
+            this.f21211a = new ForumListModel(ForumListDetailModel.this.f21207e);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: m */
-        public void onProgressUpdate(Void... voidArr) {
-            super.onProgressUpdate(voidArr);
-            if (this.ntu != null) {
-                ForumListDetailModel.this.nts.a(true, this.ntu.getErrorCode(), this.ntu, this.ntu.getErrorString(), ForumListDetailModel.this.nsz);
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX INFO: Access modifiers changed from: protected */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: l */
+        /* renamed from: b */
         public ForumListModel doInBackground(Void... voidArr) {
+            String str;
             try {
-                if (ForumListDetailModel.this.isFirst) {
-                    l<String> Az = com.baidu.tbadk.core.c.a.bqt().Az("tb.my_posts");
-                    String str = Az != null ? Az.get(TbadkCoreApplication.getCurrentAccount() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + ForumListDetailModel.this.nsU.menu_name + "_list") : null;
+                if (ForumListDetailModel.this.i) {
+                    l<String> g2 = d.b.h0.r.r.a.f().g("tb.my_posts");
+                    if (g2 != null) {
+                        str = g2.get(TbadkCoreApplication.getCurrentAccount() + "_" + ForumListDetailModel.this.f21208f.menu_name + ForumListModel.KEY);
+                    } else {
+                        str = null;
+                    }
                     if (str != null) {
-                        this.ntu = (ForumListModel) OrmObject.objectWithJsonStr(str, ForumListModel.class);
-                        if (this.ntu != null) {
+                        ForumListModel forumListModel = (ForumListModel) OrmObject.objectWithJsonStr(str, ForumListModel.class);
+                        this.f21211a = forumListModel;
+                        if (forumListModel != null) {
                             publishProgress(new Void[0]);
                         }
-                        ForumListDetailModel.this.nsz = true;
+                        ForumListDetailModel.this.j = true;
                     }
                 }
-                ForumListDetailModel.this.isFirst = false;
-                return ForumListModel.new_fetch(ForumListDetailModel.this.nsU);
-            } catch (Exception e) {
-                BdLog.detailException(e);
+                ForumListDetailModel.this.i = false;
+                return ForumListModel.new_fetch(ForumListDetailModel.this.f21208f);
+            } catch (Exception e2) {
+                BdLog.detailException(e2);
                 return null;
             }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: a */
+        /* renamed from: c */
         public void onPostExecute(ForumListModel forumListModel) {
             if (forumListModel != null && forumListModel.isOk()) {
-                ForumListDetailModel.this.nts.a(true, forumListModel.getErrorCode(), forumListModel, forumListModel.getErrorString(), ForumListDetailModel.this.nsz);
+                ForumListDetailModel.this.f21209g.a(true, forumListModel.getErrorCode(), forumListModel, forumListModel.getErrorString(), ForumListDetailModel.this.j);
             } else {
-                ForumListDetailModel.this.nts.a(false, 0, forumListModel, ForumListDetailModel.this.eWx.getString(R.string.neterror), ForumListDetailModel.this.nsz);
+                ForumListDetailModel.this.f21209g.a(false, 0, forumListModel, ForumListDetailModel.this.f21207e.getString(R.string.neterror), ForumListDetailModel.this.j);
             }
         }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: d */
+        public void onProgressUpdate(Void... voidArr) {
+            super.onProgressUpdate(voidArr);
+            if (this.f21211a != null) {
+                b bVar = ForumListDetailModel.this.f21209g;
+                int errorCode = this.f21211a.getErrorCode();
+                ForumListModel forumListModel = this.f21211a;
+                bVar.a(true, errorCode, forumListModel, forumListModel.getErrorString(), ForumListDetailModel.this.j);
+            }
+        }
+    }
+
+    public ForumListDetailModel(TbPageContext<ForumListActivity> tbPageContext, ForumListModel.RequestParams requestParams) {
+        super(tbPageContext);
+        this.i = true;
+        this.j = false;
+        this.f21207e = tbPageContext;
+        this.f21208f = requestParams;
+    }
+
+    public void A(ForumListModel.RequestParams requestParams) {
+        this.f21208f = requestParams;
+    }
+
+    @Override // com.baidu.adp.base.BdBaseModel
+    public boolean LoadData() {
+        c cVar = new c();
+        this.f21210h = cVar;
+        cVar.execute(new Void[0]);
+        return true;
+    }
+
+    @Override // com.baidu.adp.base.BdBaseModel
+    public boolean cancelLoadData() {
+        c cVar = this.f21210h;
+        if (cVar == null) {
+            return false;
+        }
+        cVar.cancel();
+        return true;
+    }
+
+    public void z(b bVar) {
+        this.f21209g = bVar;
     }
 }

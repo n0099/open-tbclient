@@ -1,12 +1,12 @@
 package com.kwad.sdk.contentalliance.home.b;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class k extends com.kwad.sdk.contentalliance.home.e {
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.contentalliance.home.e, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        if (((com.kwad.sdk.plugin.d) com.kwad.sdk.plugin.g.a(com.kwad.sdk.plugin.d.class)).a(this.f5821a.e)) {
-            this.f5821a.c.setInitStartPosition(this.f5821a.j);
+        if (((com.kwad.sdk.plugin.d) com.kwad.sdk.plugin.g.a(com.kwad.sdk.plugin.d.class)).a(((com.kwad.sdk.contentalliance.home.e) this).f32768a.f32773e)) {
+            com.kwad.sdk.contentalliance.home.f fVar = ((com.kwad.sdk.contentalliance.home.e) this).f32768a;
+            fVar.f32771c.setInitStartPosition(fVar.j);
         }
     }
 }

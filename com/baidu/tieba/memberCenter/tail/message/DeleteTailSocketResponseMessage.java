@@ -2,28 +2,17 @@ package com.baidu.tieba.memberCenter.tail.message;
 
 import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
-import com.baidu.tieba.memberCenter.tail.data.c;
+import com.baidu.tbadk.core.util.IDataResponseMessage;
 import com.squareup.wire.Wire;
+import d.b.i0.q1.h.a.c;
 import tbclient.DeleteTail.DeleteTailResIdl;
-/* loaded from: classes8.dex */
-public class DeleteTailSocketResponseMessage extends SocketResponsedMessage {
-    private c resultData;
+import tbclient.Error;
+/* loaded from: classes3.dex */
+public class DeleteTailSocketResponseMessage extends SocketResponsedMessage implements IDataResponseMessage<c> {
+    public c resultData;
 
     public DeleteTailSocketResponseMessage() {
-        super(CmdConfigSocket.CMD_TAIL_DELETE);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* renamed from: getResultData */
-    public c m40getResultData() {
-        return this.resultData;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.message.a
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
-        this.resultData = getResult(this, i, bArr);
+        super(305103);
     }
 
     public static c getResult(ResponsedMessage<?> responsedMessage, int i, byte[] bArr) throws Exception {
@@ -31,15 +20,29 @@ public class DeleteTailSocketResponseMessage extends SocketResponsedMessage {
         if (deleteTailResIdl == null) {
             return null;
         }
-        if (deleteTailResIdl.error != null) {
-            responsedMessage.setError(deleteTailResIdl.error.errorno.intValue());
+        Error error = deleteTailResIdl.error;
+        if (error != null) {
+            responsedMessage.setError(error.errorno.intValue());
             responsedMessage.setErrorString(deleteTailResIdl.error.errmsg);
         }
         if (deleteTailResIdl.data == null) {
             return null;
         }
         c cVar = new c();
-        cVar.a(deleteTailResIdl.data);
+        cVar.b(deleteTailResIdl.data);
         return cVar;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
+    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
+        this.resultData = getResult(this, i, bArr);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX WARN: Can't rename method to resolve collision */
+    @Override // com.baidu.tbadk.core.util.IDataResponseMessage
+    public c getResultData() {
+        return this.resultData;
     }
 }

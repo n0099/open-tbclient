@@ -10,37 +10,214 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.widget.ImageView;
 import androidx.core.view.MotionEventCompat;
-import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.util.BitmapHelper;
-import com.baidu.tbadk.util.h;
 import com.baidu.tieba.R;
-import com.baidu.tieba.write.write.sticker.a;
-import com.baidu.tieba.write.write.sticker.a.b;
-/* loaded from: classes7.dex */
+import d.b.b.e.p.l;
+import d.b.h0.z0.h;
+import d.b.i0.u3.v.n.a;
+import d.b.i0.u3.v.n.b.b;
+/* loaded from: classes5.dex */
 public class StickerView extends ImageView {
-    private float brB;
-    private float brC;
-    private long gcD;
-    private Context mContext;
-    private Paint mPaint;
-    private int mode;
-    private a opP;
-    private Matrix opQ;
-    private Matrix opR;
-    private PointF opS;
-    private b opT;
-    private boolean opU;
-    private boolean opV;
-    private com.baidu.tieba.write.write.sticker.a.a opW;
-    private float opX;
-    private float opY;
 
-    public void setmOnStickerActionListener(com.baidu.tieba.write.write.sticker.a.a aVar) {
-        this.opW = aVar;
-    }
+    /* renamed from: e  reason: collision with root package name */
+    public Context f22598e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public a f22599f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public Matrix f22600g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public Matrix f22601h;
+    public PointF i;
+    public b j;
+    public Paint k;
+    public int l;
+    public boolean m;
+    public boolean n;
+    public d.b.i0.u3.v.n.b.a o;
+    public long p;
+    public float q;
+    public float r;
+    public float s;
+    public float t;
 
     public StickerView(Context context) {
         this(context, null);
+    }
+
+    public final void a(Context context) {
+        this.f22598e = context;
+        setScaleType(ImageView.ScaleType.MATRIX);
+        this.j = new b(context);
+        Paint paint = new Paint();
+        this.k = paint;
+        paint.setColor(-1);
+        this.k.setStrokeWidth(l.g(context, R.dimen.ds4));
+        this.k.setAntiAlias(true);
+    }
+
+    public final boolean b(a aVar, MotionEvent motionEvent) {
+        return d.b.i0.u3.v.n.c.a.e(h.b(aVar.c(), aVar.b()), motionEvent.getX(), motionEvent.getY());
+    }
+
+    @Override // android.widget.ImageView, android.view.View
+    public void onDraw(Canvas canvas) {
+        a aVar = this.f22599f;
+        if (aVar == null) {
+            return;
+        }
+        aVar.a(canvas);
+        float[] b2 = h.b(this.f22599f.c(), this.f22599f.b());
+        float f2 = b2[0];
+        float f3 = b2[1];
+        float f4 = b2[2];
+        float f5 = b2[3];
+        float f6 = b2[4];
+        float f7 = b2[5];
+        float f8 = b2[6];
+        float f9 = b2[7];
+        if (this.n) {
+            canvas.drawLine(f2, f3, f4, f5, this.k);
+            canvas.drawLine(f4, f5, f8, f9, this.k);
+            canvas.drawLine(f8, f9, f6, f7, this.k);
+            canvas.drawLine(f6, f7, f2, f3, this.k);
+            canvas.drawPoint(f2, f3, this.k);
+            canvas.drawPoint(f4, f5, this.k);
+            canvas.drawPoint(f6, f7, this.k);
+            canvas.drawPoint(f8, f9, this.k);
+            this.j.a(canvas, f4, f5);
+        }
+    }
+
+    @Override // android.view.View
+    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
+        super.onLayout(z, i, i2, i3, i4);
+        if (z) {
+            this.f22599f.b().postTranslate((getWidth() - this.f22599f.e()) / 2, (getHeight() - this.f22599f.d()) / 2);
+        }
+    }
+
+    @Override // android.view.View
+    public boolean onTouchEvent(MotionEvent motionEvent) {
+        d.b.i0.u3.v.n.b.a aVar;
+        int actionMasked = MotionEventCompat.getActionMasked(motionEvent);
+        if (actionMasked != 0) {
+            if (actionMasked != 1) {
+                if (actionMasked == 2) {
+                    if (!this.m || motionEvent.getX() != this.q || motionEvent.getY() != this.r) {
+                        this.m = false;
+                    }
+                    int i = this.l;
+                    if (i == 2) {
+                        this.f22601h.set(this.f22600g);
+                        float d2 = d.b.i0.u3.v.n.c.a.d(motionEvent) / this.s;
+                        float c2 = d.b.i0.u3.v.n.c.a.c(motionEvent) - this.t;
+                        PointF b2 = d.b.i0.u3.v.n.c.a.b(motionEvent);
+                        Matrix matrix = this.f22601h;
+                        PointF pointF = this.i;
+                        matrix.postScale(d2, d2, pointF.x, pointF.y);
+                        Matrix matrix2 = this.f22601h;
+                        PointF pointF2 = this.i;
+                        matrix2.postRotate(c2, pointF2.x, pointF2.y);
+                        Matrix matrix3 = this.f22601h;
+                        float f2 = b2.x;
+                        PointF pointF3 = this.i;
+                        matrix3.postTranslate(f2 - pointF3.x, b2.y - pointF3.y);
+                        this.f22599f.b().set(this.f22601h);
+                    } else if (i == 1) {
+                        this.f22601h.set(this.f22600g);
+                        this.f22601h.postTranslate(motionEvent.getX() - this.q, motionEvent.getY() - this.r);
+                        this.f22599f.b().set(this.f22601h);
+                    }
+                    if (this.m) {
+                        return true;
+                    }
+                    invalidate();
+                    return true;
+                } else if (actionMasked == 5) {
+                    this.l = 2;
+                    this.s = d.b.i0.u3.v.n.c.a.d(motionEvent);
+                    this.t = d.b.i0.u3.v.n.c.a.c(motionEvent);
+                    this.i = d.b.i0.u3.v.n.c.a.b(motionEvent);
+                    this.f22600g.set(this.f22599f.b());
+                    return true;
+                } else if (actionMasked != 6) {
+                    return true;
+                }
+            }
+            this.l = 0;
+            this.i = null;
+            d.b.i0.u3.v.n.b.a aVar2 = this.o;
+            if (aVar2 != null) {
+                if (this.m) {
+                    aVar2.d(this);
+                }
+                if (this.n) {
+                    this.m = false;
+                }
+                this.o.c(this, this.m);
+                invalidate();
+                return true;
+            }
+            return true;
+        }
+        this.q = motionEvent.getX();
+        this.r = motionEvent.getY();
+        if (this.f22599f == null) {
+            return false;
+        }
+        if (this.n && this.j.b(motionEvent)) {
+            this.m = false;
+            d.b.i0.u3.v.n.b.a aVar3 = this.o;
+            if (aVar3 != null) {
+                aVar3.a();
+                return true;
+            }
+            return true;
+        } else if (b(this.f22599f, motionEvent)) {
+            this.m = true;
+            if (System.currentTimeMillis() - this.p <= 300 && (aVar = this.o) != null) {
+                aVar.b(this);
+                this.m = false;
+            }
+            this.p = System.currentTimeMillis();
+            this.l = 1;
+            this.f22600g.set(this.f22599f.b());
+            return true;
+        } else {
+            this.m = false;
+            d.b.i0.u3.v.n.b.a aVar4 = this.o;
+            if (aVar4 != null) {
+                aVar4.c(this, false);
+                invalidate();
+            }
+            return false;
+        }
+    }
+
+    public void setEdit(boolean z) {
+        this.n = z;
+        postInvalidate();
+    }
+
+    @Override // android.widget.ImageView
+    public void setImageBitmap(Bitmap bitmap) {
+        this.f22599f = new a(bitmap);
+    }
+
+    @Override // android.widget.ImageView
+    public void setImageResource(int i) {
+        this.f22599f = new a(BitmapHelper.getResBitmap(this.f22598e, i));
+    }
+
+    public void setRemoveRes(int i) {
+        this.j.c(i);
+    }
+
+    public void setmOnStickerActionListener(d.b.i0.u3.v.n.b.a aVar) {
+        this.o = aVar;
     }
 
     public StickerView(Context context, AttributeSet attributeSet) {
@@ -49,169 +226,12 @@ public class StickerView extends ImageView {
 
     public StickerView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.opQ = new Matrix();
-        this.opR = new Matrix();
-        this.opS = new PointF();
-        this.opU = true;
-        this.opV = false;
-        this.gcD = 0L;
-        init(context);
-    }
-
-    private void init(Context context) {
-        this.mContext = context;
-        setScaleType(ImageView.ScaleType.MATRIX);
-        this.opT = new b(context);
-        this.mPaint = new Paint();
-        this.mPaint.setColor(-1);
-        this.mPaint.setStrokeWidth(l.getDimens(context, R.dimen.ds4));
-        this.mPaint.setAntiAlias(true);
-    }
-
-    @Override // android.view.View
-    protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
-        super.onLayout(z, i, i2, i3, i4);
-        if (z) {
-            this.opP.getMatrix().postTranslate((getWidth() - this.opP.eaa()) / 2, (getHeight() - this.opP.eab()) / 2);
-        }
-    }
-
-    @Override // android.widget.ImageView, android.view.View
-    protected void onDraw(Canvas canvas) {
-        if (this.opP != null) {
-            this.opP.draw(canvas);
-            float[] a2 = h.a(this.opP.eac(), this.opP.getMatrix());
-            float f = a2[0];
-            float f2 = a2[1];
-            float f3 = a2[2];
-            float f4 = a2[3];
-            float f5 = a2[4];
-            float f6 = a2[5];
-            float f7 = a2[6];
-            float f8 = a2[7];
-            if (this.opV) {
-                canvas.drawLine(f, f2, f3, f4, this.mPaint);
-                canvas.drawLine(f3, f4, f7, f8, this.mPaint);
-                canvas.drawLine(f7, f8, f5, f6, this.mPaint);
-                canvas.drawLine(f5, f6, f, f2, this.mPaint);
-                canvas.drawPoint(f, f2, this.mPaint);
-                canvas.drawPoint(f3, f4, this.mPaint);
-                canvas.drawPoint(f5, f6, this.mPaint);
-                canvas.drawPoint(f7, f8, this.mPaint);
-                this.opT.a(canvas, f3, f4);
-            }
-        }
-    }
-
-    @Override // android.view.View
-    public boolean onTouchEvent(MotionEvent motionEvent) {
-        boolean z = true;
-        switch (MotionEventCompat.getActionMasked(motionEvent)) {
-            case 0:
-                this.brB = motionEvent.getX();
-                this.brC = motionEvent.getY();
-                if (this.opP == null) {
-                    return false;
-                }
-                if (this.opV && this.opT.al(motionEvent)) {
-                    this.opU = false;
-                    if (this.opW != null) {
-                        this.opW.cRD();
-                        break;
-                    }
-                } else if (a(this.opP, motionEvent)) {
-                    this.opU = true;
-                    if (System.currentTimeMillis() - this.gcD <= 300 && this.opW != null) {
-                        this.opW.a(this);
-                        this.opU = false;
-                    }
-                    this.gcD = System.currentTimeMillis();
-                    this.mode = 1;
-                    this.opQ.set(this.opP.getMatrix());
-                    break;
-                } else {
-                    this.opU = false;
-                    if (this.opW == null) {
-                        z = false;
-                        break;
-                    } else {
-                        this.opW.a(this, this.opU);
-                        invalidate();
-                        z = false;
-                        break;
-                    }
-                }
-                break;
-            case 1:
-            case 6:
-                this.mode = 0;
-                this.opS = null;
-                if (this.opW != null) {
-                    if (this.opU) {
-                        this.opW.b(this);
-                    }
-                    if (this.opV) {
-                        this.opU = false;
-                    }
-                    this.opW.a(this, this.opU);
-                    invalidate();
-                    break;
-                }
-                break;
-            case 2:
-                if (!this.opU || motionEvent.getX() != this.brB || motionEvent.getY() != this.brC) {
-                    this.opU = false;
-                }
-                if (this.mode == 2) {
-                    this.opR.set(this.opQ);
-                    float an = com.baidu.tieba.write.write.sticker.b.a.an(motionEvent) / this.opX;
-                    float ao = com.baidu.tieba.write.write.sticker.b.a.ao(motionEvent) - this.opY;
-                    PointF am = com.baidu.tieba.write.write.sticker.b.a.am(motionEvent);
-                    this.opR.postScale(an, an, this.opS.x, this.opS.y);
-                    this.opR.postRotate(ao, this.opS.x, this.opS.y);
-                    this.opR.postTranslate(am.x - this.opS.x, am.y - this.opS.y);
-                    this.opP.getMatrix().set(this.opR);
-                } else if (this.mode == 1) {
-                    this.opR.set(this.opQ);
-                    this.opR.postTranslate(motionEvent.getX() - this.brB, motionEvent.getY() - this.brC);
-                    this.opP.getMatrix().set(this.opR);
-                }
-                if (!this.opU) {
-                    invalidate();
-                    break;
-                }
-                break;
-            case 5:
-                this.mode = 2;
-                this.opX = com.baidu.tieba.write.write.sticker.b.a.an(motionEvent);
-                this.opY = com.baidu.tieba.write.write.sticker.b.a.ao(motionEvent);
-                this.opS = com.baidu.tieba.write.write.sticker.b.a.am(motionEvent);
-                this.opQ.set(this.opP.getMatrix());
-                break;
-        }
-        return z;
-    }
-
-    private boolean a(a aVar, MotionEvent motionEvent) {
-        return com.baidu.tieba.write.write.sticker.b.a.b(h.a(aVar.eac(), aVar.getMatrix()), motionEvent.getX(), motionEvent.getY());
-    }
-
-    @Override // android.widget.ImageView
-    public void setImageResource(int i) {
-        this.opP = new a(BitmapHelper.getResBitmap(this.mContext, i));
-    }
-
-    @Override // android.widget.ImageView
-    public void setImageBitmap(Bitmap bitmap) {
-        this.opP = new a(bitmap);
-    }
-
-    public void setEdit(boolean z) {
-        this.opV = z;
-        postInvalidate();
-    }
-
-    public void setRemoveRes(int i) {
-        this.opT.LJ(i);
+        this.f22600g = new Matrix();
+        this.f22601h = new Matrix();
+        this.i = new PointF();
+        this.m = true;
+        this.n = false;
+        this.p = 0L;
+        a(context);
     }
 }

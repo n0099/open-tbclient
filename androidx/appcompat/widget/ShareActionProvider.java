@@ -13,20 +13,58 @@ import androidx.appcompat.R;
 import androidx.appcompat.content.res.AppCompatResources;
 import androidx.appcompat.widget.ActivityChooserModel;
 import androidx.core.view.ActionProvider;
-/* loaded from: classes5.dex */
+/* loaded from: classes.dex */
 public class ShareActionProvider extends ActionProvider {
-    private static final int DEFAULT_INITIAL_ACTIVITY_COUNT = 4;
+    public static final int DEFAULT_INITIAL_ACTIVITY_COUNT = 4;
     public static final String DEFAULT_SHARE_HISTORY_FILE_NAME = "share_history.xml";
-    final Context mContext;
-    private int mMaxShownActivityCount;
-    private ActivityChooserModel.OnChooseActivityListener mOnChooseActivityListener;
-    private final ShareMenuItemOnMenuItemClickListener mOnMenuItemClickListener;
-    OnShareTargetSelectedListener mOnShareTargetSelectedListener;
-    String mShareHistoryFileName;
+    public final Context mContext;
+    public int mMaxShownActivityCount;
+    public ActivityChooserModel.OnChooseActivityListener mOnChooseActivityListener;
+    public final ShareMenuItemOnMenuItemClickListener mOnMenuItemClickListener;
+    public OnShareTargetSelectedListener mOnShareTargetSelectedListener;
+    public String mShareHistoryFileName;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes.dex */
     public interface OnShareTargetSelectedListener {
         boolean onShareTargetSelected(ShareActionProvider shareActionProvider, Intent intent);
+    }
+
+    /* loaded from: classes.dex */
+    public class ShareActivityChooserModelPolicy implements ActivityChooserModel.OnChooseActivityListener {
+        public ShareActivityChooserModelPolicy() {
+        }
+
+        @Override // androidx.appcompat.widget.ActivityChooserModel.OnChooseActivityListener
+        public boolean onChooseActivity(ActivityChooserModel activityChooserModel, Intent intent) {
+            ShareActionProvider shareActionProvider = ShareActionProvider.this;
+            OnShareTargetSelectedListener onShareTargetSelectedListener = shareActionProvider.mOnShareTargetSelectedListener;
+            if (onShareTargetSelectedListener != null) {
+                onShareTargetSelectedListener.onShareTargetSelected(shareActionProvider, intent);
+                return false;
+            }
+            return false;
+        }
+    }
+
+    /* loaded from: classes.dex */
+    public class ShareMenuItemOnMenuItemClickListener implements MenuItem.OnMenuItemClickListener {
+        public ShareMenuItemOnMenuItemClickListener() {
+        }
+
+        @Override // android.view.MenuItem.OnMenuItemClickListener
+        public boolean onMenuItemClick(MenuItem menuItem) {
+            ShareActionProvider shareActionProvider = ShareActionProvider.this;
+            Intent chooseActivity = ActivityChooserModel.get(shareActionProvider.mContext, shareActionProvider.mShareHistoryFileName).chooseActivity(menuItem.getItemId());
+            if (chooseActivity != null) {
+                String action = chooseActivity.getAction();
+                if ("android.intent.action.SEND".equals(action) || "android.intent.action.SEND_MULTIPLE".equals(action)) {
+                    ShareActionProvider.this.updateIntent(chooseActivity);
+                }
+                ShareActionProvider.this.mContext.startActivity(chooseActivity);
+                return true;
+            }
+            return true;
+        }
     }
 
     public ShareActionProvider(Context context) {
@@ -37,9 +75,19 @@ public class ShareActionProvider extends ActionProvider {
         this.mContext = context;
     }
 
-    public void setOnShareTargetSelectedListener(OnShareTargetSelectedListener onShareTargetSelectedListener) {
-        this.mOnShareTargetSelectedListener = onShareTargetSelectedListener;
-        setActivityChooserPolicyIfNeeded();
+    private void setActivityChooserPolicyIfNeeded() {
+        if (this.mOnShareTargetSelectedListener == null) {
+            return;
+        }
+        if (this.mOnChooseActivityListener == null) {
+            this.mOnChooseActivityListener = new ShareActivityChooserModelPolicy();
+        }
+        ActivityChooserModel.get(this.mContext, this.mShareHistoryFileName).setOnChooseActivityListener(this.mOnChooseActivityListener);
+    }
+
+    @Override // androidx.core.view.ActionProvider
+    public boolean hasSubMenu() {
+        return true;
     }
 
     @Override // androidx.core.view.ActionProvider
@@ -55,11 +103,6 @@ public class ShareActionProvider extends ActionProvider {
         activityChooserView.setDefaultActionButtonContentDescription(R.string.abc_shareactionprovider_share_with_application);
         activityChooserView.setExpandActivityOverflowButtonContentDescription(R.string.abc_shareactionprovider_share_with);
         return activityChooserView;
-    }
-
-    @Override // androidx.core.view.ActionProvider
-    public boolean hasSubMenu() {
-        return true;
     }
 
     @Override // androidx.core.view.ActionProvider
@@ -82,6 +125,11 @@ public class ShareActionProvider extends ActionProvider {
         }
     }
 
+    public void setOnShareTargetSelectedListener(OnShareTargetSelectedListener onShareTargetSelectedListener) {
+        this.mOnShareTargetSelectedListener = onShareTargetSelectedListener;
+        setActivityChooserPolicyIfNeeded();
+    }
+
     public void setShareHistoryFileName(String str) {
         this.mShareHistoryFileName = str;
         setActivityChooserPolicyIfNeeded();
@@ -97,52 +145,7 @@ public class ShareActionProvider extends ActionProvider {
         ActivityChooserModel.get(this.mContext, this.mShareHistoryFileName).setIntent(intent);
     }
 
-    /* loaded from: classes5.dex */
-    private class ShareMenuItemOnMenuItemClickListener implements MenuItem.OnMenuItemClickListener {
-        ShareMenuItemOnMenuItemClickListener() {
-        }
-
-        @Override // android.view.MenuItem.OnMenuItemClickListener
-        public boolean onMenuItemClick(MenuItem menuItem) {
-            Intent chooseActivity = ActivityChooserModel.get(ShareActionProvider.this.mContext, ShareActionProvider.this.mShareHistoryFileName).chooseActivity(menuItem.getItemId());
-            if (chooseActivity != null) {
-                String action = chooseActivity.getAction();
-                if ("android.intent.action.SEND".equals(action) || "android.intent.action.SEND_MULTIPLE".equals(action)) {
-                    ShareActionProvider.this.updateIntent(chooseActivity);
-                }
-                ShareActionProvider.this.mContext.startActivity(chooseActivity);
-                return true;
-            }
-            return true;
-        }
-    }
-
-    private void setActivityChooserPolicyIfNeeded() {
-        if (this.mOnShareTargetSelectedListener != null) {
-            if (this.mOnChooseActivityListener == null) {
-                this.mOnChooseActivityListener = new ShareActivityChooserModelPolicy();
-            }
-            ActivityChooserModel.get(this.mContext, this.mShareHistoryFileName).setOnChooseActivityListener(this.mOnChooseActivityListener);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
-    public class ShareActivityChooserModelPolicy implements ActivityChooserModel.OnChooseActivityListener {
-        ShareActivityChooserModelPolicy() {
-        }
-
-        @Override // androidx.appcompat.widget.ActivityChooserModel.OnChooseActivityListener
-        public boolean onChooseActivity(ActivityChooserModel activityChooserModel, Intent intent) {
-            if (ShareActionProvider.this.mOnShareTargetSelectedListener != null) {
-                ShareActionProvider.this.mOnShareTargetSelectedListener.onShareTargetSelected(ShareActionProvider.this, intent);
-                return false;
-            }
-            return false;
-        }
-    }
-
-    void updateIntent(Intent intent) {
+    public void updateIntent(Intent intent) {
         if (Build.VERSION.SDK_INT >= 21) {
             intent.addFlags(134742016);
         } else {

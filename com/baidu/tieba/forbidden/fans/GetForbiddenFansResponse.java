@@ -1,14 +1,15 @@
 package com.baidu.tieba.forbidden.fans;
 
-import com.baidu.tbadk.core.data.az;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
+import d.b.h0.r.q.z0;
+import d.b.i0.m0.a.a;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class GetForbiddenFansResponse extends JsonHttpResponsedMessage {
-    private ArrayList<a> fansList;
-    private az pageData;
+    public ArrayList<a> fansList;
+    public z0 pageData;
 
     public GetForbiddenFansResponse(int i) {
         super(i);
@@ -26,22 +27,23 @@ public class GetForbiddenFansResponse extends JsonHttpResponsedMessage {
                 this.fansList = new ArrayList<>();
                 for (int i2 = 0; i2 < length; i2++) {
                     a aVar = new a();
-                    aVar.parserJson(optJSONArray.getJSONObject(i2));
-                    if (aVar.id != 0) {
+                    aVar.a(optJSONArray.getJSONObject(i2));
+                    if (aVar.f56806a != 0) {
                         this.fansList.add(aVar);
                     }
                 }
             }
-            this.pageData = new az();
-            this.pageData.parserJson(jSONObject.optJSONObject("page"));
+            z0 z0Var = new z0();
+            this.pageData = z0Var;
+            z0Var.i(jSONObject.optJSONObject("page"));
         }
-    }
-
-    public az getPageData() {
-        return this.pageData;
     }
 
     public ArrayList<a> getFansList() {
         return this.fansList;
+    }
+
+    public z0 getPageData() {
+        return this.pageData;
     }
 }

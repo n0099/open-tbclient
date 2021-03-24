@@ -7,11 +7,19 @@ import java.util.Scanner;
 import org.apache.http.HttpEntity;
 import org.apache.http.NameValuePair;
 @Deprecated
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class URLEncodedUtils {
     public static final String CONTENT_TYPE = "application/x-www-form-urlencoded";
 
     public URLEncodedUtils() {
+        throw new RuntimeException("Stub!");
+    }
+
+    public static String format(List<? extends NameValuePair> list, String str) {
+        throw new RuntimeException("Stub!");
+    }
+
+    public static boolean isEncoded(HttpEntity httpEntity) {
         throw new RuntimeException("Stub!");
     }
 
@@ -23,15 +31,7 @@ public class URLEncodedUtils {
         throw new RuntimeException("Stub!");
     }
 
-    public static boolean isEncoded(HttpEntity httpEntity) {
-        throw new RuntimeException("Stub!");
-    }
-
     public static void parse(List<NameValuePair> list, Scanner scanner, String str) {
-        throw new RuntimeException("Stub!");
-    }
-
-    public static String format(List<? extends NameValuePair> list, String str) {
         throw new RuntimeException("Stub!");
     }
 }

@@ -7,7 +7,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 @Target({ElementType.METHOD})
 @Retention(RetentionPolicy.RUNTIME)
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public @interface OnLifecycleEvent {
     Lifecycle.Event value();
 }

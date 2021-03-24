@@ -3,30 +3,38 @@ package com.vivo.push.c;
 import android.content.Context;
 import com.vivo.push.sdk.PushMessageCallback;
 import java.util.List;
-/* loaded from: classes14.dex */
-final class ae implements Runnable {
+/* loaded from: classes7.dex */
+public final class ae implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ int f8033a;
-    final /* synthetic */ List b;
-    final /* synthetic */ List c;
-    final /* synthetic */ String d;
-    final /* synthetic */ ac e;
+    public final /* synthetic */ int f39414a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    /* renamed from: b  reason: collision with root package name */
+    public final /* synthetic */ List f39415b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public final /* synthetic */ List f39416c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public final /* synthetic */ String f39417d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public final /* synthetic */ ac f39418e;
+
     public ae(ac acVar, int i, List list, List list2, String str) {
-        this.e = acVar;
-        this.f8033a = i;
-        this.b = list;
-        this.c = list2;
-        this.d = str;
+        this.f39418e = acVar;
+        this.f39414a = i;
+        this.f39415b = list;
+        this.f39416c = list2;
+        this.f39417d = str;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
         Context context;
-        PushMessageCallback pushMessageCallback = this.e.b;
-        context = this.e.f8089a;
-        pushMessageCallback.onSetAlias(context, this.f8033a, this.b, this.c, this.d);
+        ac acVar = this.f39418e;
+        PushMessageCallback pushMessageCallback = ((ab) acVar).f39408b;
+        context = acVar.f39588a;
+        pushMessageCallback.onSetAlias(context, this.f39414a, this.f39415b, this.f39416c, this.f39417d);
     }
 }

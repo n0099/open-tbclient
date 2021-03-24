@@ -25,86 +25,122 @@ import com.google.android.material.animation.AnimationUtils;
 import com.google.android.material.animation.AnimatorSetCompat;
 import java.util.ArrayList;
 import java.util.List;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes14.dex */
+/* loaded from: classes6.dex */
 public final class IndicatorViewController {
-    private static final int CAPTION_OPACITY_FADE_ANIMATION_DURATION = 167;
-    private static final int CAPTION_STATE_ERROR = 1;
-    private static final int CAPTION_STATE_HELPER_TEXT = 2;
-    private static final int CAPTION_STATE_NONE = 0;
-    private static final int CAPTION_TRANSLATE_Y_ANIMATION_DURATION = 217;
-    static final int COUNTER_INDEX = 2;
-    static final int ERROR_INDEX = 0;
-    static final int HELPER_INDEX = 1;
+    public static final int CAPTION_OPACITY_FADE_ANIMATION_DURATION = 167;
+    public static final int CAPTION_STATE_ERROR = 1;
+    public static final int CAPTION_STATE_HELPER_TEXT = 2;
+    public static final int CAPTION_STATE_NONE = 0;
+    public static final int CAPTION_TRANSLATE_Y_ANIMATION_DURATION = 217;
+    public static final int COUNTER_INDEX = 2;
+    public static final int ERROR_INDEX = 0;
+    public static final int HELPER_INDEX = 1;
     @Nullable
-    private Animator captionAnimator;
-    private FrameLayout captionArea;
-    private int captionDisplayed;
-    private int captionToShow;
-    private final float captionTranslationYPx;
-    private int captionViewsAdded;
-    private final Context context;
-    private boolean errorEnabled;
-    private CharSequence errorText;
-    private int errorTextAppearance;
-    private TextView errorView;
-    private CharSequence helperText;
-    private boolean helperTextEnabled;
-    private int helperTextTextAppearance;
-    private TextView helperTextView;
-    private LinearLayout indicatorArea;
-    private int indicatorsAdded;
-    private final TextInputLayout textInputView;
-    private Typeface typeface;
+    public Animator captionAnimator;
+    public FrameLayout captionArea;
+    public int captionDisplayed;
+    public int captionToShow;
+    public final float captionTranslationYPx;
+    public int captionViewsAdded;
+    public final Context context;
+    public boolean errorEnabled;
+    public CharSequence errorText;
+    public int errorTextAppearance;
+    public TextView errorView;
+    public CharSequence helperText;
+    public boolean helperTextEnabled;
+    public int helperTextTextAppearance;
+    public TextView helperTextView;
+    public LinearLayout indicatorArea;
+    public int indicatorsAdded;
+    public final TextInputLayout textInputView;
+    public Typeface typeface;
 
     public IndicatorViewController(TextInputLayout textInputLayout) {
-        this.context = textInputLayout.getContext();
+        Context context = textInputLayout.getContext();
+        this.context = context;
         this.textInputView = textInputLayout;
-        this.captionTranslationYPx = this.context.getResources().getDimensionPixelSize(R.dimen.design_textinput_caption_translate_y);
+        this.captionTranslationYPx = context.getResources().getDimensionPixelSize(R.dimen.design_textinput_caption_translate_y);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void showHelper(CharSequence charSequence) {
-        cancelCaptionAnimator();
-        this.helperText = charSequence;
-        this.helperTextView.setText(charSequence);
-        if (this.captionDisplayed != 2) {
-            this.captionToShow = 2;
+    private boolean canAdjustIndicatorPadding() {
+        return (this.indicatorArea == null || this.textInputView.getEditText() == null) ? false : true;
+    }
+
+    private void createCaptionAnimators(List<Animator> list, boolean z, TextView textView, int i, int i2, int i3) {
+        if (textView == null || !z) {
+            return;
         }
-        updateCaptionViewsVisibility(this.captionDisplayed, this.captionToShow, shouldAnimateCaptionView(this.helperTextView, charSequence));
-    }
-
-    void hideHelperText() {
-        cancelCaptionAnimator();
-        if (this.captionDisplayed == 2) {
-            this.captionToShow = 0;
-        }
-        updateCaptionViewsVisibility(this.captionDisplayed, this.captionToShow, shouldAnimateCaptionView(this.helperTextView, null));
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void showError(CharSequence charSequence) {
-        cancelCaptionAnimator();
-        this.errorText = charSequence;
-        this.errorView.setText(charSequence);
-        if (this.captionDisplayed != 1) {
-            this.captionToShow = 1;
-        }
-        updateCaptionViewsVisibility(this.captionDisplayed, this.captionToShow, shouldAnimateCaptionView(this.errorView, charSequence));
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void hideError() {
-        this.errorText = null;
-        cancelCaptionAnimator();
-        if (this.captionDisplayed == 1) {
-            if (this.helperTextEnabled && !TextUtils.isEmpty(this.helperText)) {
-                this.captionToShow = 2;
-            } else {
-                this.captionToShow = 0;
+        if (i == i3 || i == i2) {
+            list.add(createCaptionOpacityAnimator(textView, i3 == i));
+            if (i3 == i) {
+                list.add(createCaptionTranslationYAnimator(textView));
             }
         }
-        updateCaptionViewsVisibility(this.captionDisplayed, this.captionToShow, shouldAnimateCaptionView(this.errorView, null));
+    }
+
+    private ObjectAnimator createCaptionOpacityAnimator(TextView textView, boolean z) {
+        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(textView, View.ALPHA, z ? 1.0f : 0.0f);
+        ofFloat.setDuration(167L);
+        ofFloat.setInterpolator(AnimationUtils.LINEAR_INTERPOLATOR);
+        return ofFloat;
+    }
+
+    private ObjectAnimator createCaptionTranslationYAnimator(TextView textView) {
+        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(textView, View.TRANSLATION_Y, -this.captionTranslationYPx, 0.0f);
+        ofFloat.setDuration(217L);
+        ofFloat.setInterpolator(AnimationUtils.LINEAR_OUT_SLOW_IN_INTERPOLATOR);
+        return ofFloat;
+    }
+
+    @Nullable
+    private TextView getCaptionViewFromDisplayState(int i) {
+        if (i != 1) {
+            if (i != 2) {
+                return null;
+            }
+            return this.helperTextView;
+        }
+        return this.errorView;
+    }
+
+    private boolean isCaptionStateError(int i) {
+        return (i != 1 || this.errorView == null || TextUtils.isEmpty(this.errorText)) ? false : true;
+    }
+
+    private boolean isCaptionStateHelperText(int i) {
+        return (i != 2 || this.helperTextView == null || TextUtils.isEmpty(this.helperText)) ? false : true;
+    }
+
+    private void setCaptionViewVisibilities(int i, int i2) {
+        TextView captionViewFromDisplayState;
+        TextView captionViewFromDisplayState2;
+        if (i == i2) {
+            return;
+        }
+        if (i2 != 0 && (captionViewFromDisplayState2 = getCaptionViewFromDisplayState(i2)) != null) {
+            captionViewFromDisplayState2.setVisibility(0);
+            captionViewFromDisplayState2.setAlpha(1.0f);
+        }
+        if (i != 0 && (captionViewFromDisplayState = getCaptionViewFromDisplayState(i)) != null) {
+            captionViewFromDisplayState.setVisibility(4);
+            if (i == 1) {
+                captionViewFromDisplayState.setText((CharSequence) null);
+            }
+        }
+        this.captionDisplayed = i2;
+    }
+
+    private void setTextViewTypeface(@Nullable TextView textView, Typeface typeface) {
+        if (textView != null) {
+            textView.setTypeface(typeface);
+        }
+    }
+
+    private void setViewGroupGoneIfEmpty(ViewGroup viewGroup, int i) {
+        if (i == 0) {
+            viewGroup.setVisibility(8);
+        }
     }
 
     private boolean shouldAnimateCaptionView(TextView textView, @Nullable CharSequence charSequence) {
@@ -126,18 +162,21 @@ public final class IndicatorViewController {
                 public void onAnimationEnd(Animator animator) {
                     IndicatorViewController.this.captionDisplayed = i2;
                     IndicatorViewController.this.captionAnimator = null;
-                    if (captionViewFromDisplayState != null) {
-                        captionViewFromDisplayState.setVisibility(4);
-                        if (i == 1 && IndicatorViewController.this.errorView != null) {
-                            IndicatorViewController.this.errorView.setText((CharSequence) null);
+                    TextView textView = captionViewFromDisplayState;
+                    if (textView != null) {
+                        textView.setVisibility(4);
+                        if (i != 1 || IndicatorViewController.this.errorView == null) {
+                            return;
                         }
+                        IndicatorViewController.this.errorView.setText((CharSequence) null);
                     }
                 }
 
                 @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
                 public void onAnimationStart(Animator animator) {
-                    if (captionViewFromDisplayState2 != null) {
-                        captionViewFromDisplayState2.setVisibility(0);
+                    TextView textView = captionViewFromDisplayState2;
+                    if (textView != null) {
+                        textView.setVisibility(0);
                     }
                 }
             });
@@ -150,90 +189,15 @@ public final class IndicatorViewController {
         this.textInputView.updateTextInputBoxState();
     }
 
-    private void setCaptionViewVisibilities(int i, int i2) {
-        TextView captionViewFromDisplayState;
-        TextView captionViewFromDisplayState2;
-        if (i != i2) {
-            if (i2 != 0 && (captionViewFromDisplayState2 = getCaptionViewFromDisplayState(i2)) != null) {
-                captionViewFromDisplayState2.setVisibility(0);
-                captionViewFromDisplayState2.setAlpha(1.0f);
-            }
-            if (i != 0 && (captionViewFromDisplayState = getCaptionViewFromDisplayState(i)) != null) {
-                captionViewFromDisplayState.setVisibility(4);
-                if (i == 1) {
-                    captionViewFromDisplayState.setText((CharSequence) null);
-                }
-            }
-            this.captionDisplayed = i2;
-        }
-    }
-
-    private void createCaptionAnimators(List<Animator> list, boolean z, TextView textView, int i, int i2, int i3) {
-        if (textView != null && z) {
-            if (i == i3 || i == i2) {
-                list.add(createCaptionOpacityAnimator(textView, i3 == i));
-                if (i3 == i) {
-                    list.add(createCaptionTranslationYAnimator(textView));
-                }
-            }
-        }
-    }
-
-    private ObjectAnimator createCaptionOpacityAnimator(TextView textView, boolean z) {
-        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(textView, View.ALPHA, z ? 1.0f : 0.0f);
-        ofFloat.setDuration(167L);
-        ofFloat.setInterpolator(AnimationUtils.LINEAR_INTERPOLATOR);
-        return ofFloat;
-    }
-
-    private ObjectAnimator createCaptionTranslationYAnimator(TextView textView) {
-        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(textView, View.TRANSLATION_Y, -this.captionTranslationYPx, 0.0f);
-        ofFloat.setDuration(217L);
-        ofFloat.setInterpolator(AnimationUtils.LINEAR_OUT_SLOW_IN_INTERPOLATOR);
-        return ofFloat;
-    }
-
-    void cancelCaptionAnimator() {
-        if (this.captionAnimator != null) {
-            this.captionAnimator.cancel();
-        }
-    }
-
-    boolean isCaptionView(int i) {
-        return i == 0 || i == 1;
-    }
-
-    @Nullable
-    private TextView getCaptionViewFromDisplayState(int i) {
-        switch (i) {
-            case 1:
-                return this.errorView;
-            case 2:
-                return this.helperTextView;
-            default:
-                return null;
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void adjustIndicatorPadding() {
-        if (canAdjustIndicatorPadding()) {
-            ViewCompat.setPaddingRelative(this.indicatorArea, ViewCompat.getPaddingStart(this.textInputView.getEditText()), 0, ViewCompat.getPaddingEnd(this.textInputView.getEditText()), 0);
-        }
-    }
-
-    private boolean canAdjustIndicatorPadding() {
-        return (this.indicatorArea == null || this.textInputView.getEditText() == null) ? false : true;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
     public void addIndicator(TextView textView, int i) {
         if (this.indicatorArea == null && this.captionArea == null) {
-            this.indicatorArea = new LinearLayout(this.context);
-            this.indicatorArea.setOrientation(0);
+            LinearLayout linearLayout = new LinearLayout(this.context);
+            this.indicatorArea = linearLayout;
+            linearLayout.setOrientation(0);
             this.textInputView.addView(this.indicatorArea, -1, -2);
-            this.captionArea = new FrameLayout(this.context);
-            this.indicatorArea.addView(this.captionArea, -1, new FrameLayout.LayoutParams(-2, -2));
+            FrameLayout frameLayout = new FrameLayout(this.context);
+            this.captionArea = frameLayout;
+            this.indicatorArea.addView(frameLayout, -1, new FrameLayout.LayoutParams(-2, -2));
             this.indicatorArea.addView(new Space(this.context), new LinearLayout.LayoutParams(0, 0, 1.0f));
             if (this.textInputView.getEditText() != null) {
                 adjustIndicatorPadding();
@@ -250,124 +214,214 @@ public final class IndicatorViewController {
         this.indicatorsAdded++;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void removeIndicator(TextView textView, int i) {
-        if (this.indicatorArea != null) {
-            if (isCaptionView(i) && this.captionArea != null) {
-                this.captionViewsAdded--;
-                setViewGroupGoneIfEmpty(this.captionArea, this.captionViewsAdded);
-                this.captionArea.removeView(textView);
-            } else {
-                this.indicatorArea.removeView(textView);
-            }
-            this.indicatorsAdded--;
-            setViewGroupGoneIfEmpty(this.indicatorArea, this.indicatorsAdded);
+    public void adjustIndicatorPadding() {
+        if (canAdjustIndicatorPadding()) {
+            ViewCompat.setPaddingRelative(this.indicatorArea, ViewCompat.getPaddingStart(this.textInputView.getEditText()), 0, ViewCompat.getPaddingEnd(this.textInputView.getEditText()), 0);
         }
     }
 
-    private void setViewGroupGoneIfEmpty(ViewGroup viewGroup, int i) {
-        if (i == 0) {
-            viewGroup.setVisibility(8);
+    public void cancelCaptionAnimator() {
+        Animator animator = this.captionAnimator;
+        if (animator != null) {
+            animator.cancel();
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void setErrorEnabled(boolean z) {
-        if (this.errorEnabled != z) {
-            cancelCaptionAnimator();
-            if (z) {
-                this.errorView = new AppCompatTextView(this.context);
-                this.errorView.setId(R.id.textinput_error);
-                if (this.typeface != null) {
-                    this.errorView.setTypeface(this.typeface);
-                }
-                setErrorTextAppearance(this.errorTextAppearance);
-                this.errorView.setVisibility(4);
-                ViewCompat.setAccessibilityLiveRegion(this.errorView, 1);
-                addIndicator(this.errorView, 0);
-            } else {
-                hideError();
-                removeIndicator(this.errorView, 0);
-                this.errorView = null;
-                this.textInputView.updateEditTextBackground();
-                this.textInputView.updateTextInputBoxState();
-            }
-            this.errorEnabled = z;
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean isErrorEnabled() {
-        return this.errorEnabled;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean isHelperTextEnabled() {
-        return this.helperTextEnabled;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void setHelperTextEnabled(boolean z) {
-        if (this.helperTextEnabled != z) {
-            cancelCaptionAnimator();
-            if (z) {
-                this.helperTextView = new AppCompatTextView(this.context);
-                this.helperTextView.setId(R.id.textinput_helper_text);
-                if (this.typeface != null) {
-                    this.helperTextView.setTypeface(this.typeface);
-                }
-                this.helperTextView.setVisibility(4);
-                ViewCompat.setAccessibilityLiveRegion(this.helperTextView, 1);
-                setHelperTextAppearance(this.helperTextTextAppearance);
-                addIndicator(this.helperTextView, 1);
-            } else {
-                hideHelperText();
-                removeIndicator(this.helperTextView, 1);
-                this.helperTextView = null;
-                this.textInputView.updateEditTextBackground();
-                this.textInputView.updateTextInputBoxState();
-            }
-            this.helperTextEnabled = z;
-        }
-    }
-
-    boolean errorIsDisplayed() {
+    public boolean errorIsDisplayed() {
         return isCaptionStateError(this.captionDisplayed);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public boolean errorShouldBeShown() {
         return isCaptionStateError(this.captionToShow);
     }
 
-    private boolean isCaptionStateError(int i) {
-        return (i != 1 || this.errorView == null || TextUtils.isEmpty(this.errorText)) ? false : true;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean helperTextIsDisplayed() {
-        return isCaptionStateHelperText(this.captionDisplayed);
-    }
-
-    boolean helperTextShouldBeShown() {
-        return isCaptionStateHelperText(this.captionToShow);
-    }
-
-    private boolean isCaptionStateHelperText(int i) {
-        return (i != 2 || this.helperTextView == null || TextUtils.isEmpty(this.helperText)) ? false : true;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
     public CharSequence getErrorText() {
         return this.errorText;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    @ColorInt
+    public int getErrorViewCurrentTextColor() {
+        TextView textView = this.errorView;
+        if (textView != null) {
+            return textView.getCurrentTextColor();
+        }
+        return -1;
+    }
+
+    @Nullable
+    public ColorStateList getErrorViewTextColors() {
+        TextView textView = this.errorView;
+        if (textView != null) {
+            return textView.getTextColors();
+        }
+        return null;
+    }
+
     public CharSequence getHelperText() {
         return this.helperText;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    @Nullable
+    public ColorStateList getHelperTextViewColors() {
+        TextView textView = this.helperTextView;
+        if (textView != null) {
+            return textView.getTextColors();
+        }
+        return null;
+    }
+
+    @ColorInt
+    public int getHelperTextViewCurrentTextColor() {
+        TextView textView = this.helperTextView;
+        if (textView != null) {
+            return textView.getCurrentTextColor();
+        }
+        return -1;
+    }
+
+    public boolean helperTextIsDisplayed() {
+        return isCaptionStateHelperText(this.captionDisplayed);
+    }
+
+    public boolean helperTextShouldBeShown() {
+        return isCaptionStateHelperText(this.captionToShow);
+    }
+
+    public void hideError() {
+        this.errorText = null;
+        cancelCaptionAnimator();
+        if (this.captionDisplayed == 1) {
+            if (this.helperTextEnabled && !TextUtils.isEmpty(this.helperText)) {
+                this.captionToShow = 2;
+            } else {
+                this.captionToShow = 0;
+            }
+        }
+        updateCaptionViewsVisibility(this.captionDisplayed, this.captionToShow, shouldAnimateCaptionView(this.errorView, null));
+    }
+
+    public void hideHelperText() {
+        cancelCaptionAnimator();
+        if (this.captionDisplayed == 2) {
+            this.captionToShow = 0;
+        }
+        updateCaptionViewsVisibility(this.captionDisplayed, this.captionToShow, shouldAnimateCaptionView(this.helperTextView, null));
+    }
+
+    public boolean isCaptionView(int i) {
+        return i == 0 || i == 1;
+    }
+
+    public boolean isErrorEnabled() {
+        return this.errorEnabled;
+    }
+
+    public boolean isHelperTextEnabled() {
+        return this.helperTextEnabled;
+    }
+
+    public void removeIndicator(TextView textView, int i) {
+        FrameLayout frameLayout;
+        if (this.indicatorArea == null) {
+            return;
+        }
+        if (isCaptionView(i) && (frameLayout = this.captionArea) != null) {
+            int i2 = this.captionViewsAdded - 1;
+            this.captionViewsAdded = i2;
+            setViewGroupGoneIfEmpty(frameLayout, i2);
+            this.captionArea.removeView(textView);
+        } else {
+            this.indicatorArea.removeView(textView);
+        }
+        int i3 = this.indicatorsAdded - 1;
+        this.indicatorsAdded = i3;
+        setViewGroupGoneIfEmpty(this.indicatorArea, i3);
+    }
+
+    public void setErrorEnabled(boolean z) {
+        if (this.errorEnabled == z) {
+            return;
+        }
+        cancelCaptionAnimator();
+        if (z) {
+            AppCompatTextView appCompatTextView = new AppCompatTextView(this.context);
+            this.errorView = appCompatTextView;
+            appCompatTextView.setId(R.id.textinput_error);
+            Typeface typeface = this.typeface;
+            if (typeface != null) {
+                this.errorView.setTypeface(typeface);
+            }
+            setErrorTextAppearance(this.errorTextAppearance);
+            this.errorView.setVisibility(4);
+            ViewCompat.setAccessibilityLiveRegion(this.errorView, 1);
+            addIndicator(this.errorView, 0);
+        } else {
+            hideError();
+            removeIndicator(this.errorView, 0);
+            this.errorView = null;
+            this.textInputView.updateEditTextBackground();
+            this.textInputView.updateTextInputBoxState();
+        }
+        this.errorEnabled = z;
+    }
+
+    public void setErrorTextAppearance(@StyleRes int i) {
+        this.errorTextAppearance = i;
+        TextView textView = this.errorView;
+        if (textView != null) {
+            this.textInputView.setTextAppearanceCompatWithErrorFallback(textView, i);
+        }
+    }
+
+    public void setErrorViewTextColor(@Nullable ColorStateList colorStateList) {
+        TextView textView = this.errorView;
+        if (textView != null) {
+            textView.setTextColor(colorStateList);
+        }
+    }
+
+    public void setHelperTextAppearance(@StyleRes int i) {
+        this.helperTextTextAppearance = i;
+        TextView textView = this.helperTextView;
+        if (textView != null) {
+            TextViewCompat.setTextAppearance(textView, i);
+        }
+    }
+
+    public void setHelperTextEnabled(boolean z) {
+        if (this.helperTextEnabled == z) {
+            return;
+        }
+        cancelCaptionAnimator();
+        if (z) {
+            AppCompatTextView appCompatTextView = new AppCompatTextView(this.context);
+            this.helperTextView = appCompatTextView;
+            appCompatTextView.setId(R.id.textinput_helper_text);
+            Typeface typeface = this.typeface;
+            if (typeface != null) {
+                this.helperTextView.setTypeface(typeface);
+            }
+            this.helperTextView.setVisibility(4);
+            ViewCompat.setAccessibilityLiveRegion(this.helperTextView, 1);
+            setHelperTextAppearance(this.helperTextTextAppearance);
+            addIndicator(this.helperTextView, 1);
+        } else {
+            hideHelperText();
+            removeIndicator(this.helperTextView, 1);
+            this.helperTextView = null;
+            this.textInputView.updateEditTextBackground();
+            this.textInputView.updateTextInputBoxState();
+        }
+        this.helperTextEnabled = z;
+    }
+
+    public void setHelperTextViewTextColor(@Nullable ColorStateList colorStateList) {
+        TextView textView = this.helperTextView;
+        if (textView != null) {
+            textView.setTextColor(colorStateList);
+        }
+    }
+
     public void setTypefaces(Typeface typeface) {
         if (typeface != this.typeface) {
             this.typeface = typeface;
@@ -376,74 +430,23 @@ public final class IndicatorViewController {
         }
     }
 
-    private void setTextViewTypeface(@Nullable TextView textView, Typeface typeface) {
-        if (textView != null) {
-            textView.setTypeface(typeface);
+    public void showError(CharSequence charSequence) {
+        cancelCaptionAnimator();
+        this.errorText = charSequence;
+        this.errorView.setText(charSequence);
+        if (this.captionDisplayed != 1) {
+            this.captionToShow = 1;
         }
+        updateCaptionViewsVisibility(this.captionDisplayed, this.captionToShow, shouldAnimateCaptionView(this.errorView, charSequence));
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    @ColorInt
-    public int getErrorViewCurrentTextColor() {
-        if (this.errorView != null) {
-            return this.errorView.getCurrentTextColor();
+    public void showHelper(CharSequence charSequence) {
+        cancelCaptionAnimator();
+        this.helperText = charSequence;
+        this.helperTextView.setText(charSequence);
+        if (this.captionDisplayed != 2) {
+            this.captionToShow = 2;
         }
-        return -1;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    @Nullable
-    public ColorStateList getErrorViewTextColors() {
-        if (this.errorView != null) {
-            return this.errorView.getTextColors();
-        }
-        return null;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void setErrorViewTextColor(@Nullable ColorStateList colorStateList) {
-        if (this.errorView != null) {
-            this.errorView.setTextColor(colorStateList);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void setErrorTextAppearance(@StyleRes int i) {
-        this.errorTextAppearance = i;
-        if (this.errorView != null) {
-            this.textInputView.setTextAppearanceCompatWithErrorFallback(this.errorView, i);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    @ColorInt
-    public int getHelperTextViewCurrentTextColor() {
-        if (this.helperTextView != null) {
-            return this.helperTextView.getCurrentTextColor();
-        }
-        return -1;
-    }
-
-    @Nullable
-    ColorStateList getHelperTextViewColors() {
-        if (this.helperTextView != null) {
-            return this.helperTextView.getTextColors();
-        }
-        return null;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void setHelperTextViewTextColor(@Nullable ColorStateList colorStateList) {
-        if (this.helperTextView != null) {
-            this.helperTextView.setTextColor(colorStateList);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void setHelperTextAppearance(@StyleRes int i) {
-        this.helperTextTextAppearance = i;
-        if (this.helperTextView != null) {
-            TextViewCompat.setTextAppearance(this.helperTextView, i);
-        }
+        updateCaptionViewsVisibility(this.captionDisplayed, this.captionToShow, shouldAnimateCaptionView(this.helperTextView, charSequence));
     }
 }

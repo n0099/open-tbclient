@@ -7,9 +7,9 @@ import org.chromium.support_lib_boundary.WebViewProviderBoundaryInterface;
 import org.chromium.support_lib_boundary.WebViewProviderFactoryBoundaryInterface;
 import org.chromium.support_lib_boundary.WebkitToCompatConverterBoundaryInterface;
 import org.chromium.support_lib_boundary.util.BoundaryInterfaceReflectionUtil;
-/* loaded from: classes5.dex */
+/* loaded from: classes.dex */
 public class WebViewProviderFactoryAdapter implements WebViewProviderFactory {
-    WebViewProviderFactoryBoundaryInterface mImpl;
+    public WebViewProviderFactoryBoundaryInterface mImpl;
 
     public WebViewProviderFactoryAdapter(WebViewProviderFactoryBoundaryInterface webViewProviderFactoryBoundaryInterface) {
         this.mImpl = webViewProviderFactoryBoundaryInterface;
@@ -21,8 +21,8 @@ public class WebViewProviderFactoryAdapter implements WebViewProviderFactory {
     }
 
     @Override // androidx.webkit.internal.WebViewProviderFactory
-    public WebkitToCompatConverterBoundaryInterface getWebkitToCompatConverter() {
-        return (WebkitToCompatConverterBoundaryInterface) BoundaryInterfaceReflectionUtil.castToSuppLibClass(WebkitToCompatConverterBoundaryInterface.class, this.mImpl.getWebkitToCompatConverter());
+    public ServiceWorkerControllerBoundaryInterface getServiceWorkerController() {
+        return (ServiceWorkerControllerBoundaryInterface) BoundaryInterfaceReflectionUtil.castToSuppLibClass(ServiceWorkerControllerBoundaryInterface.class, this.mImpl.getServiceWorkerController());
     }
 
     @Override // androidx.webkit.internal.WebViewProviderFactory
@@ -36,7 +36,7 @@ public class WebViewProviderFactoryAdapter implements WebViewProviderFactory {
     }
 
     @Override // androidx.webkit.internal.WebViewProviderFactory
-    public ServiceWorkerControllerBoundaryInterface getServiceWorkerController() {
-        return (ServiceWorkerControllerBoundaryInterface) BoundaryInterfaceReflectionUtil.castToSuppLibClass(ServiceWorkerControllerBoundaryInterface.class, this.mImpl.getServiceWorkerController());
+    public WebkitToCompatConverterBoundaryInterface getWebkitToCompatConverter() {
+        return (WebkitToCompatConverterBoundaryInterface) BoundaryInterfaceReflectionUtil.castToSuppLibClass(WebkitToCompatConverterBoundaryInterface.class, this.mImpl.getWebkitToCompatConverter());
     }
 }

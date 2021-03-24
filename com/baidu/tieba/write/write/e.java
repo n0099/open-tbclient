@@ -1,7 +1,0 @@
-package com.baidu.tieba.write.write;
-
-import android.graphics.Bitmap;
-/* loaded from: classes7.dex */
-public interface e {
-    void d(Bitmap bitmap, boolean z);
-}

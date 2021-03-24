@@ -1,42 +1,37 @@
 package com.baidu.mapsdkplatform.comapi.synchronization.d;
 
 import android.text.TextUtils;
-import com.baidu.minivideo.plugin.capture.utils.EncryptUtils;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public final class c {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f2250a = c.class.getSimpleName();
+    public static final String f7751a = "c";
 
     public static String a(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
         try {
-            MessageDigest messageDigest = MessageDigest.getInstance(EncryptUtils.ENCRYPT_MD5);
+            MessageDigest messageDigest = MessageDigest.getInstance("MD5");
             messageDigest.update(str.getBytes());
             return a(messageDigest.digest());
-        } catch (NoSuchAlgorithmException e) {
-            a.a(f2250a, "NoSuchAlgorithmException happened when get MD5 string", e);
+        } catch (NoSuchAlgorithmException e2) {
+            a.a(f7751a, "NoSuchAlgorithmException happened when get MD5 string", e2);
             return null;
         }
     }
 
-    private static String a(byte[] bArr) {
+    public static String a(byte[] bArr) {
         char[] cArr = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
         char[] cArr2 = new char[bArr.length * 2];
-        int length = bArr.length;
         int i = 0;
-        int i2 = 0;
-        while (i < length) {
-            byte b = bArr[i];
-            int i3 = i2 + 1;
-            cArr2[i2] = cArr[(b >>> 4) & 15];
-            cArr2[i3] = cArr[b & 15];
-            i++;
-            i2 = i3 + 1;
+        for (byte b2 : bArr) {
+            int i2 = i + 1;
+            cArr2[i] = cArr[(b2 >>> 4) & 15];
+            i = i2 + 1;
+            cArr2[i2] = cArr[b2 & 15];
         }
         return new String(cArr2).toLowerCase();
     }

@@ -4,24 +4,24 @@ import org.apache.http.conn.ClientConnectionManager;
 import org.apache.http.impl.conn.AbstractPoolEntry;
 import org.apache.http.impl.conn.AbstractPooledConnAdapter;
 @Deprecated
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class BasicPooledConnAdapter extends AbstractPooledConnAdapter {
-    protected BasicPooledConnAdapter(ThreadSafeClientConnManager threadSafeClientConnManager, AbstractPoolEntry abstractPoolEntry) {
+    public BasicPooledConnAdapter(ThreadSafeClientConnManager threadSafeClientConnManager, AbstractPoolEntry abstractPoolEntry) {
         super(null, null);
         throw new RuntimeException("Stub!");
     }
 
-    @Override // org.apache.http.impl.conn.AbstractClientConnAdapter
-    protected ClientConnectionManager getManager() {
-        throw new RuntimeException("Stub!");
-    }
-
-    protected AbstractPoolEntry getPoolEntry() {
-        throw new RuntimeException("Stub!");
-    }
-
     @Override // org.apache.http.impl.conn.AbstractPooledConnAdapter, org.apache.http.impl.conn.AbstractClientConnAdapter
-    protected void detach() {
+    public void detach() {
+        throw new RuntimeException("Stub!");
+    }
+
+    @Override // org.apache.http.impl.conn.AbstractClientConnAdapter
+    public ClientConnectionManager getManager() {
+        throw new RuntimeException("Stub!");
+    }
+
+    public AbstractPoolEntry getPoolEntry() {
         throw new RuntimeException("Stub!");
     }
 }

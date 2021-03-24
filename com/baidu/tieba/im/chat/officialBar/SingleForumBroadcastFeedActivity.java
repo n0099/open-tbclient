@@ -6,83 +6,95 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.SingleForumBroadcastFeedActivityConfig;
+import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ar;
 import com.baidu.tbadk.live.message.MemoryClearUnreadCountMessage;
 import com.baidu.tbadk.mutiprocess.event.TopToastEvent;
-import com.baidu.tieba.im.chat.officialBar.h;
+import d.b.h0.f0.h;
+import d.b.i0.d1.f.j.g;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class SingleForumBroadcastFeedActivity extends BaseActivity {
-    private String forumId;
-    private h kGj;
-    private OfficialBarFeedMsglistView kGk;
-    private byte kGl;
-    private com.baidu.tbadk.mutiprocess.h mTopToastEventListener = new com.baidu.tbadk.mutiprocess.h<TopToastEvent>() { // from class: com.baidu.tieba.im.chat.officialBar.SingleForumBroadcastFeedActivity.1
+    public OfficialBarFeedMsglistView feedView;
+    public String forumId;
+    public g model;
+    public byte source;
+    public h mTopToastEventListener = new a();
+    public g.d onDataLoadListener = new b();
+
+    /* loaded from: classes4.dex */
+    public class a extends h<TopToastEvent> {
+        public a() {
+        }
+
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tbadk.mutiprocess.b
-        public boolean a(TopToastEvent topToastEvent) {
-            if (SingleForumBroadcastFeedActivity.this.kGk != null) {
-                SingleForumBroadcastFeedActivity.this.kGk.showTipToast(topToastEvent.isSuccess(), topToastEvent.getContent());
+        @Override // d.b.h0.f0.b
+        /* renamed from: a */
+        public boolean onEvent(TopToastEvent topToastEvent) {
+            if (SingleForumBroadcastFeedActivity.this.feedView != null) {
+                SingleForumBroadcastFeedActivity.this.feedView.o(topToastEvent.isSuccess(), topToastEvent.getContent());
                 return false;
             }
             return false;
         }
-    };
-    private h.a kGm = new h.a() { // from class: com.baidu.tieba.im.chat.officialBar.SingleForumBroadcastFeedActivity.2
-        @Override // com.baidu.tieba.im.chat.officialBar.h.a
-        public void eq(List<com.baidu.tieba.im.message.chat.b> list) {
-            SingleForumBroadcastFeedActivity.this.kGk.z(list, null);
+    }
+
+    /* loaded from: classes4.dex */
+    public class b implements g.d {
+        public b() {
         }
 
-        @Override // com.baidu.tieba.im.chat.officialBar.h.a
-        public void onReadCountLoad(LongSparseArray<com.baidu.tieba.im.forum.broadcast.data.b> longSparseArray) {
-            SingleForumBroadcastFeedActivity.this.kGk.a(longSparseArray);
+        @Override // d.b.i0.d1.f.j.g.d
+        public void a(List<d.b.i0.d1.l.c.b> list) {
+            SingleForumBroadcastFeedActivity.this.feedView.l(list, null);
         }
-    };
 
-    /* JADX INFO: Access modifiers changed from: protected */
+        @Override // d.b.i0.d1.f.j.g.d
+        public void onReadCountLoad(LongSparseArray<d.b.i0.d1.i.a.b.b> longSparseArray) {
+            SingleForumBroadcastFeedActivity.this.feedView.m(longSparseArray);
+        }
+    }
+
+    @Override // com.baidu.tbadk.BaseActivity
+    public void onChangeSkinType(int i) {
+        super.onChangeSkinType(i);
+        this.feedView.onChangeSkinType(i);
+    }
+
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.kGj = new h(getPageContext());
-        this.kGj.a(this.kGm);
-        this.kGk = new OfficialBarFeedMsglistView(this, true);
+        g gVar = new g(getPageContext());
+        this.model = gVar;
+        gVar.i(this.onDataLoadListener);
+        this.feedView = new OfficialBarFeedMsglistView(this, true);
         if (getIntent() != null) {
             this.forumId = getIntent().getStringExtra("key_uid");
-            this.kGl = getIntent().getByteExtra(SingleForumBroadcastFeedActivityConfig.KEY_SOURCE, (byte) 3);
-            this.kGj.gR(this.forumId);
-            this.kGk.J(this.forumId, System.currentTimeMillis());
+            this.source = getIntent().getByteExtra(SingleForumBroadcastFeedActivityConfig.KEY_SOURCE, (byte) 3);
+            this.model.f(this.forumId);
+            this.feedView.q(this.forumId, System.currentTimeMillis());
         }
         registerResponsedEventListener(TopToastEvent.class, this.mTopToastEventListener);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i) {
-        super.onChangeSkinType(i);
-        this.kGk.onChangeSkinType(i);
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
+    public void onDestroy() {
+        super.onDestroy();
+        g gVar = this.model;
+        if (gVar != null) {
+            gVar.e();
+        }
+        unRegisterResponsedEventListener();
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
         MessageManager.getInstance().dispatchResponsedMessage(new MemoryClearUnreadCountMessage(new MemoryClearUnreadCountMessage.a(this.forumId, 4)));
-        ar arVar = new ar("c13870");
-        arVar.dR("uid", TbadkCoreApplication.getCurrentAccount());
-        arVar.dR("fid", this.forumId);
-        arVar.aq("obj_source", this.kGl);
-        TiebaStatic.log(arVar);
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
-    public void onDestroy() {
-        super.onDestroy();
-        if (this.kGj != null) {
-            this.kGj.destroy();
-        }
-        unRegisterResponsedEventListener();
+        StatisticItem statisticItem = new StatisticItem("c13870");
+        statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+        statisticItem.param("fid", this.forumId);
+        statisticItem.param("obj_source", (int) this.source);
+        TiebaStatic.log(statisticItem);
     }
 }

@@ -4,23 +4,24 @@ import android.content.SharedPreferences;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import com.baidu.android.common.others.lang.StringUtil;
 import com.kwad.sdk.utils.o;
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class TipsConfigItem extends a<TipConfigData> {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class TipConfigData implements com.kwad.sdk.core.b, Serializable {
         public static final String BOTTOM = "bottom";
         public static final String TOAST = "toast";
-        private static final long serialVersionUID = 268961350883157950L;
-        private String tipInfo;
-        private transient Map<String, String> tipMap = new HashMap();
-        private int tipShowSwitch;
+        public static final long serialVersionUID = 268961350883157950L;
+        public String tipInfo;
+        public transient Map<String, String> tipMap = new HashMap();
+        public int tipShowSwitch;
 
         private void genTipMap(JSONObject jSONObject) {
             Iterator<String> keys = jSONObject.keys();
@@ -57,13 +58,13 @@ public class TipsConfigItem extends a<TipConfigData> {
 
         public void setTipInfoData(String str) {
             this.tipInfo = str;
-            if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str) || "null".equalsIgnoreCase(str)) {
+            if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str) || StringUtil.NULL_STRING.equalsIgnoreCase(str)) {
                 return;
             }
             try {
                 genTipMap(new JSONObject(str));
-            } catch (Exception e) {
-                com.kwad.sdk.core.d.a.b(e);
+            } catch (Exception e2) {
+                com.kwad.sdk.core.d.a.b(e2);
             }
         }
 
@@ -87,22 +88,18 @@ public class TipsConfigItem extends a<TipConfigData> {
     @Override // com.kwad.sdk.core.config.item.a
     public void a(@NonNull SharedPreferences.Editor editor) {
         editor.putInt("tipsSwitch", b().getTipShowSwitch());
-        if (b().getTipInfoData() != null) {
-            editor.putString("tipsInfo", b().getTipInfoData());
-        } else {
-            editor.putString("tipsInfo", "");
-        }
+        editor.putString("tipsInfo", b().getTipInfoData() != null ? b().getTipInfoData() : "");
     }
 
     @Override // com.kwad.sdk.core.config.item.a
     public void a(@NonNull SharedPreferences sharedPreferences) {
-        TipConfigData b = b();
-        if (b == null) {
-            b = new TipConfigData();
+        TipConfigData b2 = b();
+        if (b2 == null) {
+            b2 = new TipConfigData();
         }
-        b.setTipShowSwitch(sharedPreferences.getInt("tipsSwitch", 0));
-        b.setTipInfoData(sharedPreferences.getString("tipsInfo", ""));
-        a((TipsConfigItem) b);
+        b2.setTipShowSwitch(sharedPreferences.getInt("tipsSwitch", 0));
+        b2.setTipInfoData(sharedPreferences.getString("tipsInfo", ""));
+        a((TipsConfigItem) b2);
     }
 
     @Override // com.kwad.sdk.core.config.item.a

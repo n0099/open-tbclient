@@ -4,21 +4,23 @@ import android.os.Handler;
 import android.os.Looper;
 import androidx.annotation.NonNull;
 import java.util.concurrent.Executor;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public final class e {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final Executor f6631a = new Executor() { // from class: com.kwad.sdk.glide.g.e.1
+    public static final Executor f35216a = new Executor() { // from class: com.kwad.sdk.glide.g.e.1
 
         /* renamed from: a  reason: collision with root package name */
-        private final Handler f6632a = new Handler(Looper.getMainLooper());
+        public final Handler f35218a = new Handler(Looper.getMainLooper());
 
         @Override // java.util.concurrent.Executor
         public void execute(@NonNull Runnable runnable) {
-            this.f6632a.post(runnable);
+            this.f35218a.post(runnable);
         }
     };
-    private static final Executor b = new Executor() { // from class: com.kwad.sdk.glide.g.e.2
+
+    /* renamed from: b  reason: collision with root package name */
+    public static final Executor f35217b = new Executor() { // from class: com.kwad.sdk.glide.g.e.2
         @Override // java.util.concurrent.Executor
         public void execute(@NonNull Runnable runnable) {
             runnable.run();
@@ -26,10 +28,10 @@ public final class e {
     };
 
     public static Executor a() {
-        return f6631a;
+        return f35216a;
     }
 
     public static Executor b() {
-        return b;
+        return f35217b;
     }
 }

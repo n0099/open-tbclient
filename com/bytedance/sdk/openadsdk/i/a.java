@@ -1,152 +1,151 @@
 package com.bytedance.sdk.openadsdk.i;
 
-import androidx.annotation.NonNull;
-import com.baidubce.http.Headers;
-import com.bytedance.sdk.adnet.err.VAdError;
-import com.bytedance.sdk.openadsdk.i.i;
-import com.bytedance.sdk.openadsdk.i.l;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.text.TextUtils;
+import android.widget.ImageView;
+import com.bytedance.sdk.openadsdk.core.p;
+import com.bytedance.sdk.openadsdk.utils.j;
+import com.bytedance.sdk.openadsdk.utils.u;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.List;
-import java.util.concurrent.atomic.AtomicInteger;
-import java.util.concurrent.atomic.AtomicLong;
-import org.apache.http.client.methods.HttpHead;
-import org.apache.http.protocol.HTTP;
-/* JADX INFO: Access modifiers changed from: package-private */
+import java.util.WeakHashMap;
 /* loaded from: classes6.dex */
-public abstract class a implements k {
-    private static final AtomicLong m = new AtomicLong();
+public class a extends d.c.c.b.b.a {
 
-    /* renamed from: a  reason: collision with root package name */
-    protected volatile com.bytedance.sdk.openadsdk.i.a.a f4800a;
-    protected final com.bytedance.sdk.openadsdk.i.b.c b;
-    protected com.bytedance.sdk.openadsdk.i.d.a e;
-    protected volatile List<i.b> f;
-    protected volatile String g;
-    protected volatile String h;
-    protected volatile i i;
-    protected volatile l j;
-    protected final AtomicInteger c = new AtomicInteger();
-    protected final AtomicLong d = new AtomicLong();
-    protected volatile boolean k = false;
-    public final long l = m.incrementAndGet();
-    private final AtomicInteger n = new AtomicInteger(0);
-    private int o = -1;
+    /* renamed from: b  reason: collision with root package name */
+    public static String f29435b;
 
-    public a(com.bytedance.sdk.openadsdk.i.a.a aVar, com.bytedance.sdk.openadsdk.i.b.c cVar) {
-        this.f4800a = aVar;
-        this.b = cVar;
+    /* renamed from: c  reason: collision with root package name */
+    public WeakHashMap<String, String> f29436c = new WeakHashMap<>();
+
+    /* renamed from: d  reason: collision with root package name */
+    public final com.bytedance.sdk.openadsdk.b.a f29437d = new com.bytedance.sdk.openadsdk.b.d();
+
+    public static a a() {
+        return new a();
     }
 
-    public void a() {
-        this.n.compareAndSet(0, 1);
-    }
-
-    public boolean b() {
-        return this.n.get() == 1;
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void c() {
-        this.n.compareAndSet(0, 2);
-    }
-
-    public boolean d() {
-        return this.n.get() == 2;
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void e() throws com.bytedance.sdk.openadsdk.i.c.a {
-        if (b()) {
-            throw new com.bytedance.sdk.openadsdk.i.c.a();
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public com.bytedance.sdk.openadsdk.i.e.a a(l.a aVar, int i, int i2, String str) throws IOException, VAdError {
-        com.bytedance.sdk.openadsdk.i.e.b b = com.bytedance.sdk.openadsdk.i.e.c.a().b();
-        com.bytedance.sdk.openadsdk.i.e.f fVar = new com.bytedance.sdk.openadsdk.i.e.f();
-        HashMap hashMap = new HashMap();
-        fVar.b = aVar.f4857a;
-        fVar.f4830a = 0;
-        if (HttpHead.METHOD_NAME.equalsIgnoreCase(str)) {
-            fVar.f4830a = 4;
-        }
-        List<i.b> list = this.f;
-        if (list != null && !list.isEmpty()) {
-            for (i.b bVar : list) {
-                if (!Headers.RANGE.equalsIgnoreCase(bVar.f4853a) && !HTTP.CONN_DIRECTIVE.equalsIgnoreCase(bVar.f4853a) && !"Proxy-Connection".equalsIgnoreCase(bVar.f4853a) && !"Host".equalsIgnoreCase(bVar.f4853a)) {
-                    hashMap.put(bVar.f4853a, bVar.b);
+    @Override // d.c.c.b.b.a, d.c.c.b.b.d.h
+    public Bitmap b(String str) {
+        FileInputStream fileInputStream;
+        Bitmap b2 = super.b(str);
+        if (b2 == null) {
+            File file = new File(b(), str);
+            if (file.exists()) {
+                FileInputStream fileInputStream2 = null;
+                try {
+                    try {
+                        fileInputStream = new FileInputStream(file);
+                    } catch (IOException unused) {
+                    }
+                } catch (Throwable th) {
+                    th = th;
                 }
-            }
-        }
-        String a2 = com.bytedance.sdk.openadsdk.i.g.d.a(i, i2);
-        if (a2 != null) {
-            hashMap.put(Headers.RANGE, a2);
-        }
-        if (e.f) {
-            hashMap.put(Headers.CACHE_CONTROL, "no-cache");
-        }
-        d c = d.c();
-        f a3 = f.a();
-        boolean z = this.i == null;
-        c a4 = z ? c.a() : a3.b();
-        c b2 = z ? c.b() : a3.c();
-        if (a4 != null || b2 != null) {
-            if (a4 != null) {
-                fVar.c = a4.a(aVar.b);
-            }
-            if (b2 != null) {
-                fVar.d = b2.a(aVar.b);
-            }
-        }
-        fVar.e = hashMap;
-        if (this.k) {
-            this.k = false;
-            return null;
-        }
-        return b.a(fVar);
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public int f() {
-        if (this.i != null) {
-            return this.i.c.f4852a;
-        }
-        return this.f4800a instanceof com.bytedance.sdk.openadsdk.i.a.b ? 1 : 0;
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public boolean g() {
-        return f() == 1;
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void a(int i, int i2) {
-        if (i > 0 && i2 >= 0) {
-            int i3 = e.g;
-            int f = f();
-            if (i3 == 1 || (i3 == 2 && f == 1)) {
-                int i4 = (int) ((i2 / i) * 100.0f);
-                int i5 = i4 <= 100 ? i4 : 100;
-                synchronized (this) {
-                    if (i5 > this.o) {
-                        this.o = i5;
-                        com.bytedance.sdk.openadsdk.i.g.d.b(new Runnable() { // from class: com.bytedance.sdk.openadsdk.i.a.1
-                            @Override // java.lang.Runnable
-                            public void run() {
-                                if (a.this.e != null) {
-                                    a.this.e.a(a.this.j, a.this.o);
-                                }
+                try {
+                    b2 = BitmapFactory.decodeFileDescriptor(fileInputStream.getFD(), null, null);
+                    if (b2 != null) {
+                        super.a(str, b2, new byte[0]);
+                    }
+                    fileInputStream.close();
+                } catch (Throwable th2) {
+                    th = th2;
+                    fileInputStream2 = fileInputStream;
+                    try {
+                        u.c("DiskImageCache", "diskImageCache getBitmap error ", th);
+                        if (fileInputStream2 != null) {
+                            fileInputStream2.close();
+                        }
+                        return b2;
+                    } catch (Throwable th3) {
+                        if (fileInputStream2 != null) {
+                            try {
+                                fileInputStream2.close();
+                            } catch (IOException unused2) {
                             }
-                        });
+                        }
+                        throw th3;
                     }
                 }
             }
         }
+        return b2;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void a(Boolean bool, String str, @NonNull Throwable th) {
+    @Override // d.c.c.b.b.a, d.c.c.b.b.d.h
+    public void a(String str, Bitmap bitmap, byte[] bArr) {
+        if (bitmap == null) {
+            return;
+        }
+        super.a(str, bitmap, bArr);
+        File file = new File(b(), str);
+        if (file.exists() && file.isFile() && file.length() > 0) {
+            return;
+        }
+        File file2 = new File(file + ".tmp");
+        file2.delete();
+        FileOutputStream fileOutputStream = null;
+        try {
+            try {
+                file2.createNewFile();
+                FileOutputStream fileOutputStream2 = new FileOutputStream(file2);
+                try {
+                    bitmap.compress(Bitmap.CompressFormat.PNG, 100, fileOutputStream2);
+                    fileOutputStream2.flush();
+                    if (file2.exists() && file2.length() > 0) {
+                        file2.renameTo(file);
+                    }
+                    this.f29437d.a(file);
+                    fileOutputStream2.close();
+                } catch (Throwable th) {
+                    th = th;
+                    fileOutputStream = fileOutputStream2;
+                    try {
+                        u.c("DiskImageCache", "diskImageCache putBitmap error ", th);
+                        file2.delete();
+                        file.delete();
+                        if (fileOutputStream != null) {
+                            fileOutputStream.close();
+                        }
+                    } catch (Throwable th2) {
+                        if (fileOutputStream != null) {
+                            try {
+                                fileOutputStream.close();
+                            } catch (IOException unused) {
+                            }
+                        }
+                        throw th2;
+                    }
+                }
+            } catch (IOException unused2) {
+            }
+        } catch (Throwable th3) {
+            th = th3;
+        }
+    }
+
+    public static String b() {
+        if (TextUtils.isEmpty(f29435b)) {
+            File file = new File(d.c.c.b.a.h(p.a()), "diskImage");
+            file.mkdirs();
+            f29435b = file.getAbsolutePath();
+        }
+        return f29435b;
+    }
+
+    @Override // d.c.c.b.b.a, d.c.c.b.b.d.h
+    public String a(String str, int i, int i2, ImageView.ScaleType scaleType) {
+        if (TextUtils.isEmpty(str)) {
+            return null;
+        }
+        String str2 = this.f29436c.get(str);
+        if (TextUtils.isEmpty(str2)) {
+            String a2 = j.a(str);
+            this.f29436c.put(str, a2);
+            return a2;
+        }
+        return str2;
     }
 }

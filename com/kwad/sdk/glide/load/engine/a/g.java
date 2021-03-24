@@ -5,18 +5,17 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.kwad.sdk.glide.load.engine.a.h;
 import com.kwad.sdk.glide.load.engine.s;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class g extends com.kwad.sdk.glide.g.g<com.kwad.sdk.glide.load.c, s<?>> implements h {
 
     /* renamed from: a  reason: collision with root package name */
-    private h.a f6727a;
+    public h.a f35431a;
 
     public g(long j) {
         super(j);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.glide.g.g
     public int a(@Nullable s<?> sVar) {
         return sVar == null ? super.a((g) null) : sVar.c();
@@ -39,18 +38,18 @@ public class g extends com.kwad.sdk.glide.g.g<com.kwad.sdk.glide.load.c, s<?>> i
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.glide.g.g
     public void a(@NonNull com.kwad.sdk.glide.load.c cVar, @Nullable s<?> sVar) {
-        if (this.f6727a == null || sVar == null) {
+        h.a aVar = this.f35431a;
+        if (aVar == null || sVar == null) {
             return;
         }
-        this.f6727a.b(sVar);
+        aVar.b(sVar);
     }
 
     @Override // com.kwad.sdk.glide.load.engine.a.h
     public void a(@NonNull h.a aVar) {
-        this.f6727a = aVar;
+        this.f35431a = aVar;
     }
 
     @Override // com.kwad.sdk.glide.load.engine.a.h

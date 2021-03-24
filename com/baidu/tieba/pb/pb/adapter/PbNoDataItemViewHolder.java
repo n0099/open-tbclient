@@ -6,14 +6,18 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.tieba.R;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class PbNoDataItemViewHolder extends TypeAdapter.ViewHolder {
-    public ImageView mImageView;
-    public TextView mTextView;
+
+    /* renamed from: a  reason: collision with root package name */
+    public TextView f19490a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public ImageView f19491b;
 
     public PbNoDataItemViewHolder(View view, Context context) {
         super(view);
-        this.mTextView = (TextView) view.findViewById(R.id.no_data_text);
-        this.mImageView = (ImageView) view.findViewById(R.id.no_data_image);
+        this.f19490a = (TextView) view.findViewById(R.id.no_data_text);
+        this.f19491b = (ImageView) view.findViewById(R.id.no_data_image);
     }
 }

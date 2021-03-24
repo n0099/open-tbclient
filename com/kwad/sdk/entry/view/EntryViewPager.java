@@ -18,73 +18,85 @@ import androidx.viewpager.widget.ViewPager;
 import com.kwad.sdk.contentalliance.widget.b;
 import com.kwad.sdk.contentalliance.widget.e;
 import com.kwad.sdk.utils.ao;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class EntryViewPager extends FrameLayout implements b.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private com.kwad.sdk.contentalliance.widget.b f6486a;
-    private TextView b;
-    private b c;
-    private boolean d;
-    private c e;
-    private boolean f;
+    public com.kwad.sdk.contentalliance.widget.b f34766a;
 
-    /* loaded from: classes3.dex */
-    private class a extends PagerAdapter {
-        private PagerAdapter b;
+    /* renamed from: b  reason: collision with root package name */
+    public TextView f34767b;
 
-        a(PagerAdapter pagerAdapter) {
-            this.b = pagerAdapter;
+    /* renamed from: c  reason: collision with root package name */
+    public b f34768c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public boolean f34769d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public c f34770e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public boolean f34771f;
+
+    /* loaded from: classes6.dex */
+    public class a extends PagerAdapter {
+
+        /* renamed from: b  reason: collision with root package name */
+        public PagerAdapter f34775b;
+
+        public a(PagerAdapter pagerAdapter) {
+            this.f34775b = pagerAdapter;
         }
 
         @Override // androidx.viewpager.widget.PagerAdapter
         public void destroyItem(@NonNull View view, int i, @NonNull Object obj) {
-            if (obj == EntryViewPager.this.b) {
-                ((ViewGroup) view).removeView(EntryViewPager.this.b);
+            if (obj == EntryViewPager.this.f34767b) {
+                ((ViewGroup) view).removeView(EntryViewPager.this.f34767b);
             } else {
-                this.b.destroyItem(view, i, obj);
+                this.f34775b.destroyItem(view, i, obj);
             }
         }
 
         @Override // androidx.viewpager.widget.PagerAdapter
         public void destroyItem(@NonNull ViewGroup viewGroup, int i, @NonNull Object obj) {
-            if (obj == EntryViewPager.this.b) {
-                viewGroup.removeView(EntryViewPager.this.b);
+            if (obj == EntryViewPager.this.f34767b) {
+                viewGroup.removeView(EntryViewPager.this.f34767b);
             } else {
-                this.b.destroyItem(viewGroup, i, obj);
+                this.f34775b.destroyItem(viewGroup, i, obj);
             }
         }
 
         @Override // androidx.viewpager.widget.PagerAdapter
         public void finishUpdate(@NonNull View view) {
-            this.b.finishUpdate(view);
+            this.f34775b.finishUpdate(view);
         }
 
         @Override // androidx.viewpager.widget.PagerAdapter
         public void finishUpdate(@NonNull ViewGroup viewGroup) {
-            this.b.finishUpdate(viewGroup);
+            this.f34775b.finishUpdate(viewGroup);
         }
 
         @Override // androidx.viewpager.widget.PagerAdapter
         public int getCount() {
-            return this.b.getCount() + 1;
+            return this.f34775b.getCount() + 1;
         }
 
         @Override // androidx.viewpager.widget.PagerAdapter
         public int getItemPosition(@NonNull Object obj) {
-            return this.b.getItemPosition(obj);
+            return this.f34775b.getItemPosition(obj);
         }
 
         @Override // androidx.viewpager.widget.PagerAdapter
         @Nullable
         public CharSequence getPageTitle(int i) {
-            return this.b.getPageTitle(i);
+            return this.f34775b.getPageTitle(i);
         }
 
         @Override // androidx.viewpager.widget.PagerAdapter
         public float getPageWidth(int i) {
-            if (i != getCount() - 1 || EntryViewPager.this.b == null) {
-                return this.b.getPageWidth(i);
+            if (i != getCount() - 1 || EntryViewPager.this.f34767b == null) {
+                return this.f34775b.getPageWidth(i);
             }
             return 0.12f;
         }
@@ -93,83 +105,88 @@ public class EntryViewPager extends FrameLayout implements b.a {
         @NonNull
         public Object instantiateItem(@NonNull View view, int i) {
             if (i == getCount() - 1) {
-                ((ViewGroup) view).addView(EntryViewPager.this.b);
-                return EntryViewPager.this.b;
+                ((ViewGroup) view).addView(EntryViewPager.this.f34767b);
+                return EntryViewPager.this.f34767b;
             }
-            return this.b.instantiateItem(view, i);
+            return this.f34775b.instantiateItem(view, i);
         }
 
         @Override // androidx.viewpager.widget.PagerAdapter
         @NonNull
         public Object instantiateItem(@NonNull ViewGroup viewGroup, int i) {
             if (i == getCount() - 1) {
-                viewGroup.addView(EntryViewPager.this.b);
-                return EntryViewPager.this.b;
+                viewGroup.addView(EntryViewPager.this.f34767b);
+                return EntryViewPager.this.f34767b;
             }
-            return this.b.instantiateItem(viewGroup, i);
+            return this.f34775b.instantiateItem(viewGroup, i);
         }
 
         @Override // androidx.viewpager.widget.PagerAdapter
         public boolean isViewFromObject(@NonNull View view, @NonNull Object obj) {
-            return this.b.isViewFromObject(view, obj);
+            return this.f34775b.isViewFromObject(view, obj);
         }
 
         @Override // androidx.viewpager.widget.PagerAdapter
         public void notifyDataSetChanged() {
-            this.b.notifyDataSetChanged();
+            this.f34775b.notifyDataSetChanged();
         }
 
         @Override // androidx.viewpager.widget.PagerAdapter
         public void registerDataSetObserver(@NonNull DataSetObserver dataSetObserver) {
-            this.b.registerDataSetObserver(dataSetObserver);
+            this.f34775b.registerDataSetObserver(dataSetObserver);
         }
 
         @Override // androidx.viewpager.widget.PagerAdapter
         public void restoreState(@Nullable Parcelable parcelable, @Nullable ClassLoader classLoader) {
-            this.b.restoreState(parcelable, classLoader);
+            this.f34775b.restoreState(parcelable, classLoader);
         }
 
         @Override // androidx.viewpager.widget.PagerAdapter
         @Nullable
         public Parcelable saveState() {
-            return this.b.saveState();
+            return this.f34775b.saveState();
         }
 
         @Override // androidx.viewpager.widget.PagerAdapter
         public void setPrimaryItem(@NonNull View view, int i, @NonNull Object obj) {
-            this.b.setPrimaryItem(view, i, obj);
+            this.f34775b.setPrimaryItem(view, i, obj);
         }
 
         @Override // androidx.viewpager.widget.PagerAdapter
         public void setPrimaryItem(@NonNull ViewGroup viewGroup, int i, @NonNull Object obj) {
-            this.b.setPrimaryItem(viewGroup, i, obj);
+            this.f34775b.setPrimaryItem(viewGroup, i, obj);
         }
 
         @Override // androidx.viewpager.widget.PagerAdapter
         public void startUpdate(@NonNull View view) {
-            this.b.startUpdate(view);
+            this.f34775b.startUpdate(view);
         }
 
         @Override // androidx.viewpager.widget.PagerAdapter
         public void startUpdate(@NonNull ViewGroup viewGroup) {
-            this.b.startUpdate(viewGroup);
+            this.f34775b.startUpdate(viewGroup);
         }
 
         @Override // androidx.viewpager.widget.PagerAdapter
         public void unregisterDataSetObserver(@NonNull DataSetObserver dataSetObserver) {
-            this.b.unregisterDataSetObserver(dataSetObserver);
+            this.f34775b.unregisterDataSetObserver(dataSetObserver);
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public class b extends e {
-        private float b;
-        private float[] c = new float[8];
-        private boolean d;
+
+        /* renamed from: b  reason: collision with root package name */
+        public float f34777b;
+
+        /* renamed from: c  reason: collision with root package name */
+        public float[] f34778c = new float[8];
+
+        /* renamed from: d  reason: collision with root package name */
+        public boolean f34779d;
 
         public b() {
-            this.b = ao.a(EntryViewPager.this.getContext(), 4.0f);
+            this.f34777b = ao.a(EntryViewPager.this.getContext(), 4.0f);
             b();
         }
 
@@ -177,90 +194,95 @@ public class EntryViewPager extends FrameLayout implements b.a {
             setColor(Color.parseColor("#FFF2F2F2"));
             a(ao.a(EntryViewPager.this.getContext(), 12.0f));
             a(Color.parseColor("#9c9c9c"));
-            setCornerRadius(this.b);
+            setCornerRadius(this.f34777b);
         }
 
         public boolean a() {
-            return this.d;
+            return this.f34779d;
         }
 
-        public void b(float f) {
-            if (f <= 0.0f) {
+        public void b(float f2) {
+            if (f2 <= 0.0f) {
                 a("左\r\n滑\r\n查\r\n看\r\n更\r\n多\r\n视\r\n频");
-                setCornerRadius(this.b);
-                this.d = false;
+                setCornerRadius(this.f34777b);
+                this.f34779d = false;
                 return;
             }
-            float f2 = 4.5f * f;
-            this.c[0] = f2;
-            this.c[1] = f2;
-            this.c[2] = this.b;
-            this.c[3] = this.b;
-            this.c[4] = this.b;
-            this.c[5] = this.b;
-            this.c[6] = f2;
-            this.c[7] = f2;
-            setCornerRadii(this.c);
-            this.d = false;
-            if (f2 >= (getBounds().height() * 2) / 3) {
+            float f3 = f2 * 4.5f;
+            float[] fArr = this.f34778c;
+            fArr[0] = f3;
+            fArr[1] = f3;
+            float f4 = this.f34777b;
+            fArr[2] = f4;
+            fArr[3] = f4;
+            fArr[4] = f4;
+            fArr[5] = f4;
+            fArr[6] = f3;
+            fArr[7] = f3;
+            setCornerRadii(fArr);
+            this.f34779d = false;
+            if (f3 >= (getBounds().height() * 2) / 3) {
                 a("松\r\n开\n查\n看");
-                this.d = true;
+                this.f34779d = true;
             }
             invalidateSelf();
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public interface c {
         void a();
     }
 
     public EntryViewPager(@NonNull Context context) {
         super(context);
-        this.f = true;
+        this.f34771f = true;
         a();
     }
 
     public EntryViewPager(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f = true;
+        this.f34771f = true;
         a();
     }
 
     private void a() {
-        this.f6486a = new com.kwad.sdk.contentalliance.widget.b(getContext());
-        if (this.f) {
-            this.f6486a.setDragListener(this);
+        com.kwad.sdk.contentalliance.widget.b bVar = new com.kwad.sdk.contentalliance.widget.b(getContext());
+        this.f34766a = bVar;
+        if (this.f34771f) {
+            bVar.setDragListener(this);
         }
-        addView(this.f6486a);
-        this.b = new TextView(getContext());
-        this.c = new b();
-        this.c.b(0.0f);
+        addView(this.f34766a);
+        this.f34767b = new TextView(getContext());
+        b bVar2 = new b();
+        this.f34768c = bVar2;
+        bVar2.b(0.0f);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(float f) {
+    public void a(float f2) {
         int width = getWidth();
-        int top = this.f6486a.getTop();
-        int bottom = this.f6486a.getBottom();
-        this.c.b(this.b.getWidth());
-        this.c.setBounds((int) ((width - f) - this.b.getWidth()), top, width, bottom);
-        this.c.b(f);
+        int top = this.f34766a.getTop();
+        int bottom = this.f34766a.getBottom();
+        this.f34768c.b(this.f34767b.getWidth());
+        this.f34768c.setBounds((int) ((width - f2) - this.f34767b.getWidth()), top, width, bottom);
+        this.f34768c.b(f2);
     }
 
     @Override // com.kwad.sdk.contentalliance.widget.b.a
-    public void a(int i, float f) {
-        final boolean z = this.c != null && this.c.a();
-        ValueAnimator ofFloat = ValueAnimator.ofFloat(f, 0.0f);
+    public void a(int i, float f2) {
+        b bVar = this.f34768c;
+        final boolean z = bVar != null && bVar.a();
+        ValueAnimator ofFloat = ValueAnimator.ofFloat(f2, 0.0f);
         ofFloat.setDuration(200L);
         ofFloat.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.kwad.sdk.entry.view.EntryViewPager.1
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
                 EntryViewPager.this.a(((Float) valueAnimator.getAnimatedValue()).floatValue());
-                if (!z || valueAnimator.getAnimatedFraction() < 1.0f || EntryViewPager.this.e == null) {
+                if (!z || valueAnimator.getAnimatedFraction() < 1.0f || EntryViewPager.this.f34770e == null) {
                     return;
                 }
-                EntryViewPager.this.e.a();
+                EntryViewPager.this.f34770e.a();
             }
         });
         ofFloat.start();
@@ -268,63 +290,62 @@ public class EntryViewPager extends FrameLayout implements b.a {
 
     @Override // com.kwad.sdk.contentalliance.widget.b.a
     public void a(int i, int i2, int i3, int i4) {
-        if (this.b.getRight() <= 0) {
-            this.d = false;
-        } else if (i < this.b.getLeft() - this.f6486a.getMeasuredWidth()) {
-            this.d = false;
+        if (this.f34767b.getRight() <= 0) {
+            this.f34769d = false;
+        } else if (i < this.f34767b.getLeft() - this.f34766a.getMeasuredWidth()) {
+            this.f34769d = false;
         } else {
-            this.d = true;
+            this.f34769d = true;
             int width = getWidth();
-            int top = this.f6486a.getTop();
-            int bottom = this.f6486a.getBottom();
-            this.c.setBounds(width - (this.f6486a.getMeasuredWidth() - (this.b.getLeft() - i)), top, width, bottom);
+            this.f34768c.setBounds(width - (this.f34766a.getMeasuredWidth() - (this.f34767b.getLeft() - i)), this.f34766a.getTop(), width, this.f34766a.getBottom());
         }
     }
 
     @Override // com.kwad.sdk.contentalliance.widget.b.a
-    public void a(boolean z, int i, float f) {
-        if (z || !this.d) {
+    public void a(boolean z, int i, float f2) {
+        if (z || !this.f34769d) {
             return;
         }
-        a(f);
+        a(f2);
     }
 
     @Override // android.view.ViewGroup, android.view.View
-    protected void dispatchDraw(Canvas canvas) {
-        if (this.d) {
-            this.c.draw(canvas);
+    public void dispatchDraw(Canvas canvas) {
+        if (this.f34769d) {
+            this.f34768c.draw(canvas);
         }
         super.dispatchDraw(canvas);
     }
 
     public void setAdapter(@Nullable PagerAdapter pagerAdapter) {
-        if (this.f) {
+        if (this.f34771f) {
             pagerAdapter = new a(pagerAdapter);
         }
-        this.f6486a.setAdapter(pagerAdapter);
+        this.f34766a.setAdapter(pagerAdapter);
     }
 
     public void setDragSideEnable(boolean z) {
-        this.f = z;
-        if (z || this.f6486a == null) {
+        com.kwad.sdk.contentalliance.widget.b bVar;
+        this.f34771f = z;
+        if (z || (bVar = this.f34766a) == null) {
             return;
         }
-        this.f6486a.setDragListener(null);
+        bVar.setDragListener(null);
     }
 
     public void setOffscreenPageLimit(int i) {
-        this.f6486a.setOffscreenPageLimit(i);
+        this.f34766a.setOffscreenPageLimit(i);
     }
 
     public void setOnDragOpenListener(c cVar) {
-        this.e = cVar;
+        this.f34770e = cVar;
     }
 
     public void setOnPageChangeListener(ViewPager.OnPageChangeListener onPageChangeListener) {
-        this.f6486a.setOnPageChangeListener(onPageChangeListener);
+        this.f34766a.setOnPageChangeListener(onPageChangeListener);
     }
 
     public void setPageMargin(int i) {
-        this.f6486a.setPageMargin(i);
+        this.f34766a.setPageMargin(i);
     }
 }

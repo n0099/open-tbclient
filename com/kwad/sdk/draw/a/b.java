@@ -6,30 +6,43 @@ import com.kwad.sdk.api.KsDrawAd;
 import com.kwad.sdk.c.c;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.core.view.AdBaseFrameLayout;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class b extends com.kwad.sdk.core.e.b {
     @Nullable
 
     /* renamed from: a  reason: collision with root package name */
-    public KsDrawAd.AdInteractionListener f6404a;
+    public KsDrawAd.AdInteractionListener f34522a;
     @NonNull
-    public AdBaseFrameLayout b;
+
+    /* renamed from: b  reason: collision with root package name */
+    public AdBaseFrameLayout f34523b;
     @NonNull
-    public AdTemplate c;
+
+    /* renamed from: c  reason: collision with root package name */
+    public AdTemplate f34524c;
     @Nullable
-    public com.kwad.sdk.core.download.b.b d;
+
+    /* renamed from: d  reason: collision with root package name */
+    public com.kwad.sdk.core.download.b.b f34525d;
     @NonNull
-    public com.kwad.sdk.draw.c.a e;
+
+    /* renamed from: e  reason: collision with root package name */
+    public com.kwad.sdk.draw.c.a f34526e;
     @NonNull
-    public com.kwad.sdk.draw.b.b.a f;
+
+    /* renamed from: f  reason: collision with root package name */
+    public com.kwad.sdk.draw.b.b.a f34527f;
     @Nullable
-    public c g;
+
+    /* renamed from: g  reason: collision with root package name */
+    public c f34528g;
 
     @Override // com.kwad.sdk.core.e.b
     public void a() {
-        if (this.d != null) {
-            this.d.f();
+        com.kwad.sdk.core.download.b.b bVar = this.f34525d;
+        if (bVar != null) {
+            bVar.f();
         }
-        this.e.e();
+        this.f34526e.e();
     }
 }

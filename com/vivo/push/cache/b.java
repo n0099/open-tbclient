@@ -4,46 +4,44 @@ import android.content.Context;
 import com.vivo.push.util.p;
 import com.vivo.push.util.z;
 import java.lang.reflect.Method;
-/* loaded from: classes14.dex */
+/* loaded from: classes7.dex */
 public final class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final Object f8047a = new Object();
-    private static volatile b b;
-    private e c;
+    public static final Object f39454a = new Object();
 
-    private b() {
-    }
+    /* renamed from: b  reason: collision with root package name */
+    public static volatile b f39455b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public e f39456c;
 
     public static b a() {
-        if (b == null) {
-            synchronized (f8047a) {
-                if (b == null) {
-                    b = new b();
+        if (f39455b == null) {
+            synchronized (f39454a) {
+                if (f39455b == null) {
+                    f39455b = new b();
                 }
             }
         }
-        return b;
+        return f39455b;
     }
 
     public final e a(Context context) {
-        String str;
-        if (this.c != null) {
-            return this.c;
+        e eVar = this.f39456c;
+        if (eVar != null) {
+            return eVar;
         }
         try {
-            if (z.a(context)) {
-                str = "com.vivo.push.cache.ServerConfigManagerImpl";
-            } else {
-                str = "com.vivo.push.cache.ClientConfigManagerImpl";
-            }
+            String str = z.a(context) ? "com.vivo.push.cache.ServerConfigManagerImpl" : "com.vivo.push.cache.ClientConfigManagerImpl";
             Method method = Class.forName(str).getMethod("getInstance", Context.class);
             p.d("ConfigManagerFactory", "createConfig success is " + str);
-            this.c = (e) method.invoke(null, context);
-            return this.c;
-        } catch (Exception e) {
-            e.printStackTrace();
-            p.b("ConfigManagerFactory", "createConfig error", e);
+            e eVar2 = (e) method.invoke(null, context);
+            this.f39456c = eVar2;
+            return eVar2;
+        } catch (Exception e2) {
+            e2.printStackTrace();
+            p.b("ConfigManagerFactory", "createConfig error", e2);
             return null;
         }
     }

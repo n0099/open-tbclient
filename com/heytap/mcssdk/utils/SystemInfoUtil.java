@@ -6,77 +6,90 @@ import android.os.Build;
 import android.os.SystemProperties;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
-import com.baidu.android.util.devices.RomUtils;
+import com.baidu.android.common.others.lang.StringUtil;
 @SuppressLint({"DefaultLocale"})
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class SystemInfoUtil {
-    private static final String MODEL_NULL = "0";
-    private static final int SDK_INT_21 = 21;
+    public static final String MODEL_NULL = "0";
+    public static final int SDK_INT_21 = 21;
 
     public static String getAndroidVersion() {
         return Build.VERSION.RELEASE;
     }
 
+    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
     public static String getCarrierName(Context context) {
+        char c2;
         String lowerCase = getOperator(context).toLowerCase();
-        char c = 65535;
         switch (lowerCase.hashCode()) {
             case -42227884:
                 if (lowerCase.equals("china net")) {
-                    c = 7;
+                    c2 = 7;
                     break;
                 }
+                c2 = 65535;
                 break;
             case 278980793:
                 if (lowerCase.equals("chinamobile")) {
-                    c = 2;
+                    c2 = 2;
                     break;
                 }
+                c2 = 65535;
                 break;
             case 394699659:
                 if (lowerCase.equals("china mobile")) {
-                    c = 1;
+                    c2 = 1;
                     break;
                 }
+                c2 = 65535;
                 break;
             case 507293352:
                 if (lowerCase.equals("chinaunicom")) {
-                    c = 5;
+                    c2 = 5;
                     break;
                 }
+                c2 = 65535;
                 break;
             case 618558396:
                 if (lowerCase.equals("中国电信")) {
-                    c = 6;
+                    c2 = 6;
                     break;
                 }
+                c2 = 65535;
                 break;
             case 618596989:
                 if (lowerCase.equals("中国移动")) {
-                    c = 0;
+                    c2 = 0;
                     break;
                 }
+                c2 = 65535;
                 break;
             case 618663094:
                 if (lowerCase.equals("中国联通")) {
-                    c = 3;
+                    c2 = 3;
                     break;
                 }
+                c2 = 65535;
                 break;
             case 623012218:
                 if (lowerCase.equals("china unicom")) {
-                    c = 4;
+                    c2 = 4;
                     break;
                 }
+                c2 = 65535;
                 break;
             case 1661280486:
                 if (lowerCase.equals("chinanet")) {
-                    c = '\b';
+                    c2 = '\b';
                     break;
                 }
+                c2 = 65535;
+                break;
+            default:
+                c2 = 65535;
                 break;
         }
-        switch (c) {
+        switch (c2) {
             case 0:
             case 1:
             case 2:
@@ -105,20 +118,18 @@ public class SystemInfoUtil {
     public static String getOperator(Context context) {
         try {
             TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
-            if (telephonyManager != null) {
-                return telephonyManager.getNetworkOperatorName();
-            }
-        } catch (Exception e) {
-            LogUtil.e(e);
+            return telephonyManager != null ? telephonyManager.getNetworkOperatorName() : "";
+        } catch (Exception e2) {
+            LogUtil.e(e2);
+            return "";
         }
-        return "";
     }
 
     public static String getRomVersion() {
-        return SystemProperties.get(RomUtils.PROP_RO_BUILD_DISPLAY_ID, "");
+        return SystemProperties.get("ro.build.display.id", "");
     }
 
-    private static boolean isEmpty(String str) {
-        return TextUtils.isEmpty(str) || "null".equals(str);
+    public static boolean isEmpty(String str) {
+        return TextUtils.isEmpty(str) || StringUtil.NULL_STRING.equals(str);
     }
 }

@@ -2,13 +2,14 @@ package com.facebook.drawee.components;
 
 import java.util.Queue;
 import java.util.concurrent.ArrayBlockingQueue;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class DraweeEventTracker {
-    private static final DraweeEventTracker pDQ = new DraweeEventTracker();
-    private static boolean sEnabled = true;
-    private final Queue<Event> pDP = new ArrayBlockingQueue(20);
+    public static final int MAX_EVENTS_TO_TRACK = 20;
+    public final Queue<Event> mEventQueue = new ArrayBlockingQueue(20);
+    public static final DraweeEventTracker sInstance = new DraweeEventTracker();
+    public static boolean sEnabled = true;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public enum Event {
         ON_SET_HIERARCHY,
         ON_CLEAR_HIERARCHY,
@@ -36,23 +37,24 @@ public class DraweeEventTracker {
         ON_SUBMIT_CACHE_HIT
     }
 
-    private DraweeEventTracker() {
+    public static void disable() {
+        sEnabled = false;
     }
 
-    public static DraweeEventTracker eub() {
-        return sEnabled ? new DraweeEventTracker() : pDQ;
+    public static DraweeEventTracker newInstance() {
+        return sEnabled ? new DraweeEventTracker() : sInstance;
     }
 
-    public void a(Event event) {
+    public void recordEvent(Event event) {
         if (sEnabled) {
-            if (this.pDP.size() + 1 > 20) {
-                this.pDP.poll();
+            if (this.mEventQueue.size() + 1 > 20) {
+                this.mEventQueue.poll();
             }
-            this.pDP.add(event);
+            this.mEventQueue.add(event);
         }
     }
 
     public String toString() {
-        return this.pDP.toString();
+        return this.mEventQueue.toString();
     }
 }

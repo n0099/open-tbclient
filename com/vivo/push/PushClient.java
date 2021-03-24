@@ -4,14 +4,21 @@ import android.content.Context;
 import com.vivo.push.util.VivoPushException;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes14.dex */
+/* loaded from: classes7.dex */
 public class PushClient {
     public static final String DEFAULT_REQUEST_ID = "1";
-    private static final Object SLOCK = new Object();
-    private static volatile PushClient sPushClient;
+    public static final Object SLOCK = new Object();
+    public static volatile PushClient sPushClient;
 
-    private PushClient(Context context) {
+    public PushClient(Context context) {
         p.a().a(context);
+    }
+
+    private void checkParam(String str) {
+        if (str != null) {
+            return;
+        }
+        throw new IllegalArgumentException("PushManager String param should not be " + str);
     }
 
     public static PushClient getInstance(Context context) {
@@ -25,36 +32,19 @@ public class PushClient {
         return sPushClient;
     }
 
-    public void initialize() {
-        p.a().i();
+    public void bindAlias(String str, IPushActionListener iPushActionListener) {
+        checkParam(str);
+        p.a().a(str, iPushActionListener);
     }
 
     public void checkManifest() throws VivoPushException {
         p.a().b();
     }
 
-    private void checkParam(String str) {
-        if (str == null) {
-            throw new IllegalArgumentException("PushManager String param should not be " + str);
-        }
-    }
-
-    public void bindAlias(String str, IPushActionListener iPushActionListener) {
-        checkParam(str);
-        p.a().a(str, iPushActionListener);
-    }
-
-    public void unBindAlias(String str, IPushActionListener iPushActionListener) {
-        checkParam(str);
-        p.a().b(str, iPushActionListener);
-    }
-
-    public void turnOnPush(IPushActionListener iPushActionListener) {
-        p.a().a(iPushActionListener);
-    }
-
-    public void turnOffPush(IPushActionListener iPushActionListener) {
-        p.a().b(iPushActionListener);
+    public void delTopic(String str, IPushActionListener iPushActionListener) {
+        ArrayList<String> arrayList = new ArrayList<>(1);
+        arrayList.add(str);
+        p.a().b(arrayList, iPushActionListener);
     }
 
     public String getAlias() {
@@ -65,8 +55,24 @@ public class PushClient {
         return p.a().f();
     }
 
+    public List<String> getTopics() {
+        return p.a().c();
+    }
+
     public String getVersion() {
         return "2.5.3";
+    }
+
+    public void initialize() {
+        p.a().i();
+    }
+
+    public boolean isSupport() {
+        return p.a().d();
+    }
+
+    public void setSystemModel(boolean z) {
+        p.a().a(z);
     }
 
     public void setTopic(String str, IPushActionListener iPushActionListener) {
@@ -75,21 +81,16 @@ public class PushClient {
         p.a().a(arrayList, iPushActionListener);
     }
 
-    public void delTopic(String str, IPushActionListener iPushActionListener) {
-        ArrayList<String> arrayList = new ArrayList<>(1);
-        arrayList.add(str);
-        p.a().b(arrayList, iPushActionListener);
+    public void turnOffPush(IPushActionListener iPushActionListener) {
+        p.a().b(iPushActionListener);
     }
 
-    public List<String> getTopics() {
-        return p.a().c();
+    public void turnOnPush(IPushActionListener iPushActionListener) {
+        p.a().a(iPushActionListener);
     }
 
-    public void setSystemModel(boolean z) {
-        p.a().a(z);
-    }
-
-    public boolean isSupport() {
-        return p.a().d();
+    public void unBindAlias(String str, IPushActionListener iPushActionListener) {
+        checkParam(str);
+        p.a().b(str, iPushActionListener);
     }
 }

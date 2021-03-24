@@ -2,29 +2,37 @@ package com.ksad.lottie.a.b;
 
 import android.graphics.PointF;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class j extends f<PointF> {
-    private final PointF c;
+
+    /* renamed from: c  reason: collision with root package name */
+    public final PointF f31302c;
 
     public j(List<com.ksad.lottie.e.a<PointF>> list) {
         super(list);
-        this.c = new PointF();
+        this.f31302c = new PointF();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.ksad.lottie.a.b.a
     /* renamed from: b */
-    public PointF a(com.ksad.lottie.e.a<PointF> aVar, float f) {
+    public PointF a(com.ksad.lottie.e.a<PointF> aVar, float f2) {
         PointF pointF;
-        if (aVar.f5351a == null || aVar.b == null) {
+        PointF pointF2;
+        PointF pointF3 = aVar.f31382a;
+        if (pointF3 == null || (pointF = aVar.f31383b) == null) {
             throw new IllegalStateException("Missing values for keyframe.");
         }
-        PointF pointF2 = aVar.f5351a;
-        PointF pointF3 = aVar.b;
-        if (this.b == null || (pointF = (PointF) this.b.a(aVar.d, aVar.e.floatValue(), pointF2, pointF3, f, c(), f())) == null) {
-            this.c.set(pointF2.x + ((pointF3.x - pointF2.x) * f), pointF2.y + ((pointF3.y - pointF2.y) * f));
-            return this.c;
+        PointF pointF4 = pointF3;
+        PointF pointF5 = pointF;
+        com.ksad.lottie.e.c<A> cVar = this.f31288b;
+        if (cVar == 0 || (pointF2 = (PointF) cVar.a(aVar.f31385d, aVar.f31386e.floatValue(), pointF4, pointF5, f2, c(), f())) == null) {
+            PointF pointF6 = this.f31302c;
+            float f3 = pointF4.x;
+            float f4 = pointF4.y;
+            pointF6.set(f3 + ((pointF5.x - f3) * f2), f4 + (f2 * (pointF5.y - f4)));
+            return this.f31302c;
         }
-        return pointF;
+        return pointF2;
     }
 }

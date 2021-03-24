@@ -5,19 +5,19 @@ import android.os.Bundle;
 import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcel;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public interface IMcsSdkService extends IInterface {
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public abstract class Stub extends Binder implements IMcsSdkService {
-        private static final String DESCRIPTOR = "com.mcs.aidl.IMcsSdkService";
-        static final int TRANSACTION_process = 1;
+        public static final String DESCRIPTOR = "com.mcs.aidl.IMcsSdkService";
+        public static final int TRANSACTION_process = 1;
 
-        /* loaded from: classes5.dex */
-        class Proxy implements IMcsSdkService {
-            private IBinder mRemote;
+        /* loaded from: classes6.dex */
+        public class Proxy implements IMcsSdkService {
+            public IBinder mRemote;
 
-            Proxy(IBinder iBinder) {
+            public Proxy(IBinder iBinder) {
                 this.mRemote = iBinder;
             }
 
@@ -70,18 +70,17 @@ public interface IMcsSdkService extends IInterface {
 
         @Override // android.os.Binder
         public boolean onTransact(int i, Parcel parcel, Parcel parcel2, int i2) {
-            switch (i) {
-                case 1:
-                    parcel.enforceInterface(DESCRIPTOR);
-                    process(parcel.readInt() != 0 ? (Bundle) Bundle.CREATOR.createFromParcel(parcel) : null);
-                    parcel2.writeNoException();
-                    return true;
-                case 1598968902:
-                    parcel2.writeString(DESCRIPTOR);
-                    return true;
-                default:
+            if (i != 1) {
+                if (i != 1598968902) {
                     return super.onTransact(i, parcel, parcel2, i2);
+                }
+                parcel2.writeString(DESCRIPTOR);
+                return true;
             }
+            parcel.enforceInterface(DESCRIPTOR);
+            process(parcel.readInt() != 0 ? (Bundle) Bundle.CREATOR.createFromParcel(parcel) : null);
+            parcel2.writeNoException();
+            return true;
         }
     }
 

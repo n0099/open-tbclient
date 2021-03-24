@@ -4,8 +4,8 @@ import androidx.annotation.NonNull;
 import com.bumptech.glide.RequestManager;
 import java.util.Collections;
 import java.util.Set;
-/* loaded from: classes14.dex */
-final class EmptyRequestManagerTreeNode implements RequestManagerTreeNode {
+/* loaded from: classes5.dex */
+public final class EmptyRequestManagerTreeNode implements RequestManagerTreeNode {
     @Override // com.bumptech.glide.manager.RequestManagerTreeNode
     @NonNull
     public Set<RequestManager> getDescendants() {

@@ -2,17 +2,29 @@ package org.apache.http;
 
 import java.io.Serializable;
 @Deprecated
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class ProtocolVersion implements Serializable {
-    protected final int major;
-    protected final int minor;
-    protected final String protocol;
+    public final int major;
+    public final int minor;
+    public final String protocol;
 
     public ProtocolVersion(String str, int i, int i2) {
         throw new RuntimeException("Stub!");
     }
 
-    public final String getProtocol() {
+    public Object clone() throws CloneNotSupportedException {
+        throw new RuntimeException("Stub!");
+    }
+
+    public int compareToVersion(ProtocolVersion protocolVersion) {
+        throw new RuntimeException("Stub!");
+    }
+
+    public final boolean equals(Object obj) {
+        throw new RuntimeException("Stub!");
+    }
+
+    public ProtocolVersion forVersion(int i, int i2) {
         throw new RuntimeException("Stub!");
     }
 
@@ -24,7 +36,11 @@ public class ProtocolVersion implements Serializable {
         throw new RuntimeException("Stub!");
     }
 
-    public ProtocolVersion forVersion(int i, int i2) {
+    public final String getProtocol() {
+        throw new RuntimeException("Stub!");
+    }
+
+    public final boolean greaterEquals(ProtocolVersion protocolVersion) {
         throw new RuntimeException("Stub!");
     }
 
@@ -32,19 +48,7 @@ public class ProtocolVersion implements Serializable {
         throw new RuntimeException("Stub!");
     }
 
-    public final boolean equals(Object obj) {
-        throw new RuntimeException("Stub!");
-    }
-
     public boolean isComparable(ProtocolVersion protocolVersion) {
-        throw new RuntimeException("Stub!");
-    }
-
-    public int compareToVersion(ProtocolVersion protocolVersion) {
-        throw new RuntimeException("Stub!");
-    }
-
-    public final boolean greaterEquals(ProtocolVersion protocolVersion) {
         throw new RuntimeException("Stub!");
     }
 
@@ -53,10 +57,6 @@ public class ProtocolVersion implements Serializable {
     }
 
     public String toString() {
-        throw new RuntimeException("Stub!");
-    }
-
-    public Object clone() throws CloneNotSupportedException {
         throw new RuntimeException("Stub!");
     }
 }

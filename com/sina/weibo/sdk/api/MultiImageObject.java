@@ -4,7 +4,7 @@ import android.net.Uri;
 import android.os.Parcel;
 import android.os.Parcelable;
 import java.util.ArrayList;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class MultiImageObject extends BaseMediaObject {
     public static final Parcelable.Creator<MultiImageObject> CREATOR = new Parcelable.Creator<MultiImageObject>() { // from class: com.sina.weibo.sdk.api.MultiImageObject.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -23,31 +23,6 @@ public class MultiImageObject extends BaseMediaObject {
     };
     public ArrayList<Uri> imageList;
 
-    public void setImageList(ArrayList<Uri> arrayList) {
-        this.imageList = arrayList;
-    }
-
-    public ArrayList<Uri> getImageList() {
-        return this.imageList;
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.sina.weibo.sdk.api.BaseMediaObject
-    public BaseMediaObject toExtraMediaObject(String str) {
-        return null;
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.sina.weibo.sdk.api.BaseMediaObject
-    public String toExtraMediaString() {
-        return null;
-    }
-
-    @Override // com.sina.weibo.sdk.api.BaseMediaObject
-    public int getObjType() {
-        return 0;
-    }
-
     public MultiImageObject() {
     }
 
@@ -56,13 +31,36 @@ public class MultiImageObject extends BaseMediaObject {
         return 0;
     }
 
+    public ArrayList<Uri> getImageList() {
+        return this.imageList;
+    }
+
+    @Override // com.sina.weibo.sdk.api.BaseMediaObject
+    public int getObjType() {
+        return 0;
+    }
+
+    public void setImageList(ArrayList<Uri> arrayList) {
+        this.imageList = arrayList;
+    }
+
+    @Override // com.sina.weibo.sdk.api.BaseMediaObject
+    public BaseMediaObject toExtraMediaObject(String str) {
+        return null;
+    }
+
+    @Override // com.sina.weibo.sdk.api.BaseMediaObject
+    public String toExtraMediaString() {
+        return null;
+    }
+
     @Override // com.sina.weibo.sdk.api.BaseMediaObject, android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
         super.writeToParcel(parcel, i);
         parcel.writeTypedList(this.imageList);
     }
 
-    protected MultiImageObject(Parcel parcel) {
+    public MultiImageObject(Parcel parcel) {
         super(parcel);
         this.imageList = parcel.createTypedArrayList(Uri.CREATOR);
     }

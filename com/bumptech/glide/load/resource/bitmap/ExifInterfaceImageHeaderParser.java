@@ -10,8 +10,17 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.nio.ByteBuffer;
 @RequiresApi(27)
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public final class ExifInterfaceImageHeaderParser implements ImageHeaderParser {
+    @Override // com.bumptech.glide.load.ImageHeaderParser
+    public int getOrientation(@NonNull InputStream inputStream, @NonNull ArrayPool arrayPool) throws IOException {
+        int attributeInt = new ExifInterface(inputStream).getAttributeInt(ExifInterface.TAG_ORIENTATION, 1);
+        if (attributeInt == 0) {
+            return -1;
+        }
+        return attributeInt;
+    }
+
     @Override // com.bumptech.glide.load.ImageHeaderParser
     @NonNull
     public ImageHeaderParser.ImageType getType(@NonNull InputStream inputStream) {
@@ -22,15 +31,6 @@ public final class ExifInterfaceImageHeaderParser implements ImageHeaderParser {
     @NonNull
     public ImageHeaderParser.ImageType getType(@NonNull ByteBuffer byteBuffer) {
         return ImageHeaderParser.ImageType.UNKNOWN;
-    }
-
-    @Override // com.bumptech.glide.load.ImageHeaderParser
-    public int getOrientation(@NonNull InputStream inputStream, @NonNull ArrayPool arrayPool) throws IOException {
-        int attributeInt = new ExifInterface(inputStream).getAttributeInt(ExifInterface.TAG_ORIENTATION, 1);
-        if (attributeInt == 0) {
-            return -1;
-        }
-        return attributeInt;
     }
 
     @Override // com.bumptech.glide.load.ImageHeaderParser

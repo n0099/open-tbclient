@@ -4,17 +4,17 @@ import java.io.IOException;
 import org.apache.http.HttpEntity;
 import org.apache.http.ParseException;
 @Deprecated
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class EntityUtils {
-    EntityUtils() {
-        throw new RuntimeException("Stub!");
-    }
-
-    public static byte[] toByteArray(HttpEntity httpEntity) throws IOException {
+    public EntityUtils() {
         throw new RuntimeException("Stub!");
     }
 
     public static String getContentCharSet(HttpEntity httpEntity) throws ParseException {
+        throw new RuntimeException("Stub!");
+    }
+
+    public static byte[] toByteArray(HttpEntity httpEntity) throws IOException {
         throw new RuntimeException("Stub!");
     }
 

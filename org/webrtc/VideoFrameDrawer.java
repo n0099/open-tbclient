@@ -7,27 +7,49 @@ import java.nio.ByteBuffer;
 import javax.annotation.Nullable;
 import org.webrtc.RendererCommon;
 import org.webrtc.VideoFrame;
-/* loaded from: classes9.dex */
+/* loaded from: classes.dex */
 public class VideoFrameDrawer {
-    static final float[] srcPoints = {0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 1.0f};
+    public static final float[] srcPoints = {0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 1.0f};
     @Nullable
-    private VideoFrame lastI420Frame;
-    private int renderHeight;
-    private int renderWidth;
-    private final float[] dstPoints = new float[6];
-    private final Point renderSize = new Point();
-    private final YuvUploader yuvUploader = new YuvUploader();
-    private final Matrix renderMatrix = new Matrix();
+    public VideoFrame lastI420Frame;
+    public int renderHeight;
+    public int renderWidth;
+    public final float[] dstPoints = new float[6];
+    public final Point renderSize = new Point();
+    public final YuvUploader yuvUploader = new YuvUploader(null);
+    public final Matrix renderMatrix = new Matrix();
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes9.dex */
+    /* renamed from: org.webrtc.VideoFrameDrawer$1  reason: invalid class name */
+    /* loaded from: classes7.dex */
+    public static /* synthetic */ class AnonymousClass1 {
+        public static final /* synthetic */ int[] $SwitchMap$org$webrtc$VideoFrame$TextureBuffer$Type;
+
+        static {
+            int[] iArr = new int[VideoFrame.TextureBuffer.Type.values().length];
+            $SwitchMap$org$webrtc$VideoFrame$TextureBuffer$Type = iArr;
+            try {
+                iArr[VideoFrame.TextureBuffer.Type.OES.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
+            }
+            try {
+                $SwitchMap$org$webrtc$VideoFrame$TextureBuffer$Type[VideoFrame.TextureBuffer.Type.RGB.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
+            }
+        }
+    }
+
+    /* loaded from: classes.dex */
     public static class YuvUploader {
         @Nullable
-        private ByteBuffer copyBuffer;
+        public ByteBuffer copyBuffer;
         @Nullable
-        private int[] yuvTextures;
+        public int[] yuvTextures;
 
-        private YuvUploader() {
+        public YuvUploader() {
+        }
+
+        public /* synthetic */ YuvUploader(AnonymousClass1 anonymousClass1) {
+            this();
         }
 
         @Nullable
@@ -37,8 +59,9 @@ public class VideoFrameDrawer {
 
         public void release() {
             this.copyBuffer = null;
-            if (this.yuvTextures != null) {
-                GLES20.glDeleteTextures(3, this.yuvTextures, 0);
+            int[] iArr = this.yuvTextures;
+            if (iArr != null) {
+                GLES20.glDeleteTextures(3, iArr, 0);
                 this.yuvTextures = null;
             }
         }
@@ -51,6 +74,7 @@ public class VideoFrameDrawer {
         @Nullable
         public int[] uploadYuvData(int i, int i2, int[] iArr, ByteBuffer[] byteBufferArr) {
             ByteBuffer byteBuffer;
+            ByteBuffer byteBuffer2;
             int i3 = i / 2;
             int[] iArr2 = {i, i3, i3};
             int i4 = i2 / 2;
@@ -61,7 +85,7 @@ public class VideoFrameDrawer {
                     i5 = Math.max(i5, iArr2[i6] * iArr3[i6]);
                 }
             }
-            if (i5 > 0 && (this.copyBuffer == null || this.copyBuffer.capacity() < i5)) {
+            if (i5 > 0 && ((byteBuffer2 = this.copyBuffer) == null || byteBuffer2.capacity() < i5)) {
                 this.copyBuffer = ByteBuffer.allocateDirect(i5);
             }
             if (this.yuvTextures == null) {
@@ -97,32 +121,30 @@ public class VideoFrameDrawer {
             int i4 = i3 * 2;
             int i5 = i4 + 0;
             fArr[i5] = fArr[i5] * i;
-            float[] fArr2 = this.dstPoints;
             int i6 = i4 + 1;
-            fArr2[i6] = fArr2[i6] * i2;
+            fArr[i6] = fArr[i6] * i2;
         }
-        this.renderWidth = distance(this.dstPoints[0], this.dstPoints[1], this.dstPoints[2], this.dstPoints[3]);
-        this.renderHeight = distance(this.dstPoints[0], this.dstPoints[1], this.dstPoints[4], this.dstPoints[5]);
+        float[] fArr2 = this.dstPoints;
+        this.renderWidth = distance(fArr2[0], fArr2[1], fArr2[2], fArr2[3]);
+        float[] fArr3 = this.dstPoints;
+        this.renderHeight = distance(fArr3[0], fArr3[1], fArr3[4], fArr3[5]);
     }
 
-    private static int distance(float f, float f2, float f3, float f4) {
-        return (int) Math.round(Math.hypot(f3 - f, f4 - f2));
+    public static int distance(float f2, float f3, float f4, float f5) {
+        return (int) Math.round(Math.hypot(f4 - f2, f5 - f3));
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public static void drawTexture(RendererCommon.GlDrawer glDrawer, VideoFrame.TextureBuffer textureBuffer, Matrix matrix, int i, int i2, int i3, int i4, int i5, int i6) {
         Matrix matrix2 = new Matrix(textureBuffer.getTransformMatrix());
         matrix2.preConcat(matrix);
         float[] convertMatrixFromAndroidGraphicsMatrix = RendererCommon.convertMatrixFromAndroidGraphicsMatrix(matrix2);
-        switch (textureBuffer.getType()) {
-            case OES:
-                glDrawer.drawOes(textureBuffer.getTextureId(), convertMatrixFromAndroidGraphicsMatrix, i, i2, i3, i4, i5, i6);
-                return;
-            case RGB:
-                glDrawer.drawRgb(textureBuffer.getTextureId(), convertMatrixFromAndroidGraphicsMatrix, i, i2, i3, i4, i5, i6);
-                return;
-            default:
-                throw new RuntimeException("Unknown texture type.");
+        int i7 = AnonymousClass1.$SwitchMap$org$webrtc$VideoFrame$TextureBuffer$Type[textureBuffer.getType().ordinal()];
+        if (i7 == 1) {
+            glDrawer.drawOes(textureBuffer.getTextureId(), convertMatrixFromAndroidGraphicsMatrix, i, i2, i3, i4, i5, i6);
+        } else if (i7 != 2) {
+            throw new RuntimeException("Unknown texture type.");
+        } else {
+            glDrawer.drawRgb(textureBuffer.getTextureId(), convertMatrixFromAndroidGraphicsMatrix, i, i2, i3, i4, i5, i6);
         }
     }
 

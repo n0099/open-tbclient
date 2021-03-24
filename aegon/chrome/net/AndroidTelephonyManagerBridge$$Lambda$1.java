@@ -1,9 +1,9 @@
 package aegon.chrome.net;
-/* loaded from: classes3.dex */
-final /* synthetic */ class AndroidTelephonyManagerBridge$$Lambda$1 implements Runnable {
-    private final AndroidTelephonyManagerBridge arg$1;
+/* loaded from: classes.dex */
+public final /* synthetic */ class AndroidTelephonyManagerBridge$$Lambda$1 implements Runnable {
+    public final AndroidTelephonyManagerBridge arg$1;
 
-    private AndroidTelephonyManagerBridge$$Lambda$1(AndroidTelephonyManagerBridge androidTelephonyManagerBridge) {
+    public AndroidTelephonyManagerBridge$$Lambda$1(AndroidTelephonyManagerBridge androidTelephonyManagerBridge) {
         this.arg$1 = androidTelephonyManagerBridge;
     }
 

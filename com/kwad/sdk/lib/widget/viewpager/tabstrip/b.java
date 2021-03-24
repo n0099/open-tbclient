@@ -3,35 +3,39 @@ package com.kwad.sdk.lib.widget.viewpager.tabstrip;
 import android.os.Bundle;
 import com.kwad.sdk.api.core.fragment.KsFragment;
 import com.kwad.sdk.lib.widget.viewpager.tabstrip.PagerSlidingTabStrip;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class b<T extends KsFragment> {
 
     /* renamed from: a  reason: collision with root package name */
-    private Class<T> f6907a;
-    private Bundle b;
-    private PagerSlidingTabStrip.c c;
+    public Class<T> f36062a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public Bundle f36063b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public PagerSlidingTabStrip.c f36064c;
 
     public b() {
     }
 
     public b(PagerSlidingTabStrip.c cVar, Class<T> cls, Bundle bundle) {
-        this.c = cVar;
-        this.f6907a = cls;
-        this.b = bundle;
+        this.f36064c = cVar;
+        this.f36062a = cls;
+        this.f36063b = bundle;
     }
 
     public PagerSlidingTabStrip.c a() {
-        return this.c;
+        return this.f36064c;
     }
 
     public void a(int i, T t) {
     }
 
     public Class<T> b() {
-        return this.f6907a;
+        return this.f36062a;
     }
 
     public Bundle c() {
-        return this.b;
+        return this.f36063b;
     }
 }

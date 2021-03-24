@@ -6,7 +6,7 @@ import com.heytap.mcssdk.mode.CommandMessage;
 import com.heytap.mcssdk.mode.Message;
 import com.heytap.mcssdk.utils.CryptoUtil;
 import com.heytap.mcssdk.utils.LogUtil;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class b extends c {
     @Override // com.heytap.mcssdk.a.d
     public final Message a(Context context, int i, Intent intent) {
@@ -25,11 +25,11 @@ public final class b extends c {
             commandMessage.setContent(CryptoUtil.desDecrypt(intent.getStringExtra("content")));
             commandMessage.setAppKey(CryptoUtil.desDecrypt(intent.getStringExtra("appKey")));
             commandMessage.setAppSecret(CryptoUtil.desDecrypt(intent.getStringExtra(CommandMessage.APP_SECRET)));
-            commandMessage.setAppPackage(CryptoUtil.desDecrypt(intent.getStringExtra(Message.APP_PACKAGE)));
+            commandMessage.setAppPackage(CryptoUtil.desDecrypt(intent.getStringExtra("appPackage")));
             LogUtil.d("OnHandleIntent-message:" + commandMessage.toString());
             return commandMessage;
-        } catch (Exception e) {
-            LogUtil.d("OnHandleIntent--" + e.getMessage());
+        } catch (Exception e2) {
+            LogUtil.d("OnHandleIntent--" + e2.getMessage());
             return null;
         }
     }

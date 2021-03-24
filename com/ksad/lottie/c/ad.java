@@ -7,118 +7,76 @@ import com.baidu.mobstat.Config;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class ad implements aj<com.ksad.lottie.model.content.h> {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final ad f5329a = new ad();
-
-    private ad() {
-    }
+    public static final ad f31335a = new ad();
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.ksad.lottie.c.aj
     /* renamed from: a */
-    public com.ksad.lottie.model.content.h b(JsonReader jsonReader, float f) {
-        List<PointF> a2;
-        List<PointF> list;
-        List<PointF> list2;
-        boolean z;
+    public com.ksad.lottie.model.content.h b(JsonReader jsonReader, float f2) {
         if (jsonReader.peek() == JsonToken.BEGIN_ARRAY) {
             jsonReader.beginArray();
         }
         jsonReader.beginObject();
+        List<PointF> list = null;
+        List<PointF> list2 = null;
         List<PointF> list3 = null;
-        List<PointF> list4 = null;
-        List<PointF> list5 = null;
-        boolean z2 = false;
+        boolean z = false;
         while (jsonReader.hasNext()) {
             String nextName = jsonReader.nextName();
-            char c = 65535;
-            switch (nextName.hashCode()) {
-                case 99:
-                    if (nextName.equals("c")) {
-                        c = 0;
-                        break;
+            char c2 = 65535;
+            int hashCode = nextName.hashCode();
+            if (hashCode != 99) {
+                if (hashCode != 105) {
+                    if (hashCode != 111) {
+                        if (hashCode == 118 && nextName.equals("v")) {
+                            c2 = 1;
+                        }
+                    } else if (nextName.equals(Config.OS)) {
+                        c2 = 3;
                     }
-                    break;
-                case 105:
-                    if (nextName.equals("i")) {
-                        c = 2;
-                        break;
-                    }
-                    break;
-                case 111:
-                    if (nextName.equals(Config.OS)) {
-                        c = 3;
-                        break;
-                    }
-                    break;
-                case 118:
-                    if (nextName.equals("v")) {
-                        c = 1;
-                        break;
-                    }
-                    break;
+                } else if (nextName.equals("i")) {
+                    c2 = 2;
+                }
+            } else if (nextName.equals("c")) {
+                c2 = 0;
             }
-            switch (c) {
-                case 0:
-                    z = jsonReader.nextBoolean();
-                    a2 = list3;
-                    list = list4;
-                    list2 = list5;
-                    break;
-                case 1:
-                    list2 = p.a(jsonReader, f);
-                    a2 = list3;
-                    list = list4;
-                    z = z2;
-                    break;
-                case 2:
-                    list = p.a(jsonReader, f);
-                    a2 = list3;
-                    list2 = list5;
-                    z = z2;
-                    break;
-                case 3:
-                    a2 = p.a(jsonReader, f);
-                    list = list4;
-                    list2 = list5;
-                    z = z2;
-                    break;
-                default:
-                    a2 = list3;
-                    list = list4;
-                    list2 = list5;
-                    z = z2;
-                    break;
+            if (c2 == 0) {
+                z = jsonReader.nextBoolean();
+            } else if (c2 == 1) {
+                list = p.a(jsonReader, f2);
+            } else if (c2 == 2) {
+                list2 = p.a(jsonReader, f2);
+            } else if (c2 == 3) {
+                list3 = p.a(jsonReader, f2);
             }
-            list3 = a2;
-            list4 = list;
-            list5 = list2;
-            z2 = z;
         }
         jsonReader.endObject();
         if (jsonReader.peek() == JsonToken.END_ARRAY) {
             jsonReader.endArray();
         }
-        if (list5 == null || list4 == null || list3 == null) {
+        if (list == null || list2 == null || list3 == null) {
             throw new IllegalArgumentException("Shape data was missing information.");
         }
-        if (list5.isEmpty()) {
+        if (list.isEmpty()) {
             return new com.ksad.lottie.model.content.h(new PointF(), false, Collections.emptyList());
         }
-        int size = list5.size();
-        PointF pointF = list5.get(0);
+        int size = list.size();
+        PointF pointF = list.get(0);
         ArrayList arrayList = new ArrayList(size);
         for (int i = 1; i < size; i++) {
-            PointF pointF2 = list5.get(i);
-            arrayList.add(new com.ksad.lottie.model.a(com.ksad.lottie.d.e.a(list5.get(i - 1), list3.get(i - 1)), com.ksad.lottie.d.e.a(pointF2, list4.get(i)), pointF2));
+            PointF pointF2 = list.get(i);
+            int i2 = i - 1;
+            arrayList.add(new com.ksad.lottie.model.a(com.ksad.lottie.d.e.a(list.get(i2), list3.get(i2)), com.ksad.lottie.d.e.a(pointF2, list2.get(i)), pointF2));
         }
-        if (z2) {
-            PointF pointF3 = list5.get(0);
-            arrayList.add(new com.ksad.lottie.model.a(com.ksad.lottie.d.e.a(list5.get(size - 1), list3.get(size - 1)), com.ksad.lottie.d.e.a(pointF3, list4.get(0)), pointF3));
+        if (z) {
+            PointF pointF3 = list.get(0);
+            int i3 = size - 1;
+            arrayList.add(new com.ksad.lottie.model.a(com.ksad.lottie.d.e.a(list.get(i3), list3.get(i3)), com.ksad.lottie.d.e.a(pointF3, list2.get(0)), pointF3));
         }
-        return new com.ksad.lottie.model.content.h(pointF, z2, arrayList);
+        return new com.ksad.lottie.model.content.h(pointF, z, arrayList);
     }
 }

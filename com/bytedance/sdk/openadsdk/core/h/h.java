@@ -2,12 +2,12 @@ package com.bytedance.sdk.openadsdk.core.h;
 
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
-import com.bytedance.sdk.openadsdk.core.d.r;
+import com.baidu.searchbox.pms.db.PackageTable;
+import com.bytedance.sdk.openadsdk.core.d.t;
 import com.bytedance.sdk.openadsdk.core.p;
-import com.bytedance.sdk.openadsdk.utils.ae;
+import com.bytedance.sdk.openadsdk.utils.af;
 import com.bytedance.sdk.openadsdk.utils.u;
 import com.bytedance.sdk.openadsdk.utils.x;
-import com.kwad.sdk.core.response.model.SdkConfigData;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -21,239 +21,74 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class h implements c {
-    private String e;
-    private String g;
-    private String j;
-    private String q;
-    private String r;
-    private String u;
-    private String v;
-    private int w;
-    private int x;
+
+    /* renamed from: e  reason: collision with root package name */
+    public String f28426e;
+
+    /* renamed from: g  reason: collision with root package name */
+    public String f28428g;
+    public String j;
+    public String q;
+    public String r;
+    public String u;
+    public String v;
 
     /* renamed from: a  reason: collision with root package name */
-    private int f4459a = 0;
-    private int b = -1;
-    private Map<String, a> c = new HashMap();
-    private Map<String, i> d = new HashMap();
-    private Set<String> f = new HashSet();
-    private Set<String> h = Collections.synchronizedSet(new HashSet());
-    private List<e> i = new CopyOnWriteArrayList();
-    private int k = 1;
-    private int l = 30;
-    private int m = 1;
-    private int n = 0;
-    private JSONObject o = null;
-    private String p = "";
-    private int s = 1;
-    private int t = 5;
-    private int y = 0;
-    private long z = 0;
-    private Set<String> A = Collections.synchronizedSet(new HashSet());
-    private Set<String> B = Collections.synchronizedSet(new HashSet());
-    private int C = 0;
-    private int D = 1;
-    private long E = 10000;
-    private int F = 50;
-    private int G = 30;
-    private int H = 5;
-    private int I = SdkConfigData.DEFAULT_REQUEST_INTERVAL;
-    private String J = "pangolin.snssdk.com";
-    private String K = "extlog.snssdk.com/service/2/app_log/";
-    private int L = 100;
-    private int M = 3000;
-    private Set<String> N = Collections.synchronizedSet(new HashSet());
-    private String O = "https://sf3-ttcdn-tos.pstatp.com/obj/ad-pattern/renderer/package.json";
-    private int P = 0;
+    public int f28422a = Integer.MAX_VALUE;
 
-    @Override // com.bytedance.sdk.openadsdk.core.h.c
-    public synchronized void a() {
-        synchronized (this) {
-            if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
-                this.J = com.bytedance.sdk.openadsdk.multipro.d.a.b("tt_sdk_settings", "url_ads", "pangolin.snssdk.com");
-                this.K = com.bytedance.sdk.openadsdk.multipro.d.a.b("tt_sdk_settings", "url_alog", "extlog.snssdk.com/service/2/app_log/");
-                this.j = com.bytedance.sdk.openadsdk.multipro.d.a.b("tt_sdk_settings", "xpath", "");
-                this.E = com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "duration", 10000L);
-                this.F = com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "max", 50);
-                this.k = com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "download_config_dl_network", 1);
-                this.l = com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "download_config_dl_size", 30);
-                this.m = com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "download_config_storage_internal", 1);
-                this.G = com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "pos_cache_time", 30);
-                this.H = com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "vbtt", 5);
-                this.I = com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "fetch_template", (int) SdkConfigData.DEFAULT_REQUEST_INTERVAL);
-                this.g = com.bytedance.sdk.openadsdk.multipro.d.a.b("tt_sdk_settings", "template_ids", (String) null);
-                this.q = com.bytedance.sdk.openadsdk.multipro.d.a.b("tt_sdk_settings", "ab_test_version", (String) null);
-                this.r = com.bytedance.sdk.openadsdk.multipro.d.a.b("tt_sdk_settings", "ab_test_param", (String) null);
-                this.s = com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "web_info_wifi_enable", 1);
-                this.t = com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "web_info_page_count", 5);
-                this.u = com.bytedance.sdk.openadsdk.multipro.d.a.b("tt_sdk_settings", "pyload_h5", (String) null);
-                this.v = com.bytedance.sdk.openadsdk.multipro.d.a.b("tt_sdk_settings", "playableLoadH5Url", (String) null);
-                this.w = com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "splash_load_type", 1);
-                this.x = com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "splash_check_type", 1);
-                this.C = com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "if_both_open", 0);
-                this.D = com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "support_tnc", 1);
-                this.e = com.bytedance.sdk.openadsdk.multipro.d.a.b("tt_sdk_settings", "tpl_infos", (String) null);
-                this.y = com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "app_list_control", 0);
-                this.L = com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "max_tpl_cnts", 100);
-                this.M = com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "fetch_tpl_timeout_ctrl", 3000);
-                if (this.N != null) {
-                    this.N.clear();
-                }
-                this.N = com.bytedance.sdk.openadsdk.multipro.d.a.b("tt_sdk_settings", "gecko_hosts", (Set<String>) null);
-                this.N = a(this.N);
-                this.z = com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "hit_app_list_time", 0L);
-                this.A.clear();
-                this.f4459a = com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "circle_splash_switch", 0);
-                this.b = com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "circle_load_splash_time", -1);
-                this.P = com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "sp_key_if_sp_cache", 0);
-                this.O = com.bytedance.sdk.openadsdk.multipro.d.a.b("tt_sdk_settings", "dyn_draw_engine_url", "https://sf3-ttcdn-tos.pstatp.com/obj/ad-pattern/renderer/package.json");
-                Set<String> b = com.bytedance.sdk.openadsdk.multipro.d.a.b("tt_sdk_settings", "hit_app_list_data", (Set<String>) null);
-                if (b != null && !b.isEmpty()) {
-                    for (String str : b) {
-                        this.A.add(str);
-                    }
-                }
-                this.B.clear();
-                Set<String> b2 = com.bytedance.sdk.openadsdk.multipro.d.a.b("tt_sdk_settings", "scheme_list_data", (Set<String>) null);
-                if (b2 != null && !b2.isEmpty()) {
-                    for (String str2 : b2) {
-                        this.B.add(str2);
-                    }
-                }
-                t(com.bytedance.sdk.openadsdk.multipro.d.a.b("tt_sdk_settings", "push_config", (String) null));
-                String b3 = com.bytedance.sdk.openadsdk.multipro.d.a.b("tt_sdk_settings", "ad_slot_conf", (String) null);
-                if (!TextUtils.isEmpty(b3)) {
-                    try {
-                        JSONArray jSONArray = new JSONArray(b3);
-                        int length = jSONArray.length();
-                        if (length > 0) {
-                            this.c.clear();
-                            for (int i = 0; i < length; i++) {
-                                a b4 = b(jSONArray.optJSONObject(i));
-                                if (b4 != null) {
-                                    this.c.put(b4.f4448a, b4);
-                                }
-                            }
-                        }
-                    } catch (Exception e) {
-                    }
-                }
-                this.p = com.bytedance.sdk.openadsdk.multipro.d.a.b("tt_sdk_settings", "download_sdk_config", "");
-                if (!TextUtils.isEmpty(this.p)) {
-                    try {
-                        this.o = new JSONObject(this.p);
-                    } catch (JSONException e2) {
-                        e2.printStackTrace();
-                    }
-                }
-                this.n = com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "enable_download_opt", 0);
-                com.bytedance.sdk.openadsdk.downloadnew.a.g.c();
-            } else {
-                ae J = J();
-                this.J = J.b("url_ads", "pangolin.snssdk.com");
-                this.K = J.b("url_alog", "extlog.snssdk.com/service/2/app_log/");
-                this.j = J.b("xpath", "");
-                this.E = J.b("duration", 10000L);
-                this.F = J.b("max", 50);
-                this.k = J.b("download_config_dl_network", 1);
-                this.l = J.b("download_config_dl_size", 30);
-                this.m = J.b("download_config_storage_internal", 1);
-                this.G = J.b("pos_cache_time", 30);
-                this.I = J.b("fetch_template", SdkConfigData.DEFAULT_REQUEST_INTERVAL);
-                this.q = J.a("ab_test_version");
-                this.r = J.a("ab_test_param");
-                this.H = J.b("vbtt", 5);
-                this.g = J.b("template_ids", (String) null);
-                this.s = J.b("web_info_wifi_enable", 1);
-                this.t = J.b("web_info_page_count", 5);
-                this.u = J.b("pyload_h5", (String) null);
-                this.v = J.b("playableLoadH5Url", (String) null);
-                this.w = J.b("splash_load_type", 1);
-                this.x = J.b("splash_check_type", 1);
-                this.C = J.b("if_both_open", 0);
-                this.D = J.b("support_tnc", 1);
-                this.e = J.b("tpl_infos", (String) null);
-                this.y = J.b("app_list_control", 0);
-                this.L = J.b("max_tpl_cnts", 100);
-                this.M = J.b("fetch_tpl_timeout_ctrl", 3000);
-                if (this.N != null) {
-                    this.N.clear();
-                }
-                this.N = J.b("gecko_hosts", (Set<String>) null);
-                this.N = a(this.N);
-                this.z = J.b("hit_app_list_time", 0L);
-                this.A.clear();
-                this.f4459a = J.b("circle_splash_switch", 0);
-                this.b = J.b("circle_load_splash_time", -1);
-                this.O = J.b("dyn_draw_engine_url", "https://sf3-ttcdn-tos.pstatp.com/obj/ad-pattern/renderer/package.json");
-                this.P = J.b("sp_key_if_sp_cache", 0);
-                Set<String> b5 = J.b("hit_app_list_data", (Set<String>) null);
-                if (b5 != null && !b5.isEmpty()) {
-                    for (String str3 : b5) {
-                        this.A.add(str3);
-                    }
-                }
-                this.B.clear();
-                Set<String> b6 = J.b("scheme_list_data", (Set<String>) null);
-                if (b6 != null && !b6.isEmpty()) {
-                    for (String str4 : b6) {
-                        this.B.add(str4);
-                    }
-                }
-                t(J.b("push_config", (String) null));
-                String b7 = J.b("ad_slot_conf", (String) null);
-                if (!TextUtils.isEmpty(b7)) {
-                    try {
-                        JSONArray jSONArray2 = new JSONArray(b7);
-                        int length2 = jSONArray2.length();
-                        if (length2 > 0) {
-                            this.c.clear();
-                            for (int i2 = 0; i2 < length2; i2++) {
-                                a b8 = b(jSONArray2.optJSONObject(i2));
-                                if (b8 != null) {
-                                    this.c.put(b8.f4448a, b8);
-                                }
-                            }
-                        }
-                    } catch (Exception e3) {
-                    }
-                }
-                this.p = J.b("download_sdk_config", "");
-                if (!TextUtils.isEmpty(this.p)) {
-                    try {
-                        this.o = new JSONObject(this.p);
-                    } catch (JSONException e4) {
-                        e4.printStackTrace();
-                    }
-                }
-                this.n = J.b("enable_download_opt", 0);
-                com.bytedance.sdk.openadsdk.downloadnew.a.g.c();
-            }
-        }
+    /* renamed from: b  reason: collision with root package name */
+    public int f28423b = Integer.MAX_VALUE;
+
+    /* renamed from: c  reason: collision with root package name */
+    public final Map<String, a> f28424c = new HashMap();
+
+    /* renamed from: d  reason: collision with root package name */
+    public Map<String, i> f28425d = new HashMap();
+
+    /* renamed from: f  reason: collision with root package name */
+    public final Set<String> f28427f = new HashSet();
+
+    /* renamed from: h  reason: collision with root package name */
+    public Set<String> f28429h = Collections.synchronizedSet(new HashSet());
+    public final List<e> i = new CopyOnWriteArrayList();
+    public int k = Integer.MAX_VALUE;
+    public int l = Integer.MAX_VALUE;
+    public int m = Integer.MAX_VALUE;
+    public int n = Integer.MAX_VALUE;
+    public JSONObject o = null;
+    public String p = "";
+    public int s = Integer.MAX_VALUE;
+    public int t = Integer.MAX_VALUE;
+    public int w = Integer.MAX_VALUE;
+    public int x = Integer.MAX_VALUE;
+    public int y = Integer.MAX_VALUE;
+    public long z = 0;
+    public Set<String> A = Collections.synchronizedSet(new HashSet());
+    public Set<String> B = Collections.synchronizedSet(new HashSet());
+    public int C = Integer.MAX_VALUE;
+    public int D = Integer.MAX_VALUE;
+    public long E = 2147483647L;
+    public int F = Integer.MAX_VALUE;
+    public int G = Integer.MAX_VALUE;
+    public int H = Integer.MAX_VALUE;
+    public String I = null;
+    public String J = null;
+    public int K = Integer.MAX_VALUE;
+    public int L = Integer.MAX_VALUE;
+    public Set<String> M = Collections.synchronizedSet(new HashSet());
+    public String N = null;
+    public int O = Integer.MAX_VALUE;
+    public int P = Integer.MAX_VALUE;
+    public volatile boolean Q = false;
+    public int S = Integer.MAX_VALUE;
+    public int T = Integer.MAX_VALUE;
+    public final af R = af.a("tt_sdk_settings", p.a());
+
+    private int a(boolean z) {
+        return z ? 20 : 5;
     }
 
-    private void t(String str) {
-        if (str != null) {
-            try {
-                JSONArray jSONArray = new JSONArray(str);
-                int length = jSONArray.length();
-                for (int i = 0; i < length; i++) {
-                    e eVar = new e();
-                    JSONObject optJSONObject = jSONArray.optJSONObject(i);
-                    eVar.f4454a = optJSONObject.optString("action");
-                    eVar.b = optJSONObject.optString("service");
-                    eVar.c = optJSONObject.optString("package");
-                    eVar.d = optJSONObject.optInt("wakeup_interval");
-                    this.i.add(eVar);
-                }
-                d.a().b();
-            } catch (Throwable th) {
-                th.printStackTrace();
-            }
-        }
-    }
-
-    private static a b(JSONObject jSONObject) {
+    public static a b(JSONObject jSONObject) {
         if (jSONObject == null) {
             return null;
         }
@@ -262,30 +97,810 @@ public class h implements c {
         int optInt2 = jSONObject.optInt("voice_control", 1);
         int optInt3 = jSONObject.optInt("rv_preload", 2);
         int optInt4 = jSONObject.optInt("nv_preload", 1);
-        int optInt5 = jSONObject.optInt("read_video_from_cache", 1);
-        int optInt6 = jSONObject.optInt("proportion_watching", 100);
-        int optInt7 = jSONObject.optInt("skip_time_displayed", 0);
-        int optInt8 = jSONObject.optInt("video_skip_result", 2);
-        int optInt9 = jSONObject.optInt("reg_creative_control", 1);
-        int optInt10 = jSONObject.optInt("play_bar_show_time", 3);
-        int optInt11 = jSONObject.optInt("rv_skip_time", -1);
-        int optInt12 = jSONObject.optInt("endcard_close_time", -1);
-        int optInt13 = jSONObject.optInt("playable_endcard_close_time", -1);
-        int optInt14 = jSONObject.optInt("voice_control", 2);
-        int optInt15 = jSONObject.optInt("if_show_win", 1);
-        int optInt16 = jSONObject.optInt("sp_preload", 0);
-        int optInt17 = jSONObject.optInt("stop_time", 1500);
-        int optInt18 = jSONObject.optInt("native_playable_delay", 2);
-        int optInt19 = jSONObject.optInt("time_out_control", -1);
-        int optInt20 = jSONObject.optInt("playable_duration_time", 20);
-        int optInt21 = jSONObject.optInt("playable_close_time", -1);
-        int optInt22 = jSONObject.optInt("playable_reward_type", 0);
-        int optInt23 = jSONObject.optInt("reward_is_callback", 0);
-        int optInt24 = jSONObject.optInt("iv_skip_time", 5);
-        return a.a().a(optString).n(optInt).o(optInt2).p(optInt3).q(optInt4).r(optInt5).s(optInt6).t(optInt7).u(optInt8).v(optInt9).m(optInt10).l(optInt11).j(optInt12).i(optInt14).k(optInt13).w(optInt15).f(optInt16).g(optInt17).h(optInt18).e(optInt19).a(optInt21).d(optInt20).b(optInt22).c(optInt23).x(optInt24).a(jSONObject.optJSONArray("parent_tpl_ids"));
+        int optInt5 = jSONObject.optInt("proportion_watching", 100);
+        int optInt6 = jSONObject.optInt("skip_time_displayed", 0);
+        int optInt7 = jSONObject.optInt("video_skip_result", 2);
+        int optInt8 = jSONObject.optInt("reg_creative_control", 1);
+        int optInt9 = jSONObject.optInt("play_bar_show_time", 3);
+        int optInt10 = jSONObject.optInt("rv_skip_time", -1);
+        int optInt11 = jSONObject.optInt("endcard_close_time", -1);
+        int optInt12 = jSONObject.optInt("playable_endcard_close_time", -1);
+        int optInt13 = jSONObject.optInt("voice_control", 2);
+        int optInt14 = jSONObject.optInt("if_show_win", 1);
+        int optInt15 = jSONObject.optInt("sp_preload", 0);
+        int optInt16 = jSONObject.optInt("stop_time", 1500);
+        int optInt17 = jSONObject.optInt("native_playable_delay", 2);
+        int optInt18 = jSONObject.optInt("time_out_control", -1);
+        int optInt19 = jSONObject.optInt("playable_duration_time", 20);
+        int optInt20 = jSONObject.optInt("playable_close_time", -1);
+        int optInt21 = jSONObject.optInt("playable_reward_type", 0);
+        int optInt22 = jSONObject.optInt("reward_is_callback", 0);
+        int optInt23 = jSONObject.optInt("iv_skip_time", 5);
+        JSONArray optJSONArray = jSONObject.optJSONArray("parent_tpl_ids");
+        if (!f(optInt2)) {
+            optInt2 = 1;
+        }
+        if (!f(optInt13)) {
+            optInt13 = 1;
+        }
+        return a.a().a(optString).n(optInt).o(optInt2).p(optInt3).q(optInt4).r(optInt5).s(optInt6).t(optInt7).u(optInt8).m(optInt9).l(optInt10).j(optInt11).i(optInt13).k(optInt12).v(optInt14).f(optInt15).g(optInt16).h(optInt17).e(optInt18).a(optInt20).d(optInt19).b(optInt21).c(optInt22).w(optInt23).a(optJSONArray);
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:69:0x02c5  */
+    private int c(JSONObject jSONObject) {
+        int optInt = jSONObject.optInt("splash_load_type", 2);
+        this.w = optInt;
+        if (optInt == 0 || optInt == 1 || optInt == 2 || optInt == 3) {
+            return this.w;
+        }
+        return 2;
+    }
+
+    private int d(JSONObject jSONObject) {
+        int optInt = jSONObject.optInt("splash_check_type", 1);
+        this.x = optInt;
+        if (optInt == 0 || optInt == 1) {
+            return this.x;
+        }
+        return 1;
+    }
+
+    public static boolean f(int i) {
+        return i == 1 || i == 2;
+    }
+
+    private void s(String str) {
+        if (str == null) {
+            return;
+        }
+        try {
+            JSONArray jSONArray = new JSONArray(str);
+            int length = jSONArray.length();
+            for (int i = 0; i < length; i++) {
+                e eVar = new e();
+                JSONObject optJSONObject = jSONArray.optJSONObject(i);
+                eVar.f28409a = optJSONObject.optString("action");
+                eVar.f28410b = optJSONObject.optString("service");
+                eVar.f28411c = optJSONObject.optString("package");
+                eVar.f28412d = optJSONObject.optInt("wakeup_interval");
+                this.i.add(eVar);
+            }
+            d.a().b();
+        } catch (Throwable th) {
+            th.printStackTrace();
+        }
+    }
+
+    public List<String> A() {
+        if (this.z + 172800000 < System.currentTimeMillis()) {
+            return null;
+        }
+        ArrayList arrayList = new ArrayList();
+        for (String str : this.A) {
+            arrayList.add(str);
+        }
+        return arrayList;
+    }
+
+    public int B() {
+        if (this.O == Integer.MAX_VALUE) {
+            if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
+                this.O = com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "sp_key_if_sp_cache", 0);
+            } else {
+                this.O = this.R.b("sp_key_if_sp_cache", 0);
+            }
+        }
+        return this.O;
+    }
+
+    public List<String> C() {
+        if (this.z + 172800000 < System.currentTimeMillis()) {
+            return null;
+        }
+        ArrayList arrayList = new ArrayList();
+        for (String str : this.B) {
+            arrayList.add(str);
+        }
+        return arrayList;
+    }
+
+    public boolean D() {
+        if (this.y == Integer.MAX_VALUE) {
+            if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
+                this.y = com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "app_list_control", 0);
+            } else {
+                this.y = this.R.b("app_list_control", 0);
+            }
+        }
+        return this.y == 1;
+    }
+
+    public int E() {
+        if (this.K == Integer.MAX_VALUE) {
+            if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
+                this.K = com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "max_tpl_cnts", 100);
+            } else {
+                this.K = this.R.b("max_tpl_cnts", 100);
+            }
+        }
+        return this.K;
+    }
+
+    public int F() {
+        if (this.L == Integer.MAX_VALUE) {
+            if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
+                this.L = com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "fetch_tpl_timeout_ctrl", 3000);
+            } else {
+                this.L = this.R.b("fetch_tpl_timeout_ctrl", 3000);
+            }
+        }
+        if (this.L <= 0) {
+            this.L = 3000;
+        }
+        return this.L;
+    }
+
+    public String[] G() {
+        if (this.M == null || this.M.size() == 0) {
+            if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
+                this.M = com.bytedance.sdk.openadsdk.multipro.d.a.b("tt_sdk_settings", "gecko_hosts", (Set<String>) null);
+            } else {
+                this.M = this.R.b("gecko_hosts", (Set<String>) null);
+            }
+            Set<String> a2 = a(this.M);
+            this.M = a2;
+            if (a2 != null) {
+                if (a2.size() == 0) {
+                }
+            }
+            return null;
+        }
+        return (String[]) this.M.toArray(new String[0]);
+    }
+
+    public int H() {
+        if (this.G == Integer.MAX_VALUE) {
+            if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
+                this.G = com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "vbtt", 5);
+            } else {
+                this.G = this.R.b("vbtt", 5);
+            }
+        }
+        return this.G;
+    }
+
+    public List<e> I() {
+        if (this.i.isEmpty()) {
+            if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
+                s(com.bytedance.sdk.openadsdk.multipro.d.a.b("tt_sdk_settings", "push_config", (String) null));
+            } else {
+                s(this.R.b("push_config", (String) null));
+            }
+        }
+        return this.i;
+    }
+
+    public boolean J() {
+        return this.Q;
+    }
+
+    public boolean K() {
+        if (this.P == Integer.MAX_VALUE) {
+            if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
+                this.P = com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "if_pre_connect", 0);
+            } else {
+                this.P = this.R.b("if_pre_connect", 0);
+            }
+        }
+        return this.P == 1;
+    }
+
+    public boolean L() {
+        if (this.S == Integer.MAX_VALUE) {
+            if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
+                this.S = com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "read_video_from_cache", 1);
+            } else {
+                this.S = this.R.b("read_video_from_cache", 1);
+            }
+        }
+        return this.S == 1;
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.core.h.c
+    public synchronized void a() {
+        this.Q = true;
+        if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
+            this.I = com.bytedance.sdk.openadsdk.multipro.d.a.b("tt_sdk_settings", "url_ads", "pangolin.snssdk.com");
+            this.J = com.bytedance.sdk.openadsdk.multipro.d.a.b("tt_sdk_settings", "url_alog", "extlog.snssdk.com/service/2/app_log/");
+            this.j = com.bytedance.sdk.openadsdk.multipro.d.a.b("tt_sdk_settings", "xpath", "");
+            this.E = com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "duration", 10000L);
+            this.F = com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "max", 50);
+            this.k = com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "download_config_dl_network", 1);
+            this.l = com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "download_config_dl_size", 30);
+            this.m = com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "download_config_storage_internal", 1);
+            this.G = com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "vbtt", 5);
+            this.H = com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "fetch_template", 3600);
+            this.f28428g = com.bytedance.sdk.openadsdk.multipro.d.a.b("tt_sdk_settings", "template_ids", (String) null);
+            this.q = com.bytedance.sdk.openadsdk.multipro.d.a.b("tt_sdk_settings", "ab_test_version", (String) null);
+            this.r = com.bytedance.sdk.openadsdk.multipro.d.a.b("tt_sdk_settings", "ab_test_param", (String) null);
+            this.s = com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "web_info_wifi_enable", 1);
+            this.t = com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "web_info_page_count", 5);
+            this.u = com.bytedance.sdk.openadsdk.multipro.d.a.b("tt_sdk_settings", "pyload_h5", (String) null);
+            this.v = com.bytedance.sdk.openadsdk.multipro.d.a.b("tt_sdk_settings", "playableLoadH5Url", (String) null);
+            this.w = com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "splash_load_type", 2);
+            this.x = com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "splash_check_type", 1);
+            this.C = com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "if_both_open", 0);
+            this.D = com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "support_tnc", 1);
+            this.f28426e = com.bytedance.sdk.openadsdk.multipro.d.a.b("tt_sdk_settings", "tpl_infos", (String) null);
+            this.P = com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "if_pre_connect", 0);
+            this.T = com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "global_rate", 1);
+            this.y = com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "app_list_control", 0);
+            this.K = com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "max_tpl_cnts", 100);
+            this.L = com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "fetch_tpl_timeout_ctrl", 3000);
+            if (this.M != null) {
+                this.M.clear();
+            }
+            Set<String> b2 = com.bytedance.sdk.openadsdk.multipro.d.a.b("tt_sdk_settings", "gecko_hosts", (Set<String>) null);
+            this.M = b2;
+            this.M = a(b2);
+            this.z = com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "hit_app_list_time", 0L);
+            this.A.clear();
+            this.f28422a = com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "circle_splash_switch", 0);
+            this.f28423b = com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "circle_load_splash_time", -1);
+            this.O = com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "sp_key_if_sp_cache", 0);
+            this.N = com.bytedance.sdk.openadsdk.multipro.d.a.b("tt_sdk_settings", "dyn_draw_engine_url", "https://sf3-ttcdn-tos.pstatp.com/obj/ad-pattern/renderer/package.json");
+            Set<String> b3 = com.bytedance.sdk.openadsdk.multipro.d.a.b("tt_sdk_settings", "hit_app_list_data", (Set<String>) null);
+            if (b3 != null && !b3.isEmpty()) {
+                for (String str : b3) {
+                    this.A.add(str);
+                }
+            }
+            this.B.clear();
+            Set<String> b4 = com.bytedance.sdk.openadsdk.multipro.d.a.b("tt_sdk_settings", "scheme_list_data", (Set<String>) null);
+            if (b4 != null && !b4.isEmpty()) {
+                for (String str2 : b4) {
+                    this.B.add(str2);
+                }
+            }
+            s(com.bytedance.sdk.openadsdk.multipro.d.a.b("tt_sdk_settings", "push_config", (String) null));
+            String b5 = com.bytedance.sdk.openadsdk.multipro.d.a.b("tt_sdk_settings", "ad_slot_conf", (String) null);
+            if (!TextUtils.isEmpty(b5)) {
+                try {
+                    JSONArray jSONArray = new JSONArray(b5);
+                    int length = jSONArray.length();
+                    if (length > 0) {
+                        this.f28424c.clear();
+                        for (int i = 0; i < length; i++) {
+                            a b6 = b(jSONArray.optJSONObject(i));
+                            if (b6 != null) {
+                                this.f28424c.put(b6.f28388a, b6);
+                            }
+                        }
+                    }
+                } catch (Exception unused) {
+                }
+            }
+            String b7 = com.bytedance.sdk.openadsdk.multipro.d.a.b("tt_sdk_settings", "download_sdk_config", "");
+            this.p = b7;
+            if (!TextUtils.isEmpty(b7)) {
+                try {
+                    this.o = new JSONObject(this.p);
+                } catch (JSONException e2) {
+                    e2.printStackTrace();
+                }
+            }
+            this.n = com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "enable_download_opt", 0);
+            this.S = com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "read_video_from_cache", 1);
+            com.bytedance.sdk.openadsdk.downloadnew.a.g.c();
+            return;
+        }
+        this.I = this.R.b("url_ads", "pangolin.snssdk.com");
+        this.J = this.R.b("url_alog", "extlog.snssdk.com/service/2/app_log/");
+        this.j = this.R.b("xpath", "");
+        this.E = this.R.b("duration", 10000L);
+        this.F = this.R.b("max", 50);
+        this.k = this.R.b("download_config_dl_network", 1);
+        this.l = this.R.b("download_config_dl_size", 30);
+        this.m = this.R.b("download_config_storage_internal", 1);
+        this.H = this.R.b("fetch_template", 3600);
+        this.q = this.R.a("ab_test_version");
+        this.r = this.R.a("ab_test_param");
+        this.G = this.R.b("vbtt", 5);
+        this.f28428g = this.R.b("template_ids", (String) null);
+        this.s = this.R.b("web_info_wifi_enable", 1);
+        this.t = this.R.b("web_info_page_count", 5);
+        this.u = this.R.b("pyload_h5", (String) null);
+        this.v = this.R.b("playableLoadH5Url", (String) null);
+        this.w = this.R.b("splash_load_type", 2);
+        this.x = this.R.b("splash_check_type", 1);
+        this.C = this.R.b("if_both_open", 0);
+        this.D = this.R.b("support_tnc", 1);
+        this.f28426e = this.R.b("tpl_infos", (String) null);
+        this.P = this.R.b("if_pre_connect", 0);
+        this.T = this.R.b("global_rate", 1);
+        this.y = this.R.b("app_list_control", 0);
+        this.K = this.R.b("max_tpl_cnts", 100);
+        this.L = this.R.b("fetch_tpl_timeout_ctrl", 3000);
+        if (this.M != null) {
+            this.M.clear();
+        }
+        Set<String> b8 = this.R.b("gecko_hosts", (Set<String>) null);
+        this.M = b8;
+        this.M = a(b8);
+        this.z = this.R.b("hit_app_list_time", 0L);
+        this.A.clear();
+        this.f28422a = this.R.b("circle_splash_switch", 0);
+        this.f28423b = this.R.b("circle_load_splash_time", -1);
+        this.N = this.R.b("dyn_draw_engine_url", "https://sf3-ttcdn-tos.pstatp.com/obj/ad-pattern/renderer/package.json");
+        this.O = this.R.b("sp_key_if_sp_cache", 0);
+        Set<String> b9 = this.R.b("hit_app_list_data", (Set<String>) null);
+        if (b9 != null && !b9.isEmpty()) {
+            for (String str3 : b9) {
+                this.A.add(str3);
+            }
+        }
+        this.B.clear();
+        Set<String> b10 = this.R.b("scheme_list_data", (Set<String>) null);
+        if (b10 != null && !b10.isEmpty()) {
+            for (String str4 : b10) {
+                this.B.add(str4);
+            }
+        }
+        s(this.R.b("push_config", (String) null));
+        String b11 = this.R.b("ad_slot_conf", (String) null);
+        if (!TextUtils.isEmpty(b11)) {
+            try {
+                JSONArray jSONArray2 = new JSONArray(b11);
+                int length2 = jSONArray2.length();
+                if (length2 > 0) {
+                    this.f28424c.clear();
+                    for (int i2 = 0; i2 < length2; i2++) {
+                        a b12 = b(jSONArray2.optJSONObject(i2));
+                        if (b12 != null) {
+                            this.f28424c.put(b12.f28388a, b12);
+                        }
+                    }
+                }
+            } catch (Exception unused2) {
+            }
+        }
+        String b13 = this.R.b("download_sdk_config", "");
+        this.p = b13;
+        if (!TextUtils.isEmpty(b13)) {
+            try {
+                this.o = new JSONObject(this.p);
+            } catch (JSONException e3) {
+                e3.printStackTrace();
+            }
+        }
+        this.n = this.R.b("enable_download_opt", 0);
+        this.S = this.R.b("read_video_from_cache", 1);
+        com.bytedance.sdk.openadsdk.downloadnew.a.g.c();
+        return;
+    }
+
+    public int e() {
+        if (this.k == Integer.MAX_VALUE) {
+            if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
+                this.k = com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "download_config_dl_network", 1);
+            } else {
+                this.k = this.R.b("download_config_dl_network", 1);
+            }
+        }
+        return this.k;
+    }
+
+    public int f() {
+        if (this.l == Integer.MAX_VALUE) {
+            if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
+                this.l = com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "download_config_dl_size", 30);
+            } else {
+                this.l = this.R.b("download_config_dl_size", 30);
+            }
+        }
+        return this.l * 1024 * 1024;
+    }
+
+    public String g() {
+        if (TextUtils.isEmpty(this.q)) {
+            if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
+                this.q = com.bytedance.sdk.openadsdk.multipro.d.a.b("tt_sdk_settings", "ab_test_version", (String) null);
+            } else {
+                this.q = this.R.a("ab_test_version");
+            }
+        }
+        return this.q;
+    }
+
+    public String h() {
+        if (TextUtils.isEmpty(this.r)) {
+            if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
+                this.r = com.bytedance.sdk.openadsdk.multipro.d.a.b("tt_sdk_settings", "ab_test_param", (String) null);
+            } else {
+                this.r = this.R.a("ab_test_param");
+            }
+        }
+        return this.r;
+    }
+
+    public String i() {
+        if (TextUtils.isEmpty(this.j)) {
+            if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
+                this.j = com.bytedance.sdk.openadsdk.multipro.d.a.b("tt_sdk_settings", "xpath", "");
+            } else {
+                this.j = this.R.b("xpath", "");
+            }
+        }
+        return this.j;
+    }
+
+    public long j() {
+        if (this.E == 2147483647L) {
+            if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
+                this.E = com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "duration", 10000L);
+            } else {
+                this.E = this.R.b("duration", 10000L);
+            }
+        }
+        return this.E;
+    }
+
+    public int k() {
+        if (this.F == Integer.MAX_VALUE) {
+            if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
+                this.F = com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "max", 50);
+            } else {
+                this.F = this.R.b("max", 50);
+            }
+        }
+        return this.F;
+    }
+
+    public int l() {
+        if (this.t == Integer.MAX_VALUE) {
+            if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
+                this.t = com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "web_info_page_count", 5);
+            } else {
+                this.t = this.R.b("web_info_page_count", 5);
+            }
+        }
+        return this.t;
+    }
+
+    public String m() {
+        if (TextUtils.isEmpty(this.u)) {
+            if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
+                this.u = com.bytedance.sdk.openadsdk.multipro.d.a.b("tt_sdk_settings", "pyload_h5", (String) null);
+            } else {
+                this.u = this.R.b("pyload_h5", (String) null);
+            }
+        }
+        return this.u;
+    }
+
+    public String n() {
+        if (TextUtils.isEmpty(this.v)) {
+            if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
+                this.v = com.bytedance.sdk.openadsdk.multipro.d.a.b("tt_sdk_settings", "playableLoadH5Url", (String) null);
+            } else {
+                this.v = this.R.b("playableLoadH5Url", (String) null);
+            }
+        }
+        return this.v;
+    }
+
+    public JSONObject o() {
+        if (this.o == null) {
+            String b2 = com.bytedance.sdk.openadsdk.multipro.d.a.b("tt_sdk_settings", "download_sdk_config", "");
+            this.p = b2;
+            if (!TextUtils.isEmpty(b2)) {
+                try {
+                    this.o = new JSONObject(this.p);
+                } catch (JSONException e2) {
+                    e2.printStackTrace();
+                }
+            }
+        }
+        return this.o;
+    }
+
+    public boolean p() {
+        if (this.n == Integer.MAX_VALUE) {
+            if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
+                this.n = com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "enable_download_opt", 0);
+            } else {
+                this.n = this.R.b("enable_download_opt", 0);
+            }
+        }
+        return this.n == 1;
+    }
+
+    public int q() {
+        if (this.w == Integer.MAX_VALUE) {
+            if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
+                this.w = com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "splash_load_type", 2);
+            } else {
+                this.w = this.R.b("splash_load_type", 2);
+            }
+        }
+        return this.w;
+    }
+
+    public int r() {
+        if (this.x == Integer.MAX_VALUE) {
+            if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
+                this.x = com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "splash_check_type", 1);
+            } else {
+                this.x = this.R.b("splash_check_type", 1);
+            }
+        }
+        return this.x;
+    }
+
+    public boolean t() {
+        return r() == 1;
+    }
+
+    public boolean u() {
+        if (this.s == Integer.MAX_VALUE) {
+            if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
+                this.s = com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "web_info_wifi_enable", 1);
+            } else {
+                this.s = this.R.b("web_info_wifi_enable", 1);
+            }
+        }
+        return this.s == 1;
+    }
+
+    public boolean v() {
+        if (this.T == Integer.MAX_VALUE) {
+            if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
+                this.T = com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "global_rate", 1);
+            } else {
+                this.T = this.R.b("global_rate", 1);
+            }
+        }
+        return this.T == 1;
+    }
+
+    public boolean w() {
+        if (this.m == Integer.MAX_VALUE) {
+            if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
+                this.m = com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "download_config_storage_internal", 1);
+            } else {
+                this.m = this.R.b("download_config_storage_internal", 1);
+            }
+        }
+        return this.m == 1;
+    }
+
+    public int x() {
+        if (this.f28422a == Integer.MAX_VALUE) {
+            if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
+                this.f28422a = com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "circle_splash_switch", 0);
+            } else {
+                this.f28422a = this.R.b("circle_splash_switch", 0);
+            }
+        }
+        return this.f28422a;
+    }
+
+    public int y() {
+        if (this.f28423b == Integer.MAX_VALUE) {
+            if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
+                this.f28423b = com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "circle_load_splash_time", -1);
+            } else {
+                this.f28423b = this.R.b("circle_load_splash_time", -1);
+            }
+        }
+        return this.f28423b;
+    }
+
+    public String z() {
+        if (TextUtils.isEmpty(this.N)) {
+            if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
+                this.N = com.bytedance.sdk.openadsdk.multipro.d.a.b("tt_sdk_settings", "dyn_draw_engine_url", "https://sf3-ttcdn-tos.pstatp.com/obj/ad-pattern/renderer/package.json");
+            } else {
+                this.N = this.R.b("dyn_draw_engine_url", "https://sf3-ttcdn-tos.pstatp.com/obj/ad-pattern/renderer/package.json");
+            }
+        }
+        return this.N;
+    }
+
+    private a t(String str) {
+        return a.a().a(str).n(1).o(!this.f28427f.contains(str) ? 1 : 0).p(2).q(1).r(100).s(0).u(1).m(3).l(-1).j(-1).i(2).k(-1).v(1).e(-1).a(-1).d(20).w(5).a((JSONArray) null);
+    }
+
+    @NonNull
+    public String c() {
+        if (TextUtils.isEmpty(this.J)) {
+            if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
+                this.J = com.bytedance.sdk.openadsdk.multipro.d.a.b("tt_sdk_settings", "url_alog", "extlog.snssdk.com/service/2/app_log/");
+            } else {
+                this.J = this.R.b("url_alog", "extlog.snssdk.com/service/2/app_log/");
+            }
+            if (TextUtils.isEmpty(this.J)) {
+                this.J = "extlog.snssdk.com/service/2/app_log/";
+            }
+        }
+        return this.J;
+    }
+
+    public boolean d() {
+        if (this.D == Integer.MAX_VALUE) {
+            if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
+                this.D = com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "support_tnc", 1);
+            } else {
+                this.D = this.R.b("support_tnc", 1);
+            }
+        }
+        return this.D == 1;
+    }
+
+    public boolean e(String str) {
+        return str == null || p.h().q(String.valueOf(str)).p == 0;
+    }
+
+    public int f(String str) {
+        if (str == null) {
+            return 1500;
+        }
+        return p.h().q(String.valueOf(str)).q;
+    }
+
+    public int g(String str) {
+        return p.h().q(String.valueOf(str)).k;
+    }
+
+    public JSONArray h(String str) {
+        try {
+            Set<String> b2 = com.bytedance.sdk.openadsdk.core.widget.webview.a.a.b(str);
+            if (b2 != null && b2.size() != 0) {
+                JSONArray jSONArray = new JSONArray();
+                for (String str2 : b2) {
+                    t a2 = com.bytedance.sdk.openadsdk.core.widget.webview.a.a.a(str2);
+                    if (a2 != null) {
+                        JSONObject jSONObject = new JSONObject();
+                        jSONObject.put("id", a2.b());
+                        jSONObject.put(PackageTable.MD5, a2.c());
+                        jSONArray.put(jSONObject);
+                    }
+                }
+                return jSONArray;
+            }
+        } catch (Exception unused) {
+        }
+        return null;
+    }
+
+    public boolean i(String str) {
+        try {
+            a q = p.h().q(String.valueOf(str));
+            if (q != null) {
+                return q.y != null;
+            }
+            return false;
+        } catch (Exception unused) {
+            return false;
+        }
+    }
+
+    public int j(String str) {
+        return q(String.valueOf(str)).f28395h;
+    }
+
+    public int k(String str) {
+        return q(str).j;
+    }
+
+    public int l(String str) {
+        if (str == null) {
+            return -1;
+        }
+        return p.h().q(String.valueOf(str)).l;
+    }
+
+    public int m(String str) {
+        if (str == null) {
+            return 0;
+        }
+        return p.h().q(String.valueOf(str)).v;
+    }
+
+    public boolean n(String str) {
+        return q(String.valueOf(str)).w == 0;
+    }
+
+    public int p(String str) {
+        if (str == null) {
+            return -1;
+        }
+        return p.h().q(String.valueOf(str)).m;
+    }
+
+    public a q(String str) {
+        JSONArray jSONArray;
+        int length;
+        if (this.f28424c.size() == 0) {
+            String b2 = com.bytedance.sdk.openadsdk.multipro.d.a.b("tt_sdk_settings", "ad_slot_conf", (String) null);
+            if (!TextUtils.isEmpty(b2)) {
+                try {
+                    synchronized (this.f28424c) {
+                        if (this.f28424c.size() == 0 && (length = (jSONArray = new JSONArray(b2)).length()) > 0) {
+                            for (int i = 0; i < length; i++) {
+                                a b3 = b(jSONArray.optJSONObject(i));
+                                if (b3 != null) {
+                                    this.f28424c.put(b3.f28388a, b3);
+                                }
+                            }
+                        }
+                    }
+                } catch (Throwable unused) {
+                }
+            }
+        }
+        a aVar = this.f28424c.get(str);
+        return aVar == null ? t(str) : aVar;
+    }
+
+    public void r(String str) {
+        this.f28427f.add(str);
+    }
+
+    public int o(String str) {
+        if (str == null) {
+            return 20;
+        }
+        return p.h().q(String.valueOf(str)).t;
+    }
+
+    public boolean d(String str) {
+        return str == null || p.h().q(String.valueOf(str)).o == 1;
+    }
+
+    public int e(int i) {
+        return q(String.valueOf(i)).x;
+    }
+
+    public int c(String str) {
+        return q(String.valueOf(str)).s;
+    }
+
+    public int d(int i) {
+        return q(String.valueOf(i)).i;
+    }
+
+    public int c(int i) {
+        return q(String.valueOf(i)).f28389b;
+    }
+
+    public boolean s() {
+        return q() != 0;
+    }
+
+    @NonNull
+    public String b() {
+        if (TextUtils.isEmpty(this.I)) {
+            if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
+                this.I = com.bytedance.sdk.openadsdk.multipro.d.a.b("tt_sdk_settings", "url_ads", "pangolin.snssdk.com");
+            } else {
+                this.I = this.R.b("url_ads", "pangolin.snssdk.com");
+            }
+            if (TextUtils.isEmpty(this.I)) {
+                this.I = "pangolin.snssdk.com";
+            }
+        }
+        return this.I;
+    }
+
+    public boolean b(String str) {
+        return q(String.valueOf(str)).f28394g == 1;
+    }
+
+    public boolean b(int i) {
+        return i != 0 && p.h().q(String.valueOf(i)).n == 1;
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:79:0x0296  */
     @Override // com.bytedance.sdk.openadsdk.core.h.c
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -293,25 +908,24 @@ public class h implements c {
     public void a(@NonNull JSONObject jSONObject) {
         String str;
         JSONArray optJSONArray;
-        String str2 = null;
         JSONObject optJSONObject = jSONObject.optJSONObject("app_common_config");
         if (optJSONObject != null) {
-            this.f4459a = optJSONObject.optInt("circle_splash", 0);
-            this.b = optJSONObject.optInt("circle_time", -1);
-            this.P = optJSONObject.optInt("if_sp_cache", 0);
+            this.f28422a = optJSONObject.optInt("circle_splash", 0);
+            this.f28423b = optJSONObject.optInt("circle_time", -1);
+            this.O = optJSONObject.optInt("if_sp_cache", 0);
+            this.P = optJSONObject.optInt("if_pre_connect", 0);
         }
-        this.O = jSONObject.optString("dyn_draw_engine_url", "https://sf3-ttcdn-tos.pstatp.com/obj/ad-pattern/renderer/package.json");
-        this.J = jSONObject.optString("ads_url", "pangolin.snssdk.com");
-        this.K = jSONObject.optString("app_log_url", "extlog.snssdk.com/service/2/app_log/");
+        this.N = jSONObject.optString("dyn_draw_engine_url", "https://sf3-ttcdn-tos.pstatp.com/obj/ad-pattern/renderer/package.json");
+        this.I = jSONObject.optString("ads_url", "pangolin.snssdk.com");
+        this.J = jSONObject.optString("app_log_url", "extlog.snssdk.com/service/2/app_log/");
         this.j = jSONObject.optString("xpath");
-        this.G = jSONObject.optInt("pos_cache_time", 30);
         JSONObject optJSONObject2 = jSONObject.optJSONObject("feq_policy");
         if (optJSONObject2 != null) {
             this.E = optJSONObject2.optLong("duration") * 1000;
             this.F = optJSONObject2.optInt("max");
         }
-        this.H = jSONObject.optInt("vbtt", 5);
-        this.I = jSONObject.optInt("fetch_tpl_interval", SdkConfigData.DEFAULT_REQUEST_INTERVAL);
+        this.G = jSONObject.optInt("vbtt", 5);
+        this.H = jSONObject.optInt("fetch_tpl_interval", 3600);
         JSONObject optJSONObject3 = jSONObject.optJSONObject("abtest");
         if (optJSONObject3 != null) {
             this.q = optJSONObject3.optString("version");
@@ -320,14 +934,18 @@ public class h implements c {
             com.bytedance.sdk.openadsdk.multipro.d.a.c("tt_sdk_settings", "ab_test_version");
             com.bytedance.sdk.openadsdk.multipro.d.a.c("tt_sdk_settings", "ab_test_param");
         } else {
-            ae J = J();
-            J.b("ab_test_version");
-            J.b("ab_test_param");
+            this.R.b("ab_test_version");
+            this.R.b("ab_test_param");
         }
+        this.S = jSONObject.optInt("read_video_from_cache", 1);
         JSONObject optJSONObject4 = jSONObject.optJSONObject("web_info");
         if (optJSONObject4 != null) {
             this.s = optJSONObject4.optInt("web_info_wifi_enable", 1);
             this.t = optJSONObject4.optInt("web_info_page_count", 5);
+        }
+        JSONObject optJSONObject5 = jSONObject.optJSONObject("log_rate_conf");
+        if (optJSONObject5 != null) {
+            this.T = optJSONObject5.optInt("global_rate", 1);
         }
         this.u = jSONObject.optString("pyload_h5");
         this.v = jSONObject.optString("pure_pyload_h5");
@@ -338,19 +956,19 @@ public class h implements c {
         this.C = jSONObject.optInt("if_both_open", 0);
         this.D = jSONObject.optInt("support_tnc", 1);
         this.y = jSONObject.optInt("al", 0);
-        this.L = jSONObject.optInt("max_tpl_cnts", 100);
-        JSONObject optJSONObject5 = jSONObject.optJSONObject("app_common_config");
-        if (optJSONObject5 != null) {
-            this.M = optJSONObject5.optInt("fetch_tpl_timeout_ctrl", 3000);
+        this.K = jSONObject.optInt("max_tpl_cnts", 100);
+        JSONObject optJSONObject6 = jSONObject.optJSONObject("app_common_config");
+        if (optJSONObject6 != null) {
+            this.L = optJSONObject6.optInt("fetch_tpl_timeout_ctrl", 3000);
             try {
-                this.N.clear();
-                JSONArray optJSONArray2 = optJSONObject5.optJSONArray("gecko_hosts");
+                this.M.clear();
+                JSONArray optJSONArray2 = optJSONObject6.optJSONArray("gecko_hosts");
                 if (optJSONArray2 != null && optJSONArray2.length() != 0) {
                     for (int i = 0; i < optJSONArray2.length(); i++) {
-                        this.N.add(optJSONArray2.getString(i));
+                        this.M.add(optJSONArray2.getString(i));
                     }
                 }
-                this.N = a(this.N);
+                this.M = a(this.M);
             } catch (Throwable th) {
                 u.b("GeckoLog: settings json error " + th);
             }
@@ -378,19 +996,21 @@ public class h implements c {
                 }
             }
         }
-        JSONObject optJSONObject6 = jSONObject.optJSONObject("download_config");
-        if (optJSONObject6 != null) {
-            this.k = optJSONObject6.optInt("dl_network", 1);
-            this.l = optJSONObject6.optInt("dl_size", 30);
-            this.m = optJSONObject6.optInt("if_storage_internal", 1);
-            this.n = optJSONObject6.optInt("enable_download_opt", 0);
+        JSONObject optJSONObject7 = jSONObject.optJSONObject("download_config");
+        if (optJSONObject7 != null) {
+            this.k = optJSONObject7.optInt("dl_network", 1);
+            this.l = optJSONObject7.optInt("dl_size", 30);
+            this.m = optJSONObject7.optInt("if_storage_internal", 1);
+            this.n = optJSONObject7.optInt("enable_download_opt", 0);
         }
-        this.o = jSONObject.optJSONObject("download_sdk_config");
-        if (this.o != null) {
-            this.p = this.o.toString();
+        JSONObject optJSONObject8 = jSONObject.optJSONObject("download_sdk_config");
+        this.o = optJSONObject8;
+        if (optJSONObject8 != null) {
+            this.p = optJSONObject8.toString();
         } else {
             this.p = "";
         }
+        String str2 = null;
         try {
             JSONArray optJSONArray5 = jSONObject.optJSONArray("push_config");
             if (optJSONArray5 != null) {
@@ -399,12 +1019,12 @@ public class h implements c {
                     int length3 = optJSONArray5.length();
                     for (int i4 = 0; i4 < length3; i4++) {
                         e eVar = new e();
-                        JSONObject optJSONObject7 = optJSONArray5.optJSONObject(i4);
-                        if (optJSONObject7 != null) {
-                            eVar.f4454a = optJSONObject7.optString("action");
-                            eVar.b = optJSONObject7.optString("service");
-                            eVar.c = optJSONObject7.optString("package");
-                            eVar.d = optJSONObject7.optInt("wakeup_interval");
+                        JSONObject optJSONObject9 = optJSONArray5.optJSONObject(i4);
+                        if (optJSONObject9 != null) {
+                            eVar.f28409a = optJSONObject9.optString("action");
+                            eVar.f28410b = optJSONObject9.optString("service");
+                            eVar.f28411c = optJSONObject9.optString("package");
+                            eVar.f28412d = optJSONObject9.optInt("wakeup_interval");
                             this.i.add(eVar);
                         }
                     }
@@ -430,11 +1050,11 @@ public class h implements c {
             str2 = optJSONArray.toString();
             int length4 = optJSONArray.length();
             if (length4 > 0) {
-                this.c.clear();
+                this.f28424c.clear();
                 for (int i5 = 0; i5 < length4; i5++) {
-                    a b = b(optJSONArray.optJSONObject(i5));
-                    if (b != null) {
-                        this.c.put(b.f4448a, b);
+                    a b2 = b(optJSONArray.optJSONObject(i5));
+                    if (b2 != null) {
+                        this.f28424c.put(b2.f28388a, b2);
                     }
                 }
             }
@@ -443,43 +1063,18 @@ public class h implements c {
         a(str2, str);
     }
 
-    private int c(JSONObject jSONObject) {
-        this.w = jSONObject.optInt("splash_load_type", 1);
-        switch (this.w) {
-            case 0:
-            case 1:
-            case 2:
-            case 3:
-                return this.w;
-            default:
-                return 1;
-        }
-    }
-
-    private int d(JSONObject jSONObject) {
-        this.x = jSONObject.optInt("splash_check_type", 1);
-        switch (this.x) {
-            case 0:
-            case 1:
-                return this.x;
-            default:
-                return 1;
-        }
-    }
-
     private void a(String str, String str2) {
         if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
-            com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "url_ads", this.J);
-            com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "url_alog", this.K);
+            com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "url_ads", this.I);
+            com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "url_alog", this.J);
             com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "xpath", this.j);
             com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "duration", Long.valueOf(this.E));
             com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "max", Integer.valueOf(this.F));
             com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "download_config_dl_network", Integer.valueOf(this.k));
             com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "download_config_dl_size", Integer.valueOf(this.l));
             com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "download_config_storage_internal", Integer.valueOf(this.m));
-            com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "pos_cache_time", Integer.valueOf(this.G));
-            com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "vbtt", Integer.valueOf(this.H));
-            com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "fetch_template", Integer.valueOf(this.I));
+            com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "vbtt", Integer.valueOf(this.G));
+            com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "fetch_template", Integer.valueOf(this.H));
             com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "web_info_wifi_enable", Integer.valueOf(this.s));
             com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "web_info_page_count", Integer.valueOf(this.t));
             com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "splash_load_type", Integer.valueOf(this.w));
@@ -489,16 +1084,16 @@ public class h implements c {
             com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "pyload_h5", this.u);
             com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "playableLoadH5Url", this.v);
             com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "app_list_control", Integer.valueOf(this.y));
-            com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "max_tpl_cnts", Integer.valueOf(this.L));
-            com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "fetch_tpl_timeout_ctrl", Integer.valueOf(this.M));
-            com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "gecko_hosts", this.N);
+            com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "max_tpl_cnts", Integer.valueOf(this.K));
+            com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "fetch_tpl_timeout_ctrl", Integer.valueOf(this.L));
+            com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "gecko_hosts", this.M);
             com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "hit_app_list_time", Long.valueOf(this.z));
             com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "hit_app_list_data", this.A);
             com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "scheme_list_data", this.B);
-            com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "circle_splash_switch", Integer.valueOf(this.f4459a));
-            com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "circle_load_splash_time", Integer.valueOf(this.b));
-            com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "sp_key_if_sp_cache", Integer.valueOf(this.P));
-            com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "dyn_draw_engine_url", this.O);
+            com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "circle_splash_switch", Integer.valueOf(this.f28422a));
+            com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "circle_load_splash_time", Integer.valueOf(this.f28423b));
+            com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "sp_key_if_sp_cache", Integer.valueOf(this.O));
+            com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "dyn_draw_engine_url", this.N);
             com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "download_sdk_config", this.p);
             com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "enable_download_opt", Integer.valueOf(this.n));
             if (!TextUtils.isEmpty(this.q)) {
@@ -513,398 +1108,89 @@ public class h implements c {
             if (!TextUtils.isEmpty(str)) {
                 com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "ad_slot_conf", str);
             }
-            if (!TextUtils.isEmpty(this.g)) {
-                com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "template_ids", this.g);
+            if (!TextUtils.isEmpty(this.f28428g)) {
+                com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "template_ids", this.f28428g);
             }
-            if (!TextUtils.isEmpty(this.e)) {
-                com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "tpl_infos", this.e);
-                return;
+            if (!TextUtils.isEmpty(this.f28426e)) {
+                com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "tpl_infos", this.f28426e);
             }
+            com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "if_pre_connect", Integer.valueOf(this.P));
+            com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "global_rate", Integer.valueOf(this.T));
+            com.bytedance.sdk.openadsdk.multipro.d.a.a("tt_sdk_settings", "read_video_from_cache", Integer.valueOf(this.S));
             return;
         }
-        ae J = J();
-        J.a("url_ads", this.J);
-        J.a("url_alog", this.K);
-        J.a("xpath", this.j);
-        J.a("duration", this.E);
-        J.a("max", this.F);
-        J.a("download_config_dl_network", this.k);
-        J.a("download_config_dl_size", this.l);
-        J.a("download_config_storage_internal", this.m);
-        J.a("pos_cache_time", this.G);
-        J.a("fetch_template", this.I);
-        J.a("web_info_wifi_enable", this.s);
-        J.a("web_info_page_count", this.t);
-        J.a("pyload_h5", this.u);
-        J.a("playableLoadH5Url", this.v);
-        J.a("splash_load_type", this.w);
-        J.a("splash_check_type", this.x);
-        J.a("if_both_open", this.C);
-        J.a("support_tnc", this.D);
-        J.a("app_list_control", this.y);
-        J.a("max_tpl_cnts", this.L);
-        J.a("fetch_tpl_timeout_ctrl", this.M);
-        J.a("gecko_hosts", this.N);
-        J.a("hit_app_list_time", this.z);
-        J.a("hit_app_list_data", this.A);
-        J.a("scheme_list_data", this.B);
-        J.a("circle_splash_switch", this.f4459a);
-        J.a("circle_load_splash_time", this.b);
-        J.a("dyn_draw_engine_url", this.O);
-        J.a("sp_key_if_sp_cache", this.P);
-        J.a("download_sdk_config", this.p);
-        J.a("enable_download_opt", this.n);
+        this.R.a("url_ads", this.I);
+        this.R.a("url_alog", this.J);
+        this.R.a("xpath", this.j);
+        this.R.a("duration", this.E);
+        this.R.a("max", this.F);
+        this.R.a("download_config_dl_network", this.k);
+        this.R.a("download_config_dl_size", this.l);
+        this.R.a("download_config_storage_internal", this.m);
+        this.R.a("fetch_template", this.H);
+        this.R.a("web_info_wifi_enable", this.s);
+        this.R.a("web_info_page_count", this.t);
+        this.R.a("pyload_h5", this.u);
+        this.R.a("playableLoadH5Url", this.v);
+        this.R.a("splash_load_type", this.w);
+        this.R.a("splash_check_type", this.x);
+        this.R.a("if_both_open", this.C);
+        this.R.a("support_tnc", this.D);
+        this.R.a("app_list_control", this.y);
+        this.R.a("max_tpl_cnts", this.K);
+        this.R.a("fetch_tpl_timeout_ctrl", this.L);
+        this.R.a("gecko_hosts", this.M);
+        this.R.a("hit_app_list_time", this.z);
+        this.R.a("hit_app_list_data", this.A);
+        this.R.a("scheme_list_data", this.B);
+        this.R.a("circle_splash_switch", this.f28422a);
+        this.R.a("circle_load_splash_time", this.f28423b);
+        this.R.a("dyn_draw_engine_url", this.N);
+        this.R.a("sp_key_if_sp_cache", this.O);
+        this.R.a("download_sdk_config", this.p);
+        this.R.a("enable_download_opt", this.n);
         if (!TextUtils.isEmpty(this.q)) {
-            J.a("ab_test_version", this.q);
+            this.R.a("ab_test_version", this.q);
         }
         if (!TextUtils.isEmpty(this.r)) {
-            J.a("ab_test_param", this.r);
+            this.R.a("ab_test_param", this.r);
         }
-        J.a("vbtt", this.H);
+        this.R.a("vbtt", this.G);
         if (!TextUtils.isEmpty(str2)) {
-            J.a("push_config", str2);
+            this.R.a("push_config", str2);
         }
         if (!TextUtils.isEmpty(str)) {
-            J.a("ad_slot_conf", str);
+            this.R.a("ad_slot_conf", str);
         }
-        if (!TextUtils.isEmpty(this.g)) {
-            J.a("template_ids", this.g);
+        if (!TextUtils.isEmpty(this.f28428g)) {
+            this.R.a("template_ids", this.f28428g);
         }
-        if (!TextUtils.isEmpty(this.e)) {
-            J.a("tpl_infos", this.e);
+        if (!TextUtils.isEmpty(this.f28426e)) {
+            this.R.a("tpl_infos", this.f28426e);
         }
-    }
-
-    private ae J() {
-        return ae.a("tt_sdk_settings", p.a());
-    }
-
-    @NonNull
-    public String b() {
-        return TextUtils.isEmpty(this.J) ? "pangolin.snssdk.com" : this.J;
-    }
-
-    @NonNull
-    public String c() {
-        return TextUtils.isEmpty(this.K) ? "extlog.snssdk.com/service/2/app_log/" : this.K;
-    }
-
-    public boolean d() {
-        return this.D == 1;
-    }
-
-    public int e() {
-        return this.k;
-    }
-
-    public int f() {
-        return this.l * 1024 * 1024;
-    }
-
-    public String g() {
-        return this.q;
-    }
-
-    public String h() {
-        return this.r;
-    }
-
-    public String i() {
-        return this.j;
-    }
-
-    public long j() {
-        return this.E;
-    }
-
-    public int k() {
-        return this.F;
-    }
-
-    public int l() {
-        return this.G;
-    }
-
-    public int m() {
-        return this.t;
-    }
-
-    public String n() {
-        return this.u;
-    }
-
-    public String o() {
-        return this.v;
-    }
-
-    public JSONObject p() {
-        return this.o;
-    }
-
-    public boolean q() {
-        return this.n == 1;
-    }
-
-    public int r() {
-        return this.w;
-    }
-
-    public int s() {
-        return this.x;
-    }
-
-    public boolean t() {
-        return r() != 0;
-    }
-
-    public boolean u() {
-        return s() == 1;
-    }
-
-    public boolean v() {
-        return this.s == 1;
-    }
-
-    public boolean w() {
-        return this.m == 1;
-    }
-
-    public int x() {
-        return this.f4459a;
-    }
-
-    public int y() {
-        return this.b;
-    }
-
-    public String z() {
-        return this.O;
+        this.R.a("if_pre_connect", this.P);
+        this.R.a("global_rate", this.T);
+        this.R.a("read_video_from_cache", this.S);
     }
 
     public boolean a(int i) {
-        return r(String.valueOf(i)).c == 1;
+        return q(String.valueOf(i)).f28390c == 1;
     }
 
     public boolean a(String str) {
-        switch (p.h().r(String.valueOf(str)).e) {
-            case 1:
-                return x.d(p.a());
-            case 2:
-                return x.c(p.a()) != 0;
-            case 3:
-            default:
-                return false;
+        int i = p.h().q(String.valueOf(str)).f28392e;
+        if (i != 1) {
+            return i == 2 && x.c(p.a()) != 0;
         }
-    }
-
-    public boolean b(String str) {
-        return r(String.valueOf(str)).h == 1;
-    }
-
-    public int c(String str) {
-        return r(String.valueOf(str)).t;
-    }
-
-    public boolean d(String str) {
-        return str == null || p.h().r(String.valueOf(str)).p == 1;
-    }
-
-    public boolean e(String str) {
-        return str == null || p.h().r(String.valueOf(str)).q == 0;
-    }
-
-    public int f(String str) {
-        if (str == null) {
-            return 1500;
-        }
-        return p.h().r(String.valueOf(str)).r;
-    }
-
-    public int g(String str) {
-        return p.h().r(String.valueOf(str)).l;
-    }
-
-    public JSONArray h(String str) {
-        try {
-            Set<String> b = com.bytedance.sdk.openadsdk.core.widget.webview.a.a.b(str);
-            if (b == null || b.size() == 0) {
-                return null;
-            }
-            JSONArray jSONArray = new JSONArray();
-            for (String str2 : b) {
-                r a2 = com.bytedance.sdk.openadsdk.core.widget.webview.a.a.a(str2);
-                if (a2 != null) {
-                    JSONObject jSONObject = new JSONObject();
-                    jSONObject.put("id", a2.b());
-                    jSONObject.put("md5", a2.c());
-                    jSONArray.put(jSONObject);
-                }
-            }
-            return jSONArray;
-        } catch (Exception e) {
-            return null;
-        }
-    }
-
-    public boolean i(String str) {
-        try {
-            a r = p.h().r(String.valueOf(str));
-            if (r != null) {
-                if (r.z != null) {
-                    return true;
-                }
-            }
-        } catch (Exception e) {
-        }
-        return false;
-    }
-
-    public int j(String str) {
-        return r(String.valueOf(str)).i;
-    }
-
-    public int k(String str) {
-        return r(str).k;
-    }
-
-    public int l(String str) {
-        if (str == null) {
-            return -1;
-        }
-        return p.h().r(String.valueOf(str)).m;
+        return x.d(p.a());
     }
 
     public int a(String str, boolean z) {
         if (str == null) {
             return a(z);
         }
-        a r = p.h().r(String.valueOf(str));
-        return r.v != -1 ? r.v : a(z);
-    }
-
-    public int m(String str) {
-        if (str == null) {
-            return 0;
-        }
-        return p.h().r(String.valueOf(str)).w;
-    }
-
-    public boolean n(String str) {
-        return r(String.valueOf(str)).x == 0;
-    }
-
-    public int o(String str) {
-        if (str == null) {
-            return 20;
-        }
-        return p.h().r(String.valueOf(str)).u;
-    }
-
-    private int a(boolean z) {
-        return z ? 20 : 5;
-    }
-
-    public int p(String str) {
-        if (str == null) {
-            return -1;
-        }
-        return p.h().r(String.valueOf(str)).n;
-    }
-
-    public boolean b(int i) {
-        if (i == 0) {
-            return false;
-        }
-        return p.h().r(String.valueOf(i)).o == 1;
-    }
-
-    public boolean q(String str) {
-        return str == null || p.h().r(String.valueOf(str)).f == 1;
-    }
-
-    public List<String> A() {
-        if (this.z + 172800000 < System.currentTimeMillis()) {
-            return null;
-        }
-        ArrayList arrayList = new ArrayList();
-        for (String str : this.A) {
-            arrayList.add(str);
-        }
-        return arrayList;
-    }
-
-    public int B() {
-        return this.P;
-    }
-
-    public List<String> C() {
-        if (this.z + 172800000 < System.currentTimeMillis()) {
-            return null;
-        }
-        ArrayList arrayList = new ArrayList();
-        for (String str : this.B) {
-            arrayList.add(str);
-        }
-        return arrayList;
-    }
-
-    public boolean D() {
-        return this.y == 1;
-    }
-
-    public int E() {
-        return this.L;
-    }
-
-    public int F() {
-        if (this.M <= 0) {
-            this.M = 3000;
-        }
-        return this.M;
-    }
-
-    public String[] G() {
-        try {
-            if (this.N == null || this.N.size() == 0) {
-                return null;
-            }
-            return (String[]) this.N.toArray(new String[0]);
-        } catch (Throwable th) {
-            return null;
-        }
-    }
-
-    public int c(int i) {
-        return r(String.valueOf(i)).b;
-    }
-
-    public int d(int i) {
-        return r(String.valueOf(i)).j;
-    }
-
-    public int e(int i) {
-        return r(String.valueOf(i)).y;
-    }
-
-    public int H() {
-        return this.H;
-    }
-
-    public a r(String str) {
-        a aVar = this.c.get(str);
-        return aVar == null ? u(str) : aVar;
-    }
-
-    private a u(String str) {
-        return a.a().a(str).n(1).o(this.f.contains(str) ? 0 : 1).p(2).q(1).r(1).s(100).t(0).v(1).m(3).l(-1).j(-1).i(2).k(-1).w(1).e(-1).a(-1).d(20).x(5).a((JSONArray) null);
-    }
-
-    public List<e> I() {
-        return this.i;
-    }
-
-    public void s(String str) {
-        this.f.add(str);
+        int i = p.h().q(String.valueOf(str)).u;
+        return i != -1 ? i : a(z);
     }
 
     public static Set<String> a(Set<String> set) {
@@ -919,7 +1205,7 @@ public class h implements c {
                 }
             }
             return hashSet;
-        } catch (Throwable th) {
+        } catch (Throwable unused) {
             return new HashSet();
         }
     }

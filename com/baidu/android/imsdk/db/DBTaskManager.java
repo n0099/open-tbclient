@@ -4,27 +4,24 @@ import android.content.Context;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class DBTaskManager {
-    private static DBTaskManager mInstance;
-    private ExecutorService writeService = Executors.newSingleThreadExecutor();
+    public static DBTaskManager mInstance;
+    public ExecutorService writeService = Executors.newSingleThreadExecutor();
 
-    private DBTaskManager(Context context) {
+    public DBTaskManager(Context context) {
     }
 
     public static synchronized DBTaskManager getInstance(Context context) {
-        DBTaskManager dBTaskManager;
         synchronized (DBTaskManager.class) {
             if (context == null) {
-                dBTaskManager = null;
-            } else {
-                if (mInstance == null) {
-                    mInstance = new DBTaskManager(context);
-                }
-                dBTaskManager = mInstance;
+                return null;
             }
+            if (mInstance == null) {
+                mInstance = new DBTaskManager(context);
+            }
+            return mInstance;
         }
-        return dBTaskManager;
     }
 
     public <T> Future<T> submitForInsertOperation(Runnable runnable, T t) {

@@ -2,20 +2,21 @@ package com.bytedance.sdk.openadsdk.utils;
 
 import android.net.Uri;
 import android.text.TextUtils;
-import android.webkit.WebView;
+import com.baidu.webkit.sdk.WebView;
 /* loaded from: classes6.dex */
 public class r {
     public static void a(Uri uri, com.bytedance.sdk.openadsdk.core.x xVar) {
-        if (xVar != null && xVar.a(uri)) {
-            try {
-                xVar.b(uri);
-            } catch (Exception e) {
-                u.d("WebView", "TTAndroidObj handleUri exception: " + e);
-            }
+        if (xVar == null || !xVar.a(uri)) {
+            return;
+        }
+        try {
+            xVar.b(uri);
+        } catch (Exception e2) {
+            u.d(WebView.LOGTAG, "TTAndroidObj handleUri exception: " + e2);
         }
     }
 
-    public static String a(WebView webView, int i) {
+    public static String a(android.webkit.WebView webView, int i) {
         if (webView == null) {
             return "";
         }
@@ -23,8 +24,6 @@ public class r {
         if (TextUtils.isEmpty(userAgentString)) {
             return "";
         }
-        StringBuilder sb = new StringBuilder(userAgentString);
-        sb.append(" open_news").append(" open_news_u_s/").append(i);
-        return sb.toString();
+        return userAgentString + " open_news open_news_u_s/" + i;
     }
 }

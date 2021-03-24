@@ -2,23 +2,23 @@ package com.baidu.mobads.utils;
 
 import android.content.Context;
 import android.provider.Settings;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class u extends com.baidu.mobads.f.a<String> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ Context f2495a;
-    final /* synthetic */ t c;
+    public final /* synthetic */ Context f8571a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    /* renamed from: c  reason: collision with root package name */
+    public final /* synthetic */ t f8572c;
+
     public u(t tVar, Context context) {
-        this.c = tVar;
-        this.f2495a = context;
+        this.f8572c = tVar;
+        this.f8571a = context;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX WARN: Code restructure failed: missing block: B:11:0x004c, code lost:
-        r5.c.n = "2";
+    /* JADX WARN: Code restructure failed: missing block: B:13:0x0047, code lost:
+        r7.f8572c.n = "2";
      */
     @Override // com.baidu.mobads.f.a
     /* renamed from: d */
@@ -27,20 +27,17 @@ public class u extends com.baidu.mobads.f.a<String> {
     */
     public String a() {
         String str;
-        boolean e;
-        String str2;
+        boolean e2;
         try {
-            this.c.m = "1";
-            String string = Settings.System.getString(this.f2495a.getContentResolver(), "bd_setting_i");
-            e = this.c.e(string);
-            if (e) {
-                this.c.m = "2";
-                str2 = "";
-            } else {
-                str2 = string;
+            this.f8572c.m = "1";
+            String string = Settings.System.getString(this.f8571a.getContentResolver(), "bd_setting_i");
+            e2 = this.f8572c.e(string);
+            if (e2) {
+                this.f8572c.m = "2";
+                string = "";
             }
             try {
-                String[] strArr = this.f2495a.getPackageManager().getPackageInfo(this.f2495a.getPackageName(), 4096).requestedPermissions;
+                String[] strArr = this.f8571a.getPackageManager().getPackageInfo(this.f8571a.getPackageName(), 4096).requestedPermissions;
                 int i = 0;
                 while (true) {
                     if (i >= strArr.length) {
@@ -48,17 +45,17 @@ public class u extends com.baidu.mobads.f.a<String> {
                     } else if (strArr[i].contains("android.permission.READ_PHONE_STATE")) {
                         break;
                     } else {
-                        this.c.n = "0";
+                        this.f8572c.n = "0";
                         i++;
                     }
                 }
-            } catch (Throwable th) {
+            } catch (Throwable unused) {
             }
-            String unused = t.f = str2;
-        } catch (Throwable th2) {
-            String unused2 = t.f = "";
+            String unused2 = t.f8567f = string;
+        } catch (Throwable unused3) {
+            String unused4 = t.f8567f = "";
         }
-        str = t.f;
+        str = t.f8567f;
         return str;
     }
 }

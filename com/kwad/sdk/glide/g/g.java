@@ -5,25 +5,30 @@ import androidx.annotation.Nullable;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class g<T, Y> {
 
     /* renamed from: a  reason: collision with root package name */
-    private final Map<T, Y> f6634a = new LinkedHashMap(100, 0.75f, true);
-    private final long b;
-    private long c;
-    private long d;
+    public final Map<T, Y> f35220a = new LinkedHashMap(100, 0.75f, true);
+
+    /* renamed from: b  reason: collision with root package name */
+    public final long f35221b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public long f35222c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public long f35223d;
 
     public g(long j) {
-        this.b = j;
-        this.c = j;
+        this.f35221b = j;
+        this.f35222c = j;
     }
 
     private void c() {
-        a(this.c);
+        a(this.f35222c);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     public int a(@Nullable Y y) {
         return 1;
     }
@@ -32,60 +37,57 @@ public class g<T, Y> {
         a(0L);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     public synchronized void a(long j) {
-        while (this.d > j) {
-            Iterator<Map.Entry<T, Y>> it = this.f6634a.entrySet().iterator();
+        while (this.f35223d > j) {
+            Iterator<Map.Entry<T, Y>> it = this.f35220a.entrySet().iterator();
             Map.Entry<T, Y> next = it.next();
             Y value = next.getValue();
-            this.d -= a((g<T, Y>) value);
+            this.f35223d -= a((g<T, Y>) value);
             T key = next.getKey();
             it.remove();
             a(key, value);
         }
     }
 
-    protected void a(@NonNull T t, @Nullable Y y) {
+    public void a(@NonNull T t, @Nullable Y y) {
     }
 
     public synchronized long b() {
-        return this.c;
+        return this.f35222c;
     }
 
     @Nullable
     public synchronized Y b(@NonNull T t) {
-        return this.f6634a.get(t);
+        return this.f35220a.get(t);
     }
 
     @Nullable
     public synchronized Y b(@NonNull T t, @Nullable Y y) {
-        Y put;
-        int a2 = a((g<T, Y>) y);
-        if (a2 >= this.c) {
+        long a2 = a((g<T, Y>) y);
+        if (a2 >= this.f35222c) {
             a(t, y);
-            put = null;
-        } else {
-            if (y != null) {
-                this.d = a2 + this.d;
-            }
-            put = this.f6634a.put(t, y);
-            if (put != null) {
-                this.d -= a((g<T, Y>) put);
-                if (!put.equals(y)) {
-                    a(t, put);
-                }
-            }
-            c();
+            return null;
         }
+        if (y != null) {
+            this.f35223d += a2;
+        }
+        Y put = this.f35220a.put(t, y);
+        if (put != null) {
+            this.f35223d -= a((g<T, Y>) put);
+            if (!put.equals(y)) {
+                a(t, put);
+            }
+        }
+        c();
         return put;
     }
 
     @Nullable
     public synchronized Y c(@NonNull T t) {
         Y remove;
-        remove = this.f6634a.remove(t);
+        remove = this.f35220a.remove(t);
         if (remove != null) {
-            this.d -= a((g<T, Y>) remove);
+            this.f35223d -= a((g<T, Y>) remove);
         }
         return remove;
     }

@@ -2,26 +2,10 @@ package com.baidubce.services.vod.model;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class PlayableUrl {
-    private String transcodingPresetName;
-    private String url;
-
-    public String getTranscodingPresetName() {
-        return this.transcodingPresetName;
-    }
-
-    public void setTranscodingPresetName(String str) {
-        this.transcodingPresetName = str;
-    }
-
-    public String getUrl() {
-        return this.url;
-    }
-
-    public void setUrl(String str) {
-        this.url = str;
-    }
+    public String transcodingPresetName;
+    public String url;
 
     public static PlayableUrl formatFromJson(JSONObject jSONObject) throws JSONException {
         PlayableUrl playableUrl = new PlayableUrl();
@@ -30,11 +14,23 @@ public class PlayableUrl {
         return playableUrl;
     }
 
+    public String getTranscodingPresetName() {
+        return this.transcodingPresetName;
+    }
+
+    public String getUrl() {
+        return this.url;
+    }
+
+    public void setTranscodingPresetName(String str) {
+        this.transcodingPresetName = str;
+    }
+
+    public void setUrl(String str) {
+        this.url = str;
+    }
+
     public String toString() {
-        StringBuilder sb = new StringBuilder("PlayableUrl { \n");
-        sb.append("   transcodingPresetName = ").append(this.transcodingPresetName).append("\n");
-        sb.append("   url = ").append(this.url).append("\n");
-        sb.append("  }\n");
-        return sb.toString();
+        return "PlayableUrl { \n   transcodingPresetName = " + this.transcodingPresetName + "\n   url = " + this.url + "\n  }\n";
     }
 }

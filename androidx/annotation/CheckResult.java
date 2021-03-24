@@ -8,7 +8,7 @@ import java.lang.annotation.Target;
 @Target({ElementType.METHOD})
 @Documented
 @Retention(RetentionPolicy.CLASS)
-/* loaded from: classes4.dex */
+/* loaded from: classes.dex */
 public @interface CheckResult {
     String suggest() default "";
 }

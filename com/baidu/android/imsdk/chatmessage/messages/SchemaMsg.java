@@ -10,7 +10,7 @@ import com.baidu.searchbox.account.data.UserAccountActionItem;
 import java.net.URLDecoder;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class SchemaMsg extends NormalMsg {
     public static final Parcelable.Creator<SchemaMsg> CREATOR = new Parcelable.Creator<SchemaMsg>() { // from class: com.baidu.android.imsdk.chatmessage.messages.SchemaMsg.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -27,15 +27,36 @@ public class SchemaMsg extends NormalMsg {
             return new SchemaMsg[i];
         }
     };
-    private String mContent;
+    public String mContent;
 
-    private SchemaMsg(Parcel parcel) {
-        super(parcel);
-        this.mContent = parcel.readString();
+    @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg
+    public String getRecommendDescription() {
+        Spanned spanned;
+        try {
+            spanned = Html.fromHtml(URLDecoder.decode(getText()));
+        } catch (Exception e2) {
+            e2.printStackTrace();
+            spanned = null;
+        }
+        return (spanned == null || TextUtils.isEmpty(spanned.toString())) ? "" : spanned.toString();
     }
 
-    public SchemaMsg() {
-        setMsgType(22);
+    public String getText() {
+        return this.mContent;
+    }
+
+    @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg
+    public boolean parseJsonString() {
+        String jsonContent = getJsonContent();
+        if (!TextUtils.isEmpty(jsonContent)) {
+            try {
+                this.mContent = new JSONObject(jsonContent).optString(UserAccountActionItem.KEY_SRC);
+                return true;
+            } catch (JSONException e2) {
+                LogUtils.e("TextMsg", "parse json err!", e2);
+            }
+        }
+        return false;
     }
 
     @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg, android.os.Parcelable
@@ -44,37 +65,12 @@ public class SchemaMsg extends NormalMsg {
         parcel.writeString(this.mContent);
     }
 
-    @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg
-    protected boolean parseJsonString() {
-        String jsonContent = getJsonContent();
-        if (TextUtils.isEmpty(jsonContent)) {
-            return false;
-        }
-        try {
-            this.mContent = new JSONObject(jsonContent).optString(UserAccountActionItem.KEY_SRC);
-            return true;
-        } catch (JSONException e) {
-            LogUtils.e("TextMsg", "parse json err!", e);
-            return false;
-        }
+    public SchemaMsg(Parcel parcel) {
+        super(parcel);
+        this.mContent = parcel.readString();
     }
 
-    public String getText() {
-        return this.mContent;
-    }
-
-    @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg
-    public String getRecommendDescription() {
-        Spanned spanned;
-        try {
-            spanned = Html.fromHtml(URLDecoder.decode(getText()));
-        } catch (Exception e) {
-            e.printStackTrace();
-            spanned = null;
-        }
-        if (spanned == null || TextUtils.isEmpty(spanned.toString())) {
-            return "";
-        }
-        return spanned.toString();
+    public SchemaMsg() {
+        setMsgType(22);
     }
 }

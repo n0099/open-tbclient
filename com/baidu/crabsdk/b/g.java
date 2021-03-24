@@ -5,23 +5,25 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.PackageManager;
 import android.os.Build;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public final class g {
-    private static Intent aqx;
 
-    public static void e(Context context) {
-        if (aqx != null || context == null) {
+    /* renamed from: a  reason: collision with root package name */
+    public static Intent f4683a;
+
+    public static void a(Context context) {
+        if (f4683a != null || context == null) {
             return;
         }
         try {
-            aqx = context.registerReceiver(null, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
-            com.baidu.crabsdk.c.a.v("Battery Broadcast Regist Success");
-        } catch (Exception e) {
-            com.baidu.crabsdk.c.a.a("Register Battery Error!", e);
+            f4683a = context.registerReceiver(null, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
+            com.baidu.crabsdk.c.a.c("Battery Broadcast Regist Success");
+        } catch (Exception e2) {
+            com.baidu.crabsdk.c.a.a("Register Battery Error!", e2);
         }
     }
 
-    public static String f(Context context) {
+    public static String b(Context context) {
         Object[] objArr;
         if (Build.VERSION.SDK_INT < 5) {
             return "N/A";
@@ -38,19 +40,21 @@ public final class g {
                 }
                 sb.append("\n");
             }
-        } catch (Throwable th) {
+        } catch (Throwable unused) {
         }
         return sb.toString();
     }
 
-    public static String y() {
-        if (aqx == null) {
+    public static String c() {
+        Intent intent = f4683a;
+        if (intent == null) {
             return "N/A";
         }
         try {
-            return ((int) ((aqx.getIntExtra("level", 0) * 100.0f) / aqx.getIntExtra("scale", 100))) + "%";
-        } catch (Exception e) {
-            com.baidu.crabsdk.c.a.a("Get Battery Error!", e);
+            float intExtra = (intent.getIntExtra("level", 0) * 100.0f) / f4683a.getIntExtra("scale", 100);
+            return ((int) intExtra) + "%";
+        } catch (Exception e2) {
+            com.baidu.crabsdk.c.a.a("Get Battery Error!", e2);
             return "N/A";
         }
     }

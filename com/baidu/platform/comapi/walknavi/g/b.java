@@ -6,16 +6,14 @@ import android.os.Message;
 import android.text.TextUtils;
 import android.widget.RelativeLayout;
 import com.baidu.mapapi.model.inner.Point;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class b extends Handler {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ a f2966a;
+    public final /* synthetic */ a f10072a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.f2966a = aVar;
+        this.f10072a = aVar;
     }
 
     @Override // android.os.Handler
@@ -48,98 +46,121 @@ public class b extends Handler {
         Runnable runnable4;
         int i8;
         int i9;
-        if (message.what == 1) {
-            com.baidu.platform.comapi.wnplatform.d.a.a("aaa", ((int) (com.baidu.platform.comapi.walknavi.segmentbrowse.c.f3026a * com.baidu.platform.comapi.walknavi.segmentbrowse.c.q())) + "");
-            i = this.f2966a.v;
-            if (i <= ((int) (com.baidu.platform.comapi.walknavi.segmentbrowse.c.f3026a * com.baidu.platform.comapi.walknavi.segmentbrowse.c.q()))) {
-                StringBuilder append = new StringBuilder().append("handlemessage == ");
-                i8 = this.f2966a.v;
-                com.baidu.platform.comapi.wnplatform.d.a.a("walk engine", append.append(i8).toString());
-                com.baidu.platform.comapi.wnplatform.d.a.a("walk engine", "curid" + com.baidu.platform.comapi.walknavi.segmentbrowse.c.a());
-                a aVar = this.f2966a;
-                i9 = this.f2966a.v;
-                aVar.v = i9 - 20;
-                this.f2966a.w = true;
-            }
-            i2 = this.f2966a.v;
-            if (i2 < 0) {
-                int a2 = com.baidu.platform.comapi.walknavi.segmentbrowse.c.a();
-                runnable3 = this.f2966a.R;
-                if (runnable3 != null) {
-                    handler3 = this.f2966a.Q;
-                    if (handler3 != null) {
-                        handler4 = this.f2966a.Q;
-                        runnable4 = this.f2966a.R;
-                        handler4.removeCallbacks(runnable4);
-                    }
-                }
-                if (a2 != com.baidu.platform.comapi.walknavi.segmentbrowse.c.h()) {
-                    int i10 = a2 + 1;
-                    StringBuilder append2 = new StringBuilder().append("handle uid").append(i10).append("width");
-                    i6 = this.f2966a.v;
-                    com.baidu.platform.comapi.wnplatform.d.a.c("yang13", append2.append(i6).toString());
-                    com.baidu.platform.comapi.walknavi.segmentbrowse.c.a(i10);
-                    this.f2966a.v = com.baidu.platform.comapi.walknavi.segmentbrowse.c.o();
-                    StringBuilder append3 = new StringBuilder().append("handlemessage width<0== ");
-                    i7 = this.f2966a.v;
-                    com.baidu.platform.comapi.wnplatform.d.a.a("walk engine", append3.append(i7).toString());
-                    com.baidu.platform.comapi.wnplatform.d.a.a("walk engine", "finalid" + com.baidu.platform.comapi.walknavi.segmentbrowse.c.h());
-                    com.baidu.platform.comapi.wnplatform.d.a.a("walk engine", "curid" + com.baidu.platform.comapi.walknavi.segmentbrowse.c.a());
-                } else {
+        int i10 = message.what;
+        if (i10 != 1) {
+            if (i10 != 2) {
+                if (i10 == 3) {
+                    this.f10072a.s();
                     return;
                 }
+                return;
             }
-            hVar = this.f2966a.t;
-            if (hVar != null) {
-                hVar2 = this.f2966a.t;
-                i5 = this.f2966a.v;
-                hVar2.a(i5);
-            }
-            iVar = this.f2966a.u;
-            if (iVar != null) {
-                iVar2 = this.f2966a.u;
-                i4 = this.f2966a.v;
-                iVar2.a(i4);
-            }
-            i3 = this.f2966a.v;
-            if (i3 != com.baidu.platform.comapi.walknavi.segmentbrowse.c.o()) {
-                handler = this.f2966a.Q;
-                if (handler != null) {
-                    runnable = this.f2966a.R;
-                    if (runnable != null) {
-                        handler2 = this.f2966a.Q;
-                        runnable2 = this.f2966a.R;
-                        handler2.postDelayed(runnable2, 20L);
-                    }
-                }
-            }
-        } else if (message.what == 2) {
-            activity = this.f2966a.i;
-            float a3 = com.baidu.platform.comapi.wnplatform.o.g.a(activity);
-            A = this.f2966a.A();
+            activity = this.f10072a.i;
+            float a2 = com.baidu.platform.comapi.wnplatform.o.g.a(activity);
+            A = this.f10072a.A();
             int[] iArr = {A.getmPtx(), A.getmPty()};
             int[] iArr2 = {0, 0};
             float[] fArr = {0.0f, 0.0f};
             com.baidu.platform.comapi.walknavi.b.a().G().a(iArr, iArr2);
             if (iArr2[0] != 0 || iArr2[1] != 0) {
-                str = this.f2966a.ab;
+                str = this.f10072a.ab;
                 if (!TextUtils.isEmpty(str)) {
-                    activity2 = this.f2966a.i;
-                    fArr[0] = com.baidu.platform.comapi.wnplatform.o.g.a(iArr2[0] / a3, activity2);
-                    float f = iArr2[1] / a3;
-                    activity3 = this.f2966a.i;
-                    fArr[1] = com.baidu.platform.comapi.wnplatform.o.g.b(f, activity3);
-                    this.f2966a.a(fArr[0], fArr[1]);
+                    activity2 = this.f10072a.i;
+                    fArr[0] = com.baidu.platform.comapi.wnplatform.o.g.a(iArr2[0] / a2, activity2);
+                    float f2 = iArr2[1] / a2;
+                    activity3 = this.f10072a.i;
+                    fArr[1] = com.baidu.platform.comapi.wnplatform.o.g.b(f2, activity3);
+                    this.f10072a.a(fArr[0], fArr[1]);
                     return;
                 }
             }
-            relativeLayout = this.f2966a.U;
+            relativeLayout = this.f10072a.U;
             if (relativeLayout != null) {
-                relativeLayout2 = this.f2966a.U;
+                relativeLayout2 = this.f10072a.U;
                 relativeLayout2.setVisibility(8);
+                return;
             }
-        } else if (message.what == 3) {
-            this.f2966a.s();
+            return;
+        }
+        StringBuilder sb = new StringBuilder();
+        double d2 = com.baidu.platform.comapi.walknavi.segmentbrowse.c.f10166a;
+        double q = com.baidu.platform.comapi.walknavi.segmentbrowse.c.q();
+        Double.isNaN(d2);
+        sb.append((int) (d2 * q));
+        sb.append("");
+        com.baidu.platform.comapi.wnplatform.d.a.a("aaa", sb.toString());
+        i = this.f10072a.v;
+        double d3 = com.baidu.platform.comapi.walknavi.segmentbrowse.c.f10166a;
+        double q2 = com.baidu.platform.comapi.walknavi.segmentbrowse.c.q();
+        Double.isNaN(d3);
+        if (i <= ((int) (d3 * q2))) {
+            StringBuilder sb2 = new StringBuilder();
+            sb2.append("handlemessage == ");
+            i8 = this.f10072a.v;
+            sb2.append(i8);
+            com.baidu.platform.comapi.wnplatform.d.a.a("walk engine", sb2.toString());
+            com.baidu.platform.comapi.wnplatform.d.a.a("walk engine", "curid" + com.baidu.platform.comapi.walknavi.segmentbrowse.c.a());
+            a aVar = this.f10072a;
+            i9 = aVar.v;
+            aVar.v = i9 + (-20);
+            this.f10072a.w = true;
+        }
+        i2 = this.f10072a.v;
+        if (i2 < 0) {
+            int a3 = com.baidu.platform.comapi.walknavi.segmentbrowse.c.a();
+            runnable3 = this.f10072a.R;
+            if (runnable3 != null) {
+                handler3 = this.f10072a.Q;
+                if (handler3 != null) {
+                    handler4 = this.f10072a.Q;
+                    runnable4 = this.f10072a.R;
+                    handler4.removeCallbacks(runnable4);
+                }
+            }
+            if (a3 == com.baidu.platform.comapi.walknavi.segmentbrowse.c.h()) {
+                return;
+            }
+            int i11 = a3 + 1;
+            StringBuilder sb3 = new StringBuilder();
+            sb3.append("handle uid");
+            sb3.append(i11);
+            sb3.append("width");
+            i6 = this.f10072a.v;
+            sb3.append(i6);
+            com.baidu.platform.comapi.wnplatform.d.a.c("yang13", sb3.toString());
+            com.baidu.platform.comapi.walknavi.segmentbrowse.c.a(i11);
+            this.f10072a.v = com.baidu.platform.comapi.walknavi.segmentbrowse.c.o();
+            StringBuilder sb4 = new StringBuilder();
+            sb4.append("handlemessage width<0== ");
+            i7 = this.f10072a.v;
+            sb4.append(i7);
+            com.baidu.platform.comapi.wnplatform.d.a.a("walk engine", sb4.toString());
+            com.baidu.platform.comapi.wnplatform.d.a.a("walk engine", "finalid" + com.baidu.platform.comapi.walknavi.segmentbrowse.c.h());
+            com.baidu.platform.comapi.wnplatform.d.a.a("walk engine", "curid" + com.baidu.platform.comapi.walknavi.segmentbrowse.c.a());
+        }
+        hVar = this.f10072a.t;
+        if (hVar != null) {
+            hVar2 = this.f10072a.t;
+            i5 = this.f10072a.v;
+            hVar2.a(i5);
+        }
+        iVar = this.f10072a.u;
+        if (iVar != null) {
+            iVar2 = this.f10072a.u;
+            i4 = this.f10072a.v;
+            iVar2.a(i4);
+        }
+        i3 = this.f10072a.v;
+        if (i3 != com.baidu.platform.comapi.walknavi.segmentbrowse.c.o()) {
+            handler = this.f10072a.Q;
+            if (handler != null) {
+                runnable = this.f10072a.R;
+                if (runnable != null) {
+                    handler2 = this.f10072a.Q;
+                    runnable2 = this.f10072a.R;
+                    handler2.postDelayed(runnable2, 20L);
+                }
+            }
         }
     }
 }

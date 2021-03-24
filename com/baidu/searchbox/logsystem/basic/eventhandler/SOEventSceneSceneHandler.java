@@ -10,24 +10,23 @@ import com.baidu.searchbox.logsystem.util.Utility;
 import java.io.File;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class SOEventSceneSceneHandler extends DeviceEventSceneHandler {
-    private static final String SO_CRASH = "UnsatisfiedLinkError";
+    public static final String SO_CRASH = "UnsatisfiedLinkError";
     public static final String SO_FILE_INFO = "sofileinfo";
 
     @Override // com.baidu.searchbox.logsystem.logsys.eventscene.handler.BaseEventSceneHandler, com.baidu.searchbox.logsystem.logsys.eventscene.handler.EventSceneHandler
     @Nullable
     public Set<LogFile> getCustomizedSnapshots(@NonNull Context context, @NonNull File file, @NonNull EventObject eventObject) {
-        if (!eventObject.mEventLog.contains(SO_CRASH)) {
-            return null;
+        if (eventObject.mEventLog.contains(SO_CRASH)) {
+            File file2 = new File(file, SO_FILE_INFO);
+            if (Utility.createNewEmptyFile(file2)) {
+                HashSet hashSet = new HashSet(1);
+                Utility.obtainInstalledSoInfo(context, file2);
+                hashSet.add(new LogFile(file2));
+                return hashSet;
+            }
         }
-        File file2 = new File(file, SO_FILE_INFO);
-        if (!Utility.createNewEmptyFile(file2)) {
-            return null;
-        }
-        HashSet hashSet = new HashSet(1);
-        Utility.obtainInstalledSoInfo(context, file2);
-        hashSet.add(new LogFile(file2));
-        return hashSet;
+        return null;
     }
 }

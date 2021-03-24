@@ -1,21 +1,31 @@
 package com.qq.e.ads.nativ.express2;
 
+import android.app.Activity;
 import android.view.View;
 import com.qq.e.comm.adevent.ADEvent;
 import com.qq.e.comm.adevent.ADEventListener;
 import com.qq.e.comm.adevent.ADListener;
-/* loaded from: classes4.dex */
-public class NativeExpressADDataAdapter implements NativeExpressADData2 {
+import com.qq.e.comm.compliance.DownloadConfirmCallBack;
+import com.qq.e.comm.compliance.DownloadConfirmListener;
+/* loaded from: classes6.dex */
+public class NativeExpressADDataAdapter implements NativeExpressADData2, DownloadConfirmListener {
 
     /* renamed from: a  reason: collision with root package name */
-    private NativeExpressADData2 f7532a;
-    private MediaEventListener b;
-    private AdEventListener c;
+    public NativeExpressADData2 f38176a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public MediaEventListener f38177b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public AdEventListener f38178c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public DownloadConfirmListener f38179d;
 
     public NativeExpressADDataAdapter(NativeExpressADData2 nativeExpressADData2) {
-        this.f7532a = nativeExpressADData2;
-        if (this.f7532a instanceof ADEventListener) {
-            ((ADEventListener) this.f7532a).setAdListener(new ADListener() { // from class: com.qq.e.ads.nativ.express2.NativeExpressADDataAdapter.1
+        this.f38176a = nativeExpressADData2;
+        if (nativeExpressADData2 instanceof ADEventListener) {
+            ((ADEventListener) nativeExpressADData2).setAdListener(new ADListener() { // from class: com.qq.e.ads.nativ.express2.NativeExpressADDataAdapter.1
                 @Override // com.qq.e.comm.adevent.ADListener
                 public void onADEvent(ADEvent aDEvent) {
                     if (aDEvent.getType() < 201) {
@@ -28,23 +38,23 @@ public class NativeExpressADDataAdapter implements NativeExpressADData2 {
         }
     }
 
-    static /* synthetic */ void a(NativeExpressADDataAdapter nativeExpressADDataAdapter, ADEvent aDEvent) {
-        if (nativeExpressADDataAdapter.c != null) {
+    public static /* synthetic */ void a(NativeExpressADDataAdapter nativeExpressADDataAdapter, ADEvent aDEvent) {
+        if (nativeExpressADDataAdapter.f38178c != null) {
             switch (aDEvent.getType()) {
                 case 101:
-                    nativeExpressADDataAdapter.c.onClick();
+                    nativeExpressADDataAdapter.f38178c.onClick();
                     return;
                 case 102:
-                    nativeExpressADDataAdapter.c.onExposed();
+                    nativeExpressADDataAdapter.f38178c.onExposed();
                     return;
                 case 103:
-                    nativeExpressADDataAdapter.c.onRenderSuccess();
+                    nativeExpressADDataAdapter.f38178c.onRenderSuccess();
                     return;
                 case 104:
-                    nativeExpressADDataAdapter.c.onRenderFail();
+                    nativeExpressADDataAdapter.f38178c.onRenderFail();
                     return;
                 case 105:
-                    nativeExpressADDataAdapter.c.onAdClosed();
+                    nativeExpressADDataAdapter.f38178c.onAdClosed();
                     return;
                 default:
                     return;
@@ -52,27 +62,27 @@ public class NativeExpressADDataAdapter implements NativeExpressADData2 {
         }
     }
 
-    static /* synthetic */ void b(NativeExpressADDataAdapter nativeExpressADDataAdapter, ADEvent aDEvent) {
-        if (nativeExpressADDataAdapter.b != null) {
+    public static /* synthetic */ void b(NativeExpressADDataAdapter nativeExpressADDataAdapter, ADEvent aDEvent) {
+        if (nativeExpressADDataAdapter.f38177b != null) {
             switch (aDEvent.getType()) {
                 case 201:
-                    nativeExpressADDataAdapter.b.onVideoCache();
+                    nativeExpressADDataAdapter.f38177b.onVideoCache();
                     return;
                 case 202:
-                    nativeExpressADDataAdapter.b.onVideoStart();
+                    nativeExpressADDataAdapter.f38177b.onVideoStart();
                     return;
                 case 203:
-                    nativeExpressADDataAdapter.b.onVideoResume();
+                    nativeExpressADDataAdapter.f38177b.onVideoResume();
                     return;
                 case 204:
                 case 205:
-                    nativeExpressADDataAdapter.b.onVideoPause();
+                    nativeExpressADDataAdapter.f38177b.onVideoPause();
                     return;
                 case 206:
-                    nativeExpressADDataAdapter.b.onVideoComplete();
+                    nativeExpressADDataAdapter.f38177b.onVideoComplete();
                     return;
                 case 207:
-                    nativeExpressADDataAdapter.b.onVideoError();
+                    nativeExpressADDataAdapter.f38177b.onVideoError();
                     return;
                 default:
                     return;
@@ -82,41 +92,67 @@ public class NativeExpressADDataAdapter implements NativeExpressADData2 {
 
     @Override // com.qq.e.ads.nativ.express2.NativeExpressADData2
     public void destroy() {
-        this.f7532a.destroy();
+        this.f38176a.destroy();
     }
 
     @Override // com.qq.e.ads.nativ.express2.NativeExpressADData2
     public View getAdView() {
-        return this.f7532a.getAdView();
+        return this.f38176a.getAdView();
+    }
+
+    @Override // com.qq.e.comm.compliance.ApkDownloadComplianceInterface
+    public String getApkInfoUrl() {
+        NativeExpressADData2 nativeExpressADData2 = this.f38176a;
+        if (nativeExpressADData2 != null) {
+            return nativeExpressADData2.getApkInfoUrl();
+        }
+        return null;
     }
 
     @Override // com.qq.e.ads.nativ.express2.NativeExpressADData2
     public String getECPMLevel() {
-        return this.f7532a.getECPMLevel();
+        return this.f38176a.getECPMLevel();
     }
 
     @Override // com.qq.e.ads.nativ.express2.NativeExpressADData2
     public int getVideoDuration() {
-        return this.f7532a.getVideoDuration();
+        return this.f38176a.getVideoDuration();
     }
 
     @Override // com.qq.e.ads.nativ.express2.NativeExpressADData2
     public boolean isVideoAd() {
-        return this.f7532a.isVideoAd();
+        return this.f38176a.isVideoAd();
+    }
+
+    @Override // com.qq.e.comm.compliance.DownloadConfirmListener
+    public void onDownloadConfirm(Activity activity, int i, String str, DownloadConfirmCallBack downloadConfirmCallBack) {
+        DownloadConfirmListener downloadConfirmListener = this.f38179d;
+        if (downloadConfirmListener != null) {
+            downloadConfirmListener.onDownloadConfirm(activity, i, str, downloadConfirmCallBack);
+        }
     }
 
     @Override // com.qq.e.ads.nativ.express2.NativeExpressADData2
     public void render() {
-        this.f7532a.render();
+        this.f38176a.render();
     }
 
     @Override // com.qq.e.ads.nativ.express2.NativeExpressADData2
     public void setAdEventListener(AdEventListener adEventListener) {
-        this.c = adEventListener;
+        this.f38178c = adEventListener;
+    }
+
+    @Override // com.qq.e.comm.compliance.ApkDownloadComplianceInterface
+    public void setDownloadConfirmListener(DownloadConfirmListener downloadConfirmListener) {
+        this.f38179d = downloadConfirmListener;
+        NativeExpressADData2 nativeExpressADData2 = this.f38176a;
+        if (nativeExpressADData2 != null) {
+            nativeExpressADData2.setDownloadConfirmListener(this);
+        }
     }
 
     @Override // com.qq.e.ads.nativ.express2.NativeExpressADData2
     public void setMediaListener(MediaEventListener mediaEventListener) {
-        this.b = mediaEventListener;
+        this.f38177b = mediaEventListener;
     }
 }

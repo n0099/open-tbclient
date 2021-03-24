@@ -2,28 +2,32 @@ package com.bytedance.sdk.openadsdk.activity.base;
 
 import android.os.Bundle;
 import androidx.annotation.Nullable;
+import com.bytedance.sdk.openadsdk.core.video.nativevideo.NativeVideoTsView;
 import com.bytedance.sdk.openadsdk.core.video.nativevideo.c;
 import com.bytedance.sdk.openadsdk.core.video.nativevideo.f;
 import com.bytedance.sdk.openadsdk.core.widget.TTScrollView;
-import com.bytedance.sdk.openadsdk.utils.ac;
+import com.bytedance.sdk.openadsdk.utils.ad;
 import com.bytedance.sdk.openadsdk.utils.u;
 /* loaded from: classes6.dex */
 public class TTVideoScrollWebPageActivity extends TTVideoWebPageActivity {
-    private TTScrollView h;
+
+    /* renamed from: h  reason: collision with root package name */
+    public TTScrollView f27474h;
 
     @Override // com.bytedance.sdk.openadsdk.activity.base.TTVideoWebPageActivity, android.app.Activity
-    protected void onCreate(@Nullable Bundle bundle) {
+    public void onCreate(@Nullable Bundle bundle) {
         super.onCreate(bundle);
-        this.h = (TTScrollView) findViewById(ac.e(getApplicationContext(), "tt_scroll_view"));
-        this.h.setListener(new TTScrollView.a() { // from class: com.bytedance.sdk.openadsdk.activity.base.TTVideoScrollWebPageActivity.1
+        TTScrollView tTScrollView = (TTScrollView) findViewById(ad.e(getApplicationContext(), "tt_scroll_view"));
+        this.f27474h = tTScrollView;
+        tTScrollView.setListener(new TTScrollView.a() { // from class: com.bytedance.sdk.openadsdk.activity.base.TTVideoScrollWebPageActivity.1
             @Override // com.bytedance.sdk.openadsdk.core.widget.TTScrollView.a
             public void a(boolean z) {
                 try {
-                    if (TTVideoScrollWebPageActivity.this.g != null && (TTVideoScrollWebPageActivity.this.g instanceof f)) {
-                        if (z && !TTVideoScrollWebPageActivity.this.g.w()) {
-                            ((f) TTVideoScrollWebPageActivity.this.g).g(false);
+                    if (TTVideoScrollWebPageActivity.this.f27483g != null && (TTVideoScrollWebPageActivity.this.f27483g instanceof f)) {
+                        if (z && !TTVideoScrollWebPageActivity.this.f27483g.w()) {
+                            ((f) TTVideoScrollWebPageActivity.this.f27483g).g(false);
                         } else {
-                            TTVideoScrollWebPageActivity.this.g.h();
+                            TTVideoScrollWebPageActivity.this.f27483g.h();
                         }
                     }
                 } catch (Throwable th) {
@@ -31,23 +35,15 @@ public class TTVideoScrollWebPageActivity extends TTVideoWebPageActivity {
                 }
             }
         });
-        if (this.g != null) {
-            this.g.e(false);
+        c cVar = this.f27483g;
+        if (cVar != null) {
+            cVar.e(false);
         }
-        if (this.f != null) {
-            this.f.setVideoAdInteractionListener(new c.b() { // from class: com.bytedance.sdk.openadsdk.activity.base.TTVideoScrollWebPageActivity.2
+        NativeVideoTsView nativeVideoTsView = this.f27482f;
+        if (nativeVideoTsView != null) {
+            nativeVideoTsView.setVideoAdInteractionListener(new c.b() { // from class: com.bytedance.sdk.openadsdk.activity.base.TTVideoScrollWebPageActivity.2
                 @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.c.b
-                public void d_() {
-                    if (TTVideoScrollWebPageActivity.this.h != null && !TTVideoScrollWebPageActivity.this.h.a()) {
-                        u.b("TTVideoScrollWebPageActivity", "video start play but video is hidden so pause");
-                        if (TTVideoScrollWebPageActivity.this.g != null) {
-                            TTVideoScrollWebPageActivity.this.g.i();
-                        }
-                    }
-                }
-
-                @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.c.b
-                public void e_() {
+                public void a(long j, long j2) {
                 }
 
                 @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.c.b
@@ -55,11 +51,23 @@ public class TTVideoScrollWebPageActivity extends TTVideoWebPageActivity {
                 }
 
                 @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.c.b
-                public void a(long j, long j2) {
+                public void d() {
                 }
 
                 @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.c.b
-                public void d() {
+                public void d_() {
+                    if (TTVideoScrollWebPageActivity.this.f27474h == null || TTVideoScrollWebPageActivity.this.f27474h.a()) {
+                        return;
+                    }
+                    u.b("TTVideoScrollWebPageActivity", "video start play but video is hidden so pause");
+                    c cVar2 = TTVideoScrollWebPageActivity.this.f27483g;
+                    if (cVar2 != null) {
+                        cVar2.i();
+                    }
+                }
+
+                @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.c.b
+                public void e_() {
                 }
             });
         }
@@ -67,6 +75,6 @@ public class TTVideoScrollWebPageActivity extends TTVideoWebPageActivity {
 
     @Override // android.app.Activity
     public void setContentView(int i) {
-        super.setContentView(ac.f(getApplicationContext(), "tt_activity_video_scroll_landingpage"));
+        super.setContentView(ad.f(getApplicationContext(), "tt_activity_video_scroll_landingpage"));
     }
 }

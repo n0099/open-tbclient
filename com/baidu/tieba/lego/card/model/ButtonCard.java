@@ -1,37 +1,37 @@
 package com.baidu.tieba.lego.card.model;
 
 import android.text.TextUtils;
-import com.baidu.tieba.recapp.lego.model.FormCard;
+import d.b.i0.i1.o.k.b;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes4.dex */
 public class ButtonCard extends BaseCardInfo {
     public static final int BUTTON_COLOR_FILL = 2;
     public static final int BUTTON_COLOR_FRAME = 1;
     public static final int DEFAULT_BUTTON_COLOR_STYLE = -1;
-    private final int bgColor;
-    private final String bgPicUrl;
-    private final int btnColorStyle;
-    private final String btnScheme;
-    private final int buttonColor;
-    private final int cardHeight;
-    private final int cardWidth;
-    private int defaultHeight;
-    private int defaultWidth;
-    private String phoneNumber;
-    private final String title;
-    private final int titleColor;
+    public final int bgColor;
+    public final String bgPicUrl;
+    public final int btnColorStyle;
+    public final String btnScheme;
+    public final int buttonColor;
+    public final int cardHeight;
+    public final int cardWidth;
+    public int defaultHeight;
+    public int defaultWidth;
+    public String phoneNumber;
+    public final String title;
+    public final int titleColor;
 
     public ButtonCard(JSONObject jSONObject) {
         super(jSONObject);
-        this.defaultWidth = FormCard.WIDTH_DEFAULT_SIZE;
+        this.defaultWidth = 750;
         this.defaultHeight = 80;
         this.title = jSONObject.optString("title", "");
-        this.titleColor = com.baidu.tieba.lego.card.c.b.rT(jSONObject.optString("title_color"));
-        this.buttonColor = com.baidu.tieba.lego.card.c.b.rT(jSONObject.optString("btn_color"));
+        this.titleColor = b.b(jSONObject.optString("title_color"));
+        this.buttonColor = b.b(jSONObject.optString("btn_color"));
         this.btnScheme = jSONObject.optString("btn_scheme", "");
         this.cardWidth = jSONObject.optInt("width", this.defaultWidth);
         this.cardHeight = jSONObject.optInt("height", this.defaultHeight);
-        this.bgColor = com.baidu.tieba.lego.card.c.b.rT(jSONObject.optString("bg_color"));
+        this.bgColor = b.b(jSONObject.optString("bg_color"));
         this.bgPicUrl = jSONObject.optString("bg_pic_url", "");
         this.btnColorStyle = jSONObject.optInt("btn_color_style", -1);
         extractPhoneNumber(this.btnScheme);
@@ -45,6 +45,51 @@ public class ButtonCard extends BaseCardInfo {
         }
     }
 
+    public int getBgColor() {
+        return this.bgColor;
+    }
+
+    public String getBtnScheme() {
+        return this.btnScheme;
+    }
+
+    public int getButtonColor() {
+        return this.buttonColor;
+    }
+
+    public int getCardHeight() {
+        return this.cardHeight;
+    }
+
+    public int getCardWidth() {
+        return this.cardWidth;
+    }
+
+    public String getPhoneNumber() {
+        return this.phoneNumber;
+    }
+
+    public String getPicUrl() {
+        return this.bgPicUrl;
+    }
+
+    @Override // com.baidu.tieba.lego.card.model.BaseLegoCardInfo, com.baidu.tieba.lego.card.model.ICardInfo
+    public double getRatio() {
+        int i = this.cardWidth;
+        if (i > 0) {
+            double d2 = this.cardHeight;
+            double d3 = i;
+            Double.isNaN(d2);
+            Double.isNaN(d3);
+            return d2 / d3;
+        }
+        return super.getRatio();
+    }
+
+    public int getStyle() {
+        return this.btnColorStyle;
+    }
+
     public String getText() {
         return this.title;
     }
@@ -53,49 +98,12 @@ public class ButtonCard extends BaseCardInfo {
         return this.titleColor;
     }
 
-    public int getButtonColor() {
-        return this.buttonColor;
-    }
-
-    public String getBtnScheme() {
-        return this.btnScheme;
-    }
-
-    public int getCardWidth() {
-        return this.cardWidth;
-    }
-
-    public int getCardHeight() {
-        return this.cardHeight;
-    }
-
-    public int getBgColor() {
-        return this.bgColor;
-    }
-
-    public String getPicUrl() {
-        return this.bgPicUrl;
-    }
-
-    public int getStyle() {
-        return this.btnColorStyle;
-    }
-
     @Override // com.baidu.tieba.lego.card.model.BaseLegoCardInfo, com.baidu.tieba.lego.card.model.ICardInfo
-    public double getRatio() {
-        return this.cardWidth > 0 ? this.cardHeight / this.cardWidth : super.getRatio();
-    }
-
-    public String getPhoneNumber() {
-        return this.phoneNumber;
+    public boolean isValid() {
+        return !TextUtils.isEmpty(this.btnScheme);
     }
 
     public String toString() {
         return super.toString() + this.bgPicUrl + this.btnScheme;
-    }
-
-    @Override // com.baidu.tieba.lego.card.model.BaseLegoCardInfo, com.baidu.tieba.lego.card.model.ICardInfo
-    public boolean isValid() {
-        return !TextUtils.isEmpty(this.btnScheme);
     }
 }

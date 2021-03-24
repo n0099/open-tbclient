@@ -2,39 +2,21 @@ package com.baidu.mobads.utils;
 
 import android.util.Log;
 import com.baidu.mobads.interfaces.utils.IXAdLogger;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class q implements IXAdLogger {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile q f2492a = null;
+    public static volatile q f8554a;
 
     public static q a() {
-        if (f2492a == null) {
+        if (f8554a == null) {
             synchronized (q.class) {
-                if (f2492a == null) {
-                    f2492a = new q();
+                if (f8554a == null) {
+                    f8554a = new q();
                 }
             }
         }
-        return f2492a;
-    }
-
-    @Override // com.baidu.mobads.interfaces.utils.IXAdLogger
-    public boolean isLoggable(String str, int i) {
-        return i >= com.baidu.mobads.constants.a.b;
-    }
-
-    @Override // com.baidu.mobads.interfaces.utils.IXAdLogger
-    public boolean isLoggable(int i) {
-        return isLoggable(IXAdLogger.TAG, i);
-    }
-
-    private String a(Object[] objArr) {
-        StringBuilder sb = new StringBuilder();
-        for (Object obj : objArr) {
-            sb.append(obj).append(' ');
-        }
-        return sb.toString();
+        return f8554a;
     }
 
     @Override // com.baidu.mobads.interfaces.utils.IXAdLogger
@@ -46,37 +28,21 @@ public class q implements IXAdLogger {
     }
 
     @Override // com.baidu.mobads.interfaces.utils.IXAdLogger
-    public int d(String str) {
-        return d(IXAdLogger.TAG, str);
-    }
-
-    @Override // com.baidu.mobads.interfaces.utils.IXAdLogger
-    public int d(String str, String str2) {
-        if (isLoggable(3)) {
-            try {
-                return Log.d(str, str2);
-            } catch (Exception e) {
-                return -1;
-            }
+    public int e(Object... objArr) {
+        if (isLoggable(6)) {
+            return e(a(objArr));
         }
         return -1;
     }
 
     @Override // com.baidu.mobads.interfaces.utils.IXAdLogger
-    public int d(Throwable th) {
-        return d("", th);
+    public int i(String str) {
+        return i(IXAdLogger.TAG, str);
     }
 
     @Override // com.baidu.mobads.interfaces.utils.IXAdLogger
-    public int d(String str, Throwable th) {
-        if (isLoggable(3)) {
-            try {
-                return Log.d(IXAdLogger.TAG, str, th);
-            } catch (Exception e) {
-                return -1;
-            }
-        }
-        return -1;
+    public boolean isLoggable(String str, int i) {
+        return i >= com.baidu.mobads.constants.a.f8204b;
     }
 
     @Override // com.baidu.mobads.interfaces.utils.IXAdLogger
@@ -84,7 +50,41 @@ public class q implements IXAdLogger {
         if (isLoggable(5)) {
             try {
                 return Log.w(IXAdLogger.TAG, str);
-            } catch (Exception e) {
+            } catch (Exception unused) {
+                return -1;
+            }
+        }
+        return -1;
+    }
+
+    @Override // com.baidu.mobads.interfaces.utils.IXAdLogger
+    public int i(String str, String str2) {
+        if (isLoggable(4)) {
+            try {
+                return Log.i(str, str2);
+            } catch (Exception unused) {
+                return -1;
+            }
+        }
+        return -1;
+    }
+
+    @Override // com.baidu.mobads.interfaces.utils.IXAdLogger
+    public boolean isLoggable(int i) {
+        return isLoggable(IXAdLogger.TAG, i);
+    }
+
+    @Override // com.baidu.mobads.interfaces.utils.IXAdLogger
+    public int d(String str) {
+        return d(IXAdLogger.TAG, str);
+    }
+
+    @Override // com.baidu.mobads.interfaces.utils.IXAdLogger
+    public int e(String str) {
+        if (isLoggable(6)) {
+            try {
+                return Log.e(IXAdLogger.TAG, str);
+            } catch (Exception unused) {
                 return -1;
             }
         }
@@ -100,70 +100,11 @@ public class q implements IXAdLogger {
     }
 
     @Override // com.baidu.mobads.interfaces.utils.IXAdLogger
-    public int w(String str, Throwable th) {
-        if (isLoggable(5)) {
+    public int d(String str, String str2) {
+        if (isLoggable(3)) {
             try {
-                return Log.w(IXAdLogger.TAG, str, th);
-            } catch (Exception e) {
-                return -1;
-            }
-        }
-        return -1;
-    }
-
-    @Override // com.baidu.mobads.interfaces.utils.IXAdLogger
-    public int w(Throwable th) {
-        return w("", th);
-    }
-
-    @Override // com.baidu.mobads.interfaces.utils.IXAdLogger
-    public int e(Object... objArr) {
-        if (isLoggable(6)) {
-            return e(a(objArr));
-        }
-        return -1;
-    }
-
-    @Override // com.baidu.mobads.interfaces.utils.IXAdLogger
-    public int e(String str) {
-        if (isLoggable(6)) {
-            try {
-                return Log.e(IXAdLogger.TAG, str);
-            } catch (Exception e) {
-                return -1;
-            }
-        }
-        return -1;
-    }
-
-    @Override // com.baidu.mobads.interfaces.utils.IXAdLogger
-    public int e(Throwable th) {
-        return e("", th);
-    }
-
-    @Override // com.baidu.mobads.interfaces.utils.IXAdLogger
-    public int e(String str, Throwable th) {
-        if (isLoggable(6)) {
-            try {
-                return Log.e(IXAdLogger.TAG, str, th);
-            } catch (Exception e) {
-                return -1;
-            }
-        }
-        return -1;
-    }
-
-    @Override // com.baidu.mobads.interfaces.utils.IXAdLogger
-    public int i(String str) {
-        return i(IXAdLogger.TAG, str);
-    }
-
-    @Override // com.baidu.mobads.interfaces.utils.IXAdLogger
-    public int i(String str, String str2) {
-        if (isLoggable(4)) {
-            try {
-                return Log.i(str, str2);
-            } catch (Exception e) {
+                return Log.d(str, str2);
+            } catch (Exception unused) {
                 return -1;
             }
         }
@@ -179,14 +120,74 @@ public class q implements IXAdLogger {
     }
 
     @Override // com.baidu.mobads.interfaces.utils.IXAdLogger
-    public int i(String str, Throwable th) {
-        if (isLoggable(4)) {
+    public int e(Throwable th) {
+        return e("", th);
+    }
+
+    @Override // com.baidu.mobads.interfaces.utils.IXAdLogger
+    public int w(String str, Throwable th) {
+        if (isLoggable(5)) {
             try {
-                return Log.i(IXAdLogger.TAG, str, th);
-            } catch (Exception e) {
+                return Log.w(IXAdLogger.TAG, str, th);
+            } catch (Exception unused) {
                 return -1;
             }
         }
         return -1;
+    }
+
+    @Override // com.baidu.mobads.interfaces.utils.IXAdLogger
+    public int d(Throwable th) {
+        return d("", th);
+    }
+
+    @Override // com.baidu.mobads.interfaces.utils.IXAdLogger
+    public int e(String str, Throwable th) {
+        if (isLoggable(6)) {
+            try {
+                return Log.e(IXAdLogger.TAG, str, th);
+            } catch (Exception unused) {
+                return -1;
+            }
+        }
+        return -1;
+    }
+
+    @Override // com.baidu.mobads.interfaces.utils.IXAdLogger
+    public int i(String str, Throwable th) {
+        if (isLoggable(4)) {
+            try {
+                return Log.i(IXAdLogger.TAG, str, th);
+            } catch (Exception unused) {
+                return -1;
+            }
+        }
+        return -1;
+    }
+
+    private String a(Object[] objArr) {
+        StringBuilder sb = new StringBuilder();
+        for (Object obj : objArr) {
+            sb.append(obj);
+            sb.append(' ');
+        }
+        return sb.toString();
+    }
+
+    @Override // com.baidu.mobads.interfaces.utils.IXAdLogger
+    public int d(String str, Throwable th) {
+        if (isLoggable(3)) {
+            try {
+                return Log.d(IXAdLogger.TAG, str, th);
+            } catch (Exception unused) {
+                return -1;
+            }
+        }
+        return -1;
+    }
+
+    @Override // com.baidu.mobads.interfaces.utils.IXAdLogger
+    public int w(Throwable th) {
+        return w("", th);
     }
 }

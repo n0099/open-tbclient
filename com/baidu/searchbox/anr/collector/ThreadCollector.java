@@ -1,48 +1,64 @@
 package com.baidu.searchbox.anr.collector;
 
 import android.util.Log;
+import com.android.internal.http.multipart.Part;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public class ThreadCollector {
-    public static String getThreadInfo(Thread thread) {
-        StringBuilder sb = new StringBuilder();
-        if (thread != null) {
-            try {
-                sb.append("threadId： ").append(thread.getId()).append("\n");
-                if (thread.getName() != null) {
-                    sb.append("name: ").append(thread.getName()).append("\n");
-                }
-                sb.append("priority: ").append(thread.getPriority()).append("\n");
-                sb.append("state: ").append(thread.getState()).append("\n");
-                sb.append("stacktrace: \n");
-                StackTraceElement[] stackTrace = thread.getStackTrace();
-                if (stackTrace != null && stackTrace.length >= 1) {
-                    for (StackTraceElement stackTraceElement : stackTrace) {
-                        String methodName = stackTraceElement.getMethodName();
-                        if (methodName == null) {
-                            methodName = "unknown";
-                        }
-                        sb.append("\tat ").append(methodName).append("(");
-                        String fileName = stackTraceElement.getFileName();
-                        if (fileName == null) {
-                            fileName = "unknown";
-                        }
-                        sb.append(fileName).append(":").append(stackTraceElement.getLineNumber()).append(")\n");
-                    }
-                }
-            } catch (Exception e) {
-                Log.e("ANR", "ThreadInfo Collector Interrupted!!", e);
-            }
-        }
-        return sb.toString();
-    }
-
     public static String getAllThreadStacks() {
         StringBuilder sb = new StringBuilder();
         Map<Thread, StackTraceElement[]> allStackTraces = Thread.getAllStackTraces();
         if (allStackTraces != null && allStackTraces.size() >= 1) {
             for (Map.Entry<Thread, StackTraceElement[]> entry : allStackTraces.entrySet()) {
-                sb.append(getThreadInfo(entry.getKey())).append("\n");
+                sb.append(getThreadInfo(entry.getKey()));
+                sb.append("\n");
+            }
+        }
+        return sb.toString();
+    }
+
+    public static String getThreadInfo(Thread thread) {
+        StringBuilder sb = new StringBuilder();
+        if (thread != null) {
+            try {
+                sb.append("threadId： ");
+                sb.append(thread.getId());
+                sb.append("\n");
+                if (thread.getName() != null) {
+                    sb.append("name: ");
+                    sb.append(thread.getName());
+                    sb.append("\n");
+                }
+                sb.append("priority: ");
+                sb.append(thread.getPriority());
+                sb.append("\n");
+                sb.append("state: ");
+                sb.append(thread.getState());
+                sb.append("\n");
+                sb.append("stacktrace: \n");
+                StackTraceElement[] stackTrace = thread.getStackTrace();
+                if (stackTrace != null && stackTrace.length >= 1) {
+                    for (StackTraceElement stackTraceElement : stackTrace) {
+                        String methodName = stackTraceElement.getMethodName();
+                        String str = "unknown";
+                        if (methodName == null) {
+                            methodName = "unknown";
+                        }
+                        sb.append("\tat ");
+                        sb.append(methodName);
+                        sb.append("(");
+                        String fileName = stackTraceElement.getFileName();
+                        if (fileName != null) {
+                            str = fileName;
+                        }
+                        sb.append(str);
+                        sb.append(":");
+                        sb.append(stackTraceElement.getLineNumber());
+                        sb.append(")\n");
+                    }
+                }
+            } catch (Exception e2) {
+                Log.e("ANR", "ThreadInfo Collector Interrupted!!", e2);
             }
         }
         return sb.toString();
@@ -54,13 +70,12 @@ public class ThreadCollector {
             try {
                 StackTraceElement[] stackTrace = thread.getStackTrace();
                 if (stackTrace != null && stackTrace.length >= 1) {
-                    int length = stackTrace.length;
-                    for (int i = 0; i < length; i++) {
-                        sb.append(stackTrace[i].toString() + "\r\n");
+                    for (StackTraceElement stackTraceElement : stackTrace) {
+                        sb.append(stackTraceElement.toString() + Part.CRLF);
                     }
                 }
-            } catch (Exception e) {
-                Log.e("ANR", "ThreadInfo Collector Interrupted!!", e);
+            } catch (Exception e2) {
+                Log.e("ANR", "ThreadInfo Collector Interrupted!!", e2);
             }
         }
         return sb.toString();

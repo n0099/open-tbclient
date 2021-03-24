@@ -3,10 +3,10 @@ package com.googlecode.mp4parser.boxes.mp4.objectdescriptors;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.util.logging.Logger;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class UnknownDescriptor extends BaseDescriptor {
-    private static Logger log = Logger.getLogger(UnknownDescriptor.class.getName());
-    private ByteBuffer data;
+    public static Logger log = Logger.getLogger(UnknownDescriptor.class.getName());
+    public ByteBuffer data;
 
     @Override // com.googlecode.mp4parser.boxes.mp4.objectdescriptors.BaseDescriptor
     public void parseDetail(ByteBuffer byteBuffer) throws IOException {
@@ -15,12 +15,6 @@ public class UnknownDescriptor extends BaseDescriptor {
 
     @Override // com.googlecode.mp4parser.boxes.mp4.objectdescriptors.BaseDescriptor
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("UnknownDescriptor");
-        sb.append("{tag=").append(this.tag);
-        sb.append(", sizeOfInstance=").append(this.sizeOfInstance);
-        sb.append(", data=").append(this.data);
-        sb.append('}');
-        return sb.toString();
+        return "UnknownDescriptor{tag=" + this.tag + ", sizeOfInstance=" + this.sizeOfInstance + ", data=" + this.data + '}';
     }
 }

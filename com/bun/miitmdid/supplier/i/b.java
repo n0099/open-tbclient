@@ -5,14 +5,14 @@ import android.text.TextUtils;
 import com.bun.miitmdid.supplier.InnerIdSupplier;
 import com.bun.miitmdid.utils.SupplierListener;
 import com.bun.miitmdid.utils.sysParamters;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class b implements InnerIdSupplier {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f3891a;
+    public Context f27141a;
 
     public b(Context context) {
-        this.f3891a = context;
+        this.f27141a = context;
     }
 
     @Override // com.bun.miitmdid.supplier.InnerIdSupplier
@@ -26,13 +26,13 @@ public class b implements InnerIdSupplier {
 
     @Override // com.bun.miitmdid.supplier.IdSupplier
     public String getAAID() {
-        String c = a.c(this.f3891a);
-        return TextUtils.isEmpty(c) ? sysParamters.f() : c;
+        String c2 = a.c(this.f27141a);
+        return TextUtils.isEmpty(c2) ? sysParamters.f() : c2;
     }
 
     @Override // com.bun.miitmdid.supplier.IdSupplier
     public String getOAID() {
-        String a2 = a.a(this.f3891a);
+        String a2 = a.a(this.f27141a);
         return a2 == null ? "" : a2;
     }
 
@@ -43,8 +43,8 @@ public class b implements InnerIdSupplier {
 
     @Override // com.bun.miitmdid.supplier.IdSupplier
     public String getVAID() {
-        String b = a.b(this.f3891a);
-        return b == null ? "" : b;
+        String b2 = a.b(this.f27141a);
+        return b2 == null ? "" : b2;
     }
 
     @Override // com.bun.miitmdid.supplier.IdSupplier

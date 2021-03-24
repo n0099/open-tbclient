@@ -3,9 +3,13 @@ package org.apache.http.impl.conn.tsccm;
 import java.util.Date;
 import java.util.concurrent.locks.Condition;
 @Deprecated
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class WaitingThread {
     public WaitingThread(Condition condition, RouteSpecificPool routeSpecificPool) {
+        throw new RuntimeException("Stub!");
+    }
+
+    public boolean await(Date date) throws InterruptedException {
         throw new RuntimeException("Stub!");
     }
 
@@ -21,15 +25,11 @@ public class WaitingThread {
         throw new RuntimeException("Stub!");
     }
 
-    public boolean await(Date date) throws InterruptedException {
+    public void interrupt() {
         throw new RuntimeException("Stub!");
     }
 
     public void wakeup() {
-        throw new RuntimeException("Stub!");
-    }
-
-    public void interrupt() {
         throw new RuntimeException("Stub!");
     }
 }

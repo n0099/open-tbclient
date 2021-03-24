@@ -2,9 +2,9 @@ package com.baidu.android.util.io;
 
 import android.text.TextUtils;
 import android.util.Xml;
+import com.google.zxing.client.result.ResultParser;
 import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
-import java.io.Closeable;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -12,102 +12,79 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class StreamUtils {
-    private static final boolean DEBUG = false;
+    public static final boolean DEBUG = false;
     public static final int FILE_STREAM_BUFFER_SIZE = 8192;
-    private static final String TAG = StreamUtils.class.getSimpleName();
+    public static final String TAG = "StreamUtils";
 
     public static boolean bytesToFile(byte[] bArr, File file) {
-        FileOutputStream fileOutputStream;
-        if (bArr == null || file == null) {
-            return false;
+        if (bArr != null && file != null) {
+            FileOutputStream fileOutputStream = null;
+            try {
+                FileOutputStream fileOutputStream2 = new FileOutputStream(file);
+                try {
+                    fileOutputStream2.write(bArr);
+                    fileOutputStream2.flush();
+                    Closeables.closeSafely(fileOutputStream2);
+                    return true;
+                } catch (IOException unused) {
+                    fileOutputStream = fileOutputStream2;
+                    Closeables.closeSafely(fileOutputStream);
+                    return false;
+                } catch (Throwable th) {
+                    th = th;
+                    fileOutputStream = fileOutputStream2;
+                    Closeables.closeSafely(fileOutputStream);
+                    throw th;
+                }
+            } catch (IOException unused2) {
+            } catch (Throwable th2) {
+                th = th2;
+            }
         }
-        try {
-            fileOutputStream = new FileOutputStream(file);
-        } catch (IOException e) {
-            fileOutputStream = null;
-        } catch (Throwable th) {
-            th = th;
-            fileOutputStream = null;
-        }
-        try {
-            fileOutputStream.write(bArr);
-            fileOutputStream.flush();
-            Closeables.closeSafely(fileOutputStream);
-            return true;
-        } catch (IOException e2) {
-            Closeables.closeSafely(fileOutputStream);
-            return false;
-        } catch (Throwable th2) {
-            th = th2;
-            Closeables.closeSafely(fileOutputStream);
-            throw th;
-        }
+        return false;
+    }
+
+    public static String getStringFromInput(InputStream inputStream) {
+        String readInputStream = FileUtils.readInputStream(inputStream);
+        return readInputStream.startsWith(ResultParser.BYTE_ORDER_MARK) ? readInputStream.substring(1) : readInputStream;
     }
 
     public static byte[] streamToBytes(InputStream inputStream) {
-        byte[] bArr = null;
-        if (inputStream != null) {
-            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-            try {
-                byte[] bArr2 = new byte[8192];
-                while (true) {
-                    int read = inputStream.read(bArr2);
-                    if (-1 == read) {
-                        break;
-                    }
-                    byteArrayOutputStream.write(bArr2, 0, read);
-                }
-                bArr = byteArrayOutputStream.toByteArray();
-            } catch (IOException e) {
-                e.printStackTrace();
-            } finally {
-                Closeables.closeSafely(inputStream);
-                Closeables.closeSafely(byteArrayOutputStream);
-            }
-        }
-        return bArr;
-    }
-
-    public static String streamToString(InputStream inputStream) {
-        return streamToString(inputStream, Xml.Encoding.UTF_8.toString());
-    }
-
-    public static String streamToString(InputStream inputStream, String str) {
         if (inputStream == null) {
             return null;
         }
-        StringBuilder sb = new StringBuilder();
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         try {
-            try {
-                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream, str), 8192);
-                while (true) {
-                    String readLine = bufferedReader.readLine();
-                    if (readLine == null) {
-                        break;
-                    }
-                    sb.append(readLine);
+            byte[] bArr = new byte[8192];
+            while (true) {
+                int read = inputStream.read(bArr);
+                if (-1 != read) {
+                    byteArrayOutputStream.write(bArr, 0, read);
+                } else {
+                    return byteArrayOutputStream.toByteArray();
                 }
-                Closeables.closeSafely(inputStream);
-            } finally {
-                Closeables.closeSafely(inputStream);
             }
-        } catch (Exception | OutOfMemoryError e) {
-            e.printStackTrace();
+        } catch (IOException e2) {
+            e2.printStackTrace();
+            return null;
+        } finally {
+            Closeables.closeSafely(inputStream);
+            Closeables.closeSafely(byteArrayOutputStream);
         }
-        return sb.toString();
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [185=4] */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:30:0x0055 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:27:0x0043 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:29:0x0045 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:37:0x0021 */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r2v0, types: [boolean] */
-    /* JADX WARN: Type inference failed for: r2v1 */
-    /* JADX WARN: Type inference failed for: r2v3, types: [java.io.Closeable] */
+    /* JADX WARN: Type inference failed for: r1v12 */
     @Deprecated
     public static boolean streamToFile(InputStream inputStream, File file) {
         FileOutputStream fileOutputStream;
+        int read;
+        boolean z = false;
         if (inputStream == null) {
             return false;
         }
@@ -116,51 +93,57 @@ public class StreamUtils {
             return false;
         }
         File parentFile = file.getParentFile();
-        ?? exists = parentFile.exists();
-        if (exists == 0) {
+        if (!parentFile.exists()) {
             parentFile.mkdirs();
         }
         if (file.exists()) {
             file.delete();
         }
+        FileOutputStream fileOutputStream2 = null;
+        FileOutputStream fileOutputStream3 = null;
         try {
             try {
                 fileOutputStream = new FileOutputStream(file);
-                try {
-                    byte[] bArr = new byte[8192];
-                    while (true) {
-                        int read = inputStream.read(bArr);
-                        if (read == -1) {
-                            fileOutputStream.flush();
-                            Closeables.closeSafely(fileOutputStream);
-                            Closeables.closeSafely(inputStream);
-                            return true;
-                        }
-                        fileOutputStream.write(bArr, 0, read);
-                    }
-                } catch (Exception e) {
-                    e = e;
-                    e.printStackTrace();
-                    Closeables.closeSafely(fileOutputStream);
-                    Closeables.closeSafely(inputStream);
-                    return false;
-                }
             } catch (Throwable th) {
                 th = th;
-                Closeables.closeSafely((Closeable) exists);
-                Closeables.closeSafely(inputStream);
-                throw th;
             }
         } catch (Exception e2) {
             e = e2;
-            fileOutputStream = null;
+        }
+        try {
+            byte[] bArr = new byte[8192];
+            while (true) {
+                read = inputStream.read(bArr);
+                if (read == -1) {
+                    break;
+                }
+                fileOutputStream.write(bArr, 0, read);
+            }
+            fileOutputStream.flush();
+            z = true;
+            Closeables.closeSafely(fileOutputStream);
+            fileOutputStream2 = read;
+        } catch (Exception e3) {
+            e = e3;
+            fileOutputStream3 = fileOutputStream;
+            e.printStackTrace();
+            Closeables.closeSafely(fileOutputStream3);
+            fileOutputStream2 = fileOutputStream3;
+            Closeables.closeSafely(inputStream);
+            return z;
         } catch (Throwable th2) {
             th = th2;
-            exists = 0;
-            Closeables.closeSafely((Closeable) exists);
+            fileOutputStream2 = fileOutputStream;
+            Closeables.closeSafely(fileOutputStream2);
             Closeables.closeSafely(inputStream);
             throw th;
         }
+        Closeables.closeSafely(inputStream);
+        return z;
+    }
+
+    public static String streamToString(InputStream inputStream) {
+        return streamToString(inputStream, Xml.Encoding.UTF_8.toString());
     }
 
     public static boolean streamToZipFile(InputStream inputStream, ZipOutputStream zipOutputStream, String str) {
@@ -179,16 +162,34 @@ public class StreamUtils {
                     return true;
                 }
             }
-        } catch (IOException e) {
+        } catch (IOException unused) {
             return false;
         }
     }
 
-    public static String getStringFromInput(InputStream inputStream) {
-        String readInputStream = FileUtils.readInputStream(inputStream);
-        if (readInputStream.startsWith("\ufeff")) {
-            return readInputStream.substring(1);
+    public static String streamToString(InputStream inputStream, String str) {
+        if (inputStream == null) {
+            return null;
         }
-        return readInputStream;
+        StringBuilder sb = new StringBuilder();
+        try {
+            try {
+                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream, str), 8192);
+                while (true) {
+                    String readLine = bufferedReader.readLine();
+                    if (readLine == null) {
+                        break;
+                    }
+                    sb.append(readLine);
+                }
+            } catch (Throwable th) {
+                Closeables.closeSafely(inputStream);
+                throw th;
+            }
+        } catch (Exception | OutOfMemoryError e2) {
+            e2.printStackTrace();
+        }
+        Closeables.closeSafely(inputStream);
+        return sb.toString();
     }
 }

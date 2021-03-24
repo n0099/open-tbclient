@@ -5,21 +5,14 @@ import android.os.Bundle;
 import com.baidu.searchbox.appframework.SimpleActivityLifeCycle;
 /* loaded from: classes3.dex */
 public class TraceActivityCallbacks extends SimpleActivityLifeCycle {
-    private TraceManager mTraceManager = TraceManager.getInstance();
-    private TraceFragmentCallbackWrapper mTraceFragmentCallbackWrapper = new TraceFragmentCallbackWrapper();
+    public TraceManager mTraceManager = TraceManager.getInstance();
+    public TraceFragmentCallbackWrapper mTraceFragmentCallbackWrapper = new TraceFragmentCallbackWrapper();
 
     @Override // com.baidu.searchbox.appframework.SimpleActivityLifeCycle, com.baidu.searchbox.appframework.BdBoxActivityLifecycle.IActivityLifecycle
     public void onActivityCreated(Activity activity, Bundle bundle) {
         if (this.mTraceManager.isRegistered()) {
             this.mTraceFragmentCallbackWrapper.register(activity);
             this.mTraceManager.saveTraceInfo(activity, (!TraceManager.checkAPSActivity(activity) || bundle == null) ? null : bundle.getString("ActivityName"), null, "onCreated");
-        }
-    }
-
-    @Override // com.baidu.searchbox.appframework.SimpleActivityLifeCycle, com.baidu.searchbox.appframework.BdBoxActivityLifecycle.IActivityLifecycle
-    public void onActivityResumed(Activity activity) {
-        if (this.mTraceManager.isRegistered()) {
-            this.mTraceManager.saveTraceInfo(activity, null, null, "onResumed");
         }
     }
 
@@ -31,8 +24,11 @@ public class TraceActivityCallbacks extends SimpleActivityLifeCycle {
         }
     }
 
-    public void registerTraceFragment(Activity activity) {
-        this.mTraceFragmentCallbackWrapper.register(activity);
+    @Override // com.baidu.searchbox.appframework.SimpleActivityLifeCycle, com.baidu.searchbox.appframework.BdBoxActivityLifecycle.IActivityLifecycle
+    public void onActivityResumed(Activity activity) {
+        if (this.mTraceManager.isRegistered()) {
+            this.mTraceManager.saveTraceInfo(activity, null, null, "onResumed");
+        }
     }
 
     @Override // com.baidu.searchbox.appframework.SimpleActivityLifeCycle, com.baidu.searchbox.appframework.BdBoxActivityLifecycle.IActivityLifecycle
@@ -49,5 +45,9 @@ public class TraceActivityCallbacks extends SimpleActivityLifeCycle {
         if (this.mTraceManager.isRegistered()) {
             this.mTraceManager.saveTraceInfo(activity, false);
         }
+    }
+
+    public void registerTraceFragment(Activity activity) {
+        this.mTraceFragmentCallbackWrapper.register(activity);
     }
 }

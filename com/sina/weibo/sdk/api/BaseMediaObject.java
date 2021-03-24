@@ -6,7 +6,7 @@ import android.os.Parcelable;
 import com.sina.weibo.sdk.utils.LogUtil;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public abstract class BaseMediaObject implements Parcelable {
     public static final int MEDIA_TYPE_IMAGE = 2;
     public static final int MEDIA_TYPE_MULITI_IMAGE = 6;
@@ -20,84 +20,95 @@ public abstract class BaseMediaObject implements Parcelable {
     public byte[] thumbData;
     public String title;
 
-    public abstract int getObjType();
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public abstract BaseMediaObject toExtraMediaObject(String str);
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public abstract String toExtraMediaString();
-
     public BaseMediaObject() {
     }
 
-    public BaseMediaObject(Parcel parcel) {
-        this.actionUrl = parcel.readString();
-        this.schema = parcel.readString();
-        this.identify = parcel.readString();
-        this.title = parcel.readString();
-        this.description = parcel.readString();
-        this.thumbData = parcel.createByteArray();
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:35:0x003b A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public final void setThumbImage(Bitmap bitmap) {
-        ByteArrayOutputStream byteArrayOutputStream;
-        try {
-            try {
-                byteArrayOutputStream = new ByteArrayOutputStream();
-                try {
-                    bitmap.compress(Bitmap.CompressFormat.JPEG, 85, byteArrayOutputStream);
-                    this.thumbData = byteArrayOutputStream.toByteArray();
-                    if (byteArrayOutputStream != null) {
-                        try {
-                            byteArrayOutputStream.close();
-                        } catch (IOException e) {
-                            e.printStackTrace();
+    public boolean checkArgs() {
+        String str = this.actionUrl;
+        if (str != null && str.length() <= 512) {
+            String str2 = this.identify;
+            if (str2 != null && str2.length() <= 512) {
+                byte[] bArr = this.thumbData;
+                if (bArr != null && bArr.length <= 32768) {
+                    String str3 = this.title;
+                    if (str3 != null && str3.length() <= 512) {
+                        String str4 = this.description;
+                        if (str4 == null || str4.length() > 1024) {
+                            LogUtil.e("Weibo.BaseMediaObject", "checkArgs fail, description is invalid");
+                            return false;
                         }
+                        return true;
                     }
-                } catch (Exception e2) {
-                    e = e2;
-                    e.printStackTrace();
-                    LogUtil.e("Weibo.BaseMediaObject", "put thumb failed");
-                    if (byteArrayOutputStream != null) {
-                        try {
-                            byteArrayOutputStream.close();
-                        } catch (IOException e3) {
-                            e3.printStackTrace();
-                        }
-                    }
+                    LogUtil.e("Weibo.BaseMediaObject", "checkArgs fail, title is invalid");
+                    return false;
                 }
-            } catch (Throwable th) {
-                th = th;
-                if (byteArrayOutputStream != null) {
-                    try {
-                        byteArrayOutputStream.close();
-                    } catch (IOException e4) {
-                        e4.printStackTrace();
-                    }
-                }
-                throw th;
+                StringBuilder sb = new StringBuilder();
+                sb.append("checkArgs fail, thumbData is invalid,size is ");
+                byte[] bArr2 = this.thumbData;
+                sb.append(bArr2 != null ? bArr2.length : -1);
+                sb.append("! more then 32768.");
+                LogUtil.e("Weibo.BaseMediaObject", sb.toString());
+                return false;
             }
-        } catch (Exception e5) {
-            e = e5;
-            byteArrayOutputStream = null;
-        } catch (Throwable th2) {
-            th = th2;
-            byteArrayOutputStream = null;
-            if (byteArrayOutputStream != null) {
-            }
-            throw th;
+            LogUtil.e("Weibo.BaseMediaObject", "checkArgs fail, identify is invalid");
+            return false;
         }
+        LogUtil.e("Weibo.BaseMediaObject", "checkArgs fail, actionUrl is invalid");
+        return false;
     }
 
     @Override // android.os.Parcelable
     public int describeContents() {
         return 0;
     }
+
+    public abstract int getObjType();
+
+    public final void setThumbImage(Bitmap bitmap) {
+        ByteArrayOutputStream byteArrayOutputStream;
+        ByteArrayOutputStream byteArrayOutputStream2 = null;
+        try {
+            try {
+                try {
+                    byteArrayOutputStream = new ByteArrayOutputStream();
+                } catch (Exception e2) {
+                    e = e2;
+                }
+            } catch (Throwable th) {
+                th = th;
+            }
+            try {
+                bitmap.compress(Bitmap.CompressFormat.JPEG, 85, byteArrayOutputStream);
+                this.thumbData = byteArrayOutputStream.toByteArray();
+                byteArrayOutputStream.close();
+            } catch (Exception e3) {
+                e = e3;
+                byteArrayOutputStream2 = byteArrayOutputStream;
+                e.printStackTrace();
+                LogUtil.e("Weibo.BaseMediaObject", "put thumb failed");
+                if (byteArrayOutputStream2 != null) {
+                    byteArrayOutputStream2.close();
+                }
+            } catch (Throwable th2) {
+                th = th2;
+                byteArrayOutputStream2 = byteArrayOutputStream;
+                if (byteArrayOutputStream2 != null) {
+                    try {
+                        byteArrayOutputStream2.close();
+                    } catch (IOException e4) {
+                        e4.printStackTrace();
+                    }
+                }
+                throw th;
+            }
+        } catch (IOException e5) {
+            e5.printStackTrace();
+        }
+    }
+
+    public abstract BaseMediaObject toExtraMediaObject(String str);
+
+    public abstract String toExtraMediaString();
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
@@ -109,25 +120,12 @@ public abstract class BaseMediaObject implements Parcelable {
         parcel.writeByteArray(this.thumbData);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public boolean checkArgs() {
-        if (this.actionUrl == null || this.actionUrl.length() > 512) {
-            LogUtil.e("Weibo.BaseMediaObject", "checkArgs fail, actionUrl is invalid");
-            return false;
-        } else if (this.identify == null || this.identify.length() > 512) {
-            LogUtil.e("Weibo.BaseMediaObject", "checkArgs fail, identify is invalid");
-            return false;
-        } else if (this.thumbData == null || this.thumbData.length > 32768) {
-            LogUtil.e("Weibo.BaseMediaObject", "checkArgs fail, thumbData is invalid,size is " + (this.thumbData != null ? this.thumbData.length : -1) + "! more then 32768.");
-            return false;
-        } else if (this.title == null || this.title.length() > 512) {
-            LogUtil.e("Weibo.BaseMediaObject", "checkArgs fail, title is invalid");
-            return false;
-        } else if (this.description == null || this.description.length() > 1024) {
-            LogUtil.e("Weibo.BaseMediaObject", "checkArgs fail, description is invalid");
-            return false;
-        } else {
-            return true;
-        }
+    public BaseMediaObject(Parcel parcel) {
+        this.actionUrl = parcel.readString();
+        this.schema = parcel.readString();
+        this.identify = parcel.readString();
+        this.title = parcel.readString();
+        this.description = parcel.readString();
+        this.thumbData = parcel.createByteArray();
     }
 }

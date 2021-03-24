@@ -2,11 +2,8 @@ package com.baidu.android.common.others.lang;
 
 import android.text.TextUtils;
 import java.util.regex.Pattern;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public final class EmojionUtils {
-    private EmojionUtils() {
-    }
-
     public static boolean containsEmoji(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;

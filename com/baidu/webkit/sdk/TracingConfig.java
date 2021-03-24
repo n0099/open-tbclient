@@ -6,7 +6,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class TracingConfig {
     public static final int CATEGORIES_ALL = 1;
     public static final int CATEGORIES_ANDROID_WEBVIEW = 2;
@@ -18,15 +18,15 @@ public class TracingConfig {
     public static final int CATEGORIES_WEB_DEVELOPER = 4;
     public static final int RECORD_CONTINUOUSLY = 1;
     public static final int RECORD_UNTIL_FULL = 0;
-    private final List<String> mCustomIncludedCategories = new ArrayList();
-    private int mPredefinedCategories;
-    private int mTracingMode;
+    public final List<String> mCustomIncludedCategories;
+    public int mPredefinedCategories;
+    public int mTracingMode;
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public static class Builder {
-        private int mPredefinedCategories = 0;
-        private final List<String> mCustomIncludedCategories = new ArrayList();
-        private int mTracingMode = 1;
+        public int mPredefinedCategories = 0;
+        public final List<String> mCustomIncludedCategories = new ArrayList();
+        public int mTracingMode = 1;
 
         public Builder addCategories(Collection<String> collection) {
             this.mCustomIncludedCategories.addAll(collection);
@@ -58,18 +58,20 @@ public class TracingConfig {
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes14.dex */
+    /* loaded from: classes.dex */
     public @interface PredefinedCategories {
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes14.dex */
+    /* loaded from: classes.dex */
     public @interface TracingMode {
     }
 
     public TracingConfig(int i, @NonNull List<String> list, int i2) {
+        ArrayList arrayList = new ArrayList();
+        this.mCustomIncludedCategories = arrayList;
         this.mPredefinedCategories = i;
-        this.mCustomIncludedCategories.addAll(list);
+        arrayList.addAll(list);
         this.mTracingMode = i2;
     }
 

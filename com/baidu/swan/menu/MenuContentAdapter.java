@@ -6,105 +6,127 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import androidx.recyclerview.widget.RecyclerView;
-import com.baidu.swan.menu.f;
+import d.b.g0.i.i;
+import d.b.g0.i.j;
+import d.b.g0.i.o;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class MenuContentAdapter extends RecyclerView.Adapter<a> {
-    private List<h> ett = new ArrayList();
-    private List<h> etu = new ArrayList();
-    private Context mContext;
-    private int mItemWidth;
 
-    public MenuContentAdapter(Context context) {
-        this.mContext = context;
-    }
+    /* renamed from: a  reason: collision with root package name */
+    public List<o> f12985a = new ArrayList();
 
-    public void b(List<List<h>> list, boolean z, int i) {
-        int max;
-        List<h> list2;
-        List<h> list3;
-        this.ett.clear();
-        this.etu.clear();
-        if (list != null) {
-            if (list.size() > 0 && (list3 = list.get(0)) != null) {
-                this.ett.addAll(list3);
-            }
-            if (list.size() > 1 && (list2 = list.get(1)) != null) {
-                this.etu.addAll(list2);
-            }
-            DisplayMetrics displayMetrics = this.mContext.getResources().getDisplayMetrics();
-            if (i == 0) {
-                max = Math.min(displayMetrics.widthPixels, displayMetrics.heightPixels);
-            } else {
-                max = Math.max(displayMetrics.widthPixels, displayMetrics.heightPixels);
-            }
-            this.mItemWidth = (int) (max / (iy(z) ? 5.5f : 5.0f));
-            notifyDataSetChanged();
+    /* renamed from: b  reason: collision with root package name */
+    public List<o> f12986b = new ArrayList();
+
+    /* renamed from: c  reason: collision with root package name */
+    public int f12987c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public Context f12988d;
+
+    /* loaded from: classes3.dex */
+    public static class a extends RecyclerView.ViewHolder {
+
+        /* renamed from: a  reason: collision with root package name */
+        public SwanAppMenuItemView f12989a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public SwanAppMenuItemView f12990b;
+
+        public a(View view) {
+            super(view);
+            this.f12989a = (SwanAppMenuItemView) view.findViewById(i.first_line_menu_item_view);
+            this.f12990b = (SwanAppMenuItemView) view.findViewById(i.second_line_menu_item_view);
         }
     }
 
-    private boolean iy(boolean z) {
-        return z || this.ett.size() > 5 || this.etu.size() > 5;
+    public MenuContentAdapter(Context context) {
+        this.f12988d = context;
+    }
+
+    public final boolean c(boolean z) {
+        return z || this.f12985a.size() > 5 || this.f12986b.size() > 5;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    /* renamed from: i */
+    /* renamed from: d */
+    public void onBindViewHolder(a aVar, int i) {
+        ViewGroup.LayoutParams layoutParams = aVar.itemView.getLayoutParams();
+        if (layoutParams != null) {
+            int i2 = layoutParams.width;
+            int i3 = this.f12987c;
+            if (i2 != i3) {
+                layoutParams.width = i3;
+                aVar.itemView.setLayoutParams(layoutParams);
+            }
+        }
+        if (i < this.f12985a.size()) {
+            aVar.f12989a.setVisibility(0);
+            aVar.f12989a.h(this.f12985a.get(i));
+            aVar.f12989a.setOnClickListener(null);
+        } else {
+            aVar.f12989a.setVisibility(this.f12985a.size() == 0 ? 8 : 4);
+            aVar.f12989a.setOnClickListener(null);
+        }
+        if (i < this.f12986b.size()) {
+            aVar.f12990b.setVisibility(0);
+            aVar.f12990b.h(this.f12986b.get(i));
+            aVar.f12990b.setOnClickListener(null);
+            return;
+        }
+        aVar.f12990b.setVisibility(this.f12986b.size() != 0 ? 4 : 8);
+        aVar.f12990b.setOnClickListener(null);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // androidx.recyclerview.widget.RecyclerView.Adapter
+    /* renamed from: e */
     public a onCreateViewHolder(ViewGroup viewGroup, int i) {
-        View inflate = LayoutInflater.from(this.mContext).inflate(f.e.swan_app_menu_item_layout, viewGroup, false);
+        View inflate = LayoutInflater.from(this.f12988d).inflate(j.swan_app_menu_item_layout, viewGroup, false);
         ViewGroup.LayoutParams layoutParams = inflate.getLayoutParams();
         if (layoutParams == null) {
-            layoutParams = new ViewGroup.LayoutParams(this.mItemWidth, -2);
+            layoutParams = new ViewGroup.LayoutParams(this.f12987c, -2);
         } else {
-            layoutParams.width = this.mItemWidth;
+            layoutParams.width = this.f12987c;
         }
         inflate.setLayoutParams(layoutParams);
         return new a(inflate);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    /* renamed from: a */
-    public void onBindViewHolder(a aVar, int i) {
-        ViewGroup.LayoutParams layoutParams = aVar.itemView.getLayoutParams();
-        if (layoutParams != null && layoutParams.width != this.mItemWidth) {
-            layoutParams.width = this.mItemWidth;
-            aVar.itemView.setLayoutParams(layoutParams);
-        }
-        if (i < this.ett.size()) {
-            aVar.etv.setVisibility(0);
-            aVar.etv.f(this.ett.get(i));
-            aVar.etv.setOnClickListener(null);
-        } else {
-            aVar.etv.setVisibility(this.ett.size() == 0 ? 8 : 4);
-            aVar.etv.setOnClickListener(null);
-        }
-        if (i < this.etu.size()) {
-            aVar.etw.setVisibility(0);
-            aVar.etw.f(this.etu.get(i));
-            aVar.etw.setOnClickListener(null);
+    public void f(List<List<o>> list, boolean z, int i) {
+        int max;
+        List<o> list2;
+        List<o> list3;
+        this.f12985a.clear();
+        this.f12986b.clear();
+        if (list == null) {
             return;
         }
-        aVar.etw.setVisibility(this.etu.size() != 0 ? 4 : 8);
-        aVar.etw.setOnClickListener(null);
+        if (list.size() > 0 && (list3 = list.get(0)) != null) {
+            this.f12985a.addAll(list3);
+        }
+        if (list.size() > 1 && (list2 = list.get(1)) != null) {
+            this.f12986b.addAll(list2);
+        }
+        DisplayMetrics displayMetrics = this.f12988d.getResources().getDisplayMetrics();
+        if (i == 0) {
+            max = Math.min(displayMetrics.widthPixels, displayMetrics.heightPixels);
+        } else {
+            max = Math.max(displayMetrics.widthPixels, displayMetrics.heightPixels);
+        }
+        double d2 = max;
+        double d3 = c(z) ? 5.5f : 5.0f;
+        Double.isNaN(d2);
+        Double.isNaN(d3);
+        this.f12987c = (int) (d2 / d3);
+        notifyDataSetChanged();
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public int getItemCount() {
-        return Math.max(this.ett.size(), this.etu.size());
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
-    public static class a extends RecyclerView.ViewHolder {
-        SwanAppMenuItemView etv;
-        SwanAppMenuItemView etw;
-
-        public a(View view) {
-            super(view);
-            this.etv = (SwanAppMenuItemView) view.findViewById(f.d.first_line_menu_item_view);
-            this.etw = (SwanAppMenuItemView) view.findViewById(f.d.second_line_menu_item_view);
-        }
+        return Math.max(this.f12985a.size(), this.f12986b.size());
     }
 }

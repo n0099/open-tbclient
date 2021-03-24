@@ -7,29 +7,43 @@ import android.view.animation.LinearInterpolator;
 import android.view.animation.RotateAnimation;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import com.baidu.livesdk.sdk.service.IMLikeRequest;
 import com.baidu.sapi2.biometrics.liveness.R;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public class ConstrastLoadingView extends LinearLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    private ImageView f1781a;
-    private ImageView b;
+    public ImageView f6046a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public ImageView f6047b;
 
     public ConstrastLoadingView(Context context) {
         super(context);
         a(context);
     }
 
+    private void a(Context context) {
+        LayoutInflater.from(context).inflate(R.layout.layout_sapi_liveness_constrast_loading, this);
+        this.f6046a = (ImageView) findViewById(R.id.iv_recog_circle);
+        this.f6047b = (ImageView) findViewById(R.id.iv_recog_logo);
+        a();
+    }
+
+    public void clearAnim() {
+        this.f6046a.clearAnimation();
+        clearAnimation();
+        setVisibility(4);
+    }
+
+    public void setVisible(int i) {
+        setVisibility(i);
+        a();
+    }
+
     public ConstrastLoadingView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         a(context);
-    }
-
-    private void a(Context context) {
-        LayoutInflater.from(context).inflate(R.layout.layout_sapi_liveness_constrast_loading, this);
-        this.f1781a = (ImageView) findViewById(R.id.iv_recog_circle);
-        this.b = (ImageView) findViewById(R.id.iv_recog_logo);
-        a();
     }
 
     private RotateAnimation a(boolean z, long j) {
@@ -48,17 +62,6 @@ public class ConstrastLoadingView extends LinearLayout {
     }
 
     private void a() {
-        this.f1781a.startAnimation(a(true, 1200L));
-    }
-
-    public void clearAnim() {
-        this.f1781a.clearAnimation();
-        clearAnimation();
-        setVisibility(4);
-    }
-
-    public void setVisible(int i) {
-        setVisibility(i);
-        a();
+        this.f6046a.startAnimation(a(true, IMLikeRequest.TIME_INTERVAL));
     }
 }

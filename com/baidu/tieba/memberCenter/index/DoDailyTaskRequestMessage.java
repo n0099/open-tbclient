@@ -1,45 +1,45 @@
 package com.baidu.tieba.memberCenter.index;
 
 import com.baidu.adp.framework.message.NetMessage;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
-import com.baidu.tbadk.util.v;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import d.b.h0.z0.w;
 import tbclient.DoDailyTask.DataReq;
 import tbclient.DoDailyTask.DoDailyTaskReqIdl;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class DoDailyTaskRequestMessage extends NetMessage {
-    private long taskId;
-    private long userId;
+    public long taskId;
+    public long userId;
 
     public DoDailyTaskRequestMessage() {
-        super(1003173, CmdConfigSocket.CMD_DO_DAILY_TASK);
+        super(CmdConfigHttp.CMD_DO_DAILY_TASK, 309405);
     }
 
     @Override // com.baidu.adp.framework.message.NetMessage
-    protected Object encode(boolean z) {
+    public Object encode(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
         builder.task_id = Long.valueOf(this.taskId);
         builder.user_id = Long.valueOf(this.userId);
         if (z) {
-            v.b(builder, true);
+            w.a(builder, true);
         }
         DoDailyTaskReqIdl.Builder builder2 = new DoDailyTaskReqIdl.Builder();
         builder2.data = builder.build(false);
         return builder2.build(false);
     }
 
-    public void setUserId(long j) {
-        this.userId = j;
-    }
-
-    public void setTaskId(int i) {
-        this.taskId = i;
+    public long getTaskId() {
+        return this.taskId;
     }
 
     public long getUserId() {
         return this.userId;
     }
 
-    public long getTaskId() {
-        return this.taskId;
+    public void setTaskId(int i) {
+        this.taskId = i;
+    }
+
+    public void setUserId(long j) {
+        this.userId = j;
     }
 }

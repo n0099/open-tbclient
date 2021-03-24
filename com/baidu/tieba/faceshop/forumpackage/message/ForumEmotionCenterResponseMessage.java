@@ -4,7 +4,7 @@ import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tieba.faceshop.forumpackage.data.ForumEmotionData;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes4.dex */
 public class ForumEmotionCenterResponseMessage extends JsonHttpResponsedMessage {
     public ForumEmotionData data;
 

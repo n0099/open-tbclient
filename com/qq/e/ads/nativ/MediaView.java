@@ -8,12 +8,14 @@ import android.view.View;
 import android.widget.FrameLayout;
 import com.qq.e.comm.managers.status.SDKStatus;
 import com.qq.e.comm.util.GDTLogger;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class MediaView extends FrameLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f7519a;
-    private int b;
+    public int f38124a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public int f38125b;
 
     public MediaView(Context context) {
         super(context);
@@ -29,7 +31,7 @@ public final class MediaView extends FrameLayout {
 
     @Override // android.view.ViewGroup, android.view.View
     @SuppressLint({"NewApi"})
-    protected final void onAttachedToWindow() {
+    public final void onAttachedToWindow() {
         GDTLogger.d("onAttachedToWindow");
         super.onAttachedToWindow();
         if (Build.VERSION.SDK_INT < 11 || isHardwareAccelerated()) {
@@ -39,17 +41,21 @@ public final class MediaView extends FrameLayout {
     }
 
     @Override // android.widget.FrameLayout, android.view.View
-    protected final void onMeasure(int i, int i2) {
-        if ((SDKStatus.getSDKVersionCode() == 11 || SDKStatus.getSDKVersionCode() == 12) && this.f7519a > 0 && this.b > 0) {
+    public final void onMeasure(int i, int i2) {
+        if ((SDKStatus.getSDKVersionCode() == 11 || SDKStatus.getSDKVersionCode() == 12) && this.f38124a > 0 && this.f38125b > 0) {
             int size = View.MeasureSpec.getSize(i);
             int size2 = View.MeasureSpec.getSize(i2);
-            if (this.b * size < this.f7519a * size2 || size2 == 0) {
-                i = View.MeasureSpec.makeMeasureSpec(size, 1073741824);
-                i2 = View.MeasureSpec.makeMeasureSpec((size * this.b) / this.f7519a, 1073741824);
-            } else if (this.b * size > this.f7519a * size2 || size == 0) {
-                i = View.MeasureSpec.makeMeasureSpec((this.f7519a * size2) / this.b, 1073741824);
-                i2 = View.MeasureSpec.makeMeasureSpec(size2, 1073741824);
+            int i3 = this.f38125b;
+            int i4 = size * i3;
+            int i5 = this.f38124a;
+            if (i4 < i5 * size2 || size2 == 0) {
+                int makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(size, 1073741824);
+                i2 = View.MeasureSpec.makeMeasureSpec((size * this.f38125b) / this.f38124a, 1073741824);
+                i = makeMeasureSpec;
             } else {
+                if (i3 * size > i5 * size2 || size == 0) {
+                    size = (this.f38124a * size2) / this.f38125b;
+                }
                 i = View.MeasureSpec.makeMeasureSpec(size, 1073741824);
                 i2 = View.MeasureSpec.makeMeasureSpec(size2, 1073741824);
             }
@@ -58,7 +64,7 @@ public final class MediaView extends FrameLayout {
     }
 
     public final void setRatio(int i, int i2) {
-        this.f7519a = i;
-        this.b = i2;
+        this.f38124a = i;
+        this.f38125b = i2;
     }
 }

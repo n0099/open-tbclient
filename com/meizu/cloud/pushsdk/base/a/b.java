@@ -2,29 +2,32 @@ package com.meizu.cloud.pushsdk.base.a;
 
 import com.meizu.cloud.pushsdk.base.h;
 import java.lang.reflect.Constructor;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f7379a = "ReflectConstructor";
-    private a b;
-    private Class<?>[] c;
+    public String f37626a = "ReflectConstructor";
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    /* renamed from: b  reason: collision with root package name */
+    public a f37627b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public Class<?>[] f37628c;
+
     public b(a aVar, Class<?>... clsArr) {
-        this.b = aVar;
-        this.c = clsArr;
+        this.f37627b = aVar;
+        this.f37628c = clsArr;
     }
 
     public <T> d<T> a(Object... objArr) {
         d<T> dVar = new d<>();
         try {
-            Constructor<?> declaredConstructor = this.b.a().getDeclaredConstructor(this.c);
+            Constructor<?> declaredConstructor = this.f37627b.a().getDeclaredConstructor(this.f37628c);
             declaredConstructor.setAccessible(true);
-            dVar.b = (T) declaredConstructor.newInstance(objArr);
-            dVar.f7381a = true;
-        } catch (Exception e) {
-            h.b().a(this.f7379a, "newInstance", e);
+            dVar.f37635b = (T) declaredConstructor.newInstance(objArr);
+            dVar.f37634a = true;
+        } catch (Exception e2) {
+            h.b().a(this.f37626a, "newInstance", e2);
         }
         return dVar;
     }

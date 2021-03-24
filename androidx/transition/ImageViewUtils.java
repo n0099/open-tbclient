@@ -8,56 +8,43 @@ import android.util.Log;
 import android.widget.ImageView;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-/* loaded from: classes5.dex */
-class ImageViewUtils {
-    private static final String TAG = "ImageViewUtils";
-    private static Method sAnimateTransformMethod;
-    private static boolean sAnimateTransformMethodFetched;
+/* loaded from: classes.dex */
+public class ImageViewUtils {
+    public static final String TAG = "ImageViewUtils";
+    public static Method sAnimateTransformMethod;
+    public static boolean sAnimateTransformMethodFetched;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static void startAnimateTransform(ImageView imageView) {
-        if (Build.VERSION.SDK_INT < 21) {
-            ImageView.ScaleType scaleType = imageView.getScaleType();
-            imageView.setTag(R.id.save_scale_type, scaleType);
-            if (scaleType == ImageView.ScaleType.MATRIX) {
-                imageView.setTag(R.id.save_image_matrix, imageView.getImageMatrix());
-            } else {
-                imageView.setScaleType(ImageView.ScaleType.MATRIX);
-            }
-            imageView.setImageMatrix(MatrixUtils.IDENTITY_MATRIX);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
     public static void animateTransform(ImageView imageView, Matrix matrix) {
         if (Build.VERSION.SDK_INT < 21) {
             imageView.setImageMatrix(matrix);
             return;
         }
         fetchAnimateTransformMethod();
-        if (sAnimateTransformMethod != null) {
+        Method method = sAnimateTransformMethod;
+        if (method != null) {
             try {
-                sAnimateTransformMethod.invoke(imageView, matrix);
-            } catch (IllegalAccessException e) {
+                method.invoke(imageView, matrix);
+            } catch (IllegalAccessException unused) {
             } catch (InvocationTargetException e2) {
                 throw new RuntimeException(e2.getCause());
             }
         }
     }
 
-    private static void fetchAnimateTransformMethod() {
-        if (!sAnimateTransformMethodFetched) {
-            try {
-                sAnimateTransformMethod = ImageView.class.getDeclaredMethod("animateTransform", Matrix.class);
-                sAnimateTransformMethod.setAccessible(true);
-            } catch (NoSuchMethodException e) {
-                Log.i(TAG, "Failed to retrieve animateTransform method", e);
-            }
-            sAnimateTransformMethodFetched = true;
+    public static void fetchAnimateTransformMethod() {
+        if (sAnimateTransformMethodFetched) {
+            return;
         }
+        try {
+            Method declaredMethod = ImageView.class.getDeclaredMethod("animateTransform", Matrix.class);
+            sAnimateTransformMethod = declaredMethod;
+            declaredMethod.setAccessible(true);
+        } catch (NoSuchMethodException e2) {
+            Log.i(TAG, "Failed to retrieve animateTransform method", e2);
+        }
+        sAnimateTransformMethodFetched = true;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public static void reserveEndAnimateTransform(final ImageView imageView, Animator animator) {
         if (Build.VERSION.SDK_INT < 21) {
             animator.addListener(new AnimatorListenerAdapter() { // from class: androidx.transition.ImageViewUtils.1
@@ -67,7 +54,8 @@ class ImageViewUtils {
                     imageView.setScaleType(scaleType);
                     imageView.setTag(R.id.save_scale_type, null);
                     if (scaleType == ImageView.ScaleType.MATRIX) {
-                        imageView.setImageMatrix((Matrix) imageView.getTag(R.id.save_image_matrix));
+                        ImageView imageView2 = imageView;
+                        imageView2.setImageMatrix((Matrix) imageView2.getTag(R.id.save_image_matrix));
                         imageView.setTag(R.id.save_image_matrix, null);
                     }
                     animator2.removeListener(this);
@@ -76,6 +64,17 @@ class ImageViewUtils {
         }
     }
 
-    private ImageViewUtils() {
+    public static void startAnimateTransform(ImageView imageView) {
+        if (Build.VERSION.SDK_INT < 21) {
+            ImageView.ScaleType scaleType = imageView.getScaleType();
+            imageView.setTag(R.id.save_scale_type, scaleType);
+            ImageView.ScaleType scaleType2 = ImageView.ScaleType.MATRIX;
+            if (scaleType == scaleType2) {
+                imageView.setTag(R.id.save_image_matrix, imageView.getImageMatrix());
+            } else {
+                imageView.setScaleType(scaleType2);
+            }
+            imageView.setImageMatrix(MatrixUtils.IDENTITY_MATRIX);
+        }
     }
 }

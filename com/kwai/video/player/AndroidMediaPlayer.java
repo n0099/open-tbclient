@@ -8,7 +8,6 @@ import android.net.Uri;
 import android.text.TextUtils;
 import android.view.Surface;
 import android.view.SurfaceHolder;
-import com.baidu.ar.constants.HttpConstants;
 import com.kwai.video.player.IMediaPlayer;
 import com.kwai.video.player.misc.AndroidTrackInfo;
 import com.kwai.video.player.misc.IMediaDataSource;
@@ -18,18 +17,17 @@ import java.io.FileDescriptor;
 import java.io.IOException;
 import java.lang.ref.WeakReference;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class AndroidMediaPlayer extends AbstractMediaPlayer {
-    private static MediaInfo sMediaInfo;
-    private String mDataSource;
-    private final Object mInitLock = new Object();
-    private final AndroidMediaPlayerListenerHolder mInternalListenerAdapter;
-    private final MediaPlayer mInternalMediaPlayer;
-    private boolean mIsReleased;
-    private MediaDataSource mMediaDataSource;
+    public static MediaInfo sMediaInfo;
+    public String mDataSource;
+    public final Object mInitLock;
+    public final AndroidMediaPlayerListenerHolder mInternalListenerAdapter;
+    public final MediaPlayer mInternalMediaPlayer;
+    public boolean mIsReleased;
+    public MediaDataSource mMediaDataSource;
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public class AndroidMediaPlayerListenerHolder implements MediaPlayer.OnBufferingUpdateListener, MediaPlayer.OnCompletionListener, MediaPlayer.OnErrorListener, MediaPlayer.OnInfoListener, MediaPlayer.OnPreparedListener, MediaPlayer.OnSeekCompleteListener, MediaPlayer.OnVideoSizeChangedListener {
         public final WeakReference<AndroidMediaPlayer> mWeakMediaPlayer;
 
@@ -89,9 +87,9 @@ public class AndroidMediaPlayer extends AbstractMediaPlayer {
     }
 
     @TargetApi(23)
-    /* loaded from: classes3.dex */
-    private static class MediaDataSourceProxy extends MediaDataSource {
-        private final IMediaDataSource mMediaDataSource;
+    /* loaded from: classes6.dex */
+    public static class MediaDataSourceProxy extends MediaDataSource {
+        public final IMediaDataSource mMediaDataSource;
 
         public MediaDataSourceProxy(IMediaDataSource iMediaDataSource) {
             this.mMediaDataSource = iMediaDataSource;
@@ -114,10 +112,14 @@ public class AndroidMediaPlayer extends AbstractMediaPlayer {
     }
 
     public AndroidMediaPlayer() {
-        synchronized (this.mInitLock) {
-            this.mInternalMediaPlayer = new MediaPlayer();
+        MediaPlayer mediaPlayer;
+        Object obj = new Object();
+        this.mInitLock = obj;
+        synchronized (obj) {
+            mediaPlayer = new MediaPlayer();
+            this.mInternalMediaPlayer = mediaPlayer;
         }
-        this.mInternalMediaPlayer.setAudioStreamType(3);
+        mediaPlayer.setAudioStreamType(3);
         this.mInternalListenerAdapter = new AndroidMediaPlayerListenerHolder(this);
         attachInternalListeners();
     }
@@ -133,11 +135,12 @@ public class AndroidMediaPlayer extends AbstractMediaPlayer {
     }
 
     private void releaseMediaDataSource() {
-        if (this.mMediaDataSource != null) {
+        MediaDataSource mediaDataSource = this.mMediaDataSource;
+        if (mediaDataSource != null) {
             try {
-                this.mMediaDataSource.close();
-            } catch (IOException e) {
-                e.printStackTrace();
+                mediaDataSource.close();
+            } catch (IOException e2) {
+                e2.printStackTrace();
             }
             this.mMediaDataSource = null;
         }
@@ -156,8 +159,8 @@ public class AndroidMediaPlayer extends AbstractMediaPlayer {
     public long getCurrentPosition() {
         try {
             return this.mInternalMediaPlayer.getCurrentPosition();
-        } catch (IllegalStateException e) {
-            DebugLog.printStackTrace(e);
+        } catch (IllegalStateException e2) {
+            DebugLog.printStackTrace(e2);
             return 0L;
         }
     }
@@ -171,8 +174,8 @@ public class AndroidMediaPlayer extends AbstractMediaPlayer {
     public long getDuration() {
         try {
             return this.mInternalMediaPlayer.getDuration();
-        } catch (IllegalStateException e) {
-            DebugLog.printStackTrace(e);
+        } catch (IllegalStateException e2) {
+            DebugLog.printStackTrace(e2);
             return 0L;
         }
     }
@@ -185,9 +188,9 @@ public class AndroidMediaPlayer extends AbstractMediaPlayer {
     public MediaInfo getMediaInfo() {
         if (sMediaInfo == null) {
             MediaInfo mediaInfo = new MediaInfo();
-            mediaInfo.mVideoDecoder = HttpConstants.OS_TYPE_VALUE;
+            mediaInfo.mVideoDecoder = "android";
             mediaInfo.mVideoDecoderImpl = "HW";
-            mediaInfo.mAudioDecoder = HttpConstants.OS_TYPE_VALUE;
+            mediaInfo.mAudioDecoder = "android";
             mediaInfo.mAudioDecoderImpl = "HW";
             sMediaInfo = mediaInfo;
         }
@@ -233,8 +236,8 @@ public class AndroidMediaPlayer extends AbstractMediaPlayer {
     public boolean isPlaying() {
         try {
             return this.mInternalMediaPlayer.isPlaying();
-        } catch (IllegalStateException e) {
-            DebugLog.printStackTrace(e);
+        } catch (IllegalStateException e2) {
+            DebugLog.printStackTrace(e2);
             return false;
         }
     }
@@ -262,8 +265,8 @@ public class AndroidMediaPlayer extends AbstractMediaPlayer {
     public void reset() {
         try {
             this.mInternalMediaPlayer.reset();
-        } catch (IllegalStateException e) {
-            DebugLog.printStackTrace(e);
+        } catch (IllegalStateException e2) {
+            DebugLog.printStackTrace(e2);
         }
         releaseMediaDataSource();
         resetListeners();
@@ -295,8 +298,9 @@ public class AndroidMediaPlayer extends AbstractMediaPlayer {
     @TargetApi(23)
     public void setDataSource(IMediaDataSource iMediaDataSource) {
         releaseMediaDataSource();
-        this.mMediaDataSource = new MediaDataSourceProxy(iMediaDataSource);
-        this.mInternalMediaPlayer.setDataSource(this.mMediaDataSource);
+        MediaDataSourceProxy mediaDataSourceProxy = new MediaDataSourceProxy(iMediaDataSource);
+        this.mMediaDataSource = mediaDataSourceProxy;
+        this.mInternalMediaPlayer.setDataSource(mediaDataSourceProxy);
     }
 
     @Override // com.kwai.video.player.IMediaPlayer
@@ -350,8 +354,8 @@ public class AndroidMediaPlayer extends AbstractMediaPlayer {
     }
 
     @Override // com.kwai.video.player.IMediaPlayer
-    public void setVolume(float f, float f2) {
-        this.mInternalMediaPlayer.setVolume(f, f2);
+    public void setVolume(float f2, float f3) {
+        this.mInternalMediaPlayer.setVolume(f2, f3);
     }
 
     @Override // com.kwai.video.player.IMediaPlayer

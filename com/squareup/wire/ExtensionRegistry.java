@@ -2,10 +2,10 @@ package com.squareup.wire;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
-/* loaded from: classes4.dex */
-final class ExtensionRegistry {
-    private final Map<Class<? extends ExtendableMessage>, Map<Integer, Extension<?, ?>>> extensionsByTag = new LinkedHashMap();
-    private final Map<Class<? extends ExtendableMessage>, Map<String, Extension<?, ?>>> extensionsByName = new LinkedHashMap();
+/* loaded from: classes6.dex */
+public final class ExtensionRegistry {
+    public final Map<Class<? extends ExtendableMessage>, Map<Integer, Extension<?, ?>>> extensionsByTag = new LinkedHashMap();
+    public final Map<Class<? extends ExtendableMessage>, Map<String, Extension<?, ?>>> extensionsByName = new LinkedHashMap();
 
     public <T extends ExtendableMessage<?>, E> void add(Extension<T, E> extension) {
         Class<T> extendedType = extension.getExtendedType();

@@ -17,12 +17,12 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class RequestService implements IRequestService {
-    private static IRequestService iRequestService;
-    private ExecutorService fixedThreadPool;
+    public static IRequestService iRequestService;
+    public ExecutorService fixedThreadPool;
 
-    private RequestService() {
+    public RequestService() {
         GlobalInterceptHelper.init();
         this.fixedThreadPool = Executors.newFixedThreadPool(10);
     }
@@ -32,6 +32,12 @@ public class RequestService implements IRequestService {
             iRequestService = new RequestService();
         }
         return iRequestService;
+    }
+
+    @Override // com.sina.weibo.sdk.network.IRequestService
+    public <T> RequestCancelable asyncRequest(IRequestParam iRequestParam, Target<T> target) {
+        this.fixedThreadPool.execute(new FixRequestTask(iRequestParam, target));
+        return null;
     }
 
     @Override // com.sina.weibo.sdk.network.IRequestService
@@ -60,15 +66,15 @@ public class RequestService implements IRequestService {
                 }
                 iRequestParam.getPostBundle().putAll(bundle);
                 iRequestParam.getGetBundle().putAll(bundle);
-            } catch (InterceptException e) {
-                requestResult.setE(e);
+            } catch (InterceptException e2) {
+                requestResult.setE(e2);
                 return requestResult;
             }
         }
         try {
             requestResult.setResponse(String.valueOf(RequestEngine.request(iRequestParam).body().string()));
-        } catch (Exception e2) {
-            requestResult.setE(e2);
+        } catch (Exception e3) {
+            requestResult.setE(e3);
         }
         return requestResult;
     }
@@ -76,12 +82,6 @@ public class RequestService implements IRequestService {
     @Override // com.sina.weibo.sdk.network.IRequestService
     @Deprecated
     public <T> T request(IRequestParam iRequestParam, Class<T> cls) throws RequestException {
-        return null;
-    }
-
-    @Override // com.sina.weibo.sdk.network.IRequestService
-    public <T> RequestCancelable asyncRequest(IRequestParam iRequestParam, Target<T> target) {
-        this.fixedThreadPool.execute(new FixRequestTask(iRequestParam, target));
         return null;
     }
 }

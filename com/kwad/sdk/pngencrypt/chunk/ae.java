@@ -1,16 +1,17 @@
 package com.kwad.sdk.pngencrypt.chunk;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public abstract class ae extends s {
-    protected String h;
-    protected String i;
 
-    /* JADX INFO: Access modifiers changed from: protected */
+    /* renamed from: h  reason: collision with root package name */
+    public String f36130h;
+    public String i;
+
     public ae(String str, com.kwad.sdk.pngencrypt.k kVar) {
         super(str, kVar);
     }
 
     public String c() {
-        return this.h;
+        return this.f36130h;
     }
 
     public String d() {

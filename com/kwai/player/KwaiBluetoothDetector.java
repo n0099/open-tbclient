@@ -6,23 +6,27 @@ import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothHeadset;
 import android.bluetooth.BluetoothProfile;
 import android.content.Context;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class KwaiBluetoothDetector {
-    private static KwaiBluetoothDetector sBluetoothUtil = null;
-    private String TAG = "KwaiBluetoothDetector";
-    private final Object mLock = new Object();
-    private boolean misInited = false;
-    BluetoothAdapter mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
-    BluetoothHeadset mBluetoothHeadset = null;
-    BluetoothA2dp mBluetoothA2dp = null;
-    private BluetoothProfile.ServiceListener mProfileListener = new BluetoothProfile.ServiceListener() { // from class: com.kwai.player.KwaiBluetoothDetector.1
+    public static KwaiBluetoothDetector sBluetoothUtil;
+    public String TAG = "KwaiBluetoothDetector";
+    public final Object mLock = new Object();
+    public boolean misInited = false;
+    public BluetoothAdapter mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+    public BluetoothHeadset mBluetoothHeadset = null;
+    public BluetoothA2dp mBluetoothA2dp = null;
+    public BluetoothProfile.ServiceListener mProfileListener = new BluetoothProfile.ServiceListener() { // from class: com.kwai.player.KwaiBluetoothDetector.1
         @Override // android.bluetooth.BluetoothProfile.ServiceListener
         public void onServiceConnected(int i, BluetoothProfile bluetoothProfile) {
             synchronized (KwaiBluetoothDetector.this.mLock) {
-                if (i == 2) {
-                    KwaiBluetoothDetector.this.mBluetoothA2dp = (BluetoothA2dp) bluetoothProfile;
-                } else if (i == 1) {
-                    KwaiBluetoothDetector.this.mBluetoothHeadset = (BluetoothHeadset) bluetoothProfile;
+                try {
+                    if (i == 2) {
+                        KwaiBluetoothDetector.this.mBluetoothA2dp = (BluetoothA2dp) bluetoothProfile;
+                    } else if (i == 1) {
+                        KwaiBluetoothDetector.this.mBluetoothHeadset = (BluetoothHeadset) bluetoothProfile;
+                    }
+                } catch (Throwable th) {
+                    throw th;
                 }
             }
         }
@@ -30,22 +34,26 @@ public class KwaiBluetoothDetector {
         @Override // android.bluetooth.BluetoothProfile.ServiceListener
         public void onServiceDisconnected(int i) {
             synchronized (KwaiBluetoothDetector.this.mLock) {
-                if (i == 2) {
-                    KwaiBluetoothDetector.this.mBluetoothA2dp = null;
-                } else if (i == 1) {
-                    KwaiBluetoothDetector.this.mBluetoothHeadset = null;
+                try {
+                    if (i == 2) {
+                        KwaiBluetoothDetector.this.mBluetoothA2dp = null;
+                    } else if (i == 1) {
+                        KwaiBluetoothDetector.this.mBluetoothHeadset = null;
+                    }
+                } catch (Throwable th) {
+                    throw th;
                 }
             }
         }
     };
 
-    /* loaded from: classes3.dex */
-    class KwaiBluetoothDeviceInfo {
-        private String mName = null;
-        private String mAddress = null;
-        private String mDeviceInfo = null;
+    /* loaded from: classes6.dex */
+    public class KwaiBluetoothDeviceInfo {
+        public String mName = null;
+        public String mAddress = null;
+        public String mDeviceInfo = null;
 
-        KwaiBluetoothDeviceInfo() {
+        public KwaiBluetoothDeviceInfo() {
         }
 
         public String toString() {
@@ -80,7 +88,8 @@ public class KwaiBluetoothDetector {
 
     public String getBlueToothInfo() {
         KwaiBluetoothDeviceInfo kwaiBluetoothDeviceInfo = new KwaiBluetoothDeviceInfo();
-        if (this.mBluetoothAdapter != null && 12 == this.mBluetoothAdapter.getState()) {
+        BluetoothAdapter bluetoothAdapter = this.mBluetoothAdapter;
+        if (bluetoothAdapter != null && 12 == bluetoothAdapter.getState()) {
             synchronized (this.mLock) {
                 if (this.mBluetoothA2dp != null) {
                     for (BluetoothDevice bluetoothDevice : this.mBluetoothA2dp.getConnectedDevices()) {

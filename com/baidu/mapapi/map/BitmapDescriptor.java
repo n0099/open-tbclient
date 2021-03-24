@@ -4,21 +4,21 @@ import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.os.Bundle;
-import com.baidu.minivideo.plugin.capture.utils.EncryptUtils;
 import java.nio.ByteBuffer;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public final class BitmapDescriptor {
 
     /* renamed from: a  reason: collision with root package name */
-    Bitmap f2010a;
-    private Bundle b;
+    public Bitmap f6822a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    /* renamed from: b  reason: collision with root package name */
+    public Bundle f6823b;
+
     public BitmapDescriptor(Bitmap bitmap) {
         if (bitmap != null) {
-            this.f2010a = a(bitmap, bitmap.getWidth(), bitmap.getHeight());
+            this.f6822a = a(bitmap, bitmap.getWidth(), bitmap.getHeight());
         }
     }
 
@@ -32,50 +32,50 @@ public final class BitmapDescriptor {
         return createBitmap;
     }
 
-    byte[] a() {
-        ByteBuffer allocate = ByteBuffer.allocate(this.f2010a.getWidth() * this.f2010a.getHeight() * 4);
-        this.f2010a.copyPixelsToBuffer(allocate);
+    public byte[] a() {
+        ByteBuffer allocate = ByteBuffer.allocate(this.f6822a.getWidth() * this.f6822a.getHeight() * 4);
+        this.f6822a.copyPixelsToBuffer(allocate);
         return allocate.array();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public Bundle b() {
-        if (this.f2010a == null) {
-            throw new IllegalStateException("the bitmap has been recycled! you can not use it again");
-        }
-        if (this.b == null) {
-            Bundle bundle = new Bundle();
-            bundle.putInt("image_width", this.f2010a.getWidth());
-            bundle.putInt("image_height", this.f2010a.getHeight());
-            byte[] a2 = a();
-            bundle.putByteArray("image_data", a2);
-            MessageDigest messageDigest = null;
-            try {
-                messageDigest = MessageDigest.getInstance(EncryptUtils.ENCRYPT_MD5);
-            } catch (NoSuchAlgorithmException e) {
-                e.printStackTrace();
+        if (this.f6822a != null) {
+            if (this.f6823b == null) {
+                Bundle bundle = new Bundle();
+                bundle.putInt("image_width", this.f6822a.getWidth());
+                bundle.putInt("image_height", this.f6822a.getHeight());
+                byte[] a2 = a();
+                bundle.putByteArray("image_data", a2);
+                MessageDigest messageDigest = null;
+                try {
+                    messageDigest = MessageDigest.getInstance("MD5");
+                } catch (NoSuchAlgorithmException e2) {
+                    e2.printStackTrace();
+                }
+                messageDigest.update(a2, 0, a2.length);
+                byte[] digest = messageDigest.digest();
+                StringBuilder sb = new StringBuilder("");
+                for (byte b2 : digest) {
+                    sb.append(Integer.toString((b2 & 255) + 256, 16).substring(1));
+                }
+                bundle.putString("image_hashcode", sb.toString());
+                this.f6823b = bundle;
             }
-            messageDigest.update(a2, 0, a2.length);
-            byte[] digest = messageDigest.digest();
-            StringBuilder sb = new StringBuilder("");
-            for (byte b : digest) {
-                sb.append(Integer.toString((b & 255) + 256, 16).substring(1));
-            }
-            bundle.putString("image_hashcode", sb.toString());
-            this.b = bundle;
+            return this.f6823b;
         }
-        return this.b;
+        throw new IllegalStateException("the bitmap has been recycled! you can not use it again");
     }
 
     public Bitmap getBitmap() {
-        return this.f2010a;
+        return this.f6822a;
     }
 
     public void recycle() {
-        if (this.f2010a == null || this.f2010a.isRecycled()) {
+        Bitmap bitmap = this.f6822a;
+        if (bitmap == null || bitmap.isRecycled()) {
             return;
         }
-        this.f2010a.recycle();
-        this.f2010a = null;
+        this.f6822a.recycle();
+        this.f6822a = null;
     }
 }

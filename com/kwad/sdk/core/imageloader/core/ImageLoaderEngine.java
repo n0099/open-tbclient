@@ -10,21 +10,19 @@ import java.util.concurrent.Executor;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.locks.ReentrantLock;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class ImageLoaderEngine {
-    final ImageLoaderConfiguration configuration;
-    private Executor taskExecutor;
-    private Executor taskExecutorForCachedImages;
-    private final Map<Integer, String> cacheKeysForImageAwares = Collections.synchronizedMap(new HashMap());
-    private final Map<String, ReentrantLock> uriLocks = new WeakHashMap();
-    private final AtomicBoolean paused = new AtomicBoolean(false);
-    private final AtomicBoolean networkDenied = new AtomicBoolean(false);
-    private final AtomicBoolean slowNetwork = new AtomicBoolean(false);
-    private final Object pauseLock = new Object();
-    private Executor taskDistributor = DefaultConfigurationFactory.createTaskDistributor();
+    public final ImageLoaderConfiguration configuration;
+    public Executor taskExecutor;
+    public Executor taskExecutorForCachedImages;
+    public final Map<Integer, String> cacheKeysForImageAwares = Collections.synchronizedMap(new HashMap());
+    public final Map<String, ReentrantLock> uriLocks = new WeakHashMap();
+    public final AtomicBoolean paused = new AtomicBoolean(false);
+    public final AtomicBoolean networkDenied = new AtomicBoolean(false);
+    public final AtomicBoolean slowNetwork = new AtomicBoolean(false);
+    public final Object pauseLock = new Object();
+    public Executor taskDistributor = DefaultConfigurationFactory.createTaskDistributor();
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public ImageLoaderEngine(ImageLoaderConfiguration imageLoaderConfiguration) {
         this.configuration = imageLoaderConfiguration;
         this.taskExecutor = imageLoaderConfiguration.taskExecutor;
@@ -32,7 +30,8 @@ public class ImageLoaderEngine {
     }
 
     private Executor createTaskExecutor() {
-        return DefaultConfigurationFactory.createExecutor(this.configuration.threadPoolSize, this.configuration.threadPriority, this.configuration.tasksProcessingType);
+        ImageLoaderConfiguration imageLoaderConfiguration = this.configuration;
+        return DefaultConfigurationFactory.createExecutor(imageLoaderConfiguration.threadPoolSize, imageLoaderConfiguration.threadPriority, imageLoaderConfiguration.tasksProcessingType);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -46,27 +45,22 @@ public class ImageLoaderEngine {
         this.taskExecutorForCachedImages = createTaskExecutor();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public void cancelDisplayTaskFor(ImageAware imageAware) {
         this.cacheKeysForImageAwares.remove(Integer.valueOf(imageAware.getId()));
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public void denyNetworkDownloads(boolean z) {
         this.networkDenied.set(z);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public void fireCallback(Runnable runnable) {
         this.taskDistributor.execute(runnable);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public String getLoadingUriForView(ImageAware imageAware) {
         return this.cacheKeysForImageAwares.get(Integer.valueOf(imageAware.getId()));
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public ReentrantLock getLockForUri(String str) {
         ReentrantLock reentrantLock = this.uriLocks.get(str);
         if (reentrantLock == null) {
@@ -77,42 +71,34 @@ public class ImageLoaderEngine {
         return reentrantLock;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public AtomicBoolean getPause() {
         return this.paused;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public Object getPauseLock() {
         return this.pauseLock;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public void handleSlowNetwork(boolean z) {
         this.slowNetwork.set(z);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public boolean isNetworkDenied() {
         return this.networkDenied.get();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public boolean isSlowNetwork() {
         return this.slowNetwork.get();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public void pause() {
         this.paused.set(true);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public void prepareDisplayTaskFor(ImageAware imageAware, String str) {
         this.cacheKeysForImageAwares.put(Integer.valueOf(imageAware.getId()), str);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public void resume() {
         this.paused.set(false);
         synchronized (this.pauseLock) {
@@ -120,7 +106,6 @@ public class ImageLoaderEngine {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public void stop() {
         if (!this.configuration.customExecutor) {
             ((ExecutorService) this.taskExecutor).shutdownNow();
@@ -132,7 +117,6 @@ public class ImageLoaderEngine {
         this.uriLocks.clear();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public void submit(final LoadAndDisplayImageTask loadAndDisplayImageTask) {
         this.taskDistributor.execute(new Runnable() { // from class: com.kwad.sdk.core.imageloader.core.ImageLoaderEngine.1
             @Override // java.lang.Runnable
@@ -140,16 +124,11 @@ public class ImageLoaderEngine {
                 File file = ImageLoaderEngine.this.configuration.diskCache.get(loadAndDisplayImageTask.getLoadingUri());
                 boolean z = file != null && file.exists();
                 ImageLoaderEngine.this.initExecutorsIfNeed();
-                if (z) {
-                    ImageLoaderEngine.this.taskExecutorForCachedImages.execute(loadAndDisplayImageTask);
-                } else {
-                    ImageLoaderEngine.this.taskExecutor.execute(loadAndDisplayImageTask);
-                }
+                (z ? ImageLoaderEngine.this.taskExecutorForCachedImages : ImageLoaderEngine.this.taskExecutor).execute(loadAndDisplayImageTask);
             }
         });
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public void submit(ProcessAndDisplayImageTask processAndDisplayImageTask) {
         initExecutorsIfNeed();
         this.taskExecutorForCachedImages.execute(processAndDisplayImageTask);

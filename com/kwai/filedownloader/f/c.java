@@ -5,37 +5,37 @@ import android.content.Context;
 import com.kwai.filedownloader.exception.PathConflictException;
 import com.kwai.filedownloader.x;
 import java.io.File;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class c {
     @SuppressLint({"StaticFieldLeak"})
 
     /* renamed from: a  reason: collision with root package name */
-    private static Context f7211a;
+    public static Context f37010a;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public interface a {
         int a(int i, String str, String str2, long j);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public interface b {
         com.kwai.filedownloader.a.b a(String str);
     }
 
     /* renamed from: com.kwai.filedownloader.f.c$c  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public interface InterfaceC1178c {
+    /* loaded from: classes6.dex */
+    public interface InterfaceC0445c {
         com.kwai.filedownloader.b.a a();
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public interface d {
         int a(int i, String str, String str2, boolean z);
 
         int a(String str, String str2, boolean z);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public interface e {
         com.kwai.filedownloader.e.a a(File file);
 
@@ -43,11 +43,11 @@ public class c {
     }
 
     public static Context a() {
-        return f7211a;
+        return f37010a;
     }
 
     public static void a(Context context) {
-        f7211a = context;
+        f37010a = context;
     }
 
     public static boolean a(int i, long j, String str, String str2, x xVar) {
@@ -68,13 +68,12 @@ public class c {
     }
 
     public static boolean a(int i, String str, boolean z, boolean z2) {
-        if (z || str == null) {
-            return false;
-        }
-        File file = new File(str);
-        if (file.exists()) {
-            com.kwai.filedownloader.message.e.a().a(com.kwai.filedownloader.message.f.a(i, file, z2));
-            return true;
+        if (!z && str != null) {
+            File file = new File(str);
+            if (file.exists()) {
+                com.kwai.filedownloader.message.e.a().a(com.kwai.filedownloader.message.f.a(i, file, z2));
+                return true;
+            }
         }
         return false;
     }

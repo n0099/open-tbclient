@@ -7,47 +7,54 @@ import android.view.KeyEvent;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import com.baidu.adp.base.BdBaseActivity;
-import com.baidu.adp.base.f;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.plugin.Plugin;
 import com.baidu.adp.plugin.PluginCenter;
-import com.baidu.adp.plugin.install.b;
 import com.baidu.adp.plugin.packageManager.PluginPackageManager;
-import com.baidu.adp.plugin.util.c;
+import d.b.b.a.f;
+import d.b.b.h.g.b;
+import d.b.b.h.k.c;
 /* loaded from: classes.dex */
 public class LoadingActivity extends BdBaseActivity<LoadingActivity> {
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.base.BdBaseActivity, android.app.Activity
-    public void onCreate(Bundle bundle) {
-        super.onCreate(bundle);
-        String stringExtra = getIntent().getStringExtra(Plugin.INTENT_EXTRA_PACKAGE_NAME);
-        if (PluginCenter.getInstance().isLoaded(stringExtra)) {
-            finish();
-            return;
-        }
-        initLoadingView(stringExtra);
-        PluginPackageManager.pv().a(stringExtra, new b() { // from class: com.baidu.adp.plugin.proxy.activity.LoadingActivity.1
-            @Override // com.baidu.adp.plugin.install.b
-            public void y(String str, String str2) {
-                LoadingActivity.this.showToast(PluginCenter.getInstance().getCommonErrorShowText());
+
+    /* loaded from: classes.dex */
+    public class a implements b {
+
+        /* renamed from: com.baidu.adp.plugin.proxy.activity.LoadingActivity$a$a  reason: collision with other inner class name */
+        /* loaded from: classes.dex */
+        public class C0021a implements c {
+
+            /* renamed from: a  reason: collision with root package name */
+            public final /* synthetic */ Plugin f2234a;
+
+            public C0021a(Plugin plugin2) {
+                this.f2234a = plugin2;
             }
 
-            @Override // com.baidu.adp.plugin.install.b
-            public void cr(String str) {
-                final Plugin plugin2 = PluginCenter.getInstance().getPlugin(str);
-                if (plugin2 != null) {
-                    plugin2.asyncInit(str, new c() { // from class: com.baidu.adp.plugin.proxy.activity.LoadingActivity.1.1
-                        @Override // com.baidu.adp.plugin.util.c
-                        public void a(Plugin.b bVar, String str2) {
-                            Intent intent = new Intent(LoadingActivity.this.getIntent());
-                            intent.setComponent(new ComponentName(str2, LoadingActivity.this.getIntent().getStringExtra(Plugin.INTENT_EXTRA_REDIRECT_ACTIVITY)));
-                            plugin2.launchIntent(LoadingActivity.this.getPageContext().getContext(), intent);
-                            LoadingActivity.this.finish();
-                        }
-                    });
-                }
+            @Override // d.b.b.h.k.c
+            public void a(Plugin.c cVar, String str) {
+                Intent intent = new Intent(LoadingActivity.this.getIntent());
+                intent.setComponent(new ComponentName(str, LoadingActivity.this.getIntent().getStringExtra(Plugin.INTENT_EXTRA_REDIRECT_ACTIVITY)));
+                this.f2234a.launchIntent(LoadingActivity.this.getPageContext().getContext(), intent);
+                LoadingActivity.this.finish();
             }
-        });
+        }
+
+        public a() {
+        }
+
+        @Override // d.b.b.h.g.b
+        public void a(String str, String str2) {
+            LoadingActivity.this.showToast(PluginCenter.getInstance().getCommonErrorShowText());
+        }
+
+        @Override // d.b.b.h.g.b
+        public void b(String str) {
+            Plugin plugin2 = PluginCenter.getInstance().getPlugin(str);
+            if (plugin2 != null) {
+                plugin2.asyncInit(str, new C0021a(plugin2));
+            }
+        }
     }
 
     private void initLoadingView(String str) {
@@ -59,9 +66,26 @@ public class LoadingActivity extends BdBaseActivity<LoadingActivity> {
             layoutParams.gravity = 17;
             linearLayout.addView(progressBar, layoutParams);
             setContentView(linearLayout);
-        } catch (Exception e) {
-            BdLog.e(e);
+        } catch (Exception e2) {
+            BdLog.e(e2);
         }
+    }
+
+    @Override // com.baidu.adp.base.BdBaseActivity, d.b.b.a.g
+    public f<LoadingActivity> getPageContext() {
+        return null;
+    }
+
+    @Override // com.baidu.adp.base.BdBaseActivity, android.app.Activity
+    public void onCreate(Bundle bundle) {
+        super.onCreate(bundle);
+        String stringExtra = getIntent().getStringExtra(Plugin.INTENT_EXTRA_PACKAGE_NAME);
+        if (PluginCenter.getInstance().isLoaded(stringExtra)) {
+            finish();
+            return;
+        }
+        initLoadingView(stringExtra);
+        PluginPackageManager.O().o0(stringExtra, new a());
     }
 
     @Override // android.app.Activity, android.view.KeyEvent.Callback
@@ -70,10 +94,5 @@ public class LoadingActivity extends BdBaseActivity<LoadingActivity> {
             return true;
         }
         return super.onKeyDown(i, keyEvent);
-    }
-
-    @Override // com.baidu.adp.base.g
-    public f<LoadingActivity> getPageContext() {
-        return null;
     }
 }

@@ -5,29 +5,34 @@ import android.os.Looper;
 import androidx.annotation.MainThread;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class q implements com.kwad.sdk.core.webview.a.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private Handler f6367a = new Handler(Looper.getMainLooper());
-    private a b;
-    @Nullable
-    private com.kwad.sdk.core.webview.a.c c;
+    public Handler f34404a = new Handler(Looper.getMainLooper());
 
-    /* loaded from: classes3.dex */
+    /* renamed from: b  reason: collision with root package name */
+    public a f34405b;
+    @Nullable
+
+    /* renamed from: c  reason: collision with root package name */
+    public com.kwad.sdk.core.webview.a.c f34406c;
+
+    /* loaded from: classes6.dex */
     public interface a {
         @MainThread
         void a();
     }
 
     public q(a aVar) {
-        this.b = aVar;
+        this.f34405b = aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c() {
-        if (this.b != null) {
-            this.b.a();
+        a aVar = this.f34405b;
+        if (aVar != null) {
+            aVar.a();
         }
     }
 
@@ -39,13 +44,13 @@ public class q implements com.kwad.sdk.core.webview.a.a {
 
     @Override // com.kwad.sdk.core.webview.a.a
     public void a(String str, @NonNull com.kwad.sdk.core.webview.a.c cVar) {
-        this.c = cVar;
-        this.f6367a.post(new Runnable() { // from class: com.kwad.sdk.core.webview.jshandler.q.1
+        this.f34406c = cVar;
+        this.f34404a.post(new Runnable() { // from class: com.kwad.sdk.core.webview.jshandler.q.1
             @Override // java.lang.Runnable
             public void run() {
                 q.this.c();
-                if (q.this.c != null) {
-                    q.this.c.a(null);
+                if (q.this.f34406c != null) {
+                    q.this.f34406c.a(null);
                 }
             }
         });
@@ -53,8 +58,8 @@ public class q implements com.kwad.sdk.core.webview.a.a {
 
     @Override // com.kwad.sdk.core.webview.a.a
     public void b() {
-        this.b = null;
-        this.c = null;
-        this.f6367a.removeCallbacksAndMessages(null);
+        this.f34405b = null;
+        this.f34406c = null;
+        this.f34404a.removeCallbacksAndMessages(null);
     }
 }

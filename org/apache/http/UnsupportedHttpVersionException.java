@@ -1,6 +1,6 @@
 package org.apache.http;
 @Deprecated
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class UnsupportedHttpVersionException extends ProtocolException {
     public UnsupportedHttpVersionException() {
         throw new RuntimeException("Stub!");

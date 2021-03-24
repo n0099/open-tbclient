@@ -8,7 +8,7 @@ import android.content.pm.PackageManager;
 import android.os.Build;
 import android.text.TextUtils;
 import com.baidu.mobstat.bm;
-import com.meizu.cloud.pushsdk.constants.PushConstants;
+import com.baidu.tbadk.core.util.FieldBuilder;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
@@ -16,44 +16,61 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    static f f2670a = new f();
-    private String b = "";
+    public static f f9219a = new f();
 
-    f() {
-    }
+    /* renamed from: b  reason: collision with root package name */
+    public String f9220b = "";
 
-    public synchronized void a(Context context, boolean z) {
-        a(context, z, z ? 1 : 20);
-    }
+    /* loaded from: classes2.dex */
+    public static class a {
 
-    private void a(Context context, boolean z, int i) {
-        ArrayList<a> a2 = a(context, i);
-        if (a2 != null && a2.size() != 0) {
-            if (z) {
-                String b = a2.get(0).b();
-                if (a(b, this.b)) {
-                    this.b = b;
-                }
+        /* renamed from: a  reason: collision with root package name */
+        public String f9221a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public String f9222b;
+
+        /* renamed from: c  reason: collision with root package name */
+        public String f9223c;
+
+        public a(String str, String str2, String str3) {
+            this.f9221a = str == null ? "" : str;
+            this.f9222b = str2 == null ? "" : str2;
+            this.f9223c = str3 == null ? "" : str3;
+        }
+
+        public JSONObject a() {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("n", this.f9221a);
+                jSONObject.put("v", this.f9222b);
+                jSONObject.put("w", this.f9223c);
+                return jSONObject;
+            } catch (JSONException e2) {
+                bb.c().b(e2);
+                return null;
             }
-            a(context, a2, z);
+        }
+
+        public String b() {
+            return this.f9221a;
         }
     }
 
-    private ArrayList<a> a(Context context, int i) {
-        return Build.VERSION.SDK_INT >= 21 ? c(context, i) : b(context, i);
+    private boolean a(int i) {
+        return i == 100 || i == 200 || i == 130;
     }
 
     private ArrayList<a> b(Context context, int i) {
         List<ActivityManager.RunningTaskInfo> list;
         try {
-            list = ((ActivityManager) context.getSystemService(PushConstants.INTENT_ACTIVITY_NAME)).getRunningTasks(50);
-        } catch (Exception e) {
-            bb.c().b(e);
+            list = ((ActivityManager) context.getSystemService("activity")).getRunningTasks(50);
+        } catch (Exception e2) {
+            bb.c().b(e2);
             list = null;
         }
         if (list == null) {
@@ -77,7 +94,7 @@ public class f {
 
     private ArrayList<a> c(Context context, int i) {
         String[] strArr;
-        List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) context.getSystemService(PushConstants.INTENT_ACTIVITY_NAME)).getRunningAppProcesses();
+        List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) context.getSystemService("activity")).getRunningAppProcesses();
         if (runningAppProcesses == null) {
             return new ArrayList<>();
         }
@@ -85,7 +102,7 @@ public class f {
         for (int i2 = 0; i2 < runningAppProcesses.size() && linkedHashMap.size() <= i; i2++) {
             ActivityManager.RunningAppProcessInfo runningAppProcessInfo = runningAppProcesses.get(i2);
             if (a(runningAppProcessInfo.importance) && (strArr = runningAppProcessInfo.pkgList) != null && strArr.length != 0) {
-                String str = runningAppProcessInfo.pkgList[0];
+                String str = strArr[0];
                 if (!TextUtils.isEmpty(str) && !b(context, str) && !linkedHashMap.containsKey(str)) {
                     linkedHashMap.put(str, new a(str, a(context, str), String.valueOf(runningAppProcessInfo.importance)));
                 }
@@ -94,52 +111,54 @@ public class f {
         return new ArrayList<>(linkedHashMap.values());
     }
 
-    private boolean a(int i) {
-        if (i != 100 && i != 200 && i != 130) {
-            return false;
+    public synchronized void a(Context context, boolean z) {
+        a(context, z, z ? 1 : 20);
+    }
+
+    private void a(Context context, boolean z, int i) {
+        ArrayList<a> a2 = a(context, i);
+        if (a2 == null || a2.size() == 0) {
+            return;
         }
-        return true;
+        if (z) {
+            String b2 = a2.get(0).b();
+            if (a(b2, this.f9220b)) {
+                this.f9220b = b2;
+            }
+        }
+        a(context, a2, z);
+    }
+
+    private ArrayList<a> a(Context context, int i) {
+        if (Build.VERSION.SDK_INT >= 21) {
+            return c(context, i);
+        }
+        return b(context, i);
     }
 
     private boolean a(String str, String str2) {
-        return (TextUtils.isEmpty(str) || str.equals(this.b)) ? false : true;
+        return (TextUtils.isEmpty(str) || str.equals(this.f9220b)) ? false : true;
     }
 
     private String a(Context context, String str) {
-        String str2 = "";
+        String str2;
         PackageManager packageManager = context.getPackageManager();
         if (packageManager == null) {
             return "";
         }
         try {
             str2 = packageManager.getPackageInfo(str, 0).versionName;
-        } catch (PackageManager.NameNotFoundException e) {
-            bb.c().b(e);
+        } catch (PackageManager.NameNotFoundException e2) {
+            bb.c().b(e2);
+            str2 = "";
         }
         return str2 == null ? "" : str2;
-    }
-
-    private boolean b(Context context, String str) {
-        PackageManager packageManager = context.getPackageManager();
-        if (packageManager == null) {
-            return false;
-        }
-        try {
-            ApplicationInfo applicationInfo = packageManager.getPackageInfo(str, 0).applicationInfo;
-            if (applicationInfo != null) {
-                return (applicationInfo.flags & 1) != 0;
-            }
-            return false;
-        } catch (PackageManager.NameNotFoundException e) {
-            bb.c().b(e);
-            return false;
-        }
     }
 
     private void a(Context context, ArrayList<a> arrayList, boolean z) {
         String str;
         StringBuilder sb = new StringBuilder();
-        sb.append(System.currentTimeMillis() + "|");
+        sb.append(System.currentTimeMillis() + FieldBuilder.SE);
         sb.append(z ? 1 : 0);
         try {
             JSONArray jSONArray = new JSONArray();
@@ -154,45 +173,30 @@ public class f {
             jSONObject.put("app_trace", jSONArray);
             jSONObject.put("meta-data", sb.toString());
             str = bm.a.a(jSONObject.toString().getBytes());
-        } catch (Exception e) {
-            bb.c().b(e);
+        } catch (Exception e2) {
+            bb.c().b(e2);
             str = "";
         }
-        if (!TextUtils.isEmpty(str)) {
-            k.APP_TRACE.a(System.currentTimeMillis(), str);
+        if (TextUtils.isEmpty(str)) {
+            return;
         }
+        k.APP_TRACE.a(System.currentTimeMillis(), str);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
-    public static class a {
-
-        /* renamed from: a  reason: collision with root package name */
-        private String f2671a;
-        private String b;
-        private String c;
-
-        public a(String str, String str2, String str3) {
-            this.f2671a = str == null ? "" : str;
-            this.b = str2 == null ? "" : str2;
-            this.c = str3 == null ? "" : str3;
+    private boolean b(Context context, String str) {
+        PackageManager packageManager = context.getPackageManager();
+        if (packageManager == null) {
+            return false;
         }
-
-        public JSONObject a() {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("n", this.f2671a);
-                jSONObject.put("v", this.b);
-                jSONObject.put("w", this.c);
-                return jSONObject;
-            } catch (JSONException e) {
-                bb.c().b(e);
-                return null;
+        try {
+            ApplicationInfo applicationInfo = packageManager.getPackageInfo(str, 0).applicationInfo;
+            if (applicationInfo == null) {
+                return false;
             }
-        }
-
-        public String b() {
-            return this.f2671a;
+            return (applicationInfo.flags & 1) != 0;
+        } catch (PackageManager.NameNotFoundException e2) {
+            bb.c().b(e2);
+            return false;
         }
     }
 }

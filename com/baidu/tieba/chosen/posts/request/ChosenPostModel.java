@@ -1,48 +1,49 @@
 package com.baidu.tieba.chosen.posts.request;
 
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.mvc.model.NetAutoModel;
 import com.baidu.tieba.chosen.posts.ChosenPostActivity;
-/* loaded from: classes7.dex */
+import d.b.i0.y.a.d.a;
+import d.b.i0.y.a.d.b;
+/* loaded from: classes4.dex */
 public class ChosenPostModel extends NetAutoModel<a, b, ChosenPostActivity> {
     public ChosenPostModel(TbPageContext<ChosenPostActivity> tbPageContext, a aVar) {
         super(tbPageContext, aVar);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    public boolean isNeedCache() {
-        return true;
+    public int F() {
+        return CmdConfigHttp.CMD_GET_HOT_THREAD;
     }
 
-    @Override // com.baidu.tbadk.mvc.model.NetAutoModel, com.baidu.tbadk.mvc.model.NetModel
-    protected Class<? extends ChosenPostHttpResponse> acV() {
+    @Override // com.baidu.tbadk.mvc.model.NetModel
+    public Class<? extends ChosenPostHttpResponse> H() {
         return ChosenPostHttpResponse.class;
     }
 
-    @Override // com.baidu.tbadk.mvc.model.NetAutoModel, com.baidu.tbadk.mvc.model.NetModel
-    protected Class<? extends ChosenPostSocketResponse> acX() {
-        return ChosenPostSocketResponse.class;
-    }
-
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected int acS() {
-        return 1003005;
-    }
-
-    @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected String acL() {
+    public String I() {
         return "c/f/choiceness/hotthread";
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected Class<b> getResponseDataClass() {
+    public int J() {
+        return 307008;
+    }
+
+    @Override // com.baidu.tbadk.mvc.model.NetModel
+    public Class<? extends ChosenPostSocketResponse> K() {
+        return ChosenPostSocketResponse.class;
+    }
+
+    @Override // com.baidu.tbadk.mvc.model.NetModel
+    public Class<b> getResponseDataClass() {
         return b.class;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected int acR() {
-        return CmdConfigSocket.CMD_GET_HOT_THREAD;
+    public boolean isNeedCache() {
+        return true;
     }
 }

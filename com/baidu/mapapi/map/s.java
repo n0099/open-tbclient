@@ -9,16 +9,14 @@ import com.baidu.mapapi.model.inner.GeoPoint;
 import com.baidu.mapsdkplatform.comapi.map.ab;
 import com.baidu.mapsdkplatform.comapi.map.ac;
 import javax.microedition.khronos.opengles.GL10;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class s implements com.baidu.mapsdkplatform.comapi.map.l {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ TextureMapView f2078a;
+    public final /* synthetic */ TextureMapView f7096a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public s(TextureMapView textureMapView) {
-        this.f2078a = textureMapView;
+        this.f7096a = textureMapView;
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.map.l
@@ -28,53 +26,61 @@ public class s implements com.baidu.mapsdkplatform.comapi.map.l {
         ac acVar3;
         ac acVar4;
         ac acVar5;
-        float f;
         ac acVar6;
         float f2;
         SparseArray sparseArray;
         ac acVar7;
         ImageView imageView;
+        String format;
         TextView textView;
         TextView textView2;
         ac acVar8;
-        acVar = this.f2078a.b;
+        acVar = this.f7096a.f7023b;
         if (acVar != null) {
-            acVar2 = this.f2078a.b;
+            acVar2 = this.f7096a.f7023b;
             if (acVar2.b() == null) {
                 return;
             }
-            acVar3 = this.f2078a.b;
-            float f3 = acVar3.b().E().f2214a;
-            acVar4 = this.f2078a.b;
-            if (f3 < acVar4.b().b) {
-                acVar8 = this.f2078a.b;
-                f = acVar8.b().b;
+            acVar3 = this.f7096a.f7023b;
+            float f3 = acVar3.b().E().f7569a;
+            acVar4 = this.f7096a.f7023b;
+            if (f3 < acVar4.b().f7613b) {
+                acVar8 = this.f7096a.f7023b;
+                f3 = acVar8.b().f7613b;
             } else {
-                acVar5 = this.f2078a.b;
-                if (f3 > acVar5.b().f2221a) {
-                    acVar6 = this.f2078a.b;
-                    f = acVar6.b().f2221a;
-                } else {
-                    f = f3;
+                acVar5 = this.f7096a.f7023b;
+                if (f3 > acVar5.b().f7612a) {
+                    acVar6 = this.f7096a.f7023b;
+                    f3 = acVar6.b().f7612a;
                 }
             }
-            f2 = this.f2078a.q;
-            if (Math.abs(f2 - f) > 0.0f) {
+            f2 = this.f7096a.q;
+            if (Math.abs(f2 - f3) > 0.0f) {
                 sparseArray = TextureMapView.p;
-                int intValue = ((Integer) sparseArray.get(Math.round(f))).intValue();
-                acVar7 = this.f2078a.b;
-                int i = (int) (intValue / acVar7.b().E().m);
-                imageView = this.f2078a.n;
-                imageView.setPadding(i / 2, 0, i / 2, 0);
-                String format = intValue >= 1000 ? String.format(" %d公里 ", Integer.valueOf(intValue / 1000)) : String.format(" %d米 ", Integer.valueOf(intValue));
-                textView = this.f2078a.l;
+                int intValue = ((Integer) sparseArray.get(Math.round(f3))).intValue();
+                double d2 = intValue;
+                acVar7 = this.f7096a.f7023b;
+                double d3 = acVar7.b().E().m;
+                Double.isNaN(d2);
+                imageView = this.f7096a.n;
+                int i = ((int) (d2 / d3)) / 2;
+                imageView.setPadding(i, 0, i, 0);
+                Object[] objArr = new Object[1];
+                if (intValue >= 1000) {
+                    objArr[0] = Integer.valueOf(intValue / 1000);
+                    format = String.format(" %d公里 ", objArr);
+                } else {
+                    objArr[0] = Integer.valueOf(intValue);
+                    format = String.format(" %d米 ", objArr);
+                }
+                textView = this.f7096a.l;
                 textView.setText(format);
-                textView2 = this.f2078a.m;
+                textView2 = this.f7096a.m;
                 textView2.setText(format);
-                this.f2078a.q = f;
+                this.f7096a.q = f3;
             }
-            this.f2078a.b();
-            this.f2078a.requestLayout();
+            this.f7096a.b();
+            this.f7096a.requestLayout();
         }
     }
 

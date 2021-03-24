@@ -1,20 +1,21 @@
 package com.baidu.tieba.im.message;
 
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tieba.im.message.MemoryModifyVisibilityMessage;
 import java.util.List;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class MemoryClearStrangerItemsMessage extends CustomResponsedMessage<a> {
-    private boolean isAllClear;
+    public boolean isAllClear;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public static class a {
-        public List<MemoryModifyVisibilityMessage.a> ccu;
+
+        /* renamed from: a  reason: collision with root package name */
+        public List<MemoryModifyVisibilityMessage.a> f18046a;
     }
 
     public MemoryClearStrangerItemsMessage(a aVar, boolean z) {
-        super(CmdConfigCustom.MEMORY_REQUEST_MODIFY_LOTS_VISIBILITY, aVar);
+        super(2016009, aVar);
         this.isAllClear = z;
     }
 

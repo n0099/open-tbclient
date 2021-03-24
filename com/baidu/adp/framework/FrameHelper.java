@@ -1,6 +1,7 @@
 package com.baidu.adp.framework;
 
 import com.baidu.adp.lib.util.BdLog;
+import d.b.b.c.d;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class FrameHelper {
@@ -12,33 +13,19 @@ public class FrameHelper {
         CUSTOM
     }
 
-    public static TYPE ac(int i) {
-        if (i >= 0 && i < 1000000) {
-            return TYPE.SOCKET;
-        }
-        if (i >= 1000000 && i < 2000000) {
-            return TYPE.HTTP;
-        }
-        if (i >= 2000000 && i < 3000000) {
-            return TYPE.CUSTOM;
-        }
-        BdLog.e("cmd invalid:cmd=" + i);
-        return null;
-    }
-
-    public static boolean checkHttpCmd(int i) {
-        return i >= 1000000 && i < 2000000;
-    }
-
-    public static boolean checkSocketCmd(int i) {
-        return i >= 0 && i < 1000000;
-    }
-
-    public static boolean checkCustomCmd(int i) {
+    public static boolean a(int i) {
         return i >= 2000000 && i < 3000000;
     }
 
-    public static <T extends d> int getInsertIndex(LinkedList<T> linkedList, int i) {
+    public static boolean b(int i) {
+        return i >= 1000000 && i < 2000000;
+    }
+
+    public static boolean c(int i) {
+        return i >= 0 && i < 1000000;
+    }
+
+    public static <T extends d> int d(LinkedList<T> linkedList, int i) {
         int size = linkedList.size();
         int i2 = 0;
         while (i2 < size && linkedList.get(i2).getPriority() <= i) {
@@ -47,12 +34,27 @@ public class FrameHelper {
         return i2;
     }
 
-    public static <T extends d> void a(LinkedList<T> linkedList, T t) {
-        if (t != null && !linkedList.contains(t)) {
-            linkedList.add(getInsertIndex(linkedList, t.getPriority()), t);
+    public static TYPE e(int i) {
+        if (i < 0 || i >= 1000000) {
+            if (i < 1000000 || i >= 2000000) {
+                if (i >= 2000000 && i < 3000000) {
+                    return TYPE.CUSTOM;
+                }
+                BdLog.e("cmd invalid:cmd=" + i);
+                return null;
+            }
+            return TYPE.HTTP;
         }
+        return TYPE.SOCKET;
     }
 
-    public static void ad(int i) {
+    public static <T extends d> void f(LinkedList<T> linkedList, T t) {
+        if (t == null || linkedList.contains(t)) {
+            return;
+        }
+        linkedList.add(d(linkedList, t.getPriority()), t);
+    }
+
+    public static void g(int i) {
     }
 }

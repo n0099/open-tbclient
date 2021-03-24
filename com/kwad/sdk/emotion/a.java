@@ -2,7 +2,7 @@ package com.kwad.sdk.emotion;
 
 import com.kwad.sdk.d;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class a extends com.kwad.sdk.core.network.b {
     @Override // com.kwad.sdk.core.network.b, com.kwad.sdk.core.network.g
     public String a() {
@@ -15,10 +15,10 @@ public class a extends com.kwad.sdk.core.network.b {
     }
 
     @Override // com.kwad.sdk.core.network.b
-    protected void e() {
+    public void e() {
     }
 
     @Override // com.kwad.sdk.core.network.b
-    protected void f() {
+    public void f() {
     }
 }

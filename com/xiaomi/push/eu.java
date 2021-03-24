@@ -1,12 +1,18 @@
 package com.xiaomi.push;
 
 import android.content.Context;
-import java.util.HashMap;
-/* loaded from: classes5.dex */
-public interface eu {
-    void a(Context context, HashMap<String, String> hashMap);
+/* loaded from: classes7.dex */
+public class eu extends es {
 
-    void b(Context context, HashMap<String, String> hashMap);
+    /* renamed from: a  reason: collision with root package name */
+    public static int f40458a = 3600000;
 
-    void c(Context context, HashMap<String, String> hashMap);
+    public eu(Context context) {
+        super(context);
+    }
+
+    @Override // com.xiaomi.push.es, com.xiaomi.push.er.a
+    public long a() {
+        return f40458a;
+    }
 }

@@ -4,158 +4,178 @@ import android.content.Context;
 import android.view.View;
 import com.baidu.mapapi.map.BaiduMap;
 import com.baidu.mapapi.map.Marker;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class SynchronizationDisplayManager {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f2154a = SynchronizationDisplayManager.class.getSimpleName();
-    private com.baidu.mapsdkplatform.comapi.synchronization.a.a b;
+    public static final String f7359a = "SynchronizationDisplayManager";
+
+    /* renamed from: b  reason: collision with root package name */
+    public com.baidu.mapsdkplatform.comapi.synchronization.a.a f7360b;
 
     public SynchronizationDisplayManager(Context context, BaiduMap baiduMap, RoleOptions roleOptions, DisplayOptions displayOptions) {
-        this.b = new com.baidu.mapsdkplatform.comapi.synchronization.a.a(context, baiduMap, roleOptions, displayOptions);
+        this.f7360b = new com.baidu.mapsdkplatform.comapi.synchronization.a.a(context, baiduMap, roleOptions, displayOptions);
     }
 
     public void adjustVisibleSpanByUser() {
-        if (this.b == null) {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f2154a, "The implement instance is null");
+        com.baidu.mapsdkplatform.comapi.synchronization.a.a aVar = this.f7360b;
+        if (aVar == null) {
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f7359a, "The implement instance is null");
         } else {
-            this.b.g();
+            aVar.g();
         }
     }
 
     public Marker getCarMarker() {
-        if (this.b == null) {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f2154a, "The implement instance is null");
+        com.baidu.mapsdkplatform.comapi.synchronization.a.a aVar = this.f7360b;
+        if (aVar == null) {
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f7359a, "The implement instance is null");
             return null;
         }
-        return this.b.f();
+        return aVar.f();
     }
 
     public Marker getEndPositionMarker() {
-        if (this.b == null) {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f2154a, "The implement instance is null");
+        com.baidu.mapsdkplatform.comapi.synchronization.a.a aVar = this.f7360b;
+        if (aVar == null) {
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f7359a, "The implement instance is null");
             return null;
         }
-        return this.b.e();
+        return aVar.e();
     }
 
     public Marker getStartPositionMarker() {
-        if (this.b == null) {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f2154a, "The implement instance is null");
+        com.baidu.mapsdkplatform.comapi.synchronization.a.a aVar = this.f7360b;
+        if (aVar == null) {
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f7359a, "The implement instance is null");
             return null;
         }
-        return this.b.d();
+        return aVar.d();
     }
 
     public void onPause() {
-        if (this.b == null) {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f2154a, "The implement instance is null");
+        com.baidu.mapsdkplatform.comapi.synchronization.a.a aVar = this.f7360b;
+        if (aVar == null) {
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f7359a, "The implement instance is null");
         } else {
-            this.b.b();
+            aVar.b();
         }
     }
 
     public void onResume() {
-        if (this.b == null) {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f2154a, "The implement instance is null");
+        com.baidu.mapsdkplatform.comapi.synchronization.a.a aVar = this.f7360b;
+        if (aVar == null) {
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f7359a, "The implement instance is null");
         } else {
-            this.b.a();
+            aVar.a();
         }
     }
 
     public void registerSynchronizationDisplayListener(SynchronizationDisplayListener synchronizationDisplayListener) {
-        if (this.b == null) {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f2154a, "The implement instance is null");
+        com.baidu.mapsdkplatform.comapi.synchronization.a.a aVar = this.f7360b;
+        if (aVar == null) {
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f7359a, "The implement instance is null");
         } else {
-            this.b.a(synchronizationDisplayListener);
+            aVar.a(synchronizationDisplayListener);
         }
     }
 
     public void release() {
-        if (this.b == null) {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f2154a, "The implement instance is null");
+        com.baidu.mapsdkplatform.comapi.synchronization.a.a aVar = this.f7360b;
+        if (aVar == null) {
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f7359a, "The implement instance is null");
         } else {
-            this.b.c();
+            aVar.c();
         }
     }
 
     public void setDriverPositionFreshFrequency(int i) {
-        if (this.b == null) {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f2154a, "The implement instance is null");
+        com.baidu.mapsdkplatform.comapi.synchronization.a.a aVar = this.f7360b;
+        if (aVar == null) {
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f7359a, "The implement instance is null");
         } else {
-            this.b.b(i);
+            aVar.b(i);
         }
     }
 
     public void setOperatedMapFrozenInterval(int i) {
-        if (this.b == null) {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f2154a, "The implement instance is null");
+        com.baidu.mapsdkplatform.comapi.synchronization.a.a aVar = this.f7360b;
+        if (aVar == null) {
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f7359a, "The implement instance is null");
         } else {
-            this.b.c(i);
+            aVar.c(i);
         }
     }
 
     public void setUnOperatedMapFrozenInterval(int i) {
-        if (this.b == null) {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f2154a, "The implement instance is null");
+        com.baidu.mapsdkplatform.comapi.synchronization.a.a aVar = this.f7360b;
+        if (aVar == null) {
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f7359a, "The implement instance is null");
         } else {
-            this.b.d(i);
+            aVar.d(i);
         }
     }
 
     public void unRegisterSynchronizationDisplayListener(SynchronizationDisplayListener synchronizationDisplayListener) {
-        if (this.b == null) {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f2154a, "The implement instance is null");
+        com.baidu.mapsdkplatform.comapi.synchronization.a.a aVar = this.f7360b;
+        if (aVar == null) {
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f7359a, "The implement instance is null");
         } else {
-            this.b.b(synchronizationDisplayListener);
+            aVar.b(synchronizationDisplayListener);
         }
     }
 
     public void updateCarPositionInfoWindowView(View view) {
-        if (this.b == null) {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f2154a, "The implement instance is null");
+        com.baidu.mapsdkplatform.comapi.synchronization.a.a aVar = this.f7360b;
+        if (aVar == null) {
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f7359a, "The implement instance is null");
         } else {
-            this.b.c(view);
+            aVar.c(view);
         }
     }
 
     public void updateDisplayOptions(DisplayOptions displayOptions) {
-        if (this.b == null) {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f2154a, "The implement instance is null");
+        com.baidu.mapsdkplatform.comapi.synchronization.a.a aVar = this.f7360b;
+        if (aVar == null) {
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f7359a, "The implement instance is null");
         } else {
-            this.b.a(displayOptions);
+            aVar.a(displayOptions);
         }
     }
 
     public void updateEndPositionInfoWindowView(View view) {
-        if (this.b == null) {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f2154a, "The implement instance is null");
+        com.baidu.mapsdkplatform.comapi.synchronization.a.a aVar = this.f7360b;
+        if (aVar == null) {
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f7359a, "The implement instance is null");
         } else {
-            this.b.b(view);
+            aVar.b(view);
         }
     }
 
     public void updateOrderState(int i) {
-        if (this.b == null) {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f2154a, "The implement instance is null");
+        com.baidu.mapsdkplatform.comapi.synchronization.a.a aVar = this.f7360b;
+        if (aVar == null) {
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f7359a, "The implement instance is null");
         } else {
-            this.b.a(i);
+            aVar.a(i);
         }
     }
 
     public void updateRoleOptions(RoleOptions roleOptions) {
-        if (this.b == null) {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f2154a, "The implement instance is null");
+        com.baidu.mapsdkplatform.comapi.synchronization.a.a aVar = this.f7360b;
+        if (aVar == null) {
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f7359a, "The implement instance is null");
         } else {
-            this.b.a(roleOptions);
+            aVar.a(roleOptions);
         }
     }
 
     public void updateStartPositionInfoWindowView(View view) {
-        if (this.b == null) {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f2154a, "The implement instance is null");
+        com.baidu.mapsdkplatform.comapi.synchronization.a.a aVar = this.f7360b;
+        if (aVar == null) {
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f7359a, "The implement instance is null");
         } else {
-            this.b.a(view);
+            aVar.a(view);
         }
     }
 }

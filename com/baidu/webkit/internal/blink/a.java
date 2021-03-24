@@ -7,79 +7,83 @@ import com.baidu.webkit.sdk.Log;
 import com.baidu.webkit.sdk.WebKitFactory;
 import com.baidu.webkit.sdk.ZeusWebViewPreloadClass;
 import java.io.File;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public abstract class a {
 
     /* renamed from: a  reason: collision with root package name */
-    WebKitFactory.WebkitInstallListener f3821a;
-    EngineManager b;
-    private int c = 13;
+    public WebKitFactory.WebkitInstallListener f26880a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public EngineManager f26881b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public int f26882c = 13;
 
     public a(EngineManager engineManager, WebKitFactory.WebkitInstallListener webkitInstallListener) {
-        this.b = engineManager;
-        this.f3821a = webkitInstallListener;
+        this.f26881b = engineManager;
+        this.f26880a = webkitInstallListener;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public final boolean a() {
-        String[] strArr;
         boolean unZip;
-        if (this.b != null) {
-            this.b.onInstallStart();
+        EngineManager engineManager = this.f26881b;
+        if (engineManager != null) {
+            engineManager.onInstallStart();
         }
-        if (this.f3821a != null) {
-            this.f3821a.onInstallStart();
+        WebKitFactory.WebkitInstallListener webkitInstallListener = this.f26880a;
+        if (webkitInstallListener != null) {
+            webkitInstallListener.onInstallStart();
         }
         if (!b()) {
             Log.i(EngineManager.LOG_TAG, "BlinkEngineInstaller.install init failed");
         }
-        String c = c();
-        if (c == null) {
-            unZip = false;
-        } else {
+        String c2 = c();
+        if (c2 != null) {
             String downloadLibPath = UtilsBlink.getDownloadLibPath(WebKitFactory.getContext());
-            int length = GlobalConstants.LIB_ZEUS_SO.length;
+            String[] strArr = GlobalConstants.LIB_ZEUS_SO;
+            int length = strArr.length;
             int i = 0;
             while (true) {
                 if (i < length) {
                     String str = downloadLibPath + strArr[i];
                     if (new File(str).exists() && !com.baidu.webkit.internal.utils.a.a(str)) {
-                        unZip = false;
                         break;
                     }
                     i++;
                 } else if (UtilsBlink.createDownloadLibPath(WebKitFactory.getContext())) {
-                    unZip = ZipUtils.getInstance().unZip(WebKitFactory.getContext(), c, downloadLibPath, false);
+                    unZip = ZipUtils.getInstance().unZip(WebKitFactory.getContext(), c2, downloadLibPath, false);
                     if (!unZip) {
                         Log.i(EngineManager.LOG_TAG, "BlinkEngineInstaller.install unzip failed");
-                        this.c = 6;
+                        this.f26882c = 6;
                     }
                 } else {
                     Log.i(EngineManager.LOG_TAG, "BlinkEngineInstaller.install create path failed");
-                    unZip = false;
                 }
             }
         }
+        unZip = false;
         Log.i(EngineManager.LOG_TAG, "BlinkEngineInstaller.install result=" + unZip);
         if (unZip) {
-            this.c = 0;
+            this.f26882c = 0;
             ZeusWebViewPreloadClass.getInstance().deleteSavingClassesFile();
         }
-        if (this.f3821a != null) {
-            if (this.c == 0) {
-                this.f3821a.onInstallFinish(this.c, UtilsBlink.getDownloadLibPath(WebKitFactory.getContext()));
+        WebKitFactory.WebkitInstallListener webkitInstallListener2 = this.f26880a;
+        if (webkitInstallListener2 != null) {
+            int i2 = this.f26882c;
+            if (i2 == 0) {
+                this.f26880a.onInstallFinish(this.f26882c, UtilsBlink.getDownloadLibPath(WebKitFactory.getContext()));
             } else {
-                this.f3821a.onInstallFinish(this.c, null);
+                webkitInstallListener2.onInstallFinish(i2, null);
             }
         }
-        if (this.b != null) {
-            this.b.onInstallFinish(this.c == 0);
+        EngineManager engineManager2 = this.f26881b;
+        if (engineManager2 != null) {
+            engineManager2.onInstallFinish(this.f26882c == 0);
         }
         return unZip;
     }
 
-    protected abstract boolean b();
+    public abstract boolean b();
 
-    protected abstract String c();
+    public abstract String c();
 }

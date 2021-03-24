@@ -4,29 +4,29 @@ import android.app.Activity;
 import android.os.Bundle;
 import com.tencent.connect.auth.QQToken;
 import com.tencent.tauth.IUiListener;
-/* loaded from: classes14.dex */
+/* loaded from: classes7.dex */
 public class SocialApi {
 
     /* renamed from: a  reason: collision with root package name */
-    private SocialApiIml f7942a;
+    public SocialApiIml f39156a;
 
     public SocialApi(QQToken qQToken) {
-        this.f7942a = new SocialApiIml(qQToken);
-    }
-
-    public void invite(Activity activity, Bundle bundle, IUiListener iUiListener) {
-        this.f7942a.invite(activity, bundle, iUiListener);
-    }
-
-    public void story(Activity activity, Bundle bundle, IUiListener iUiListener) {
-        this.f7942a.story(activity, bundle, iUiListener);
-    }
-
-    public void gift(Activity activity, Bundle bundle, IUiListener iUiListener) {
-        this.f7942a.gift(activity, bundle, iUiListener);
+        this.f39156a = new SocialApiIml(qQToken);
     }
 
     public void ask(Activity activity, Bundle bundle, IUiListener iUiListener) {
-        this.f7942a.ask(activity, bundle, iUiListener);
+        this.f39156a.ask(activity, bundle, iUiListener);
+    }
+
+    public void gift(Activity activity, Bundle bundle, IUiListener iUiListener) {
+        this.f39156a.gift(activity, bundle, iUiListener);
+    }
+
+    public void invite(Activity activity, Bundle bundle, IUiListener iUiListener) {
+        this.f39156a.invite(activity, bundle, iUiListener);
+    }
+
+    public void story(Activity activity, Bundle bundle, IUiListener iUiListener) {
+        this.f39156a.story(activity, bundle, iUiListener);
     }
 }

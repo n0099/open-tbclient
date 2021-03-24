@@ -13,40 +13,84 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.UUID;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class c extends Thread {
-    private static volatile c f;
-    private volatile String b;
-    private String c;
-    private double d;
-    private Handler e;
-    private final Context g;
-    private final e i;
-    private o h = null;
-    private IXAdLogger j = XAdSDKFoundationFacade.getInstance().getAdLogger();
+
+    /* renamed from: f  reason: collision with root package name */
+    public static volatile c f8261f;
+
+    /* renamed from: b  reason: collision with root package name */
+    public volatile String f8263b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public String f8264c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public double f8265d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public Handler f8266e;
+
+    /* renamed from: g  reason: collision with root package name */
+    public final Context f8267g;
+    public final e i;
+
+    /* renamed from: h  reason: collision with root package name */
+    public o f8268h = null;
+    public IXAdLogger j = XAdSDKFoundationFacade.getInstance().getAdLogger();
 
     /* renamed from: a  reason: collision with root package name */
-    o.a f2387a = new d(this);
+    public o.a f8262a = new d(this);
 
-    public static c a(Context context, e eVar, String str, Handler handler) {
-        if (f == null) {
-            f = new c(context, eVar, str, handler);
-        }
-        return f;
-    }
-
-    private c(Context context, e eVar, String str, Handler handler) {
-        this.c = null;
-        this.g = context;
+    public c(Context context, e eVar, String str, Handler handler) {
+        this.f8264c = null;
+        this.f8267g = context;
         this.i = eVar;
         a(eVar.c());
-        this.e = handler;
-        this.c = str;
+        this.f8266e = handler;
+        this.f8264c = str;
     }
 
-    public void a(String str) {
-        this.b = str;
-        interrupt();
+    private boolean b() {
+        double d2;
+        try {
+            try {
+                this.f8268h = new o(this.f8267g, new URL(this.f8263b), this.i, this.f8262a);
+            } catch (MalformedURLException unused) {
+                this.f8268h = new o(this.f8267g, this.f8263b, this.i, this.f8262a);
+            }
+            if (g.f8280c != null) {
+                d2 = g.f8280c.f8249a;
+            } else if (g.f8279b == null) {
+                d2 = 0.0d;
+            } else if (g.f8279b.f8249a > 0.0d) {
+                d2 = g.f8279b.f8249a;
+            } else {
+                d2 = g.f8279b.f8249a;
+            }
+            this.j.d("XAdApkDownloadThread", "isNewApkAvailable: local apk version is: " + d2 + ", remote apk version: " + this.i.b());
+            if (d2 > 0.0d) {
+                if (this.i.b() > 0.0d) {
+                    this.j.d("XAdApkDownloadThread", "remote not null, local apk version is null, force upgrade");
+                    this.f8265d = this.i.b();
+                    return true;
+                }
+                this.j.d("XAdApkDownloadThread", "remote is null, local apk version is null, do not upgrade");
+                return false;
+            } else if (this.i.b() <= 0.0d) {
+                this.j.d("XAdApkDownloadThread", "remote apk version is: null, local apk version is: " + d2 + ", do not upgrade");
+                return false;
+            } else if (this.i.b() > d2) {
+                this.f8265d = this.i.b();
+                return true;
+            } else {
+                return false;
+            }
+        } catch (Exception e2) {
+            String str = "parse apk failed, error:" + e2.toString();
+            this.j.d("XAdApkDownloadThread", str);
+            throw new g.a(str);
+        }
     }
 
     @Override // java.lang.Thread, java.lang.Runnable
@@ -56,82 +100,53 @@ public class c extends Thread {
                 try {
                     a();
                     this.j.d("XAdApkDownloadThread", "download apk successfully, downloader exit");
-                    f = null;
-                } catch (IOException e) {
-                    this.j.d("XAdApkDownloadThread", "create File or HTTP Get failed, exception: " + e.getMessage());
+                    f8261f = null;
+                } catch (IOException e2) {
+                    IXAdLogger iXAdLogger = this.j;
+                    iXAdLogger.d("XAdApkDownloadThread", "create File or HTTP Get failed, exception: " + e2.getMessage());
                 }
                 this.j.d("XAdApkDownloadThread", "no newer apk, downloader exit");
-                f = null;
+                f8261f = null;
             }
-        } catch (Throwable th) {
+        } catch (Throwable unused) {
         }
+    }
+
+    public static c a(Context context, e eVar, String str, Handler handler) {
+        if (f8261f == null) {
+            f8261f = new c(context, eVar, str, handler);
+        }
+        return f8261f;
+    }
+
+    public void a(String str) {
+        this.f8263b = str;
+        interrupt();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(String str, e eVar, String str2) {
         if (str.equals("OK") || str.equals("ERROR")) {
-            Message obtainMessage = this.e.obtainMessage();
+            Message obtainMessage = this.f8266e.obtainMessage();
             Bundle bundle = new Bundle();
             bundle.putParcelable("APK_INFO", eVar);
             bundle.putString("CODE", str);
             obtainMessage.setData(bundle);
-            this.e.sendMessage(obtainMessage);
+            this.f8266e.sendMessage(obtainMessage);
         }
     }
 
     private String a() {
         String str = "__xadsdk__remote__final__" + UUID.randomUUID().toString() + ".jar";
-        String str2 = this.c + str;
+        String str2 = this.f8264c + str;
         File file = new File(str2);
         try {
             file.createNewFile();
-            this.h.a(this.c, str);
+            this.f8268h.a(this.f8264c, str);
             return str2;
-        } catch (IOException e) {
+        } catch (IOException e2) {
             file.delete();
-            throw e;
-        }
-    }
-
-    private boolean b() {
-        double d;
-        try {
-            try {
-                this.h = new o(this.g, new URL(this.b), this.i, this.f2387a);
-            } catch (MalformedURLException e) {
-                this.h = new o(this.g, this.b, this.i, this.f2387a);
-            }
-            if (g.c != null) {
-                d = g.c.f2385a;
-            } else if (g.b == null) {
-                d = 0.0d;
-            } else if (g.b.f2385a > 0.0d) {
-                d = g.b.f2385a;
-            } else {
-                d = g.b.f2385a;
-            }
-            this.j.d("XAdApkDownloadThread", "isNewApkAvailable: local apk version is: " + d + ", remote apk version: " + this.i.b());
-            if (d > 0.0d) {
-                if (this.i.b() > 0.0d) {
-                    this.j.d("XAdApkDownloadThread", "remote not null, local apk version is null, force upgrade");
-                    this.d = this.i.b();
-                    return true;
-                }
-                this.j.d("XAdApkDownloadThread", "remote is null, local apk version is null, do not upgrade");
-                return false;
-            } else if (this.i.b() <= 0.0d) {
-                this.j.d("XAdApkDownloadThread", "remote apk version is: null, local apk version is: " + d + ", do not upgrade");
-                return false;
-            } else if (this.i.b() > d) {
-                this.d = this.i.b();
-                return true;
-            } else {
-                return false;
-            }
-        } catch (Exception e2) {
-            String str = "parse apk failed, error:" + e2.toString();
-            this.j.d("XAdApkDownloadThread", str);
-            throw new g.a(str);
+            throw e2;
         }
     }
 }

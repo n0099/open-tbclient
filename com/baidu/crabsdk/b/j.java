@@ -5,81 +5,77 @@ import android.text.TextUtils;
 import android.util.Base64;
 import com.baidu.crabsdk.CrabSDK;
 import com.baidu.crabsdk.OnUploadFilesCallback;
-import com.baidu.live.adp.lib.stats.BdStatsConstant;
+import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import com.baidu.tbadk.TbConfig;
 import com.kwai.video.player.KsMediaMeta;
 import com.vivo.push.PushClientConstants;
-import com.xiaomi.mipush.sdk.Constants;
 import java.util.UUID;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public final class j {
     public static JSONObject a(String str, OnUploadFilesCallback onUploadFilesCallback, String str2, String str3, String str4) {
-        JSONObject jSONObject;
+        String message;
         try {
-            byte[] dY = com.baidu.crabsdk.sender.i.dY(str);
-            if (dY == null || dY.length == 0) {
-                onUploadFilesCallback.onFailed("Read file error!");
-                jSONObject = null;
-            } else {
-                String encodeToString = Base64.encodeToString(dY, 0);
-                jSONObject = a(str2, str3, str4);
-                jSONObject.put(KsMediaMeta.KSM_KEY_FORMAT, 1);
-                jSONObject.put(TbConfig.TMP_LOG_DIR_NAME, encodeToString);
-                jSONObject.put("fileName", str.substring(str.lastIndexOf("/") + 1));
+            byte[] l = com.baidu.crabsdk.sender.i.l(str);
+            if (l != null && l.length != 0) {
+                String encodeToString = Base64.encodeToString(l, 0);
+                JSONObject b2 = b(str2, str3, str4);
+                b2.put(KsMediaMeta.KSM_KEY_FORMAT, 1);
+                b2.put(TbConfig.TMP_LOG_DIR_NAME, encodeToString);
+                b2.put("fileName", str.substring(str.lastIndexOf("/") + 1));
+                return b2;
             }
-            return jSONObject;
-        } catch (Exception e) {
-            com.baidu.crabsdk.c.a.a("wrap trace to anrRecord error!", e);
-            onUploadFilesCallback.onFailed(e.getMessage());
+            onUploadFilesCallback.onFailed("Read file error!");
             return null;
-        } catch (OutOfMemoryError e2) {
-            com.baidu.crabsdk.c.a.a("OutOfMemoryError!", e2);
-            onUploadFilesCallback.onFailed(e2.getMessage());
+        } catch (Exception e2) {
+            com.baidu.crabsdk.c.a.a("wrap trace to anrRecord error!", e2);
+            message = e2.getMessage();
+            onUploadFilesCallback.onFailed(message);
+            return null;
+        } catch (OutOfMemoryError e3) {
+            com.baidu.crabsdk.c.a.a("OutOfMemoryError!", e3);
+            message = e3.getMessage();
+            onUploadFilesCallback.onFailed(message);
             return null;
         }
     }
 
-    private static JSONObject a(String str, String str2, String str3) {
+    public static JSONObject b(String str, String str2, String str3) {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("recordId", System.currentTimeMillis() + UUID.randomUUID().toString());
-            jSONObject.put("appKey", com.baidu.crabsdk.a.d);
+            jSONObject.put("appKey", com.baidu.crabsdk.a.f4637d);
             jSONObject.put("phoneTime", System.currentTimeMillis());
-            jSONObject.put("networkInfo", o.H());
-            jSONObject.put(BdStatsConstant.StatsKey.UNAME, t.getUserName());
-            jSONObject.put("uid", t.R());
+            jSONObject.put("networkInfo", o.a());
+            jSONObject.put("uname", t.g());
+            jSONObject.put("uid", t.a());
             jSONObject.put("batVN", "7.5.1");
             jSONObject.put("nativeVN", CrabSDK.NDK_VERSION);
-            jSONObject.put("isRoot", q.N());
-            jSONObject.put(PushClientConstants.TAG_PKG_NAME, p.up());
-            jSONObject.put("appLabel", p.uq());
-            if (TextUtils.isEmpty(com.baidu.crabsdk.a.o)) {
-                jSONObject.put("appVN", p.L());
-            } else {
-                jSONObject.put("appVN", com.baidu.crabsdk.a.o);
-            }
-            jSONObject.put("appVC", p.ur());
+            jSONObject.put("isRoot", q.a());
+            jSONObject.put(PushClientConstants.TAG_PKG_NAME, p.a());
+            jSONObject.put("appLabel", p.b());
+            jSONObject.put("appVN", !TextUtils.isEmpty(com.baidu.crabsdk.a.o) ? com.baidu.crabsdk.a.o : p.c());
+            jSONObject.put("appVC", p.d());
             jSONObject.put("model", Build.MODEL);
-            jSONObject.put(Constants.PHONE_BRAND, Build.BRAND);
-            jSONObject.put("os", "Android");
+            jSONObject.put("brand", Build.BRAND);
+            jSONObject.put(IXAdRequestInfo.OS, "Android");
             jSONObject.put("osVN", Build.VERSION.RELEASE);
             jSONObject.put("osVC", Build.VERSION.SDK_INT);
-            jSONObject.put("startupTime", a.p());
-            jSONObject.put("curPage", a.r());
-            jSONObject.put("locale", i.B());
-            jSONObject.put("cuid", h.z());
-            jSONObject.put("channel", com.baidu.crabsdk.a.b);
+            jSONObject.put("startupTime", a.g());
+            jSONObject.put("curPage", a.i());
+            jSONObject.put("locale", i.b());
+            jSONObject.put("cuid", h.c());
+            jSONObject.put("channel", com.baidu.crabsdk.a.f4635b);
             jSONObject.put("cpuabi", Build.CPU_ABI);
             jSONObject.put("romVN", str);
             jSONObject.put("launcherVN", str2);
             jSONObject.put("type", str3);
-            if (!TextUtils.isEmpty(t.T())) {
-                jSONObject.put("usersCustom", t.T());
+            if (!TextUtils.isEmpty(t.c())) {
+                jSONObject.put("usersCustom", t.c());
             }
-        } catch (JSONException e) {
-            e.printStackTrace();
+        } catch (JSONException e2) {
+            e2.printStackTrace();
         }
         return jSONObject;
     }

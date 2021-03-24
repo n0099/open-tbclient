@@ -29,24 +29,26 @@ import com.kwad.sdk.core.webview.jshandler.j;
 import com.kwad.sdk.core.webview.jshandler.l;
 import com.kwad.sdk.core.webview.jshandler.m;
 import java.io.Serializable;
+import java.util.List;
 @KsAdSdkDynamicImpl(AdWebViewActivity.class)
 @Keep
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class AdWebViewActivityProxy extends com.kwad.sdk.b.a {
     public static final String KEY_TEMPLATE = "key_template";
-    private static final String TAG = "AdWebViewActivityProxy";
-    private AdTemplate mAdTemplate;
-    private KsAdWebView mAdWebView;
-    private com.kwad.sdk.core.webview.a mJsBridgeContext;
-    private g mJsInterface;
-    private ViewGroup mWebContainer;
-    private ImageView mWebTipBarCloseBtn;
-    private LinearLayout mWebTipBarLayout;
-    private TextView mWebTipBarTitle;
+    public static final String TAG = "AdWebViewActivityProxy";
+    public AdTemplate mAdTemplate;
+    public KsAdWebView mAdWebView;
+    public com.kwad.sdk.core.webview.a mJsBridgeContext;
+    public g mJsInterface;
+    public ViewGroup mWebContainer;
+    public ImageView mWebTipBarCloseBtn;
+    public LinearLayout mWebTipBarLayout;
+    public TextView mWebTipBarTitle;
 
     private void clearJsInterfaceRegister() {
-        if (this.mJsInterface != null) {
-            this.mJsInterface.a();
+        g gVar = this.mJsInterface;
+        if (gVar != null) {
+            gVar.a();
             this.mJsInterface = null;
         }
     }
@@ -58,18 +60,20 @@ public class AdWebViewActivityProxy extends com.kwad.sdk.b.a {
     }
 
     private void inflateJsBridgeContext() {
-        this.mJsBridgeContext = new com.kwad.sdk.core.webview.a();
-        this.mJsBridgeContext.b = this.mAdTemplate;
-        this.mJsBridgeContext.f6320a = 0;
-        this.mJsBridgeContext.f = this.mAdWebView;
-        this.mJsBridgeContext.e = this.mWebContainer;
+        com.kwad.sdk.core.webview.a aVar = new com.kwad.sdk.core.webview.a();
+        this.mJsBridgeContext = aVar;
+        aVar.f34285b = this.mAdTemplate;
+        aVar.f34284a = 0;
+        aVar.f34289f = this.mAdWebView;
+        aVar.f34288e = this.mWebContainer;
     }
 
     private void initTipBarView() {
         this.mWebTipBarLayout = (LinearLayout) findViewById(R.id.ksad_web_tip_bar);
         this.mWebTipBarTitle = (TextView) findViewById(R.id.ksad_web_tip_bar_textview);
-        this.mWebTipBarCloseBtn = (ImageView) findViewById(R.id.ksad_web_tip_close_btn);
-        this.mWebTipBarCloseBtn.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.core.page.AdWebViewActivityProxy.6
+        ImageView imageView = (ImageView) findViewById(R.id.ksad_web_tip_close_btn);
+        this.mWebTipBarCloseBtn = imageView;
+        imageView.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.core.page.AdWebViewActivityProxy.6
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 AdWebViewActivityProxy.this.mWebTipBarLayout.setVisibility(8);
@@ -88,8 +92,10 @@ public class AdWebViewActivityProxy extends com.kwad.sdk.b.a {
     }
 
     private void initView() {
-        this.mAdWebView = (KsAdWebView) findViewById(R.id.ksad_video_webview);
-        handlerLandingPageAtEndCard(this.mAdWebView);
+        AdInfo.AdBaseInfo adBaseInfo;
+        KsAdWebView ksAdWebView = (KsAdWebView) findViewById(R.id.ksad_video_webview);
+        this.mAdWebView = ksAdWebView;
+        handlerLandingPageAtEndCard(ksAdWebView);
         this.mAdWebView.setTemplateData(this.mAdTemplate);
         this.mAdWebView.loadUrl(com.kwad.sdk.core.response.b.a.B(c.j(this.mAdTemplate)));
         this.mAdWebView.d();
@@ -105,15 +111,11 @@ public class AdWebViewActivityProxy extends com.kwad.sdk.b.a {
         ImageView imageView = (ImageView) findViewById(R.id.ksad_kwad_web_navi_back);
         ImageView imageView2 = (ImageView) findViewById(R.id.ksad_kwad_web_navi_close);
         this.mWebContainer = (ViewGroup) findViewById(R.id.ksad_landing_page_root);
-        if (this.mAdTemplate.adInfoList == null || this.mAdTemplate.adInfoList.size() <= 0 || this.mAdTemplate.adInfoList.get(0) == null) {
+        List<AdInfo> list = this.mAdTemplate.adInfoList;
+        if (list == null || list.size() <= 0 || this.mAdTemplate.adInfoList.get(0) == null || (adBaseInfo = this.mAdTemplate.adInfoList.get(0).adBaseInfo) == null || TextUtils.isEmpty(adBaseInfo.productName)) {
             textView.setText("详情页面");
         } else {
-            AdInfo.AdBaseInfo adBaseInfo = this.mAdTemplate.adInfoList.get(0).adBaseInfo;
-            if (adBaseInfo == null || TextUtils.isEmpty(adBaseInfo.productName)) {
-                textView.setText("详情页面");
-            } else {
-                textView.setText(adBaseInfo.productName);
-            }
+            textView.setText(adBaseInfo.productName);
         }
         imageView2.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.core.page.AdWebViewActivityProxy.4
             @Override // android.view.View.OnClickListener
@@ -138,9 +140,11 @@ public class AdWebViewActivityProxy extends com.kwad.sdk.b.a {
         intent.addFlags(268435456);
         intent.putExtra("key_template", adTemplate);
         context.startActivity(intent);
-        Context delegatedContext = context instanceof ResContext ? ((ResContext) context).getDelegatedContext() : context;
-        if (delegatedContext instanceof Activity) {
-            ((Activity) delegatedContext).overridePendingTransition(0, 0);
+        if (context instanceof ResContext) {
+            context = ((ResContext) context).getDelegatedContext();
+        }
+        if (context instanceof Activity) {
+            ((Activity) context).overridePendingTransition(0, 0);
         }
     }
 
@@ -172,15 +176,17 @@ public class AdWebViewActivityProxy extends com.kwad.sdk.b.a {
     @SuppressLint({"SetJavaScriptEnabled", "AddJavascriptInterface", "JavascriptInterface"})
     private void setupJsBridge(KsAdWebView ksAdWebView) {
         clearJsInterfaceRegister();
-        this.mJsInterface = new g(ksAdWebView);
-        registerWebCardHandler(ksAdWebView, this.mJsInterface);
+        g gVar = new g(ksAdWebView);
+        this.mJsInterface = gVar;
+        registerWebCardHandler(ksAdWebView, gVar);
         ksAdWebView.addJavascriptInterface(this.mJsInterface, "KwaiAd");
     }
 
     @Override // com.kwad.sdk.api.proxy.IActivityProxy
     public void onBackPressed() {
         super.onBackPressed();
-        if (this.mAdWebView == null || !this.mAdWebView.canGoBack()) {
+        KsAdWebView ksAdWebView = this.mAdWebView;
+        if (ksAdWebView == null || !ksAdWebView.canGoBack()) {
             return;
         }
         this.mAdWebView.goBack();
@@ -199,11 +205,11 @@ public class AdWebViewActivityProxy extends com.kwad.sdk.b.a {
         initView();
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.api.proxy.IActivityProxy
     public void onDestroy() {
-        if (this.mAdWebView != null) {
-            this.mAdWebView.e();
+        KsAdWebView ksAdWebView = this.mAdWebView;
+        if (ksAdWebView != null) {
+            ksAdWebView.e();
         }
         super.onDestroy();
     }

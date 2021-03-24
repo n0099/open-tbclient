@@ -6,11 +6,11 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class LruMemoryCache implements MemoryCache {
-    private final LinkedHashMap<String, DecodedResult> map;
-    private final int maxSize;
-    private int size;
+    public final LinkedHashMap<String, DecodedResult> map;
+    public final int maxSize;
+    public int size;
 
     public LruMemoryCache(int i) {
         if (i <= 0) {
@@ -24,27 +24,25 @@ public class LruMemoryCache implements MemoryCache {
         return decodedResult.getByteSize();
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:10:0x0032, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:23:0x006d, code lost:
         throw new java.lang.IllegalStateException(getClass().getName() + ".sizeOf() is reporting inconsistent results!");
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     private void trimToSize(int i) {
+        Map.Entry<String, DecodedResult> next;
         while (true) {
             synchronized (this) {
-                if (this.size < 0 || (this.map.isEmpty() && this.size != 0)) {
-                    break;
-                } else if (this.size <= i || this.map.isEmpty()) {
-                    break;
-                } else {
-                    Map.Entry<String, DecodedResult> next = this.map.entrySet().iterator().next();
-                    if (next == null) {
-                        return;
+                if (this.size >= 0 && (!this.map.isEmpty() || this.size == 0)) {
+                    if (this.size <= i || this.map.isEmpty() || (next = this.map.entrySet().iterator().next()) == null) {
+                        break;
                     }
                     String key = next.getKey();
                     this.map.remove(key);
                     this.size -= sizeOf(key, next.getValue());
+                } else {
+                    break;
                 }
             }
         }
@@ -58,13 +56,13 @@ public class LruMemoryCache implements MemoryCache {
     @Override // com.kwad.sdk.core.imageloader.cache.memory.MemoryCache
     public final DecodedResult get(String str) {
         DecodedResult decodedResult;
-        if (str == null) {
-            throw new NullPointerException("key == null");
+        if (str != null) {
+            synchronized (this) {
+                decodedResult = this.map.get(str);
+            }
+            return decodedResult;
         }
-        synchronized (this) {
-            decodedResult = this.map.get(str);
-        }
-        return decodedResult;
+        throw new NullPointerException("key == null");
     }
 
     @Override // com.kwad.sdk.core.imageloader.cache.memory.MemoryCache
@@ -95,16 +93,16 @@ public class LruMemoryCache implements MemoryCache {
     @Override // com.kwad.sdk.core.imageloader.cache.memory.MemoryCache
     public final DecodedResult remove(String str) {
         DecodedResult remove;
-        if (str == null) {
-            throw new NullPointerException("key == null");
-        }
-        synchronized (this) {
-            remove = this.map.remove(str);
-            if (remove != null) {
-                this.size -= sizeOf(str, remove);
+        if (str != null) {
+            synchronized (this) {
+                remove = this.map.remove(str);
+                if (remove != null) {
+                    this.size -= sizeOf(str, remove);
+                }
             }
+            return remove;
         }
-        return remove;
+        throw new NullPointerException("key == null");
     }
 
     public final synchronized String toString() {

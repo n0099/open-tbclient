@@ -11,30 +11,49 @@ import androidx.viewpager.widget.ViewPager;
 import com.kwad.sdk.api.core.fragment.KsFragment;
 import com.kwad.sdk.lib.widget.viewpager.tabstrip.PagerSlidingTabStrip;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public abstract class d extends KsFragment {
 
     /* renamed from: a  reason: collision with root package name */
-    protected View f6871a;
-    protected PagerSlidingTabStrip b;
-    protected ViewPager c;
-    protected com.kwad.sdk.lib.widget.viewpager.tabstrip.a d;
-    protected int e;
-    protected int f = -1;
-    public String g = null;
-    protected ViewPager.OnPageChangeListener h = new ViewPager.OnPageChangeListener() { // from class: com.kwad.sdk.lib.a.d.1
-        private boolean b;
-        private boolean c;
+    public View f35935a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public PagerSlidingTabStrip f35936b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public ViewPager f35937c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public com.kwad.sdk.lib.widget.viewpager.tabstrip.a f35938d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public int f35939e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public int f35940f = -1;
+
+    /* renamed from: g  reason: collision with root package name */
+    public String f35941g = null;
+
+    /* renamed from: h  reason: collision with root package name */
+    public ViewPager.OnPageChangeListener f35942h = new ViewPager.OnPageChangeListener() { // from class: com.kwad.sdk.lib.a.d.1
+
+        /* renamed from: b  reason: collision with root package name */
+        public boolean f35944b;
+
+        /* renamed from: c  reason: collision with root package name */
+        public boolean f35945c;
 
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
         public void onPageScrollStateChanged(int i) {
             if (d.this.j()) {
-                if (i == 0 && this.c && this.b) {
-                    d.this.a(d.this.g());
-                    this.b = false;
-                    this.c = false;
+                if (i == 0 && this.f35945c && this.f35944b) {
+                    d dVar = d.this;
+                    dVar.a(dVar.g());
+                    this.f35944b = false;
+                    this.f35945c = false;
                 } else if (i == 2) {
-                    this.b = true;
+                    this.f35944b = true;
                 }
             }
             if (d.this.i != null) {
@@ -43,17 +62,17 @@ public abstract class d extends KsFragment {
         }
 
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
-        public void onPageScrolled(int i, float f, int i2) {
+        public void onPageScrolled(int i, float f2, int i2) {
             if (d.this.i != null) {
-                d.this.i.onPageScrolled(i, f, i2);
+                d.this.i.onPageScrolled(i, f2, i2);
             }
-            this.b = true;
+            this.f35944b = true;
         }
 
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
         public void onPageSelected(int i) {
-            this.c = true;
-            if (!this.b || !d.this.j()) {
+            this.f35945c = true;
+            if (!this.f35944b || !d.this.j()) {
                 d.this.a(i);
             }
             if (d.this.i != null) {
@@ -61,34 +80,36 @@ public abstract class d extends KsFragment {
             }
         }
     };
-    private ViewPager.OnPageChangeListener i;
+    public ViewPager.OnPageChangeListener i;
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(int i) {
-        if (this.d == null || i == this.e) {
+        int i2;
+        com.kwad.sdk.lib.widget.viewpager.tabstrip.a aVar = this.f35938d;
+        if (aVar == null || i == (i2 = this.f35939e)) {
             return;
         }
-        this.d.a(this.e);
-        this.d.a(i);
-        this.e = i;
+        aVar.a(i2);
+        this.f35938d.a(i);
+        this.f35939e = i;
     }
 
     private String b(int i) {
-        return this.d.c(i);
+        return this.f35938d.c(i);
     }
 
     private int e() {
         int a2;
-        if (h() == null || this.d == null || (a2 = a(h())) < 0) {
+        if (h() == null || this.f35938d == null || (a2 = a(h())) < 0) {
             return 0;
         }
         return a2;
     }
 
-    protected abstract int a();
+    public abstract int a();
 
-    protected int a(String str) {
-        return this.d.a(str);
+    public int a(String str) {
+        return this.f35938d.a(str);
     }
 
     public void a(int i, Bundle bundle) {
@@ -96,46 +117,52 @@ public abstract class d extends KsFragment {
     }
 
     public void a(int i, Bundle bundle, boolean z) {
-        this.d.a(i, bundle);
-        this.c.setCurrentItem(i, z);
+        this.f35938d.a(i, bundle);
+        this.f35937c.setCurrentItem(i, z);
     }
 
     public void a(List<com.kwad.sdk.lib.widget.viewpager.tabstrip.b> list) {
-        this.d.a(list);
-        this.b.c();
+        this.f35938d.a(list);
+        this.f35936b.c();
     }
 
-    protected abstract int b();
+    public abstract int b();
 
-    protected abstract int c();
+    public abstract int c();
 
     public abstract List<com.kwad.sdk.lib.widget.viewpager.tabstrip.b> d();
 
-    protected boolean f() {
+    public boolean f() {
         return true;
     }
 
     public int g() {
-        return this.c != null ? this.c.getCurrentItem() : e();
+        ViewPager viewPager = this.f35937c;
+        return viewPager != null ? viewPager.getCurrentItem() : e();
     }
 
     public String h() {
-        return !TextUtils.isEmpty(this.g) ? this.g : this.f >= 0 ? b(this.f) : i();
+        if (TextUtils.isEmpty(this.f35941g)) {
+            int i = this.f35940f;
+            return i >= 0 ? b(i) : i();
+        }
+        return this.f35941g;
     }
 
-    protected String i() {
+    public String i() {
         return "";
     }
 
-    protected boolean j() {
+    public boolean j() {
         return false;
     }
 
     @Override // com.kwad.sdk.api.core.fragment.KsFragment, com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle
     @Nullable
     public View onCreateView(@NonNull LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
-        this.f6871a = layoutInflater.inflate(a(), viewGroup, false);
-        return this.f6871a;
+        View inflate = layoutInflater.inflate(a(), viewGroup, false);
+        this.f35935a = inflate;
+        return inflate;
     }
 
     @Override // com.kwad.sdk.api.core.fragment.KsFragment, com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle
@@ -146,23 +173,28 @@ public abstract class d extends KsFragment {
 
     @Override // com.kwad.sdk.api.core.fragment.KsFragment, com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle
     public void onViewCreated(@NonNull View view, @Nullable Bundle bundle) {
+        ViewPager viewPager;
+        int i;
         super.onViewCreated(view, bundle);
-        this.b = (PagerSlidingTabStrip) this.f6871a.findViewById(b());
-        this.c = (ViewPager) this.f6871a.findViewById(c());
-        this.d = new com.kwad.sdk.lib.widget.viewpager.tabstrip.a(getActivity(), getChildFragmentManager());
-        List<com.kwad.sdk.lib.widget.viewpager.tabstrip.b> d = d();
-        this.c.setAdapter(this.d);
-        if (d != null && !d.isEmpty()) {
-            this.d.a(d);
-            this.e = e();
+        this.f35936b = (PagerSlidingTabStrip) this.f35935a.findViewById(b());
+        this.f35937c = (ViewPager) this.f35935a.findViewById(c());
+        this.f35938d = new com.kwad.sdk.lib.widget.viewpager.tabstrip.a(getActivity(), getChildFragmentManager());
+        List<com.kwad.sdk.lib.widget.viewpager.tabstrip.b> d2 = d();
+        this.f35937c.setAdapter(this.f35938d);
+        if (d2 != null && !d2.isEmpty()) {
+            this.f35938d.a(d2);
+            this.f35939e = e();
             if (getArguments() == null || !getArguments().containsKey("last_selected_item_pos")) {
-                this.c.setCurrentItem(this.e, false);
+                viewPager = this.f35937c;
+                i = this.f35939e;
             } else {
-                this.c.setCurrentItem(getArguments().getInt("last_selected_item_pos"), false);
+                viewPager = this.f35937c;
+                i = getArguments().getInt("last_selected_item_pos");
             }
+            viewPager.setCurrentItem(i, false);
         }
-        this.b.setViewPager(this.c);
-        this.b.setOnPageChangeListener(this.h);
+        this.f35936b.setViewPager(this.f35937c);
+        this.f35936b.setOnPageChangeListener(this.f35942h);
     }
 
     @Override // com.kwad.sdk.api.core.fragment.KsFragment, com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle

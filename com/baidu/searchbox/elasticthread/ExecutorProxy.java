@@ -2,10 +2,15 @@ package com.baidu.searchbox.elasticthread;
 
 import androidx.annotation.NonNull;
 import java.util.concurrent.Executor;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public abstract class ExecutorProxy implements Executor {
-    protected int mDefaultPriority;
-    protected String mDefaultTaskName;
+    public int mDefaultPriority;
+    public String mDefaultTaskName;
+
+    public ExecutorProxy(String str, int i) {
+        this.mDefaultPriority = i;
+        this.mDefaultTaskName = str;
+    }
 
     @Override // java.util.concurrent.Executor
     public abstract void execute(@NonNull Runnable runnable);
@@ -14,16 +19,11 @@ public abstract class ExecutorProxy implements Executor {
 
     public abstract void execute(@NonNull Runnable runnable, @NonNull String str, int i);
 
-    public ExecutorProxy(String str, int i) {
+    public void setDefaultPriority(int i) {
         this.mDefaultPriority = i;
-        this.mDefaultTaskName = str;
     }
 
     public void setDefaultTaskName(String str) {
         this.mDefaultTaskName = str;
-    }
-
-    public void setDefaultPriority(int i) {
-        this.mDefaultPriority = i;
     }
 }

@@ -1,23 +1,25 @@
 package com.vivo.push;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes14.dex */
+/* loaded from: classes7.dex */
 public final class r implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ com.vivo.push.b.b f8066a;
-    final /* synthetic */ String b;
-    final /* synthetic */ p c;
+    public final /* synthetic */ com.vivo.push.b.b f39507a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    /* renamed from: b  reason: collision with root package name */
+    public final /* synthetic */ String f39508b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public final /* synthetic */ p f39509c;
+
     public r(p pVar, com.vivo.push.b.b bVar, String str) {
-        this.c = pVar;
-        this.f8066a = bVar;
-        this.b = str;
+        this.f39509c = pVar;
+        this.f39507a = bVar;
+        this.f39508b = str;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
-        this.c.a(this.f8066a);
-        this.c.d(this.b);
+        this.f39509c.a(this.f39507a);
+        this.f39509c.d(this.f39508b);
     }
 }

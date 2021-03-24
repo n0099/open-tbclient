@@ -3,17 +3,17 @@ package com.bytedance.embedapplog.collector;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import com.bytedance.embedapplog.au;
-import com.bytedance.embedapplog.bx;
-/* loaded from: classes6.dex */
+import d.c.b.r0;
+import d.c.b.x1;
+/* loaded from: classes5.dex */
 public class Collector extends BroadcastReceiver {
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
         String[] stringArrayExtra = intent.getStringArrayExtra("EMBED_K_DATA");
         if (stringArrayExtra != null && stringArrayExtra.length > 0) {
-            bx.a(stringArrayExtra);
+            x1.e(stringArrayExtra);
         } else {
-            au.a(null);
+            r0.b(null);
         }
     }
 }

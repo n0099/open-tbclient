@@ -1,7 +1,7 @@
 package com.baidu.searchbox.player.event;
 
 import androidx.annotation.NonNull;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public interface IEventTrigger {
     void triggerEvent(@NonNull VideoEvent videoEvent);
 }

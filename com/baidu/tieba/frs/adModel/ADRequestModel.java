@@ -5,20 +5,55 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.BaseFragmentActivity;
-/* loaded from: classes2.dex */
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+/* loaded from: classes4.dex */
 public class ADRequestModel extends BdBaseModel<BaseFragmentActivity> {
-    private a joW;
-    private final com.baidu.adp.framework.listener.a joX;
 
-    /* loaded from: classes2.dex */
-    public interface a {
+    /* renamed from: e  reason: collision with root package name */
+    public b f16146e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public final d.b.b.c.g.a f16147f;
+
+    /* loaded from: classes4.dex */
+    public class a extends d.b.b.c.g.a {
+        public a(int i, int i2) {
+            super(i, i2);
+        }
+
+        @Override // d.b.b.c.g.a
+        public void onMessage(ResponsedMessage<?> responsedMessage) {
+            if (responsedMessage == null) {
+                return;
+            }
+            boolean z = responsedMessage instanceof ADSocketResponseMessage;
+            if ((z || (responsedMessage instanceof ADHttpResponseMessage)) && ADRequestModel.this.f16146e != null) {
+                if (z) {
+                    ADRequestModel.this.f16146e.b((ADSocketResponseMessage) responsedMessage);
+                } else if (responsedMessage instanceof ADHttpResponseMessage) {
+                    ADRequestModel.this.f16146e.a((ADHttpResponseMessage) responsedMessage);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public interface b {
         void a(ADHttpResponseMessage aDHttpResponseMessage);
 
-        void a(ADSocketResponseMessage aDSocketResponseMessage);
+        void b(ADSocketResponseMessage aDSocketResponseMessage);
+    }
+
+    public ADRequestModel(TbPageContext tbPageContext) {
+        super(tbPageContext);
+        this.f16147f = new a(CmdConfigHttp.CMD_HTTP_FRS_TAB_AD, 309611);
+        d.b.i0.c3.d0.a.h(309611, ADSocketResponseMessage.class, false, false);
+        d.b.i0.c3.d0.a.c(309611, CmdConfigHttp.CMD_HTTP_FRS_TAB_AD, "c/f/frs/getadlist", ADHttpResponseMessage.class, false, false, true, false);
+        registerListener(this.f16147f);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
-    protected boolean LoadData() {
+    public boolean LoadData() {
         return false;
     }
 
@@ -27,28 +62,11 @@ public class ADRequestModel extends BdBaseModel<BaseFragmentActivity> {
         return false;
     }
 
-    public ADRequestModel(TbPageContext tbPageContext) {
-        super(tbPageContext);
-        this.joX = new com.baidu.adp.framework.listener.a(1003411, 309611) { // from class: com.baidu.tieba.frs.adModel.ADRequestModel.1
-            @Override // com.baidu.adp.framework.listener.a
-            public void onMessage(ResponsedMessage<?> responsedMessage) {
-                if (responsedMessage != null) {
-                    if (((responsedMessage instanceof ADSocketResponseMessage) || (responsedMessage instanceof ADHttpResponseMessage)) && ADRequestModel.this.joW != null) {
-                        if (responsedMessage instanceof ADSocketResponseMessage) {
-                            ADRequestModel.this.joW.a((ADSocketResponseMessage) responsedMessage);
-                        } else if (responsedMessage instanceof ADHttpResponseMessage) {
-                            ADRequestModel.this.joW.a((ADHttpResponseMessage) responsedMessage);
-                        }
-                    }
-                }
-            }
-        };
-        com.baidu.tieba.tbadkCore.a.a.a(309611, ADSocketResponseMessage.class, false, false);
-        com.baidu.tieba.tbadkCore.a.a.a(309611, 1003411, "c/f/frs/getadlist", ADHttpResponseMessage.class, false, false, true, false);
-        registerListener(this.joX);
+    public void onDestroy() {
+        MessageManager.getInstance().unRegisterListener(this.f16147f);
     }
 
-    public void f(long j, int i, int i2) {
+    public void t(long j, int i, int i2) {
         cancelMessage();
         ADRequestMessage aDRequestMessage = new ADRequestMessage();
         aDRequestMessage.setFid(j);
@@ -57,11 +75,7 @@ public class ADRequestModel extends BdBaseModel<BaseFragmentActivity> {
         sendMessage(aDRequestMessage);
     }
 
-    public void a(a aVar) {
-        this.joW = aVar;
-    }
-
-    public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.joX);
+    public void u(b bVar) {
+        this.f16146e = bVar;
     }
 }

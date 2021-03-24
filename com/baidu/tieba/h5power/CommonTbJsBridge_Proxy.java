@@ -1,16 +1,15 @@
 package com.baidu.tieba.h5power;
 
 import com.baidu.android.util.io.DocumentOpenUtil;
+import com.baidu.searchbox.pms.db.PackageTable;
 import com.baidu.tbadk.browser.CommonTbJsBridge;
-import com.baidu.tbadk.core.atomData.AlbumActivityConfig;
-import com.baidu.tbadk.core.util.au;
-import com.baidu.tieba.ala.live.walletconfig.CashierData;
 import com.baidu.tieba.forumMember.tbtitle.TbTitleActivityConfig;
-import com.baidu.tieba.tbadkCore.e.a.a;
-import com.baidu.tieba.tbadkCore.e.a.b;
-import com.baidu.tieba.tbadkCore.e.a.c;
-import com.baidu.tieba.tbadkCore.e.a.e;
 import com.vivo.push.PushClientConstants;
+import d.b.b.e.p.k;
+import d.b.i0.c3.l0.d.a;
+import d.b.i0.c3.l0.d.b;
+import d.b.i0.c3.l0.d.c;
+import d.b.i0.c3.l0.d.e;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -18,337 +17,336 @@ import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class CommonTbJsBridge_Proxy extends a {
-    private CommonTbJsBridge mJsBridge;
+    public CommonTbJsBridge mJsBridge;
 
     public CommonTbJsBridge_Proxy(CommonTbJsBridge commonTbJsBridge) {
         this.mJsBridge = commonTbJsBridge;
         this.mAsyncCallBackMethodList = new LinkedHashMap();
-        this.mNotificationNameList = new HashSet<>();
-        this.mNotificationNameList.add("saveImageSuccess");
-        this.mNotificationNameList.add("changeSkinType");
-        this.mNotificationNameList.add("ShareSuccessNotification");
-        this.mNotificationNameList.add("thirdPartyLoginResultToH5");
-        this.mNotificationNameList.add("loginResultToH5");
-        this.mNotificationNameList.add("reshow");
-        this.mNotificationNameList.add("clickGoBackToH5");
+        HashSet<String> hashSet = new HashSet<>();
+        this.mNotificationNameList = hashSet;
+        hashSet.add("saveImageSuccess");
+        this.mNotificationNameList.add(CommonTbJsBridge.CHANGE_SKIN_TYPE);
+        this.mNotificationNameList.add(CommonTbJsBridge.SHARE_SUCCCESS_NOTIFICATION);
+        this.mNotificationNameList.add(CommonTbJsBridge.RESULT_THIRD_PARTY_LOGIN);
+        this.mNotificationNameList.add(CommonTbJsBridge.LOGIN_RESULT_TO_H5);
+        this.mNotificationNameList.add(CommonTbJsBridge.RE_SHOW);
+        this.mNotificationNameList.add(CommonTbJsBridge.CLICK_GO_BACK_TO_H5);
     }
 
-    @Override // com.baidu.tieba.tbadkCore.e.a.a
+    @Override // d.b.i0.c3.l0.d.a
     public c dispatch(e eVar, c cVar) {
-        if (cVar == null) {
-            cVar = new c();
-        }
-        String dOA = eVar.dOA();
-        JSONObject dOy = eVar.dOy();
-        if (dOA.equals("account/startLoginModule")) {
-            cVar.yx(true);
-            c startLoginModule = this.mJsBridge.startLoginModule(dOy.optString("cssUrl"));
+        c cVar2 = cVar == null ? new c() : cVar;
+        String b2 = eVar.b();
+        JSONObject e2 = eVar.e();
+        if (b2.equals("account/startLoginModule")) {
+            cVar2.o(true);
+            c startLoginModule = this.mJsBridge.startLoginModule(e2.optString("cssUrl"));
             if (startLoginModule != null) {
-                cVar.setStatus(startLoginModule.getStatus());
-                cVar.setMessage(startLoginModule.getMessage());
-                cVar.setData(startLoginModule.getData());
+                cVar2.t(startLoginModule.e());
+                cVar2.q(startLoginModule.b());
+                cVar2.l(startLoginModule.a());
             }
-            cVar.JR(0);
-        } else if (dOA.equals("router/finishThisPage")) {
-            cVar.yx(true);
+            cVar2.u(0);
+        } else if (b2.equals("router/finishThisPage")) {
+            cVar2.o(true);
             c finishPage = this.mJsBridge.finishPage();
             if (finishPage != null) {
-                cVar.setStatus(finishPage.getStatus());
-                cVar.setMessage(finishPage.getMessage());
-                cVar.setData(finishPage.getData());
+                cVar2.t(finishPage.e());
+                cVar2.q(finishPage.b());
+                cVar2.l(finishPage.a());
             }
-            cVar.JR(0);
-        } else if (dOA.equals("toast/toastPopupView")) {
-            cVar.yx(true);
-            c showLowerHairHint = this.mJsBridge.showLowerHairHint(dOy.optInt("showType"), dOy.optInt("aheadType"), dOy.optString("message"), dOy.optString("btnText"), dOy.optInt("toastDuration"), dOy.optString("schema"), dOy.optString("token"), dOy.optDouble("opacity"), dOy.optString("imgUrl"), dOy.optString("url"), dOy.optInt("missionId"), dOy.optString("btnColor"), dOy.optString("messageColor"), dOy.optString("btnTextColor"), dOy.optInt("status"), dOy.optInt("finishThisPage"));
+            cVar2.u(0);
+        } else if (b2.equals("toast/toastPopupView")) {
+            cVar2.o(true);
+            c showLowerHairHint = this.mJsBridge.showLowerHairHint(e2.optInt("showType"), e2.optInt("aheadType"), e2.optString("message"), e2.optString("btnText"), e2.optInt("toastDuration"), e2.optString("schema"), e2.optString("token"), e2.optDouble("opacity"), e2.optString("imgUrl"), e2.optString("url"), e2.optInt("missionId"), e2.optString("btnColor"), e2.optString("messageColor"), e2.optString("btnTextColor"), e2.optInt("status"), e2.optInt(CommonTbJsBridge.FINISH_THIS_PAGE));
             if (showLowerHairHint != null) {
-                cVar.setStatus(showLowerHairHint.getStatus());
-                cVar.setMessage(showLowerHairHint.getMessage());
-                cVar.setData(showLowerHairHint.getData());
+                cVar2.t(showLowerHairHint.e());
+                cVar2.q(showLowerHairHint.b());
+                cVar2.l(showLowerHairHint.a());
             }
-            cVar.JR(0);
-        } else if (dOA.equals("router/goToBarDetail")) {
-            cVar.yx(true);
-            c handleGoToBarDetail = this.mJsBridge.handleGoToBarDetail(dOy.optString(TbTitleActivityConfig.FORUM_ID));
+            cVar2.u(0);
+        } else if (b2.equals("router/goToBarDetail")) {
+            cVar2.o(true);
+            c handleGoToBarDetail = this.mJsBridge.handleGoToBarDetail(e2.optString(TbTitleActivityConfig.FORUM_ID));
             if (handleGoToBarDetail != null) {
-                cVar.setStatus(handleGoToBarDetail.getStatus());
-                cVar.setMessage(handleGoToBarDetail.getMessage());
-                cVar.setData(handleGoToBarDetail.getData());
+                cVar2.t(handleGoToBarDetail.e());
+                cVar2.q(handleGoToBarDetail.b());
+                cVar2.l(handleGoToBarDetail.a());
             }
-            cVar.JR(0);
-        } else if (dOA.equals("system/saveImage")) {
-            cVar.yx(true);
-            c handleSaveImage = this.mJsBridge.handleSaveImage(dOy.optString("imgUrl"));
+            cVar2.u(0);
+        } else if (b2.equals("system/saveImage")) {
+            cVar2.o(true);
+            c handleSaveImage = this.mJsBridge.handleSaveImage(e2.optString("imgUrl"));
             this.mNotificationNameList.add("saveImageSuccess");
             if (handleSaveImage != null) {
-                cVar.setStatus(handleSaveImage.getStatus());
-                cVar.setMessage(handleSaveImage.getMessage());
-                cVar.setData(handleSaveImage.getData());
-                if (!cVar.isError()) {
-                    cVar.yz(false);
-                    addObserver("saveImageSuccess", cVar, false);
+                cVar2.t(handleSaveImage.e());
+                cVar2.q(handleSaveImage.b());
+                cVar2.l(handleSaveImage.a());
+                if (!cVar2.g()) {
+                    cVar2.k(false);
+                    addObserver("saveImageSuccess", cVar2, false);
                 }
             }
-            cVar.JR(0);
-        } else if (dOA.equals("system/playSound")) {
-            cVar.yx(true);
-            c playSound = this.mJsBridge.playSound(dOy.optString("soundUrl"));
+            cVar2.u(0);
+        } else if (b2.equals("system/playSound")) {
+            cVar2.o(true);
+            c playSound = this.mJsBridge.playSound(e2.optString("soundUrl"));
             if (playSound != null) {
-                cVar.setStatus(playSound.getStatus());
-                cVar.setMessage(playSound.getMessage());
-                cVar.setData(playSound.getData());
+                cVar2.t(playSound.e());
+                cVar2.q(playSound.b());
+                cVar2.l(playSound.a());
             }
-            cVar.JR(0);
-        } else if (dOA.equals("system/playVibrate")) {
-            cVar.yx(true);
+            cVar2.u(0);
+        } else if (b2.equals("system/playVibrate")) {
+            cVar2.o(true);
             c playVibrate = this.mJsBridge.playVibrate();
             if (playVibrate != null) {
-                cVar.setStatus(playVibrate.getStatus());
-                cVar.setMessage(playVibrate.getMessage());
-                cVar.setData(playVibrate.getData());
+                cVar2.t(playVibrate.e());
+                cVar2.q(playVibrate.b());
+                cVar2.l(playVibrate.a());
             }
-            cVar.JR(0);
-        } else if (dOA.equals("account/loadThirdPartyLogin")) {
-            cVar.yx(true);
-            c jumpLoginActivity = this.mJsBridge.jumpLoginActivity(dOy.optInt("socialType"), dOy.optString("activityId"));
+            cVar2.u(0);
+        } else if (b2.equals("account/loadThirdPartyLogin")) {
+            cVar2.o(true);
+            c jumpLoginActivity = this.mJsBridge.jumpLoginActivity(e2.optInt("socialType"), e2.optString("activityId"));
             if (jumpLoginActivity != null) {
-                cVar.setStatus(jumpLoginActivity.getStatus());
-                cVar.setMessage(jumpLoginActivity.getMessage());
-                cVar.setData(jumpLoginActivity.getData());
+                cVar2.t(jumpLoginActivity.e());
+                cVar2.q(jumpLoginActivity.b());
+                cVar2.l(jumpLoginActivity.a());
             }
-            cVar.JR(0);
-        } else if (dOA.equals("system/startLoadTimeInterval")) {
-            cVar.yx(true);
+            cVar2.u(0);
+        } else if (b2.equals("system/startLoadTimeInterval")) {
+            cVar2.o(true);
             c startLoadTimeInterval = this.mJsBridge.getStartLoadTimeInterval();
             if (startLoadTimeInterval != null) {
-                cVar.setStatus(startLoadTimeInterval.getStatus());
-                cVar.setMessage(startLoadTimeInterval.getMessage());
-                cVar.setData(startLoadTimeInterval.getData());
+                cVar2.t(startLoadTimeInterval.e());
+                cVar2.q(startLoadTimeInterval.b());
+                cVar2.l(startLoadTimeInterval.a());
             }
-            cVar.JR(0);
-        } else if (dOA.equals("device/getZid")) {
-            cVar.yx(true);
+            cVar2.u(0);
+        } else if (b2.equals("device/getZid")) {
+            cVar2.o(true);
             c zid = this.mJsBridge.getZid();
             if (zid != null) {
-                cVar.setStatus(zid.getStatus());
-                cVar.setMessage(zid.getMessage());
-                cVar.setData(zid.getData());
+                cVar2.t(zid.e());
+                cVar2.q(zid.b());
+                cVar2.l(zid.a());
             }
-            cVar.JR(0);
-        } else if (dOA.equals("share/registerShareDataNew")) {
-            cVar.yx(true);
-            c shareInfo = this.mJsBridge.setShareInfo(dOy.optString("title"), dOy.optString("desc"), dOy.optString("img"), dOy.optString("url"), dOy.optString(AlbumActivityConfig.FROM_TOPIC), dOy.optString("wbtitle"), dOy.optString("wbcontent"), dOy.optString("isShowMoreForum"), dOy.optInt("shareimg"), dOy.optString("extdata"));
+            cVar2.u(0);
+        } else if (b2.equals("share/registerShareDataNew")) {
+            cVar2.o(true);
+            c shareInfo = this.mJsBridge.setShareInfo(e2.optString("title"), e2.optString("desc"), e2.optString("img"), e2.optString("url"), e2.optString("topic"), e2.optString("wbtitle"), e2.optString("wbcontent"), e2.optString("isShowMoreForum"), e2.optInt("shareimg"), e2.optString("extdata"));
             if (shareInfo != null) {
-                cVar.setStatus(shareInfo.getStatus());
-                cVar.setMessage(shareInfo.getMessage());
-                cVar.setData(shareInfo.getData());
+                cVar2.t(shareInfo.e());
+                cVar2.q(shareInfo.b());
+                cVar2.l(shareInfo.a());
             }
-            cVar.JR(0);
-        } else if (dOA.equals("share/share")) {
-            cVar.yx(true);
-            c share = this.mJsBridge.share(dOy.optInt("channel"), dOy.optInt("shareImg"), dOy.optString("img"), dOy.optString("isShowMoreForum"), dOy.optString("url"), dOy.optString("title"), dOy.optString("desc"), dOy.optString(AlbumActivityConfig.FROM_TOPIC), dOy.optString("wbtitle"), dOy.optString("wbcontent"), dOy.optInt("weixinDisable"), dOy.optString(CashierData.EXT_DATA));
+            cVar2.u(0);
+        } else if (b2.equals("share/share")) {
+            cVar2.o(true);
+            c share = this.mJsBridge.share(e2.optInt("channel"), e2.optInt("shareImg"), e2.optString("img"), e2.optString("isShowMoreForum"), e2.optString("url"), e2.optString("title"), e2.optString("desc"), e2.optString("topic"), e2.optString("wbtitle"), e2.optString("wbcontent"), e2.optInt("weixinDisable"), e2.optString("extData"));
             if (share != null) {
-                cVar.setStatus(share.getStatus());
-                cVar.setMessage(share.getMessage());
-                cVar.setData(share.getData());
+                cVar2.t(share.e());
+                cVar2.q(share.b());
+                cVar2.l(share.a());
             }
-            cVar.JR(0);
-        } else if (dOA.equals("clipper/getClipperInformation")) {
-            cVar.yx(true);
+            cVar2.u(0);
+        } else if (b2.equals("clipper/getClipperInformation")) {
+            cVar2.o(true);
             c clipperInformation = this.mJsBridge.getClipperInformation();
             if (clipperInformation != null) {
-                cVar.setStatus(clipperInformation.getStatus());
-                cVar.setMessage(clipperInformation.getMessage());
-                cVar.setData(clipperInformation.getData());
+                cVar2.t(clipperInformation.e());
+                cVar2.q(clipperInformation.b());
+                cVar2.l(clipperInformation.a());
             }
-            cVar.JR(0);
-        } else if (dOA.equals("clipper/setClipperInformation")) {
-            cVar.yx(true);
-            c clipperInformation2 = this.mJsBridge.setClipperInformation(dOy.optString(DocumentOpenUtil.TXT));
+            cVar2.u(0);
+        } else if (b2.equals("clipper/setClipperInformation")) {
+            cVar2.o(true);
+            c clipperInformation2 = this.mJsBridge.setClipperInformation(e2.optString(DocumentOpenUtil.TXT));
             if (clipperInformation2 != null) {
-                cVar.setStatus(clipperInformation2.getStatus());
-                cVar.setMessage(clipperInformation2.getMessage());
-                cVar.setData(clipperInformation2.getData());
+                cVar2.t(clipperInformation2.e());
+                cVar2.q(clipperInformation2.b());
+                cVar2.l(clipperInformation2.a());
             }
-            cVar.JR(0);
-        } else if (dOA.equals("router/goToEditPost")) {
-            cVar.yx(true);
-            c goToEditPost = this.mJsBridge.goToEditPost(dOy.optString("pos"), dOy.optString("tid"), dOy.optString("floorId"), dOy.optString("postId"), dOy.optString("content"), dOy.optString("fid"), dOy.optString("fname"));
+            cVar2.u(0);
+        } else if (b2.equals("router/goToEditPost")) {
+            cVar2.o(true);
+            c goToEditPost = this.mJsBridge.goToEditPost(e2.optString("pos"), e2.optString("tid"), e2.optString("floorId"), e2.optString("postId"), e2.optString("content"), e2.optString("fid"), e2.optString("fname"));
             if (goToEditPost != null) {
-                cVar.setStatus(goToEditPost.getStatus());
-                cVar.setMessage(goToEditPost.getMessage());
-                cVar.setData(goToEditPost.getData());
+                cVar2.t(goToEditPost.e());
+                cVar2.q(goToEditPost.b());
+                cVar2.l(goToEditPost.a());
             }
-            cVar.JR(0);
-        } else if (dOA.equals("system/checkAppInstall")) {
-            cVar.yx(true);
-            c checkAppInstall = this.mJsBridge.checkAppInstall(dOy.optString(PushClientConstants.TAG_PKG_NAME));
+            cVar2.u(0);
+        } else if (b2.equals("system/checkAppInstall")) {
+            cVar2.o(true);
+            c checkAppInstall = this.mJsBridge.checkAppInstall(e2.optString(PushClientConstants.TAG_PKG_NAME));
             if (checkAppInstall != null) {
-                cVar.setStatus(checkAppInstall.getStatus());
-                cVar.setMessage(checkAppInstall.getMessage());
-                cVar.setData(checkAppInstall.getData());
+                cVar2.t(checkAppInstall.e());
+                cVar2.q(checkAppInstall.b());
+                cVar2.l(checkAppInstall.a());
             }
-            cVar.JR(0);
-        } else if (dOA.equals("system/disableSlideBack")) {
-            cVar.yx(true);
-            c disableBack = this.mJsBridge.disableBack(dOy.optInt("disable"));
+            cVar2.u(0);
+        } else if (b2.equals("system/disableSlideBack")) {
+            cVar2.o(true);
+            c disableBack = this.mJsBridge.disableBack(e2.optInt(PackageTable.DISABLE));
             if (disableBack != null) {
-                cVar.setStatus(disableBack.getStatus());
-                cVar.setMessage(disableBack.getMessage());
-                cVar.setData(disableBack.getData());
+                cVar2.t(disableBack.e());
+                cVar2.q(disableBack.b());
+                cVar2.l(disableBack.a());
             }
-            cVar.JR(0);
-        } else if (dOA.equals("system/startApp")) {
-            cVar.yx(true);
-            c startApp = this.mJsBridge.startApp(dOy.optString(PushClientConstants.TAG_PKG_NAME), dOy.optString("schema"));
+            cVar2.u(0);
+        } else if (b2.equals("system/startApp")) {
+            cVar2.o(true);
+            c startApp = this.mJsBridge.startApp(e2.optString(PushClientConstants.TAG_PKG_NAME), e2.optString("schema"));
             if (startApp != null) {
-                cVar.setStatus(startApp.getStatus());
-                cVar.setMessage(startApp.getMessage());
-                cVar.setData(startApp.getData());
+                cVar2.t(startApp.e());
+                cVar2.q(startApp.b());
+                cVar2.l(startApp.a());
             }
-            cVar.JR(0);
-        } else if (dOA.equals("system/hasNotificationPermission")) {
-            cVar.yx(true);
+            cVar2.u(0);
+        } else if (b2.equals("system/hasNotificationPermission")) {
+            cVar2.o(true);
             c hasNotificationPermission = this.mJsBridge.hasNotificationPermission();
             if (hasNotificationPermission != null) {
-                cVar.setStatus(hasNotificationPermission.getStatus());
-                cVar.setMessage(hasNotificationPermission.getMessage());
-                cVar.setData(hasNotificationPermission.getData());
+                cVar2.t(hasNotificationPermission.e());
+                cVar2.q(hasNotificationPermission.b());
+                cVar2.l(hasNotificationPermission.a());
             }
-            cVar.JR(0);
-        } else if (dOA.equals("system/goToNotificationSetting")) {
-            cVar.yx(true);
+            cVar2.u(0);
+        } else if (b2.equals("system/goToNotificationSetting")) {
+            cVar2.o(true);
             c goToNotificationSetting = this.mJsBridge.goToNotificationSetting();
             if (goToNotificationSetting != null) {
-                cVar.setStatus(goToNotificationSetting.getStatus());
-                cVar.setMessage(goToNotificationSetting.getMessage());
-                cVar.setData(goToNotificationSetting.getData());
+                cVar2.t(goToNotificationSetting.e());
+                cVar2.q(goToNotificationSetting.b());
+                cVar2.l(goToNotificationSetting.a());
             }
-            cVar.JR(0);
-        } else if (dOA.equals("account/startDownloadCss")) {
-            cVar.yx(true);
-            c startDownloadCss = this.mJsBridge.startDownloadCss(dOy.optString("downloadUrl"));
+            cVar2.u(0);
+        } else if (b2.equals("account/startDownloadCss")) {
+            cVar2.o(true);
+            c startDownloadCss = this.mJsBridge.startDownloadCss(e2.optString("downloadUrl"));
             if (startDownloadCss != null) {
-                cVar.setStatus(startDownloadCss.getStatus());
-                cVar.setMessage(startDownloadCss.getMessage());
-                cVar.setData(startDownloadCss.getData());
+                cVar2.t(startDownloadCss.e());
+                cVar2.q(startDownloadCss.b());
+                cVar2.l(startDownloadCss.a());
             }
-            cVar.JR(0);
-        } else if (dOA.equals("navigationBar/isDisableGoBack")) {
-            cVar.yx(true);
+            cVar2.u(0);
+        } else if (b2.equals("navigationBar/isDisableGoBack")) {
+            cVar2.o(true);
             c disableGoBack = this.mJsBridge.setDisableGoBack();
             if (disableGoBack != null) {
-                cVar.setStatus(disableGoBack.getStatus());
-                cVar.setMessage(disableGoBack.getMessage());
-                cVar.setData(disableGoBack.getData());
+                cVar2.t(disableGoBack.e());
+                cVar2.q(disableGoBack.b());
+                cVar2.l(disableGoBack.a());
             }
-            cVar.JR(0);
-        } else if (dOA.equals("device/getSupplementInfo")) {
-            cVar.yx(true);
+            cVar2.u(0);
+        } else if (b2.equals("device/getSupplementInfo")) {
+            cVar2.o(true);
             c supplementInfo = this.mJsBridge.getSupplementInfo();
             if (supplementInfo != null) {
-                cVar.setStatus(supplementInfo.getStatus());
-                cVar.setMessage(supplementInfo.getMessage());
-                cVar.setData(supplementInfo.getData());
+                cVar2.t(supplementInfo.e());
+                cVar2.q(supplementInfo.b());
+                cVar2.l(supplementInfo.a());
             }
-            cVar.JR(0);
-        } else if (dOA.equals("device/getDeviceInfo")) {
-            cVar.yx(true);
+            cVar2.u(0);
+        } else if (b2.equals("device/getDeviceInfo")) {
+            cVar2.o(true);
             c deviceInfo = this.mJsBridge.getDeviceInfo();
             if (deviceInfo != null) {
-                cVar.setStatus(deviceInfo.getStatus());
-                cVar.setMessage(deviceInfo.getMessage());
-                cVar.setData(deviceInfo.getData());
+                cVar2.t(deviceInfo.e());
+                cVar2.q(deviceInfo.b());
+                cVar2.l(deviceInfo.a());
             }
-            cVar.JR(0);
-        } else if (dOA.equals("activity/completeTask")) {
-            cVar.yx(true);
-            c sendCompleteTaskReqMsg = this.mJsBridge.sendCompleteTaskReqMsg(dOy.optString("activityId"), dOy.optString("missionId"));
+            cVar2.u(0);
+        } else if (b2.equals("activity/completeTask")) {
+            cVar2.o(true);
+            c sendCompleteTaskReqMsg = this.mJsBridge.sendCompleteTaskReqMsg(e2.optString("activityId"), e2.optString("missionId"));
             if (sendCompleteTaskReqMsg != null) {
-                cVar.setStatus(sendCompleteTaskReqMsg.getStatus());
-                cVar.setMessage(sendCompleteTaskReqMsg.getMessage());
-                cVar.setData(sendCompleteTaskReqMsg.getData());
+                cVar2.t(sendCompleteTaskReqMsg.e());
+                cVar2.q(sendCompleteTaskReqMsg.b());
+                cVar2.l(sendCompleteTaskReqMsg.a());
             }
-            cVar.JR(0);
-        } else if (dOA.equals("toast/showTipToast")) {
-            cVar.yx(true);
-            c showTipToast = this.mJsBridge.showTipToast(dOy.optString("content"), dOy.optString("linkUrl"), dOy.optString("key"), dOy.optInt("maxTimes"), dOy.optInt("finishThisPage"));
+            cVar2.u(0);
+        } else if (b2.equals("toast/showTipToast")) {
+            cVar2.o(true);
+            c showTipToast = this.mJsBridge.showTipToast(e2.optString("content"), e2.optString("linkUrl"), e2.optString("key"), e2.optInt("maxTimes"), e2.optInt(CommonTbJsBridge.FINISH_THIS_PAGE));
             if (showTipToast != null) {
-                cVar.setStatus(showTipToast.getStatus());
-                cVar.setMessage(showTipToast.getMessage());
-                cVar.setData(showTipToast.getData());
+                cVar2.t(showTipToast.e());
+                cVar2.q(showTipToast.b());
+                cVar2.l(showTipToast.a());
             }
-            cVar.JR(0);
-        } else if (dOA.equals("router/jumpToHTMLPage")) {
-            cVar.yx(true);
-            c jumpToHtmlPage = this.mJsBridge.jumpToHtmlPage(dOy.optString("url"), dOy.optInt("finishThisPage"));
+            cVar2.u(0);
+        } else if (b2.equals("router/jumpToHTMLPage")) {
+            cVar2.o(true);
+            c jumpToHtmlPage = this.mJsBridge.jumpToHtmlPage(e2.optString("url"), e2.optInt(CommonTbJsBridge.FINISH_THIS_PAGE));
             if (jumpToHtmlPage != null) {
-                cVar.setStatus(jumpToHtmlPage.getStatus());
-                cVar.setMessage(jumpToHtmlPage.getMessage());
-                cVar.setData(jumpToHtmlPage.getData());
+                cVar2.t(jumpToHtmlPage.e());
+                cVar2.q(jumpToHtmlPage.b());
+                cVar2.l(jumpToHtmlPage.a());
             }
-            cVar.JR(0);
-        } else if (dOA.equals("router/goToHotTrend")) {
-            cVar.yx(true);
+            cVar2.u(0);
+        } else if (b2.equals("router/goToHotTrend")) {
+            cVar2.o(true);
             c jumpToHotTrendPage = this.mJsBridge.jumpToHotTrendPage();
             if (jumpToHotTrendPage != null) {
-                cVar.setStatus(jumpToHotTrendPage.getStatus());
-                cVar.setMessage(jumpToHotTrendPage.getMessage());
-                cVar.setData(jumpToHotTrendPage.getData());
+                cVar2.t(jumpToHotTrendPage.e());
+                cVar2.q(jumpToHotTrendPage.b());
+                cVar2.l(jumpToHotTrendPage.a());
             }
-            cVar.JR(0);
-        } else if (dOA.equals("toast/showAlertView")) {
-            cVar.yx(true);
-            c showAlertView = this.mJsBridge.showAlertView(dOy.optString("title"), dOy.optString("sub_title"), dOy.optInt("btn_corner"), dOy.optInt("btn_borderWidth"), dOy.optString("cancel_btn_text"), dOy.optString("cancel_btn_color"), dOy.optString("cancel_btn_borderColor"), dOy.optString("confirm_btn_text"), dOy.optString("confirm_btn_color"), dOy.optString("confirm_btn_borderColor"), dOy.optString("confirm_btn_url"));
+            cVar2.u(0);
+        } else if (b2.equals("toast/showAlertView")) {
+            cVar2.o(true);
+            c showAlertView = this.mJsBridge.showAlertView(e2.optString("title"), e2.optString("sub_title"), e2.optInt("btn_corner"), e2.optInt("btn_borderWidth"), e2.optString("cancel_btn_text"), e2.optString("cancel_btn_color"), e2.optString("cancel_btn_borderColor"), e2.optString("confirm_btn_text"), e2.optString("confirm_btn_color"), e2.optString("confirm_btn_borderColor"), e2.optString("confirm_btn_url"));
             if (showAlertView != null) {
-                cVar.setStatus(showAlertView.getStatus());
-                cVar.setMessage(showAlertView.getMessage());
-                cVar.setData(showAlertView.getData());
+                cVar2.t(showAlertView.e());
+                cVar2.q(showAlertView.b());
+                cVar2.l(showAlertView.a());
             }
-            cVar.JR(0);
+            cVar2.u(0);
         }
-        return cVar;
+        return cVar2;
     }
 
-    @Override // com.baidu.tieba.tbadkCore.e.a.a
+    @Override // d.b.i0.c3.l0.d.a
     public List<c> processNotification(String str, HashMap hashMap) {
-        c dealClickGoBackToH5;
-        if (au.isEmpty(str) || !this.mNotificationNameList.contains(str)) {
+        c cVar = null;
+        if (k.isEmpty(str) || !this.mNotificationNameList.contains(str)) {
             return null;
         }
         ArrayList arrayList = new ArrayList();
         if (str.equals("saveImageSuccess")) {
-            dealClickGoBackToH5 = this.mJsBridge.saveImageSuccess(hashMap);
-        } else if (str.equals("changeSkinType")) {
-            dealClickGoBackToH5 = this.mJsBridge.changeSkinTypeInH5(hashMap);
-        } else if (str.equals("ShareSuccessNotification")) {
-            dealClickGoBackToH5 = this.mJsBridge.shareSuccessNotification(hashMap);
-        } else if (str.equals("thirdPartyLoginResultToH5")) {
-            dealClickGoBackToH5 = this.mJsBridge.thirdPartyLoginResultToH5(hashMap);
-        } else if (str.equals("loginResultToH5")) {
-            dealClickGoBackToH5 = this.mJsBridge.onUserLoginChanged(hashMap);
-        } else if (str.equals("reshow")) {
-            dealClickGoBackToH5 = this.mJsBridge.reShow(hashMap);
-        } else {
-            dealClickGoBackToH5 = str.equals("clickGoBackToH5") ? this.mJsBridge.dealClickGoBackToH5(hashMap) : null;
+            cVar = this.mJsBridge.saveImageSuccess(hashMap);
+        } else if (str.equals(CommonTbJsBridge.CHANGE_SKIN_TYPE)) {
+            cVar = this.mJsBridge.changeSkinTypeInH5(hashMap);
+        } else if (str.equals(CommonTbJsBridge.SHARE_SUCCCESS_NOTIFICATION)) {
+            cVar = this.mJsBridge.shareSuccessNotification(hashMap);
+        } else if (str.equals(CommonTbJsBridge.RESULT_THIRD_PARTY_LOGIN)) {
+            cVar = this.mJsBridge.thirdPartyLoginResultToH5(hashMap);
+        } else if (str.equals(CommonTbJsBridge.LOGIN_RESULT_TO_H5)) {
+            cVar = this.mJsBridge.onUserLoginChanged(hashMap);
+        } else if (str.equals(CommonTbJsBridge.RE_SHOW)) {
+            cVar = this.mJsBridge.reShow(hashMap);
+        } else if (str.equals(CommonTbJsBridge.CLICK_GO_BACK_TO_H5)) {
+            cVar = this.mJsBridge.dealClickGoBackToH5(hashMap);
         }
-        if (dealClickGoBackToH5 != null) {
-            dealClickGoBackToH5.JR(0);
+        if (cVar != null) {
+            cVar.u(0);
         }
         List<b> list = this.mAsyncCallBackMethodList.get(str);
-        if (dealClickGoBackToH5 != null && list != null) {
+        if (cVar != null && list != null) {
             Iterator<b> it = list.iterator();
             while (it.hasNext()) {
                 b next = it.next();
-                c cVar = new c();
-                cVar.TA(next.getName());
-                cVar.setStatus(dealClickGoBackToH5.getStatus());
-                cVar.setMessage(dealClickGoBackToH5.getMessage());
-                cVar.setData(dealClickGoBackToH5.getData());
-                arrayList.add(cVar);
-                if (!next.dOr()) {
+                c cVar2 = new c();
+                cVar2.s(next.a());
+                cVar2.t(cVar.e());
+                cVar2.q(cVar.b());
+                cVar2.l(cVar.a());
+                arrayList.add(cVar2);
+                if (!next.b()) {
                     it.remove();
                 }
             }

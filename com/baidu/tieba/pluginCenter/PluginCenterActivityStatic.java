@@ -4,12 +4,10 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PluginCenterActivityConfig;
 import com.baidu.tbadk.core.atomData.PluginDetailActivityConfig;
 import com.baidu.tbadk.core.atomData.PluginDownloadActivityConfig;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class PluginCenterActivityStatic {
-    public static String Tag = "tag";
-
     static {
-        TbadkCoreApplication.getInst().RegisterIntent(PluginCenterActivityConfig.class, PluginCenterActivity.class);
+        TbadkCoreApplication.getInst().RegisterIntent(PluginCenterActivityConfig.class, NpsPluginCenterActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(PluginDetailActivityConfig.class, PluginDetailActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(PluginDownloadActivityConfig.class, PluginDownloadActivity.class);
     }

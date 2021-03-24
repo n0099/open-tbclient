@@ -1,7 +1,6 @@
 package com.baidubce.util;
 
-import com.alibaba.fastjson.asm.Opcodes;
-import com.baidu.webkit.internal.ETAG;
+import com.alipay.sdk.encrypt.a;
 import com.baidubce.Protocol;
 import java.io.UnsupportedEncodingException;
 import java.net.URI;
@@ -13,11 +12,11 @@ import java.util.Map;
 import okhttp3.Headers;
 import okhttp3.Request;
 import okhttp3.Response;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class HttpUtils {
-    private static BitSet URI_UNRESERVED_CHARACTERS = new BitSet();
-    private static String[] PERCENT_ENCODED_STRINGS = new String[256];
-    private static boolean HTTP_VERBOSE = Boolean.parseBoolean(System.getProperty("bce.sdk.http", "false"));
+    public static BitSet URI_UNRESERVED_CHARACTERS = new BitSet();
+    public static String[] PERCENT_ENCODED_STRINGS = new String[256];
+    public static boolean HTTP_VERBOSE = Boolean.parseBoolean(System.getProperty("bce.sdk.http", "false"));
 
     static {
         for (int i = 97; i <= 122; i++) {
@@ -32,82 +31,16 @@ public class HttpUtils {
         URI_UNRESERVED_CHARACTERS.set(45);
         URI_UNRESERVED_CHARACTERS.set(46);
         URI_UNRESERVED_CHARACTERS.set(95);
-        URI_UNRESERVED_CHARACTERS.set(Opcodes.IAND);
-        for (int i4 = 0; i4 < PERCENT_ENCODED_STRINGS.length; i4++) {
-            PERCENT_ENCODED_STRINGS[i4] = String.format("%%%02X", Integer.valueOf(i4));
-        }
-    }
-
-    public static String normalizePath(String str) {
-        return normalize(str).replace("%2F", "/");
-    }
-
-    public static String normalize(String str) {
-        byte[] bytes;
-        if (StringUtils.isEmpty(str)) {
-            return "";
-        }
-        try {
-            StringBuilder sb = new StringBuilder();
-            for (byte b : str.getBytes("UTF-8")) {
-                if (URI_UNRESERVED_CHARACTERS.get(b & 255)) {
-                    sb.append((char) b);
-                } else {
-                    sb.append(PERCENT_ENCODED_STRINGS[b & 255]);
-                }
+        URI_UNRESERVED_CHARACTERS.set(126);
+        int i4 = 0;
+        while (true) {
+            String[] strArr = PERCENT_ENCODED_STRINGS;
+            if (i4 >= strArr.length) {
+                return;
             }
-            return sb.toString();
-        } catch (UnsupportedEncodingException e) {
-            throw new RuntimeException(e);
+            strArr[i4] = String.format("%%%02X", Integer.valueOf(i4));
+            i4++;
         }
-    }
-
-    public static String generateHostHeader(URI uri) {
-        String host = uri.getHost();
-        if (isUsingNonDefaultPort(uri)) {
-            return host + ":" + uri.getPort();
-        }
-        return host;
-    }
-
-    public static boolean isUsingNonDefaultPort(URI uri) {
-        String lowerCase = uri.getScheme().toLowerCase();
-        int port = uri.getPort();
-        if (port <= 0) {
-            return false;
-        }
-        if (lowerCase.equals(Protocol.HTTP.toString())) {
-            return port != Protocol.HTTP.getDefaultPort();
-        } else if (lowerCase.equals(Protocol.HTTPS.toString())) {
-            return port != Protocol.HTTPS.getDefaultPort();
-        } else {
-            return false;
-        }
-    }
-
-    public static String getCanonicalQueryString(Map<String, String> map, boolean z) {
-        if (map.isEmpty()) {
-            return "";
-        }
-        ArrayList arrayList = new ArrayList();
-        for (Map.Entry<String, String> entry : map.entrySet()) {
-            if (!z || !"Authorization".equalsIgnoreCase(entry.getKey())) {
-                String key = entry.getKey();
-                CheckUtils.isNotNull(key, "parameter key should not be null");
-                String value = entry.getValue();
-                if (value == null) {
-                    if (z) {
-                        arrayList.add(normalize(key) + '=');
-                    } else {
-                        arrayList.add(normalize(key));
-                    }
-                } else {
-                    arrayList.add(normalize(key) + '=' + normalize(value));
-                }
-            }
-        }
-        Collections.sort(arrayList);
-        return JoinerUtils.on(ETAG.ITEM_SEPARATOR, arrayList);
     }
 
     public static URI appendUri(URI uri, String... strArr) {
@@ -127,9 +60,74 @@ public class HttpUtils {
         }
         try {
             return new URI(sb.toString());
-        } catch (URISyntaxException e) {
-            throw new RuntimeException("Unexpected error", e);
+        } catch (URISyntaxException e2) {
+            throw new RuntimeException("Unexpected error", e2);
         }
+    }
+
+    public static String generateHostHeader(URI uri) {
+        String host = uri.getHost();
+        if (isUsingNonDefaultPort(uri)) {
+            return host + ":" + uri.getPort();
+        }
+        return host;
+    }
+
+    public static String getCanonicalQueryString(Map<String, String> map, boolean z) {
+        if (map.isEmpty()) {
+            return "";
+        }
+        ArrayList arrayList = new ArrayList();
+        for (Map.Entry<String, String> entry : map.entrySet()) {
+            if (!z || !"Authorization".equalsIgnoreCase(entry.getKey())) {
+                String key = entry.getKey();
+                CheckUtils.isNotNull(key, "parameter key should not be null");
+                String value = entry.getValue();
+                if (value != null) {
+                    arrayList.add(normalize(key) + a.f1897h + normalize(value));
+                } else if (z) {
+                    arrayList.add(normalize(key) + a.f1897h);
+                } else {
+                    arrayList.add(normalize(key));
+                }
+            }
+        }
+        Collections.sort(arrayList);
+        return JoinerUtils.on("&", arrayList);
+    }
+
+    public static boolean isUsingNonDefaultPort(URI uri) {
+        String lowerCase = uri.getScheme().toLowerCase();
+        int port = uri.getPort();
+        if (port <= 0) {
+            return false;
+        }
+        return lowerCase.equals(Protocol.HTTP.toString()) ? port != Protocol.HTTP.getDefaultPort() : lowerCase.equals(Protocol.HTTPS.toString()) && port != Protocol.HTTPS.getDefaultPort();
+    }
+
+    public static String normalize(String str) {
+        byte[] bytes;
+        if (StringUtils.isEmpty(str)) {
+            return "";
+        }
+        try {
+            StringBuilder sb = new StringBuilder();
+            for (byte b2 : str.getBytes("UTF-8")) {
+                int i = b2 & 255;
+                if (URI_UNRESERVED_CHARACTERS.get(i)) {
+                    sb.append((char) b2);
+                } else {
+                    sb.append(PERCENT_ENCODED_STRINGS[i]);
+                }
+            }
+            return sb.toString();
+        } catch (UnsupportedEncodingException e2) {
+            throw new RuntimeException(e2);
+        }
+    }
+
+    public static String normalizePath(String str) {
+        return normalize(str).replace("%2F", "/");
     }
 
     public static void printRequest(Request request) {

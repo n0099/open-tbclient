@@ -4,16 +4,19 @@ import android.content.Context;
 import android.os.Environment;
 import androidx.annotation.NonNull;
 import java.io.File;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public class FileUtils {
-    private static final String DOWNLOAD_DIR = "UgcDownload";
+    public static final String DOWNLOAD_DIR = "UgcDownload";
 
     public static final File getDefaultDownloadDir(Context context) {
-        return isSDMounted() ? new File(context.getExternalCacheDir(), DOWNLOAD_DIR) : new File(context.getCacheDir(), DOWNLOAD_DIR);
+        if (isSDMounted()) {
+            return new File(context.getExternalCacheDir(), DOWNLOAD_DIR);
+        }
+        return new File(context.getCacheDir(), DOWNLOAD_DIR);
     }
 
-    public static boolean isSDMounted() {
-        return Environment.getExternalStorageState().equals("mounted");
+    public static final String getFileFullName(String str) {
+        return str.substring(str.lastIndexOf("/") + 1, str.length());
     }
 
     public static final String getPrefix(@NonNull String str) {
@@ -24,7 +27,7 @@ public class FileUtils {
         return str.substring(str.lastIndexOf(".") + 1);
     }
 
-    public static final String getFileFullName(String str) {
-        return str.substring(str.lastIndexOf("/") + 1, str.length());
+    public static boolean isSDMounted() {
+        return Environment.getExternalStorageState().equals("mounted");
     }
 }

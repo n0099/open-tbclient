@@ -7,19 +7,23 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class MapFragment extends Fragment {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f2027a = MapFragment.class.getSimpleName();
-    private MapView b;
-    private BaiduMapOptions c;
+    public static final String f6893a = MapFragment.class.getSimpleName();
+
+    /* renamed from: b  reason: collision with root package name */
+    public MapView f6894b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public BaiduMapOptions f6895c;
 
     public MapFragment() {
     }
 
-    private MapFragment(BaiduMapOptions baiduMapOptions) {
-        this.c = baiduMapOptions;
+    public MapFragment(BaiduMapOptions baiduMapOptions) {
+        this.f6895c = baiduMapOptions;
     }
 
     public static MapFragment newInstance() {
@@ -31,14 +35,15 @@ public class MapFragment extends Fragment {
     }
 
     public BaiduMap getBaiduMap() {
-        if (this.b == null) {
+        MapView mapView = this.f6894b;
+        if (mapView == null) {
             return null;
         }
-        return this.b.getMap();
+        return mapView.getMap();
     }
 
     public MapView getMapView() {
-        return this.b;
+        return this.f6894b;
     }
 
     @Override // android.app.Fragment
@@ -63,8 +68,9 @@ public class MapFragment extends Fragment {
 
     @Override // android.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        this.b = new MapView(getActivity(), this.c);
-        return this.b;
+        MapView mapView = new MapView(getActivity(), this.f6895c);
+        this.f6894b = mapView;
+        return mapView;
     }
 
     @Override // android.app.Fragment
@@ -75,7 +81,7 @@ public class MapFragment extends Fragment {
     @Override // android.app.Fragment
     public void onDestroyView() {
         super.onDestroyView();
-        this.b.onDestroy();
+        this.f6894b.onDestroy();
     }
 
     @Override // android.app.Fragment
@@ -86,13 +92,13 @@ public class MapFragment extends Fragment {
     @Override // android.app.Fragment
     public void onPause() {
         super.onPause();
-        this.b.onPause();
+        this.f6894b.onPause();
     }
 
     @Override // android.app.Fragment
     public void onResume() {
         super.onResume();
-        this.b.onResume();
+        this.f6894b.onResume();
     }
 
     @Override // android.app.Fragment

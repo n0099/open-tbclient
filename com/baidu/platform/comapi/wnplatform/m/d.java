@@ -1,28 +1,29 @@
 package com.baidu.platform.comapi.wnplatform.m;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f3068a = d.class.getSimpleName();
-    private static d b;
-    private boolean c = false;
+    public static final String f10313a = "d";
+
+    /* renamed from: b  reason: collision with root package name */
+    public static d f10314b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public boolean f10315c = false;
 
     public static synchronized d a() {
         d dVar;
         synchronized (d.class) {
-            if (b == null) {
-                b = new d();
+            if (f10314b == null) {
+                f10314b = new d();
             }
-            dVar = b;
+            dVar = f10314b;
         }
         return dVar;
     }
 
-    private d() {
-    }
-
     public synchronized void a(boolean z) {
-        com.baidu.platform.comapi.wnplatform.d.a.b(f3068a + "setBusy:" + z);
-        this.c = z;
+        com.baidu.platform.comapi.wnplatform.d.a.b(f10313a + "setBusy:" + z);
+        this.f10315c = z;
     }
 }

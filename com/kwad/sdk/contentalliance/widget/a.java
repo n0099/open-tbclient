@@ -12,37 +12,57 @@ import androidx.annotation.NonNull;
 import com.kwad.sdk.glide.load.engine.s;
 import com.kwad.sdk.glide.load.h;
 import java.security.MessageDigest;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class a implements h<Bitmap> {
-    private com.kwad.sdk.glide.load.engine.bitmap_recycle.e b;
-    private int c;
-    private int d;
-    private int e;
-    private int f;
-    private int g;
+
+    /* renamed from: b  reason: collision with root package name */
+    public com.kwad.sdk.glide.load.engine.bitmap_recycle.e f33376b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public int f33377c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public int f33378d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public int f33379e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public int f33380f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public int f33381g;
 
     public a(Context context, int i, int i2, int i3, int i4, int i5) {
-        this.b = com.kwad.sdk.glide.c.a(context).a();
-        this.c = i;
-        this.d = i2;
-        this.f = i4;
-        this.e = i3;
-        this.g = i5;
+        this.f33376b = com.kwad.sdk.glide.c.a(context).a();
+        this.f33377c = i;
+        this.f33378d = i2;
+        this.f33380f = i4;
+        this.f33379e = i3;
+        this.f33381g = i5;
     }
 
-    private void a(Canvas canvas, Paint paint, float f, float f2, Paint paint2) {
-        float f3 = f - this.d;
-        float f4 = f2 - this.d;
-        float f5 = this.e / 2;
+    private void a(Canvas canvas, Paint paint, float f2, float f3, Paint paint2) {
+        int i = this.f33378d;
+        float f4 = f2 - i;
+        float f5 = f3 - i;
+        float f6 = this.f33379e / 2;
         Path path = new Path();
         float[] fArr = new float[8];
-        int i = this.g;
-        for (int i2 = 3; i2 >= 0; i2--) {
-            fArr[(i2 * 2) + 1] = (i & 1) > 0 ? this.c : 0.0f;
-            fArr[i2 * 2] = (i & 1) > 0 ? this.c : 0.0f;
-            i >>= 1;
+        int i2 = this.f33381g;
+        for (int i3 = 3; i3 >= 0; i3--) {
+            int i4 = i3 * 2;
+            int i5 = i2 & 1;
+            float f7 = 0.0f;
+            fArr[i4 + 1] = i5 > 0 ? this.f33377c : 0.0f;
+            if (i5 > 0) {
+                f7 = this.f33377c;
+            }
+            fArr[i4] = f7;
+            i2 >>= 1;
         }
-        path.addRoundRect(new RectF(this.d + f5, this.d + f5, f3 - f5, f4 - f5), fArr, Path.Direction.CW);
+        int i6 = this.f33378d;
+        path.addRoundRect(new RectF(i6 + f6, i6 + f6, f4 - f6, f5 - f6), fArr, Path.Direction.CW);
         canvas.drawPath(path, paint);
         canvas.drawPath(path, paint2);
     }
@@ -50,21 +70,24 @@ public class a implements h<Bitmap> {
     @Override // com.kwad.sdk.glide.load.h
     @NonNull
     public s<Bitmap> a(@NonNull Context context, @NonNull s<Bitmap> sVar, int i, int i2) {
-        Bitmap e = sVar.e();
-        int width = e.getWidth();
-        int height = e.getHeight();
-        Bitmap a2 = this.b.a(width, height, Bitmap.Config.ARGB_8888);
-        Bitmap createBitmap = a2 == null ? Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888) : a2;
-        Canvas canvas = new Canvas(createBitmap);
+        Bitmap e2 = sVar.e();
+        int width = e2.getWidth();
+        int height = e2.getHeight();
+        Bitmap a2 = this.f33376b.a(width, height, Bitmap.Config.ARGB_8888);
+        if (a2 == null) {
+            a2 = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
+        }
+        Canvas canvas = new Canvas(a2);
         Paint paint = new Paint();
         paint.setAntiAlias(true);
-        paint.setShader(new BitmapShader(e, Shader.TileMode.CLAMP, Shader.TileMode.CLAMP));
+        Shader.TileMode tileMode = Shader.TileMode.CLAMP;
+        paint.setShader(new BitmapShader(e2, tileMode, tileMode));
         Paint paint2 = new Paint(1);
-        paint2.setColor(this.f);
+        paint2.setColor(this.f33380f);
         paint2.setStyle(Paint.Style.STROKE);
-        paint2.setStrokeWidth(this.e);
+        paint2.setStrokeWidth(this.f33379e);
         a(canvas, paint, width, height, paint2);
-        return com.kwad.sdk.glide.load.resource.bitmap.d.a(createBitmap, this.b);
+        return com.kwad.sdk.glide.load.resource.bitmap.d.a(a2, this.f33376b);
     }
 
     @Override // com.kwad.sdk.glide.load.c

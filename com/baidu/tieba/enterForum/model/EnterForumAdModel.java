@@ -3,44 +3,57 @@ package com.baidu.tieba.enterForum.model;
 import android.content.Context;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.base.BdBaseModel;
-import com.baidu.adp.base.j;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.HttpMessageListener;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.live.tbadk.pagestayduration.PageStayDurationConstants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.s.c;
-/* loaded from: classes2.dex */
+import d.b.b.a.j;
+import d.b.i0.b3.c;
+import d.b.i0.i0.d.b;
+/* loaded from: classes4.dex */
 public class EnterForumAdModel extends BdBaseModel {
-    private com.baidu.tieba.enterForum.data.b iNp;
-    private boolean iNq = false;
-    private HttpMessageListener gKK = new HttpMessageListener(CmdConfigHttp.CMD_ENTER_FORUM_AD_REQUEST) { // from class: com.baidu.tieba.enterForum.model.EnterForumAdModel.1
+
+    /* renamed from: e  reason: collision with root package name */
+    public b f15467e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public boolean f15468f = false;
+
+    /* renamed from: g  reason: collision with root package name */
+    public HttpMessageListener f15469g = new a(CmdConfigHttp.CMD_ENTER_FORUM_AD_REQUEST);
+
+    /* loaded from: classes4.dex */
+    public class a extends HttpMessageListener {
+        public a(int i) {
+            super(i);
+        }
+
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage instanceof EnterForumAdResponsedMessage) {
                 EnterForumAdResponsedMessage enterForumAdResponsedMessage = (EnterForumAdResponsedMessage) httpResponsedMessage;
                 if (enterForumAdResponsedMessage.hasError()) {
-                    EnterForumAdModel.this.iNp = null;
+                    EnterForumAdModel.this.f15467e = null;
                 } else {
-                    EnterForumAdModel.this.iNp = enterForumAdResponsedMessage.getAdData();
+                    EnterForumAdModel.this.f15467e = enterForumAdResponsedMessage.getAdData();
                     if (EnterForumAdModel.this.mLoadDataCallBack != null) {
-                        EnterForumAdModel.this.mLoadDataCallBack.callback(EnterForumAdModel.this.iNp);
+                        EnterForumAdModel.this.mLoadDataCallBack.c(EnterForumAdModel.this.f15467e);
                     }
                 }
-                EnterForumAdModel.this.iNq = false;
+                EnterForumAdModel.this.f15468f = false;
             }
         }
-    };
+    }
 
     public EnterForumAdModel() {
         this.unique_id = BdUniqueId.gen();
-        MessageManager.getInstance().registerListener(this.gKK);
+        MessageManager.getInstance().registerListener(this.f15469g);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
-    protected boolean LoadData() {
+    public boolean LoadData() {
         return false;
     }
 
@@ -49,21 +62,20 @@ public class EnterForumAdModel extends BdBaseModel {
         return false;
     }
 
-    public void loadAd() {
+    public b x() {
+        return this.f15467e;
+    }
+
+    public void y() {
         MessageManager.getInstance().sendMessage(new HttpMessage(CmdConfigHttp.CMD_ENTER_FORUM_AD_REQUEST));
     }
 
-    public com.baidu.tieba.enterForum.data.b cwM() {
-        return this.iNp;
-    }
-
-    public void gh(Context context) {
-        if (!this.iNq) {
-            com.baidu.tieba.enterForum.data.b bVar = this.iNp;
-            if (this.iNp != null && bVar.isValid()) {
-                c.dMH().b(j.J(context).getUniqueId(), com.baidu.tieba.s.a.a(PageStayDurationConstants.PageName.ENTER_FORUM, "common_fill", true, 1, 5));
-                this.iNq = true;
-            }
+    public void z(Context context) {
+        b bVar;
+        if (this.f15468f || (bVar = this.f15467e) == null || !bVar.a()) {
+            return;
         }
+        c.g().c(j.a(context).getUniqueId(), d.b.i0.b3.a.i("a025", "common_fill", true, 1, 5));
+        this.f15468f = true;
     }
 }

@@ -7,39 +7,20 @@ import android.view.inputmethod.InputContentInfo;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
-/* loaded from: classes14.dex */
+/* loaded from: classes.dex */
 public final class InputContentInfoCompat {
-    private final InputContentInfoCompatImpl mImpl;
+    public final InputContentInfoCompatImpl mImpl;
 
-    /* loaded from: classes14.dex */
-    private interface InputContentInfoCompatImpl {
+    /* loaded from: classes.dex */
+    public static final class InputContentInfoCompatBaseImpl implements InputContentInfoCompatImpl {
         @NonNull
-        Uri getContentUri();
-
+        public final Uri mContentUri;
         @NonNull
-        ClipDescription getDescription();
-
+        public final ClipDescription mDescription;
         @Nullable
-        Object getInputContentInfo();
+        public final Uri mLinkUri;
 
-        @Nullable
-        Uri getLinkUri();
-
-        void releasePermission();
-
-        void requestPermission();
-    }
-
-    /* loaded from: classes14.dex */
-    private static final class InputContentInfoCompatBaseImpl implements InputContentInfoCompatImpl {
-        @NonNull
-        private final Uri mContentUri;
-        @NonNull
-        private final ClipDescription mDescription;
-        @Nullable
-        private final Uri mLinkUri;
-
-        InputContentInfoCompatBaseImpl(@NonNull Uri uri, @NonNull ClipDescription clipDescription, @Nullable Uri uri2) {
+        public InputContentInfoCompatBaseImpl(@NonNull Uri uri, @NonNull ClipDescription clipDescription, @Nullable Uri uri2) {
             this.mContentUri = uri;
             this.mDescription = clipDescription;
             this.mLinkUri = uri2;
@@ -59,72 +40,42 @@ public final class InputContentInfoCompat {
 
         @Override // androidx.core.view.inputmethod.InputContentInfoCompat.InputContentInfoCompatImpl
         @Nullable
-        public Uri getLinkUri() {
-            return this.mLinkUri;
-        }
-
-        @Override // androidx.core.view.inputmethod.InputContentInfoCompat.InputContentInfoCompatImpl
-        @Nullable
         public Object getInputContentInfo() {
             return null;
         }
 
         @Override // androidx.core.view.inputmethod.InputContentInfoCompat.InputContentInfoCompatImpl
-        public void requestPermission() {
+        @Nullable
+        public Uri getLinkUri() {
+            return this.mLinkUri;
         }
 
         @Override // androidx.core.view.inputmethod.InputContentInfoCompat.InputContentInfoCompatImpl
         public void releasePermission() {
+        }
+
+        @Override // androidx.core.view.inputmethod.InputContentInfoCompat.InputContentInfoCompatImpl
+        public void requestPermission() {
         }
     }
 
-    @RequiresApi(25)
-    /* loaded from: classes14.dex */
-    private static final class InputContentInfoCompatApi25Impl implements InputContentInfoCompatImpl {
+    /* loaded from: classes.dex */
+    public interface InputContentInfoCompatImpl {
         @NonNull
-        final InputContentInfo mObject;
+        Uri getContentUri();
 
-        InputContentInfoCompatApi25Impl(@NonNull Object obj) {
-            this.mObject = (InputContentInfo) obj;
-        }
-
-        InputContentInfoCompatApi25Impl(@NonNull Uri uri, @NonNull ClipDescription clipDescription, @Nullable Uri uri2) {
-            this.mObject = new InputContentInfo(uri, clipDescription, uri2);
-        }
-
-        @Override // androidx.core.view.inputmethod.InputContentInfoCompat.InputContentInfoCompatImpl
         @NonNull
-        public Uri getContentUri() {
-            return this.mObject.getContentUri();
-        }
+        ClipDescription getDescription();
 
-        @Override // androidx.core.view.inputmethod.InputContentInfoCompat.InputContentInfoCompatImpl
-        @NonNull
-        public ClipDescription getDescription() {
-            return this.mObject.getDescription();
-        }
-
-        @Override // androidx.core.view.inputmethod.InputContentInfoCompat.InputContentInfoCompatImpl
         @Nullable
-        public Uri getLinkUri() {
-            return this.mObject.getLinkUri();
-        }
+        Object getInputContentInfo();
 
-        @Override // androidx.core.view.inputmethod.InputContentInfoCompat.InputContentInfoCompatImpl
         @Nullable
-        public Object getInputContentInfo() {
-            return this.mObject;
-        }
+        Uri getLinkUri();
 
-        @Override // androidx.core.view.inputmethod.InputContentInfoCompat.InputContentInfoCompatImpl
-        public void requestPermission() {
-            this.mObject.requestPermission();
-        }
+        void releasePermission();
 
-        @Override // androidx.core.view.inputmethod.InputContentInfoCompat.InputContentInfoCompatImpl
-        public void releasePermission() {
-            this.mObject.releasePermission();
-        }
+        void requestPermission();
     }
 
     public InputContentInfoCompat(@NonNull Uri uri, @NonNull ClipDescription clipDescription, @Nullable Uri uri2) {
@@ -135,8 +86,12 @@ public final class InputContentInfoCompat {
         }
     }
 
-    private InputContentInfoCompat(@NonNull InputContentInfoCompatImpl inputContentInfoCompatImpl) {
-        this.mImpl = inputContentInfoCompatImpl;
+    @Nullable
+    public static InputContentInfoCompat wrap(@Nullable Object obj) {
+        if (obj != null && Build.VERSION.SDK_INT >= 25) {
+            return new InputContentInfoCompat(new InputContentInfoCompatApi25Impl(obj));
+        }
+        return null;
     }
 
     @NonNull
@@ -154,12 +109,12 @@ public final class InputContentInfoCompat {
         return this.mImpl.getLinkUri();
     }
 
-    @Nullable
-    public static InputContentInfoCompat wrap(@Nullable Object obj) {
-        if (obj != null && Build.VERSION.SDK_INT >= 25) {
-            return new InputContentInfoCompat(new InputContentInfoCompatApi25Impl(obj));
-        }
-        return null;
+    public void releasePermission() {
+        this.mImpl.releasePermission();
+    }
+
+    public void requestPermission() {
+        this.mImpl.requestPermission();
     }
 
     @Nullable
@@ -167,11 +122,56 @@ public final class InputContentInfoCompat {
         return this.mImpl.getInputContentInfo();
     }
 
-    public void requestPermission() {
-        this.mImpl.requestPermission();
+    @RequiresApi(25)
+    /* loaded from: classes.dex */
+    public static final class InputContentInfoCompatApi25Impl implements InputContentInfoCompatImpl {
+        @NonNull
+        public final InputContentInfo mObject;
+
+        public InputContentInfoCompatApi25Impl(@NonNull Object obj) {
+            this.mObject = (InputContentInfo) obj;
+        }
+
+        @Override // androidx.core.view.inputmethod.InputContentInfoCompat.InputContentInfoCompatImpl
+        @NonNull
+        public Uri getContentUri() {
+            return this.mObject.getContentUri();
+        }
+
+        @Override // androidx.core.view.inputmethod.InputContentInfoCompat.InputContentInfoCompatImpl
+        @NonNull
+        public ClipDescription getDescription() {
+            return this.mObject.getDescription();
+        }
+
+        @Override // androidx.core.view.inputmethod.InputContentInfoCompat.InputContentInfoCompatImpl
+        @Nullable
+        public Object getInputContentInfo() {
+            return this.mObject;
+        }
+
+        @Override // androidx.core.view.inputmethod.InputContentInfoCompat.InputContentInfoCompatImpl
+        @Nullable
+        public Uri getLinkUri() {
+            return this.mObject.getLinkUri();
+        }
+
+        @Override // androidx.core.view.inputmethod.InputContentInfoCompat.InputContentInfoCompatImpl
+        public void releasePermission() {
+            this.mObject.releasePermission();
+        }
+
+        @Override // androidx.core.view.inputmethod.InputContentInfoCompat.InputContentInfoCompatImpl
+        public void requestPermission() {
+            this.mObject.requestPermission();
+        }
+
+        public InputContentInfoCompatApi25Impl(@NonNull Uri uri, @NonNull ClipDescription clipDescription, @Nullable Uri uri2) {
+            this.mObject = new InputContentInfo(uri, clipDescription, uri2);
+        }
     }
 
-    public void releasePermission() {
-        this.mImpl.releasePermission();
+    public InputContentInfoCompat(@NonNull InputContentInfoCompatImpl inputContentInfoCompatImpl) {
+        this.mImpl = inputContentInfoCompatImpl;
     }
 }

@@ -1,148 +1,167 @@
 package com.facebook.imagepipeline.memory;
 
 import android.util.Log;
+import com.facebook.common.internal.DoNotStrip;
+import com.facebook.common.internal.Preconditions;
+import com.facebook.common.internal.VisibleForTesting;
+import com.facebook.imagepipeline.nativecode.ImagePipelineNativeLoader;
 import java.io.Closeable;
-@com.facebook.common.internal.d
-/* loaded from: classes5.dex */
-public class NativeMemoryChunk implements Closeable {
-    private boolean mClosed;
-    private final long mNativePtr;
-    private final int mSize;
-
-    @com.facebook.common.internal.d
-    private static native long nativeAllocate(int i);
-
-    @com.facebook.common.internal.d
-    private static native void nativeCopyFromByteArray(long j, byte[] bArr, int i, int i2);
-
-    @com.facebook.common.internal.d
-    private static native void nativeCopyToByteArray(long j, byte[] bArr, int i, int i2);
-
-    @com.facebook.common.internal.d
-    private static native void nativeFree(long j);
-
-    @com.facebook.common.internal.d
-    private static native void nativeMemcpy(long j, long j2, int i);
-
-    @com.facebook.common.internal.d
-    private static native byte nativeReadByte(long j);
+import java.nio.ByteBuffer;
+import javax.annotation.Nullable;
+@DoNotStrip
+/* loaded from: classes.dex */
+public class NativeMemoryChunk implements MemoryChunk, Closeable {
+    public static final String TAG = "NativeMemoryChunk";
+    public boolean mIsClosed;
+    public final long mNativePtr;
+    public final int mSize;
 
     static {
-        com.facebook.imagepipeline.nativecode.a.load();
+        ImagePipelineNativeLoader.load();
     }
 
     public NativeMemoryChunk(int i) {
-        com.facebook.common.internal.g.checkArgument(i > 0);
+        Preconditions.checkArgument(i > 0);
         this.mSize = i;
-        this.mNativePtr = nativeAllocate(this.mSize);
-        this.mClosed = false;
+        this.mNativePtr = nativeAllocate(i);
+        this.mIsClosed = false;
     }
 
-    public NativeMemoryChunk() {
-        this.mSize = 0;
-        this.mNativePtr = 0L;
-        this.mClosed = true;
+    private void doCopy(int i, MemoryChunk memoryChunk, int i2, int i3) {
+        if (memoryChunk instanceof NativeMemoryChunk) {
+            Preconditions.checkState(!isClosed());
+            Preconditions.checkState(!memoryChunk.isClosed());
+            MemoryChunkUtil.checkBounds(i, memoryChunk.getSize(), i2, i3, this.mSize);
+            nativeMemcpy(memoryChunk.getNativePtr() + i2, this.mNativePtr + i, i3);
+            return;
+        }
+        throw new IllegalArgumentException("Cannot copy two incompatible MemoryChunks");
     }
 
-    @Override // java.io.Closeable, java.lang.AutoCloseable
+    @DoNotStrip
+    public static native long nativeAllocate(int i);
+
+    @DoNotStrip
+    public static native void nativeCopyFromByteArray(long j, byte[] bArr, int i, int i2);
+
+    @DoNotStrip
+    public static native void nativeCopyToByteArray(long j, byte[] bArr, int i, int i2);
+
+    @DoNotStrip
+    public static native void nativeFree(long j);
+
+    @DoNotStrip
+    public static native void nativeMemcpy(long j, long j2, int i);
+
+    @DoNotStrip
+    public static native byte nativeReadByte(long j);
+
+    @Override // com.facebook.imagepipeline.memory.MemoryChunk, java.io.Closeable, java.lang.AutoCloseable
     public synchronized void close() {
-        if (!this.mClosed) {
-            this.mClosed = true;
+        if (!this.mIsClosed) {
+            this.mIsClosed = true;
             nativeFree(this.mNativePtr);
         }
     }
 
-    public synchronized boolean isClosed() {
-        return this.mClosed;
-    }
-
-    public int getSize() {
-        return this.mSize;
-    }
-
-    public synchronized int d(int i, byte[] bArr, int i2, int i3) {
-        int eb;
-        com.facebook.common.internal.g.checkNotNull(bArr);
-        com.facebook.common.internal.g.checkState(!isClosed());
-        eb = eb(i, i3);
-        P(i, bArr.length, i2, eb);
-        nativeCopyFromByteArray(this.mNativePtr + i, bArr, i2, eb);
-        return eb;
-    }
-
-    public synchronized int c(int i, byte[] bArr, int i2, int i3) {
-        int eb;
-        com.facebook.common.internal.g.checkNotNull(bArr);
-        com.facebook.common.internal.g.checkState(!isClosed());
-        eb = eb(i, i3);
-        P(i, bArr.length, i2, eb);
-        nativeCopyToByteArray(this.mNativePtr + i, bArr, i2, eb);
-        return eb;
-    }
-
-    public synchronized byte OZ(int i) {
-        byte nativeReadByte;
-        synchronized (this) {
-            com.facebook.common.internal.g.checkState(!isClosed());
-            com.facebook.common.internal.g.checkArgument(i >= 0);
-            com.facebook.common.internal.g.checkArgument(i < this.mSize);
-            nativeReadByte = nativeReadByte(this.mNativePtr + i);
+    @Override // com.facebook.imagepipeline.memory.MemoryChunk
+    public void copy(int i, MemoryChunk memoryChunk, int i2, int i3) {
+        Preconditions.checkNotNull(memoryChunk);
+        if (memoryChunk.getUniqueId() == getUniqueId()) {
+            Log.w(TAG, "Copying from NativeMemoryChunk " + Integer.toHexString(System.identityHashCode(this)) + " to NativeMemoryChunk " + Integer.toHexString(System.identityHashCode(memoryChunk)) + " which share the same address " + Long.toHexString(this.mNativePtr));
+            Preconditions.checkArgument(false);
         }
-        return nativeReadByte;
-    }
-
-    public void a(int i, NativeMemoryChunk nativeMemoryChunk, int i2, int i3) {
-        com.facebook.common.internal.g.checkNotNull(nativeMemoryChunk);
-        if (nativeMemoryChunk.mNativePtr == this.mNativePtr) {
-            Log.w("NativeMemoryChunk", "Copying from NativeMemoryChunk " + Integer.toHexString(System.identityHashCode(this)) + " to NativeMemoryChunk " + Integer.toHexString(System.identityHashCode(nativeMemoryChunk)) + " which share the same address " + Long.toHexString(this.mNativePtr));
-            com.facebook.common.internal.g.checkArgument(false);
-        }
-        if (nativeMemoryChunk.mNativePtr < this.mNativePtr) {
-            synchronized (nativeMemoryChunk) {
+        if (memoryChunk.getUniqueId() < getUniqueId()) {
+            synchronized (memoryChunk) {
                 synchronized (this) {
-                    b(i, nativeMemoryChunk, i2, i3);
+                    doCopy(i, memoryChunk, i2, i3);
                 }
             }
             return;
         }
         synchronized (this) {
-            synchronized (nativeMemoryChunk) {
-                b(i, nativeMemoryChunk, i2, i3);
+            synchronized (memoryChunk) {
+                doCopy(i, memoryChunk, i2, i3);
             }
         }
     }
 
-    public long esX() {
+    public void finalize() throws Throwable {
+        if (isClosed()) {
+            return;
+        }
+        Log.w(TAG, "finalize: Chunk " + Integer.toHexString(System.identityHashCode(this)) + " still active. ");
+        try {
+            close();
+        } finally {
+            super.finalize();
+        }
+    }
+
+    @Override // com.facebook.imagepipeline.memory.MemoryChunk
+    @Nullable
+    public ByteBuffer getByteBuffer() {
+        return null;
+    }
+
+    @Override // com.facebook.imagepipeline.memory.MemoryChunk
+    public long getNativePtr() {
         return this.mNativePtr;
     }
 
-    private void b(int i, NativeMemoryChunk nativeMemoryChunk, int i2, int i3) {
-        com.facebook.common.internal.g.checkState(!isClosed());
-        com.facebook.common.internal.g.checkState(nativeMemoryChunk.isClosed() ? false : true);
-        P(i, nativeMemoryChunk.mSize, i2, i3);
-        nativeMemcpy(nativeMemoryChunk.mNativePtr + i2, this.mNativePtr + i, i3);
+    @Override // com.facebook.imagepipeline.memory.MemoryChunk
+    public int getSize() {
+        return this.mSize;
     }
 
-    protected void finalize() throws Throwable {
-        if (!isClosed()) {
-            Log.w("NativeMemoryChunk", "finalize: Chunk " + Integer.toHexString(System.identityHashCode(this)) + " still active. Underlying address = " + Long.toHexString(this.mNativePtr));
-            try {
-                close();
-            } finally {
-                super.finalize();
-            }
+    @Override // com.facebook.imagepipeline.memory.MemoryChunk
+    public long getUniqueId() {
+        return this.mNativePtr;
+    }
+
+    @Override // com.facebook.imagepipeline.memory.MemoryChunk
+    public synchronized boolean isClosed() {
+        return this.mIsClosed;
+    }
+
+    @Override // com.facebook.imagepipeline.memory.MemoryChunk
+    public synchronized int read(int i, byte[] bArr, int i2, int i3) {
+        int adjustByteCount;
+        Preconditions.checkNotNull(bArr);
+        Preconditions.checkState(!isClosed());
+        adjustByteCount = MemoryChunkUtil.adjustByteCount(i, i3, this.mSize);
+        MemoryChunkUtil.checkBounds(i, bArr.length, i2, adjustByteCount, this.mSize);
+        nativeCopyToByteArray(this.mNativePtr + i, bArr, i2, adjustByteCount);
+        return adjustByteCount;
+    }
+
+    @Override // com.facebook.imagepipeline.memory.MemoryChunk
+    public synchronized int write(int i, byte[] bArr, int i2, int i3) {
+        int adjustByteCount;
+        Preconditions.checkNotNull(bArr);
+        Preconditions.checkState(!isClosed());
+        adjustByteCount = MemoryChunkUtil.adjustByteCount(i, i3, this.mSize);
+        MemoryChunkUtil.checkBounds(i, bArr.length, i2, adjustByteCount, this.mSize);
+        nativeCopyFromByteArray(this.mNativePtr + i, bArr, i2, adjustByteCount);
+        return adjustByteCount;
+    }
+
+    @VisibleForTesting
+    public NativeMemoryChunk() {
+        this.mSize = 0;
+        this.mNativePtr = 0L;
+        this.mIsClosed = true;
+    }
+
+    @Override // com.facebook.imagepipeline.memory.MemoryChunk
+    public synchronized byte read(int i) {
+        boolean z = true;
+        Preconditions.checkState(!isClosed());
+        Preconditions.checkArgument(i >= 0);
+        if (i >= this.mSize) {
+            z = false;
         }
-    }
-
-    private int eb(int i, int i2) {
-        return Math.min(Math.max(0, this.mSize - i), i2);
-    }
-
-    private void P(int i, int i2, int i3, int i4) {
-        com.facebook.common.internal.g.checkArgument(i4 >= 0);
-        com.facebook.common.internal.g.checkArgument(i >= 0);
-        com.facebook.common.internal.g.checkArgument(i3 >= 0);
-        com.facebook.common.internal.g.checkArgument(i + i4 <= this.mSize);
-        com.facebook.common.internal.g.checkArgument(i3 + i4 <= i2);
+        Preconditions.checkArgument(z);
+        return nativeReadByte(this.mNativePtr + i);
     }
 }

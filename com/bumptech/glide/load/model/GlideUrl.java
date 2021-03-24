@@ -10,24 +10,94 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.security.MessageDigest;
 import java.util.Map;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class GlideUrl implements Key {
-    private static final String ALLOWED_URI_CHARS = "@#&=*+-_.,:!?()/~'%;$";
+    public static final String ALLOWED_URI_CHARS = "@#&=*+-_.,:!?()/~'%;$";
     @Nullable
-    private volatile byte[] cacheKeyBytes;
-    private int hashCode;
-    private final Headers headers;
+    public volatile byte[] cacheKeyBytes;
+    public int hashCode;
+    public final Headers headers;
     @Nullable
-    private String safeStringUrl;
+    public String safeStringUrl;
     @Nullable
-    private URL safeUrl;
+    public URL safeUrl;
     @Nullable
-    private final String stringUrl;
+    public final String stringUrl;
     @Nullable
-    private final URL url;
+    public final URL url;
 
     public GlideUrl(URL url) {
         this(url, Headers.DEFAULT);
+    }
+
+    private byte[] getCacheKeyBytes() {
+        if (this.cacheKeyBytes == null) {
+            this.cacheKeyBytes = getCacheKey().getBytes(Key.CHARSET);
+        }
+        return this.cacheKeyBytes;
+    }
+
+    private String getSafeStringUrl() {
+        if (TextUtils.isEmpty(this.safeStringUrl)) {
+            String str = this.stringUrl;
+            if (TextUtils.isEmpty(str)) {
+                str = ((URL) Preconditions.checkNotNull(this.url)).toString();
+            }
+            this.safeStringUrl = Uri.encode(str, ALLOWED_URI_CHARS);
+        }
+        return this.safeStringUrl;
+    }
+
+    private URL getSafeUrl() throws MalformedURLException {
+        if (this.safeUrl == null) {
+            this.safeUrl = new URL(getSafeStringUrl());
+        }
+        return this.safeUrl;
+    }
+
+    @Override // com.bumptech.glide.load.Key
+    public boolean equals(Object obj) {
+        if (obj instanceof GlideUrl) {
+            GlideUrl glideUrl = (GlideUrl) obj;
+            return getCacheKey().equals(glideUrl.getCacheKey()) && this.headers.equals(glideUrl.headers);
+        }
+        return false;
+    }
+
+    public String getCacheKey() {
+        String str = this.stringUrl;
+        return str != null ? str : ((URL) Preconditions.checkNotNull(this.url)).toString();
+    }
+
+    public Map<String, String> getHeaders() {
+        return this.headers.getHeaders();
+    }
+
+    @Override // com.bumptech.glide.load.Key
+    public int hashCode() {
+        if (this.hashCode == 0) {
+            int hashCode = getCacheKey().hashCode();
+            this.hashCode = hashCode;
+            this.hashCode = (hashCode * 31) + this.headers.hashCode();
+        }
+        return this.hashCode;
+    }
+
+    public String toString() {
+        return getCacheKey();
+    }
+
+    public String toStringUrl() {
+        return getSafeStringUrl();
+    }
+
+    public URL toURL() throws MalformedURLException {
+        return getSafeUrl();
+    }
+
+    @Override // com.bumptech.glide.load.Key
+    public void updateDiskCacheKey(@NonNull MessageDigest messageDigest) {
+        messageDigest.update(getCacheKeyBytes());
     }
 
     public GlideUrl(String str) {
@@ -44,73 +114,5 @@ public class GlideUrl implements Key {
         this.url = null;
         this.stringUrl = Preconditions.checkNotEmpty(str);
         this.headers = (Headers) Preconditions.checkNotNull(headers);
-    }
-
-    public URL toURL() throws MalformedURLException {
-        return getSafeUrl();
-    }
-
-    private URL getSafeUrl() throws MalformedURLException {
-        if (this.safeUrl == null) {
-            this.safeUrl = new URL(getSafeStringUrl());
-        }
-        return this.safeUrl;
-    }
-
-    public String toStringUrl() {
-        return getSafeStringUrl();
-    }
-
-    private String getSafeStringUrl() {
-        if (TextUtils.isEmpty(this.safeStringUrl)) {
-            String str = this.stringUrl;
-            if (TextUtils.isEmpty(str)) {
-                str = ((URL) Preconditions.checkNotNull(this.url)).toString();
-            }
-            this.safeStringUrl = Uri.encode(str, ALLOWED_URI_CHARS);
-        }
-        return this.safeStringUrl;
-    }
-
-    public Map<String, String> getHeaders() {
-        return this.headers.getHeaders();
-    }
-
-    public String getCacheKey() {
-        return this.stringUrl != null ? this.stringUrl : ((URL) Preconditions.checkNotNull(this.url)).toString();
-    }
-
-    public String toString() {
-        return getCacheKey();
-    }
-
-    @Override // com.bumptech.glide.load.Key
-    public void updateDiskCacheKey(@NonNull MessageDigest messageDigest) {
-        messageDigest.update(getCacheKeyBytes());
-    }
-
-    private byte[] getCacheKeyBytes() {
-        if (this.cacheKeyBytes == null) {
-            this.cacheKeyBytes = getCacheKey().getBytes(CHARSET);
-        }
-        return this.cacheKeyBytes;
-    }
-
-    @Override // com.bumptech.glide.load.Key
-    public boolean equals(Object obj) {
-        if (obj instanceof GlideUrl) {
-            GlideUrl glideUrl = (GlideUrl) obj;
-            return getCacheKey().equals(glideUrl.getCacheKey()) && this.headers.equals(glideUrl.headers);
-        }
-        return false;
-    }
-
-    @Override // com.bumptech.glide.load.Key
-    public int hashCode() {
-        if (this.hashCode == 0) {
-            this.hashCode = getCacheKey().hashCode();
-            this.hashCode = (this.hashCode * 31) + this.headers.hashCode();
-        }
-        return this.hashCode;
     }
 }

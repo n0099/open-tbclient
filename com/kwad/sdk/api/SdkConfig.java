@@ -2,12 +2,13 @@ package com.kwad.sdk.api;
 
 import androidx.annotation.Keep;
 import androidx.annotation.Nullable;
+import com.baidu.sapi2.activity.BaseActivity;
 import com.kwad.sdk.api.core.KsAdSdkApi;
 import org.json.JSONException;
 import org.json.JSONObject;
 @KsAdSdkApi
 @Keep
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class SdkConfig {
     @Nullable
     @KsAdSdkApi
@@ -27,13 +28,13 @@ public class SdkConfig {
     public String appWebKey;
     @KsAdSdkApi
     @Keep
-    private boolean canReadICCID;
+    public boolean canReadICCID;
     @KsAdSdkApi
     @Keep
-    private boolean canReadMacAddress;
+    public boolean canReadMacAddress;
     @KsAdSdkApi
     @Keep
-    private boolean canReadNearbyWifiList;
+    public boolean canReadNearbyWifiList;
     @KsAdSdkApi
     @Keep
     public boolean enableDebug;
@@ -44,21 +45,21 @@ public class SdkConfig {
 
     @KsAdSdkApi
     @Keep
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class Builder {
         @Nullable
-        private String appId;
+        public String appId;
         @Nullable
-        private String appKey;
+        public String appKey;
         @Nullable
-        private String appName;
+        public String appName;
         @Nullable
-        private String appWebKey;
-        private boolean enableDebug;
-        private boolean showNotification = true;
-        private boolean canReadMacAddress = true;
-        private boolean canReadNearbyWifiList = true;
-        private boolean canReadICCID = true;
+        public String appWebKey;
+        public boolean enableDebug;
+        public boolean showNotification = true;
+        public boolean canReadMacAddress = true;
+        public boolean canReadNearbyWifiList = true;
+        public boolean canReadICCID = true;
 
         @KsAdSdkApi
         @Keep
@@ -132,7 +133,7 @@ public class SdkConfig {
 
     @KsAdSdkApi
     @Keep
-    private SdkConfig(Builder builder) {
+    public SdkConfig(Builder builder) {
         this.enableDebug = builder.enableDebug;
         this.appId = builder.appId;
         this.appName = builder.appName;
@@ -149,7 +150,7 @@ public class SdkConfig {
         try {
             JSONObject jSONObject = new JSONObject(str);
             builder.enableDebug = jSONObject.optBoolean("enableDebug");
-            builder.appId = jSONObject.optString("appId");
+            builder.appId = jSONObject.optString(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID);
             builder.appName = jSONObject.optString("appName");
             builder.appKey = jSONObject.optString("appKey");
             builder.appWebKey = jSONObject.optString("appWebKey");
@@ -157,8 +158,8 @@ public class SdkConfig {
             builder.canReadMacAddress = jSONObject.optBoolean("canReadMacAddress");
             builder.canReadNearbyWifiList = jSONObject.optBoolean("canReadNearbyWifiList");
             builder.canReadICCID = jSONObject.optBoolean("canReadICCID");
-        } catch (JSONException e) {
-            e.printStackTrace();
+        } catch (JSONException e2) {
+            e2.printStackTrace();
         }
         return builder.build();
     }
@@ -185,7 +186,7 @@ public class SdkConfig {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("enableDebug", this.enableDebug);
-            jSONObject.put("appId", this.appId);
+            jSONObject.put(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, this.appId);
             jSONObject.put("appName", this.appName);
             jSONObject.put("appKey", this.appKey);
             jSONObject.put("appWebKey", this.appWebKey);
@@ -193,8 +194,8 @@ public class SdkConfig {
             jSONObject.put("canReadMacAddress", this.canReadMacAddress);
             jSONObject.put("canReadNearbyWifiList", this.canReadNearbyWifiList);
             jSONObject.put("canReadICCID", this.canReadICCID);
-        } catch (JSONException e) {
-            e.printStackTrace();
+        } catch (JSONException e2) {
+            e2.printStackTrace();
         }
         return jSONObject.toString();
     }

@@ -3,7 +3,7 @@ package com.baidu.mobads.openad.interfaces.download;
 import com.baidu.mobads.interfaces.download.IXAdStaticImgDownloader;
 import java.net.URL;
 import java.util.ArrayList;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public interface IOAdDownloaderManager {
     IOAdDownloader createAdsApkDownloader(URL url, String str, String str2, int i, String str3, String str4);
 

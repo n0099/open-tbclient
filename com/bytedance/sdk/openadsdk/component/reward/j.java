@@ -10,176 +10,240 @@ import com.bytedance.sdk.openadsdk.AdSlot;
 import com.bytedance.sdk.openadsdk.IListenerManager;
 import com.bytedance.sdk.openadsdk.TTAdConstant;
 import com.bytedance.sdk.openadsdk.TTAppDownloadListener;
-import com.bytedance.sdk.openadsdk.TTRewardVideoAd;
-import com.bytedance.sdk.openadsdk.activity.base.TTRewardExpressVideoActivity;
-import com.bytedance.sdk.openadsdk.activity.base.TTRewardVideoActivity;
+import com.bytedance.sdk.openadsdk.TTFullScreenVideoAd;
+import com.bytedance.sdk.openadsdk.activity.base.TTFullScreenExpressVideoActivity;
+import com.bytedance.sdk.openadsdk.activity.base.TTFullScreenVideoActivity;
 import com.bytedance.sdk.openadsdk.core.d.l;
 import com.bytedance.sdk.openadsdk.core.p;
 import com.bytedance.sdk.openadsdk.utils.b;
-import com.bytedance.sdk.openadsdk.utils.k;
 import com.bytedance.sdk.openadsdk.utils.u;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicBoolean;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-class j implements TTRewardVideoAd {
+public class j implements TTFullScreenVideoAd {
 
     /* renamed from: a  reason: collision with root package name */
-    private final Context f4293a;
-    private final l b;
-    private final AdSlot c;
-    private TTRewardVideoAd.RewardAdInteractionListener d;
-    private com.bytedance.sdk.openadsdk.downloadnew.core.a e;
-    private boolean g;
-    private String h;
-    private String i;
-    private String k;
-    private boolean f = true;
-    private AtomicBoolean j = new AtomicBoolean(false);
+    public final Context f27813a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    /* renamed from: b  reason: collision with root package name */
+    public final l f27814b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public final AdSlot f27815c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public TTFullScreenVideoAd.FullScreenVideoAdInteractionListener f27816d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public com.bytedance.sdk.openadsdk.downloadnew.core.a f27817e;
+
+    /* renamed from: g  reason: collision with root package name */
+    public boolean f27819g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public String f27820h;
+    public String i;
+    public String l;
+
+    /* renamed from: f  reason: collision with root package name */
+    public boolean f27818f = true;
+    public AtomicBoolean j = new AtomicBoolean(false);
+    public boolean k = false;
+
     public j(Context context, l lVar, AdSlot adSlot) {
-        this.f4293a = context;
-        this.b = lVar;
-        this.c = adSlot;
+        this.f27813a = context;
+        this.f27814b = lVar;
+        this.f27815c = adSlot;
         if (getInteractionType() == 4) {
-            this.e = com.bytedance.sdk.openadsdk.downloadnew.a.a(this.f4293a, this.b, "rewarded_video");
+            this.f27817e = com.bytedance.sdk.openadsdk.downloadnew.a.a(this.f27813a, this.f27814b, "fullscreen_interstitial_ad");
         }
-        this.g = false;
-        this.k = com.bytedance.sdk.openadsdk.utils.j.a(this.b.hashCode() + this.b.aE().toString());
+        this.f27819g = false;
+        this.l = com.bytedance.sdk.openadsdk.utils.j.a(this.f27814b.hashCode() + this.f27814b.aL().toString());
     }
 
-    public void a(String str) {
-        if (!this.j.get()) {
-            this.g = true;
-            this.h = str;
-        }
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.TTRewardVideoAd
-    public void setRewardAdInteractionListener(TTRewardVideoAd.RewardAdInteractionListener rewardAdInteractionListener) {
-        this.d = rewardAdInteractionListener;
-        a(0);
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.TTRewardVideoAd
-    public void setDownloadListener(TTAppDownloadListener tTAppDownloadListener) {
-        if (this.e != null) {
-            this.e.a(tTAppDownloadListener);
-        }
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.TTRewardVideoAd
-    public int getInteractionType() {
-        if (this.b == null) {
+    @Override // com.bytedance.sdk.openadsdk.TTFullScreenVideoAd
+    public int getFullVideoAdType() {
+        l lVar = this.f27814b;
+        if (lVar == null) {
             return -1;
         }
-        return this.b.T();
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.TTRewardVideoAd
-    public void setShowDownLoadBar(boolean z) {
-        this.f = z;
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.TTRewardVideoAd
-    public int getRewardVideoAdType() {
-        if (this.b == null) {
-            return -1;
-        }
-        if (this.b.C() && this.b.i() == 1) {
+        if (lVar.C() && this.f27814b.i() == 1) {
             return 2;
         }
-        return (this.b.C() && this.b.i() == 0) ? 1 : 0;
+        return (this.f27814b.C() && this.f27814b.i() == 0) ? 1 : 0;
     }
 
-    @Override // com.bytedance.sdk.openadsdk.TTRewardVideoAd
-    public void showRewardVideoAd(Activity activity) {
-        Intent intent;
-        if (activity != null && activity.isFinishing()) {
-            u.f("TTRewardVideoAdImpl", "showRewardVideoAd error1: activity is finishing");
-        } else if (Looper.getMainLooper() != Looper.myLooper()) {
-            u.f("TTRewardVideoAdImpl", "showRewardVideoAd error2: not main looper");
-            throw new IllegalStateException("不能在子线程调用 TTRewardVideoAd.showRewardVideoAd");
-        } else if (!this.j.get()) {
-            this.j.set(true);
-            if (this.b != null && this.b.R() != null) {
-                Context context = activity == null ? this.f4293a : activity;
-                if (context == null) {
-                    context = p.a();
-                }
-                if (this.b.d() == 2) {
-                    intent = new Intent(context, TTRewardExpressVideoActivity.class);
-                } else {
-                    intent = new Intent(context, TTRewardVideoActivity.class);
-                }
-                if (activity == null) {
-                    intent.addFlags(268435456);
-                }
-                intent.putExtra("reward_name", this.b.b());
-                intent.putExtra("reward_amount", this.b.c());
-                intent.putExtra("media_extra", this.c.getMediaExtra());
-                intent.putExtra("user_id", this.c.getUserID());
-                intent.putExtra("show_download_bar", this.f);
-                intent.putExtra("orientation", this.c.getOrientation());
-                if (!TextUtils.isEmpty(this.i)) {
-                    intent.putExtra("rit_scene", this.i);
-                }
-                if (this.g) {
-                    intent.putExtra("video_cache_url", this.h);
-                }
-                k.e(this.b.aE().toString());
-                if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
-                    intent.putExtra(TTAdConstant.MULTI_PROCESS_MATERIALMETA, this.b.aE().toString());
-                    intent.putExtra("multi_process_meta_md5", this.k);
-                } else {
-                    com.bytedance.sdk.openadsdk.core.u.a().g();
-                    com.bytedance.sdk.openadsdk.core.u.a().a(this.b);
-                    com.bytedance.sdk.openadsdk.core.u.a().a(this.d);
-                    com.bytedance.sdk.openadsdk.core.u.a().a(this.e);
-                    this.d = null;
-                }
-                com.bytedance.sdk.openadsdk.utils.b.a(context, intent, new b.a() { // from class: com.bytedance.sdk.openadsdk.component.reward.j.1
-                    @Override // com.bytedance.sdk.openadsdk.utils.b.a
-                    public void a() {
-                    }
-
-                    @Override // com.bytedance.sdk.openadsdk.utils.b.a
-                    public void a(Throwable th) {
-                        u.c("TTRewardVideoAdImpl", "show reward video error: ", th);
-                    }
-                });
-                if (!TextUtils.isEmpty(this.b.aj())) {
-                    try {
-                        String optString = new JSONObject(this.b.aj()).optString("rit", null);
-                        AdSlot b = g.a(this.f4293a).b(optString);
-                        g.a(this.f4293a).a(optString);
-                        if (b != null) {
-                            if (this.g && !TextUtils.isEmpty(this.h)) {
-                                g.a(this.f4293a).b(b);
-                            } else {
-                                g.a(this.f4293a).a(b);
-                            }
-                        }
-                    } catch (Throwable th) {
-                    }
-                }
-            }
+    @Override // com.bytedance.sdk.openadsdk.TTFullScreenVideoAd
+    public int getInteractionType() {
+        l lVar = this.f27814b;
+        if (lVar == null) {
+            return -1;
         }
+        return lVar.Z();
     }
 
-    @Override // com.bytedance.sdk.openadsdk.TTRewardVideoAd
+    @Override // com.bytedance.sdk.openadsdk.TTFullScreenVideoAd
     public Map<String, Object> getMediaExtraInfo() {
-        if (this.b != null) {
-            return this.b.ar();
+        l lVar = this.f27814b;
+        if (lVar != null) {
+            return lVar.ay();
         }
         return null;
     }
 
-    @Override // com.bytedance.sdk.openadsdk.TTRewardVideoAd
-    public void showRewardVideoAd(Activity activity, TTAdConstant.RitScenes ritScenes, String str) {
+    @Override // com.bytedance.sdk.openadsdk.TTFullScreenVideoAd
+    public void setDownloadListener(TTAppDownloadListener tTAppDownloadListener) {
+        com.bytedance.sdk.openadsdk.downloadnew.core.a aVar = this.f27817e;
+        if (aVar != null) {
+            aVar.a(tTAppDownloadListener);
+        }
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.TTFullScreenVideoAd
+    public void setFullScreenVideoAdInteractionListener(TTFullScreenVideoAd.FullScreenVideoAdInteractionListener fullScreenVideoAdInteractionListener) {
+        this.f27816d = fullScreenVideoAdInteractionListener;
+        a(1);
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.TTFullScreenVideoAd
+    public void setShowDownLoadBar(boolean z) {
+        this.f27818f = z;
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.TTFullScreenVideoAd
+    public void showFullScreenVideoAd(Activity activity) {
+        Intent intent;
+        if (activity != null && activity.isFinishing()) {
+            u.f("TTFullScreenVideoAdImpl", "showFullScreenVideoAd error1: activity is finishing");
+            activity = null;
+        }
+        if (Looper.getMainLooper() == Looper.myLooper()) {
+            if (this.j.get()) {
+                return;
+            }
+            this.j.set(true);
+            l lVar = this.f27814b;
+            if (lVar == null || lVar.X() == null) {
+                return;
+            }
+            Context context = activity == null ? this.f27813a : activity;
+            if (context == null) {
+                context = p.a();
+            }
+            if (this.f27814b.d() == 2) {
+                intent = new Intent(context, TTFullScreenExpressVideoActivity.class);
+            } else {
+                intent = new Intent(context, TTFullScreenVideoActivity.class);
+            }
+            if (activity == null) {
+                intent.addFlags(268435456);
+            }
+            intent.putExtra("show_download_bar", this.f27818f);
+            intent.putExtra("orientation", this.f27815c.getOrientation());
+            intent.putExtra("is_verity_playable", this.k);
+            if (!TextUtils.isEmpty(this.i)) {
+                intent.putExtra("rit_scene", this.i);
+            }
+            if (this.f27819g) {
+                intent.putExtra("video_cache_url", this.f27820h);
+            }
+            com.bytedance.sdk.openadsdk.utils.k.e(this.f27814b.aL().toString());
+            if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
+                intent.putExtra(TTAdConstant.MULTI_PROCESS_MATERIALMETA, this.f27814b.aL().toString());
+                intent.putExtra("multi_process_meta_md5", this.l);
+            } else {
+                com.bytedance.sdk.openadsdk.core.u.a().g();
+                com.bytedance.sdk.openadsdk.core.u.a().a(this.f27814b);
+                com.bytedance.sdk.openadsdk.core.u.a().a(this.f27816d);
+                com.bytedance.sdk.openadsdk.core.u.a().a(this.f27817e);
+                this.f27816d = null;
+            }
+            com.bytedance.sdk.openadsdk.utils.b.a(context, intent, new b.a() { // from class: com.bytedance.sdk.openadsdk.component.reward.j.1
+                @Override // com.bytedance.sdk.openadsdk.utils.b.a
+                public void a() {
+                    if (j.this.k) {
+                        try {
+                            com.bytedance.sdk.openadsdk.h.a.a().a(j.this.f27814b.X().j());
+                        } catch (Throwable unused) {
+                        }
+                    }
+                }
+
+                @Override // com.bytedance.sdk.openadsdk.utils.b.a
+                public void a(Throwable th) {
+                    u.c("TTFullScreenVideoAdImpl", "show full screen video error: ", th);
+                    if (j.this.k) {
+                        try {
+                            com.bytedance.sdk.openadsdk.h.a.a().a(j.this.f27814b.X().j(), -1, th != null ? th.getMessage() : "playable tool error open");
+                        } catch (Throwable unused) {
+                        }
+                    }
+                }
+            });
+            if (TextUtils.isEmpty(this.f27814b.ap())) {
+                return;
+            }
+            try {
+                String optString = new JSONObject(this.f27814b.ap()).optString("rit", null);
+                AdSlot b2 = c.a(this.f27813a).b(optString);
+                c.a(this.f27813a).a(optString);
+                if (b2 != null) {
+                    if (this.f27819g && !TextUtils.isEmpty(this.f27820h)) {
+                        c.a(this.f27813a).b(b2);
+                    } else {
+                        c.a(this.f27813a).a(b2);
+                    }
+                }
+                return;
+            } catch (Throwable unused) {
+                return;
+            }
+        }
+        u.f("TTFullScreenVideoAdImpl", "showFullScreenVideoAd error2: not main looper");
+        throw new IllegalStateException("不能在子线程调用 TTFullScreenVideoAd.showFullScreenVideoAd");
+    }
+
+    public void a(boolean z) {
+        this.k = z;
+    }
+
+    public void a(String str) {
+        if (this.j.get()) {
+            return;
+        }
+        this.f27819g = true;
+        this.f27820h = str;
+    }
+
+    private void a(final int i) {
+        if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
+            com.bytedance.sdk.openadsdk.l.e.b(new com.bytedance.sdk.openadsdk.l.g("registerMultiProcessListener") { // from class: com.bytedance.sdk.openadsdk.component.reward.j.2
+                @Override // java.lang.Runnable
+                public void run() {
+                    com.bytedance.sdk.openadsdk.multipro.aidl.a a2 = com.bytedance.sdk.openadsdk.multipro.aidl.a.a(j.this.f27813a);
+                    if (i == 1 && j.this.f27816d != null) {
+                        u.b("MultiProcess", "start registerFullScreenVideoListener ! ");
+                        com.bytedance.sdk.openadsdk.multipro.aidl.b.c cVar = new com.bytedance.sdk.openadsdk.multipro.aidl.b.c(j.this.f27816d);
+                        IListenerManager asInterface = IListenerManager.Stub.asInterface(a2.a(1));
+                        if (asInterface != null) {
+                            try {
+                                asInterface.registerFullVideoListener(j.this.l, cVar);
+                                u.b("MultiProcess", "end registerFullScreenVideoListener ! ");
+                            } catch (RemoteException e2) {
+                                e2.printStackTrace();
+                            }
+                        }
+                    }
+                }
+            }, 5);
+        }
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.TTFullScreenVideoAd
+    public void showFullScreenVideoAd(Activity activity, TTAdConstant.RitScenes ritScenes, String str) {
         if (ritScenes == null) {
-            u.f("TTRewardVideoAdImpl", "The param ritScenes can not be null!");
+            u.f("TTFullScreenVideoAdImpl", "The param ritScenes can not be null!");
             return;
         }
         if (ritScenes == TTAdConstant.RitScenes.CUSTOMIZE_SCENES) {
@@ -187,39 +251,6 @@ class j implements TTRewardVideoAd {
         } else {
             this.i = ritScenes.getScenesName();
         }
-        showRewardVideoAd(activity);
-    }
-
-    private void a(final int i) {
-        if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
-            com.bytedance.sdk.openadsdk.j.e.b(new Runnable() { // from class: com.bytedance.sdk.openadsdk.component.reward.j.2
-                @Override // java.lang.Runnable
-                public void run() {
-                    com.bytedance.sdk.openadsdk.multipro.aidl.a a2 = com.bytedance.sdk.openadsdk.multipro.aidl.a.a(j.this.f4293a);
-                    switch (i) {
-                        case 0:
-                            if (j.this.d != null) {
-                                u.b("MultiProcess", "start registerRewardVideoListener ! ");
-                                com.bytedance.sdk.openadsdk.multipro.aidl.b.d dVar = new com.bytedance.sdk.openadsdk.multipro.aidl.b.d(j.this.d);
-                                IListenerManager asInterface = com.bytedance.sdk.openadsdk.multipro.aidl.a.f.asInterface(a2.a(0));
-                                if (asInterface != null) {
-                                    try {
-                                        asInterface.registerRewardVideoListener(j.this.k, dVar);
-                                        u.b("MultiProcess", "end registerRewardVideoListener ! ");
-                                        return;
-                                    } catch (RemoteException e) {
-                                        e.printStackTrace();
-                                        return;
-                                    }
-                                }
-                                return;
-                            }
-                            return;
-                        default:
-                            return;
-                    }
-                }
-            }, 5);
-        }
+        showFullScreenVideoAd(activity);
     }
 }

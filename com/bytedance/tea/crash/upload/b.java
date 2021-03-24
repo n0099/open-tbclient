@@ -2,19 +2,26 @@ package com.bytedance.tea.crash.upload;
 
 import android.support.v4.media.session.PlaybackStateCompat;
 import android.text.TextUtils;
-import com.baidu.webkit.internal.ETAG;
+import android.util.Pair;
+import com.baidu.down.loopj.android.http.AsyncHttpClient;
 import com.baidubce.AbstractBceClient;
 import com.bytedance.embedapplog.util.TTEncryptUtils;
-import com.bytedance.tea.crash.g.j;
-import com.bytedance.tea.crash.h;
+import d.c.d.b.l;
+import d.c.d.b.m;
+import d.c.d.b.n.d;
+import d.c.d.b.n.e;
 import java.io.ByteArrayOutputStream;
+import java.io.DataOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.HttpURLConnection;
 import java.net.URL;
 import java.nio.charset.Charset;
+import java.util.LinkedList;
 import java.util.Map;
 import java.util.zip.Deflater;
+import java.util.zip.GZIPInputStream;
 import java.util.zip.GZIPOutputStream;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -22,32 +29,65 @@ import org.json.JSONObject;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f5193a = false;
-    private static c pyJ;
+    public static boolean f30512a = false;
 
-    public static f a(long j, String str, byte[] bArr, a aVar, String str2, boolean z) throws IOException {
-        byte[] bArr2;
-        String str3;
-        String str4;
+    /* renamed from: b  reason: collision with root package name */
+    public static d.c.d.b.n.b f30513b;
+
+    /* loaded from: classes6.dex */
+    public enum a {
+        NONE(0),
+        GZIP(1),
+        DEFLATER(2);
+        
+
+        /* renamed from: d  reason: collision with root package name */
+        public final int f30518d;
+
+        a(int i) {
+            this.f30518d = i;
+        }
+    }
+
+    /* renamed from: com.bytedance.tea.crash.upload.b$b  reason: collision with other inner class name */
+    /* loaded from: classes6.dex */
+    public enum EnumC0338b {
+        NONE(0),
+        MOBILE(1),
+        MOBILE_2G(2),
+        MOBILE_3G(3),
+        WIFI(4),
+        MOBILE_4G(5);
+        
+
+        /* renamed from: g  reason: collision with root package name */
+        public final int f30526g;
+
+        EnumC0338b(int i) {
+            this.f30526g = i;
+        }
+    }
+
+    public static e a(long j, String str, byte[] bArr, a aVar, String str2, boolean z) throws IOException {
         if (str == null) {
-            return new f(201);
+            return new e(201);
         }
         if (bArr == null) {
             bArr = new byte[0];
         }
         int length = bArr.length;
-        String str5 = null;
+        String str3 = null;
         if (a.GZIP == aVar && length > 128) {
-            str5 = "gzip";
-            bArr2 = b(bArr);
-        } else if (a.DEFLATER != aVar || length <= 128) {
-            bArr2 = bArr;
-        } else {
-            str5 = "deflate";
-            bArr2 = a(bArr);
+            bArr = l(bArr);
+            str3 = AsyncHttpClient.ENCODING_GZIP;
+        } else if (a.DEFLATER == aVar && length > 128) {
+            bArr = i(bArr);
+            str3 = "deflate";
         }
+        String str4 = str3;
+        byte[] bArr2 = bArr;
         if (bArr2 == null) {
-            return new f(202);
+            return new e(202);
         }
         if (z) {
             byte[] a2 = TTEncryptUtils.a(bArr2, bArr2.length);
@@ -56,22 +96,218 @@ public class b {
                     if (!str.endsWith("?")) {
                         str = str + "?";
                     }
-                } else if (!str.endsWith(ETAG.ITEM_SEPARATOR)) {
-                    str = str + ETAG.ITEM_SEPARATOR;
+                } else if (!str.endsWith("&")) {
+                    str = str + "&";
                 }
-                str4 = str + "tt_data=a";
-                str3 = "application/octet-stream;tt-data=a";
+                str = str + "tt_data=a";
+                str2 = "application/octet-stream;tt-data=a";
                 bArr2 = a2;
-            } else {
-                str3 = str2;
-                str4 = str;
             }
-            return a(str4, bArr2, str3, str5, "POST", true, true);
+            return e(str, bArr2, str2, str4, "POST", true, true);
         }
-        return a(str, bArr2, str2, str5, "POST", true, false);
+        return e(str, bArr2, str2, str4, "POST", true, false);
     }
 
-    private static byte[] a(byte[] bArr) {
+    public static e b(String str, String str2) {
+        return d(str, str2, k());
+    }
+
+    public static e c(String str, String str2, String str3) {
+        try {
+            d dVar = new d(str, "UTF-8", true);
+            dVar.c("json", str2);
+            dVar.b("file", new File(str3));
+            String a2 = dVar.a();
+            try {
+                JSONObject jSONObject = new JSONObject(a2);
+                if ("succ".equals(jSONObject.optString("succ_kind"))) {
+                    return new e(0, jSONObject);
+                }
+                return new e(204, a2);
+            } catch (JSONException e2) {
+                return new e(205, e2);
+            }
+        } catch (IOException e3) {
+            e3.printStackTrace();
+            return new e(207);
+        }
+    }
+
+    public static e d(String str, String str2, boolean z) {
+        try {
+            if (!TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str)) {
+                return a(PlaybackStateCompat.ACTION_SET_SHUFFLE_MODE, str, str2.getBytes(), a.GZIP, AbstractBceClient.DEFAULT_CONTENT_TYPE, z);
+            }
+            return new e(201);
+        } catch (Throwable th) {
+            l.k.c(th);
+            return new e(207, th);
+        }
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:106:0x0111 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static e e(String str, byte[] bArr, String str2, String str3, String str4, boolean z, boolean z2) {
+        InputStream inputStream;
+        URL url;
+        GZIPInputStream gZIPInputStream;
+        byte[] h2;
+        DataOutputStream dataOutputStream;
+        HttpURLConnection httpURLConnection = null;
+        GZIPInputStream gZIPInputStream2 = null;
+        try {
+            if (f30513b != null) {
+                str = f30513b.a(str, bArr);
+            }
+            LinkedList<Pair> linkedList = new LinkedList();
+            if (z2) {
+                url = new URL(d.c.d.a.a.a.a.c(str, linkedList));
+            } else {
+                url = new URL(str);
+            }
+            HttpURLConnection httpURLConnection2 = (HttpURLConnection) url.openConnection();
+            if (z2) {
+                try {
+                    if (!linkedList.isEmpty()) {
+                        for (Pair pair : linkedList) {
+                            if (pair != null) {
+                                httpURLConnection2.setRequestProperty((String) pair.first, (String) pair.second);
+                            }
+                        }
+                    }
+                } catch (Throwable th) {
+                    httpURLConnection = httpURLConnection2;
+                    th = th;
+                    inputStream = null;
+                    try {
+                        l.k.c(th);
+                        return new e(207, th);
+                    } finally {
+                        if (httpURLConnection != null) {
+                            try {
+                                httpURLConnection.disconnect();
+                            } catch (Exception unused) {
+                            }
+                        }
+                        l.g.a(inputStream);
+                    }
+                }
+            }
+            if (z) {
+                httpURLConnection2.setDoOutput(true);
+            } else {
+                httpURLConnection2.setDoOutput(false);
+            }
+            if (str2 != null) {
+                httpURLConnection2.setRequestProperty("Content-Type", str2);
+            }
+            if (str3 != null) {
+                httpURLConnection2.setRequestProperty("Content-Encoding", str3);
+            }
+            httpURLConnection2.setRequestProperty("Accept-Encoding", AsyncHttpClient.ENCODING_GZIP);
+            if (str4 != null) {
+                httpURLConnection2.setRequestMethod(str4);
+                if (bArr != null && bArr.length > 0) {
+                    try {
+                        dataOutputStream = new DataOutputStream(httpURLConnection2.getOutputStream());
+                        try {
+                            dataOutputStream.write(bArr);
+                            dataOutputStream.flush();
+                            l.g.a(dataOutputStream);
+                        } catch (Throwable th2) {
+                            th = th2;
+                            l.g.a(dataOutputStream);
+                            throw th;
+                        }
+                    } catch (Throwable th3) {
+                        th = th3;
+                        dataOutputStream = null;
+                    }
+                }
+                int responseCode = httpURLConnection2.getResponseCode();
+                if (responseCode == 200) {
+                    inputStream = httpURLConnection2.getInputStream();
+                    try {
+                        if (AsyncHttpClient.ENCODING_GZIP.equalsIgnoreCase(httpURLConnection2.getContentEncoding())) {
+                            try {
+                                gZIPInputStream = new GZIPInputStream(inputStream);
+                            } catch (Throwable th4) {
+                                th = th4;
+                            }
+                            try {
+                                h2 = h(gZIPInputStream);
+                                l.g.a(gZIPInputStream);
+                            } catch (Throwable th5) {
+                                th = th5;
+                                gZIPInputStream2 = gZIPInputStream;
+                                l.g.a(gZIPInputStream2);
+                                throw th;
+                            }
+                        } else {
+                            h2 = h(inputStream);
+                        }
+                        e m = m(h2);
+                        if (httpURLConnection2 != null) {
+                            try {
+                                httpURLConnection2.disconnect();
+                            } catch (Exception unused2) {
+                            }
+                        }
+                        l.g.a(inputStream);
+                        return m;
+                    } catch (Throwable th6) {
+                        httpURLConnection = httpURLConnection2;
+                        th = th6;
+                        l.k.c(th);
+                        return new e(207, th);
+                    }
+                }
+                e eVar = new e(206, "http response code " + responseCode);
+                if (httpURLConnection2 != null) {
+                    try {
+                        httpURLConnection2.disconnect();
+                    } catch (Exception unused3) {
+                    }
+                }
+                l.g.a(null);
+                return eVar;
+            }
+            throw new IllegalArgumentException("request method is not null");
+        } catch (Throwable th7) {
+            th = th7;
+            inputStream = null;
+        }
+    }
+
+    public static String f(Map map) {
+        return m.f().a();
+    }
+
+    public static boolean g() {
+        return true;
+    }
+
+    public static byte[] h(InputStream inputStream) throws IOException {
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        byte[] bArr = new byte[8192];
+        while (true) {
+            int read = inputStream.read(bArr);
+            if (-1 != read) {
+                byteArrayOutputStream.write(bArr, 0, read);
+            } else {
+                inputStream.close();
+                try {
+                    return byteArrayOutputStream.toByteArray();
+                } finally {
+                    l.g.a(byteArrayOutputStream);
+                }
+            }
+        }
+    }
+
+    public static byte[] i(byte[] bArr) {
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream(8192);
         Deflater deflater = new Deflater();
         deflater.setInput(bArr);
@@ -84,7 +320,15 @@ public class b {
         return byteArrayOutputStream.toByteArray();
     }
 
-    private static byte[] b(byte[] bArr) throws IOException {
+    public static e j(String str, String str2) {
+        return d(str, str2, g());
+    }
+
+    public static boolean k() {
+        return true;
+    }
+
+    public static byte[] l(byte[] bArr) throws IOException {
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream(8192);
         GZIPOutputStream gZIPOutputStream = new GZIPOutputStream(byteArrayOutputStream);
         try {
@@ -93,7 +337,7 @@ public class b {
             return byteArrayOutputStream.toByteArray();
         } catch (Throwable th) {
             try {
-                j.b(th);
+                l.k.c(th);
                 return null;
             } finally {
                 gZIPOutputStream.close();
@@ -101,336 +345,19 @@ public class b {
         }
     }
 
-    /*  JADX ERROR: JadxRuntimeException in pass: BlockProcessor
-        jadx.core.utils.exceptions.JadxRuntimeException: Found unreachable blocks
-        	at jadx.core.dex.visitors.blocks.DominatorTree.sortBlocks(DominatorTree.java:35)
-        	at jadx.core.dex.visitors.blocks.DominatorTree.compute(DominatorTree.java:25)
-        	at jadx.core.dex.visitors.blocks.BlockProcessor.computeDominators(BlockProcessor.java:202)
-        	at jadx.core.dex.visitors.blocks.BlockProcessor.processBlocksTree(BlockProcessor.java:45)
-        	at jadx.core.dex.visitors.blocks.BlockProcessor.visit(BlockProcessor.java:39)
-        */
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [216=5, 218=4, 222=4] */
-    private static com.bytedance.tea.crash.upload.f a(java.lang.String r7, byte[] r8, java.lang.String r9, java.lang.String r10, java.lang.String r11, boolean r12, boolean r13) {
-        /*
-            r3 = 0
-            com.bytedance.tea.crash.upload.c r0 = com.bytedance.tea.crash.upload.b.pyJ     // Catch: java.lang.Throwable -> L63
-            if (r0 == 0) goto Lb
-            com.bytedance.tea.crash.upload.c r0 = com.bytedance.tea.crash.upload.b.pyJ     // Catch: java.lang.Throwable -> L63
-            java.lang.String r7 = r0.a(r7, r8)     // Catch: java.lang.Throwable -> L63
-        Lb:
-            java.util.LinkedList r1 = new java.util.LinkedList     // Catch: java.lang.Throwable -> L63
-            r1.<init>()     // Catch: java.lang.Throwable -> L63
-            if (r13 == 0) goto L5d
-            java.net.URL r0 = new java.net.URL     // Catch: java.lang.Throwable -> L63
-            java.lang.String r2 = com.bytedance.tea.a.a.a.a.a(r7, r1)     // Catch: java.lang.Throwable -> L63
-            r0.<init>(r2)     // Catch: java.lang.Throwable -> L63
-        L1b:
-            java.net.URLConnection r0 = r0.openConnection()     // Catch: java.lang.Throwable -> L63
-            java.net.HttpURLConnection r0 = (java.net.HttpURLConnection) r0     // Catch: java.lang.Throwable -> L63
-            if (r13 == 0) goto L68
-            boolean r2 = r1.isEmpty()     // Catch: java.lang.Throwable -> L47
-            if (r2 != 0) goto L68
-            java.util.Iterator r4 = r1.iterator()     // Catch: java.lang.Throwable -> L47
-        L2d:
-            boolean r1 = r4.hasNext()     // Catch: java.lang.Throwable -> L47
-            if (r1 == 0) goto L68
-            java.lang.Object r1 = r4.next()     // Catch: java.lang.Throwable -> L47
-            android.util.Pair r1 = (android.util.Pair) r1     // Catch: java.lang.Throwable -> L47
-            if (r1 == 0) goto L2d
-            java.lang.Object r2 = r1.first     // Catch: java.lang.Throwable -> L47
-            java.lang.String r2 = (java.lang.String) r2     // Catch: java.lang.Throwable -> L47
-            java.lang.Object r1 = r1.second     // Catch: java.lang.Throwable -> L47
-            java.lang.String r1 = (java.lang.String) r1     // Catch: java.lang.Throwable -> L47
-            r0.setRequestProperty(r2, r1)     // Catch: java.lang.Throwable -> L47
-            goto L2d
-        L47:
-            r1 = move-exception
-            r2 = r3
-            r5 = r0
-        L4a:
-            com.bytedance.tea.crash.g.j.b(r1)     // Catch: java.lang.Throwable -> L140
-            com.bytedance.tea.crash.upload.f r0 = new com.bytedance.tea.crash.upload.f     // Catch: java.lang.Throwable -> L140
-            r3 = 207(0xcf, float:2.9E-43)
-            r0.<init>(r3, r1)     // Catch: java.lang.Throwable -> L140
-            if (r5 == 0) goto L59
-            r5.disconnect()     // Catch: java.lang.Exception -> L130
-        L59:
-            com.bytedance.tea.crash.g.f.a(r2)
-        L5c:
-            return r0
-        L5d:
-            java.net.URL r0 = new java.net.URL     // Catch: java.lang.Throwable -> L63
-            r0.<init>(r7)     // Catch: java.lang.Throwable -> L63
-            goto L1b
-        L63:
-            r0 = move-exception
-            r1 = r0
-            r2 = r3
-            r5 = r3
-            goto L4a
-        L68:
-            if (r12 == 0) goto L9e
-            r1 = 1
-            r0.setDoOutput(r1)     // Catch: java.lang.Throwable -> L47
-        L6e:
-            if (r9 == 0) goto L76
-            java.lang.String r1 = "Content-Type"
-            r0.setRequestProperty(r1, r9)     // Catch: java.lang.Throwable -> L47
-        L76:
-            if (r10 == 0) goto L7e
-            java.lang.String r1 = "Content-Encoding"
-            r0.setRequestProperty(r1, r10)     // Catch: java.lang.Throwable -> L47
-        L7e:
-            java.lang.String r1 = "Accept-Encoding"
-            java.lang.String r2 = "gzip"
-            r0.setRequestProperty(r1, r2)     // Catch: java.lang.Throwable -> L47
-            if (r11 != 0) goto La3
-            java.lang.IllegalArgumentException r1 = new java.lang.IllegalArgumentException     // Catch: java.lang.Throwable -> L47
-            java.lang.String r2 = "request method is not null"
-            r1.<init>(r2)     // Catch: java.lang.Throwable -> L47
-            throw r1     // Catch: java.lang.Throwable -> L47
-        L92:
-            r1 = move-exception
-            r4 = r3
-            r5 = r0
-        L95:
-            if (r5 == 0) goto L9a
-            r5.disconnect()     // Catch: java.lang.Exception -> L133
-        L9a:
-            com.bytedance.tea.crash.g.f.a(r4)
-            throw r1
-        L9e:
-            r1 = 0
-            r0.setDoOutput(r1)     // Catch: java.lang.Throwable -> L47
-            goto L6e
-        La3:
-            r0.setRequestMethod(r11)     // Catch: java.lang.Throwable -> L47
-            if (r8 == 0) goto Lbd
-            int r1 = r8.length     // Catch: java.lang.Throwable -> L47
-            if (r1 <= 0) goto Lbd
-            java.io.DataOutputStream r2 = new java.io.DataOutputStream     // Catch: java.lang.Throwable -> Lf1
-            java.io.OutputStream r1 = r0.getOutputStream()     // Catch: java.lang.Throwable -> Lf1
-            r2.<init>(r1)     // Catch: java.lang.Throwable -> Lf1
-            r2.write(r8)     // Catch: java.lang.Throwable -> L148
-            r2.flush()     // Catch: java.lang.Throwable -> L148
-            com.bytedance.tea.crash.g.f.a(r2)     // Catch: java.lang.Throwable -> L47
-        Lbd:
-            int r2 = r0.getResponseCode()     // Catch: java.lang.Throwable -> L47
-            r1 = 200(0xc8, float:2.8E-43)
-            if (r2 != r1) goto L106
-            java.io.InputStream r4 = r0.getInputStream()     // Catch: java.lang.Throwable -> L47
-            java.lang.String r1 = r0.getContentEncoding()     // Catch: java.lang.Throwable -> Lfc
-            java.lang.String r2 = "gzip"
-            boolean r1 = r2.equalsIgnoreCase(r1)     // Catch: java.lang.Throwable -> Lfc
-            if (r1 == 0) goto L101
-            java.util.zip.GZIPInputStream r2 = new java.util.zip.GZIPInputStream     // Catch: java.lang.Throwable -> Lf7
-            r2.<init>(r4)     // Catch: java.lang.Throwable -> Lf7
-            byte[] r1 = a(r2)     // Catch: java.lang.Throwable -> L145
-            com.bytedance.tea.crash.g.f.a(r2)     // Catch: java.lang.Throwable -> Lfc
-        Le2:
-            com.bytedance.tea.crash.upload.f r1 = al(r1)     // Catch: java.lang.Throwable -> Lfc
-            if (r0 == 0) goto Leb
-            r0.disconnect()     // Catch: java.lang.Exception -> L12c
-        Leb:
-            com.bytedance.tea.crash.g.f.a(r4)
-            r0 = r1
-            goto L5c
-        Lf1:
-            r1 = move-exception
-            r2 = r3
-        Lf3:
-            com.bytedance.tea.crash.g.f.a(r2)     // Catch: java.lang.Throwable -> L47
-            throw r1     // Catch: java.lang.Throwable -> L47
-        Lf7:
-            r1 = move-exception
-        Lf8:
-            com.bytedance.tea.crash.g.f.a(r3)     // Catch: java.lang.Throwable -> Lfc
-            throw r1     // Catch: java.lang.Throwable -> Lfc
-        Lfc:
-            r1 = move-exception
-            r2 = r4
-            r5 = r0
-            goto L4a
-        L101:
-            byte[] r1 = a(r4)     // Catch: java.lang.Throwable -> Lfc
-            goto Le2
-        L106:
-            com.bytedance.tea.crash.upload.f r1 = new com.bytedance.tea.crash.upload.f     // Catch: java.lang.Throwable -> L47
-            r4 = 206(0xce, float:2.89E-43)
-            java.lang.StringBuilder r5 = new java.lang.StringBuilder     // Catch: java.lang.Throwable -> L47
-            r5.<init>()     // Catch: java.lang.Throwable -> L47
-            java.lang.String r6 = "http response code "
-            java.lang.StringBuilder r5 = r5.append(r6)     // Catch: java.lang.Throwable -> L47
-            java.lang.StringBuilder r2 = r5.append(r2)     // Catch: java.lang.Throwable -> L47
-            java.lang.String r2 = r2.toString()     // Catch: java.lang.Throwable -> L47
-            r1.<init>(r4, r2)     // Catch: java.lang.Throwable -> L47
-            if (r0 == 0) goto L126
-            r0.disconnect()     // Catch: java.lang.Exception -> L12e
-        L126:
-            com.bytedance.tea.crash.g.f.a(r3)
-            r0 = r1
-            goto L5c
-        L12c:
-            r0 = move-exception
-            goto Leb
-        L12e:
-            r0 = move-exception
-            goto L126
-        L130:
-            r1 = move-exception
-            goto L59
-        L133:
-            r0 = move-exception
-            goto L9a
-        L136:
-            r0 = move-exception
-            r1 = r0
-            r4 = r3
-            r5 = r3
-            goto L95
-        L13c:
-            r1 = move-exception
-            r5 = r0
-            goto L95
-        L140:
-            r0 = move-exception
-            r1 = r0
-            r4 = r2
-            goto L95
-        L145:
-            r1 = move-exception
-            r3 = r2
-            goto Lf8
-        L148:
-            r1 = move-exception
-            goto Lf3
-        */
-        throw new UnsupportedOperationException("Method not decompiled: com.bytedance.tea.crash.upload.b.a(java.lang.String, byte[], java.lang.String, java.lang.String, java.lang.String, boolean, boolean):com.bytedance.tea.crash.upload.f");
-    }
-
-    private static f al(byte[] bArr) {
-        f fVar;
-        if (bArr == null || bArr.length == 0) {
-            return new f(203);
-        }
-        String str = new String(bArr, Charset.forName("utf-8"));
-        try {
-            JSONObject jSONObject = new JSONObject(str);
-            if (jSONObject.length() > 0) {
-                fVar = new f(0, jSONObject);
-            } else {
-                fVar = new f(204, str);
-            }
-            return fVar;
-        } catch (JSONException e) {
-            return new f(204, str);
-        }
-    }
-
-    public static f hq(String str, String str2) {
-        return L(str, str2, b());
-    }
-
-    public static f hr(String str, String str2) {
-        return L(str, str2, a());
-    }
-
-    public static boolean a() {
-        return true;
-    }
-
-    public static boolean b() {
-        return true;
-    }
-
-    public static f aV(String str, String str2, String str3) {
-        f fVar;
-        try {
-            e eVar = new e(str, "UTF-8", true);
-            eVar.a("json", str2);
-            eVar.a("file", new File(str3));
-            String a2 = eVar.a();
+    public static e m(byte[] bArr) {
+        if (bArr != null && bArr.length != 0) {
+            String str = new String(bArr, Charset.forName("utf-8"));
             try {
-                JSONObject jSONObject = new JSONObject(a2);
-                if ("succ".equals(jSONObject.optString("succ_kind"))) {
-                    fVar = new f(0, jSONObject);
-                } else {
-                    fVar = new f(204, a2);
+                JSONObject jSONObject = new JSONObject(str);
+                if (jSONObject.length() > 0) {
+                    return new e(0, jSONObject);
                 }
-                return fVar;
-            } catch (JSONException e) {
-                return new f(205, e);
-            }
-        } catch (IOException e2) {
-            e2.printStackTrace();
-            return new f(207);
-        }
-    }
-
-    public static String a(Map map) {
-        return h.ery().a();
-    }
-
-    public static f L(String str, String str2, boolean z) {
-        f fVar;
-        try {
-            if (TextUtils.isEmpty(str2) || TextUtils.isEmpty(str)) {
-                fVar = new f(201);
-            } else {
-                fVar = a(PlaybackStateCompat.ACTION_SET_SHUFFLE_MODE, str, str2.getBytes(), a.GZIP, AbstractBceClient.DEFAULT_CONTENT_TYPE, z);
-            }
-            return fVar;
-        } catch (Throwable th) {
-            j.b(th);
-            return new f(207, th);
-        }
-    }
-
-    private static byte[] a(InputStream inputStream) throws IOException {
-        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-        byte[] bArr = new byte[8192];
-        while (true) {
-            int read = inputStream.read(bArr);
-            if (-1 != read) {
-                byteArrayOutputStream.write(bArr, 0, read);
-            } else {
-                inputStream.close();
-                try {
-                    return byteArrayOutputStream.toByteArray();
-                } finally {
-                    com.bytedance.tea.crash.g.f.a(byteArrayOutputStream);
-                }
+                return new e(204, str);
+            } catch (JSONException unused) {
+                return new e(204, str);
             }
         }
-    }
-
-    /* loaded from: classes6.dex */
-    public enum a {
-        NONE(0),
-        GZIP(1),
-        DEFLATER(2);
-        
-        final int d;
-
-        a(int i) {
-            this.d = i;
-        }
-    }
-
-    /* renamed from: com.bytedance.tea.crash.upload.b$b  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
-    public enum EnumC1051b {
-        NONE(0),
-        MOBILE(1),
-        MOBILE_2G(2),
-        MOBILE_3G(3),
-        WIFI(4),
-        MOBILE_4G(5);
-        
-        final int g;
-
-        EnumC1051b(int i) {
-            this.g = i;
-        }
+        return new e(203);
     }
 }

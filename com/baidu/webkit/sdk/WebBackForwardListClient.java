@@ -1,5 +1,5 @@
 package com.baidu.webkit.sdk;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class WebBackForwardListClient {
     public void onIndexChanged(WebHistoryItem webHistoryItem, int i) {
     }

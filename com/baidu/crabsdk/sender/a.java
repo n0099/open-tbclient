@@ -1,14 +1,15 @@
 package com.baidu.crabsdk.sender;
 
 import android.content.Context;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public abstract class a {
-    public final int arQ = 30000;
-    public Context arR;
+
+    /* renamed from: a  reason: collision with root package name */
+    public Context f4756a;
 
     public a(Context context) {
-        this.arR = context;
+        this.f4756a = context;
     }
 
-    public abstract void e(String str);
+    public abstract void a(String str);
 }

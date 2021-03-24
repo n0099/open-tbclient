@@ -4,13 +4,24 @@ import androidx.webkit.WebMessageCompat;
 import androidx.webkit.WebMessagePortCompat;
 import java.lang.reflect.InvocationHandler;
 import org.chromium.support_lib_boundary.WebMessageBoundaryInterface;
-/* loaded from: classes5.dex */
+/* loaded from: classes.dex */
 public class WebMessageAdapter implements WebMessageBoundaryInterface {
-    private WebMessageCompat mWebMessageCompat;
+    public WebMessageCompat mWebMessageCompat;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public WebMessageAdapter(WebMessageCompat webMessageCompat) {
         this.mWebMessageCompat = webMessageCompat;
+    }
+
+    public static WebMessagePortCompat[] toWebMessagePortCompats(InvocationHandler[] invocationHandlerArr) {
+        WebMessagePortCompat[] webMessagePortCompatArr = new WebMessagePortCompat[invocationHandlerArr.length];
+        for (int i = 0; i < invocationHandlerArr.length; i++) {
+            webMessagePortCompatArr[i] = new WebMessagePortImpl(invocationHandlerArr[i]);
+        }
+        return webMessagePortCompatArr;
+    }
+
+    public static WebMessageCompat webMessageCompatFromBoundaryInterface(WebMessageBoundaryInterface webMessageBoundaryInterface) {
+        return new WebMessageCompat(webMessageBoundaryInterface.getData(), toWebMessagePortCompats(webMessageBoundaryInterface.getPorts()));
     }
 
     @Override // org.chromium.support_lib_boundary.WebMessageBoundaryInterface
@@ -34,17 +45,5 @@ public class WebMessageAdapter implements WebMessageBoundaryInterface {
     @Override // org.chromium.support_lib_boundary.FeatureFlagHolderBoundaryInterface
     public String[] getSupportedFeatures() {
         return new String[0];
-    }
-
-    public static WebMessageCompat webMessageCompatFromBoundaryInterface(WebMessageBoundaryInterface webMessageBoundaryInterface) {
-        return new WebMessageCompat(webMessageBoundaryInterface.getData(), toWebMessagePortCompats(webMessageBoundaryInterface.getPorts()));
-    }
-
-    private static WebMessagePortCompat[] toWebMessagePortCompats(InvocationHandler[] invocationHandlerArr) {
-        WebMessagePortCompat[] webMessagePortCompatArr = new WebMessagePortCompat[invocationHandlerArr.length];
-        for (int i = 0; i < invocationHandlerArr.length; i++) {
-            webMessagePortCompatArr[i] = new WebMessagePortImpl(invocationHandlerArr[i]);
-        }
-        return webMessagePortCompatArr;
     }
 }

@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import com.baidu.searchbox.v8engine.NotProguard;
 import com.baidu.searchbox.v8engine.V8JavascriptField;
 @NotProguard
-/* loaded from: classes14.dex */
+/* loaded from: classes3.dex */
 public class JSEvent {
     @V8JavascriptField
     public Object currentTarget;
@@ -18,6 +18,10 @@ public class JSEvent {
         this(str, null);
     }
 
+    public static boolean isValid(JSEvent jSEvent) {
+        return (jSEvent == null || TextUtils.isEmpty(jSEvent.type)) ? false : true;
+    }
+
     public JSEvent(String str, Object obj, Object obj2) {
         this.type = str;
         this.target = obj;
@@ -28,9 +32,5 @@ public class JSEvent {
     public JSEvent(String str, Object obj) {
         this.type = str;
         this.data = obj;
-    }
-
-    public static boolean isValid(JSEvent jSEvent) {
-        return (jSEvent == null || TextUtils.isEmpty(jSEvent.type)) ? false : true;
     }
 }

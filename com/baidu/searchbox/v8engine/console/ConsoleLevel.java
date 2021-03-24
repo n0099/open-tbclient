@@ -1,5 +1,5 @@
 package com.baidu.searchbox.v8engine.console;
-/* loaded from: classes14.dex */
+/* loaded from: classes3.dex */
 public interface ConsoleLevel {
     public static final int DEBUG = 2;
     public static final int ERROR = 4;

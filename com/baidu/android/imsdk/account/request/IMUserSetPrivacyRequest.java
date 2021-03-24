@@ -13,11 +13,11 @@ import com.baidu.android.imsdk.utils.LogUtils;
 import java.security.NoSuchAlgorithmException;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class IMUserSetPrivacyRequest extends IMUserBaseHttpRequest {
-    private long mAppid;
-    private String mKey;
-    private int mPrivacy;
+    public long mAppid;
+    public String mKey;
+    public int mPrivacy;
 
     public IMUserSetPrivacyRequest(Context context, String str, long j, int i) {
         this.mPrivacy = 0;
@@ -27,28 +27,28 @@ public class IMUserSetPrivacyRequest extends IMUserBaseHttpRequest {
         this.mAppid = j;
     }
 
-    @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
-    public byte[] getRequestParameter() throws NoSuchAlgorithmException {
-        String bduss = IMConfigInternal.getInstance().getIMConfig(this.mContext).getBduss(this.mContext);
-        long currentTimeMillis = System.currentTimeMillis() / 1000;
-        StringBuilder sb = new StringBuilder();
-        sb.append("method=update_user_setting");
-        sb.append("&appid=").append(this.mAppid);
-        sb.append("&push_privacy=").append(this.mPrivacy);
-        sb.append("&timestamp=").append(currentTimeMillis);
-        sb.append("&sign=").append(getMd5("" + currentTimeMillis + bduss + this.mAppid));
-        return sb.toString().getBytes();
-    }
-
     @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
     public String getContentType() {
         return "application/x-www-form-urlencoded";
     }
 
+    @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
+    public byte[] getRequestParameter() throws NoSuchAlgorithmException {
+        String bduss = IMConfigInternal.getInstance().getIMConfig(this.mContext).getBduss(this.mContext);
+        long currentTimeMillis = System.currentTimeMillis() / 1000;
+        return ("method=update_user_setting&appid=" + this.mAppid + "&push_privacy=" + this.mPrivacy + "&timestamp=" + currentTimeMillis + "&sign=" + getMd5("" + currentTimeMillis + bduss + this.mAppid)).getBytes();
+    }
+
+    @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
+    public void onFailure(int i, byte[] bArr, Throwable th) {
+        Pair<Integer, String> transErrorCode = transErrorCode(i, bArr, th);
+        AccountManagerImpl.getInstance(this.mContext).onSetPrivacyResult(this.mKey, ((Integer) transErrorCode.first).intValue(), (String) transErrorCode.second, 0);
+    }
+
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
     public void onSuccess(int i, byte[] bArr) {
-        int i2;
         String str;
+        int i2;
         String str2 = new String(bArr);
         LogUtils.d(" ", " DEBUG " + str2);
         try {
@@ -60,19 +60,13 @@ public class IMUserSetPrivacyRequest extends IMUserBaseHttpRequest {
                 i2 = jSONObject.getInt("error_code");
                 str = jSONObject.optString("error_msg", "");
             }
-        } catch (JSONException e) {
-            LogUtils.e("IMUserSetPrivacyRequest", "JSONException", e);
-            i2 = 1010;
+        } catch (JSONException e2) {
+            LogUtils.e("IMUserSetPrivacyRequest", "JSONException", e2);
+            new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
             str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
-            new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
+            i2 = 1010;
         }
         AccountManagerImpl.getInstance(this.mContext).onSetPrivacyResult(this.mKey, i2, str, this.mPrivacy);
-    }
-
-    @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
-    public void onFailure(int i, byte[] bArr, Throwable th) {
-        Pair<Integer, String> transErrorCode = transErrorCode(i, bArr, th);
-        AccountManagerImpl.getInstance(this.mContext).onSetPrivacyResult(this.mKey, ((Integer) transErrorCode.first).intValue(), (String) transErrorCode.second, 0);
     }
 
     @Override // com.baidu.android.imsdk.utils.HttpHelper.Request

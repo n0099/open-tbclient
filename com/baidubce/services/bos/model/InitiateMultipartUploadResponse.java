@@ -1,28 +1,28 @@
 package com.baidubce.services.bos.model;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class InitiateMultipartUploadResponse extends BosResponse {
-    private String bucketName;
-    private String key;
-    private String uploadId;
+    public String bucketName;
+    public String key;
+    public String uploadId;
 
     public String getBucketName() {
         return this.bucketName;
-    }
-
-    public void setBucketName(String str) {
-        this.bucketName = str;
     }
 
     public String getKey() {
         return this.key;
     }
 
-    public void setKey(String str) {
-        this.key = str;
-    }
-
     public String getUploadId() {
         return this.uploadId;
+    }
+
+    public void setBucketName(String str) {
+        this.bucketName = str;
+    }
+
+    public void setKey(String str) {
+        this.key = str;
     }
 
     public void setUploadId(String str) {

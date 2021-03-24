@@ -1,6 +1,7 @@
 package com.baidu.platform.base;
 
 import android.util.Log;
+import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.mapapi.http.HttpClient;
 import com.baidu.mapapi.model.CoordUtil;
 import com.baidu.mapapi.model.LatLng;
@@ -8,13 +9,17 @@ import com.baidu.mapapi.model.inner.Point;
 import com.baidu.mapapi.search.route.PlanNode;
 import com.baidu.mapsdkplatform.comapi.util.PermissionCheck;
 import com.baidu.mapsdkplatform.comjni.util.AppMD5;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public abstract class e {
-    private boolean b = true;
-    private boolean c = true;
+
+    /* renamed from: b  reason: collision with root package name */
+    public boolean f9821b = true;
+
+    /* renamed from: c  reason: collision with root package name */
+    public boolean f9822c = true;
 
     /* renamed from: a  reason: collision with root package name */
-    protected com.baidu.platform.util.a f2867a = new com.baidu.platform.util.a();
+    public com.baidu.platform.util.a f9820a = new com.baidu.platform.util.a();
 
     public String a() {
         String a2 = a(com.baidu.platform.domain.d.a());
@@ -28,41 +33,51 @@ public abstract class e {
             }
             authToken = HttpClient.getAuthToken();
         }
-        if (this.b) {
-            this.f2867a.a("token", authToken);
+        if (this.f9821b) {
+            this.f9820a.a("token", authToken);
         }
-        String str = this.f2867a.a() + HttpClient.getPhoneInfo();
-        if (this.c) {
+        String str = this.f9820a.a() + HttpClient.getPhoneInfo();
+        if (this.f9822c) {
             str = str + "&sign=" + AppMD5.getSignMD5String(str);
         }
         return a2 + "?" + str;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     public final String a(PlanNode planNode) {
+        StringBuilder sb;
         if (planNode == null) {
             return null;
         }
-        String str = new String("{");
+        String str = new String(StringUtil.ARRAY_START);
         LatLng location = planNode.getLocation();
         if (location != null) {
             String str2 = str + "\"type\":1,";
             Point ll2point = CoordUtil.ll2point(location);
-            return str2 + "\"xy\":\"" + ll2point.x + "," + ll2point.y + "\"}";
-        } else if (planNode.getName() != null) {
-            return (str + "\"type\":2,") + "\"keyword\":\"" + planNode.getName() + "\"}";
-        } else {
+            sb = new StringBuilder();
+            sb.append(str2);
+            sb.append("\"xy\":\"");
+            sb.append(ll2point.x);
+            sb.append(",");
+            sb.append(ll2point.y);
+        } else if (planNode.getName() == null) {
             return str;
+        } else {
+            sb = new StringBuilder();
+            sb.append(str + "\"type\":2,");
+            sb.append("\"keyword\":\"");
+            sb.append(planNode.getName());
         }
+        sb.append("\"}");
+        return sb.toString();
     }
 
     public abstract String a(com.baidu.platform.domain.c cVar);
 
     public void a(boolean z) {
-        this.c = z;
+        this.f9822c = z;
     }
 
     public void b(boolean z) {
-        this.b = z;
+        this.f9821b = z;
     }
 }

@@ -3,124 +3,131 @@ package com.bytedance.sdk.openadsdk.core.dynamic.b;
 import android.graphics.Color;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
-import androidx.core.view.ViewCompat;
-import com.baidu.live.adp.widget.HorizontalTranslateLayout;
+import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.baidu.tieba.flutter.util.OpenFlutter;
+import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
 /* loaded from: classes6.dex */
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f4415a;
-    public String b;
-    private d c;
+    public int f28279a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public String f28280b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public d f28281c;
 
     public e(@NonNull c cVar) {
-        this.f4415a = cVar.a();
-        this.b = cVar.b();
-        this.c = cVar.c();
+        this.f28279a = cVar.a();
+        this.f28280b = cVar.b();
+        this.f28281c = cVar.c();
     }
 
     public int a() {
-        return (int) this.c.c();
+        return (int) this.f28281c.c();
     }
 
     public int b() {
-        return (int) this.c.f();
+        return (int) this.f28281c.f();
     }
 
     public int c() {
-        return (int) this.c.d();
+        return (int) this.f28281c.d();
     }
 
     public int d() {
-        return (int) this.c.e();
+        return (int) this.f28281c.e();
     }
 
     public float e() {
-        return this.c.g();
+        return this.f28281c.g();
     }
 
     public String f() {
-        return this.f4415a == 0 ? this.b : "";
+        return this.f28279a == 0 ? this.f28280b : "";
     }
 
     public int g() {
-        return a(this.c.j());
+        return a(this.f28281c.j());
     }
 
     public int h() {
-        String i = this.c.i();
-        if ("left".equals(i)) {
+        String i = this.f28281c.i();
+        if (CustomDialogData.POS_LEFT.equals(i)) {
             return 2;
         }
         if ("center".equals(i)) {
             return 4;
         }
-        return HorizontalTranslateLayout.DIRECTION_RIGHT.equals(i) ? 3 : 2;
+        return "right".equals(i) ? 3 : 2;
     }
 
     public String i() {
-        return this.f4415a == 2 ? this.b : "";
+        return this.f28279a == 2 ? this.f28280b : "";
     }
 
     public String j() {
-        return this.f4415a == 1 ? this.b : "";
+        return this.f28279a == 1 ? this.f28280b : "";
     }
 
     public int k() {
-        return this.c.h();
+        return this.f28281c.h();
     }
 
     public float l() {
-        return this.c.a();
+        return this.f28281c.a();
     }
 
     public int m() {
-        return a(this.c.l());
+        return a(this.f28281c.l());
     }
 
     public float n() {
-        return this.c.b();
+        return this.f28281c.b();
     }
 
     public boolean o() {
-        return this.c.o();
+        return this.f28281c.o();
     }
 
     public int p() {
-        String m = this.c.m();
-        if (TextUtils.isEmpty(m) || m.equals("none")) {
-            return 0;
+        String m = this.f28281c.m();
+        if (!TextUtils.isEmpty(m) && !m.equals("none")) {
+            if (m.equals("normal")) {
+                return 1;
+            }
+            if (m.equals("creative")) {
+                return 2;
+            }
+            if (m.equals("video")) {
+                return 4;
+            }
+            if ("slide".equals(this.f28281c.n())) {
+                return 2;
+            }
         }
-        if (m.equals("normal")) {
-            return 1;
-        }
-        if (m.equals("creative")) {
-            return 2;
-        }
-        if (m.equals("video")) {
-            return 4;
-        }
-        return !"slide".equals(this.c.n()) ? 0 : 2;
+        return 0;
     }
 
     public int q() {
-        return a(this.c.k());
+        return a(this.f28281c.k());
     }
 
     private int a(String str) {
         String[] split;
         if (TextUtils.isEmpty(str)) {
-            return ViewCompat.MEASURED_STATE_MASK;
+            return -16777216;
         }
-        if (str.equals("transparent")) {
+        if (str.equals(OpenFlutter.EXTRA_TRANSPARANT)) {
             return 0;
         }
         if (str.charAt(0) == '#' && str.length() == 7) {
             return Color.parseColor(str);
         }
-        if (str.startsWith("rgba") && (split = str.substring(str.indexOf("(") + 1, str.indexOf(")")).split(",")) != null && split.length == 4) {
-            return (((int) Float.parseFloat(split[0])) << 16) | (((int) ((Float.parseFloat(split[3]) * 255.0f) + 0.5f)) << 24) | (((int) Float.parseFloat(split[1])) << 8) | ((int) Float.parseFloat(split[2])) | 0;
+        if (str.startsWith("rgba") && (split = str.substring(str.indexOf("(") + 1, str.indexOf(SmallTailInfo.EMOTION_SUFFIX)).split(",")) != null && split.length == 4) {
+            return (((int) ((Float.parseFloat(split[3]) * 255.0f) + 0.5f)) << 24) | (((int) Float.parseFloat(split[0])) << 16) | (((int) Float.parseFloat(split[1])) << 8) | ((int) Float.parseFloat(split[2])) | 0;
         }
-        return ViewCompat.MEASURED_STATE_MASK;
+        return -16777216;
     }
 }

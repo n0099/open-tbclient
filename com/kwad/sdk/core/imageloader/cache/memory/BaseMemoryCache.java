@@ -7,16 +7,16 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public abstract class BaseMemoryCache implements MemoryCache {
-    private final Map<String, Reference<DecodedResult>> softMap = Collections.synchronizedMap(new HashMap());
+    public final Map<String, Reference<DecodedResult>> softMap = Collections.synchronizedMap(new HashMap());
 
     @Override // com.kwad.sdk.core.imageloader.cache.memory.MemoryCache
     public void clear() {
         this.softMap.clear();
     }
 
-    protected abstract Reference<DecodedResult> createReference(DecodedResult decodedResult);
+    public abstract Reference<DecodedResult> createReference(DecodedResult decodedResult);
 
     @Override // com.kwad.sdk.core.imageloader.cache.memory.MemoryCache
     public DecodedResult get(String str) {

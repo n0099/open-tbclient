@@ -1,91 +1,62 @@
 package com.baidu.tieba.frs.loadmore;
 
 import com.baidu.adp.framework.message.NetMessage;
-import com.baidu.adp.lib.f.b;
-import com.baidu.adp.lib.util.l;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.av;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.util.TbImageHelper;
 import com.baidu.tbadk.util.AdExtParam;
-import com.baidu.tbadk.util.v;
+import d.b.b.e.m.b;
+import d.b.b.e.p.l;
+import d.b.h0.z0.w;
+import d.b.i0.r2.a0.a;
 import tbclient.ThreadList.AdParam;
 import tbclient.ThreadList.DataReq;
 import tbclient.ThreadList.ThreadListReqIdl;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class LoadMoreRequestMessage extends NetMessage {
-    private String adFloorInfo;
-    private String forumName;
-    private long forum_id;
-    private boolean isBrandForum;
-    private int loadCount;
-    private long mLastClickTid;
-    private int mPageType;
-    private int mSortType;
-    private int need_abstract;
-    private int pn;
-    private int refreshCount;
-    private int st_type;
-    private String thread_ids;
+    public String adFloorInfo;
+    public String forumName;
+    public long forum_id;
+    public boolean isBrandForum;
+    public int loadCount;
+    public long mLastClickTid;
+    public int mPageType;
+    public int mSortType;
+    public int need_abstract;
+    public int pn;
+    public int refreshCount;
+    public int st_type;
+    public String thread_ids;
 
     public LoadMoreRequestMessage() {
-        super(1001704, CmdConfigSocket.CMD_FRS_LOAD_MORE);
+        super(CmdConfigHttp.FRS_LOAD_MORE_CMD, 301002);
         this.adFloorInfo = "";
     }
 
-    public void setLastClickTid(long j) {
-        this.mLastClickTid = j;
-    }
-
-    public void setSortType(int i) {
-        this.mSortType = i;
-    }
-
-    public void setThreadIds(String str) {
-        this.thread_ids = str;
-    }
-
-    public void setForumId(long j) {
-        this.forum_id = j;
-    }
-
-    public void setNeedAbstract(int i) {
-        this.need_abstract = i;
-    }
-
-    public void setForumName(String str) {
-        this.forumName = str;
-    }
-
-    public void setPageNumber(int i) {
-        this.pn = i;
-    }
-
-    public void setStType(int i) {
-        this.st_type = i;
-    }
-
     @Override // com.baidu.adp.framework.message.NetMessage
-    protected Object encode(boolean z) {
+    public Object encode(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
         builder.thread_ids = this.thread_ids;
         builder.forum_id = Long.valueOf(this.forum_id);
         builder.need_abstract = Integer.valueOf(this.need_abstract);
-        builder.user_id = Long.valueOf(b.toLong(TbadkCoreApplication.getCurrentAccount(), 0L));
+        builder.user_id = Long.valueOf(b.f(TbadkCoreApplication.getCurrentAccount(), 0L));
         builder.forum_name = this.forumName;
         builder.scr_dip = Double.valueOf(TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density);
-        int equipmentWidth = l.getEquipmentWidth(TbadkCoreApplication.getInst());
-        int equipmentHeight = l.getEquipmentHeight(TbadkCoreApplication.getInst());
+        int k = l.k(TbadkCoreApplication.getInst());
+        int i = l.i(TbadkCoreApplication.getInst());
         builder.pn = Integer.valueOf(this.pn);
         builder.st_type = Integer.valueOf(this.st_type);
-        builder.scr_h = Integer.valueOf(equipmentHeight);
-        builder.scr_w = Integer.valueOf(equipmentWidth);
-        builder.q_type = Integer.valueOf(av.bsV().bsW() ? 2 : 1);
+        builder.scr_h = Integer.valueOf(i);
+        builder.scr_w = Integer.valueOf(k);
+        builder.q_type = Integer.valueOf(TbImageHelper.getInstance().isShowBigImage() ? 2 : 1);
         builder.last_click_tid = Long.valueOf(this.mLastClickTid);
         builder.sort_type = Integer.valueOf(this.mSortType);
-        builder.ad_context_list = com.baidu.tieba.recapp.report.b.dEB().RX("FRS");
-        builder.ad_ext_params = AdExtParam.a.bEY().DO(this.adFloorInfo).bEZ();
-        v.a(builder, true, false, true);
-        builder.app_pos = com.baidu.tieba.recapp.c.a.dEu().dEy();
+        builder.ad_context_list = d.b.i0.r2.b0.b.f().d("FRS");
+        AdExtParam.a b2 = AdExtParam.a.b();
+        b2.e(this.adFloorInfo);
+        builder.ad_ext_params = b2.a();
+        w.c(builder, true, false, true);
+        builder.app_pos = a.e().a();
         AdParam.Builder builder2 = new AdParam.Builder();
         builder2.load_count = Integer.valueOf(this.loadCount);
         builder2.refresh_count = Integer.valueOf(this.refreshCount);
@@ -95,35 +66,67 @@ public class LoadMoreRequestMessage extends NetMessage {
         return builder3.build(false);
     }
 
-    public void setPageType(int i) {
-        this.mPageType = i;
+    public long getForumId() {
+        return this.forum_id;
     }
 
     public int getPageType() {
         return this.mPageType;
     }
 
-    public void setLoadCount(int i) {
-        this.loadCount = i;
-    }
-
-    public void setRefreshCount(int i) {
-        this.refreshCount = i;
-    }
-
     public boolean isBrandForum() {
         return this.isBrandForum;
+    }
+
+    public void setAdFloorInfo(String str) {
+        this.adFloorInfo = str;
     }
 
     public void setBrandForum(boolean z) {
         this.isBrandForum = z;
     }
 
-    public long getForumId() {
-        return this.forum_id;
+    public void setForumId(long j) {
+        this.forum_id = j;
     }
 
-    public void setAdFloorInfo(String str) {
-        this.adFloorInfo = str;
+    public void setForumName(String str) {
+        this.forumName = str;
+    }
+
+    public void setLastClickTid(long j) {
+        this.mLastClickTid = j;
+    }
+
+    public void setLoadCount(int i) {
+        this.loadCount = i;
+    }
+
+    public void setNeedAbstract(int i) {
+        this.need_abstract = i;
+    }
+
+    public void setPageNumber(int i) {
+        this.pn = i;
+    }
+
+    public void setPageType(int i) {
+        this.mPageType = i;
+    }
+
+    public void setRefreshCount(int i) {
+        this.refreshCount = i;
+    }
+
+    public void setSortType(int i) {
+        this.mSortType = i;
+    }
+
+    public void setStType(int i) {
+        this.st_type = i;
+    }
+
+    public void setThreadIds(String str) {
+        this.thread_ids = str;
     }
 }

@@ -6,7 +6,9 @@ import android.content.Intent;
 import android.text.TextUtils;
 import com.baidu.sapi2.activity.AccountCenterActivity;
 import com.baidu.sapi2.activity.BaseActivity;
+import com.baidu.sapi2.activity.social.BaseSSOLoginActivity;
 import com.baidu.sapi2.activity.social.FacebookSSOLoginActivity;
+import com.baidu.sapi2.activity.social.GlorySSOLoginActivity;
 import com.baidu.sapi2.activity.social.GoogleSSOLoginActivity;
 import com.baidu.sapi2.activity.social.HuaweiSSOLoginActivity;
 import com.baidu.sapi2.activity.social.MeizuSSOLoginActivity;
@@ -15,16 +17,17 @@ import com.baidu.sapi2.activity.social.SinaSSOLoginActivity;
 import com.baidu.sapi2.activity.social.TwitterSSOLoginActivity;
 import com.baidu.sapi2.activity.social.WXLoginActivity;
 import com.baidu.sapi2.activity.social.XiaomiSSOLoginActivity;
+import com.baidu.sapi2.activity.social.YYSSOLoginActivity;
 import com.baidu.sapi2.service.AbstractThirdPartyService;
 import com.baidu.sapi2.share.face.FaceLoginService;
 import com.baidu.sapi2.shell.response.SapiAccountResponse;
 import com.baidu.sapi2.utils.SapiStatUtil;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.sapi2.utils.enums.SocialType;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class ThirdPartyService implements AbstractThirdPartyService {
-    private static final long MIN_INVOKE_INTER_TIME = 500;
-    private long lastInvokeTime = 0;
+    public static final long MIN_INVOKE_INTER_TIME = 500;
+    public long lastInvokeTime = 0;
 
     public ThirdPartyService() {
         CoreViewRouter.getInstance().setThirdPartyService(this);
@@ -37,12 +40,13 @@ public class ThirdPartyService implements AbstractThirdPartyService {
         intent.putExtra("error_code", i);
         intent.putExtra("state", str);
         intent.putExtra("code", str2);
+        intent.putExtra("code", str2);
         activity.startActivity(intent);
     }
 
     @Override // com.baidu.sapi2.service.AbstractThirdPartyService
     public void loadThirdPartyLogin(Context context, SocialType socialType, int i) {
-        loadThirdPartyLogin(context, socialType, i, null);
+        loadThirdPartyLogin(context, socialType, i, null, false);
     }
 
     public SapiAccount sapiAccountResponseToAccount(Context context, SapiAccountResponse sapiAccountResponse) {
@@ -86,42 +90,53 @@ public class ThirdPartyService implements AbstractThirdPartyService {
 
     @Override // com.baidu.sapi2.service.AbstractThirdPartyService
     public void loadThirdPartyLogin(Context context, SocialType socialType, int i, String str) {
+        loadThirdPartyLogin(context, socialType, i, str, false);
+    }
+
+    @Override // com.baidu.sapi2.service.AbstractThirdPartyService
+    public void loadThirdPartyLogin(Context context, SocialType socialType, int i, String str, boolean z) {
         Intent intent;
-        if (System.currentTimeMillis() - this.lastInvokeTime >= MIN_INVOKE_INTER_TIME) {
-            this.lastInvokeTime = System.currentTimeMillis();
-            SapiStatUtil.statThirdLoginEnter(socialType);
-            boolean z = context instanceof Activity;
-            if (socialType == SocialType.SINA_WEIBO_SSO) {
-                intent = new Intent(context, SinaSSOLoginActivity.class);
-            } else if (socialType == SocialType.HUAWEI) {
-                intent = new Intent(context, HuaweiSSOLoginActivity.class);
-            } else if (socialType == SocialType.WEIXIN) {
-                intent = new Intent(context, WXLoginActivity.class);
-            } else if (socialType == SocialType.QQ_SSO) {
-                intent = new Intent(context, QQSSOLoginActivity.class);
-            } else if (socialType == SocialType.MEIZU) {
-                intent = new Intent(context, MeizuSSOLoginActivity.class);
-            } else if (socialType == SocialType.FACEBOOK) {
-                intent = new Intent(context, FacebookSSOLoginActivity.class);
-            } else if (socialType == SocialType.XIAOMI) {
-                intent = new Intent(context, XiaomiSSOLoginActivity.class);
-            } else if (socialType == SocialType.TWITTER) {
-                intent = new Intent(context, TwitterSSOLoginActivity.class);
-            } else if (socialType == SocialType.GOOGLE) {
-                intent = new Intent(context, GoogleSSOLoginActivity.class);
-            } else {
-                throw new IllegalArgumentException(socialType.getName() + " type login not support");
-            }
-            intent.putExtra(BaseActivity.EXTRA_PARAM_BUSINESS_FROM, i);
-            if (!TextUtils.isEmpty(str)) {
-                intent.putExtra("extraJson", str);
-            }
-            if (!z) {
-                intent.setFlags(268435456);
-                context.startActivity(intent);
-                return;
-            }
-            ((Activity) context).startActivityForResult(intent, 2001);
+        if (System.currentTimeMillis() - this.lastInvokeTime < 500) {
+            return;
         }
+        this.lastInvokeTime = System.currentTimeMillis();
+        SapiStatUtil.statThirdLoginEnter(socialType);
+        boolean z2 = context instanceof Activity;
+        if (socialType == SocialType.SINA_WEIBO_SSO) {
+            intent = new Intent(context, SinaSSOLoginActivity.class);
+        } else if (socialType == SocialType.HUAWEI) {
+            intent = new Intent(context, HuaweiSSOLoginActivity.class);
+        } else if (socialType == SocialType.WEIXIN) {
+            intent = new Intent(context, WXLoginActivity.class);
+        } else if (socialType == SocialType.QQ_SSO) {
+            intent = new Intent(context, QQSSOLoginActivity.class);
+        } else if (socialType == SocialType.MEIZU) {
+            intent = new Intent(context, MeizuSSOLoginActivity.class);
+        } else if (socialType == SocialType.FACEBOOK) {
+            intent = new Intent(context, FacebookSSOLoginActivity.class);
+        } else if (socialType == SocialType.XIAOMI) {
+            intent = new Intent(context, XiaomiSSOLoginActivity.class);
+        } else if (socialType == SocialType.TWITTER) {
+            intent = new Intent(context, TwitterSSOLoginActivity.class);
+        } else if (socialType == SocialType.GOOGLE) {
+            intent = new Intent(context, GoogleSSOLoginActivity.class);
+        } else if (socialType == SocialType.GLORY) {
+            intent = new Intent(context, GlorySSOLoginActivity.class);
+        } else if (socialType == SocialType.YY) {
+            intent = new Intent(context, YYSSOLoginActivity.class);
+        } else {
+            throw new IllegalArgumentException(socialType.getName() + " type login not support");
+        }
+        intent.putExtra(BaseActivity.EXTRA_PARAM_BUSINESS_FROM, i);
+        intent.putExtra(BaseSSOLoginActivity.PARAMS_IS_SAFETY_VERIFICATION, z);
+        if (!TextUtils.isEmpty(str)) {
+            intent.putExtra("extraJson", str);
+        }
+        if (!z2) {
+            intent.setFlags(268435456);
+            context.startActivity(intent);
+            return;
+        }
+        ((Activity) context).startActivityForResult(intent, 2001);
     }
 }

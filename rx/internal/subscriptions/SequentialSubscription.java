@@ -1,42 +1,23 @@
 package rx.internal.subscriptions;
 
+import h.k;
+import h.u.e;
 import java.util.concurrent.atomic.AtomicReference;
-import rx.k;
-import rx.subscriptions.e;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public final class SequentialSubscription extends AtomicReference<k> implements k {
-    private static final long serialVersionUID = 995205034283130269L;
+    public static final long serialVersionUID = 995205034283130269L;
 
     public SequentialSubscription() {
     }
 
-    public SequentialSubscription(k kVar) {
-        lazySet(kVar);
-    }
-
     public k current() {
         k kVar = (k) super.get();
-        if (kVar == Unsubscribed.INSTANCE) {
-            return e.eOd();
-        }
-        return kVar;
+        return kVar == Unsubscribed.INSTANCE ? e.c() : kVar;
     }
 
-    public boolean update(k kVar) {
-        k kVar2;
-        do {
-            kVar2 = get();
-            if (kVar2 == Unsubscribed.INSTANCE) {
-                if (kVar != null) {
-                    kVar.unsubscribe();
-                }
-                return false;
-            }
-        } while (!compareAndSet(kVar2, kVar));
-        if (kVar2 != null) {
-            kVar2.unsubscribe();
-        }
-        return true;
+    @Override // h.k
+    public boolean isUnsubscribed() {
+        return get() == Unsubscribed.INSTANCE;
     }
 
     public boolean replace(k kVar) {
@@ -46,10 +27,58 @@ public final class SequentialSubscription extends AtomicReference<k> implements 
             if (kVar2 == Unsubscribed.INSTANCE) {
                 if (kVar != null) {
                     kVar.unsubscribe();
+                    return false;
                 }
                 return false;
             }
         } while (!compareAndSet(kVar2, kVar));
+        return true;
+    }
+
+    public boolean replaceWeak(k kVar) {
+        k kVar2 = get();
+        if (kVar2 == Unsubscribed.INSTANCE) {
+            if (kVar != null) {
+                kVar.unsubscribe();
+            }
+            return false;
+        } else if (!compareAndSet(kVar2, kVar) && get() == Unsubscribed.INSTANCE) {
+            if (kVar != null) {
+                kVar.unsubscribe();
+            }
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    @Override // h.k
+    public void unsubscribe() {
+        k andSet;
+        k kVar = get();
+        Unsubscribed unsubscribed = Unsubscribed.INSTANCE;
+        if (kVar == unsubscribed || (andSet = getAndSet(unsubscribed)) == null || andSet == Unsubscribed.INSTANCE) {
+            return;
+        }
+        andSet.unsubscribe();
+    }
+
+    public boolean update(k kVar) {
+        k kVar2;
+        do {
+            kVar2 = get();
+            if (kVar2 == Unsubscribed.INSTANCE) {
+                if (kVar != null) {
+                    kVar.unsubscribe();
+                    return false;
+                }
+                return false;
+            }
+        } while (!compareAndSet(kVar2, kVar));
+        if (kVar2 != null) {
+            kVar2.unsubscribe();
+            return true;
+        }
         return true;
     }
 
@@ -58,7 +87,6 @@ public final class SequentialSubscription extends AtomicReference<k> implements 
         if (kVar2 == Unsubscribed.INSTANCE) {
             if (kVar != null) {
                 kVar.unsubscribe();
-                return false;
             }
             return false;
         } else if (compareAndSet(kVar2, kVar)) {
@@ -72,33 +100,7 @@ public final class SequentialSubscription extends AtomicReference<k> implements 
         }
     }
 
-    public boolean replaceWeak(k kVar) {
-        k kVar2 = get();
-        if (kVar2 == Unsubscribed.INSTANCE) {
-            if (kVar != null) {
-                kVar.unsubscribe();
-            }
-            return false;
-        }
-        if (!compareAndSet(kVar2, kVar) && get() == Unsubscribed.INSTANCE) {
-            if (kVar != null) {
-                kVar.unsubscribe();
-            }
-            return false;
-        }
-        return true;
-    }
-
-    @Override // rx.k
-    public void unsubscribe() {
-        k andSet;
-        if (get() != Unsubscribed.INSTANCE && (andSet = getAndSet(Unsubscribed.INSTANCE)) != null && andSet != Unsubscribed.INSTANCE) {
-            andSet.unsubscribe();
-        }
-    }
-
-    @Override // rx.k
-    public boolean isUnsubscribed() {
-        return get() == Unsubscribed.INSTANCE;
+    public SequentialSubscription(k kVar) {
+        lazySet(kVar);
     }
 }

@@ -2,28 +2,32 @@ package com.kwad.sdk.pngencrypt.chunk;
 
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class e {
-    final com.kwad.sdk.pngencrypt.k b;
+
+    /* renamed from: b  reason: collision with root package name */
+    public final com.kwad.sdk.pngencrypt.k f36147b;
 
     /* renamed from: a  reason: collision with root package name */
-    List<PngChunk> f6922a = new ArrayList();
-    boolean c = false;
+    public List<PngChunk> f36146a = new ArrayList();
+
+    /* renamed from: c  reason: collision with root package name */
+    public boolean f36148c = false;
 
     public e(com.kwad.sdk.pngencrypt.k kVar) {
-        this.b = kVar;
+        this.f36147b = kVar;
     }
 
-    protected static List<PngChunk> a(List<PngChunk> list, final String str, final String str2) {
+    public static List<PngChunk> a(List<PngChunk> list, final String str, final String str2) {
         return str2 == null ? b.a(list, new c() { // from class: com.kwad.sdk.pngencrypt.chunk.e.1
             @Override // com.kwad.sdk.pngencrypt.chunk.c
             public boolean a(PngChunk pngChunk) {
-                return pngChunk.f6917a.equals(str);
+                return pngChunk.f36119a.equals(str);
             }
         }) : b.a(list, new c() { // from class: com.kwad.sdk.pngencrypt.chunk.e.2
             @Override // com.kwad.sdk.pngencrypt.chunk.c
             public boolean a(PngChunk pngChunk) {
-                if (pngChunk.f6917a.equals(str)) {
+                if (pngChunk.f36119a.equals(str)) {
                     if (!(pngChunk instanceof ae) || ((ae) pngChunk).c().equals(str2)) {
                         return !(pngChunk instanceof x) || ((x) pngChunk).c().equals(str2);
                     }
@@ -35,22 +39,22 @@ public class e {
     }
 
     public List<PngChunk> a() {
-        return this.f6922a;
+        return this.f36146a;
     }
 
     public List<? extends PngChunk> a(String str, String str2) {
-        return a(this.f6922a, str, str2);
+        return a(this.f36146a, str, str2);
     }
 
     public void a(PngChunk pngChunk, int i) {
         pngChunk.a(i);
-        this.f6922a.add(pngChunk);
-        if (pngChunk.f6917a.equals("PLTE")) {
-            this.c = true;
+        this.f36146a.add(pngChunk);
+        if (pngChunk.f36119a.equals("PLTE")) {
+            this.f36148c = true;
         }
     }
 
     public String toString() {
-        return "ChunkList: read: " + this.f6922a.size();
+        return "ChunkList: read: " + this.f36146a.size();
     }
 }

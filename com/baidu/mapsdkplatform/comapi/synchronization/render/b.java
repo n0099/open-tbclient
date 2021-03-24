@@ -22,79 +22,94 @@ import com.baidu.mapapi.synchronization.DisplayOptions;
 import com.baidu.mapapi.synchronization.RoleOptions;
 import com.baidu.mapsdkplatform.comapi.synchronization.data.RouteLineInfo;
 import com.baidu.mapsdkplatform.comapi.synchronization.data.SyncResponseResult;
+import com.baidu.wallet.base.widget.CustomerServiceMenu;
 import java.lang.Thread;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class b extends Handler {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f2270a = b.class.getSimpleName();
-    private static RoleOptions d = null;
-    private static DisplayOptions e = null;
-    private static Marker f = null;
-    private static volatile SyncResponseResult g = null;
-    private static int h = 1000;
-    private static volatile int p = 0;
-    private static LatLng r = null;
-    private boolean A;
-    private Thread B;
-    private boolean C;
-    private int D;
-    private int E;
-    private LatLngBounds F;
-    private e G;
-    private volatile long H;
-    private boolean I;
-    private volatile boolean J;
-    private volatile long K;
-    private volatile int L;
-    private List<LatLng> M;
-    private List<BitmapDescriptor> N;
-    private Polyline O;
-    private List<Integer> P;
-    private volatile boolean Q;
-    private int R;
-    private String S;
-    private String T;
-    private boolean U;
-    private boolean V;
-    private volatile int W;
-    private volatile boolean X;
-    private BaiduMap b;
-    private com.baidu.mapsdkplatform.comapi.synchronization.render.d c;
-    private Marker i;
-    private Marker j;
-    private Marker k;
-    private Marker l;
-    private Marker m;
-    private Marker n;
-    private List<LinkPointPolyLineInfo> o;
-    private Thread q;
-    private int s;
-    private double t;
-    private int u;
-    private boolean v;
-    private volatile boolean w;
-    private Thread x;
-    private boolean y;
-    private boolean z;
+    public static final String f7822a = b.class.getSimpleName();
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* renamed from: d  reason: collision with root package name */
+    public static RoleOptions f7823d = null;
+
+    /* renamed from: e  reason: collision with root package name */
+    public static DisplayOptions f7824e = null;
+
+    /* renamed from: f  reason: collision with root package name */
+    public static Marker f7825f = null;
+
+    /* renamed from: g  reason: collision with root package name */
+    public static volatile SyncResponseResult f7826g = null;
+
+    /* renamed from: h  reason: collision with root package name */
+    public static int f7827h = 1000;
+    public static volatile int p = 0;
+    public static LatLng r = null;
+    public boolean A;
+    public Thread B;
+    public boolean C;
+    public int D;
+    public int E;
+    public LatLngBounds F;
+    public e G;
+    public volatile long H;
+    public boolean I;
+    public volatile boolean J;
+    public volatile long K;
+    public volatile int L;
+    public List<LatLng> M;
+    public List<BitmapDescriptor> N;
+    public Polyline O;
+    public List<Integer> P;
+    public volatile boolean Q;
+    public int R;
+    public String S;
+    public String T;
+    public boolean U;
+    public boolean V;
+    public volatile int W;
+    public volatile boolean X;
+
+    /* renamed from: b  reason: collision with root package name */
+    public BaiduMap f7828b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public com.baidu.mapsdkplatform.comapi.synchronization.render.d f7829c;
+    public Marker i;
+    public Marker j;
+    public Marker k;
+    public Marker l;
+    public Marker m;
+    public Marker n;
+    public List<LinkPointPolyLineInfo> o;
+    public Thread q;
+    public int s;
+    public double t;
+    public int u;
+    public boolean v;
+    public volatile boolean w;
+    public Thread x;
+    public boolean y;
+    public boolean z;
+
+    /* loaded from: classes2.dex */
     public class a implements Runnable {
-        private a() {
+        public a() {
         }
 
         @Override // java.lang.Runnable
         public void run() {
             while (!b.this.C) {
-                if (b.g != null && b.g.a() != null) {
+                if (b.f7826g != null && b.f7826g.a() != null) {
                     if (!b.this.X) {
                         b.this.ak();
                         b.this.I = false;
-                        b.this.a(b.this.F);
+                        b bVar = b.this;
+                        bVar.a(bVar.F);
                     }
                     try {
                         b.this.K = System.currentTimeMillis();
@@ -102,47 +117,52 @@ public class b extends Handler {
                             b.this.H = 10000L;
                         }
                         Thread.sleep(b.this.H);
-                    } catch (InterruptedException e) {
-                        com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(b.f2270a, "Sleep InterruptedException");
+                    } catch (InterruptedException unused) {
+                        com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(b.f7822a, "Sleep InterruptedException");
                     }
                 }
             }
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.mapsdkplatform.comapi.synchronization.render.b$b  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public class RunnableC0259b implements Runnable {
-        private RunnableC0259b() {
+    /* loaded from: classes2.dex */
+    public class RunnableC0100b implements Runnable {
+        public RunnableC0100b() {
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            double a2;
+            LatLng latLng;
+            LatLng endPosition;
             while (!b.this.Q) {
                 LatLng ac = b.this.ac();
                 if (ac == null) {
-                    com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(b.f2270a, "Driver position is null, return");
+                    com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(b.f7822a, "Driver position is null, return");
                     return;
                 }
-                LatLng a3 = b.this.a(ac);
-                if (a3 == null) {
-                    com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(b.f2270a, "Driver position not bind to route");
+                LatLng a2 = b.this.a(ac);
+                if (a2 == null) {
+                    com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(b.f7822a, "Driver position not bind to route");
                     b.c(b.this);
                     if (!b.this.v || b.this.y) {
-                        com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(b.f2270a, "Driver position not bind to route times = " + b.this.W);
+                        String str = b.f7822a;
+                        com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(str, "Driver position not bind to route times = " + b.this.W);
                         if (2 <= b.this.W) {
-                            if (2 >= b.h) {
-                                a2 = com.baidu.mapsdkplatform.comapi.synchronization.d.b.a(b.r, b.d.getStartPosition());
-                            } else if (4 != b.h) {
+                            if (2 >= b.f7827h) {
+                                latLng = b.r;
+                                endPosition = b.f7823d.getStartPosition();
+                            } else if (4 != b.f7827h) {
                                 b.this.W = 0;
                                 return;
                             } else {
-                                a2 = com.baidu.mapsdkplatform.comapi.synchronization.d.b.a(b.r, b.d.getEndPosition());
+                                latLng = b.r;
+                                endPosition = b.f7823d.getEndPosition();
                             }
-                            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(b.f2270a, "Latest driver postion to end position distance = " + a2);
-                            if (300.0d >= a2) {
+                            double a3 = com.baidu.mapsdkplatform.comapi.synchronization.d.b.a(latLng, endPosition);
+                            String str2 = b.f7822a;
+                            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(str2, "Latest driver postion to end position distance = " + a3);
+                            if (300.0d >= a3) {
                                 if (b.this.O != null) {
                                     b.this.O.remove();
                                 }
@@ -160,20 +180,21 @@ public class b extends Handler {
                 } else if (b.this.s == 0) {
                     return;
                 } else {
-                    b.this.t = b.this.ad();
+                    b bVar = b.this;
+                    bVar.t = bVar.ad();
                     if (b.this.t > 500.0d) {
-                        b.this.b(a3);
+                        b.this.b(a2);
                         b.this.ag();
-                        b.this.c(a3);
+                        b.this.c(a2);
                         b.this.e(b.p - 1);
                         b.this.L = b.p - 1;
                         return;
                     }
-                    b.g.c().setPoint(null);
+                    b.f7826g.c().setPoint(null);
                     try {
                         b.this.ae();
-                    } catch (Exception e) {
-                        com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(b.f2270a, "Catch exception when car moving", e);
+                    } catch (Exception e2) {
+                        com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(b.f7822a, "Catch exception when car moving", e2);
                     }
                     if (b.p >= b.this.o.size()) {
                         b.this.Q = true;
@@ -184,24 +205,27 @@ public class b extends Handler {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class c implements Runnable {
-        private c() {
+        public c() {
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            BitmapDescriptor passengerIcon = b.e != null ? b.e.getPassengerIcon() : null;
-            BitmapDescriptor passengerIcon2 = passengerIcon == null ? new DisplayOptions().getPassengerIcon() : passengerIcon;
-            int passengerMarkerZIndex = b.e.getPassengerMarkerZIndex();
+            BitmapDescriptor passengerIcon = b.f7824e != null ? b.f7824e.getPassengerIcon() : null;
+            if (passengerIcon == null) {
+                passengerIcon = new DisplayOptions().getPassengerIcon();
+            }
+            int passengerMarkerZIndex = b.f7824e.getPassengerMarkerZIndex();
             while (!b.this.w) {
-                MyLocationData locationData = b.this.b.getLocationData();
+                MyLocationData locationData = b.this.f7828b.getLocationData();
                 if (locationData != null && b.this.a(locationData)) {
-                    com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(b.f2270a, "Get location data success");
+                    com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(b.f7822a, "Get location data success");
                     LatLng latLng = new LatLng(locationData.latitude, locationData.longitude);
                     if (b.this.n == null) {
-                        b.this.n = (Marker) b.this.b.addOverlay(new MarkerOptions().position(latLng).anchor(0.5f, 0.5f).rotate(locationData.direction).icon(passengerIcon2).zIndex(passengerMarkerZIndex));
+                        MarkerOptions zIndex = new MarkerOptions().position(latLng).anchor(0.5f, 0.5f).rotate(locationData.direction).icon(passengerIcon).zIndex(passengerMarkerZIndex);
+                        b bVar = b.this;
+                        bVar.n = (Marker) bVar.f7828b.addOverlay(zIndex);
                     } else {
                         b.this.n.setPosition(latLng);
                         b.this.n.setRotate(locationData.direction);
@@ -209,52 +233,57 @@ public class b extends Handler {
                 }
                 try {
                     Thread.sleep(b.this.R * 1000);
-                } catch (InterruptedException e) {
-                    com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(b.f2270a, "Sleep interrupt");
+                } catch (InterruptedException unused) {
+                    com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(b.f7822a, "Sleep interrupt");
                 }
             }
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public enum d {
         NO_NEED_RENDER,
         RENDER_NEW_LINE,
         UPDATE_TRAFFIC
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class e implements BaiduMap.OnSynchronizationListener {
-        private int b = 1;
-        private int c = 2;
-        private int d = 3;
 
-        e() {
+        /* renamed from: b  reason: collision with root package name */
+        public int f7838b = 1;
+
+        /* renamed from: c  reason: collision with root package name */
+        public int f7839c = 2;
+
+        /* renamed from: d  reason: collision with root package name */
+        public int f7840d = 3;
+
+        public e() {
         }
 
         @Override // com.baidu.mapapi.map.BaiduMap.OnSynchronizationListener
         public void onMapStatusChangeReason(int i) {
-            if (this.b != i && this.c != i) {
-                if (this.d != i) {
-                    com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(b.f2270a, "Undefined reason type: " + i);
-                    return;
+            if (this.f7838b == i || this.f7839c == i) {
+                long currentTimeMillis = System.currentTimeMillis() - b.this.K;
+                if (currentTimeMillis <= 0) {
+                    b bVar = b.this;
+                    bVar.H = bVar.D * 1000;
+                } else {
+                    b bVar2 = b.this;
+                    bVar2.H = (bVar2.D * 1000) - (b.this.H - currentTimeMillis);
                 }
-                b.this.H = b.this.E * 1000;
-                return;
-            }
-            long currentTimeMillis = System.currentTimeMillis() - b.this.K;
-            if (currentTimeMillis <= 0) {
-                b.this.H = b.this.D * 1000;
+                b.this.J = true;
+            } else if (this.f7840d == i) {
+                b bVar3 = b.this;
+                bVar3.H = bVar3.E * 1000;
             } else {
-                b.this.H = (b.this.D * 1000) - (b.this.H - currentTimeMillis);
+                String str = b.f7822a;
+                com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(str, "Undefined reason type: " + i);
             }
-            b.this.J = true;
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public b(Looper looper) {
         super(looper);
         this.i = null;
@@ -293,48 +322,55 @@ public class b extends Handler {
         this.V = false;
         this.W = 0;
         this.X = false;
-        this.q = new Thread(new RunnableC0259b(), "Car moving");
+        this.q = new Thread(new RunnableC0100b(), "Car moving");
         this.x = new Thread(new c(), "Passenger marker");
         this.B = new Thread(new a(), "Adjust visible span");
     }
 
     private void A() {
-        if (this.k != null) {
-            this.k.remove();
+        Marker marker = this.k;
+        if (marker != null) {
+            marker.remove();
             this.k = null;
         }
-        if (this.l != null) {
-            this.l.remove();
+        Marker marker2 = this.l;
+        if (marker2 != null) {
+            marker2.remove();
             this.l = null;
         }
     }
 
     private void B() {
-        if (this.i != null) {
-            this.i.remove();
+        Marker marker = this.i;
+        if (marker != null) {
+            marker.remove();
             this.i = null;
         }
-        if (this.j != null) {
-            this.j.remove();
+        Marker marker2 = this.j;
+        if (marker2 != null) {
+            marker2.remove();
             this.j = null;
         }
     }
 
     private void C() {
-        if (this.n != null) {
-            this.n.remove();
+        Marker marker = this.n;
+        if (marker != null) {
+            marker.remove();
             this.n = null;
         }
     }
 
     private void D() {
-        if (this.m != null) {
-            this.m.remove();
+        Marker marker = this.m;
+        if (marker != null) {
+            marker.remove();
             this.m = null;
         }
-        if (f != null) {
-            f.remove();
-            f = null;
+        Marker marker2 = f7825f;
+        if (marker2 != null) {
+            marker2.remove();
+            f7825f = null;
         }
     }
 
@@ -342,29 +378,32 @@ public class b extends Handler {
         if (!this.v || this.A) {
             return;
         }
-        if (this.O != null) {
-            this.O.remove();
+        Polyline polyline = this.O;
+        if (polyline != null) {
+            polyline.remove();
             this.o.clear();
             this.M.clear();
             this.N.clear();
             this.P.clear();
-            g = null;
+            f7826g = null;
         }
         this.S = null;
         this.T = null;
     }
 
     private void F() {
-        if (this.j != null) {
-            this.j.remove();
+        Marker marker = this.j;
+        if (marker != null) {
+            marker.remove();
             this.j = null;
         }
     }
 
     private void G() {
-        if (f != null) {
-            f.remove();
-            f = null;
+        Marker marker = f7825f;
+        if (marker != null) {
+            marker.remove();
+            f7825f = null;
         }
     }
 
@@ -376,174 +415,197 @@ public class b extends Handler {
     }
 
     private void I() {
-        if (!e.isShowStartPositionMarker()) {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(f2270a, "User set start position marker not show");
-            if (this.i != null) {
-                this.i.remove();
+        if (!f7824e.isShowStartPositionMarker()) {
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(f7822a, "User set start position marker not show");
+            Marker marker = this.i;
+            if (marker != null) {
+                marker.remove();
                 this.i = null;
             }
         } else if (this.i != null && !this.v) {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(f2270a, "Start position marker already render ok");
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(f7822a, "Start position marker already render ok");
         } else {
             LatLng J = J();
             if (J == null) {
-                com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f2270a, "No startPosition");
+                com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f7822a, "No startPosition");
                 return;
             }
-            BitmapDescriptor startPositionIcon = e.getStartPositionIcon();
+            BitmapDescriptor startPositionIcon = f7824e.getStartPositionIcon();
             if (startPositionIcon == null) {
-                com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f2270a, "No startPositionIcon, use default");
+                com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f7822a, "No startPositionIcon, use default");
                 startPositionIcon = new DisplayOptions().getStartPositionIcon();
             }
             if (startPositionIcon == null) {
-                com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f2270a, "There is no startPositionIcon");
+                com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f7822a, "There is no startPositionIcon");
                 return;
             }
-            MarkerOptions zIndex = new MarkerOptions().position(J).icon(startPositionIcon).zIndex(e.getStartPositionMarkerZIndex());
-            if (this.i == null) {
-                this.i = (Marker) this.b.addOverlay(zIndex);
+            MarkerOptions zIndex = new MarkerOptions().position(J).icon(startPositionIcon).zIndex(f7824e.getStartPositionMarkerZIndex());
+            Marker marker2 = this.i;
+            if (marker2 == null) {
+                this.i = (Marker) this.f7828b.addOverlay(zIndex);
                 return;
             }
-            this.i.setIcon(startPositionIcon);
+            marker2.setIcon(startPositionIcon);
             this.i.setPosition(J);
         }
     }
 
     private LatLng J() {
-        LatLng startPosition = d.getStartPosition();
+        LatLng startPosition = f7823d.getStartPosition();
         if (startPosition == null) {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f2270a, "The start position is null");
-            if (this.c != null) {
-                this.c.a(100001, "Start position is null");
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f7822a, "The start position is null");
+            com.baidu.mapsdkplatform.comapi.synchronization.render.d dVar = this.f7829c;
+            if (dVar != null) {
+                dVar.a(CustomerServiceMenu.TRANSFER_RECORD, "Start position is null");
             }
         }
         return startPosition;
     }
 
     private void K() {
-        if (!e.isShowStartPositionInfoWindow()) {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(f2270a, "User set start position infoWindow not show");
-            if (this.j != null) {
-                this.j.remove();
+        if (!f7824e.isShowStartPositionInfoWindow()) {
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(f7822a, "User set start position infoWindow not show");
+            Marker marker = this.j;
+            if (marker != null) {
+                marker.remove();
                 this.j = null;
                 return;
             }
             return;
         }
-        LatLng startPosition = d.getStartPosition();
+        LatLng startPosition = f7823d.getStartPosition();
         if (startPosition == null) {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f2270a, "No startPosition");
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f7822a, "No startPosition");
             return;
         }
-        View startPositionInfoWindowView = e.getStartPositionInfoWindowView();
+        View startPositionInfoWindowView = f7824e.getStartPositionInfoWindowView();
         if (startPositionInfoWindowView == null) {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f2270a, "Start position infoWindow view is null, cannot display");
-            if (this.j != null) {
-                this.j.remove();
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f7822a, "Start position infoWindow view is null, cannot display");
+            Marker marker2 = this.j;
+            if (marker2 != null) {
+                marker2.remove();
                 this.j = null;
                 return;
             }
             return;
         }
-        MarkerOptions alpha = new MarkerOptions().position(startPosition).icon(BitmapDescriptorFactory.fromView(startPositionInfoWindowView)).zIndex(e.getStartPositionInfoWindowZIndex()).alpha(0.9f);
-        if (this.j == null) {
-            this.j = (Marker) this.b.addOverlay(alpha);
+        MarkerOptions alpha = new MarkerOptions().position(startPosition).icon(BitmapDescriptorFactory.fromView(startPositionInfoWindowView)).zIndex(f7824e.getStartPositionInfoWindowZIndex()).alpha(0.9f);
+        Marker marker3 = this.j;
+        if (marker3 == null) {
+            this.j = (Marker) this.f7828b.addOverlay(alpha);
             return;
         }
-        this.j.setPosition(startPosition);
+        marker3.setPosition(startPosition);
         this.j.setIcon(BitmapDescriptorFactory.fromView(startPositionInfoWindowView));
     }
 
     private void L() {
-        if (!e.isShowEndPositionMarker()) {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(f2270a, "User set endPositionMarker not show");
-            if (this.k != null) {
-                this.k.remove();
+        String str;
+        String str2;
+        if (!f7824e.isShowEndPositionMarker()) {
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(f7822a, "User set endPositionMarker not show");
+            Marker marker = this.k;
+            if (marker != null) {
+                marker.remove();
                 this.k = null;
-            }
-        } else if (this.k != null && !this.v) {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f2270a, "EndPositionMarker already render ok");
-        } else {
-            LatLng endPosition = d.getEndPosition();
-            if (endPosition == null) {
-                com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f2270a, "End position coord is null");
                 return;
             }
-            BitmapDescriptor endPositionIcon = e.getEndPositionIcon();
-            if (endPositionIcon == null) {
-                com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f2270a, "The end position icon is null");
-                endPositionIcon = new DisplayOptions().getEndPositionIcon();
-            }
-            if (endPositionIcon == null) {
-                com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f2270a, "There is no endPositionIcon");
-                return;
-            }
-            MarkerOptions zIndex = new MarkerOptions().position(endPosition).icon(endPositionIcon).zIndex(e.getEndPositionMarkerZIndex());
-            if (this.k == null) {
-                this.k = (Marker) this.b.addOverlay(zIndex);
-                return;
-            }
-            this.k.setIcon(endPositionIcon);
-            this.k.setPosition(endPosition);
+            return;
         }
+        if (this.k == null || this.v) {
+            LatLng endPosition = f7823d.getEndPosition();
+            if (endPosition == null) {
+                str = f7822a;
+                str2 = "End position coord is null";
+            } else {
+                BitmapDescriptor endPositionIcon = f7824e.getEndPositionIcon();
+                if (endPositionIcon == null) {
+                    com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f7822a, "The end position icon is null");
+                    endPositionIcon = new DisplayOptions().getEndPositionIcon();
+                }
+                if (endPositionIcon != null) {
+                    MarkerOptions zIndex = new MarkerOptions().position(endPosition).icon(endPositionIcon).zIndex(f7824e.getEndPositionMarkerZIndex());
+                    Marker marker2 = this.k;
+                    if (marker2 == null) {
+                        this.k = (Marker) this.f7828b.addOverlay(zIndex);
+                        return;
+                    }
+                    marker2.setIcon(endPositionIcon);
+                    this.k.setPosition(endPosition);
+                    return;
+                }
+                str = f7822a;
+                str2 = "There is no endPositionIcon";
+            }
+        } else {
+            str = f7822a;
+            str2 = "EndPositionMarker already render ok";
+        }
+        com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(str, str2);
     }
 
     private void M() {
-        if (!e.isShowEndPositionInfoWindow()) {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(f2270a, "User set end position infoWindow not show");
-            if (this.l != null) {
-                this.l.remove();
+        if (!f7824e.isShowEndPositionInfoWindow()) {
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(f7822a, "User set end position infoWindow not show");
+            Marker marker = this.l;
+            if (marker != null) {
+                marker.remove();
                 this.l = null;
                 return;
             }
             return;
         }
-        LatLng endPosition = d.getEndPosition();
+        LatLng endPosition = f7823d.getEndPosition();
         if (endPosition == null) {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f2270a, "End position coord is null when render end position infoWindow");
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f7822a, "End position coord is null when render end position infoWindow");
             return;
         }
-        View endPositionInfoWindowView = e.getEndPositionInfoWindowView();
+        View endPositionInfoWindowView = f7824e.getEndPositionInfoWindowView();
         if (endPositionInfoWindowView == null) {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f2270a, "End position infoWindow view is null, cannot display");
-            if (this.l != null) {
-                this.l.remove();
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f7822a, "End position infoWindow view is null, cannot display");
+            Marker marker2 = this.l;
+            if (marker2 != null) {
+                marker2.remove();
                 this.l = null;
                 return;
             }
             return;
         }
-        MarkerOptions zIndex = new MarkerOptions().position(endPosition).icon(BitmapDescriptorFactory.fromView(endPositionInfoWindowView)).anchor(0.5f, 1.0f).zIndex(e.getEndPositionInfoWindowZIndex());
-        if (this.l == null) {
-            this.l = (Marker) this.b.addOverlay(zIndex);
+        MarkerOptions zIndex = new MarkerOptions().position(endPosition).icon(BitmapDescriptorFactory.fromView(endPositionInfoWindowView)).anchor(0.5f, 1.0f).zIndex(f7824e.getEndPositionInfoWindowZIndex());
+        Marker marker3 = this.l;
+        if (marker3 == null) {
+            this.l = (Marker) this.f7828b.addOverlay(zIndex);
             return;
         }
-        this.l.setPosition(endPosition);
+        marker3.setPosition(endPosition);
         this.l.setIcon(BitmapDescriptorFactory.fromView(endPositionInfoWindowView));
     }
 
     private synchronized void N() {
-        if (this.x != null) {
-            this.w = false;
-            if (Thread.State.NEW == this.x.getState()) {
-                this.x.start();
-            }
-            if (this.v && Thread.State.TERMINATED == this.x.getState()) {
-                this.x = null;
-                this.x = new Thread(new c(), "Passenger marker");
-                this.x.start();
-            }
+        if (this.x == null) {
+            return;
+        }
+        this.w = false;
+        if (Thread.State.NEW == this.x.getState()) {
+            this.x.start();
+        }
+        if (this.v && Thread.State.TERMINATED == this.x.getState()) {
+            this.x = null;
+            Thread thread = new Thread(new c(), "Passenger marker");
+            this.x = thread;
+            thread.start();
         }
     }
 
     private void O() {
-        if (e.isShowPassengerIcon()) {
+        if (f7824e.isShowPassengerIcon()) {
             N();
             return;
         }
-        com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(f2270a, "User set not show passenger icon");
-        if (this.n != null) {
-            this.n.remove();
+        com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(f7822a, "User set not show passenger icon");
+        Marker marker = this.n;
+        if (marker != null) {
+            marker.remove();
             this.n = null;
         }
     }
@@ -556,99 +618,108 @@ public class b extends Handler {
     }
 
     private void Q() {
-        if (!e.isShowCarMarker()) {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(f2270a, "User set carMarker not show");
-            if (this.m != null) {
-                this.m.remove();
+        if (!f7824e.isShowCarMarker()) {
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(f7822a, "User set carMarker not show");
+            Marker marker = this.m;
+            if (marker != null) {
+                marker.remove();
                 this.m = null;
             }
         } else if (this.m != null && !this.v) {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(f2270a, "CarIcon already render ok");
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(f7822a, "CarIcon already render ok");
         } else {
             LatLng T = T();
             if (T == null) {
-                com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f2270a, "The car(driver) position is null");
+                com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f7822a, "The car(driver) position is null");
                 return;
             }
-            BitmapDescriptor carIcon = e.getCarIcon();
+            BitmapDescriptor carIcon = f7824e.getCarIcon();
             if (carIcon == null) {
-                com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f2270a, "The car icon is null");
+                com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f7822a, "The car icon is null");
                 carIcon = new DisplayOptions().getCarIcon();
             }
             if (carIcon == null) {
-                com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f2270a, "There is no car icon");
+                com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f7822a, "There is no car icon");
                 return;
             }
-            MarkerOptions anchor = new MarkerOptions().position(T).icon(carIcon).flat(true).rotate(0.0f).zIndex(e.getCarPositionMarkerZIndex()).anchor(0.5f, 0.5f);
-            if (this.m == null) {
-                this.m = (Marker) this.b.addOverlay(anchor);
+            MarkerOptions anchor = new MarkerOptions().position(T).icon(carIcon).flat(true).rotate(0.0f).zIndex(f7824e.getCarPositionMarkerZIndex()).anchor(0.5f, 0.5f);
+            Marker marker2 = this.m;
+            if (marker2 == null) {
+                this.m = (Marker) this.f7828b.addOverlay(anchor);
                 return;
             }
-            this.m.setPosition(T);
+            marker2.setPosition(T);
             this.m.setIcon(carIcon);
         }
     }
 
     private void R() {
-        if (!e.isShowCarInfoWindow()) {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(f2270a, "User set carInfoWindow not show");
-            if (f != null) {
-                f.remove();
-                f = null;
+        if (!f7824e.isShowCarInfoWindow()) {
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(f7822a, "User set carInfoWindow not show");
+            Marker marker = f7825f;
+            if (marker != null) {
+                marker.remove();
+                f7825f = null;
                 return;
             }
             return;
         }
-        View carInfoWindowView = e.getCarInfoWindowView();
+        View carInfoWindowView = f7824e.getCarInfoWindowView();
         if (carInfoWindowView == null) {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f2270a, "car position infoWindow view is null, cannot display");
-            if (f != null) {
-                f.remove();
-                f = null;
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f7822a, "car position infoWindow view is null, cannot display");
+            Marker marker2 = f7825f;
+            if (marker2 != null) {
+                marker2.remove();
+                f7825f = null;
                 return;
             }
             return;
         }
         LatLng S = S();
         if (S == null) {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f2270a, "CarPosition is null");
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f7822a, "CarPosition is null");
             return;
         }
-        MarkerOptions alpha = new MarkerOptions().position(S).icon(BitmapDescriptorFactory.fromView(carInfoWindowView)).zIndex(e.getCarPositionInfoWindowZIndex()).anchor(0.5f, 1.0f).alpha(0.9f);
-        if (f == null) {
-            f = (Marker) this.b.addOverlay(alpha);
+        MarkerOptions alpha = new MarkerOptions().position(S).icon(BitmapDescriptorFactory.fromView(carInfoWindowView)).zIndex(f7824e.getCarPositionInfoWindowZIndex()).anchor(0.5f, 1.0f).alpha(0.9f);
+        Marker marker3 = f7825f;
+        if (marker3 == null) {
+            f7825f = (Marker) this.f7828b.addOverlay(alpha);
             return;
         }
-        f.setPosition(S);
-        f.setIcon(BitmapDescriptorFactory.fromView(carInfoWindowView));
+        marker3.setPosition(S);
+        f7825f.setIcon(BitmapDescriptorFactory.fromView(carInfoWindowView));
     }
 
     private LatLng S() {
-        if (this.m != null || g == null) {
-            if (this.m != null) {
-                return this.m.getPosition();
+        if (this.m != null || f7826g == null) {
+            Marker marker = this.m;
+            if (marker != null) {
+                return marker.getPosition();
             }
             return null;
         }
-        return g.c().getPoint();
+        return f7826g.c().getPoint();
     }
 
     private LatLng T() {
-        return r != null ? r : (g == null || g.c() == null || g.c().getPoint() == null) ? d.getDriverPosition() : g.c().getPoint();
+        LatLng latLng = r;
+        return latLng != null ? latLng : (f7826g == null || f7826g.c() == null || f7826g.c().getPoint() == null) ? f7823d.getDriverPosition() : f7826g.c().getPoint();
     }
 
     private void U() {
-        if (e == null) {
+        DisplayOptions displayOptions = f7824e;
+        if (displayOptions == null) {
             return;
         }
-        if (!e.isShowRoutePlan()) {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(f2270a, "User set route line not show");
-            if (this.O != null) {
-                this.O.remove();
+        if (!displayOptions.isShowRoutePlan()) {
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(f7822a, "User set route line not show");
+            Polyline polyline = this.O;
+            if (polyline != null) {
+                polyline.remove();
                 this.O = null;
             }
-        } else if (g == null) {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f2270a, "No route line data");
+        } else if (f7826g == null) {
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f7822a, "No route line data");
         } else {
             d V = V();
             if (d.NO_NEED_RENDER == V) {
@@ -663,7 +734,7 @@ public class b extends Handler {
                     try {
                         Thread.sleep(100L);
                     } catch (Exception e2) {
-                        com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(f2270a, "Exception caught when renderRouteLine", e2);
+                        com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(f7822a, "Exception caught when renderRouteLine", e2);
                     }
                 }
                 p = 0;
@@ -673,13 +744,15 @@ public class b extends Handler {
                 this.M.clear();
                 this.N.clear();
                 this.P.clear();
-                if (this.O != null) {
-                    this.O.remove();
+                Polyline polyline2 = this.O;
+                if (polyline2 != null) {
+                    polyline2.remove();
                     this.O = null;
                 }
                 X();
-                if (this.o == null || this.o.isEmpty()) {
-                    com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f2270a, "LinkPointPolyline info is null");
+                List<LinkPointPolyLineInfo> list = this.o;
+                if (list == null || list.isEmpty()) {
+                    com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f7822a, "LinkPointPolyline info is null");
                 } else {
                     Y();
                 }
@@ -688,8 +761,8 @@ public class b extends Handler {
     }
 
     private d V() {
-        String a2 = g.a().a();
-        String a3 = g.b().a();
+        String a2 = f7826g.a().a();
+        String a3 = f7826g.b().a();
         if (this.v && !this.A) {
             this.S = null;
             this.T = null;
@@ -697,86 +770,84 @@ public class b extends Handler {
         if (a2 != null && (TextUtils.isEmpty(this.S) || !this.S.equals(a2) || this.O == null)) {
             this.S = a2;
             this.T = a3;
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f2270a, "Route line or order state changed or no render, need render");
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f7822a, "Route line or order state changed or no render, need render");
             return d.RENDER_NEW_LINE;
         } else if (a3 == null || this.O == null || (!TextUtils.isEmpty(this.T) && this.T.equals(a3))) {
             return d.NO_NEED_RENDER;
         } else {
             this.T = a3;
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f2270a, "Route line only need update traffic");
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f7822a, "Route line only need update traffic");
             return d.UPDATE_TRAFFIC;
         }
     }
 
     private void W() {
+        int size;
         int[] iArr;
-        ArrayList<Integer> b = g.b().b();
-        if (b == null || b.isEmpty()) {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f2270a, "Traffic status data is null");
+        ArrayList<Integer> b2 = f7826g.b().b();
+        if (b2 == null || b2.isEmpty()) {
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f7822a, "Traffic status data is null");
             return;
         }
         if (!this.Q) {
             this.Q = true;
         }
-        if (p - this.s >= 0) {
-            try {
-                if (b.size() == this.o.size()) {
-                    for (int i = p - this.s; i < this.o.size(); i++) {
-                        this.P.set(i, b.get(i));
-                    }
-                } else {
-                    for (int i2 = p - this.s; i2 < this.o.size(); i2++) {
-                        this.P.set(i2, b.get((b.size() + i2) - this.o.size()));
-                    }
+        if (p - this.s < 0) {
+            return;
+        }
+        try {
+            if (b2.size() == this.o.size()) {
+                for (int i = p - this.s; i < this.o.size(); i++) {
+                    this.P.set(i, b2.get(i));
                 }
-                iArr = new int[(this.P.size() - p) + this.s];
-                for (int i3 = 0; i3 < (this.P.size() - p) + this.s; i3++) {
-                    iArr[i3] = this.P.get((p + i3) - this.s).intValue();
-                }
-            } catch (Exception e2) {
-                com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(f2270a, "Exception caught when updateTrafficStatus", e2);
-            }
-            if (iArr.length > 0) {
-                this.O.setIndexs(iArr);
-                if (this.Q) {
-                    this.Q = false;
+            } else {
+                for (int i2 = p - this.s; i2 < this.o.size(); i2++) {
+                    this.P.set(i2, b2.get((b2.size() + i2) - this.o.size()));
                 }
             }
+            size = (this.P.size() - p) + this.s;
+            iArr = new int[size];
+            for (int i3 = 0; i3 < (this.P.size() - p) + this.s; i3++) {
+                iArr[i3] = this.P.get((p + i3) - this.s).intValue();
+            }
+        } catch (Exception e2) {
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(f7822a, "Exception caught when updateTrafficStatus", e2);
+        }
+        if (size <= 0) {
+            return;
+        }
+        this.O.setIndexs(iArr);
+        if (this.Q) {
+            this.Q = false;
         }
     }
 
     private void X() {
-        if (g == null || g.a() == null) {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f2270a, "Route info or syncResponseResult is null");
+        if (f7826g == null || f7826g.a() == null) {
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f7822a, "Route info or syncResponseResult is null");
             return;
         }
-        List<RouteLineInfo.RouteSectionInfo> b = g.a().b();
-        ArrayList<Integer> b2 = g.b().b();
-        if (b == null || b.isEmpty()) {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f2270a, "route section info is null");
-        } else if (!b.isEmpty() && b2 != null && !b2.isEmpty() && b2.size() != b.size()) {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f2270a, "route section info or traffic status info is invalid");
-        } else {
-            int i = 0;
-            while (true) {
-                int i2 = i;
-                if (i2 >= b.size()) {
-                    this.M.add(b.get(b.size() - 1).b());
-                    return;
-                }
-                if (b.get(i2) != null) {
-                    LatLng a2 = b.get(i2).a();
-                    LatLng b3 = b.get(i2).b();
-                    int a3 = a(i2, b2);
+        List<RouteLineInfo.RouteSectionInfo> b2 = f7826g.a().b();
+        ArrayList<Integer> b3 = f7826g.b().b();
+        if (b2 == null || b2.isEmpty()) {
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f7822a, "route section info is null");
+        } else if (b2.isEmpty() || b3 == null || b3.isEmpty() || b3.size() == b2.size()) {
+            for (int i = 0; i < b2.size(); i++) {
+                if (b2.get(i) != null) {
+                    LatLng a2 = b2.get(i).a();
+                    LatLng b4 = b2.get(i).b();
+                    int a3 = a(i, b3);
                     LinkPointPolyLineInfo linkPointPolyLineInfo = new LinkPointPolyLineInfo();
                     linkPointPolyLineInfo.a(a2);
-                    linkPointPolyLineInfo.b(b3);
+                    linkPointPolyLineInfo.b(b4);
                     linkPointPolyLineInfo.a(a3);
                     this.o.add(linkPointPolyLineInfo);
                     this.M.add(a2);
                 }
-                i = i2 + 1;
             }
+            this.M.add(b2.get(b2.size() - 1).b());
+        } else {
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f7822a, "route section info or traffic status info is invalid");
         }
     }
 
@@ -784,7 +855,7 @@ public class b extends Handler {
         if (!this.Q) {
             this.Q = true;
         }
-        LatLng point = (g == null || g.c() == null) ? null : g.c().getPoint();
+        LatLng point = (f7826g == null || f7826g.c() == null) ? null : f7826g.c().getPoint();
         LatLng a2 = point != null ? a(point) : null;
         if (a2 != null) {
             this.s = 0;
@@ -792,7 +863,7 @@ public class b extends Handler {
                 this.o = this.o.subList(p, this.o.size());
                 this.M = this.M.subList(p, this.M.size());
             } catch (Exception e2) {
-                com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(f2270a, "Caught exception when renderRoutePolyLine", e2);
+                com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(f7822a, "Caught exception when renderRoutePolyLine", e2);
             }
             b(a2);
             ag();
@@ -810,27 +881,33 @@ public class b extends Handler {
             }
         }
         if (this.N.isEmpty()) {
-            this.N.addAll(e.getTrafficTextureList());
+            this.N.addAll(f7824e.getTrafficTextureList());
         }
-        PolylineOptions zIndex = new PolylineOptions().points(this.M).dottedLine(true).width(e == null ? new DisplayOptions().getRouteLineWidth() : e.getRouteLineWidth()).customTextureList(this.N).textureIndex(this.P).zIndex(e.getRouteLineZIndex());
-        if (!e.isShowRoutePlan()) {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f2270a, "User set route line not display");
+        DisplayOptions displayOptions = f7824e;
+        if (displayOptions == null) {
+            displayOptions = new DisplayOptions();
+        }
+        PolylineOptions zIndex = new PolylineOptions().points(this.M).dottedLine(true).width(displayOptions.getRouteLineWidth()).customTextureList(this.N).textureIndex(this.P).zIndex(f7824e.getRouteLineZIndex());
+        if (!f7824e.isShowRoutePlan()) {
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f7822a, "User set route line not display");
             zIndex.visible(false);
         }
-        this.O = (Polyline) this.b.addOverlay(zIndex);
+        this.O = (Polyline) this.f7828b.addOverlay(zIndex);
         if (this.Q) {
             this.Q = false;
         }
     }
 
     private void Z() {
+        List<LinkPointPolyLineInfo> list;
         if (this.m == null) {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f2270a, "CarMarker is null");
-        } else if (r != null || this.o == null || this.o.isEmpty()) {
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f7822a, "CarMarker is null");
+        } else if (r != null || (list = this.o) == null || list.isEmpty()) {
             aa();
         } else {
-            r = this.o.get(0).a();
-            b(r);
+            LatLng a2 = this.o.get(0).a();
+            r = a2;
+            b(a2);
             c(r);
         }
     }
@@ -839,15 +916,18 @@ public class b extends Handler {
         if (this.u == 0) {
             this.u = 5;
         }
-        return (Math.abs(d2) * this.u) / this.t;
+        double abs = Math.abs(d2);
+        double d3 = this.u;
+        Double.isNaN(d3);
+        return (abs * d3) / this.t;
     }
 
     private double a(double d2, double d3) {
-        return d3 == Double.MAX_VALUE ? d2 : Math.abs((d2 * d3) / Math.sqrt(1.0d + (d3 * d3)));
+        return d3 == Double.MAX_VALUE ? d2 : Math.abs((d2 * d3) / Math.sqrt((d3 * d3) + 1.0d));
     }
 
     private double a(double d2, LatLng latLng) {
-        return latLng.latitude - (latLng.longitude * d2);
+        return latLng.latitude - (d2 * latLng.longitude);
     }
 
     private int a(int i, ArrayList<Integer> arrayList) {
@@ -859,45 +939,41 @@ public class b extends Handler {
 
     /* JADX INFO: Access modifiers changed from: private */
     public LatLng a(LatLng latLng) {
-        if (3 == h) {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(f2270a, "WAIT_PASSENGER State, no need calculate");
+        if (3 == f7827h) {
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(f7822a, "WAIT_PASSENGER State, no need calculate");
             return null;
-        } else if (this.o == null || this.o.isEmpty()) {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f2270a, "mLinkPolyLineInfos size = " + this.o.size());
+        }
+        List<LinkPointPolyLineInfo> list = this.o;
+        if (list == null || list.isEmpty()) {
+            String str = f7822a;
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(str, "mLinkPolyLineInfos size = " + this.o.size());
             return null;
-        } else {
-            int i = p;
-            while (true) {
-                int i2 = i;
-                if (i2 >= this.o.size()) {
-                    return null;
+        }
+        for (int i = p; i < this.o.size(); i++) {
+            LatLng a2 = this.o.get(i).a();
+            LatLng b2 = this.o.get(i).b();
+            if (!a(latLng, a2)) {
+                if (a(latLng, b2)) {
+                    this.s = d(i + 1);
+                    return b2;
                 }
-                LatLng a2 = this.o.get(i2).a();
-                LatLng b = this.o.get(i2).b();
-                if (a(latLng, a2)) {
-                    this.s = d(i2);
-                    return a2;
-                } else if (a(latLng, b)) {
-                    this.s = d(i2 + 1);
-                    return b;
-                } else {
-                    boolean a3 = a(a2, b, latLng);
-                    boolean b2 = b(a2, b, latLng);
-                    if (a3 && b2) {
-                        this.s = d(i2);
-                        return a2;
-                    }
-                    i = i2 + 1;
+                boolean a3 = a(a2, b2, latLng);
+                boolean b3 = b(a2, b2, latLng);
+                if (!a3 || !b3) {
                 }
             }
+            this.s = d(i);
+            return a2;
         }
+        return null;
     }
 
     private void a(LatLngBounds.Builder builder) {
-        if (e == null || e.isShowStartPositionMarkerInSpan()) {
+        DisplayOptions displayOptions = f7824e;
+        if (displayOptions == null || displayOptions.isShowStartPositionMarkerInSpan()) {
             builder.include(J());
         } else {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f2270a, "User set not show startPositionMarker in span");
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f7822a, "User set not show startPositionMarker in span");
         }
     }
 
@@ -907,38 +983,37 @@ public class b extends Handler {
         int i2;
         int i3;
         int i4;
-        if (!this.J || this.X) {
-            MapStatus mapStatus = this.b.getMapStatus();
-            if (mapStatus == null) {
-                com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f2270a, "Get map status failed");
-            } else {
-                WinRound winRound = mapStatus.winRound;
-                int abs = Math.abs(winRound.right - winRound.left);
-                int abs2 = Math.abs(winRound.bottom - winRound.top);
-                if (e != null) {
-                    i4 = e.getPaddingLeft();
-                    i3 = e.getPaddingTop();
-                    int paddingRight = e.getPaddingRight();
-                    i = e.getPaddingBottom();
-                    i2 = paddingRight;
-                } else {
-                    i = 50;
-                    i2 = 50;
-                    i3 = 50;
-                    i4 = 50;
-                }
-                int i5 = (abs - i4) - i2;
-                int i6 = (abs2 - i3) - i;
-                if (i5 < 0 || i6 < 0 || i5 > abs || i6 > abs2) {
-                    com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f2270a, "Invalid width and height，use default padding");
-                    i5 = (abs - 50) - 50;
-                    i6 = (abs2 - 50) - 50;
-                }
-                this.b.animateMapStatus(MapStatusUpdateFactory.newLatLngBounds(latLngBounds, i5, i6));
-            }
-        } else {
+        if (this.J && !this.X) {
             this.J = false;
+            return;
         }
+        MapStatus mapStatus = this.f7828b.getMapStatus();
+        if (mapStatus == null) {
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f7822a, "Get map status failed");
+            return;
+        }
+        WinRound winRound = mapStatus.winRound;
+        int abs = Math.abs(winRound.right - winRound.left);
+        int abs2 = Math.abs(winRound.bottom - winRound.top);
+        if (f7824e != null) {
+            i = f7824e.getPaddingLeft();
+            i2 = f7824e.getPaddingTop();
+            i3 = f7824e.getPaddingRight();
+            i4 = f7824e.getPaddingBottom();
+        } else {
+            i = 50;
+            i2 = 50;
+            i3 = 50;
+            i4 = 50;
+        }
+        int i5 = (abs - i) - i3;
+        int i6 = (abs2 - i2) - i4;
+        if (i5 < 0 || i6 < 0 || i5 > abs || i6 > abs2) {
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f7822a, "Invalid width and height，use default padding");
+            i5 = (abs - 50) - 50;
+            i6 = (abs2 - 50) - 50;
+        }
+        this.f7828b.animateMapStatus(MapStatusUpdateFactory.newLatLngBounds(latLngBounds, i5, i6));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -947,16 +1022,16 @@ public class b extends Handler {
         long j2;
         try {
             j = Double.valueOf(myLocationData.latitude).longValue();
-            try {
-                j2 = Double.valueOf(myLocationData.longitude).longValue();
-            } catch (NumberFormatException e2) {
-                com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f2270a, "Trans latitude and longitude failed");
-                j2 = 0;
-                if (0 == j) {
-                }
-            }
-        } catch (NumberFormatException e3) {
+        } catch (NumberFormatException unused) {
             j = 0;
+        }
+        try {
+            j2 = Double.valueOf(myLocationData.longitude).longValue();
+        } catch (NumberFormatException unused2) {
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f7822a, "Trans latitude and longitude failed");
+            j2 = 0;
+            if (0 == j) {
+            }
         }
         return (0 == j || 0 != j2) && j >= -90 && j <= 90 && j2 >= -180 && j2 <= 180;
     }
@@ -966,26 +1041,37 @@ public class b extends Handler {
     }
 
     private boolean a(LatLng latLng, LatLng latLng2, double d2) {
+        double d3;
+        LatLng latLng3;
         boolean z = latLng.latitude > latLng2.latitude;
         double a2 = a(d2, latLng);
         double f2 = f(latLng, latLng2);
         double a3 = z ? a(f2, d2) : a(f2, d2) * (-1.0d);
         double a4 = a(a3);
-        double d3 = latLng.latitude;
+        double d4 = latLng.latitude;
+        double d5 = a3;
         while (true) {
-            if ((d3 > latLng2.latitude) != z) {
+            if ((d4 > latLng2.latitude) != z) {
                 return true;
             }
             if (this.Q) {
                 return false;
             }
-            LatLng latLng3 = Double.MAX_VALUE == d2 ? new LatLng(d3, latLng.longitude) : new LatLng(d3, (d3 - a2) / d2);
+            if (Double.MAX_VALUE == d2) {
+                d3 = a4;
+                latLng3 = new LatLng(d4, latLng.longitude);
+            } else {
+                d3 = a4;
+                latLng3 = new LatLng(d4, (d4 - a2) / d2);
+            }
             b(latLng3);
             c(latLng3);
-            if (!b(a4)) {
+            double d6 = d3;
+            if (!b(d6)) {
                 return false;
             }
-            d3 -= a3;
+            d4 -= d5;
+            a4 = d6;
         }
     }
 
@@ -993,19 +1079,23 @@ public class b extends Handler {
         double d2 = latLng.latitude;
         double d3 = latLng.longitude;
         double d4 = latLng2.latitude;
-        return Math.abs(((latLng2.longitude - d3) * (latLng3.latitude - d2)) - ((d4 - d2) * (latLng3.longitude - d3))) < 1.0E-4d;
+        return Math.abs(((latLng3.latitude - d2) * (latLng2.longitude - d3)) - ((d4 - d2) * (latLng3.longitude - d3))) < 1.0E-4d;
     }
 
     private synchronized void aa() {
-        if (this.q != null) {
-            this.Q = false;
-            if (Thread.State.NEW == this.q.getState()) {
-                this.q.start();
-            } else if (Thread.State.TERMINATED == this.q.getState()) {
-                this.q = null;
-                this.q = new Thread(new RunnableC0259b(), "Car moving");
-                this.q.start();
-            }
+        if (this.q == null) {
+            return;
+        }
+        this.Q = false;
+        if (Thread.State.NEW == this.q.getState()) {
+            this.q.start();
+            return;
+        }
+        if (Thread.State.TERMINATED == this.q.getState()) {
+            this.q = null;
+            Thread thread = new Thread(new RunnableC0100b(), "Car moving");
+            this.q = thread;
+            thread.start();
         }
     }
 
@@ -1015,27 +1105,23 @@ public class b extends Handler {
 
     /* JADX INFO: Access modifiers changed from: private */
     public LatLng ac() {
-        if (g == null || g.c() == null || g.c().getPoint() == null || this.V) {
+        if (f7826g == null || f7826g.c() == null || f7826g.c().getPoint() == null || this.V) {
             return null;
         }
-        return g.c().getPoint();
+        return f7826g.c().getPoint();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public double ad() {
-        if (this.o == null || this.o.isEmpty() || p > this.o.size()) {
+        List<LinkPointPolyLineInfo> list = this.o;
+        if (list == null || list.isEmpty() || p > this.o.size()) {
             return 1.0d;
         }
         double d2 = 0.0d;
-        int i = p - this.s;
-        while (true) {
-            int i2 = i;
-            if (i2 >= p) {
-                return d2;
-            }
-            d2 += f(this.o.get(i2).a(), this.o.get(i2).b());
-            i = i2 + 1;
+        for (int i = p - this.s; i < p; i++) {
+            d2 += f(this.o.get(i).a(), this.o.get(i).b());
         }
+        return d2;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -1043,51 +1129,48 @@ public class b extends Handler {
         if (p == 0) {
             return;
         }
-        int i = p - this.s;
-        while (true) {
-            int i2 = i;
-            if (i2 >= p) {
-                return;
-            }
-            LatLng a2 = this.o.get(i2).a();
-            LatLng b = this.o.get(i2).b();
-            double f2 = f(a2, b) / 2.0d;
-            double d2 = (b.latitude - a2.latitude) / f2;
-            double d3 = (b.longitude - a2.longitude) / f2;
-            double e2 = e(a2, b);
-            int i3 = 1;
-            LatLng latLng = a2;
-            while (i3 <= f2) {
-                double d4 = latLng.longitude;
-                double d5 = latLng.latitude;
+        for (int i = p - this.s; i < p; i++) {
+            LatLng a2 = this.o.get(i).a();
+            LatLng b2 = this.o.get(i).b();
+            double f2 = f(a2, b2) / 2.0d;
+            double d2 = (b2.latitude - a2.latitude) / f2;
+            double d3 = (b2.longitude - a2.longitude) / f2;
+            double e2 = e(a2, b2);
+            int i2 = 1;
+            while (i2 <= f2) {
+                double d4 = a2.longitude;
+                double d5 = f2;
+                double d6 = a2.latitude;
                 if (0.0d == e2) {
-                    d4 = latLng.longitude + d3;
-                } else if (Double.MAX_VALUE == e2) {
-                    d5 = latLng.latitude + d2;
+                    d4 += d3;
                 } else {
-                    d4 = latLng.longitude + d3;
-                    d5 = latLng.latitude + d2;
+                    if (Double.MAX_VALUE != e2) {
+                        d4 += d3;
+                    }
+                    d6 += d2;
                 }
-                LatLng latLng2 = new LatLng(d5, d4);
-                if (this.M != null && !this.M.isEmpty()) {
+                LatLng latLng = new LatLng(d6, d4);
+                List<LatLng> list = this.M;
+                if (list != null && !list.isEmpty()) {
                     if (this.z) {
                         this.Q = true;
                         return;
                     }
-                    this.M.set(i2, latLng2);
+                    this.M.set(i, latLng);
                 }
-                if (this.P != null && !this.P.isEmpty()) {
-                    this.P.set(i2, Integer.valueOf(this.o.get(i2).c()));
+                List<Integer> list2 = this.P;
+                if (list2 != null && !list2.isEmpty()) {
+                    this.P.set(i, Integer.valueOf(this.o.get(i).c()));
                 }
-                if (!b(latLng, latLng2)) {
+                if (!b(a2, latLng)) {
                     return;
                 }
-                this.L = i2;
-                e(i2);
-                i3++;
-                latLng = latLng2;
+                this.L = i;
+                e(i);
+                i2++;
+                a2 = latLng;
+                f2 = d5;
             }
-            i = i2 + 1;
         }
     }
 
@@ -1107,9 +1190,9 @@ public class b extends Handler {
         }
         float f2 = 0.0f;
         try {
-            f2 = Double.valueOf(360.0d - g.c().getAngle()).floatValue();
+            f2 = Double.valueOf(360.0d - f7826g.c().getAngle()).floatValue();
         } catch (NumberFormatException e2) {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(f2270a, "Get DriverPosition Angle failed", e2);
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(f7822a, "Get DriverPosition Angle failed", e2);
         }
         this.m.setRotate(f2);
     }
@@ -1119,53 +1202,54 @@ public class b extends Handler {
     }
 
     private synchronized void ai() {
-        if (this.B != null) {
-            if (this.C) {
-                this.C = false;
-            }
-            if (Thread.State.NEW == this.B.getState()) {
-                this.I = true;
-                this.B.start();
-            }
-            if (this.v && Thread.State.TIMED_WAITING == this.B.getState()) {
-                this.B.interrupt();
-                this.I = true;
-            }
-            if (Thread.State.TERMINATED == this.B.getState()) {
-                this.B = null;
-                this.I = true;
-                this.B = new Thread(new a(), "Adjust visible span");
-                this.B.start();
-            }
+        if (this.B == null) {
+            return;
+        }
+        if (this.C) {
+            this.C = false;
+        }
+        if (Thread.State.NEW == this.B.getState()) {
+            this.I = true;
+            this.B.start();
+        }
+        if (this.v && Thread.State.TIMED_WAITING == this.B.getState()) {
+            this.B.interrupt();
+            this.I = true;
+        }
+        if (Thread.State.TERMINATED == this.B.getState()) {
+            this.B = null;
+            this.I = true;
+            Thread thread = new Thread(new a(), "Adjust visible span");
+            this.B = thread;
+            thread.start();
         }
     }
 
     private void aj() {
-        this.b.setOnSynchronizationListener(this.G);
+        this.f7828b.setOnSynchronizationListener(this.G);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void ak() {
-        switch (h) {
-            case 0:
-            case 5:
-                ah();
-                return;
-            case 1:
+        int i = f7827h;
+        if (i != 0) {
+            if (i == 1) {
                 al();
                 return;
-            case 2:
+            } else if (i == 2) {
                 am();
                 return;
-            case 3:
+            } else if (i == 3) {
                 an();
                 return;
-            case 4:
+            } else if (i == 4) {
                 ao();
                 return;
-            default:
+            } else if (i != 5) {
                 return;
+            }
         }
+        ah();
     }
 
     private void al() {
@@ -1205,36 +1289,38 @@ public class b extends Handler {
     private double b(LatLng latLng, LatLng latLng2, double d2) {
         if (Double.MAX_VALUE == d2) {
             return latLng2.latitude > latLng.latitude ? 360.0d : 180.0d;
-        } else if (0.0d == d2) {
-            return latLng2.longitude > latLng.longitude ? 270.0d : 90.0d;
-        } else {
-            return (((latLng2.latitude - latLng.latitude) * d2 < 0.0d ? 180.0d : 0.0d) + (180.0d * (Math.atan(d2) / 3.141592653589793d))) - 90.0d;
         }
+        if (0.0d == d2) {
+            return latLng2.longitude > latLng.longitude ? 270.0d : 90.0d;
+        }
+        return (((Math.atan(d2) / 3.141592653589793d) * 180.0d) + ((latLng2.latitude - latLng.latitude) * d2 < 0.0d ? 180.0d : 0.0d)) - 90.0d;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(LatLng latLng) {
-        if (this.m != null) {
-            this.m.setPosition(latLng);
+        Marker marker = this.m;
+        if (marker != null) {
+            marker.setPosition(latLng);
         }
     }
 
     private void b(LatLngBounds.Builder builder) {
-        if (e == null || e.isShowEndPositionMarkerInSpan()) {
-            builder.include(d.getEndPosition());
+        DisplayOptions displayOptions = f7824e;
+        if (displayOptions == null || displayOptions.isShowEndPositionMarkerInSpan()) {
+            builder.include(f7823d.getEndPosition());
         } else {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f2270a, "User set not show endPositionMarker in span");
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f7822a, "User set not show endPositionMarker in span");
         }
     }
 
     private boolean b(double d2) {
         try {
-            Thread.sleep(Double.valueOf((1000.0d * d2) + 50.0d).longValue());
+            Thread.sleep(Double.valueOf((d2 * 1000.0d) + 50.0d).longValue());
             return true;
-        } catch (InterruptedException e2) {
+        } catch (InterruptedException unused) {
             return false;
-        } catch (NumberFormatException e3) {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(f2270a, "Calc sleep interval failed", e3);
+        } catch (NumberFormatException e2) {
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(f7822a, "Calc sleep interval failed", e2);
             return false;
         }
     }
@@ -1246,14 +1332,14 @@ public class b extends Handler {
         b(latLng);
         c(latLng);
         double e2 = e(latLng, latLng2);
-        float b = (float) b(latLng, latLng2, e2);
-        if (this.m != null) {
-            this.m.setRotate(b);
+        float b2 = (float) b(latLng, latLng2, e2);
+        Marker marker = this.m;
+        if (marker != null) {
+            marker.setRotate(b2);
         }
         boolean c2 = 0.0d == e2 ? c(latLng, latLng2) : a(latLng, latLng2, e2);
         if (c2) {
             r = latLng2;
-            return c2;
         }
         return c2;
     }
@@ -1268,36 +1354,39 @@ public class b extends Handler {
         return Math.min(d2, d4) - 1.0E-4d <= d6 && d6 <= Math.max(d2, d4) + 1.0E-4d && Math.min(d3, d5) - 1.0E-4d <= d7 && d7 <= Math.max(d3, d5) + 1.0E-4d;
     }
 
-    static /* synthetic */ int c(b bVar) {
+    public static /* synthetic */ int c(b bVar) {
         int i = bVar.W;
         bVar.W = i + 1;
         return i;
     }
 
     private void c(int i) {
-        this.y = 1000 == h;
-        this.A = (1 == h && 2 == i) || (1 == i && 2 == h);
-        if (h == i) {
+        this.y = 1000 == f7827h;
+        this.A = (1 == f7827h && 2 == i) || (1 == i && 2 == f7827h);
+        if (f7827h == i) {
             this.v = false;
             return;
         }
-        h = i;
+        f7827h = i;
         this.v = true;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c(LatLng latLng) {
-        if (f != null) {
-            f.setPosition(latLng);
+        Marker marker = f7825f;
+        if (marker != null) {
+            marker.setPosition(latLng);
         }
     }
 
     private void c(LatLngBounds.Builder builder) {
-        if (e == null || e.isShowCarMarkerInSpan()) {
-            builder.include((this.m == null || this.I) ? T() : this.m.getPosition());
-        } else {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f2270a, "User set not show carMarker in span");
+        DisplayOptions displayOptions = f7824e;
+        if (displayOptions != null && !displayOptions.isShowCarMarkerInSpan()) {
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f7822a, "User set not show carMarker in span");
+            return;
         }
+        Marker marker = this.m;
+        builder.include((marker == null || this.I) ? T() : marker.getPosition());
     }
 
     private boolean c(LatLng latLng, LatLng latLng2) {
@@ -1330,70 +1419,86 @@ public class b extends Handler {
 
     private void d(LatLngBounds.Builder builder) {
         LatLng position;
-        if (e != null && !e.isShowPassengerIconInSpan()) {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f2270a, "User set not show passengerMarker in span");
+        String str;
+        String str2;
+        DisplayOptions displayOptions = f7824e;
+        if (displayOptions == null || displayOptions.isShowPassengerIconInSpan()) {
+            Marker marker = this.n;
+            if (marker == null) {
+                MyLocationData locationData = this.f7828b.getLocationData();
+                if (locationData == null) {
+                    str = f7822a;
+                    str2 = "No passenger location data";
+                } else if (!a(locationData)) {
+                    return;
+                } else {
+                    position = new LatLng(locationData.latitude, locationData.longitude);
+                }
+            } else {
+                position = marker.getPosition();
+            }
+            builder.include(position);
             return;
         }
-        if (this.n == null) {
-            MyLocationData locationData = this.b.getLocationData();
-            if (locationData == null) {
-                com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f2270a, "No passenger location data");
-                return;
-            } else if (!a(locationData)) {
-                return;
-            } else {
-                position = new LatLng(locationData.latitude, locationData.longitude);
-            }
-        } else {
-            position = this.n.getPosition();
-        }
-        builder.include(position);
+        str = f7822a;
+        str2 = "User set not show passengerMarker in span";
+        com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(str, str2);
     }
 
     private double e(LatLng latLng, LatLng latLng2) {
-        if (latLng2.longitude == latLng.longitude) {
+        double d2 = latLng2.longitude;
+        double d3 = latLng.longitude;
+        if (d2 == d3) {
             return Double.MAX_VALUE;
         }
-        return (latLng2.latitude - latLng.latitude) / (latLng2.longitude - latLng.longitude);
+        return (latLng2.latitude - latLng.latitude) / (d2 - d3);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void e(int i) {
         int[] iArr;
-        if (this.M == null || this.M.isEmpty()) {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f2270a, "Route polyline points is null when remove");
+        List<LatLng> list = this.M;
+        if (list == null || list.isEmpty()) {
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f7822a, "Route polyline points is null when remove");
         } else if (this.M.size() <= 2 || i >= this.M.size() - 2) {
-            if (this.O != null) {
-                this.O.remove();
+            Polyline polyline = this.O;
+            if (polyline != null) {
+                polyline.remove();
             }
-        } else if (this.P == null || this.P.isEmpty()) {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f2270a, "No need removeTravelledPolyLine");
-        } else if (!this.z) {
-            try {
-                List<Integer> subList = this.P.subList(i, this.P.size());
-                iArr = new int[subList.size()];
-                for (int i2 = 0; i2 < subList.size(); i2++) {
-                    iArr[i2] = subList.get(i2).intValue();
+        } else {
+            List<Integer> list2 = this.P;
+            if (list2 == null || list2.isEmpty()) {
+                com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f7822a, "No need removeTravelledPolyLine");
+            } else if (!this.z) {
+                try {
+                    List<Integer> subList = this.P.subList(i, this.P.size());
+                    iArr = new int[subList.size()];
+                    for (int i2 = 0; i2 < subList.size(); i2++) {
+                        iArr[i2] = subList.get(i2).intValue();
+                    }
+                } catch (Exception e2) {
+                    e2.printStackTrace();
                 }
-            } catch (Exception e2) {
-                e2.printStackTrace();
-            }
-            if (this.O == null || this.Q) {
-                return;
-            }
-            this.O.setIndexs(iArr);
-            try {
-                this.O.setPoints(this.M.subList(i, this.M.size()));
-            } catch (Exception e3) {
-                com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(f2270a, "Get subList of PolyLinePointList failed", e3);
+                if (this.O != null && !this.Q) {
+                    this.O.setIndexs(iArr);
+                    try {
+                        this.O.setPoints(this.M.subList(i, this.M.size()));
+                    } catch (Exception e3) {
+                        com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(f7822a, "Get subList of PolyLinePointList failed", e3);
+                    }
+                }
             }
         }
     }
 
     private void e(LatLngBounds.Builder builder) {
-        if (e != null && !e.isShowRoutePlanInSpan()) {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f2270a, "User set not show routeLine in span");
-        } else if (this.o == null || this.o.isEmpty()) {
+        DisplayOptions displayOptions = f7824e;
+        if (displayOptions != null && !displayOptions.isShowRoutePlanInSpan()) {
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f7822a, "User set not show routeLine in span");
+            return;
+        }
+        List<LinkPointPolyLineInfo> list = this.o;
+        if (list == null || list.isEmpty()) {
             g(builder);
         } else {
             f(builder);
@@ -1405,40 +1510,27 @@ public class b extends Handler {
     }
 
     private void f(LatLngBounds.Builder builder) {
-        int i = this.L;
-        while (true) {
-            int i2 = i;
-            if (i2 >= this.o.size()) {
-                builder.include(this.o.get(this.o.size() - 1).b());
-                return;
-            } else {
-                builder.include(this.o.get(i2).a());
-                i = i2 + 1;
-            }
+        for (int i = this.L; i < this.o.size(); i++) {
+            builder.include(this.o.get(i).a());
         }
+        List<LinkPointPolyLineInfo> list = this.o;
+        builder.include(list.get(list.size() - 1).b());
     }
 
     private void g(LatLngBounds.Builder builder) {
-        if (g == null || g.a() == null) {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f2270a, "There no routeLine info, no need show in span");
+        if (f7826g == null || f7826g.a() == null) {
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f7822a, "There no routeLine info, no need show in span");
             return;
         }
-        List<RouteLineInfo.RouteSectionInfo> b = g.a().b();
-        if (b == null || b.isEmpty()) {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f2270a, "There no routeLine position, no need show in span");
+        List<RouteLineInfo.RouteSectionInfo> b2 = f7826g.a().b();
+        if (b2 == null || b2.isEmpty()) {
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f7822a, "There no routeLine position, no need show in span");
             return;
         }
-        int i = 0;
-        while (true) {
-            int i2 = i;
-            if (i2 >= b.size()) {
-                builder.include(b.get(b.size() - 1).b());
-                return;
-            } else {
-                builder.include(b.get(i2).a());
-                i = i2 + 1;
-            }
+        for (int i = 0; i < b2.size(); i++) {
+            builder.include(b2.get(i).a());
         }
+        builder.include(b2.get(b2.size() - 1).b());
     }
 
     private LatLngBounds h(LatLngBounds.Builder builder) {
@@ -1446,46 +1538,52 @@ public class b extends Handler {
     }
 
     private void o() {
-        if (e == null) {
+        if (f7824e == null) {
             return;
         }
-        if (f != null) {
-            f.remove();
-            f = null;
+        Marker marker = f7825f;
+        if (marker != null) {
+            marker.remove();
+            f7825f = null;
         }
-        if (this.m != null) {
-            this.m.remove();
+        Marker marker2 = this.m;
+        if (marker2 != null) {
+            marker2.remove();
             this.m = null;
         }
-        if (this.i != null) {
-            this.i.remove();
+        Marker marker3 = this.i;
+        if (marker3 != null) {
+            marker3.remove();
             this.i = null;
         }
-        if (this.j != null) {
-            this.j.remove();
+        Marker marker4 = this.j;
+        if (marker4 != null) {
+            marker4.remove();
             this.j = null;
         }
-        if (this.l != null) {
-            this.l.remove();
+        Marker marker5 = this.l;
+        if (marker5 != null) {
+            marker5.remove();
             this.l = null;
         }
-        e.getStartPositionIcon().recycle();
-        e.getCarIcon().recycle();
-        if (e.getEndPositionIcon() != null) {
-            e.getEndPositionIcon().recycle();
+        f7824e.getStartPositionIcon().recycle();
+        f7824e.getCarIcon().recycle();
+        if (f7824e.getEndPositionIcon() != null) {
+            f7824e.getEndPositionIcon().recycle();
         }
-        e = null;
+        f7824e = null;
     }
 
     private void p() {
         p = 0;
         this.u = 0;
         this.Q = true;
-        if (this.q != null) {
+        Thread thread = this.q;
+        if (thread != null) {
             try {
-                this.q.join();
-            } catch (InterruptedException e2) {
-                com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f2270a, "InterruptedException when release CarMoveThread");
+                thread.join();
+            } catch (InterruptedException unused) {
+                com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f7822a, "InterruptedException when release CarMoveThread");
             }
             this.q = null;
         }
@@ -1506,10 +1604,9 @@ public class b extends Handler {
     }
 
     private void s() {
-        int i = 0;
-        d = null;
-        g = null;
-        h = 1000;
+        f7823d = null;
+        f7826g = null;
+        f7827h = 1000;
         this.Q = false;
         this.U = true;
         this.V = false;
@@ -1520,20 +1617,16 @@ public class b extends Handler {
         this.t = 0.0d;
         this.M.clear();
         this.P.clear();
-        if (this.O != null) {
-            this.O.remove();
+        Polyline polyline = this.O;
+        if (polyline != null) {
+            polyline.remove();
             this.O = null;
         }
-        while (true) {
-            int i2 = i;
-            if (i2 >= this.N.size()) {
-                this.N.clear();
-                this.b.clear();
-                return;
-            }
-            this.N.get(i2).recycle();
-            i = i2 + 1;
+        for (int i = 0; i < this.N.size(); i++) {
+            this.N.get(i).recycle();
         }
+        this.N.clear();
+        this.f7828b.clear();
     }
 
     private void t() {
@@ -1545,8 +1638,9 @@ public class b extends Handler {
         B();
         C();
         D();
-        if (this.b != null) {
-            this.b.clear();
+        BaiduMap baiduMap = this.f7828b;
+        if (baiduMap != null) {
+            baiduMap.clear();
         }
     }
 
@@ -1629,24 +1723,25 @@ public class b extends Handler {
         B();
         C();
         D();
-        if (this.b != null) {
-            this.b.clear();
+        BaiduMap baiduMap = this.f7828b;
+        if (baiduMap != null) {
+            baiduMap.clear();
         }
     }
 
     private boolean z() {
-        if (d == null || e == null) {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f2270a, "No render data");
-            if (this.c != null) {
-                this.c.a(100001, "Get render data failed");
-                return false;
+        if (f7823d == null || f7824e == null) {
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f7822a, "No render data");
+            com.baidu.mapsdkplatform.comapi.synchronization.render.d dVar = this.f7829c;
+            if (dVar != null) {
+                dVar.a(CustomerServiceMenu.TRANSFER_RECORD, "Get render data failed");
             }
             return false;
-        } else if (this.b == null) {
-            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f2270a, "BaiduMap is null");
-            if (this.c != null) {
-                this.c.a(100002, "BaiduMap instance is null.");
-                return false;
+        } else if (this.f7828b == null) {
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(f7822a, "BaiduMap is null");
+            com.baidu.mapsdkplatform.comapi.synchronization.render.d dVar2 = this.f7829c;
+            if (dVar2 != null) {
+                dVar2.a(CustomerServiceMenu.TRANSFER_SERVICE, "BaiduMap instance is null.");
             }
             return false;
         } else {
@@ -1654,54 +1749,47 @@ public class b extends Handler {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public Marker a() {
         return this.i;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public void a(int i) {
         this.D = i;
     }
 
     public void a(BaiduMap baiduMap, RoleOptions roleOptions, DisplayOptions displayOptions) {
-        this.b = baiduMap;
-        d = roleOptions;
-        e = displayOptions;
+        this.f7828b = baiduMap;
+        f7823d = roleOptions;
+        f7824e = displayOptions;
         this.G = new e();
         aj();
         r = null;
-        this.b.getUiSettings().setRotateGesturesEnabled(false);
-        this.b.getUiSettings().setCompassEnabled(false);
+        this.f7828b.getUiSettings().setRotateGesturesEnabled(false);
+        this.f7828b.getUiSettings().setCompassEnabled(false);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public synchronized void a(RoleOptions roleOptions, DisplayOptions displayOptions, SyncResponseResult syncResponseResult, int i) {
-        d = roleOptions;
-        e = displayOptions;
-        if (e == null) {
-            e = new DisplayOptions();
+        f7823d = roleOptions;
+        f7824e = displayOptions;
+        if (displayOptions == null) {
+            f7824e = new DisplayOptions();
         }
-        g = syncResponseResult;
+        f7826g = syncResponseResult;
         this.u = i;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public void a(com.baidu.mapsdkplatform.comapi.synchronization.render.d dVar) {
-        this.c = dVar;
+        this.f7829c = dVar;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public Marker b() {
         return this.k;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public void b(int i) {
         this.E = i;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public Marker c() {
         return this.m;
     }
@@ -1732,7 +1820,6 @@ public class b extends Handler {
         s();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public void g() {
         this.X = true;
         ak();
@@ -1742,30 +1829,25 @@ public class b extends Handler {
 
     @Override // android.os.Handler
     public void handleMessage(Message message) {
-        com.baidu.mapsdkplatform.comapi.synchronization.d.a.c(f2270a, "The orderState in message is: " + message.what);
+        String str = f7822a;
+        com.baidu.mapsdkplatform.comapi.synchronization.d.a.c(str, "The orderState in message is: " + message.what);
         c(message.what);
-        switch (message.what) {
-            case 0:
-                t();
-                return;
-            case 1:
-                u();
-                return;
-            case 2:
-                v();
-                return;
-            case 3:
-                w();
-                return;
-            case 4:
-                x();
-                return;
-            case 5:
-                y();
-                return;
-            default:
-                com.baidu.mapsdkplatform.comapi.synchronization.d.a.c(f2270a, "Undefined Message type: " + message.what);
-                return;
+        int i = message.what;
+        if (i == 0) {
+            t();
+        } else if (i == 1) {
+            u();
+        } else if (i == 2) {
+            v();
+        } else if (i == 3) {
+            w();
+        } else if (i == 4) {
+            x();
+        } else if (i == 5) {
+            y();
+        } else {
+            String str2 = f7822a;
+            com.baidu.mapsdkplatform.comapi.synchronization.d.a.c(str2, "Undefined Message type: " + message.what);
         }
     }
 }

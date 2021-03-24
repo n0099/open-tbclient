@@ -6,8 +6,8 @@ import android.content.ContextWrapper;
 import android.database.DatabaseErrorHandler;
 import android.database.sqlite.SQLiteDatabase;
 @Deprecated
-/* loaded from: classes3.dex */
-final class NoLocalModeContextWrapper extends ContextWrapper {
+/* loaded from: classes2.dex */
+public final class NoLocalModeContextWrapper extends ContextWrapper {
     public NoLocalModeContextWrapper(Context context) {
         super(context);
     }

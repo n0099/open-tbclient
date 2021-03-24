@@ -5,26 +5,17 @@ import com.baidu.searchbox.http.request.HttpRequestParasBuilder;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public abstract class HttpRequestParasBuilder<T extends HttpRequestParasBuilder> extends HttpRequestBuilder<T> {
-    protected LinkedHashMap<String, String> params;
+    public LinkedHashMap<String, String> params;
 
     public HttpRequestParasBuilder(AbstractHttpManager abstractHttpManager) {
         super(abstractHttpManager);
         this.params = new LinkedHashMap<>();
     }
 
-    public HttpRequestParasBuilder(HttpParaRequest httpParaRequest, AbstractHttpManager abstractHttpManager) {
-        super(httpParaRequest, abstractHttpManager);
-        if (httpParaRequest.params != null) {
-            this.params = new LinkedHashMap<>(httpParaRequest.params);
-        } else {
-            this.params = new LinkedHashMap<>();
-        }
-    }
-
-    public T params(Map<String, String> map) {
-        this.params = new LinkedHashMap<>(map);
+    public T addParam(String str, String str2) {
+        this.params.put(str, str2);
         return this;
     }
 
@@ -33,8 +24,8 @@ public abstract class HttpRequestParasBuilder<T extends HttpRequestParasBuilder>
         return this;
     }
 
-    public T addParam(String str, String str2) {
-        this.params.put(str, str2);
+    public T params(Map<String, String> map) {
+        this.params = new LinkedHashMap<>(map);
         return this;
     }
 
@@ -50,5 +41,14 @@ public abstract class HttpRequestParasBuilder<T extends HttpRequestParasBuilder>
             }
         }
         return this;
+    }
+
+    public HttpRequestParasBuilder(HttpParaRequest httpParaRequest, AbstractHttpManager abstractHttpManager) {
+        super(httpParaRequest, abstractHttpManager);
+        if (httpParaRequest.params != null) {
+            this.params = new LinkedHashMap<>(httpParaRequest.params);
+        } else {
+            this.params = new LinkedHashMap<>();
+        }
     }
 }

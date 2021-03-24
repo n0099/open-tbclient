@@ -7,9 +7,13 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public final class DownPrefUtils {
-    private static final boolean DEBUG = false;
+    public static final boolean DEBUG = false;
+    public static String HOST_TYPE_IP = "1";
+    public static String HOST_TYPE_NAME = "0";
+    public static String HTTP_LIB_TYPE_HTTPCLIENT = "0";
+    public static String HTTP_LIB_TYPE_URLCONNECTION = "1";
     public static final String PREF_CDN_HOST = "pref_cdn_host";
     public static final String PREF_CONFIG_CDN_URL_TIMEOUT = "pref_config_cdn_url_timeout";
     public static final String PREF_CONFIG_DOWNINFO_URL_TIMEOUT = "pref_config_downinfo_url_timeout";
@@ -28,95 +32,38 @@ public final class DownPrefUtils {
     public static final String PREF_DOWNLOAD_INFO_HOST = "pref_download_info_host";
     public static final String PREF_DOWNLOAD_NAME = "pref_download_setting";
     public static final String PREF_LOG_HOST = "pref_log_host";
-    private static final String TAG = "DownPrefUtils";
-    private static long mSpeedOffsetMin = -1;
-    private static long mSpeedOffsetMax = -1;
-    private static long mCDNUrlTimeout = -1;
-    private static long mTestSpeedDuration = -1;
-    private static long mTestSpeedDataSize = -1;
-    public static String HOST_TYPE_NAME = "0";
-    public static String HOST_TYPE_IP = "1";
-    public static String HTTP_LIB_TYPE_HTTPCLIENT = "0";
-    public static String HTTP_LIB_TYPE_URLCONNECTION = "1";
-    public static String PREF_SPEED_CONFIG_KEY = "pref_speed_config_key";
     public static String PREF_SPEED_CONFIG_ACQUIRE_TIME_KEY = "pref_speed_config_acquire_time_key";
-
-    private DownPrefUtils() {
-    }
+    public static String PREF_SPEED_CONFIG_KEY = "pref_speed_config_key";
+    public static final String TAG = "DownPrefUtils";
+    public static long mCDNUrlTimeout = -1;
+    public static long mSpeedOffsetMax = -1;
+    public static long mSpeedOffsetMin = -1;
+    public static long mTestSpeedDataSize = -1;
+    public static long mTestSpeedDuration = -1;
 
     public static boolean getBoolean(Context context, String str, boolean z) {
         return context.getSharedPreferences(PREF_DOWNLOAD_NAME, 0).getBoolean(str, z);
     }
 
-    public static void setBoolean(Context context, String str, boolean z) {
-        SharedPreferences sharedPreferences;
-        if (context != null && str != null && (sharedPreferences = context.getSharedPreferences(PREF_DOWNLOAD_NAME, 0)) != null) {
-            SharedPreferences.Editor edit = sharedPreferences.edit();
-            edit.putBoolean(str, z);
-            edit.commit();
-        }
-    }
-
-    public static float getFloat(Context context, String str, float f) {
-        return context.getSharedPreferences(PREF_DOWNLOAD_NAME, 0).getFloat(str, f);
-    }
-
-    public static void setFloat(Context context, String str, float f) {
-        SharedPreferences sharedPreferences;
-        if (context != null && str != null && (sharedPreferences = context.getSharedPreferences(PREF_DOWNLOAD_NAME, 0)) != null) {
-            SharedPreferences.Editor edit = sharedPreferences.edit();
-            edit.putFloat(str, f);
-            edit.commit();
-        }
+    public static float getFloat(Context context, String str, float f2) {
+        return context.getSharedPreferences(PREF_DOWNLOAD_NAME, 0).getFloat(str, f2);
     }
 
     public static int getInt(Context context, String str, int i) {
         return context.getSharedPreferences(PREF_DOWNLOAD_NAME, 0).getInt(str, i);
     }
 
-    public static void setInt(Context context, String str, int i) {
-        SharedPreferences sharedPreferences;
-        SharedPreferences.Editor edit;
-        if (context != null && str != null && (sharedPreferences = context.getSharedPreferences(PREF_DOWNLOAD_NAME, 0)) != null && (edit = sharedPreferences.edit()) != null) {
-            edit.putInt(str, i);
-            edit.commit();
-        }
-    }
-
     public static long getLong(Context context, String str, long j) {
         return context.getSharedPreferences(PREF_DOWNLOAD_NAME, 0).getLong(str, j);
-    }
-
-    public static long testConfigurationGetLong(Context context, String str, long j) {
-        return context.getSharedPreferences(PREF_DOWNLOAD_NAME, 0).getLong(str, j);
-    }
-
-    public static void setLong(Context context, String str, long j) {
-        SharedPreferences sharedPreferences;
-        SharedPreferences.Editor edit;
-        if (context != null && (sharedPreferences = context.getSharedPreferences(PREF_DOWNLOAD_NAME, 0)) != null && (edit = sharedPreferences.edit()) != null) {
-            edit.putLong(str, j);
-            edit.commit();
-        }
     }
 
     public static String getString(Context context, String str, String str2) {
         return context.getSharedPreferences(PREF_DOWNLOAD_NAME, 0).getString(str, str2);
     }
 
-    public static void setString(Context context, String str, String str2) {
-        SharedPreferences sharedPreferences;
-        SharedPreferences.Editor edit;
-        if (context != null && str != null && (sharedPreferences = context.getSharedPreferences(PREF_DOWNLOAD_NAME, 0)) != null && (edit = sharedPreferences.edit()) != null) {
-            edit.putString(str, str2);
-            edit.commit();
-        }
-    }
-
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [360=4] */
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:42:0x00d1 -> B:46:0x00d4). Please submit an issue!!! */
     public static void loadProperties(Context context) {
         FileInputStream fileInputStream;
-        FileInputStream fileInputStream2;
         System.currentTimeMillis();
         File file = new File(Environment.getExternalStorageDirectory(), "appsearch.cfg");
         if (!file.exists() && context != null) {
@@ -124,58 +71,106 @@ public final class DownPrefUtils {
         }
         if (file.exists()) {
             Properties properties = new Properties();
+            FileInputStream fileInputStream2 = null;
             try {
-                fileInputStream = new FileInputStream(file);
-            } catch (Exception e) {
-                fileInputStream2 = null;
-            } catch (Throwable th) {
-                th = th;
-                fileInputStream = null;
-            }
-            try {
-                properties.load(fileInputStream);
-                if (properties.getProperty("onSpeedOffsetMin") != null) {
-                    mSpeedOffsetMin = Long.valueOf(properties.getProperty("onSpeedOffsetMin")).longValue();
+                try {
+                    fileInputStream = new FileInputStream(file);
+                } catch (IOException e2) {
+                    e2.printStackTrace();
                 }
-                if (properties.getProperty("onSpeedOffsetMax") != null) {
-                    mSpeedOffsetMax = Long.valueOf(properties.getProperty("onSpeedOffsetMax")).longValue();
-                }
-                if (properties.getProperty("cdnUrlTimeout") != null) {
-                    mCDNUrlTimeout = Long.valueOf(properties.getProperty("cdnUrlTimeout")).longValue();
-                }
-                if (properties.getProperty("testSpeedDuration") != null) {
-                    mTestSpeedDuration = Long.valueOf(properties.getProperty("testSpeedDuration")).longValue();
-                }
-                if (properties.getProperty("testSpeedDataSize") != null) {
-                    mTestSpeedDataSize = Long.valueOf(properties.getProperty("testSpeedDataSize")).longValue();
-                }
-                if (fileInputStream != null) {
-                    try {
-                        fileInputStream.close();
-                    } catch (IOException e2) {
-                        e2.printStackTrace();
+                try {
+                    properties.load(fileInputStream);
+                    if (properties.getProperty("onSpeedOffsetMin") != null) {
+                        mSpeedOffsetMin = Long.valueOf(properties.getProperty("onSpeedOffsetMin")).longValue();
                     }
-                }
-            } catch (Exception e3) {
-                fileInputStream2 = fileInputStream;
-                if (fileInputStream2 != null) {
-                    try {
+                    if (properties.getProperty("onSpeedOffsetMax") != null) {
+                        mSpeedOffsetMax = Long.valueOf(properties.getProperty("onSpeedOffsetMax")).longValue();
+                    }
+                    if (properties.getProperty("cdnUrlTimeout") != null) {
+                        mCDNUrlTimeout = Long.valueOf(properties.getProperty("cdnUrlTimeout")).longValue();
+                    }
+                    if (properties.getProperty("testSpeedDuration") != null) {
+                        mTestSpeedDuration = Long.valueOf(properties.getProperty("testSpeedDuration")).longValue();
+                    }
+                    if (properties.getProperty("testSpeedDataSize") != null) {
+                        mTestSpeedDataSize = Long.valueOf(properties.getProperty("testSpeedDataSize")).longValue();
+                    }
+                    fileInputStream.close();
+                } catch (Exception unused) {
+                    fileInputStream2 = fileInputStream;
+                    if (fileInputStream2 != null) {
                         fileInputStream2.close();
-                    } catch (IOException e4) {
-                        e4.printStackTrace();
                     }
+                } catch (Throwable th) {
+                    th = th;
+                    fileInputStream2 = fileInputStream;
+                    if (fileInputStream2 != null) {
+                        try {
+                            fileInputStream2.close();
+                        } catch (IOException e3) {
+                            e3.printStackTrace();
+                        }
+                    }
+                    throw th;
                 }
+            } catch (Exception unused2) {
             } catch (Throwable th2) {
                 th = th2;
-                if (fileInputStream != null) {
-                    try {
-                        fileInputStream.close();
-                    } catch (IOException e5) {
-                        e5.printStackTrace();
-                    }
-                }
-                throw th;
             }
         }
+    }
+
+    public static void setBoolean(Context context, String str, boolean z) {
+        SharedPreferences sharedPreferences;
+        if (context == null || str == null || (sharedPreferences = context.getSharedPreferences(PREF_DOWNLOAD_NAME, 0)) == null) {
+            return;
+        }
+        SharedPreferences.Editor edit = sharedPreferences.edit();
+        edit.putBoolean(str, z);
+        edit.commit();
+    }
+
+    public static void setFloat(Context context, String str, float f2) {
+        SharedPreferences sharedPreferences;
+        if (context == null || str == null || (sharedPreferences = context.getSharedPreferences(PREF_DOWNLOAD_NAME, 0)) == null) {
+            return;
+        }
+        SharedPreferences.Editor edit = sharedPreferences.edit();
+        edit.putFloat(str, f2);
+        edit.commit();
+    }
+
+    public static void setInt(Context context, String str, int i) {
+        SharedPreferences sharedPreferences;
+        SharedPreferences.Editor edit;
+        if (context == null || str == null || (sharedPreferences = context.getSharedPreferences(PREF_DOWNLOAD_NAME, 0)) == null || (edit = sharedPreferences.edit()) == null) {
+            return;
+        }
+        edit.putInt(str, i);
+        edit.commit();
+    }
+
+    public static void setLong(Context context, String str, long j) {
+        SharedPreferences sharedPreferences;
+        SharedPreferences.Editor edit;
+        if (context == null || (sharedPreferences = context.getSharedPreferences(PREF_DOWNLOAD_NAME, 0)) == null || (edit = sharedPreferences.edit()) == null) {
+            return;
+        }
+        edit.putLong(str, j);
+        edit.commit();
+    }
+
+    public static void setString(Context context, String str, String str2) {
+        SharedPreferences sharedPreferences;
+        SharedPreferences.Editor edit;
+        if (context == null || str == null || (sharedPreferences = context.getSharedPreferences(PREF_DOWNLOAD_NAME, 0)) == null || (edit = sharedPreferences.edit()) == null) {
+            return;
+        }
+        edit.putString(str, str2);
+        edit.commit();
+    }
+
+    public static long testConfigurationGetLong(Context context, String str, long j) {
+        return context.getSharedPreferences(PREF_DOWNLOAD_NAME, 0).getLong(str, j);
     }
 }

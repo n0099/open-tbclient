@@ -5,69 +5,81 @@ import android.text.SpannableString;
 import android.text.style.ScaleXSpan;
 import android.util.AttributeSet;
 import android.widget.TextView;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class ChangeTextViewSpace extends TextView {
-    private float dVD;
-    private CharSequence dVE;
+
+    /* renamed from: e  reason: collision with root package name */
+    public float f12709e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public CharSequence f12710f;
 
     public ChangeTextViewSpace(Context context) {
         super(context);
-        this.dVD = 0.0f;
-        this.dVE = "";
+        this.f12709e = 0.0f;
+        this.f12710f = "";
     }
 
-    public ChangeTextViewSpace(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        this.dVD = 0.0f;
-        this.dVE = "";
+    public static boolean b(String str) {
+        return str.matches("^[a-zA-Z]*");
     }
 
-    public ChangeTextViewSpace(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        this.dVD = 0.0f;
-        this.dVE = "";
+    public final void a() {
+        if (this.f12710f == null) {
+            return;
+        }
+        StringBuilder sb = new StringBuilder();
+        int i = 0;
+        while (i < this.f12710f.length()) {
+            sb.append(this.f12710f.charAt(i));
+            int i2 = i + 1;
+            if (i2 < this.f12710f.length()) {
+                if (b(this.f12710f.charAt(i) + "")) {
+                    if (b(this.f12710f.charAt(i2) + "")) {
+                    }
+                }
+                sb.append(" ");
+            }
+            i = i2;
+        }
+        SpannableString spannableString = new SpannableString(sb.toString());
+        if (sb.toString().length() > 1) {
+            for (int i3 = 1; i3 < sb.toString().length(); i3 += 2) {
+                spannableString.setSpan(new ScaleXSpan((this.f12709e + 1.0f) / 10.0f), i3, i3 + 1, 33);
+            }
+        }
+        super.setText(spannableString, TextView.BufferType.SPANNABLE);
     }
 
     public float getSpacing() {
-        return this.dVD;
-    }
-
-    public void setSpacing(float f) {
-        this.dVD = f;
-        aPH();
-    }
-
-    @Override // android.widget.TextView
-    public void setText(CharSequence charSequence, TextView.BufferType bufferType) {
-        this.dVE = charSequence;
-        aPH();
+        return this.f12709e;
     }
 
     @Override // android.widget.TextView
     public CharSequence getText() {
-        return this.dVE;
+        return this.f12710f;
     }
 
-    private void aPH() {
-        if (this != null && this.dVE != null) {
-            StringBuilder sb = new StringBuilder();
-            for (int i = 0; i < this.dVE.length(); i++) {
-                sb.append(this.dVE.charAt(i));
-                if (i + 1 < this.dVE.length() && (!uM(this.dVE.charAt(i) + "") || !uM(this.dVE.charAt(i + 1) + ""))) {
-                    sb.append(" ");
-                }
-            }
-            SpannableString spannableString = new SpannableString(sb.toString());
-            if (sb.toString().length() > 1) {
-                for (int i2 = 1; i2 < sb.toString().length(); i2 += 2) {
-                    spannableString.setSpan(new ScaleXSpan((this.dVD + 1.0f) / 10.0f), i2, i2 + 1, 33);
-                }
-            }
-            super.setText(spannableString, TextView.BufferType.SPANNABLE);
-        }
+    public void setSpacing(float f2) {
+        this.f12709e = f2;
+        a();
     }
 
-    public static boolean uM(String str) {
-        return str.matches("^[a-zA-Z]*");
+    @Override // android.widget.TextView
+    public void setText(CharSequence charSequence, TextView.BufferType bufferType) {
+        this.f12710f = charSequence;
+        a();
+    }
+
+    public ChangeTextViewSpace(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        this.f12709e = 0.0f;
+        this.f12710f = "";
+    }
+
+    public ChangeTextViewSpace(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        this.f12709e = 0.0f;
+        this.f12710f = "";
     }
 }

@@ -4,16 +4,14 @@ import android.content.Context;
 import android.view.View;
 import android.view.animation.Animation;
 import com.baidu.tieba.R;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class i implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ h f2979a;
+    public final /* synthetic */ h f10098a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public i(h hVar) {
-        this.f2979a = hVar;
+        this.f10098a = hVar;
     }
 
     @Override // java.lang.Runnable
@@ -21,13 +19,14 @@ public class i implements Runnable {
         Context context;
         Context context2;
         View view;
-        context = this.f2979a.f2978a.l;
-        if (context != null) {
-            context2 = this.f2979a.f2978a.l;
-            Animation c = com.baidu.platform.comapi.wnplatform.o.a.a.c(context2, R.attr.actionBarDivider);
-            view = this.f2979a.f2978a.ab;
-            view.startAnimation(c);
-            c.setAnimationListener(new j(this));
+        context = this.f10098a.f10097a.l;
+        if (context == null) {
+            return;
         }
+        context2 = this.f10098a.f10097a.l;
+        Animation c2 = com.baidu.platform.comapi.wnplatform.o.a.a.c(context2, R.attr.SapiSdkDividerColor);
+        view = this.f10098a.f10097a.ab;
+        view.startAnimation(c2);
+        c2.setAnimationListener(new j(this));
     }
 }

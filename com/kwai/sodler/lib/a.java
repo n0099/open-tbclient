@@ -1,7 +1,7 @@
 package com.kwai.sodler.lib;
 
 import android.util.Log;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class a {
     public static void a(String str, String str2) {
     }

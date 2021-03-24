@@ -20,35 +20,34 @@ import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Locale;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public abstract class AbstractNativeMediaPlayer extends AbstractMediaPlayer {
-    private static final String TAG;
+    public static final String TAG;
     @AccessedByNative
-    private Surface mDummySurface;
-    private EventHandler mEventHandler;
+    public Surface mDummySurface;
+    public EventHandler mEventHandler;
     @AccessedByNative
-    private int mListenerContext;
+    public int mListenerContext;
     @AccessedByNative
-    private long mNativeMediaDataSource;
+    public long mNativeMediaDataSource;
     @AccessedByNative
-    protected long mNativeMediaPlayer;
+    public long mNativeMediaPlayer;
     @AccessedByNative
-    private int mNativeSurfaceTexture;
-    OnMediaCodecSelectListener mOnMediaCodecSelectListener;
-    protected IMediaPlayer.OnLiveEventListener mOnLiveEventListener = null;
-    protected KsMediaPlayer.OnAudioProcessPCMListener mOnAudioProcessPCMListener = null;
-    protected IMediaPlayer.OnVideoRawDataListener mOnVideoRawDataListener = null;
+    public int mNativeSurfaceTexture;
+    public OnMediaCodecSelectListener mOnMediaCodecSelectListener;
+    public IMediaPlayer.OnLiveEventListener mOnLiveEventListener = null;
+    public KsMediaPlayer.OnAudioProcessPCMListener mOnAudioProcessPCMListener = null;
+    public IMediaPlayer.OnVideoRawDataListener mOnVideoRawDataListener = null;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class DefaultMediaCodecSelector implements OnMediaCodecSelectListener {
         public static final DefaultMediaCodecSelector sInstance = new DefaultMediaCodecSelector();
 
         @Override // com.kwai.video.player.AbstractNativeMediaPlayer.OnMediaCodecSelectListener
         @TargetApi(16)
         public String onMediaCodecSelect(IMediaPlayer iMediaPlayer, String str, int i, int i2) {
-            KsMediaCodecInfo ksMediaCodecInfo;
             String[] supportedTypes;
-            KsMediaCodecInfo ksMediaCodecInfo2;
+            KsMediaCodecInfo ksMediaCodecInfo;
             if (Build.VERSION.SDK_INT >= 16 && !TextUtils.isEmpty(str)) {
                 Log.i(AbstractNativeMediaPlayer.TAG, String.format(Locale.US, "onSelectCodec: mime=%s, profile=%d, level=%d", str, Integer.valueOf(i), Integer.valueOf(i2)));
                 ArrayList arrayList = new ArrayList();
@@ -60,10 +59,10 @@ public abstract class AbstractNativeMediaPlayer extends AbstractMediaPlayer {
                         for (String str2 : supportedTypes) {
                             if (!TextUtils.isEmpty(str2)) {
                                 Log.d(AbstractNativeMediaPlayer.TAG, String.format(Locale.US, "    mime: %s", str2));
-                                if (str2.equalsIgnoreCase(str) && (ksMediaCodecInfo2 = KsMediaCodecInfo.setupCandidate(codecInfoAt, str)) != null) {
-                                    arrayList.add(ksMediaCodecInfo2);
-                                    Log.i(AbstractNativeMediaPlayer.TAG, String.format(Locale.US, "candidate codec: %s rank=%d", codecInfoAt.getName(), Integer.valueOf(ksMediaCodecInfo2.mRank)));
-                                    ksMediaCodecInfo2.dumpProfileLevels(str);
+                                if (str2.equalsIgnoreCase(str) && (ksMediaCodecInfo = KsMediaCodecInfo.setupCandidate(codecInfoAt, str)) != null) {
+                                    arrayList.add(ksMediaCodecInfo);
+                                    Log.i(AbstractNativeMediaPlayer.TAG, String.format(Locale.US, "candidate codec: %s rank=%d", codecInfoAt.getName(), Integer.valueOf(ksMediaCodecInfo.mRank)));
+                                    ksMediaCodecInfo.dumpProfileLevels(str);
                                 }
                             }
                         }
@@ -72,34 +71,30 @@ public abstract class AbstractNativeMediaPlayer extends AbstractMediaPlayer {
                 if (arrayList.isEmpty()) {
                     return null;
                 }
-                KsMediaCodecInfo ksMediaCodecInfo3 = (KsMediaCodecInfo) arrayList.get(0);
+                KsMediaCodecInfo ksMediaCodecInfo2 = (KsMediaCodecInfo) arrayList.get(0);
                 Iterator it = arrayList.iterator();
-                while (true) {
-                    ksMediaCodecInfo = ksMediaCodecInfo3;
-                    if (!it.hasNext()) {
-                        break;
-                    }
-                    ksMediaCodecInfo3 = (KsMediaCodecInfo) it.next();
-                    if (ksMediaCodecInfo3.mRank <= ksMediaCodecInfo.mRank) {
-                        ksMediaCodecInfo3 = ksMediaCodecInfo;
+                while (it.hasNext()) {
+                    KsMediaCodecInfo ksMediaCodecInfo3 = (KsMediaCodecInfo) it.next();
+                    if (ksMediaCodecInfo3.mRank > ksMediaCodecInfo2.mRank) {
+                        ksMediaCodecInfo2 = ksMediaCodecInfo3;
                     }
                 }
-                if (ksMediaCodecInfo.mRank < 600) {
-                    Log.w(AbstractNativeMediaPlayer.TAG, String.format(Locale.US, "unaccetable codec: %s", ksMediaCodecInfo.mCodecInfo.getName()));
+                if (ksMediaCodecInfo2.mRank < 600) {
+                    Log.w(AbstractNativeMediaPlayer.TAG, String.format(Locale.US, "unaccetable codec: %s", ksMediaCodecInfo2.mCodecInfo.getName()));
                     return null;
                 }
-                Log.i(AbstractNativeMediaPlayer.TAG, String.format(Locale.US, "selected codec: %s rank=%d", ksMediaCodecInfo.mCodecInfo.getName(), Integer.valueOf(ksMediaCodecInfo.mRank)));
-                return ksMediaCodecInfo.mCodecInfo.getName();
+                Log.i(AbstractNativeMediaPlayer.TAG, String.format(Locale.US, "selected codec: %s rank=%d", ksMediaCodecInfo2.mCodecInfo.getName(), Integer.valueOf(ksMediaCodecInfo2.mRank)));
+                return ksMediaCodecInfo2.mCodecInfo.getName();
             }
             return null;
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class EventHandler extends Handler {
-        private final WeakReference<AbstractNativeMediaPlayer> mWeakPlayer;
+        public final WeakReference<AbstractNativeMediaPlayer> mWeakPlayer;
 
-        EventHandler(AbstractNativeMediaPlayer abstractNativeMediaPlayer, Looper looper) {
+        public EventHandler(AbstractNativeMediaPlayer abstractNativeMediaPlayer, Looper looper) {
             super(looper);
             this.mWeakPlayer = new WeakReference<>(abstractNativeMediaPlayer);
         }
@@ -115,7 +110,7 @@ public abstract class AbstractNativeMediaPlayer extends AbstractMediaPlayer {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public interface OnMediaCodecSelectListener {
         String onMediaCodecSelect(IMediaPlayer iMediaPlayer, String str, int i, int i2);
     }
@@ -126,43 +121,43 @@ public abstract class AbstractNativeMediaPlayer extends AbstractMediaPlayer {
     }
 
     @CalledByNative
-    private static Surface getDummySurface(Object obj) {
+    public static Surface getDummySurface(Object obj) {
         AbstractNativeMediaPlayer abstractNativeMediaPlayer;
         WeakReference weakReference = (WeakReference) obj;
         if (weakReference == null || (abstractNativeMediaPlayer = (AbstractNativeMediaPlayer) weakReference.get()) == null) {
             return null;
         }
-        abstractNativeMediaPlayer.mDummySurface = DummySurface.newInstanceV17(null, false);
-        return abstractNativeMediaPlayer.mDummySurface;
+        DummySurface newInstanceV17 = DummySurface.newInstanceV17(null, false);
+        abstractNativeMediaPlayer.mDummySurface = newInstanceV17;
+        return newInstanceV17;
     }
 
     @CalledByNative
-    private static void onAudioProcessPCMReady(Object obj, ByteBuffer byteBuffer, long j, int i, int i2, int i3) {
+    public static void onAudioProcessPCMReady(Object obj, ByteBuffer byteBuffer, long j, int i, int i2, int i3) {
         AbstractNativeMediaPlayer abstractNativeMediaPlayer;
+        KsMediaPlayer.OnAudioProcessPCMListener onAudioProcessPCMListener;
         WeakReference weakReference = (WeakReference) obj;
-        if (weakReference == null || (abstractNativeMediaPlayer = (AbstractNativeMediaPlayer) weakReference.get()) == null || abstractNativeMediaPlayer.mOnAudioProcessPCMListener == null) {
+        if (weakReference == null || (abstractNativeMediaPlayer = (AbstractNativeMediaPlayer) weakReference.get()) == null || (onAudioProcessPCMListener = abstractNativeMediaPlayer.mOnAudioProcessPCMListener) == null) {
             return;
         }
-        abstractNativeMediaPlayer.mOnAudioProcessPCMListener.onAudioProcessPCMAvailable(abstractNativeMediaPlayer, byteBuffer, j, i2, i, i3);
+        onAudioProcessPCMListener.onAudioProcessPCMAvailable(abstractNativeMediaPlayer, byteBuffer, j, i2, i, i3);
     }
 
     @CalledByNative
-    private static void onLiveEventCallback(Object obj, byte[] bArr) {
+    public static void onLiveEventCallback(Object obj, byte[] bArr) {
         AbstractNativeMediaPlayer abstractNativeMediaPlayer;
+        IMediaPlayer.OnLiveEventListener onLiveEventListener;
         WeakReference weakReference = (WeakReference) obj;
-        if (weakReference == null || (abstractNativeMediaPlayer = (AbstractNativeMediaPlayer) weakReference.get()) == null || abstractNativeMediaPlayer.mOnLiveEventListener == null) {
+        if (weakReference == null || (abstractNativeMediaPlayer = (AbstractNativeMediaPlayer) weakReference.get()) == null || (onLiveEventListener = abstractNativeMediaPlayer.mOnLiveEventListener) == null) {
             return;
         }
-        abstractNativeMediaPlayer.mOnLiveEventListener.onLiveEventChange(bArr);
+        onLiveEventListener.onLiveEventChange(bArr);
     }
 
     @CalledByNative
-    private static String onSelectCodec(Object obj, String str, int i, int i2) {
-        if (obj == null || !(obj instanceof WeakReference)) {
-            return null;
-        }
-        AbstractNativeMediaPlayer abstractNativeMediaPlayer = (AbstractNativeMediaPlayer) ((WeakReference) obj).get();
-        if (abstractNativeMediaPlayer == null) {
+    public static String onSelectCodec(Object obj, String str, int i, int i2) {
+        AbstractNativeMediaPlayer abstractNativeMediaPlayer;
+        if (obj == null || !(obj instanceof WeakReference) || (abstractNativeMediaPlayer = (AbstractNativeMediaPlayer) ((WeakReference) obj).get()) == null) {
             return null;
         }
         OnMediaCodecSelectListener onMediaCodecSelectListener = abstractNativeMediaPlayer.mOnMediaCodecSelectListener;
@@ -173,27 +168,29 @@ public abstract class AbstractNativeMediaPlayer extends AbstractMediaPlayer {
     }
 
     @CalledByNative
-    private static void onVideoRawDataReady(Object obj, byte[] bArr, int i, int i2, int i3, int i4) {
+    public static void onVideoRawDataReady(Object obj, byte[] bArr, int i, int i2, int i3, int i4) {
         AbstractNativeMediaPlayer abstractNativeMediaPlayer;
+        IMediaPlayer.OnVideoRawDataListener onVideoRawDataListener;
         WeakReference weakReference = (WeakReference) obj;
-        if (weakReference == null || (abstractNativeMediaPlayer = (AbstractNativeMediaPlayer) weakReference.get()) == null || abstractNativeMediaPlayer.mOnVideoRawDataListener == null) {
+        if (weakReference == null || (abstractNativeMediaPlayer = (AbstractNativeMediaPlayer) weakReference.get()) == null || (onVideoRawDataListener = abstractNativeMediaPlayer.mOnVideoRawDataListener) == null) {
             return;
         }
-        abstractNativeMediaPlayer.mOnVideoRawDataListener.onVideoRawDataAvailable(abstractNativeMediaPlayer, bArr, i, i2, i3, i4);
+        onVideoRawDataListener.onVideoRawDataAvailable(abstractNativeMediaPlayer, bArr, i, i2, i3, i4);
     }
 
     @CalledByNative
-    private static void onVideoRawDataSize(Object obj, int i, int i2, int i3, int i4) {
+    public static void onVideoRawDataSize(Object obj, int i, int i2, int i3, int i4) {
         AbstractNativeMediaPlayer abstractNativeMediaPlayer;
+        IMediaPlayer.OnVideoRawDataListener onVideoRawDataListener;
         WeakReference weakReference = (WeakReference) obj;
-        if (weakReference == null || (abstractNativeMediaPlayer = (AbstractNativeMediaPlayer) weakReference.get()) == null || abstractNativeMediaPlayer.mOnVideoRawDataListener == null) {
+        if (weakReference == null || (abstractNativeMediaPlayer = (AbstractNativeMediaPlayer) weakReference.get()) == null || (onVideoRawDataListener = abstractNativeMediaPlayer.mOnVideoRawDataListener) == null) {
             return;
         }
-        abstractNativeMediaPlayer.mOnVideoRawDataListener.onVideoRawDataSize(abstractNativeMediaPlayer, i, i2, i3, i4);
+        onVideoRawDataListener.onVideoRawDataSize(abstractNativeMediaPlayer, i, i2, i3, i4);
     }
 
     @CalledByNative
-    private static void postEventFromNative(Object obj, int i, int i2, int i3, Object obj2) {
+    public static void postEventFromNative(Object obj, int i, int i2, int i3, Object obj2) {
         AbstractNativeMediaPlayer abstractNativeMediaPlayer;
         if (obj == null || (abstractNativeMediaPlayer = (AbstractNativeMediaPlayer) ((WeakReference) obj).get()) == null) {
             return;
@@ -201,13 +198,14 @@ public abstract class AbstractNativeMediaPlayer extends AbstractMediaPlayer {
         if (i == 200 && i2 == 2) {
             abstractNativeMediaPlayer.start();
         }
-        if (abstractNativeMediaPlayer.mEventHandler != null) {
-            abstractNativeMediaPlayer.mEventHandler.sendMessage(abstractNativeMediaPlayer.mEventHandler.obtainMessage(i, i2, i3, obj2));
+        EventHandler eventHandler = abstractNativeMediaPlayer.mEventHandler;
+        if (eventHandler != null) {
+            abstractNativeMediaPlayer.mEventHandler.sendMessage(eventHandler.obtainMessage(i, i2, i3, obj2));
         }
     }
 
     @CalledByNative
-    private static void postFftDataNative(Object obj, float[] fArr) {
+    public static void postFftDataNative(Object obj, float[] fArr) {
         AbstractNativeMediaPlayer abstractNativeMediaPlayer;
         WeakReference weakReference = (WeakReference) obj;
         if (weakReference == null || (abstractNativeMediaPlayer = (AbstractNativeMediaPlayer) weakReference.get()) == null) {
@@ -217,43 +215,44 @@ public abstract class AbstractNativeMediaPlayer extends AbstractMediaPlayer {
     }
 
     @CalledByNative
-    private static void releaseDummySurface(Object obj) {
+    public static void releaseDummySurface(Object obj) {
         AbstractNativeMediaPlayer abstractNativeMediaPlayer;
+        Surface surface;
         WeakReference weakReference = (WeakReference) obj;
-        if (weakReference == null || (abstractNativeMediaPlayer = (AbstractNativeMediaPlayer) weakReference.get()) == null || abstractNativeMediaPlayer.mDummySurface == null) {
+        if (weakReference == null || (abstractNativeMediaPlayer = (AbstractNativeMediaPlayer) weakReference.get()) == null || (surface = abstractNativeMediaPlayer.mDummySurface) == null) {
             return;
         }
-        abstractNativeMediaPlayer.mDummySurface.release();
+        surface.release();
         abstractNativeMediaPlayer.mDummySurface = null;
     }
 
-    protected abstract void enableVideoRawDataCallback(boolean z);
+    public abstract void enableVideoRawDataCallback(boolean z);
 
-    /* JADX INFO: Access modifiers changed from: protected */
     public void initPlayer() {
+        EventHandler eventHandler;
         Looper myLooper = Looper.myLooper();
         if (myLooper != null) {
-            this.mEventHandler = new EventHandler(this, myLooper);
-            return;
-        }
-        Looper mainLooper = Looper.getMainLooper();
-        if (mainLooper != null) {
-            this.mEventHandler = new EventHandler(this, mainLooper);
+            eventHandler = new EventHandler(this, myLooper);
         } else {
-            this.mEventHandler = null;
+            Looper mainLooper = Looper.getMainLooper();
+            if (mainLooper == null) {
+                this.mEventHandler = null;
+                return;
+            }
+            eventHandler = new EventHandler(this, mainLooper);
         }
+        this.mEventHandler = eventHandler;
     }
 
-    protected abstract void initProcessPCMBuffer();
+    public abstract void initProcessPCMBuffer();
 
-    protected abstract void onReceivePostEvent(Message message);
+    public abstract void onReceivePostEvent(Message message);
 
     @Override // com.kwai.video.player.IMediaPlayer
     public void reset() {
         this.mEventHandler.removeCallbacksAndMessages(null);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwai.video.player.AbstractMediaPlayer
     public void resetListeners() {
         super.resetListeners();
@@ -279,10 +278,6 @@ public abstract class AbstractNativeMediaPlayer extends AbstractMediaPlayer {
     @Override // com.kwai.video.player.IMediaPlayer
     public void setVideoRawDataListener(IMediaPlayer.OnVideoRawDataListener onVideoRawDataListener) {
         this.mOnVideoRawDataListener = onVideoRawDataListener;
-        if (onVideoRawDataListener == null) {
-            enableVideoRawDataCallback(false);
-        } else {
-            enableVideoRawDataCallback(true);
-        }
+        enableVideoRawDataCallback(onVideoRawDataListener != null);
     }
 }

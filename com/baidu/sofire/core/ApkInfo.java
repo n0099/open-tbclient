@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.pm.ActivityInfo;
 import android.content.pm.PackageInfo;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class ApkInfo {
     public ActivityInfo[] activities;
     public String apkMD5;
@@ -37,6 +37,30 @@ public class ApkInfo {
         this.priority = -1;
         this.isMem = false;
         this.isNextLoad = false;
+    }
+
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj != null && ApkInfo.class == obj.getClass()) {
+            ApkInfo apkInfo = (ApkInfo) obj;
+            String str = this.packageName;
+            if (str == null) {
+                if (apkInfo.packageName != null) {
+                    return false;
+                }
+            } else if (!str.equals(apkInfo.packageName)) {
+                return false;
+            }
+            return true;
+        }
+        return false;
+    }
+
+    public int hashCode() {
+        String str = this.packageName;
+        return (str == null ? 0 : str.hashCode()) + 31;
     }
 
     public ApkInfo(int i, String str, String str2) {
@@ -96,20 +120,5 @@ public class ApkInfo {
         this.priority = apkInfo.priority;
         this.isMem = apkInfo.isMem;
         this.isNextLoad = apkInfo.isNextLoad;
-    }
-
-    public int hashCode() {
-        return (this.packageName == null ? 0 : this.packageName.hashCode()) + 31;
-    }
-
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj != null && getClass() == obj.getClass()) {
-            ApkInfo apkInfo = (ApkInfo) obj;
-            return this.packageName == null ? apkInfo.packageName == null : this.packageName.equals(apkInfo.packageName);
-        }
-        return false;
     }
 }

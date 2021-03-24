@@ -1,10 +1,10 @@
 package com.baidu.mapapi.cloud;
 
-import android.net.http.Headers;
 import com.baidu.mapapi.CoordType;
 import com.baidu.mapapi.SDKInitializer;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapsdkplatform.comapi.util.CoordTrans;
+import com.baidu.pass.ecommerce.bean.SuggestAddrField;
 import com.heytap.mcssdk.mode.CommandMessage;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -12,7 +12,7 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class CloudPoiInfo {
     public String address;
     public String city;
@@ -30,7 +30,6 @@ public class CloudPoiInfo {
     public int uid;
     public int weight;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public void a(JSONObject jSONObject) throws JSONException {
         if (jSONObject == null) {
             return;
@@ -50,7 +49,7 @@ public class CloudPoiInfo {
         jSONObject.remove("city");
         this.district = jSONObject.optString("district");
         jSONObject.remove("district");
-        JSONArray optJSONArray = jSONObject.optJSONArray(Headers.LOCATION);
+        JSONArray optJSONArray = jSONObject.optJSONArray("location");
         if (optJSONArray != null) {
             this.longitude = optJSONArray.optDouble(0);
             this.latitude = optJSONArray.optDouble(1);
@@ -60,7 +59,7 @@ public class CloudPoiInfo {
                 this.latitude = baiduToGcj.latitude;
             }
         }
-        jSONObject.remove(Headers.LOCATION);
+        jSONObject.remove("location");
         this.tags = jSONObject.optString(CommandMessage.TYPE_TAGS);
         jSONObject.remove(CommandMessage.TYPE_TAGS);
         this.distance = jSONObject.optInt("distance");
@@ -75,7 +74,6 @@ public class CloudPoiInfo {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public void b(JSONObject jSONObject) throws JSONException {
         if (jSONObject == null) {
             return;
@@ -83,10 +81,10 @@ public class CloudPoiInfo {
         this.title = jSONObject.optString("name");
         this.address = jSONObject.optString("address");
         this.tags = jSONObject.optString("tag");
-        JSONObject optJSONObject = jSONObject.optJSONObject(Headers.LOCATION);
+        JSONObject optJSONObject = jSONObject.optJSONObject("location");
         if (optJSONObject != null) {
-            this.longitude = optJSONObject.optDouble("lng");
-            this.latitude = optJSONObject.optDouble("lat");
+            this.longitude = optJSONObject.optDouble(SuggestAddrField.KEY_LNG);
+            this.latitude = optJSONObject.optDouble(SuggestAddrField.KEY_LAT);
             if (SDKInitializer.getCoordType() == CoordType.GCJ02) {
                 LatLng baiduToGcj = CoordTrans.baiduToGcj(new LatLng(this.latitude, this.longitude));
                 this.longitude = baiduToGcj.longitude;

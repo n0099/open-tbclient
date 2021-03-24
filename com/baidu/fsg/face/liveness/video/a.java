@@ -7,16 +7,24 @@ import java.io.File;
 import java.io.IOException;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public class a extends h {
-    public static volatile boolean b = false;
-    public static volatile boolean c = false;
+
+    /* renamed from: b  reason: collision with root package name */
+    public static volatile boolean f5992b = false;
+
+    /* renamed from: c  reason: collision with root package name */
+    public static volatile boolean f5993c = false;
 
     /* renamed from: a  reason: collision with root package name */
-    protected g f1770a;
-    protected int d;
-    protected CountDownLatch e;
-    private String t;
+    public g f5994a;
+
+    /* renamed from: d  reason: collision with root package name */
+    public int f5995d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public CountDownLatch f5996e;
+    public String t;
 
     public a(String str, b bVar) {
         super(bVar);
@@ -25,88 +33,90 @@ public class a extends h {
 
     @Override // com.baidu.fsg.face.liveness.video.h
     @TargetApi(18)
-    protected boolean a() {
+    public boolean a() {
         int a2 = this.j.a();
         int b2 = this.j.b();
         LogUtil.i("previewSize:" + a2 + "," + b2);
-        b = false;
-        c = false;
+        f5992b = false;
+        f5993c = false;
         int c2 = this.j.c();
         try {
             MediaMuxer mediaMuxer = new MediaMuxer(this.t, 0);
             mediaMuxer.setOrientationHint(c2);
-            this.e = new CountDownLatch(1);
-            this.f1770a = new g(a2, b2, this.s, this.q, this.r, null, mediaMuxer, this.e);
-            this.f1770a.a(this);
+            this.f5996e = new CountDownLatch(1);
+            g gVar = new g(a2, b2, this.s, this.q, this.r, null, mediaMuxer, this.f5996e);
+            this.f5994a = gVar;
+            gVar.a(this);
             this.o.d(c2);
             this.o.a(this.t);
             this.o.a(a2);
             this.o.b(b2);
             return true;
-        } catch (IOException e) {
-            a(e);
+        } catch (IOException e2) {
+            a(e2);
             return false;
         }
     }
 
     @Override // com.baidu.fsg.face.liveness.video.h
-    protected void b() {
+    public void b() {
         if (this.i) {
             i();
             this.i = false;
-            this.f1770a.c();
-            this.d += this.f1770a.e();
+            this.f5994a.c();
+            this.f5995d += this.f5994a.e();
         }
     }
 
     @Override // com.baidu.fsg.face.liveness.video.h
-    protected void c() {
+    public void c() {
         if (this.i) {
             i();
             this.i = false;
-            this.f1770a.c();
-            this.d += this.f1770a.e();
+            this.f5994a.c();
+            this.f5995d += this.f5994a.e();
         }
     }
 
     @Override // com.baidu.fsg.face.liveness.video.h
-    protected void d() {
+    public void d() {
         this.l.submit(new Runnable() { // from class: com.baidu.fsg.face.liveness.video.a.1
             @Override // java.lang.Runnable
             public void run() {
                 a.this.e();
                 a.this.n = System.currentTimeMillis();
                 VideoInfo.a(a.this.o.a(), a.this.o);
-                a.this.d = 0;
+                a.this.f5995d = 0;
             }
         });
     }
 
-    protected void e() {
-        boolean z;
+    public void e() {
         long currentTimeMillis = System.currentTimeMillis();
         int i = -1;
         long j = 0;
         long j2 = 1000;
         while (true) {
+            boolean z = false;
             try {
-                z = !this.e.await(j2, TimeUnit.MILLISECONDS);
-            } catch (InterruptedException e) {
-                z = false;
+                z = !this.f5996e.await(j2, TimeUnit.MILLISECONDS);
+            } catch (InterruptedException unused) {
             }
             j2 = 5000;
             if (!z) {
                 if (this.p) {
-                }
-                return;
-            } else if (!this.f1770a.isAlive()) {
-                if (!this.p && !this.f1770a.b()) {
-                    a(new RuntimeException("wait record stop" + (System.currentTimeMillis() - currentTimeMillis) + "ms,timeout"));
                     return;
                 }
                 return;
-            } else if (i != this.f1770a.f()) {
-                i = this.f1770a.f();
+            } else if (!this.f5994a.isAlive()) {
+                if (this.p || this.f5994a.b()) {
+                    return;
+                }
+                long currentTimeMillis2 = System.currentTimeMillis();
+                a(new RuntimeException("wait record stop" + (currentTimeMillis2 - currentTimeMillis) + "ms,timeout"));
+                return;
+            } else if (i != this.f5994a.f()) {
+                i = this.f5994a.f();
                 j = System.currentTimeMillis();
             } else if (System.currentTimeMillis() - j > 10000) {
                 String str = (System.currentTimeMillis() - j) + "ms cannot write finish, record fail";
@@ -117,45 +127,48 @@ public class a extends h {
         }
     }
 
-    @Override // com.baidu.fsg.face.liveness.video.e
-    public void a(byte[] bArr, long j) {
-        if (this.i && bArr != null && !this.k) {
-            this.f1770a.a(bArr, j);
-        }
-    }
-
-    @Override // com.baidu.fsg.face.liveness.video.d
-    public void a(Throwable th) {
-        if (!this.p) {
-            LogUtil.i("onVideoRecordFail");
-            synchronized (this) {
-                if (!this.p) {
-                    this.p = true;
-                    if (th != null) {
-                        LogUtil.e(th.toString());
-                        th.printStackTrace();
-                    }
-                    if (this.i) {
-                        LogUtil.i("stopRecordAndCancel");
-                        c();
-                    }
-                    File file = new File(this.o.a());
-                    if (file.exists()) {
-                        file.delete();
-                    }
-                }
-            }
-        }
-    }
-
     @Override // com.baidu.fsg.face.liveness.video.c
     public void f() {
         this.p = false;
         h();
         if (a()) {
-            this.f1770a.start();
+            this.f5994a.start();
             this.m = System.currentTimeMillis();
             this.i = true;
+        }
+    }
+
+    @Override // com.baidu.fsg.face.liveness.video.e
+    public void a(byte[] bArr, long j) {
+        if (!this.i || bArr == null || this.k) {
+            return;
+        }
+        this.f5994a.a(bArr, j);
+    }
+
+    @Override // com.baidu.fsg.face.liveness.video.d
+    public void a(Throwable th) {
+        if (this.p) {
+            return;
+        }
+        LogUtil.i("onVideoRecordFail");
+        synchronized (this) {
+            if (this.p) {
+                return;
+            }
+            this.p = true;
+            if (th != null) {
+                LogUtil.e(th.toString());
+                th.printStackTrace();
+            }
+            if (this.i) {
+                LogUtil.i("stopRecordAndCancel");
+                c();
+            }
+            File file = new File(this.o.a());
+            if (file.exists()) {
+                file.delete();
+            }
         }
     }
 }

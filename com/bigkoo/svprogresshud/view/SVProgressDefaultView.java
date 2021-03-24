@@ -9,17 +9,17 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.bigkoo.svprogresshud.R;
-/* loaded from: classes11.dex */
+/* loaded from: classes5.dex */
 public class SVProgressDefaultView extends LinearLayout {
-    private SVCircleProgressBar circleProgressBar;
-    private ImageView ivBigLoading;
-    private ImageView ivSmallLoading;
-    private RotateAnimation mRotateAnimation;
-    private int resBigLoading;
-    private int resError;
-    private int resInfo;
-    private int resSuccess;
-    private TextView tvMsg;
+    public SVCircleProgressBar circleProgressBar;
+    public ImageView ivBigLoading;
+    public ImageView ivSmallLoading;
+    public RotateAnimation mRotateAnimation;
+    public int resBigLoading;
+    public int resError;
+    public int resInfo;
+    public int resSuccess;
+    public TextView tvMsg;
 
     public SVProgressDefaultView(Context context) {
         super(context);
@@ -31,6 +31,20 @@ public class SVProgressDefaultView extends LinearLayout {
         init();
     }
 
+    private void clearAnimations() {
+        this.ivBigLoading.clearAnimation();
+        this.ivSmallLoading.clearAnimation();
+    }
+
+    private void init() {
+        RotateAnimation rotateAnimation = new RotateAnimation(0.0f, 359.0f, 1, 0.5f, 1, 0.5f);
+        this.mRotateAnimation = rotateAnimation;
+        rotateAnimation.setDuration(1000L);
+        this.mRotateAnimation.setInterpolator(new LinearInterpolator());
+        this.mRotateAnimation.setRepeatCount(-1);
+        this.mRotateAnimation.setRepeatMode(1);
+    }
+
     private void initViews() {
         LayoutInflater.from(getContext()).inflate(R.layout.view_svprogressdefault, (ViewGroup) this, true);
         this.ivBigLoading = (ImageView) findViewById(R.id.ivBigLoading);
@@ -39,12 +53,16 @@ public class SVProgressDefaultView extends LinearLayout {
         this.tvMsg = (TextView) findViewById(R.id.tvMsg);
     }
 
-    private void init() {
-        this.mRotateAnimation = new RotateAnimation(0.0f, 359.0f, 1, 0.5f, 1, 0.5f);
-        this.mRotateAnimation.setDuration(1000L);
-        this.mRotateAnimation.setInterpolator(new LinearInterpolator());
-        this.mRotateAnimation.setRepeatCount(-1);
-        this.mRotateAnimation.setRepeatMode(1);
+    public void dismiss() {
+        clearAnimations();
+    }
+
+    public SVCircleProgressBar getCircleProgressBar() {
+        return this.circleProgressBar;
+    }
+
+    public void setText(String str) {
+        this.tvMsg.setText(str);
     }
 
     public void show() {
@@ -57,37 +75,22 @@ public class SVProgressDefaultView extends LinearLayout {
         this.ivBigLoading.startAnimation(this.mRotateAnimation);
     }
 
-    public void showWithStatus(String str) {
-        if (str == null) {
-            show();
-            return;
-        }
-        showBaseStatus(this.resBigLoading, str);
-        this.ivSmallLoading.startAnimation(this.mRotateAnimation);
-    }
-
-    public void showInfoWithStatus(String str) {
-        showBaseStatus(this.resInfo, str);
-    }
-
-    public void showSuccessWithStatus(String str) {
-        showBaseStatus(this.resSuccess, str);
+    public void showBaseStatus(int i, String str) {
+        clearAnimations();
+        this.ivSmallLoading.setImageResource(i);
+        this.tvMsg.setText(str);
+        this.ivBigLoading.setVisibility(8);
+        this.circleProgressBar.setVisibility(8);
+        this.ivSmallLoading.setVisibility(0);
+        this.tvMsg.setVisibility(0);
     }
 
     public void showErrorWithStatus(String str) {
         showBaseStatus(this.resError, str);
     }
 
-    public void showWithProgress(String str) {
-        showProgress(str);
-    }
-
-    public SVCircleProgressBar getCircleProgressBar() {
-        return this.circleProgressBar;
-    }
-
-    public void setText(String str) {
-        this.tvMsg.setText(str);
+    public void showInfoWithStatus(String str) {
+        showBaseStatus(this.resInfo, str);
     }
 
     public void showProgress(String str) {
@@ -99,22 +102,20 @@ public class SVProgressDefaultView extends LinearLayout {
         this.tvMsg.setVisibility(0);
     }
 
-    public void showBaseStatus(int i, String str) {
-        clearAnimations();
-        this.ivSmallLoading.setImageResource(i);
-        this.tvMsg.setText(str);
-        this.ivBigLoading.setVisibility(8);
-        this.circleProgressBar.setVisibility(8);
-        this.ivSmallLoading.setVisibility(0);
-        this.tvMsg.setVisibility(0);
+    public void showSuccessWithStatus(String str) {
+        showBaseStatus(this.resSuccess, str);
     }
 
-    public void dismiss() {
-        clearAnimations();
+    public void showWithProgress(String str) {
+        showProgress(str);
     }
 
-    private void clearAnimations() {
-        this.ivBigLoading.clearAnimation();
-        this.ivSmallLoading.clearAnimation();
+    public void showWithStatus(String str) {
+        if (str == null) {
+            show();
+            return;
+        }
+        showBaseStatus(this.resBigLoading, str);
+        this.ivSmallLoading.startAnimation(this.mRotateAnimation);
     }
 }

@@ -5,8 +5,9 @@ import android.content.Context;
 import android.os.Build;
 import android.view.Window;
 import androidx.annotation.NonNull;
+import com.google.protobuf.CodedInputStream;
 import java.lang.reflect.Method;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class d {
     public static void a(@NonNull Activity activity, int i, boolean z) {
         a(activity, i, z, true);
@@ -42,25 +43,26 @@ public class d {
             objArr[1] = Integer.valueOf(i);
             method.invoke(window, objArr);
             return true;
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (Exception e2) {
+            e2.printStackTrace();
             return false;
         }
     }
 
     public static void b(@NonNull Activity activity, int i, boolean z) {
-        int i2 = 1280;
         Window window = activity.getWindow();
-        if (Build.VERSION.SDK_INT < 21) {
-            if (Build.VERSION.SDK_INT >= 19) {
+        int i2 = Build.VERSION.SDK_INT;
+        int i3 = 1280;
+        if (i2 < 21) {
+            if (i2 >= 19) {
                 window.getDecorView().setSystemUiVisibility(1280);
                 return;
             }
             return;
         }
-        if (z && Build.VERSION.SDK_INT >= 23) {
-            i2 = 9472;
-            window.clearFlags(67108864);
+        if (z && i2 >= 23) {
+            i3 = 9472;
+            window.clearFlags(CodedInputStream.DEFAULT_SIZE_LIMIT);
             window.addFlags(Integer.MIN_VALUE);
             if (ac.a()) {
                 a(activity, true);
@@ -68,7 +70,7 @@ public class d {
                 u.a(activity, true);
             }
         }
-        window.getDecorView().setSystemUiVisibility(i2);
+        window.getDecorView().setSystemUiVisibility(i3);
         window.setStatusBarColor(i);
         window.setNavigationBarColor(window.getNavigationBarColor());
     }

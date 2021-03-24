@@ -19,8 +19,8 @@ import java.io.FileDescriptor;
 import java.io.PrintWriter;
 @KsAdSdkDynamicApi
 @Keep
-/* loaded from: classes3.dex */
-interface IFragment {
+/* loaded from: classes6.dex */
+public interface IFragment {
     @KsAdSdkDynamicApi
     @Keep
     void dump(String str, FileDescriptor fileDescriptor, PrintWriter printWriter, String[] strArr);

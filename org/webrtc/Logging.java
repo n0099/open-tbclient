@@ -6,15 +6,38 @@ import java.util.EnumSet;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.annotation.Nullable;
-/* loaded from: classes9.dex */
+/* loaded from: classes.dex */
 public class Logging {
-    private static final Logger fallbackLogger = createFallbackLogger();
+    public static final Logger fallbackLogger = createFallbackLogger();
     @Nullable
-    private static Loggable loggable;
-    private static Severity loggableSeverity;
-    private static volatile boolean loggingEnabled;
+    public static Loggable loggable;
+    public static Severity loggableSeverity;
+    public static volatile boolean loggingEnabled;
 
-    /* loaded from: classes9.dex */
+    /* renamed from: org.webrtc.Logging$1  reason: invalid class name */
+    /* loaded from: classes7.dex */
+    public static /* synthetic */ class AnonymousClass1 {
+        public static final /* synthetic */ int[] $SwitchMap$org$webrtc$Logging$Severity;
+
+        static {
+            int[] iArr = new int[Severity.values().length];
+            $SwitchMap$org$webrtc$Logging$Severity = iArr;
+            try {
+                iArr[Severity.LS_ERROR.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
+            }
+            try {
+                $SwitchMap$org$webrtc$Logging$Severity[Severity.LS_WARNING.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
+            }
+            try {
+                $SwitchMap$org$webrtc$Logging$Severity[Severity.LS_INFO.ordinal()] = 3;
+            } catch (NoSuchFieldError unused3) {
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
     public enum Severity {
         LS_SENSITIVE,
         LS_VERBOSE,
@@ -25,7 +48,7 @@ public class Logging {
     }
 
     @Deprecated
-    /* loaded from: classes9.dex */
+    /* loaded from: classes7.dex */
     public enum TraceLevel {
         TRACE_NONE(0),
         TRACE_STATEINFO(1),
@@ -50,7 +73,7 @@ public class Logging {
         }
     }
 
-    private static Logger createFallbackLogger() {
+    public static Logger createFallbackLogger() {
         Logger logger = Logger.getLogger("org.webrtc.Logging");
         logger.setLevel(Level.ALL);
         return logger;
@@ -60,7 +83,6 @@ public class Logging {
         log(Severity.LS_INFO, str, str2);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public static void deleteInjectedLoggable() {
         loggable = null;
     }
@@ -85,14 +107,11 @@ public class Logging {
 
     public static void enableLogToDebugOutput(Severity severity) {
         synchronized (Logging.class) {
-            try {
-                if (loggable != null) {
-                    throw new IllegalStateException("Logging to native debug output not supported while Loggable is injected. Delete the Loggable before calling this method.");
-                }
-                nativeEnableLogToDebugOutput(severity.ordinal());
-                loggingEnabled = true;
-            } finally {
+            if (loggable != null) {
+                throw new IllegalStateException("Logging to native debug output not supported while Loggable is injected. Delete the Loggable before calling this method.");
             }
+            nativeEnableLogToDebugOutput(severity.ordinal());
+            loggingEnabled = true;
         }
     }
 
@@ -100,7 +119,7 @@ public class Logging {
     public static void enableTracing(String str, EnumSet<TraceLevel> enumSet) {
     }
 
-    private static String getStackTraceString(Throwable th) {
+    public static String getStackTraceString(Throwable th) {
         if (th == null) {
             return "";
         }
@@ -109,7 +128,6 @@ public class Logging {
         return stringWriter.toString();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public static void injectLoggable(Loggable loggable2, Severity severity) {
         if (loggable2 != null) {
             loggable = loggable2;
@@ -118,7 +136,6 @@ public class Logging {
     }
 
     public static void log(Severity severity, String str, String str2) {
-        Level level;
         if (str == null || str2 == null) {
             throw new IllegalArgumentException("Logging tag or message may not be null.");
         }
@@ -130,32 +147,20 @@ public class Logging {
         } else if (loggingEnabled) {
             nativeLog(severity.ordinal(), str, str2);
         } else {
-            switch (severity) {
-                case LS_ERROR:
-                    level = Level.SEVERE;
-                    break;
-                case LS_WARNING:
-                    level = Level.WARNING;
-                    break;
-                case LS_INFO:
-                    level = Level.INFO;
-                    break;
-                default:
-                    level = Level.FINE;
-                    break;
-            }
+            int i = AnonymousClass1.$SwitchMap$org$webrtc$Logging$Severity[severity.ordinal()];
+            Level level = i != 1 ? i != 2 ? i != 3 ? Level.FINE : Level.INFO : Level.WARNING : Level.SEVERE;
             Logger logger = fallbackLogger;
             logger.log(level, str + ": " + str2);
         }
     }
 
-    private static native void nativeEnableLogThreads();
+    public static native void nativeEnableLogThreads();
 
-    private static native void nativeEnableLogTimeStamps();
+    public static native void nativeEnableLogTimeStamps();
 
-    private static native void nativeEnableLogToDebugOutput(int i);
+    public static native void nativeEnableLogToDebugOutput(int i);
 
-    private static native void nativeLog(int i, String str, String str2);
+    public static native void nativeLog(int i, String str, String str2);
 
     public static void v(String str, String str2) {
         log(Severity.LS_VERBOSE, str, str2);

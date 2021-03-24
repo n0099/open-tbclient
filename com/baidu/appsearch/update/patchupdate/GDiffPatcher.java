@@ -1,8 +1,9 @@
 package com.baidu.appsearch.update.patchupdate;
 
 import android.text.TextUtils;
-import com.baidu.mobstat.Config;
+import com.baidu.mapsdkplatform.comapi.map.r;
 import com.baidu.util.LogUtil;
+import com.baidu.wallet.lightapp.business.LightappBusinessClient;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.ByteArrayInputStream;
@@ -19,7 +20,7 @@ import java.io.OutputStream;
 import java.io.RandomAccessFile;
 import java.nio.ByteBuffer;
 import java.util.zip.GZIPInputStream;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class GDiffPatcher {
     public static final int COPY_INT_INT = 254;
     public static final int COPY_INT_UBYTE = 252;
@@ -39,32 +40,56 @@ public class GDiffPatcher {
     public static final int QUARTER_MB = 262144;
 
     /* renamed from: a  reason: collision with root package name */
-    private ByteBuffer f1253a = ByteBuffer.allocate(Config.MAX_CACHE_JSON_CAPACIT_EXCEPTION);
-    private byte[] b = this.f1253a.array();
-    private boolean c = false;
-    private long d = 0;
-    private int e = 246;
-    public long totalLength = 0;
-    private byte[] f = new byte[1048576];
-    private int g = 0;
+    public ByteBuffer f4068a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public byte[] f4069b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public boolean f4070c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public long f4071d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public int f4072e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public byte[] f4073f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public int f4074g;
+    public long totalLength;
+
+    public GDiffPatcher() {
+        ByteBuffer allocate = ByteBuffer.allocate(5120);
+        this.f4068a = allocate;
+        this.f4069b = allocate.array();
+        this.f4070c = false;
+        this.f4071d = 0L;
+        this.f4072e = 246;
+        this.totalLength = 0L;
+        this.f4073f = new byte[1048576];
+        this.f4074g = 0;
+    }
 
     private void a(byte[] bArr, int i, int i2, OutputStream outputStream) {
         try {
-            if (this.g + i2 >= this.f.length) {
-                outputStream.write(this.f, 0, this.g);
-                this.g = 0;
-                System.arraycopy(bArr, 0, this.f, 0, i2);
-                this.g = i2;
+            if (this.f4074g + i2 >= this.f4073f.length) {
+                outputStream.write(this.f4073f, 0, this.f4074g);
+                this.f4074g = 0;
+                System.arraycopy(bArr, 0, this.f4073f, 0, i2);
+                this.f4074g = i2;
                 return;
             }
-            if (this.g == 0) {
-                System.arraycopy(bArr, 0, this.f, 0, i2);
+            if (this.f4074g == 0) {
+                System.arraycopy(bArr, 0, this.f4073f, 0, i2);
             } else {
-                System.arraycopy(bArr, 0, this.f, this.g, i2);
+                System.arraycopy(bArr, 0, this.f4073f, this.f4074g, i2);
             }
-            this.g += i2;
-        } catch (IOException e) {
-            e.printStackTrace();
+            this.f4074g += i2;
+        } catch (IOException e2) {
+            e2.printStackTrace();
         }
     }
 
@@ -83,7 +108,7 @@ public class GDiffPatcher {
                 byte[] bArr = new byte[10240];
                 BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(new FileOutputStream(file2));
                 while (true) {
-                    int read = bufferedInputStream.read(bArr, 0, bArr.length);
+                    int read = bufferedInputStream.read(bArr, 0, 10240);
                     if (read == -1) {
                         break;
                     }
@@ -93,41 +118,42 @@ public class GDiffPatcher {
                 bufferedOutputStream.close();
                 fileInputStream.close();
                 bufferedInputStream.close();
-            } catch (Exception e) {
-                e.printStackTrace();
+            } catch (Exception e2) {
+                e2.printStackTrace();
             }
             LogUtil.logD("GDiffPatcher", "unzip time:" + (System.currentTimeMillis() - currentTimeMillis));
         }
     }
 
-    void a(int i, InputStream inputStream, OutputStream outputStream) {
+    public void a(int i, InputStream inputStream, OutputStream outputStream) {
         while (i > 0) {
-            int read = inputStream.read(this.b, 0, Math.min(this.b.length, i));
+            int read = inputStream.read(this.f4069b, 0, Math.min(this.f4069b.length, i));
             if (read == -1) {
                 throw new EOFException("cannot read " + i);
             }
-            a(this.b, 0, read, outputStream);
+            a(this.f4069b, 0, read, outputStream);
             i -= read;
         }
     }
 
-    void a(long j, int i, d dVar, OutputStream outputStream) {
+    public void a(long j, int i, d dVar, OutputStream outputStream) {
         dVar.a(j);
         while (i > 0) {
-            this.f1253a.clear().limit(Math.min(this.f1253a.capacity(), i));
-            int a2 = dVar.a(this.f1253a);
+            this.f4068a.clear().limit(Math.min(this.f4068a.capacity(), i));
+            int a2 = dVar.a(this.f4068a);
             if (a2 == -1) {
                 throw new EOFException("in copy " + j + " " + i);
             }
-            a(this.f1253a.array(), 0, a2, outputStream);
+            a(this.f4068a.array(), 0, a2, outputStream);
             i -= a2;
         }
     }
 
-    void a(OutputStream outputStream) {
-        if (this.g > 0) {
-            outputStream.write(this.f, 0, this.g);
-            this.g = 0;
+    public void a(OutputStream outputStream) {
+        int i = this.f4074g;
+        if (i > 0) {
+            outputStream.write(this.f4073f, 0, i);
+            this.f4074g = 0;
         }
         outputStream.flush();
     }
@@ -136,9 +162,7 @@ public class GDiffPatcher {
         long readUnsignedByte;
         long readUnsignedByte2;
         long readUnsignedByte3;
-        long readUnsignedShort;
-        long readUnsignedShort2;
-        long readUnsignedShort3;
+        long j;
         OutputStream dataOutputStream = new DataOutputStream(outputStream);
         DataInputStream dataInputStream = new DataInputStream(new BufferedInputStream(inputStream, 262144));
         if (dataInputStream.readUnsignedByte() != 209 || dataInputStream.readUnsignedByte() != 255 || dataInputStream.readUnsignedByte() != 209 || dataInputStream.readUnsignedByte() != 255) {
@@ -146,154 +170,151 @@ public class GDiffPatcher {
         }
         int readUnsignedByte4 = dataInputStream.readUnsignedByte();
         if (readUnsignedByte4 == 5) {
-            this.c = true;
-            this.e = 243;
+            this.f4070c = true;
+            this.f4072e = LightappBusinessClient.REQUEST_PERMISSION_SELECT_PHONE_FROM_ADDRESSBOOK;
         } else if (readUnsignedByte4 != 4) {
             throw new b("magic string not found, aborting!");
         }
-        this.totalLength = 0L;
+        long j2 = 0;
         while (true) {
+            this.totalLength = j2;
             int readUnsignedByte5 = dataInputStream.readUnsignedByte();
             if (readUnsignedByte5 == 0) {
                 a(dataOutputStream);
                 return;
-            } else if (readUnsignedByte5 <= this.e) {
-                a(readUnsignedByte5, dataInputStream, dataOutputStream);
-                this.totalLength += readUnsignedByte5;
-            } else {
+            }
+            if (readUnsignedByte5 > this.f4072e) {
                 switch (readUnsignedByte5) {
-                    case COPY_UBYTE_UBYTE /* 244 */:
-                        if (this.c) {
-                            readUnsignedByte3 = dataInputStream.readByte() + this.d;
-                            this.d = readUnsignedByte3;
-                        } else {
-                            readUnsignedByte3 = dataInputStream.readUnsignedByte();
-                        }
-                        int readUnsignedByte6 = dataInputStream.readUnsignedByte();
-                        a(readUnsignedByte3, readUnsignedByte6, dVar, dataOutputStream);
-                        this.totalLength += readUnsignedByte6;
-                        continue;
-                    case COPY_UBYTE_USHORT /* 245 */:
-                        if (this.c) {
-                            readUnsignedByte2 = dataInputStream.readByte() + this.d;
-                            this.d = readUnsignedByte2;
-                        } else {
-                            readUnsignedByte2 = dataInputStream.readUnsignedByte();
-                        }
-                        int readUnsignedShort4 = dataInputStream.readUnsignedShort();
-                        a(readUnsignedByte2, readUnsignedShort4, dVar, dataOutputStream);
-                        this.totalLength += readUnsignedShort4;
-                        continue;
-                    case 246:
-                        if (this.c) {
-                            readUnsignedByte = dataInputStream.readByte() + this.d;
-                            this.d = readUnsignedByte;
+                    case 244:
+                        if (this.f4070c) {
+                            readUnsignedByte = dataInputStream.readByte() + this.f4071d;
+                            this.f4071d = readUnsignedByte;
                         } else {
                             readUnsignedByte = dataInputStream.readUnsignedByte();
                         }
-                        int readInt = dataInputStream.readInt();
-                        a(readUnsignedByte, readInt, dVar, dataOutputStream);
-                        this.totalLength += readInt;
-                        continue;
+                        j = readUnsignedByte;
+                        readUnsignedByte5 = dataInputStream.readUnsignedByte();
+                        a(j, readUnsignedByte5, dVar, dataOutputStream);
+                        j2 = this.totalLength + readUnsignedByte5;
+                    case 245:
+                        if (this.f4070c) {
+                            readUnsignedByte2 = dataInputStream.readByte() + this.f4071d;
+                            this.f4071d = readUnsignedByte2;
+                        } else {
+                            readUnsignedByte2 = dataInputStream.readUnsignedByte();
+                        }
+                        j = readUnsignedByte2;
+                        readUnsignedByte5 = dataInputStream.readUnsignedShort();
+                        a(j, readUnsignedByte5, dVar, dataOutputStream);
+                        j2 = this.totalLength + readUnsignedByte5;
+                    case 246:
+                        if (this.f4070c) {
+                            readUnsignedByte3 = dataInputStream.readByte() + this.f4071d;
+                            this.f4071d = readUnsignedByte3;
+                        } else {
+                            readUnsignedByte3 = dataInputStream.readUnsignedByte();
+                        }
+                        j = readUnsignedByte3;
+                        readUnsignedByte5 = dataInputStream.readInt();
+                        a(j, readUnsignedByte5, dVar, dataOutputStream);
+                        j2 = this.totalLength + readUnsignedByte5;
                     case DATA_USHORT /* 247 */:
-                        int readUnsignedShort5 = dataInputStream.readUnsignedShort();
-                        a(readUnsignedShort5, dataInputStream, dataOutputStream);
-                        this.totalLength += readUnsignedShort5;
-                        continue;
+                        readUnsignedByte5 = dataInputStream.readUnsignedShort();
+                        break;
                     case DATA_INT /* 248 */:
-                        int readInt2 = dataInputStream.readInt();
-                        a(readInt2, dataInputStream, dataOutputStream);
-                        this.totalLength += readInt2;
-                        continue;
+                        readUnsignedByte5 = dataInputStream.readInt();
+                        break;
                     case 249:
-                        if (this.c) {
-                            readUnsignedShort3 = dataInputStream.readShort() + this.d;
-                            this.d = readUnsignedShort3;
+                        if (this.f4070c) {
+                            readUnsignedByte = dataInputStream.readShort() + this.f4071d;
+                            this.f4071d = readUnsignedByte;
                         } else {
-                            readUnsignedShort3 = dataInputStream.readUnsignedShort();
+                            readUnsignedByte = dataInputStream.readUnsignedShort();
                         }
-                        int readUnsignedByte7 = dataInputStream.readUnsignedByte();
-                        a(readUnsignedShort3, readUnsignedByte7, dVar, dataOutputStream);
-                        this.totalLength += readUnsignedByte7;
-                        continue;
+                        j = readUnsignedByte;
+                        readUnsignedByte5 = dataInputStream.readUnsignedByte();
+                        a(j, readUnsignedByte5, dVar, dataOutputStream);
+                        j2 = this.totalLength + readUnsignedByte5;
                     case 250:
-                        if (this.c) {
-                            readUnsignedShort2 = dataInputStream.readShort() + this.d;
-                            this.d = readUnsignedShort2;
+                        if (this.f4070c) {
+                            readUnsignedByte2 = dataInputStream.readShort() + this.f4071d;
+                            this.f4071d = readUnsignedByte2;
                         } else {
-                            readUnsignedShort2 = dataInputStream.readUnsignedShort();
+                            readUnsignedByte2 = dataInputStream.readUnsignedShort();
                         }
-                        int readUnsignedShort6 = dataInputStream.readUnsignedShort();
-                        a(readUnsignedShort2, readUnsignedShort6, dVar, dataOutputStream);
-                        this.totalLength += readUnsignedShort6;
-                        continue;
+                        j = readUnsignedByte2;
+                        readUnsignedByte5 = dataInputStream.readUnsignedShort();
+                        a(j, readUnsignedByte5, dVar, dataOutputStream);
+                        j2 = this.totalLength + readUnsignedByte5;
                     case COPY_USHORT_INT /* 251 */:
-                        if (this.c) {
-                            readUnsignedShort = dataInputStream.readShort() + this.d;
-                            this.d = readUnsignedShort;
+                        if (this.f4070c) {
+                            readUnsignedByte3 = dataInputStream.readShort() + this.f4071d;
+                            this.f4071d = readUnsignedByte3;
                         } else {
-                            readUnsignedShort = dataInputStream.readUnsignedShort();
+                            readUnsignedByte3 = dataInputStream.readUnsignedShort();
                         }
-                        int readInt3 = dataInputStream.readInt();
-                        a(readUnsignedShort, readInt3, dVar, dataOutputStream);
-                        this.totalLength += readInt3;
-                        continue;
+                        j = readUnsignedByte3;
+                        readUnsignedByte5 = dataInputStream.readInt();
+                        a(j, readUnsignedByte5, dVar, dataOutputStream);
+                        j2 = this.totalLength + readUnsignedByte5;
                     case COPY_INT_UBYTE /* 252 */:
-                        long readInt4 = dataInputStream.readInt();
-                        if (this.c) {
-                            readInt4 += this.d;
-                            this.d = readInt4;
+                        readUnsignedByte = dataInputStream.readInt();
+                        if (this.f4070c) {
+                            readUnsignedByte += this.f4071d;
+                            this.f4071d = readUnsignedByte;
                         }
-                        int readUnsignedByte8 = dataInputStream.readUnsignedByte();
-                        a(readInt4, readUnsignedByte8, dVar, dataOutputStream);
-                        this.totalLength += readUnsignedByte8;
-                        continue;
+                        j = readUnsignedByte;
+                        readUnsignedByte5 = dataInputStream.readUnsignedByte();
+                        a(j, readUnsignedByte5, dVar, dataOutputStream);
+                        j2 = this.totalLength + readUnsignedByte5;
                     case COPY_INT_USHORT /* 253 */:
-                        long readInt5 = dataInputStream.readInt();
-                        if (this.c) {
-                            readInt5 += this.d;
-                            this.d = readInt5;
+                        readUnsignedByte2 = dataInputStream.readInt();
+                        if (this.f4070c) {
+                            readUnsignedByte2 += this.f4071d;
+                            this.f4071d = readUnsignedByte2;
                         }
-                        int readUnsignedShort7 = dataInputStream.readUnsignedShort();
-                        a(readInt5, readUnsignedShort7, dVar, dataOutputStream);
-                        this.totalLength += readUnsignedShort7;
-                        continue;
-                    case COPY_INT_INT /* 254 */:
-                        long readInt6 = dataInputStream.readInt();
-                        if (this.c) {
-                            readInt6 += this.d;
-                            this.d = readInt6;
+                        j = readUnsignedByte2;
+                        readUnsignedByte5 = dataInputStream.readUnsignedShort();
+                        a(j, readUnsignedByte5, dVar, dataOutputStream);
+                        j2 = this.totalLength + readUnsignedByte5;
+                    case 254:
+                        readUnsignedByte3 = dataInputStream.readInt();
+                        if (this.f4070c) {
+                            readUnsignedByte3 += this.f4071d;
+                            this.f4071d = readUnsignedByte3;
                         }
-                        int readInt7 = dataInputStream.readInt();
-                        a(readInt6, readInt7, dVar, dataOutputStream);
-                        this.totalLength += readInt7;
-                        continue;
+                        j = readUnsignedByte3;
+                        readUnsignedByte5 = dataInputStream.readInt();
+                        a(j, readUnsignedByte5, dVar, dataOutputStream);
+                        j2 = this.totalLength + readUnsignedByte5;
                     case 255:
-                        long readLong = dataInputStream.readLong();
-                        if (this.c) {
-                            readLong += this.d;
-                            this.d = readLong;
+                        readUnsignedByte3 = dataInputStream.readLong();
+                        if (this.f4070c) {
+                            readUnsignedByte3 += this.f4071d;
+                            this.f4071d = readUnsignedByte3;
                         }
-                        int readInt8 = dataInputStream.readInt();
-                        a(readLong, readInt8, dVar, dataOutputStream);
-                        this.totalLength += readInt8;
-                        continue;
+                        j = readUnsignedByte3;
+                        readUnsignedByte5 = dataInputStream.readInt();
+                        a(j, readUnsignedByte5, dVar, dataOutputStream);
+                        j2 = this.totalLength + readUnsignedByte5;
                     default:
                         throw new IllegalStateException("command " + readUnsignedByte5);
                 }
             }
+            a(readUnsignedByte5, dataInputStream, dataOutputStream);
+            j2 = this.totalLength + readUnsignedByte5;
         }
     }
 
     public void patch(File file, File file2, File file3) {
-        c cVar = new c(new RandomAccessFile(file, "r"));
+        c cVar = new c(new RandomAccessFile(file, r.f7663a));
         FileInputStream fileInputStream = new FileInputStream(file2);
         FileOutputStream fileOutputStream = new FileOutputStream(file3);
         try {
             try {
                 patch(cVar, fileInputStream, fileOutputStream);
-            } catch (IOException e) {
-                throw e;
+            } catch (IOException e2) {
+                throw e2;
             }
         } finally {
             cVar.close();

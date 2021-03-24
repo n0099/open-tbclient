@@ -8,58 +8,59 @@ import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Looper;
 import android.os.Parcel;
+import com.baidu.searchbox.elasticthread.statistic.StatisticRecorder;
 import java.io.IOException;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes5.dex */
-final class j {
+/* loaded from: classes7.dex */
+public final class j {
 
-    /* loaded from: classes5.dex */
-    static final class a {
+    /* loaded from: classes7.dex */
+    public static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private final String f8456a;
+        public final String f40868a;
 
         /* renamed from: a  reason: collision with other field name */
-        private final boolean f766a;
+        public final boolean f809a;
 
-        a(String str, boolean z) {
-            this.f8456a = str;
-            this.f766a = z;
+        public a(String str, boolean z) {
+            this.f40868a = str;
+            this.f809a = z;
         }
 
         public String a() {
-            return this.f8456a;
+            return this.f40868a;
         }
     }
 
-    /* loaded from: classes5.dex */
-    private static final class b implements ServiceConnection {
+    /* loaded from: classes7.dex */
+    public static final class b implements ServiceConnection {
 
         /* renamed from: a  reason: collision with root package name */
-        private final LinkedBlockingQueue<IBinder> f8457a;
+        public final LinkedBlockingQueue<IBinder> f40869a;
 
         /* renamed from: a  reason: collision with other field name */
-        boolean f767a;
+        public boolean f810a;
 
-        private b() {
-            this.f767a = false;
-            this.f8457a = new LinkedBlockingQueue<>(1);
+        public b() {
+            this.f810a = false;
+            this.f40869a = new LinkedBlockingQueue<>(1);
         }
 
         public IBinder a() {
-            if (this.f767a) {
+            if (this.f810a) {
                 throw new IllegalStateException();
             }
-            this.f767a = true;
-            return this.f8457a.poll(30000L, TimeUnit.MILLISECONDS);
+            this.f810a = true;
+            return this.f40869a.poll(StatisticRecorder.UPLOAD_DATA_TIME_THRESHOLD, TimeUnit.MILLISECONDS);
         }
 
         @Override // android.content.ServiceConnection
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
             try {
-                this.f8457a.put(iBinder);
-            } catch (InterruptedException e) {
+                this.f40869a.put(iBinder);
+            } catch (InterruptedException unused) {
             }
         }
 
@@ -68,14 +69,14 @@ final class j {
         }
     }
 
-    /* loaded from: classes5.dex */
-    private static final class c implements IInterface {
+    /* loaded from: classes7.dex */
+    public static final class c implements IInterface {
 
         /* renamed from: a  reason: collision with root package name */
-        private IBinder f8458a;
+        public IBinder f40870a;
 
         public c(IBinder iBinder) {
-            this.f8458a = iBinder;
+            this.f40870a = iBinder;
         }
 
         public String a() {
@@ -83,7 +84,7 @@ final class j {
             Parcel obtain2 = Parcel.obtain();
             try {
                 obtain.writeInterfaceToken("com.google.android.gms.ads.identifier.internal.IAdvertisingIdService");
-                this.f8458a.transact(1, obtain, obtain2, 0);
+                this.f40870a.transact(1, obtain, obtain2, 0);
                 obtain2.readException();
                 return obtain2.readString();
             } finally {
@@ -94,36 +95,36 @@ final class j {
 
         @Override // android.os.IInterface
         public IBinder asBinder() {
-            return this.f8458a;
+            return this.f40870a;
         }
     }
 
     public static a a(Context context) {
-        if (Looper.myLooper() == Looper.getMainLooper()) {
-            throw new IllegalStateException("Cannot be called from the main thread");
-        }
-        try {
-            context.getPackageManager().getPackageInfo("com.android.vending", 0);
-            b bVar = new b();
-            Intent intent = new Intent("com.google.android.gms.ads.identifier.service.START");
-            intent.setPackage("com.google.android.gms");
-            if (context.bindService(intent, bVar, 1)) {
-                try {
+        if (Looper.myLooper() != Looper.getMainLooper()) {
+            try {
+                context.getPackageManager().getPackageInfo("com.android.vending", 0);
+                b bVar = new b();
+                Intent intent = new Intent("com.google.android.gms.ads.identifier.service.START");
+                intent.setPackage("com.google.android.gms");
+                if (context.bindService(intent, bVar, 1)) {
                     try {
-                        IBinder a2 = bVar.a();
-                        if (a2 != null) {
-                            return new a(new c(a2).a(), false);
+                        try {
+                            IBinder a2 = bVar.a();
+                            if (a2 != null) {
+                                return new a(new c(a2).a(), false);
+                            }
+                        } catch (Exception e2) {
+                            throw e2;
                         }
-                    } catch (Exception e) {
-                        throw e;
+                    } finally {
+                        context.unbindService(bVar);
                     }
-                } finally {
-                    context.unbindService(bVar);
                 }
+                throw new IOException("Google Play connection failed");
+            } catch (Exception e3) {
+                throw e3;
             }
-            throw new IOException("Google Play connection failed");
-        } catch (Exception e2) {
-            throw e2;
         }
+        throw new IllegalStateException("Cannot be called from the main thread");
     }
 }

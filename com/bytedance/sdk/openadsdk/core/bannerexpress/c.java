@@ -12,22 +12,25 @@ public class c extends b {
 
     @Override // com.bytedance.sdk.openadsdk.core.bannerexpress.b
     public void a(Context context, l lVar, AdSlot adSlot) {
-        this.f4370a = new BannerExpressVideoView(context, lVar, adSlot);
-        a(this.f4370a.getCurView(), this.c);
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.core.nativeexpress.l, com.bytedance.sdk.openadsdk.TTNativeExpressAd
-    public void setVideoAdListener(TTNativeExpressAd.ExpressVideoAdListener expressVideoAdListener) {
-        if (this.f4370a != null) {
-            this.f4370a.setVideoAdListener(expressVideoAdListener);
-        }
+        BannerExpressVideoView bannerExpressVideoView = new BannerExpressVideoView(context, lVar, adSlot);
+        this.f28064a = bannerExpressVideoView;
+        a(bannerExpressVideoView.getCurView(), this.f28066c);
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.nativeexpress.l, com.bytedance.sdk.openadsdk.TTNativeExpressAd
     public com.bytedance.sdk.openadsdk.multipro.b.a getVideoModel() {
-        if (this.f4370a != null) {
-            return ((BannerExpressVideoView) this.f4370a).getVideoModel();
+        a aVar = this.f28064a;
+        if (aVar != null) {
+            return ((BannerExpressVideoView) aVar).getVideoModel();
         }
         return null;
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.core.nativeexpress.l, com.bytedance.sdk.openadsdk.TTNativeExpressAd
+    public void setVideoAdListener(TTNativeExpressAd.ExpressVideoAdListener expressVideoAdListener) {
+        a aVar = this.f28064a;
+        if (aVar != null) {
+            aVar.setVideoAdListener(expressVideoAdListener);
+        }
     }
 }

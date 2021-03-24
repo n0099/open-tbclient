@@ -2,8 +2,13 @@ package com.baidu.mobstat;
 
 import android.content.Context;
 import android.text.TextUtils;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class PrefOperate {
+    public static String getAppKey(Context context) {
+        return CooperService.instance().getAppKey(context);
+    }
+
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:37:0x0081 -> B:42:0x0081). Please submit an issue!!! */
     public static void loadMetaDataConfig(Context context) {
         SendStrategyEnum sendStrategyEnum = SendStrategyEnum.APP_START;
         try {
@@ -11,7 +16,7 @@ public class PrefOperate {
             if (!TextUtils.isEmpty(a2) && "true".equals(a2)) {
                 ExceptionAnalysis.getInstance().openExceptionAnalysis(context, false);
             }
-        } catch (Exception e) {
+        } catch (Exception unused) {
         }
         try {
             String a3 = bw.a(context, Config.SEND_STRATEGY_META_NAME);
@@ -28,7 +33,7 @@ public class PrefOperate {
                     bq.a().a(context, sendStrategyEnum.ordinal());
                 }
             }
-        } catch (Exception e2) {
+        } catch (Exception unused2) {
         }
         try {
             String a4 = bw.a(context, Config.TIME_INTERVAL_META_NAME);
@@ -38,27 +43,20 @@ public class PrefOperate {
                     bq.a().b(context, parseInt);
                 }
             }
-        } catch (Exception e3) {
+        } catch (Exception unused3) {
         }
         try {
             String a5 = bw.a(context, Config.ONLY_WIFI_META_NAME);
-            if (!TextUtils.isEmpty(a5)) {
-                if ("true".equals(a5)) {
-                    bq.a().a(context, true);
-                } else if ("false".equals(a5)) {
-                    bq.a().a(context, false);
-                }
+            if (TextUtils.isEmpty(a5)) {
+                return;
             }
-        } catch (Exception e4) {
+            if ("true".equals(a5)) {
+                bq.a().a(context, true);
+            } else if ("false".equals(a5)) {
+                bq.a().a(context, false);
+            }
+        } catch (Exception unused4) {
         }
-    }
-
-    public static void setAppKey(String str) {
-        CooperService.instance().getHeadObject().e = str;
-    }
-
-    public static String getAppKey(Context context) {
-        return CooperService.instance().getAppKey(context);
     }
 
     public static void setAppChannel(String str) {
@@ -66,6 +64,10 @@ public class PrefOperate {
             bc.c().c("[WARNING] The channel you have set is empty");
         }
         CooperService.instance().getHeadObject().l = str;
+    }
+
+    public static void setAppKey(String str) {
+        CooperService.instance().getHeadObject().f8805e = str;
     }
 
     public static void setAppChannel(Context context, String str, boolean z) {
@@ -77,9 +79,10 @@ public class PrefOperate {
             bq.a().d(context, str);
             bq.a().b(context, true);
         }
-        if (!z) {
-            bq.a().d(context, "");
-            bq.a().b(context, false);
+        if (z) {
+            return;
         }
+        bq.a().d(context, "");
+        bq.a().b(context, false);
     }
 }

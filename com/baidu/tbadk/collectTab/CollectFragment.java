@@ -5,59 +5,71 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.NetWorkChangedMessage;
-import com.baidu.adp.lib.util.j;
-import com.baidu.live.adp.framework.MessageConfig;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.core.BaseFragment;
-/* loaded from: classes7.dex */
+import d.b.b.e.p.j;
+/* loaded from: classes3.dex */
 public abstract class CollectFragment extends BaseFragment {
-    protected boolean eKT = false;
-    private final CustomMessageListener mNetworkChangedMessageListener = new CustomMessageListener(MessageConfig.CMD_NETWORK_CHANGED) { // from class: com.baidu.tbadk.collectTab.CollectFragment.1
+
+    /* renamed from: e  reason: collision with root package name */
+    public boolean f13149e = false;
+
+    /* renamed from: f  reason: collision with root package name */
+    public final CustomMessageListener f13150f = new a(2000994);
+
+    /* loaded from: classes3.dex */
+    public class a extends CustomMessageListener {
+        public a(int i) {
+            super(i);
+        }
+
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage.getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage)) {
-                CollectFragment.this.mN(CollectFragment.this.getType());
-                if (!CollectFragment.this.eKT) {
-                    CollectFragment.this.p(false, CollectFragment.this.getType());
+                CollectFragment collectFragment = CollectFragment.this;
+                collectFragment.H0(collectFragment.E0());
+                CollectFragment collectFragment2 = CollectFragment.this;
+                if (collectFragment2.f13149e) {
+                    return;
                 }
+                collectFragment2.I0(false, collectFragment2.E0());
             }
         }
-    };
+    }
 
-    public abstract boolean bkS();
+    public abstract int E0();
 
-    public abstract int getType();
+    public abstract boolean F0();
 
-    public boolean bkR() {
-        return this.eKT;
+    public boolean G0() {
+        return this.f13149e;
+    }
+
+    public void H0(int i) {
+        Bundle bundle = new Bundle();
+        boolean z = !F0() && j.z();
+        this.f13149e = z;
+        bundle.putBoolean("is_enable_edit", z);
+        bundle.putInt("fragment_type", i);
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2022209, bundle));
+    }
+
+    public void I0(boolean z, int i) {
+        Bundle bundle = new Bundle();
+        bundle.putBoolean("is_edit_state", z);
+        bundle.putInt("fragment_type", i);
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2022208, bundle));
     }
 
     @Override // androidx.fragment.app.Fragment
     public void onStart() {
         super.onStart();
-        registerListener(this.mNetworkChangedMessageListener);
+        registerListener(this.f13150f);
     }
 
     @Override // androidx.fragment.app.Fragment
     public void onStop() {
         super.onStop();
-        MessageManager.getInstance().unRegisterListener(this.mNetworkChangedMessageListener);
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void mN(int i) {
-        Bundle bundle = new Bundle();
-        this.eKT = !bkS() && j.isNetWorkAvailable();
-        bundle.putBoolean("is_enable_edit", this.eKT);
-        bundle.putInt("fragment_type", i);
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.COLLECT_TAB_NAVI_EDIT_ENABLE, bundle));
-    }
-
-    protected void p(boolean z, int i) {
-        Bundle bundle = new Bundle();
-        bundle.putBoolean("is_edit_state", z);
-        bundle.putInt("fragment_type", i);
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.COLLECT_TAB_NAVI_EDIT_ACTION, bundle));
+        MessageManager.getInstance().unRegisterListener(this.f13150f);
     }
 }

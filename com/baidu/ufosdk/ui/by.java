@@ -1,21 +1,20 @@
 package com.baidu.ufosdk.ui;
 
 import android.os.Handler;
-/* loaded from: classes7.dex */
-final class by implements Runnable {
+/* loaded from: classes5.dex */
+public final class by implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ bx f3698a;
+    public final /* synthetic */ bx f23104a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public by(bx bxVar) {
-        this.f3698a = bxVar;
+        this.f23104a = bxVar;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
         Handler handler;
-        handler = this.f3698a.f3697a.aK;
+        handler = this.f23104a.f23103a.aK;
         com.baidu.ufosdk.e.a.a(handler);
     }
 }

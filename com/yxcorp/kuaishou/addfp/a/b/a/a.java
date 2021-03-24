@@ -3,72 +3,90 @@ package com.yxcorp.kuaishou.addfp.a.b.a;
 import android.content.Context;
 import android.os.IBinder;
 import android.os.IInterface;
-/* loaded from: classes3.dex */
-public final class a implements com.yxcorp.kuaishou.addfp.a.b.a, com.yxcorp.kuaishou.addfp.a.b.b {
+/* loaded from: classes7.dex */
+public final class a implements d.q.a.a.a.b.b, com.yxcorp.kuaishou.addfp.a.b.b {
 
     /* renamed from: a  reason: collision with root package name */
-    private com.yxcorp.kuaishou.addfp.a.a.a f8596a;
-    private e f;
-    private String b = "";
-    private String c = "";
-    private String d = "";
-    private String e = "";
-    private boolean g = false;
+    public d.q.a.a.a.a.a f41076a;
 
-    public a(Context context, com.yxcorp.kuaishou.addfp.a.a.a aVar) {
-        this.f8596a = aVar;
-        this.f = new e(context);
+    /* renamed from: f  reason: collision with root package name */
+    public d.q.a.a.a.b.a.a f41081f;
+
+    /* renamed from: b  reason: collision with root package name */
+    public String f41077b = "";
+
+    /* renamed from: c  reason: collision with root package name */
+    public String f41078c = "";
+
+    /* renamed from: d  reason: collision with root package name */
+    public String f41079d = "";
+
+    /* renamed from: e  reason: collision with root package name */
+    public String f41080e = "";
+
+    /* renamed from: g  reason: collision with root package name */
+    public boolean f41082g = false;
+
+    public a(Context context, d.q.a.a.a.a.a aVar) {
+        this.f41076a = aVar;
+        this.f41081f = new d.q.a.a.a.b.a.a(context);
     }
 
     @Override // com.yxcorp.kuaishou.addfp.a.b.b
     public final void a(IInterface iInterface) {
         b bVar = (b) iInterface;
         try {
-            this.b = bVar.b();
-            if (this.b == null) {
-                this.b = "";
+            String b2 = bVar.b();
+            this.f41077b = b2;
+            if (b2 == null) {
+                this.f41077b = "";
             }
-        } catch (Throwable th) {
+        } catch (Throwable unused) {
         }
         try {
-            this.c = bVar.c();
-            if (this.c == null) {
-                this.c = "";
+            String c2 = bVar.c();
+            this.f41078c = c2;
+            if (c2 == null) {
+                this.f41078c = "";
             }
-        } catch (Throwable th2) {
+        } catch (Throwable unused2) {
         }
         try {
-            this.d = bVar.d();
-            if (this.d == null) {
-                this.d = "";
+            String d2 = bVar.d();
+            this.f41079d = d2;
+            if (d2 == null) {
+                this.f41079d = "";
             }
-        } catch (Throwable th3) {
+        } catch (Throwable unused3) {
         }
         try {
-            this.e = bVar.e();
-            if (this.e == null) {
-                this.e = "";
+            String e2 = bVar.e();
+            this.f41080e = e2;
+            if (e2 == null) {
+                this.f41080e = "";
             }
-        } catch (Throwable th4) {
+        } catch (Throwable unused4) {
         }
         try {
-            this.g = bVar.a();
-        } catch (Throwable th5) {
+            this.f41082g = bVar.a();
+        } catch (Throwable unused5) {
         }
-        if (this.f != null) {
-            this.f.a();
+        d.q.a.a.a.b.a.a aVar = this.f41081f;
+        if (aVar != null) {
+            aVar.b();
         }
-        if (this.f8596a != null) {
-            this.f8596a.a(this.g, this);
+        d.q.a.a.a.a.a aVar2 = this.f41076a;
+        if (aVar2 != null) {
+            aVar2.a(this.f41082g, this);
         }
     }
 
-    @Override // com.yxcorp.kuaishou.addfp.a.b.a
-    public final void a(com.yxcorp.kuaishou.addfp.a.a.a aVar) {
-        this.f.a(this);
+    @Override // d.q.a.a.a.b.b
+    public final void a(d.q.a.a.a.a.a aVar) {
+        this.f41081f.c(this);
     }
 
-    @Override // com.yxcorp.kuaishou.addfp.a.b.a
+    @Override // d.q.a.a.a.b.b
     public final boolean a() {
         return false;
     }
@@ -78,27 +96,29 @@ public final class a implements com.yxcorp.kuaishou.addfp.a.b.a, com.yxcorp.kuai
         return null;
     }
 
-    @Override // com.yxcorp.kuaishou.addfp.a.b.a
+    @Override // d.q.a.a.a.b.b
     public final String b() {
-        return this.c;
+        return this.f41078c;
     }
 
-    @Override // com.yxcorp.kuaishou.addfp.a.b.a
+    @Override // d.q.a.a.a.b.b
     public final boolean c() {
-        return this.g;
+        return this.f41082g;
     }
 
-    @Override // com.yxcorp.kuaishou.addfp.a.b.a
+    @Override // d.q.a.a.a.b.b
     public final void d() {
-        if (this.f != null) {
-            this.f.a();
+        d.q.a.a.a.b.a.a aVar = this.f41081f;
+        if (aVar != null) {
+            aVar.b();
         }
     }
 
     @Override // com.yxcorp.kuaishou.addfp.a.b.b
     public final void e() {
-        if (this.f8596a != null) {
-            this.f8596a.a(false, this);
+        d.q.a.a.a.a.a aVar = this.f41076a;
+        if (aVar != null) {
+            aVar.a(false, this);
         }
     }
 }

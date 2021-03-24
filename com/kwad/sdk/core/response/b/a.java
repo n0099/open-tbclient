@@ -4,15 +4,17 @@ import android.annotation.SuppressLint;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.kwad.sdk.core.download.DOWNLOADSTAUS;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
+import com.kwad.sdk.internal.api.SceneImpl;
 import com.kwad.sdk.plugin.DevelopMangerPlugin;
 import com.kwad.sdk.plugin.g;
 import com.kwad.sdk.utils.ag;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class a {
     public static int A(@NonNull AdInfo adInfo) {
         return adInfo.adBaseInfo.ecpm;
@@ -63,18 +65,16 @@ public class a {
     @NonNull
     public static List<String> I(@NonNull AdInfo adInfo) {
         ArrayList arrayList = new ArrayList();
-        switch (L(adInfo)) {
-            case 2:
-            case 3:
-                for (AdInfo.AdMaterialInfo.MaterialFeature materialFeature : adInfo.adMaterialInfo.materialFeatureList) {
-                    if (materialFeature.featureType == 2 && !TextUtils.isEmpty(materialFeature.materialUrl)) {
-                        arrayList.add(materialFeature.materialUrl);
-                    }
+        int L = L(adInfo);
+        if (L == 2 || L == 3) {
+            for (AdInfo.AdMaterialInfo.MaterialFeature materialFeature : adInfo.adMaterialInfo.materialFeatureList) {
+                if (materialFeature.featureType == 2 && !TextUtils.isEmpty(materialFeature.materialUrl)) {
+                    arrayList.add(materialFeature.materialUrl);
                 }
-                return arrayList;
-            default:
-                return arrayList;
+            }
+            return arrayList;
         }
+        return arrayList;
     }
 
     public static boolean J(@NonNull AdInfo adInfo) {
@@ -86,16 +86,18 @@ public class a {
     }
 
     public static int L(AdInfo adInfo) {
-        switch (adInfo.adMaterialInfo.materialType) {
-            case 1:
-                return 1;
-            case 2:
-                return 2;
-            case 3:
-                return 3;
-            default:
-                return 0;
+        int i = adInfo.adMaterialInfo.materialType;
+        int i2 = 1;
+        if (i != 1) {
+            i2 = 2;
+            if (i != 2) {
+                i2 = 3;
+                if (i != 3) {
+                    return 0;
+                }
+            }
         }
+        return i2;
     }
 
     @Nullable
@@ -104,15 +106,14 @@ public class a {
         ArrayList arrayList = new ArrayList();
         if (!TextUtils.isEmpty(str)) {
             try {
-                String[] split = str.split(",");
-                for (String str2 : split) {
+                for (String str2 : str.split(",")) {
                     int parseInt = Integer.parseInt(str2);
                     if (parseInt > 0) {
                         arrayList.add(Integer.valueOf(parseInt));
                     }
                 }
-            } catch (Exception e) {
-                com.kwad.sdk.core.d.a.a(e);
+            } catch (Exception e2) {
+                com.kwad.sdk.core.d.a.a(e2);
             }
         }
         if (arrayList.isEmpty()) {
@@ -135,20 +136,23 @@ public class a {
 
     @NonNull
     public static int[] Q(@NonNull AdInfo adInfo) {
+        String[] split;
         int[] iArr = {3, 3, 3};
         String str = adInfo.adBaseInfo.mABParams.drawActionBarTimes;
-        if (!TextUtils.isEmpty(str)) {
-            try {
-                String[] split = str.split(",");
-                if (split.length >= 3) {
-                    iArr[0] = Integer.parseInt(split[0]);
-                    iArr[1] = Integer.parseInt(split[1]);
-                    iArr[2] = Integer.parseInt(split[2]);
-                }
-            } catch (Exception e) {
-                com.kwad.sdk.core.d.a.a(e);
-            }
+        if (TextUtils.isEmpty(str)) {
+            return iArr;
         }
+        try {
+            split = str.split(",");
+        } catch (Exception e2) {
+            com.kwad.sdk.core.d.a.a(e2);
+        }
+        if (split.length < 3) {
+            return iArr;
+        }
+        iArr[0] = Integer.parseInt(split[0]);
+        iArr[1] = Integer.parseInt(split[1]);
+        iArr[2] = Integer.parseInt(split[2]);
         return iArr;
     }
 
@@ -178,58 +182,77 @@ public class a {
 
     @NonNull
     public static com.kwad.sdk.core.response.model.c U(@NonNull AdInfo adInfo) {
+        String str;
+        int i;
+        int j;
         boolean z;
-        String c = c(adInfo);
-        int d = d(adInfo);
-        int e = e(adInfo);
-        if (ag.a(c) || ag.b(c) || d == 0 || e == 0) {
-            c = f(adInfo);
-            d = i(adInfo);
-            e = j(adInfo);
+        String c2 = c(adInfo);
+        int d2 = d(adInfo);
+        int e2 = e(adInfo);
+        if (ag.a(c2) || ag.b(c2) || d2 == 0 || e2 == 0) {
+            String f2 = f(adInfo);
+            str = f2;
+            i = i(adInfo);
+            j = j(adInfo);
             z = true;
         } else {
+            str = c2;
+            i = d2;
+            j = e2;
             z = false;
         }
-        com.kwad.sdk.core.d.a.a("AdInfoHelper", "frameUrl=" + c + " useCover=" + z + " isAd=true");
-        return new com.kwad.sdk.core.response.model.c(c, d, e, true, z);
+        com.kwad.sdk.core.d.a.a("AdInfoHelper", "frameUrl=" + str + " useCover=" + z + " isAd=true");
+        return new com.kwad.sdk.core.response.model.c(str, i, j, true, z);
     }
 
     @NonNull
     public static com.kwad.sdk.core.response.model.c V(@NonNull AdInfo adInfo) {
+        String str;
+        int d2;
+        int e2;
         boolean z;
-        String f = f(adInfo);
+        String f2 = f(adInfo);
         int i = i(adInfo);
         int j = j(adInfo);
-        if (ag.a(f) || i == 0 || j == 0) {
-            f = c(adInfo);
-            i = d(adInfo);
-            j = e(adInfo);
+        if (ag.a(f2) || i == 0 || j == 0) {
+            String c2 = c(adInfo);
+            str = c2;
+            d2 = d(adInfo);
+            e2 = e(adInfo);
             z = false;
         } else {
+            str = f2;
+            d2 = i;
+            e2 = j;
             z = true;
         }
-        return new com.kwad.sdk.core.response.model.c(f, i, j, true, z);
+        return new com.kwad.sdk.core.response.model.c(str, d2, e2, true, z);
     }
 
     public static com.kwad.sdk.core.response.model.c W(@NonNull AdInfo adInfo) {
-        String c;
+        String str;
+        int d2;
+        int e2;
         boolean z;
-        String h = h(adInfo);
-        if (ag.a(h)) {
-            h = f(adInfo);
+        String h2 = h(adInfo);
+        if (ag.a(h2)) {
+            h2 = f(adInfo);
         }
         int i = i(adInfo);
         int j = j(adInfo);
-        if (ag.a(h) || i == 0 || j == 0) {
-            c = c(adInfo);
-            i = d(adInfo);
-            j = e(adInfo);
+        if (ag.a(h2) || i == 0 || j == 0) {
+            String c2 = c(adInfo);
+            str = c2;
+            d2 = d(adInfo);
+            e2 = e(adInfo);
             z = false;
         } else {
+            str = h2;
+            d2 = i;
+            e2 = j;
             z = true;
-            c = h;
         }
-        return new com.kwad.sdk.core.response.model.c(c, i, j, true, z);
+        return new com.kwad.sdk.core.response.model.c(str, d2, e2, true, z);
     }
 
     public static String X(@NonNull AdInfo adInfo) {
@@ -251,8 +274,8 @@ public class a {
     }
 
     @SuppressLint({"DefaultLocale"})
-    private static String a(float f) {
-        return String.format("%.1fM", Float.valueOf((f / 1000.0f) / 1000.0f));
+    public static String a(float f2) {
+        return String.format("%.1fM", Float.valueOf((f2 / 1000.0f) / 1000.0f));
     }
 
     public static String a(int i) {
@@ -264,11 +287,12 @@ public class a {
     }
 
     public static String a(@NonNull AdInfo adInfo, int i) {
-        return "下载中..." + i + "%  (" + a(((float) adInfo.totalBytes) * (i / 100.0f)) + "/" + a((float) adInfo.totalBytes) + ")";
+        return "下载中..." + i + "%  (" + a(((float) adInfo.totalBytes) * (i / 100.0f)) + "/" + a((float) adInfo.totalBytes) + SmallTailInfo.EMOTION_SUFFIX;
     }
 
     public static String a(AdTemplate adTemplate) {
-        return (adTemplate == null || adTemplate.mAdScene == null || adTemplate.mAdScene.getAdStyle() != 2) ? "立即安装" : "安装获取奖励";
+        SceneImpl sceneImpl;
+        return (adTemplate == null || (sceneImpl = adTemplate.mAdScene) == null || sceneImpl.getAdStyle() != 2) ? "立即安装" : "安装获取奖励";
     }
 
     public static boolean aa(AdInfo adInfo) {
@@ -329,7 +353,7 @@ public class a {
     }
 
     @NonNull
-    private static AdInfo.AdMaterialInfo.MaterialFeature ah(@NonNull AdInfo adInfo) {
+    public static AdInfo.AdMaterialInfo.MaterialFeature ah(@NonNull AdInfo adInfo) {
         List<AdInfo.AdMaterialInfo.MaterialFeature> list = adInfo.adMaterialInfo.materialFeatureList;
         AdInfo.AdMaterialInfo.MaterialFeature materialFeature = list.size() > 0 ? list.get(0) : null;
         return materialFeature == null ? new AdInfo.AdMaterialInfo.MaterialFeature() : materialFeature;
@@ -348,7 +372,7 @@ public class a {
     }
 
     public static String b(@NonNull AdInfo adInfo, int i) {
-        return "继续下载 " + i + "%  (" + a(((float) adInfo.totalBytes) * (i / 100.0f)) + "/" + a((float) adInfo.totalBytes) + ")";
+        return "继续下载 " + i + "%  (" + a(((float) adInfo.totalBytes) * (i / 100.0f)) + "/" + a((float) adInfo.totalBytes) + SmallTailInfo.EMOTION_SUFFIX;
     }
 
     public static String c(int i) {
@@ -429,10 +453,11 @@ public class a {
     }
 
     public static float u(@NonNull AdInfo adInfo) {
-        if (adInfo.adBaseInfo.appScore <= 0) {
+        int i = adInfo.adBaseInfo.appScore;
+        if (i <= 0) {
             return 0.0f;
         }
-        return adInfo.adBaseInfo.appScore / 10.0f;
+        return i / 10.0f;
     }
 
     public static String v(AdInfo adInfo) {
@@ -441,12 +466,18 @@ public class a {
 
     public static String w(@NonNull AdInfo adInfo) {
         String str = adInfo.adBaseInfo.adActionDescription;
-        return TextUtils.isEmpty(str) ? y(adInfo) ? "立即下载" : "查看详情" : str;
+        if (TextUtils.isEmpty(str)) {
+            return y(adInfo) ? "立即下载" : "查看详情";
+        }
+        return str;
     }
 
     public static String x(@NonNull AdInfo adInfo) {
         String str = adInfo.adBaseInfo.adActionDescription;
-        return TextUtils.isEmpty(str) ? y(adInfo) ? "点我试玩" : "查看详情" : str;
+        if (TextUtils.isEmpty(str)) {
+            return y(adInfo) ? "点我试玩" : "查看详情";
+        }
+        return str;
     }
 
     public static boolean y(@NonNull AdInfo adInfo) {
@@ -454,13 +485,14 @@ public class a {
     }
 
     public static int z(@NonNull AdInfo adInfo) {
-        switch (adInfo.adBaseInfo.adOperationType) {
-            case 1:
-                return 1;
-            case 2:
-                return 2;
-            default:
+        int i = adInfo.adBaseInfo.adOperationType;
+        int i2 = 1;
+        if (i != 1) {
+            i2 = 2;
+            if (i != 2) {
                 return 0;
+            }
         }
+        return i2;
     }
 }

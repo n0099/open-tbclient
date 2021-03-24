@@ -1,21 +1,18 @@
 package com.kwai.player.vr;
 
-import com.a.a.a.a;
-/* loaded from: classes3.dex */
+import com.badlogic.gdx.math.a;
+/* loaded from: classes6.dex */
 public class MDQuaternion {
-    private final float[] q;
+    public final float[] q;
 
     public MDQuaternion() {
         this.q = new float[4];
         idt();
     }
 
-    public MDQuaternion(float f, float f2, float f3, float f4) {
-        this.q = new float[4];
-        this.q[0] = f;
-        this.q[1] = f2;
-        this.q[2] = f3;
-        this.q[3] = f4;
+    public MDQuaternion(float f2, float f3, float f4, float f5) {
+        this.q = r0;
+        float[] fArr = {f2, f3, f4, f5};
     }
 
     public static float calcAngle(float[] fArr, float[] fArr2) {
@@ -26,32 +23,35 @@ public class MDQuaternion {
         return normal(cross(normal(fArr), normal(fArr2)));
     }
 
-    private static float[] cross(float[] fArr, float[] fArr2) {
+    public static float[] cross(float[] fArr, float[] fArr2) {
         return new float[]{(fArr[1] * fArr2[2]) - (fArr2[1] * fArr[2]), (fArr[2] * fArr2[0]) - (fArr2[2] * fArr[0]), (fArr[0] * fArr2[1]) - (fArr2[0] * fArr[1])};
     }
 
-    private static float dot(float[] fArr, float[] fArr2) {
+    public static float dot(float[] fArr, float[] fArr2) {
         return (fArr[0] * fArr2[0]) + (fArr[1] * fArr2[1]) + (fArr[2] * fArr2[2]);
     }
 
-    private static float[] normal(float[] fArr) {
+    public static float[] normal(float[] fArr) {
         float sqrt = (float) Math.sqrt(dot(fArr, fArr));
         return new float[]{fArr[0] / sqrt, fArr[1] / sqrt, fArr[2] / sqrt};
     }
 
-    private void set(float f, float f2, float f3, float f4) {
-        this.q[0] = f;
-        this.q[1] = f2;
-        this.q[2] = f3;
-        this.q[3] = f4;
+    private void set(float f2, float f3, float f4, float f5) {
+        float[] fArr = this.q;
+        fArr[0] = f2;
+        fArr[1] = f3;
+        fArr[2] = f4;
+        fArr[3] = f5;
     }
 
-    private void set(float f, float[] fArr) {
-        this.q[0] = (float) Math.cos(f / 2.0f);
-        float sin = (float) Math.sin(f / 2.0f);
-        this.q[1] = fArr[0] * sin;
-        this.q[2] = fArr[1] * sin;
-        this.q[3] = sin * fArr[2];
+    private void set(float f2, float[] fArr) {
+        double d2 = f2 / 2.0f;
+        this.q[0] = (float) Math.cos(d2);
+        float sin = (float) Math.sin(d2);
+        float[] fArr2 = this.q;
+        fArr2[1] = fArr[0] * sin;
+        fArr2[2] = fArr[1] * sin;
+        fArr2[3] = fArr[2] * sin;
     }
 
     private void set(float[] fArr, float[] fArr2) {
@@ -60,64 +60,98 @@ public class MDQuaternion {
         set((float) Math.acos(dot(normal, normal2)), normal(cross(normal, normal2)));
     }
 
-    private void setFromAxes(boolean z, float f, float f2, float f3, float f4, float f5, float f6, float f7, float f8, float f9) {
-        float f10;
+    private void setFromAxes(boolean z, float f2, float f3, float f4, float f5, float f6, float f7, float f8, float f9, float f10) {
         float f11;
         float f12;
         float f13;
+        float f14;
+        float f15;
+        float f16;
         if (z) {
-            float len = 1.0f / MDVector3D.len(f, f2, f3);
-            float len2 = 1.0f / MDVector3D.len(f4, f5, f6);
-            float len3 = 1.0f / MDVector3D.len(f7, f8, f9);
-            f *= len;
+            float len = 1.0f / MDVector3D.len(f2, f3, f4);
+            float len2 = 1.0f / MDVector3D.len(f5, f6, f7);
+            float len3 = 1.0f / MDVector3D.len(f8, f9, f10);
             f2 *= len;
             f3 *= len;
-            f4 *= len2;
+            f4 *= len;
             f5 *= len2;
             f6 *= len2;
-            f7 *= len3;
+            f7 *= len2;
             f8 *= len3;
             f9 *= len3;
+            f10 *= len3;
         }
-        float f14 = f + f5 + f9;
-        if (f14 >= 0.0f) {
-            float sqrt = (float) Math.sqrt(f14 + 1.0f);
-            f13 = 0.5f * sqrt;
-            float f15 = 0.5f / sqrt;
-            f11 = (f8 - f6) * f15;
-            f12 = (f3 - f7) * f15;
-            f10 = f15 * (f4 - f2);
-        } else if (f > f5 && f > f9) {
-            float sqrt2 = (float) Math.sqrt(((1.0d + f) - f5) - f9);
-            f11 = sqrt2 * 0.5f;
-            float f16 = 0.5f / sqrt2;
-            f12 = (f4 + f2) * f16;
-            f10 = (f3 + f7) * f16;
-            f13 = f16 * (f8 - f6);
-        } else if (f5 > f9) {
-            float sqrt3 = (float) Math.sqrt(((1.0d + f5) - f) - f9);
-            f12 = 0.5f * sqrt3;
-            float f17 = 0.5f / sqrt3;
-            f11 = (f4 + f2) * f17;
-            f10 = (f8 + f6) * f17;
-            f13 = f17 * (f3 - f7);
+        if (f2 + f6 + f10 >= 0.0f) {
+            float sqrt = (float) Math.sqrt(f11 + 1.0f);
+            f16 = sqrt * 0.5f;
+            float f17 = 0.5f / sqrt;
+            f14 = (f9 - f7) * f17;
+            f12 = (f4 - f8) * f17;
+            f15 = (f5 - f3) * f17;
         } else {
-            float sqrt4 = (float) Math.sqrt(((1.0d + f9) - f) - f5);
-            f10 = 0.5f * sqrt4;
-            float f18 = 0.5f / sqrt4;
-            f11 = (f3 + f7) * f18;
-            f12 = (f8 + f6) * f18;
-            f13 = f18 * (f4 - f2);
+            if (f2 > f6 && f2 > f10) {
+                double d2 = f2;
+                Double.isNaN(d2);
+                double d3 = f6;
+                Double.isNaN(d3);
+                double d4 = (d2 + 1.0d) - d3;
+                double d5 = f10;
+                Double.isNaN(d5);
+                float sqrt2 = (float) Math.sqrt(d4 - d5);
+                float f18 = sqrt2 * 0.5f;
+                float f19 = 0.5f / sqrt2;
+                float f20 = (f5 + f3) * f19;
+                f15 = (f4 + f8) * f19;
+                f13 = (f9 - f7) * f19;
+                f12 = f20;
+                f14 = f18;
+            } else if (f6 > f10) {
+                double d6 = f6;
+                Double.isNaN(d6);
+                double d7 = f2;
+                Double.isNaN(d7);
+                double d8 = (d6 + 1.0d) - d7;
+                double d9 = f10;
+                Double.isNaN(d9);
+                float sqrt3 = (float) Math.sqrt(d8 - d9);
+                float f21 = sqrt3 * 0.5f;
+                float f22 = 0.5f / sqrt3;
+                float f23 = (f5 + f3) * f22;
+                f15 = (f9 + f7) * f22;
+                f13 = (f4 - f8) * f22;
+                f14 = f23;
+                f12 = f21;
+            } else {
+                double d10 = f10;
+                Double.isNaN(d10);
+                double d11 = f2;
+                Double.isNaN(d11);
+                double d12 = (d10 + 1.0d) - d11;
+                double d13 = f6;
+                Double.isNaN(d13);
+                float sqrt4 = (float) Math.sqrt(d12 - d13);
+                float f24 = sqrt4 * 0.5f;
+                float f25 = 0.5f / sqrt4;
+                float f26 = (f4 + f8) * f25;
+                f12 = (f9 + f7) * f25;
+                f13 = (f5 - f3) * f25;
+                f14 = f26;
+                f15 = f24;
+            }
+            f16 = f13;
         }
-        set(f13, f11, f12, f10);
+        set(f16, f14, f12, f15);
     }
 
     public void clone(MDQuaternion mDQuaternion) {
-        System.arraycopy(mDQuaternion.q, 0, this.q, 0, this.q.length);
+        float[] fArr = mDQuaternion.q;
+        float[] fArr2 = this.q;
+        System.arraycopy(fArr, 0, fArr2, 0, fArr2.length);
     }
 
     public MDQuaternion conjugate() {
-        return new MDQuaternion(this.q[0], -this.q[1], -this.q[2], -this.q[3]);
+        float[] fArr = this.q;
+        return new MDQuaternion(fArr[0], -fArr[1], -fArr[2], -fArr[3]);
     }
 
     public MDQuaternion divides(MDQuaternion mDQuaternion) {
@@ -129,11 +163,13 @@ public class MDQuaternion {
     }
 
     public int getGimbalPole() {
-        float f = (this.q[0] * this.q[3]) + (this.q[1] * this.q[2]);
-        if (f > 0.499f) {
+        float[] fArr = this.q;
+        float f2 = fArr[0];
+        float f3 = (fArr[2] * fArr[1]) + (fArr[3] * f2);
+        if (f3 > 0.499f) {
             return 1;
         }
-        return f < -0.499f ? -1 : 0;
+        return f3 < -0.499f ? -1 : 0;
     }
 
     public float getPitch() {
@@ -141,12 +177,13 @@ public class MDQuaternion {
     }
 
     public float getPitchRad() {
-        float f = this.q[0];
-        float f2 = this.q[1];
-        float f3 = this.q[2];
-        float f4 = this.q[3];
+        float[] fArr = this.q;
+        float f2 = fArr[0];
+        float f3 = fArr[1];
+        float f4 = fArr[2];
+        float f5 = fArr[3];
         int gimbalPole = getGimbalPole();
-        return gimbalPole == 0 ? (float) Math.asin(a.a(((f * f2) - (f4 * f3)) * 2.0f, -1.0f, 1.0f)) : gimbalPole * 3.1415927f * 0.5f;
+        return gimbalPole == 0 ? (float) Math.asin(a.b(((f2 * f3) - (f5 * f4)) * 2.0f, -1.0f, 1.0f)) : gimbalPole * 3.1415927f * 0.5f;
     }
 
     public float getRoll() {
@@ -154,15 +191,13 @@ public class MDQuaternion {
     }
 
     public float getRollRad() {
-        float f = this.q[0];
-        float f2 = this.q[1];
-        float f3 = this.q[2];
-        float f4 = this.q[3];
+        float[] fArr = this.q;
+        float f2 = fArr[0];
+        float f3 = fArr[1];
+        float f4 = fArr[2];
+        float f5 = fArr[3];
         int gimbalPole = getGimbalPole();
-        if (gimbalPole == 0) {
-            return a.a(((f * f4) + (f3 * f2)) * 2.0f, 1.0f - (((f2 * f2) + (f4 * f4)) * 2.0f));
-        }
-        return a.a(f3, f) * gimbalPole * 2.0f;
+        return gimbalPole == 0 ? a.a(((f2 * f5) + (f4 * f3)) * 2.0f, 1.0f - (((f3 * f3) + (f5 * f5)) * 2.0f)) : gimbalPole * 2.0f * a.a(f4, f2);
     }
 
     public float getYaw() {
@@ -170,12 +205,13 @@ public class MDQuaternion {
     }
 
     public float getYawRad() {
-        float f = this.q[0];
-        float f2 = this.q[1];
-        float f3 = this.q[2];
-        float f4 = this.q[3];
+        float[] fArr = this.q;
+        float f2 = fArr[0];
+        float f3 = fArr[1];
+        float f4 = fArr[2];
+        float f5 = fArr[3];
         if (getGimbalPole() == 0) {
-            return a.a(((f * f3) + (f4 * f2)) * 2.0f, 1.0f - (((f2 * f2) + (f3 * f3)) * 2.0f));
+            return a.a(((f2 * f4) + (f5 * f3)) * 2.0f, 1.0f - (((f4 * f4) + (f3 * f3)) * 2.0f));
         }
         return 0.0f;
     }
@@ -185,102 +221,113 @@ public class MDQuaternion {
     }
 
     public MDQuaternion inverse() {
-        float f = (this.q[0] * this.q[0]) + (this.q[1] * this.q[1]) + (this.q[2] * this.q[2]) + (this.q[3] * this.q[3]);
-        return new MDQuaternion(this.q[0] / f, (-this.q[1]) / f, (-this.q[2]) / f, (-this.q[3]) / f);
+        float[] fArr = this.q;
+        float f2 = (fArr[0] * fArr[0]) + (fArr[1] * fArr[1]) + (fArr[2] * fArr[2]) + (fArr[3] * fArr[3]);
+        return new MDQuaternion(fArr[0] / f2, (-fArr[1]) / f2, (-fArr[2]) / f2, (-fArr[3]) / f2);
     }
 
     public void nor() {
-        float f = this.q[0];
-        float f2 = this.q[1];
-        float f3 = this.q[2];
-        float f4 = this.q[3];
-        float f5 = (f2 * f2) + (f3 * f3) + (f4 * f4) + (f * f);
-        if (f5 != 0.0f && !a.b(f5, 1.0f)) {
-            float sqrt = (float) Math.sqrt(f5);
-            f /= sqrt;
+        float[] fArr = this.q;
+        float f2 = fArr[0];
+        float f3 = fArr[1];
+        float f4 = fArr[2];
+        float f5 = fArr[3];
+        float f6 = (f3 * f3) + (f4 * f4) + (f5 * f5) + (f2 * f2);
+        if (f6 != 0.0f && !a.c(f6, 1.0f)) {
+            float sqrt = (float) Math.sqrt(f6);
             f2 /= sqrt;
             f3 /= sqrt;
             f4 /= sqrt;
+            f5 /= sqrt;
         }
-        set(f, f2, f3, f4);
+        set(f2, f3, f4, f5);
     }
 
     public MDQuaternion plus(MDQuaternion mDQuaternion) {
-        return new MDQuaternion(this.q[0] + mDQuaternion.q[0], this.q[1] + mDQuaternion.q[1], this.q[2] + mDQuaternion.q[2], this.q[3] + mDQuaternion.q[3]);
+        float[] fArr = this.q;
+        float f2 = fArr[0];
+        float[] fArr2 = mDQuaternion.q;
+        return new MDQuaternion(f2 + fArr2[0], fArr[1] + fArr2[1], fArr[2] + fArr2[2], fArr[3] + fArr2[3]);
     }
 
     public float[] rotateVec(float[] fArr) {
-        float f = fArr[0];
-        float f2 = fArr[1];
-        float f3 = fArr[2];
-        float f4 = (this.q[1] * f) + (this.q[2] * f2) + (this.q[3] * f3);
-        return new float[]{(((this.q[0] * ((this.q[0] * f) - ((this.q[2] * f3) - (this.q[3] * f2)))) + (this.q[1] * f4)) * 2.0f) - f, (((this.q[0] * ((this.q[0] * f2) - ((this.q[3] * f) - (this.q[1] * f3)))) + (this.q[2] * f4)) * 2.0f) - f2, (((((this.q[0] * f3) - ((f2 * this.q[1]) - (f * this.q[2]))) * this.q[0]) + (this.q[3] * f4)) * 2.0f) - f3};
+        float f2 = fArr[0];
+        float f3 = fArr[1];
+        float f4 = fArr[2];
+        float[] fArr2 = this.q;
+        float f5 = (fArr2[1] * f2) + (fArr2[2] * f3) + (fArr2[3] * f4);
+        return new float[]{(((fArr2[0] * ((fArr2[0] * f2) - ((fArr2[2] * f4) - (fArr2[3] * f3)))) + (fArr2[1] * f5)) * 2.0f) - f2, (((fArr2[0] * ((fArr2[0] * f3) - ((fArr2[3] * f2) - (fArr2[1] * f4)))) + (fArr2[2] * f5)) * 2.0f) - f3, (((fArr2[0] * ((fArr2[0] * f4) - ((fArr2[1] * f3) - (fArr2[2] * f2)))) + (f5 * fArr2[3])) * 2.0f) - f4};
     }
 
-    public void setEulerAngles(float f, float f2, float f3) {
-        setEulerAnglesRad(f * 0.017453292f, f2 * 0.017453292f, 0.017453292f * f3);
+    public void setEulerAngles(float f2, float f3, float f4) {
+        setEulerAnglesRad(f2 * 0.017453292f, f3 * 0.017453292f, f4 * 0.017453292f);
     }
 
-    public void setEulerAnglesRad(float f, float f2, float f3) {
-        float f4 = f3 * 0.5f;
-        float sin = (float) Math.sin(f4);
-        float cos = (float) Math.cos(f4);
-        float f5 = f * 0.5f;
-        float sin2 = (float) Math.sin(f5);
-        float cos2 = (float) Math.cos(f5);
-        float f6 = f2 * 0.5f;
-        float sin3 = (float) Math.sin(f6);
-        float cos3 = (float) Math.cos(f6);
-        float f7 = cos3 * sin2;
-        float f8 = sin3 * cos2;
-        float f9 = cos2 * cos3;
-        float f10 = sin2 * sin3;
-        this.q[1] = (f7 * cos) + (f8 * sin);
-        this.q[2] = (f8 * cos) - (f7 * sin);
-        this.q[3] = (f9 * sin) - (f10 * cos);
-        this.q[0] = (cos * f9) + (sin * f10);
+    public void setEulerAnglesRad(float f2, float f3, float f4) {
+        double d2 = f4 * 0.5f;
+        float sin = (float) Math.sin(d2);
+        float cos = (float) Math.cos(d2);
+        double d3 = f2 * 0.5f;
+        float sin2 = (float) Math.sin(d3);
+        float cos2 = (float) Math.cos(d3);
+        double d4 = f3 * 0.5f;
+        float sin3 = (float) Math.sin(d4);
+        float cos3 = (float) Math.cos(d4);
+        float f5 = cos3 * sin2;
+        float f6 = sin3 * cos2;
+        float f7 = cos3 * cos2;
+        float f8 = sin3 * sin2;
+        float[] fArr = this.q;
+        fArr[1] = (f5 * cos) + (f6 * sin);
+        fArr[2] = (f6 * cos) - (f5 * sin);
+        fArr[3] = (f7 * sin) - (f8 * cos);
+        fArr[0] = (f7 * cos) + (f8 * sin);
     }
 
-    public void setFromAxis(float f, float f2, float f3, float f4) {
-        setFromAxisRad(f, f2, f3, 0.017453292f * f4);
+    public void setFromAxis(float f2, float f3, float f4, float f5) {
+        setFromAxisRad(f2, f3, f4, f5 * 0.017453292f);
     }
 
-    public void setFromAxisRad(float f, float f2, float f3, float f4) {
-        float len = MDVector3D.len(f, f2, f3);
+    public void setFromAxisRad(float f2, float f3, float f4, float f5) {
+        float len = MDVector3D.len(f2, f3, f4);
         if (len == 0.0f) {
             idt();
             return;
         }
-        float f5 = 1.0f / len;
-        float f6 = f4 < 0.0f ? 6.2831855f - ((-f4) % 6.2831855f) : f4 % 6.2831855f;
-        float sin = (float) Math.sin(f6 / 2.0f);
-        set((float) Math.cos(f6 / 2.0f), f5 * f * sin, f5 * f2 * sin, f5 * f3 * sin);
+        float f6 = 1.0f / len;
+        double d2 = (f5 < 0.0f ? 6.2831855f - ((-f5) % 6.2831855f) : f5 % 6.2831855f) / 2.0f;
+        float sin = (float) Math.sin(d2);
+        set((float) Math.cos(d2), f2 * f6 * sin, f3 * f6 * sin, f6 * f4 * sin);
         nor();
     }
 
     public MDQuaternion times(MDQuaternion mDQuaternion) {
-        return new MDQuaternion((((this.q[0] * mDQuaternion.q[0]) - (this.q[1] * mDQuaternion.q[1])) - (this.q[2] * mDQuaternion.q[2])) - (this.q[3] * mDQuaternion.q[3]), (((this.q[0] * mDQuaternion.q[1]) + (this.q[1] * mDQuaternion.q[0])) + (this.q[2] * mDQuaternion.q[3])) - (this.q[3] * mDQuaternion.q[2]), ((this.q[0] * mDQuaternion.q[2]) - (this.q[1] * mDQuaternion.q[3])) + (this.q[2] * mDQuaternion.q[0]) + (this.q[3] * mDQuaternion.q[1]), (((this.q[0] * mDQuaternion.q[3]) + (this.q[1] * mDQuaternion.q[2])) - (this.q[2] * mDQuaternion.q[1])) + (this.q[3] * mDQuaternion.q[0]));
+        float[] fArr = this.q;
+        float f2 = fArr[0];
+        float[] fArr2 = mDQuaternion.q;
+        return new MDQuaternion((((f2 * fArr2[0]) - (fArr[1] * fArr2[1])) - (fArr[2] * fArr2[2])) - (fArr[3] * fArr2[3]), (((fArr[0] * fArr2[1]) + (fArr[1] * fArr2[0])) + (fArr[2] * fArr2[3])) - (fArr[3] * fArr2[2]), ((fArr[0] * fArr2[2]) - (fArr[1] * fArr2[3])) + (fArr[2] * fArr2[0]) + (fArr[3] * fArr2[1]), (((fArr[0] * fArr2[3]) + (fArr[1] * fArr2[2])) - (fArr[2] * fArr2[1])) + (fArr[3] * fArr2[0]));
     }
 
     public void toMatrix(float[] fArr) {
-        float f = this.q[1] * this.q[1];
-        float f2 = this.q[1] * this.q[2];
-        float f3 = this.q[1] * this.q[3];
-        float f4 = this.q[1] * this.q[0];
-        float f5 = this.q[2] * this.q[2];
-        float f6 = this.q[2] * this.q[3];
-        float f7 = this.q[2] * this.q[0];
-        float f8 = this.q[3] * this.q[3];
-        float f9 = this.q[3] * this.q[0];
-        fArr[0] = 1.0f - (2.0f * (f5 + f8));
-        fArr[1] = 2.0f * (f2 - f9);
-        fArr[2] = 2.0f * (f3 + f7);
-        fArr[4] = (f2 + f9) * 2.0f;
-        fArr[5] = 1.0f - ((f8 + f) * 2.0f);
-        fArr[6] = 2.0f * (f6 - f4);
-        fArr[8] = (f3 - f7) * 2.0f;
-        fArr[9] = 2.0f * (f4 + f6);
-        fArr[10] = 1.0f - ((f + f5) * 2.0f);
+        float[] fArr2 = this.q;
+        float f2 = fArr2[1] * fArr2[1];
+        float f3 = fArr2[1] * fArr2[2];
+        float f4 = fArr2[1] * fArr2[3];
+        float f5 = fArr2[1] * fArr2[0];
+        float f6 = fArr2[2] * fArr2[2];
+        float f7 = fArr2[2] * fArr2[3];
+        float f8 = fArr2[2] * fArr2[0];
+        float f9 = fArr2[3] * fArr2[3];
+        float f10 = fArr2[3] * fArr2[0];
+        fArr[0] = 1.0f - ((f6 + f9) * 2.0f);
+        fArr[1] = (f3 - f10) * 2.0f;
+        fArr[2] = (f4 + f8) * 2.0f;
+        fArr[4] = (f3 + f10) * 2.0f;
+        fArr[5] = 1.0f - ((f9 + f2) * 2.0f);
+        fArr[6] = (f7 - f5) * 2.0f;
+        fArr[8] = (f4 - f8) * 2.0f;
+        fArr[9] = (f7 + f5) * 2.0f;
+        fArr[10] = 1.0f - ((f2 + f6) * 2.0f);
         fArr[14] = 0.0f;
         fArr[13] = 0.0f;
         fArr[12] = 0.0f;

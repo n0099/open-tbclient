@@ -48,22 +48,25 @@ import java.util.Map;
 import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class DefaultMp4Builder implements Mp4Builder {
-    static final /* synthetic */ boolean $assertionsDisabled;
-    private static Logger LOG;
-    private FragmentIntersectionFinder intersectionFinder;
-    Set<StaticChunkOffsetBox> chunkOffsetBoxes = new HashSet();
-    HashMap<Track, List<Sample>> track2Sample = new HashMap<>();
-    HashMap<Track, long[]> track2SampleSizes = new HashMap<>();
+    public static final /* synthetic */ boolean $assertionsDisabled = false;
+    public static Logger LOG = Logger.getLogger(DefaultMp4Builder.class.getName());
+    public FragmentIntersectionFinder intersectionFinder;
+    public Set<StaticChunkOffsetBox> chunkOffsetBoxes = new HashSet();
+    public HashMap<Track, List<Sample>> track2Sample = new HashMap<>();
+    public HashMap<Track, long[]> track2SampleSizes = new HashMap<>();
 
-    static {
-        $assertionsDisabled = !DefaultMp4Builder.class.desiredAssertionStatus();
-        LOG = Logger.getLogger(DefaultMp4Builder.class.getName());
+    public static long gcd(long j, long j2) {
+        return j2 == 0 ? j : gcd(j2, j % j2);
     }
 
-    public void setIntersectionFinder(FragmentIntersectionFinder fragmentIntersectionFinder) {
-        this.intersectionFinder = fragmentIntersectionFinder;
+    public static long sum(int[] iArr) {
+        long j = 0;
+        for (int i : iArr) {
+            j += i;
+        }
+        return j;
     }
 
     @Override // com.googlecode.mp4parser.authoring.builder.Mp4Builder
@@ -72,45 +75,57 @@ public class DefaultMp4Builder implements Mp4Builder {
             this.intersectionFinder = new TwoSecondIntersectionFinder(movie, 2);
         }
         LOG.fine("Creating movie " + movie);
-        for (Track track : movie.getTracks()) {
-            List<Sample> samples = track.getSamples();
-            putSamples(track, samples);
-            long[] jArr = new long[samples.size()];
-            for (int i = 0; i < jArr.length; i++) {
+        Iterator<Track> it = movie.getTracks().iterator();
+        while (true) {
+            if (!it.hasNext()) {
+                break;
+            }
+            Track next = it.next();
+            List<Sample> samples = next.getSamples();
+            putSamples(next, samples);
+            int size = samples.size();
+            long[] jArr = new long[size];
+            for (int i = 0; i < size; i++) {
                 jArr[i] = samples.get(i).getSize();
             }
-            this.track2SampleSizes.put(track, jArr);
+            this.track2SampleSizes.put(next, jArr);
         }
         BasicContainer basicContainer = new BasicContainer();
         basicContainer.addBox(createFileTypeBox(movie));
         HashMap hashMap = new HashMap();
-        for (Track track2 : movie.getTracks()) {
-            hashMap.put(track2, getChunkSizes(track2, movie));
+        for (Track track : movie.getTracks()) {
+            hashMap.put(track, getChunkSizes(track, movie));
         }
         MovieBox createMovieBox = createMovieBox(movie, hashMap);
         basicContainer.addBox(createMovieBox);
+        Iterator<Box> it2 = Path.getPaths((Box) createMovieBox, "trak/mdia/minf/stbl/stsz").iterator();
         long j = 0;
-        Iterator<Box> it = Path.getPaths((Box) createMovieBox, "trak/mdia/minf/stbl/stsz").iterator();
-        while (it.hasNext()) {
-            j += sum(((SampleSizeBox) it.next()).getSampleSizes());
+        while (it2.hasNext()) {
+            j += sum(((SampleSizeBox) it2.next()).getSampleSizes());
         }
         a aVar = new a(this, movie, hashMap, j, null);
         basicContainer.addBox(aVar);
-        long eCs = aVar.eCs();
+        long a2 = aVar.a();
         for (StaticChunkOffsetBox staticChunkOffsetBox : this.chunkOffsetBoxes) {
             long[] chunkOffsets = staticChunkOffsetBox.getChunkOffsets();
             for (int i2 = 0; i2 < chunkOffsets.length; i2++) {
-                chunkOffsets[i2] = chunkOffsets[i2] + eCs;
+                chunkOffsets[i2] = chunkOffsets[i2] + a2;
             }
         }
         return basicContainer;
     }
 
-    protected List<Sample> putSamples(Track track, List<Sample> list) {
-        return this.track2Sample.put(track, list);
+    public void createCtts(Track track, SampleTableBox sampleTableBox) {
+        List<CompositionTimeToSample.Entry> compositionTimeEntries = track.getCompositionTimeEntries();
+        if (compositionTimeEntries == null || compositionTimeEntries.isEmpty()) {
+            return;
+        }
+        CompositionTimeToSample compositionTimeToSample = new CompositionTimeToSample();
+        compositionTimeToSample.setEntries(compositionTimeEntries);
+        sampleTableBox.addBox(compositionTimeToSample);
     }
 
-    protected FileTypeBox createFileTypeBox(Movie movie) {
+    public FileTypeBox createFileTypeBox(Movie movie) {
         LinkedList linkedList = new LinkedList();
         linkedList.add("isom");
         linkedList.add("iso2");
@@ -118,14 +133,14 @@ public class DefaultMp4Builder implements Mp4Builder {
         return new FileTypeBox("isom", 0L, linkedList);
     }
 
-    protected MovieBox createMovieBox(Movie movie, Map<Track, int[]> map) {
-        long j;
+    public MovieBox createMovieBox(Movie movie, Map<Track, int[]> map) {
         MovieBox movieBox = new MovieBox();
         MovieHeaderBox movieHeaderBox = new MovieHeaderBox();
         movieHeaderBox.setCreationTime(new Date());
         movieHeaderBox.setModificationTime(new Date());
         movieHeaderBox.setMatrix(movie.getMatrix());
         long timescale = getTimescale(movie);
+        long j = 0;
         long j2 = 0;
         for (Track track : movie.getTracks()) {
             long duration = (track.getDuration() * timescale) / track.getTrackMetaData().getTimescale();
@@ -135,20 +150,15 @@ public class DefaultMp4Builder implements Mp4Builder {
         }
         movieHeaderBox.setDuration(j2);
         movieHeaderBox.setTimescale(timescale);
-        long j3 = 0;
-        Iterator<Track> it = movie.getTracks().iterator();
-        while (true) {
-            j = j3;
-            if (!it.hasNext()) {
-                break;
-            }
-            Track next = it.next();
-            j3 = j < next.getTrackMetaData().getTrackId() ? next.getTrackMetaData().getTrackId() : j;
-        }
-        movieHeaderBox.setNextTrackId(1 + j);
-        movieBox.addBox(movieHeaderBox);
         for (Track track2 : movie.getTracks()) {
-            movieBox.addBox(createTrackBox(track2, movie, map));
+            if (j < track2.getTrackMetaData().getTrackId()) {
+                j = track2.getTrackMetaData().getTrackId();
+            }
+        }
+        movieHeaderBox.setNextTrackId(j + 1);
+        movieBox.addBox(movieHeaderBox);
+        for (Track track3 : movie.getTracks()) {
+            movieBox.addBox(createTrackBox(track3, movie, map));
         }
         Box createUdta = createUdta(movie);
         if (createUdta != null) {
@@ -157,11 +167,149 @@ public class DefaultMp4Builder implements Mp4Builder {
         return movieBox;
     }
 
-    protected Box createUdta(Movie movie) {
-        return null;
+    public void createSdtp(Track track, SampleTableBox sampleTableBox) {
+        if (track.getSampleDependencies() == null || track.getSampleDependencies().isEmpty()) {
+            return;
+        }
+        SampleDependencyTypeBox sampleDependencyTypeBox = new SampleDependencyTypeBox();
+        sampleDependencyTypeBox.setEntries(track.getSampleDependencies());
+        sampleTableBox.addBox(sampleDependencyTypeBox);
     }
 
-    protected TrackBox createTrackBox(Track track, Movie movie, Map<Track, int[]> map) {
+    public Box createStbl(Track track, Movie movie, Map<Track, int[]> map) {
+        SampleTableBox sampleTableBox = new SampleTableBox();
+        createStsd(track, sampleTableBox);
+        createStts(track, sampleTableBox);
+        createCtts(track, sampleTableBox);
+        createStss(track, sampleTableBox);
+        createSdtp(track, sampleTableBox);
+        createStsc(track, map, sampleTableBox);
+        createStsz(track, sampleTableBox);
+        createStco(track, movie, map, sampleTableBox);
+        return sampleTableBox;
+    }
+
+    public void createStco(Track track, Movie movie, Map<Track, int[]> map, SampleTableBox sampleTableBox) {
+        String str;
+        int[] iArr;
+        StaticChunkOffsetBox staticChunkOffsetBox;
+        Track track2 = track;
+        Map<Track, int[]> map2 = map;
+        int[] iArr2 = map2.get(track2);
+        StaticChunkOffsetBox staticChunkOffsetBox2 = new StaticChunkOffsetBox();
+        this.chunkOffsetBoxes.add(staticChunkOffsetBox2);
+        long[] jArr = new long[iArr2.length];
+        String str2 = "Calculating chunk offsets for track_";
+        if (LOG.isLoggable(Level.FINE)) {
+            Logger logger = LOG;
+            logger.fine("Calculating chunk offsets for track_" + track.getTrackMetaData().getTrackId());
+        }
+        int i = 0;
+        long j = 0;
+        while (i < iArr2.length) {
+            if (LOG.isLoggable(Level.FINER)) {
+                Logger logger2 = LOG;
+                StringBuilder sb = new StringBuilder(str2);
+                str = str2;
+                sb.append(track.getTrackMetaData().getTrackId());
+                sb.append(" chunk ");
+                sb.append(i);
+                logger2.finer(sb.toString());
+            } else {
+                str = str2;
+            }
+            for (Track track3 : movie.getTracks()) {
+                if (LOG.isLoggable(Level.FINEST)) {
+                    Logger logger3 = LOG;
+                    logger3.finest("Adding offsets of track_" + track3.getTrackMetaData().getTrackId());
+                }
+                int[] iArr3 = map2.get(track3);
+                int i2 = 0;
+                long j2 = 0;
+                while (i2 < i) {
+                    j2 += iArr3[i2];
+                    i2++;
+                    track2 = track;
+                }
+                if (track3 == track2) {
+                    jArr[i] = j;
+                }
+                int l2i = CastUtils.l2i(j2);
+                while (true) {
+                    iArr = iArr2;
+                    staticChunkOffsetBox = staticChunkOffsetBox2;
+                    if (l2i >= iArr3[i] + j2) {
+                        break;
+                    }
+                    j += this.track2SampleSizes.get(track3)[l2i];
+                    l2i++;
+                    iArr2 = iArr;
+                    staticChunkOffsetBox2 = staticChunkOffsetBox;
+                }
+                track2 = track;
+                map2 = map;
+                iArr2 = iArr;
+                staticChunkOffsetBox2 = staticChunkOffsetBox;
+            }
+            i++;
+            str2 = str;
+        }
+        staticChunkOffsetBox2.setChunkOffsets(jArr);
+        sampleTableBox.addBox(staticChunkOffsetBox2);
+    }
+
+    public void createStsc(Track track, Map<Track, int[]> map, SampleTableBox sampleTableBox) {
+        int[] iArr = map.get(track);
+        SampleToChunkBox sampleToChunkBox = new SampleToChunkBox();
+        sampleToChunkBox.setEntries(new LinkedList());
+        long j = -2147483648L;
+        for (int i = 0; i < iArr.length; i++) {
+            if (j != iArr[i]) {
+                sampleToChunkBox.getEntries().add(new SampleToChunkBox.Entry(i + 1, iArr[i], 1L));
+                j = iArr[i];
+            }
+        }
+        sampleTableBox.addBox(sampleToChunkBox);
+    }
+
+    public void createStsd(Track track, SampleTableBox sampleTableBox) {
+        sampleTableBox.addBox(track.getSampleDescriptionBox());
+    }
+
+    public void createStss(Track track, SampleTableBox sampleTableBox) {
+        long[] syncSamples = track.getSyncSamples();
+        if (syncSamples == null || syncSamples.length <= 0) {
+            return;
+        }
+        SyncSampleBox syncSampleBox = new SyncSampleBox();
+        syncSampleBox.setSampleNumber(syncSamples);
+        sampleTableBox.addBox(syncSampleBox);
+    }
+
+    public void createStsz(Track track, SampleTableBox sampleTableBox) {
+        SampleSizeBox sampleSizeBox = new SampleSizeBox();
+        sampleSizeBox.setSampleSizes(this.track2SampleSizes.get(track));
+        sampleTableBox.addBox(sampleSizeBox);
+    }
+
+    public void createStts(Track track, SampleTableBox sampleTableBox) {
+        long[] sampleDurations;
+        ArrayList arrayList = new ArrayList();
+        TimeToSampleBox.Entry entry = null;
+        for (long j : track.getSampleDurations()) {
+            if (entry != null && entry.getDelta() == j) {
+                entry.setCount(entry.getCount() + 1);
+            } else {
+                entry = new TimeToSampleBox.Entry(1L, j);
+                arrayList.add(entry);
+            }
+        }
+        TimeToSampleBox timeToSampleBox = new TimeToSampleBox();
+        timeToSampleBox.setEntries(arrayList);
+        sampleTableBox.addBox(timeToSampleBox);
+    }
+
+    public TrackBox createTrackBox(Track track, Movie movie, Map<Track, int[]> map) {
         TrackBox trackBox = new TrackBox();
         TrackHeaderBox trackHeaderBox = new TrackHeaderBox();
         trackHeaderBox.setEnabled(true);
@@ -204,147 +352,125 @@ public class DefaultMp4Builder implements Mp4Builder {
         return trackBox;
     }
 
-    protected Box createStbl(Track track, Movie movie, Map<Track, int[]> map) {
-        SampleTableBox sampleTableBox = new SampleTableBox();
-        createStsd(track, sampleTableBox);
-        createStts(track, sampleTableBox);
-        createCtts(track, sampleTableBox);
-        createStss(track, sampleTableBox);
-        createSdtp(track, sampleTableBox);
-        createStsc(track, map, sampleTableBox);
-        createStsz(track, sampleTableBox);
-        createStco(track, movie, map, sampleTableBox);
-        return sampleTableBox;
+    public Box createUdta(Movie movie) {
+        return null;
     }
 
-    protected void createStsd(Track track, SampleTableBox sampleTableBox) {
-        sampleTableBox.addBox(track.getSampleDescriptionBox());
+    public int[] getChunkSizes(Track track, Movie movie) {
+        long j;
+        long[] sampleNumbers = this.intersectionFinder.sampleNumbers(track);
+        int[] iArr = new int[sampleNumbers.length];
+        int i = 0;
+        while (i < sampleNumbers.length) {
+            long j2 = sampleNumbers[i] - 1;
+            int i2 = i + 1;
+            if (sampleNumbers.length == i2) {
+                j = track.getSamples().size();
+            } else {
+                j = sampleNumbers[i2] - 1;
+            }
+            iArr[i] = CastUtils.l2i(j - j2);
+            i = i2;
+        }
+        return iArr;
     }
 
-    protected void createStco(Track track, Movie movie, Map<Track, int[]> map, SampleTableBox sampleTableBox) {
-        int[] iArr = map.get(track);
-        StaticChunkOffsetBox staticChunkOffsetBox = new StaticChunkOffsetBox();
-        this.chunkOffsetBoxes.add(staticChunkOffsetBox);
+    public long getTimescale(Movie movie) {
+        long timescale = movie.getTracks().iterator().next().getTrackMetaData().getTimescale();
+        for (Track track : movie.getTracks()) {
+            timescale = gcd(track.getTrackMetaData().getTimescale(), timescale);
+        }
+        return timescale;
+    }
+
+    public List<Sample> putSamples(Track track, List<Sample> list) {
+        return this.track2Sample.put(track, list);
+    }
+
+    public void setIntersectionFinder(FragmentIntersectionFinder fragmentIntersectionFinder) {
+        this.intersectionFinder = fragmentIntersectionFinder;
+    }
+
+    public static long sum(long[] jArr) {
         long j = 0;
-        long[] jArr = new long[iArr.length];
-        if (LOG.isLoggable(Level.FINE)) {
-            LOG.fine("Calculating chunk offsets for track_" + track.getTrackMetaData().getTrackId());
+        for (long j2 : jArr) {
+            j += j2;
         }
-        int i = 0;
-        while (i < iArr.length) {
-            if (LOG.isLoggable(Level.FINER)) {
-                LOG.finer("Calculating chunk offsets for track_" + track.getTrackMetaData().getTrackId() + " chunk " + i);
-            }
-            long j2 = j;
-            for (Track track2 : movie.getTracks()) {
-                if (LOG.isLoggable(Level.FINEST)) {
-                    LOG.finest("Adding offsets of track_" + track2.getTrackMetaData().getTrackId());
-                }
-                int[] iArr2 = map.get(track2);
-                long j3 = 0;
-                for (int i2 = 0; i2 < i; i2++) {
-                    j3 += iArr2[i2];
-                }
-                if (track2 == track) {
-                    jArr[i] = j2;
-                }
-                int l2i = CastUtils.l2i(j3);
-                while (true) {
-                    int i3 = l2i;
-                    if (i3 < iArr2[i] + j3) {
-                        j2 += this.track2SampleSizes.get(track2)[i3];
-                        l2i = i3 + 1;
-                    }
-                }
-            }
-            i++;
-            j = j2;
-        }
-        staticChunkOffsetBox.setChunkOffsets(jArr);
-        sampleTableBox.addBox(staticChunkOffsetBox);
+        return j;
     }
 
-    protected void createStsz(Track track, SampleTableBox sampleTableBox) {
-        SampleSizeBox sampleSizeBox = new SampleSizeBox();
-        sampleSizeBox.setSampleSizes(this.track2SampleSizes.get(track));
-        sampleTableBox.addBox(sampleSizeBox);
-    }
-
-    protected void createStsc(Track track, Map<Track, int[]> map, SampleTableBox sampleTableBox) {
-        int[] iArr = map.get(track);
-        SampleToChunkBox sampleToChunkBox = new SampleToChunkBox();
-        sampleToChunkBox.setEntries(new LinkedList());
-        long j = -2147483648L;
-        int i = 0;
-        while (true) {
-            int i2 = i;
-            if (i2 < iArr.length) {
-                if (j != iArr[i2]) {
-                    sampleToChunkBox.getEntries().add(new SampleToChunkBox.Entry(i2 + 1, iArr[i2], 1L));
-                    j = iArr[i2];
-                }
-                i = i2 + 1;
-            } else {
-                sampleTableBox.addBox(sampleToChunkBox);
-                return;
-            }
-        }
-    }
-
-    protected void createSdtp(Track track, SampleTableBox sampleTableBox) {
-        if (track.getSampleDependencies() != null && !track.getSampleDependencies().isEmpty()) {
-            SampleDependencyTypeBox sampleDependencyTypeBox = new SampleDependencyTypeBox();
-            sampleDependencyTypeBox.setEntries(track.getSampleDependencies());
-            sampleTableBox.addBox(sampleDependencyTypeBox);
-        }
-    }
-
-    protected void createStss(Track track, SampleTableBox sampleTableBox) {
-        long[] syncSamples = track.getSyncSamples();
-        if (syncSamples != null && syncSamples.length > 0) {
-            SyncSampleBox syncSampleBox = new SyncSampleBox();
-            syncSampleBox.setSampleNumber(syncSamples);
-            sampleTableBox.addBox(syncSampleBox);
-        }
-    }
-
-    protected void createCtts(Track track, SampleTableBox sampleTableBox) {
-        List<CompositionTimeToSample.Entry> compositionTimeEntries = track.getCompositionTimeEntries();
-        if (compositionTimeEntries != null && !compositionTimeEntries.isEmpty()) {
-            CompositionTimeToSample compositionTimeToSample = new CompositionTimeToSample();
-            compositionTimeToSample.setEntries(compositionTimeEntries);
-            sampleTableBox.addBox(compositionTimeToSample);
-        }
-    }
-
-    protected void createStts(Track track, SampleTableBox sampleTableBox) {
-        long[] sampleDurations;
-        TimeToSampleBox.Entry entry = null;
-        ArrayList arrayList = new ArrayList();
-        for (long j : track.getSampleDurations()) {
-            if (entry != null && entry.getDelta() == j) {
-                entry.setCount(entry.getCount() + 1);
-            } else {
-                entry = new TimeToSampleBox.Entry(1L, j);
-                arrayList.add(entry);
-            }
-        }
-        TimeToSampleBox timeToSampleBox = new TimeToSampleBox();
-        timeToSampleBox.setEntries(arrayList);
-        sampleTableBox.addBox(timeToSampleBox);
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class a implements Box {
-        List<List<Sample>> pXU;
-        long pXV;
-        Container parent;
-        List<Track> tracks;
+
+        /* renamed from: e  reason: collision with root package name */
+        public List<Track> f31023e;
+
+        /* renamed from: f  reason: collision with root package name */
+        public List<List<Sample>> f31024f;
+
+        /* renamed from: g  reason: collision with root package name */
+        public Container f31025g;
+
+        /* renamed from: h  reason: collision with root package name */
+        public long f31026h;
+
+        public a(DefaultMp4Builder defaultMp4Builder, Movie movie, Map<Track, int[]> map, long j) {
+            this.f31024f = new ArrayList();
+            this.f31026h = j;
+            this.f31023e = movie.getTracks();
+            for (int i = 0; i < map.values().iterator().next().length; i++) {
+                for (Track track : this.f31023e) {
+                    int[] iArr = map.get(track);
+                    long j2 = 0;
+                    for (int i2 = 0; i2 < i; i2++) {
+                        j2 += iArr[i2];
+                    }
+                    this.f31024f.add(defaultMp4Builder.track2Sample.get(track).subList(CastUtils.l2i(j2), CastUtils.l2i(j2 + iArr[i])));
+                }
+            }
+        }
+
+        public long a() {
+            Box next;
+            long j = 16;
+            Container container = this;
+            while (container instanceof Box) {
+                a aVar = container;
+                Iterator<Box> it = aVar.getParent().getBoxes().iterator();
+                while (it.hasNext() && container != (next = it.next())) {
+                    j += next.getSize();
+                }
+                container = aVar.getParent();
+            }
+            return j;
+        }
+
+        public final boolean b(long j) {
+            return j + 8 < 4294967296L;
+        }
 
         @Override // com.coremedia.iso.boxes.Box
-        public Container getParent() {
-            return this.parent;
+        public void getBox(WritableByteChannel writableByteChannel) throws IOException {
+            ByteBuffer allocate = ByteBuffer.allocate(16);
+            long size = getSize();
+            if (b(size)) {
+                IsoTypeWriter.writeUInt32(allocate, size);
+            } else {
+                IsoTypeWriter.writeUInt32(allocate, 1L);
+            }
+            allocate.put(IsoFile.fourCCtoBytes(MediaDataBox.TYPE));
+            if (b(size)) {
+                allocate.put(new byte[8]);
+            } else {
+                IsoTypeWriter.writeUInt64(allocate, size);
+            }
+            allocate.rewind();
+            writableByteChannel.write(allocate);
+            for (List<Sample> list : this.f31024f) {
+                for (Sample sample : list) {
+                    sample.writeTo(writableByteChannel);
+                }
+            }
         }
 
         @Override // com.coremedia.iso.boxes.Box
@@ -353,44 +479,13 @@ public class DefaultMp4Builder implements Mp4Builder {
         }
 
         @Override // com.coremedia.iso.boxes.Box
-        public void setParent(Container container) {
-            this.parent = container;
+        public Container getParent() {
+            return this.f31025g;
         }
 
         @Override // com.coremedia.iso.boxes.Box
-        public void parse(DataSource dataSource, ByteBuffer byteBuffer, long j, BoxParser boxParser) throws IOException {
-        }
-
-        private a(Movie movie, Map<Track, int[]> map, long j) {
-            this.pXU = new ArrayList();
-            this.pXV = j;
-            this.tracks = movie.getTracks();
-            for (int i = 0; i < map.values().iterator().next().length; i++) {
-                for (Track track : this.tracks) {
-                    int[] iArr = map.get(track);
-                    long j2 = 0;
-                    for (int i2 = 0; i2 < i; i2++) {
-                        j2 += iArr[i2];
-                    }
-                    this.pXU.add(DefaultMp4Builder.this.track2Sample.get(track).subList(CastUtils.l2i(j2), CastUtils.l2i(j2 + iArr[i])));
-                }
-            }
-        }
-
-        /* synthetic */ a(DefaultMp4Builder defaultMp4Builder, Movie movie, Map map, long j, a aVar) {
-            this(movie, map, j);
-        }
-
-        public long eCs() {
-            Box next;
-            long j = 16;
-            for (Container container = this; container instanceof Box; container = container.getParent()) {
-                Iterator<Box> it = container.getParent().getBoxes().iterator();
-                while (it.hasNext() && container != (next = it.next())) {
-                    j += next.getSize();
-                }
-            }
-            return j;
+        public long getSize() {
+            return this.f31026h + 16;
         }
 
         @Override // com.coremedia.iso.boxes.Box
@@ -399,88 +494,16 @@ public class DefaultMp4Builder implements Mp4Builder {
         }
 
         @Override // com.coremedia.iso.boxes.Box
-        public long getSize() {
-            return 16 + this.pXV;
-        }
-
-        private boolean iU(long j) {
-            return 8 + j < 4294967296L;
+        public void parse(DataSource dataSource, ByteBuffer byteBuffer, long j, BoxParser boxParser) throws IOException {
         }
 
         @Override // com.coremedia.iso.boxes.Box
-        public void getBox(WritableByteChannel writableByteChannel) throws IOException {
-            ByteBuffer allocate = ByteBuffer.allocate(16);
-            long size = getSize();
-            if (iU(size)) {
-                IsoTypeWriter.writeUInt32(allocate, size);
-            } else {
-                IsoTypeWriter.writeUInt32(allocate, 1L);
-            }
-            allocate.put(IsoFile.fourCCtoBytes(MediaDataBox.TYPE));
-            if (iU(size)) {
-                allocate.put(new byte[8]);
-            } else {
-                IsoTypeWriter.writeUInt64(allocate, size);
-            }
-            allocate.rewind();
-            writableByteChannel.write(allocate);
-            for (List<Sample> list : this.pXU) {
-                for (Sample sample : list) {
-                    sample.writeTo(writableByteChannel);
-                }
-            }
+        public void setParent(Container container) {
+            this.f31025g = container;
         }
-    }
 
-    int[] getChunkSizes(Track track, Movie movie) {
-        long j;
-        long[] sampleNumbers = this.intersectionFinder.sampleNumbers(track);
-        int[] iArr = new int[sampleNumbers.length];
-        for (int i = 0; i < sampleNumbers.length; i++) {
-            long j2 = sampleNumbers[i] - 1;
-            if (sampleNumbers.length == i + 1) {
-                j = track.getSamples().size();
-            } else {
-                j = sampleNumbers[i + 1] - 1;
-            }
-            iArr[i] = CastUtils.l2i(j - j2);
+        public /* synthetic */ a(DefaultMp4Builder defaultMp4Builder, Movie movie, Map map, long j, a aVar) {
+            this(defaultMp4Builder, movie, map, j);
         }
-        if ($assertionsDisabled || this.track2Sample.get(track).size() == sum(iArr)) {
-            return iArr;
-        }
-        throw new AssertionError("The number of samples and the sum of all chunk lengths must be equal");
-    }
-
-    private static long sum(int[] iArr) {
-        long j = 0;
-        for (int i : iArr) {
-            j += i;
-        }
-        return j;
-    }
-
-    private static long sum(long[] jArr) {
-        long j = 0;
-        for (long j2 : jArr) {
-            j += j2;
-        }
-        return j;
-    }
-
-    public long getTimescale(Movie movie) {
-        long timescale = movie.getTracks().iterator().next().getTrackMetaData().getTimescale();
-        Iterator<Track> it = movie.getTracks().iterator();
-        while (true) {
-            long j = timescale;
-            if (it.hasNext()) {
-                timescale = gcd(it.next().getTrackMetaData().getTimescale(), j);
-            } else {
-                return j;
-            }
-        }
-    }
-
-    public static long gcd(long j, long j2) {
-        return j2 == 0 ? j : gcd(j2, j % j2);
     }
 }

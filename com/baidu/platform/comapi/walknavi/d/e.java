@@ -3,154 +3,117 @@ package com.baidu.platform.comapi.walknavi.d;
 import android.os.Handler;
 import com.baidu.ar.npc.BaiduArView;
 import com.baidu.platform.comapi.walknavi.d.g;
+import com.baidu.searchbox.elasticthread.statistic.StatisticRecorder;
 import java.io.File;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class e {
-    private static Handler b = new Handler();
-    private static final String c = e.class.getSimpleName();
+
+    /* renamed from: b  reason: collision with root package name */
+    public static Handler f10015b = new Handler();
+
+    /* renamed from: c  reason: collision with root package name */
+    public static final String f10016c = e.class.getSimpleName();
 
     /* renamed from: a  reason: collision with root package name */
-    final Runnable f2941a;
-    private g d;
+    public final Runnable f10017a;
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* renamed from: d  reason: collision with root package name */
+    public g f10018d;
+
+    /* loaded from: classes2.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        static final e f2942a = new e(null);
+        public static final e f10019a = new e(null);
     }
 
-    /* synthetic */ e(f fVar) {
+    public /* synthetic */ e(f fVar) {
         this();
     }
 
-    public String a() {
-        return this.d.a();
-    }
-
-    public void a(String str) {
-        this.d.a(str);
+    public static e c() {
+        return a.f10019a;
     }
 
     public void b() {
-        this.d.d();
-    }
-
-    private e() {
-        this.f2941a = new f(this);
-        this.d = new g();
-    }
-
-    public static e c() {
-        return a.f2942a;
-    }
-
-    public void a(b bVar) {
-        this.d.a(bVar);
-    }
-
-    public void a(String str, int i, int i2) {
-        this.d.a(str, i, i2);
-    }
-
-    public void b(String str, int i, int i2) {
-        this.d.b(str, i, i2);
+        this.f10018d.d();
     }
 
     public boolean d() {
-        return this.d.e();
+        return this.f10018d.e();
     }
 
     public void e() {
-        if (this.d.e()) {
-            this.d.f();
+        if (this.f10018d.e()) {
+            this.f10018d.f();
         }
     }
 
     public void f() {
-        if (this.d.e()) {
-            this.d.i();
+        if (this.f10018d.e()) {
+            this.f10018d.i();
         }
     }
 
     public void g() {
-        if (this.d.e()) {
-            this.d.g();
+        if (this.f10018d.e()) {
+            this.f10018d.g();
         }
     }
 
     public void h() {
-        if (this.d.e()) {
-            this.d.h();
+        if (this.f10018d.e()) {
+            this.f10018d.h();
         }
     }
 
     public void i() {
-        if (this.d.e()) {
-            this.d.j();
+        if (this.f10018d.e()) {
+            this.f10018d.j();
         }
     }
 
     public boolean j() {
-        return this.d.l();
-    }
-
-    public void a(String str, c cVar) {
-        this.d.a(str, cVar);
-    }
-
-    public void a(String str, String str2) {
-        if (b != null && this.f2941a != null) {
-            b.removeCallbacks(this.f2941a);
-        }
-        this.d.a(str, str2);
-    }
-
-    public void b(String str, String str2) {
-        if (b != null && this.f2941a != null) {
-            b.removeCallbacks(this.f2941a);
-        }
-        this.d.a(str, str2);
-        b.postDelayed(this.f2941a, 30000L);
-    }
-
-    public boolean b(String str) {
-        return this.d.b(str);
-    }
-
-    public void a(boolean z) {
-        this.d.c(z);
+        return this.f10018d.l();
     }
 
     public void k() {
-        this.d.c(true);
-        this.d.a(l.a(-90.0d), 0.0d, 0.0d, "mapNPC");
-        this.d.c(false);
+        this.f10018d.c(true);
+        this.f10018d.a(l.a(-90.0d), 0.0d, 0.0d, "mapNPC");
+        this.f10018d.c(false);
     }
 
     public boolean l() {
-        return this.d.c();
-    }
-
-    public void b(boolean z) {
-        this.d.b(z);
-    }
-
-    public void a(double d, double d2, double d3) {
-        this.d.a(d, d2, d3, "mapNPC");
+        return this.f10018d.c();
     }
 
     public BaiduArView m() {
-        return this.d.k();
-    }
-
-    public void b(String str, c cVar) {
-        this.d.b(str, cVar);
+        return this.f10018d.k();
     }
 
     public void n() {
-        this.d.m();
+        this.f10018d.m();
+    }
+
+    public boolean o() {
+        return this.f10018d.n();
+    }
+
+    public boolean p() {
+        return this.f10018d.b();
+    }
+
+    public e() {
+        this.f10017a = new f(this);
+        this.f10018d = new g();
+    }
+
+    public String a() {
+        return this.f10018d.a();
+    }
+
+    public void b(String str, int i, int i2) {
+        this.f10018d.b(str, i, i2);
     }
 
     public boolean c(String str) {
@@ -158,35 +121,83 @@ public class e {
     }
 
     public String d(String str) {
-        return this.d.c(str);
+        return this.f10018d.c(str);
     }
 
-    public boolean a(String str, boolean z) {
-        return this.d.a(str, z);
+    public void a(String str) {
+        this.f10018d.a(str);
     }
 
-    public boolean o() {
-        return this.d.n();
+    public void b(String str, String str2) {
+        Runnable runnable;
+        Handler handler = f10015b;
+        if (handler != null && (runnable = this.f10017a) != null) {
+            handler.removeCallbacks(runnable);
+        }
+        this.f10018d.a(str, str2);
+        f10015b.postDelayed(this.f10017a, StatisticRecorder.UPLOAD_DATA_TIME_THRESHOLD);
     }
 
     public boolean e(String str) {
         try {
             return new File(str).exists();
-        } catch (Exception e) {
+        } catch (Exception unused) {
             return false;
         }
     }
 
-    public void c(boolean z) {
-        this.d.a(z);
+    public void a(b bVar) {
+        this.f10018d.a(bVar);
     }
 
-    public boolean p() {
-        return this.d.b();
+    public void c(boolean z) {
+        this.f10018d.a(z);
+    }
+
+    public void a(String str, int i, int i2) {
+        this.f10018d.a(str, i, i2);
+    }
+
+    public void a(String str, c cVar) {
+        this.f10018d.a(str, cVar);
+    }
+
+    public void a(String str, String str2) {
+        Runnable runnable;
+        Handler handler = f10015b;
+        if (handler != null && (runnable = this.f10017a) != null) {
+            handler.removeCallbacks(runnable);
+        }
+        this.f10018d.a(str, str2);
+    }
+
+    public boolean b(String str) {
+        return this.f10018d.b(str);
+    }
+
+    public void b(boolean z) {
+        this.f10018d.b(z);
+    }
+
+    public void b(String str, c cVar) {
+        this.f10018d.b(str, cVar);
+    }
+
+    public void a(boolean z) {
+        this.f10018d.c(z);
+    }
+
+    public void a(double d2, double d3, double d4) {
+        this.f10018d.a(d2, d3, d4, "mapNPC");
+    }
+
+    public boolean a(String str, boolean z) {
+        return this.f10018d.a(str, z);
     }
 
     public void a(g.a aVar) {
-        com.baidu.platform.comapi.wnplatform.d.a.a(c, "setNpcManagerStatusListener:" + aVar);
-        this.d.a(aVar);
+        String str = f10016c;
+        com.baidu.platform.comapi.wnplatform.d.a.a(str, "setNpcManagerStatusListener:" + aVar);
+        this.f10018d.a(aVar);
     }
 }

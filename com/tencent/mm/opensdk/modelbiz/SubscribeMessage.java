@@ -4,13 +4,13 @@ import android.os.Bundle;
 import com.tencent.mm.opensdk.modelbase.BaseReq;
 import com.tencent.mm.opensdk.modelbase.BaseResp;
 import com.tencent.mm.opensdk.utils.Log;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public final class SubscribeMessage {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class Req extends BaseReq {
-        private static final int LENGTH_LIMIT = 1024;
-        private static final String TAG = "MicroMsg.SDK.SubscribeMessage.Req";
+        public static final int LENGTH_LIMIT = 1024;
+        public static final String TAG = "MicroMsg.SDK.SubscribeMessage.Req";
         public String reserved;
         public int scene;
         public String templateID;
@@ -24,18 +24,21 @@ public final class SubscribeMessage {
 
         @Override // com.tencent.mm.opensdk.modelbase.BaseReq
         public boolean checkArgs() {
-            if (this.templateID == null || this.templateID.length() == 0) {
-                Log.e(TAG, "checkArgs fail, templateID is null");
-                return false;
+            String str;
+            String str2 = this.templateID;
+            if (str2 == null || str2.length() == 0) {
+                str = "checkArgs fail, templateID is null";
             } else if (this.templateID.length() > 1024) {
-                Log.e(TAG, "checkArgs fail, templateID is too long");
-                return false;
-            } else if (this.reserved == null || this.reserved.length() <= 1024) {
-                return true;
+                str = "checkArgs fail, templateID is too long";
             } else {
-                Log.e(TAG, "checkArgs fail, reserved is too long");
-                return false;
+                String str3 = this.reserved;
+                if (str3 == null || str3.length() <= 1024) {
+                    return true;
+                }
+                str = "checkArgs fail, reserved is too long";
             }
+            Log.e("MicroMsg.SDK.SubscribeMessage.Req", str);
+            return false;
         }
 
         @Override // com.tencent.mm.opensdk.modelbase.BaseReq
@@ -60,9 +63,9 @@ public final class SubscribeMessage {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class Resp extends BaseResp {
-        private static final String TAG = "MicroMsg.SDK.SubscribeMessage.Resp";
+        public static final String TAG = "MicroMsg.SDK.SubscribeMessage.Resp";
         public String action;
         public String reserved;
         public int scene;
@@ -102,8 +105,5 @@ public final class SubscribeMessage {
             bundle.putString("_wxapi_subscribemessage_resp_action", this.action);
             bundle.putString("_wxapi_subscribemessage_resp_reserved", this.reserved);
         }
-    }
-
-    private SubscribeMessage() {
     }
 }

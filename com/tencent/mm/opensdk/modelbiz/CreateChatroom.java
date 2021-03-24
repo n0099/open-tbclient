@@ -4,10 +4,10 @@ import android.os.Bundle;
 import com.tencent.mm.opensdk.modelbase.BaseReq;
 import com.tencent.mm.opensdk.modelbase.BaseResp;
 import com.tencent.mm.opensdk.utils.d;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class CreateChatroom {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class Req extends BaseReq {
         public String chatroomName;
         public String chatroomNickName;
@@ -16,7 +16,7 @@ public class CreateChatroom {
 
         @Override // com.tencent.mm.opensdk.modelbase.BaseReq
         public boolean checkArgs() {
-            return !d.a(this.groupId);
+            return !d.b(this.groupId);
         }
 
         @Override // com.tencent.mm.opensdk.modelbase.BaseReq
@@ -35,7 +35,7 @@ public class CreateChatroom {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class Resp extends BaseResp {
         public String extMsg;
 
@@ -67,8 +67,5 @@ public class CreateChatroom {
             super.toBundle(bundle);
             bundle.putString("_wxapi_create_chatroom_ext_msg", this.extMsg);
         }
-    }
-
-    private CreateChatroom() {
     }
 }

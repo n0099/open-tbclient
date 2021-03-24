@@ -1,8 +1,7 @@
 package com.google.zxing.oned;
 
-import com.baidu.ala.recorder.video.drawer.EncoderTextureDrawer;
-import com.baidu.ar.arplay.core.message.ARPMessageType;
-import com.baidu.cyberplayer.sdk.rtc.RTCConst;
+import com.baidu.wallet.qrcodescanner.QRScanCodeActivity;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.ChecksumException;
 import com.google.zxing.DecodeHintType;
@@ -11,65 +10,116 @@ import com.google.zxing.NotFoundException;
 import com.google.zxing.Result;
 import com.google.zxing.ResultPoint;
 import com.google.zxing.common.BitArray;
+import com.google.zxing.maxicode.decoder.DecodedBitStreamParser;
 import java.util.Arrays;
 import java.util.Map;
-import okhttp3.internal.http.StatusLine;
 import org.apache.http.HttpStatus;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class Code93Reader extends OneDReader {
-    private static final int ASTERISK_ENCODING;
-    static final int[] CHARACTER_ENCODINGS;
-    static final String ALPHABET_STRING = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ-. $/+%abcd*";
-    private static final char[] ALPHABET = ALPHABET_STRING.toCharArray();
-    private final StringBuilder decodeRowResult = new StringBuilder(20);
-    private final int[] counters = new int[6];
+    public static final int ASTERISK_ENCODING;
+    public static final int[] CHARACTER_ENCODINGS;
+    public static final String ALPHABET_STRING = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ-. $/+%abcd*";
+    public static final char[] ALPHABET = ALPHABET_STRING.toCharArray();
+    public final StringBuilder decodeRowResult = new StringBuilder(20);
+    public final int[] counters = new int[6];
 
     static {
-        int[] iArr = {276, 328, 324, 322, 296, 292, 290, 336, 274, 266, HttpStatus.SC_FAILED_DEPENDENCY, HttpStatus.SC_METHOD_FAILURE, 418, 404, 402, 394, EncoderTextureDrawer.X264_WIDTH, 356, 354, StatusLine.HTTP_PERM_REDIRECT, 282, 344, 332, 326, 300, 278, RTCConst.RTC_ROOM_USERID_ALREADY_EXIST_ERROR, 434, 428, HttpStatus.SC_UNPROCESSABLE_ENTITY, 406, 410, 364, 358, 310, 314, 302, 468, 466, 458, 366, 374, 430, 294, 474, 470, ARPMessageType.MSG_TYPE_IMU_MIRROR_DATA, 350};
+        int[] iArr = {276, 328, 324, 322, 296, 292, QRScanCodeActivity.DIALOG_CHECK_SAFE, 336, 274, 266, HttpStatus.SC_FAILED_DEPENDENCY, HttpStatus.SC_METHOD_FAILURE, 418, 404, 402, 394, 360, 356, 354, 308, 282, 344, 332, 326, 300, 278, 436, 434, 428, HttpStatus.SC_UNPROCESSABLE_ENTITY, 406, 410, 364, 358, 310, 314, 302, 468, 466, 458, 366, 374, 430, QRScanCodeActivity.DIALOG_ALIPAY_JD_WX_COPY, 474, FloatingActionButton.AUTO_MINI_LARGEST_SCREEN_WIDTH, 306, 350};
         CHARACTER_ENCODINGS = iArr;
         ASTERISK_ENCODING = iArr[47];
     }
 
-    @Override // com.google.zxing.oned.OneDReader
-    public Result decodeRow(int i, BitArray bitArray, Map<DecodeHintType, ?> map) throws NotFoundException, ChecksumException, FormatException {
-        int[] findAsteriskPattern;
-        int nextSet = bitArray.getNextSet(findAsteriskPattern(bitArray)[1]);
-        int size = bitArray.getSize();
-        int[] iArr = this.counters;
-        Arrays.fill(iArr, 0);
-        StringBuilder sb = this.decodeRowResult;
-        sb.setLength(0);
-        while (true) {
-            recordPattern(bitArray, nextSet, iArr);
-            int pattern = toPattern(iArr);
-            if (pattern < 0) {
-                throw NotFoundException.getNotFoundInstance();
+    public static void checkChecksums(CharSequence charSequence) throws ChecksumException {
+        int length = charSequence.length();
+        checkOneChecksum(charSequence, length - 2, 20);
+        checkOneChecksum(charSequence, length - 1, 15);
+    }
+
+    public static void checkOneChecksum(CharSequence charSequence, int i, int i2) throws ChecksumException {
+        int i3 = 0;
+        int i4 = 1;
+        for (int i5 = i - 1; i5 >= 0; i5--) {
+            i3 += ALPHABET_STRING.indexOf(charSequence.charAt(i5)) * i4;
+            i4++;
+            if (i4 > i2) {
+                i4 = 1;
             }
-            char patternToChar = patternToChar(pattern);
-            sb.append(patternToChar);
-            int i2 = nextSet;
-            for (int i3 : iArr) {
-                i2 += i3;
-            }
-            int nextSet2 = bitArray.getNextSet(i2);
-            if (patternToChar == '*') {
-                sb.deleteCharAt(sb.length() - 1);
-                int i4 = 0;
-                for (int i5 : iArr) {
-                    i4 += i5;
-                }
-                if (nextSet2 == size || !bitArray.get(nextSet2)) {
-                    throw NotFoundException.getNotFoundInstance();
-                }
-                if (sb.length() < 2) {
-                    throw NotFoundException.getNotFoundInstance();
-                }
-                checkChecksums(sb);
-                sb.setLength(sb.length() - 2);
-                return new Result(decodeExtended(sb), null, new ResultPoint[]{new ResultPoint((findAsteriskPattern[1] + findAsteriskPattern[0]) / 2.0f, i), new ResultPoint(nextSet + (i4 / 2.0f), i)}, BarcodeFormat.CODE_93);
-            }
-            nextSet = nextSet2;
         }
+        if (charSequence.charAt(i) != ALPHABET[i3 % 47]) {
+            throw ChecksumException.getChecksumInstance();
+        }
+    }
+
+    public static String decodeExtended(CharSequence charSequence) throws FormatException {
+        int i;
+        char c2;
+        int length = charSequence.length();
+        StringBuilder sb = new StringBuilder(length);
+        int i2 = 0;
+        while (i2 < length) {
+            char charAt = charSequence.charAt(i2);
+            if (charAt < 'a' || charAt > 'd') {
+                sb.append(charAt);
+            } else if (i2 < length - 1) {
+                i2++;
+                char charAt2 = charSequence.charAt(i2);
+                switch (charAt) {
+                    case 'a':
+                        if (charAt2 >= 'A' && charAt2 <= 'Z') {
+                            i = charAt2 - '@';
+                            c2 = (char) i;
+                            break;
+                        } else {
+                            throw FormatException.getFormatInstance();
+                        }
+                        break;
+                    case 'b':
+                        if (charAt2 >= 'A' && charAt2 <= 'E') {
+                            i = charAt2 - '&';
+                        } else if (charAt2 >= 'F' && charAt2 <= 'J') {
+                            i = charAt2 + DecodedBitStreamParser.TWOSHIFTA;
+                        } else if (charAt2 >= 'K' && charAt2 <= 'O') {
+                            i = charAt2 + 16;
+                        } else if (charAt2 >= 'P' && charAt2 <= 'S') {
+                            i = charAt2 + '+';
+                        } else if (charAt2 >= 'T' && charAt2 <= 'Z') {
+                            c2 = 127;
+                            break;
+                        } else {
+                            throw FormatException.getFormatInstance();
+                        }
+                        c2 = (char) i;
+                        break;
+                    case 'c':
+                        if (charAt2 >= 'A' && charAt2 <= 'O') {
+                            i = charAt2 - ' ';
+                            c2 = (char) i;
+                            break;
+                        } else if (charAt2 == 'Z') {
+                            c2 = ':';
+                            break;
+                        } else {
+                            throw FormatException.getFormatInstance();
+                        }
+                    case 'd':
+                        if (charAt2 >= 'A' && charAt2 <= 'Z') {
+                            i = charAt2 + ' ';
+                            c2 = (char) i;
+                            break;
+                        } else {
+                            throw FormatException.getFormatInstance();
+                        }
+                    default:
+                        c2 = 0;
+                        break;
+                }
+                sb.append(c2);
+            } else {
+                throw FormatException.getFormatInstance();
+            }
+            i2++;
+        }
+        return sb.toString();
     }
 
     private int[] findAsteriskPattern(BitArray bitArray) throws NotFoundException {
@@ -78,44 +128,58 @@ public final class Code93Reader extends OneDReader {
         Arrays.fill(this.counters, 0);
         int[] iArr = this.counters;
         int length = iArr.length;
-        int i = 0;
+        int i = nextSet;
         boolean z = false;
-        int i2 = nextSet;
-        for (int i3 = nextSet; i3 < size; i3++) {
-            if (bitArray.get(i3) ^ z) {
-                iArr[i] = iArr[i] + 1;
+        int i2 = 0;
+        while (nextSet < size) {
+            if (bitArray.get(nextSet) ^ z) {
+                iArr[i2] = iArr[i2] + 1;
             } else {
-                if (i == length - 1) {
-                    if (toPattern(iArr) == ASTERISK_ENCODING) {
-                        return new int[]{i2, i3};
-                    }
-                    i2 += iArr[0] + iArr[1];
-                    System.arraycopy(iArr, 2, iArr, 0, length - 2);
-                    iArr[length - 2] = 0;
-                    iArr[length - 1] = 0;
-                    i--;
+                int i3 = length - 1;
+                if (i2 != i3) {
+                    i2++;
+                } else if (toPattern(iArr) == ASTERISK_ENCODING) {
+                    return new int[]{i, nextSet};
                 } else {
-                    i++;
+                    i += iArr[0] + iArr[1];
+                    int i4 = length - 2;
+                    System.arraycopy(iArr, 2, iArr, 0, i4);
+                    iArr[i4] = 0;
+                    iArr[i3] = 0;
+                    i2--;
                 }
-                iArr[i] = 1;
+                iArr[i2] = 1;
                 z = !z;
             }
+            nextSet++;
         }
         throw NotFoundException.getNotFoundInstance();
     }
 
-    private static int toPattern(int[] iArr) {
-        int length = iArr.length;
-        int i = 0;
+    public static char patternToChar(int i) throws NotFoundException {
         int i2 = 0;
-        while (i < length) {
-            i++;
-            i2 = iArr[i] + i2;
+        while (true) {
+            int[] iArr = CHARACTER_ENCODINGS;
+            if (i2 < iArr.length) {
+                if (iArr[i2] == i) {
+                    return ALPHABET[i2];
+                }
+                i2++;
+            } else {
+                throw NotFoundException.getNotFoundInstance();
+            }
         }
-        int length2 = iArr.length;
+    }
+
+    public static int toPattern(int[] iArr) {
+        int i = 0;
+        for (int i2 : iArr) {
+            i += i2;
+        }
+        int length = iArr.length;
         int i3 = 0;
-        for (int i4 = 0; i4 < length2; i4++) {
-            int round = Math.round((iArr[i4] * 9.0f) / i2);
+        for (int i4 = 0; i4 < length; i4++) {
+            int round = Math.round((iArr[i4] * 9.0f) / i);
             if (round <= 0 || round > 4) {
                 return -1;
             }
@@ -130,111 +194,47 @@ public final class Code93Reader extends OneDReader {
         return i3;
     }
 
-    private static char patternToChar(int i) throws NotFoundException {
-        for (int i2 = 0; i2 < CHARACTER_ENCODINGS.length; i2++) {
-            if (CHARACTER_ENCODINGS[i2] == i) {
-                return ALPHABET[i2];
-            }
-        }
-        throw NotFoundException.getNotFoundInstance();
-    }
-
-    private static String decodeExtended(CharSequence charSequence) throws FormatException {
-        int i;
-        char c;
-        int length = charSequence.length();
-        StringBuilder sb = new StringBuilder(length);
-        int i2 = 0;
-        while (i2 < length) {
-            char charAt = charSequence.charAt(i2);
-            if (charAt >= 'a' && charAt <= 'd') {
-                if (i2 >= length - 1) {
-                    throw FormatException.getFormatInstance();
+    @Override // com.google.zxing.oned.OneDReader
+    public Result decodeRow(int i, BitArray bitArray, Map<DecodeHintType, ?> map) throws NotFoundException, ChecksumException, FormatException {
+        int[] findAsteriskPattern;
+        int nextSet = bitArray.getNextSet(findAsteriskPattern(bitArray)[1]);
+        int size = bitArray.getSize();
+        int[] iArr = this.counters;
+        Arrays.fill(iArr, 0);
+        StringBuilder sb = this.decodeRowResult;
+        sb.setLength(0);
+        while (true) {
+            OneDReader.recordPattern(bitArray, nextSet, iArr);
+            int pattern = toPattern(iArr);
+            if (pattern >= 0) {
+                char patternToChar = patternToChar(pattern);
+                sb.append(patternToChar);
+                int i2 = nextSet;
+                for (int i3 : iArr) {
+                    i2 += i3;
                 }
-                char charAt2 = charSequence.charAt(i2 + 1);
-                switch (charAt) {
-                    case 'a':
-                        if (charAt2 >= 'A' && charAt2 <= 'Z') {
-                            c = (char) (charAt2 - '@');
-                            break;
-                        } else {
-                            throw FormatException.getFormatInstance();
+                int nextSet2 = bitArray.getNextSet(i2);
+                if (patternToChar == '*') {
+                    sb.deleteCharAt(sb.length() - 1);
+                    int i4 = 0;
+                    for (int i5 : iArr) {
+                        i4 += i5;
+                    }
+                    if (nextSet2 != size && bitArray.get(nextSet2)) {
+                        if (sb.length() >= 2) {
+                            checkChecksums(sb);
+                            sb.setLength(sb.length() - 2);
+                            float f2 = i;
+                            return new Result(decodeExtended(sb), null, new ResultPoint[]{new ResultPoint((findAsteriskPattern[1] + findAsteriskPattern[0]) / 2.0f, f2), new ResultPoint(nextSet + (i4 / 2.0f), f2)}, BarcodeFormat.CODE_93);
                         }
-                        break;
-                    case 'b':
-                        if (charAt2 >= 'A' && charAt2 <= 'E') {
-                            c = (char) (charAt2 - '&');
-                            break;
-                        } else if (charAt2 >= 'F' && charAt2 <= 'J') {
-                            c = (char) (charAt2 - 11);
-                            break;
-                        } else if (charAt2 >= 'K' && charAt2 <= 'O') {
-                            c = (char) (charAt2 + 16);
-                            break;
-                        } else if (charAt2 >= 'P' && charAt2 <= 'S') {
-                            c = (char) (charAt2 + '+');
-                            break;
-                        } else if (charAt2 >= 'T' && charAt2 <= 'Z') {
-                            c = 127;
-                            break;
-                        } else {
-                            throw FormatException.getFormatInstance();
-                        }
-                        break;
-                    case 'c':
-                        if (charAt2 >= 'A' && charAt2 <= 'O') {
-                            c = (char) (charAt2 - ' ');
-                            break;
-                        } else if (charAt2 == 'Z') {
-                            c = ':';
-                            break;
-                        } else {
-                            throw FormatException.getFormatInstance();
-                        }
-                    case 'd':
-                        if (charAt2 >= 'A' && charAt2 <= 'Z') {
-                            c = (char) (charAt2 + ' ');
-                            break;
-                        } else {
-                            throw FormatException.getFormatInstance();
-                        }
-                        break;
-                    default:
-                        c = 0;
-                        break;
+                        throw NotFoundException.getNotFoundInstance();
+                    }
+                    throw NotFoundException.getNotFoundInstance();
                 }
-                sb.append(c);
-                i = i2 + 1;
+                nextSet = nextSet2;
             } else {
-                sb.append(charAt);
-                i = i2;
+                throw NotFoundException.getNotFoundInstance();
             }
-            i2 = i + 1;
-        }
-        return sb.toString();
-    }
-
-    private static void checkChecksums(CharSequence charSequence) throws ChecksumException {
-        int length = charSequence.length();
-        checkOneChecksum(charSequence, length - 2, 20);
-        checkOneChecksum(charSequence, length - 1, 15);
-    }
-
-    private static void checkOneChecksum(CharSequence charSequence, int i, int i2) throws ChecksumException {
-        int i3 = 0;
-        int i4 = i - 1;
-        int i5 = 1;
-        while (i4 >= 0) {
-            i3 += ALPHABET_STRING.indexOf(charSequence.charAt(i4)) * i5;
-            int i6 = i5 + 1;
-            if (i6 > i2) {
-                i6 = 1;
-            }
-            i4--;
-            i5 = i6;
-        }
-        if (charSequence.charAt(i) != ALPHABET[i3 % 47]) {
-            throw ChecksumException.getChecksumInstance();
         }
     }
 }

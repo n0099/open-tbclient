@@ -1,65 +1,52 @@
 package com.googlecode.mp4parser.boxes.mp4.objectdescriptors;
 
 import com.coremedia.iso.IsoTypeReader;
-import com.thunder.livesdk.system.ThunderNetStateService;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 @Descriptor(tags = {0})
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public abstract class BaseDescriptor {
-    static final /* synthetic */ boolean $assertionsDisabled;
-    int sizeBytes;
-    int sizeOfInstance;
-    int tag;
-
-    public abstract void parseDetail(ByteBuffer byteBuffer) throws IOException;
-
-    static {
-        $assertionsDisabled = !BaseDescriptor.class.desiredAssertionStatus();
-    }
-
-    public int getTag() {
-        return this.tag;
-    }
+    public static final /* synthetic */ boolean $assertionsDisabled = false;
+    public int sizeBytes;
+    public int sizeOfInstance;
+    public int tag;
 
     public int getSize() {
         return this.sizeOfInstance + 1 + this.sizeBytes;
-    }
-
-    public int getSizeOfInstance() {
-        return this.sizeOfInstance;
     }
 
     public int getSizeBytes() {
         return this.sizeBytes;
     }
 
+    public int getSizeOfInstance() {
+        return this.sizeOfInstance;
+    }
+
+    public int getTag() {
+        return this.tag;
+    }
+
     public final void parse(int i, ByteBuffer byteBuffer) throws IOException {
         this.tag = i;
         int readUInt8 = IsoTypeReader.readUInt8(byteBuffer);
-        this.sizeOfInstance = readUInt8 & ThunderNetStateService.NetState.SYSNET_UNKNOWN;
+        this.sizeOfInstance = readUInt8 & 127;
         int i2 = 1;
         while ((readUInt8 >>> 7) == 1) {
             readUInt8 = IsoTypeReader.readUInt8(byteBuffer);
             i2++;
-            this.sizeOfInstance = (this.sizeOfInstance << 7) | (readUInt8 & ThunderNetStateService.NetState.SYSNET_UNKNOWN);
+            this.sizeOfInstance = (this.sizeOfInstance << 7) | (readUInt8 & 127);
         }
         this.sizeBytes = i2;
         ByteBuffer slice = byteBuffer.slice();
         slice.limit(this.sizeOfInstance);
         parseDetail(slice);
-        if (!$assertionsDisabled && slice.remaining() != 0) {
-            throw new AssertionError(String.valueOf(getClass().getSimpleName()) + " has not been fully parsed");
-        }
         byteBuffer.position(byteBuffer.position() + this.sizeOfInstance);
     }
 
+    public abstract void parseDetail(ByteBuffer byteBuffer) throws IOException;
+
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("BaseDescriptor");
-        sb.append("{tag=").append(this.tag);
-        sb.append(", sizeOfInstance=").append(this.sizeOfInstance);
-        sb.append('}');
-        return sb.toString();
+        return "BaseDescriptor{tag=" + this.tag + ", sizeOfInstance=" + this.sizeOfInstance + '}';
     }
 }

@@ -3,13 +3,13 @@ package com.baidu.tieba.memberCenter.memberprivilege;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
-import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.memberCenter.memberprivilege.a;
+import d.b.h0.r.l.c;
+import d.b.i0.q1.g.a;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public class ResponseMemberPrivilegeMessage extends JsonHttpResponsedMessage {
     public a mData;
 
@@ -22,28 +22,29 @@ public class ResponseMemberPrivilegeMessage extends JsonHttpResponsedMessage {
         int statusCode = getStatusCode();
         int error = getError();
         if (statusCode == 200 && error == 0 && jSONObject != null) {
-            this.mData = new a();
-            this.mData.parseJson(jSONObject);
+            a aVar = new a();
+            this.mData = aVar;
+            aVar.a(jSONObject);
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public void afterDispatchInBackGround(int i, byte[] bArr) {
+        a.e eVar;
+        AccountData currentAccountObj;
         super.afterDispatchInBackGround(i, (int) bArr);
-        if (this.mData != null && this.mData.ltq != null) {
-            a.e eVar = this.mData.ltq;
-            AccountData currentAccountObj = TbadkApplication.getCurrentAccountObj();
-            if (currentAccountObj != null && eVar != null && currentAccountObj.getID() != null && currentAccountObj.getID().equals(eVar.mId)) {
-                a.b bVar = eVar.ltC;
-                if (bVar != null && bVar.ltu > bVar.ltv && !StringUtils.isNull(bVar.ltw)) {
-                    currentAccountObj.setMemberIconUrl(bVar.ltw);
-                } else {
-                    currentAccountObj.setMemberIconUrl(null);
-                }
-                com.baidu.tbadk.core.a.b.b(currentAccountObj);
-                MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(CmdConfigCustom.CMD_PERSON_INFO_CHANGED));
-            }
+        a aVar = this.mData;
+        if (aVar == null || (eVar = aVar.f59439a) == null || (currentAccountObj = TbadkCoreApplication.getCurrentAccountObj()) == null || eVar == null || currentAccountObj.getID() == null || !currentAccountObj.getID().equals(eVar.f59453a)) {
+            return;
         }
+        a.b bVar = eVar.f59456d;
+        if (bVar != null && bVar.f59446b > bVar.f59447c && !StringUtils.isNull(bVar.f59448d)) {
+            currentAccountObj.setMemberIconUrl(bVar.f59448d);
+        } else {
+            currentAccountObj.setMemberIconUrl(null);
+        }
+        c.g(currentAccountObj);
+        MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2001247));
     }
 }

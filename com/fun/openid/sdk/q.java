@@ -1,49 +1,33 @@
 package com.fun.openid.sdk;
 
-import android.content.Context;
-import android.database.Cursor;
-import android.net.Uri;
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
+import android.database.ContentObserver;
 import android.util.Log;
-/* loaded from: classes3.dex */
-public final class q extends Handler {
-    public q(Looper looper) {
-        super(looper);
+/* loaded from: classes6.dex */
+public class q extends ContentObserver {
+
+    /* renamed from: a  reason: collision with root package name */
+    public String f30861a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public int f30862b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public p f30863c;
+
+    public q(p pVar, int i, String str) {
+        super(null);
+        this.f30863c = pVar;
+        this.f30862b = i;
+        this.f30861a = str;
     }
 
-    @Override // android.os.Handler
-    public void handleMessage(Message message) {
-        Uri parse;
-        if (message.what != 11) {
-            Log.e("VMS_IDLG_SDK_Client", "message type valid");
-            return;
-        }
-        int i = message.getData().getInt("type");
-        String string = message.getData().getString("appid");
-        p pVar = r.pRl;
-        pVar.getClass();
-        if (i == 0) {
-            parse = Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/OAID");
-        } else if (i == 1) {
-            parse = Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/VAID_" + string);
-        } else if (i != 2) {
-            parse = i != 4 ? null : Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/OAIDSTATUS");
+    @Override // android.database.ContentObserver
+    public void onChange(boolean z) {
+        p pVar = this.f30863c;
+        if (pVar != null) {
+            pVar.a(this.f30862b, this.f30861a);
         } else {
-            parse = Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/AAID_" + string);
-        }
-        Cursor query = pVar.f5249a.getContentResolver().query(parse, null, null, null, null);
-        if (query != null) {
-            r2 = query.moveToNext() ? query.getString(query.getColumnIndex("value")) : null;
-            query.close();
-        } else {
-            Log.d("VMS_IDLG_SDK_DB", "return cursor is null,return");
-        }
-        r.g = r2;
-        Context context = r.f5250a;
-        synchronized (r.d) {
-            r.d.notify();
+            Log.e("VMS_IDLG_SDK_Observer", "mIdentifierIdClient is null");
         }
     }
 }

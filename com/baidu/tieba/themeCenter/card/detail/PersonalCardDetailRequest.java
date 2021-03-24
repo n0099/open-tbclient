@@ -1,24 +1,24 @@
 package com.baidu.tieba.themeCenter.card.detail;
 
 import com.baidu.adp.framework.message.NetMessage;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
-import com.baidu.tbadk.util.v;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import d.b.h0.z0.w;
 import tbclient.GetCard.DataReq;
 import tbclient.GetCard.GetCardReqIdl;
-/* loaded from: classes8.dex */
+/* loaded from: classes5.dex */
 public class PersonalCardDetailRequest extends NetMessage {
-    private long cardId;
+    public long cardId;
 
     public PersonalCardDetailRequest() {
-        super(1003094, CmdConfigSocket.CMD_GET_CARD_DETAIL);
+        super(CmdConfigHttp.CMD_GET_CARD_DETAIL, 309333);
     }
 
     @Override // com.baidu.adp.framework.message.NetMessage
-    protected Object encode(boolean z) {
+    public Object encode(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
         builder.props_id = Long.valueOf(this.cardId);
         if (z) {
-            v.b(builder, true);
+            w.a(builder, true);
         }
         GetCardReqIdl.Builder builder2 = new GetCardReqIdl.Builder();
         builder2.data = builder.build(false);

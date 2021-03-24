@@ -8,25 +8,23 @@ import com.baidu.android.imsdk.utils.LogUtils;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class DBGroupTableManager {
     public static final String COLUMN_TABLE_NAME = "name";
     public static final String KEY = "grouptable";
     public static final String SYSTEM_TABLE = "sqlite_master";
     public static final String TAG = "DBGroupTableManager";
-    private boolean isGroupExistInit = false;
-    private boolean isActivieInit = false;
-    private ArrayList<String> exisGroupTable = new ArrayList<>();
-    private HashMap<String, Integer> activeState = new HashMap<>();
-
-    public void init(DBOperation dBOperation) {
-        initGroupActiveState(dBOperation);
-        initGroupTableExist(dBOperation);
-    }
+    public boolean isGroupExistInit = false;
+    public boolean isActivieInit = false;
+    public ArrayList<String> exisGroupTable = new ArrayList<>();
+    public HashMap<String, Integer> activeState = new HashMap<>();
 
     private synchronized void initGroupActiveState(DBOperation dBOperation) {
         ArrayList query;
-        if (!this.isActivieInit && dBOperation != null && (query = dBOperation.query(new IResultParse<GroupInfo>() { // from class: com.baidu.android.imsdk.db.DBGroupTableManager.1
+        if (this.isActivieInit) {
+            return;
+        }
+        if (dBOperation != null && (query = dBOperation.query(new IResultParse<GroupInfo>() { // from class: com.baidu.android.imsdk.db.DBGroupTableManager.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // com.baidu.android.imsdk.db.IResultParse
@@ -49,7 +47,10 @@ public class DBGroupTableManager {
 
     private synchronized void initGroupTableExist(DBOperation dBOperation) {
         ArrayList query;
-        if (!this.isGroupExistInit && dBOperation != null && (query = dBOperation.query(new IResultParse<String>() { // from class: com.baidu.android.imsdk.db.DBGroupTableManager.2
+        if (this.isGroupExistInit) {
+            return;
+        }
+        if (dBOperation != null && (query = dBOperation.query(new IResultParse<String>() { // from class: com.baidu.android.imsdk.db.DBGroupTableManager.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.android.imsdk.db.IResultParse
             public String onParse(Cursor cursor) {
@@ -63,50 +64,50 @@ public class DBGroupTableManager {
         }
     }
 
+    public void activeGroup(String str) {
+        this.activeState.put(str, 1);
+    }
+
     public void addGroupTable(ArrayList<String> arrayList) {
         this.exisGroupTable.addAll(arrayList);
     }
 
-    public void addGroupTable(String str) {
-        if (!this.exisGroupTable.contains(str)) {
-            this.exisGroupTable.add(str);
-        }
-    }
-
-    public void quitGroupTable(String str) {
-        this.exisGroupTable.remove(str);
-    }
-
-    public boolean isExistGroupTable(Context context, String str) {
-        if (!this.isGroupExistInit) {
-            initGroupTableExist(DBOperationFactory.getNewDb(context));
-        }
-        if (!this.exisGroupTable.contains(DBTableDefine.getGroupMessageTableName(str))) {
-            return false;
-        }
-        return true;
-    }
-
-    public void activeGroup(String str) {
-        this.activeState.put(str, 1);
+    public void clear() {
+        this.exisGroupTable.clear();
+        this.activeState.clear();
     }
 
     public void deactiveGroup(String str) {
         this.activeState.remove(str);
     }
 
+    public void init(DBOperation dBOperation) {
+        initGroupActiveState(dBOperation);
+        initGroupTableExist(dBOperation);
+    }
+
     public boolean isActive(Context context, String str) {
         if (!this.isActivieInit) {
             initGroupActiveState(DBOperationFactory.getNewDb(context));
         }
-        if (this.activeState.containsKey(str) && this.activeState.get(str).intValue() == 1) {
-            return true;
-        }
-        return false;
+        return this.activeState.containsKey(str) && this.activeState.get(str).intValue() == 1;
     }
 
-    public void clear() {
-        this.exisGroupTable.clear();
-        this.activeState.clear();
+    public boolean isExistGroupTable(Context context, String str) {
+        if (!this.isGroupExistInit) {
+            initGroupTableExist(DBOperationFactory.getNewDb(context));
+        }
+        return this.exisGroupTable.contains(DBTableDefine.getGroupMessageTableName(str));
+    }
+
+    public void quitGroupTable(String str) {
+        this.exisGroupTable.remove(str);
+    }
+
+    public void addGroupTable(String str) {
+        if (this.exisGroupTable.contains(str)) {
+            return;
+        }
+        this.exisGroupTable.add(str);
     }
 }

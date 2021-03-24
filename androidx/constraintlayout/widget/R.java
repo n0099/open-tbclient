@@ -1,92 +1,84 @@
 package androidx.constraintlayout.widget;
 /* loaded from: classes.dex */
 public final class R {
-    private R() {
-    }
 
     /* loaded from: classes.dex */
     public static final class attr {
-        public static final int barrierAllowsGoneWidgets = 0x7f04007f;
-        public static final int barrierDirection = 0x7f040080;
-        public static final int chainUseRtl = 0x7f0400dd;
-        public static final int constraintSet = 0x7f040119;
-        public static final int constraint_referenced_ids = 0x7f04011a;
-        public static final int content = 0x7f04011e;
-        public static final int emptyVisibility = 0x7f04016c;
-        public static final int layout_constrainedHeight = 0x7f0402cf;
-        public static final int layout_constrainedWidth = 0x7f0402d0;
-        public static final int layout_constraintBaseline_creator = 0x7f0402d1;
-        public static final int layout_constraintBaseline_toBaselineOf = 0x7f0402d2;
-        public static final int layout_constraintBottom_creator = 0x7f0402d3;
-        public static final int layout_constraintBottom_toBottomOf = 0x7f0402d4;
-        public static final int layout_constraintBottom_toTopOf = 0x7f0402d5;
-        public static final int layout_constraintCircle = 0x7f0402d6;
-        public static final int layout_constraintCircleAngle = 0x7f0402d7;
-        public static final int layout_constraintCircleRadius = 0x7f0402d8;
-        public static final int layout_constraintDimensionRatio = 0x7f0402d9;
-        public static final int layout_constraintEnd_toEndOf = 0x7f0402da;
-        public static final int layout_constraintEnd_toStartOf = 0x7f0402db;
-        public static final int layout_constraintGuide_begin = 0x7f0402dc;
-        public static final int layout_constraintGuide_end = 0x7f0402dd;
-        public static final int layout_constraintGuide_percent = 0x7f0402de;
-        public static final int layout_constraintHeight_default = 0x7f0402df;
-        public static final int layout_constraintHeight_max = 0x7f0402e0;
-        public static final int layout_constraintHeight_min = 0x7f0402e1;
-        public static final int layout_constraintHeight_percent = 0x7f0402e2;
-        public static final int layout_constraintHorizontal_bias = 0x7f0402e3;
-        public static final int layout_constraintHorizontal_chainStyle = 0x7f0402e4;
-        public static final int layout_constraintHorizontal_weight = 0x7f0402e5;
-        public static final int layout_constraintLeft_creator = 0x7f0402e6;
-        public static final int layout_constraintLeft_toLeftOf = 0x7f0402e7;
-        public static final int layout_constraintLeft_toRightOf = 0x7f0402e8;
-        public static final int layout_constraintRight_creator = 0x7f0402e9;
-        public static final int layout_constraintRight_toLeftOf = 0x7f0402ea;
-        public static final int layout_constraintRight_toRightOf = 0x7f0402eb;
-        public static final int layout_constraintStart_toEndOf = 0x7f0402ec;
-        public static final int layout_constraintStart_toStartOf = 0x7f0402ed;
-        public static final int layout_constraintTop_creator = 0x7f0402ee;
-        public static final int layout_constraintTop_toBottomOf = 0x7f0402ef;
-        public static final int layout_constraintTop_toTopOf = 0x7f0402f0;
-        public static final int layout_constraintVertical_bias = 0x7f0402f1;
-        public static final int layout_constraintVertical_chainStyle = 0x7f0402f2;
-        public static final int layout_constraintVertical_weight = 0x7f0402f3;
-        public static final int layout_constraintWidth_default = 0x7f0402f4;
-        public static final int layout_constraintWidth_max = 0x7f0402f5;
-        public static final int layout_constraintWidth_min = 0x7f0402f6;
-        public static final int layout_constraintWidth_percent = 0x7f0402f7;
-        public static final int layout_editor_absoluteX = 0x7f0402f9;
-        public static final int layout_editor_absoluteY = 0x7f0402fa;
-        public static final int layout_goneMarginBottom = 0x7f0402fb;
-        public static final int layout_goneMarginEnd = 0x7f0402fc;
-        public static final int layout_goneMarginLeft = 0x7f0402fd;
-        public static final int layout_goneMarginRight = 0x7f0402fe;
-        public static final int layout_goneMarginStart = 0x7f0402ff;
-        public static final int layout_goneMarginTop = 0x7f040300;
-        public static final int layout_optimizationLevel = 0x7f040307;
-
-        private attr() {
-        }
+        public static final int barrierAllowsGoneWidgets = 0x7f04006c;
+        public static final int barrierDirection = 0x7f04006d;
+        public static final int chainUseRtl = 0x7f0400bb;
+        public static final int constraintSet = 0x7f0400f7;
+        public static final int constraint_referenced_ids = 0x7f0400f8;
+        public static final int content = 0x7f0400f9;
+        public static final int emptyVisibility = 0x7f040142;
+        public static final int layout_constrainedHeight = 0x7f04021e;
+        public static final int layout_constrainedWidth = 0x7f04021f;
+        public static final int layout_constraintBaseline_creator = 0x7f040220;
+        public static final int layout_constraintBaseline_toBaselineOf = 0x7f040221;
+        public static final int layout_constraintBottom_creator = 0x7f040222;
+        public static final int layout_constraintBottom_toBottomOf = 0x7f040223;
+        public static final int layout_constraintBottom_toTopOf = 0x7f040224;
+        public static final int layout_constraintCircle = 0x7f040225;
+        public static final int layout_constraintCircleAngle = 0x7f040226;
+        public static final int layout_constraintCircleRadius = 0x7f040227;
+        public static final int layout_constraintDimensionRatio = 0x7f040228;
+        public static final int layout_constraintEnd_toEndOf = 0x7f040229;
+        public static final int layout_constraintEnd_toStartOf = 0x7f04022a;
+        public static final int layout_constraintGuide_begin = 0x7f04022b;
+        public static final int layout_constraintGuide_end = 0x7f04022c;
+        public static final int layout_constraintGuide_percent = 0x7f04022d;
+        public static final int layout_constraintHeight_default = 0x7f04022e;
+        public static final int layout_constraintHeight_max = 0x7f04022f;
+        public static final int layout_constraintHeight_min = 0x7f040230;
+        public static final int layout_constraintHeight_percent = 0x7f040231;
+        public static final int layout_constraintHorizontal_bias = 0x7f040232;
+        public static final int layout_constraintHorizontal_chainStyle = 0x7f040233;
+        public static final int layout_constraintHorizontal_weight = 0x7f040234;
+        public static final int layout_constraintLeft_creator = 0x7f040235;
+        public static final int layout_constraintLeft_toLeftOf = 0x7f040236;
+        public static final int layout_constraintLeft_toRightOf = 0x7f040237;
+        public static final int layout_constraintRight_creator = 0x7f040238;
+        public static final int layout_constraintRight_toLeftOf = 0x7f040239;
+        public static final int layout_constraintRight_toRightOf = 0x7f04023a;
+        public static final int layout_constraintStart_toEndOf = 0x7f04023b;
+        public static final int layout_constraintStart_toStartOf = 0x7f04023c;
+        public static final int layout_constraintTop_creator = 0x7f04023d;
+        public static final int layout_constraintTop_toBottomOf = 0x7f04023e;
+        public static final int layout_constraintTop_toTopOf = 0x7f04023f;
+        public static final int layout_constraintVertical_bias = 0x7f040240;
+        public static final int layout_constraintVertical_chainStyle = 0x7f040241;
+        public static final int layout_constraintVertical_weight = 0x7f040242;
+        public static final int layout_constraintWidth_default = 0x7f040243;
+        public static final int layout_constraintWidth_max = 0x7f040244;
+        public static final int layout_constraintWidth_min = 0x7f040245;
+        public static final int layout_constraintWidth_percent = 0x7f040246;
+        public static final int layout_editor_absoluteX = 0x7f040248;
+        public static final int layout_editor_absoluteY = 0x7f040249;
+        public static final int layout_goneMarginBottom = 0x7f04024a;
+        public static final int layout_goneMarginEnd = 0x7f04024b;
+        public static final int layout_goneMarginLeft = 0x7f04024c;
+        public static final int layout_goneMarginRight = 0x7f04024d;
+        public static final int layout_goneMarginStart = 0x7f04024e;
+        public static final int layout_goneMarginTop = 0x7f04024f;
+        public static final int layout_optimizationLevel = 0x7f040255;
     }
 
     /* loaded from: classes.dex */
     public static final class id {
-        public static final int bottom = 0x7f0907ca;
-        public static final int end = 0x7f090e7e;
-        public static final int gone = 0x7f0912f9;
-        public static final int invisible = 0x7f091645;
-        public static final int left = 0x7f0919f1;
-        public static final int packed = 0x7f091e67;
-        public static final int parent = 0x7f091e70;
-        public static final int percent = 0x7f091fd3;
-        public static final int right = 0x7f092390;
-        public static final int spread = 0x7f0926a0;
-        public static final int spread_inside = 0x7f0926a2;
-        public static final int start = 0x7f0926de;
-        public static final int top = 0x7f092a25;
-        public static final int wrap = 0x7f09307f;
-
-        private id() {
-        }
+        public static final int bottom = 0x7f090410;
+        public static final int end = 0x7f0909ff;
+        public static final int gone = 0x7f090de9;
+        public static final int invisible = 0x7f09106d;
+        public static final int left = 0x7f09138c;
+        public static final int packed = 0x7f091720;
+        public static final int parent = 0x7f091728;
+        public static final int percent = 0x7f091897;
+        public static final int right = 0x7f091bae;
+        public static final int spread = 0x7f091ea9;
+        public static final int spread_inside = 0x7f091eab;
+        public static final int start = 0x7f091ee6;
+        public static final int top = 0x7f0921e0;
+        public static final int wrap = 0x7f09270f;
     }
 
     /* loaded from: classes.dex */
@@ -238,8 +230,5 @@ public final class R {
         public static final int[] ConstraintLayout_placeholder = {com.baidu.tieba.R.attr.content, com.baidu.tieba.R.attr.emptyVisibility};
         public static final int[] ConstraintSet = {16842948, 16842960, 16842972, 16842996, 16842997, 16842999, 16843000, 16843001, 16843002, 16843039, 16843040, 16843071, 16843072, 16843551, 16843552, 16843553, 16843554, 16843555, 16843556, 16843557, 16843558, 16843559, 16843560, 16843701, 16843702, 16843770, 16843840, com.baidu.tieba.R.attr.barrierAllowsGoneWidgets, com.baidu.tieba.R.attr.barrierDirection, com.baidu.tieba.R.attr.chainUseRtl, com.baidu.tieba.R.attr.constraint_referenced_ids, com.baidu.tieba.R.attr.layout_constrainedHeight, com.baidu.tieba.R.attr.layout_constrainedWidth, com.baidu.tieba.R.attr.layout_constraintBaseline_creator, com.baidu.tieba.R.attr.layout_constraintBaseline_toBaselineOf, com.baidu.tieba.R.attr.layout_constraintBottom_creator, com.baidu.tieba.R.attr.layout_constraintBottom_toBottomOf, com.baidu.tieba.R.attr.layout_constraintBottom_toTopOf, com.baidu.tieba.R.attr.layout_constraintCircle, com.baidu.tieba.R.attr.layout_constraintCircleAngle, com.baidu.tieba.R.attr.layout_constraintCircleRadius, com.baidu.tieba.R.attr.layout_constraintDimensionRatio, com.baidu.tieba.R.attr.layout_constraintEnd_toEndOf, com.baidu.tieba.R.attr.layout_constraintEnd_toStartOf, com.baidu.tieba.R.attr.layout_constraintGuide_begin, com.baidu.tieba.R.attr.layout_constraintGuide_end, com.baidu.tieba.R.attr.layout_constraintGuide_percent, com.baidu.tieba.R.attr.layout_constraintHeight_default, com.baidu.tieba.R.attr.layout_constraintHeight_max, com.baidu.tieba.R.attr.layout_constraintHeight_min, com.baidu.tieba.R.attr.layout_constraintHeight_percent, com.baidu.tieba.R.attr.layout_constraintHorizontal_bias, com.baidu.tieba.R.attr.layout_constraintHorizontal_chainStyle, com.baidu.tieba.R.attr.layout_constraintHorizontal_weight, com.baidu.tieba.R.attr.layout_constraintLeft_creator, com.baidu.tieba.R.attr.layout_constraintLeft_toLeftOf, com.baidu.tieba.R.attr.layout_constraintLeft_toRightOf, com.baidu.tieba.R.attr.layout_constraintRight_creator, com.baidu.tieba.R.attr.layout_constraintRight_toLeftOf, com.baidu.tieba.R.attr.layout_constraintRight_toRightOf, com.baidu.tieba.R.attr.layout_constraintStart_toEndOf, com.baidu.tieba.R.attr.layout_constraintStart_toStartOf, com.baidu.tieba.R.attr.layout_constraintTop_creator, com.baidu.tieba.R.attr.layout_constraintTop_toBottomOf, com.baidu.tieba.R.attr.layout_constraintTop_toTopOf, com.baidu.tieba.R.attr.layout_constraintVertical_bias, com.baidu.tieba.R.attr.layout_constraintVertical_chainStyle, com.baidu.tieba.R.attr.layout_constraintVertical_weight, com.baidu.tieba.R.attr.layout_constraintWidth_default, com.baidu.tieba.R.attr.layout_constraintWidth_max, com.baidu.tieba.R.attr.layout_constraintWidth_min, com.baidu.tieba.R.attr.layout_constraintWidth_percent, com.baidu.tieba.R.attr.layout_editor_absoluteX, com.baidu.tieba.R.attr.layout_editor_absoluteY, com.baidu.tieba.R.attr.layout_goneMarginBottom, com.baidu.tieba.R.attr.layout_goneMarginEnd, com.baidu.tieba.R.attr.layout_goneMarginLeft, com.baidu.tieba.R.attr.layout_goneMarginRight, com.baidu.tieba.R.attr.layout_goneMarginStart, com.baidu.tieba.R.attr.layout_goneMarginTop};
         public static final int[] LinearConstraintLayout = {16842948};
-
-        private styleable() {
-        }
     }
 }

@@ -4,7 +4,7 @@ import android.content.Context;
 import com.baidu.fsg.base.router.BaseApplicationLogic;
 import com.baidu.fsg.base.router.RouterManager;
 import java.util.HashMap;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public class LivenessApplicationLogic extends BaseApplicationLogic {
     public static final String actionName_liveness_recognize = "startLivenessRecognize";
     public static final String providerName = "LivenessProvider";

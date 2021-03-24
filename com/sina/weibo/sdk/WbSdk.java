@@ -9,22 +9,10 @@ import com.sina.weibo.sdk.auth.WbAppInfo;
 import com.sina.weibo.sdk.network.intercept.CommonParamInterception;
 import com.sina.weibo.sdk.sso.WeiboSsoManager;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class WbSdk {
-    private static AuthInfo authInfo;
-    private static boolean init = false;
-
-    public static void install(Context context, AuthInfo authInfo2) {
-        if (!init) {
-            if (authInfo2 == null || TextUtils.isEmpty(authInfo2.getAppKey()) || TextUtils.isEmpty(authInfo2.getRedirectUrl())) {
-                throw new RuntimeException("please set right app info (appKey,redirect");
-            }
-            authInfo = authInfo2;
-            CommonParamInterception.setAppKey(authInfo2.getAppKey());
-            WeiboSsoManager.getInstance().init(context, authInfo2.getAppKey());
-            init = true;
-        }
-    }
+    public static AuthInfo authInfo = null;
+    public static boolean init = false;
 
     public static void checkInit() {
         if (!init) {
@@ -37,8 +25,22 @@ public class WbSdk {
         return authInfo;
     }
 
+    public static void install(Context context, AuthInfo authInfo2) {
+        if (init) {
+            return;
+        }
+        if (authInfo2 != null && !TextUtils.isEmpty(authInfo2.getAppKey()) && !TextUtils.isEmpty(authInfo2.getRedirectUrl())) {
+            authInfo = authInfo2;
+            CommonParamInterception.setAppKey(authInfo2.getAppKey());
+            WeiboSsoManager.getInstance().init(context, authInfo2.getAppKey());
+            init = true;
+            return;
+        }
+        throw new RuntimeException("please set right app info (appKey,redirect");
+    }
+
     public static boolean isWbInstall(Context context) {
-        Intent intent = new Intent(WeiboAppManager.WEIBO_IDENTITY_ACTION);
+        Intent intent = new Intent("com.sina.weibo.action.sdkidentity");
         intent.addCategory("android.intent.category.DEFAULT");
         List<ResolveInfo> queryIntentServices = context.getPackageManager().queryIntentServices(intent, 0);
         return (queryIntentServices == null || queryIntentServices.isEmpty()) ? false : true;

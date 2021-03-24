@@ -8,127 +8,125 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.l;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
-import com.baidu.live.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.atomData.HotTopicActivityConfig;
-import com.baidu.tbadk.core.data.br;
+import com.baidu.tbadk.core.data.RecommendTopicData;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.ar;
-import com.baidu.tbadk.core.util.y;
 import com.baidu.tieba.R;
+import d.b.b.e.p.l;
+import d.b.h0.l.a;
+import d.b.h0.p0.b;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class PbTopicContainer extends LinearLayout implements View.OnClickListener {
-    private int mri;
-    private TbPageContext pageContext;
+
+    /* renamed from: e  reason: collision with root package name */
+    public int f20157e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public TbPageContext f20158f;
 
     public PbTopicContainer(Context context) {
         this(context, null);
     }
 
-    public PbTopicContainer(Context context, @Nullable AttributeSet attributeSet) {
-        super(context, attributeSet);
-        this.mri = 3;
-        setOrientation(0);
+    public final void a(RecommendTopicData.RecommendTopicListData recommendTopicListData) {
+        if (recommendTopicListData == null) {
+            return;
+        }
+        Context context = getContext();
+        TextView textView = new TextView(context);
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, l.g(context, R.dimen.tbds72));
+        int g2 = l.g(context, R.dimen.tbds22);
+        layoutParams.rightMargin = g2;
+        textView.setTag(recommendTopicListData);
+        textView.setText(b.a(recommendTopicListData.getTopicName()));
+        addView(textView, layoutParams);
+        textView.setTextSize(0, l.g(context, R.dimen.tbds33));
+        textView.setGravity(17);
+        textView.setOnClickListener(this);
+        textView.setPadding(g2, 0, g2, 0);
+        SkinManager.setBackgroundResource(textView, R.drawable.shape_corner_gray_tbds4);
+        SkinManager.setViewTextColor(textView, R.color.CAM_X0105);
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        if (view.getTag() instanceof RecommendTopicData.RecommendTopicListData) {
+            TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.HOT_TOPIC_CLICK).param("obj_locate", TbadkCoreStatisticKey.HOT_TOPIC_CLICK_PB_BOTTOM));
+            RecommendTopicData.RecommendTopicListData recommendTopicListData = (RecommendTopicData.RecommendTopicListData) view.getTag();
+            TbPageContext tbPageContext = this.f20158f;
+            if (tbPageContext != null && !b.c(tbPageContext, false, true)) {
+                HotTopicActivityConfig hotTopicActivityConfig = new HotTopicActivityConfig(getContext());
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, hotTopicActivityConfig.createNormalConfig(recommendTopicListData.getTopicId() + "", recommendTopicListData.getTopicName(), "2")));
+                return;
+            }
+            Context context = getContext();
+            a.l(context, "http://tieba.baidu.com/mo/q/hotMessage?topic_id=" + recommendTopicListData.getTopicId() + "&topic_name=" + recommendTopicListData.getTopicName());
+        }
     }
 
     @Override // android.widget.LinearLayout, android.view.View
-    protected void onMeasure(int i, int i2) {
-        int i3 = 0;
+    public void onMeasure(int i, int i2) {
         int size = (View.MeasureSpec.getSize(i) - getPaddingRight()) - getPaddingLeft();
         int childCount = getChildCount();
-        if (childCount > this.mri) {
+        if (childCount > this.f20157e) {
             while (true) {
                 childCount--;
-                if (childCount <= this.mri) {
+                if (childCount <= this.f20157e) {
                     break;
                 }
                 removeViewAt(childCount);
             }
         }
+        int i3 = 0;
         int i4 = 0;
-        while (true) {
-            int i5 = i3;
-            if (i4 >= getChildCount()) {
-                break;
-            }
-            View childAt = getChildAt(i4);
+        while (i3 < getChildCount()) {
+            View childAt = getChildAt(i3);
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) childAt.getLayoutParams();
-            childAt.measure(getChildMeasureSpec(i, getPaddingLeft() + getPaddingRight(), layoutParams.width), getChildMeasureSpec(i2, getPaddingTop() + getPaddingBottom(), layoutParams.height));
-            i3 = i5 + layoutParams.rightMargin + childAt.getMeasuredWidth() + layoutParams.leftMargin;
-            if (i3 > size) {
+            childAt.measure(LinearLayout.getChildMeasureSpec(i, getPaddingLeft() + getPaddingRight(), layoutParams.width), LinearLayout.getChildMeasureSpec(i2, getPaddingTop() + getPaddingBottom(), layoutParams.height));
+            i4 += childAt.getMeasuredWidth() + layoutParams.leftMargin + layoutParams.rightMargin;
+            if (i4 > size) {
                 break;
             }
-            i4++;
+            i3++;
         }
-        for (int childCount2 = getChildCount() - 1; childCount2 >= i4; childCount2--) {
+        for (int childCount2 = getChildCount() - 1; childCount2 >= i3; childCount2--) {
             removeViewAt(childCount2);
         }
         super.onMeasure(i, i2);
     }
 
-    public void setData(List<br.a> list) {
-        int i = 0;
-        if (y.isEmpty(list)) {
+    public void setData(List<RecommendTopicData.RecommendTopicListData> list) {
+        if (ListUtils.isEmpty(list)) {
             setVisibility(8);
             return;
         }
         setVisibility(0);
         removeAllViews();
-        while (true) {
-            int i2 = i;
-            if (i2 < 3 && i2 < list.size()) {
-                br.a aVar = list.get(i2);
-                if (aVar != null) {
-                    b(aVar);
-                }
-                i = i2 + 1;
-            } else {
-                return;
+        for (int i = 0; i < 3 && i < list.size(); i++) {
+            RecommendTopicData.RecommendTopicListData recommendTopicListData = list.get(i);
+            if (recommendTopicListData != null) {
+                a(recommendTopicListData);
             }
         }
-    }
-
-    private void b(br.a aVar) {
-        if (aVar != null) {
-            Context context = getContext();
-            TextView textView = new TextView(context);
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, l.getDimens(context, R.dimen.tbds72));
-            int dimens = l.getDimens(context, R.dimen.tbds22);
-            layoutParams.rightMargin = dimens;
-            textView.setTag(aVar);
-            textView.setText(com.baidu.tbadk.plugins.b.DG(aVar.getTopicName()));
-            addView(textView, layoutParams);
-            textView.setTextSize(0, l.getDimens(context, R.dimen.tbds33));
-            textView.setGravity(17);
-            textView.setOnClickListener(this);
-            textView.setPadding(dimens, 0, dimens, 0);
-            ap.setBackgroundResource(textView, R.drawable.shape_corner_gray_tbds4);
-            ap.setViewTextColor(textView, R.color.CAM_X0105);
-        }
-    }
-
-    public void setPageContext(TbPageContext tbPageContext) {
-        this.pageContext = tbPageContext;
     }
 
     public void setMaxChildCount(int i) {
-        this.mri = i;
+        this.f20157e = i;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        if (view.getTag() instanceof br.a) {
-            TiebaStatic.log(new ar(TbadkCoreStatisticKey.HOT_TOPIC_CLICK).dR("obj_locate", "pb_bottom"));
-            br.a aVar = (br.a) view.getTag();
-            if (this.pageContext != null && !com.baidu.tbadk.plugins.b.a(this.pageContext, false, true)) {
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new HotTopicActivityConfig(getContext()).createNormalConfig(aVar.getTopicId() + "", aVar.getTopicName(), "2")));
-                return;
-            }
-            com.baidu.tbadk.browser.a.startWebActivity(getContext(), "http://tieba.baidu.com/mo/q/hotMessage?topic_id=" + aVar.getTopicId() + "&topic_name=" + aVar.getTopicName());
-        }
+    public void setPageContext(TbPageContext tbPageContext) {
+        this.f20158f = tbPageContext;
+    }
+
+    public PbTopicContainer(Context context, @Nullable AttributeSet attributeSet) {
+        super(context, attributeSet);
+        this.f20157e = 3;
+        setOrientation(0);
     }
 }

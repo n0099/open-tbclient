@@ -1,6 +1,26 @@
 package com.bumptech.glide.request;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public interface RequestCoordinator {
+
+    /* loaded from: classes5.dex */
+    public enum RequestState {
+        RUNNING(false),
+        PAUSED(false),
+        CLEARED(false),
+        SUCCESS(true),
+        FAILED(true);
+        
+        public final boolean isComplete;
+
+        RequestState(boolean z) {
+            this.isComplete = z;
+        }
+
+        public boolean isComplete() {
+            return this.isComplete;
+        }
+    }
+
     boolean canNotifyCleared(Request request);
 
     boolean canNotifyStatusChanged(Request request);
@@ -14,24 +34,4 @@ public interface RequestCoordinator {
     void onRequestFailed(Request request);
 
     void onRequestSuccess(Request request);
-
-    /* loaded from: classes14.dex */
-    public enum RequestState {
-        RUNNING(false),
-        PAUSED(false),
-        CLEARED(false),
-        SUCCESS(true),
-        FAILED(true);
-        
-        private final boolean isComplete;
-
-        RequestState(boolean z) {
-            this.isComplete = z;
-        }
-
-        /* JADX INFO: Access modifiers changed from: package-private */
-        public boolean isComplete() {
-            return this.isComplete;
-        }
-    }
 }

@@ -7,18 +7,14 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class BIMFetchStateRtcInfo extends BIMRtcInfo {
-    private static final String TAG = "BIMFetchStateRtcInfo";
-    private List<UserState> mUkStates = new ArrayList();
-    private String roomStateMsg;
+    public static final String TAG = "BIMFetchStateRtcInfo";
+    public List<UserState> mUkStates;
+    public String roomStateMsg;
 
-    public List<UserState> getInviteUsers() {
-        return this.mUkStates;
-    }
-
-    /* loaded from: classes3.dex */
-    class UserState {
+    /* loaded from: classes2.dex */
+    public class UserState {
         public int status;
         public long uk;
 
@@ -29,26 +25,25 @@ public class BIMFetchStateRtcInfo extends BIMRtcInfo {
     }
 
     public BIMFetchStateRtcInfo(String str) {
+        ArrayList arrayList = new ArrayList();
+        this.mUkStates = arrayList;
         try {
             this.roomStateMsg = str;
-            this.mUkStates.clear();
+            arrayList.clear();
             JSONArray optJSONArray = new JSONObject(str).optJSONArray("msg");
             if (optJSONArray != null) {
-                int i = 0;
-                while (true) {
-                    int i2 = i;
-                    if (i2 < optJSONArray.length()) {
-                        JSONObject jSONObject = (JSONObject) optJSONArray.opt(i2);
-                        this.mUkStates.add(new UserState(jSONObject.optLong("uk"), jSONObject.optInt("status")));
-                        i = i2 + 1;
-                    } else {
-                        return;
-                    }
+                for (int i = 0; i < optJSONArray.length(); i++) {
+                    JSONObject jSONObject = (JSONObject) optJSONArray.opt(i);
+                    this.mUkStates.add(new UserState(jSONObject.optLong("uk"), jSONObject.optInt("status")));
                 }
             }
-        } catch (Exception e) {
-            LogUtils.e(TAG, "BIMFetchStateRtcInfo Exception:", e);
+        } catch (Exception e2) {
+            LogUtils.e(TAG, "BIMFetchStateRtcInfo Exception:", e2);
         }
+    }
+
+    public List<UserState> getInviteUsers() {
+        return this.mUkStates;
     }
 
     @Override // com.baidu.android.imrtc.BIMRtcInfo

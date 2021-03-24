@@ -17,62 +17,81 @@ import com.kwad.sdk.core.imageloader.utils.L;
 import com.kwad.sdk.core.imageloader.utils.MemoryCacheUtils;
 import java.io.InputStream;
 import java.util.concurrent.Executor;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public final class ImageLoaderConfiguration {
-    final boolean customExecutor;
-    final boolean customExecutorForCachedImages;
-    final ImageDecoder decoder;
-    final DisplayImageOptions defaultDisplayImageOptions;
-    final DiskCache diskCache;
-    final ImageDownloader downloader;
-    final int maxImageHeightForDiskCache;
-    final int maxImageHeightForMemoryCache;
-    final int maxImageWidthForDiskCache;
-    final int maxImageWidthForMemoryCache;
-    final MemoryCache memoryCache;
-    final ImageDownloader networkDeniedDownloader;
-    final BitmapProcessor processorForDiskCache;
-    final Resources resources;
-    final ImageDownloader slowNetworkDownloader;
-    final Executor taskExecutor;
-    final Executor taskExecutorForCachedImages;
-    final QueueProcessingType tasksProcessingType;
-    final int threadPoolSize;
-    final int threadPriority;
+    public final boolean customExecutor;
+    public final boolean customExecutorForCachedImages;
+    public final ImageDecoder decoder;
+    public final DisplayImageOptions defaultDisplayImageOptions;
+    public final DiskCache diskCache;
+    public final ImageDownloader downloader;
+    public final int maxImageHeightForDiskCache;
+    public final int maxImageHeightForMemoryCache;
+    public final int maxImageWidthForDiskCache;
+    public final int maxImageWidthForMemoryCache;
+    public final MemoryCache memoryCache;
+    public final ImageDownloader networkDeniedDownloader;
+    public final BitmapProcessor processorForDiskCache;
+    public final Resources resources;
+    public final ImageDownloader slowNetworkDownloader;
+    public final Executor taskExecutor;
+    public final Executor taskExecutorForCachedImages;
+    public final QueueProcessingType tasksProcessingType;
+    public final int threadPoolSize;
+    public final int threadPriority;
 
-    /* loaded from: classes3.dex */
+    /* renamed from: com.kwad.sdk.core.imageloader.core.ImageLoaderConfiguration$1  reason: invalid class name */
+    /* loaded from: classes6.dex */
+    public static /* synthetic */ class AnonymousClass1 {
+        public static final /* synthetic */ int[] $SwitchMap$com$kwad$sdk$core$imageloader$core$download$ImageDownloader$Scheme;
+
+        static {
+            int[] iArr = new int[ImageDownloader.Scheme.values().length];
+            $SwitchMap$com$kwad$sdk$core$imageloader$core$download$ImageDownloader$Scheme = iArr;
+            try {
+                iArr[ImageDownloader.Scheme.HTTP.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
+            }
+            try {
+                $SwitchMap$com$kwad$sdk$core$imageloader$core$download$ImageDownloader$Scheme[ImageDownloader.Scheme.HTTPS.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
     public static class Builder {
         public static final QueueProcessingType DEFAULT_TASK_PROCESSING_TYPE = QueueProcessingType.FIFO;
         public static final int DEFAULT_THREAD_POOL_SIZE = 3;
         public static final int DEFAULT_THREAD_PRIORITY = 3;
-        private static final String WARNING_OVERLAP_DISK_CACHE_NAME_GENERATOR = "diskCache() and diskCacheFileNameGenerator() calls overlap each other";
-        private static final String WARNING_OVERLAP_DISK_CACHE_PARAMS = "diskCache(), diskCacheSize() and diskCacheFileCount calls overlap each other";
-        private static final String WARNING_OVERLAP_EXECUTOR = "threadPoolSize(), threadPriority() and tasksProcessingOrder() calls can overlap taskExecutor() and taskExecutorForCachedImages() calls.";
-        private static final String WARNING_OVERLAP_MEMORY_CACHE = "memoryCache() and memoryCacheSize() calls overlap each other";
-        private Context context;
-        private ImageDecoder decoder;
-        private int maxImageWidthForMemoryCache = 0;
-        private int maxImageHeightForMemoryCache = 0;
-        private int maxImageWidthForDiskCache = 0;
-        private int maxImageHeightForDiskCache = 0;
-        private BitmapProcessor processorForDiskCache = null;
-        private Executor taskExecutor = null;
-        private Executor taskExecutorForCachedImages = null;
-        private boolean customExecutor = false;
-        private boolean customExecutorForCachedImages = false;
-        private int threadPoolSize = 3;
-        private int threadPriority = 3;
-        private boolean denyCacheImageMultipleSizesInMemory = false;
-        private QueueProcessingType tasksProcessingType = DEFAULT_TASK_PROCESSING_TYPE;
-        private int memoryCacheSize = 0;
-        private long diskCacheSize = 0;
-        private int diskCacheFileCount = 0;
-        private MemoryCache memoryCache = null;
-        private DiskCache diskCache = null;
-        private FileNameGenerator diskCacheFileNameGenerator = null;
-        private ImageDownloader downloader = null;
-        private DisplayImageOptions defaultDisplayImageOptions = null;
-        private boolean writeLogs = false;
+        public static final String WARNING_OVERLAP_DISK_CACHE_NAME_GENERATOR = "diskCache() and diskCacheFileNameGenerator() calls overlap each other";
+        public static final String WARNING_OVERLAP_DISK_CACHE_PARAMS = "diskCache(), diskCacheSize() and diskCacheFileCount calls overlap each other";
+        public static final String WARNING_OVERLAP_EXECUTOR = "threadPoolSize(), threadPriority() and tasksProcessingOrder() calls can overlap taskExecutor() and taskExecutorForCachedImages() calls.";
+        public static final String WARNING_OVERLAP_MEMORY_CACHE = "memoryCache() and memoryCacheSize() calls overlap each other";
+        public Context context;
+        public ImageDecoder decoder;
+        public int maxImageWidthForMemoryCache = 0;
+        public int maxImageHeightForMemoryCache = 0;
+        public int maxImageWidthForDiskCache = 0;
+        public int maxImageHeightForDiskCache = 0;
+        public BitmapProcessor processorForDiskCache = null;
+        public Executor taskExecutor = null;
+        public Executor taskExecutorForCachedImages = null;
+        public boolean customExecutor = false;
+        public boolean customExecutorForCachedImages = false;
+        public int threadPoolSize = 3;
+        public int threadPriority = 3;
+        public boolean denyCacheImageMultipleSizesInMemory = false;
+        public QueueProcessingType tasksProcessingType = DEFAULT_TASK_PROCESSING_TYPE;
+        public int memoryCacheSize = 0;
+        public long diskCacheSize = 0;
+        public int diskCacheFileCount = 0;
+        public MemoryCache memoryCache = null;
+        public DiskCache diskCache = null;
+        public FileNameGenerator diskCacheFileNameGenerator = null;
+        public ImageDownloader downloader = null;
+        public DisplayImageOptions defaultDisplayImageOptions = null;
+        public boolean writeLogs = false;
 
         public Builder(Context context) {
             this.context = context.getApplicationContext();
@@ -114,7 +133,7 @@ public final class ImageLoaderConfiguration {
 
         public ImageLoaderConfiguration build() {
             initEmptyFieldsWithDefaultValues();
-            return new ImageLoaderConfiguration(this);
+            return new ImageLoaderConfiguration(this, null);
         }
 
         public Builder defaultDisplayImageOptions(DisplayImageOptions displayImageOptions) {
@@ -171,14 +190,14 @@ public final class ImageLoaderConfiguration {
         }
 
         public Builder diskCacheFileCount(int i) {
-            if (i <= 0) {
-                throw new IllegalArgumentException("maxFileCount must be a positive number");
+            if (i > 0) {
+                if (this.diskCache != null) {
+                    L.w(WARNING_OVERLAP_DISK_CACHE_PARAMS, new Object[0]);
+                }
+                this.diskCacheFileCount = i;
+                return this;
             }
-            if (this.diskCache != null) {
-                L.w(WARNING_OVERLAP_DISK_CACHE_PARAMS, new Object[0]);
-            }
-            this.diskCacheFileCount = i;
-            return this;
+            throw new IllegalArgumentException("maxFileCount must be a positive number");
         }
 
         public Builder diskCacheFileNameGenerator(FileNameGenerator fileNameGenerator) {
@@ -190,14 +209,14 @@ public final class ImageLoaderConfiguration {
         }
 
         public Builder diskCacheSize(int i) {
-            if (i <= 0) {
-                throw new IllegalArgumentException("maxCacheSize must be a positive number");
+            if (i > 0) {
+                if (this.diskCache != null) {
+                    L.w(WARNING_OVERLAP_DISK_CACHE_PARAMS, new Object[0]);
+                }
+                this.diskCacheSize = i;
+                return this;
             }
-            if (this.diskCache != null) {
-                L.w(WARNING_OVERLAP_DISK_CACHE_PARAMS, new Object[0]);
-            }
-            this.diskCacheSize = i;
-            return this;
+            throw new IllegalArgumentException("maxCacheSize must be a positive number");
         }
 
         public Builder imageDecoder(ImageDecoder imageDecoder) {
@@ -225,14 +244,14 @@ public final class ImageLoaderConfiguration {
         }
 
         public Builder memoryCacheSize(int i) {
-            if (i <= 0) {
-                throw new IllegalArgumentException("memoryCacheSize must be a positive number");
+            if (i > 0) {
+                if (this.memoryCache != null) {
+                    L.w(WARNING_OVERLAP_MEMORY_CACHE, new Object[0]);
+                }
+                this.memoryCacheSize = i;
+                return this;
             }
-            if (this.memoryCache != null) {
-                L.w(WARNING_OVERLAP_MEMORY_CACHE, new Object[0]);
-            }
-            this.memoryCacheSize = i;
-            return this;
+            throw new IllegalArgumentException("memoryCacheSize must be a positive number");
         }
 
         public Builder memoryCacheSizePercentage(int i) {
@@ -282,13 +301,15 @@ public final class ImageLoaderConfiguration {
             if (this.taskExecutor != null || this.taskExecutorForCachedImages != null) {
                 L.w(WARNING_OVERLAP_EXECUTOR, new Object[0]);
             }
-            if (i < 1) {
-                this.threadPriority = 1;
-            } else if (i > 10) {
-                this.threadPriority = 10;
-            } else {
-                this.threadPriority = i;
+            int i2 = 1;
+            if (i >= 1) {
+                i2 = 10;
+                if (i <= 10) {
+                    this.threadPriority = i;
+                    return this;
+                }
             }
+            this.threadPriority = i2;
             return this;
         }
 
@@ -298,9 +319,9 @@ public final class ImageLoaderConfiguration {
         }
     }
 
-    /* loaded from: classes3.dex */
-    private static class NetworkDeniedImageDownloader implements ImageDownloader {
-        private final ImageDownloader wrappedDownloader;
+    /* loaded from: classes6.dex */
+    public static class NetworkDeniedImageDownloader implements ImageDownloader {
+        public final ImageDownloader wrappedDownloader;
 
         public NetworkDeniedImageDownloader(ImageDownloader imageDownloader) {
             this.wrappedDownloader = imageDownloader;
@@ -308,19 +329,17 @@ public final class ImageLoaderConfiguration {
 
         @Override // com.kwad.sdk.core.imageloader.core.download.ImageDownloader
         public InputStream getStream(String str, Object obj) {
-            switch (ImageDownloader.Scheme.ofUri(str)) {
-                case HTTP:
-                case HTTPS:
-                    throw new IllegalStateException();
-                default:
-                    return this.wrappedDownloader.getStream(str, obj);
+            int i = AnonymousClass1.$SwitchMap$com$kwad$sdk$core$imageloader$core$download$ImageDownloader$Scheme[ImageDownloader.Scheme.ofUri(str).ordinal()];
+            if (i == 1 || i == 2) {
+                throw new IllegalStateException();
             }
+            return this.wrappedDownloader.getStream(str, obj);
         }
     }
 
-    /* loaded from: classes3.dex */
-    private static class SlowNetworkImageDownloader implements ImageDownloader {
-        private final ImageDownloader wrappedDownloader;
+    /* loaded from: classes6.dex */
+    public static class SlowNetworkImageDownloader implements ImageDownloader {
+        public final ImageDownloader wrappedDownloader;
 
         public SlowNetworkImageDownloader(ImageDownloader imageDownloader) {
             this.wrappedDownloader = imageDownloader;
@@ -329,17 +348,12 @@ public final class ImageLoaderConfiguration {
         @Override // com.kwad.sdk.core.imageloader.core.download.ImageDownloader
         public InputStream getStream(String str, Object obj) {
             InputStream stream = this.wrappedDownloader.getStream(str, obj);
-            switch (ImageDownloader.Scheme.ofUri(str)) {
-                case HTTP:
-                case HTTPS:
-                    return new FlushedInputStream(stream);
-                default:
-                    return stream;
-            }
+            int i = AnonymousClass1.$SwitchMap$com$kwad$sdk$core$imageloader$core$download$ImageDownloader$Scheme[ImageDownloader.Scheme.ofUri(str).ordinal()];
+            return (i == 1 || i == 2) ? new FlushedInputStream(stream) : stream;
         }
     }
 
-    private ImageLoaderConfiguration(Builder builder) {
+    public ImageLoaderConfiguration(Builder builder) {
         this.resources = builder.context.getResources();
         this.maxImageWidthForMemoryCache = builder.maxImageWidthForMemoryCache;
         this.maxImageHeightForMemoryCache = builder.maxImageHeightForMemoryCache;
@@ -363,11 +377,14 @@ public final class ImageLoaderConfiguration {
         L.writeDebugLogs(builder.writeLogs);
     }
 
+    public /* synthetic */ ImageLoaderConfiguration(Builder builder, AnonymousClass1 anonymousClass1) {
+        this(builder);
+    }
+
     public static ImageLoaderConfiguration createDefault(Context context) {
         return new Builder(context).build();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public ImageSize getMaxImageSize() {
         DisplayMetrics displayMetrics = this.resources.getDisplayMetrics();
         int i = this.maxImageWidthForMemoryCache;

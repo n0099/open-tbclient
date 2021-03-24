@@ -2,12 +2,11 @@ package com.baidu.tieba;
 
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.LogoActivityConfig;
-/* loaded from: classes.dex */
+import d.b.i0.c;
+/* loaded from: classes4.dex */
 public class LogoActivityStatic {
-    private static c geO;
-
     static {
         TbadkCoreApplication.getInst().RegisterIntent(LogoActivityConfig.class, LogoActivity.class);
-        geO = c.bJu();
+        c.g();
     }
 }

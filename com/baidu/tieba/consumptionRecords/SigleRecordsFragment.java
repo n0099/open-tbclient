@@ -10,247 +10,297 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.TextView;
-import com.baidu.adp.lib.util.l;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.bf;
 import com.baidu.tbadk.core.view.NoDataView;
 import com.baidu.tbadk.core.view.NoDataViewFactory;
-import com.baidu.tbadk.core.view.f;
-import com.baidu.tbadk.core.view.g;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.consumptionRecords.ConsumptionRecordsModel;
+import d.b.b.e.p.l;
+import d.b.h0.r.f0.f;
+import d.b.h0.r.f0.g;
 import java.util.ArrayList;
 @SuppressLint({"ResourceAsColor"})
-/* loaded from: classes8.dex */
+/* loaded from: classes4.dex */
 public class SigleRecordsFragment extends BaseFragment {
-    private BdListView Yj;
-    private TextView fqn;
-    private ConsumptionRecordsActivity iEV;
-    private ConsumptionRecordsModel iEW;
-    private c iEZ;
-    private TbImageView iFa;
-    private NoDataView mNoDataView;
-    private LinearLayout mRootView;
-    private int type;
-    private boolean iEX = false;
-    private boolean iEY = false;
-    private g mPullView = null;
+
+    /* renamed from: e  reason: collision with root package name */
+    public ConsumptionRecordsActivity f15294e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public ConsumptionRecordsModel f15295f;
+    public int i;
+    public LinearLayout j;
+    public BdListView k;
+    public d.b.i0.a0.c m;
+    public NoDataView n;
+    public TextView o;
+    public TbImageView p;
+
+    /* renamed from: g  reason: collision with root package name */
+    public boolean f15296g = false;
+
+    /* renamed from: h  reason: collision with root package name */
+    public boolean f15297h = false;
+    public g l = null;
+
+    /* loaded from: classes4.dex */
+    public class a implements ConsumptionRecordsModel.b {
+        public a() {
+        }
+
+        @Override // com.baidu.tieba.consumptionRecords.ConsumptionRecordsModel.b
+        public void a(int i, String str, ArrayList<d.b.i0.a0.a> arrayList, d.b.i0.a0.b bVar, boolean z) {
+            SigleRecordsFragment.this.f15297h = z;
+            SigleRecordsFragment sigleRecordsFragment = SigleRecordsFragment.this;
+            sigleRecordsFragment.hideLoadingView(sigleRecordsFragment.j);
+            SigleRecordsFragment.this.k.z();
+            if (i == 0) {
+                SigleRecordsFragment.this.f15296g = true;
+                if (arrayList == null || arrayList.size() <= 0) {
+                    if (bVar != null) {
+                        SigleRecordsFragment.this.Y0(bVar);
+                        return;
+                    } else {
+                        SigleRecordsFragment.this.X0();
+                        return;
+                    }
+                }
+                SigleRecordsFragment.this.W0();
+                if (z) {
+                    SigleRecordsFragment.this.o.setText(R.string.loading_more_now);
+                } else {
+                    SigleRecordsFragment.this.o.setText(R.string.no_more_data);
+                }
+                SigleRecordsFragment.this.m.g(arrayList);
+                SigleRecordsFragment.this.m.notifyDataSetChanged();
+                return;
+            }
+            SigleRecordsFragment.this.showToast(str);
+            if (!SigleRecordsFragment.this.f15296g) {
+                SigleRecordsFragment.this.X0();
+            } else if (z) {
+                SigleRecordsFragment.this.o.setText(R.string.load_more);
+            } else {
+                SigleRecordsFragment.this.o.setText(R.string.no_more_data);
+            }
+            SigleRecordsFragment.this.f15296g = true;
+        }
+
+        @Override // com.baidu.tieba.consumptionRecords.ConsumptionRecordsModel.b
+        public void b() {
+            SigleRecordsFragment.this.f15296g = true;
+            SigleRecordsFragment sigleRecordsFragment = SigleRecordsFragment.this;
+            sigleRecordsFragment.hideLoadingView(sigleRecordsFragment.j);
+            if (SigleRecordsFragment.this.f15297h) {
+                SigleRecordsFragment.this.o.setText(R.string.load_more);
+            } else {
+                SigleRecordsFragment.this.o.setText(R.string.no_more_data);
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class b implements f.g {
+        public b() {
+        }
+
+        @Override // d.b.h0.r.f0.f.g
+        public void onListPullRefresh(boolean z) {
+            SigleRecordsFragment.this.f15295f.y();
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class c implements BdListView.p {
+        public c() {
+        }
+
+        @Override // com.baidu.adp.widget.ListView.BdListView.p
+        public void onScrollToBottom() {
+            SigleRecordsFragment.this.f15295f.z();
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class d implements View.OnClickListener {
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ d.b.i0.a0.b f15301e;
+
+        public d(d.b.i0.a0.b bVar) {
+            this.f15301e = bVar;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            UrlManager.getInstance().dealOneLink(SigleRecordsFragment.this.getPageContext(), new String[]{this.f15301e.b()});
+        }
+    }
+
+    public final void S0() {
+        BdListView bdListView = this.k;
+        if (bdListView != null) {
+            bdListView.setVisibility(8);
+        }
+    }
+
+    public final void T0() {
+        NoDataView noDataView = this.n;
+        if (noDataView != null) {
+            noDataView.setVisibility(8);
+        }
+    }
+
+    public final void U0() {
+        TbImageView tbImageView = this.p;
+        if (tbImageView != null) {
+            this.j.removeView(tbImageView);
+        }
+    }
+
+    public void V0(int i) {
+        this.i = i;
+    }
+
+    public final void W0() {
+        T0();
+        U0();
+        BdListView bdListView = this.k;
+        if (bdListView != null) {
+            bdListView.setVisibility(0);
+        }
+    }
+
+    public final void X0() {
+        int i;
+        int i2 = this.i;
+        if (i2 == 1) {
+            i = R.string.no_expenditure_records_tip;
+        } else if (i2 == 2) {
+            i = R.string.no_income_records_tip;
+        } else if (i2 != 3) {
+            i = R.string.no_records_tip;
+        } else {
+            i = R.string.no_recharge_records_tip;
+        }
+        if (this.n == null) {
+            this.n = NoDataViewFactory.a(this.f15294e.getPageContext().getPageActivity(), this.j, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, l.g(this.f15294e.getActivity(), R.dimen.ds320)), NoDataViewFactory.e.a(i), null);
+        }
+        this.n.setTextOption(NoDataViewFactory.e.d(null, getResources().getString(i)));
+        this.n.f(this.f15294e.getPageContext(), TbadkApplication.getInst().getSkinType());
+        U0();
+        S0();
+        this.n.setVisibility(0);
+    }
+
+    public final void Y0(d.b.i0.a0.b bVar) {
+        if (bVar == null || this.j == null) {
+            return;
+        }
+        if (this.p == null) {
+            this.p = new TbImageView(getActivity());
+            this.p.setLayoutParams(new LinearLayout.LayoutParams(-1, -1));
+            this.p.setScaleType(ImageView.ScaleType.FIT_CENTER);
+        }
+        this.p.W(bVar.a(), 10, false);
+        this.p.setVisibility(0);
+        this.p.setOnClickListener(new d(bVar));
+        S0();
+        T0();
+        this.j.addView(this.p);
+    }
+
+    @Override // com.baidu.tbadk.core.BaseFragment
+    public void onChangeSkinType(int i) {
+        BdListView bdListView;
+        super.onChangeSkinType(i);
+        LinearLayout linearLayout = this.j;
+        if (linearLayout != null) {
+            SkinManager.setBackgroundColor(linearLayout, R.color.CAM_X0201);
+        }
+        TextView textView = this.o;
+        if (textView != null) {
+            SkinManager.setViewTextColor(textView, R.color.CAM_X0108);
+        }
+        g gVar = this.l;
+        if (gVar != null) {
+            gVar.I(i);
+        }
+        if (this.m != null && (bdListView = this.k) != null) {
+            SkinManager.setBackgroundColor(bdListView, R.color.CAM_X0204);
+            this.m.notifyDataSetChanged();
+        }
+        NoDataView noDataView = this.n;
+        if (noDataView == null || noDataView.getVisibility() != 0) {
+            return;
+        }
+        this.n.f(this.f15294e.getPageContext(), i);
+    }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.iEV = (ConsumptionRecordsActivity) getBaseFragmentActivity();
-        this.iEW = new ConsumptionRecordsModel(getUniqueId());
-        this.iEW.setType(this.type);
-        if (this.type == 3) {
-            this.iEW.setShowMember(1);
+        this.f15294e = (ConsumptionRecordsActivity) getBaseFragmentActivity();
+        ConsumptionRecordsModel consumptionRecordsModel = new ConsumptionRecordsModel(getUniqueId());
+        this.f15295f = consumptionRecordsModel;
+        consumptionRecordsModel.setType(this.i);
+        if (this.i == 3) {
+            this.f15295f.setShowMember(1);
         } else {
-            this.iEW.setShowMember(0);
+            this.f15295f.setShowMember(0);
         }
-        this.iEW.a(new ConsumptionRecordsModel.a() { // from class: com.baidu.tieba.consumptionRecords.SigleRecordsFragment.1
-            @Override // com.baidu.tieba.consumptionRecords.ConsumptionRecordsModel.a
-            public void a(int i, String str, ArrayList<a> arrayList, b bVar, boolean z) {
-                SigleRecordsFragment.this.iEY = z;
-                SigleRecordsFragment.this.hideLoadingView(SigleRecordsFragment.this.mRootView);
-                SigleRecordsFragment.this.Yj.completePullRefresh();
-                if (i == 0) {
-                    SigleRecordsFragment.this.iEX = true;
-                    if (arrayList != null && arrayList.size() > 0) {
-                        SigleRecordsFragment.this.bYu();
-                        if (z) {
-                            SigleRecordsFragment.this.fqn.setText(R.string.loading_more_now);
-                        } else {
-                            SigleRecordsFragment.this.fqn.setText(R.string.no_more_data);
-                        }
-                        SigleRecordsFragment.this.iEZ.al(arrayList);
-                        SigleRecordsFragment.this.iEZ.notifyDataSetChanged();
-                        return;
-                    } else if (bVar != null) {
-                        SigleRecordsFragment.this.a(bVar);
-                        return;
-                    } else {
-                        SigleRecordsFragment.this.showNoDataView();
-                        return;
-                    }
-                }
-                SigleRecordsFragment.this.showToast(str);
-                if (!SigleRecordsFragment.this.iEX) {
-                    SigleRecordsFragment.this.showNoDataView();
-                } else if (z) {
-                    SigleRecordsFragment.this.fqn.setText(R.string.load_more);
-                } else {
-                    SigleRecordsFragment.this.fqn.setText(R.string.no_more_data);
-                }
-                SigleRecordsFragment.this.iEX = true;
-            }
-
-            @Override // com.baidu.tieba.consumptionRecords.ConsumptionRecordsModel.a
-            public void ctB() {
-                SigleRecordsFragment.this.iEX = true;
-                SigleRecordsFragment.this.hideLoadingView(SigleRecordsFragment.this.mRootView);
-                if (SigleRecordsFragment.this.iEY) {
-                    SigleRecordsFragment.this.fqn.setText(R.string.load_more);
-                } else {
-                    SigleRecordsFragment.this.fqn.setText(R.string.no_more_data);
-                }
-            }
-        });
+        this.f15295f.B(new a());
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        this.mRootView = (LinearLayout) layoutInflater.inflate(R.layout.single_fragment_layout, (ViewGroup) null);
-        this.Yj = (BdListView) this.mRootView.findViewById(R.id.records_list_view);
-        this.mPullView = new g(this.iEV.getPageContext());
-        this.iEZ = new c(this.iEV.getPageContext(), this.type);
-        this.Yj.setAdapter((ListAdapter) this.iEZ);
-        this.Yj.setPullRefresh(this.mPullView);
-        TextView textView = new TextView(this.iEV.getActivity());
-        textView.setLayoutParams(new AbsListView.LayoutParams(-1, UtilHelper.getLightStatusBarHeight() + l.getDimens(this.iEV.getActivity(), R.dimen.ds176)));
-        this.Yj.addHeaderView(textView, 0);
-        this.mPullView.setListPullRefreshListener(new f.c() { // from class: com.baidu.tieba.consumptionRecords.SigleRecordsFragment.2
-            @Override // com.baidu.tbadk.core.view.f.c
-            public void onListPullRefresh(boolean z) {
-                SigleRecordsFragment.this.iEW.ctz();
-            }
-        });
-        this.Yj.setOnSrollToBottomListener(new BdListView.e() { // from class: com.baidu.tieba.consumptionRecords.SigleRecordsFragment.3
-            @Override // com.baidu.adp.widget.ListView.BdListView.e
-            public void onScrollToBottom() {
-                SigleRecordsFragment.this.iEW.ctA();
-            }
-        });
-        this.fqn = (TextView) layoutInflater.inflate(R.layout.load_more_view, (ViewGroup) null);
-        this.Yj.addFooterView(this.fqn);
+        LinearLayout linearLayout = (LinearLayout) layoutInflater.inflate(R.layout.single_fragment_layout, (ViewGroup) null);
+        this.j = linearLayout;
+        this.k = (BdListView) linearLayout.findViewById(R.id.records_list_view);
+        this.l = new g(this.f15294e.getPageContext());
+        d.b.i0.a0.c cVar = new d.b.i0.a0.c(this.f15294e.getPageContext(), this.i);
+        this.m = cVar;
+        this.k.setAdapter((ListAdapter) cVar);
+        this.k.setPullRefresh(this.l);
+        TextView textView = new TextView(this.f15294e.getActivity());
+        textView.setLayoutParams(new AbsListView.LayoutParams(-1, UtilHelper.getLightStatusBarHeight() + l.g(this.f15294e.getActivity(), R.dimen.ds176)));
+        this.k.x(textView, 0);
+        this.l.b(new b());
+        this.k.setOnSrollToBottomListener(new c());
+        TextView textView2 = (TextView) layoutInflater.inflate(R.layout.load_more_view, (ViewGroup) null);
+        this.o = textView2;
+        this.k.addFooterView(textView2);
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-        return this.mRootView;
-    }
-
-    public void setType(int i) {
-        this.type = i;
-    }
-
-    @Override // com.baidu.tbadk.core.BaseFragment
-    public void onPrimary() {
-        super.onPrimary();
-        if (!this.iEX) {
-            this.iEW.ctz();
-            showLoadingView(this.mRootView, true, 400);
-        }
+        return this.j;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        if (this.iEW != null) {
-            this.iEW.destroy();
+        ConsumptionRecordsModel consumptionRecordsModel = this.f15295f;
+        if (consumptionRecordsModel != null) {
+            consumptionRecordsModel.destroy();
         }
-        hideLoadingView(this.mRootView);
-        this.Yj.completePullRefresh();
-        this.mPullView = null;
-        this.mNoDataView = null;
+        hideLoadingView(this.j);
+        this.k.z();
+        this.l = null;
+        this.n = null;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
-    public void onChangeSkinType(int i) {
-        super.onChangeSkinType(i);
-        if (this.mRootView != null) {
-            ap.setBackgroundColor(this.mRootView, R.color.CAM_X0201);
+    public void onPrimary() {
+        super.onPrimary();
+        if (this.f15296g) {
+            return;
         }
-        if (this.fqn != null) {
-            ap.setViewTextColor(this.fqn, R.color.CAM_X0108);
-        }
-        if (this.mPullView != null) {
-            this.mPullView.changeSkin(i);
-        }
-        if (this.iEZ != null && this.Yj != null) {
-            ap.setBackgroundColor(this.Yj, R.color.CAM_X0204);
-            this.iEZ.notifyDataSetChanged();
-        }
-        if (this.mNoDataView != null && this.mNoDataView.getVisibility() == 0) {
-            this.mNoDataView.onChangeSkinType(this.iEV.getPageContext(), i);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void showNoDataView() {
-        int i;
-        switch (this.type) {
-            case 1:
-                i = R.string.no_expenditure_records_tip;
-                break;
-            case 2:
-                i = R.string.no_income_records_tip;
-                break;
-            case 3:
-                i = R.string.no_recharge_records_tip;
-                break;
-            default:
-                i = R.string.no_records_tip;
-                break;
-        }
-        if (this.mNoDataView == null) {
-            this.mNoDataView = NoDataViewFactory.a(this.iEV.getPageContext().getPageActivity(), this.mRootView, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, l.getDimens(this.iEV.getActivity(), R.dimen.ds320)), NoDataViewFactory.d.pA(i), null);
-        }
-        this.mNoDataView.setTextOption(NoDataViewFactory.d.dS(null, getResources().getString(i)));
-        this.mNoDataView.onChangeSkinType(this.iEV.getPageContext(), TbadkApplication.getInst().getSkinType());
-        ctI();
-        bYv();
-        this.mNoDataView.setVisibility(0);
-    }
-
-    private void hideNoDataView() {
-        if (this.mNoDataView != null) {
-            this.mNoDataView.setVisibility(8);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(final b bVar) {
-        if (bVar != null && this.mRootView != null) {
-            if (this.iFa == null) {
-                this.iFa = new TbImageView(getActivity());
-                this.iFa.setLayoutParams(new LinearLayout.LayoutParams(-1, -1));
-                this.iFa.setScaleType(ImageView.ScaleType.FIT_CENTER);
-            }
-            this.iFa.startLoad(bVar.getIconUrl(), 10, false);
-            this.iFa.setVisibility(0);
-            this.iFa.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.consumptionRecords.SigleRecordsFragment.4
-                @Override // android.view.View.OnClickListener
-                public void onClick(View view) {
-                    bf.bsY().b(SigleRecordsFragment.this.getPageContext(), new String[]{bVar.getLinkUrl()});
-                }
-            });
-            bYv();
-            hideNoDataView();
-            this.mRootView.addView(this.iFa);
-        }
-    }
-
-    private void ctI() {
-        if (this.iFa != null) {
-            this.mRootView.removeView(this.iFa);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void bYu() {
-        hideNoDataView();
-        ctI();
-        if (this.Yj != null) {
-            this.Yj.setVisibility(0);
-        }
-    }
-
-    private void bYv() {
-        if (this.Yj != null) {
-            this.Yj.setVisibility(8);
-        }
+        this.f15295f.y();
+        showLoadingView(this.j, true, 400);
     }
 }

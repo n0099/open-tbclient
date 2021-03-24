@@ -1,78 +1,77 @@
 package com.baidu.tieba.personExtra;
 
 import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.adp.lib.cache.l;
-import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.bf;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
+import d.b.b.e.d.l;
+import d.b.h0.r.q.f1;
+import d.b.h0.r.r.a;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class PersonFriendResponseMessage extends JsonHttpResponsedMessage {
-    private static final int CACHETIME = 604800000;
-    private bf data;
-    private int errCode;
-    private String resultString;
-
-    public int getErrCode() {
-        return this.errCode;
-    }
-
-    public void setErrCode(int i) {
-        this.errCode = i;
-    }
+    public static final int CACHETIME = 604800000;
+    public f1 data;
+    public int errCode;
+    public String resultString;
 
     public PersonFriendResponseMessage(int i) {
         super(i);
         this.errCode = -1;
-        this.data = new bf();
-    }
-
-    public void setPersonFriendData(bf bfVar) {
-        this.data = bfVar;
-    }
-
-    public bf getPersonFriendData() {
-        return this.data;
-    }
-
-    public void setResultString(String str) {
-        this.resultString = str;
-    }
-
-    public String getResultString() {
-        return this.resultString;
+        this.data = new f1();
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         int statusCode = getStatusCode();
         int error = getError();
-        if (statusCode == 200 && error >= 0 && jSONObject != null) {
-            this.resultString = jSONObject.toString();
-            this.errCode = jSONObject.optInt("error_code");
-            this.data.parserJson(jSONObject);
+        if (statusCode != 200 || error < 0 || jSONObject == null) {
+            return;
         }
+        this.resultString = jSONObject.toString();
+        this.errCode = jSONObject.optInt("error_code");
+        this.data.g(jSONObject);
+    }
+
+    public int getErrCode() {
+        return this.errCode;
+    }
+
+    public f1 getPersonFriendData() {
+        return this.data;
+    }
+
+    public String getResultString() {
+        return this.resultString;
+    }
+
+    public void setErrCode(int i) {
+        this.errCode = i;
+    }
+
+    public void setPersonFriendData(f1 f1Var) {
+        this.data = f1Var;
+    }
+
+    public void setResultString(String str) {
+        this.resultString = str;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public void beforeDispatchInBackGround(int i, byte[] bArr) {
-        l<String> Az;
+        l<String> g2;
         if (isSuccess() && this.errCode == 0) {
             HttpMessage httpMessage = (HttpMessage) getOrginalMessage();
-            String str = "";
-            if (TbadkCoreApplication.getCurrentAccountObj() != null) {
-                str = TbadkCoreApplication.getCurrentAccountObj().getID();
-            }
+            String id = TbadkCoreApplication.getCurrentAccountObj() != null ? TbadkCoreApplication.getCurrentAccountObj().getID() : "";
             if (httpMessage.getExtra() == null) {
                 try {
                     String parseToString = parseToString(bArr);
-                    if (parseToString != null && (Az = com.baidu.tbadk.core.c.a.bqt().Az("tb.my_pages")) != null) {
-                        Az.set("personal_myfollow" + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + str, parseToString, 604800000L);
+                    if (parseToString == null || (g2 = a.f().g("tb.my_pages")) == null) {
+                        return;
                     }
-                } catch (Exception e) {
-                    e.printStackTrace();
+                    g2.e("personal_myfollow_" + id, parseToString, 604800000L);
+                } catch (Exception e2) {
+                    e2.printStackTrace();
                 }
             }
         }

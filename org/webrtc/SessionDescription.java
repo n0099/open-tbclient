@@ -1,21 +1,16 @@
 package org.webrtc;
 
 import java.util.Locale;
-/* loaded from: classes9.dex */
+/* loaded from: classes7.dex */
 public class SessionDescription {
     public final String description;
     public final Type type;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes7.dex */
     public enum Type {
         OFFER,
         PRANSWER,
         ANSWER;
-
-        @CalledByNative("Type")
-        public static Type fromCanonicalForm(String str) {
-            return (Type) valueOf(Type.class, str.toUpperCase(Locale.US));
-        }
 
         public String canonicalForm() {
             return name().toLowerCase(Locale.US);
@@ -29,12 +24,12 @@ public class SessionDescription {
     }
 
     @CalledByNative
-    String getDescription() {
+    public String getDescription() {
         return this.description;
     }
 
     @CalledByNative
-    String getTypeInCanonicalForm() {
+    public String getTypeInCanonicalForm() {
         return this.type.canonicalForm();
     }
 }

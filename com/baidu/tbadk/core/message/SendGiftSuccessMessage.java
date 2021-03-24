@@ -1,17 +1,30 @@
 package com.baidu.tbadk.core.message;
 
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class SendGiftSuccessMessage extends CustomResponsedMessage {
-    private a mGiftInfo;
+    public a mGiftInfo;
 
-    public SendGiftSuccessMessage() {
-        super(CmdConfigCustom.CMD_GET_GIFT_SUCCEED);
+    /* loaded from: classes3.dex */
+    public static class a {
+        public void a(int i) {
+        }
+
+        public void b(int i) {
+        }
+
+        public void c(String str) {
+        }
+
+        public void d(String str) {
+        }
+
+        public void e(String str) {
+        }
     }
 
-    public SendGiftSuccessMessage(int i, Object obj) {
-        super(i, obj);
+    public SendGiftSuccessMessage() {
+        super(2001232);
     }
 
     public a getGiftInfo() {
@@ -22,32 +35,7 @@ public class SendGiftSuccessMessage extends CustomResponsedMessage {
         this.mGiftInfo = aVar;
     }
 
-    /* loaded from: classes.dex */
-    public static class a {
-        private int count;
-        private int eZT;
-        private String eZU;
-        private String name;
-        private String url;
-
-        public void setId(int i) {
-            this.eZT = i;
-        }
-
-        public void setName(String str) {
-            this.name = str;
-        }
-
-        public void setCount(int i) {
-            this.count = i;
-        }
-
-        public void setUrl(String str) {
-            this.url = str;
-        }
-
-        public void AO(String str) {
-            this.eZU = str;
-        }
+    public SendGiftSuccessMessage(int i, Object obj) {
+        super(i, obj);
     }
 }

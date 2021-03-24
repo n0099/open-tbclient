@@ -1,5 +1,5 @@
 package com.baidu.down.common;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class TaskMsg {
     public long _id;
     public DownDetail downDetail;

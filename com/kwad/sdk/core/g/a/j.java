@@ -6,32 +6,38 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class j implements com.kwad.sdk.core.b {
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f6104a;
-    public int b;
-    public int c;
-    public List<Long> d;
+    public boolean f33667a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public int f33668b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public int f33669c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public List<Long> f33670d;
 
     public j() {
-        this.d = new ArrayList();
+        this.f33670d = new ArrayList();
     }
 
     public j(int i) {
-        this.d = new ArrayList();
-        this.f6104a = true;
-        this.b = i;
+        this.f33670d = new ArrayList();
+        this.f33667a = true;
+        this.f33668b = i;
     }
 
     public j(List<AdTemplate> list) {
-        this.d = new ArrayList();
-        this.f6104a = false;
+        this.f33670d = new ArrayList();
+        this.f33667a = false;
         if (list != null) {
-            this.c = list.size();
+            this.f33669c = list.size();
             for (AdTemplate adTemplate : list) {
-                this.d.add(Long.valueOf(com.kwad.sdk.core.response.b.c.z(adTemplate)));
+                this.f33670d.add(Long.valueOf(com.kwad.sdk.core.response.b.c.z(adTemplate)));
             }
         }
     }
@@ -39,13 +45,13 @@ public class j implements com.kwad.sdk.core.b {
     @Override // com.kwad.sdk.core.b
     public JSONObject toJson() {
         JSONObject jSONObject = new JSONObject();
-        o.a(jSONObject, "preload", this.f6104a);
-        if (this.f6104a) {
-            o.a(jSONObject, "requestVideoCount", this.b);
+        o.a(jSONObject, "preload", this.f33667a);
+        if (this.f33667a) {
+            o.a(jSONObject, "requestVideoCount", this.f33668b);
         } else {
-            o.a(jSONObject, "preloadedVideoCount", this.c);
+            o.a(jSONObject, "preloadedVideoCount", this.f33669c);
             JSONArray jSONArray = new JSONArray();
-            for (Long l : this.d) {
+            for (Long l : this.f33670d) {
                 jSONArray.put(l);
             }
             o.a(jSONObject, "preloadedVideoList", jSONArray);

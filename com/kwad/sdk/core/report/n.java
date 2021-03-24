@@ -6,20 +6,19 @@ import com.kwad.sdk.core.network.BaseResultData;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public abstract class n extends com.kwad.sdk.core.network.a<o> {
     private void a(o oVar) {
         try {
             for (String str : oVar.g()) {
                 KsAdSDKImpl.get().getProxyForHttp().doGet(str, null);
             }
-        } catch (Exception e) {
-            com.kwad.sdk.core.d.a.a(e);
+        } catch (Exception e2) {
+            com.kwad.sdk.core.d.a.a(e2);
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.core.network.a
     public void a(o oVar, com.kwad.sdk.core.network.c cVar) {
     }
@@ -33,62 +32,41 @@ public abstract class n extends com.kwad.sdk.core.network.a<o> {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:12:0x004c  */
-    /* JADX WARN: Removed duplicated region for block: B:26:0x00a1 A[ORIG_RETURN, RETURN] */
     @Override // com.kwad.sdk.core.network.a
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    protected void f() {
-        Exception e;
-        com.kwad.sdk.core.network.c cVar;
-        com.kwad.sdk.core.network.c doPost;
-        o b = b();
+    public void f() {
+        String str;
+        o b2 = b();
+        com.kwad.sdk.core.network.c cVar = null;
         try {
-            doPost = KsAdSDKImpl.get().getProxyForHttp().doPost(b.a(), (Map<String, String>) null, b.d());
+            cVar = KsAdSDKImpl.get().getProxyForHttp().doPost(b2.a(), (Map<String, String>) null, b2.d());
+            if (cVar == null || cVar.f33865a != 200) {
+                str = "report fail result is null";
+            } else {
+                str = "report success actionType:" + b2.f34052b;
+            }
+            com.kwad.sdk.core.d.a.a("ReportNetwork", str);
+            a(b2);
         } catch (Exception e2) {
-            e = e2;
-            cVar = null;
+            com.kwad.sdk.core.d.a.a(e2);
         }
-        if (doPost != null) {
-            try {
-            } catch (Exception e3) {
-                e = e3;
-                cVar = doPost;
-                com.kwad.sdk.core.d.a.a(e);
-                if (com.kwad.sdk.a.b.booleanValue()) {
+        if (com.kwad.sdk.a.f31642b.booleanValue()) {
+            BaseResultData baseResultData = new BaseResultData() { // from class: com.kwad.sdk.core.report.ReportNetwork$1
+                @Override // com.kwad.sdk.core.network.BaseResultData
+                public void parseJson(@Nullable JSONObject jSONObject) {
+                    super.parseJson(jSONObject);
+                }
+            };
+            if (cVar != null) {
+                try {
+                    baseResultData.parseJson(new JSONObject(cVar.f33866b));
+                } catch (JSONException e3) {
+                    e3.printStackTrace();
                 }
             }
-            if (doPost.f6185a == 200) {
-                com.kwad.sdk.core.d.a.a("ReportNetwork", "report success actionType:" + b.b);
-                a(b);
-                cVar = doPost;
-                if (com.kwad.sdk.a.b.booleanValue()) {
-                    BaseResultData baseResultData = new BaseResultData() { // from class: com.kwad.sdk.core.report.ReportNetwork$1
-                        @Override // com.kwad.sdk.core.network.BaseResultData
-                        public void parseJson(@Nullable JSONObject jSONObject) {
-                            super.parseJson(jSONObject);
-                        }
-                    };
-                    if (cVar != null) {
-                        try {
-                            baseResultData.parseJson(new JSONObject(cVar.b));
-                        } catch (JSONException e4) {
-                            e4.printStackTrace();
-                        }
-                    }
-                    if (!baseResultData.isResultOk()) {
-                        throw new RuntimeException("请求返回失败 code:" + baseResultData.result + ", errorMsg:" + baseResultData.errorMsg);
-                    }
-                    return;
-                }
+            if (baseResultData.isResultOk()) {
                 return;
             }
-        }
-        com.kwad.sdk.core.d.a.a("ReportNetwork", "report fail result is null");
-        a(b);
-        cVar = doPost;
-        if (com.kwad.sdk.a.b.booleanValue()) {
+            throw new RuntimeException("请求返回失败 code:" + baseResultData.result + ", errorMsg:" + baseResultData.errorMsg);
         }
     }
 }

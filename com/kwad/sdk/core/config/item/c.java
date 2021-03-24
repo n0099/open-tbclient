@@ -3,7 +3,7 @@ package com.kwad.sdk.core.config.item;
 import android.content.SharedPreferences;
 import androidx.annotation.NonNull;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class c extends a<Boolean> {
     public c(String str, boolean z) {
         super(str, Boolean.valueOf(z));
@@ -21,10 +21,6 @@ public class c extends a<Boolean> {
 
     @Override // com.kwad.sdk.core.config.item.a
     public void a(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            a((c) Boolean.valueOf(jSONObject.optBoolean(a(), c().booleanValue())));
-        } else {
-            a((c) c());
-        }
+        a((c) (jSONObject != null ? Boolean.valueOf(jSONObject.optBoolean(a(), c().booleanValue())) : c()));
     }
 }

@@ -3,10 +3,10 @@ package com.kwad.sdk.glide.load;
 import androidx.annotation.NonNull;
 import java.io.InputStream;
 import java.nio.ByteBuffer;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public interface ImageHeaderParser {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public enum ImageType {
         GIF(true),
         JPEG(false),
@@ -17,7 +17,7 @@ public interface ImageHeaderParser {
         WEBP(false),
         UNKNOWN(false);
         
-        private final boolean hasAlpha;
+        public final boolean hasAlpha;
 
         ImageType(boolean z) {
             this.hasAlpha = z;

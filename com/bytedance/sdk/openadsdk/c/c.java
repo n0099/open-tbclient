@@ -6,23 +6,27 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public class c extends b<a> {
 
     /* renamed from: a  reason: collision with root package name */
-    private AtomicBoolean f4198a = new AtomicBoolean(false);
-
-    @Override // com.bytedance.sdk.openadsdk.c.b
-    public void a() {
-        if (!this.f4198a.getAndSet(true)) {
-            com.bytedance.sdk.openadsdk.multipro.c.a.c();
-        }
-    }
+    public AtomicBoolean f27541a = new AtomicBoolean(false);
 
     @Override // com.bytedance.sdk.openadsdk.c.b
     public void b() {
     }
 
+    @Override // com.bytedance.sdk.openadsdk.c.b
+    public void a() {
+        if (this.f27541a.getAndSet(true)) {
+            return;
+        }
+        com.bytedance.sdk.openadsdk.multipro.c.a.c();
+    }
+
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bytedance.sdk.openadsdk.c.b
     public void a(@NonNull a aVar) {
-        if (this.f4198a.get()) {
+        if (!this.f27541a.get()) {
+            a();
+        }
+        if (this.f27541a.get()) {
             com.bytedance.sdk.openadsdk.multipro.c.a.a(aVar.a());
         }
     }

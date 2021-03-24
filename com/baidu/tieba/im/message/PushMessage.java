@@ -1,9 +1,8 @@
 package com.baidu.tieba.im.message;
 
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class PushMessage extends CustomResponsedMessage<GroupNewsPojo> {
     public PushMessage(int i, GroupNewsPojo groupNewsPojo) {
         super(i, groupNewsPojo);
@@ -13,53 +12,53 @@ public class PushMessage extends CustomResponsedMessage<GroupNewsPojo> {
         int i;
         String cmd = groupNewsPojo.getCmd();
         if (cmd.equals("apply_join_group")) {
-            i = CmdConfigCustom.CMD_IM_PUSH_NOTIFY_APPLY_JOIN_GROUP;
+            i = 2001125;
         } else if (cmd.equals("apply_join_success")) {
-            i = CmdConfigCustom.CMD_IM_PUSH_NOTIFY_APPLY_JOIN_SUCCESS;
+            i = 2001126;
         } else if (cmd.equals("apply_join_fail")) {
-            i = CmdConfigCustom.CMD_IM_PUSH_NOTIFY_APPLY_JOIN_FAIL;
+            i = 2001127;
         } else if (cmd.equals("kick_out")) {
-            i = CmdConfigCustom.CMD_IM_PUSH_NOTIFY_KICK_OUT;
+            i = 2001128;
         } else if (cmd.equals("group_notice_change")) {
-            i = CmdConfigCustom.CMD_IM_PUSH_NOTIFY_GROUP_NOTICE_CHANGE;
+            i = 2001129;
         } else if (cmd.equals("group_name_change")) {
-            i = CmdConfigCustom.CMD_IM_PUSH_NOTIFY_GROUP_NAME_CHANGE;
+            i = 2001130;
         } else if (cmd.equals("group_event_info")) {
-            i = CmdConfigCustom.CMD_IM_PUSH_NOTIFY_GROUP_EVENT_INFO;
+            i = 2001131;
         } else if (cmd.equals("group_intro_change")) {
-            i = CmdConfigCustom.CMD_IM_PUSH_NOTIFY_GROUP_INTRO_CHANGE;
+            i = 2001132;
         } else if (cmd.equals("group_level_up")) {
-            i = CmdConfigCustom.CMD_IM_PUSH_NOTIFY_GROUP_LEVEL_UP;
+            i = 2001133;
         } else if (cmd.equals("group_head_change")) {
-            i = CmdConfigCustom.CMD_IM_PUSH_NOTIFY_GROUP_HEAD_CHANGE;
+            i = 2001134;
         } else if (cmd.equals("group_activitys_change")) {
-            i = CmdConfigCustom.CMD_IM_PUSH_NOTIFY_GROUP_ACTIVITYS_CHANGE;
+            i = 2001135;
         } else if (cmd.equals("dismiss_group")) {
-            i = CmdConfigCustom.CMD_IM_PUSH_NOTIFY_DISMISS_GROUP;
+            i = 2001137;
         } else if (cmd.equals("hide_group_warn")) {
-            i = CmdConfigCustom.CMD_IM_PUSH_NOTIFY_HIDE_GROUP_WARN;
+            i = 2001138;
         } else if (cmd.equals("hide_group")) {
-            i = CmdConfigCustom.CMD_IM_PUSH_NOTIFY_HIDE_GROUP;
+            i = 2001139;
         } else if (cmd.equals("apply_new_friend")) {
-            i = CmdConfigCustom.CMD_APPLY_NEW_FRIEND_LOCAL;
+            i = 2001172;
         } else if (cmd.equals("passed_new_friend")) {
-            i = CmdConfigCustom.CMD_PASSED_NEW_FRIEND_LOCAL;
+            i = 2001173;
         } else if (cmd.equals("delete_new_friend")) {
-            i = CmdConfigCustom.CMD_DELETED_NEW_FRIEND_LOCAL;
+            i = 2001209;
         } else if (cmd.equals("apply_reply_message")) {
-            i = CmdConfigCustom.CMD_APPLY_REPLY_MESSAGE;
+            i = 2001219;
         } else if (cmd.equals("apply_add_friend")) {
-            i = CmdConfigCustom.CMD_APPLY_ADDFRIEND;
+            i = 2001220;
         } else if (cmd.equals("apply_pass_friend")) {
-            i = CmdConfigCustom.CMD_APPLY_PASSFRIEND;
+            i = 2001221;
         } else if (cmd.equals("upload_stat")) {
-            i = CmdConfigCustom.CMD_UPLOAD_STAT;
+            i = 2001320;
         } else if (cmd.equals("plugin_config_sync")) {
-            i = CmdConfigCustom.CMD_PLUGIN_CONFIG_SYNC;
-        } else if (cmd.equals("offline_debug")) {
-            i = CmdConfigCustom.CMD_OFFLINE_DEBUG;
-        } else {
+            i = 2001401;
+        } else if (!cmd.equals("offline_debug")) {
             return null;
+        } else {
+            i = 2001413;
         }
         return new PushMessage(i, groupNewsPojo);
     }

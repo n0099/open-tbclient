@@ -2,7 +2,7 @@ package com.baidu.android.imsdk.chatmessage.messages;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class PassMsg extends NormalMsg {
     public static final Parcelable.Creator<PassMsg> CREATOR = new Parcelable.Creator<PassMsg>() { // from class: com.baidu.android.imsdk.chatmessage.messages.PassMsg.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -20,6 +20,21 @@ public class PassMsg extends NormalMsg {
         }
     };
 
+    @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg
+    public String getRecommendDescription() {
+        return "";
+    }
+
+    @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg
+    public boolean parseExt() {
+        return true;
+    }
+
+    @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg
+    public boolean parseJsonString() {
+        return true;
+    }
+
     public PassMsg() {
         setMsgType(27);
     }
@@ -29,22 +44,7 @@ public class PassMsg extends NormalMsg {
         setMsgContent(str);
     }
 
-    private PassMsg(Parcel parcel) {
+    public PassMsg(Parcel parcel) {
         super(parcel);
-    }
-
-    @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg
-    protected boolean parseJsonString() {
-        return true;
-    }
-
-    @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg
-    public String getRecommendDescription() {
-        return "";
-    }
-
-    @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg
-    protected boolean parseExt() {
-        return true;
     }
 }

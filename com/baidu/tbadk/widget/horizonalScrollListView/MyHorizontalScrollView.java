@@ -5,23 +5,24 @@ import android.util.AttributeSet;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.widget.HorizontalScrollView;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class MyHorizontalScrollView extends HorizontalScrollView {
-    private GestureDetector mGestureDetector;
+    public GestureDetector mGestureDetector;
+
+    /* loaded from: classes3.dex */
+    public class b extends GestureDetector.SimpleOnGestureListener {
+        public b() {
+        }
+
+        @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
+        public boolean onScroll(MotionEvent motionEvent, MotionEvent motionEvent2, float f2, float f3) {
+            return Math.abs(f2) > Math.abs(f3);
+        }
+    }
 
     public MyHorizontalScrollView(Context context) {
         super(context);
-        this.mGestureDetector = new GestureDetector(new a());
-    }
-
-    public MyHorizontalScrollView(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        this.mGestureDetector = new GestureDetector(new a());
-    }
-
-    public MyHorizontalScrollView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        this.mGestureDetector = new GestureDetector(new a());
+        this.mGestureDetector = new GestureDetector(new b());
     }
 
     @Override // android.widget.HorizontalScrollView, android.view.ViewGroup
@@ -30,21 +31,19 @@ public class MyHorizontalScrollView extends HorizontalScrollView {
         if (this.mGestureDetector.onTouchEvent(motionEvent)) {
             if (getParent() != null) {
                 getParent().requestDisallowInterceptTouchEvent(true);
-                return onInterceptTouchEvent;
             }
             return onInterceptTouchEvent;
         }
         return false;
     }
 
-    /* loaded from: classes.dex */
-    private class a extends GestureDetector.SimpleOnGestureListener {
-        private a() {
-        }
+    public MyHorizontalScrollView(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        this.mGestureDetector = new GestureDetector(new b());
+    }
 
-        @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
-        public boolean onScroll(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
-            return Math.abs(f) > Math.abs(f2);
-        }
+    public MyHorizontalScrollView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        this.mGestureDetector = new GestureDetector(new b());
     }
 }

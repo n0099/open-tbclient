@@ -6,7 +6,6 @@ import java.util.List;
 /* loaded from: classes6.dex */
 public class b extends j<UpdatePackage, UpdatePackage> {
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.bytedance.sdk.openadsdk.preload.b.j
     public String a(com.bytedance.sdk.openadsdk.preload.b.b<UpdatePackage> bVar, UpdatePackage updatePackage) {
         UpdatePackage.Package patch = updatePackage.getPatch();
@@ -24,7 +23,6 @@ public class b extends j<UpdatePackage, UpdatePackage> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.bytedance.sdk.openadsdk.preload.b.j
     public String a(com.bytedance.sdk.openadsdk.preload.b.b<UpdatePackage> bVar, UpdatePackage updatePackage, Throwable th, String str) {
         if ("patch".equals(str)) {

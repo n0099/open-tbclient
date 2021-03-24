@@ -13,36 +13,54 @@ import android.widget.AbsoluteLayout;
 import androidx.annotation.ColorInt;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.browser.sailor.BdSailorConfig;
 import com.baidu.browser.sailor.BdSailorWebView;
 import com.baidu.browser.sailor.util.BdZeusUtil;
 import com.baidu.searchbox.aop.annotation.DebugTrace;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.widget.SlideInterceptor;
-import com.baidu.swan.apps.a;
-import com.baidu.swan.apps.adaptation.b.d;
-import com.baidu.swan.apps.adaptation.b.e;
-import com.baidu.swan.apps.ao.ah;
 import com.baidu.swan.apps.core.container.view.SwanAppSelectPopView;
 import com.baidu.webkit.sdk.WebView;
-/* loaded from: classes8.dex */
-public class NgWebView extends BdSailorWebView implements SlideInterceptor, d, SwanAppSelectPopView.a {
+import d.b.g0.a.e;
+import d.b.g0.a.e0.k.b;
+import d.b.g0.a.f;
+import d.b.g0.a.g;
+import d.b.g0.a.i2.h0;
+import d.b.g0.a.k;
+import d.b.g0.a.p.d.c;
+import d.b.g0.a.p.d.d;
+/* loaded from: classes3.dex */
+public class NgWebView extends BdSailorWebView implements c, SlideInterceptor, SwanAppSelectPopView.a {
     public static final String APP_CACHE_PATH = "appcache";
     public static final String APP_DATABASE_PATH = "databases";
     public static final String APP_GEO_PATH = "geolocation";
-    private static final String TAG = "NgWebView";
-    private b mCommonEventHandler;
-    private SwanAppSelectPopView mSelectPopWindow;
-    private SwanAppSelectPopView.a mSelectPopWindowListener;
-    private c mWebViewHookHandler;
-    private e mWebViewManager;
-    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static final String WEBVIEW_SIZE_SWITCH = "swan_app_set_webview_size_switch";
-    private static final boolean sIsSetWebViewSize = com.baidu.swan.apps.t.a.axc().getSwitch(WEBVIEW_SIZE_SWITCH, false);
+    public static final boolean DEBUG = k.f45050a;
+    public static final String TAG = "NgWebView";
+    public static final String WEBVIEW_SIZE_SWITCH = "swan_app_set_webview_size_switch";
+    public static final boolean sIsSetWebViewSize;
+    public b mCommonEventHandler;
+    public SwanAppSelectPopView mSelectPopWindow;
+    public SwanAppSelectPopView.a mSelectPopWindowListener;
+    public d.b.g0.a.e0.k.c mWebViewHookHandler;
+    public d mWebViewManager;
 
-    @Override // com.baidu.browser.sailor.BdSailorWebView, com.baidu.swan.apps.adaptation.b.d
-    public /* bridge */ /* synthetic */ AbsoluteLayout getCurrentWebView() {
-        return super.getCurrentWebView();
+    /* loaded from: classes3.dex */
+    public class a implements Runnable {
+        public a() {
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            NgWebView ngWebView = NgWebView.this;
+            ngWebView.calcPopWindowPos(ngWebView.mSelectPopWindow);
+            NgWebView.this.showPopWindow();
+        }
+    }
+
+    static {
+        d.b.g0.a.w0.a.N().getSwitch(WEBVIEW_SIZE_SWITCH, false);
+        sIsSetWebViewSize = false;
     }
 
     @DebugTrace
@@ -51,23 +69,54 @@ public class NgWebView extends BdSailorWebView implements SlideInterceptor, d, S
         init(context);
     }
 
-    @DebugTrace
-    public NgWebView(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        init(context);
-    }
-
-    @DebugTrace
-    public NgWebView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        init(context);
-    }
-
-    @DebugTrace
-    private void init(Context context) {
-        com.baidu.swan.apps.ao.a.a(this);
-        disableFeature(BdSailorConfig.SAILOR_EXT_WEBVIEWPAGER);
-        disableControls();
+    /* JADX INFO: Access modifiers changed from: private */
+    public void calcPopWindowPos(@NonNull SwanAppSelectPopView swanAppSelectPopView) {
+        int f2;
+        int popLeftX = swanAppSelectPopView.getPopLeftX();
+        int popRightX = swanAppSelectPopView.getPopRightX();
+        int popTopY = swanAppSelectPopView.getPopTopY();
+        int popBottomY = swanAppSelectPopView.getPopBottomY();
+        int scrollX = getCurrentWebView().getScrollX();
+        int scrollY = getCurrentWebView().getScrollY();
+        if (popLeftX > popRightX) {
+            popRightX = popLeftX;
+            popLeftX = popRightX;
+        }
+        if (popTopY > popBottomY) {
+            popBottomY = popTopY;
+            popTopY = popBottomY;
+        }
+        if (DEBUG) {
+            Log.d(TAG, popLeftX + StringUtil.ARRAY_ELEMENT_SEPARATOR + popRightX + StringUtil.ARRAY_ELEMENT_SEPARATOR + popTopY + StringUtil.ARRAY_ELEMENT_SEPARATOR + popBottomY);
+        }
+        int measuredWidth = swanAppSelectPopView.getMeasuredWidth();
+        int width = getCurrentWebView().getWidth();
+        int i = ((popLeftX + popRightX) - measuredWidth) / 2;
+        if (i + measuredWidth > width) {
+            i = width - measuredWidth;
+        }
+        if (i < 0) {
+            i = 0;
+        }
+        int measuredHeight = swanAppSelectPopView.getMeasuredHeight();
+        int height = getCurrentWebView().getHeight();
+        int f3 = measuredHeight + h0.f(22.0f);
+        int i2 = popTopY - f3;
+        if (i2 < 0) {
+            f2 = h0.f(22.0f) + popBottomY;
+            swanAppSelectPopView.setBackgroundResource(e.swanapp_browser_select_menu_up_bg);
+        } else {
+            f2 = h0.f(22.0f) + i2;
+            swanAppSelectPopView.setBackgroundResource(e.swanapp_browser_select_menu_down_bg);
+        }
+        if (f2 + f3 > height) {
+            f2 = (popBottomY - popTopY) - f3;
+        }
+        swanAppSelectPopView.setPopX(scrollX + i);
+        swanAppSelectPopView.setPopY(scrollY + f2);
+        if (DEBUG) {
+            Log.d(TAG, i + StringUtil.ARRAY_ELEMENT_SEPARATOR + f2);
+        }
     }
 
     private void disableControls() {
@@ -75,7 +124,83 @@ public class NgWebView extends BdSailorWebView implements SlideInterceptor, d, S
         getSettings().setDisplayZoomControls(false);
     }
 
-    @Override // com.baidu.browser.sailor.BdSailorWebView, com.baidu.swan.apps.adaptation.b.d
+    @DebugTrace
+    private void init(Context context) {
+        d.b.g0.a.i2.a.a(this);
+        disableFeature(BdSailorConfig.SAILOR_EXT_WEBVIEWPAGER);
+        disableControls();
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void showPopWindow() {
+        SwanAppSelectPopView swanAppSelectPopView = this.mSelectPopWindow;
+        if (swanAppSelectPopView == null) {
+            if (DEBUG) {
+                throw new RuntimeException("show before init");
+            }
+            return;
+        }
+        swanAppSelectPopView.setVisibility(0);
+        int popX = this.mSelectPopWindow.getPopX();
+        int popY = this.mSelectPopWindow.getPopY();
+        ViewGroup.LayoutParams layoutParams = this.mSelectPopWindow.getLayoutParams();
+        if (layoutParams instanceof AbsoluteLayout.LayoutParams) {
+            AbsoluteLayout.LayoutParams layoutParams2 = (AbsoluteLayout.LayoutParams) layoutParams;
+            layoutParams2.x = popX;
+            layoutParams2.y = popY;
+        }
+        SwanAppSelectPopView swanAppSelectPopView2 = this.mSelectPopWindow;
+        swanAppSelectPopView2.layout(popX, popY, swanAppSelectPopView2.getMeasuredWidth() + popX, this.mSelectPopWindow.getMeasuredHeight() + popY);
+        if (DEBUG) {
+            Log.d(TAG, "showPopWindow left: " + popX + " top: " + popY + " width: " + this.mSelectPopWindow.getWidth() + " height: " + this.mSelectPopWindow.getHeight() + " measure width: " + this.mSelectPopWindow.getMeasuredWidth() + " measure height: " + this.mSelectPopWindow.getMeasuredHeight());
+        }
+    }
+
+    @DebugTrace
+    private void tryInitSelectPopupWindow(boolean z) {
+        if (this.mSelectPopWindow == null) {
+            SwanAppSelectPopView swanAppSelectPopView = (SwanAppSelectPopView) LayoutInflater.from(getContext()).inflate(g.swanapp_webview_select_view, (ViewGroup) null);
+            this.mSelectPopWindow = swanAppSelectPopView;
+            if (z) {
+                swanAppSelectPopView.findViewById(f.select_separator_one).setVisibility(8);
+                this.mSelectPopWindow.findViewById(f.btn_wv_search).setVisibility(8);
+            }
+            getCurrentWebView().addView(this.mSelectPopWindow, new AbsoluteLayout.LayoutParams(new ViewGroup.LayoutParams(-2, -2)));
+            this.mSelectPopWindow.setEventListener(this);
+            this.mSelectPopWindow.setBackgroundResource(e.swanapp_browser_select_menu_down_bg);
+            this.mSelectPopWindow.setVisibility(4);
+        }
+    }
+
+    @Override // com.baidu.browser.sailor.BdSailorWebView, d.b.g0.a.p.d.c
+    public boolean canGoBack() {
+        boolean canGoBack = super.canGoBack();
+        d.b.g0.a.e0.k.c cVar = this.mWebViewHookHandler;
+        return cVar != null ? cVar.M(canGoBack) : canGoBack;
+    }
+
+    @Override // android.view.View
+    public boolean canScrollVertically(int i) {
+        if (BdZeusUtil.isWebkitLoaded()) {
+            WebView currentWebView = getCurrentWebView();
+            if (currentWebView != null) {
+                return currentWebView.canScrollVertically(i);
+            }
+            return false;
+        }
+        AbsoluteLayout webViewImpl = getWebViewImpl();
+        if (webViewImpl != null) {
+            return webViewImpl.canScrollVertically(i);
+        }
+        return false;
+    }
+
+    @Override // d.b.g0.a.p.d.c
+    public View covertToView() {
+        return this;
+    }
+
+    @Override // com.baidu.browser.sailor.BdSailorWebView, d.b.g0.a.p.d.c
     @DebugTrace
     public void destroy() {
         if (DEBUG) {
@@ -87,70 +212,8 @@ public class NgWebView extends BdSailorWebView implements SlideInterceptor, d, S
         }
     }
 
-    @Override // com.baidu.swan.apps.adaptation.b.d
-    public View covertToView() {
-        return this;
-    }
-
-    @Override // com.baidu.swan.apps.adaptation.b.d
-    public int getWebViewScrollX() {
-        return getCurrentWebView().getWebViewScrollX();
-    }
-
-    @Override // com.baidu.swan.apps.adaptation.b.d
-    public int getWebViewScrollY() {
-        return getCurrentWebView().getWebViewScrollY();
-    }
-
-    @Override // com.baidu.swan.apps.adaptation.b.d
-    public void webViewScrollTo(int i, int i2) {
-        getCurrentWebView().scrollTo(i, i2);
-    }
-
-    public void webViewScrollBy(int i, int i2) {
-        getCurrentWebView().scrollBy(i, i2);
-    }
-
     public void destroyWithoutCreate() {
         super.destroy();
-    }
-
-    @Override // com.baidu.browser.sailor.BdSailorWebView, com.baidu.swan.apps.adaptation.b.d
-    public boolean canGoBack() {
-        boolean canGoBack = super.canGoBack();
-        if (this.mWebViewHookHandler != null) {
-            return this.mWebViewHookHandler.fc(canGoBack);
-        }
-        return canGoBack;
-    }
-
-    @Override // com.baidu.browser.sailor.BdSailorWebView, com.baidu.swan.apps.adaptation.b.d
-    public void goBack() {
-        if (this.mWebViewHookHandler == null || !this.mWebViewHookHandler.anC()) {
-            super.goBack();
-        }
-    }
-
-    @Override // com.baidu.browser.sailor.BdSailorWebView, android.view.View
-    public boolean onTouchEvent(MotionEvent motionEvent) {
-        if (!getCurrentWebView().isFocused()) {
-            getCurrentWebView().requestFocus();
-        }
-        if (this.mCommonEventHandler != null && this.mCommonEventHandler.onTouchEvent(motionEvent)) {
-            return true;
-        }
-        try {
-            if (DEBUG) {
-                Log.d(TAG, "final event = " + motionEvent);
-            }
-            return super.onTouchEvent(motionEvent);
-        } catch (Exception e) {
-            if (!DEBUG) {
-                return false;
-            }
-            e.printStackTrace();
-            return false;
-        }
     }
 
     @Override // com.baidu.browser.sailor.BdSailorWebView, android.view.ViewGroup, android.view.View
@@ -163,101 +226,43 @@ public class NgWebView extends BdSailorWebView implements SlideInterceptor, d, S
 
     @Override // android.view.ViewGroup, android.view.View
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
-        if (this.mCommonEventHandler == null || !this.mCommonEventHandler.dispatchTouchEvent(motionEvent)) {
+        b bVar = this.mCommonEventHandler;
+        if (bVar == null || !bVar.dispatchTouchEvent(motionEvent)) {
             return super.dispatchTouchEvent(motionEvent);
         }
         return true;
     }
 
-    @Override // com.baidu.browser.sailor.BdSailorWebView, android.view.View, android.view.KeyEvent.Callback
-    public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (super.onKeyDown(i, keyEvent)) {
-            return true;
-        }
-        return this.mCommonEventHandler != null && this.mCommonEventHandler.onKeyDown(i, keyEvent);
+    public void doSelectionCancel() {
+        hidePopWindow();
+        getWebViewExt().completeSelectionExt();
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.browser.sailor.BdSailorWebView, android.view.View
-    public void onScrollChanged(int i, int i2, int i3, int i4) {
-        super.onScrollChanged(i, i2, i3, i4);
-        if (this.mCommonEventHandler != null) {
-            this.mCommonEventHandler.onScrollChanged(i, i2, i3, i4);
+    @Override // com.baidu.swan.apps.core.container.view.SwanAppSelectPopView.a
+    public void doSelectionCopy(String str) {
+        SwanAppSelectPopView.a aVar = this.mSelectPopWindowListener;
+        if (aVar != null) {
+            aVar.doSelectionCopy(str);
         }
     }
 
-    public void setOnCommonEventHandler(b bVar) {
-        this.mCommonEventHandler = bVar;
-    }
-
-    public void setOnWebViewHookHandler(c cVar) {
-        this.mWebViewHookHandler = cVar;
-    }
-
-    @Override // com.baidu.swan.apps.adaptation.b.d
-    public void setDefaultViewSize(int i, int i2, String str) {
-        int i3;
-        if (sIsSetWebViewSize) {
-            Pair<Integer, Integer> pair = null;
-            if (i2 == Integer.MIN_VALUE) {
-                Pair<Integer, Integer> uj = ah.uj(str);
-                i2 = ((Integer) uj.second).intValue();
-                pair = uj;
-            }
-            if (i == Integer.MIN_VALUE) {
-                i3 = pair != null ? ((Integer) pair.first).intValue() : ah.getDisplayWidth(AppRuntime.getAppContext());
-            } else {
-                i3 = i;
-            }
-            if (i3 > 0 && i2 > 0) {
-                if (DEBUG) {
-                    Log.d(TAG, "setDefaultViewSize W:" + i3 + " H:" + i2);
-                }
-                getWebViewExt().setDefaultViewSizeExt(i3, i2);
-            }
+    @Override // com.baidu.swan.apps.core.container.view.SwanAppSelectPopView.a
+    public void doSelectionSearch(String str) {
+        SwanAppSelectPopView.a aVar = this.mSelectPopWindowListener;
+        if (aVar != null) {
+            aVar.doSelectionSearch(str);
         }
     }
 
-    @Override // android.view.View
-    protected void onSizeChanged(int i, int i2, int i3, int i4) {
-        super.onSizeChanged(i, i2, i3, i4);
-        if (DEBUG) {
-            Log.d(TAG, "onSizeChanged - w:" + i + " h:" + i2 + " oldW:" + i3 + " oldH:" + i4);
-        }
-        setDefaultViewSize(i, i2, null);
+    @Override // d.b.g0.a.e0.k.a
+    public String getContainerId() {
+        d dVar = this.mWebViewManager;
+        return dVar != null ? dVar.c() : "";
     }
 
-    public void setWebViewManager(e eVar) {
-        this.mWebViewManager = eVar;
-    }
-
-    @Override // com.baidu.searchbox.widget.SlideInterceptor
-    public boolean isSlidable(MotionEvent motionEvent) {
-        return getCurrentWebView().getTouchMode() == 6;
-    }
-
-    @Override // android.view.View
-    public boolean canScrollVertically(int i) {
-        if (BdZeusUtil.isWebkitLoaded()) {
-            WebView currentWebView = getCurrentWebView();
-            if (currentWebView != null) {
-                return currentWebView.canScrollVertically(i);
-            }
-        } else {
-            AbsoluteLayout webViewImpl = getWebViewImpl();
-            if (webViewImpl != null) {
-                return webViewImpl.canScrollVertically(i);
-            }
-        }
-        return false;
-    }
-
-    public void setBackgroundColorForSwanApp(@ColorInt int i) {
-        AbsoluteLayout webViewImpl;
-        setBackgroundColor(i);
-        if (!BdZeusUtil.isWebkitLoaded() && (webViewImpl = getWebViewImpl()) != null) {
-            webViewImpl.setBackgroundColor(i);
-        }
+    @Override // com.baidu.browser.sailor.BdSailorWebView, d.b.g0.a.p.d.c
+    public /* bridge */ /* synthetic */ AbsoluteLayout getCurrentWebView() {
+        return super.getCurrentWebView();
     }
 
     @Nullable
@@ -269,54 +274,143 @@ public class NgWebView extends BdSailorWebView implements SlideInterceptor, d, S
         return null;
     }
 
-    @Override // com.baidu.swan.apps.core.container.a
+    @Override // d.b.g0.a.p.d.c
+    public int getWebViewScrollX() {
+        return getCurrentWebView().getWebViewScrollX();
+    }
+
+    @Override // d.b.g0.a.p.d.c
+    public int getWebViewScrollY() {
+        return getCurrentWebView().getWebViewScrollY();
+    }
+
+    @Override // com.baidu.browser.sailor.BdSailorWebView, d.b.g0.a.p.d.c
+    public void goBack() {
+        d.b.g0.a.e0.k.c cVar = this.mWebViewHookHandler;
+        if (cVar == null || !cVar.u()) {
+            super.goBack();
+        }
+    }
+
+    public void hidePopWindow() {
+        SwanAppSelectPopView swanAppSelectPopView = this.mSelectPopWindow;
+        if (swanAppSelectPopView != null) {
+            swanAppSelectPopView.setVisibility(8);
+        }
+    }
+
+    @Override // com.baidu.searchbox.widget.SlideInterceptor
+    public boolean isSlidable(MotionEvent motionEvent) {
+        return getCurrentWebView().getTouchMode() == 6;
+    }
+
+    @Override // d.b.g0.a.e0.k.a
     public boolean isWebView() {
         return true;
     }
 
-    @Override // com.baidu.swan.apps.core.container.a
+    @Override // d.b.g0.a.e0.k.a
     public void onJSLoaded() {
-        if (this.mWebViewManager != null) {
-            this.mWebViewManager.onJSLoaded();
+        d dVar = this.mWebViewManager;
+        if (dVar != null) {
+            dVar.onJSLoaded();
         }
     }
 
-    @Override // com.baidu.swan.apps.core.container.view.SwanAppSelectPopView.a
-    public void doSelectionCopy(String str) {
-        if (this.mSelectPopWindowListener != null) {
-            this.mSelectPopWindowListener.doSelectionCopy(str);
+    @Override // com.baidu.browser.sailor.BdSailorWebView, android.view.View, android.view.KeyEvent.Callback
+    public boolean onKeyDown(int i, KeyEvent keyEvent) {
+        if (super.onKeyDown(i, keyEvent)) {
+            return true;
+        }
+        b bVar = this.mCommonEventHandler;
+        return bVar != null && bVar.onKeyDown(i, keyEvent);
+    }
+
+    @Override // com.baidu.browser.sailor.BdSailorWebView, android.view.View
+    public void onScrollChanged(int i, int i2, int i3, int i4) {
+        super.onScrollChanged(i, i2, i3, i4);
+        b bVar = this.mCommonEventHandler;
+        if (bVar != null) {
+            bVar.onScrollChanged(i, i2, i3, i4);
         }
     }
 
-    @Override // com.baidu.swan.apps.core.container.view.SwanAppSelectPopView.a
-    public void doSelectionSearch(String str) {
-        if (this.mSelectPopWindowListener != null) {
-            this.mSelectPopWindowListener.doSelectionSearch(str);
+    @Override // android.view.View
+    public void onSizeChanged(int i, int i2, int i3, int i4) {
+        super.onSizeChanged(i, i2, i3, i4);
+        if (DEBUG) {
+            Log.d(TAG, "onSizeChanged - w:" + i + " h:" + i2 + " oldW:" + i3 + " oldH:" + i4);
+        }
+        setDefaultViewSize(i, i2, null);
+    }
+
+    @Override // com.baidu.browser.sailor.BdSailorWebView, android.view.View
+    public boolean onTouchEvent(MotionEvent motionEvent) {
+        if (!getCurrentWebView().isFocused()) {
+            getCurrentWebView().requestFocus();
+        }
+        b bVar = this.mCommonEventHandler;
+        if (bVar == null || !bVar.onTouchEvent(motionEvent)) {
+            try {
+                if (DEBUG) {
+                    Log.d(TAG, "final event = " + motionEvent);
+                }
+                return super.onTouchEvent(motionEvent);
+            } catch (Exception e2) {
+                if (DEBUG) {
+                    e2.printStackTrace();
+                    return false;
+                }
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public void setBackgroundColorForSwanApp(@ColorInt int i) {
+        AbsoluteLayout webViewImpl;
+        setBackgroundColor(i);
+        if (BdZeusUtil.isWebkitLoaded() || (webViewImpl = getWebViewImpl()) == null) {
+            return;
+        }
+        webViewImpl.setBackgroundColor(i);
+    }
+
+    @Override // d.b.g0.a.p.d.c
+    public void setDefaultViewSize(int i, int i2, String str) {
+        if (sIsSetWebViewSize) {
+            Pair<Integer, Integer> pair = null;
+            if (i2 == Integer.MIN_VALUE) {
+                pair = h0.d(str);
+                i2 = ((Integer) pair.second).intValue();
+            }
+            if (i == Integer.MIN_VALUE) {
+                i = pair != null ? ((Integer) pair.first).intValue() : h0.m(AppRuntime.getAppContext());
+            }
+            if (i <= 0 || i2 <= 0) {
+                return;
+            }
+            if (DEBUG) {
+                Log.d(TAG, "setDefaultViewSize W:" + i + " H:" + i2);
+            }
+            getWebViewExt().setDefaultViewSizeExt(i, i2);
         }
     }
 
-    public void doSelectionCancel() {
-        hidePopWindow();
-        getWebViewExt().completeSelectionExt();
+    public void setOnCommonEventHandler(b bVar) {
+        this.mCommonEventHandler = bVar;
+    }
+
+    public void setOnWebViewHookHandler(d.b.g0.a.e0.k.c cVar) {
+        this.mWebViewHookHandler = cVar;
     }
 
     public void setSelectPopWindowListener(SwanAppSelectPopView.a aVar) {
         this.mSelectPopWindowListener = aVar;
     }
 
-    @DebugTrace
-    private void tryInitSelectPopupWindow(boolean z) {
-        if (this.mSelectPopWindow == null) {
-            this.mSelectPopWindow = (SwanAppSelectPopView) LayoutInflater.from(getContext()).inflate(a.g.swanapp_webview_select_view, (ViewGroup) null);
-            if (z) {
-                this.mSelectPopWindow.findViewById(a.f.select_separator_one).setVisibility(8);
-                this.mSelectPopWindow.findViewById(a.f.btn_wv_search).setVisibility(8);
-            }
-            getCurrentWebView().addView(this.mSelectPopWindow, new AbsoluteLayout.LayoutParams(new ViewGroup.LayoutParams(-2, -2)));
-            this.mSelectPopWindow.setEventListener(this);
-            this.mSelectPopWindow.setBackgroundResource(a.e.swanapp_browser_select_menu_down_bg);
-            this.mSelectPopWindow.setVisibility(4);
-        }
+    public void setWebViewManager(d dVar) {
+        this.mWebViewManager = dVar;
     }
 
     public void updateAndShowPopupWindow(int i, int i2, int i3, int i4, String str, boolean z) {
@@ -324,119 +418,44 @@ public class NgWebView extends BdSailorWebView implements SlideInterceptor, d, S
             Log.d(TAG, "updateAndShowPopupWindow left: " + i + " right: " + i2 + " top: " + i3 + " bottom: " + i4);
         }
         tryInitSelectPopupWindow(z);
-        if (this.mSelectPopWindow == null) {
+        SwanAppSelectPopView swanAppSelectPopView = this.mSelectPopWindow;
+        if (swanAppSelectPopView == null) {
             if (DEBUG) {
                 throw new RuntimeException("update before init");
             }
             return;
         }
-        this.mSelectPopWindow.setPopLeftX(i);
+        swanAppSelectPopView.setPopLeftX(i);
         this.mSelectPopWindow.setPopRightX(i2);
         this.mSelectPopWindow.setPopTopY(i3);
         this.mSelectPopWindow.setPopBottomY(i4);
         this.mSelectPopWindow.setSelection(str);
-        if (this.mSelectPopWindow.getWidth() == 0 || this.mSelectPopWindow.getHeight() == 0) {
-            post(new Runnable() { // from class: com.baidu.swan.apps.core.container.NgWebView.1
-                @Override // java.lang.Runnable
-                public void run() {
-                    NgWebView.this.calcPopWindowPos(NgWebView.this.mSelectPopWindow);
-                    NgWebView.this.showPopWindow();
-                }
-            });
+        if (this.mSelectPopWindow.getWidth() != 0 && this.mSelectPopWindow.getHeight() != 0) {
+            calcPopWindowPos(this.mSelectPopWindow);
+            showPopWindow();
             return;
         }
-        calcPopWindowPos(this.mSelectPopWindow);
-        showPopWindow();
+        post(new a());
     }
 
-    public void hidePopWindow() {
-        if (this.mSelectPopWindow != null) {
-            this.mSelectPopWindow.setVisibility(8);
-        }
+    public void webViewScrollBy(int i, int i2) {
+        getCurrentWebView().scrollBy(i, i2);
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void showPopWindow() {
-        if (this.mSelectPopWindow == null) {
-            if (DEBUG) {
-                throw new RuntimeException("show before init");
-            }
-            return;
-        }
-        this.mSelectPopWindow.setVisibility(0);
-        int popX = this.mSelectPopWindow.getPopX();
-        int popY = this.mSelectPopWindow.getPopY();
-        ViewGroup.LayoutParams layoutParams = this.mSelectPopWindow.getLayoutParams();
-        if (layoutParams instanceof AbsoluteLayout.LayoutParams) {
-            ((AbsoluteLayout.LayoutParams) layoutParams).x = popX;
-            ((AbsoluteLayout.LayoutParams) layoutParams).y = popY;
-        }
-        this.mSelectPopWindow.layout(popX, popY, this.mSelectPopWindow.getMeasuredWidth() + popX, this.mSelectPopWindow.getMeasuredHeight() + popY);
-        if (DEBUG) {
-            Log.d(TAG, "showPopWindow left: " + popX + " top: " + popY + " width: " + this.mSelectPopWindow.getWidth() + " height: " + this.mSelectPopWindow.getHeight() + " measure width: " + this.mSelectPopWindow.getMeasuredWidth() + " measure height: " + this.mSelectPopWindow.getMeasuredHeight());
-        }
+    @Override // d.b.g0.a.p.d.c
+    public void webViewScrollTo(int i, int i2) {
+        getCurrentWebView().scrollTo(i, i2);
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void calcPopWindowPos(@NonNull SwanAppSelectPopView swanAppSelectPopView) {
-        int i;
-        int i2;
-        int i3;
-        int i4;
-        int T;
-        int popLeftX = swanAppSelectPopView.getPopLeftX();
-        int popRightX = swanAppSelectPopView.getPopRightX();
-        int popTopY = swanAppSelectPopView.getPopTopY();
-        int popBottomY = swanAppSelectPopView.getPopBottomY();
-        int scrollX = getCurrentWebView().getScrollX();
-        int scrollY = getCurrentWebView().getScrollY();
-        if (popLeftX > popRightX) {
-            i = popLeftX;
-            i2 = popRightX;
-        } else {
-            i = popRightX;
-            i2 = popLeftX;
-        }
-        if (popTopY > popBottomY) {
-            i3 = popTopY;
-            i4 = popBottomY;
-        } else {
-            i3 = popBottomY;
-            i4 = popTopY;
-        }
-        if (DEBUG) {
-            Log.d(TAG, i2 + ", " + i + ", " + i4 + ", " + i3);
-        }
-        int measuredWidth = swanAppSelectPopView.getMeasuredWidth();
-        int width = getCurrentWebView().getWidth();
-        int i5 = ((i2 + i) - measuredWidth) / 2;
-        if (i5 + measuredWidth > width) {
-            i5 = width - measuredWidth;
-        }
-        if (i5 < 0) {
-            i5 = 0;
-        }
-        int measuredHeight = swanAppSelectPopView.getMeasuredHeight();
-        int height = getCurrentWebView().getHeight();
-        int T2 = ah.T(22.0f) + measuredHeight;
-        int i6 = i4 - T2;
-        if (i6 < 0) {
-            T = ah.T(22.0f) + i3;
-            swanAppSelectPopView.setBackgroundResource(a.e.swanapp_browser_select_menu_up_bg);
-        } else {
-            T = i6 + ah.T(22.0f);
-            swanAppSelectPopView.setBackgroundResource(a.e.swanapp_browser_select_menu_down_bg);
-        }
-        int i7 = T + T2 > height ? (i3 - i4) - T2 : T;
-        swanAppSelectPopView.setPopX(i5 + scrollX);
-        swanAppSelectPopView.setPopY(i7 + scrollY);
-        if (DEBUG) {
-            Log.d(TAG, i5 + ", " + i7);
-        }
+    @DebugTrace
+    public NgWebView(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        init(context);
     }
 
-    @Override // com.baidu.swan.apps.core.container.a
-    public String getContainerId() {
-        return this.mWebViewManager != null ? this.mWebViewManager.ajb() : "";
+    @DebugTrace
+    public NgWebView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        init(context);
     }
 }

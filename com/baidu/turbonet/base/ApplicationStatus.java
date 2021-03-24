@@ -10,217 +10,239 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 @JNINamespace
-/* loaded from: classes5.dex */
+/* loaded from: classes.dex */
 public class ApplicationStatus {
-    static final /* synthetic */ boolean $assertionsDisabled;
-    private static Object oQT;
-    private static Integer oQU;
-    private static Activity oQV;
-    private static c oQW;
-    private static final com.baidu.turbonet.base.b<b> oQX;
-    private static final com.baidu.turbonet.base.b<c> oQY;
-    private static final Map<Activity, a> sActivityInfo;
+
+    /* renamed from: b  reason: collision with root package name */
+    public static Integer f22629b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public static Activity f22630c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public static f f22631d;
+
+    /* renamed from: a  reason: collision with root package name */
+    public static Object f22628a = new Object();
+
+    /* renamed from: e  reason: collision with root package name */
+    public static final Map<Activity, d> f22632e = new ConcurrentHashMap();
+
+    /* renamed from: f  reason: collision with root package name */
+    public static final d.b.j0.a.b<e> f22633f = new d.b.j0.a.b<>();
+
+    /* renamed from: g  reason: collision with root package name */
+    public static final d.b.j0.a.b<f> f22634g = new d.b.j0.a.b<>();
 
     /* loaded from: classes5.dex */
-    public interface b {
-        void l(Activity activity, int i);
+    public static class a implements BaseChromiumApplication.c {
+        @Override // com.baidu.turbonet.base.BaseChromiumApplication.c
+        public void a(Activity activity, boolean z) {
+            int h2;
+            if (!z || activity == ApplicationStatus.f22630c || (h2 = ApplicationStatus.h(activity)) == 6 || h2 == 5) {
+                return;
+            }
+            Activity unused = ApplicationStatus.f22630c = activity;
+        }
     }
 
     /* loaded from: classes5.dex */
-    public interface c {
-        void MN(int i);
+    public static class b implements Application.ActivityLifecycleCallbacks {
+        @Override // android.app.Application.ActivityLifecycleCallbacks
+        public void onActivityCreated(Activity activity, Bundle bundle) {
+            ApplicationStatus.j(activity, 1);
+        }
+
+        @Override // android.app.Application.ActivityLifecycleCallbacks
+        public void onActivityDestroyed(Activity activity) {
+            ApplicationStatus.j(activity, 6);
+        }
+
+        @Override // android.app.Application.ActivityLifecycleCallbacks
+        public void onActivityPaused(Activity activity) {
+            ApplicationStatus.j(activity, 4);
+        }
+
+        @Override // android.app.Application.ActivityLifecycleCallbacks
+        public void onActivityResumed(Activity activity) {
+            ApplicationStatus.j(activity, 3);
+        }
+
+        @Override // android.app.Application.ActivityLifecycleCallbacks
+        public void onActivitySaveInstanceState(Activity activity, Bundle bundle) {
+        }
+
+        @Override // android.app.Application.ActivityLifecycleCallbacks
+        public void onActivityStarted(Activity activity) {
+            ApplicationStatus.j(activity, 2);
+        }
+
+        @Override // android.app.Application.ActivityLifecycleCallbacks
+        public void onActivityStopped(Activity activity) {
+            ApplicationStatus.j(activity, 5);
+        }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public static native void nativeOnApplicationStateChange(int i);
-
-    static {
-        $assertionsDisabled = !ApplicationStatus.class.desiredAssertionStatus();
-        oQT = new Object();
-        sActivityInfo = new ConcurrentHashMap();
-        oQX = new com.baidu.turbonet.base.b<>();
-        oQY = new com.baidu.turbonet.base.b<>();
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes5.dex */
-    public static class a {
-        private int mStatus;
-        private com.baidu.turbonet.base.b<b> oRa;
+    public static class c implements Runnable {
 
-        private a() {
-            this.mStatus = 6;
-            this.oRa = new com.baidu.turbonet.base.b<>();
+        /* loaded from: classes5.dex */
+        public class a implements f {
+            public a(c cVar) {
+            }
+
+            @Override // com.baidu.turbonet.base.ApplicationStatus.f
+            public void a(int i) {
+                ApplicationStatus.nativeOnApplicationStateChange(i);
+            }
         }
 
-        public int getStatus() {
-            return this.mStatus;
-        }
-
-        public void setStatus(int i) {
-            this.mStatus = i;
-        }
-
-        public com.baidu.turbonet.base.b<b> ege() {
-            return this.oRa;
+        @Override // java.lang.Runnable
+        public void run() {
+            if (ApplicationStatus.f22631d != null) {
+                return;
+            }
+            f unused = ApplicationStatus.f22631d = new a(this);
+            ApplicationStatus.k(ApplicationStatus.f22631d);
         }
     }
 
-    private ApplicationStatus() {
+    /* loaded from: classes5.dex */
+    public interface e {
+        void a(Activity activity, int i);
     }
 
-    public static void a(BaseChromiumApplication baseChromiumApplication) {
-        baseChromiumApplication.a(new BaseChromiumApplication.b() { // from class: com.baidu.turbonet.base.ApplicationStatus.1
-            @Override // com.baidu.turbonet.base.BaseChromiumApplication.b
-            public void m(Activity activity, boolean z) {
-                int aC;
-                if (z && activity != ApplicationStatus.oQV && (aC = ApplicationStatus.aC(activity)) != 6 && aC != 5) {
-                    Activity unused = ApplicationStatus.oQV = activity;
-                }
-            }
-        });
-        baseChromiumApplication.registerActivityLifecycleCallbacks(new Application.ActivityLifecycleCallbacks() { // from class: com.baidu.turbonet.base.ApplicationStatus.2
-            @Override // android.app.Application.ActivityLifecycleCallbacks
-            public void onActivityCreated(Activity activity, Bundle bundle) {
-                ApplicationStatus.j(activity, 1);
-            }
-
-            @Override // android.app.Application.ActivityLifecycleCallbacks
-            public void onActivityDestroyed(Activity activity) {
-                ApplicationStatus.j(activity, 6);
-            }
-
-            @Override // android.app.Application.ActivityLifecycleCallbacks
-            public void onActivityPaused(Activity activity) {
-                ApplicationStatus.j(activity, 4);
-            }
-
-            @Override // android.app.Application.ActivityLifecycleCallbacks
-            public void onActivityResumed(Activity activity) {
-                ApplicationStatus.j(activity, 3);
-            }
-
-            @Override // android.app.Application.ActivityLifecycleCallbacks
-            public void onActivitySaveInstanceState(Activity activity, Bundle bundle) {
-            }
-
-            @Override // android.app.Application.ActivityLifecycleCallbacks
-            public void onActivityStarted(Activity activity) {
-                ApplicationStatus.j(activity, 2);
-            }
-
-            @Override // android.app.Application.ActivityLifecycleCallbacks
-            public void onActivityStopped(Activity activity) {
-                ApplicationStatus.j(activity, 5);
-            }
-        });
+    /* loaded from: classes5.dex */
+    public interface f {
+        void a(int i);
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public static void j(Activity activity, int i) {
-        if (activity == null) {
-            throw new IllegalArgumentException("null activity is not supported");
-        }
-        if (oQV == null || i == 1 || i == 3 || i == 2) {
-            oQV = activity;
-        }
-        int stateForApplication = getStateForApplication();
-        if (i == 1) {
-            if (!$assertionsDisabled && sActivityInfo.containsKey(activity)) {
-                throw new AssertionError();
+    public static int g() {
+        boolean z = false;
+        boolean z2 = false;
+        for (d dVar : f22632e.values()) {
+            int b2 = dVar.b();
+            if (b2 != 4 && b2 != 5 && b2 != 6) {
+                return 1;
             }
-            sActivityInfo.put(activity, new a());
-        }
-        synchronized (oQT) {
-            oQU = null;
-        }
-        a aVar = sActivityInfo.get(activity);
-        aVar.setStatus(i);
-        Iterator<b> it = aVar.ege().iterator();
-        while (it.hasNext()) {
-            it.next().l(activity, i);
-        }
-        Iterator<b> it2 = oQX.iterator();
-        while (it2.hasNext()) {
-            it2.next().l(activity, i);
-        }
-        int stateForApplication2 = getStateForApplication();
-        if (stateForApplication2 != stateForApplication) {
-            Iterator<c> it3 = oQY.iterator();
-            while (it3.hasNext()) {
-                it3.next().MN(stateForApplication2);
+            if (b2 == 4) {
+                z = true;
+            } else if (b2 == 5) {
+                z2 = true;
             }
         }
-        if (i == 6) {
-            sActivityInfo.remove(activity);
-            if (activity == oQV) {
-                oQV = null;
-            }
+        if (z) {
+            return 2;
         }
-    }
-
-    public static int aC(Activity activity) {
-        a aVar = sActivityInfo.get(activity);
-        if (aVar != null) {
-            return aVar.getStatus();
-        }
-        return 6;
+        return z2 ? 3 : 4;
     }
 
     @CalledByNative
     public static int getStateForApplication() {
         int intValue;
-        synchronized (oQT) {
-            if (oQU == null) {
-                oQU = Integer.valueOf(egb());
+        synchronized (f22628a) {
+            if (f22629b == null) {
+                f22629b = Integer.valueOf(g());
             }
-            intValue = oQU.intValue();
+            intValue = f22629b.intValue();
         }
         return intValue;
     }
 
-    public static void a(c cVar) {
-        oQY.addObserver(cVar);
+    public static int h(Activity activity) {
+        d dVar = f22632e.get(activity);
+        if (dVar != null) {
+            return dVar.b();
+        }
+        return 6;
     }
 
-    @CalledByNative
-    private static void registerThreadSafeNativeApplicationStateListener() {
-        ThreadUtils.runOnUiThread(new Runnable() { // from class: com.baidu.turbonet.base.ApplicationStatus.3
-            @Override // java.lang.Runnable
-            public void run() {
-                if (ApplicationStatus.oQW == null) {
-                    c unused = ApplicationStatus.oQW = new c() { // from class: com.baidu.turbonet.base.ApplicationStatus.3.1
-                        @Override // com.baidu.turbonet.base.ApplicationStatus.c
-                        public void MN(int i) {
-                            ApplicationStatus.nativeOnApplicationStateChange(i);
-                        }
-                    };
-                    ApplicationStatus.a(ApplicationStatus.oQW);
+    public static void i(BaseChromiumApplication baseChromiumApplication) {
+        baseChromiumApplication.registerWindowFocusChangedListener(new a());
+        baseChromiumApplication.registerActivityLifecycleCallbacks(new b());
+    }
+
+    public static void j(Activity activity, int i) {
+        if (activity != null) {
+            if (f22630c == null || i == 1 || i == 3 || i == 2) {
+                f22630c = activity;
+            }
+            int stateForApplication = getStateForApplication();
+            if (i == 1) {
+                f22632e.put(activity, new d(null));
+            }
+            synchronized (f22628a) {
+                f22629b = null;
+            }
+            d dVar = f22632e.get(activity);
+            dVar.c(i);
+            Iterator<e> it = dVar.a().iterator();
+            while (it.hasNext()) {
+                it.next().a(activity, i);
+            }
+            Iterator<e> it2 = f22633f.iterator();
+            while (it2.hasNext()) {
+                it2.next().a(activity, i);
+            }
+            int stateForApplication2 = getStateForApplication();
+            if (stateForApplication2 != stateForApplication) {
+                Iterator<f> it3 = f22634g.iterator();
+                while (it3.hasNext()) {
+                    it3.next().a(stateForApplication2);
                 }
             }
-        });
+            if (i == 6) {
+                f22632e.remove(activity);
+                if (activity == f22630c) {
+                    f22630c = null;
+                    return;
+                }
+                return;
+            }
+            return;
+        }
+        throw new IllegalArgumentException("null activity is not supported");
     }
 
-    private static int egb() {
-        boolean z;
-        boolean z2 = false;
-        boolean z3 = false;
-        for (a aVar : sActivityInfo.values()) {
-            int status = aVar.getStatus();
-            if (status != 4 && status != 5 && status != 6) {
-                return 1;
-            }
-            if (status == 4) {
-                z = z2;
-                z3 = true;
-            } else {
-                z = status == 5 ? true : z2;
-            }
-            z2 = z;
+    public static void k(f fVar) {
+        f22634g.e(fVar);
+    }
+
+    public static native void nativeOnApplicationStateChange(int i);
+
+    @CalledByNative
+    public static void registerThreadSafeNativeApplicationStateListener() {
+        ThreadUtils.c(new c());
+    }
+
+    /* loaded from: classes5.dex */
+    public static class d {
+
+        /* renamed from: a  reason: collision with root package name */
+        public int f22635a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public d.b.j0.a.b<e> f22636b;
+
+        public d() {
+            this.f22635a = 6;
+            this.f22636b = new d.b.j0.a.b<>();
         }
-        if (z3) {
-            return 2;
+
+        public d.b.j0.a.b<e> a() {
+            return this.f22636b;
         }
-        return z2 ? 3 : 4;
+
+        public int b() {
+            return this.f22635a;
+        }
+
+        public void c(int i) {
+            this.f22635a = i;
+        }
+
+        public /* synthetic */ d(a aVar) {
+            this();
+        }
     }
 }

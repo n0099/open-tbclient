@@ -1,26 +1,27 @@
 package com.baidu.pyramid.runtime.multiprocess.components;
 
-import com.baidu.pyramid.runtime.multiprocess.e;
+import d.b.d0.b.a.e;
+import d.b.d0.b.a.i.a;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes14.dex */
+/* loaded from: classes2.dex */
 public class ServerProvider extends DispatchableContentProvider {
-    public static String aev() {
-        return e.getAppContext().getPackageName() + ".provider.ipc.server";
+    public static String getCoreProviderAuthority() {
+        return e.a().getPackageName() + ".provider.ipc.server";
     }
 
     @Override // com.baidu.pyramid.runtime.multiprocess.components.DispatchableContentProvider
-    protected String aes() {
-        return aev();
+    public String getAuthority() {
+        return getCoreProviderAuthority();
     }
 
     @Override // com.baidu.pyramid.runtime.multiprocess.components.DispatchableContentProvider
-    protected List<a> aet() {
-        List<a> jA = com.baidu.pyramid.runtime.multiprocess.a.a.jA(aes());
-        if (jA == null) {
-            jA = new ArrayList<>();
+    public List<a> getContentProviderDelegates() {
+        List<a> a2 = d.b.d0.b.a.k.a.a(getAuthority());
+        if (a2 == null) {
+            a2 = new ArrayList<>();
         }
-        jA.add(0, new com.baidu.pyramid.runtime.multiprocess.internal.a());
-        return jA;
+        a2.add(0, new d.b.d0.b.a.j.a());
+        return a2;
     }
 }

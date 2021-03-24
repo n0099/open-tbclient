@@ -10,988 +10,1192 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.adp.lib.util.j;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
-import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.AlbumActivityConfig;
 import com.baidu.tbadk.core.data.AntiData;
 import com.baidu.tbadk.core.data.ErrorData;
-import com.baidu.tbadk.core.data.bi;
-import com.baidu.tbadk.core.data.bu;
-import com.baidu.tbadk.core.dialog.a;
 import com.baidu.tbadk.core.util.BitmapHelper;
-import com.baidu.tbadk.core.util.av;
-import com.baidu.tbadk.core.util.o;
+import com.baidu.tbadk.core.util.FileHelper;
+import com.baidu.tbadk.core.util.TbImageHelper;
 import com.baidu.tbadk.core.view.spanGroup.SpanGroupManager;
 import com.baidu.tbadk.coreExtra.data.AccessState;
 import com.baidu.tbadk.coreExtra.data.AuthTokenData;
 import com.baidu.tbadk.coreExtra.data.WriteData;
-import com.baidu.tbadk.coreExtra.data.ah;
 import com.baidu.tbadk.data.IconStampData;
 import com.baidu.tbadk.data.VideoEasterEggData;
 import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.tbadk.img.ImageUploadResult;
 import com.baidu.tieba.R;
-import com.baidu.tieba.l.k;
 import com.baidu.tieba.pb.data.ContriInfo;
 import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
-import com.baidu.tieba.tbadkCore.c.a;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
-import com.baidu.tieba.tbadkCore.util.f;
+import d.b.b.e.p.j;
+import d.b.h0.r.q.i1;
+import d.b.h0.r.q.t1;
+import d.b.h0.r.s.a;
+import d.b.h0.s.c.f0;
+import d.b.i0.c3.i0.a;
+import d.b.i0.c3.n0.f;
+import d.b.i0.s1.k;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes5.dex */
 public class NewWriteModel extends BdBaseModel {
     public static int MAX_IMG_NUM = 10;
-    private com.baidu.adp.base.f<?> eXa;
-    private f.a iIR;
-    private SpanGroupManager mSpanGroupManager;
-    private String nAA;
-    private c nDA;
-    private d nDB;
-    private boolean nDC;
-    private a.InterfaceC0879a nDD;
-    private e nDu;
-    private a nDv;
-    private String nDw;
-    private String nDx;
-    private byte[] nDy;
-    private b nDz;
-    private WriteData noo;
 
-    /* loaded from: classes.dex */
-    public interface b {
+    /* renamed from: e  reason: collision with root package name */
+    public h f21429e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public d f21430f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public WriteData f21431g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public String f21432h;
+    public String i;
+    public byte[] j;
+    public e k;
+    public f l;
+    public g m;
+    public boolean n;
+    public d.b.b.a.f<?> o;
+    public a.c p;
+    public SpanGroupManager q;
+    public String r;
+    public f.c s;
+
+    /* loaded from: classes5.dex */
+    public class a implements a.e {
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ d.b.h0.r.s.a f21433e;
+
+        public a(d.b.h0.r.s.a aVar) {
+            this.f21433e = aVar;
+        }
+
+        @Override // d.b.h0.r.s.a.e
+        public void onClick(d.b.h0.r.s.a aVar) {
+            this.f21433e.dismiss();
+            NewWriteModel.this.R();
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class b implements a.e {
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ d.b.h0.r.s.a f21435e;
+
+        public b(d.b.h0.r.s.a aVar) {
+            this.f21435e = aVar;
+        }
+
+        @Override // d.b.h0.r.s.a.e
+        public void onClick(d.b.h0.r.s.a aVar) {
+            this.f21435e.dismiss();
+            NewWriteModel.this.cancel();
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class c extends f.c {
+        public c() {
+        }
+
+        @Override // d.b.i0.c3.n0.f.c
+        public void a(String str) {
+            if (NewWriteModel.this.f21431g == null || TextUtils.isEmpty(str)) {
+                if (NewWriteModel.this.m != null) {
+                    NewWriteModel.this.m.callback(false, null, null, NewWriteModel.this.f21431g, null);
+                    return;
+                }
+                return;
+            }
+            NewWriteModel.this.f21429e = null;
+            NewWriteModel.this.f21431g.setAuthSid(str);
+            NewWriteModel.this.i0();
+        }
+
+        @Override // d.b.i0.c3.n0.f.c
+        public void c(String str) {
+            if (NewWriteModel.this.f21431g == null || TextUtils.isEmpty(str)) {
+                if (NewWriteModel.this.m != null) {
+                    NewWriteModel.this.m.callback(false, null, null, NewWriteModel.this.f21431g, null);
+                    return;
+                }
+                return;
+            }
+            NewWriteModel.this.f21429e = null;
+            NewWriteModel.this.f21431g.setAuthSid(str);
+            NewWriteModel.this.i0();
+        }
+
+        @Override // d.b.i0.c3.n0.f.c
+        public void d() {
+            if (NewWriteModel.this.f21431g != null) {
+                NewWriteModel.this.f21431g.setAuthSid(null);
+            }
+            if (NewWriteModel.this.m != null) {
+                NewWriteModel.this.m.callback(false, null, null, NewWriteModel.this.f21431g, null);
+            }
+        }
+
+        @Override // d.b.i0.c3.n0.f.c
+        public void e() {
+            if (NewWriteModel.this.f21431g != null) {
+                NewWriteModel.this.f21429e = null;
+                NewWriteModel.this.f21431g.setAuthSid(null);
+                NewWriteModel.this.i0();
+            } else if (NewWriteModel.this.m != null) {
+                NewWriteModel.this.m.callback(false, null, null, NewWriteModel.this.f21431g, null);
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class d extends BdAsyncTask<Void, Void, ImageUploadResult> {
+
+        /* renamed from: a  reason: collision with root package name */
+        public boolean f21438a = false;
+
+        /* renamed from: b  reason: collision with root package name */
+        public d.b.i0.c3.i0.a f21439b = new d.b.i0.c3.i0.a();
+
+        /* renamed from: c  reason: collision with root package name */
+        public Bitmap f21440c = null;
+
+        public d() {
+            setPriority(3);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: b */
+        public ImageUploadResult doInBackground(Void... voidArr) {
+            boolean isLocalImagePath = FileHelper.isLocalImagePath(NewWriteModel.this.i);
+            if (this.f21438a) {
+                return null;
+            }
+            if (NewWriteModel.this.j == null || NewWriteModel.this.j.length <= 0) {
+                if (TextUtils.isEmpty(NewWriteModel.this.i) || !isLocalImagePath) {
+                    return null;
+                }
+                Uri parse = Uri.parse(NewWriteModel.this.i);
+                NewWriteModel.this.f21432h = FileHelper.getImageRealPathFromUri(TbadkCoreApplication.getInst().getApp(), parse);
+                if (TextUtils.isEmpty(NewWriteModel.this.f21432h)) {
+                    return null;
+                }
+                NewWriteModel newWriteModel = NewWriteModel.this;
+                return newWriteModel.S(newWriteModel.f21432h, this.f21439b);
+            }
+            Bitmap Bytes2Bitmap = BitmapHelper.Bytes2Bitmap(NewWriteModel.this.j);
+            this.f21440c = Bytes2Bitmap;
+            if (Bytes2Bitmap == null) {
+                return null;
+            }
+            NewWriteModel.this.f21432h = FileHelper.saveFileToSDOrMemory(TbConfig.IMAGE_RESIZED_FILE, Bytes2Bitmap, 85);
+            if (TextUtils.isEmpty(NewWriteModel.this.f21432h)) {
+                Bitmap bitmap = this.f21440c;
+                if (bitmap != null && !bitmap.isRecycled()) {
+                    this.f21440c.recycle();
+                }
+                return null;
+            }
+            NewWriteModel newWriteModel2 = NewWriteModel.this;
+            return newWriteModel2.S(newWriteModel2.f21432h, this.f21439b);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: c */
+        public void onPostExecute(ImageUploadResult imageUploadResult) {
+            super.onPostExecute(imageUploadResult);
+            if (this.f21438a) {
+                return;
+            }
+            if (NewWriteModel.this.k != null) {
+                NewWriteModel.this.k.a(imageUploadResult, false);
+            }
+            Bitmap bitmap = this.f21440c;
+            if (bitmap == null || bitmap.isRecycled()) {
+                return;
+            }
+            this.f21440c.recycle();
+        }
+
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void cancel() {
+            this.f21438a = true;
+            d.b.i0.c3.i0.a aVar = this.f21439b;
+            if (aVar != null) {
+                aVar.b();
+            }
+            if (NewWriteModel.this.k != null) {
+                NewWriteModel.this.k.a(null, true);
+            }
+            Bitmap bitmap = this.f21440c;
+            if (bitmap != null && !bitmap.isRecycled()) {
+                this.f21440c.recycle();
+            }
+            super.cancel();
+            NewWriteModel.this.f21430f = null;
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public interface e {
         void a(ImageUploadResult imageUploadResult, boolean z);
     }
 
-    /* loaded from: classes.dex */
-    public interface c {
-        void a(boolean z, String str, ah ahVar, WriteData writeData, AntiData antiData);
+    /* loaded from: classes5.dex */
+    public interface f {
+        void a(boolean z, String str, f0 f0Var, WriteData writeData, AntiData antiData);
     }
 
-    /* loaded from: classes.dex */
-    public interface d {
-        void callback(boolean z, PostWriteCallBackData postWriteCallBackData, ah ahVar, WriteData writeData, AntiData antiData);
+    /* loaded from: classes5.dex */
+    public interface g {
+        void callback(boolean z, PostWriteCallBackData postWriteCallBackData, f0 f0Var, WriteData writeData, AntiData antiData);
+    }
+
+    /* loaded from: classes5.dex */
+    public class h extends BdAsyncTask<Integer, Integer, d.b.i0.c3.q0.f> {
+
+        /* renamed from: a  reason: collision with root package name */
+        public d.b.i0.c3.i0.a f21442a = null;
+
+        /* renamed from: b  reason: collision with root package name */
+        public String f21443b = null;
+
+        /* renamed from: c  reason: collision with root package name */
+        public boolean f21444c = false;
+
+        /* renamed from: d  reason: collision with root package name */
+        public k f21445d;
+
+        /* renamed from: e  reason: collision with root package name */
+        public d.b.i0.s1.g f21446e;
+
+        /* loaded from: classes5.dex */
+        public class a implements Runnable {
+
+            /* renamed from: e  reason: collision with root package name */
+            public final /* synthetic */ CustomDialogData f21448e;
+
+            public a(CustomDialogData customDialogData) {
+                this.f21448e = customDialogData;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                d.b.i0.c2.j.c.a((TbPageContext) NewWriteModel.this.o, this.f21448e).show();
+            }
+        }
+
+        public h() {
+            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921309, k.class);
+            if (runTask != null) {
+                this.f21445d = (k) runTask.getData();
+            }
+            k kVar = this.f21445d;
+            if (kVar != null) {
+                this.f21446e = kVar.get();
+            }
+            setPriority(3);
+            d.b.i0.c3.q0.b.a("发帖：任务创建：PostThreadTask");
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX WARN: Removed duplicated region for block: B:130:0x02d2  */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: b */
+        /*
+            Code decompiled incorrectly, please refer to instructions dump.
+        */
+        public d.b.i0.c3.q0.f doInBackground(Integer... numArr) {
+            d.b.i0.c3.q0.f fVar;
+            JSONArray jSONArray;
+            JSONException jSONException;
+            IconStampData iconStampData;
+            String str;
+            String str2;
+            String str3;
+            String str4;
+            String str5;
+            String str6;
+            String str7;
+            String str8;
+            CustomDialogData customDialogData;
+            VideoEasterEggData videoEasterEggData;
+            if (this.f21444c) {
+                return null;
+            }
+            d.b.h0.a0.d.c(NewWriteModel.this.f21431g.getContent());
+            d.b.i0.c3.q0.b.a("doInBackground() start");
+            d.b.i0.c3.q0.b.a("发帖：任务后台执行 开始 doInBackground");
+            d.b.i0.c3.i0.a aVar = new d.b.i0.c3.i0.a();
+            this.f21442a = aVar;
+            aVar.j(NewWriteModel.this.q);
+            this.f21442a.k(NewWriteModel.this.r);
+            this.f21442a.l(this.f21446e);
+            this.f21442a.i(NewWriteModel.this.p);
+            this.f21443b = this.f21442a.h(NewWriteModel.this.f21431g, NewWriteModel.this.n);
+            d.b.i0.c3.q0.b.a("发帖：任务后台执行 开始 doInBackground 结束");
+            ErrorData d2 = this.f21442a.d();
+            if (this.f21442a.e() && this.f21443b != null) {
+                d.b.i0.c3.q0.b.a("发帖：任务后台执行 开始 doInBackground 成功");
+                AntiData c2 = this.f21442a.c();
+                String error_msg = d2.getError_msg();
+                if (d.b.b.e.p.k.isEmpty(error_msg)) {
+                    error_msg = TbadkCoreApplication.getInst().getApp().getString(R.string.send_success);
+                }
+                fVar = new d.b.i0.c3.q0.f(d2.getError_code(), error_msg, c2);
+                if (NewWriteModel.this.f21431g != null && NewWriteModel.this.f21431g.isHasImages() && !fVar.r()) {
+                    NewWriteModel.this.f21431g.deleteUploadedTempImages();
+                }
+                d.b.i0.c3.q0.b.a("发帖：任务后台执行 开始 doInBackground 删除临时的图片");
+            } else if (d2 != null && d2.error_code == 220015) {
+                fVar = new d.b.i0.c3.q0.f(d2.getError_code(), d2.getError_msg(), null);
+                if (this.f21443b != null) {
+                    try {
+                        JSONObject optJSONObject = new JSONObject(this.f21443b).optJSONObject("info");
+                        if (optJSONObject != null && (jSONArray = optJSONObject.getJSONArray("confilter_hitwords")) != null && jSONArray.length() > 0) {
+                            int length = jSONArray.length();
+                            ArrayList<String> arrayList = new ArrayList<>();
+                            for (int i = 0; i < length; i++) {
+                                arrayList.add(jSONArray.optString(i));
+                            }
+                            fVar.I(arrayList);
+                        }
+                    } catch (JSONException e2) {
+                        e2.printStackTrace();
+                    }
+                }
+                d.b.i0.c3.q0.b.a("发帖：任务后台执行 开始 doInBackground 失败 1");
+            } else if (d2 != null && d2.error_code == 238010) {
+                fVar = new d.b.i0.c3.q0.f(d2.getError_code(), d2.getError_msg(), null);
+                if (this.f21443b != null) {
+                    try {
+                        JSONObject optJSONObject2 = new JSONObject(this.f21443b).optJSONObject("info");
+                        if (optJSONObject2 != null) {
+                            t1 t1Var = new t1();
+                            t1Var.f50887a = optJSONObject2.optString("block_content");
+                            t1Var.f50888b = optJSONObject2.optString("block_cancel");
+                            t1Var.f50889c = optJSONObject2.optString("block_confirm");
+                            fVar.H(t1Var);
+                        }
+                    } catch (JSONException e3) {
+                        e3.printStackTrace();
+                    }
+                }
+                d.b.i0.c3.q0.b.a("发帖：任务后台执行 开始 doInBackground 失败 2");
+            } else if (d2 != null && d2.error_code != 0) {
+                String error_msg2 = d2.getError_msg();
+                if (StringUtils.isNull(error_msg2)) {
+                    if (d2.error_code == 3250013) {
+                        error_msg2 = TbadkCoreApplication.getInst().getApp().getString(R.string.anti_account_exception_appealing);
+                    } else {
+                        error_msg2 = TbadkCoreApplication.getInst().getApp().getString(R.string.send_error);
+                    }
+                }
+                fVar = new d.b.i0.c3.q0.f(d2.getError_code(), error_msg2, this.f21442a.c());
+                d.b.i0.c3.q0.b.a("发帖：任务后台执行 开始 doInBackground 失败 3");
+            } else {
+                fVar = new d.b.i0.c3.q0.f(-17, TbadkCoreApplication.getInst().getApp().getString(R.string.neterror), null);
+                d.b.i0.c3.q0.b.a("发帖：任务后台执行 开始 doInBackground 失败 4");
+            }
+            if (!fVar.r()) {
+                ContriInfo contriInfo = new ContriInfo();
+                try {
+                    if (this.f21443b != null) {
+                        JSONObject jSONObject = new JSONObject(this.f21443b);
+                        String optString = jSONObject.optString("msg");
+                        try {
+                            str4 = jSONObject.optString("pre_msg");
+                        } catch (JSONException e4) {
+                            e = e4;
+                            str3 = optString;
+                            str = null;
+                            str2 = null;
+                            str4 = null;
+                        }
+                        try {
+                            str5 = jSONObject.optString("color_msg");
+                        } catch (JSONException e5) {
+                            e = e5;
+                            str3 = optString;
+                            str = null;
+                            str2 = null;
+                            str5 = null;
+                            str6 = null;
+                            str7 = null;
+                            str8 = null;
+                            customDialogData = null;
+                            videoEasterEggData = null;
+                            jSONException = e;
+                            iconStampData = null;
+                            jSONException.printStackTrace();
+                            if (StringUtils.isNull(str3)) {
+                            }
+                            fVar.A(str3);
+                            fVar.G(str4);
+                            fVar.y(str5);
+                            fVar.J(str6);
+                            fVar.F(str7);
+                            fVar.E(r6);
+                            fVar.C(str2);
+                            fVar.B(str);
+                            fVar.x(customDialogData);
+                            fVar.L(str8);
+                            fVar.z(contriInfo);
+                            fVar.K(videoEasterEggData);
+                            fVar.D(iconStampData);
+                            d.b.i0.c3.q0.b.a("doInBackground end");
+                            d.b.i0.c3.q0.b.a("发帖：任务后台执行 开始 doInBackground 完全结束");
+                            return fVar;
+                        }
+                        try {
+                            str6 = jSONObject.optString("tid");
+                            try {
+                                str7 = jSONObject.optString("pid");
+                            } catch (JSONException e6) {
+                                e = e6;
+                                str3 = optString;
+                                str = null;
+                                str2 = null;
+                                str7 = null;
+                                str8 = null;
+                                customDialogData = null;
+                                videoEasterEggData = null;
+                                jSONException = e;
+                                iconStampData = null;
+                                jSONException.printStackTrace();
+                                if (StringUtils.isNull(str3)) {
+                                }
+                                fVar.A(str3);
+                                fVar.G(str4);
+                                fVar.y(str5);
+                                fVar.J(str6);
+                                fVar.F(str7);
+                                fVar.E(r6);
+                                fVar.C(str2);
+                                fVar.B(str);
+                                fVar.x(customDialogData);
+                                fVar.L(str8);
+                                fVar.z(contriInfo);
+                                fVar.K(videoEasterEggData);
+                                fVar.D(iconStampData);
+                                d.b.i0.c3.q0.b.a("doInBackground end");
+                                d.b.i0.c3.q0.b.a("发帖：任务后台执行 开始 doInBackground 完全结束");
+                                return fVar;
+                            }
+                        } catch (JSONException e7) {
+                            e = e7;
+                            str3 = optString;
+                            str = null;
+                            str2 = null;
+                            str6 = null;
+                            str7 = null;
+                            str8 = null;
+                            customDialogData = null;
+                            videoEasterEggData = null;
+                            jSONException = e;
+                            iconStampData = null;
+                            jSONException.printStackTrace();
+                            if (StringUtils.isNull(str3)) {
+                            }
+                            fVar.A(str3);
+                            fVar.G(str4);
+                            fVar.y(str5);
+                            fVar.J(str6);
+                            fVar.F(str7);
+                            fVar.E(r6);
+                            fVar.C(str2);
+                            fVar.B(str);
+                            fVar.x(customDialogData);
+                            fVar.L(str8);
+                            fVar.z(contriInfo);
+                            fVar.K(videoEasterEggData);
+                            fVar.D(iconStampData);
+                            d.b.i0.c3.q0.b.a("doInBackground end");
+                            d.b.i0.c3.q0.b.a("发帖：任务后台执行 开始 doInBackground 完全结束");
+                            return fVar;
+                        }
+                        try {
+                            str8 = jSONObject.optString("video_id");
+                            try {
+                                customDialogData = d.b.i0.c2.b.a(jSONObject);
+                                try {
+                                    JSONObject optJSONObject3 = jSONObject.optJSONObject("twzhibo_info");
+                                    r6 = optJSONObject3 != null ? optJSONObject3.optInt("is_copytwzhibo", 0) : 0;
+                                    JSONObject optJSONObject4 = jSONObject.optJSONObject("exp");
+                                    if (optJSONObject4 != null) {
+                                        str2 = optJSONObject4.optString("pre_msg");
+                                        try {
+                                            str = optJSONObject4.optString("color_msg");
+                                        } catch (JSONException e8) {
+                                            e = e8;
+                                            str3 = optString;
+                                            str = null;
+                                            videoEasterEggData = null;
+                                            jSONException = e;
+                                            iconStampData = null;
+                                            jSONException.printStackTrace();
+                                            if (StringUtils.isNull(str3)) {
+                                            }
+                                            fVar.A(str3);
+                                            fVar.G(str4);
+                                            fVar.y(str5);
+                                            fVar.J(str6);
+                                            fVar.F(str7);
+                                            fVar.E(r6);
+                                            fVar.C(str2);
+                                            fVar.B(str);
+                                            fVar.x(customDialogData);
+                                            fVar.L(str8);
+                                            fVar.z(contriInfo);
+                                            fVar.K(videoEasterEggData);
+                                            fVar.D(iconStampData);
+                                            d.b.i0.c3.q0.b.a("doInBackground end");
+                                            d.b.i0.c3.q0.b.a("发帖：任务后台执行 开始 doInBackground 完全结束");
+                                            return fVar;
+                                        }
+                                    } else {
+                                        str = null;
+                                        str2 = null;
+                                    }
+                                    try {
+                                        contriInfo.parseJson(jSONObject.optJSONObject("contri_info"));
+                                        JSONObject optJSONObject5 = jSONObject.optJSONObject("star_info");
+                                        if (optJSONObject5 != null) {
+                                            videoEasterEggData = new VideoEasterEggData();
+                                            try {
+                                                videoEasterEggData.parseJson(optJSONObject5);
+                                            } catch (JSONException e9) {
+                                                e = e9;
+                                                str3 = optString;
+                                                jSONException = e;
+                                                iconStampData = null;
+                                                jSONException.printStackTrace();
+                                                if (StringUtils.isNull(str3)) {
+                                                }
+                                                fVar.A(str3);
+                                                fVar.G(str4);
+                                                fVar.y(str5);
+                                                fVar.J(str6);
+                                                fVar.F(str7);
+                                                fVar.E(r6);
+                                                fVar.C(str2);
+                                                fVar.B(str);
+                                                fVar.x(customDialogData);
+                                                fVar.L(str8);
+                                                fVar.z(contriInfo);
+                                                fVar.K(videoEasterEggData);
+                                                fVar.D(iconStampData);
+                                                d.b.i0.c3.q0.b.a("doInBackground end");
+                                                d.b.i0.c3.q0.b.a("发帖：任务后台执行 开始 doInBackground 完全结束");
+                                                return fVar;
+                                            }
+                                        } else {
+                                            videoEasterEggData = null;
+                                        }
+                                        JSONObject optJSONObject6 = jSONObject.optJSONObject("icon_stamp_info");
+                                        if (optJSONObject6 != null) {
+                                            IconStampData iconStampData2 = new IconStampData();
+                                            try {
+                                                iconStampData2.parseJson(optJSONObject6);
+                                                iconStampData = iconStampData2;
+                                                str3 = optString;
+                                            } catch (JSONException e10) {
+                                                jSONException = e10;
+                                                iconStampData = iconStampData2;
+                                                str3 = optString;
+                                                jSONException.printStackTrace();
+                                                if (StringUtils.isNull(str3)) {
+                                                }
+                                                fVar.A(str3);
+                                                fVar.G(str4);
+                                                fVar.y(str5);
+                                                fVar.J(str6);
+                                                fVar.F(str7);
+                                                fVar.E(r6);
+                                                fVar.C(str2);
+                                                fVar.B(str);
+                                                fVar.x(customDialogData);
+                                                fVar.L(str8);
+                                                fVar.z(contriInfo);
+                                                fVar.K(videoEasterEggData);
+                                                fVar.D(iconStampData);
+                                                d.b.i0.c3.q0.b.a("doInBackground end");
+                                                d.b.i0.c3.q0.b.a("发帖：任务后台执行 开始 doInBackground 完全结束");
+                                                return fVar;
+                                            }
+                                        } else {
+                                            str3 = optString;
+                                            iconStampData = null;
+                                        }
+                                    } catch (JSONException e11) {
+                                        e = e11;
+                                        str3 = optString;
+                                        videoEasterEggData = null;
+                                        jSONException = e;
+                                        iconStampData = null;
+                                        jSONException.printStackTrace();
+                                        if (StringUtils.isNull(str3)) {
+                                        }
+                                        fVar.A(str3);
+                                        fVar.G(str4);
+                                        fVar.y(str5);
+                                        fVar.J(str6);
+                                        fVar.F(str7);
+                                        fVar.E(r6);
+                                        fVar.C(str2);
+                                        fVar.B(str);
+                                        fVar.x(customDialogData);
+                                        fVar.L(str8);
+                                        fVar.z(contriInfo);
+                                        fVar.K(videoEasterEggData);
+                                        fVar.D(iconStampData);
+                                        d.b.i0.c3.q0.b.a("doInBackground end");
+                                        d.b.i0.c3.q0.b.a("发帖：任务后台执行 开始 doInBackground 完全结束");
+                                        return fVar;
+                                    }
+                                } catch (JSONException e12) {
+                                    e = e12;
+                                    str3 = optString;
+                                    str = null;
+                                    str2 = null;
+                                }
+                            } catch (JSONException e13) {
+                                e = e13;
+                                str3 = optString;
+                                str = null;
+                                str2 = null;
+                                customDialogData = null;
+                                videoEasterEggData = null;
+                                jSONException = e;
+                                iconStampData = null;
+                                jSONException.printStackTrace();
+                                if (StringUtils.isNull(str3)) {
+                                }
+                                fVar.A(str3);
+                                fVar.G(str4);
+                                fVar.y(str5);
+                                fVar.J(str6);
+                                fVar.F(str7);
+                                fVar.E(r6);
+                                fVar.C(str2);
+                                fVar.B(str);
+                                fVar.x(customDialogData);
+                                fVar.L(str8);
+                                fVar.z(contriInfo);
+                                fVar.K(videoEasterEggData);
+                                fVar.D(iconStampData);
+                                d.b.i0.c3.q0.b.a("doInBackground end");
+                                d.b.i0.c3.q0.b.a("发帖：任务后台执行 开始 doInBackground 完全结束");
+                                return fVar;
+                            }
+                        } catch (JSONException e14) {
+                            e = e14;
+                            str3 = optString;
+                            str = null;
+                            str2 = null;
+                            str8 = null;
+                            customDialogData = null;
+                            videoEasterEggData = null;
+                            jSONException = e;
+                            iconStampData = null;
+                            jSONException.printStackTrace();
+                            if (StringUtils.isNull(str3)) {
+                            }
+                            fVar.A(str3);
+                            fVar.G(str4);
+                            fVar.y(str5);
+                            fVar.J(str6);
+                            fVar.F(str7);
+                            fVar.E(r6);
+                            fVar.C(str2);
+                            fVar.B(str);
+                            fVar.x(customDialogData);
+                            fVar.L(str8);
+                            fVar.z(contriInfo);
+                            fVar.K(videoEasterEggData);
+                            fVar.D(iconStampData);
+                            d.b.i0.c3.q0.b.a("doInBackground end");
+                            d.b.i0.c3.q0.b.a("发帖：任务后台执行 开始 doInBackground 完全结束");
+                            return fVar;
+                        }
+                    } else {
+                        iconStampData = null;
+                        str = null;
+                        str2 = null;
+                        str3 = null;
+                        str4 = null;
+                        str5 = null;
+                        str6 = null;
+                        str7 = null;
+                        str8 = null;
+                        customDialogData = null;
+                        videoEasterEggData = null;
+                    }
+                } catch (JSONException e15) {
+                    jSONException = e15;
+                    iconStampData = null;
+                    str = null;
+                    str2 = null;
+                    str3 = null;
+                    str4 = null;
+                    str5 = null;
+                    str6 = null;
+                    str7 = null;
+                    str8 = null;
+                    customDialogData = null;
+                    videoEasterEggData = null;
+                }
+                if (StringUtils.isNull(str3)) {
+                    str3 = TbadkCoreApplication.getInst().getString(R.string.send_success);
+                }
+                fVar.A(str3);
+                fVar.G(str4);
+                fVar.y(str5);
+                fVar.J(str6);
+                fVar.F(str7);
+                fVar.E(r6);
+                fVar.C(str2);
+                fVar.B(str);
+                fVar.x(customDialogData);
+                fVar.L(str8);
+                fVar.z(contriInfo);
+                fVar.K(videoEasterEggData);
+                fVar.D(iconStampData);
+            }
+            d.b.i0.c3.q0.b.a("doInBackground end");
+            d.b.i0.c3.q0.b.a("发帖：任务后台执行 开始 doInBackground 完全结束");
+            return fVar;
+        }
+
+        public final void c(d.b.i0.c3.q0.f fVar) {
+            if (d.b.i0.c3.n0.f.a(fVar.e(), AuthTokenData.parse(this.f21443b), NewWriteModel.this.s)) {
+                return;
+            }
+            if (fVar.t()) {
+                NewWriteModel.this.X(fVar);
+            } else if (fVar.w()) {
+                NewWriteModel.this.W(fVar);
+                NewWriteModel.this.X(fVar);
+            } else if (d.b.i0.m3.a.c(fVar.e())) {
+                NewWriteModel.this.V(fVar);
+                NewWriteModel.this.X(fVar);
+            } else if (fVar.u()) {
+                f0 f0Var = new f0();
+                f0Var.e(this.f21443b);
+                if (f0Var.c() == null || NewWriteModel.this.f21431g == null) {
+                    return;
+                }
+                NewWriteModel.this.f21431g.setVcodeMD5(f0Var.b());
+                NewWriteModel.this.f21431g.setVcodeUrl(f0Var.c());
+                NewWriteModel newWriteModel = NewWriteModel.this;
+                newWriteModel.Y(fVar, null, f0Var, newWriteModel.f21431g);
+            } else if (fVar.s()) {
+                AccessState accessState = new AccessState();
+                accessState.parserJson(this.f21443b);
+                NewWriteModel newWriteModel2 = NewWriteModel.this;
+                newWriteModel2.Y(fVar, accessState, null, newWriteModel2.f21431g);
+            } else if (fVar.v()) {
+                NewWriteModel.this.X(fVar);
+            } else {
+                NewWriteModel.this.X(fVar);
+            }
+        }
+
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void cancel() {
+            this.f21444c = true;
+            d.b.i0.c3.i0.a aVar = this.f21442a;
+            if (aVar != null) {
+                aVar.b();
+            }
+            if (NewWriteModel.this.m != null) {
+                NewWriteModel.this.m.callback(false, null, null, NewWriteModel.this.f21431g, null);
+            } else if (NewWriteModel.this.l != null) {
+                NewWriteModel.this.l.a(false, null, null, null, null);
+            }
+            super.cancel(true);
+            NewWriteModel.this.f21429e = null;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX WARN: Code restructure failed: missing block: B:57:0x01e0, code lost:
+            if (r5 != 7) goto L54;
+         */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: d */
+        /*
+            Code decompiled incorrectly, please refer to instructions dump.
+        */
+        public void onPostExecute(d.b.i0.c3.q0.f fVar) {
+            String h2;
+            String g2;
+            super.onPostExecute(fVar);
+            d.b.i0.c3.q0.b.a("onPostExecute start");
+            d.b.i0.c3.q0.b.a("发帖： onPostExecute");
+            NewWriteModel.this.f21429e = null;
+            if (fVar != null && fVar.e() != 0) {
+                d.b.h0.r.z.a.a(AlbumActivityConfig.FROM_WRITE, 0L, 0, "write_result", fVar.e(), fVar.f(), "tid", fVar.o(), "pid", fVar.k());
+            }
+            if (!this.f21444c && fVar != null) {
+                if (fVar.r()) {
+                    d.b.i0.c3.q0.b.a("onPostExecute error");
+                    c(fVar);
+                    d.b.i0.s1.g gVar = this.f21446e;
+                    if (gVar != null) {
+                        gVar.f(fVar.f53596a, fVar.f());
+                    }
+                } else {
+                    d.b.i0.c3.q0.b.a("onPostExecute success");
+                    if (NewWriteModel.this.m == null) {
+                        if (NewWriteModel.this.l != null) {
+                            NewWriteModel.this.l.a(true, fVar.f(), null, null, fVar.b());
+                        }
+                    } else {
+                        if (!StringUtils.isNull(fVar.l()) && !StringUtils.isNull(fVar.c())) {
+                            h2 = fVar.l();
+                            g2 = fVar.c();
+                        } else if (StringUtils.isNull(fVar.g()) && StringUtils.isNull(fVar.h())) {
+                            h2 = null;
+                            g2 = null;
+                        } else {
+                            h2 = fVar.h();
+                            g2 = fVar.g();
+                        }
+                        PostWriteCallBackData postWriteCallBackData = new PostWriteCallBackData(fVar.e(), fVar.f(), h2, g2);
+                        postWriteCallBackData.setThreadId(fVar.o());
+                        postWriteCallBackData.setPostId(fVar.k());
+                        postWriteCallBackData.setIsCopyTWZhibo(fVar.j());
+                        postWriteCallBackData.setErrorString(fVar.f());
+                        postWriteCallBackData.setActivityDialog(fVar.a());
+                        postWriteCallBackData.setVideoid(fVar.q());
+                        postWriteCallBackData.setContriInfo(fVar.d());
+                        if (NewWriteModel.this.f21431g != null) {
+                            postWriteCallBackData.setProZone(NewWriteModel.this.f21431g.getProZone());
+                            postWriteCallBackData.setGeneralTabId(NewWriteModel.this.f21431g.getTabId());
+                        }
+                        postWriteCallBackData.setVideoEasterEggData(fVar.p());
+                        postWriteCallBackData.setIconStampData(fVar.i());
+                        f0 f0Var = new f0();
+                        f0Var.e(this.f21443b);
+                        NewWriteModel.this.m.callback(true, postWriteCallBackData, f0Var, NewWriteModel.this.f21431g, fVar.b());
+                        if (NewWriteModel.this.f21431g != null && d.b.i0.c3.q0.a.f().e() != null) {
+                            d.b.i0.c3.q0.a.f().q(NewWriteModel.this.f21431g.getForumId());
+                            d.b.i0.c3.q0.a.f().r(NewWriteModel.this.f21431g.getForumName());
+                            if (NewWriteModel.this.f21431g.getVideoInfo() != null) {
+                                postWriteCallBackData.writeDataForVideo = NewWriteModel.this.f21431g;
+                            }
+                            CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2001383, postWriteCallBackData);
+                            customResponsedMessage.setOrginalMessage(new CustomMessage(2001383, d.b.i0.c3.q0.a.f().e()));
+                            MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
+                            d.b.i0.c3.q0.a.f().o(null);
+                        }
+                        CustomDialogData activityDialog = postWriteCallBackData.getActivityDialog();
+                        if (activityDialog != null && fVar.i() == null) {
+                            if (NewWriteModel.this.f21431g != null) {
+                                int type = NewWriteModel.this.f21431g.getType();
+                                if (type != 0) {
+                                    if (type == 1 || type == 2) {
+                                        activityDialog.type = 1;
+                                    } else if (type != 4) {
+                                        if (type != 9) {
+                                            if (type != 6) {
+                                            }
+                                        }
+                                    }
+                                }
+                                activityDialog.type = 2;
+                            }
+                            d.b.b.e.m.e.a().postDelayed(new a(activityDialog), 1000L);
+                        }
+                    }
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001375, Boolean.valueOf(fVar.i() == null)));
+                    d.b.i0.s1.g gVar2 = this.f21446e;
+                    if (gVar2 != null) {
+                        gVar2.g();
+                    }
+                }
+                d.b.i0.c3.q0.b.a("发帖： onPostExecute 完全结束");
+                return;
+            }
+            d.b.i0.c3.q0.b.a("发帖： onPostExecute isCanceled");
+        }
     }
 
     public NewWriteModel(BaseFragmentActivity baseFragmentActivity) {
         super(baseFragmentActivity.getPageContext());
-        this.nDu = null;
-        this.nDv = null;
-        this.noo = null;
-        this.nDw = null;
-        this.nDx = null;
-        this.nDy = null;
-        this.nDA = null;
-        this.nDB = null;
-        this.nDC = false;
-        this.iIR = new f.a() { // from class: com.baidu.tieba.tbadkCore.writeModel.NewWriteModel.3
-            @Override // com.baidu.tieba.tbadkCore.util.f.a
-            public void Jr(String str) {
-                if (NewWriteModel.this.noo == null || TextUtils.isEmpty(str)) {
-                    if (NewWriteModel.this.nDB != null) {
-                        NewWriteModel.this.nDB.callback(false, null, null, NewWriteModel.this.noo, null);
-                        return;
-                    }
-                    return;
-                }
-                NewWriteModel.this.nDu = null;
-                NewWriteModel.this.noo.setAuthSid(str);
-                NewWriteModel.this.dPm();
-            }
-
-            @Override // com.baidu.tieba.tbadkCore.util.f.a
-            public void cvi() {
-                if (NewWriteModel.this.noo != null) {
-                    NewWriteModel.this.nDu = null;
-                    NewWriteModel.this.noo.setAuthSid(null);
-                    NewWriteModel.this.dPm();
-                } else if (NewWriteModel.this.nDB != null) {
-                    NewWriteModel.this.nDB.callback(false, null, null, NewWriteModel.this.noo, null);
-                }
-            }
-
-            @Override // com.baidu.tieba.tbadkCore.util.f.a
-            public void Js(String str) {
-                if (NewWriteModel.this.noo == null || TextUtils.isEmpty(str)) {
-                    if (NewWriteModel.this.nDB != null) {
-                        NewWriteModel.this.nDB.callback(false, null, null, NewWriteModel.this.noo, null);
-                        return;
-                    }
-                    return;
-                }
-                NewWriteModel.this.nDu = null;
-                NewWriteModel.this.noo.setAuthSid(str);
-                NewWriteModel.this.dPm();
-            }
-
-            @Override // com.baidu.tieba.tbadkCore.util.f.a
-            public void onFail() {
-                if (NewWriteModel.this.noo != null) {
-                    NewWriteModel.this.noo.setAuthSid(null);
-                }
-                if (NewWriteModel.this.nDB != null) {
-                    NewWriteModel.this.nDB.callback(false, null, null, NewWriteModel.this.noo, null);
-                }
-            }
-        };
-        this.eXa = baseFragmentActivity.getPageContext();
+        this.f21429e = null;
+        this.f21430f = null;
+        this.f21431g = null;
+        this.f21432h = null;
+        this.i = null;
+        this.j = null;
+        this.l = null;
+        this.m = null;
+        this.n = false;
+        this.s = new c();
+        this.o = baseFragmentActivity.getPageContext();
     }
 
-    public NewWriteModel(BaseActivity baseActivity) {
-        super(baseActivity.getPageContext());
-        this.nDu = null;
-        this.nDv = null;
-        this.noo = null;
-        this.nDw = null;
-        this.nDx = null;
-        this.nDy = null;
-        this.nDA = null;
-        this.nDB = null;
-        this.nDC = false;
-        this.iIR = new f.a() { // from class: com.baidu.tieba.tbadkCore.writeModel.NewWriteModel.3
-            @Override // com.baidu.tieba.tbadkCore.util.f.a
-            public void Jr(String str) {
-                if (NewWriteModel.this.noo == null || TextUtils.isEmpty(str)) {
-                    if (NewWriteModel.this.nDB != null) {
-                        NewWriteModel.this.nDB.callback(false, null, null, NewWriteModel.this.noo, null);
-                        return;
-                    }
-                    return;
-                }
-                NewWriteModel.this.nDu = null;
-                NewWriteModel.this.noo.setAuthSid(str);
-                NewWriteModel.this.dPm();
-            }
-
-            @Override // com.baidu.tieba.tbadkCore.util.f.a
-            public void cvi() {
-                if (NewWriteModel.this.noo != null) {
-                    NewWriteModel.this.nDu = null;
-                    NewWriteModel.this.noo.setAuthSid(null);
-                    NewWriteModel.this.dPm();
-                } else if (NewWriteModel.this.nDB != null) {
-                    NewWriteModel.this.nDB.callback(false, null, null, NewWriteModel.this.noo, null);
-                }
-            }
-
-            @Override // com.baidu.tieba.tbadkCore.util.f.a
-            public void Js(String str) {
-                if (NewWriteModel.this.noo == null || TextUtils.isEmpty(str)) {
-                    if (NewWriteModel.this.nDB != null) {
-                        NewWriteModel.this.nDB.callback(false, null, null, NewWriteModel.this.noo, null);
-                        return;
-                    }
-                    return;
-                }
-                NewWriteModel.this.nDu = null;
-                NewWriteModel.this.noo.setAuthSid(str);
-                NewWriteModel.this.dPm();
-            }
-
-            @Override // com.baidu.tieba.tbadkCore.util.f.a
-            public void onFail() {
-                if (NewWriteModel.this.noo != null) {
-                    NewWriteModel.this.noo.setAuthSid(null);
-                }
-                if (NewWriteModel.this.nDB != null) {
-                    NewWriteModel.this.nDB.callback(false, null, null, NewWriteModel.this.noo, null);
-                }
-            }
-        };
-        this.eXa = baseActivity.getPageContext();
+    @Override // com.baidu.adp.base.BdBaseModel
+    public boolean LoadData() {
+        return false;
     }
 
-    public NewWriteModel(TbPageContext<?> tbPageContext) {
-        super(tbPageContext);
-        this.nDu = null;
-        this.nDv = null;
-        this.noo = null;
-        this.nDw = null;
-        this.nDx = null;
-        this.nDy = null;
-        this.nDA = null;
-        this.nDB = null;
-        this.nDC = false;
-        this.iIR = new f.a() { // from class: com.baidu.tieba.tbadkCore.writeModel.NewWriteModel.3
-            @Override // com.baidu.tieba.tbadkCore.util.f.a
-            public void Jr(String str) {
-                if (NewWriteModel.this.noo == null || TextUtils.isEmpty(str)) {
-                    if (NewWriteModel.this.nDB != null) {
-                        NewWriteModel.this.nDB.callback(false, null, null, NewWriteModel.this.noo, null);
-                        return;
-                    }
-                    return;
-                }
-                NewWriteModel.this.nDu = null;
-                NewWriteModel.this.noo.setAuthSid(str);
-                NewWriteModel.this.dPm();
-            }
-
-            @Override // com.baidu.tieba.tbadkCore.util.f.a
-            public void cvi() {
-                if (NewWriteModel.this.noo != null) {
-                    NewWriteModel.this.nDu = null;
-                    NewWriteModel.this.noo.setAuthSid(null);
-                    NewWriteModel.this.dPm();
-                } else if (NewWriteModel.this.nDB != null) {
-                    NewWriteModel.this.nDB.callback(false, null, null, NewWriteModel.this.noo, null);
-                }
-            }
-
-            @Override // com.baidu.tieba.tbadkCore.util.f.a
-            public void Js(String str) {
-                if (NewWriteModel.this.noo == null || TextUtils.isEmpty(str)) {
-                    if (NewWriteModel.this.nDB != null) {
-                        NewWriteModel.this.nDB.callback(false, null, null, NewWriteModel.this.noo, null);
-                        return;
-                    }
-                    return;
-                }
-                NewWriteModel.this.nDu = null;
-                NewWriteModel.this.noo.setAuthSid(str);
-                NewWriteModel.this.dPm();
-            }
-
-            @Override // com.baidu.tieba.tbadkCore.util.f.a
-            public void onFail() {
-                if (NewWriteModel.this.noo != null) {
-                    NewWriteModel.this.noo.setAuthSid(null);
-                }
-                if (NewWriteModel.this.nDB != null) {
-                    NewWriteModel.this.nDB.callback(false, null, null, NewWriteModel.this.noo, null);
-                }
-            }
-        };
-        this.eXa = tbPageContext;
-    }
-
-    public NewWriteModel() {
-        this.nDu = null;
-        this.nDv = null;
-        this.noo = null;
-        this.nDw = null;
-        this.nDx = null;
-        this.nDy = null;
-        this.nDA = null;
-        this.nDB = null;
-        this.nDC = false;
-        this.iIR = new f.a() { // from class: com.baidu.tieba.tbadkCore.writeModel.NewWriteModel.3
-            @Override // com.baidu.tieba.tbadkCore.util.f.a
-            public void Jr(String str) {
-                if (NewWriteModel.this.noo == null || TextUtils.isEmpty(str)) {
-                    if (NewWriteModel.this.nDB != null) {
-                        NewWriteModel.this.nDB.callback(false, null, null, NewWriteModel.this.noo, null);
-                        return;
-                    }
-                    return;
-                }
-                NewWriteModel.this.nDu = null;
-                NewWriteModel.this.noo.setAuthSid(str);
-                NewWriteModel.this.dPm();
-            }
-
-            @Override // com.baidu.tieba.tbadkCore.util.f.a
-            public void cvi() {
-                if (NewWriteModel.this.noo != null) {
-                    NewWriteModel.this.nDu = null;
-                    NewWriteModel.this.noo.setAuthSid(null);
-                    NewWriteModel.this.dPm();
-                } else if (NewWriteModel.this.nDB != null) {
-                    NewWriteModel.this.nDB.callback(false, null, null, NewWriteModel.this.noo, null);
-                }
-            }
-
-            @Override // com.baidu.tieba.tbadkCore.util.f.a
-            public void Js(String str) {
-                if (NewWriteModel.this.noo == null || TextUtils.isEmpty(str)) {
-                    if (NewWriteModel.this.nDB != null) {
-                        NewWriteModel.this.nDB.callback(false, null, null, NewWriteModel.this.noo, null);
-                        return;
-                    }
-                    return;
-                }
-                NewWriteModel.this.nDu = null;
-                NewWriteModel.this.noo.setAuthSid(str);
-                NewWriteModel.this.dPm();
-            }
-
-            @Override // com.baidu.tieba.tbadkCore.util.f.a
-            public void onFail() {
-                if (NewWriteModel.this.noo != null) {
-                    NewWriteModel.this.noo.setAuthSid(null);
-                }
-                if (NewWriteModel.this.nDB != null) {
-                    NewWriteModel.this.nDB.callback(false, null, null, NewWriteModel.this.noo, null);
-                }
-            }
-        };
-        this.eXa = null;
-    }
-
-    public void h(@Nullable com.baidu.adp.base.f<?> fVar) {
-        if (fVar != null) {
-            this.eXa = fVar;
-            this.unique_id = fVar.getUniqueId();
+    public void P() {
+        d dVar = this.f21430f;
+        if (dVar == null || dVar.isCancelled()) {
             return;
         }
-        this.eXa = null;
-        this.unique_id = null;
+        this.f21430f.cancel();
     }
 
-    public void yD(boolean z) {
-        this.nDC = z;
-    }
-
-    public void b(d dVar) {
-        this.nDB = dVar;
-    }
-
-    public void a(c cVar) {
-        this.nDA = cVar;
-    }
-
-    public void f(WriteData writeData) {
-        this.noo = writeData;
-    }
-
-    public WriteData daL() {
-        return this.noo;
-    }
-
-    public boolean dPA() {
-        if (this.noo == null) {
-            return false;
-        }
-        com.baidu.tieba.tbadkCore.writeModel.b.d("发帖：开始上传");
-        this.noo.startPublish();
-        bi.a(this.noo, 0).ju(true);
-        dPB();
-        return true;
-    }
-
-    public boolean dPm() {
-        if (this.noo == null) {
-            return false;
-        }
-        if (!j.isNetWorkAvailable() || j.isWifiNet() || this.noo.getWriteImagesInfo() == null || this.noo.getWriteImagesInfo().size() == 0 || !this.noo.getWriteImagesInfo().isOriginalImg() || com.baidu.tbadk.core.sharedPref.b.brR().getBoolean(SharedPrefConfig.ORIGINAL_IMG_UP_TIP, false)) {
-            dPB();
-        } else {
-            com.baidu.tbadk.core.sharedPref.b.brR().putBoolean(SharedPrefConfig.ORIGINAL_IMG_UP_TIP, true);
-            if (this.eXa == null) {
-                dPB();
-                return true;
-            }
-            final com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.eXa.getPageActivity());
-            aVar.ny(R.string.original_img_up_no_wifi_tip);
-            aVar.a(R.string.alert_yes_button, new a.b() { // from class: com.baidu.tieba.tbadkCore.writeModel.NewWriteModel.1
-                @Override // com.baidu.tbadk.core.dialog.a.b
-                public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
-                    aVar.dismiss();
-                    NewWriteModel.this.dPB();
-                }
-            });
-            aVar.b(R.string.cancel, new a.b() { // from class: com.baidu.tieba.tbadkCore.writeModel.NewWriteModel.2
-                @Override // com.baidu.tbadk.core.dialog.a.b
-                public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
-                    aVar.dismiss();
-                    NewWriteModel.this.cancel();
-                }
-            });
-            aVar.b(this.eXa);
-            aVar.bqz();
-        }
-        return true;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void dPB() {
-        if (this.nDu == null) {
-            if (com.baidu.tieba.tbadkCore.writeModel.a.dPl().dPs() != null) {
-                CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2001378, daL());
-                customResponsedMessage.setOrginalMessage(new CustomMessage(2001378, com.baidu.tieba.tbadkCore.writeModel.a.dPl().dPs()));
-                MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
-            }
-            this.nDu = new e();
-            com.baidu.tieba.tbadkCore.writeModel.b.d("dealPost()");
-            this.nDu.execute(new Integer[0]);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void cancel() {
-        if (this.nDu != null && !this.nDu.isCancelled()) {
-            this.nDu.cancel();
-        } else if (this.nDB != null) {
-            this.nDB.callback(false, null, null, this.noo, null);
-        } else if (this.nDA != null) {
-            this.nDA.a(false, null, null, null, null);
-        }
-    }
-
-    @Override // com.baidu.adp.base.BdBaseModel
-    protected boolean LoadData() {
-        return false;
-    }
-
-    @Override // com.baidu.adp.base.BdBaseModel
-    public boolean cancelLoadData() {
-        if (this.nDu != null && !this.nDu.isCancelled()) {
-            this.nDu.cancel();
-            return false;
-        }
-        return false;
-    }
-
-    public void dPC() {
-        if (this.nDv != null && !this.nDv.isCancelled()) {
-            this.nDv.cancel();
-        }
-    }
-
-    public boolean dPo() {
-        if (this.noo == null) {
+    public boolean Q() {
+        WriteData writeData = this.f21431g;
+        if (writeData == null) {
             return true;
         }
-        return (this.noo.getWriteImagesInfo() != null ? this.noo.getWriteImagesInfo().size() + 0 : 0) <= MAX_IMG_NUM;
+        return (writeData.getWriteImagesInfo() != null ? this.f21431g.getWriteImagesInfo().size() + 0 : 0) <= MAX_IMG_NUM;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes.dex */
-    public class e extends BdAsyncTask<Integer, Integer, f> {
-        private com.baidu.tieba.l.g nAz;
-        private k nDH;
-        private com.baidu.tieba.tbadkCore.c.a nDF = null;
-        private String nDG = null;
-        private boolean gyY = false;
-
-        public e() {
-            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_GET_VIDEO_PLATFORM_FACTORY, k.class);
-            if (runTask != null) {
-                this.nDH = (k) runTask.getData();
+    public final void R() {
+        if (this.f21429e == null) {
+            if (d.b.i0.c3.q0.a.f().e() != null) {
+                CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2001378, T());
+                customResponsedMessage.setOrginalMessage(new CustomMessage(2001378, d.b.i0.c3.q0.a.f().e()));
+                MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
             }
-            if (this.nDH != null) {
-                this.nAz = this.nDH.dho();
-            }
-            setPriority(3);
-            com.baidu.tieba.tbadkCore.writeModel.b.d("发帖：任务创建：PostThreadTask");
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX INFO: Access modifiers changed from: protected */
-        /* JADX WARN: Removed duplicated region for block: B:43:0x01da  */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: f */
-        /*
-            Code decompiled incorrectly, please refer to instructions dump.
-        */
-        public f doInBackground(Integer... numArr) {
-            f fVar;
-            JSONArray jSONArray;
-            IconStampData iconStampData;
-            if (!this.gyY) {
-                com.baidu.tbadk.imageManager.d.statisticsNum(NewWriteModel.this.noo.getContent());
-                com.baidu.tieba.tbadkCore.writeModel.b.d("doInBackground() start");
-                com.baidu.tieba.tbadkCore.writeModel.b.d("发帖：任务后台执行 开始 doInBackground");
-                this.nDF = new com.baidu.tieba.tbadkCore.c.a();
-                this.nDF.setSpanGroupManager(NewWriteModel.this.mSpanGroupManager);
-                this.nDF.Tz(NewWriteModel.this.nAA);
-                this.nDF.a(this.nAz);
-                this.nDF.a(NewWriteModel.this.nDD);
-                this.nDG = this.nDF.a(NewWriteModel.this.noo, NewWriteModel.this.nDC);
-                com.baidu.tieba.tbadkCore.writeModel.b.d("发帖：任务后台执行 开始 doInBackground 结束");
-                ErrorData dOe = this.nDF.dOe();
-                if (this.nDF.isRequestSuccess() && this.nDG != null) {
-                    com.baidu.tieba.tbadkCore.writeModel.b.d("发帖：任务后台执行 开始 doInBackground 成功");
-                    AntiData dOd = this.nDF.dOd();
-                    String error_msg = dOe.getError_msg();
-                    if (com.baidu.adp.lib.util.k.isEmpty(error_msg)) {
-                        error_msg = TbadkCoreApplication.getInst().getApp().getString(R.string.send_success);
-                    }
-                    f fVar2 = new f(dOe.getError_code(), error_msg, dOd);
-                    if (NewWriteModel.this.noo != null && NewWriteModel.this.noo.isHasImages() && !fVar2.hasError()) {
-                        NewWriteModel.this.noo.deleteUploadedTempImages();
-                    }
-                    com.baidu.tieba.tbadkCore.writeModel.b.d("发帖：任务后台执行 开始 doInBackground 删除临时的图片");
-                    fVar = fVar2;
-                } else if (dOe != null && dOe.error_code == 220015) {
-                    fVar = new f(dOe.getError_code(), dOe.getError_msg(), null);
-                    if (this.nDG != null) {
-                        try {
-                            JSONObject optJSONObject = new JSONObject(this.nDG).optJSONObject("info");
-                            if (optJSONObject != null && (jSONArray = optJSONObject.getJSONArray("confilter_hitwords")) != null && jSONArray.length() > 0) {
-                                int length = jSONArray.length();
-                                ArrayList<String> arrayList = new ArrayList<>();
-                                for (int i = 0; i < length; i++) {
-                                    arrayList.add(jSONArray.optString(i));
-                                }
-                                fVar.setSensitiveWords(arrayList);
-                            }
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                    com.baidu.tieba.tbadkCore.writeModel.b.d("发帖：任务后台执行 开始 doInBackground 失败 1");
-                } else if (dOe != null && dOe.error_code == 238010) {
-                    fVar = new f(dOe.getError_code(), dOe.getError_msg(), null);
-                    if (this.nDG != null) {
-                        try {
-                            JSONObject optJSONObject2 = new JSONObject(this.nDG).optJSONObject("info");
-                            if (optJSONObject2 != null) {
-                                bu buVar = new bu();
-                                buVar.title = optJSONObject2.optString("block_content");
-                                buVar.eRb = optJSONObject2.optString("block_cancel");
-                                buVar.eRc = optJSONObject2.optString("block_confirm");
-                                fVar.setReplyPrivacyTip(buVar);
-                            }
-                        } catch (JSONException e2) {
-                            e2.printStackTrace();
-                        }
-                    }
-                    com.baidu.tieba.tbadkCore.writeModel.b.d("发帖：任务后台执行 开始 doInBackground 失败 2");
-                } else if (dOe != null && dOe.error_code != 0) {
-                    String error_msg2 = dOe.getError_msg();
-                    if (StringUtils.isNull(error_msg2)) {
-                        if (dOe.error_code == 3250013) {
-                            error_msg2 = TbadkCoreApplication.getInst().getApp().getString(R.string.anti_account_exception_appealing);
-                        } else {
-                            error_msg2 = TbadkCoreApplication.getInst().getApp().getString(R.string.send_error);
-                        }
-                    }
-                    f fVar3 = new f(dOe.getError_code(), error_msg2, this.nDF.dOd());
-                    com.baidu.tieba.tbadkCore.writeModel.b.d("发帖：任务后台执行 开始 doInBackground 失败 3");
-                    fVar = fVar3;
-                } else {
-                    fVar = new f(-17, TbadkCoreApplication.getInst().getApp().getString(R.string.neterror), null);
-                    com.baidu.tieba.tbadkCore.writeModel.b.d("发帖：任务后台执行 开始 doInBackground 失败 4");
-                }
-                if (!fVar.hasError()) {
-                    String str = null;
-                    String str2 = null;
-                    String str3 = null;
-                    String str4 = null;
-                    String str5 = null;
-                    String str6 = null;
-                    String str7 = null;
-                    String str8 = null;
-                    CustomDialogData customDialogData = null;
-                    ContriInfo contriInfo = new ContriInfo();
-                    VideoEasterEggData videoEasterEggData = null;
-                    int i2 = 0;
-                    try {
-                    } catch (JSONException e3) {
-                        e = e3;
-                        iconStampData = null;
-                    }
-                    if (this.nDG != null) {
-                        JSONObject jSONObject = new JSONObject(this.nDG);
-                        str = jSONObject.optString("msg");
-                        str2 = jSONObject.optString("pre_msg");
-                        str3 = jSONObject.optString("color_msg");
-                        str4 = jSONObject.optString("tid");
-                        str5 = jSONObject.optString("pid");
-                        str8 = jSONObject.optString("video_id");
-                        customDialogData = com.baidu.tieba.pb.b.eI(jSONObject);
-                        JSONObject optJSONObject3 = jSONObject.optJSONObject("twzhibo_info");
-                        if (optJSONObject3 != null) {
-                            i2 = optJSONObject3.optInt("is_copytwzhibo", 0);
-                        }
-                        JSONObject optJSONObject4 = jSONObject.optJSONObject("exp");
-                        if (optJSONObject4 != null) {
-                            str6 = optJSONObject4.optString("pre_msg");
-                            str7 = optJSONObject4.optString("color_msg");
-                        }
-                        contriInfo.parseJson(jSONObject.optJSONObject("contri_info"));
-                        JSONObject optJSONObject5 = jSONObject.optJSONObject("star_info");
-                        if (optJSONObject5 != null) {
-                            VideoEasterEggData videoEasterEggData2 = new VideoEasterEggData();
-                            try {
-                                videoEasterEggData2.parseJson(optJSONObject5);
-                                videoEasterEggData = videoEasterEggData2;
-                            } catch (JSONException e4) {
-                                e = e4;
-                                iconStampData = null;
-                                videoEasterEggData = videoEasterEggData2;
-                                e.printStackTrace();
-                                if (StringUtils.isNull(str)) {
-                                }
-                                fVar.setErrorString(str);
-                                fVar.setPreMsg(str2);
-                                fVar.setColorMsg(str3);
-                                fVar.setThreadId(str4);
-                                fVar.setPostId(str5);
-                                fVar.setIsCopyTWZhibo(i2);
-                                fVar.Ub(str6);
-                                fVar.Uc(str7);
-                                fVar.setActivityDialog(customDialogData);
-                                fVar.setVideoId(str8);
-                                fVar.setContriInfo(contriInfo);
-                                fVar.setVideoEasterEggData(videoEasterEggData);
-                                fVar.setIconStampData(iconStampData);
-                                com.baidu.tieba.tbadkCore.writeModel.b.d("doInBackground end");
-                                com.baidu.tieba.tbadkCore.writeModel.b.d("发帖：任务后台执行 开始 doInBackground 完全结束");
-                                return fVar;
-                            }
-                        }
-                        JSONObject optJSONObject6 = jSONObject.optJSONObject("icon_stamp_info");
-                        if (optJSONObject6 != null) {
-                            iconStampData = new IconStampData();
-                            try {
-                                iconStampData.parseJson(optJSONObject6);
-                            } catch (JSONException e5) {
-                                e = e5;
-                                e.printStackTrace();
-                                if (StringUtils.isNull(str)) {
-                                }
-                                fVar.setErrorString(str);
-                                fVar.setPreMsg(str2);
-                                fVar.setColorMsg(str3);
-                                fVar.setThreadId(str4);
-                                fVar.setPostId(str5);
-                                fVar.setIsCopyTWZhibo(i2);
-                                fVar.Ub(str6);
-                                fVar.Uc(str7);
-                                fVar.setActivityDialog(customDialogData);
-                                fVar.setVideoId(str8);
-                                fVar.setContriInfo(contriInfo);
-                                fVar.setVideoEasterEggData(videoEasterEggData);
-                                fVar.setIconStampData(iconStampData);
-                                com.baidu.tieba.tbadkCore.writeModel.b.d("doInBackground end");
-                                com.baidu.tieba.tbadkCore.writeModel.b.d("发帖：任务后台执行 开始 doInBackground 完全结束");
-                                return fVar;
-                            }
-                            if (StringUtils.isNull(str)) {
-                                str = TbadkCoreApplication.getInst().getString(R.string.send_success);
-                            }
-                            fVar.setErrorString(str);
-                            fVar.setPreMsg(str2);
-                            fVar.setColorMsg(str3);
-                            fVar.setThreadId(str4);
-                            fVar.setPostId(str5);
-                            fVar.setIsCopyTWZhibo(i2);
-                            fVar.Ub(str6);
-                            fVar.Uc(str7);
-                            fVar.setActivityDialog(customDialogData);
-                            fVar.setVideoId(str8);
-                            fVar.setContriInfo(contriInfo);
-                            fVar.setVideoEasterEggData(videoEasterEggData);
-                            fVar.setIconStampData(iconStampData);
-                        }
-                    }
-                    iconStampData = null;
-                    if (StringUtils.isNull(str)) {
-                    }
-                    fVar.setErrorString(str);
-                    fVar.setPreMsg(str2);
-                    fVar.setColorMsg(str3);
-                    fVar.setThreadId(str4);
-                    fVar.setPostId(str5);
-                    fVar.setIsCopyTWZhibo(i2);
-                    fVar.Ub(str6);
-                    fVar.Uc(str7);
-                    fVar.setActivityDialog(customDialogData);
-                    fVar.setVideoId(str8);
-                    fVar.setContriInfo(contriInfo);
-                    fVar.setVideoEasterEggData(videoEasterEggData);
-                    fVar.setIconStampData(iconStampData);
-                }
-                com.baidu.tieba.tbadkCore.writeModel.b.d("doInBackground end");
-                com.baidu.tieba.tbadkCore.writeModel.b.d("发帖：任务后台执行 开始 doInBackground 完全结束");
-                return fVar;
-            }
-            return null;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX INFO: Access modifiers changed from: protected */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: c */
-        public void onPostExecute(f fVar) {
-            super.onPostExecute(fVar);
-            com.baidu.tieba.tbadkCore.writeModel.b.d("onPostExecute start");
-            com.baidu.tieba.tbadkCore.writeModel.b.d("发帖： onPostExecute");
-            NewWriteModel.this.nDu = null;
-            if (fVar != null && fVar.getErrorCode() != 0) {
-                com.baidu.tbadk.core.d.a.a("write", 0L, 0, "write_result", fVar.getErrorCode(), fVar.getErrorString(), "tid", fVar.getThreadId(), "pid", fVar.getPostId());
-            }
-            if (this.gyY || fVar == null) {
-                com.baidu.tieba.tbadkCore.writeModel.b.d("发帖： onPostExecute isCanceled");
-                return;
-            }
-            if (fVar.hasError()) {
-                com.baidu.tieba.tbadkCore.writeModel.b.d("onPostExecute error");
-                d(fVar);
-                if (this.nAz != null) {
-                    this.nAz.bN(fVar.errorCode, fVar.getErrorString());
-                }
-            } else {
-                com.baidu.tieba.tbadkCore.writeModel.b.d("onPostExecute success");
-                if (NewWriteModel.this.nDB == null) {
-                    if (NewWriteModel.this.nDA != null) {
-                        NewWriteModel.this.nDA.a(true, fVar.getErrorString(), null, null, fVar.cBF());
-                    }
-                } else {
-                    String str = null;
-                    String str2 = null;
-                    if (!StringUtils.isNull(fVar.getPreMsg()) && !StringUtils.isNull(fVar.getColorMsg())) {
-                        str = fVar.getPreMsg();
-                        str2 = fVar.getColorMsg();
-                    } else if (!StringUtils.isNull(fVar.dPJ()) || !StringUtils.isNull(fVar.dPI())) {
-                        str = fVar.dPI();
-                        str2 = fVar.dPJ();
-                    }
-                    PostWriteCallBackData postWriteCallBackData = new PostWriteCallBackData(fVar.getErrorCode(), fVar.getErrorString(), str, str2);
-                    postWriteCallBackData.setThreadId(fVar.getThreadId());
-                    postWriteCallBackData.setPostId(fVar.getPostId());
-                    postWriteCallBackData.setIsCopyTWZhibo(fVar.getIsCopyTWZhibo());
-                    postWriteCallBackData.setErrorString(fVar.getErrorString());
-                    postWriteCallBackData.setActivityDialog(fVar.getActivityDialog());
-                    postWriteCallBackData.setVideoid(fVar.getVideoId());
-                    postWriteCallBackData.setContriInfo(fVar.getContriInfo());
-                    if (NewWriteModel.this.noo != null) {
-                        postWriteCallBackData.setProZone(NewWriteModel.this.noo.getProZone());
-                        postWriteCallBackData.setGeneralTabId(NewWriteModel.this.noo.getTabId());
-                    }
-                    postWriteCallBackData.setVideoEasterEggData(fVar.getVideoEasterEggData());
-                    postWriteCallBackData.setIconStampData(fVar.getIconStampData());
-                    ah ahVar = new ah();
-                    ahVar.parserJson(this.nDG);
-                    NewWriteModel.this.nDB.callback(true, postWriteCallBackData, ahVar, NewWriteModel.this.noo, fVar.cBF());
-                    if (NewWriteModel.this.noo != null && com.baidu.tieba.tbadkCore.writeModel.a.dPl().dPs() != null) {
-                        com.baidu.tieba.tbadkCore.writeModel.a.dPl().TY(NewWriteModel.this.noo.getForumId());
-                        com.baidu.tieba.tbadkCore.writeModel.a.dPl().TZ(NewWriteModel.this.noo.getForumName());
-                        if (NewWriteModel.this.noo.getVideoInfo() != null) {
-                            postWriteCallBackData.writeDataForVideo = NewWriteModel.this.noo;
-                        }
-                        CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2001383, postWriteCallBackData);
-                        customResponsedMessage.setOrginalMessage(new CustomMessage(2001383, com.baidu.tieba.tbadkCore.writeModel.a.dPl().dPs()));
-                        MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
-                        com.baidu.tieba.tbadkCore.writeModel.a.dPl().F(null);
-                    }
-                    final CustomDialogData activityDialog = postWriteCallBackData.getActivityDialog();
-                    if (activityDialog != null && fVar.getIconStampData() == null) {
-                        if (NewWriteModel.this.noo != null) {
-                            switch (NewWriteModel.this.noo.getType()) {
-                                case 0:
-                                case 4:
-                                case 6:
-                                case 7:
-                                case 9:
-                                    activityDialog.type = 2;
-                                    break;
-                                case 1:
-                                case 2:
-                                    activityDialog.type = 1;
-                                    break;
-                            }
-                        }
-                        com.baidu.adp.lib.f.e.mA().postDelayed(new Runnable() { // from class: com.baidu.tieba.tbadkCore.writeModel.NewWriteModel.e.1
-                            @Override // java.lang.Runnable
-                            public void run() {
-                                com.baidu.tieba.pb.interactionpopupwindow.c.a((TbPageContext) NewWriteModel.this.eXa, activityDialog).show();
-                            }
-                        }, 1000L);
-                    }
-                }
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_NEW_WRITE_POST_SUCCESS, Boolean.valueOf(fVar.getIconStampData() == null)));
-                if (this.nAz != null) {
-                    this.nAz.dgZ();
-                }
-            }
-            com.baidu.tieba.tbadkCore.writeModel.b.d("发帖： onPostExecute 完全结束");
-        }
-
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public void cancel() {
-            this.gyY = true;
-            if (this.nDF != null) {
-                this.nDF.cancel();
-            }
-            if (NewWriteModel.this.nDB != null) {
-                NewWriteModel.this.nDB.callback(false, null, null, NewWriteModel.this.noo, null);
-            } else if (NewWriteModel.this.nDA != null) {
-                NewWriteModel.this.nDA.a(false, null, null, null, null);
-            }
-            super.cancel(true);
-            NewWriteModel.this.nDu = null;
-        }
-
-        private void d(f fVar) {
-            if (!com.baidu.tieba.tbadkCore.util.f.a(fVar.getErrorCode(), AuthTokenData.parse(this.nDG), NewWriteModel.this.iIR)) {
-                if (fVar.dPF()) {
-                    NewWriteModel.this.a(fVar);
-                } else if (fVar.dPG()) {
-                    NewWriteModel.this.b(fVar);
-                    NewWriteModel.this.a(fVar);
-                } else if (fVar.dPE()) {
-                    ah ahVar = new ah();
-                    ahVar.parserJson(this.nDG);
-                    if (ahVar.getVcode_pic_url() != null && NewWriteModel.this.noo != null) {
-                        NewWriteModel.this.noo.setVcodeMD5(ahVar.getVcode_md5());
-                        NewWriteModel.this.noo.setVcodeUrl(ahVar.getVcode_pic_url());
-                        NewWriteModel.this.a(fVar, null, ahVar, NewWriteModel.this.noo);
-                    }
-                } else if (fVar.dPH()) {
-                    AccessState accessState = new AccessState();
-                    accessState.parserJson(this.nDG);
-                    NewWriteModel.this.a(fVar, accessState, null, NewWriteModel.this.noo);
-                } else if (fVar.isSensitiveError()) {
-                    NewWriteModel.this.a(fVar);
-                } else {
-                    NewWriteModel.this.a(fVar);
-                }
-            }
+            this.f21429e = new h();
+            d.b.i0.c3.q0.b.a("dealPost()");
+            this.f21429e.execute(new Integer[0]);
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(f fVar) {
-        a(fVar, null, null, this.noo);
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void b(f fVar) {
-        if (this.eXa != null && fVar != null && fVar.cBF() != null && fVar.cBF().mFrsForbidenDialogInfo != null) {
-            AntiHelper.br(this.eXa.getPageActivity(), fVar.cBF().mFrsForbidenDialogInfo.ahead_url);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(f fVar, AccessState accessState, ah ahVar, WriteData writeData) {
-        if (fVar != null) {
-            if (this.nDB != null) {
-                PostWriteCallBackData postWriteCallBackData = new PostWriteCallBackData(fVar.getErrorCode(), fVar.getErrorString(), null, null);
-                postWriteCallBackData.setAccessState(accessState);
-                postWriteCallBackData.setSensitiveWords(fVar.getSensitiveWords());
-                postWriteCallBackData.setReplyPrivacyTip(fVar.getReplyPrivacyTip());
-                this.nDB.callback(false, postWriteCallBackData, ahVar, writeData, fVar.cBF());
-            } else if (this.nDA != null) {
-                this.nDA.a(false, fVar.getErrorString(), ahVar, writeData, fVar.cBF());
-            }
-        }
-    }
-
-    /* loaded from: classes.dex */
-    private class a extends BdAsyncTask<Void, Void, ImageUploadResult> {
-        private boolean gyY = false;
-        com.baidu.tieba.tbadkCore.c.a nDF = new com.baidu.tieba.tbadkCore.c.a();
-        Bitmap bm = null;
-
-        public a() {
-            setPriority(3);
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX INFO: Access modifiers changed from: protected */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: o */
-        public ImageUploadResult doInBackground(Void... voidArr) {
-            boolean isLocalImagePath = o.isLocalImagePath(NewWriteModel.this.nDx);
-            if (this.gyY) {
-                return null;
-            }
-            if (NewWriteModel.this.nDy == null || NewWriteModel.this.nDy.length <= 0) {
-                if (TextUtils.isEmpty(NewWriteModel.this.nDx) || !isLocalImagePath) {
-                    return null;
-                }
-                Uri parse = Uri.parse(NewWriteModel.this.nDx);
-                NewWriteModel.this.nDw = o.getImageRealPathFromUri(TbadkCoreApplication.getInst().getApp(), parse);
-                if (TextUtils.isEmpty(NewWriteModel.this.nDw)) {
-                    return null;
-                }
-                return NewWriteModel.this.a(NewWriteModel.this.nDw, this.nDF);
-            }
-            this.bm = BitmapHelper.Bytes2Bitmap(NewWriteModel.this.nDy);
-            if (this.bm != null) {
-                NewWriteModel.this.nDw = o.saveFileToSDOrMemory(TbConfig.IMAGE_RESIZED_FILE, this.bm, 85);
-                if (!TextUtils.isEmpty(NewWriteModel.this.nDw)) {
-                    return NewWriteModel.this.a(NewWriteModel.this.nDw, this.nDF);
-                }
-                if (this.bm == null || this.bm.isRecycled()) {
-                    return null;
-                }
-                this.bm.recycle();
-                return null;
-            }
-            return null;
-        }
-
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public void cancel() {
-            this.gyY = true;
-            if (this.nDF != null) {
-                this.nDF.cancel();
-            }
-            if (NewWriteModel.this.nDz != null) {
-                NewWriteModel.this.nDz.a(null, true);
-            }
-            if (this.bm != null && !this.bm.isRecycled()) {
-                this.bm.recycle();
-            }
-            super.cancel();
-            NewWriteModel.this.nDv = null;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX INFO: Access modifiers changed from: protected */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: a */
-        public void onPostExecute(ImageUploadResult imageUploadResult) {
-            super.onPostExecute(imageUploadResult);
-            if (!this.gyY) {
-                if (NewWriteModel.this.nDz != null) {
-                    NewWriteModel.this.nDz.a(imageUploadResult, false);
-                }
-                if (this.bm != null && !this.bm.isRecycled()) {
-                    this.bm.recycle();
-                }
-            }
-        }
-    }
-
-    public void czh() {
-        if (this.nDv == null) {
-            this.nDv = new a();
-            this.nDv.execute(new Void[0]);
-        }
-    }
-
-    public void e(byte[] bArr, String str) {
-        this.nDy = bArr;
-        this.nDx = str;
-    }
-
-    public void a(b bVar) {
-        this.nDz = bVar;
-    }
-
-    public void setSpanGroupManager(SpanGroupManager spanGroupManager) {
-        this.mSpanGroupManager = spanGroupManager;
-    }
-
-    public void dPD() {
-        if (this.mSpanGroupManager != null) {
-            this.nAA = this.mSpanGroupManager.bvf();
-        } else {
-            this.nAA = null;
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public ImageUploadResult a(String str, com.baidu.tieba.tbadkCore.c.a aVar) {
+    public final ImageUploadResult S(String str, d.b.i0.c3.i0.a aVar) {
         if (aVar == null || TextUtils.isEmpty(str)) {
             return null;
         }
         ImageFileInfo imageFileInfo = new ImageFileInfo();
         imageFileInfo.setFilePath(str);
         imageFileInfo.clearAllActions();
-        imageFileInfo.addPersistAction(com.baidu.tbadk.img.effect.d.bd(av.bsV().getPostImageSize(), av.bsV().getPostImageHeightLimit()));
-        return aVar.e(imageFileInfo, true);
+        imageFileInfo.addPersistAction(d.b.h0.b0.g.d.g(TbImageHelper.getInstance().getPostImageSize(), TbImageHelper.getInstance().getPostImageHeightLimit()));
+        return aVar.g(imageFileInfo, true);
+    }
+
+    public WriteData T() {
+        return this.f21431g;
+    }
+
+    public void U() {
+        SpanGroupManager spanGroupManager = this.q;
+        if (spanGroupManager != null) {
+            this.r = spanGroupManager.t();
+        } else {
+            this.r = null;
+        }
+    }
+
+    public final void V(d.b.i0.c3.q0.f fVar) {
+        d.b.b.a.f<?> fVar2 = this.o;
+        if (fVar2 == null || fVar == null || (this.m instanceof d.b.i0.c3.q0.a)) {
+            return;
+        }
+        d.b.i0.m3.a.d(fVar2.getPageActivity(), fVar.f());
+        fVar.A(null);
+    }
+
+    public final void W(d.b.i0.c3.q0.f fVar) {
+        if (this.o == null || fVar == null || fVar.b() == null || fVar.b().mFrsForbidenDialogInfo == null) {
+            return;
+        }
+        AntiHelper.p(this.o.getPageActivity(), fVar.b().mFrsForbidenDialogInfo.ahead_url);
+    }
+
+    public final void X(d.b.i0.c3.q0.f fVar) {
+        Y(fVar, null, null, this.f21431g);
+    }
+
+    public final void Y(d.b.i0.c3.q0.f fVar, AccessState accessState, f0 f0Var, WriteData writeData) {
+        if (fVar == null) {
+            return;
+        }
+        if (this.m != null) {
+            PostWriteCallBackData postWriteCallBackData = new PostWriteCallBackData(fVar.e(), fVar.f(), null, null);
+            postWriteCallBackData.setAccessState(accessState);
+            postWriteCallBackData.setSensitiveWords(fVar.n());
+            postWriteCallBackData.setReplyPrivacyTip(fVar.m());
+            this.m.callback(false, postWriteCallBackData, f0Var, writeData, fVar.b());
+            return;
+        }
+        f fVar2 = this.l;
+        if (fVar2 != null) {
+            fVar2.a(false, fVar.f(), f0Var, writeData, fVar.b());
+        }
+    }
+
+    public void Z(boolean z) {
+        this.n = z;
+    }
+
+    public void a0(e eVar) {
+        this.k = eVar;
+    }
+
+    public void b0(byte[] bArr, String str) {
+        this.j = bArr;
+        this.i = str;
+    }
+
+    public void c0(f fVar) {
+        this.l = fVar;
+    }
+
+    public final void cancel() {
+        h hVar = this.f21429e;
+        if (hVar != null && !hVar.isCancelled()) {
+            this.f21429e.cancel();
+            return;
+        }
+        g gVar = this.m;
+        if (gVar != null) {
+            gVar.callback(false, null, null, this.f21431g, null);
+            return;
+        }
+        f fVar = this.l;
+        if (fVar != null) {
+            fVar.a(false, null, null, null, null);
+        }
+    }
+
+    @Override // com.baidu.adp.base.BdBaseModel
+    public boolean cancelLoadData() {
+        h hVar = this.f21429e;
+        if (hVar == null || hVar.isCancelled()) {
+            return false;
+        }
+        this.f21429e.cancel();
+        return false;
+    }
+
+    public void d0(g gVar) {
+        this.m = gVar;
+    }
+
+    public void e0(@Nullable d.b.b.a.f<?> fVar) {
+        if (fVar != null) {
+            this.o = fVar;
+            this.unique_id = fVar.getUniqueId();
+            return;
+        }
+        this.o = null;
+        this.unique_id = null;
+    }
+
+    public void f0(WriteData writeData) {
+        this.f21431g = writeData;
+    }
+
+    public boolean g0() {
+        if (this.f21431g == null) {
+            return false;
+        }
+        d.b.i0.c3.q0.b.a("发帖：开始上传");
+        this.f21431g.startPublish();
+        i1.g(this.f21431g, 0).e(true);
+        R();
+        return true;
+    }
+
+    public void h0() {
+        if (this.f21430f == null) {
+            d dVar = new d();
+            this.f21430f = dVar;
+            dVar.execute(new Void[0]);
+        }
+    }
+
+    public boolean i0() {
+        if (this.f21431g == null) {
+            return false;
+        }
+        if (j.z() && !j.H() && this.f21431g.getWriteImagesInfo() != null && this.f21431g.getWriteImagesInfo().size() != 0 && this.f21431g.getWriteImagesInfo().isOriginalImg() && !d.b.h0.r.d0.b.i().g("original_img_up_tip", false)) {
+            d.b.h0.r.d0.b.i().s("original_img_up_tip", true);
+            d.b.b.a.f<?> fVar = this.o;
+            if (fVar == null) {
+                R();
+                return true;
+            }
+            d.b.h0.r.s.a aVar = new d.b.h0.r.s.a(fVar.getPageActivity());
+            aVar.setMessageId(R.string.original_img_up_no_wifi_tip);
+            aVar.setPositiveButton(R.string.alert_yes_button, new a(aVar));
+            aVar.setNegativeButton(R.string.cancel, new b(aVar));
+            aVar.create(this.o);
+            aVar.show();
+        } else {
+            R();
+        }
+        return true;
+    }
+
+    public void setSpanGroupManager(SpanGroupManager spanGroupManager) {
+        this.q = spanGroupManager;
+    }
+
+    public NewWriteModel(BaseActivity baseActivity) {
+        super(baseActivity.getPageContext());
+        this.f21429e = null;
+        this.f21430f = null;
+        this.f21431g = null;
+        this.f21432h = null;
+        this.i = null;
+        this.j = null;
+        this.l = null;
+        this.m = null;
+        this.n = false;
+        this.s = new c();
+        this.o = baseActivity.getPageContext();
+    }
+
+    public NewWriteModel(TbPageContext<?> tbPageContext) {
+        super(tbPageContext);
+        this.f21429e = null;
+        this.f21430f = null;
+        this.f21431g = null;
+        this.f21432h = null;
+        this.i = null;
+        this.j = null;
+        this.l = null;
+        this.m = null;
+        this.n = false;
+        this.s = new c();
+        this.o = tbPageContext;
+    }
+
+    public NewWriteModel() {
+        this.f21429e = null;
+        this.f21430f = null;
+        this.f21431g = null;
+        this.f21432h = null;
+        this.i = null;
+        this.j = null;
+        this.l = null;
+        this.m = null;
+        this.n = false;
+        this.s = new c();
+        this.o = null;
     }
 }

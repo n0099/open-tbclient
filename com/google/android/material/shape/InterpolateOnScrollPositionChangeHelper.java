@@ -5,14 +5,14 @@ import android.view.ViewTreeObserver;
 import android.widget.ScrollView;
 import com.google.android.material.internal.Experimental;
 @Experimental("The shapes API is currently experimental and subject to change")
-/* loaded from: classes14.dex */
+/* loaded from: classes6.dex */
 public class InterpolateOnScrollPositionChangeHelper {
-    private ScrollView containingScrollView;
-    private MaterialShapeDrawable materialShapeDrawable;
-    private View shapedView;
-    private final int[] scrollLocation = new int[2];
-    private final int[] containerLocation = new int[2];
-    private final ViewTreeObserver.OnScrollChangedListener scrollChangedListener = new ViewTreeObserver.OnScrollChangedListener() { // from class: com.google.android.material.shape.InterpolateOnScrollPositionChangeHelper.1
+    public ScrollView containingScrollView;
+    public MaterialShapeDrawable materialShapeDrawable;
+    public View shapedView;
+    public final int[] scrollLocation = new int[2];
+    public final int[] containerLocation = new int[2];
+    public final ViewTreeObserver.OnScrollChangedListener scrollChangedListener = new ViewTreeObserver.OnScrollChangedListener() { // from class: com.google.android.material.shape.InterpolateOnScrollPositionChangeHelper.1
         @Override // android.view.ViewTreeObserver.OnScrollChangedListener
         public void onScrollChanged() {
             InterpolateOnScrollPositionChangeHelper.this.updateInterpolationForScreenPosition();
@@ -25,12 +25,12 @@ public class InterpolateOnScrollPositionChangeHelper {
         this.containingScrollView = scrollView;
     }
 
-    public void setMaterialShapeDrawable(MaterialShapeDrawable materialShapeDrawable) {
-        this.materialShapeDrawable = materialShapeDrawable;
-    }
-
     public void setContainingScrollView(ScrollView scrollView) {
         this.containingScrollView = scrollView;
+    }
+
+    public void setMaterialShapeDrawable(MaterialShapeDrawable materialShapeDrawable) {
+        this.materialShapeDrawable = materialShapeDrawable;
     }
 
     public void startListeningForScrollChanges(ViewTreeObserver viewTreeObserver) {
@@ -42,10 +42,11 @@ public class InterpolateOnScrollPositionChangeHelper {
     }
 
     public void updateInterpolationForScreenPosition() {
-        if (this.containingScrollView != null) {
-            if (this.containingScrollView.getChildCount() == 0) {
-                throw new IllegalStateException("Scroll bar must contain a child to calculate interpolation.");
-            }
+        ScrollView scrollView = this.containingScrollView;
+        if (scrollView == null) {
+            return;
+        }
+        if (scrollView.getChildCount() != 0) {
             this.containingScrollView.getLocationInWindow(this.scrollLocation);
             this.containingScrollView.getChildAt(0).getLocationInWindow(this.containerLocation);
             int top = (this.shapedView.getTop() - this.scrollLocation[1]) + this.containerLocation[1];
@@ -54,13 +55,21 @@ public class InterpolateOnScrollPositionChangeHelper {
             if (top < 0) {
                 this.materialShapeDrawable.setInterpolation(Math.max(0.0f, Math.min(1.0f, (top / height) + 1.0f)));
                 this.shapedView.invalidate();
-            } else if (top + height > height2) {
-                this.materialShapeDrawable.setInterpolation(Math.max(0.0f, Math.min(1.0f, 1.0f - (((top + height) - height2) / height))));
+                return;
+            }
+            int i = top + height;
+            if (i > height2) {
+                this.materialShapeDrawable.setInterpolation(Math.max(0.0f, Math.min(1.0f, 1.0f - ((i - height2) / height))));
                 this.shapedView.invalidate();
+                return;
             } else if (this.materialShapeDrawable.getInterpolation() != 1.0f) {
                 this.materialShapeDrawable.setInterpolation(1.0f);
                 this.shapedView.invalidate();
+                return;
+            } else {
+                return;
             }
         }
+        throw new IllegalStateException("Scroll bar must contain a child to calculate interpolation.");
     }
 }

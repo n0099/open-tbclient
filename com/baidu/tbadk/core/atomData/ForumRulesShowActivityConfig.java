@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.atomData;
 import android.content.Context;
 import com.baidu.tbadk.core.data.ForumRuleBaseData;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class ForumRulesShowActivityConfig extends IntentConfig {
     public static final String FORUM_RULE_EDIT_FROM_SHOW = "forum_rule_edit_pre";
     public static final String FORUM_RULE_H5_FROM_SHOW = "forum_rule_h5_pre";
@@ -20,7 +20,7 @@ public class ForumRulesShowActivityConfig extends IntentConfig {
         super(context);
         getIntent().putExtra("forum_id", str);
         getIntent().putExtra("forum_name", str2);
-        getIntent().putExtra("datas", forumRuleBaseData);
+        getIntent().putExtra(IntentConfig.DATAS, forumRuleBaseData);
         getIntent().putExtra("from", str3);
         getIntent().putExtra("url", str4);
         getIntent().putExtra(IntentConfig.USER_LEVEL, i);

@@ -3,14 +3,14 @@ package org.webrtc;
 import java.nio.ByteBuffer;
 import javax.annotation.Nullable;
 import org.webrtc.VideoFrame;
-/* loaded from: classes9.dex */
+/* loaded from: classes.dex */
 public class NV12Buffer implements VideoFrame.Buffer {
-    private final ByteBuffer buffer;
-    private final int height;
-    private final RefCountDelegate refCountDelegate;
-    private final int sliceHeight;
-    private final int stride;
-    private final int width;
+    public final ByteBuffer buffer;
+    public final int height;
+    public final RefCountDelegate refCountDelegate;
+    public final int sliceHeight;
+    public final int stride;
+    public final int width;
 
     public NV12Buffer(int i, int i2, int i3, int i4, ByteBuffer byteBuffer, @Nullable Runnable runnable) {
         this.width = i;
@@ -21,7 +21,7 @@ public class NV12Buffer implements VideoFrame.Buffer {
         this.refCountDelegate = new RefCountDelegate(runnable);
     }
 
-    private static native void nativeCropAndScale(int i, int i2, int i3, int i4, int i5, int i6, ByteBuffer byteBuffer, int i7, int i8, int i9, int i10, ByteBuffer byteBuffer2, int i11, ByteBuffer byteBuffer3, int i12, ByteBuffer byteBuffer4, int i13);
+    public static native void nativeCropAndScale(int i, int i2, int i3, int i4, int i5, int i6, ByteBuffer byteBuffer, int i7, int i8, int i9, int i10, ByteBuffer byteBuffer2, int i11, ByteBuffer byteBuffer3, int i12, ByteBuffer byteBuffer4, int i13);
 
     @Override // org.webrtc.VideoFrame.Buffer
     public VideoFrame.Buffer cropAndScale(int i, int i2, int i3, int i4, int i5, int i6) {
@@ -52,6 +52,8 @@ public class NV12Buffer implements VideoFrame.Buffer {
 
     @Override // org.webrtc.VideoFrame.Buffer
     public VideoFrame.I420Buffer toI420() {
-        return (VideoFrame.I420Buffer) cropAndScale(0, 0, this.width, this.height, this.width, this.height);
+        int i = this.width;
+        int i2 = this.height;
+        return (VideoFrame.I420Buffer) cropAndScale(0, 0, i, i2, i, i2);
     }
 }

@@ -7,67 +7,76 @@ import android.graphics.Path;
 import android.util.AttributeSet;
 import android.view.View;
 import androidx.annotation.Nullable;
-import com.baidu.adp.lib.util.l;
 import com.baidu.tieba.R;
-/* loaded from: classes7.dex */
+import d.b.b.e.p.l;
+/* loaded from: classes5.dex */
 public class ArrowView extends View {
-    private static int fWr = 20;
-    private static int fWs = 13;
-    private int height;
-    private Paint paint;
-    private Path path;
-    private int width;
+    public static int i = 20;
+    public static int j = 13;
+
+    /* renamed from: e  reason: collision with root package name */
+    public int f20670e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public int f20671f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public Paint f20672g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public Path f20673h;
 
     public ArrowView(Context context) {
         super(context);
-        init(context);
+        a(context);
     }
 
-    public ArrowView(Context context, @Nullable AttributeSet attributeSet) {
-        super(context, attributeSet);
-        init(context);
-    }
-
-    private void init(Context context) {
-        fWr = l.getDimens(context, R.dimen.tbds20);
-        fWs = l.getDimens(context, R.dimen.tbds13);
-        this.paint = new Paint();
-        this.paint.setColor(context.getResources().getColor(R.color.CAM_X0201));
-        this.paint.setAntiAlias(true);
-        this.path = new Path();
+    public final void a(Context context) {
+        i = l.g(context, R.dimen.tbds20);
+        j = l.g(context, R.dimen.tbds13);
+        Paint paint = new Paint();
+        this.f20672g = paint;
+        paint.setColor(context.getResources().getColor(R.color.CAM_X0201));
+        this.f20672g.setAntiAlias(true);
+        this.f20673h = new Path();
     }
 
     @Override // android.view.View
-    protected void onMeasure(int i, int i2) {
-        super.onMeasure(i, i2);
-        int mode = View.MeasureSpec.getMode(i);
-        int size = View.MeasureSpec.getSize(i);
-        int mode2 = View.MeasureSpec.getMode(i2);
-        int size2 = View.MeasureSpec.getSize(i2);
+    public void onDraw(Canvas canvas) {
+        super.onDraw(canvas);
+        this.f20673h.reset();
+        this.f20673h.moveTo(this.f20670e / 2, 0.0f);
+        this.f20673h.lineTo(0.0f, this.f20671f);
+        this.f20673h.lineTo(this.f20670e, this.f20671f);
+        this.f20673h.close();
+        canvas.drawPath(this.f20673h, this.f20672g);
+    }
+
+    @Override // android.view.View
+    public void onMeasure(int i2, int i3) {
+        super.onMeasure(i2, i3);
+        int mode = View.MeasureSpec.getMode(i2);
+        int size = View.MeasureSpec.getSize(i2);
+        int mode2 = View.MeasureSpec.getMode(i3);
+        int size2 = View.MeasureSpec.getSize(i3);
         if (mode == Integer.MIN_VALUE && mode2 == Integer.MIN_VALUE) {
-            setMeasuredDimension(fWr, fWs);
+            setMeasuredDimension(i, j);
         } else if (mode == Integer.MIN_VALUE) {
-            setMeasuredDimension(fWr, size2);
+            setMeasuredDimension(i, size2);
         } else if (mode2 == Integer.MIN_VALUE) {
-            setMeasuredDimension(size, fWs);
+            setMeasuredDimension(size, j);
         }
     }
 
     @Override // android.view.View
-    protected void onSizeChanged(int i, int i2, int i3, int i4) {
-        super.onSizeChanged(i, i2, i3, i4);
-        this.width = i;
-        this.height = i2;
+    public void onSizeChanged(int i2, int i3, int i4, int i5) {
+        super.onSizeChanged(i2, i3, i4, i5);
+        this.f20670e = i2;
+        this.f20671f = i3;
     }
 
-    @Override // android.view.View
-    protected void onDraw(Canvas canvas) {
-        super.onDraw(canvas);
-        this.path.reset();
-        this.path.moveTo(this.width / 2, 0.0f);
-        this.path.lineTo(0.0f, this.height);
-        this.path.lineTo(this.width, this.height);
-        this.path.close();
-        canvas.drawPath(this.path, this.paint);
+    public ArrowView(Context context, @Nullable AttributeSet attributeSet) {
+        super(context, attributeSet);
+        a(context);
     }
 }

@@ -1,10 +1,23 @@
 package com.google.zxing.datamatrix.encoder;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class C40Encoder implements Encoder {
-    @Override // com.google.zxing.datamatrix.encoder.Encoder
-    public int getEncodingMode() {
-        return 1;
+    private int backtrackOneCharacter(EncoderContext encoderContext, StringBuilder sb, StringBuilder sb2, int i) {
+        int length = sb.length();
+        sb.delete(length - i, length);
+        encoderContext.pos--;
+        int encodeChar = encodeChar(encoderContext.getCurrentChar(), sb2);
+        encoderContext.resetSymbolInfo();
+        return encodeChar;
+    }
+
+    public static String encodeToCodewords(CharSequence charSequence, int i) {
+        int charAt = (charSequence.charAt(i) * 1600) + (charSequence.charAt(i + 1) * '(') + charSequence.charAt(i + 2) + 1;
+        return new String(new char[]{(char) (charAt / 256), (char) (charAt % 256)});
+    }
+
+    public static void writeNextTriplet(EncoderContext encoderContext, StringBuilder sb) {
+        encoderContext.writeCodewords(encodeToCodewords(sb, 0));
+        sb.delete(0, 3);
     }
 
     @Override // com.google.zxing.datamatrix.encoder.Encoder
@@ -18,9 +31,9 @@ public class C40Encoder implements Encoder {
             char currentChar = encoderContext.getCurrentChar();
             encoderContext.pos++;
             int encodeChar = encodeChar(currentChar, sb);
-            int length = ((sb.length() / 3) << 1) + encoderContext.getCodewordCount();
-            encoderContext.updateSymbolInfo(length);
-            int dataCapacity = encoderContext.getSymbolInfo().getDataCapacity() - length;
+            int codewordCount = encoderContext.getCodewordCount() + ((sb.length() / 3) << 1);
+            encoderContext.updateSymbolInfo(codewordCount);
+            int dataCapacity = encoderContext.getSymbolInfo().getDataCapacity() - codewordCount;
             if (!encoderContext.hasMoreCharacters()) {
                 StringBuilder sb2 = new StringBuilder();
                 if (sb.length() % 3 == 2 && (dataCapacity < 2 || dataCapacity > 2)) {
@@ -37,26 +50,54 @@ public class C40Encoder implements Encoder {
         handleEOD(encoderContext, sb);
     }
 
-    private int backtrackOneCharacter(EncoderContext encoderContext, StringBuilder sb, StringBuilder sb2, int i) {
-        int length = sb.length();
-        sb.delete(length - i, length);
-        encoderContext.pos--;
-        int encodeChar = encodeChar(encoderContext.getCurrentChar(), sb2);
-        encoderContext.resetSymbolInfo();
-        return encodeChar;
+    public int encodeChar(char c2, StringBuilder sb) {
+        if (c2 == ' ') {
+            sb.append((char) 3);
+            return 1;
+        } else if (c2 >= '0' && c2 <= '9') {
+            sb.append((char) ((c2 - '0') + 4));
+            return 1;
+        } else if (c2 >= 'A' && c2 <= 'Z') {
+            sb.append((char) ((c2 - 'A') + 14));
+            return 1;
+        } else if (c2 >= 0 && c2 <= 31) {
+            sb.append((char) 0);
+            sb.append(c2);
+            return 2;
+        } else if (c2 >= '!' && c2 <= '/') {
+            sb.append((char) 1);
+            sb.append((char) (c2 - '!'));
+            return 2;
+        } else if (c2 >= ':' && c2 <= '@') {
+            sb.append((char) 1);
+            sb.append((char) ((c2 - ':') + 15));
+            return 2;
+        } else if (c2 >= '[' && c2 <= '_') {
+            sb.append((char) 1);
+            sb.append((char) ((c2 - '[') + 22));
+            return 2;
+        } else if (c2 >= '`' && c2 <= 127) {
+            sb.append((char) 2);
+            sb.append((char) (c2 - '`'));
+            return 2;
+        } else if (c2 >= 128) {
+            sb.append("\u0001\u001e");
+            return encodeChar((char) (c2 - 128), sb) + 2;
+        } else {
+            throw new IllegalArgumentException("Illegal character: " + c2);
+        }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static void writeNextTriplet(EncoderContext encoderContext, StringBuilder sb) {
-        encoderContext.writeCodewords(encodeToCodewords(sb, 0));
-        sb.delete(0, 3);
+    @Override // com.google.zxing.datamatrix.encoder.Encoder
+    public int getEncodingMode() {
+        return 1;
     }
 
-    void handleEOD(EncoderContext encoderContext, StringBuilder sb) {
+    public void handleEOD(EncoderContext encoderContext, StringBuilder sb) {
         int length = sb.length() % 3;
-        int length2 = ((sb.length() / 3) << 1) + encoderContext.getCodewordCount();
-        encoderContext.updateSymbolInfo(length2);
-        int dataCapacity = encoderContext.getSymbolInfo().getDataCapacity() - length2;
+        int codewordCount = encoderContext.getCodewordCount() + ((sb.length() / 3) << 1);
+        encoderContext.updateSymbolInfo(codewordCount);
+        int dataCapacity = encoderContext.getSymbolInfo().getDataCapacity() - codewordCount;
         if (length == 2) {
             sb.append((char) 0);
             while (sb.length() >= 3) {
@@ -84,48 +125,5 @@ public class C40Encoder implements Encoder {
             throw new IllegalStateException("Unexpected case. Please report!");
         }
         encoderContext.signalEncoderChange(0);
-    }
-
-    int encodeChar(char c, StringBuilder sb) {
-        if (c == ' ') {
-            sb.append((char) 3);
-            return 1;
-        } else if (c >= '0' && c <= '9') {
-            sb.append((char) ((c - '0') + 4));
-            return 1;
-        } else if (c >= 'A' && c <= 'Z') {
-            sb.append((char) ((c - 'A') + 14));
-            return 1;
-        } else if (c >= 0 && c <= 31) {
-            sb.append((char) 0);
-            sb.append(c);
-            return 2;
-        } else if (c >= '!' && c <= '/') {
-            sb.append((char) 1);
-            sb.append((char) (c - '!'));
-            return 2;
-        } else if (c >= ':' && c <= '@') {
-            sb.append((char) 1);
-            sb.append((char) ((c - ':') + 15));
-            return 2;
-        } else if (c >= '[' && c <= '_') {
-            sb.append((char) 1);
-            sb.append((char) ((c - '[') + 22));
-            return 2;
-        } else if (c >= '`' && c <= 127) {
-            sb.append((char) 2);
-            sb.append((char) (c - '`'));
-            return 2;
-        } else if (c >= 128) {
-            sb.append("\u0001\u001e");
-            return encodeChar((char) (c - 128), sb) + 2;
-        } else {
-            throw new IllegalArgumentException("Illegal character: " + c);
-        }
-    }
-
-    private static String encodeToCodewords(CharSequence charSequence, int i) {
-        int charAt = (charSequence.charAt(i) * 1600) + (charSequence.charAt(i + 1) * '(') + charSequence.charAt(i + 2) + 1;
-        return new String(new char[]{(char) (charAt / 256), (char) (charAt % 256)});
     }
 }

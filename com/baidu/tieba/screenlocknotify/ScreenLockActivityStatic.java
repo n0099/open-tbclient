@@ -4,18 +4,18 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.atomData.ScreenLockActivityConfig;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-/* loaded from: classes7.dex */
+import d.b.i0.t2.a;
+/* loaded from: classes5.dex */
 public class ScreenLockActivityStatic {
-    public static String Tag = "tag";
-
     static {
         TbadkApplication.getInst().RegisterIntent(ScreenLockActivityConfig.class, ScreenLockActivity.class);
         try {
-            a.dFx();
+            a.j();
             new IntentConfig(TbadkApplication.getInst()).startService(ScreenLockNotifyService.class);
-        } catch (Exception e) {
-            BdLog.e(e);
-            com.baidu.adp.plugin.b.a.pe().h("plugin_load", "screenlock_failed", null, e.getMessage() + "---" + e.getClass().getName());
+        } catch (Exception e2) {
+            BdLog.e(e2);
+            d.b.b.h.h.a b2 = d.b.b.h.h.a.b();
+            b2.r("plugin_load", "screenlock_failed", null, e2.getMessage() + "---" + e2.getClass().getName());
         }
     }
 }

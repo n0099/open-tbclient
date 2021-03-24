@@ -7,12 +7,39 @@ import java.util.Map;
 import java.util.Queue;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
-/* loaded from: classes14.dex */
-final class DiskCacheWriteLocker {
-    private final Map<String, WriteLock> locks = new HashMap();
-    private final WriteLockPool writeLockPool = new WriteLockPool();
+/* loaded from: classes5.dex */
+public final class DiskCacheWriteLocker {
+    public final Map<String, WriteLock> locks = new HashMap();
+    public final WriteLockPool writeLockPool = new WriteLockPool();
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    /* loaded from: classes5.dex */
+    public static class WriteLock {
+        public int interestedThreads;
+        public final Lock lock = new ReentrantLock();
+    }
+
+    /* loaded from: classes5.dex */
+    public static class WriteLockPool {
+        public static final int MAX_POOL_SIZE = 10;
+        public final Queue<WriteLock> pool = new ArrayDeque();
+
+        public WriteLock obtain() {
+            WriteLock poll;
+            synchronized (this.pool) {
+                poll = this.pool.poll();
+            }
+            return poll == null ? new WriteLock() : poll;
+        }
+
+        public void offer(WriteLock writeLock) {
+            synchronized (this.pool) {
+                if (this.pool.size() < 10) {
+                    this.pool.offer(writeLock);
+                }
+            }
+        }
+    }
+
     public void acquire(String str) {
         WriteLock writeLock;
         synchronized (this) {
@@ -26,61 +53,25 @@ final class DiskCacheWriteLocker {
         writeLock.lock.lock();
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public void release(String str) {
         WriteLock writeLock;
         synchronized (this) {
             writeLock = (WriteLock) Preconditions.checkNotNull(this.locks.get(str));
-            if (writeLock.interestedThreads < 1) {
-                throw new IllegalStateException("Cannot release a lock that is not held, safeKey: " + str + ", interestedThreads: " + writeLock.interestedThreads);
-            }
-            writeLock.interestedThreads--;
-            if (writeLock.interestedThreads == 0) {
-                WriteLock remove = this.locks.remove(str);
-                if (!remove.equals(writeLock)) {
-                    throw new IllegalStateException("Removed the wrong lock, expected to remove: " + writeLock + ", but actually removed: " + remove + ", safeKey: " + str);
+            if (writeLock.interestedThreads >= 1) {
+                int i = writeLock.interestedThreads - 1;
+                writeLock.interestedThreads = i;
+                if (i == 0) {
+                    WriteLock remove = this.locks.remove(str);
+                    if (remove.equals(writeLock)) {
+                        this.writeLockPool.offer(remove);
+                    } else {
+                        throw new IllegalStateException("Removed the wrong lock, expected to remove: " + writeLock + ", but actually removed: " + remove + ", safeKey: " + str);
+                    }
                 }
-                this.writeLockPool.offer(remove);
+            } else {
+                throw new IllegalStateException("Cannot release a lock that is not held, safeKey: " + str + ", interestedThreads: " + writeLock.interestedThreads);
             }
         }
         writeLock.lock.unlock();
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes14.dex */
-    public static class WriteLock {
-        int interestedThreads;
-        final Lock lock = new ReentrantLock();
-
-        WriteLock() {
-        }
-    }
-
-    /* loaded from: classes14.dex */
-    private static class WriteLockPool {
-        private static final int MAX_POOL_SIZE = 10;
-        private final Queue<WriteLock> pool = new ArrayDeque();
-
-        WriteLockPool() {
-        }
-
-        WriteLock obtain() {
-            WriteLock poll;
-            synchronized (this.pool) {
-                poll = this.pool.poll();
-            }
-            if (poll == null) {
-                return new WriteLock();
-            }
-            return poll;
-        }
-
-        void offer(WriteLock writeLock) {
-            synchronized (this.pool) {
-                if (this.pool.size() < 10) {
-                    this.pool.offer(writeLock);
-                }
-            }
-        }
     }
 }

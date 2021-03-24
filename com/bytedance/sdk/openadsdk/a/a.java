@@ -4,12 +4,16 @@ import android.content.Context;
 import com.bytedance.sdk.openadsdk.core.i;
 import com.bytedance.sdk.openadsdk.core.k;
 import com.bytedance.sdk.openadsdk.core.p;
-import com.bytedance.sdk.openadsdk.utils.aj;
+import com.bytedance.sdk.openadsdk.utils.ak;
 import com.bytedance.sdk.openadsdk.utils.x;
-/* loaded from: classes6.dex */
+/* loaded from: classes.dex */
 public class a {
     public static String a() {
         return "open_news";
+    }
+
+    public static String a(Context context) {
+        return k.a(context);
     }
 
     public static String b() {
@@ -17,22 +21,18 @@ public class a {
     }
 
     public static String c() {
-        return "3.4.0.1";
+        return "3.4.5.5";
     }
 
     public static String d() {
-        return aj.g();
+        return ak.g();
     }
 
     public static String e() {
-        return i.d().g();
+        return i.d().i();
     }
 
     public static String f() {
         return x.f(p.a());
-    }
-
-    public static String a(Context context) {
-        return k.a(context);
     }
 }

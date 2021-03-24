@@ -10,151 +10,92 @@ import org.json.JSONObject;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    private final int[] f4390a;
-    private final int[] b;
-    private final int[] c;
-    private final int[] d;
-    private final int e;
-    private final int f;
-    private final int g;
-    private final int h;
-    private final long i;
-    private final long j;
-    private final int k;
-    private final int l;
-    private final int m;
-    private final int n;
-    private SparseArray<c.a> o;
+    public final int[] f28128a;
 
-    private f(@NonNull a aVar) {
-        this.f4390a = aVar.h;
-        this.b = aVar.i;
-        this.d = aVar.j;
-        this.c = aVar.g;
-        this.e = aVar.f;
-        this.f = aVar.e;
-        this.g = aVar.d;
-        this.h = aVar.c;
-        this.i = aVar.b;
-        this.j = aVar.f4391a;
-        this.k = aVar.k;
-        this.l = aVar.l;
-        this.m = aVar.m;
-        this.n = aVar.o;
-        this.o = aVar.n;
-    }
+    /* renamed from: b  reason: collision with root package name */
+    public final int[] f28129b;
 
-    public JSONObject a() {
-        JSONObject jSONObject = new JSONObject();
-        try {
-            if (this.f4390a != null && this.f4390a.length == 2) {
-                jSONObject.putOpt("ad_x", Integer.valueOf(this.f4390a[0])).putOpt("ad_y", Integer.valueOf(this.f4390a[1]));
-            }
-            if (this.b != null && this.b.length == 2) {
-                jSONObject.putOpt("width", Integer.valueOf(this.b[0])).putOpt("height", Integer.valueOf(this.b[1]));
-            }
-            if (this.c != null && this.c.length == 2) {
-                jSONObject.putOpt("button_x", Integer.valueOf(this.c[0])).putOpt("button_y", Integer.valueOf(this.c[1]));
-            }
-            if (this.d != null && this.d.length == 2) {
-                jSONObject.putOpt("button_width", Integer.valueOf(this.d[0])).putOpt("button_height", Integer.valueOf(this.d[1]));
-            }
-            JSONObject jSONObject2 = new JSONObject();
-            JSONArray jSONArray = new JSONArray();
-            if (this.o != null) {
-                for (int i = 0; i < this.o.size(); i++) {
-                    c.a valueAt = this.o.valueAt(i);
-                    if (valueAt != null) {
-                        JSONObject jSONObject3 = new JSONObject();
-                        jSONObject3.putOpt("force", Double.valueOf(valueAt.c)).putOpt("mr", Double.valueOf(valueAt.b)).putOpt("phase", Integer.valueOf(valueAt.f4357a)).putOpt(TimeDisplaySetting.TIME_DISPLAY_SETTING, Long.valueOf(valueAt.d));
-                        jSONArray.put(jSONObject3);
-                    }
-                }
-            }
-            jSONObject2.putOpt("ftc", Integer.valueOf(this.n)).putOpt("info", jSONArray);
-            jSONObject.putOpt("down_x", Integer.valueOf(this.e)).putOpt("down_y", Integer.valueOf(this.f)).putOpt("up_x", Integer.valueOf(this.g)).putOpt("up_y", Integer.valueOf(this.h)).putOpt("down_time", Long.valueOf(this.i)).putOpt("up_time", Long.valueOf(this.j)).putOpt("toolType", Integer.valueOf(this.k)).putOpt("deviceId", Integer.valueOf(this.l)).putOpt("source", Integer.valueOf(this.m)).putOpt("ft", jSONObject2);
-        } catch (Exception e) {
-        }
-        return jSONObject;
-    }
+    /* renamed from: c  reason: collision with root package name */
+    public final int[] f28130c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public final int[] f28131d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public final int f28132e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public final int f28133f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public final int f28134g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public final int f28135h;
+    public final long i;
+    public final long j;
+    public final int k;
+    public final int l;
+    public final int m;
+    public final int n;
+    public SparseArray<c.a> o;
 
     /* loaded from: classes6.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private long f4391a;
-        private long b;
-        private int c;
-        private int d;
-        private int e;
-        private int f;
-        private int[] g;
-        private int[] h;
-        private int[] i;
-        private int[] j;
-        private int k;
-        private int l;
-        private int m;
-        private SparseArray<c.a> n;
-        private int o;
+        public long f28136a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public long f28137b;
+
+        /* renamed from: c  reason: collision with root package name */
+        public int f28138c;
+
+        /* renamed from: d  reason: collision with root package name */
+        public int f28139d;
+
+        /* renamed from: e  reason: collision with root package name */
+        public int f28140e;
+
+        /* renamed from: f  reason: collision with root package name */
+        public int f28141f;
+
+        /* renamed from: g  reason: collision with root package name */
+        public int[] f28142g;
+
+        /* renamed from: h  reason: collision with root package name */
+        public int[] f28143h;
+        public int[] i;
+        public int[] j;
+        public int k;
+        public int l;
+        public int m;
+        public SparseArray<c.a> n;
+        public int o;
 
         public a a(int i) {
             this.o = i;
             return this;
         }
 
-        public a a(SparseArray<c.a> sparseArray) {
-            this.n = sparseArray;
-            return this;
-        }
-
-        public a a(long j) {
-            this.f4391a = j;
-            return this;
-        }
-
         public a b(long j) {
-            this.b = j;
-            return this;
-        }
-
-        public a b(int i) {
-            this.c = i;
+            this.f28137b = j;
             return this;
         }
 
         public a c(int i) {
-            this.d = i;
+            this.f28139d = i;
             return this;
         }
 
         public a d(int i) {
-            this.e = i;
+            this.f28140e = i;
             return this;
         }
 
         public a e(int i) {
-            this.f = i;
-            return this;
-        }
-
-        public a a(int[] iArr) {
-            this.g = iArr;
-            return this;
-        }
-
-        public a b(int[] iArr) {
-            this.h = iArr;
-            return this;
-        }
-
-        public a c(int[] iArr) {
-            this.i = iArr;
-            return this;
-        }
-
-        public a d(int[] iArr) {
-            this.j = iArr;
+            this.f28141f = i;
             return this;
         }
 
@@ -173,8 +114,95 @@ public class f {
             return this;
         }
 
+        public a a(SparseArray<c.a> sparseArray) {
+            this.n = sparseArray;
+            return this;
+        }
+
+        public a b(int i) {
+            this.f28138c = i;
+            return this;
+        }
+
+        public a c(int[] iArr) {
+            this.i = iArr;
+            return this;
+        }
+
+        public a d(int[] iArr) {
+            this.j = iArr;
+            return this;
+        }
+
+        public a a(long j) {
+            this.f28136a = j;
+            return this;
+        }
+
+        public a b(int[] iArr) {
+            this.f28143h = iArr;
+            return this;
+        }
+
+        public a a(int[] iArr) {
+            this.f28142g = iArr;
+            return this;
+        }
+
         public f a() {
             return new f(this);
         }
+    }
+
+    public JSONObject a() {
+        JSONObject jSONObject = new JSONObject();
+        try {
+            if (this.f28128a != null && this.f28128a.length == 2) {
+                jSONObject.putOpt("ad_x", Integer.valueOf(this.f28128a[0])).putOpt("ad_y", Integer.valueOf(this.f28128a[1]));
+            }
+            if (this.f28129b != null && this.f28129b.length == 2) {
+                jSONObject.putOpt("width", Integer.valueOf(this.f28129b[0])).putOpt("height", Integer.valueOf(this.f28129b[1]));
+            }
+            if (this.f28130c != null && this.f28130c.length == 2) {
+                jSONObject.putOpt("button_x", Integer.valueOf(this.f28130c[0])).putOpt("button_y", Integer.valueOf(this.f28130c[1]));
+            }
+            if (this.f28131d != null && this.f28131d.length == 2) {
+                jSONObject.putOpt("button_width", Integer.valueOf(this.f28131d[0])).putOpt("button_height", Integer.valueOf(this.f28131d[1]));
+            }
+            JSONObject jSONObject2 = new JSONObject();
+            JSONArray jSONArray = new JSONArray();
+            if (this.o != null) {
+                for (int i = 0; i < this.o.size(); i++) {
+                    c.a valueAt = this.o.valueAt(i);
+                    if (valueAt != null) {
+                        JSONObject jSONObject3 = new JSONObject();
+                        jSONObject3.putOpt("force", Double.valueOf(valueAt.f28030c)).putOpt("mr", Double.valueOf(valueAt.f28029b)).putOpt("phase", Integer.valueOf(valueAt.f28028a)).putOpt(TimeDisplaySetting.TIME_DISPLAY_SETTING, Long.valueOf(valueAt.f28031d));
+                        jSONArray.put(jSONObject3);
+                    }
+                }
+            }
+            jSONObject2.putOpt("ftc", Integer.valueOf(this.n)).putOpt("info", jSONArray);
+            jSONObject.putOpt("down_x", Integer.valueOf(this.f28132e)).putOpt("down_y", Integer.valueOf(this.f28133f)).putOpt("up_x", Integer.valueOf(this.f28134g)).putOpt("up_y", Integer.valueOf(this.f28135h)).putOpt("down_time", Long.valueOf(this.i)).putOpt("up_time", Long.valueOf(this.j)).putOpt("toolType", Integer.valueOf(this.k)).putOpt("deviceId", Integer.valueOf(this.l)).putOpt("source", Integer.valueOf(this.m)).putOpt("ft", jSONObject2);
+        } catch (Exception unused) {
+        }
+        return jSONObject;
+    }
+
+    public f(@NonNull a aVar) {
+        this.f28128a = aVar.f28143h;
+        this.f28129b = aVar.i;
+        this.f28131d = aVar.j;
+        this.f28130c = aVar.f28142g;
+        this.f28132e = aVar.f28141f;
+        this.f28133f = aVar.f28140e;
+        this.f28134g = aVar.f28139d;
+        this.f28135h = aVar.f28138c;
+        this.i = aVar.f28137b;
+        this.j = aVar.f28136a;
+        this.k = aVar.k;
+        this.l = aVar.l;
+        this.m = aVar.m;
+        this.n = aVar.o;
+        this.o = aVar.n;
     }
 }

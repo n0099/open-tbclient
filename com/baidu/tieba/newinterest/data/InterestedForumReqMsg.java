@@ -2,11 +2,11 @@ package com.baidu.tieba.newinterest.data;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.util.v;
+import d.b.h0.z0.w;
 import java.util.List;
 import tbclient.GetVerticalForumList.DataReq;
 import tbclient.GetVerticalForumList.GetVerticalForumListReqIdl;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class InterestedForumReqMsg extends NetMessage {
     public List<Integer> classidList;
 
@@ -15,10 +15,10 @@ public class InterestedForumReqMsg extends NetMessage {
     }
 
     @Override // com.baidu.adp.framework.message.NetMessage
-    protected Object encode(boolean z) {
+    public Object encode(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
         if (z) {
-            v.b(builder, true);
+            w.a(builder, true);
         }
         builder.begin_id = 1;
         builder.pn = 0;

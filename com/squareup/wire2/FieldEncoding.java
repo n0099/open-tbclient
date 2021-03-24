@@ -2,48 +2,77 @@ package com.squareup.wire2;
 
 import java.io.IOException;
 import java.net.ProtocolException;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public enum FieldEncoding {
     VARINT(0),
     FIXED64(1),
     LENGTH_DELIMITED(2),
     FIXED32(5);
     
-    final int value;
+    public final int value;
+
+    /* loaded from: classes6.dex */
+    public static /* synthetic */ class a {
+
+        /* renamed from: a  reason: collision with root package name */
+        public static final /* synthetic */ int[] f38607a;
+
+        static {
+            int[] iArr = new int[FieldEncoding.values().length];
+            f38607a = iArr;
+            try {
+                iArr[FieldEncoding.VARINT.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
+            }
+            try {
+                f38607a[FieldEncoding.FIXED32.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
+            }
+            try {
+                f38607a[FieldEncoding.FIXED64.ordinal()] = 3;
+            } catch (NoSuchFieldError unused3) {
+            }
+            try {
+                f38607a[FieldEncoding.LENGTH_DELIMITED.ordinal()] = 4;
+            } catch (NoSuchFieldError unused4) {
+            }
+        }
+    }
 
     FieldEncoding(int i) {
         this.value = i;
     }
 
-    static FieldEncoding get(int i) throws IOException {
-        switch (i) {
-            case 0:
-                return VARINT;
-            case 1:
-                return FIXED64;
-            case 2:
+    public static FieldEncoding get(int i) throws IOException {
+        if (i != 0) {
+            if (i != 1) {
+                if (i != 2) {
+                    if (i == 5) {
+                        return FIXED32;
+                    }
+                    throw new ProtocolException("Unexpected FieldEncoding: " + i);
+                }
                 return LENGTH_DELIMITED;
-            case 3:
-            case 4:
-            default:
-                throw new ProtocolException("Unexpected FieldEncoding: " + i);
-            case 5:
-                return FIXED32;
+            }
+            return FIXED64;
         }
+        return VARINT;
     }
 
     public ProtoAdapter<?> rawProtoAdapter() {
-        switch (this) {
-            case VARINT:
-                return ProtoAdapter.UINT64;
-            case FIXED32:
-                return ProtoAdapter.FIXED32;
-            case FIXED64:
+        int i = a.f38607a[ordinal()];
+        if (i != 1) {
+            if (i != 2) {
+                if (i != 3) {
+                    if (i == 4) {
+                        return ProtoAdapter.BYTES;
+                    }
+                    throw new AssertionError();
+                }
                 return ProtoAdapter.FIXED64;
-            case LENGTH_DELIMITED:
-                return ProtoAdapter.BYTES;
-            default:
-                throw new AssertionError();
+            }
+            return ProtoAdapter.FIXED32;
         }
+        return ProtoAdapter.UINT64;
     }
 }

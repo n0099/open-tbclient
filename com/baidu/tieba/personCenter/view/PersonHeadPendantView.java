@@ -5,63 +5,62 @@ import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.RelativeLayout;
+import com.baidu.tbadk.core.util.tbselector.TBSelector;
 import com.baidu.tbadk.core.view.HeadPendantView;
 import com.baidu.tieba.R;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class PersonHeadPendantView extends HeadPendantView {
-    private View epj;
-    private int mBorderWidth;
+    public int q;
+    public View r;
 
     public PersonHeadPendantView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.mBorderWidth = 0;
+        this.q = 0;
     }
 
-    public PersonHeadPendantView(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        this.mBorderWidth = 0;
-    }
-
-    public PersonHeadPendantView(Context context) {
-        super(context);
-        this.mBorderWidth = 0;
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.view.HeadPendantView
-    public void init() {
-        super.init();
-        this.mBorderWidth = getResources().getDimensionPixelSize(R.dimen.ds4);
-        this.epj = new View(getContext());
+    public void d() {
+        super.d();
+        this.q = getResources().getDimensionPixelSize(R.dimen.ds4);
+        this.r = new View(getContext());
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -1);
         layoutParams.addRule(14, -1);
         layoutParams.addRule(15, -1);
-        addView(this.epj, 0, layoutParams);
+        addView(this.r, 0, layoutParams);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.view.HeadPendantView, android.widget.RelativeLayout, android.view.View
     public void onMeasure(int i, int i2) {
         super.onMeasure(i, i2);
-        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.epj.getLayoutParams();
-        int measuredWidth = ((int) (getMeasuredWidth() * 0.13f)) - this.mBorderWidth;
+        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.r.getLayoutParams();
+        int measuredWidth = ((int) (getMeasuredWidth() * 0.13f)) - this.q;
         layoutParams.leftMargin = measuredWidth;
         layoutParams.topMargin = measuredWidth;
         layoutParams.rightMargin = measuredWidth;
         layoutParams.bottomMargin = measuredWidth;
-        this.epj.setLayoutParams(layoutParams);
+        this.r.setLayoutParams(layoutParams);
     }
 
     public void setBackgroundViewDrawable(Drawable drawable) {
-        this.epj.setBackgroundDrawable(drawable);
+        this.r.setBackgroundDrawable(drawable);
+    }
+
+    public void setBorderColor(int i) {
+        TBSelector.makeDrawableSelector().setShape(1).defaultColor(i).into(this.r);
     }
 
     public void setBorderWidth(int i) {
         getHeadView().setBorderWidth(0);
-        this.mBorderWidth = i;
+        this.q = i;
     }
 
-    public void setBorderColor(int i) {
-        com.baidu.tbadk.core.util.f.a.bty().oP(1).oQ(i).bv(this.epj);
+    public PersonHeadPendantView(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        this.q = 0;
+    }
+
+    public PersonHeadPendantView(Context context) {
+        super(context);
+        this.q = 0;
     }
 }

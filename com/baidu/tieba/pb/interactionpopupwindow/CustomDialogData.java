@@ -3,7 +3,7 @@ package com.baidu.tieba.pb.interactionpopupwindow;
 import java.io.Serializable;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class CustomDialogData implements IBaseDialogData {
     public static final String POS_LEFT = "left";
     public static final int TYPE_ADD_THREAD = 2;
@@ -15,27 +15,17 @@ public class CustomDialogData implements IBaseDialogData {
     public Button rightButton;
     public int type = -1;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public static class Button implements Serializable {
         public String action;
         public String image;
         public String text;
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public static class Head implements Serializable {
         public String imageUrl;
         public String text;
-    }
-
-    @Override // com.baidu.tieba.pb.interactionpopupwindow.IBaseDialogData
-    public int getType() {
-        return 1;
-    }
-
-    @Override // com.baidu.tieba.pb.interactionpopupwindow.IBaseDialogData
-    public int getFrom() {
-        return this.type;
     }
 
     public static CustomDialogData praseJSON(JSONObject jSONObject) {
@@ -56,7 +46,7 @@ public class CustomDialogData implements IBaseDialogData {
                 button.text = optJSONObject2.optString("text");
                 button.action = optJSONObject2.optString("action");
                 button.image = optJSONObject2.optString("image");
-                if (optJSONObject2.optString("position").equals("left")) {
+                if (optJSONObject2.optString("position").equals(POS_LEFT)) {
                     customDialogData.leftButton = button;
                 } else {
                     customDialogData.rightButton = button;
@@ -64,5 +54,15 @@ public class CustomDialogData implements IBaseDialogData {
             }
         }
         return customDialogData;
+    }
+
+    @Override // com.baidu.tieba.pb.interactionpopupwindow.IBaseDialogData
+    public int getFrom() {
+        return this.type;
+    }
+
+    @Override // com.baidu.tieba.pb.interactionpopupwindow.IBaseDialogData
+    public int getType() {
+        return 1;
     }
 }

@@ -11,76 +11,28 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public final class AssetUtils {
-    private static final boolean DEBUG = false;
-    private static final String TAG = "AssetUtils";
-
-    private AssetUtils() {
-    }
+    public static final boolean DEBUG = false;
+    public static final String TAG = "AssetUtils";
 
     public static boolean exists(Context context, String str) {
         boolean z = false;
         if (context != null && !TextUtils.isEmpty(str)) {
-            InputStream inputStream = null;
             try {
                 InputStream open = context.getAssets().open(str, 0);
                 z = true;
                 if (open != null) {
                     try {
                         open.close();
-                    } catch (IOException e) {
-                        e.printStackTrace();
+                    } catch (IOException e2) {
+                        e2.printStackTrace();
                     }
                 }
-            } catch (IOException e2) {
-                if (0 != 0) {
-                    try {
-                        inputStream.close();
-                    } catch (IOException e3) {
-                        e3.printStackTrace();
-                    }
-                }
-            } catch (Throwable th) {
-                if (0 != 0) {
-                    try {
-                        inputStream.close();
-                    } catch (IOException e4) {
-                        e4.printStackTrace();
-                    }
-                }
-                throw th;
+            } catch (IOException unused) {
             }
         }
         return z;
-    }
-
-    public static boolean extractFolderFromAsset(AssetManager assetManager, String str, String str2) {
-        String[] list;
-        try {
-            boolean z = false;
-            for (String str3 : assetManager.list(str)) {
-                try {
-                    if (!TextUtils.isEmpty(str3)) {
-                        String str4 = str + File.separator + str3;
-                        String[] list2 = assetManager.list(str4);
-                        if (list2 == null || list2.length == 0) {
-                            z = extractFileFromAsset(assetManager, str4, str2 + File.separator + str3);
-                        } else {
-                            z = extractFolderFromAsset(assetManager, str4, str2 + File.separator + str3);
-                        }
-                        if (!z) {
-                            return z;
-                        }
-                    }
-                } catch (IOException e) {
-                    return z;
-                }
-            }
-            return z;
-        } catch (IOException e2) {
-            return false;
-        }
     }
 
     public static boolean extractFileFromAsset(AssetManager assetManager, String str, String str2) {
@@ -90,9 +42,51 @@ public final class AssetUtils {
             if (!z) {
                 new File(str2).delete();
             }
-        } catch (IOException e) {
+        } catch (IOException unused) {
         }
         return z;
+    }
+
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:30:0x0064 */
+    /* JADX DEBUG: Multi-variable search result rejected for r3v0, resolved type: boolean */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Removed duplicated region for block: B:27:0x0069 A[SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:30:0x0064 A[SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static boolean extractFolderFromAsset(AssetManager assetManager, String str, String str2) {
+        int i = 0;
+        try {
+            String[] list = assetManager.list(str);
+            int length = list.length;
+            boolean z = false;
+            while (i < length) {
+                try {
+                    String str3 = list[i];
+                    if (!TextUtils.isEmpty(str3)) {
+                        String str4 = str + File.separator + str3;
+                        String[] list2 = assetManager.list(str4);
+                        if (list2 != null && list2.length != 0) {
+                            z = extractFolderFromAsset(assetManager, str4, str2 + File.separator + str3);
+                            if (z) {
+                                return z;
+                            }
+                        }
+                        z = extractFileFromAsset(assetManager, str4, str2 + File.separator + str3);
+                        if (z) {
+                        }
+                    }
+                    i++;
+                    z = z;
+                } catch (IOException unused) {
+                    i = z;
+                    return i;
+                }
+            }
+            return z;
+        } catch (IOException unused2) {
+        }
     }
 
     @Deprecated
@@ -101,154 +95,145 @@ public final class AssetUtils {
     }
 
     public static String loadFile(Context context, String str) {
-        Throwable th;
         InputStream inputStream;
-        InputStream inputStream2;
+        InputStream inputStream2 = null;
+        r0 = null;
         String str2 = null;
         try {
-            inputStream2 = context.getAssets().open(str);
-            if (inputStream2 != null) {
-                try {
-                    str2 = StreamUtils.streamToString(inputStream2);
-                    Closeables.closeSafely(inputStream2);
-                } catch (IOException e) {
-                    Closeables.closeSafely(inputStream2);
-                    return str2;
-                } catch (Throwable th2) {
-                    th = th2;
-                    inputStream = inputStream2;
-                    Closeables.closeSafely(inputStream);
-                    throw th;
-                }
-            } else {
-                Closeables.closeSafely(inputStream2);
-            }
-        } catch (IOException e2) {
-            inputStream2 = null;
-        } catch (Throwable th3) {
-            th = th3;
+            inputStream = context.getAssets().open(str);
+        } catch (IOException unused) {
             inputStream = null;
+        } catch (Throwable th) {
+            th = th;
         }
-        return str2;
-    }
-
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [251=4] */
-    public static boolean unzipFileFromAsset(String str, String str2, Context context) {
-        ZipInputStream zipInputStream;
-        InputStream inputStream;
-        ZipInputStream zipInputStream2;
-        InputStream inputStream2;
-        BufferedOutputStream bufferedOutputStream;
-        if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
-            return false;
-        }
-        File file = new File(str2);
-        if (!file.exists()) {
-            file.mkdirs();
+        if (inputStream == null) {
+            Closeables.closeSafely(inputStream);
+            return null;
         }
         try {
-            inputStream = context.getApplicationContext().getAssets().open(str);
-            try {
-                zipInputStream = new ZipInputStream(inputStream);
-            } catch (IOException e) {
-                zipInputStream2 = null;
-                inputStream2 = inputStream;
-            } catch (Throwable th) {
-                th = th;
-                zipInputStream = null;
-            }
-            try {
-                byte[] bArr = new byte[1024];
-                BufferedOutputStream bufferedOutputStream2 = null;
-                while (true) {
-                    ZipEntry nextEntry = zipInputStream.getNextEntry();
-                    if (nextEntry == null) {
-                        Closeables.closeSafely(inputStream);
-                        Closeables.closeSafely(zipInputStream);
-                        return true;
-                    } else if (!nextEntry.getName().contains(Constants.PATH_PARENT)) {
-                        File file2 = new File(str2 + File.separator + nextEntry.getName());
-                        if (nextEntry.isDirectory()) {
-                            if (!file2.exists()) {
-                                file2.mkdir();
-                            }
-                        } else if (file2.exists()) {
-                            continue;
-                        } else {
-                            FileUtils.createFileSafely(file2);
-                            try {
-                                bufferedOutputStream = new BufferedOutputStream(new FileOutputStream(file2), 2048);
-                                while (true) {
-                                    try {
-                                        int read = zipInputStream.read(bArr);
-                                        if (read == -1) {
-                                            break;
-                                        }
-                                        bufferedOutputStream.write(bArr, 0, read);
-                                    } catch (Throwable th2) {
-                                        th = th2;
-                                        Closeables.closeSafely(bufferedOutputStream);
-                                        throw th;
-                                    }
-                                }
-                                Closeables.closeSafely(bufferedOutputStream);
-                                bufferedOutputStream2 = bufferedOutputStream;
-                            } catch (Throwable th3) {
-                                th = th3;
-                                bufferedOutputStream = bufferedOutputStream2;
-                            }
-                        }
-                    }
-                }
-            } catch (IOException e2) {
-                zipInputStream2 = zipInputStream;
-                inputStream2 = inputStream;
-                Closeables.closeSafely(inputStream2);
-                Closeables.closeSafely(zipInputStream2);
-                return false;
-            } catch (Throwable th4) {
-                th = th4;
-                Closeables.closeSafely(inputStream);
-                Closeables.closeSafely(zipInputStream);
-                throw th;
-            }
-        } catch (IOException e3) {
-            zipInputStream2 = null;
-            inputStream2 = null;
-        } catch (Throwable th5) {
-            th = th5;
-            zipInputStream = null;
-            inputStream = null;
+            str2 = StreamUtils.streamToString(inputStream);
+        } catch (IOException unused2) {
+        } catch (Throwable th2) {
+            th = th2;
+            inputStream2 = inputStream;
+            Closeables.closeSafely(inputStream2);
+            throw th;
         }
+        Closeables.closeSafely(inputStream);
+        return str2;
     }
 
     public static String readAsset(Context context, String str) {
-        Throwable th;
         InputStream inputStream;
-        InputStream inputStream2;
-        String str2 = null;
+        InputStream inputStream2 = null;
         if (context != null && !TextUtils.isEmpty(str)) {
             try {
-                inputStream2 = context.getAssets().open(str);
-            } catch (IOException e) {
-                inputStream2 = null;
+                inputStream = context.getAssets().open(str);
+                try {
+                    String readInputStream = FileUtils.readInputStream(inputStream);
+                    Closeables.closeSafely(inputStream);
+                    return readInputStream;
+                } catch (IOException unused) {
+                    Closeables.closeSafely(inputStream);
+                    return null;
+                } catch (Throwable th) {
+                    th = th;
+                    inputStream2 = inputStream;
+                    Closeables.closeSafely(inputStream2);
+                    throw th;
+                }
+            } catch (IOException unused2) {
+                inputStream = null;
             } catch (Throwable th2) {
                 th = th2;
-                inputStream = null;
-            }
-            try {
-                str2 = FileUtils.readInputStream(inputStream2);
-                Closeables.closeSafely(inputStream2);
-            } catch (IOException e2) {
-                Closeables.closeSafely(inputStream2);
-                return str2;
-            } catch (Throwable th3) {
-                th = th3;
-                inputStream = inputStream2;
-                Closeables.closeSafely(inputStream);
-                throw th;
             }
         }
-        return str2;
+        return null;
+    }
+
+    /* JADX DEBUG: Multi-variable search result rejected for r3v4, resolved type: java.io.BufferedOutputStream */
+    /* JADX WARN: Multi-variable type inference failed */
+    public static boolean unzipFileFromAsset(String str, String str2, Context context) {
+        ZipInputStream zipInputStream;
+        if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+            File file = new File(str2);
+            if (!file.exists()) {
+                file.mkdirs();
+            }
+            InputStream inputStream = null;
+            try {
+                InputStream open = context.getApplicationContext().getAssets().open(str);
+                try {
+                    zipInputStream = new ZipInputStream(open);
+                    try {
+                        byte[] bArr = new byte[1024];
+                        while (true) {
+                            ZipEntry nextEntry = zipInputStream.getNextEntry();
+                            if (nextEntry != null) {
+                                if (!nextEntry.getName().contains(Constants.PATH_PARENT)) {
+                                    File file2 = new File(str2 + File.separator + nextEntry.getName());
+                                    if (nextEntry.isDirectory()) {
+                                        if (!file2.exists()) {
+                                            file2.mkdir();
+                                        }
+                                    } else if (file2.exists()) {
+                                        continue;
+                                    } else {
+                                        FileUtils.createFileSafely(file2);
+                                        try {
+                                            BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(new FileOutputStream(file2), 2048);
+                                            while (true) {
+                                                try {
+                                                    int read = zipInputStream.read(bArr);
+                                                    if (read == -1) {
+                                                        break;
+                                                    }
+                                                    bufferedOutputStream.write(bArr, 0, read);
+                                                } catch (Throwable th) {
+                                                    th = th;
+                                                    inputStream = bufferedOutputStream;
+                                                    Closeables.closeSafely(inputStream);
+                                                    throw th;
+                                                }
+                                            }
+                                            Closeables.closeSafely(bufferedOutputStream);
+                                            inputStream = bufferedOutputStream;
+                                        } catch (Throwable th2) {
+                                            th = th2;
+                                        }
+                                    }
+                                }
+                            } else {
+                                Closeables.closeSafely(open);
+                                Closeables.closeSafely(zipInputStream);
+                                return true;
+                            }
+                        }
+                    } catch (IOException unused) {
+                        inputStream = open;
+                        Closeables.closeSafely(inputStream);
+                        Closeables.closeSafely(zipInputStream);
+                        return false;
+                    } catch (Throwable th3) {
+                        th = th3;
+                        inputStream = open;
+                        Closeables.closeSafely(inputStream);
+                        Closeables.closeSafely(zipInputStream);
+                        throw th;
+                    }
+                } catch (IOException unused2) {
+                    zipInputStream = null;
+                } catch (Throwable th4) {
+                    th = th4;
+                    zipInputStream = null;
+                }
+            } catch (IOException unused3) {
+                zipInputStream = null;
+            } catch (Throwable th5) {
+                th = th5;
+                zipInputStream = null;
+            }
+        }
+        return false;
     }
 }

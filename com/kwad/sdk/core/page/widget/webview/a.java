@@ -3,7 +3,7 @@ package com.kwad.sdk.core.page.widget.webview;
 import android.webkit.JsPromptResult;
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class a extends WebChromeClient {
     @Override // android.webkit.WebChromeClient
     public boolean onJsPrompt(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
@@ -13,8 +13,8 @@ public class a extends WebChromeClient {
                     return true;
                 }
             }
-        } catch (Exception e) {
-            com.kwad.sdk.core.d.a.a(e);
+        } catch (Exception e2) {
+            com.kwad.sdk.core.d.a.a(e2);
         }
         return super.onJsPrompt(webView, str, str2, str3, jsPromptResult);
     }
@@ -25,8 +25,8 @@ public class a extends WebChromeClient {
             if (webView instanceof b) {
                 ((b) webView).a(webView);
             }
-        } catch (Exception e) {
-            com.kwad.sdk.core.d.a.a(e);
+        } catch (Exception e2) {
+            com.kwad.sdk.core.d.a.a(e2);
         }
         super.onProgressChanged(webView, i);
     }
@@ -37,8 +37,8 @@ public class a extends WebChromeClient {
             if (webView instanceof b) {
                 ((b) webView).a(webView);
             }
-        } catch (Exception e) {
-            com.kwad.sdk.core.d.a.a(e);
+        } catch (Exception e2) {
+            com.kwad.sdk.core.d.a.a(e2);
         }
     }
 }

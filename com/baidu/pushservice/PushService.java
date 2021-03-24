@@ -7,40 +7,59 @@ import android.os.IBinder;
 import android.os.Process;
 import android.util.Log;
 import com.baidu.android.pushservice.f;
-import com.baidu.android.pushservice.f.a;
 import com.baidu.android.pushservice.g;
-import com.baidu.android.pushservice.h.a.b;
-import com.baidu.android.pushservice.i.m;
-/* loaded from: classes5.dex */
+import com.baidu.android.pushservice.i.a.b;
+import com.baidu.android.pushservice.j.m;
+/* loaded from: classes2.dex */
 public class PushService extends Service {
 
     /* renamed from: a  reason: collision with root package name */
-    private boolean f3103a = false;
-    private Handler b = new Handler();
-    private boolean c = false;
-    private final Runnable d = new Runnable() { // from class: com.baidu.pushservice.PushService.1
+    public boolean f10494a = false;
+
+    /* renamed from: b  reason: collision with root package name */
+    public Handler f10495b = new Handler();
+
+    /* renamed from: c  reason: collision with root package name */
+    public boolean f10496c = false;
+
+    /* renamed from: d  reason: collision with root package name */
+    public final Runnable f10497d = new a();
+
+    /* renamed from: e  reason: collision with root package name */
+    public final Runnable f10498e = new b();
+
+    /* loaded from: classes2.dex */
+    public class a implements Runnable {
+        public a() {
+        }
+
         @Override // java.lang.Runnable
         public void run() {
             g.b();
             PushService.this.stopSelf();
         }
-    };
-    private final Runnable e = new Runnable() { // from class: com.baidu.pushservice.PushService.2
+    }
+
+    /* loaded from: classes2.dex */
+    public class b implements Runnable {
+        public b() {
+        }
+
         @Override // java.lang.Runnable
         public void run() {
             Process.killProcess(Process.myPid());
         }
-    };
+    }
 
     private void a(boolean z, boolean z2) {
-        this.f3103a = z;
-        a.a("PushService", "stopSelf : exitOnDestroy=" + z + " --- immediate=" + z2, getApplicationContext());
+        this.f10494a = z;
+        com.baidu.android.pushservice.g.a.a("PushService", "stopSelf : exitOnDestroy=" + z + " --- immediate=" + z2, getApplicationContext());
         if (z2) {
-            this.d.run();
+            this.f10497d.run();
             return;
         }
-        this.b.removeCallbacks(this.d);
-        this.b.postDelayed(this.d, 1000L);
+        this.f10495b.removeCallbacks(this.f10497d);
+        this.f10495b.postDelayed(this.f10497d, 1000L);
     }
 
     @Override // android.app.Service
@@ -51,10 +70,11 @@ public class PushService extends Service {
     @Override // android.app.Service
     public void onCreate() {
         super.onCreate();
-        a.a("PushService", "onCreate from : " + getPackageName(), getApplicationContext());
+        com.baidu.android.pushservice.g.a.a("PushService", "onCreate from : " + getPackageName(), getApplicationContext());
         m.a("PushService onCreate from : " + getPackageName() + " at Time :" + System.currentTimeMillis(), getApplicationContext());
-        this.c = g.a(this).a();
-        if (this.c) {
+        boolean a2 = g.a(this).a();
+        this.f10496c = a2;
+        if (a2) {
             return;
         }
         a(true, false);
@@ -63,17 +83,17 @@ public class PushService extends Service {
     @Override // android.app.Service
     public void onDestroy() {
         super.onDestroy();
-        a.a("PushService", "onDestroy from : " + getPackageName(), getApplicationContext());
+        com.baidu.android.pushservice.g.a.a("PushService", "onDestroy from : " + getPackageName(), getApplicationContext());
         m.a("PushService onDestroy from : " + getPackageName() + " at Time :" + System.currentTimeMillis(), getApplicationContext());
         g.b();
-        if (this.f3103a) {
-            this.b.removeCallbacks(this.e);
-            this.b.postDelayed(this.e, 1000L);
+        if (this.f10494a) {
+            this.f10495b.removeCallbacks(this.f10498e);
+            this.f10495b.postDelayed(this.f10498e, 1000L);
         }
-        if (this.c) {
+        if (this.f10496c) {
             try {
                 sendBroadcast(f.a(this));
-            } catch (Exception e) {
+            } catch (Exception unused) {
             }
         }
     }
@@ -82,26 +102,28 @@ public class PushService extends Service {
     public int onStartCommand(Intent intent, int i, int i2) {
         if (intent == null) {
             intent = new Intent();
-            a.c("PushService", "--- onStart by null intent!", getApplicationContext());
+            com.baidu.android.pushservice.g.a.c("PushService", "--- onStart by null intent!", getApplicationContext());
         } else {
             try {
-                m.a("PushService onStartCommand from " + getPackageName() + " Intent " + intent.toUri(0) + " at Time " + System.currentTimeMillis(), getApplicationContext());
-            } catch (Exception e) {
-                new b.c(getApplicationContext()).a(Log.getStackTraceString(e)).a();
+                String uri = intent.toUri(0);
+                m.a("PushService onStartCommand from " + getPackageName() + " Intent " + uri + " at Time " + System.currentTimeMillis(), getApplicationContext());
+            } catch (Exception e2) {
+                new b.c(getApplicationContext()).a(Log.getStackTraceString(e2)).a();
             }
         }
-        this.b.removeCallbacks(this.d);
-        this.b.removeCallbacks(this.e);
+        this.f10495b.removeCallbacks(this.f10497d);
+        this.f10495b.removeCallbacks(this.f10498e);
         try {
-            this.c = g.a(this).a(intent);
-            if (this.c) {
+            boolean a2 = g.a(this).a(intent);
+            this.f10496c = a2;
+            if (a2) {
                 return 1;
             }
             a(true, true);
             return 2;
-        } catch (Exception e2) {
+        } catch (Exception e3) {
             a(true, true);
-            new b.c(getApplicationContext()).a(Log.getStackTraceString(e2)).a();
+            new b.c(getApplicationContext()).a(Log.getStackTraceString(e3)).a();
             return 2;
         }
     }

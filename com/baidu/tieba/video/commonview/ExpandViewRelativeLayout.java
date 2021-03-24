@@ -4,118 +4,126 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.widget.RelativeLayout;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class ExpandViewRelativeLayout extends RelativeLayout {
-    private float bNR;
-    private float mLastY;
-    private a nOm;
-    private boolean nOn;
-    private boolean nOo;
 
-    /* loaded from: classes7.dex */
+    /* renamed from: e  reason: collision with root package name */
+    public a f21733e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public boolean f21734f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public float f21735g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public float f21736h;
+    public boolean i;
+
+    /* loaded from: classes5.dex */
     public interface a {
-        void bg(float f);
+        void a();
 
-        void d(float f, float f2, int i);
+        void b(float f2);
 
-        void dSG();
+        boolean c(float f2, float f3, int i);
 
-        boolean e(float f, float f2, int i);
-    }
-
-    public void setScrollCallBack(a aVar) {
-        this.nOm = aVar;
+        void d(float f2, float f3, int i);
     }
 
     public ExpandViewRelativeLayout(Context context) {
         super(context);
-        init(context);
+        a(context);
     }
 
-    public ExpandViewRelativeLayout(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        init(context);
-    }
-
-    public ExpandViewRelativeLayout(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        init(context);
-    }
-
-    private void init(Context context) {
-        this.nOo = true;
+    public final void a(Context context) {
+        this.i = true;
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
-        switch (motionEvent.getAction()) {
-            case 0:
-                this.bNR = motionEvent.getY();
-                this.mLastY = motionEvent.getY();
-                if (this.nOm != null) {
-                    this.nOm.bg(motionEvent.getY());
-                    break;
-                }
-                break;
+        if (motionEvent.getAction() == 0) {
+            this.f21735g = motionEvent.getY();
+            this.f21736h = motionEvent.getY();
+            a aVar = this.f21733e;
+            if (aVar != null) {
+                aVar.b(motionEvent.getY());
+            }
         }
         return super.dispatchTouchEvent(motionEvent);
     }
 
     @Override // android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        switch (motionEvent.getAction()) {
-            case 0:
-                if (this.nOm != null) {
-                    this.nOn = this.nOm.e(0.0f, motionEvent.getY(), 0);
-                    return this.nOn;
-                }
-                break;
-            case 2:
-                if (this.nOm != null) {
-                    this.bNR = motionEvent.getY();
-                    this.nOn = this.nOm.e(motionEvent.getY() - this.bNR, motionEvent.getY(), motionEvent.getY() - this.mLastY > 0.0f ? 1 : 2);
-                    return this.nOn;
-                }
-                break;
+        int action = motionEvent.getAction();
+        if (action != 0) {
+            if (action == 2 && this.f21733e != null) {
+                this.f21735g = motionEvent.getY();
+                boolean c2 = this.f21733e.c(motionEvent.getY() - this.f21735g, motionEvent.getY(), motionEvent.getY() - this.f21736h > 0.0f ? 1 : 2);
+                this.f21734f = c2;
+                return c2;
+            }
+        } else {
+            a aVar = this.f21733e;
+            if (aVar != null) {
+                boolean c3 = aVar.c(0.0f, motionEvent.getY(), 0);
+                this.f21734f = c3;
+                return c3;
+            }
         }
         return super.onInterceptTouchEvent(motionEvent);
     }
 
     @Override // android.widget.RelativeLayout, android.view.ViewGroup, android.view.View
-    protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
-        if (this.nOo) {
+    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
+        if (this.i) {
             super.onLayout(z, i, i2, i3, i4);
         }
     }
 
     @Override // android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        switch (motionEvent.getAction()) {
-            case 1:
-                this.nOn = false;
-                if (this.nOm != null) {
-                    this.nOm.dSG();
-                    break;
-                }
-                break;
-            case 2:
-                float y = motionEvent.getY() - this.bNR;
-                int i = motionEvent.getY() - this.mLastY > 0.0f ? 1 : 2;
-                if (this.nOn && this.nOm != null) {
-                    this.nOm.d(motionEvent.getY(), y, i);
+        a aVar;
+        int action = motionEvent.getAction();
+        if (action != 1) {
+            if (action == 2) {
+                float y = motionEvent.getY() - this.f21735g;
+                int i = motionEvent.getY() - this.f21736h > 0.0f ? 1 : 2;
+                if (this.f21734f && (aVar = this.f21733e) != null) {
+                    aVar.d(motionEvent.getY(), y, i);
                     return true;
                 }
-                break;
+            }
+        } else {
+            this.f21734f = false;
+            a aVar2 = this.f21733e;
+            if (aVar2 != null) {
+                aVar2.a();
+            }
         }
         return super.onTouchEvent(motionEvent);
-    }
-
-    public void setIsCanLayout(boolean z) {
-        this.nOo = z;
     }
 
     @Override // android.view.ViewGroup, android.view.ViewParent
     public void requestDisallowInterceptTouchEvent(boolean z) {
         super.requestDisallowInterceptTouchEvent(false);
+    }
+
+    public void setIsCanLayout(boolean z) {
+        this.i = z;
+    }
+
+    public void setScrollCallBack(a aVar) {
+        this.f21733e = aVar;
+    }
+
+    public ExpandViewRelativeLayout(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        a(context);
+    }
+
+    public ExpandViewRelativeLayout(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        a(context);
     }
 }

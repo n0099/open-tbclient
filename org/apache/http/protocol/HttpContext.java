@@ -1,6 +1,6 @@
 package org.apache.http.protocol;
 @Deprecated
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public interface HttpContext {
     public static final String RESERVED_PREFIX = "http.";
 

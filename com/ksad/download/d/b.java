@@ -3,26 +3,18 @@ package com.ksad.download.d;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class b {
     public static boolean a(Context context) {
-        boolean z;
+        NetworkInfo activeNetworkInfo;
         try {
             ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
-            if (connectivityManager == null) {
+            if (connectivityManager == null || (activeNetworkInfo = connectivityManager.getActiveNetworkInfo()) == null) {
                 return false;
             }
-            NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
-            if (activeNetworkInfo != null) {
-                if (activeNetworkInfo.isConnected()) {
-                    z = true;
-                    return z;
-                }
-            }
-            z = false;
-            return z;
-        } catch (Exception e) {
-            e.printStackTrace();
+            return activeNetworkInfo.isConnected();
+        } catch (Exception e2) {
+            e2.printStackTrace();
             return false;
         }
     }
@@ -31,14 +23,13 @@ public class b {
         NetworkInfo activeNetworkInfo;
         try {
             ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
-            if (connectivityManager == null || (activeNetworkInfo = connectivityManager.getActiveNetworkInfo()) == null || !activeNetworkInfo.isConnected()) {
-                return false;
+            if (connectivityManager != null && (activeNetworkInfo = connectivityManager.getActiveNetworkInfo()) != null && activeNetworkInfo.isConnected()) {
+                return 1 == activeNetworkInfo.getType();
             }
-            return 1 == activeNetworkInfo.getType();
-        } catch (Exception e) {
-            e.printStackTrace();
-            return false;
+        } catch (Exception e2) {
+            e2.printStackTrace();
         }
+        return false;
     }
 
     public static NetworkInfo c(Context context) {

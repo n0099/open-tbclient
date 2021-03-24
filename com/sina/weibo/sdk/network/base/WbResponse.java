@@ -1,18 +1,12 @@
 package com.sina.weibo.sdk.network.base;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class WbResponse {
-    private WbResponseBody responseBody;
-    private int resultCode;
+    public WbResponseBody responseBody;
+    public int resultCode;
 
     public WbResponse(WbResponseBody wbResponseBody) {
         this.resultCode = 200;
         this.responseBody = wbResponseBody;
-    }
-
-    public WbResponse(WbResponseBody wbResponseBody, int i) {
-        this.resultCode = 200;
-        this.responseBody = wbResponseBody;
-        this.resultCode = i;
     }
 
     public WbResponseBody body() {
@@ -21,5 +15,11 @@ public class WbResponse {
 
     public boolean isSuccessful() {
         return this.resultCode == 200;
+    }
+
+    public WbResponse(WbResponseBody wbResponseBody, int i) {
+        this.resultCode = 200;
+        this.responseBody = wbResponseBody;
+        this.resultCode = i;
     }
 }

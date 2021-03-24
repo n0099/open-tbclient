@@ -11,15 +11,15 @@ import java.io.InputStreamReader;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class EglUtil {
-    private static final int FLOAT_SIZE_BYTES = 4;
+    public static final int FLOAT_SIZE_BYTES = 4;
     public static final int NO_TEXTURE = -1;
-    private static final String TAG = "EglUtil";
+    public static final String TAG = "EglUtil";
 
     public static int createBuffer(FloatBuffer floatBuffer) {
         int[] iArr = new int[1];
-        GLES20.glGenBuffers(iArr.length, iArr, 0);
+        GLES20.glGenBuffers(1, iArr, 0);
         updateBufferData(iArr[0], floatBuffer);
         return iArr[0];
     }
@@ -30,19 +30,19 @@ public class EglUtil {
 
     public static int createProgram(int i, int i2) {
         int glCreateProgram = GLES20.glCreateProgram();
-        if (glCreateProgram == 0) {
-            throw new RuntimeException("Could not create program");
-        }
-        GLES20.glAttachShader(glCreateProgram, i);
-        GLES20.glAttachShader(glCreateProgram, i2);
-        GLES20.glLinkProgram(glCreateProgram);
-        int[] iArr = new int[1];
-        GLES20.glGetProgramiv(glCreateProgram, 35714, iArr, 0);
-        if (iArr[0] != 1) {
+        if (glCreateProgram != 0) {
+            GLES20.glAttachShader(glCreateProgram, i);
+            GLES20.glAttachShader(glCreateProgram, i2);
+            GLES20.glLinkProgram(glCreateProgram);
+            int[] iArr = new int[1];
+            GLES20.glGetProgramiv(glCreateProgram, 35714, iArr, 0);
+            if (iArr[0] == 1) {
+                return glCreateProgram;
+            }
             GLES20.glDeleteProgram(glCreateProgram);
             throw new RuntimeException("Could not link program");
         }
-        return glCreateProgram;
+        throw new RuntimeException("Could not create program");
     }
 
     public static int loadShader(String str, int i) {
@@ -90,7 +90,7 @@ public class EglUtil {
                 }
                 sb.append(readLine);
                 sb.append('\n');
-            } catch (IOException e) {
+            } catch (IOException unused) {
                 return null;
             }
         }

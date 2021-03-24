@@ -1,5 +1,5 @@
 package com.baidu.mobstat;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class ck extends ch {
     public ck() {
         super(1009);

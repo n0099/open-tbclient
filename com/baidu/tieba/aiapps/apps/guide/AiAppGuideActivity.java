@@ -4,23 +4,36 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.gif.GifView;
 import com.baidu.tieba.R;
-/* loaded from: classes8.dex */
+import d.b.b.e.p.l;
+/* loaded from: classes4.dex */
 public class AiAppGuideActivity extends BaseActivity {
-    private GifView fxq;
-    private ImageView ggT;
-    private View.OnClickListener mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.aiapps.apps.guide.AiAppGuideActivity.1
+    public static final int GIF_HEIGHT = 828;
+    public static final int GIF_WIDTH = 760;
+    public GifView mGifView;
+    public ImageView mImgClose;
+    public View.OnClickListener mOnClickListener = new a();
+
+    /* loaded from: classes4.dex */
+    public class a implements View.OnClickListener {
+        public a() {
+        }
+
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             AiAppGuideActivity.this.closeActivity();
         }
-    };
+    }
 
-    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tbadk.BaseActivity
+    public void onChangeSkinType(int i) {
+        super.onChangeSkinType(i);
+        SkinManager.setImageResource(this.mImgClose, R.drawable.icon_use_close_n);
+    }
+
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         requestWindowFeature(1);
@@ -28,26 +41,21 @@ public class AiAppGuideActivity extends BaseActivity {
         setSwipeBackEnabled(false);
         setActivityBgTransparent();
         setContentView(R.layout.activity_aiapp_guide);
-        this.fxq = (GifView) findViewById(R.id.view_gif);
-        this.fxq.setGifRaw(R.raw.aiapp_guide);
-        this.ggT = (ImageView) findViewById(R.id.img_close);
-        this.ggT.setOnClickListener(this.mOnClickListener);
-        int equipmentWidth = l.getEquipmentWidth(getActivity()) - (l.getDimens(getActivity(), R.dimen.tbds44) * 2);
-        ViewGroup.LayoutParams layoutParams = this.fxq.getLayoutParams();
-        layoutParams.width = equipmentWidth;
-        layoutParams.height = (int) (((equipmentWidth * 828) * 1.0f) / 760.0f);
-        this.fxq.setLayoutParams(layoutParams);
+        GifView gifView = (GifView) findViewById(R.id.view_gif);
+        this.mGifView = gifView;
+        gifView.setGifRaw(R.raw.aiapp_guide);
+        ImageView imageView = (ImageView) findViewById(R.id.img_close);
+        this.mImgClose = imageView;
+        imageView.setOnClickListener(this.mOnClickListener);
+        int k = l.k(getActivity()) - (l.g(getActivity(), R.dimen.tbds44) * 2);
+        ViewGroup.LayoutParams layoutParams = this.mGifView.getLayoutParams();
+        layoutParams.width = k;
+        layoutParams.height = (int) (((k * GIF_HEIGHT) * 1.0f) / 760.0f);
+        this.mGifView.setLayoutParams(layoutParams);
     }
 
     @Override // android.app.Activity
     public void overridePendingTransition(int i, int i2) {
         super.overridePendingTransition(0, 0);
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i) {
-        super.onChangeSkinType(i);
-        ap.setImageResource(this.ggT, R.drawable.icon_use_close_n);
     }
 }

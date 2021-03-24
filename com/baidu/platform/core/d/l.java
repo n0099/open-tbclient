@@ -1,24 +1,26 @@
 package com.baidu.platform.core.d;
 
 import com.baidu.platform.base.SearchType;
-/* loaded from: classes4.dex */
-/* synthetic */ class l {
+/* loaded from: classes2.dex */
+public /* synthetic */ class l {
 
     /* renamed from: a  reason: collision with root package name */
-    static final /* synthetic */ int[] f3100a = new int[SearchType.values().length];
+    public static final /* synthetic */ int[] f10421a;
 
     static {
+        int[] iArr = new int[SearchType.values().length];
+        f10421a = iArr;
         try {
-            f3100a[SearchType.TRANSIT_ROUTE.ordinal()] = 1;
-        } catch (NoSuchFieldError e) {
+            iArr[SearchType.TRANSIT_ROUTE.ordinal()] = 1;
+        } catch (NoSuchFieldError unused) {
         }
         try {
-            f3100a[SearchType.DRIVE_ROUTE.ordinal()] = 2;
-        } catch (NoSuchFieldError e2) {
+            f10421a[SearchType.DRIVE_ROUTE.ordinal()] = 2;
+        } catch (NoSuchFieldError unused2) {
         }
         try {
-            f3100a[SearchType.WALK_ROUTE.ordinal()] = 3;
-        } catch (NoSuchFieldError e3) {
+            f10421a[SearchType.WALK_ROUTE.ordinal()] = 3;
+        } catch (NoSuchFieldError unused3) {
         }
     }
 }

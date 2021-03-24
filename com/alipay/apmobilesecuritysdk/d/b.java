@@ -1,0 +1,36 @@
+package com.alipay.apmobilesecuritysdk.d;
+
+import android.content.Context;
+import com.alipay.apmobilesecuritysdk.e.h;
+import java.util.HashMap;
+import java.util.Map;
+/* loaded from: classes.dex */
+public final class b {
+    public static synchronized Map<String, String> a(Context context, Map<String, String> map) {
+        HashMap hashMap;
+        synchronized (b.class) {
+            hashMap = new HashMap();
+            String a2 = com.alipay.security.mobile.module.a.a.a(map, "tid", "");
+            String a3 = com.alipay.security.mobile.module.a.a.a(map, com.alipay.sdk.cons.b.f1857g, "");
+            String a4 = com.alipay.security.mobile.module.a.a.a(map, "userId", "");
+            String a5 = com.alipay.security.mobile.module.a.a.a(map, "appName", "");
+            String a6 = com.alipay.security.mobile.module.a.a.a(map, "appKeyClient", "");
+            String a7 = com.alipay.security.mobile.module.a.a.a(map, "tmxSessionId", "");
+            String f2 = h.f(context);
+            String a8 = com.alipay.security.mobile.module.a.a.a(map, "sessionId", "");
+            hashMap.put("AC1", a2);
+            hashMap.put("AC2", a3);
+            hashMap.put("AC3", "");
+            hashMap.put("AC4", f2);
+            hashMap.put("AC5", a4);
+            hashMap.put("AC6", a7);
+            hashMap.put("AC7", "");
+            hashMap.put("AC8", a5);
+            hashMap.put("AC9", a6);
+            if (com.alipay.security.mobile.module.a.a.b(a8)) {
+                hashMap.put("AC10", a8);
+            }
+        }
+        return hashMap;
+    }
+}

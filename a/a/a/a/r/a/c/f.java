@@ -1,8 +1,9 @@
 package a.a.a.a.r.a.c;
 
-import a.a.a.a.a.e;
+import a.a.a.a.s.e;
 import android.app.Activity;
 import android.content.Context;
+import android.support.v4.media.session.MediaSessionCompat;
 import android.view.View;
 import android.view.ViewGroup;
 import com.bytedance.sdk.openadsdk.AdSlot;
@@ -11,85 +12,26 @@ import com.bytedance.sdk.openadsdk.TTAdSdk;
 import com.bytedance.sdk.openadsdk.TTNativeExpressAd;
 import com.fun.ad.sdk.FunAdSdk;
 import com.fun.ad.sdk.FunAdSlot;
-import com.yy.videoplayer.decoder.VideoConstant;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes.dex */
 public class f extends e<TTNativeExpressAd> {
     public final HashMap<TTNativeExpressAd, String> n;
 
-    /* loaded from: classes4.dex */
-    public class b {
+    /* loaded from: classes.dex */
+    public class a implements TTAdNative.NativeExpressAdListener {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f973a;
-        public final int b;
-        public boolean c = false;
-
-        public b(int i) {
-            this.b = i;
-        }
-    }
-
-    public f(e.a aVar) {
-        super(aVar);
-        this.n = new HashMap<>();
-    }
-
-    @Override // a.a.a.a.c
-    public boolean a(Activity activity, ViewGroup viewGroup, String str, Object obj) {
-        TTNativeExpressAd tTNativeExpressAd = (TTNativeExpressAd) obj;
-        this.zk.g();
-        this.n.put(tTNativeExpressAd, str);
-        tTNativeExpressAd.setCanInterruptVideoPlay(true);
-        tTNativeExpressAd.setVideoAdListener(new h(this));
-        View expressAdView = tTNativeExpressAd.getExpressAdView();
-        if (expressAdView.getParent() != null) {
-            ((ViewGroup) expressAdView.getParent()).removeView(expressAdView);
-        }
-        viewGroup.removeAllViews();
-        viewGroup.addView(expressAdView);
-        return true;
-    }
-
-    @Override // a.a.a.a.c
-    public void b(Object obj) {
-        TTNativeExpressAd tTNativeExpressAd = (TTNativeExpressAd) obj;
-        this.n.remove(tTNativeExpressAd);
-        if (tTNativeExpressAd != null) {
-            tTNativeExpressAd.destroy();
-        }
-    }
-
-    @Override // a.a.a.a.c
-    public void a(Context context, FunAdSlot funAdSlot) {
-        if (this.Ae == null) {
-            this.Ae = TTAdSdk.getAdManager().createAdNative(context);
-        }
-        int expressWidth = funAdSlot.getExpressWidth();
-        int expressHeight = funAdSlot.getExpressHeight();
-        if (expressWidth == 0 && expressHeight == 0 && FunAdSdk.isLogEnabled()) {
-            throw new RuntimeException("Invalid expressWidth and expressHeight.");
-        }
-        AdSlot.Builder adCount = new AdSlot.Builder().setCodeId(this.zl.c).setSupportDeepLink(true).setExpressViewAcceptedSize(expressWidth, expressHeight).setImageAcceptedSize(640, VideoConstant.THUMBNAIL_WIDTH).setAdCount(3);
-        TTAdNative createAdNative = TTAdSdk.getAdManager().createAdNative(context);
-        this.zk.a(funAdSlot, this.zl);
-        createAdNative.loadExpressDrawFeedAd(adCount.build(), new a(funAdSlot));
-        g();
-    }
-
-    /* loaded from: classes4.dex */
-    public class a implements TTAdNative.NativeExpressAdListener {
-        public final /* synthetic */ FunAdSlot zR;
+        public final /* synthetic */ FunAdSlot f1109a;
 
         public a(FunAdSlot funAdSlot) {
-            this.zR = funAdSlot;
+            this.f1109a = funAdSlot;
         }
 
         @Override // com.bytedance.sdk.openadsdk.TTAdNative.NativeExpressAdListener, com.bytedance.sdk.openadsdk.a.b
         public void onError(int i, String str) {
             a.a.a.a.v.d.b("onError code: " + i + ", message: " + str, new Object[0]);
-            f.this.zk.a(Integer.valueOf(i));
+            f.this.f1010g.a(Integer.valueOf(i));
             f.this.b(i, str);
         }
 
@@ -97,12 +39,12 @@ public class f extends e<TTNativeExpressAd> {
         public void onNativeExpressAdLoad(List<TTNativeExpressAd> list) {
             a.a.a.a.v.d.a();
             if (list != null && !list.isEmpty()) {
-                f.this.zk.b();
+                f.this.f1010g.b();
                 for (TTNativeExpressAd tTNativeExpressAd : list) {
-                    f.this.zm.b(tTNativeExpressAd, this.zR.getSid());
+                    f.this.k.b(tTNativeExpressAd, this.f1109a.getSid());
                 }
                 f fVar = f.this;
-                String sid = this.zR.getSid();
+                String sid = this.f1109a.getSid();
                 if (fVar == null) {
                     throw null;
                 }
@@ -115,5 +57,69 @@ public class f extends e<TTNativeExpressAd> {
             }
             onError(0, "NoFill");
         }
+    }
+
+    /* loaded from: classes.dex */
+    public class b {
+
+        /* renamed from: a  reason: collision with root package name */
+        public int f1111a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public final int f1112b;
+
+        /* renamed from: c  reason: collision with root package name */
+        public boolean f1113c = false;
+
+        public b(int i) {
+            this.f1112b = i;
+        }
+    }
+
+    public f(e.a aVar) {
+        super(aVar);
+        this.n = new HashMap<>();
+    }
+
+    @Override // a.a.a.a.b
+    public boolean a(Activity activity, ViewGroup viewGroup, String str, Object obj) {
+        TTNativeExpressAd tTNativeExpressAd = (TTNativeExpressAd) obj;
+        this.f1010g.g();
+        this.n.put(tTNativeExpressAd, str);
+        tTNativeExpressAd.setCanInterruptVideoPlay(true);
+        tTNativeExpressAd.setVideoAdListener(new h(this));
+        View expressAdView = tTNativeExpressAd.getExpressAdView();
+        if (expressAdView.getParent() != null) {
+            ((ViewGroup) expressAdView.getParent()).removeView(expressAdView);
+        }
+        viewGroup.removeAllViews();
+        viewGroup.addView(expressAdView);
+        return true;
+    }
+
+    @Override // a.a.a.a.b
+    public void b(Object obj) {
+        TTNativeExpressAd tTNativeExpressAd = (TTNativeExpressAd) obj;
+        this.n.remove(tTNativeExpressAd);
+        if (tTNativeExpressAd != null) {
+            tTNativeExpressAd.destroy();
+        }
+    }
+
+    @Override // a.a.a.a.b
+    public void b(Context context, FunAdSlot funAdSlot) {
+        if (this.m == null) {
+            this.m = TTAdSdk.getAdManager().createAdNative(context);
+        }
+        int expressWidth = funAdSlot.getExpressWidth();
+        int expressHeight = funAdSlot.getExpressHeight();
+        if (expressWidth == 0 && expressHeight == 0 && FunAdSdk.isLogEnabled()) {
+            throw new RuntimeException("Invalid expressWidth and expressHeight.");
+        }
+        AdSlot.Builder adCount = new AdSlot.Builder().setCodeId(this.f1011h.f1334c).setSupportDeepLink(true).setExpressViewAcceptedSize(expressWidth, expressHeight).setImageAcceptedSize(640, MediaSessionCompat.MAX_BITMAP_SIZE_IN_DP).setAdCount(3);
+        TTAdNative createAdNative = TTAdSdk.getAdManager().createAdNative(context);
+        this.f1010g.a(funAdSlot, this.f1011h);
+        createAdNative.loadExpressDrawFeedAd(adCount.build(), new a(funAdSlot));
+        g();
     }
 }

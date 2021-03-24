@@ -5,10 +5,10 @@ import android.os.Parcelable;
 import android.view.ViewGroup;
 import androidx.annotation.RestrictTo;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes5.dex */
+/* loaded from: classes.dex */
 public interface MenuPresenter {
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes.dex */
     public interface Callback {
         void onCloseMenu(MenuBuilder menuBuilder, boolean z);
 

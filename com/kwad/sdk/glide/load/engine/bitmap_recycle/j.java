@@ -7,121 +7,131 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.NavigableMap;
 import java.util.TreeMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public final class j implements com.kwad.sdk.glide.load.engine.bitmap_recycle.b {
 
     /* renamed from: a  reason: collision with root package name */
-    private final h<a, Object> f6745a;
-    private final b b;
-    private final Map<Class<?>, NavigableMap<Integer, Integer>> c;
-    private final Map<Class<?>, com.kwad.sdk.glide.load.engine.bitmap_recycle.a<?>> d;
-    private final int e;
-    private int f;
+    public final h<a, Object> f35484a;
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes3.dex */
+    /* renamed from: b  reason: collision with root package name */
+    public final b f35485b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public final Map<Class<?>, NavigableMap<Integer, Integer>> f35486c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public final Map<Class<?>, com.kwad.sdk.glide.load.engine.bitmap_recycle.a<?>> f35487d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public final int f35488e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public int f35489f;
+
+    /* loaded from: classes6.dex */
     public static final class a implements m {
 
         /* renamed from: a  reason: collision with root package name */
-        int f6746a;
-        private final b b;
-        private Class<?> c;
+        public int f35490a;
 
-        a(b bVar) {
-            this.b = bVar;
+        /* renamed from: b  reason: collision with root package name */
+        public final b f35491b;
+
+        /* renamed from: c  reason: collision with root package name */
+        public Class<?> f35492c;
+
+        public a(b bVar) {
+            this.f35491b = bVar;
         }
 
         @Override // com.kwad.sdk.glide.load.engine.bitmap_recycle.m
         public void a() {
-            this.b.a(this);
+            this.f35491b.a(this);
         }
 
-        void a(int i, Class<?> cls) {
-            this.f6746a = i;
-            this.c = cls;
+        public void a(int i, Class<?> cls) {
+            this.f35490a = i;
+            this.f35492c = cls;
         }
 
         public boolean equals(Object obj) {
             if (obj instanceof a) {
                 a aVar = (a) obj;
-                return this.f6746a == aVar.f6746a && this.c == aVar.c;
+                return this.f35490a == aVar.f35490a && this.f35492c == aVar.f35492c;
             }
             return false;
         }
 
         public int hashCode() {
-            return (this.c != null ? this.c.hashCode() : 0) + (this.f6746a * 31);
+            int i = this.f35490a * 31;
+            Class<?> cls = this.f35492c;
+            return i + (cls != null ? cls.hashCode() : 0);
         }
 
         public String toString() {
-            return "Key{size=" + this.f6746a + "array=" + this.c + '}';
+            return "Key{size=" + this.f35490a + "array=" + this.f35492c + '}';
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static final class b extends d<a> {
-        b() {
-        }
-
         /* JADX DEBUG: Method merged with bridge method */
-        /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.kwad.sdk.glide.load.engine.bitmap_recycle.d
         /* renamed from: a */
         public a b() {
             return new a(this);
         }
 
-        a a(int i, Class<?> cls) {
-            a c = c();
-            c.a(i, cls);
-            return c;
+        public a a(int i, Class<?> cls) {
+            a c2 = c();
+            c2.a(i, cls);
+            return c2;
         }
     }
 
     @VisibleForTesting
     public j() {
-        this.f6745a = new h<>();
-        this.b = new b();
-        this.c = new HashMap();
-        this.d = new HashMap();
-        this.e = 4194304;
+        this.f35484a = new h<>();
+        this.f35485b = new b();
+        this.f35486c = new HashMap();
+        this.f35487d = new HashMap();
+        this.f35488e = 4194304;
     }
 
     public j(int i) {
-        this.f6745a = new h<>();
-        this.b = new b();
-        this.c = new HashMap();
-        this.d = new HashMap();
-        this.e = i;
+        this.f35484a = new h<>();
+        this.f35485b = new b();
+        this.f35486c = new HashMap();
+        this.f35487d = new HashMap();
+        this.f35488e = i;
     }
 
     @Nullable
     private <T> T a(a aVar) {
-        return (T) this.f6745a.a((h<a, Object>) aVar);
+        return (T) this.f35484a.a((h<a, Object>) aVar);
     }
 
     private <T> T a(a aVar, Class<T> cls) {
         com.kwad.sdk.glide.load.engine.bitmap_recycle.a<T> b2 = b((Class) cls);
         T t = (T) a(aVar);
         if (t != null) {
-            this.f -= b2.a((com.kwad.sdk.glide.load.engine.bitmap_recycle.a<T>) t) * b2.b();
+            this.f35489f -= b2.a((com.kwad.sdk.glide.load.engine.bitmap_recycle.a<T>) t) * b2.b();
             c(b2.a((com.kwad.sdk.glide.load.engine.bitmap_recycle.a<T>) t), cls);
         }
         if (t == null) {
             if (Log.isLoggable(b2.a(), 2)) {
-                Log.v(b2.a(), "Allocated " + aVar.f6746a + " bytes");
+                Log.v(b2.a(), "Allocated " + aVar.f35490a + " bytes");
             }
-            return b2.a(aVar.f6746a);
+            return b2.a(aVar.f35490a);
         }
         return t;
     }
 
     private NavigableMap<Integer, Integer> a(Class<?> cls) {
-        NavigableMap<Integer, Integer> navigableMap = this.c.get(cls);
+        NavigableMap<Integer, Integer> navigableMap = this.f35486c.get(cls);
         if (navigableMap == null) {
             TreeMap treeMap = new TreeMap();
-            this.c.put(cls, treeMap);
+            this.f35486c.put(cls, treeMap);
             return treeMap;
         }
         return navigableMap;
@@ -132,7 +142,7 @@ public final class j implements com.kwad.sdk.glide.load.engine.bitmap_recycle.b 
     }
 
     private <T> com.kwad.sdk.glide.load.engine.bitmap_recycle.a<T> b(Class<T> cls) {
-        i iVar = (com.kwad.sdk.glide.load.engine.bitmap_recycle.a<T>) this.d.get(cls);
+        i iVar = (com.kwad.sdk.glide.load.engine.bitmap_recycle.a<T>) this.f35487d.get(cls);
         if (iVar == null) {
             if (cls.equals(int[].class)) {
                 iVar = new i();
@@ -141,7 +151,7 @@ public final class j implements com.kwad.sdk.glide.load.engine.bitmap_recycle.b 
             } else {
                 iVar = new g();
             }
-            this.d.put(cls, iVar);
+            this.f35487d.put(cls, iVar);
         }
         return iVar;
     }
@@ -151,23 +161,24 @@ public final class j implements com.kwad.sdk.glide.load.engine.bitmap_recycle.b 
     }
 
     private boolean b() {
-        return this.f == 0 || this.e / this.f >= 2;
+        int i = this.f35489f;
+        return i == 0 || this.f35488e / i >= 2;
     }
 
     private boolean b(int i) {
-        return i <= this.e / 2;
+        return i <= this.f35488e / 2;
     }
 
     private void c() {
-        c(this.e);
+        c(this.f35488e);
     }
 
     private void c(int i) {
-        while (this.f > i) {
-            Object a2 = this.f6745a.a();
+        while (this.f35489f > i) {
+            Object a2 = this.f35484a.a();
             com.kwad.sdk.glide.g.j.a(a2);
             com.kwad.sdk.glide.load.engine.bitmap_recycle.a b2 = b((j) a2);
-            this.f -= b2.a((com.kwad.sdk.glide.load.engine.bitmap_recycle.a) a2) * b2.b();
+            this.f35489f -= b2.a((com.kwad.sdk.glide.load.engine.bitmap_recycle.a) a2) * b2.b();
             c(b2.a((com.kwad.sdk.glide.load.engine.bitmap_recycle.a) a2), a2.getClass());
             if (Log.isLoggable(b2.a(), 2)) {
                 Log.v(b2.a(), "evicted: " + b2.a((com.kwad.sdk.glide.load.engine.bitmap_recycle.a) a2));
@@ -181,10 +192,12 @@ public final class j implements com.kwad.sdk.glide.load.engine.bitmap_recycle.b 
         if (num == null) {
             throw new NullPointerException("Tried to decrement empty size, size: " + i + ", this: " + this);
         }
-        if (num.intValue() == 1) {
-            a2.remove(Integer.valueOf(i));
+        int intValue = num.intValue();
+        Integer valueOf = Integer.valueOf(i);
+        if (intValue == 1) {
+            a2.remove(valueOf);
         } else {
-            a2.put(Integer.valueOf(i), Integer.valueOf(num.intValue() - 1));
+            a2.put(valueOf, Integer.valueOf(num.intValue() - 1));
         }
     }
 
@@ -192,7 +205,7 @@ public final class j implements com.kwad.sdk.glide.load.engine.bitmap_recycle.b 
     public synchronized <T> T a(int i, Class<T> cls) {
         Integer ceilingKey;
         ceilingKey = a((Class<?>) cls).ceilingKey(Integer.valueOf(i));
-        return (T) a(a(i, ceilingKey) ? this.b.a(ceilingKey.intValue(), cls) : this.b.a(i, cls), (Class<Object>) cls);
+        return (T) a(a(i, ceilingKey) ? this.f35485b.a(ceilingKey.intValue(), cls) : this.f35485b.a(i, cls), (Class<Object>) cls);
     }
 
     @Override // com.kwad.sdk.glide.load.engine.bitmap_recycle.b
@@ -202,10 +215,14 @@ public final class j implements com.kwad.sdk.glide.load.engine.bitmap_recycle.b 
 
     @Override // com.kwad.sdk.glide.load.engine.bitmap_recycle.b
     public synchronized void a(int i) {
-        if (i >= 40) {
-            a();
-        } else if (i >= 20 || i == 15) {
-            c(this.e / 2);
+        try {
+            if (i >= 40) {
+                a();
+            } else if (i >= 20 || i == 15) {
+                c(this.f35488e / 2);
+            }
+        } catch (Throwable th) {
+            throw th;
         }
     }
 
@@ -216,12 +233,17 @@ public final class j implements com.kwad.sdk.glide.load.engine.bitmap_recycle.b 
         int a2 = b2.a((com.kwad.sdk.glide.load.engine.bitmap_recycle.a<T>) t);
         int b3 = b2.b() * a2;
         if (b(b3)) {
-            a a3 = this.b.a(a2, cls);
-            this.f6745a.a(a3, t);
+            a a3 = this.f35485b.a(a2, cls);
+            this.f35484a.a(a3, t);
             NavigableMap<Integer, Integer> a4 = a(cls);
-            Integer num = (Integer) a4.get(Integer.valueOf(a3.f6746a));
-            a4.put(Integer.valueOf(a3.f6746a), Integer.valueOf(num == null ? 1 : num.intValue() + 1));
-            this.f += b3;
+            Integer num = (Integer) a4.get(Integer.valueOf(a3.f35490a));
+            Integer valueOf = Integer.valueOf(a3.f35490a);
+            int i = 1;
+            if (num != null) {
+                i = 1 + num.intValue();
+            }
+            a4.put(valueOf, Integer.valueOf(i));
+            this.f35489f += b3;
             c();
         }
     }
@@ -234,6 +256,6 @@ public final class j implements com.kwad.sdk.glide.load.engine.bitmap_recycle.b 
 
     @Override // com.kwad.sdk.glide.load.engine.bitmap_recycle.b
     public synchronized <T> T b(int i, Class<T> cls) {
-        return (T) a(this.b.a(i, cls), (Class<Object>) cls);
+        return (T) a(this.f35485b.a(i, cls), (Class<Object>) cls);
     }
 }

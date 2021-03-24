@@ -7,11 +7,8 @@ import android.graphics.drawable.Drawable;
 import androidx.annotation.Nullable;
 import androidx.annotation.RestrictTo;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes14.dex */
+/* loaded from: classes6.dex */
 public class DrawableUtils {
-    private DrawableUtils() {
-    }
-
     @Nullable
     public static PorterDuffColorFilter updateTintFilter(Drawable drawable, @Nullable ColorStateList colorStateList, @Nullable PorterDuff.Mode mode) {
         if (colorStateList == null || mode == null) {

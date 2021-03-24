@@ -2,8 +2,8 @@ package com.baidu.searchbox.perfframe.ubc;
 
 import android.content.Context;
 import android.util.Log;
-import com.baidu.pyramid.runtime.multiprocess.a;
-import com.baidu.pyramid.runtime.service.c;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.searchbox.aperf.param.CommonUtils;
 import com.baidu.searchbox.aperf.param.ThreadCollector;
 import com.baidu.searchbox.config.AppConfig;
@@ -12,15 +12,17 @@ import com.baidu.searchbox.perfframe.impl.PerfExpInfo;
 import com.baidu.searchbox.perfframe.ioc.Constant;
 import com.baidu.searchbox.perfframe.ioc.IPerfFrameRegister;
 import com.baidu.searchbox.track.ui.TrackUI;
-import com.baidu.ubc.ab;
+import com.baidu.ubc.UBCManager;
+import d.b.d0.b.a.a;
 import java.util.LinkedList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes14.dex */
+@Service
+/* loaded from: classes3.dex */
 public class UbcPerfFrameRegister implements IPerfFrameRegister {
-    private static final String TAG = "UbcPerfFrameRegister";
-    private static final int UI_TRACE_MAX_SIZE = 20;
+    public static final String TAG = "UbcPerfFrameRegister";
+    public static final int UI_TRACE_MAX_SIZE = 20;
 
     @Override // com.baidu.searchbox.perfframe.ioc.IPerfFrameRegister
     public void onEvent(Context context, PerfExpInfo perfExpInfo) {
@@ -36,13 +38,13 @@ public class UbcPerfFrameRegister implements IPerfFrameRegister {
             jSONObject.put("time", String.valueOf(perfExpInfo.getTime()));
             jSONObject.put("description", perfExpInfo.getException());
             jSONObject.put("page", perfExpInfo.getPage());
-            jSONObject.put(Constant.KEY_PROCESS_NAME, a.getProcessName());
+            jSONObject.put("processName", a.b());
             jSONObject.put(Constant.KEY_BUSINESS, perfExpInfo.getBusiness());
             JSONObject jSONObject2 = new JSONObject();
             if (perfExpInfo.isNeedPageTrace() && (trackUIs = perfExpInfo.getTrackUIs()) != null && trackUIs.size() > 0) {
                 JSONArray jSONArray = new JSONArray();
-                int size = trackUIs.size() - 1;
                 int i = 1;
+                int size = trackUIs.size() - 1;
                 while (true) {
                     TrackUI trackUI = trackUIs.get(size);
                     JSONObject jSONObject3 = new JSONObject();
@@ -59,8 +61,8 @@ public class UbcPerfFrameRegister implements IPerfFrameRegister {
                     if (size <= 0) {
                         break;
                     }
-                    i = i2;
                     size = i3;
+                    i = i2;
                 }
                 jSONObject2.put("pageTrace", jSONArray);
             }
@@ -76,7 +78,7 @@ public class UbcPerfFrameRegister implements IPerfFrameRegister {
             }
             if (perfExpInfo.isNeedStaticperf()) {
                 JSONObject jSONObject5 = new JSONObject();
-                jSONObject5.put(Constant.KEY_LAUNCHID, perfExpInfo.getLogId());
+                jSONObject5.put("launchid", perfExpInfo.getLogId());
                 String packageName = CommonUtils.getPackageName();
                 if (packageName != null) {
                     jSONObject5.put("packagename", packageName);
@@ -108,14 +110,14 @@ public class UbcPerfFrameRegister implements IPerfFrameRegister {
             if (AppConfig.isDebug()) {
                 Log.d(TAG, jSONObject.toString());
             }
-            ab abVar = (ab) c.a(ab.SERVICE_REFERENCE);
-            if (abVar != null) {
-                Log.d(TAG, "ubc isDebug: " + abVar.eie());
+            UBCManager uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
+            if (uBCManager != null) {
+                Log.d(TAG, "ubc isDebug: " + uBCManager.isUBCDebug());
                 Log.d(TAG, "content: " + jSONObject.toString());
-                abVar.onEvent(perfExpInfo.getUbcId(), jSONObject);
+                uBCManager.onEvent(perfExpInfo.getUbcId(), jSONObject);
             }
-        } catch (JSONException e) {
-            e.printStackTrace();
+        } catch (JSONException e2) {
+            e2.printStackTrace();
         }
     }
 }

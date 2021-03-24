@@ -5,56 +5,63 @@ import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 /* loaded from: classes6.dex */
 public class a<T> {
-    final Class<? super T> b;
-    final Type c;
-    final int d;
 
-    /* JADX INFO: Access modifiers changed from: protected */
+    /* renamed from: b  reason: collision with root package name */
+    public final Class<? super T> f30080b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public final Type f30081c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public final int f30082d;
+
     public a() {
-        this.c = a(getClass());
-        this.b = (Class<? super T>) b.e(this.c);
-        this.d = this.c.hashCode();
+        Type a2 = a(getClass());
+        this.f30081c = a2;
+        this.f30080b = (Class<? super T>) b.e(a2);
+        this.f30082d = this.f30081c.hashCode();
     }
 
-    a(Type type) {
-        this.c = b.d((Type) com.bytedance.sdk.openadsdk.preload.a.b.a.a(type));
-        this.b = (Class<? super T>) b.e(this.c);
-        this.d = this.c.hashCode();
-    }
-
-    static Type a(Class<?> cls) {
+    public static Type a(Class<?> cls) {
         Type genericSuperclass = cls.getGenericSuperclass();
-        if (genericSuperclass instanceof Class) {
-            throw new RuntimeException("Missing type parameter.");
+        if (!(genericSuperclass instanceof Class)) {
+            return b.d(((ParameterizedType) genericSuperclass).getActualTypeArguments()[0]);
         }
-        return b.d(((ParameterizedType) genericSuperclass).getActualTypeArguments()[0]);
-    }
-
-    public final Class<? super T> a() {
-        return this.b;
+        throw new RuntimeException("Missing type parameter.");
     }
 
     public final Type b() {
-        return this.c;
-    }
-
-    public final int hashCode() {
-        return this.d;
+        return this.f30081c;
     }
 
     public final boolean equals(Object obj) {
-        return (obj instanceof a) && b.a(this.c, ((a) obj).c);
+        return (obj instanceof a) && b.a(this.f30081c, ((a) obj).f30081c);
+    }
+
+    public final int hashCode() {
+        return this.f30082d;
     }
 
     public final String toString() {
-        return b.f(this.c);
-    }
-
-    public static a<?> a(Type type) {
-        return new a<>(type);
+        return b.f(this.f30081c);
     }
 
     public static <T> a<T> b(Class<T> cls) {
         return new a<>(cls);
+    }
+
+    public a(Type type) {
+        Type d2 = b.d((Type) com.bytedance.sdk.openadsdk.preload.a.b.a.a(type));
+        this.f30081c = d2;
+        this.f30080b = (Class<? super T>) b.e(d2);
+        this.f30082d = this.f30081c.hashCode();
+    }
+
+    public final Class<? super T> a() {
+        return this.f30080b;
+    }
+
+    public static a<?> a(Type type) {
+        return new a<>(type);
     }
 }

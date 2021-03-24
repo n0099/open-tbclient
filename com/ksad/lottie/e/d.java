@@ -1,31 +1,31 @@
 package com.ksad.lottie.e;
-
-import com.baidu.mobstat.Config;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    private final float f5354a;
-    private final float b;
+    public final float f31399a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public final float f31400b;
 
     public d() {
         this(1.0f, 1.0f);
     }
 
-    public d(float f, float f2) {
-        this.f5354a = f;
-        this.b = f2;
+    public d(float f2, float f3) {
+        this.f31399a = f2;
+        this.f31400b = f3;
     }
 
     public float a() {
-        return this.f5354a;
+        return this.f31399a;
     }
 
     public float b() {
-        return this.b;
+        return this.f31400b;
     }
 
     public String toString() {
-        return a() + Config.EVENT_HEAT_X + b();
+        return a() + "x" + b();
     }
 }

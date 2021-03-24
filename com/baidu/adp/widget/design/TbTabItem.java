@@ -9,9 +9,15 @@ import androidx.appcompat.widget.TintTypedArray;
 import com.google.android.material.R;
 /* loaded from: classes.dex */
 public final class TbTabItem extends View {
-    final int ZX;
-    final Drawable mIcon;
-    final CharSequence mText;
+
+    /* renamed from: e  reason: collision with root package name */
+    public final CharSequence f2396e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public final Drawable f2397f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public final int f2398g;
 
     public TbTabItem(Context context) {
         this(context, null);
@@ -21,9 +27,9 @@ public final class TbTabItem extends View {
     public TbTabItem(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(context, attributeSet, R.styleable.TabItem);
-        this.mText = obtainStyledAttributes.getText(R.styleable.TabItem_android_text);
-        this.mIcon = obtainStyledAttributes.getDrawable(R.styleable.TabItem_android_icon);
-        this.ZX = obtainStyledAttributes.getResourceId(R.styleable.TabItem_android_layout, 0);
+        this.f2396e = obtainStyledAttributes.getText(R.styleable.TabItem_android_text);
+        this.f2397f = obtainStyledAttributes.getDrawable(R.styleable.TabItem_android_icon);
+        this.f2398g = obtainStyledAttributes.getResourceId(R.styleable.TabItem_android_layout, 0);
         obtainStyledAttributes.recycle();
     }
 }

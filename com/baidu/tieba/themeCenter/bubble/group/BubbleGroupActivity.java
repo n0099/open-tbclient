@@ -1,79 +1,89 @@
 package com.baidu.tieba.themeCenter.bubble.group;
 
 import android.os.Bundle;
-import com.baidu.live.tbadk.pagestayduration.PageStayDurationConstants;
 import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.m.d;
 import com.baidu.tieba.themeCenter.bubble.group.BubbleGroupModel;
-import com.baidu.tieba.themeCenter.dressCenter.e;
+import d.b.h0.k0.d;
+import d.b.i0.i3.f.b.b;
+import d.b.i0.i3.f.b.c;
+import d.b.i0.i3.h.e;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes5.dex */
 public class BubbleGroupActivity extends BaseActivity<BubbleGroupActivity> {
-    private BubbleGroupModel nKd;
-    private c nKe;
-    private com.baidu.tieba.themeCenter.bubble.all.a nKf;
-    private BubbleGroupModel.a nKg = new BubbleGroupModel.a() { // from class: com.baidu.tieba.themeCenter.bubble.group.BubbleGroupActivity.1
-        @Override // com.baidu.tieba.themeCenter.bubble.group.BubbleGroupModel.a
+    public BubbleGroupModel.c mCallback = new a();
+    public d.b.i0.i3.f.a.a mItemController;
+    public BubbleGroupModel mModel;
+    public c mView;
+
+    /* loaded from: classes5.dex */
+    public class a implements BubbleGroupModel.c {
+        public a() {
+        }
+
+        @Override // com.baidu.tieba.themeCenter.bubble.group.BubbleGroupModel.c
         public void a(int i, String str, e eVar, List<b> list) {
-            BubbleGroupActivity.this.hideLoadingView(BubbleGroupActivity.this.nKe.getRootView());
-            BubbleGroupActivity.this.nKe.cOO();
+            BubbleGroupActivity bubbleGroupActivity = BubbleGroupActivity.this;
+            bubbleGroupActivity.hideLoadingView(bubbleGroupActivity.mView.d());
+            BubbleGroupActivity.this.mView.i();
             if (i == 0) {
-                BubbleGroupActivity.this.nKe.a(eVar, list, BubbleGroupActivity.this.nKd.dLf());
+                BubbleGroupActivity.this.mView.k(eVar, list, BubbleGroupActivity.this.mModel.z());
                 return;
             }
             BubbleGroupActivity.this.showToast(str);
-            BubbleGroupActivity.this.nKe.cAU();
-        }
-    };
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
-    public void onCreate(Bundle bundle) {
-        super.onCreate(bundle);
-        this.nKd = new BubbleGroupModel(this);
-        this.nKd.a(this.nKg);
-        this.nKf = new com.baidu.tieba.themeCenter.bubble.all.a(getPageContext());
-        this.nKe = new c(this, this.nKf);
-        this.nKe.cON();
-        showLoadingView(this.nKe.getRootView());
-        this.nKd.LoadData();
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i) {
-        super.onChangeSkinType(i);
-        if (this.nKe != null) {
-            this.nKe.bzq();
+            BubbleGroupActivity.this.mView.j();
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
-    public void onDestroy() {
-        super.onDestroy();
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.BaseActivity
-    public void onNetRefreshButtonClicked() {
-        if (this.nKd != null && this.nKe != null) {
-            showLoadingView(this.nKe.getRootView());
-            this.nKd.LoadData();
-        }
-    }
-
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.tbadk.m.a
+    @Override // com.baidu.tbadk.BaseActivity, d.b.h0.k0.a
     public String getCurrentPageKey() {
-        return PageStayDurationConstants.PageName.BUBBLE_LIST;
+        return "b010";
     }
 
     @Override // com.baidu.tbadk.BaseActivity
     public d getPageStayDurationItem() {
         d pageStayDurationItem = super.getPageStayDurationItem();
         if (pageStayDurationItem != null) {
-            pageStayDurationItem.isRouteStat = true;
+            pageStayDurationItem.f50238a = true;
         }
         return pageStayDurationItem;
+    }
+
+    @Override // com.baidu.tbadk.BaseActivity
+    public void onChangeSkinType(int i) {
+        super.onChangeSkinType(i);
+        c cVar = this.mView;
+        if (cVar != null) {
+            cVar.f();
+        }
+    }
+
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
+    public void onCreate(Bundle bundle) {
+        super.onCreate(bundle);
+        BubbleGroupModel bubbleGroupModel = new BubbleGroupModel(this);
+        this.mModel = bubbleGroupModel;
+        bubbleGroupModel.C(this.mCallback);
+        d.b.i0.i3.f.a.a aVar = new d.b.i0.i3.f.a.a(getPageContext());
+        this.mItemController = aVar;
+        c cVar = new c(this, aVar);
+        this.mView = cVar;
+        cVar.e();
+        showLoadingView(this.mView.d());
+        this.mModel.LoadData();
+    }
+
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
+    public void onDestroy() {
+        super.onDestroy();
+    }
+
+    @Override // com.baidu.tbadk.BaseActivity
+    public void onNetRefreshButtonClicked() {
+        c cVar;
+        if (this.mModel == null || (cVar = this.mView) == null) {
+            return;
+        }
+        showLoadingView(cVar.d());
+        this.mModel.LoadData();
     }
 }

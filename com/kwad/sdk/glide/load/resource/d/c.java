@@ -17,32 +17,45 @@ import com.kwad.sdk.glide.load.resource.d.g;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class c extends Drawable implements Animatable, Animatable2Compat, g.b {
 
     /* renamed from: a  reason: collision with root package name */
-    private final a f6807a;
-    private boolean b;
-    private boolean c;
-    private boolean d;
-    private boolean e;
-    private int f;
-    private int g;
-    private boolean h;
-    private Paint i;
-    private Rect j;
-    private List<Animatable2Compat.AnimationCallback> k;
+    public final a f35715a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
+    /* renamed from: b  reason: collision with root package name */
+    public boolean f35716b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public boolean f35717c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public boolean f35718d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public boolean f35719e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public int f35720f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public int f35721g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public boolean f35722h;
+    public Paint i;
+    public Rect j;
+    public List<Animatable2Compat.AnimationCallback> k;
+
+    /* loaded from: classes6.dex */
     public static final class a extends Drawable.ConstantState {
         @VisibleForTesting
 
         /* renamed from: a  reason: collision with root package name */
-        final g f6808a;
+        public final g f35723a;
 
-        a(g gVar) {
-            this.f6808a = gVar;
+        public a(g gVar) {
+            this.f35723a = gVar;
         }
 
         @Override // android.graphics.drawable.Drawable.ConstantState
@@ -67,31 +80,31 @@ public class c extends Drawable implements Animatable, Animatable2Compat, g.b {
         this(new a(new g(com.kwad.sdk.glide.c.a(context), aVar, i, i2, hVar, bitmap)));
     }
 
-    c(a aVar) {
-        this.e = true;
-        this.g = -1;
-        this.f6807a = (a) com.kwad.sdk.glide.g.j.a(aVar);
+    public c(a aVar) {
+        this.f35719e = true;
+        this.f35721g = -1;
+        this.f35715a = (a) com.kwad.sdk.glide.g.j.a(aVar);
     }
 
     private void h() {
-        this.f = 0;
+        this.f35720f = 0;
     }
 
     private void i() {
-        com.kwad.sdk.glide.g.j.a(!this.d, "You cannot start a recycled Drawable. Ensure thatyou clear any references to the Drawable when clearing the corresponding request.");
-        if (this.f6807a.f6808a.g() == 1) {
-            invalidateSelf();
-        } else if (this.b) {
-        } else {
-            this.b = true;
-            this.f6807a.f6808a.a(this);
-            invalidateSelf();
+        com.kwad.sdk.glide.g.j.a(!this.f35718d, "You cannot start a recycled Drawable. Ensure thatyou clear any references to the Drawable when clearing the corresponding request.");
+        if (this.f35715a.f35723a.g() != 1) {
+            if (this.f35716b) {
+                return;
+            }
+            this.f35716b = true;
+            this.f35715a.f35723a.a(this);
         }
+        invalidateSelf();
     }
 
     private void j() {
-        this.b = false;
-        this.f6807a.f6808a.b(this);
+        this.f35716b = false;
+        this.f35715a.f35723a.b(this);
     }
 
     private Rect k() {
@@ -117,8 +130,9 @@ public class c extends Drawable implements Animatable, Animatable2Compat, g.b {
     }
 
     private void n() {
-        if (this.k != null) {
-            int size = this.k.size();
+        List<Animatable2Compat.AnimationCallback> list = this.k;
+        if (list != null) {
+            int size = list.size();
             for (int i = 0; i < size; i++) {
                 this.k.get(i).onAnimationEnd(this);
             }
@@ -126,46 +140,47 @@ public class c extends Drawable implements Animatable, Animatable2Compat, g.b {
     }
 
     public int a() {
-        return this.f6807a.f6808a.d();
+        return this.f35715a.f35723a.d();
     }
 
     public void a(com.kwad.sdk.glide.load.h<Bitmap> hVar, Bitmap bitmap) {
-        this.f6807a.f6808a.a(hVar, bitmap);
+        this.f35715a.f35723a.a(hVar, bitmap);
     }
 
     public Bitmap b() {
-        return this.f6807a.f6808a.a();
+        return this.f35715a.f35723a.a();
     }
 
     public ByteBuffer c() {
-        return this.f6807a.f6808a.f();
+        return this.f35715a.f35723a.f();
     }
 
     @Override // androidx.vectordrawable.graphics.drawable.Animatable2Compat
     public void clearAnimationCallbacks() {
-        if (this.k != null) {
-            this.k.clear();
+        List<Animatable2Compat.AnimationCallback> list = this.k;
+        if (list != null) {
+            list.clear();
         }
     }
 
     public int d() {
-        return this.f6807a.f6808a.g();
+        return this.f35715a.f35723a.g();
     }
 
     @Override // android.graphics.drawable.Drawable
     public void draw(@NonNull Canvas canvas) {
-        if (this.d) {
+        if (this.f35718d) {
             return;
         }
-        if (this.h) {
+        if (this.f35722h) {
             Gravity.apply(119, getIntrinsicWidth(), getIntrinsicHeight(), getBounds(), k());
-            this.h = false;
+            this.f35722h = false;
         }
-        canvas.drawBitmap(this.f6807a.f6808a.i(), (Rect) null, k(), l());
+        canvas.drawBitmap(this.f35715a.f35723a.i(), (Rect) null, k(), l());
     }
 
     public int e() {
-        return this.f6807a.f6808a.e();
+        return this.f35715a.f35723a.e();
     }
 
     @Override // com.kwad.sdk.glide.load.resource.d.g.b
@@ -177,9 +192,10 @@ public class c extends Drawable implements Animatable, Animatable2Compat, g.b {
         }
         invalidateSelf();
         if (e() == d() - 1) {
-            this.f++;
+            this.f35720f++;
         }
-        if (this.g == -1 || this.f < this.g) {
+        int i = this.f35721g;
+        if (i == -1 || this.f35720f < i) {
             return;
         }
         n();
@@ -187,23 +203,23 @@ public class c extends Drawable implements Animatable, Animatable2Compat, g.b {
     }
 
     public void g() {
-        this.d = true;
-        this.f6807a.f6808a.h();
+        this.f35718d = true;
+        this.f35715a.f35723a.h();
     }
 
     @Override // android.graphics.drawable.Drawable
     public Drawable.ConstantState getConstantState() {
-        return this.f6807a;
+        return this.f35715a;
     }
 
     @Override // android.graphics.drawable.Drawable
     public int getIntrinsicHeight() {
-        return this.f6807a.f6808a.c();
+        return this.f35715a.f35723a.c();
     }
 
     @Override // android.graphics.drawable.Drawable
     public int getIntrinsicWidth() {
-        return this.f6807a.f6808a.b();
+        return this.f35715a.f35723a.b();
     }
 
     @Override // android.graphics.drawable.Drawable
@@ -213,13 +229,13 @@ public class c extends Drawable implements Animatable, Animatable2Compat, g.b {
 
     @Override // android.graphics.drawable.Animatable
     public boolean isRunning() {
-        return this.b;
+        return this.f35716b;
     }
 
     @Override // android.graphics.drawable.Drawable
-    protected void onBoundsChange(Rect rect) {
+    public void onBoundsChange(Rect rect) {
         super.onBoundsChange(rect);
-        this.h = true;
+        this.f35722h = true;
     }
 
     @Override // androidx.vectordrawable.graphics.drawable.Animatable2Compat
@@ -245,11 +261,11 @@ public class c extends Drawable implements Animatable, Animatable2Compat, g.b {
 
     @Override // android.graphics.drawable.Drawable
     public boolean setVisible(boolean z, boolean z2) {
-        com.kwad.sdk.glide.g.j.a(!this.d, "Cannot change the visibility of a recycled resource. Ensure that you unset the Drawable from your View before changing the View's visibility.");
-        this.e = z;
+        com.kwad.sdk.glide.g.j.a(!this.f35718d, "Cannot change the visibility of a recycled resource. Ensure that you unset the Drawable from your View before changing the View's visibility.");
+        this.f35719e = z;
         if (!z) {
             j();
-        } else if (this.c) {
+        } else if (this.f35717c) {
             i();
         }
         return super.setVisible(z, z2);
@@ -257,24 +273,25 @@ public class c extends Drawable implements Animatable, Animatable2Compat, g.b {
 
     @Override // android.graphics.drawable.Animatable
     public void start() {
-        this.c = true;
+        this.f35717c = true;
         h();
-        if (this.e) {
+        if (this.f35719e) {
             i();
         }
     }
 
     @Override // android.graphics.drawable.Animatable
     public void stop() {
-        this.c = false;
+        this.f35717c = false;
         j();
     }
 
     @Override // androidx.vectordrawable.graphics.drawable.Animatable2Compat
     public boolean unregisterAnimationCallback(@NonNull Animatable2Compat.AnimationCallback animationCallback) {
-        if (this.k == null || animationCallback == null) {
+        List<Animatable2Compat.AnimationCallback> list = this.k;
+        if (list == null || animationCallback == null) {
             return false;
         }
-        return this.k.remove(animationCallback);
+        return list.remove(animationCallback);
     }
 }

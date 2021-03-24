@@ -9,14 +9,14 @@ import java.lang.reflect.TypeVariable;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes.dex */
 public class TypeReference<T> {
-    protected final Type type;
-    static ConcurrentMap<Type, Type> classTypeCache = new ConcurrentHashMap(16, 0.75f, 1);
+    public final Type type;
+    public static ConcurrentMap<Type, Type> classTypeCache = new ConcurrentHashMap(16, 0.75f, 1);
     public static final Type LIST_STRING = new TypeReference<List<String>>() { // from class: com.alibaba.fastjson.TypeReference.1
     }.getType();
 
-    protected TypeReference() {
+    public TypeReference() {
         Type type = ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[0];
         Type type2 = classTypeCache.get(type);
         if (type2 == null) {
@@ -26,28 +26,24 @@ public class TypeReference<T> {
         this.type = type2;
     }
 
-    protected TypeReference(Type... typeArr) {
-        int i = 0;
+    public Type getType() {
+        return this.type;
+    }
+
+    public TypeReference(Type... typeArr) {
         Class<?> cls = getClass();
         ParameterizedType parameterizedType = (ParameterizedType) ((ParameterizedType) cls.getGenericSuperclass()).getActualTypeArguments()[0];
         Type rawType = parameterizedType.getRawType();
         Type[] actualTypeArguments = parameterizedType.getActualTypeArguments();
-        int i2 = 0;
-        while (true) {
-            int i3 = i;
-            if (i2 >= actualTypeArguments.length) {
-                break;
-            }
-            if (!(actualTypeArguments[i2] instanceof TypeVariable) || i3 >= typeArr.length) {
-                i = i3;
-            } else {
-                i = i3 + 1;
-                actualTypeArguments[i2] = typeArr[i3];
+        int i = 0;
+        for (int i2 = 0; i2 < actualTypeArguments.length; i2++) {
+            if ((actualTypeArguments[i2] instanceof TypeVariable) && i < typeArr.length) {
+                actualTypeArguments[i2] = typeArr[i];
+                i++;
             }
             if (actualTypeArguments[i2] instanceof GenericArrayType) {
                 actualTypeArguments[i2] = TypeUtils.checkPrimitiveArray((GenericArrayType) actualTypeArguments[i2]);
             }
-            i2++;
         }
         ParameterizedTypeImpl parameterizedTypeImpl = new ParameterizedTypeImpl(actualTypeArguments, cls, rawType);
         Type type = classTypeCache.get(parameterizedTypeImpl);
@@ -56,9 +52,5 @@ public class TypeReference<T> {
             type = classTypeCache.get(parameterizedTypeImpl);
         }
         this.type = type;
-    }
-
-    public Type getType() {
-        return this.type;
     }
 }

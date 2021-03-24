@@ -6,26 +6,25 @@ import com.googlecode.mp4parser.DataSource;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.channels.WritableByteChannel;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public abstract class AbstractSampleEntry extends AbstractContainerBox implements SampleEntry {
-    protected int dataReferenceIndex;
+    public int dataReferenceIndex;
 
-    @Override // com.googlecode.mp4parser.AbstractContainerBox, com.coremedia.iso.boxes.Box
-    public abstract void getBox(WritableByteChannel writableByteChannel) throws IOException;
-
-    @Override // com.googlecode.mp4parser.AbstractContainerBox, com.coremedia.iso.boxes.Box
-    public abstract void parse(DataSource dataSource, ByteBuffer byteBuffer, long j, BoxParser boxParser) throws IOException;
-
-    /* JADX INFO: Access modifiers changed from: protected */
     public AbstractSampleEntry(String str) {
         super(str);
         this.dataReferenceIndex = 1;
     }
 
+    @Override // com.googlecode.mp4parser.AbstractContainerBox, com.coremedia.iso.boxes.Box
+    public abstract void getBox(WritableByteChannel writableByteChannel) throws IOException;
+
     @Override // com.coremedia.iso.boxes.sampleentry.SampleEntry
     public int getDataReferenceIndex() {
         return this.dataReferenceIndex;
     }
+
+    @Override // com.googlecode.mp4parser.AbstractContainerBox, com.coremedia.iso.boxes.Box
+    public abstract void parse(DataSource dataSource, ByteBuffer byteBuffer, long j, BoxParser boxParser) throws IOException;
 
     @Override // com.coremedia.iso.boxes.sampleentry.SampleEntry
     public void setDataReferenceIndex(int i) {

@@ -1,5 +1,5 @@
 package com.baidubce.services.bos.common.utils;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class BosUtils {
     public static boolean isCnameLikeHost(String str) {
         for (String str2 : com.baidubce.services.bos.common.BosConstants.DEFAULT_CNAME_LIKE_LIST) {

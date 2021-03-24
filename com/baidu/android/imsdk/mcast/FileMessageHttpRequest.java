@@ -4,13 +4,13 @@ import com.baidu.android.imsdk.internal.IMConfigInternal;
 import com.baidu.android.imsdk.utils.BaseHttpRequest;
 import java.util.HashMap;
 import java.util.Map;
-import org.apache.http.cookie.SM;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public abstract class FileMessageHttpRequest extends BaseHttpRequest {
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
     public Map<String, String> getHeaders() {
         HashMap hashMap = new HashMap();
-        hashMap.put(SM.COOKIE, "BDUSS=" + IMConfigInternal.getInstance().getIMConfig(this.mContext).getBduss(this.mContext));
+        String bduss = IMConfigInternal.getInstance().getIMConfig(this.mContext).getBduss(this.mContext);
+        hashMap.put("Cookie", "BDUSS=" + bduss);
         return hashMap;
     }
 

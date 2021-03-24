@@ -14,98 +14,113 @@ import com.baidu.fsg.base.utils.SafeUtils;
 import com.baidu.fsg.face.liveness.datamodel.UploadContrastPortraitModel;
 import com.baidu.fsg.face.liveness.dto.LivenessRecogDTO;
 import com.baidu.fsg.face.liveness.utils.enums.LivenessRecogType;
+import com.baidu.wallet.core.beans.NetworkBean;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public class j extends l {
-    private String b;
-    private String c;
-    private String d;
-    private String e;
-    private String f;
-    private String g;
-    private LivenessRecogDTO h;
 
-    public void a(String str) {
-        this.g = str;
-    }
+    /* renamed from: b  reason: collision with root package name */
+    public String f5906b;
 
-    public void a(LivenessRecogDTO livenessRecogDTO) {
-        this.h = livenessRecogDTO;
-    }
+    /* renamed from: c  reason: collision with root package name */
+    public String f5907c;
 
-    public void b(String str) {
-        this.b = str;
-    }
+    /* renamed from: d  reason: collision with root package name */
+    public String f5908d;
 
-    public void a(boolean z) {
-        this.e = z ? "1" : "0";
-    }
+    /* renamed from: e  reason: collision with root package name */
+    public String f5909e;
 
-    public void c(String str) {
-        this.f = str;
-    }
+    /* renamed from: f  reason: collision with root package name */
+    public String f5910f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public String f5911g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public LivenessRecogDTO f5912h;
 
     public j(Context context) {
         super(context);
-        this.e = "1";
-        this.d = RimGlobalUtils.getZid2();
-        if (TextUtils.isEmpty(this.d)) {
-            this.c = RimGlobalUtils.getZid(context.getApplicationContext());
+        this.f5909e = "1";
+        String zid2 = RimGlobalUtils.getZid2();
+        this.f5908d = zid2;
+        if (TextUtils.isEmpty(zid2)) {
+            this.f5907c = RimGlobalUtils.getZid(context.getApplicationContext());
         }
+    }
+
+    public void a(String str) {
+        this.f5911g = str;
+    }
+
+    public void b(String str) {
+        this.f5906b = str;
+    }
+
+    public void c(String str) {
+        this.f5910f = str;
+    }
+
+    @Override // com.baidu.fsg.base.restnet.beans.ApollonBean
+    public void execBean() {
+        execBean(UploadContrastPortraitModel.class);
     }
 
     @Override // com.baidu.fsg.base.restnet.beans.business.NetworkBean
     public List<RestNameValuePair> generateRequestParam() {
         ArrayList arrayList = new ArrayList();
-        if (this.h != null) {
-            setSpParameter(this.h.spParams);
-            arrayList.add(new RestNameValuePair("processid", this.h.processid));
-            if (this.h.livenessType == LivenessRecogType.RECOG_TYPE_BDUSS) {
+        LivenessRecogDTO livenessRecogDTO = this.f5912h;
+        if (livenessRecogDTO != null) {
+            setSpParameter(livenessRecogDTO.spParams);
+            arrayList.add(new RestNameValuePair("processid", this.f5912h.processid));
+            LivenessRecogType livenessRecogType = this.f5912h.livenessType;
+            if (livenessRecogType == LivenessRecogType.RECOG_TYPE_BDUSS) {
                 arrayList.add(new RestNameValuePair("type", "contrastportrait"));
-                arrayList.add(new RestNameValuePair("atbc", a()));
-            } else if (this.h.livenessType == LivenessRecogType.RECOG_TYPE_CERTINFO) {
+                arrayList.add(new RestNameValuePair(NetworkBean.PARAM_COOKIE, a()));
+            } else if (livenessRecogType == LivenessRecogType.RECOG_TYPE_CERTINFO) {
                 arrayList.add(new RestNameValuePair("type", "certinfo"));
-                arrayList.add(new RestNameValuePair("exuid", this.h.exUid));
+                arrayList.add(new RestNameValuePair("exuid", this.f5912h.exUid));
                 JSONObject jSONObject = new JSONObject();
                 try {
-                    jSONObject.put("name", this.h.realName);
-                    jSONObject.put("cert", this.h.idCardNum);
-                    jSONObject.put("bankmobile", this.h.phoneNum);
-                    arrayList.add(new RestNameValuePair("certinfo", PayUtils.encrypt(PayUtils.KEY_PHONE_NUMBER, jSONObject.toString())));
-                } catch (Exception e) {
-                    e.printStackTrace();
+                    jSONObject.put("name", this.f5912h.realName);
+                    jSONObject.put("cert", this.f5912h.idCardNum);
+                    jSONObject.put("bankmobile", this.f5912h.phoneNum);
+                    arrayList.add(new RestNameValuePair("certinfo", PayUtils.encrypt("phone_number", jSONObject.toString())));
+                } catch (Exception e2) {
+                    e2.printStackTrace();
                 }
-            } else if (this.h.livenessType == LivenessRecogType.RECOG_TYPE_AUTHTOKEN) {
+            } else if (livenessRecogType == LivenessRecogType.RECOG_TYPE_AUTHTOKEN) {
                 arrayList.add(new RestNameValuePair("type", "authtoken"));
-                arrayList.add(new RestNameValuePair("authtoken", this.h.authToken));
-            } else if (this.h.livenessType == LivenessRecogType.RECOG_TYPE_OUTER) {
+                arrayList.add(new RestNameValuePair("authtoken", this.f5912h.authToken));
+            } else if (livenessRecogType == LivenessRecogType.RECOG_TYPE_OUTER) {
                 arrayList.add(new RestNameValuePair("type", "outer"));
-                arrayList.add(new RestNameValuePair("exuid", this.h.exUid));
+                arrayList.add(new RestNameValuePair("exuid", this.f5912h.exUid));
             }
-            arrayList.add(new RestNameValuePair(TableDefine.MessageColumns.COLUME_SERVICE_TYPE, this.h.serviceType));
+            arrayList.add(new RestNameValuePair(TableDefine.MessageColumns.COLUME_SERVICE_TYPE, this.f5912h.serviceType));
         }
         String randomString = RandomUtils.getRandomString(4096);
-        arrayList.add(new RestNameValuePair("imgdigests", this.b));
+        arrayList.add(new RestNameValuePair("imgdigests", this.f5906b));
         try {
-            arrayList.add(new RestNameValuePair("image", Base64Utils.encodeToString(SafeUtils.xor(this.f1755a, randomString).getBytes("UTF-8"))));
-        } catch (UnsupportedEncodingException e2) {
-            e2.printStackTrace();
+            arrayList.add(new RestNameValuePair("image", Base64Utils.encodeToString(SafeUtils.xor(this.f5919a, randomString).getBytes("UTF-8"))));
+        } catch (UnsupportedEncodingException e3) {
+            e3.printStackTrace();
         }
         arrayList.add(new RestNameValuePair("ik", RimArmor.getInstance().encryptProxy(randomString)));
-        if (!TextUtils.isEmpty(this.d)) {
-            arrayList.add(new RestNameValuePair("zid2", this.d));
-        } else if (!TextUtils.isEmpty(this.c)) {
-            arrayList.add(new RestNameValuePair("zid", this.c));
+        if (!TextUtils.isEmpty(this.f5908d)) {
+            arrayList.add(new RestNameValuePair("zid2", this.f5908d));
+        } else if (!TextUtils.isEmpty(this.f5907c)) {
+            arrayList.add(new RestNameValuePair("zid", this.f5907c));
         }
-        arrayList.add(new RestNameValuePair("last", this.e));
-        if (!TextUtils.isEmpty(this.f)) {
-            arrayList.add(new RestNameValuePair("callbackkey", this.f));
+        arrayList.add(new RestNameValuePair("last", this.f5909e));
+        if (!TextUtils.isEmpty(this.f5910f)) {
+            arrayList.add(new RestNameValuePair("callbackkey", this.f5910f));
         }
-        if (!TextUtils.isEmpty(this.g)) {
-            arrayList.add(new RestNameValuePair("need_confirm", this.g));
+        if (!TextUtils.isEmpty(this.f5911g)) {
+            arrayList.add(new RestNameValuePair("need_confirm", this.f5911g));
         }
         return arrayList;
     }
@@ -120,9 +135,9 @@ public class j extends l {
         return EnvConfig.getInstance(this.mContext).getRimHttpsHost() + f.m;
     }
 
-    @Override // com.baidu.fsg.base.restnet.beans.ApollonBean
-    public void execBean() {
-        execBean(UploadContrastPortraitModel.class);
+    @Override // com.baidu.fsg.base.restnet.beans.business.BaseBean
+    public boolean needCheckClientSign() {
+        return true;
     }
 
     @Override // com.baidu.fsg.base.restnet.beans.ApollonBean
@@ -130,17 +145,20 @@ public class j extends l {
         return UploadContrastPortraitModel.class;
     }
 
-    @Override // com.baidu.fsg.base.restnet.beans.business.BaseBean
-    public boolean needCheckClientSign() {
-        return true;
+    public void a(LivenessRecogDTO livenessRecogDTO) {
+        this.f5912h = livenessRecogDTO;
+    }
+
+    public void a(boolean z) {
+        this.f5909e = z ? "1" : "0";
     }
 
     private String a() {
         StringBuilder sb = new StringBuilder();
-        if (this.h != null) {
-            sb.append("bduss=" + this.h.bduss);
-            sb.append(";stoken=" + this.h.stoken);
+        if (this.f5912h != null) {
+            sb.append("bduss=" + this.f5912h.bduss);
+            sb.append(";stoken=" + this.f5912h.stoken);
         }
-        return PayUtils.encrypt(PayUtils.KEY_PHONE_NUMBER, sb.toString());
+        return PayUtils.encrypt("phone_number", sb.toString());
     }
 }

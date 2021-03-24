@@ -10,14 +10,14 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class TrendFeedResultData extends BaseResultData implements com.kwad.sdk.core.b {
-    private static final String TAG = "TrendsResultData";
-    private static final long serialVersionUID = -1619392774105464372L;
+    public static final String TAG = "TrendsResultData";
+    public static final long serialVersionUID = -1619392774105464372L;
     @NonNull
     public List<AdTemplate> adTemplateList = new ArrayList();
-    private final SceneImpl mRequestAdScene;
-    private final TrendInfo mTrendInfo;
+    public final SceneImpl mRequestAdScene;
+    public final TrendInfo mTrendInfo;
 
     public TrendFeedResultData(@NonNull SceneImpl sceneImpl, @NonNull TrendInfo trendInfo) {
         this.mRequestAdScene = sceneImpl;
@@ -25,21 +25,22 @@ public class TrendFeedResultData extends BaseResultData implements com.kwad.sdk.
     }
 
     public boolean isAdResultDataEmpty() {
+        String str;
         if (this.adTemplateList.isEmpty()) {
-            com.kwad.sdk.core.d.a.d(TAG, "adTemplateList is empty");
-            return true;
-        }
-        com.kwad.sdk.core.d.a.a(TAG, "adTemplateList size = " + this.adTemplateList.size());
-        List<AdInfo> list = this.adTemplateList.get(0).adInfoList;
-        if (list.isEmpty()) {
-            com.kwad.sdk.core.d.a.d(TAG, "adInfoList is empty");
-            return true;
-        } else if (list.get(0) == null) {
-            com.kwad.sdk.core.d.a.d(TAG, "adInfo is null");
-            return true;
+            str = "adTemplateList is empty";
         } else {
-            return false;
+            com.kwad.sdk.core.d.a.a(TAG, "adTemplateList size = " + this.adTemplateList.size());
+            List<AdInfo> list = this.adTemplateList.get(0).adInfoList;
+            if (list.isEmpty()) {
+                str = "adInfoList is empty";
+            } else if (list.get(0) != null) {
+                return false;
+            } else {
+                str = "adInfo is null";
+            }
         }
+        com.kwad.sdk.core.d.a.d(TAG, str);
+        return true;
     }
 
     @Override // com.kwad.sdk.core.network.BaseResultData
@@ -80,8 +81,8 @@ public class TrendFeedResultData extends BaseResultData implements com.kwad.sdk.
                     this.adTemplateList.add(adTemplate);
                 }
             }
-        } catch (Exception e) {
-            com.kwad.sdk.core.d.a.a(e);
+        } catch (Exception e2) {
+            com.kwad.sdk.core.d.a.a(e2);
         }
     }
 

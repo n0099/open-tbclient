@@ -1,41 +1,41 @@
 package com.kwai.video.ksvodplayerkit.b;
 
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public final class k {
     public static String a(j jVar) {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("avgBitrate", jVar.f7279a);
-        } catch (Exception e) {
+            jSONObject.put("avgBitrate", jVar.f37253a);
+        } catch (Exception unused) {
         }
         try {
-            jSONObject.put("host", jVar.b);
-        } catch (Exception e2) {
+            jSONObject.put("host", jVar.f37254b);
+        } catch (Exception unused2) {
         }
         try {
-            jSONObject.put("key", jVar.c);
-        } catch (Exception e3) {
+            jSONObject.put("key", jVar.f37255c);
+        } catch (Exception unused3) {
         }
         try {
-            jSONObject.put("maxBitrate", jVar.d);
-        } catch (Exception e4) {
+            jSONObject.put("maxBitrate", jVar.f37256d);
+        } catch (Exception unused4) {
         }
         try {
-            jSONObject.put("height", jVar.e);
-        } catch (Exception e5) {
+            jSONObject.put("height", jVar.f37257e);
+        } catch (Exception unused5) {
         }
         try {
-            jSONObject.put("width", jVar.f);
-        } catch (Exception e6) {
+            jSONObject.put("width", jVar.f37258f);
+        } catch (Exception unused6) {
         }
         try {
-            jSONObject.put("url", jVar.g);
-        } catch (Exception e7) {
+            jSONObject.put("url", jVar.f37259g);
+        } catch (Exception unused7) {
         }
         try {
-            jSONObject.put("quality", jVar.h);
-        } catch (Exception e8) {
+            jSONObject.put("quality", jVar.f37260h);
+        } catch (Exception unused8) {
         }
         return jSONObject.toString();
     }

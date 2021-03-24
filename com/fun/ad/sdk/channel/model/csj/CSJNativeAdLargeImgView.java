@@ -18,14 +18,21 @@ import com.bytedance.sdk.openadsdk.TTImage;
 import com.bytedance.sdk.openadsdk.TTNativeAd;
 import com.fun.ad.sdk.R;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class CSJNativeAdLargeImgView extends b {
-    public ImageView f;
-    public float g;
 
-    /* loaded from: classes4.dex */
+    /* renamed from: f  reason: collision with root package name */
+    public ImageView f30758f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public boolean f30759g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public float f30760h;
+
+    /* loaded from: classes6.dex */
     public class a extends DrawableImageViewTarget {
-        public a(CSJNativeAdLargeImgView cSJNativeAdLargeImgView, ImageView imageView) {
+        public a(ImageView imageView) {
             super(imageView);
         }
 
@@ -38,6 +45,7 @@ public final class CSJNativeAdLargeImgView extends b {
         @Override // com.bumptech.glide.request.target.ImageViewTarget, com.bumptech.glide.request.target.ViewTarget, com.bumptech.glide.request.target.BaseTarget, com.bumptech.glide.request.target.Target
         public void onLoadStarted(@Nullable Drawable drawable) {
             super.onLoadStarted(drawable);
+            CSJNativeAdLargeImgView.this.f30759g = true;
             ((ImageView) this.view).setBackgroundResource(R.drawable.fun_ad_def_img_tieba);
         }
 
@@ -45,6 +53,7 @@ public final class CSJNativeAdLargeImgView extends b {
         public void onResourceReady(@NonNull Object obj, @Nullable Transition transition) {
             Drawable drawable = (Drawable) obj;
             super.onResourceReady(drawable, transition);
+            CSJNativeAdLargeImgView.this.f30759g = true;
             ((ImageView) this.view).setBackground(drawable);
         }
 
@@ -61,17 +70,20 @@ public final class CSJNativeAdLargeImgView extends b {
 
     public CSJNativeAdLargeImgView(Context context) {
         super(context);
-        this.g = 1.78f;
+        this.f30759g = false;
+        this.f30760h = 1.78f;
     }
 
     public CSJNativeAdLargeImgView(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.g = 1.78f;
+        this.f30759g = false;
+        this.f30760h = 1.78f;
     }
 
     public CSJNativeAdLargeImgView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.g = 1.78f;
+        this.f30759g = false;
+        this.f30760h = 1.78f;
     }
 
     @Override // a.a.a.a.r.b.b.b
@@ -82,24 +94,32 @@ public final class CSJNativeAdLargeImgView extends b {
         if (imageList == null || imageList.isEmpty() || (tTImage = imageList.get(0)) == null || !tTImage.isValid()) {
             return;
         }
-        d.a("CSJNativeAdView ttImage width: " + tTImage.getWidth() + ", height: " + tTImage.getHeight(), new Object[0]);
-        this.g = (tTImage.getWidth() * 1.0f) / (tTImage.getHeight() * 1.0f);
-        Glide.with(activity).load(tTImage.getImageUrl()).into((RequestBuilder<Drawable>) new a(this, this.f));
+        this.f30760h = (tTImage.getWidth() * 1.0f) / (tTImage.getHeight() * 1.0f);
+        Glide.with(activity).load(tTImage.getImageUrl()).into((RequestBuilder<Drawable>) new a(this.f30758f));
     }
 
     @Override // a.a.a.a.r.b.b.b, android.view.View
     public void onFinishInflate() {
         super.onFinishInflate();
-        this.f = (ImageView) findViewById(R.id.ad_img);
+        this.f30758f = (ImageView) findViewById(R.id.ad_img);
     }
 
-    @Override // android.view.View
-    public void onSizeChanged(int i, int i2, int i3, int i4) {
-        super.onSizeChanged(i, i2, i3, i4);
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f.getLayoutParams();
-        int i5 = (i - layoutParams.leftMargin) - layoutParams.rightMargin;
-        layoutParams.width = i5;
-        layoutParams.height = (int) (i5 / this.g);
-        this.f.setLayoutParams(layoutParams);
+    @Override // android.widget.LinearLayout, android.view.ViewGroup, android.view.View
+    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
+        super.onLayout(z, i, i2, i3, i4);
+        d.a("CSJNativeAdView onLayout width: " + this.f30758f.getWidth() + ", height: " + this.f30758f.getHeight(), new Object[0]);
+        if (this.f30759g) {
+            this.f30759g = false;
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f30758f.getLayoutParams();
+            int width = (getWidth() - layoutParams.leftMargin) - layoutParams.rightMargin;
+            layoutParams.width = width;
+            layoutParams.height = (int) (width / this.f30760h);
+            this.f30758f.setLayoutParams(layoutParams);
+        }
+    }
+
+    @Override // android.widget.LinearLayout, android.view.View
+    public void onMeasure(int i, int i2) {
+        super.onMeasure(i, i2);
     }
 }

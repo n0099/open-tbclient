@@ -1,7 +1,6 @@
 package com.googlecode.mp4parser.authoring.tracks;
 
-import com.baidu.ala.recorder.video.hardware.AudioEncoderCore;
-import com.baidu.live.tbadk.core.data.RequestResponseCode;
+import com.baidu.swan.nalib.audio.SwanAudioPlayer;
 import com.coremedia.iso.boxes.Box;
 import com.coremedia.iso.boxes.CompositionTimeToSample;
 import com.coremedia.iso.boxes.SampleDependencyTypeBox;
@@ -30,22 +29,54 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes5.dex */
+import org.apache.commons.codec.digest4util.PureJavaCrc32C;
+/* loaded from: classes6.dex */
 public class AACTrackImpl extends AbstractTrack {
-    static Map<Integer, String> audioObjectTypes = new HashMap();
+    public static Map<Integer, String> audioObjectTypes;
     public static Map<Integer, Integer> samplingFrequencyIndexMap;
-    long avgBitRate;
-    int bufferSizeDB;
-    long[] decTimes;
-    a firstHeader;
-    private String lang;
-    long maxBitRate;
-    SampleDescriptionBox sampleDescriptionBox;
-    private List<Sample> samples;
-    TrackMetaData trackMetaData;
+    public long avgBitRate;
+    public int bufferSizeDB;
+    public long[] decTimes;
+    public a firstHeader;
+    public String lang;
+    public long maxBitRate;
+    public SampleDescriptionBox sampleDescriptionBox;
+    public List<Sample> samples;
+    public TrackMetaData trackMetaData;
+
+    /* loaded from: classes6.dex */
+    public class a {
+
+        /* renamed from: a  reason: collision with root package name */
+        public int f31033a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public int f31034b;
+
+        /* renamed from: c  reason: collision with root package name */
+        public int f31035c;
+
+        /* renamed from: d  reason: collision with root package name */
+        public int f31036d;
+
+        /* renamed from: e  reason: collision with root package name */
+        public int f31037e;
+
+        /* renamed from: f  reason: collision with root package name */
+        public int f31038f;
+
+        public a(AACTrackImpl aACTrackImpl) {
+        }
+
+        public int a() {
+            return (this.f31034b == 0 ? 2 : 0) + 7;
+        }
+    }
 
     static {
-        audioObjectTypes.put(1, "AAC Main");
+        HashMap hashMap = new HashMap();
+        audioObjectTypes = hashMap;
+        hashMap.put(1, "AAC Main");
         audioObjectTypes.put(2, "AAC LC (Low Complexity)");
         audioObjectTypes.put(3, "AAC SSR (Scalable Sample Rate)");
         audioObjectTypes.put(4, "AAC LTP (Long Term Prediction)");
@@ -90,30 +121,31 @@ public class AACTrackImpl extends AbstractTrack {
         audioObjectTypes.put(43, "SAOC (Spatial Audio Object Coding)");
         audioObjectTypes.put(44, "LD MPEG Surround");
         audioObjectTypes.put(45, "USAC");
-        samplingFrequencyIndexMap = new HashMap();
-        samplingFrequencyIndexMap.put(96000, 0);
+        HashMap hashMap2 = new HashMap();
+        samplingFrequencyIndexMap = hashMap2;
+        hashMap2.put(96000, 0);
         samplingFrequencyIndexMap.put(88200, 1);
-        samplingFrequencyIndexMap.put(Integer.valueOf((int) AudioEncoderCore.EncodeConfig.BIT_RATE), 2);
+        samplingFrequencyIndexMap.put(64000, 2);
         samplingFrequencyIndexMap.put(48000, 3);
-        samplingFrequencyIndexMap.put(44100, 4);
+        samplingFrequencyIndexMap.put(Integer.valueOf((int) SwanAudioPlayer.DEFAULT_SAMPLE_RATE), 4);
         samplingFrequencyIndexMap.put(32000, 5);
         samplingFrequencyIndexMap.put(24000, 6);
         samplingFrequencyIndexMap.put(22050, 7);
         samplingFrequencyIndexMap.put(16000, 8);
         samplingFrequencyIndexMap.put(12000, 9);
-        samplingFrequencyIndexMap.put(Integer.valueOf((int) RequestResponseCode.REQUEST_LOGIN_PB_AT), 10);
+        samplingFrequencyIndexMap.put(11025, 10);
         samplingFrequencyIndexMap.put(8000, 11);
         samplingFrequencyIndexMap.put(0, 96000);
         samplingFrequencyIndexMap.put(1, 88200);
-        samplingFrequencyIndexMap.put(2, Integer.valueOf((int) AudioEncoderCore.EncodeConfig.BIT_RATE));
+        samplingFrequencyIndexMap.put(2, 64000);
         samplingFrequencyIndexMap.put(3, 48000);
-        samplingFrequencyIndexMap.put(4, 44100);
+        samplingFrequencyIndexMap.put(4, Integer.valueOf((int) SwanAudioPlayer.DEFAULT_SAMPLE_RATE));
         samplingFrequencyIndexMap.put(5, 32000);
         samplingFrequencyIndexMap.put(6, 24000);
         samplingFrequencyIndexMap.put(7, 22050);
         samplingFrequencyIndexMap.put(8, 16000);
         samplingFrequencyIndexMap.put(9, 12000);
-        samplingFrequencyIndexMap.put(10, Integer.valueOf((int) RequestResponseCode.REQUEST_LOGIN_PB_AT));
+        samplingFrequencyIndexMap.put(10, 11025);
         samplingFrequencyIndexMap.put(11, 8000);
     }
 
@@ -124,53 +156,58 @@ public class AACTrackImpl extends AbstractTrack {
         parse(dataSource);
     }
 
-    public AACTrackImpl(DataSource dataSource) throws IOException {
-        this.trackMetaData = new TrackMetaData();
-        this.lang = "eng";
-        parse(dataSource);
-    }
-
     private void parse(DataSource dataSource) throws IOException {
-        int i;
-        double size;
+        double d2;
+        double d3;
         this.samples = new ArrayList();
-        this.firstHeader = readSamples(dataSource);
-        double d = this.firstHeader.sampleRate / 1024.0d;
-        double size2 = this.samples.size() / d;
+        a readSamples = readSamples(dataSource);
+        this.firstHeader = readSamples;
+        double d4 = readSamples.f31035c;
+        Double.isNaN(d4);
+        double d5 = d4 / 1024.0d;
+        double size = this.samples.size();
+        Double.isNaN(size);
+        double d6 = size / d5;
         LinkedList linkedList = new LinkedList();
+        Iterator<Sample> it = this.samples.iterator();
         long j = 0;
-        for (Sample sample : this.samples) {
-            int size3 = (int) sample.getSize();
-            j += size3;
-            linkedList.add(Integer.valueOf(size3));
-            while (linkedList.size() > d) {
+        while (true) {
+            int i = 0;
+            if (!it.hasNext()) {
+                break;
+            }
+            int size2 = (int) it.next().getSize();
+            j += size2;
+            linkedList.add(Integer.valueOf(size2));
+            while (linkedList.size() > d5) {
                 linkedList.pop();
             }
-            if (linkedList.size() == ((int) d)) {
-                int i2 = 0;
-                Iterator it = linkedList.iterator();
-                while (true) {
-                    i = i2;
-                    if (!it.hasNext()) {
-                        break;
-                    }
-                    i2 = ((Integer) it.next()).intValue() + i;
+            if (linkedList.size() == ((int) d5)) {
+                Iterator it2 = linkedList.iterator();
+                while (it2.hasNext()) {
+                    i += ((Integer) it2.next()).intValue();
                 }
-                if (((i * 8.0d) / linkedList.size()) * d > this.maxBitRate) {
-                    this.maxBitRate = (int) size;
+                double d7 = i;
+                Double.isNaN(d7);
+                double size3 = linkedList.size();
+                Double.isNaN(size3);
+                if (((d7 * 8.0d) / size3) * d5 > this.maxBitRate) {
+                    this.maxBitRate = (int) d3;
                 }
             }
         }
-        this.avgBitRate = (int) ((8 * j) / size2);
-        this.bufferSizeDB = 1536;
+        Double.isNaN(j * 8);
+        this.avgBitRate = (int) (d2 / d6);
+        this.bufferSizeDB = PureJavaCrc32C.T8_6_start;
         this.sampleDescriptionBox = new SampleDescriptionBox();
         AudioSampleEntry audioSampleEntry = new AudioSampleEntry(AudioSampleEntry.TYPE3);
-        if (this.firstHeader.pYh == 7) {
+        int i2 = this.firstHeader.f31036d;
+        if (i2 == 7) {
             audioSampleEntry.setChannelCount(8);
         } else {
-            audioSampleEntry.setChannelCount(this.firstHeader.pYh);
+            audioSampleEntry.setChannelCount(i2);
         }
-        audioSampleEntry.setSampleRate(this.firstHeader.sampleRate);
+        audioSampleEntry.setSampleRate(this.firstHeader.f31035c);
         audioSampleEntry.setDataReferenceIndex(1);
         audioSampleEntry.setSampleSize(16);
         ESDescriptorBox eSDescriptorBox = new ESDescriptorBox();
@@ -187,8 +224,8 @@ public class AACTrackImpl extends AbstractTrack {
         decoderConfigDescriptor.setAvgBitRate(this.avgBitRate);
         AudioSpecificConfig audioSpecificConfig = new AudioSpecificConfig();
         audioSpecificConfig.setAudioObjectType(2);
-        audioSpecificConfig.setSamplingFrequencyIndex(this.firstHeader.pYe);
-        audioSpecificConfig.setChannelConfiguration(this.firstHeader.pYh);
+        audioSpecificConfig.setSamplingFrequencyIndex(this.firstHeader.f31033a);
+        audioSpecificConfig.setChannelConfiguration(this.firstHeader.f31036d);
         decoderConfigDescriptor.setAudioSpecificInfo(audioSpecificConfig);
         eSDescriptor.setDecoderConfigDescriptor(decoderConfigDescriptor);
         ByteBuffer serialize = eSDescriptor.serialize();
@@ -200,9 +237,85 @@ public class AACTrackImpl extends AbstractTrack {
         this.trackMetaData.setModificationTime(new Date());
         this.trackMetaData.setLanguage(this.lang);
         this.trackMetaData.setVolume(1.0f);
-        this.trackMetaData.setTimescale(this.firstHeader.sampleRate);
-        this.decTimes = new long[this.samples.size()];
-        Arrays.fill(this.decTimes, 1024L);
+        this.trackMetaData.setTimescale(this.firstHeader.f31035c);
+        long[] jArr = new long[this.samples.size()];
+        this.decTimes = jArr;
+        Arrays.fill(jArr, 1024L);
+    }
+
+    private a readADTSHeader(DataSource dataSource) throws IOException {
+        a aVar = new a(this);
+        ByteBuffer allocate = ByteBuffer.allocate(7);
+        while (allocate.position() < 7) {
+            if (dataSource.read(allocate) == -1) {
+                return null;
+            }
+        }
+        BitReaderBuffer bitReaderBuffer = new BitReaderBuffer((ByteBuffer) allocate.rewind());
+        if (bitReaderBuffer.readBits(12) == 4095) {
+            bitReaderBuffer.readBits(1);
+            bitReaderBuffer.readBits(2);
+            aVar.f31034b = bitReaderBuffer.readBits(1);
+            bitReaderBuffer.readBits(2);
+            int readBits = bitReaderBuffer.readBits(4);
+            aVar.f31033a = readBits;
+            aVar.f31035c = samplingFrequencyIndexMap.get(Integer.valueOf(readBits)).intValue();
+            bitReaderBuffer.readBits(1);
+            aVar.f31036d = bitReaderBuffer.readBits(3);
+            bitReaderBuffer.readBits(1);
+            bitReaderBuffer.readBits(1);
+            bitReaderBuffer.readBits(1);
+            bitReaderBuffer.readBits(1);
+            aVar.f31037e = bitReaderBuffer.readBits(13);
+            bitReaderBuffer.readBits(11);
+            int readBits2 = bitReaderBuffer.readBits(2) + 1;
+            aVar.f31038f = readBits2;
+            if (readBits2 == 1) {
+                if (aVar.f31034b == 0) {
+                    dataSource.read(ByteBuffer.allocate(2));
+                }
+                return aVar;
+            }
+            throw new IOException("This muxer can only work with 1 AAC frame per ADTS frame");
+        }
+        throw new IOException("Expected Start Word 0xfff");
+    }
+
+    private a readSamples(DataSource dataSource) throws IOException {
+        a aVar = null;
+        while (true) {
+            a readADTSHeader = readADTSHeader(dataSource);
+            if (readADTSHeader == null) {
+                return aVar;
+            }
+            if (aVar == null) {
+                aVar = readADTSHeader;
+            }
+            ByteBuffer map = dataSource.map(dataSource.position(), readADTSHeader.f31037e - readADTSHeader.a());
+            this.samples.add(new SampleImpl(map));
+            dataSource.position((dataSource.position() + readADTSHeader.f31037e) - readADTSHeader.a());
+            map.rewind();
+        }
+    }
+
+    @Override // com.googlecode.mp4parser.authoring.AbstractTrack, com.googlecode.mp4parser.authoring.Track
+    public List<CompositionTimeToSample.Entry> getCompositionTimeEntries() {
+        return null;
+    }
+
+    @Override // com.googlecode.mp4parser.authoring.Track
+    public String getHandler() {
+        return "soun";
+    }
+
+    @Override // com.googlecode.mp4parser.authoring.Track
+    public Box getMediaHeaderBox() {
+        return new SoundMediaHeaderBox();
+    }
+
+    @Override // com.googlecode.mp4parser.authoring.AbstractTrack, com.googlecode.mp4parser.authoring.Track
+    public List<SampleDependencyTypeBox.Entry> getSampleDependencies() {
+        return null;
     }
 
     @Override // com.googlecode.mp4parser.authoring.Track
@@ -215,8 +328,13 @@ public class AACTrackImpl extends AbstractTrack {
         return this.decTimes;
     }
 
+    @Override // com.googlecode.mp4parser.authoring.Track
+    public List<Sample> getSamples() {
+        return this.samples;
+    }
+
     @Override // com.googlecode.mp4parser.authoring.AbstractTrack, com.googlecode.mp4parser.authoring.Track
-    public List<CompositionTimeToSample.Entry> getCompositionTimeEntries() {
+    public SubSampleInformationBox getSubsampleInformationBox() {
         return null;
     }
 
@@ -225,117 +343,18 @@ public class AACTrackImpl extends AbstractTrack {
         return null;
     }
 
-    @Override // com.googlecode.mp4parser.authoring.AbstractTrack, com.googlecode.mp4parser.authoring.Track
-    public List<SampleDependencyTypeBox.Entry> getSampleDependencies() {
-        return null;
-    }
-
     @Override // com.googlecode.mp4parser.authoring.Track
     public TrackMetaData getTrackMetaData() {
         return this.trackMetaData;
     }
 
-    @Override // com.googlecode.mp4parser.authoring.Track
-    public String getHandler() {
-        return "soun";
-    }
-
-    @Override // com.googlecode.mp4parser.authoring.Track
-    public List<Sample> getSamples() {
-        return this.samples;
-    }
-
-    @Override // com.googlecode.mp4parser.authoring.Track
-    public Box getMediaHeaderBox() {
-        return new SoundMediaHeaderBox();
-    }
-
-    @Override // com.googlecode.mp4parser.authoring.AbstractTrack, com.googlecode.mp4parser.authoring.Track
-    public SubSampleInformationBox getSubsampleInformationBox() {
-        return null;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
-    public class a {
-        int frameLength;
-        int home;
-        int layer;
-        int original;
-        int pYe;
-        int pYf;
-        int pYg;
-        int pYh;
-        int pYi;
-        int pYj;
-        int pYk;
-        int pYl;
-        int profile;
-        int sampleRate;
-
-        a() {
-        }
-
-        int getSize() {
-            return (this.pYg == 0 ? 2 : 0) + 7;
-        }
-    }
-
-    private a readADTSHeader(DataSource dataSource) throws IOException {
-        a aVar = new a();
-        ByteBuffer allocate = ByteBuffer.allocate(7);
-        while (allocate.position() < 7) {
-            if (dataSource.read(allocate) == -1) {
-                return null;
-            }
-        }
-        BitReaderBuffer bitReaderBuffer = new BitReaderBuffer((ByteBuffer) allocate.rewind());
-        if (bitReaderBuffer.readBits(12) != 4095) {
-            throw new IOException("Expected Start Word 0xfff");
-        }
-        aVar.pYf = bitReaderBuffer.readBits(1);
-        aVar.layer = bitReaderBuffer.readBits(2);
-        aVar.pYg = bitReaderBuffer.readBits(1);
-        aVar.profile = bitReaderBuffer.readBits(2) + 1;
-        aVar.pYe = bitReaderBuffer.readBits(4);
-        aVar.sampleRate = samplingFrequencyIndexMap.get(Integer.valueOf(aVar.pYe)).intValue();
-        bitReaderBuffer.readBits(1);
-        aVar.pYh = bitReaderBuffer.readBits(3);
-        aVar.original = bitReaderBuffer.readBits(1);
-        aVar.home = bitReaderBuffer.readBits(1);
-        aVar.pYi = bitReaderBuffer.readBits(1);
-        aVar.pYj = bitReaderBuffer.readBits(1);
-        aVar.frameLength = bitReaderBuffer.readBits(13);
-        aVar.pYk = bitReaderBuffer.readBits(11);
-        aVar.pYl = bitReaderBuffer.readBits(2) + 1;
-        if (aVar.pYl != 1) {
-            throw new IOException("This muxer can only work with 1 AAC frame per ADTS frame");
-        }
-        if (aVar.pYg == 0) {
-            dataSource.read(ByteBuffer.allocate(2));
-        }
-        return aVar;
-    }
-
-    private a readSamples(DataSource dataSource) throws IOException {
-        a aVar = null;
-        while (true) {
-            a readADTSHeader = readADTSHeader(dataSource);
-            if (readADTSHeader != null) {
-                if (aVar == null) {
-                    aVar = readADTSHeader;
-                }
-                ByteBuffer map = dataSource.map(dataSource.position(), readADTSHeader.frameLength - readADTSHeader.getSize());
-                this.samples.add(new SampleImpl(map));
-                dataSource.position((dataSource.position() + readADTSHeader.frameLength) - readADTSHeader.getSize());
-                map.rewind();
-            } else {
-                return aVar;
-            }
-        }
-    }
-
     public String toString() {
-        return "AACTrackImpl{sampleRate=" + this.firstHeader.sampleRate + ", channelconfig=" + this.firstHeader.pYh + '}';
+        return "AACTrackImpl{sampleRate=" + this.firstHeader.f31035c + ", channelconfig=" + this.firstHeader.f31036d + '}';
+    }
+
+    public AACTrackImpl(DataSource dataSource) throws IOException {
+        this.trackMetaData = new TrackMetaData();
+        this.lang = "eng";
+        parse(dataSource);
     }
 }

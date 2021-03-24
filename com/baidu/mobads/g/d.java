@@ -1,26 +1,24 @@
 package com.baidu.mobads.g;
 
 import com.baidu.mobads.g.o;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class d implements o.a {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ c f2388a;
+    public final /* synthetic */ c f8269a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public d(c cVar) {
-        this.f2388a = cVar;
+        this.f8269a = cVar;
     }
 
     @Override // com.baidu.mobads.g.o.a
     public void a(e eVar) {
-        this.f2388a.a("OK", eVar, "download apk successfully, downloader exit");
-        c unused = c.f = null;
+        this.f8269a.a("OK", eVar, "download apk successfully, downloader exit");
+        c unused = c.f8261f = null;
     }
 
     @Override // com.baidu.mobads.g.o.a
     public void b(e eVar) {
-        this.f2388a.a("ERROR", eVar, "downloadApk failed");
+        this.f8269a.a("ERROR", eVar, "downloadApk failed");
     }
 }

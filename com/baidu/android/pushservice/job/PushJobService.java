@@ -10,25 +10,25 @@ import android.os.Message;
 import android.util.Log;
 import com.baidu.android.pushservice.f;
 import com.baidu.android.pushservice.g;
-import com.baidu.android.pushservice.h.a.b;
-import com.baidu.android.pushservice.i.l;
-import com.baidu.android.pushservice.i.m;
+import com.baidu.android.pushservice.i.a.b;
+import com.baidu.android.pushservice.j.l;
+import com.baidu.android.pushservice.j.m;
 @TargetApi(21)
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public class PushJobService extends JobService {
 
     /* renamed from: a  reason: collision with root package name */
-    private Handler f1228a;
+    public Handler f3407a;
 
-    /* loaded from: classes5.dex */
-    private static class a extends Handler {
+    /* loaded from: classes2.dex */
+    public static class a extends Handler {
 
         /* renamed from: a  reason: collision with root package name */
-        private final JobService f1229a;
+        public final JobService f3408a;
 
-        a(JobService jobService) {
+        public a(JobService jobService) {
             super(jobService.getMainLooper());
-            this.f1229a = jobService;
+            this.f3408a = jobService;
         }
 
         @Override // android.os.Handler
@@ -36,12 +36,12 @@ public class PushJobService extends JobService {
             if (message.what == 1) {
                 JobParameters jobParameters = (JobParameters) message.obj;
                 try {
-                    this.f1229a.jobFinished(jobParameters, true);
+                    this.f3408a.jobFinished(jobParameters, true);
                     if (jobParameters.getJobId() == 1) {
-                        com.baidu.android.pushservice.job.a.a(this.f1229a, false);
+                        com.baidu.android.pushservice.job.a.a(this.f3408a, false);
                     }
                 } catch (Throwable th) {
-                    new b.c(this.f1229a.getApplicationContext()).a(Log.getStackTraceString(th)).a();
+                    new b.c(this.f3408a.getApplicationContext()).a(Log.getStackTraceString(th)).a();
                 }
             }
         }
@@ -66,13 +66,14 @@ public class PushJobService extends JobService {
                     a2.putExtra("disable_alarm", true);
                 }
                 g.a(getApplicationContext()).a(a2);
-            } catch (Exception e) {
+            } catch (Exception unused) {
             }
         }
-        if (this.f1228a == null) {
-            this.f1228a = new a(this);
+        if (this.f3407a == null) {
+            this.f3407a = new a(this);
         }
-        this.f1228a.sendMessageDelayed(Message.obtain(this.f1228a, 1, jobParameters), 2000L);
+        Handler handler = this.f3407a;
+        handler.sendMessageDelayed(Message.obtain(handler, 1, jobParameters), 2000L);
         return true;
     }
 

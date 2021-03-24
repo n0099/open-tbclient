@@ -16,33 +16,7 @@ public final class ReqData extends Message {
     @ProtoField(label = Message.Label.REPEATED, tag = 1)
     public final List<Plugin_setting> plugin_settings_list;
 
-    private ReqData(Builder builder, boolean z) {
-        super(builder);
-        if (z) {
-            if (builder.plugin_settings_list == null) {
-                this.plugin_settings_list = DEFAULT_PLUGIN_SETTINGS_LIST;
-            } else {
-                this.plugin_settings_list = immutableCopyOf(builder.plugin_settings_list);
-            }
-            if (builder.container_version == null) {
-                this.container_version = "";
-            } else {
-                this.container_version = builder.container_version;
-            }
-            if (builder.forbidden_feature == null) {
-                this.forbidden_feature = "";
-                return;
-            } else {
-                this.forbidden_feature = builder.forbidden_feature;
-                return;
-            }
-        }
-        this.plugin_settings_list = immutableCopyOf(builder.plugin_settings_list);
-        this.container_version = builder.container_version;
-        this.forbidden_feature = builder.forbidden_feature;
-    }
-
-    /* loaded from: classes.dex */
+    /* loaded from: classes7.dex */
     public static final class Builder extends Message.Builder<ReqData> {
         public String container_version;
         public String forbidden_feature;
@@ -53,11 +27,12 @@ public final class ReqData extends Message {
 
         public Builder(ReqData reqData) {
             super(reqData);
-            if (reqData != null) {
-                this.plugin_settings_list = ReqData.copyOf(reqData.plugin_settings_list);
-                this.container_version = reqData.container_version;
-                this.forbidden_feature = reqData.forbidden_feature;
+            if (reqData == null) {
+                return;
             }
+            this.plugin_settings_list = Message.copyOf(reqData.plugin_settings_list);
+            this.container_version = reqData.container_version;
+            this.forbidden_feature = reqData.forbidden_feature;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -65,5 +40,34 @@ public final class ReqData extends Message {
         public ReqData build(boolean z) {
             return new ReqData(this, z);
         }
+    }
+
+    public ReqData(Builder builder, boolean z) {
+        super(builder);
+        if (z) {
+            List<Plugin_setting> list = builder.plugin_settings_list;
+            if (list == null) {
+                this.plugin_settings_list = DEFAULT_PLUGIN_SETTINGS_LIST;
+            } else {
+                this.plugin_settings_list = Message.immutableCopyOf(list);
+            }
+            String str = builder.container_version;
+            if (str == null) {
+                this.container_version = "";
+            } else {
+                this.container_version = str;
+            }
+            String str2 = builder.forbidden_feature;
+            if (str2 == null) {
+                this.forbidden_feature = "";
+                return;
+            } else {
+                this.forbidden_feature = str2;
+                return;
+            }
+        }
+        this.plugin_settings_list = Message.immutableCopyOf(builder.plugin_settings_list);
+        this.container_version = builder.container_version;
+        this.forbidden_feature = builder.forbidden_feature;
     }
 }

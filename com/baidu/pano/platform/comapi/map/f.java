@@ -2,28 +2,28 @@ package com.baidu.pano.platform.comapi.map;
 
 import android.os.Handler;
 import android.os.Message;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class f extends Handler {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ e f2734a;
+    public final /* synthetic */ e f9493a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public f(e eVar) {
-        this.f2734a = eVar;
+        this.f9493a = eVar;
     }
 
     @Override // android.os.Handler
     public void handleMessage(Message message) {
-        if (message.what == 1001) {
-            this.f2734a.a(-message.arg1, -message.arg2);
-        } else if (message.what == 1002) {
-            float f = message.arg1;
-            if (f > 60.0f || f < 20.0f) {
-                this.f2734a.k();
+        int i = message.what;
+        if (i == 1001) {
+            this.f9493a.a(-message.arg1, -message.arg2);
+        } else if (i == 1002) {
+            int i2 = message.arg1;
+            float f2 = i2;
+            if (f2 > 60.0f || f2 < 20.0f) {
+                this.f9493a.k();
             } else {
-                this.f2734a.a(message.arg1);
+                this.f9493a.a(i2);
             }
         }
     }

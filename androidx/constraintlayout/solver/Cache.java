@@ -1,9 +1,9 @@
 package androidx.constraintlayout.solver;
 
 import androidx.constraintlayout.solver.Pools;
-/* loaded from: classes14.dex */
+/* loaded from: classes.dex */
 public class Cache {
-    Pools.Pool<ArrayRow> arrayRowPool = new Pools.SimplePool(256);
-    Pools.Pool<SolverVariable> solverVariablePool = new Pools.SimplePool(256);
-    SolverVariable[] mIndexedVariables = new SolverVariable[32];
+    public Pools.Pool<ArrayRow> arrayRowPool = new Pools.SimplePool(256);
+    public Pools.Pool<SolverVariable> solverVariablePool = new Pools.SimplePool(256);
+    public SolverVariable[] mIndexedVariables = new SolverVariable[32];
 }

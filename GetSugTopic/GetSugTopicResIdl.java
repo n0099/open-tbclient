@@ -3,25 +3,14 @@ package GetSugTopic;
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
 import tbclient.Error;
-/* loaded from: classes7.dex */
+/* loaded from: classes.dex */
 public final class GetSugTopicResIdl extends Message {
     @ProtoField(tag = 2)
     public final DataRes data;
     @ProtoField(tag = 1)
     public final Error error;
 
-    private GetSugTopicResIdl(Builder builder, boolean z) {
-        super(builder);
-        if (z) {
-            this.error = builder.error;
-            this.data = builder.data;
-            return;
-        }
-        this.error = builder.error;
-        this.data = builder.data;
-    }
-
-    /* loaded from: classes7.dex */
+    /* loaded from: classes.dex */
     public static final class Builder extends Message.Builder<GetSugTopicResIdl> {
         public DataRes data;
         public Error error;
@@ -31,10 +20,11 @@ public final class GetSugTopicResIdl extends Message {
 
         public Builder(GetSugTopicResIdl getSugTopicResIdl) {
             super(getSugTopicResIdl);
-            if (getSugTopicResIdl != null) {
-                this.error = getSugTopicResIdl.error;
-                this.data = getSugTopicResIdl.data;
+            if (getSugTopicResIdl == null) {
+                return;
             }
+            this.error = getSugTopicResIdl.error;
+            this.data = getSugTopicResIdl.data;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -43,5 +33,16 @@ public final class GetSugTopicResIdl extends Message {
         public GetSugTopicResIdl build(boolean z) {
             return new GetSugTopicResIdl(this, z);
         }
+    }
+
+    public GetSugTopicResIdl(Builder builder, boolean z) {
+        super(builder);
+        if (z) {
+            this.error = builder.error;
+            this.data = builder.data;
+            return;
+        }
+        this.error = builder.error;
+        this.data = builder.data;
     }
 }

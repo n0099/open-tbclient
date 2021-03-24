@@ -1,8 +1,16 @@
 package org.apache.http.conn.routing;
 @Deprecated
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class BasicRouteDirector implements HttpRouteDirector {
     public BasicRouteDirector() {
+        throw new RuntimeException("Stub!");
+    }
+
+    public int directStep(RouteInfo routeInfo, RouteInfo routeInfo2) {
+        throw new RuntimeException("Stub!");
+    }
+
+    public int firstStep(RouteInfo routeInfo) {
         throw new RuntimeException("Stub!");
     }
 
@@ -11,15 +19,7 @@ public class BasicRouteDirector implements HttpRouteDirector {
         throw new RuntimeException("Stub!");
     }
 
-    protected int firstStep(RouteInfo routeInfo) {
-        throw new RuntimeException("Stub!");
-    }
-
-    protected int directStep(RouteInfo routeInfo, RouteInfo routeInfo2) {
-        throw new RuntimeException("Stub!");
-    }
-
-    protected int proxiedStep(RouteInfo routeInfo, RouteInfo routeInfo2) {
+    public int proxiedStep(RouteInfo routeInfo, RouteInfo routeInfo2) {
         throw new RuntimeException("Stub!");
     }
 }

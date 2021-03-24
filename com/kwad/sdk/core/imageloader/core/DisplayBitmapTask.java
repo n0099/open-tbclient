@@ -6,20 +6,19 @@ import com.kwad.sdk.core.imageloader.core.display.BitmapDisplayer;
 import com.kwad.sdk.core.imageloader.core.imageaware.ImageAware;
 import com.kwad.sdk.core.imageloader.core.listener.ImageLoadingListener;
 import com.kwad.sdk.core.imageloader.utils.L;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public final class DisplayBitmapTask implements Runnable {
-    private static final String LOG_DISPLAY_IMAGE_IN_IMAGEAWARE = "Display image in ImageAware (loaded from %1$s) [%2$s]";
-    private static final String LOG_TASK_CANCELLED_IMAGEAWARE_COLLECTED = "ImageAware was collected by GC. Task is cancelled. [%s]";
-    private static final String LOG_TASK_CANCELLED_IMAGEAWARE_REUSED = "ImageAware is reused for another image. Task is cancelled. [%s]";
-    private final DecodedResult decodedResult;
-    private final BitmapDisplayer displayer;
-    private final ImageLoaderEngine engine;
-    private final ImageAware imageAware;
-    private final String imageUri;
-    private final ImageLoadingListener listener;
-    private final LoadedFrom loadedFrom;
-    private final String memoryCacheKey;
+    public static final String LOG_DISPLAY_IMAGE_IN_IMAGEAWARE = "Display image in ImageAware (loaded from %1$s) [%2$s]";
+    public static final String LOG_TASK_CANCELLED_IMAGEAWARE_COLLECTED = "ImageAware was collected by GC. Task is cancelled. [%s]";
+    public static final String LOG_TASK_CANCELLED_IMAGEAWARE_REUSED = "ImageAware is reused for another image. Task is cancelled. [%s]";
+    public final DecodedResult decodedResult;
+    public final BitmapDisplayer displayer;
+    public final ImageLoaderEngine engine;
+    public final ImageAware imageAware;
+    public final String imageUri;
+    public final ImageLoadingListener listener;
+    public final LoadedFrom loadedFrom;
+    public final String memoryCacheKey;
 
     public DisplayBitmapTask(DecodedResult decodedResult, ImageLoadingInfo imageLoadingInfo, ImageLoaderEngine imageLoaderEngine, LoadedFrom loadedFrom) {
         this.decodedResult = decodedResult;
@@ -39,16 +38,16 @@ public final class DisplayBitmapTask implements Runnable {
     @Override // java.lang.Runnable
     public void run() {
         if (this.imageAware.isCollected()) {
-            L.d(LOG_TASK_CANCELLED_IMAGEAWARE_COLLECTED, this.memoryCacheKey);
-            this.listener.onLoadingCancelled(this.imageUri, this.imageAware.getWrappedView());
-        } else if (isViewWasReused()) {
-            L.d(LOG_TASK_CANCELLED_IMAGEAWARE_REUSED, this.memoryCacheKey);
-            this.listener.onLoadingCancelled(this.imageUri, this.imageAware.getWrappedView());
-        } else {
+            L.d("ImageAware was collected by GC. Task is cancelled. [%s]", this.memoryCacheKey);
+        } else if (!isViewWasReused()) {
             L.d(LOG_DISPLAY_IMAGE_IN_IMAGEAWARE, this.loadedFrom, this.memoryCacheKey);
             this.displayer.display(this.decodedResult, this.imageAware, this.loadedFrom);
             this.engine.cancelDisplayTaskFor(this.imageAware);
             this.listener.onLoadingComplete(this.imageUri, this.imageAware.getWrappedView(), this.decodedResult);
+            return;
+        } else {
+            L.d("ImageAware is reused for another image. Task is cancelled. [%s]", this.memoryCacheKey);
         }
+        this.listener.onLoadingCancelled(this.imageUri, this.imageAware.getWrappedView());
     }
 }

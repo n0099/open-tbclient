@@ -1,12 +1,12 @@
 package com.sdk.base.framework.a.a;
 
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class b<K, V> extends ConcurrentHashMap<K, Long> {
     public b() {
     }
 
-    public b(int i, float f) {
+    public b(int i, float f2) {
         super(0, 0.75f, 16);
     }
 
@@ -15,7 +15,10 @@ public final class b<K, V> extends ConcurrentHashMap<K, Long> {
     @Override // java.util.concurrent.ConcurrentHashMap, java.util.AbstractMap, java.util.Map
     /* renamed from: b */
     public synchronized Long get(Object obj) {
-        return containsKey(obj) ? (Long) super.get(obj) : null;
+        if (containsKey(obj)) {
+            return (Long) super.get(obj);
+        }
+        return null;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -45,10 +48,10 @@ public final class b<K, V> extends ConcurrentHashMap<K, Long> {
     @Override // java.util.concurrent.ConcurrentHashMap, java.util.AbstractMap, java.util.Map
     public final synchronized boolean containsKey(Object obj) {
         boolean z;
+        z = false;
         Long l = (Long) super.get(obj);
         if (l == null || System.currentTimeMillis() >= l.longValue()) {
             remove(obj);
-            z = false;
         } else {
             z = true;
         }

@@ -2,12 +2,12 @@ package com.baidu.tieba.homepage.topic.topicdetail.message;
 
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.baidu.tieba.homepage.topic.topicdetail.a.a;
 import com.squareup.wire.Wire;
+import d.b.i0.z0.j.a.c.a;
 import tbclient.NewHottopic.NewHottopicResIdl;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class ResponseHttpGetTopicDetailMessage extends TbHttpResponsedMessage {
-    private a mTopicDetailData;
+    public a mTopicDetailData;
 
     public ResponseHttpGetTopicDetailMessage() {
         super(CmdConfigHttp.CMD_TOPIC_DETAIL);
@@ -18,16 +18,19 @@ public class ResponseHttpGetTopicDetailMessage extends TbHttpResponsedMessage {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tbadk.message.http.TbHttpResponsedMessage, com.baidu.adp.framework.message.a
+    @Override // com.baidu.tbadk.message.http.TbHttpResponsedMessage, com.baidu.adp.framework.message.HttpResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
     public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         NewHottopicResIdl newHottopicResIdl = (NewHottopicResIdl) new Wire(new Class[0]).parseFrom(bArr, NewHottopicResIdl.class);
-        if (newHottopicResIdl != null) {
-            setError(newHottopicResIdl.error.errorno.intValue());
-            setErrorString(newHottopicResIdl.error.usermsg);
-            if (getError() == 0 && newHottopicResIdl.data != null) {
-                this.mTopicDetailData = new a();
-                this.mTopicDetailData.a(newHottopicResIdl.data);
-            }
+        if (newHottopicResIdl == null) {
+            return;
         }
+        setError(newHottopicResIdl.error.errorno.intValue());
+        setErrorString(newHottopicResIdl.error.usermsg);
+        if (getError() != 0 || newHottopicResIdl.data == null) {
+            return;
+        }
+        a aVar = new a();
+        this.mTopicDetailData = aVar;
+        aVar.b(newHottopicResIdl.data);
     }
 }

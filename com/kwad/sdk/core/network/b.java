@@ -1,6 +1,7 @@
 package com.kwad.sdk.core.network;
 
 import android.text.TextUtils;
+import com.baidu.sapi2.activity.BaseActivity;
 import com.kwad.sdk.KsAdSDKImpl;
 import com.kwad.sdk.plugin.DevelopMangerPlugin;
 import com.kwad.sdk.utils.o;
@@ -9,14 +10,15 @@ import java.util.List;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public abstract class b implements g {
-    private final Map<String, String> b = new HashMap();
+
+    /* renamed from: b  reason: collision with root package name */
+    public final Map<String, String> f33864b = new HashMap();
 
     /* renamed from: a  reason: collision with root package name */
-    protected final JSONObject f6184a = new JSONObject();
+    public final JSONObject f33863a = new JSONObject();
 
-    /* JADX INFO: Access modifiers changed from: protected */
     public b() {
         e();
         f();
@@ -24,9 +26,9 @@ public abstract class b implements g {
         if (a2 != null && ((Boolean) a2.getValue()).booleanValue()) {
             a("x-ksad-ignore-decrypt", String.valueOf(true));
         }
-        String b = e.a().b();
-        if (!TextUtils.isEmpty(b)) {
-            a("cookie", b);
+        String b2 = e.a().b();
+        if (!TextUtils.isEmpty(b2)) {
+            a("cookie", b2);
         }
         com.kwad.sdk.core.b.d.a(b());
     }
@@ -35,44 +37,44 @@ public abstract class b implements g {
     public abstract String a();
 
     public void a(String str, int i) {
-        o.a(this.f6184a, str, i);
+        o.a(this.f33863a, str, i);
     }
 
     public void a(String str, long j) {
-        o.a(this.f6184a, str, j);
+        o.a(this.f33863a, str, j);
     }
 
     public void a(String str, com.kwad.sdk.core.b bVar) {
-        o.a(this.f6184a, str, bVar);
+        o.a(this.f33863a, str, bVar);
     }
 
     public void a(String str, String str2) {
-        this.b.put(str, str2);
+        this.f33864b.put(str, str2);
     }
 
     public void a(String str, List<? extends com.kwad.sdk.core.b> list) {
-        o.a(this.f6184a, str, list);
+        o.a(this.f33863a, str, list);
     }
 
     public void a(String str, JSONArray jSONArray) {
-        o.a(this.f6184a, str, jSONArray);
+        o.a(this.f33863a, str, jSONArray);
     }
 
     public void a(String str, JSONObject jSONObject) {
-        o.a(this.f6184a, str, jSONObject);
+        o.a(this.f33863a, str, jSONObject);
     }
 
     public void a(String str, boolean z) {
-        o.a(this.f6184a, str, z);
+        o.a(this.f33863a, str, z);
     }
 
     @Override // com.kwad.sdk.core.network.g
     public Map<String, String> b() {
-        return this.b;
+        return this.f33864b;
     }
 
     public void b(String str, String str2) {
-        o.a(this.f6184a, str, str2);
+        o.a(this.f33863a, str, str2);
     }
 
     @Override // com.kwad.sdk.core.network.g
@@ -86,15 +88,15 @@ public abstract class b implements g {
         if (a2 == null || !((Boolean) a2.getValue()).booleanValue()) {
             JSONObject jSONObject = new JSONObject();
             o.a(jSONObject, "version", KsAdSDKImpl.get().getSDKVersion());
-            o.a(jSONObject, "appId", KsAdSDKImpl.get().getAppId());
-            o.a(jSONObject, "message", com.kwad.sdk.core.b.d.a(this.f6184a.toString()));
+            o.a(jSONObject, BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, KsAdSDKImpl.get().getAppId());
+            o.a(jSONObject, "message", com.kwad.sdk.core.b.d.a(this.f33863a.toString()));
             com.kwad.sdk.core.b.d.a(a().replace(com.kwad.sdk.d.a(), ""), b(), jSONObject);
             return jSONObject;
         }
-        return this.f6184a;
+        return this.f33863a;
     }
 
-    protected abstract void e();
+    public abstract void e();
 
-    protected abstract void f();
+    public abstract void f();
 }

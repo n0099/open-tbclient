@@ -6,19 +6,19 @@ import android.net.NetworkInfo;
 import android.net.wifi.WifiManager;
 import android.telephony.TelephonyManager;
 import com.baidu.mapsdkplatform.comapi.util.SysUpdateObservable;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class NetworkUtil {
     public static NetworkInfo getActiveNetworkInfo(Context context) {
         try {
             return ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo();
-        } catch (Exception e) {
+        } catch (Exception unused) {
             return null;
         }
     }
 
     public static String getCurrentNetMode(Context context) {
-        int i = 1;
         NetworkInfo activeNetworkInfo = getActiveNetworkInfo(context);
+        int i = 1;
         if (activeNetworkInfo != null) {
             if (activeNetworkInfo.getType() != 1) {
                 switch (((TelephonyManager) context.getSystemService("phone")).getNetworkType()) {
@@ -66,45 +66,32 @@ public class NetworkUtil {
     }
 
     public static boolean isNetworkAvailable(Context context) {
-        boolean z;
         try {
             if (isWifiConnected(context)) {
                 return true;
             }
             NetworkInfo activeNetworkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo();
             if (activeNetworkInfo != null) {
-                if (activeNetworkInfo.isConnectedOrConnecting()) {
-                    z = true;
-                    return z;
-                }
+                return activeNetworkInfo.isConnectedOrConnecting();
             }
-            z = false;
-            return z;
-        } catch (Exception e) {
+            return false;
+        } catch (Exception unused) {
             return false;
         }
     }
 
     public static boolean isWifiConnected(Context context) {
         ConnectivityManager connectivityManager;
-        boolean z;
         if (context == null || (connectivityManager = (ConnectivityManager) context.getSystemService("connectivity")) == null) {
             return false;
         }
         try {
             NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
-            if (activeNetworkInfo != null) {
-                if (1 == activeNetworkInfo.getType()) {
-                    if (activeNetworkInfo.isConnected()) {
-                        z = true;
-                    }
-                }
-                z = false;
-            } else {
-                z = false;
+            if (activeNetworkInfo == null || 1 != activeNetworkInfo.getType()) {
+                return false;
             }
-            return z;
-        } catch (Exception e) {
+            return activeNetworkInfo.isConnected();
+        } catch (Exception unused) {
             return false;
         }
     }
@@ -121,26 +108,23 @@ public class NetworkUtil {
             try {
                 if (1 == networkInfo.getType()) {
                 }
-                z = false;
-            } catch (Exception e) {
-                e.printStackTrace();
+            } catch (Exception e2) {
+                e2.printStackTrace();
                 return false;
             }
-        } else {
-            z = false;
         }
+        z = false;
         return z;
     }
 
     public static boolean isWifiState(Context context) {
-        int i;
         if (context == null) {
             return false;
         }
+        int i = -1;
         try {
             i = ((WifiManager) context.getSystemService("wifi")).getWifiState();
-        } catch (Exception e) {
-            i = -1;
+        } catch (Exception unused) {
         }
         return i == 3;
     }

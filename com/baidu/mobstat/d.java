@@ -15,14 +15,51 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    static d f2664a = new d();
+    public static d f9196a = new d();
 
-    public synchronized void a(Context context) {
-        b(context);
+    /* loaded from: classes2.dex */
+    public static class a {
+
+        /* renamed from: a  reason: collision with root package name */
+        public String f9197a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public String f9198b;
+
+        /* renamed from: c  reason: collision with root package name */
+        public String f9199c;
+
+        /* renamed from: d  reason: collision with root package name */
+        public String f9200d;
+
+        public a(String str, String str2, String str3, String str4) {
+            str = str == null ? "" : str;
+            str2 = str2 == null ? "" : str2;
+            str3 = str3 == null ? "" : str3;
+            str4 = str4 == null ? "" : str4;
+            this.f9197a = str;
+            this.f9198b = str2;
+            this.f9199c = str3;
+            this.f9200d = str4;
+        }
+
+        public JSONObject a() {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("n", this.f9197a);
+                jSONObject.put("v", this.f9198b);
+                jSONObject.put("c", this.f9199c);
+                jSONObject.put("a", this.f9200d);
+                return jSONObject;
+            } catch (JSONException e2) {
+                bb.c().b(e2);
+                return null;
+            }
+        }
     }
 
     private void b(Context context) {
@@ -30,28 +67,18 @@ public class d {
     }
 
     private ArrayList<a> c(Context context) {
-        String str;
         ArrayList<a> arrayList = new ArrayList<>();
         Iterator<PackageInfo> it = d(context).iterator();
         while (it.hasNext()) {
             PackageInfo next = it.next();
             ApplicationInfo applicationInfo = next.applicationInfo;
             if (applicationInfo != null) {
-                String str2 = next.packageName;
-                String str3 = next.versionName;
+                String str = next.packageName;
+                String str2 = next.versionName;
                 Signature[] signatureArr = next.signatures;
-                if (signatureArr == null || signatureArr.length == 0) {
-                    str = "";
-                } else {
-                    str = signatureArr[0].toChars().toString();
-                }
-                String a2 = bt.b.a(str.getBytes());
-                String str4 = "";
-                String str5 = applicationInfo.sourceDir;
-                if (!TextUtils.isEmpty(str5)) {
-                    str4 = bt.b.a(new File(str5));
-                }
-                arrayList.add(new a(str2, str3, a2, str4));
+                String a2 = bt.b.a(((signatureArr == null || signatureArr.length == 0) ? "" : signatureArr[0].toChars().toString()).getBytes());
+                String str3 = applicationInfo.sourceDir;
+                arrayList.add(new a(str, str2, a2, TextUtils.isEmpty(str3) ? "" : bt.b.a(new File(str3))));
             }
         }
         return arrayList;
@@ -66,8 +93,8 @@ public class d {
         List<PackageInfo> arrayList2 = new ArrayList<>(1);
         try {
             arrayList2 = packageManager.getInstalledPackages(64);
-        } catch (Exception e) {
-            bb.c().b(e);
+        } catch (Exception e2) {
+            bb.c().b(e2);
         }
         for (PackageInfo packageInfo : arrayList2) {
             ApplicationInfo applicationInfo = packageInfo.applicationInfo;
@@ -76,6 +103,10 @@ public class d {
             }
         }
         return arrayList;
+    }
+
+    public synchronized void a(Context context) {
+        b(context);
     }
 
     /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: long : 0x0005: INVOKE  (r0v0 long A[REMOVE]) =  type: STATIC call: java.lang.System.currentTimeMillis():long)] */
@@ -96,48 +127,13 @@ public class d {
             jSONObject.put("app_apk", jSONArray);
             jSONObject.put("meta-data", sb.toString());
             str = bm.a.a(jSONObject.toString().getBytes());
-        } catch (Exception e) {
-            bb.c().b(e);
+        } catch (Exception e2) {
+            bb.c().b(e2);
             str = "";
         }
-        if (!TextUtils.isEmpty(str)) {
-            k.APP_APK.a(System.currentTimeMillis(), str);
+        if (TextUtils.isEmpty(str)) {
+            return;
         }
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
-    public static class a {
-
-        /* renamed from: a  reason: collision with root package name */
-        private String f2665a;
-        private String b;
-        private String c;
-        private String d;
-
-        public a(String str, String str2, String str3, String str4) {
-            str = str == null ? "" : str;
-            str2 = str2 == null ? "" : str2;
-            str3 = str3 == null ? "" : str3;
-            str4 = str4 == null ? "" : str4;
-            this.f2665a = str;
-            this.b = str2;
-            this.c = str3;
-            this.d = str4;
-        }
-
-        public JSONObject a() {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("n", this.f2665a);
-                jSONObject.put("v", this.b);
-                jSONObject.put("c", this.c);
-                jSONObject.put("a", this.d);
-                return jSONObject;
-            } catch (JSONException e) {
-                bb.c().b(e);
-                return null;
-            }
-        }
+        k.APP_APK.a(System.currentTimeMillis(), str);
     }
 }

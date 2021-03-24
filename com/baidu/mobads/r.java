@@ -4,32 +4,24 @@ import android.content.Context;
 import android.util.Log;
 import dalvik.system.DexClassLoader;
 import java.lang.reflect.Method;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class r {
-    private static final String b = r.class.getName();
 
     /* renamed from: a  reason: collision with root package name */
-    static com.baidu.mobads.utils.q f2473a = com.baidu.mobads.utils.q.a();
+    public static com.baidu.mobads.utils.q f8506a = com.baidu.mobads.utils.q.a();
+
+    /* renamed from: b  reason: collision with root package name */
+    public static final String f8507b = "com.baidu.mobads.r";
 
     public static Class<?> a(String str, ClassLoader classLoader) {
         if (classLoader != null) {
             try {
                 return classLoader.loadClass(str);
-            } catch (Exception e) {
-                f2473a.d(b, Log.getStackTraceString(e));
-                return null;
+            } catch (Exception e2) {
+                f8506a.d(f8507b, Log.getStackTraceString(e2));
             }
         }
         return null;
-    }
-
-    public static boolean a(Class<?> cls, String str, Class<?>... clsArr) {
-        try {
-            return cls.getDeclaredMethod(str, clsArr) != null;
-        } catch (Exception e) {
-            f2473a.i(b, Log.getStackTraceString(e));
-            return false;
-        }
     }
 
     public static Method b(Class<?> cls, String str, Class<?>... clsArr) {
@@ -40,17 +32,26 @@ public class r {
                 return declaredMethod;
             }
             return null;
-        } catch (Exception e) {
-            f2473a.i(b, Log.getStackTraceString(e));
+        } catch (Exception e2) {
+            f8506a.i(f8507b, Log.getStackTraceString(e2));
             return null;
+        }
+    }
+
+    public static boolean a(Class<?> cls, String str, Class<?>... clsArr) {
+        try {
+            return cls.getDeclaredMethod(str, clsArr) != null;
+        } catch (Exception e2) {
+            f8506a.i(f8507b, Log.getStackTraceString(e2));
+            return false;
         }
     }
 
     public static Object a(Object obj, String str, Class<?>[] clsArr, Object[] objArr) {
         try {
             return a(obj.getClass(), obj, str, clsArr, objArr);
-        } catch (Exception e) {
-            f2473a.i(b, Log.getStackTraceString(e));
+        } catch (Exception e2) {
+            f8506a.i(f8507b, Log.getStackTraceString(e2));
             return null;
         }
     }
@@ -61,8 +62,8 @@ public class r {
                 return b(cls, str, clsArr).invoke(obj, objArr);
             }
             return null;
-        } catch (Exception e) {
-            f2473a.i(b, Log.getStackTraceString(e));
+        } catch (Exception e2) {
+            f8506a.i(f8507b, Log.getStackTraceString(e2));
             return null;
         }
     }
@@ -74,8 +75,8 @@ public class r {
                 return a2.getDeclaredConstructor(clsArr).newInstance(objArr);
             }
             return null;
-        } catch (Exception e) {
-            f2473a.i(b, Log.getStackTraceString(e));
+        } catch (Exception e2) {
+            f8506a.i(f8507b, Log.getStackTraceString(e2));
             return null;
         }
     }
@@ -89,8 +90,8 @@ public class r {
             }
             declaredMethod.setAccessible(true);
             return declaredMethod.invoke(obj, objArr);
-        } catch (Exception e) {
-            f2473a.i(b, Log.getStackTraceString(e));
+        } catch (Exception e2) {
+            f8506a.i(f8507b, Log.getStackTraceString(e2));
             return null;
         }
     }
@@ -98,7 +99,7 @@ public class r {
     public static DexClassLoader a(Context context) {
         try {
             return new DexClassLoader(com.baidu.mobads.g.g.a(context), context.getFilesDir().getAbsolutePath(), null, r.class.getClass().getClassLoader());
-        } catch (Exception e) {
+        } catch (Exception unused) {
             return null;
         }
     }

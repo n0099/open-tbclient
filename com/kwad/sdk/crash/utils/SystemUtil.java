@@ -6,9 +6,9 @@ import android.os.Build;
 import android.os.Process;
 import android.text.TextUtils;
 import androidx.annotation.Nullable;
-import com.meizu.cloud.pushsdk.constants.PushConstants;
+import com.baidu.mapsdkplatform.comapi.map.r;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 import java.io.BufferedReader;
-import java.io.Closeable;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -18,17 +18,25 @@ import java.io.RandomAccessFile;
 import java.io.Reader;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class SystemUtil {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile String f6392a;
-    private static long b = 0;
-    private static long c = 0;
-    private static int d = 0;
-    private static LEVEL e = null;
+    public static volatile String f34478a;
 
-    /* loaded from: classes3.dex */
+    /* renamed from: b  reason: collision with root package name */
+    public static long f34479b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public static long f34480c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public static int f34481d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public static LEVEL f34482e;
+
+    /* loaded from: classes6.dex */
     public enum LEVEL {
         BEST(5),
         HIGH(4),
@@ -37,7 +45,7 @@ public class SystemUtil {
         BAD(1),
         UN_KNOW(-1);
         
-        int value;
+        public int value;
 
         LEVEL(int i) {
             this.value = i;
@@ -48,69 +56,73 @@ public class SystemUtil {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public long f6393a;
-        public long b;
-        public long c;
-        public long d;
-        public long e;
-        public int f;
+        public long f34483a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public long f34484b;
+
+        /* renamed from: c  reason: collision with root package name */
+        public long f34485c;
+
+        /* renamed from: d  reason: collision with root package name */
+        public long f34486d;
+
+        /* renamed from: e  reason: collision with root package name */
+        public long f34487e;
+
+        /* renamed from: f  reason: collision with root package name */
+        public int f34488f;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:42:0x0065 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:48:0x005a A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public static long a() {
         BufferedReader bufferedReader;
+        Throwable th;
+        Exception e2;
         String readLine;
-        BufferedReader bufferedReader2 = null;
         try {
-            bufferedReader = new BufferedReader(new FileReader("/proc/meminfo"), 8192);
-        } catch (Exception e2) {
-            e = e2;
-        } catch (Throwable th) {
-            th = th;
+            try {
+                bufferedReader = new BufferedReader(new FileReader("/proc/meminfo"), 8192);
+            } catch (IOException e3) {
+                com.kwad.sdk.core.d.a.b(e3);
+                return 0L;
+            }
+        } catch (Exception e4) {
             bufferedReader = null;
+            e2 = e4;
+        } catch (Throwable th2) {
+            bufferedReader = null;
+            th = th2;
+            if (bufferedReader != null) {
+            }
+            throw th;
         }
         do {
             try {
-                readLine = bufferedReader.readLine();
-            } catch (Exception e3) {
-                e = e3;
-                bufferedReader2 = bufferedReader;
                 try {
-                    com.kwad.sdk.core.d.a.b(e);
-                    if (bufferedReader2 != null) {
-                        try {
-                            bufferedReader2.close();
-                        } catch (IOException e4) {
-                            com.kwad.sdk.core.d.a.b(e4);
-                        }
+                    readLine = bufferedReader.readLine();
+                } catch (Exception e5) {
+                    e2 = e5;
+                    com.kwad.sdk.core.d.a.b(e2);
+                    if (bufferedReader != null) {
+                        bufferedReader.close();
+                        return 0L;
                     }
                     return 0L;
-                } catch (Throwable th2) {
-                    th = th2;
-                    bufferedReader = bufferedReader2;
-                    if (bufferedReader != null) {
-                        try {
-                            bufferedReader.close();
-                        } catch (IOException e5) {
-                            com.kwad.sdk.core.d.a.b(e5);
-                        }
-                    }
-                    throw th;
+                }
+                if (readLine == null) {
+                    bufferedReader.close();
+                    return 0L;
                 }
             } catch (Throwable th3) {
                 th = th3;
-                if (bufferedReader != null) {
-                }
-                throw th;
-            }
-            if (readLine == null) {
                 if (bufferedReader != null) {
                     try {
                         bufferedReader.close();
@@ -118,111 +130,110 @@ public class SystemUtil {
                         com.kwad.sdk.core.d.a.b(e6);
                     }
                 }
-                return 0L;
+                throw th;
             }
         } while (!readLine.contains("MemTotal"));
         long longValue = Long.valueOf(readLine.split("\\s+")[1]).longValue() << 10;
-        if (bufferedReader != null) {
-            try {
-                bufferedReader.close();
-                return longValue;
-            } catch (IOException e7) {
-                com.kwad.sdk.core.d.a.b(e7);
-                return longValue;
-            }
+        try {
+            bufferedReader.close();
+        } catch (IOException e7) {
+            com.kwad.sdk.core.d.a.b(e7);
         }
         return longValue;
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:33:0x007c */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:36:0x0084 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:48:0x0041 */
-    /* JADX WARN: Code restructure failed: missing block: B:15:0x0034, code lost:
-        com.kwad.sdk.crash.utils.SystemUtil.f6392a = r0.processName;
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:41:0x0086 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:47:0x000b */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:53:0x003c */
+    /* JADX WARN: Code restructure failed: missing block: B:15:0x0033, code lost:
+        com.kwad.sdk.crash.utils.SystemUtil.f34478a = r1.processName;
      */
-    /* JADX WARN: Type inference failed for: r1v5, types: [int] */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r0v1, types: [boolean] */
+    /* JADX WARN: Type inference failed for: r0v10, types: [java.io.Reader] */
+    /* JADX WARN: Type inference failed for: r0v14, types: [int] */
+    /* JADX WARN: Type inference failed for: r0v2 */
+    /* JADX WARN: Type inference failed for: r0v3 */
+    /* JADX WARN: Type inference failed for: r0v5 */
     @Nullable
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public static String a(Context context) {
+        Throwable th;
         BufferedReader bufferedReader;
-        int read;
-        ?? myPid;
+        IOException e2;
         List<ActivityManager.RunningAppProcessInfo> runningAppProcesses;
-        if (TextUtils.isEmpty(f6392a)) {
-            try {
-                myPid = Process.myPid();
-                ActivityManager activityManager = (ActivityManager) context.getSystemService(PushConstants.INTENT_ACTIVITY_NAME);
-                if (activityManager != null && (runningAppProcesses = activityManager.getRunningAppProcesses()) != null) {
-                    Iterator<ActivityManager.RunningAppProcessInfo> it = runningAppProcesses.iterator();
-                    while (true) {
-                        if (!it.hasNext()) {
-                            break;
-                        }
-                        ActivityManager.RunningAppProcessInfo next = it.next();
-                        if (next.pid == myPid) {
-                            break;
-                        }
+        ?? isEmpty = TextUtils.isEmpty(f34478a);
+        if (isEmpty == 0) {
+            return f34478a;
+        }
+        try {
+            isEmpty = Process.myPid();
+            ActivityManager activityManager = (ActivityManager) context.getSystemService("activity");
+            if (activityManager != null && (runningAppProcesses = activityManager.getRunningAppProcesses()) != null) {
+                Iterator<ActivityManager.RunningAppProcessInfo> it = runningAppProcesses.iterator();
+                while (true) {
+                    if (!it.hasNext()) {
+                        break;
+                    }
+                    ActivityManager.RunningAppProcessInfo next = it.next();
+                    if (next.pid == isEmpty) {
+                        break;
                     }
                 }
-            } catch (Exception e2) {
-                com.kwad.sdk.core.d.a.b(e2);
             }
-            if (TextUtils.isEmpty(f6392a)) {
-                BufferedReader bufferedReader2 = null;
-                BufferedReader bufferedReader3 = null;
+        } catch (Exception e3) {
+            com.kwad.sdk.core.d.a.b(e3);
+        }
+        if (TextUtils.isEmpty(f34478a)) {
+            try {
                 try {
-                    try {
-                        try {
-                            bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream("/proc/self/cmdline")));
-                        } catch (Throwable th) {
-                            th = th;
-                            b.a((Reader) bufferedReader2);
-                            throw th;
-                        }
-                    } catch (FileNotFoundException e3) {
-                        e = e3;
-                        bufferedReader = null;
-                    } catch (IOException e4) {
-                        e = e4;
-                    }
+                    bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(ProcessUtils.CMD_LINE_NAME)));
                     try {
                         StringBuilder sb = new StringBuilder();
                         while (true) {
-                            read = bufferedReader.read();
+                            int read = bufferedReader.read();
                             if (read <= 0) {
                                 break;
                             }
                             sb.append((char) read);
                         }
-                        f6392a = sb.toString();
+                        f34478a = sb.toString();
+                    } catch (FileNotFoundException e4) {
+                        e2 = e4;
+                        com.kwad.sdk.core.d.a.b(e2);
                         b.a((Reader) bufferedReader);
-                        bufferedReader2 = read;
-                    } catch (FileNotFoundException e5) {
-                        e = e5;
-                        com.kwad.sdk.core.d.a.b(e);
+                        return f34478a;
+                    } catch (IOException e5) {
+                        e2 = e5;
+                        com.kwad.sdk.core.d.a.b(e2);
                         b.a((Reader) bufferedReader);
-                        return f6392a;
-                    } catch (IOException e6) {
-                        e = e6;
-                        bufferedReader3 = bufferedReader;
-                        com.kwad.sdk.core.d.a.b(e);
-                        b.a((Reader) bufferedReader3);
-                        bufferedReader2 = bufferedReader3;
-                        return f6392a;
+                        return f34478a;
                     }
                 } catch (Throwable th2) {
                     th = th2;
-                    bufferedReader2 = myPid;
+                    b.a((Reader) isEmpty);
+                    throw th;
                 }
+            } catch (FileNotFoundException e6) {
+                bufferedReader = null;
+                e2 = e6;
+            } catch (IOException e7) {
+                bufferedReader = null;
+                e2 = e7;
+            } catch (Throwable th3) {
+                isEmpty = 0;
+                th = th3;
+                b.a((Reader) isEmpty);
+                throw th;
             }
-            return f6392a;
+            b.a((Reader) bufferedReader);
         }
-        return f6392a;
+        return f34478a;
     }
 
-    private static String a(String str, String str2) {
+    public static String a(String str, String str2) {
         if (str2 == null) {
             str2 = "";
         }
@@ -259,58 +270,57 @@ public class SystemUtil {
 
     public static long b(Context context) {
         ActivityManager.MemoryInfo memoryInfo = new ActivityManager.MemoryInfo();
-        ((ActivityManager) context.getSystemService(PushConstants.INTENT_ACTIVITY_NAME)).getMemoryInfo(memoryInfo);
+        ((ActivityManager) context.getSystemService("activity")).getMemoryInfo(memoryInfo);
         return memoryInfo.availMem;
     }
 
     public static a c() {
-        RandomAccessFile randomAccessFile;
         String a2;
         a aVar = new a();
+        RandomAccessFile randomAccessFile = null;
         try {
             try {
-                randomAccessFile = new RandomAccessFile("/proc/self/status", "r");
+                RandomAccessFile randomAccessFile2 = new RandomAccessFile("/proc/self/status", r.f7663a);
                 while (true) {
                     try {
-                        String readLine = randomAccessFile.readLine();
+                        String readLine = randomAccessFile2.readLine();
                         if (readLine == null) {
                             break;
                         } else if (!TextUtils.isEmpty(readLine)) {
                             if (readLine.startsWith("VmSize") && readLine.contains("kB")) {
                                 String a3 = a(readLine, "VmSize");
                                 if (a3 != null) {
-                                    aVar.b = Long.valueOf(a3).longValue();
+                                    aVar.f34484b = Long.valueOf(a3).longValue();
                                 }
                             } else if (readLine.startsWith("VmRSS:") && readLine.contains("kB")) {
                                 String a4 = a(readLine, "VmRSS:");
                                 if (a4 != null) {
-                                    aVar.c = Long.valueOf(a4).longValue();
+                                    aVar.f34485c = Long.valueOf(a4).longValue();
                                 }
                             } else if (readLine.startsWith("Threads:") && (a2 = a(readLine, "Threads:")) != null) {
-                                aVar.f = Integer.valueOf(a2).intValue();
+                                aVar.f34488f = Integer.valueOf(a2).intValue();
                             }
                         }
                     } catch (IOException e2) {
                         e = e2;
+                        randomAccessFile = randomAccessFile2;
                         com.kwad.sdk.core.d.a.b(e);
                         b.a(randomAccessFile);
                         return aVar;
+                    } catch (Throwable th) {
+                        th = th;
+                        randomAccessFile = randomAccessFile2;
+                        b.a(randomAccessFile);
+                        throw th;
                     }
                 }
-                b.a(randomAccessFile);
-            } catch (Throwable th) {
-                th = th;
-                b.a((Closeable) null);
-                throw th;
+                b.a(randomAccessFile2);
+            } catch (IOException e3) {
+                e = e3;
             }
-        } catch (IOException e3) {
-            e = e3;
-            randomAccessFile = null;
+            return aVar;
         } catch (Throwable th2) {
             th = th2;
-            b.a((Closeable) null);
-            throw th;
         }
-        return aVar;
     }
 }

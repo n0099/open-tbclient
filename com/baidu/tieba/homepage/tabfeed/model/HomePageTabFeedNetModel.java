@@ -8,119 +8,139 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.data.ErrorData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.homepage.tabfeed.c;
 import com.baidu.tieba.homepage.tabfeed.message.TabFeedListHttpResponsedMessage;
 import com.baidu.tieba.homepage.tabfeed.message.TabFeedListRequestMessage;
 import com.baidu.tieba.homepage.tabfeed.message.TabFeedListSocketResponsedMessage;
-/* loaded from: classes2.dex */
+import d.b.i0.z0.i.c;
+/* loaded from: classes4.dex */
 public class HomePageTabFeedNetModel extends BdBaseModel {
-    private boolean gec;
-    private int iQM;
-    private boolean isLoading;
-    private c kqd;
-    private a kqe;
-    private com.baidu.adp.framework.listener.a netMessageListener;
-    private String tabCode;
-    private String tabName;
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(com.baidu.tieba.homepage.tabfeed.data.a aVar) {
-        if (aVar != null) {
-            this.iQM = aVar.cSi();
+    /* renamed from: e  reason: collision with root package name */
+    public boolean f17338e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public boolean f17339f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public int f17340g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public String f17341h;
+    public String i;
+    public c j;
+    public d.b.i0.z0.i.f.a k;
+    public d.b.b.c.g.a l;
+
+    /* loaded from: classes4.dex */
+    public class a extends d.b.b.c.g.a {
+        public a(int i, int i2) {
+            super(i, i2);
         }
-        if (this.kqd != null) {
-            this.kqd.a(this.kqe.a(this.gec, aVar));
+
+        @Override // d.b.b.c.g.a
+        public void onMessage(ResponsedMessage<?> responsedMessage) {
+            HomePageTabFeedNetModel.this.f17339f = false;
+            if (responsedMessage == null) {
+                return;
+            }
+            d.b.i0.z0.i.e.a aVar = null;
+            if (responsedMessage instanceof TabFeedListHttpResponsedMessage) {
+                aVar = ((TabFeedListHttpResponsedMessage) responsedMessage).tabFeedData;
+            } else if (responsedMessage instanceof TabFeedListSocketResponsedMessage) {
+                aVar = ((TabFeedListSocketResponsedMessage) responsedMessage).tabFeedData;
+            }
+            HomePageTabFeedNetModel.this.mErrorCode = responsedMessage.getError();
+            HomePageTabFeedNetModel.this.mErrorString = responsedMessage.getErrorString();
+            ErrorData errorData = new ErrorData();
+            errorData.setError_code(HomePageTabFeedNetModel.this.mErrorCode);
+            errorData.setError_msg(HomePageTabFeedNetModel.this.mErrorString);
+            if (HomePageTabFeedNetModel.this.j == null) {
+                return;
+            }
+            if (HomePageTabFeedNetModel.this.mErrorCode != 0 || aVar == null) {
+                HomePageTabFeedNetModel.this.j.onServerError(errorData);
+            } else {
+                HomePageTabFeedNetModel.this.D(aVar);
+            }
         }
     }
 
     public HomePageTabFeedNetModel(TbPageContext tbPageContext, c cVar) {
         super(tbPageContext);
-        this.gec = true;
-        this.isLoading = false;
-        this.iQM = 1;
-        this.netMessageListener = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_HOME_TAB_ACTIVITY_LIST, 309655) { // from class: com.baidu.tieba.homepage.tabfeed.model.HomePageTabFeedNetModel.1
-            @Override // com.baidu.adp.framework.listener.a
-            public void onMessage(ResponsedMessage<?> responsedMessage) {
-                HomePageTabFeedNetModel.this.isLoading = false;
-                if (responsedMessage != null) {
-                    com.baidu.tieba.homepage.tabfeed.data.a aVar = null;
-                    if (responsedMessage instanceof TabFeedListHttpResponsedMessage) {
-                        aVar = ((TabFeedListHttpResponsedMessage) responsedMessage).tabFeedData;
-                    } else if (responsedMessage instanceof TabFeedListSocketResponsedMessage) {
-                        aVar = ((TabFeedListSocketResponsedMessage) responsedMessage).tabFeedData;
-                    }
-                    HomePageTabFeedNetModel.this.mErrorCode = responsedMessage.getError();
-                    HomePageTabFeedNetModel.this.mErrorString = responsedMessage.getErrorString();
-                    ErrorData errorData = new ErrorData();
-                    errorData.setError_code(HomePageTabFeedNetModel.this.mErrorCode);
-                    errorData.setError_msg(HomePageTabFeedNetModel.this.mErrorString);
-                    if (HomePageTabFeedNetModel.this.kqd != null) {
-                        if (HomePageTabFeedNetModel.this.mErrorCode != 0 || aVar == null) {
-                            HomePageTabFeedNetModel.this.kqd.a(errorData);
-                        } else {
-                            HomePageTabFeedNetModel.this.a(aVar);
-                        }
-                    }
-                }
-            }
-        };
-        com.baidu.tieba.tbadkCore.a.a.a(309655, TabFeedListSocketResponsedMessage.class, false, false);
-        com.baidu.tieba.tbadkCore.a.a.a(309655, CmdConfigHttp.CMD_HOME_TAB_ACTIVITY_LIST, TbConfig.URL_TAB_ACTIVITY_TAB, TabFeedListHttpResponsedMessage.class, false, false, true, false);
-        this.kqe = new a();
-        this.kqd = cVar;
+        this.f17338e = true;
+        this.f17339f = false;
+        this.f17340g = 1;
+        this.l = new a(CmdConfigHttp.CMD_HOME_TAB_ACTIVITY_LIST, 309655);
+        d.b.i0.c3.d0.a.h(309655, TabFeedListSocketResponsedMessage.class, false, false);
+        d.b.i0.c3.d0.a.c(309655, CmdConfigHttp.CMD_HOME_TAB_ACTIVITY_LIST, TbConfig.URL_TAB_ACTIVITY_TAB, TabFeedListHttpResponsedMessage.class, false, false, true, false);
+        this.k = new d.b.i0.z0.i.f.a();
+        this.j = cVar;
     }
 
-    public void l(BdUniqueId bdUniqueId) {
-        setUniqueId(bdUniqueId);
-        MessageManager.getInstance().unRegisterListener(this.netMessageListener);
-        this.netMessageListener.getHttpMessageListener().setSelfListener(true);
-        this.netMessageListener.getSocketMessageListener().setSelfListener(true);
-        registerListener(this.netMessageListener);
-    }
-
-    public void destory() {
-        MessageManager.getInstance().unRegisterListener(this.netMessageListener);
-        this.isLoading = false;
-        this.gec = true;
-    }
-
-    public void eR(String str, String str2) {
-        this.tabCode = str;
-        this.tabName = str2;
-    }
-
-    public void bRp() {
-        if (!this.isLoading) {
-            this.gec = false;
-            xQ(2);
+    public boolean A() {
+        d.b.i0.z0.i.f.a aVar = this.k;
+        if (aVar == null) {
+            return false;
         }
+        return aVar.c();
     }
 
-    public void refresh() {
-        if (!this.isLoading) {
-            this.gec = true;
-            xQ(1);
-        }
-    }
-
-    private void xQ(int i) {
+    public final void B(int i) {
         TabFeedListRequestMessage tabFeedListRequestMessage = new TabFeedListRequestMessage();
         tabFeedListRequestMessage.loadType = i;
-        tabFeedListRequestMessage.tabCode = this.tabCode;
-        tabFeedListRequestMessage.tabName = this.tabName;
+        tabFeedListRequestMessage.tabCode = this.i;
+        tabFeedListRequestMessage.tabName = this.f17341h;
         if (i == 2) {
-            tabFeedListRequestMessage.pn = this.iQM + 1;
-        } else if (i == 1) {
-            tabFeedListRequestMessage.pn = 1;
-        } else {
+            tabFeedListRequestMessage.pn = this.f17340g + 1;
+        } else if (i != 1) {
             return;
+        } else {
+            tabFeedListRequestMessage.pn = 1;
         }
-        this.isLoading = true;
+        this.f17339f = true;
         sendMessage(tabFeedListRequestMessage);
     }
 
+    public void C() {
+        if (this.f17339f) {
+            return;
+        }
+        this.f17338e = false;
+        B(2);
+    }
+
+    public final void D(d.b.i0.z0.i.e.a aVar) {
+        if (aVar != null) {
+            this.f17340g = aVar.b();
+        }
+        if (this.j != null) {
+            this.j.q0(this.k.a(this.f17338e, aVar));
+        }
+    }
+
+    public void E() {
+        if (this.f17339f) {
+            return;
+        }
+        this.f17338e = true;
+        B(1);
+    }
+
+    public void F(BdUniqueId bdUniqueId) {
+        setUniqueId(bdUniqueId);
+        MessageManager.getInstance().unRegisterListener(this.l);
+        this.l.getHttpMessageListener().setSelfListener(true);
+        this.l.getSocketMessageListener().setSelfListener(true);
+        registerListener(this.l);
+    }
+
+    public void G(String str, String str2) {
+        this.i = str;
+        this.f17341h = str2;
+    }
+
     @Override // com.baidu.adp.base.BdBaseModel
-    protected boolean LoadData() {
+    public boolean LoadData() {
         return false;
     }
 
@@ -133,13 +153,12 @@ public class HomePageTabFeedNetModel extends BdBaseModel {
     @Override // com.baidu.adp.base.BdBaseModel
     public void cancelMessage() {
         super.cancelMessage();
-        this.isLoading = false;
+        this.f17339f = false;
     }
 
-    public boolean hasData() {
-        if (this.kqe == null) {
-            return false;
-        }
-        return this.kqe.hasData();
+    public void destory() {
+        MessageManager.getInstance().unRegisterListener(this.l);
+        this.f17339f = false;
+        this.f17338e = true;
     }
 }

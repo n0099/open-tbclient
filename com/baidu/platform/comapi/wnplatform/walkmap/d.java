@@ -4,42 +4,129 @@ import android.content.Context;
 import android.graphics.Point;
 import android.os.Bundle;
 import android.view.View;
-import com.baidu.live.adp.widget.HorizontalTranslateLayout;
-import com.baidu.live.adp.widget.VerticalTranslateLayout;
 import com.baidu.mapapi.map.MapStatus;
 import com.baidu.mapapi.map.MapView;
+import com.baidu.mapapi.map.WinRound;
 import com.baidu.mapapi.model.inner.MapBound;
+import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
+import com.kwad.sdk.core.config.item.TipsConfigItem;
 import java.lang.ref.SoftReference;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class d extends com.baidu.platform.comapi.walknavi.a {
-    private e b;
-    private a c = null;
+
+    /* renamed from: b  reason: collision with root package name */
+    public e f10390b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public a f10391c = null;
 
     /* renamed from: a  reason: collision with root package name */
-    SoftReference<View> f3094a = null;
+    public SoftReference<View> f10389a = null;
 
     public d() {
-        this.b = null;
-        this.b = new e();
+        this.f10390b = null;
+        this.f10390b = new e();
     }
 
     public MapView a() {
-        if (this.f3094a == null) {
+        SoftReference<View> softReference = this.f10389a;
+        if (softReference == null) {
             return null;
         }
-        return (MapView) this.f3094a.get();
+        return (MapView) softReference.get();
     }
 
-    @Override // com.baidu.platform.comapi.walknavi.a
-    public void release() {
-        a(0);
-        if (this.b != null) {
-            this.b.a();
-            this.b = null;
+    public void b() {
+        a aVar = this.f10391c;
+        if (aVar != null) {
+            aVar.b();
         }
-        if (this.c != null) {
-            this.c.a();
-            this.c = null;
+    }
+
+    public void b(boolean z) {
+    }
+
+    public boolean c() {
+        e eVar = this.f10390b;
+        if (eVar != null) {
+            return eVar.b();
+        }
+        return false;
+    }
+
+    public boolean d() {
+        e eVar = this.f10390b;
+        if (eVar != null) {
+            return eVar.c();
+        }
+        return false;
+    }
+
+    public boolean e() {
+        e eVar = this.f10390b;
+        if (eVar != null) {
+            return eVar.d();
+        }
+        return false;
+    }
+
+    public boolean f() {
+        e eVar = this.f10390b;
+        if (eVar != null) {
+            return eVar.e();
+        }
+        return false;
+    }
+
+    public boolean g() {
+        e eVar = this.f10390b;
+        if (eVar != null) {
+            return eVar.f();
+        }
+        return false;
+    }
+
+    public float h() {
+        e eVar = this.f10390b;
+        if (eVar != null) {
+            return eVar.g();
+        }
+        return -1.0f;
+    }
+
+    public MapStatus i() {
+        a aVar = this.f10391c;
+        if (aVar != null) {
+            return aVar.c();
+        }
+        return null;
+    }
+
+    public MapStatus j() {
+        MapStatus i = com.baidu.platform.comapi.walknavi.b.a().G().i();
+        if (i != null) {
+            WinRound winRound = i.winRound;
+            int i2 = (winRound.left + winRound.right) / 2;
+            int abs = Math.abs(winRound.bottom + winRound.top) / 2;
+            WinRound winRound2 = i.winRound;
+            WinRound winRound3 = i.winRound;
+            return new MapStatus.Builder(i).targetScreen(new Point((winRound2.right + winRound2.left) / 2, ((winRound3.top + winRound3.bottom) / 2) - (0 - ((Math.abs(winRound2.bottom - winRound2.top) * 2) / 10)))).build();
+        }
+        return i;
+    }
+
+    public float k() {
+        a aVar = this.f10391c;
+        if (aVar != null) {
+            return aVar.d();
+        }
+        return 3.0f;
+    }
+
+    public void l() {
+        a aVar = this.f10391c;
+        if (aVar != null) {
+            aVar.e();
         }
     }
 
@@ -49,178 +136,119 @@ public class d extends com.baidu.platform.comapi.walknavi.a {
         return true;
     }
 
+    @Override // com.baidu.platform.comapi.walknavi.a
+    public void release() {
+        a(0);
+        e eVar = this.f10390b;
+        if (eVar != null) {
+            eVar.a();
+            this.f10390b = null;
+        }
+        a aVar = this.f10391c;
+        if (aVar != null) {
+            aVar.a();
+            this.f10391c = null;
+        }
+    }
+
     public void a(Context context, MapView mapView) {
-        this.f3094a = new SoftReference<>(mapView);
-        if (this.c == null) {
-            this.c = new a(mapView);
+        this.f10389a = new SoftReference<>(mapView);
+        a aVar = this.f10391c;
+        if (aVar == null) {
+            this.f10391c = new a(mapView);
         } else {
-            this.c.a(mapView);
+            aVar.a(mapView);
         }
-        this.c.a(false);
+        this.f10391c.a(false);
     }
 
-    public void b() {
-        if (this.c != null) {
-            this.c.b();
-        }
-    }
-
-    public boolean c() {
-        if (this.b != null) {
-            return this.b.b();
-        }
-        return false;
-    }
-
-    public boolean d() {
-        if (this.b != null) {
-            return this.b.c();
-        }
-        return false;
-    }
-
-    public boolean e() {
-        if (this.b != null) {
-            return this.b.d();
-        }
-        return false;
-    }
-
-    public boolean f() {
-        if (this.b != null) {
-            return this.b.e();
-        }
-        return false;
-    }
-
-    public boolean g() {
-        if (this.b != null) {
-            return this.b.f();
+    public boolean b(int[] iArr, int[] iArr2) {
+        e eVar = this.f10390b;
+        if (eVar != null) {
+            return eVar.b(iArr, iArr2);
         }
         return false;
     }
 
     public boolean a(boolean z) {
-        if (this.b != null) {
-            return this.b.a(z);
+        e eVar = this.f10390b;
+        if (eVar != null) {
+            return eVar.a(z);
         }
         return false;
     }
 
     public void a(int i) {
-        if (this.b != null) {
-            switch (i) {
-                case 0:
-                    this.b.b(0);
-                    this.b.b(1);
-                    this.b.b(2);
-                    this.b.b(3);
-                    this.b.b(4);
-                    return;
-                case 1:
-                    this.b.a(0);
-                    this.b.a(1);
-                    this.b.a(2);
-                    if (com.baidu.platform.comapi.wnplatform.a.a().f()) {
-                        this.b.b(3);
-                    } else if (com.baidu.platform.comapi.wnplatform.a.a().g()) {
-                        this.b.a(3);
-                    }
-                    this.b.a(4);
-                    return;
-                default:
-                    return;
+        e eVar = this.f10390b;
+        if (eVar == null) {
+            return;
+        }
+        if (i == 0) {
+            eVar.b(0);
+            this.f10390b.b(1);
+            this.f10390b.b(2);
+            this.f10390b.b(3);
+            this.f10390b.b(4);
+        } else if (i != 1) {
+        } else {
+            eVar.a(0);
+            this.f10390b.a(1);
+            this.f10390b.a(2);
+            if (com.baidu.platform.comapi.wnplatform.a.a().f()) {
+                this.f10390b.b(3);
+            } else if (com.baidu.platform.comapi.wnplatform.a.a().g()) {
+                this.f10390b.a(3);
             }
+            this.f10390b.a(4);
         }
     }
 
     public boolean a(int[] iArr, int[] iArr2) {
-        if (this.b != null) {
-            return this.b.a(iArr, iArr2);
+        e eVar = this.f10390b;
+        if (eVar != null) {
+            return eVar.a(iArr, iArr2);
         }
         return false;
-    }
-
-    public boolean b(int[] iArr, int[] iArr2) {
-        if (this.b != null) {
-            return this.b.b(iArr, iArr2);
-        }
-        return false;
-    }
-
-    public float h() {
-        if (this.b != null) {
-            return this.b.g();
-        }
-        return -1.0f;
     }
 
     public void a(MapStatus mapStatus) {
-        if (this.c != null) {
-            this.c.a(com.baidu.platform.comapi.wnplatform.o.e.a(mapStatus));
+        a aVar = this.f10391c;
+        if (aVar != null) {
+            aVar.a(com.baidu.platform.comapi.wnplatform.o.e.a(mapStatus));
         }
-    }
-
-    public MapStatus i() {
-        if (this.c != null) {
-            return this.c.c();
-        }
-        return null;
-    }
-
-    public MapStatus j() {
-        MapStatus i = com.baidu.platform.comapi.walknavi.b.a().G().i();
-        if (i != null) {
-            int[] iArr = {(i.winRound.left + i.winRound.right) / 2, Math.abs(i.winRound.bottom + i.winRound.top) / 2};
-            int[] iArr2 = {0, 0};
-            return new MapStatus.Builder(i).targetScreen(new Point((i.winRound.right + i.winRound.left) / 2, ((i.winRound.top + i.winRound.bottom) / 2) - (0 - ((Math.abs(i.winRound.bottom - i.winRound.top) * 2) / 10)))).build();
-        }
-        return i;
-    }
-
-    public float k() {
-        if (this.c != null) {
-            return this.c.d();
-        }
-        return 3.0f;
     }
 
     public void a(MapStatus mapStatus, int i) {
-        if (this.c != null) {
-            this.c.a(mapStatus, i);
+        a aVar = this.f10391c;
+        if (aVar != null) {
+            aVar.a(mapStatus, i);
         }
     }
 
     public void a(int i, int i2) {
-        if (this.c != null) {
-            this.c.a(i, i2);
+        a aVar = this.f10391c;
+        if (aVar != null) {
+            aVar.a(i, i2);
         }
-    }
-
-    public void l() {
-        if (this.c != null) {
-            this.c.e();
-        }
-    }
-
-    public void b(boolean z) {
     }
 
     public float a(MapBound mapBound, int i, int i2) {
         Bundle bundle = new Bundle();
-        bundle.putInt("left", mapBound.ptLB.getmPtx());
-        bundle.putInt("bottom", mapBound.ptLB.getmPty());
-        bundle.putInt(HorizontalTranslateLayout.DIRECTION_RIGHT, mapBound.ptRT.getmPtx());
-        bundle.putInt(VerticalTranslateLayout.TOP, mapBound.ptRT.getmPty());
-        if (this.c != null) {
-            return this.c.a(bundle, i, i2);
+        bundle.putInt(CustomDialogData.POS_LEFT, mapBound.ptLB.getmPtx());
+        bundle.putInt(TipsConfigItem.TipConfigData.BOTTOM, mapBound.ptLB.getmPty());
+        bundle.putInt("right", mapBound.ptRT.getmPtx());
+        bundle.putInt("top", mapBound.ptRT.getmPty());
+        a aVar = this.f10391c;
+        if (aVar != null) {
+            return aVar.a(bundle, i, i2);
         }
         return 15.0f;
     }
 
     public void a(f fVar) {
-        if (this.c != null) {
-            this.c.a(fVar);
+        a aVar = this.f10391c;
+        if (aVar != null) {
+            aVar.a(fVar);
         }
     }
 }

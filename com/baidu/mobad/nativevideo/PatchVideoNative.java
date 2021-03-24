@@ -5,20 +5,34 @@ import android.widget.RelativeLayout;
 import com.baidu.mobad.feeds.NativeErrorCode;
 import com.baidu.mobad.feeds.RequestParameters;
 import com.baidu.mobads.utils.XAdSDKFoundationFacade;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class PatchVideoNative {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f2328a;
-    private String b;
-    private RelativeLayout c;
-    private IPatchVideoNativeListener d;
-    private a e;
-    private com.baidu.mobads.i.b f;
-    private e g;
-    private boolean h;
+    public Context f8047a;
 
-    /* loaded from: classes4.dex */
+    /* renamed from: b  reason: collision with root package name */
+    public String f8048b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public RelativeLayout f8049c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public IPatchVideoNativeListener f8050d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public a f8051e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public com.baidu.mobads.i.b f8052f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public e f8053g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public boolean f8054h;
+
+    /* loaded from: classes2.dex */
     public interface IPatchVideoNativeListener {
         void onAdClick();
 
@@ -34,38 +48,66 @@ public class PatchVideoNative {
     }
 
     public PatchVideoNative(Context context, String str, RelativeLayout relativeLayout, IPatchVideoNativeListener iPatchVideoNativeListener) {
-        this.f2328a = context;
-        this.b = str;
-        this.c = relativeLayout;
-        this.d = iPatchVideoNativeListener;
-        this.e = new a(this.f2328a, this.b, new b(this));
-    }
-
-    public void requestAd(RequestParameters requestParameters) {
-        if (this.e != null) {
-            this.e.a(requestParameters);
-        }
-    }
-
-    public void setVideoMute(boolean z) {
-        this.h = z;
-        if (this.f != null) {
-            this.f.a(this.h);
-        }
+        this.f8047a = context;
+        this.f8048b = str;
+        this.f8049c = relativeLayout;
+        this.f8050d = iPatchVideoNativeListener;
+        this.f8051e = new a(context, str, new b(this));
     }
 
     public long getCurrentPosition() {
-        if (this.f != null) {
-            return this.f.a();
+        com.baidu.mobads.i.b bVar = this.f8052f;
+        if (bVar != null) {
+            return bVar.a();
         }
         return 0L;
     }
 
     public long getDuration() {
-        if (this.f != null) {
-            return this.f.b();
+        com.baidu.mobads.i.b bVar = this.f8052f;
+        if (bVar != null) {
+            return bVar.b();
         }
         return 0L;
+    }
+
+    public void requestAd(RequestParameters requestParameters) {
+        a aVar = this.f8051e;
+        if (aVar != null) {
+            aVar.a(requestParameters);
+        }
+    }
+
+    public void setVideoMute(boolean z) {
+        this.f8054h = z;
+        com.baidu.mobads.i.b bVar = this.f8052f;
+        if (bVar != null) {
+            bVar.a(z);
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void b() {
+        IPatchVideoNativeListener iPatchVideoNativeListener = this.f8050d;
+        if (iPatchVideoNativeListener != null) {
+            iPatchVideoNativeListener.playCompletion();
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void c() {
+        IPatchVideoNativeListener iPatchVideoNativeListener = this.f8050d;
+        if (iPatchVideoNativeListener != null) {
+            iPatchVideoNativeListener.playError();
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void d() {
+        IPatchVideoNativeListener iPatchVideoNativeListener = this.f8050d;
+        if (iPatchVideoNativeListener != null) {
+            iPatchVideoNativeListener.onAdShow();
+        }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -75,29 +117,9 @@ public class PatchVideoNative {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(NativeErrorCode nativeErrorCode) {
-        if (this.d != null) {
-            this.d.onAdFailed(nativeErrorCode);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void b() {
-        if (this.d != null) {
-            this.d.playCompletion();
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void c() {
-        if (this.d != null) {
-            this.d.playError();
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void d() {
-        if (this.d != null) {
-            this.d.onAdShow();
+        IPatchVideoNativeListener iPatchVideoNativeListener = this.f8050d;
+        if (iPatchVideoNativeListener != null) {
+            iPatchVideoNativeListener.onAdFailed(nativeErrorCode);
         }
     }
 }

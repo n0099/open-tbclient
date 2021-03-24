@@ -2,9 +2,15 @@ package okhttp3;
 
 import javax.annotation.Nullable;
 import okio.ByteString;
-/* loaded from: classes14.dex */
+/* loaded from: classes.dex */
 public abstract class WebSocketListener {
-    public void onOpen(WebSocket webSocket, Response response) {
+    public void onClosed(WebSocket webSocket, int i, String str) {
+    }
+
+    public void onClosing(WebSocket webSocket, int i, String str) {
+    }
+
+    public void onFailure(WebSocket webSocket, Throwable th, @Nullable Response response) {
     }
 
     public void onMessage(WebSocket webSocket, String str) {
@@ -13,12 +19,6 @@ public abstract class WebSocketListener {
     public void onMessage(WebSocket webSocket, ByteString byteString) {
     }
 
-    public void onClosing(WebSocket webSocket, int i, String str) {
-    }
-
-    public void onClosed(WebSocket webSocket, int i, String str) {
-    }
-
-    public void onFailure(WebSocket webSocket, Throwable th, @Nullable Response response) {
+    public void onOpen(WebSocket webSocket, Response response) {
     }
 }

@@ -3,32 +3,33 @@ package com.baidu.searchbox.http.request;
 import com.baidu.searchbox.http.statistics.NetworkStatRecord;
 import okhttp3.Response;
 import okhttp3.ResponseBody;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class StatResponse {
-    private Response realResponse;
-    private NetworkStatRecord statRecord;
+    public Response realResponse;
+    public NetworkStatRecord statRecord;
 
     public StatResponse(Response response, NetworkStatRecord networkStatRecord) {
         this.realResponse = response;
         this.statRecord = networkStatRecord;
     }
 
-    public StatResponse(NetworkStatRecord networkStatRecord) {
-        this(null, networkStatRecord);
-    }
-
-    public NetworkStatRecord getStatRecord() {
-        return this.statRecord;
+    public ResponseBody body() {
+        Response response = this.realResponse;
+        if (response != null) {
+            return response.body();
+        }
+        return null;
     }
 
     public Response getResponse() {
         return this.realResponse;
     }
 
-    public ResponseBody body() {
-        if (this.realResponse != null) {
-            return this.realResponse.body();
-        }
-        return null;
+    public NetworkStatRecord getStatRecord() {
+        return this.statRecord;
+    }
+
+    public StatResponse(NetworkStatRecord networkStatRecord) {
+        this(null, networkStatRecord);
     }
 }

@@ -1,5 +1,5 @@
 package com.bytedance.sdk.a.b.a.e;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public enum b {
     NO_ERROR(0),
     PROTOCOL_ERROR(1),
@@ -8,16 +8,18 @@ public enum b {
     REFUSED_STREAM(7),
     CANCEL(8);
     
-    public final int g;
+
+    /* renamed from: g  reason: collision with root package name */
+    public final int f27176g;
 
     b(int i) {
-        this.g = i;
+        this.f27176g = i;
     }
 
     public static b a(int i) {
         b[] values;
         for (b bVar : values()) {
-            if (bVar.g == i) {
+            if (bVar.f27176g == i) {
                 return bVar;
             }
         }

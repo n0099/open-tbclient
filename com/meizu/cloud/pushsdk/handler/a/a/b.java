@@ -1,6 +1,7 @@
 package com.meizu.cloud.pushsdk.handler.a.a;
 
 import android.os.Environment;
+import com.baidu.mobstat.Config;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.File;
@@ -12,31 +13,35 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private File f7426a;
+    public File f37798a;
 
     public b(String str) {
-        this.f7426a = new File(str);
+        this.f37798a = new File(str);
     }
 
     private void a(File file, ZipOutputStream zipOutputStream, String str) throws Exception {
-        String str2 = str + (str.trim().length() == 0 ? "" : File.separator) + file.getName();
+        StringBuilder sb = new StringBuilder();
+        sb.append(str);
+        sb.append(str.trim().length() == 0 ? "" : File.separator);
+        sb.append(file.getName());
+        String sb2 = sb.toString();
         if (file.isDirectory()) {
             for (File file2 : file.listFiles()) {
-                a(file2, zipOutputStream, str2);
+                a(file2, zipOutputStream, sb2);
             }
             return;
         }
-        com.meizu.cloud.a.a.i("ZipTask", "current file " + str2 + "/" + file.getName() + " size is " + (file.length() / 1024) + "KB");
-        if (file.length() >= 10485760) {
+        d.j.a.a.a.d("ZipTask", "current file " + sb2 + "/" + file.getName() + " size is " + (file.length() / 1024) + "KB");
+        if (file.length() >= Config.FULL_TRACE_LOG_LIMIT) {
             return;
         }
         byte[] bArr = new byte[1048576];
         BufferedInputStream bufferedInputStream = new BufferedInputStream(new FileInputStream(file), 1048576);
-        zipOutputStream.putNextEntry(new ZipEntry(str2));
+        zipOutputStream.putNextEntry(new ZipEntry(sb2));
         while (true) {
             int read = bufferedInputStream.read(bArr);
             if (read == -1) {
@@ -58,8 +63,8 @@ public class b {
     }
 
     public boolean a(List<String> list) throws Exception {
-        if (!this.f7426a.exists()) {
-            this.f7426a.getParentFile().mkdirs();
+        if (!this.f37798a.exists()) {
+            this.f37798a.getParentFile().mkdirs();
         }
         ArrayList arrayList = new ArrayList();
         String absolutePath = Environment.getExternalStorageDirectory().getAbsolutePath();
@@ -70,7 +75,7 @@ public class b {
                 arrayList.add(file);
             }
         }
-        a(arrayList, this.f7426a);
+        a(arrayList, this.f37798a);
         return true;
     }
 }

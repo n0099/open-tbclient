@@ -2,30 +2,33 @@ package androidx.transition;
 
 import android.animation.TypeEvaluator;
 import android.graphics.Rect;
-/* loaded from: classes5.dex */
-class RectEvaluator implements TypeEvaluator<Rect> {
-    private Rect mRect;
+/* loaded from: classes.dex */
+public class RectEvaluator implements TypeEvaluator<Rect> {
+    public Rect mRect;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public RectEvaluator() {
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public RectEvaluator(Rect rect) {
         this.mRect = rect;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.animation.TypeEvaluator
-    public Rect evaluate(float f, Rect rect, Rect rect2) {
-        int i = ((int) ((rect2.left - rect.left) * f)) + rect.left;
-        int i2 = ((int) ((rect2.top - rect.top) * f)) + rect.top;
-        int i3 = ((int) ((rect2.right - rect.right) * f)) + rect.right;
-        int i4 = ((int) ((rect2.bottom - rect.bottom) * f)) + rect.bottom;
-        if (this.mRect == null) {
-            return new Rect(i, i2, i3, i4);
+    public Rect evaluate(float f2, Rect rect, Rect rect2) {
+        int i = rect.left;
+        int i2 = i + ((int) ((rect2.left - i) * f2));
+        int i3 = rect.top;
+        int i4 = i3 + ((int) ((rect2.top - i3) * f2));
+        int i5 = rect.right;
+        int i6 = i5 + ((int) ((rect2.right - i5) * f2));
+        int i7 = rect.bottom;
+        int i8 = i7 + ((int) ((rect2.bottom - i7) * f2));
+        Rect rect3 = this.mRect;
+        if (rect3 == null) {
+            return new Rect(i2, i4, i6, i8);
         }
-        this.mRect.set(i, i2, i3, i4);
+        rect3.set(i2, i4, i6, i8);
         return this.mRect;
     }
 }

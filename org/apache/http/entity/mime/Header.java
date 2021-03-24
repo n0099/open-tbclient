@@ -8,26 +8,23 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class Header implements Iterable<MinimalField> {
-    private final List<MinimalField> fields = new LinkedList();
-    private final Map<String, List<MinimalField>> fieldMap = new HashMap();
+    public final List<MinimalField> fields = new LinkedList();
+    public final Map<String, List<MinimalField>> fieldMap = new HashMap();
 
     public void addField(MinimalField minimalField) {
-        if (minimalField != null) {
-            String lowerCase = minimalField.getName().toLowerCase(Locale.US);
-            List<MinimalField> list = this.fieldMap.get(lowerCase);
-            if (list == null) {
-                list = new LinkedList<>();
-                this.fieldMap.put(lowerCase, list);
-            }
-            list.add(minimalField);
-            this.fields.add(minimalField);
+        if (minimalField == null) {
+            return;
         }
-    }
-
-    public List<MinimalField> getFields() {
-        return new ArrayList(this.fields);
+        String lowerCase = minimalField.getName().toLowerCase(Locale.US);
+        List<MinimalField> list = this.fieldMap.get(lowerCase);
+        if (list == null) {
+            list = new LinkedList<>();
+            this.fieldMap.put(lowerCase, list);
+        }
+        list.add(minimalField);
+        this.fields.add(minimalField);
     }
 
     public MinimalField getField(String str) {
@@ -41,15 +38,13 @@ public class Header implements Iterable<MinimalField> {
         return list.get(0);
     }
 
-    public List<MinimalField> getFields(String str) {
-        if (str == null) {
-            return null;
-        }
-        List<MinimalField> list = this.fieldMap.get(str.toLowerCase(Locale.US));
-        if (list == null || list.isEmpty()) {
-            return Collections.emptyList();
-        }
-        return new ArrayList(list);
+    public List<MinimalField> getFields() {
+        return new ArrayList(this.fields);
+    }
+
+    @Override // java.lang.Iterable
+    public Iterator<MinimalField> iterator() {
+        return Collections.unmodifiableList(this.fields).iterator();
     }
 
     public int removeFields(String str) {
@@ -65,16 +60,15 @@ public class Header implements Iterable<MinimalField> {
     }
 
     public void setField(MinimalField minimalField) {
-        if (minimalField != null) {
-            List<MinimalField> list = this.fieldMap.get(minimalField.getName().toLowerCase(Locale.US));
-            if (list == null || list.isEmpty()) {
-                addField(minimalField);
-                return;
-            }
+        if (minimalField == null) {
+            return;
+        }
+        List<MinimalField> list = this.fieldMap.get(minimalField.getName().toLowerCase(Locale.US));
+        if (list != null && !list.isEmpty()) {
             list.clear();
             list.add(minimalField);
-            Iterator<MinimalField> it = this.fields.iterator();
             int i = 0;
+            Iterator<MinimalField> it = this.fields.iterator();
             int i2 = -1;
             while (it.hasNext()) {
                 if (it.next().getName().equalsIgnoreCase(minimalField.getName())) {
@@ -86,15 +80,23 @@ public class Header implements Iterable<MinimalField> {
                 i++;
             }
             this.fields.add(i2, minimalField);
+            return;
         }
-    }
-
-    @Override // java.lang.Iterable
-    public Iterator<MinimalField> iterator() {
-        return Collections.unmodifiableList(this.fields).iterator();
+        addField(minimalField);
     }
 
     public String toString() {
         return this.fields.toString();
+    }
+
+    public List<MinimalField> getFields(String str) {
+        if (str == null) {
+            return null;
+        }
+        List<MinimalField> list = this.fieldMap.get(str.toLowerCase(Locale.US));
+        if (list != null && !list.isEmpty()) {
+            return new ArrayList(list);
+        }
+        return Collections.emptyList();
     }
 }

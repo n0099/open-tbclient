@@ -3,48 +3,53 @@ package com.baidu.tieba.im.chat.officialBar;
 import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.im.chat.MsgCommonItemAdapter;
 import com.baidu.tieba.im.chat.MsglistActivity;
 import com.baidu.tieba.im.message.chat.ChatMessage;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class MsgMultiImageTextViewItemAdapter extends MsgCommonItemAdapter<MsgMultiImageTextView> {
+
+    /* loaded from: classes4.dex */
+    public class a extends MsgCommonItemAdapter.MsgViewHolder<MsgMultiImageTextView> {
+        public a(MsgMultiImageTextViewItemAdapter msgMultiImageTextViewItemAdapter, View view, MsgMultiImageTextView msgMultiImageTextView) {
+            super(view, msgMultiImageTextView);
+        }
+    }
+
     public MsgMultiImageTextViewItemAdapter(TbPageContext<MsglistActivity<?>> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext, bdUniqueId);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: ch */
-    public MsgCommonItemAdapter.MsgViewHolder<MsgMultiImageTextView> e(ViewGroup viewGroup) {
-        MsgMultiImageTextView msgMultiImageTextView = new MsgMultiImageTextView(this.mPageContext);
-        return new a(msgMultiImageTextView.getConvertView(), msgMultiImageTextView);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.im.chat.MsgCommonItemAdapter, com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, MsgCommonItemAdapter.MsgViewHolder<MsgMultiImageTextView> msgViewHolder) {
-        super.a(i, view, viewGroup, chatMessage, (MsgCommonItemAdapter.MsgViewHolder) msgViewHolder);
-        MsgMultiImageTextView cUT = msgViewHolder.cUT();
-        cUT.setOnItemViewLongClickListener(this.kCw);
-        cUT.setPosition(i);
-        cUT.gM(this.mCurrentTime);
-        cUT.gL(chatMessage.getCacheData().getLastMsgTime());
-        cUT.a(this.mPageContext, chatMessage, viewGroup);
-        this.mPageContext.getLayoutMode().setNightMode(false);
-        this.mPageContext.getLayoutMode().onModeChanged(view);
-        com.baidu.tieba.im.b.a.cYk().a(chatMessage, this.mPageContext.getPageActivity());
-        com.baidu.tieba.im.b.a.cYk().b(chatMessage, this.mPageContext.getPageActivity());
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
+    @Override // com.baidu.tieba.im.chat.MsgCommonItemAdapter, d.b.b.j.e.a
+    public /* bridge */ /* synthetic */ View X(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, TypeAdapter.ViewHolder viewHolder) {
+        l0(i, view, viewGroup, chatMessage, (MsgCommonItemAdapter.MsgViewHolder) viewHolder);
         return view;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes7.dex */
-    public class a extends MsgCommonItemAdapter.MsgViewHolder<MsgMultiImageTextView> {
-        public a(View view, MsgMultiImageTextView msgMultiImageTextView) {
-            super(view, msgMultiImageTextView);
-        }
+    @Override // com.baidu.tieba.im.chat.MsgCommonItemAdapter
+    public View l0(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, MsgCommonItemAdapter.MsgViewHolder<MsgMultiImageTextView> msgViewHolder) {
+        super.X(i, view, viewGroup, chatMessage, msgViewHolder);
+        MsgMultiImageTextView b2 = msgViewHolder.b();
+        b2.s(this.o);
+        b2.u(i);
+        b2.k(this.p);
+        b2.o(chatMessage.getCacheData().getLastMsgTime());
+        b2.I(this.m, chatMessage, viewGroup);
+        this.m.getLayoutMode().k(false);
+        this.m.getLayoutMode().j(view);
+        d.b.i0.d1.u.a.c().d(chatMessage, this.m.getPageActivity());
+        d.b.i0.d1.u.a.c().e(chatMessage, this.m.getPageActivity());
+        return view;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // d.b.b.j.e.a
+    /* renamed from: r0 */
+    public MsgCommonItemAdapter.MsgViewHolder<MsgMultiImageTextView> R(ViewGroup viewGroup) {
+        MsgMultiImageTextView msgMultiImageTextView = new MsgMultiImageTextView(this.m);
+        return new a(this, msgMultiImageTextView.e(), msgMultiImageTextView);
     }
 }

@@ -1,27 +1,27 @@
 package com.baidu.searchbox.elasticthread.task;
 
 import android.os.SystemClock;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class ElasticTask implements Runnable {
-    private static final boolean DEBUG = false;
-    private long id;
-    private ElasticTaskCallback mCallback;
-    private Runnable mTaskEntity;
-    private String name;
-    private int priority;
+    public static final boolean DEBUG = false;
+    public long id;
+    public ElasticTaskCallback mCallback;
+    public Runnable mTaskEntity;
+    public String name;
+    public int priority;
     public Status status = Status.WAITING;
-    private long timeOnComplete;
-    private long timeOnExecute;
-    private long timeOnQueue;
+    public long timeOnComplete;
+    public long timeOnExecute;
+    public long timeOnQueue;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public interface ElasticTaskCallback {
         void afterExecuteTask();
 
         void beforeExecuteTask();
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public enum Status {
         WAITING,
         RUNNING,
@@ -35,63 +35,38 @@ public class ElasticTask implements Runnable {
         this.priority = i;
     }
 
-    public void setElasticTaskCallback(ElasticTaskCallback elasticTaskCallback) {
-        this.mCallback = elasticTaskCallback;
-    }
-
-    @Override // java.lang.Runnable
-    public void run() {
-        try {
-            if (this.mCallback != null) {
-                this.mCallback.beforeExecuteTask();
-            }
-        } catch (Exception e) {
-        }
-        this.mTaskEntity.run();
-        try {
-            if (this.mCallback != null) {
-                this.mCallback.afterExecuteTask();
-            }
-        } catch (Exception e2) {
-        }
+    public String getName() {
+        return this.name;
     }
 
     public int getPriority() {
         return this.priority;
     }
 
-    public String getName() {
-        return this.name;
+    public synchronized long getRawWorkTime() {
+        if (this.status == Status.WAITING) {
+            return 0L;
+        }
+        return Math.max(0L, (this.status == Status.RUNNING ? SystemClock.elapsedRealtime() : this.timeOnComplete) - this.timeOnExecute);
     }
 
     public synchronized long getWaitingTime() {
-        long j = 0;
-        synchronized (this) {
-            if (this.timeOnQueue != 0) {
-                j = Math.max(0L, (this.status == Status.WAITING ? SystemClock.elapsedRealtime() : this.timeOnExecute) - this.timeOnQueue);
-            }
+        if (this.timeOnQueue == 0) {
+            return 0L;
         }
-        return j;
+        return Math.max(0L, (this.status == Status.WAITING ? SystemClock.elapsedRealtime() : this.timeOnExecute) - this.timeOnQueue);
     }
 
     public synchronized long getWorkTimeInRecordLifeCycle(long j, long j2) {
-        long j3 = 0;
-        synchronized (this) {
-            if (this.status != Status.WAITING) {
-                j3 = Math.max(0L, Math.min(this.status == Status.RUNNING ? SystemClock.elapsedRealtime() : this.timeOnComplete, j2) - Math.max(this.timeOnExecute, j));
-            }
+        if (this.status == Status.WAITING) {
+            return 0L;
         }
-        return j3;
+        return Math.max(0L, Math.min(this.status == Status.RUNNING ? SystemClock.elapsedRealtime() : this.timeOnComplete, j2) - Math.max(this.timeOnExecute, j));
     }
 
-    public synchronized long getRawWorkTime() {
-        long j = 0;
-        synchronized (this) {
-            if (this.status != Status.WAITING) {
-                j = Math.max(0L, (this.status == Status.RUNNING ? SystemClock.elapsedRealtime() : this.timeOnComplete) - this.timeOnExecute);
-            }
-        }
-        return j;
+    public synchronized void recordCompleteTime() {
+        this.status = Status.COMPLETE;
+        this.timeOnComplete = SystemClock.elapsedRealtime();
     }
 
     public synchronized void recordEnqueueTime() {
@@ -104,8 +79,24 @@ public class ElasticTask implements Runnable {
         this.timeOnExecute = SystemClock.elapsedRealtime();
     }
 
-    public synchronized void recordCompleteTime() {
-        this.status = Status.COMPLETE;
-        this.timeOnComplete = SystemClock.elapsedRealtime();
+    @Override // java.lang.Runnable
+    public void run() {
+        try {
+            if (this.mCallback != null) {
+                this.mCallback.beforeExecuteTask();
+            }
+        } catch (Exception unused) {
+        }
+        this.mTaskEntity.run();
+        try {
+            if (this.mCallback != null) {
+                this.mCallback.afterExecuteTask();
+            }
+        } catch (Exception unused2) {
+        }
+    }
+
+    public void setElasticTaskCallback(ElasticTaskCallback elasticTaskCallback) {
+        this.mCallback = elasticTaskCallback;
     }
 }

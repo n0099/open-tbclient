@@ -1,203 +1,271 @@
 package rx.internal.util;
 
+import com.baidu.android.common.others.lang.StringUtil;
+import h.d;
+import h.g;
+import h.j;
+import h.k;
 import java.util.concurrent.atomic.AtomicBoolean;
-import rx.d;
-import rx.g;
 import rx.internal.producers.SingleProducer;
-import rx.j;
-import rx.k;
-/* loaded from: classes4.dex */
-public final class ScalarSynchronousObservable<T> extends rx.d<T> {
-    static final boolean qEd = Boolean.valueOf(System.getProperty("rx.just.strong-mode", "false")).booleanValue();
-    final T t;
+/* loaded from: classes7.dex */
+public final class ScalarSynchronousObservable<T> extends h.d<T> {
 
-    static <T> rx.f a(j<? super T> jVar, T t) {
-        return qEd ? new SingleProducer(jVar, t) : new c(jVar, t);
-    }
+    /* renamed from: g  reason: collision with root package name */
+    public static final boolean f68253g = Boolean.valueOf(System.getProperty("rx.just.strong-mode", "false")).booleanValue();
 
-    public static <T> ScalarSynchronousObservable<T> cg(T t) {
-        return new ScalarSynchronousObservable<>(t);
-    }
+    /* renamed from: f  reason: collision with root package name */
+    public final T f68254f;
 
-    protected ScalarSynchronousObservable(T t) {
-        super(rx.c.c.b(new a(t)));
-        this.t = t;
-    }
+    /* loaded from: classes7.dex */
+    public static final class ScalarAsyncProducer<T> extends AtomicBoolean implements h.f, h.n.a {
+        public static final long serialVersionUID = -2466317989629281651L;
+        public final j<? super T> actual;
+        public final h.n.f<h.n.a, k> onSchedule;
+        public final T value;
 
-    public T get() {
-        return this.t;
-    }
-
-    public rx.d<T> g(final rx.g gVar) {
-        rx.functions.f<rx.functions.a, k> fVar;
-        if (gVar instanceof rx.internal.schedulers.b) {
-            final rx.internal.schedulers.b bVar = (rx.internal.schedulers.b) gVar;
-            fVar = new rx.functions.f<rx.functions.a, k>() { // from class: rx.internal.util.ScalarSynchronousObservable.1
-                /* JADX DEBUG: Method merged with bridge method */
-                @Override // rx.functions.f
-                /* renamed from: h */
-                public k call(rx.functions.a aVar) {
-                    return bVar.g(aVar);
-                }
-            };
-        } else {
-            fVar = new rx.functions.f<rx.functions.a, k>() { // from class: rx.internal.util.ScalarSynchronousObservable.2
-                /* JADX DEBUG: Method merged with bridge method */
-                @Override // rx.functions.f
-                /* renamed from: h */
-                public k call(final rx.functions.a aVar) {
-                    final g.a createWorker = gVar.createWorker();
-                    createWorker.c(new rx.functions.a() { // from class: rx.internal.util.ScalarSynchronousObservable.2.1
-                        @Override // rx.functions.a
-                        public void call() {
-                            try {
-                                aVar.call();
-                            } finally {
-                                createWorker.unsubscribe();
-                            }
-                        }
-                    });
-                    return createWorker;
-                }
-            };
-        }
-        return a((d.a) new b(this.t, fVar));
-    }
-
-    /* loaded from: classes4.dex */
-    static final class a<T> implements d.a<T> {
-        final T value;
-
-        @Override // rx.functions.b
-        public /* bridge */ /* synthetic */ void call(Object obj) {
-            call((j) ((j) obj));
-        }
-
-        a(T t) {
-            this.value = t;
-        }
-
-        public void call(j<? super T> jVar) {
-            jVar.setProducer(ScalarSynchronousObservable.a(jVar, this.value));
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
-    public static final class b<T> implements d.a<T> {
-        final rx.functions.f<rx.functions.a, k> onSchedule;
-        final T value;
-
-        @Override // rx.functions.b
-        public /* bridge */ /* synthetic */ void call(Object obj) {
-            call((j) ((j) obj));
-        }
-
-        b(T t, rx.functions.f<rx.functions.a, k> fVar) {
-            this.value = t;
-            this.onSchedule = fVar;
-        }
-
-        public void call(j<? super T> jVar) {
-            jVar.setProducer(new ScalarAsyncProducer(jVar, this.value, this.onSchedule));
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
-    public static final class ScalarAsyncProducer<T> extends AtomicBoolean implements rx.f, rx.functions.a {
-        private static final long serialVersionUID = -2466317989629281651L;
-        final j<? super T> actual;
-        final rx.functions.f<rx.functions.a, k> onSchedule;
-        final T value;
-
-        public ScalarAsyncProducer(j<? super T> jVar, T t, rx.functions.f<rx.functions.a, k> fVar) {
+        public ScalarAsyncProducer(j<? super T> jVar, T t, h.n.f<h.n.a, k> fVar) {
             this.actual = jVar;
             this.value = t;
             this.onSchedule = fVar;
         }
 
-        @Override // rx.f
-        public void request(long j) {
-            if (j < 0) {
-                throw new IllegalArgumentException("n >= 0 required but it was " + j);
+        @Override // h.n.a
+        public void call() {
+            j<? super T> jVar = this.actual;
+            if (jVar.isUnsubscribed()) {
+                return;
             }
-            if (j != 0 && compareAndSet(false, true)) {
-                this.actual.add(this.onSchedule.call(this));
+            Object obj = (T) this.value;
+            try {
+                jVar.onNext(obj);
+                if (jVar.isUnsubscribed()) {
+                    return;
+                }
+                jVar.onCompleted();
+            } catch (Throwable th) {
+                h.m.a.g(th, jVar, obj);
             }
         }
 
-        @Override // rx.functions.a
-        public void call() {
-            j<? super T> jVar = this.actual;
-            if (!jVar.isUnsubscribed()) {
-                Object obj = (T) this.value;
-                try {
-                    jVar.onNext(obj);
-                    if (!jVar.isUnsubscribed()) {
-                        jVar.onCompleted();
-                    }
-                } catch (Throwable th) {
-                    rx.exceptions.a.a(th, jVar, obj);
+        @Override // h.f
+        public void request(long j) {
+            if (j >= 0) {
+                if (j == 0 || !compareAndSet(false, true)) {
+                    return;
                 }
+                this.actual.add(this.onSchedule.call(this));
+                return;
             }
+            throw new IllegalArgumentException("n >= 0 required but it was " + j);
         }
 
         @Override // java.util.concurrent.atomic.AtomicBoolean
         public String toString() {
-            return "ScalarAsyncProducer[" + this.value + ", " + get() + "]";
+            return "ScalarAsyncProducer[" + this.value + StringUtil.ARRAY_ELEMENT_SEPARATOR + get() + "]";
         }
     }
 
-    public <R> rx.d<R> f(final rx.functions.f<? super T, ? extends rx.d<? extends R>> fVar) {
-        return a((d.a) new d.a<R>() { // from class: rx.internal.util.ScalarSynchronousObservable.3
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // rx.functions.b
-            public void call(j<? super R> jVar) {
-                rx.d dVar = (rx.d) fVar.call(ScalarSynchronousObservable.this.t);
-                if (dVar instanceof ScalarSynchronousObservable) {
-                    jVar.setProducer(ScalarSynchronousObservable.a(jVar, ((ScalarSynchronousObservable) dVar).t));
-                } else {
-                    dVar.a((j) rx.b.f.d(jVar));
+    /* loaded from: classes7.dex */
+    public class a implements h.n.f<h.n.a, k> {
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ h.o.c.b f68255e;
+
+        public a(ScalarSynchronousObservable scalarSynchronousObservable, h.o.c.b bVar) {
+            this.f68255e = bVar;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // h.n.f
+        /* renamed from: a */
+        public k call(h.n.a aVar) {
+            return this.f68255e.a(aVar);
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class b implements h.n.f<h.n.a, k> {
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ g f68256e;
+
+        /* loaded from: classes7.dex */
+        public class a implements h.n.a {
+
+            /* renamed from: e  reason: collision with root package name */
+            public final /* synthetic */ h.n.a f68257e;
+
+            /* renamed from: f  reason: collision with root package name */
+            public final /* synthetic */ g.a f68258f;
+
+            public a(b bVar, h.n.a aVar, g.a aVar2) {
+                this.f68257e = aVar;
+                this.f68258f = aVar2;
+            }
+
+            @Override // h.n.a
+            public void call() {
+                try {
+                    this.f68257e.call();
+                } finally {
+                    this.f68258f.unsubscribe();
                 }
             }
-        });
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
-    public static final class c<T> implements rx.f {
-        final j<? super T> actual;
-        boolean once;
-        final T value;
-
-        public c(j<? super T> jVar, T t) {
-            this.actual = jVar;
-            this.value = t;
         }
 
-        @Override // rx.f
+        public b(ScalarSynchronousObservable scalarSynchronousObservable, g gVar) {
+            this.f68256e = gVar;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // h.n.f
+        /* renamed from: a */
+        public k call(h.n.a aVar) {
+            g.a createWorker = this.f68256e.createWorker();
+            createWorker.b(new a(this, aVar, createWorker));
+            return createWorker;
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class c implements d.a<R> {
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ h.n.f f68259e;
+
+        public c(h.n.f fVar) {
+            this.f68259e = fVar;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // h.n.b
+        /* renamed from: a */
+        public void call(j<? super R> jVar) {
+            h.d dVar = (h.d) this.f68259e.call(ScalarSynchronousObservable.this.f68254f);
+            if (dVar instanceof ScalarSynchronousObservable) {
+                jVar.setProducer(ScalarSynchronousObservable.L(jVar, ((ScalarSynchronousObservable) dVar).f68254f));
+            } else {
+                dVar.J(h.q.f.c(jVar));
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static final class d<T> implements d.a<T> {
+
+        /* renamed from: e  reason: collision with root package name */
+        public final T f68261e;
+
+        public d(T t) {
+            this.f68261e = t;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // h.n.b
+        /* renamed from: a */
+        public void call(j<? super T> jVar) {
+            jVar.setProducer(ScalarSynchronousObservable.L(jVar, this.f68261e));
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static final class e<T> implements d.a<T> {
+
+        /* renamed from: e  reason: collision with root package name */
+        public final T f68262e;
+
+        /* renamed from: f  reason: collision with root package name */
+        public final h.n.f<h.n.a, k> f68263f;
+
+        public e(T t, h.n.f<h.n.a, k> fVar) {
+            this.f68262e = t;
+            this.f68263f = fVar;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // h.n.b
+        /* renamed from: a */
+        public void call(j<? super T> jVar) {
+            jVar.setProducer(new ScalarAsyncProducer(jVar, this.f68262e, this.f68263f));
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static final class f<T> implements h.f {
+
+        /* renamed from: e  reason: collision with root package name */
+        public final j<? super T> f68264e;
+
+        /* renamed from: f  reason: collision with root package name */
+        public final T f68265f;
+
+        /* renamed from: g  reason: collision with root package name */
+        public boolean f68266g;
+
+        public f(j<? super T> jVar, T t) {
+            this.f68264e = jVar;
+            this.f68265f = t;
+        }
+
+        @Override // h.f
         public void request(long j) {
-            if (!this.once) {
-                if (j < 0) {
-                    throw new IllegalStateException("n >= required but it was " + j);
+            if (this.f68266g) {
+                return;
+            }
+            if (j < 0) {
+                throw new IllegalStateException("n >= required but it was " + j);
+            } else if (j == 0) {
+            } else {
+                this.f68266g = true;
+                j<? super T> jVar = this.f68264e;
+                if (jVar.isUnsubscribed()) {
+                    return;
                 }
-                if (j != 0) {
-                    this.once = true;
-                    j<? super T> jVar = this.actual;
-                    if (!jVar.isUnsubscribed()) {
-                        Object obj = (T) this.value;
-                        try {
-                            jVar.onNext(obj);
-                            if (!jVar.isUnsubscribed()) {
-                                jVar.onCompleted();
-                            }
-                        } catch (Throwable th) {
-                            rx.exceptions.a.a(th, jVar, obj);
-                        }
+                Object obj = (T) this.f68265f;
+                try {
+                    jVar.onNext(obj);
+                    if (jVar.isUnsubscribed()) {
+                        return;
                     }
+                    jVar.onCompleted();
+                } catch (Throwable th) {
+                    h.m.a.g(th, jVar, obj);
                 }
             }
         }
+    }
+
+    public ScalarSynchronousObservable(T t) {
+        super(h.r.c.h(new d(t)));
+        this.f68254f = t;
+    }
+
+    public static <T> ScalarSynchronousObservable<T> K(T t) {
+        return new ScalarSynchronousObservable<>(t);
+    }
+
+    public static <T> h.f L(j<? super T> jVar, T t) {
+        if (f68253g) {
+            return new SingleProducer(jVar, t);
+        }
+        return new f(jVar, t);
+    }
+
+    public T M() {
+        return this.f68254f;
+    }
+
+    public <R> h.d<R> N(h.n.f<? super T, ? extends h.d<? extends R>> fVar) {
+        return h.d.c(new c(fVar));
+    }
+
+    public h.d<T> O(g gVar) {
+        h.n.f bVar;
+        if (gVar instanceof h.o.c.b) {
+            bVar = new a(this, (h.o.c.b) gVar);
+        } else {
+            bVar = new b(this, gVar);
+        }
+        return h.d.c(new e(this.f68254f, bVar));
     }
 }

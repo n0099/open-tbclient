@@ -2,14 +2,12 @@ package com.idlefish.flutterboost;
 
 import android.content.Context;
 import android.text.TextUtils;
-import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
-import com.baidu.tbadk.core.atomData.GroupInfoActivityConfig;
 import com.baidu.tbadk.switchs.FlutterCrabReportEnableSwitch;
-import com.baidu.tieba.t.a;
 import com.idlefish.flutterboost.interfaces.IContainerManager;
 import com.idlefish.flutterboost.interfaces.IContainerRecord;
 import com.idlefish.flutterboost.interfaces.IFlutterViewContainer;
 import com.idlefish.flutterboost.interfaces.IOperateSyncer;
+import d.b.i0.h3.a;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -20,133 +18,30 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
 import java.util.Stack;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class FlutterViewContainerManager implements IContainerManager {
-    private final Map<IFlutterViewContainer, IContainerRecord> mRecordMap = new LinkedHashMap();
-    private final Set<ContainerRef> mRefs = new HashSet();
-    private final Stack<IContainerRecord> mRecordStack = new Stack<>();
+    public final Map<IFlutterViewContainer, IContainerRecord> mRecordMap = new LinkedHashMap();
+    public final Set<ContainerRef> mRefs = new HashSet();
+    public final Stack<IContainerRecord> mRecordStack = new Stack<>();
     public final Stack<IContainerRecord> mShowRecord = new Stack<>();
-    private final Map<String, OnResult> mOnResults = new HashMap();
+    public final Map<String, OnResult> mOnResults = new HashMap();
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
+    public static class ContainerRef {
+        public final WeakReference<IFlutterViewContainer> container;
+        public final String uniqueId;
+
+        public ContainerRef(String str, IFlutterViewContainer iFlutterViewContainer) {
+            this.uniqueId = str;
+            this.container = new WeakReference<>(iFlutterViewContainer);
+        }
+    }
+
+    /* loaded from: classes6.dex */
     public interface OnResult {
         void onResult(Map<String, Object> map);
     }
 
-    @Override // com.idlefish.flutterboost.interfaces.IContainerManager
-    public IOperateSyncer generateSyncer(IFlutterViewContainer iFlutterViewContainer) {
-        Utils.assertCallOnMainThread();
-        ContainerRecord containerRecord = new ContainerRecord(this, iFlutterViewContainer);
-        if (this.mRecordMap.put(iFlutterViewContainer, containerRecord) != null) {
-            Debuger.exception("container:" + iFlutterViewContainer.getContainerUrl() + " already exists!");
-        }
-        this.mRefs.add(new ContainerRef(containerRecord.uniqueId(), iFlutterViewContainer));
-        return containerRecord;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void pushShowRecord(IContainerRecord iContainerRecord) {
-        this.mShowRecord.push(iContainerRecord);
-    }
-
-    public IContainerRecord peekShowRecord() {
-        if (this.mShowRecord.isEmpty()) {
-            return null;
-        }
-        return this.mShowRecord.peek();
-    }
-
-    public IContainerRecord popShowRecord() {
-        if (this.mShowRecord.isEmpty()) {
-            return null;
-        }
-        return this.mShowRecord.pop();
-    }
-
-    public void logShowRecord() {
-        if (FlutterCrabReportEnableSwitch.isOn() && this.mShowRecord != null && this.mShowRecord.size() > 0) {
-            StringBuffer stringBuffer = new StringBuffer();
-            int i = 0;
-            while (true) {
-                int i2 = i;
-                if (i2 < this.mShowRecord.size()) {
-                    IContainerRecord iContainerRecord = this.mShowRecord.get(i2);
-                    if (iContainerRecord != null && iContainerRecord.getContainer() != null) {
-                        stringBuffer.append("--" + iContainerRecord.getContainer().getContainerUrl() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + iContainerRecord.creatTime());
-                    }
-                    i = i2 + 1;
-                } else {
-                    a.getInstance().setOpenFlutterPage(stringBuffer.toString());
-                    return;
-                }
-            }
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void removeShowRecord(IContainerRecord iContainerRecord) {
-        this.mShowRecord.remove(iContainerRecord);
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void pushRecord(IContainerRecord iContainerRecord) {
-        if (!this.mRecordMap.containsValue(iContainerRecord)) {
-            Debuger.exception("invalid record!");
-        }
-        this.mRecordStack.push(iContainerRecord);
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void popRecord(IContainerRecord iContainerRecord) {
-        if (!this.mRecordStack.empty() && this.mRecordStack.peek() == iContainerRecord) {
-            this.mRecordStack.pop();
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void removeRecord(IContainerRecord iContainerRecord) {
-        this.mRecordStack.remove(iContainerRecord);
-        this.mRecordMap.remove(iContainerRecord.getContainer());
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void setContainerResult(IContainerRecord iContainerRecord, int i, int i2, Map<String, Object> map) {
-        if (findContainerById(iContainerRecord.uniqueId()) == null) {
-            Debuger.exception("setContainerResult error, url=" + iContainerRecord.getContainer().getContainerUrl());
-        }
-        if (map == null) {
-            map = new HashMap<>();
-        }
-        map.put("_requestCode__", Integer.valueOf(i));
-        map.put("_resultCode__", Integer.valueOf(i2));
-        OnResult remove = this.mOnResults.remove(iContainerRecord.uniqueId());
-        if (remove != null) {
-            remove.onResult(map);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void openContainer(String str, Map<String, Object> map, Map<String, Object> map2, OnResult onResult) {
-        Context currentActivity = FlutterBoost.instance().currentActivity();
-        if (currentActivity == null) {
-            currentActivity = FlutterBoost.instance().platform().getApplication();
-        }
-        Map<String, Object> hashMap = map == null ? new HashMap<>() : map;
-        int i = 0;
-        Object remove = hashMap.remove(GroupInfoActivityConfig.REQUEST_CODE);
-        if (remove != null) {
-            i = Integer.valueOf(String.valueOf(remove)).intValue();
-        }
-        hashMap.put("__container_uniqueId_key__", ContainerRecord.genUniqueId(str));
-        IContainerRecord currentTopRecord = getCurrentTopRecord();
-        if (onResult != null && currentTopRecord != null) {
-            this.mOnResults.put(currentTopRecord.uniqueId(), onResult);
-        }
-        FlutterBoost.instance().platform().openContainer(currentActivity, str, hashMap, i, map2);
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
     public IContainerRecord closeContainer(String str, Map<String, Object> map, Map<String, Object> map2) {
         IContainerRecord iContainerRecord;
         Iterator<Map.Entry<IFlutterViewContainer, IContainerRecord>> it = this.mRecordMap.entrySet().iterator();
@@ -166,22 +61,6 @@ public class FlutterViewContainerManager implements IContainerManager {
         }
         FlutterBoost.instance().platform().closeContainer(iContainerRecord, map, map2);
         return iContainerRecord;
-    }
-
-    public IContainerRecord getCurrentTopRecord() {
-        if (this.mRecordStack.isEmpty()) {
-            return null;
-        }
-        return this.mRecordStack.peek();
-    }
-
-    public IContainerRecord getLastGenerateRecord() {
-        Collection<IContainerRecord> values = this.mRecordMap.values();
-        if (values.isEmpty()) {
-            return null;
-        }
-        ArrayList arrayList = new ArrayList(values);
-        return (IContainerRecord) arrayList.get(arrayList.size() - 1);
     }
 
     public IFlutterViewContainer findContainerById(String str) {
@@ -208,34 +87,31 @@ public class FlutterViewContainerManager implements IContainerManager {
         return iFlutterViewContainer;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void onShownContainerChanged(String str, String str2) {
-        IFlutterViewContainer iFlutterViewContainer;
+    @Override // com.idlefish.flutterboost.interfaces.IContainerManager
+    public IOperateSyncer generateSyncer(IFlutterViewContainer iFlutterViewContainer) {
         Utils.assertCallOnMainThread();
-        Iterator<Map.Entry<IFlutterViewContainer, IContainerRecord>> it = this.mRecordMap.entrySet().iterator();
-        IFlutterViewContainer iFlutterViewContainer2 = null;
-        IFlutterViewContainer iFlutterViewContainer3 = null;
-        while (true) {
-            if (!it.hasNext()) {
-                iFlutterViewContainer = iFlutterViewContainer2;
-                break;
-            }
-            Map.Entry<IFlutterViewContainer, IContainerRecord> next = it.next();
-            if (TextUtils.equals(str, next.getValue().uniqueId())) {
-                iFlutterViewContainer3 = next.getKey();
-            }
-            iFlutterViewContainer = TextUtils.equals(str2, next.getValue().uniqueId()) ? next.getKey() : iFlutterViewContainer2;
-            if (iFlutterViewContainer3 != null && iFlutterViewContainer != null) {
-                break;
-            }
-            iFlutterViewContainer2 = iFlutterViewContainer;
+        ContainerRecord containerRecord = new ContainerRecord(this, iFlutterViewContainer);
+        if (this.mRecordMap.put(iFlutterViewContainer, containerRecord) != null) {
+            Debuger.exception("container:" + iFlutterViewContainer.getContainerUrl() + " already exists!");
         }
-        if (iFlutterViewContainer != null) {
-            iFlutterViewContainer.onContainerShown();
+        this.mRefs.add(new ContainerRef(containerRecord.uniqueId(), iFlutterViewContainer));
+        return containerRecord;
+    }
+
+    public IContainerRecord getCurrentTopRecord() {
+        if (this.mRecordStack.isEmpty()) {
+            return null;
         }
-        if (iFlutterViewContainer3 != null) {
-            iFlutterViewContainer3.onContainerHidden();
+        return this.mRecordStack.peek();
+    }
+
+    public IContainerRecord getLastGenerateRecord() {
+        Collection<IContainerRecord> values = this.mRecordMap.values();
+        if (values.isEmpty()) {
+            return null;
         }
+        ArrayList arrayList = new ArrayList(values);
+        return (IContainerRecord) arrayList.get(arrayList.size() - 1);
     }
 
     public boolean hasContainerAppear() {
@@ -247,14 +123,116 @@ public class FlutterViewContainerManager implements IContainerManager {
         return false;
     }
 
-    /* loaded from: classes4.dex */
-    public static class ContainerRef {
-        public final WeakReference<IFlutterViewContainer> container;
-        public final String uniqueId;
+    public void logShowRecord() {
+        Stack<IContainerRecord> stack;
+        if (!FlutterCrabReportEnableSwitch.isOn() || (stack = this.mShowRecord) == null || stack.size() <= 0) {
+            return;
+        }
+        StringBuffer stringBuffer = new StringBuffer();
+        for (int i = 0; i < this.mShowRecord.size(); i++) {
+            IContainerRecord iContainerRecord = this.mShowRecord.get(i);
+            if (iContainerRecord != null && iContainerRecord.getContainer() != null) {
+                stringBuffer.append("--" + iContainerRecord.getContainer().getContainerUrl() + "_" + iContainerRecord.creatTime());
+            }
+        }
+        a.getInstance().setOpenFlutterPage(stringBuffer.toString());
+    }
 
-        ContainerRef(String str, IFlutterViewContainer iFlutterViewContainer) {
-            this.uniqueId = str;
-            this.container = new WeakReference<>(iFlutterViewContainer);
+    public void onShownContainerChanged(String str, String str2) {
+        Utils.assertCallOnMainThread();
+        IFlutterViewContainer iFlutterViewContainer = null;
+        IFlutterViewContainer iFlutterViewContainer2 = null;
+        for (Map.Entry<IFlutterViewContainer, IContainerRecord> entry : this.mRecordMap.entrySet()) {
+            if (TextUtils.equals(str, entry.getValue().uniqueId())) {
+                iFlutterViewContainer = entry.getKey();
+            }
+            if (TextUtils.equals(str2, entry.getValue().uniqueId())) {
+                iFlutterViewContainer2 = entry.getKey();
+            }
+            if (iFlutterViewContainer != null && iFlutterViewContainer2 != null) {
+                break;
+            }
+        }
+        if (iFlutterViewContainer2 != null) {
+            iFlutterViewContainer2.onContainerShown();
+        }
+        if (iFlutterViewContainer != null) {
+            iFlutterViewContainer.onContainerHidden();
+        }
+    }
+
+    public void openContainer(String str, Map<String, Object> map, Map<String, Object> map2, OnResult onResult) {
+        Context currentActivity = FlutterBoost.instance().currentActivity();
+        if (currentActivity == null) {
+            currentActivity = FlutterBoost.instance().platform().getApplication();
+        }
+        Context context = currentActivity;
+        if (map == null) {
+            map = new HashMap<>();
+        }
+        Map<String, Object> map3 = map;
+        Object remove = map3.remove("requestCode");
+        int intValue = remove != null ? Integer.valueOf(String.valueOf(remove)).intValue() : 0;
+        map3.put("__container_uniqueId_key__", ContainerRecord.genUniqueId(str));
+        IContainerRecord currentTopRecord = getCurrentTopRecord();
+        if (onResult != null && currentTopRecord != null) {
+            this.mOnResults.put(currentTopRecord.uniqueId(), onResult);
+        }
+        FlutterBoost.instance().platform().openContainer(context, str, map3, intValue, map2);
+    }
+
+    public IContainerRecord peekShowRecord() {
+        if (this.mShowRecord.isEmpty()) {
+            return null;
+        }
+        return this.mShowRecord.peek();
+    }
+
+    public void popRecord(IContainerRecord iContainerRecord) {
+        if (!this.mRecordStack.empty() && this.mRecordStack.peek() == iContainerRecord) {
+            this.mRecordStack.pop();
+        }
+    }
+
+    public IContainerRecord popShowRecord() {
+        if (this.mShowRecord.isEmpty()) {
+            return null;
+        }
+        return this.mShowRecord.pop();
+    }
+
+    public void pushRecord(IContainerRecord iContainerRecord) {
+        if (!this.mRecordMap.containsValue(iContainerRecord)) {
+            Debuger.exception("invalid record!");
+        }
+        this.mRecordStack.push(iContainerRecord);
+    }
+
+    public void pushShowRecord(IContainerRecord iContainerRecord) {
+        this.mShowRecord.push(iContainerRecord);
+    }
+
+    public void removeRecord(IContainerRecord iContainerRecord) {
+        this.mRecordStack.remove(iContainerRecord);
+        this.mRecordMap.remove(iContainerRecord.getContainer());
+    }
+
+    public void removeShowRecord(IContainerRecord iContainerRecord) {
+        this.mShowRecord.remove(iContainerRecord);
+    }
+
+    public void setContainerResult(IContainerRecord iContainerRecord, int i, int i2, Map<String, Object> map) {
+        if (findContainerById(iContainerRecord.uniqueId()) == null) {
+            Debuger.exception("setContainerResult error, url=" + iContainerRecord.getContainer().getContainerUrl());
+        }
+        if (map == null) {
+            map = new HashMap<>();
+        }
+        map.put("_requestCode__", Integer.valueOf(i));
+        map.put("_resultCode__", Integer.valueOf(i2));
+        OnResult remove = this.mOnResults.remove(iContainerRecord.uniqueId());
+        if (remove != null) {
+            remove.onResult(map);
         }
     }
 }

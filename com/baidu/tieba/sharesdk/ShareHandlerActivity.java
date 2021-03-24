@@ -4,191 +4,38 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import com.baidu.tbadk.ActivityPendingTransitionFactory;
-import com.baidu.tbadk.core.util.au;
 import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
 import com.baidu.tieba.model.ShareReportModel;
-import com.baidu.tieba.sharesdk.a.d;
-import com.baidu.tieba.sharesdk.a.e;
-import com.baidu.tieba.sharesdk.a.f;
 import com.baidu.tieba.sharesdk.bean.ShareEntity;
+import com.kwad.sdk.core.imageloader.utils.StorageUtils;
 import com.sina.weibo.sdk.share.WbShareCallback;
 import com.tencent.tauth.Tencent;
-/* loaded from: classes7.dex */
-public class ShareHandlerActivity extends ShareBaseActivity implements com.baidu.tieba.sharesdk.b.b, WbShareCallback {
-    public static int aln = 3;
-    private PermissionJudgePolicy mPermissionJudgement;
-    protected ShareEntity nmB;
-    protected com.baidu.tieba.sharesdk.a.a nmC;
-    protected e nmD;
-    private ShareReportModel nmE;
-    protected boolean nmz = false;
-    protected int nmA = -1;
+import d.b.b.e.p.k;
+import d.b.i0.v2.d.a;
+import d.b.i0.v2.d.c;
+import d.b.i0.v2.d.d;
+import d.b.i0.v2.d.e;
+import d.b.i0.v2.d.f;
+import d.b.i0.v2.e.b;
+/* loaded from: classes5.dex */
+public class ShareHandlerActivity extends ShareBaseActivity implements b, WbShareCallback {
+    public static int skinType = 3;
+    public a mCurrentShare;
+    public PermissionJudgePolicy mPermissionJudgement;
+    public e mShareByWeibo;
+    public ShareEntity mShareEntity;
+    public ShareReportModel mShareReportModel;
+    public boolean isSecondOnResume = false;
+    public int mShareChannel = -1;
 
-    @Override // com.baidu.tieba.sharesdk.ShareBaseActivity, com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
-    protected void onCreate(Bundle bundle) {
-        requestWindowFeature(1);
-        super.onCreate(bundle);
-        try {
-            Intent intent = getIntent();
-            this.nmB = (ShareEntity) intent.getParcelableExtra("extra_share_data");
-            aln = intent.getIntExtra("extra_skin", 3);
-        } catch (Exception e) {
-        }
-        if (this.nmB == null) {
-            finish();
+    private void shareReport(Bundle bundle) {
+        if (bundle == null) {
             return;
         }
-        aI(this.nmB.bzf());
-        this.nmA = this.nmB.dJr();
-        if (this.nmC != null) {
-            this.nmC.onDestroy();
-            this.nmC = null;
+        if (this.mShareReportModel == null) {
+            this.mShareReportModel = new ShareReportModel(getPageContext());
         }
-        if (this.nmD != null) {
-            this.nmD.onDestroy();
-            this.nmD = null;
-        }
-        switch (this.nmA) {
-            case 0:
-                this.nmC = new d(this);
-                break;
-            case 1:
-            case 5:
-            case 7:
-            default:
-                this.nmC = null;
-                break;
-            case 2:
-                this.nmC = new f(this, 2);
-                break;
-            case 3:
-                this.nmC = new f(this, 3);
-                break;
-            case 4:
-                this.nmC = new com.baidu.tieba.sharesdk.a.c(this);
-                break;
-            case 6:
-                this.nmD = new e(this, this, this);
-                this.nmC = this.nmD;
-                break;
-            case 8:
-                this.nmC = new com.baidu.tieba.sharesdk.a.b(this);
-                break;
-        }
-        if (this.nmC != null) {
-            this.nmC.setTid(this.nmB.getTid());
-            this.nmC.SI(this.nmB.dJt());
-        }
-        if (this.nmB.dJw() && !TextUtils.isEmpty(this.nmB.getImgUrl())) {
-            if (this.mPermissionJudgement == null) {
-                this.mPermissionJudgement = new PermissionJudgePolicy();
-            }
-            this.mPermissionJudgement.clearRequestPermissionList();
-            this.mPermissionJudgement.appendRequestPermission(getPageContext().getPageActivity(), "android.permission.WRITE_EXTERNAL_STORAGE");
-            if (this.mPermissionJudgement.startRequestPermission(getPageContext().getPageActivity())) {
-                return;
-            }
-        }
-        if (this.nmC != null) {
-            this.nmC.A(getUniqueId());
-            this.nmC.N(getIntent());
-            this.nmC.a(this.nmB, this);
-            return;
-        }
-        if (this.nmB.bzf() != null) {
-            this.nmB.bzf().getString("tid");
-        }
-        a(this.nmA, 2, this.nmB.bzf(), null);
-    }
-
-    private void aI(Bundle bundle) {
-        if (bundle != null) {
-            if (this.nmE == null) {
-                this.nmE = new ShareReportModel(getPageContext());
-            }
-            this.nmE.u(bundle.getString("fid"), bundle.getString("tid"), bundle.getInt("obj_source"));
-        }
-    }
-
-    @Override // android.app.Activity
-    protected void onSaveInstanceState(Bundle bundle) {
-        super.onSaveInstanceState(bundle);
-    }
-
-    @Override // android.app.Activity
-    protected void onRestoreInstanceState(Bundle bundle) {
-        super.onRestoreInstanceState(bundle);
-    }
-
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
-    protected void onResume() {
-        super.onResume();
-        if (this.nmz) {
-            finish();
-        } else {
-            this.nmz = true;
-        }
-    }
-
-    @Override // android.app.Activity
-    protected void onNewIntent(Intent intent) {
-        super.onNewIntent(intent);
-        if (intent != null) {
-            aln = intent.getIntExtra("extra_skin", 3);
-        }
-        if (this.nmC != null) {
-            this.nmC.N(intent);
-        }
-    }
-
-    @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
-    protected void onActivityResult(int i, int i2, Intent intent) {
-        super.onActivityResult(i, i2, intent);
-        if (i == 10103 || i == 10104) {
-            Tencent.onActivityResultData(i, i2, intent, null);
-        } else if (this.nmC != null) {
-            this.nmC.N(intent);
-        }
-    }
-
-    @Override // com.baidu.tieba.sharesdk.b.b
-    public void dm(int i, int i2) {
-        if (i2 == 1) {
-            com.baidu.tieba.sharesdk.c.b.a(i, this.nmB);
-        }
-        if (i2 == 3) {
-            if (i == 8 || i == 6) {
-                com.baidu.tieba.sharesdk.c.b.a(i, this.nmB);
-            } else {
-                com.baidu.tieba.sharesdk.c.b.b(i, this.nmB);
-            }
-        }
-        if (this.nmB.bzf() != null) {
-            this.nmB.bzf().getString("tid");
-            this.nmB.bzf().getString("pid");
-        }
-        String str = null;
-        if (!au.isEmpty(this.nmB.taskCompleteId)) {
-            str = this.nmB.taskCompleteId;
-        }
-        a(i, i2, this.nmB.bzf(), str);
-    }
-
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
-    protected void onDestroy() {
-        if (this.nmC != null) {
-            this.nmC.onDestroy();
-        }
-        if (this.nmE != null) {
-            this.nmE.cancelMessage();
-        }
-        super.onDestroy();
-    }
-
-    @Override // com.baidu.tbadk.BaseActivity
-    public void enterExitAnimation() {
-        super.enterExitAnimation();
-        ActivityPendingTransitionFactory.enterExitAnimation(getPageContext(), 0);
+        this.mShareReportModel.t(bundle.getString("fid"), bundle.getString("tid"), bundle.getInt("obj_source"));
     }
 
     @Override // com.baidu.tbadk.BaseActivity
@@ -197,24 +44,184 @@ public class ShareHandlerActivity extends ShareBaseActivity implements com.baidu
         ActivityPendingTransitionFactory.closeAnimation(getPageContext(), 0);
     }
 
-    @Override // com.sina.weibo.sdk.share.WbShareCallback
-    public void onWbShareSuccess() {
-        if (this.nmD != null) {
-            this.nmD.onWbShareSuccess();
+    @Override // com.baidu.tbadk.BaseActivity
+    public void enterExitAnimation() {
+        super.enterExitAnimation();
+        ActivityPendingTransitionFactory.enterExitAnimation(getPageContext(), 0);
+    }
+
+    @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
+    public void onActivityResult(int i, int i2, Intent intent) {
+        super.onActivityResult(i, i2, intent);
+        if (i != 10103 && i != 10104) {
+            a aVar = this.mCurrentShare;
+            if (aVar != null) {
+                aVar.l(intent);
+                return;
+            }
+            return;
         }
+        Tencent.onActivityResultData(i, i2, intent, null);
+    }
+
+    @Override // com.baidu.tieba.sharesdk.ShareBaseActivity, com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
+    public void onCreate(Bundle bundle) {
+        requestWindowFeature(1);
+        super.onCreate(bundle);
+        try {
+            Intent intent = getIntent();
+            this.mShareEntity = (ShareEntity) intent.getParcelableExtra("extra_share_data");
+            skinType = intent.getIntExtra("extra_skin", 3);
+        } catch (Exception unused) {
+        }
+        ShareEntity shareEntity = this.mShareEntity;
+        if (shareEntity == null) {
+            finish();
+            return;
+        }
+        shareReport(shareEntity.l());
+        this.mShareChannel = this.mShareEntity.j();
+        a aVar = this.mCurrentShare;
+        if (aVar != null) {
+            aVar.p();
+            this.mCurrentShare = null;
+        }
+        e eVar = this.mShareByWeibo;
+        if (eVar != null) {
+            eVar.p();
+            this.mShareByWeibo = null;
+        }
+        int i = this.mShareChannel;
+        if (i == 0) {
+            this.mCurrentShare = new d(this);
+        } else if (i == 6) {
+            e eVar2 = new e(this, this, this);
+            this.mShareByWeibo = eVar2;
+            this.mCurrentShare = eVar2;
+        } else if (i == 8) {
+            this.mCurrentShare = new d.b.i0.v2.d.b(this);
+        } else if (i == 2) {
+            this.mCurrentShare = new f(this, 2);
+        } else if (i == 3) {
+            this.mCurrentShare = new f(this, 3);
+        } else if (i != 4) {
+            this.mCurrentShare = null;
+        } else {
+            this.mCurrentShare = new c(this);
+        }
+        a aVar2 = this.mCurrentShare;
+        if (aVar2 != null) {
+            aVar2.t(this.mShareEntity.m());
+            this.mCurrentShare.s(this.mShareEntity.c());
+        }
+        if (this.mShareEntity.r() && !TextUtils.isEmpty(this.mShareEntity.e())) {
+            if (this.mPermissionJudgement == null) {
+                this.mPermissionJudgement = new PermissionJudgePolicy();
+            }
+            this.mPermissionJudgement.clearRequestPermissionList();
+            this.mPermissionJudgement.appendRequestPermission(getPageContext().getPageActivity(), StorageUtils.EXTERNAL_STORAGE_PERMISSION);
+            if (this.mPermissionJudgement.startRequestPermission(getPageContext().getPageActivity())) {
+                return;
+            }
+        }
+        a aVar3 = this.mCurrentShare;
+        if (aVar3 != null) {
+            aVar3.q(getUniqueId());
+            this.mCurrentShare.l(getIntent());
+            this.mCurrentShare.a(this.mShareEntity, this);
+            return;
+        }
+        if (this.mShareEntity.l() != null) {
+            this.mShareEntity.l().getString("tid");
+        }
+        finishWithResult(this.mShareChannel, 2, this.mShareEntity.l(), null);
+    }
+
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
+    public void onDestroy() {
+        a aVar = this.mCurrentShare;
+        if (aVar != null) {
+            aVar.p();
+        }
+        ShareReportModel shareReportModel = this.mShareReportModel;
+        if (shareReportModel != null) {
+            shareReportModel.cancelMessage();
+        }
+        super.onDestroy();
+    }
+
+    @Override // android.app.Activity
+    public void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+        if (intent != null) {
+            skinType = intent.getIntExtra("extra_skin", 3);
+        }
+        a aVar = this.mCurrentShare;
+        if (aVar != null) {
+            aVar.l(intent);
+        }
+    }
+
+    @Override // android.app.Activity
+    public void onRestoreInstanceState(Bundle bundle) {
+        super.onRestoreInstanceState(bundle);
+    }
+
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
+    public void onResume() {
+        super.onResume();
+        if (this.isSecondOnResume) {
+            finish();
+        } else {
+            this.isSecondOnResume = true;
+        }
+    }
+
+    @Override // android.app.Activity
+    public void onSaveInstanceState(Bundle bundle) {
+        super.onSaveInstanceState(bundle);
+    }
+
+    @Override // d.b.i0.v2.e.b
+    public void onShare(int i, int i2) {
+        if (i2 == 1) {
+            d.b.i0.v2.f.b.b(i, this.mShareEntity);
+        }
+        if (i2 == 3) {
+            if (i != 8 && i != 6) {
+                d.b.i0.v2.f.b.a(i, this.mShareEntity);
+            } else {
+                d.b.i0.v2.f.b.b(i, this.mShareEntity);
+            }
+        }
+        if (this.mShareEntity.l() != null) {
+            this.mShareEntity.l().getString("tid");
+            this.mShareEntity.l().getString("pid");
+        }
+        finishWithResult(i, i2, this.mShareEntity.l(), k.isEmpty(this.mShareEntity.taskCompleteId) ? null : this.mShareEntity.taskCompleteId);
     }
 
     @Override // com.sina.weibo.sdk.share.WbShareCallback
     public void onWbShareCancel() {
-        if (this.nmD != null) {
-            this.nmD.onWbShareCancel();
+        e eVar = this.mShareByWeibo;
+        if (eVar != null) {
+            eVar.I();
         }
     }
 
     @Override // com.sina.weibo.sdk.share.WbShareCallback
     public void onWbShareFail() {
-        if (this.nmD != null) {
-            this.nmD.onWbShareFail();
+        e eVar = this.mShareByWeibo;
+        if (eVar != null) {
+            eVar.J();
+        }
+    }
+
+    @Override // com.sina.weibo.sdk.share.WbShareCallback
+    public void onWbShareSuccess() {
+        e eVar = this.mShareByWeibo;
+        if (eVar != null) {
+            eVar.K();
         }
     }
 }

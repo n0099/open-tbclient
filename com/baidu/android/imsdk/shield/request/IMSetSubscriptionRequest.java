@@ -10,10 +10,10 @@ import com.baidu.android.imsdk.shield.ISetSubscriptionListener;
 import com.baidu.android.imsdk.utils.LogUtils;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class IMSetSubscriptionRequest extends IMSubscriptionBaseRequest {
     public static final String TAG = "IMSetSubscriptionRequest";
-    private int mCategory;
+    public int mCategory;
 
     public IMSetSubscriptionRequest(Context context, int i, long j, List<Long> list, List<String> list2, String str, String str2) {
         super(context, j, list, list2, str2, str);
@@ -26,6 +26,17 @@ public class IMSetSubscriptionRequest extends IMSubscriptionBaseRequest {
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
+    public void onFailure(int i, byte[] bArr, Throwable th) {
+        Pair<Integer, String> transErrorCode = transErrorCode(i, bArr, th);
+        LogUtils.d(TAG, "IMSetSubscriptionRequest onFailure :" + transErrorCode.first + " errmsg = " + ((String) transErrorCode.second));
+        IMListener removeListener = ListenerManager.getInstance().removeListener(this.mKey);
+        if (removeListener == null || !(removeListener instanceof ISetSubscriptionListener)) {
+            return;
+        }
+        ((ISetSubscriptionListener) removeListener).onResult(((Integer) transErrorCode.first).intValue(), (String) transErrorCode.second);
+    }
+
+    @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
     public void onSuccess(int i, byte[] bArr) {
         int i2;
         String str;
@@ -35,24 +46,15 @@ public class IMSetSubscriptionRequest extends IMSubscriptionBaseRequest {
             JSONObject jSONObject = new JSONObject(str2);
             i2 = jSONObject.getInt("error_code");
             str = jSONObject.optString("error_msg", "");
-        } catch (Exception e) {
-            LogUtils.e(TAG, "JSONException", e);
+        } catch (Exception e2) {
+            LogUtils.e(TAG, "JSONException", e2);
             i2 = 1010;
             str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
         }
         IMListener removeListener = ListenerManager.getInstance().removeListener(this.mKey);
-        if (removeListener != null && (removeListener instanceof ISetSubscriptionListener)) {
-            ((ISetSubscriptionListener) removeListener).onResult(i2, str);
+        if (removeListener == null || !(removeListener instanceof ISetSubscriptionListener)) {
+            return;
         }
-    }
-
-    @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
-    public void onFailure(int i, byte[] bArr, Throwable th) {
-        Pair<Integer, String> transErrorCode = transErrorCode(i, bArr, th);
-        LogUtils.d(TAG, "IMSetSubscriptionRequest onFailure :" + transErrorCode.first + " errmsg = " + ((String) transErrorCode.second));
-        IMListener removeListener = ListenerManager.getInstance().removeListener(this.mKey);
-        if (removeListener != null && (removeListener instanceof ISetSubscriptionListener)) {
-            ((ISetSubscriptionListener) removeListener).onResult(((Integer) transErrorCode.first).intValue(), (String) transErrorCode.second);
-        }
+        ((ISetSubscriptionListener) removeListener).onResult(i2, str);
     }
 }

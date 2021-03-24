@@ -1,22 +1,36 @@
 package com.facebook.animated.webp;
 
-import com.facebook.common.internal.d;
-import com.facebook.common.internal.g;
-import com.facebook.imagepipeline.animated.a.c;
+import com.facebook.common.internal.DoNotStrip;
+import com.facebook.common.internal.Preconditions;
 import com.facebook.imagepipeline.animated.base.AnimatedDrawableFrameInfo;
-import com.facebook.imagepipeline.animated.base.b;
+import com.facebook.imagepipeline.animated.base.AnimatedImage;
+import com.facebook.imagepipeline.animated.factory.AnimatedImageDecoder;
+import com.facebook.imagepipeline.nativecode.StaticWebpNativeLoader;
 import java.nio.ByteBuffer;
 import javax.annotation.concurrent.ThreadSafe;
+@DoNotStrip
 @ThreadSafe
-@d
-/* loaded from: classes3.dex */
-public class WebPImage implements c, b {
-    @d
-    private long mNativeContext;
+/* loaded from: classes6.dex */
+public class WebPImage implements AnimatedImage, AnimatedImageDecoder {
+    @DoNotStrip
+    public long mNativeContext;
 
-    private static native WebPImage nativeCreateFromDirectByteBuffer(ByteBuffer byteBuffer);
+    @DoNotStrip
+    public WebPImage() {
+    }
 
-    private static native WebPImage nativeCreateFromNativeMemory(long j, int i);
+    public static WebPImage create(byte[] bArr) {
+        StaticWebpNativeLoader.ensure();
+        Preconditions.checkNotNull(bArr);
+        ByteBuffer allocateDirect = ByteBuffer.allocateDirect(bArr.length);
+        allocateDirect.put(bArr);
+        allocateDirect.rewind();
+        return nativeCreateFromDirectByteBuffer(allocateDirect);
+    }
+
+    public static native WebPImage nativeCreateFromDirectByteBuffer(ByteBuffer byteBuffer);
+
+    public static native WebPImage nativeCreateFromNativeMemory(long j, int i);
 
     private native void nativeDispose();
 
@@ -38,79 +52,95 @@ public class WebPImage implements c, b {
 
     private native int nativeGetWidth();
 
-    @d
-    public WebPImage() {
+    @Override // com.facebook.imagepipeline.animated.factory.AnimatedImageDecoder
+    public AnimatedImage decode(long j, int i) {
+        return create(j, i);
     }
 
-    @d
-    WebPImage(long j) {
-        this.mNativeContext = j;
+    @Override // com.facebook.imagepipeline.animated.base.AnimatedImage
+    public void dispose() {
+        nativeDispose();
     }
 
-    protected void finalize() {
+    @Override // com.facebook.imagepipeline.animated.base.AnimatedImage
+    public boolean doesRenderSupportScaling() {
+        return true;
+    }
+
+    public void finalize() {
         nativeFinalize();
     }
 
-    public static WebPImage N(long j, int i) {
-        com.facebook.imagepipeline.nativecode.b.esa();
-        g.checkArgument(j != 0);
-        return nativeCreateFromNativeMemory(j, i);
+    @Override // com.facebook.imagepipeline.animated.base.AnimatedImage
+    public int getDuration() {
+        return nativeGetDuration();
     }
 
-    @Override // com.facebook.imagepipeline.animated.a.c
-    public b M(long j, int i) {
-        return N(j, i);
-    }
-
-    @Override // com.facebook.imagepipeline.animated.base.b
-    public int getWidth() {
-        return nativeGetWidth();
-    }
-
-    @Override // com.facebook.imagepipeline.animated.base.b
-    public int getHeight() {
-        return nativeGetHeight();
-    }
-
-    @Override // com.facebook.imagepipeline.animated.base.b
+    @Override // com.facebook.imagepipeline.animated.base.AnimatedImage
     public int getFrameCount() {
         return nativeGetFrameCount();
     }
 
-    @Override // com.facebook.imagepipeline.animated.base.b
+    @Override // com.facebook.imagepipeline.animated.base.AnimatedImage
     public int[] getFrameDurations() {
         return nativeGetFrameDurations();
     }
 
-    @Override // com.facebook.imagepipeline.animated.base.b
+    @Override // com.facebook.imagepipeline.animated.base.AnimatedImage
+    public AnimatedDrawableFrameInfo getFrameInfo(int i) {
+        WebPFrame frame = getFrame(i);
+        try {
+            return new AnimatedDrawableFrameInfo(i, frame.getXOffset(), frame.getYOffset(), frame.getWidth(), frame.getHeight(), frame.isBlendWithPreviousFrame() ? AnimatedDrawableFrameInfo.BlendOperation.BLEND_WITH_PREVIOUS : AnimatedDrawableFrameInfo.BlendOperation.NO_BLEND, frame.shouldDisposeToBackgroundColor() ? AnimatedDrawableFrameInfo.DisposalMethod.DISPOSE_TO_BACKGROUND : AnimatedDrawableFrameInfo.DisposalMethod.DISPOSE_DO_NOT);
+        } finally {
+            frame.dispose();
+        }
+    }
+
+    @Override // com.facebook.imagepipeline.animated.base.AnimatedImage
+    public int getHeight() {
+        return nativeGetHeight();
+    }
+
+    @Override // com.facebook.imagepipeline.animated.base.AnimatedImage
     public int getLoopCount() {
         return nativeGetLoopCount();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.facebook.imagepipeline.animated.base.b
-    /* renamed from: OW */
-    public WebPFrame OV(int i) {
-        return nativeGetFrame(i);
-    }
-
-    @Override // com.facebook.imagepipeline.animated.base.b
+    @Override // com.facebook.imagepipeline.animated.base.AnimatedImage
     public int getSizeInBytes() {
         return nativeGetSizeInBytes();
     }
 
-    @Override // com.facebook.imagepipeline.animated.base.b
-    public boolean esb() {
-        return true;
+    @Override // com.facebook.imagepipeline.animated.base.AnimatedImage
+    public int getWidth() {
+        return nativeGetWidth();
     }
 
-    @Override // com.facebook.imagepipeline.animated.base.b
-    public AnimatedDrawableFrameInfo OT(int i) {
-        WebPFrame OV = OV(i);
-        try {
-            return new AnimatedDrawableFrameInfo(i, OV.getXOffset(), OV.getYOffset(), OV.getWidth(), OV.getHeight(), OV.isBlendWithPreviousFrame() ? AnimatedDrawableFrameInfo.BlendOperation.BLEND_WITH_PREVIOUS : AnimatedDrawableFrameInfo.BlendOperation.NO_BLEND, OV.shouldDisposeToBackgroundColor() ? AnimatedDrawableFrameInfo.DisposalMethod.DISPOSE_TO_BACKGROUND : AnimatedDrawableFrameInfo.DisposalMethod.DISPOSE_DO_NOT);
-        } finally {
-            OV.dispose();
-        }
+    @DoNotStrip
+    public WebPImage(long j) {
+        this.mNativeContext = j;
+    }
+
+    @Override // com.facebook.imagepipeline.animated.factory.AnimatedImageDecoder
+    public AnimatedImage decode(ByteBuffer byteBuffer) {
+        return create(byteBuffer);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.facebook.imagepipeline.animated.base.AnimatedImage
+    public WebPFrame getFrame(int i) {
+        return nativeGetFrame(i);
+    }
+
+    public static WebPImage create(ByteBuffer byteBuffer) {
+        StaticWebpNativeLoader.ensure();
+        byteBuffer.rewind();
+        return nativeCreateFromDirectByteBuffer(byteBuffer);
+    }
+
+    public static WebPImage create(long j, int i) {
+        StaticWebpNativeLoader.ensure();
+        Preconditions.checkArgument(j != 0);
+        return nativeCreateFromNativeMemory(j, i);
     }
 }

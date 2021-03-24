@@ -9,40 +9,43 @@ import android.view.WindowManager;
 import androidx.appcompat.R;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.view.menu.MenuPresenter;
-/* loaded from: classes5.dex */
-class MenuDialogHelper implements DialogInterface.OnClickListener, DialogInterface.OnDismissListener, DialogInterface.OnKeyListener, MenuPresenter.Callback {
-    private AlertDialog mDialog;
-    private MenuBuilder mMenu;
-    ListMenuPresenter mPresenter;
-    private MenuPresenter.Callback mPresenterCallback;
+/* loaded from: classes.dex */
+public class MenuDialogHelper implements DialogInterface.OnKeyListener, DialogInterface.OnClickListener, DialogInterface.OnDismissListener, MenuPresenter.Callback {
+    public AlertDialog mDialog;
+    public MenuBuilder mMenu;
+    public ListMenuPresenter mPresenter;
+    public MenuPresenter.Callback mPresenterCallback;
 
     public MenuDialogHelper(MenuBuilder menuBuilder) {
         this.mMenu = menuBuilder;
     }
 
-    public void show(IBinder iBinder) {
-        MenuBuilder menuBuilder = this.mMenu;
-        AlertDialog.Builder builder = new AlertDialog.Builder(menuBuilder.getContext());
-        this.mPresenter = new ListMenuPresenter(builder.getContext(), R.layout.abc_list_menu_item_layout);
-        this.mPresenter.setCallback(this);
-        this.mMenu.addMenuPresenter(this.mPresenter);
-        builder.setAdapter(this.mPresenter.getAdapter(), this);
-        View headerView = menuBuilder.getHeaderView();
-        if (headerView != null) {
-            builder.setCustomTitle(headerView);
-        } else {
-            builder.setIcon(menuBuilder.getHeaderIcon()).setTitle(menuBuilder.getHeaderTitle());
+    public void dismiss() {
+        AlertDialog alertDialog = this.mDialog;
+        if (alertDialog != null) {
+            alertDialog.dismiss();
         }
-        builder.setOnKeyListener(this);
-        this.mDialog = builder.create();
-        this.mDialog.setOnDismissListener(this);
-        WindowManager.LayoutParams attributes = this.mDialog.getWindow().getAttributes();
-        attributes.type = 1003;
-        if (iBinder != null) {
-            attributes.token = iBinder;
+    }
+
+    @Override // android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
+        this.mMenu.performItemAction((MenuItemImpl) this.mPresenter.getAdapter().getItem(i), 0);
+    }
+
+    @Override // androidx.appcompat.view.menu.MenuPresenter.Callback
+    public void onCloseMenu(MenuBuilder menuBuilder, boolean z) {
+        if (z || menuBuilder == this.mMenu) {
+            dismiss();
         }
-        attributes.flags |= 131072;
-        this.mDialog.show();
+        MenuPresenter.Callback callback = this.mPresenterCallback;
+        if (callback != null) {
+            callback.onCloseMenu(menuBuilder, z);
+        }
+    }
+
+    @Override // android.content.DialogInterface.OnDismissListener
+    public void onDismiss(DialogInterface dialogInterface) {
+        this.mPresenter.onCloseMenu(this.mMenu, true);
     }
 
     @Override // android.content.DialogInterface.OnKeyListener
@@ -68,41 +71,43 @@ class MenuDialogHelper implements DialogInterface.OnClickListener, DialogInterfa
         return this.mMenu.performShortcut(i, keyEvent, 0);
     }
 
-    public void setPresenterCallback(MenuPresenter.Callback callback) {
-        this.mPresenterCallback = callback;
-    }
-
-    public void dismiss() {
-        if (this.mDialog != null) {
-            this.mDialog.dismiss();
-        }
-    }
-
-    @Override // android.content.DialogInterface.OnDismissListener
-    public void onDismiss(DialogInterface dialogInterface) {
-        this.mPresenter.onCloseMenu(this.mMenu, true);
-    }
-
-    @Override // androidx.appcompat.view.menu.MenuPresenter.Callback
-    public void onCloseMenu(MenuBuilder menuBuilder, boolean z) {
-        if (z || menuBuilder == this.mMenu) {
-            dismiss();
-        }
-        if (this.mPresenterCallback != null) {
-            this.mPresenterCallback.onCloseMenu(menuBuilder, z);
-        }
-    }
-
     @Override // androidx.appcompat.view.menu.MenuPresenter.Callback
     public boolean onOpenSubMenu(MenuBuilder menuBuilder) {
-        if (this.mPresenterCallback != null) {
-            return this.mPresenterCallback.onOpenSubMenu(menuBuilder);
+        MenuPresenter.Callback callback = this.mPresenterCallback;
+        if (callback != null) {
+            return callback.onOpenSubMenu(menuBuilder);
         }
         return false;
     }
 
-    @Override // android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        this.mMenu.performItemAction((MenuItemImpl) this.mPresenter.getAdapter().getItem(i), 0);
+    public void setPresenterCallback(MenuPresenter.Callback callback) {
+        this.mPresenterCallback = callback;
+    }
+
+    public void show(IBinder iBinder) {
+        MenuBuilder menuBuilder = this.mMenu;
+        AlertDialog.Builder builder = new AlertDialog.Builder(menuBuilder.getContext());
+        ListMenuPresenter listMenuPresenter = new ListMenuPresenter(builder.getContext(), R.layout.abc_list_menu_item_layout);
+        this.mPresenter = listMenuPresenter;
+        listMenuPresenter.setCallback(this);
+        this.mMenu.addMenuPresenter(this.mPresenter);
+        builder.setAdapter(this.mPresenter.getAdapter(), this);
+        View headerView = menuBuilder.getHeaderView();
+        if (headerView != null) {
+            builder.setCustomTitle(headerView);
+        } else {
+            builder.setIcon(menuBuilder.getHeaderIcon()).setTitle(menuBuilder.getHeaderTitle());
+        }
+        builder.setOnKeyListener(this);
+        AlertDialog create = builder.create();
+        this.mDialog = create;
+        create.setOnDismissListener(this);
+        WindowManager.LayoutParams attributes = this.mDialog.getWindow().getAttributes();
+        attributes.type = 1003;
+        if (iBinder != null) {
+            attributes.token = iBinder;
+        }
+        attributes.flags |= 131072;
+        this.mDialog.show();
     }
 }

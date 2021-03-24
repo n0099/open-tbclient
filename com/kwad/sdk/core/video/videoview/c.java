@@ -5,39 +5,40 @@ import android.widget.FrameLayout;
 import androidx.annotation.NonNull;
 import java.util.Timer;
 import java.util.TimerTask;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public abstract class c extends FrameLayout {
     @NonNull
 
     /* renamed from: a  reason: collision with root package name */
-    protected final d f6280a;
-    private Timer b;
-    private TimerTask c;
+    public final d f34150a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public Timer f34151b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public TimerTask f34152c;
 
     public c(Context context, @NonNull d dVar) {
         super(context);
-        this.f6280a = dVar;
+        this.f34150a = dVar;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     public abstract void a(int i);
 
     public void a(int i, int i2) {
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     public abstract void c();
 
-    protected abstract void g();
+    public abstract void g();
 
-    /* JADX INFO: Access modifiers changed from: protected */
     public void h() {
         i();
-        if (this.b == null) {
-            this.b = new Timer();
+        if (this.f34151b == null) {
+            this.f34151b = new Timer();
         }
-        if (this.c == null) {
-            this.c = new TimerTask() { // from class: com.kwad.sdk.core.video.videoview.c.1
+        if (this.f34152c == null) {
+            this.f34152c = new TimerTask() { // from class: com.kwad.sdk.core.video.videoview.c.1
                 @Override // java.util.TimerTask, java.lang.Runnable
                 public void run() {
                     c.this.post(new Runnable() { // from class: com.kwad.sdk.core.video.videoview.c.1.1
@@ -49,18 +50,19 @@ public abstract class c extends FrameLayout {
                 }
             };
         }
-        this.b.schedule(this.c, 0L, 1000L);
+        this.f34151b.schedule(this.f34152c, 0L, 1000L);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     public void i() {
-        if (this.b != null) {
-            this.b.cancel();
-            this.b = null;
+        Timer timer = this.f34151b;
+        if (timer != null) {
+            timer.cancel();
+            this.f34151b = null;
         }
-        if (this.c != null) {
-            this.c.cancel();
-            this.c = null;
+        TimerTask timerTask = this.f34152c;
+        if (timerTask != null) {
+            timerTask.cancel();
+            this.f34152c = null;
         }
     }
 }

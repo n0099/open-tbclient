@@ -5,36 +5,39 @@ import android.text.TextUtils;
 import android.util.Pair;
 import com.bytedance.sdk.openadsdk.preload.b.d;
 import com.bytedance.sdk.openadsdk.preload.geckox.model.UpdatePackage;
+import com.facebook.common.util.UriUtil;
 import java.io.File;
 /* loaded from: classes6.dex */
 public class b extends d<Pair<Uri, UpdatePackage>, Pair<com.bytedance.sdk.openadsdk.preload.geckox.buffer.a, UpdatePackage>> {
-    private com.bytedance.sdk.openadsdk.preload.geckox.b d;
-    private File e;
+
+    /* renamed from: d  reason: collision with root package name */
+    public com.bytedance.sdk.openadsdk.preload.geckox.b f30248d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public File f30249e;
 
     public static String a(UpdatePackage updatePackage, String str) {
-        if (TextUtils.isEmpty(str)) {
-            throw new RuntimeException("url empty, channel:" + updatePackage.getChannel());
-        }
-        int lastIndexOf = str.lastIndexOf("/");
-        if (lastIndexOf == -1) {
+        if (!TextUtils.isEmpty(str)) {
+            int lastIndexOf = str.lastIndexOf("/");
+            if (lastIndexOf != -1) {
+                String substring = str.substring(lastIndexOf + 1);
+                if (TextUtils.isEmpty(substring)) {
+                    throw new RuntimeException("url path illegal, url:" + str);
+                }
+                return substring;
+            }
             throw new RuntimeException("url path illegal, url:" + str);
         }
-        String substring = str.substring(lastIndexOf + 1);
-        if (TextUtils.isEmpty(substring)) {
-            throw new RuntimeException("url path illegal, url:" + str);
-        }
-        return substring;
+        throw new RuntimeException("url empty, channel:" + updatePackage.getChannel());
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.bytedance.sdk.openadsdk.preload.b.d
     public void a(Object... objArr) {
         super.a(objArr);
-        this.d = (com.bytedance.sdk.openadsdk.preload.geckox.b) objArr[0];
-        this.e = (File) objArr[1];
+        this.f30248d = (com.bytedance.sdk.openadsdk.preload.geckox.b) objArr[0];
+        this.f30249e = (File) objArr[1];
     }
 
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[CONST_STR, CONST_STR, INVOKE, MOVE_EXCEPTION, INVOKE, CONST_STR, CONST_STR, INVOKE, MOVE_EXCEPTION] complete} */
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bytedance.sdk.openadsdk.preload.b.d
     /* renamed from: a */
@@ -43,27 +46,39 @@ public class b extends d<Pair<Uri, UpdatePackage>, Pair<com.bytedance.sdk.openad
         UpdatePackage updatePackage = (UpdatePackage) pair.second;
         String uri = ((Uri) pair.first).toString();
         long length = updatePackage.getFullPackage().getLength();
-        File file = new File(this.e, updatePackage.getAccessKey() + File.separator + updatePackage.getChannel() + File.separator + updatePackage.getVersion() + "--updating");
-        file.mkdirs();
-        com.bytedance.sdk.openadsdk.preload.geckox.buffer.a a2 = com.bytedance.sdk.openadsdk.preload.geckox.buffer.impl.a.a(this.d.a(), new File(file, "res" + File.separator + a(updatePackage, uri)), length);
+        File file = this.f30249e;
+        File file2 = new File(file, updatePackage.getAccessKey() + File.separator + updatePackage.getChannel() + File.separator + updatePackage.getVersion() + "--updating");
+        file2.mkdirs();
+        StringBuilder sb = new StringBuilder();
+        sb.append(UriUtil.LOCAL_RESOURCE_SCHEME);
+        sb.append(File.separator);
+        sb.append(a(updatePackage, uri));
+        com.bytedance.sdk.openadsdk.preload.geckox.buffer.a a2 = com.bytedance.sdk.openadsdk.preload.geckox.buffer.impl.a.a(this.f30248d.a(), new File(file2, sb.toString()), length);
         try {
-            this.d.h().a(uri, length, new com.bytedance.sdk.openadsdk.preload.geckox.buffer.a.b(a2));
+            this.f30248d.h().a(uri, length, new com.bytedance.sdk.openadsdk.preload.geckox.buffer.a.b(a2));
             try {
                 try {
-                    return bVar.a((com.bytedance.sdk.openadsdk.preload.b.b<Pair<com.bytedance.sdk.openadsdk.preload.geckox.buffer.a, UpdatePackage>>) new Pair<>(a2, updatePackage));
-                } catch (Exception e) {
-                    throw e;
+                    Object a3 = bVar.a((com.bytedance.sdk.openadsdk.preload.b.b<Pair<com.bytedance.sdk.openadsdk.preload.geckox.buffer.a, UpdatePackage>>) new Pair<>(a2, updatePackage));
+                    try {
+                        a2.e();
+                    } catch (Exception e2) {
+                        com.bytedance.sdk.openadsdk.preload.geckox.h.b.a("gecko-debug-tag", "DownloadFullSingleFile-release:", e2);
+                    }
+                    return a3;
+                } catch (Exception e3) {
+                    throw e3;
                 }
-            } finally {
+            } catch (Throwable th) {
                 try {
                     a2.e();
-                } catch (Exception e2) {
-                    com.bytedance.sdk.openadsdk.preload.geckox.h.b.a("gecko-debug-tag", "DownloadFullSingleFile-release:", e2);
+                } catch (Exception e4) {
+                    com.bytedance.sdk.openadsdk.preload.geckox.h.b.a("gecko-debug-tag", "DownloadFullSingleFile-release:", e4);
                 }
+                throw th;
             }
-        } catch (Throwable th) {
+        } catch (Throwable th2) {
             a2.e();
-            throw new com.bytedance.sdk.openadsdk.preload.geckox.b.a("download full single file failed! url:" + uri + ", channel:" + updatePackage.getChannel() + ", pkg id:" + updatePackage.getFullPackage().getId() + ", caused by:" + th.getMessage(), th);
+            throw new com.bytedance.sdk.openadsdk.preload.geckox.b.a("download full single file failed! url:" + uri + ", channel:" + updatePackage.getChannel() + ", pkg id:" + updatePackage.getFullPackage().getId() + ", caused by:" + th2.getMessage(), th2);
         }
     }
 }

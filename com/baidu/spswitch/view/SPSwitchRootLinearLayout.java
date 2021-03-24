@@ -5,13 +5,23 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.LinearLayout;
 import androidx.annotation.Nullable;
-import com.baidu.spswitch.a.c;
+import com.baidu.spswitch.handler.SPSwitchRootLayoutHandler;
 /* loaded from: classes3.dex */
 public class SPSwitchRootLinearLayout extends LinearLayout {
-    private c cDq;
+    public SPSwitchRootLayoutHandler conflictHandler;
 
     public SPSwitchRootLinearLayout(Context context) {
         this(context, null);
+    }
+
+    private void init() {
+        this.conflictHandler = new SPSwitchRootLayoutHandler(this);
+    }
+
+    @Override // android.widget.LinearLayout, android.view.View
+    public void onMeasure(int i, int i2) {
+        this.conflictHandler.handleBeforeMeasure(View.MeasureSpec.getSize(i), View.MeasureSpec.getSize(i2));
+        super.onMeasure(i, i2);
     }
 
     public SPSwitchRootLinearLayout(Context context, @Nullable AttributeSet attributeSet) {
@@ -21,15 +31,5 @@ public class SPSwitchRootLinearLayout extends LinearLayout {
     public SPSwitchRootLinearLayout(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         init();
-    }
-
-    private void init() {
-        this.cDq = new c(this);
-    }
-
-    @Override // android.widget.LinearLayout, android.view.View
-    protected void onMeasure(int i, int i2) {
-        this.cDq.W(View.MeasureSpec.getSize(i), View.MeasureSpec.getSize(i2));
-        super.onMeasure(i, i2);
     }
 }

@@ -11,10 +11,10 @@ import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Looper;
 import android.os.Process;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class CronetLibraryLoader {
+    public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static volatile boolean sInitThreadInitDone;
-    public static final /* synthetic */ boolean $assertionsDisabled = !CronetLibraryLoader.class.desiredAssertionStatus();
     public static final Object sLoadLock = new Object();
     public static final String LIBRARY_NAME = "cronet.77.0.3865.0";
     public static final String TAG = CronetLibraryLoader.class.getSimpleName();
@@ -62,38 +62,26 @@ public class CronetLibraryLoader {
             sLibraryLoaded = true;
             sWaitForLibLoad.open();
         }
-        Context context = ContextUtils.sApplicationContext;
-        if (!$assertionsDisabled && context == null) {
-            throw new AssertionError();
-        }
-        ensureInitialized(context, null);
+        ensureInitialized(ContextUtils.sApplicationContext, null);
     }
 
     public static void ensureInitializedOnInitThread() {
         Runnable runnable;
-        if (!$assertionsDisabled) {
-            if (!(sInitThread.getLooper() == Looper.myLooper())) {
-                throw new AssertionError();
-            }
-        }
         if (sInitThreadInitDone) {
             return;
         }
         NetworkChangeNotifier.init();
         NetworkChangeNotifier.getInstance().setAutoDetectConnectivityStateInternal(true, new RegistrationPolicyAlwaysRegister());
         sWaitForLibLoad.block();
-        if (!$assertionsDisabled && !sLibraryLoaded) {
-            throw new AssertionError();
-        }
         runnable = CronetLibraryLoader$$Lambda$1.instance;
         try {
-            runnable.run();
-        } catch (UnsatisfiedLinkError e) {
             try {
                 runnable.run();
-            } catch (UnsatisfiedLinkError e2) {
+            } catch (UnsatisfiedLinkError unused) {
                 runnable.run();
             }
+        } catch (UnsatisfiedLinkError unused2) {
+            runnable.run();
         }
         sInitThreadInitDone = true;
     }

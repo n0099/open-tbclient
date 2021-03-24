@@ -1,40 +1,51 @@
 package com.vivo.push.model;
-/* loaded from: classes14.dex */
+/* loaded from: classes7.dex */
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f8059a;
-    private String b;
+    public String f39481a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public String f39482b;
 
     public a(String str, String str2) {
-        this.f8059a = str;
-        this.b = str2;
+        this.f39481a = str;
+        this.f39482b = str2;
     }
 
     public final String a() {
-        return this.f8059a;
+        return this.f39481a;
     }
 
     public final String b() {
-        return this.b;
-    }
-
-    public final int hashCode() {
-        return (this.f8059a == null ? 0 : this.f8059a.hashCode()) + 31;
+        return this.f39482b;
     }
 
     public final boolean equals(Object obj) {
         if (this == obj) {
             return true;
         }
-        if (obj != null && getClass() == obj.getClass()) {
+        if (obj != null && a.class == obj.getClass()) {
             a aVar = (a) obj;
-            return this.f8059a == null ? aVar.f8059a == null : this.f8059a.equals(aVar.f8059a);
+            String str = this.f39481a;
+            if (str == null) {
+                if (aVar.f39481a != null) {
+                    return false;
+                }
+            } else if (!str.equals(aVar.f39481a)) {
+                return false;
+            }
+            return true;
         }
         return false;
     }
 
+    public final int hashCode() {
+        String str = this.f39481a;
+        return (str == null ? 0 : str.hashCode()) + 31;
+    }
+
     public final String toString() {
-        return "ConfigItem{mKey='" + this.f8059a + "', mValue='" + this.b + "'}";
+        return "ConfigItem{mKey='" + this.f39481a + "', mValue='" + this.f39482b + "'}";
     }
 }

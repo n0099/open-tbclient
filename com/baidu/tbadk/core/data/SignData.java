@@ -4,9 +4,9 @@ import com.baidu.tieba.pb.data.ContriInfo;
 import java.io.Serializable;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class SignData implements Serializable {
-    private static final long serialVersionUID = -7905612002845096083L;
+    public static final long serialVersionUID = -7905612002845096083L;
     public BlockPopInfoData blockPopInfoData;
     public int cashBalance;
     public int contDays;
@@ -30,8 +30,8 @@ public class SignData implements Serializable {
     public void parserJson(String str) {
         try {
             parserJson(new JSONObject(str));
-        } catch (JSONException e) {
-            e.printStackTrace();
+        } catch (JSONException e2) {
+            e2.printStackTrace();
         }
     }
 
@@ -52,8 +52,9 @@ public class SignData implements Serializable {
         }
         JSONObject optJSONObject2 = jSONObject.optJSONObject("info");
         if (optJSONObject2 != null) {
-            this.blockPopInfoData = new BlockPopInfoData();
-            this.blockPopInfoData.block_info = optJSONObject2.optString("block_content");
+            BlockPopInfoData blockPopInfoData = new BlockPopInfoData();
+            this.blockPopInfoData = blockPopInfoData;
+            blockPopInfoData.block_info = optJSONObject2.optString("block_content");
             this.blockPopInfoData.ahead_info = optJSONObject2.optString("block_confirm");
             this.blockPopInfoData.ahead_url = optJSONObject2.optString("block_dealurl");
             this.blockPopInfoData.ok_info = optJSONObject2.optString("block_cancel");

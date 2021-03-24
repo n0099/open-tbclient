@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
+import android.os.IBinder;
 import android.text.TextUtils;
 import android.view.Window;
 import android.view.WindowManager;
@@ -17,12 +18,20 @@ import com.xiaomi.mipush.sdk.MiPushClient;
 import java.util.Iterator;
 /* loaded from: classes3.dex */
 public class TraceManager {
-    private static final String TO_BACKGROUND = "To background";
-    private static final String TO_FOREGROUND = "To foreground";
-    private static volatile TraceManager sInstance;
-    private volatile boolean mIsRegistered = false;
-    private OnFragmentTraceListener mOnFragmentListener;
-    private TraceActivityCallbacks mTraceActivityCallbacks;
+    public static final String TO_BACKGROUND = "To background";
+    public static final String TO_FOREGROUND = "To foreground";
+    public static volatile TraceManager sInstance;
+    public volatile boolean mIsRegistered = false;
+    public OnFragmentTraceListener mOnFragmentListener;
+    public TraceActivityCallbacks mTraceActivityCallbacks;
+
+    public static boolean checkAPSActivity(Activity activity) {
+        return activity.getClass().getName().startsWith("com.baidu.megapp.proxy.activity");
+    }
+
+    private TrackUI createTraceInfo(@NonNull Activity activity, @Nullable String str, @Nullable Object obj, @NonNull String str2) {
+        return createTraceInfo(activity, str, obj, null, null, "native", str2);
+    }
 
     public static TraceManager getInstance() {
         if (sInstance == null) {
@@ -35,13 +44,9 @@ public class TraceManager {
         return sInstance;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public static boolean checkAPSActivity(Activity activity) {
-        return activity.getClass().getName().startsWith("com.baidu.megapp.proxy.activity");
-    }
-
-    protected String getActivityToken(Activity activity) {
+    public String getActivityToken(Activity activity) {
         WindowManager.LayoutParams attributes;
+        IBinder iBinder;
         if (activity == null) {
             return null;
         }
@@ -58,13 +63,43 @@ public class TraceManager {
             }
         }
         Window window = activity.getWindow();
-        if (window == null || (attributes = window.getAttributes()) == null || attributes.token == null) {
+        if (window == null || (attributes = window.getAttributes()) == null || (iBinder = attributes.token) == null) {
             return null;
         }
-        return attributes.token.toString();
+        return iBinder.toString();
     }
 
-    protected void release() {
+    public boolean isRegistered() {
+        return this.mIsRegistered;
+    }
+
+    public void register(Context context) {
+        if (this.mIsRegistered || context == null) {
+            return;
+        }
+        if (BdBoxActivityManager.getMainGlobalActivityLifecycle() == null) {
+            BdBoxActivityManager.setMainGlobalActivityLifecycle(GlobalActivityLifecycle.getInstance());
+        }
+        TraceActivityCallbacks traceActivityCallbacks = new TraceActivityCallbacks();
+        this.mTraceActivityCallbacks = traceActivityCallbacks;
+        BdBoxActivityManager.registerLifeCycle(traceActivityCallbacks);
+        if (context instanceof Activity) {
+            Activity activity = (Activity) context;
+            if (activity.isFinishing()) {
+                return;
+            }
+            this.mIsRegistered = true;
+            TraceActivityCallbacks traceActivityCallbacks2 = this.mTraceActivityCallbacks;
+            if (traceActivityCallbacks2 != null) {
+                traceActivityCallbacks2.registerTraceFragment(activity);
+            }
+            saveTraceInfo(activity, null, null, MiPushClient.COMMAND_REGISTER);
+            return;
+        }
+        this.mIsRegistered = true;
+    }
+
+    public void release() {
         if (sInstance != null) {
             if (sInstance.mTraceActivityCallbacks != null) {
                 BdBoxActivityManager.unregisterLifeCycle(sInstance.mTraceActivityCallbacks);
@@ -73,33 +108,6 @@ public class TraceManager {
             this.mIsRegistered = false;
             sInstance = null;
         }
-    }
-
-    public void register(Context context) {
-        if (!this.mIsRegistered && context != null) {
-            if (BdBoxActivityManager.getMainGlobalActivityLifecycle() == null) {
-                BdBoxActivityManager.setMainGlobalActivityLifecycle(GlobalActivityLifecycle.getInstance());
-            }
-            this.mTraceActivityCallbacks = new TraceActivityCallbacks();
-            BdBoxActivityManager.registerLifeCycle(this.mTraceActivityCallbacks);
-            if (context instanceof Activity) {
-                Activity activity = (Activity) context;
-                if (!activity.isFinishing()) {
-                    this.mIsRegistered = true;
-                    if (this.mTraceActivityCallbacks != null) {
-                        this.mTraceActivityCallbacks.registerTraceFragment(activity);
-                    }
-                    saveTraceInfo(activity, null, null, MiPushClient.COMMAND_REGISTER);
-                    return;
-                }
-                return;
-            }
-            this.mIsRegistered = true;
-        }
-    }
-
-    public boolean isRegistered() {
-        return this.mIsRegistered;
     }
 
     public void saveTraceInfo(@NonNull Activity activity, @Nullable Object obj, @Nullable String str, @Nullable String str2, @Nullable String str3, @NonNull String str4) {
@@ -113,7 +121,58 @@ public class TraceManager {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
+    public void setOnFragmentListener(@Nullable OnFragmentTraceListener onFragmentTraceListener) {
+        this.mOnFragmentListener = onFragmentTraceListener;
+    }
+
+    private TrackUI createTraceInfo(@NonNull Activity activity, @Nullable String str, @Nullable Object obj, @Nullable String str2, @Nullable String str3, @Nullable String str4, @NonNull String str5) {
+        StringBuilder sb;
+        String str6;
+        String simpleName;
+        Intent intent;
+        if (activity == null || TextUtils.isEmpty(str5)) {
+            return null;
+        }
+        long currentTimeMillis = System.currentTimeMillis();
+        String name = activity.getClass().getName();
+        StringBuilder sb2 = new StringBuilder("@" + Integer.toHexString(hashCode()));
+        String activityToken = getActivityToken(activity);
+        if (!TextUtils.isEmpty(activityToken)) {
+            sb2.append("[token:");
+            sb2.append(activityToken);
+            sb2.append("]");
+            sb2.toString();
+        }
+        if (AppConfig.isBeta() && (simpleName = activity.getClass().getSimpleName()) != null && simpleName.equals("BdBoxSchemeDispatchActivity") && (intent = activity.getIntent()) != null) {
+            sb2.append("[intent:");
+            sb2.append(intent.toString());
+            sb2.append("]");
+        }
+        if (!TextUtils.isEmpty(str)) {
+            sb2.append("[");
+            sb2.append(str);
+            sb2.append("]");
+        }
+        if (obj != null) {
+            String name2 = obj.getClass().getName();
+            StringBuilder sb3 = new StringBuilder("@" + Integer.toHexString(obj.hashCode()));
+            OnFragmentTraceListener onFragmentTraceListener = this.mOnFragmentListener;
+            if (onFragmentTraceListener != null) {
+                String onTrace = onFragmentTraceListener.onTrace(obj);
+                if (!TextUtils.isEmpty(onTrace)) {
+                    sb3.append(",extra=");
+                    sb3.append(onTrace);
+                }
+            }
+            sb = sb3;
+            str6 = name2;
+        } else {
+            sb = null;
+            str6 = null;
+        }
+        return new TrackUI(name, sb2.toString(), str6, sb != null ? sb.toString() : null, str2, str3, str4, currentTimeMillis, str5);
+    }
+
     public void saveTraceInfo(Activity activity, String str, Object obj, String str2) {
         TrackUI createTraceInfo;
         if (this.mIsRegistered && (createTraceInfo = createTraceInfo(activity, str, obj, str2)) != null) {
@@ -125,7 +184,6 @@ public class TraceManager {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     public void saveTraceInfo(@NonNull Activity activity, boolean z) {
         if (this.mIsRegistered) {
             TrackUI createTraceInfo = createTraceInfo(activity, null, null, z ? TO_FOREGROUND : TO_BACKGROUND);
@@ -137,50 +195,5 @@ public class TraceManager {
                 }
             }
         }
-    }
-
-    private TrackUI createTraceInfo(@NonNull Activity activity, @Nullable String str, @Nullable Object obj, @NonNull String str2) {
-        return createTraceInfo(activity, str, obj, null, null, "native", str2);
-    }
-
-    private TrackUI createTraceInfo(@NonNull Activity activity, @Nullable String str, @Nullable Object obj, @Nullable String str2, @Nullable String str3, @Nullable String str4, @NonNull String str5) {
-        StringBuilder sb;
-        String simpleName;
-        Intent intent;
-        if (activity == null || TextUtils.isEmpty(str5)) {
-            return null;
-        }
-        long currentTimeMillis = System.currentTimeMillis();
-        String name = activity.getClass().getName();
-        StringBuilder sb2 = new StringBuilder("@" + Integer.toHexString(hashCode()));
-        String activityToken = getActivityToken(activity);
-        if (!TextUtils.isEmpty(activityToken)) {
-            sb2.append("[token:").append(activityToken).append("]").toString();
-        }
-        if (AppConfig.isBeta() && (simpleName = activity.getClass().getSimpleName()) != null && simpleName.equals("BdBoxSchemeDispatchActivity") && (intent = activity.getIntent()) != null) {
-            sb2.append("[intent:").append(intent.toString()).append("]");
-        }
-        if (!TextUtils.isEmpty(str)) {
-            sb2.append("[").append(str).append("]");
-        }
-        String str6 = null;
-        if (obj == null) {
-            sb = null;
-        } else {
-            str6 = obj.getClass().getName();
-            StringBuilder sb3 = new StringBuilder("@" + Integer.toHexString(obj.hashCode()));
-            if (this.mOnFragmentListener != null) {
-                String onTrace = this.mOnFragmentListener.onTrace(obj);
-                if (!TextUtils.isEmpty(onTrace)) {
-                    sb3.append(",extra=").append(onTrace);
-                }
-            }
-            sb = sb3;
-        }
-        return new TrackUI(name, sb2.toString(), str6, sb == null ? null : sb.toString(), str2, str3, str4, currentTimeMillis, str5);
-    }
-
-    public void setOnFragmentListener(@Nullable OnFragmentTraceListener onFragmentTraceListener) {
-        this.mOnFragmentListener = onFragmentTraceListener;
     }
 }

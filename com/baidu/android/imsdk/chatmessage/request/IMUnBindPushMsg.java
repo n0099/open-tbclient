@@ -5,17 +5,18 @@ import android.content.Intent;
 import android.util.Log;
 import com.baidu.android.imsdk.chatmessage.BindStateManager;
 import com.baidu.android.imsdk.chatmessage.ChatMsgManagerImpl;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.request.Message;
 import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class IMUnBindPushMsg extends Message {
-    public static final String TAG = IMUnBindPushMsg.class.getSimpleName();
-    private Context mContext;
-    private String mDeviceId;
+    public static final String TAG = "IMUnBindPushMsg";
+    public Context mContext;
+    public String mDeviceId;
 
     public IMUnBindPushMsg(Context context) {
         this.mContext = context;
@@ -30,17 +31,17 @@ public class IMUnBindPushMsg extends Message {
     }
 
     @Override // com.baidu.android.imsdk.request.Message
-    protected void buildBody() {
+    public void buildBody() {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("method", 92);
             jSONObject.put("appid", this.mAppid);
             jSONObject.put("uk", this.mUk);
-            jSONObject.put("device_id", this.mDeviceId);
+            jSONObject.put(Constants.KEY_DEVICE_ID, this.mDeviceId);
             this.mBody = jSONObject.toString();
-        } catch (JSONException e) {
-            LogUtils.e(LogUtils.TAG, "buildBody", e);
-            new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
+        } catch (JSONException e2) {
+            LogUtils.e(LogUtils.TAG, "buildBody", e2);
+            new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
         }
     }
 

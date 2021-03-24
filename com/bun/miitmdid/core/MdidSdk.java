@@ -11,17 +11,74 @@ import com.bun.miitmdid.supplier.b;
 import com.bun.miitmdid.utils.SupplierListener;
 import com.bun.miitmdid.utils.a;
 @Keep
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class MdidSdk implements SupplierListener {
-    private IIdentifierListener _InnerListener;
-    private b _setting;
+    public IIdentifierListener _InnerListener;
+    public b _setting;
+
+    /* renamed from: com.bun.miitmdid.core.MdidSdk$1  reason: invalid class name */
+    /* loaded from: classes5.dex */
+    public static /* synthetic */ class AnonymousClass1 {
+
+        /* renamed from: a  reason: collision with root package name */
+        public static final /* synthetic */ int[] f27078a;
+
+        static {
+            int[] iArr = new int[b.a.values().length];
+            f27078a = iArr;
+            try {
+                iArr[b.a.XIAOMI.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
+            }
+            try {
+                f27078a[b.a.VIVO.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
+            }
+            try {
+                f27078a[b.a.HUA_WEI.ordinal()] = 3;
+            } catch (NoSuchFieldError unused3) {
+            }
+            try {
+                f27078a[b.a.OPPO.ordinal()] = 4;
+            } catch (NoSuchFieldError unused4) {
+            }
+            try {
+                f27078a[b.a.MOTO.ordinal()] = 5;
+            } catch (NoSuchFieldError unused5) {
+            }
+            try {
+                f27078a[b.a.LENOVO.ordinal()] = 6;
+            } catch (NoSuchFieldError unused6) {
+            }
+            try {
+                f27078a[b.a.ASUS.ordinal()] = 7;
+            } catch (NoSuchFieldError unused7) {
+            }
+            try {
+                f27078a[b.a.SAMSUNG.ordinal()] = 8;
+            } catch (NoSuchFieldError unused8) {
+            }
+            try {
+                f27078a[b.a.MEIZU.ordinal()] = 9;
+            } catch (NoSuchFieldError unused9) {
+            }
+            try {
+                f27078a[b.a.ALPS.ordinal()] = 10;
+            } catch (NoSuchFieldError unused10) {
+            }
+            try {
+                f27078a[b.a.NUBIA.ordinal()] = 11;
+            } catch (NoSuchFieldError unused11) {
+            }
+        }
+    }
 
     @Keep
     public MdidSdk() {
         try {
             a.a(true);
-        } catch (Exception e) {
-            a.b("mdidsdk", "extractor exception!", e);
+        } catch (Exception e2) {
+            a.b("mdidsdk", "extractor exception!", e2);
         }
     }
 
@@ -29,8 +86,8 @@ public class MdidSdk implements SupplierListener {
     public MdidSdk(boolean z) {
         try {
             a.a(z);
-        } catch (Exception e) {
-            a.b("mdidsdk", "extractor exception!", e);
+        } catch (Exception e2) {
+            a.b("mdidsdk", "extractor exception!", e2);
         }
     }
 
@@ -39,6 +96,8 @@ public class MdidSdk implements SupplierListener {
         return i;
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r0v5, resolved type: com.bun.miitmdid.supplier.h.a */
+    /* JADX WARN: Multi-variable type inference failed */
     @Keep
     public int InitSdk(Context context, IIdentifierListener iIdentifierListener) {
         this._InnerListener = iIdentifierListener;
@@ -47,76 +106,85 @@ public class MdidSdk implements SupplierListener {
         if (a2 == b.a.UNSUPPORT) {
             return _InnerFailed(ErrorCode.INIT_ERROR_MANUFACTURER_NOSUPPORT, new com.bun.miitmdid.supplier.a());
         }
-        com.bun.miitmdid.a.a hK = com.bun.miitmdid.a.a.hK(context);
-        if (hK == null) {
+        com.bun.miitmdid.a.a a3 = com.bun.miitmdid.a.a.a(context);
+        if (a3 == null) {
             return _InnerFailed(ErrorCode.INIT_ERROR_LOAD_CONFIGFILE, new com.bun.miitmdid.supplier.a());
         }
-        this._setting = hK;
-        InnerIdSupplier innerIdSupplier = null;
-        switch (a2) {
-            case XIAOMI:
-                innerIdSupplier = new com.bun.miitmdid.supplier.i.b(context);
+        this._setting = a3;
+        com.bun.miitmdid.supplier.f.b bVar = null;
+        switch (AnonymousClass1.f27078a[a2.ordinal()]) {
+            case 1:
+                bVar = new com.bun.miitmdid.supplier.i.b(context);
                 break;
-            case VIVO:
-                innerIdSupplier = new com.bun.miitmdid.supplier.h.a(context);
-                ((com.bun.miitmdid.supplier.h.a) innerIdSupplier).a(this._setting.a());
+            case 2:
+                com.bun.miitmdid.supplier.h.a aVar = new com.bun.miitmdid.supplier.h.a(context);
+                aVar.a(this._setting.a());
+                bVar = aVar;
                 break;
-            case HUA_WEI:
-                innerIdSupplier = new com.bun.miitmdid.supplier.b.a(context);
+            case 3:
+                bVar = new com.bun.miitmdid.supplier.b.a(context);
                 break;
-            case OPPO:
-                innerIdSupplier = new com.bun.miitmdid.supplier.g.a(context);
+            case 4:
+                bVar = new com.bun.miitmdid.supplier.g.a(context);
                 break;
-            case MOTO:
-            case LENOVO:
-                innerIdSupplier = new com.bun.miitmdid.supplier.e.b(context, this);
+            case 5:
+            case 6:
+                bVar = new com.bun.miitmdid.supplier.e.b(context, this);
                 break;
-            case ASUS:
-                innerIdSupplier = new com.bun.miitmdid.supplier.a.a(context, this);
+            case 7:
+                bVar = new com.bun.miitmdid.supplier.a.a(context, this);
                 break;
-            case SAMSUNG:
-                innerIdSupplier = new com.bun.miitmdid.supplier.sumsung.a(context, this);
+            case 8:
+                bVar = new com.bun.miitmdid.supplier.sumsung.a(context, this);
                 break;
-            case MEIZU:
-            case ALPS:
-                innerIdSupplier = new com.bun.miitmdid.supplier.d.a(context);
+            case 9:
+            case 10:
+                bVar = new com.bun.miitmdid.supplier.d.a(context);
                 break;
-            case NUBIA:
-                innerIdSupplier = new com.bun.miitmdid.supplier.f.b(context);
+            case 11:
+                bVar = new com.bun.miitmdid.supplier.f.b(context);
                 break;
         }
-        if (innerIdSupplier == null) {
+        if (bVar == null) {
             return _InnerFailed(ErrorCode.INIT_ERROR_DEVICE_NOSUPPORT, new com.bun.miitmdid.supplier.a());
         }
-        if (!innerIdSupplier.b()) {
-            innerIdSupplier.a(this);
+        if (!bVar.b()) {
+            bVar.a(this);
             return ErrorCode.INIT_ERROR_RESULT_DELAY;
-        } else if (innerIdSupplier.isSupported()) {
-            OnSupport(true, innerIdSupplier);
+        } else if (bVar.isSupported()) {
+            OnSupport(true, bVar);
             return 0;
         } else {
-            return _InnerFailed(ErrorCode.INIT_ERROR_DEVICE_NOSUPPORT, innerIdSupplier);
+            return _InnerFailed(ErrorCode.INIT_ERROR_DEVICE_NOSUPPORT, bVar);
         }
     }
 
     @Override // com.bun.miitmdid.utils.SupplierListener
     public void OnSupport(boolean z, IdSupplier idSupplier) {
-        if (this._InnerListener != null) {
-            this._InnerListener.OnSupport(z, idSupplier);
+        String str;
+        String str2;
+        String str3;
+        IIdentifierListener iIdentifierListener = this._InnerListener;
+        if (iIdentifierListener != null) {
+            iIdentifierListener.OnSupport(z, idSupplier);
         }
         c cVar = new c();
-        String str = "";
-        String str2 = "";
-        String str3 = "";
         if (idSupplier != null) {
-            str = idSupplier.getOAID();
-            str2 = idSupplier.getVAID();
-            str3 = idSupplier.getAAID();
+            String oaid = idSupplier.getOAID();
+            String vaid = idSupplier.getVAID();
+            String aaid = idSupplier.getAAID();
             if (idSupplier instanceof InnerIdSupplier) {
                 ((InnerIdSupplier) idSupplier).shutDown();
             }
+            str = oaid;
+            str2 = vaid;
+            str3 = aaid;
+        } else {
+            str = "";
+            str2 = str;
+            str3 = str2;
         }
-        cVar.b(z, "", str, str2, str3);
+        cVar.a(z, "", str, str2, str3);
     }
 
     public void UnInitSdk() {

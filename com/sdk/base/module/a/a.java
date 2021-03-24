@@ -1,38 +1,40 @@
 package com.sdk.base.module.a;
 
 import android.content.Context;
+import com.alipay.sdk.packet.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.sdk.base.framework.a.a.c;
 import com.sdk.base.framework.c.f;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static a f7657a;
-    private Context b;
+    public static a f38573a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public Context f38574b;
 
     static {
-        a.class.getName();
-        Boolean.valueOf(f.b);
+        boolean z = f.f38519b;
     }
 
-    private a(Context context) {
-        this.b = context;
+    public a(Context context) {
+        this.f38574b = context;
     }
 
     public static a a(Context context) {
-        if (f7657a == null) {
+        if (f38573a == null) {
             synchronized (a.class) {
-                f7657a = new a(context);
+                f38573a = new a(context);
             }
         }
-        return f7657a;
+        return f38573a;
     }
 
     public final void a(String str, String str2) {
-        com.sdk.base.framework.f.b.a.a(this.b, "public_key", str2);
+        com.sdk.base.framework.f.b.a.a(this.f38574b, e.m, str2);
         if (c.b(str).booleanValue()) {
-            com.sdk.base.framework.f.b.a.a(this.b, Constants.API_KEY, str);
+            com.sdk.base.framework.f.b.a.a(this.f38574b, Constants.API_KEY, str);
         }
     }
 }

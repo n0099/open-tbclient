@@ -2,26 +2,28 @@ package com.vivo.push;
 
 import com.vivo.push.cache.ISubscribeAppAliasManager;
 import java.util.List;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes14.dex */
+/* loaded from: classes7.dex */
 public final class l implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ List f8057a;
-    final /* synthetic */ LocalAliasTagsManager b;
+    public final /* synthetic */ List f39477a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    /* renamed from: b  reason: collision with root package name */
+    public final /* synthetic */ LocalAliasTagsManager f39478b;
+
     public l(LocalAliasTagsManager localAliasTagsManager, List list) {
-        this.b = localAliasTagsManager;
-        this.f8057a = list;
+        this.f39478b = localAliasTagsManager;
+        this.f39477a = list;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
         ISubscribeAppAliasManager iSubscribeAppAliasManager;
-        if (this.f8057a != null && this.f8057a.size() > 0) {
-            iSubscribeAppAliasManager = this.b.mSubscribeAppAliasManager;
-            iSubscribeAppAliasManager.delAliasSuccess((String) this.f8057a.get(0));
+        List list = this.f39477a;
+        if (list == null || list.size() <= 0) {
+            return;
         }
+        iSubscribeAppAliasManager = this.f39478b.mSubscribeAppAliasManager;
+        iSubscribeAppAliasManager.delAliasSuccess((String) this.f39477a.get(0));
     }
 }

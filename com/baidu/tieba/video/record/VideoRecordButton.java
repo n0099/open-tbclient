@@ -8,112 +8,129 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 import com.baidu.tieba.R;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class VideoRecordButton extends FrameLayout {
-    private TextView aek;
-    private View nVT;
-    private View nVU;
-    private View nVV;
-    private ObjectAnimator nVW;
-    private ObjectAnimator nVX;
-    private ObjectAnimator nVY;
-    private ObjectAnimator nVZ;
+
+    /* renamed from: e  reason: collision with root package name */
+    public View f21903e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public View f21904f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public View f21905g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public TextView f21906h;
+    public ObjectAnimator i;
+    public ObjectAnimator j;
+    public ObjectAnimator k;
+    public ObjectAnimator l;
 
     public VideoRecordButton(Context context) {
         super(context);
-        initView();
+        a();
+    }
+
+    public final void a() {
+        FrameLayout.inflate(getContext(), R.layout.layout_record_button, this);
+        this.f21903e = findViewById(R.id.record_layer1);
+        this.f21904f = findViewById(R.id.record_layer2);
+        this.f21905g = findViewById(R.id.record_layer3);
+        this.f21906h = (TextView) findViewById(R.id.tv_tip);
+        this.f21905g.setScaleX(0.766f);
+        this.f21905g.setScaleY(0.766f);
+    }
+
+    public void b(boolean z) {
+        ObjectAnimator objectAnimator = this.j;
+        if (objectAnimator != null && objectAnimator.isRunning()) {
+            this.j.cancel();
+        }
+        if (this.i == null) {
+            ObjectAnimator ofPropertyValuesHolder = ObjectAnimator.ofPropertyValuesHolder(this.f21905g, PropertyValuesHolder.ofFloat("scaleX", 0.766f, 1.0f), PropertyValuesHolder.ofFloat("scaleY", 0.766f, 1.0f));
+            this.i = ofPropertyValuesHolder;
+            ofPropertyValuesHolder.setRepeatCount(-1);
+            this.i.setRepeatMode(2);
+            this.i.setDuration(1000L);
+        }
+        this.f21905g.setVisibility(0);
+        if (z) {
+            this.f21903e.setVisibility(8);
+        } else {
+            this.f21903e.setBackgroundResource(R.drawable.red_square_bg);
+        }
+        this.f21906h.setVisibility(8);
+        this.i.start();
+    }
+
+    public void c() {
+        ObjectAnimator objectAnimator = this.l;
+        if (objectAnimator != null && objectAnimator.isRunning()) {
+            this.k.cancel();
+        }
+        if (this.k == null) {
+            ObjectAnimator ofPropertyValuesHolder = ObjectAnimator.ofPropertyValuesHolder(this.f21904f, PropertyValuesHolder.ofFloat("scaleX", 1.0f, 0.9f), PropertyValuesHolder.ofFloat("scaleY", 1.0f, 0.9f));
+            this.k = ofPropertyValuesHolder;
+            ofPropertyValuesHolder.setDuration(200L);
+        }
+        this.k.start();
+    }
+
+    public void d() {
+        ObjectAnimator objectAnimator = this.i;
+        if (objectAnimator != null && objectAnimator.isRunning()) {
+            this.i.cancel();
+        }
+        if (this.j == null) {
+            ObjectAnimator ofPropertyValuesHolder = ObjectAnimator.ofPropertyValuesHolder(this.f21905g, PropertyValuesHolder.ofFloat("scaleX", this.f21905g.getScaleX(), 0.766f), PropertyValuesHolder.ofFloat("scaleY", this.f21905g.getScaleY(), 0.766f));
+            this.j = ofPropertyValuesHolder;
+            ofPropertyValuesHolder.setDuration((Math.abs(0.766f - this.f21905g.getScaleX()) * 500.0f) / 0.3f);
+        }
+        this.f21903e.setVisibility(0);
+        this.f21903e.setBackgroundResource(R.drawable.red_circle_bg);
+        this.j.start();
+    }
+
+    public void e() {
+        ObjectAnimator objectAnimator = this.k;
+        if (objectAnimator != null && objectAnimator.isRunning()) {
+            this.k.cancel();
+        }
+        if (this.f21904f.getScaleX() == 1.0f) {
+            return;
+        }
+        if (this.l == null) {
+            ObjectAnimator ofPropertyValuesHolder = ObjectAnimator.ofPropertyValuesHolder(this.f21904f, PropertyValuesHolder.ofFloat("scaleX", 0.9f, 1.0f), PropertyValuesHolder.ofFloat("scaleY", 0.9f, 1.0f));
+            this.l = ofPropertyValuesHolder;
+            ofPropertyValuesHolder.setDuration(200L);
+        }
+        this.l.start();
+    }
+
+    public View getLayer1() {
+        return this.f21903e;
+    }
+
+    public View getLayer2() {
+        return this.f21904f;
+    }
+
+    public View getLayer3() {
+        return this.f21905g;
+    }
+
+    public TextView getTvTip() {
+        return this.f21906h;
     }
 
     public VideoRecordButton(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        initView();
+        a();
     }
 
     public VideoRecordButton(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        initView();
-    }
-
-    private void initView() {
-        inflate(getContext(), R.layout.layout_record_button, this);
-        this.nVT = findViewById(R.id.record_layer1);
-        this.nVU = findViewById(R.id.record_layer2);
-        this.nVV = findViewById(R.id.record_layer3);
-        this.aek = (TextView) findViewById(R.id.tv_tip);
-        this.nVV.setScaleX(0.766f);
-        this.nVV.setScaleY(0.766f);
-    }
-
-    public View getLayer3() {
-        return this.nVV;
-    }
-
-    public View getLayer1() {
-        return this.nVT;
-    }
-
-    public View getLayer2() {
-        return this.nVU;
-    }
-
-    public TextView getTvTip() {
-        return this.aek;
-    }
-
-    public void dVl() {
-        if (this.nVZ != null && this.nVZ.isRunning()) {
-            this.nVY.cancel();
-        }
-        if (this.nVY == null) {
-            this.nVY = ObjectAnimator.ofPropertyValuesHolder(this.nVU, PropertyValuesHolder.ofFloat("scaleX", 1.0f, 0.9f), PropertyValuesHolder.ofFloat("scaleY", 1.0f, 0.9f));
-            this.nVY.setDuration(200L);
-        }
-        this.nVY.start();
-    }
-
-    public void dVm() {
-        if (this.nVY != null && this.nVY.isRunning()) {
-            this.nVY.cancel();
-        }
-        if (this.nVU.getScaleX() != 1.0f) {
-            if (this.nVZ == null) {
-                this.nVZ = ObjectAnimator.ofPropertyValuesHolder(this.nVU, PropertyValuesHolder.ofFloat("scaleX", 0.9f, 1.0f), PropertyValuesHolder.ofFloat("scaleY", 0.9f, 1.0f));
-                this.nVZ.setDuration(200L);
-            }
-            this.nVZ.start();
-        }
-    }
-
-    public void zf(boolean z) {
-        if (this.nVX != null && this.nVX.isRunning()) {
-            this.nVX.cancel();
-        }
-        if (this.nVW == null) {
-            this.nVW = ObjectAnimator.ofPropertyValuesHolder(this.nVV, PropertyValuesHolder.ofFloat("scaleX", 0.766f, 1.0f), PropertyValuesHolder.ofFloat("scaleY", 0.766f, 1.0f));
-            this.nVW.setRepeatCount(-1);
-            this.nVW.setRepeatMode(2);
-            this.nVW.setDuration(1000L);
-        }
-        this.nVV.setVisibility(0);
-        if (z) {
-            this.nVT.setVisibility(8);
-        } else {
-            this.nVT.setBackgroundResource(R.drawable.red_square_bg);
-        }
-        this.aek.setVisibility(8);
-        this.nVW.start();
-    }
-
-    public void dVa() {
-        if (this.nVW != null && this.nVW.isRunning()) {
-            this.nVW.cancel();
-        }
-        if (this.nVX == null) {
-            this.nVX = ObjectAnimator.ofPropertyValuesHolder(this.nVV, PropertyValuesHolder.ofFloat("scaleX", this.nVV.getScaleX(), 0.766f), PropertyValuesHolder.ofFloat("scaleY", this.nVV.getScaleY(), 0.766f));
-            this.nVX.setDuration((500.0f * Math.abs(0.766f - this.nVV.getScaleX())) / 0.3f);
-        }
-        this.nVT.setVisibility(0);
-        this.nVT.setBackgroundResource(R.drawable.red_circle_bg);
-        this.nVX.start();
+        a();
     }
 }

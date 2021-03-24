@@ -3,7 +3,7 @@ package com.baidu.mapapi.cloud;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class DetailSearchResult extends BaseSearchResult {
     public CloudPoiInfo poiInfo;
 
@@ -15,7 +15,8 @@ public class DetailSearchResult extends BaseSearchResult {
         if (this.status != 0 || (optJSONArray = jSONObject.optJSONArray("contents")) == null || (optJSONObject = optJSONArray.optJSONObject(0)) == null) {
             return;
         }
-        this.poiInfo = new CloudPoiInfo();
-        this.poiInfo.a(optJSONObject);
+        CloudPoiInfo cloudPoiInfo = new CloudPoiInfo();
+        this.poiInfo = cloudPoiInfo;
+        cloudPoiInfo.a(optJSONObject);
     }
 }

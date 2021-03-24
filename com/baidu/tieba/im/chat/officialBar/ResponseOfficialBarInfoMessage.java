@@ -1,35 +1,36 @@
 package com.baidu.tieba.im.chat.officialBar;
 
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
 import com.squareup.wire.Wire;
+import protobuf.QueryForumDetail.DataRes;
 import protobuf.QueryForumDetail.QueryForumDetailResIdl;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class ResponseOfficialBarInfoMessage extends TbSocketReponsedMessage {
-    private String authen;
-    private String portrait;
+    public String authen;
+    public String portrait;
 
-    public String getPortrait() {
-        return this.portrait;
+    public ResponseOfficialBarInfoMessage() {
+        super(208001);
+        this.portrait = null;
+        this.authen = null;
     }
 
     public String getAuthen() {
         return this.authen;
     }
 
-    public ResponseOfficialBarInfoMessage() {
-        super(CmdConfigSocket.CMD_QUERY_OFFICIAL_BAR_INFO);
-        this.portrait = null;
-        this.authen = null;
+    public String getPortrait() {
+        return this.portrait;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.message.a
+    @Override // com.baidu.tbadk.message.websockt.TbSocketReponsedMessage, com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
     public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         QueryForumDetailResIdl queryForumDetailResIdl = (QueryForumDetailResIdl) new Wire(new Class[0]).parseFrom(bArr, QueryForumDetailResIdl.class);
         setError(queryForumDetailResIdl.error.errorno.intValue());
         setErrorString(queryForumDetailResIdl.error.usermsg);
-        this.portrait = queryForumDetailResIdl.data.portrait;
-        this.authen = queryForumDetailResIdl.data.authen;
+        DataRes dataRes = queryForumDetailResIdl.data;
+        this.portrait = dataRes.portrait;
+        this.authen = dataRes.authen;
     }
 }

@@ -13,25 +13,157 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
 /* loaded from: classes.dex */
-public class BlockingLinkedDeque<E> extends AbstractQueue<E> implements m<E>, Serializable {
-    private static final long serialVersionUID = -387911632671998426L;
-    private final int capacity;
-    private transient int count;
-    transient d<E> first;
-    transient d<E> last;
-    final ReentrantLock lock;
-    private final Condition notEmpty;
-    private final Condition notFull;
+public class BlockingLinkedDeque<E> extends AbstractQueue<E> implements Object<E>, Serializable, Serializable {
+    public static final long serialVersionUID = -387911632671998426L;
+    public final int capacity;
+    public transient int count;
+    public transient e<E> first;
+    public transient e<E> last;
+    public final ReentrantLock lock;
+    public final Condition notEmpty;
+    public final Condition notFull;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public static final class d<E> {
-        d<E> RL;
-        d<E> RQ;
-        E item;
+    public abstract class b implements Iterator<E> {
 
-        d(E e) {
-            this.item = e;
+        /* renamed from: e  reason: collision with root package name */
+        public e<E> f2171e;
+
+        /* renamed from: f  reason: collision with root package name */
+        public E f2172f;
+
+        /* renamed from: g  reason: collision with root package name */
+        public e<E> f2173g;
+
+        public b() {
+            ReentrantLock reentrantLock = BlockingLinkedDeque.this.lock;
+            reentrantLock.lock();
+            try {
+                e<E> b2 = b();
+                this.f2171e = b2;
+                this.f2172f = b2 == null ? null : b2.f2175a;
+            } finally {
+                reentrantLock.unlock();
+            }
+        }
+
+        public void a() {
+            ReentrantLock reentrantLock = BlockingLinkedDeque.this.lock;
+            reentrantLock.lock();
+            try {
+                e<E> d2 = d(this.f2171e);
+                this.f2171e = d2;
+                this.f2172f = d2 == null ? null : d2.f2175a;
+            } finally {
+                reentrantLock.unlock();
+            }
+        }
+
+        public abstract e<E> b();
+
+        public abstract e<E> c(e<E> eVar);
+
+        public final e<E> d(e<E> eVar) {
+            while (true) {
+                e<E> c2 = c(eVar);
+                if (c2 == null) {
+                    return null;
+                }
+                if (c2.f2175a != null) {
+                    return c2;
+                }
+                if (c2 == eVar) {
+                    return b();
+                }
+                eVar = c2;
+            }
+        }
+
+        @Override // java.util.Iterator
+        public boolean hasNext() {
+            return this.f2171e != null;
+        }
+
+        @Override // java.util.Iterator
+        public E next() {
+            e<E> eVar = this.f2171e;
+            if (eVar != null) {
+                this.f2173g = eVar;
+                E e2 = this.f2172f;
+                a();
+                return e2;
+            }
+            throw new NoSuchElementException();
+        }
+
+        @Override // java.util.Iterator
+        public void remove() {
+            e<E> eVar = this.f2173g;
+            if (eVar != null) {
+                this.f2173g = null;
+                ReentrantLock reentrantLock = BlockingLinkedDeque.this.lock;
+                reentrantLock.lock();
+                try {
+                    if (eVar.f2175a != null) {
+                        BlockingLinkedDeque.this.unlink(eVar);
+                    }
+                    return;
+                } finally {
+                    reentrantLock.unlock();
+                }
+            }
+            throw new IllegalStateException();
+        }
+    }
+
+    /* loaded from: classes.dex */
+    public class c extends BlockingLinkedDeque<E>.b {
+        public c() {
+            super();
+        }
+
+        @Override // com.baidu.adp.lib.util.BlockingLinkedDeque.b
+        public e<E> b() {
+            return BlockingLinkedDeque.this.last;
+        }
+
+        @Override // com.baidu.adp.lib.util.BlockingLinkedDeque.b
+        public e<E> c(e<E> eVar) {
+            return eVar.f2176b;
+        }
+    }
+
+    /* loaded from: classes.dex */
+    public class d extends BlockingLinkedDeque<E>.b {
+        public d() {
+            super();
+        }
+
+        @Override // com.baidu.adp.lib.util.BlockingLinkedDeque.b
+        public e<E> b() {
+            return BlockingLinkedDeque.this.first;
+        }
+
+        @Override // com.baidu.adp.lib.util.BlockingLinkedDeque.b
+        public e<E> c(e<E> eVar) {
+            return eVar.f2177c;
+        }
+    }
+
+    /* loaded from: classes.dex */
+    public static final class e<E> {
+
+        /* renamed from: a  reason: collision with root package name */
+        public E f2175a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public e<E> f2176b;
+
+        /* renamed from: c  reason: collision with root package name */
+        public e<E> f2177c;
+
+        public e(E e2) {
+            this.f2175a = e2;
         }
     }
 
@@ -39,254 +171,264 @@ public class BlockingLinkedDeque<E> extends AbstractQueue<E> implements m<E>, Se
         this(Integer.MAX_VALUE);
     }
 
-    public BlockingLinkedDeque(int i) {
-        this.lock = new ReentrantLock();
-        this.notEmpty = this.lock.newCondition();
-        this.notFull = this.lock.newCondition();
-        if (i <= 0) {
-            throw new IllegalArgumentException();
-        }
-        this.capacity = i;
-    }
-
-    public BlockingLinkedDeque(Collection<? extends E> collection) {
-        this(Integer.MAX_VALUE);
-        ReentrantLock reentrantLock = this.lock;
-        reentrantLock.lock();
-        try {
-            for (E e : collection) {
-                if (e == null) {
-                    throw new NullPointerException();
-                }
-                if (!linkLast(new d<>(e))) {
-                    throw new IllegalStateException("Deque full");
-                }
-            }
-        } finally {
-            reentrantLock.unlock();
-        }
-    }
-
-    private boolean linkFirst(d<E> dVar) {
+    private boolean linkFirst(e<E> eVar) {
         if (this.count >= this.capacity) {
             return false;
         }
-        d<E> dVar2 = this.first;
-        dVar.RL = dVar2;
-        this.first = dVar;
+        e<E> eVar2 = this.first;
+        eVar.f2177c = eVar2;
+        this.first = eVar;
         if (this.last == null) {
-            this.last = dVar;
+            this.last = eVar;
         } else {
-            dVar2.RQ = dVar;
+            eVar2.f2176b = eVar;
         }
         this.count++;
         this.notEmpty.signal();
         return true;
     }
 
-    private boolean linkLast(d<E> dVar) {
+    private boolean linkLast(e<E> eVar) {
         if (this.count >= this.capacity) {
             return false;
         }
-        d<E> dVar2 = this.last;
-        dVar.RQ = dVar2;
-        this.last = dVar;
+        e<E> eVar2 = this.last;
+        eVar.f2176b = eVar2;
+        this.last = eVar;
         if (this.first == null) {
-            this.first = dVar;
+            this.first = eVar;
         } else {
-            dVar2.RL = dVar;
+            eVar2.f2177c = eVar;
         }
         this.count++;
         this.notEmpty.signal();
         return true;
+    }
+
+    /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: com.baidu.adp.lib.util.BlockingLinkedDeque<E> */
+    /* JADX WARN: Multi-variable type inference failed */
+    private void readObject(ObjectInputStream objectInputStream) throws IOException, ClassNotFoundException {
+        objectInputStream.defaultReadObject();
+        this.count = 0;
+        this.first = null;
+        this.last = null;
+        while (true) {
+            Object readObject = objectInputStream.readObject();
+            if (readObject == null) {
+                return;
+            }
+            add(readObject);
+        }
     }
 
     private E unlinkFirst() {
-        d<E> dVar = this.first;
-        if (dVar == null) {
+        e<E> eVar = this.first;
+        if (eVar == null) {
             return null;
         }
-        d<E> dVar2 = dVar.RL;
-        E e = dVar.item;
-        dVar.item = null;
-        dVar.RL = dVar;
-        this.first = dVar2;
-        if (dVar2 == null) {
+        e<E> eVar2 = eVar.f2177c;
+        E e2 = eVar.f2175a;
+        eVar.f2175a = null;
+        eVar.f2177c = eVar;
+        this.first = eVar2;
+        if (eVar2 == null) {
             this.last = null;
         } else {
-            dVar2.RQ = null;
+            eVar2.f2176b = null;
         }
         this.count--;
         this.notFull.signal();
-        return e;
+        return e2;
     }
 
     private E unlinkLast() {
-        d<E> dVar = this.last;
-        if (dVar == null) {
+        e<E> eVar = this.last;
+        if (eVar == null) {
             return null;
         }
-        d<E> dVar2 = dVar.RQ;
-        E e = dVar.item;
-        dVar.item = null;
-        dVar.RQ = dVar;
-        this.last = dVar2;
-        if (dVar2 == null) {
+        e<E> eVar2 = eVar.f2176b;
+        E e2 = eVar.f2175a;
+        eVar.f2175a = null;
+        eVar.f2176b = eVar;
+        this.last = eVar2;
+        if (eVar2 == null) {
             this.first = null;
         } else {
-            dVar2.RL = null;
+            eVar2.f2177c = null;
         }
         this.count--;
         this.notFull.signal();
-        return e;
+        return e2;
     }
 
-    void unlink(d<E> dVar) {
-        d<E> dVar2 = dVar.RQ;
-        d<E> dVar3 = dVar.RL;
-        if (dVar2 == null) {
-            unlinkFirst();
-        } else if (dVar3 == null) {
-            unlinkLast();
-        } else {
-            dVar2.RL = dVar3;
-            dVar3.RQ = dVar2;
-            dVar.item = null;
-            this.count--;
-            this.notFull.signal();
-        }
-    }
-
-    public void addFirst(E e) {
-        if (!offerFirst(e)) {
-            throw new IllegalStateException("Deque full");
-        }
-    }
-
-    public void addLast(E e) {
-        if (!offerLast(e)) {
-            throw new IllegalStateException("Deque full");
-        }
-    }
-
-    public boolean offerFirst(E e) {
-        if (e == null) {
-            throw new NullPointerException();
-        }
-        d<E> dVar = new d<>(e);
+    private void writeObject(ObjectOutputStream objectOutputStream) throws IOException {
         ReentrantLock reentrantLock = this.lock;
         reentrantLock.lock();
         try {
-            return linkFirst(dVar);
+            objectOutputStream.defaultWriteObject();
+            for (e<E> eVar = this.first; eVar != null; eVar = eVar.f2177c) {
+                objectOutputStream.writeObject(eVar.f2175a);
+            }
+            objectOutputStream.writeObject(null);
         } finally {
             reentrantLock.unlock();
         }
     }
 
-    public boolean offerLast(E e) {
-        if (e == null) {
-            throw new NullPointerException();
+    @Override // java.util.AbstractQueue, java.util.AbstractCollection, java.util.Collection, java.util.Queue
+    public boolean add(E e2) {
+        addLast(e2);
+        return true;
+    }
+
+    public void addFirst(E e2) {
+        if (!offerFirst(e2)) {
+            throw new IllegalStateException("Deque full");
         }
-        d<E> dVar = new d<>(e);
+    }
+
+    public void addLast(E e2) {
+        if (!offerLast(e2)) {
+            throw new IllegalStateException("Deque full");
+        }
+    }
+
+    @Override // java.util.AbstractQueue, java.util.AbstractCollection, java.util.Collection
+    public void clear() {
         ReentrantLock reentrantLock = this.lock;
         reentrantLock.lock();
         try {
-            return linkLast(dVar);
+            e<E> eVar = this.first;
+            while (eVar != null) {
+                eVar.f2175a = null;
+                e<E> eVar2 = eVar.f2177c;
+                eVar.f2176b = null;
+                eVar.f2177c = null;
+                eVar = eVar2;
+            }
+            this.last = null;
+            this.first = null;
+            this.count = 0;
+            this.notFull.signalAll();
         } finally {
             reentrantLock.unlock();
         }
     }
 
-    public void putFirst(E e) throws InterruptedException {
-        if (e == null) {
-            throw new NullPointerException();
+    @Override // java.util.AbstractCollection, java.util.Collection
+    public boolean contains(Object obj) {
+        if (obj == null) {
+            return false;
         }
-        d<E> dVar = new d<>(e);
         ReentrantLock reentrantLock = this.lock;
         reentrantLock.lock();
-        while (!linkFirst(dVar)) {
+        try {
+            for (e<E> eVar = this.first; eVar != null; eVar = eVar.f2177c) {
+                if (obj.equals(eVar.f2175a)) {
+                    return true;
+                }
+            }
+            return false;
+        } finally {
+            reentrantLock.unlock();
+        }
+    }
+
+    public Iterator<E> descendingIterator() {
+        return new c();
+    }
+
+    public int drainTo(Collection<? super E> collection) {
+        return drainTo(collection, Integer.MAX_VALUE);
+    }
+
+    @Override // java.util.AbstractQueue, java.util.Queue
+    public E element() {
+        return getFirst();
+    }
+
+    public E getFirst() {
+        E peekFirst = peekFirst();
+        if (peekFirst != null) {
+            return peekFirst;
+        }
+        throw new NoSuchElementException();
+    }
+
+    public E getLast() {
+        E peekLast = peekLast();
+        if (peekLast != null) {
+            return peekLast;
+        }
+        throw new NoSuchElementException();
+    }
+
+    @Override // java.util.AbstractCollection, java.util.Collection, java.lang.Iterable
+    public Iterator<E> iterator() {
+        return new d();
+    }
+
+    @Override // java.util.Queue
+    public boolean offer(E e2) {
+        return offerLast(e2);
+    }
+
+    public boolean offerFirst(E e2) {
+        if (e2 != null) {
+            e<E> eVar = new e<>(e2);
+            ReentrantLock reentrantLock = this.lock;
+            reentrantLock.lock();
             try {
-                this.notFull.await();
+                return linkFirst(eVar);
             } finally {
                 reentrantLock.unlock();
             }
         }
+        throw null;
     }
 
-    public void putLast(E e) throws InterruptedException {
-        if (e == null) {
-            throw new NullPointerException();
+    public boolean offerLast(E e2) {
+        if (e2 != null) {
+            e<E> eVar = new e<>(e2);
+            ReentrantLock reentrantLock = this.lock;
+            reentrantLock.lock();
+            try {
+                return linkLast(eVar);
+            } finally {
+                reentrantLock.unlock();
+            }
         }
-        d<E> dVar = new d<>(e);
+        throw null;
+    }
+
+    @Override // java.util.Queue
+    public E peek() {
+        return peekFirst();
+    }
+
+    public E peekFirst() {
         ReentrantLock reentrantLock = this.lock;
         reentrantLock.lock();
-        while (!linkLast(dVar)) {
-            try {
-                this.notFull.await();
-            } finally {
-                reentrantLock.unlock();
-            }
+        try {
+            return this.first == null ? null : this.first.f2175a;
+        } finally {
+            reentrantLock.unlock();
         }
     }
 
-    public boolean offerFirst(E e, long j, TimeUnit timeUnit) throws InterruptedException {
-        if (e == null) {
-            throw new NullPointerException();
-        }
-        d<E> dVar = new d<>(e);
-        long nanos = timeUnit.toNanos(j);
+    public E peekLast() {
         ReentrantLock reentrantLock = this.lock;
-        reentrantLock.lockInterruptibly();
-        while (!linkFirst(dVar)) {
-            try {
-                if (nanos > 0) {
-                    nanos = this.notFull.awaitNanos(nanos);
-                } else {
-                    return false;
-                }
-            } finally {
-                reentrantLock.unlock();
-            }
+        reentrantLock.lock();
+        try {
+            return this.last == null ? null : this.last.f2175a;
+        } finally {
+            reentrantLock.unlock();
         }
-        return true;
     }
 
-    public boolean offerLast(E e, long j, TimeUnit timeUnit) throws InterruptedException {
-        if (e == null) {
-            throw new NullPointerException();
-        }
-        d<E> dVar = new d<>(e);
-        long nanos = timeUnit.toNanos(j);
-        ReentrantLock reentrantLock = this.lock;
-        reentrantLock.lockInterruptibly();
-        while (!linkLast(dVar)) {
-            try {
-                if (nanos > 0) {
-                    nanos = this.notFull.awaitNanos(nanos);
-                } else {
-                    return false;
-                }
-            } finally {
-                reentrantLock.unlock();
-            }
-        }
-        return true;
-    }
-
-    public E removeFirst() {
-        E pollFirst = pollFirst();
-        if (pollFirst == null) {
-            throw new NoSuchElementException();
-        }
-        return pollFirst;
-    }
-
-    public E removeLast() {
-        E pollLast = pollLast();
-        if (pollLast == null) {
-            throw new NoSuchElementException();
-        }
-        return pollLast;
+    @Override // java.util.Queue
+    public E poll() {
+        return pollFirst();
     }
 
     public E pollFirst() {
@@ -307,6 +449,134 @@ public class BlockingLinkedDeque<E> extends AbstractQueue<E> implements m<E>, Se
         } finally {
             reentrantLock.unlock();
         }
+    }
+
+    public E pop() {
+        return removeFirst();
+    }
+
+    public void push(E e2) {
+        addFirst(e2);
+    }
+
+    public void put(E e2) throws InterruptedException {
+        putLast(e2);
+    }
+
+    public void putFirst(E e2) throws InterruptedException {
+        if (e2 == null) {
+            throw null;
+        }
+        e<E> eVar = new e<>(e2);
+        ReentrantLock reentrantLock = this.lock;
+        reentrantLock.lock();
+        while (!linkFirst(eVar)) {
+            try {
+                this.notFull.await();
+            } finally {
+                reentrantLock.unlock();
+            }
+        }
+    }
+
+    public void putLast(E e2) throws InterruptedException {
+        if (e2 == null) {
+            throw null;
+        }
+        e<E> eVar = new e<>(e2);
+        ReentrantLock reentrantLock = this.lock;
+        reentrantLock.lock();
+        while (!linkLast(eVar)) {
+            try {
+                this.notFull.await();
+            } finally {
+                reentrantLock.unlock();
+            }
+        }
+    }
+
+    public int remainingCapacity() {
+        ReentrantLock reentrantLock = this.lock;
+        reentrantLock.lock();
+        try {
+            return this.capacity - this.count;
+        } finally {
+            reentrantLock.unlock();
+        }
+    }
+
+    @Override // java.util.AbstractQueue, java.util.Queue
+    public E remove() {
+        return removeFirst();
+    }
+
+    public E removeFirst() {
+        E pollFirst = pollFirst();
+        if (pollFirst != null) {
+            return pollFirst;
+        }
+        throw new NoSuchElementException();
+    }
+
+    public boolean removeFirstOccurrence(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        ReentrantLock reentrantLock = this.lock;
+        reentrantLock.lock();
+        try {
+            for (e<E> eVar = this.first; eVar != null; eVar = eVar.f2177c) {
+                if (obj.equals(eVar.f2175a)) {
+                    unlink(eVar);
+                    return true;
+                }
+            }
+            return false;
+        } finally {
+            reentrantLock.unlock();
+        }
+    }
+
+    public E removeLast() {
+        E pollLast = pollLast();
+        if (pollLast != null) {
+            return pollLast;
+        }
+        throw new NoSuchElementException();
+    }
+
+    public boolean removeLastOccurrence(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        ReentrantLock reentrantLock = this.lock;
+        reentrantLock.lock();
+        try {
+            for (e<E> eVar = this.last; eVar != null; eVar = eVar.f2176b) {
+                if (obj.equals(eVar.f2175a)) {
+                    unlink(eVar);
+                    return true;
+                }
+            }
+            return false;
+        } finally {
+            reentrantLock.unlock();
+        }
+    }
+
+    @Override // java.util.AbstractCollection, java.util.Collection
+    public int size() {
+        ReentrantLock reentrantLock = this.lock;
+        reentrantLock.lock();
+        try {
+            return this.count;
+        } finally {
+            reentrantLock.unlock();
+        }
+    }
+
+    public E take() throws InterruptedException {
+        return takeFirst();
     }
 
     public E takeFirst() throws InterruptedException {
@@ -341,22 +611,133 @@ public class BlockingLinkedDeque<E> extends AbstractQueue<E> implements m<E>, Se
         }
     }
 
+    @Override // java.util.AbstractCollection, java.util.Collection
+    public Object[] toArray() {
+        ReentrantLock reentrantLock = this.lock;
+        reentrantLock.lock();
+        try {
+            Object[] objArr = new Object[this.count];
+            int i = 0;
+            e<E> eVar = this.first;
+            while (eVar != null) {
+                int i2 = i + 1;
+                objArr[i] = eVar.f2175a;
+                eVar = eVar.f2177c;
+                i = i2;
+            }
+            return objArr;
+        } finally {
+            reentrantLock.unlock();
+        }
+    }
+
+    @Override // java.util.AbstractCollection, java.lang.Object
+    public String toString() {
+        ReentrantLock reentrantLock = this.lock;
+        reentrantLock.lock();
+        try {
+            e<E> eVar = this.first;
+            if (eVar == null) {
+                return "[]";
+            }
+            StringBuilder sb = new StringBuilder();
+            sb.append('[');
+            while (true) {
+                Object obj = eVar.f2175a;
+                if (obj == this) {
+                    obj = "(this Collection)";
+                }
+                sb.append(obj);
+                eVar = eVar.f2177c;
+                if (eVar == null) {
+                    sb.append(']');
+                    return sb.toString();
+                }
+                sb.append(',');
+                sb.append(' ');
+            }
+        } finally {
+            reentrantLock.unlock();
+        }
+    }
+
+    public void unlink(e<E> eVar) {
+        e<E> eVar2 = eVar.f2176b;
+        e<E> eVar3 = eVar.f2177c;
+        if (eVar2 == null) {
+            unlinkFirst();
+        } else if (eVar3 == null) {
+            unlinkLast();
+        } else {
+            eVar2.f2177c = eVar3;
+            eVar3.f2176b = eVar2;
+            eVar.f2175a = null;
+            this.count--;
+            this.notFull.signal();
+        }
+    }
+
+    public BlockingLinkedDeque(int i) {
+        ReentrantLock reentrantLock = new ReentrantLock();
+        this.lock = reentrantLock;
+        this.notEmpty = reentrantLock.newCondition();
+        this.notFull = this.lock.newCondition();
+        if (i > 0) {
+            this.capacity = i;
+            return;
+        }
+        throw new IllegalArgumentException();
+    }
+
+    /* JADX DEBUG: Type inference failed for r2v1. Raw type applied. Possible types: E, ? super E */
+    public int drainTo(Collection<? super E> collection, int i) {
+        if (collection != null) {
+            if (collection != this) {
+                ReentrantLock reentrantLock = this.lock;
+                reentrantLock.lock();
+                try {
+                    int min = Math.min(i, this.count);
+                    for (int i2 = 0; i2 < min; i2++) {
+                        collection.add((E) this.first.f2175a);
+                        unlinkFirst();
+                    }
+                    return min;
+                } finally {
+                    reentrantLock.unlock();
+                }
+            }
+            throw new IllegalArgumentException();
+        }
+        throw null;
+    }
+
+    public boolean offer(E e2, long j, TimeUnit timeUnit) throws InterruptedException {
+        return offerLast(e2, j, timeUnit);
+    }
+
+    public E poll(long j, TimeUnit timeUnit) throws InterruptedException {
+        return pollFirst(j, timeUnit);
+    }
+
+    @Override // java.util.AbstractCollection, java.util.Collection
+    public boolean remove(Object obj) {
+        return removeFirstOccurrence(obj);
+    }
+
     public E pollFirst(long j, TimeUnit timeUnit) throws InterruptedException {
         long nanos = timeUnit.toNanos(j);
         ReentrantLock reentrantLock = this.lock;
         reentrantLock.lockInterruptibly();
         while (true) {
             try {
-                long j2 = nanos;
                 E unlinkFirst = unlinkFirst();
                 if (unlinkFirst != null) {
                     return unlinkFirst;
                 }
-                if (j2 > 0) {
-                    nanos = this.notEmpty.awaitNanos(j2);
-                } else {
+                if (nanos <= 0) {
                     return null;
                 }
+                nanos = this.notEmpty.awaitNanos(nanos);
             } finally {
                 reentrantLock.unlock();
             }
@@ -369,265 +750,108 @@ public class BlockingLinkedDeque<E> extends AbstractQueue<E> implements m<E>, Se
         reentrantLock.lockInterruptibly();
         while (true) {
             try {
-                long j2 = nanos;
                 E unlinkLast = unlinkLast();
                 if (unlinkLast != null) {
                     return unlinkLast;
                 }
-                if (j2 > 0) {
-                    nanos = this.notEmpty.awaitNanos(j2);
-                } else {
+                if (nanos <= 0) {
                     return null;
                 }
+                nanos = this.notEmpty.awaitNanos(nanos);
             } finally {
                 reentrantLock.unlock();
             }
         }
     }
 
-    public E getFirst() {
-        E peekFirst = peekFirst();
-        if (peekFirst == null) {
-            throw new NoSuchElementException();
-        }
-        return peekFirst;
-    }
-
-    public E getLast() {
-        E peekLast = peekLast();
-        if (peekLast == null) {
-            throw new NoSuchElementException();
-        }
-        return peekLast;
-    }
-
-    public E peekFirst() {
-        ReentrantLock reentrantLock = this.lock;
-        reentrantLock.lock();
-        try {
-            return this.first == null ? null : this.first.item;
-        } finally {
-            reentrantLock.unlock();
-        }
-    }
-
-    public E peekLast() {
-        ReentrantLock reentrantLock = this.lock;
-        reentrantLock.lock();
-        try {
-            return this.last == null ? null : this.last.item;
-        } finally {
-            reentrantLock.unlock();
-        }
-    }
-
-    public boolean removeFirstOccurrence(Object obj) {
-        if (obj == null) {
-            return false;
-        }
-        ReentrantLock reentrantLock = this.lock;
-        reentrantLock.lock();
-        try {
-            for (d<E> dVar = this.first; dVar != null; dVar = dVar.RL) {
-                if (obj.equals(dVar.item)) {
-                    unlink(dVar);
-                    return true;
+    public boolean offerFirst(E e2, long j, TimeUnit timeUnit) throws InterruptedException {
+        boolean z;
+        if (e2 != null) {
+            e<E> eVar = new e<>(e2);
+            long nanos = timeUnit.toNanos(j);
+            ReentrantLock reentrantLock = this.lock;
+            reentrantLock.lockInterruptibly();
+            while (true) {
+                try {
+                    if (linkFirst(eVar)) {
+                        z = true;
+                        break;
+                    } else if (nanos <= 0) {
+                        z = false;
+                        break;
+                    } else {
+                        nanos = this.notFull.awaitNanos(nanos);
+                    }
+                } finally {
+                    reentrantLock.unlock();
                 }
             }
-            return false;
-        } finally {
-            reentrantLock.unlock();
+            return z;
         }
+        throw null;
     }
 
-    public boolean removeLastOccurrence(Object obj) {
-        if (obj == null) {
-            return false;
-        }
-        ReentrantLock reentrantLock = this.lock;
-        reentrantLock.lock();
-        try {
-            for (d<E> dVar = this.last; dVar != null; dVar = dVar.RQ) {
-                if (obj.equals(dVar.item)) {
-                    unlink(dVar);
-                    return true;
+    public boolean offerLast(E e2, long j, TimeUnit timeUnit) throws InterruptedException {
+        boolean z;
+        if (e2 != null) {
+            e<E> eVar = new e<>(e2);
+            long nanos = timeUnit.toNanos(j);
+            ReentrantLock reentrantLock = this.lock;
+            reentrantLock.lockInterruptibly();
+            while (true) {
+                try {
+                    if (linkLast(eVar)) {
+                        z = true;
+                        break;
+                    } else if (nanos <= 0) {
+                        z = false;
+                        break;
+                    } else {
+                        nanos = this.notFull.awaitNanos(nanos);
+                    }
+                } finally {
+                    reentrantLock.unlock();
                 }
             }
-            return false;
-        } finally {
-            reentrantLock.unlock();
+            return z;
         }
+        throw null;
     }
 
-    @Override // java.util.AbstractQueue, java.util.AbstractCollection, java.util.Collection, java.util.Queue, java.util.concurrent.BlockingQueue
-    public boolean add(E e) {
-        addLast(e);
-        return true;
-    }
-
-    @Override // java.util.Queue, java.util.concurrent.BlockingQueue
-    public boolean offer(E e) {
-        return offerLast(e);
-    }
-
-    @Override // java.util.concurrent.BlockingQueue
-    public void put(E e) throws InterruptedException {
-        putLast(e);
-    }
-
-    @Override // java.util.concurrent.BlockingQueue
-    public boolean offer(E e, long j, TimeUnit timeUnit) throws InterruptedException {
-        return offerLast(e, j, timeUnit);
-    }
-
-    @Override // java.util.AbstractQueue, java.util.Queue
-    public E remove() {
-        return removeFirst();
-    }
-
-    @Override // java.util.Queue
-    public E poll() {
-        return pollFirst();
-    }
-
-    @Override // java.util.concurrent.BlockingQueue
-    public E take() throws InterruptedException {
-        return takeFirst();
-    }
-
-    @Override // java.util.concurrent.BlockingQueue
-    public E poll(long j, TimeUnit timeUnit) throws InterruptedException {
-        return pollFirst(j, timeUnit);
-    }
-
-    @Override // java.util.AbstractQueue, java.util.Queue
-    public E element() {
-        return getFirst();
-    }
-
-    @Override // java.util.Queue
-    public E peek() {
-        return peekFirst();
-    }
-
-    @Override // java.util.concurrent.BlockingQueue
-    public int remainingCapacity() {
+    public BlockingLinkedDeque(Collection<? extends E> collection) {
+        this(Integer.MAX_VALUE);
         ReentrantLock reentrantLock = this.lock;
         reentrantLock.lock();
         try {
-            return this.capacity - this.count;
-        } finally {
-            reentrantLock.unlock();
-        }
-    }
-
-    @Override // java.util.concurrent.BlockingQueue
-    public int drainTo(Collection<? super E> collection) {
-        return drainTo(collection, Integer.MAX_VALUE);
-    }
-
-    /* JADX DEBUG: Type inference failed for r3v1. Raw type applied. Possible types: E, ? super E */
-    @Override // java.util.concurrent.BlockingQueue
-    public int drainTo(Collection<? super E> collection, int i) {
-        if (collection == null) {
-            throw new NullPointerException();
-        }
-        if (collection == this) {
-            throw new IllegalArgumentException();
-        }
-        ReentrantLock reentrantLock = this.lock;
-        reentrantLock.lock();
-        try {
-            int min = Math.min(i, this.count);
-            for (int i2 = 0; i2 < min; i2++) {
-                collection.add((E) this.first.item);
-                unlinkFirst();
-            }
-            return min;
-        } finally {
-            reentrantLock.unlock();
-        }
-    }
-
-    public void push(E e) {
-        addFirst(e);
-    }
-
-    public E pop() {
-        return removeFirst();
-    }
-
-    @Override // java.util.AbstractCollection, java.util.Collection, java.util.concurrent.BlockingQueue
-    public boolean remove(Object obj) {
-        return removeFirstOccurrence(obj);
-    }
-
-    @Override // java.util.AbstractCollection, java.util.Collection
-    public int size() {
-        ReentrantLock reentrantLock = this.lock;
-        reentrantLock.lock();
-        try {
-            return this.count;
-        } finally {
-            reentrantLock.unlock();
-        }
-    }
-
-    @Override // java.util.AbstractCollection, java.util.Collection, java.util.concurrent.BlockingQueue
-    public boolean contains(Object obj) {
-        if (obj == null) {
-            return false;
-        }
-        ReentrantLock reentrantLock = this.lock;
-        reentrantLock.lock();
-        try {
-            for (d<E> dVar = this.first; dVar != null; dVar = dVar.RL) {
-                if (obj.equals(dVar.item)) {
-                    return true;
+            for (E e2 : collection) {
+                if (e2 != null) {
+                    if (!linkLast(new e<>(e2))) {
+                        throw new IllegalStateException("Deque full");
+                    }
+                } else {
+                    throw new NullPointerException();
                 }
             }
-            return false;
         } finally {
             reentrantLock.unlock();
         }
     }
 
-    @Override // java.util.AbstractCollection, java.util.Collection
-    public Object[] toArray() {
-        ReentrantLock reentrantLock = this.lock;
-        reentrantLock.lock();
-        try {
-            Object[] objArr = new Object[this.count];
-            int i = 0;
-            d<E> dVar = this.first;
-            while (dVar != null) {
-                int i2 = i + 1;
-                objArr[i] = dVar.item;
-                dVar = dVar.RL;
-                i = i2;
-            }
-            return objArr;
-        } finally {
-            reentrantLock.unlock();
-        }
-    }
-
+    /* JADX DEBUG: Multi-variable search result rejected for r6v10, resolved type: T[] */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r0v11, types: [java.lang.Object[]] */
-    /* JADX WARN: Type inference failed for: r6v6 */
     @Override // java.util.AbstractCollection, java.util.Collection
     public <T> T[] toArray(T[] tArr) {
         ReentrantLock reentrantLock = this.lock;
         reentrantLock.lock();
         try {
             if (tArr.length < this.count) {
-                tArr = (Object[]) Array.newInstance(tArr.getClass().getComponentType(), this.count);
+                tArr = (T[]) ((Object[]) Array.newInstance(tArr.getClass().getComponentType(), this.count));
             }
             int i = 0;
-            d<E> dVar = this.first;
-            while (dVar != null) {
-                tArr[i] = dVar.item;
-                dVar = dVar.RL;
+            e<E> eVar = this.first;
+            while (eVar != null) {
+                tArr[i] = eVar.f2175a;
+                eVar = eVar.f2177c;
                 i++;
             }
             if (tArr.length > i) {
@@ -636,219 +860,6 @@ public class BlockingLinkedDeque<E> extends AbstractQueue<E> implements m<E>, Se
             return tArr;
         } finally {
             reentrantLock.unlock();
-        }
-    }
-
-    @Override // java.util.AbstractCollection
-    public String toString() {
-        String sb;
-        ReentrantLock reentrantLock = this.lock;
-        reentrantLock.lock();
-        try {
-            d<E> dVar = this.first;
-            if (dVar == null) {
-                sb = "[]";
-            } else {
-                StringBuilder sb2 = new StringBuilder();
-                sb2.append('[');
-                while (true) {
-                    d<E> dVar2 = dVar;
-                    Object obj = dVar2.item;
-                    if (obj == this) {
-                        obj = "(this Collection)";
-                    }
-                    sb2.append(obj);
-                    dVar = dVar2.RL;
-                    if (dVar == null) {
-                        break;
-                    }
-                    sb2.append(',').append(' ');
-                }
-                sb = sb2.append(']').toString();
-            }
-            return sb;
-        } finally {
-            reentrantLock.unlock();
-        }
-    }
-
-    @Override // java.util.AbstractQueue, java.util.AbstractCollection, java.util.Collection
-    public void clear() {
-        ReentrantLock reentrantLock = this.lock;
-        reentrantLock.lock();
-        try {
-            d<E> dVar = this.first;
-            while (dVar != null) {
-                dVar.item = null;
-                d<E> dVar2 = dVar.RL;
-                dVar.RQ = null;
-                dVar.RL = null;
-                dVar = dVar2;
-            }
-            this.last = null;
-            this.first = null;
-            this.count = 0;
-            this.notFull.signalAll();
-        } finally {
-            reentrantLock.unlock();
-        }
-    }
-
-    @Override // java.util.AbstractCollection, java.util.Collection, java.lang.Iterable
-    public Iterator<E> iterator() {
-        return new c();
-    }
-
-    public Iterator<E> descendingIterator() {
-        return new b();
-    }
-
-    /* loaded from: classes.dex */
-    private abstract class a implements Iterator<E> {
-        d<E> RL;
-        private d<E> RO;
-        E nextItem;
-
-        abstract d<E> a(d<E> dVar);
-
-        abstract d<E> nP();
-
-        a() {
-            ReentrantLock reentrantLock = BlockingLinkedDeque.this.lock;
-            reentrantLock.lock();
-            try {
-                this.RL = nP();
-                this.nextItem = this.RL == null ? null : this.RL.item;
-            } finally {
-                reentrantLock.unlock();
-            }
-        }
-
-        private d<E> b(d<E> dVar) {
-            while (true) {
-                d<E> a2 = a(dVar);
-                if (a2 == null) {
-                    return null;
-                }
-                if (a2.item == null) {
-                    if (a2 == dVar) {
-                        return nP();
-                    }
-                    dVar = a2;
-                } else {
-                    return a2;
-                }
-            }
-        }
-
-        void advance() {
-            ReentrantLock reentrantLock = BlockingLinkedDeque.this.lock;
-            reentrantLock.lock();
-            try {
-                this.RL = b(this.RL);
-                this.nextItem = this.RL == null ? null : this.RL.item;
-            } finally {
-                reentrantLock.unlock();
-            }
-        }
-
-        @Override // java.util.Iterator
-        public boolean hasNext() {
-            return this.RL != null;
-        }
-
-        @Override // java.util.Iterator
-        public E next() {
-            if (this.RL == null) {
-                throw new NoSuchElementException();
-            }
-            this.RO = this.RL;
-            E e = this.nextItem;
-            advance();
-            return e;
-        }
-
-        @Override // java.util.Iterator
-        public void remove() {
-            d<E> dVar = this.RO;
-            if (dVar == null) {
-                throw new IllegalStateException();
-            }
-            this.RO = null;
-            ReentrantLock reentrantLock = BlockingLinkedDeque.this.lock;
-            reentrantLock.lock();
-            try {
-                if (dVar.item != null) {
-                    BlockingLinkedDeque.this.unlink(dVar);
-                }
-            } finally {
-                reentrantLock.unlock();
-            }
-        }
-    }
-
-    /* loaded from: classes.dex */
-    private class c extends BlockingLinkedDeque<E>.a {
-        private c() {
-            super();
-        }
-
-        @Override // com.baidu.adp.lib.util.BlockingLinkedDeque.a
-        d<E> nP() {
-            return BlockingLinkedDeque.this.first;
-        }
-
-        @Override // com.baidu.adp.lib.util.BlockingLinkedDeque.a
-        d<E> a(d<E> dVar) {
-            return dVar.RL;
-        }
-    }
-
-    /* loaded from: classes.dex */
-    private class b extends BlockingLinkedDeque<E>.a {
-        private b() {
-            super();
-        }
-
-        @Override // com.baidu.adp.lib.util.BlockingLinkedDeque.a
-        d<E> nP() {
-            return BlockingLinkedDeque.this.last;
-        }
-
-        @Override // com.baidu.adp.lib.util.BlockingLinkedDeque.a
-        d<E> a(d<E> dVar) {
-            return dVar.RQ;
-        }
-    }
-
-    private void writeObject(ObjectOutputStream objectOutputStream) throws IOException {
-        ReentrantLock reentrantLock = this.lock;
-        reentrantLock.lock();
-        try {
-            objectOutputStream.defaultWriteObject();
-            for (d<E> dVar = this.first; dVar != null; dVar = dVar.RL) {
-                objectOutputStream.writeObject(dVar.item);
-            }
-            objectOutputStream.writeObject(null);
-        } finally {
-            reentrantLock.unlock();
-        }
-    }
-
-    /* JADX DEBUG: Multi-variable search result rejected for r2v0, resolved type: com.baidu.adp.lib.util.BlockingLinkedDeque<E> */
-    /* JADX WARN: Multi-variable type inference failed */
-    private void readObject(ObjectInputStream objectInputStream) throws IOException, ClassNotFoundException {
-        objectInputStream.defaultReadObject();
-        this.count = 0;
-        this.first = null;
-        this.last = null;
-        while (true) {
-            Object readObject = objectInputStream.readObject();
-            if (readObject != null) {
-                add(readObject);
-            } else {
-                return;
-            }
         }
     }
 }

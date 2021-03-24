@@ -5,9 +5,8 @@ import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
 import android.widget.Toast;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public abstract class j {
-    /* JADX INFO: Access modifiers changed from: protected */
     public static boolean a(Context context, Intent intent) {
         intent.addFlags(268435456);
         try {
@@ -15,12 +14,10 @@ public abstract class j {
                 ((Activity) context).startActivity(intent);
                 return true;
             }
-        } catch (ActivityNotFoundException e) {
+        } catch (ActivityNotFoundException | SecurityException unused) {
             Toast.makeText(context, context.getResources().getIdentifier("sailor_msg_activity_not_found", "string", context.getPackageName()), 0).show();
-        } catch (SecurityException e2) {
-            Toast.makeText(context, context.getResources().getIdentifier("sailor_msg_activity_not_found", "string", context.getPackageName()), 0).show();
-        } catch (Exception e3) {
-            e3.printStackTrace();
+        } catch (Exception e2) {
+            e2.printStackTrace();
         }
         return false;
     }

@@ -11,153 +11,192 @@ import android.view.View;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import androidx.annotation.FloatRange;
 import androidx.annotation.Nullable;
-import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-/* loaded from: classes7.dex */
+import d.b.b.e.p.l;
+/* loaded from: classes4.dex */
 public class HotTopicDetailPkProcess extends View {
-    private static int lBO = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds22);
-    private static int lBP = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds10);
-    private ValueAnimator hBl;
-    private int kiZ;
-    private int kmt;
-    private int lBQ;
-    private int lBR;
-    private float lBS;
-    private int lBT;
-    private Paint paint;
-    private Path path;
-    private RectF rectF;
+    public static int o = l.g(TbadkCoreApplication.getInst(), R.dimen.tbds22);
+    public static int p = l.g(TbadkCoreApplication.getInst(), R.dimen.tbds10);
+
+    /* renamed from: e  reason: collision with root package name */
+    public int f19173e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public int f19174f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public Paint f19175g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public int f19176h;
+    public int i;
+    public float j;
+    public RectF k;
+    public Path l;
+    public int m;
+    public ValueAnimator n;
+
+    /* loaded from: classes4.dex */
+    public class a implements ValueAnimator.AnimatorUpdateListener {
+        public a() {
+        }
+
+        @Override // android.animation.ValueAnimator.AnimatorUpdateListener
+        public void onAnimationUpdate(ValueAnimator valueAnimator) {
+            HotTopicDetailPkProcess.this.setProcess(((Float) valueAnimator.getAnimatedValue()).floatValue(), false);
+        }
+    }
 
     public HotTopicDetailPkProcess(Context context) {
         super(context);
-        this.kiZ = 3;
-        this.lBS = 50.0f;
-        this.rectF = new RectF();
-        this.path = new Path();
-        init();
+        this.f19173e = 3;
+        this.j = 50.0f;
+        this.k = new RectF();
+        this.l = new Path();
+        f();
+    }
+
+    public final void a(float f2) {
+        ValueAnimator valueAnimator = this.n;
+        if (valueAnimator != null) {
+            valueAnimator.cancel();
+        }
+        ValueAnimator ofFloat = ValueAnimator.ofFloat(this.j / 100.0f, f2);
+        this.n = ofFloat;
+        ofFloat.setDuration(300L);
+        this.n.setInterpolator(new AccelerateDecelerateInterpolator());
+        this.n.addUpdateListener(new a());
+        this.n.start();
+    }
+
+    public final void b(Canvas canvas) {
+        this.f19175g.setColor(this.f19176h);
+        RectF rectF = this.k;
+        int i = o;
+        rectF.set(0.0f, 0.0f, i, i);
+        canvas.drawArc(this.k, 90.0f, 180.0f, true, this.f19175g);
+        RectF rectF2 = this.k;
+        int i2 = o;
+        rectF2.set(i2 / 2, 0.0f, this.m, i2);
+        canvas.drawRect(this.k, this.f19175g);
+    }
+
+    public final void c(Canvas canvas) {
+        b(canvas);
+        d(canvas);
+        e(canvas);
+    }
+
+    public final void d(Canvas canvas) {
+        this.f19175g.setColor(this.i);
+        RectF rectF = this.k;
+        int i = this.f19174f;
+        int i2 = o;
+        rectF.set(i - i2, 0.0f, i, i2);
+        canvas.drawArc(this.k, -90.0f, 180.0f, true, this.f19175g);
+        RectF rectF2 = this.k;
+        int i3 = this.m;
+        int i4 = o;
+        rectF2.set(i3 + i4 + p, 0.0f, this.f19174f - (i4 / 2), i4);
+        canvas.drawRect(this.k, this.f19175g);
+    }
+
+    public final void e(Canvas canvas) {
+        this.f19175g.setColor(this.f19176h);
+        this.l.reset();
+        this.l.moveTo(this.m, o);
+        this.l.lineTo(this.m + o, 0.0f);
+        this.l.lineTo(this.m, 0.0f);
+        this.l.close();
+        canvas.drawPath(this.l, this.f19175g);
+        this.f19175g.setColor(this.i);
+        this.l.reset();
+        this.l.moveTo(this.m + p, o);
+        Path path = this.l;
+        int i = this.m + p;
+        int i2 = o;
+        path.lineTo(i + i2, i2);
+        this.l.lineTo(this.m + p + o, 0.0f);
+        this.l.close();
+        canvas.drawPath(this.l, this.f19175g);
+    }
+
+    public final void f() {
+        Paint paint = new Paint(1);
+        this.f19175g = paint;
+        paint.setStyle(Paint.Style.FILL_AND_STROKE);
+        g(TbadkCoreApplication.getInst().getSkinType());
+    }
+
+    public void g(int i) {
+        if (this.f19173e != i) {
+            this.f19176h = SkinManager.getColor(R.color.CAM_X0308);
+            this.i = SkinManager.getColor(R.color.CAM_X0303);
+            if (this.f19173e != 3) {
+                invalidate();
+            }
+            this.f19173e = i;
+        }
+    }
+
+    @Override // android.view.View
+    public void onDraw(Canvas canvas) {
+        super.onDraw(canvas);
+        if (this.f19174f <= 0) {
+            return;
+        }
+        c(canvas);
+    }
+
+    @Override // android.view.View
+    public void onMeasure(int i, int i2) {
+        setMeasuredDimension(View.getDefaultSize(getSuggestedMinimumWidth(), i), o);
+    }
+
+    @Override // android.view.View
+    public void onSizeChanged(int i, int i2, int i3, int i4) {
+        super.onSizeChanged(i, i2, i3, i4);
+        this.f19174f = i;
+        int i5 = o;
+        this.m = ((int) ((((i - i5) - (p + i5)) * this.j) / 100.0f)) + (i5 / 2);
+    }
+
+    public void setProcess(@FloatRange(from = 0.0d, to = 1.0d) float f2, boolean z) {
+        if (f2 < 0.0f) {
+            f2 = 0.0f;
+        }
+        if (f2 > 1.0f) {
+            f2 = 1.0f;
+        }
+        if (!z) {
+            float f3 = f2 * 100.0f;
+            this.j = f3;
+            int i = this.f19174f;
+            int i2 = o;
+            this.m = ((int) ((((i - i2) - (p + i2)) * f3) / 100.0f)) + (i2 / 2);
+            invalidate();
+            return;
+        }
+        a(f2);
     }
 
     public HotTopicDetailPkProcess(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.kiZ = 3;
-        this.lBS = 50.0f;
-        this.rectF = new RectF();
-        this.path = new Path();
-        init();
+        this.f19173e = 3;
+        this.j = 50.0f;
+        this.k = new RectF();
+        this.l = new Path();
+        f();
     }
 
     public HotTopicDetailPkProcess(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.kiZ = 3;
-        this.lBS = 50.0f;
-        this.rectF = new RectF();
-        this.path = new Path();
-        init();
-    }
-
-    @Override // android.view.View
-    protected void onMeasure(int i, int i2) {
-        setMeasuredDimension(getDefaultSize(getSuggestedMinimumWidth(), i), lBO);
-    }
-
-    @Override // android.view.View
-    protected void onSizeChanged(int i, int i2, int i3, int i4) {
-        super.onSizeChanged(i, i2, i3, i4);
-        this.kmt = i;
-        this.lBT = ((int) ((((this.kmt - lBO) - (lBP + lBO)) * this.lBS) / 100.0f)) + (lBO / 2);
-    }
-
-    private void init() {
-        this.paint = new Paint(1);
-        this.paint.setStyle(Paint.Style.FILL_AND_STROKE);
-        onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-    }
-
-    @Override // android.view.View
-    protected void onDraw(Canvas canvas) {
-        super.onDraw(canvas);
-        if (this.kmt > 0) {
-            aj(canvas);
-        }
-    }
-
-    private void aj(Canvas canvas) {
-        ak(canvas);
-        al(canvas);
-        am(canvas);
-    }
-
-    private void ak(Canvas canvas) {
-        this.paint.setColor(this.lBQ);
-        this.rectF.set(0.0f, 0.0f, lBO, lBO);
-        canvas.drawArc(this.rectF, 90.0f, 180.0f, true, this.paint);
-        this.rectF.set(lBO / 2, 0.0f, this.lBT, lBO);
-        canvas.drawRect(this.rectF, this.paint);
-    }
-
-    private void al(Canvas canvas) {
-        this.paint.setColor(this.lBR);
-        this.rectF.set(this.kmt - lBO, 0.0f, this.kmt, lBO);
-        canvas.drawArc(this.rectF, -90.0f, 180.0f, true, this.paint);
-        this.rectF.set(this.lBT + lBO + lBP, 0.0f, this.kmt - (lBO / 2), lBO);
-        canvas.drawRect(this.rectF, this.paint);
-    }
-
-    private void am(Canvas canvas) {
-        this.paint.setColor(this.lBQ);
-        this.path.reset();
-        this.path.moveTo(this.lBT, lBO);
-        this.path.lineTo(this.lBT + lBO, 0.0f);
-        this.path.lineTo(this.lBT, 0.0f);
-        this.path.close();
-        canvas.drawPath(this.path, this.paint);
-        this.paint.setColor(this.lBR);
-        this.path.reset();
-        this.path.moveTo(this.lBT + lBP, lBO);
-        this.path.lineTo(this.lBT + lBP + lBO, lBO);
-        this.path.lineTo(this.lBT + lBP + lBO, 0.0f);
-        this.path.close();
-        canvas.drawPath(this.path, this.paint);
-    }
-
-    public void setProcess(@FloatRange(from = 0.0d, to = 1.0d) float f, boolean z) {
-        float f2 = f >= 0.0f ? f : 0.0f;
-        float f3 = f2 <= 1.0f ? f2 : 1.0f;
-        if (!z) {
-            this.lBS = f3 * 100.0f;
-            this.lBT = ((int) ((((this.kmt - lBO) - (lBP + lBO)) * this.lBS) / 100.0f)) + (lBO / 2);
-            invalidate();
-            return;
-        }
-        aX(f3);
-    }
-
-    private void aX(float f) {
-        if (this.hBl != null) {
-            this.hBl.cancel();
-        }
-        this.hBl = ValueAnimator.ofFloat(this.lBS / 100.0f, f);
-        this.hBl.setDuration(300L);
-        this.hBl.setInterpolator(new AccelerateDecelerateInterpolator());
-        this.hBl.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.newdetail.view.HotTopicDetailPkProcess.1
-            @Override // android.animation.ValueAnimator.AnimatorUpdateListener
-            public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                HotTopicDetailPkProcess.this.setProcess(((Float) valueAnimator.getAnimatedValue()).floatValue(), false);
-            }
-        });
-        this.hBl.start();
-    }
-
-    public void onChangeSkinType(int i) {
-        if (this.kiZ != i) {
-            this.lBQ = ap.getColor(R.color.CAM_X0308);
-            this.lBR = ap.getColor(R.color.CAM_X0303);
-            if (this.kiZ != 3) {
-                invalidate();
-            }
-            this.kiZ = i;
-        }
+        this.f19173e = 3;
+        this.j = 50.0f;
+        this.k = new RectF();
+        this.l = new Path();
+        f();
     }
 }

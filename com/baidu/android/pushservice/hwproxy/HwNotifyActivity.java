@@ -5,22 +5,22 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import com.baidu.android.pushservice.f;
-import com.baidu.android.pushservice.i.m;
-/* loaded from: classes5.dex */
+import com.baidu.android.pushservice.j.m;
+/* loaded from: classes2.dex */
 public class HwNotifyActivity extends Activity {
     @Override // android.app.Activity
-    protected void onCreate(Bundle bundle) {
+    public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         try {
             Intent intent = getIntent();
             if (intent != null && intent.getData() != null) {
-                String d = f.d(this, intent);
-                String c = f.c(this, intent);
-                if (!TextUtils.isEmpty(c)) {
-                    m.c(getApplicationContext(), intent, d, c);
+                String d2 = f.d(this, intent);
+                String c2 = f.c(this, intent);
+                if (!TextUtils.isEmpty(c2)) {
+                    m.c(getApplicationContext(), intent, d2, c2);
                 }
             }
-        } catch (Exception e) {
+        } catch (Exception unused) {
         }
         finish();
     }

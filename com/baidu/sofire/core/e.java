@@ -1,31 +1,43 @@
 package com.baidu.sofire.core;
 
 import dalvik.system.DexClassLoader;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class e extends DexClassLoader {
     public e(String str, String str2, String str3, ClassLoader classLoader) {
         super(str, str2, str3, classLoader);
     }
 
-    @Override // java.lang.ClassLoader
-    protected final Class<?> loadClass(String str, boolean z) throws ClassNotFoundException {
-        Class<?> cls;
+    public final Class<?> a(String str) throws ClassNotFoundException {
         Class<?> findLoadedClass = findLoadedClass(str);
         if (findLoadedClass == null) {
             try {
-                cls = findClass(str);
-            } catch (Throwable th) {
-                cls = findLoadedClass;
+                return findClass(str);
+            } catch (Throwable unused) {
+                com.baidu.sofire.g.d.a();
+                return findLoadedClass;
             }
-            if (cls == null) {
+        }
+        return findLoadedClass;
+    }
+
+    @Override // java.lang.ClassLoader
+    public final Class<?> loadClass(String str, boolean z) throws ClassNotFoundException {
+        Class<?> findLoadedClass = findLoadedClass(str);
+        if (findLoadedClass == null) {
+            try {
+                findLoadedClass = findClass(str);
+            } catch (Throwable unused) {
+            }
+            if (findLoadedClass == null) {
                 try {
-                    findLoadedClass = getParent() != null ? getParent().loadClass(str) : (Class) getClass().getDeclaredMethod("findBootstrapClassOrNull", String.class).invoke(this, str);
-                } catch (Throwable th2) {
-                    findLoadedClass = cls;
-                    com.baidu.sofire.i.e.a();
+                    if (getParent() != null) {
+                        findLoadedClass = getParent().loadClass(str);
+                    } else {
+                        findLoadedClass = (Class) getClass().getDeclaredMethod("findBootstrapClassOrNull", String.class).invoke(this, str);
+                    }
+                } catch (Throwable unused2) {
+                    com.baidu.sofire.g.d.a();
                 }
-            } else {
-                findLoadedClass = cls;
             }
         }
         if (z) {
@@ -34,22 +46,8 @@ public final class e extends DexClassLoader {
         if (findLoadedClass == null) {
             try {
                 return super.loadClass(str, z);
-            } catch (Throwable th3) {
-                com.baidu.sofire.i.e.a();
-                return findLoadedClass;
-            }
-        }
-        return findLoadedClass;
-    }
-
-    public final Class<?> a(String str) throws ClassNotFoundException {
-        Class<?> findLoadedClass = findLoadedClass(str);
-        if (findLoadedClass == null) {
-            try {
-                return findClass(str);
-            } catch (Throwable th) {
-                com.baidu.sofire.i.e.a();
-                return findLoadedClass;
+            } catch (Throwable unused3) {
+                com.baidu.sofire.g.d.a();
             }
         }
         return findLoadedClass;

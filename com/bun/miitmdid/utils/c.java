@@ -4,7 +4,7 @@ import android.content.Context;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class c {
     public static String a(Context context, String str) {
         try {
@@ -16,8 +16,8 @@ public class c {
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
             byteArrayOutputStream.write(bArr, 0, available);
             return byteArrayOutputStream.toString();
-        } catch (IOException e) {
-            e.printStackTrace();
+        } catch (IOException e2) {
+            e2.printStackTrace();
             return "";
         }
     }

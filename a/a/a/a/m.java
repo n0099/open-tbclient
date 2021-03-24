@@ -1,19 +1,45 @@
 package a.a.a.a;
-/* loaded from: classes4.dex */
-public interface m {
-    void a();
 
-    void a(int i, String str);
+import a.a.a.a.s.e;
+import java.util.HashMap;
+import java.util.Map;
+/* loaded from: classes.dex */
+public class m {
 
-    void b();
+    /* renamed from: a  reason: collision with root package name */
+    public final Map<String, a> f1079a;
 
-    void onAdClicked();
+    /* renamed from: b  reason: collision with root package name */
+    public final Map<e.a, k> f1080b = new HashMap();
 
-    void onAdClose();
+    /* loaded from: classes.dex */
+    public interface a {
+        k a(e.a aVar);
+    }
 
-    void onAdShow();
+    public m(Map<String, a> map) {
+        this.f1079a = map;
+    }
 
-    void onError(int i, String str);
-
-    void onLoaded();
+    public k a(e.a aVar) {
+        synchronized (this.f1080b) {
+            k kVar = this.f1080b.get(aVar);
+            if (kVar != null) {
+                return kVar;
+            }
+            a aVar2 = this.f1079a.get(aVar.k.f1331c);
+            if (aVar2 == null) {
+                a.a.a.a.v.d.a("Cannot create PidLoader, because the ssp of pid.type:%s hasn't initialized.", aVar.f1335d);
+                return null;
+            }
+            k a2 = aVar2.a(aVar);
+            if (a2 == null) {
+                a.a.a.a.v.d.a("The creator of ssp:%s should't create null for pid:%s", aVar.k.f1331c, aVar.f1335d);
+                return null;
+            }
+            c cVar = new c(a2);
+            this.f1080b.put(aVar, cVar);
+            return cVar;
+        }
+    }
 }

@@ -6,38 +6,68 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.pushservice.PushManager;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.sharedPref.b;
 import com.baidu.tbadk.switchs.YunPushOppoproxyEnableSwitch;
-/* loaded from: classes7.dex */
+import d.b.h0.r.d0.b;
+/* loaded from: classes5.dex */
 public class PushStatic {
-    private static CustomMessageListener ord = new CustomMessageListener(0) { // from class: com.baidu.tieba.yunpush.PushStatic.1
+
+    /* renamed from: a  reason: collision with root package name */
+    public static CustomMessageListener f22627a = new a(0);
+
+    /* loaded from: classes5.dex */
+    public static class a extends CustomMessageListener {
+
+        /* renamed from: com.baidu.tieba.yunpush.PushStatic$a$a  reason: collision with other inner class name */
+        /* loaded from: classes5.dex */
+        public class RunnableC0231a implements Runnable {
+            public RunnableC0231a(a aVar) {
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                PushStatic.d();
+            }
+        }
+
+        public a(int i) {
+            super(i);
+        }
+
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (TbadkCoreApplication.getInst().isMainProcess(false)) {
-                new Thread(new Runnable() { // from class: com.baidu.tieba.yunpush.PushStatic.1.1
-                    @Override // java.lang.Runnable
-                    public void run() {
-                        PushStatic.ear();
-                    }
-                }).start();
+                new Thread(new RunnableC0231a(this)).start();
             }
         }
-    };
-
-    private static void eap() {
-        hg(TbadkApplication.getInst());
     }
 
-    private static void eaq() {
-        hh(TbadkCoreApplication.getInst());
+    static {
+        MessageManager.getInstance().registerListener(2007015, f22627a);
     }
 
-    private static void hg(Context context) {
+    public static void b() {
+        e(TbadkApplication.getInst());
+    }
+
+    public static void c() {
+        f(TbadkCoreApplication.getInst());
+    }
+
+    public static void d() {
+        if (TbadkCoreApplication.getInst().isMainProcess(false)) {
+            if (TbadkCoreApplication.getInst().isBaiduYunPushAvailable()) {
+                b();
+            } else {
+                c();
+            }
+        }
+    }
+
+    public static void e(Context context) {
         PushManager.enableHuaweiProxy(context, true);
         PushManager.enableXiaomiProxy(context, true, "2882303761517130520", "5651713089520");
         if (YunPushOppoproxyEnableSwitch.isOn()) {
@@ -45,27 +75,13 @@ public class PushStatic {
         }
         PushManager.enableMeizuProxy(context, true, "111848", "39e9cd05b2294f848dd1c10993e76b59");
         PushManager.enableVivoProxy(context, true);
-        PushManager.startWork(context, 0, a.getMetaValue(context, Constants.API_KEY));
+        PushManager.startWork(context, 0, d.b.i0.v3.a.a(context, Constants.API_KEY));
     }
 
-    private static void hh(Context context) {
-        if (b.brR().getBoolean(TbConfig.getVersion() + BaiduYunPushMessageReceiver.KEY_SHAREDPRE_PUSH_STARTWORK, false)) {
+    public static void f(Context context) {
+        b i = b.i();
+        if (i.g(TbConfig.getVersion() + BaiduYunPushMessageReceiver.KEY_SHAREDPRE_PUSH_STARTWORK, false)) {
             PushManager.stopWork(context);
         }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public static void ear() {
-        if (TbadkCoreApplication.getInst().isMainProcess(false)) {
-            if (TbadkCoreApplication.getInst().isBaiduYunPushAvailable()) {
-                eap();
-            } else {
-                eaq();
-            }
-        }
-    }
-
-    static {
-        MessageManager.getInstance().registerListener(CmdConfigCustom.MAINTAB_ONCREATE_END, ord);
     }
 }

@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.FrameHelper;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.plugin.proxy.ContentProviderProxy;
+import com.baidu.android.common.others.lang.StringUtil;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -14,19 +14,40 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class HttpMessage extends Message<List<Map.Entry<String, Object>>> {
-    private static final String KEY_COOKIE = "Cookie";
-    private Comparator<Map.Entry<String, Object>> mComparator;
-    private HashMap<String, String> mHeaders;
-    private boolean mNeedProgress;
-    private HashMap<String, Object> mParams;
-    private String mUserAgent;
+    public static final String KEY_COOKIE = "Cookie";
+    public Comparator<Map.Entry<String, Object>> mComparator;
+    public HashMap<String, String> mHeaders;
+    public boolean mNeedProgress;
+    public HashMap<String, Object> mParams;
+    public String mUserAgent;
 
-    /* JADX INFO: Access modifiers changed from: protected */
     /* loaded from: classes.dex */
     public enum SORT {
         ASCEND,
         DESCEND,
         NONE
+    }
+
+    /* loaded from: classes.dex */
+    public static class a implements Comparator<Map.Entry<String, Object>> {
+
+        /* renamed from: e  reason: collision with root package name */
+        public SORT f2127e;
+
+        public a(SORT sort) {
+            this.f2127e = null;
+            this.f2127e = sort;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // java.util.Comparator
+        /* renamed from: a */
+        public int compare(Map.Entry<String, Object> entry, Map.Entry<String, Object> entry2) {
+            if (this.f2127e == SORT.ASCEND) {
+                return entry.getKey().compareTo(entry2.getKey());
+            }
+            return entry2.getKey().compareTo(entry.getKey());
+        }
     }
 
     public HttpMessage(int i) {
@@ -38,109 +59,17 @@ public class HttpMessage extends Message<List<Map.Entry<String, Object>>> {
         initial();
     }
 
-    public HttpMessage(int i, BdUniqueId bdUniqueId) {
-        super(i, bdUniqueId);
-        this.mHeaders = null;
-        this.mParams = null;
-        this.mComparator = null;
-        this.mNeedProgress = false;
-        initial();
-    }
-
-    protected synchronized void setSort(SORT sort) {
-        if (sort == SORT.NONE) {
-            this.mComparator = null;
-        } else {
-            this.mComparator = new a(sort);
-        }
-    }
-
-    public byte[] addParam(String str, byte[] bArr) {
-        if (str == null || bArr == null) {
+    private byte[] getByte(Object obj) {
+        try {
+            Object invoke = obj.getClass().getMethod("toByteArray", new Class[0]).invoke(obj, new Object[0]);
+            if (invoke == null || !(invoke instanceof byte[])) {
+                return null;
+            }
+            return (byte[]) invoke;
+        } catch (Exception e2) {
+            BdLog.detailException(e2);
             return null;
         }
-        Object put = this.mParams.put(str, bArr);
-        if (put == null || !(put instanceof byte[])) {
-            return null;
-        }
-        return (byte[]) put;
-    }
-
-    public Object addParam(String str, Object obj) {
-        if (str == null || obj == null) {
-            return null;
-        }
-        return this.mParams.put(str, obj);
-    }
-
-    public Object addParam(String str, int i) {
-        if (str == null) {
-            return null;
-        }
-        return this.mParams.put(str, String.valueOf(i));
-    }
-
-    public Object addParam(String str, long j) {
-        if (str == null) {
-            return null;
-        }
-        return this.mParams.put(str, String.valueOf(j));
-    }
-
-    public String addParam(String str, String str2) {
-        if (str == null || str2 == null) {
-            return null;
-        }
-        Object put = this.mParams.put(str, str2);
-        if (put == null || !(put instanceof String)) {
-            return null;
-        }
-        return (String) put;
-    }
-
-    public Object removeParam(String str) {
-        return this.mParams.remove(str);
-    }
-
-    public void removeAllParams() {
-        this.mParams.clear();
-    }
-
-    public String addHeader(String str, String str2) {
-        return this.mHeaders.put(str, str2);
-    }
-
-    public String addCookie(String str, String str2) {
-        Map<String, String> parseKVString;
-        if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
-            return null;
-        }
-        if (this.mHeaders.containsKey("Cookie") && (parseKVString = parseKVString(this.mHeaders.get("Cookie"), ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR)) != null) {
-            String str3 = parseKVString.containsKey(str) ? parseKVString.get(str) : null;
-            parseKVString.put(str, str2);
-            addHeader("Cookie", map2KVString(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR, parseKVString));
-            return str3;
-        }
-        addHeader("Cookie", str + '=' + str2 + ';');
-        return null;
-    }
-
-    public String removeHeader(String str) {
-        return this.mHeaders.remove(str);
-    }
-
-    public String removeCookie(String str) {
-        if (str == null || !this.mHeaders.containsKey("Cookie")) {
-            return null;
-        }
-        Map<String, String> parseKVString = parseKVString(this.mHeaders.get("Cookie"), ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
-        String remove = parseKVString.remove(str);
-        addHeader("Cookie", map2KVString(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR, parseKVString));
-        return remove;
-    }
-
-    public HashMap<String, String> getHeaders() {
-        return this.mHeaders;
     }
 
     private void initial() {
@@ -149,8 +78,131 @@ public class HttpMessage extends Message<List<Map.Entry<String, Object>>> {
         setSort(SORT.ASCEND);
     }
 
+    private String map2KVString(String str, Map<?, ?> map) {
+        StringBuilder sb = new StringBuilder();
+        if (str != null && map != null) {
+            for (Map.Entry<?, ?> entry : map.entrySet()) {
+                Object key = entry.getKey();
+                Object value = entry.getValue();
+                String str2 = StringUtil.NULL_STRING;
+                sb.append(key == null ? StringUtil.NULL_STRING : key.toString());
+                sb.append(com.alipay.sdk.encrypt.a.f1897h);
+                if (value != null) {
+                    str2 = value.toString();
+                }
+                sb.append(str2);
+                sb.append(str);
+            }
+        }
+        return sb.toString();
+    }
+
+    private Map<String, String> parseKVString(String str, String str2) {
+        String[] split;
+        HashMap hashMap = new HashMap();
+        if (str != null && str2 != null) {
+            for (String str3 : str.split(str2)) {
+                int indexOf = str3.indexOf("=");
+                if (indexOf != -1) {
+                    String trim = str3.substring(0, indexOf).trim();
+                    String trim2 = str3.substring(indexOf + 1).trim();
+                    if (!trim.isEmpty() && !trim2.isEmpty()) {
+                        hashMap.put(trim.trim(), trim2.trim());
+                    }
+                }
+            }
+        }
+        return hashMap;
+    }
+
+    public String addCookie(String str, String str2) {
+        Map<String, String> parseKVString;
+        if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+            if (this.mHeaders.containsKey("Cookie") && (parseKVString = parseKVString(this.mHeaders.get("Cookie"), ";")) != null) {
+                String str3 = parseKVString.containsKey(str) ? parseKVString.get(str) : null;
+                parseKVString.put(str, str2);
+                addHeader("Cookie", map2KVString(";", parseKVString));
+                return str3;
+            }
+            addHeader("Cookie", str + com.alipay.sdk.encrypt.a.f1897h + str2 + ';');
+        }
+        return null;
+    }
+
+    public String addHeader(String str, String str2) {
+        return this.mHeaders.put(str, str2);
+    }
+
+    public byte[] addParam(String str, byte[] bArr) {
+        Object put;
+        if (str == null || bArr == null || (put = this.mParams.put(str, bArr)) == null || !(put instanceof byte[])) {
+            return null;
+        }
+        return (byte[]) put;
+    }
+
+    @Override // com.baidu.adp.framework.message.Message
+    public boolean checkCmd(int i) {
+        return FrameHelper.b(i);
+    }
+
+    public HashMap<String, String> getHeaders() {
+        return this.mHeaders;
+    }
+
+    public HashMap<String, Object> getParams() {
+        return this.mParams;
+    }
+
+    public String getUserAgent() {
+        return this.mUserAgent;
+    }
+
+    public void removeAllParams() {
+        this.mParams.clear();
+    }
+
+    public String removeCookie(String str) {
+        if (str == null || !this.mHeaders.containsKey("Cookie")) {
+            return null;
+        }
+        Map<String, String> parseKVString = parseKVString(this.mHeaders.get("Cookie"), ";");
+        String remove = parseKVString.remove(str);
+        addHeader("Cookie", map2KVString(";", parseKVString));
+        return remove;
+    }
+
+    public String removeHeader(String str) {
+        return this.mHeaders.remove(str);
+    }
+
+    public Object removeParam(String str) {
+        return this.mParams.remove(str);
+    }
+
+    @Override // com.baidu.adp.framework.message.Message
+    public void setClientLogID(long j) {
+        super.setClientLogID(j);
+    }
+
+    public boolean setNeedProgress() {
+        return this.mNeedProgress;
+    }
+
+    public synchronized void setSort(SORT sort) {
+        if (sort == SORT.NONE) {
+            this.mComparator = null;
+        } else {
+            this.mComparator = new a(sort);
+        }
+    }
+
+    public void setUserAgent(String str) {
+        this.mUserAgent = str;
+    }
+
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // 
+    @Override // com.baidu.adp.framework.message.Message
     public synchronized List<Map.Entry<String, Object>> encodeInBackGround() {
         ArrayList arrayList;
         arrayList = new ArrayList(this.mParams.entrySet());
@@ -176,95 +228,45 @@ public class HttpMessage extends Message<List<Map.Entry<String, Object>>> {
         return arrayList;
     }
 
-    private byte[] getByte(Object obj) {
-        try {
-            Object invoke = obj.getClass().getMethod("toByteArray", new Class[0]).invoke(obj, new Object[0]);
-            if (invoke != null && (invoke instanceof byte[])) {
-                return (byte[]) invoke;
-            }
-        } catch (Exception e) {
-            BdLog.detailException(e);
-        }
-        return null;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes.dex */
-    public static class a implements Comparator<Map.Entry<String, Object>> {
-        private SORT La;
-
-        public a(SORT sort) {
-            this.La = null;
-            this.La = sort;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // java.util.Comparator
-        public int compare(Map.Entry<String, Object> entry, Map.Entry<String, Object> entry2) {
-            return this.La == SORT.ASCEND ? entry.getKey().compareTo(entry2.getKey()) : entry2.getKey().compareTo(entry.getKey());
-        }
-    }
-
-    @Override // com.baidu.adp.framework.message.Message
-    public boolean checkCmd(int i) {
-        return FrameHelper.checkHttpCmd(i);
-    }
-
-    public boolean setNeedProgress() {
-        return this.mNeedProgress;
-    }
-
     public void setNeedProgress(boolean z) {
         this.mNeedProgress = z;
     }
 
-    @Override // com.baidu.adp.framework.message.Message
-    public void setClientLogID(long j) {
-        super.setClientLogID(j);
-    }
-
-    private Map<String, String> parseKVString(String str, String str2) {
-        String[] split;
-        HashMap hashMap = new HashMap();
-        if (str != null && str2 != null) {
-            for (String str3 : str.split(str2)) {
-                int indexOf = str3.indexOf("=");
-                if (indexOf != -1) {
-                    String trim = str3.substring(0, indexOf).trim();
-                    String trim2 = str3.substring(indexOf + 1).trim();
-                    if (!trim.isEmpty() && !trim2.isEmpty()) {
-                        hashMap.put(trim.trim(), trim2.trim());
-                    }
-                }
-            }
+    public Object addParam(String str, Object obj) {
+        if (str == null || obj == null) {
+            return null;
         }
-        return hashMap;
+        return this.mParams.put(str, obj);
     }
 
-    private String map2KVString(String str, Map<?, ?> map) {
-        StringBuilder sb = new StringBuilder();
-        if (str != null && map != null) {
-            for (Map.Entry<?, ?> entry : map.entrySet()) {
-                Object key = entry.getKey();
-                Object value = entry.getValue();
-                sb.append(key == null ? "null" : key.toString());
-                sb.append('=');
-                sb.append(value == null ? "null" : value.toString());
-                sb.append(str);
-            }
+    public Object addParam(String str, int i) {
+        if (str == null) {
+            return null;
         }
-        return sb.toString();
+        return this.mParams.put(str, String.valueOf(i));
     }
 
-    public void setUserAgent(String str) {
-        this.mUserAgent = str;
+    public Object addParam(String str, long j) {
+        if (str == null) {
+            return null;
+        }
+        return this.mParams.put(str, String.valueOf(j));
     }
 
-    public String getUserAgent() {
-        return this.mUserAgent;
+    public HttpMessage(int i, BdUniqueId bdUniqueId) {
+        super(i, bdUniqueId);
+        this.mHeaders = null;
+        this.mParams = null;
+        this.mComparator = null;
+        this.mNeedProgress = false;
+        initial();
     }
 
-    public HashMap<String, Object> getParams() {
-        return this.mParams;
+    public String addParam(String str, String str2) {
+        Object put;
+        if (str == null || str2 == null || (put = this.mParams.put(str, str2)) == null || !(put instanceof String)) {
+            return null;
+        }
+        return (String) put;
     }
 }

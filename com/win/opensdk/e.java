@@ -1,38 +1,59 @@
 package com.win.opensdk;
+/* loaded from: classes7.dex */
+public class e implements PBInterstitialListener {
 
-import android.webkit.JsResult;
-/* loaded from: classes14.dex */
-public class e implements o {
-    public final /* synthetic */ C0 qkf;
+    /* renamed from: a  reason: collision with root package name */
+    public final /* synthetic */ PBInterstitial f39925a;
 
-    public e(C0 c0) {
-        this.qkf = c0;
+    public e(PBInterstitial pBInterstitial) {
+        this.f39925a = pBInterstitial;
     }
 
-    public void a(C0 c0, boolean z) {
-    }
-
-    public boolean a(String str) {
-        g gVar;
-        ag agVar = this.qkf.qkt;
-        if (agVar != null && (gVar = ((be) agVar).qla) != null) {
-            return gVar.a(str, "");
+    @Override // com.win.opensdk.PBListener
+    public void onClicked() {
+        PBInterstitialListener pBInterstitialListener = this.f39925a.f39755c;
+        if (pBInterstitialListener != null) {
+            pBInterstitialListener.onClicked();
         }
-        return false;
     }
 
-    public boolean a(boolean z) {
-        return false;
+    @Override // com.win.opensdk.PBListener
+    public void onFail(PBError pBError) {
+        PBInterstitialListener pBInterstitialListener = this.f39925a.f39755c;
+        if (pBInterstitialListener != null) {
+            pBInterstitialListener.onFail(pBError);
+        }
     }
 
-    public boolean b(String str, JsResult jsResult) {
-        return false;
+    @Override // com.win.opensdk.PBInterstitialListener
+    public void onInterstitialDismissed() {
+        PBInterstitialListener pBInterstitialListener = this.f39925a.f39755c;
+        if (pBInterstitialListener != null) {
+            pBInterstitialListener.onInterstitialDismissed();
+        }
     }
 
-    public void a() {
-        ag agVar = this.qkf.qkt;
-        if (agVar != null) {
-            ((be) agVar).c();
+    @Override // com.win.opensdk.PBInterstitialListener
+    public void onInterstitialDisplayed() {
+        PBInterstitialListener pBInterstitialListener = this.f39925a.f39755c;
+        if (pBInterstitialListener != null) {
+            pBInterstitialListener.onInterstitialDisplayed();
+        }
+    }
+
+    @Override // com.win.opensdk.PBInterstitialListener
+    public void onInterstitialShowFail(String str) {
+        PBInterstitialListener pBInterstitialListener = this.f39925a.f39755c;
+        if (pBInterstitialListener != null) {
+            pBInterstitialListener.onInterstitialShowFail(str);
+        }
+    }
+
+    @Override // com.win.opensdk.PBListener
+    public void onLoaded() {
+        PBInterstitialListener pBInterstitialListener = this.f39925a.f39755c;
+        if (pBInterstitialListener != null) {
+            pBInterstitialListener.onLoaded();
         }
     }
 }

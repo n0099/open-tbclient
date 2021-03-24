@@ -1,13 +1,13 @@
 package com.baidu.tieba.im.chat;
 
 import java.util.Hashtable;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class TouchType extends Hashtable<Integer, Boolean> {
-    private static final int KEY = 0;
-    private static final long serialVersionUID = 1;
+    public static final int KEY = 0;
+    public static final long serialVersionUID = 1;
 
     public TouchType() {
-        put(0, false);
+        put(0, Boolean.FALSE);
     }
 
     public boolean get() {

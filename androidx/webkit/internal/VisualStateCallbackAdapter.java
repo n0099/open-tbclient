@@ -2,9 +2,9 @@ package androidx.webkit.internal;
 
 import androidx.webkit.WebViewCompat;
 import org.chromium.support_lib_boundary.VisualStateCallbackBoundaryInterface;
-/* loaded from: classes5.dex */
+/* loaded from: classes.dex */
 public class VisualStateCallbackAdapter implements VisualStateCallbackBoundaryInterface {
-    private WebViewCompat.VisualStateCallback mVisualStateCallback;
+    public WebViewCompat.VisualStateCallback mVisualStateCallback;
 
     public VisualStateCallbackAdapter(WebViewCompat.VisualStateCallback visualStateCallback) {
         this.mVisualStateCallback = visualStateCallback;

@@ -2,14 +2,15 @@ package com.baidu.mapapi.animation;
 
 import android.view.animation.Interpolator;
 import com.baidu.mapapi.animation.Animation;
+import com.baidu.mapsdkplatform.comapi.a.c;
 import com.baidu.mapsdkplatform.comapi.a.f;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class RotateAnimation extends Animation {
-    public RotateAnimation(float f, float f2) {
-        if (f < 0.0f || f2 < 0.0f) {
+    public RotateAnimation(float f2, float f3) {
+        if (f2 < 0.0f || f3 < 0.0f) {
             throw new NullPointerException("the degrees can't less than zero");
         }
-        this.bdAnimation = new f(f, f2);
+        this.bdAnimation = new f(f2, f3);
     }
 
     @Override // com.baidu.mapapi.animation.Animation
@@ -37,10 +38,17 @@ public class RotateAnimation extends Animation {
     }
 
     public void setRepeatMode(Animation.RepeatMode repeatMode) {
+        c cVar;
+        int i;
         if (repeatMode == Animation.RepeatMode.RESTART) {
-            this.bdAnimation.a(1);
-        } else if (repeatMode == Animation.RepeatMode.REVERSE) {
-            this.bdAnimation.a(2);
+            cVar = this.bdAnimation;
+            i = 1;
+        } else if (repeatMode != Animation.RepeatMode.REVERSE) {
+            return;
+        } else {
+            cVar = this.bdAnimation;
+            i = 2;
         }
+        cVar.a(i);
     }
 }

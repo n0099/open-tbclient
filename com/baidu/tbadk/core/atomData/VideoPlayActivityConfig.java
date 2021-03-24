@@ -6,7 +6,7 @@ import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tieba.video.VideoItemData;
 import java.io.Serializable;
 import java.util.List;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class VideoPlayActivityConfig extends IntentConfig {
     public static final String FROM = "from";
     public static final String FROM_DEFAULT = "from_default";
@@ -22,6 +22,7 @@ public class VideoPlayActivityConfig extends IntentConfig {
     public static final String OBJ_ID = "obj_id";
     public static final String PAGE_FIRST_IN = "page_first_in";
     public static final String PAGE_FROM = "page_from";
+    public static final String PARAM_IS_VERTAIL = "is_vertail";
     public static final String PARAM_ST_TYPE = "st_type";
     public static final String PARAM_YUELAOU_LACATION = "yuelaou_locate";
     public static final String SOURCE_FROM = "source_from";
@@ -37,12 +38,35 @@ public class VideoPlayActivityConfig extends IntentConfig {
         getIntent().putExtra(VIDEO_INDEX, i);
     }
 
+    public void setIsFromBjhPb(boolean z) {
+        getIntent().putExtra(IS_FROM_BJH_PB, z);
+    }
+
+    public void setNid(String str) {
+        if (getIntent() != null) {
+            getIntent().putExtra("key_nid", str);
+        }
+    }
+
+    public void setParamIsVertail(boolean z) {
+        if (getIntent() != null) {
+            getIntent().putExtra(PARAM_IS_VERTAIL, z);
+        }
+    }
+
     public VideoPlayActivityConfig(Context context, List<VideoItemData> list, int i, Rect rect, String str) {
         super(context);
         getIntent().putExtra(VIDEO_LIST, (Serializable) list);
         getIntent().putExtra(VIDEO_INDEX, i);
         getIntent().putExtra("from", str);
         getIntent().setSourceBounds(rect);
+    }
+
+    public VideoPlayActivityConfig(Context context, List<VideoItemData> list, String str, String str2) {
+        super(context);
+        getIntent().putExtra(VIDEO_LIST, (Serializable) list);
+        getIntent().putExtra("page_from", str);
+        getIntent().putExtra("from", str2);
     }
 
     public VideoPlayActivityConfig(Context context, List<VideoItemData> list, int i, Rect rect, String str, String str2, String str3, String str4) {
@@ -64,17 +88,7 @@ public class VideoPlayActivityConfig extends IntentConfig {
         getIntent().putExtra("st_type", str2);
         getIntent().putExtra("yuelaou_locate", str3);
         getIntent().putExtra("from", str4);
-        getIntent().putExtra(SOURCE_FROM, str5);
+        getIntent().putExtra("source_from", str5);
         getIntent().setSourceBounds(rect);
-    }
-
-    public void setIsFromBjhPb(boolean z) {
-        getIntent().putExtra(IS_FROM_BJH_PB, z);
-    }
-
-    public void setNid(String str) {
-        if (getIntent() != null) {
-            getIntent().putExtra("key_nid", str);
-        }
     }
 }

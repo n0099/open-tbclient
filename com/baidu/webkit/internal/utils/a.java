@@ -2,18 +2,18 @@ package com.baidu.webkit.internal.utils;
 
 import java.io.File;
 import java.util.Stack;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static String f3841a = "none";
+    public static String f26952a = "none";
 
     public static boolean a(File file) {
         return file.setReadable(true, false);
     }
 
     public static boolean a(String str) {
-        String[] list;
+        StringBuilder sb;
         Stack stack = new Stack();
         if (str == null) {
             return false;
@@ -23,20 +23,23 @@ public final class a {
             String str2 = (String) stack.pop();
             File file = new File(str2);
             if (file.isDirectory()) {
-                String[] list2 = file.list();
-                if (list2 != null && list2.length > 0) {
+                String[] list = file.list();
+                if (list != null && list.length > 0) {
                     stack.push(str2);
                     String str3 = str2 + "/";
-                    int length = file.list().length;
-                    for (int i = 0; i < length; i++) {
-                        stack.push(str3 + list[i]);
+                    for (String str4 : file.list()) {
+                        stack.push(str3 + str4);
                     }
                 } else if (!file.delete()) {
-                    f3841a = "remove fail, can not delete file = " + file.getAbsolutePath();
+                    sb = new StringBuilder("remove fail, can not delete file = ");
+                    sb.append(file.getAbsolutePath());
+                    f26952a = sb.toString();
                     return false;
                 }
             } else if (!file.delete()) {
-                f3841a = "remove fail, can not delete file = " + file.getAbsolutePath();
+                sb = new StringBuilder("remove fail, can not delete file = ");
+                sb.append(file.getAbsolutePath());
+                f26952a = sb.toString();
                 return false;
             }
         }

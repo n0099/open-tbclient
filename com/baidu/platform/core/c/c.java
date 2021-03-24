@@ -1,33 +1,35 @@
 package com.baidu.platform.core.c;
 
+import com.baidu.down.request.task.ProgressInfo;
 import com.baidu.mapapi.search.poi.PoiIndoorOption;
-import com.baidu.mobstat.Config;
 import com.meizu.cloud.pushsdk.notification.model.ActVideoSetting;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class c extends com.baidu.platform.base.e {
     public c(PoiIndoorOption poiIndoorOption) {
         a(poiIndoorOption);
     }
 
     private void a(PoiIndoorOption poiIndoorOption) {
-        this.f2867a.a("qt", "indoor_s");
-        this.f2867a.a(Config.EVENT_HEAT_X, "0");
-        this.f2867a.a("y", "0");
-        this.f2867a.a("from", "android_map_sdk");
+        this.f9820a.a("qt", "indoor_s");
+        this.f9820a.a("x", "0");
+        this.f9820a.a("y", "0");
+        this.f9820a.a("from", "android_map_sdk");
         String str = poiIndoorOption.bid;
         if (str != null && !str.equals("")) {
-            this.f2867a.a("bid", str);
+            this.f9820a.a("bid", str);
         }
         String str2 = poiIndoorOption.wd;
         if (str2 != null && !str2.equals("")) {
-            this.f2867a.a(ActVideoSetting.WIFI_DISPLAY, str2);
+            this.f9820a.a(ActVideoSetting.WIFI_DISPLAY, str2);
         }
         String str3 = poiIndoorOption.floor;
         if (str3 != null && !str3.equals("")) {
-            this.f2867a.a("floor", str3);
+            this.f9820a.a("floor", str3);
         }
-        this.f2867a.a("current", poiIndoorOption.currentPage + "");
-        this.f2867a.a("pageSize", poiIndoorOption.pageSize + "");
+        com.baidu.platform.util.a aVar = this.f9820a;
+        aVar.a(ProgressInfo.JSON_KEY_CURRENT, poiIndoorOption.currentPage + "");
+        com.baidu.platform.util.a aVar2 = this.f9820a;
+        aVar2.a("pageSize", poiIndoorOption.pageSize + "");
     }
 
     @Override // com.baidu.platform.base.e

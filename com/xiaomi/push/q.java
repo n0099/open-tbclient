@@ -2,32 +2,34 @@ package com.xiaomi.push;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class q implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ p f8481a;
+    public final /* synthetic */ p f40898a;
 
     /* renamed from: a  reason: collision with other field name */
-    final /* synthetic */ String f794a;
-    final /* synthetic */ String b;
-    final /* synthetic */ String c;
+    public final /* synthetic */ String f825a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    /* renamed from: b  reason: collision with root package name */
+    public final /* synthetic */ String f40899b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public final /* synthetic */ String f40900c;
+
     public q(p pVar, String str, String str2, String str3) {
-        this.f8481a = pVar;
-        this.f794a = str;
-        this.b = str2;
-        this.c = str3;
+        this.f40898a = pVar;
+        this.f825a = str;
+        this.f40899b = str2;
+        this.f40900c = str3;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         Context context;
-        context = this.f8481a.f787a;
-        SharedPreferences.Editor edit = context.getSharedPreferences(this.f794a, 4).edit();
-        edit.putString(this.b, this.c);
+        context = this.f40898a.f818a;
+        SharedPreferences.Editor edit = context.getSharedPreferences(this.f825a, 4).edit();
+        edit.putString(this.f40899b, this.f40900c);
         edit.commit();
     }
 }

@@ -12,17 +12,17 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes3.dex */
-public class IMMediaBuildSessionListener implements IGetUserIdentityListener, IGetPaInfosListener {
-    private static final String TAG = "IMMediaBuildSessionListener";
-    private Context mContext;
-    private boolean mHasMore;
-    private IMediaGetChatSessionListener mListener;
-    private int mNewNum;
-    private Map<Long, ChatSession> mPaMap = null;
-    private Map<Long, ChatSession> mUserMap = null;
-    private List<ChatSession> mUserResultList = null;
-    private List<ChatSession> mPaResultList = null;
+/* loaded from: classes2.dex */
+public class IMMediaBuildSessionListener implements IGetPaInfosListener, IGetUserIdentityListener {
+    public static final String TAG = "IMMediaBuildSessionListener";
+    public Context mContext;
+    public boolean mHasMore;
+    public IMediaGetChatSessionListener mListener;
+    public int mNewNum;
+    public Map<Long, ChatSession> mPaMap = null;
+    public Map<Long, ChatSession> mUserMap = null;
+    public List<ChatSession> mUserResultList = null;
+    public List<ChatSession> mPaResultList = null;
 
     public IMMediaBuildSessionListener(Context context, int i, boolean z, IMediaGetChatSessionListener iMediaGetChatSessionListener) {
         this.mNewNum = 0;
@@ -31,6 +31,63 @@ public class IMMediaBuildSessionListener implements IGetUserIdentityListener, IG
         this.mNewNum = i;
         this.mHasMore = z;
         this.mListener = iMediaGetChatSessionListener;
+    }
+
+    private void updateChatSessionByChatUser(ChatSession chatSession, ChatUser chatUser) {
+        if (chatSession == null || chatUser == null) {
+            return;
+        }
+        chatSession.setName(chatUser.getUserName());
+        chatSession.setChatType(0);
+        chatSession.setBusinessType(1);
+        chatSession.setIconUrl(chatUser.getIconUrl());
+        chatSession.setClassType(0);
+        chatSession.setClassShow(0);
+        chatSession.setShield(chatUser.getShield());
+        chatSession.setShieldTime(chatUser.getShieldTime());
+        chatSession.setVipId(chatUser.getVipId());
+        chatSession.setVPortrait(chatUser.getVPortrait());
+        chatSession.setCertification(chatUser.getIdentity());
+        chatSession.setContacter(chatUser.getUk());
+        try {
+            ChatUser chatUser2 = ChatUserDBManager.getInstance(this.mContext).getChatUser(chatUser.getUk());
+            if (chatUser2 == null || chatUser2.getUk() < 1) {
+                chatUser.setMarkTop(chatSession.getMarkTop());
+                chatUser.setMarkTopTime(chatSession.getLastMsgTime());
+                ChatUserDBManager.getInstance(this.mContext).updateUser(chatUser);
+            }
+        } catch (Exception e2) {
+            e2.printStackTrace();
+        }
+    }
+
+    private void updateChatSessionByPaInfo(ChatSession chatSession, PaInfo paInfo) {
+        if (chatSession == null || paInfo == null) {
+            return;
+        }
+        chatSession.setName(paInfo.getNickName());
+        chatSession.setChatType(paInfo.getSubtype());
+        chatSession.setBusinessType(Utility.getBusinessType(paInfo.getSubtype(), paInfo.getSubsetType()));
+        chatSession.setIconUrl(paInfo.getAvatar());
+        chatSession.setClassType(paInfo.getClassType());
+        chatSession.setClassTitle(paInfo.getClassTitle());
+        chatSession.setClassAvatar(paInfo.getClassavatar());
+        chatSession.setClassShow(paInfo.getClassshow());
+        chatSession.setShield(paInfo.getShield());
+        chatSession.setShieldTime(paInfo.getShieldTime());
+        chatSession.setVipId(paInfo.getVipId());
+        chatSession.setVPortrait(paInfo.getVPortrait());
+        chatSession.setCertification(paInfo.getIdentity());
+        try {
+            PaInfo queryPaInfo = PaInfoDBManager.getInstance(this.mContext).queryPaInfo(paInfo.getPaId());
+            if (queryPaInfo == null || queryPaInfo.getPaId() < 1) {
+                paInfo.setMarkTop(chatSession.getMarkTop());
+                paInfo.setMarkTopTime(chatSession.getLastMsgTime());
+                PaInfoDBManager.getInstance(this.mContext).subscribePa(paInfo);
+            }
+        } catch (Exception e2) {
+            e2.printStackTrace();
+        }
     }
 
     @Override // com.baidu.android.imsdk.chatuser.IGetUserIdentityListener
@@ -81,61 +138,6 @@ public class IMMediaBuildSessionListener implements IGetUserIdentityListener, IG
             } else if (this.mUserResultList != null) {
                 this.mPaResultList.addAll(this.mUserResultList);
                 this.mListener.onMediaGetChatSessionResult(i, this.mNewNum, this.mHasMore, this.mPaResultList);
-            }
-        }
-    }
-
-    private void updateChatSessionByPaInfo(ChatSession chatSession, PaInfo paInfo) {
-        if (chatSession != null && paInfo != null) {
-            chatSession.setName(paInfo.getNickName());
-            chatSession.setChatType(paInfo.getSubtype());
-            chatSession.setBusinessType(Utility.getBusinessType(paInfo.getSubtype(), paInfo.getSubsetType()));
-            chatSession.setIconUrl(paInfo.getAvatar());
-            chatSession.setClassType(paInfo.getClassType());
-            chatSession.setClassTitle(paInfo.getClassTitle());
-            chatSession.setClassAvatar(paInfo.getClassavatar());
-            chatSession.setClassShow(paInfo.getClassshow());
-            chatSession.setShield(paInfo.getShield());
-            chatSession.setShieldTime(paInfo.getShieldTime());
-            chatSession.setVipId(paInfo.getVipId());
-            chatSession.setVPortrait(paInfo.getVPortrait());
-            chatSession.setCertification(paInfo.getIdentity());
-            try {
-                PaInfo queryPaInfo = PaInfoDBManager.getInstance(this.mContext).queryPaInfo(paInfo.getPaId());
-                if (queryPaInfo == null || queryPaInfo.getPaId() < 1) {
-                    paInfo.setMarkTop(chatSession.getMarkTop());
-                    paInfo.setMarkTopTime(chatSession.getLastMsgTime());
-                    PaInfoDBManager.getInstance(this.mContext).subscribePa(paInfo);
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    private void updateChatSessionByChatUser(ChatSession chatSession, ChatUser chatUser) {
-        if (chatSession != null && chatUser != null) {
-            chatSession.setName(chatUser.getUserName());
-            chatSession.setChatType(0);
-            chatSession.setBusinessType(1);
-            chatSession.setIconUrl(chatUser.getIconUrl());
-            chatSession.setClassType(0);
-            chatSession.setClassShow(0);
-            chatSession.setShield(chatUser.getShield());
-            chatSession.setShieldTime(chatUser.getShieldTime());
-            chatSession.setVipId(chatUser.getVipId());
-            chatSession.setVPortrait(chatUser.getVPortrait());
-            chatSession.setCertification(chatUser.getIdentity());
-            chatSession.setContacter(chatUser.getUk());
-            try {
-                ChatUser chatUser2 = ChatUserDBManager.getInstance(this.mContext).getChatUser(chatUser.getUk());
-                if (chatUser2 == null || chatUser2.getUk() < 1) {
-                    chatUser.setMarkTop(chatSession.getMarkTop());
-                    chatUser.setMarkTopTime(chatSession.getLastMsgTime());
-                    ChatUserDBManager.getInstance(this.mContext).updateUser(chatUser);
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
             }
         }
     }

@@ -1,7 +1,33 @@
 package com.baidu.android.pushservice.i;
 
-import android.content.Intent;
-/* loaded from: classes5.dex */
-public interface a {
-    void a(int i, Intent intent);
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.util.Log;
+import com.baidu.android.pushservice.i.a.b;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+/* loaded from: classes2.dex */
+public class a {
+    public static String a(Context context, String str) {
+        try {
+            byte[] digest = MessageDigest.getInstance("MD5").digest(str.getBytes());
+            StringBuilder sb = new StringBuilder();
+            for (byte b2 : digest) {
+                int i = b2 & 255;
+                if (i < 16) {
+                    sb.append(0);
+                }
+                sb.append(Integer.toHexString(i));
+            }
+            return sb.toString();
+        } catch (NoSuchAlgorithmException e2) {
+            new b.c(context).a(Log.getStackTraceString(e2)).a();
+            return "";
+        }
+    }
+
+    @SuppressLint({"DefaultLocale"})
+    public static String a(Context context, String str, long j) {
+        return a(context, String.format("%d%s%d", 1, str.toLowerCase(), Long.valueOf(j)));
+    }
 }

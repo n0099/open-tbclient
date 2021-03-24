@@ -2,16 +2,17 @@ package com.baidu.tieba.im.model;
 
 import android.text.TextUtils;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.ImMessageCenterShowItemData;
 import com.baidu.tbadk.core.message.RequestUpdateMaskInfoMessage;
-import com.baidu.tieba.im.chat.a.b;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import com.baidu.tieba.im.settingcache.OfficialSettingItemData;
-import com.baidu.tieba.im.settingcache.d;
+import d.b.i0.d1.f.i.b;
+import d.b.i0.d1.t.d;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.ListIterator;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class OfficialBarTipModel extends ImBaseMessageCenterModel {
     public static final int MASK_TYPE = 12;
 
@@ -19,8 +20,12 @@ public class OfficialBarTipModel extends ImBaseMessageCenterModel {
         super(tbPageContext);
     }
 
+    private boolean isNeed(ImMessageCenterPojo imMessageCenterPojo) {
+        return imMessageCenterPojo != null && imMessageCenterPojo.getCustomGroupType() == 4 && (imMessageCenterPojo.getUserType() == 1 || imMessageCenterPojo.getUserType() == 3) && !TextUtils.isEmpty(imMessageCenterPojo.getGroup_name());
+    }
+
     @Override // com.baidu.tieba.im.model.ImBaseMessageCenterModel, com.baidu.adp.base.BdBaseModel
-    protected boolean LoadData() {
+    public boolean LoadData() {
         return false;
     }
 
@@ -29,39 +34,49 @@ public class OfficialBarTipModel extends ImBaseMessageCenterModel {
         return false;
     }
 
-    @Override // com.baidu.tieba.im.model.ImBaseMessageCenterModel
-    protected void processMsg(ImMessageCenterPojo imMessageCenterPojo, ImMessageCenterShowItemData imMessageCenterShowItemData) {
-        ImMessageCenterShowItemData buildNormalItem = buildNormalItem(imMessageCenterPojo, imMessageCenterShowItemData);
-        if (buildNormalItem != null) {
-            buildNormalItem.setSendStatus(imMessageCenterPojo.getSend_status());
-            OfficialSettingItemData fx = d.cYh().fx(TbadkApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
-            if (fx != null) {
-                buildNormalItem.setGroupSetting(fx);
-            }
-            insertShowData(buildNormalItem, this.mList);
+    public void deleteSelectedDatas(b bVar) {
+        LinkedList<ImMessageCenterShowItemData> linkedList = this.mList;
+        if (linkedList == null) {
+            return;
         }
+        ListIterator<ImMessageCenterShowItemData> listIterator = linkedList.listIterator();
+        ArrayList arrayList = new ArrayList();
+        while (listIterator.hasNext()) {
+            ImMessageCenterShowItemData next = listIterator.next();
+            if (next != null && next.isSelected()) {
+                arrayList.add(next);
+            }
+        }
+        asyncDeleteMsgList(arrayList, 4, bVar);
     }
 
     @Override // com.baidu.tieba.im.model.ImBaseMessageCenterModel
-    protected int getCustomGroupType(ImMessageCenterShowItemData imMessageCenterShowItemData) {
+    public int getCustomGroupType(ImMessageCenterShowItemData imMessageCenterShowItemData) {
         return 4;
     }
 
     @Override // com.baidu.tieba.im.model.ImBaseMessageCenterModel
-    protected boolean isAccept(ImMessageCenterPojo imMessageCenterPojo) {
+    public boolean isAccept(ImMessageCenterPojo imMessageCenterPojo) {
         return isNeed(imMessageCenterPojo);
     }
 
     @Override // com.baidu.tieba.im.model.ImBaseMessageCenterModel
-    protected boolean isToShow(ImMessageCenterPojo imMessageCenterPojo) {
+    public boolean isToShow(ImMessageCenterPojo imMessageCenterPojo) {
         return isNeed(imMessageCenterPojo);
     }
 
-    private boolean isNeed(ImMessageCenterPojo imMessageCenterPojo) {
-        if (imMessageCenterPojo != null && imMessageCenterPojo.getCustomGroupType() == 4) {
-            return (imMessageCenterPojo.getUserType() == 1 || imMessageCenterPojo.getUserType() == 3) && !TextUtils.isEmpty(imMessageCenterPojo.getGroup_name());
+    @Override // com.baidu.tieba.im.model.ImBaseMessageCenterModel
+    public void processMsg(ImMessageCenterPojo imMessageCenterPojo, ImMessageCenterShowItemData imMessageCenterShowItemData) {
+        ImMessageCenterShowItemData buildNormalItem = buildNormalItem(imMessageCenterPojo, imMessageCenterShowItemData);
+        if (buildNormalItem == null) {
+            return;
         }
-        return false;
+        buildNormalItem.setSendStatus(imMessageCenterPojo.getSend_status());
+        OfficialSettingItemData a2 = d.j().a(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
+        if (a2 != null) {
+            buildNormalItem.setGroupSetting(a2);
+        }
+        insertShowData(buildNormalItem, this.mList);
     }
 
     public void subscribeBar(boolean z, String str) {
@@ -77,29 +92,8 @@ public class OfficialBarTipModel extends ImBaseMessageCenterModel {
     }
 
     public void updateEditStatus(boolean z) {
-        int i = 0;
-        while (true) {
-            int i2 = i;
-            if (i2 != this.mList.size()) {
-                this.mList.get(i2).setSelected(z);
-                i = i2 + 1;
-            } else {
-                return;
-            }
-        }
-    }
-
-    public void deleteSelectedDatas(b bVar) {
-        if (this.mList != null) {
-            ListIterator<ImMessageCenterShowItemData> listIterator = this.mList.listIterator();
-            ArrayList arrayList = new ArrayList();
-            while (listIterator.hasNext()) {
-                ImMessageCenterShowItemData next = listIterator.next();
-                if (next != null && next.isSelected()) {
-                    arrayList.add(next);
-                }
-            }
-            asyncDeleteMsgList(arrayList, 4, bVar);
+        for (int i = 0; i != this.mList.size(); i++) {
+            this.mList.get(i).setSelected(z);
         }
     }
 }

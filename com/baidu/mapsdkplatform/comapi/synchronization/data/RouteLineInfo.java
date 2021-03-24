@@ -5,52 +5,57 @@ import android.os.Parcelable;
 import com.baidu.mapapi.model.LatLng;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public final class RouteLineInfo implements Parcelable {
     public static final Parcelable.Creator<RouteLineInfo> CREATOR = new b();
 
     /* renamed from: a  reason: collision with root package name */
-    private boolean f2253a;
-    private String b;
-    private CopyOnWriteArrayList<RouteSectionInfo> c;
+    public boolean f7758a;
 
-    /* loaded from: classes4.dex */
+    /* renamed from: b  reason: collision with root package name */
+    public String f7759b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public CopyOnWriteArrayList<RouteSectionInfo> f7760c;
+
+    /* loaded from: classes2.dex */
     public static final class RouteSectionInfo implements Parcelable {
         public static final Parcelable.Creator<RouteSectionInfo> CREATOR = new c();
 
         /* renamed from: a  reason: collision with root package name */
-        private LatLng f2254a;
-        private LatLng b;
+        public LatLng f7761a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public LatLng f7762b;
 
         public RouteSectionInfo() {
-            this.f2254a = null;
-            this.b = null;
-            this.f2254a = null;
-            this.b = null;
+            this.f7761a = null;
+            this.f7762b = null;
+            this.f7761a = null;
+            this.f7762b = null;
         }
 
-        /* JADX INFO: Access modifiers changed from: protected */
         public RouteSectionInfo(Parcel parcel) {
-            this.f2254a = null;
-            this.b = null;
-            this.f2254a = (LatLng) parcel.readParcelable(LatLng.class.getClassLoader());
-            this.b = (LatLng) parcel.readParcelable(LatLng.class.getClassLoader());
+            this.f7761a = null;
+            this.f7762b = null;
+            this.f7761a = (LatLng) parcel.readParcelable(LatLng.class.getClassLoader());
+            this.f7762b = (LatLng) parcel.readParcelable(LatLng.class.getClassLoader());
         }
 
         public LatLng a() {
-            return this.f2254a;
+            return this.f7761a;
         }
 
         public void a(LatLng latLng) {
-            this.f2254a = latLng;
+            this.f7761a = latLng;
         }
 
         public LatLng b() {
-            return this.b;
+            return this.f7762b;
         }
 
         public void b(LatLng latLng) {
-            this.b = latLng;
+            this.f7762b = latLng;
         }
 
         @Override // android.os.Parcelable
@@ -60,43 +65,43 @@ public final class RouteLineInfo implements Parcelable {
 
         @Override // android.os.Parcelable
         public void writeToParcel(Parcel parcel, int i) {
-            parcel.writeParcelable(this.f2254a, i);
-            parcel.writeParcelable(this.b, i);
+            parcel.writeParcelable(this.f7761a, i);
+            parcel.writeParcelable(this.f7762b, i);
         }
     }
 
     public RouteLineInfo() {
-        this.f2253a = false;
-        this.b = null;
-        this.c = new CopyOnWriteArrayList<>();
+        this.f7758a = false;
+        this.f7759b = null;
+        this.f7760c = new CopyOnWriteArrayList<>();
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     public RouteLineInfo(Parcel parcel) {
-        this.f2253a = parcel.readByte() != 0;
-        this.b = parcel.readString();
+        this.f7758a = parcel.readByte() != 0;
+        this.f7759b = parcel.readString();
     }
 
     public String a() {
-        return this.b;
+        return this.f7759b;
     }
 
     public void a(RouteSectionInfo routeSectionInfo) {
-        if (this.c != null) {
-            this.c.add(routeSectionInfo);
+        CopyOnWriteArrayList<RouteSectionInfo> copyOnWriteArrayList = this.f7760c;
+        if (copyOnWriteArrayList != null) {
+            copyOnWriteArrayList.add(routeSectionInfo);
         }
     }
 
     public void a(String str) {
-        this.b = str;
+        this.f7759b = str;
     }
 
     public void a(boolean z) {
-        this.f2253a = z;
+        this.f7758a = z;
     }
 
     public List<RouteSectionInfo> b() {
-        return this.c;
+        return this.f7760c;
     }
 
     @Override // android.os.Parcelable
@@ -106,8 +111,8 @@ public final class RouteLineInfo implements Parcelable {
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeByte((byte) (this.f2253a ? 1 : 0));
-        parcel.writeString(this.b);
-        parcel.writeTypedList(this.c);
+        parcel.writeByte(this.f7758a ? (byte) 1 : (byte) 0);
+        parcel.writeString(this.f7759b);
+        parcel.writeTypedList(this.f7760c);
     }
 }

@@ -4,23 +4,41 @@ import android.graphics.Rect;
 import android.os.Build;
 import android.view.DisplayCutout;
 import java.util.List;
-/* loaded from: classes14.dex */
+/* loaded from: classes.dex */
 public final class DisplayCutoutCompat {
-    private final Object mDisplayCutout;
+    public final Object mDisplayCutout;
 
     public DisplayCutoutCompat(Rect rect, List<Rect> list) {
         this(Build.VERSION.SDK_INT >= 28 ? new DisplayCutout(rect, list) : null);
     }
 
-    private DisplayCutoutCompat(Object obj) {
-        this.mDisplayCutout = obj;
+    public static DisplayCutoutCompat wrap(Object obj) {
+        if (obj == null) {
+            return null;
+        }
+        return new DisplayCutoutCompat(obj);
     }
 
-    public int getSafeInsetTop() {
-        if (Build.VERSION.SDK_INT >= 28) {
-            return ((DisplayCutout) this.mDisplayCutout).getSafeInsetTop();
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
         }
-        return 0;
+        if (obj == null || DisplayCutoutCompat.class != obj.getClass()) {
+            return false;
+        }
+        Object obj2 = this.mDisplayCutout;
+        Object obj3 = ((DisplayCutoutCompat) obj).mDisplayCutout;
+        if (obj2 == null) {
+            return obj3 == null;
+        }
+        return obj2.equals(obj3);
+    }
+
+    public List<Rect> getBoundingRects() {
+        if (Build.VERSION.SDK_INT >= 28) {
+            return ((DisplayCutout) this.mDisplayCutout).getBoundingRects();
+        }
+        return null;
     }
 
     public int getSafeInsetBottom() {
@@ -44,43 +62,26 @@ public final class DisplayCutoutCompat {
         return 0;
     }
 
-    public List<Rect> getBoundingRects() {
+    public int getSafeInsetTop() {
         if (Build.VERSION.SDK_INT >= 28) {
-            return ((DisplayCutout) this.mDisplayCutout).getBoundingRects();
+            return ((DisplayCutout) this.mDisplayCutout).getSafeInsetTop();
         }
-        return null;
-    }
-
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null || getClass() != obj.getClass()) {
-            return false;
-        }
-        DisplayCutoutCompat displayCutoutCompat = (DisplayCutoutCompat) obj;
-        if (this.mDisplayCutout == null) {
-            return displayCutoutCompat.mDisplayCutout == null;
-        }
-        return this.mDisplayCutout.equals(displayCutoutCompat.mDisplayCutout);
+        return 0;
     }
 
     public int hashCode() {
-        if (this.mDisplayCutout == null) {
+        Object obj = this.mDisplayCutout;
+        if (obj == null) {
             return 0;
         }
-        return this.mDisplayCutout.hashCode();
+        return obj.hashCode();
     }
 
     public String toString() {
         return "DisplayCutoutCompat{" + this.mDisplayCutout + "}";
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static DisplayCutoutCompat wrap(Object obj) {
-        if (obj == null) {
-            return null;
-        }
-        return new DisplayCutoutCompat(obj);
+    public DisplayCutoutCompat(Object obj) {
+        this.mDisplayCutout = obj;
     }
 }

@@ -12,59 +12,19 @@ import com.bumptech.glide.util.ExceptionCatchingInputStream;
 import com.bumptech.glide.util.MarkEnforcingInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class StreamBitmapDecoder implements ResourceDecoder<InputStream, Bitmap> {
-    private final ArrayPool byteArrayPool;
-    private final Downsampler downsampler;
+    public final ArrayPool byteArrayPool;
+    public final Downsampler downsampler;
 
-    public StreamBitmapDecoder(Downsampler downsampler, ArrayPool arrayPool) {
-        this.downsampler = downsampler;
-        this.byteArrayPool = arrayPool;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.bumptech.glide.load.ResourceDecoder
-    public boolean handles(@NonNull InputStream inputStream, @NonNull Options options) {
-        return this.downsampler.handles(inputStream);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.bumptech.glide.load.ResourceDecoder
-    public Resource<Bitmap> decode(@NonNull InputStream inputStream, int i, int i2, @NonNull Options options) throws IOException {
-        boolean z;
-        RecyclableBufferedInputStream recyclableBufferedInputStream;
-        if (inputStream instanceof RecyclableBufferedInputStream) {
-            recyclableBufferedInputStream = (RecyclableBufferedInputStream) inputStream;
-            z = false;
-        } else {
-            z = true;
-            recyclableBufferedInputStream = new RecyclableBufferedInputStream(inputStream, this.byteArrayPool);
-        }
-        ExceptionCatchingInputStream obtain = ExceptionCatchingInputStream.obtain(recyclableBufferedInputStream);
-        try {
-            return this.downsampler.decode(new MarkEnforcingInputStream(obtain), i, i2, options, new UntrustedCallbacks(recyclableBufferedInputStream, obtain));
-        } finally {
-            obtain.release();
-            if (z) {
-                recyclableBufferedInputStream.release();
-            }
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public static class UntrustedCallbacks implements Downsampler.DecodeCallbacks {
-        private final RecyclableBufferedInputStream bufferedStream;
-        private final ExceptionCatchingInputStream exceptionStream;
+        public final RecyclableBufferedInputStream bufferedStream;
+        public final ExceptionCatchingInputStream exceptionStream;
 
-        UntrustedCallbacks(RecyclableBufferedInputStream recyclableBufferedInputStream, ExceptionCatchingInputStream exceptionCatchingInputStream) {
+        public UntrustedCallbacks(RecyclableBufferedInputStream recyclableBufferedInputStream, ExceptionCatchingInputStream exceptionCatchingInputStream) {
             this.bufferedStream = recyclableBufferedInputStream;
             this.exceptionStream = exceptionCatchingInputStream;
-        }
-
-        @Override // com.bumptech.glide.load.resource.bitmap.Downsampler.DecodeCallbacks
-        public void onObtainBounds() {
-            this.bufferedStream.fixMarkLimit();
         }
 
         @Override // com.bumptech.glide.load.resource.bitmap.Downsampler.DecodeCallbacks
@@ -77,5 +37,44 @@ public class StreamBitmapDecoder implements ResourceDecoder<InputStream, Bitmap>
                 throw exception;
             }
         }
+
+        @Override // com.bumptech.glide.load.resource.bitmap.Downsampler.DecodeCallbacks
+        public void onObtainBounds() {
+            this.bufferedStream.fixMarkLimit();
+        }
+    }
+
+    public StreamBitmapDecoder(Downsampler downsampler, ArrayPool arrayPool) {
+        this.downsampler = downsampler;
+        this.byteArrayPool = arrayPool;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.bumptech.glide.load.ResourceDecoder
+    public Resource<Bitmap> decode(@NonNull InputStream inputStream, int i, int i2, @NonNull Options options) throws IOException {
+        RecyclableBufferedInputStream recyclableBufferedInputStream;
+        boolean z;
+        if (inputStream instanceof RecyclableBufferedInputStream) {
+            recyclableBufferedInputStream = (RecyclableBufferedInputStream) inputStream;
+            z = false;
+        } else {
+            recyclableBufferedInputStream = new RecyclableBufferedInputStream(inputStream, this.byteArrayPool);
+            z = true;
+        }
+        ExceptionCatchingInputStream obtain = ExceptionCatchingInputStream.obtain(recyclableBufferedInputStream);
+        try {
+            return this.downsampler.decode(new MarkEnforcingInputStream(obtain), i, i2, options, new UntrustedCallbacks(recyclableBufferedInputStream, obtain));
+        } finally {
+            obtain.release();
+            if (z) {
+                recyclableBufferedInputStream.release();
+            }
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.bumptech.glide.load.ResourceDecoder
+    public boolean handles(@NonNull InputStream inputStream, @NonNull Options options) {
+        return this.downsampler.handles(inputStream);
     }
 }

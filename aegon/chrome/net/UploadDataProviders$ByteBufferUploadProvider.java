@@ -1,7 +1,7 @@
 package aegon.chrome.net;
 
 import java.nio.ByteBuffer;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public final class UploadDataProviders$ByteBufferUploadProvider extends UploadDataProvider {
     public final ByteBuffer mUploadBuffer;
 
@@ -20,7 +20,7 @@ public final class UploadDataProviders$ByteBufferUploadProvider extends UploadDa
         } else {
             int limit = this.mUploadBuffer.limit();
             ByteBuffer byteBuffer2 = this.mUploadBuffer;
-            byteBuffer2.limit(byteBuffer2.position() + byteBuffer.remaining());
+            byteBuffer2.limit(byteBuffer.remaining() + byteBuffer2.position());
             byteBuffer.put(this.mUploadBuffer);
             this.mUploadBuffer.limit(limit);
         }

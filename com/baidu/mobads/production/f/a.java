@@ -16,20 +16,21 @@ import com.baidu.mobads.utils.e;
 import com.baidu.mobads.utils.l;
 import com.baidu.mobads.utils.r;
 import com.baidu.mobads.vo.d;
+import com.baidu.sapi2.SapiWebView;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class a extends com.baidu.mobads.production.a {
-    private static int F = 0;
+    public static int F;
     public boolean A;
-    private b B;
-    private Context C;
-    private boolean D;
-    private int E;
-    protected final IXAdLogger z;
+    public b B;
+    public Context C;
+    public boolean D;
+    public int E;
+    public final IXAdLogger z;
 
     public a(Context context, RelativeLayout relativeLayout, String str, boolean z, int i, int i2, int i3, int i4) {
         super(context);
@@ -43,8 +44,9 @@ public class a extends com.baidu.mobads.production.a {
         this.C = context;
         this.m = i4;
         this.E = i3;
-        this.B = new b(getApplicationContext(), this.o);
-        this.B.a(z);
+        b bVar = new b(getApplicationContext(), this.o);
+        this.B = bVar;
+        bVar.a(z);
         l adConstants = XAdSDKFoundationFacade.getInstance().getAdConstants();
         if (z) {
             ArrayList arrayList = new ArrayList();
@@ -66,8 +68,98 @@ public class a extends com.baidu.mobads.production.a {
         d(str);
     }
 
+    private void a(Handler handler) {
+    }
+
     @Override // com.baidu.mobads.production.a
-    protected void d() {
+    public void a(com.baidu.mobads.openad.b.b bVar, p pVar, int i) {
+        com.baidu.mobads.vo.b bVar2 = (com.baidu.mobads.vo.b) this.k.d();
+        JSONObject attribute = bVar2.getAttribute();
+        if (attribute == null) {
+            attribute = new JSONObject();
+        }
+        try {
+            attribute.put("bitmapDisplayMode", F);
+            attribute.put("countDownNew", true);
+        } catch (JSONException unused) {
+        }
+        bVar2.a(attribute);
+        pVar.a(bVar, i);
+    }
+
+    @Override // com.baidu.mobads.production.a
+    public void a(boolean z, IXAdInstanceInfo iXAdInstanceInfo) {
+    }
+
+    @Override // com.baidu.mobads.production.a
+    public void b(IXAdContainer iXAdContainer, HashMap<String, Object> hashMap) {
+        if (hashMap != null) {
+            IXAdInstanceInfo iXAdInstanceInfo = (IXAdInstanceInfo) hashMap.get("AdInstance");
+            IXAdInstanceInfo.CreativeType creativeType = iXAdInstanceInfo.getCreativeType();
+            if (creativeType == IXAdInstanceInfo.CreativeType.VIDEO || creativeType == IXAdInstanceInfo.CreativeType.RM) {
+                com.baidu.mobads.b.a.a().a(this.C, "383", iXAdInstanceInfo, this.B.d(), "processAdStart");
+            }
+        }
+    }
+
+    @Override // com.baidu.mobads.production.a
+    public void b(IXAdResponseInfo iXAdResponseInfo) {
+    }
+
+    @Override // com.baidu.mobads.production.a
+    public void c() {
+        com.baidu.mobads.constants.a.q = System.currentTimeMillis();
+        IXAdContainer iXAdContainer = this.f8440h;
+        if (iXAdContainer == null || this.A) {
+            return;
+        }
+        iXAdContainer.load();
+    }
+
+    @Override // com.baidu.mobads.production.a
+    public void d() {
+    }
+
+    @Override // com.baidu.mobads.production.a
+    public void e() {
+    }
+
+    @Override // com.baidu.mobads.production.a
+    public void e(IXAdContainer iXAdContainer, HashMap<String, Object> hashMap) {
+        super.e(iXAdContainer, hashMap);
+        if (hashMap != null) {
+            try {
+                String str = (String) hashMap.get("video_close_reason");
+                if (TextUtils.isEmpty(str)) {
+                    return;
+                }
+                com.baidu.mobads.b.a.a().a(this.C, "383", (IXAdInstanceInfo) null, this.B.d(), "closead", str);
+            } catch (Exception unused) {
+            }
+        }
+    }
+
+    @Override // com.baidu.mobads.production.a
+    public void f() {
+        this.D = true;
+        try {
+            IXAdResponseInfo adResponseInfo = getAdResponseInfo();
+            com.baidu.mobads.b.a.a().a(this.C, "382", adResponseInfo != null ? adResponseInfo.getPrimaryAdInstanceInfo() : null, this.B.d(), (HashMap<String, String>) null);
+        } catch (Exception e2) {
+            this.z.e(e2);
+        }
+    }
+
+    @Override // com.baidu.mobads.production.a
+    public boolean h() {
+        return true;
+    }
+
+    @Override // com.baidu.mobads.production.a
+    public HashMap r() {
+        HashMap hashMap = new HashMap();
+        HashMap r = super.r();
+        return r != null ? r : hashMap;
     }
 
     @Override // com.baidu.mobads.interfaces.IXAdProd
@@ -77,30 +169,14 @@ public class a extends com.baidu.mobads.production.a {
         a(this.B);
         try {
             if (Looper.getMainLooper() == Looper.myLooper()) {
-                e.a(getActivity(), getActivity().getBaseContext()).loadDataWithBaseURL(null, "", "text/html", "UTF-8", null);
+                e.a(getActivity(), getActivity().getBaseContext()).loadDataWithBaseURL(null, "", SapiWebView.K, "UTF-8", null);
             }
-        } catch (Exception e) {
+        } catch (Exception unused) {
         }
     }
 
     @Override // com.baidu.mobads.production.a
-    protected void a(com.baidu.mobads.openad.b.b bVar, p pVar, int i) {
-        com.baidu.mobads.vo.b bVar2 = (com.baidu.mobads.vo.b) this.k.d();
-        JSONObject attribute = bVar2.getAttribute();
-        if (attribute == null) {
-            attribute = new JSONObject();
-        }
-        try {
-            attribute.put("bitmapDisplayMode", F);
-            attribute.put("countDownNew", true);
-        } catch (JSONException e) {
-        }
-        bVar2.a(attribute);
-        pVar.a(bVar, i);
-    }
-
-    @Override // com.baidu.mobads.production.a
-    protected void a(IXAdContainer iXAdContainer, HashMap<String, Object> hashMap) {
+    public void a(IXAdContainer iXAdContainer, HashMap<String, Object> hashMap) {
         com.baidu.mobads.constants.a.r = System.currentTimeMillis();
         try {
             HashMap<String, String> hashMap2 = new HashMap<>();
@@ -113,63 +189,43 @@ public class a extends com.baidu.mobads.production.a {
             hashMap2.put("m_end_load", String.valueOf(com.baidu.mobads.constants.a.r));
             hashMap2.put("isRequestAndLoadAdTimeout", String.valueOf(this.D));
             IXAdResponseInfo adResponseInfo = getAdResponseInfo();
-            IXAdInstanceInfo iXAdInstanceInfo = null;
-            if (adResponseInfo != null) {
-                iXAdInstanceInfo = adResponseInfo.getPrimaryAdInstanceInfo();
-            }
+            IXAdInstanceInfo primaryAdInstanceInfo = adResponseInfo != null ? adResponseInfo.getPrimaryAdInstanceInfo() : null;
             JSONObject attribute = this.B.d().getAttribute();
-            JSONObject jSONObject = attribute == null ? new JSONObject() : attribute;
-            try {
-                jSONObject.put("splashTipStyle", this.E);
-            } catch (JSONException e) {
+            if (attribute == null) {
+                attribute = new JSONObject();
             }
-            ((com.baidu.mobads.vo.b) this.B.d()).a(jSONObject);
-            com.baidu.mobads.b.a.a().a(this.C, "386", iXAdInstanceInfo, this.B.d(), hashMap2);
-        } catch (Exception e2) {
-        }
-        if (!this.D) {
-            start();
-            Handler handler = new Handler(this.C.getMainLooper());
             try {
-                if (hashMap == null) {
+                attribute.put("splashTipStyle", this.E);
+            } catch (JSONException unused) {
+            }
+            ((com.baidu.mobads.vo.b) this.B.d()).a(attribute);
+            com.baidu.mobads.b.a.a().a(this.C, "386", primaryAdInstanceInfo, this.B.d(), hashMap2);
+        } catch (Exception unused2) {
+        }
+        if (this.D) {
+            return;
+        }
+        start();
+        Handler handler = new Handler(this.C.getMainLooper());
+        try {
+            if (hashMap == null) {
+                a(handler);
+            } else {
+                IXAdInstanceInfo iXAdInstanceInfo = (IXAdInstanceInfo) hashMap.get("AdInstance");
+                IXAdInstanceInfo.CreativeType creativeType = iXAdInstanceInfo.getCreativeType();
+                if (creativeType != IXAdInstanceInfo.CreativeType.VIDEO && creativeType != IXAdInstanceInfo.CreativeType.RM) {
                     a(handler);
                 } else {
-                    IXAdInstanceInfo iXAdInstanceInfo2 = (IXAdInstanceInfo) hashMap.get("AdInstance");
-                    IXAdInstanceInfo.CreativeType creativeType = iXAdInstanceInfo2.getCreativeType();
-                    if (creativeType != IXAdInstanceInfo.CreativeType.VIDEO && creativeType != IXAdInstanceInfo.CreativeType.RM) {
-                        a(handler);
-                    } else {
-                        com.baidu.mobads.b.a.a().a(this.C, "383", iXAdInstanceInfo2, this.B.d(), "processAdLoaded");
-                    }
+                    com.baidu.mobads.b.a.a().a(this.C, "383", iXAdInstanceInfo, this.B.d(), "processAdLoaded");
                 }
-            } catch (Exception e3) {
             }
-        }
-    }
-
-    private void a(Handler handler) {
-    }
-
-    @Override // com.baidu.mobads.production.a
-    public void f() {
-        this.D = true;
-        try {
-            IXAdResponseInfo adResponseInfo = getAdResponseInfo();
-            com.baidu.mobads.b.a.a().a(this.C, "382", adResponseInfo != null ? adResponseInfo.getPrimaryAdInstanceInfo() : null, this.B.d(), (HashMap<String, String>) null);
-        } catch (Exception e) {
-            this.z.e(e);
+        } catch (Exception unused3) {
         }
     }
 
     @Override // com.baidu.mobads.production.a
-    protected void b(IXAdContainer iXAdContainer, HashMap<String, Object> hashMap) {
-        if (hashMap != null) {
-            IXAdInstanceInfo iXAdInstanceInfo = (IXAdInstanceInfo) hashMap.get("AdInstance");
-            IXAdInstanceInfo.CreativeType creativeType = iXAdInstanceInfo.getCreativeType();
-            if (creativeType == IXAdInstanceInfo.CreativeType.VIDEO || creativeType == IXAdInstanceInfo.CreativeType.RM) {
-                com.baidu.mobads.b.a.a().a(this.C, "383", iXAdInstanceInfo, this.B.d(), "processAdStart");
-            }
-        }
+    public boolean f(IXAdInstanceInfo iXAdInstanceInfo) {
+        return b(iXAdInstanceInfo);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -180,59 +236,10 @@ public class a extends com.baidu.mobads.production.a {
     }
 
     @Override // com.baidu.mobads.production.a
-    public void c() {
-        com.baidu.mobads.constants.a.q = System.currentTimeMillis();
-        if (this.h != null && !this.A) {
-            this.h.load();
-        }
-    }
-
-    @Override // com.baidu.mobads.production.a
-    public void b(IXAdResponseInfo iXAdResponseInfo) {
-    }
-
-    @Override // com.baidu.mobads.production.a
-    public void a(boolean z, IXAdInstanceInfo iXAdInstanceInfo) {
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.mobads.production.a
-    public void e(IXAdContainer iXAdContainer, HashMap<String, Object> hashMap) {
-        super.e(iXAdContainer, hashMap);
-        if (hashMap != null) {
-            try {
-                String str = (String) hashMap.get("video_close_reason");
-                if (!TextUtils.isEmpty(str)) {
-                    com.baidu.mobads.b.a.a().a(this.C, "383", (IXAdInstanceInfo) null, this.B.d(), "closead", str);
-                }
-            } catch (Exception e) {
-            }
-        }
-    }
-
-    @Override // com.baidu.mobads.production.a
     public String a(IXAdInstanceInfo iXAdInstanceInfo) {
-        return b(iXAdInstanceInfo) ? iXAdInstanceInfo.getMainPictureUrl() : super.a(iXAdInstanceInfo);
-    }
-
-    @Override // com.baidu.mobads.production.a
-    public boolean f(IXAdInstanceInfo iXAdInstanceInfo) {
-        return b(iXAdInstanceInfo);
-    }
-
-    @Override // com.baidu.mobads.production.a
-    public boolean h() {
-        return true;
-    }
-
-    @Override // com.baidu.mobads.production.a
-    protected void e() {
-    }
-
-    @Override // com.baidu.mobads.production.a
-    public HashMap r() {
-        HashMap hashMap = new HashMap();
-        HashMap r = super.r();
-        return r != null ? r : hashMap;
+        if (b(iXAdInstanceInfo)) {
+            return iXAdInstanceInfo.getMainPictureUrl();
+        }
+        return super.a(iXAdInstanceInfo);
     }
 }

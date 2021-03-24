@@ -3,77 +3,80 @@ package com.kwad.sdk.contentalliance.home.a;
 import androidx.annotation.NonNull;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class j implements i {
     @NonNull
 
     /* renamed from: a  reason: collision with root package name */
-    private b f5780a;
-    private b b;
+    public b f32635a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public b f32636b;
 
     public j(@NonNull b bVar) {
-        this.f5780a = bVar;
-        this.b = bVar;
+        this.f32635a = bVar;
+        this.f32636b = bVar;
     }
 
     @Override // com.kwad.sdk.contentalliance.home.a.i
     public int a(AdTemplate adTemplate) {
-        return this.f5780a.a(adTemplate);
+        return this.f32635a.a(adTemplate);
     }
 
     @Override // com.kwad.sdk.contentalliance.home.a.i
     public void a() {
-        this.b.a();
+        this.f32636b.a();
     }
 
     @Override // com.kwad.sdk.contentalliance.home.a.i
     public void a(int i) {
-        this.b.a(i);
+        this.f32636b.a(i);
     }
 
     @Override // com.kwad.sdk.contentalliance.home.a.i
     public void a(int i, AdTemplate adTemplate) {
-        this.f5780a.a(i, adTemplate);
+        this.f32635a.a(i, adTemplate);
     }
 
     @Override // com.kwad.sdk.contentalliance.home.a.i
     public void a(d dVar) {
-        this.b.a(dVar);
+        this.f32636b.a(dVar);
     }
 
     @Override // com.kwad.sdk.contentalliance.home.a.i
     public boolean a(@NonNull b bVar) {
-        if (this.b == bVar) {
+        b bVar2 = this.f32636b;
+        if (bVar2 == bVar) {
             return false;
         }
-        this.b.d();
-        this.b = bVar;
+        bVar2.d();
+        this.f32636b = bVar;
         return true;
     }
 
     @Override // com.kwad.sdk.contentalliance.home.a.i
     public int b(AdTemplate adTemplate) {
-        return this.b.a(adTemplate);
+        return this.f32636b.a(adTemplate);
     }
 
     @Override // com.kwad.sdk.contentalliance.home.a.i
     public void b() {
-        this.b.d();
+        this.f32636b.d();
     }
 
     @Override // com.kwad.sdk.contentalliance.home.a.i
     public void b(d dVar) {
-        this.b.b(dVar);
+        this.f32636b.b(dVar);
     }
 
     @Override // com.kwad.sdk.contentalliance.home.a.i
     @NonNull
     public b c() {
-        return this.f5780a;
+        return this.f32635a;
     }
 
     @Override // com.kwad.sdk.contentalliance.home.a.i
     public List<AdTemplate> d() {
-        return this.b.b();
+        return this.f32636b.b();
     }
 }

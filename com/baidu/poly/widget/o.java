@@ -1,40 +1,41 @@
 package com.baidu.poly.widget;
 
-import com.baidu.live.tbadk.statics.AlaStaticKeys;
+import com.baidu.fsg.face.base.b.c;
+import com.baidu.searchbox.live.interfaces.DI;
 import java.io.Serializable;
 import org.json.JSONObject;
-/* loaded from: classes14.dex */
+/* loaded from: classes2.dex */
 public class o implements Serializable {
-    private String Wd;
-    private String Xd;
-    private String Yd;
-    private int Zd;
-    private int _d;
-    private int ae;
-    private int be;
-    private long ce;
-    private String de;
-    private boolean ee;
-    private int fe;
-    private long ge;
-    private String he;
-    private String icon;
-    private String ie;
-    private String pay_text;
-    private int va;
+    public String Wd;
+    public String Xd;
+    public String Yd;
+    public int Zd;
+    public int _d;
+    public int ae;
+    public int be;
+    public long ce;
+    public String de;
+    public boolean ee;
+    public int fe;
+    public long ge;
+    public String he;
+    public String icon;
+    public String ie;
+    public String pay_text;
+    public int va;
 
     public o(JSONObject jSONObject) {
         this.Wd = jSONObject.optString("display_name");
-        this.Xd = jSONObject.optString("pay_channel");
+        this.Xd = jSONObject.optString(DI.PAY_CHANNEL);
         this.pay_text = jSONObject.optString("pay_text");
         this.Yd = jSONObject.optString("error_text");
         this.ge = jSONObject.optLong("available_par_money");
-        this.icon = jSONObject.optString(AlaStaticKeys.ALA_STATIC_VALUE_ICON);
+        this.icon = jSONObject.optString("icon");
         this.Zd = jSONObject.optInt("is_fold");
         this._d = jSONObject.optInt("is_selected");
         this.ae = jSONObject.optInt("is_private");
         this.be = jSONObject.optInt("free_pay");
-        this.va = jSONObject.optInt(com.baidu.fsg.face.base.b.c.l);
+        this.va = jSONObject.optInt(c.l);
         this.de = jSONObject.optString("display_color");
         this.ee = jSONObject.optBoolean("flow");
         this.fe = jSONObject.optInt("parasitifer");

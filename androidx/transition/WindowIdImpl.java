@@ -1,4 +1,4 @@
 package androidx.transition;
-/* loaded from: classes5.dex */
-interface WindowIdImpl {
+/* loaded from: classes.dex */
+public interface WindowIdImpl {
 }

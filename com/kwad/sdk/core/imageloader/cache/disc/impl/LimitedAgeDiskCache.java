@@ -9,10 +9,10 @@ import java.io.InputStream;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class LimitedAgeDiskCache extends BaseDiskCache {
-    private final Map<File, Long> loadingDates;
-    private final long maxFileAge;
+    public final Map<File, Long> loadingDates;
+    public final long maxFileAge;
 
     public LimitedAgeDiskCache(File file, long j) {
         this(file, null, DefaultConfigurationFactory.createFileNameGenerator(), j);
@@ -25,7 +25,7 @@ public class LimitedAgeDiskCache extends BaseDiskCache {
     public LimitedAgeDiskCache(File file, File file2, FileNameGenerator fileNameGenerator, long j) {
         super(file, file2, fileNameGenerator);
         this.loadingDates = Collections.synchronizedMap(new HashMap());
-        this.maxFileAge = 1000 * j;
+        this.maxFileAge = j * 1000;
     }
 
     private void rememberUsage(String str) {
@@ -48,8 +48,8 @@ public class LimitedAgeDiskCache extends BaseDiskCache {
         if (file != null && file.exists()) {
             Long l = this.loadingDates.get(file);
             if (l == null) {
-                z = false;
                 l = Long.valueOf(file.lastModified());
+                z = false;
             } else {
                 z = true;
             }

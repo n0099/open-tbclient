@@ -5,14 +5,14 @@ import android.text.TextUtils;
 import com.baidu.minivideo.plugin.capture.Application;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public class AuthoritySharedPreferences {
-    private static final String FIRSTSHOT_CONFIG = "firstshot_config";
-    private static final String KEY_AUTHORITY_AUDIO_RATIONALE = "key_authority_audio_rationale";
-    private static final String KEY_AUTHORITY_AUDIO_RESULT = "key_authority_album";
-    private static final String KEY_AUTHORITY_CAMERA_RATIONALE = "key_authority_camera_rationale";
-    private static final String KEY_AUTHORITY_CONFIG_TIMESTAMP = "authority_config_timestamp";
-    private static final String KEY_AUTHORITY_STORAGE_RATIONALE = "key_authority_storage_rationale";
+    public static final String FIRSTSHOT_CONFIG = "firstshot_config";
+    public static final String KEY_AUTHORITY_AUDIO_RATIONALE = "key_authority_audio_rationale";
+    public static final String KEY_AUTHORITY_AUDIO_RESULT = "key_authority_album";
+    public static final String KEY_AUTHORITY_CAMERA_RATIONALE = "key_authority_camera_rationale";
+    public static final String KEY_AUTHORITY_CONFIG_TIMESTAMP = "authority_config_timestamp";
+    public static final String KEY_AUTHORITY_STORAGE_RATIONALE = "key_authority_storage_rationale";
     public static final String KEY_CONFIG_FIRSTSHOT = "firstShot";
     public static final String KEY_CONFIG_FIRSTSHOT_GUIDE = "guide";
     public static final String KEY_CONFIG_FIRSTSHOT_IMAGE = "image";
@@ -22,37 +22,33 @@ public class AuthoritySharedPreferences {
     public static final String KEY_CONFIG_PRIVILEGE_OPENCAMERA = "openCamera";
     public static final String KEY_CONFIG_PRIVILEGE_OPENMICROPHONE = "openMicrophone";
     public static final String KEY_CONFIG_PRIVILEGE_OPENSHOT = "openShot";
-    private static final String PRIVILEGE_CONFIG = "privilege_config";
-    private static final String TAG = "AuthoritySharedPreferencesTAG";
-    private static final String PREF = "authority_config";
-    private static SharedPreferences sPref = Application.get().getSharedPreferences(PREF, 0);
+    public static final String PRIVILEGE_CONFIG = "privilege_config";
+    public static final String TAG = "AuthoritySharedPreferencesTAG";
+    public static final String PREF = "authority_config";
+    public static SharedPreferences sPref = Application.get().getSharedPreferences(PREF, 0);
 
-    public static void setPrivilegeConfig(String str) {
-        if (!TextUtils.isEmpty(str)) {
-            sPref.edit().putString(PRIVILEGE_CONFIG, str).apply();
-        }
+    public static boolean getAuthorityAlbumResult() {
+        return sPref.getBoolean(KEY_AUTHORITY_AUDIO_RESULT, true);
     }
 
-    public static String getPrivilegeConfig() {
-        return sPref.getString(PRIVILEGE_CONFIG, "");
+    public static boolean getAuthorityAudioResult() {
+        return sPref.getBoolean(KEY_AUTHORITY_AUDIO_RATIONALE, true);
     }
 
-    public static void setFirstShotConfig(String str) {
-        if (!TextUtils.isEmpty(str)) {
-            sPref.edit().putString(FIRSTSHOT_CONFIG, str).apply();
-        }
-    }
-
-    public static String getFirstShotConfig() {
-        return sPref.getString(FIRSTSHOT_CONFIG, "");
-    }
-
-    public static void setAuthorityConfigTimestamp(long j) {
-        sPref.edit().putLong(KEY_AUTHORITY_CONFIG_TIMESTAMP, j).apply();
+    public static boolean getAuthorityCameraResult() {
+        return sPref.getBoolean(KEY_AUTHORITY_CAMERA_RATIONALE, true);
     }
 
     public static long getAuthorityConfigTimestamp() {
         return sPref.getLong(KEY_AUTHORITY_CONFIG_TIMESTAMP, 0L);
+    }
+
+    public static boolean getAuthorityStorageResult() {
+        return sPref.getBoolean(KEY_AUTHORITY_STORAGE_RATIONALE, true);
+    }
+
+    public static String getFirstShotConfig() {
+        return sPref.getString(FIRSTSHOT_CONFIG, "");
     }
 
     public static String getFirstShotImage() {
@@ -63,46 +59,47 @@ public class AuthoritySharedPreferences {
         }
         try {
             JSONObject jSONObject2 = new JSONObject(firstShotConfig);
-            if (!jSONObject2.has("guide") || (jSONObject = jSONObject2.getJSONObject("guide")) == null) {
-                return "";
-            }
-            return jSONObject.optString("image");
-        } catch (JSONException e) {
-            return "";
-        } catch (Exception e2) {
+            return (!jSONObject2.has(KEY_CONFIG_FIRSTSHOT_GUIDE) || (jSONObject = jSONObject2.getJSONObject(KEY_CONFIG_FIRSTSHOT_GUIDE)) == null) ? "" : jSONObject.optString("image");
+        } catch (JSONException | Exception unused) {
             return "";
         }
     }
 
-    public static void setAuthorityCameraResult(boolean z) {
-        sPref.edit().putBoolean(KEY_AUTHORITY_CAMERA_RATIONALE, z).apply();
-    }
-
-    public static boolean getAuthorityCameraResult() {
-        return sPref.getBoolean(KEY_AUTHORITY_CAMERA_RATIONALE, true);
-    }
-
-    public static void setAuthorityAudioResult(boolean z) {
-        sPref.edit().putBoolean(KEY_AUTHORITY_AUDIO_RATIONALE, z).apply();
-    }
-
-    public static boolean getAuthorityStorageResult() {
-        return sPref.getBoolean(KEY_AUTHORITY_STORAGE_RATIONALE, true);
-    }
-
-    public static void setAuthorityStorageResult(boolean z) {
-        sPref.edit().putBoolean(KEY_AUTHORITY_STORAGE_RATIONALE, z).apply();
-    }
-
-    public static boolean getAuthorityAudioResult() {
-        return sPref.getBoolean(KEY_AUTHORITY_AUDIO_RATIONALE, true);
+    public static String getPrivilegeConfig() {
+        return sPref.getString(PRIVILEGE_CONFIG, "");
     }
 
     public static void setAuthorityAlbumResult(boolean z) {
         sPref.edit().putBoolean(KEY_AUTHORITY_AUDIO_RESULT, z).apply();
     }
 
-    public static boolean getAuthorityAlbumResult() {
-        return sPref.getBoolean(KEY_AUTHORITY_AUDIO_RESULT, true);
+    public static void setAuthorityAudioResult(boolean z) {
+        sPref.edit().putBoolean(KEY_AUTHORITY_AUDIO_RATIONALE, z).apply();
+    }
+
+    public static void setAuthorityCameraResult(boolean z) {
+        sPref.edit().putBoolean(KEY_AUTHORITY_CAMERA_RATIONALE, z).apply();
+    }
+
+    public static void setAuthorityConfigTimestamp(long j) {
+        sPref.edit().putLong(KEY_AUTHORITY_CONFIG_TIMESTAMP, j).apply();
+    }
+
+    public static void setAuthorityStorageResult(boolean z) {
+        sPref.edit().putBoolean(KEY_AUTHORITY_STORAGE_RATIONALE, z).apply();
+    }
+
+    public static void setFirstShotConfig(String str) {
+        if (TextUtils.isEmpty(str)) {
+            return;
+        }
+        sPref.edit().putString(FIRSTSHOT_CONFIG, str).apply();
+    }
+
+    public static void setPrivilegeConfig(String str) {
+        if (TextUtils.isEmpty(str)) {
+            return;
+        }
+        sPref.edit().putString(PRIVILEGE_CONFIG, str).apply();
     }
 }

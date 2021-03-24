@@ -4,30 +4,22 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.ViewGroup;
 import androidx.annotation.Nullable;
-import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.view.commonBtn.b;
 import com.baidu.tieba.R;
 import com.baidu.tieba.view.DynamicUserLikeButton;
-/* loaded from: classes2.dex */
+import d.b.b.e.p.l;
+import d.b.h0.r.f0.m.b;
+/* loaded from: classes4.dex */
 public class HotUserRankLikeButton extends DynamicUserLikeButton {
     public HotUserRankLikeButton(Context context) {
         super(context);
     }
 
-    public HotUserRankLikeButton(Context context, @Nullable AttributeSet attributeSet) {
-        super(context, attributeSet);
-    }
-
-    public HotUserRankLikeButton(Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-    }
-
-    @Override // com.baidu.tieba.view.DynamicUserLikeButton, com.baidu.tbadk.core.view.userLike.b
-    public void r(boolean z, int i) {
+    @Override // com.baidu.tieba.view.DynamicUserLikeButton, d.b.h0.r.f0.q.b
+    public void a(boolean z, int i) {
         if (z) {
             b bVar = new b();
-            bVar.pU(R.color.CAM_X0109);
+            bVar.r(R.color.CAM_X0109);
             setConfig(bVar);
             setClickable(true);
             if (i == 1) {
@@ -37,7 +29,7 @@ public class HotUserRankLikeButton extends DynamicUserLikeButton {
             }
         } else {
             b bVar2 = new b();
-            bVar2.pS(R.color.CAM_X0302);
+            bVar2.q(R.color.CAM_X0302);
             setConfig(bVar2);
             setClickable(true);
             setText(TbadkCoreApplication.getInst().getString(R.string.attention));
@@ -45,16 +37,24 @@ public class HotUserRankLikeButton extends DynamicUserLikeButton {
         if (i == 2) {
             ViewGroup.LayoutParams layoutParams = getLayoutParams();
             if (layoutParams != null) {
-                layoutParams.width = l.getDimens(getContext(), R.dimen.tbds196);
+                layoutParams.width = l.g(getContext(), R.dimen.tbds196);
                 setLayoutParams(layoutParams);
             }
         } else {
             ViewGroup.LayoutParams layoutParams2 = getLayoutParams();
             if (layoutParams2 != null) {
-                layoutParams2.width = l.getDimens(getContext(), R.dimen.tbds156);
+                layoutParams2.width = l.g(getContext(), R.dimen.tbds156);
                 setLayoutParams(layoutParams2);
             }
         }
-        onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
+        r(TbadkCoreApplication.getInst().getSkinType());
+    }
+
+    public HotUserRankLikeButton(Context context, @Nullable AttributeSet attributeSet) {
+        super(context, attributeSet);
+    }
+
+    public HotUserRankLikeButton(Context context, @Nullable AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
     }
 }

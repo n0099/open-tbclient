@@ -4,7 +4,7 @@ import android.content.Context;
 import android.text.TextUtils;
 import com.kwad.sdk.KsAdSDKImpl;
 import com.kwad.sdk.utils.ae;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public final class e {
     public static String a() {
         Context context = KsAdSDKImpl.get().getContext();
@@ -23,7 +23,7 @@ public final class e {
         if (context == null) {
             return;
         }
-        if (com.kwad.sdk.d.f6401a == 1) {
+        if (com.kwad.sdk.d.f34511a == 1) {
             com.kwad.sdk.plugin.a aVar = (com.kwad.sdk.plugin.a) com.kwad.sdk.plugin.g.a(com.kwad.sdk.plugin.a.class);
             if (aVar != null) {
                 aVar.a(context, str);

@@ -3,14 +3,16 @@ package com.baidu.tieba.write.write.vote;
 import android.widget.LinearLayout;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.suspended.SuspendedActivity;
-/* loaded from: classes7.dex */
+import d.b.h0.t0.a;
+import d.b.i0.u3.v.p.b;
+/* loaded from: classes5.dex */
 public class WriteVoteActivity extends SuspendedActivity {
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
-    protected com.baidu.tbadk.suspended.a a(LinearLayout linearLayout, NavigationBar navigationBar) {
+    public a getSuspendedContentView(LinearLayout linearLayout, NavigationBar navigationBar) {
         return new b(getPageContext(), linearLayout, navigationBar);
     }
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
-    protected void bER() {
+    public void requestData() {
     }
 }

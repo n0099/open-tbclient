@@ -1,24 +1,26 @@
 package com.vivo.push.util;
 
 import android.content.Context;
-/* loaded from: classes14.dex */
+/* loaded from: classes7.dex */
 public final class w extends a {
-    private static w b;
+
+    /* renamed from: b  reason: collision with root package name */
+    public static w f39571b;
 
     public static synchronized w b() {
         w wVar;
         synchronized (w.class) {
-            if (b == null) {
-                b = new w();
+            if (f39571b == null) {
+                f39571b = new w();
             }
-            wVar = b;
+            wVar = f39571b;
         }
         return wVar;
     }
 
     public final void a(Context context) {
-        if (this.f8073a == null) {
-            this.f8073a = context;
+        if (this.f39529a == null) {
+            this.f39529a = context;
             a(context, "com.vivo.push_preferences");
         }
     }

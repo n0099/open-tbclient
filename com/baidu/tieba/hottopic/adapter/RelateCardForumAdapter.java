@@ -4,75 +4,79 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.TypeAdapter;
-import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.hottopic.controller.HotTopicActivity;
-import com.baidu.tieba.hottopic.data.n;
-/* loaded from: classes7.dex */
-public class RelateCardForumAdapter extends com.baidu.adp.widget.ListView.a<n, CardGroupRelateForumHolder> {
-    private HotTopicActivity kuR;
-    public boolean kva;
-    public final TbPageContext<?> mPageContext;
-    private BdUniqueId mTag;
+import com.baidu.wallet.BaiduWalletServiceProviderMap;
+import d.b.b.j.e.a;
+import d.b.i0.b1.c.n;
+/* loaded from: classes4.dex */
+public class RelateCardForumAdapter extends a<n, CardGroupRelateForumHolder> {
+    public HotTopicActivity m;
+    public boolean n;
+    public BdUniqueId o;
 
-    public BdUniqueId getTag() {
-        return this.mTag;
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public RelateCardForumAdapter(HotTopicActivity hotTopicActivity, BdUniqueId bdUniqueId) {
-        super(hotTopicActivity.getPageContext().getPageActivity(), bdUniqueId);
-        this.kva = true;
-        this.mTag = null;
-        this.kuR = hotTopicActivity;
-        this.mPageContext = hotTopicActivity.getPageContext();
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: cf */
-    public CardGroupRelateForumHolder e(ViewGroup viewGroup) {
-        com.baidu.tieba.hottopic.view.a aVar = new com.baidu.tieba.hottopic.view.a(this.kuR.getPageContext());
-        aVar.setTag(getTag());
-        aVar.setFrom("home");
-        this.kva = true;
-        return new CardGroupRelateForumHolder(aVar);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, n nVar, CardGroupRelateForumHolder cardGroupRelateForumHolder) {
-        if (cardGroupRelateForumHolder == null || cardGroupRelateForumHolder.kvb == null) {
-            return null;
-        }
-        if (this.kva) {
-            cardGroupRelateForumHolder.kvb.a(nVar);
-            this.kva = false;
-        }
-        cardGroupRelateForumHolder.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-        return cardGroupRelateForumHolder.getView();
-    }
-
-    /* loaded from: classes7.dex */
+    /* loaded from: classes4.dex */
     public class CardGroupRelateForumHolder extends TypeAdapter.ViewHolder {
-        public com.baidu.tieba.hottopic.view.a kvb;
-        private int mSkinType;
 
-        public CardGroupRelateForumHolder(com.baidu.tieba.hottopic.view.a aVar) {
-            super(aVar.getView());
-            this.mSkinType = 3;
-            this.kvb = aVar;
+        /* renamed from: a  reason: collision with root package name */
+        public int f17535a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public d.b.i0.b1.f.a f17536b;
+
+        public CardGroupRelateForumHolder(RelateCardForumAdapter relateCardForumAdapter, d.b.i0.b1.f.a aVar) {
+            super(aVar.m());
+            this.f17535a = 3;
+            this.f17536b = aVar;
         }
 
-        public void onChangeSkinType(int i) {
-            if (this.mSkinType != i) {
-                if (this.kvb != null) {
-                    this.kvb.onChangeSkinType(this.kvb.getTbPageContext(), i);
+        public void b(int i) {
+            if (this.f17535a != i) {
+                d.b.i0.b1.f.a aVar = this.f17536b;
+                if (aVar != null) {
+                    aVar.o(aVar.l(), i);
                 }
-                this.mSkinType = i;
+                this.f17535a = i;
             }
         }
+    }
+
+    public RelateCardForumAdapter(HotTopicActivity hotTopicActivity, BdUniqueId bdUniqueId) {
+        super(hotTopicActivity.getPageContext().getPageActivity(), bdUniqueId);
+        this.n = true;
+        this.o = null;
+        this.m = hotTopicActivity;
+        hotTopicActivity.getPageContext();
+    }
+
+    public BdUniqueId h0() {
+        return this.o;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // d.b.b.j.e.a
+    /* renamed from: i0 */
+    public CardGroupRelateForumHolder R(ViewGroup viewGroup) {
+        d.b.i0.b1.f.a aVar = new d.b.i0.b1.f.a(this.m.getPageContext());
+        aVar.r(h0());
+        aVar.setFrom(BaiduWalletServiceProviderMap.PLUGIN_WALLETHOME);
+        this.n = true;
+        return new CardGroupRelateForumHolder(this, aVar);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // d.b.b.j.e.a
+    /* renamed from: j0 */
+    public View X(int i, View view, ViewGroup viewGroup, n nVar, CardGroupRelateForumHolder cardGroupRelateForumHolder) {
+        d.b.i0.b1.f.a aVar;
+        if (cardGroupRelateForumHolder == null || (aVar = cardGroupRelateForumHolder.f17536b) == null) {
+            return null;
+        }
+        if (this.n) {
+            aVar.n(nVar);
+            this.n = false;
+        }
+        cardGroupRelateForumHolder.b(TbadkCoreApplication.getInst().getSkinType());
+        return cardGroupRelateForumHolder.a();
     }
 }

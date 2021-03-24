@@ -1,38 +1,9 @@
 package com.baidu.ufosdk;
 
 import android.graphics.Bitmap;
-import androidx.core.view.ViewCompat;
 import java.util.HashMap;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public final class b {
-
-    /* renamed from: a  reason: collision with root package name */
-    public static boolean f3606a = false;
-    public static String b = "";
-    public static String c = "";
-    public static String d = "";
-    public static int e = 0;
-    public static String f = "";
-    public static Bitmap g = null;
-    public static String h = "";
-    public static String i = "";
-    public static int j = 0;
-    public static int k = 0;
-    public static String l = "";
-    public static String m = "";
-    public static String n = "";
-    public static int o = 1;
-    public static String p = "";
-    public static int q = 0;
-    public static int r = ViewCompat.MEASURED_STATE_MASK;
-    public static int s = ViewCompat.MEASURED_STATE_MASK;
-    public static int t = -5262406;
-    public static int u = -1;
-    public static int v = -11821318;
-    public static int w = -11821318;
-    public static int x = ViewCompat.MEASURED_STATE_MASK;
-    public static int y = -5262406;
-    public static int z = -657673;
     public static int A = -1;
     public static int B = -460552;
     public static int C = -921103;
@@ -40,7 +11,7 @@ public final class b {
     public static int E = -6710887;
     public static int F = -6710887;
     public static int G = -1381654;
-    public static int H = ViewCompat.MEASURED_STATE_MASK;
+    public static int H = -16777216;
     public static int I = -855310;
     public static int J = -10066330;
     public static int K = -1293499;
@@ -59,6 +30,9 @@ public final class b {
     public static float X = 18.0f;
     public static float Y = 11.0f;
     public static float Z = 15.0f;
+
+    /* renamed from: a  reason: collision with root package name */
+    public static boolean f22901a = false;
     public static int aa = 200;
     public static HashMap ab = null;
     public static ResumeCallBack ac = null;
@@ -68,4 +42,43 @@ public final class b {
     public static a ag = null;
     public static int ah = 10;
     public static int ai = 600;
+
+    /* renamed from: b  reason: collision with root package name */
+    public static String f22902b = "";
+
+    /* renamed from: c  reason: collision with root package name */
+    public static String f22903c = "";
+
+    /* renamed from: d  reason: collision with root package name */
+    public static String f22904d = "";
+
+    /* renamed from: e  reason: collision with root package name */
+    public static int f22905e = 0;
+
+    /* renamed from: f  reason: collision with root package name */
+    public static String f22906f = "";
+
+    /* renamed from: g  reason: collision with root package name */
+    public static Bitmap f22907g = null;
+
+    /* renamed from: h  reason: collision with root package name */
+    public static String f22908h = "";
+    public static String i = "";
+    public static int j = 0;
+    public static int k = 0;
+    public static String l = "";
+    public static String m = "";
+    public static String n = "";
+    public static int o = 1;
+    public static String p = "";
+    public static int q = 0;
+    public static int r = -16777216;
+    public static int s = -16777216;
+    public static int t = -5262406;
+    public static int u = -1;
+    public static int v = -11821318;
+    public static int w = -11821318;
+    public static int x = -16777216;
+    public static int y = -5262406;
+    public static int z = -657673;
 }

@@ -1,8 +1,8 @@
 package org.apache.http.conn.util;
 @Deprecated
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class InetAddressUtils {
-    InetAddressUtils() {
+    public InetAddressUtils() {
         throw new RuntimeException("Stub!");
     }
 
@@ -10,7 +10,7 @@ public class InetAddressUtils {
         throw new RuntimeException("Stub!");
     }
 
-    public static boolean isIPv6StdAddress(String str) {
+    public static boolean isIPv6Address(String str) {
         throw new RuntimeException("Stub!");
     }
 
@@ -18,7 +18,7 @@ public class InetAddressUtils {
         throw new RuntimeException("Stub!");
     }
 
-    public static boolean isIPv6Address(String str) {
+    public static boolean isIPv6StdAddress(String str) {
         throw new RuntimeException("Stub!");
     }
 }

@@ -4,61 +4,57 @@ import android.util.JsonReader;
 import android.util.Log;
 import androidx.annotation.Nullable;
 import com.baidu.mobads.interfaces.IXAdRequestInfo;
-import com.baidu.mobstat.Config;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class g {
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    /* JADX WARN: Code restructure failed: missing block: B:35:0x0091, code lost:
-        if (r6.equals("gs") != false) goto L16;
+    /* JADX WARN: Code restructure failed: missing block: B:53:0x00b2, code lost:
+        if (r2.equals("gs") != false) goto L30;
      */
+    /* JADX WARN: Removed duplicated region for block: B:18:0x0037  */
+    /* JADX WARN: Removed duplicated region for block: B:89:0x0042 A[SYNTHETIC] */
     @Nullable
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public static com.ksad.lottie.model.content.b a(JsonReader jsonReader, com.ksad.lottie.d dVar) {
+        com.ksad.lottie.model.content.b bVar;
         String str;
-        com.ksad.lottie.model.content.b a2;
-        boolean z;
-        char c = 2;
+        char c2;
         jsonReader.beginObject();
+        char c3 = 2;
         int i = 2;
         while (true) {
-            if (jsonReader.hasNext()) {
-                String nextName = jsonReader.nextName();
-                switch (nextName.hashCode()) {
-                    case 100:
-                        if (nextName.equals("d")) {
-                            z = true;
-                            break;
-                        }
-                        z = true;
-                        break;
-                    case 3717:
-                        if (nextName.equals(Config.EXCEPTION_CRASH_CHANNEL)) {
-                            z = false;
-                            break;
-                        }
-                        z = true;
-                        break;
-                    default:
-                        z = true;
-                        break;
-                }
-                switch (z) {
-                    case false:
+            bVar = null;
+            if (!jsonReader.hasNext()) {
+                str = null;
+                break;
+            }
+            String nextName = jsonReader.nextName();
+            int hashCode = nextName.hashCode();
+            if (hashCode != 100) {
+                if (hashCode == 3717 && nextName.equals("ty")) {
+                    c2 = 0;
+                    if (c2 != 0) {
                         str = jsonReader.nextString();
                         break;
-                    case true:
-                        i = jsonReader.nextInt();
-                        break;
-                    default:
+                    } else if (c2 != 1) {
                         jsonReader.skipValue();
-                        break;
+                    } else {
+                        i = jsonReader.nextInt();
+                    }
+                }
+                c2 = 65535;
+                if (c2 != 0) {
                 }
             } else {
-                str = null;
+                if (nextName.equals("d")) {
+                    c2 = 1;
+                    if (c2 != 0) {
+                    }
+                }
+                c2 = 65535;
+                if (c2 != 0) {
+                }
             }
         }
         if (str == null) {
@@ -67,144 +63,143 @@ public class g {
         switch (str.hashCode()) {
             case 3239:
                 if (str.equals("el")) {
-                    c = 7;
+                    c3 = 7;
                     break;
                 }
-                c = 65535;
+                c3 = 65535;
                 break;
             case 3270:
                 if (str.equals("fl")) {
-                    c = 3;
+                    c3 = 3;
                     break;
                 }
-                c = 65535;
+                c3 = 65535;
                 break;
             case 3295:
                 if (str.equals("gf")) {
-                    c = 4;
+                    c3 = 4;
                     break;
                 }
-                c = 65535;
+                c3 = 65535;
                 break;
             case 3307:
                 if (str.equals("gr")) {
-                    c = 0;
+                    c3 = 0;
                     break;
                 }
-                c = 65535;
+                c3 = 65535;
                 break;
             case 3308:
                 break;
             case 3488:
                 if (str.equals("mm")) {
-                    c = 11;
+                    c3 = 11;
                     break;
                 }
-                c = 65535;
+                c3 = 65535;
                 break;
             case 3633:
                 if (str.equals("rc")) {
-                    c = '\b';
+                    c3 = '\b';
                     break;
                 }
-                c = 65535;
+                c3 = 65535;
                 break;
             case 3646:
                 if (str.equals("rp")) {
-                    c = '\f';
+                    c3 = '\f';
                     break;
                 }
-                c = 65535;
+                c3 = 65535;
                 break;
             case 3669:
-                if (str.equals("sh")) {
-                    c = 6;
+                if (str.equals(IXAdRequestInfo.SCREEN_HEIGHT)) {
+                    c3 = 6;
                     break;
                 }
-                c = 65535;
+                c3 = 65535;
                 break;
             case 3679:
                 if (str.equals("sr")) {
-                    c = '\n';
+                    c3 = '\n';
                     break;
                 }
-                c = 65535;
+                c3 = 65535;
                 break;
             case 3681:
                 if (str.equals("st")) {
-                    c = 1;
+                    c3 = 1;
                     break;
                 }
-                c = 65535;
+                c3 = 65535;
                 break;
             case 3705:
                 if (str.equals(IXAdRequestInfo.MAX_TITLE_LENGTH)) {
-                    c = '\t';
+                    c3 = '\t';
                     break;
                 }
-                c = 65535;
+                c3 = 65535;
                 break;
             case 3710:
                 if (str.equals("tr")) {
-                    c = 5;
+                    c3 = 5;
                     break;
                 }
-                c = 65535;
+                c3 = 65535;
                 break;
             default:
-                c = 65535;
+                c3 = 65535;
                 break;
         }
-        switch (c) {
+        switch (c3) {
             case 0:
-                a2 = af.a(jsonReader, dVar);
+                bVar = af.a(jsonReader, dVar);
                 break;
             case 1:
-                a2 = ah.a(jsonReader, dVar);
+                bVar = ah.a(jsonReader, dVar);
                 break;
             case 2:
-                a2 = n.a(jsonReader, dVar);
+                bVar = n.a(jsonReader, dVar);
                 break;
             case 3:
-                a2 = ae.a(jsonReader, dVar);
+                bVar = ae.a(jsonReader, dVar);
                 break;
             case 4:
-                a2 = m.a(jsonReader, dVar);
+                bVar = m.a(jsonReader, dVar);
                 break;
             case 5:
-                a2 = c.a(jsonReader, dVar);
+                bVar = c.a(jsonReader, dVar);
                 break;
             case 6:
-                a2 = ag.a(jsonReader, dVar);
+                bVar = ag.a(jsonReader, dVar);
                 break;
             case 7:
-                a2 = e.a(jsonReader, dVar, i);
+                bVar = e.a(jsonReader, dVar, i);
                 break;
             case '\b':
-                a2 = aa.a(jsonReader, dVar);
+                bVar = aa.a(jsonReader, dVar);
                 break;
             case '\t':
-                a2 = ai.a(jsonReader, dVar);
+                bVar = ai.a(jsonReader, dVar);
                 break;
             case '\n':
-                a2 = z.a(jsonReader, dVar);
+                bVar = z.a(jsonReader, dVar);
                 break;
             case 11:
-                a2 = v.a(jsonReader);
+                bVar = v.a(jsonReader);
                 dVar.a("Animation contains merge paths. Merge paths are only supported on KitKat+ and must be manually enabled by calling enableMergePathsForKitKatAndAbove().");
                 break;
             case '\f':
-                a2 = ab.a(jsonReader, dVar);
+                bVar = ab.a(jsonReader, dVar);
                 break;
             default:
                 Log.w("LOTTIE", "Unknown shape type " + str);
-                a2 = null;
                 break;
         }
         while (jsonReader.hasNext()) {
             jsonReader.skipValue();
         }
         jsonReader.endObject();
-        return a2;
+        return bVar;
     }
 }

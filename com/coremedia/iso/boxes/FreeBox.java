@@ -7,46 +7,37 @@ import com.googlecode.mp4parser.util.CastUtils;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.channels.WritableByteChannel;
-import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class FreeBox implements Box {
-    static final /* synthetic */ boolean $assertionsDisabled;
+    public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static final String TYPE = "free";
-    ByteBuffer data;
-    private long offset;
-    private Container parent;
-    List<Box> replacers;
-
-    static {
-        $assertionsDisabled = !FreeBox.class.desiredAssertionStatus();
-    }
+    public ByteBuffer data;
+    public long offset;
+    public Container parent;
+    public List<Box> replacers;
 
     public FreeBox() {
         this.replacers = new LinkedList();
         this.data = ByteBuffer.wrap(new byte[0]);
     }
 
-    public FreeBox(int i) {
-        this.replacers = new LinkedList();
-        this.data = ByteBuffer.allocate(i);
+    public void addAndReplace(Box box) {
+        this.data.position(CastUtils.l2i(box.getSize()));
+        this.data = this.data.slice();
+        this.replacers.add(box);
     }
 
-    @Override // com.coremedia.iso.boxes.Box
-    public long getOffset() {
-        return this.offset;
-    }
-
-    public ByteBuffer getData() {
-        if (this.data != null) {
-            return (ByteBuffer) this.data.duplicate().rewind();
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
         }
-        return null;
-    }
-
-    public void setData(ByteBuffer byteBuffer) {
-        this.data = byteBuffer;
+        if (obj == null || FreeBox.class != obj.getClass()) {
+            return false;
+        }
+        FreeBox freeBox = (FreeBox) obj;
+        return getData() == null ? freeBox.getData() == null : getData().equals(freeBox.getData());
     }
 
     @Override // com.coremedia.iso.boxes.Box
@@ -65,33 +56,44 @@ public class FreeBox implements Box {
         this.data.rewind();
     }
 
+    public ByteBuffer getData() {
+        ByteBuffer byteBuffer = this.data;
+        if (byteBuffer != null) {
+            return (ByteBuffer) byteBuffer.duplicate().rewind();
+        }
+        return null;
+    }
+
+    @Override // com.coremedia.iso.boxes.Box
+    public long getOffset() {
+        return this.offset;
+    }
+
     @Override // com.coremedia.iso.boxes.Box
     public Container getParent() {
         return this.parent;
     }
 
     @Override // com.coremedia.iso.boxes.Box
-    public void setParent(Container container) {
-        this.parent = container;
-    }
-
-    @Override // com.coremedia.iso.boxes.Box
     public long getSize() {
         long j = 8;
-        Iterator<Box> it = this.replacers.iterator();
-        while (true) {
-            long j2 = j;
-            if (it.hasNext()) {
-                j = it.next().getSize() + j2;
-            } else {
-                return this.data.limit() + j2;
-            }
+        for (Box box : this.replacers) {
+            j += box.getSize();
         }
+        return j + this.data.limit();
     }
 
     @Override // com.coremedia.iso.boxes.Box
     public String getType() {
         return "free";
+    }
+
+    public int hashCode() {
+        ByteBuffer byteBuffer = this.data;
+        if (byteBuffer != null) {
+            return byteBuffer.hashCode();
+        }
+        return 0;
     }
 
     @Override // com.coremedia.iso.boxes.Box
@@ -100,42 +102,24 @@ public class FreeBox implements Box {
         if (j > 1048576) {
             this.data = dataSource.map(dataSource.position(), j);
             dataSource.position(dataSource.position() + j);
-        } else if (!$assertionsDisabled && j >= 2147483647L) {
-            throw new AssertionError();
-        } else {
-            this.data = ByteBuffer.allocate(CastUtils.l2i(j));
-            dataSource.read(this.data);
+            return;
         }
+        ByteBuffer allocate = ByteBuffer.allocate(CastUtils.l2i(j));
+        this.data = allocate;
+        dataSource.read(allocate);
     }
 
-    public void addAndReplace(Box box) {
-        this.data.position(CastUtils.l2i(box.getSize()));
-        this.data = this.data.slice();
-        this.replacers.add(box);
+    public void setData(ByteBuffer byteBuffer) {
+        this.data = byteBuffer;
     }
 
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null || getClass() != obj.getClass()) {
-            return false;
-        }
-        FreeBox freeBox = (FreeBox) obj;
-        if (getData() != null) {
-            if (getData().equals(freeBox.getData())) {
-                return true;
-            }
-        } else if (freeBox.getData() == null) {
-            return true;
-        }
-        return false;
+    @Override // com.coremedia.iso.boxes.Box
+    public void setParent(Container container) {
+        this.parent = container;
     }
 
-    public int hashCode() {
-        if (this.data != null) {
-            return this.data.hashCode();
-        }
-        return 0;
+    public FreeBox(int i) {
+        this.replacers = new LinkedList();
+        this.data = ByteBuffer.allocate(i);
     }
 }

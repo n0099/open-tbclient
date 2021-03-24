@@ -1,11 +1,11 @@
 package com.kuaishou.aegon.netcheck;
 
 import androidx.annotation.Keep;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class NetworkQualityEstimator {
 
     @Keep
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class Metrics {
         public int downstreamThroughputKbps;
         public float gatewayLoss;
@@ -19,10 +19,10 @@ public class NetworkQualityEstimator {
         }
 
         @Keep
-        public Metrics(float f, float f2, float f3, int i, int i2) {
-            this.gatewayLoss = f;
-            this.gatewayRttMs = f2;
-            this.serverRttMs = f3;
+        public Metrics(float f2, float f3, float f4, int i, int i2) {
+            this.gatewayLoss = f2;
+            this.gatewayRttMs = f3;
+            this.serverRttMs = f4;
             this.downstreamThroughputKbps = i;
             this.signalStrength = i2;
         }

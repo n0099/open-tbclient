@@ -6,14 +6,18 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import androidx.annotation.NonNull;
 import java.security.MessageDigest;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class m implements com.kwad.sdk.glide.load.h<Drawable> {
-    private final com.kwad.sdk.glide.load.h<Bitmap> b;
-    private final boolean c;
+
+    /* renamed from: b  reason: collision with root package name */
+    public final com.kwad.sdk.glide.load.h<Bitmap> f35676b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public final boolean f35677c;
 
     public m(com.kwad.sdk.glide.load.h<Bitmap> hVar, boolean z) {
-        this.b = hVar;
-        this.c = z;
+        this.f35676b = hVar;
+        this.f35677c = z;
     }
 
     private com.kwad.sdk.glide.load.engine.s<Drawable> a(Context context, com.kwad.sdk.glide.load.engine.s<Bitmap> sVar) {
@@ -24,20 +28,20 @@ public class m implements com.kwad.sdk.glide.load.h<Drawable> {
     @NonNull
     public com.kwad.sdk.glide.load.engine.s<Drawable> a(@NonNull Context context, @NonNull com.kwad.sdk.glide.load.engine.s<Drawable> sVar, int i, int i2) {
         com.kwad.sdk.glide.load.engine.bitmap_recycle.e a2 = com.kwad.sdk.glide.c.a(context).a();
-        Drawable e = sVar.e();
-        com.kwad.sdk.glide.load.engine.s<Bitmap> a3 = l.a(a2, e, i, i2);
-        if (a3 == null) {
-            if (this.c) {
-                throw new IllegalArgumentException("Unable to convert " + e + " to a Bitmap");
+        Drawable e2 = sVar.e();
+        com.kwad.sdk.glide.load.engine.s<Bitmap> a3 = l.a(a2, e2, i, i2);
+        if (a3 != null) {
+            com.kwad.sdk.glide.load.engine.s<Bitmap> a4 = this.f35676b.a(context, a3, i, i2);
+            if (a4.equals(a3)) {
+                a4.d_();
+                return sVar;
             }
+            return a(context, a4);
+        } else if (this.f35677c) {
+            throw new IllegalArgumentException("Unable to convert " + e2 + " to a Bitmap");
+        } else {
             return sVar;
         }
-        com.kwad.sdk.glide.load.engine.s<Bitmap> a4 = this.b.a(context, a3, i, i2);
-        if (a4.equals(a3)) {
-            a4.d_();
-            return sVar;
-        }
-        return a(context, a4);
     }
 
     public com.kwad.sdk.glide.load.h<BitmapDrawable> a() {
@@ -46,19 +50,19 @@ public class m implements com.kwad.sdk.glide.load.h<Drawable> {
 
     @Override // com.kwad.sdk.glide.load.c
     public void a(@NonNull MessageDigest messageDigest) {
-        this.b.a(messageDigest);
+        this.f35676b.a(messageDigest);
     }
 
     @Override // com.kwad.sdk.glide.load.c
     public boolean equals(Object obj) {
         if (obj instanceof m) {
-            return this.b.equals(((m) obj).b);
+            return this.f35676b.equals(((m) obj).f35676b);
         }
         return false;
     }
 
     @Override // com.kwad.sdk.glide.load.c
     public int hashCode() {
-        return this.b.hashCode();
+        return this.f35676b.hashCode();
     }
 }

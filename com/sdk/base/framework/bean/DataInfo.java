@@ -1,20 +1,21 @@
 package com.sdk.base.framework.bean;
 
+import com.baidu.mapsdkplatform.comapi.map.r;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class DataInfo extends JSONObject {
     public DataInfo() {
         try {
-            put("r", System.currentTimeMillis());
-        } catch (JSONException e) {
+            put(r.f7663a, System.currentTimeMillis());
+        } catch (JSONException unused) {
         }
     }
 
     public JSONObject putData(String str, Object obj) {
         try {
             return super.put(str, obj);
-        } catch (Exception e) {
+        } catch (Exception unused) {
             return this;
         }
     }

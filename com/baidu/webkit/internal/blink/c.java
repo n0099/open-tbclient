@@ -2,28 +2,29 @@ package com.baidu.webkit.internal.blink;
 
 import com.baidu.webkit.sdk.WebKitFactory;
 import java.io.File;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public final class c extends a {
-    private String c;
+
+    /* renamed from: c  reason: collision with root package name */
+    public String f26885c;
 
     public c(String str, EngineManager engineManager, WebKitFactory.WebkitInstallListener webkitInstallListener) {
         super(engineManager, webkitInstallListener);
         if (str != null) {
             String substring = str.substring(7);
             if (new File(substring).isFile()) {
-                this.c = substring;
+                this.f26885c = substring;
             }
         }
     }
 
     @Override // com.baidu.webkit.internal.blink.a
-    protected final boolean b() {
-        return this.c != null;
+    public final boolean b() {
+        return this.f26885c != null;
     }
 
     @Override // com.baidu.webkit.internal.blink.a
-    protected final String c() {
-        return this.c;
+    public final String c() {
+        return this.f26885c;
     }
 }

@@ -2,9 +2,9 @@ package com.baidu.pass.biometrics.base.result;
 
 import android.text.TextUtils;
 import android.util.SparseArray;
-import com.baidu.pass.biometrics.base.R;
+import com.baidu.pass.biometrics.R;
 import com.baidu.pass.biometrics.base.utils.ResUtils;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class PassBiometricResult {
     public static final int ERROR_CODE_NETWORK_UNAVAILABLE = -201;
     public static final int ERROR_CODE_NO_LOGIN = 101;
@@ -14,9 +14,9 @@ public class PassBiometricResult {
     public static final int ERROR_CODE_UNKNOWN = -202;
     public static final int ERROR_CODE_USER_CANCEL = -204;
     public static final int RESULT_CODE_SUCCESS = 0;
-    protected SparseArray<String> msgMap = new SparseArray<>();
-    protected int resultCode = -202;
-    protected String resultMsg;
+    public SparseArray<String> msgMap;
+    public int resultCode;
+    public String resultMsg;
     public static final String RESULT_MSG_SUCCESS = ResUtils.getString(R.string.pass_bio_result_msg_success);
     public static final String ERROR_MSG_NETWORK_UNAVAILABLE = ResUtils.getString(R.string.pass_bio_error_msg_network_unavailable);
     public static final String ERROR_MSG_UNKNOWN = ResUtils.getString(R.string.pass_bio_error_msg_unknown);
@@ -27,7 +27,10 @@ public class PassBiometricResult {
     public static final String ERROR_MSG_NO_LOGIN = ResUtils.getString(R.string.pass_bio_error_msg_no_login);
 
     public PassBiometricResult() {
-        this.msgMap.put(0, RESULT_MSG_SUCCESS);
+        SparseArray<String> sparseArray = new SparseArray<>();
+        this.msgMap = sparseArray;
+        this.resultCode = -202;
+        sparseArray.put(0, RESULT_MSG_SUCCESS);
         this.msgMap.put(-202, ERROR_MSG_UNKNOWN);
         this.msgMap.put(-201, ERROR_MSG_NETWORK_UNAVAILABLE);
         this.msgMap.put(-203, ERROR_MSG_SSL_PEER_UNVERIFIED);
@@ -41,10 +44,19 @@ public class PassBiometricResult {
     }
 
     public String getResultMsg() {
-        if (TextUtils.isEmpty(this.resultMsg)) {
-            return this.msgMap.get(this.resultCode) != null ? this.msgMap.get(this.resultCode) : this.msgMap.get(-202);
+        SparseArray<String> sparseArray;
+        int i;
+        if (!TextUtils.isEmpty(this.resultMsg)) {
+            return this.resultMsg;
         }
-        return this.resultMsg;
+        if (this.msgMap.get(this.resultCode) != null) {
+            sparseArray = this.msgMap;
+            i = this.resultCode;
+        } else {
+            sparseArray = this.msgMap;
+            i = -202;
+        }
+        return sparseArray.get(i);
     }
 
     public void setResultCode(int i) {

@@ -15,13 +15,13 @@ import com.kwad.sdk.mvp.Presenter;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
-public class c extends d implements a.InterfaceC1155a {
-    private SceneImpl i;
-    private ProfileHomeParam j;
-    private com.kwad.sdk.contentalliance.profile.home.b.b k;
-    private com.kwad.sdk.lib.a.a l;
-    private com.kwad.sdk.core.i.a m;
+/* loaded from: classes6.dex */
+public class c extends d implements a.InterfaceC0422a {
+    public SceneImpl i;
+    public ProfileHomeParam j;
+    public com.kwad.sdk.contentalliance.profile.home.b.b k;
+    public com.kwad.sdk.lib.a.a l;
+    public com.kwad.sdk.core.i.a m;
 
     public static c a(ProfileHomeParam profileHomeParam) {
         Bundle bundle = new Bundle();
@@ -38,8 +38,9 @@ public class c extends d implements a.InterfaceC1155a {
         }
         Serializable serializable = arguments.getSerializable("KEY_PROFILE_HOME_PARAM");
         if (serializable instanceof ProfileHomeParam) {
-            this.j = (ProfileHomeParam) serializable;
-            this.i = new SceneImpl(this.j.mEntryScene);
+            ProfileHomeParam profileHomeParam = (ProfileHomeParam) serializable;
+            this.j = profileHomeParam;
+            this.i = new SceneImpl(profileHomeParam.mEntryScene);
             URLPackage uRLPackage = new URLPackage(String.valueOf(hashCode()), 3);
             uRLPackage.putParams(URLPackage.KEY_AUTHOR_ID, this.j.mAuthorId);
             this.i.setUrlPackage(uRLPackage);
@@ -50,28 +51,29 @@ public class c extends d implements a.InterfaceC1155a {
 
     private com.kwad.sdk.contentalliance.profile.home.b.b l() {
         com.kwad.sdk.contentalliance.profile.home.b.b bVar = new com.kwad.sdk.contentalliance.profile.home.b.b();
-        bVar.f5851a = this;
-        bVar.b = this.i;
-        bVar.c = this.c;
-        this.m = new com.kwad.sdk.core.i.a(this, this.f6871a, 70);
-        this.m.a();
-        bVar.e = this.m;
-        bVar.d = this.j;
+        bVar.f32868a = this;
+        bVar.f32869b = this.i;
+        bVar.f32870c = this.f35937c;
+        com.kwad.sdk.core.i.a aVar = new com.kwad.sdk.core.i.a(this, this.f35935a, 70);
+        this.m = aVar;
+        aVar.a();
+        bVar.f32872e = this.m;
+        bVar.f32871d = this.j;
         return bVar;
     }
 
     @Override // com.kwad.sdk.lib.a.d
-    protected int a() {
+    public int a() {
         return R.layout.ksad_profile_fragment_home;
     }
 
     @Override // com.kwad.sdk.lib.a.d
-    protected int b() {
+    public int b() {
         return R.id.ksad_tab_strip;
     }
 
     @Override // com.kwad.sdk.lib.a.d
-    protected int c() {
+    public int c() {
         return R.id.ksad_profile_view_pager;
     }
 
@@ -80,7 +82,7 @@ public class c extends d implements a.InterfaceC1155a {
         return new ArrayList();
     }
 
-    @Override // com.kwad.sdk.lib.a.a.InterfaceC1155a
+    @Override // com.kwad.sdk.lib.a.a.InterfaceC0422a
     @NonNull
     public Presenter e() {
         Presenter presenter = new Presenter();
@@ -96,16 +98,18 @@ public class c extends d implements a.InterfaceC1155a {
     @Override // com.kwad.sdk.api.core.fragment.KsFragment, com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle
     public void onDestroyView() {
         super.onDestroyView();
-        if (this.k != null) {
-            this.k.a();
+        com.kwad.sdk.contentalliance.profile.home.b.b bVar = this.k;
+        if (bVar != null) {
+            bVar.a();
         }
     }
 
     @Override // com.kwad.sdk.api.core.fragment.KsFragment, com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle
     public void onPause() {
         super.onPause();
-        if (this.m != null) {
-            this.m.d();
+        com.kwad.sdk.core.i.a aVar = this.m;
+        if (aVar != null) {
+            aVar.d();
         }
     }
 

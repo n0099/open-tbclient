@@ -1,8 +1,8 @@
 package com.facebook.cache.common;
-/* loaded from: classes5.dex */
+/* loaded from: classes.dex */
 public interface CacheEventListener {
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public enum EvictionReason {
         CACHE_FULL,
         CONTENT_STALE,
@@ -10,17 +10,19 @@ public interface CacheEventListener {
         CACHE_MANAGER_TRIMMED
     }
 
-    void a(a aVar);
+    void onCleared();
 
-    void b(a aVar);
+    void onEviction(CacheEvent cacheEvent);
 
-    void c(a aVar);
+    void onHit(CacheEvent cacheEvent);
 
-    void d(a aVar);
+    void onMiss(CacheEvent cacheEvent);
 
-    void e(a aVar);
+    void onReadException(CacheEvent cacheEvent);
 
-    void f(a aVar);
+    void onWriteAttempt(CacheEvent cacheEvent);
 
-    void g(a aVar);
+    void onWriteException(CacheEvent cacheEvent);
+
+    void onWriteSuccess(CacheEvent cacheEvent);
 }

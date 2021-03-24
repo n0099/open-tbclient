@@ -3,8 +3,8 @@ package androidx.cardview.widget;
 import android.content.Context;
 import android.content.res.ColorStateList;
 import androidx.annotation.Nullable;
-/* loaded from: classes14.dex */
-interface CardViewImpl {
+/* loaded from: classes.dex */
+public interface CardViewImpl {
     ColorStateList getBackgroundColor(CardViewDelegate cardViewDelegate);
 
     float getElevation(CardViewDelegate cardViewDelegate);
@@ -19,7 +19,7 @@ interface CardViewImpl {
 
     void initStatic();
 
-    void initialize(CardViewDelegate cardViewDelegate, Context context, ColorStateList colorStateList, float f, float f2, float f3);
+    void initialize(CardViewDelegate cardViewDelegate, Context context, ColorStateList colorStateList, float f2, float f3, float f4);
 
     void onCompatPaddingChanged(CardViewDelegate cardViewDelegate);
 
@@ -27,11 +27,11 @@ interface CardViewImpl {
 
     void setBackgroundColor(CardViewDelegate cardViewDelegate, @Nullable ColorStateList colorStateList);
 
-    void setElevation(CardViewDelegate cardViewDelegate, float f);
+    void setElevation(CardViewDelegate cardViewDelegate, float f2);
 
-    void setMaxElevation(CardViewDelegate cardViewDelegate, float f);
+    void setMaxElevation(CardViewDelegate cardViewDelegate, float f2);
 
-    void setRadius(CardViewDelegate cardViewDelegate, float f);
+    void setRadius(CardViewDelegate cardViewDelegate, float f2);
 
     void updatePadding(CardViewDelegate cardViewDelegate);
 }

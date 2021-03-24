@@ -7,37 +7,44 @@ import com.kwad.sdk.R;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.utils.ao;
 import com.kwad.sdk.widget.RCRatioFrameLayout;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class e extends com.kwad.sdk.feed.a.a.a.a {
-    private RCRatioFrameLayout b;
-    private ImageView c;
 
-    /* JADX INFO: Access modifiers changed from: protected */
+    /* renamed from: b  reason: collision with root package name */
+    public RCRatioFrameLayout f34849b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public ImageView f34850c;
+
     @Override // com.kwad.sdk.lib.widget.recycler.b.b, com.kwad.sdk.mvp.Presenter
     public void a() {
+        RCRatioFrameLayout rCRatioFrameLayout;
+        float f2;
         super.a();
-        AdTemplate adTemplate = (AdTemplate) ((com.kwad.sdk.feed.a.a.a.b) this.f6892a).i;
+        AdTemplate adTemplate = (AdTemplate) ((com.kwad.sdk.feed.a.a.a.b) ((com.kwad.sdk.lib.widget.recycler.b.b) this).f36007a).i;
         com.kwad.sdk.core.response.model.c o = com.kwad.sdk.core.response.b.c.o(adTemplate);
-        int c = o.c();
-        int b = o.b();
+        int c2 = o.c();
+        int b2 = o.b();
         String a2 = o.a();
-        ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.b.getLayoutParams();
-        if (b >= c) {
+        ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.f34849b.getLayoutParams();
+        if (b2 >= c2) {
             marginLayoutParams.width = ao.a(o(), R.dimen.ksad_content_feed_item_single_large_width);
-            this.b.setRatio(1.3333334f);
+            rCRatioFrameLayout = this.f34849b;
+            f2 = 1.3333334f;
         } else {
             marginLayoutParams.width = -1;
-            this.b.setRatio(0.75f);
+            rCRatioFrameLayout = this.f34849b;
+            f2 = 0.75f;
         }
-        this.b.setLayoutParams(marginLayoutParams);
-        com.kwad.sdk.glide.c.a(((com.kwad.sdk.feed.a.a.a.b) this.f6892a).d).a(a2).a((com.kwad.sdk.glide.request.e<Drawable>) new com.kwad.sdk.c(a2, adTemplate)).a(o().getResources().getDrawable(R.drawable.ksad_feed_item_cover_large_bg)).c(o().getResources().getDrawable(R.drawable.ksad_feed_item_cover_large_bg)).a(this.c);
+        rCRatioFrameLayout.setRatio(f2);
+        this.f34849b.setLayoutParams(marginLayoutParams);
+        com.kwad.sdk.glide.c.a(((com.kwad.sdk.feed.a.a.a.b) ((com.kwad.sdk.lib.widget.recycler.b.b) this).f36007a).f36002d).a(a2).a((com.kwad.sdk.glide.request.e<Drawable>) new com.kwad.sdk.c(a2, adTemplate)).a(o().getResources().getDrawable(R.drawable.ksad_feed_item_cover_large_bg)).c(o().getResources().getDrawable(R.drawable.ksad_feed_item_cover_large_bg)).a(this.f34850c);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.mvp.Presenter
     public void c() {
         super.c();
-        this.b = (RCRatioFrameLayout) b(R.id.ksad_cover_container);
-        this.c = (ImageView) b(R.id.ksad_feed_item_cover);
+        this.f34849b = (RCRatioFrameLayout) b(R.id.ksad_cover_container);
+        this.f34850c = (ImageView) b(R.id.ksad_feed_item_cover);
     }
 }

@@ -3,67 +3,77 @@ package com.baidu.tieba.barselect.segment;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.LinearLayout;
-import com.baidu.tieba.barselect.a.a;
-import com.baidu.tieba.barselect.data.d;
-import com.baidu.tieba.barselect.data.e;
-import com.baidu.tieba.barselect.data.f;
 import com.baidu.tieba.barselect.view.VoteCandidateCard;
+import d.b.i0.v.b.d;
+import d.b.i0.v.b.e;
+import d.b.i0.v.b.f;
+import d.b.i0.v.e.a;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class CardBasicLayout extends LinearLayout {
-    protected f ire;
-    protected d iuP;
-    public int status;
+
+    /* renamed from: e  reason: collision with root package name */
+    public int f15192e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public f f15193f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public d f15194g;
 
     public CardBasicLayout(Context context) {
         this(context, null);
     }
 
-    public CardBasicLayout(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        this.status = -1;
-    }
-
     public void setData(int i, f fVar) {
-        e crC;
-        this.ire = fVar;
-        if (this.ire != null && this.ire.crC() != null && (crC = this.ire.crC()) != null) {
-            int status = crC.getStatus();
-            if (status == com.baidu.tieba.barselect.a.d.ivh) {
-                if (i == VoteCandidateCard.ivu) {
-                    this.status = a.ivf;
-                    this.iuP = this.ire.crB();
+        e a2;
+        this.f15193f = fVar;
+        if (fVar == null || fVar.a() == null || (a2 = this.f15193f.a()) == null) {
+            return;
+        }
+        int g2 = a2.g();
+        if (g2 == d.b.i0.v.e.d.f61959b) {
+            if (i == VoteCandidateCard.E) {
+                this.f15192e = a.f61957d;
+                this.f15194g = this.f15193f.f();
+                return;
+            }
+            this.f15192e = a.f61954a;
+            List<d> b2 = this.f15193f.b();
+            if (b2 == null || b2.size() <= i) {
+                return;
+            }
+            this.f15194g = b2.get(i);
+        } else if (g2 == d.b.i0.v.e.d.f61960c) {
+            if (i == VoteCandidateCard.E) {
+                this.f15192e = a.f61956c;
+                List<d> b3 = this.f15193f.b();
+                if (b3 == null || b3.size() <= 0) {
                     return;
                 }
-                this.status = a.ivc;
-                List<d> crA = this.ire.crA();
-                if (crA != null && crA.size() > i) {
-                    this.iuP = crA.get(i);
-                }
-            } else if (status == com.baidu.tieba.barselect.a.d.ivi) {
-                if (i == VoteCandidateCard.ivu) {
-                    this.status = a.ive;
-                    List<d> crA2 = this.ire.crA();
-                    if (crA2 != null && crA2.size() > 0) {
-                        for (d dVar : crA2) {
-                            if (dVar.getRank() == 1) {
-                                this.iuP = dVar;
-                                return;
-                            }
-                        }
+                for (d dVar : b3) {
+                    if (dVar.i() == 1) {
+                        this.f15194g = dVar;
                         return;
                     }
-                    return;
                 }
-                this.status = a.ivd;
-                List<d> crA3 = this.ire.crA();
-                if (crA3 != null && crA3.size() > i) {
-                    this.iuP = crA3.get(i);
-                    if (this.iuP.getRank() == 1 && i == 0) {
-                        this.status = a.ive;
-                    }
-                }
+                return;
+            }
+            this.f15192e = a.f61955b;
+            List<d> b4 = this.f15193f.b();
+            if (b4 == null || b4.size() <= i) {
+                return;
+            }
+            d dVar2 = b4.get(i);
+            this.f15194g = dVar2;
+            if (dVar2.i() == 1 && i == 0) {
+                this.f15192e = a.f61956c;
             }
         }
+    }
+
+    public CardBasicLayout(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        this.f15192e = -1;
     }
 }

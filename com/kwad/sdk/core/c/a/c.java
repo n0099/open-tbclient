@@ -6,7 +6,7 @@ import com.qq.e.comm.constants.Constants;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class c implements com.kwad.sdk.core.c<AdInfo.AdBaseInfo> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.core.c
@@ -74,28 +74,24 @@ public class c implements com.kwad.sdk.core.c<AdInfo.AdBaseInfo> {
         adBaseInfo.appImageUrl = new ArrayList();
         JSONArray optJSONArray = jSONObject.optJSONArray("appImageUrl");
         if (optJSONArray != null) {
-            int i = 0;
-            while (true) {
-                int i2 = i;
-                if (i2 >= optJSONArray.length()) {
-                    break;
-                }
-                adBaseInfo.appImageUrl.add((String) optJSONArray.opt(i2));
-                i = i2 + 1;
+            for (int i = 0; i < optJSONArray.length(); i++) {
+                adBaseInfo.appImageUrl.add((String) optJSONArray.opt(i));
             }
         }
-        adBaseInfo.appImageSize = new AdInfo.MaterialSize();
-        adBaseInfo.appImageSize.parseJson(jSONObject.optJSONObject("appImageSize"));
+        AdInfo.MaterialSize materialSize = new AdInfo.MaterialSize();
+        adBaseInfo.appImageSize = materialSize;
+        materialSize.parseJson(jSONObject.optJSONObject("appImageSize"));
         adBaseInfo.appDescription = jSONObject.optString("appDescription");
         adBaseInfo.enableSkipAd = jSONObject.optInt("enableSkipAd");
         adBaseInfo.skipSecond = jSONObject.optInt("skipSecond");
         adBaseInfo.ecpm = jSONObject.optInt("ecpm");
         adBaseInfo.videoPlayedNS = jSONObject.optString("videoPlayedNS");
         adBaseInfo.productName = jSONObject.optString("productName");
-        adBaseInfo.mABParams = new ABParams();
+        ABParams aBParams = new ABParams();
+        adBaseInfo.mABParams = aBParams;
         try {
-            adBaseInfo.mABParams.parseJson(new JSONObject(jSONObject.optString("expParam")));
-        } catch (Exception e) {
+            aBParams.parseJson(new JSONObject(jSONObject.optString("expParam")));
+        } catch (Exception unused) {
         }
         adBaseInfo.showUrl = jSONObject.optString("showUrl");
         adBaseInfo.clickUrl = jSONObject.optString(Constants.KEYS.EXPOSED_CLICK_URL_KEY);

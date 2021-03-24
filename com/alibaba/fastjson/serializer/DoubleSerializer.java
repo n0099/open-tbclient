@@ -3,22 +3,13 @@ package com.alibaba.fastjson.serializer;
 import java.io.IOException;
 import java.lang.reflect.Type;
 import java.text.DecimalFormat;
-/* loaded from: classes4.dex */
+/* loaded from: classes.dex */
 public class DoubleSerializer implements ObjectSerializer {
     public static final DoubleSerializer instance = new DoubleSerializer();
-    private DecimalFormat decimalFormat;
+    public DecimalFormat decimalFormat;
 
     public DoubleSerializer() {
         this.decimalFormat = null;
-    }
-
-    public DoubleSerializer(DecimalFormat decimalFormat) {
-        this.decimalFormat = null;
-        this.decimalFormat = decimalFormat;
-    }
-
-    public DoubleSerializer(String str) {
-        this(new DecimalFormat(str));
     }
 
     @Override // com.alibaba.fastjson.serializer.ObjectSerializer
@@ -29,12 +20,25 @@ public class DoubleSerializer implements ObjectSerializer {
             return;
         }
         double doubleValue = ((Double) obj).doubleValue();
-        if (Double.isNaN(doubleValue) || Double.isInfinite(doubleValue)) {
-            serializeWriter.writeNull();
-        } else if (this.decimalFormat == null) {
-            serializeWriter.writeDouble(doubleValue, true);
-        } else {
-            serializeWriter.write(this.decimalFormat.format(doubleValue));
+        if (!Double.isNaN(doubleValue) && !Double.isInfinite(doubleValue)) {
+            DecimalFormat decimalFormat = this.decimalFormat;
+            if (decimalFormat == null) {
+                serializeWriter.writeDouble(doubleValue, true);
+                return;
+            } else {
+                serializeWriter.write(decimalFormat.format(doubleValue));
+                return;
+            }
         }
+        serializeWriter.writeNull();
+    }
+
+    public DoubleSerializer(DecimalFormat decimalFormat) {
+        this.decimalFormat = null;
+        this.decimalFormat = decimalFormat;
+    }
+
+    public DoubleSerializer(String str) {
+        this(new DecimalFormat(str));
     }
 }

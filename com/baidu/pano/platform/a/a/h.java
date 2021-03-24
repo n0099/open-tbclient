@@ -1,12 +1,10 @@
 package com.baidu.pano.platform.a.a;
 
-import com.baidu.adp.plugin.proxy.ContentProviderProxy;
 import com.baidu.pano.platform.a.b;
-import com.baidubce.http.Headers;
 import java.util.Map;
 import org.apache.http.impl.cookie.DateParseException;
 import org.apache.http.impl.cookie.DateUtils;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class h {
     public static b.a a(com.baidu.pano.platform.a.l lVar) {
         boolean z;
@@ -14,23 +12,18 @@ public class h {
         long j2;
         long j3;
         long j4;
+        long j5;
         long currentTimeMillis = System.currentTimeMillis();
-        Map<String, String> map = lVar.c;
-        long j5 = 0;
-        long j6 = 0;
-        long j7 = 0;
-        boolean z2 = false;
+        Map<String, String> map = lVar.f9380c;
         String str = map.get("Date");
-        if (str != null) {
-            j5 = a(str);
-        }
-        String str2 = map.get(Headers.CACHE_CONTROL);
-        if (str2 == null) {
-            z = false;
-        } else {
+        long a2 = str != null ? a(str) : 0L;
+        String str2 = map.get("Cache-Control");
+        int i = 0;
+        if (str2 != null) {
             String[] split = str2.split(",");
-            int i = 0;
-            z = false;
+            int i2 = 0;
+            j = 0;
+            j2 = 0;
             while (i < split.length) {
                 String trim = split[i].trim();
                 if (trim.equals("no-cache") || trim.equals("no-store")) {
@@ -38,61 +31,61 @@ public class h {
                 }
                 if (trim.startsWith("max-age=")) {
                     try {
-                        j6 = Long.parseLong(trim.substring(8));
-                    } catch (Exception e) {
+                        j = Long.parseLong(trim.substring(8));
+                    } catch (Exception unused) {
                     }
                 } else if (trim.startsWith("stale-while-revalidate=")) {
-                    try {
-                        j7 = Long.parseLong(trim.substring(23));
-                    } catch (Exception e2) {
-                    }
+                    j2 = Long.parseLong(trim.substring(23));
                 } else if (trim.equals("must-revalidate") || trim.equals("proxy-revalidate")) {
-                    z = true;
+                    i2 = 1;
                 }
                 i++;
-                j7 = j7;
             }
-            z2 = true;
-        }
-        String str3 = map.get(Headers.EXPIRES);
-        if (str3 == null) {
+            i = i2;
+            z = true;
+        } else {
+            z = false;
             j = 0;
-        } else {
-            j = a(str3);
-        }
-        String str4 = map.get(Headers.LAST_MODIFIED);
-        if (str4 == null) {
             j2 = 0;
-        } else {
-            j2 = a(str4);
         }
-        String str5 = map.get(Headers.ETAG);
-        if (z2) {
-            j4 = currentTimeMillis + (1000 * j6);
-            j3 = z ? j4 : (1000 * j7) + j4;
-        } else if (j5 <= 0 || j < j5) {
-            j3 = 0;
-            j4 = 0;
+        String str3 = map.get("Expires");
+        long a3 = str3 != null ? a(str3) : 0L;
+        String str4 = map.get("Last-Modified");
+        long a4 = str4 != null ? a(str4) : 0L;
+        String str5 = map.get("ETag");
+        if (z) {
+            j4 = currentTimeMillis + (j * 1000);
+            if (i != 0) {
+                j5 = j4;
+            } else {
+                Long.signum(j2);
+                j5 = (j2 * 1000) + j4;
+            }
+            j3 = j5;
         } else {
-            long j8 = currentTimeMillis + (j - j5);
-            j3 = j8;
-            j4 = j8;
+            j3 = 0;
+            if (a2 <= 0 || a3 < a2) {
+                j4 = 0;
+            } else {
+                j4 = currentTimeMillis + (a3 - a2);
+                j3 = j4;
+            }
         }
         b.a aVar = new b.a();
-        aVar.f2699a = lVar.b;
-        aVar.b = str5;
-        aVar.f = j4;
-        aVar.e = j3;
-        aVar.c = j5;
-        aVar.d = j2;
-        aVar.g = map;
+        aVar.f9346a = lVar.f9379b;
+        aVar.f9347b = str5;
+        aVar.f9351f = j4;
+        aVar.f9350e = j3;
+        aVar.f9348c = a2;
+        aVar.f9349d = a4;
+        aVar.f9352g = map;
         return aVar;
     }
 
     public static long a(String str) {
         try {
             return DateUtils.parseDate(str).getTime();
-        } catch (DateParseException e) {
+        } catch (DateParseException unused) {
             return 0L;
         }
     }
@@ -100,14 +93,13 @@ public class h {
     public static String a(Map<String, String> map, String str) {
         String str2 = map.get("Content-Type");
         if (str2 != null) {
-            String[] split = str2.split(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
+            String[] split = str2.split(";");
             for (int i = 1; i < split.length; i++) {
                 String[] split2 = split[i].trim().split("=");
                 if (split2.length == 2 && split2[0].equals("charset")) {
                     return split2[1];
                 }
             }
-            return str;
         }
         return str;
     }

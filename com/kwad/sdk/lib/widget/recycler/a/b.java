@@ -7,100 +7,118 @@ import androidx.annotation.Nullable;
 import androidx.annotation.RestrictTo;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public final class b<T> {
     @NonNull
 
     /* renamed from: a  reason: collision with root package name */
-    private final Executor f6883a;
+    public final Executor f35973a;
     @NonNull
-    private final Executor b;
-    @NonNull
-    private final e<T> c;
-    @Nullable
-    private final Runnable d;
 
-    /* loaded from: classes3.dex */
+    /* renamed from: b  reason: collision with root package name */
+    public final Executor f35974b;
+    @NonNull
+
+    /* renamed from: c  reason: collision with root package name */
+    public final e<T> f35975c;
+    @Nullable
+
+    /* renamed from: d  reason: collision with root package name */
+    public final Runnable f35976d;
+
+    /* loaded from: classes6.dex */
     public static final class a<T> {
-        private static final Object e = new Object();
-        private static Executor f = null;
-        private static final Executor g = new ExecutorC1158a();
+
+        /* renamed from: f  reason: collision with root package name */
+        public static Executor f35978f;
 
         /* renamed from: a  reason: collision with root package name */
-        private Executor f6884a;
-        private Executor b;
-        private Runnable c;
-        private final e<T> d;
+        public Executor f35980a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public Executor f35981b;
+
+        /* renamed from: c  reason: collision with root package name */
+        public Runnable f35982c;
+
+        /* renamed from: d  reason: collision with root package name */
+        public final e<T> f35983d;
+
+        /* renamed from: e  reason: collision with root package name */
+        public static final Object f35977e = new Object();
+
+        /* renamed from: g  reason: collision with root package name */
+        public static final Executor f35979g = new ExecutorC0425a();
 
         /* renamed from: com.kwad.sdk.lib.widget.recycler.a.b$a$a  reason: collision with other inner class name */
-        /* loaded from: classes3.dex */
-        private static class ExecutorC1158a implements Executor {
+        /* loaded from: classes6.dex */
+        public static class ExecutorC0425a implements Executor {
 
             /* renamed from: a  reason: collision with root package name */
-            final Handler f6885a;
+            public final Handler f35984a;
 
-            private ExecutorC1158a() {
-                this.f6885a = new Handler(Looper.getMainLooper());
+            public ExecutorC0425a() {
+                this.f35984a = new Handler(Looper.getMainLooper());
             }
 
             @Override // java.util.concurrent.Executor
             public void execute(@NonNull Runnable runnable) {
-                this.f6885a.post(runnable);
+                this.f35984a.post(runnable);
             }
         }
 
         public a(@NonNull e<T> eVar) {
-            this.d = eVar;
+            this.f35983d = eVar;
         }
 
         @NonNull
         public a<T> a(Executor executor) {
-            this.b = executor;
+            this.f35981b = executor;
             return this;
         }
 
         @NonNull
         public b<T> a() {
-            if (this.f6884a == null) {
-                this.f6884a = g;
+            if (this.f35980a == null) {
+                this.f35980a = f35979g;
             }
-            if (this.b == null) {
-                synchronized (e) {
-                    if (f == null) {
-                        f = Executors.newFixedThreadPool(2);
+            if (this.f35981b == null) {
+                synchronized (f35977e) {
+                    if (f35978f == null) {
+                        f35978f = Executors.newFixedThreadPool(2);
                     }
                 }
-                this.b = f;
+                this.f35981b = f35978f;
             }
-            return new b<>(this.f6884a, this.b, this.d, this.c);
+            return new b<>(this.f35980a, this.f35981b, this.f35983d, this.f35982c);
         }
     }
 
-    private b(@NonNull Executor executor, @NonNull Executor executor2, @NonNull e<T> eVar, @Nullable Runnable runnable) {
-        this.f6883a = executor;
-        this.b = executor2;
-        this.c = eVar;
-        this.d = runnable;
+    public b(@NonNull Executor executor, @NonNull Executor executor2, @NonNull e<T> eVar, @Nullable Runnable runnable) {
+        this.f35973a = executor;
+        this.f35974b = executor2;
+        this.f35975c = eVar;
+        this.f35976d = runnable;
     }
 
     @NonNull
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
     public Executor a() {
-        return this.f6883a;
+        return this.f35973a;
     }
 
     @NonNull
     public Executor b() {
-        return this.b;
+        return this.f35974b;
     }
 
     @NonNull
     public e<T> c() {
-        return this.c;
+        return this.f35975c;
     }
 
     @Nullable
     public Runnable d() {
-        return this.d;
+        return this.f35976d;
     }
 }

@@ -4,7 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapapi.search.core.SearchResult;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class PoiDetailResult extends SearchResult implements Parcelable {
     public static final Parcelable.Creator<PoiDetailResult> CREATOR = new a();
     public String address;
@@ -34,7 +34,6 @@ public class PoiDetailResult extends SearchResult implements Parcelable {
     public PoiDetailResult() {
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     public PoiDetailResult(Parcel parcel) {
         super(parcel);
         this.name = parcel.readString();
@@ -183,12 +182,12 @@ public class PoiDetailResult extends SearchResult implements Parcelable {
         this.discountNum = i;
     }
 
-    public void setEnvironmentRating(double d) {
-        this.environmentRating = d;
+    public void setEnvironmentRating(double d2) {
+        this.environmentRating = d2;
     }
 
-    public void setFacilityRating(double d) {
-        this.facilityRating = d;
+    public void setFacilityRating(double d2) {
+        this.facilityRating = d2;
     }
 
     public void setFavoriteNum(int i) {
@@ -199,8 +198,8 @@ public class PoiDetailResult extends SearchResult implements Parcelable {
         this.grouponNum = i;
     }
 
-    public void setHygieneRating(double d) {
-        this.hygieneRating = d;
+    public void setHygieneRating(double d2) {
+        this.hygieneRating = d2;
     }
 
     public void setImageNum(int i) {
@@ -215,16 +214,16 @@ public class PoiDetailResult extends SearchResult implements Parcelable {
         this.name = str;
     }
 
-    public void setOverallRating(double d) {
-        this.overallRating = d;
+    public void setOverallRating(double d2) {
+        this.overallRating = d2;
     }
 
-    public void setPrice(double d) {
-        this.price = d;
+    public void setPrice(double d2) {
+        this.price = d2;
     }
 
-    public void setServiceRating(double d) {
-        this.serviceRating = d;
+    public void setServiceRating(double d2) {
+        this.serviceRating = d2;
     }
 
     public void setShopHours(String str) {
@@ -235,12 +234,12 @@ public class PoiDetailResult extends SearchResult implements Parcelable {
         this.tag = str;
     }
 
-    public void setTasteRating(double d) {
-        this.tasteRating = d;
+    public void setTasteRating(double d2) {
+        this.tasteRating = d2;
     }
 
-    public void setTechnologyRating(double d) {
-        this.technologyRating = d;
+    public void setTechnologyRating(double d2) {
+        this.technologyRating = d2;
     }
 
     public void setTelephone(String str) {

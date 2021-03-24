@@ -3,19 +3,18 @@ package com.kwai.video.player;
 import com.kwai.video.hodor.util.Timber;
 import com.kwai.video.player.IMediaPlayer;
 import com.kwai.video.player.misc.IMediaDataSource;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public abstract class AbstractMediaPlayer implements IMediaPlayer {
-    private IMediaPlayer.OnBufferingUpdateListener mOnBufferingUpdateListener;
-    private IMediaPlayer.OnCompletionListener mOnCompletionListener;
-    private IMediaPlayer.OnErrorListener mOnErrorListener;
-    private IMediaPlayer.OnFftDataCaptureListener mOnFftDataCaptureListener;
-    private IMediaPlayer.OnInfoListener mOnInfoListener;
-    private IMediaPlayer.OnLogEventListener mOnLogEventListener;
-    private IMediaPlayer.OnPreparedListener mOnPreparedListener;
-    private IMediaPlayer.OnSeekCompleteListener mOnSeekCompleteListener;
-    private IMediaPlayer.OnVideoSizeChangedListener mOnVideoSizeChangedListener;
+    public IMediaPlayer.OnBufferingUpdateListener mOnBufferingUpdateListener;
+    public IMediaPlayer.OnCompletionListener mOnCompletionListener;
+    public IMediaPlayer.OnErrorListener mOnErrorListener;
+    public IMediaPlayer.OnFftDataCaptureListener mOnFftDataCaptureListener;
+    public IMediaPlayer.OnInfoListener mOnInfoListener;
+    public IMediaPlayer.OnLogEventListener mOnLogEventListener;
+    public IMediaPlayer.OnPreparedListener mOnPreparedListener;
+    public IMediaPlayer.OnSeekCompleteListener mOnSeekCompleteListener;
+    public IMediaPlayer.OnVideoSizeChangedListener mOnVideoSizeChangedListener;
 
-    /* JADX INFO: Access modifiers changed from: protected */
     public final void notifyOnBufferingUpdate(int i) {
         IMediaPlayer.OnBufferingUpdateListener onBufferingUpdateListener = this.mOnBufferingUpdateListener;
         if (onBufferingUpdateListener != null) {
@@ -23,7 +22,6 @@ public abstract class AbstractMediaPlayer implements IMediaPlayer {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     public final void notifyOnCompletion() {
         IMediaPlayer.OnCompletionListener onCompletionListener = this.mOnCompletionListener;
         if (onCompletionListener != null) {
@@ -31,7 +29,6 @@ public abstract class AbstractMediaPlayer implements IMediaPlayer {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     public final boolean notifyOnError(int i, int i2) {
         Timber.d("notifyOnError, what:%d, extra:%d", Integer.valueOf(i), Integer.valueOf(i2));
         IMediaPlayer.OnErrorListener onErrorListener = this.mOnErrorListener;
@@ -45,7 +42,6 @@ public abstract class AbstractMediaPlayer implements IMediaPlayer {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     public final boolean notifyOnInfo(int i, int i2) {
         IMediaPlayer.OnInfoListener onInfoListener = this.mOnInfoListener;
         return onInfoListener != null && onInfoListener.onInfo(this, i, i2);
@@ -58,7 +54,6 @@ public abstract class AbstractMediaPlayer implements IMediaPlayer {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     public final void notifyOnPrepared() {
         IMediaPlayer.OnPreparedListener onPreparedListener = this.mOnPreparedListener;
         if (onPreparedListener != null) {
@@ -66,7 +61,6 @@ public abstract class AbstractMediaPlayer implements IMediaPlayer {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     public final void notifyOnSeekComplete() {
         IMediaPlayer.OnSeekCompleteListener onSeekCompleteListener = this.mOnSeekCompleteListener;
         if (onSeekCompleteListener != null) {
@@ -74,7 +68,6 @@ public abstract class AbstractMediaPlayer implements IMediaPlayer {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     public final void notifyOnVideoSizeChanged(int i, int i2, int i3, int i4) {
         IMediaPlayer.OnVideoSizeChangedListener onVideoSizeChangedListener = this.mOnVideoSizeChangedListener;
         if (onVideoSizeChangedListener != null) {
@@ -82,7 +75,6 @@ public abstract class AbstractMediaPlayer implements IMediaPlayer {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     public void resetListeners() {
         this.mOnPreparedListener = null;
         this.mOnBufferingUpdateListener = null;

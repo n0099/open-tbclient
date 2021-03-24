@@ -1,83 +1,71 @@
 package com.xiaomi.push.service;
 
-import android.content.Context;
-import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.content.pm.ProviderInfo;
-import android.content.pm.ResolveInfo;
-import android.content.pm.ServiceInfo;
-import android.os.Build;
-import java.util.List;
-/* loaded from: classes5.dex */
-public class f {
-    public static boolean a(Context context, String str) {
-        try {
-            ServiceInfo[] serviceInfoArr = context.getPackageManager().getPackageInfo(str, 4).services;
-            if (serviceInfoArr != null) {
-                for (ServiceInfo serviceInfo : serviceInfoArr) {
-                    if (serviceInfo.exported && serviceInfo.enabled && "com.xiaomi.mipush.sdk.PushMessageHandler".equals(serviceInfo.name) && !context.getPackageName().equals(serviceInfo.packageName)) {
-                        return true;
-                    }
-                }
-                return false;
+import com.xiaomi.push.fz;
+import com.xiaomi.push.gi;
+import com.xiaomi.push.gj;
+import com.xiaomi.push.gn;
+import java.util.ArrayList;
+import org.xmlpull.v1.XmlPullParser;
+/* loaded from: classes7.dex */
+public class f implements gi {
+    public static fz a(XmlPullParser xmlPullParser) {
+        String[] strArr;
+        String[] strArr2;
+        String str;
+        ArrayList arrayList;
+        if (xmlPullParser.getEventType() != 2) {
+            return null;
+        }
+        String name = xmlPullParser.getName();
+        String namespace = xmlPullParser.getNamespace();
+        if (xmlPullParser.getAttributeCount() > 0) {
+            String[] strArr3 = new String[xmlPullParser.getAttributeCount()];
+            String[] strArr4 = new String[xmlPullParser.getAttributeCount()];
+            for (int i = 0; i < xmlPullParser.getAttributeCount(); i++) {
+                strArr3[i] = xmlPullParser.getAttributeName(i);
+                strArr4[i] = gn.b(xmlPullParser.getAttributeValue(i));
             }
-            return false;
-        } catch (PackageManager.NameNotFoundException e) {
-            com.xiaomi.channel.commonutils.logger.b.a(e);
-            return false;
+            strArr = strArr3;
+            str = null;
+            arrayList = null;
+            strArr2 = strArr4;
+        } else {
+            strArr = null;
+            strArr2 = null;
+            str = null;
+            arrayList = null;
+        }
+        while (true) {
+            int next = xmlPullParser.next();
+            if (next == 3) {
+                return new fz(name, namespace, strArr, strArr2, str, arrayList);
+            }
+            if (next == 4) {
+                str = xmlPullParser.getText().trim();
+            } else if (next == 2) {
+                if (arrayList == null) {
+                    arrayList = new ArrayList();
+                }
+                fz a2 = a(xmlPullParser);
+                if (a2 != null) {
+                    arrayList.add(a2);
+                }
+            }
         }
     }
 
-    public static boolean a(Context context, String str, String str2) {
-        try {
-            PackageManager packageManager = context.getPackageManager();
-            Intent intent = new Intent(str2);
-            intent.setPackage(str);
-            List<ResolveInfo> queryIntentServices = packageManager.queryIntentServices(intent, 32);
-            if (queryIntentServices != null) {
-                return !queryIntentServices.isEmpty();
-            }
-            return false;
-        } catch (Exception e) {
-            com.xiaomi.channel.commonutils.logger.b.a(e);
-            return false;
-        }
+    public void a() {
+        gj.a().a("all", "xm:chat", this);
     }
 
-    public static boolean b(Context context, String str) {
-        boolean z = false;
-        try {
-            PackageManager packageManager = context.getPackageManager();
-            if (Build.VERSION.SDK_INT >= 19) {
-                List<ProviderInfo> queryContentProviders = packageManager.queryContentProviders(null, 0, 8);
-                if (queryContentProviders == null || queryContentProviders.isEmpty()) {
-                    return false;
-                }
-                for (ProviderInfo providerInfo : queryContentProviders) {
-                    z = (providerInfo.enabled && providerInfo.exported && providerInfo.authority.equals(str)) ? true : z;
-                }
-                return z;
-            }
-            return true;
-        } catch (Exception e) {
-            com.xiaomi.channel.commonutils.logger.b.a(e);
-            return z;
+    public fz b(XmlPullParser xmlPullParser) {
+        int eventType = xmlPullParser.getEventType();
+        while (eventType != 1 && eventType != 2) {
+            eventType = xmlPullParser.next();
         }
-    }
-
-    public static boolean b(Context context, String str, String str2) {
-        try {
-            PackageManager packageManager = context.getPackageManager();
-            Intent intent = new Intent(str2);
-            intent.setPackage(str);
-            List<ResolveInfo> queryIntentActivities = packageManager.queryIntentActivities(intent, 32);
-            if (queryIntentActivities != null) {
-                return !queryIntentActivities.isEmpty();
-            }
-            return false;
-        } catch (Exception e) {
-            com.xiaomi.channel.commonutils.logger.b.a(e);
-            return false;
+        if (eventType == 2) {
+            return a(xmlPullParser);
         }
+        return null;
     }
 }

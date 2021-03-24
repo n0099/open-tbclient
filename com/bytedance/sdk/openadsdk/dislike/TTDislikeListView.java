@@ -13,27 +13,31 @@ import java.util.ArrayList;
 public class TTDislikeListView extends ListView {
 
     /* renamed from: a  reason: collision with root package name */
-    private l f4678a;
-    private AdapterView.OnItemClickListener b;
-    private AdapterView.OnItemClickListener c;
+    public l f29118a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public AdapterView.OnItemClickListener f29119b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public AdapterView.OnItemClickListener f29120c;
 
     public TTDislikeListView(Context context) {
         super(context);
-        this.c = new AdapterView.OnItemClickListener() { // from class: com.bytedance.sdk.openadsdk.dislike.TTDislikeListView.1
+        this.f29120c = new AdapterView.OnItemClickListener() { // from class: com.bytedance.sdk.openadsdk.dislike.TTDislikeListView.1
             @Override // android.widget.AdapterView.OnItemClickListener
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
                 if (TTDislikeListView.this.getAdapter() != null && TTDislikeListView.this.getAdapter().getItem(i) != null && (TTDislikeListView.this.getAdapter().getItem(i) instanceof FilterWord)) {
                     FilterWord filterWord = (FilterWord) TTDislikeListView.this.getAdapter().getItem(i);
-                    if (!filterWord.hasSecondOptions()) {
-                        ArrayList arrayList = new ArrayList();
-                        arrayList.add(filterWord);
-                        if (TTDislikeListView.this.f4678a != null) {
-                            com.bytedance.sdk.openadsdk.c.d.a(TTDislikeListView.this.f4678a, arrayList);
-                        }
-                        if (TTDislikeListView.this.b != null) {
-                            TTDislikeListView.this.b.onItemClick(adapterView, view, i, j);
-                            return;
-                        }
+                    if (filterWord.hasSecondOptions()) {
+                        return;
+                    }
+                    ArrayList arrayList = new ArrayList();
+                    arrayList.add(filterWord);
+                    if (TTDislikeListView.this.f29118a != null) {
+                        com.bytedance.sdk.openadsdk.c.d.a(TTDislikeListView.this.f29118a, arrayList);
+                    }
+                    if (TTDislikeListView.this.f29119b != null) {
+                        TTDislikeListView.this.f29119b.onItemClick(adapterView, view, i, j);
                         return;
                     }
                     return;
@@ -44,23 +48,36 @@ public class TTDislikeListView extends ListView {
         a();
     }
 
+    public void setMaterialMeta(l lVar) {
+        this.f29118a = lVar;
+    }
+
+    @Override // android.widget.AdapterView
+    public void setOnItemClickListener(@Nullable AdapterView.OnItemClickListener onItemClickListener) {
+        this.f29119b = onItemClickListener;
+    }
+
+    private void a() {
+        super.setOnItemClickListener(this.f29120c);
+    }
+
     public TTDislikeListView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.c = new AdapterView.OnItemClickListener() { // from class: com.bytedance.sdk.openadsdk.dislike.TTDislikeListView.1
+        this.f29120c = new AdapterView.OnItemClickListener() { // from class: com.bytedance.sdk.openadsdk.dislike.TTDislikeListView.1
             @Override // android.widget.AdapterView.OnItemClickListener
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
                 if (TTDislikeListView.this.getAdapter() != null && TTDislikeListView.this.getAdapter().getItem(i) != null && (TTDislikeListView.this.getAdapter().getItem(i) instanceof FilterWord)) {
                     FilterWord filterWord = (FilterWord) TTDislikeListView.this.getAdapter().getItem(i);
-                    if (!filterWord.hasSecondOptions()) {
-                        ArrayList arrayList = new ArrayList();
-                        arrayList.add(filterWord);
-                        if (TTDislikeListView.this.f4678a != null) {
-                            com.bytedance.sdk.openadsdk.c.d.a(TTDislikeListView.this.f4678a, arrayList);
-                        }
-                        if (TTDislikeListView.this.b != null) {
-                            TTDislikeListView.this.b.onItemClick(adapterView, view, i, j);
-                            return;
-                        }
+                    if (filterWord.hasSecondOptions()) {
+                        return;
+                    }
+                    ArrayList arrayList = new ArrayList();
+                    arrayList.add(filterWord);
+                    if (TTDislikeListView.this.f29118a != null) {
+                        com.bytedance.sdk.openadsdk.c.d.a(TTDislikeListView.this.f29118a, arrayList);
+                    }
+                    if (TTDislikeListView.this.f29119b != null) {
+                        TTDislikeListView.this.f29119b.onItemClick(adapterView, view, i, j);
                         return;
                     }
                     return;
@@ -73,21 +90,21 @@ public class TTDislikeListView extends ListView {
 
     public TTDislikeListView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.c = new AdapterView.OnItemClickListener() { // from class: com.bytedance.sdk.openadsdk.dislike.TTDislikeListView.1
+        this.f29120c = new AdapterView.OnItemClickListener() { // from class: com.bytedance.sdk.openadsdk.dislike.TTDislikeListView.1
             @Override // android.widget.AdapterView.OnItemClickListener
             public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j) {
                 if (TTDislikeListView.this.getAdapter() != null && TTDislikeListView.this.getAdapter().getItem(i2) != null && (TTDislikeListView.this.getAdapter().getItem(i2) instanceof FilterWord)) {
                     FilterWord filterWord = (FilterWord) TTDislikeListView.this.getAdapter().getItem(i2);
-                    if (!filterWord.hasSecondOptions()) {
-                        ArrayList arrayList = new ArrayList();
-                        arrayList.add(filterWord);
-                        if (TTDislikeListView.this.f4678a != null) {
-                            com.bytedance.sdk.openadsdk.c.d.a(TTDislikeListView.this.f4678a, arrayList);
-                        }
-                        if (TTDislikeListView.this.b != null) {
-                            TTDislikeListView.this.b.onItemClick(adapterView, view, i2, j);
-                            return;
-                        }
+                    if (filterWord.hasSecondOptions()) {
+                        return;
+                    }
+                    ArrayList arrayList = new ArrayList();
+                    arrayList.add(filterWord);
+                    if (TTDislikeListView.this.f29118a != null) {
+                        com.bytedance.sdk.openadsdk.c.d.a(TTDislikeListView.this.f29118a, arrayList);
+                    }
+                    if (TTDislikeListView.this.f29119b != null) {
+                        TTDislikeListView.this.f29119b.onItemClick(adapterView, view, i2, j);
                         return;
                     }
                     return;
@@ -96,18 +113,5 @@ public class TTDislikeListView extends ListView {
             }
         };
         a();
-    }
-
-    public void setMaterialMeta(l lVar) {
-        this.f4678a = lVar;
-    }
-
-    private void a() {
-        super.setOnItemClickListener(this.c);
-    }
-
-    @Override // android.widget.AdapterView
-    public void setOnItemClickListener(@Nullable AdapterView.OnItemClickListener onItemClickListener) {
-        this.b = onItemClickListener;
     }
 }

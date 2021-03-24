@@ -1,30 +1,97 @@
 package com.xiaomi.push;
 
-import com.xiaomi.push.je;
-/* loaded from: classes5.dex */
-public class jb {
+import java.nio.ByteBuffer;
+/* loaded from: classes7.dex */
+public abstract class jb {
 
     /* renamed from: a  reason: collision with root package name */
-    private final ji f8459a;
+    public jl f40873a;
 
-    /* renamed from: a  reason: collision with other field name */
-    private final jr f768a;
-
-    public jb() {
-        this(new je.a());
+    public jb(jl jlVar) {
+        this.f40873a = jlVar;
     }
 
-    public jb(jk jkVar) {
-        this.f768a = new jr();
-        this.f8459a = jkVar.a(this.f768a);
-    }
+    public abstract byte a();
 
-    public void a(ix ixVar, byte[] bArr) {
-        try {
-            this.f768a.a(bArr);
-            ixVar.a(this.f8459a);
-        } finally {
-            this.f8459a.k();
-        }
+    /* renamed from: a  reason: collision with other method in class */
+    public abstract double m498a();
+
+    /* renamed from: a  reason: collision with other method in class */
+    public abstract int m499a();
+
+    /* renamed from: a  reason: collision with other method in class */
+    public abstract long m500a();
+
+    /* renamed from: a  reason: collision with other method in class */
+    public abstract iy m501a();
+
+    /* renamed from: a  reason: collision with other method in class */
+    public abstract iz m502a();
+
+    /* renamed from: a  reason: collision with other method in class */
+    public abstract ja m503a();
+
+    /* renamed from: a  reason: collision with other method in class */
+    public abstract jf m504a();
+
+    /* renamed from: a  reason: collision with other method in class */
+    public abstract jg m505a();
+
+    /* renamed from: a  reason: collision with other method in class */
+    public abstract String m506a();
+
+    /* renamed from: a  reason: collision with other method in class */
+    public abstract ByteBuffer m507a();
+
+    /* renamed from: a  reason: collision with other method in class */
+    public abstract short m508a();
+
+    /* renamed from: a  reason: collision with other method in class */
+    public abstract void m509a();
+
+    public abstract void a(byte b2);
+
+    public abstract void a(int i);
+
+    public abstract void a(long j);
+
+    public abstract void a(iy iyVar);
+
+    public abstract void a(iz izVar);
+
+    public abstract void a(ja jaVar);
+
+    public abstract void a(jg jgVar);
+
+    public abstract void a(String str);
+
+    public abstract void a(ByteBuffer byteBuffer);
+
+    public abstract void a(short s);
+
+    public abstract void a(boolean z);
+
+    /* renamed from: a  reason: collision with other method in class */
+    public abstract boolean m510a();
+
+    public abstract void b();
+
+    public abstract void c();
+
+    public abstract void d();
+
+    public abstract void e();
+
+    public abstract void f();
+
+    public abstract void g();
+
+    public abstract void h();
+
+    public abstract void i();
+
+    public abstract void j();
+
+    public void k() {
     }
 }

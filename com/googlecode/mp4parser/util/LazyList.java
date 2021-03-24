@@ -4,19 +4,48 @@ import java.util.AbstractList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.NoSuchElementException;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class LazyList<E> extends AbstractList<E> {
-    private static final Logger LOG = Logger.getLogger(LazyList.class);
-    Iterator<E> elementSource;
-    List<E> underlying;
+    public static final Logger LOG = Logger.getLogger(LazyList.class);
+    public Iterator<E> elementSource;
+    public List<E> underlying;
+
+    /* loaded from: classes6.dex */
+    public class a implements Iterator<E> {
+
+        /* renamed from: e  reason: collision with root package name */
+        public int f31072e = 0;
+
+        public a() {
+        }
+
+        @Override // java.util.Iterator
+        public boolean hasNext() {
+            return this.f31072e < LazyList.this.underlying.size() || LazyList.this.elementSource.hasNext();
+        }
+
+        @Override // java.util.Iterator
+        public E next() {
+            if (this.f31072e < LazyList.this.underlying.size()) {
+                List<E> list = LazyList.this.underlying;
+                int i = this.f31072e;
+                this.f31072e = i + 1;
+                return list.get(i);
+            }
+            LazyList lazyList = LazyList.this;
+            lazyList.underlying.add(lazyList.elementSource.next());
+            return (E) next();
+        }
+
+        @Override // java.util.Iterator
+        public void remove() {
+            throw new UnsupportedOperationException();
+        }
+    }
 
     public LazyList(List<E> list, Iterator<E> it) {
         this.underlying = list;
         this.elementSource = it;
-    }
-
-    public List<E> getUnderlying() {
-        return this.underlying;
     }
 
     private void blowup() {
@@ -38,33 +67,13 @@ public class LazyList<E> extends AbstractList<E> {
         throw new NoSuchElementException();
     }
 
+    public List<E> getUnderlying() {
+        return this.underlying;
+    }
+
     @Override // java.util.AbstractList, java.util.AbstractCollection, java.util.Collection, java.lang.Iterable, java.util.List
     public Iterator<E> iterator() {
-        return new Iterator<E>() { // from class: com.googlecode.mp4parser.util.LazyList.1
-            int pos = 0;
-
-            @Override // java.util.Iterator
-            public boolean hasNext() {
-                return this.pos < LazyList.this.underlying.size() || LazyList.this.elementSource.hasNext();
-            }
-
-            @Override // java.util.Iterator
-            public E next() {
-                if (this.pos < LazyList.this.underlying.size()) {
-                    List<E> list = LazyList.this.underlying;
-                    int i = this.pos;
-                    this.pos = i + 1;
-                    return list.get(i);
-                }
-                LazyList.this.underlying.add(LazyList.this.elementSource.next());
-                return (E) next();
-            }
-
-            @Override // java.util.Iterator
-            public void remove() {
-                throw new UnsupportedOperationException();
-            }
-        };
+        return new a();
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection, java.util.List

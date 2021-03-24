@@ -1,88 +1,89 @@
 package com.ss.android.downloadlib.a.c;
 
+import android.os.Binder;
+import android.os.IBinder;
+import android.os.IInterface;
+import android.os.Parcel;
+import android.os.RemoteException;
 import android.text.TextUtils;
-import androidx.annotation.WorkerThread;
-import com.ss.android.downloadlib.a.j;
-import com.ss.android.socialbase.downloader.downloader.f;
-import java.io.File;
-import java.util.HashMap;
-import java.util.List;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.CopyOnWriteArrayList;
+import d.o.a.d.f.n;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class d {
-    private static volatile d qcx;
-    private long b = 0;
-    private ConcurrentHashMap<String, e> c = new ConcurrentHashMap<>();
-    private HashMap<String, Integer> d = new HashMap<>();
-    private List<String> e = new CopyOnWriteArrayList();
+public interface d extends IInterface {
 
-    public static d eEK() {
-        if (qcx == null) {
-            synchronized (d.class) {
-                if (qcx == null) {
-                    qcx = new d();
+    /* loaded from: classes6.dex */
+    public static abstract class a extends Binder implements d {
+
+        /* renamed from: a  reason: collision with root package name */
+        public static String f38633a = "";
+
+        /* renamed from: com.ss.android.downloadlib.a.c.d$a$a  reason: collision with other inner class name */
+        /* loaded from: classes6.dex */
+        public static class C0475a implements d {
+
+            /* renamed from: a  reason: collision with root package name */
+            public IBinder f38634a;
+
+            public C0475a(IBinder iBinder) {
+                if (TextUtils.isEmpty(a.f38633a)) {
+                    JSONObject s = n.s();
+                    String unused = a.f38633a = d.o.a.e.a.h.b.b(s.optString("t"), s.optString("s"));
+                }
+                this.f38634a = iBinder;
+            }
+
+            @Override // com.ss.android.downloadlib.a.c.d
+            public void a(b bVar) throws RemoteException {
+                Parcel obtain = Parcel.obtain();
+                Parcel obtain2 = Parcel.obtain();
+                try {
+                    obtain.writeInterfaceToken(a.f38633a);
+                    if (bVar != null) {
+                        obtain.writeInt(1);
+                        bVar.writeToParcel(obtain, 0);
+                    } else {
+                        obtain.writeInt(0);
+                    }
+                    this.f38634a.transact(1, obtain, obtain2, 0);
+                    obtain2.readException();
+                } finally {
+                    obtain2.recycle();
+                    obtain.recycle();
                 }
             }
-        }
-        return qcx;
-    }
 
-    public void a(String str, e eVar) {
-        if (!TextUtils.isEmpty(str)) {
-            this.c.put(str, eVar);
-        }
-    }
-
-    public void a(String str) {
-        if (!TextUtils.isEmpty(str)) {
-            this.c.remove(str);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public long b() {
-        return this.b;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void c() {
-        this.b = System.currentTimeMillis();
-    }
-
-    public int b(String str) {
-        if (TextUtils.isEmpty(str)) {
-            return 0;
-        }
-        if (this.d == null) {
-            this.d = new HashMap<>();
-        }
-        if (this.d.containsKey(str)) {
-            return this.d.get(str).intValue();
-        }
-        return 0;
-    }
-
-    @WorkerThread
-    public static void d(com.ss.android.b.a.b.a aVar) {
-        com.ss.android.socialbase.downloader.g.c h;
-        if (aVar != null && aVar.j() > 0 && (h = f.iC(j.a()).h(aVar.t())) != null) {
-            a(h);
-        }
-    }
-
-    @WorkerThread
-    public static void a(com.ss.android.socialbase.downloader.g.c cVar) {
-        File file;
-        if (cVar != null && com.ss.android.socialbase.downloader.k.a.Sa(cVar.g()).a("delete_file_after_install", 0) != 0) {
-            try {
-                String str = cVar.k() + File.separator + cVar.h();
-                if (!TextUtils.isEmpty(str) && (file = new File(str)) != null && file.isFile() && file.exists()) {
-                    file.delete();
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
+            @Override // android.os.IInterface
+            public IBinder asBinder() {
+                return this.f38634a;
             }
         }
+
+        @Override // android.os.Binder
+        public boolean onTransact(int i, Parcel parcel, Parcel parcel2, int i2) throws RemoteException {
+            if (i == 1) {
+                parcel.enforceInterface(f38633a);
+                a(parcel.readInt() != 0 ? b.CREATOR.createFromParcel(parcel) : null);
+                parcel2.writeNoException();
+                return true;
+            } else if (i != 1598968902) {
+                return super.onTransact(i, parcel, parcel2, i2);
+            } else {
+                parcel2.writeString(f38633a);
+                return true;
+            }
+        }
+
+        public static d a(IBinder iBinder) {
+            if (iBinder == null) {
+                return null;
+            }
+            IInterface queryLocalInterface = iBinder.queryLocalInterface(f38633a);
+            if (queryLocalInterface != null && (queryLocalInterface instanceof d)) {
+                return (d) queryLocalInterface;
+            }
+            return new C0475a(iBinder);
+        }
     }
+
+    void a(b bVar) throws RemoteException;
 }

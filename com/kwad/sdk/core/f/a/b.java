@@ -7,20 +7,24 @@ import android.content.ServiceConnection;
 import android.os.IBinder;
 import com.kwad.sdk.core.f.b.b;
 import java.util.concurrent.LinkedBlockingQueue;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f6075a;
-    private final LinkedBlockingQueue<IBinder> b = new LinkedBlockingQueue<>(1);
-    private ServiceConnection c = new ServiceConnection() { // from class: com.kwad.sdk.core.f.a.b.1
+    public Context f33598a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public final LinkedBlockingQueue<IBinder> f33599b = new LinkedBlockingQueue<>(1);
+
+    /* renamed from: c  reason: collision with root package name */
+    public ServiceConnection f33600c = new ServiceConnection() { // from class: com.kwad.sdk.core.f.a.b.1
         @Override // android.content.ServiceConnection
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
             try {
                 com.kwad.sdk.core.d.a.b("HWDeviceIDHelper", "onServiceConnected");
-                b.this.b.put(iBinder);
-            } catch (Exception e) {
-                com.kwad.sdk.core.d.a.a(e);
+                b.this.f33599b.put(iBinder);
+            } catch (Exception e2) {
+                com.kwad.sdk.core.d.a.a(e2);
             }
         }
 
@@ -30,63 +34,35 @@ public class b {
     };
 
     public b(Context context) {
-        this.f6075a = context;
+        this.f33598a = context;
     }
 
     public String a() {
-        String str;
-        Throwable th;
-        String str2;
+        Context context;
+        ServiceConnection serviceConnection;
+        String str = "";
         try {
             Intent intent = new Intent("com.uodis.opendevice.OPENIDS_SERVICE");
             intent.setPackage("com.huawei.hwid");
-            try {
-                if (this.f6075a.bindService(intent, this.c, 1)) {
-                    try {
-                        b.a aVar = new b.a(this.b.take());
-                        str = aVar.a();
-                        try {
-                            try {
-                                com.kwad.sdk.core.d.a.b("HWDeviceIDHelper", "getOAID oaid:" + str + "--boos:" + aVar.b());
-                                this.f6075a.unbindService(this.c);
-                            } catch (Exception e) {
-                                e = e;
-                                com.kwad.sdk.core.d.a.a(e);
-                                this.f6075a.unbindService(this.c);
-                                return str;
-                            }
-                        } catch (Throwable th2) {
-                            th = th2;
-                            str2 = str;
-                            try {
-                                this.f6075a.unbindService(this.c);
-                                throw th;
-                            } catch (Exception e2) {
-                                e = e2;
-                                str = str2;
-                                com.kwad.sdk.core.d.a.b("HWDeviceIDHelper", "getOAID hw service not found");
-                                com.kwad.sdk.core.d.a.b(e);
-                                return str;
-                            }
-                        }
-                    } catch (Exception e3) {
-                        e = e3;
-                        str = "";
-                    } catch (Throwable th3) {
-                        th = th3;
-                        str2 = "";
-                        this.f6075a.unbindService(this.c);
-                        throw th;
-                    }
-                    return str;
+            if (this.f33598a.bindService(intent, this.f33600c, 1)) {
+                try {
+                    b.a aVar = new b.a(this.f33599b.take());
+                    str = aVar.a();
+                    boolean b2 = aVar.b();
+                    com.kwad.sdk.core.d.a.b("HWDeviceIDHelper", "getOAID oaid:" + str + "--boos:" + b2);
+                    context = this.f33598a;
+                    serviceConnection = this.f33600c;
+                } catch (Exception e2) {
+                    com.kwad.sdk.core.d.a.a(e2);
+                    context = this.f33598a;
+                    serviceConnection = this.f33600c;
                 }
-                return "";
-            } catch (Exception e4) {
-                e = e4;
+                context.unbindService(serviceConnection);
             }
-        } catch (Exception e5) {
-            e = e5;
-            str = "";
+        } catch (Exception e3) {
+            com.kwad.sdk.core.d.a.b("HWDeviceIDHelper", "getOAID hw service not found");
+            com.kwad.sdk.core.d.a.b(e3);
         }
+        return str;
     }
 }

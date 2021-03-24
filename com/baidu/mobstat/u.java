@@ -1,69 +1,63 @@
 package com.baidu.mobstat;
 
 import android.content.Context;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class u {
 
     /* renamed from: a  reason: collision with root package name */
-    private static a f2681a;
+    public static a f9258a;
 
-    /* JADX WARN: Removed duplicated region for block: B:11:0x002f A[Catch: all -> 0x005b, TRY_ENTER, TryCatch #2 {, blocks: (B:4:0x0003, B:6:0x0011, B:8:0x001a, B:9:0x0023, B:11:0x002f, B:12:0x003e, B:17:0x0052), top: B:29:0x0003 }] */
+    /* JADX WARN: Removed duplicated region for block: B:18:0x003a A[Catch: all -> 0x0058, TryCatch #2 {, blocks: (B:4:0x0003, B:6:0x0010, B:8:0x0018, B:9:0x0021, B:15:0x0030, B:18:0x003a, B:19:0x0048), top: B:29:0x0003 }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public static synchronized a a(Context context) {
-        Exception exc;
         a aVar;
         a aVar2;
+        Exception e2;
         Class<?> a2;
         synchronized (u.class) {
             bb.c().a("getBPStretegyController begin");
-            a aVar3 = f2681a;
-            if (aVar3 == null) {
+            aVar = f9258a;
+            if (aVar == null) {
                 try {
                     a2 = x.a(context, "com.baidu.bottom.remote.BPStretegyController2");
-                } catch (Exception e) {
-                    exc = e;
-                    aVar = aVar3;
+                } catch (Exception e3) {
+                    aVar2 = aVar;
+                    e2 = e3;
                 }
                 if (a2 != null) {
                     aVar2 = new w(a2.newInstance());
                     try {
                         bb.c().a("Get BPStretegyController load remote class v2");
-                    } catch (Exception e2) {
-                        exc = e2;
+                    } catch (Exception e4) {
+                        e2 = e4;
+                        bb.c().a(e2);
                         aVar = aVar2;
-                        bb.c().a(exc);
-                        aVar2 = aVar;
-                        if (aVar2 == null) {
+                        if (aVar == null) {
                         }
-                        f2681a = aVar2;
-                        x.a(context, aVar2);
+                        f9258a = aVar;
+                        x.a(context, aVar);
                         bb.c().a("getBPStretegyController end");
-                        return aVar2;
+                        return aVar;
                     }
-                    if (aVar2 == null) {
-                        aVar2 = new v();
-                        bb.c().a("Get BPStretegyController load local class");
-                    }
-                    f2681a = aVar2;
-                    x.a(context, aVar2);
-                    bb.c().a("getBPStretegyController end");
+                    aVar = aVar2;
                 }
             }
-            aVar2 = aVar3;
-            if (aVar2 == null) {
+            if (aVar == null) {
+                aVar = new v();
+                bb.c().a("Get BPStretegyController load local class");
             }
-            f2681a = aVar2;
-            x.a(context, aVar2);
+            f9258a = aVar;
+            x.a(context, aVar);
             bb.c().a("getBPStretegyController end");
         }
-        return aVar2;
+        return aVar;
     }
 
     public static synchronized void a() {
         synchronized (u.class) {
-            f2681a = null;
+            f9258a = null;
         }
     }
 }

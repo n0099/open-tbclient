@@ -5,23 +5,32 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.PaintFlagsDrawFilter;
 import android.widget.TextView;
-/* loaded from: classes4.dex */
-class ag extends TextView {
+/* loaded from: classes2.dex */
+public class ag extends TextView {
 
     /* renamed from: a  reason: collision with root package name */
-    private Paint f2574a;
-    private PaintFlagsDrawFilter b;
+    public Paint f8889a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public PaintFlagsDrawFilter f8890b;
 
     public ag(Context context) {
         super(context);
-        this.f2574a = new Paint();
-        this.b = new PaintFlagsDrawFilter(0, 3);
-        this.f2574a.setColor(-1);
-        this.f2574a.setAntiAlias(true);
+        this.f8889a = new Paint();
+        this.f8890b = new PaintFlagsDrawFilter(0, 3);
+        this.f8889a.setColor(-1);
+        this.f8889a.setAntiAlias(true);
+    }
+
+    @Override // android.view.View
+    public void draw(Canvas canvas) {
+        canvas.setDrawFilter(this.f8890b);
+        canvas.drawCircle(getWidth() / 2, getHeight() / 2, Math.max(getWidth(), getHeight()) / 2, this.f8889a);
+        super.draw(canvas);
     }
 
     @Override // android.widget.TextView, android.view.View
-    protected void onMeasure(int i, int i2) {
+    public void onMeasure(int i, int i2) {
         super.onMeasure(i, i2);
         int max = Math.max(getMeasuredWidth(), getMeasuredHeight());
         setMeasuredDimension(max, max);
@@ -29,13 +38,6 @@ class ag extends TextView {
 
     @Override // android.view.View
     public void setBackgroundColor(int i) {
-        this.f2574a.setColor(i);
-    }
-
-    @Override // android.view.View
-    public void draw(Canvas canvas) {
-        canvas.setDrawFilter(this.b);
-        canvas.drawCircle(getWidth() / 2, getHeight() / 2, Math.max(getWidth(), getHeight()) / 2, this.f2574a);
-        super.draw(canvas);
+        this.f8889a.setColor(i);
     }
 }

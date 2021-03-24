@@ -6,27 +6,33 @@ import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcel;
 import com.baidu.helios.bridge.multiprocess.f;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public interface e extends IInterface {
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes2.dex */
     public static abstract class a extends Binder implements e {
 
         /* renamed from: a  reason: collision with root package name */
-        private static final String f1832a = "com.baidu.helios.bridge.multiprocess.IMultiProcessBridge";
-        static final int b = 1;
-        static final int c = 2;
-        static final int d = 3;
+        public static final String f6198a = "com.baidu.helios.bridge.multiprocess.IMultiProcessBridge";
+
+        /* renamed from: b  reason: collision with root package name */
+        public static final int f6199b = 1;
+
+        /* renamed from: c  reason: collision with root package name */
+        public static final int f6200c = 2;
+
+        /* renamed from: d  reason: collision with root package name */
+        public static final int f6201d = 3;
 
         /* renamed from: com.baidu.helios.bridge.multiprocess.e$a$a  reason: collision with other inner class name */
-        /* loaded from: classes5.dex */
-        private static class C0132a implements e {
+        /* loaded from: classes2.dex */
+        public static class C0085a implements e {
 
             /* renamed from: a  reason: collision with root package name */
-            private IBinder f1833a;
+            public IBinder f6202a;
 
-            C0132a(IBinder iBinder) {
-                this.f1833a = iBinder;
+            public C0085a(IBinder iBinder) {
+                this.f6202a = iBinder;
             }
 
             @Override // com.baidu.helios.bridge.multiprocess.e
@@ -34,7 +40,7 @@ public interface e extends IInterface {
                 Parcel obtain = Parcel.obtain();
                 Parcel obtain2 = Parcel.obtain();
                 try {
-                    obtain.writeInterfaceToken(a.f1832a);
+                    obtain.writeInterfaceToken(a.f6198a);
                     obtain.writeString(str);
                     if (bundle != null) {
                         obtain.writeInt(1);
@@ -42,7 +48,7 @@ public interface e extends IInterface {
                     } else {
                         obtain.writeInt(0);
                     }
-                    this.f1833a.transact(1, obtain, obtain2, 0);
+                    this.f6202a.transact(1, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readInt() != 0 ? (Bundle) Bundle.CREATOR.createFromParcel(obtain2) : null;
                 } finally {
@@ -52,7 +58,7 @@ public interface e extends IInterface {
             }
 
             public String a() {
-                return a.f1832a;
+                return a.f6198a;
             }
 
             @Override // com.baidu.helios.bridge.multiprocess.e
@@ -60,7 +66,7 @@ public interface e extends IInterface {
                 Parcel obtain = Parcel.obtain();
                 Parcel obtain2 = Parcel.obtain();
                 try {
-                    obtain.writeInterfaceToken(a.f1832a);
+                    obtain.writeInterfaceToken(a.f6198a);
                     obtain.writeString(str);
                     if (bundle != null) {
                         obtain.writeInt(1);
@@ -69,7 +75,7 @@ public interface e extends IInterface {
                         obtain.writeInt(0);
                     }
                     obtain.writeStrongBinder(fVar != null ? fVar.asBinder() : null);
-                    this.f1833a.transact(2, obtain, obtain2, 0);
+                    this.f6202a.transact(2, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();
@@ -82,9 +88,9 @@ public interface e extends IInterface {
                 Parcel obtain = Parcel.obtain();
                 Parcel obtain2 = Parcel.obtain();
                 try {
-                    obtain.writeInterfaceToken(a.f1832a);
+                    obtain.writeInterfaceToken(a.f6198a);
                     obtain.writeString(str);
-                    this.f1833a.transact(3, obtain, obtain2, 0);
+                    this.f6202a.transact(3, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readInt() != 0;
                 } finally {
@@ -95,20 +101,20 @@ public interface e extends IInterface {
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f1833a;
+                return this.f6202a;
             }
         }
 
         public a() {
-            attachInterface(this, f1832a);
+            attachInterface(this, f6198a);
         }
 
         public static e a(IBinder iBinder) {
             if (iBinder == null) {
                 return null;
             }
-            IInterface queryLocalInterface = iBinder.queryLocalInterface(f1832a);
-            return (queryLocalInterface == null || !(queryLocalInterface instanceof e)) ? new C0132a(iBinder) : (e) queryLocalInterface;
+            IInterface queryLocalInterface = iBinder.queryLocalInterface(f6198a);
+            return (queryLocalInterface == null || !(queryLocalInterface instanceof e)) ? new C0085a(iBinder) : (e) queryLocalInterface;
         }
 
         @Override // android.os.IInterface
@@ -118,34 +124,34 @@ public interface e extends IInterface {
 
         @Override // android.os.Binder
         public boolean onTransact(int i, Parcel parcel, Parcel parcel2, int i2) {
-            switch (i) {
-                case 1:
-                    parcel.enforceInterface(f1832a);
-                    Bundle a2 = a(parcel.readString(), parcel.readInt() != 0 ? (Bundle) Bundle.CREATOR.createFromParcel(parcel) : null);
-                    parcel2.writeNoException();
-                    if (a2 == null) {
-                        parcel2.writeInt(0);
-                        return true;
-                    }
+            if (i == 1) {
+                parcel.enforceInterface(f6198a);
+                Bundle a2 = a(parcel.readString(), parcel.readInt() != 0 ? (Bundle) Bundle.CREATOR.createFromParcel(parcel) : null);
+                parcel2.writeNoException();
+                if (a2 != null) {
                     parcel2.writeInt(1);
                     a2.writeToParcel(parcel2, 1);
-                    return true;
-                case 2:
-                    parcel.enforceInterface(f1832a);
-                    a(parcel.readString(), parcel.readInt() != 0 ? (Bundle) Bundle.CREATOR.createFromParcel(parcel) : null, f.a.a(parcel.readStrongBinder()));
-                    parcel2.writeNoException();
-                    return true;
-                case 3:
-                    parcel.enforceInterface(f1832a);
-                    boolean a3 = a(parcel.readString());
-                    parcel2.writeNoException();
-                    parcel2.writeInt(a3 ? 1 : 0);
-                    return true;
-                case 1598968902:
-                    parcel2.writeString(f1832a);
-                    return true;
-                default:
+                } else {
+                    parcel2.writeInt(0);
+                }
+                return true;
+            } else if (i == 2) {
+                parcel.enforceInterface(f6198a);
+                a(parcel.readString(), parcel.readInt() != 0 ? (Bundle) Bundle.CREATOR.createFromParcel(parcel) : null, f.a.a(parcel.readStrongBinder()));
+                parcel2.writeNoException();
+                return true;
+            } else if (i != 3) {
+                if (i != 1598968902) {
                     return super.onTransact(i, parcel, parcel2, i2);
+                }
+                parcel2.writeString(f6198a);
+                return true;
+            } else {
+                parcel.enforceInterface(f6198a);
+                boolean a3 = a(parcel.readString());
+                parcel2.writeNoException();
+                parcel2.writeInt(a3 ? 1 : 0);
+                return true;
             }
         }
     }

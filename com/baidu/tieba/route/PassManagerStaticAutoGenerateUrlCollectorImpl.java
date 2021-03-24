@@ -1,23 +1,13 @@
 package com.baidu.tieba.route;
 
-import com.baidu.adp.framework.a.d;
-import com.baidu.live.tbadk.core.util.UrlSchemaHelper;
+import com.baidu.adp.framework.cmdRouter.ICmdRouter;
+import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes7.dex */
-public final class PassManagerStaticAutoGenerateUrlCollectorImpl implements d {
-    @Override // com.baidu.adp.framework.a.d
-    public Map<String, ArrayList<String>> getConfigRouterMap() {
-        HashMap hashMap = new HashMap();
-        ArrayList arrayList = new ArrayList();
-        arrayList.add("LoginActivityConfig");
-        arrayList.add(UrlSchemaHelper.GOTO_LOGIN);
-        hashMap.put("com.baidu.tieba.passaccount.framework.PassManagerStatic", arrayList);
-        return hashMap;
-    }
-
-    @Override // com.baidu.adp.framework.a.d
+/* loaded from: classes5.dex */
+public final class PassManagerStaticAutoGenerateUrlCollectorImpl implements ICmdRouter {
+    @Override // com.baidu.adp.framework.cmdRouter.ICmdRouter
     public Map<String, String> getCmdRouterMap() {
         HashMap hashMap = new HashMap();
         new ArrayList();
@@ -34,6 +24,16 @@ public final class PassManagerStaticAutoGenerateUrlCollectorImpl implements d {
         hashMap.put("2921339", "com.baidu.tieba.passaccount.framework.PassManagerStatic");
         hashMap.put("2921352", "com.baidu.tieba.passaccount.framework.PassManagerStatic");
         hashMap.put("3001000", "com.baidu.tieba.passaccount.framework.PassManagerStatic");
+        return hashMap;
+    }
+
+    @Override // com.baidu.adp.framework.cmdRouter.ICmdRouter
+    public Map<String, ArrayList<String>> getConfigRouterMap() {
+        HashMap hashMap = new HashMap();
+        ArrayList arrayList = new ArrayList();
+        arrayList.add("LoginActivityConfig");
+        arrayList.add(UrlSchemaHelper.GOTO_LOGIN);
+        hashMap.put("com.baidu.tieba.passaccount.framework.PassManagerStatic", arrayList);
         return hashMap;
     }
 }

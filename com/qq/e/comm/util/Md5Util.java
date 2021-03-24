@@ -1,17 +1,15 @@
 package com.qq.e.comm.util;
 
 import android.util.Base64;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.minivideo.plugin.capture.utils.EncryptUtils;
-import com.baidu.pass.biometrics.face.liveness.d.b;
+import com.baidu.wallet.home.datamodel.HomeCfgResponse;
 import java.io.File;
 import java.io.FileInputStream;
 import java.security.MessageDigest;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class Md5Util {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String[] f7595a = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", b.f2804a, "c", "d", "e", "f"};
+    public static final String[] f38393a = {"0", "1", "2", "3", "4", "5", "6", "7", "8", HomeCfgResponse.ConfigData.GROUP_LAYOUT_TYPE9, "a", "b", "c", "d", "e", "f"};
 
     public static String byteArrayToHexString(byte[] bArr) {
         StringBuffer stringBuffer = new StringBuffer();
@@ -19,83 +17,79 @@ public class Md5Util {
             if (i < 0) {
                 i += 256;
             }
-            stringBuffer.append(f7595a[i / 16] + f7595a[i % 16]);
+            stringBuffer.append(f38393a[i / 16] + f38393a[i % 16]);
         }
         return stringBuffer.toString();
     }
 
     public static String encode(File file) {
-        Throwable th;
-        FileInputStream fileInputStream;
-        MessageDigest messageDigest;
-        FileInputStream fileInputStream2;
         if (file == null) {
             return "";
         }
-        FileInputStream fileInputStream3 = null;
+        FileInputStream fileInputStream = null;
         try {
-            messageDigest = MessageDigest.getInstance(EncryptUtils.ENCRYPT_MD5);
-            fileInputStream2 = new FileInputStream(file);
-        } catch (Exception e) {
-        } catch (Throwable th2) {
-            th = th2;
-            fileInputStream = null;
-        }
-        try {
-            byte[] bArr = new byte[1024];
-            while (true) {
-                int read = fileInputStream2.read(bArr);
-                if (read <= 0) {
-                    String byteArrayToHexString = byteArrayToHexString(messageDigest.digest());
+            MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+            FileInputStream fileInputStream2 = new FileInputStream(file);
+            try {
+                byte[] bArr = new byte[1024];
+                while (true) {
+                    int read = fileInputStream2.read(bArr);
+                    if (read <= 0) {
+                        break;
+                    }
+                    messageDigest.update(bArr, 0, read);
+                }
+                String byteArrayToHexString = byteArrayToHexString(messageDigest.digest());
+                try {
+                    fileInputStream2.close();
+                } catch (Exception unused) {
+                }
+                return byteArrayToHexString;
+            } catch (Exception unused2) {
+                fileInputStream = fileInputStream2;
+                if (fileInputStream != null) {
                     try {
-                        fileInputStream2.close();
-                        return byteArrayToHexString;
-                    } catch (Exception e2) {
-                        return byteArrayToHexString;
+                        fileInputStream.close();
+                    } catch (Exception unused3) {
                     }
                 }
-                messageDigest.update(bArr, 0, read);
-            }
-        } catch (Exception e3) {
-            fileInputStream3 = fileInputStream2;
-            if (fileInputStream3 != null) {
-                try {
-                    fileInputStream3.close();
-                } catch (Exception e4) {
+                return "";
+            } catch (Throwable th) {
+                th = th;
+                fileInputStream = fileInputStream2;
+                if (fileInputStream != null) {
+                    try {
+                        fileInputStream.close();
+                    } catch (Exception unused4) {
+                    }
                 }
+                throw th;
             }
-            return "";
-        } catch (Throwable th3) {
-            th = th3;
-            fileInputStream = fileInputStream2;
-            if (fileInputStream != null) {
-                try {
-                    fileInputStream.close();
-                } catch (Exception e5) {
-                }
-            }
-            throw th;
+        } catch (Exception unused5) {
+        } catch (Throwable th2) {
+            th = th2;
         }
     }
 
     public static String encode(String str) {
+        String str2;
         try {
-            String str2 = new String(str);
+            str2 = new String(str);
             try {
-                return byteArrayToHexString(MessageDigest.getInstance(EncryptUtils.ENCRYPT_MD5).digest(str2.getBytes("UTF-8")));
-            } catch (Exception e) {
+                return byteArrayToHexString(MessageDigest.getInstance("MD5").digest(str2.getBytes("UTF-8")));
+            } catch (Exception unused) {
                 return str2;
             }
-        } catch (Exception e2) {
-            return null;
+        } catch (Exception unused2) {
+            str2 = null;
         }
     }
 
     public static String encodeBase64String(String str) {
         try {
-            return byteArrayToHexString(MessageDigest.getInstance(EncryptUtils.ENCRYPT_MD5).digest(Base64.decode(str, 0)));
-        } catch (Exception e) {
-            GDTLogger.e("Exception while md5 base64String", e);
+            return byteArrayToHexString(MessageDigest.getInstance("MD5").digest(Base64.decode(str, 0)));
+        } catch (Exception e2) {
+            GDTLogger.e("Exception while md5 base64String", e2);
             return null;
         }
     }
@@ -110,12 +104,11 @@ public class Md5Util {
             char charAt2 = str.charAt(i + 1);
             char lowerCase = Character.toLowerCase(charAt);
             char lowerCase2 = Character.toLowerCase(charAt2);
-            int i2 = (lowerCase <= '9' ? lowerCase - '0' : (lowerCase - 'a') + 10) << 4;
-            int i3 = lowerCase2 <= '9' ? i2 + (lowerCase2 - '0') : i2 + (lowerCase2 - 'a') + 10;
-            if (i3 > 127) {
-                i3 += InputDeviceCompat.SOURCE_ANY;
+            int i2 = ((lowerCase <= '9' ? lowerCase - '0' : (lowerCase - 'a') + 10) << 4) + (lowerCase2 <= '9' ? lowerCase2 - '0' : (lowerCase2 - 'a') + 10);
+            if (i2 > 127) {
+                i2 -= 256;
             }
-            bArr[i / 2] = (byte) i3;
+            bArr[i / 2] = (byte) i2;
         }
         return bArr;
     }

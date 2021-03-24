@@ -1,12 +1,14 @@
 package a.a.a.a.r.a.c;
 
 import com.bytedance.sdk.openadsdk.TTNativeExpressAd;
-/* loaded from: classes4.dex */
+/* loaded from: classes.dex */
 public class h implements TTNativeExpressAd.ExpressVideoAdListener {
-    public final /* synthetic */ f Aj;
+
+    /* renamed from: a  reason: collision with root package name */
+    public final /* synthetic */ f f1121a;
 
     public h(f fVar) {
-        this.Aj = fVar;
+        this.f1121a = fVar;
     }
 
     @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressVideoAdListener
@@ -22,31 +24,31 @@ public class h implements TTNativeExpressAd.ExpressVideoAdListener {
     @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressVideoAdListener
     public void onVideoAdComplete() {
         a.a.a.a.v.d.a();
-        this.Aj.zk.i();
+        this.f1121a.f1010g.i();
     }
 
     @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressVideoAdListener
     public void onVideoAdContinuePlay() {
         a.a.a.a.v.d.a();
-        this.Aj.zk.l();
+        this.f1121a.f1010g.l();
     }
 
     @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressVideoAdListener
     public void onVideoAdPaused() {
         a.a.a.a.v.d.a();
-        this.Aj.zk.k();
+        this.f1121a.f1010g.k();
     }
 
     @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressVideoAdListener
     public void onVideoAdStartPlay() {
         a.a.a.a.v.d.a();
-        this.Aj.zk.n();
+        this.f1121a.f1010g.n();
     }
 
     @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressVideoAdListener
     public void onVideoError(int i, int i2) {
         a.a.a.a.v.d.b("onVideoError errorCode: " + i + ", extraCode: " + i2, new Object[0]);
-        this.Aj.zk.b(i);
+        this.f1121a.f1010g.b(i);
     }
 
     @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressVideoAdListener

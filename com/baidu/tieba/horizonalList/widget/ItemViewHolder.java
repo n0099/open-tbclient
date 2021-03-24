@@ -2,22 +2,24 @@ package com.baidu.tieba.horizonalList.widget;
 
 import android.view.View;
 import com.baidu.adp.widget.ListView.TypeAdapter;
-/* loaded from: classes.dex */
+import d.b.i0.a1.b.c;
+/* loaded from: classes4.dex */
 public abstract class ItemViewHolder extends TypeAdapter.ViewHolder {
-    public int kuv;
-    public View.OnClickListener onClickListener;
 
-    public abstract void a(c cVar);
-
-    public abstract ItemViewHolder cI(View view);
-
-    public abstract void onChangeSkinType(int i);
+    /* renamed from: a  reason: collision with root package name */
+    public View.OnClickListener f17525a;
 
     public ItemViewHolder(View view) {
         super(view);
     }
 
-    public void setOnClickListener(View.OnClickListener onClickListener) {
-        this.onClickListener = onClickListener;
+    public abstract void b(c cVar);
+
+    public abstract ItemViewHolder c(View view);
+
+    public abstract void d(int i);
+
+    public void e(View.OnClickListener onClickListener) {
+        this.f17525a = onClickListener;
     }
 }

@@ -6,14 +6,14 @@ import com.kwad.sdk.core.network.BaseResultData;
 import com.kwad.sdk.utils.o;
 import java.io.Serializable;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class PhotoShareInfo extends BaseResultData implements com.kwad.sdk.core.b, Serializable {
-    private static final long serialVersionUID = 1941263519515554943L;
+    public static final long serialVersionUID = 1941263519515554943L;
     public ShareUrlInfo data = new ShareUrlInfo();
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class ShareUrlInfo implements com.kwad.sdk.core.b, Serializable {
-        private static final long serialVersionUID = -7887599282226106153L;
+        public static final long serialVersionUID = -7887599282226106153L;
         public String shareUrl;
 
         public void parseJson(@Nullable JSONObject jSONObject) {
@@ -29,7 +29,8 @@ public class PhotoShareInfo extends BaseResultData implements com.kwad.sdk.core.
     }
 
     public String getShareUrl() {
-        return this.data != null ? this.data.shareUrl : "";
+        ShareUrlInfo shareUrlInfo = this.data;
+        return shareUrlInfo != null ? shareUrlInfo.shareUrl : "";
     }
 
     @Override // com.kwad.sdk.core.network.BaseResultData
@@ -45,8 +46,8 @@ public class PhotoShareInfo extends BaseResultData implements com.kwad.sdk.core.
         }
         try {
             this.data.parseJson(new JSONObject(d.b(jSONObject.optString("data"))));
-        } catch (Exception e) {
-            com.kwad.sdk.core.d.a.a(e);
+        } catch (Exception e2) {
+            com.kwad.sdk.core.d.a.a(e2);
         }
     }
 

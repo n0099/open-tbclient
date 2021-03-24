@@ -7,12 +7,16 @@ import com.vivo.push.util.g;
 import com.vivo.push.util.p;
 import com.vivo.push.util.z;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes14.dex */
+/* loaded from: classes7.dex */
 public final class a extends d<com.vivo.push.model.a> {
     public a(Context context) {
         super(context);
+    }
+
+    @Override // com.vivo.push.cache.d
+    public final String a() {
+        return "com.vivo.pushservice.back_up";
     }
 
     @Override // com.vivo.push.cache.d
@@ -22,60 +26,46 @@ public final class a extends d<com.vivo.push.model.a> {
         }
         ArrayList arrayList = new ArrayList();
         if (!TextUtils.isEmpty(str)) {
-            for (String str2 : str.trim().split("@#")) {
+            for (String str2 : str.trim().split(com.vivo.push.cache.impl.a.SPILTE_TAG)) {
                 String trim = str2.trim();
                 String[] split = trim.trim().split(",");
                 if (split.length >= 2) {
                     try {
                         arrayList.add(new com.vivo.push.model.a(split[0], trim.substring(split[0].length() + 1)));
-                    } catch (Exception e) {
-                        p.d("AppConfigSettings", "str2Clients E: " + e);
+                    } catch (Exception e2) {
+                        p.d("AppConfigSettings", "str2Clients E: " + e2);
                     }
                 }
             }
-            return arrayList;
         }
         return arrayList;
     }
 
     @Override // com.vivo.push.cache.d
-    final String b(String str) throws Exception {
-        return new String(g.a(g.a(f8048a), g.a(b), Base64.decode(str, 2)), "utf-8");
+    public final String b(String str) throws Exception {
+        return new String(g.a(g.a(d.f39457a), g.a(d.f39458b), Base64.decode(str, 2)), "utf-8");
     }
 
     public final com.vivo.push.model.a c(String str) {
-        com.vivo.push.model.a aVar;
-        synchronized (c) {
-            Iterator it = this.d.iterator();
-            while (true) {
-                if (!it.hasNext()) {
-                    aVar = null;
-                    break;
-                }
-                aVar = (com.vivo.push.model.a) it.next();
-                if (!TextUtils.isEmpty(aVar.a()) && aVar.a().equals(str)) {
-                    break;
+        synchronized (d.f39459c) {
+            for (T t : this.f39460d) {
+                if (!TextUtils.isEmpty(t.a()) && t.a().equals(str)) {
+                    return t;
                 }
             }
+            return null;
         }
-        return aVar;
-    }
-
-    @Override // com.vivo.push.cache.d
-    protected final String a() {
-        return "com.vivo.pushservice.back_up";
     }
 
     public final int b() {
-        com.vivo.push.model.a c = c("push_mode");
-        if (c == null || TextUtils.isEmpty(c.b())) {
-            return -1;
+        com.vivo.push.model.a c2 = c("push_mode");
+        if (c2 != null && !TextUtils.isEmpty(c2.b())) {
+            try {
+                return Integer.parseInt(c2.b());
+            } catch (Exception unused) {
+            }
         }
-        try {
-            return Integer.parseInt(c.b());
-        } catch (Exception e) {
-            return -1;
-        }
+        return -1;
     }
 
     public static boolean a(int i) {

@@ -1,12 +1,22 @@
 package com.heytap.mcssdk;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f5286a = false;
-    public static final String b = "com.heytap.mcssdk";
-    public static final String c = "release";
-    public static final String d = "";
-    public static final int e = 2002;
-    public static final String f = "2.0.2";
+    public static final boolean f31078a = false;
+
+    /* renamed from: b  reason: collision with root package name */
+    public static final String f31079b = "com.heytap.mcssdk";
+
+    /* renamed from: c  reason: collision with root package name */
+    public static final String f31080c = "release";
+
+    /* renamed from: d  reason: collision with root package name */
+    public static final String f31081d = "";
+
+    /* renamed from: e  reason: collision with root package name */
+    public static final int f31082e = 2002;
+
+    /* renamed from: f  reason: collision with root package name */
+    public static final String f31083f = "2.0.2";
 }

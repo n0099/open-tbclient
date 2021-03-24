@@ -1,24 +1,37 @@
 package com.tencent.open.a;
 
-import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.tencent.open.a.d;
 import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-/* loaded from: classes14.dex */
+/* loaded from: classes7.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private static SimpleDateFormat f7951a = d.C1260d.a("yy.MM.dd.HH");
-    private File g;
-    private String b = "Tracer.File";
-    private int c = Integer.MAX_VALUE;
-    private int d = Integer.MAX_VALUE;
-    private int e = 4096;
-    private long f = 10000;
-    private int h = 10;
-    private String i = BdStatsConstant.StatsFile.LOG_FILE_SUFFIX;
-    private long j = Long.MAX_VALUE;
+    public static SimpleDateFormat f39191a = d.C0516d.a("yy.MM.dd.HH");
+
+    /* renamed from: g  reason: collision with root package name */
+    public File f39197g;
+
+    /* renamed from: b  reason: collision with root package name */
+    public String f39192b = "Tracer.File";
+
+    /* renamed from: c  reason: collision with root package name */
+    public int f39193c = Integer.MAX_VALUE;
+
+    /* renamed from: d  reason: collision with root package name */
+    public int f39194d = Integer.MAX_VALUE;
+
+    /* renamed from: e  reason: collision with root package name */
+    public int f39195e = 4096;
+
+    /* renamed from: f  reason: collision with root package name */
+    public long f39196f = 10000;
+
+    /* renamed from: h  reason: collision with root package name */
+    public int f39198h = 10;
+    public String i = ".log";
+    public long j = Long.MAX_VALUE;
 
     public b(File file, int i, int i2, int i3, String str, long j, int i4, String str2, long j2) {
         a(file);
@@ -32,17 +45,13 @@ public class b {
         b(j2);
     }
 
-    public File a() {
-        return c(System.currentTimeMillis());
-    }
-
     private File c(long j) {
-        File b = b();
+        File b2 = b();
         try {
-            return new File(b, c(d(j)));
+            return new File(b2, c(d(j)));
         } catch (Throwable th) {
             th.printStackTrace();
-            return b;
+            return b2;
         }
     }
 
@@ -52,65 +61,69 @@ public class b {
         return new SimpleDateFormat("yy.MM.dd.HH").format(calendar.getTime());
     }
 
-    private String c(String str) {
-        return "com.tencent.mobileqq_connectSdk." + str + BdStatsConstant.StatsFile.LOG_FILE_SUFFIX;
+    public File a() {
+        return c(System.currentTimeMillis());
     }
 
     public File b() {
-        File e = e();
-        e.mkdirs();
-        return e;
-    }
-
-    public String c() {
-        return this.b;
-    }
-
-    public void a(String str) {
-        this.b = str;
-    }
-
-    public void a(int i) {
-        this.c = i;
-    }
-
-    public void b(int i) {
-        this.d = i;
-    }
-
-    public int d() {
-        return this.e;
-    }
-
-    public void c(int i) {
-        this.e = i;
-    }
-
-    public void a(long j) {
-        this.f = j;
+        File e2 = e();
+        e2.mkdirs();
+        return e2;
     }
 
     public File e() {
-        return this.g;
-    }
-
-    public void a(File file) {
-        this.g = file;
+        return this.f39197g;
     }
 
     public int f() {
-        return this.h;
+        return this.f39198h;
     }
 
-    public void d(int i) {
-        this.h = i;
+    public void a(String str) {
+        this.f39192b = str;
+    }
+
+    public void a(int i) {
+        this.f39193c = i;
+    }
+
+    public void b(int i) {
+        this.f39194d = i;
+    }
+
+    public void a(long j) {
+        this.f39196f = j;
     }
 
     public void b(String str) {
         this.i = str;
     }
 
+    private String c(String str) {
+        return "com.tencent.mobileqq_connectSdk." + str + ".log";
+    }
+
+    public void a(File file) {
+        this.f39197g = file;
+    }
+
     public void b(long j) {
         this.j = j;
+    }
+
+    public int d() {
+        return this.f39195e;
+    }
+
+    public String c() {
+        return this.f39192b;
+    }
+
+    public void d(int i) {
+        this.f39198h = i;
+    }
+
+    public void c(int i) {
+        this.f39195e = i;
     }
 }

@@ -1,34 +1,43 @@
 package com.baidu.android.pushservice.message.a;
 
 import android.content.Context;
-import com.baidu.android.pushservice.i.m;
-/* loaded from: classes5.dex */
-public class i {
-
-    /* renamed from: a  reason: collision with root package name */
-    private Context f1242a;
-
+import android.text.TextUtils;
+import com.baidu.android.pushservice.j.m;
+import com.baidu.android.pushservice.message.PublicMsg;
+/* loaded from: classes2.dex */
+public class i extends d {
     public i(Context context) {
-        this.f1242a = context;
+        super(context);
     }
 
-    public b a(j jVar) {
-        switch (jVar) {
-            case MSG_TYPE_SINGLE_PRIVATE:
-            case MSG_TYPE_MULTI_PRIVATE:
-                return new e(this.f1242a);
-            case MSG_TYPE_PRIVATE_MESSAGE:
-                return new f(this.f1242a);
-            case MSG_TYPE_SINGLE_PUBLIC:
-            case MSG_TYPE_MULTI_PUBLIC:
-                return new g(this.f1242a);
-            case MSG_TYPE_MULTI_PRIVATE_NOTIFICATION:
-                return new c(this.f1242a);
-            case MSG_TYPE_CROSS_PUSH:
-                return new a(this.f1242a);
-            default:
-                m.a(">>> Unknown msg_type : " + jVar, this.f1242a);
-                return null;
+    @Override // com.baidu.android.pushservice.message.a.d
+    public com.baidu.android.pushservice.message.g a(com.baidu.android.pushservice.message.k kVar, byte[] bArr) {
+        int i;
+        String c2 = kVar.c();
+        String f2 = kVar.f();
+        int a2 = kVar.a();
+        PublicMsg a3 = j.a(this.f3432a, f2, c2, bArr);
+        if (a3 == null || TextUtils.isEmpty(a3.mTitle) || TextUtils.isEmpty(a3.mDescription) || TextUtils.isEmpty(a3.mUrl)) {
+            m.a(">>> pMsg JSON parsing error!", this.f3432a);
+            i = 2;
+        } else {
+            if (f.a(this.f3432a, a3)) {
+                Context context = this.f3432a;
+                if (m.d(context, context.getPackageName())) {
+                    m.a(">>> Show pMsg Notification!", this.f3432a);
+                    f.a(this.f3432a, a3, f2, a2);
+                    i = 1;
+                }
+            }
+            StringBuilder sb = new StringBuilder();
+            sb.append(">>> Don't Show pMsg Notification! --- IsBaiduApp = ");
+            Context context2 = this.f3432a;
+            sb.append(m.d(context2, context2.getPackageName()));
+            m.a(sb.toString(), this.f3432a);
+            i = 0;
         }
+        com.baidu.android.pushservice.message.g gVar = new com.baidu.android.pushservice.message.g();
+        gVar.a(i);
+        return gVar;
     }
 }

@@ -10,13 +10,13 @@ import com.bumptech.glide.load.engine.cache.MemoryCache;
 import com.bumptech.glide.load.engine.prefill.PreFillType;
 import com.bumptech.glide.util.Util;
 import java.util.HashMap;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public final class BitmapPreFiller {
-    private final BitmapPool bitmapPool;
-    private BitmapPreFillRunner current;
-    private final DecodeFormat defaultFormat;
-    private final Handler handler = new Handler(Looper.getMainLooper());
-    private final MemoryCache memoryCache;
+    public final BitmapPool bitmapPool;
+    public BitmapPreFillRunner current;
+    public final DecodeFormat defaultFormat;
+    public final Handler handler = new Handler(Looper.getMainLooper());
+    public final MemoryCache memoryCache;
 
     public BitmapPreFiller(MemoryCache memoryCache, BitmapPool bitmapPool, DecodeFormat decodeFormat) {
         this.memoryCache = memoryCache;
@@ -24,10 +24,30 @@ public final class BitmapPreFiller {
         this.defaultFormat = decodeFormat;
     }
 
+    public static int getSizeInBytes(PreFillType preFillType) {
+        return Util.getBitmapByteSize(preFillType.getWidth(), preFillType.getHeight(), preFillType.getConfig());
+    }
+
+    @VisibleForTesting
+    public PreFillQueue generateAllocationOrder(PreFillType... preFillTypeArr) {
+        long maxSize = (this.memoryCache.getMaxSize() - this.memoryCache.getCurrentSize()) + this.bitmapPool.getMaxSize();
+        int i = 0;
+        for (PreFillType preFillType : preFillTypeArr) {
+            i += preFillType.getWeight();
+        }
+        float f2 = ((float) maxSize) / i;
+        HashMap hashMap = new HashMap();
+        for (PreFillType preFillType2 : preFillTypeArr) {
+            hashMap.put(preFillType2, Integer.valueOf(Math.round(preFillType2.getWeight() * f2) / getSizeInBytes(preFillType2)));
+        }
+        return new PreFillQueue(hashMap);
+    }
+
     public void preFill(PreFillType.Builder... builderArr) {
         Bitmap.Config config;
-        if (this.current != null) {
-            this.current.cancel();
+        BitmapPreFillRunner bitmapPreFillRunner = this.current;
+        if (bitmapPreFillRunner != null) {
+            bitmapPreFillRunner.cancel();
         }
         PreFillType[] preFillTypeArr = new PreFillType[builderArr.length];
         for (int i = 0; i < builderArr.length; i++) {
@@ -42,26 +62,8 @@ public final class BitmapPreFiller {
             }
             preFillTypeArr[i] = builder.build();
         }
-        this.current = new BitmapPreFillRunner(this.bitmapPool, this.memoryCache, generateAllocationOrder(preFillTypeArr));
-        this.handler.post(this.current);
-    }
-
-    @VisibleForTesting
-    PreFillQueue generateAllocationOrder(PreFillType... preFillTypeArr) {
-        long maxSize = this.bitmapPool.getMaxSize() + (this.memoryCache.getMaxSize() - this.memoryCache.getCurrentSize());
-        int i = 0;
-        for (PreFillType preFillType : preFillTypeArr) {
-            i += preFillType.getWeight();
-        }
-        float f = ((float) maxSize) / i;
-        HashMap hashMap = new HashMap();
-        for (PreFillType preFillType2 : preFillTypeArr) {
-            hashMap.put(preFillType2, Integer.valueOf(Math.round(preFillType2.getWeight() * f) / getSizeInBytes(preFillType2)));
-        }
-        return new PreFillQueue(hashMap);
-    }
-
-    private static int getSizeInBytes(PreFillType preFillType) {
-        return Util.getBitmapByteSize(preFillType.getWidth(), preFillType.getHeight(), preFillType.getConfig());
+        BitmapPreFillRunner bitmapPreFillRunner2 = new BitmapPreFillRunner(this.bitmapPool, this.memoryCache, generateAllocationOrder(preFillTypeArr));
+        this.current = bitmapPreFillRunner2;
+        this.handler.post(bitmapPreFillRunner2);
     }
 }

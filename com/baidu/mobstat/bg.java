@@ -5,158 +5,158 @@ import android.os.Build;
 import android.text.TextUtils;
 import android.util.Pair;
 import com.baidu.mobstat.bt;
-import com.baidu.webkit.internal.ETAG;
+import com.baidu.swan.gamecenter.appmanager.install.InstallAntiBlockingActivity;
 import com.heytap.mcssdk.mode.CommandMessage;
+import com.tencent.connect.common.Constants;
 import java.io.FileOutputStream;
 import java.net.HttpURLConnection;
 import java.net.URLEncoder;
 import java.util.ArrayList;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class bg {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile boolean f2633a;
-    private static volatile boolean b;
-    private static volatile boolean c;
+    public static volatile boolean f9088a;
 
-    private static boolean a(int i) {
-        switch (i) {
-            case 0:
-                return f2633a;
-            case 1:
-                return b;
-            case 2:
-                return c;
-            default:
-                return false;
+    /* renamed from: b  reason: collision with root package name */
+    public static volatile boolean f9089b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public static volatile boolean f9090c;
+
+    public static String a() {
+        return "https://dxp.baidu.com/vizParser";
+    }
+
+    public static boolean a(int i) {
+        if (i != 0) {
+            if (i != 1) {
+                if (i != 2) {
+                    return false;
+                }
+                return f9090c;
+            }
+            return f9089b;
+        }
+        return f9088a;
+    }
+
+    public static String b(int i) {
+        return i != 0 ? i != 1 ? i != 2 ? "" : "mtj_auto.config" : "mtj_autoTracker.js" : "mtj_vizParser.js";
+    }
+
+    public static void a(int i, boolean z) {
+        if (i == 0) {
+            f9088a = z;
+        } else if (i == 1) {
+            f9089b = z;
+        } else if (i != 2) {
+        } else {
+            f9090c = z;
         }
     }
 
-    private static void a(int i, boolean z) {
-        switch (i) {
-            case 0:
-                f2633a = z;
-                return;
-            case 1:
-                b = z;
-                return;
-            case 2:
-                c = z;
-                return;
-            default:
-                return;
-        }
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:54:0x0138 A[Catch: all -> 0x011e, TRY_ENTER, TRY_LEAVE, TryCatch #5 {, blocks: (B:4:0x0005, B:10:0x0011, B:13:0x001d, B:16:0x0029, B:17:0x0044, B:19:0x004e, B:20:0x0069, B:54:0x0138, B:44:0x0119, B:24:0x0076, B:27:0x0081, B:28:0x0090, B:31:0x00a4, B:32:0x00ca, B:34:0x00d4, B:37:0x00fe, B:39:0x0103, B:40:0x0110, B:42:0x0114, B:49:0x0121, B:56:0x013d), top: B:77:0x0005 }] */
+    /* JADX WARN: Code restructure failed: missing block: B:56:0x0128, code lost:
+        if (r4 != null) goto L57;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:57:0x012a, code lost:
+        r4.disconnect();
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:63:0x0136, code lost:
+        if (r4 != null) goto L57;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:66:0x013a, code lost:
+        return r2;
+     */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public static synchronized boolean a(Context context, String str, int i, boolean z) {
-        boolean z2 = true;
         synchronized (bg.class) {
-            if (!a(i)) {
-                if (context == null) {
-                    z2 = false;
-                } else {
-                    String a2 = a(context, str, i);
-                    if (TextUtils.isEmpty(a2)) {
-                        z2 = false;
-                    } else {
-                        if (bd.c().b() && z) {
-                            bd.c().a("requestUrl:" + a2);
-                        }
-                        if (bh.c().b()) {
-                            bh.c().a("requestUrl:" + a2);
-                        }
-                        String b2 = b(i);
-                        if (TextUtils.isEmpty(b2)) {
-                            z2 = false;
-                        } else {
-                            HttpURLConnection httpURLConnection = null;
-                            try {
-                                httpURLConnection = bo.d(context, a2);
-                                httpURLConnection.connect();
-                                long j = 0;
-                                if (i == 1) {
-                                    try {
-                                        j = Long.valueOf(httpURLConnection.getHeaderField("X-INTERVAL")).longValue();
-                                    } catch (Exception e) {
-                                    }
-                                }
-                                int responseCode = httpURLConnection.getResponseCode();
-                                int contentLength = httpURLConnection.getContentLength();
-                                if (bd.c().b() && z) {
-                                    bd.c().a("contentLength:" + contentLength + " fileName:" + b2);
-                                }
-                                if (bh.c().b()) {
-                                    bh.c().a("contentLength:" + contentLength + " fileName:" + b2);
-                                }
-                                if (responseCode == 200) {
-                                    switch (i) {
-                                        case 1:
-                                            bq.a().a(context, System.currentTimeMillis());
-                                            bq.a().b(context, j);
-                                            break;
-                                        case 2:
-                                            bq.a().c(context, System.currentTimeMillis());
-                                            break;
-                                    }
-                                    if (contentLength > 0) {
-                                        FileOutputStream openFileOutput = context.openFileOutput(b2, 0);
-                                        boolean a3 = bu.a(httpURLConnection.getInputStream(), openFileOutput);
-                                        try {
-                                            bu.a(openFileOutput);
-                                        } catch (Exception e2) {
-                                            z2 = a3;
-                                            if (httpURLConnection != null) {
-                                                httpURLConnection.disconnect();
-                                            }
-                                            return z2;
-                                        }
-                                    }
-                                    try {
-                                        a(i, true);
-                                    } catch (Exception e3) {
-                                        if (httpURLConnection != null) {
-                                        }
-                                        return z2;
-                                    }
-                                } else {
-                                    z2 = false;
-                                }
-                                if (httpURLConnection != null) {
-                                    httpURLConnection.disconnect();
-                                }
-                            } catch (Exception e4) {
-                                z2 = false;
-                            }
-                        }
+            boolean z2 = true;
+            if (a(i)) {
+                return true;
+            }
+            if (context == null) {
+                return false;
+            }
+            String a2 = a(context, str, i);
+            if (TextUtils.isEmpty(a2)) {
+                return false;
+            }
+            if (bd.c().b() && z) {
+                bd c2 = bd.c();
+                c2.a("requestUrl:" + a2);
+            }
+            if (bh.c().b()) {
+                bh c3 = bh.c();
+                c3.a("requestUrl:" + a2);
+            }
+            String b2 = b(i);
+            if (TextUtils.isEmpty(b2)) {
+                return false;
+            }
+            HttpURLConnection httpURLConnection = null;
+            try {
+                httpURLConnection = bo.d(context, a2);
+                httpURLConnection.connect();
+                long j = 0;
+                if (i == 1) {
+                    try {
+                        j = Long.valueOf(httpURLConnection.getHeaderField("X-INTERVAL")).longValue();
+                    } catch (Exception unused) {
                     }
                 }
+                int responseCode = httpURLConnection.getResponseCode();
+                int contentLength = httpURLConnection.getContentLength();
+                if (bd.c().b() && z) {
+                    bd c4 = bd.c();
+                    c4.a("contentLength:" + contentLength + " fileName:" + b2);
+                }
+                if (bh.c().b()) {
+                    bh c5 = bh.c();
+                    c5.a("contentLength:" + contentLength + " fileName:" + b2);
+                }
+                if (responseCode == 200) {
+                    if (i == 1) {
+                        bq.a().a(context, System.currentTimeMillis());
+                        bq.a().b(context, j);
+                    } else if (i == 2) {
+                        bq.a().c(context, System.currentTimeMillis());
+                    }
+                    if (contentLength > 0) {
+                        FileOutputStream openFileOutput = context.openFileOutput(b2, 0);
+                        boolean a3 = bu.a(httpURLConnection.getInputStream(), openFileOutput);
+                        try {
+                            bu.a(openFileOutput);
+                        } catch (Exception unused2) {
+                            z2 = a3;
+                        }
+                    }
+                    try {
+                        a(i, true);
+                    } catch (Exception unused3) {
+                    }
+                } else {
+                    z2 = false;
+                }
+            } catch (Exception unused4) {
+                z2 = false;
             }
         }
-        return z2;
     }
 
-    private static String a(Context context, String str, int i) {
-        switch (i) {
-            case 0:
-                return a();
-            case 1:
-                return a(context);
-            case 2:
-                return a(context, str);
-            default:
-                return "";
+    public static String a(Context context, String str, int i) {
+        if (i != 0) {
+            if (i != 1) {
+                return i != 2 ? "" : a(context, str);
+            }
+            return a(context);
         }
+        return a();
     }
 
-    private static String a() {
-        return "https://dxp.baidu.com/vizParser";
-    }
-
-    private static String a(Context context) {
+    public static String a(Context context) {
         String a2 = bo.a(context, "mtj_autoTracker.js");
         ArrayList<Pair> arrayList = new ArrayList();
         if (!TextUtils.isEmpty(a2)) {
@@ -173,24 +173,27 @@ public class bg {
                 if (TextUtils.isEmpty(sb.toString())) {
                     sb.append(encode + "=" + encode2);
                 } else {
-                    sb.append(ETAG.ITEM_SEPARATOR + encode + "=" + encode2);
+                    sb.append("&" + encode + "=" + encode2);
                 }
-            } catch (Exception e) {
+            } catch (Exception unused) {
             }
         }
         String sb2 = sb.toString();
-        return !TextUtils.isEmpty(sb2) ? "https://dxp.baidu.com/autoTracker?" + sb2 : "https://dxp.baidu.com/autoTracker";
+        if (TextUtils.isEmpty(sb2)) {
+            return "https://dxp.baidu.com/autoTracker";
+        }
+        return "https://dxp.baidu.com/autoTracker?" + sb2;
     }
 
-    private static String a(Context context, String str) {
+    public static String a(Context context, String str) {
         ArrayList<Pair> arrayList = new ArrayList();
         arrayList.add(new Pair(CommandMessage.SDK_VERSION, StatService.getSdkVersion()));
         arrayList.add(new Pair("appKey", "" + str));
-        arrayList.add(new Pair("packageName", context.getPackageName()));
+        arrayList.add(new Pair(InstallAntiBlockingActivity.PARAM_PACKAGE_NAME, context.getPackageName()));
         arrayList.add(new Pair("appVersion", bw.g(context)));
         arrayList.add(new Pair("cuid", CooperService.instance().getCUID(context, false)));
         arrayList.add(new Pair("imei", CooperService.instance().getDevicImei(context)));
-        arrayList.add(new Pair("platform", "Android"));
+        arrayList.add(new Pair(Constants.PARAM_PLATFORM, "Android"));
         arrayList.add(new Pair("model", android.os.Build.MODEL));
         arrayList.add(new Pair("s", Build.VERSION.SDK_INT + ""));
         arrayList.add(new Pair(Config.OS, Build.VERSION.RELEASE));
@@ -202,24 +205,11 @@ public class bg {
                 if (TextUtils.isEmpty(sb.toString())) {
                     sb.append(encode + "=" + encode2);
                 } else {
-                    sb.append(ETAG.ITEM_SEPARATOR + encode + "=" + encode2);
+                    sb.append("&" + encode + "=" + encode2);
                 }
-            } catch (Exception e) {
+            } catch (Exception unused) {
             }
         }
         return "https://dxp.baidu.com/circleConfig?" + sb.toString();
-    }
-
-    private static String b(int i) {
-        switch (i) {
-            case 0:
-                return "mtj_vizParser.js";
-            case 1:
-                return "mtj_autoTracker.js";
-            case 2:
-                return "mtj_auto.config";
-            default:
-                return "";
-        }
     }
 }

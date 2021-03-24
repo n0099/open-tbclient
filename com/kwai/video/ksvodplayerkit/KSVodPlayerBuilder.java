@@ -5,28 +5,42 @@ import android.text.TextUtils;
 import com.kwai.video.player.kwai_player.KwaiPlayerVodBuilder;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class KSVodPlayerBuilder {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f7270a;
-    public String b;
-    public List<String> c;
-    public Map<String, String> d;
-    public l e;
-    public com.kwai.video.ksvodplayerkit.b.h h;
+    public Context f37218a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public String f37219b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public List<String> f37220c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public Map<String, String> f37221d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public l f37222e;
+
+    /* renamed from: h  reason: collision with root package name */
+    public com.kwai.video.ksvodplayerkit.b.h f37225h;
     public int j;
     public Map<String, String> k;
     public com.kwai.video.ksvodplayerkit.c.b m;
     public boolean n;
     public long o;
-    private KwaiPlayerVodBuilder p;
-    public VodPlayEnterType f = VodPlayEnterType.CLICK;
-    public boolean g = true;
+    public KwaiPlayerVodBuilder p;
+
+    /* renamed from: f  reason: collision with root package name */
+    public VodPlayEnterType f37223f = VodPlayEnterType.CLICK;
+
+    /* renamed from: g  reason: collision with root package name */
+    public boolean f37224g = true;
     public int i = 0;
     public String l = "N/A";
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public enum VodPlayEnterType {
         SLIDE,
         CLICK
@@ -37,11 +51,11 @@ public class KSVodPlayerBuilder {
             throw new IllegalArgumentException("Wrong Input Arguments! Context con't be null!");
         }
         this.p = new KwaiPlayerVodBuilder(context);
-        this.f7270a = context;
+        this.f37218a = context;
     }
 
     public KSVodPlayerBuilder a(String str) {
-        this.b = str;
+        this.f37219b = str;
         return this;
     }
 
@@ -60,12 +74,16 @@ public class KSVodPlayerBuilder {
     }
 
     public g b() {
-        if (this.f7270a == null) {
-            throw new IllegalArgumentException("Wrong Input Arguments! Please set context!");
+        List<String> list;
+        com.kwai.video.ksvodplayerkit.b.h hVar;
+        List<com.kwai.video.ksvodplayerkit.b.i> list2;
+        if (this.f37218a != null) {
+            String str = this.f37219b;
+            if ((str == null || TextUtils.isEmpty(str)) && (((list = this.f37220c) == null || list.isEmpty()) && ((hVar = this.f37225h) == null || (list2 = hVar.f37246b) == null || list2.isEmpty()))) {
+                throw new IllegalArgumentException("Wrong Input Arguments! Please SetDatasource!");
+            }
+            return new g(this);
         }
-        if ((this.b == null || TextUtils.isEmpty(this.b)) && ((this.c == null || this.c.isEmpty()) && (this.h == null || this.h.b == null || this.h.b.isEmpty()))) {
-            throw new IllegalArgumentException("Wrong Input Arguments! Please SetDatasource!");
-        }
-        return new g(this);
+        throw new IllegalArgumentException("Wrong Input Arguments! Please set context!");
     }
 }

@@ -6,9 +6,9 @@ import android.os.Bundle;
 import androidx.annotation.Nullable;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class ActivityResultDispatcher {
-    private final Set<ActivityResultConsumer> mConsumers = new HashSet();
+    public final Set<ActivityResultConsumer> mConsumers = new HashSet();
     public final Activity mHolder;
     public final int mRequestCode;
 
@@ -21,6 +21,10 @@ public class ActivityResultDispatcher {
         if (activityResultConsumer != null) {
             this.mConsumers.add(activityResultConsumer);
         }
+    }
+
+    public synchronized int countConsumer() {
+        return this.mConsumers.size();
     }
 
     public synchronized void deleteConsumer(ActivityResultConsumer activityResultConsumer) {
@@ -43,19 +47,15 @@ public class ActivityResultDispatcher {
         return !hashSet.isEmpty();
     }
 
-    public synchronized void deleteConsumer() {
-        this.mConsumers.clear();
-    }
-
-    public synchronized int countConsumer() {
-        return this.mConsumers.size();
-    }
-
     public void startActivityForResult(Intent intent) {
         this.mHolder.startActivityForResult(intent, this.mRequestCode);
     }
 
     public void startActivityForResult(Intent intent, Bundle bundle) {
         this.mHolder.startActivityForResult(intent, this.mRequestCode, bundle);
+    }
+
+    public synchronized void deleteConsumer() {
+        this.mConsumers.clear();
     }
 }

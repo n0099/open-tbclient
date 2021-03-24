@@ -17,10 +17,10 @@ import com.kwai.video.player.kwai_player.AspectKFlv;
 import com.kwai.video.player.kwai_player.AspectKwaiVodAdaptive;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public interface IKwaiMediaPlayer extends KwaiPlayerDebugInfoProvider, AppLiveReatimeInfoProvider, IMediaPlayer {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public interface OnLiveInterActiveListener {
         void onParseAdSei(long j, int i, String str);
 
@@ -107,7 +107,7 @@ public interface IKwaiMediaPlayer extends KwaiPlayerDebugInfoProvider, AppLiveRe
 
     long getSourceDeviceType();
 
-    float getSpeed(float f);
+    float getSpeed(float f2);
 
     @Override // com.kwai.player.qos.AppLiveReatimeInfoProvider
     KwaiQosInfo getStreamQosInfo();
@@ -177,7 +177,7 @@ public interface IKwaiMediaPlayer extends KwaiPlayerDebugInfoProvider, AppLiveRe
 
     void setRepresentation(int i);
 
-    void setSpeed(float f);
+    void setSpeed(float f2);
 
     void setSurfaceTexture(SurfaceTexture surfaceTexture);
 

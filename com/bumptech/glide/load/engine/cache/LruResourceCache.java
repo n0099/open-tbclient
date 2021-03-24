@@ -7,9 +7,13 @@ import com.bumptech.glide.load.Key;
 import com.bumptech.glide.load.engine.Resource;
 import com.bumptech.glide.load.engine.cache.MemoryCache;
 import com.bumptech.glide.util.LruCache;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class LruResourceCache extends LruCache<Key, Resource<?>> implements MemoryCache {
-    private MemoryCache.ResourceRemovedListener listener;
+    public MemoryCache.ResourceRemovedListener listener;
+
+    public LruResourceCache(long j) {
+        super(j);
+    }
 
     @Override // com.bumptech.glide.load.engine.cache.MemoryCache
     @Nullable
@@ -23,29 +27,9 @@ public class LruResourceCache extends LruCache<Key, Resource<?>> implements Memo
         return (Resource) super.remove((LruResourceCache) key);
     }
 
-    public LruResourceCache(long j) {
-        super(j);
-    }
-
     @Override // com.bumptech.glide.load.engine.cache.MemoryCache
     public void setResourceRemovedListener(@NonNull MemoryCache.ResourceRemovedListener resourceRemovedListener) {
         this.listener = resourceRemovedListener;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.bumptech.glide.util.LruCache
-    public void onItemEvicted(@NonNull Key key, @Nullable Resource<?> resource) {
-        if (this.listener != null && resource != null) {
-            this.listener.onResourceRemoved(resource);
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.bumptech.glide.util.LruCache
-    public int getSize(@Nullable Resource<?> resource) {
-        return resource == null ? super.getSize((LruResourceCache) null) : resource.getSize();
     }
 
     @Override // com.bumptech.glide.load.engine.cache.MemoryCache
@@ -56,5 +40,24 @@ public class LruResourceCache extends LruCache<Key, Resource<?>> implements Memo
         } else if (i >= 20 || i == 15) {
             trimToSize(getMaxSize() / 2);
         }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.bumptech.glide.util.LruCache
+    public int getSize(@Nullable Resource<?> resource) {
+        if (resource == null) {
+            return super.getSize((LruResourceCache) null);
+        }
+        return resource.getSize();
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.bumptech.glide.util.LruCache
+    public void onItemEvicted(@NonNull Key key, @Nullable Resource<?> resource) {
+        MemoryCache.ResourceRemovedListener resourceRemovedListener = this.listener;
+        if (resourceRemovedListener == null || resource == null) {
+            return;
+        }
+        resourceRemovedListener.onResourceRemoved(resource);
     }
 }

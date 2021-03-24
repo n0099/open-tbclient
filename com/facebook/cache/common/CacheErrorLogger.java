@@ -1,10 +1,10 @@
 package com.facebook.cache.common;
 
 import javax.annotation.Nullable;
-/* loaded from: classes5.dex */
+/* loaded from: classes.dex */
 public interface CacheErrorLogger {
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public enum CacheErrorCategory {
         READ_DECODE,
         READ_FILE,
@@ -25,5 +25,5 @@ public interface CacheErrorLogger {
         OTHER
     }
 
-    void a(CacheErrorCategory cacheErrorCategory, Class<?> cls, String str, @Nullable Throwable th);
+    void logError(CacheErrorCategory cacheErrorCategory, Class<?> cls, String str, @Nullable Throwable th);
 }

@@ -3,16 +3,14 @@ package com.baidu.platform.comapi.wnplatform.i;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class c extends Handler {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ b f3062a;
+    public final /* synthetic */ b f10291a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public c(b bVar) {
-        this.f3062a = bVar;
+        this.f10291a = bVar;
     }
 
     @Override // android.os.Handler
@@ -25,30 +23,31 @@ public class c extends Handler {
         a aVar3;
         a aVar4;
         com.baidu.platform.comapi.wnplatform.d.a.b("WRoutePlaner", "msg.arg1" + message.arg1 + "; msg.what" + message.what);
-        if (message.what == 4099) {
-            int i3 = message.arg1;
-            int i4 = message.arg2;
-            if (i4 == 1 || i4 == 0) {
-                if (i3 != 0) {
-                    aVar = this.f3062a.f3061a;
-                    if (aVar != null) {
-                        aVar2 = this.f3062a.f3061a;
-                        aVar2.a(i3);
-                        return;
-                    }
+        if (message.what != 4099) {
+            return;
+        }
+        int i3 = message.arg1;
+        int i4 = message.arg2;
+        if (i4 == 1 || i4 == 0) {
+            if (i3 != 0) {
+                aVar = this.f10291a.f10288a;
+                if (aVar != null) {
+                    aVar2 = this.f10291a.f10288a;
+                    aVar2.a(i3);
                     return;
                 }
-                com.baidu.platform.comapi.wnplatform.model.b R = com.baidu.platform.comapi.walknavi.b.a().R();
-                b bVar = this.f3062a;
-                i = this.f3062a.b;
-                a2 = bVar.a(i);
-                i2 = this.f3062a.b;
-                R.a(a2, i2);
-                aVar3 = this.f3062a.f3061a;
-                if (aVar3 != null) {
-                    aVar4 = this.f3062a.f3061a;
-                    aVar4.b();
-                }
+                return;
+            }
+            com.baidu.platform.comapi.wnplatform.model.b R = com.baidu.platform.comapi.walknavi.b.a().R();
+            b bVar = this.f10291a;
+            i = bVar.f10289b;
+            a2 = bVar.a(i);
+            i2 = this.f10291a.f10289b;
+            R.a(a2, i2);
+            aVar3 = this.f10291a.f10288a;
+            if (aVar3 != null) {
+                aVar4 = this.f10291a.f10288a;
+                aVar4.b();
             }
         }
     }

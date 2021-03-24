@@ -8,106 +8,110 @@ import java.util.Map;
 public class FileLock {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final Map<String, Integer> f5103a = new HashMap();
-    private final int b;
-    private final String c;
+    public static final Map<String, Integer> f30340a = new HashMap();
 
-    private static native int nGetFD(String str) throws Exception;
+    /* renamed from: b  reason: collision with root package name */
+    public final int f30341b;
 
-    private static native void nLockFile(int i) throws Exception;
-
-    private static native void nLockFileSegment(int i, int i2) throws Exception;
-
-    private static native void nRelease(int i) throws Exception;
-
-    private static native boolean nTryLock(int i) throws Exception;
-
-    private static native void nUnlockFile(int i) throws Exception;
+    /* renamed from: c  reason: collision with root package name */
+    public final String f30342c;
 
     static {
         g.a("file_lock_pg");
     }
 
-    private FileLock(String str, int i) {
-        this.c = str;
-        this.b = i;
+    public FileLock(String str, int i) {
+        this.f30342c = str;
+        this.f30341b = i;
     }
 
     public static FileLock a(String str) {
         try {
-            int d = d(str);
-            nLockFile(d);
-            return new FileLock(str, d);
-        } catch (Exception e) {
-            throw new RuntimeException("lock failed, file:" + str + ", pid:" + Process.myPid() + " caused by:" + e.getMessage());
+            int d2 = d(str);
+            nLockFile(d2);
+            return new FileLock(str, d2);
+        } catch (Exception e2) {
+            throw new RuntimeException("lock failed, file:" + str + ", pid:" + Process.myPid() + " caused by:" + e2.getMessage());
         }
     }
 
     public static FileLock b(String str) {
         try {
-            int d = d(str);
-            if (!nTryLock(d)) {
-                return null;
+            int d2 = d(str);
+            if (nTryLock(d2)) {
+                return new FileLock(str, d2);
             }
-            return new FileLock(str, d);
-        } catch (Exception e) {
-            throw new RuntimeException("try lock failed, file:" + str + " caused by:" + e.getMessage());
+            return null;
+        } catch (Exception e2) {
+            throw new RuntimeException("try lock failed, file:" + str + " caused by:" + e2.getMessage());
         }
     }
 
     public static FileLock c(String str) throws Exception {
         try {
-            int d = d(str);
-            if (!nTryLock(d)) {
-                new FileLock(str, d).b();
+            int d2 = d(str);
+            if (!nTryLock(d2)) {
+                new FileLock(str, d2).b();
                 return null;
             }
-            return new FileLock(str, d);
-        } catch (Exception e) {
-            throw new RuntimeException("try lock failed, file:" + str + " caused by:" + e.getMessage());
+            return new FileLock(str, d2);
+        } catch (Exception e2) {
+            throw new RuntimeException("try lock failed, file:" + str + " caused by:" + e2.getMessage());
         }
     }
 
-    public static FileLock a(String str, int i) {
-        try {
-            int d = d(str);
-            nLockFileSegment(d, i);
-            return new FileLock(str, d);
-        } catch (Exception e) {
-            throw new RuntimeException("lock segment failed, file:" + str + " caused by:" + e.getMessage());
-        }
-    }
-
-    private static int d(String str) throws Exception {
+    public static int d(String str) throws Exception {
         Integer num;
-        synchronized (f5103a) {
-            num = f5103a.get(str);
+        synchronized (f30340a) {
+            num = f30340a.get(str);
             if (num == null) {
                 new File(str).getParentFile().mkdirs();
                 num = Integer.valueOf(nGetFD(str));
-                f5103a.put(str, num);
+                f30340a.put(str, num);
             }
         }
         return num.intValue();
     }
 
-    public void a() {
+    public static native int nGetFD(String str) throws Exception;
+
+    public static native void nLockFile(int i) throws Exception;
+
+    public static native void nLockFileSegment(int i, int i2) throws Exception;
+
+    public static native void nRelease(int i) throws Exception;
+
+    public static native boolean nTryLock(int i) throws Exception;
+
+    public static native void nUnlockFile(int i) throws Exception;
+
+    public static FileLock a(String str, int i) {
         try {
-            nUnlockFile(this.b);
-        } catch (Exception e) {
-            throw new RuntimeException("release lock failed，path:" + this.c);
+            int d2 = d(str);
+            nLockFileSegment(d2, i);
+            return new FileLock(str, d2);
+        } catch (Exception e2) {
+            throw new RuntimeException("lock segment failed, file:" + str + " caused by:" + e2.getMessage());
         }
     }
 
     public void b() {
         Integer remove;
-        synchronized (f5103a) {
-            remove = f5103a.remove(this.c);
+        synchronized (f30340a) {
+            remove = f30340a.remove(this.f30342c);
         }
         try {
             nRelease(remove.intValue());
-        } catch (Exception e) {
-            throw new RuntimeException("release lock failed, file:" + this.c + " caused by:" + e.getMessage());
+        } catch (Exception e2) {
+            throw new RuntimeException("release lock failed, file:" + this.f30342c + " caused by:" + e2.getMessage());
+        }
+    }
+
+    public void a() {
+        try {
+            nUnlockFile(this.f30341b);
+        } catch (Exception unused) {
+            throw new RuntimeException("release lock failed，path:" + this.f30342c);
         }
     }
 }

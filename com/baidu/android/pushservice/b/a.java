@@ -2,7 +2,7 @@ package com.baidu.android.pushservice.b;
 
 import android.content.Context;
 import android.util.Log;
-import com.baidu.android.pushservice.h.a.b;
+import com.baidu.android.pushservice.i.a.b;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -12,50 +12,55 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public class a {
     public static String a() {
-        return "i0MfXJjKeWCJi7BF+OceL4HlhxI3FfGGdtVtLf9ftQP7qAfPyD5CdFavdfiflKnsbDibTajJgCkne0k+9F0EkaGWMKBP4yHXcS1fWtuRMYLuSfASiaF/5UbBz1b14DubXpDRWkdEcrFeh54AFzyrNcMoPwfhCwgqVmr4k7ZiBpWqPZl1AmEuAaaF2NXa2Pf5qWSXGnaVLo2jZJeOZhxIY+0Dk3zsZ6SJpvHRG9rb8E/+J/oawysT7tO98A+kvAqr8hnD4UF3Cxu4aHH2ohLucGpY4oG7LTEAxpVt/2TjTaQjBA2Azw0s0Zw4JcZTjWKwxbJMGPb9H1flvURDUgd+sqo6qSSsViQ+gb8M4YGEkMSComugXi8nOhfc46MpooDQzavDOg1hb7r5Zm5gaR8AuoX3bLl7UwlVcJUbiN9GKYgAk6Z7fMh3/cdBV6HXb7tzL4R1vVG4WcL7Mdb6wCbss45I7Gb4VWHF3YLn1nOXOIGV6Nd3Lj19k8oChs25Cbp8GzreBZJuCDpSvusywV9lsUxRzRaAsJ3ALEsv7Km1G5GcDA1Hnh1xatbrVUpsjmW3+B5osZ8oGPuJzejNEregOITaUsvWWWUsbFYufEnq3+dr3i/ispWenD5S3kbbVnBp5658hXQwOOngMGQxWJ+xGNcTXJeNtAfMewFEkxJmNOdIQtJ2LzJ1aw0L+PPI8e62lYyaFOxE0yh6CPgl3pb+qYBxz3YpDPi+hjKCMTWTg+gT23tms+LFMxiAP+k7A6y9YL2M9qrM9lame+uH2Y7YQVS/aunzTRUsRYSc0S2VRcQ1nvMpIE7sqwVJ0aDUP4BqWlZvG13nb/ZKXQ8UFRG5c2yWOpxI7tOHMRyrx7RubfA4GYadekSXmt106wBp1Bwp241aS1gCZ/gJYOPaclWHUAWb5CK80B/v5YvPPSPDAEh3LS1nUCE9J7pTl7AMkvwEvbkAh9F/vSQaH0xiWOyFylmbeljcZ8kQw8JIArLRjiv9cETEm63uQY8GCg6QpkFM";
+        return "G/+OcJyTftFli2wqcD/suPV1zFgkQcIfIqUzGhkKDOM3Lskevp1nJYavBVoe8ZQOMn9/qzM/GLGCvIjSQ5cNjEn3sMv4Ic6GIOO/DM7/PIGF/OCo7BHThVw+un/dBwDiqx2QEiOyPljpJf8dFyW6Kxmc6Yq8mtS/fuHjdR3qhR+zJ32YaJxQxMGxU/0WX/lTeIEfe8tcm78vvusWRKQD2O+9XVHx6fiIt3gqK6/Abm38Km0hnydqvoPsHG1vf7H1UMjtB1KKlqwnY2IWmQP8bczdlA+emLg6dQxglyBxXPU0/lx+QY6RklgpQhNGWLjJlzQfGqltBd3T+Dwt0GH3jlJS3iLjY4zNfTHMsg+GgpGPU3jUKW4iD2e/ipeqCK5EsSzDs5x53PyXY4/l6js6gKyHTRmTmJxJPel/dlHdI2/tsBADE3em/yHDpIlSpLt4+J2iyucuUaz0trSdxAGxw02Ys1c27Z8b9W2BO0sW8skWnn0sXn18M7+xDGJW/nf1mTiGg64tbGdPApLXV5Hhod2Y33p58AyhPs6ufXK/CaXKdIuRXn+Ayl7hEc1BdjTESisrtArpYg2vGs6gKHgLE7BVdyz6tEB0FlCXQmOFzo09TRs8g5hqE95G5Sr4gsdcsigFBfxI0KDMCwDpbIPBWhkfks8Ev6l9V8Tby9i/VTFq3NRsSPsD+3toi3pwjKjPxtj9rZQDgsqcBEkARa/gxvKu/be7xhnJrzTmff6wnzxn2IZ3U3w34l0S8EMeZ4bwa8Macv7CgihzfzzFPIwE0VoAOoUSNggPEIQwSZ1iWSmRG87X92fkVoV5nx1IHyoDyK2LWZkgBPilF2L+dnfvd6JEkh4bJe1cpp7dHdQ+N8kBwYeFzEpDa1ir7lqdhriMXSWWL6QOnv2TPh2/nyEh7vNeS+4zhclSoeE+zcCD5IiMOKAsBUZrS9Xs0Xs+3yHeXhBWCk/1PpVdzam732JZxJNHC0Vu5WZpVq6JsMpZSrn+3qi54gXM0hRi8qOcsAQgykA6SdhN4/KCXZbRZ8IzadZGBqI5qnLSZih1tN8WE0wtGT4iB2d8cq2BYHmZmjmhDYe+gJvaW4vLaJGBmGJgErwPlQmsZLp1XcFx5eeKn7xfUFhRu77lPq9aSQQMHUWzLjVUefF5smXexXutQP7jXzbwV/IA8ycHPS3VQeuTydMEjrwVE4dm3dpWlao/70w+gUi2jcAQI0i07ZAT99CtkclKLtC9xeqdVbcI4PL+oCXJZHVcZss4hR4G2ZA2Xk1cEHN2MYbsFI4mZ+vkuSHLTOUaDwFhVAs1rGWtkJMkN7Kz+4T6Y8psHY++//FIHQTswc7x9tFUYNe+ZakAgGI682aojgiqJub9vrm8J2pQ5HlfGGwn/39uE5R3uwCLEMmaG+dzkMLSfV2IKCvv4ssx4DGz9MVv9OM+2/2KTs6RpRu60MyQFghiWbnw8nJYObZkRZlLFjlFAYz3XX/MBeTn+VBDyMJIt1oI7cdZ0R5sv4Y=";
     }
 
     public static String a(Context context, String str) {
-        InputStream b = b(context, str);
-        if (b == null) {
+        InputStream b2 = b(context, str);
+        if (b2 == null) {
             return a();
         }
         StringBuilder sb = new StringBuilder();
         try {
             try {
-                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(b, "utf-8"));
-                try {
+                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(b2, "utf-8"));
+                while (true) {
                     try {
-                        for (String readLine = bufferedReader.readLine(); readLine != null; readLine = bufferedReader.readLine()) {
+                        try {
+                            String readLine = bufferedReader.readLine();
+                            if (readLine == null) {
+                                break;
+                            }
                             sb.append(readLine);
+                        } catch (IOException e2) {
+                            new b.c(context).a(Log.getStackTraceString(e2)).a();
+                            com.baidu.android.pushservice.e.c.a(context, bufferedReader);
                         }
-                        com.baidu.android.pushservice.e.b.a(context, bufferedReader);
-                    } catch (IOException e) {
-                        new b.c(context).a(Log.getStackTraceString(e)).a();
-                        com.baidu.android.pushservice.e.b.a(context, bufferedReader);
+                    } catch (Throwable th) {
+                        com.baidu.android.pushservice.e.c.a(context, bufferedReader);
+                        throw th;
                     }
-                    com.baidu.android.pushservice.e.b.a(context, b);
-                } catch (Throwable th) {
-                    com.baidu.android.pushservice.e.b.a(context, bufferedReader);
-                    throw th;
                 }
-            } catch (Throwable th2) {
-                com.baidu.android.pushservice.e.b.a(context, b);
-                throw th2;
+                com.baidu.android.pushservice.e.c.a(context, bufferedReader);
+                com.baidu.android.pushservice.e.c.a(context, b2);
+            } catch (UnsupportedEncodingException e3) {
+                new b.c(context).a(Log.getStackTraceString(e3)).a();
+                com.baidu.android.pushservice.e.c.a(context, b2);
             }
-        } catch (UnsupportedEncodingException e2) {
-            new b.c(context).a(Log.getStackTraceString(e2)).a();
-            com.baidu.android.pushservice.e.b.a(context, b);
+            return sb.toString();
+        } catch (Throwable th2) {
+            com.baidu.android.pushservice.e.c.a(context, b2);
+            throw th2;
         }
-        return sb.toString();
     }
 
     public static boolean a(Context context, String str, String str2) {
-        BufferedWriter bufferedWriter;
         FileWriter fileWriter;
+        BufferedWriter bufferedWriter;
+        BufferedWriter bufferedWriter2 = null;
         try {
             File file = new File(str);
             if (!file.exists()) {
@@ -64,52 +69,49 @@ public class a {
             }
             fileWriter = new FileWriter(str, false);
             try {
-                bufferedWriter = new BufferedWriter(fileWriter);
                 try {
-                    try {
-                        bufferedWriter.write(str2);
-                        com.baidu.android.pushservice.e.b.a(context, bufferedWriter, fileWriter);
-                        return true;
-                    } catch (Exception e) {
-                        e = e;
-                        new b.c(context).a(Log.getStackTraceString(e)).a();
-                        com.baidu.android.pushservice.e.b.a(context, bufferedWriter, fileWriter);
-                        return false;
-                    }
-                } catch (Throwable th) {
-                    th = th;
-                    com.baidu.android.pushservice.e.b.a(context, bufferedWriter, fileWriter);
-                    throw th;
+                    bufferedWriter = new BufferedWriter(fileWriter);
+                } catch (Exception e2) {
+                    e = e2;
                 }
-            } catch (Exception e2) {
-                e = e2;
-                bufferedWriter = null;
+            } catch (Throwable th) {
+                th = th;
+            }
+            try {
+                bufferedWriter.write(str2);
+                com.baidu.android.pushservice.e.c.a(context, bufferedWriter, fileWriter);
+                return true;
+            } catch (Exception e3) {
+                bufferedWriter2 = bufferedWriter;
+                e = e3;
+                new b.c(context).a(Log.getStackTraceString(e)).a();
+                com.baidu.android.pushservice.e.c.a(context, bufferedWriter2, fileWriter);
+                return false;
             } catch (Throwable th2) {
+                bufferedWriter2 = bufferedWriter;
                 th = th2;
-                bufferedWriter = null;
-                com.baidu.android.pushservice.e.b.a(context, bufferedWriter, fileWriter);
+                com.baidu.android.pushservice.e.c.a(context, bufferedWriter2, fileWriter);
                 throw th;
             }
-        } catch (Exception e3) {
-            e = e3;
-            bufferedWriter = null;
+        } catch (Exception e4) {
+            e = e4;
             fileWriter = null;
         } catch (Throwable th3) {
             th = th3;
-            bufferedWriter = null;
             fileWriter = null;
         }
     }
 
-    private static InputStream b(Context context, String str) {
+    public static InputStream b(Context context, String str) {
         try {
             File file = new File(str);
             if (file.exists()) {
                 return new FileInputStream(file);
             }
-        } catch (Exception e) {
-            new b.c(context).a(Log.getStackTraceString(e)).a();
+            return null;
+        } catch (Exception e2) {
+            new b.c(context).a(Log.getStackTraceString(e2)).a();
+            return null;
         }
-        return null;
     }
 }

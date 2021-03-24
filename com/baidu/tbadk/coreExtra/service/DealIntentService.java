@@ -4,25 +4,24 @@ import android.content.Intent;
 import android.os.IBinder;
 import android.text.TextUtils;
 import com.baidu.adp.base.BdBaseService;
-import com.baidu.adp.base.b;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
-import com.baidu.live.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.live.tbadk.core.util.TiebaInitialize;
+import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.LogoActivityConfig;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ar;
-import com.baidu.tbadk.core.util.au;
 import com.baidu.tbadk.util.AdExtParam;
-/* loaded from: classes.dex */
+import d.b.b.a.b;
+import d.b.b.e.p.k;
+/* loaded from: classes3.dex */
 public class DealIntentService extends BdBaseService {
-    private static String ACTION_ON_POST_EXSIT = "TaskExsits";
-    private static String ACTION_ON_POST_START = "TaskNeedsTobeStart";
+    public static String ACTION_ON_POST_EXSIT = "TaskExsits";
+    public static String ACTION_ON_POST_START = "TaskNeedsTobeStart";
     public static final int CLASS_TYPE_AI_APP = 37;
     public static final int CLASS_TYPE_AI_APP_GUIDE = 38;
     public static final int CLASS_TYPE_ENTER_OFFICIAL = 27;
@@ -59,7 +58,154 @@ public class DealIntentService extends BdBaseService {
     public static final int CLASS_TYPE_VOTE = 8;
     public static final int CLASS_TYPE_WEB = 0;
     public static final String KEY_CLASS = "class";
-    private a mDealAsyncTask = null;
+    public a mDealAsyncTask = null;
+
+    /* loaded from: classes3.dex */
+    public class a extends BdAsyncTask<String, Integer, String> {
+
+        /* renamed from: a  reason: collision with root package name */
+        public Intent f13709a;
+
+        public a(Intent intent) {
+            this.f13709a = null;
+            this.f13709a = intent;
+        }
+
+        public final void b(int i) {
+        }
+
+        public final void c(int i) {
+            if (i == 6) {
+                TiebaStatic.eventStat(DealIntentService.this, "notify_to_pk_before", PrefetchEvent.STATE_CLICK);
+            } else if (i == 7) {
+                TiebaStatic.eventStat(DealIntentService.this, "notify_to_pk_end", PrefetchEvent.STATE_CLICK);
+            } else if (i == 8) {
+                TiebaStatic.eventStat(DealIntentService.this, "notify_to_vote_list", PrefetchEvent.STATE_CLICK);
+            } else if (i != 14) {
+            } else {
+                TiebaStatic.log(TbadkCoreStatisticKey.NOTIFY_GROUP_EVENT_CLICK);
+            }
+        }
+
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void cancel() {
+            super.cancel(true);
+        }
+
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void onPreExecute() {
+            super.onPreExecute();
+            String string = this.f13709a.getExtras().getString("privateGid");
+            if (TextUtils.isEmpty(string)) {
+                return;
+            }
+            MessageManager.getInstance().sendMessage(new CustomMessage(2012110, string));
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public String doInBackground(String... strArr) {
+            Intent intent = this.f13709a;
+            if (intent == null || intent.getExtras() == null) {
+                return null;
+            }
+            int i = this.f13709a.getExtras().getInt(DealIntentService.KEY_CLASS, -1);
+            String stringExtra = this.f13709a.getStringExtra("link");
+            long j = this.f13709a.getExtras().getLong("task_id");
+            long j2 = this.f13709a.getExtras().getLong("service_id");
+            String stringExtra2 = this.f13709a.getStringExtra("task_id");
+            if (!k.isEmpty(stringExtra2) && j == 0) {
+                j = Long.parseLong(stringExtra2);
+            }
+            if (j > 0) {
+                TbadkCoreApplication.getInst().setTaskId(String.valueOf(j));
+            }
+            if (i == 9) {
+                StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_SIGN_REMIND_PUSH_CLICK);
+                statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+                TiebaStatic.log(statisticItem);
+            }
+            StatisticItem param = new StatisticItem(TbadkCoreStatisticKey.PUSH_CCLICK).param("service_id", j2).param(AdExtParam.KEY_SHOUBAI_CUID, TbadkCoreApplication.getInst().getCuidGalaxy2()).param(TiebaStatic.Params.OBJ_TO, stringExtra).param("task_id", j).param("app_version", TbConfig.getVersion()).param("obj_id", TbadkCoreApplication.getInst().getStartType()).param(TiebaStatic.Params.OBJ_ISHOST, 1);
+            int i2 = this.f13709a.getExtras().getInt("is_live", -1);
+            int i3 = this.f13709a.getExtras().getInt("is_live_lcs", -1);
+            if (i2 >= 0) {
+                param.param("is_live", i2);
+            }
+            if (i3 >= 0) {
+                param.param("is_live_lcs", i3);
+            }
+            int i4 = this.f13709a.getExtras().getInt("KeyOfNotiId", -1);
+            int i5 = (i4 == 16 || i4 == 17) ? 3 : i4 != 19 ? (i4 == 29 || i4 == 24 || i4 == 25) ? 1 : 0 : 2;
+            if (!TextUtils.isEmpty(stringExtra) && stringExtra.contains("HotThreadList")) {
+                i5 = 6;
+            } else if ((!TextUtils.isEmpty(stringExtra) && stringExtra.contains("HotInteraction")) || (!TextUtils.isEmpty(stringExtra) && stringExtra.contains("frs?kw="))) {
+                i5 = 7;
+            }
+            param.param("obj_source", i5);
+            TiebaStatic.log(param);
+            if (this.f13709a.getExtras().getBoolean("is_notify", false)) {
+                c(i);
+            }
+            String string = this.f13709a.getExtras().getString("stat");
+            if (!TextUtils.isEmpty(string) && !TextUtils.isEmpty(stringExtra)) {
+                TiebaStatic.eventStat(TbadkCoreApplication.getInst().getApp().getApplicationContext(), "cl_push_noti:" + string, "taskId:" + j + ";link:" + stringExtra + ";uid:" + TbadkCoreApplication.getCurrentAccount());
+            }
+            if (b.f().b() != null) {
+                if (5 == this.f13709a.getIntExtra(DealIntentService.KEY_CLASS, -1)) {
+                    if (b.f().b().getClass().getName().equalsIgnoreCase(d.b.h0.r.a0.b.c())) {
+                        this.f13709a.putExtra(DealIntentService.KEY_CLASS, 5);
+                    } else {
+                        this.f13709a.putExtra(DealIntentService.KEY_CLASS, 21);
+                    }
+                } else if (10 == this.f13709a.getIntExtra(DealIntentService.KEY_CLASS, -1)) {
+                    this.f13709a.putExtra(DealIntentService.KEY_CLASS, 12);
+                }
+                return DealIntentService.ACTION_ON_POST_EXSIT;
+            }
+            if (i == 27) {
+                TiebaStatic.eventStat(DealIntentService.this, "open_push", IntentConfig.START, 1, new Object[0]);
+            }
+            if (this.f13709a.getExtras().getBoolean("is_notify", false)) {
+                b(i);
+            }
+            return DealIntentService.ACTION_ON_POST_START;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void onPostExecute(String str) {
+            if (str != null) {
+                if (!str.equals(DealIntentService.ACTION_ON_POST_EXSIT)) {
+                    if (str.equals(DealIntentService.ACTION_ON_POST_START)) {
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new LogoActivityConfig(DealIntentService.this, this.f13709a)));
+                    }
+                } else {
+                    this.f13709a.addFlags(268435456);
+                    CustomMessage customMessage = new CustomMessage(2012000);
+                    customMessage.setData(this.f13709a);
+                    MessageManager.getInstance().sendMessage(customMessage);
+                }
+            }
+            DealIntentService.this.stopSelf();
+        }
+    }
+
+    private void doDeal(Intent intent) {
+        a aVar = this.mDealAsyncTask;
+        if (aVar != null) {
+            aVar.cancel();
+            this.mDealAsyncTask = null;
+        }
+        a aVar2 = new a(intent);
+        this.mDealAsyncTask = aVar2;
+        aVar2.setPriority(4);
+        this.mDealAsyncTask.execute(new String[0]);
+    }
+
+    @Override // android.app.Service
+    public IBinder onBind(Intent intent) {
+        return null;
+    }
 
     @Override // com.baidu.adp.base.BdBaseService, android.app.Service
     public void onCreate() {
@@ -69,203 +215,9 @@ public class DealIntentService extends BdBaseService {
     @Override // android.app.Service
     public void onStart(Intent intent, int i) {
         super.onStart(intent, i);
-        if (intent != null) {
-            doDeal(intent);
+        if (intent == null) {
+            return;
         }
-    }
-
-    @Override // android.app.Service
-    public IBinder onBind(Intent intent) {
-        return null;
-    }
-
-    private void doDeal(Intent intent) {
-        if (this.mDealAsyncTask != null) {
-            this.mDealAsyncTask.cancel();
-            this.mDealAsyncTask = null;
-        }
-        this.mDealAsyncTask = new a(intent);
-        this.mDealAsyncTask.setPriority(4);
-        this.mDealAsyncTask.execute(new String[0]);
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes.dex */
-    public class a extends BdAsyncTask<String, Integer, String> {
-        private Intent intent;
-
-        public a(Intent intent) {
-            this.intent = null;
-            this.intent = intent;
-        }
-
-        /* JADX INFO: Access modifiers changed from: protected */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public void onPreExecute() {
-            super.onPreExecute();
-            String string = this.intent.getExtras().getString("privateGid");
-            if (!TextUtils.isEmpty(string)) {
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.SEND_PV_TJ, string));
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX INFO: Access modifiers changed from: protected */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public String doInBackground(String... strArr) {
-            int i;
-            if (this.intent == null || this.intent.getExtras() == null) {
-                return null;
-            }
-            int i2 = this.intent.getExtras().getInt(DealIntentService.KEY_CLASS, -1);
-            String stringExtra = this.intent.getStringExtra("link");
-            long j = this.intent.getExtras().getLong("task_id");
-            long j2 = this.intent.getExtras().getLong(Constants.EXTRA_SERVICE);
-            String stringExtra2 = this.intent.getStringExtra("task_id");
-            if (!au.isEmpty(stringExtra2) && j == 0) {
-                j = Long.parseLong(stringExtra2);
-            }
-            if (j > 0) {
-                TbadkCoreApplication.getInst().setTaskId(String.valueOf(j));
-            }
-            if (i2 == 9) {
-                ar arVar = new ar("c13253");
-                arVar.dR("uid", TbadkCoreApplication.getCurrentAccount());
-                TiebaStatic.log(arVar);
-            }
-            ar aq = new ar(TbadkCoreStatisticKey.PUSH_CCLICK).v(Constants.EXTRA_SERVICE, j2).dR(AdExtParam.KEY_SHOUBAI_CUID, TbadkCoreApplication.getInst().getCuidGalaxy2()).dR(TiebaInitialize.Params.OBJ_TO, stringExtra).v("task_id", j).dR("app_version", TbConfig.getVersion()).aq("obj_id", TbadkCoreApplication.getInst().getStartType()).aq("obj_ishost", 1);
-            int i3 = this.intent.getExtras().getInt("is_live", -1);
-            int i4 = this.intent.getExtras().getInt("is_live_lcs", -1);
-            if (i3 >= 0) {
-                aq.aq("is_live", i3);
-            }
-            if (i4 >= 0) {
-                aq.aq("is_live_lcs", i4);
-            }
-            switch (this.intent.getExtras().getInt("KeyOfNotiId", -1)) {
-                case 16:
-                case 17:
-                    i = 3;
-                    break;
-                case 18:
-                case 20:
-                case 21:
-                case 22:
-                case 23:
-                case 26:
-                case 27:
-                case 28:
-                default:
-                    i = 0;
-                    break;
-                case 19:
-                    i = 2;
-                    break;
-                case 24:
-                case 25:
-                case 29:
-                    i = 1;
-                    break;
-            }
-            if (!TextUtils.isEmpty(stringExtra) && stringExtra.contains("HotThreadList")) {
-                i = 6;
-            } else if (!TextUtils.isEmpty(stringExtra) && stringExtra.contains("HotInteraction")) {
-                i = 7;
-            } else if (!TextUtils.isEmpty(stringExtra) && stringExtra.contains("frs?kw=")) {
-                i = 7;
-            }
-            aq.aq("obj_source", i);
-            TiebaStatic.log(aq);
-            if (this.intent.getExtras().getBoolean("is_notify", false)) {
-                qz(i2);
-            }
-            String string = this.intent.getExtras().getString("stat");
-            if (!TextUtils.isEmpty(string) && !TextUtils.isEmpty(stringExtra)) {
-                TiebaStatic.eventStat(TbadkCoreApplication.getInst().getApp().getApplicationContext(), "cl_push_noti:" + string, "taskId:" + j + ";link:" + stringExtra + ";uid:" + TbadkCoreApplication.getCurrentAccount());
-            }
-            if (b.kB().currentActivity() != null) {
-                if (5 == this.intent.getIntExtra(DealIntentService.KEY_CLASS, -1)) {
-                    if (b.kB().currentActivity().getClass().getName().equalsIgnoreCase(com.baidu.tbadk.core.e.b.brI())) {
-                        this.intent.putExtra(DealIntentService.KEY_CLASS, 5);
-                    } else {
-                        this.intent.putExtra(DealIntentService.KEY_CLASS, 21);
-                    }
-                } else if (10 == this.intent.getIntExtra(DealIntentService.KEY_CLASS, -1)) {
-                    this.intent.putExtra(DealIntentService.KEY_CLASS, 12);
-                }
-                return DealIntentService.ACTION_ON_POST_EXSIT;
-            }
-            if (i2 == 27) {
-                TiebaStatic.eventStat(DealIntentService.this, "open_push", "start", 1, new Object[0]);
-            }
-            if (this.intent.getExtras().getBoolean("is_notify", false)) {
-                qy(i2);
-            }
-            return DealIntentService.ACTION_ON_POST_START;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX INFO: Access modifiers changed from: protected */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public void onPostExecute(String str) {
-            if (str != null) {
-                if (!str.equals(DealIntentService.ACTION_ON_POST_EXSIT)) {
-                    if (str.equals(DealIntentService.ACTION_ON_POST_START)) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new LogoActivityConfig(DealIntentService.this, this.intent)));
-                    }
-                } else {
-                    this.intent.addFlags(268435456);
-                    CustomMessage customMessage = new CustomMessage(CmdConfigCustom.DEAL_INTENT);
-                    customMessage.setData(this.intent);
-                    MessageManager.getInstance().sendMessage(customMessage);
-                }
-            }
-            DealIntentService.this.stopSelf();
-        }
-
-        private void qy(int i) {
-            switch (i) {
-                case 0:
-                case 1:
-                case 2:
-                case 3:
-                case 4:
-                case 5:
-                case 6:
-                case 7:
-                case 8:
-                default:
-                    return;
-            }
-        }
-
-        private void qz(int i) {
-            switch (i) {
-                case 6:
-                    TiebaStatic.eventStat(DealIntentService.this, "notify_to_pk_before", "click");
-                    return;
-                case 7:
-                    TiebaStatic.eventStat(DealIntentService.this, "notify_to_pk_end", "click");
-                    return;
-                case 8:
-                    TiebaStatic.eventStat(DealIntentService.this, "notify_to_vote_list", "click");
-                    return;
-                case 9:
-                case 10:
-                case 11:
-                case 12:
-                case 13:
-                default:
-                    return;
-                case 14:
-                    TiebaStatic.log(TbadkCoreStatisticKey.NOTIFY_GROUP_EVENT_CLICK);
-                    return;
-            }
-        }
-
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public void cancel() {
-            super.cancel(true);
-        }
+        doDeal(intent);
     }
 }

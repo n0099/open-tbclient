@@ -2,206 +2,85 @@ package com.baidu.pass.biometrics.base.dynamicupdate;
 
 import android.text.TextUtils;
 import com.baidu.pass.biometrics.base.debug.Log;
-import com.baidu.pass.biometrics.base.utils.PassBiometricUtil;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class SdkConfigOptions {
-    public static final String HOST_VERSION = "3.0.0";
     public static final String TAG = "SdkConfigOptions";
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f2747a = "face_sdk";
-    private static final String b = "host_version";
-    private static final String c = "zip_version";
-    private static final String d = "updateFail";
-    private static final String e = "distributedSdk";
-    private static final String f = "liveness_config_option";
-    private static final String g = "files";
-    private static final String h = "file";
-    private static final String i = "cpu";
-    private static final String j = "so_global_enable";
-    private static final String k = "enable";
-    private static final String l = "gray";
-    public DistributedFile distributedSdk;
-    public boolean enable;
-    public boolean globalEnable;
-    public int grayThreshold;
-    public String hostVersion;
+    public static final String f9527a = "liveness_config_option";
     public LivenessConfigOption livenessConfigOption = new LivenessConfigOption();
-    public boolean updateFail;
-    public String zipVersion;
-
-    /* loaded from: classes6.dex */
-    public static class DistributedFile {
-
-        /* renamed from: a  reason: collision with root package name */
-        private static final String f2748a = "name";
-        private static final String b = "url";
-        private static final String c = "hash";
-        public String fileName = null;
-        public String downloadUrl = null;
-        public String hash = null;
-
-        public static DistributedFile fromJSON(JSONObject jSONObject) {
-            DistributedFile distributedFile = new DistributedFile();
-            if (jSONObject != null) {
-                distributedFile.fileName = jSONObject.optString("name");
-                distributedFile.downloadUrl = jSONObject.optString("url");
-                distributedFile.hash = jSONObject.optString(c);
-            }
-            return distributedFile;
-        }
-
-        public JSONObject toJSON() {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("name", this.fileName);
-                jSONObject.put("url", this.downloadUrl);
-                jSONObject.put(c, this.hash);
-                return jSONObject;
-            } catch (JSONException e) {
-                Log.e(e);
-                return null;
-            }
-        }
-    }
 
     public static SdkConfigOptions fromLocalJson(JSONObject jSONObject) {
         SdkConfigOptions sdkConfigOptions = new SdkConfigOptions();
-        sdkConfigOptions.hostVersion = jSONObject.optString("host_version");
-        sdkConfigOptions.zipVersion = jSONObject.optString("zip_version");
-        sdkConfigOptions.updateFail = jSONObject.optBoolean("updateFail");
-        sdkConfigOptions.globalEnable = jSONObject.optBoolean(j);
-        sdkConfigOptions.enable = jSONObject.optBoolean("enable");
-        sdkConfigOptions.grayThreshold = jSONObject.optInt("gray");
-        sdkConfigOptions.distributedSdk = DistributedFile.fromJSON(jSONObject.optJSONObject("distributedSdk"));
-        sdkConfigOptions.livenessConfigOption = LivenessConfigOption.fromJson(jSONObject.optJSONObject(f));
+        sdkConfigOptions.livenessConfigOption = LivenessConfigOption.fromJson(jSONObject.optJSONObject(f9527a));
         return sdkConfigOptions;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:46:0x00a9, code lost:
-        r1.distributedSdk = com.baidu.pass.biometrics.base.dynamicupdate.SdkConfigOptions.DistributedFile.fromJSON(r5);
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
     public static SdkConfigOptions fromOnLineJSON(JSONObject jSONObject) {
-        JSONObject jSONObject2;
-        int i2 = 0;
         SdkConfigOptions sdkConfigOptions = new SdkConfigOptions();
         sdkConfigOptions.livenessConfigOption = LivenessConfigOption.fromJson(jSONObject);
-        JSONArray optJSONArray = jSONObject.optJSONArray(f2747a);
-        if (optJSONArray == null) {
-            return sdkConfigOptions;
-        }
-        try {
-            int length = optJSONArray.length();
-            int i3 = 0;
-            while (true) {
-                if (i3 >= length) {
-                    jSONObject2 = null;
-                    break;
-                }
-                jSONObject2 = optJSONArray.getJSONObject(i3);
-                if (jSONObject2 != null && HOST_VERSION.equals(jSONObject2.optString("host_version"))) {
-                    break;
-                }
-                i3++;
-            }
-        } catch (JSONException e2) {
-            Log.e("SdkConfigOptions", e2);
-        }
-        if (jSONObject2 == null) {
-            return sdkConfigOptions;
-        }
-        sdkConfigOptions.globalEnable = jSONObject.optBoolean(j, true);
-        sdkConfigOptions.hostVersion = jSONObject2.optString("host_version");
-        sdkConfigOptions.zipVersion = jSONObject2.optString("zip_version");
-        sdkConfigOptions.enable = jSONObject2.optBoolean("enable", true);
-        sdkConfigOptions.grayThreshold = jSONObject2.optInt("gray");
-        JSONArray jSONArray = jSONObject2.optJSONObject("files").getJSONArray("file");
-        if (jSONArray == null) {
-            return sdkConfigOptions;
-        }
-        String cpuType = PassBiometricUtil.getCpuType();
-        if ("armeabi".equals(cpuType)) {
-            cpuType = "armeabi-v7a";
-        }
-        int length2 = jSONArray.length();
-        while (true) {
-            if (i2 < length2) {
-                JSONObject jSONObject3 = jSONArray.getJSONObject(i2);
-                if (jSONObject3 != null && cpuType.equals(jSONObject3.optString("cpu"))) {
-                    break;
-                }
-                i2++;
-            } else {
-                break;
-            }
-        }
         return sdkConfigOptions;
     }
 
     public JSONObject toJSON() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put(HOST_VERSION, this.hostVersion);
-            jSONObject.put("zip_version", this.zipVersion);
-            jSONObject.put("updateFail", this.updateFail);
-            jSONObject.put(j, this.globalEnable);
-            jSONObject.put("enable", this.enable);
-            jSONObject.put("gray", this.grayThreshold);
-            jSONObject.put("distributedSdk", this.distributedSdk == null ? "" : this.distributedSdk.toJSON());
-            jSONObject.put(f, this.livenessConfigOption == null ? "" : this.livenessConfigOption.toJSON());
+            jSONObject.put(f9527a, this.livenessConfigOption == null ? "" : this.livenessConfigOption.toJSON());
             return jSONObject;
-        } catch (JSONException e2) {
+        } catch (JSONException unused) {
             return null;
         }
     }
 
-    /* loaded from: classes6.dex */
+    public String toString() {
+        return "SdkConfigOptions{livenessConfigOption=" + this.livenessConfigOption + '}';
+    }
+
+    /* loaded from: classes2.dex */
     public static class LivenessConfigOption {
-        private static final int A = 10;
-        private static final int B = 6;
-        private static final int C = 3;
+        public static final String A = "recog_upload_portrait_count";
+        public static final String B = "white_bg_illum_thr";
+        public static final String C = "abtest_illum_list";
+        public static final String D = "action";
         public static final int DEFAULT_MIN_FACE_SIZE = 100;
+        public static final int DEFAULT_ORIGIN_IMG = 10000;
         public static final int DEFAULT_PITCH = 15;
+        public static final int DEFAULT_ROLL = 15;
         public static final int DEFAULT_YAW = 15;
+        public static final int E = 40;
+        public static final int F = 300;
+        public static final int G = 300;
+        public static final int H = 3;
+        public static final int I = 300;
+        public static final int J = 256;
+        public static final int K = 3;
+        public static final int L = 10;
         public static final int LIVENESS_RECOG_TYPE_BLINK = 1;
         public static final int LIVENESS_RECOG_TYPE_OPEN_MOUTH = 2;
-
-        /* renamed from: a  reason: collision with root package name */
-        private static final String f2749a = "min_face_size";
-        private static final String b = "illum_thr";
-        private static final String c = "track_interval";
-        private static final String d = "detect_interval";
-        private static final String e = "yaw";
-        private static final String f = "pitch";
-        private static final String g = "roll";
-        private static final String h = "max_reg_img_num";
-        private static final String i = "prefetch_reg_img_interval";
-        private static final String j = "crop_face_size";
-        private static final String k = "crop_face_ratio";
-        private static final String l = "switch_record_video";
-        private static final String m = "recog_action_type";
-        private static final String n = "recog_time_interval";
-        private static final String o = "recog_upload_portrait_count";
-        private static final String p = "white_bg_illum_thr";
-        private static final String q = "abtest_illum_list";
-        private static final String r = "close_skip_living";
-        private static final int s = 40;
-        private static final int t = 300;
-        private static final int u = 300;
-        private static final int v = 15;
-        private static final int w = 3;
-        private static final int x = 300;
-        private static final int y = 256;
-        private static final int z = 3;
+        public static final int M = 6;
+        public static final int N = 3;
+        public static final String l = "min_face_size";
+        public static final String m = "illum_thr";
+        public static final String n = "track_interval";
+        public static final String o = "detect_interval";
+        public static final String p = "yaw";
+        public static final String q = "pitch";
+        public static final String r = "roll";
+        public static final String s = "origin_img";
+        public static final String t = "max_reg_img_num";
+        public static final String u = "prefetch_reg_img_interval";
+        public static final String v = "crop_face_size";
+        public static final String w = "crop_face_ratio";
+        public static final String x = "switch_record_video";
+        public static final String y = "recog_action_type";
+        public static final String z = "recog_time_interval";
         public String recogActionType;
         public String recogTimeInterval;
         public String recogUploadPortraitCount;
@@ -209,24 +88,41 @@ public class SdkConfigOptions {
         public int whiteBgIllumThr;
         public List<Integer> illumList = new ArrayList();
         public String minFaceSize = String.valueOf(100);
-        private String D = String.valueOf(40);
-        private String E = String.valueOf(300);
-        private String F = String.valueOf(300);
-        private String G = String.valueOf(15);
-        private String H = String.valueOf(15);
-        private String I = String.valueOf(15);
-        private String J = String.valueOf(3);
-        private String K = String.valueOf(300);
-        private String L = String.valueOf(3);
-        private String M = String.valueOf(256);
-        public boolean closeSkipLiving = false;
 
-        private static void a(JSONArray jSONArray, List<Integer> list) {
+        /* renamed from: a  reason: collision with root package name */
+        public String f9528a = String.valueOf(40);
+
+        /* renamed from: b  reason: collision with root package name */
+        public String f9529b = String.valueOf(300);
+
+        /* renamed from: c  reason: collision with root package name */
+        public String f9530c = String.valueOf(300);
+
+        /* renamed from: d  reason: collision with root package name */
+        public String f9531d = String.valueOf(15);
+
+        /* renamed from: e  reason: collision with root package name */
+        public String f9532e = String.valueOf(15);
+
+        /* renamed from: f  reason: collision with root package name */
+        public String f9533f = String.valueOf(15);
+
+        /* renamed from: g  reason: collision with root package name */
+        public String f9534g = String.valueOf(10000);
+
+        /* renamed from: h  reason: collision with root package name */
+        public String f9535h = String.valueOf(3);
+        public String i = String.valueOf(300);
+        public String j = String.valueOf(3);
+        public String k = String.valueOf(256);
+        public List<Integer> action = new ArrayList();
+
+        public static void a(JSONArray jSONArray, List<Integer> list) {
             if (jSONArray != null) {
                 int length = jSONArray.length();
-                for (int i2 = 0; i2 < length; i2++) {
-                    if (!TextUtils.isEmpty(jSONArray.optString(i2))) {
-                        list.add(Integer.valueOf(jSONArray.optInt(i2)));
+                for (int i = 0; i < length; i++) {
+                    if (!TextUtils.isEmpty(jSONArray.optString(i))) {
+                        list.add(Integer.valueOf(jSONArray.optInt(i)));
                     }
                 }
             }
@@ -234,26 +130,28 @@ public class SdkConfigOptions {
 
         public static LivenessConfigOption fromJson(JSONObject jSONObject) {
             LivenessConfigOption livenessConfigOption = new LivenessConfigOption();
-            if (jSONObject != null) {
-                livenessConfigOption.minFaceSize = jSONObject.optString(f2749a);
-                livenessConfigOption.D = jSONObject.optString(b);
-                livenessConfigOption.E = jSONObject.optString(c);
-                livenessConfigOption.F = jSONObject.optString(d);
-                livenessConfigOption.G = jSONObject.optString(e);
-                livenessConfigOption.H = jSONObject.optString(f);
-                livenessConfigOption.I = jSONObject.optString("roll");
-                livenessConfigOption.J = jSONObject.optString(h);
-                livenessConfigOption.K = jSONObject.optString(i);
-                livenessConfigOption.L = jSONObject.optString(j);
-                livenessConfigOption.M = jSONObject.optString(k);
-                livenessConfigOption.switchRecordVideo = jSONObject.optString(l);
-                livenessConfigOption.recogActionType = jSONObject.optString(m);
-                livenessConfigOption.recogTimeInterval = jSONObject.optString(n);
-                livenessConfigOption.recogUploadPortraitCount = jSONObject.optString(o);
-                livenessConfigOption.whiteBgIllumThr = jSONObject.optInt(p, 10);
-                livenessConfigOption.closeSkipLiving = jSONObject.optBoolean(r, false);
-                a(jSONObject.optJSONArray(q), livenessConfigOption.illumList);
+            if (jSONObject == null) {
+                return livenessConfigOption;
             }
+            livenessConfigOption.minFaceSize = jSONObject.optString(l);
+            livenessConfigOption.f9528a = jSONObject.optString(m);
+            livenessConfigOption.f9529b = jSONObject.optString(n);
+            livenessConfigOption.f9530c = jSONObject.optString(o);
+            livenessConfigOption.f9531d = jSONObject.optString(p);
+            livenessConfigOption.f9532e = jSONObject.optString(q);
+            livenessConfigOption.f9533f = jSONObject.optString("roll");
+            livenessConfigOption.f9534g = jSONObject.optString(s);
+            livenessConfigOption.f9535h = jSONObject.optString(t);
+            livenessConfigOption.i = jSONObject.optString(u);
+            livenessConfigOption.j = jSONObject.optString(v);
+            livenessConfigOption.k = jSONObject.optString(w);
+            livenessConfigOption.switchRecordVideo = jSONObject.optString(x);
+            livenessConfigOption.recogActionType = jSONObject.optString(y);
+            livenessConfigOption.recogTimeInterval = jSONObject.optString(z);
+            livenessConfigOption.recogUploadPortraitCount = jSONObject.optString(A);
+            livenessConfigOption.whiteBgIllumThr = jSONObject.optInt(B, 10);
+            a(jSONObject.optJSONArray(C), livenessConfigOption.illumList);
+            a(jSONObject.optJSONArray("action"), livenessConfigOption.action);
             return livenessConfigOption;
         }
 
@@ -264,9 +162,9 @@ public class SdkConfigOptions {
         }
 
         public int getCropFaceRatio() {
-            if (!TextUtils.isEmpty(this.M)) {
+            if (!TextUtils.isEmpty(this.k)) {
                 try {
-                    int parseInt = Integer.parseInt(this.M);
+                    int parseInt = Integer.parseInt(this.k);
                     if (parseInt < 1 || parseInt > 3) {
                         return 3;
                     }
@@ -279,9 +177,9 @@ public class SdkConfigOptions {
         }
 
         public int getCropFaceSize() {
-            if (!TextUtils.isEmpty(this.L)) {
+            if (!TextUtils.isEmpty(this.j)) {
                 try {
-                    int parseInt = Integer.parseInt(this.L);
+                    int parseInt = Integer.parseInt(this.j);
                     if (parseInt < 256 || parseInt > 768) {
                         return 256;
                     }
@@ -294,9 +192,9 @@ public class SdkConfigOptions {
         }
 
         public int getDetectInterval() {
-            if (!TextUtils.isEmpty(this.F)) {
+            if (!TextUtils.isEmpty(this.f9530c)) {
                 try {
-                    int parseInt = Integer.parseInt(this.F);
+                    int parseInt = Integer.parseInt(this.f9530c);
                     if (parseInt < 100 || parseInt > 500) {
                         return 300;
                     }
@@ -309,9 +207,9 @@ public class SdkConfigOptions {
         }
 
         public int getIllumThr() {
-            if (!TextUtils.isEmpty(this.D)) {
+            if (!TextUtils.isEmpty(this.f9528a)) {
                 try {
-                    int parseInt = Integer.parseInt(this.D);
+                    int parseInt = Integer.parseInt(this.f9528a);
                     if (parseInt < 0 || parseInt > 255) {
                         return 40;
                     }
@@ -324,9 +222,9 @@ public class SdkConfigOptions {
         }
 
         public int getMaxRegImgNum() {
-            if (!TextUtils.isEmpty(this.J)) {
+            if (!TextUtils.isEmpty(this.f9535h)) {
                 try {
-                    int parseInt = Integer.parseInt(this.J);
+                    int parseInt = Integer.parseInt(this.f9535h);
                     if (parseInt < 1 || parseInt > 3) {
                         return 3;
                     }
@@ -353,10 +251,18 @@ public class SdkConfigOptions {
             return 100;
         }
 
+        public String getOriginImg() {
+            return this.f9534g;
+        }
+
+        public int getOriginImgRandomControl() {
+            return new Random().nextInt(10000);
+        }
+
         public int getPitch() {
-            if (!TextUtils.isEmpty(this.H)) {
+            if (!TextUtils.isEmpty(this.f9532e)) {
                 try {
-                    int parseInt = Integer.parseInt(this.H);
+                    int parseInt = Integer.parseInt(this.f9532e);
                     if (parseInt < 10 || parseInt > 15) {
                         return 15;
                     }
@@ -369,9 +275,9 @@ public class SdkConfigOptions {
         }
 
         public int getPrefetchRegImgInterval() {
-            if (!TextUtils.isEmpty(this.K)) {
+            if (!TextUtils.isEmpty(this.i)) {
                 try {
-                    int parseInt = Integer.parseInt(this.K);
+                    int parseInt = Integer.parseInt(this.i);
                     if (parseInt < 100 || parseInt > 300) {
                         return 300;
                     }
@@ -385,41 +291,44 @@ public class SdkConfigOptions {
 
         public int getRecogActionType() {
             try {
-                if (!TextUtils.isEmpty(this.recogActionType)) {
-                    return Integer.valueOf(this.recogActionType).intValue();
+                if (TextUtils.isEmpty(this.recogActionType)) {
+                    return 1;
                 }
+                return Integer.valueOf(this.recogActionType).intValue();
             } catch (NumberFormatException e2) {
                 e2.printStackTrace();
+                return 1;
             }
-            return 1;
         }
 
-        public int getRecogUploadPortraitCount(int i2) {
+        public int getRecogUploadPortraitCount(int i) {
             try {
-                if (!TextUtils.isEmpty(this.recogUploadPortraitCount)) {
-                    return Math.min(i2, Math.max(1, Integer.valueOf(this.recogUploadPortraitCount).intValue()));
+                if (TextUtils.isEmpty(this.recogUploadPortraitCount)) {
+                    return 3;
                 }
+                return Math.min(i, Math.max(1, Integer.valueOf(this.recogUploadPortraitCount).intValue()));
             } catch (NumberFormatException e2) {
                 e2.printStackTrace();
+                return 3;
             }
-            return 3;
         }
 
         public int getRecogtimeInterval() {
             try {
-                if (!TextUtils.isEmpty(this.recogTimeInterval)) {
-                    return Integer.valueOf(this.recogTimeInterval).intValue();
+                if (TextUtils.isEmpty(this.recogTimeInterval)) {
+                    return 6;
                 }
+                return Integer.valueOf(this.recogTimeInterval).intValue();
             } catch (NumberFormatException e2) {
                 e2.printStackTrace();
+                return 6;
             }
-            return 6;
         }
 
         public int getRoll() {
-            if (!TextUtils.isEmpty(this.I)) {
+            if (!TextUtils.isEmpty(this.f9533f)) {
                 try {
-                    int parseInt = Integer.parseInt(this.I);
+                    int parseInt = Integer.parseInt(this.f9533f);
                     if (parseInt < 10 || parseInt > 15) {
                         return 15;
                     }
@@ -432,9 +341,9 @@ public class SdkConfigOptions {
         }
 
         public int getTrackInterval() {
-            if (!TextUtils.isEmpty(this.E)) {
+            if (!TextUtils.isEmpty(this.f9529b)) {
                 try {
-                    int parseInt = Integer.parseInt(this.E);
+                    int parseInt = Integer.parseInt(this.f9529b);
                     if (parseInt < 100 || parseInt > 300) {
                         return 300;
                     }
@@ -447,9 +356,9 @@ public class SdkConfigOptions {
         }
 
         public int getYaw() {
-            if (!TextUtils.isEmpty(this.G)) {
+            if (!TextUtils.isEmpty(this.f9531d)) {
                 try {
-                    int parseInt = Integer.parseInt(this.G);
+                    int parseInt = Integer.parseInt(this.f9531d);
                     if (parseInt < 10 || parseInt > 15) {
                         return 15;
                     }
@@ -461,27 +370,40 @@ public class SdkConfigOptions {
             return 15;
         }
 
+        public boolean isOriginImg() {
+            if (TextUtils.isEmpty(getOriginImg())) {
+                return true;
+            }
+            try {
+                return getOriginImgRandomControl() < Integer.parseInt(getOriginImg());
+            } catch (Exception unused) {
+                Log.e("SdkConfigOptions", "origin_img config is not integer");
+                return false;
+            }
+        }
+
         public JSONObject toJSON() {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put(f2749a, this.minFaceSize);
-                jSONObject.put(b, this.D);
-                jSONObject.put(c, this.E);
-                jSONObject.put(d, this.F);
-                jSONObject.put(e, this.G);
-                jSONObject.put(f, this.H);
-                jSONObject.put("roll", this.I);
-                jSONObject.put(h, this.J);
-                jSONObject.put(i, this.K);
-                jSONObject.put(j, this.L);
-                jSONObject.put(k, this.M);
-                jSONObject.put(l, this.switchRecordVideo);
-                jSONObject.put(m, this.recogActionType);
-                jSONObject.put(n, this.recogTimeInterval);
-                jSONObject.put(o, this.recogUploadPortraitCount);
-                jSONObject.put(p, this.whiteBgIllumThr);
-                jSONObject.put(r, this.closeSkipLiving);
-                a(jSONObject, q, this.illumList);
+                jSONObject.put(l, this.minFaceSize);
+                jSONObject.put(m, this.f9528a);
+                jSONObject.put(n, this.f9529b);
+                jSONObject.put(o, this.f9530c);
+                jSONObject.put(p, this.f9531d);
+                jSONObject.put(q, this.f9532e);
+                jSONObject.put("roll", this.f9533f);
+                jSONObject.put(s, this.f9534g);
+                jSONObject.put(t, this.f9535h);
+                jSONObject.put(u, this.i);
+                jSONObject.put(v, this.j);
+                jSONObject.put(w, this.k);
+                jSONObject.put(x, this.switchRecordVideo);
+                jSONObject.put(y, this.recogActionType);
+                jSONObject.put(z, this.recogTimeInterval);
+                jSONObject.put(A, this.recogUploadPortraitCount);
+                jSONObject.put(B, this.whiteBgIllumThr);
+                a(jSONObject, C, this.illumList);
+                a(jSONObject, "action", this.action);
                 return jSONObject;
             } catch (JSONException e2) {
                 Log.e(e2);
@@ -489,7 +411,11 @@ public class SdkConfigOptions {
             }
         }
 
-        private static void a(JSONObject jSONObject, String str, List<Integer> list) throws JSONException {
+        public String toString() {
+            return "LivenessConfigOption{illumList=" + this.illumList + ", minFaceSize='" + this.minFaceSize + "', illumThr='" + this.f9528a + "', trackInterval='" + this.f9529b + "', detectInterval='" + this.f9530c + "', yaw='" + this.f9531d + "', pitch='" + this.f9532e + "', roll='" + this.f9533f + "', originImg='" + this.f9534g + "', maxRegImgNum='" + this.f9535h + "', prefetchRegImgInterval='" + this.i + "', cropFaceSize='" + this.j + "', cropFaceRatio='" + this.k + "', switchRecordVideo='" + this.switchRecordVideo + "', recogActionType='" + this.recogActionType + "', recogTimeInterval='" + this.recogTimeInterval + "', recogUploadPortraitCount='" + this.recogUploadPortraitCount + "', whiteBgIllumThr=" + this.whiteBgIllumThr + ", action=" + this.action + '}';
+        }
+
+        public static void a(JSONObject jSONObject, String str, List<Integer> list) throws JSONException {
             JSONArray jSONArray = new JSONArray();
             for (Integer num : list) {
                 jSONArray.put(num.intValue());

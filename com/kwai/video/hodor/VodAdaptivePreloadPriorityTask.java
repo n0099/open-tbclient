@@ -1,30 +1,31 @@
 package com.kwai.video.hodor;
 
 import androidx.annotation.NonNull;
+import com.baidu.rtc.PeerConnectionClient;
 import com.kwai.video.cache.AwesomeCacheCallback;
 import com.kwai.video.hodor.anotations.AccessedByNative;
 import com.kwai.video.hodor.util.HeaderUtil;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class VodAdaptivePreloadPriorityTask extends AbstractHodorPreloadTask {
-    private AwesomeCacheCallback mAwesomeCacheCallback;
+    public AwesomeCacheCallback mAwesomeCacheCallback;
     @AccessedByNative
-    private String mCacheKey;
-    private VodAdaptiveDataSpec mDataSpec = new VodAdaptiveDataSpec();
-    private VodAdaptiveInit mVodAdaptiveInitValue;
+    public String mCacheKey;
+    public VodAdaptiveDataSpec mDataSpec;
+    public VodAdaptiveInit mVodAdaptiveInitValue;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class VodAdaptiveDataSpec {
-        String headers;
-        String manifestJson;
-        long preloadBytes = 1048576;
-        long durMs = -1;
+        public String headers;
+        public String manifestJson;
+        public long preloadBytes = 1048576;
+        public long durMs = -1;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class VodAdaptiveInit {
         public String rateConfig = "";
-        public int devResWidth = 720;
+        public int devResWidth = PeerConnectionClient.HD_VIDEO_HEIGHT;
         public int devResHeigh = 1280;
         public int netType = 1;
         public int lowDevice = 0;
@@ -34,15 +35,19 @@ public class VodAdaptivePreloadPriorityTask extends AbstractHodorPreloadTask {
     }
 
     public VodAdaptivePreloadPriorityTask(String str, VodAdaptiveInit vodAdaptiveInit) {
-        this.mDataSpec.manifestJson = str;
-        this.mDataSpec.headers = "";
+        VodAdaptiveDataSpec vodAdaptiveDataSpec = new VodAdaptiveDataSpec();
+        this.mDataSpec = vodAdaptiveDataSpec;
+        vodAdaptiveDataSpec.manifestJson = str;
+        vodAdaptiveDataSpec.headers = "";
         this.mVodAdaptiveInitValue = vodAdaptiveInit;
         this.mAwesomeCacheCallback = null;
     }
 
     public VodAdaptivePreloadPriorityTask(String str, VodAdaptiveInit vodAdaptiveInit, Map<String, String> map) {
-        this.mDataSpec.manifestJson = str;
-        this.mDataSpec.headers = HeaderUtil.parseHeaderMapToFlatString(map);
+        VodAdaptiveDataSpec vodAdaptiveDataSpec = new VodAdaptiveDataSpec();
+        this.mDataSpec = vodAdaptiveDataSpec;
+        vodAdaptiveDataSpec.manifestJson = str;
+        vodAdaptiveDataSpec.headers = HeaderUtil.parseHeaderMapToFlatString(map);
         this.mVodAdaptiveInitValue = vodAdaptiveInit;
         this.mAwesomeCacheCallback = null;
     }

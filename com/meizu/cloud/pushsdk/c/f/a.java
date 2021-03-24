@@ -6,36 +6,36 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f7421a = a.class.getSimpleName();
+    public static final String f37786a = "a";
 
     public static Map a(String str, Context context) {
         try {
-            c.b(f7421a, "Attempting to retrieve map from: %s", str);
+            c.b(f37786a, "Attempting to retrieve map from: %s", str);
             ObjectInputStream objectInputStream = new ObjectInputStream(context.openFileInput(str));
             HashMap hashMap = (HashMap) objectInputStream.readObject();
             objectInputStream.close();
-            c.b(f7421a, " + Retrieved map from file: %s", hashMap);
+            c.b(f37786a, " + Retrieved map from file: %s", hashMap);
             return hashMap;
-        } catch (IOException | ClassNotFoundException e) {
-            c.a(f7421a, " + Exception getting vars map: %s", e.getMessage());
+        } catch (IOException | ClassNotFoundException e2) {
+            c.a(f37786a, " + Exception getting vars map: %s", e2.getMessage());
             return null;
         }
     }
 
     public static boolean a(String str, Map map, Context context) {
         try {
-            c.b(f7421a, "Attempting to save: %s", map);
+            c.b(f37786a, "Attempting to save: %s", map);
             ObjectOutputStream objectOutputStream = new ObjectOutputStream(context.openFileOutput(str, 0));
             objectOutputStream.writeObject(map);
             objectOutputStream.close();
-            c.b(f7421a, " + Successfully saved KV Pairs to: %s", str);
+            c.b(f37786a, " + Successfully saved KV Pairs to: %s", str);
             return true;
-        } catch (IOException e) {
-            c.a(f7421a, " + Exception saving vars map: %s", e.getMessage());
+        } catch (IOException e2) {
+            c.a(f37786a, " + Exception saving vars map: %s", e2.getMessage());
             return false;
         }
     }

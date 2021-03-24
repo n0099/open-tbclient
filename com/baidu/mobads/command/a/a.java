@@ -5,17 +5,19 @@ import com.baidu.mobads.interfaces.IXAdInstanceInfo;
 import com.baidu.mobads.interfaces.IXAdResource;
 import com.baidu.mobads.interfaces.IXNonLinearAdSlot;
 import com.baidu.mobads.utils.XAdSDKFoundationFacade;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class a extends b {
-    private String f;
+
+    /* renamed from: f  reason: collision with root package name */
+    public String f8188f;
 
     public a(IXNonLinearAdSlot iXNonLinearAdSlot, IXAdInstanceInfo iXAdInstanceInfo, IXAdResource iXAdResource, String str) {
         super(iXNonLinearAdSlot, iXAdInstanceInfo, iXAdResource);
-        this.f = null;
-        this.f = str;
+        this.f8188f = null;
+        this.f8188f = str;
     }
 
     public void a() {
-        XAdSDKFoundationFacade.getInstance().getCommonUtils().browserOutside(this.f2366a, this.f);
+        XAdSDKFoundationFacade.getInstance().getCommonUtils().browserOutside(this.f8189a, this.f8188f);
     }
 }

@@ -8,9 +8,23 @@ import com.alibaba.fastjson.util.TypeUtils;
 import java.io.IOException;
 import java.lang.reflect.Type;
 import java.math.BigDecimal;
-/* loaded from: classes4.dex */
-public class BigDecimalCodec implements ObjectDeserializer, ObjectSerializer {
+/* loaded from: classes.dex */
+public class BigDecimalCodec implements ObjectSerializer, ObjectDeserializer {
     public static final BigDecimalCodec instance = new BigDecimalCodec();
+
+    @Override // com.alibaba.fastjson.parser.deserializer.ObjectDeserializer
+    public <T> T deserialze(DefaultJSONParser defaultJSONParser, Type type, Object obj) {
+        try {
+            return (T) deserialze(defaultJSONParser);
+        } catch (Exception e2) {
+            throw new JSONException("parseDecimal error, field : " + obj, e2);
+        }
+    }
+
+    @Override // com.alibaba.fastjson.parser.deserializer.ObjectDeserializer
+    public int getFastMatchToken() {
+        return 2;
+    }
 
     @Override // com.alibaba.fastjson.serializer.ObjectSerializer
     public void write(JSONSerializer jSONSerializer, Object obj, Object obj2, Type type, int i) throws IOException {
@@ -32,15 +46,6 @@ public class BigDecimalCodec implements ObjectDeserializer, ObjectSerializer {
         }
     }
 
-    @Override // com.alibaba.fastjson.parser.deserializer.ObjectDeserializer
-    public <T> T deserialze(DefaultJSONParser defaultJSONParser, Type type, Object obj) {
-        try {
-            return (T) deserialze(defaultJSONParser);
-        } catch (Exception e) {
-            throw new JSONException("parseDecimal error, field : " + obj, e);
-        }
-    }
-
     public static <T> T deserialze(DefaultJSONParser defaultJSONParser) {
         JSONLexer jSONLexer = defaultJSONParser.lexer;
         if (jSONLexer.token() == 2) {
@@ -58,10 +63,5 @@ public class BigDecimalCodec implements ObjectDeserializer, ObjectSerializer {
             }
             return (T) TypeUtils.castToBigDecimal(parse);
         }
-    }
-
-    @Override // com.alibaba.fastjson.parser.deserializer.ObjectDeserializer
-    public int getFastMatchToken() {
-        return 2;
     }
 }

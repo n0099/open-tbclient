@@ -5,203 +5,199 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Parcel;
 import android.os.Parcelable;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class ShareEntity implements Parcelable {
-    public static final Parcelable.Creator<ShareEntity> CREATOR = new Parcelable.Creator<ShareEntity>() { // from class: com.baidu.tieba.sharesdk.bean.ShareEntity.1
+    public static final Parcelable.Creator<ShareEntity> CREATOR = new a();
+    public String content;
+    public Bundle diskPicOperate;
+    public String extLiveInfo;
+    public String fName;
+    public Uri imageUri;
+    public boolean isVideoThread;
+    public String linkUrl;
+    public String localFile;
+    public Location location;
+    public long readCount;
+    public int shareTo;
+    public int shareType;
+    public Bundle stats;
+    public String taskCompleteId;
+    public String tid;
+    public String title;
+    public String topic;
+    public String videoUrl;
+    public int typeShareToSmallApp = 0;
+    public boolean canShareBySmartApp = true;
+
+    /* loaded from: classes5.dex */
+    public static class a implements Parcelable.Creator<ShareEntity> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: af */
+        /* renamed from: a */
         public ShareEntity createFromParcel(Parcel parcel) {
             if (parcel == null) {
                 return null;
             }
             ShareEntity shareEntity = new ShareEntity();
-            shareEntity.setTitle(parcel.readString());
-            shareEntity.setContent(parcel.readString());
-            shareEntity.setLinkUrl(parcel.readString());
-            shareEntity.SH(parcel.readString());
-            shareEntity.IR(parcel.readInt());
-            shareEntity.setVideoUrl(parcel.readString());
-            shareEntity.setImageUri((Uri) parcel.readParcelable(Uri.class.getClassLoader()));
-            shareEntity.setLocation((Location) parcel.readParcelable(Location.class.getClassLoader()));
-            shareEntity.ae(parcel.readBundle());
-            shareEntity.IT(parcel.readInt());
-            shareEntity.setTid(parcel.readString());
-            shareEntity.IS(parcel.readInt());
-            shareEntity.SJ(parcel.readString());
+            shareEntity.E(parcel.readString());
+            shareEntity.s(parcel.readString());
+            shareEntity.w(parcel.readString());
+            shareEntity.x(parcel.readString());
+            shareEntity.B(parcel.readInt());
+            shareEntity.G(parcel.readString());
+            shareEntity.u((Uri) parcel.readParcelable(Uri.class.getClassLoader()));
+            shareEntity.y((Location) parcel.readParcelable(Location.class.getClassLoader()));
+            shareEntity.C(parcel.readBundle());
+            shareEntity.z(parcel.readInt());
+            shareEntity.D(parcel.readString());
+            shareEntity.F(parcel.readInt());
+            shareEntity.H(parcel.readString());
             shareEntity.topic = parcel.readString();
             shareEntity.taskCompleteId = parcel.readString();
             shareEntity.diskPicOperate = parcel.readBundle();
             shareEntity.canShareBySmartApp = parcel.readByte() == 1;
-            shareEntity.hF(parcel.readLong());
-            shareEntity.xX(parcel.readByte() == 1);
+            shareEntity.A(parcel.readLong());
+            shareEntity.v(parcel.readByte() == 1);
             shareEntity.extLiveInfo = parcel.readString();
             return shareEntity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: IU */
+        /* renamed from: b */
         public ShareEntity[] newArray(int i) {
             return new ShareEntity[i];
         }
-    };
-    private String content;
-    public Bundle diskPicOperate;
-    private String extLiveInfo;
-    private String fName;
-    private Uri imageUri;
-    private boolean isVideoThread;
-    private String linkUrl;
-    private String localFile;
-    private Location location;
-    private long readCount;
-    private int shareTo;
-    private int shareType;
-    private Bundle stats;
-    public String taskCompleteId;
-    private String tid;
-    private String title;
-    public String topic;
-    private String videoUrl;
-    private int typeShareToSmallApp = 0;
-    public boolean canShareBySmartApp = true;
-
-    public void ae(Bundle bundle) {
-        this.stats = bundle;
     }
 
-    public Bundle bzf() {
-        return this.stats;
-    }
-
-    public String getVideoUrl() {
-        return this.videoUrl;
-    }
-
-    public void setVideoUrl(String str) {
-        this.videoUrl = str;
-    }
-
-    public String getTitle() {
-        return this.title;
-    }
-
-    public void setTitle(String str) {
-        this.title = str;
-    }
-
-    public String getContent() {
-        return this.content;
-    }
-
-    public void setContent(String str) {
-        this.content = str;
-    }
-
-    public void hF(long j) {
+    public void A(long j) {
         this.readCount = j;
     }
 
-    public long dJo() {
-        return this.readCount;
-    }
-
-    public void xX(boolean z) {
-        this.isVideoThread = z;
-    }
-
-    public boolean dJp() {
-        return this.isVideoThread;
-    }
-
-    public String getLinkUrl() {
-        return this.linkUrl;
-    }
-
-    public void setLinkUrl(String str) {
-        this.linkUrl = str;
-    }
-
-    public void SH(String str) {
-        this.localFile = str;
-    }
-
-    public String dJq() {
-        return this.localFile;
-    }
-
-    public String getImgUrl() {
-        return this.imageUri == null ? "" : this.imageUri.toString();
-    }
-
-    public Uri getImageUri() {
-        return this.imageUri;
-    }
-
-    public void setImageUri(Uri uri) {
-        this.imageUri = uri;
-    }
-
-    public void setLocation(Location location) {
-        this.location = location;
-    }
-
-    public int dJr() {
-        return this.shareTo;
-    }
-
-    public void IR(int i) {
+    public void B(int i) {
         this.shareTo = i;
     }
 
-    public int dJs() {
-        return this.shareType;
+    public void C(Bundle bundle) {
+        this.stats = bundle;
     }
 
-    public void setTid(String str) {
+    public void D(String str) {
         this.tid = str;
     }
 
-    public String getTid() {
-        return this.tid;
+    public void E(String str) {
+        this.title = str;
     }
 
-    public String dJt() {
-        return this.extLiveInfo;
-    }
-
-    public void SI(String str) {
-        this.extLiveInfo = str;
-    }
-
-    public void SJ(String str) {
-        this.fName = str;
-    }
-
-    public String dJu() {
-        return this.fName;
-    }
-
-    public void IS(int i) {
+    public void F(int i) {
         this.typeShareToSmallApp = i;
     }
 
-    public int dJv() {
-        return this.typeShareToSmallApp;
+    public void G(String str) {
+        this.videoUrl = str;
     }
 
-    public void IT(int i) {
-        this.shareType = i;
+    public void H(String str) {
+        this.fName = str;
     }
 
-    public boolean dJw() {
-        return this.shareType != 0 && (this.shareTo == 8 || this.shareTo == 4 || this.shareTo == 3 || this.shareTo == 2);
+    public String b() {
+        return this.content;
+    }
+
+    public String c() {
+        return this.extLiveInfo;
+    }
+
+    public Uri d() {
+        return this.imageUri;
     }
 
     @Override // android.os.Parcelable
     public int describeContents() {
         return 0;
+    }
+
+    public String e() {
+        Uri uri = this.imageUri;
+        return uri == null ? "" : uri.toString();
+    }
+
+    public boolean f() {
+        return this.isVideoThread;
+    }
+
+    public String g() {
+        return this.linkUrl;
+    }
+
+    public String h() {
+        return this.localFile;
+    }
+
+    public long i() {
+        return this.readCount;
+    }
+
+    public int j() {
+        return this.shareTo;
+    }
+
+    public int k() {
+        return this.shareType;
+    }
+
+    public Bundle l() {
+        return this.stats;
+    }
+
+    public String m() {
+        return this.tid;
+    }
+
+    public String n() {
+        return this.title;
+    }
+
+    public int o() {
+        return this.typeShareToSmallApp;
+    }
+
+    public String p() {
+        return this.videoUrl;
+    }
+
+    public String q() {
+        return this.fName;
+    }
+
+    public boolean r() {
+        if (this.shareType != 0) {
+            int i = this.shareTo;
+            return i == 8 || i == 4 || i == 3 || i == 2;
+        }
+        return false;
+    }
+
+    public void s(String str) {
+        this.content = str;
+    }
+
+    public void t(String str) {
+        this.extLiveInfo = str;
+    }
+
+    public void u(Uri uri) {
+        this.imageUri = uri;
+    }
+
+    public void v(boolean z) {
+        this.isVideoThread = z;
+    }
+
+    public void w(String str) {
+        this.linkUrl = str;
     }
 
     @Override // android.os.Parcelable
@@ -222,9 +218,21 @@ public class ShareEntity implements Parcelable {
         parcel.writeString(this.topic);
         parcel.writeString(this.taskCompleteId);
         parcel.writeBundle(this.diskPicOperate);
-        parcel.writeByte((byte) (this.canShareBySmartApp ? 1 : 0));
+        parcel.writeByte(this.canShareBySmartApp ? (byte) 1 : (byte) 0);
         parcel.writeLong(this.readCount);
-        parcel.writeByte((byte) (this.isVideoThread ? 1 : 0));
+        parcel.writeByte(this.isVideoThread ? (byte) 1 : (byte) 0);
         parcel.writeString(this.extLiveInfo);
+    }
+
+    public void x(String str) {
+        this.localFile = str;
+    }
+
+    public void y(Location location) {
+        this.location = location;
+    }
+
+    public void z(int i) {
+        this.shareType = i;
     }
 }

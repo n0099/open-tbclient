@@ -16,7 +16,7 @@ import java.util.Map;
 import java.util.concurrent.Executor;
 import java.util.concurrent.RejectedExecutionException;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class CronetUrlRequestContext extends CronetEngineBase {
     public static final String LOG_TAG = "CronetUrlRequestContext";
     public static final HashSet<String> sInUseStoragePaths = new HashSet<>();
@@ -35,7 +35,7 @@ public class CronetUrlRequestContext extends CronetEngineBase {
     public final Map<RequestFinishedInfo.Listener, VersionSafeCallbacks$RequestFinishedInfoListener> mFinishedListenerMap = new HashMap();
 
     /* renamed from: aegon.chrome.net.impl.CronetUrlRequestContext$1 */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public class AnonymousClass1 implements Runnable {
         public AnonymousClass1() {
             CronetUrlRequestContext.this = r1;
@@ -52,13 +52,13 @@ public class CronetUrlRequestContext extends CronetEngineBase {
             CronetLibraryLoader.ensureInitializedOnInitThread();
             Runnable lambdaFactory$ = CronetUrlRequestContext$1$$Lambda$1.lambdaFactory$(this);
             try {
-                lambdaFactory$.run();
-            } catch (UnsatisfiedLinkError e) {
                 try {
                     lambdaFactory$.run();
-                } catch (UnsatisfiedLinkError e2) {
+                } catch (UnsatisfiedLinkError unused) {
                     lambdaFactory$.run();
                 }
+            } catch (UnsatisfiedLinkError unused2) {
+                lambdaFactory$.run();
             }
         }
     }
@@ -66,9 +66,10 @@ public class CronetUrlRequestContext extends CronetEngineBase {
     public CronetUrlRequestContext(CronetEngineBuilderImpl cronetEngineBuilderImpl) {
         SafeNativeFunctionCaller$Supplier safeNativeFunctionCaller$Supplier;
         Object obj;
-        int i = 3;
+        SafeNativeFunctionCaller$Supplier safeNativeFunctionCaller$Supplier2;
         boolean z = cronetEngineBuilderImpl.mNetworkQualityEstimatorEnabled;
         CronetLibraryLoader.ensureInitialized(cronetEngineBuilderImpl.mApplicationContext, cronetEngineBuilderImpl);
+        int i = 3;
         if (Log.isLoggable(LOG_TAG, 2)) {
             i = -2;
         } else if (Log.isLoggable(LOG_TAG, 3)) {
@@ -87,16 +88,17 @@ public class CronetUrlRequestContext extends CronetEngineBase {
         }
         synchronized (this.mLock) {
             try {
-                obj = CronetUrlRequestContext$$Lambda$1.lambdaFactory$(cronetEngineBuilderImpl).get();
-            } catch (UnsatisfiedLinkError e) {
                 try {
-                    obj = safeNativeFunctionCaller$Supplier.get();
-                } catch (UnsatisfiedLinkError e2) {
+                    obj = CronetUrlRequestContext$$Lambda$1.lambdaFactory$(cronetEngineBuilderImpl).get();
+                } catch (UnsatisfiedLinkError unused) {
                     obj = safeNativeFunctionCaller$Supplier.get();
                 }
+            } catch (UnsatisfiedLinkError unused2) {
+                obj = safeNativeFunctionCaller$Supplier2.get();
             }
-            this.mUrlRequestContextAdapter = ((Long) obj).longValue();
-            if (this.mUrlRequestContextAdapter == 0) {
+            long longValue = ((Long) obj).longValue();
+            this.mUrlRequestContextAdapter = longValue;
+            if (longValue == 0) {
                 throw new NullPointerException("Context Adapter creation failed.");
             }
         }
@@ -210,8 +212,8 @@ public class CronetUrlRequestContext extends CronetEngineBase {
     public static void postObservationTaskToExecutor(Executor executor, Runnable runnable) {
         try {
             executor.execute(runnable);
-        } catch (RejectedExecutionException e) {
-            aegon.chrome.base.Log.e(LOG_TAG, "Exception posting task to executor", e);
+        } catch (RejectedExecutionException e2) {
+            aegon.chrome.base.Log.e(LOG_TAG, "Exception posting task to executor", e2);
         }
     }
 
@@ -223,12 +225,20 @@ public class CronetUrlRequestContext extends CronetEngineBase {
 
     @Override // aegon.chrome.net.impl.CronetEngineBase
     public UrlRequestBase createRequest(String str, UrlRequest.Callback callback, Executor executor, int i, Collection<Object> collection, boolean z, boolean z2, boolean z3, boolean z4, int i2, boolean z5, int i3, RequestFinishedInfo.Listener listener) {
-        CronetUrlRequest cronetUrlRequest;
         synchronized (this.mLock) {
-            checkHaveAdapter();
-            cronetUrlRequest = new CronetUrlRequest(this, str, i, callback, executor, collection, z, z2, z3, z4, i2, z5, i3, listener);
+            try {
+                try {
+                    checkHaveAdapter();
+                    return new CronetUrlRequest(this, str, i, callback, executor, collection, z, z2, z3, z4, i2, z5, i3, listener);
+                } catch (Throwable th) {
+                    th = th;
+                    throw th;
+                }
+            } catch (Throwable th2) {
+                th = th2;
+                throw th;
+            }
         }
-        return cronetUrlRequest;
     }
 
     public long getUrlRequestContextAdapter() {

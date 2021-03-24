@@ -2,7 +2,7 @@ package com.kwad.sdk.live.a;
 
 import com.kwad.sdk.core.network.d;
 import com.kwad.sdk.core.scene.URLPackage;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class c extends d {
     public c(long j) {
         a(URLPackage.KEY_AUTHOR_ID, j);

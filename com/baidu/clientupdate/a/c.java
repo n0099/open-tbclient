@@ -6,92 +6,104 @@ import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import org.json.JSONObject;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class c extends Thread {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ b f1356a;
-    private final CharSequence b;
-    private byte[] c;
+    public final /* synthetic */ b f4568a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public final CharSequence f4569b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public byte[] f4570c;
 
     public c(b bVar, CharSequence charSequence, byte[] bArr) {
-        this.f1356a = bVar;
-        this.c = null;
-        this.b = charSequence;
-        this.c = bArr;
+        this.f4568a = bVar;
+        this.f4570c = null;
+        this.f4569b = charSequence;
+        this.f4570c = bArr;
     }
 
+    /* JADX WARN: Removed duplicated region for block: B:33:0x00ef  */
+    /* JADX WARN: Removed duplicated region for block: B:41:? A[RETURN, SYNTHETIC] */
     @Override // java.lang.Thread, java.lang.Runnable
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     public void run() {
-        Exception e;
         Throwable th;
         HttpURLConnection httpURLConnection;
+        Exception e2;
         com.baidu.clientupdate.download.a aVar;
         com.baidu.clientupdate.download.a aVar2;
-        com.baidu.clientupdate.download.a aVar3;
         HttpURLConnection httpURLConnection2 = null;
         try {
             try {
-                httpURLConnection = (HttpURLConnection) new URL(this.b.toString()).openConnection();
+                httpURLConnection = (HttpURLConnection) new URL(this.f4569b.toString()).openConnection();
+                try {
+                    httpURLConnection.setConnectTimeout(5000);
+                    httpURLConnection.setRequestMethod("POST");
+                    httpURLConnection.setDoInput(true);
+                    httpURLConnection.setDoOutput(true);
+                    httpURLConnection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
+                    httpURLConnection.setRequestProperty("Content-Length", String.valueOf(this.f4570c.length));
+                    OutputStream outputStream = httpURLConnection.getOutputStream();
+                    outputStream.write(this.f4570c, 0, this.f4570c.length);
+                    outputStream.close();
+                } catch (Exception e3) {
+                    e2 = e3;
+                    e2.printStackTrace();
+                    if (httpURLConnection == null) {
+                        return;
+                    }
+                    httpURLConnection.disconnect();
+                }
             } catch (Throwable th2) {
                 th = th2;
-            }
-        } catch (Exception e2) {
-            e = e2;
-        }
-        try {
-            httpURLConnection.setConnectTimeout(5000);
-            httpURLConnection.setRequestMethod("POST");
-            httpURLConnection.setDoInput(true);
-            httpURLConnection.setDoOutput(true);
-            httpURLConnection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
-            httpURLConnection.setRequestProperty("Content-Length", String.valueOf(this.c.length));
-            OutputStream outputStream = httpURLConnection.getOutputStream();
-            outputStream.write(this.c, 0, this.c.length);
-            outputStream.close();
-            if (httpURLConnection.getResponseCode() == 200) {
-                InputStream inputStream = httpURLConnection.getInputStream();
-                StringBuilder sb = new StringBuilder();
-                byte[] bArr = new byte[1024];
-                while (true) {
-                    int read = inputStream.read(bArr);
-                    if (read == -1) {
-                        break;
-                    }
-                    sb.append(new String(bArr, 0, read, "utf-8"));
+                if (0 != 0) {
+                    httpURLConnection2.disconnect();
                 }
-                inputStream.close();
-                LogUtil.logE("LogRequest", "**********strResult:" + sb.toString());
-                if (new JSONObject(sb.toString()).getString("retcode").equals("1")) {
-                    aVar3 = this.f1356a.c;
-                    aVar3.c();
-                } else {
-                    aVar2 = this.f1356a.c;
-                    aVar2.e();
-                }
-            } else {
-                LogUtil.logE("LogRequest", "request failed  " + httpURLConnection.getResponseCode());
-                aVar = this.f1356a.c;
-                aVar.e();
+                throw th;
             }
-            if (httpURLConnection != null) {
-                httpURLConnection.disconnect();
-            }
-        } catch (Exception e3) {
-            e = e3;
-            httpURLConnection2 = httpURLConnection;
-            e.printStackTrace();
-            if (httpURLConnection2 != null) {
-                httpURLConnection2.disconnect();
-            }
+        } catch (Exception e4) {
+            httpURLConnection = null;
+            e2 = e4;
         } catch (Throwable th3) {
             th = th3;
-            httpURLConnection2 = httpURLConnection;
-            if (httpURLConnection2 != null) {
-                httpURLConnection2.disconnect();
+            if (0 != 0) {
             }
             throw th;
         }
+        if (httpURLConnection.getResponseCode() == 200) {
+            InputStream inputStream = httpURLConnection.getInputStream();
+            StringBuilder sb = new StringBuilder();
+            byte[] bArr = new byte[1024];
+            while (true) {
+                int read = inputStream.read(bArr);
+                if (read == -1) {
+                    break;
+                }
+                sb.append(new String(bArr, 0, read, "utf-8"));
+            }
+            inputStream.close();
+            LogUtil.logE("LogRequest", "**********strResult:" + sb.toString());
+            if (new JSONObject(sb.toString()).getString("retcode").equals("1")) {
+                aVar2 = this.f4568a.f4567c;
+                aVar2.c();
+                if (httpURLConnection == null) {
+                    return;
+                }
+                httpURLConnection.disconnect();
+            }
+            aVar = this.f4568a.f4567c;
+        } else {
+            LogUtil.logE("LogRequest", "request failed  " + httpURLConnection.getResponseCode());
+            aVar = this.f4568a.f4567c;
+        }
+        aVar.e();
+        if (httpURLConnection == null) {
+        }
+        httpURLConnection.disconnect();
     }
 }

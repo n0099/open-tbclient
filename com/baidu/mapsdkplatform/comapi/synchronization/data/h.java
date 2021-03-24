@@ -3,16 +3,15 @@ package com.baidu.mapsdkplatform.comapi.synchronization.data;
 import android.os.Message;
 import com.baidu.mapsdkplatform.comapi.synchronization.c.c;
 import com.baidu.mapsdkplatform.comapi.synchronization.data.g;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+import com.baidu.wallet.base.widget.CustomerServiceMenu;
+/* loaded from: classes2.dex */
 public class h extends com.baidu.mapsdkplatform.comapi.synchronization.c.e {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ g f2266a;
+    public final /* synthetic */ g f7810a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public h(g gVar) {
-        this.f2266a = gVar;
+        this.f7810a = gVar;
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.synchronization.c.e
@@ -20,17 +19,17 @@ public class h extends com.baidu.mapsdkplatform.comapi.synchronization.c.e {
         g.b bVar;
         g.b bVar2;
         g.b bVar3;
-        bVar = this.f2266a.j;
+        bVar = this.f7810a.j;
         Message obtainMessage = bVar.obtainMessage();
-        obtainMessage.what = 100001;
+        obtainMessage.what = CustomerServiceMenu.TRANSFER_RECORD;
         obtainMessage.obj = aVar;
-        bVar2 = this.f2266a.j;
+        bVar2 = this.f7810a.j;
         if (bVar2 != null) {
-            bVar3 = this.f2266a.j;
+            bVar3 = this.f7810a.j;
             bVar3.sendMessage(obtainMessage);
         }
         if (c.a.SERVER_ERROR == aVar || c.a.NETWORK_ERROR == aVar || c.a.INNER_ERROR == aVar) {
-            g.b(this.f2266a);
+            g.b(this.f7810a);
         }
     }
 
@@ -39,15 +38,15 @@ public class h extends com.baidu.mapsdkplatform.comapi.synchronization.c.e {
         g.b bVar;
         g.b bVar2;
         g.b bVar3;
-        bVar = this.f2266a.j;
+        bVar = this.f7810a.j;
         Message obtainMessage = bVar.obtainMessage();
         obtainMessage.what = 100000;
         obtainMessage.obj = str;
-        bVar2 = this.f2266a.j;
+        bVar2 = this.f7810a.j;
         if (bVar2 != null) {
-            bVar3 = this.f2266a.j;
+            bVar3 = this.f7810a.j;
             bVar3.sendMessage(obtainMessage);
         }
-        this.f2266a.k = 0;
+        this.f7810a.k = 0;
     }
 }

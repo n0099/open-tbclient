@@ -5,9 +5,22 @@ import android.content.Intent;
 import android.os.IBinder;
 import androidx.annotation.CallSuper;
 import androidx.annotation.Nullable;
-/* loaded from: classes5.dex */
+/* loaded from: classes.dex */
 public class LifecycleService extends Service implements LifecycleOwner {
-    private final ServiceLifecycleDispatcher mDispatcher = new ServiceLifecycleDispatcher(this);
+    public final ServiceLifecycleDispatcher mDispatcher = new ServiceLifecycleDispatcher(this);
+
+    @Override // androidx.lifecycle.LifecycleOwner
+    public Lifecycle getLifecycle() {
+        return this.mDispatcher.getLifecycle();
+    }
+
+    @Override // android.app.Service
+    @Nullable
+    @CallSuper
+    public IBinder onBind(Intent intent) {
+        this.mDispatcher.onServicePreSuperOnBind();
+        return null;
+    }
 
     @Override // android.app.Service
     @CallSuper
@@ -17,11 +30,10 @@ public class LifecycleService extends Service implements LifecycleOwner {
     }
 
     @Override // android.app.Service
-    @Nullable
     @CallSuper
-    public IBinder onBind(Intent intent) {
-        this.mDispatcher.onServicePreSuperOnBind();
-        return null;
+    public void onDestroy() {
+        this.mDispatcher.onServicePreSuperOnDestroy();
+        super.onDestroy();
     }
 
     @Override // android.app.Service
@@ -35,17 +47,5 @@ public class LifecycleService extends Service implements LifecycleOwner {
     @CallSuper
     public int onStartCommand(Intent intent, int i, int i2) {
         return super.onStartCommand(intent, i, i2);
-    }
-
-    @Override // android.app.Service
-    @CallSuper
-    public void onDestroy() {
-        this.mDispatcher.onServicePreSuperOnDestroy();
-        super.onDestroy();
-    }
-
-    @Override // androidx.lifecycle.LifecycleOwner
-    public Lifecycle getLifecycle() {
-        return this.mDispatcher.getLifecycle();
     }
 }

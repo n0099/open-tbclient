@@ -8,17 +8,52 @@ import android.graphics.Paint;
 import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.view.View;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class RoundProgressBar extends View {
-    private int mHeight;
-    private Paint mPaint;
-    private float mProgress;
-    private int mProgressColor;
-    private int mWidth;
-    private int nUC;
+
+    /* renamed from: e  reason: collision with root package name */
+    public int f21858e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public int f21859f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public int f21860g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public int f21861h;
+    public float i;
+    public Paint j;
 
     public RoundProgressBar(Context context) {
         this(context, null);
+    }
+
+    public void a() {
+        this.f21861h = 4;
+        this.f21858e = Color.rgb(255, 255, 255);
+    }
+
+    public void b(float f2) {
+        this.i = f2;
+        invalidate();
+    }
+
+    @Override // android.view.View
+    @SuppressLint({"DrawAllocation"})
+    public void onDraw(Canvas canvas) {
+        super.onDraw(canvas);
+        this.f21859f = getWidth();
+        int height = getHeight();
+        this.f21860g = height;
+        if (this.f21859f > height) {
+            this.f21859f = height;
+        }
+        this.j.setAntiAlias(true);
+        this.j.setStyle(Paint.Style.STROKE);
+        this.j.setStrokeWidth(this.f21861h);
+        this.j.setColor(this.f21858e);
+        canvas.drawArc(new RectF(5.0f, 5.0f, this.f21859f - 5, this.f21860g - 5), 270.0f, (this.i * 360.0f) / 100.0f, false, this.j);
     }
 
     public RoundProgressBar(Context context, AttributeSet attributeSet) {
@@ -27,33 +62,7 @@ public class RoundProgressBar extends View {
 
     public RoundProgressBar(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.mPaint = new Paint();
-        init();
-    }
-
-    public void init() {
-        this.nUC = 4;
-        this.mProgressColor = Color.rgb(255, 255, 255);
-    }
-
-    @Override // android.view.View
-    @SuppressLint({"DrawAllocation"})
-    protected void onDraw(Canvas canvas) {
-        super.onDraw(canvas);
-        this.mWidth = getWidth();
-        this.mHeight = getHeight();
-        if (this.mWidth > this.mHeight) {
-            this.mWidth = this.mHeight;
-        }
-        this.mPaint.setAntiAlias(true);
-        this.mPaint.setStyle(Paint.Style.STROKE);
-        this.mPaint.setStrokeWidth(this.nUC);
-        this.mPaint.setColor(this.mProgressColor);
-        canvas.drawArc(new RectF(5.0f, 5.0f, this.mWidth - 5, this.mHeight - 5), 270.0f, (360.0f * this.mProgress) / 100.0f, false, this.mPaint);
-    }
-
-    public void W(float f) {
-        this.mProgress = f;
-        invalidate();
+        this.j = new Paint();
+        a();
     }
 }

@@ -2,15 +2,14 @@ package com.baidu.mapapi.search.poi;
 
 import com.baidu.mapapi.BMapManager;
 import com.baidu.mapapi.search.core.l;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class PoiSearch extends l {
-    private boolean b = false;
+
+    /* renamed from: b  reason: collision with root package name */
+    public boolean f7239b = false;
 
     /* renamed from: a  reason: collision with root package name */
-    private com.baidu.platform.core.c.a f2124a = new com.baidu.platform.core.c.f();
-
-    PoiSearch() {
-    }
+    public com.baidu.platform.core.c.a f7238a = new com.baidu.platform.core.c.f();
 
     public static PoiSearch newInstance() {
         BMapManager.init();
@@ -18,74 +17,79 @@ public class PoiSearch extends l {
     }
 
     public void destroy() {
-        if (this.b) {
+        if (this.f7239b) {
             return;
         }
-        this.b = true;
-        this.f2124a.a();
+        this.f7239b = true;
+        this.f7238a.a();
         BMapManager.destroy();
     }
 
     public boolean searchInBound(PoiBoundSearchOption poiBoundSearchOption) {
-        if (this.f2124a == null) {
-            throw new IllegalStateException("searcher is null, please call newInstance first.");
+        com.baidu.platform.core.c.a aVar = this.f7238a;
+        if (aVar != null) {
+            if (poiBoundSearchOption == null || poiBoundSearchOption.mBound == null || poiBoundSearchOption.mKeyword == null) {
+                throw new IllegalArgumentException("option or bound or keyworld can not be null");
+            }
+            return aVar.a(poiBoundSearchOption);
         }
-        if (poiBoundSearchOption == null || poiBoundSearchOption.mBound == null || poiBoundSearchOption.mKeyword == null) {
-            throw new IllegalArgumentException("option or bound or keyworld can not be null");
-        }
-        return this.f2124a.a(poiBoundSearchOption);
+        throw new IllegalStateException("searcher is null, please call newInstance first.");
     }
 
     public boolean searchInCity(PoiCitySearchOption poiCitySearchOption) {
-        if (this.f2124a == null) {
-            throw new IllegalStateException("searcher is null, please call newInstance first.");
+        com.baidu.platform.core.c.a aVar = this.f7238a;
+        if (aVar != null) {
+            if (poiCitySearchOption == null || poiCitySearchOption.mCity == null || poiCitySearchOption.mKeyword == null) {
+                throw new IllegalArgumentException("option or city or keyworld can not be null");
+            }
+            return aVar.a(poiCitySearchOption);
         }
-        if (poiCitySearchOption == null || poiCitySearchOption.mCity == null || poiCitySearchOption.mKeyword == null) {
-            throw new IllegalArgumentException("option or city or keyworld can not be null");
-        }
-        return this.f2124a.a(poiCitySearchOption);
+        throw new IllegalStateException("searcher is null, please call newInstance first.");
     }
 
     public boolean searchNearby(PoiNearbySearchOption poiNearbySearchOption) {
-        if (this.f2124a == null) {
-            throw new IllegalStateException("searcher is null, please call newInstance first.");
+        com.baidu.platform.core.c.a aVar = this.f7238a;
+        if (aVar != null) {
+            if (poiNearbySearchOption == null || poiNearbySearchOption.mLocation == null || poiNearbySearchOption.mKeyword == null) {
+                throw new IllegalArgumentException("option or location or keyworld can not be null");
+            }
+            if (poiNearbySearchOption.mRadius <= 0) {
+                return false;
+            }
+            return aVar.a(poiNearbySearchOption);
         }
-        if (poiNearbySearchOption == null || poiNearbySearchOption.mLocation == null || poiNearbySearchOption.mKeyword == null) {
-            throw new IllegalArgumentException("option or location or keyworld can not be null");
-        }
-        if (poiNearbySearchOption.mRadius <= 0) {
-            return false;
-        }
-        return this.f2124a.a(poiNearbySearchOption);
+        throw new IllegalStateException("searcher is null, please call newInstance first.");
     }
 
     public boolean searchPoiDetail(PoiDetailSearchOption poiDetailSearchOption) {
-        if (this.f2124a == null) {
-            throw new IllegalStateException("searcher is null, please call newInstance first.");
+        if (this.f7238a != null) {
+            if (poiDetailSearchOption == null || poiDetailSearchOption.getUid() == null) {
+                throw new IllegalArgumentException("option or uid can not be null");
+            }
+            return this.f7238a.a(poiDetailSearchOption);
         }
-        if (poiDetailSearchOption == null || poiDetailSearchOption.getUid() == null) {
-            throw new IllegalArgumentException("option or uid can not be null");
-        }
-        return this.f2124a.a(poiDetailSearchOption);
+        throw new IllegalStateException("searcher is null, please call newInstance first.");
     }
 
     public boolean searchPoiIndoor(PoiIndoorOption poiIndoorOption) {
-        if (this.f2124a == null) {
-            throw new IllegalStateException("searcher is null, please call newInstance first.");
+        com.baidu.platform.core.c.a aVar = this.f7238a;
+        if (aVar != null) {
+            if (poiIndoorOption == null || poiIndoorOption.bid == null || poiIndoorOption.wd == null) {
+                throw new IllegalArgumentException("option or indoor bid or keyword can not be null");
+            }
+            return aVar.a(poiIndoorOption);
         }
-        if (poiIndoorOption == null || poiIndoorOption.bid == null || poiIndoorOption.wd == null) {
-            throw new IllegalArgumentException("option or indoor bid or keyword can not be null");
-        }
-        return this.f2124a.a(poiIndoorOption);
+        throw new IllegalStateException("searcher is null, please call newInstance first.");
     }
 
     public void setOnGetPoiSearchResultListener(OnGetPoiSearchResultListener onGetPoiSearchResultListener) {
-        if (this.f2124a == null) {
+        com.baidu.platform.core.c.a aVar = this.f7238a;
+        if (aVar == null) {
             throw new IllegalStateException("searcher is null, please call newInstance first.");
         }
         if (onGetPoiSearchResultListener == null) {
             throw new IllegalArgumentException("listener can not be null");
         }
-        this.f2124a.a(onGetPoiSearchResultListener);
+        aVar.a(onGetPoiSearchResultListener);
     }
 }

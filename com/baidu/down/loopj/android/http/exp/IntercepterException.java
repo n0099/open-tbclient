@@ -1,7 +1,7 @@
 package com.baidu.down.loopj.android.http.exp;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class IntercepterException extends RuntimeException {
-    private static final long serialVersionUID = 3457865569264624014L;
+    public static final long serialVersionUID = 3457865569264624014L;
 
     public IntercepterException() {
     }

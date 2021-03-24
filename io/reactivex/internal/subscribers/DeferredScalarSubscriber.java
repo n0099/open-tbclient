@@ -1,30 +1,24 @@
 package io.reactivex.internal.subscribers;
 
+import f.a.g;
+import g.d.c;
+import g.d.d;
 import io.reactivex.internal.subscriptions.DeferredScalarSubscription;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
-import io.reactivex.j;
-import org.a.d;
-/* loaded from: classes6.dex */
-public abstract class DeferredScalarSubscriber<T, R> extends DeferredScalarSubscription<R> implements j<T> {
-    private static final long serialVersionUID = 2984505488220891551L;
-    protected boolean hasValue;
-    protected d s;
+/* loaded from: classes7.dex */
+public abstract class DeferredScalarSubscriber<T, R> extends DeferredScalarSubscription<R> implements g<T> {
+    public static final long serialVersionUID = 2984505488220891551L;
+    public boolean hasValue;
+    public d s;
 
-    public DeferredScalarSubscriber(org.a.c<? super R> cVar) {
+    public DeferredScalarSubscriber(c<? super R> cVar) {
         super(cVar);
     }
 
-    public void onSubscribe(d dVar) {
-        if (SubscriptionHelper.validate(this.s, dVar)) {
-            this.s = dVar;
-            this.actual.onSubscribe(this);
-            dVar.request(Long.MAX_VALUE);
-        }
-    }
-
-    public void onError(Throwable th) {
-        this.value = null;
-        this.actual.onError(th);
+    @Override // io.reactivex.internal.subscriptions.DeferredScalarSubscription, io.reactivex.internal.subscriptions.BasicIntQueueSubscription, g.d.d
+    public void cancel() {
+        super.cancel();
+        this.s.cancel();
     }
 
     public void onComplete() {
@@ -35,9 +29,18 @@ public abstract class DeferredScalarSubscriber<T, R> extends DeferredScalarSubsc
         }
     }
 
-    @Override // io.reactivex.internal.subscriptions.DeferredScalarSubscription, org.a.d
-    public void cancel() {
-        super.cancel();
-        this.s.cancel();
+    public void onError(Throwable th) {
+        this.value = null;
+        this.actual.onError(th);
+    }
+
+    public abstract /* synthetic */ void onNext(T t);
+
+    public void onSubscribe(d dVar) {
+        if (SubscriptionHelper.validate(this.s, dVar)) {
+            this.s = dVar;
+            this.actual.onSubscribe(this);
+            dVar.request(Long.MAX_VALUE);
+        }
     }
 }

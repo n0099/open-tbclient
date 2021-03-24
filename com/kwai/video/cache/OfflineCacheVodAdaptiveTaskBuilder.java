@@ -1,9 +1,11 @@
 package com.kwai.video.cache;
-/* loaded from: classes3.dex */
-public class OfflineCacheVodAdaptiveTaskBuilder extends OfflineCacheTaskBuilderBase {
-    private VodAdaptiveInit mVodAdaptiveInitValue;
 
-    /* loaded from: classes3.dex */
+import com.kwai.video.cache.AwesomeCache;
+/* loaded from: classes6.dex */
+public class OfflineCacheVodAdaptiveTaskBuilder extends OfflineCacheTaskBuilderBase {
+    public VodAdaptiveInit mVodAdaptiveInitValue;
+
+    /* loaded from: classes6.dex */
     public static class VodAdaptiveInit {
         public int devResHeigh;
         public int devResWidth;
@@ -15,9 +17,10 @@ public class OfflineCacheVodAdaptiveTaskBuilder extends OfflineCacheTaskBuilderB
     }
 
     public OfflineCacheVodAdaptiveTaskBuilder(String str, VodAdaptiveInit vodAdaptiveInit, AwesomeCacheCallback awesomeCacheCallback) {
-        this.mDataSpec.url = str;
-        this.mDataSpec.host = "";
-        this.mDataSpec.key = "";
+        AwesomeCache.OfflineCacheDataSpec offlineCacheDataSpec = this.mDataSpec;
+        offlineCacheDataSpec.url = str;
+        offlineCacheDataSpec.host = "";
+        offlineCacheDataSpec.key = "";
         this.mVodAdaptiveInitValue = vodAdaptiveInit;
         this.mAwesomeCacheCallback = awesomeCacheCallback;
     }

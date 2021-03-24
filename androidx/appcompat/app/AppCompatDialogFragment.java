@@ -4,7 +4,7 @@ import android.app.Dialog;
 import android.os.Bundle;
 import androidx.annotation.RestrictTo;
 import androidx.fragment.app.DialogFragment;
-/* loaded from: classes5.dex */
+/* loaded from: classes.dex */
 public class AppCompatDialogFragment extends DialogFragment {
     @Override // androidx.fragment.app.DialogFragment
     public Dialog onCreateDialog(Bundle bundle) {
@@ -16,15 +16,11 @@ public class AppCompatDialogFragment extends DialogFragment {
     public void setupDialog(Dialog dialog, int i) {
         if (dialog instanceof AppCompatDialog) {
             AppCompatDialog appCompatDialog = (AppCompatDialog) dialog;
-            switch (i) {
-                case 1:
-                case 2:
-                    break;
-                default:
+            if (i != 1 && i != 2) {
+                if (i != 3) {
                     return;
-                case 3:
-                    dialog.getWindow().addFlags(24);
-                    break;
+                }
+                dialog.getWindow().addFlags(24);
             }
             appCompatDialog.supportRequestWindowFeature(1);
             return;

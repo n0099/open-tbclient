@@ -5,14 +5,14 @@ import com.bumptech.glide.load.engine.cache.DiskCache;
 import com.bumptech.glide.load.engine.cache.DiskLruCacheFactory;
 import java.io.File;
 @Deprecated
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public final class ExternalCacheDiskCacheFactory extends DiskLruCacheFactory {
     public ExternalCacheDiskCacheFactory(Context context) {
-        this(context, DiskCache.Factory.DEFAULT_DISK_CACHE_DIR, DiskCache.Factory.DEFAULT_DISK_CACHE_SIZE);
+        this(context, "image_manager_disk_cache", DiskCache.Factory.DEFAULT_DISK_CACHE_SIZE);
     }
 
     public ExternalCacheDiskCacheFactory(Context context, int i) {
-        this(context, DiskCache.Factory.DEFAULT_DISK_CACHE_DIR, i);
+        this(context, "image_manager_disk_cache", i);
     }
 
     public ExternalCacheDiskCacheFactory(final Context context, final String str, int i) {

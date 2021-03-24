@@ -3,9 +3,13 @@ package org.apache.http.message;
 import org.apache.http.ProtocolVersion;
 import org.apache.http.RequestLine;
 @Deprecated
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class BasicRequestLine implements RequestLine {
     public BasicRequestLine(String str, String str2, ProtocolVersion protocolVersion) {
+        throw new RuntimeException("Stub!");
+    }
+
+    public Object clone() throws CloneNotSupportedException {
         throw new RuntimeException("Stub!");
     }
 
@@ -25,10 +29,6 @@ public class BasicRequestLine implements RequestLine {
     }
 
     public String toString() {
-        throw new RuntimeException("Stub!");
-    }
-
-    public Object clone() throws CloneNotSupportedException {
         throw new RuntimeException("Stub!");
     }
 }

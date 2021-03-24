@@ -13,26 +13,28 @@ import com.kwad.sdk.api.loader.q;
 import java.util.concurrent.atomic.AtomicBoolean;
 @KsAdSdkApi
 @Keep
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class KsAdSDK {
-    private static String sAppTag;
+    public static String sAppTag;
+    public static final AtomicBoolean sInited = new AtomicBoolean(false);
     @Keep
-    private static IKsAdSDK sSdk = null;
-    private static final AtomicBoolean sInited = new AtomicBoolean(false);
+    public static IKsAdSDK sSdk;
 
     @KsAdSdkApi
     @Keep
     public static void deleteCache() {
-        if (sSdk != null) {
-            sSdk.deleteCache();
+        IKsAdSDK iKsAdSDK = sSdk;
+        if (iKsAdSDK != null) {
+            iKsAdSDK.deleteCache();
         }
     }
 
     @KsAdSdkApi
     @Keep
     public static String getAppId() {
-        if (sSdk != null) {
-            return sSdk.getAppId();
+        IKsAdSDK iKsAdSDK = sSdk;
+        if (iKsAdSDK != null) {
+            return iKsAdSDK.getAppId();
         }
         return null;
     }
@@ -40,8 +42,9 @@ public class KsAdSDK {
     @KsAdSdkApi
     @Keep
     public static String getAppName() {
-        if (sSdk != null) {
-            return sSdk.getAppName();
+        IKsAdSDK iKsAdSDK = sSdk;
+        if (iKsAdSDK != null) {
+            return iKsAdSDK.getAppName();
         }
         return null;
     }
@@ -50,8 +53,9 @@ public class KsAdSDK {
     @KsAdSdkApi
     @Keep
     public static Context getContext() {
-        if (sSdk != null) {
-            return sSdk.getContext();
+        IKsAdSDK iKsAdSDK = sSdk;
+        if (iKsAdSDK != null) {
+            return iKsAdSDK.getContext();
         }
         return null;
     }
@@ -59,8 +63,9 @@ public class KsAdSDK {
     @KsAdSdkApi
     @Keep
     public static String getDid() {
-        if (sSdk != null) {
-            return sSdk.getDid();
+        IKsAdSDK iKsAdSDK = sSdk;
+        if (iKsAdSDK != null) {
+            return iKsAdSDK.getDid();
         }
         return null;
     }
@@ -69,8 +74,9 @@ public class KsAdSDK {
     @KsAdSdkApi
     @Keep
     public static KsLoadManager getLoadManager() {
-        if (sSdk != null) {
-            return sSdk.getAdManager();
+        IKsAdSDK iKsAdSDK = sSdk;
+        if (iKsAdSDK != null) {
+            return iKsAdSDK.getAdManager();
         }
         return null;
     }
@@ -86,23 +92,26 @@ public class KsAdSDK {
     public static synchronized boolean init(Context context, SdkConfig sdkConfig) {
         boolean z;
         synchronized (KsAdSDK.class) {
-            Context a2 = c.a(context);
-            Loader.get().init(a2);
-            sSdk = Loader.get().getKsAdSDKImpl();
-            if (sSdk != null) {
-                sSdk.setApiVersion("3.3.9");
-                sSdk.setApiVersionCode(3030900);
-                sSdk.setAppTag(sAppTag);
-                sSdk.init(Wrapper.wrapContextIfNeed(a2), sdkConfig);
+            try {
+                Context a2 = c.a(context);
+                Loader.get().init(a2);
+                IKsAdSDK ksAdSDKImpl = Loader.get().getKsAdSDKImpl();
+                sSdk = ksAdSDKImpl;
+                if (ksAdSDKImpl != null) {
+                    ksAdSDKImpl.setApiVersion("3.3.9");
+                    sSdk.setApiVersionCode(3030900);
+                    sSdk.setAppTag(sAppTag);
+                    sSdk.init(Wrapper.wrapContextIfNeed(a2), sdkConfig);
+                }
+                sInited.set(sSdk != null);
+                if (sdkConfig != null) {
+                    q.a(a2, "sdkconfig", sdkConfig.toJson());
+                }
+                if (b.f31746a.booleanValue()) {
+                    Loader.get().checkUpdate();
+                }
+                z = sInited.get();
             }
-            sInited.set(sSdk != null);
-            if (sdkConfig != null) {
-                q.a(a2, "sdkconfig", sdkConfig.toJson());
-            }
-            if (b.f5449a.booleanValue()) {
-                Loader.get().checkUpdate();
-            }
-            z = sInited.get();
         }
         return z;
     }
@@ -110,8 +119,9 @@ public class KsAdSDK {
     @KsAdSdkApi
     @Keep
     public static boolean isDebugLogEnable() {
-        if (sSdk != null) {
-            return sSdk.isDebugLogEnable();
+        IKsAdSDK iKsAdSDK = sSdk;
+        if (iKsAdSDK != null) {
+            return iKsAdSDK.isDebugLogEnable();
         }
         return false;
     }
@@ -119,8 +129,9 @@ public class KsAdSDK {
     @KsAdSdkApi
     @Keep
     public static void setAppTag(String str) {
-        if (sSdk != null) {
-            sSdk.setAppTag(str);
+        IKsAdSDK iKsAdSDK = sSdk;
+        if (iKsAdSDK != null) {
+            iKsAdSDK.setAppTag(str);
         } else {
             sAppTag = str;
         }
@@ -129,8 +140,9 @@ public class KsAdSDK {
     @KsAdSdkApi
     @Keep
     public static void unInit() {
-        if (sSdk != null) {
-            sSdk.unInit();
+        IKsAdSDK iKsAdSDK = sSdk;
+        if (iKsAdSDK != null) {
+            iKsAdSDK.unInit();
         }
         sSdk = null;
     }

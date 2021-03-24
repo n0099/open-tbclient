@@ -12,28 +12,31 @@ import android.webkit.WebChromeClient;
 import android.webkit.WebStorage;
 import android.webkit.WebView;
 import android.widget.FrameLayout;
-import com.baidu.adp.lib.f.g;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.browser.sailor.feature.upload.BdUploadHandler;
 import com.baidu.searchbox.v8engine.V8ExceptionInfo;
-import com.baidu.tbadk.core.util.au;
-import com.baidu.tbadk.coreExtra.data.y;
-/* loaded from: classes.dex */
+import d.b.b.e.m.g;
+import d.b.b.e.p.k;
+import d.b.h0.s.c.w;
+import d.b.i0.c3.l0.c;
+/* loaded from: classes3.dex */
 public class TbWebChromeClient extends WebChromeClient {
-    private com.baidu.tieba.tbadkCore.e.c callback;
-    private TbWebViewActivity mActivity;
+    public c callback;
+    public TbWebViewActivity mActivity;
 
     public TbWebChromeClient(TbWebViewActivity tbWebViewActivity) {
         this.mActivity = tbWebViewActivity;
     }
 
-    public void setOnJsPromptCallback(com.baidu.tieba.tbadkCore.e.c cVar) {
-        this.callback = cVar;
-    }
-
-    @Override // android.webkit.WebChromeClient
-    public void onExceededDatabaseQuota(String str, String str2, long j, long j2, long j3, WebStorage.QuotaUpdater quotaUpdater) {
-        super.onExceededDatabaseQuota(str, str2, j, j2, j3, quotaUpdater);
-        quotaUpdater.updateQuota(2 * j2);
+    private void callJsMethod(WebView webView, String str, String str2) {
+        if (webView == null || k.isEmpty(str) || k.isEmpty(str2)) {
+            return;
+        }
+        if (Build.VERSION.SDK_INT >= 19) {
+            webView.evaluateJavascript("javascript:" + str + "('" + str2 + "')", null);
+            return;
+        }
+        webView.loadUrl("javascript:" + str + "('" + str2 + "')");
     }
 
     @Override // android.webkit.WebChromeClient
@@ -43,12 +46,81 @@ public class TbWebChromeClient extends WebChromeClient {
         return frameLayout;
     }
 
+    @Override // android.webkit.WebChromeClient
+    public void onExceededDatabaseQuota(String str, String str2, long j, long j2, long j3, WebStorage.QuotaUpdater quotaUpdater) {
+        super.onExceededDatabaseQuota(str, str2, j, j2, j3, quotaUpdater);
+        quotaUpdater.updateQuota(j2 * 2);
+    }
+
+    @Override // android.webkit.WebChromeClient
+    public boolean onJsAlert(WebView webView, String str, String str2, JsResult jsResult) {
+        TbWebViewActivity tbWebViewActivity = this.mActivity;
+        if (tbWebViewActivity == null || !g.f(tbWebViewActivity.getPageContext())) {
+            return true;
+        }
+        return super.onJsAlert(webView, str, str2, jsResult);
+    }
+
+    @Override // android.webkit.WebChromeClient
+    public boolean onJsBeforeUnload(WebView webView, String str, String str2, JsResult jsResult) {
+        TbWebViewActivity tbWebViewActivity = this.mActivity;
+        if (tbWebViewActivity == null || !g.f(tbWebViewActivity.getPageContext())) {
+            return true;
+        }
+        return super.onJsBeforeUnload(webView, str, str2, jsResult);
+    }
+
+    @Override // android.webkit.WebChromeClient
+    public boolean onJsConfirm(WebView webView, String str, String str2, JsResult jsResult) {
+        TbWebViewActivity tbWebViewActivity = this.mActivity;
+        if (tbWebViewActivity == null || !g.f(tbWebViewActivity.getPageContext())) {
+            return true;
+        }
+        return super.onJsConfirm(webView, str, str2, jsResult);
+    }
+
+    @Override // android.webkit.WebChromeClient
+    public boolean onJsPrompt(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
+        c cVar;
+        if (!w.a(str) && str2.startsWith("tiebaapp")) {
+            d.b.i0.c3.l0.d.c cVar2 = new d.b.i0.c3.l0.d.c();
+            cVar2.s(d.b.i0.c3.l0.d.g.b(str2));
+            cVar2.t(301);
+            callJsMethod(webView, cVar2.c(), cVar2.d());
+        }
+        if (w.a(str) && (cVar = this.callback) != null && cVar.onJsPrompt(str2, jsPromptResult)) {
+            return true;
+        }
+        jsPromptResult.cancel();
+        return true;
+    }
+
+    @Override // android.webkit.WebChromeClient
+    public void onReceivedTitle(WebView webView, String str) {
+        TbWebViewActivity tbWebViewActivity;
+        super.onReceivedTitle(webView, str);
+        TbWebViewActivity tbWebViewActivity2 = this.mActivity;
+        if (tbWebViewActivity2 != null) {
+            tbWebViewActivity2.refreshTitle(str);
+        }
+        if (Build.VERSION.SDK_INT >= 23 || StringUtils.isNull(str)) {
+            return;
+        }
+        if ((str.contains("404") || str.contains("500") || str.contains(V8ExceptionInfo.V8_EXCEPTION_ERROR)) && (tbWebViewActivity = this.mActivity) != null) {
+            tbWebViewActivity.onReceivedTitle();
+        }
+    }
+
     public void openFileChooser(ValueCallback<Uri> valueCallback) {
         this.mActivity.setUploadMessage(valueCallback);
         Intent intent = new Intent("android.intent.action.GET_CONTENT");
         intent.addCategory("android.intent.category.OPENABLE");
-        intent.setType("image/*");
+        intent.setType(BdUploadHandler.IMAGE_MIME_TYPE);
         this.mActivity.startActivityForResult(Intent.createChooser(intent, "File Chooser"), 1);
+    }
+
+    public void setOnJsPromptCallback(c cVar) {
+        this.callback = cVar;
     }
 
     public void openFileChooser(ValueCallback valueCallback, String str) {
@@ -63,68 +135,7 @@ public class TbWebChromeClient extends WebChromeClient {
         this.mActivity.setUploadMessage(valueCallback);
         Intent intent = new Intent("android.intent.action.GET_CONTENT");
         intent.addCategory("android.intent.category.OPENABLE");
-        intent.setType("image/*");
+        intent.setType(BdUploadHandler.IMAGE_MIME_TYPE);
         this.mActivity.startActivityForResult(Intent.createChooser(intent, "File Chooser"), 1);
-    }
-
-    @Override // android.webkit.WebChromeClient
-    public boolean onJsAlert(WebView webView, String str, String str2, JsResult jsResult) {
-        if (this.mActivity == null || !g.a(this.mActivity.getPageContext())) {
-            return true;
-        }
-        return super.onJsAlert(webView, str, str2, jsResult);
-    }
-
-    @Override // android.webkit.WebChromeClient
-    public boolean onJsBeforeUnload(WebView webView, String str, String str2, JsResult jsResult) {
-        if (this.mActivity == null || !g.a(this.mActivity.getPageContext())) {
-            return true;
-        }
-        return super.onJsBeforeUnload(webView, str, str2, jsResult);
-    }
-
-    @Override // android.webkit.WebChromeClient
-    public boolean onJsConfirm(WebView webView, String str, String str2, JsResult jsResult) {
-        if (this.mActivity == null || !g.a(this.mActivity.getPageContext())) {
-            return true;
-        }
-        return super.onJsConfirm(webView, str, str2, jsResult);
-    }
-
-    @Override // android.webkit.WebChromeClient
-    public boolean onJsPrompt(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
-        if (!y.Cc(str) && str2.startsWith("tiebaapp")) {
-            com.baidu.tieba.tbadkCore.e.a.c cVar = new com.baidu.tieba.tbadkCore.e.a.c();
-            cVar.TA(com.baidu.tieba.tbadkCore.e.a.g.TH(str2));
-            cVar.setStatus(301);
-            callJsMethod(webView, cVar.cuI(), cVar.dOx());
-        }
-        if (!y.Cc(str) || this.callback == null || !this.callback.onJsPrompt(str2, jsPromptResult)) {
-            jsPromptResult.cancel();
-        }
-        return true;
-    }
-
-    @Override // android.webkit.WebChromeClient
-    public void onReceivedTitle(WebView webView, String str) {
-        super.onReceivedTitle(webView, str);
-        if (this.mActivity != null) {
-            this.mActivity.refreshTitle(str);
-        }
-        if (Build.VERSION.SDK_INT < 23 && !StringUtils.isNull(str)) {
-            if ((str.contains("404") || str.contains("500") || str.contains(V8ExceptionInfo.V8_EXCEPTION_ERROR)) && this.mActivity != null) {
-                this.mActivity.onReceivedTitle();
-            }
-        }
-    }
-
-    private void callJsMethod(WebView webView, String str, String str2) {
-        if (webView != null && !au.isEmpty(str) && !au.isEmpty(str2)) {
-            if (Build.VERSION.SDK_INT >= 19) {
-                webView.evaluateJavascript("javascript:" + str + "('" + str2 + "')", null);
-            } else {
-                webView.loadUrl("javascript:" + str + "('" + str2 + "')");
-            }
-        }
     }
 }

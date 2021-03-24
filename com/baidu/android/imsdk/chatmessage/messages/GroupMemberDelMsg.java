@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class GroupMemberDelMsg extends NotifyMsg implements Parcelable, NoProGuard {
     public static final Parcelable.Creator<GroupMemberDelMsg> CREATOR = new Parcelable.Creator<GroupMemberDelMsg>() { // from class: com.baidu.android.imsdk.chatmessage.messages.GroupMemberDelMsg.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -25,54 +25,13 @@ public class GroupMemberDelMsg extends NotifyMsg implements Parcelable, NoProGua
             return new GroupMemberDelMsg[i];
         }
     };
-    private int groupnum;
-    private ArrayList<String> members;
-    private String operator;
+    public int groupnum;
+    public ArrayList<String> members;
+    public String operator;
 
     public GroupMemberDelMsg() {
         this.members = new ArrayList<>();
         setMsgType(1004);
-    }
-
-    public GroupMemberDelMsg(Parcel parcel) {
-        super(parcel);
-        this.members = new ArrayList<>();
-        this.operator = parcel.readString();
-        this.groupnum = parcel.readInt();
-        parcel.readList(this.members, String.class.getClassLoader());
-    }
-
-    @Override // com.baidu.android.imsdk.chatmessage.messages.NotifyMsg, com.baidu.android.imsdk.chatmessage.messages.ChatMsg, android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
-        super.writeToParcel(parcel, i);
-        parcel.writeString(this.operator);
-        parcel.writeInt(this.groupnum);
-        parcel.writeList(this.members);
-    }
-
-    public String getOperator() {
-        return this.operator;
-    }
-
-    public void setOperator(String str) {
-        this.operator = str;
-    }
-
-    @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg
-    protected boolean parseJsonString() {
-        try {
-            JSONObject jSONObject = new JSONObject(getMsgContent());
-            this.operator = String.valueOf(jSONObject.optLong("operator"));
-            this.groupnum = jSONObject.optInt("group_num");
-            JSONArray jSONArray = jSONObject.getJSONArray("member");
-            for (int i = 0; i < jSONArray.length(); i++) {
-                this.members.add(String.valueOf(jSONArray.optLong(i)));
-            }
-            return true;
-        } catch (JSONException e) {
-            LogUtils.e(LogUtils.TAG, "parseJsonString", e);
-            return false;
-        }
     }
 
     public int getGroupnum() {
@@ -83,8 +42,49 @@ public class GroupMemberDelMsg extends NotifyMsg implements Parcelable, NoProGua
         return this.members;
     }
 
+    public String getOperator() {
+        return this.operator;
+    }
+
     @Override // com.baidu.android.imsdk.chatmessage.messages.NotifyMsg, com.baidu.android.imsdk.chatmessage.messages.ChatMsg
     public String getRecommendDescription() {
         return "你收到了一条系统消息";
+    }
+
+    @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg
+    public boolean parseJsonString() {
+        try {
+            JSONObject jSONObject = new JSONObject(getMsgContent());
+            this.operator = String.valueOf(jSONObject.optLong("operator"));
+            this.groupnum = jSONObject.optInt("group_num");
+            JSONArray jSONArray = jSONObject.getJSONArray("member");
+            for (int i = 0; i < jSONArray.length(); i++) {
+                this.members.add(String.valueOf(jSONArray.optLong(i)));
+            }
+            return true;
+        } catch (JSONException e2) {
+            LogUtils.e(LogUtils.TAG, "parseJsonString", e2);
+            return false;
+        }
+    }
+
+    public void setOperator(String str) {
+        this.operator = str;
+    }
+
+    @Override // com.baidu.android.imsdk.chatmessage.messages.NotifyMsg, com.baidu.android.imsdk.chatmessage.messages.ChatMsg, android.os.Parcelable
+    public void writeToParcel(Parcel parcel, int i) {
+        super.writeToParcel(parcel, i);
+        parcel.writeString(this.operator);
+        parcel.writeInt(this.groupnum);
+        parcel.writeList(this.members);
+    }
+
+    public GroupMemberDelMsg(Parcel parcel) {
+        super(parcel);
+        this.members = new ArrayList<>();
+        this.operator = parcel.readString();
+        this.groupnum = parcel.readInt();
+        parcel.readList(this.members, String.class.getClassLoader());
     }
 }

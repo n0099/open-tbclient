@@ -10,34 +10,29 @@ import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-/* loaded from: classes4.dex */
+import d.b.g0.r.b;
+/* loaded from: classes3.dex */
 public class VeloceAppIpcProvider extends ContentProvider {
-    public static final String dXh = AppRuntime.getAppContext().getPackageName() + ".veloce.ipc";
-    public static final Uri eBg = Uri.parse("content://" + dXh);
-    public static final Uri eBh = Uri.parse("content://com.baidu.searchbox.veloce.ipc");
-    public static String eBi = "ipc_veloce_call_app";
-    public static String eBj = "ipc_app_call_veloce";
+    public static final boolean DEBUG = false;
+    public static final String IPC_APP_CALL_VELOCE_AUTHORITY = "com.baidu.searchbox.veloce.ipc";
+    public static final String PARAMS_ACTION = "action";
+    public static final String PARAMS_DATA = "data";
+    public static final String PARAMS_PACKAGE = "package";
+    public static final String TAG = "VeloceAppIpcProvider";
+    public static final String AUTHORITY = AppRuntime.getAppContext().getPackageName() + ".veloce.ipc";
+    public static final Uri SWAN_VELOCE_PROVIDER_URI = Uri.parse("content://" + AUTHORITY);
+    public static final Uri VELOCE_IPC_AUTHORITY = Uri.parse("content://com.baidu.searchbox.veloce.ipc");
+    public static String IPC_VELOCE_CALL_APP = "ipc_veloce_call_app";
+    public static String IPC_APP_CALL_VELOCE = "ipc_app_call_veloce";
 
-    @Override // android.content.ContentProvider
-    public boolean onCreate() {
-        return true;
-    }
-
-    @Override // android.content.ContentProvider
-    public Bundle call(String str, String str2, Bundle bundle) {
-        if (TextUtils.isEmpty(str)) {
+    private Bundle dispatchToSwan(String str, Bundle bundle) {
+        if (TextUtils.isEmpty(str) || b.a() == null) {
             return null;
         }
-        if (eBi.equals(str)) {
-            return ad(bundle);
-        }
-        if (eBj.equals(str)) {
-            return f(AppRuntime.getAppContext(), bundle);
-        }
-        return null;
+        return b.a().a(str, bundle);
     }
 
-    private Bundle ad(Bundle bundle) {
+    private Bundle dispatchVeloceCall(Bundle bundle) {
         if (bundle == null) {
             return null;
         }
@@ -47,20 +42,43 @@ public class VeloceAppIpcProvider extends ContentProvider {
         if (TextUtils.isEmpty(string) || TextUtils.isEmpty(string2)) {
             return null;
         }
-        return i(string2, bundle2);
-    }
-
-    private Bundle i(String str, Bundle bundle) {
-        if (TextUtils.isEmpty(str) || b.bfM() == null) {
-            return null;
-        }
-        return b.bfM().h(str, bundle);
+        return dispatchToSwan(string2, bundle2);
     }
 
     @Override // android.content.ContentProvider
-    @NonNull
-    public Cursor query(@NonNull Uri uri, @Nullable String[] strArr, @Nullable String str, @Nullable String[] strArr2, @Nullable String str2) {
+    public Bundle call(String str, String str2, Bundle bundle) {
+        if (TextUtils.isEmpty(str)) {
+            return null;
+        }
+        if (IPC_VELOCE_CALL_APP.equals(str)) {
+            return dispatchVeloceCall(bundle);
+        }
+        if (IPC_APP_CALL_VELOCE.equals(str)) {
+            return callVeloce(AppRuntime.getAppContext(), bundle);
+        }
         return null;
+    }
+
+    public Bundle callVeloce(Context context, Bundle bundle) {
+        if (bundle == null || TextUtils.isEmpty(bundle.getString("action"))) {
+            return null;
+        }
+        String string = bundle.getString("action");
+        Bundle bundle2 = bundle.getBundle("data");
+        Bundle bundle3 = new Bundle();
+        bundle3.putString("package", context.getPackageName());
+        bundle3.putString("action", string);
+        bundle3.putBundle("data", bundle2);
+        try {
+            return context.getContentResolver().call(VELOCE_IPC_AUTHORITY, IPC_APP_CALL_VELOCE, (String) null, bundle3);
+        } catch (Exception unused) {
+            return null;
+        }
+    }
+
+    @Override // android.content.ContentProvider
+    public int delete(@NonNull Uri uri, @Nullable String str, @Nullable String[] strArr) {
+        return -1;
     }
 
     @Override // android.content.ContentProvider
@@ -76,29 +94,18 @@ public class VeloceAppIpcProvider extends ContentProvider {
     }
 
     @Override // android.content.ContentProvider
-    public int delete(@NonNull Uri uri, @Nullable String str, @Nullable String[] strArr) {
-        return -1;
+    public boolean onCreate() {
+        return true;
+    }
+
+    @Override // android.content.ContentProvider
+    @NonNull
+    public Cursor query(@NonNull Uri uri, @Nullable String[] strArr, @Nullable String str, @Nullable String[] strArr2, @Nullable String str2) {
+        return null;
     }
 
     @Override // android.content.ContentProvider
     public int update(@NonNull Uri uri, @Nullable ContentValues contentValues, @Nullable String str, @Nullable String[] strArr) {
         return -1;
-    }
-
-    public Bundle f(Context context, Bundle bundle) {
-        if (bundle == null || TextUtils.isEmpty(bundle.getString("action"))) {
-            return null;
-        }
-        String string = bundle.getString("action");
-        Bundle bundle2 = bundle.getBundle("data");
-        Bundle bundle3 = new Bundle();
-        bundle3.putString("package", context.getPackageName());
-        bundle3.putString("action", string);
-        bundle3.putBundle("data", bundle2);
-        try {
-            return context.getContentResolver().call(eBh, eBj, (String) null, bundle3);
-        } catch (Exception e) {
-            return null;
-        }
     }
 }

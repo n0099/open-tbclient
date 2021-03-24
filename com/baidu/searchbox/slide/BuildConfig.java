@@ -1,5 +1,5 @@
 package com.baidu.searchbox.slide;
-/* loaded from: classes14.dex */
+/* loaded from: classes3.dex */
 public final class BuildConfig {
     public static final String APPLICATION_ID = "com.baidu.searchbox.slide";
     public static final String BUILD_TYPE = "release";

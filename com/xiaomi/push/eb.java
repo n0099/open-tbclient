@@ -1,58 +1,112 @@
 package com.xiaomi.push;
 
 import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
-import android.os.Bundle;
 import android.text.TextUtils;
-import java.util.Set;
+import com.baidu.android.common.others.lang.StringUtil;
+import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
-public class eb extends ed {
-    public eb(Context context, int i) {
-        super(context, i);
+/* loaded from: classes7.dex */
+public class eb implements Runnable {
+
+    /* renamed from: a  reason: collision with root package name */
+    public final /* synthetic */ Context f40436a;
+
+    /* renamed from: a  reason: collision with other field name */
+    public final /* synthetic */ ea f313a;
+
+    /* renamed from: a  reason: collision with other field name */
+    public final /* synthetic */ String f314a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public final /* synthetic */ String f40437b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public final /* synthetic */ String f40438c;
+
+    public eb(ea eaVar, String str, Context context, String str2, String str3) {
+        this.f313a = eaVar;
+        this.f314a = str;
+        this.f40436a = context;
+        this.f40437b = str2;
+        this.f40438c = str3;
     }
 
-    private String b() {
-        Bundle extras;
-        StringBuilder sb = new StringBuilder();
-        try {
-            Intent registerReceiver = this.f231a.registerReceiver(null, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
-            if (registerReceiver != null && (extras = registerReceiver.getExtras()) != null) {
-                Set<String> keySet = extras.keySet();
-                JSONObject jSONObject = new JSONObject();
-                if (keySet != null && keySet.size() > 0) {
-                    for (String str : keySet) {
-                        if (!TextUtils.isEmpty(str)) {
-                            try {
-                                jSONObject.put(str, String.valueOf(extras.get(str)));
-                            } catch (Exception e) {
+    @Override // java.lang.Runnable
+    public void run() {
+        Context context;
+        String str;
+        String str2;
+        Context context2;
+        String str3;
+        String str4;
+        ea eaVar;
+        ec ecVar;
+        Context context3;
+        if (TextUtils.isEmpty(this.f314a)) {
+            context = this.f40436a;
+            str = StringUtil.NULL_STRING;
+            str2 = "A receive a incorrect message with empty info";
+        } else {
+            try {
+                dw.a(this.f40436a, this.f314a, 1001, "get message");
+                JSONObject jSONObject = new JSONObject(this.f314a);
+                String optString = jSONObject.optString("action");
+                String optString2 = jSONObject.optString("awakened_app_packagename");
+                String optString3 = jSONObject.optString("awake_app_packagename");
+                String optString4 = jSONObject.optString("awake_app");
+                String optString5 = jSONObject.optString("awake_type");
+                int optInt = jSONObject.optInt("awake_foreground", 0);
+                if (this.f40437b.equals(optString3) && this.f40438c.equals(optString4)) {
+                    if (!TextUtils.isEmpty(optString5) && !TextUtils.isEmpty(optString3) && !TextUtils.isEmpty(optString4) && !TextUtils.isEmpty(optString2)) {
+                        this.f313a.b(optString3);
+                        this.f313a.a(optString4);
+                        dz dzVar = new dz();
+                        dzVar.b(optString);
+                        dzVar.a(optString2);
+                        dzVar.a(optInt);
+                        dzVar.d(this.f314a);
+                        if ("service".equals(optString5)) {
+                            if (TextUtils.isEmpty(optString)) {
+                                dzVar.c("com.xiaomi.mipush.sdk.PushMessageHandler");
+                                eaVar = this.f313a;
+                                ecVar = ec.SERVICE_COMPONENT;
+                                context3 = this.f40436a;
+                            } else {
+                                eaVar = this.f313a;
+                                ecVar = ec.SERVICE_ACTION;
+                                context3 = this.f40436a;
                             }
+                        } else if (ec.ACTIVITY.f316a.equals(optString5)) {
+                            eaVar = this.f313a;
+                            ecVar = ec.ACTIVITY;
+                            context3 = this.f40436a;
+                        } else if (ec.PROVIDER.f316a.equals(optString5)) {
+                            eaVar = this.f313a;
+                            ecVar = ec.PROVIDER;
+                            context3 = this.f40436a;
+                        } else {
+                            context2 = this.f40436a;
+                            str3 = this.f314a;
+                            str4 = "A receive a incorrect message with unknown type " + optString5;
                         }
+                        eaVar.a(ecVar, context3, dzVar);
+                        return;
                     }
-                    sb.append(jSONObject);
+                    context2 = this.f40436a;
+                    str3 = this.f314a;
+                    str4 = "A receive a incorrect message with empty type";
+                    dw.a(context2, str3, 1008, str4);
+                    return;
                 }
+                dw.a(this.f40436a, this.f314a, 1008, "A receive a incorrect message with incorrect package info" + optString3);
+                return;
+            } catch (JSONException e2) {
+                com.xiaomi.channel.commonutils.logger.b.a(e2);
+                context = this.f40436a;
+                str = this.f314a;
+                str2 = "A meet a exception when receive the message";
             }
-        } catch (Exception e2) {
         }
-        return sb.toString();
-    }
-
-    @Override // com.xiaomi.push.ed, com.xiaomi.push.ai.a
-    /* renamed from: a */
-    public int mo170a() {
-        return 20;
-    }
-
-    @Override // com.xiaomi.push.ed, com.xiaomi.push.ai.a
-    /* renamed from: a */
-    public ho mo170a() {
-        return ho.Battery;
-    }
-
-    @Override // com.xiaomi.push.ed, com.xiaomi.push.ai.a
-    /* renamed from: a */
-    public String mo170a() {
-        return b();
+        dw.a(context, str, 1008, str2);
     }
 }

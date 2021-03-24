@@ -17,60 +17,60 @@ import com.tencent.mm.sdk.modelmsg.SendAuth;
 import com.tencent.mm.sdk.modelmsg.SendMessageToWX;
 import com.tencent.mm.sdk.modelmsg.ShowMessageFromWX;
 import com.tencent.mm.sdk.modelpay.PayResp;
-/* loaded from: classes6.dex */
-final class WXApiImplV10 implements IWXAPI {
-    private static final String TAG = "MicroMsg.SDK.WXApiImplV10";
-    private static String wxappPayEntryClassname = null;
-    private String appId;
-    private boolean checkSignature;
-    private Context context;
-    private boolean detached = false;
+/* loaded from: classes7.dex */
+public final class WXApiImplV10 implements IWXAPI {
+    public static final String TAG = "MicroMsg.SDK.WXApiImplV10";
+    public static String wxappPayEntryClassname;
+    public String appId;
+    public boolean checkSignature;
+    public Context context;
+    public boolean detached = false;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public WXApiImplV10(Context context, String str, boolean z) {
         this.checkSignature = false;
-        a.c(TAG, "<init>, appId = " + str + ", checkSignature = " + z);
+        a.c("MicroMsg.SDK.WXApiImplV10", "<init>, appId = " + str + ", checkSignature = " + z);
         this.context = context;
         this.appId = str;
         this.checkSignature = z;
     }
 
     private boolean checkSumConsistent(byte[] bArr, byte[] bArr2) {
+        String str;
         if (bArr == null || bArr.length == 0 || bArr2 == null || bArr2.length == 0) {
-            a.a(TAG, "checkSumConsistent fail, invalid arguments");
-            return false;
-        } else if (bArr.length != bArr2.length) {
-            a.a(TAG, "checkSumConsistent fail, length is different");
-            return false;
-        } else {
+            str = "checkSumConsistent fail, invalid arguments";
+        } else if (bArr.length == bArr2.length) {
             for (int i = 0; i < bArr.length; i++) {
                 if (bArr[i] != bArr2[i]) {
                     return false;
                 }
             }
             return true;
+        } else {
+            str = "checkSumConsistent fail, length is different";
         }
+        a.a("MicroMsg.SDK.WXApiImplV10", str);
+        return false;
     }
 
     private boolean sendPayReq(Context context, Bundle bundle) {
         if (wxappPayEntryClassname == null) {
             wxappPayEntryClassname = new com.tencent.mm.sdk.a(context).getString("_wxapp_pay_entry_classname_", null);
-            a.c(TAG, "pay, set wxappPayEntryClassname = " + wxappPayEntryClassname);
+            a.c("MicroMsg.SDK.WXApiImplV10", "pay, set wxappPayEntryClassname = " + wxappPayEntryClassname);
             if (wxappPayEntryClassname == null) {
-                a.a(TAG, "pay fail, wxappPayEntryClassname is null");
+                a.a("MicroMsg.SDK.WXApiImplV10", "pay fail, wxappPayEntryClassname is null");
                 return false;
             }
         }
-        a.C1255a c1255a = new a.C1255a();
-        c1255a.k = bundle;
-        c1255a.h = "com.tencent.mm";
-        c1255a.i = wxappPayEntryClassname;
-        return com.tencent.mm.sdk.a.a.a(context, c1255a);
+        a.C0511a c0511a = new a.C0511a();
+        c0511a.k = bundle;
+        c0511a.f39155h = "com.tencent.mm";
+        c0511a.i = wxappPayEntryClassname;
+        return com.tencent.mm.sdk.a.a.a(context, c0511a);
     }
 
     @Override // com.tencent.mm.sdk.openapi.IWXAPI
     public final void detach() {
-        com.tencent.mm.sdk.b.a.c(TAG, "detach");
+        com.tencent.mm.sdk.b.a.c("MicroMsg.SDK.WXApiImplV10", "detach");
         this.detached = true;
         this.context = null;
     }
@@ -83,14 +83,14 @@ final class WXApiImplV10 implements IWXAPI {
         if (isWXAppInstalled()) {
             return new com.tencent.mm.sdk.a(this.context).getInt("_build_info_sdk_int_", 0);
         }
-        com.tencent.mm.sdk.b.a.a(TAG, "open wx app failed, not installed or signature check failed");
+        com.tencent.mm.sdk.b.a.a("MicroMsg.SDK.WXApiImplV10", "open wx app failed, not installed or signature check failed");
         return 0;
     }
 
     @Override // com.tencent.mm.sdk.openapi.IWXAPI
     public final boolean handleIntent(Intent intent, IWXAPIEventHandler iWXAPIEventHandler) {
         if (!WXApiImplComm.isIntentFromWx(intent, "com.tencent.mm.openapi.token")) {
-            com.tencent.mm.sdk.b.a.b(TAG, "handleIntent fail, intent not from weixin msg");
+            com.tencent.mm.sdk.b.a.b("MicroMsg.SDK.WXApiImplV10", "handleIntent fail, intent not from weixin msg");
             return false;
         } else if (this.detached) {
             throw new IllegalStateException("handleIntent fail, WXMsgImpl has been detached");
@@ -99,10 +99,10 @@ final class WXApiImplV10 implements IWXAPI {
             int intExtra = intent.getIntExtra("_mmessage_sdkVersion", 0);
             String stringExtra2 = intent.getStringExtra("_mmessage_appPackage");
             if (stringExtra2 == null || stringExtra2.length() == 0) {
-                com.tencent.mm.sdk.b.a.a(TAG, "invalid argument");
+                com.tencent.mm.sdk.b.a.a("MicroMsg.SDK.WXApiImplV10", "invalid argument");
                 return false;
             } else if (!checkSumConsistent(intent.getByteArrayExtra("_mmessage_checksum"), b.a(stringExtra, intExtra, stringExtra2))) {
-                com.tencent.mm.sdk.b.a.a(TAG, "checksum fail");
+                com.tencent.mm.sdk.b.a.a("MicroMsg.SDK.WXApiImplV10", "checksum fail");
                 return false;
             } else {
                 int intExtra2 = intent.getIntExtra("_wxapi_command_type", 0);
@@ -126,7 +126,7 @@ final class WXApiImplV10 implements IWXAPI {
                         iWXAPIEventHandler.onReq(new LaunchFromWX.Req(intent.getExtras()));
                         return true;
                     default:
-                        com.tencent.mm.sdk.b.a.a(TAG, "unknown cmd = " + intExtra2);
+                        com.tencent.mm.sdk.b.a.a("MicroMsg.SDK.WXApiImplV10", "unknown cmd = " + intExtra2);
                         return false;
                 }
             }
@@ -144,7 +144,7 @@ final class WXApiImplV10 implements IWXAPI {
                 return false;
             }
             return WXApiImplComm.validateAppSignature(this.context, packageInfo.signatures, this.checkSignature);
-        } catch (PackageManager.NameNotFoundException e) {
+        } catch (PackageManager.NameNotFoundException unused) {
             return false;
         }
     }
@@ -159,20 +159,22 @@ final class WXApiImplV10 implements IWXAPI {
 
     @Override // com.tencent.mm.sdk.openapi.IWXAPI
     public final boolean openWXApp() {
+        String str;
         if (this.detached) {
             throw new IllegalStateException("openWXApp fail, WXMsgImpl has been detached");
         }
-        if (!isWXAppInstalled()) {
-            com.tencent.mm.sdk.b.a.a(TAG, "open wx app failed, not installed or signature check failed");
-            return false;
+        if (isWXAppInstalled()) {
+            try {
+                this.context.startActivity(this.context.getPackageManager().getLaunchIntentForPackage("com.tencent.mm"));
+                return true;
+            } catch (Exception e2) {
+                str = "startActivity fail, exception = " + e2.getMessage();
+            }
+        } else {
+            str = "open wx app failed, not installed or signature check failed";
         }
-        try {
-            this.context.startActivity(this.context.getPackageManager().getLaunchIntentForPackage("com.tencent.mm"));
-            return true;
-        } catch (Exception e) {
-            com.tencent.mm.sdk.b.a.a(TAG, "startActivity fail, exception = " + e.getMessage());
-            return false;
-        }
+        com.tencent.mm.sdk.b.a.a("MicroMsg.SDK.WXApiImplV10", str);
+        return false;
     }
 
     @Override // com.tencent.mm.sdk.openapi.IWXAPI
@@ -181,69 +183,71 @@ final class WXApiImplV10 implements IWXAPI {
             throw new IllegalStateException("registerApp fail, WXMsgImpl has been detached");
         }
         if (!WXApiImplComm.validateAppSignatureForPackage(this.context, "com.tencent.mm", this.checkSignature)) {
-            com.tencent.mm.sdk.b.a.a(TAG, "register app failed for wechat app signature check failed");
+            com.tencent.mm.sdk.b.a.a("MicroMsg.SDK.WXApiImplV10", "register app failed for wechat app signature check failed");
             return false;
         }
-        com.tencent.mm.sdk.b.a.c(TAG, "registerApp, appId = " + str);
+        com.tencent.mm.sdk.b.a.c("MicroMsg.SDK.WXApiImplV10", "registerApp, appId = " + str);
         if (str != null) {
             this.appId = str;
         }
-        com.tencent.mm.sdk.b.a.c(TAG, "register app " + this.context.getPackageName());
-        a.C1256a c1256a = new a.C1256a();
-        c1256a.l = "com.tencent.mm";
-        c1256a.m = "com.tencent.mm.plugin.openapi.Intent.ACTION_HANDLE_APP_REGISTER";
-        c1256a.j = "weixin://registerapp?appid=" + this.appId;
-        return com.tencent.mm.sdk.a.a.a.a(this.context, c1256a);
+        com.tencent.mm.sdk.b.a.c("MicroMsg.SDK.WXApiImplV10", "register app " + this.context.getPackageName());
+        a.C0512a c0512a = new a.C0512a();
+        c0512a.l = "com.tencent.mm";
+        c0512a.m = "com.tencent.mm.plugin.openapi.Intent.ACTION_HANDLE_APP_REGISTER";
+        c0512a.j = "weixin://registerapp?appid=" + this.appId;
+        return com.tencent.mm.sdk.a.a.a.a(this.context, c0512a);
     }
 
     @Override // com.tencent.mm.sdk.openapi.IWXAPI
     public final boolean sendReq(BaseReq baseReq) {
+        String str;
         if (this.detached) {
             throw new IllegalStateException("sendReq fail, WXMsgImpl has been detached");
         }
         if (!WXApiImplComm.validateAppSignatureForPackage(this.context, "com.tencent.mm", this.checkSignature)) {
-            com.tencent.mm.sdk.b.a.a(TAG, "sendReq failed for wechat app signature check failed");
-            return false;
-        } else if (!baseReq.checkArgs()) {
-            com.tencent.mm.sdk.b.a.a(TAG, "sendReq checkArgs fail");
-            return false;
-        } else {
-            com.tencent.mm.sdk.b.a.c(TAG, "sendReq, req type = " + baseReq.getType());
+            str = "sendReq failed for wechat app signature check failed";
+        } else if (baseReq.checkArgs()) {
+            com.tencent.mm.sdk.b.a.c("MicroMsg.SDK.WXApiImplV10", "sendReq, req type = " + baseReq.getType());
             Bundle bundle = new Bundle();
             baseReq.toBundle(bundle);
             if (baseReq.getType() == 5) {
                 return sendPayReq(this.context, bundle);
             }
-            a.C1255a c1255a = new a.C1255a();
-            c1255a.k = bundle;
-            c1255a.j = "weixin://sendreq?appid=" + this.appId;
-            c1255a.h = "com.tencent.mm";
-            c1255a.i = "com.tencent.mm.plugin.base.stub.WXEntryActivity";
-            return com.tencent.mm.sdk.a.a.a(this.context, c1255a);
+            a.C0511a c0511a = new a.C0511a();
+            c0511a.k = bundle;
+            c0511a.j = "weixin://sendreq?appid=" + this.appId;
+            c0511a.f39155h = "com.tencent.mm";
+            c0511a.i = "com.tencent.mm.plugin.base.stub.WXEntryActivity";
+            return com.tencent.mm.sdk.a.a.a(this.context, c0511a);
+        } else {
+            str = "sendReq checkArgs fail";
         }
+        com.tencent.mm.sdk.b.a.a("MicroMsg.SDK.WXApiImplV10", str);
+        return false;
     }
 
     @Override // com.tencent.mm.sdk.openapi.IWXAPI
     public final boolean sendResp(BaseResp baseResp) {
+        String str;
         if (this.detached) {
             throw new IllegalStateException("sendResp fail, WXMsgImpl has been detached");
         }
         if (!WXApiImplComm.validateAppSignatureForPackage(this.context, "com.tencent.mm", this.checkSignature)) {
-            com.tencent.mm.sdk.b.a.a(TAG, "sendResp failed for wechat app signature check failed");
-            return false;
-        } else if (!baseResp.checkArgs()) {
-            com.tencent.mm.sdk.b.a.a(TAG, "sendResp checkArgs fail");
-            return false;
-        } else {
+            str = "sendResp failed for wechat app signature check failed";
+        } else if (baseResp.checkArgs()) {
             Bundle bundle = new Bundle();
             baseResp.toBundle(bundle);
-            a.C1255a c1255a = new a.C1255a();
-            c1255a.k = bundle;
-            c1255a.j = "weixin://sendresp?appid=" + this.appId;
-            c1255a.h = "com.tencent.mm";
-            c1255a.i = "com.tencent.mm.plugin.base.stub.WXEntryActivity";
-            return com.tencent.mm.sdk.a.a.a(this.context, c1255a);
+            a.C0511a c0511a = new a.C0511a();
+            c0511a.k = bundle;
+            c0511a.j = "weixin://sendresp?appid=" + this.appId;
+            c0511a.f39155h = "com.tencent.mm";
+            c0511a.i = "com.tencent.mm.plugin.base.stub.WXEntryActivity";
+            return com.tencent.mm.sdk.a.a.a(this.context, c0511a);
+        } else {
+            str = "sendResp checkArgs fail";
         }
+        com.tencent.mm.sdk.b.a.a("MicroMsg.SDK.WXApiImplV10", str);
+        return false;
     }
 
     @Override // com.tencent.mm.sdk.openapi.IWXAPI
@@ -252,19 +256,20 @@ final class WXApiImplV10 implements IWXAPI {
             throw new IllegalStateException("unregisterApp fail, WXMsgImpl has been detached");
         }
         if (!WXApiImplComm.validateAppSignatureForPackage(this.context, "com.tencent.mm", this.checkSignature)) {
-            com.tencent.mm.sdk.b.a.a(TAG, "unregister app failed for wechat app signature check failed");
+            com.tencent.mm.sdk.b.a.a("MicroMsg.SDK.WXApiImplV10", "unregister app failed for wechat app signature check failed");
             return;
         }
-        com.tencent.mm.sdk.b.a.c(TAG, "unregisterApp, appId = " + this.appId);
-        if (this.appId == null || this.appId.length() == 0) {
-            com.tencent.mm.sdk.b.a.a(TAG, "unregisterApp fail, appId is empty");
+        com.tencent.mm.sdk.b.a.c("MicroMsg.SDK.WXApiImplV10", "unregisterApp, appId = " + this.appId);
+        String str = this.appId;
+        if (str == null || str.length() == 0) {
+            com.tencent.mm.sdk.b.a.a("MicroMsg.SDK.WXApiImplV10", "unregisterApp fail, appId is empty");
             return;
         }
-        com.tencent.mm.sdk.b.a.c(TAG, "unregister app " + this.context.getPackageName());
-        a.C1256a c1256a = new a.C1256a();
-        c1256a.l = "com.tencent.mm";
-        c1256a.m = "com.tencent.mm.plugin.openapi.Intent.ACTION_HANDLE_APP_UNREGISTER";
-        c1256a.j = "weixin://unregisterapp?appid=" + this.appId;
-        com.tencent.mm.sdk.a.a.a.a(this.context, c1256a);
+        com.tencent.mm.sdk.b.a.c("MicroMsg.SDK.WXApiImplV10", "unregister app " + this.context.getPackageName());
+        a.C0512a c0512a = new a.C0512a();
+        c0512a.l = "com.tencent.mm";
+        c0512a.m = "com.tencent.mm.plugin.openapi.Intent.ACTION_HANDLE_APP_UNREGISTER";
+        c0512a.j = "weixin://unregisterapp?appid=" + this.appId;
+        com.tencent.mm.sdk.a.a.a.a(this.context, c0512a);
     }
 }

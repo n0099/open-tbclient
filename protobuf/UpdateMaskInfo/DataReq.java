@@ -2,7 +2,7 @@ package protobuf.UpdateMaskInfo;
 
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public final class DataReq extends Message {
     public static final String DEFAULT_LIST = "";
     @ProtoField(tag = 5, type = Message.Datatype.INT32)
@@ -20,45 +20,7 @@ public final class DataReq extends Message {
     public static final Long DEFAULT_G_ID = 0L;
     public static final Integer DEFAULT_CALL_FROM = 0;
 
-    private DataReq(Builder builder, boolean z) {
-        super(builder);
-        if (z) {
-            if (builder.type == null) {
-                this.type = DEFAULT_TYPE;
-            } else {
-                this.type = builder.type;
-            }
-            if (builder.isMask == null) {
-                this.isMask = DEFAULT_ISMASK;
-            } else {
-                this.isMask = builder.isMask;
-            }
-            if (builder.list == null) {
-                this.list = "";
-            } else {
-                this.list = builder.list;
-            }
-            if (builder.g_id == null) {
-                this.g_id = DEFAULT_G_ID;
-            } else {
-                this.g_id = builder.g_id;
-            }
-            if (builder.call_from == null) {
-                this.call_from = DEFAULT_CALL_FROM;
-                return;
-            } else {
-                this.call_from = builder.call_from;
-                return;
-            }
-        }
-        this.type = builder.type;
-        this.isMask = builder.isMask;
-        this.list = builder.list;
-        this.g_id = builder.g_id;
-        this.call_from = builder.call_from;
-    }
-
-    /* loaded from: classes2.dex */
+    /* loaded from: classes7.dex */
     public static final class Builder extends Message.Builder<DataReq> {
         public Integer call_from;
         public Long g_id;
@@ -71,13 +33,14 @@ public final class DataReq extends Message {
 
         public Builder(DataReq dataReq) {
             super(dataReq);
-            if (dataReq != null) {
-                this.type = dataReq.type;
-                this.isMask = dataReq.isMask;
-                this.list = dataReq.list;
-                this.g_id = dataReq.g_id;
-                this.call_from = dataReq.call_from;
+            if (dataReq == null) {
+                return;
             }
+            this.type = dataReq.type;
+            this.isMask = dataReq.isMask;
+            this.list = dataReq.list;
+            this.g_id = dataReq.g_id;
+            this.call_from = dataReq.call_from;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -85,5 +48,48 @@ public final class DataReq extends Message {
         public DataReq build(boolean z) {
             return new DataReq(this, z);
         }
+    }
+
+    public DataReq(Builder builder, boolean z) {
+        super(builder);
+        if (z) {
+            Integer num = builder.type;
+            if (num == null) {
+                this.type = DEFAULT_TYPE;
+            } else {
+                this.type = num;
+            }
+            Integer num2 = builder.isMask;
+            if (num2 == null) {
+                this.isMask = DEFAULT_ISMASK;
+            } else {
+                this.isMask = num2;
+            }
+            String str = builder.list;
+            if (str == null) {
+                this.list = "";
+            } else {
+                this.list = str;
+            }
+            Long l = builder.g_id;
+            if (l == null) {
+                this.g_id = DEFAULT_G_ID;
+            } else {
+                this.g_id = l;
+            }
+            Integer num3 = builder.call_from;
+            if (num3 == null) {
+                this.call_from = DEFAULT_CALL_FROM;
+                return;
+            } else {
+                this.call_from = num3;
+                return;
+            }
+        }
+        this.type = builder.type;
+        this.isMask = builder.isMask;
+        this.list = builder.list;
+        this.g_id = builder.g_id;
+        this.call_from = builder.call_from;
     }
 }

@@ -7,13 +7,13 @@ import java.net.UnknownHostException;
 import java.util.HashSet;
 import java.util.Iterator;
 import org.apache.http.conn.ConnectTimeoutException;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class BaseRetryHandler {
-    protected static final boolean DEBUG = false;
-    protected final long[] retryIntervals;
-    protected static final String TAG = BaseRetryHandler.class.getSimpleName();
-    protected static HashSet<Class<?>> exceptionWhitelist = new HashSet<>();
-    protected static HashSet<Class<?>> exceptionBlacklist = new HashSet<>();
+    public static final boolean DEBUG = false;
+    public static final String TAG = "BaseRetryHandler";
+    public final long[] retryIntervals;
+    public static HashSet<Class<?>> exceptionWhitelist = new HashSet<>();
+    public static HashSet<Class<?>> exceptionBlacklist = new HashSet<>();
 
     static {
         exceptionWhitelist.add(UnknownHostException.class);
@@ -27,7 +27,6 @@ public class BaseRetryHandler {
         this.retryIntervals = jArr;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     public boolean isInList(HashSet<Class<?>> hashSet, Throwable th) {
         Iterator<Class<?>> it = hashSet.iterator();
         while (it.hasNext()) {

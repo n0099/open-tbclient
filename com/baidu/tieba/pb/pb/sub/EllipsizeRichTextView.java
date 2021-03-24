@@ -4,47 +4,56 @@ import android.content.Context;
 import android.text.SpannableStringBuilder;
 import android.util.AttributeSet;
 import android.widget.TextView;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class EllipsizeRichTextView extends TextView {
-    private SpannableStringBuilder mil;
+
+    /* renamed from: e  reason: collision with root package name */
+    public SpannableStringBuilder f19874e;
 
     public EllipsizeRichTextView(Context context) {
         super(context);
-        dsM();
+        a();
+    }
+
+    public final void a() {
+        this.f19874e = new SpannableStringBuilder();
+    }
+
+    @Override // android.widget.TextView, android.view.View
+    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
+        super.onLayout(z, i, i2, i3, i4);
+        if (getText() == null || getLayout() == null) {
+            return;
+        }
+        CharSequence text = getText();
+        int lineCount = getLineCount();
+        if (lineCount > 2) {
+            lineCount = 2;
+        }
+        int lineVisibleEnd = getLayout().getLineVisibleEnd(lineCount - 1);
+        if (text == null || text.length() <= lineVisibleEnd) {
+            return;
+        }
+        SpannableStringBuilder spannableStringBuilder = this.f19874e;
+        if (spannableStringBuilder == null) {
+            a();
+        } else {
+            spannableStringBuilder.clear();
+        }
+        SpannableStringBuilder spannableStringBuilder2 = this.f19874e;
+        if (spannableStringBuilder2 != null) {
+            spannableStringBuilder2.append(text.subSequence(0, lineVisibleEnd));
+            setText(this.f19874e);
+        }
     }
 
     public EllipsizeRichTextView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        dsM();
+        a();
     }
 
     public EllipsizeRichTextView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        dsM();
-    }
-
-    private void dsM() {
-        this.mil = new SpannableStringBuilder();
-    }
-
-    @Override // android.widget.TextView, android.view.View
-    protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
-        super.onLayout(z, i, i2, i3, i4);
-        if (getText() != null && getLayout() != null) {
-            CharSequence text = getText();
-            int lineCount = getLineCount();
-            int lineVisibleEnd = getLayout().getLineVisibleEnd((lineCount <= 2 ? lineCount : 2) - 1);
-            if (text != null && text.length() > lineVisibleEnd) {
-                if (this.mil == null) {
-                    dsM();
-                } else {
-                    this.mil.clear();
-                }
-                if (this.mil != null) {
-                    this.mil.append(text.subSequence(0, lineVisibleEnd));
-                    setText(this.mil);
-                }
-            }
-        }
+        a();
     }
 }

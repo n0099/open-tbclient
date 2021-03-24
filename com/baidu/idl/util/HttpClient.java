@@ -10,31 +10,31 @@ import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
-/* loaded from: classes14.dex */
+/* loaded from: classes2.dex */
 public class HttpClient {
     public static String post(String str, String str2) {
         HttpPost httpPost = new HttpPost(str);
         try {
             httpPost.setEntity(new StringEntity(str2));
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
+        } catch (UnsupportedEncodingException e2) {
+            e2.printStackTrace();
         }
         new ArrayList().add(new BasicNameValuePair("data", str2));
         try {
             HttpResponse execute = new DefaultHttpClient().execute(httpPost);
             StuLogEx.v("HttpClient", " httpResponse.getStatusLine().getStatusCode()  : " + execute.getStatusLine().getStatusCode());
-            if (execute.getStatusLine().getStatusCode() != 200) {
-                return null;
+            if (execute.getStatusLine().getStatusCode() == 200) {
+                return EntityUtils.toString(execute.getEntity());
             }
-            return EntityUtils.toString(execute.getEntity());
-        } catch (UnsupportedEncodingException e2) {
-            e2.printStackTrace();
             return null;
-        } catch (ClientProtocolException e3) {
+        } catch (UnsupportedEncodingException e3) {
             e3.printStackTrace();
             return null;
-        } catch (IOException e4) {
+        } catch (ClientProtocolException e4) {
             e4.printStackTrace();
+            return null;
+        } catch (IOException e5) {
+            e5.printStackTrace();
             return null;
         }
     }

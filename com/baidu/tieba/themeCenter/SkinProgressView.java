@@ -8,94 +8,183 @@ import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.view.View;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.adp.lib.util.l;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.themeCenter.background.DressItemData;
+import d.b.b.e.p.l;
 @SuppressLint({"ResourceAsColor"})
-/* loaded from: classes8.dex */
+/* loaded from: classes5.dex */
 public class SkinProgressView extends View {
-    private Paint bjg;
-    private float height;
-    private int mBgColor;
-    private Context mContext;
-    private int mFontSize;
-    private Paint mPaint;
-    private String mText;
-    private int mTextColor;
-    private Paint nHY;
-    private int nHZ;
-    private float nIa;
-    private boolean nIb;
-    private DressItemData nIc;
-    private float progress;
-    private int radius;
-    private float width;
+
+    /* renamed from: e  reason: collision with root package name */
+    public Context f21572e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public Paint f21573f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public Paint f21574g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public Paint f21575h;
+    public int i;
+    public int j;
+    public int k;
+    public int l;
+    public float m;
+    public float n;
+    public int o;
+    public String p;
+    public float q;
+    public float r;
+    public boolean s;
+    public DressItemData t;
 
     public SkinProgressView(Context context) {
         super(context);
-        this.nIb = false;
-        this.mContext = context;
-        initView();
+        this.s = false;
+        this.f21572e = context;
+        a();
     }
 
-    public SkinProgressView(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        this.nIb = false;
-        this.mContext = context;
-        initView();
-    }
-
-    public SkinProgressView(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        this.nIb = false;
-        this.mContext = context;
-        initView();
-    }
-
-    private void initView() {
-        this.radius = l.getDimens(this.mContext, R.dimen.ds6);
-        this.mFontSize = l.getDimens(this.mContext, R.dimen.fontsize24);
-        this.nHZ = R.color.CAM_X0302;
-        this.mTextColor = R.color.CAM_X0108;
-        this.mPaint = new Paint();
-        this.mPaint.setAntiAlias(true);
-        this.bjg = new Paint();
-        this.bjg.setAntiAlias(true);
-        this.nHY = new Paint();
-        this.nHY.setAntiAlias(true);
-        this.nHY.setTextSize(this.mFontSize);
-        this.nHY.setTextAlign(Paint.Align.CENTER);
-    }
-
-    @Override // android.view.View
-    protected void onMeasure(int i, int i2) {
-        super.onMeasure(i, i2);
-        this.width = View.MeasureSpec.getSize(i);
-        this.height = View.MeasureSpec.getSize(i2);
-    }
-
-    @Override // android.view.View
-    protected void onDraw(Canvas canvas) {
-        super.onDraw(canvas);
-        if (this.nIb) {
-            RectF rectF = new RectF(0.0f, 0.0f, this.width, this.height);
-            this.bjg.setColor(ap.getColor(this.mBgColor));
-            canvas.drawRoundRect(rectF, this.radius, this.radius, this.bjg);
-        }
-        RectF rectF2 = new RectF(0.0f, 0.0f, this.width * this.progress, this.height);
-        this.mPaint.setColor(ap.getColor(this.nHZ));
-        canvas.drawRoundRect(rectF2, this.radius, this.radius, this.mPaint);
-        if (!StringUtils.isNull(this.mText)) {
-            this.nHY.setColor(ap.getColor(this.mTextColor));
-            this.nHY.setTextSize(this.mFontSize);
-            this.nIa = this.nHY.getFontMetrics().bottom - this.nHY.getFontMetrics().top;
-            canvas.drawText(this.mText, this.width / 2.0f, (this.height - ((this.height - this.nIa) / 2.0f)) - this.nHY.getFontMetrics().bottom, this.nHY);
-        }
+    public final void a() {
+        this.o = l.g(this.f21572e, R.dimen.ds6);
+        this.k = l.g(this.f21572e, R.dimen.fontsize24);
+        this.i = R.color.CAM_X0302;
+        this.l = R.color.CAM_X0108;
+        Paint paint = new Paint();
+        this.f21573f = paint;
+        paint.setAntiAlias(true);
+        Paint paint2 = new Paint();
+        this.f21575h = paint2;
+        paint2.setAntiAlias(true);
+        Paint paint3 = new Paint();
+        this.f21574g = paint3;
+        paint3.setAntiAlias(true);
+        this.f21574g.setTextSize(this.k);
+        this.f21574g.setTextAlign(Paint.Align.CENTER);
     }
 
     @SuppressLint({"ResourceAsColor"})
-    public void m(int i, float f) {
+    public void b(int i, float f2, int i2, int i3, int i4) {
+        this.s = false;
+        setEnabled(true);
+        if (i != 9) {
+            switch (i) {
+                case 0:
+                    if (i4 == 1) {
+                        setText(R.string.back_to_home);
+                    } else if (i4 == 2) {
+                        setText(R.string.back_to_person);
+                    } else {
+                        setText(R.string.theme_in_use);
+                        setEnabled(false);
+                    }
+                    setTextColor(R.color.CAM_X0105);
+                    break;
+                case 1:
+                    if (i2 == 0) {
+                        setText(R.string.download_free);
+                        setTextColor(R.color.CAM_X0105);
+                        break;
+                    } else {
+                        setTextColor(R.color.CAM_X0101);
+                        setBgColor(R.color.CAM_X0312);
+                        this.s = true;
+                        if (i2 != 100) {
+                            if (i2 != 101) {
+                                if (i2 <= 1) {
+                                    setText(R.string.become_member_download_free);
+                                    break;
+                                } else {
+                                    setText(String.format(this.f21572e.getString(R.string.btn_vip_can_download_free), Integer.valueOf(i2)));
+                                    break;
+                                }
+                            } else {
+                                setText(R.string.btn_annual_download_free);
+                                break;
+                            }
+                        } else if (i3 == 0) {
+                            setText(R.string.btn_activity_skin_free);
+                            setBgColor(R.color.CAM_X0302);
+                            break;
+                        } else {
+                            setText(R.string.download);
+                            setBgColor(R.color.CAM_X0302);
+                            break;
+                        }
+                    }
+                case 2:
+                    setText(R.string.cancel);
+                    if (f2 > 0.5d) {
+                        setTextColor(R.color.CAM_X0101);
+                        break;
+                    } else {
+                        setTextColor(R.color.CAM_X0105);
+                        break;
+                    }
+                case 3:
+                    if (i2 == 0) {
+                        setText(R.string.download_free);
+                        setTextColor(R.color.CAM_X0105);
+                        break;
+                    } else {
+                        setText(R.string.become_member_download_free);
+                        setTextColor(R.color.CAM_X0101);
+                        setBgColor(R.color.CAM_X0312);
+                        this.s = true;
+                        break;
+                    }
+                case 4:
+                    setText(R.string.use_immediately);
+                    setTextColor(R.color.CAM_X0105);
+                    break;
+                case 5:
+                    setText(R.string.theme_need_update);
+                    setTextColor(R.color.CAM_X0105);
+                    break;
+                case 6:
+                    setText(R.string.activity_free_use);
+                    setTextColor(R.color.CAM_X0105);
+                    setBgColor(R.color.CAM_X0302);
+                    this.s = true;
+                    break;
+            }
+        } else {
+            if (i4 == 2 && this.t.getDailyPrevilegeStatus() == 1) {
+                setText(R.string.use_immediately);
+                setTextColor(R.color.CAM_X0105);
+            } else if (i2 == 0) {
+                setText(R.string.use_freely);
+                setTextColor(R.color.CAM_X0105);
+            } else {
+                setTextColor(R.color.CAM_X0101);
+                setBgColor(R.color.CAM_X0312);
+                this.s = true;
+                if (i2 == 100) {
+                    if (i3 == 0) {
+                        setText(R.string.activity_free_use);
+                        setBgColor(R.color.CAM_X0302);
+                    } else {
+                        setText(R.string.use_immediately);
+                        setBgColor(R.color.CAM_X0302);
+                    }
+                } else if (i2 == 101) {
+                    setText(R.string.become_annual_free_use);
+                } else if (i2 > 1) {
+                    setText(String.format(this.f21572e.getString(R.string.become_vip_free_use), Integer.valueOf(i2)));
+                } else {
+                    setText(R.string.become_member_free_use);
+                }
+            }
+            setEnabled(true);
+        }
+        setProgress(f2);
+        invalidate();
+    }
+
+    @SuppressLint({"ResourceAsColor"})
+    public void c(int i, float f2) {
         setEnabled(true);
         switch (i) {
             case 0:
@@ -109,7 +198,7 @@ public class SkinProgressView extends View {
                 break;
             case 2:
                 setText(R.string.cancel);
-                if (f > 0.5d) {
+                if (f2 > 0.5d) {
                     setTextColor(R.color.CAM_X0101);
                     break;
                 } else {
@@ -133,150 +222,80 @@ public class SkinProgressView extends View {
                 setTextColor(R.color.CAM_X0105);
                 break;
         }
-        setProgress(f);
+        setProgress(f2);
         invalidate();
     }
 
-    @SuppressLint({"ResourceAsColor"})
-    public void b(int i, float f, int i2, int i3, int i4) {
-        this.nIb = false;
-        setEnabled(true);
-        switch (i) {
-            case 0:
-                if (i4 == 1) {
-                    setText(R.string.back_to_home);
-                } else if (i4 == 2) {
-                    setText(R.string.back_to_person);
-                } else {
-                    setText(R.string.theme_in_use);
-                    setEnabled(false);
-                }
-                setTextColor(R.color.CAM_X0105);
-                break;
-            case 1:
-                if (i2 == 0) {
-                    setText(R.string.download_free);
-                    setTextColor(R.color.CAM_X0105);
-                    break;
-                } else {
-                    setTextColor(R.color.CAM_X0101);
-                    setBgColor(R.color.CAM_X0312);
-                    this.nIb = true;
-                    if (i2 == 100) {
-                        if (i3 == 0) {
-                            setText(R.string.btn_activity_skin_free);
-                            setBgColor(R.color.CAM_X0302);
-                            break;
-                        } else {
-                            setText(R.string.download);
-                            setBgColor(R.color.CAM_X0302);
-                            break;
-                        }
-                    } else if (i2 == 101) {
-                        setText(R.string.btn_annual_download_free);
-                        break;
-                    } else if (i2 <= 1) {
-                        setText(R.string.become_member_download_free);
-                        break;
-                    } else {
-                        setText(String.format(this.mContext.getString(R.string.btn_vip_can_download_free), Integer.valueOf(i2)));
-                        break;
-                    }
-                }
-            case 2:
-                setText(R.string.cancel);
-                if (f > 0.5d) {
-                    setTextColor(R.color.CAM_X0101);
-                    break;
-                } else {
-                    setTextColor(R.color.CAM_X0105);
-                    break;
-                }
-            case 3:
-                if (i2 == 0) {
-                    setText(R.string.download_free);
-                    setTextColor(R.color.CAM_X0105);
-                    break;
-                } else {
-                    setText(R.string.become_member_download_free);
-                    setTextColor(R.color.CAM_X0101);
-                    setBgColor(R.color.CAM_X0312);
-                    this.nIb = true;
-                    break;
-                }
-            case 4:
-                setText(R.string.use_immediately);
-                setTextColor(R.color.CAM_X0105);
-                break;
-            case 5:
-                setText(R.string.theme_need_update);
-                setTextColor(R.color.CAM_X0105);
-                break;
-            case 6:
-                setText(R.string.activity_free_use);
-                setTextColor(R.color.CAM_X0105);
-                setBgColor(R.color.CAM_X0302);
-                this.nIb = true;
-                break;
-            case 9:
-                if (i4 == 2 && this.nIc.getDailyPrevilegeStatus() == 1) {
-                    setText(R.string.use_immediately);
-                    setTextColor(R.color.CAM_X0105);
-                } else if (i2 == 0) {
-                    setText(R.string.use_freely);
-                    setTextColor(R.color.CAM_X0105);
-                } else {
-                    setTextColor(R.color.CAM_X0101);
-                    setBgColor(R.color.CAM_X0312);
-                    this.nIb = true;
-                    if (i2 == 100) {
-                        if (i3 == 0) {
-                            setText(R.string.activity_free_use);
-                            setBgColor(R.color.CAM_X0302);
-                        } else {
-                            setText(R.string.use_immediately);
-                            setBgColor(R.color.CAM_X0302);
-                        }
-                    } else if (i2 == 101) {
-                        setText(R.string.become_annual_free_use);
-                    } else if (i2 > 1) {
-                        setText(String.format(this.mContext.getString(R.string.become_vip_free_use), Integer.valueOf(i2)));
-                    } else {
-                        setText(R.string.become_member_free_use);
-                    }
-                }
-                setEnabled(true);
-                break;
+    @Override // android.view.View
+    public void onDraw(Canvas canvas) {
+        super.onDraw(canvas);
+        if (this.s) {
+            RectF rectF = new RectF(0.0f, 0.0f, this.m, this.n);
+            this.f21575h.setColor(SkinManager.getColor(this.j));
+            int i = this.o;
+            canvas.drawRoundRect(rectF, i, i, this.f21575h);
         }
-        setProgress(f);
-        invalidate();
+        RectF rectF2 = new RectF(0.0f, 0.0f, this.m * this.q, this.n);
+        this.f21573f.setColor(SkinManager.getColor(this.i));
+        int i2 = this.o;
+        canvas.drawRoundRect(rectF2, i2, i2, this.f21573f);
+        if (StringUtils.isNull(this.p)) {
+            return;
+        }
+        this.f21574g.setColor(SkinManager.getColor(this.l));
+        this.f21574g.setTextSize(this.k);
+        float f2 = this.f21574g.getFontMetrics().bottom - this.f21574g.getFontMetrics().top;
+        this.r = f2;
+        float f3 = this.n;
+        canvas.drawText(this.p, this.m / 2.0f, (f3 - ((f3 - f2) / 2.0f)) - this.f21574g.getFontMetrics().bottom, this.f21574g);
     }
 
-    public void setDressData(DressItemData dressItemData) {
-        this.nIc = dressItemData;
-    }
-
-    public void setProgress(float f) {
-        this.progress = f;
-    }
-
-    public void setText(int i) {
-        this.mText = this.mContext.getResources().getString(i);
-    }
-
-    public void setText(String str) {
-        this.mText = str;
-    }
-
-    public void setTextColor(int i) {
-        this.mTextColor = i;
+    @Override // android.view.View
+    public void onMeasure(int i, int i2) {
+        super.onMeasure(i, i2);
+        this.m = View.MeasureSpec.getSize(i);
+        this.n = View.MeasureSpec.getSize(i2);
     }
 
     public void setBgColor(int i) {
-        this.mBgColor = i;
+        this.j = i;
+    }
+
+    public void setDressData(DressItemData dressItemData) {
+        this.t = dressItemData;
     }
 
     public void setFontSize(int i) {
-        this.mFontSize = i;
+        this.k = i;
+    }
+
+    public void setProgress(float f2) {
+        this.q = f2;
+    }
+
+    public void setText(int i) {
+        this.p = this.f21572e.getResources().getString(i);
+    }
+
+    public void setTextColor(int i) {
+        this.l = i;
+    }
+
+    public void setText(String str) {
+        this.p = str;
+    }
+
+    public SkinProgressView(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        this.s = false;
+        this.f21572e = context;
+        a();
+    }
+
+    public SkinProgressView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        this.s = false;
+        this.f21572e = context;
+        a();
     }
 }

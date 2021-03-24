@@ -1,0 +1,316 @@
+package com.baidu.wallet.paysdk.presenter;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.text.TextUtils;
+import com.baidu.apollon.eventbus.EventBus;
+import com.baidu.apollon.statistics.PayStatisticsUtil;
+import com.baidu.apollon.utils.GlobalUtils;
+import com.baidu.apollon.utils.ResUtils;
+import com.baidu.wallet.base.controllers.PayController;
+import com.baidu.wallet.base.datamodel.CardData;
+import com.baidu.wallet.base.datamodel.PayData;
+import com.baidu.wallet.base.datamodel.UserData;
+import com.baidu.wallet.base.statistics.StatServiceEvent;
+import com.baidu.wallet.core.utils.StringUtils;
+import com.baidu.wallet.paysdk.PayCallBackManager;
+import com.baidu.wallet.paysdk.api.BaiduPay;
+import com.baidu.wallet.paysdk.beans.BeanConstants;
+import com.baidu.wallet.paysdk.contract.PayTypeContract;
+import com.baidu.wallet.paysdk.datamodel.PayRequest;
+import com.baidu.wallet.paysdk.datamodel.PrecashierModifyPayTypeResponse;
+import com.baidu.wallet.paysdk.precashier.PrecashierModifyPayTypeDefaultData;
+import com.baidu.wallet.paysdk.precashier.PrecashierModifyPayTypeManager;
+import com.baidu.wallet.paysdk.storage.PayDataCache;
+import com.baidu.wallet.paysdk.storage.PayRequestCache;
+import com.baidu.wallet.paysdk.ui.PayBaseBeanActivity;
+import com.baidu.wallet.paysdk.ui.PayTypeActivity;
+import com.baidu.wallet.paysdk.ui.widget.PayTypeItemView;
+import java.io.Serializable;
+import java.util.ArrayList;
+/* loaded from: classes5.dex */
+public class PreCashierPayTypePresenter extends PayTypeContract.Presenter {
+    public static final String BALANCE = "balance";
+    public static final String DEFAULT_PAY_DATA = "default_pay_data";
+    public static final String EASYPAY = "easypay";
+    public static final String TAG = "PreCashierPayTypePresenter";
+    public PrecashierModifyPayTypeManager.TwoTupleForPrecashier<Boolean, PrecashierModifyPayTypeDefaultData> mTupleDatasForPrecashier;
+
+    public PreCashierPayTypePresenter(PayTypeActivity payTypeActivity) {
+        super(payTypeActivity);
+    }
+
+    private ArrayList<PayTypeItemView.PayTypeItemViewData> getData() {
+        if (isFromClickChangePayType()) {
+            PrecashierModifyPayTypeManager.TwoTupleForPrecashier<Boolean, PrecashierModifyPayTypeDefaultData> twoTupleForPrecashier = this.mTupleDatasForPrecashier;
+            return twoTupleForPrecashier == null ? new ArrayList<>() : getPrecashierData(twoTupleForPrecashier.datas);
+        }
+        return getNormalPayTypeListData();
+    }
+
+    private boolean isFromClickChangePayType() {
+        PrecashierModifyPayTypeManager.TwoTupleForPrecashier<Boolean, PrecashierModifyPayTypeDefaultData> twoTupleForPrecashier = this.mTupleDatasForPrecashier;
+        return twoTupleForPrecashier != null && twoTupleForPrecashier.isFromChange().booleanValue();
+    }
+
+    private void noticePayTypeChanged(PayTypeItemView.PayTypeItemViewData payTypeItemViewData) {
+        PayData.DirectPayPay directPayPay;
+        PayTypeItemView.ItemViewType itemViewType = payTypeItemViewData.type;
+        if (itemViewType == PayTypeItemView.ItemViewType.ADD_NEWCARD) {
+            doBindCard(PrecashierModifyPayTypeManager.getInstance().getSpNo());
+            return;
+        }
+        if (itemViewType.equals(PayTypeItemView.ItemViewType.BALANCE)) {
+            PrecashierModifyPayTypeResponse precashierModifyPayTypeResponse = PrecashierModifyPayTypeResponse.getInstance();
+            PayData.DirectPayBalance directPayBalance = (precashierModifyPayTypeResponse == null || (directPayPay = precashierModifyPayTypeResponse.pay) == null) ? null : directPayPay.balance;
+            PrecashierModifyPayTypeDefaultData precashierModifyPayTypeDefaultData = new PrecashierModifyPayTypeDefaultData();
+            if (directPayBalance != null) {
+                precashierModifyPayTypeDefaultData.setDatas("balance", directPayBalance.balance_amount, null);
+            }
+            PayController.getInstance().onPreModifiedPayType(precashierModifyPayTypeDefaultData);
+        } else if (payTypeItemViewData.type.equals(PayTypeItemView.ItemViewType.BANKCARD)) {
+            PrecashierModifyPayTypeDefaultData precashierModifyPayTypeDefaultData2 = new PrecashierModifyPayTypeDefaultData();
+            PrecashierModifyPayTypeDefaultData.Card card = new PrecashierModifyPayTypeDefaultData.Card();
+            CardData.BondCard bondCard = payTypeItemViewData.card;
+            if (bondCard != null) {
+                card.account_no = bondCard.account_no;
+                card.bank_name = bondCard.bank_name;
+                card.single_quota = bondCard.single_quota;
+                card.bank_url = bondCard.bank_url;
+                CardData.BondCard.ChannelQuota channelQuota = bondCard.channel_quota;
+                if (channelQuota != null) {
+                    card.single_limit = channelQuota.single_limit;
+                    card.day_limit = channelQuota.day_limit;
+                    card.month_limit = channelQuota.month_limit;
+                }
+            }
+            precashierModifyPayTypeDefaultData2.setDatas("easypay", null, card);
+            PayController.getInstance().onPreModifiedPayType(precashierModifyPayTypeDefaultData2);
+        }
+        this.mActivity.finish();
+    }
+
+    private void toCalculatePayAmount(PayTypeItemView.PayTypeItemViewData payTypeItemViewData) {
+        PayRequest payRequest;
+        if (payTypeItemViewData == null) {
+            return;
+        }
+        if (payTypeItemViewData.isChecked) {
+            this.mActivity.gotoPwdPay(false);
+        } else if (payTypeItemViewData.type == PayTypeItemView.ItemViewType.ADD_NEWCARD) {
+            this.mActivity.gotoPwdPay(true);
+        } else if (!PayDataCache.getInstance().needCalcPayment() && (payRequest = this.mPayRequest) != null) {
+            payRequest.calcPayPriceByLocal(payTypeItemViewData);
+            this.mActivity.gotoPwdPay(false);
+        } else {
+            calculatePayAmount(payTypeItemViewData);
+        }
+    }
+
+    @Override // com.baidu.wallet.paysdk.contract.PayTypeContract.Presenter
+    public void afterCalculatePayamountGotoNext() {
+        this.mActivity.gotoPwdPay(false);
+    }
+
+    public void doBindCard(String str) {
+        BaiduPay.getInstance().bindCard(this.mActivity, new BaiduPay.IBindCardCallback() { // from class: com.baidu.wallet.paysdk.presenter.PreCashierPayTypePresenter.1
+            @Override // com.baidu.wallet.paysdk.api.BaiduPay.IBindCardCallback
+            public void onChangeFailed(String str2) {
+                if (PreCashierPayTypePresenter.this.mActivity == null) {
+                    return;
+                }
+                GlobalUtils.toast(PreCashierPayTypePresenter.this.mActivity.getApplicationContext(), str2);
+            }
+
+            @Override // com.baidu.wallet.paysdk.api.BaiduPay.IBindCardCallback
+            public void onChangeSucceed(String str2) {
+                PrecashierModifyPayTypeDefaultData precashierModifyPayTypeDefaultData = new PrecashierModifyPayTypeDefaultData();
+                precashierModifyPayTypeDefaultData.updated = 1;
+                PrecashierModifyPayTypeDefaultData.Card card = new PrecashierModifyPayTypeDefaultData.Card();
+                card.account_no = str2;
+                precashierModifyPayTypeDefaultData.card = card;
+                PayController.getInstance().onPreModifiedPayType(precashierModifyPayTypeDefaultData);
+                if (PreCashierPayTypePresenter.this.mActivity != null) {
+                    PreCashierPayTypePresenter.this.mActivity.finish();
+                }
+            }
+        }, PayRequestCache.BindCategory.Initiative, 1, "2000", str, null, null, true, BeanConstants.FROM_BIND);
+    }
+
+    public ArrayList<PayTypeItemView.PayTypeItemViewData> getPrecashierData(PrecashierModifyPayTypeDefaultData precashierModifyPayTypeDefaultData) {
+        String str;
+        UserData.UserModel userModel;
+        PayData.DirectPayPay directPayPay;
+        ArrayList<PayTypeItemView.PayTypeItemViewData> arrayList = new ArrayList<>();
+        PayTypeItemView.PayTypeItemViewData payTypeItemViewData = new PayTypeItemView.PayTypeItemViewData();
+        payTypeItemViewData.type = PayTypeItemView.ItemViewType.BALANCE;
+        String string = ResUtils.getString(this.mActivity, "ebpay_pwdpay_balance_txt");
+        Object[] objArr = new Object[1];
+        objArr[0] = StringUtils.fen2Yuan(!TextUtils.isEmpty(PayDataCache.getInstance().getCanAmount()) ? PayDataCache.getInstance().getCanAmount() : "");
+        payTypeItemViewData.name = String.format(string, objArr);
+        PrecashierModifyPayTypeResponse precashierModifyPayTypeResponse = PrecashierModifyPayTypeResponse.getInstance();
+        PayData.DirectPayBalance directPayBalance = (precashierModifyPayTypeResponse == null || (directPayPay = precashierModifyPayTypeResponse.pay) == null) ? null : directPayPay.balance;
+        if (precashierModifyPayTypeResponse != null && (userModel = precashierModifyPayTypeResponse.user) != null && userModel.isSupportBalance()) {
+            if (directPayBalance != null && 1 == directPayBalance.status) {
+                payTypeItemViewData.isAvaible = true;
+                if (!TextUtils.isEmpty(directPayBalance.disabled_msg)) {
+                    payTypeItemViewData.tips = directPayBalance.disabled_msg;
+                    payTypeItemViewData.jump_url = directPayBalance.balance_jump_url;
+                } else {
+                    payTypeItemViewData.tips = String.format(ResUtils.getString(this.mActivity, "ebpay_pwdpay_balance_tips"), StringUtils.fen2Yuan(directPayBalance.balance_amount));
+                }
+            } else {
+                payTypeItemViewData.isAvaible = false;
+                if (directPayBalance != null) {
+                    payTypeItemViewData.tips = directPayBalance.disabled_msg;
+                    payTypeItemViewData.jump_url = directPayBalance.balance_jump_url;
+                }
+            }
+        } else {
+            payTypeItemViewData.isAvaible = false;
+            payTypeItemViewData.tips = PayDataCache.getInstance().getBalanceUnSupportReason();
+        }
+        if (directPayBalance != null) {
+            payTypeItemViewData.isChecked = StringUtils.isAmountMoreThanZero(directPayBalance.balance_amount) && payTypeItemViewData.isAvaible && precashierModifyPayTypeDefaultData != null && "balance".equals(precashierModifyPayTypeDefaultData.getDefaultType());
+        }
+        arrayList.add(payTypeItemViewData);
+        CardData.BondCard[] bondCards = precashierModifyPayTypeResponse != null ? precashierModifyPayTypeResponse.getBondCards() : null;
+        if (bondCards != null && bondCards.length > 0) {
+            for (int i = 0; i < bondCards.length; i++) {
+                PayTypeItemView.PayTypeItemViewData payTypeItemViewData2 = new PayTypeItemView.PayTypeItemViewData();
+                payTypeItemViewData2.type = PayTypeItemView.ItemViewType.BANKCARD;
+                payTypeItemViewData2.hintMsg = bondCards[i].card_hint_msg;
+                payTypeItemViewData2.hintUrl = bondCards[i].card_hint_url;
+                if ("1".equals(bondCards[i].card_state)) {
+                    payTypeItemViewData2.isAvaible = true;
+                    if (TextUtils.isEmpty(bondCards[i].bank_card_msg)) {
+                        str = !TextUtils.isEmpty(bondCards[i].quota_show_msg) ? bondCards[i].quota_show_msg : "";
+                    } else {
+                        str = bondCards[i].bank_card_msg;
+                    }
+                    payTypeItemViewData2.tips = str;
+                } else {
+                    payTypeItemViewData2.isAvaible = false;
+                    payTypeItemViewData2.tips = bondCards[i].bank_card_msg;
+                }
+                if (!TextUtils.isEmpty(bondCards[i].bank_card_msg)) {
+                    payTypeItemViewData2.tips = bondCards[i].bank_card_msg;
+                }
+                payTypeItemViewData2.name = bondCards[i].getCardDesc(this.mContext, true);
+                payTypeItemViewData2.card = bondCards[i];
+                if (precashierModifyPayTypeDefaultData != null && !"balance".equals(precashierModifyPayTypeDefaultData.getDefaultType())) {
+                    if (precashierModifyPayTypeDefaultData.getCard() != null) {
+                        PrecashierModifyPayTypeDefaultData.Card card = precashierModifyPayTypeDefaultData.getCard();
+                        if (!TextUtils.isEmpty(card.account_no) && bondCards[i] != null && card.account_no.equals(bondCards[i].account_no)) {
+                            payTypeItemViewData2.isChecked = true;
+                        }
+                    }
+                } else {
+                    payTypeItemViewData2.isChecked = false;
+                }
+                payTypeItemViewData2.logoUrl = bondCards[i].bank_url;
+                arrayList.add(payTypeItemViewData2);
+            }
+        }
+        PayTypeItemView.PayTypeItemViewData payTypeItemViewData3 = new PayTypeItemView.PayTypeItemViewData();
+        payTypeItemViewData3.isAvaible = PayDataCache.getInstance().enableAddBondCards();
+        payTypeItemViewData3.type = PayTypeItemView.ItemViewType.ADD_NEWCARD;
+        payTypeItemViewData3.name = ResUtils.getString(this.mActivity, "ebpay_use_new_card");
+        if (!payTypeItemViewData3.isAvaible) {
+            payTypeItemViewData3.tips = ResUtils.getString(this.mActivity, "ebpay_bankcard_fullof");
+        }
+        arrayList.add(payTypeItemViewData3);
+        sortData(arrayList);
+        return arrayList;
+    }
+
+    @Override // com.baidu.wallet.paysdk.contract.PayTypeContract.Presenter, com.baidu.wallet.paysdk.presenter.NetWorkPresenter
+    public void handleResponse(int i, Object obj, String str) {
+        super.handleResponse(i, obj, str);
+        if (i == 16) {
+            this.mActivity.reFreshUI(getData());
+        }
+    }
+
+    @Override // com.baidu.wallet.paysdk.contract.PayTypeContract.Presenter
+    public void modifyPayType(PayTypeItemView.PayTypeItemViewData payTypeItemViewData) {
+        if (payTypeItemViewData == null) {
+            return;
+        }
+        if (isFromClickChangePayType()) {
+            noticePayTypeChanged(payTypeItemViewData);
+        } else {
+            toCalculatePayAmount(payTypeItemViewData);
+        }
+    }
+
+    @Override // com.baidu.wallet.paysdk.contract.PayTypeContract.Presenter
+    public void onActivityResult(int i, int i2, Intent intent) {
+        if (i == 1) {
+            if (isFromClickChangePayType()) {
+                PrecashierModifyPayTypeDefaultData precashierModifyPayTypeDefaultData = new PrecashierModifyPayTypeDefaultData();
+                precashierModifyPayTypeDefaultData.updated = 1;
+                PayController.getInstance().onPreModifiedPayType(precashierModifyPayTypeDefaultData);
+                PayBaseBeanActivity.exitEbpay();
+                this.mActivity.finish();
+                return;
+            }
+            reOrderPay();
+        }
+    }
+
+    @Override // com.baidu.wallet.paysdk.contract.PayTypeContract.Presenter
+    public void onBackPressed() {
+        PrecashierModifyPayTypeManager.TwoTupleForPrecashier<Boolean, PrecashierModifyPayTypeDefaultData> twoTupleForPrecashier;
+        if (PayDataCache.getInstance().isFromPreCashier()) {
+            PayController.getInstance().clearPreModifiedCallBack();
+        }
+        if (!PayDataCache.getInstance().isFromPreCashier() || (twoTupleForPrecashier = this.mTupleDatasForPrecashier) == null || twoTupleForPrecashier.isFromChange().booleanValue()) {
+            return;
+        }
+        PayCallBackManager.callBackClientCancel(this.mActivity, "PreCashierPayTypePresenteronBackPressed().1");
+    }
+
+    @Override // com.baidu.wallet.paysdk.presenter.BasePresenter
+    public void onCreate(Bundle bundle) {
+        if (bundle == null) {
+            this.mTupleDatasForPrecashier = (PrecashierModifyPayTypeManager.TwoTupleForPrecashier) this.mActivity.getIntent().getSerializableExtra(DEFAULT_PAY_DATA);
+        } else {
+            Serializable serializable = bundle.getSerializable("tuple_datas_for_precashier");
+            if (serializable != null && (serializable instanceof PrecashierModifyPayTypeManager.TwoTupleForPrecashier)) {
+                this.mTupleDatasForPrecashier = (PrecashierModifyPayTypeManager.TwoTupleForPrecashier) serializable;
+            }
+        }
+        this.mActivity.reFreshUI(getData());
+    }
+
+    @Override // com.baidu.wallet.paysdk.contract.PayTypeContract.Presenter, com.baidu.wallet.paysdk.presenter.BasePresenter
+    public void onDestroy() {
+        super.onDestroy();
+        EventBus.getInstance().unregister(this);
+    }
+
+    @Override // com.baidu.wallet.paysdk.presenter.BasePresenter
+    public void onPause() {
+    }
+
+    @Override // com.baidu.wallet.paysdk.presenter.BasePresenter
+    public void onResume() {
+    }
+
+    @Override // com.baidu.wallet.paysdk.presenter.BasePresenter
+    public void onSaveInstanceState(Bundle bundle) {
+        bundle.putSerializable("tuple_datas_for_precashier", this.mTupleDatasForPrecashier);
+    }
+
+    @Override // com.baidu.wallet.paysdk.contract.PayTypeContract.Presenter
+    public void reOrderPay() {
+        PayRequestCache.getInstance().clearPaySdkRequestCache();
+        PayBaseBeanActivity.exitEbpay();
+        PayStatisticsUtil.onEvent(StatServiceEvent.PRE_CASHIER_REORDER);
+        PrecashierModifyPayTypeDefaultData precashierModifyPayTypeDefaultData = new PrecashierModifyPayTypeDefaultData();
+        precashierModifyPayTypeDefaultData.updated = 1;
+        PayController.getInstance().onPreModifiedPayType(precashierModifyPayTypeDefaultData);
+        this.mActivity.finish();
+    }
+}

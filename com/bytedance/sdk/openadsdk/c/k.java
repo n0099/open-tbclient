@@ -1,7 +1,7 @@
 package com.bytedance.sdk.openadsdk.c;
 
 import android.text.TextUtils;
-import com.bytedance.sdk.openadsdk.utils.aj;
+import com.bytedance.sdk.openadsdk.utils.ak;
 import com.bytedance.sdk.openadsdk.utils.u;
 import java.io.Serializable;
 import java.util.Map;
@@ -13,154 +13,192 @@ import org.json.JSONObject;
 public class k {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile k f4205a;
-    private c b = c.a();
-    private Map<String, Object> c;
-    private b d;
+    public static volatile k f27571a;
 
-    public static k a() {
-        if (f4205a == null) {
-            synchronized (k.class) {
-                if (f4205a == null) {
-                    f4205a = new k();
-                }
-            }
-        }
-        return f4205a;
-    }
+    /* renamed from: b  reason: collision with root package name */
+    public c f27572b = c.a();
 
-    private k() {
-    }
+    /* renamed from: c  reason: collision with root package name */
+    public Map<String, Object> f27573c;
 
-    public void a(com.bytedance.sdk.openadsdk.core.d.l lVar, String str, boolean z) {
-        this.d = b.a(lVar, str, this.c, z);
-        com.bytedance.sdk.openadsdk.j.e.c().schedule(new a(100), 0L, TimeUnit.MILLISECONDS);
-    }
+    /* renamed from: d  reason: collision with root package name */
+    public b f27574d;
 
-    private void a(b bVar) {
-        if (bVar != null) {
-            bVar.b();
-            if (bVar.a() * this.b.f4208a > this.b.b) {
-                c(bVar.a(false));
-            } else {
-                com.bytedance.sdk.openadsdk.j.e.c().schedule(new a(100), this.b.f4208a, TimeUnit.MILLISECONDS);
-            }
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void b(b bVar) {
-        if (bVar != null) {
-            if (aj.a()) {
-                a(bVar);
-            } else {
-                c(bVar.a(true));
-            }
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes6.dex */
     public class a implements Runnable {
-        private int b;
+
+        /* renamed from: b  reason: collision with root package name */
+        public int f27576b;
 
         public a(int i) {
-            this.b = i;
+            this.f27576b = i;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (this.b == 100 && k.this.d != null) {
-                k.this.b(k.this.d);
+            if (this.f27576b != 100 || k.this.f27574d == null) {
+                return;
             }
+            k kVar = k.this;
+            kVar.b(kVar.f27574d);
         }
     }
 
-    private void c(b bVar) {
-        if (bVar != null) {
-            com.bytedance.sdk.openadsdk.j.e.a(bVar, 5);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes6.dex */
-    public static class b implements Serializable, Runnable {
+    public static class b extends com.bytedance.sdk.openadsdk.l.g implements Serializable {
 
         /* renamed from: a  reason: collision with root package name */
-        public final AtomicInteger f4207a = new AtomicInteger(0);
-        public final AtomicBoolean b = new AtomicBoolean(false);
-        public com.bytedance.sdk.openadsdk.core.d.l c;
-        public String d;
-        public Map<String, Object> e;
-        public boolean f;
+        public final AtomicInteger f27577a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public final AtomicBoolean f27578b;
+
+        /* renamed from: c  reason: collision with root package name */
+        public com.bytedance.sdk.openadsdk.core.d.l f27579c;
+
+        /* renamed from: d  reason: collision with root package name */
+        public String f27580d;
+
+        /* renamed from: e  reason: collision with root package name */
+        public Map<String, Object> f27581e;
+
+        /* renamed from: f  reason: collision with root package name */
+        public boolean f27582f;
+
+        public b() {
+            super("EventData");
+            this.f27577a = new AtomicInteger(0);
+            this.f27578b = new AtomicBoolean(false);
+        }
 
         public static b a(com.bytedance.sdk.openadsdk.core.d.l lVar, String str, Map<String, Object> map, boolean z) {
             return new b(lVar, str, map, z);
         }
 
-        public b() {
-        }
-
-        public b(com.bytedance.sdk.openadsdk.core.d.l lVar, String str, Map<String, Object> map, boolean z) {
-            this.c = lVar;
-            this.d = str;
-            this.e = map;
-            this.f = z;
-        }
-
-        public b a(boolean z) {
-            this.b.set(z);
-            return this;
-        }
-
-        public int a() {
-            return this.f4207a.get();
-        }
-
         public void b() {
-            this.f4207a.incrementAndGet();
+            this.f27577a.incrementAndGet();
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (this.c == null || TextUtils.isEmpty(this.d) || this.b == null) {
-                u.a("materialMeta or eventTag or sResult is null, pls check");
-            } else if (this.f) {
-                u.b("DMLibManager", "落地页调起应用是否成功 sResult.get() " + this.b.get());
-                d.b(com.bytedance.sdk.openadsdk.core.p.a(), this.c, this.d, this.b.get() ? "lp_dpl_success" : "lp_dpl_failed");
-            } else {
-                d.i(com.bytedance.sdk.openadsdk.core.p.a(), this.c, this.d, this.b.get() ? "dpl_success" : "dpl_failed", this.e);
-                if (this.b != null && this.b.get() && this.c != null) {
-                    k.b(this.c, this.d);
+            AtomicBoolean atomicBoolean;
+            com.bytedance.sdk.openadsdk.core.d.l lVar;
+            if (this.f27579c != null && !TextUtils.isEmpty(this.f27580d) && (atomicBoolean = this.f27578b) != null) {
+                if (this.f27582f) {
+                    u.b("DMLibManager", "落地页调起应用是否成功 sResult.get() " + this.f27578b.get());
+                    d.b(com.bytedance.sdk.openadsdk.core.p.a(), this.f27579c, this.f27580d, this.f27578b.get() ? "lp_dpl_success" : "lp_dpl_failed");
+                    return;
                 }
+                d.i(com.bytedance.sdk.openadsdk.core.p.a(), this.f27579c, this.f27580d, atomicBoolean.get() ? "dpl_success" : "dpl_failed", this.f27581e);
+                AtomicBoolean atomicBoolean2 = this.f27578b;
+                if (atomicBoolean2 == null || !atomicBoolean2.get() || (lVar = this.f27579c) == null) {
+                    return;
+                }
+                k.b(lVar, this.f27580d);
+                return;
             }
+            u.a("materialMeta or eventTag or sResult is null, pls check");
+        }
+
+        public b a(boolean z) {
+            this.f27578b.set(z);
+            return this;
+        }
+
+        public int a() {
+            return this.f27577a.get();
+        }
+
+        public b(com.bytedance.sdk.openadsdk.core.d.l lVar, String str, Map<String, Object> map, boolean z) {
+            super("EventData");
+            this.f27577a = new AtomicInteger(0);
+            this.f27578b = new AtomicBoolean(false);
+            this.f27579c = lVar;
+            this.f27580d = str;
+            this.f27581e = map;
+            this.f27582f = z;
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public static void b(com.bytedance.sdk.openadsdk.core.d.l lVar, String str) {
-        if (lVar != null && !TextUtils.isEmpty(str)) {
-            com.bytedance.sdk.openadsdk.utils.k.a(System.currentTimeMillis());
-            JSONObject aE = lVar.aE();
-            if (aE != null) {
-                com.bytedance.sdk.openadsdk.utils.k.d(aE.toString());
-                com.bytedance.sdk.openadsdk.utils.k.c(str);
-            }
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes6.dex */
     public static class c {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f4208a = 500;
-        public int b = 5000;
-        public int c = 1000;
-        public int d = 300;
+        public int f27583a = 500;
+
+        /* renamed from: b  reason: collision with root package name */
+        public int f27584b = 5000;
+
+        /* renamed from: c  reason: collision with root package name */
+        public int f27585c = 1000;
+
+        /* renamed from: d  reason: collision with root package name */
+        public int f27586d = 300;
 
         public static c a() {
             return new c();
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void b(b bVar) {
+        if (bVar == null) {
+            return;
+        }
+        if (ak.a()) {
+            a(bVar);
+        } else {
+            c(bVar.a(true));
+        }
+    }
+
+    private void c(b bVar) {
+        if (bVar == null) {
+            return;
+        }
+        com.bytedance.sdk.openadsdk.l.e.a(bVar, 5);
+    }
+
+    public static k a() {
+        if (f27571a == null) {
+            synchronized (k.class) {
+                if (f27571a == null) {
+                    f27571a = new k();
+                }
+            }
+        }
+        return f27571a;
+    }
+
+    public static void b(com.bytedance.sdk.openadsdk.core.d.l lVar, String str) {
+        if (lVar == null || TextUtils.isEmpty(str)) {
+            return;
+        }
+        com.bytedance.sdk.openadsdk.utils.k.a(System.currentTimeMillis());
+        JSONObject aL = lVar.aL();
+        if (aL == null) {
+            return;
+        }
+        com.bytedance.sdk.openadsdk.utils.k.d(aL.toString());
+        com.bytedance.sdk.openadsdk.utils.k.c(str);
+    }
+
+    public void a(com.bytedance.sdk.openadsdk.core.d.l lVar, String str, boolean z) {
+        this.f27574d = b.a(lVar, str, this.f27573c, z);
+        com.bytedance.sdk.openadsdk.l.e.d().schedule(new a(100), 0L, TimeUnit.MILLISECONDS);
+    }
+
+    private void a(b bVar) {
+        if (bVar == null) {
+            return;
+        }
+        bVar.b();
+        int a2 = bVar.a();
+        c cVar = this.f27572b;
+        if (a2 * cVar.f27583a > cVar.f27584b) {
+            c(bVar.a(false));
+        } else {
+            com.bytedance.sdk.openadsdk.l.e.d().schedule(new a(100), this.f27572b.f27583a, TimeUnit.MILLISECONDS);
         }
     }
 }

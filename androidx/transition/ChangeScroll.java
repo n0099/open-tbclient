@@ -8,33 +8,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-/* loaded from: classes5.dex */
+/* loaded from: classes.dex */
 public class ChangeScroll extends Transition {
-    private static final String PROPNAME_SCROLL_X = "android:changeScroll:x";
-    private static final String PROPNAME_SCROLL_Y = "android:changeScroll:y";
-    private static final String[] PROPERTIES = {PROPNAME_SCROLL_X, PROPNAME_SCROLL_Y};
+    public static final String PROPNAME_SCROLL_X = "android:changeScroll:x";
+    public static final String PROPNAME_SCROLL_Y = "android:changeScroll:y";
+    public static final String[] PROPERTIES = {PROPNAME_SCROLL_X, PROPNAME_SCROLL_Y};
 
     public ChangeScroll() {
-    }
-
-    public ChangeScroll(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-    }
-
-    @Override // androidx.transition.Transition
-    public void captureStartValues(@NonNull TransitionValues transitionValues) {
-        captureValues(transitionValues);
-    }
-
-    @Override // androidx.transition.Transition
-    public void captureEndValues(@NonNull TransitionValues transitionValues) {
-        captureValues(transitionValues);
-    }
-
-    @Override // androidx.transition.Transition
-    @Nullable
-    public String[] getTransitionProperties() {
-        return PROPERTIES;
     }
 
     private void captureValues(TransitionValues transitionValues) {
@@ -43,10 +23,20 @@ public class ChangeScroll extends Transition {
     }
 
     @Override // androidx.transition.Transition
+    public void captureEndValues(@NonNull TransitionValues transitionValues) {
+        captureValues(transitionValues);
+    }
+
+    @Override // androidx.transition.Transition
+    public void captureStartValues(@NonNull TransitionValues transitionValues) {
+        captureValues(transitionValues);
+    }
+
+    @Override // androidx.transition.Transition
     @Nullable
     public Animator createAnimator(@NonNull ViewGroup viewGroup, @Nullable TransitionValues transitionValues, @Nullable TransitionValues transitionValues2) {
         ObjectAnimator objectAnimator;
-        ObjectAnimator objectAnimator2;
+        ObjectAnimator objectAnimator2 = null;
         if (transitionValues == null || transitionValues2 == null) {
             return null;
         }
@@ -64,9 +54,17 @@ public class ChangeScroll extends Transition {
         if (intValue3 != intValue4) {
             view.setScrollY(intValue3);
             objectAnimator2 = ObjectAnimator.ofInt(view, "scrollY", intValue3, intValue4);
-        } else {
-            objectAnimator2 = null;
         }
         return TransitionUtils.mergeAnimators(objectAnimator, objectAnimator2);
+    }
+
+    @Override // androidx.transition.Transition
+    @Nullable
+    public String[] getTransitionProperties() {
+        return PROPERTIES;
+    }
+
+    public ChangeScroll(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
     }
 }

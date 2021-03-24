@@ -1,12 +1,13 @@
 package com.baidu.tieba.enterForum.hotuserrank.model;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.tieba.enterForum.hotuserrank.a.c;
 import com.squareup.wire.Wire;
+import d.b.i0.i0.i.c.c;
+import tbclient.Error;
 import tbclient.GetInfluenceRank.GetInfluenceRankResIdl;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class HotUserRankSocketResMsg extends SocketResponsedMessage {
-    private c pageData;
+    public c pageData;
 
     public HotUserRankSocketResMsg() {
         super(309652);
@@ -17,18 +18,22 @@ public class HotUserRankSocketResMsg extends SocketResponsedMessage {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.message.a
+    @Override // com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
     public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         GetInfluenceRankResIdl getInfluenceRankResIdl = (GetInfluenceRankResIdl) new Wire(new Class[0]).parseFrom(bArr, GetInfluenceRankResIdl.class);
-        if (getInfluenceRankResIdl != null) {
-            if (getInfluenceRankResIdl.error != null) {
-                if (getInfluenceRankResIdl.error.errorno != null) {
-                    setError(getInfluenceRankResIdl.error.errorno.intValue());
-                }
-                setErrorString(getInfluenceRankResIdl.error.usermsg);
-            }
-            this.pageData = new c();
-            this.pageData.a(getInfluenceRankResIdl.data);
+        if (getInfluenceRankResIdl == null) {
+            return;
         }
+        Error error = getInfluenceRankResIdl.error;
+        if (error != null) {
+            Integer num = error.errorno;
+            if (num != null) {
+                setError(num.intValue());
+            }
+            setErrorString(getInfluenceRankResIdl.error.usermsg);
+        }
+        c cVar = new c();
+        this.pageData = cVar;
+        cVar.c(getInfluenceRankResIdl.data);
     }
 }

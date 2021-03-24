@@ -6,14 +6,20 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 /* loaded from: classes.dex */
 public class SpaceItemDecoration extends RecyclerView.ItemDecoration {
-    private int Zx;
-    private int Zy;
-    private int mEnd;
+
+    /* renamed from: a  reason: collision with root package name */
+    public int f2359a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public int f2360b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public int f2361c;
 
     public SpaceItemDecoration(int i, int i2, int i3) {
-        this.Zx = i;
-        this.Zy = i2;
-        this.mEnd = i3;
+        this.f2359a = i;
+        this.f2360b = i2;
+        this.f2361c = i3;
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.ItemDecoration
@@ -21,23 +27,23 @@ public class SpaceItemDecoration extends RecyclerView.ItemDecoration {
         LinearLayoutManager linearLayoutManager = (LinearLayoutManager) recyclerView.getLayoutManager();
         if (linearLayoutManager.getOrientation() == 1) {
             if (recyclerView.getChildAdapterPosition(view) == 0) {
-                rect.top = this.Zx;
+                rect.top = this.f2359a;
             } else {
-                rect.top = this.Zy;
+                rect.top = this.f2360b;
             }
             if (recyclerView.getChildAdapterPosition(view) == linearLayoutManager.getItemCount() - 1) {
-                rect.bottom = this.mEnd;
+                rect.bottom = this.f2361c;
                 return;
             }
             return;
         }
         if (recyclerView.getChildAdapterPosition(view) == 0) {
-            rect.left = this.Zx;
+            rect.left = this.f2359a;
         } else {
-            rect.left = this.Zy;
+            rect.left = this.f2360b;
         }
         if (recyclerView.getChildAdapterPosition(view) == linearLayoutManager.getItemCount() - 1) {
-            rect.right = this.mEnd;
+            rect.right = this.f2361c;
         }
     }
 }

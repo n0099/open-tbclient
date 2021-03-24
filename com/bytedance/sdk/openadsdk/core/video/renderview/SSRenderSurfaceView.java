@@ -10,12 +10,18 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes6.dex */
 public class SSRenderSurfaceView extends SSSurfaceView implements SurfaceHolder.Callback, b {
-    private static final ArrayList<c> c = new ArrayList<>();
+
+    /* renamed from: c  reason: collision with root package name */
+    public static final ArrayList<c> f28761c = new ArrayList<>();
 
     /* renamed from: a  reason: collision with root package name */
-    private WeakReference<a> f4576a;
-    private c b;
-    private b.a d;
+    public WeakReference<a> f28762a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public c f28763b;
+
+    /* renamed from: d  reason: collision with root package name */
+    public b.a f28764d;
 
     public SSRenderSurfaceView(Context context) {
         super(context);
@@ -23,16 +29,62 @@ public class SSRenderSurfaceView extends SSSurfaceView implements SurfaceHolder.
     }
 
     private void a() {
-        this.b = new c(this);
-        c.add(this.b);
+        c cVar = new c(this);
+        this.f28763b = cVar;
+        f28761c.add(cVar);
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.core.video.renderview.b
+    public View getView() {
+        return this;
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.core.video.renderview.SSSurfaceView, android.view.SurfaceView, android.view.View
+    public void onWindowVisibilityChanged(int i) {
+        super.onWindowVisibilityChanged(i);
+        b.a aVar = this.f28764d;
+        if (aVar != null) {
+            aVar.a(i);
+        }
+    }
+
+    public void setWindowVisibilityChangedListener(b.a aVar) {
+        this.f28764d = aVar;
+    }
+
+    @Override // android.view.SurfaceHolder.Callback
+    public void surfaceChanged(SurfaceHolder surfaceHolder, int i, int i2, int i3) {
+        WeakReference<a> weakReference = this.f28762a;
+        if (weakReference == null || weakReference.get() == null) {
+            return;
+        }
+        this.f28762a.get().a(surfaceHolder, i, i2, i3);
+    }
+
+    @Override // android.view.SurfaceHolder.Callback
+    public void surfaceCreated(SurfaceHolder surfaceHolder) {
+        WeakReference<a> weakReference = this.f28762a;
+        if (weakReference == null || weakReference.get() == null) {
+            return;
+        }
+        this.f28762a.get().a(surfaceHolder);
+    }
+
+    @Override // android.view.SurfaceHolder.Callback
+    public void surfaceDestroyed(SurfaceHolder surfaceHolder) {
+        WeakReference<a> weakReference = this.f28762a;
+        if (weakReference == null || weakReference.get() == null) {
+            return;
+        }
+        this.f28762a.get().b(surfaceHolder);
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.video.renderview.b
     public void a(a aVar) {
-        this.f4576a = new WeakReference<>(aVar);
+        this.f28762a = new WeakReference<>(aVar);
         SurfaceHolder holder = getHolder();
         holder.setFormat(-3);
-        Iterator<c> it = c.iterator();
+        Iterator<c> it = f28761c.iterator();
         while (it.hasNext()) {
             c next = it.next();
             if (next.a() == null) {
@@ -40,7 +92,7 @@ public class SSRenderSurfaceView extends SSSurfaceView implements SurfaceHolder.
                 it.remove();
             }
         }
-        holder.addCallback(this.b);
+        holder.addCallback(this.f28763b);
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.video.renderview.b
@@ -49,44 +101,5 @@ public class SSRenderSurfaceView extends SSSurfaceView implements SurfaceHolder.
         layoutParams.height = i2;
         layoutParams.width = i;
         setLayoutParams(layoutParams);
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.core.video.renderview.b
-    public View getView() {
-        return this;
-    }
-
-    @Override // android.view.SurfaceHolder.Callback
-    public void surfaceCreated(SurfaceHolder surfaceHolder) {
-        if (this.f4576a != null && this.f4576a.get() != null) {
-            this.f4576a.get().a(surfaceHolder);
-        }
-    }
-
-    @Override // android.view.SurfaceHolder.Callback
-    public void surfaceChanged(SurfaceHolder surfaceHolder, int i, int i2, int i3) {
-        if (this.f4576a != null && this.f4576a.get() != null) {
-            this.f4576a.get().a(surfaceHolder, i, i2, i3);
-        }
-    }
-
-    @Override // android.view.SurfaceHolder.Callback
-    public void surfaceDestroyed(SurfaceHolder surfaceHolder) {
-        if (this.f4576a != null && this.f4576a.get() != null) {
-            this.f4576a.get().b(surfaceHolder);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.bytedance.sdk.openadsdk.core.video.renderview.SSSurfaceView, android.view.SurfaceView, android.view.View
-    public void onWindowVisibilityChanged(int i) {
-        super.onWindowVisibilityChanged(i);
-        if (this.d != null) {
-            this.d.a(i);
-        }
-    }
-
-    public void setWindowVisibilityChangedListener(b.a aVar) {
-        this.d = aVar;
     }
 }

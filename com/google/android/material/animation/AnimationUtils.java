@@ -8,7 +8,7 @@ import androidx.interpolator.view.animation.FastOutLinearInInterpolator;
 import androidx.interpolator.view.animation.FastOutSlowInInterpolator;
 import androidx.interpolator.view.animation.LinearOutSlowInInterpolator;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes14.dex */
+/* loaded from: classes6.dex */
 public class AnimationUtils {
     public static final TimeInterpolator LINEAR_INTERPOLATOR = new LinearInterpolator();
     public static final TimeInterpolator FAST_OUT_SLOW_IN_INTERPOLATOR = new FastOutSlowInInterpolator();
@@ -16,11 +16,11 @@ public class AnimationUtils {
     public static final TimeInterpolator LINEAR_OUT_SLOW_IN_INTERPOLATOR = new LinearOutSlowInInterpolator();
     public static final TimeInterpolator DECELERATE_INTERPOLATOR = new DecelerateInterpolator();
 
-    public static float lerp(float f, float f2, float f3) {
-        return ((f2 - f) * f3) + f;
+    public static float lerp(float f2, float f3, float f4) {
+        return f2 + (f4 * (f3 - f2));
     }
 
-    public static int lerp(int i, int i2, float f) {
-        return Math.round((i2 - i) * f) + i;
+    public static int lerp(int i, int i2, float f2) {
+        return i + Math.round(f2 * (i2 - i));
     }
 }

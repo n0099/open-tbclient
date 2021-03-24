@@ -10,40 +10,57 @@ import android.view.TextureView;
 import android.view.View;
 import com.baidu.cyberplayer.sdk.config.CyberCfgManager;
 import com.baidu.cyberplayer.sdk.i;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class h extends TextureView implements i {
 
     /* renamed from: a  reason: collision with root package name */
-    private a f1428a;
-    private SurfaceTexture b;
-    private Surface c;
-    private i.a d;
-    private f e;
-    private boolean f;
-    private boolean g;
-    private boolean h;
+    public a f4946a;
 
-    /* loaded from: classes4.dex */
-    private class a implements TextureView.SurfaceTextureListener {
+    /* renamed from: b  reason: collision with root package name */
+    public SurfaceTexture f4947b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public Surface f4948c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public i.a f4949d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public f f4950e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public boolean f4951f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public boolean f4952g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public boolean f4953h;
+
+    /* loaded from: classes2.dex */
+    public class a implements TextureView.SurfaceTextureListener {
         public a() {
         }
 
         @Override // android.view.TextureView.SurfaceTextureListener
         public void onSurfaceTextureAvailable(SurfaceTexture surfaceTexture, int i, int i2) {
             CyberLog.d("CyberTextureView", "onSurfaceTextureAvailable surface:" + surfaceTexture + " width:" + i + " height:" + i2);
-            if (h.this.b == null) {
-                h.this.b = surfaceTexture;
-                if (h.this.d != null) {
-                    h.this.d.a(1);
+            if (h.this.f4947b == null) {
+                h.this.f4947b = surfaceTexture;
+                if (h.this.f4949d == null) {
+                    return;
                 }
             } else if (Build.VERSION.SDK_INT >= 21) {
-                h.this.setSurfaceTexture(h.this.b);
+                h hVar = h.this;
+                hVar.setSurfaceTexture(hVar.f4947b);
+                return;
             } else {
-                h.this.b = surfaceTexture;
-                if (h.this.d != null) {
-                    h.this.d.a(1);
+                h.this.f4947b = surfaceTexture;
+                if (h.this.f4949d == null) {
+                    return;
                 }
             }
+            h.this.f4949d.a(1);
         }
 
         @Override // android.view.TextureView.SurfaceTextureListener
@@ -59,67 +76,77 @@ public class h extends TextureView implements i {
 
         @Override // android.view.TextureView.SurfaceTextureListener
         public void onSurfaceTextureUpdated(SurfaceTexture surfaceTexture) {
-            if (h.this.f) {
+            if (h.this.f4951f) {
                 return;
             }
-            h.this.f = true;
-            if (h.this.d != null) {
-                h.this.d.a(System.currentTimeMillis());
+            h.this.f4951f = true;
+            if (h.this.f4949d != null) {
+                h.this.f4949d.a(System.currentTimeMillis());
             }
         }
     }
 
     public h(Context context) {
         super(context);
-        this.h = false;
-        this.f1428a = new a();
-        setSurfaceTextureListener(this.f1428a);
-        this.e = new f();
-        this.f = false;
-        this.g = CyberCfgManager.getInstance().a("textureview_enable_translate", true);
+        this.f4953h = false;
+        a aVar = new a();
+        this.f4946a = aVar;
+        setSurfaceTextureListener(aVar);
+        this.f4950e = new f();
+        this.f4951f = false;
+        this.f4952g = CyberCfgManager.getInstance().a("textureview_enable_translate", true);
     }
 
     private void a(int i) {
-        int g = this.e.g();
-        if (g > 0) {
-            g = 360 - g;
+        int g2 = this.f4950e.g();
+        if (g2 > 0) {
+            g2 = 360 - g2;
         }
-        CyberLog.i("CyberTextureView", "updateRotation rotate:" + i + " drawFrameRotation:" + g);
-        setRotation(g);
+        CyberLog.i("CyberTextureView", "updateRotation rotate:" + i + " drawFrameRotation:" + g2);
+        setRotation((float) g2);
         requestLayout();
     }
 
     private void b(int i, int i2, int i3, int i4) {
-        if (this.g) {
-            if (!this.e.f()) {
-                if (this.h) {
-                    Matrix matrix = new Matrix();
-                    getTransform(matrix);
-                    matrix.setTranslate(0.0f, 0.0f);
+        boolean z;
+        if (this.f4952g) {
+            if (this.f4950e.f()) {
+                Matrix matrix = new Matrix();
+                getTransform(matrix);
+                CyberLog.i("CyberTextureView", "doTranslate old_width:" + i + " old_height:" + i2 + " width:" + i3 + " height:" + i4);
+                float f2 = ((float) (i3 - i)) / 2.0f;
+                float f3 = ((float) (i4 - i2)) / 2.0f;
+                StringBuilder sb = new StringBuilder();
+                sb.append("doTranslate x:");
+                sb.append(f2);
+                sb.append(" y:");
+                sb.append(f3);
+                CyberLog.i("CyberTextureView", sb.toString());
+                int d2 = this.f4950e.d();
+                if (d2 == 7) {
+                    f2 = -f2;
+                } else if (d2 != 8) {
+                    if (d2 == 9) {
+                        matrix.setTranslate(0.0f, -f3);
+                    } else if (d2 == 10) {
+                        matrix.setTranslate(0.0f, f3);
+                    }
                     setTransform(matrix);
-                    this.h = false;
-                    return;
+                    z = true;
                 }
+                matrix.setTranslate(f2, 0.0f);
+                setTransform(matrix);
+                z = true;
+            } else if (!this.f4953h) {
                 return;
+            } else {
+                Matrix matrix2 = new Matrix();
+                getTransform(matrix2);
+                matrix2.setTranslate(0.0f, 0.0f);
+                setTransform(matrix2);
+                z = false;
             }
-            Matrix matrix2 = new Matrix();
-            getTransform(matrix2);
-            CyberLog.i("CyberTextureView", "doTranslate old_width:" + i + " old_height:" + i2 + " width:" + i3 + " height:" + i4);
-            float f = (i3 - i) / 2.0f;
-            float f2 = (i4 - i2) / 2.0f;
-            CyberLog.i("CyberTextureView", "doTranslate x:" + f + " y:" + f2);
-            int d = this.e.d();
-            if (d == 7) {
-                matrix2.setTranslate(-f, 0.0f);
-            } else if (d == 8) {
-                matrix2.setTranslate(f, 0.0f);
-            } else if (d == 9) {
-                matrix2.setTranslate(0.0f, -f2);
-            } else if (d == 10) {
-                matrix2.setTranslate(0.0f, f2);
-            }
-            setTransform(matrix2);
-            this.h = true;
+            this.f4953h = z;
         }
     }
 
@@ -128,32 +155,34 @@ public class h extends TextureView implements i {
     }
 
     @Override // com.baidu.cyberplayer.sdk.i
-    public Bitmap a(float f, int i, int i2) {
+    public Bitmap a(float f2, int i, int i2) {
         return getBitmap();
     }
 
     @Override // com.baidu.cyberplayer.sdk.i
     public void a() {
-        CyberLog.d("CyberTextureView", "release called mSurfaceTexture:" + this.b);
-        if (this.c != null) {
-            this.c.release();
-            this.c = null;
+        CyberLog.d("CyberTextureView", "release called mSurfaceTexture:" + this.f4947b);
+        Surface surface = this.f4948c;
+        if (surface != null) {
+            surface.release();
+            this.f4948c = null;
         }
-        this.b = null;
+        this.f4947b = null;
     }
 
     @Override // com.baidu.cyberplayer.sdk.i
     public void a(int i, int i2, int i3, int i4) {
-        if (this.e.a(i, i2, i3, i4)) {
+        if (this.f4950e.a(i, i2, i3, i4)) {
             f();
         }
     }
 
     @Override // com.baidu.cyberplayer.sdk.i
     public void b() {
-        if (this.b != null) {
-            this.b.release();
-            this.b = null;
+        SurfaceTexture surfaceTexture = this.f4947b;
+        if (surfaceTexture != null) {
+            surfaceTexture.release();
+            this.f4947b = null;
         }
         a();
     }
@@ -161,24 +190,25 @@ public class h extends TextureView implements i {
     @Override // com.baidu.cyberplayer.sdk.i
     public void c() {
         setRotation(0.0f);
-        this.e.a();
+        this.f4950e.a();
     }
 
     @Override // com.baidu.cyberplayer.sdk.i
     public Surface d() {
-        CyberLog.d("CyberTextureView", "createNewSurface mSurface:" + this.c);
-        if (this.c != null) {
-            this.c.release();
-            this.c = null;
+        CyberLog.d("CyberTextureView", "createNewSurface mSurface:" + this.f4948c);
+        Surface surface = this.f4948c;
+        if (surface != null) {
+            surface.release();
+            this.f4948c = null;
         }
         CyberLog.d("CyberTextureView", "createNewSurface getSurfaceTexture:" + getSurfaceTexture());
         if (getSurfaceTexture() != null) {
-            this.c = new Surface(getSurfaceTexture());
-            this.b = getSurfaceTexture();
-            this.f = false;
+            this.f4948c = new Surface(getSurfaceTexture());
+            this.f4947b = getSurfaceTexture();
+            this.f4951f = false;
         }
-        CyberLog.d("CyberTextureView", "createNewSurface mSurface:" + this.c);
-        return this.c;
+        CyberLog.d("CyberTextureView", "createNewSurface mSurface:" + this.f4948c);
+        return this.f4948c;
     }
 
     @Override // com.baidu.cyberplayer.sdk.i
@@ -192,57 +222,53 @@ public class h extends TextureView implements i {
     }
 
     @Override // android.view.View
-    protected void onMeasure(int i, int i2) {
+    public void onMeasure(int i, int i2) {
         int i3;
-        int i4;
-        int i5;
-        int i6;
-        this.e.a(View.MeasureSpec.getSize(i), View.MeasureSpec.getSize(i2));
-        this.e.b();
-        boolean z = this.e.g() == 90 || this.e.g() == 270;
+        float f2;
+        this.f4950e.a(View.MeasureSpec.getSize(i), View.MeasureSpec.getSize(i2));
+        this.f4950e.b();
+        boolean z = this.f4950e.g() == 90 || this.f4950e.g() == 270;
         if (z) {
-            i3 = i;
-            i4 = i2;
-        } else {
-            i3 = i2;
-            i4 = i;
+            i2 = i;
+            i = i2;
         }
-        int defaultSize = View.getDefaultSize(this.e.h(), i4);
-        int defaultSize2 = View.getDefaultSize(this.e.i(), i3);
-        float[] c = this.e.c();
+        int defaultSize = View.getDefaultSize(this.f4950e.h(), i);
+        int defaultSize2 = View.getDefaultSize(this.f4950e.i(), i2);
+        float[] c2 = this.f4950e.c();
         if (z) {
-            i5 = (int) (c[1] * defaultSize);
-            i6 = (int) (c[0] * defaultSize2);
+            i3 = (int) (c2[1] * defaultSize);
+            f2 = c2[0];
         } else {
-            i5 = (int) (c[0] * defaultSize);
-            i6 = (int) (c[1] * defaultSize2);
+            i3 = (int) (c2[0] * defaultSize);
+            f2 = c2[1];
         }
-        setMeasuredDimension(i5, i6);
-        b(defaultSize, defaultSize2, i5, i6);
+        int i4 = (int) (f2 * defaultSize2);
+        setMeasuredDimension(i3, i4);
+        b(defaultSize, defaultSize2, i3, i4);
     }
 
     @Override // com.baidu.cyberplayer.sdk.i
     public void setClientRotation(int i) {
-        if (this.e.b(i)) {
+        if (this.f4950e.b(i)) {
             a(i);
         }
     }
 
     @Override // com.baidu.cyberplayer.sdk.i
     public void setCyberSurfaceListener(i.a aVar) {
-        this.d = aVar;
+        this.f4949d = aVar;
     }
 
     @Override // com.baidu.cyberplayer.sdk.i
     public void setDisplayMode(int i) {
-        if (this.e.c(i)) {
+        if (this.f4950e.c(i)) {
             f();
         }
     }
 
     @Override // com.baidu.cyberplayer.sdk.i
     public void setRawFrameRotation(int i) {
-        if (this.e.a(i)) {
+        if (this.f4950e.a(i)) {
             a(i);
         }
     }

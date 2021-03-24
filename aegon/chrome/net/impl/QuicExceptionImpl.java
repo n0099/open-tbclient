@@ -1,7 +1,7 @@
 package aegon.chrome.net.impl;
 
 import aegon.chrome.net.NetworkException;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class QuicExceptionImpl extends NetworkException {
     public final NetworkExceptionImpl mNetworkException;
     public final int mQuicDetailedErrorCode;
@@ -19,8 +19,6 @@ public class QuicExceptionImpl extends NetworkException {
 
     @Override // java.lang.Throwable
     public String getMessage() {
-        StringBuilder sb = new StringBuilder(this.mNetworkException.getMessage());
-        sb.append(", QuicDetailedErrorCode=").append(this.mQuicDetailedErrorCode);
-        return sb.toString();
+        return this.mNetworkException.getMessage() + ", QuicDetailedErrorCode=" + this.mQuicDetailedErrorCode;
     }
 }

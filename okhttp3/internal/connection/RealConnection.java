@@ -1,5 +1,6 @@
 package okhttp3.internal.connection;
 
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import java.io.IOException;
 import java.lang.ref.Reference;
 import java.net.ConnectException;
@@ -9,7 +10,6 @@ import java.net.Socket;
 import java.net.SocketException;
 import java.net.SocketTimeoutException;
 import java.net.UnknownServiceException;
-import java.security.cert.Certificate;
 import java.security.cert.X509Certificate;
 import java.util.ArrayList;
 import java.util.List;
@@ -26,7 +26,6 @@ import okhttp3.ConnectionPool;
 import okhttp3.ConnectionSpec;
 import okhttp3.EventListener;
 import okhttp3.Handshake;
-import okhttp3.Headers;
 import okhttp3.HttpUrl;
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
@@ -51,127 +50,41 @@ import okio.BufferedSink;
 import okio.BufferedSource;
 import okio.Okio;
 import okio.Source;
-import org.apache.http.auth.AUTH;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes14.dex */
+/* loaded from: classes.dex */
 public final class RealConnection extends Http2Connection.Listener implements Connection {
-    private static final int MAX_TUNNEL_ATTEMPTS = 21;
-    private static final String NPE_THROW_WITH_NULL = "throw with null exception";
-    private final ConnectionPool connectionPool;
-    private Handshake handshake;
-    private Http2Connection http2Connection;
+    public static final int MAX_TUNNEL_ATTEMPTS = 21;
+    public static final String NPE_THROW_WITH_NULL = "throw with null exception";
+    public final ConnectionPool connectionPool;
+    public Handshake handshake;
+    public Http2Connection http2Connection;
     public boolean noNewStreams;
-    private Protocol protocol;
-    private Socket rawSocket;
-    private final Route route;
-    List<Route> routeList;
-    private BufferedSink sink;
-    private Socket socket;
-    private BufferedSource source;
+    public Protocol protocol;
+    public Socket rawSocket;
+    public final Route route;
+    public BufferedSink sink;
+    public Socket socket;
+    public BufferedSource source;
     public int successCount;
     public int allocationLimit = 1;
     public final List<Reference<StreamAllocation>> allocations = new ArrayList();
     public long idleAtNanos = Long.MAX_VALUE;
-    boolean isFallbackConn = false;
 
     public RealConnection(ConnectionPool connectionPool, Route route) {
         this.connectionPool = connectionPool;
         this.route = route;
     }
 
-    public static RealConnection testConnection(ConnectionPool connectionPool, Route route, Socket socket, long j) {
-        RealConnection realConnection = new RealConnection(connectionPool, route);
-        realConnection.socket = socket;
-        realConnection.idleAtNanos = j;
-        return realConnection;
-    }
-
-    public void connect(int i, int i2, int i3, int i4, boolean z, Call call, EventListener eventListener, Request request) {
-        RouteException routeException;
-        if (this.protocol != null) {
-            throw new IllegalStateException("already connected");
-        }
-        RouteException routeException2 = null;
-        List<ConnectionSpec> connectionSpecs = this.route.address().connectionSpecs();
-        ConnectionSpecSelector connectionSpecSelector = new ConnectionSpecSelector(connectionSpecs);
-        if (this.route.address().sslSocketFactory() == null) {
-            if (!connectionSpecs.contains(ConnectionSpec.CLEARTEXT)) {
-                throw new RouteException(new UnknownServiceException("CLEARTEXT communication not enabled for client"));
-            }
-            String host = this.route.address().url().host();
-            if (!Platform.get().isCleartextTrafficPermitted(host)) {
-                throw new RouteException(new UnknownServiceException("CLEARTEXT communication to " + host + " not permitted by network security policy"));
-            }
-        } else if (this.route.address().protocols().contains(Protocol.H2_PRIOR_KNOWLEDGE)) {
-            throw new RouteException(new UnknownServiceException("H2_PRIOR_KNOWLEDGE cannot be used with HTTPS"));
-        }
-        while (true) {
-            try {
-                routeException = routeException2;
-                if (this.route.requiresTunnel()) {
-                    connectTunnel(i, i2, i3, call, eventListener, request);
-                    if (this.rawSocket == null) {
-                        break;
-                    }
-                } else {
-                    connectSocket(i, i2, call, eventListener);
-                }
-                establishProtocol(connectionSpecSelector, i4, call, eventListener);
-                eventListener.connectEnd(call, this.route.socketAddress(), this.route.proxy(), this.protocol);
-                break;
-            } catch (IOException e) {
-                Util.closeQuietly(this.socket);
-                Util.closeQuietly(this.rawSocket);
-                this.socket = null;
-                this.rawSocket = null;
-                this.source = null;
-                this.sink = null;
-                this.handshake = null;
-                this.protocol = null;
-                this.http2Connection = null;
-                eventListener.connectFailed(call, this.route.socketAddress(), this.route.proxy(), null, e);
-                if (routeException == null) {
-                    routeException2 = new RouteException(e);
-                } else {
-                    routeException.addConnectException(e);
-                    routeException2 = routeException;
-                }
-                if (!z || !connectionSpecSelector.connectionFailed(e)) {
-                    throw routeException2;
-                }
-            }
-        }
-        if (this.route.requiresTunnel() && this.rawSocket == null) {
-            throw new RouteException(new ProtocolException("Too many tunnel connections attempted: 21"));
-        }
-        if (this.http2Connection != null) {
-            synchronized (this.connectionPool) {
-                this.allocationLimit = this.http2Connection.maxConcurrentStreams();
-            }
-        }
-    }
-
-    private void connectTunnel(int i, int i2, int i3, Call call, EventListener eventListener, Request request) throws IOException {
-        Request createTunnelRequest = createTunnelRequest(request);
-        HttpUrl url = createTunnelRequest.url();
-        for (int i4 = 0; i4 < 21; i4++) {
-            connectSocket(i, i2, call, eventListener);
-            createTunnelRequest = createTunnel(i2, i3, createTunnelRequest, url);
-            if (createTunnelRequest != null) {
-                Util.closeQuietly(this.rawSocket);
-                this.rawSocket = null;
-                this.sink = null;
-                this.source = null;
-                eventListener.connectEnd(call, this.route.socketAddress(), this.route.proxy(), null);
-            } else {
-                return;
-            }
-        }
-    }
-
     private void connectSocket(int i, int i2, Call call, EventListener eventListener) throws IOException {
+        Socket createSocket;
         Proxy proxy = this.route.proxy();
-        this.rawSocket = (proxy.type() == Proxy.Type.DIRECT || proxy.type() == Proxy.Type.HTTP) ? this.route.address().socketFactory().createSocket() : new Socket(proxy);
+        Address address = this.route.address();
+        if (proxy.type() != Proxy.Type.DIRECT && proxy.type() != Proxy.Type.HTTP) {
+            createSocket = new Socket(proxy);
+        } else {
+            createSocket = address.socketFactory().createSocket();
+        }
+        this.rawSocket = createSocket;
         eventListener.connectStart(call, this.route.socketAddress(), proxy);
         this.rawSocket.setSoTimeout(i2);
         try {
@@ -179,16 +92,135 @@ public final class RealConnection extends Http2Connection.Listener implements Co
             try {
                 this.source = Okio.buffer(Okio.source(this.rawSocket));
                 this.sink = Okio.buffer(Okio.sink(this.rawSocket));
-            } catch (NullPointerException e) {
-                if (NPE_THROW_WITH_NULL.equals(e.getMessage())) {
-                    throw new IOException(e);
+            } catch (NullPointerException e2) {
+                if (NPE_THROW_WITH_NULL.equals(e2.getMessage())) {
+                    throw new IOException(e2);
                 }
             }
-        } catch (ConnectException e2) {
+        } catch (ConnectException e3) {
             ConnectException connectException = new ConnectException("Failed to connect to " + this.route.socketAddress());
-            connectException.initCause(e2);
+            connectException.initCause(e3);
             throw connectException;
         }
+    }
+
+    private void connectTls(ConnectionSpecSelector connectionSpecSelector) throws IOException {
+        SSLSocket sSLSocket;
+        Protocol protocol;
+        Address address = this.route.address();
+        SSLSocket sSLSocket2 = null;
+        try {
+            try {
+                sSLSocket = (SSLSocket) address.sslSocketFactory().createSocket(this.rawSocket, address.url().host(), address.url().port(), true);
+            } catch (AssertionError e2) {
+                e = e2;
+            }
+        } catch (Throwable th) {
+            th = th;
+        }
+        try {
+            ConnectionSpec configureSecureSocket = connectionSpecSelector.configureSecureSocket(sSLSocket);
+            if (configureSecureSocket.supportsTlsExtensions()) {
+                Platform.get().configureTlsExtensions(sSLSocket, address.url().host(), address.protocols());
+            }
+            sSLSocket.startHandshake();
+            SSLSession session = sSLSocket.getSession();
+            Handshake handshake = Handshake.get(session);
+            if (address.hostnameVerifier().verify(address.url().host(), session)) {
+                address.certificatePinner().check(address.url().host(), handshake.peerCertificates());
+                String selectedProtocol = configureSecureSocket.supportsTlsExtensions() ? Platform.get().getSelectedProtocol(sSLSocket) : null;
+                this.socket = sSLSocket;
+                this.source = Okio.buffer(Okio.source(sSLSocket));
+                this.sink = Okio.buffer(Okio.sink(this.socket));
+                this.handshake = handshake;
+                if (selectedProtocol != null) {
+                    protocol = Protocol.get(selectedProtocol);
+                } else {
+                    protocol = Protocol.HTTP_1_1;
+                }
+                this.protocol = protocol;
+                if (sSLSocket != null) {
+                    Platform.get().afterHandshake(sSLSocket);
+                    return;
+                }
+                return;
+            }
+            X509Certificate x509Certificate = (X509Certificate) handshake.peerCertificates().get(0);
+            throw new SSLPeerUnverifiedException("Hostname " + address.url().host() + " not verified:\n    certificate: " + CertificatePinner.pin(x509Certificate) + "\n    DN: " + x509Certificate.getSubjectDN().getName() + "\n    subjectAltNames: " + OkHostnameVerifier.allSubjectAltNames(x509Certificate));
+        } catch (AssertionError e3) {
+            e = e3;
+            if (!Util.isAndroidGetsocknameError(e)) {
+                throw e;
+            }
+            throw new IOException(e);
+        } catch (Throwable th2) {
+            th = th2;
+            sSLSocket2 = sSLSocket;
+            if (sSLSocket2 != null) {
+                Platform.get().afterHandshake(sSLSocket2);
+            }
+            Util.closeQuietly((Socket) sSLSocket2);
+            throw th;
+        }
+    }
+
+    private void connectTunnel(int i, int i2, int i3, Call call, EventListener eventListener) throws IOException {
+        Request createTunnelRequest = createTunnelRequest();
+        HttpUrl url = createTunnelRequest.url();
+        for (int i4 = 0; i4 < 21; i4++) {
+            connectSocket(i, i2, call, eventListener);
+            createTunnelRequest = createTunnel(i2, i3, createTunnelRequest, url);
+            if (createTunnelRequest == null) {
+                return;
+            }
+            Util.closeQuietly(this.rawSocket);
+            this.rawSocket = null;
+            this.sink = null;
+            this.source = null;
+            eventListener.connectEnd(call, this.route.socketAddress(), this.route.proxy(), null);
+        }
+    }
+
+    private Request createTunnel(int i, int i2, Request request, HttpUrl httpUrl) throws IOException {
+        String str = "CONNECT " + Util.hostHeader(httpUrl, true) + " HTTP/1.1";
+        while (true) {
+            Http1Codec http1Codec = new Http1Codec(null, null, this.source, this.sink);
+            this.source.timeout().timeout(i, TimeUnit.MILLISECONDS);
+            this.sink.timeout().timeout(i2, TimeUnit.MILLISECONDS);
+            http1Codec.writeRequest(request.headers(), str);
+            http1Codec.finishRequest();
+            Response build = http1Codec.readResponseHeaders(false).request(request).build();
+            long contentLength = HttpHeaders.contentLength(build);
+            if (contentLength == -1) {
+                contentLength = 0;
+            }
+            Source newFixedLengthSource = http1Codec.newFixedLengthSource(contentLength);
+            Util.skipAll(newFixedLengthSource, Integer.MAX_VALUE, TimeUnit.MILLISECONDS);
+            newFixedLengthSource.close();
+            int code = build.code();
+            if (code == 200) {
+                if (this.source.buffer().exhausted() && this.sink.buffer().exhausted()) {
+                    return null;
+                }
+                throw new IOException("TLS tunnel buffered too many bytes!");
+            } else if (code == 407) {
+                Request authenticate = this.route.address().proxyAuthenticator().authenticate(this.route, build);
+                if (authenticate != null) {
+                    if (IntentConfig.CLOSE.equalsIgnoreCase(build.header(HTTP.CONN_DIRECTIVE))) {
+                        return authenticate;
+                    }
+                    request = authenticate;
+                } else {
+                    throw new IOException("Failed to authenticate with proxy");
+                }
+            } else {
+                throw new IOException("Unexpected response code for CONNECT: " + build.code());
+            }
+        }
+    }
+
+    private Request createTunnelRequest() {
+        return new Request.Builder().url(this.route.address().url()).header("Host", Util.hostHeader(this.route.address().url(), true)).header("Proxy-Connection", HTTP.CONN_KEEP_ALIVE).header("User-Agent", Version.userAgent()).build();
     }
 
     private void establishProtocol(ConnectionSpecSelector connectionSpecSelector, int i, Call call, EventListener eventListener) throws IOException {
@@ -213,126 +245,149 @@ public final class RealConnection extends Http2Connection.Listener implements Co
 
     private void startHttp2(int i) throws IOException {
         this.socket.setSoTimeout(0);
-        this.http2Connection = new Http2Connection.Builder(true).socket(this.socket, this.route.address().url().host(), this.source, this.sink).listener(this).pingIntervalMillis(i).build();
-        this.http2Connection.start();
+        Http2Connection build = new Http2Connection.Builder(true).socket(this.socket, this.route.address().url().host(), this.source, this.sink).listener(this).pingIntervalMillis(i).build();
+        this.http2Connection = build;
+        build.start();
     }
 
-    private void connectTls(ConnectionSpecSelector connectionSpecSelector) throws IOException {
-        Throwable th;
-        AssertionError e;
-        SSLSocket sSLSocket;
-        SSLSocket sSLSocket2 = null;
-        Address address = this.route.address();
-        try {
-            try {
-                sSLSocket = (SSLSocket) address.sslSocketFactory().createSocket(this.rawSocket, address.url().host(), address.url().port(), true);
-            } catch (AssertionError e2) {
-                e = e2;
-            }
-        } catch (Throwable th2) {
-            th = th2;
-        }
-        try {
-            ConnectionSpec configureSecureSocket = connectionSpecSelector.configureSecureSocket(sSLSocket);
-            if (configureSecureSocket.supportsTlsExtensions()) {
-                Platform.get().configureTlsExtensions(sSLSocket, address.url().host(), address.protocols());
-            }
-            sSLSocket.startHandshake();
-            SSLSession session = sSLSocket.getSession();
-            if (!isValid(session)) {
-                throw new IOException("a valid ssl session was not established");
-            }
-            Handshake handshake = Handshake.get(session);
-            if (!address.hostnameVerifier().verify(address.url().host(), session)) {
-                List<Certificate> peerCertificates = handshake.peerCertificates();
-                if (!peerCertificates.isEmpty()) {
-                    X509Certificate x509Certificate = (X509Certificate) peerCertificates.get(0);
-                    throw new SSLPeerUnverifiedException("Hostname " + address.url().host() + " not verified:\n    certificate: " + CertificatePinner.pin(x509Certificate) + "\n    DN: " + x509Certificate.getSubjectDN().getName() + "\n    subjectAltNames: " + OkHostnameVerifier.allSubjectAltNames(x509Certificate));
+    public static RealConnection testConnection(ConnectionPool connectionPool, Route route, Socket socket, long j) {
+        RealConnection realConnection = new RealConnection(connectionPool, route);
+        realConnection.socket = socket;
+        realConnection.idleAtNanos = j;
+        return realConnection;
+    }
+
+    public void cancel() {
+        Util.closeQuietly(this.rawSocket);
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:20:0x0090 A[Catch: IOException -> 0x00f9, TRY_LEAVE, TryCatch #0 {IOException -> 0x00f9, blocks: (B:18:0x0088, B:20:0x0090), top: B:67:0x0088 }] */
+    /* JADX WARN: Removed duplicated region for block: B:24:0x00a9  */
+    /* JADX WARN: Removed duplicated region for block: B:30:0x00ce  */
+    /* JADX WARN: Removed duplicated region for block: B:37:0x00e4  */
+    /* JADX WARN: Removed duplicated region for block: B:45:0x00f4 A[ORIG_RETURN, RETURN] */
+    /* JADX WARN: Removed duplicated region for block: B:55:0x012f  */
+    /* JADX WARN: Removed duplicated region for block: B:56:0x0135  */
+    /* JADX WARN: Removed duplicated region for block: B:61:0x0142 A[EDGE_INSN: B:77:0x0142->B:61:0x0142 ?: BREAK  ] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void connect(int i, int i2, int i3, int i4, boolean z, Call call, EventListener eventListener) {
+        if (this.protocol == null) {
+            List<ConnectionSpec> connectionSpecs = this.route.address().connectionSpecs();
+            ConnectionSpecSelector connectionSpecSelector = new ConnectionSpecSelector(connectionSpecs);
+            if (this.route.address().sslSocketFactory() == null) {
+                if (connectionSpecs.contains(ConnectionSpec.CLEARTEXT)) {
+                    String host = this.route.address().url().host();
+                    if (!Platform.get().isCleartextTrafficPermitted(host)) {
+                        throw new RouteException(new UnknownServiceException("CLEARTEXT communication to " + host + " not permitted by network security policy"));
+                    }
+                } else {
+                    throw new RouteException(new UnknownServiceException("CLEARTEXT communication not enabled for client"));
                 }
-                throw new SSLPeerUnverifiedException("Hostname " + address.url().host() + " not verified, no certificates provided");
+            } else if (this.route.address().protocols().contains(Protocol.H2_PRIOR_KNOWLEDGE)) {
+                throw new RouteException(new UnknownServiceException("H2_PRIOR_KNOWLEDGE cannot be used with HTTPS"));
             }
-            address.certificatePinner().check(address.url().host(), handshake.peerCertificates());
-            String selectedProtocol = configureSecureSocket.supportsTlsExtensions() ? Platform.get().getSelectedProtocol(sSLSocket) : null;
-            this.socket = sSLSocket;
-            this.source = Okio.buffer(Okio.source(this.socket));
-            this.sink = Okio.buffer(Okio.sink(this.socket));
-            this.handshake = handshake;
-            this.protocol = selectedProtocol != null ? Protocol.get(selectedProtocol) : Protocol.HTTP_1_1;
-            if (sSLSocket != null) {
-                Platform.get().afterHandshake(sSLSocket);
-            }
-        } catch (AssertionError e3) {
-            e = e3;
-            if (!Util.isAndroidGetsocknameError(e)) {
-                throw e;
-            }
-            throw new IOException(e);
-        } catch (Throwable th3) {
-            th = th3;
-            sSLSocket2 = sSLSocket;
-            if (sSLSocket2 != null) {
-                Platform.get().afterHandshake(sSLSocket2);
-            }
-            Util.closeQuietly((Socket) sSLSocket2);
-            throw th;
-        }
-    }
-
-    private boolean isValid(SSLSession sSLSession) {
-        return ("NONE".equals(sSLSession.getProtocol()) || "SSL_NULL_WITH_NULL_NULL".equals(sSLSession.getCipherSuite())) ? false : true;
-    }
-
-    private Request createTunnel(int i, int i2, Request request, HttpUrl httpUrl) throws IOException {
-        Response build;
-        String str = "CONNECT " + Util.hostHeader(httpUrl, true) + " HTTP/1.1";
-        do {
-            Http1Codec http1Codec = new Http1Codec(null, null, this.source, this.sink);
-            this.source.timeout().timeout(i, TimeUnit.MILLISECONDS);
-            this.sink.timeout().timeout(i2, TimeUnit.MILLISECONDS);
-            http1Codec.writeRequest(request.headers(), str);
-            http1Codec.finishRequest();
-            build = http1Codec.readResponseHeaders(false).request(request).build();
-            long contentLength = HttpHeaders.contentLength(build);
-            if (contentLength == -1) {
-                contentLength = 0;
-            }
-            Source newFixedLengthSource = http1Codec.newFixedLengthSource(contentLength);
-            Util.skipAll(newFixedLengthSource, Integer.MAX_VALUE, TimeUnit.MILLISECONDS);
-            newFixedLengthSource.close();
-            switch (build.code()) {
-                case 200:
-                    if (this.source.buffer().exhausted() && this.sink.buffer().exhausted()) {
-                        return null;
-                    }
-                    throw new IOException("TLS tunnel buffered too many bytes!");
-                case 407:
-                    request = this.route.address().proxyAuthenticator().authenticate(this.route, build);
-                    if (request != null) {
-                        break;
+            RouteException routeException = null;
+            do {
+                try {
+                } catch (IOException e2) {
+                    e = e2;
+                }
+                try {
+                    if (this.route.requiresTunnel()) {
+                        connectTunnel(i, i2, i3, call, eventListener);
+                        if (this.rawSocket == null) {
+                            if (!this.route.requiresTunnel() && this.rawSocket == null) {
+                                throw new RouteException(new ProtocolException("Too many tunnel connections attempted: 21"));
+                            }
+                            if (this.http2Connection == null) {
+                                synchronized (this.connectionPool) {
+                                    this.allocationLimit = this.http2Connection.maxConcurrentStreams();
+                                }
+                                return;
+                            }
+                            return;
+                        }
                     } else {
-                        throw new IOException("Failed to authenticate with proxy");
+                        try {
+                            connectSocket(i, i2, call, eventListener);
+                        } catch (IOException e3) {
+                            e = e3;
+                            Util.closeQuietly(this.socket);
+                            Util.closeQuietly(this.rawSocket);
+                            this.socket = null;
+                            this.rawSocket = null;
+                            this.source = null;
+                            this.sink = null;
+                            this.handshake = null;
+                            this.protocol = null;
+                            this.http2Connection = null;
+                            eventListener.connectFailed(call, this.route.socketAddress(), this.route.proxy(), null, e);
+                            if (routeException != null) {
+                                routeException = new RouteException(e);
+                            } else {
+                                routeException.addConnectException(e);
+                            }
+                            if (!z || connectionSpecSelector.connectionFailed(e)) {
+                                throw routeException;
+                            }
+                            do {
+                                if (this.route.requiresTunnel()) {
+                                }
+                                establishProtocol(connectionSpecSelector, i4, call, eventListener);
+                                eventListener.connectEnd(call, this.route.socketAddress(), this.route.proxy(), this.protocol);
+                                if (!this.route.requiresTunnel()) {
+                                }
+                                if (this.http2Connection == null) {
+                                }
+                            } while (connectionSpecSelector.connectionFailed(e));
+                            throw routeException;
+                        }
                     }
-                default:
-                    throw new IOException("Unexpected response code for CONNECT: " + build.code());
-            }
-        } while (!"close".equalsIgnoreCase(build.header(HTTP.CONN_DIRECTIVE)));
-        return request;
-    }
-
-    private Request createTunnelRequest(Request request) throws IOException {
-        Request.Builder header = new Request.Builder().url(this.route.address().url()).method("CONNECT", null).header("Host", Util.hostHeader(this.route.address().url(), true)).header("Proxy-Connection", HTTP.CONN_KEEP_ALIVE).header("User-Agent", Version.userAgent());
-        addProxyHeaders(header, request);
-        Request build = header.build();
-        Request authenticate = this.route.address().proxyAuthenticator().authenticate(this.route, new Response.Builder().request(build).protocol(Protocol.HTTP_1_1).code(407).message("Preemptive Authenticate").body(Util.EMPTY_RESPONSE).sentRequestAtMillis(-1L).receivedResponseAtMillis(-1L).header(AUTH.PROXY_AUTH, "OkHttp-Preemptive").build());
-        return authenticate != null ? authenticate : build;
-    }
-
-    private void addProxyHeaders(Request.Builder builder, Request request) {
-        Headers proxyHeaders = request.proxyHeaders();
-        int size = proxyHeaders.size();
-        for (int i = 0; i < size; i++) {
-            builder.header(proxyHeaders.name(i), proxyHeaders.value(i));
+                    establishProtocol(connectionSpecSelector, i4, call, eventListener);
+                    eventListener.connectEnd(call, this.route.socketAddress(), this.route.proxy(), this.protocol);
+                    if (!this.route.requiresTunnel()) {
+                    }
+                    if (this.http2Connection == null) {
+                    }
+                } catch (IOException e4) {
+                    e = e4;
+                    Util.closeQuietly(this.socket);
+                    Util.closeQuietly(this.rawSocket);
+                    this.socket = null;
+                    this.rawSocket = null;
+                    this.source = null;
+                    this.sink = null;
+                    this.handshake = null;
+                    this.protocol = null;
+                    this.http2Connection = null;
+                    eventListener.connectFailed(call, this.route.socketAddress(), this.route.proxy(), null, e);
+                    if (routeException != null) {
+                    }
+                    if (!z || connectionSpecSelector.connectionFailed(e)) {
+                    }
+                    do {
+                        if (this.route.requiresTunnel()) {
+                        }
+                        establishProtocol(connectionSpecSelector, i4, call, eventListener);
+                        eventListener.connectEnd(call, this.route.socketAddress(), this.route.proxy(), this.protocol);
+                        if (!this.route.requiresTunnel()) {
+                        }
+                        if (this.http2Connection == null) {
+                        }
+                    } while (connectionSpecSelector.connectionFailed(e));
+                    throw routeException;
+                }
+            } while (connectionSpecSelector.connectionFailed(e));
+            throw routeException;
         }
+        throw new IllegalStateException("already connected");
+    }
+
+    @Override // okhttp3.Connection
+    public Handshake handshake() {
+        return this.handshake;
     }
 
     public boolean isEligible(Address address, @Nullable Route route) {
@@ -346,21 +401,40 @@ public final class RealConnection extends Http2Connection.Listener implements Co
             try {
                 address.certificatePinner().check(address.url().host(), handshake().peerCertificates());
                 return true;
-            } catch (SSLPeerUnverifiedException e) {
+            } catch (SSLPeerUnverifiedException unused) {
                 return false;
             }
         }
         return false;
     }
 
-    public boolean supportsUrl(HttpUrl httpUrl) {
-        if (httpUrl.port() != this.route.address().url().port()) {
+    public boolean isHealthy(boolean z) {
+        if (this.socket.isClosed() || this.socket.isInputShutdown() || this.socket.isOutputShutdown()) {
             return false;
         }
-        if (httpUrl.host().equals(this.route.address().url().host())) {
-            return true;
+        Http2Connection http2Connection = this.http2Connection;
+        if (http2Connection != null) {
+            return !http2Connection.isShutdown();
         }
-        return this.handshake != null && OkHostnameVerifier.INSTANCE.verify(httpUrl.host(), (X509Certificate) this.handshake.peerCertificates().get(0));
+        if (z) {
+            try {
+                int soTimeout = this.socket.getSoTimeout();
+                try {
+                    this.socket.setSoTimeout(1);
+                    return !this.source.exhausted();
+                } finally {
+                    this.socket.setSoTimeout(soTimeout);
+                }
+            } catch (SocketTimeoutException unused) {
+            } catch (IOException unused2) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public boolean isMultiplexed() {
+        return this.http2Connection != null;
     }
 
     public HttpCodec newCodec(OkHttpClient okHttpClient, Interceptor.Chain chain, StreamAllocation streamAllocation) throws SocketException {
@@ -377,58 +451,10 @@ public final class RealConnection extends Http2Connection.Listener implements Co
         return new RealWebSocket.Streams(true, this.source, this.sink) { // from class: okhttp3.internal.connection.RealConnection.1
             @Override // java.io.Closeable, java.lang.AutoCloseable
             public void close() throws IOException {
-                streamAllocation.streamFinished(true, streamAllocation.codec(), -1L, null);
+                StreamAllocation streamAllocation2 = streamAllocation;
+                streamAllocation2.streamFinished(true, streamAllocation2.codec(), -1L, null);
             }
         };
-    }
-
-    @Override // okhttp3.Connection
-    public Route route() {
-        return this.route;
-    }
-
-    public void cancel() {
-        Util.closeQuietly(this.rawSocket);
-    }
-
-    @Override // okhttp3.Connection
-    public Socket socket() {
-        return this.socket;
-    }
-
-    public boolean isHealthy(boolean z) {
-        if (this.socket.isClosed() || this.socket.isInputShutdown() || this.socket.isOutputShutdown()) {
-            return false;
-        }
-        if (this.http2Connection != null) {
-            return this.http2Connection.isHealthy(System.nanoTime());
-        }
-        if (z) {
-            try {
-                int soTimeout = this.socket.getSoTimeout();
-                try {
-                    this.socket.setSoTimeout(1);
-                    if (this.source.exhausted()) {
-                        this.socket.setSoTimeout(soTimeout);
-                        return false;
-                    }
-                    this.socket.setSoTimeout(soTimeout);
-                    return true;
-                } catch (Throwable th) {
-                    this.socket.setSoTimeout(soTimeout);
-                    throw th;
-                }
-            } catch (SocketTimeoutException e) {
-            } catch (IOException e2) {
-                return false;
-            }
-        }
-        return true;
-    }
-
-    @Override // okhttp3.internal.http2.Http2Connection.Listener
-    public void onStream(Http2Stream http2Stream) throws IOException {
-        http2Stream.close(ErrorCode.REFUSED_STREAM);
     }
 
     @Override // okhttp3.internal.http2.Http2Connection.Listener
@@ -438,13 +464,9 @@ public final class RealConnection extends Http2Connection.Listener implements Co
         }
     }
 
-    @Override // okhttp3.Connection
-    public Handshake handshake() {
-        return this.handshake;
-    }
-
-    public boolean isMultiplexed() {
-        return this.http2Connection != null;
+    @Override // okhttp3.internal.http2.Http2Connection.Listener
+    public void onStream(Http2Stream http2Stream) throws IOException {
+        http2Stream.close(ErrorCode.REFUSED_STREAM);
     }
 
     @Override // okhttp3.Connection
@@ -452,7 +474,42 @@ public final class RealConnection extends Http2Connection.Listener implements Co
         return this.protocol;
     }
 
+    @Override // okhttp3.Connection
+    public Route route() {
+        return this.route;
+    }
+
+    @Override // okhttp3.Connection
+    public Socket socket() {
+        return this.socket;
+    }
+
+    public boolean supportsUrl(HttpUrl httpUrl) {
+        if (httpUrl.port() != this.route.address().url().port()) {
+            return false;
+        }
+        if (httpUrl.host().equals(this.route.address().url().host())) {
+            return true;
+        }
+        return this.handshake != null && OkHostnameVerifier.INSTANCE.verify(httpUrl.host(), (X509Certificate) this.handshake.peerCertificates().get(0));
+    }
+
     public String toString() {
-        return "Connection{" + this.route.address().url().host() + ":" + this.route.address().url().port() + ", proxy=" + this.route.proxy() + " hostAddress=" + this.route.socketAddress() + " cipherSuite=" + (this.handshake != null ? this.handshake.cipherSuite() : "none") + " protocol=" + this.protocol + '}';
+        StringBuilder sb = new StringBuilder();
+        sb.append("Connection{");
+        sb.append(this.route.address().url().host());
+        sb.append(":");
+        sb.append(this.route.address().url().port());
+        sb.append(", proxy=");
+        sb.append(this.route.proxy());
+        sb.append(" hostAddress=");
+        sb.append(this.route.socketAddress());
+        sb.append(" cipherSuite=");
+        Handshake handshake = this.handshake;
+        sb.append(handshake != null ? handshake.cipherSuite() : "none");
+        sb.append(" protocol=");
+        sb.append(this.protocol);
+        sb.append('}');
+        return sb.toString();
     }
 }

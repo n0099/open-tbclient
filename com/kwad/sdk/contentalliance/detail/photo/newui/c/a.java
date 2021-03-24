@@ -7,38 +7,43 @@ import com.kwad.sdk.core.b.e;
 import com.kwad.sdk.utils.ah;
 import com.kwad.sdk.utils.i;
 import com.kwad.sdk.utils.p;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class a extends com.kwad.sdk.contentalliance.detail.b {
-    private View b;
-    private int c;
-    private com.kwad.sdk.contentalliance.a.a d = new com.kwad.sdk.contentalliance.a.b() { // from class: com.kwad.sdk.contentalliance.detail.photo.newui.c.a.1
+
+    /* renamed from: b  reason: collision with root package name */
+    public View f32417b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public int f32418c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public com.kwad.sdk.contentalliance.a.a f32419d = new com.kwad.sdk.contentalliance.a.b() { // from class: com.kwad.sdk.contentalliance.detail.photo.newui.c.a.1
         @Override // com.kwad.sdk.contentalliance.a.b, com.kwad.sdk.contentalliance.a.a
         public void k() {
             super.k();
-            a.this.c = 0;
+            a.this.f32418c = 0;
         }
     };
 
-    static /* synthetic */ int a(a aVar) {
-        int i = aVar.c;
-        aVar.c = i + 1;
+    public static /* synthetic */ int a(a aVar) {
+        int i = aVar.f32418c;
+        aVar.f32418c = i + 1;
         return i;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.contentalliance.detail.b, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        this.f5594a.b.add(this.d);
-        this.b.setOnTouchListener(new View.OnTouchListener() { // from class: com.kwad.sdk.contentalliance.detail.photo.newui.c.a.2
+        ((com.kwad.sdk.contentalliance.detail.b) this).f32132a.f32152b.add(this.f32419d);
+        this.f32417b.setOnTouchListener(new View.OnTouchListener() { // from class: com.kwad.sdk.contentalliance.detail.photo.newui.c.a.2
             @Override // android.view.View.OnTouchListener
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 if (motionEvent.getAction() == 0) {
                     a.a(a.this);
-                    if (a.this.c > 10) {
+                    if (a.this.f32418c > 10) {
                         i.a(a.this.o(), "ksad_debug_deviceId_and_gid", "did:" + ah.m() + "——————egid:" + e.a());
                         p.a(a.this.o(), "hello");
-                        a.this.c = 0;
+                        a.this.f32418c = 0;
                     }
                 }
                 return false;
@@ -46,18 +51,17 @@ public class a extends com.kwad.sdk.contentalliance.detail.b {
         });
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.mvp.Presenter
     public void b_() {
         super.b_();
-        this.f5594a.b.remove(this.d);
+        ((com.kwad.sdk.contentalliance.detail.b) this).f32132a.f32152b.remove(this.f32419d);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.mvp.Presenter
     public void c() {
         super.c();
-        this.b = b(R.id.ksad_photo_debug_view);
-        this.b.setVisibility(0);
+        View b2 = b(R.id.ksad_photo_debug_view);
+        this.f32417b = b2;
+        b2.setVisibility(0);
     }
 }

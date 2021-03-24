@@ -11,11 +11,11 @@ import androidx.annotation.Nullable;
 import com.kwad.sdk.R;
 import com.kwad.sdk.contentalliance.detail.photo.g.a.a;
 import com.kwad.sdk.utils.ao;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class WaterMarkView2 extends a {
 
     /* renamed from: a  reason: collision with root package name */
-    private TextView f5694a;
+    public TextView f32403a;
 
     public WaterMarkView2(Context context) {
         this(context, null);
@@ -28,7 +28,7 @@ public class WaterMarkView2 extends a {
 
     private void a() {
         LayoutInflater.from(getContext()).inflate(R.layout.ksad_video_water_mark_2, (ViewGroup) this, true);
-        this.f5694a = (TextView) findViewById(R.id.ksad_video_water_mark_text);
+        this.f32403a = (TextView) findViewById(R.id.ksad_video_water_mark_text);
     }
 
     private void setDrawableBounds(@Nullable Drawable drawable) {
@@ -40,26 +40,24 @@ public class WaterMarkView2 extends a {
 
     @Override // com.kwad.sdk.contentalliance.detail.photo.g.a.a
     public void setAlignment(int i) {
-        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f5694a.getLayoutParams();
-        if (i == 1) {
-            layoutParams.gravity = 5;
-        } else {
-            layoutParams.gravity = 3;
-        }
-        this.f5694a.setLayoutParams(layoutParams);
+        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f32403a.getLayoutParams();
+        layoutParams.gravity = i == 1 ? 5 : 3;
+        this.f32403a.setLayoutParams(layoutParams);
     }
 
     @Override // com.kwad.sdk.contentalliance.detail.photo.g.a.a
     public void setAuthorId(long j) {
-        if (j == 0) {
-            this.f5694a.setVisibility(4);
+        int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
+        TextView textView = this.f32403a;
+        if (i == 0) {
+            textView.setVisibility(4);
         } else {
-            this.f5694a.setVisibility(0);
+            textView.setVisibility(0);
         }
-        this.f5694a.setText(String.format("＠%d", Long.valueOf(j)));
+        this.f32403a.setText(String.format("＠%d", Long.valueOf(j)));
         Drawable drawable = getContext().getResources().getDrawable(R.drawable.ksad_water_logo);
         setDrawableBounds(drawable);
-        this.f5694a.setCompoundDrawablePadding(ao.a(getContext(), 2.0f));
-        this.f5694a.setCompoundDrawables(drawable, null, null, null);
+        this.f32403a.setCompoundDrawablePadding(ao.a(getContext(), 2.0f));
+        this.f32403a.setCompoundDrawables(drawable, null, null, null);
     }
 }

@@ -4,153 +4,170 @@ import android.graphics.Rect;
 import android.util.JsonReader;
 import androidx.collection.LongSparseArray;
 import androidx.collection.SparseArrayCompat;
-import com.baidu.android.imsdk.db.TableDefine;
+import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.ksad.lottie.model.layer.Layer;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class t {
     public static com.ksad.lottie.d a(JsonReader jsonReader) {
+        SparseArrayCompat<com.ksad.lottie.model.d> sparseArrayCompat;
+        HashMap hashMap;
         float a2 = com.ksad.lottie.d.f.a();
-        float f = 0.0f;
-        float f2 = 0.0f;
-        float f3 = 0.0f;
         LongSparseArray<Layer> longSparseArray = new LongSparseArray<>();
         ArrayList arrayList = new ArrayList();
-        int i = 0;
-        int i2 = 0;
-        HashMap hashMap = new HashMap();
         HashMap hashMap2 = new HashMap();
         HashMap hashMap3 = new HashMap();
-        SparseArrayCompat<com.ksad.lottie.model.d> sparseArrayCompat = new SparseArrayCompat<>();
+        HashMap hashMap4 = new HashMap();
+        SparseArrayCompat<com.ksad.lottie.model.d> sparseArrayCompat2 = new SparseArrayCompat<>();
         com.ksad.lottie.d dVar = new com.ksad.lottie.d();
         jsonReader.beginObject();
-        while (true) {
-            int i3 = i2;
-            int i4 = i;
-            float f4 = f3;
-            float f5 = f2;
-            float f6 = f;
-            if (!jsonReader.hasNext()) {
-                jsonReader.endObject();
-                dVar.a(new Rect(0, 0, (int) (i4 * a2), (int) (i3 * a2)), f6, f5, f4, arrayList, longSparseArray, hashMap, hashMap2, sparseArrayCompat, hashMap3);
-                return dVar;
-            }
+        int i = 0;
+        float f2 = 0.0f;
+        float f3 = 0.0f;
+        float f4 = 0.0f;
+        int i2 = 0;
+        while (jsonReader.hasNext()) {
             String nextName = jsonReader.nextName();
-            char c = 65535;
+            char c2 = 65535;
             switch (nextName.hashCode()) {
                 case -1408207997:
                     if (nextName.equals("assets")) {
-                        c = 7;
+                        c2 = 7;
                         break;
                     }
                     break;
                 case -1109732030:
                     if (nextName.equals("layers")) {
-                        c = 6;
+                        c2 = 6;
                         break;
                     }
                     break;
                 case 104:
                     if (nextName.equals("h")) {
-                        c = 1;
+                        c2 = 1;
                         break;
                     }
                     break;
                 case 118:
                     if (nextName.equals("v")) {
-                        c = 5;
+                        c2 = 5;
                         break;
                     }
                     break;
                 case 119:
                     if (nextName.equals("w")) {
-                        c = 0;
+                        c2 = 0;
                         break;
                     }
                     break;
                 case 3276:
                     if (nextName.equals("fr")) {
-                        c = 4;
+                        c2 = 4;
                         break;
                     }
                     break;
                 case 3367:
-                    if (nextName.equals(TableDefine.UserInfoColumns.COLUMN_IP)) {
-                        c = 2;
+                    if (nextName.equals("ip")) {
+                        c2 = 2;
                         break;
                     }
                     break;
                 case 3553:
                     if (nextName.equals("op")) {
-                        c = 3;
+                        c2 = 3;
                         break;
                     }
                     break;
                 case 94623709:
                     if (nextName.equals("chars")) {
-                        c = '\t';
+                        c2 = '\t';
                         break;
                     }
                     break;
                 case 97615364:
                     if (nextName.equals("fonts")) {
-                        c = '\b';
+                        c2 = '\b';
                         break;
                     }
                     break;
             }
-            switch (c) {
+            switch (c2) {
                 case 0:
-                    i4 = jsonReader.nextInt();
-                    break;
+                    sparseArrayCompat = sparseArrayCompat2;
+                    hashMap = hashMap4;
+                    i = jsonReader.nextInt();
+                    continue;
+                    hashMap4 = hashMap;
+                    sparseArrayCompat2 = sparseArrayCompat;
                 case 1:
-                    i3 = jsonReader.nextInt();
-                    break;
+                    sparseArrayCompat = sparseArrayCompat2;
+                    hashMap = hashMap4;
+                    i2 = jsonReader.nextInt();
+                    continue;
+                    hashMap4 = hashMap;
+                    sparseArrayCompat2 = sparseArrayCompat;
                 case 2:
-                    f6 = (float) jsonReader.nextDouble();
-                    break;
+                    sparseArrayCompat = sparseArrayCompat2;
+                    hashMap = hashMap4;
+                    f2 = (float) jsonReader.nextDouble();
+                    continue;
+                    hashMap4 = hashMap;
+                    sparseArrayCompat2 = sparseArrayCompat;
                 case 3:
-                    f5 = ((float) jsonReader.nextDouble()) - 0.01f;
-                    break;
+                    sparseArrayCompat = sparseArrayCompat2;
+                    hashMap = hashMap4;
+                    f3 = ((float) jsonReader.nextDouble()) - 0.01f;
+                    continue;
+                    hashMap4 = hashMap;
+                    sparseArrayCompat2 = sparseArrayCompat;
                 case 4:
+                    sparseArrayCompat = sparseArrayCompat2;
+                    hashMap = hashMap4;
                     f4 = (float) jsonReader.nextDouble();
-                    break;
+                    continue;
+                    hashMap4 = hashMap;
+                    sparseArrayCompat2 = sparseArrayCompat;
                 case 5:
-                    String[] split = jsonReader.nextString().split("\\.");
+                    String[] split = jsonReader.nextString().split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
                     if (!com.ksad.lottie.d.f.a(Integer.parseInt(split[0]), Integer.parseInt(split[1]), Integer.parseInt(split[2]), 4, 4, 0)) {
                         dVar.a("Lottie only supports bodymovin >= 4.4.0");
                         break;
-                    } else {
-                        break;
                     }
+                    break;
                 case 6:
                     a(jsonReader, dVar, arrayList, longSparseArray);
                     break;
                 case 7:
-                    a(jsonReader, dVar, hashMap, hashMap2);
+                    a(jsonReader, dVar, hashMap2, hashMap3);
                     break;
                 case '\b':
-                    a(jsonReader, hashMap3);
+                    a(jsonReader, hashMap4);
                     break;
                 case '\t':
-                    a(jsonReader, dVar, sparseArrayCompat);
+                    a(jsonReader, dVar, sparseArrayCompat2);
                     break;
                 default:
+                    sparseArrayCompat = sparseArrayCompat2;
+                    hashMap = hashMap4;
                     jsonReader.skipValue();
-                    break;
+                    continue;
+                    hashMap4 = hashMap;
+                    sparseArrayCompat2 = sparseArrayCompat;
             }
-            i2 = i3;
-            i = i4;
-            f3 = f4;
-            f2 = f5;
-            f = f6;
+            sparseArrayCompat = sparseArrayCompat2;
+            hashMap = hashMap4;
+            hashMap4 = hashMap;
+            sparseArrayCompat2 = sparseArrayCompat;
         }
+        jsonReader.endObject();
+        dVar.a(new Rect(0, 0, (int) (i * a2), (int) (i2 * a2)), f2, f3, f4, arrayList, longSparseArray, hashMap2, hashMap3, sparseArrayCompat2, hashMap4);
+        return dVar;
     }
 
-    private static void a(JsonReader jsonReader, com.ksad.lottie.d dVar, SparseArrayCompat<com.ksad.lottie.model.d> sparseArrayCompat) {
+    public static void a(JsonReader jsonReader, com.ksad.lottie.d dVar, SparseArrayCompat<com.ksad.lottie.model.d> sparseArrayCompat) {
         jsonReader.beginArray();
         while (jsonReader.hasNext()) {
             com.ksad.lottie.model.d a2 = j.a(jsonReader, dVar);
@@ -159,9 +176,9 @@ public class t {
         jsonReader.endArray();
     }
 
-    private static void a(JsonReader jsonReader, com.ksad.lottie.d dVar, List<Layer> list, LongSparseArray<Layer> longSparseArray) {
-        int i = 0;
+    public static void a(JsonReader jsonReader, com.ksad.lottie.d dVar, List<Layer> list, LongSparseArray<Layer> longSparseArray) {
         jsonReader.beginArray();
+        int i = 0;
         while (jsonReader.hasNext()) {
             Layer a2 = s.a(jsonReader, dVar);
             if (a2.k() == Layer.LayerType.Image) {
@@ -176,7 +193,7 @@ public class t {
         jsonReader.endArray();
     }
 
-    private static void a(JsonReader jsonReader, com.ksad.lottie.d dVar, Map<String, List<Layer>> map, Map<String, com.ksad.lottie.g> map2) {
+    public static void a(JsonReader jsonReader, com.ksad.lottie.d dVar, Map<String, List<Layer>> map, Map<String, com.ksad.lottie.g> map2) {
         jsonReader.beginArray();
         while (jsonReader.hasNext()) {
             ArrayList arrayList = new ArrayList();
@@ -184,116 +201,86 @@ public class t {
             jsonReader.beginObject();
             String str = null;
             String str2 = null;
+            String str3 = null;
             int i = 0;
             int i2 = 0;
-            String str3 = null;
             while (jsonReader.hasNext()) {
                 String nextName = jsonReader.nextName();
-                char c = 65535;
-                switch (nextName.hashCode()) {
-                    case -1109732030:
-                        if (nextName.equals("layers")) {
-                            c = 1;
-                            break;
+                char c2 = 65535;
+                int hashCode = nextName.hashCode();
+                if (hashCode != -1109732030) {
+                    if (hashCode != 104) {
+                        if (hashCode != 112) {
+                            if (hashCode != 117) {
+                                if (hashCode != 119) {
+                                    if (hashCode == 3355 && nextName.equals("id")) {
+                                        c2 = 0;
+                                    }
+                                } else if (nextName.equals("w")) {
+                                    c2 = 2;
+                                }
+                            } else if (nextName.equals("u")) {
+                                c2 = 5;
+                            }
+                        } else if (nextName.equals("p")) {
+                            c2 = 4;
                         }
-                        break;
-                    case 104:
-                        if (nextName.equals("h")) {
-                            c = 3;
-                            break;
-                        }
-                        break;
-                    case 112:
-                        if (nextName.equals("p")) {
-                            c = 4;
-                            break;
-                        }
-                        break;
-                    case 117:
-                        if (nextName.equals("u")) {
-                            c = 5;
-                            break;
-                        }
-                        break;
-                    case 119:
-                        if (nextName.equals("w")) {
-                            c = 2;
-                            break;
-                        }
-                        break;
-                    case 3355:
-                        if (nextName.equals("id")) {
-                            c = 0;
-                            break;
-                        }
-                        break;
+                    } else if (nextName.equals("h")) {
+                        c2 = 3;
+                    }
+                } else if (nextName.equals("layers")) {
+                    c2 = 1;
                 }
-                switch (c) {
-                    case 0:
-                        str3 = jsonReader.nextString();
-                        break;
-                    case 1:
-                        jsonReader.beginArray();
-                        while (jsonReader.hasNext()) {
-                            Layer a2 = s.a(jsonReader, dVar);
-                            longSparseArray.put(a2.e(), a2);
-                            arrayList.add(a2);
-                        }
-                        jsonReader.endArray();
-                        break;
-                    case 2:
-                        i2 = jsonReader.nextInt();
-                        break;
-                    case 3:
-                        i = jsonReader.nextInt();
-                        break;
-                    case 4:
-                        str2 = jsonReader.nextString();
-                        break;
-                    case 5:
-                        str = jsonReader.nextString();
-                        break;
-                    default:
-                        jsonReader.skipValue();
-                        break;
+                if (c2 == 0) {
+                    str = jsonReader.nextString();
+                } else if (c2 == 1) {
+                    jsonReader.beginArray();
+                    while (jsonReader.hasNext()) {
+                        Layer a2 = s.a(jsonReader, dVar);
+                        longSparseArray.put(a2.e(), a2);
+                        arrayList.add(a2);
+                    }
+                    jsonReader.endArray();
+                } else if (c2 == 2) {
+                    i = jsonReader.nextInt();
+                } else if (c2 == 3) {
+                    i2 = jsonReader.nextInt();
+                } else if (c2 == 4) {
+                    str2 = jsonReader.nextString();
+                } else if (c2 != 5) {
+                    jsonReader.skipValue();
+                } else {
+                    str3 = jsonReader.nextString();
                 }
             }
             jsonReader.endObject();
             if (str2 != null) {
-                com.ksad.lottie.g gVar = new com.ksad.lottie.g(i2, i, str3, str2, str);
+                com.ksad.lottie.g gVar = new com.ksad.lottie.g(i, i2, str, str2, str3);
                 map2.put(gVar.a(), gVar);
             } else {
-                map.put(str3, arrayList);
+                map.put(str, arrayList);
             }
         }
         jsonReader.endArray();
     }
 
-    private static void a(JsonReader jsonReader, Map<String, com.ksad.lottie.model.c> map) {
+    public static void a(JsonReader jsonReader, Map<String, com.ksad.lottie.model.c> map) {
         jsonReader.beginObject();
         while (jsonReader.hasNext()) {
             String nextName = jsonReader.nextName();
-            char c = 65535;
-            switch (nextName.hashCode()) {
-                case 3322014:
-                    if (nextName.equals("list")) {
-                        c = 0;
-                        break;
-                    }
-                    break;
+            char c2 = 65535;
+            if (nextName.hashCode() == 3322014 && nextName.equals("list")) {
+                c2 = 0;
             }
-            switch (c) {
-                case 0:
-                    jsonReader.beginArray();
-                    while (jsonReader.hasNext()) {
-                        com.ksad.lottie.model.c a2 = k.a(jsonReader);
-                        map.put(a2.b(), a2);
-                    }
-                    jsonReader.endArray();
-                    break;
-                default:
-                    jsonReader.skipValue();
-                    break;
+            if (c2 != 0) {
+                jsonReader.skipValue();
+            } else {
+                jsonReader.beginArray();
+                while (jsonReader.hasNext()) {
+                    com.ksad.lottie.model.c a2 = k.a(jsonReader);
+                    map.put(a2.b(), a2);
+                }
+                jsonReader.endArray();
             }
         }
         jsonReader.endObject();

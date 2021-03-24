@@ -4,32 +4,32 @@ import android.content.Context;
 import com.bytedance.sdk.openadsdk.TTAdNative;
 import com.bytedance.sdk.openadsdk.component.reward.c;
 import com.bytedance.sdk.openadsdk.component.reward.d;
-import com.bytedance.sdk.openadsdk.component.reward.g;
-/* loaded from: classes6.dex */
+import com.bytedance.sdk.openadsdk.component.reward.e;
+import com.bytedance.sdk.openadsdk.component.reward.h;
+/* loaded from: classes5.dex */
 public class TTC3Proxy {
-    private TTC3Proxy() {
+    public static void a(Context context) {
+        try {
+            h.a(context).b();
+        } catch (Throwable unused) {
+        }
+        try {
+            c.a(context).a();
+        } catch (Throwable unused2) {
+        }
+    }
+
+    public static void loadFull(Context context, AdSlot adSlot, TTAdNative.FullScreenVideoAdListener fullScreenVideoAdListener) {
+        adSlot.setDurationSlotType(8);
+        c.a(context).a(adSlot, new e(fullScreenVideoAdListener));
+    }
+
+    public static void loadReward(Context context, AdSlot adSlot, TTAdNative.RewardVideoAdListener rewardVideoAdListener) {
+        adSlot.setDurationSlotType(7);
+        h.a(context).a(adSlot, new e(rewardVideoAdListener));
     }
 
     public static void verityPlayable(String str, int i, String str2, String str3, String str4) {
         d.a(str, i, str2, str3, str4);
-    }
-
-    public static void loadReward(Context context, AdSlot adSlot, TTAdNative.RewardVideoAdListener rewardVideoAdListener) {
-        g.a(context).a(adSlot, rewardVideoAdListener);
-    }
-
-    public static void loadFull(Context context, AdSlot adSlot, TTAdNative.FullScreenVideoAdListener fullScreenVideoAdListener) {
-        c.a(context).a(adSlot, fullScreenVideoAdListener);
-    }
-
-    public static void a(Context context) {
-        try {
-            g.a(context).b();
-        } catch (Throwable th) {
-        }
-        try {
-            c.a(context).a();
-        } catch (Throwable th2) {
-        }
     }
 }

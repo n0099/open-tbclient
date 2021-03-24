@@ -1,8 +1,8 @@
 package com.baidu.android.imsdk.retrieve;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class ReportResult {
-    private String mJobId;
-    private String mValid;
+    public String mJobId;
+    public String mValid;
 
     public ReportResult(String str, String str2) {
         this.mJobId = str;
@@ -13,12 +13,12 @@ public class ReportResult {
         return this.mJobId;
     }
 
-    public void setJobId(String str) {
-        this.mJobId = str;
-    }
-
     public String getValid() {
         return this.mValid;
+    }
+
+    public void setJobId(String str) {
+        this.mJobId = str;
     }
 
     public void setValid(String str) {

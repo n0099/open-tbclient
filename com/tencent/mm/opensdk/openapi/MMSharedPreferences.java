@@ -5,7 +5,6 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.database.Cursor;
-import com.baidu.android.imsdk.IMConstants;
 import com.tencent.mm.opensdk.utils.Log;
 import com.tencent.mm.opensdk.utils.c;
 import java.util.HashMap;
@@ -13,20 +12,20 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes4.dex */
-class MMSharedPreferences implements SharedPreferences {
-    private static final String TAG = "MicroMsg.SDK.SharedPreferences";
-    private final ContentResolver cr;
-    private final String[] columns = {IMConstants.MSG_ROW_ID, "key", "type", "value"};
-    private final HashMap<String, Object> values = new HashMap<>();
-    private REditor editor = null;
+/* loaded from: classes7.dex */
+public class MMSharedPreferences implements SharedPreferences {
+    public static final String TAG = "MicroMsg.SDK.SharedPreferences";
+    public final ContentResolver cr;
+    public final String[] columns = {"_id", "key", "type", "value"};
+    public final HashMap<String, Object> values = new HashMap<>();
+    public REditor editor = null;
 
-    /* loaded from: classes4.dex */
-    private static class REditor implements SharedPreferences.Editor {
-        private ContentResolver cr;
-        private Map<String, Object> values = new HashMap();
-        private Set<String> remove = new HashSet();
-        private boolean clear = false;
+    /* loaded from: classes7.dex */
+    public static class REditor implements SharedPreferences.Editor {
+        public ContentResolver cr;
+        public Map<String, Object> values = new HashMap();
+        public Set<String> remove = new HashSet();
+        public boolean clear = false;
 
         public REditor(ContentResolver contentResolver) {
             this.cr = contentResolver;
@@ -42,8 +41,16 @@ class MMSharedPreferences implements SharedPreferences {
             return this;
         }
 
+        /* JADX WARN: Removed duplicated region for block: B:36:0x0097  */
+        /* JADX WARN: Removed duplicated region for block: B:37:0x0099  */
+        /* JADX WARN: Removed duplicated region for block: B:43:0x00ae A[SYNTHETIC] */
+        /* JADX WARN: Removed duplicated region for block: B:45:0x003f A[SYNTHETIC] */
         @Override // android.content.SharedPreferences.Editor
+        /*
+            Code decompiled incorrectly, please refer to instructions dump.
+        */
         public boolean commit() {
+            String str;
             int i;
             boolean z;
             ContentValues contentValues = new ContentValues();
@@ -58,33 +65,39 @@ class MMSharedPreferences implements SharedPreferences {
             for (Map.Entry<String, Object> entry : this.values.entrySet()) {
                 Object value = entry.getValue();
                 if (value == null) {
-                    Log.e("MicroMsg.SDK.PluginProvider.Resolver", "unresolve failed, null value");
-                    i = 0;
-                } else if (value instanceof Integer) {
-                    i = 1;
-                } else if (value instanceof Long) {
-                    i = 2;
-                } else if (value instanceof String) {
-                    i = 3;
-                } else if (value instanceof Boolean) {
-                    i = 4;
-                } else if (value instanceof Float) {
-                    i = 5;
-                } else if (value instanceof Double) {
-                    i = 6;
+                    str = "unresolve failed, null value";
                 } else {
-                    Log.e("MicroMsg.SDK.PluginProvider.Resolver", "unresolve failed, unknown type=" + value.getClass().toString());
-                    i = 0;
+                    if (value instanceof Integer) {
+                        i = 1;
+                    } else if (value instanceof Long) {
+                        i = 2;
+                    } else if (value instanceof String) {
+                        i = 3;
+                    } else if (value instanceof Boolean) {
+                        i = 4;
+                    } else if (value instanceof Float) {
+                        i = 5;
+                    } else if (value instanceof Double) {
+                        i = 6;
+                    } else {
+                        str = "unresolve failed, unknown type=" + value.getClass().toString();
+                    }
+                    if (i != 0) {
+                        z = false;
+                    } else {
+                        contentValues.put("type", Integer.valueOf(i));
+                        contentValues.put("value", value.toString());
+                        z = true;
+                    }
+                    if (!z) {
+                        this.cr.update(c.b.CONTENT_URI, contentValues, "key = ?", new String[]{entry.getKey()});
+                    }
                 }
-                if (i == 0) {
-                    z = false;
-                } else {
-                    contentValues.put("type", Integer.valueOf(i));
-                    contentValues.put("value", value.toString());
-                    z = true;
+                Log.e("MicroMsg.SDK.PluginProvider.Resolver", str);
+                i = 0;
+                if (i != 0) {
                 }
-                if (z) {
-                    this.cr.update(c.b.CONTENT_URI, contentValues, "key = ?", new String[]{entry.getKey()});
+                if (!z) {
                 }
             }
             return true;
@@ -98,8 +111,8 @@ class MMSharedPreferences implements SharedPreferences {
         }
 
         @Override // android.content.SharedPreferences.Editor
-        public SharedPreferences.Editor putFloat(String str, float f) {
-            this.values.put(str, Float.valueOf(f));
+        public SharedPreferences.Editor putFloat(String str, float f2) {
+            this.values.put(str, Float.valueOf(f2));
             this.remove.remove(str);
             return this;
         }
@@ -150,8 +163,8 @@ class MMSharedPreferences implements SharedPreferences {
             Object a2 = query.moveToFirst() ? c.a.a(query.getInt(query.getColumnIndex("type")), query.getString(query.getColumnIndex("value"))) : null;
             query.close();
             return a2;
-        } catch (Exception e) {
-            Log.e(TAG, "getValue exception:" + e.getMessage());
+        } catch (Exception e2) {
+            Log.e(TAG, "getValue exception:" + e2.getMessage());
             return null;
         }
     }
@@ -184,8 +197,8 @@ class MMSharedPreferences implements SharedPreferences {
             }
             query.close();
             return this.values;
-        } catch (Exception e) {
-            Log.e(TAG, "getAll exception:" + e.getMessage());
+        } catch (Exception e2) {
+            Log.e(TAG, "getAll exception:" + e2.getMessage());
             return this.values;
         }
     }
@@ -197,9 +210,9 @@ class MMSharedPreferences implements SharedPreferences {
     }
 
     @Override // android.content.SharedPreferences
-    public float getFloat(String str, float f) {
+    public float getFloat(String str, float f2) {
         Object value = getValue(str);
-        return (value == null || !(value instanceof Float)) ? f : ((Float) value).floatValue();
+        return (value == null || !(value instanceof Float)) ? f2 : ((Float) value).floatValue();
     }
 
     @Override // android.content.SharedPreferences

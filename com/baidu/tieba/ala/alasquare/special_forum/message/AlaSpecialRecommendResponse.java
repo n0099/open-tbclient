@@ -1,18 +1,18 @@
 package com.baidu.tieba.ala.alasquare.special_forum.message;
 
 import com.baidu.ala.AlaCmdConfigHttp;
-import com.baidu.tbadk.core.data.cb;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.ala.alasquare.special_forum.data.b;
-import com.baidu.tieba.ala.alasquare.special_forum.data.c;
+import d.b.h0.r.q.a2;
+import d.b.i0.t.d.f.c.b;
+import d.b.i0.t.d.f.c.c;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes4.dex */
 public class AlaSpecialRecommendResponse extends JsonHttpResponsedMessage {
     public boolean hasMore;
-    public List<cb> livesList;
+    public List<a2> livesList;
     public c mSpecialActivityListData;
 
     public AlaSpecialRecommendResponse() {
@@ -34,9 +34,9 @@ public class AlaSpecialRecommendResponse extends JsonHttpResponsedMessage {
                     for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
                         JSONObject optJSONObject2 = optJSONArray.optJSONObject(i2);
                         if (optJSONObject2 != null) {
-                            cb cbVar = new cb();
-                            cbVar.parserJson(optJSONObject2);
-                            this.livesList.add(cbVar);
+                            a2 a2Var = new a2();
+                            a2Var.P2(optJSONObject2);
+                            this.livesList.add(a2Var);
                         }
                     }
                 } else {
@@ -46,16 +46,17 @@ public class AlaSpecialRecommendResponse extends JsonHttpResponsedMessage {
                 this.hasMore = false;
             }
             JSONArray optJSONArray2 = jSONObject.optJSONArray("activity_info_detail");
-            if (this.mSpecialActivityListData != null && this.mSpecialActivityListData.gIE == null) {
-                this.mSpecialActivityListData.gIE = new ArrayList();
+            c cVar = this.mSpecialActivityListData;
+            if (cVar != null && cVar.f60534e == null) {
+                cVar.f60534e = new ArrayList();
             }
             if (optJSONArray2 != null) {
                 for (int i3 = 0; i3 < optJSONArray2.length(); i3++) {
                     JSONObject optJSONObject3 = optJSONArray2.optJSONObject(i3);
                     if (optJSONObject3 != null) {
                         b bVar = new b();
-                        bVar.parseJson(optJSONObject3);
-                        this.mSpecialActivityListData.gIE.add(bVar);
+                        bVar.g(optJSONObject3);
+                        this.mSpecialActivityListData.f60534e.add(bVar);
                     }
                 }
             }

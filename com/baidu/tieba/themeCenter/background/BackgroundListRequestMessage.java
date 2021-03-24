@@ -1,26 +1,26 @@
 package com.baidu.tieba.themeCenter.background;
 
 import com.baidu.adp.framework.message.NetMessage;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
-import com.baidu.tbadk.util.v;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import d.b.h0.z0.w;
 import tbclient.GetBgList.DataReq;
 import tbclient.GetBgList.GetBgListReqIdl;
-/* loaded from: classes8.dex */
+/* loaded from: classes5.dex */
 public class BackgroundListRequestMessage extends NetMessage {
-    private int pn;
-    private int rn;
+    public int pn;
+    public int rn;
 
     public BackgroundListRequestMessage() {
-        super(1003034, CmdConfigSocket.CMD_PERSONAL_BACKGROUND_LIST);
+        super(CmdConfigHttp.CMD_PERSONAL_BACKGROUND_LIST, 309021);
     }
 
     @Override // com.baidu.adp.framework.message.NetMessage
-    protected Object encode(boolean z) {
+    public Object encode(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
         builder.pn = Integer.valueOf(this.pn);
         builder.rn = Integer.valueOf(this.rn);
         if (z) {
-            v.b(builder, true);
+            w.a(builder, true);
         }
         GetBgListReqIdl.Builder builder2 = new GetBgListReqIdl.Builder();
         builder2.data = builder.build(false);

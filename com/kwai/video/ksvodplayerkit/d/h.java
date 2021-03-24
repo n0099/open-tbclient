@@ -1,25 +1,25 @@
 package com.kwai.video.ksvodplayerkit.d;
 
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public final class h {
     public static String a(g gVar) {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("fill_preload", gVar.f7290a);
-        } catch (Exception e) {
+            jSONObject.put("fill_preload", gVar.f37311a);
+        } catch (Exception unused) {
         }
         try {
-            jSONObject.put("preload_url", gVar.b);
-        } catch (Exception e2) {
+            jSONObject.put("preload_url", gVar.f37312b);
+        } catch (Exception unused2) {
         }
         try {
-            jSONObject.put("download_bytes", gVar.c);
-        } catch (Exception e3) {
+            jSONObject.put("download_bytes", gVar.f37313c);
+        } catch (Exception unused3) {
         }
         try {
-            jSONObject.put("preload_bytes", gVar.d);
-        } catch (Exception e4) {
+            jSONObject.put("preload_bytes", gVar.f37314d);
+        } catch (Exception unused4) {
         }
         return jSONObject.toString();
     }

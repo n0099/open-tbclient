@@ -2,49 +2,73 @@ package com.baidu.mapapi.synchronization;
 
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapapi.synchronization.SyncCoordinateConverter;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public final class RoleOptions {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f2151a = RoleOptions.class.getSimpleName();
-    private String b;
-    private int c;
-    private String d;
-    private String e;
-    private SyncCoordinateConverter.CoordType f;
-    private LatLng g = null;
-    private String h = null;
-    private String i = null;
-    private LatLng j = null;
-    private String k = null;
-    private String l = null;
-    private LatLng m = null;
-    private String n = null;
-    private String o = null;
+    public static final String f7348a = "RoleOptions";
+
+    /* renamed from: b  reason: collision with root package name */
+    public String f7349b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public int f7350c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public String f7351d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public String f7352e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public SyncCoordinateConverter.CoordType f7353f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public LatLng f7354g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public String f7355h;
+    public String i;
+    public LatLng j;
+    public String k;
+    public String l;
+    public LatLng m;
+    public String n;
+    public String o;
 
     public RoleOptions() {
-        this.b = null;
-        this.c = 0;
-        this.d = null;
-        this.e = null;
-        this.f = SyncCoordinateConverter.CoordType.BD09LL;
-        this.b = null;
-        this.c = 0;
-        this.d = null;
-        this.e = null;
-        this.f = SyncCoordinateConverter.CoordType.BD09LL;
+        this.f7349b = null;
+        this.f7350c = 0;
+        this.f7351d = null;
+        this.f7352e = null;
+        SyncCoordinateConverter.CoordType coordType = SyncCoordinateConverter.CoordType.BD09LL;
+        this.f7353f = coordType;
+        this.f7349b = null;
+        this.f7350c = 0;
+        this.f7351d = null;
+        this.f7352e = null;
+        this.f7354g = null;
+        this.f7355h = null;
+        this.i = null;
+        this.j = null;
+        this.k = null;
+        this.l = null;
+        this.m = null;
+        this.n = null;
+        this.o = null;
+        this.f7353f = coordType;
     }
 
     private LatLng a(LatLng latLng) {
-        return new SyncCoordinateConverter().from(this.f).coord(latLng).convert();
+        return new SyncCoordinateConverter().from(this.f7353f).coord(latLng).convert();
     }
 
     public SyncCoordinateConverter.CoordType getCoordType() {
-        return this.f;
+        return this.f7353f;
     }
 
     public String getDriverId() {
-        return this.d;
+        return this.f7351d;
     }
 
     public LatLng getDriverPosition() {
@@ -72,15 +96,15 @@ public final class RoleOptions {
     }
 
     public String getOrderId() {
-        return this.b;
+        return this.f7349b;
     }
 
     public int getRoleType() {
-        return this.c;
+        return this.f7350c;
     }
 
     public LatLng getStartPosition() {
-        return this.g;
+        return this.f7354g;
     }
 
     public String getStartPositionName() {
@@ -88,16 +112,16 @@ public final class RoleOptions {
     }
 
     public String getStartPositionPoiUid() {
-        return this.h;
+        return this.f7355h;
     }
 
     public String getUserId() {
-        return this.e;
+        return this.f7352e;
     }
 
     public RoleOptions setCoordType(SyncCoordinateConverter.CoordType coordType) {
         if (SyncCoordinateConverter.CoordType.BD09LL == coordType || SyncCoordinateConverter.CoordType.COMMON == coordType) {
-            this.f = coordType;
+            this.f7353f = coordType;
             return this;
         }
         throw new IllegalArgumentException("CoordType only can be BD09LL or COMMON, please check!");
@@ -107,19 +131,19 @@ public final class RoleOptions {
         if (str == null || str.isEmpty()) {
             throw new IllegalArgumentException("driverId is null");
         }
-        this.d = str;
+        this.f7351d = str;
         return this;
     }
 
     public RoleOptions setDriverPosition(LatLng latLng) {
         if (latLng == null) {
             this.m = null;
-        } else {
-            if (SyncCoordinateConverter.CoordType.COMMON == this.f) {
-                latLng = a(latLng);
-            }
-            this.m = latLng;
+            return this;
         }
+        if (SyncCoordinateConverter.CoordType.COMMON == this.f7353f) {
+            latLng = a(latLng);
+        }
+        this.m = latLng;
         return this;
     }
 
@@ -134,14 +158,14 @@ public final class RoleOptions {
     }
 
     public RoleOptions setEndPosition(LatLng latLng) {
-        if (latLng == null) {
-            throw new IllegalArgumentException("endPosition is null, must be applied!");
+        if (latLng != null) {
+            if (SyncCoordinateConverter.CoordType.COMMON == this.f7353f) {
+                latLng = a(latLng);
+            }
+            this.j = latLng;
+            return this;
         }
-        if (SyncCoordinateConverter.CoordType.COMMON == this.f) {
-            latLng = a(latLng);
-        }
-        this.j = latLng;
-        return this;
+        throw new IllegalArgumentException("endPosition is null, must be applied!");
     }
 
     public RoleOptions setEndPositionName(String str) {
@@ -158,27 +182,27 @@ public final class RoleOptions {
         if (str == null || str.isEmpty()) {
             throw new IllegalArgumentException("orderId is null.");
         }
-        this.b = str;
+        this.f7349b = str;
         return this;
     }
 
     public RoleOptions setRoleType(int i) {
-        if (i != 0) {
-            throw new IllegalArgumentException("role type is invalid: " + i);
+        if (i == 0) {
+            this.f7350c = i;
+            return this;
         }
-        this.c = i;
-        return this;
+        throw new IllegalArgumentException("role type is invalid: " + i);
     }
 
     public RoleOptions setStartPosition(LatLng latLng) {
-        if (latLng == null) {
-            throw new IllegalArgumentException("StartPosition is null, must be applied!");
+        if (latLng != null) {
+            if (SyncCoordinateConverter.CoordType.COMMON == this.f7353f) {
+                latLng = a(latLng);
+            }
+            this.f7354g = latLng;
+            return this;
         }
-        if (SyncCoordinateConverter.CoordType.COMMON == this.f) {
-            latLng = a(latLng);
-        }
-        this.g = latLng;
-        return this;
+        throw new IllegalArgumentException("StartPosition is null, must be applied!");
     }
 
     public RoleOptions setStartPositionName(String str) {
@@ -187,7 +211,7 @@ public final class RoleOptions {
     }
 
     public RoleOptions setStartPositionPoiUid(String str) {
-        this.h = str;
+        this.f7355h = str;
         return this;
     }
 
@@ -195,7 +219,7 @@ public final class RoleOptions {
         if (str == null || str.isEmpty()) {
             throw new IllegalArgumentException("user id is null");
         }
-        this.e = str;
+        this.f7352e = str;
         return this;
     }
 }

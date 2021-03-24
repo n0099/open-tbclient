@@ -12,35 +12,23 @@ import java.lang.reflect.Proxy;
 import java.util.Arrays;
 import java.util.LinkedHashMap;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public final class ReflectUtils {
 
     /* renamed from: a  reason: collision with root package name */
-    private final Object f1562a;
-    private final boolean b = true;
+    public final Object f5390a;
 
-    private ReflectUtils(Class<?> cls) {
-        this.f1562a = cls;
+    /* renamed from: b  reason: collision with root package name */
+    public final boolean f5391b = true;
+
+    /* loaded from: classes2.dex */
+    public class NULL {
+        public NULL() {
+        }
     }
 
-    private ReflectUtils(Object obj) {
-        this.f1562a = obj;
-    }
-
-    public static ReflectUtils on(String str) throws RuntimeException {
-        return on(c(str));
-    }
-
-    public static ReflectUtils on(String str, ClassLoader classLoader) throws RuntimeException {
-        return on(a(str, classLoader));
-    }
-
-    public static ReflectUtils on(Class<?> cls) {
-        return new ReflectUtils(cls);
-    }
-
-    public static ReflectUtils on(Object obj) {
-        return new ReflectUtils(obj);
+    public ReflectUtils(Class<?> cls) {
+        this.f5390a = cls;
     }
 
     public static <T extends AccessibleObject> T accessible(T t) {
@@ -55,12 +43,10 @@ public final class ReflectUtils {
         }
         if (!t.isAccessible()) {
             t.setAccessible(true);
-            return t;
         }
         return t;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     @SuppressLint({"DefaultLocale"})
     public static String b(String str) {
         int length = str.length();
@@ -73,60 +59,35 @@ public final class ReflectUtils {
         return str.substring(0, 1).toLowerCase() + str.substring(1);
     }
 
-    private static ReflectUtils a(Constructor<?> constructor, Object... objArr) throws RuntimeException {
-        try {
-            return on(((Constructor) accessible(constructor)).newInstance(objArr));
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    private static ReflectUtils a(Method method, Object obj, Object... objArr) throws RuntimeException {
-        try {
-            accessible(method);
-            if (method.getReturnType() == Void.TYPE) {
-                method.invoke(obj, objArr);
-                return on(obj);
-            }
-            return on(method.invoke(obj, objArr));
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    private static Object a(Object obj) {
-        if (obj instanceof ReflectUtils) {
-            return ((ReflectUtils) obj).get();
-        }
-        return obj;
-    }
-
-    private static Class<?>[] a(Object... objArr) {
-        if (objArr == null) {
-            return new Class[0];
-        }
-        Class<?>[] clsArr = new Class[objArr.length];
-        for (int i = 0; i < objArr.length; i++) {
-            Object obj = objArr[i];
-            clsArr[i] = obj == null ? NULL.class : obj.getClass();
-        }
-        return clsArr;
-    }
-
-    private static Class<?> c(String str) throws RuntimeException {
+    public static Class<?> c(String str) throws RuntimeException {
         try {
             return Class.forName(str);
-        } catch (Exception e) {
-            throw new RuntimeException(e);
+        } catch (Exception e2) {
+            throw new RuntimeException(e2);
         }
     }
 
-    private static Class<?> a(String str, ClassLoader classLoader) throws RuntimeException {
+    private Field d(String str) throws RuntimeException {
+        Class<?> type = type();
         try {
-            return Class.forName(str, true, classLoader);
-        } catch (Exception e) {
-            throw new RuntimeException(e);
+            return type.getField(str);
+        } catch (NoSuchFieldException e2) {
+            do {
+                try {
+                    return (Field) accessible(type.getDeclaredField(str));
+                } catch (NoSuchFieldException unused) {
+                    type = type.getSuperclass();
+                    if (type == null) {
+                        throw new RuntimeException(e2);
+                    }
+                }
+            } while (type == null);
+            throw new RuntimeException(e2);
         }
+    }
+
+    public static ReflectUtils on(String str) throws RuntimeException {
+        return on(c(str));
     }
 
     public static Class<?> wrapper(Class<?> cls) {
@@ -158,58 +119,60 @@ public final class ReflectUtils {
             if (Character.TYPE == cls) {
                 return Character.class;
             }
-            if (Void.TYPE == cls) {
-                return Void.class;
-            }
-            return cls;
+            return Void.TYPE == cls ? Void.class : cls;
         }
         return cls;
     }
 
-    public <T> T get() {
-        return (T) this.f1562a;
+    public <P> P as(Class<P> cls) {
+        final boolean z = this.f5390a instanceof Map;
+        return (P) Proxy.newProxyInstance(cls.getClassLoader(), new Class[]{cls}, new InvocationHandler() { // from class: com.baidu.fsg.base.utils.ReflectUtils.1
+            @Override // java.lang.reflect.InvocationHandler
+            public Object invoke(Object obj, Method method, Object[] objArr) throws Throwable {
+                String name = method.getName();
+                try {
+                    return ReflectUtils.on(ReflectUtils.this.f5390a).call(name, objArr).get();
+                } catch (RuntimeException e2) {
+                    if (z) {
+                        Map map = (Map) ReflectUtils.this.f5390a;
+                        int length = objArr == null ? 0 : objArr.length;
+                        if (length == 0 && name.startsWith("get")) {
+                            return map.get(ReflectUtils.b(name.substring(3)));
+                        }
+                        if (length == 0 && name.startsWith("is")) {
+                            return map.get(ReflectUtils.b(name.substring(2)));
+                        }
+                        if (length == 1 && name.startsWith("set")) {
+                            map.put(ReflectUtils.b(name.substring(3)), objArr[0]);
+                            return null;
+                        }
+                    }
+                    throw e2;
+                }
+            }
+        });
     }
 
-    public ReflectUtils set(String str, Object obj) throws RuntimeException {
-        try {
-            Field d = d(str);
-            d.setAccessible(true);
-            d.set(this.f1562a, a(obj));
-            return this;
-        } catch (Exception e) {
-            throw new RuntimeException(e);
+    public ReflectUtils call(String str) throws RuntimeException {
+        return call(str, new Object[0]);
+    }
+
+    public ReflectUtils create() throws RuntimeException {
+        return create(new Object[0]);
+    }
+
+    public boolean equals(Object obj) {
+        if (obj instanceof ReflectUtils) {
+            return this.f5390a.equals(((ReflectUtils) obj).get());
         }
-    }
-
-    public <T> T get(String str) throws RuntimeException {
-        return (T) field(str).get();
+        return false;
     }
 
     public ReflectUtils field(String str) throws RuntimeException {
         try {
-            return on(d(str).get(this.f1562a));
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    private Field d(String str) throws RuntimeException {
-        Class<?> cls;
-        Class<?> type = type();
-        try {
-            return type.getField(str);
-        } catch (NoSuchFieldException e) {
-            while (true) {
-                try {
-                    cls = type;
-                    return (Field) accessible(cls.getDeclaredField(str));
-                } catch (NoSuchFieldException e2) {
-                    type = cls.getSuperclass();
-                    if (type == null) {
-                        throw new RuntimeException(e);
-                    }
-                }
-            }
+            return on(d(str).get(this.f5390a));
+        } catch (Exception e2) {
+            throw new RuntimeException(e2);
         }
     }
 
@@ -219,7 +182,7 @@ public final class ReflectUtils {
         Class<?> type = type();
         do {
             for (Field field : type.getDeclaredFields()) {
-                if ((!this.b) ^ Modifier.isStatic(field.getModifiers())) {
+                if ((!this.f5391b) ^ Modifier.isStatic(field.getModifiers())) {
                     String name = field.getName();
                     if (!linkedHashMap.containsKey(name)) {
                         linkedHashMap.put(name, field(name));
@@ -231,40 +194,86 @@ public final class ReflectUtils {
         return linkedHashMap;
     }
 
-    public ReflectUtils call(String str) throws RuntimeException {
-        return call(str, new Object[0]);
+    public <T> T get() {
+        return (T) this.f5390a;
+    }
+
+    public int hashCode() {
+        return this.f5390a.hashCode();
+    }
+
+    public ReflectUtils set(String str, Object obj) throws RuntimeException {
+        try {
+            Field d2 = d(str);
+            d2.setAccessible(true);
+            d2.set(this.f5390a, a(obj));
+            return this;
+        } catch (Exception e2) {
+            throw new RuntimeException(e2);
+        }
+    }
+
+    public String toString() {
+        return this.f5390a.toString();
+    }
+
+    public Class<?> type() {
+        if (this.f5391b) {
+            return (Class) this.f5390a;
+        }
+        return this.f5390a.getClass();
+    }
+
+    public static ReflectUtils on(String str, ClassLoader classLoader) throws RuntimeException {
+        return on(a(str, classLoader));
     }
 
     public ReflectUtils call(String str, Object... objArr) throws RuntimeException {
         Class<?>[] a2 = a(objArr);
         try {
-            return a(a(str, a2), this.f1562a, objArr);
-        } catch (NoSuchMethodException e) {
             try {
-                return a(b(str, a2), this.f1562a, objArr);
+                return a(a(str, a2), this.f5390a, objArr);
             } catch (NoSuchMethodException e2) {
                 throw new RuntimeException(e2);
             }
+        } catch (NoSuchMethodException unused) {
+            return a(b(str, a2), this.f5390a, objArr);
         }
     }
 
-    private Method a(String str, Class<?>[] clsArr) throws NoSuchMethodException {
-        Class<?> type = type();
+    public ReflectUtils create(Object... objArr) throws RuntimeException {
+        Constructor<?>[] declaredConstructors;
+        Class<?>[] a2 = a(objArr);
         try {
-            return type.getMethod(str, clsArr);
-        } catch (NoSuchMethodException e) {
-            do {
-                try {
-                    return type.getDeclaredMethod(str, clsArr);
-                } catch (NoSuchMethodException e2) {
-                    type = type.getSuperclass();
-                    if (type == null) {
-                        throw new NoSuchMethodException();
-                    }
+            return a(type().getDeclaredConstructor(a2), objArr);
+        } catch (NoSuchMethodException e2) {
+            for (Constructor<?> constructor : type().getDeclaredConstructors()) {
+                if (a(constructor.getParameterTypes(), a2)) {
+                    return a(constructor, objArr);
                 }
-            } while (type == null);
-            throw new NoSuchMethodException();
+            }
+            throw new RuntimeException(e2);
         }
+    }
+
+    public <T> T get(String str) throws RuntimeException {
+        return (T) field(str).get();
+    }
+
+    public static ReflectUtils a(Constructor<?> constructor, Object... objArr) throws RuntimeException {
+        try {
+            return on(((Constructor) accessible(constructor)).newInstance(objArr));
+        } catch (Exception e2) {
+            throw new RuntimeException(e2);
+        }
+    }
+
+    public static ReflectUtils on(Class<?> cls) {
+        return new ReflectUtils(cls);
+    }
+
+    public ReflectUtils(Object obj) {
+        this.f5390a = obj;
     }
 
     private Method b(String str, Class<?>[] clsArr) throws NoSuchMethodException {
@@ -287,56 +296,68 @@ public final class ReflectUtils {
         throw new NoSuchMethodException("No similar method " + str + " with params " + Arrays.toString(clsArr) + " could be found on type " + type() + ".");
     }
 
-    private boolean a(Method method, String str, Class<?>[] clsArr) {
-        return method.getName().equals(str) && a(method.getParameterTypes(), clsArr);
+    public static ReflectUtils on(Object obj) {
+        return new ReflectUtils(obj);
     }
 
-    public ReflectUtils create() throws RuntimeException {
-        return create(new Object[0]);
-    }
-
-    public ReflectUtils create(Object... objArr) throws RuntimeException {
-        Constructor<?>[] declaredConstructors;
-        Class<?>[] a2 = a(objArr);
+    public static ReflectUtils a(Method method, Object obj, Object... objArr) throws RuntimeException {
         try {
-            return a(type().getDeclaredConstructor(a2), objArr);
-        } catch (NoSuchMethodException e) {
-            for (Constructor<?> constructor : type().getDeclaredConstructors()) {
-                if (a(constructor.getParameterTypes(), a2)) {
-                    return a(constructor, objArr);
-                }
+            accessible(method);
+            if (method.getReturnType() == Void.TYPE) {
+                method.invoke(obj, objArr);
+                return on(obj);
             }
-            throw new RuntimeException(e);
+            return on(method.invoke(obj, objArr));
+        } catch (Exception e2) {
+            throw new RuntimeException(e2);
         }
     }
 
-    public <P> P as(Class<P> cls) {
-        final boolean z = this.f1562a instanceof Map;
-        return (P) Proxy.newProxyInstance(cls.getClassLoader(), new Class[]{cls}, new InvocationHandler() { // from class: com.baidu.fsg.base.utils.ReflectUtils.1
-            @Override // java.lang.reflect.InvocationHandler
-            public Object invoke(Object obj, Method method, Object[] objArr) throws Throwable {
-                String name = method.getName();
+    public static Object a(Object obj) {
+        return obj instanceof ReflectUtils ? ((ReflectUtils) obj).get() : obj;
+    }
+
+    public static Class<?>[] a(Object... objArr) {
+        if (objArr == null) {
+            return new Class[0];
+        }
+        Class<?>[] clsArr = new Class[objArr.length];
+        for (int i = 0; i < objArr.length; i++) {
+            Object obj = objArr[i];
+            clsArr[i] = obj == null ? NULL.class : obj.getClass();
+        }
+        return clsArr;
+    }
+
+    public static Class<?> a(String str, ClassLoader classLoader) throws RuntimeException {
+        try {
+            return Class.forName(str, true, classLoader);
+        } catch (Exception e2) {
+            throw new RuntimeException(e2);
+        }
+    }
+
+    private Method a(String str, Class<?>[] clsArr) throws NoSuchMethodException {
+        Class<?> type = type();
+        try {
+            return type.getMethod(str, clsArr);
+        } catch (NoSuchMethodException unused) {
+            do {
                 try {
-                    return ReflectUtils.on(ReflectUtils.this.f1562a).call(name, objArr).get();
-                } catch (RuntimeException e) {
-                    if (z) {
-                        Map map = (Map) ReflectUtils.this.f1562a;
-                        int length = objArr == null ? 0 : objArr.length;
-                        if (length == 0 && name.startsWith("get")) {
-                            return map.get(ReflectUtils.b(name.substring(3)));
-                        }
-                        if (length == 0 && name.startsWith("is")) {
-                            return map.get(ReflectUtils.b(name.substring(2)));
-                        }
-                        if (length == 1 && name.startsWith("set")) {
-                            map.put(ReflectUtils.b(name.substring(3)), objArr[0]);
-                            return null;
-                        }
+                    return type.getDeclaredMethod(str, clsArr);
+                } catch (NoSuchMethodException unused2) {
+                    type = type.getSuperclass();
+                    if (type == null) {
+                        throw new NoSuchMethodException();
                     }
-                    throw e;
                 }
-            }
-        });
+            } while (type == null);
+            throw new NoSuchMethodException();
+        }
+    }
+
+    private boolean a(Method method, String str, Class<?>[] clsArr) {
+        return method.getName().equals(str) && a(method.getParameterTypes(), clsArr);
     }
 
     private boolean a(Class<?>[] clsArr, Class<?>[] clsArr2) {
@@ -349,30 +370,5 @@ public final class ReflectUtils {
             return true;
         }
         return false;
-    }
-
-    public int hashCode() {
-        return this.f1562a.hashCode();
-    }
-
-    public boolean equals(Object obj) {
-        if (obj instanceof ReflectUtils) {
-            return this.f1562a.equals(((ReflectUtils) obj).get());
-        }
-        return false;
-    }
-
-    public String toString() {
-        return this.f1562a.toString();
-    }
-
-    public Class<?> type() {
-        return this.b ? (Class) this.f1562a : this.f1562a.getClass();
-    }
-
-    /* loaded from: classes5.dex */
-    public class NULL {
-        public NULL() {
-        }
     }
 }

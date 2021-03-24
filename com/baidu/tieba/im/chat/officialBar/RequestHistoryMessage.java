@@ -1,22 +1,21 @@
 package com.baidu.tieba.im.chat.officialBar;
 
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.core.util.LocalViewSize;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
 import protobuf.QueryHistoryMsg.DataReq;
 import protobuf.QueryHistoryMsg.QueryHistoryMsgReqIdl;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class RequestHistoryMessage extends TbSocketMessage {
-    private int forum_id;
-    private int height;
-    private int id;
-    private int sHeight;
-    private int sWidth;
-    private long user_id;
-    private int width;
+    public int forum_id;
+    public int height;
+    public int id;
+    public int sHeight;
+    public int sWidth;
+    public long user_id;
+    public int width;
 
     public RequestHistoryMessage(int i, long j, int i2) {
-        super(CmdConfigSocket.CMD_QUERY_OFFICIAL_BAR_HISTORY);
+        super(208002);
         this.forum_id = 0;
         this.user_id = 0L;
         this.id = 0;
@@ -27,16 +26,16 @@ public class RequestHistoryMessage extends TbSocketMessage {
         this.forum_id = i;
         this.user_id = j;
         this.id = i2;
-        LocalViewSize.ImageSize bst = LocalViewSize.bsr().bst();
-        this.width = bst.width;
-        this.height = bst.height;
-        LocalViewSize.ImageSize bss = LocalViewSize.bsr().bss();
-        this.sWidth = bss.width;
-        this.sHeight = bss.height;
+        LocalViewSize.ImageSize msgBPicMaxSize = LocalViewSize.getInstance().getMsgBPicMaxSize();
+        this.width = msgBPicMaxSize.width;
+        this.height = msgBPicMaxSize.height;
+        LocalViewSize.ImageSize msgSPicMaxSize = LocalViewSize.getInstance().getMsgSPicMaxSize();
+        this.sWidth = msgSPicMaxSize.width;
+        this.sHeight = msgSPicMaxSize.height;
     }
 
     @Override // com.baidu.tbadk.message.websockt.TbSocketMessage
-    protected Object encode() {
+    public Object encode() {
         DataReq.Builder builder = new DataReq.Builder();
         builder.forumId = Integer.valueOf(this.forum_id);
         builder.userId = Long.valueOf(this.user_id);

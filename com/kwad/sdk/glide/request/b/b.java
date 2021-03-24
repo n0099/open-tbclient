@@ -1,8 +1,8 @@
 package com.kwad.sdk.glide.request.b;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public interface b<R> {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public interface a {
     }
 

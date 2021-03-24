@@ -3,7 +3,7 @@ package com.alibaba.fastjson.parser.deserializer;
 import com.alibaba.fastjson.JSONException;
 import com.alibaba.fastjson.parser.DefaultJSONParser;
 import java.lang.reflect.Type;
-/* loaded from: classes4.dex */
+/* loaded from: classes.dex */
 public class PropertyProcessableDeserializer implements ObjectDeserializer {
     public final Class<PropertyProcessable> type;
 
@@ -15,7 +15,7 @@ public class PropertyProcessableDeserializer implements ObjectDeserializer {
     public <T> T deserialze(DefaultJSONParser defaultJSONParser, Type type, Object obj) {
         try {
             return (T) defaultJSONParser.parse(this.type.newInstance(), obj);
-        } catch (Exception e) {
+        } catch (Exception unused) {
             throw new JSONException("craete instance error");
         }
     }

@@ -2,9 +2,9 @@ package com.baidu.tieba.frs.mc;
 
 import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.mvc.message.MvcHttpMessage;
 import com.baidu.tbadk.mvc.message.MvcHttpResponsedMessage;
 import com.baidu.tbadk.mvc.message.MvcNetMessage;
@@ -16,53 +16,84 @@ import com.baidu.tbadk.mvc.model.NetModel;
 import com.baidu.tieba.tbadkCore.FRSPageSocketResponsedMessage;
 import com.baidu.tieba.tbadkCore.FrsPageHttpResponseMessage;
 import com.baidu.tieba.tbadkCore.FrsRequestData;
-/* loaded from: classes.dex */
-public class FrsNetModel<T> extends NetAutoModel<FrsRequestData, com.baidu.tieba.tbadkCore.m, T> implements NetModel.b<FrsRequestData, com.baidu.tieba.tbadkCore.m> {
-    private boolean jHv;
-    private Message jHw;
-    private MvcNetMessage jHx;
-    private ResponsedMessage mResponsedMessage;
+import d.b.i0.c3.m;
+/* loaded from: classes4.dex */
+public class FrsNetModel<T> extends NetAutoModel<FrsRequestData, m, T> implements NetModel.k<FrsRequestData, m> {
+    public boolean r;
+    public ResponsedMessage s;
+    public Message t;
+    public MvcNetMessage u;
 
     public FrsNetModel(TbPageContext<T> tbPageContext, FrsRequestData frsRequestData) {
         super(tbPageContext, frsRequestData);
     }
 
-    @Override // com.baidu.tbadk.mvc.model.NetAutoModel, com.baidu.tbadk.mvc.model.NetModel
-    protected Class<? extends MvcProtobufHttpResponsedMessage> acV() {
+    @Override // com.baidu.tbadk.mvc.model.NetModel
+    public int F() {
+        return CmdConfigHttp.FRS_HTTP_CMD;
+    }
+
+    @Override // com.baidu.tbadk.mvc.model.NetModel
+    public Class<? extends MvcProtobufHttpResponsedMessage> H() {
         return FrsPageHttpResponseMessage.class;
     }
 
-    @Override // com.baidu.tbadk.mvc.model.NetAutoModel, com.baidu.tbadk.mvc.model.NetModel
-    protected Class<? extends MvcSocketResponsedMessage> acX() {
+    @Override // com.baidu.tbadk.mvc.model.NetModel
+    public String I() {
+        return TbConfig.FRS_ADDRESS;
+    }
+
+    @Override // com.baidu.tbadk.mvc.model.NetModel
+    public int J() {
+        return 301001;
+    }
+
+    @Override // com.baidu.tbadk.mvc.model.NetModel
+    public Class<? extends MvcSocketResponsedMessage> K() {
         return FRSPageSocketResponsedMessage.class;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected Class<com.baidu.tieba.tbadkCore.m> getResponseDataClass() {
-        return com.baidu.tieba.tbadkCore.m.class;
+    public boolean N() {
+        boolean N = super.N();
+        this.r = N;
+        return N;
+    }
+
+    public Message W() {
+        return this.t;
+    }
+
+    public MvcNetMessage X() {
+        return this.u;
+    }
+
+    public FrsRequestData Y() {
+        return (FrsRequestData) this.f13969g;
+    }
+
+    public boolean Z() {
+        return this.r;
+    }
+
+    public void a0(FrsRequestData frsRequestData) {
+        this.f13969g = frsRequestData;
+    }
+
+    @Override // com.baidu.tbadk.mvc.model.NetModel.l
+    public void f(MvcHttpResponsedMessage<m> mvcHttpResponsedMessage, MvcHttpMessage<FrsRequestData, m> mvcHttpMessage, MvcNetMessage<FrsRequestData, m> mvcNetMessage) {
+        this.s = mvcHttpResponsedMessage;
+        this.t = mvcHttpMessage;
+        this.u = mvcNetMessage;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected int acS() {
-        return 1001703;
+    public Class<m> getResponseDataClass() {
+        return m.class;
     }
 
-    @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected int acR() {
-        return CmdConfigSocket.CMD_FRS_PAGE;
-    }
-
-    @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected String acL() {
-        return TbConfig.FRS_ADDRESS;
-    }
-
-    public void a(FrsRequestData frsRequestData) {
-        this.cnS = frsRequestData;
-    }
-
-    public FrsRequestData cKa() {
-        return (FrsRequestData) this.cnS;
+    public ResponsedMessage getResponsedMessage() {
+        return this.s;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
@@ -70,39 +101,10 @@ public class FrsNetModel<T> extends NetAutoModel<FrsRequestData, com.baidu.tieba
         return super.isNeedCache();
     }
 
-    @Override // com.baidu.tbadk.mvc.model.NetModel
-    public boolean loadData() {
-        this.jHv = super.loadData();
-        return this.jHv;
-    }
-
-    @Override // com.baidu.tbadk.mvc.model.NetModel.c
-    public void a(MvcHttpResponsedMessage<com.baidu.tieba.tbadkCore.m> mvcHttpResponsedMessage, MvcHttpMessage<FrsRequestData, com.baidu.tieba.tbadkCore.m> mvcHttpMessage, MvcNetMessage<FrsRequestData, com.baidu.tieba.tbadkCore.m> mvcNetMessage) {
-        this.mResponsedMessage = mvcHttpResponsedMessage;
-        this.jHw = mvcHttpMessage;
-        this.jHx = mvcNetMessage;
-    }
-
-    @Override // com.baidu.tbadk.mvc.model.NetModel.d
-    public void a(MvcSocketResponsedMessage<com.baidu.tieba.tbadkCore.m, ?> mvcSocketResponsedMessage, MvcSocketMessage<FrsRequestData, com.baidu.tieba.tbadkCore.m> mvcSocketMessage, MvcNetMessage<FrsRequestData, com.baidu.tieba.tbadkCore.m> mvcNetMessage) {
-        this.mResponsedMessage = mvcSocketResponsedMessage;
-        this.jHw = mvcSocketMessage;
-        this.jHx = mvcNetMessage;
-    }
-
-    public boolean cKb() {
-        return this.jHv;
-    }
-
-    public ResponsedMessage getResponsedMessage() {
-        return this.mResponsedMessage;
-    }
-
-    public Message cKc() {
-        return this.jHw;
-    }
-
-    public MvcNetMessage cKd() {
-        return this.jHx;
+    @Override // com.baidu.tbadk.mvc.model.NetModel.m
+    public void n(MvcSocketResponsedMessage<m, ?> mvcSocketResponsedMessage, MvcSocketMessage<FrsRequestData, m> mvcSocketMessage, MvcNetMessage<FrsRequestData, m> mvcNetMessage) {
+        this.s = mvcSocketResponsedMessage;
+        this.t = mvcSocketMessage;
+        this.u = mvcNetMessage;
     }
 }

@@ -1,5 +1,5 @@
 package com.baidu.searchbox.afx.callback;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class ErrorInfo {
     public static final String END_TIME_ERROR = "-1";
     public static final int ERROR_DECODE = 16;

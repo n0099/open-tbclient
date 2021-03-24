@@ -35,12 +35,8 @@ import android.text.TextUtils;
 import android.view.inputmethod.InputMethodManager;
 import android.webkit.CookieManager;
 import android.webkit.CookieSyncManager;
-import com.baidu.adp.plugin.proxy.ContentProviderProxy;
 import com.baidu.android.common.util.DeviceId;
 import com.baidu.android.util.devices.RomUtils;
-import com.baidu.ar.constants.HttpConstants;
-import com.baidu.live.tbadk.ubc.UbcStatConstant;
-import com.baidu.mobstat.Config;
 import com.baidu.pass.common.SecurityUtil;
 import com.baidu.sapi2.NoProguard;
 import com.baidu.sapi2.SapiConfiguration;
@@ -48,13 +44,12 @@ import com.baidu.sapi2.SapiContext;
 import com.baidu.sapi2.SapiWebView;
 import com.baidu.sapi2.ServiceManager;
 import com.baidu.sapi2.dto.PassNameValuePair;
-import com.baidu.sapi2.utils.SapiDeviceUtils;
+import com.baidu.sapi2.outsdk.OneKeyLoginSdkCall;
 import com.baidu.sapi2.utils.enums.Domain;
 import com.baidu.sapi2.utils.enums.SocialType;
-import com.baidu.searchbox.account.contants.LoginConstants;
-import com.baidu.webkit.internal.ETAG;
-import com.meizu.cloud.pushsdk.constants.PushConstants;
-import com.xiaomi.mipush.sdk.Constants;
+import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
+import com.baidu.tbadk.core.util.httpNet.HttpRequest;
+import com.baidu.tieba.imageProblem.httpNet.CDNIPDirectConnect;
 import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -85,7 +80,7 @@ import java.util.regex.Pattern;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class SapiUtils implements NoProguard {
     public static final String COOKIE_HTTPS_URL_PREFIX = "https://";
     public static final String COOKIE_URL_PREFIX = "https://www.";
@@ -112,29 +107,38 @@ public class SapiUtils implements NoProguard {
     public static final String QR_LOGIN_LP_PC = "pc";
 
     /* renamed from: a  reason: collision with root package name */
-    static final String f3437a = "cmd";
-    static final String b = "error";
-    static final String c = "EEE, dd-MMM-yyyy HH:mm:ss 'GMT'";
-    static final String d = Character.toString(2);
-    static final String e = Character.toString(3);
-    private static String f;
+    public static final String f11418a = "cmd";
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    /* renamed from: b  reason: collision with root package name */
+    public static final String f11419b = "error";
+
+    /* renamed from: c  reason: collision with root package name */
+    public static final String f11420c = "EEE, dd-MMM-yyyy HH:mm:ss 'GMT'";
+
+    /* renamed from: d  reason: collision with root package name */
+    public static final String f11421d = Character.toString(2);
+
+    /* renamed from: e  reason: collision with root package name */
+    public static final String f11422e = Character.toString(3);
+
+    /* renamed from: f  reason: collision with root package name */
+    public static String f11423f;
+
     @TargetApi(3)
     public static String a(Context context) {
         try {
-            return Settings.Secure.getString(context.getContentResolver(), "bluetooth_name");
+            SapiConfiguration confignation = ServiceManager.getInstance().getIsAccountManager().getConfignation();
+            return (confignation == null || !confignation.isAgreeDangerousProtocol()) ? "" : Settings.Secure.getString(context.getContentResolver(), "bluetooth_name");
         } catch (Exception e2) {
             Log.e(e2);
             return "";
         }
     }
 
-    private static String b(Context context) {
+    public static String b(Context context) {
         try {
-            Log.e("TITLE", "get deviceId");
             return DeviceId.getDeviceID(context);
-        } catch (Throwable th) {
+        } catch (Throwable unused) {
             Random random = new Random();
             random.setSeed(System.currentTimeMillis());
             return "123456789" + SecurityUtil.md5(String.valueOf(random.nextInt(100)).getBytes(), false);
@@ -156,7 +160,7 @@ public class SapiUtils implements NoProguard {
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(new Date());
         calendar.add(5, TextUtils.isEmpty(str2) ? -1 : 1);
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(c, Locale.US);
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("EEE, dd-MMM-yyyy HH:mm:ss 'GMT'", Locale.US);
         simpleDateFormat.setTimeZone(new SimpleTimeZone(0, "GMT"));
         return "passtheme=" + str2 + ";domain=" + str + ";path=/;expires=" + simpleDateFormat.format(calendar.getTime());
     }
@@ -183,7 +187,7 @@ public class SapiUtils implements NoProguard {
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(new Date());
         calendar.add(5, 7);
-        return a(str, UbcStatConstant.KEY_CONTENT_EXT_SID, str2, calendar.getTime(), false);
+        return a(str, "sid", str2, calendar.getTime(), false);
     }
 
     public static String buildStokenCookie(String str, String str2) {
@@ -207,31 +211,30 @@ public class SapiUtils implements NoProguard {
             try {
                 String str4 = map.get(str3);
                 if (!TextUtils.isEmpty(str4)) {
-                    sb.append(str3).append("=").append(URLEncoder.encode(str4, "UTF-8")).append(ETAG.ITEM_SEPARATOR);
+                    sb.append(str3);
+                    sb.append("=");
+                    sb.append(URLEncoder.encode(str4, "UTF-8"));
+                    sb.append("&");
                 }
             } catch (UnsupportedEncodingException e2) {
                 Log.e(e2);
             }
         }
-        sb.append("sign_key=").append(str);
+        sb.append("sign_key=");
+        sb.append(str);
         return SecurityUtil.md5(sb.toString().getBytes(), false);
     }
 
     @TargetApi(23)
     public static boolean checkRequestPermission(String str, Context context) {
-        try {
-            if (Build.VERSION.SDK_INT < 23 || context.checkSelfPermission(str) != 0) {
-                if (Build.VERSION.SDK_INT >= 23) {
-                    return false;
-                }
-                if (context.checkCallingOrSelfPermission(str) != 0) {
-                    return false;
+        if (Build.VERSION.SDK_INT < 23 || context.checkSelfPermission(str) != 0) {
+            if (Build.VERSION.SDK_INT < 23) {
+                if (context.checkCallingOrSelfPermission(str) == 0) {
                 }
             }
-            return true;
-        } catch (Exception e2) {
             return false;
         }
+        return true;
     }
 
     public static String createRequestParams(List<PassNameValuePair> list) {
@@ -240,9 +243,14 @@ public class SapiUtils implements NoProguard {
             for (PassNameValuePair passNameValuePair : list) {
                 if (!TextUtils.isEmpty(passNameValuePair.getName()) && !TextUtils.isEmpty(passNameValuePair.getValue())) {
                     if (TextUtils.isEmpty(sb.toString())) {
-                        sb.append(passNameValuePair.getName()).append("=").append(passNameValuePair.getValue());
+                        sb.append(passNameValuePair.getName());
+                        sb.append("=");
+                        sb.append(passNameValuePair.getValue());
                     } else {
-                        sb.append(ETAG.ITEM_SEPARATOR).append(passNameValuePair.getName()).append("=").append(passNameValuePair.getValue());
+                        sb.append("&");
+                        sb.append(passNameValuePair.getName());
+                        sb.append("=");
+                        sb.append(passNameValuePair.getValue());
                     }
                 }
             }
@@ -252,7 +260,7 @@ public class SapiUtils implements NoProguard {
 
     public static int dip2px(Context context, float f2) {
         if (context != null) {
-            return (int) ((context.getResources().getDisplayMetrics().density * f2) + 0.5f);
+            return (int) ((f2 * context.getResources().getDisplayMetrics().density) + 0.5f);
         }
         throw new IllegalArgumentException("Context can't be null");
     }
@@ -261,7 +269,7 @@ public class SapiUtils implements NoProguard {
         try {
             PackageManager packageManager = context.getPackageManager();
             return packageManager.getPackageInfo(context.getPackageName(), 0).applicationInfo.loadLabel(packageManager).toString();
-        } catch (Throwable th) {
+        } catch (Throwable unused) {
             return null;
         }
     }
@@ -277,7 +285,6 @@ public class SapiUtils implements NoProguard {
     public static String getClientId(Context context) {
         SapiConfiguration confignation = ServiceManager.getInstance().getIsAccountManager().getConfignation();
         if (confignation == null || !confignation.isAgreeDangerousProtocol()) {
-            Log.e("TITLE", "dont't get deviceId");
             return null;
         }
         if (TextUtils.isEmpty(confignation.clientId)) {
@@ -291,32 +298,30 @@ public class SapiUtils implements NoProguard {
         try {
             CookieSyncManager.createInstance(ServiceManager.getInstance().getIsAccountManager().getConfignation().context);
             String cookie = CookieManager.getInstance().getCookie(str);
-            if (TextUtils.isEmpty(cookie)) {
-                return "";
-            }
-            for (String str3 : cookie.split(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR)) {
-                String trim = str3.trim();
-                if (!TextUtils.isEmpty(trim) && (indexOf = trim.indexOf("=")) > -1) {
-                    String[] strArr = new String[2];
-                    strArr[0] = trim.substring(0, indexOf);
-                    int i = indexOf + 1;
-                    if (i < trim.length()) {
-                        strArr[1] = trim.substring(i, trim.length());
-                    }
-                    if (strArr[0].equals(str2)) {
-                        return strArr[1];
+            if (!TextUtils.isEmpty(cookie)) {
+                for (String str3 : cookie.split(";")) {
+                    String trim = str3.trim();
+                    if (!TextUtils.isEmpty(trim) && (indexOf = trim.indexOf("=")) > -1) {
+                        String[] strArr = new String[2];
+                        strArr[0] = trim.substring(0, indexOf);
+                        int i = indexOf + 1;
+                        if (i < trim.length()) {
+                            strArr[1] = trim.substring(i, trim.length());
+                        }
+                        if (strArr[0].equals(str2)) {
+                            return strArr[1];
+                        }
                     }
                 }
             }
-            return "";
         } catch (Throwable th) {
             Log.e(th);
-            return "";
         }
+        return "";
     }
 
     public static String getCookieBduss() {
-        return getCookie(f.a(f.l), "BDUSS");
+        return getCookie(h.a(h.l), HttpRequest.BDUSS);
     }
 
     public static String getCookiePtoken() {
@@ -350,15 +355,16 @@ public class SapiUtils implements NoProguard {
     public static String getCurProcessName(Context context) {
         try {
             int myPid = Process.myPid();
-            for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : ((ActivityManager) context.getSystemService(PushConstants.INTENT_ACTIVITY_NAME)).getRunningAppProcesses()) {
+            for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : ((ActivityManager) context.getSystemService("activity")).getRunningAppProcesses()) {
                 if (runningAppProcessInfo.pid == myPid) {
                     return runningAppProcessInfo.processName;
                 }
             }
+            return "";
         } catch (Throwable th) {
             Log.e(th);
+            return "";
         }
-        return "";
     }
 
     public static boolean getDefaultHttpsEnabled() {
@@ -367,8 +373,8 @@ public class SapiUtils implements NoProguard {
 
     public static String getIccid(Context context) {
         if (ServiceManager.getInstance().getIsAccountManager().getConfignation().isAgreeDangerousProtocol()) {
-            if (!TextUtils.isEmpty(f)) {
-                return f;
+            if (!TextUtils.isEmpty(f11423f)) {
+                return f11423f;
             }
             try {
                 if (Build.VERSION.SDK_INT >= 22) {
@@ -378,20 +384,28 @@ public class SapiUtils implements NoProguard {
                         return null;
                     }
                     for (SubscriptionInfo subscriptionInfo : activeSubscriptionInfoList) {
-                        sb.append(subscriptionInfo.getIccId()).append(d);
+                        if (Build.VERSION.SDK_INT >= 30) {
+                            sb.append(subscriptionInfo.getSubscriptionId());
+                            sb.append(f11421d);
+                        } else {
+                            sb.append(subscriptionInfo.getIccId());
+                            sb.append(f11421d);
+                        }
                     }
                     if (sb.length() > 0) {
-                        f = sb.toString().substring(0, sb.length() - 1);
-                        return f;
+                        String substring = sb.toString().substring(0, sb.length() - 1);
+                        f11423f = substring;
+                        return substring;
                     }
                 } else {
                     TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
                     if (telephonyManager != null) {
-                        f = telephonyManager.getSimSerialNumber();
-                        return f;
+                        String simSerialNumber = telephonyManager.getSimSerialNumber();
+                        f11423f = simSerialNumber;
+                        return simSerialNumber;
                     }
                 }
-            } catch (Exception e2) {
+            } catch (Exception unused) {
             }
             return null;
         }
@@ -401,7 +415,7 @@ public class SapiUtils implements NoProguard {
     public static long getInternalAvailableMemorySize() {
         try {
             StatFs statFs = new StatFs(Environment.getDataDirectory().getPath());
-            return (statFs.getAvailableBlocks() * statFs.getBlockSize()) / 1024;
+            return (statFs.getBlockSize() * statFs.getAvailableBlocks()) / 1024;
         } catch (Throwable th) {
             Log.e(th);
             return 0L;
@@ -411,7 +425,7 @@ public class SapiUtils implements NoProguard {
     public static long getInternalMemorySize() {
         try {
             StatFs statFs = new StatFs(Environment.getDataDirectory().getPath());
-            return (statFs.getBlockCount() * statFs.getBlockSize()) / 1024;
+            return (statFs.getBlockSize() * statFs.getBlockCount()) / 1024;
         } catch (Throwable th) {
             Log.e(th);
             return 0L;
@@ -426,20 +440,21 @@ public class SapiUtils implements NoProguard {
         HashMap hashMap = new HashMap();
         hashMap.put("none", 0);
         hashMap.put("password", 1);
-        hashMap.put(LoginConstants.SMS_LOGIN, 2);
+        hashMap.put("sms", 2);
         hashMap.put("face", 3);
         hashMap.put(SocialType.WEIXIN.getName() + "", 4);
         hashMap.put(SocialType.SINA_WEIBO_SSO.getName() + "", 5);
         hashMap.put(SocialType.QQ_SSO.getName() + "", 6);
         hashMap.put(SocialType.HUAWEI.getName() + "", 10);
+        hashMap.put(SocialType.YY.getName() + "", 100);
         hashMap.put("slient_share", 7);
-        hashMap.put(com.baidu.sapi2.share.b.j, 8);
-        hashMap.put(com.baidu.sapi2.share.b.k, 9);
+        hashMap.put(com.baidu.sapi2.share.a.j, 8);
+        hashMap.put(com.baidu.sapi2.share.a.k, 9);
         hashMap.put("oneKeyLogin", 12);
         hashMap.put("finger_account", 15);
-        hashMap.put("CM", 16);
-        hashMap.put("CU", 17);
-        hashMap.put("CT", 18);
+        hashMap.put(OneKeyLoginSdkCall.OPERATOR_TYPE_CMCC, 16);
+        hashMap.put(OneKeyLoginSdkCall.OPERATOR_TYPE_CUCC, 17);
+        hashMap.put(OneKeyLoginSdkCall.OPERATOR_TYPE_CTCC, 18);
         hashMap.put(SapiWebView.SWITCH_ACCOUNT_PAGE, 19);
         hashMap.put("naQrlogin", 20);
         if (hashMap.containsKey(string)) {
@@ -451,9 +466,7 @@ public class SapiUtils implements NoProguard {
     public static String getLocalIpAddress() {
         String hostAddress;
         try {
-            SapiConfiguration confignation = ServiceManager.getInstance().getIsAccountManager().getConfignation();
-            if (confignation != null && confignation.isAgreeDangerousProtocol()) {
-                Log.e("TITLE", "get ip address");
+            if (ServiceManager.getInstance().getIsAccountManager().getConfignation().isAgreeDangerousProtocol()) {
                 Enumeration<NetworkInterface> networkInterfaces = NetworkInterface.getNetworkInterfaces();
                 while (networkInterfaces.hasMoreElements()) {
                     Enumeration<InetAddress> inetAddresses = networkInterfaces.nextElement().getInetAddresses();
@@ -464,13 +477,13 @@ public class SapiUtils implements NoProguard {
                         }
                     }
                 }
-            } else {
-                Log.e("TITLE", "don't get ip address");
+                return null;
             }
+            return null;
         } catch (Throwable th) {
             Log.e(th);
+            return null;
         }
-        return null;
     }
 
     public static String getLoginType() {
@@ -487,7 +500,7 @@ public class SapiUtils implements NoProguard {
         }
         if (activeNetworkInfo != null && activeNetworkInfo.isConnected()) {
             if (activeNetworkInfo.getType() == 1) {
-                return "WIFI";
+                return CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING;
             }
             if (activeNetworkInfo.getType() == 0) {
                 switch (activeNetworkInfo.getSubtype()) {
@@ -506,7 +519,7 @@ public class SapiUtils implements NoProguard {
                     case 12:
                     case 14:
                     case 15:
-                        return "3G";
+                        return com.baidu.apollon.statistics.g.f3873b;
                     case 13:
                         return "4G";
                     default:
@@ -528,7 +541,6 @@ public class SapiUtils implements NoProguard {
                     arrayList.add(serviceInfo.packageName);
                 }
             }
-            return arrayList;
         }
         return arrayList;
     }
@@ -561,7 +573,7 @@ public class SapiUtils implements NoProguard {
                 byteArrayOutputStream.reset();
                 createScaledBitmap.compress(Bitmap.CompressFormat.PNG, i, byteArrayOutputStream);
             }
-            strArr[0] = "data:image/png;base64," + SapiDeviceUtils.DeviceCrypto.base64Encode(byteArrayOutputStream.toByteArray());
+            strArr[0] = "data:image/png;base64," + SecurityUtil.base64Encode(byteArrayOutputStream.toByteArray());
             byteArrayOutputStream.close();
         } catch (Exception e2) {
             Log.e(e2);
@@ -588,7 +600,7 @@ public class SapiUtils implements NoProguard {
 
     public static String getSmsCheckCode(String str) {
         String[] split;
-        for (String str2 : str.replaceAll("[^0-9]*([0-9]*)[^0-9]*", "$1-").split(Constants.ACCEPT_TIME_SEPARATOR_SERVER)) {
+        for (String str2 : str.replaceAll("[^0-9]*([0-9]*)[^0-9]*", "$1-").split("-")) {
             if (str2.length() == 6) {
                 return str2;
             }
@@ -598,14 +610,6 @@ public class SapiUtils implements NoProguard {
 
     public static long getTimeSinceBoot() {
         return SystemClock.elapsedRealtime() / 1000;
-    }
-
-    public static int getVersionCode(Context context) {
-        try {
-            return context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionCode;
-        } catch (Exception e2) {
-            return 0;
-        }
     }
 
     public static String getVersionName(Context context) {
@@ -621,55 +625,69 @@ public class SapiUtils implements NoProguard {
         String str;
         String str2;
         int i;
-        String str3;
-        int i2 = 0;
+        String str3 = "";
         StringBuffer stringBuffer = new StringBuffer();
         try {
             WifiManager wifiManager = (WifiManager) context.getSystemService("wifi");
             WifiInfo connectionInfo = ServiceManager.getInstance().getIsAccountManager().getConfignation().isAgreeDangerousProtocol() ? wifiManager.getConnectionInfo() : null;
-            str2 = "";
+            int i2 = 0;
             if (connectionInfo != null) {
-                int abs = StrictMath.abs(connectionInfo.getRssi());
-                str3 = connectionInfo.getSSID();
-                if (str3 != null) {
-                    str3 = str3.replace("\"", "");
-                }
-                str2 = connectionInfo.getBSSID();
+                i = StrictMath.abs(connectionInfo.getRssi());
+                str2 = connectionInfo.getSSID();
                 if (str2 != null) {
-                    str2 = str2.replace(":", "");
-                    i = abs;
-                } else {
-                    i = abs;
+                    str2 = str2.replace("\"", "");
+                }
+                str = connectionInfo.getBSSID();
+                if (str != null) {
+                    str = str.replace(":", "");
                 }
             } else {
+                str = "";
+                str2 = str;
                 i = 0;
-                str3 = "";
             }
             List<ScanResult> scanResults = checkRequestPermission("android.permission.ACCESS_FINE_LOCATION", context) ? wifiManager.getScanResults() : null;
             if (scanResults != null) {
                 for (ScanResult scanResult : scanResults) {
                     String str4 = scanResult.BSSID;
                     String str5 = scanResult.SSID;
-                    int abs2 = StrictMath.abs(scanResult.level);
+                    int abs = StrictMath.abs(scanResult.level);
                     String replace = str4 != null ? str4.replace(":", "") : "";
-                    if (!replace.equals(str2) && abs2 != 0) {
+                    if (!replace.equals(str) && abs != 0) {
                         if (i2 >= 10) {
                             break;
                         }
-                        stringBuffer.append(d).append(replace).append(e).append(abs2).append(e).append(str5).append(e).append("2");
+                        stringBuffer.append(f11421d);
+                        stringBuffer.append(replace);
+                        stringBuffer.append(f11422e);
+                        stringBuffer.append(abs);
+                        stringBuffer.append(f11422e);
+                        stringBuffer.append(str5);
+                        stringBuffer.append(f11422e);
+                        stringBuffer.append("2");
                         i2++;
                     }
                 }
             }
+            if (!TextUtils.isEmpty(str)) {
+                str3 = f11421d + str + f11422e + i + f11422e + str2 + f11422e + '1';
+            }
         } catch (Exception e2) {
             Log.e(e2);
         }
-        if (!TextUtils.isEmpty(str2)) {
-            str = d + str2 + e + i + e + str3 + e + '1';
-            return str + stringBuffer.toString();
+        return str3 + stringBuffer.toString();
+    }
+
+    public static boolean hasActiveNetwork(Context context) {
+        if (context == null) {
+            return false;
         }
-        str = "";
-        return str + stringBuffer.toString();
+        try {
+            return ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo() != null;
+        } catch (Throwable th) {
+            Log.e(th);
+            return false;
+        }
     }
 
     @TargetApi(3)
@@ -682,52 +700,49 @@ public class SapiUtils implements NoProguard {
     }
 
     public static boolean isAppInstalled(Context context, String str) {
-        if (context == null || TextUtils.isEmpty(str)) {
-            return false;
-        }
-        try {
-            return context.getPackageManager().getPackageInfo(str, 0) != null;
-        } catch (PackageManager.NameNotFoundException e2) {
-            return false;
-        }
-    }
-
-    @TargetApi(4)
-    public static boolean isDebug(Context context) {
-        try {
-            if ((context.getApplicationInfo().flags & 2) != 0) {
-                return true;
+        if (context != null && !TextUtils.isEmpty(str)) {
+            try {
+                if (context.getPackageManager().getPackageInfo(str, 0) != null) {
+                    return true;
+                }
+            } catch (PackageManager.NameNotFoundException unused) {
             }
-        } catch (Exception e2) {
-            Log.e(e2);
         }
         return false;
     }
 
     @TargetApi(4)
+    public static boolean isDebug(Context context) {
+        try {
+        } catch (Exception e2) {
+            Log.e(e2);
+        }
+        return (context.getApplicationInfo().flags & 2) != 0;
+    }
+
+    @TargetApi(4)
     public static boolean isEmulator(Context context) {
-        String str = null;
-        if (ServiceManager.getInstance().getIsAccountManager().getConfignation().isAgreeDangerousProtocol()) {
+        String str;
+        if (!f.d(context) && ServiceManager.getInstance().getIsAccountManager().getConfignation().isAgreeDangerousProtocol()) {
             if (Build.VERSION.SDK_INT > 27 && context.getApplicationInfo().targetSdkVersion > 27) {
                 if (checkRequestPermission("android.permission.READ_PHONE_STATE", context)) {
                     try {
                         str = Build.getSerial();
-                    } catch (Throwable th) {
+                    } catch (Throwable unused) {
                     }
                 }
             } else {
                 str = Build.SERIAL;
             }
+            return !"000000000000000".equals(f.b(context)) || Build.FINGERPRINT.contains("test-keys") || Build.FINGERPRINT.startsWith("unknown") || Build.BRAND.startsWith("generic") || Build.BOARD.equals("unknown") || "unknown".equals(str);
         }
-        return Config.NULL_DEVICE_ID.equals(SapiDeviceUtils.b(context)) || Build.FINGERPRINT.contains("test-keys") || Build.FINGERPRINT.startsWith("unknown") || Build.BRAND.startsWith("generic") || Build.BOARD.equals("unknown") || "unknown".equals(str);
+        str = null;
+        if ("000000000000000".equals(f.b(context))) {
+        }
     }
 
     public static boolean isMethodOverWrited(Object obj, String str, Class cls, Class... clsArr) {
-        try {
-            return !cls.equals(obj.getClass().getMethod(str, clsArr).getDeclaringClass());
-        } catch (NoSuchMethodException e2) {
-            return false;
-        }
+        return !cls.equals(obj.getClass().getMethod(str, clsArr).getDeclaringClass());
     }
 
     @TargetApi(4)
@@ -757,15 +772,14 @@ public class SapiUtils implements NoProguard {
         String host = Uri.parse(ServiceManager.getInstance().getIsAccountManager().getConfignation().getEnvironment().getWap()).getHost();
         Uri parse = Uri.parse(str);
         String str2 = Uri.parse(environment.getWap()).getHost() + "/v3/getpass/artificialappeal";
-        if (TextUtils.isEmpty(str) || !str.contains(str2)) {
-            return null;
+        if (!TextUtils.isEmpty(str) && str.contains(str2)) {
+            String[] strArr = {Uri.decode(parse.getQueryParameter("title")), Uri.decode(parse.getQueryParameter("url"))};
+            Uri parse2 = Uri.parse(strArr[1]);
+            if (!TextUtils.isEmpty(strArr[1]) && host.equals(parse2.getHost())) {
+                return strArr;
+            }
         }
-        String[] strArr = {Uri.decode(parse.getQueryParameter("title")), Uri.decode(parse.getQueryParameter("url"))};
-        Uri parse2 = Uri.parse(strArr[1]);
-        if (TextUtils.isEmpty(strArr[1]) || !host.equals(parse2.getHost())) {
-            return null;
-        }
-        return strArr;
+        return null;
     }
 
     public static boolean isQrLoginSchema(String str) {
@@ -796,21 +810,52 @@ public class SapiUtils implements NoProguard {
 
     public static JSONArray map2JsonArray(Map<String, Long> map, String str, String str2) {
         JSONArray jSONArray = new JSONArray();
-        if (map == null || map.isEmpty()) {
-            return jSONArray;
-        }
-        for (Map.Entry<String, Long> entry : map.entrySet()) {
-            JSONObject jSONObject = new JSONObject();
-            if (!TextUtils.isEmpty(entry.getKey())) {
-                try {
-                    jSONObject.put(str, entry.getKey());
-                    jSONObject.put(str2, entry.getValue());
-                } catch (JSONException e2) {
+        if (map != null && !map.isEmpty()) {
+            for (Map.Entry<String, Long> entry : map.entrySet()) {
+                JSONObject jSONObject = new JSONObject();
+                if (!TextUtils.isEmpty(entry.getKey())) {
+                    try {
+                        jSONObject.put(str, entry.getKey());
+                        jSONObject.put(str2, entry.getValue());
+                    } catch (JSONException unused) {
+                    }
                 }
+                jSONArray.put(jSONObject);
             }
-            jSONArray.put(jSONObject);
         }
         return jSONArray;
+    }
+
+    public static String mapToUrlParams(Map<String, String> map, boolean z) {
+        if (map == null) {
+            return "";
+        }
+        StringBuilder sb = new StringBuilder();
+        for (Map.Entry<String, String> entry : map.entrySet()) {
+            String key = entry.getKey();
+            String value = entry.getValue();
+            if (sb.length() <= 0 && !z) {
+                sb.append("?");
+            } else {
+                sb.append("&");
+            }
+            if (value == null) {
+                try {
+                    sb.append(key);
+                    sb.append("=");
+                } catch (Exception e2) {
+                    sb.append(key);
+                    sb.append("=");
+                    sb.append((Object) value);
+                    e2.printStackTrace();
+                }
+            } else {
+                sb.append(key);
+                sb.append("=");
+                sb.append(URLEncoder.encode(value.toString(), "UTF-8"));
+            }
+        }
+        return sb.toString();
     }
 
     public static void notEmpty(String str, String str2) {
@@ -829,8 +874,9 @@ public class SapiUtils implements NoProguard {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        for (String str2 : new String[]{"ucenter/qrlivingnav", "url", "tpl"}) {
-            if (!str.contains(str2)) {
+        String[] strArr = {"ucenter/qrlivingnav", "url", "tpl"};
+        for (int i = 0; i < 3; i++) {
+            if (!str.contains(strArr[i])) {
                 return null;
             }
         }
@@ -851,8 +897,8 @@ public class SapiUtils implements NoProguard {
                 } else {
                     hashMap2.put("islogin", "1");
                 }
-                hashMap2.put("client", HttpConstants.OS_TYPE_VALUE);
-                k.a(k.f3467a, hashMap2);
+                hashMap2.put("client", "android");
+                StatService.onEvent(StatService.STAT_ENENT_QR_LOGIN_ENTER, hashMap2);
             }
             return urlParamsToMap;
         } else {
@@ -864,20 +910,10 @@ public class SapiUtils implements NoProguard {
         return (int) ((f2 / context.getResources().getDisplayMetrics().scaledDensity) + 0.5f);
     }
 
-    public static void resetSilentShareStatus() {
-        if (SapiContext.getInstance().getCurrentAccount() == null) {
-            SapiContext.getInstance().resetSilentShareStatus();
-        }
-    }
-
     public static void sendSms(Context context, String str, List<String> list) {
         String defaultSmsPackage;
-        String str2 = "";
-        String str3 = "Samsung".equalsIgnoreCase(Build.MANUFACTURER) ? "," : ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR;
-        if (list != null && !list.isEmpty()) {
-            str2 = TextUtils.join(str3, list);
-        }
-        Uri parse = Uri.parse("smsto:" + str2);
+        String join = (list == null || list.isEmpty()) ? "" : TextUtils.join("Samsung".equalsIgnoreCase(Build.MANUFACTURER) ? "," : ";", list);
+        Uri parse = Uri.parse("smsto:" + join);
         Intent intent = new Intent();
         intent.setData(parse);
         intent.putExtra("sms_body", str);
@@ -890,7 +926,7 @@ public class SapiUtils implements NoProguard {
         }
         try {
             context.startActivity(intent);
-        } catch (Exception e2) {
+        } catch (Exception unused) {
         }
     }
 
@@ -903,21 +939,18 @@ public class SapiUtils implements NoProguard {
         CookieManager cookieManager = CookieManager.getInstance();
         cookieManager.setAcceptCookie(true);
         SapiConfiguration confignation = ServiceManager.getInstance().getIsAccountManager().getConfignation();
-        if (TextUtils.isEmpty(confignation.clientId)) {
-            confignation.clientId = getClientId(context);
-        }
         List<String> cuidAuthorizedDomains = getCuidAuthorizedDomains();
         if (confignation.getEnvironment() != Domain.DOMAIN_ONLINE) {
-            String replaceAll = confignation.environment.getWap().replace("http://", "").replace(COOKIE_HTTPS_URL_PREFIX, "").replaceAll("(:[0-9]{1,4})?", "");
-            String replaceAll2 = confignation.environment.getURL().replace("http://", "").replace(COOKIE_HTTPS_URL_PREFIX, "").replaceAll("(:[0-9]{1,4})?", "");
+            String replaceAll = confignation.environment.getWap().replace("http://", "").replace("https://", "").replaceAll("(:[0-9]{1,4})?", "");
+            String replaceAll2 = confignation.environment.getURL().replace("http://", "").replace("https://", "").replaceAll("(:[0-9]{1,4})?", "");
             cuidAuthorizedDomains.add(replaceAll);
             cuidAuthorizedDomains.add(replaceAll2);
         }
         for (String str : cuidAuthorizedDomains) {
-            cookieManager.setCookie(COOKIE_HTTPS_URL_PREFIX + str, buildCuidCookie(str, confignation.clientId));
+            cookieManager.setCookie("https://" + str, buildCuidCookie(str, getClientId(context)));
             String searchBoxSid = SapiContext.getInstance().getSearchBoxSid();
             if (!TextUtils.isEmpty(searchBoxSid)) {
-                cookieManager.setCookie(COOKIE_HTTPS_URL_PREFIX + str, buildSidCookie(str, searchBoxSid));
+                cookieManager.setCookie("https://" + str, buildSidCookie(str, searchBoxSid));
             }
         }
         if (list != null) {
@@ -936,19 +969,20 @@ public class SapiUtils implements NoProguard {
 
     public static Map<String, String> urlParamsToMap(String str) {
         HashMap hashMap = new HashMap();
-        if (!TextUtils.isEmpty(str)) {
-            if (str.contains("?")) {
-                try {
-                    str = str.substring(str.indexOf("?") + 1, str.length());
-                } catch (Exception e2) {
-                    Log.e(e2);
-                }
+        if (TextUtils.isEmpty(str)) {
+            return hashMap;
+        }
+        if (str.contains("?")) {
+            try {
+                str = str.substring(str.indexOf("?") + 1, str.length());
+            } catch (Exception e2) {
+                Log.e(e2);
             }
-            for (String str2 : str.split(ETAG.ITEM_SEPARATOR)) {
-                String[] split = str2.split("=");
-                if (split.length == 2) {
-                    hashMap.put(split[0], split[1]);
-                }
+        }
+        for (String str2 : str.split("&")) {
+            String[] split = str2.split("=");
+            if (split.length == 2) {
+                hashMap.put(split[0], split[1]);
             }
         }
         return hashMap;
@@ -961,8 +995,8 @@ public class SapiUtils implements NoProguard {
     public static int versionCompareTo(String str, String str2) {
         String replaceAll = TextUtils.isEmpty(str) ? "0" : str.replaceAll("[^\\d\\.]+", "");
         String replaceAll2 = TextUtils.isEmpty(str2) ? "0" : str2.replaceAll("[^\\d\\.]+", "");
-        String[] split = replaceAll.split("\\.");
-        String[] split2 = replaceAll2.split("\\.");
+        String[] split = replaceAll.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
+        String[] split2 = replaceAll2.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
         ArrayList arrayList = new ArrayList();
         ArrayList arrayList2 = new ArrayList();
         for (String str3 : split) {
@@ -993,149 +1027,6 @@ public class SapiUtils implements NoProguard {
         return ServiceManager.getInstance().getIsAccountManager().getIsAccountService().webLogin(context, str);
     }
 
-    public static boolean webLogin(Context context, String str, String str2) {
-        return ServiceManager.getInstance().getIsAccountManager().getIsAccountService().webLogin(context, str, str2);
-    }
-
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [40=5, 28=5] */
-    /* JADX WARN: Code restructure failed: missing block: B:23:0x0058, code lost:
-        if (r0 == null) goto L34;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:24:0x005a, code lost:
-        r0.destroy();
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:25:0x005d, code lost:
-        return false;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:33:0x006e, code lost:
-        if (r0 != null) goto L33;
-     */
-    /* JADX WARN: Removed duplicated region for block: B:41:0x007c  */
-    /* JADX WARN: Removed duplicated region for block: B:64:0x0077 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:66:0x006b A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    private static boolean a(String str) {
-        Throwable th;
-        Process process;
-        IOException e2;
-        Process process2;
-        Process process3;
-        BufferedReader bufferedReader;
-        BufferedReader bufferedReader2 = null;
-        try {
-            process3 = Runtime.getRuntime().exec("ls -l " + str);
-        } catch (IOException e3) {
-            e2 = e3;
-            process2 = null;
-        } catch (Throwable th2) {
-            th = th2;
-            process = null;
-        }
-        try {
-            bufferedReader = new BufferedReader(new InputStreamReader(process3.getInputStream()));
-        } catch (IOException e4) {
-            e2 = e4;
-            process2 = process3;
-            process3 = process2;
-            try {
-                Log.e(e2);
-                if (bufferedReader2 != null) {
-                    try {
-                        bufferedReader2.close();
-                    } catch (Exception e5) {
-                        Log.e(e5);
-                    }
-                }
-            } catch (Throwable th3) {
-                th = th3;
-                bufferedReader = bufferedReader2;
-                bufferedReader2 = bufferedReader;
-                if (bufferedReader2 != null) {
-                    try {
-                        bufferedReader2.close();
-                    } catch (Exception e6) {
-                        Log.e(e6);
-                    }
-                }
-                if (process3 != null) {
-                    process3.destroy();
-                }
-                throw th;
-            }
-        } catch (Throwable th4) {
-            th = th4;
-            process = process3;
-            process3 = process;
-            if (bufferedReader2 != null) {
-            }
-            if (process3 != null) {
-            }
-            throw th;
-        }
-        try {
-            String readLine = bufferedReader.readLine();
-            if (readLine != null && readLine.length() >= 4) {
-                char charAt = readLine.charAt(3);
-                if (charAt == 's' || charAt == 'x') {
-                    try {
-                        bufferedReader.close();
-                    } catch (Exception e7) {
-                        Log.e(e7);
-                    }
-                    if (process3 != null) {
-                        process3.destroy();
-                    }
-                    return true;
-                }
-            }
-            try {
-                bufferedReader.close();
-            } catch (Exception e8) {
-                Log.e(e8);
-            }
-        } catch (IOException e9) {
-            e2 = e9;
-            bufferedReader2 = bufferedReader;
-            Log.e(e2);
-            if (bufferedReader2 != null) {
-            }
-        } catch (Throwable th5) {
-            th = th5;
-            bufferedReader2 = bufferedReader;
-            if (bufferedReader2 != null) {
-            }
-            if (process3 != null) {
-            }
-            throw th;
-        }
-    }
-
-    public static String buildBDUSSCookie(String str, String str2) {
-        return buildBDUSSCookie(str, "BDUSS", str2);
-    }
-
-    public static boolean hasActiveNetwork(Context context) {
-        if (context == null) {
-            return false;
-        }
-        try {
-            return ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo() != null;
-        } catch (Throwable th) {
-            Log.e(th);
-            return false;
-        }
-    }
-
-    private static boolean b(String str) {
-        if (!TextUtils.isEmpty(str) && str.contains("qrsign") && str.contains("scope") && str.contains("channelid") && str.contains("client_id")) {
-            Map<String, String> urlParamsToMap = urlParamsToMap(str);
-            return (TextUtils.isEmpty(urlParamsToMap.get("qrsign")) || TextUtils.isEmpty(urlParamsToMap.get("scope")) || TextUtils.isEmpty(urlParamsToMap.get("channelid")) || TextUtils.isEmpty(urlParamsToMap.get("client_id"))) ? false : true;
-        }
-        return false;
-    }
-
     public static boolean webLogout(Context context) {
         if (context == null) {
             return false;
@@ -1147,59 +1038,169 @@ public class SapiUtils implements NoProguard {
             }
             for (String str2 : getAuthorizedDomainsForPtoken()) {
                 arrayList.add(new PassNameValuePair(COOKIE_URL_PREFIX + str2, buildPtokenCookie(str2, "")));
-                arrayList.add(new PassNameValuePair(COOKIE_HTTPS_URL_PREFIX + str2, buildPtokenCookie(str2, "")));
+                arrayList.add(new PassNameValuePair("https://" + str2, buildPtokenCookie(str2, "")));
             }
             for (String str3 : getAuthorizedDomainsForPtoken()) {
-                arrayList.add(new PassNameValuePair(COOKIE_HTTPS_URL_PREFIX + str3, buildStokenCookie(str3, "")));
+                arrayList.add(new PassNameValuePair("https://" + str3, buildStokenCookie(str3, "")));
             }
             syncCookies(context, arrayList);
             return true;
-        } catch (Throwable th) {
+        } catch (Throwable unused) {
             return false;
         }
     }
 
-    public static String mapToUrlParams(Map<String, String> map, boolean z) {
-        if (map == null) {
-            return "";
-        }
-        StringBuilder sb = new StringBuilder();
-        for (Map.Entry<String, String> entry : map.entrySet()) {
-            String key = entry.getKey();
-            String value = entry.getValue();
-            if (sb.length() <= 0 && !z) {
-                sb.append("?");
-            } else {
-                sb.append(ETAG.ITEM_SEPARATOR);
+    public static boolean webLogin(Context context, String str, String str2) {
+        return ServiceManager.getInstance().getIsAccountManager().getIsAccountService().webLogin(context, str, str2);
+    }
+
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:28:0x005c */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:30:0x005e */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:32:0x0060 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:45:0x0078 */
+    /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: java.lang.String */
+    /* JADX DEBUG: Multi-variable search result rejected for r5v3, resolved type: java.lang.Process */
+    /* JADX DEBUG: Multi-variable search result rejected for r5v4, resolved type: java.lang.Process */
+    /* JADX DEBUG: Multi-variable search result rejected for r5v5, resolved type: java.lang.Process */
+    /* JADX DEBUG: Multi-variable search result rejected for r5v6, resolved type: java.lang.Process */
+    /* JADX DEBUG: Multi-variable search result rejected for r5v8, resolved type: java.lang.Process */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Not initialized variable reg: 1, insn: 0x0080: MOVE  (r4 I:??[OBJECT, ARRAY]) = (r1 I:??[OBJECT, ARRAY]), block:B:50:0x0080 */
+    /* JADX WARN: Removed duplicated region for block: B:65:0x0070 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:74:? A[RETURN, SYNTHETIC] */
+    /* JADX WARN: Type inference failed for: r5v1 */
+    /* JADX WARN: Type inference failed for: r5v11, types: [java.lang.Process] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static boolean a(String str) {
+        IOException e2;
+        BufferedReader bufferedReader;
+        BufferedReader bufferedReader2;
+        IOException e3;
+        BufferedReader bufferedReader3 = null;
+        try {
+            try {
+                str = Runtime.getRuntime().exec("ls -l " + str);
+            } catch (Throwable th) {
+                th = th;
+                bufferedReader3 = bufferedReader;
             }
-            if (value == null) {
-                try {
-                    sb.append(key).append("=");
-                } catch (Exception e2) {
-                    sb.append(key).append("=").append((Object) value);
-                    e2.printStackTrace();
+        } catch (IOException e4) {
+            e2 = e4;
+            str = 0;
+        } catch (Throwable th2) {
+            th = th2;
+            str = 0;
+        }
+        try {
+            bufferedReader2 = new BufferedReader(new InputStreamReader(str.getInputStream()));
+            try {
+                String readLine = bufferedReader2.readLine();
+                if (readLine != null && readLine.length() >= 4) {
+                    char charAt = readLine.charAt(3);
+                    if (charAt == 's' || charAt == 'x') {
+                        try {
+                            bufferedReader2.close();
+                        } catch (Exception e5) {
+                            Log.e(e5);
+                        }
+                        if (str != 0) {
+                            str.destroy();
+                        }
+                        return true;
+                    }
                 }
-            } else {
-                sb.append(key).append("=").append(URLEncoder.encode(value.toString(), "UTF-8"));
+                try {
+                    bufferedReader2.close();
+                } catch (Exception e6) {
+                    Log.e(e6);
+                }
+                if (str == 0) {
+                    return false;
+                }
+            } catch (IOException e7) {
+                e3 = e7;
+                Log.e(e3);
+                if (bufferedReader2 != null) {
+                    try {
+                        bufferedReader2.close();
+                    } catch (Exception e8) {
+                        Log.e(e8);
+                    }
+                }
+                if (str == 0) {
+                    return false;
+                }
+                str.destroy();
+                return false;
             }
+        } catch (IOException e9) {
+            e2 = e9;
+            IOException iOException = e2;
+            bufferedReader2 = null;
+            e3 = iOException;
+            Log.e(e3);
+            if (bufferedReader2 != null) {
+            }
+            if (str == 0) {
+            }
+            str.destroy();
+            return false;
+        } catch (Throwable th3) {
+            th = th3;
+            if (bufferedReader3 != null) {
+                try {
+                    bufferedReader3.close();
+                } catch (Exception e10) {
+                    Log.e(e10);
+                }
+            }
+            if (str != 0) {
+                str.destroy();
+            }
+            throw th;
         }
+        str.destroy();
+        return false;
+    }
+
+    public static boolean b(String str) {
+        if (!TextUtils.isEmpty(str) && str.contains("qrsign") && str.contains("scope") && str.contains("channelid") && str.contains("client_id")) {
+            Map<String, String> urlParamsToMap = urlParamsToMap(str);
+            return (TextUtils.isEmpty(urlParamsToMap.get("qrsign")) || TextUtils.isEmpty(urlParamsToMap.get("scope")) || TextUtils.isEmpty(urlParamsToMap.get("channelid")) || TextUtils.isEmpty(urlParamsToMap.get("client_id"))) ? false : true;
+        }
+        return false;
+    }
+
+    public static String buildBDUSSCookie(String str, String str2) {
+        return buildBDUSSCookie(str, HttpRequest.BDUSS, str2);
+    }
+
+    public static String a(String str, String str2, String str3, Date date, boolean z) {
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("EEE, dd-MMM-yyyy HH:mm:ss 'GMT'", Locale.US);
+        simpleDateFormat.setTimeZone(new SimpleTimeZone(0, "GMT"));
+        StringBuilder sb = new StringBuilder();
+        sb.append(str2);
+        sb.append("=");
+        sb.append(str3);
+        sb.append(";domain=");
+        sb.append(str);
+        sb.append(";path=/;expires=");
+        sb.append(simpleDateFormat.format(date));
+        sb.append(";httponly");
+        sb.append(z ? ";secure" : "");
         return sb.toString();
     }
 
-    private static String a(String str, String str2, String str3, Date date, boolean z) {
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(c, Locale.US);
-        simpleDateFormat.setTimeZone(new SimpleTimeZone(0, "GMT"));
-        return str2 + "=" + str3 + ";domain=" + str + ";path=/;expires=" + simpleDateFormat.format(date) + ";httponly" + (z ? ";secure" : "");
-    }
-
-    static String a(String str, String str2, String str3) {
+    public static String a(String str, String str2, String str3) {
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(new Date());
         calendar.add(1, TextUtils.isEmpty(str3) ? -8 : 8);
         return a(str, str2, str3, calendar.getTime(), true);
     }
 
-    private static Bitmap a(Drawable drawable) {
+    public static Bitmap a(Drawable drawable) {
         if (drawable == null) {
             return null;
         }

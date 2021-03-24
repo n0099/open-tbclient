@@ -5,44 +5,65 @@ import android.graphics.Rect;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.crabsdk.c.b;
+import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
+import com.baidu.tbadk.core.data.SmallTailInfo;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public final class d {
-    private static com.baidu.crabsdk.c.b<List> aqp = new com.baidu.crabsdk.c.b<>(com.baidu.crabsdk.a.f);
-    private static float aqq = 0.0f;
-    private static float aqr = 0.0f;
-    private static float aqs = 0.0f;
-    private static float aqt = 0.0f;
-    private static String bc = "";
-    private static long aqu = 0;
-    private static long aqv = 0;
-    private static Rect aqw = null;
 
-    private static List<View> I(View view) {
+    /* renamed from: a  reason: collision with root package name */
+    public static b<List> f4675a = new b<>(com.baidu.crabsdk.a.f4639f);
+
+    /* renamed from: b  reason: collision with root package name */
+    public static float f4676b = 0.0f;
+
+    /* renamed from: c  reason: collision with root package name */
+    public static float f4677c = 0.0f;
+
+    /* renamed from: d  reason: collision with root package name */
+    public static float f4678d = 0.0f;
+
+    /* renamed from: e  reason: collision with root package name */
+    public static float f4679e = 0.0f;
+
+    /* renamed from: f  reason: collision with root package name */
+    public static String f4680f = "";
+
+    /* renamed from: g  reason: collision with root package name */
+    public static long f4681g = 0;
+
+    /* renamed from: h  reason: collision with root package name */
+    public static long f4682h = 0;
+    public static Rect i = null;
+
+    public static List<View> a(View view) {
         ArrayList arrayList = new ArrayList();
         if (view instanceof ViewGroup) {
             ViewGroup viewGroup = (ViewGroup) view;
-            for (int i = 0; i < viewGroup.getChildCount(); i++) {
-                View childAt = viewGroup.getChildAt(i);
+            for (int i2 = 0; i2 < viewGroup.getChildCount(); i2++) {
+                View childAt = viewGroup.getChildAt(i2);
                 if (childAt.getVisibility() == 0) {
-                    int i2 = (int) aqq;
-                    int i3 = (int) aqr;
-                    if (aqw == null) {
-                        aqw = new Rect();
+                    int i3 = (int) f4676b;
+                    int i4 = (int) f4677c;
+                    if (i == null) {
+                        i = new Rect();
                     }
-                    childAt.getDrawingRect(aqw);
+                    childAt.getDrawingRect(i);
                     int[] iArr = new int[2];
                     childAt.getLocationOnScreen(iArr);
-                    aqw.left = iArr[0];
-                    aqw.top = iArr[1];
-                    aqw.right += iArr[0];
-                    aqw.bottom = iArr[1] + aqw.bottom;
-                    if (aqw.contains(i2, i3)) {
+                    Rect rect = i;
+                    rect.left = iArr[0];
+                    rect.top = iArr[1];
+                    rect.right += iArr[0];
+                    rect.bottom += iArr[1];
+                    if (rect.contains(i3, i4)) {
                         arrayList.add(childAt);
-                        arrayList.addAll(I(childAt));
+                        arrayList.addAll(a(childAt));
                     }
                 }
             }
@@ -50,91 +71,117 @@ public final class d {
         return arrayList;
     }
 
-    private static void a(int i, Activity activity) {
+    public static void b(int i2, Activity activity) {
+        StringBuilder sb;
+        float f2;
         View decorView;
         ArrayList arrayList = new ArrayList();
         arrayList.add(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date(System.currentTimeMillis())));
-        StringBuilder sb = new StringBuilder();
+        StringBuilder sb2 = new StringBuilder();
         if (activity != null && (decorView = activity.getWindow().getDecorView()) != null) {
-            List<View> I = I(decorView);
             String str = "";
-            for (View view : I) {
+            for (View view : a(decorView)) {
                 str = view.getClass().getName() + ", id=" + view.getId();
             }
-            sb.append(str);
+            sb2.append(str);
         }
+        arrayList.add(sb2.toString());
+        if (i2 == 1) {
+            arrayList.add(PrefetchEvent.STATE_CLICK);
+            sb = new StringBuilder("(");
+        } else if (i2 == 2) {
+            arrayList.add("doubleClick");
+            sb = new StringBuilder("(");
+        } else if (i2 != 3) {
+            if (i2 != 4) {
+                if (i2 == 5) {
+                    arrayList.add("fling");
+                    sb = new StringBuilder("from:(");
+                }
+                arrayList.add(f4680f);
+                f4675a.add(arrayList);
+            }
+            arrayList.add("scroll");
+            sb = new StringBuilder("from:(");
+            sb.append(f4676b);
+            sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
+            sb.append(f4677c);
+            sb.append(") to:(");
+            sb.append(f4678d);
+            sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
+            f2 = f4679e;
+            sb.append(f2);
+            sb.append(SmallTailInfo.EMOTION_SUFFIX);
+            arrayList.add(sb.toString());
+            arrayList.add(f4680f);
+            f4675a.add(arrayList);
+        } else {
+            arrayList.add("longPressed");
+            sb = new StringBuilder("(");
+        }
+        sb.append(f4676b);
+        sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
+        f2 = f4677c;
+        sb.append(f2);
+        sb.append(SmallTailInfo.EMOTION_SUFFIX);
         arrayList.add(sb.toString());
-        switch (i) {
-            case 1:
-                arrayList.add("click");
-                arrayList.add("(" + aqq + ", " + aqr + ")");
-                break;
-            case 2:
-                arrayList.add("doubleClick");
-                arrayList.add("(" + aqq + ", " + aqr + ")");
-                break;
-            case 3:
-                arrayList.add("longPressed");
-                arrayList.add("(" + aqq + ", " + aqr + ")");
-                break;
-            case 4:
-                arrayList.add("scroll");
-                arrayList.add("from:(" + aqq + ", " + aqr + ") to:(" + aqs + ", " + aqt + ")");
-                break;
-            case 5:
-                arrayList.add("fling");
-                arrayList.add("from:(" + aqq + ", " + aqr + ") to:(" + aqs + ", " + aqt + ")");
-                break;
-        }
-        arrayList.add(bc);
-        aqp.add(arrayList);
+        arrayList.add(f4680f);
+        f4675a.add(arrayList);
     }
 
-    public static void dispatchTouchEvent(MotionEvent motionEvent, Activity activity) {
+    public static void c(MotionEvent motionEvent, Activity activity) {
         if (activity == null) {
             return;
         }
-        bc = activity.getClass().getName();
-        switch (motionEvent.getAction()) {
-            case 0:
-                aqq = motionEvent.getX();
-                aqr = motionEvent.getY();
-                aqu = System.currentTimeMillis();
-                return;
-            case 1:
-                aqs = motionEvent.getX();
-                aqt = motionEvent.getY();
-                aqv = System.currentTimeMillis();
-                if (Math.abs(aqt - aqr) > 30.0f) {
-                    a(4, activity);
-                    return;
-                } else if (Math.abs(aqs - aqq) > 30.0f && Math.abs(aqt - aqr) < 30.0f) {
-                    a(5, activity);
-                    return;
-                } else if (aqv - aqu > 300) {
-                    a(3, activity);
-                    return;
-                } else {
-                    a(1, activity);
-                    return;
-                }
-            case 2:
-            default:
-                return;
+        f4680f = activity.getClass().getName();
+        int action = motionEvent.getAction();
+        if (action == 0) {
+            f4676b = motionEvent.getX();
+            f4677c = motionEvent.getY();
+            f4681g = System.currentTimeMillis();
+        } else if (action != 1) {
+        } else {
+            f4678d = motionEvent.getX();
+            f4679e = motionEvent.getY();
+            f4682h = System.currentTimeMillis();
+            if (Math.abs(f4679e - f4677c) > 30.0f) {
+                b(4, activity);
+            } else if (Math.abs(f4678d - f4676b) > 30.0f && Math.abs(f4679e - f4677c) < 30.0f) {
+                b(5, activity);
+            } else if (f4682h - f4681g > 300) {
+                b(3, activity);
+            } else {
+                b(1, activity);
+            }
         }
     }
 
-    public static String w() {
+    public static String d() {
         StringBuilder sb = new StringBuilder();
-        int size = aqp.size();
-        for (int i = 0; i < size; i++) {
-            List list = aqp.get(i);
+        int size = f4675a.size();
+        int i2 = 0;
+        while (i2 < size) {
+            List list = f4675a.get(i2);
             if (list == null || list.size() <= 0) {
                 return sb.toString();
             }
-            sb.append("STEP" + (i + 1) + "\nTime: " + list.get(0) + "; Activity: " + list.get(4) + "; Component: " + list.get(1) + "; Operation: " + list.get(2) + "; Location: " + list.get(3) + "\n");
+            StringBuilder sb2 = new StringBuilder("STEP");
+            i2++;
+            sb2.append(i2);
+            sb2.append("\nTime: ");
+            sb2.append(list.get(0));
+            sb2.append("; Activity: ");
+            sb2.append(list.get(4));
+            sb2.append("; Component: ");
+            sb2.append(list.get(1));
+            sb2.append("; Operation: ");
+            sb2.append(list.get(2));
+            sb2.append("; Location: ");
+            sb2.append(list.get(3));
+            sb2.append("\n");
+            sb.append(sb2.toString());
         }
-        com.baidu.crabsdk.c.a.v("Behavior Steps --> " + sb.toString());
+        com.baidu.crabsdk.c.a.c("Behavior Steps --> " + sb.toString());
         return sb.toString();
     }
 }

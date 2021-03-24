@@ -6,21 +6,42 @@ import android.os.Looper;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.task.HttpMessageTask;
-import com.baidu.adp.lib.util.j;
 import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-/* loaded from: classes.dex */
+import com.baidu.tieba.recapp.report.AdUploadHttpRequest;
+import d.b.b.e.p.j;
+/* loaded from: classes4.dex */
 public class CustomALSHttpMessage extends HttpMessage {
-    private static final TbHttpMessageTask task = new TbHttpMessageTask(1003195, TbConfig.REPORT_PLOG);
-    Handler mUIHandler;
+    public static final TbHttpMessageTask task;
+    public Handler mUIHandler;
+
+    /* loaded from: classes4.dex */
+    public class a implements Runnable {
+        public a() {
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            MessageManager.getInstance().sendMessage(CustomALSHttpMessage.this, CustomALSHttpMessage.task);
+        }
+    }
+
+    static {
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CUSTOM_ALS, TbConfig.REPORT_PLOG);
+        task = tbHttpMessageTask;
+        tbHttpMessageTask.setMethod(HttpMessageTask.HTTP_METHOD.POST);
+        task.setIsNeedAddCommenParam(true);
+        task.setResponsedClass(CustomALSResponseHttpMessage.class);
+    }
 
     public CustomALSHttpMessage() {
-        super(1003195);
+        super(CmdConfigHttp.CMD_CUSTOM_ALS);
         this.mUIHandler = null;
         addParam("productId", "2");
-        addParam("_os_version", Build.VERSION.RELEASE);
-        addParam("_os_type", "ANDROID");
-        addParam("net_type", String.valueOf(j.netType()));
+        addParam(AdUploadHttpRequest.KEY_OS_VERSION, Build.VERSION.RELEASE);
+        addParam(AdUploadHttpRequest.KEY_OS_TYPE, "ANDROID");
+        addParam("net_type", String.valueOf(j.I()));
         this.mUIHandler = new Handler(Looper.getMainLooper());
     }
 
@@ -35,17 +56,6 @@ public class CustomALSHttpMessage extends HttpMessage {
     }
 
     public void sendBackground() {
-        this.mUIHandler.post(new Runnable() { // from class: com.baidu.tieba.ad.statis.CustomALSHttpMessage.1
-            @Override // java.lang.Runnable
-            public void run() {
-                MessageManager.getInstance().sendMessage(CustomALSHttpMessage.this, CustomALSHttpMessage.task);
-            }
-        });
-    }
-
-    static {
-        task.setMethod(HttpMessageTask.HTTP_METHOD.POST);
-        task.setIsNeedAddCommenParam(true);
-        task.setResponsedClass(CustomALSResponseHttpMessage.class);
+        this.mUIHandler.post(new a());
     }
 }

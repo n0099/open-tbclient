@@ -1,22 +1,13 @@
 package com.baidu.sofire.m;
-
-import android.database.ContentObserver;
-/* loaded from: classes4.dex */
-public final class a extends ContentObserver {
-
-    /* renamed from: a  reason: collision with root package name */
-    private c f3565a;
-
-    public a(c cVar) {
-        super(null);
-        this.f3565a = cVar;
-    }
-
-    @Override // android.database.ContentObserver
-    public final void onChange(boolean z) {
-        if (this.f3565a != null) {
-            c cVar = this.f3565a;
-            cVar.b = cVar.f3567a.a();
+/* loaded from: classes3.dex */
+public final class a {
+    public static String a(String str, String str2) {
+        try {
+            Class<?> cls = Class.forName("android.os.SystemProperties");
+            return (String) cls.getMethod("get", String.class, String.class).invoke(cls, str, str2);
+        } catch (Throwable th) {
+            th.printStackTrace();
+            return null;
         }
     }
 }

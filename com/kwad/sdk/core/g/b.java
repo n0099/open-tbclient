@@ -1,5 +1,5 @@
 package com.kwad.sdk.core.g;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class b extends com.kwad.sdk.core.network.d {
     public b(long j) {
         a("photoId", j);

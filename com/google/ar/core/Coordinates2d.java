@@ -1,7 +1,7 @@
 package com.google.ar.core;
 
 import com.google.ar.core.exceptions.FatalException;
-/* loaded from: classes14.dex */
+/* loaded from: classes6.dex */
 public enum Coordinates2d {
     TEXTURE_TEXELS(0),
     TEXTURE_NORMALIZED(1),
@@ -11,19 +11,22 @@ public enum Coordinates2d {
     VIEW(7),
     VIEW_NORMALIZED(8);
     
-    final int nativeCode;
+    public final int nativeCode;
 
     Coordinates2d(int i) {
         this.nativeCode = i;
     }
 
-    static Coordinates2d forNumber(int i) {
+    public static Coordinates2d forNumber(int i) {
         Coordinates2d[] values;
         for (Coordinates2d coordinates2d : values()) {
             if (coordinates2d.nativeCode == i) {
                 return coordinates2d;
             }
         }
-        throw new FatalException(new StringBuilder(60).append("Unexpected value for native Coordinates2d, value=").append(i).toString());
+        StringBuilder sb = new StringBuilder(60);
+        sb.append("Unexpected value for native Coordinates2d, value=");
+        sb.append(i);
+        throw new FatalException(sb.toString());
     }
 }

@@ -14,38 +14,60 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import com.baidu.adp.plugin.PluginCenter;
 import com.baidu.webkit.sdk.Log;
 import java.net.URISyntaxException;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public final class b extends j {
 
     /* renamed from: a  reason: collision with root package name */
-    private final String[] f3816a = {"market://", "http://market.android.com/search?q=", "https://market.android.com/search?q=", "http://market.android.com/details?id=", "https://market.android.com/details?id=", "http://play.google.com/store/search?q=", "https://play.google.com/store/search?q=", "http://play.google.com/store/apps/details?id=", "https://play.google.com/store/apps/details?id="};
+    public final String[] f26870a = {"market://", "http://market.android.com/search?q=", "https://market.android.com/search?q=", "http://market.android.com/details?id=", "https://market.android.com/details?id=", "http://play.google.com/store/search?q=", "https://play.google.com/store/search?q=", "http://play.google.com/store/apps/details?id=", "https://play.google.com/store/apps/details?id="};
 
     private boolean a(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        for (int i = 0; i < this.f3816a.length; i++) {
-            if (str.startsWith(this.f3816a[i])) {
+        int i = 0;
+        while (true) {
+            String[] strArr = this.f26870a;
+            if (i >= strArr.length) {
+                return false;
+            }
+            if (str.startsWith(strArr[i])) {
                 return true;
             }
+            i++;
         }
-        return false;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:21:0x017b  */
+    /* JADX WARN: Removed duplicated region for block: B:20:0x0152  */
     @SuppressLint({"NewApi"})
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     private boolean b(Context context, String str) {
-        if (TextUtils.isEmpty(str) || !a(str)) {
-            return false;
-        }
-        try {
-            Intent parseUri = Intent.parseUri(str, 1);
-            if (context.getPackageManager().resolveActivity(parseUri, 0) != null) {
+        if (!TextUtils.isEmpty(str) && a(str)) {
+            try {
+                Intent parseUri = Intent.parseUri(str, 1);
+                if (context.getPackageManager().resolveActivity(parseUri, 0) == null) {
+                    String str2 = parseUri.getPackage();
+                    if (str2 != null) {
+                        Intent intent = new Intent("android.intent.action.VIEW", Uri.parse("market://search?q=pname:" + str2));
+                        intent.addCategory("android.intent.category.BROWSABLE");
+                        j.a(context, intent);
+                        return true;
+                    }
+                    String substring = str.substring(0, str.indexOf(":"));
+                    View inflate = LayoutInflater.from(context).inflate(context.getResources().getIdentifier("sailor_noapp_support_warnings", "layout", context.getPackageName()), (ViewGroup) null);
+                    ((TextView) inflate.findViewById(context.getResources().getIdentifier("sailor_noapp_support_warnings_header", "id", context.getPackageName()))).setText(context.getResources().getIdentifier("sailor_noapp_support_warning", "string", context.getPackageName()));
+                    String str3 = context.getResources().getString(context.getResources().getIdentifier("zeus_popup_not_support_protocol_start", "string", context.getPackageName())) + substring;
+                    int identifier = context.getResources().getIdentifier("zeus_popup_not_support_protocol_end", "string", context.getPackageName());
+                    ((TextView) inflate.findViewById(context.getResources().getIdentifier("sailor_noapp_support_warnings_text", "id", context.getPackageName()))).setText(str3 + context.getResources().getString(identifier));
+                    AlertDialog show = new AlertDialog.Builder(context).setView(inflate).setPositiveButton(context.getResources().getIdentifier("sailor_common_ok", "string", context.getPackageName()), new d(this)).setOnCancelListener(new c(this)).show();
+                    show.setCanceledOnTouchOutside(true);
+                    new Handler(Looper.getMainLooper()).postDelayed(new e(this, show), PluginCenter.PLUGIN_RETRY_MIN_TIME_INTERVAL);
+                    return true;
+                }
                 parseUri.addCategory("android.intent.category.BROWSABLE");
                 parseUri.setComponent(null);
                 parseUri.setSelector(null);
@@ -54,7 +76,7 @@ public final class b extends j {
                         parseUri.setPackage(packageInfo.packageName);
                         break;
                     }
-                    while (r4.hasNext()) {
+                    while (r10.hasNext()) {
                     }
                 }
                 parseUri.setComponent(null);
@@ -64,29 +86,13 @@ public final class b extends j {
                             return true;
                         }
                     }
-                } catch (Exception e) {
-                    Log.e(Log.LOG_TAG, e.toString());
+                } catch (Exception e2) {
+                    Log.e(Log.LOG_TAG, e2.toString());
                 }
-                return false;
+            } catch (URISyntaxException unused) {
             }
-            String str2 = parseUri.getPackage();
-            if (str2 != null) {
-                Intent intent = new Intent("android.intent.action.VIEW", Uri.parse("market://search?q=pname:" + str2));
-                intent.addCategory("android.intent.category.BROWSABLE");
-                a(context, intent);
-                return true;
-            }
-            String substring = str.substring(0, str.indexOf(":"));
-            View inflate = LayoutInflater.from(context).inflate(context.getResources().getIdentifier("sailor_noapp_support_warnings", "layout", context.getPackageName()), (ViewGroup) null);
-            ((TextView) inflate.findViewById(context.getResources().getIdentifier("sailor_noapp_support_warnings_header", "id", context.getPackageName()))).setText(context.getResources().getIdentifier("sailor_noapp_support_warning", "string", context.getPackageName()));
-            ((TextView) inflate.findViewById(context.getResources().getIdentifier("sailor_noapp_support_warnings_text", "id", context.getPackageName()))).setText((context.getResources().getString(context.getResources().getIdentifier("zeus_popup_not_support_protocol_start", "string", context.getPackageName())) + substring) + context.getResources().getString(context.getResources().getIdentifier("zeus_popup_not_support_protocol_end", "string", context.getPackageName())));
-            AlertDialog show = new AlertDialog.Builder(context).setView(inflate).setPositiveButton(context.getResources().getIdentifier("sailor_common_ok", "string", context.getPackageName()), new d(this)).setOnCancelListener(new c(this)).show();
-            show.setCanceledOnTouchOutside(true);
-            new Handler(Looper.getMainLooper()).postDelayed(new e(this, show), 4000L);
-            return true;
-        } catch (URISyntaxException e2) {
-            return false;
         }
+        return false;
     }
 
     @Override // com.baidu.webkit.internal.b.j
@@ -100,7 +106,7 @@ public final class b extends j {
         if (a(str)) {
             Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(str));
             intent.addCategory("android.intent.category.BROWSABLE");
-            return a(context, intent);
+            return j.a(context, intent);
         }
         return false;
     }

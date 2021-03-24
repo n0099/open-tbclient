@@ -2,20 +2,19 @@ package com.kwad.sdk.core.config.item;
 
 import android.content.SharedPreferences;
 import androidx.annotation.NonNull;
-import com.baidu.adp.lib.stats.BdStatisticsManager;
 import java.io.Serializable;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class InstallActivateReminderConfigItem extends a<InstallActivateReminderConfig> {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class InstallActivateReminderConfig extends com.kwad.sdk.core.response.a.a implements Serializable {
-        private static final long serialVersionUID = -6457271849826128465L;
+        public static final long serialVersionUID = -6457271849826128465L;
         public int noticeTotalCount = 3;
         public int perAppNoticeCount = 2;
-        public int noticeAppearTime = BdStatisticsManager.INIT_UPLOAD_TIME_INTERVAL;
-        public int noticeContinueTime = BdStatisticsManager.INIT_UPLOAD_TIME_INTERVAL;
+        public int noticeAppearTime = 15000;
+        public int noticeContinueTime = 15000;
     }
 
     public InstallActivateReminderConfigItem() {
@@ -24,30 +23,34 @@ public class InstallActivateReminderConfigItem extends a<InstallActivateReminder
 
     @Override // com.kwad.sdk.core.config.item.a
     public void a(@NonNull SharedPreferences.Editor editor) {
+        String a2;
+        String str;
         if (b() == null || b().toJson() == null) {
-            editor.putString(a(), "");
+            a2 = a();
+            str = "";
         } else {
-            editor.putString(a(), b().toJson().toString());
+            a2 = a();
+            str = b().toJson().toString();
         }
+        editor.putString(a2, str);
     }
 
     @Override // com.kwad.sdk.core.config.item.a
     public void a(@NonNull SharedPreferences sharedPreferences) {
-        JSONObject jSONObject;
-        InstallActivateReminderConfig b = b();
-        if (b == null) {
-            b = new InstallActivateReminderConfig();
+        InstallActivateReminderConfig b2 = b();
+        if (b2 == null) {
+            b2 = new InstallActivateReminderConfig();
         }
+        JSONObject jSONObject = null;
         try {
             jSONObject = new JSONObject(sharedPreferences.getString(a(), ""));
-        } catch (JSONException e) {
-            com.kwad.sdk.core.d.a.b(e);
-            jSONObject = null;
+        } catch (JSONException e2) {
+            com.kwad.sdk.core.d.a.b(e2);
         }
         if (jSONObject != null) {
-            b.parseJson(jSONObject);
+            b2.parseJson(jSONObject);
         }
-        a((InstallActivateReminderConfigItem) b);
+        a((InstallActivateReminderConfigItem) b2);
     }
 
     @Override // com.kwad.sdk.core.config.item.a

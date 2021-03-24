@@ -7,11 +7,11 @@ import com.kwad.sdk.api.loader.Loader;
 import com.kwad.sdk.api.proxy.BaseProxyActivity;
 import com.kwad.sdk.api.proxy.IActivityProxy;
 @Keep
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class KsFullScreenVideoActivity extends BaseProxyActivity {
     @Override // com.kwad.sdk.api.proxy.BaseProxyActivity
     @NonNull
-    protected IActivityProxy getDelegate(Context context) {
+    public IActivityProxy getDelegate(Context context) {
         return (IActivityProxy) Loader.get().newComponentProxy(context, KsFullScreenVideoActivity.class, this);
     }
 }

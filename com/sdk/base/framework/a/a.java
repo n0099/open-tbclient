@@ -7,14 +7,20 @@ import android.net.NetworkRequest;
 import java.net.HttpURLConnection;
 import java.net.URL;
 @SuppressLint({"NewApi"})
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f7601a = a.class.getName();
-    private static Boolean b = Boolean.valueOf(com.sdk.base.framework.c.f.b);
-    private static ConnectivityManager.NetworkCallback d;
-    private HttpURLConnection c;
+    public static final String f38401a = "com.sdk.base.framework.a.a";
+
+    /* renamed from: b  reason: collision with root package name */
+    public static Boolean f38402b = Boolean.valueOf(com.sdk.base.framework.c.f.f38519b);
+
+    /* renamed from: d  reason: collision with root package name */
+    public static ConnectivityManager.NetworkCallback f38403d;
+
+    /* renamed from: c  reason: collision with root package name */
+    public HttpURLConnection f38404c;
 
     public a(Context context, URL url) {
         try {
@@ -22,18 +28,20 @@ public class a {
             builder.addCapability(12);
             builder.addTransportType(0);
             NetworkRequest build = builder.build();
-            d = new b(this, url);
-            ((ConnectivityManager) context.getSystemService("connectivity")).requestNetwork(build, d);
-        } catch (Exception e) {
-            com.sdk.base.framework.a.a.c.b(f7601a, e.toString(), b);
+            b bVar = new b(this, url);
+            f38403d = bVar;
+            ((ConnectivityManager) context.getSystemService("connectivity")).requestNetwork(build, bVar);
+        } catch (Exception e2) {
+            com.sdk.base.framework.a.a.c.b(f38401a, e2.toString(), f38402b);
         }
     }
 
     public final HttpURLConnection a() {
         c cVar = new c(this, 2000L);
         while (!cVar.a()) {
-            if (this.c != null) {
-                return this.c;
+            HttpURLConnection httpURLConnection = this.f38404c;
+            if (httpURLConnection != null) {
+                return httpURLConnection;
             }
         }
         return null;

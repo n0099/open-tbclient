@@ -4,14 +4,10 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.widget.FrameLayout;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class TestFrameLayout extends FrameLayout {
     public TestFrameLayout(Context context) {
         super(context);
-    }
-
-    public TestFrameLayout(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
     }
 
     @Override // android.view.View
@@ -21,5 +17,9 @@ public class TestFrameLayout extends FrameLayout {
             getChildAt(i).dispatchTouchEvent(motionEvent);
         }
         return true;
+    }
+
+    public TestFrameLayout(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
     }
 }

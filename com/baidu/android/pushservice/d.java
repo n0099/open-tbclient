@@ -5,23 +5,29 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.util.Base64;
 import android.util.Log;
-import com.baidu.android.pushservice.h.a.b;
+import com.baidu.android.pushservice.i.a.b;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    private static String f1123a = "NotificationBuilderManager";
-    private static String b = "notification_builder_storage";
-    private static Object c = new Object();
-    private static int d = 0;
+    public static String f2938a = "NotificationBuilderManager";
+
+    /* renamed from: b  reason: collision with root package name */
+    public static String f2939b = "notification_builder_storage";
+
+    /* renamed from: c  reason: collision with root package name */
+    public static Object f2940c = new Object();
+
+    /* renamed from: d  reason: collision with root package name */
+    public static int f2941d;
 
     public static Notification a(Context context, int i, int i2, String str, String str2, boolean z) {
         Notification construct;
-        synchronized (c) {
+        synchronized (f2940c) {
             PushNotificationBuilder a2 = a(context, i);
             a2.setNotificationTitle(str);
             a2.setNotificationText(str2);
@@ -36,9 +42,9 @@ public class d {
             } else {
                 construct.defaults = -1;
                 if ((i2 & 4) != 0) {
-                    construct.defaults |= 1;
+                    construct.defaults = (-1) | 1;
                 } else {
-                    construct.defaults &= -2;
+                    construct.defaults = (-1) & (-2);
                 }
                 if ((i2 & 2) != 0) {
                     construct.defaults |= 2;
@@ -52,7 +58,7 @@ public class d {
 
     public static Notification a(Context context, int i, String str, String str2, boolean z) {
         Notification construct;
-        synchronized (c) {
+        synchronized (f2940c) {
             PushNotificationBuilder a2 = a(context, i);
             a2.setNotificationTitle(str);
             a2.setNotificationText(str2);
@@ -66,7 +72,7 @@ public class d {
         return construct;
     }
 
-    private static PushNotificationBuilder a(Context context) {
+    public static PushNotificationBuilder a(Context context) {
         BasicPushNotificationBuilder basicPushNotificationBuilder = new BasicPushNotificationBuilder();
         basicPushNotificationBuilder.setNotificationFlags(16);
         basicPushNotificationBuilder.setNotificationDefaults(3);
@@ -74,89 +80,92 @@ public class d {
         return basicPushNotificationBuilder;
     }
 
-    private static PushNotificationBuilder a(Context context, int i) {
-        PushNotificationBuilder pushNotificationBuilder;
-        String string = context.getSharedPreferences(b, 0).getString("" + i, null);
+    public static PushNotificationBuilder a(Context context, int i) {
+        PushNotificationBuilder pushNotificationBuilder = null;
+        String string = context.getSharedPreferences(f2939b, 0).getString("" + i, null);
         if (string == null) {
             return b(context);
         }
         ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(Base64.decode(string.getBytes(), 2));
         try {
             ObjectInputStream objectInputStream = new ObjectInputStream(byteArrayInputStream);
-            pushNotificationBuilder = (PushNotificationBuilder) objectInputStream.readObject();
+            PushNotificationBuilder pushNotificationBuilder2 = (PushNotificationBuilder) objectInputStream.readObject();
             try {
                 objectInputStream.close();
                 byteArrayInputStream.close();
-                return pushNotificationBuilder;
-            } catch (Exception e) {
-                e = e;
+                return pushNotificationBuilder2;
+            } catch (Exception e2) {
+                e = e2;
+                pushNotificationBuilder = pushNotificationBuilder2;
                 new b.c(context).a(Log.getStackTraceString(e)).a();
                 return pushNotificationBuilder;
             }
-        } catch (Exception e2) {
-            e = e2;
-            pushNotificationBuilder = null;
+        } catch (Exception e3) {
+            e = e3;
         }
     }
 
     public static void a(Context context, int i, PushNotificationBuilder pushNotificationBuilder) {
-        synchronized (c) {
+        synchronized (f2940c) {
             try {
                 ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
                 ObjectOutputStream objectOutputStream = new ObjectOutputStream(byteArrayOutputStream);
                 objectOutputStream.writeObject(pushNotificationBuilder);
                 String encodeToString = Base64.encodeToString(byteArrayOutputStream.toByteArray(), 2);
-                SharedPreferences.Editor edit = context.getSharedPreferences(b, 0).edit();
+                SharedPreferences.Editor edit = context.getSharedPreferences(f2939b, 0).edit();
                 edit.putString("" + i, encodeToString);
                 edit.commit();
                 byteArrayOutputStream.close();
                 objectOutputStream.close();
-            } catch (Exception e) {
-                new b.c(context).a(Log.getStackTraceString(e)).a();
+            } catch (Exception e2) {
+                new b.c(context).a(Log.getStackTraceString(e2)).a();
             }
         }
     }
 
     public static void a(Context context, PushNotificationBuilder pushNotificationBuilder) {
-        synchronized (c) {
+        synchronized (f2940c) {
             try {
                 ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
                 ObjectOutputStream objectOutputStream = new ObjectOutputStream(byteArrayOutputStream);
                 objectOutputStream.writeObject(pushNotificationBuilder);
                 String encodeToString = Base64.encodeToString(byteArrayOutputStream.toByteArray(), 2);
-                SharedPreferences.Editor edit = context.getSharedPreferences(b, 0).edit();
-                edit.putString("" + d, encodeToString);
+                SharedPreferences.Editor edit = context.getSharedPreferences(f2939b, 0).edit();
+                edit.putString("" + f2941d, encodeToString);
                 edit.commit();
                 byteArrayOutputStream.close();
                 objectOutputStream.close();
-            } catch (Exception e) {
-                new b.c(context).a(Log.getStackTraceString(e)).a();
+            } catch (Exception e2) {
+                new b.c(context).a(Log.getStackTraceString(e2)).a();
             }
         }
     }
 
-    private static PushNotificationBuilder b(Context context) {
+    public static PushNotificationBuilder b(Context context) {
+        ObjectInputStream objectInputStream;
         PushNotificationBuilder pushNotificationBuilder;
-        String string = context.getSharedPreferences(b, 0).getString("" + d, null);
-        if (string == null) {
-            return a(context);
-        }
-        ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(Base64.decode(string.getBytes(), 2));
-        try {
-            ObjectInputStream objectInputStream = new ObjectInputStream(byteArrayInputStream);
-            pushNotificationBuilder = (PushNotificationBuilder) objectInputStream.readObject();
+        SharedPreferences sharedPreferences = context.getSharedPreferences(f2939b, 0);
+        PushNotificationBuilder pushNotificationBuilder2 = null;
+        String string = sharedPreferences.getString("" + f2941d, null);
+        if (string != null) {
+            ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(Base64.decode(string.getBytes(), 2));
+            try {
+                objectInputStream = new ObjectInputStream(byteArrayInputStream);
+                pushNotificationBuilder = (PushNotificationBuilder) objectInputStream.readObject();
+            } catch (Exception e2) {
+                e = e2;
+            }
             try {
                 objectInputStream.close();
                 byteArrayInputStream.close();
                 return pushNotificationBuilder;
-            } catch (Exception e) {
-                e = e;
+            } catch (Exception e3) {
+                e = e3;
+                pushNotificationBuilder2 = pushNotificationBuilder;
                 new b.c(context).a(Log.getStackTraceString(e)).a();
-                return pushNotificationBuilder;
+                return pushNotificationBuilder2;
             }
-        } catch (Exception e2) {
-            e = e2;
-            pushNotificationBuilder = null;
         }
+        return a(context);
     }
 }

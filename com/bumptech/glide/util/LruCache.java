@@ -5,44 +5,24 @@ import androidx.annotation.Nullable;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Map;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class LruCache<T, Y> {
-    private final Map<T, Y> cache = new LinkedHashMap(100, 0.75f, true);
-    private long currentSize;
-    private final long initialMaxSize;
-    private long maxSize;
+    public final Map<T, Y> cache = new LinkedHashMap(100, 0.75f, true);
+    public long currentSize;
+    public final long initialMaxSize;
+    public long maxSize;
 
     public LruCache(long j) {
         this.initialMaxSize = j;
         this.maxSize = j;
     }
 
-    public synchronized void setSizeMultiplier(float f) {
-        if (f < 0.0f) {
-            throw new IllegalArgumentException("Multiplier must be >= 0");
-        }
-        this.maxSize = Math.round(((float) this.initialMaxSize) * f);
-        evict();
+    private void evict() {
+        trimToSize(this.maxSize);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public int getSize(@Nullable Y y) {
-        return 1;
-    }
-
-    protected synchronized int getCount() {
-        return this.cache.size();
-    }
-
-    protected void onItemEvicted(@NonNull T t, @Nullable Y y) {
-    }
-
-    public synchronized long getMaxSize() {
-        return this.maxSize;
-    }
-
-    public synchronized long getCurrentSize() {
-        return this.currentSize;
+    public void clearMemory() {
+        trimToSize(0L);
     }
 
     public synchronized boolean contains(@NonNull T t) {
@@ -54,26 +34,43 @@ public class LruCache<T, Y> {
         return this.cache.get(t);
     }
 
+    public synchronized int getCount() {
+        return this.cache.size();
+    }
+
+    public synchronized long getCurrentSize() {
+        return this.currentSize;
+    }
+
+    public synchronized long getMaxSize() {
+        return this.maxSize;
+    }
+
+    public int getSize(@Nullable Y y) {
+        return 1;
+    }
+
+    public void onItemEvicted(@NonNull T t, @Nullable Y y) {
+    }
+
     @Nullable
     public synchronized Y put(@NonNull T t, @Nullable Y y) {
-        Y put;
-        int size = getSize(y);
+        long size = getSize(y);
         if (size >= this.maxSize) {
             onItemEvicted(t, y);
-            put = null;
-        } else {
-            if (y != null) {
-                this.currentSize = size + this.currentSize;
-            }
-            put = this.cache.put(t, y);
-            if (put != null) {
-                this.currentSize -= getSize(put);
-                if (!put.equals(y)) {
-                    onItemEvicted(t, put);
-                }
-            }
-            evict();
+            return null;
         }
+        if (y != null) {
+            this.currentSize += size;
+        }
+        Y put = this.cache.put(t, y);
+        if (put != null) {
+            this.currentSize -= getSize(put);
+            if (!put.equals(y)) {
+                onItemEvicted(t, put);
+            }
+        }
+        evict();
         return put;
     }
 
@@ -87,11 +84,15 @@ public class LruCache<T, Y> {
         return remove;
     }
 
-    public void clearMemory() {
-        trimToSize(0L);
+    public synchronized void setSizeMultiplier(float f2) {
+        if (f2 >= 0.0f) {
+            this.maxSize = Math.round(((float) this.initialMaxSize) * f2);
+            evict();
+        } else {
+            throw new IllegalArgumentException("Multiplier must be >= 0");
+        }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     public synchronized void trimToSize(long j) {
         while (this.currentSize > j) {
             Iterator<Map.Entry<T, Y>> it = this.cache.entrySet().iterator();
@@ -102,9 +103,5 @@ public class LruCache<T, Y> {
             it.remove();
             onItemEvicted(key, value);
         }
-    }
-
-    private void evict() {
-        trimToSize(this.maxSize);
     }
 }

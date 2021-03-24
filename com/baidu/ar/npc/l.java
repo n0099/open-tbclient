@@ -4,24 +4,24 @@ import android.graphics.Bitmap;
 import android.os.Handler;
 import com.baidu.ar.npc.ArBridge;
 import com.baidu.ar.npc.BaiduArView;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class l implements BaiduArView.a {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ArBridge.c f1293a;
-    final /* synthetic */ ArBridge b;
+    public final /* synthetic */ ArBridge.c f4186a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    /* renamed from: b  reason: collision with root package name */
+    public final /* synthetic */ ArBridge f4187b;
+
     public l(ArBridge arBridge, ArBridge.c cVar) {
-        this.b = arBridge;
-        this.f1293a = cVar;
+        this.f4187b = arBridge;
+        this.f4186a = cVar;
     }
 
     @Override // com.baidu.ar.npc.BaiduArView.a
     public void a(Bitmap bitmap) {
         Handler handler;
-        handler = this.b.d;
+        handler = this.f4187b.f4080d;
         handler.post(new m(this, bitmap));
     }
 }

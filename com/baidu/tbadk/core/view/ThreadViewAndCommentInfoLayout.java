@@ -7,127 +7,140 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.baidu.tbadk.core.data.cb;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.au;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tieba.R;
-/* loaded from: classes.dex */
+import d.b.h0.r.q.a2;
+/* loaded from: classes3.dex */
 public class ThreadViewAndCommentInfoLayout extends LinearLayout {
-    private TextView eKe;
-    public int flV;
-    private TextView fnh;
-    private boolean fni;
-    private boolean fnj;
-    private boolean fnk;
-    private boolean fnl;
-    private boolean fnm;
-    private Context mContext;
+
+    /* renamed from: e  reason: collision with root package name */
+    public TextView f13546e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public TextView f13547f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public Context f13548g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public boolean f13549h;
+    public boolean i;
+    public boolean j;
+    public boolean k;
+    public boolean l;
+    public int m;
 
     public ThreadViewAndCommentInfoLayout(Context context) {
         super(context);
-        this.fni = false;
-        this.fnj = false;
-        this.fnk = false;
-        this.fnl = false;
-        this.fnm = false;
-        init(context);
+        this.f13549h = false;
+        this.i = false;
+        this.j = false;
+        this.k = false;
+        this.l = false;
+        a(context);
     }
 
-    public ThreadViewAndCommentInfoLayout(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        this.fni = false;
-        this.fnj = false;
-        this.fnk = false;
-        this.fnl = false;
-        this.fnm = false;
-        init(context);
-    }
-
-    private void init(Context context) {
+    public final void a(Context context) {
         View inflate = LayoutInflater.from(context).inflate(R.layout.thread_comment_and_view_info_layout, (ViewGroup) this, true);
-        this.fnh = (TextView) inflate.findViewById(R.id.thread_view_num);
-        this.eKe = (TextView) inflate.findViewById(R.id.thread_comment_num);
-        this.mContext = context;
+        this.f13546e = (TextView) inflate.findViewById(R.id.thread_view_num);
+        this.f13547f = (TextView) inflate.findViewById(R.id.thread_comment_num);
+        this.f13548g = context;
     }
 
-    public void setData(cb cbVar) {
-        if (cbVar == null) {
+    public void b() {
+        SkinManager.setViewTextColor(this.f13546e, R.color.CAM_X0109);
+        SkinManager.setViewTextColor(this.f13547f, R.color.CAM_X0109);
+    }
+
+    public final void c(a2 a2Var) {
+        if (this.f13547f == null || a2Var == null || !this.i) {
+            return;
+        }
+        if (a2Var.Z0() >= 0) {
+            this.f13547f.setVisibility(0);
+            this.f13547f.setText(String.format(this.f13548g.getString(R.string.comment_num_tip), StringHelper.numberUniformFormat(a2Var.Z0())));
+            return;
+        }
+        this.f13547f.setVisibility(8);
+    }
+
+    public final void d(a2 a2Var) {
+        if (this.f13547f == null || a2Var == null || !this.l || !a2Var.p2()) {
+            return;
+        }
+        this.f13547f.setVisibility(0);
+        this.f13547f.setText(String.format(this.f13548g.getString(R.string.person_view_item_live_share_num), StringHelper.numberUniformFormat((a2Var.q1() == null || a2Var.q1().share_info == null) ? 0 : a2Var.q1().share_info.share_count)));
+    }
+
+    public final void e(a2 a2Var) {
+        if (this.f13546e == null || a2Var == null || !this.f13549h) {
+            return;
+        }
+        if (a2Var.G1() >= 0) {
+            this.f13546e.setVisibility(0);
+            this.f13546e.setText(String.format(this.f13548g.getString(R.string.person_view_num), StringHelper.numberUniformFormat(a2Var.G1())));
+            return;
+        }
+        this.f13546e.setVisibility(8);
+    }
+
+    public final void f(a2 a2Var) {
+        if (this.f13546e == null || a2Var == null || !this.j || a2Var.q1() == null || !a2Var.p2()) {
+            return;
+        }
+        this.f13546e.setVisibility(0);
+        this.f13546e.setText(String.format(this.f13548g.getString(R.string.person_view_item_live_watch_num), StringHelper.numberUniformFormat(a2Var.q1().audience_count)));
+    }
+
+    public final void g(a2 a2Var) {
+        if (this.f13547f == null || a2Var == null || !this.k || !a2Var.p2()) {
+            return;
+        }
+        this.f13547f.setVisibility(0);
+        this.f13547f.setText(String.format(this.f13548g.getString(R.string.person_view_item_live_zan_num), StringHelper.numberUniformFormat(a2Var.M())));
+    }
+
+    public void setData(a2 a2Var) {
+        if (a2Var == null) {
             setVisibility(8);
             return;
         }
         setVisibility(0);
-        N(cbVar);
-        O(cbVar);
-        P(cbVar);
-        Q(cbVar);
-        B(cbVar);
-    }
-
-    private void N(cb cbVar) {
-        if (this.fnh != null && cbVar != null && this.fnk && cbVar.bol() != null && cbVar.bpo()) {
-            this.fnh.setVisibility(0);
-            this.fnh.setText(String.format(this.mContext.getString(R.string.person_view_item_live_watch_num), au.numberUniformFormat(cbVar.bol().audience_count)));
-        }
-    }
-
-    private void O(cb cbVar) {
-        if (this.fnh != null && cbVar != null && this.fni) {
-            if (cbVar.bnK() >= 0) {
-                this.fnh.setVisibility(0);
-                this.fnh.setText(String.format(this.mContext.getString(R.string.person_view_num), au.numberUniformFormat(cbVar.bnK())));
-                return;
-            }
-            this.fnh.setVisibility(8);
-        }
-    }
-
-    private void P(cb cbVar) {
-        if (this.eKe != null && cbVar != null && this.fnj) {
-            if (cbVar.bnJ() >= 0) {
-                this.eKe.setVisibility(0);
-                this.eKe.setText(String.format(this.mContext.getString(R.string.comment_num_tip), au.numberUniformFormat(cbVar.bnJ())));
-                return;
-            }
-            this.eKe.setVisibility(8);
-        }
-    }
-
-    private void Q(cb cbVar) {
-        if (this.eKe != null && cbVar != null && this.fnl && cbVar.bpo()) {
-            this.eKe.setVisibility(0);
-            this.eKe.setText(String.format(this.mContext.getString(R.string.person_view_item_live_zan_num), au.numberUniformFormat(cbVar.bps())));
-        }
-    }
-
-    private void B(cb cbVar) {
-        if (this.eKe != null && cbVar != null && this.fnm && cbVar.bpo()) {
-            this.eKe.setVisibility(0);
-            this.eKe.setText(String.format(this.mContext.getString(R.string.person_view_item_live_share_num), au.numberUniformFormat((cbVar.bol() == null || cbVar.bol().share_info == null) ? 0 : cbVar.bol().share_info.share_count)));
-        }
-    }
-
-    public void setIsShowReadNum(boolean z) {
-        this.fni = z;
-    }
-
-    public void setIsShowReplayNum(boolean z) {
-        this.fnj = z;
+        f(a2Var);
+        e(a2Var);
+        c(a2Var);
+        g(a2Var);
+        d(a2Var);
     }
 
     public void setIsShowAudienceNum(boolean z) {
-        this.fnk = z;
+        this.j = z;
     }
 
-    public void setIsShowZanNum(boolean z) {
-        this.fnl = z;
+    public void setIsShowReadNum(boolean z) {
+        this.f13549h = z;
+    }
+
+    public void setIsShowReplayNum(boolean z) {
+        this.i = z;
     }
 
     public void setIsShowShareNum(boolean z) {
-        this.fnm = z;
+        this.l = z;
     }
 
-    public void onChangeSkinType() {
-        ap.setViewTextColor(this.fnh, R.color.CAM_X0109);
-        ap.setViewTextColor(this.eKe, R.color.CAM_X0109);
+    public void setIsShowZanNum(boolean z) {
+        this.k = z;
+    }
+
+    public ThreadViewAndCommentInfoLayout(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        this.f13549h = false;
+        this.i = false;
+        this.j = false;
+        this.k = false;
+        this.l = false;
+        a(context);
     }
 }

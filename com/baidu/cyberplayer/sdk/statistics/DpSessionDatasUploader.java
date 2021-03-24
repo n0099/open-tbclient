@@ -8,31 +8,33 @@ import com.baidu.cyberplayer.sdk.CyberTaskExcutor;
 import com.baidu.cyberplayer.sdk.Keep;
 import com.baidu.cyberplayer.sdk.config.CyberCfgManager;
 import com.baidu.cyberplayer.sdk.m;
-import com.baidubce.http.Headers;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public final class DpSessionDatasUploader {
     @Keep
     public static final String SAILOR_MONITOR = "sailor_monitor";
 
     /* renamed from: a  reason: collision with root package name */
-    private static DpSessionDatasUploader f1466a;
-    private d b = new d();
-    private d c = new d("live_show_session");
+    public static DpSessionDatasUploader f5054a;
 
-    private DpSessionDatasUploader() {
-    }
+    /* renamed from: b  reason: collision with root package name */
+    public d f5055b = new d();
+
+    /* renamed from: c  reason: collision with root package name */
+    public d f5056c = new d("live_show_session");
 
     private void a() {
-        if (this.b != null) {
-            this.b.a();
+        d dVar = this.f5055b;
+        if (dVar != null) {
+            dVar.a();
         }
-        if (this.c != null) {
-            this.c.a();
+        d dVar2 = this.f5056c;
+        if (dVar2 != null) {
+            dVar2.a();
         }
     }
 
@@ -56,21 +58,27 @@ public final class DpSessionDatasUploader {
     }
 
     private void a(byte[] bArr, int i) {
+        d dVar;
         if (i == 24) {
-            if (this.c != null) {
-                this.c.a(bArr);
+            dVar = this.f5056c;
+            if (dVar == null) {
+                return;
             }
-        } else if (this.b != null) {
-            this.b.a(bArr);
+        } else {
+            dVar = this.f5055b;
+            if (dVar == null) {
+                return;
+            }
         }
+        dVar.a(bArr);
     }
 
-    private static byte[] a(byte[] bArr, boolean z) {
+    public static byte[] a(byte[] bArr, boolean z) {
         if (z) {
             try {
                 return m.b(bArr);
-            } catch (IOException e) {
-                e.printStackTrace();
+            } catch (IOException e2) {
+                e2.printStackTrace();
                 return null;
             }
         }
@@ -81,198 +89,142 @@ public final class DpSessionDatasUploader {
     public static synchronized DpSessionDatasUploader getInstance() {
         DpSessionDatasUploader dpSessionDatasUploader;
         synchronized (DpSessionDatasUploader.class) {
-            if (f1466a == null) {
-                f1466a = new DpSessionDatasUploader();
+            if (f5054a == null) {
+                f5054a = new DpSessionDatasUploader();
             }
-            dpSessionDatasUploader = f1466a;
+            dpSessionDatasUploader = f5054a;
         }
         return dpSessionDatasUploader;
     }
 
     public String a(String str, int i) {
-        String c = com.baidu.cyberplayer.sdk.c.a().c();
-        if (TextUtils.isEmpty(c)) {
+        String c2 = com.baidu.cyberplayer.sdk.c.a().c();
+        if (TextUtils.isEmpty(c2)) {
             return null;
         }
-        String str2 = c + str;
-        return i == 24 ? str2 + "&upload_type=tieba_live" : str2;
+        String str2 = c2 + str;
+        if (i == 24) {
+            return str2 + "&upload_type=tieba_live";
+        }
+        return str2;
     }
 
     public void a(Context context) {
-        if (context == null || this.b == null || this.c == null) {
+        d dVar;
+        if (context == null || (dVar = this.f5055b) == null || this.f5056c == null) {
             return;
         }
-        this.b.a(context);
-        this.c.a(context);
+        dVar.a(context);
+        this.f5056c.a(context);
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:32:0x00cc */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:87:0x0031 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:50:0x00dd */
+    /* JADX WARN: Code restructure failed: missing block: B:16:0x0086, code lost:
+        if (r10 == null) goto L15;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:17:0x0088, code lost:
+        r10.disconnect();
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:34:0x00b3, code lost:
+        if (r10 == null) goto L15;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:44:0x00d4, code lost:
+        if (r10 == null) goto L15;
+     */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:22:0x009e  */
-    /* JADX WARN: Removed duplicated region for block: B:60:0x011d  */
-    /* JADX WARN: Type inference failed for: r4v1, types: [java.lang.String] */
-    /* JADX WARN: Type inference failed for: r4v12 */
-    /* JADX WARN: Type inference failed for: r4v16 */
-    /* JADX WARN: Type inference failed for: r4v17 */
-    /* JADX WARN: Type inference failed for: r4v4 */
-    /* JADX WARN: Type inference failed for: r4v5 */
-    /* JADX WARN: Type inference failed for: r4v8 */
-    /* JADX WARN: Type inference failed for: r4v9, types: [java.io.OutputStream] */
+    /* JADX WARN: Removed duplicated region for block: B:66:0x00ea A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:70:0x00e0 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Type inference failed for: r10v0, types: [java.lang.CharSequence, java.lang.String] */
+    /* JADX WARN: Type inference failed for: r10v1 */
+    /* JADX WARN: Type inference failed for: r10v4, types: [java.net.HttpURLConnection] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public boolean a(byte[] bArr, String str, boolean z) {
-        Throwable th;
-        OutputStream outputStream;
+        int i;
         HttpURLConnection httpURLConnection;
-        Exception e;
-        Error e2;
-        OutputStream outputStream2;
-        int responseCode;
-        int i = -1;
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        OutputStream outputStream3 = " isGzipCompressed:";
-        CyberLog.d("SessionDatasUploader", "sendStatisticsDataToServer called uploadUrl:" + str + " isGzipCompressed:" + z);
+        CyberLog.d("SessionDatasUploader", "sendStatisticsDataToServer called uploadUrl:" + ((String) str) + " isGzipCompressed:" + z);
+        OutputStream outputStream = null;
+        i = -1;
         try {
             try {
-                HttpURLConnection httpURLConnection2 = (HttpURLConnection) new URL(str).openConnection();
+                httpURLConnection = (HttpURLConnection) new URL(str).openConnection();
                 try {
-                    httpURLConnection2.setUseCaches(false);
-                    httpURLConnection2.setDoOutput(true);
-                    httpURLConnection2.setRequestMethod("POST");
-                    httpURLConnection2.setRequestProperty(HTTP.CONN_DIRECTIVE, HTTP.CONN_KEEP_ALIVE);
-                    httpURLConnection2.setRequestProperty(Headers.CACHE_CONTROL, "no-cache");
+                    httpURLConnection.setUseCaches(false);
+                    httpURLConnection.setDoOutput(true);
+                    httpURLConnection.setRequestMethod("POST");
+                    httpURLConnection.setRequestProperty(HTTP.CONN_DIRECTIVE, HTTP.CONN_KEEP_ALIVE);
+                    httpURLConnection.setRequestProperty("Cache-Control", "no-cache");
                     if (z) {
-                        httpURLConnection2.setRequestProperty("Content-Type", "application/x-gzip");
+                        httpURLConnection.setRequestProperty("Content-Type", "application/x-gzip");
                     }
-                    outputStream2 = httpURLConnection2.getOutputStream();
-                    try {
+                    outputStream = httpURLConnection.getOutputStream();
+                    outputStream.write(bArr);
+                    outputStream.flush();
+                    i = httpURLConnection.getResponseCode();
+                    CyberLog.d("SessionDatasUploader", "upload response : " + i);
+                    if (outputStream != null) {
                         try {
-                            outputStream2.write(bArr);
-                            outputStream2.flush();
-                            responseCode = httpURLConnection2.getResponseCode();
-                        } catch (Throwable th2) {
-                            th = th2;
-                            httpURLConnection = httpURLConnection2;
-                            outputStream = outputStream2;
-                            if (outputStream != null) {
-                                try {
-                                    outputStream.close();
-                                } catch (Exception e3) {
-                                    e3.printStackTrace();
-                                }
-                            }
-                            if (httpURLConnection != null) {
-                                try {
-                                    httpURLConnection.disconnect();
-                                } catch (Exception e4) {
-                                }
-                            }
-                            throw th;
-                        }
-                    } catch (Error e5) {
-                        e2 = e5;
-                        httpURLConnection = httpURLConnection2;
-                        outputStream3 = outputStream2;
-                    } catch (Exception e6) {
-                        e = e6;
-                        httpURLConnection = httpURLConnection2;
-                        outputStream3 = outputStream2;
-                    }
-                } catch (Error e7) {
-                    e2 = e7;
-                    outputStream3 = 0;
-                    httpURLConnection = httpURLConnection2;
-                } catch (Exception e8) {
-                    e = e8;
-                    outputStream3 = null;
-                    httpURLConnection = httpURLConnection2;
-                } catch (Throwable th3) {
-                    th = th3;
-                    outputStream = null;
-                    httpURLConnection = httpURLConnection2;
-                }
-                try {
-                    CyberLog.d("SessionDatasUploader", "upload response : " + responseCode);
-                    if (outputStream2 != null) {
-                        try {
-                            outputStream2.close();
-                        } catch (Exception e9) {
-                            e9.printStackTrace();
+                            outputStream.close();
+                        } catch (Exception e2) {
+                            e2.printStackTrace();
                         }
                     }
-                    if (httpURLConnection2 != null) {
-                        try {
-                            httpURLConnection2.disconnect();
-                            i = responseCode;
-                        } catch (Exception e10) {
-                            i = responseCode;
-                        }
-                    } else {
-                        i = responseCode;
-                    }
-                } catch (Error e11) {
-                    e2 = e11;
-                    httpURLConnection = httpURLConnection2;
-                    i = responseCode;
-                    outputStream3 = outputStream2;
-                    CyberLog.e("SessionDatasUploader", "upload error " + e2);
-                    if (outputStream3 != 0) {
-                        try {
-                            outputStream3.close();
-                        } catch (Exception e12) {
-                            e12.printStackTrace();
-                        }
-                    }
-                    if (httpURLConnection != null) {
-                        try {
-                            httpURLConnection.disconnect();
-                        } catch (Exception e13) {
-                        }
-                    }
-                    if (i == 200) {
-                    }
-                } catch (Exception e14) {
-                    e = e14;
-                    httpURLConnection = httpURLConnection2;
-                    i = responseCode;
-                    outputStream3 = outputStream2;
+                } catch (Error e3) {
+                    e = e3;
                     CyberLog.e("SessionDatasUploader", "upload error " + e);
-                    if (outputStream3 != null) {
+                    if (outputStream != null) {
                         try {
-                            outputStream3.close();
-                        } catch (Exception e15) {
-                            e15.printStackTrace();
+                            outputStream.close();
+                        } catch (Exception e4) {
+                            e4.printStackTrace();
                         }
                     }
-                    if (httpURLConnection != null) {
+                } catch (Exception e5) {
+                    e = e5;
+                    CyberLog.e("SessionDatasUploader", "upload error " + e);
+                    if (outputStream != null) {
                         try {
-                            httpURLConnection.disconnect();
-                        } catch (Exception e16) {
+                            outputStream.close();
+                        } catch (Exception e6) {
+                            e6.printStackTrace();
                         }
-                    }
-                    if (i == 200) {
                     }
                 }
-            } catch (Throwable th4) {
-                th = th4;
-                outputStream = outputStream3;
+            } catch (Throwable th) {
+                th = th;
+                if (0 != 0) {
+                    try {
+                        outputStream.close();
+                    } catch (Exception e7) {
+                        e7.printStackTrace();
+                    }
+                }
+                if (str != 0) {
+                    try {
+                        str.disconnect();
+                    } catch (Exception unused) {
+                    }
+                }
+                throw th;
             }
-        } catch (Error e17) {
-            e2 = e17;
-            outputStream3 = 0;
+        } catch (Error e8) {
+            e = e8;
             httpURLConnection = null;
-        } catch (Exception e18) {
-            e = e18;
-            outputStream3 = null;
+        } catch (Exception e9) {
+            e = e9;
             httpURLConnection = null;
-        } catch (Throwable th5) {
-            th = th5;
-            outputStream = null;
-            httpURLConnection = null;
+        } catch (Throwable th2) {
+            th = th2;
+            str = 0;
+            if (0 != 0) {
+            }
+            if (str != 0) {
+            }
+            throw th;
         }
         return i == 200;
     }
@@ -295,11 +247,9 @@ public final class DpSessionDatasUploader {
             CyberTaskExcutor.getInstance().executeSingleThread(new Runnable() { // from class: com.baidu.cyberplayer.sdk.statistics.DpSessionDatasUploader.2
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (i != 24) {
-                        DpSessionDatasUploader.this.a(str, str2, 1);
-                        return;
+                    if (i == 24) {
+                        DpSessionDatasUploader.this.a(str, str2, 24);
                     }
-                    DpSessionDatasUploader.this.a(str, str2, 24);
                     DpSessionDatasUploader.this.a(str, str2, 1);
                 }
             });

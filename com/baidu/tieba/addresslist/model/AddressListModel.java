@@ -2,79 +2,74 @@ package com.baidu.tieba.addresslist.model;
 
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.coreExtra.relationship.c;
-import com.baidu.tieba.addresslist.b.a;
 import com.baidu.tieba.addresslist.relationship.RequestGetAddressListMessage;
+import d.b.h0.s.f.c;
+import d.b.i0.q.d.a;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class AddressListModel extends BdBaseModel<BaseFragmentActivity> {
-    private a glI;
+
+    /* renamed from: e  reason: collision with root package name */
+    public a f14635e;
 
     public AddressListModel(BaseFragmentActivity baseFragmentActivity) {
         super(baseFragmentActivity.getPageContext());
-        this.glI = a.bLW();
+        this.f14635e = a.d();
     }
 
-    public void a(a.InterfaceC0600a interfaceC0600a) {
-        this.glI.a(interfaceC0600a);
-    }
-
-    public void b(a.InterfaceC0600a interfaceC0600a) {
-        this.glI.b(interfaceC0600a);
-    }
-
-    public List<com.baidu.tbadk.coreExtra.relationship.a> bMp() {
-        return this.glI.bLX();
-    }
-
-    public void bMq() {
-        sendMessage(new CustomMessage(CmdConfigCustom.CMD_QUERY_LOCAL_ADDRESSLIST));
-    }
-
-    public void bMm() {
-        super.sendMessage(new RequestGetAddressListMessage(CmdConfigSocket.CMD_GET_ADDRESSLIST));
-    }
-
-    public void bZ(List<com.baidu.tbadk.coreExtra.relationship.a> list) {
-        this.glI.bV(list);
-    }
-
-    public void a(com.baidu.tbadk.coreExtra.relationship.a aVar) {
-        this.glI.a(aVar);
-    }
-
-    public void eS(long j) {
-        this.glI.eS(j);
-    }
-
-    public int Fm(String str) {
-        int i;
-        if (c.Cr(str)) {
-            List<com.baidu.tbadk.coreExtra.relationship.a> bLX = this.glI.bLX();
-            if (bLX != null) {
-                for (com.baidu.tbadk.coreExtra.relationship.a aVar : bLX) {
-                    if (str.equals(aVar.bzc())) {
-                        i = bLX.indexOf(aVar);
-                        break;
-                    }
-                }
-            }
-            i = -1;
-            return i;
-        }
-        return -1;
+    public void A(a.InterfaceC1473a interfaceC1473a) {
+        this.f14635e.h(interfaceC1473a);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
-    protected boolean LoadData() {
+    public boolean LoadData() {
         return false;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
         return false;
+    }
+
+    public void s(d.b.h0.s.f.a aVar) {
+        this.f14635e.a(aVar);
+    }
+
+    public int t(String str) {
+        List<d.b.h0.s.f.a> c2;
+        if (c.a(str) && (c2 = this.f14635e.c()) != null) {
+            for (d.b.h0.s.f.a aVar : c2) {
+                if (str.equals(aVar.a())) {
+                    return c2.indexOf(aVar);
+                }
+            }
+            return -1;
+        }
+        return -1;
+    }
+
+    public void u(long j) {
+        this.f14635e.b(j);
+    }
+
+    public List<d.b.h0.s.f.a> v() {
+        return this.f14635e.c();
+    }
+
+    public void w() {
+        sendMessage(new CustomMessage(2001178));
+    }
+
+    public void x() {
+        super.sendMessage(new RequestGetAddressListMessage(304001));
+    }
+
+    public void y(a.InterfaceC1473a interfaceC1473a) {
+        this.f14635e.f(interfaceC1473a);
+    }
+
+    public void z(List<d.b.h0.s.f.a> list) {
+        this.f14635e.g(list);
     }
 }

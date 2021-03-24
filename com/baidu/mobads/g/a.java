@@ -6,42 +6,55 @@ import com.baidu.mobads.g.g;
 import com.baidu.mobads.interfaces.IXAdContainerFactory;
 import com.baidu.mobads.interfaces.utils.IXAdLogger;
 import com.baidu.mobads.utils.XAdSDKFoundationFacade;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class a {
-    private static IXAdContainerFactory e;
-    private Context b;
-    private Class<?> c;
-    private double d;
-    private Boolean f;
+
+    /* renamed from: e  reason: collision with root package name */
+    public static IXAdContainerFactory f8248e;
+
+    /* renamed from: b  reason: collision with root package name */
+    public Context f8250b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public Class<?> f8251c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public double f8252d;
+
+    /* renamed from: f  reason: collision with root package name */
+    public Boolean f8253f;
 
     /* renamed from: a  reason: collision with root package name */
-    public double f2385a = 0.1d;
-    private IXAdLogger g = XAdSDKFoundationFacade.getInstance().getAdLogger();
+    public double f8249a = 0.1d;
 
-    public a(Class<?> cls, Context context, double d, Boolean bool) {
-        this.c = null;
-        this.c = cls;
-        this.b = context;
-        this.d = d;
-        this.f = bool;
+    /* renamed from: g  reason: collision with root package name */
+    public IXAdLogger f8254g = XAdSDKFoundationFacade.getInstance().getAdLogger();
+
+    public a(Class<?> cls, Context context, double d2, Boolean bool) {
+        this.f8251c = null;
+        this.f8251c = cls;
+        this.f8250b = context;
+        this.f8252d = d2;
+        this.f8253f = bool;
     }
 
     public IXAdContainerFactory a() {
-        if (e == null) {
+        if (f8248e == null) {
             try {
-                e = (IXAdContainerFactory) this.c.getDeclaredConstructor(Context.class).newInstance(this.b);
-                this.f2385a = e.getRemoteVersion();
-                e.setDebugMode(this.f);
-                e.handleShakeVersion(this.d, XAdSDKProxyVersion.RELEASE_TAG);
+                IXAdContainerFactory iXAdContainerFactory = (IXAdContainerFactory) this.f8251c.getDeclaredConstructor(Context.class).newInstance(this.f8250b);
+                f8248e = iXAdContainerFactory;
+                this.f8249a = iXAdContainerFactory.getRemoteVersion();
+                f8248e.setDebugMode(this.f8253f);
+                f8248e.handleShakeVersion(this.f8252d, XAdSDKProxyVersion.RELEASE_TAG);
             } catch (Throwable th) {
-                this.g.w("XAdContainerFactoryBuilder", th.getMessage());
+                this.f8254g.w("XAdContainerFactoryBuilder", th.getMessage());
                 throw new g.a("newXAdContainerFactory() failed, possibly API incompatible: " + th.getMessage());
             }
         }
-        return e;
+        return f8248e;
     }
 
     public void b() {
-        e = null;
+        f8248e = null;
     }
 }

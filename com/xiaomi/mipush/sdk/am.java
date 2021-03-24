@@ -1,25 +1,42 @@
 package com.xiaomi.mipush.sdk;
 
-import android.content.Context;
-import android.content.Intent;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
-public final class am implements Runnable {
+import com.xiaomi.push.hf;
+/* loaded from: classes7.dex */
+public /* synthetic */ class am {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ Context f8213a;
+    public static final /* synthetic */ int[] f40162a;
 
-    /* renamed from: a  reason: collision with other field name */
-    final /* synthetic */ Intent f43a;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public am(Context context, Intent intent) {
-        this.f8213a = context;
-        this.f43a = intent;
-    }
-
-    @Override // java.lang.Runnable
-    public void run() {
-        PushMessageHandler.b(this.f8213a, this.f43a);
+    static {
+        int[] iArr = new int[hf.values().length];
+        f40162a = iArr;
+        try {
+            iArr[hf.SendMessage.ordinal()] = 1;
+        } catch (NoSuchFieldError unused) {
+        }
+        try {
+            f40162a[hf.Registration.ordinal()] = 2;
+        } catch (NoSuchFieldError unused2) {
+        }
+        try {
+            f40162a[hf.UnRegistration.ordinal()] = 3;
+        } catch (NoSuchFieldError unused3) {
+        }
+        try {
+            f40162a[hf.Subscription.ordinal()] = 4;
+        } catch (NoSuchFieldError unused4) {
+        }
+        try {
+            f40162a[hf.UnSubscription.ordinal()] = 5;
+        } catch (NoSuchFieldError unused5) {
+        }
+        try {
+            f40162a[hf.Command.ordinal()] = 6;
+        } catch (NoSuchFieldError unused6) {
+        }
+        try {
+            f40162a[hf.Notification.ordinal()] = 7;
+        } catch (NoSuchFieldError unused7) {
+        }
     }
 }

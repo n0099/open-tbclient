@@ -11,47 +11,52 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Set;
 import java.util.WeakHashMap;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class RequestTracker {
-    private static final String TAG = "RequestTracker";
-    private boolean isPaused;
-    private final Set<Request> requests = Collections.newSetFromMap(new WeakHashMap());
-    private final List<Request> pendingRequests = new ArrayList();
-
-    public void runRequest(@NonNull Request request) {
-        this.requests.add(request);
-        if (!this.isPaused) {
-            request.begin();
-            return;
-        }
-        request.clear();
-        if (Log.isLoggable(TAG, 2)) {
-            Log.v(TAG, "Paused, delaying request");
-        }
-        this.pendingRequests.add(request);
-    }
+    public static final String TAG = "RequestTracker";
+    public boolean isPaused;
+    public final Set<Request> requests = Collections.newSetFromMap(new WeakHashMap());
+    public final List<Request> pendingRequests = new ArrayList();
 
     @VisibleForTesting
-    void addRequest(Request request) {
+    public void addRequest(Request request) {
         this.requests.add(request);
     }
 
     public boolean clearAndRemove(@Nullable Request request) {
         boolean z = true;
-        if (request != null) {
-            boolean remove = this.requests.remove(request);
-            if (!this.pendingRequests.remove(request) && !remove) {
-                z = false;
-            }
-            if (z) {
-                request.clear();
-            }
+        if (request == null) {
+            return true;
+        }
+        boolean remove = this.requests.remove(request);
+        if (!this.pendingRequests.remove(request) && !remove) {
+            z = false;
+        }
+        if (z) {
+            request.clear();
         }
         return z;
     }
 
+    public void clearRequests() {
+        for (Request request : Util.getSnapshot(this.requests)) {
+            clearAndRemove(request);
+        }
+        this.pendingRequests.clear();
+    }
+
     public boolean isPaused() {
         return this.isPaused;
+    }
+
+    public void pauseAllRequests() {
+        this.isPaused = true;
+        for (Request request : Util.getSnapshot(this.requests)) {
+            if (request.isRunning() || request.isComplete()) {
+                request.clear();
+                this.pendingRequests.add(request);
+            }
+        }
     }
 
     public void pauseRequests() {
@@ -64,12 +69,15 @@ public class RequestTracker {
         }
     }
 
-    public void pauseAllRequests() {
-        this.isPaused = true;
+    public void restartRequests() {
         for (Request request : Util.getSnapshot(this.requests)) {
-            if (request.isRunning() || request.isComplete()) {
+            if (!request.isComplete() && !request.isCleared()) {
                 request.clear();
-                this.pendingRequests.add(request);
+                if (!this.isPaused) {
+                    request.begin();
+                } else {
+                    this.pendingRequests.add(request);
+                }
             }
         }
     }
@@ -84,24 +92,17 @@ public class RequestTracker {
         this.pendingRequests.clear();
     }
 
-    public void clearRequests() {
-        for (Request request : Util.getSnapshot(this.requests)) {
-            clearAndRemove(request);
+    public void runRequest(@NonNull Request request) {
+        this.requests.add(request);
+        if (!this.isPaused) {
+            request.begin();
+            return;
         }
-        this.pendingRequests.clear();
-    }
-
-    public void restartRequests() {
-        for (Request request : Util.getSnapshot(this.requests)) {
-            if (!request.isComplete() && !request.isCleared()) {
-                request.clear();
-                if (!this.isPaused) {
-                    request.begin();
-                } else {
-                    this.pendingRequests.add(request);
-                }
-            }
+        request.clear();
+        if (Log.isLoggable(TAG, 2)) {
+            Log.v(TAG, "Paused, delaying request");
         }
+        this.pendingRequests.add(request);
     }
 
     public String toString() {

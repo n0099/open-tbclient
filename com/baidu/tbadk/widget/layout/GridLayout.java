@@ -6,178 +6,34 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
-import com.baidu.tieba.R;
-/* loaded from: classes.dex */
+import com.baidu.tieba.R$styleable;
+/* loaded from: classes3.dex */
 public class GridLayout extends ViewGroup {
-    private int fVY;
-    private int fVZ;
-    private int fWa;
-    private int fWb;
-    private boolean fWc;
-    private boolean fWd;
-    private int fWe;
-    private int fWf;
+
+    /* renamed from: e  reason: collision with root package name */
+    public int f14211e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public int f14212f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public int f14213g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public int f14214h;
+    public boolean i;
+    public boolean j;
+    public int k;
+    public int l;
 
     public GridLayout(Context context) {
         this(context, null);
     }
 
-    public GridLayout(Context context, AttributeSet attributeSet) {
-        this(context, attributeSet, 0);
-    }
-
-    public GridLayout(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        this.fVY = -1;
-        this.fVZ = -1;
-        this.fWa = 0;
-        this.fWb = 0;
-        this.fWc = true;
-        this.fWd = false;
-        init(context, attributeSet, i);
-    }
-
-    private void init(Context context, AttributeSet attributeSet, int i) {
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.GridLayout);
-        try {
-            this.fWa = obtainStyledAttributes.getDimensionPixelSize(R.styleable.GridLayout_gridHorizontalSpacing, 0);
-            this.fWb = obtainStyledAttributes.getDimensionPixelSize(R.styleable.GridLayout_gridVerticalSpacing, 0);
-            this.fVY = obtainStyledAttributes.getInteger(R.styleable.GridLayout_gridHorizontalNum, -1);
-            this.fVZ = obtainStyledAttributes.getInteger(R.styleable.GridLayout_gridVerticalNum, -1);
-            this.fWc = obtainStyledAttributes.getInteger(R.styleable.GridLayout_gridMainOrientation, 0) == 0;
-        } finally {
-            obtainStyledAttributes.recycle();
-        }
-    }
-
-    @Override // android.view.View
-    protected void onMeasure(int i, int i2) {
-        int i3;
-        int i4;
-        super.onMeasure(i, i2);
-        int mode = View.MeasureSpec.getMode(i);
-        int mode2 = View.MeasureSpec.getMode(i2);
-        View.MeasureSpec.getSize(i);
-        View.MeasureSpec.getSize(i2);
-        View[] needLayoutChild = getNeedLayoutChild();
-        if (this.fWd) {
-            for (int i5 = 0; i5 < getChildCount(); i5++) {
-                measureChild(getChildAt(i5), i, i2);
-            }
-        } else {
-            for (View view : needLayoutChild) {
-                measureChild(view, i, i2);
-            }
-        }
-        int paddingLeft = getPaddingLeft() + getPaddingRight();
-        int paddingTop = getPaddingTop() + getPaddingBottom();
-        if (mode == 0 || mode == Integer.MIN_VALUE) {
-            int i6 = paddingLeft;
-            int i7 = paddingLeft;
-            for (int i8 = 0; i8 < needLayoutChild.length; i8++) {
-                View view2 = needLayoutChild[i8];
-                LayoutParams layoutParams = (LayoutParams) view2.getLayoutParams();
-                i6 = i6 + this.fWa + view2.getMeasuredWidth() + layoutParams.leftMargin + layoutParams.rightMargin;
-                if ((i8 + 1) % this.fWf == 0 || i8 + 1 == needLayoutChild.length) {
-                    i7 = Math.max(getMeasuredWidth(), i6);
-                    i6 = getPaddingRight() + getPaddingLeft();
-                }
-            }
-            i3 = i7;
-        } else {
-            i3 = getMeasuredWidth();
-        }
-        if (mode2 == 0 || mode2 == Integer.MIN_VALUE) {
-            int i9 = 0;
-            i4 = paddingTop;
-            for (int i10 = 0; i10 < needLayoutChild.length; i10++) {
-                View view3 = needLayoutChild[i10];
-                LayoutParams layoutParams2 = (LayoutParams) view3.getLayoutParams();
-                i9 = Math.max(i9, layoutParams2.bottomMargin + view3.getMeasuredHeight() + layoutParams2.topMargin);
-                if ((i10 + 1) % this.fWf == 0 || i10 + 1 == needLayoutChild.length) {
-                    i4 += i9;
-                    i9 = getPaddingBottom() + getPaddingTop();
-                }
-            }
-        } else {
-            i4 = getMeasuredHeight();
-        }
-        setMeasuredDimension(i3, i4);
-        int measuredWidth = (((getMeasuredWidth() - getPaddingLeft()) - getPaddingRight()) - (this.fVY * this.fWa)) + this.fWa;
-        int measuredHeight = (((getMeasuredHeight() - getPaddingTop()) - getPaddingBottom()) - (this.fVZ * this.fWb)) + this.fWb;
-        int i11 = measuredWidth / this.fVY;
-        int i12 = measuredHeight / this.fVZ;
-        for (View view4 : needLayoutChild) {
-            LayoutParams layoutParams3 = (LayoutParams) view4.getLayoutParams();
-            int measuredWidth2 = view4.getMeasuredWidth();
-            int measuredHeight2 = view4.getMeasuredHeight();
-            if (layoutParams3.width == -1) {
-                measuredWidth2 = (i11 - layoutParams3.leftMargin) - layoutParams3.rightMargin;
-            }
-            view4.measure(View.MeasureSpec.makeMeasureSpec(measuredWidth2, 1073741824), View.MeasureSpec.makeMeasureSpec(layoutParams3.height == -1 ? (i12 - layoutParams3.topMargin) - layoutParams3.bottomMargin : measuredHeight2, 1073741824));
-        }
-    }
-
-    @Override // android.view.ViewGroup, android.view.View
-    protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
-        int i5;
-        int i6;
-        View[] needLayoutChild = getNeedLayoutChild();
-        int measuredWidth = (((getMeasuredWidth() - getPaddingLeft()) - getPaddingRight()) - (this.fVY * this.fWa)) + this.fWa;
-        int measuredHeight = (((getMeasuredHeight() - getPaddingTop()) - getPaddingBottom()) - (this.fVZ * this.fWb)) + this.fWb;
-        int i7 = measuredWidth / this.fVY;
-        int i8 = measuredHeight / this.fVZ;
-        int paddingLeft = getPaddingLeft();
-        int paddingTop = getPaddingTop();
-        int i9 = 0;
-        while (true) {
-            int i10 = i9;
-            if (i10 < needLayoutChild.length) {
-                View view = needLayoutChild[i10];
-                LayoutParams layoutParams = (LayoutParams) view.getLayoutParams();
-                int measuredWidth2 = view.getMeasuredWidth();
-                int measuredHeight2 = view.getMeasuredHeight();
-                int i11 = layoutParams.leftMargin;
-                int i12 = layoutParams.topMargin;
-                switch (layoutParams.gravity & 7) {
-                    case 1:
-                        i5 = i11 + ((i7 - measuredWidth2) / 2);
-                        break;
-                    case 5:
-                        i5 = i11 + (i7 - measuredWidth2);
-                        break;
-                    default:
-                        i5 = i11 + 0;
-                        break;
-                }
-                switch (layoutParams.gravity & 112) {
-                    case 16:
-                        i6 = ((i8 - measuredHeight2) / 2) + i12;
-                        break;
-                    case 80:
-                        i6 = (i8 - measuredHeight2) + i12;
-                        break;
-                    default:
-                        i6 = i12 + 0;
-                        break;
-                }
-                view.layout(paddingLeft + i5, paddingTop + i6, i5 + measuredWidth2 + paddingLeft, i6 + paddingTop + measuredHeight2);
-                paddingLeft += this.fWa + i7;
-                if ((i10 + 1) % this.fWf == 0 || i10 + 1 == needLayoutChild.length) {
-                    paddingLeft = getPaddingLeft();
-                    paddingTop += this.fWb + i8;
-                }
-                i9 = i10 + 1;
-            } else {
-                return;
-            }
-        }
-    }
-
     private View[] getNeedLayoutChild() {
-        int i = 0;
-        this.fWf = this.fVY;
-        this.fWe = this.fVZ;
+        int i;
+        this.l = this.f14211e;
+        this.k = this.f14212f;
         int childCount = getChildCount();
         int childCount2 = getChildCount();
         for (int i2 = 0; i2 < childCount; i2++) {
@@ -186,156 +42,329 @@ public class GridLayout extends ViewGroup {
                 childCount2--;
             }
         }
-        if (this.fWf > 0 && this.fWe > 0) {
-            childCount = this.fWf * this.fWe;
-        } else if (this.fWf > 0) {
-            if (childCount % this.fWf == 0) {
-                this.fWe = childCount / this.fWf;
-            } else {
-                this.fWe = (childCount / this.fWf) + 1;
-            }
-        } else if (this.fWe > 0) {
-            if (childCount % this.fWe == 0) {
-                this.fWf = childCount / this.fWe;
-            } else {
-                this.fWf = (childCount / this.fWe) + 1;
-            }
-        } else if (this.fWc) {
-            this.fWf = childCount;
-            this.fWe = 1;
-        } else {
-            this.fWf = 1;
-            this.fWe = childCount;
-        }
-        View[] viewArr = new View[Math.min(childCount, childCount2)];
-        int i3 = 0;
-        while (true) {
-            int i4 = i;
-            if (i3 < getChildCount()) {
-                View childAt2 = getChildAt(i3);
-                if (childAt2 != null && childAt2.getVisibility() != 8 && i4 < viewArr.length) {
-                    viewArr[i4] = childAt2;
-                    i4++;
+        int i3 = this.l;
+        if (i3 <= 0 || (i = this.k) <= 0) {
+            int i4 = this.l;
+            if (i4 > 0) {
+                if (childCount % i4 == 0) {
+                    this.k = childCount / i4;
+                } else {
+                    this.k = (childCount / i4) + 1;
                 }
-                i = i4;
-                i3++;
             } else {
-                return viewArr;
+                int i5 = this.k;
+                if (i5 > 0) {
+                    if (childCount % i5 == 0) {
+                        this.l = childCount / i5;
+                    } else {
+                        this.l = (childCount / i5) + 1;
+                    }
+                } else if (this.i) {
+                    this.l = childCount;
+                    this.k = 1;
+                } else {
+                    this.l = 1;
+                    this.k = childCount;
+                }
+            }
+        } else {
+            childCount = i3 * i;
+        }
+        int min = Math.min(childCount, childCount2);
+        View[] viewArr = new View[min];
+        int i6 = 0;
+        for (int i7 = 0; i7 < getChildCount(); i7++) {
+            View childAt2 = getChildAt(i7);
+            if (childAt2 != null && childAt2.getVisibility() != 8 && i6 < min) {
+                viewArr[i6] = childAt2;
+                i6++;
             }
         }
-    }
-
-    @Override // android.view.ViewGroup
-    protected boolean checkLayoutParams(ViewGroup.LayoutParams layoutParams) {
-        return layoutParams instanceof LayoutParams;
+        return viewArr;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.view.ViewGroup
-    /* renamed from: bHs */
+    /* renamed from: a */
     public LayoutParams generateDefaultLayoutParams() {
         return new LayoutParams(-1, -1);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.view.ViewGroup
-    /* renamed from: j */
+    /* renamed from: b */
     public LayoutParams generateLayoutParams(AttributeSet attributeSet) {
         return new LayoutParams(getContext(), attributeSet);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.view.ViewGroup
-    /* renamed from: d */
+    /* renamed from: c */
     public LayoutParams generateLayoutParams(ViewGroup.LayoutParams layoutParams) {
         return new LayoutParams(layoutParams);
     }
 
-    public void setMeasureAllChild(boolean z) {
-        this.fWd = z;
+    @Override // android.view.ViewGroup
+    public boolean checkLayoutParams(ViewGroup.LayoutParams layoutParams) {
+        return layoutParams instanceof LayoutParams;
+    }
+
+    public final void d(Context context, AttributeSet attributeSet, int i) {
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R$styleable.GridLayout);
+        try {
+            this.f14213g = obtainStyledAttributes.getDimensionPixelSize(R$styleable.GridLayout_gridHorizontalSpacing, 0);
+            this.f14214h = obtainStyledAttributes.getDimensionPixelSize(R$styleable.GridLayout_gridVerticalSpacing, 0);
+            this.f14211e = obtainStyledAttributes.getInteger(R$styleable.GridLayout_gridHorizontalNum, -1);
+            this.f14212f = obtainStyledAttributes.getInteger(R$styleable.GridLayout_gridVerticalNum, -1);
+            this.i = obtainStyledAttributes.getInteger(R$styleable.GridLayout_gridMainOrientation, 0) == 0;
+        } finally {
+            obtainStyledAttributes.recycle();
+        }
     }
 
     public int getHorNum() {
-        return this.fVY;
-    }
-
-    public void setHorNum(int i) {
-        boolean z = false;
-        if (this.fVY != i) {
-            z = true;
-        }
-        this.fVY = i;
-        if (z) {
-            forceLayout();
-        }
-    }
-
-    public int getVerNum() {
-        return this.fVZ;
-    }
-
-    public void setVerNum(int i) {
-        boolean z = false;
-        if (this.fVZ != i) {
-            z = true;
-        }
-        this.fVZ = i;
-        if (z) {
-            forceLayout();
-        }
+        return this.f14211e;
     }
 
     public int getHorSpace() {
-        return this.fWa;
+        return this.f14213g;
     }
 
-    public void setHorSpace(int i) {
-        boolean z = false;
-        if (this.fWa != i) {
-            z = true;
-        }
-        this.fWa = i;
-        if (z) {
-            forceLayout();
-        }
+    public int getVerNum() {
+        return this.f14212f;
     }
 
     public int getVerSpace() {
-        return this.fWb;
+        return this.f14214h;
     }
 
-    public void setVerSpace(int i) {
-        boolean z = false;
-        if (this.fWb != i) {
-            z = true;
+    /* JADX WARN: Removed duplicated region for block: B:15:0x0071  */
+    /* JADX WARN: Removed duplicated region for block: B:19:0x007b  */
+    /* JADX WARN: Removed duplicated region for block: B:23:0x0097  */
+    /* JADX WARN: Removed duplicated region for block: B:27:0x009a A[ADDED_TO_REGION, SYNTHETIC] */
+    @Override // android.view.ViewGroup, android.view.View
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
+        int i5;
+        int i6;
+        int i7;
+        int i8;
+        int i9;
+        View[] needLayoutChild = getNeedLayoutChild();
+        int measuredWidth = (getMeasuredWidth() - getPaddingLeft()) - getPaddingRight();
+        int i10 = this.f14211e;
+        int i11 = this.f14213g;
+        int i12 = (measuredWidth - (i10 * i11)) + i11;
+        int measuredHeight = (getMeasuredHeight() - getPaddingTop()) - getPaddingBottom();
+        int i13 = this.f14212f;
+        int i14 = this.f14214h;
+        int i15 = i12 / this.f14211e;
+        int i16 = ((measuredHeight - (i13 * i14)) + i14) / i13;
+        int paddingLeft = getPaddingLeft();
+        int paddingTop = getPaddingTop();
+        int i17 = 0;
+        while (i17 < needLayoutChild.length) {
+            View view = needLayoutChild[i17];
+            LayoutParams layoutParams = (LayoutParams) view.getLayoutParams();
+            int measuredWidth2 = view.getMeasuredWidth();
+            int measuredHeight2 = view.getMeasuredHeight();
+            int i18 = ((FrameLayout.LayoutParams) layoutParams).leftMargin;
+            int i19 = ((FrameLayout.LayoutParams) layoutParams).topMargin;
+            int i20 = ((FrameLayout.LayoutParams) layoutParams).gravity & 7;
+            if (i20 == 1) {
+                i5 = (i15 - measuredWidth2) / 2;
+            } else if (i20 != 5) {
+                i6 = i18 + 0;
+                i7 = ((FrameLayout.LayoutParams) layoutParams).gravity & 112;
+                if (i7 != 16) {
+                    i8 = (i16 - measuredHeight2) / 2;
+                } else if (i7 != 80) {
+                    i9 = i19 + 0;
+                    view.layout(paddingLeft + i6, paddingTop + i9, measuredWidth2 + paddingLeft + i6, measuredHeight2 + paddingTop + i9);
+                    paddingLeft += this.f14213g + i15;
+                    i17++;
+                    if (i17 % this.l == 0 || i17 == needLayoutChild.length) {
+                        paddingLeft = getPaddingLeft();
+                        paddingTop += this.f14214h + i16;
+                    }
+                } else {
+                    i8 = i16 - measuredHeight2;
+                }
+                i9 = i19 + i8;
+                view.layout(paddingLeft + i6, paddingTop + i9, measuredWidth2 + paddingLeft + i6, measuredHeight2 + paddingTop + i9);
+                paddingLeft += this.f14213g + i15;
+                i17++;
+                if (i17 % this.l == 0) {
+                }
+                paddingLeft = getPaddingLeft();
+                paddingTop += this.f14214h + i16;
+            } else {
+                i5 = i15 - measuredWidth2;
+            }
+            i6 = i18 + i5;
+            i7 = ((FrameLayout.LayoutParams) layoutParams).gravity & 112;
+            if (i7 != 16) {
+            }
+            i9 = i19 + i8;
+            view.layout(paddingLeft + i6, paddingTop + i9, measuredWidth2 + paddingLeft + i6, measuredHeight2 + paddingTop + i9);
+            paddingLeft += this.f14213g + i15;
+            i17++;
+            if (i17 % this.l == 0) {
+            }
+            paddingLeft = getPaddingLeft();
+            paddingTop += this.f14214h + i16;
         }
-        this.fWb = i;
+    }
+
+    @Override // android.view.View
+    public void onMeasure(int i, int i2) {
+        int i3;
+        super.onMeasure(i, i2);
+        int mode = View.MeasureSpec.getMode(i);
+        int mode2 = View.MeasureSpec.getMode(i2);
+        View.MeasureSpec.getSize(i);
+        View.MeasureSpec.getSize(i2);
+        View[] needLayoutChild = getNeedLayoutChild();
+        if (this.j) {
+            for (int i4 = 0; i4 < getChildCount(); i4++) {
+                measureChild(getChildAt(i4), i, i2);
+            }
+        } else {
+            for (View view : needLayoutChild) {
+                measureChild(view, i, i2);
+            }
+        }
+        int paddingLeft = getPaddingLeft() + getPaddingRight();
+        int paddingTop = getPaddingTop() + getPaddingBottom();
+        if (mode != 0 && mode != Integer.MIN_VALUE) {
+            i3 = getMeasuredWidth();
+        } else {
+            int i5 = paddingLeft;
+            int i6 = 0;
+            while (i6 < needLayoutChild.length) {
+                View view2 = needLayoutChild[i6];
+                LayoutParams layoutParams = (LayoutParams) view2.getLayoutParams();
+                paddingLeft = paddingLeft + this.f14213g + view2.getMeasuredWidth() + ((FrameLayout.LayoutParams) layoutParams).leftMargin + ((FrameLayout.LayoutParams) layoutParams).rightMargin;
+                i6++;
+                if (i6 % this.l == 0 || i6 == needLayoutChild.length) {
+                    i5 = Math.max(getMeasuredWidth(), paddingLeft);
+                    paddingLeft = getPaddingLeft() + getPaddingRight();
+                }
+            }
+            i3 = i5;
+        }
+        if (mode2 != 0 && mode2 != Integer.MIN_VALUE) {
+            paddingTop = getMeasuredHeight();
+        } else {
+            int i7 = 0;
+            int i8 = 0;
+            while (i7 < needLayoutChild.length) {
+                View view3 = needLayoutChild[i7];
+                LayoutParams layoutParams2 = (LayoutParams) view3.getLayoutParams();
+                i8 = Math.max(i8, view3.getMeasuredHeight() + ((FrameLayout.LayoutParams) layoutParams2).topMargin + ((FrameLayout.LayoutParams) layoutParams2).bottomMargin);
+                i7++;
+                if (i7 % this.l == 0 || i7 == needLayoutChild.length) {
+                    paddingTop += i8;
+                    i8 = getPaddingTop() + getPaddingBottom();
+                }
+            }
+        }
+        setMeasuredDimension(i3, paddingTop);
+        int measuredWidth = (getMeasuredWidth() - getPaddingLeft()) - getPaddingRight();
+        int i9 = this.f14211e;
+        int i10 = this.f14213g;
+        int i11 = (measuredWidth - (i9 * i10)) + i10;
+        int measuredHeight = (getMeasuredHeight() - getPaddingTop()) - getPaddingBottom();
+        int i12 = this.f14212f;
+        int i13 = this.f14214h;
+        int i14 = i11 / this.f14211e;
+        int i15 = ((measuredHeight - (i12 * i13)) + i13) / i12;
+        for (View view4 : needLayoutChild) {
+            LayoutParams layoutParams3 = (LayoutParams) view4.getLayoutParams();
+            int measuredWidth2 = view4.getMeasuredWidth();
+            int measuredHeight2 = view4.getMeasuredHeight();
+            if (((FrameLayout.LayoutParams) layoutParams3).width == -1) {
+                measuredWidth2 = (i14 - ((FrameLayout.LayoutParams) layoutParams3).leftMargin) - ((FrameLayout.LayoutParams) layoutParams3).rightMargin;
+            }
+            if (((FrameLayout.LayoutParams) layoutParams3).height == -1) {
+                measuredHeight2 = (i15 - ((FrameLayout.LayoutParams) layoutParams3).topMargin) - ((FrameLayout.LayoutParams) layoutParams3).bottomMargin;
+            }
+            view4.measure(View.MeasureSpec.makeMeasureSpec(measuredWidth2, 1073741824), View.MeasureSpec.makeMeasureSpec(measuredHeight2, 1073741824));
+        }
+    }
+
+    public void setHorNum(int i) {
+        boolean z = this.f14211e != i;
+        this.f14211e = i;
         if (z) {
             forceLayout();
         }
     }
 
-    public void setOrientionHor(boolean z) {
-        this.fWc = z;
+    public void setHorSpace(int i) {
+        boolean z = this.f14213g != i;
+        this.f14213g = i;
+        if (z) {
+            forceLayout();
+        }
     }
 
-    /* loaded from: classes.dex */
+    public void setMeasureAllChild(boolean z) {
+        this.j = z;
+    }
+
+    public void setOrientionHor(boolean z) {
+        this.i = z;
+    }
+
+    public void setVerNum(int i) {
+        boolean z = this.f14212f != i;
+        this.f14212f = i;
+        if (z) {
+            forceLayout();
+        }
+    }
+
+    public void setVerSpace(int i) {
+        boolean z = this.f14214h != i;
+        this.f14214h = i;
+        if (z) {
+            forceLayout();
+        }
+    }
+
+    /* loaded from: classes3.dex */
     public static class LayoutParams extends FrameLayout.LayoutParams {
         public LayoutParams(ViewGroup.LayoutParams layoutParams) {
             super(layoutParams);
-            this.gravity = 17;
+            ((FrameLayout.LayoutParams) this).gravity = 17;
         }
 
         public LayoutParams(int i, int i2) {
             super(i, i2);
-            this.gravity = 17;
+            ((FrameLayout.LayoutParams) this).gravity = 17;
         }
 
         public LayoutParams(Context context, AttributeSet attributeSet) {
             super(context, attributeSet);
-            this.gravity = 17;
+            ((FrameLayout.LayoutParams) this).gravity = 17;
         }
+    }
+
+    public GridLayout(Context context, AttributeSet attributeSet) {
+        this(context, attributeSet, 0);
+    }
+
+    public GridLayout(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        this.f14211e = -1;
+        this.f14212f = -1;
+        this.f14213g = 0;
+        this.f14214h = 0;
+        this.i = true;
+        this.j = false;
+        d(context, attributeSet, i);
     }
 }

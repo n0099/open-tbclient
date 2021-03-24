@@ -2,108 +2,113 @@ package com.sdk.base.framework.a.c;
 
 import java.util.Iterator;
 import java.util.NoSuchElementException;
-/* loaded from: classes4.dex */
-final class m implements Iterator<E> {
+/* loaded from: classes6.dex */
+public final class m implements Iterator<E> {
 
     /* renamed from: a  reason: collision with root package name */
-    private a<E> f7617a;
-    private a<E> b;
-    private E c;
-    private /* synthetic */ l d;
+    public a<E> f38453a;
 
-    /* JADX DEBUG: Type inference failed for r0v2. Raw type applied. Possible types: com.sdk.base.framework.a.c.a<E> */
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: Type inference failed for: r0v5, types: [E, java.lang.Object] */
+    /* renamed from: b  reason: collision with root package name */
+    public a<E> f38454b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public E f38455c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public /* synthetic */ l f38456d;
+
+    /* JADX WARN: Type inference failed for: r0v3, types: [E, java.lang.Object] */
     public m(l lVar) {
-        this.d = lVar;
+        this.f38456d = lVar;
         lVar.a();
         try {
-            this.f7617a = lVar.f7616a.f7607a;
-            if (this.f7617a != null) {
-                this.c = this.f7617a.b();
+            a aVar = lVar.f38445a.f38416a;
+            this.f38453a = aVar;
+            if (aVar != null) {
+                this.f38455c = aVar.b();
             }
         } finally {
             lVar.b();
         }
     }
 
-    /* JADX DEBUG: Type inference failed for r0v3. Raw type applied. Possible types: com.sdk.base.framework.a.c.a<E> */
+    /* JADX DEBUG: Type inference failed for r2v4. Raw type applied. Possible types: com.sdk.base.framework.a.c.a<E> */
     /* JADX WARN: Code restructure failed: missing block: B:0:?, code lost:
-        r3 = r3;
+        r2 = r2;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     private a<E> a(a<E> aVar) {
         a aVar2;
+        a aVar3;
         while (true) {
-            a aVar3 = aVar2.f7607a;
+            aVar3 = aVar2.f38416a;
             if (aVar3 == aVar2) {
-                return this.d.f7616a.f7607a;
+                return this.f38456d.f38445a.f38416a;
             }
             if (aVar3 == null || aVar3.b() != null) {
-                return aVar3;
+                break;
             }
             aVar2 = aVar3;
         }
+        return aVar3;
     }
 
     @Override // java.util.Iterator
     public final boolean hasNext() {
-        return this.f7617a != null;
+        return this.f38453a != null;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r0v11, resolved type: E */
-    /* JADX DEBUG: Multi-variable search result rejected for r0v13, resolved type: E */
-    /* JADX DEBUG: Multi-variable search result rejected for r0v9, resolved type: E */
+    /* JADX DEBUG: Multi-variable search result rejected for r1v5, resolved type: E */
+    /* JADX DEBUG: Multi-variable search result rejected for r1v7, resolved type: E */
+    /* JADX DEBUG: Multi-variable search result rejected for r1v8, resolved type: E */
     /* JADX WARN: Multi-variable type inference failed */
     @Override // java.util.Iterator
     public final E next() {
-        this.d.a();
+        this.f38456d.a();
         try {
-            if (this.f7617a == null) {
-                throw new NoSuchElementException();
+            if (this.f38453a != null) {
+                E e2 = this.f38455c;
+                this.f38454b = this.f38453a;
+                a<E> a2 = a(this.f38453a);
+                this.f38453a = a2;
+                this.f38455c = a2 == 0 ? 0 : a2.b();
+                return e2;
             }
-            E e = this.c;
-            this.b = this.f7617a;
-            this.f7617a = a(this.f7617a);
-            this.c = this.f7617a == null ? 0 : this.f7617a.b();
-            return e;
+            throw new NoSuchElementException();
         } finally {
-            this.d.b();
+            this.f38456d.b();
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:10:0x001f, code lost:
-        r4.d.a(r0, r2);
+    /* JADX WARN: Code restructure failed: missing block: B:9:0x001b, code lost:
+        r4.f38456d.a(r1, r2);
      */
     @Override // java.util.Iterator
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public final void remove() {
-        if (this.b == null) {
+        if (this.f38454b == null) {
             throw new IllegalStateException();
         }
-        this.d.a();
+        this.f38456d.a();
         try {
-            a aVar = this.b;
-            this.b = null;
-            a aVar2 = this.d.f7616a;
-            a aVar3 = aVar2.f7607a;
-            a aVar4 = aVar2;
+            a aVar = this.f38454b;
+            this.f38454b = null;
+            a aVar2 = this.f38456d.f38445a;
             while (true) {
-                if (aVar3 == null) {
+                a aVar3 = aVar2;
+                aVar2 = aVar2.f38416a;
+                if (aVar2 == null) {
                     break;
-                } else if (aVar3 == aVar) {
+                } else if (aVar2 == aVar) {
                     break;
-                } else {
-                    aVar4 = aVar3;
-                    aVar3 = aVar3.f7607a;
                 }
             }
         } finally {
-            this.d.b();
+            this.f38456d.b();
         }
     }
 }

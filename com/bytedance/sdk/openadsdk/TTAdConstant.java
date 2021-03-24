@@ -1,9 +1,9 @@
 package com.bytedance.sdk.openadsdk;
 
-import com.bytedance.sdk.openadsdk.utils.aj;
+import com.bytedance.sdk.openadsdk.utils.ak;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class TTAdConstant {
     public static final int AD_TYPE_COMMON_VIDEO = 0;
     public static final int AD_TYPE_PLAYABLE = 2;
@@ -38,26 +38,21 @@ public class TTAdConstant {
     public static final int VERTICAL = 1;
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes6.dex */
+    /* loaded from: classes.dex */
     public @interface NATIVE_AD_TYPE {
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes6.dex */
+    /* loaded from: classes.dex */
     public @interface NETWORK_STATE {
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes6.dex */
+    /* loaded from: classes.dex */
     public @interface ORIENTATION_STATE {
     }
 
-    @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes6.dex */
-    public @interface TITLE_BAR_THEME {
-    }
-
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public enum RitScenes {
         CUSTOMIZE_SCENES("customize_scenes"),
         HOME_OPEN_BONUS("home_open_bonus"),
@@ -68,20 +63,25 @@ public class TTAdConstant {
         HOME_GIFT_BONUS("home_gift_bonus"),
         GAME_START_BONUS("game_start_bonus"),
         GAME_REDUCE_WAITING("geme_reduce_waiting"),
-        GAME_MORE_KLLKRTUNITIES(aj.m("game_more_kllkrtunities")),
+        GAME_MORE_KLLKRTUNITIES(ak.m("game_more_kllkrtunities")),
         GAME_FINISH_REWARDS("game_finish_rewards"),
         GAME_GIFT_BONUS("game_gift_bonus");
         
 
         /* renamed from: a  reason: collision with root package name */
-        final String f4073a;
+        public final String f27298a;
 
         RitScenes(String str) {
-            this.f4073a = str;
+            this.f27298a = str;
         }
 
         public String getScenesName() {
-            return this.f4073a;
+            return this.f27298a;
         }
+    }
+
+    @Retention(RetentionPolicy.SOURCE)
+    /* loaded from: classes.dex */
+    public @interface TITLE_BAR_THEME {
     }
 }

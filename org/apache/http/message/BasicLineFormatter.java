@@ -6,7 +6,7 @@ import org.apache.http.RequestLine;
 import org.apache.http.StatusLine;
 import org.apache.http.util.CharArrayBuffer;
 @Deprecated
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class BasicLineFormatter implements LineFormatter {
     public static final BasicLineFormatter DEFAULT = null;
 
@@ -14,7 +14,7 @@ public class BasicLineFormatter implements LineFormatter {
         throw new RuntimeException("Stub!");
     }
 
-    protected CharArrayBuffer initBuffer(CharArrayBuffer charArrayBuffer) {
+    public static final String formatHeader(Header header, LineFormatter lineFormatter) {
         throw new RuntimeException("Stub!");
     }
 
@@ -22,25 +22,7 @@ public class BasicLineFormatter implements LineFormatter {
         throw new RuntimeException("Stub!");
     }
 
-    @Override // org.apache.http.message.LineFormatter
-    public CharArrayBuffer appendProtocolVersion(CharArrayBuffer charArrayBuffer, ProtocolVersion protocolVersion) {
-        throw new RuntimeException("Stub!");
-    }
-
-    protected int estimateProtocolVersionLen(ProtocolVersion protocolVersion) {
-        throw new RuntimeException("Stub!");
-    }
-
     public static final String formatRequestLine(RequestLine requestLine, LineFormatter lineFormatter) {
-        throw new RuntimeException("Stub!");
-    }
-
-    @Override // org.apache.http.message.LineFormatter
-    public CharArrayBuffer formatRequestLine(CharArrayBuffer charArrayBuffer, RequestLine requestLine) {
-        throw new RuntimeException("Stub!");
-    }
-
-    protected void doFormatRequestLine(CharArrayBuffer charArrayBuffer, RequestLine requestLine) {
         throw new RuntimeException("Stub!");
     }
 
@@ -49,15 +31,27 @@ public class BasicLineFormatter implements LineFormatter {
     }
 
     @Override // org.apache.http.message.LineFormatter
-    public CharArrayBuffer formatStatusLine(CharArrayBuffer charArrayBuffer, StatusLine statusLine) {
+    public CharArrayBuffer appendProtocolVersion(CharArrayBuffer charArrayBuffer, ProtocolVersion protocolVersion) {
         throw new RuntimeException("Stub!");
     }
 
-    protected void doFormatStatusLine(CharArrayBuffer charArrayBuffer, StatusLine statusLine) {
+    public void doFormatHeader(CharArrayBuffer charArrayBuffer, Header header) {
         throw new RuntimeException("Stub!");
     }
 
-    public static final String formatHeader(Header header, LineFormatter lineFormatter) {
+    public void doFormatRequestLine(CharArrayBuffer charArrayBuffer, RequestLine requestLine) {
+        throw new RuntimeException("Stub!");
+    }
+
+    public void doFormatStatusLine(CharArrayBuffer charArrayBuffer, StatusLine statusLine) {
+        throw new RuntimeException("Stub!");
+    }
+
+    public int estimateProtocolVersionLen(ProtocolVersion protocolVersion) {
+        throw new RuntimeException("Stub!");
+    }
+
+    public CharArrayBuffer initBuffer(CharArrayBuffer charArrayBuffer) {
         throw new RuntimeException("Stub!");
     }
 
@@ -66,7 +60,13 @@ public class BasicLineFormatter implements LineFormatter {
         throw new RuntimeException("Stub!");
     }
 
-    protected void doFormatHeader(CharArrayBuffer charArrayBuffer, Header header) {
+    @Override // org.apache.http.message.LineFormatter
+    public CharArrayBuffer formatRequestLine(CharArrayBuffer charArrayBuffer, RequestLine requestLine) {
+        throw new RuntimeException("Stub!");
+    }
+
+    @Override // org.apache.http.message.LineFormatter
+    public CharArrayBuffer formatStatusLine(CharArrayBuffer charArrayBuffer, StatusLine statusLine) {
         throw new RuntimeException("Stub!");
     }
 }

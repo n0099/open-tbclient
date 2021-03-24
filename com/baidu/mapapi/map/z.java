@@ -3,22 +3,23 @@ package com.baidu.mapapi.map;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.view.View;
-/* loaded from: classes4.dex */
-class z extends AnimatorListenerAdapter {
+/* loaded from: classes2.dex */
+public class z extends AnimatorListenerAdapter {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ View f2085a;
-    final /* synthetic */ WearMapView b;
+    public final /* synthetic */ View f7107a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    /* renamed from: b  reason: collision with root package name */
+    public final /* synthetic */ WearMapView f7108b;
+
     public z(WearMapView wearMapView, View view) {
-        this.b = wearMapView;
-        this.f2085a = view;
+        this.f7108b = wearMapView;
+        this.f7107a = view;
     }
 
     @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
     public void onAnimationEnd(Animator animator) {
-        this.f2085a.setVisibility(4);
+        this.f7107a.setVisibility(4);
         super.onAnimationEnd(animator);
     }
 }

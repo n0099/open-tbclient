@@ -26,57 +26,7 @@ public final class DataReq extends Message {
     public static final Long DEFAULT_INVITEUSERID = 0L;
     public static final Integer DEFAULT_JOINTYPE = 0;
 
-    private DataReq(Builder builder, boolean z) {
-        super(builder);
-        if (z) {
-            if (builder.groupId == null) {
-                this.groupId = DEFAULT_GROUPID;
-            } else {
-                this.groupId = builder.groupId;
-            }
-            if (builder.userIds == null) {
-                this.userIds = "";
-            } else {
-                this.userIds = builder.userIds;
-            }
-            if (builder.sysMsgId == null) {
-                this.sysMsgId = DEFAULT_SYSMSGID;
-            } else {
-                this.sysMsgId = builder.sysMsgId;
-            }
-            if (builder.sysGroupId == null) {
-                this.sysGroupId = DEFAULT_SYSGROUPID;
-            } else {
-                this.sysGroupId = builder.sysGroupId;
-            }
-            if (builder.decision == null) {
-                this.decision = DEFAULT_DECISION;
-            } else {
-                this.decision = builder.decision;
-            }
-            if (builder.inviteUserId == null) {
-                this.inviteUserId = DEFAULT_INVITEUSERID;
-            } else {
-                this.inviteUserId = builder.inviteUserId;
-            }
-            if (builder.joinType == null) {
-                this.joinType = DEFAULT_JOINTYPE;
-                return;
-            } else {
-                this.joinType = builder.joinType;
-                return;
-            }
-        }
-        this.groupId = builder.groupId;
-        this.userIds = builder.userIds;
-        this.sysMsgId = builder.sysMsgId;
-        this.sysGroupId = builder.sysGroupId;
-        this.decision = builder.decision;
-        this.inviteUserId = builder.inviteUserId;
-        this.joinType = builder.joinType;
-    }
-
-    /* loaded from: classes.dex */
+    /* loaded from: classes7.dex */
     public static final class Builder extends Message.Builder<DataReq> {
         public Integer decision;
         public Long groupId;
@@ -91,15 +41,16 @@ public final class DataReq extends Message {
 
         public Builder(DataReq dataReq) {
             super(dataReq);
-            if (dataReq != null) {
-                this.groupId = dataReq.groupId;
-                this.userIds = dataReq.userIds;
-                this.sysMsgId = dataReq.sysMsgId;
-                this.sysGroupId = dataReq.sysGroupId;
-                this.decision = dataReq.decision;
-                this.inviteUserId = dataReq.inviteUserId;
-                this.joinType = dataReq.joinType;
+            if (dataReq == null) {
+                return;
             }
+            this.groupId = dataReq.groupId;
+            this.userIds = dataReq.userIds;
+            this.sysMsgId = dataReq.sysMsgId;
+            this.sysGroupId = dataReq.sysGroupId;
+            this.decision = dataReq.decision;
+            this.inviteUserId = dataReq.inviteUserId;
+            this.joinType = dataReq.joinType;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -107,5 +58,62 @@ public final class DataReq extends Message {
         public DataReq build(boolean z) {
             return new DataReq(this, z);
         }
+    }
+
+    public DataReq(Builder builder, boolean z) {
+        super(builder);
+        if (z) {
+            Long l = builder.groupId;
+            if (l == null) {
+                this.groupId = DEFAULT_GROUPID;
+            } else {
+                this.groupId = l;
+            }
+            String str = builder.userIds;
+            if (str == null) {
+                this.userIds = "";
+            } else {
+                this.userIds = str;
+            }
+            Integer num = builder.sysMsgId;
+            if (num == null) {
+                this.sysMsgId = DEFAULT_SYSMSGID;
+            } else {
+                this.sysMsgId = num;
+            }
+            Integer num2 = builder.sysGroupId;
+            if (num2 == null) {
+                this.sysGroupId = DEFAULT_SYSGROUPID;
+            } else {
+                this.sysGroupId = num2;
+            }
+            Integer num3 = builder.decision;
+            if (num3 == null) {
+                this.decision = DEFAULT_DECISION;
+            } else {
+                this.decision = num3;
+            }
+            Long l2 = builder.inviteUserId;
+            if (l2 == null) {
+                this.inviteUserId = DEFAULT_INVITEUSERID;
+            } else {
+                this.inviteUserId = l2;
+            }
+            Integer num4 = builder.joinType;
+            if (num4 == null) {
+                this.joinType = DEFAULT_JOINTYPE;
+                return;
+            } else {
+                this.joinType = num4;
+                return;
+            }
+        }
+        this.groupId = builder.groupId;
+        this.userIds = builder.userIds;
+        this.sysMsgId = builder.sysMsgId;
+        this.sysGroupId = builder.sysGroupId;
+        this.decision = builder.decision;
+        this.inviteUserId = builder.inviteUserId;
+        this.joinType = builder.joinType;
     }
 }

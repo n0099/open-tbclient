@@ -8,32 +8,19 @@ import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import java.util.List;
 @RequiresApi(26)
-/* loaded from: classes14.dex */
-class MediaBrowserCompatApi26 {
+/* loaded from: classes.dex */
+public class MediaBrowserCompatApi26 {
 
-    /* loaded from: classes14.dex */
-    interface SubscriptionCallback extends MediaBrowserCompatApi21.SubscriptionCallback {
+    /* loaded from: classes.dex */
+    public interface SubscriptionCallback extends MediaBrowserCompatApi21.SubscriptionCallback {
         void onChildrenLoaded(@NonNull String str, List<?> list, @NonNull Bundle bundle);
 
         void onError(@NonNull String str, @NonNull Bundle bundle);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static Object createSubscriptionCallback(SubscriptionCallback subscriptionCallback) {
-        return new SubscriptionCallbackProxy(subscriptionCallback);
-    }
-
-    public static void subscribe(Object obj, String str, Bundle bundle, Object obj2) {
-        ((MediaBrowser) obj).subscribe(str, bundle, (MediaBrowser.SubscriptionCallback) obj2);
-    }
-
-    public static void unsubscribe(Object obj, String str, Object obj2) {
-        ((MediaBrowser) obj).unsubscribe(str, (MediaBrowser.SubscriptionCallback) obj2);
-    }
-
-    /* loaded from: classes14.dex */
-    static class SubscriptionCallbackProxy<T extends SubscriptionCallback> extends MediaBrowserCompatApi21.SubscriptionCallbackProxy<T> {
-        SubscriptionCallbackProxy(T t) {
+    /* loaded from: classes.dex */
+    public static class SubscriptionCallbackProxy<T extends SubscriptionCallback> extends MediaBrowserCompatApi21.SubscriptionCallbackProxy<T> {
+        public SubscriptionCallbackProxy(T t) {
             super(t);
         }
 
@@ -50,6 +37,15 @@ class MediaBrowserCompatApi26 {
         }
     }
 
-    private MediaBrowserCompatApi26() {
+    public static Object createSubscriptionCallback(SubscriptionCallback subscriptionCallback) {
+        return new SubscriptionCallbackProxy(subscriptionCallback);
+    }
+
+    public static void subscribe(Object obj, String str, Bundle bundle, Object obj2) {
+        ((MediaBrowser) obj).subscribe(str, bundle, (MediaBrowser.SubscriptionCallback) obj2);
+    }
+
+    public static void unsubscribe(Object obj, String str, Object obj2) {
+        ((MediaBrowser) obj).unsubscribe(str, (MediaBrowser.SubscriptionCallback) obj2);
     }
 }

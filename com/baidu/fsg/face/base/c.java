@@ -2,36 +2,27 @@ package com.baidu.fsg.face.base;
 
 import android.content.Context;
 import com.baidu.fsg.face.base.dto.SapiBiometricDto;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public class c extends d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f1620a = "1.3.7";
-    public static final int b = 32;
-    private static c c;
+    public static final String f5591a = "1.3.7";
 
-    private c() {
-    }
+    /* renamed from: b  reason: collision with root package name */
+    public static final int f5592b = 32;
+
+    /* renamed from: c  reason: collision with root package name */
+    public static c f5593c;
 
     public static c a() {
-        if (c == null) {
+        if (f5593c == null) {
             synchronized (c.class) {
-                if (c == null) {
-                    c = new c();
+                if (f5593c == null) {
+                    f5593c = new c();
                 }
             }
         }
-        return c;
-    }
-
-    @Override // com.baidu.fsg.face.base.d
-    public b a(int i) {
-        try {
-            return (b) Class.forName(a.a(i)).getMethod("getInstance", new Class[0]).invoke(null, new Object[0]);
-        } catch (Exception e) {
-            com.baidu.fsg.face.base.d.d.a(e);
-            return c();
-        }
+        return f5593c;
     }
 
     private b c() {
@@ -41,5 +32,15 @@ public class c extends d {
                 com.baidu.fsg.face.base.d.d.d(d.class.getSimpleName(), "ERROR with implement Biometric!");
             }
         };
+    }
+
+    @Override // com.baidu.fsg.face.base.d
+    public b a(int i) {
+        try {
+            return (b) Class.forName(a.a(i)).getMethod("getInstance", new Class[0]).invoke(null, new Object[0]);
+        } catch (Exception e2) {
+            com.baidu.fsg.face.base.d.d.a(e2);
+            return c();
+        }
     }
 }

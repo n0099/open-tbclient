@@ -2,46 +2,50 @@ package com.baidu.mobads;
 
 import android.content.Context;
 import java.util.HashMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class j {
 
     /* renamed from: a  reason: collision with root package name */
-    private static Context f2417a;
-    private static long b;
-    private static volatile j d = null;
-    private HashMap<String, String> c = new HashMap<>();
+    public static Context f8354a;
 
-    private j() {
-    }
+    /* renamed from: b  reason: collision with root package name */
+    public static long f8355b;
+
+    /* renamed from: d  reason: collision with root package name */
+    public static volatile j f8356d;
+
+    /* renamed from: c  reason: collision with root package name */
+    public HashMap<String, String> f8357c = new HashMap<>();
 
     public static j a() {
-        if (d == null) {
+        if (f8356d == null) {
             synchronized (j.class) {
-                if (d == null) {
-                    d = new j();
+                if (f8356d == null) {
+                    f8356d = new j();
                 }
             }
         }
-        return d;
+        return f8356d;
+    }
+
+    public void b() {
+        com.baidu.mobads.b.a.a().a(f8354a, 801, null, this.f8357c);
+        this.f8357c.clear();
     }
 
     public void a(Context context) {
-        f2417a = context.getApplicationContext();
-        this.c = new HashMap<>();
+        f8354a = context.getApplicationContext();
+        this.f8357c = new HashMap<>();
     }
 
     public void a(int i) {
         try {
-            if (this.c != null && !this.c.containsKey(String.valueOf(i))) {
-                b = System.currentTimeMillis();
-                this.c.put(String.valueOf(i), String.valueOf(b));
+            if (this.f8357c == null || this.f8357c.containsKey(String.valueOf(i))) {
+                return;
             }
-        } catch (Throwable th) {
+            f8355b = System.currentTimeMillis();
+            this.f8357c.put(String.valueOf(i), String.valueOf(f8355b));
+        } catch (Throwable unused) {
         }
-    }
-
-    public void b() {
-        com.baidu.mobads.b.a.a().a(f2417a, 801, null, this.c);
-        this.c.clear();
     }
 }

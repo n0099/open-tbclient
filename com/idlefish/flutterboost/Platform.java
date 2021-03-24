@@ -6,9 +6,16 @@ import com.idlefish.flutterboost.FlutterBoost;
 import com.idlefish.flutterboost.interfaces.IContainerRecord;
 import io.flutter.embedding.android.FlutterView;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public abstract class Platform {
     public FlutterBoost.BoostLifecycleListener lifecycleListener;
+
+    public void closeContainer(IContainerRecord iContainerRecord, Map<String, Object> map, Map<String, Object> map2) {
+        if (iContainerRecord == null) {
+            return;
+        }
+        iContainerRecord.getContainer().finishContainer(map);
+    }
 
     public abstract String dartEntrypoint();
 
@@ -23,10 +30,4 @@ public abstract class Platform {
     public abstract FlutterView.RenderMode renderMode();
 
     public abstract int whenEngineStart();
-
-    public void closeContainer(IContainerRecord iContainerRecord, Map<String, Object> map, Map<String, Object> map2) {
-        if (iContainerRecord != null) {
-            iContainerRecord.getContainer().finishContainer(map);
-        }
-    }
 }

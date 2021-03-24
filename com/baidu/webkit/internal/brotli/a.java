@@ -1,28 +1,30 @@
 package com.baidu.webkit.internal.brotli;
 
 import com.baidu.webkit.internal.brotli.DecoderJNI;
-/* loaded from: classes14.dex */
-final /* synthetic */ class a {
+/* loaded from: classes5.dex */
+public final /* synthetic */ class a {
 
     /* renamed from: a  reason: collision with root package name */
-    static final /* synthetic */ int[] f3829a = new int[DecoderJNI.a.values().length];
+    public static final /* synthetic */ int[] f26909a;
 
     static {
+        int[] iArr = new int[DecoderJNI.a.values().length];
+        f26909a = iArr;
         try {
-            f3829a[DecoderJNI.a.DONE.ordinal()] = 1;
-        } catch (NoSuchFieldError e) {
+            iArr[DecoderJNI.a.DONE.ordinal()] = 1;
+        } catch (NoSuchFieldError unused) {
         }
         try {
-            f3829a[DecoderJNI.a.OK.ordinal()] = 2;
-        } catch (NoSuchFieldError e2) {
+            f26909a[DecoderJNI.a.OK.ordinal()] = 2;
+        } catch (NoSuchFieldError unused2) {
         }
         try {
-            f3829a[DecoderJNI.a.NEEDS_MORE_INPUT.ordinal()] = 3;
-        } catch (NoSuchFieldError e3) {
+            f26909a[DecoderJNI.a.NEEDS_MORE_INPUT.ordinal()] = 3;
+        } catch (NoSuchFieldError unused3) {
         }
         try {
-            f3829a[DecoderJNI.a.NEEDS_MORE_OUTPUT.ordinal()] = 4;
-        } catch (NoSuchFieldError e4) {
+            f26909a[DecoderJNI.a.NEEDS_MORE_OUTPUT.ordinal()] = 4;
+        } catch (NoSuchFieldError unused4) {
         }
     }
 }

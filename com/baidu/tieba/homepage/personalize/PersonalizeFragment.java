@@ -10,280 +10,198 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.widget.ListView.q;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
-import com.baidu.live.tbadk.core.sharedpref.SharedPrefConfig;
-import com.baidu.live.tbadk.pagestayduration.PageStayDurationConstants;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.LabelRecommendActivityConfig;
-import com.baidu.tbadk.core.data.VoiceData;
-import com.baidu.tbadk.core.util.y;
+import com.baidu.tbadk.core.data.VoiceData$VoiceModel;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.voice.VoiceManager;
-import com.baidu.tbadk.util.aa;
-import com.baidu.tieba.frs.am;
 import com.baidu.tieba.homepage.framework.indicator.ScrollFragmentTabHost;
+import d.b.b.j.e.q;
+import d.b.h0.z0.b0;
+import d.b.i0.p0.o0;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.Personalized.DataRes;
-/* loaded from: classes2.dex */
-public class PersonalizeFragment extends BaseFragment implements VoiceManager.c, am {
-    private VoiceManager jie;
-    private PersonalizePageView kka;
-    private com.baidu.tieba.homepage.framework.b kkb;
-    private boolean kcd = false;
-    private CustomMessageListener kkc = new CustomMessageListener(CmdConfigCustom.CMD_SHOW_RECOMMEND_LABEL) { // from class: com.baidu.tieba.homepage.personalize.PersonalizeFragment.1
+/* loaded from: classes4.dex */
+public class PersonalizeFragment extends BaseFragment implements o0, VoiceManager.j {
+
+    /* renamed from: e  reason: collision with root package name */
+    public PersonalizePageView f17198e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public VoiceManager f17199f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public d.b.i0.z0.c.b f17200g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public boolean f17201h = false;
+    public CustomMessageListener i = new a(2921029);
+    public final CustomMessageListener j = new b(2921313);
+    public final CustomMessageListener k = new c(2001371);
+    public final CustomMessageListener l = new d(2921391);
+
+    /* loaded from: classes4.dex */
+    public class a extends CustomMessageListener {
+        public a(int i) {
+            super(i);
+        }
+
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (PersonalizeFragment.this.isPrimary()) {
-                PersonalizeFragment.this.cRg();
+                PersonalizeFragment.this.N0();
             }
         }
-    };
-    private final CustomMessageListener kkd = new CustomMessageListener(CmdConfigCustom.CMD_DELETE_GOD_REPLY) { // from class: com.baidu.tieba.homepage.personalize.PersonalizeFragment.2
+    }
+
+    /* loaded from: classes4.dex */
+    public class b extends CustomMessageListener {
+        public b(int i) {
+            super(i);
+        }
+
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Long l;
-            if (customResponsedMessage != null && (l = (Long) customResponsedMessage.getData()) != null && PersonalizeFragment.this.kka != null) {
-                PersonalizeFragment.this.kka.h(l);
+            if (customResponsedMessage == null || (l = (Long) customResponsedMessage.getData()) == null || PersonalizeFragment.this.f17198e == null) {
+                return;
             }
+            PersonalizeFragment.this.f17198e.Q(l);
         }
-    };
-    private final CustomMessageListener mSyncFinishListener = new CustomMessageListener(CmdConfigCustom.CMD_SYNC_FINISH) { // from class: com.baidu.tieba.homepage.personalize.PersonalizeFragment.3
+    }
+
+    /* loaded from: classes4.dex */
+    public class c extends CustomMessageListener {
+        public c(int i) {
+            super(i);
+        }
+
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null) {
-                PersonalizeFragment.this.kka.cRj();
+            if (customResponsedMessage == null) {
+                return;
             }
+            PersonalizeFragment.this.f17198e.k0();
         }
-    };
-    private final CustomMessageListener jjH = new CustomMessageListener(2921391) { // from class: com.baidu.tieba.homepage.personalize.PersonalizeFragment.4
+    }
+
+    /* loaded from: classes4.dex */
+    public class d extends CustomMessageListener {
+        public d(int i) {
+            super(i);
+        }
+
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (PersonalizeFragment.this.isResumed()) {
-                PersonalizeFragment.this.cRf();
+                PersonalizeFragment.this.O0();
             }
         }
-    };
+    }
 
     public PersonalizeFragment() {
     }
 
-    @SuppressLint({"ValidFragment"})
-    public PersonalizeFragment(Context context) {
-        this.kka = new PersonalizePageView(context);
-        this.kka.bZr();
-    }
-
-    @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
-    public void onCreate(Bundle bundle) {
-        super.onCreate(bundle);
-        com.baidu.tieba.s.c.dMH().B(getUniqueId());
-    }
-
-    @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
-    public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        if (this.kka.getParent() instanceof ViewGroup) {
-            ((ViewGroup) this.kka.getParent()).removeView(this.kka);
-            if (this.kkb != null) {
-                this.kka.setCallback(this.kkb);
-            }
-        }
-        this.kka.setPageUniqueId(getUniqueId());
-        if (this.kcd) {
-            this.kka.bZr();
-            this.kcd = false;
-        }
-        return this.kka;
-    }
-
-    @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
-    public void onActivityCreated(Bundle bundle) {
-        super.onActivityCreated(bundle);
-        this.jie = getVoiceManager();
-        if (this.jie != null) {
-            this.jie.onCreate(getPageContext());
-        }
-        this.kkc.setTag(getUniqueId());
-        registerListener(this.kkc);
-        registerListener(this.kkd);
-        registerListener(this.jjH);
-    }
-
-    @Override // com.baidu.tbadk.core.BaseFragment
-    public void onLazyLoad() {
-        super.onLazyLoad();
-    }
-
-    @Override // com.baidu.tieba.frs.am
-    public void setRecommendFrsNavigationAnimDispatcher(aa aaVar) {
-        if (this.kka != null) {
-            this.kka.setRecommendFrsNavigationAnimDispatcher(aaVar);
+    @Override // d.b.i0.p0.o0
+    public void A() {
+        PersonalizePageView personalizePageView = this.f17198e;
+        if (personalizePageView != null) {
+            personalizePageView.l0();
         }
     }
 
-    @Override // com.baidu.tieba.frs.am
-    public void showFloatingView() {
-        if (this.kka != null) {
-            this.kka.showFloatingView();
-        }
+    public void E() {
+        this.f17198e.setViewForeground(true);
     }
 
-    @Override // androidx.fragment.app.Fragment
-    public void onStart() {
-        super.onStart();
-        if (this.jie != null) {
-            this.jie.onStart(getPageContext());
-        }
+    @Override // d.b.i0.p0.o0
+    public void F() {
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
-    public void onResume() {
-        super.onResume();
-        com.baidu.tbadk.core.bigday.b.bld().jp(true);
-        if (this.jie != null) {
-            this.jie.onResume(getPageContext());
-        }
-        this.kka.onResume();
-        this.kka.setTabInForeBackgroundState(false);
-        MessageManager.getInstance().registerListener(this.mSyncFinishListener);
-        cRf();
-    }
-
-    @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
-    public void onPause() {
-        super.onPause();
-        if (this.kka != null) {
-            this.kka.cPb();
-            this.kka.onPause();
-            this.kka.setTabInForeBackgroundState(true);
-        }
-        MessageManager.getInstance().unRegisterListener(this.mSyncFinishListener);
-        if (this.jie != null) {
-            this.jie.onPause(getPageContext());
-        }
-        com.baidu.tbadk.BdToken.c.bhp().bhA();
-    }
-
-    @Override // androidx.fragment.app.Fragment
-    public void onStop() {
-        super.onStop();
-        com.baidu.tieba.s.c.dMH().b(getUniqueId(), false);
-        if (this.jie != null) {
-            this.jie.onStop(getPageContext());
-        }
-    }
-
-    @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
-    public void onDestroy() {
-        super.onDestroy();
-        if (this.jie != null) {
-            this.jie.onDestory(getPageContext());
-        }
-        com.baidu.tieba.s.c.dMH().C(getUniqueId());
-        MessageManager.getInstance().unRegisterListener(this.kkc);
-        MessageManager.getInstance().unRegisterListener(this.kkd);
-        MessageManager.getInstance().unRegisterListener(this.jjH);
-        this.jie = null;
-        this.kka.onDestroy();
-        this.kcd = true;
-    }
-
-    @Override // com.baidu.tbadk.core.BaseFragment
-    public void onPrimary() {
-        super.onPrimary();
-        if (isPrimary()) {
-            this.kka.setViewForeground();
-            cRd();
-            cRg();
-            com.baidu.tieba.a.d.bKY().onPageStart("page_recommend");
+    public final void H0() {
+        PersonalizePageView personalizePageView;
+        if (!d.b.i0.z0.g.c.a(getBaseFragmentActivity()) || (personalizePageView = this.f17198e) == null) {
             return;
         }
-        this.kka.cPb();
-        com.baidu.tieba.a.d.bKY().onPageEnd("page_recommend");
+        personalizePageView.j0();
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment
-    public com.baidu.tbadk.m.d getPageStayDurationItem() {
-        com.baidu.tbadk.m.d pageStayDurationItem = super.getPageStayDurationItem();
-        if (pageStayDurationItem != null && TbadkCoreApplication.getInst().getAdAdSense() != null) {
-            pageStayDurationItem.DB(TbadkCoreApplication.getInst().getAdAdSense().frW);
-        }
-        return pageStayDurationItem;
+    public void I0() {
+        this.f17198e.P();
     }
 
-    private void cRd() {
-        if (c.ar(getBaseFragmentActivity()) && this.kka != null) {
-            this.kka.cRm();
-        }
+    public void J0() {
+        this.f17198e.R();
     }
 
-    public void bSD() {
-        this.kka.setViewForeground(true);
-    }
-
-    public void cRe() {
-        this.kka.cRe();
-    }
-
-    public void completePullRefresh() {
-        this.kka.completePullRefresh();
-    }
-
-    public void setScrollFragmentTabHost(ScrollFragmentTabHost scrollFragmentTabHost) {
-        if (this.kka != null) {
-            this.kka.setScrollFragmentTabHost(scrollFragmentTabHost);
+    @Override // d.b.i0.p0.o0
+    public void K(b0 b0Var) {
+        PersonalizePageView personalizePageView = this.f17198e;
+        if (personalizePageView != null) {
+            personalizePageView.setRecommendFrsNavigationAnimDispatcher(b0Var);
         }
     }
 
-    public void setCallback(com.baidu.tieba.homepage.framework.b bVar) {
-        this.kkb = bVar;
-        this.kka.setCallback(bVar);
+    public void K0() {
+        this.f17198e.Z();
     }
 
-    public void bd(String str, int i) {
-        this.kka.bd(str, i);
+    public void L0(d.b.i0.z0.c.b bVar) {
+        this.f17200g = bVar;
+        this.f17198e.setCallback(bVar);
     }
 
-    public void cPQ() {
-        this.kka.cPQ();
-    }
-
-    public void d(DataRes dataRes, boolean z, boolean z2) {
-        this.kka.d(dataRes, z, z2);
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void cRf() {
-        com.baidu.tbadk.BdToken.c.bhp().mH(com.baidu.tbadk.BdToken.b.eDI);
-    }
-
-    @Override // com.baidu.tieba.frs.am
-    public void Uw() {
-        this.kka.reload();
-    }
-
-    @Override // com.baidu.tbadk.core.voice.VoiceManager.c
-    public VoiceManager getVoiceManager() {
-        if (this.jie == null) {
-            this.jie = VoiceManager.instance();
+    public void M0(ScrollFragmentTabHost scrollFragmentTabHost) {
+        PersonalizePageView personalizePageView = this.f17198e;
+        if (personalizePageView != null) {
+            personalizePageView.setScrollFragmentTabHost(scrollFragmentTabHost);
         }
-        return this.jie;
     }
 
-    @Override // com.baidu.tieba.frs.am
-    public void bRJ() {
+    public final void N0() {
+        if (!TbadkCoreApplication.getInst().isFirstTimeMotivate() || d.b.h0.r.d0.b.i().g("show_recommend_label", false)) {
+            return;
+        }
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new LabelRecommendActivityConfig(getPageContext().getPageActivity(), 1)));
     }
 
-    @Override // com.baidu.tieba.frs.am
-    public void bRK() {
+    public final void O0() {
+        d.b.h0.a.c.y().N(d.b.h0.a.b.Y);
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tbadk.m.a
+    public void P0() {
+        this.f17198e.o0();
+    }
+
+    public void Q0(DataRes dataRes, boolean z, boolean z2) {
+        this.f17198e.p0(dataRes, z, z2);
+    }
+
+    public void R0(String str, int i) {
+        this.f17198e.q0(str, i);
+    }
+
+    @Override // d.b.i0.p0.o0
+    public void W() {
+    }
+
+    @Override // d.b.i0.p0.o0
+    public void b0() {
+        changeSkinType(TbadkCoreApplication.getInst().getSkinType());
+    }
+
+    @Override // com.baidu.tbadk.core.BaseFragment, d.b.h0.k0.a
+    public String getCurrentPageKey() {
+        return "a002";
+    }
+
+    @Override // com.baidu.tbadk.core.BaseFragment, d.b.h0.k0.a
     public List<String> getCurrentPageSourceKeyList() {
         ArrayList arrayList;
         if (super.getCurrentPageSourceKeyList() != null) {
@@ -291,48 +209,179 @@ public class PersonalizeFragment extends BaseFragment implements VoiceManager.c,
         } else {
             arrayList = new ArrayList();
         }
-        if (!PageStayDurationConstants.PageName.HOMEPAGE.equals(y.getItem(arrayList, arrayList.size() - 1))) {
-            arrayList.add(PageStayDurationConstants.PageName.HOMEPAGE);
+        if (!"a001".equals(ListUtils.getItem(arrayList, arrayList.size() - 1))) {
+            arrayList.add("a001");
         }
         return arrayList;
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tbadk.m.a
-    public String getCurrentPageKey() {
-        return PageStayDurationConstants.PageName.HOMEPAGE_PERSONALIZE;
+    @Override // com.baidu.tbadk.core.BaseFragment
+    public d.b.h0.k0.d getPageStayDurationItem() {
+        d.b.h0.k0.d pageStayDurationItem = super.getPageStayDurationItem();
+        if (pageStayDurationItem != null && TbadkCoreApplication.getInst().getAdAdSense() != null) {
+            pageStayDurationItem.n(TbadkCoreApplication.getInst().getAdAdSense().r);
+        }
+        return pageStayDurationItem;
     }
 
-    @Override // com.baidu.tbadk.core.voice.VoiceManager.c
-    public VoiceManager.b d(VoiceData.VoiceModel voiceModel) {
+    @Override // com.baidu.tbadk.core.voice.VoiceManager.j
+    public VoiceManager.i getRealView(VoiceData$VoiceModel voiceData$VoiceModel) {
         return null;
+    }
+
+    @Override // com.baidu.tbadk.core.voice.VoiceManager.j
+    public VoiceManager getVoiceManager() {
+        if (this.f17199f == null) {
+            this.f17199f = VoiceManager.instance();
+        }
+        return this.f17199f;
+    }
+
+    @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
+    public void onActivityCreated(Bundle bundle) {
+        super.onActivityCreated(bundle);
+        VoiceManager voiceManager = getVoiceManager();
+        this.f17199f = voiceManager;
+        if (voiceManager != null) {
+            voiceManager.onCreate(getPageContext());
+        }
+        this.i.setTag(getUniqueId());
+        registerListener(this.i);
+        registerListener(this.j);
+        registerListener(this.l);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.kka.onChangeSkinType(i);
+        this.f17198e.b0(i);
     }
 
-    @Override // com.baidu.tieba.frs.am
-    public void bus() {
-        changeSkinType(TbadkCoreApplication.getInst().getSkinType());
+    @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
+    public void onCreate(Bundle bundle) {
+        super.onCreate(bundle);
+        d.b.i0.b3.c.g().i(getUniqueId());
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void cRg() {
-        if (TbadkCoreApplication.getInst().isFirstTimeMotivate() && !com.baidu.tbadk.core.sharedPref.b.brR().getBoolean(SharedPrefConfig.SHOW_RECOMMEND_LABEL, false)) {
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new LabelRecommendActivityConfig(getPageContext().getPageActivity(), 1)));
+    @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
+    public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
+        if (this.f17198e.getParent() instanceof ViewGroup) {
+            ((ViewGroup) this.f17198e.getParent()).removeView(this.f17198e);
+            d.b.i0.z0.c.b bVar = this.f17200g;
+            if (bVar != null) {
+                this.f17198e.setCallback(bVar);
+            }
         }
+        this.f17198e.setPageUniqueId(getUniqueId());
+        if (this.f17201h) {
+            this.f17198e.V();
+            this.f17201h = false;
+        }
+        return this.f17198e;
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.adp.base.i
+    @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
+    public void onDestroy() {
+        super.onDestroy();
+        VoiceManager voiceManager = this.f17199f;
+        if (voiceManager != null) {
+            voiceManager.onDestory(getPageContext());
+        }
+        d.b.i0.b3.c.g().k(getUniqueId());
+        MessageManager.getInstance().unRegisterListener(this.i);
+        MessageManager.getInstance().unRegisterListener(this.j);
+        MessageManager.getInstance().unRegisterListener(this.l);
+        this.f17199f = null;
+        this.f17198e.c0();
+        this.f17201h = true;
+    }
+
+    @Override // com.baidu.tbadk.core.BaseFragment
+    public void onLazyLoad() {
+        super.onLazyLoad();
+    }
+
+    @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
+    public void onPause() {
+        super.onPause();
+        PersonalizePageView personalizePageView = this.f17198e;
+        if (personalizePageView != null) {
+            personalizePageView.g0();
+            this.f17198e.d0();
+            this.f17198e.setTabInForeBackgroundState(true);
+        }
+        MessageManager.getInstance().unRegisterListener(this.k);
+        VoiceManager voiceManager = this.f17199f;
+        if (voiceManager != null) {
+            voiceManager.onPause(getPageContext());
+        }
+        d.b.h0.a.c.y().E();
+    }
+
+    @Override // com.baidu.tbadk.core.BaseFragment, d.b.b.a.i
     public void onPreLoad(q qVar) {
-        if (!TbadkCoreApplication.getInst().checkInterrupt()) {
-            super.onPreLoad(qVar);
+        if (TbadkCoreApplication.getInst().checkInterrupt()) {
+            return;
+        }
+        super.onPreLoad(qVar);
+    }
+
+    @Override // com.baidu.tbadk.core.BaseFragment
+    public void onPrimary() {
+        super.onPrimary();
+        if (isPrimary()) {
+            this.f17198e.setViewForeground();
+            H0();
+            N0();
+            d.b.i0.m.d.c().e("page_recommend");
+            return;
+        }
+        this.f17198e.g0();
+        d.b.i0.m.d.c().d("page_recommend");
+    }
+
+    @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
+    public void onResume() {
+        super.onResume();
+        d.b.h0.r.n.b.i().n(true);
+        VoiceManager voiceManager = this.f17199f;
+        if (voiceManager != null) {
+            voiceManager.onResume(getPageContext());
+        }
+        this.f17198e.e0();
+        this.f17198e.setTabInForeBackgroundState(false);
+        MessageManager.getInstance().registerListener(this.k);
+        O0();
+    }
+
+    @Override // androidx.fragment.app.Fragment
+    public void onStart() {
+        super.onStart();
+        VoiceManager voiceManager = this.f17199f;
+        if (voiceManager != null) {
+            voiceManager.onStart(getPageContext());
         }
     }
 
-    public void cRh() {
-        this.kka.cRk();
+    @Override // androidx.fragment.app.Fragment
+    public void onStop() {
+        super.onStop();
+        d.b.i0.b3.c.g().h(getUniqueId(), false);
+        VoiceManager voiceManager = this.f17199f;
+        if (voiceManager != null) {
+            voiceManager.onStop(getPageContext());
+        }
+    }
+
+    @Override // d.b.i0.p0.o0
+    public void w() {
+        this.f17198e.i0();
+    }
+
+    @SuppressLint({"ValidFragment"})
+    public PersonalizeFragment(Context context) {
+        PersonalizePageView personalizePageView = new PersonalizePageView(context);
+        this.f17198e = personalizePageView;
+        personalizePageView.V();
     }
 }

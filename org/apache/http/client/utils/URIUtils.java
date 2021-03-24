@@ -4,9 +4,9 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import org.apache.http.HttpHost;
 @Deprecated
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class URIUtils {
-    URIUtils() {
+    public URIUtils() {
         throw new RuntimeException("Stub!");
     }
 
@@ -14,19 +14,19 @@ public class URIUtils {
         throw new RuntimeException("Stub!");
     }
 
-    public static URI rewriteURI(URI uri, HttpHost httpHost, boolean z) throws URISyntaxException {
-        throw new RuntimeException("Stub!");
-    }
-
-    public static URI rewriteURI(URI uri, HttpHost httpHost) throws URISyntaxException {
-        throw new RuntimeException("Stub!");
-    }
-
     public static URI resolve(URI uri, String str) {
         throw new RuntimeException("Stub!");
     }
 
+    public static URI rewriteURI(URI uri, HttpHost httpHost, boolean z) throws URISyntaxException {
+        throw new RuntimeException("Stub!");
+    }
+
     public static URI resolve(URI uri, URI uri2) {
+        throw new RuntimeException("Stub!");
+    }
+
+    public static URI rewriteURI(URI uri, HttpHost httpHost) throws URISyntaxException {
         throw new RuntimeException("Stub!");
     }
 }

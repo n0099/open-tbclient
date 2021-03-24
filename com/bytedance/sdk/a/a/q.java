@@ -1,136 +1,201 @@
 package com.bytedance.sdk.a.a;
 
+import d.c.c.a.a.c;
+import d.c.c.a.a.n;
+import d.c.c.a.a.s;
 import java.util.Arrays;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class q extends f {
-    final transient byte[][] f;
-    final transient int[] g;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    /* renamed from: f  reason: collision with root package name */
+    public final transient byte[][] f27165f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public final transient int[] f27166g;
+
     public q(c cVar, int i) {
         super(null);
-        u.a(cVar.b, 0L, i);
-        o oVar = cVar.pqm;
+        s.c(cVar.f65129f, 0L, i);
+        n nVar = cVar.f65128e;
         int i2 = 0;
         int i3 = 0;
+        int i4 = 0;
         while (i3 < i) {
-            if (oVar.c == oVar.b) {
+            int i5 = nVar.f65156c;
+            int i6 = nVar.f65155b;
+            if (i5 != i6) {
+                i3 += i5 - i6;
+                i4++;
+                nVar = nVar.f65159f;
+            } else {
                 throw new AssertionError("s.limit == s.pos");
             }
-            i3 += oVar.c - oVar.b;
-            i2++;
-            oVar = oVar.pqy;
         }
-        this.f = new byte[i2];
-        this.g = new int[i2 * 2];
-        o oVar2 = cVar.pqm;
-        int i4 = 0;
-        int i5 = 0;
-        while (i5 < i) {
-            this.f[i4] = oVar2.f3942a;
-            int i6 = (oVar2.c - oVar2.b) + i5;
-            if (i6 > i) {
-                i6 = i;
+        this.f27165f = new byte[i4];
+        this.f27166g = new int[i4 * 2];
+        n nVar2 = cVar.f65128e;
+        int i7 = 0;
+        while (i2 < i) {
+            this.f27165f[i7] = nVar2.f65154a;
+            i2 += nVar2.f65156c - nVar2.f65155b;
+            if (i2 > i) {
+                i2 = i;
             }
-            this.g[i4] = i6;
-            this.g[this.f.length + i4] = oVar2.b;
-            oVar2.d = true;
-            i4++;
-            oVar2 = oVar2.pqy;
-            i5 = i6;
+            int[] iArr = this.f27166g;
+            iArr[i7] = i2;
+            iArr[this.f27165f.length + i7] = nVar2.f65155b;
+            nVar2.f65157d = true;
+            i7++;
+            nVar2 = nVar2.f65159f;
         }
     }
 
     @Override // com.bytedance.sdk.a.a.f
     public String a() {
-        return eoX().a();
+        return j().a();
     }
 
     @Override // com.bytedance.sdk.a.a.f
     public String b() {
-        return eoX().b();
-    }
-
-    @Override // com.bytedance.sdk.a.a.f
-    public String e() {
-        return eoX().e();
-    }
-
-    @Override // com.bytedance.sdk.a.a.f
-    public f f() {
-        return eoX().f();
+        return j().b();
     }
 
     @Override // com.bytedance.sdk.a.a.f
     public f c() {
-        return eoX().c();
+        return j().c();
     }
 
     @Override // com.bytedance.sdk.a.a.f
     public f d() {
-        return eoX().d();
+        return j().d();
     }
 
     @Override // com.bytedance.sdk.a.a.f
-    public f a(int i, int i2) {
-        return eoX().a(i, i2);
+    public String e() {
+        return j().e();
     }
 
     @Override // com.bytedance.sdk.a.a.f
-    public byte a(int i) {
-        u.a(this.g[this.f.length - 1], i, 1L);
-        int b = b(i);
-        return this.f[b][(i - (b == 0 ? 0 : this.g[b - 1])) + this.g[this.f.length + b]];
+    public boolean equals(Object obj) {
+        if (obj == this) {
+            return true;
+        }
+        if (obj instanceof f) {
+            f fVar = (f) obj;
+            if (fVar.g() == g() && a(0, fVar, 0, g())) {
+                return true;
+            }
+        }
+        return false;
     }
 
-    private int b(int i) {
-        int binarySearch = Arrays.binarySearch(this.g, 0, this.f.length, i + 1);
-        return binarySearch >= 0 ? binarySearch : binarySearch ^ (-1);
+    @Override // com.bytedance.sdk.a.a.f
+    public f f() {
+        return j().f();
     }
 
     @Override // com.bytedance.sdk.a.a.f
     public int g() {
-        return this.g[this.f.length - 1];
+        return this.f27166g[this.f27165f.length - 1];
     }
 
     @Override // com.bytedance.sdk.a.a.f
     public byte[] h() {
-        byte[] bArr = new byte[this.g[this.f.length - 1]];
-        int length = this.f.length;
+        int[] iArr = this.f27166g;
+        byte[][] bArr = this.f27165f;
+        byte[] bArr2 = new byte[iArr[bArr.length - 1]];
+        int length = bArr.length;
         int i = 0;
         int i2 = 0;
         while (i < length) {
-            int i3 = this.g[length + i];
-            int i4 = this.g[i];
-            System.arraycopy(this.f[i], i3, bArr, i2, i4 - i2);
+            int[] iArr2 = this.f27166g;
+            int i3 = iArr2[length + i];
+            int i4 = iArr2[i];
+            System.arraycopy(this.f27165f[i], i3, bArr2, i2, i4 - i2);
             i++;
             i2 = i4;
         }
-        return bArr;
+        return bArr2;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    @Override // com.bytedance.sdk.a.a.f
+    public int hashCode() {
+        int i = this.f27163d;
+        if (i != 0) {
+            return i;
+        }
+        int length = this.f27165f.length;
+        int i2 = 0;
+        int i3 = 0;
+        int i4 = 1;
+        while (i2 < length) {
+            byte[] bArr = this.f27165f[i2];
+            int[] iArr = this.f27166g;
+            int i5 = iArr[length + i2];
+            int i6 = iArr[i2];
+            int i7 = (i6 - i3) + i5;
+            while (i5 < i7) {
+                i4 = (i4 * 31) + bArr[i5];
+                i5++;
+            }
+            i2++;
+            i3 = i6;
+        }
+        this.f27163d = i4;
+        return i4;
+    }
+
+    public final int i(int i) {
+        int binarySearch = Arrays.binarySearch(this.f27166g, 0, this.f27165f.length, i + 1);
+        return binarySearch >= 0 ? binarySearch : binarySearch ^ (-1);
+    }
+
+    public final f j() {
+        return new f(h());
+    }
+
+    @Override // com.bytedance.sdk.a.a.f
+    public String toString() {
+        return j().toString();
+    }
+
+    @Override // com.bytedance.sdk.a.a.f
+    public f a(int i, int i2) {
+        return j().a(i, i2);
+    }
+
+    @Override // com.bytedance.sdk.a.a.f
+    public byte a(int i) {
+        s.c(this.f27166g[this.f27165f.length - 1], i, 1L);
+        int i2 = i(i);
+        int i3 = i2 == 0 ? 0 : this.f27166g[i2 - 1];
+        int[] iArr = this.f27166g;
+        byte[][] bArr = this.f27165f;
+        return bArr[i2][(i - i3) + iArr[bArr.length + i2]];
+    }
+
     @Override // com.bytedance.sdk.a.a.f
     public void a(c cVar) {
-        int length = this.f.length;
+        int length = this.f27165f.length;
         int i = 0;
         int i2 = 0;
         while (i < length) {
-            int i3 = this.g[length + i];
-            int i4 = this.g[i];
-            o oVar = new o(this.f[i], i3, (i3 + i4) - i2, true, false);
-            if (cVar.pqm == null) {
-                oVar.pqz = oVar;
-                oVar.pqy = oVar;
-                cVar.pqm = oVar;
+            int[] iArr = this.f27166g;
+            int i3 = iArr[length + i];
+            int i4 = iArr[i];
+            n nVar = new n(this.f27165f[i], i3, (i3 + i4) - i2, true, false);
+            n nVar2 = cVar.f65128e;
+            if (nVar2 == null) {
+                nVar.f65160g = nVar;
+                nVar.f65159f = nVar;
+                cVar.f65128e = nVar;
             } else {
-                cVar.pqm.pqz.a(oVar);
+                nVar2.f65160g.c(nVar);
             }
             i++;
             i2 = i4;
         }
-        cVar.b += i2;
+        cVar.f65129f += i2;
     }
 
     @Override // com.bytedance.sdk.a.a.f
@@ -138,17 +203,19 @@ public final class q extends f {
         if (i < 0 || i > g() - i3) {
             return false;
         }
-        int b = b(i);
+        int i4 = i(i);
         while (i3 > 0) {
-            int i4 = b == 0 ? 0 : this.g[b - 1];
-            int min = Math.min(i3, ((this.g[b] - i4) + i4) - i);
-            if (!fVar.a(i2, this.f[b], (i - i4) + this.g[this.f.length + b], min)) {
+            int i5 = i4 == 0 ? 0 : this.f27166g[i4 - 1];
+            int min = Math.min(i3, ((this.f27166g[i4] - i5) + i5) - i);
+            int[] iArr = this.f27166g;
+            byte[][] bArr = this.f27165f;
+            if (!fVar.a(i2, bArr[i4], (i - i5) + iArr[bArr.length + i4], min)) {
                 return false;
             }
             i += min;
             i2 += min;
             i3 -= min;
-            b++;
+            i4++;
         }
         return true;
     }
@@ -158,62 +225,20 @@ public final class q extends f {
         if (i < 0 || i > g() - i3 || i2 < 0 || i2 > bArr.length - i3) {
             return false;
         }
-        int b = b(i);
+        int i4 = i(i);
         while (i3 > 0) {
-            int i4 = b == 0 ? 0 : this.g[b - 1];
-            int min = Math.min(i3, ((this.g[b] - i4) + i4) - i);
-            if (!u.a(this.f[b], (i - i4) + this.g[this.f.length + b], bArr, i2, min)) {
+            int i5 = i4 == 0 ? 0 : this.f27166g[i4 - 1];
+            int min = Math.min(i3, ((this.f27166g[i4] - i5) + i5) - i);
+            int[] iArr = this.f27166g;
+            byte[][] bArr2 = this.f27165f;
+            if (!s.e(bArr2[i4], (i - i5) + iArr[bArr2.length + i4], bArr, i2, min)) {
                 return false;
             }
             i += min;
             i2 += min;
             i3 -= min;
-            b++;
+            i4++;
         }
         return true;
-    }
-
-    private f eoX() {
-        return new f(h());
-    }
-
-    @Override // com.bytedance.sdk.a.a.f
-    public boolean equals(Object obj) {
-        if (obj == this) {
-            return true;
-        }
-        return (obj instanceof f) && ((f) obj).g() == g() && a(0, (f) obj, 0, g());
-    }
-
-    @Override // com.bytedance.sdk.a.a.f
-    public int hashCode() {
-        int i = this.d;
-        if (i == 0) {
-            i = 1;
-            int length = this.f.length;
-            int i2 = 0;
-            int i3 = 0;
-            while (i2 < length) {
-                byte[] bArr = this.f[i2];
-                int i4 = this.g[length + i2];
-                int i5 = this.g[i2];
-                int i6 = i4 + (i5 - i3);
-                int i7 = i;
-                while (i4 < i6) {
-                    i7 = bArr[i4] + (i7 * 31);
-                    i4++;
-                }
-                i2++;
-                i3 = i5;
-                i = i7;
-            }
-            this.d = i;
-        }
-        return i;
-    }
-
-    @Override // com.bytedance.sdk.a.a.f
-    public String toString() {
-        return eoX().toString();
     }
 }

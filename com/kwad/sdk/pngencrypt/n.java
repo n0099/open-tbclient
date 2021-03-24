@@ -3,15 +3,18 @@ package com.kwad.sdk.pngencrypt;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.Charset;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public final class n {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Charset f6930a = Charset.forName("ISO-8859-1");
-    public static Charset b = Charset.forName("UTF-8");
-    private static ThreadLocal<Boolean> c = new ThreadLocal<Boolean>() { // from class: com.kwad.sdk.pngencrypt.n.1
+    public static Charset f36195a = Charset.forName("ISO-8859-1");
+
+    /* renamed from: b  reason: collision with root package name */
+    public static Charset f36196b = Charset.forName("UTF-8");
+
+    /* renamed from: c  reason: collision with root package name */
+    public static ThreadLocal<Boolean> f36197c = new ThreadLocal<Boolean>() { // from class: com.kwad.sdk.pngencrypt.n.1
         /* JADX DEBUG: Method merged with bridge method */
-        /* JADX INFO: Access modifiers changed from: protected */
         @Override // java.lang.ThreadLocal
         /* renamed from: a */
         public Boolean initialValue() {
@@ -20,10 +23,11 @@ public final class n {
     };
 
     public static double a(int i) {
-        return i / 100000.0d;
+        double d2 = i;
+        Double.isNaN(d2);
+        return d2 / 100000.0d;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public static final int a(int i, int i2, int i3) {
         int i4 = (i + i2) - i3;
         int i5 = i4 >= i ? i4 - i : i - i4;
@@ -35,8 +39,8 @@ public final class n {
     public static int a(InputStream inputStream) {
         try {
             return inputStream.read();
-        } catch (IOException e) {
-            com.kwad.sdk.core.d.a.a(e);
+        } catch (IOException e2) {
+            com.kwad.sdk.core.d.a.a(e2);
             return -1;
         }
     }
@@ -59,17 +63,17 @@ public final class n {
                 return -1;
             }
             return (read << 24) | (read2 << 16) | ((read3 << 8) + read4);
-        } catch (IOException e) {
-            com.kwad.sdk.core.d.a.a(e);
+        } catch (IOException e2) {
+            com.kwad.sdk.core.d.a.a(e2);
             return -1;
         }
     }
 
     public static int b(byte[] bArr, int i) {
-        return ((bArr[i] & 255) << 8) | (bArr[i + 1] & 255);
+        return (bArr[i + 1] & 255) | ((bArr[i] & 255) << 8);
     }
 
     public static final int c(byte[] bArr, int i) {
-        return ((bArr[i] & 255) << 24) | ((bArr[i + 1] & 255) << 16) | ((bArr[i + 2] & 255) << 8) | (bArr[i + 3] & 255);
+        return (bArr[i + 3] & 255) | ((bArr[i] & 255) << 24) | ((bArr[i + 1] & 255) << 16) | ((bArr[i + 2] & 255) << 8);
     }
 }

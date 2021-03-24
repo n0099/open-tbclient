@@ -2,29 +2,25 @@ package com.bumptech.glide.load.resource.bitmap;
 
 import android.graphics.Bitmap;
 import androidx.annotation.NonNull;
+import com.bumptech.glide.load.Key;
 import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool;
 import com.bumptech.glide.util.Util;
 import java.nio.ByteBuffer;
 import java.security.MessageDigest;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public final class GranularRoundedCorners extends BitmapTransformation {
-    private static final String ID = "com.bumptech.glide.load.resource.bitmap.GranularRoundedCorners";
-    private static final byte[] ID_BYTES = ID.getBytes(CHARSET);
-    private final float bottomLeft;
-    private final float bottomRight;
-    private final float topLeft;
-    private final float topRight;
+    public static final String ID = "com.bumptech.glide.load.resource.bitmap.GranularRoundedCorners";
+    public static final byte[] ID_BYTES = ID.getBytes(Key.CHARSET);
+    public final float bottomLeft;
+    public final float bottomRight;
+    public final float topLeft;
+    public final float topRight;
 
-    public GranularRoundedCorners(float f, float f2, float f3, float f4) {
-        this.topLeft = f;
-        this.topRight = f2;
-        this.bottomRight = f3;
-        this.bottomLeft = f4;
-    }
-
-    @Override // com.bumptech.glide.load.resource.bitmap.BitmapTransformation
-    protected Bitmap transform(@NonNull BitmapPool bitmapPool, @NonNull Bitmap bitmap, int i, int i2) {
-        return TransformationUtils.roundedCorners(bitmapPool, bitmap, this.topLeft, this.topRight, this.bottomRight, this.bottomLeft);
+    public GranularRoundedCorners(float f2, float f3, float f4, float f5) {
+        this.topLeft = f2;
+        this.topRight = f3;
+        this.bottomRight = f4;
+        this.bottomLeft = f5;
     }
 
     @Override // com.bumptech.glide.load.Key
@@ -38,7 +34,12 @@ public final class GranularRoundedCorners extends BitmapTransformation {
 
     @Override // com.bumptech.glide.load.Key
     public int hashCode() {
-        return Util.hashCode(this.bottomLeft, Util.hashCode(this.bottomRight, Util.hashCode(this.topRight, Util.hashCode(ID.hashCode(), Util.hashCode(this.topLeft)))));
+        return Util.hashCode(this.bottomLeft, Util.hashCode(this.bottomRight, Util.hashCode(this.topRight, Util.hashCode(-2013597734, Util.hashCode(this.topLeft)))));
+    }
+
+    @Override // com.bumptech.glide.load.resource.bitmap.BitmapTransformation
+    public Bitmap transform(@NonNull BitmapPool bitmapPool, @NonNull Bitmap bitmap, int i, int i2) {
+        return TransformationUtils.roundedCorners(bitmapPool, bitmap, this.topLeft, this.topRight, this.bottomRight, this.bottomLeft);
     }
 
     @Override // com.bumptech.glide.load.Key

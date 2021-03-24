@@ -3,11 +3,13 @@ package com.baidu.tieba.view;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.ScrollView;
-/* loaded from: classes.dex */
+/* loaded from: classes5.dex */
 public class GuideScrollView extends ScrollView {
-    private a obi;
 
-    /* loaded from: classes.dex */
+    /* renamed from: e  reason: collision with root package name */
+    public a f22119e;
+
+    /* loaded from: classes5.dex */
     public interface a {
         void onScrollChanged(int i, int i2, int i3, int i4);
     }
@@ -16,27 +18,28 @@ public class GuideScrollView extends ScrollView {
         super(context);
     }
 
+    public a getScrollChangedListener() {
+        return this.f22119e;
+    }
+
+    @Override // android.view.View
+    public void onScrollChanged(int i, int i2, int i3, int i4) {
+        super.onScrollChanged(i, i2, i3, i4);
+        a aVar = this.f22119e;
+        if (aVar != null) {
+            aVar.onScrollChanged(i, i2, i3, i4);
+        }
+    }
+
+    public void setScrollChangedListener(a aVar) {
+        this.f22119e = aVar;
+    }
+
     public GuideScrollView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
     }
 
     public GuideScrollView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-    }
-
-    @Override // android.view.View
-    protected void onScrollChanged(int i, int i2, int i3, int i4) {
-        super.onScrollChanged(i, i2, i3, i4);
-        if (this.obi != null) {
-            this.obi.onScrollChanged(i, i2, i3, i4);
-        }
-    }
-
-    public void setScrollChangedListener(a aVar) {
-        this.obi = aVar;
-    }
-
-    public a getScrollChangedListener() {
-        return this.obi;
     }
 }

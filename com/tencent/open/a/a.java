@@ -7,42 +7,90 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Writer;
-/* loaded from: classes14.dex */
+/* loaded from: classes7.dex */
 public class a extends i implements Handler.Callback {
 
     /* renamed from: a  reason: collision with root package name */
-    private b f7949a;
-    private FileWriter b;
-    private File c;
-    private char[] d;
-    private volatile g e;
-    private volatile g f;
-    private volatile g g;
-    private volatile g h;
-    private volatile boolean i;
-    private HandlerThread j;
-    private Handler k;
+    public b f39180a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public FileWriter f39181b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public File f39182c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public char[] f39183d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public volatile g f39184e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public volatile g f39185f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public volatile g f39186g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public volatile g f39187h;
+    public volatile boolean i;
+    public HandlerThread j;
+    public Handler k;
 
     public a(b bVar) {
-        this(c.b, true, h.f7957a, bVar);
+        this(c.f39200b, true, h.f39217a, bVar);
     }
 
-    public a(int i, boolean z, h hVar, b bVar) {
-        super(i, z, hVar);
-        this.i = false;
-        a(bVar);
-        this.e = new g();
-        this.f = new g();
-        this.g = this.e;
-        this.h = this.f;
-        this.d = new char[bVar.d()];
-        g();
-        this.j = new HandlerThread(bVar.c(), bVar.f());
-        if (this.j != null) {
-            this.j.start();
+    private void f() {
+        if (Thread.currentThread() == this.j && !this.i) {
+            this.i = true;
+            i();
+            try {
+                this.f39187h.a(g(), this.f39183d);
+            } catch (IOException unused) {
+            } catch (Throwable th) {
+                this.f39187h.b();
+                throw th;
+            }
+            this.f39187h.b();
+            this.i = false;
         }
-        if (this.j.isAlive() && this.j.getLooper() != null) {
-            this.k = new Handler(this.j.getLooper(), this);
+    }
+
+    private Writer g() {
+        File a2 = c().a();
+        if ((a2 != null && !a2.equals(this.f39182c)) || (this.f39181b == null && a2 != null)) {
+            this.f39182c = a2;
+            h();
+            try {
+                this.f39181b = new FileWriter(this.f39182c, true);
+            } catch (IOException unused) {
+                return null;
+            }
+        }
+        return this.f39181b;
+    }
+
+    private void h() {
+        try {
+            if (this.f39181b != null) {
+                this.f39181b.flush();
+                this.f39181b.close();
+            }
+        } catch (IOException e2) {
+            e2.printStackTrace();
+        }
+    }
+
+    private void i() {
+        synchronized (this) {
+            if (this.f39186g == this.f39184e) {
+                this.f39186g = this.f39185f;
+                this.f39187h = this.f39184e;
+            } else {
+                this.f39186g = this.f39184e;
+                this.f39187h = this.f39185f;
+            }
         }
     }
 
@@ -58,85 +106,53 @@ public class a extends i implements Handler.Callback {
         this.j.quit();
     }
 
-    @Override // com.tencent.open.a.i
-    protected void a(int i, Thread thread, long j, String str, String str2, Throwable th) {
-        a(e().a(i, thread, j, str, str2, th));
-    }
-
-    protected void a(String str) {
-        this.g.a(str);
-        if (this.g.a() >= c().d()) {
-            a();
-        }
+    public b c() {
+        return this.f39180a;
     }
 
     @Override // android.os.Handler.Callback
     public boolean handleMessage(Message message) {
-        switch (message.what) {
-            case 1024:
-                f();
-                return true;
-            default:
-                return true;
+        if (message.what != 1024) {
+            return true;
         }
+        f();
+        return true;
     }
 
-    private void f() {
-        if (Thread.currentThread() == this.j && !this.i) {
-            this.i = true;
-            i();
-            try {
-                this.h.a(g(), this.d);
-            } catch (IOException e) {
-            } finally {
-                this.h.b();
-            }
-            this.i = false;
+    public a(int i, boolean z, h hVar, b bVar) {
+        super(i, z, hVar);
+        this.i = false;
+        a(bVar);
+        this.f39184e = new g();
+        this.f39185f = new g();
+        this.f39186g = this.f39184e;
+        this.f39187h = this.f39185f;
+        this.f39183d = new char[bVar.d()];
+        g();
+        HandlerThread handlerThread = new HandlerThread(bVar.c(), bVar.f());
+        this.j = handlerThread;
+        if (handlerThread != null) {
+            handlerThread.start();
         }
+        if (!this.j.isAlive() || this.j.getLooper() == null) {
+            return;
+        }
+        this.k = new Handler(this.j.getLooper(), this);
     }
 
-    private Writer g() {
-        File a2 = c().a();
-        if ((a2 != null && !a2.equals(this.c)) || (this.b == null && a2 != null)) {
-            this.c = a2;
-            h();
-            try {
-                this.b = new FileWriter(this.c, true);
-            } catch (IOException e) {
-                return null;
-            }
-        }
-        return this.b;
+    @Override // com.tencent.open.a.i
+    public void a(int i, Thread thread, long j, String str, String str2, Throwable th) {
+        a(e().a(i, thread, j, str, str2, th));
     }
 
-    private void h() {
-        try {
-            if (this.b != null) {
-                this.b.flush();
-                this.b.close();
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
+    public void a(String str) {
+        this.f39186g.a(str);
+        if (this.f39186g.a() >= c().d()) {
+            a();
         }
-    }
-
-    private void i() {
-        synchronized (this) {
-            if (this.g == this.e) {
-                this.g = this.f;
-                this.h = this.e;
-            } else {
-                this.g = this.e;
-                this.h = this.f;
-            }
-        }
-    }
-
-    public b c() {
-        return this.f7949a;
     }
 
     public void a(b bVar) {
-        this.f7949a = bVar;
+        this.f39180a = bVar;
     }
 }

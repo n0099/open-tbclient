@@ -8,25 +8,23 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.TimeZone;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public final class bx {
     public static String a(Context context) {
-        String str = "";
+        String str;
         try {
             str = CommonParam.getCUID(context);
-        } catch (Throwable th) {
+        } catch (Throwable unused) {
+            str = "";
         }
-        if (TextUtils.isEmpty(str)) {
-            return "";
-        }
-        return str;
+        return TextUtils.isEmpty(str) ? "" : str;
     }
 
     public static HashMap<String, String> a(Map<String, String> map) {
-        if (map == null) {
-            return null;
+        if (map != null) {
+            return new HashMap<>(map);
         }
-        return new HashMap<>(map);
+        return null;
     }
 
     public static String a(long j) {
@@ -41,11 +39,10 @@ public final class bx {
         for (StackTraceElement stackTraceElement : Thread.currentThread().getStackTrace()) {
             String methodName = stackTraceElement.getMethodName();
             if (!TextUtils.isEmpty(methodName) && cls != null && methodName.equals(str)) {
-                String className = stackTraceElement.getClassName();
                 Class<?> cls2 = null;
                 try {
-                    cls2 = Class.forName(className);
-                } catch (Throwable th) {
+                    cls2 = Class.forName(stackTraceElement.getClassName());
+                } catch (Throwable unused) {
                 }
                 if (cls2 != null && cls.isAssignableFrom(cls2)) {
                     return true;
@@ -59,9 +56,6 @@ public final class bx {
         if (TextUtils.isEmpty(str)) {
             str = "";
         }
-        if (str.length() > i) {
-            return str.substring(0, i);
-        }
-        return str;
+        return str.length() > i ? str.substring(0, i) : str;
     }
 }

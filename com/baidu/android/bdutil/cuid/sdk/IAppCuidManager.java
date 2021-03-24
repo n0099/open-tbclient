@@ -1,5 +1,5 @@
 package com.baidu.android.bdutil.cuid.sdk;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public interface IAppCuidManager {
     String getCuid();
 

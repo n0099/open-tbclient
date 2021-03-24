@@ -7,147 +7,97 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.core.view.HorizontalCustomScrollView;
 import com.baidu.tieba.R;
 import java.util.ArrayList;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class AtSelectFriendList extends HorizontalCustomScrollView {
-    private final View.OnClickListener aFH;
-    private int dlK;
-    private LinearLayout kRg;
-    private int kRh;
-    private HeadImageView kRi;
-    private final Context mContext;
-    private int mItemWidth;
-    private int mMaxCount;
-    private a ols;
 
-    /* loaded from: classes7.dex */
-    public interface a {
-        void b(View view, Object obj);
+    /* renamed from: f  reason: collision with root package name */
+    public final Context f22414f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public LinearLayout f22415g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public int f22416h;
+    public int i;
+    public int j;
+    public int k;
+    public HeadImageView l;
+    public b m;
+    public final View.OnClickListener n;
+
+    /* loaded from: classes5.dex */
+    public class a implements View.OnClickListener {
+        public a() {
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            AtSelectFriendList.this.f22415g.removeView(view);
+            if (!AtSelectFriendList.this.h()) {
+                AtSelectFriendList.this.j();
+            }
+            if (AtSelectFriendList.this.m != null) {
+                AtSelectFriendList.this.m.a(view, view.getTag());
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public interface b {
+        void a(View view, Object obj);
     }
 
     public AtSelectFriendList(Context context) {
         super(context);
-        this.mItemWidth = -1;
-        this.dlK = -1;
-        this.kRh = -1;
-        this.mMaxCount = 4;
-        this.aFH = new View.OnClickListener() { // from class: com.baidu.tieba.write.write.AtSelectFriendList.1
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
-                AtSelectFriendList.this.kRg.removeView(view);
-                if (!AtSelectFriendList.this.cYO()) {
-                    AtSelectFriendList.this.cYM();
-                }
-                if (AtSelectFriendList.this.ols != null) {
-                    AtSelectFriendList.this.ols.b(view, view.getTag());
-                }
-            }
-        };
-        this.mContext = context;
-        initialize();
+        this.f22416h = -1;
+        this.i = -1;
+        this.j = -1;
+        this.k = 4;
+        this.n = new a();
+        this.f22414f = context;
+        i();
     }
 
-    public AtSelectFriendList(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        this.mItemWidth = -1;
-        this.dlK = -1;
-        this.kRh = -1;
-        this.mMaxCount = 4;
-        this.aFH = new View.OnClickListener() { // from class: com.baidu.tieba.write.write.AtSelectFriendList.1
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
-                AtSelectFriendList.this.kRg.removeView(view);
-                if (!AtSelectFriendList.this.cYO()) {
-                    AtSelectFriendList.this.cYM();
-                }
-                if (AtSelectFriendList.this.ols != null) {
-                    AtSelectFriendList.this.ols.b(view, view.getTag());
-                }
-            }
-        };
-        this.mContext = context;
-        initialize();
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void setMaxCount(int i) {
-        this.mMaxCount = i;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void setItemOPerationHandler(a aVar) {
-        this.ols = aVar;
-    }
-
-    private void initialize() {
-        this.mItemWidth = this.mContext.getResources().getDimensionPixelSize(R.dimen.ds80);
-        this.dlK = this.mContext.getResources().getDimensionPixelSize(R.dimen.ds80);
-        this.kRh = this.mContext.getResources().getDimensionPixelSize(R.dimen.ds12);
-        this.kRg = new LinearLayout(this.mContext);
-        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
-        layoutParams.width = -2;
-        layoutParams.height = -2;
-        this.kRg.setLayoutParams(layoutParams);
-        this.kRg.setHorizontalScrollBarEnabled(true);
-        this.kRg.setOrientation(0);
-        cYM();
-        addView(this.kRg);
-        setSmoothScrollingEnabled(true);
-        setFocusable(false);
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void cYM() {
-        if (this.kRi == null) {
-            this.kRi = cYP();
-            this.kRi.setDrawBorder(false);
+    public void e(MetaData metaData) {
+        if (getItemLength() >= this.k) {
+            return;
         }
-        this.kRi.setImageBitmap(ap.getBitmap(R.drawable.icon_add_pop));
-        this.kRg.addView(this.kRi);
-    }
-
-    private void cYN() {
-        if (cYO()) {
-            this.kRg.removeView(this.kRi);
+        HeadImageView f2 = f();
+        f2.setIsRound(false);
+        f2.W(metaData.getAvater(), 12, false);
+        if (h()) {
+            f2.setTag(metaData);
+            f2.setOnClickListener(this.n);
+            this.f22415g.addView(f2, getItemLength());
+            scrollTo(getItemLength() * (this.f22416h + this.j), 0);
+            this.f22415g.requestLayout();
+        }
+        if (getItemLength() >= this.k) {
+            l();
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public boolean cYO() {
-        int childCount = this.kRg.getChildCount();
-        return childCount > 0 && this.kRg.getChildAt(childCount + (-1)) == this.kRi;
+    public final HeadImageView f() {
+        HeadImageView headImageView = new HeadImageView(this.f22414f);
+        headImageView.setIsRound(false);
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(this.f22416h, this.i);
+        layoutParams.setMargins(this.j, 0, 0, 0);
+        headImageView.setLayoutParams(layoutParams);
+        headImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        return headImageView;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void f(MetaData metaData) {
-        if (getItemLength() < this.mMaxCount) {
-            HeadImageView cYP = cYP();
-            cYP.setIsRound(false);
-            cYP.startLoad(metaData.getAvater(), 12, false);
-            if (cYO()) {
-                cYP.setTag(metaData);
-                cYP.setOnClickListener(this.aFH);
-                this.kRg.addView(cYP, getItemLength());
-                scrollTo(getItemLength() * (this.mItemWidth + this.kRh), 0);
-                this.kRg.requestLayout();
-            }
-            if (getItemLength() >= this.mMaxCount) {
-                cYN();
-            }
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
     public void g(MetaData metaData) {
         Object tag;
-        int childCount = this.kRg.getChildCount();
+        int childCount = this.f22415g.getChildCount();
         for (int i = 0; i < childCount; i++) {
-            View childAt = this.kRg.getChildAt(i);
-            if (childAt != this.kRi && (tag = childAt.getTag()) != null && (tag instanceof MetaData) && metaData != null) {
+            View childAt = this.f22415g.getChildAt(i);
+            if (childAt != this.l && (tag = childAt.getTag()) != null && (tag instanceof MetaData) && metaData != null) {
                 MetaData metaData2 = (MetaData) tag;
                 if ((metaData2.getUserName() != null && metaData2.getUserName().equals(metaData.getUserName())) || (metaData2.getName_show() != null && metaData2.getName_show().equals(metaData.getName_show()))) {
                     metaData.setChecked(true);
@@ -158,43 +108,92 @@ public class AtSelectFriendList extends HorizontalCustomScrollView {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public ArrayList<String> getDataList() {
         Object tag;
         String name_show;
-        int childCount = this.kRg.getChildCount();
+        int childCount = this.f22415g.getChildCount();
         ArrayList<String> arrayList = new ArrayList<>();
         for (int i = 0; i < childCount; i++) {
-            View childAt = this.kRg.getChildAt(i);
-            if (childAt != this.kRi && (tag = childAt.getTag()) != null && (tag instanceof MetaData) && (name_show = ((MetaData) tag).getName_show()) != null) {
+            View childAt = this.f22415g.getChildAt(i);
+            if (childAt != this.l && (tag = childAt.getTag()) != null && (tag instanceof MetaData) && (name_show = ((MetaData) tag).getName_show()) != null) {
                 arrayList.add(name_show);
             }
         }
         return arrayList;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void h(MetaData metaData) {
-        View findViewWithTag = this.kRg.findViewWithTag(metaData);
+    public int getItemLength() {
+        if (h()) {
+            return this.f22415g.getChildCount() - 1;
+        }
+        return this.f22415g.getChildCount();
+    }
+
+    public final boolean h() {
+        int childCount = this.f22415g.getChildCount();
+        return childCount > 0 && this.f22415g.getChildAt(childCount - 1) == this.l;
+    }
+
+    public final void i() {
+        this.f22416h = this.f22414f.getResources().getDimensionPixelSize(R.dimen.ds80);
+        this.i = this.f22414f.getResources().getDimensionPixelSize(R.dimen.ds80);
+        this.j = this.f22414f.getResources().getDimensionPixelSize(R.dimen.ds12);
+        this.f22415g = new LinearLayout(this.f22414f);
+        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
+        layoutParams.width = -2;
+        layoutParams.height = -2;
+        this.f22415g.setLayoutParams(layoutParams);
+        this.f22415g.setHorizontalScrollBarEnabled(true);
+        this.f22415g.setOrientation(0);
+        j();
+        addView(this.f22415g);
+        setSmoothScrollingEnabled(true);
+        setFocusable(false);
+    }
+
+    public final void j() {
+        if (this.l == null) {
+            HeadImageView f2 = f();
+            this.l = f2;
+            f2.setDrawBorder(false);
+        }
+        this.l.setImageBitmap(SkinManager.getBitmap(R.drawable.icon_add_pop));
+        this.f22415g.addView(this.l);
+    }
+
+    public void k(MetaData metaData) {
+        View findViewWithTag = this.f22415g.findViewWithTag(metaData);
         if (findViewWithTag != null) {
-            this.kRg.removeView(findViewWithTag);
-            if (!cYO()) {
-                cYM();
+            this.f22415g.removeView(findViewWithTag);
+            if (h()) {
+                return;
             }
+            j();
         }
     }
 
-    private HeadImageView cYP() {
-        HeadImageView headImageView = new HeadImageView(this.mContext);
-        headImageView.setIsRound(false);
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(this.mItemWidth, this.dlK);
-        layoutParams.setMargins(this.kRh, 0, 0, 0);
-        headImageView.setLayoutParams(layoutParams);
-        headImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        return headImageView;
+    public final void l() {
+        if (h()) {
+            this.f22415g.removeView(this.l);
+        }
     }
 
-    public int getItemLength() {
-        return cYO() ? this.kRg.getChildCount() - 1 : this.kRg.getChildCount();
+    public void setItemOPerationHandler(b bVar) {
+        this.m = bVar;
+    }
+
+    public void setMaxCount(int i) {
+        this.k = i;
+    }
+
+    public AtSelectFriendList(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        this.f22416h = -1;
+        this.i = -1;
+        this.j = -1;
+        this.k = 4;
+        this.n = new a();
+        this.f22414f = context;
+        i();
     }
 }

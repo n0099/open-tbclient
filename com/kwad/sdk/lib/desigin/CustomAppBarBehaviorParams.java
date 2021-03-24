@@ -2,7 +2,7 @@ package com.kwad.sdk.lib.desigin;
 
 import androidx.annotation.Keep;
 @Keep
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class CustomAppBarBehaviorParams {
     public final boolean mEnableNestedFling;
     public final boolean mEnableRebound;
@@ -11,14 +11,14 @@ public class CustomAppBarBehaviorParams {
     public final int mReboundMaxOffset;
     public final int mReboundViewId;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class Builder {
-        private boolean mEnableNestedFling;
-        private boolean mEnableRebound = true;
-        private int mExtraFixedSize;
-        private int mFlingConsumeViewId;
-        private int mReboundMaxOffset;
-        private int mReboundViewId;
+        public boolean mEnableNestedFling;
+        public boolean mEnableRebound = true;
+        public int mExtraFixedSize;
+        public int mFlingConsumeViewId;
+        public int mReboundMaxOffset;
+        public int mReboundViewId;
 
         public CustomAppBarBehaviorParams build() {
             return new CustomAppBarBehaviorParams(this);
@@ -55,7 +55,7 @@ public class CustomAppBarBehaviorParams {
         }
     }
 
-    private CustomAppBarBehaviorParams(Builder builder) {
+    public CustomAppBarBehaviorParams(Builder builder) {
         this.mFlingConsumeViewId = builder.mFlingConsumeViewId;
         this.mExtraFixedSize = builder.mExtraFixedSize;
         this.mEnableNestedFling = builder.mEnableNestedFling;

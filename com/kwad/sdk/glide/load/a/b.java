@@ -3,49 +3,55 @@ package com.kwad.sdk.glide.load.a;
 import android.content.res.AssetManager;
 import android.util.Log;
 import androidx.annotation.NonNull;
+import com.bumptech.glide.load.data.AssetPathFetcher;
 import com.kwad.sdk.glide.Priority;
 import com.kwad.sdk.glide.load.DataSource;
 import com.kwad.sdk.glide.load.a.d;
 import java.io.IOException;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public abstract class b<T> implements d<T> {
 
     /* renamed from: a  reason: collision with root package name */
-    private final String f6644a;
-    private final AssetManager b;
-    private T c;
+    public final String f35245a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public final AssetManager f35246b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public T f35247c;
 
     public b(AssetManager assetManager, String str) {
-        this.b = assetManager;
-        this.f6644a = str;
+        this.f35246b = assetManager;
+        this.f35245a = str;
     }
 
-    protected abstract T a(AssetManager assetManager, String str);
+    public abstract T a(AssetManager assetManager, String str);
 
-    /* JADX DEBUG: Type inference failed for r0v3. Raw type applied. Possible types: T, ? super T */
     @Override // com.kwad.sdk.glide.load.a.d
     public void a(@NonNull Priority priority, @NonNull d.a<? super T> aVar) {
         try {
-            this.c = a(this.b, this.f6644a);
-            aVar.a((d.a<? super T>) ((T) this.c));
-        } catch (IOException e) {
-            if (Log.isLoggable("AssetPathFetcher", 3)) {
-                Log.d("AssetPathFetcher", "Failed to load data from asset manager", e);
+            T a2 = a(this.f35246b, this.f35245a);
+            this.f35247c = a2;
+            aVar.a((d.a<? super T>) a2);
+        } catch (IOException e2) {
+            if (Log.isLoggable(AssetPathFetcher.TAG, 3)) {
+                Log.d(AssetPathFetcher.TAG, "Failed to load data from asset manager", e2);
             }
-            aVar.a((Exception) e);
+            aVar.a((Exception) e2);
         }
     }
 
-    protected abstract void a(T t);
+    public abstract void a(T t);
 
     @Override // com.kwad.sdk.glide.load.a.d
     public void b() {
-        if (this.c == null) {
+        T t = this.f35247c;
+        if (t == null) {
             return;
         }
         try {
-            a(this.c);
-        } catch (IOException e) {
+            a(t);
+        } catch (IOException unused) {
         }
     }
 

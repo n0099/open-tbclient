@@ -2,10 +2,10 @@ package com.baidu.tieba.personExtra;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.util.v;
+import d.b.h0.z0.w;
 import tbclient.GetRecommendGodList.DataReq;
 import tbclient.GetRecommendGodList.GetRecommendGodListReqIdl;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class RecommendGodReqMsg extends NetMessage {
     public int pageNum;
     public String portrait;
@@ -15,10 +15,10 @@ public class RecommendGodReqMsg extends NetMessage {
     }
 
     @Override // com.baidu.adp.framework.message.NetMessage
-    protected Object encode(boolean z) {
+    public Object encode(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
         if (z) {
-            v.b(builder, true);
+            w.a(builder, true);
         }
         builder.portrait = this.portrait;
         builder.pn = Integer.valueOf(this.pageNum);

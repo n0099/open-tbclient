@@ -1,13 +1,13 @@
 package com.baidu.swan.apps.core.turbo;
-/* loaded from: classes8.dex */
+/* loaded from: classes3.dex */
 public enum PreloadState {
     UNKNOWN(0, 0),
     LOADED(1, 5),
     LOAD_FAILED(2, 6),
     LOADING(3, 4);
     
-    private final int mStatsCodeForNormal;
-    private final int mStatsCodeForReload;
+    public final int mStatsCodeForNormal;
+    public final int mStatsCodeForReload;
 
     PreloadState(int i, int i2) {
         this.mStatsCodeForNormal = i;

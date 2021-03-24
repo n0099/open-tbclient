@@ -5,39 +5,40 @@ import com.kwai.video.hodor.AbstractHodorPreloadTask;
 import com.kwai.video.hodor.VodAdaptivePreloadPriorityTask;
 import com.kwai.video.ksvodplayerkit.b.m;
 import com.kwai.video.ksvodplayerkit.i;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class a extends b {
-    private String h;
-    private VodAdaptivePreloadPriorityTask.VodAdaptiveInit i;
 
-    /* JADX INFO: Access modifiers changed from: protected */
+    /* renamed from: h  reason: collision with root package name */
+    public String f37286h;
+    public VodAdaptivePreloadPriorityTask.VodAdaptiveInit i;
+
     @Override // com.kwai.video.ksvodplayerkit.d.b
     public AbstractHodorPreloadTask a() {
-        this.f7285a.a(false);
-        if (this.f7285a.f() <= 0 || this.f7285a.e() || this.b.get() >= i.a().e() || !this.f7285a.a()) {
+        this.f37287a.a(false);
+        if (this.f37287a.f() <= 0 || this.f37287a.e() || this.f37288b.get() >= i.a().e() || !this.f37287a.a()) {
             return null;
         }
-        this.h = m.a(this.f7285a.g());
-        this.e = new VodAdaptivePreloadPriorityTask(this.h, this.i);
-        return this.e;
+        this.f37286h = m.a(this.f37287a.g());
+        VodAdaptivePreloadPriorityTask vodAdaptivePreloadPriorityTask = new VodAdaptivePreloadPriorityTask(this.f37286h, this.i);
+        this.f37291e = vodAdaptivePreloadPriorityTask;
+        return vodAdaptivePreloadPriorityTask;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public void a(Context context) {
-        this.i = new VodAdaptivePreloadPriorityTask.VodAdaptiveInit();
-        this.i.rateConfig = i.a().k();
+        VodAdaptivePreloadPriorityTask.VodAdaptiveInit vodAdaptiveInit = new VodAdaptivePreloadPriorityTask.VodAdaptiveInit();
+        this.i = vodAdaptiveInit;
+        vodAdaptiveInit.rateConfig = i.a().k();
         this.i.lowDevice = i.a().l();
         this.i.netType = com.kwai.video.ksvodplayerkit.c.a.d(context);
         this.i.devResHeigh = com.kwai.video.ksvodplayerkit.c.c.b(context);
         this.i.devResWidth = com.kwai.video.ksvodplayerkit.c.c.a(context);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwai.video.ksvodplayerkit.d.b
     public AbstractHodorPreloadTask b() {
-        if (this.e == null) {
-            this.e = new VodAdaptivePreloadPriorityTask(this.h, this.i);
+        if (this.f37291e == null) {
+            this.f37291e = new VodAdaptivePreloadPriorityTask(this.f37286h, this.i);
         }
-        return this.e;
+        return this.f37291e;
     }
 }

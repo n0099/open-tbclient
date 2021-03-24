@@ -7,160 +7,188 @@ import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
-import com.baidu.adp.lib.util.l;
 import com.baidu.ala.data.SdkLiveInfoData;
 import com.baidu.ala.utils.AlaUtilHelper;
 import com.baidu.ala.view.AlaRoundRelativeLayout;
-import com.baidu.live.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.ar;
-import com.baidu.tbadk.core.util.au;
 import com.baidu.tbadk.core.view.HeadImageView;
-import com.baidu.tbadk.util.ag;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-/* loaded from: classes9.dex */
+import d.b.b.e.p.l;
+import d.b.h0.z0.i0;
+import d.b.i0.t.d.c.c;
+/* loaded from: classes4.dex */
 public class TabLiveStageLiveView extends AlaRoundRelativeLayout {
-    private static final float gEP = TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.tbds20);
-    private static final float[] gHf = {0.0f, 0.0f, 0.0f, 0.0f, gEP, gEP, gEP, gEP};
-    private TextView eKp;
-    private int[] gET;
-    private TbImageView gGY;
-    private HeadImageView gGZ;
-    private View gHa;
-    private TextView gHb;
-    private View gHc;
-    private TabLiveStageLiveZanLottieView gHd;
-    private SdkLiveInfoData gHe;
-    private TextView mTitle;
-    private int mType;
+    public static final float p;
+    public static final float[] q;
+
+    /* renamed from: e  reason: collision with root package name */
+    public TbImageView f14811e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public HeadImageView f14812f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public View f14813g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public TextView f14814h;
+    public TextView i;
+    public TextView j;
+    public View k;
+    public TabLiveStageLiveZanLottieView l;
+    public int m;
+    public SdkLiveInfoData n;
+    public int[] o;
+
+    /* loaded from: classes4.dex */
+    public class a implements View.OnClickListener {
+        public a() {
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            c.f(TabLiveStageLiveView.this.getContext(), TabLiveStageLiveView.this.n);
+            if (TabLiveStageLiveView.this.m != 101) {
+                if (TabLiveStageLiveView.this.m == 102) {
+                    StatisticItem statisticItem = new StatisticItem("c13559");
+                    statisticItem.param(TiebaStatic.Params.ENTRY_NAME, "推荐");
+                    TiebaStatic.log(statisticItem);
+                    return;
+                }
+                return;
+            }
+            StatisticItem statisticItem2 = new StatisticItem("c13556");
+            statisticItem2.param(TiebaStatic.Params.ENTRY_NAME, "推荐");
+            TiebaStatic.log(statisticItem2);
+        }
+    }
+
+    static {
+        float dimension = TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.tbds20);
+        p = dimension;
+        q = new float[]{0.0f, 0.0f, 0.0f, 0.0f, dimension, dimension, dimension, dimension};
+    }
 
     public TabLiveStageLiveView(Context context) {
         super(context);
-        this.mType = 101;
-        this.gET = new int[]{TbadkCoreApplication.getInst().getResources().getColor(R.color.black_alpha0), TbadkCoreApplication.getInst().getResources().getColor(R.color.black_alpha50)};
+        this.m = 101;
+        this.o = new int[]{TbadkCoreApplication.getInst().getResources().getColor(R.color.black_alpha0), TbadkCoreApplication.getInst().getResources().getColor(R.color.black_alpha50)};
         init();
+    }
+
+    public void c() {
+        SkinManager.setViewTextColor(this.f14814h, R.color.CAM_X0101);
+        SkinManager.setViewTextColor(this.i, R.color.CAM_X0101);
+        SkinManager.setViewTextColor(this.j, R.color.CAM_X0101);
+        Drawable drawable = SkinManager.getDrawable(getContext().getResources(), R.drawable.tab_icon_living_seeding);
+        drawable.setBounds(0, 0, getContext().getResources().getDimensionPixelOffset(R.dimen.tbds18), getContext().getResources().getDimensionPixelOffset(R.dimen.tbds18));
+        this.j.setCompoundDrawablesWithIntrinsicBounds(drawable, (Drawable) null, (Drawable) null, (Drawable) null);
+        this.j.setCompoundDrawablePadding(getContext().getResources().getDimensionPixelOffset(R.dimen.tbds8));
+    }
+
+    public final void d() {
+        try {
+            this.l.setAnimation("zan_lottie_anim.json");
+            this.l.setImageAssetsFolder("images/");
+            this.l.loop(true);
+            this.l.playAnimation();
+        } catch (Exception e2) {
+            e2.printStackTrace();
+        }
+    }
+
+    public final void init() {
+        LayoutInflater.from(getContext()).inflate(R.layout.tab_stage_view, this);
+        float f2 = p;
+        setRoundLayoutRadius(new float[]{f2, f2, f2, f2, f2, f2, f2, f2});
+        TabLiveStageLiveZanLottieView tabLiveStageLiveZanLottieView = (TabLiveStageLiveZanLottieView) findViewById(R.id.zan_lottie_view);
+        this.l = tabLiveStageLiveZanLottieView;
+        tabLiveStageLiveZanLottieView.setForbidAutoUpdateState(true);
+        TbImageView tbImageView = (TbImageView) findViewById(R.id.cover);
+        this.f14811e = tbImageView;
+        tbImageView.setBackgroundColor(0);
+        this.f14811e.setRadius(getContext().getResources().getDimensionPixelSize(R.dimen.tbds20));
+        this.f14811e.setConrers(15);
+        HeadImageView headImageView = (HeadImageView) findViewById(R.id.head_img);
+        this.f14812f = headImageView;
+        headImageView.setAutoChangeStyle(false);
+        this.f14812f.setClickable(true);
+        this.f14812f.setIsRound(true);
+        this.f14812f.setBorderWidth(l.g(getContext(), R.dimen.tbds1));
+        this.f14813g = findViewById(R.id.head_mask_view);
+        this.f14814h = (TextView) findViewById(R.id.title);
+        this.i = (TextView) findViewById(R.id.user_name);
+        this.j = (TextView) findViewById(R.id.audience_count);
+        this.k = findViewById(R.id.bottom_gradient_bg);
+        GradientDrawable gradientDrawable = new GradientDrawable(GradientDrawable.Orientation.TOP_BOTTOM, this.o);
+        gradientDrawable.setCornerRadii(q);
+        this.k.setBackgroundDrawable(gradientDrawable);
+        setOnClickListener(new a());
+        d();
+    }
+
+    @Override // android.view.ViewGroup, android.view.View
+    public void onAttachedToWindow() {
+        super.onAttachedToWindow();
+        TabLiveStageLiveZanLottieView tabLiveStageLiveZanLottieView = this.l;
+        if (tabLiveStageLiveZanLottieView == null || tabLiveStageLiveZanLottieView.isAnimating()) {
+            return;
+        }
+        this.l.playAnimation();
+    }
+
+    @Override // android.view.ViewGroup, android.view.View
+    public void onDetachedFromWindow() {
+        TabLiveStageLiveZanLottieView tabLiveStageLiveZanLottieView = this.l;
+        if (tabLiveStageLiveZanLottieView != null && tabLiveStageLiveZanLottieView.isAnimating()) {
+            this.l.pauseAnimation();
+        }
+        super.onDetachedFromWindow();
+    }
+
+    public void setData(SdkLiveInfoData sdkLiveInfoData, int i) {
+        if (sdkLiveInfoData != null && sdkLiveInfoData.liveInfo != null) {
+            this.n = sdkLiveInfoData;
+            this.m = i;
+            this.f14811e.setPlaceHolder(3);
+            this.f14811e.W(sdkLiveInfoData.liveInfo.cover, 10, false);
+            SdkLiveInfoData.LiveAuthor liveAuthor = sdkLiveInfoData.liveAuthor;
+            if (liveAuthor != null) {
+                String name_show = liveAuthor.getName_show();
+                if (i0.d(name_show) > 16) {
+                    name_show = i0.m(name_show, 16) + StringHelper.STRING_MORE;
+                }
+                this.i.setText(name_show);
+                AlaUtilHelper.startLoadPortrait(this.f14812f, sdkLiveInfoData.liveAuthor.portrait, false);
+                if (1 == TbadkCoreApplication.getInst().getSkinType()) {
+                    this.f14813g.setVisibility(0);
+                } else {
+                    this.f14813g.setVisibility(8);
+                }
+            }
+            this.f14814h.setText(sdkLiveInfoData.title);
+            this.j.setText(getContext().getResources().getString(R.string.square_sub_live_audience_label, StringHelper.numberUniformFormatExtraWithRound(sdkLiveInfoData.liveInfo.audienceCount)));
+            return;
+        }
+        setVisibility(4);
     }
 
     public TabLiveStageLiveView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.mType = 101;
-        this.gET = new int[]{TbadkCoreApplication.getInst().getResources().getColor(R.color.black_alpha0), TbadkCoreApplication.getInst().getResources().getColor(R.color.black_alpha50)};
+        this.m = 101;
+        this.o = new int[]{TbadkCoreApplication.getInst().getResources().getColor(R.color.black_alpha0), TbadkCoreApplication.getInst().getResources().getColor(R.color.black_alpha50)};
         init();
     }
 
     public TabLiveStageLiveView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.mType = 101;
-        this.gET = new int[]{TbadkCoreApplication.getInst().getResources().getColor(R.color.black_alpha0), TbadkCoreApplication.getInst().getResources().getColor(R.color.black_alpha50)};
+        this.m = 101;
+        this.o = new int[]{TbadkCoreApplication.getInst().getResources().getColor(R.color.black_alpha0), TbadkCoreApplication.getInst().getResources().getColor(R.color.black_alpha50)};
         init();
-    }
-
-    private void init() {
-        LayoutInflater.from(getContext()).inflate(R.layout.tab_stage_view, this);
-        setRoundLayoutRadius(new float[]{gEP, gEP, gEP, gEP, gEP, gEP, gEP, gEP});
-        this.gHd = (TabLiveStageLiveZanLottieView) findViewById(R.id.zan_lottie_view);
-        this.gHd.setForbidAutoUpdateState(true);
-        this.gGY = (TbImageView) findViewById(R.id.cover);
-        this.gGY.setBackgroundColor(0);
-        this.gGY.setRadius(getContext().getResources().getDimensionPixelSize(R.dimen.tbds20));
-        this.gGY.setConrers(15);
-        this.gGZ = (HeadImageView) findViewById(R.id.head_img);
-        this.gGZ.setAutoChangeStyle(false);
-        this.gGZ.setClickable(true);
-        this.gGZ.setIsRound(true);
-        this.gGZ.setBorderWidth(l.getDimens(getContext(), R.dimen.tbds1));
-        this.gHa = findViewById(R.id.head_mask_view);
-        this.mTitle = (TextView) findViewById(R.id.title);
-        this.eKp = (TextView) findViewById(R.id.user_name);
-        this.gHb = (TextView) findViewById(R.id.audience_count);
-        this.gHc = findViewById(R.id.bottom_gradient_bg);
-        GradientDrawable gradientDrawable = new GradientDrawable(GradientDrawable.Orientation.TOP_BOTTOM, this.gET);
-        gradientDrawable.setCornerRadii(gHf);
-        this.gHc.setBackgroundDrawable(gradientDrawable);
-        setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.alasquare.live_tab.view.TabLiveStageLiveView.1
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
-                com.baidu.tieba.ala.alasquare.live_tab.c.a(TabLiveStageLiveView.this.getContext(), TabLiveStageLiveView.this.gHe);
-                if (TabLiveStageLiveView.this.mType != 101) {
-                    if (TabLiveStageLiveView.this.mType == 102) {
-                        ar arVar = new ar("c13559");
-                        arVar.dR("entryname", "推荐");
-                        TiebaStatic.log(arVar);
-                        return;
-                    }
-                    return;
-                }
-                ar arVar2 = new ar("c13556");
-                arVar2.dR("entryname", "推荐");
-                TiebaStatic.log(arVar2);
-            }
-        });
-        bSj();
-    }
-
-    public void setData(SdkLiveInfoData sdkLiveInfoData, int i) {
-        if (sdkLiveInfoData == null || sdkLiveInfoData.liveInfo == null) {
-            setVisibility(4);
-            return;
-        }
-        this.gHe = sdkLiveInfoData;
-        this.mType = i;
-        this.gGY.setPlaceHolder(3);
-        this.gGY.startLoad(sdkLiveInfoData.liveInfo.cover, 10, false);
-        if (sdkLiveInfoData.liveAuthor != null) {
-            String name_show = sdkLiveInfoData.liveAuthor.getName_show();
-            if (ag.getTextLengthWithEmoji(name_show) > 16) {
-                name_show = ag.subStringWithEmoji(name_show, 16) + StringHelper.STRING_MORE;
-            }
-            this.eKp.setText(name_show);
-            AlaUtilHelper.startLoadPortrait(this.gGZ, sdkLiveInfoData.liveAuthor.portrait, false);
-            if (1 == TbadkCoreApplication.getInst().getSkinType()) {
-                this.gHa.setVisibility(0);
-            } else {
-                this.gHa.setVisibility(8);
-            }
-        }
-        this.mTitle.setText(sdkLiveInfoData.title);
-        this.gHb.setText(getContext().getResources().getString(R.string.square_sub_live_audience_label, au.eb(sdkLiveInfoData.liveInfo.audienceCount)));
-    }
-
-    public void onChangeSkinType() {
-        ap.setViewTextColor(this.mTitle, R.color.CAM_X0101);
-        ap.setViewTextColor(this.eKp, R.color.CAM_X0101);
-        ap.setViewTextColor(this.gHb, R.color.CAM_X0101);
-        Drawable drawable = ap.getDrawable(getContext().getResources(), R.drawable.tab_icon_living_seeding);
-        drawable.setBounds(0, 0, getContext().getResources().getDimensionPixelOffset(R.dimen.tbds18), getContext().getResources().getDimensionPixelOffset(R.dimen.tbds18));
-        this.gHb.setCompoundDrawablesWithIntrinsicBounds(drawable, (Drawable) null, (Drawable) null, (Drawable) null);
-        this.gHb.setCompoundDrawablePadding(getContext().getResources().getDimensionPixelOffset(R.dimen.tbds8));
-    }
-
-    private void bSj() {
-        try {
-            this.gHd.setAnimation("zan_lottie_anim.json");
-            this.gHd.setImageAssetsFolder("images/");
-            this.gHd.loop(true);
-            this.gHd.playAnimation();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    @Override // android.view.ViewGroup, android.view.View
-    protected void onAttachedToWindow() {
-        super.onAttachedToWindow();
-        if (this.gHd != null && !this.gHd.isAnimating()) {
-            this.gHd.playAnimation();
-        }
-    }
-
-    @Override // android.view.ViewGroup, android.view.View
-    protected void onDetachedFromWindow() {
-        if (this.gHd != null && this.gHd.isAnimating()) {
-            this.gHd.pauseAnimation();
-        }
-        super.onDetachedFromWindow();
     }
 }

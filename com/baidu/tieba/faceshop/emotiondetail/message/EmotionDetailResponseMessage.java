@@ -4,7 +4,7 @@ import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tieba.faceshop.emotiondetail.data.EmotionDetailData;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes4.dex */
 public class EmotionDetailResponseMessage extends JsonHttpResponsedMessage {
     public EmotionDetailData data;
 

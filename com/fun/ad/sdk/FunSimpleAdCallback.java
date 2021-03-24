@@ -1,5 +1,5 @@
 package com.fun.ad.sdk;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class FunSimpleAdCallback implements FunAdCallback {
     @Override // com.fun.ad.sdk.FunAdCallback
     public void onAdClicked(String str, String str2, String str3, String str4) {

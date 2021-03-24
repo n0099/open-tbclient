@@ -1,96 +1,73 @@
 package com.xiaomi.push.service;
 
-import android.content.Context;
 import android.text.TextUtils;
-import com.xiaomi.push.hq;
-import com.xiaomi.push.iw;
-import java.io.BufferedOutputStream;
-import java.io.Closeable;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.util.Arrays;
-/* loaded from: classes5.dex */
-public class bj {
+import android.util.Base64;
+import com.xiaomi.push.al;
+import com.xiaomi.push.cw;
+import com.xiaomi.push.dt;
+import com.xiaomi.push.service.bi;
+import java.util.List;
+/* loaded from: classes7.dex */
+public class bj extends al.b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Object f8546a = new Object();
+    public final /* synthetic */ bi f41003a;
 
-    public static void a(Context context, hq hqVar) {
-        if (bi.a(hqVar.e())) {
-            com.xiaomi.push.ai.a(context).a(new bk(context, hqVar));
-        }
+    /* renamed from: a  reason: collision with other field name */
+    public boolean f930a = false;
+
+    public bj(bi biVar) {
+        this.f41003a = biVar;
     }
 
-    public static byte[] a(Context context) {
-        String a2 = com.xiaomi.push.p.a(context).a("mipush", "td_key", "");
-        if (TextUtils.isEmpty(a2)) {
-            a2 = com.xiaomi.push.bf.a(20);
-            com.xiaomi.push.p.a(context).m507a("mipush", "td_key", a2);
-        }
-        return a(a2);
-    }
-
-    private static byte[] a(String str) {
-        byte[] copyOf = Arrays.copyOf(com.xiaomi.push.bc.m166a(str), 16);
-        copyOf[0] = 68;
-        copyOf[15] = 84;
-        return copyOf;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:35:0x0043 -> B:9:0x0043). Please submit an issue!!! */
-    public static void c(Context context, hq hqVar) {
-        BufferedOutputStream bufferedOutputStream;
-        byte[] b;
+    /* JADX WARN: Removed duplicated region for block: B:11:0x0039 A[Catch: Exception -> 0x0047, TRY_LEAVE, TryCatch #0 {Exception -> 0x0047, blocks: (B:2:0x0000, B:4:0x0012, B:9:0x0024, B:11:0x0039), top: B:16:0x0000 }] */
+    /* JADX WARN: Removed duplicated region for block: B:18:? A[RETURN, SYNTHETIC] */
+    @Override // com.xiaomi.push.al.b
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void b() {
+        String str;
+        dt.a a2;
         try {
-            try {
-                b = com.xiaomi.push.h.b(a(context), iw.a(hqVar));
-            } catch (Throwable th) {
-                th = th;
-                com.xiaomi.push.y.a((Closeable) null);
-                com.xiaomi.push.y.a(bufferedOutputStream);
-                throw th;
+            String a3 = a.a(com.xiaomi.push.t.m617a()).a();
+            if (!TextUtils.isEmpty(a3) && !com.xiaomi.push.o.China.name().equals(a3)) {
+                str = "https://resolver.msg.global.xiaomi.net/psc/?t=a";
+                a2 = dt.a.a(Base64.decode(cw.a(com.xiaomi.push.t.m617a(), str, (List<com.xiaomi.push.bf>) null), 10));
+                if (a2 == null) {
+                    this.f41003a.f928a = a2;
+                    this.f930a = true;
+                    this.f41003a.e();
+                    return;
+                }
+                return;
             }
-        } catch (IOException e) {
-            e = e;
-            bufferedOutputStream = null;
+            str = "https://resolver.msg.xiaomi.net/psc/?t=a";
+            a2 = dt.a.a(Base64.decode(cw.a(com.xiaomi.push.t.m617a(), str, (List<com.xiaomi.push.bf>) null), 10));
+            if (a2 == null) {
+            }
         } catch (Exception e2) {
-            e = e2;
-            bufferedOutputStream = null;
-        } catch (Throwable th2) {
-            th = th2;
-            bufferedOutputStream = null;
-            com.xiaomi.push.y.a((Closeable) null);
-            com.xiaomi.push.y.a(bufferedOutputStream);
-            throw th;
+            com.xiaomi.channel.commonutils.logger.b.m51a("fetch config failure: " + e2.getMessage());
         }
-        if (b == null || b.length < 1) {
-            com.xiaomi.channel.commonutils.logger.b.m58a("TinyData write to cache file failed case encryption fail item:" + hqVar.d() + "  ts:" + System.currentTimeMillis());
-            com.xiaomi.push.y.a((Closeable) null);
-            com.xiaomi.push.y.a((Closeable) null);
-        } else if (b.length > 10240) {
-            com.xiaomi.channel.commonutils.logger.b.m58a("TinyData write to cache file failed case too much data content item:" + hqVar.d() + "  ts:" + System.currentTimeMillis());
-            com.xiaomi.push.y.a((Closeable) null);
-            com.xiaomi.push.y.a((Closeable) null);
-        } else {
-            bufferedOutputStream = new BufferedOutputStream(new FileOutputStream(new File(context.getFilesDir(), "tiny_data.data"), true));
-            try {
-                bufferedOutputStream.write(com.xiaomi.push.ac.a(b.length));
-                bufferedOutputStream.write(b);
-                bufferedOutputStream.flush();
-                com.xiaomi.push.y.a((Closeable) null);
-                com.xiaomi.push.y.a(bufferedOutputStream);
-            } catch (IOException e3) {
-                e = e3;
-                com.xiaomi.channel.commonutils.logger.b.a("TinyData write to cache file failed cause io exception item:" + hqVar.d(), e);
-                com.xiaomi.push.y.a((Closeable) null);
-                com.xiaomi.push.y.a(bufferedOutputStream);
-            } catch (Exception e4) {
-                e = e4;
-                com.xiaomi.channel.commonutils.logger.b.a("TinyData write to cache file  failed item:" + hqVar.d(), e);
-                com.xiaomi.push.y.a((Closeable) null);
-                com.xiaomi.push.y.a(bufferedOutputStream);
+    }
+
+    @Override // com.xiaomi.push.al.b
+    /* renamed from: c */
+    public void mo223c() {
+        List list;
+        List list2;
+        bi.a[] aVarArr;
+        dt.a aVar;
+        this.f41003a.f927a = null;
+        if (this.f930a) {
+            synchronized (this.f41003a) {
+                list = this.f41003a.f929a;
+                list2 = this.f41003a.f929a;
+                aVarArr = (bi.a[]) list.toArray(new bi.a[list2.size()]);
+            }
+            for (bi.a aVar2 : aVarArr) {
+                aVar = this.f41003a.f928a;
+                aVar2.a(aVar);
             }
         }
     }

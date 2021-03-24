@@ -7,17 +7,21 @@ import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public class PassHttpClient implements com.baidu.pass.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final ThreadFactory f2840a = new a();
-    private static final ThreadPoolExecutor b = new ThreadPoolExecutor(6, Integer.MAX_VALUE, 60, TimeUnit.SECONDS, new LinkedBlockingQueue(), f2840a);
-    private d c;
+    public static final ThreadFactory f9749a = new a();
+
+    /* renamed from: b  reason: collision with root package name */
+    public static final ThreadPoolExecutor f9750b = new ThreadPoolExecutor(12, Integer.MAX_VALUE, 60, TimeUnit.SECONDS, new LinkedBlockingQueue(), f9749a);
+
+    /* renamed from: c  reason: collision with root package name */
+    public d f9751c;
 
     static {
         if (Build.VERSION.SDK_INT >= 9) {
-            b.allowCoreThreadTimeOut(true);
+            f9750b.allowCoreThreadTimeOut(true);
         }
     }
 
@@ -29,9 +33,9 @@ public class PassHttpClient implements com.baidu.pass.a {
         try {
             a(context, passHttpParamDTO);
             a(Method.GET, context, passHttpParamDTO, httpResponseHandler);
-        } catch (Exception e) {
+        } catch (Exception e2) {
             if (httpResponseHandler != null) {
-                httpResponseHandler.a(e, e.getMessage());
+                httpResponseHandler.a(e2, e2.getMessage());
             }
         }
     }
@@ -40,9 +44,9 @@ public class PassHttpClient implements com.baidu.pass.a {
         try {
             a(context, passHttpParamDTO);
             a(Method.POST, context, passHttpParamDTO, httpResponseHandler);
-        } catch (Exception e) {
+        } catch (Exception e2) {
             if (httpResponseHandler != null) {
-                httpResponseHandler.a(e, e.getMessage());
+                httpResponseHandler.a(e2, e2.getMessage());
             }
         }
     }
@@ -58,7 +62,8 @@ public class PassHttpClient implements com.baidu.pass.a {
     }
 
     private void a(Method method, Context context, PassHttpParamDTO passHttpParamDTO, HttpResponseHandler httpResponseHandler) {
-        this.c = new d(method, context, passHttpParamDTO, httpResponseHandler);
-        b.submit(this.c);
+        d dVar = new d(method, context, passHttpParamDTO, httpResponseHandler);
+        this.f9751c = dVar;
+        f9750b.submit(dVar);
     }
 }

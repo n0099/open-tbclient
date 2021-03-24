@@ -11,13 +11,15 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 import androidx.annotation.Nullable;
 import com.bytedance.sdk.openadsdk.core.p;
-import com.bytedance.sdk.openadsdk.utils.ak;
+import com.bytedance.sdk.openadsdk.utils.al;
 /* loaded from: classes6.dex */
 public class LandingDislikeToast extends FrameLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    private Handler f4675a;
-    private TextView b;
+    public Handler f29113a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public TextView f29114b;
 
     public LandingDislikeToast(Context context) {
         this(context, null);
@@ -27,54 +29,56 @@ public class LandingDislikeToast extends FrameLayout {
         this(context, attributeSet, 0);
     }
 
+    private void a(Context context) {
+        TextView textView = new TextView(context);
+        this.f29114b = textView;
+        textView.setClickable(false);
+        this.f29114b.setFocusable(false);
+        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
+        layoutParams.gravity = 17;
+        int a2 = (int) al.a(p.a(), 20.0f);
+        int a3 = (int) al.a(p.a(), 12.0f);
+        this.f29114b.setPadding(a2, a3, a2, a3);
+        this.f29114b.setLayoutParams(layoutParams);
+        this.f29114b.setTextColor(-1);
+        this.f29114b.setTextSize(16.0f);
+        this.f29114b.setGravity(17);
+        GradientDrawable gradientDrawable = new GradientDrawable();
+        gradientDrawable.setShape(0);
+        gradientDrawable.setColor(Color.parseColor("#CC000000"));
+        gradientDrawable.setCornerRadius(al.a(p.a(), 6.0f));
+        this.f29114b.setBackgroundDrawable(gradientDrawable);
+        addView(this.f29114b);
+    }
+
     public LandingDislikeToast(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f4675a = new Handler(Looper.getMainLooper());
+        this.f29113a = new Handler(Looper.getMainLooper());
         setVisibility(8);
         setClickable(false);
         setFocusable(false);
         a(context);
     }
 
-    private void a(Context context) {
-        this.b = new TextView(context);
-        this.b.setClickable(false);
-        this.b.setFocusable(false);
-        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
-        layoutParams.gravity = 17;
-        int a2 = (int) ak.a(p.a(), 20.0f);
-        int a3 = (int) ak.a(p.a(), 12.0f);
-        this.b.setPadding(a2, a3, a2, a3);
-        this.b.setLayoutParams(layoutParams);
-        this.b.setTextColor(-1);
-        this.b.setTextSize(16.0f);
-        this.b.setGravity(17);
-        GradientDrawable gradientDrawable = new GradientDrawable();
-        gradientDrawable.setShape(0);
-        gradientDrawable.setColor(Color.parseColor("#CC000000"));
-        gradientDrawable.setCornerRadius(ak.a(p.a(), 6.0f));
-        this.b.setBackgroundDrawable(gradientDrawable);
-        addView(this.b);
-    }
-
     public void a(final String str) {
-        if (!TextUtils.isEmpty(str)) {
-            this.f4675a.removeCallbacksAndMessages(null);
-            this.f4675a.post(new Runnable() { // from class: com.bytedance.sdk.openadsdk.dislike.LandingDislikeToast.1
-                @Override // java.lang.Runnable
-                public void run() {
-                    if (LandingDislikeToast.this.b != null) {
-                        LandingDislikeToast.this.b.setText(String.valueOf(str));
-                    }
-                    LandingDislikeToast.this.setVisibility(0);
-                }
-            });
-            this.f4675a.postDelayed(new Runnable() { // from class: com.bytedance.sdk.openadsdk.dislike.LandingDislikeToast.2
-                @Override // java.lang.Runnable
-                public void run() {
-                    LandingDislikeToast.this.setVisibility(8);
-                }
-            }, 2000L);
+        if (TextUtils.isEmpty(str)) {
+            return;
         }
+        this.f29113a.removeCallbacksAndMessages(null);
+        this.f29113a.post(new Runnable() { // from class: com.bytedance.sdk.openadsdk.dislike.LandingDislikeToast.1
+            @Override // java.lang.Runnable
+            public void run() {
+                if (LandingDislikeToast.this.f29114b != null) {
+                    LandingDislikeToast.this.f29114b.setText(String.valueOf(str));
+                }
+                LandingDislikeToast.this.setVisibility(0);
+            }
+        });
+        this.f29113a.postDelayed(new Runnable() { // from class: com.bytedance.sdk.openadsdk.dislike.LandingDislikeToast.2
+            @Override // java.lang.Runnable
+            public void run() {
+                LandingDislikeToast.this.setVisibility(8);
+            }
+        }, 2000L);
     }
 }

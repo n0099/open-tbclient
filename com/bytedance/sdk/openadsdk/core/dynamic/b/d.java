@@ -1,109 +1,174 @@
 package com.bytedance.sdk.openadsdk.core.dynamic.b;
 
+import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
+import com.baidu.tieba.flutter.util.OpenFlutter;
+import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class d {
-    private String A;
-    private boolean B;
+    public String A;
+    public boolean B;
 
     /* renamed from: a  reason: collision with root package name */
-    private float f4414a;
-    private float b;
-    private float c;
-    private float d;
-    private float e;
-    private float f;
-    private float g;
-    private float h;
-    private float i;
-    private float j;
-    private int k;
-    private int l;
-    private String m;
-    private String n;
-    private String o;
-    private String p;
-    private String q;
-    private String r;
-    private String s;
-    private String t;
-    private String u;
-    private String v;
-    private String w;
-    private String x;
-    private String y;
-    private String z;
+    public float f28271a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public float f28272b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public float f28273c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public float f28274d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public float f28275e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public float f28276f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public float f28277g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public float f28278h;
+    public float i;
+    public float j;
+    public int k;
+    public int l;
+    public String m;
+    public String n;
+    public String o;
+    public String p;
+    public String q;
+    public String r;
+    public String s;
+    public String t;
+    public String u;
+    public String v;
+    public String w;
+    public String x;
+    public String y;
+    public String z;
 
     public float a() {
-        return this.f4414a;
-    }
-
-    public void a(float f) {
-        this.f4414a = f;
+        return this.f28271a;
     }
 
     public float b() {
-        return this.b;
+        return this.f28272b;
     }
 
-    public void b(float f) {
-        this.b = f;
+    public void c(float f2) {
+        this.f28273c = f2;
     }
 
-    public void c(float f) {
-        this.c = f;
+    public void d(float f2) {
+        this.f28274d = f2;
     }
 
-    public void d(float f) {
-        this.d = f;
+    public void e(float f2) {
+        this.f28275e = f2;
     }
 
-    public void e(float f) {
-        this.e = f;
+    public void f(float f2) {
+        this.f28276f = f2;
+    }
+
+    public void g(float f2) {
+        this.f28277g = f2;
+    }
+
+    public void h(float f2) {
+        this.f28278h = f2;
+    }
+
+    public void i(float f2) {
+        this.i = f2;
+    }
+
+    public void j(float f2) {
+        this.j = f2;
+    }
+
+    public String k() {
+        return this.q;
+    }
+
+    public String l() {
+        return this.r;
+    }
+
+    public String m() {
+        return this.x;
+    }
+
+    public String n() {
+        return this.y;
+    }
+
+    public void o(String str) {
+        this.A = str;
+    }
+
+    public void a(float f2) {
+        this.f28271a = f2;
+    }
+
+    public void b(float f2) {
+        this.f28272b = f2;
     }
 
     public float c() {
-        return this.f;
-    }
-
-    public void f(float f) {
-        this.f = f;
+        return this.f28276f;
     }
 
     public float d() {
-        return this.g;
-    }
-
-    public void g(float f) {
-        this.g = f;
+        return this.f28277g;
     }
 
     public float e() {
-        return this.h;
-    }
-
-    public void h(float f) {
-        this.h = f;
+        return this.f28278h;
     }
 
     public float f() {
         return this.i;
     }
 
-    public void i(float f) {
-        this.i = f;
-    }
-
     public float g() {
         return this.j;
     }
 
-    public void j(float f) {
-        this.j = f;
-    }
-
     public int h() {
         return this.k;
+    }
+
+    public String i() {
+        return this.o;
+    }
+
+    public String j() {
+        return this.p;
+    }
+
+    public void k(String str) {
+        this.w = str;
+    }
+
+    public void l(String str) {
+        this.x = str;
+    }
+
+    public void m(String str) {
+        this.y = str;
+    }
+
+    public void n(String str) {
+        this.z = str;
+    }
+
+    public boolean o() {
+        return this.B;
     }
 
     public void a(int i) {
@@ -114,40 +179,16 @@ public class d {
         this.l = i;
     }
 
-    public void a(String str) {
-        this.m = str;
-    }
-
-    public void b(String str) {
-        this.n = str;
-    }
-
-    public String i() {
-        return this.o;
-    }
-
     public void c(String str) {
         this.o = str;
-    }
-
-    public String j() {
-        return this.p;
     }
 
     public void d(String str) {
         this.p = str;
     }
 
-    public String k() {
-        return this.q;
-    }
-
     public void e(String str) {
         this.q = str;
-    }
-
-    public String l() {
-        return this.r;
     }
 
     public void f(String str) {
@@ -170,36 +211,12 @@ public class d {
         this.v = str;
     }
 
-    public void k(String str) {
-        this.w = str;
+    public void a(String str) {
+        this.m = str;
     }
 
-    public String m() {
-        return this.x;
-    }
-
-    public void l(String str) {
-        this.x = str;
-    }
-
-    public String n() {
-        return this.y;
-    }
-
-    public void m(String str) {
-        this.y = str;
-    }
-
-    public void n(String str) {
-        this.z = str;
-    }
-
-    public void o(String str) {
-        this.A = str;
-    }
-
-    public boolean o() {
-        return this.B;
+    public void b(String str) {
+        this.n = str;
     }
 
     public void a(boolean z) {
@@ -213,11 +230,11 @@ public class d {
         d dVar = new d();
         dVar.a(jSONObject.optString("adType", "embeded"));
         dVar.l(jSONObject.optString("clickArea", "creative"));
-        dVar.m(jSONObject.optString("clickTigger", "click"));
+        dVar.m(jSONObject.optString("clickTigger", PrefetchEvent.STATE_CLICK));
         dVar.b(jSONObject.optString("fontFamily", "PingFangSC"));
-        dVar.c(jSONObject.optString("textAlign", "left"));
+        dVar.c(jSONObject.optString("textAlign", CustomDialogData.POS_LEFT));
         dVar.d(jSONObject.optString("color", "#999999"));
-        dVar.e(jSONObject.optString("bgColor", "transparent"));
+        dVar.e(jSONObject.optString("bgColor", OpenFlutter.EXTRA_TRANSPARANT));
         dVar.f(jSONObject.optString("borderColor", "#000000"));
         dVar.g(jSONObject.optString("borderStyle", "solid"));
         dVar.h(jSONObject.optString("heightMode", "auto"));

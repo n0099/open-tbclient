@@ -12,14 +12,14 @@ import java.io.Reader;
 import java.io.StringWriter;
 import java.io.Writer;
 import java.nio.charset.Charset;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class k {
     public static int a(Reader reader, Writer writer) {
-        long b = b(reader, writer);
-        if (b > 2147483647L) {
+        long b2 = b(reader, writer);
+        if (b2 > 2147483647L) {
             return -1;
         }
-        return (int) b;
+        return (int) b2;
     }
 
     public static long a(Reader reader, Writer writer, char[] cArr) {
@@ -56,26 +56,25 @@ public class k {
 
     @Nullable
     public static String a(File file, Charset charset) {
-        FileInputStream fileInputStream;
-        String str = null;
+        FileInputStream fileInputStream = null;
         try {
-            fileInputStream = a(file);
-            if (fileInputStream != null) {
-                try {
-                    str = a(fileInputStream, a(charset));
-                    a(fileInputStream);
-                } catch (Throwable th) {
-                    th = th;
-                    a(fileInputStream);
-                    throw th;
-                }
-            } else {
-                a(fileInputStream);
+            FileInputStream a2 = a(file);
+            if (a2 == null) {
+                a(a2);
+                return null;
             }
-            return str;
+            try {
+                String a3 = a(a2, a(charset));
+                a(a2);
+                return a3;
+            } catch (Throwable th) {
+                th = th;
+                fileInputStream = a2;
+                a(fileInputStream);
+                throw th;
+            }
         } catch (Throwable th2) {
             th = th2;
-            fileInputStream = null;
         }
     }
 
@@ -97,20 +96,28 @@ public class k {
         if (closeable != null) {
             try {
                 closeable.close();
-            } catch (Exception e) {
+            } catch (Exception unused) {
             }
         }
     }
 
     public static void a(File file, String str, Charset charset, boolean z) {
-        FileOutputStream fileOutputStream = null;
+        FileOutputStream fileOutputStream;
         try {
             fileOutputStream = a(file, z);
             if (fileOutputStream != null) {
-                a(str, fileOutputStream, charset);
+                try {
+                    a(str, fileOutputStream, charset);
+                } catch (Throwable th) {
+                    th = th;
+                    a(fileOutputStream);
+                    throw th;
+                }
             }
-        } finally {
             a(fileOutputStream);
+        } catch (Throwable th2) {
+            th = th2;
+            fileOutputStream = null;
         }
     }
 

@@ -4,27 +4,29 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import java.lang.ref.WeakReference;
 import java.net.URL;
-/* loaded from: classes14.dex */
+/* loaded from: classes7.dex */
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    private static g f7992a = null;
-    private volatile WeakReference<SharedPreferences> b = null;
+    public static g f39317a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public volatile WeakReference<SharedPreferences> f39318b = null;
 
     public static synchronized g a() {
         g gVar;
         synchronized (g.class) {
-            if (f7992a == null) {
-                f7992a = new g();
+            if (f39317a == null) {
+                f39317a = new g();
             }
-            gVar = f7992a;
+            gVar = f39317a;
         }
         return gVar;
     }
 
     public String a(Context context, String str) {
-        if (this.b == null || this.b.get() == null) {
-            this.b = new WeakReference<>(context.getSharedPreferences("ServerPrefs", 0));
+        if (this.f39318b == null || this.f39318b.get() == null) {
+            this.f39318b = new WeakReference<>(context.getSharedPreferences("ServerPrefs", 0));
         }
         try {
             String host = new URL(str).getHost();
@@ -32,16 +34,16 @@ public class g {
                 com.tencent.open.a.f.e("openSDK_LOG.ServerSetting", "Get host error. url=" + str);
                 return str;
             }
-            String string = this.b.get().getString(host, null);
-            if (string == null || host.equals(string)) {
-                com.tencent.open.a.f.a("openSDK_LOG.ServerSetting", "host=" + host + ", envHost=" + string);
-                return str;
+            String string = this.f39318b.get().getString(host, null);
+            if (string != null && !host.equals(string)) {
+                String replace = str.replace(host, string);
+                com.tencent.open.a.f.a("openSDK_LOG.ServerSetting", "return environment url : " + replace);
+                return replace;
             }
-            String replace = str.replace(host, string);
-            com.tencent.open.a.f.a("openSDK_LOG.ServerSetting", "return environment url : " + replace);
-            return replace;
-        } catch (Exception e) {
-            com.tencent.open.a.f.e("openSDK_LOG.ServerSetting", "getEnvUrl url=" + str + "error.: " + e.getMessage());
+            com.tencent.open.a.f.a("openSDK_LOG.ServerSetting", "host=" + host + ", envHost=" + string);
+            return str;
+        } catch (Exception e2) {
+            com.tencent.open.a.f.e("openSDK_LOG.ServerSetting", "getEnvUrl url=" + str + "error.: " + e2.getMessage());
             return str;
         }
     }

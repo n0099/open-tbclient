@@ -1,19 +1,20 @@
 package com.baidu.platform.comjni.map.cloud;
-/* loaded from: classes4.dex */
-class c implements Runnable {
+/* loaded from: classes2.dex */
+public class c implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ String f3098a;
-    final /* synthetic */ b b;
+    public final /* synthetic */ String f10402a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    /* renamed from: b  reason: collision with root package name */
+    public final /* synthetic */ b f10403b;
+
     public c(b bVar, String str) {
-        this.b = bVar;
-        this.f3098a = str;
+        this.f10403b = bVar;
+        this.f10402a = str;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.b.f3097a.f(this.f3098a);
+        this.f10403b.f10401a.f(this.f10402a);
     }
 }

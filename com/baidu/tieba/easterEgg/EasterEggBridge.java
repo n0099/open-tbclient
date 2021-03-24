@@ -1,61 +1,70 @@
 package com.baidu.tieba.easterEgg;
 
 import android.webkit.JsPromptResult;
-import com.baidu.tbadk.core.util.au;
+import d.b.b.e.p.k;
+import d.b.i0.c3.l0.b;
+import d.b.i0.g0.f.a.a;
+import d.b.i0.g0.f.a.c;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
-public class EasterEggBridge implements com.baidu.tieba.tbadkCore.e.b {
-    private static final String KEY_ARGS = "args";
-    private static final String KEY_ARGS_EXT = "native_exts";
-    private static final String KEY_CALLBACK = "native_clbk";
-    private static final String KEY_INTERFACE_NAME = "EasterEggBridge";
-    private static final String KEY_METHOD_NAME = "method_name";
-    private List<b> mListener = new ArrayList();
+/* loaded from: classes4.dex */
+public class EasterEggBridge implements b {
+    public static final String KEY_ARGS = "args";
+    public static final String KEY_ARGS_EXT = "native_exts";
+    public static final String KEY_CALLBACK = "native_clbk";
+    public static final String KEY_INTERFACE_NAME = "EasterEggBridge";
+    public static final String KEY_METHOD_NAME = "method_name";
+    public List<d.b.i0.g0.b> mListener = new ArrayList();
 
     public EasterEggBridge() {
-        addListener(new com.baidu.tieba.easterEgg.b.a.b());
-        addListener(new com.baidu.tieba.easterEgg.b.a.c());
-        addListener(new com.baidu.tieba.easterEgg.b.a.a());
+        addListener(new d.b.i0.g0.f.a.b());
+        addListener(new c());
+        addListener(new a());
     }
 
-    public void addListener(b bVar) {
-        if (bVar != null && this.mListener != null) {
-            this.mListener.add(bVar);
+    public void addListener(d.b.i0.g0.b bVar) {
+        List<d.b.i0.g0.b> list;
+        if (bVar == null || (list = this.mListener) == null) {
+            return;
         }
-    }
-
-    public void removeListener(b bVar) {
-        if (bVar != null && this.mListener != null) {
-            this.mListener.remove(bVar);
-        }
+        list.add(bVar);
     }
 
     public void clearListener() {
-        if (this.mListener != null) {
-            this.mListener.clear();
+        List<d.b.i0.g0.b> list = this.mListener;
+        if (list != null) {
+            list.clear();
         }
     }
 
-    @Override // com.baidu.tieba.tbadkCore.e.b
+    @Override // d.b.i0.c3.l0.b
     public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
         if (KEY_INTERFACE_NAME.equals(str2)) {
             try {
                 JSONObject jSONObject = new JSONObject(str3);
-                String optString = jSONObject.optString(KEY_METHOD_NAME);
-                if (!au.isEmpty(str2)) {
-                    String trim = optString.trim();
-                    for (b bVar : this.mListener) {
-                        if (trim.equals(bVar.cuI())) {
-                            bVar.a(trim, jSONObject.optString(KEY_ARGS), jSONObject.optString(KEY_ARGS_EXT), jSONObject.optString(KEY_CALLBACK), jsPromptResult);
-                        }
+                String optString = jSONObject.optString("method_name");
+                if (k.isEmpty(str2)) {
+                    return false;
+                }
+                String trim = optString.trim();
+                for (d.b.i0.g0.b bVar : this.mListener) {
+                    if (trim.equals(bVar.b())) {
+                        bVar.a(trim, jSONObject.optString("args"), jSONObject.optString(KEY_ARGS_EXT), jSONObject.optString(KEY_CALLBACK), jsPromptResult);
                     }
                 }
-            } catch (JSONException e) {
+            } catch (JSONException unused) {
             }
         }
         return false;
+    }
+
+    public void removeListener(d.b.i0.g0.b bVar) {
+        List<d.b.i0.g0.b> list;
+        if (bVar == null || (list = this.mListener) == null) {
+            return;
+        }
+        list.remove(bVar);
     }
 }

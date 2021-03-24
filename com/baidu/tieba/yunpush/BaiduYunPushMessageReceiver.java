@@ -8,36 +8,26 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.pushservice.PushMessageReceiver;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.sharedPref.b;
 import com.baidu.tbadk.core.util.NotificationHelper;
+import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ar;
+import d.b.h0.r.d0.b;
 import java.net.URISyntaxException;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class BaiduYunPushMessageReceiver extends PushMessageReceiver {
     public static final String KEY_SHAREDPRE_PUSH_STARTWORK = "baidu_yunpush_start_work";
-    private static final String TAG = "BaiduYunPush";
+    public static final String TAG = "BaiduYunPush";
 
     @Override // com.baidu.android.pushservice.PushMessageReceiver
     public void onBind(Context context, int i, String str, String str2, String str3, String str4) {
         String str5 = "onBind errorCode=" + i;
         if (i == 0) {
-            b.brR().putBoolean(TbConfig.getVersion() + KEY_SHAREDPRE_PUSH_STARTWORK, true);
+            b.i().s(TbConfig.getVersion() + KEY_SHAREDPRE_PUSH_STARTWORK, true);
             TbadkCoreApplication.getInst().setYunpushChannelId(str3);
         }
-    }
-
-    @Override // com.baidu.android.pushservice.PushMessageReceiver
-    public void onUnbind(Context context, int i, String str) {
-        if (i == 0) {
-        }
-    }
-
-    @Override // com.baidu.android.pushservice.PushMessageReceiver
-    public void onSetTags(Context context, int i, List<String> list, List<String> list2, String str) {
     }
 
     @Override // com.baidu.android.pushservice.PushMessageReceiver
@@ -48,85 +38,74 @@ public class BaiduYunPushMessageReceiver extends PushMessageReceiver {
     public void onListTags(Context context, int i, List<String> list, String str) {
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:21:0x0087 A[Catch: Exception -> 0x00af, TryCatch #0 {Exception -> 0x00af, blocks: (B:4:0x0009, B:6:0x0017, B:7:0x001e, B:9:0x0027, B:10:0x002e, B:12:0x0037, B:14:0x004c, B:15:0x0054, B:17:0x005d, B:19:0x0066, B:21:0x0087, B:22:0x008e, B:24:0x0096, B:25:0x0098), top: B:32:0x0009 }] */
-    /* JADX WARN: Removed duplicated region for block: B:24:0x0096 A[Catch: Exception -> 0x00af, TryCatch #0 {Exception -> 0x00af, blocks: (B:4:0x0009, B:6:0x0017, B:7:0x001e, B:9:0x0027, B:10:0x002e, B:12:0x0037, B:14:0x004c, B:15:0x0054, B:17:0x005d, B:19:0x0066, B:21:0x0087, B:22:0x008e, B:24:0x0096, B:25:0x0098), top: B:32:0x0009 }] */
     @Override // com.baidu.android.pushservice.PushMessageReceiver
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void onMessage(Context context, String str, String str2) {
-        String str3;
-        int i;
-        JSONObject jSONObject;
-        if (!TextUtils.isEmpty(str)) {
-            try {
-                JSONObject jSONObject2 = new JSONObject(str);
-                String string = !jSONObject2.isNull("title") ? jSONObject2.getString("title") : null;
-                String string2 = !jSONObject2.isNull("description") ? jSONObject2.getString("description") : null;
-                if (!jSONObject2.isNull("custom_content")) {
-                    JSONObject jSONObject3 = new JSONObject(jSONObject2.getString("custom_content"));
-                    if (!jSONObject3.isNull("scheme")) {
-                        str3 = jSONObject3.getString("scheme");
-                        String str4 = "";
-                        if (!TextUtils.isEmpty(str3) && str3.contains("tbyunpushnotifybody=")) {
-                            jSONObject = new JSONObject(str3.substring(str3.indexOf("tbyunpushnotifybody=") + "tbyunpushnotifybody=".length()));
-                            if (!jSONObject.isNull("task_id")) {
-                                str4 = jSONObject.getString("task_id");
-                            }
-                        }
-                        i = com.baidu.adp.lib.f.b.toInt(str4, TbConfig.NOTIFY_YUN_PUSH);
-                        if (i < 2500) {
-                            i += TbConfig.NOTIFY_YUN_PUSH;
-                        }
-                        Intent parseUri = Intent.parseUri(str3, 1);
-                        parseUri.setFlags(276824064);
-                        NotificationHelper.showNotification(context, i, string, string2, string2, PendingIntent.getActivity(context, i, parseUri, 134217728), false);
-                    }
-                }
-                str3 = null;
-                String str42 = "";
-                if (!TextUtils.isEmpty(str3)) {
-                    jSONObject = new JSONObject(str3.substring(str3.indexOf("tbyunpushnotifybody=") + "tbyunpushnotifybody=".length()));
-                    if (!jSONObject.isNull("task_id")) {
-                    }
-                }
-                i = com.baidu.adp.lib.f.b.toInt(str42, TbConfig.NOTIFY_YUN_PUSH);
-                if (i < 2500) {
-                }
-                Intent parseUri2 = Intent.parseUri(str3, 1);
-                parseUri2.setFlags(276824064);
-                NotificationHelper.showNotification(context, i, string, string2, string2, PendingIntent.getActivity(context, i, parseUri2, 134217728), false);
-            } catch (Exception e) {
-            }
+    public void onMessage(Context context, String str, String str2, int i) {
+        if (TextUtils.isEmpty(str)) {
+            return;
         }
-    }
-
-    @Override // com.baidu.android.pushservice.PushMessageReceiver
-    public void onNotificationClicked(Context context, String str, String str2, String str3) {
-        if (!TextUtils.isEmpty(str3)) {
-            try {
-                JSONObject jSONObject = new JSONObject(str3);
-                String str4 = null;
-                if (!jSONObject.isNull("scheme")) {
-                    str4 = jSONObject.getString("scheme");
+        try {
+            JSONObject jSONObject = new JSONObject(str);
+            String str3 = null;
+            String string = !jSONObject.isNull("title") ? jSONObject.getString("title") : null;
+            String string2 = !jSONObject.isNull("description") ? jSONObject.getString("description") : null;
+            if (!jSONObject.isNull("custom_content")) {
+                JSONObject jSONObject2 = new JSONObject(jSONObject.getString("custom_content"));
+                if (!jSONObject2.isNull("scheme")) {
+                    str3 = jSONObject2.getString("scheme");
                 }
-                if (!TextUtils.isEmpty(str4)) {
-                    Intent parseUri = Intent.parseUri(str4, 1);
-                    parseUri.setFlags(276824064);
-                    context.startActivity(parseUri);
-                    if (str4.contains("unidispatch/hotuserrank")) {
-                        TiebaStatic.log(new ar("c13662").v("uid", TbadkCoreApplication.getCurrentAccountId()));
-                    }
-                }
-            } catch (URISyntaxException e) {
-                BdLog.detailException(e);
-            } catch (JSONException e2) {
-                BdLog.detailException(e2);
             }
+            String str4 = "";
+            if (!TextUtils.isEmpty(str3) && str3.contains(YunPushProxyActivity.PUSH_BODY)) {
+                JSONObject jSONObject3 = new JSONObject(str3.substring(str3.indexOf(YunPushProxyActivity.PUSH_BODY) + 20));
+                if (!jSONObject3.isNull("task_id")) {
+                    str4 = jSONObject3.getString("task_id");
+                }
+            }
+            int d2 = d.b.b.e.m.b.d(str4, 2500);
+            if (d2 < 2500) {
+                d2 += 2500;
+            }
+            int i2 = d2;
+            Intent parseUri = Intent.parseUri(str3, 1);
+            parseUri.setFlags(276824064);
+            NotificationHelper.showNotification(context, i2, string, string2, string2, PendingIntent.getActivity(context, i2, parseUri, 134217728), false);
+        } catch (Exception unused) {
         }
     }
 
     @Override // com.baidu.android.pushservice.PushMessageReceiver
     public void onNotificationArrived(Context context, String str, String str2, String str3) {
+    }
+
+    @Override // com.baidu.android.pushservice.PushMessageReceiver
+    public void onNotificationClicked(Context context, String str, String str2, String str3) {
+        if (TextUtils.isEmpty(str3)) {
+            return;
+        }
+        try {
+            JSONObject jSONObject = new JSONObject(str3);
+            String string = jSONObject.isNull("scheme") ? null : jSONObject.getString("scheme");
+            if (TextUtils.isEmpty(string)) {
+                return;
+            }
+            Intent parseUri = Intent.parseUri(string, 1);
+            parseUri.setFlags(276824064);
+            context.startActivity(parseUri);
+            if (string.contains("unidispatch/hotuserrank")) {
+                TiebaStatic.log(new StatisticItem("c13662").param("uid", TbadkCoreApplication.getCurrentAccountId()));
+            }
+        } catch (URISyntaxException e2) {
+            BdLog.detailException(e2);
+        } catch (JSONException e3) {
+            BdLog.detailException(e3);
+        }
+    }
+
+    @Override // com.baidu.android.pushservice.PushMessageReceiver
+    public void onSetTags(Context context, int i, List<String> list, List<String> list2, String str) {
+    }
+
+    @Override // com.baidu.android.pushservice.PushMessageReceiver
+    public void onUnbind(Context context, int i, String str) {
     }
 }

@@ -1,5 +1,5 @@
 package com.baidu.mapsdkplatform.comapi.util;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class SyncSysInfo {
     public static String getAuthToken() {
         return f.z;

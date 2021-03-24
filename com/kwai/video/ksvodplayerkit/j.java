@@ -5,7 +5,7 @@ import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.WorkerThread;
 import com.kwai.video.player.KsMediaPlayerInitConfig;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class j {
     public static void a(@NonNull Context context) {
         a(context, h.a(context));

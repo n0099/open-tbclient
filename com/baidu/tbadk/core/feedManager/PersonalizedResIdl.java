@@ -11,18 +11,7 @@ public final class PersonalizedResIdl extends Message {
     @ProtoField(tag = 1)
     public final Error error;
 
-    private PersonalizedResIdl(Builder builder, boolean z) {
-        super(builder);
-        if (z) {
-            this.error = builder.error;
-            this.data = builder.data;
-            return;
-        }
-        this.error = builder.error;
-        this.data = builder.data;
-    }
-
-    /* loaded from: classes.dex */
+    /* loaded from: classes3.dex */
     public static final class Builder extends Message.Builder<PersonalizedResIdl> {
         public DataRes data;
         public Error error;
@@ -32,10 +21,11 @@ public final class PersonalizedResIdl extends Message {
 
         public Builder(PersonalizedResIdl personalizedResIdl) {
             super(personalizedResIdl);
-            if (personalizedResIdl != null) {
-                this.error = personalizedResIdl.error;
-                this.data = personalizedResIdl.data;
+            if (personalizedResIdl == null) {
+                return;
             }
+            this.error = personalizedResIdl.error;
+            this.data = personalizedResIdl.data;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -44,5 +34,16 @@ public final class PersonalizedResIdl extends Message {
         public PersonalizedResIdl build(boolean z) {
             return new PersonalizedResIdl(this, z);
         }
+    }
+
+    public PersonalizedResIdl(Builder builder, boolean z) {
+        super(builder);
+        if (z) {
+            this.error = builder.error;
+            this.data = builder.data;
+            return;
+        }
+        this.error = builder.error;
+        this.data = builder.data;
     }
 }

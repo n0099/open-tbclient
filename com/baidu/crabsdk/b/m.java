@@ -5,159 +5,168 @@ import android.content.Context;
 import android.os.Build;
 import android.os.Debug;
 import android.os.Process;
-import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public final class m {
-    private static ActivityManager aqB;
-    private static Context mContext;
 
-    public static String D() {
-        BufferedReader bufferedReader;
+    /* renamed from: a  reason: collision with root package name */
+    public static Context f4687a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public static ActivityManager f4688b;
+
+    /* JADX WARN: Not initialized variable reg: 4, insn: 0x0091: MOVE  (r2 I:??[OBJECT, ARRAY]) = (r4 I:??[OBJECT, ARRAY]), block:B:60:0x0091 */
+    public static String a() {
         FileReader fileReader;
+        BufferedReader bufferedReader;
+        Exception e2;
+        IOException e3;
+        FileNotFoundException e4;
         BufferedReader bufferedReader2;
         StringBuilder sb = new StringBuilder();
+        BufferedReader bufferedReader3 = null;
         try {
             try {
-                fileReader = new FileReader("/proc/meminfo");
-            } catch (Throwable th) {
-                th = th;
-            }
-        } catch (FileNotFoundException e) {
-            e = e;
-            bufferedReader2 = null;
-            fileReader = null;
-        } catch (IOException e2) {
-            e = e2;
-            bufferedReader2 = null;
-            fileReader = null;
-        } catch (Exception e3) {
-            e = e3;
-            bufferedReader2 = null;
-            fileReader = null;
-        } catch (Throwable th2) {
-            th = th2;
-            bufferedReader = null;
-            fileReader = null;
-        }
-        try {
-            bufferedReader2 = new BufferedReader(fileReader, 8192);
-            int i = 0;
-            while (true) {
                 try {
-                    String readLine = bufferedReader2.readLine();
-                    if (readLine != null) {
-                        int i2 = i + 1;
-                        if (i < 5) {
-                            sb.append(readLine).append("\n");
-                            i = i2;
-                        }
-                    }
+                    fileReader = new FileReader("/proc/meminfo");
+                } catch (Throwable th) {
+                    th = th;
+                    bufferedReader3 = bufferedReader2;
+                }
+            } catch (FileNotFoundException e5) {
+                bufferedReader = null;
+                e4 = e5;
+                fileReader = null;
+            } catch (IOException e6) {
+                bufferedReader = null;
+                e3 = e6;
+                fileReader = null;
+            } catch (Exception e7) {
+                bufferedReader = null;
+                e2 = e7;
+                fileReader = null;
+            } catch (Throwable th2) {
+                th = th2;
+                fileReader = null;
+            }
+            try {
+                bufferedReader = new BufferedReader(fileReader, 8192);
+                int i = 0;
+                while (true) {
                     try {
-                        bufferedReader2.close();
-                        fileReader.close();
-                        break;
-                    } catch (IOException e4) {
-                        e4.printStackTrace();
-                    }
-                } catch (FileNotFoundException e5) {
-                    e = e5;
-                    com.baidu.crabsdk.c.a.a("getSysMemInfo fail.", e);
-                    if (bufferedReader2 != null) {
-                        try {
-                            bufferedReader2.close();
-                        } catch (IOException e6) {
-                            e6.printStackTrace();
+                        String readLine = bufferedReader.readLine();
+                        if (readLine == null) {
+                            break;
                         }
-                    }
-                    if (fileReader != null) {
-                        fileReader.close();
-                    }
-                    return sb.toString();
-                } catch (IOException e7) {
-                    e = e7;
-                    com.baidu.crabsdk.c.a.a("getSysMemInfo fail.", e);
-                    if (bufferedReader2 != null) {
-                        try {
-                            bufferedReader2.close();
-                        } catch (IOException e8) {
-                            e8.printStackTrace();
+                        int i2 = i + 1;
+                        if (i >= 5) {
+                            break;
                         }
-                    }
-                    if (fileReader != null) {
-                        fileReader.close();
-                    }
-                    return sb.toString();
-                } catch (Exception e9) {
-                    e = e9;
-                    com.baidu.crabsdk.c.a.a("getSysMemInfo fail.", e);
-                    if (bufferedReader2 != null) {
-                        try {
-                            bufferedReader2.close();
-                        } catch (IOException e10) {
-                            e10.printStackTrace();
+                        sb.append(readLine);
+                        sb.append("\n");
+                        i = i2;
+                    } catch (FileNotFoundException e8) {
+                        e4 = e8;
+                        com.baidu.crabsdk.c.a.a("getSysMemInfo fail.", e4);
+                        if (bufferedReader != null) {
+                            bufferedReader.close();
                         }
+                        if (fileReader != null) {
+                            fileReader.close();
+                        }
+                        return sb.toString();
+                    } catch (IOException e9) {
+                        e3 = e9;
+                        com.baidu.crabsdk.c.a.a("getSysMemInfo fail.", e3);
+                        if (bufferedReader != null) {
+                            bufferedReader.close();
+                        }
+                        if (fileReader != null) {
+                            fileReader.close();
+                        }
+                        return sb.toString();
+                    } catch (Exception e10) {
+                        e2 = e10;
+                        com.baidu.crabsdk.c.a.a("getSysMemInfo fail.", e2);
+                        if (bufferedReader != null) {
+                            bufferedReader.close();
+                        }
+                        if (fileReader != null) {
+                            fileReader.close();
+                        }
+                        return sb.toString();
                     }
-                    if (fileReader != null) {
-                        fileReader.close();
-                    }
-                    return sb.toString();
                 }
-            }
-        } catch (FileNotFoundException e11) {
-            e = e11;
-            bufferedReader2 = null;
-        } catch (IOException e12) {
-            e = e12;
-            bufferedReader2 = null;
-        } catch (Exception e13) {
-            e = e13;
-            bufferedReader2 = null;
-        } catch (Throwable th3) {
-            th = th3;
-            bufferedReader = null;
-            if (bufferedReader != null) {
-                try {
-                    bufferedReader.close();
-                } catch (IOException e14) {
-                    e14.printStackTrace();
-                    throw th;
-                }
-            }
-            if (fileReader != null) {
+                bufferedReader.close();
                 fileReader.close();
+            } catch (FileNotFoundException e11) {
+                bufferedReader = null;
+                e4 = e11;
+            } catch (IOException e12) {
+                bufferedReader = null;
+                e3 = e12;
+            } catch (Exception e13) {
+                bufferedReader = null;
+                e2 = e13;
+            } catch (Throwable th3) {
+                th = th3;
+                if (bufferedReader3 != null) {
+                    try {
+                        bufferedReader3.close();
+                    } catch (IOException e14) {
+                        e14.printStackTrace();
+                        throw th;
+                    }
+                }
+                if (fileReader != null) {
+                    fileReader.close();
+                }
+                throw th;
             }
-            throw th;
+        } catch (IOException e15) {
+            e15.printStackTrace();
         }
         return sb.toString();
     }
 
-    public static String E() {
+    public static String b() {
         Debug.MemoryInfo memoryInfo;
         StringBuilder sb = new StringBuilder();
-        if (aqB == null) {
+        if (f4688b == null) {
             return sb.toString();
         }
         try {
             ActivityManager.MemoryInfo memoryInfo2 = new ActivityManager.MemoryInfo();
-            aqB.getMemoryInfo(memoryInfo2);
-            sb.append("isLowMem: ").append(memoryInfo2.lowMemory ? "yes" : "no").append("\navailMem: ").append(com.baidu.crabsdk.c.c.b(memoryInfo2.availMem)).append("\nthreshold: ").append(com.baidu.crabsdk.c.c.b(memoryInfo2.threshold)).append("\n");
-            if (Build.VERSION.SDK_INT >= 5 && (memoryInfo = aqB.getProcessMemoryInfo(new int[]{Process.myPid()})[0]) != null) {
-                sb.append("totalPrivateDirty: ").append(com.baidu.crabsdk.c.c.b(memoryInfo.getTotalPrivateDirty() * 1024)).append("\ntotalPss: ").append(com.baidu.crabsdk.c.c.b(memoryInfo.getTotalPss() * 1024)).append("\ntotalSharedDirty: ").append(com.baidu.crabsdk.c.c.b(memoryInfo.getTotalSharedDirty() * 1024)).append("\n");
+            f4688b.getMemoryInfo(memoryInfo2);
+            sb.append("isLowMem: ");
+            sb.append(memoryInfo2.lowMemory ? "yes" : "no");
+            sb.append("\navailMem: ");
+            sb.append(com.baidu.crabsdk.c.c.f(memoryInfo2.availMem));
+            sb.append("\nthreshold: ");
+            sb.append(com.baidu.crabsdk.c.c.f(memoryInfo2.threshold));
+            sb.append("\n");
+            if (Build.VERSION.SDK_INT >= 5 && (memoryInfo = f4688b.getProcessMemoryInfo(new int[]{Process.myPid()})[0]) != null) {
+                sb.append("totalPrivateDirty: ");
+                sb.append(com.baidu.crabsdk.c.c.f(memoryInfo.getTotalPrivateDirty() * 1024));
+                sb.append("\ntotalPss: ");
+                sb.append(com.baidu.crabsdk.c.c.f(memoryInfo.getTotalPss() * 1024));
+                sb.append("\ntotalSharedDirty: ");
+                sb.append(com.baidu.crabsdk.c.c.f(memoryInfo.getTotalSharedDirty() * 1024));
+                sb.append("\n");
             }
-        } catch (Exception e) {
-            com.baidu.crabsdk.c.a.a("getMemInfo error!!!", e);
+        } catch (Exception e2) {
+            com.baidu.crabsdk.c.a.a("getMemInfo error!!!", e2);
         }
         return sb.toString();
     }
 
-    public static void e(Context context) {
-        if (mContext == null) {
-            mContext = context;
-            aqB = (ActivityManager) context.getSystemService(PushConstants.INTENT_ACTIVITY_NAME);
+    public static void c(Context context) {
+        if (f4687a == null) {
+            f4687a = context;
+            f4688b = (ActivityManager) context.getSystemService("activity");
         }
     }
 }

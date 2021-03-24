@@ -1,6 +1,7 @@
 package com.bytedance.sdk.openadsdk.core.g;
 
 import android.content.Context;
+import com.baidu.webkit.sdk.LoadErrorCode;
 import com.bytedance.sdk.openadsdk.c.d;
 import com.bytedance.sdk.openadsdk.core.d.l;
 import java.util.HashMap;
@@ -30,7 +31,7 @@ public class b {
             if (lVar.D() || lVar.C()) {
                 HashMap hashMap = new HashMap();
                 hashMap.put("error_code", Integer.valueOf(i));
-                hashMap.put("error_reason", str);
+                hashMap.put(LoadErrorCode.Statistics.KEY_ERROR_REASON, str);
                 d.k(context, lVar, "playable_preload", "preload_fail", hashMap);
             }
         }

@@ -4,14 +4,14 @@ import com.baidu.mapapi.model.CoordUtil;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapapi.model.inner.GeoPoint;
 import com.baidu.mapsdkplatform.comapi.location.CoordinateType;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class b {
-    public static GeoPoint a(double d, double d2) {
-        LatLng a2 = a(new LatLng(d2, d), CoordinateType.WGS84);
+    public static GeoPoint a(double d2, double d3) {
+        LatLng a2 = a(new LatLng(d3, d2), CoordinateType.WGS84);
         return new GeoPoint((int) (a2.latitude * 100000.0d), (int) (a2.longitude * 100000.0d));
     }
 
-    private static LatLng a(LatLng latLng, String str) {
+    public static LatLng a(LatLng latLng, String str) {
         if (latLng == null) {
             return null;
         }

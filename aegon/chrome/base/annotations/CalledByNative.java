@@ -6,6 +6,6 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 @Target({ElementType.CONSTRUCTOR, ElementType.METHOD})
 @Retention(RetentionPolicy.CLASS)
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public @interface CalledByNative {
 }

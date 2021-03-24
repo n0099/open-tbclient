@@ -3,9 +3,9 @@ package com.baidu.tbadk.core.atomData;
 import android.content.Context;
 import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class InitUserNameDialogActivityConfig extends IntentConfig {
-    public static String ACCOUNT_DATA = EditHeadActivityConfig.ACCOUNTDATA;
+    public static String ACCOUNT_DATA = "account_data";
 
     public InitUserNameDialogActivityConfig(Context context) {
         super(context);

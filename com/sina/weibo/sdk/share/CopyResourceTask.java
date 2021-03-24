@@ -14,10 +14,10 @@ import java.io.File;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class CopyResourceTask extends AsyncTask<WeiboMultiMessage, Object, TransResourceResult> {
-    private TransResourceCallback mCallback;
-    private WeakReference<Context> mReference;
+    public TransResourceCallback mCallback;
+    public WeakReference<Context> mReference;
 
     public CopyResourceTask(Context context, TransResourceCallback transResourceCallback) {
         this.mReference = new WeakReference<>(context);
@@ -25,12 +25,11 @@ public class CopyResourceTask extends AsyncTask<WeiboMultiMessage, Object, Trans
     }
 
     @Override // android.os.AsyncTask
-    protected void onPreExecute() {
+    public void onPreExecute() {
         super.onPreExecute();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.os.AsyncTask
     public TransResourceResult doInBackground(WeiboMultiMessage... weiboMultiMessageArr) {
         Uri uri;
@@ -77,19 +76,19 @@ public class CopyResourceTask extends AsyncTask<WeiboMultiMessage, Object, Trans
             }
             transResourceResult.message = weiboMultiMessage;
             transResourceResult.transDone = true;
-        } catch (Exception e) {
+        } catch (Exception unused) {
             transResourceResult.transDone = false;
         }
         return transResourceResult;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.os.AsyncTask
     public void onPostExecute(TransResourceResult transResourceResult) {
         super.onPostExecute((CopyResourceTask) transResourceResult);
-        if (this.mCallback != null) {
-            this.mCallback.onTransFinish(transResourceResult);
+        TransResourceCallback transResourceCallback = this.mCallback;
+        if (transResourceCallback != null) {
+            transResourceCallback.onTransFinish(transResourceResult);
         }
     }
 }

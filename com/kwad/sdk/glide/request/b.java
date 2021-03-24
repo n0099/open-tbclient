@@ -1,66 +1,74 @@
 package com.kwad.sdk.glide.request;
 
 import androidx.annotation.Nullable;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public final class b implements c, d {
     @Nullable
 
     /* renamed from: a  reason: collision with root package name */
-    private final d f6830a;
-    private c b;
-    private c c;
+    public final d f35793a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public c f35794b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public c f35795c;
 
     public b(@Nullable d dVar) {
-        this.f6830a = dVar;
+        this.f35793a = dVar;
     }
 
     private boolean g(c cVar) {
-        return cVar.equals(this.b) || (this.b.g() && cVar.equals(this.c));
+        return cVar.equals(this.f35794b) || (this.f35794b.g() && cVar.equals(this.f35795c));
     }
 
     private boolean j() {
-        return this.f6830a == null || this.f6830a.b(this);
+        d dVar = this.f35793a;
+        return dVar == null || dVar.b(this);
     }
 
     private boolean k() {
-        return this.f6830a == null || this.f6830a.d(this);
+        d dVar = this.f35793a;
+        return dVar == null || dVar.d(this);
     }
 
     private boolean l() {
-        return this.f6830a == null || this.f6830a.c(this);
+        d dVar = this.f35793a;
+        return dVar == null || dVar.c(this);
     }
 
     private boolean m() {
-        return this.f6830a != null && this.f6830a.i();
+        d dVar = this.f35793a;
+        return dVar != null && dVar.i();
     }
 
     @Override // com.kwad.sdk.glide.request.c
     public void a() {
-        if (this.b.c()) {
+        if (this.f35794b.c()) {
             return;
         }
-        this.b.a();
+        this.f35794b.a();
     }
 
     public void a(c cVar, c cVar2) {
-        this.b = cVar;
-        this.c = cVar2;
+        this.f35794b = cVar;
+        this.f35795c = cVar2;
     }
 
     @Override // com.kwad.sdk.glide.request.c
     public boolean a(c cVar) {
         if (cVar instanceof b) {
             b bVar = (b) cVar;
-            return this.b.a(bVar.b) && this.c.a(bVar.c);
+            return this.f35794b.a(bVar.f35794b) && this.f35795c.a(bVar.f35795c);
         }
         return false;
     }
 
     @Override // com.kwad.sdk.glide.request.c
     public void b() {
-        this.b.b();
-        if (this.c.c()) {
-            this.c.b();
+        this.f35794b.b();
+        if (this.f35795c.c()) {
+            this.f35795c.b();
         }
     }
 
@@ -71,7 +79,7 @@ public final class b implements c, d {
 
     @Override // com.kwad.sdk.glide.request.c
     public boolean c() {
-        return this.b.g() ? this.c.c() : this.b.c();
+        return (this.f35794b.g() ? this.f35795c : this.f35794b).c();
     }
 
     @Override // com.kwad.sdk.glide.request.d
@@ -86,47 +94,51 @@ public final class b implements c, d {
 
     @Override // com.kwad.sdk.glide.request.d
     public void e(c cVar) {
-        if (this.f6830a != null) {
-            this.f6830a.e(this);
+        d dVar = this.f35793a;
+        if (dVar != null) {
+            dVar.e(this);
         }
     }
 
     @Override // com.kwad.sdk.glide.request.c
     public boolean e() {
-        return this.b.g() ? this.c.e() : this.b.e();
+        return (this.f35794b.g() ? this.f35795c : this.f35794b).e();
     }
 
     @Override // com.kwad.sdk.glide.request.c
     public boolean e_() {
-        return this.b.g() ? this.c.e_() : this.b.e_();
+        return (this.f35794b.g() ? this.f35795c : this.f35794b).e_();
     }
 
     @Override // com.kwad.sdk.glide.request.d
     public void f(c cVar) {
-        if (cVar.equals(this.c)) {
-            if (this.f6830a != null) {
-                this.f6830a.f(this);
+        if (!cVar.equals(this.f35795c)) {
+            if (this.f35795c.c()) {
+                return;
             }
-        } else if (this.c.c()) {
-        } else {
-            this.c.a();
+            this.f35795c.a();
+            return;
+        }
+        d dVar = this.f35793a;
+        if (dVar != null) {
+            dVar.f(this);
         }
     }
 
     @Override // com.kwad.sdk.glide.request.c
     public boolean f() {
-        return this.b.g() ? this.c.f() : this.b.f();
+        return (this.f35794b.g() ? this.f35795c : this.f35794b).f();
     }
 
     @Override // com.kwad.sdk.glide.request.c
     public boolean g() {
-        return this.b.g() && this.c.g();
+        return this.f35794b.g() && this.f35795c.g();
     }
 
     @Override // com.kwad.sdk.glide.request.c
     public void h() {
-        this.b.h();
-        this.c.h();
+        this.f35794b.h();
+        this.f35795c.h();
     }
 
     @Override // com.kwad.sdk.glide.request.d

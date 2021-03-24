@@ -6,13 +6,13 @@ import com.kwad.sdk.crash.model.message.ExceptionMessage;
 import com.kwad.sdk.crash.utils.f;
 import java.util.ArrayList;
 import java.util.UUID;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public final class a {
-    private static int a() {
+    public static int a() {
         return 2;
     }
 
-    private static void a(ExceptionMessage exceptionMessage) {
+    public static void a(ExceptionMessage exceptionMessage) {
         com.kwad.sdk.core.d.a.a("ExceptionCollector", "upload msg=" + exceptionMessage);
         ArrayList arrayList = new ArrayList(1);
         arrayList.add(com.kwad.sdk.crash.report.request.c.a(exceptionMessage));

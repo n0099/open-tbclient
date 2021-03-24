@@ -19,7 +19,6 @@ import com.baidu.pass.http.HttpHashMap;
 import com.baidu.pass.http.HttpResponseHandler;
 import com.baidu.pass.http.PassHttpClient;
 import com.baidu.pass.http.PassHttpParamDTO;
-import com.baidu.webkit.internal.ETAG;
 import java.io.UnsupportedEncodingException;
 import java.net.HttpCookie;
 import java.net.URLEncoder;
@@ -32,21 +31,35 @@ import java.util.Map;
 import java.util.UUID;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class HttpClientWrap {
 
+    /* renamed from: c  reason: collision with root package name */
+    public static final String f9536c = "encode";
+
+    /* renamed from: d  reason: collision with root package name */
+    public static final String f9537d = "ua";
+
+    /* renamed from: e  reason: collision with root package name */
+    public static final String f9538e = "cuid_2";
+
+    /* renamed from: f  reason: collision with root package name */
+    public static final String f9539f = "reqid";
+
+    /* renamed from: g  reason: collision with root package name */
+    public static final String f9540g = "sp_params";
+
+    /* renamed from: h  reason: collision with root package name */
+    public static final String f9541h = "s1";
+
     /* renamed from: a  reason: collision with root package name */
-    private static final String f2757a = "encode";
-    private static final String b = "ua";
-    private static final String c = "cuid_2";
-    private static final String d = "reqid";
-    private static final String e = "sp_params";
-    private static final String f = "s1";
-    private PassHttpClient g = new PassHttpClient();
-    private Context h;
+    public PassHttpClient f9542a = new PassHttpClient();
+
+    /* renamed from: b  reason: collision with root package name */
+    public Context f9543b;
 
     public HttpClientWrap(Context context) {
-        this.h = context;
+        this.f9543b = context;
     }
 
     private PassHttpParamDTO a(String str, HttpHashMap httpHashMap, List<HttpCookie> list, int i) {
@@ -54,7 +67,7 @@ public class HttpClientWrap {
         passHttpParamDTO.url = str;
         passHttpParamDTO.paramsMap = httpHashMap;
         passHttpParamDTO.cookie = list;
-        passHttpParamDTO.userAgent = PassBiometricUtil.getUA(this.h, BeanConstants.tpl);
+        passHttpParamDTO.userAgent = PassBiometricUtil.getUA(this.f9543b, BeanConstants.tpl);
         passHttpParamDTO.connectTimeout = i;
         passHttpParamDTO.asyncCookie = true;
         return passHttpParamDTO;
@@ -62,14 +75,14 @@ public class HttpClientWrap {
 
     public static Map<String, String> appendCertification(Context context) {
         HashMap hashMap = new HashMap();
-        hashMap.put(f2757a, "utf-8");
+        hashMap.put("encode", "utf-8");
         hashMap.put("ua", PassBiometricUtil.getUA(context, BeanConstants.tpl));
         hashMap.put("time", String.valueOf(System.currentTimeMillis() / 1000));
         hashMap.put("appid", BeanConstants.appid);
         hashMap.put("tpl", BeanConstants.tpl);
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put(c, PhoneUtils.getCUID2(context));
+            jSONObject.put("cuid_2", PhoneUtils.getCUID2(context));
         } catch (JSONException e2) {
             e2.printStackTrace();
         }
@@ -91,20 +104,24 @@ public class HttpClientWrap {
             try {
                 String str4 = map.get(str3);
                 if (!TextUtils.isEmpty(str4)) {
-                    sb.append(str3).append("=").append(URLEncoder.encode(str4, "UTF-8")).append(ETAG.ITEM_SEPARATOR);
+                    sb.append(str3);
+                    sb.append("=");
+                    sb.append(URLEncoder.encode(str4, "UTF-8"));
+                    sb.append("&");
                 }
             } catch (UnsupportedEncodingException e2) {
                 Log.e(e2);
             }
         }
-        sb.append("sign_key=").append(str);
+        sb.append("sign_key=");
+        sb.append(str);
         return SecurityUtil.md5(sb.toString().getBytes(), false);
     }
 
     public static String getNonce(Context context, String str, Map<String, String> map) {
-        map.put(d, PhoneUtils.getCUID2(context) + System.currentTimeMillis() + UUID.randomUUID());
-        map.put(e, PassBioDataEncryptor.encryptParams(str));
-        map.put(f, a(context, context.getPackageName()));
+        map.put("reqid", PhoneUtils.getCUID2(context) + System.currentTimeMillis() + UUID.randomUUID());
+        map.put("sp_params", PassBioDataEncryptor.encryptParams(str));
+        map.put("s1", a(context, context.getPackageName()));
         ArrayList arrayList = new ArrayList();
         for (Map.Entry<String, String> entry : map.entrySet()) {
             arrayList.add(new RestNameValuePair(entry.getKey(), entry.getValue()));
@@ -113,7 +130,7 @@ public class HttpClientWrap {
     }
 
     public void cancelRequest() {
-        PassHttpClient passHttpClient = this.g;
+        PassHttpClient passHttpClient = this.f9542a;
         if (passHttpClient != null) {
             passHttpClient.cancelRequests(true);
         }
@@ -136,48 +153,48 @@ public class HttpClientWrap {
     }
 
     public void get(String str, HttpHashMap httpHashMap, List<HttpCookie> list, int i, final HttpHandlerWrap httpHandlerWrap) {
-        this.g.get(this.h, a(str, httpHashMap, list, i), new HttpResponseHandler(Looper.getMainLooper(), httpHandlerWrap.isExecutCallbackInChildThread()) { // from class: com.baidu.pass.biometrics.base.http.HttpClientWrap.1
+        this.f9542a.get(this.f9543b, a(str, httpHashMap, list, i), new HttpResponseHandler(Looper.getMainLooper(), httpHandlerWrap.isExecutCallbackInChildThread()) { // from class: com.baidu.pass.biometrics.base.http.HttpClientWrap.1
             @Override // com.baidu.pass.http.HttpResponseHandler
-            protected void onFailure(Throwable th, String str2) {
+            public void onFailure(Throwable th, String str2) {
                 httpHandlerWrap.onFailure(th, -1, str2);
             }
 
             @Override // com.baidu.pass.http.HttpResponseHandler
-            protected void onFinish() {
+            public void onFinish() {
                 httpHandlerWrap.onFinish();
             }
 
             @Override // com.baidu.pass.http.HttpResponseHandler
-            protected void onStart() {
+            public void onStart() {
                 httpHandlerWrap.onStart();
             }
 
             @Override // com.baidu.pass.http.HttpResponseHandler
-            protected void onSuccess(int i2, String str2) {
+            public void onSuccess(int i2, String str2) {
                 httpHandlerWrap.onSuccess(i2, str2);
             }
         });
     }
 
     public void post(String str, HttpHashMap httpHashMap, List<HttpCookie> list, int i, final HttpHandlerWrap httpHandlerWrap) {
-        this.g.post(this.h, a(str, httpHashMap, list, i), new HttpResponseHandler(Looper.getMainLooper(), httpHandlerWrap.isExecutCallbackInChildThread()) { // from class: com.baidu.pass.biometrics.base.http.HttpClientWrap.3
+        this.f9542a.post(this.f9543b, a(str, httpHashMap, list, i), new HttpResponseHandler(Looper.getMainLooper(), httpHandlerWrap.isExecutCallbackInChildThread()) { // from class: com.baidu.pass.biometrics.base.http.HttpClientWrap.3
             @Override // com.baidu.pass.http.HttpResponseHandler
-            protected void onFailure(Throwable th, String str2) {
+            public void onFailure(Throwable th, String str2) {
                 httpHandlerWrap.onFailure(th, -1, str2);
             }
 
             @Override // com.baidu.pass.http.HttpResponseHandler
-            protected void onFinish() {
+            public void onFinish() {
                 httpHandlerWrap.onFinish();
             }
 
             @Override // com.baidu.pass.http.HttpResponseHandler
-            protected void onStart() {
+            public void onStart() {
                 httpHandlerWrap.onStart();
             }
 
             @Override // com.baidu.pass.http.HttpResponseHandler
-            protected void onSuccess(int i2, String str2) {
+            public void onSuccess(int i2, String str2) {
                 httpHandlerWrap.onSuccess(i2, str2);
             }
         });
@@ -188,40 +205,39 @@ public class HttpClientWrap {
     }
 
     public void get(String str, HttpHashMap httpHashMap, List<HttpCookie> list, int i, final BinaryHttpHandlerWrap binaryHttpHandlerWrap) {
-        this.g.get(this.h, a(str, httpHashMap, list, i), new BinaryHttpResponseHandler(Looper.getMainLooper(), binaryHttpHandlerWrap.allowedContentTypes, binaryHttpHandlerWrap.isExecutCallbackInChildThread()) { // from class: com.baidu.pass.biometrics.base.http.HttpClientWrap.2
+        this.f9542a.get(this.f9543b, a(str, httpHashMap, list, i), new BinaryHttpResponseHandler(Looper.getMainLooper(), binaryHttpHandlerWrap.allowedContentTypes, binaryHttpHandlerWrap.isExecutCallbackInChildThread()) { // from class: com.baidu.pass.biometrics.base.http.HttpClientWrap.2
             @Override // com.baidu.pass.http.HttpResponseHandler
-            protected void onFailure(Throwable th, String str2) {
+            public void onFailure(Throwable th, String str2) {
                 binaryHttpHandlerWrap.onFailure(th, -1, str2);
             }
 
             @Override // com.baidu.pass.http.HttpResponseHandler
-            protected void onFinish() {
+            public void onFinish() {
                 binaryHttpHandlerWrap.onFinish();
             }
 
             @Override // com.baidu.pass.http.HttpResponseHandler
-            protected void onStart() {
+            public void onStart() {
                 binaryHttpHandlerWrap.onStart();
             }
 
             @Override // com.baidu.pass.http.BinaryHttpResponseHandler
-            protected void onSuccess(int i2, byte[] bArr) {
+            public void onSuccess(int i2, byte[] bArr) {
                 binaryHttpHandlerWrap.onSuccess(i2, bArr);
             }
         });
     }
 
-    private static String a(Context context, String str) {
+    public static String a(Context context, String str) {
         try {
             PackageInfo packageInfo = context.getPackageManager().getPackageInfo(str, 64);
-            if (packageInfo != null && packageInfo.signatures != null) {
-                return Crypto.sha1(packageInfo.signatures[0].toByteArray());
-            }
+            return (packageInfo == null || packageInfo.signatures == null) ? "" : Crypto.sha1(packageInfo.signatures[0].toByteArray());
         } catch (PackageManager.NameNotFoundException e2) {
             e2.printStackTrace();
+            return "";
         } catch (Exception e3) {
             e3.printStackTrace();
+            return "";
         }
-        return "";
     }
 }

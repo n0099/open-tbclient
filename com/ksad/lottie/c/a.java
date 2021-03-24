@@ -3,10 +3,9 @@ package com.ksad.lottie.c;
 import android.graphics.PointF;
 import android.util.JsonReader;
 import android.util.JsonToken;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobstat.Config;
 import java.util.ArrayList;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class a {
     public static com.ksad.lottie.model.a.e a(JsonReader jsonReader, com.ksad.lottie.d dVar) {
         ArrayList arrayList = new ArrayList();
@@ -23,67 +22,49 @@ public class a {
         return new com.ksad.lottie.model.a.e(arrayList);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public static com.ksad.lottie.model.a.m<PointF, PointF> b(JsonReader jsonReader, com.ksad.lottie.d dVar) {
         jsonReader.beginObject();
-        boolean z = false;
+        com.ksad.lottie.model.a.e eVar = null;
         com.ksad.lottie.model.a.b bVar = null;
         com.ksad.lottie.model.a.b bVar2 = null;
-        com.ksad.lottie.model.a.e eVar = null;
+        boolean z = false;
         while (jsonReader.peek() != JsonToken.END_OBJECT) {
             String nextName = jsonReader.nextName();
-            char c = 65535;
-            switch (nextName.hashCode()) {
-                case 107:
-                    if (nextName.equals("k")) {
-                        c = 0;
-                        break;
+            char c2 = 65535;
+            int hashCode = nextName.hashCode();
+            if (hashCode != 107) {
+                if (hashCode != 120) {
+                    if (hashCode == 121 && nextName.equals("y")) {
+                        c2 = 2;
                     }
-                    break;
-                case 120:
-                    if (nextName.equals(Config.EVENT_HEAT_X)) {
-                        c = 1;
-                        break;
-                    }
-                    break;
-                case Constants.METHOD_IM_FRIEND_GROUP_DROP /* 121 */:
-                    if (nextName.equals("y")) {
-                        c = 2;
-                        break;
-                    }
-                    break;
+                } else if (nextName.equals("x")) {
+                    c2 = 1;
+                }
+            } else if (nextName.equals(Config.APP_KEY)) {
+                c2 = 0;
             }
-            switch (c) {
-                case 0:
-                    eVar = a(jsonReader, dVar);
-                    break;
-                case 1:
-                    if (jsonReader.peek() != JsonToken.STRING) {
-                        bVar2 = d.a(jsonReader, dVar);
-                        break;
-                    } else {
-                        jsonReader.skipValue();
-                        z = true;
-                        break;
-                    }
-                case 2:
-                    if (jsonReader.peek() != JsonToken.STRING) {
-                        bVar = d.a(jsonReader, dVar);
-                        break;
-                    } else {
-                        jsonReader.skipValue();
-                        z = true;
-                        break;
-                    }
-                default:
+            if (c2 == 0) {
+                eVar = a(jsonReader, dVar);
+            } else if (c2 != 1) {
+                if (c2 != 2) {
                     jsonReader.skipValue();
-                    break;
+                } else if (jsonReader.peek() == JsonToken.STRING) {
+                    jsonReader.skipValue();
+                    z = true;
+                } else {
+                    bVar2 = d.a(jsonReader, dVar);
+                }
+            } else if (jsonReader.peek() == JsonToken.STRING) {
+                jsonReader.skipValue();
+                z = true;
+            } else {
+                bVar = d.a(jsonReader, dVar);
             }
         }
         jsonReader.endObject();
         if (z) {
             dVar.a("Lottie doesn't support expressions.");
         }
-        return eVar != null ? eVar : new com.ksad.lottie.model.a.i(bVar2, bVar);
+        return eVar != null ? eVar : new com.ksad.lottie.model.a.i(bVar, bVar2);
     }
 }

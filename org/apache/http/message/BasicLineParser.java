@@ -7,16 +7,16 @@ import org.apache.http.RequestLine;
 import org.apache.http.StatusLine;
 import org.apache.http.util.CharArrayBuffer;
 @Deprecated
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class BasicLineParser implements LineParser {
     public static final BasicLineParser DEFAULT = null;
-    protected final ProtocolVersion protocol;
+    public final ProtocolVersion protocol;
 
     public BasicLineParser(ProtocolVersion protocolVersion) {
         throw new RuntimeException("Stub!");
     }
 
-    public BasicLineParser() {
+    public static final Header parseHeader(String str, LineParser lineParser) throws ParseException {
         throw new RuntimeException("Stub!");
     }
 
@@ -24,12 +24,23 @@ public class BasicLineParser implements LineParser {
         throw new RuntimeException("Stub!");
     }
 
-    @Override // org.apache.http.message.LineParser
-    public ProtocolVersion parseProtocolVersion(CharArrayBuffer charArrayBuffer, ParserCursor parserCursor) throws ParseException {
+    public static final RequestLine parseRequestLine(String str, LineParser lineParser) throws ParseException {
         throw new RuntimeException("Stub!");
     }
 
-    protected ProtocolVersion createProtocolVersion(int i, int i2) {
+    public static final StatusLine parseStatusLine(String str, LineParser lineParser) throws ParseException {
+        throw new RuntimeException("Stub!");
+    }
+
+    public ProtocolVersion createProtocolVersion(int i, int i2) {
+        throw new RuntimeException("Stub!");
+    }
+
+    public RequestLine createRequestLine(String str, String str2, ProtocolVersion protocolVersion) {
+        throw new RuntimeException("Stub!");
+    }
+
+    public StatusLine createStatusLine(ProtocolVersion protocolVersion, int i, String str) {
         throw new RuntimeException("Stub!");
     }
 
@@ -38,33 +49,11 @@ public class BasicLineParser implements LineParser {
         throw new RuntimeException("Stub!");
     }
 
-    public static final RequestLine parseRequestLine(String str, LineParser lineParser) throws ParseException {
+    public void skipWhitespace(CharArrayBuffer charArrayBuffer, ParserCursor parserCursor) {
         throw new RuntimeException("Stub!");
     }
 
-    @Override // org.apache.http.message.LineParser
-    public RequestLine parseRequestLine(CharArrayBuffer charArrayBuffer, ParserCursor parserCursor) throws ParseException {
-        throw new RuntimeException("Stub!");
-    }
-
-    protected RequestLine createRequestLine(String str, String str2, ProtocolVersion protocolVersion) {
-        throw new RuntimeException("Stub!");
-    }
-
-    public static final StatusLine parseStatusLine(String str, LineParser lineParser) throws ParseException {
-        throw new RuntimeException("Stub!");
-    }
-
-    @Override // org.apache.http.message.LineParser
-    public StatusLine parseStatusLine(CharArrayBuffer charArrayBuffer, ParserCursor parserCursor) throws ParseException {
-        throw new RuntimeException("Stub!");
-    }
-
-    protected StatusLine createStatusLine(ProtocolVersion protocolVersion, int i, String str) {
-        throw new RuntimeException("Stub!");
-    }
-
-    public static final Header parseHeader(String str, LineParser lineParser) throws ParseException {
+    public BasicLineParser() {
         throw new RuntimeException("Stub!");
     }
 
@@ -73,7 +62,18 @@ public class BasicLineParser implements LineParser {
         throw new RuntimeException("Stub!");
     }
 
-    protected void skipWhitespace(CharArrayBuffer charArrayBuffer, ParserCursor parserCursor) {
+    @Override // org.apache.http.message.LineParser
+    public ProtocolVersion parseProtocolVersion(CharArrayBuffer charArrayBuffer, ParserCursor parserCursor) throws ParseException {
+        throw new RuntimeException("Stub!");
+    }
+
+    @Override // org.apache.http.message.LineParser
+    public RequestLine parseRequestLine(CharArrayBuffer charArrayBuffer, ParserCursor parserCursor) throws ParseException {
+        throw new RuntimeException("Stub!");
+    }
+
+    @Override // org.apache.http.message.LineParser
+    public StatusLine parseStatusLine(CharArrayBuffer charArrayBuffer, ParserCursor parserCursor) throws ParseException {
         throw new RuntimeException("Stub!");
     }
 }

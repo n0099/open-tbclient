@@ -5,7 +5,7 @@ import android.util.AttributeSet;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.legacy.widget.Space;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class KsSpace extends Space {
     public KsSpace(@NonNull Context context) {
         super(context);

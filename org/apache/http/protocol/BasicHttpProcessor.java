@@ -8,12 +8,16 @@ import org.apache.http.HttpRequestInterceptor;
 import org.apache.http.HttpResponse;
 import org.apache.http.HttpResponseInterceptor;
 @Deprecated
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class BasicHttpProcessor implements HttpProcessor, HttpRequestInterceptorList, HttpResponseInterceptorList {
-    protected List requestInterceptors;
-    protected List responseInterceptors;
+    public List requestInterceptors;
+    public List responseInterceptors;
 
     public BasicHttpProcessor() {
+        throw new RuntimeException("Stub!");
+    }
+
+    public final void addInterceptor(HttpRequestInterceptor httpRequestInterceptor) {
         throw new RuntimeException("Stub!");
     }
 
@@ -22,13 +26,59 @@ public final class BasicHttpProcessor implements HttpProcessor, HttpRequestInter
         throw new RuntimeException("Stub!");
     }
 
+    @Override // org.apache.http.protocol.HttpResponseInterceptorList
+    public void addResponseInterceptor(HttpResponseInterceptor httpResponseInterceptor, int i) {
+        throw new RuntimeException("Stub!");
+    }
+
+    public void clearInterceptors() {
+        throw new RuntimeException("Stub!");
+    }
+
     @Override // org.apache.http.protocol.HttpRequestInterceptorList
-    public void addRequestInterceptor(HttpRequestInterceptor httpRequestInterceptor, int i) {
+    public void clearRequestInterceptors() {
         throw new RuntimeException("Stub!");
     }
 
     @Override // org.apache.http.protocol.HttpResponseInterceptorList
-    public void addResponseInterceptor(HttpResponseInterceptor httpResponseInterceptor, int i) {
+    public void clearResponseInterceptors() {
+        throw new RuntimeException("Stub!");
+    }
+
+    public Object clone() throws CloneNotSupportedException {
+        throw new RuntimeException("Stub!");
+    }
+
+    public BasicHttpProcessor copy() {
+        throw new RuntimeException("Stub!");
+    }
+
+    public void copyInterceptors(BasicHttpProcessor basicHttpProcessor) {
+        throw new RuntimeException("Stub!");
+    }
+
+    @Override // org.apache.http.protocol.HttpRequestInterceptorList
+    public HttpRequestInterceptor getRequestInterceptor(int i) {
+        throw new RuntimeException("Stub!");
+    }
+
+    @Override // org.apache.http.protocol.HttpRequestInterceptorList
+    public int getRequestInterceptorCount() {
+        throw new RuntimeException("Stub!");
+    }
+
+    @Override // org.apache.http.protocol.HttpResponseInterceptorList
+    public HttpResponseInterceptor getResponseInterceptor(int i) {
+        throw new RuntimeException("Stub!");
+    }
+
+    @Override // org.apache.http.protocol.HttpResponseInterceptorList
+    public int getResponseInterceptorCount() {
+        throw new RuntimeException("Stub!");
+    }
+
+    @Override // org.apache.http.HttpRequestInterceptor
+    public void process(HttpRequest httpRequest, HttpContext httpContext) throws IOException, HttpException {
         throw new RuntimeException("Stub!");
     }
 
@@ -42,7 +92,8 @@ public final class BasicHttpProcessor implements HttpProcessor, HttpRequestInter
         throw new RuntimeException("Stub!");
     }
 
-    public final void addInterceptor(HttpRequestInterceptor httpRequestInterceptor) {
+    @Override // org.apache.http.protocol.HttpRequestInterceptorList, org.apache.http.protocol.HttpResponseInterceptorList
+    public void setInterceptors(List list) {
         throw new RuntimeException("Stub!");
     }
 
@@ -51,17 +102,7 @@ public final class BasicHttpProcessor implements HttpProcessor, HttpRequestInter
     }
 
     @Override // org.apache.http.protocol.HttpRequestInterceptorList
-    public int getRequestInterceptorCount() {
-        throw new RuntimeException("Stub!");
-    }
-
-    @Override // org.apache.http.protocol.HttpRequestInterceptorList
-    public HttpRequestInterceptor getRequestInterceptor(int i) {
-        throw new RuntimeException("Stub!");
-    }
-
-    @Override // org.apache.http.protocol.HttpRequestInterceptorList
-    public void clearRequestInterceptors() {
+    public void addRequestInterceptor(HttpRequestInterceptor httpRequestInterceptor, int i) {
         throw new RuntimeException("Stub!");
     }
 
@@ -70,57 +111,16 @@ public final class BasicHttpProcessor implements HttpProcessor, HttpRequestInter
         throw new RuntimeException("Stub!");
     }
 
-    public final void addInterceptor(HttpResponseInterceptor httpResponseInterceptor) {
-        throw new RuntimeException("Stub!");
-    }
-
-    public final void addInterceptor(HttpResponseInterceptor httpResponseInterceptor, int i) {
-        throw new RuntimeException("Stub!");
-    }
-
-    @Override // org.apache.http.protocol.HttpResponseInterceptorList
-    public int getResponseInterceptorCount() {
-        throw new RuntimeException("Stub!");
-    }
-
-    @Override // org.apache.http.protocol.HttpResponseInterceptorList
-    public HttpResponseInterceptor getResponseInterceptor(int i) {
-        throw new RuntimeException("Stub!");
-    }
-
-    @Override // org.apache.http.protocol.HttpResponseInterceptorList
-    public void clearResponseInterceptors() {
-        throw new RuntimeException("Stub!");
-    }
-
-    @Override // org.apache.http.protocol.HttpRequestInterceptorList, org.apache.http.protocol.HttpResponseInterceptorList
-    public void setInterceptors(List list) {
-        throw new RuntimeException("Stub!");
-    }
-
-    public void clearInterceptors() {
-        throw new RuntimeException("Stub!");
-    }
-
-    @Override // org.apache.http.HttpRequestInterceptor
-    public void process(HttpRequest httpRequest, HttpContext httpContext) throws IOException, HttpException {
-        throw new RuntimeException("Stub!");
-    }
-
     @Override // org.apache.http.HttpResponseInterceptor
     public void process(HttpResponse httpResponse, HttpContext httpContext) throws IOException, HttpException {
         throw new RuntimeException("Stub!");
     }
 
-    protected void copyInterceptors(BasicHttpProcessor basicHttpProcessor) {
+    public final void addInterceptor(HttpResponseInterceptor httpResponseInterceptor) {
         throw new RuntimeException("Stub!");
     }
 
-    public BasicHttpProcessor copy() {
-        throw new RuntimeException("Stub!");
-    }
-
-    public Object clone() throws CloneNotSupportedException {
+    public final void addInterceptor(HttpResponseInterceptor httpResponseInterceptor, int i) {
         throw new RuntimeException("Stub!");
     }
 }

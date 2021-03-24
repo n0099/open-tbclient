@@ -5,33 +5,33 @@ import java.io.IOException;
 public class b extends c {
 
     /* renamed from: a  reason: collision with root package name */
-    private com.bytedance.sdk.openadsdk.preload.geckox.buffer.a f5065a;
+    public com.bytedance.sdk.openadsdk.preload.geckox.buffer.a f30231a;
 
     public b(com.bytedance.sdk.openadsdk.preload.geckox.buffer.a aVar) {
-        this.f5065a = aVar;
+        this.f30231a = aVar;
     }
 
-    @Override // java.io.OutputStream
-    public void write(int i) throws IOException {
-        this.f5065a.a(i);
-    }
-
-    @Override // java.io.OutputStream
-    public void write(byte[] bArr) throws IOException {
-        this.f5065a.a(bArr);
-    }
-
-    @Override // java.io.OutputStream
-    public void write(byte[] bArr, int i, int i2) throws IOException {
-        this.f5065a.a(bArr, i, i2);
+    @Override // java.io.OutputStream, java.io.Closeable, java.lang.AutoCloseable
+    public void close() throws IOException {
+        flush();
     }
 
     @Override // java.io.OutputStream, java.io.Flushable
     public void flush() throws IOException {
     }
 
-    @Override // java.io.OutputStream, java.io.Closeable, java.lang.AutoCloseable
-    public void close() throws IOException {
-        flush();
+    @Override // java.io.OutputStream
+    public void write(int i) throws IOException {
+        this.f30231a.a(i);
+    }
+
+    @Override // java.io.OutputStream
+    public void write(byte[] bArr) throws IOException {
+        this.f30231a.a(bArr);
+    }
+
+    @Override // java.io.OutputStream
+    public void write(byte[] bArr, int i, int i2) throws IOException {
+        this.f30231a.a(bArr, i, i2);
     }
 }

@@ -7,6 +7,7 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.Interpolator;
+import android.widget.LinearLayout;
 import androidx.annotation.Keep;
 import androidx.core.math.MathUtils;
 import androidx.core.view.ViewCompat;
@@ -16,16 +17,16 @@ import com.kwad.sdk.lib.desigin.KSCoordinatorLayout;
 import java.util.Arrays;
 import java.util.List;
 @Keep
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class CustomAppBarLayoutBehavior extends KSAppBarLayout.KSBehavior implements CustomAppBarCustomAttrListener, CustomAppBarFlingConsumer {
-    private static final String TAG = CustomAppBarLayoutBehavior.class.toString();
-    private CustomAppBarFlingConsumer mCustomAppBarFlingConsumer;
-    private int mExtraFixedSize;
-    private final int mFlingConsumeViewId;
-    private CustomHeaderBehaviorEx<KSAppBarLayout, CustomAppBarLayoutBehavior> mHeaderExBehavior;
-    private int mOffsetDelta;
-    private int mScrollableSize;
-    private boolean mScrollableSizeChangeable;
+    public static final String TAG = CustomAppBarLayoutBehavior.class.toString();
+    public CustomAppBarFlingConsumer mCustomAppBarFlingConsumer;
+    public int mExtraFixedSize;
+    public final int mFlingConsumeViewId;
+    public CustomHeaderBehaviorEx<KSAppBarLayout, CustomAppBarLayoutBehavior> mHeaderExBehavior;
+    public int mOffsetDelta;
+    public int mScrollableSize;
+    public boolean mScrollableSizeChangeable;
 
     public CustomAppBarLayoutBehavior(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -45,8 +46,9 @@ public class CustomAppBarLayoutBehavior extends KSAppBarLayout.KSBehavior implem
         }
         this.mFlingConsumeViewId = resourceId;
         if (z) {
-            this.mHeaderExBehavior = new CustomHeaderBehaviorEx<>(context, attributeSet, this);
-            this.mHeaderExBehavior.setExtraFixedSize(this.mExtraFixedSize);
+            CustomHeaderBehaviorEx<KSAppBarLayout, CustomAppBarLayoutBehavior> customHeaderBehaviorEx = new CustomHeaderBehaviorEx<>(context, attributeSet, this);
+            this.mHeaderExBehavior = customHeaderBehaviorEx;
+            customHeaderBehaviorEx.setExtraFixedSize(this.mExtraFixedSize);
         }
     }
 
@@ -55,8 +57,9 @@ public class CustomAppBarLayoutBehavior extends KSAppBarLayout.KSBehavior implem
         this.mExtraFixedSize = customAppBarBehaviorParams.mExtraFixedSize;
         this.mFlingConsumeViewId = customAppBarBehaviorParams.mFlingConsumeViewId;
         if (customAppBarBehaviorParams.mEnableNestedFling) {
-            this.mHeaderExBehavior = new CustomHeaderBehaviorEx<>(this);
-            this.mHeaderExBehavior.setExtraFixedSize(this.mExtraFixedSize);
+            CustomHeaderBehaviorEx<KSAppBarLayout, CustomAppBarLayoutBehavior> customHeaderBehaviorEx = new CustomHeaderBehaviorEx<>(this);
+            this.mHeaderExBehavior = customHeaderBehaviorEx;
+            customHeaderBehaviorEx.setExtraFixedSize(this.mExtraFixedSize);
         }
     }
 
@@ -69,7 +72,7 @@ public class CustomAppBarLayoutBehavior extends KSAppBarLayout.KSBehavior implem
         }
     }
 
-    private static View getAppBarChildOnOffset(KSAppBarLayout kSAppBarLayout, int i) {
+    public static View getAppBarChildOnOffset(KSAppBarLayout kSAppBarLayout, int i) {
         int abs = Math.abs(i);
         int childCount = kSAppBarLayout.getChildCount();
         for (int i2 = 0; i2 < childCount; i2++) {
@@ -95,8 +98,9 @@ public class CustomAppBarLayoutBehavior extends KSAppBarLayout.KSBehavior implem
 
     @Override // com.kwad.sdk.lib.desigin.CustomAppBarFlingConsumer
     public void consumeAppBarFling(int i, int i2) {
-        if (this.mCustomAppBarFlingConsumer != null) {
-            this.mCustomAppBarFlingConsumer.consumeAppBarFling(i, i2);
+        CustomAppBarFlingConsumer customAppBarFlingConsumer = this.mCustomAppBarFlingConsumer;
+        if (customAppBarFlingConsumer != null) {
+            customAppBarFlingConsumer.consumeAppBarFling(i, i2);
         }
     }
 
@@ -118,35 +122,35 @@ public class CustomAppBarLayoutBehavior extends KSAppBarLayout.KSBehavior implem
         return getTopAndBottomOffset() + this.mOffsetDelta;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     public int interpolateOffset(KSAppBarLayout kSAppBarLayout, int i) {
-        int i2;
         int abs = Math.abs(i);
         int childCount = kSAppBarLayout.getChildCount();
-        for (int i3 = 0; i3 < childCount; i3++) {
+        int i2 = 0;
+        int i3 = 0;
+        while (true) {
+            if (i3 >= childCount) {
+                break;
+            }
             View childAt = kSAppBarLayout.getChildAt(i3);
             KSAppBarLayout.LayoutParams layoutParams = (KSAppBarLayout.LayoutParams) childAt.getLayoutParams();
             Interpolator scrollInterpolator = layoutParams.getScrollInterpolator();
-            if (abs >= childAt.getTop() && abs <= childAt.getBottom()) {
-                if (scrollInterpolator != null) {
-                    int scrollFlags = layoutParams.getScrollFlags();
-                    if ((scrollFlags & 1) != 0) {
-                        i2 = layoutParams.bottomMargin + childAt.getHeight() + layoutParams.topMargin + 0;
-                        if ((scrollFlags & 2) != 0) {
-                            i2 -= ViewCompat.getMinimumHeight(childAt);
-                        }
-                    } else {
-                        i2 = 0;
+            if (abs < childAt.getTop() || abs > childAt.getBottom()) {
+                i3++;
+            } else if (scrollInterpolator != null) {
+                int scrollFlags = layoutParams.getScrollFlags();
+                if ((scrollFlags & 1) != 0) {
+                    i2 = 0 + childAt.getHeight() + ((LinearLayout.LayoutParams) layoutParams).topMargin + ((LinearLayout.LayoutParams) layoutParams).bottomMargin;
+                    if ((scrollFlags & 2) != 0) {
+                        i2 -= ViewCompat.getMinimumHeight(childAt);
                     }
-                    if (ViewCompat.getFitsSystemWindows(childAt)) {
-                        i2 -= kSAppBarLayout.getTopInset();
-                    }
-                    if (i2 > 0) {
-                        return Integer.signum(i) * (Math.round(scrollInterpolator.getInterpolation((abs - childAt.getTop()) / i2) * i2) + childAt.getTop());
-                    }
-                    return i;
                 }
-                return i;
+                if (ViewCompat.getFitsSystemWindows(childAt)) {
+                    i2 -= kSAppBarLayout.getTopInset();
+                }
+                if (i2 > 0) {
+                    float f2 = i2;
+                    return Integer.signum(i) * (childAt.getTop() + Math.round(f2 * scrollInterpolator.getInterpolation((abs - childAt.getTop()) / f2)));
+                }
             }
         }
         return i;
@@ -159,15 +163,17 @@ public class CustomAppBarLayoutBehavior extends KSAppBarLayout.KSBehavior implem
 
     @Override // com.kwad.sdk.lib.desigin.CustomAppBarFlingConsumer
     public void onAppBarTouchDown() {
-        if (this.mCustomAppBarFlingConsumer != null) {
-            this.mCustomAppBarFlingConsumer.onAppBarTouchDown();
+        CustomAppBarFlingConsumer customAppBarFlingConsumer = this.mCustomAppBarFlingConsumer;
+        if (customAppBarFlingConsumer != null) {
+            customAppBarFlingConsumer.onAppBarTouchDown();
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.lib.desigin.KSHeaderBehavior, com.kwad.sdk.lib.desigin.KSCoordinatorLayout.Behavior
     public boolean onInterceptTouchEvent(KSCoordinatorLayout kSCoordinatorLayout, KSAppBarLayout kSAppBarLayout, MotionEvent motionEvent) {
-        return this.mHeaderExBehavior == null ? super.onInterceptTouchEvent(kSCoordinatorLayout, (KSCoordinatorLayout) kSAppBarLayout, motionEvent) : this.mHeaderExBehavior.onInterceptTouchEvent(kSCoordinatorLayout, (KSCoordinatorLayout) kSAppBarLayout, motionEvent);
+        CustomHeaderBehaviorEx<KSAppBarLayout, CustomAppBarLayoutBehavior> customHeaderBehaviorEx = this.mHeaderExBehavior;
+        return customHeaderBehaviorEx == null ? super.onInterceptTouchEvent(kSCoordinatorLayout, (KSCoordinatorLayout) kSAppBarLayout, motionEvent) : customHeaderBehaviorEx.onInterceptTouchEvent(kSCoordinatorLayout, (KSCoordinatorLayout) kSAppBarLayout, motionEvent);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -191,11 +197,12 @@ public class CustomAppBarLayoutBehavior extends KSAppBarLayout.KSBehavior implem
         int i5;
         cancelTargetIfNeeded(kSCoordinatorLayout, kSAppBarLayout, view, i, i2, iArr, i3);
         if (i2 != 0) {
+            int i6 = -getScrollRange(kSAppBarLayout);
             if (i2 < 0) {
-                i4 = -getScrollRange(kSAppBarLayout);
-                i5 = i4 + kSAppBarLayout.getDownNestedPreScrollRange();
+                i4 = i6;
+                i5 = kSAppBarLayout.getDownNestedPreScrollRange() + i6;
             } else {
-                i4 = -getScrollRange(kSAppBarLayout);
+                i4 = i6;
                 i5 = 0;
             }
             if (i4 != i5) {
@@ -219,13 +226,15 @@ public class CustomAppBarLayoutBehavior extends KSAppBarLayout.KSBehavior implem
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.lib.desigin.KSHeaderBehavior, com.kwad.sdk.lib.desigin.KSCoordinatorLayout.Behavior
     public boolean onTouchEvent(KSCoordinatorLayout kSCoordinatorLayout, KSAppBarLayout kSAppBarLayout, MotionEvent motionEvent) {
-        return this.mHeaderExBehavior == null ? super.onTouchEvent(kSCoordinatorLayout, (KSCoordinatorLayout) kSAppBarLayout, motionEvent) : this.mHeaderExBehavior.onTouchEvent(kSCoordinatorLayout, (KSCoordinatorLayout) kSAppBarLayout, motionEvent);
+        CustomHeaderBehaviorEx<KSAppBarLayout, CustomAppBarLayoutBehavior> customHeaderBehaviorEx = this.mHeaderExBehavior;
+        return customHeaderBehaviorEx == null ? super.onTouchEvent(kSCoordinatorLayout, (KSCoordinatorLayout) kSAppBarLayout, motionEvent) : customHeaderBehaviorEx.onTouchEvent(kSCoordinatorLayout, (KSCoordinatorLayout) kSAppBarLayout, motionEvent);
     }
 
     public void setExtraFixedSize(int i) {
         this.mExtraFixedSize = i;
-        if (this.mHeaderExBehavior != null) {
-            this.mHeaderExBehavior.setExtraFixedSize(this.mExtraFixedSize);
+        CustomHeaderBehaviorEx<KSAppBarLayout, CustomAppBarLayoutBehavior> customHeaderBehaviorEx = this.mHeaderExBehavior;
+        if (customHeaderBehaviorEx != null) {
+            customHeaderBehaviorEx.setExtraFixedSize(i);
         }
     }
 
@@ -250,30 +259,31 @@ public class CustomAppBarLayoutBehavior extends KSAppBarLayout.KSBehavior implem
                 if (scrollableSize <= 0) {
                     return -i5;
                 }
-                if (scrollableSize + i <= 0) {
+                int i6 = scrollableSize + i;
+                if (i6 <= 0) {
                     setTopAndBottomOffset(-scrollableSize);
-                    return scrollableSize + i;
+                    return i6;
                 }
             }
         }
+        int i7 = 0;
         if (i2 == 0 || topBottomOffsetForScrollingSibling < i2 || topBottomOffsetForScrollingSibling > i3) {
             this.mOffsetDelta = 0;
-            return 0;
-        }
-        int clamp = MathUtils.clamp(i, i2, i3);
-        if (topBottomOffsetForScrollingSibling != clamp) {
-            int interpolateOffset = kSAppBarLayout.hasChildWithInterpolator() ? interpolateOffset(kSAppBarLayout, clamp) : clamp;
-            boolean topAndBottomOffset = setTopAndBottomOffset(interpolateOffset);
-            int i6 = topBottomOffsetForScrollingSibling - clamp;
-            this.mOffsetDelta = clamp - interpolateOffset;
-            if (!topAndBottomOffset && kSAppBarLayout.hasChildWithInterpolator()) {
-                kSCoordinatorLayout.dispatchDependentViewsChanged(kSAppBarLayout);
+        } else {
+            int clamp = MathUtils.clamp(i, i2, i3);
+            if (topBottomOffsetForScrollingSibling != clamp) {
+                int interpolateOffset = kSAppBarLayout.hasChildWithInterpolator() ? interpolateOffset(kSAppBarLayout, clamp) : clamp;
+                boolean topAndBottomOffset = setTopAndBottomOffset(interpolateOffset);
+                i7 = topBottomOffsetForScrollingSibling - clamp;
+                this.mOffsetDelta = clamp - interpolateOffset;
+                if (!topAndBottomOffset && kSAppBarLayout.hasChildWithInterpolator()) {
+                    kSCoordinatorLayout.dispatchDependentViewsChanged(kSAppBarLayout);
+                }
+                kSAppBarLayout.dispatchOffsetUpdates(getTopAndBottomOffset());
+                updateAppBarLayoutDrawableState(kSCoordinatorLayout, kSAppBarLayout, clamp, clamp < topBottomOffsetForScrollingSibling ? -1 : 1, false);
             }
-            kSAppBarLayout.dispatchOffsetUpdates(getTopAndBottomOffset());
-            updateAppBarLayoutDrawableState(kSCoordinatorLayout, kSAppBarLayout, clamp, clamp < topBottomOffsetForScrollingSibling ? -1 : 1, false);
-            return i6;
         }
-        return 0;
+        return i7;
     }
 
     public void setScrollableSize(int i) {
@@ -285,19 +295,21 @@ public class CustomAppBarLayoutBehavior extends KSAppBarLayout.KSBehavior implem
     }
 
     public void stopFling() {
-        if (this.mHeaderExBehavior != null) {
-            this.mHeaderExBehavior.stopFling();
+        CustomHeaderBehaviorEx<KSAppBarLayout, CustomAppBarLayoutBehavior> customHeaderBehaviorEx = this.mHeaderExBehavior;
+        if (customHeaderBehaviorEx != null) {
+            customHeaderBehaviorEx.stopFling();
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     public void updateAppBarLayoutDrawableState(KSCoordinatorLayout kSCoordinatorLayout, KSAppBarLayout kSAppBarLayout, int i, int i2, boolean z) {
         View appBarChildOnOffset = getAppBarChildOnOffset(kSAppBarLayout, i);
         if (appBarChildOnOffset != null) {
             int scrollFlags = ((KSAppBarLayout.LayoutParams) appBarChildOnOffset.getLayoutParams()).getScrollFlags();
             if ((scrollFlags & 1) != 0) {
                 int minimumHeight = ViewCompat.getMinimumHeight(appBarChildOnOffset);
-                if (i2 <= 0 || (scrollFlags & 12) == 0 ? (scrollFlags & 2) == 0 || (-i) >= (appBarChildOnOffset.getBottom() - minimumHeight) - kSAppBarLayout.getTopInset() : (-i) < (appBarChildOnOffset.getBottom() - minimumHeight) - kSAppBarLayout.getTopInset()) {
+                if ((i2 > 0 && (scrollFlags & 12) != 0) || (scrollFlags & 2) != 0) {
+                    int i3 = -i;
+                    int bottom = (appBarChildOnOffset.getBottom() - minimumHeight) - kSAppBarLayout.getTopInset();
                 }
             }
             if (z || shouldJumpElevationState(kSCoordinatorLayout, kSAppBarLayout)) {

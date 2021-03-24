@@ -4,44 +4,32 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class TopicGifView extends SurfaceView implements SurfaceHolder.Callback {
-    private SurfaceHolder kAD;
-    private Thread thread;
+
+    /* renamed from: e  reason: collision with root package name */
+    public SurfaceHolder f17676e;
+
+    /* loaded from: classes4.dex */
+    public class a implements Runnable {
+        public a() {
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+        }
+    }
 
     public TopicGifView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.thread = new Thread(new Runnable() { // from class: com.baidu.tieba.hottopic.view.TopicGifView.1
-            @Override // java.lang.Runnable
-            public void run() {
-            }
-        });
-        init();
+        new Thread(new a());
+        a();
     }
 
-    public TopicGifView(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        this.thread = new Thread(new Runnable() { // from class: com.baidu.tieba.hottopic.view.TopicGifView.1
-            @Override // java.lang.Runnable
-            public void run() {
-            }
-        });
-        init();
-    }
-
-    public TopicGifView(Context context) {
-        super(context);
-        this.thread = new Thread(new Runnable() { // from class: com.baidu.tieba.hottopic.view.TopicGifView.1
-            @Override // java.lang.Runnable
-            public void run() {
-            }
-        });
-        init();
-    }
-
-    private void init() {
-        this.kAD = getHolder();
-        this.kAD.addCallback(this);
+    public final void a() {
+        SurfaceHolder holder = getHolder();
+        this.f17676e = holder;
+        holder.addCallback(this);
     }
 
     @Override // android.view.SurfaceHolder.Callback
@@ -54,5 +42,17 @@ public class TopicGifView extends SurfaceView implements SurfaceHolder.Callback 
 
     @Override // android.view.SurfaceHolder.Callback
     public void surfaceDestroyed(SurfaceHolder surfaceHolder) {
+    }
+
+    public TopicGifView(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        new Thread(new a());
+        a();
+    }
+
+    public TopicGifView(Context context) {
+        super(context);
+        new Thread(new a());
+        a();
     }
 }

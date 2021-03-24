@@ -1,5 +1,5 @@
 package com.baidu.mobads;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public enum RsplashType {
     IMAGE,
     HTML,

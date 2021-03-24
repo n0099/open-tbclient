@@ -1,22 +1,22 @@
 package com.baidubce.services.bos.model;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class CreateBucketResponse {
-    private String name = null;
-    private String location = null;
-
-    public String getName() {
-        return this.name;
-    }
-
-    public void setName(String str) {
-        this.name = str;
-    }
+    public String name = null;
+    public String location = null;
 
     public String getLocation() {
         return this.location;
     }
 
+    public String getName() {
+        return this.name;
+    }
+
     public void setLocation(String str) {
         this.location = str;
+    }
+
+    public void setName(String str) {
+        this.name = str;
     }
 }

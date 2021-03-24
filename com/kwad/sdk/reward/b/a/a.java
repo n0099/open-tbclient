@@ -8,90 +8,103 @@ import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.reward.d;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class a extends d {
-    private AdTemplate b;
-    private AdInfo c;
-    private List<Integer> d;
-    private c e;
-    private long f = 0;
-    private e g = new f() { // from class: com.kwad.sdk.reward.b.a.a.1
+
+    /* renamed from: b  reason: collision with root package name */
+    public AdTemplate f36229b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public AdInfo f36230c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public List<Integer> f36231d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public c f36232e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public long f36233f = 0;
+
+    /* renamed from: g  reason: collision with root package name */
+    public e f36234g = new f() { // from class: com.kwad.sdk.reward.b.a.a.1
         @Override // com.kwad.sdk.contentalliance.detail.video.f, com.kwad.sdk.contentalliance.detail.video.e
         public void a() {
-            b.h(a.this.b, a.this.f7028a.d);
-            a.this.e.b();
+            b.h(a.this.f36229b, ((d) a.this).f36457a.f36219d);
+            a.this.f36232e.b();
         }
 
         @Override // com.kwad.sdk.contentalliance.detail.video.f, com.kwad.sdk.contentalliance.detail.video.e
         public void a(long j, long j2) {
             a.this.a(j2);
-            a.this.f = j2;
+            a.this.f36233f = j2;
         }
 
         @Override // com.kwad.sdk.contentalliance.detail.video.f, com.kwad.sdk.contentalliance.detail.video.e
         public void b() {
             super.b();
-            b.a(a.this.b, a.this.f7028a.d);
-            b.g(a.this.b, a.this.f7028a.d);
+            b.a(a.this.f36229b, ((d) a.this).f36457a.f36219d);
+            b.g(a.this.f36229b, ((d) a.this).f36457a.f36219d);
         }
 
         @Override // com.kwad.sdk.contentalliance.detail.video.f, com.kwad.sdk.contentalliance.detail.video.e
         public void c() {
             super.c();
-            a.this.e.b();
+            a.this.f36232e.b();
         }
 
         @Override // com.kwad.sdk.contentalliance.detail.video.f, com.kwad.sdk.contentalliance.detail.video.e
         public void d() {
             super.d();
-            a.this.e.b();
+            a.this.f36232e.b();
         }
 
         @Override // com.kwad.sdk.contentalliance.detail.video.f, com.kwad.sdk.contentalliance.detail.video.e
         public void f() {
             super.f();
-            a.this.e.a();
+            a.this.f36232e.a();
         }
 
         @Override // com.kwad.sdk.contentalliance.detail.video.f, com.kwad.sdk.contentalliance.detail.video.e
         public void g() {
             super.g();
-            a.this.e.a();
+            a.this.f36232e.a();
         }
     };
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(long j) {
         int ceil = (int) Math.ceil(((float) j) / 1000.0f);
-        if (this.d == null || this.d.isEmpty()) {
+        List<Integer> list = this.f36231d;
+        if (list == null || list.isEmpty()) {
             return;
         }
-        for (Integer num : this.d) {
+        for (Integer num : this.f36231d) {
             if (ceil >= num.intValue()) {
-                b.b(this.b, ceil, this.f7028a.d);
-                this.d.remove(num);
+                b.b(this.f36229b, ceil, ((d) this).f36457a.f36219d);
+                this.f36231d.remove(num);
                 return;
             }
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.reward.d, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        this.e = new c();
-        this.b = this.f7028a.f;
-        this.c = com.kwad.sdk.core.response.b.c.j(this.b);
-        this.d = com.kwad.sdk.core.response.b.a.M(this.c);
-        this.f7028a.i.a(this.g);
+        this.f36232e = new c();
+        AdTemplate adTemplate = ((d) this).f36457a.f36221f;
+        this.f36229b = adTemplate;
+        AdInfo j = com.kwad.sdk.core.response.b.c.j(adTemplate);
+        this.f36230c = j;
+        this.f36231d = com.kwad.sdk.core.response.b.a.M(j);
+        ((d) this).f36457a.i.a(this.f36234g);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.mvp.Presenter
     public void b_() {
         super.b_();
-        this.f7028a.i.b(this.g);
-        c.a c = this.e.c();
-        com.kwad.sdk.core.report.e.a(this.f7028a.f, this.f, c.b(), c.a());
+        ((d) this).f36457a.i.b(this.f36234g);
+        c.a c2 = this.f36232e.c();
+        com.kwad.sdk.core.report.e.a(((d) this).f36457a.f36221f, this.f36233f, c2.b(), c2.a());
     }
 }

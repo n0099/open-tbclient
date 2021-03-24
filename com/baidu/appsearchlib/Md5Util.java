@@ -1,28 +1,28 @@
 package com.baidu.appsearchlib;
 
-import com.baidu.minivideo.plugin.capture.utils.EncryptUtils;
 import java.security.MessageDigest;
-/* loaded from: classes14.dex */
+/* loaded from: classes2.dex */
 public class Md5Util {
-    private static MessageDigest md5;
+    public static MessageDigest md5;
 
     static {
-        md5 = null;
         try {
-            md5 = MessageDigest.getInstance(EncryptUtils.ENCRYPT_MD5);
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
+            md5 = MessageDigest.getInstance("MD5");
+        } catch (Exception e2) {
+            System.out.println(e2.getMessage());
         }
     }
 
     public static String getMd5(String str) {
         byte[] digest = md5.digest(str.getBytes());
         StringBuilder sb = new StringBuilder(40);
-        for (byte b : digest) {
-            if (((b & 255) >> 4) == 0) {
-                sb.append("0").append(Integer.toHexString(b & 255));
+        for (byte b2 : digest) {
+            int i = b2 & 255;
+            if ((i >> 4) == 0) {
+                sb.append("0");
+                sb.append(Integer.toHexString(i));
             } else {
-                sb.append(Integer.toHexString(b & 255));
+                sb.append(Integer.toHexString(i));
             }
         }
         return sb.toString();

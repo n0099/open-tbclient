@@ -9,36 +9,35 @@ import com.baidu.searchbox.player.annotation.PublicMethod;
 import com.baidu.searchbox.player.constants.PlayerStatus;
 import com.baidu.searchbox.player.event.VideoEvent;
 import com.baidu.searchbox.player.message.IMessenger;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public abstract class AbsPlugin implements IPlugin {
-    private Context mContext;
-    private IMessenger mCourier;
-    private PluginManager mPluginManager;
+    public Context mContext;
+    public IMessenger mCourier;
+    public PluginManager mPluginManager;
 
     public AbsPlugin() {
         init(null);
     }
 
-    public AbsPlugin(@Nullable Context context) {
-        init(context);
-    }
-
-    protected void init(@Nullable Context context) {
-        if (context == null) {
-            this.mContext = BDPlayerConfig.getAppContext();
-        } else {
-            this.mContext = context;
+    private void registerEvent() {
+        int[] subscribeEvent = getSubscribeEvent();
+        if (subscribeEvent == null || subscribeEvent.length <= 0) {
+            return;
+        }
+        for (int i : subscribeEvent) {
+            this.mCourier.register(i, this);
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void attachManager(@NonNull PluginManager pluginManager) {
-        this.mPluginManager = pluginManager;
+    private void sendVideoEvent(VideoEvent videoEvent) {
+        if (this.mCourier != null) {
+            videoEvent.setSender(this);
+            this.mCourier.notifyEvent(videoEvent);
+        }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void detachManager() {
-        this.mPluginManager = null;
+    public void attachManager(@NonNull PluginManager pluginManager) {
+        this.mPluginManager = pluginManager;
     }
 
     public void attachMessenger(@NonNull IMessenger iMessenger) {
@@ -46,21 +45,52 @@ public abstract class AbsPlugin implements IPlugin {
         registerEvent();
     }
 
+    public void detachManager() {
+        this.mPluginManager = null;
+    }
+
     public void detachMessenger() {
         this.mCourier.unregister(this);
         this.mCourier = null;
     }
 
-    @Override // com.baidu.searchbox.player.interfaces.INeuron
-    public void onPlayerStatusChanged(PlayerStatus playerStatus, PlayerStatus playerStatus2) {
+    @Nullable
+    @PublicMethod
+    public BDVideoPlayer getBindPlayer() {
+        PluginManager pluginManager = this.mPluginManager;
+        if (pluginManager != null) {
+            return pluginManager.getPlayer();
+        }
+        return null;
+    }
+
+    @PublicMethod
+    public Context getContext() {
+        return this.mContext;
+    }
+
+    @Nullable
+    @PublicMethod
+    public PluginManager getPluginManager() {
+        return this.mPluginManager;
     }
 
     @Override // com.baidu.searchbox.player.interfaces.INeuron
-    public void onPlayerEventNotify(@NonNull VideoEvent videoEvent) {
+    @PublicMethod
+    public int getType() {
+        return 1;
+    }
+
+    public void init(@Nullable Context context) {
+        if (context == null) {
+            this.mContext = BDPlayerConfig.getAppContext();
+        } else {
+            this.mContext = context;
+        }
     }
 
     @Override // com.baidu.searchbox.player.interfaces.INeuron
-    public void onSystemEventNotify(@NonNull VideoEvent videoEvent) {
+    public void onControlEventNotify(@NonNull VideoEvent videoEvent) {
     }
 
     @Override // com.baidu.searchbox.player.interfaces.INeuron
@@ -68,7 +98,19 @@ public abstract class AbsPlugin implements IPlugin {
     }
 
     @Override // com.baidu.searchbox.player.interfaces.INeuron
-    public void onControlEventNotify(@NonNull VideoEvent videoEvent) {
+    public void onPlayerEventNotify(@NonNull VideoEvent videoEvent) {
+    }
+
+    @Override // com.baidu.searchbox.player.interfaces.INeuron
+    public void onPlayerStatusChanged(PlayerStatus playerStatus, PlayerStatus playerStatus2) {
+    }
+
+    @Override // com.baidu.searchbox.player.plugin.IPlugin
+    public void onPluginRelease() {
+    }
+
+    @Override // com.baidu.searchbox.player.interfaces.INeuron
+    public void onSystemEventNotify(@NonNull VideoEvent videoEvent) {
     }
 
     @Override // com.baidu.searchbox.player.interfaces.INeuron
@@ -81,49 +123,7 @@ public abstract class AbsPlugin implements IPlugin {
         sendVideoEvent(videoEvent);
     }
 
-    @Override // com.baidu.searchbox.player.interfaces.INeuron
-    @PublicMethod
-    public int getType() {
-        return 1;
-    }
-
-    private void sendVideoEvent(VideoEvent videoEvent) {
-        if (this.mCourier != null) {
-            videoEvent.setSender(this);
-            this.mCourier.notifyEvent(videoEvent);
-        }
-    }
-
-    private void registerEvent() {
-        int[] subscribeEvent = getSubscribeEvent();
-        if (subscribeEvent != null && subscribeEvent.length > 0) {
-            for (int i : subscribeEvent) {
-                this.mCourier.register(i, this);
-            }
-        }
-    }
-
-    @Nullable
-    @PublicMethod
-    public BDVideoPlayer getBindPlayer() {
-        if (this.mPluginManager != null) {
-            return this.mPluginManager.getPlayer();
-        }
-        return null;
-    }
-
-    @Nullable
-    @PublicMethod
-    public PluginManager getPluginManager() {
-        return this.mPluginManager;
-    }
-
-    @PublicMethod
-    public Context getContext() {
-        return this.mContext;
-    }
-
-    @Override // com.baidu.searchbox.player.plugin.IPlugin
-    public void onPluginRelease() {
+    public AbsPlugin(@Nullable Context context) {
+        init(context);
     }
 }

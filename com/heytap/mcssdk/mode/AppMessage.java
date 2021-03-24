@@ -1,17 +1,17 @@
 package com.heytap.mcssdk.mode;
 
 import android.text.TextUtils;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class AppMessage extends Message {
-    private int mBalanceTime;
-    private String mContent;
-    private long mEndDate;
-    private String mRule;
-    private long mStartDate;
-    private String mTitle;
-    private String mTimeRanges = "08:00-22:00";
-    private int mForcedDelivery = 0;
-    private int mDistinctBycontent = 0;
+    public int mBalanceTime;
+    public String mContent;
+    public long mEndDate;
+    public String mRule;
+    public long mStartDate;
+    public String mTitle;
+    public String mTimeRanges = "08:00-22:00";
+    public int mForcedDelivery = 0;
+    public int mDistinctBycontent = 0;
 
     public int getBalanceTime() {
         return this.mBalanceTime;

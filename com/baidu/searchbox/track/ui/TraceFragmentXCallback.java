@@ -6,38 +6,9 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes3.dex */
 public class TraceFragmentXCallback extends BaseTraceFragmentCallback {
-    private FragmentManager.FragmentLifecycleCallbacks mSupportFragmentCallbacks;
-
-    @Override // com.baidu.searchbox.track.ui.ITraceFragmentCallback
-    public boolean register(@NonNull Activity activity) {
-        if (activity instanceof FragmentActivity) {
-            if (this.mSupportFragmentCallbacks == null) {
-                this.mSupportFragmentCallbacks = getSupportFragmentCallbacks();
-            }
-            FragmentManager supportFragmentManager = ((FragmentActivity) activity).getSupportFragmentManager();
-            if (supportFragmentManager != null) {
-                supportFragmentManager.registerFragmentLifecycleCallbacks(this.mSupportFragmentCallbacks, true);
-                return true;
-            }
-            return true;
-        }
-        return false;
-    }
-
-    @Override // com.baidu.searchbox.track.ui.ITraceFragmentCallback
-    public boolean unregister(@NonNull Activity activity) {
-        FragmentManager supportFragmentManager;
-        if (activity instanceof FragmentActivity) {
-            if (this.mSupportFragmentCallbacks != null && (supportFragmentManager = ((FragmentActivity) activity).getSupportFragmentManager()) != null) {
-                supportFragmentManager.unregisterFragmentLifecycleCallbacks(this.mSupportFragmentCallbacks);
-            }
-            return true;
-        }
-        return false;
-    }
+    public FragmentManager.FragmentLifecycleCallbacks mSupportFragmentCallbacks;
 
     private FragmentManager.FragmentLifecycleCallbacks getSupportFragmentCallbacks() {
         return new FragmentManager.FragmentLifecycleCallbacks() { // from class: com.baidu.searchbox.track.ui.TraceFragmentXCallback.1
@@ -57,5 +28,33 @@ public class TraceFragmentXCallback extends BaseTraceFragmentCallback {
                 }
             }
         };
+    }
+
+    @Override // com.baidu.searchbox.track.ui.ITraceFragmentCallback
+    public boolean register(@NonNull Activity activity) {
+        if (activity instanceof FragmentActivity) {
+            if (this.mSupportFragmentCallbacks == null) {
+                this.mSupportFragmentCallbacks = getSupportFragmentCallbacks();
+            }
+            FragmentManager supportFragmentManager = ((FragmentActivity) activity).getSupportFragmentManager();
+            if (supportFragmentManager != null) {
+                supportFragmentManager.registerFragmentLifecycleCallbacks(this.mSupportFragmentCallbacks, true);
+            }
+            return true;
+        }
+        return false;
+    }
+
+    @Override // com.baidu.searchbox.track.ui.ITraceFragmentCallback
+    public boolean unregister(@NonNull Activity activity) {
+        FragmentManager supportFragmentManager;
+        if (activity instanceof FragmentActivity) {
+            if (this.mSupportFragmentCallbacks == null || (supportFragmentManager = ((FragmentActivity) activity).getSupportFragmentManager()) == null) {
+                return true;
+            }
+            supportFragmentManager.unregisterFragmentLifecycleCallbacks(this.mSupportFragmentCallbacks);
+            return true;
+        }
+        return false;
     }
 }

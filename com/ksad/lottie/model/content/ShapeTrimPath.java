@@ -1,39 +1,46 @@
 package com.ksad.lottie.model.content;
 
 import com.ksad.lottie.a.a.r;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class ShapeTrimPath implements b {
 
     /* renamed from: a  reason: collision with root package name */
-    private final String f5385a;
-    private final Type b;
-    private final com.ksad.lottie.model.a.b c;
-    private final com.ksad.lottie.model.a.b d;
-    private final com.ksad.lottie.model.a.b e;
+    public final String f31501a;
 
-    /* loaded from: classes3.dex */
+    /* renamed from: b  reason: collision with root package name */
+    public final Type f31502b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public final com.ksad.lottie.model.a.b f31503c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public final com.ksad.lottie.model.a.b f31504d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public final com.ksad.lottie.model.a.b f31505e;
+
+    /* loaded from: classes6.dex */
     public enum Type {
         Simultaneously,
         Individually;
 
         public static Type forId(int i) {
-            switch (i) {
-                case 1:
-                    return Simultaneously;
-                case 2:
+            if (i != 1) {
+                if (i == 2) {
                     return Individually;
-                default:
-                    throw new IllegalArgumentException("Unknown trim path type " + i);
+                }
+                throw new IllegalArgumentException("Unknown trim path type " + i);
             }
+            return Simultaneously;
         }
     }
 
     public ShapeTrimPath(String str, Type type, com.ksad.lottie.model.a.b bVar, com.ksad.lottie.model.a.b bVar2, com.ksad.lottie.model.a.b bVar3) {
-        this.f5385a = str;
-        this.b = type;
-        this.c = bVar;
-        this.d = bVar2;
-        this.e = bVar3;
+        this.f31501a = str;
+        this.f31502b = type;
+        this.f31503c = bVar;
+        this.f31504d = bVar2;
+        this.f31505e = bVar3;
     }
 
     @Override // com.ksad.lottie.model.content.b
@@ -42,26 +49,26 @@ public class ShapeTrimPath implements b {
     }
 
     public String a() {
-        return this.f5385a;
+        return this.f31501a;
     }
 
     public Type b() {
-        return this.b;
+        return this.f31502b;
     }
 
     public com.ksad.lottie.model.a.b c() {
-        return this.d;
+        return this.f31504d;
     }
 
     public com.ksad.lottie.model.a.b d() {
-        return this.c;
+        return this.f31503c;
     }
 
     public com.ksad.lottie.model.a.b e() {
-        return this.e;
+        return this.f31505e;
     }
 
     public String toString() {
-        return "Trim Path: {start: " + this.c + ", end: " + this.d + ", offset: " + this.e + "}";
+        return "Trim Path: {start: " + this.f31503c + ", end: " + this.f31504d + ", offset: " + this.f31505e + "}";
     }
 }

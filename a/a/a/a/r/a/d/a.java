@@ -1,9 +1,9 @@
 package a.a.a.a.r.a.d;
 
-import a.a.a.a.a.e;
+import a.a.a.a.s.e;
 import android.app.Activity;
 import com.qq.e.ads.interstitial2.UnifiedInterstitialAD;
-/* loaded from: classes4.dex */
+/* loaded from: classes.dex */
 public class a extends o {
     public a(e.a aVar) {
         super(aVar);
@@ -15,7 +15,7 @@ public class a extends o {
     }
 
     @Override // a.a.a.a.r.a.d.o
-    public void h(UnifiedInterstitialAD unifiedInterstitialAD) {
+    public void a(UnifiedInterstitialAD unifiedInterstitialAD) {
         unifiedInterstitialAD.loadFullScreenAD();
     }
 }

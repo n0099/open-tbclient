@@ -3,37 +3,42 @@ package com.baidu.tbadk.core.atomData;
 import android.content.Context;
 import android.content.Intent;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class SimpleVideoPlayActivityConfig extends IntentConfig {
     public static final String THUMB_URL = "thumb_url";
     public static final String VIDEO_URL = "video_url";
 
-    private SimpleVideoPlayActivityConfig(Context context, a aVar) {
-        super(context);
-        Intent intent;
-        if (aVar != null && (intent = getIntent()) != null) {
-            intent.putExtra("video_url", aVar.videoUrl);
-            intent.putExtra("thumb_url", aVar.thumbUrl);
+    /* loaded from: classes3.dex */
+    public static final class b {
+
+        /* renamed from: a  reason: collision with root package name */
+        public String f13200a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public String f13201b;
+
+        public SimpleVideoPlayActivityConfig c(Context context) {
+            return new SimpleVideoPlayActivityConfig(context, this);
+        }
+
+        public b d(String str) {
+            this.f13201b = str;
+            return this;
+        }
+
+        public b e(String str) {
+            this.f13200a = str;
+            return this;
         }
     }
 
-    /* loaded from: classes.dex */
-    public static final class a {
-        private String thumbUrl;
-        private String videoUrl;
-
-        public a zW(String str) {
-            this.videoUrl = str;
-            return this;
+    public SimpleVideoPlayActivityConfig(Context context, b bVar) {
+        super(context);
+        Intent intent;
+        if (bVar == null || (intent = getIntent()) == null) {
+            return;
         }
-
-        public a zX(String str) {
-            this.thumbUrl = str;
-            return this;
-        }
-
-        public SimpleVideoPlayActivityConfig eP(Context context) {
-            return new SimpleVideoPlayActivityConfig(context, this);
-        }
+        intent.putExtra("video_url", bVar.f13200a);
+        intent.putExtra("thumb_url", bVar.f13201b);
     }
 }

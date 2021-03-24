@@ -1,13 +1,12 @@
 package com.baidu.mobstat;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class bh extends ba {
-    private static bh b = new bh();
 
-    private bh() {
-    }
+    /* renamed from: b  reason: collision with root package name */
+    public static bh f9091b = new bh();
 
     public static bh c() {
-        return b;
+        return f9091b;
     }
 
     @Override // com.baidu.mobstat.ba

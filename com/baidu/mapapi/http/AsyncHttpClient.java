@@ -5,21 +5,23 @@ import com.baidu.mapapi.http.HttpClient;
 import com.baidu.mapsdkplatform.comapi.util.PermissionCheck;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class AsyncHttpClient {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f2002a = 4000;
-    private int b = 4000;
-    private ExecutorService c = Executors.newCachedThreadPool();
+    public int f6778a = 4000;
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* renamed from: b  reason: collision with root package name */
+    public int f6779b = 4000;
+
+    /* renamed from: c  reason: collision with root package name */
+    public ExecutorService f6780c = Executors.newCachedThreadPool();
+
+    /* loaded from: classes2.dex */
     public static abstract class a implements Runnable {
-        private a() {
+        public a() {
         }
 
-        /* JADX INFO: Access modifiers changed from: package-private */
         public /* synthetic */ a(com.baidu.mapapi.http.a aVar) {
             this();
         }
@@ -42,10 +44,10 @@ public class AsyncHttpClient {
         if (str == null) {
             throw new IllegalArgumentException("URI cannot be null");
         }
-        this.c.submit(new com.baidu.mapapi.http.a(this, protoResultCallback, str));
+        this.f6780c.submit(new com.baidu.mapapi.http.a(this, protoResultCallback, str));
     }
 
-    protected boolean isAuthorized() {
+    public boolean isAuthorized() {
         int permissionCheck = PermissionCheck.permissionCheck();
         return permissionCheck == 0 || permissionCheck == 602 || permissionCheck == 601;
     }

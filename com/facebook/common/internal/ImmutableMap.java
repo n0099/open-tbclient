@@ -3,10 +3,14 @@ package com.facebook.common.internal;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class ImmutableMap<K, V> extends HashMap<K, V> {
-    private ImmutableMap(Map<? extends K, ? extends V> map) {
+    public ImmutableMap(Map<? extends K, ? extends V> map) {
         super(map);
+    }
+
+    public static <K, V> ImmutableMap<K, V> copyOf(Map<? extends K, ? extends V> map) {
+        return new ImmutableMap<>(map);
     }
 
     public static <K, V> Map<K, V> of() {
@@ -62,9 +66,5 @@ public class ImmutableMap<K, V> extends HashMap<K, V> {
         hashMap.put(k5, v5);
         hashMap.put(k6, v6);
         return Collections.unmodifiableMap(hashMap);
-    }
-
-    public static <K, V> ImmutableMap<K, V> copyOf(Map<? extends K, ? extends V> map) {
-        return new ImmutableMap<>(map);
     }
 }

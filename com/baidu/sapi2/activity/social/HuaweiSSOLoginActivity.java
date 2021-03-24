@@ -3,8 +3,8 @@ package com.baidu.sapi2.activity.social;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
-import com.baidu.j.a.a.a;
 import com.baidu.sapi2.CoreViewRouter;
+import com.baidu.sapi2.SapiWebView;
 import com.baidu.sapi2.service.AbstractThirdPartyService;
 import com.baidu.sapi2.utils.Log;
 import com.huawei.hmf.tasks.Task;
@@ -13,20 +13,25 @@ import com.huawei.hms.support.hwid.request.HuaweiIdAuthParams;
 import com.huawei.hms.support.hwid.request.HuaweiIdAuthParamsHelper;
 import com.huawei.hms.support.hwid.result.AuthHuaweiId;
 import com.huawei.hms.support.hwid.service.HuaweiIdAuthService;
-/* loaded from: classes6.dex */
+import d.b.a0.a.j.a;
+/* loaded from: classes2.dex */
 public class HuaweiSSOLoginActivity extends BaseSSOLoginActivity {
     public static final int REQUEST_SIGN_IN_LOGIN = 1002;
     public static final int REQUEST_SIGN_IN_LOGIN_CODE = 1003;
     public static final String TAG = HuaweiSSOLoginActivity.class.getSimpleName();
-    private HuaweiIdAuthService mAuthManager;
-    private HuaweiIdAuthParams mAuthParam;
+    public HuaweiIdAuthService mAuthManager;
+    public HuaweiIdAuthParams mAuthParam;
 
     private void loadSSOLogin(String str) {
         if (TextUtils.isEmpty(str)) {
-            onFail(-204, getString(a.c.sapi_sdk_third_error_hw));
-        } else if (this.sapiWebView != null) {
-            this.sapiWebView.loadHuaWeiSSOLogin(str, getStatParamList());
+            onFail(-204, getString(a.sapi_sdk_third_error_hw));
+            return;
         }
+        SapiWebView sapiWebView = this.sapiWebView;
+        if (sapiWebView == null) {
+            return;
+        }
+        sapiWebView.loadHuaWeiSSOLogin(str, getStatParamList());
     }
 
     private void onFail(int i, String str) {
@@ -45,54 +50,60 @@ public class HuaweiSSOLoginActivity extends BaseSSOLoginActivity {
     }
 
     private void signIn() {
-        this.mAuthParam = new HuaweiIdAuthParamsHelper(HuaweiIdAuthParams.DEFAULT_AUTH_REQUEST_PARAM).setIdToken().setAccessToken().createParams();
-        this.mAuthManager = HuaweiIdAuthManager.getService(this, this.mAuthParam);
-        startActivityForResult(this.mAuthManager.getSignInIntent(), 1002);
+        HuaweiIdAuthParams createParams = new HuaweiIdAuthParamsHelper(HuaweiIdAuthParams.DEFAULT_AUTH_REQUEST_PARAM).setIdToken().setAccessToken().createParams();
+        this.mAuthParam = createParams;
+        HuaweiIdAuthService service = HuaweiIdAuthManager.getService(this, createParams);
+        this.mAuthManager = service;
+        startActivityForResult(service.getSignInIntent(), 1002);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.sapi2.activity.BaseActivity, android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
-        if (i == 1002) {
-            Task parseAuthResultFromIntent = HuaweiIdAuthManager.parseAuthResultFromIntent(intent);
-            if (parseAuthResultFromIntent.isSuccessful()) {
-                AuthHuaweiId authHuaweiId = (AuthHuaweiId) parseAuthResultFromIntent.getResult();
-                Log.i(TAG, authHuaweiId.getDisplayName() + " signIn success ");
-                Log.i(TAG, "AccessToken: " + authHuaweiId.getAccessToken());
-                loadSSOLogin(authHuaweiId.getAccessToken());
+        if (i != 1002) {
+            if (i == 1003) {
+                Task parseAuthResultFromIntent = HuaweiIdAuthManager.parseAuthResultFromIntent(intent);
+                if (parseAuthResultFromIntent.isSuccessful()) {
+                    AuthHuaweiId authHuaweiId = (AuthHuaweiId) parseAuthResultFromIntent.getResult();
+                    Log.i(TAG, "signIn get code success.");
+                    String str = TAG;
+                    Log.i(str, "ServerAuthCode: " + authHuaweiId.getAuthorizationCode());
+                    loadSSOLogin(authHuaweiId.getAuthorizationCode());
+                    return;
+                }
+                onFail(-202, getString(a.sapi_sdk_huawei_login_fail));
+                String str2 = TAG;
+                Log.i(str2, "signIn get code failed: " + parseAuthResultFromIntent.getException().getStatusCode());
                 return;
             }
-            onFail(-202, getString(a.c.sapi_sdk_huawei_login_fail));
-            Log.i(TAG, "signIn failed: " + parseAuthResultFromIntent.getException().getStatusCode());
-        } else if (i == 1003) {
-            Task parseAuthResultFromIntent2 = HuaweiIdAuthManager.parseAuthResultFromIntent(intent);
-            if (parseAuthResultFromIntent2.isSuccessful()) {
-                AuthHuaweiId authHuaweiId2 = (AuthHuaweiId) parseAuthResultFromIntent2.getResult();
-                Log.i(TAG, "signIn get code success.");
-                Log.i(TAG, "ServerAuthCode: " + authHuaweiId2.getAuthorizationCode());
-                loadSSOLogin(authHuaweiId2.getAuthorizationCode());
-                return;
-            }
-            onFail(-202, getString(a.c.sapi_sdk_huawei_login_fail));
-            Log.i(TAG, "signIn get code failed: " + parseAuthResultFromIntent2.getException().getStatusCode());
-        } else {
-            onFail(-202, getString(a.c.sapi_sdk_third_error_hw));
+            onFail(-202, getString(a.sapi_sdk_third_error_hw));
+            return;
         }
+        Task parseAuthResultFromIntent2 = HuaweiIdAuthManager.parseAuthResultFromIntent(intent);
+        if (parseAuthResultFromIntent2.isSuccessful()) {
+            AuthHuaweiId authHuaweiId2 = (AuthHuaweiId) parseAuthResultFromIntent2.getResult();
+            String str3 = TAG;
+            Log.i(str3, authHuaweiId2.getDisplayName() + " signIn success ");
+            String str4 = TAG;
+            Log.i(str4, "AccessToken: " + authHuaweiId2.getAccessToken());
+            loadSSOLogin(authHuaweiId2.getAccessToken());
+            return;
+        }
+        onFail(-202, getString(a.sapi_sdk_huawei_login_fail));
+        String str5 = TAG;
+        Log.i(str5, "signIn failed: " + parseAuthResultFromIntent2.getException().getStatusCode());
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.sapi2.activity.social.BaseSSOLoginActivity, com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity, android.app.Activity
+    @Override // com.baidu.sapi2.activity.social.BaseSSOLoginActivity, com.baidu.sapi2.social.SocialLoginBase, com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setupViews();
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.sapi2.activity.social.BaseSSOLoginActivity, com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity
     public void setupViews() {
         super.setupViews();
-        setTitleText(a.c.sapi_sdk_title_login_hw);
+        setTitleText(a.sapi_sdk_title_login_hw);
         signIn();
     }
 }

@@ -6,17 +6,25 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 import com.baidu.down.manage.DownloadConstants;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public final class DownloadDBHelper extends SQLiteOpenHelper {
-    private static final String TAG = "DaoMaster";
-    private static DownloadDBHelper mInstance;
-    private final Context mCtx;
-    private static final boolean DEBUG = DownloadConstants.mDebug;
-    private static int DATA_VERSION = 2;
+    public static final String TAG = "DaoMaster";
+    public static DownloadDBHelper mInstance;
+    public final Context mCtx;
+    public static final boolean DEBUG = DownloadConstants.mDebug;
+    public static int DATA_VERSION = 2;
 
-    private DownloadDBHelper(Context context, String str, SQLiteDatabase.CursorFactory cursorFactory, int i) {
+    public DownloadDBHelper(Context context, String str, SQLiteDatabase.CursorFactory cursorFactory, int i) {
         super(context, str, cursorFactory, i);
         this.mCtx = context;
+    }
+
+    private void addColumn(SQLiteDatabase sQLiteDatabase, String str, String str2) {
+        try {
+            sQLiteDatabase.execSQL("ALTER TABLE downloads ADD COLUMN " + str + " " + str2);
+        } catch (SQLException e2) {
+            Log.e(TAG, "couldn't add column: " + e2.toString());
+        }
     }
 
     public static synchronized DownloadDBHelper getInstance(Context context) {
@@ -30,22 +38,16 @@ public final class DownloadDBHelper extends SQLiteOpenHelper {
         return downloadDBHelper;
     }
 
-    private void addColumn(SQLiteDatabase sQLiteDatabase, String str, String str2) {
-        try {
-            sQLiteDatabase.execSQL("ALTER TABLE downloads ADD COLUMN " + str + " " + str2);
-        } catch (SQLException e) {
-            Log.e(TAG, "couldn't add column: " + e.toString());
-        }
-    }
-
     @Override // android.database.sqlite.SQLiteOpenHelper
     public void onCreate(SQLiteDatabase sQLiteDatabase) {
         sQLiteDatabase.beginTransaction();
         try {
-            sQLiteDatabase.execSQL(DownloadDao.CREATE_TABLE_SQL);
-            sQLiteDatabase.setTransactionSuccessful();
-        } catch (Exception e) {
-            e.printStackTrace();
+            try {
+                sQLiteDatabase.execSQL(DownloadDao.CREATE_TABLE_SQL);
+                sQLiteDatabase.setTransactionSuccessful();
+            } catch (Exception e2) {
+                e2.printStackTrace();
+            }
         } finally {
             sQLiteDatabase.endTransaction();
         }

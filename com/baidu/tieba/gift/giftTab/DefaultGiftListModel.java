@@ -2,74 +2,114 @@ package com.baidu.tieba.gift.giftTab;
 
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.data.ai;
-import com.baidu.tbadk.core.data.aj;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import d.b.b.a.f;
+import d.b.h0.r.q.i0;
+import d.b.h0.r.q.j0;
+import d.b.i0.t0.b.e;
 import java.util.ArrayList;
-/* loaded from: classes8.dex */
+/* loaded from: classes4.dex */
 public class DefaultGiftListModel extends BdBaseModel<GiftTabActivity> {
-    private String addFreeUrl;
-    private ArrayList<com.baidu.tieba.gift.giftTab.a> categoryList;
-    private int freeChance;
-    private ArrayList<ai> giftList;
-    private a jXh;
-    private com.baidu.adp.framework.listener.a jdE;
-    private ArrayList<e> numberList;
 
-    /* loaded from: classes8.dex */
-    public interface a {
-        void a(int i, String str, int i2, String str2, int i3, aj ajVar, ArrayList<com.baidu.tieba.gift.giftTab.a> arrayList, ArrayList<ai> arrayList2, ArrayList<e> arrayList3);
+    /* renamed from: e  reason: collision with root package name */
+    public ArrayList<d.b.i0.t0.b.a> f16870e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public ArrayList<i0> f16871f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public ArrayList<e> f16872g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public String f16873h;
+    public int i;
+    public b j;
+    public d.b.b.c.g.a k;
+
+    /* loaded from: classes4.dex */
+    public class a extends d.b.b.c.g.a {
+        public a(int i, int i2) {
+            super(i, i2);
+        }
+
+        /* JADX WARN: Removed duplicated region for block: B:19:0x008a  */
+        /* JADX WARN: Removed duplicated region for block: B:21:? A[RETURN, SYNTHETIC] */
+        @Override // d.b.b.c.g.a
+        /*
+            Code decompiled incorrectly, please refer to instructions dump.
+        */
+        public void onMessage(ResponsedMessage<?> responsedMessage) {
+            j0 j0Var;
+            int i;
+            int i2;
+            j0 j0Var2;
+            if (responsedMessage == null) {
+                return;
+            }
+            boolean z = responsedMessage instanceof DefaultGiftListHttpResponseMessage;
+            if (!z && !(responsedMessage instanceof DefaultGiftListSocketResponseMessage)) {
+                return;
+            }
+            if (z) {
+                DefaultGiftListHttpResponseMessage defaultGiftListHttpResponseMessage = (DefaultGiftListHttpResponseMessage) responsedMessage;
+                DefaultGiftListModel.this.f16870e = defaultGiftListHttpResponseMessage.getCategoryList();
+                DefaultGiftListModel.this.f16871f = defaultGiftListHttpResponseMessage.getGiftList();
+                DefaultGiftListModel.this.f16872g = defaultGiftListHttpResponseMessage.getGiftNumberList();
+                DefaultGiftListModel.this.f16873h = defaultGiftListHttpResponseMessage.getAddFreeUrl();
+                DefaultGiftListModel.this.i = defaultGiftListHttpResponseMessage.getFreeChance();
+                i2 = defaultGiftListHttpResponseMessage.currencyType;
+                j0Var2 = defaultGiftListHttpResponseMessage.urlTitleData;
+            } else if (!(responsedMessage instanceof DefaultGiftListSocketResponseMessage)) {
+                j0Var = null;
+                i = 0;
+                if (DefaultGiftListModel.this.j == null) {
+                    DefaultGiftListModel.this.j.a(responsedMessage.getError(), responsedMessage.getErrorString(), DefaultGiftListModel.this.i, DefaultGiftListModel.this.f16873h, i, j0Var, DefaultGiftListModel.this.f16870e, DefaultGiftListModel.this.f16871f, DefaultGiftListModel.this.f16872g);
+                    return;
+                }
+                return;
+            } else {
+                DefaultGiftListSocketResponseMessage defaultGiftListSocketResponseMessage = (DefaultGiftListSocketResponseMessage) responsedMessage;
+                DefaultGiftListModel.this.f16870e = defaultGiftListSocketResponseMessage.getCategoryList();
+                DefaultGiftListModel.this.f16871f = defaultGiftListSocketResponseMessage.getGiftList();
+                DefaultGiftListModel.this.f16872g = defaultGiftListSocketResponseMessage.getGiftNumberList();
+                DefaultGiftListModel.this.f16873h = defaultGiftListSocketResponseMessage.getAddFreeUrl();
+                DefaultGiftListModel.this.i = defaultGiftListSocketResponseMessage.getFreeChance();
+                i2 = defaultGiftListSocketResponseMessage.currencyType;
+                j0Var2 = defaultGiftListSocketResponseMessage.urlTitleData;
+            }
+            i = i2;
+            j0Var = j0Var2;
+            if (DefaultGiftListModel.this.j == null) {
+            }
+        }
     }
 
-    public DefaultGiftListModel(com.baidu.adp.base.f<GiftTabActivity> fVar) {
+    /* loaded from: classes4.dex */
+    public interface b {
+        void a(int i, String str, int i2, String str2, int i3, j0 j0Var, ArrayList<d.b.i0.t0.b.a> arrayList, ArrayList<i0> arrayList2, ArrayList<e> arrayList3);
+    }
+
+    public DefaultGiftListModel(f<GiftTabActivity> fVar) {
         super(fVar);
-        this.jdE = new com.baidu.adp.framework.listener.a(1003045, CmdConfigSocket.CMD_DEFAULT_GIFT_LIST) { // from class: com.baidu.tieba.gift.giftTab.DefaultGiftListModel.1
-            @Override // com.baidu.adp.framework.listener.a
-            public void onMessage(ResponsedMessage<?> responsedMessage) {
-                if (responsedMessage != null) {
-                    if ((responsedMessage instanceof DefaultGiftListHttpResponseMessage) || (responsedMessage instanceof DefaultGiftListSocketResponseMessage)) {
-                        int i = 0;
-                        aj ajVar = null;
-                        if (responsedMessage instanceof DefaultGiftListHttpResponseMessage) {
-                            DefaultGiftListHttpResponseMessage defaultGiftListHttpResponseMessage = (DefaultGiftListHttpResponseMessage) responsedMessage;
-                            DefaultGiftListModel.this.categoryList = defaultGiftListHttpResponseMessage.getCategoryList();
-                            DefaultGiftListModel.this.giftList = defaultGiftListHttpResponseMessage.getGiftList();
-                            DefaultGiftListModel.this.numberList = defaultGiftListHttpResponseMessage.getGiftNumberList();
-                            DefaultGiftListModel.this.addFreeUrl = defaultGiftListHttpResponseMessage.getAddFreeUrl();
-                            DefaultGiftListModel.this.freeChance = defaultGiftListHttpResponseMessage.getFreeChance();
-                            i = defaultGiftListHttpResponseMessage.currencyType;
-                            ajVar = defaultGiftListHttpResponseMessage.urlTitleData;
-                        } else if (responsedMessage instanceof DefaultGiftListSocketResponseMessage) {
-                            DefaultGiftListSocketResponseMessage defaultGiftListSocketResponseMessage = (DefaultGiftListSocketResponseMessage) responsedMessage;
-                            DefaultGiftListModel.this.categoryList = defaultGiftListSocketResponseMessage.getCategoryList();
-                            DefaultGiftListModel.this.giftList = defaultGiftListSocketResponseMessage.getGiftList();
-                            DefaultGiftListModel.this.numberList = defaultGiftListSocketResponseMessage.getGiftNumberList();
-                            DefaultGiftListModel.this.addFreeUrl = defaultGiftListSocketResponseMessage.getAddFreeUrl();
-                            DefaultGiftListModel.this.freeChance = defaultGiftListSocketResponseMessage.getFreeChance();
-                            i = defaultGiftListSocketResponseMessage.currencyType;
-                            ajVar = defaultGiftListSocketResponseMessage.urlTitleData;
-                        }
-                        if (DefaultGiftListModel.this.jXh != null) {
-                            DefaultGiftListModel.this.jXh.a(responsedMessage.getError(), responsedMessage.getErrorString(), DefaultGiftListModel.this.freeChance, DefaultGiftListModel.this.addFreeUrl, i, ajVar, DefaultGiftListModel.this.categoryList, DefaultGiftListModel.this.giftList, DefaultGiftListModel.this.numberList);
-                        }
-                    }
-                }
-            }
-        };
+        this.k = new a(CmdConfigHttp.CMD_DEFAULT_GIFT_LIST, 309054);
         registerTask();
         registerListener();
     }
 
-    public void H(String str, long j) {
+    public void D(String str, long j) {
         DefaultGiftListRequest defaultGiftListRequest = new DefaultGiftListRequest();
         defaultGiftListRequest.setFrom(str);
         defaultGiftListRequest.setToUserId(j);
         sendMessage(defaultGiftListRequest);
     }
 
+    public void E(b bVar) {
+        this.j = bVar;
+    }
+
     @Override // com.baidu.adp.base.BdBaseModel
-    protected boolean LoadData() {
+    public boolean LoadData() {
         return false;
     }
 
@@ -78,16 +118,12 @@ public class DefaultGiftListModel extends BdBaseModel<GiftTabActivity> {
         return false;
     }
 
-    private void registerListener() {
-        registerListener(this.jdE);
+    public final void registerListener() {
+        registerListener(this.k);
     }
 
-    private void registerTask() {
-        com.baidu.tieba.tbadkCore.a.a.a(CmdConfigSocket.CMD_DEFAULT_GIFT_LIST, DefaultGiftListSocketResponseMessage.class, false, false);
-        com.baidu.tieba.tbadkCore.a.a.a(CmdConfigSocket.CMD_DEFAULT_GIFT_LIST, 1003045, TbConfig.GET_DEFAULT_GIFT_LIST, DefaultGiftListHttpResponseMessage.class, false, false, false, false);
-    }
-
-    public void a(a aVar) {
-        this.jXh = aVar;
+    public final void registerTask() {
+        d.b.i0.c3.d0.a.h(309054, DefaultGiftListSocketResponseMessage.class, false, false);
+        d.b.i0.c3.d0.a.c(309054, CmdConfigHttp.CMD_DEFAULT_GIFT_LIST, TbConfig.GET_DEFAULT_GIFT_LIST, DefaultGiftListHttpResponseMessage.class, false, false, false, false);
     }
 }

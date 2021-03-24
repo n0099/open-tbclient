@@ -5,25 +5,24 @@ import com.baidu.webkit.internal.INoProGuard;
 import java.util.Locale;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import org.apache.http.HttpHost;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class WebAddress implements INoProGuard {
-    private static final String GOOD_IRI_CHAR = "a-zA-Z0-9 -\ud7ff豈-﷏ﷰ-\uffef";
-    static final int MATCH_GROUP_AUTHORITY = 2;
-    static final int MATCH_GROUP_HOST = 3;
-    static final int MATCH_GROUP_PATH = 5;
-    static final int MATCH_GROUP_PORT = 4;
-    static final int MATCH_GROUP_SCHEME = 1;
-    static Pattern sAddressPattern = Pattern.compile("(?:(http|https|file)\\:\\/\\/)?(?:([-A-Za-z0-9$_.+!*'(),;?&=]+(?:\\:[-A-Za-z0-9$_.+!*'(),;?&=]+)?)@)?([a-zA-Z0-9 -\ud7ff豈-﷏ﷰ-\uffef%_-][a-zA-Z0-9 -\ud7ff豈-﷏ﷰ-\uffef%_\\.-]*|\\[[0-9a-fA-F:\\.]+\\])?(?:\\:([0-9]*))?(\\/?[^#]*)?.*", 2);
-    private String mAuthInfo;
-    private String mHost;
-    private String mPath;
-    private int mPort;
-    private String mScheme;
+    public static final String GOOD_IRI_CHAR = "a-zA-Z0-9 -\ud7ff豈-﷏ﷰ-\uffef";
+    public static final int MATCH_GROUP_AUTHORITY = 2;
+    public static final int MATCH_GROUP_HOST = 3;
+    public static final int MATCH_GROUP_PATH = 5;
+    public static final int MATCH_GROUP_PORT = 4;
+    public static final int MATCH_GROUP_SCHEME = 1;
+    public static Pattern sAddressPattern = Pattern.compile("(?:(http|https|file)\\:\\/\\/)?(?:([-A-Za-z0-9$_.+!*'(),;?&=]+(?:\\:[-A-Za-z0-9$_.+!*'(),;?&=]+)?)@)?([a-zA-Z0-9 -\ud7ff豈-﷏ﷰ-\uffef%_-][a-zA-Z0-9 -\ud7ff豈-﷏ﷰ-\uffef%_\\.-]*|\\[[0-9a-fA-F:\\.]+\\])?(?:\\:([0-9]*))?(\\/?[^#]*)?.*", 2);
+    public String mAuthInfo;
+    public String mHost;
+    public String mPath;
+    public int mPort;
+    public String mScheme;
 
     public WebAddress(String str) throws RuntimeException {
         if (str == null) {
-            throw new NullPointerException();
+            throw null;
         }
         this.mScheme = "";
         this.mHost = "";
@@ -50,17 +49,16 @@ public class WebAddress implements INoProGuard {
         if (group4 != null && group4.length() > 0) {
             try {
                 this.mPort = Integer.parseInt(group4);
-            } catch (NumberFormatException e) {
+            } catch (NumberFormatException unused) {
                 throw new RuntimeException("Bad port");
             }
         }
         String group5 = matcher.group(5);
         if (group5 != null && group5.length() > 0) {
-            if (group5.charAt(0) == '/') {
-                this.mPath = group5;
-            } else {
-                this.mPath = "/" + group5;
+            if (group5.charAt(0) != '/') {
+                group5 = "/" + group5;
             }
+            this.mPath = group5;
         }
         if (this.mPort == 443 && this.mScheme.equals("")) {
             this.mScheme = "https";
@@ -72,7 +70,7 @@ public class WebAddress implements INoProGuard {
             }
         }
         if (this.mScheme.equals("")) {
-            this.mScheme = HttpHost.DEFAULT_SCHEME_NAME;
+            this.mScheme = "http";
         }
     }
 
@@ -117,10 +115,16 @@ public class WebAddress implements INoProGuard {
     }
 
     public String toString() {
-        String str = "";
-        if ((this.mPort != 443 && this.mScheme.equals("https")) || (this.mPort != 80 && this.mScheme.equals(HttpHost.DEFAULT_SCHEME_NAME))) {
+        String str;
+        String str2 = "";
+        if ((this.mPort == 443 || !this.mScheme.equals("https")) && (this.mPort == 80 || !this.mScheme.equals("http"))) {
+            str = "";
+        } else {
             str = ":" + Integer.toString(this.mPort);
         }
-        return this.mScheme + "://" + (this.mAuthInfo.length() > 0 ? this.mAuthInfo + "@" : "") + this.mHost + str + this.mPath;
+        if (this.mAuthInfo.length() > 0) {
+            str2 = this.mAuthInfo + "@";
+        }
+        return this.mScheme + "://" + str2 + this.mHost + str + this.mPath;
     }
 }

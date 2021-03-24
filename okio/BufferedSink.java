@@ -4,14 +4,15 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.nio.channels.WritableByteChannel;
 import java.nio.charset.Charset;
-/* loaded from: classes5.dex */
-public interface BufferedSink extends WritableByteChannel, Sink {
+/* loaded from: classes.dex */
+public interface BufferedSink extends Sink, WritableByteChannel {
     Buffer buffer();
 
     BufferedSink emit() throws IOException;
 
     BufferedSink emitCompleteSegments() throws IOException;
 
+    @Override // okio.Sink, java.io.Flushable
     void flush() throws IOException;
 
     OutputStream outputStream();

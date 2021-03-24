@@ -2,7 +2,6 @@ package com.baidu.webkit.internal.daemon;
 
 import android.content.Context;
 import android.text.TextUtils;
-import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.webkit.internal.CfgFileUtils;
 import com.baidu.webkit.internal.ETAG;
 import com.baidu.webkit.internal.INoProGuard;
@@ -12,23 +11,23 @@ import com.baidu.webkit.net.BdNetTask;
 import com.baidu.webkit.net.INetListener;
 import com.baidu.webkit.sdk.Log;
 import java.io.ByteArrayOutputStream;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class HttpDnsCache implements INoProGuard, INetListener {
-    private static final String BACKUP_IP = "{\"area\": \"idc.ct\",   \"backup\": {    \"m.baidu.com\": {      \"ip\": [        \"220.181.38.130\",       \"220.181.38.129\"        ]    },    \"mbd.baidu.com\": {      \"ip\": [       \"180.149.145.177\",         \"112.34.111.104\",        \"111.206.37.66\",        \"180.97.104.214\",        \"117.185.17.20\",        \"112.80.248.204\",       \"14.215.177.166\",        \"183.232.231.184\",        \"163.177.151.106\"       ]    }  },   \"msg\": \"ok\",   \"ttl\": 300,  \"version\": \"v.01\"}";
-    private static final String LOG_TAG = "HttpDnsCache";
-    private static final String SERVER_LABEL = "?label=browser&type=ipv4&group=ipv6_11_16";
-    private static final String SERVER_LABEL_V1 = "?label=browser&type=ipv4,ipv6&group=ipv6_11_23";
-    private static final String SERVER_STATIC_URL = "https://httpsdns.baidu.com/v6/0010/";
-    private static final String SERVER_URL = "https://180.76.76.112/v6/0010/";
-    private static String mBackupIpVersion = "v.00";
-    private static boolean mRestore;
+    public static final String BACKUP_IP = "{\"area\": \"idc.ct\",   \"backup\": {    \"m.baidu.com\": {      \"ip\": [        \"220.181.38.130\",       \"220.181.38.129\"        ]    },    \"mbd.baidu.com\": {      \"ip\": [       \"180.149.145.177\",         \"112.34.111.104\",        \"111.206.37.66\",        \"180.97.104.214\",        \"117.185.17.20\",        \"112.80.248.204\",       \"14.215.177.166\",        \"183.232.231.184\",        \"163.177.151.106\"       ]    }  },   \"msg\": \"ok\",   \"ttl\": 300,  \"version\": \"v.01\"}";
+    public static final String LOG_TAG = "HttpDnsCache";
+    public static final String SERVER_LABEL = "?label=browser&type=ipv4&group=ipv6_11_16";
+    public static final String SERVER_LABEL_V1 = "?label=browser&type=ipv4,ipv6&group=ipv6_11_23";
+    public static final String SERVER_STATIC_URL = "https://httpsdns.baidu.com/v6/0010/";
+    public static final String SERVER_URL = "https://180.76.76.112/v6/0010/";
+    public static String mBackupIpVersion = "v.00";
+    public static boolean mRestore;
     public ByteArrayOutputStream mData = null;
-    private String mIpv4Data;
-    private String mIpv6Data;
+    public String mIpv4Data;
+    public String mIpv6Data;
 
     private void addRawLogItem(StringBuilder sb, String str, long j) {
         if (sb.length() > 0) {
-            sb.append(ETAG.ITEM_SEPARATOR);
+            sb.append("&");
         }
         sb.append(str);
         sb.append("=");
@@ -37,7 +36,7 @@ public class HttpDnsCache implements INoProGuard, INetListener {
 
     private void addRawLogItem(StringBuilder sb, String str, String str2) {
         if (sb.length() > 0) {
-            sb.append(ETAG.ITEM_SEPARATOR);
+            sb.append("&");
         }
         sb.append(str);
         sb.append("=");
@@ -46,7 +45,7 @@ public class HttpDnsCache implements INoProGuard, INetListener {
 
     private void addRawLogItem(StringBuilder sb, String str, boolean z) {
         if (sb.length() > 0) {
-            sb.append(ETAG.ITEM_SEPARATOR);
+            sb.append("&");
         }
         sb.append(str);
         sb.append("=");
@@ -58,8 +57,8 @@ public class HttpDnsCache implements INoProGuard, INetListener {
         if (bArr == null || bArr.length <= 0) {
             return null;
         }
-        for (byte b : bArr) {
-            String hexString = Integer.toHexString(b & 255);
+        for (byte b2 : bArr) {
+            String hexString = Integer.toHexString(b2 & 255);
             if (hexString.length() < 2) {
                 sb.append(0);
             }
@@ -68,7 +67,7 @@ public class HttpDnsCache implements INoProGuard, INetListener {
         return sb.toString();
     }
 
-    private static String getHttpdnsLabel() {
+    public static String getHttpdnsLabel() {
         if (WebSettingsGlobalBlink.getIpv6HttpdnsEnv()) {
             Log.w(LOG_TAG, "SERVER_LABEL_V1");
             return SERVER_LABEL_V1;
@@ -77,16 +76,18 @@ public class HttpDnsCache implements INoProGuard, INetListener {
         return SERVER_LABEL;
     }
 
-    private static String getUrl(Context context) {
+    public static String getUrl(Context context) {
         String str;
+        String str2;
         String httpDnsUrlIP = WebSettingsGlobalBlink.getHttpDnsUrlIP();
         if (httpDnsUrlIP != null) {
             str = httpDnsUrlIP + getHttpdnsLabel();
-            Log.w(LOG_TAG, "urlNative!=null: " + httpDnsUrlIP);
+            str2 = "urlNative!=null: " + httpDnsUrlIP;
         } else {
             str = SERVER_URL + getHttpdnsLabel();
-            Log.w(LOG_TAG, "urlNative==null ");
+            str2 = "urlNative==null ";
         }
+        Log.w(LOG_TAG, str2);
         if (!TextUtils.isEmpty(mBackupIpVersion)) {
             str = (str + "&backup=") + mBackupIpVersion;
         }
@@ -94,16 +95,18 @@ public class HttpDnsCache implements INoProGuard, INetListener {
         return str;
     }
 
-    private static String getUrlStaticIP() {
+    public static String getUrlStaticIP() {
         String str;
+        String str2;
         String httpDnsUrlHOST = WebSettingsGlobalBlink.getHttpDnsUrlHOST();
         if (httpDnsUrlHOST != null) {
             str = httpDnsUrlHOST + getHttpdnsLabel();
-            Log.w(LOG_TAG, "urlNative!=null: " + httpDnsUrlHOST);
+            str2 = "urlNative!=null: " + httpDnsUrlHOST;
         } else {
             str = SERVER_STATIC_URL + getHttpdnsLabel();
-            Log.w(LOG_TAG, "urlNative==null ");
+            str2 = "urlNative==null ";
         }
+        Log.w(LOG_TAG, str2);
         if (!TextUtils.isEmpty(mBackupIpVersion)) {
             str = (str + "&backup=") + mBackupIpVersion;
         }
@@ -111,29 +114,29 @@ public class HttpDnsCache implements INoProGuard, INetListener {
         return str;
     }
 
-    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:15:0x0043 -> B:18:0x0022). Please submit an issue!!! */
     public static void restoreLastCacheFromCfg() {
         if (WebSettingsGlobalBlink.GetCloudSettingsValue("http_dns_persist_v1") != null && WebSettingsGlobalBlink.GetCloudSettingsValue("http_dns_persist_v1").equals("false")) {
             Log.i(LOG_TAG, "restoreLastCacheFromCfg http_dns_persist false");
             return;
         }
         try {
-            if (!mRestore) {
-                mRestore = true;
-                Log.w(LOG_TAG, "restoreLastCacheFromCfg ok  ");
-                String str = CfgFileUtils.get(CfgFileUtils.KEY_HTTP_DNS_CACHE, (String) null);
-                if (str != null) {
-                    WebSettingsGlobalBlink.setHttpDnsCache(str, 1);
-                } else {
-                    WebSettingsGlobalBlink.setHttpDnsCache(BACKUP_IP, 1);
-                }
+            if (mRestore) {
+                return;
+            }
+            mRestore = true;
+            Log.w(LOG_TAG, "restoreLastCacheFromCfg ok  ");
+            String str = CfgFileUtils.get(CfgFileUtils.KEY_HTTP_DNS_CACHE, (String) null);
+            if (str != null) {
+                WebSettingsGlobalBlink.setHttpDnsCache(str, 1);
+            } else {
+                WebSettingsGlobalBlink.setHttpDnsCache(BACKUP_IP, 1);
             }
         } catch (Throwable th) {
             th.printStackTrace();
         }
     }
 
-    private static void saveLastCacheToCfg(String str) {
+    public static void saveLastCacheToCfg(String str) {
         if (str != null) {
             try {
                 CfgFileUtils.set(CfgFileUtils.KEY_HTTP_DNS_CACHE, str);
@@ -149,64 +152,70 @@ public class HttpDnsCache implements INoProGuard, INetListener {
             if (WebSettingsGlobalBlink.GetCloudSettingsValue("https_dns") != null && WebSettingsGlobalBlink.GetCloudSettingsValue("https_dns").equals("false")) {
                 z = false;
             }
-            return z ? (str == null || !str.startsWith(SapiUtils.COOKIE_HTTPS_URL_PREFIX)) ? str.replace("http://", SapiUtils.COOKIE_HTTPS_URL_PREFIX) : str : (str == null || !str.startsWith("http://")) ? str.replace(SapiUtils.COOKIE_HTTPS_URL_PREFIX, "http://") : str;
-        } catch (Exception e) {
+            return z ? (str == null || !str.startsWith("https://")) ? str.replace("http://", "https://") : str : (str == null || !str.startsWith("http://")) ? str.replace("https://", "http://") : str;
+        } catch (Exception unused) {
             return str;
         }
     }
 
     public static void tryToUpdateHttpDnsCache(Context context) {
+        String str;
         if (WebSettingsGlobalBlink.GetCloudSettingsValue(ETAG.KEY_HTTP_DNS_ENABLE) != null && WebSettingsGlobalBlink.GetCloudSettingsValue(ETAG.KEY_HTTP_DNS_ENABLE).equals("false")) {
-            Log.i(LOG_TAG, "tryToUpdateHttpDnsCache http_dns false");
+            str = "tryToUpdateHttpDnsCache http_dns false";
         } else if (WebSettingsGlobalBlink.getNativeHttpdnsEnabled()) {
-            Log.i(LOG_TAG, "getNativeHttpdnsEnabled enabled");
+            str = "getNativeHttpdnsEnabled enabled";
         } else if (WebSettingsGlobalBlink.isSFSwitchEnabled()) {
-            Log.i(LOG_TAG, "tryToUpdateHttpDnsCache festival return");
+            str = "tryToUpdateHttpDnsCache festival return";
         } else {
             Log.i(LOG_TAG, "tryToUpdateHttpDnsCache");
             restoreLastCacheFromCfg();
-            if (WebSettingsGlobalBlink.GetCloudSettingsValue("block_http_dns") != null && WebSettingsGlobalBlink.GetCloudSettingsValue("block_http_dns").equals("true")) {
-                Log.i(LOG_TAG, "block_http_dns1");
-                return;
+            if (WebSettingsGlobalBlink.GetCloudSettingsValue("block_http_dns") == null || !WebSettingsGlobalBlink.GetCloudSettingsValue("block_http_dns").equals("true")) {
+                try {
+                    BdNet bdNet = new BdNet(context);
+                    bdNet.setEventListener(new HttpDnsCache());
+                    BdNetTask bdNetTask = new BdNetTask();
+                    bdNetTask.setNet(bdNet);
+                    bdNetTask.setUrl(getUrl(context));
+                    bdNet.start(bdNetTask, true);
+                    return;
+                } catch (Exception e2) {
+                    e2.printStackTrace();
+                    return;
+                }
             }
-            try {
-                BdNet bdNet = new BdNet(context);
-                bdNet.setEventListener(new HttpDnsCache());
-                BdNetTask bdNetTask = new BdNetTask();
-                bdNetTask.setNet(bdNet);
-                bdNetTask.setUrl(getUrl(context));
-                bdNet.start(bdNetTask, true);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+            str = "block_http_dns1";
         }
+        Log.i(LOG_TAG, str);
     }
 
     public static void tryToUpdateHttpDnsCacheStaticIP(Context context) {
+        String str;
         if (WebSettingsGlobalBlink.GetCloudSettingsValue(ETAG.KEY_HTTP_DNS_ENABLE) != null && WebSettingsGlobalBlink.GetCloudSettingsValue(ETAG.KEY_HTTP_DNS_ENABLE).equals("false")) {
-            Log.i(LOG_TAG, "tryToUpdateHttpDnsCacheStaticIP http_dns false");
+            str = "tryToUpdateHttpDnsCacheStaticIP http_dns false";
         } else if (WebSettingsGlobalBlink.getNativeHttpdnsEnabled()) {
-            Log.i(LOG_TAG, "getNativeHttpdnsEnabled enabled1");
+            str = "getNativeHttpdnsEnabled enabled1";
         } else if (WebSettingsGlobalBlink.isSFSwitchEnabled()) {
-            Log.i(LOG_TAG, "tryToUpdateHttpDnsCacheStaticIP festival return");
+            str = "tryToUpdateHttpDnsCacheStaticIP festival return";
         } else {
             restoreLastCacheFromCfg();
             Log.i(LOG_TAG, "tryToUpdateHttpDnsCacheStaticIP");
-            if (WebSettingsGlobalBlink.GetCloudSettingsValue("block_http_dns") != null && WebSettingsGlobalBlink.GetCloudSettingsValue("block_http_dns").equals("true")) {
-                Log.i(LOG_TAG, "block_http_dns2");
-                return;
+            if (WebSettingsGlobalBlink.GetCloudSettingsValue("block_http_dns") == null || !WebSettingsGlobalBlink.GetCloudSettingsValue("block_http_dns").equals("true")) {
+                try {
+                    BdNet bdNet = new BdNet(context);
+                    bdNet.setEventListener(new HttpDnsCache());
+                    BdNetTask bdNetTask = new BdNetTask();
+                    bdNetTask.setNet(bdNet);
+                    bdNetTask.setUrl(getUrlStaticIP());
+                    bdNet.start(bdNetTask, true);
+                    return;
+                } catch (Exception e2) {
+                    e2.printStackTrace();
+                    return;
+                }
             }
-            try {
-                BdNet bdNet = new BdNet(context);
-                bdNet.setEventListener(new HttpDnsCache());
-                BdNetTask bdNetTask = new BdNetTask();
-                bdNetTask.setNet(bdNet);
-                bdNetTask.setUrl(getUrlStaticIP());
-                bdNet.start(bdNetTask, true);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+            str = "block_http_dns2";
         }
+        Log.i(LOG_TAG, str);
     }
 
     @Override // com.baidu.webkit.net.INetListener
@@ -246,11 +255,12 @@ public class HttpDnsCache implements INoProGuard, INetListener {
 
     @Override // com.baidu.webkit.net.INetListener
     public void onNetTaskComplete(BdNet bdNet, BdNetTask bdNetTask) {
-        if (this.mData == null) {
+        ByteArrayOutputStream byteArrayOutputStream = this.mData;
+        if (byteArrayOutputStream == null) {
             Log.w(LOG_TAG, "mData==null");
             return;
         }
-        byte[] byteArray = this.mData.toByteArray();
+        byte[] byteArray = byteArrayOutputStream.toByteArray();
         Log.w(LOG_TAG, "onNetDownloadComplete " + byteArray.length);
         Log.w(LOG_TAG, "onNetDownloadComplete url " + bdNetTask.getUrl());
         try {
@@ -264,8 +274,8 @@ public class HttpDnsCache implements INoProGuard, INetListener {
             }
             Log.w(LOG_TAG, "saveLastCacheToCfg " + httpDnsCache);
             saveLastCacheToCfg(httpDnsCache);
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (Exception e2) {
+            e2.printStackTrace();
         }
     }
 

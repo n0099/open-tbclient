@@ -1,7 +1,7 @@
 package com.baidu.tbadk.util;
 
 import android.util.SparseArray;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class ChatStatusManager {
     public static final int GROUP_CHAT = 2;
     public static final int OFFICIALBAR_CHAT = 1;
@@ -10,13 +10,17 @@ public class ChatStatusManager {
     public static final int STRANGER_MERGE = 5;
     public static final int UPDATES = 6;
     public static final int VALIDATE = 7;
-    private static ChatStatusManager instance;
-    private SparseArray<a> mStatus = new SparseArray<>();
+    public static ChatStatusManager instance;
+    public SparseArray<a> mStatus = new SparseArray<>();
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes3.dex */
     public static class a {
-        public String curId;
-        public boolean isOpen;
+
+        /* renamed from: a  reason: collision with root package name */
+        public boolean f14032a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public String f14033b;
     }
 
     public static synchronized ChatStatusManager getInst() {
@@ -30,45 +34,42 @@ public class ChatStatusManager {
         return chatStatusManager;
     }
 
-    public boolean getIsOpen(int i) {
-        a aVar = this.mStatus.get(i);
-        if (aVar == null) {
-            return false;
-        }
-        return aVar.isOpen;
-    }
-
     public String getCurId(int i) {
         a aVar = this.mStatus.get(i);
-        if (aVar == null) {
-            return "";
-        }
-        return aVar.curId;
+        return aVar != null ? aVar.f14033b : "";
     }
 
-    public void setIsOpen(int i, boolean z) {
+    public boolean getIsOpen(int i) {
         a aVar = this.mStatus.get(i);
         if (aVar != null) {
-            aVar.isOpen = z;
-            return;
+            return aVar.f14032a;
         }
-        a aVar2 = new a();
-        aVar2.isOpen = z;
-        this.mStatus.put(i, aVar2);
+        return false;
+    }
+
+    public void remove(int i) {
+        this.mStatus.delete(i);
     }
 
     public void setCurId(int i, String str) {
         a aVar = this.mStatus.get(i);
         if (aVar != null) {
-            aVar.curId = str;
+            aVar.f14033b = str;
             return;
         }
         a aVar2 = new a();
-        aVar2.curId = str;
+        aVar2.f14033b = str;
         this.mStatus.put(i, aVar2);
     }
 
-    public void remove(int i) {
-        this.mStatus.delete(i);
+    public void setIsOpen(int i, boolean z) {
+        a aVar = this.mStatus.get(i);
+        if (aVar != null) {
+            aVar.f14032a = z;
+            return;
+        }
+        a aVar2 = new a();
+        aVar2.f14032a = z;
+        this.mStatus.put(i, aVar2);
     }
 }

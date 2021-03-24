@@ -5,26 +5,29 @@ import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.baidu.tieba.enterForum.data.HotSearchInfoData;
 import com.baidu.tieba.enterForum.model.EnterForumModel;
 import com.squareup.wire.Wire;
+import d.b.h0.r.r.a;
 import java.util.List;
+import tbclient.Error;
 import tbclient.ForumCreateInfo;
 import tbclient.ForumPopupInfo;
+import tbclient.ForumRecommend.DataRes;
 import tbclient.ForumRecommend.ForumRecommendResIdl;
 import tbclient.ForumRecommend.LikeForum;
 import tbclient.FrsTabInfo;
 import tbclient.PrivatePopInfo;
 import tbclient.RecommendForumInfo;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class forumRecommendHttpResponseMessage extends TbHttpResponsedMessage {
-    private ForumCreateInfo forum_create_info;
-    private ForumPopupInfo forum_popup_info;
-    private HotSearchInfoData hotSearchInfo;
-    private List<LikeForum> like_forum;
-    private PrivatePopInfo private_pop_info;
-    private List<RecommendForumInfo> recommend_concern_forums;
-    private List<RecommendForumInfo> recommend_forum_info;
-    private Integer sortType;
-    private List<FrsTabInfo> tabFeedList;
-    private Integer time;
+    public ForumCreateInfo forum_create_info;
+    public ForumPopupInfo forum_popup_info;
+    public HotSearchInfoData hotSearchInfo;
+    public List<LikeForum> like_forum;
+    public PrivatePopInfo private_pop_info;
+    public List<RecommendForumInfo> recommend_concern_forums;
+    public List<RecommendForumInfo> recommend_forum_info;
+    public Integer sortType;
+    public List<FrsTabInfo> tabFeedList;
+    public Integer time;
 
     public forumRecommendHttpResponseMessage(int i) {
         super(i);
@@ -35,80 +38,90 @@ public class forumRecommendHttpResponseMessage extends TbHttpResponsedMessage {
         return this.like_forum;
     }
 
-    public Integer GetTime() {
-        return this.time;
-    }
-
     public List<RecommendForumInfo> GetRecommendForumInfoList() {
         return this.recommend_forum_info;
     }
 
-    public HotSearchInfoData getHotSearchInfoData() {
-        return this.hotSearchInfo;
-    }
-
-    public List<RecommendForumInfo> getRecommendConcernForums() {
-        return this.recommend_concern_forums;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tbadk.message.http.TbHttpResponsedMessage, com.baidu.adp.framework.message.a
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
-        ForumRecommendResIdl forumRecommendResIdl;
-        if (bArr != null && (forumRecommendResIdl = (ForumRecommendResIdl) new Wire(new Class[0]).parseFrom(bArr, ForumRecommendResIdl.class)) != null) {
-            if (forumRecommendResIdl.error != null && forumRecommendResIdl.error.errorno != null) {
-                setError(forumRecommendResIdl.error.errorno.intValue());
-            }
-            if (forumRecommendResIdl.error != null && forumRecommendResIdl.error.usermsg != null && forumRecommendResIdl.error.usermsg.length() > 0) {
-                setErrorString(forumRecommendResIdl.error.usermsg);
-            }
-            if (getError() == 0 && forumRecommendResIdl.data != null) {
-                this.like_forum = forumRecommendResIdl.data.like_forum;
-                this.time = forumRecommendResIdl.data.time;
-                this.recommend_forum_info = forumRecommendResIdl.data.recommend_forum_info;
-                if (forumRecommendResIdl.data.hot_search != null) {
-                    this.hotSearchInfo = new HotSearchInfoData();
-                    this.hotSearchInfo.a(forumRecommendResIdl.data.hot_search);
-                }
-                this.recommend_concern_forums = forumRecommendResIdl.data.tag_recommend_forum;
-                this.sortType = Integer.valueOf(forumRecommendResIdl.data.sort_type.intValue() == 0 ? 1 : forumRecommendResIdl.data.sort_type.intValue());
-                this.forum_create_info = forumRecommendResIdl.data.forum_create_info;
-                this.private_pop_info = forumRecommendResIdl.data.private_forum_popinfo;
-                this.tabFeedList = forumRecommendResIdl.data.nav_tab_info;
-                this.forum_popup_info = forumRecommendResIdl.data.forum_popup_info;
-            }
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.message.ResponsedMessage
-    public void afterDispatchInBackGround(int i, byte[] bArr) {
-        if (bArr != null && bArr.length > 0 && getError() == 0) {
-            com.baidu.tbadk.core.c.a.bqt().dE("tb_forum_recommend", TbadkCoreApplication.getCurrentAccountName()).asyncSetForever(EnterForumModel.FORUMRECOMMEND_CACHE_KEY, bArr);
-        }
-    }
-
-    public Integer getSortType() {
-        return this.sortType;
-    }
-
-    public void setSortType(Integer num) {
-        this.sortType = num;
+    public Integer GetTime() {
+        return this.time;
     }
 
     public ForumCreateInfo getForumCreateInfo() {
         return this.forum_create_info;
     }
 
+    public ForumPopupInfo getForumPopUpInfo() {
+        return this.forum_popup_info;
+    }
+
+    public HotSearchInfoData getHotSearchInfoData() {
+        return this.hotSearchInfo;
+    }
+
     public PrivatePopInfo getPrivatePopInfo() {
         return this.private_pop_info;
+    }
+
+    public List<RecommendForumInfo> getRecommendConcernForums() {
+        return this.recommend_concern_forums;
+    }
+
+    public Integer getSortType() {
+        return this.sortType;
     }
 
     public List<FrsTabInfo> getTabFeedList() {
         return this.tabFeedList;
     }
 
-    public ForumPopupInfo getForumPopUpInfo() {
-        return this.forum_popup_info;
+    public void setSortType(Integer num) {
+        this.sortType = num;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.message.ResponsedMessage
+    public void afterDispatchInBackGround(int i, byte[] bArr) {
+        if (bArr == null || bArr.length <= 0 || getError() != 0) {
+            return;
+        }
+        a.f().e("tb_forum_recommend", TbadkCoreApplication.getCurrentAccountName()).a(EnterForumModel.FORUMRECOMMEND_CACHE_KEY, bArr);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tbadk.message.http.TbHttpResponsedMessage, com.baidu.adp.framework.message.HttpResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
+    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
+        ForumRecommendResIdl forumRecommendResIdl;
+        DataRes dataRes;
+        String str;
+        Integer num;
+        if (bArr == null || (forumRecommendResIdl = (ForumRecommendResIdl) new Wire(new Class[0]).parseFrom(bArr, ForumRecommendResIdl.class)) == null) {
+            return;
+        }
+        Error error = forumRecommendResIdl.error;
+        if (error != null && (num = error.errorno) != null) {
+            setError(num.intValue());
+        }
+        Error error2 = forumRecommendResIdl.error;
+        if (error2 != null && (str = error2.usermsg) != null && str.length() > 0) {
+            setErrorString(forumRecommendResIdl.error.usermsg);
+        }
+        if (getError() == 0 && (dataRes = forumRecommendResIdl.data) != null) {
+            this.like_forum = dataRes.like_forum;
+            this.time = dataRes.time;
+            this.recommend_forum_info = dataRes.recommend_forum_info;
+            if (dataRes.hot_search != null) {
+                HotSearchInfoData hotSearchInfoData = new HotSearchInfoData();
+                this.hotSearchInfo = hotSearchInfoData;
+                hotSearchInfoData.t(forumRecommendResIdl.data.hot_search);
+            }
+            DataRes dataRes2 = forumRecommendResIdl.data;
+            this.recommend_concern_forums = dataRes2.tag_recommend_forum;
+            this.sortType = Integer.valueOf(dataRes2.sort_type.intValue() == 0 ? 1 : forumRecommendResIdl.data.sort_type.intValue());
+            DataRes dataRes3 = forumRecommendResIdl.data;
+            this.forum_create_info = dataRes3.forum_create_info;
+            this.private_pop_info = dataRes3.private_forum_popinfo;
+            this.tabFeedList = dataRes3.nav_tab_info;
+            this.forum_popup_info = dataRes3.forum_popup_info;
+        }
     }
 }

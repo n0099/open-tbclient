@@ -1,211 +1,295 @@
 package com.baidu.sapi2.outsdk;
 
+import android.os.Handler;
+import android.os.Looper;
 import android.text.TextUtils;
-import com.baidu.android.util.io.BaseJsonData;
 import com.baidu.sapi2.NoProguard;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.SapiConfiguration;
 import com.baidu.sapi2.SapiContext;
+import com.baidu.sapi2.SapiOptions;
 import com.baidu.sapi2.callback.OneKeyLoginCallback;
+import com.baidu.sapi2.callback.a.d;
+import com.baidu.sapi2.result.OneKeyLoginOptResult;
 import com.baidu.sapi2.result.OneKeyLoginResult;
 import com.baidu.sapi2.utils.Log;
+import com.baidu.sapi2.utils.SapiStatUtil;
+import com.baidu.sapi2.utils.SapiUtils;
+import com.facebook.cache.disk.DefaultDiskStorage;
+import d.b.f0.a;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class OneKeyLoginSdkCall {
+    public static final String OKL_SCENE_INIT = "init";
+    public static final String OKL_SCENE_LOGIN = "login";
+    public static final String OKL_SCENE_PRODUCT = "product";
+    public static final String OKL_SCENE_SAPI = "sapi";
+    public static final int ONE_KEY_AVAILABLE = 1;
+    public static final String OPERATOR_TYPE_CMCC = "CM";
+    public static final String OPERATOR_TYPE_CTCC = "CT";
+    public static final String OPERATOR_TYPE_CUCC = "CU";
+    public static final String TAG = "OneKeyLogin";
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f3389a = "OneKeyLogin";
-    private static final int b = 1;
-    private static final int c = 2;
-    private static final int d = 3;
-    static final String e = "CM";
-    static final String f = "CU";
-    static final String g = "CT";
-    private static final String h = "0";
-    private static final String i = "1";
-    private static final String j = "3";
-    public static final String k = "login";
-    public static final String l = "init";
-    public static final String m = "sapi";
-    public static final String n = "product";
-    static String o;
-    static String p;
-    static String q;
-    static String r;
-    static String s;
+    public static final String f11262a = "ba8df9d21db832db598b22fc7cbfbcd6";
 
-    /* loaded from: classes3.dex */
+    /* renamed from: b  reason: collision with root package name */
+    public static final String f11263b = "CMCC";
+
+    /* renamed from: c  reason: collision with root package name */
+    public static final String f11264c = "CUCC";
+
+    /* renamed from: d  reason: collision with root package name */
+    public static final String f11265d = "CTCC";
+
+    /* renamed from: e  reason: collision with root package name */
+    public static final int f11266e = 15000;
+
+    /* renamed from: f  reason: collision with root package name */
+    public static OneKeyLoginOptResult f11267f = null;
+
+    /* renamed from: g  reason: collision with root package name */
+    public static OneKeyLoginSdkCall f11268g = null;
+    public static final String oneKeyLoginAppKey = "350675";
+    public static String signFromAbilityApi;
+
+    /* loaded from: classes2.dex */
     public interface TokenListener extends NoProguard {
         void onGetTokenComplete(JSONObject jSONObject);
     }
 
-    private boolean c(SapiConfiguration sapiConfiguration) {
-        return (TextUtils.isEmpty(sapiConfiguration.chinaUnicomAppKey) || TextUtils.isEmpty(sapiConfiguration.chinaUnicomAppPublicKey) || !SapiContext.getInstance().isMeetOneKeyLoginGray(2)) ? false : true;
+    public static OneKeyLoginSdkCall getInstance() {
+        if (f11268g == null) {
+            f11268g = new OneKeyLoginSdkCall();
+        }
+        return f11268g;
     }
 
-    public void a(SapiConfiguration sapiConfiguration, String str) {
-        a(sapiConfiguration, str, 0, null);
+    public boolean checkSupOauth() {
+        return f11267f != null;
     }
 
-    public JSONObject b() {
+    public JSONObject getEncryptPhone() {
         JSONObject jSONObject = new JSONObject();
         try {
-            if (a()) {
-                if (!TextUtils.isEmpty(o)) {
-                    jSONObject.put("phone", o);
-                    jSONObject.put("operator", e);
-                } else if (!TextUtils.isEmpty(p)) {
-                    jSONObject.put("phone", p);
-                    jSONObject.put("operator", g);
-                } else {
-                    jSONObject.put("phone", r);
-                    jSONObject.put("operator", f);
-                    jSONObject.put("CUVersion", "2");
-                }
+            if (f11267f != null) {
+                jSONObject.put("phone", f11267f.getSecurityPhone());
+                jSONObject.put("operator", getOperatorType());
+                jSONObject.put("CUVersion", "2");
             }
         } catch (JSONException e2) {
-            Log.e(e2);
+            Log.e(TAG, e2);
         }
+        Log.d(TAG, "getEncryptPhone result:" + jSONObject.toString());
         return jSONObject;
     }
 
-    public void a(SapiConfiguration sapiConfiguration, String str, int i2, OneKeyLoginCallback oneKeyLoginCallback) {
-        JSONObject jSONObject;
-        if (SapiAccountManager.getInstance().isLogin()) {
-            Log.i(f3389a, "is login");
-            b(oneKeyLoginCallback, -110, null);
-            return;
-        }
-        if ((TextUtils.isEmpty(sapiConfiguration.chinaMobileAppID) || TextUtils.isEmpty(sapiConfiguration.chinaMobileAppKey)) ? false : true) {
-            try {
-                jSONObject = com.cmic.sso.sdk.b.a.bw(sapiConfiguration.context, "rsa2048").id(sapiConfiguration.context);
-            } catch (Throwable th) {
-                Log.e(f3389a, th);
-                jSONObject = null;
-            }
-            if (jSONObject == null) {
-                b(oneKeyLoginCallback, -100, null);
-                return;
-            }
-            int optInt = jSONObject.optInt("operatortype");
-            String optString = jSONObject.optString("networktype");
-            Log.i(f3389a, "operatorType = " + optInt + " netType = " + optString);
-            if (TextUtils.isEmpty(optString)) {
-                optString = "0";
-            }
-            if (optInt == 1) {
-                if (!"0".equals(optString) && a(sapiConfiguration)) {
-                    new ChinaMobileSdkWrap().a(sapiConfiguration, str, optString, i2, oneKeyLoginCallback);
+    public void getMobileOauthToken(SapiConfiguration sapiConfiguration, final TokenListener tokenListener) {
+        d.b.f0.a.c().i(sapiConfiguration.context, 15000L, new a.InterfaceC0578a() { // from class: com.baidu.sapi2.outsdk.OneKeyLoginSdkCall.3
+            @Override // d.b.f0.a.InterfaceC0578a
+            public void onFinish(String str) {
+                Log.d(OneKeyLoginSdkCall.TAG, "getMobileOauthToken onFinish result=" + str);
+                OneKeyLoginOptResult formatOptResult = OneKeyLoginOptResult.formatOptResult(str);
+                String extraStr = formatOptResult.getExtraStr();
+                SapiStatUtil.statOneKeyOauthToken(formatOptResult.getCode(), formatOptResult.getSubCode(), 1 ^ (TextUtils.isEmpty(extraStr) ? 1 : 0));
+                final JSONObject jSONObject = new JSONObject();
+                if (OneKeyLoginOptResult.isValid(formatOptResult)) {
+                    try {
+                        jSONObject.put("errno", 0);
+                        jSONObject.put("operator", OneKeyLoginSdkCall.this.getOperatorType());
+                        jSONObject.put("appid", OneKeyLoginSdkCall.oneKeyLoginAppKey);
+                        jSONObject.put("token", extraStr);
+                        jSONObject.put("oneKeySdkVersion", DefaultDiskStorage.DEFAULT_DISK_STORAGE_VERSION_PREFIX);
+                    } catch (Exception e2) {
+                        Log.e(OneKeyLoginSdkCall.TAG, e2);
+                    }
                 } else {
-                    b(oneKeyLoginCallback, -101, null);
+                    try {
+                        jSONObject.put("errno", 0);
+                        jSONObject.put("operator", OneKeyLoginSdkCall.this.getOperatorType());
+                    } catch (JSONException e3) {
+                        Log.e(OneKeyLoginSdkCall.TAG, e3);
+                    }
                 }
-            } else if (optInt == 2) {
-                if (("1".equals(optString) || "3".equals(optString)) && c(sapiConfiguration)) {
-                    new ChinaUnicomSdkWrap().a(sapiConfiguration, str, optString, i2, oneKeyLoginCallback);
-                } else {
-                    b(oneKeyLoginCallback, -101, null);
+                if (tokenListener != null) {
+                    new Handler(Looper.getMainLooper()).post(new Runnable() { // from class: com.baidu.sapi2.outsdk.OneKeyLoginSdkCall.3.1
+                        @Override // java.lang.Runnable
+                        public void run() {
+                            tokenListener.onGetTokenComplete(jSONObject);
+                        }
+                    });
                 }
-            } else if (optInt != 3) {
-                b(oneKeyLoginCallback, -100, null);
-            } else if (("1".equals(optString) || "3".equals(optString)) && b(sapiConfiguration)) {
-                new ChinaTelecomSdkWrap().a(sapiConfiguration, str, optString, i2, oneKeyLoginCallback);
-            } else {
-                b(oneKeyLoginCallback, -101, null);
             }
-        } else if (b(sapiConfiguration)) {
-            new ChinaTelecomSdkWrap().a(sapiConfiguration, str, "0", i2, oneKeyLoginCallback);
-        } else if (c(sapiConfiguration)) {
-            new ChinaUnicomSdkWrap().a(sapiConfiguration, str, "0", i2, oneKeyLoginCallback);
-        } else {
-            b(oneKeyLoginCallback, -101, null);
-        }
+        });
     }
 
-    public String c() {
-        if (a()) {
-            return !TextUtils.isEmpty(o) ? e : !TextUtils.isEmpty(p) ? g : f;
+    public String getOperatorType() {
+        OneKeyLoginOptResult oneKeyLoginOptResult = f11267f;
+        if (oneKeyLoginOptResult != null) {
+            if ("1".equals(oneKeyLoginOptResult.getOperateType())) {
+                return OPERATOR_TYPE_CMCC;
+            }
+            if ("2".equals(f11267f.getOperateType())) {
+                return OPERATOR_TYPE_CUCC;
+            }
+            if ("3".equals(f11267f.getOperateType())) {
+                return OPERATOR_TYPE_CTCC;
+            }
+            return null;
         }
         return null;
     }
 
-    public void b(SapiConfiguration sapiConfiguration, TokenListener tokenListener) {
-        if (!TextUtils.isEmpty(o)) {
-            new ChinaMobileSdkWrap().b(sapiConfiguration, tokenListener);
-        } else if (!TextUtils.isEmpty(q)) {
-            new ChinaTelecomSdkWrap().a(sapiConfiguration, tokenListener);
-        } else if (!TextUtils.isEmpty(s)) {
-            new ChinaUnicomSdkWrap().a(sapiConfiguration, tokenListener);
+    public OneKeyLoginOptResult getPreLoginOptResult() {
+        return f11267f;
+    }
+
+    public void getToken(final SapiConfiguration sapiConfiguration, final TokenListener tokenListener) {
+        d.b.f0.a.c().f(sapiConfiguration.context, 15000L, new a.InterfaceC0578a() { // from class: com.baidu.sapi2.outsdk.OneKeyLoginSdkCall.2
+            @Override // d.b.f0.a.InterfaceC0578a
+            public void onFinish(String str) {
+                Log.d(OneKeyLoginSdkCall.TAG, "SSOManager login onFinish result=" + str);
+                OneKeyLoginOptResult formatOptResult = OneKeyLoginOptResult.formatOptResult(str);
+                String extraStr = formatOptResult.getExtraStr();
+                SapiStatUtil.statOneKeyLoginSDKAction(formatOptResult.getCode(), formatOptResult.getSubCode(), !TextUtils.isEmpty(extraStr) ? 1 : 0);
+                final JSONObject jSONObject = new JSONObject();
+                try {
+                    if (OneKeyLoginOptResult.isValid(formatOptResult)) {
+                        jSONObject.put("errno", 0);
+                        jSONObject.put("code", 0);
+                        jSONObject.put("appid", sapiConfiguration.context.getPackageName());
+                        jSONObject.put("token", extraStr);
+                        jSONObject.put("oneKeySdkVersion", DefaultDiskStorage.DEFAULT_DISK_STORAGE_VERSION_PREFIX);
+                    }
+                } catch (JSONException e2) {
+                    Log.e(OneKeyLoginSdkCall.TAG, e2.getMessage());
+                }
+                if (tokenListener != null) {
+                    new Handler(Looper.getMainLooper()).post(new Runnable() { // from class: com.baidu.sapi2.outsdk.OneKeyLoginSdkCall.2.1
+                        @Override // java.lang.Runnable
+                        public void run() {
+                            tokenListener.onGetTokenComplete(jSONObject);
+                        }
+                    });
+                }
+            }
+        });
+    }
+
+    public void initOneKeyLoginSdk(SapiConfiguration sapiConfiguration) {
+        d.b.f0.a.c().d(sapiConfiguration.context, oneKeyLoginAppKey, f11262a);
+        d.b.f0.a.c().h(sapiConfiguration.context, sapiConfiguration.isAgreeDangerousProtocol());
+    }
+
+    public boolean isMeetOneKeyLoginGray(String str) {
+        String str2;
+        if (TextUtils.equals(str, f11263b)) {
+            str2 = SapiOptions.Gray.FUN_NAME_CHINA_MOBILE_OAUTH;
+        } else if (TextUtils.equals(str, f11264c)) {
+            str2 = SapiOptions.Gray.FUN_NAME_CHINA_UNICOM_OAUTH;
         } else {
-            tokenListener.onGetTokenComplete(new JSONObject());
+            str2 = TextUtils.equals(str, f11265d) ? SapiOptions.Gray.FUN_NAME_CHINA_TELECOM_OAUTH : null;
+        }
+        Log.d(TAG, "isMeetOneKeyLoginGray ? operator=" + str);
+        if (TextUtils.isEmpty(str2)) {
+            return false;
+        }
+        return SapiContext.getInstance().getSapiOptions().gray.getGrayModuleByFunName(str2).isMeetGray();
+    }
+
+    public void loadOneKeyLoginFail(OneKeyLoginCallback oneKeyLoginCallback, int i, String str) {
+        if (oneKeyLoginCallback != null) {
+            OneKeyLoginResult oneKeyLoginResult = new OneKeyLoginResult();
+            oneKeyLoginResult.setResultCode(i);
+            oneKeyLoginResult.setResultMsg(str);
+            oneKeyLoginCallback.onFail(oneKeyLoginResult);
         }
     }
 
-    private boolean b(SapiConfiguration sapiConfiguration) {
-        return (TextUtils.isEmpty(sapiConfiguration.chinaTelecomAppKey) || TextUtils.isEmpty(sapiConfiguration.chinaTelecomAppSecret) || !SapiContext.getInstance().isMeetOneKeyLoginGray(3)) ? false : true;
-    }
-
-    public void b(OneKeyLoginCallback oneKeyLoginCallback, int i2, String str) {
+    public void preGetPhoneFail(OneKeyLoginCallback oneKeyLoginCallback, int i, int i2, String str) {
         if (oneKeyLoginCallback != null) {
             OneKeyLoginResult oneKeyLoginResult = new OneKeyLoginResult();
-            oneKeyLoginResult.setResultCode(i2);
-            oneKeyLoginResult.setResultMsg(str);
+            oneKeyLoginResult.setResultCode(i);
+            oneKeyLoginResult.setResultMsg("subCode=" + i2 + ", msg=" + str);
             oneKeyLoginCallback.unAvailable(oneKeyLoginResult);
         }
     }
 
-    public void a(SapiConfiguration sapiConfiguration, TokenListener tokenListener) {
-        JSONObject jSONObject;
-        if (!TextUtils.isEmpty(o)) {
-            new ChinaMobileSdkWrap().a(sapiConfiguration, tokenListener);
-        } else if (!TextUtils.isEmpty(s)) {
-            new ChinaUnicomSdkWrap().a(sapiConfiguration, null, tokenListener);
-        } else {
-            JSONObject jSONObject2 = new JSONObject();
-            try {
-                jSONObject2.put(BaseJsonData.TAG_ERRNO, "-1");
-                jSONObject = com.cmic.sso.sdk.b.a.bw(sapiConfiguration.context, "rsa2048").id(sapiConfiguration.context);
-            } catch (Throwable th) {
-                Log.e(f3389a, th);
-                jSONObject = null;
-            }
-            if (jSONObject == null) {
-                tokenListener.onGetTokenComplete(jSONObject2);
-                return;
-            }
-            int optInt = jSONObject.optInt("operatortype");
-            String optString = jSONObject.optString("networktype");
-            Log.i(f3389a, "operatorType = " + optInt + " netType = " + optString);
-            if (TextUtils.isEmpty(optString)) {
-                optString = "0";
-            }
-            if (optInt != 1) {
-                if (optInt == 2 && (("1".equals(optString) || "3".equals(optString)) && c(sapiConfiguration))) {
-                    new ChinaUnicomSdkWrap().a(sapiConfiguration, optString, tokenListener);
-                    return;
-                }
-            } else if (!"0".equals(optString) && a(sapiConfiguration)) {
-                new ChinaMobileSdkWrap().a(sapiConfiguration, tokenListener);
-                return;
-            }
-            tokenListener.onGetTokenComplete(jSONObject2);
+    public void preGetPhoneInfo(SapiConfiguration sapiConfiguration, String str) {
+        preGetPhoneInfo(sapiConfiguration, str, 15000, null);
+    }
+
+    public void transMobile(OneKeyLoginCallback oneKeyLoginCallback, int i, String str) {
+        if (oneKeyLoginCallback != null) {
+            OneKeyLoginResult oneKeyLoginResult = new OneKeyLoginResult();
+            oneKeyLoginResult.setResultCode(i);
+            oneKeyLoginResult.mobile = str;
+            oneKeyLoginCallback.onFail(oneKeyLoginResult);
         }
     }
 
-    private boolean a(SapiConfiguration sapiConfiguration) {
-        return (TextUtils.isEmpty(sapiConfiguration.chinaMobileAppID) || TextUtils.isEmpty(sapiConfiguration.chinaMobileAppKey) || !SapiContext.getInstance().isMeetOneKeyLoginGray(1)) ? false : true;
+    public void preGetPhoneInfo(SapiConfiguration sapiConfiguration, final String str, int i, final d dVar) {
+        if (SapiAccountManager.getInstance().isLogin()) {
+            Log.d(TAG, "preGetPhoneInfo account is logined");
+            if (dVar != null) {
+                OneKeyLoginOptResult oneKeyLoginOptResult = new OneKeyLoginOptResult();
+                oneKeyLoginOptResult.setCode(-110);
+                oneKeyLoginOptResult.setSubCode(-110);
+                dVar.a(oneKeyLoginOptResult);
+                return;
+            }
+            return;
+        }
+        String b2 = d.b.f0.a.c().b(sapiConfiguration.context);
+        if (TextUtils.equals(b2, f11263b) || TextUtils.equals(b2, f11264c) || TextUtils.equals(b2, f11265d)) {
+            if (!isMeetOneKeyLoginGray(b2)) {
+                Log.d(TAG, "未命中灰度，不请求预取号操作 operator=" + b2);
+                if (dVar != null) {
+                    OneKeyLoginOptResult oneKeyLoginOptResult2 = new OneKeyLoginOptResult();
+                    oneKeyLoginOptResult2.setCode(OneKeyLoginResult.ONE_KEY_LOGIN_CODE_NOT_MEET_GRAY);
+                    dVar.a(oneKeyLoginOptResult2);
+                    return;
+                }
+                return;
+            }
+            final String networkClass = SapiUtils.getNetworkClass(sapiConfiguration.context);
+            d.b.f0.a.c().g(sapiConfiguration.context, i, new a.InterfaceC0578a() { // from class: com.baidu.sapi2.outsdk.OneKeyLoginSdkCall.1
+                @Override // d.b.f0.a.InterfaceC0578a
+                public void onFinish(String str2) {
+                    Log.d(OneKeyLoginSdkCall.TAG, "SSOManager preLogin onFinish result=" + str2);
+                    final OneKeyLoginOptResult formatOptResult = OneKeyLoginOptResult.formatOptResult(str2);
+                    if (OneKeyLoginOptResult.isValid(formatOptResult)) {
+                        formatOptResult.generateSecurityPhone();
+                        OneKeyLoginOptResult unused = OneKeyLoginSdkCall.f11267f = formatOptResult;
+                    }
+                    SapiStatUtil.statOneKeyPreGetPhone(formatOptResult.getCode(), formatOptResult.getSubCode(), formatOptResult.getSecurityPhone(), formatOptResult.getOperateType(), str, networkClass);
+                    if (dVar != null) {
+                        new Handler(Looper.getMainLooper()).post(new Runnable() { // from class: com.baidu.sapi2.outsdk.OneKeyLoginSdkCall.1.1
+                            @Override // java.lang.Runnable
+                            public void run() {
+                                dVar.a(formatOptResult);
+                            }
+                        });
+                    }
+                }
+            });
+            return;
+        }
+        Log.d(TAG, "不能获取正确的运营商信息，请检查手机是否有sim卡，operator=" + b2);
+        if (dVar != null) {
+            OneKeyLoginOptResult oneKeyLoginOptResult3 = new OneKeyLoginOptResult();
+            oneKeyLoginOptResult3.setCode(OneKeyLoginResult.ONE_KEY_LOGIN_CODE_INVALID_OPERATOR);
+            dVar.a(oneKeyLoginOptResult3);
+        }
     }
 
-    public boolean a() {
-        return (TextUtils.isEmpty(p) && TextUtils.isEmpty(o) && TextUtils.isEmpty(r)) ? false : true;
-    }
-
-    public void a(OneKeyLoginCallback oneKeyLoginCallback, int i2, String str) {
+    public void preGetPhoneFail(OneKeyLoginCallback oneKeyLoginCallback, int i, String str) {
         if (oneKeyLoginCallback != null) {
             OneKeyLoginResult oneKeyLoginResult = new OneKeyLoginResult();
-            oneKeyLoginResult.setResultCode(i2);
+            oneKeyLoginResult.setResultCode(i);
             oneKeyLoginResult.setResultMsg(str);
-            oneKeyLoginCallback.onFail(oneKeyLoginResult);
+            oneKeyLoginCallback.unAvailable(oneKeyLoginResult);
         }
     }
 }

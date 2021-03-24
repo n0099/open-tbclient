@@ -1,194 +1,249 @@
 package rx.internal.schedulers;
 
+import h.b;
+import h.g;
+import h.k;
+import h.n.f;
+import h.u.e;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicReference;
-import rx.b;
-import rx.g;
 import rx.internal.operators.BufferUntilSubscriber;
-import rx.k;
 import rx.subjects.PublishSubject;
-/* loaded from: classes4.dex */
-public class SchedulerWhen extends rx.g implements k {
-    static final k qDH = new k() { // from class: rx.internal.schedulers.SchedulerWhen.3
-        @Override // rx.k
-        public void unsubscribe() {
-        }
+/* loaded from: classes7.dex */
+public class SchedulerWhen extends g implements k {
 
-        @Override // rx.k
-        public boolean isUnsubscribed() {
-            return false;
-        }
-    };
-    static final k qDI = rx.subscriptions.e.eOd();
-    private final rx.g qDE;
-    private final rx.e<rx.d<rx.b>> qDF;
-    private final k qDG;
+    /* renamed from: h  reason: collision with root package name */
+    public static final k f68223h = new c();
+    public static final k i = e.c();
 
-    public SchedulerWhen(rx.functions.f<rx.d<rx.d<rx.b>>, rx.b> fVar, rx.g gVar) {
-        this.qDE = gVar;
-        PublishSubject eNS = PublishSubject.eNS();
-        this.qDF = new rx.b.d(eNS);
-        this.qDG = fVar.call(eNS.eMt()).eMk();
-    }
+    /* renamed from: e  reason: collision with root package name */
+    public final g f68224e;
 
-    @Override // rx.k
-    public void unsubscribe() {
-        this.qDG.unsubscribe();
-    }
+    /* renamed from: f  reason: collision with root package name */
+    public final h.e<h.d<h.b>> f68225f;
 
-    @Override // rx.k
-    public boolean isUnsubscribed() {
-        return this.qDG.isUnsubscribed();
-    }
+    /* renamed from: g  reason: collision with root package name */
+    public final k f68226g;
 
-    /* JADX DEBUG: Multi-variable search result rejected for r0v2, resolved type: rx.e<rx.d<rx.b>> */
-    /* JADX WARN: Multi-variable type inference failed */
-    @Override // rx.g
-    public g.a createWorker() {
-        final g.a createWorker = this.qDE.createWorker();
-        BufferUntilSubscriber eMH = BufferUntilSubscriber.eMH();
-        final rx.b.d dVar = new rx.b.d(eMH);
-        Object d = eMH.d(new rx.functions.f<ScheduledAction, rx.b>() { // from class: rx.internal.schedulers.SchedulerWhen.1
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // rx.functions.f
-            /* renamed from: a */
-            public rx.b call(final ScheduledAction scheduledAction) {
-                return rx.b.a(new b.a() { // from class: rx.internal.schedulers.SchedulerWhen.1.1
-                    /* JADX DEBUG: Method merged with bridge method */
-                    @Override // rx.functions.b
-                    /* renamed from: a */
-                    public void call(rx.c cVar) {
-                        cVar.onSubscribe(scheduledAction);
-                        scheduledAction.a(createWorker, cVar);
-                    }
-                });
-            }
-        });
-        g.a aVar = new g.a() { // from class: rx.internal.schedulers.SchedulerWhen.2
-            private final AtomicBoolean qsr = new AtomicBoolean();
+    /* loaded from: classes7.dex */
+    public static class DelayedAction extends ScheduledAction {
+        public final h.n.a action;
+        public final long delayTime;
+        public final TimeUnit unit;
 
-            @Override // rx.k
-            public void unsubscribe() {
-                if (this.qsr.compareAndSet(false, true)) {
-                    createWorker.unsubscribe();
-                    dVar.onCompleted();
-                }
-            }
-
-            @Override // rx.k
-            public boolean isUnsubscribed() {
-                return this.qsr.get();
-            }
-
-            @Override // rx.g.a
-            public k a(rx.functions.a aVar2, long j, TimeUnit timeUnit) {
-                DelayedAction delayedAction = new DelayedAction(aVar2, j, timeUnit);
-                dVar.onNext(delayedAction);
-                return delayedAction;
-            }
-
-            @Override // rx.g.a
-            public k c(rx.functions.a aVar2) {
-                ImmediateAction immediateAction = new ImmediateAction(aVar2);
-                dVar.onNext(immediateAction);
-                return immediateAction;
-            }
-        };
-        this.qDF.onNext(d);
-        return aVar;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
-    public static abstract class ScheduledAction extends AtomicReference<k> implements k {
-        protected abstract k callActual(g.a aVar, rx.c cVar);
-
-        public ScheduledAction() {
-            super(SchedulerWhen.qDH);
-        }
-
-        /* JADX INFO: Access modifiers changed from: private */
-        public void a(g.a aVar, rx.c cVar) {
-            k kVar = get();
-            if (kVar != SchedulerWhen.qDI && kVar == SchedulerWhen.qDH) {
-                k callActual = callActual(aVar, cVar);
-                if (!compareAndSet(SchedulerWhen.qDH, callActual)) {
-                    callActual.unsubscribe();
-                }
-            }
-        }
-
-        @Override // rx.k
-        public boolean isUnsubscribed() {
-            return get().isUnsubscribed();
-        }
-
-        @Override // rx.k
-        public void unsubscribe() {
-            k kVar;
-            k kVar2 = SchedulerWhen.qDI;
-            do {
-                kVar = get();
-                if (kVar == SchedulerWhen.qDI) {
-                    return;
-                }
-            } while (!compareAndSet(kVar, kVar2));
-            if (kVar != SchedulerWhen.qDH) {
-                kVar.unsubscribe();
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    static class ImmediateAction extends ScheduledAction {
-        private final rx.functions.a action;
-
-        public ImmediateAction(rx.functions.a aVar) {
-            this.action = aVar;
-        }
-
-        @Override // rx.internal.schedulers.SchedulerWhen.ScheduledAction
-        protected k callActual(g.a aVar, rx.c cVar) {
-            return aVar.c(new a(this.action, cVar));
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    static class DelayedAction extends ScheduledAction {
-        private final rx.functions.a action;
-        private final long delayTime;
-        private final TimeUnit unit;
-
-        public DelayedAction(rx.functions.a aVar, long j, TimeUnit timeUnit) {
+        public DelayedAction(h.n.a aVar, long j, TimeUnit timeUnit) {
             this.action = aVar;
             this.delayTime = j;
             this.unit = timeUnit;
         }
 
         @Override // rx.internal.schedulers.SchedulerWhen.ScheduledAction
-        protected k callActual(g.a aVar, rx.c cVar) {
-            return aVar.a(new a(this.action, cVar), this.delayTime, this.unit);
+        public k callActual(g.a aVar, h.c cVar) {
+            return aVar.c(new d(this.action, cVar), this.delayTime, this.unit);
         }
     }
 
-    /* loaded from: classes4.dex */
-    static class a implements rx.functions.a {
-        private rx.functions.a action;
-        private rx.c qDO;
+    /* loaded from: classes7.dex */
+    public static class ImmediateAction extends ScheduledAction {
+        public final h.n.a action;
 
-        public a(rx.functions.a aVar, rx.c cVar) {
+        public ImmediateAction(h.n.a aVar) {
             this.action = aVar;
-            this.qDO = cVar;
         }
 
-        @Override // rx.functions.a
-        public void call() {
-            try {
-                this.action.call();
-            } finally {
-                this.qDO.onCompleted();
+        @Override // rx.internal.schedulers.SchedulerWhen.ScheduledAction
+        public k callActual(g.a aVar, h.c cVar) {
+            return aVar.b(new d(this.action, cVar));
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static abstract class ScheduledAction extends AtomicReference<k> implements k {
+        public ScheduledAction() {
+            super(SchedulerWhen.f68223h);
+        }
+
+        public final void a(g.a aVar, h.c cVar) {
+            k kVar = get();
+            if (kVar != SchedulerWhen.i && kVar == SchedulerWhen.f68223h) {
+                k callActual = callActual(aVar, cVar);
+                if (compareAndSet(SchedulerWhen.f68223h, callActual)) {
+                    return;
+                }
+                callActual.unsubscribe();
             }
         }
+
+        public abstract k callActual(g.a aVar, h.c cVar);
+
+        @Override // h.k
+        public boolean isUnsubscribed() {
+            return get().isUnsubscribed();
+        }
+
+        @Override // h.k
+        public void unsubscribe() {
+            k kVar;
+            k kVar2 = SchedulerWhen.i;
+            do {
+                kVar = get();
+                if (kVar == SchedulerWhen.i) {
+                    return;
+                }
+            } while (!compareAndSet(kVar, kVar2));
+            if (kVar != SchedulerWhen.f68223h) {
+                kVar.unsubscribe();
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class a implements f<ScheduledAction, h.b> {
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ g.a f68227e;
+
+        /* renamed from: rx.internal.schedulers.SchedulerWhen$a$a  reason: collision with other inner class name */
+        /* loaded from: classes7.dex */
+        public class C1895a implements b.f {
+
+            /* renamed from: e  reason: collision with root package name */
+            public final /* synthetic */ ScheduledAction f68228e;
+
+            public C1895a(ScheduledAction scheduledAction) {
+                this.f68228e = scheduledAction;
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // h.n.b
+            /* renamed from: a */
+            public void call(h.c cVar) {
+                cVar.onSubscribe(this.f68228e);
+                this.f68228e.a(a.this.f68227e, cVar);
+            }
+        }
+
+        public a(SchedulerWhen schedulerWhen, g.a aVar) {
+            this.f68227e = aVar;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // h.n.f
+        /* renamed from: a */
+        public h.b call(ScheduledAction scheduledAction) {
+            return h.b.b(new C1895a(scheduledAction));
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class b extends g.a {
+
+        /* renamed from: e  reason: collision with root package name */
+        public final AtomicBoolean f68230e = new AtomicBoolean();
+
+        /* renamed from: f  reason: collision with root package name */
+        public final /* synthetic */ g.a f68231f;
+
+        /* renamed from: g  reason: collision with root package name */
+        public final /* synthetic */ h.e f68232g;
+
+        public b(SchedulerWhen schedulerWhen, g.a aVar, h.e eVar) {
+            this.f68231f = aVar;
+            this.f68232g = eVar;
+        }
+
+        @Override // h.g.a
+        public k b(h.n.a aVar) {
+            ImmediateAction immediateAction = new ImmediateAction(aVar);
+            this.f68232g.onNext(immediateAction);
+            return immediateAction;
+        }
+
+        @Override // h.g.a
+        public k c(h.n.a aVar, long j, TimeUnit timeUnit) {
+            DelayedAction delayedAction = new DelayedAction(aVar, j, timeUnit);
+            this.f68232g.onNext(delayedAction);
+            return delayedAction;
+        }
+
+        @Override // h.k
+        public boolean isUnsubscribed() {
+            return this.f68230e.get();
+        }
+
+        @Override // h.k
+        public void unsubscribe() {
+            if (this.f68230e.compareAndSet(false, true)) {
+                this.f68231f.unsubscribe();
+                this.f68232g.onCompleted();
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static class c implements k {
+        @Override // h.k
+        public boolean isUnsubscribed() {
+            return false;
+        }
+
+        @Override // h.k
+        public void unsubscribe() {
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static class d implements h.n.a {
+
+        /* renamed from: e  reason: collision with root package name */
+        public h.c f68233e;
+
+        /* renamed from: f  reason: collision with root package name */
+        public h.n.a f68234f;
+
+        public d(h.n.a aVar, h.c cVar) {
+            this.f68234f = aVar;
+            this.f68233e = cVar;
+        }
+
+        @Override // h.n.a
+        public void call() {
+            try {
+                this.f68234f.call();
+            } finally {
+                this.f68233e.onCompleted();
+            }
+        }
+    }
+
+    public SchedulerWhen(f<h.d<h.d<h.b>>, h.b> fVar, g gVar) {
+        this.f68224e = gVar;
+        PublishSubject L = PublishSubject.L();
+        this.f68225f = new h.q.d(L);
+        this.f68226g = fVar.call(L.t()).f();
+    }
+
+    /* JADX DEBUG: Multi-variable search result rejected for r0v2, resolved type: h.e<h.d<h.b>> */
+    /* JADX WARN: Multi-variable type inference failed */
+    @Override // h.g
+    public g.a createWorker() {
+        g.a createWorker = this.f68224e.createWorker();
+        BufferUntilSubscriber L = BufferUntilSubscriber.L();
+        h.q.d dVar = new h.q.d(L);
+        Object l = L.l(new a(this, createWorker));
+        b bVar = new b(this, createWorker, dVar);
+        this.f68225f.onNext(l);
+        return bVar;
+    }
+
+    @Override // h.k
+    public boolean isUnsubscribed() {
+        return this.f68226g.isUnsubscribed();
+    }
+
+    @Override // h.k
+    public void unsubscribe() {
+        this.f68226g.unsubscribe();
     }
 }

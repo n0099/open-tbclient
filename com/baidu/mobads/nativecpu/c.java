@@ -1,23 +1,26 @@
 package com.baidu.mobads.nativecpu;
 
 import com.baidu.mobads.nativecpu.NativeCPUManager;
-/* loaded from: classes4.dex */
-class c implements Runnable {
+/* loaded from: classes2.dex */
+public class c implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ String f2432a;
-    final /* synthetic */ int b;
-    final /* synthetic */ NativeCPUManager.a c;
+    public final /* synthetic */ String f8391a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    /* renamed from: b  reason: collision with root package name */
+    public final /* synthetic */ int f8392b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public final /* synthetic */ NativeCPUManager.a f8393c;
+
     public c(NativeCPUManager.a aVar, String str, int i) {
-        this.c = aVar;
-        this.f2432a = str;
-        this.b = i;
+        this.f8393c = aVar;
+        this.f8391a = str;
+        this.f8392b = i;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        NativeCPUManager.this.b.onAdError(this.f2432a, this.b);
+        NativeCPUManager.this.f8374b.onAdError(this.f8391a, this.f8392b);
     }
 }

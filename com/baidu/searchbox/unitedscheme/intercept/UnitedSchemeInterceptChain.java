@@ -6,10 +6,32 @@ import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public final class UnitedSchemeInterceptChain {
-    private static final String TAG = "UnitedSchemeInterceptChain";
-    private Map<String, UnitedSchemeBaseInterceptor> mInterceptors = Collections.synchronizedMap(new LinkedHashMap());
+    public static final String TAG = "UnitedSchemeInterceptChain";
+    public Map<String, UnitedSchemeBaseInterceptor> mInterceptors = Collections.synchronizedMap(new LinkedHashMap());
+
+    public void addInterceptor(UnitedSchemeBaseInterceptor unitedSchemeBaseInterceptor) {
+        if (unitedSchemeBaseInterceptor == null) {
+            return;
+        }
+        this.mInterceptors.put(unitedSchemeBaseInterceptor.getInterceptorName(), unitedSchemeBaseInterceptor);
+    }
+
+    public void clearChain() {
+        this.mInterceptors.clear();
+    }
+
+    public boolean isEmpty() {
+        return this.mInterceptors.isEmpty();
+    }
+
+    public void removeInterceptor(UnitedSchemeBaseInterceptor unitedSchemeBaseInterceptor) {
+        if (unitedSchemeBaseInterceptor == null) {
+            return;
+        }
+        this.mInterceptors.remove(unitedSchemeBaseInterceptor.getInterceptorName());
+    }
 
     public boolean shouldInterceptDispatch(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
         try {
@@ -19,28 +41,9 @@ public final class UnitedSchemeInterceptChain {
                     return true;
                 }
             }
-        } catch (Exception e) {
+            return false;
+        } catch (Exception unused) {
+            return false;
         }
-        return false;
-    }
-
-    public void addInterceptor(UnitedSchemeBaseInterceptor unitedSchemeBaseInterceptor) {
-        if (unitedSchemeBaseInterceptor != null) {
-            this.mInterceptors.put(unitedSchemeBaseInterceptor.getInterceptorName(), unitedSchemeBaseInterceptor);
-        }
-    }
-
-    public void removeInterceptor(UnitedSchemeBaseInterceptor unitedSchemeBaseInterceptor) {
-        if (unitedSchemeBaseInterceptor != null) {
-            this.mInterceptors.remove(unitedSchemeBaseInterceptor.getInterceptorName());
-        }
-    }
-
-    public void clearChain() {
-        this.mInterceptors.clear();
-    }
-
-    public boolean isEmpty() {
-        return this.mInterceptors.isEmpty();
     }
 }

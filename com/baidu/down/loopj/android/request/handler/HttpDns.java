@@ -1,7 +1,6 @@
 package com.baidu.down.loopj.android.request.handler;
 
 import android.util.Log;
-import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.down.utils.NamingThreadFactory;
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -19,129 +18,103 @@ import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public final class HttpDns {
-    private static final String ACCOUNT_ID = "0024";
-    private static final int EMPTY_RESULT_HOST_TTL = 300;
-    private static final int MAX_HOLD_HOST_NUM = 100;
-    private static final int RESOLVE_TIMEOUT_IN_SEC = 10;
-    private static final String TAG = "HttpDns";
-    private static String serverIp = "180.76.76.112/v2";
-    private static HttpDns instance = new HttpDns();
-    private boolean isExpiredIpAvailable = false;
-    private CopyOnWriteArrayList<String> mRequstingHost = new CopyOnWriteArrayList<>();
-    private ConcurrentMap<String, HostObject> hostManager = new ConcurrentHashMap();
-    private ExecutorService pool = Executors.newCachedThreadPool(new NamingThreadFactory(TAG));
-    private DegradationFilter degradationFilter = null;
+    public static final String ACCOUNT_ID = "0024";
+    public static final int EMPTY_RESULT_HOST_TTL = 300;
+    public static final int MAX_HOLD_HOST_NUM = 100;
+    public static final int RESOLVE_TIMEOUT_IN_SEC = 10;
+    public static final String TAG = "HttpDns";
+    public static HttpDns instance = new HttpDns();
+    public static String serverIp = "180.76.76.112/v2";
+    public boolean isExpiredIpAvailable = false;
+    public CopyOnWriteArrayList<String> mRequstingHost = new CopyOnWriteArrayList<>();
+    public ConcurrentMap<String, HostObject> hostManager = new ConcurrentHashMap();
+    public ExecutorService pool = Executors.newCachedThreadPool(new NamingThreadFactory(TAG));
+    public DegradationFilter degradationFilter = null;
 
-    public void setPreResolveHosts(String[] strArr) {
-        if (strArr != null) {
-            for (String str : strArr) {
-                if (!this.hostManager.containsKey(str) && !this.mRequstingHost.contains(str)) {
-                    this.pool.submit(new QueryHostTask(str));
-                    this.mRequstingHost.add(str);
-                }
-            }
-        }
-    }
-
-    public void setHttpDnsServerIp(String str) {
-        serverIp = str;
-    }
-
-    public void resetCacheIps() {
-        this.hostManager.clear();
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes2.dex */
     public class HostObject {
-        private String hostName;
-        private String[] ip;
-        private long mQueryTime;
-        private long mTtl;
+        public String hostName;
+        public String[] ip;
+        public long mQueryTime;
+        public long mTtl;
 
-        HostObject() {
-        }
-
-        public String toString() {
-            return "HostObject [hostName=" + this.hostName + ", ip=" + this.ip + ", mTtl=" + this.mTtl + ", mQueryTime=" + this.mQueryTime + "]";
-        }
-
-        public boolean isExpired() {
-            return Math.abs((getmQueryTime() + this.mTtl) - (System.currentTimeMillis() / 1000)) < 0;
-        }
-
-        public String[] getIp() {
-            return this.ip;
-        }
-
-        public void setIp(String[] strArr) {
-            this.ip = strArr;
-        }
-
-        public void setHostName(String str) {
-            this.hostName = str;
+        public HostObject() {
         }
 
         public String getHostName() {
             return this.hostName;
         }
 
-        public long getmTtl() {
-            return this.mTtl;
-        }
-
-        public void setmTtl(long j) {
-            this.mTtl = j;
+        public String[] getIp() {
+            return this.ip;
         }
 
         public long getmQueryTime() {
             return this.mQueryTime;
         }
 
-        public void setmQueryTime(long j) {
-            this.mQueryTime = j;
+        public long getmTtl() {
+            return this.mTtl;
         }
-    }
 
-    /* loaded from: classes6.dex */
-    class QueryHostTask implements Callable<String[]> {
-        private String hostName;
-        private boolean isRequestRetried = false;
+        public boolean isExpired() {
+            return Math.abs((getmQueryTime() + this.mTtl) - (System.currentTimeMillis() / 1000)) < 0;
+        }
 
-        QueryHostTask(String str) {
+        public void setHostName(String str) {
             this.hostName = str;
         }
 
-        /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [283=7, 284=6, 286=6, 288=6, 289=6, 290=6, 293=6] */
+        public void setIp(String[] strArr) {
+            this.ip = strArr;
+        }
+
+        public void setmQueryTime(long j) {
+            this.mQueryTime = j;
+        }
+
+        public void setmTtl(long j) {
+            this.mTtl = j;
+        }
+
+        public String toString() {
+            return "HostObject [hostName=" + this.hostName + ", ip=" + this.ip + ", mTtl=" + this.mTtl + ", mQueryTime=" + this.mQueryTime + "]";
+        }
+    }
+
+    /* loaded from: classes2.dex */
+    public class QueryHostTask implements Callable<String[]> {
+        public String hostName;
+        public boolean isRequestRetried = false;
+
+        public QueryHostTask(String str) {
+            this.hostName = str;
+        }
+
         /* JADX DEBUG: Method merged with bridge method */
-        /* JADX WARN: Removed duplicated region for block: B:16:0x00a6  */
-        /* JADX WARN: Removed duplicated region for block: B:84:0x021f  */
+        /* JADX WARN: Removed duplicated region for block: B:85:0x01c8  */
+        /* JADX WARN: Removed duplicated region for block: B:87:0x01d0 A[RETURN] */
         @Override // java.util.concurrent.Callable
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
         public String[] call() {
-            Throwable th;
             InputStream inputStream;
             HttpURLConnection httpURLConnection;
-            InputStream inputStream2;
-            HttpURLConnection httpURLConnection2;
-            InputStream inputStream3;
-            HttpURLConnection httpURLConnection3 = null;
             String str = "http://" + HttpDns.serverIp + "/" + HttpDns.ACCOUNT_ID + "/?dn=" + this.hostName;
             Log.v(HttpDns.TAG, "[QueryHostTask.call] - buildUrl: " + str);
+            HttpURLConnection httpURLConnection2 = null;
             try {
-                httpURLConnection2 = (HttpURLConnection) new URL(str).openConnection();
+                httpURLConnection = (HttpURLConnection) new URL(str).openConnection();
                 try {
-                    httpURLConnection2.setConnectTimeout(10000);
-                    httpURLConnection2.setReadTimeout(10000);
-                    if (httpURLConnection2.getResponseCode() != 200) {
-                        Log.w(HttpDns.TAG, "[QueryHostTask.call] - response code: " + httpURLConnection2.getResponseCode());
-                        inputStream3 = null;
+                    httpURLConnection.setConnectTimeout(10000);
+                    httpURLConnection.setReadTimeout(10000);
+                    if (httpURLConnection.getResponseCode() != 200) {
+                        Log.w(HttpDns.TAG, "[QueryHostTask.call] - response code: " + httpURLConnection.getResponseCode());
                     } else {
-                        inputStream = httpURLConnection2.getInputStream();
+                        inputStream = httpURLConnection.getInputStream();
                         try {
                             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream, "UTF-8"));
                             StringBuilder sb = new StringBuilder();
@@ -156,73 +129,78 @@ public final class HttpDns {
                             long j = jSONObject.getLong("ttl");
                             JSONObject optJSONObject = jSONObject.optJSONObject("data");
                             if (optJSONObject != null) {
-                                long j2 = j == 0 ? 300L : j;
+                                if (j == 0) {
+                                    j = 300;
+                                }
                                 HostObject hostObject = new HostObject();
                                 JSONObject optJSONObject2 = optJSONObject.optJSONObject(this.hostName);
                                 if (optJSONObject2 == null) {
-                                    if (httpURLConnection2 != null) {
-                                        httpURLConnection2.disconnect();
-                                    }
-                                    if (inputStream != null) {
-                                        try {
-                                            inputStream.close();
-                                        } catch (IOException e) {
-                                            e.printStackTrace();
-                                        }
-                                    }
-                                    HttpDns.this.mRequstingHost.remove(this.hostName);
-                                    return null;
-                                }
-                                JSONArray optJSONArray = optJSONObject2.optJSONArray(TableDefine.UserInfoColumns.COLUMN_IP);
-                                if (optJSONArray == null) {
-                                    if (httpURLConnection2 != null) {
-                                        httpURLConnection2.disconnect();
+                                    if (httpURLConnection != null) {
+                                        httpURLConnection.disconnect();
                                     }
                                     if (inputStream != null) {
                                         try {
                                             inputStream.close();
                                         } catch (IOException e2) {
-                                            e2.printStackTrace();
+                                            e = e2;
+                                            e.printStackTrace();
+                                            HttpDns.this.mRequstingHost.remove(this.hostName);
+                                            return null;
                                         }
                                     }
-                                    HttpDns.this.mRequstingHost.remove(this.hostName);
-                                    return null;
-                                }
-                                String[] strArr = new String[optJSONArray.length()];
-                                for (int i = 0; i < optJSONArray.length(); i++) {
-                                    strArr[i] = optJSONArray.getString(i);
-                                    Log.v(HttpDns.TAG, "[QueryHostTask.call] - resolve host:" + this.hostName + " ip:" + strArr[i] + " mTtl:" + j2);
-                                }
-                                hostObject.setHostName(this.hostName);
-                                hostObject.setmTtl(j2);
-                                hostObject.setIp(strArr);
-                                hostObject.setmQueryTime(System.currentTimeMillis() / 1000);
-                                if (HttpDns.this.hostManager.size() < 100) {
-                                    HttpDns.this.hostManager.put(this.hostName, hostObject);
-                                }
-                                if (httpURLConnection2 != null) {
-                                    httpURLConnection2.disconnect();
-                                }
-                                if (inputStream != null) {
-                                    try {
-                                        inputStream.close();
-                                    } catch (IOException e3) {
-                                        e3.printStackTrace();
+                                } else {
+                                    JSONArray optJSONArray = optJSONObject2.optJSONArray("ip");
+                                    if (optJSONArray != null) {
+                                        String[] strArr = new String[optJSONArray.length()];
+                                        for (int i = 0; i < optJSONArray.length(); i++) {
+                                            strArr[i] = optJSONArray.getString(i);
+                                            Log.v(HttpDns.TAG, "[QueryHostTask.call] - resolve host:" + this.hostName + " ip:" + strArr[i] + " mTtl:" + j);
+                                        }
+                                        hostObject.setHostName(this.hostName);
+                                        hostObject.setmTtl(j);
+                                        hostObject.setIp(strArr);
+                                        hostObject.setmQueryTime(System.currentTimeMillis() / 1000);
+                                        if (HttpDns.this.hostManager.size() < 100) {
+                                            HttpDns.this.hostManager.put(this.hostName, hostObject);
+                                        }
+                                        if (httpURLConnection != null) {
+                                            httpURLConnection.disconnect();
+                                        }
+                                        if (inputStream != null) {
+                                            try {
+                                                inputStream.close();
+                                            } catch (IOException e3) {
+                                                e3.printStackTrace();
+                                            }
+                                        }
+                                        HttpDns.this.mRequstingHost.remove(this.hostName);
+                                        return strArr;
+                                    }
+                                    if (httpURLConnection != null) {
+                                        httpURLConnection.disconnect();
+                                    }
+                                    if (inputStream != null) {
+                                        try {
+                                            inputStream.close();
+                                        } catch (IOException e4) {
+                                            e = e4;
+                                            e.printStackTrace();
+                                            HttpDns.this.mRequstingHost.remove(this.hostName);
+                                            return null;
+                                        }
                                     }
                                 }
                                 HttpDns.this.mRequstingHost.remove(this.hostName);
-                                return strArr;
+                                return null;
                             }
                             inputStream.close();
-                            inputStream3 = null;
-                        } catch (Exception e4) {
-                            inputStream2 = inputStream;
-                            if (httpURLConnection2 != null) {
-                                httpURLConnection2.disconnect();
+                        } catch (Exception unused) {
+                            if (httpURLConnection != null) {
+                                httpURLConnection.disconnect();
                             }
-                            if (inputStream2 != null) {
+                            if (inputStream != null) {
                                 try {
-                                    inputStream2.close();
+                                    inputStream.close();
                                 } catch (IOException e5) {
                                     e5.printStackTrace();
                                 }
@@ -230,11 +208,11 @@ public final class HttpDns {
                             HttpDns.this.mRequstingHost.remove(this.hostName);
                             if (this.isRequestRetried) {
                             }
-                        } catch (Throwable th2) {
-                            th = th2;
-                            httpURLConnection = httpURLConnection2;
-                            if (httpURLConnection != null) {
-                                httpURLConnection.disconnect();
+                        } catch (Throwable th) {
+                            th = th;
+                            httpURLConnection2 = httpURLConnection;
+                            if (httpURLConnection2 != null) {
+                                httpURLConnection2.disconnect();
                             }
                             if (inputStream != null) {
                                 try {
@@ -247,33 +225,21 @@ public final class HttpDns {
                             throw th;
                         }
                     }
-                    httpURLConnection2.disconnect();
-                    if (0 != 0) {
-                        httpURLConnection3.disconnect();
-                    }
-                    if (0 != 0) {
-                        try {
-                            inputStream3.close();
-                        } catch (IOException e7) {
-                            e7.printStackTrace();
-                        }
-                    }
-                    HttpDns.this.mRequstingHost.remove(this.hostName);
-                } catch (Exception e8) {
-                    inputStream2 = null;
-                } catch (Throwable th3) {
-                    th = th3;
+                    httpURLConnection.disconnect();
+                } catch (Exception unused2) {
                     inputStream = null;
-                    httpURLConnection = httpURLConnection2;
+                } catch (Throwable th2) {
+                    th = th2;
+                    inputStream = null;
                 }
-            } catch (Exception e9) {
-                inputStream2 = null;
-                httpURLConnection2 = null;
-            } catch (Throwable th4) {
-                th = th4;
-                inputStream = null;
+            } catch (Exception unused3) {
                 httpURLConnection = null;
+                inputStream = null;
+            } catch (Throwable th3) {
+                th = th3;
+                inputStream = null;
             }
+            HttpDns.this.mRequstingHost.remove(this.hostName);
             if (this.isRequestRetried) {
                 this.isRequestRetried = true;
                 return call();
@@ -282,46 +248,62 @@ public final class HttpDns {
         }
     }
 
-    private HttpDns() {
-    }
-
     public static HttpDns getInstance() {
         return instance;
     }
 
-    public void setExpiredIPAvailable(boolean z) {
-        this.isExpiredIpAvailable = z;
+    public synchronized String[] getIpByHost(String str) {
+        if (this.degradationFilter != null && this.degradationFilter.shouldDegradeHttpDNS(str)) {
+            Log.v(TAG, "[degradationFilter] - degradationFilter Degrade " + str);
+            return null;
+        }
+        HostObject hostObject = this.hostManager.get(str);
+        if ((hostObject != null && (!hostObject.isExpired() || isExpiredIpAvailable())) || this.mRequstingHost.contains(str)) {
+            if (hostObject == null) {
+                return null;
+            }
+            return hostObject.getIp();
+        }
+        Log.v(TAG, "[getIpByHost] - fetch result from network, host: " + str);
+        Future submit = this.pool.submit(new QueryHostTask(str));
+        this.mRequstingHost.add(str);
+        try {
+            return (String[]) submit.get(3L, TimeUnit.SECONDS);
+        } catch (Exception unused) {
+            this.mRequstingHost.remove(str);
+            return null;
+        }
     }
 
     public boolean isExpiredIpAvailable() {
         return this.isExpiredIpAvailable;
     }
 
-    public synchronized String[] getIpByHost(String str) {
-        String[] strArr;
-        if (this.degradationFilter != null && this.degradationFilter.shouldDegradeHttpDNS(str)) {
-            Log.v(TAG, "[degradationFilter] - degradationFilter Degrade " + str);
-            strArr = null;
-        } else {
-            HostObject hostObject = this.hostManager.get(str);
-            if ((hostObject == null || (hostObject.isExpired() && !isExpiredIpAvailable())) && !this.mRequstingHost.contains(str)) {
-                Log.v(TAG, "[getIpByHost] - fetch result from network, host: " + str);
-                Future submit = this.pool.submit(new QueryHostTask(str));
-                this.mRequstingHost.add(str);
-                try {
-                    strArr = (String[]) submit.get(3L, TimeUnit.SECONDS);
-                } catch (Exception e) {
-                    this.mRequstingHost.remove(str);
-                    strArr = null;
-                }
-            } else {
-                strArr = hostObject == null ? null : hostObject.getIp();
-            }
-        }
-        return strArr;
+    public void resetCacheIps() {
+        this.hostManager.clear();
     }
 
     public void setDegradationFilter(DegradationFilter degradationFilter) {
         this.degradationFilter = degradationFilter;
+    }
+
+    public void setExpiredIPAvailable(boolean z) {
+        this.isExpiredIpAvailable = z;
+    }
+
+    public void setHttpDnsServerIp(String str) {
+        serverIp = str;
+    }
+
+    public void setPreResolveHosts(String[] strArr) {
+        if (strArr == null) {
+            return;
+        }
+        for (String str : strArr) {
+            if (!this.hostManager.containsKey(str) && !this.mRequstingHost.contains(str)) {
+                this.pool.submit(new QueryHostTask(str));
+                this.mRequstingHost.add(str);
+            }
+        }
     }
 }

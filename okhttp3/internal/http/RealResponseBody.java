@@ -4,12 +4,12 @@ import javax.annotation.Nullable;
 import okhttp3.MediaType;
 import okhttp3.ResponseBody;
 import okio.BufferedSource;
-/* loaded from: classes14.dex */
+/* loaded from: classes.dex */
 public final class RealResponseBody extends ResponseBody {
-    private final long contentLength;
+    public final long contentLength;
     @Nullable
-    private final String contentTypeString;
-    private final BufferedSource source;
+    public final String contentTypeString;
+    public final BufferedSource source;
 
     public RealResponseBody(@Nullable String str, long j, BufferedSource bufferedSource) {
         this.contentTypeString = str;
@@ -18,16 +18,17 @@ public final class RealResponseBody extends ResponseBody {
     }
 
     @Override // okhttp3.ResponseBody
-    public MediaType contentType() {
-        if (this.contentTypeString != null) {
-            return MediaType.parse(this.contentTypeString);
-        }
-        return null;
+    public long contentLength() {
+        return this.contentLength;
     }
 
     @Override // okhttp3.ResponseBody
-    public long contentLength() {
-        return this.contentLength;
+    public MediaType contentType() {
+        String str = this.contentTypeString;
+        if (str != null) {
+            return MediaType.parse(str);
+        }
+        return null;
     }
 
     @Override // okhttp3.ResponseBody

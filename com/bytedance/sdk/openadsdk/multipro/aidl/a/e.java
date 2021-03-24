@@ -11,25 +11,20 @@ import java.util.Map;
 public class e extends a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static Map<String, RemoteCallbackList<IFullScreenVideoAdInteractionListener>> f4887a = Collections.synchronizedMap(new HashMap());
-    private static volatile e b;
+    public static Map<String, RemoteCallbackList<IFullScreenVideoAdInteractionListener>> f29816a = Collections.synchronizedMap(new HashMap());
+
+    /* renamed from: b  reason: collision with root package name */
+    public static volatile e f29817b;
 
     public static e a() {
-        if (b == null) {
+        if (f29817b == null) {
             synchronized (e.class) {
-                if (b == null) {
-                    b = new e();
+                if (f29817b == null) {
+                    f29817b = new e();
                 }
             }
         }
-        return b;
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.multipro.aidl.a.a, com.bytedance.sdk.openadsdk.IListenerManager
-    public synchronized void registerFullVideoListener(String str, IFullScreenVideoAdInteractionListener iFullScreenVideoAdInteractionListener) throws RemoteException {
-        RemoteCallbackList<IFullScreenVideoAdInteractionListener> remoteCallbackList = new RemoteCallbackList<>();
-        remoteCallbackList.register(iFullScreenVideoAdInteractionListener);
-        f4887a.put(str, remoteCallbackList);
+        return f29817b;
     }
 
     @Override // com.bytedance.sdk.openadsdk.multipro.aidl.a.a, com.bytedance.sdk.openadsdk.IListenerManager
@@ -37,14 +32,21 @@ public class e extends a {
         a(str, str2);
     }
 
+    @Override // com.bytedance.sdk.openadsdk.multipro.aidl.a.a, com.bytedance.sdk.openadsdk.IListenerManager
+    public synchronized void registerFullVideoListener(String str, IFullScreenVideoAdInteractionListener iFullScreenVideoAdInteractionListener) throws RemoteException {
+        RemoteCallbackList<IFullScreenVideoAdInteractionListener> remoteCallbackList = new RemoteCallbackList<>();
+        remoteCallbackList.register(iFullScreenVideoAdInteractionListener);
+        f29816a.put(str, remoteCallbackList);
+    }
+
     private synchronized void a(String str, String str2) {
         RemoteCallbackList<IFullScreenVideoAdInteractionListener> remoteCallbackList;
         try {
-            if (f4887a != null) {
+            if (f29816a != null) {
                 if ("recycleRes".equals(str2)) {
-                    remoteCallbackList = f4887a.remove(str);
+                    remoteCallbackList = f29816a.remove(str);
                 } else {
-                    remoteCallbackList = f4887a.get(str);
+                    remoteCallbackList = f29816a.get(str);
                 }
                 if (remoteCallbackList != null) {
                     int beginBroadcast = remoteCallbackList.beginBroadcast();

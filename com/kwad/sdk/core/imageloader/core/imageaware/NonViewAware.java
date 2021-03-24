@@ -6,11 +6,11 @@ import android.text.TextUtils;
 import android.view.View;
 import com.kwad.sdk.core.imageloader.core.assist.ImageSize;
 import com.kwad.sdk.core.imageloader.core.assist.ViewScaleType;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class NonViewAware implements ImageAware {
-    protected final ImageSize imageSize;
-    protected final String imageUri;
-    protected final ViewScaleType scaleType;
+    public final ImageSize imageSize;
+    public final String imageUri;
+    public final ViewScaleType scaleType;
 
     public NonViewAware(ImageSize imageSize, ViewScaleType viewScaleType) {
         this(null, imageSize, viewScaleType);

@@ -1,26 +1,26 @@
 package com.vivo.push;
 
 import com.vivo.push.p;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes14.dex */
+/* loaded from: classes7.dex */
 public final class u implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ String f8072a;
-    final /* synthetic */ p b;
+    public final /* synthetic */ String f39527a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    /* renamed from: b  reason: collision with root package name */
+    public final /* synthetic */ p f39528b;
+
     public u(p pVar, String str) {
-        this.b = pVar;
-        this.f8072a = str;
+        this.f39528b = pVar;
+        this.f39527a = str;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
-        p.a c;
-        c = this.b.c(this.f8072a);
-        if (c != null) {
-            c.a(1003, new Object[0]);
+        p.a c2;
+        c2 = this.f39528b.c(this.f39527a);
+        if (c2 != null) {
+            c2.a(1003, new Object[0]);
         }
     }
 }

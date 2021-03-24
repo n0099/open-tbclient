@@ -1,17 +1,17 @@
 package com.baidu.mobads.production;
-/* loaded from: classes4.dex */
-class h implements Runnable {
+/* loaded from: classes2.dex */
+public class h implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ a f2463a;
+    public final /* synthetic */ a f8472a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public h(a aVar) {
-        this.f2463a = aVar;
+        this.f8472a = aVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.f2463a.h.resize(this.f2463a.getProdBase().getWidth(), this.f2463a.getProdBase().getHeight());
+        a aVar = this.f8472a;
+        aVar.f8440h.resize(aVar.getProdBase().getWidth(), this.f8472a.getProdBase().getHeight());
     }
 }

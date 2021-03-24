@@ -2,7 +2,7 @@ package com.baidu.tbadk.widget.richText;
 
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import tbclient.MemeInfo;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class TbRichTextMemeInfo extends OrmObject {
     public MemeInfo memeInfo;
 }

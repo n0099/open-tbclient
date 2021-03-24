@@ -7,19 +7,38 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-/* loaded from: classes14.dex */
+/* loaded from: classes.dex */
 public abstract class PagerAdapter {
     public static final int POSITION_NONE = -2;
     public static final int POSITION_UNCHANGED = -1;
-    private final DataSetObservable mObservable = new DataSetObservable();
-    private DataSetObserver mViewPagerObserver;
+    public final DataSetObservable mObservable = new DataSetObservable();
+    public DataSetObserver mViewPagerObserver;
+
+    public void destroyItem(@NonNull ViewGroup viewGroup, int i, @NonNull Object obj) {
+        destroyItem((View) viewGroup, i, obj);
+    }
+
+    @Deprecated
+    public void finishUpdate(@NonNull View view) {
+    }
+
+    public void finishUpdate(@NonNull ViewGroup viewGroup) {
+        finishUpdate((View) viewGroup);
+    }
 
     public abstract int getCount();
 
-    public abstract boolean isViewFromObject(@NonNull View view, @NonNull Object obj);
+    public int getItemPosition(@NonNull Object obj) {
+        return -1;
+    }
 
-    public void startUpdate(@NonNull ViewGroup viewGroup) {
-        startUpdate((View) viewGroup);
+    @Nullable
+    public CharSequence getPageTitle(int i) {
+        return null;
+    }
+
+    public float getPageWidth(int i) {
+        return 1.0f;
     }
 
     @NonNull
@@ -27,52 +46,7 @@ public abstract class PagerAdapter {
         return instantiateItem((View) viewGroup, i);
     }
 
-    public void destroyItem(@NonNull ViewGroup viewGroup, int i, @NonNull Object obj) {
-        destroyItem((View) viewGroup, i, obj);
-    }
-
-    public void setPrimaryItem(@NonNull ViewGroup viewGroup, int i, @NonNull Object obj) {
-        setPrimaryItem((View) viewGroup, i, obj);
-    }
-
-    public void finishUpdate(@NonNull ViewGroup viewGroup) {
-        finishUpdate((View) viewGroup);
-    }
-
-    @Deprecated
-    public void startUpdate(@NonNull View view) {
-    }
-
-    @NonNull
-    @Deprecated
-    public Object instantiateItem(@NonNull View view, int i) {
-        throw new UnsupportedOperationException("Required method instantiateItem was not overridden");
-    }
-
-    @Deprecated
-    public void destroyItem(@NonNull View view, int i, @NonNull Object obj) {
-        throw new UnsupportedOperationException("Required method destroyItem was not overridden");
-    }
-
-    @Deprecated
-    public void setPrimaryItem(@NonNull View view, int i, @NonNull Object obj) {
-    }
-
-    @Deprecated
-    public void finishUpdate(@NonNull View view) {
-    }
-
-    @Nullable
-    public Parcelable saveState() {
-        return null;
-    }
-
-    public void restoreState(@Nullable Parcelable parcelable, @Nullable ClassLoader classLoader) {
-    }
-
-    public int getItemPosition(@NonNull Object obj) {
-        return -1;
-    }
+    public abstract boolean isViewFromObject(@NonNull View view, @NonNull Object obj);
 
     public void notifyDataSetChanged() {
         synchronized (this) {
@@ -87,23 +61,48 @@ public abstract class PagerAdapter {
         this.mObservable.registerObserver(dataSetObserver);
     }
 
-    public void unregisterDataSetObserver(@NonNull DataSetObserver dataSetObserver) {
-        this.mObservable.unregisterObserver(dataSetObserver);
+    public void restoreState(@Nullable Parcelable parcelable, @Nullable ClassLoader classLoader) {
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    @Nullable
+    public Parcelable saveState() {
+        return null;
+    }
+
+    @Deprecated
+    public void setPrimaryItem(@NonNull View view, int i, @NonNull Object obj) {
+    }
+
+    public void setPrimaryItem(@NonNull ViewGroup viewGroup, int i, @NonNull Object obj) {
+        setPrimaryItem((View) viewGroup, i, obj);
+    }
+
     public void setViewPagerObserver(DataSetObserver dataSetObserver) {
         synchronized (this) {
             this.mViewPagerObserver = dataSetObserver;
         }
     }
 
-    @Nullable
-    public CharSequence getPageTitle(int i) {
-        return null;
+    @Deprecated
+    public void startUpdate(@NonNull View view) {
     }
 
-    public float getPageWidth(int i) {
-        return 1.0f;
+    public void startUpdate(@NonNull ViewGroup viewGroup) {
+        startUpdate((View) viewGroup);
+    }
+
+    public void unregisterDataSetObserver(@NonNull DataSetObserver dataSetObserver) {
+        this.mObservable.unregisterObserver(dataSetObserver);
+    }
+
+    @Deprecated
+    public void destroyItem(@NonNull View view, int i, @NonNull Object obj) {
+        throw new UnsupportedOperationException("Required method destroyItem was not overridden");
+    }
+
+    @NonNull
+    @Deprecated
+    public Object instantiateItem(@NonNull View view, int i) {
+        throw new UnsupportedOperationException("Required method instantiateItem was not overridden");
     }
 }

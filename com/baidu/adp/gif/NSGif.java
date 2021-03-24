@@ -3,122 +3,148 @@ package com.baidu.adp.gif;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.adp.lib.util.h;
-import com.baidu.adp.lib.util.i;
+import d.b.b.e.p.h;
+import d.b.b.e.p.i;
 /* loaded from: classes.dex */
-public class NSGif implements b {
-    private static final String Lk = BdBaseApplication.getInst().getCacheDir().getAbsolutePath();
-    public static boolean Ll = h.nI().a("nsgif_jni", 2, new i() { // from class: com.baidu.adp.gif.NSGif.2
-        @Override // com.baidu.adp.lib.util.i
-        public void callback(boolean z) {
-            NSGif.Ll = z;
+public class NSGif implements d.b.b.d.b {
+
+    /* renamed from: e  reason: collision with root package name */
+    public static final String f2133e = BdBaseApplication.getInst().getCacheDir().getAbsolutePath();
+
+    /* renamed from: f  reason: collision with root package name */
+    public static boolean f2134f = h.f().k("nsgif_jni", 2, new b());
+
+    /* renamed from: a  reason: collision with root package name */
+    public int f2135a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public final int f2136b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public final int f2137c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public final int f2138d;
+
+    /* loaded from: classes.dex */
+    public class a implements Runnable {
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ int f2139e;
+
+        public a(int i) {
+            this.f2139e = i;
         }
-    });
-    private int Lm;
-    private final int mFrameCount;
-    private final int mHeight;
-    private final int mWidth;
 
-    private static native int nativeCreate(String str, String str2);
+        @Override // java.lang.Runnable
+        public void run() {
+            NSGif.nativeDestroy(this.f2139e);
+        }
+    }
 
-    private static native int nativeCreate(String str, byte[] bArr, int i, int i2);
+    /* loaded from: classes.dex */
+    public static class b extends i {
+        @Override // d.b.b.e.p.i
+        public void a(boolean z) {
+            NSGif.f2134f = z;
+        }
+    }
 
-    private static native boolean nativeDecodeFrame(int i, int i2);
+    public NSGif(int i) {
+        this.f2135a = i;
+        this.f2136b = nativeGetWidth(i);
+        this.f2137c = nativeGetHeight(i);
+        this.f2138d = nativeGetFrameCount(i);
+    }
 
-    /* JADX INFO: Access modifiers changed from: private */
+    public static NSGif e(String str) {
+        int nativeCreate = nativeCreate(f2133e, str);
+        if (nativeCreate != 0) {
+            return new NSGif(nativeCreate);
+        }
+        return null;
+    }
+
+    public static NSGif f(byte[] bArr, int i, int i2) {
+        int nativeCreate = nativeCreate(f2133e, bArr, i, i2);
+        if (nativeCreate != 0) {
+            return new NSGif(nativeCreate);
+        }
+        return null;
+    }
+
+    public static native int nativeCreate(String str, String str2);
+
+    public static native int nativeCreate(String str, byte[] bArr, int i, int i2);
+
+    public static native boolean nativeDecodeFrame(int i, int i2);
+
     public static native int nativeDestroy(int i);
 
-    private static native int nativeGetCurrentFrame(int i);
+    public static native int nativeGetCurrentFrame(int i);
 
-    private static native int nativeGetFrameCount(int i);
+    public static native int nativeGetFrameCount(int i);
 
-    private static native int nativeGetFrameDelay(int i, int i2);
+    public static native int nativeGetFrameDelay(int i, int i2);
 
-    private static native int nativeGetHeight(int i);
+    public static native int nativeGetHeight(int i);
 
-    private static native int nativeGetWidth(int i);
+    public static native int nativeGetWidth(int i);
 
-    private static native boolean nativeWriteTo(int i, Bitmap bitmap);
+    public static native boolean nativeWriteTo(int i, Bitmap bitmap);
 
-    private NSGif(int i) {
-        this.Lm = i;
-        this.mWidth = nativeGetWidth(i);
-        this.mHeight = nativeGetHeight(i);
-        this.mFrameCount = nativeGetFrameCount(i);
-    }
-
-    public static NSGif bx(String str) {
-        int nativeCreate = nativeCreate(Lk, str);
-        if (nativeCreate != 0) {
-            return new NSGif(nativeCreate);
-        }
-        return null;
-    }
-
-    public static NSGif g(byte[] bArr, int i, int i2) {
-        int nativeCreate = nativeCreate(Lk, bArr, i, i2);
-        if (nativeCreate != 0) {
-            return new NSGif(nativeCreate);
-        }
-        return null;
-    }
-
-    @Override // com.baidu.adp.gif.b
-    public void close() {
-        if (this.Lm != 0) {
-            final int i = this.Lm;
-            this.Lm = 0;
-            com.baidu.adp.lib.f.h.mB().submitTaskToSingleThread(new Runnable() { // from class: com.baidu.adp.gif.NSGif.1
-                @Override // java.lang.Runnable
-                public void run() {
-                    NSGif.nativeDestroy(i);
-                }
-            });
-        }
-    }
-
-    protected void finalize() throws Throwable {
-        try {
-            close();
-            super.finalize();
-        } catch (Exception e) {
-        }
-    }
-
-    @Override // com.baidu.adp.gif.b
-    public int getWidth() {
-        return this.mWidth;
-    }
-
-    @Override // com.baidu.adp.gif.b
-    public int getHeight() {
-        return this.mHeight;
-    }
-
-    @Override // com.baidu.adp.gif.b
-    public int getFrameCount() {
-        return this.mFrameCount;
-    }
-
-    @Override // com.baidu.adp.gif.b
-    public int ag(int i) {
-        int nativeGetFrameDelay = nativeGetFrameDelay(this.Lm, i);
+    @Override // d.b.b.d.b
+    public int a(int i) {
+        int nativeGetFrameDelay = nativeGetFrameDelay(this.f2135a, i);
         if (nativeGetFrameDelay <= 0) {
             return 100;
         }
         return nativeGetFrameDelay * 10;
     }
 
-    @Override // com.baidu.adp.gif.b
-    public boolean af(int i) {
-        return nativeDecodeFrame(this.Lm, i);
+    @Override // d.b.b.d.b
+    public boolean b(int i) {
+        return nativeDecodeFrame(this.f2135a, i);
     }
 
-    @Override // com.baidu.adp.gif.b
-    public boolean a(Bitmap bitmap, Canvas canvas) {
+    @Override // d.b.b.d.b
+    public boolean c(Bitmap bitmap, Canvas canvas) {
         if (bitmap == null) {
             return false;
         }
-        return nativeWriteTo(this.Lm, bitmap);
+        return nativeWriteTo(this.f2135a, bitmap);
+    }
+
+    @Override // d.b.b.d.b
+    public void close() {
+        int i = this.f2135a;
+        if (i == 0) {
+            return;
+        }
+        this.f2135a = 0;
+        d.b.b.e.m.h.a().c(new a(i));
+    }
+
+    public void finalize() throws Throwable {
+        try {
+            close();
+            super.finalize();
+        } catch (Exception unused) {
+        }
+    }
+
+    @Override // d.b.b.d.b
+    public int getFrameCount() {
+        return this.f2138d;
+    }
+
+    @Override // d.b.b.d.b
+    public int getHeight() {
+        return this.f2137c;
+    }
+
+    @Override // d.b.b.d.b
+    public int getWidth() {
+        return this.f2136b;
     }
 }

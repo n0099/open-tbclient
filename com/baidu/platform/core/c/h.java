@@ -1,24 +1,26 @@
 package com.baidu.platform.core.c;
 
 import com.baidu.platform.base.SearchType;
-/* loaded from: classes4.dex */
-/* synthetic */ class h {
+/* loaded from: classes2.dex */
+public /* synthetic */ class h {
 
     /* renamed from: a  reason: collision with root package name */
-    static final /* synthetic */ int[] f3099a = new int[SearchType.values().length];
+    public static final /* synthetic */ int[] f10417a;
 
     static {
+        int[] iArr = new int[SearchType.values().length];
+        f10417a = iArr;
         try {
-            f3099a[SearchType.POI_NEAR_BY_SEARCH.ordinal()] = 1;
-        } catch (NoSuchFieldError e) {
+            iArr[SearchType.POI_NEAR_BY_SEARCH.ordinal()] = 1;
+        } catch (NoSuchFieldError unused) {
         }
         try {
-            f3099a[SearchType.POI_IN_CITY_SEARCH.ordinal()] = 2;
-        } catch (NoSuchFieldError e2) {
+            f10417a[SearchType.POI_IN_CITY_SEARCH.ordinal()] = 2;
+        } catch (NoSuchFieldError unused2) {
         }
         try {
-            f3099a[SearchType.POI_IN_BOUND_SEARCH.ordinal()] = 3;
-        } catch (NoSuchFieldError e3) {
+            f10417a[SearchType.POI_IN_BOUND_SEARCH.ordinal()] = 3;
+        } catch (NoSuchFieldError unused3) {
         }
     }
 }

@@ -2,47 +2,52 @@ package com.baidu.tbadk.getUserInfo;
 
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.squareup.wire.Wire;
+import d.b.h0.z.a;
+import d.b.h0.z.b;
+import tbclient.Error;
 import tbclient.GetUserInfo.GetUserInfoResIdl;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class GetUserInfoHttpResponseMessage extends TbHttpResponsedMessage {
-    private a mData;
+    public a mData;
 
     public GetUserInfoHttpResponseMessage(int i) {
         super(i);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tbadk.message.http.TbHttpResponsedMessage, com.baidu.adp.framework.message.a
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
-        super.decodeInBackGround(i, bArr);
-        if (bArr != null) {
-            GetUserInfoResIdl getUserInfoResIdl = (GetUserInfoResIdl) new Wire(new Class[0]).parseFrom(bArr, GetUserInfoResIdl.class);
-            if (getUserInfoResIdl.error != null) {
-                setError(getUserInfoResIdl.error.errorno.intValue());
-                setErrorString(getUserInfoResIdl.error.usermsg);
-                if (getError() == 0) {
-                    this.mData = new a();
-                    this.mData.a(getUserInfoResIdl.data);
-                }
-            }
-        }
+    public a getData() {
+        return this.mData;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public void afterDispatchInBackGround(int i, byte[] bArr) {
         super.afterDispatchInBackGround(i, (int) bArr);
-        if (this.mData != null && this.mData.bCK() != null) {
-            b.bCL().a(this.mData.bCK());
+        a aVar = this.mData;
+        if (aVar != null && aVar.a() != null) {
+            b.a().e(this.mData.a());
         } else {
-            MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(CmdConfigCustom.CMD_PERSON_INFO_CHANGED));
+            MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2001247));
         }
     }
 
-    public a getData() {
-        return this.mData;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tbadk.message.http.TbHttpResponsedMessage, com.baidu.adp.framework.message.HttpResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
+    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
+        GetUserInfoResIdl getUserInfoResIdl;
+        Error error;
+        super.decodeInBackGround(i, bArr);
+        if (bArr == null || (error = (getUserInfoResIdl = (GetUserInfoResIdl) new Wire(new Class[0]).parseFrom(bArr, GetUserInfoResIdl.class)).error) == null) {
+            return;
+        }
+        setError(error.errorno.intValue());
+        setErrorString(getUserInfoResIdl.error.usermsg);
+        if (getError() != 0) {
+            return;
+        }
+        a aVar = new a();
+        this.mData = aVar;
+        aVar.b(getUserInfoResIdl.data);
     }
 }

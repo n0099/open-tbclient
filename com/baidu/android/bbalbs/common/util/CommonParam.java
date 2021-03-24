@@ -1,11 +1,11 @@
 package com.baidu.android.bbalbs.common.util;
 
 import android.content.Context;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class CommonParam {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f1054a = CommonParam.class.getSimpleName();
+    public static final String f2498a = "CommonParam";
 
     public static String a(Context context) {
         return b.a(context);

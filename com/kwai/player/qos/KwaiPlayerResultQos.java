@@ -2,7 +2,7 @@ package com.kwai.player.qos;
 
 import androidx.annotation.Keep;
 @Keep
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public final class KwaiPlayerResultQos {
     public String briefVideoStatJson;
     public float videoAvgFps;

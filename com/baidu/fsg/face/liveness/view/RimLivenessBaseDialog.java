@@ -9,41 +9,49 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.sapi2.biometrics.liveness.R;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public class RimLivenessBaseDialog extends Dialog {
 
     /* renamed from: a  reason: collision with root package name */
-    private TextView f1817a;
-    private LinearLayout b;
-    private Button c;
-    private Button d;
+    public TextView f6165a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public LinearLayout f6166b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public Button f6167c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public Button f6168d;
 
     public RimLivenessBaseDialog(Context context) {
         super(context, R.style.BeautyDialog);
         a();
     }
 
-    public RimLivenessBaseDialog(Context context, int i) {
-        super(context, i);
-        a();
-    }
-
     private void a() {
         setContentView(R.layout.rim_liveness_alert_dialog_base);
-        this.f1817a = (TextView) findViewById(R.id.dialog_title);
-        this.b = (LinearLayout) findViewById(R.id.dialog_content);
-        this.c = (Button) findViewById(R.id.positive_btn);
-        this.d = (Button) findViewById(R.id.negative_btn);
+        this.f6165a = (TextView) findViewById(R.id.dialog_title);
+        this.f6166b = (LinearLayout) findViewById(R.id.dialog_content);
+        this.f6167c = (Button) findViewById(R.id.positive_btn);
+        this.f6168d = (Button) findViewById(R.id.negative_btn);
         setCancelable(false);
     }
 
-    @Override // android.app.Dialog
-    public void setTitle(CharSequence charSequence) {
-        this.f1817a.setText(charSequence);
+    public void addContentView(int i) {
+        LayoutInflater.from(getContext()).inflate(i, (ViewGroup) this.f6166b, true);
     }
 
-    public void addContentView(int i) {
-        LayoutInflater.from(getContext()).inflate(i, (ViewGroup) this.b, true);
+    public void setNegativeBtnClickListener(CharSequence charSequence, View.OnClickListener onClickListener) {
+        findViewById(R.id.btn_line).setVisibility(0);
+        this.f6168d.setVisibility(0);
+        this.f6168d.setText(charSequence);
+        this.f6168d.setOnClickListener(onClickListener);
+    }
+
+    public void setPositiveBtnClickListener(CharSequence charSequence, View.OnClickListener onClickListener) {
+        this.f6167c.setText(charSequence);
+        this.f6167c.setOnClickListener(onClickListener);
     }
 
     public void setTextViewContent(CharSequence charSequence) {
@@ -56,18 +64,16 @@ public class RimLivenessBaseDialog extends Dialog {
         int dimension = (int) getContext().getResources().getDimension(R.dimen.rim_dimen_20dp);
         textView.setPadding(dimension, dimension, dimension, dimension);
         textView.setLayoutParams(new LinearLayout.LayoutParams(-2, -2));
-        this.b.addView(textView);
+        this.f6166b.addView(textView);
     }
 
-    public void setPositiveBtnClickListener(CharSequence charSequence, View.OnClickListener onClickListener) {
-        this.c.setText(charSequence);
-        this.c.setOnClickListener(onClickListener);
+    @Override // android.app.Dialog
+    public void setTitle(CharSequence charSequence) {
+        this.f6165a.setText(charSequence);
     }
 
-    public void setNegativeBtnClickListener(CharSequence charSequence, View.OnClickListener onClickListener) {
-        findViewById(R.id.btn_line).setVisibility(0);
-        this.d.setVisibility(0);
-        this.d.setText(charSequence);
-        this.d.setOnClickListener(onClickListener);
+    public RimLivenessBaseDialog(Context context, int i) {
+        super(context, i);
+        a();
     }
 }

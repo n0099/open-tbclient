@@ -2,17 +2,25 @@ package com.baidu.tieba.myCollection.message;
 
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.y;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.google.gson.JsonArray;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class AlaMGetLiveStatusRequestMessage extends HttpMessage {
-    private List<Object> mOriginDatas;
+    public List<Object> mOriginDatas;
 
     public AlaMGetLiveStatusRequestMessage() {
         super(CmdConfigHttp.CMD_ALA_LIVE_ROOM_CLOSED);
         this.mOriginDatas = new ArrayList();
+    }
+
+    public List<Object> getOrignData() {
+        return this.mOriginDatas;
+    }
+
+    public void setAudienceCount(long j) {
+        addParam("audience_count", j);
     }
 
     public void setListIds(List<Long> list) {
@@ -26,18 +34,11 @@ public class AlaMGetLiveStatusRequestMessage extends HttpMessage {
         addParam("live_ids", jsonArray.toString());
     }
 
-    public void setAudienceCount(long j) {
-        addParam("audience_count", j);
-    }
-
     public void setOriginData(List<Object> list) {
-        if (!y.isEmpty(list)) {
-            this.mOriginDatas.clear();
-            this.mOriginDatas.addAll(list);
+        if (ListUtils.isEmpty(list)) {
+            return;
         }
-    }
-
-    public List<Object> getOrignData() {
-        return this.mOriginDatas;
+        this.mOriginDatas.clear();
+        this.mOriginDatas.addAll(list);
     }
 }

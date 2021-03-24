@@ -3,30 +3,15 @@ package com.tencent.open.a;
 import android.text.format.Time;
 import android.util.Log;
 import androidx.exifinterface.media.ExifInterface;
-import com.xiaomi.mipush.sdk.Constants;
-/* loaded from: classes14.dex */
+import com.baidu.android.common.others.IStringUtil;
+/* loaded from: classes7.dex */
 public final class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final h f7957a = new h();
+    public static final h f39217a = new h();
 
     public final String a(int i) {
-        switch (i) {
-            case 1:
-                return ExifInterface.GPS_MEASUREMENT_INTERRUPTED;
-            case 2:
-                return "D";
-            case 4:
-                return "I";
-            case 8:
-                return ExifInterface.LONGITUDE_WEST;
-            case 16:
-                return ExifInterface.LONGITUDE_EAST;
-            case 32:
-                return ExifInterface.GPS_MEASUREMENT_IN_PROGRESS;
-            default:
-                return Constants.ACCEPT_TIME_SEPARATOR_SERVER;
-        }
+        return i != 1 ? i != 2 ? i != 4 ? i != 8 ? i != 16 ? i != 32 ? "-" : ExifInterface.GPS_MEASUREMENT_IN_PROGRESS : ExifInterface.LONGITUDE_EAST : ExifInterface.LONGITUDE_WEST : "I" : "D" : ExifInterface.GPS_MEASUREMENT_INTERRUPTED;
     }
 
     public String a(int i, Thread thread, long j, String str, String str2, Throwable th) {
@@ -34,21 +19,34 @@ public final class h {
         Time time = new Time();
         time.set(j);
         StringBuilder sb = new StringBuilder();
-        sb.append(a(i)).append('/').append(time.format("%Y-%m-%d %H:%M:%S")).append('.');
+        sb.append(a(i));
+        sb.append('/');
+        sb.append(time.format("%Y-%m-%d %H:%M:%S"));
+        sb.append(IStringUtil.EXTENSION_SEPARATOR);
         if (j2 < 10) {
             sb.append("00");
         } else if (j2 < 100) {
             sb.append('0');
         }
-        sb.append(j2).append(' ').append('[');
+        sb.append(j2);
+        sb.append(' ');
+        sb.append('[');
         if (thread == null) {
             sb.append("N/A");
         } else {
             sb.append(thread.getName());
         }
-        sb.append(']').append('[').append(str).append(']').append(' ').append(str2).append('\n');
+        sb.append(']');
+        sb.append('[');
+        sb.append(str);
+        sb.append(']');
+        sb.append(' ');
+        sb.append(str2);
+        sb.append('\n');
         if (th != null) {
-            sb.append("* Exception : \n").append(Log.getStackTraceString(th)).append('\n');
+            sb.append("* Exception : \n");
+            sb.append(Log.getStackTraceString(th));
+            sb.append('\n');
         }
         return sb.toString();
     }

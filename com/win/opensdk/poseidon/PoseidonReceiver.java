@@ -6,41 +6,43 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.text.TextUtils;
 import com.win.opensdk.PBInterstitial;
-import com.win.opensdk.bo;
-import com.win.opensdk.bp;
-import com.win.opensdk.bq;
-/* loaded from: classes14.dex */
+import com.win.opensdk.V0;
+import com.win.opensdk.V1;
+import com.win.opensdk.W0;
+/* loaded from: classes7.dex */
 public class PoseidonReceiver extends BroadcastReceiver {
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
         if ("android.intent.action.USER_PRESENT".equals(intent.getAction())) {
-            bq iS = bq.iS(context);
-            Context a2 = iS.a();
-            if (a2 != null && iS.qlh != null && bp.u(a2) && iS.qlh.isReady()) {
-                iS.qlh.show();
-                SharedPreferences.Editor edit = a2.getSharedPreferences("_prefs", 0).edit();
-                edit.putFloat("psdpt", (float) System.currentTimeMillis());
-                edit.apply();
+            W0 a2 = W0.a(context);
+            Context a3 = a2.a();
+            if (a3 == null || a2.f39826b == null || !V1.u(a3) || !a2.f39826b.isReady()) {
                 return;
             }
+            a2.f39826b.show();
+            SharedPreferences.Editor edit = a3.getSharedPreferences("_prefs", 0).edit();
+            edit.putFloat("psdpt", (float) System.currentTimeMillis());
+            edit.apply();
             return;
         }
-        bq iS2 = bq.iS(context);
-        Context a3 = iS2.a();
-        if (a3 == null || !bp.u(a3)) {
+        W0 a4 = W0.a(context);
+        Context a5 = a4.a();
+        if (a5 == null || !V1.u(a5)) {
             return;
         }
-        String m = bp.m(a3);
-        if (!TextUtils.isEmpty(m)) {
-            if (iS2.qlh == null) {
-                iS2.qlh = new PBInterstitial(a3, m);
-                iS2.qlh.setInterstitialListener(new bo(iS2));
-            }
-            PBInterstitial pBInterstitial = iS2.qlh;
-            if (pBInterstitial == null || pBInterstitial.isReady()) {
-                return;
-            }
-            iS2.qlh.load();
+        String m = V1.m(a5);
+        if (TextUtils.isEmpty(m)) {
+            return;
         }
+        if (a4.f39826b == null) {
+            PBInterstitial pBInterstitial = new PBInterstitial(a5, m);
+            a4.f39826b = pBInterstitial;
+            pBInterstitial.setInterstitialListener(new V0(a4));
+        }
+        PBInterstitial pBInterstitial2 = a4.f39826b;
+        if (pBInterstitial2 == null || pBInterstitial2.isReady()) {
+            return;
+        }
+        a4.f39826b.load();
     }
 }

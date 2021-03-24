@@ -4,10 +4,11 @@ import android.app.Activity;
 import com.qq.e.ads.cfg.DownAPPConfirmPolicy;
 import com.qq.e.ads.cfg.VideoOption;
 import com.qq.e.ads.interstitial2.UnifiedInterstitialMediaListener;
+import com.qq.e.comm.compliance.ApkDownloadComplianceInterface;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes4.dex */
-public interface UIADI {
+/* loaded from: classes6.dex */
+public interface UIADI extends ApkDownloadComplianceInterface {
     public static final Map<String, String> ext = new HashMap();
 
     void close();

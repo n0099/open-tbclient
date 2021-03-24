@@ -1,17 +1,17 @@
 package org.webrtc;
-/* loaded from: classes9.dex */
+/* loaded from: classes7.dex */
 public final class CryptoOptions {
-    private final SFrame sframe;
-    private final Srtp srtp;
+    public final SFrame sframe;
+    public final Srtp srtp;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes7.dex */
     public static class Builder {
-        private boolean enableAes128Sha1_32CryptoCipher;
-        private boolean enableEncryptedRtpHeaderExtensions;
-        private boolean enableGcmCryptoSuites;
-        private boolean requireFrameEncryption;
+        public boolean enableAes128Sha1_32CryptoCipher;
+        public boolean enableEncryptedRtpHeaderExtensions;
+        public boolean enableGcmCryptoSuites;
+        public boolean requireFrameEncryption;
 
-        private Builder() {
+        public Builder() {
         }
 
         public CryptoOptions createCryptoOptions() {
@@ -39,11 +39,11 @@ public final class CryptoOptions {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes7.dex */
     public final class SFrame {
-        private final boolean requireFrameEncryption;
+        public final boolean requireFrameEncryption;
 
-        private SFrame(boolean z) {
+        public SFrame(boolean z) {
             this.requireFrameEncryption = z;
         }
 
@@ -53,13 +53,13 @@ public final class CryptoOptions {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes7.dex */
     public final class Srtp {
-        private final boolean enableAes128Sha1_32CryptoCipher;
-        private final boolean enableEncryptedRtpHeaderExtensions;
-        private final boolean enableGcmCryptoSuites;
+        public final boolean enableAes128Sha1_32CryptoCipher;
+        public final boolean enableEncryptedRtpHeaderExtensions;
+        public final boolean enableGcmCryptoSuites;
 
-        private Srtp(boolean z, boolean z2, boolean z3) {
+        public Srtp(boolean z, boolean z2, boolean z3) {
             this.enableGcmCryptoSuites = z;
             this.enableAes128Sha1_32CryptoCipher = z2;
             this.enableEncryptedRtpHeaderExtensions = z3;
@@ -81,7 +81,7 @@ public final class CryptoOptions {
         }
     }
 
-    private CryptoOptions(boolean z, boolean z2, boolean z3, boolean z4) {
+    public CryptoOptions(boolean z, boolean z2, boolean z3, boolean z4) {
         this.srtp = new Srtp(z, z2, z3);
         this.sframe = new SFrame(z4);
     }

@@ -6,52 +6,60 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes3.dex */
-class h<K extends m, V> {
+/* loaded from: classes6.dex */
+public class h<K extends m, V> {
 
     /* renamed from: a  reason: collision with root package name */
-    private final a<K, V> f6743a = new a<>();
-    private final Map<K, a<K, V>> b = new HashMap();
+    public final a<K, V> f35478a = new a<>();
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes3.dex */
+    /* renamed from: b  reason: collision with root package name */
+    public final Map<K, a<K, V>> f35479b = new HashMap();
+
+    /* loaded from: classes6.dex */
     public static class a<K, V> {
 
         /* renamed from: a  reason: collision with root package name */
-        final K f6744a;
-        a<K, V> b;
-        a<K, V> c;
-        private List<V> d;
+        public final K f35480a;
 
-        a() {
+        /* renamed from: b  reason: collision with root package name */
+        public a<K, V> f35481b;
+
+        /* renamed from: c  reason: collision with root package name */
+        public a<K, V> f35482c;
+
+        /* renamed from: d  reason: collision with root package name */
+        public List<V> f35483d;
+
+        public a() {
             this(null);
         }
 
-        a(K k) {
-            this.c = this;
-            this.b = this;
-            this.f6744a = k;
+        public a(K k) {
+            this.f35482c = this;
+            this.f35481b = this;
+            this.f35480a = k;
         }
 
         @Nullable
         public V a() {
-            int b = b();
-            if (b > 0) {
-                return this.d.remove(b - 1);
+            int b2 = b();
+            if (b2 > 0) {
+                return this.f35483d.remove(b2 - 1);
             }
             return null;
         }
 
         public void a(V v) {
-            if (this.d == null) {
-                this.d = new ArrayList();
+            if (this.f35483d == null) {
+                this.f35483d = new ArrayList();
             }
-            this.d.add(v);
+            this.f35483d.add(v);
         }
 
         public int b() {
-            if (this.d != null) {
-                return this.d.size();
+            List<V> list = this.f35483d;
+            if (list != null) {
+                return list.size();
             }
             return 0;
         }
@@ -59,53 +67,55 @@ class h<K extends m, V> {
 
     private void a(a<K, V> aVar) {
         d(aVar);
-        aVar.c = this.f6743a;
-        aVar.b = this.f6743a.b;
+        a<K, V> aVar2 = this.f35478a;
+        aVar.f35482c = aVar2;
+        aVar.f35481b = aVar2.f35481b;
         c(aVar);
     }
 
     private void b(a<K, V> aVar) {
         d(aVar);
-        aVar.c = this.f6743a.c;
-        aVar.b = this.f6743a;
+        a<K, V> aVar2 = this.f35478a;
+        aVar.f35482c = aVar2.f35482c;
+        aVar.f35481b = aVar2;
         c(aVar);
     }
 
-    private static <K, V> void c(a<K, V> aVar) {
-        aVar.b.c = aVar;
-        aVar.c.b = aVar;
+    public static <K, V> void c(a<K, V> aVar) {
+        aVar.f35481b.f35482c = aVar;
+        aVar.f35482c.f35481b = aVar;
     }
 
-    private static <K, V> void d(a<K, V> aVar) {
-        aVar.c.b = aVar.b;
-        aVar.b.c = aVar.c;
+    public static <K, V> void d(a<K, V> aVar) {
+        a<K, V> aVar2 = aVar.f35482c;
+        aVar2.f35481b = aVar.f35481b;
+        aVar.f35481b.f35482c = aVar2;
     }
 
     @Nullable
     public V a() {
-        a aVar = this.f6743a.c;
+        a aVar = this.f35478a;
         while (true) {
-            a aVar2 = aVar;
-            if (aVar2.equals(this.f6743a)) {
+            aVar = aVar.f35482c;
+            if (aVar.equals(this.f35478a)) {
                 return null;
             }
-            V v = (V) aVar2.a();
+            V v = (V) aVar.a();
             if (v != null) {
                 return v;
             }
-            d(aVar2);
-            this.b.remove(aVar2.f6744a);
-            ((m) aVar2.f6744a).a();
-            aVar = aVar2.c;
+            d(aVar);
+            this.f35479b.remove(aVar.f35480a);
+            ((m) aVar.f35480a).a();
         }
     }
 
     @Nullable
     public V a(K k) {
-        a<K, V> aVar = this.b.get(k);
+        a<K, V> aVar = this.f35479b.get(k);
         if (aVar == null) {
             aVar = new a<>(k);
-            this.b.put(k, aVar);
+            this.f35479b.put(k, aVar);
         } else {
             k.a();
         }
@@ -114,11 +124,11 @@ class h<K extends m, V> {
     }
 
     public void a(K k, V v) {
-        a<K, V> aVar = this.b.get(k);
+        a<K, V> aVar = this.f35479b.get(k);
         if (aVar == null) {
             aVar = new a<>(k);
             b(aVar);
-            this.b.put(k, aVar);
+            this.f35479b.put(k, aVar);
         } else {
             k.a();
         }
@@ -128,13 +138,18 @@ class h<K extends m, V> {
     public String toString() {
         StringBuilder sb = new StringBuilder("GroupedLinkedMap( ");
         boolean z = false;
-        for (a aVar = this.f6743a.b; !aVar.equals(this.f6743a); aVar = aVar.b) {
+        for (a aVar = this.f35478a.f35481b; !aVar.equals(this.f35478a); aVar = aVar.f35481b) {
             z = true;
-            sb.append('{').append(aVar.f6744a).append(':').append(aVar.b()).append("}, ");
+            sb.append('{');
+            sb.append(aVar.f35480a);
+            sb.append(':');
+            sb.append(aVar.b());
+            sb.append("}, ");
         }
         if (z) {
             sb.delete(sb.length() - 2, sb.length());
         }
-        return sb.append(" )").toString();
+        sb.append(" )");
+        return sb.toString();
     }
 }

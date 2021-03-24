@@ -1,36 +1,36 @@
 package com.baidu.pass.common;
-/* loaded from: classes5.dex */
+
+import com.baidu.tbadk.core.util.FieldBuilder;
+/* loaded from: classes2.dex */
 public class Log implements com.baidu.pass.a {
     public static final String TAG = "PASSPORT";
-    public static boolean enabled;
+    public static boolean enabled = false;
 
-    private Log() {
-    }
-
-    private static String a(String str, Object[] objArr) {
+    public static String a(String str, Object[] objArr) {
         if (objArr != null) {
             try {
-                if (objArr.length != 0) {
-                    StringBuffer stringBuffer = new StringBuffer();
-                    int length = objArr.length;
-                    for (int i = 0; i < length; i++) {
-                        Object obj = objArr[i];
-                        if (obj != null) {
-                            if (i != 0) {
-                                stringBuffer.append("|");
+                if (objArr.length == 0) {
+                    return "";
+                }
+                StringBuffer stringBuffer = new StringBuffer();
+                int length = objArr.length;
+                for (int i = 0; i < length; i++) {
+                    Object obj = objArr[i];
+                    if (obj != null) {
+                        if (i != 0) {
+                            stringBuffer.append(FieldBuilder.SE);
+                        }
+                        try {
+                            if (obj instanceof Throwable) {
+                                stringBuffer.append(android.util.Log.getStackTraceString((Throwable) obj));
+                            } else {
+                                stringBuffer.append(obj.toString());
                             }
-                            try {
-                                if (obj instanceof Throwable) {
-                                    stringBuffer.append(android.util.Log.getStackTraceString((Throwable) obj));
-                                } else {
-                                    stringBuffer.append(obj.toString());
-                                }
-                            } catch (Exception e) {
-                            }
+                        } catch (Exception unused) {
                         }
                     }
-                    return stringBuffer.toString();
                 }
+                return stringBuffer.toString();
             } catch (Throwable th) {
                 android.util.Log.e(str, "converArrayToString t: " + th.toString());
                 return "converArrayToString null";
@@ -40,10 +40,9 @@ public class Log implements com.baidu.pass.a {
     }
 
     public static void d(String str, Object... objArr) {
-        if (!enabled) {
-            return;
+        if (enabled) {
+            android.util.Log.d(str, a(str, objArr));
         }
-        android.util.Log.d(str, a(str, objArr));
     }
 
     public static void e(Throwable th) {
@@ -55,17 +54,15 @@ public class Log implements com.baidu.pass.a {
     }
 
     public static void i(String str, Object... objArr) {
-        if (!enabled) {
-            return;
+        if (enabled) {
+            android.util.Log.i(str, a(str, objArr));
         }
-        android.util.Log.i(str, a(str, objArr));
     }
 
     public static void w(String str, Object... objArr) {
-        if (!enabled) {
-            return;
+        if (enabled) {
+            android.util.Log.w(str, a(str, objArr));
         }
-        android.util.Log.w(str, a(str, objArr));
     }
 
     public static void e(String str, Throwable th) {
@@ -77,10 +74,9 @@ public class Log implements com.baidu.pass.a {
     }
 
     public static void e(String str, Object... objArr) {
-        if (!enabled) {
-            return;
+        if (enabled) {
+            android.util.Log.e(str, a(str, objArr));
         }
-        android.util.Log.e(str, a(str, objArr));
     }
 
     public static void i(Object... objArr) {

@@ -22,14 +22,13 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import com.kwad.sdk.api.loader.Wrapper;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class ResDialogFragment extends DelegateDialogFragment {
     public ResDialogFragment() {
         super(new KsDialogFragment(null));
         getBase().setBase(this);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     @SuppressLint({"ValidFragment"})
     public ResDialogFragment(KsDialogFragment ksDialogFragment) {
         super(ksDialogFragment);
@@ -216,7 +215,7 @@ public class ResDialogFragment extends DelegateDialogFragment {
         super.onPrepareOptionsMenu(menu);
     }
 
-    @Override // com.kwad.sdk.api.core.fragment.DelegateDialogFragment, androidx.fragment.app.Fragment, com.baidu.l.a.a.InterfaceC0154a
+    @Override // com.kwad.sdk.api.core.fragment.DelegateDialogFragment, androidx.fragment.app.Fragment, com.baidu.permissionhelper.app.ActivityCompat.OnRequestPermissionsResultCallback
     public /* bridge */ /* synthetic */ void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
         super.onRequestPermissionsResult(i, strArr, iArr);
     }

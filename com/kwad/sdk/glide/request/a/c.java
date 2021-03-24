@@ -3,41 +3,46 @@ package com.kwad.sdk.glide.request.a;
 import android.graphics.drawable.Drawable;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public abstract class c<T> implements j<T> {
 
     /* renamed from: a  reason: collision with root package name */
-    private final int f6824a;
-    private final int b;
+    public final int f35772a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public final int f35773b;
     @Nullable
-    private com.kwad.sdk.glide.request.c c;
+
+    /* renamed from: c  reason: collision with root package name */
+    public com.kwad.sdk.glide.request.c f35774c;
 
     public c() {
         this(Integer.MIN_VALUE, Integer.MIN_VALUE);
     }
 
     public c(int i, int i2) {
-        if (!com.kwad.sdk.glide.g.k.a(i, i2)) {
-            throw new IllegalArgumentException("Width and height must both be > 0 or Target#SIZE_ORIGINAL, but given width: " + i + " and height: " + i2);
+        if (com.kwad.sdk.glide.g.k.a(i, i2)) {
+            this.f35772a = i;
+            this.f35773b = i2;
+            return;
         }
-        this.f6824a = i;
-        this.b = i2;
+        throw new IllegalArgumentException("Width and height must both be > 0 or Target#SIZE_ORIGINAL, but given width: " + i + " and height: " + i2);
     }
 
     @Override // com.kwad.sdk.glide.request.a.j
     public final void a(@NonNull i iVar) {
-        iVar.a(this.f6824a, this.b);
+        iVar.a(this.f35772a, this.f35773b);
     }
 
     @Override // com.kwad.sdk.glide.request.a.j
     public final void a(@Nullable com.kwad.sdk.glide.request.c cVar) {
-        this.c = cVar;
+        this.f35774c = cVar;
     }
 
     @Override // com.kwad.sdk.glide.request.a.j
     @Nullable
     public final com.kwad.sdk.glide.request.c b() {
-        return this.c;
+        return this.f35774c;
     }
 
     @Override // com.kwad.sdk.glide.request.a.j

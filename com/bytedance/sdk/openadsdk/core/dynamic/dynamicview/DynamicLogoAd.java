@@ -9,12 +9,12 @@ import com.bytedance.sdk.openadsdk.core.dynamic.b.f;
 public class DynamicLogoAd extends DynamicBaseWidgetImp {
     public DynamicLogoAd(Context context, @NonNull DynamicRootView dynamicRootView, @NonNull f fVar) {
         super(context, dynamicRootView, fVar);
-        this.n = new TextView(context);
-        this.n.setTag(Integer.valueOf(getClickArea()));
+        TextView textView = new TextView(context);
+        this.n = textView;
+        textView.setTag(Integer.valueOf(getClickArea()));
         addView(this.n, getWidgetLayoutParams());
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     @Override // com.bytedance.sdk.openadsdk.core.dynamic.dynamicview.DynamicBaseWidgetImp, com.bytedance.sdk.openadsdk.core.dynamic.dynamicview.DynamicBaseWidget
     public boolean b() {
         super.b();

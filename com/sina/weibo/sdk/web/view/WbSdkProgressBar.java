@@ -10,30 +10,105 @@ import android.os.Message;
 import android.os.SystemClock;
 import android.util.AttributeSet;
 import android.view.View;
-/* loaded from: classes4.dex */
+import com.google.ar.core.InstallActivity;
+/* loaded from: classes6.dex */
 public class WbSdkProgressBar extends View {
-    private boolean addStart;
-    private double growTime;
-    private double growTimeMax;
-    private Handler handler;
-    private long lastTime;
-    private float length;
-    private final int maxLength;
-    private final int minLength;
-    private int miniSize;
-    private int padding;
-    private Paint paint;
-    private int paintWidth;
-    private float progress;
-    private RectF rect;
-    private boolean showView;
-    private float speed;
-    private long stopGrowTime;
-    private long stopGrowTimeMax;
-    int stopNum;
+    public boolean addStart;
+    public double growTime;
+    public double growTimeMax;
+    public Handler handler;
+    public long lastTime;
+    public float length;
+    public final int maxLength;
+    public final int minLength;
+    public int miniSize;
+    public int padding;
+    public Paint paint;
+    public int paintWidth;
+    public float progress;
+    public RectF rect;
+    public boolean showView;
+    public float speed;
+    public long stopGrowTime;
+    public long stopGrowTimeMax;
+    public int stopNum;
 
     public WbSdkProgressBar(Context context) {
         this(context, null);
+    }
+
+    private void calculateProgress(long j) {
+        long j2 = this.stopGrowTime;
+        if (j2 >= this.stopGrowTimeMax) {
+            double d2 = this.growTime;
+            double d3 = j;
+            Double.isNaN(d3);
+            double d4 = d2 + d3;
+            this.growTime = d4;
+            double d5 = this.growTimeMax;
+            if (d4 >= d5) {
+                this.growTime = d4 - d5;
+                this.stopGrowTime = 0L;
+                this.addStart = !this.addStart;
+            }
+            float cos = (((float) Math.cos(((this.growTime / this.growTimeMax) + 1.0d) * 3.141592653589793d)) / 2.0f) + 0.5f;
+            if (!this.addStart) {
+                this.length = cos * ((float) InstallActivity.BOX_SIZE_DP);
+                return;
+            }
+            float f2 = ((float) InstallActivity.BOX_SIZE_DP) * (1.0f - cos);
+            this.progress += this.length - f2;
+            this.length = f2;
+            return;
+        }
+        this.stopGrowTime = j2 + j;
+    }
+
+    private int dip2px(Context context, int i) {
+        return (int) (context.getResources().getDisplayMetrics().density * i);
+    }
+
+    @Override // android.view.View
+    public synchronized void onDraw(Canvas canvas) {
+        long abs = Math.abs(SystemClock.uptimeMillis() - this.lastTime) % 360;
+        calculateProgress(abs);
+        this.lastTime = SystemClock.uptimeMillis();
+        float f2 = this.progress + ((this.speed * ((float) abs)) / 1000.0f);
+        this.progress = f2;
+        if (f2 >= 360.0f) {
+            this.progress = f2 - 360.0f;
+        }
+        canvas.drawArc(this.rect, this.progress - 90.0f, this.length + 20.0f, false, this.paint);
+        if (this.showView) {
+            if (Build.VERSION.SDK_INT >= 21) {
+                postInvalidate();
+            } else {
+                invalidate();
+            }
+        }
+    }
+
+    @Override // android.view.View
+    public void onMeasure(int i, int i2) {
+        super.onMeasure(i, i2);
+        int i3 = this.miniSize;
+        setMeasuredDimension(i3, i3);
+    }
+
+    @Override // android.view.View
+    public void onVisibilityChanged(View view, int i) {
+        super.onVisibilityChanged(view, i);
+        if (i == 8) {
+            this.handler.sendEmptyMessageDelayed(0, 1000L);
+        } else if (i == 0 && getVisibility() == 0) {
+            this.handler.removeMessages(0);
+            this.showView = true;
+            invalidate();
+        }
+    }
+
+    public void setProgressColor(int i) {
+        this.paint.setColor(i);
     }
 
     public WbSdkProgressBar(Context context, AttributeSet attributeSet) {
@@ -56,89 +131,23 @@ public class WbSdkProgressBar extends View {
             @Override // android.os.Handler
             public void handleMessage(Message message) {
                 super.handleMessage(message);
-                switch (message.what) {
-                    case 0:
-                        WbSdkProgressBar.this.showView = false;
-                        return;
-                    default:
-                        return;
+                if (message.what != 0) {
+                    return;
                 }
+                WbSdkProgressBar.this.showView = false;
             }
         };
         this.miniSize = dip2px(context, 50);
         this.paintWidth = dip2px(context, 5);
         this.padding = dip2px(context, 3);
-        this.paint = new Paint();
-        this.paint.setAntiAlias(true);
+        Paint paint = new Paint();
+        this.paint = paint;
+        paint.setAntiAlias(true);
         this.paint.setColor(-48861);
         this.paint.setStyle(Paint.Style.STROKE);
         this.paint.setStrokeWidth(this.paintWidth);
-        this.rect = new RectF(this.padding, this.padding, this.miniSize - this.padding, this.miniSize - this.padding);
-    }
-
-    private int dip2px(Context context, int i) {
-        return (int) (context.getResources().getDisplayMetrics().density * i);
-    }
-
-    @Override // android.view.View
-    protected synchronized void onDraw(Canvas canvas) {
-        long abs = Math.abs(SystemClock.uptimeMillis() - this.lastTime) % 360;
-        calculateProgress(abs);
-        this.lastTime = SystemClock.uptimeMillis();
-        this.progress += (this.speed * ((float) abs)) / 1000.0f;
-        if (this.progress >= 360.0f) {
-            this.progress -= 360.0f;
-        }
-        canvas.drawArc(this.rect, this.progress - 90.0f, this.length + 20.0f, false, this.paint);
-        if (this.showView) {
-            if (Build.VERSION.SDK_INT >= 21) {
-                postInvalidate();
-            } else {
-                invalidate();
-            }
-        }
-    }
-
-    public void setProgressColor(int i) {
-        this.paint.setColor(i);
-    }
-
-    @Override // android.view.View
-    protected void onVisibilityChanged(View view, int i) {
-        super.onVisibilityChanged(view, i);
-        if (i == 8) {
-            this.handler.sendEmptyMessageDelayed(0, 1000L);
-        } else if (i == 0 && getVisibility() == 0) {
-            this.handler.removeMessages(0);
-            this.showView = true;
-            invalidate();
-        }
-    }
-
-    private void calculateProgress(long j) {
-        if (this.stopGrowTime >= this.stopGrowTimeMax) {
-            this.growTime += j;
-            if (this.growTime >= this.growTimeMax) {
-                this.growTime -= this.growTimeMax;
-                this.stopGrowTime = 0L;
-                this.addStart = !this.addStart;
-            }
-            float cos = (((float) Math.cos(((this.growTime / this.growTimeMax) + 1.0d) * 3.141592653589793d)) / 2.0f) + 0.5f;
-            if (!this.addStart) {
-                this.length = cos * 280;
-                return;
-            }
-            float f = (1.0f - cos) * 280;
-            this.progress += this.length - f;
-            this.length = f;
-            return;
-        }
-        this.stopGrowTime += j;
-    }
-
-    @Override // android.view.View
-    protected void onMeasure(int i, int i2) {
-        super.onMeasure(i, i2);
-        setMeasuredDimension(this.miniSize, this.miniSize);
+        int i2 = this.padding;
+        int i3 = this.miniSize;
+        this.rect = new RectF(i2, i2, i3 - i2, i3 - i2);
     }
 }

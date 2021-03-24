@@ -6,13 +6,10 @@ import com.kwad.sdk.core.imageloader.core.decode.DecodedResult;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public final class MemoryCacheUtils {
-    private static final String URI_AND_SIZE_SEPARATOR = "_";
-    private static final String WIDTH_AND_HEIGHT_SEPARATOR = "x";
-
-    private MemoryCacheUtils() {
-    }
+    public static final String URI_AND_SIZE_SEPARATOR = "_";
+    public static final String WIDTH_AND_HEIGHT_SEPARATOR = "x";
 
     public static Comparator<String> createFuzzyKeyComparator() {
         return new Comparator<String>() { // from class: com.kwad.sdk.core.imageloader.utils.MemoryCacheUtils.1

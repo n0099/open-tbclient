@@ -1,12 +1,12 @@
 package com.kwad.sdk.internal.api;
 
 import com.kwad.sdk.api.KsVideoPlayConfig;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class VideoPlayConfigImpl implements KsVideoPlayConfig {
-    private static final long serialVersionUID = -7203854889686049813L;
-    private boolean showLandscape;
-    private String showScene;
-    private boolean skipThirtySecond;
+    public static final long serialVersionUID = -7203854889686049813L;
+    public boolean showLandscape;
+    public String showScene;
+    public boolean skipThirtySecond;
     public boolean videoSoundEnable = true;
 
     @Override // com.kwad.sdk.api.KsVideoPlayConfig

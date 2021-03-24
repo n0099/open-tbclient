@@ -1,13 +1,13 @@
 package com.bytedance.sdk.openadsdk.core.nativeexpress;
 /* loaded from: classes6.dex */
 public interface g {
-    void O();
+    void Q();
 
-    long P();
+    long R();
 
-    int Q();
+    int S();
 
-    void R();
+    void T();
 
     void d(int i);
 

@@ -7,23 +7,32 @@ import android.view.View;
 import android.widget.FrameLayout;
 import androidx.annotation.NonNull;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.tieba.tbadkCore.data.n;
 import com.fun.ad.sdk.FunNativeAd;
 import com.qq.e.ads.nativ.widget.NativeAdContainer;
+import d.b.i0.c3.h0.n;
+import d.b.i0.q0.a;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public abstract class FunAbsAdView extends NativeAdContainer {
-    protected String jVe;
 
-    public abstract void Bi(int i);
+    /* renamed from: e  reason: collision with root package name */
+    public String f16810e;
 
-    public abstract void a(@NonNull n nVar, @NonNull Activity activity);
+    public FunAbsAdView(Context context) {
+        this(context, null, 0);
+    }
 
-    public abstract void cNF();
+    public abstract void b();
 
-    public abstract void cNG();
+    public abstract FrameLayout c(FunNativeAd funNativeAd);
 
-    public abstract FrameLayout e(FunNativeAd funNativeAd);
+    public abstract void d(int i);
+
+    public abstract void e(BdUniqueId bdUniqueId);
+
+    public abstract void f(@NonNull n nVar, @NonNull Activity activity);
+
+    public abstract void g(Context context);
 
     public abstract List<View> getClickViews();
 
@@ -31,21 +40,17 @@ public abstract class FunAbsAdView extends NativeAdContainer {
 
     public abstract View getFeedBackView();
 
-    protected abstract int getLayoutId();
+    public abstract int getLayoutId();
+
+    public abstract a.c getLogItem();
 
     public abstract String getPageType();
 
-    protected abstract void initView(Context context);
-
-    public abstract void s(BdUniqueId bdUniqueId);
+    public abstract void h();
 
     public abstract void setDownloadDelayText(String str, long j);
 
     public abstract void setFunAdViewVisible(boolean z);
-
-    public FunAbsAdView(Context context) {
-        this(context, null, 0);
-    }
 
     public FunAbsAdView(Context context, AttributeSet attributeSet) {
         this(context, attributeSet, 0);
@@ -53,6 +58,6 @@ public abstract class FunAbsAdView extends NativeAdContainer {
 
     public FunAbsAdView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        initView(context);
+        g(context);
     }
 }

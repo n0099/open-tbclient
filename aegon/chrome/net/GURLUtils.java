@@ -1,5 +1,5 @@
 package aegon.chrome.net;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public final class GURLUtils {
     public static native String nativeGetOrigin(String str);
 

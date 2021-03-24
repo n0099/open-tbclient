@@ -6,29 +6,22 @@ import android.util.Log;
 import java.io.File;
 import java.io.FilenameFilter;
 import java.util.regex.Pattern;
-/* loaded from: classes14.dex */
-final class RuntimeCompat {
-    private static final String CPU_LOCATION = "/sys/devices/system/cpu/";
-    private static final String CPU_NAME_REGEX = "cpu[0-9]+";
-    private static final String TAG = "GlideRuntimeCompat";
+/* loaded from: classes5.dex */
+public final class RuntimeCompat {
+    public static final String CPU_LOCATION = "/sys/devices/system/cpu/";
+    public static final String CPU_NAME_REGEX = "cpu[0-9]+";
+    public static final String TAG = "GlideRuntimeCompat";
 
-    private RuntimeCompat() {
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
     public static int availableProcessors() {
         int availableProcessors = Runtime.getRuntime().availableProcessors();
-        if (Build.VERSION.SDK_INT < 17) {
-            return Math.max(getCoreCountPre17(), availableProcessors);
-        }
-        return availableProcessors;
+        return Build.VERSION.SDK_INT < 17 ? Math.max(getCoreCountPre17(), availableProcessors) : availableProcessors;
     }
 
-    private static int getCoreCountPre17() {
+    public static int getCoreCountPre17() {
         File[] fileArr;
         StrictMode.ThreadPolicy allowThreadDiskReads = StrictMode.allowThreadDiskReads();
         try {
-            File file = new File(CPU_LOCATION);
+            File file = new File("/sys/devices/system/cpu/");
             final Pattern compile = Pattern.compile(CPU_NAME_REGEX);
             fileArr = file.listFiles(new FilenameFilter() { // from class: com.bumptech.glide.load.engine.executor.RuntimeCompat.1
                 @Override // java.io.FilenameFilter

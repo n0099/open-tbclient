@@ -1,0 +1,11 @@
+package d.b.g0.g.f.k;
+
+import androidx.annotation.NonNull;
+import java.io.File;
+/* loaded from: classes3.dex */
+public abstract class a {
+    @NonNull
+    public abstract File a();
+
+    public abstract void b(@NonNull String str);
+}

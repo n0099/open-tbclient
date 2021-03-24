@@ -2,54 +2,62 @@ package a.a.a.a.r.a.c;
 
 import android.view.View;
 import com.bytedance.sdk.openadsdk.TTNativeExpressAd;
-/* loaded from: classes4.dex */
+/* loaded from: classes.dex */
 public class n implements TTNativeExpressAd.ExpressAdInteractionListener {
-    public final /* synthetic */ m Aq;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f977a;
-    public boolean b;
-    public final /* synthetic */ String d;
-    public final /* synthetic */ TTNativeExpressAd zX;
+    public boolean f1138a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public boolean f1139b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public final /* synthetic */ TTNativeExpressAd f1140c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public final /* synthetic */ String f1141d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public final /* synthetic */ m f1142e;
 
     public n(m mVar, TTNativeExpressAd tTNativeExpressAd, String str) {
-        this.Aq = mVar;
-        this.zX = tTNativeExpressAd;
-        this.d = str;
+        this.f1142e = mVar;
+        this.f1140c = tTNativeExpressAd;
+        this.f1141d = str;
     }
 
     @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
     public void onAdClicked(View view, int i) {
         a.a.a.a.v.d.b("CSJNativeExpressAd onAdClicked type: " + i, new Object[0]);
-        this.Aq.zk.a(this.b);
-        this.b = true;
-        this.Aq.e();
+        this.f1142e.f1010g.a(this.f1139b);
+        this.f1139b = true;
+        this.f1142e.e();
     }
 
     @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
     public void onAdShow(View view, int i) {
         a.a.a.a.v.d.b("CSJNativeExpressAd onAdShow type: " + i, new Object[0]);
-        this.Aq.zk.b(this.f977a);
-        this.f977a = true;
-        m mVar = this.Aq;
-        TTNativeExpressAd tTNativeExpressAd = this.zX;
+        this.f1142e.f1010g.b(this.f1138a);
+        this.f1138a = true;
+        m mVar = this.f1142e;
+        TTNativeExpressAd tTNativeExpressAd = this.f1140c;
         mVar.a((m) tTNativeExpressAd, mVar.n.remove(tTNativeExpressAd));
     }
 
     @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
     public void onRenderFail(View view, String str, int i) {
         a.a.a.a.v.d.b("CSJNativeExpressAd onRenderFail message: " + str + ", code:" + i, new Object[0]);
-        this.Aq.zk.a(i);
-        this.Aq.b(i, str);
+        this.f1142e.f1010g.a(i);
+        this.f1142e.b(i, str);
     }
 
     @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
-    public void onRenderSuccess(View view, float f, float f2) {
-        a.a.a.a.v.d.b("CSJNativeExpressAd onRenderSuccess width: " + f + ", height:" + f2, new Object[0]);
-        this.Aq.zk.e();
-        this.Aq.n.put(this.zX, this.d);
-        m mVar = this.Aq;
-        mVar.a((m) this.zX);
+    public void onRenderSuccess(View view, float f2, float f3) {
+        a.a.a.a.v.d.b("CSJNativeExpressAd onRenderSuccess width: " + f2 + ", height:" + f3, new Object[0]);
+        this.f1142e.f1010g.e();
+        this.f1142e.n.put(this.f1140c, this.f1141d);
+        m mVar = this.f1142e;
+        mVar.a((m) this.f1140c);
         mVar.h();
     }
 }

@@ -7,126 +7,109 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TiebaDatabase;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.at;
-import com.baidu.tbadk.core.util.o;
+import com.baidu.tbadk.core.util.FileHelper;
+import com.baidu.tbadk.core.util.StorageFile;
 import com.baidu.tieba.R;
 import com.baidu.tieba.setting.model.MoreModel;
 import com.baidu.tieba.setting.more.SystemHelpSettingActivity;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class SystemHelpSettingModel extends BdBaseModel {
-    private Context mContext;
-    private a nhx;
-    private b nhy;
-    private BaseActivity.LoadDataCallBack nhz;
 
-    public SystemHelpSettingModel(SystemHelpSettingActivity systemHelpSettingActivity) {
-        super(systemHelpSettingActivity.getPageContext());
-        this.nhx = null;
-        this.nhy = null;
-        this.mContext = null;
-        this.nhz = null;
-        this.mContext = systemHelpSettingActivity.getPageContext().getPageActivity();
-    }
+    /* renamed from: e  reason: collision with root package name */
+    public b f20994e;
 
-    public void crY() {
-        if (this.nhx == null) {
-            this.nhx = new a();
-            this.nhx.execute(new String[0]);
-        }
-    }
+    /* renamed from: f  reason: collision with root package name */
+    public c f20995f;
 
-    public void dGK() {
-        String currentAccount = TbadkCoreApplication.getCurrentAccount();
-        if (!TextUtils.isEmpty(currentAccount)) {
-            MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(CmdConfigCustom.IM_DELETE_IM_DB, currentAccount));
-        }
-    }
+    /* renamed from: g  reason: collision with root package name */
+    public Context f20996g;
 
-    public void dGL() {
-        if (this.nhy == null) {
-            this.nhy = new b();
-            this.nhy.execute(new String[0]);
-        }
-    }
+    /* renamed from: h  reason: collision with root package name */
+    public BaseActivity.LoadDataCallBack f20997h;
 
-    public void setHeadsetModeOn(boolean z) {
-        TbadkCoreApplication.getInst().setHeadsetModeOn(z);
-    }
-
-    /* loaded from: classes7.dex */
-    private class a extends BdAsyncTask<String, Integer, String> {
-        private a() {
+    /* loaded from: classes5.dex */
+    public class b extends BdAsyncTask<String, Integer, String> {
+        public b() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        /* JADX INFO: Access modifiers changed from: protected */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public String doInBackground(String... strArr) {
+            TiebaDatabase.getInstance().getSdcardMainDBDatabaseManager().b();
+            d.b.h0.r.g0.b.b.a();
+            try {
+                FileHelper.clearCacheDir("image");
+                FileHelper.clearCacheDir("images");
+                StorageFile.getInstance().clearBubbleCache();
+                return null;
+            } catch (Exception e2) {
+                BdLog.e(e2.getMessage());
+                return null;
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(String str) {
-            super.onPostExecute((a) str);
-            SystemHelpSettingModel.this.nhx = null;
-            if (SystemHelpSettingModel.this.nhz != null) {
-                SystemHelpSettingModel.this.nhz.callback(MoreModel.TaskType.DO_CACHE_CLEAR);
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX INFO: Access modifiers changed from: protected */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public String doInBackground(String... strArr) {
-            TiebaDatabase.getInstance().getSdcardMainDBDatabaseManager().deleteDatabase();
-            com.baidu.tbadk.core.voice.a.b.bvI();
-            try {
-                o.Ba("image");
-                o.Ba(TbConfig.IMAGE_CACHE_DIR_NAME);
-                at.bsS().bsT();
-                return null;
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-                return null;
+            super.onPostExecute((b) str);
+            SystemHelpSettingModel.this.f20994e = null;
+            if (SystemHelpSettingModel.this.f20997h != null) {
+                SystemHelpSettingModel.this.f20997h.callback(MoreModel.TaskType.DO_CACHE_CLEAR);
             }
         }
     }
 
-    /* loaded from: classes7.dex */
-    private class b extends BdAsyncTask<String, String, String> {
-        private b() {
+    /* loaded from: classes5.dex */
+    public class c extends BdAsyncTask<String, String, String> {
+        public c() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public String doInBackground(String... strArr) {
-            com.baidu.adp.lib.Disk.b bVar = new com.baidu.adp.lib.Disk.b();
-            String checkDir = bVar.checkDir("image", true, false, true);
-            String cacheDir = o.getCacheDir();
+            d.b.b.e.a.b bVar = new d.b.b.e.a.b();
+            String a2 = bVar.a("image", true, false, true);
+            String cacheDir = FileHelper.getCacheDir();
             String str = cacheDir + "voice";
-            long fileSize = o.getFileSize(cacheDir + "tieba_database.db") + o.getDirectorySize(checkDir, false) + o.getDirectorySize(str, false) + o.getDirectorySize(bVar.checkDir(TbConfig.IMAGE_CACHE_DIR_NAME, true, false, true), false);
-            float f = 0.0f + ((float) fileSize);
-            if (fileSize >= 10485.76d) {
-                return String.format("%.2f", Float.valueOf(f / 1048576.0f)) + SystemHelpSettingModel.this.mContext.getString(R.string.mebibyte);
+            String str2 = cacheDir + TbConfig.TMP_DATABASE_NAME;
+            long directorySize = FileHelper.getDirectorySize(a2, false) + FileHelper.getDirectorySize(str, false) + FileHelper.getFileSize(str2) + FileHelper.getDirectorySize(bVar.a("images", true, false, true), false);
+            float f2 = ((float) directorySize) + 0.0f;
+            if (directorySize >= 10485.76d) {
+                return String.format("%.2f", Float.valueOf(f2 / 1048576.0f)) + SystemHelpSettingModel.this.f20996g.getString(R.string.mebibyte);
             }
             return "";
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(String str) {
-            super.onPostExecute((b) str);
-            SystemHelpSettingModel.this.nhy = null;
-            if (SystemHelpSettingModel.this.nhz != null) {
-                SystemHelpSettingModel.this.nhz.callback(MoreModel.TaskType.GET_SIZE, str);
+            super.onPostExecute((c) str);
+            SystemHelpSettingModel.this.f20995f = null;
+            if (SystemHelpSettingModel.this.f20997h != null) {
+                SystemHelpSettingModel.this.f20997h.callback(MoreModel.TaskType.GET_SIZE, str);
             }
         }
     }
 
+    public SystemHelpSettingModel(SystemHelpSettingActivity systemHelpSettingActivity) {
+        super(systemHelpSettingActivity.getPageContext());
+        this.f20994e = null;
+        this.f20995f = null;
+        this.f20996g = null;
+        this.f20997h = null;
+        this.f20996g = systemHelpSettingActivity.getPageContext().getPageActivity();
+    }
+
+    public void A(BaseActivity.LoadDataCallBack loadDataCallBack) {
+        this.f20997h = loadDataCallBack;
+    }
+
     @Override // com.baidu.adp.base.BdBaseModel
-    protected boolean LoadData() {
+    public boolean LoadData() {
         return false;
     }
 
@@ -135,7 +118,31 @@ public class SystemHelpSettingModel extends BdBaseModel {
         return false;
     }
 
-    public void a(BaseActivity.LoadDataCallBack loadDataCallBack) {
-        this.nhz = loadDataCallBack;
+    public void w() {
+        if (this.f20994e == null) {
+            b bVar = new b();
+            this.f20994e = bVar;
+            bVar.execute(new String[0]);
+        }
+    }
+
+    public void x() {
+        String currentAccount = TbadkCoreApplication.getCurrentAccount();
+        if (TextUtils.isEmpty(currentAccount)) {
+            return;
+        }
+        MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2008015, currentAccount));
+    }
+
+    public void y() {
+        if (this.f20995f == null) {
+            c cVar = new c();
+            this.f20995f = cVar;
+            cVar.execute(new String[0]);
+        }
+    }
+
+    public void z(boolean z) {
+        TbadkCoreApplication.getInst().setHeadsetModeOn(z);
     }
 }

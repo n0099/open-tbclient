@@ -4,9 +4,9 @@ import java.io.IOException;
 import java.lang.reflect.Type;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-/* loaded from: classes4.dex */
+/* loaded from: classes.dex */
 public class SimpleDateFormatSerializer implements ObjectSerializer {
-    private final String pattern;
+    public final String pattern;
 
     public SimpleDateFormatSerializer(String str) {
         this.pattern = str;

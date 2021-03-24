@@ -22,19 +22,19 @@ import com.kwad.sdk.reward.widget.tailframe.appbar.TailFrameBarAppPortraitVertic
 import java.io.Serializable;
 @KsAdSdkDynamicImpl(FeedDownloadActivity.class)
 @Keep
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class FeedDownloadActivityProxy extends com.kwad.sdk.b.a implements View.OnClickListener {
-    private static final boolean DEBUG = false;
+    public static final boolean DEBUG = false;
     public static final String KEY_AD_DATA = "key_template";
-    private static final String TAG = "FeedDownloadActivity";
-    private static a.InterfaceC1137a mAdClickListener;
-    private KsAdContainer mAdContainer;
-    private AdInfo mAdInfo;
-    private AdTemplate mAdTemplate;
-    private com.kwad.sdk.core.download.b.b mApkDownloadHelper;
-    private TailFrameBarAppPortraitVertical mAppTailFrameView;
-    private Activity mContext;
-    private TextProgressBar mProgressBarTv;
+    public static final String TAG = "FeedDownloadActivity";
+    public static a.InterfaceC0404a mAdClickListener;
+    public KsAdContainer mAdContainer;
+    public AdInfo mAdInfo;
+    public AdTemplate mAdTemplate;
+    public com.kwad.sdk.core.download.b.b mApkDownloadHelper;
+    public TailFrameBarAppPortraitVertical mAppTailFrameView;
+    public Activity mContext;
+    public TextProgressBar mProgressBarTv;
 
     private void bindDownloadListener() {
         this.mApkDownloadHelper = new com.kwad.sdk.core.download.b.b(this.mAdTemplate, null, new c() { // from class: com.kwad.sdk.feed.FeedDownloadActivityProxy.1
@@ -82,43 +82,49 @@ public class FeedDownloadActivityProxy extends com.kwad.sdk.b.a implements View.
             this.mContext.finish();
             return false;
         }
-        this.mAdTemplate = (AdTemplate) serializableExtra;
-        this.mAdInfo = com.kwad.sdk.core.response.b.c.j(this.mAdTemplate);
+        AdTemplate adTemplate = (AdTemplate) serializableExtra;
+        this.mAdTemplate = adTemplate;
+        this.mAdInfo = com.kwad.sdk.core.response.b.c.j(adTemplate);
         return true;
     }
 
     private void intiView() {
-        this.mAdContainer = (KsAdContainer) this.mContext.findViewById(R.id.ksad_container);
-        this.mAdContainer.setOnClickListener(this);
-        this.mAppTailFrameView = (TailFrameBarAppPortraitVertical) this.mContext.findViewById(R.id.ksad_download_container);
-        this.mAppTailFrameView.a(this.mAdTemplate);
+        KsAdContainer ksAdContainer = (KsAdContainer) this.mContext.findViewById(R.id.ksad_container);
+        this.mAdContainer = ksAdContainer;
+        ksAdContainer.setOnClickListener(this);
+        TailFrameBarAppPortraitVertical tailFrameBarAppPortraitVertical = (TailFrameBarAppPortraitVertical) this.mContext.findViewById(R.id.ksad_download_container);
+        this.mAppTailFrameView = tailFrameBarAppPortraitVertical;
+        tailFrameBarAppPortraitVertical.a(this.mAdTemplate);
         this.mAppTailFrameView.a(com.kwad.sdk.core.response.b.c.j(this.mAdTemplate));
         this.mAppTailFrameView.setVisibility(0);
-        this.mProgressBarTv = this.mAppTailFrameView.getTextProgressBar();
-        this.mProgressBarTv.setOnClickListener(this);
+        TextProgressBar textProgressBar = this.mAppTailFrameView.getTextProgressBar();
+        this.mProgressBarTv = textProgressBar;
+        textProgressBar.setOnClickListener(this);
         bindDownloadListener();
     }
 
-    public static void launch(Context context, @NonNull AdTemplate adTemplate, a.InterfaceC1137a interfaceC1137a) {
+    public static void launch(Context context, @NonNull AdTemplate adTemplate, a.InterfaceC0404a interfaceC0404a) {
         KsAdSDKImpl.putComponentProxy(FeedDownloadActivity.class, FeedDownloadActivityProxy.class);
         Intent intent = new Intent(context, FeedDownloadActivity.class);
         intent.setFlags(268435456);
         intent.putExtra("key_template", adTemplate);
-        mAdClickListener = interfaceC1137a;
+        mAdClickListener = interfaceC0404a;
         context.startActivity(intent);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void notifyAdClick() {
         com.kwad.sdk.core.report.b.a(this.mAdTemplate, this.mAdContainer.getTouchCoords());
-        if (mAdClickListener != null) {
-            mAdClickListener.a();
+        a.InterfaceC0404a interfaceC0404a = mAdClickListener;
+        if (interfaceC0404a != null) {
+            interfaceC0404a.a();
         }
     }
 
     public void destroy() {
-        if (this.mAppTailFrameView != null) {
-            this.mAppTailFrameView.a();
+        TailFrameBarAppPortraitVertical tailFrameBarAppPortraitVertical = this.mAppTailFrameView;
+        if (tailFrameBarAppPortraitVertical != null) {
+            tailFrameBarAppPortraitVertical.a();
             this.mAppTailFrameView.setVisibility(8);
         }
     }
@@ -126,8 +132,8 @@ public class FeedDownloadActivityProxy extends com.kwad.sdk.b.a implements View.
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         com.kwad.sdk.core.download.b.b.a(this.mApkDownloadHelper, view == this.mProgressBarTv);
-        com.kwad.sdk.core.download.b.a.a(view.getContext(), this.mAdTemplate, new a.InterfaceC1111a() { // from class: com.kwad.sdk.feed.FeedDownloadActivityProxy.2
-            @Override // com.kwad.sdk.core.download.b.a.InterfaceC1111a
+        com.kwad.sdk.core.download.b.a.a(view.getContext(), this.mAdTemplate, new a.InterfaceC0378a() { // from class: com.kwad.sdk.feed.FeedDownloadActivityProxy.2
+            @Override // com.kwad.sdk.core.download.b.a.InterfaceC0378a
             public void a() {
                 FeedDownloadActivityProxy.this.notifyAdClick();
             }

@@ -1,5 +1,5 @@
 package com.kwai.video.player;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public interface PlayerSettingConstants {
     public static final String AUDIO_STR_DEFAULT = "0";
     public static final int AudioMonoType_Left = 1;
@@ -46,39 +46,39 @@ public interface PlayerSettingConstants {
     public static final int VIDEO_SCALING_MODE_SCALE_TO_FIT = 1;
     public static final int VIDEO_SCALING_MODE_SCALE_TO_FIT_WITH_CROPPING = 2;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public @interface AudioMonoType {
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public @interface DeviceOut {
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public @interface KFlvSwitchMode {
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public @interface LogLevel {
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public @interface MaxBufferStrategy {
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public @interface OptionType {
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public @interface OverlayFormat {
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public @interface ScalingMode {
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public @interface UseHardwareDecoderFlag {
     }
 }

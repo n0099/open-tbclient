@@ -22,28 +22,41 @@ import com.baidu.mapapi.map.WeightedLatLng;
 import java.io.StringReader;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class LottieAnimationView extends ImageView {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f5304a = LottieAnimationView.class.getSimpleName();
-    private final h<d> b;
-    private final h<Throwable> c;
-    private final f d;
-    private String e;
-    @RawRes
-    private int f;
-    private boolean g;
-    private boolean h;
-    private boolean i;
-    private Set<i> j;
-    @Nullable
-    private k<d> k;
-    @Nullable
-    private d l;
+    public static final String f31173a = LottieAnimationView.class.getSimpleName();
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes3.dex */
+    /* renamed from: b  reason: collision with root package name */
+    public final h<d> f31174b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public final h<Throwable> f31175c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public final f f31176d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public String f31177e;
+    @RawRes
+
+    /* renamed from: f  reason: collision with root package name */
+    public int f31178f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public boolean f31179g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public boolean f31180h;
+    public boolean i;
+    public Set<i> j;
+    @Nullable
+    public k<d> k;
+    @Nullable
+    public d l;
+
+    /* loaded from: classes6.dex */
     public static class a extends View.BaseSavedState {
         public static final Parcelable.Creator<a> CREATOR = new Parcelable.Creator<a>() { // from class: com.ksad.lottie.LottieAnimationView.a.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -62,59 +75,71 @@ public class LottieAnimationView extends ImageView {
         };
 
         /* renamed from: a  reason: collision with root package name */
-        String f5307a;
-        int b;
-        float c;
-        boolean d;
-        String e;
-        int f;
-        int g;
+        public String f31183a;
 
-        private a(Parcel parcel) {
+        /* renamed from: b  reason: collision with root package name */
+        public int f31184b;
+
+        /* renamed from: c  reason: collision with root package name */
+        public float f31185c;
+
+        /* renamed from: d  reason: collision with root package name */
+        public boolean f31186d;
+
+        /* renamed from: e  reason: collision with root package name */
+        public String f31187e;
+
+        /* renamed from: f  reason: collision with root package name */
+        public int f31188f;
+
+        /* renamed from: g  reason: collision with root package name */
+        public int f31189g;
+
+        public a(Parcel parcel) {
             super(parcel);
-            this.f5307a = parcel.readString();
-            this.c = parcel.readFloat();
-            this.d = parcel.readInt() == 1;
-            this.e = parcel.readString();
-            this.f = parcel.readInt();
-            this.g = parcel.readInt();
+            this.f31183a = parcel.readString();
+            this.f31185c = parcel.readFloat();
+            this.f31186d = parcel.readInt() == 1;
+            this.f31187e = parcel.readString();
+            this.f31188f = parcel.readInt();
+            this.f31189g = parcel.readInt();
         }
 
-        a(Parcelable parcelable) {
+        public a(Parcelable parcelable) {
             super(parcelable);
         }
 
         @Override // android.view.View.BaseSavedState, android.view.AbsSavedState, android.os.Parcelable
         public void writeToParcel(Parcel parcel, int i) {
             super.writeToParcel(parcel, i);
-            parcel.writeString(this.f5307a);
-            parcel.writeFloat(this.c);
-            parcel.writeInt(this.d ? 1 : 0);
-            parcel.writeString(this.e);
-            parcel.writeInt(this.f);
-            parcel.writeInt(this.g);
+            parcel.writeString(this.f31183a);
+            parcel.writeFloat(this.f31185c);
+            parcel.writeInt(this.f31186d ? 1 : 0);
+            parcel.writeString(this.f31187e);
+            parcel.writeInt(this.f31188f);
+            parcel.writeInt(this.f31189g);
         }
     }
 
     public LottieAnimationView(Context context) {
         super(context);
-        this.b = new h<d>() { // from class: com.ksad.lottie.LottieAnimationView.1
+        this.f31174b = new h<d>() { // from class: com.ksad.lottie.LottieAnimationView.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.ksad.lottie.h
             public void a(d dVar) {
                 LottieAnimationView.this.setComposition(dVar);
             }
         };
-        this.c = new h<Throwable>() { // from class: com.ksad.lottie.LottieAnimationView.2
+        this.f31175c = new h<Throwable>() { // from class: com.ksad.lottie.LottieAnimationView.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.ksad.lottie.h
             public void a(Throwable th) {
                 throw new IllegalStateException("Unable to parse composition", th);
             }
         };
-        this.d = new f();
-        this.g = false;
-        this.h = false;
+        this.f31176d = new f();
+        this.f31179g = false;
+        this.f31180h = false;
         this.i = false;
         this.j = new HashSet();
         a((AttributeSet) null);
@@ -122,23 +147,23 @@ public class LottieAnimationView extends ImageView {
 
     public LottieAnimationView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.b = new h<d>() { // from class: com.ksad.lottie.LottieAnimationView.1
+        this.f31174b = new h<d>() { // from class: com.ksad.lottie.LottieAnimationView.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.ksad.lottie.h
             public void a(d dVar) {
                 LottieAnimationView.this.setComposition(dVar);
             }
         };
-        this.c = new h<Throwable>() { // from class: com.ksad.lottie.LottieAnimationView.2
+        this.f31175c = new h<Throwable>() { // from class: com.ksad.lottie.LottieAnimationView.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.ksad.lottie.h
             public void a(Throwable th) {
                 throw new IllegalStateException("Unable to parse composition", th);
             }
         };
-        this.d = new f();
-        this.g = false;
-        this.h = false;
+        this.f31176d = new f();
+        this.f31179g = false;
+        this.f31180h = false;
         this.i = false;
         this.j = new HashSet();
         a(attributeSet);
@@ -146,30 +171,30 @@ public class LottieAnimationView extends ImageView {
 
     public LottieAnimationView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.b = new h<d>() { // from class: com.ksad.lottie.LottieAnimationView.1
+        this.f31174b = new h<d>() { // from class: com.ksad.lottie.LottieAnimationView.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.ksad.lottie.h
             public void a(d dVar) {
                 LottieAnimationView.this.setComposition(dVar);
             }
         };
-        this.c = new h<Throwable>() { // from class: com.ksad.lottie.LottieAnimationView.2
+        this.f31175c = new h<Throwable>() { // from class: com.ksad.lottie.LottieAnimationView.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.ksad.lottie.h
             public void a(Throwable th) {
                 throw new IllegalStateException("Unable to parse composition", th);
             }
         };
-        this.d = new f();
-        this.g = false;
-        this.h = false;
+        this.f31176d = new f();
+        this.f31179g = false;
+        this.f31180h = false;
         this.i = false;
         this.j = new HashSet();
         a(attributeSet);
     }
 
     private void a(Drawable drawable, boolean z) {
-        if (z && drawable != this.d) {
+        if (z && drawable != this.f31176d) {
             a();
         }
         e();
@@ -181,34 +206,35 @@ public class LottieAnimationView extends ImageView {
     }
 
     private void e() {
-        if (this.k != null) {
-            this.k.b(this.b);
-            this.k.d(this.c);
+        k<d> kVar = this.k;
+        if (kVar != null) {
+            kVar.b(this.f31174b);
+            this.k.d(this.f31175c);
         }
     }
 
     private void f() {
         this.l = null;
-        this.d.e();
+        this.f31176d.e();
     }
 
     private void g() {
-        setLayerType(this.i && this.d.n() ? 2 : 1, null);
+        setLayerType(this.i && this.f31176d.n() ? 2 : 1, null);
     }
 
     private void setCompositionTask(k<d> kVar) {
         f();
         e();
-        this.k = kVar.a(this.b).c(this.c);
+        this.k = kVar.a(this.f31174b).c(this.f31175c);
     }
 
     @VisibleForTesting
-    void a() {
-        this.d.c();
+    public void a() {
+        this.f31176d.c();
     }
 
     public void a(Animator.AnimatorListener animatorListener) {
-        this.d.a(animatorListener);
+        this.f31176d.a(animatorListener);
     }
 
     public void a(JsonReader jsonReader, @Nullable String str) {
@@ -220,26 +246,26 @@ public class LottieAnimationView extends ImageView {
     }
 
     public void a(boolean z) {
-        this.d.a(z);
+        this.f31176d.a(z);
     }
 
     @MainThread
     public void b() {
-        this.d.f();
+        this.f31176d.f();
         g();
     }
 
     public void b(Animator.AnimatorListener animatorListener) {
-        this.d.b(animatorListener);
+        this.f31176d.b(animatorListener);
     }
 
     public boolean c() {
-        return this.d.n();
+        return this.f31176d.n();
     }
 
     @MainThread
     public void d() {
-        this.d.s();
+        this.f31176d.s();
         g();
     }
 
@@ -249,53 +275,54 @@ public class LottieAnimationView extends ImageView {
     }
 
     public long getDuration() {
-        if (this.l != null) {
-            return this.l.c();
+        d dVar = this.l;
+        if (dVar != null) {
+            return dVar.c();
         }
         return 0L;
     }
 
     public int getFrame() {
-        return this.d.k();
+        return this.f31176d.k();
     }
 
     @Nullable
     public String getImageAssetsFolder() {
-        return this.d.b();
+        return this.f31176d.b();
     }
 
     public float getMaxFrame() {
-        return this.d.i();
+        return this.f31176d.i();
     }
 
     public float getMinFrame() {
-        return this.d.h();
+        return this.f31176d.h();
     }
 
     @Nullable
     public l getPerformanceTracker() {
-        return this.d.d();
+        return this.f31176d.d();
     }
 
     @FloatRange(from = 0.0d, to = WeightedLatLng.DEFAULT_INTENSITY)
     public float getProgress() {
-        return this.d.t();
+        return this.f31176d.t();
     }
 
     public int getRepeatCount() {
-        return this.d.m();
+        return this.f31176d.m();
     }
 
     public int getRepeatMode() {
-        return this.d.l();
+        return this.f31176d.l();
     }
 
     public float getScale() {
-        return this.d.q();
+        return this.f31176d.q();
     }
 
     public float getSpeed() {
-        return this.d.j();
+        return this.f31176d.j();
     }
 
     public boolean getUseHardwareAcceleration() {
@@ -304,78 +331,82 @@ public class LottieAnimationView extends ImageView {
 
     @Override // android.widget.ImageView, android.view.View, android.graphics.drawable.Drawable.Callback
     public void invalidateDrawable(@NonNull Drawable drawable) {
-        if (getDrawable() == this.d) {
-            super.invalidateDrawable(this.d);
+        Drawable drawable2 = getDrawable();
+        f fVar = this.f31176d;
+        if (drawable2 == fVar) {
+            super.invalidateDrawable(fVar);
         } else {
             super.invalidateDrawable(drawable);
         }
     }
 
     @Override // android.widget.ImageView, android.view.View
-    protected void onAttachedToWindow() {
+    public void onAttachedToWindow() {
         super.onAttachedToWindow();
-        if (this.h && this.g) {
+        if (this.f31180h && this.f31179g) {
             b();
         }
     }
 
     @Override // android.widget.ImageView, android.view.View
-    protected void onDetachedFromWindow() {
+    public void onDetachedFromWindow() {
         if (c()) {
             d();
-            this.g = true;
+            this.f31179g = true;
         }
         a();
         super.onDetachedFromWindow();
     }
 
     @Override // android.view.View
-    protected void onRestoreInstanceState(Parcelable parcelable) {
+    public void onRestoreInstanceState(Parcelable parcelable) {
         if (!(parcelable instanceof a)) {
             super.onRestoreInstanceState(parcelable);
             return;
         }
         a aVar = (a) parcelable;
         super.onRestoreInstanceState(aVar.getSuperState());
-        this.e = aVar.f5307a;
-        if (!TextUtils.isEmpty(this.e)) {
-            setAnimation(this.e);
+        String str = aVar.f31183a;
+        this.f31177e = str;
+        if (!TextUtils.isEmpty(str)) {
+            setAnimation(this.f31177e);
         }
-        this.f = aVar.b;
-        if (this.f != 0) {
-            setAnimation(this.f);
+        int i = aVar.f31184b;
+        this.f31178f = i;
+        if (i != 0) {
+            setAnimation(i);
         }
-        setProgress(aVar.c);
-        if (aVar.d) {
+        setProgress(aVar.f31185c);
+        if (aVar.f31186d) {
             b();
         }
-        this.d.a(aVar.e);
-        setRepeatMode(aVar.f);
-        setRepeatCount(aVar.g);
+        this.f31176d.a(aVar.f31187e);
+        setRepeatMode(aVar.f31188f);
+        setRepeatCount(aVar.f31189g);
     }
 
     @Override // android.view.View
-    protected Parcelable onSaveInstanceState() {
+    public Parcelable onSaveInstanceState() {
         a aVar = new a(super.onSaveInstanceState());
-        aVar.f5307a = this.e;
-        aVar.b = this.f;
-        aVar.c = this.d.t();
-        aVar.d = this.d.n();
-        aVar.e = this.d.b();
-        aVar.f = this.d.l();
-        aVar.g = this.d.m();
+        aVar.f31183a = this.f31177e;
+        aVar.f31184b = this.f31178f;
+        aVar.f31185c = this.f31176d.t();
+        aVar.f31186d = this.f31176d.n();
+        aVar.f31187e = this.f31176d.b();
+        aVar.f31188f = this.f31176d.l();
+        aVar.f31189g = this.f31176d.m();
         return aVar;
     }
 
     public void setAnimation(@RawRes int i) {
-        this.f = i;
-        this.e = null;
+        this.f31178f = i;
+        this.f31177e = null;
         setCompositionTask(e.a(getContext(), i));
     }
 
     public void setAnimation(String str) {
-        this.e = str;
-        this.f = 0;
+        this.f31177e = str;
+        this.f31178f = 0;
         setCompositionTask(e.b(getContext(), str));
     }
 
@@ -389,16 +420,17 @@ public class LottieAnimationView extends ImageView {
     }
 
     public void setComposition(@NonNull d dVar) {
-        if (c.f5327a) {
-            Log.v(f5304a, "Set Composition \n" + dVar);
+        if (c.f31327a) {
+            String str = f31173a;
+            Log.v(str, "Set Composition \n" + dVar);
         }
-        this.d.setCallback(this);
+        this.f31176d.setCallback(this);
         this.l = dVar;
-        boolean a2 = this.d.a(dVar);
+        boolean a2 = this.f31176d.a(dVar);
         g();
-        if (getDrawable() != this.d || a2) {
+        if (getDrawable() != this.f31176d || a2) {
             setImageDrawable(null);
-            setImageDrawable(this.d);
+            setImageDrawable(this.f31176d);
             requestLayout();
             for (i iVar : this.j) {
                 iVar.a(dVar);
@@ -407,19 +439,19 @@ public class LottieAnimationView extends ImageView {
     }
 
     public void setFontAssetDelegate(com.ksad.lottie.a aVar) {
-        this.d.a(aVar);
+        this.f31176d.a(aVar);
     }
 
     public void setFrame(int i) {
-        this.d.c(i);
+        this.f31176d.c(i);
     }
 
     public void setImageAssetDelegate(b bVar) {
-        this.d.a(bVar);
+        this.f31176d.a(bVar);
     }
 
     public void setImageAssetsFolder(String str) {
-        this.d.a(str);
+        this.f31176d.a(str);
     }
 
     @Override // android.widget.ImageView
@@ -442,50 +474,50 @@ public class LottieAnimationView extends ImageView {
     }
 
     public void setMaxFrame(int i) {
-        this.d.b(i);
+        this.f31176d.b(i);
     }
 
-    public void setMaxProgress(@FloatRange(from = 0.0d, to = 1.0d) float f) {
-        this.d.b(f);
+    public void setMaxProgress(@FloatRange(from = 0.0d, to = 1.0d) float f2) {
+        this.f31176d.b(f2);
     }
 
     public void setMinFrame(int i) {
-        this.d.a(i);
+        this.f31176d.a(i);
     }
 
-    public void setMinProgress(float f) {
-        this.d.a(f);
+    public void setMinProgress(float f2) {
+        this.f31176d.a(f2);
     }
 
     public void setPerformanceTrackingEnabled(boolean z) {
-        this.d.b(z);
+        this.f31176d.b(z);
     }
 
-    public void setProgress(@FloatRange(from = 0.0d, to = 1.0d) float f) {
-        this.d.d(f);
+    public void setProgress(@FloatRange(from = 0.0d, to = 1.0d) float f2) {
+        this.f31176d.d(f2);
     }
 
     public void setRepeatCount(int i) {
-        this.d.e(i);
+        this.f31176d.e(i);
     }
 
     public void setRepeatMode(int i) {
-        this.d.d(i);
+        this.f31176d.d(i);
     }
 
-    public void setScale(float f) {
-        this.d.e(f);
-        if (getDrawable() == this.d) {
+    public void setScale(float f2) {
+        this.f31176d.e(f2);
+        if (getDrawable() == this.f31176d) {
             a((Drawable) null, false);
-            a((Drawable) this.d, false);
+            a((Drawable) this.f31176d, false);
         }
     }
 
-    public void setSpeed(float f) {
-        this.d.c(f);
+    public void setSpeed(float f2) {
+        this.f31176d.c(f2);
     }
 
     public void setTextDelegate(m mVar) {
-        this.d.a(mVar);
+        this.f31176d.a(mVar);
     }
 }

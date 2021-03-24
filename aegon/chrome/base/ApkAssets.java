@@ -3,44 +3,41 @@ package aegon.chrome.base;
 import aegon.chrome.base.annotations.CalledByNative;
 import android.content.res.AssetFileDescriptor;
 import java.io.IOException;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class ApkAssets {
     @CalledByNative
     public static long[] open(String str) {
-        long[] jArr;
         AssetFileDescriptor assetFileDescriptor = null;
         try {
             try {
                 assetFileDescriptor = ContextUtils.sApplicationContext.getAssets().openNonAssetFd(str);
-            } catch (IOException e) {
-                e = e;
-            }
-        } catch (Throwable th) {
-            th = th;
-        }
-        try {
-            jArr = new long[]{assetFileDescriptor.getParcelFileDescriptor().detachFd(), assetFileDescriptor.getStartOffset(), assetFileDescriptor.getLength()};
-            try {
-                assetFileDescriptor.close();
-            } catch (IOException e2) {
-                android.util.Log.e("ApkAssets", "Unable to close AssetFileDescriptor", e2);
-            }
-        } catch (IOException e3) {
-            e = e3;
-            if (!e.getMessage().equals("") && !e.getMessage().equals(str)) {
-                android.util.Log.e("ApkAssets", "Error while loading asset " + str + ": " + e);
-            }
-            jArr = new long[]{-1, -1, -1};
-            if (assetFileDescriptor != null) {
+                long[] jArr = {assetFileDescriptor.getParcelFileDescriptor().detachFd(), assetFileDescriptor.getStartOffset(), assetFileDescriptor.getLength()};
                 try {
                     assetFileDescriptor.close();
-                } catch (IOException e4) {
-                    android.util.Log.e("ApkAssets", "Unable to close AssetFileDescriptor", e4);
+                } catch (IOException e2) {
+                    android.util.Log.e("ApkAssets", "Unable to close AssetFileDescriptor", e2);
                 }
+                return jArr;
+            } catch (IOException e3) {
+                if (!e3.getMessage().equals("") && !e3.getMessage().equals(str)) {
+                    StringBuilder sb = new StringBuilder();
+                    sb.append("Error while loading asset ");
+                    sb.append(str);
+                    sb.append(": ");
+                    sb.append(e3);
+                    android.util.Log.e("ApkAssets", sb.toString());
+                }
+                long[] jArr2 = {-1, -1, -1};
+                if (assetFileDescriptor != null) {
+                    try {
+                        assetFileDescriptor.close();
+                    } catch (IOException e4) {
+                        android.util.Log.e("ApkAssets", "Unable to close AssetFileDescriptor", e4);
+                    }
+                }
+                return jArr2;
             }
-            return jArr;
-        } catch (Throwable th2) {
-            th = th2;
+        } catch (Throwable th) {
             if (assetFileDescriptor != null) {
                 try {
                     assetFileDescriptor.close();
@@ -50,6 +47,5 @@ public class ApkAssets {
             }
             throw th;
         }
-        return jArr;
     }
 }

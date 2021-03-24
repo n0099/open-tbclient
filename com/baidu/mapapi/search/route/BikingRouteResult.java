@@ -5,21 +5,24 @@ import android.os.Parcelable;
 import com.baidu.mapapi.search.core.SearchResult;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class BikingRouteResult extends SearchResult implements Parcelable {
     public static final Parcelable.Creator<BikingRouteLine> CREATOR = new c();
 
     /* renamed from: a  reason: collision with root package name */
-    private List<BikingRouteLine> f2127a;
-    private SuggestAddrInfo b;
+    public List<BikingRouteLine> f7247a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public SuggestAddrInfo f7248b;
 
     public BikingRouteResult() {
     }
 
-    protected BikingRouteResult(Parcel parcel) {
-        this.f2127a = new ArrayList();
-        parcel.readList(this.f2127a, BikingRouteLine.class.getClassLoader());
-        this.b = (SuggestAddrInfo) parcel.readParcelable(SuggestAddrInfo.class.getClassLoader());
+    public BikingRouteResult(Parcel parcel) {
+        ArrayList arrayList = new ArrayList();
+        this.f7247a = arrayList;
+        parcel.readList(arrayList, BikingRouteLine.class.getClassLoader());
+        this.f7248b = (SuggestAddrInfo) parcel.readParcelable(SuggestAddrInfo.class.getClassLoader());
     }
 
     @Override // com.baidu.mapapi.search.core.SearchResult, android.os.Parcelable
@@ -28,24 +31,24 @@ public class BikingRouteResult extends SearchResult implements Parcelable {
     }
 
     public List<BikingRouteLine> getRouteLines() {
-        return this.f2127a;
+        return this.f7247a;
     }
 
     public SuggestAddrInfo getSuggestAddrInfo() {
-        return this.b;
+        return this.f7248b;
     }
 
     public void setRouteLines(List<BikingRouteLine> list) {
-        this.f2127a = list;
+        this.f7247a = list;
     }
 
     public void setSuggestAddrInfo(SuggestAddrInfo suggestAddrInfo) {
-        this.b = suggestAddrInfo;
+        this.f7248b = suggestAddrInfo;
     }
 
     @Override // com.baidu.mapapi.search.core.SearchResult, android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeList(this.f2127a);
-        parcel.writeParcelable(this.b, 1);
+        parcel.writeList(this.f7247a);
+        parcel.writeParcelable(this.f7248b, 1);
     }
 }

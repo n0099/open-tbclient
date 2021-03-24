@@ -3,7 +3,7 @@ package org.apache.http.impl;
 import org.apache.http.HttpConnectionMetrics;
 import org.apache.http.io.HttpTransportMetrics;
 @Deprecated
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class HttpConnectionMetricsImpl implements HttpConnectionMetrics {
     public static final String RECEIVED_BYTES_COUNT = "http.received-bytes-count";
     public static final String REQUEST_COUNT = "http.request-count";
@@ -15,12 +15,12 @@ public class HttpConnectionMetricsImpl implements HttpConnectionMetrics {
     }
 
     @Override // org.apache.http.HttpConnectionMetrics
-    public long getReceivedBytesCount() {
+    public Object getMetric(String str) {
         throw new RuntimeException("Stub!");
     }
 
     @Override // org.apache.http.HttpConnectionMetrics
-    public long getSentBytesCount() {
+    public long getReceivedBytesCount() {
         throw new RuntimeException("Stub!");
     }
 
@@ -29,12 +29,17 @@ public class HttpConnectionMetricsImpl implements HttpConnectionMetrics {
         throw new RuntimeException("Stub!");
     }
 
-    public void incrementRequestCount() {
+    @Override // org.apache.http.HttpConnectionMetrics
+    public long getResponseCount() {
         throw new RuntimeException("Stub!");
     }
 
     @Override // org.apache.http.HttpConnectionMetrics
-    public long getResponseCount() {
+    public long getSentBytesCount() {
+        throw new RuntimeException("Stub!");
+    }
+
+    public void incrementRequestCount() {
         throw new RuntimeException("Stub!");
     }
 
@@ -43,16 +48,11 @@ public class HttpConnectionMetricsImpl implements HttpConnectionMetrics {
     }
 
     @Override // org.apache.http.HttpConnectionMetrics
-    public Object getMetric(String str) {
+    public void reset() {
         throw new RuntimeException("Stub!");
     }
 
     public void setMetric(String str, Object obj) {
-        throw new RuntimeException("Stub!");
-    }
-
-    @Override // org.apache.http.HttpConnectionMetrics
-    public void reset() {
         throw new RuntimeException("Stub!");
     }
 }

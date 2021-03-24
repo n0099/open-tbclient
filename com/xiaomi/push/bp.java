@@ -1,106 +1,49 @@
 package com.xiaomi.push;
 
 import android.content.Context;
-import android.content.SharedPreferences;
-import android.text.TextUtils;
-import com.baidu.android.imsdk.db.DBTableDefine;
-import com.xiaomi.push.ai;
-import com.xiaomi.push.cb;
-/* loaded from: classes5.dex */
-public class bp {
+import com.xiaomi.clientreport.processor.IEventProcessor;
+import com.xiaomi.clientreport.processor.IPerfProcessor;
+/* loaded from: classes7.dex */
+public class bp implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile bp f8282a;
+    public Context f40289a;
 
     /* renamed from: a  reason: collision with other field name */
-    private Context f134a;
+    public com.xiaomi.clientreport.processor.c f155a;
 
-    /* renamed from: a  reason: collision with other field name */
-    private ce f136a;
-
-    /* renamed from: a  reason: collision with other field name */
-    private cf f137a;
-    private String e;
-    private String f;
-
-    /* renamed from: a  reason: collision with other field name */
-    private final String f138a = "push_stat_sp";
-
-    /* renamed from: b  reason: collision with other field name */
-    private final String f139b = "upload_time";
-
-    /* renamed from: c  reason: collision with other field name */
-    private final String f140c = DBTableDefine.GroupInfoColumns.COLUMN_DELETE_TIEM;
-    private final String d = "check_time";
-
-    /* renamed from: a  reason: collision with other field name */
-    private ai.a f135a = new bq(this);
-    private ai.a b = new br(this);
-    private ai.a c = new bs(this);
-
-    private bp(Context context) {
-        this.f134a = context;
+    public void a(Context context) {
+        this.f40289a = context;
     }
 
-    public static bp a(Context context) {
-        if (f8282a == null) {
-            synchronized (bp.class) {
-                if (f8282a == null) {
-                    f8282a = new bp(context);
-                }
+    public void a(com.xiaomi.clientreport.processor.c cVar) {
+        this.f155a = cVar;
+    }
+
+    @Override // java.lang.Runnable
+    public void run() {
+        bt a2;
+        String str;
+        long currentTimeMillis;
+        try {
+            if (this.f155a != null) {
+                this.f155a.a();
             }
-        }
-        return f8282a;
-    }
-
-    private boolean a() {
-        return com.xiaomi.push.service.ak.a(this.f134a).a(hr.StatDataSwitch.a(), true);
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void b(String str) {
-        SharedPreferences.Editor edit = this.f134a.getSharedPreferences("push_stat_sp", 0).edit();
-        edit.putLong(str, System.currentTimeMillis());
-        r.a(edit);
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public String c() {
-        return this.f134a.getDatabasePath(bt.f142a).getAbsolutePath();
-    }
-
-    /* renamed from: a  reason: collision with other method in class */
-    public String m179a() {
-        return this.e;
-    }
-
-    public void a(cb.a aVar) {
-        cb.a(this.f134a).a(aVar);
-    }
-
-    public void a(hq hqVar) {
-        if (a() && com.xiaomi.push.service.bi.a(hqVar.e())) {
-            a(by.a(this.f134a, c(), hqVar));
-        }
-    }
-
-    public void a(String str) {
-        if (a() && !TextUtils.isEmpty(str)) {
-            a(cg.a(this.f134a, str));
-        }
-    }
-
-    public void a(String str, String str2, Boolean bool) {
-        if (this.f136a != null) {
-            if (bool.booleanValue()) {
-                this.f136a.a(this.f134a, str2, str);
+            com.xiaomi.channel.commonutils.logger.b.c("begin read and send perf / event");
+            if (this.f155a instanceof IEventProcessor) {
+                a2 = bt.a(this.f40289a);
+                str = "event_last_upload_time";
+                currentTimeMillis = System.currentTimeMillis();
+            } else if (!(this.f155a instanceof IPerfProcessor)) {
+                return;
             } else {
-                this.f136a.b(this.f134a, str2, str);
+                a2 = bt.a(this.f40289a);
+                str = "perf_last_upload_time";
+                currentTimeMillis = System.currentTimeMillis();
             }
+            a2.m169a("sp_client_report_status", str, currentTimeMillis);
+        } catch (Exception e2) {
+            com.xiaomi.channel.commonutils.logger.b.a(e2);
         }
-    }
-
-    public String b() {
-        return this.f;
     }
 }

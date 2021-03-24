@@ -10,109 +10,133 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 import java.util.Iterator;
-/* loaded from: classes5.dex */
+/* loaded from: classes.dex */
 public class BaseChromiumApplication extends Application {
-    private final boolean oRb;
-    private com.baidu.turbonet.base.b<b> oRc;
+    public static final String TAG = "cr.base";
+    public static final String TOOLBAR_CALLBACK_INTERNAL_WRAPPER_CLASS = "androidx.appcompat.internal.app.ToolbarActionBar$ToolbarCallbackWrapper";
+    public static final String TOOLBAR_CALLBACK_WRAPPER_CLASS = "androidx.appcompat.app.ToolbarActionBar$ToolbarCallbackWrapper";
+    public final boolean mShouldInitializeApplicationStatusTracking;
+    public d.b.j0.a.b<c> mWindowFocusListeners;
+
+    /* loaded from: classes.dex */
+    public class a implements Application.ActivityLifecycleCallbacks {
+        public a() {
+        }
+
+        @Override // android.app.Application.ActivityLifecycleCallbacks
+        public void onActivityCreated(Activity activity, Bundle bundle) {
+            activity.getWindow().setCallback((Window.Callback) Proxy.newProxyInstance(Window.Callback.class.getClassLoader(), new Class[]{Window.Callback.class}, new b(activity, activity.getWindow().getCallback())));
+        }
+
+        @Override // android.app.Application.ActivityLifecycleCallbacks
+        public void onActivityDestroyed(Activity activity) {
+        }
+
+        @Override // android.app.Application.ActivityLifecycleCallbacks
+        public void onActivityPaused(Activity activity) {
+        }
+
+        @Override // android.app.Application.ActivityLifecycleCallbacks
+        public void onActivityResumed(Activity activity) {
+        }
+
+        @Override // android.app.Application.ActivityLifecycleCallbacks
+        public void onActivitySaveInstanceState(Activity activity, Bundle bundle) {
+        }
+
+        @Override // android.app.Application.ActivityLifecycleCallbacks
+        public void onActivityStarted(Activity activity) {
+        }
+
+        @Override // android.app.Application.ActivityLifecycleCallbacks
+        public void onActivityStopped(Activity activity) {
+        }
+    }
 
     /* loaded from: classes5.dex */
-    public interface b {
-        void m(Activity activity, boolean z);
+    public class b implements InvocationHandler {
+
+        /* renamed from: e  reason: collision with root package name */
+        public final Window.Callback f22638e;
+
+        /* renamed from: f  reason: collision with root package name */
+        public final Activity f22639f;
+
+        public b(Activity activity, Window.Callback callback) {
+            this.f22638e = callback;
+            this.f22639f = activity;
+        }
+
+        public void a(boolean z) {
+            this.f22638e.onWindowFocusChanged(z);
+            Iterator it = BaseChromiumApplication.this.mWindowFocusListeners.iterator();
+            while (it.hasNext()) {
+                ((c) it.next()).a(this.f22639f, z);
+            }
+        }
+
+        @Override // java.lang.reflect.InvocationHandler
+        public Object invoke(Object obj, Method method, Object[] objArr) throws Throwable {
+            if (method.getName().equals("onWindowFocusChanged") && objArr.length == 1 && (objArr[0] instanceof Boolean)) {
+                a(((Boolean) objArr[0]).booleanValue());
+                return null;
+            }
+            try {
+                return method.invoke(this.f22638e, objArr);
+            } catch (InvocationTargetException e2) {
+                if (e2.getCause() instanceof AbstractMethodError) {
+                    throw e2.getCause();
+                }
+                throw e2;
+            }
+        }
+    }
+
+    /* loaded from: classes.dex */
+    public interface c {
+        void a(Activity activity, boolean z);
     }
 
     public BaseChromiumApplication() {
         this(true);
     }
 
-    protected BaseChromiumApplication(boolean z) {
-        this.oRc = new com.baidu.turbonet.base.b<>();
-        this.oRb = z;
+    public static void initCommandLine(Context context) {
+        ((BaseChromiumApplication) context.getApplicationContext()).initCommandLine();
+    }
+
+    private void startTrackingApplicationStatus() {
+        ApplicationStatus.i(this);
+        registerActivityLifecycleCallbacks(new a());
     }
 
     @Override // android.content.ContextWrapper
-    protected void attachBaseContext(Context context) {
+    public void attachBaseContext(Context context) {
         super.attachBaseContext(context);
-        com.baidu.turbonet.base.a.a.gC(this);
+        d.b.j0.a.c.a.b(this);
     }
 
-    /* loaded from: classes5.dex */
-    private class a implements InvocationHandler {
-        private final Activity mActivity;
-        private final Window.Callback oRe;
-
-        public a(Activity activity, Window.Callback callback) {
-            this.oRe = callback;
-            this.mActivity = activity;
-        }
-
-        @Override // java.lang.reflect.InvocationHandler
-        public Object invoke(Object obj, Method method, Object[] objArr) throws Throwable {
-            if (method.getName().equals("onWindowFocusChanged") && objArr.length == 1 && (objArr[0] instanceof Boolean)) {
-                onWindowFocusChanged(((Boolean) objArr[0]).booleanValue());
-                return null;
-            }
-            try {
-                return method.invoke(this.oRe, objArr);
-            } catch (InvocationTargetException e) {
-                if (e.getCause() instanceof AbstractMethodError) {
-                    throw e.getCause();
-                }
-                throw e;
-            }
-        }
-
-        public void onWindowFocusChanged(boolean z) {
-            this.oRe.onWindowFocusChanged(z);
-            Iterator it = BaseChromiumApplication.this.oRc.iterator();
-            while (it.hasNext()) {
-                ((b) it.next()).m(this.mActivity, z);
-            }
-        }
+    public void initCommandLine() {
     }
 
     @Override // android.app.Application
     public void onCreate() {
         super.onCreate();
-        if (this.oRb) {
-            egf();
+        if (this.mShouldInitializeApplicationStatusTracking) {
+            startTrackingApplicationStatus();
         }
     }
 
-    public void a(b bVar) {
-        this.oRc.addObserver(bVar);
+    public void registerWindowFocusChangedListener(c cVar) {
+        this.mWindowFocusListeners.e(cVar);
     }
 
-    private void egf() {
-        ApplicationStatus.a(this);
-        registerActivityLifecycleCallbacks(new Application.ActivityLifecycleCallbacks() { // from class: com.baidu.turbonet.base.BaseChromiumApplication.1
-            @Override // android.app.Application.ActivityLifecycleCallbacks
-            public void onActivityCreated(Activity activity, Bundle bundle) {
-                activity.getWindow().setCallback((Window.Callback) Proxy.newProxyInstance(Window.Callback.class.getClassLoader(), new Class[]{Window.Callback.class}, new a(activity, activity.getWindow().getCallback())));
-            }
+    public void unregisterWindowFocusChangedListener(c cVar) {
+        this.mWindowFocusListeners.k(cVar);
+    }
 
-            @Override // android.app.Application.ActivityLifecycleCallbacks
-            public void onActivityDestroyed(Activity activity) {
-            }
-
-            @Override // android.app.Application.ActivityLifecycleCallbacks
-            public void onActivityPaused(Activity activity) {
-            }
-
-            @Override // android.app.Application.ActivityLifecycleCallbacks
-            public void onActivityResumed(Activity activity) {
-            }
-
-            @Override // android.app.Application.ActivityLifecycleCallbacks
-            public void onActivitySaveInstanceState(Activity activity, Bundle bundle) {
-            }
-
-            @Override // android.app.Application.ActivityLifecycleCallbacks
-            public void onActivityStarted(Activity activity) {
-            }
-
-            @Override // android.app.Application.ActivityLifecycleCallbacks
-            public void onActivityStopped(Activity activity) {
-            }
-        });
+    public BaseChromiumApplication(boolean z) {
+        this.mWindowFocusListeners = new d.b.j0.a.b<>();
+        this.mShouldInitializeApplicationStatusTracking = z;
     }
 }

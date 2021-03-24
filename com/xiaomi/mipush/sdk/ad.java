@@ -1,26 +1,39 @@
 package com.xiaomi.mipush.sdk;
 
-import com.xiaomi.mipush.sdk.MiTinyDataClient;
-import com.xiaomi.push.hq;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
-public class ad implements Runnable {
+import android.content.Context;
+import com.xiaomi.push.ai;
+import com.xiaomi.push.hf;
+import com.xiaomi.push.hl;
+import com.xiaomi.push.hp;
+import com.xiaomi.push.hs;
+import com.xiaomi.push.hx;
+import com.xiaomi.push.ie;
+import com.xiaomi.push.ip;
+/* loaded from: classes7.dex */
+public class ad extends ai.a {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ MiTinyDataClient.a.C1265a f8207a;
+    public Context f40151a;
 
-    /* renamed from: a  reason: collision with other field name */
-    final /* synthetic */ hq f39a;
+    public ad(Context context) {
+        this.f40151a = context;
+    }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ad(MiTinyDataClient.a.C1265a c1265a, hq hqVar) {
-        this.f8207a = c1265a;
-        this.f39a = hqVar;
+    @Override // com.xiaomi.push.ai.a
+    /* renamed from: a */
+    public String mo165a() {
+        return "2";
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.f8207a.f34a.add(this.f39a);
-        this.f8207a.a();
+        com.xiaomi.push.service.aq a2 = com.xiaomi.push.service.aq.a(this.f40151a);
+        hx hxVar = new hx();
+        hxVar.a(com.xiaomi.push.service.ar.a(a2, hl.MISC_CONFIG));
+        hxVar.b(com.xiaomi.push.service.ar.a(a2, hl.PLUGIN_CONFIG));
+        ie ieVar = new ie("-1", false);
+        ieVar.c(hp.DailyCheckClientConfig.f506a);
+        ieVar.a(ip.a(hxVar));
+        an.a(this.f40151a).a((an) ieVar, hf.Notification, (hs) null);
     }
 }

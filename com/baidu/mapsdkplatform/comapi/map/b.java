@@ -1,9 +1,9 @@
 package com.baidu.mapsdkplatform.comapi.map;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class b extends d {
     public b() {
-        this.c = 6;
-        this.b = "indoor";
-        this.d = 100;
+        this.f7609c = 6;
+        this.f7608b = "indoor";
+        this.f7610d = 100;
     }
 }

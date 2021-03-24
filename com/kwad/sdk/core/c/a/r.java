@@ -2,14 +2,14 @@ package com.kwad.sdk.core.c.a;
 
 import com.kwad.sdk.core.report.b;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class r implements com.kwad.sdk.core.c<b.a> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.core.c
     public JSONObject a(b.a aVar) {
         JSONObject jSONObject = new JSONObject();
-        com.kwad.sdk.utils.o.a(jSONObject, "code", aVar.f6235a);
-        com.kwad.sdk.utils.o.a(jSONObject, "msg", aVar.b);
+        com.kwad.sdk.utils.o.a(jSONObject, "code", aVar.f34011a);
+        com.kwad.sdk.utils.o.a(jSONObject, "msg", aVar.f34012b);
         return jSONObject;
     }
 
@@ -19,7 +19,7 @@ public class r implements com.kwad.sdk.core.c<b.a> {
         if (jSONObject == null) {
             return;
         }
-        aVar.f6235a = jSONObject.optInt("code");
-        aVar.b = jSONObject.optString("msg");
+        aVar.f34011a = jSONObject.optInt("code");
+        aVar.f34012b = jSONObject.optString("msg");
     }
 }

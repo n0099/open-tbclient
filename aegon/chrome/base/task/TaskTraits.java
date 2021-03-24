@@ -2,7 +2,7 @@ package aegon.chrome.base.task;
 
 import androidx.annotation.Nullable;
 import java.util.Arrays;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class TaskTraits {
     public static final TaskTraits BEST_EFFORT;
     public static final TaskTraits BEST_EFFORT_MAY_BLOCK;
@@ -20,18 +20,22 @@ public class TaskTraits {
 
     static {
         TaskTraits.class.desiredAssertionStatus();
-        BEST_EFFORT = new TaskTraits().taskPriority(0);
-        BEST_EFFORT_MAY_BLOCK = BEST_EFFORT.mayBlock();
-        USER_VISIBLE = new TaskTraits().taskPriority(1);
-        USER_VISIBLE.mayBlock();
-        USER_BLOCKING = new TaskTraits().taskPriority(2);
-        USER_BLOCKING.mayBlock();
-        CHOREOGRAPHER_FRAME = new TaskTraits();
-        CHOREOGRAPHER_FRAME.mIsChoreographerFrame = true;
-        TaskTraits taskTraits = new TaskTraits(new TaskTraits());
-        taskTraits.mUseThreadPool = true;
-        THREAD_POOL = taskTraits;
-        THREAD_POOL.taskPriority(2);
+        TaskTraits taskPriority = new TaskTraits().taskPriority(0);
+        BEST_EFFORT = taskPriority;
+        BEST_EFFORT_MAY_BLOCK = taskPriority.mayBlock();
+        TaskTraits taskPriority2 = new TaskTraits().taskPriority(1);
+        USER_VISIBLE = taskPriority2;
+        taskPriority2.mayBlock();
+        TaskTraits taskPriority3 = new TaskTraits().taskPriority(2);
+        USER_BLOCKING = taskPriority3;
+        taskPriority3.mayBlock();
+        TaskTraits taskTraits = new TaskTraits();
+        CHOREOGRAPHER_FRAME = taskTraits;
+        taskTraits.mIsChoreographerFrame = true;
+        TaskTraits taskTraits2 = new TaskTraits(new TaskTraits());
+        taskTraits2.mUseThreadPool = true;
+        THREAD_POOL = taskTraits2;
+        taskTraits2.taskPriority(2);
         THREAD_POOL.taskPriority(1);
         THREAD_POOL.taskPriority(0);
     }
@@ -61,7 +65,7 @@ public class TaskTraits {
     }
 
     public int hashCode() {
-        return (((((((((((((!this.mPrioritySetExplicitly ? 1 : 0) + 1147) * 37) + this.mPriority) * 37) + (!this.mMayBlock ? 1 : 0)) * 37) + (!this.mUseThreadPool ? 1 : 0)) * 37) + this.mExtensionId) * 37) + Arrays.hashCode(this.mExtensionData)) * 37) + (!this.mIsChoreographerFrame ? 1 : 0);
+        return ((Arrays.hashCode(this.mExtensionData) + (((((((((((!this.mPrioritySetExplicitly ? 1 : 0) + 1147) * 37) + this.mPriority) * 37) + (!this.mMayBlock ? 1 : 0)) * 37) + (!this.mUseThreadPool ? 1 : 0)) * 37) + this.mExtensionId) * 37)) * 37) + (!this.mIsChoreographerFrame ? 1 : 0);
     }
 
     public TaskTraits mayBlock() {

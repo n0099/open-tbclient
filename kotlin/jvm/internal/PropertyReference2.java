@@ -1,26 +1,29 @@
 package kotlin.jvm.internal;
 
-import kotlin.reflect.m;
-/* loaded from: classes14.dex */
-public abstract class PropertyReference2 extends PropertyReference implements kotlin.reflect.m {
+import kotlin.SinceKotlin;
+import kotlin.reflect.KCallable;
+import kotlin.reflect.KProperty2;
+/* loaded from: classes7.dex */
+public abstract class PropertyReference2 extends PropertyReference implements KProperty2 {
     @Override // kotlin.jvm.internal.CallableReference
-    protected kotlin.reflect.b computeReflected() {
-        return s.a(this);
+    public KCallable computeReflected() {
+        return Reflection.property2(this);
     }
 
-    @Override // kotlin.jvm.a.c
+    @Override // kotlin.reflect.KProperty2
+    @SinceKotlin(version = "1.1")
+    public Object getDelegate(Object obj, Object obj2) {
+        return ((KProperty2) getReflected()).getDelegate(obj, obj2);
+    }
+
+    @Override // kotlin.jvm.functions.Function2
     public Object invoke(Object obj, Object obj2) {
         return get(obj, obj2);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // kotlin.reflect.m
-    public m.a getGetter() {
-        return ((kotlin.reflect.m) getReflected()).getGetter();
-    }
-
-    @Override // kotlin.reflect.m
-    public Object getDelegate(Object obj, Object obj2) {
-        return ((kotlin.reflect.m) getReflected()).getDelegate(obj, obj2);
+    @Override // kotlin.reflect.KProperty, kotlin.reflect.KProperty0
+    public KProperty2.Getter getGetter() {
+        return ((KProperty2) getReflected()).getGetter();
     }
 }

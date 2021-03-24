@@ -1,5 +1,5 @@
 package com.xiaomi.push;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public enum o {
     China,
     Global,

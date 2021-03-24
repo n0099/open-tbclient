@@ -5,46 +5,54 @@ import com.google.gson.TypeAdapter;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.internal.C$Gson$Types;
 import com.google.gson.stream.JsonToken;
+import d.g.c.c.a;
+import d.g.c.d.b;
 import java.io.IOException;
 import java.lang.reflect.Array;
 import java.lang.reflect.GenericArrayType;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class ArrayTypeAdapter<E> extends TypeAdapter<Object> {
-    public static final TypeAdapterFactory pUg = new TypeAdapterFactory() { // from class: com.google.gson.internal.bind.ArrayTypeAdapter.1
+
+    /* renamed from: c  reason: collision with root package name */
+    public static final TypeAdapterFactory f30941c = new TypeAdapterFactory() { // from class: com.google.gson.internal.bind.ArrayTypeAdapter.1
         @Override // com.google.gson.TypeAdapterFactory
-        public <T> TypeAdapter<T> create(Gson gson, com.google.gson.b.a<T> aVar) {
-            Type type = aVar.getType();
-            if (!(type instanceof GenericArrayType) && (!(type instanceof Class) || !((Class) type).isArray())) {
-                return null;
+        public <T> TypeAdapter<T> create(Gson gson, a<T> aVar) {
+            Type e2 = aVar.e();
+            if ((e2 instanceof GenericArrayType) || ((e2 instanceof Class) && ((Class) e2).isArray())) {
+                Type g2 = C$Gson$Types.g(e2);
+                return new ArrayTypeAdapter(gson, gson.getAdapter(a.b(g2)), C$Gson$Types.k(g2));
             }
-            Type o = C$Gson$Types.o(type);
-            return new ArrayTypeAdapter(gson, gson.getAdapter(com.google.gson.b.a.r(o)), C$Gson$Types.m(o));
+            return null;
         }
     };
-    private final Class<E> componentType;
-    private final TypeAdapter<E> pUh;
+
+    /* renamed from: a  reason: collision with root package name */
+    public final Class<E> f30942a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public final TypeAdapter<E> f30943b;
 
     public ArrayTypeAdapter(Gson gson, TypeAdapter<E> typeAdapter, Class<E> cls) {
-        this.pUh = new TypeAdapterRuntimeTypeWrapper(gson, typeAdapter, cls);
-        this.componentType = cls;
+        this.f30943b = new TypeAdapterRuntimeTypeWrapper(gson, typeAdapter, cls);
+        this.f30942a = cls;
     }
 
     @Override // com.google.gson.TypeAdapter
-    public Object read(com.google.gson.stream.a aVar) throws IOException {
-        if (aVar.eBD() == JsonToken.NULL) {
-            aVar.eBJ();
+    public Object read(d.g.c.d.a aVar) throws IOException {
+        if (aVar.M() == JsonToken.NULL) {
+            aVar.I();
             return null;
         }
         ArrayList arrayList = new ArrayList();
-        aVar.eBB();
-        while (aVar.hasNext()) {
-            arrayList.add(this.pUh.read(aVar));
+        aVar.n();
+        while (aVar.y()) {
+            arrayList.add(this.f30943b.read(aVar));
         }
-        aVar.endArray();
+        aVar.t();
         int size = arrayList.size();
-        Object newInstance = Array.newInstance((Class<?>) this.componentType, size);
+        Object newInstance = Array.newInstance((Class<?>) this.f30942a, size);
         for (int i = 0; i < size; i++) {
             Array.set(newInstance, i, arrayList.get(i));
         }
@@ -54,16 +62,16 @@ public final class ArrayTypeAdapter<E> extends TypeAdapter<Object> {
     /* JADX DEBUG: Multi-variable search result rejected for r3v0, resolved type: com.google.gson.TypeAdapter<E> */
     /* JADX WARN: Multi-variable type inference failed */
     @Override // com.google.gson.TypeAdapter
-    public void write(com.google.gson.stream.b bVar, Object obj) throws IOException {
+    public void write(b bVar, Object obj) throws IOException {
         if (obj == null) {
-            bVar.eBW();
+            bVar.B();
             return;
         }
-        bVar.eBS();
+        bVar.q();
         int length = Array.getLength(obj);
         for (int i = 0; i < length; i++) {
-            this.pUh.write(bVar, Array.get(obj, i));
+            this.f30943b.write(bVar, Array.get(obj, i));
         }
-        bVar.eBT();
+        bVar.t();
     }
 }

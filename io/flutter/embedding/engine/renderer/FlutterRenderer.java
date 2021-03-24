@@ -14,30 +14,72 @@ import io.flutter.view.TextureRegistry;
 import java.nio.ByteBuffer;
 import java.util.concurrent.atomic.AtomicLong;
 @TargetApi(16)
-/* loaded from: classes14.dex */
+/* loaded from: classes7.dex */
 public class FlutterRenderer implements TextureRegistry {
-    private static final String TAG = "FlutterRenderer";
+    public static final String TAG = "FlutterRenderer";
     @NonNull
-    private final FlutterJNI flutterJNI;
+    public final FlutterJNI flutterJNI;
+    @NonNull
+    public final FlutterUiDisplayListener flutterUiDisplayListener;
     @Nullable
-    private Surface surface;
+    public Surface surface;
     @NonNull
-    private final AtomicLong nextTextureId = new AtomicLong(0);
-    private boolean isDisplayingFlutterUi = false;
-    @NonNull
-    private final FlutterUiDisplayListener flutterUiDisplayListener = new FlutterUiDisplayListener() { // from class: io.flutter.embedding.engine.renderer.FlutterRenderer.1
-        @Override // io.flutter.embedding.engine.renderer.FlutterUiDisplayListener
-        public void onFlutterUiDisplayed() {
-            FlutterRenderer.this.isDisplayingFlutterUi = true;
+    public final AtomicLong nextTextureId = new AtomicLong(0);
+    public boolean isDisplayingFlutterUi = false;
+
+    /* loaded from: classes7.dex */
+    public final class SurfaceTextureRegistryEntry implements TextureRegistry.SurfaceTextureEntry {
+        public final long id;
+        public SurfaceTexture.OnFrameAvailableListener onFrameListener;
+        public boolean released;
+        @NonNull
+        public final SurfaceTexture surfaceTexture;
+
+        public SurfaceTextureRegistryEntry(long j, @NonNull SurfaceTexture surfaceTexture) {
+            SurfaceTexture.OnFrameAvailableListener onFrameAvailableListener = new SurfaceTexture.OnFrameAvailableListener() { // from class: io.flutter.embedding.engine.renderer.FlutterRenderer.SurfaceTextureRegistryEntry.1
+                @Override // android.graphics.SurfaceTexture.OnFrameAvailableListener
+                public void onFrameAvailable(@NonNull SurfaceTexture surfaceTexture2) {
+                    if (SurfaceTextureRegistryEntry.this.released) {
+                        return;
+                    }
+                    SurfaceTextureRegistryEntry surfaceTextureRegistryEntry = SurfaceTextureRegistryEntry.this;
+                    FlutterRenderer.this.markTextureFrameAvailable(surfaceTextureRegistryEntry.id);
+                }
+            };
+            this.onFrameListener = onFrameAvailableListener;
+            this.id = j;
+            this.surfaceTexture = surfaceTexture;
+            if (Build.VERSION.SDK_INT >= 21) {
+                surfaceTexture.setOnFrameAvailableListener(onFrameAvailableListener, new Handler());
+            } else {
+                surfaceTexture.setOnFrameAvailableListener(onFrameAvailableListener);
+            }
         }
 
-        @Override // io.flutter.embedding.engine.renderer.FlutterUiDisplayListener
-        public void onFlutterUiNoLongerDisplayed() {
-            FlutterRenderer.this.isDisplayingFlutterUi = false;
+        @Override // io.flutter.view.TextureRegistry.SurfaceTextureEntry
+        public long id() {
+            return this.id;
         }
-    };
 
-    /* loaded from: classes14.dex */
+        @Override // io.flutter.view.TextureRegistry.SurfaceTextureEntry
+        public void release() {
+            if (this.released) {
+                return;
+            }
+            Log.v(FlutterRenderer.TAG, "Releasing a SurfaceTexture (" + this.id + ").");
+            this.surfaceTexture.release();
+            FlutterRenderer.this.unregisterTexture(this.id);
+            this.released = true;
+        }
+
+        @Override // io.flutter.view.TextureRegistry.SurfaceTextureEntry
+        @NonNull
+        public SurfaceTexture surfaceTexture() {
+            return this.surfaceTexture;
+        }
+    }
+
+    /* loaded from: classes7.dex */
     public static final class ViewportMetrics {
         public float devicePixelRatio = 1.0f;
         public int width = 0;
@@ -57,12 +99,34 @@ public class FlutterRenderer implements TextureRegistry {
     }
 
     public FlutterRenderer(@NonNull FlutterJNI flutterJNI) {
+        FlutterUiDisplayListener flutterUiDisplayListener = new FlutterUiDisplayListener() { // from class: io.flutter.embedding.engine.renderer.FlutterRenderer.1
+            @Override // io.flutter.embedding.engine.renderer.FlutterUiDisplayListener
+            public void onFlutterUiDisplayed() {
+                FlutterRenderer.this.isDisplayingFlutterUi = true;
+            }
+
+            @Override // io.flutter.embedding.engine.renderer.FlutterUiDisplayListener
+            public void onFlutterUiNoLongerDisplayed() {
+                FlutterRenderer.this.isDisplayingFlutterUi = false;
+            }
+        };
+        this.flutterUiDisplayListener = flutterUiDisplayListener;
         this.flutterJNI = flutterJNI;
-        this.flutterJNI.addIsDisplayingFlutterUiListener(this.flutterUiDisplayListener);
+        flutterJNI.addIsDisplayingFlutterUiListener(flutterUiDisplayListener);
     }
 
-    public boolean isDisplayingFlutterUi() {
-        return this.isDisplayingFlutterUi;
+    /* JADX INFO: Access modifiers changed from: private */
+    public void markTextureFrameAvailable(long j) {
+        this.flutterJNI.markTextureFrameAvailable(j);
+    }
+
+    private void registerTexture(long j, @NonNull SurfaceTexture surfaceTexture) {
+        this.flutterJNI.registerTexture(j, surfaceTexture);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void unregisterTexture(long j) {
+        this.flutterJNI.unregisterTexture(j);
     }
 
     public void addIsDisplayingFlutterUiListener(@NonNull FlutterUiDisplayListener flutterUiDisplayListener) {
@@ -70,10 +134,6 @@ public class FlutterRenderer implements TextureRegistry {
         if (this.isDisplayingFlutterUi) {
             flutterUiDisplayListener.onFlutterUiDisplayed();
         }
-    }
-
-    public void removeIsDisplayingFlutterUiListener(@NonNull FlutterUiDisplayListener flutterUiDisplayListener) {
-        this.flutterJNI.removeIsDisplayingFlutterUiListener(flutterUiDisplayListener);
     }
 
     @Override // io.flutter.view.TextureRegistry
@@ -87,51 +147,41 @@ public class FlutterRenderer implements TextureRegistry {
         return surfaceTextureRegistryEntry;
     }
 
-    /* loaded from: classes14.dex */
-    final class SurfaceTextureRegistryEntry implements TextureRegistry.SurfaceTextureEntry {
-        private final long id;
-        private SurfaceTexture.OnFrameAvailableListener onFrameListener = new SurfaceTexture.OnFrameAvailableListener() { // from class: io.flutter.embedding.engine.renderer.FlutterRenderer.SurfaceTextureRegistryEntry.1
-            @Override // android.graphics.SurfaceTexture.OnFrameAvailableListener
-            public void onFrameAvailable(@NonNull SurfaceTexture surfaceTexture) {
-                if (!SurfaceTextureRegistryEntry.this.released) {
-                    FlutterRenderer.this.markTextureFrameAvailable(SurfaceTextureRegistryEntry.this.id);
-                }
-            }
-        };
-        private boolean released;
-        @NonNull
-        private final SurfaceTexture surfaceTexture;
+    public void dispatchPointerDataPacket(@NonNull ByteBuffer byteBuffer, int i) {
+        this.flutterJNI.dispatchPointerDataPacket(byteBuffer, i);
+    }
 
-        SurfaceTextureRegistryEntry(long j, @NonNull SurfaceTexture surfaceTexture) {
-            this.id = j;
-            this.surfaceTexture = surfaceTexture;
-            if (Build.VERSION.SDK_INT >= 21) {
-                this.surfaceTexture.setOnFrameAvailableListener(this.onFrameListener, new Handler());
-            } else {
-                this.surfaceTexture.setOnFrameAvailableListener(this.onFrameListener);
-            }
-        }
+    public void dispatchSemanticsAction(int i, int i2, @Nullable ByteBuffer byteBuffer, int i3) {
+        this.flutterJNI.dispatchSemanticsAction(i, i2, byteBuffer, i3);
+    }
 
-        @Override // io.flutter.view.TextureRegistry.SurfaceTextureEntry
-        @NonNull
-        public SurfaceTexture surfaceTexture() {
-            return this.surfaceTexture;
-        }
+    public Bitmap getBitmap() {
+        return this.flutterJNI.getBitmap();
+    }
 
-        @Override // io.flutter.view.TextureRegistry.SurfaceTextureEntry
-        public long id() {
-            return this.id;
-        }
+    public boolean isDisplayingFlutterUi() {
+        return this.isDisplayingFlutterUi;
+    }
 
-        @Override // io.flutter.view.TextureRegistry.SurfaceTextureEntry
-        public void release() {
-            if (!this.released) {
-                Log.v(FlutterRenderer.TAG, "Releasing a SurfaceTexture (" + this.id + ").");
-                this.surfaceTexture.release();
-                FlutterRenderer.this.unregisterTexture(this.id);
-                this.released = true;
-            }
-        }
+    public boolean isSoftwareRenderingEnabled() {
+        return this.flutterJNI.nativeGetIsSoftwareRenderingEnabled();
+    }
+
+    public void removeIsDisplayingFlutterUiListener(@NonNull FlutterUiDisplayListener flutterUiDisplayListener) {
+        this.flutterJNI.removeIsDisplayingFlutterUiListener(flutterUiDisplayListener);
+    }
+
+    public void setAccessibilityFeatures(int i) {
+        this.flutterJNI.setAccessibilityFeatures(i);
+    }
+
+    public void setSemanticsEnabled(boolean z) {
+        this.flutterJNI.setSemanticsEnabled(z);
+    }
+
+    public void setViewportMetrics(@NonNull ViewportMetrics viewportMetrics) {
+        Log.v(TAG, "Setting viewport metrics\nSize: " + viewportMetrics.width + " x " + viewportMetrics.height + "\nPadding - L: " + viewportMetrics.paddingLeft + ", T: " + viewportMetrics.paddingTop + ", R: " + viewportMetrics.paddingRight + ", B: " + viewportMetrics.paddingBottom + "\nInsets - L: " + viewportMetrics.viewInsetLeft + ", T: " + viewportMetrics.viewInsetTop + ", R: " + viewportMetrics.viewInsetRight + ", B: " + viewportMetrics.viewInsetBottom + "\nSystem Gesture Insets - L: " + viewportMetrics.systemGestureInsetLeft + ", T: " + viewportMetrics.systemGestureInsetTop + ", R: " + viewportMetrics.systemGestureInsetRight + ", B: " + viewportMetrics.viewInsetBottom);
+        this.flutterJNI.setViewportMetrics(viewportMetrics.devicePixelRatio, viewportMetrics.width, viewportMetrics.height, viewportMetrics.paddingTop, viewportMetrics.paddingRight, viewportMetrics.paddingBottom, viewportMetrics.paddingLeft, viewportMetrics.viewInsetTop, viewportMetrics.viewInsetRight, viewportMetrics.viewInsetBottom, viewportMetrics.viewInsetLeft, viewportMetrics.systemGestureInsetTop, viewportMetrics.systemGestureInsetRight, viewportMetrics.systemGestureInsetBottom, viewportMetrics.systemGestureInsetLeft);
     }
 
     public void startRenderingToSurface(@NonNull Surface surface) {
@@ -140,10 +190,6 @@ public class FlutterRenderer implements TextureRegistry {
         }
         this.surface = surface;
         this.flutterJNI.onSurfaceCreated(surface);
-    }
-
-    public void surfaceChanged(int i, int i2) {
-        this.flutterJNI.onSurfaceChanged(i, i2);
     }
 
     public void stopRenderingToSurface() {
@@ -155,46 +201,7 @@ public class FlutterRenderer implements TextureRegistry {
         this.isDisplayingFlutterUi = false;
     }
 
-    public void setViewportMetrics(@NonNull ViewportMetrics viewportMetrics) {
-        Log.v(TAG, "Setting viewport metrics\nSize: " + viewportMetrics.width + " x " + viewportMetrics.height + "\nPadding - L: " + viewportMetrics.paddingLeft + ", T: " + viewportMetrics.paddingTop + ", R: " + viewportMetrics.paddingRight + ", B: " + viewportMetrics.paddingBottom + "\nInsets - L: " + viewportMetrics.viewInsetLeft + ", T: " + viewportMetrics.viewInsetTop + ", R: " + viewportMetrics.viewInsetRight + ", B: " + viewportMetrics.viewInsetBottom + "\nSystem Gesture Insets - L: " + viewportMetrics.systemGestureInsetLeft + ", T: " + viewportMetrics.systemGestureInsetTop + ", R: " + viewportMetrics.systemGestureInsetRight + ", B: " + viewportMetrics.viewInsetBottom);
-        this.flutterJNI.setViewportMetrics(viewportMetrics.devicePixelRatio, viewportMetrics.width, viewportMetrics.height, viewportMetrics.paddingTop, viewportMetrics.paddingRight, viewportMetrics.paddingBottom, viewportMetrics.paddingLeft, viewportMetrics.viewInsetTop, viewportMetrics.viewInsetRight, viewportMetrics.viewInsetBottom, viewportMetrics.viewInsetLeft, viewportMetrics.systemGestureInsetTop, viewportMetrics.systemGestureInsetRight, viewportMetrics.systemGestureInsetBottom, viewportMetrics.systemGestureInsetLeft);
-    }
-
-    public Bitmap getBitmap() {
-        return this.flutterJNI.getBitmap();
-    }
-
-    public void dispatchPointerDataPacket(@NonNull ByteBuffer byteBuffer, int i) {
-        this.flutterJNI.dispatchPointerDataPacket(byteBuffer, i);
-    }
-
-    private void registerTexture(long j, @NonNull SurfaceTexture surfaceTexture) {
-        this.flutterJNI.registerTexture(j, surfaceTexture);
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void markTextureFrameAvailable(long j) {
-        this.flutterJNI.markTextureFrameAvailable(j);
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void unregisterTexture(long j) {
-        this.flutterJNI.unregisterTexture(j);
-    }
-
-    public boolean isSoftwareRenderingEnabled() {
-        return this.flutterJNI.nativeGetIsSoftwareRenderingEnabled();
-    }
-
-    public void setAccessibilityFeatures(int i) {
-        this.flutterJNI.setAccessibilityFeatures(i);
-    }
-
-    public void setSemanticsEnabled(boolean z) {
-        this.flutterJNI.setSemanticsEnabled(z);
-    }
-
-    public void dispatchSemanticsAction(int i, int i2, @Nullable ByteBuffer byteBuffer, int i3) {
-        this.flutterJNI.dispatchSemanticsAction(i, i2, byteBuffer, i3);
+    public void surfaceChanged(int i, int i2) {
+        this.flutterJNI.onSurfaceChanged(i, i2);
     }
 }

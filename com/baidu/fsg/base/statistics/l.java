@@ -8,73 +8,76 @@ import java.util.HashMap;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public class l {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f1539a = "LogSender";
-    private static final int b = 10000;
-    private static final int c = 10001;
+    public static final String f5323a = "LogSender";
 
-    /* synthetic */ l(m mVar) {
-        this();
-    }
+    /* renamed from: b  reason: collision with root package name */
+    public static final int f5324b = 10000;
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* renamed from: c  reason: collision with root package name */
+    public static final int f5325c = 10001;
+
+    /* loaded from: classes2.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private static l f1540a = new l(null);
-
-        private a() {
-        }
+        public static l f5326a = new l(null);
     }
 
-    private l() {
+    public /* synthetic */ l(m mVar) {
+        this();
     }
 
     public static l a() {
-        return a.f1540a;
+        return a.f5326a;
     }
 
     public void a(String str) {
     }
 
-    void b(String str) {
+    public void b(String str) {
         Context appContext;
-        LogUtil.d(f1539a, new StringBuilder().append("=====sendLogData=====").append(str).toString() == b.p ? "normal" : "crash");
-        if ((!str.equals(b.o) || !f.a().c()) && (appContext = RimStatisticsUtil.getAppContext()) != null && com.baidu.fsg.base.statistics.a.a(appContext)) {
-            JSONArray jSONArray = null;
-            h[] b2 = i.a(RimStatisticsUtil.getAppContext()).b();
-            String str2 = b.j;
-            if (b.p.equalsIgnoreCase(str)) {
-                jSONArray = a(b2);
-                str2 = b.j;
-            } else if (b.o.equalsIgnoreCase(str)) {
-                o oVar = new o(RimStatisticsUtil.getAppContext(), a(f.a().d(), "exception"));
-                oVar.setResponseCallback(new m(this, str));
-                oVar.execBean();
-                return;
-            }
-            if (jSONArray != null && jSONArray.length() != 0) {
-                a(a(jSONArray, str2), new n(this, str, b2));
-            }
+        StringBuilder sb = new StringBuilder();
+        sb.append("=====sendLogData=====");
+        sb.append(str);
+        LogUtil.d(f5323a, sb.toString() == "normal_log" ? "normal" : "crash");
+        if ((str.equals(b.o) && f.a().c()) || (appContext = RimStatisticsUtil.getAppContext()) == null || !com.baidu.fsg.base.statistics.a.a(appContext)) {
+            return;
         }
+        JSONArray jSONArray = null;
+        h[] b2 = i.a(RimStatisticsUtil.getAppContext()).b();
+        if ("normal_log".equalsIgnoreCase(str)) {
+            jSONArray = a(b2);
+        } else if (b.o.equalsIgnoreCase(str)) {
+            o oVar = new o(RimStatisticsUtil.getAppContext(), a(f.a().d(), "exception"));
+            oVar.setResponseCallback(new m(this, str));
+            oVar.execBean();
+            return;
+        }
+        if (jSONArray == null || jSONArray.length() == 0) {
+            return;
+        }
+        a(a(jSONArray, "array"), new n(this, str, b2));
     }
 
-    String a(JSONArray jSONArray, String str) {
+    public l() {
+    }
+
+    public String a(JSONArray jSONArray, String str) {
         JSONObject jSONObject;
         try {
             jSONObject = new JSONObject(j.c().a());
-        } catch (JSONException e) {
-            e.printStackTrace();
+        } catch (JSONException e2) {
+            e2.printStackTrace();
             jSONObject = null;
         }
         try {
             jSONObject.put(str, jSONArray);
-        } catch (JSONException e2) {
-            e2.printStackTrace();
+        } catch (JSONException e3) {
+            e3.printStackTrace();
         }
         return jSONObject.toString();
     }
@@ -82,28 +85,28 @@ public class l {
     private JSONArray a(h[] hVarArr) {
         JSONArray jSONArray = new JSONArray();
         for (h hVar : hVarArr) {
-            LogUtil.d(f1539a, hVar.a().toString());
+            LogUtil.d(f5323a, hVar.a().toString());
             jSONArray.put(hVar.a());
         }
         return jSONArray;
     }
 
     private void a(String str, r.a aVar) {
-        if (str != null && str.trim().length() != 0) {
-            String str2 = str.toString();
-            try {
-                r rVar = new r();
-                if (rVar != null) {
-                    String encodeToString = Base64.encodeToString(str2.getBytes(), 2);
-                    HashMap hashMap = new HashMap();
-                    hashMap.put(b.g, encodeToString);
-                    hashMap.put("sign", com.baidu.fsg.base.statistics.a.a((encodeToString + RimStatisticsUtil.getInstance().getSignKey()).getBytes("GBK"), false));
-                    hashMap.put(b.i, "rim");
-                    rVar.a(b.l, hashMap, aVar);
-                }
-            } catch (Exception e) {
-                aVar.b();
-            }
+        if (str == null || str.trim().length() == 0) {
+            return;
+        }
+        String str2 = str.toString();
+        try {
+            r rVar = new r();
+            String encodeToString = Base64.encodeToString(str2.getBytes(), 2);
+            HashMap hashMap = new HashMap();
+            hashMap.put("publish_data", encodeToString);
+            String signKey = RimStatisticsUtil.getInstance().getSignKey();
+            hashMap.put("sign", com.baidu.fsg.base.statistics.a.a((encodeToString + signKey).getBytes("GBK"), false));
+            hashMap.put("mk", "rim");
+            rVar.a(b.l, hashMap, aVar);
+        } catch (Exception unused) {
+            aVar.b();
         }
     }
 }

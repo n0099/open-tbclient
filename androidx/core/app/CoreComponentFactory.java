@@ -10,14 +10,19 @@ import androidx.annotation.RequiresApi;
 import androidx.annotation.RestrictTo;
 @RequiresApi(api = 28)
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes14.dex */
+/* loaded from: classes.dex */
 public class CoreComponentFactory extends android.app.AppComponentFactory {
-    private static final String TAG = "CoreComponentFactory";
+    public static final String TAG = "CoreComponentFactory";
 
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes14.dex */
+    /* loaded from: classes.dex */
     public interface CompatWrapped {
         Object getWrapper();
+    }
+
+    public static <T> T checkCompatWrapper(T t) {
+        T t2;
+        return (!(t instanceof CompatWrapped) || (t2 = (T) ((CompatWrapped) t).getWrapper()) == null) ? t : t2;
     }
 
     @Override // android.app.AppComponentFactory
@@ -31,23 +36,17 @@ public class CoreComponentFactory extends android.app.AppComponentFactory {
     }
 
     @Override // android.app.AppComponentFactory
-    public BroadcastReceiver instantiateReceiver(ClassLoader classLoader, String str, Intent intent) throws InstantiationException, IllegalAccessException, ClassNotFoundException {
-        return (BroadcastReceiver) checkCompatWrapper(super.instantiateReceiver(classLoader, str, intent));
-    }
-
-    @Override // android.app.AppComponentFactory
     public ContentProvider instantiateProvider(ClassLoader classLoader, String str) throws InstantiationException, IllegalAccessException, ClassNotFoundException {
         return (ContentProvider) checkCompatWrapper(super.instantiateProvider(classLoader, str));
     }
 
     @Override // android.app.AppComponentFactory
-    public Service instantiateService(ClassLoader classLoader, String str, Intent intent) throws InstantiationException, IllegalAccessException, ClassNotFoundException {
-        return (Service) checkCompatWrapper(super.instantiateService(classLoader, str, intent));
+    public BroadcastReceiver instantiateReceiver(ClassLoader classLoader, String str, Intent intent) throws InstantiationException, IllegalAccessException, ClassNotFoundException {
+        return (BroadcastReceiver) checkCompatWrapper(super.instantiateReceiver(classLoader, str, intent));
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static <T> T checkCompatWrapper(T t) {
-        T t2;
-        return (!(t instanceof CompatWrapped) || (t2 = (T) ((CompatWrapped) t).getWrapper()) == null) ? t : t2;
+    @Override // android.app.AppComponentFactory
+    public Service instantiateService(ClassLoader classLoader, String str, Intent intent) throws InstantiationException, IllegalAccessException, ClassNotFoundException {
+        return (Service) checkCompatWrapper(super.instantiateService(classLoader, str, intent));
     }
 }

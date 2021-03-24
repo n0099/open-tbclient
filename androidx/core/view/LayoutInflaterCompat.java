@@ -7,18 +7,19 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import androidx.annotation.NonNull;
+import com.baidu.android.common.others.lang.StringUtil;
 import java.lang.reflect.Field;
-/* loaded from: classes14.dex */
+/* loaded from: classes.dex */
 public final class LayoutInflaterCompat {
-    private static final String TAG = "LayoutInflaterCompatHC";
-    private static boolean sCheckedField;
-    private static Field sLayoutInflaterFactory2Field;
+    public static final String TAG = "LayoutInflaterCompatHC";
+    public static boolean sCheckedField;
+    public static Field sLayoutInflaterFactory2Field;
 
-    /* loaded from: classes14.dex */
-    static class Factory2Wrapper implements LayoutInflater.Factory2 {
-        final LayoutInflaterFactory mDelegateFactory;
+    /* loaded from: classes.dex */
+    public static class Factory2Wrapper implements LayoutInflater.Factory2 {
+        public final LayoutInflaterFactory mDelegateFactory;
 
-        Factory2Wrapper(LayoutInflaterFactory layoutInflaterFactory) {
+        public Factory2Wrapper(LayoutInflaterFactory layoutInflaterFactory) {
             this.mDelegateFactory = layoutInflaterFactory;
         }
 
@@ -27,36 +28,44 @@ public final class LayoutInflaterCompat {
             return this.mDelegateFactory.onCreateView(null, str, context, attributeSet);
         }
 
+        public String toString() {
+            return Factory2Wrapper.class.getName() + StringUtil.ARRAY_START + this.mDelegateFactory + "}";
+        }
+
         @Override // android.view.LayoutInflater.Factory2
         public View onCreateView(View view, String str, Context context, AttributeSet attributeSet) {
             return this.mDelegateFactory.onCreateView(view, str, context, attributeSet);
         }
-
-        public String toString() {
-            return getClass().getName() + "{" + this.mDelegateFactory + "}";
-        }
     }
 
-    private static void forceSetFactory2(LayoutInflater layoutInflater, LayoutInflater.Factory2 factory2) {
+    public static void forceSetFactory2(LayoutInflater layoutInflater, LayoutInflater.Factory2 factory2) {
         if (!sCheckedField) {
             try {
-                sLayoutInflaterFactory2Field = LayoutInflater.class.getDeclaredField("mFactory2");
-                sLayoutInflaterFactory2Field.setAccessible(true);
-            } catch (NoSuchFieldException e) {
-                Log.e(TAG, "forceSetFactory2 Could not find field 'mFactory2' on class " + LayoutInflater.class.getName() + "; inflation may have unexpected results.", e);
+                Field declaredField = LayoutInflater.class.getDeclaredField("mFactory2");
+                sLayoutInflaterFactory2Field = declaredField;
+                declaredField.setAccessible(true);
+            } catch (NoSuchFieldException e2) {
+                Log.e(TAG, "forceSetFactory2 Could not find field 'mFactory2' on class " + LayoutInflater.class.getName() + "; inflation may have unexpected results.", e2);
             }
             sCheckedField = true;
         }
-        if (sLayoutInflaterFactory2Field != null) {
+        Field field = sLayoutInflaterFactory2Field;
+        if (field != null) {
             try {
-                sLayoutInflaterFactory2Field.set(layoutInflater, factory2);
-            } catch (IllegalAccessException e2) {
-                Log.e(TAG, "forceSetFactory2 could not set the Factory2 on LayoutInflater " + layoutInflater + "; inflation may have unexpected results.", e2);
+                field.set(layoutInflater, factory2);
+            } catch (IllegalAccessException e3) {
+                Log.e(TAG, "forceSetFactory2 could not set the Factory2 on LayoutInflater " + layoutInflater + "; inflation may have unexpected results.", e3);
             }
         }
     }
 
-    private LayoutInflaterCompat() {
+    @Deprecated
+    public static LayoutInflaterFactory getFactory(LayoutInflater layoutInflater) {
+        LayoutInflater.Factory factory = layoutInflater.getFactory();
+        if (factory instanceof Factory2Wrapper) {
+            return ((Factory2Wrapper) factory).mDelegateFactory;
+        }
+        return null;
     }
 
     @Deprecated
@@ -85,14 +94,5 @@ public final class LayoutInflaterCompat {
                 forceSetFactory2(layoutInflater, factory2);
             }
         }
-    }
-
-    @Deprecated
-    public static LayoutInflaterFactory getFactory(LayoutInflater layoutInflater) {
-        LayoutInflater.Factory factory = layoutInflater.getFactory();
-        if (factory instanceof Factory2Wrapper) {
-            return ((Factory2Wrapper) factory).mDelegateFactory;
-        }
-        return null;
     }
 }

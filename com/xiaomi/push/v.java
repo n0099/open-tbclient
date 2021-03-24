@@ -3,24 +3,23 @@ package com.xiaomi.push;
 import android.content.Context;
 import java.io.File;
 import java.io.IOException;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public abstract class v implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f8589a;
+    public Context f41072a;
 
     /* renamed from: a  reason: collision with other field name */
-    private File f942a;
+    public File f987a;
 
     /* renamed from: a  reason: collision with other field name */
-    private Runnable f943a;
+    public Runnable f988a;
 
-    private v(Context context, File file) {
-        this.f8589a = context;
-        this.f942a = file;
+    public v(Context context, File file) {
+        this.f41072a = context;
+        this.f987a = file;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public /* synthetic */ v(Context context, File file, w wVar) {
         this(context, file);
     }
@@ -29,7 +28,7 @@ public abstract class v implements Runnable {
         new w(context, file, runnable).run();
     }
 
-    protected abstract void a(Context context);
+    public abstract void a(Context context);
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE] complete} */
     @Override // java.lang.Runnable
@@ -37,23 +36,24 @@ public abstract class v implements Runnable {
         u uVar = null;
         try {
             try {
-                if (this.f942a == null) {
-                    this.f942a = new File(this.f8589a.getFilesDir(), "default_locker");
+                if (this.f987a == null) {
+                    this.f987a = new File(this.f41072a.getFilesDir(), "default_locker");
                 }
-                uVar = u.a(this.f8589a, this.f942a);
-                if (this.f943a != null) {
-                    this.f943a.run();
+                uVar = u.a(this.f41072a, this.f987a);
+                if (this.f988a != null) {
+                    this.f988a.run();
                 }
-                a(this.f8589a);
-                if (uVar != null) {
-                    uVar.a();
+                a(this.f41072a);
+                if (uVar == null) {
+                    return;
                 }
-            } catch (IOException e) {
-                e.printStackTrace();
-                if (uVar != null) {
-                    uVar.a();
+            } catch (IOException e2) {
+                e2.printStackTrace();
+                if (uVar == null) {
+                    return;
                 }
             }
+            uVar.a();
         } catch (Throwable th) {
             if (uVar != null) {
                 uVar.a();

@@ -1,6 +1,6 @@
 package com.google.zxing.datamatrix.encoder;
-/* loaded from: classes4.dex */
-interface Encoder {
+/* loaded from: classes6.dex */
+public interface Encoder {
     void encode(EncoderContext encoderContext);
 
     int getEncodingMode();

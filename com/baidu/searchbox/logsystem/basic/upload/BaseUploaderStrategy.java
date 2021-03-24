@@ -7,13 +7,13 @@ import com.baidu.searchbox.logsystem.logsys.LogFile;
 import com.baidu.searchbox.logsystem.logsys.LogObject;
 import java.util.List;
 import java.util.Set;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public abstract class BaseUploaderStrategy implements UploadInterface {
-    protected boolean mUploadJavaCrash;
-    protected UploadListener mUploadListener;
-    protected boolean mUploadNativeCrash;
+    public boolean mUploadJavaCrash;
+    public UploadListener mUploadListener;
+    public boolean mUploadNativeCrash;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public interface UploadListener {
         void onUploadDone(@Nullable LogObject logObject);
 
@@ -24,6 +24,18 @@ public abstract class BaseUploaderStrategy implements UploadInterface {
         this.mUploadJavaCrash = true;
         this.mUploadNativeCrash = true;
         this.mUploadListener = null;
+    }
+
+    public boolean canStopService() {
+        return true;
+    }
+
+    @Override // com.baidu.searchbox.logsystem.basic.upload.UploadInterface
+    public void upload(Context context) {
+    }
+
+    @Override // com.baidu.searchbox.logsystem.basic.upload.UploadInterface
+    public void upload(Context context, @NonNull LogObject logObject, @Nullable List<LogFile> list, @Nullable Set<LogFile> set, @Nullable List<LogFile> list2) {
     }
 
     public BaseUploaderStrategy(boolean z, boolean z2) {
@@ -37,17 +49,5 @@ public abstract class BaseUploaderStrategy implements UploadInterface {
         this.mUploadJavaCrash = z;
         this.mUploadNativeCrash = z2;
         this.mUploadListener = uploadListener;
-    }
-
-    @Override // com.baidu.searchbox.logsystem.basic.upload.UploadInterface
-    public void upload(Context context) {
-    }
-
-    @Override // com.baidu.searchbox.logsystem.basic.upload.UploadInterface
-    public void upload(Context context, @NonNull LogObject logObject, @Nullable List<LogFile> list, @Nullable Set<LogFile> set, @Nullable List<LogFile> list2) {
-    }
-
-    public boolean canStopService() {
-        return true;
     }
 }

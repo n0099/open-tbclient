@@ -4,16 +4,17 @@ import android.content.Context;
 import android.content.Intent;
 import com.heytap.mcssdk.mode.CommandMessage;
 import java.util.HashMap;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public class m extends c {
-    protected String d;
+
+    /* renamed from: d  reason: collision with root package name */
+    public String f2979d;
 
     public m(i iVar, Context context, String str) {
         super(iVar, context);
-        this.d = str;
+        this.f2979d = str;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.android.pushservice.d.a
     public void a(Intent intent) {
         super.a(intent);
@@ -22,17 +23,15 @@ public class m extends c {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.android.pushservice.d.a
-    public void a(HashMap<String, String> hashMap) {
-        super.a(hashMap);
-        hashMap.put("method", "settags");
-        hashMap.put(CommandMessage.TYPE_TAGS, this.d);
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.android.pushservice.d.a
     public String b(String str) {
         return super.b(str);
+    }
+
+    @Override // com.baidu.android.pushservice.d.a
+    public void b(HashMap<String, String> hashMap) {
+        super.b(hashMap);
+        hashMap.put("method", "settags");
+        hashMap.put(CommandMessage.TYPE_TAGS, this.f2979d);
     }
 }

@@ -5,12 +5,12 @@ import androidx.annotation.Nullable;
 import com.bumptech.glide.load.Key;
 import java.nio.ByteBuffer;
 import java.security.MessageDigest;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class MediaStoreSignature implements Key {
-    private final long dateModified;
+    public final long dateModified;
     @NonNull
-    private final String mimeType;
-    private final int orientation;
+    public final String mimeType;
+    public final int orientation;
 
     public MediaStoreSignature(@Nullable String str, long j, int i) {
         this.mimeType = str == null ? "" : str;
@@ -23,7 +23,7 @@ public class MediaStoreSignature implements Key {
         if (this == obj) {
             return true;
         }
-        if (obj == null || getClass() != obj.getClass()) {
+        if (obj == null || MediaStoreSignature.class != obj.getClass()) {
             return false;
         }
         MediaStoreSignature mediaStoreSignature = (MediaStoreSignature) obj;
@@ -32,12 +32,13 @@ public class MediaStoreSignature implements Key {
 
     @Override // com.bumptech.glide.load.Key
     public int hashCode() {
-        return (((this.mimeType.hashCode() * 31) + ((int) (this.dateModified ^ (this.dateModified >>> 32)))) * 31) + this.orientation;
+        long j = this.dateModified;
+        return (((this.mimeType.hashCode() * 31) + ((int) (j ^ (j >>> 32)))) * 31) + this.orientation;
     }
 
     @Override // com.bumptech.glide.load.Key
     public void updateDiskCacheKey(@NonNull MessageDigest messageDigest) {
         messageDigest.update(ByteBuffer.allocate(12).putLong(this.dateModified).putInt(this.orientation).array());
-        messageDigest.update(this.mimeType.getBytes(CHARSET));
+        messageDigest.update(this.mimeType.getBytes(Key.CHARSET));
     }
 }

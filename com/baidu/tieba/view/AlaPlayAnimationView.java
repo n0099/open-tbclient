@@ -4,72 +4,79 @@ import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.ImageView;
-/* loaded from: classes.dex */
+/* loaded from: classes5.dex */
 public class AlaPlayAnimationView extends ImageView {
-    private ObjectAnimator bLS;
-    private boolean bLT;
-    private boolean bLU;
+
+    /* renamed from: e  reason: collision with root package name */
+    public ObjectAnimator f22014e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public boolean f22015f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public boolean f22016g;
 
     public AlaPlayAnimationView(Context context) {
         super(context);
-        this.bLT = false;
-        this.bLU = false;
-        init();
+        this.f22015f = false;
+        this.f22016g = false;
+        a();
+    }
+
+    public final void a() {
+        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this, "alpha", 1.0f, 0.0f, 1.0f);
+        this.f22014e = ofFloat;
+        ofFloat.setRepeatMode(1);
+        this.f22014e.setRepeatCount(-1);
+        this.f22014e.setDuration(700L);
+        setVisibility(8);
+        this.f22015f = false;
+    }
+
+    public void b() {
+        if (this.f22015f) {
+            return;
+        }
+        this.f22015f = true;
+        if (this.f22014e != null) {
+            setVisibility(0);
+            this.f22014e.start();
+        }
+    }
+
+    public void c() {
+        ObjectAnimator objectAnimator = this.f22014e;
+        if (objectAnimator != null) {
+            objectAnimator.setRepeatCount(-1);
+            this.f22014e.cancel();
+            clearAnimation();
+        }
+        this.f22015f = false;
+        setVisibility(8);
+    }
+
+    @Override // android.widget.ImageView, android.view.View
+    public void onAttachedToWindow() {
+        super.onAttachedToWindow();
+        if (this.f22016g) {
+            b();
+        }
+    }
+
+    @Override // android.widget.ImageView, android.view.View
+    public void onDetachedFromWindow() {
+        super.onDetachedFromWindow();
+        c();
+    }
+
+    public void setAutoStartPlay(boolean z) {
+        this.f22016g = z;
     }
 
     public AlaPlayAnimationView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.bLT = false;
-        this.bLU = false;
-        init();
-    }
-
-    private void init() {
-        this.bLS = ObjectAnimator.ofFloat(this, "alpha", 1.0f, 0.0f, 1.0f);
-        this.bLS.setRepeatMode(1);
-        this.bLS.setRepeatCount(-1);
-        this.bLS.setDuration(700L);
-        setVisibility(8);
-        this.bLT = false;
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.widget.ImageView, android.view.View
-    public void onAttachedToWindow() {
-        super.onAttachedToWindow();
-        if (this.bLU) {
-            startPlayAnimation();
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.widget.ImageView, android.view.View
-    public void onDetachedFromWindow() {
-        super.onDetachedFromWindow();
-        Ui();
-    }
-
-    public void setAutoStartPlay(boolean z) {
-        this.bLU = z;
-    }
-
-    public void startPlayAnimation() {
-        if (!this.bLT) {
-            this.bLT = true;
-            if (this.bLS != null) {
-                setVisibility(0);
-                this.bLS.start();
-            }
-        }
-    }
-
-    public void Ui() {
-        if (this.bLS != null) {
-            this.bLS.setRepeatCount(-1);
-            this.bLS.cancel();
-            clearAnimation();
-        }
-        this.bLT = false;
-        setVisibility(8);
+        this.f22015f = false;
+        this.f22016g = false;
+        a();
     }
 }

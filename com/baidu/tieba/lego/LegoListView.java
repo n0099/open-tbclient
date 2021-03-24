@@ -13,520 +13,616 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.widget.ListView.BdListView;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.NoDataViewFactory;
 import com.baidu.tbadk.core.view.PbListView;
-import com.baidu.tbadk.core.view.f;
 import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
 import com.baidu.tieba.R;
-import com.baidu.tieba.f.a;
 import com.baidu.tieba.lego.card.model.ICardInfo;
 import com.baidu.tieba.lego.card.model.WebViewCard;
-import com.baidu.tieba.lego.card.view.n;
+import d.b.b.a.j;
+import d.b.b.e.p.l;
+import d.b.h0.r.f0.f;
+import d.b.i0.f0.a;
+import d.b.i0.i1.o.l.n;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes8.dex */
-public class LegoListView extends FrameLayout implements AbsListView.OnScrollListener, BdListView.e {
-    private BdListView Yj;
-    private int ZA;
-    private View.OnTouchListener bUt;
-    private CustomMessageListener fci;
-    private int gAO;
-    private PbListView gCf;
-    private boolean hxr;
-    private a.InterfaceC0717a iHb;
-    private com.baidu.tieba.f.a jMD;
-    private boolean jkX;
-    private int jkn;
-    public com.baidu.tieba.lego.b.a lbK;
-    private boolean lbW;
-    private boolean lbX;
-    private boolean lbY;
-    private boolean lbZ;
-    private d lca;
-    private com.baidu.tbadk.l.g lcb;
-    private g lcc;
-    private com.baidu.tieba.lego.c.e lcd;
-    private com.baidu.tieba.lego.c.c lce;
-    private n lcf;
-    private boolean lcg;
-    private CustomMessageListener lch;
-    private boolean mHasMore;
-    private CustomMessageListener mLikeForumListener;
-    private com.baidu.tbadk.core.view.g mPullView;
-    private CustomMessageListener mUnlikeForumListener;
-    private TbPageContext<?> pageContext;
+/* loaded from: classes4.dex */
+public class LegoListView extends FrameLayout implements BdListView.p, AbsListView.OnScrollListener {
+    public CustomMessageListener A;
+    public CustomMessageListener B;
+    public CustomMessageListener C;
+    public CustomMessageListener D;
+    public a.b E;
+    public View.OnTouchListener F;
+
+    /* renamed from: e  reason: collision with root package name */
+    public d.b.h0.r.f0.g f18546e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public BdListView f18547f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public PbListView f18548g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public d.b.i0.i1.n.a f18549h;
+    public boolean i;
+    public boolean j;
+    public boolean k;
+    public boolean l;
+    public boolean m;
+    public d.b.i0.i1.d n;
+    public d.b.h0.d0.g o;
+    public d.b.i0.i1.g p;
+    public d.b.i0.i1.p.e q;
+    public TbPageContext<?> r;
+    public int s;
+    public d.b.i0.i1.p.c t;
+    public n u;
+    public d.b.i0.f0.a v;
+    public int w;
+    public int x;
+    public boolean y;
+    public boolean z;
+
+    /* loaded from: classes4.dex */
+    public class a extends CustomMessageListener {
+        public a(int i) {
+            super(i);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            UpdateAttentionMessage updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage;
+            if (updateAttentionMessage == null || updateAttentionMessage.getData() == null || !updateAttentionMessage.getData().f13692a) {
+                return;
+            }
+            LegoListView.this.k(updateAttentionMessage.getData());
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class b extends CustomMessageListener {
+        public b(int i) {
+            super(i);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            if (customResponsedMessage == null || !(customResponsedMessage.getData() instanceof Long)) {
+                return;
+            }
+            d.b.i0.i1.p.b bVar = new d.b.i0.i1.p.b();
+            bVar.f56012a = String.valueOf(customResponsedMessage.getData());
+            bVar.f56013b = true;
+            LegoListView.this.k(bVar);
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class c extends CustomMessageListener {
+        public c(int i) {
+            super(i);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            if (customResponsedMessage == null || !(customResponsedMessage.getData() instanceof Long)) {
+                return;
+            }
+            d.b.i0.i1.p.b bVar = new d.b.i0.i1.p.b();
+            bVar.f56012a = String.valueOf(customResponsedMessage.getData());
+            bVar.f56013b = false;
+            LegoListView.this.k(bVar);
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class d extends CustomMessageListener {
+        public d(int i) {
+            super(i);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            if (customResponsedMessage == null) {
+                return;
+            }
+            LegoListView.this.z = true;
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class e implements Runnable {
+        public e() {
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            LegoListView.this.w();
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class f implements a.b {
+        public f() {
+        }
+
+        @Override // d.b.i0.f0.a.b
+        public void a(int i, int i2) {
+        }
+
+        @Override // d.b.i0.f0.a.b
+        public void b(int i, int i2) {
+            LegoListView.this.y = false;
+            LegoListView legoListView = LegoListView.this;
+            legoListView.f18549h.H(legoListView.y);
+        }
+
+        @Override // d.b.i0.f0.a.b
+        public void c(int i, int i2) {
+            LegoListView.this.y = true;
+            LegoListView legoListView = LegoListView.this;
+            legoListView.f18549h.H(legoListView.y);
+        }
+
+        @Override // d.b.i0.f0.a.b
+        public void d(int i, int i2) {
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class g implements View.OnTouchListener {
+        public g() {
+        }
+
+        @Override // android.view.View.OnTouchListener
+        public boolean onTouch(View view, MotionEvent motionEvent) {
+            if (view != LegoListView.this.f18547f || LegoListView.this.v == null) {
+                return false;
+            }
+            LegoListView.this.v.c(motionEvent);
+            return false;
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class h implements AbsListView.RecyclerListener {
+        public h() {
+        }
+
+        @Override // android.widget.AbsListView.RecyclerListener
+        public void onMovedToScrapHeap(View view) {
+            if (LegoListView.this.u != null) {
+                LegoListView.this.u.h(view);
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class i implements f.g {
+        public i() {
+        }
+
+        @Override // d.b.h0.r.f0.f.g
+        public void onListPullRefresh(boolean z) {
+            if (LegoListView.this.n == null) {
+                return;
+            }
+            LegoListView.this.y();
+        }
+
+        public /* synthetic */ i(LegoListView legoListView, a aVar) {
+            this();
+        }
+    }
 
     public LegoListView(Context context) {
         this(context, false);
     }
 
-    public LegoListView(Context context, boolean z) {
-        super(context);
-        this.lbW = false;
-        this.jkn = 0;
-        this.gAO = 0;
-        this.lcg = false;
-        this.fci = new CustomMessageListener(CmdConfigCustom.CMD_UPDATE_ATTENTION) { // from class: com.baidu.tieba.lego.LegoListView.1
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.adp.framework.listener.MessageListener
-            public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                UpdateAttentionMessage updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage;
-                if (updateAttentionMessage != null && updateAttentionMessage.getData() != null && updateAttentionMessage.getData().isSucc) {
-                    LegoListView.this.aO(updateAttentionMessage.getData());
-                }
-            }
-        };
-        this.mLikeForumListener = new CustomMessageListener(CmdConfigCustom.CMD_LIKE_FORUM) { // from class: com.baidu.tieba.lego.LegoListView.2
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.adp.framework.listener.MessageListener
-            public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof Long)) {
-                    com.baidu.tieba.lego.c.b bVar = new com.baidu.tieba.lego.c.b();
-                    bVar.fid = String.valueOf(customResponsedMessage.getData());
-                    bVar.eRl = true;
-                    LegoListView.this.aO(bVar);
-                }
-            }
-        };
-        this.mUnlikeForumListener = new CustomMessageListener(CmdConfigCustom.CMD_UNLIKE_FORUM) { // from class: com.baidu.tieba.lego.LegoListView.3
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.adp.framework.listener.MessageListener
-            public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof Long)) {
-                    com.baidu.tieba.lego.c.b bVar = new com.baidu.tieba.lego.c.b();
-                    bVar.fid = String.valueOf(customResponsedMessage.getData());
-                    bVar.eRl = false;
-                    LegoListView.this.aO(bVar);
-                }
-            }
-        };
-        this.lch = new CustomMessageListener(CmdConfigCustom.CMD_LEGO_SWITCH_TAB_FROM_POP_WINDOW) { // from class: com.baidu.tieba.lego.LegoListView.4
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.adp.framework.listener.MessageListener
-            public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (customResponsedMessage != null) {
-                    LegoListView.this.lcg = true;
-                }
-            }
-        };
-        this.iHb = new a.InterfaceC0717a() { // from class: com.baidu.tieba.lego.LegoListView.6
-            @Override // com.baidu.tieba.f.a.InterfaceC0717a
-            public void G(int i, int i2) {
-                LegoListView.this.jkX = false;
-                LegoListView.this.lbK.tF(LegoListView.this.jkX);
-            }
-
-            @Override // com.baidu.tieba.f.a.InterfaceC0717a
-            public void H(int i, int i2) {
-                LegoListView.this.jkX = true;
-                LegoListView.this.lbK.tF(LegoListView.this.jkX);
-            }
-
-            @Override // com.baidu.tieba.f.a.InterfaceC0717a
-            public void ch(int i, int i2) {
-            }
-
-            @Override // com.baidu.tieba.f.a.InterfaceC0717a
-            public void I(int i, int i2) {
-            }
-        };
-        this.bUt = new View.OnTouchListener() { // from class: com.baidu.tieba.lego.LegoListView.7
-            @Override // android.view.View.OnTouchListener
-            public boolean onTouch(View view, MotionEvent motionEvent) {
-                if (view == LegoListView.this.Yj && LegoListView.this.jMD != null) {
-                    LegoListView.this.jMD.onTouchEvent(motionEvent);
-                    return false;
-                }
-                return false;
-            }
-        };
-        init(context, z);
-    }
-
-    public void setImmersive(boolean z) {
-        this.lbW = z;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void aO(Object obj) {
-        boolean z;
-        if (this.lbK != null && this.lce != null && this.lce.dcW() != null) {
-            boolean z2 = false;
-            Iterator<ICardInfo> it = this.lce.dcW().iterator();
-            while (true) {
-                z = z2;
-                if (!it.hasNext()) {
-                    break;
-                }
-                z2 = it.next().responseAttention(obj) ? true : z;
-            }
-            if (z) {
-                this.lbK.notifyDataSetChanged();
-            }
+    private void setHasMore(boolean z) {
+        PbListView pbListView;
+        this.l = z;
+        if (this.f18547f == null || (pbListView = this.f18548g) == null) {
+            return;
         }
-    }
-
-    private void init(Context context, boolean z) {
-        com.baidu.adp.base.f<?> J = com.baidu.adp.base.j.J(context);
-        J.registerListener(this.fci);
-        J.registerListener(this.mLikeForumListener);
-        J.registerListener(this.mUnlikeForumListener);
-        if (J instanceof TbPageContext) {
-            this.pageContext = (TbPageContext) J;
-        }
-        this.Yj = new BdListView(context);
-        this.Yj.setDividerHeight(0);
-        this.Yj.setSelector(17170445);
-        addView(this.Yj);
-        if (!z) {
-            this.Yj.setVerticalScrollBarEnabled(true);
-            initUI(context);
+        if (!this.i) {
+            pbListView.A("");
+        } else if (z) {
+            pbListView.A(getContext().getString(R.string.pb_load_more));
         } else {
-            this.Yj.setTranscriptMode(1);
-            this.Yj.setVerticalScrollBarEnabled(false);
+            pbListView.A("");
         }
-        this.Yj.setOnSrollToBottomListener(this);
-        this.Yj.setOnScrollListener(this);
-        dbx();
-        this.lbK = new com.baidu.tieba.lego.b.a(this.pageContext);
-        this.Yj.setAdapter((ListAdapter) this.lbK);
-        this.ZA = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds120);
-        onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
     public BdListView getListView() {
-        return this.Yj;
-    }
-
-    public void l(BdUniqueId bdUniqueId) {
-        if (bdUniqueId != null) {
-            if (this.mPullView != null) {
-                this.mPullView.setTag(bdUniqueId);
-            }
-            this.lch.setTag(bdUniqueId);
-            MessageManager.getInstance().registerListener(this.lch);
-        }
-    }
-
-    public void setCallback(d dVar) {
-        this.lca = dVar;
-    }
-
-    public void setScrollCallback(g gVar) {
-        this.lcc = gVar;
-    }
-
-    public void setViewBackGround() {
-        qJ(true);
+        return this.f18547f;
     }
 
     public n getPlaySwitchController() {
-        return this.lcf;
+        return this.u;
     }
 
-    public void setViewForeground() {
-        qJ(false);
-        if (this.lcf != null) {
-            this.lcf.tN(true);
-            this.lcf.b(this.jkn, this.gAO, this.jkX, true);
-        }
-        if (!this.lbZ && !this.lbY) {
-            if (this.lbX && !com.baidu.adp.lib.util.l.isNetOk()) {
-                if (this.lbK.isEmpty()) {
-                    this.lbK.a(NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, this.ZA), NoDataViewFactory.d.pA(R.string.neterror), null, null);
-                    this.lbK.notifyDataSetChanged();
-                }
-            } else if (this.lcg) {
-                this.lcg = false;
-                com.baidu.adp.lib.f.e.mA().postDelayed(new Runnable() { // from class: com.baidu.tieba.lego.LegoListView.5
-                    @Override // java.lang.Runnable
-                    public void run() {
-                        LegoListView.this.dbw();
-                    }
-                }, 200L);
-            } else {
-                dbw();
-            }
-        }
-    }
-
-    public void onDestory() {
-        if (this.lcf != null) {
-            this.lcf.destroy();
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void dbw() {
-        b(this, false, getResources().getDimensionPixelSize(R.dimen.ds300));
-        startLoad();
-    }
-
-    private void initUI(Context context) {
-        this.mPullView = new com.baidu.tbadk.core.view.g(this.pageContext);
-        this.Yj.setPullRefresh(this.mPullView);
-        this.gCf = new PbListView(context);
-        this.gCf.createView();
-        this.gCf.setContainerBackgroundColorResId(R.color.CAM_X0204);
-        this.gCf.setTextColor(ap.getColor(R.color.CAM_X0109));
-        this.gCf.changeSkin(TbadkCoreApplication.getInst().getSkinType());
-        this.mPullView.setListPullRefreshListener(new a());
-    }
-
-    private void dbx() {
-        this.lcf = new n(this.pageContext, this.Yj);
-        this.jMD = new com.baidu.tieba.f.a();
-        this.jMD.a(this.iHb);
-        this.Yj.setOnTouchListener(this.bUt);
-        this.Yj.setRecyclerListener(new AbsListView.RecyclerListener() { // from class: com.baidu.tieba.lego.LegoListView.8
-            @Override // android.widget.AbsListView.RecyclerListener
-            public void onMovedToScrapHeap(View view) {
-                if (LegoListView.this.lcf != null) {
-                    LegoListView.this.lcf.dt(view);
-                }
-            }
-        });
-    }
-
-    public void a(com.baidu.tieba.lego.c.c cVar, boolean z) {
-        if (this.Yj != null) {
-            this.Yj.completePullRefresh();
-        }
-        if (this.gCf != null) {
-            this.gCf.endLoadData();
-        }
-        if (cVar == null) {
-            setHasMore(false);
-            dq(this);
-            this.lbK.a(NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, this.ZA), NoDataViewFactory.d.pA(R.string.invite_friend_no_data_now), null, null);
-            this.lbK.notifyDataSetChanged();
+    public final void k(Object obj) {
+        d.b.i0.i1.p.c cVar;
+        if (this.f18549h == null || (cVar = this.t) == null || cVar.e() == null) {
             return;
         }
-        this.lce = cVar;
-        this.hxr = false;
-        this.lbY = cVar.dcZ();
-        this.lbX = cVar.dcY();
-        this.lbZ = cVar.ddf();
-        this.lcd = cVar.dda();
-        setHasMore(cVar.hasMore());
-        List<ICardInfo> dcW = cVar.dcW();
-        if (this.lbK != null) {
-            if (dcW == null || dcW.size() <= 0) {
-                if (this.lbX && this.lbY) {
-                    this.lbK.a(NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, this.ZA), NoDataViewFactory.d.pA(R.string.invite_friend_no_data_now), null, null);
-                } else {
-                    this.lbK.a(null, null, null, null);
-                }
-                setHasMore(false);
-            } else if (this.gCf != null) {
-                if (this.gCf.getView().getParent() == null) {
-                    this.Yj.setNextPage(this.gCf);
-                }
-                if (this.mHasMore) {
-                    this.gCf.setText(getContext().getString(R.string.pb_load_more));
-                } else if (dcW.get(dcW.size() - 1) instanceof WebViewCard) {
-                    this.gCf.setText("");
-                } else {
-                    this.gCf.setText(getContext().getString(R.string.list_no_more));
-                }
+        boolean z = false;
+        for (ICardInfo iCardInfo : this.t.e()) {
+            if (iCardInfo.responseAttention(obj)) {
+                z = true;
             }
-            this.lbK.eK(dcW);
         }
         if (z) {
-            this.Yj.setSelection(cVar.dcX());
-        }
-        if (this.lbY || (dcW != null && !dcW.isEmpty())) {
-            dq(this);
+            this.f18549h.notifyDataSetChanged();
         }
     }
 
-    private void setHasMore(boolean z) {
-        this.mHasMore = z;
-        if (this.Yj != null && this.gCf != null) {
-            if (!this.lbX) {
-                this.gCf.setText("");
-            } else if (this.mHasMore) {
-                this.gCf.setText(getContext().getString(R.string.pb_load_more));
-            } else {
-                this.gCf.setText("");
-            }
+    public final void l(View view) {
+        d.b.h0.d0.g gVar = this.o;
+        if (gVar != null) {
+            gVar.dettachView(view);
+            this.o = null;
+        }
+        d.b.h0.r.f0.g gVar2 = this.f18546e;
+        if (gVar2 != null) {
+            gVar2.B(true);
+        }
+        d.b.i0.i1.n.a aVar = this.f18549h;
+        if (aVar != null) {
+            aVar.G(true);
+            this.f18549h.notifyDataSetChanged();
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void startLoad() {
-        if (this.lbX) {
-            this.lca.c(1, this.lcd.lhU, this.lcd.itemId, "");
+    public final void m(Context context, boolean z) {
+        d.b.b.a.f<?> a2 = j.a(context);
+        a2.registerListener(this.A);
+        a2.registerListener(this.B);
+        a2.registerListener(this.C);
+        if (a2 instanceof TbPageContext) {
+            this.r = (TbPageContext) a2;
+        }
+        BdListView bdListView = new BdListView(context);
+        this.f18547f = bdListView;
+        bdListView.setDividerHeight(0);
+        this.f18547f.setSelector(17170445);
+        addView(this.f18547f);
+        if (!z) {
+            this.f18547f.setVerticalScrollBarEnabled(true);
+            n(context);
         } else {
-            this.lca.p(this.lcd.lhU, this.lcd.itemId);
+            this.f18547f.setTranscriptMode(1);
+            this.f18547f.setVerticalScrollBarEnabled(false);
         }
+        this.f18547f.setOnSrollToBottomListener(this);
+        this.f18547f.setOnScrollListener(this);
+        o();
+        d.b.i0.i1.n.a aVar = new d.b.i0.i1.n.a(this.r);
+        this.f18549h = aVar;
+        this.f18547f.setAdapter((ListAdapter) aVar);
+        this.s = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds120);
+        s(TbadkCoreApplication.getInst().getSkinType());
     }
 
-    public void NF(String str) {
-        if (this.Yj != null) {
-            this.Yj.completePullRefresh();
-        }
-        this.hxr = false;
-        if (this.gCf != null) {
-            this.gCf.endLoadData();
-        }
-        if (this.lbK.getCount() <= 0 && this.lbX) {
-            this.lbK.a(NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, this.ZA), NoDataViewFactory.d.BI(str), null, null);
-            this.lbK.eK(new ArrayList());
-        }
-        dq(this);
+    public final void n(Context context) {
+        d.b.h0.r.f0.g gVar = new d.b.h0.r.f0.g(this.r);
+        this.f18546e = gVar;
+        this.f18547f.setPullRefresh(gVar);
+        PbListView pbListView = new PbListView(context);
+        this.f18548g = pbListView;
+        pbListView.a();
+        this.f18548g.o(R.color.CAM_X0204);
+        this.f18548g.C(SkinManager.getColor(R.color.CAM_X0109));
+        this.f18548g.d(TbadkCoreApplication.getInst().getSkinType());
+        this.f18546e.b(new i(this, null));
+    }
+
+    public final void o() {
+        this.u = new n(this.r, this.f18547f);
+        d.b.i0.f0.a aVar = new d.b.i0.f0.a();
+        this.v = aVar;
+        aVar.d(this.E);
+        this.f18547f.setOnTouchListener(this.F);
+        this.f18547f.setRecyclerListener(new h());
     }
 
     @Override // android.widget.AbsListView.OnScrollListener
-    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
-        this.jkn = i;
-        this.gAO = (i + i2) - 1;
+    public void onScroll(AbsListView absListView, int i2, int i3, int i4) {
+        this.w = i2;
+        this.x = (i2 + i3) - 1;
     }
 
-    @Override // com.baidu.adp.widget.ListView.BdListView.e
-    public void onScrollToBottom() {
-        if (this.mHasMore && com.baidu.adp.lib.util.l.isNetOk() && !this.hxr) {
-            this.hxr = true;
-            if (this.gCf != null) {
-                this.gCf.startLoadData();
+    @Override // android.widget.AbsListView.OnScrollListener
+    public void onScrollStateChanged(AbsListView absListView, int i2) {
+        d.b.i0.i1.p.e eVar;
+        if (i2 == 0) {
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016449, -1));
+            d.b.i0.i1.g gVar = this.p;
+            if (gVar != null && (eVar = this.q) != null) {
+                gVar.a(eVar, this.f18547f.getFirstVisiblePosition());
             }
-            if (this.lca != null) {
-                if (this.lbK == null) {
-                    this.lca.c(1, this.lcd.lhU, this.lcd.itemId, "");
-                } else if (this.lce != null) {
-                    this.lca.c(this.lce.getPn() + 1, this.lcd.lhU, this.lcd.itemId, this.lce.ddb());
+            r();
+        }
+    }
+
+    @Override // com.baidu.adp.widget.ListView.BdListView.p
+    public void onScrollToBottom() {
+        if (this.l && l.C() && !this.m) {
+            this.m = true;
+            PbListView pbListView = this.f18548g;
+            if (pbListView != null) {
+                pbListView.O();
+            }
+            d.b.i0.i1.d dVar = this.n;
+            if (dVar == null) {
+                return;
+            }
+            if (this.f18549h == null) {
+                d.b.i0.i1.p.e eVar = this.q;
+                dVar.a(1, eVar.f56030a, eVar.f56031b, "");
+                return;
+            }
+            d.b.i0.i1.p.c cVar = this.t;
+            if (cVar != null) {
+                d.b.i0.i1.d dVar2 = this.n;
+                d.b.i0.i1.p.e eVar2 = this.q;
+                dVar2.a(cVar.a() + 1, eVar2.f56030a, eVar2.f56031b, this.t.g());
+            }
+        }
+    }
+
+    public boolean p(long j, String str) {
+        d.b.i0.i1.p.e eVar = this.q;
+        return eVar != null && j == eVar.f56030a && TextUtils.equals(str, eVar.f56031b);
+    }
+
+    public final void q(boolean z) {
+        if (this.f18547f == null) {
+            return;
+        }
+        for (int i2 = 0; i2 < this.f18547f.getChildCount(); i2++) {
+            View childAt = this.f18547f.getChildAt(i2);
+            if (childAt instanceof d.b.i0.i1.o.l.e) {
+                if (z) {
+                    ((d.b.i0.i1.o.l.e) childAt).f();
+                } else {
+                    ((d.b.i0.i1.o.l.e) childAt).h();
                 }
             }
+        }
+    }
+
+    public final void r() {
+        if (this.f18547f == null) {
+            return;
+        }
+        for (int i2 = 0; i2 < this.f18547f.getChildCount(); i2++) {
+            View childAt = this.f18547f.getChildAt(i2);
+            if (childAt instanceof d.b.i0.i1.o.l.e) {
+                ((d.b.i0.i1.o.l.e) childAt).e();
+            }
+        }
+        n nVar = this.u;
+        if (nVar != null) {
+            nVar.j(this.w, this.x, this.y, 1);
         }
     }
 
     @SuppressLint({"ResourceAsColor"})
-    public void onChangeSkinType(int i) {
-        com.baidu.tbadk.r.a.a(this.pageContext, this);
-        ap.setBackgroundColor(this.Yj, R.color.CAM_X0204, i);
-        if (this.lbK != null) {
-            this.lbK.notifyDataSetChanged();
+    public void s(int i2) {
+        d.b.h0.s0.a.a(this.r, this);
+        SkinManager.setBackgroundColor(this.f18547f, R.color.CAM_X0204, i2);
+        d.b.i0.i1.n.a aVar = this.f18549h;
+        if (aVar != null) {
+            aVar.notifyDataSetChanged();
         }
-        if (this.mPullView != null) {
-            this.mPullView.changeSkin(i);
+        d.b.h0.r.f0.g gVar = this.f18546e;
+        if (gVar != null) {
+            gVar.I(i2);
         }
-        if (this.gCf != null) {
-            this.gCf.changeSkin(i);
+        PbListView pbListView = this.f18548g;
+        if (pbListView != null) {
+            pbListView.d(i2);
         }
     }
 
-    public boolean u(long j, String str) {
-        return this.lcd != null && j == this.lcd.lhU && TextUtils.equals(str, this.lcd.itemId);
+    public void setCallback(d.b.i0.i1.d dVar) {
+        this.n = dVar;
     }
 
-    @Override // android.widget.AbsListView.OnScrollListener
-    public void onScrollStateChanged(AbsListView absListView, int i) {
-        if (i == 0) {
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_LEGO_SWITCH_TAB, -1));
-            if (this.lcc != null && this.lcd != null) {
-                this.lcc.a(this.lcd, this.Yj.getFirstVisiblePosition());
+    public void setFriction(float f2) {
+        BdListView bdListView = this.f18547f;
+        if (bdListView != null) {
+            bdListView.setFriction(f2);
+        }
+    }
+
+    public void setImmersive(boolean z) {
+    }
+
+    public void setScrollCallback(d.b.i0.i1.g gVar) {
+        this.p = gVar;
+    }
+
+    public void setViewBackGround() {
+        q(true);
+    }
+
+    public void setViewForeground() {
+        q(false);
+        n nVar = this.u;
+        if (nVar != null) {
+            nVar.n(true);
+            this.u.k(this.w, this.x, this.y, true);
+        }
+        if (this.k || this.j) {
+            return;
+        }
+        if (this.i && !l.C()) {
+            if (this.f18549h.isEmpty()) {
+                this.f18549h.F(NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, this.s), NoDataViewFactory.e.a(R.string.neterror), null, null);
+                this.f18549h.notifyDataSetChanged();
             }
-            dbu();
+        } else if (this.z) {
+            this.z = false;
+            d.b.b.e.m.e.a().postDelayed(new e(), 200L);
+        } else {
+            w();
         }
     }
 
-    private void qJ(boolean z) {
-        if (this.Yj != null) {
-            int i = 0;
-            while (true) {
-                int i2 = i;
-                if (i2 < this.Yj.getChildCount()) {
-                    View childAt = this.Yj.getChildAt(i2);
-                    if (childAt instanceof com.baidu.tieba.lego.card.view.e) {
-                        if (z) {
-                            ((com.baidu.tieba.lego.card.view.e) childAt).aSZ();
-                        } else {
-                            ((com.baidu.tieba.lego.card.view.e) childAt).cSL();
-                        }
+    public void t() {
+        n nVar = this.u;
+        if (nVar != null) {
+            nVar.c();
+        }
+    }
+
+    public void u(d.b.i0.i1.p.c cVar, boolean z) {
+        BdListView bdListView = this.f18547f;
+        if (bdListView != null) {
+            bdListView.z();
+        }
+        PbListView pbListView = this.f18548g;
+        if (pbListView != null) {
+            pbListView.f();
+        }
+        if (cVar == null) {
+            setHasMore(false);
+            l(this);
+            this.f18549h.F(NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, this.s), NoDataViewFactory.e.a(R.string.invite_friend_no_data_now), null, null);
+            this.f18549h.notifyDataSetChanged();
+            return;
+        }
+        this.t = cVar;
+        this.m = false;
+        this.j = cVar.n();
+        this.i = cVar.m();
+        this.k = cVar.o();
+        this.q = cVar.i();
+        setHasMore(cVar.b());
+        List<ICardInfo> e2 = cVar.e();
+        if (this.f18549h != null) {
+            if (e2 != null && e2.size() > 0) {
+                PbListView pbListView2 = this.f18548g;
+                if (pbListView2 != null) {
+                    if (pbListView2.b().getParent() == null) {
+                        this.f18547f.setNextPage(this.f18548g);
                     }
-                    i = i2 + 1;
-                } else {
-                    return;
+                    if (this.l) {
+                        this.f18548g.A(getContext().getString(R.string.pb_load_more));
+                    } else if (e2.get(e2.size() - 1) instanceof WebViewCard) {
+                        this.f18548g.A("");
+                    } else {
+                        this.f18548g.A(getContext().getString(R.string.list_no_more));
+                    }
                 }
-            }
-        }
-    }
-
-    private void dbu() {
-        if (this.Yj != null) {
-            int i = 0;
-            while (true) {
-                int i2 = i;
-                if (i2 >= this.Yj.getChildCount()) {
-                    break;
-                }
-                View childAt = this.Yj.getChildAt(i2);
-                if (childAt instanceof com.baidu.tieba.lego.card.view.e) {
-                    ((com.baidu.tieba.lego.card.view.e) childAt).dcj();
-                }
-                i = i2 + 1;
-            }
-            if (this.lcf != null) {
-                this.lcf.a(this.jkn, this.gAO, this.jkX, 1);
-            }
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes8.dex */
-    public class a implements f.c {
-        private a() {
-        }
-
-        @Override // com.baidu.tbadk.core.view.f.c
-        public void onListPullRefresh(boolean z) {
-            if (LegoListView.this.lca != null) {
-                LegoListView.this.startLoad();
-            }
-        }
-    }
-
-    private void b(View view, boolean z, int i) {
-        if (this.lcb == null) {
-            if (i < 0) {
-                this.lcb = new com.baidu.tbadk.l.g(getContext());
             } else {
-                this.lcb = new com.baidu.tbadk.l.g(getContext(), i);
+                if (this.i && this.j) {
+                    this.f18549h.F(NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, this.s), NoDataViewFactory.e.a(R.string.invite_friend_no_data_now), null, null);
+                } else {
+                    this.f18549h.F(null, null, null, null);
+                }
+                setHasMore(false);
             }
-            this.lcb.onChangeSkinType();
+            this.f18549h.C(e2);
         }
-        this.lcb.attachView(view, z);
-        if (this.mPullView != null) {
-            this.mPullView.setEnable(false);
+        if (z) {
+            this.f18547f.setSelection(cVar.h());
         }
-        if (this.lbK != null) {
-            this.lbK.tE(false);
-            this.lbK.notifyDataSetChanged();
+        if (this.j || !(e2 == null || e2.isEmpty())) {
+            l(this);
         }
     }
 
-    private void dq(View view) {
-        if (this.lcb != null) {
-            this.lcb.dettachView(view);
-            this.lcb = null;
+    public void v(BdUniqueId bdUniqueId) {
+        if (bdUniqueId == null) {
+            return;
         }
-        if (this.mPullView != null) {
-            this.mPullView.setEnable(true);
+        d.b.h0.r.f0.g gVar = this.f18546e;
+        if (gVar != null) {
+            gVar.Z(bdUniqueId);
         }
-        if (this.lbK != null) {
-            this.lbK.tE(true);
-            this.lbK.notifyDataSetChanged();
+        this.D.setTag(bdUniqueId);
+        MessageManager.getInstance().registerListener(this.D);
+    }
+
+    public final void w() {
+        x(this, false, getResources().getDimensionPixelSize(R.dimen.ds300));
+        y();
+    }
+
+    public final void x(View view, boolean z, int i2) {
+        if (this.o == null) {
+            if (i2 < 0) {
+                this.o = new d.b.h0.d0.g(getContext());
+            } else {
+                this.o = new d.b.h0.d0.g(getContext(), i2);
+            }
+            this.o.onChangeSkinType();
+        }
+        this.o.attachView(view, z);
+        d.b.h0.r.f0.g gVar = this.f18546e;
+        if (gVar != null) {
+            gVar.B(false);
+        }
+        d.b.i0.i1.n.a aVar = this.f18549h;
+        if (aVar != null) {
+            aVar.G(false);
+            this.f18549h.notifyDataSetChanged();
         }
     }
 
-    public void setFriction(float f) {
-        if (this.Yj != null) {
-            this.Yj.setFriction(f);
+    public final void y() {
+        if (this.i) {
+            d.b.i0.i1.d dVar = this.n;
+            d.b.i0.i1.p.e eVar = this.q;
+            dVar.a(1, eVar.f56030a, eVar.f56031b, "");
+            return;
         }
+        d.b.i0.i1.d dVar2 = this.n;
+        d.b.i0.i1.p.e eVar2 = this.q;
+        dVar2.b(eVar2.f56030a, eVar2.f56031b);
+    }
+
+    public void z(String str) {
+        BdListView bdListView = this.f18547f;
+        if (bdListView != null) {
+            bdListView.z();
+        }
+        this.m = false;
+        PbListView pbListView = this.f18548g;
+        if (pbListView != null) {
+            pbListView.f();
+        }
+        if (this.f18549h.getCount() <= 0 && this.i) {
+            this.f18549h.F(NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, this.s), NoDataViewFactory.e.c(str), null, null);
+            this.f18549h.C(new ArrayList());
+        }
+        l(this);
+    }
+
+    public LegoListView(Context context, boolean z) {
+        super(context);
+        this.w = 0;
+        this.x = 0;
+        this.z = false;
+        this.A = new a(2001115);
+        this.B = new b(2001335);
+        this.C = new c(2001336);
+        this.D = new d(2016448);
+        this.E = new f();
+        this.F = new g();
+        m(context, z);
     }
 }

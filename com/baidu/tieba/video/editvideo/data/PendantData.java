@@ -2,7 +2,7 @@ package com.baidu.tieba.video.editvideo.data;
 
 import android.text.TextUtils;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class PendantData extends OrmObject {
     public static final int TYPE_BLACK_TEXT = 2;
     public static final int TYPE_BLUE_TEXT = 1;
@@ -25,23 +25,25 @@ public class PendantData extends OrmObject {
         this.pendantType = 4;
     }
 
+    public void s() {
+        if (TextUtils.isEmpty(this.size)) {
+            return;
+        }
+        String[] split = this.size.split(",");
+        if (split.length != 4) {
+            return;
+        }
+        try {
+            this.top = Integer.parseInt(split[0]);
+            this.left = Integer.parseInt(split[1]);
+            this.bottom = Integer.parseInt(split[2]);
+            this.right = Integer.parseInt(split[3]);
+        } catch (NumberFormatException unused) {
+        }
+    }
+
     public PendantData(int i) {
         this.pendantType = 4;
         this.pendantType = i;
-    }
-
-    public void dTb() {
-        if (!TextUtils.isEmpty(this.size)) {
-            String[] split = this.size.split(",");
-            if (split.length == 4) {
-                try {
-                    this.top = Integer.parseInt(split[0]);
-                    this.left = Integer.parseInt(split[1]);
-                    this.bottom = Integer.parseInt(split[2]);
-                    this.right = Integer.parseInt(split[3]);
-                } catch (NumberFormatException e) {
-                }
-            }
-        }
     }
 }

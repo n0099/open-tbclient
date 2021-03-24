@@ -8,57 +8,84 @@ import com.baidu.android.util.soloader.SoLoader;
 import com.baidu.searchbox.NoProGuard;
 import com.baidu.searchbox.logsystem.util.LLog;
 import java.io.File;
-/* loaded from: classes6.dex */
+/* loaded from: classes2.dex */
 public class NativeCrashCapture implements NoProGuard {
-    private static final String SO_INIT_FLAG_FILE = "jnicrash_so_init_fail_flag";
-    private static final String SO_LOAD_FLAG_FILE = "jnicrash_so_load_fail_flag";
-    private static final String STATISTIC_UBC_INIT_FAILED_TAG = "SO_INIT_FAILED";
-    private static final String STATISTIC_UBC_LOAD_CRASH_TAG = "SO_LOAD_CRASH";
-    private static final String STATISTIC_UBC_LOAD_EXP_TAG = "SO_LOAD_EXCEPTION";
-    private static final String TAG = "NativeCrashCapture";
-    private static final boolean DEBUG = LLog.sDebug;
-    private static boolean sInit = false;
-    private static Context sContext = null;
-    private static com.baidu.disasterrecovery.jnicrash.b sNativeCrashHandler = null;
+    public static final String SO_INIT_FLAG_FILE = "jnicrash_so_init_fail_flag";
+    public static final String SO_LOAD_FLAG_FILE = "jnicrash_so_load_fail_flag";
+    public static final String STATISTIC_UBC_INIT_FAILED_TAG = "SO_INIT_FAILED";
+    public static final String STATISTIC_UBC_LOAD_CRASH_TAG = "SO_LOAD_CRASH";
+    public static final String STATISTIC_UBC_LOAD_EXP_TAG = "SO_LOAD_EXCEPTION";
+    public static final String TAG = "NativeCrashCapture";
+    public static final boolean DEBUG = LLog.sDebug;
+    public static boolean sInit = false;
+    public static Context sContext = null;
+    public static d.b.o.a.b sNativeCrashHandler = null;
 
-    private static native int nativeCrash();
+    /* loaded from: classes2.dex */
+    public static class a extends Thread {
+        public static void a() {
+        }
+    }
 
-    private static native int nativeInit(int i);
+    /* loaded from: classes2.dex */
+    public static class b extends Thread {
+        public static void a() {
+        }
+    }
 
-    public static void init(@NonNull Context context, @NonNull com.baidu.disasterrecovery.jnicrash.b bVar, boolean z) {
-        if (!sInit && bVar != null && context != null) {
-            sContext = context;
-            sNativeCrashHandler = bVar;
-            loadNativeCrashLib();
-            if (sInit) {
-                File file = new File(sContext.getFilesDir() + "/" + SO_INIT_FLAG_FILE);
-                if (!file.exists()) {
-                    try {
-                        file.createNewFile();
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
+    public static void beginNativeCrash() {
+        if (Build.VERSION.SDK_INT > 19) {
+            d.b.o.a.b bVar = sNativeCrashHandler;
+            if (bVar != null) {
+                bVar.d();
+                return;
+            }
+            return;
+        }
+        if (DEBUG) {
+            Log.d(TAG, "beginNativeCrash");
+        }
+        d.b.o.a.b bVar2 = sNativeCrashHandler;
+        if (bVar2 != null) {
+            bVar2.d();
+        }
+    }
+
+    public static void init(@NonNull Context context, @NonNull d.b.o.a.b bVar, boolean z) {
+        if (sInit || bVar == null || context == null) {
+            return;
+        }
+        sContext = context;
+        sNativeCrashHandler = bVar;
+        loadNativeCrashLib();
+        if (sInit) {
+            File file = new File(sContext.getFilesDir() + "/" + SO_INIT_FLAG_FILE);
+            if (!file.exists()) {
+                try {
+                    file.createNewFile();
+                } catch (Exception e2) {
+                    e2.printStackTrace();
                 }
-                nativeInit(Build.VERSION.SDK_INT);
-                if (z) {
-                    com.baidu.disasterrecovery.jnicrash.a.uz();
-                }
-                file.delete();
-                if (DEBUG) {
-                    Log.d(TAG, "nativeInit success");
-                }
+            }
+            nativeInit(Build.VERSION.SDK_INT);
+            if (z) {
+                d.b.o.a.a.a();
+            }
+            file.delete();
+            if (DEBUG) {
+                Log.d(TAG, "nativeInit success");
             }
         }
     }
 
-    private static void loadNativeCrashLib() {
+    public static void loadNativeCrashLib() {
         File file = new File(sContext.getFilesDir() + "/" + SO_LOAD_FLAG_FILE);
         File file2 = new File(sContext.getFilesDir() + "/" + SO_INIT_FLAG_FILE);
         if (file.exists()) {
-            sNativeCrashHandler.onEvent(STATISTIC_UBC_LOAD_CRASH_TAG, "Native load crash");
+            sNativeCrashHandler.f(STATISTIC_UBC_LOAD_CRASH_TAG, "Native load crash");
         }
         if (file2.exists()) {
-            sNativeCrashHandler.onEvent(STATISTIC_UBC_INIT_FAILED_TAG, "Native init failed");
+            sNativeCrashHandler.f(STATISTIC_UBC_INIT_FAILED_TAG, "Native init failed");
         }
         try {
             if (!file.exists()) {
@@ -69,45 +96,14 @@ public class NativeCrashCapture implements NoProGuard {
                 sInit = true;
                 file.delete();
                 if (DEBUG) {
-                    Log.d(TAG, "load native-crash.so success, arch is: " + System.getProperty("os.arch").toLowerCase());
+                    String lowerCase = System.getProperty("os.arch").toLowerCase();
+                    Log.d(TAG, "load native-crash.so success, arch is: " + lowerCase);
                 }
             }
         } catch (Throwable th) {
             sInit = false;
             th.printStackTrace();
-            sNativeCrashHandler.onEvent(STATISTIC_UBC_LOAD_EXP_TAG, Log.getStackTraceString(th));
-        }
-    }
-
-    public static void uncaughtNativeCrash(String str, int i, int i2) {
-        if (Build.VERSION.SDK_INT > 19) {
-            if (sNativeCrashHandler != null) {
-                sNativeCrashHandler.uncaughtNativeCrash(str, i, i2);
-                return;
-            }
-            return;
-        }
-        if (DEBUG) {
-            Log.d(TAG, "uncaughtNativeCrash");
-        }
-        if (sNativeCrashHandler != null) {
-            sNativeCrashHandler.uncaughtNativeCrash(str, i, i2);
-        }
-    }
-
-    public static void beginNativeCrash() {
-        if (Build.VERSION.SDK_INT > 19) {
-            if (sNativeCrashHandler != null) {
-                sNativeCrashHandler.uC();
-                return;
-            }
-            return;
-        }
-        if (DEBUG) {
-            Log.d(TAG, "beginNativeCrash");
-        }
-        if (sNativeCrashHandler != null) {
-            sNativeCrashHandler.uC();
+            sNativeCrashHandler.f(STATISTIC_UBC_LOAD_EXP_TAG, Log.getStackTraceString(th));
         }
     }
 
@@ -119,38 +115,32 @@ public class NativeCrashCapture implements NoProGuard {
         }
     }
 
-    private static void preloadKIKKAT() {
+    public static native int nativeCrash();
+
+    public static native int nativeInit(int i);
+
+    public static void preloadKIKKAT() {
         if (Build.VERSION.SDK_INT <= 19) {
-            a.init();
-            b.init();
+            a.a();
+            b.a();
         }
     }
 
-    /* loaded from: classes6.dex */
-    private static class a extends Thread {
-        public static void init() {
-        }
-
-        @Override // java.lang.Thread, java.lang.Runnable
-        public void run() {
-            NativeCrashCapture.sNativeCrashHandler.uC();
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    private static class b extends Thread {
-        String asv;
-        int pid;
-        int tid;
-
-        public static void init() {
-        }
-
-        @Override // java.lang.Thread, java.lang.Runnable
-        public void run() {
-            if (NativeCrashCapture.sNativeCrashHandler != null) {
-                NativeCrashCapture.sNativeCrashHandler.uncaughtNativeCrash(this.asv, this.pid, this.tid);
+    public static void uncaughtNativeCrash(String str, int i, int i2) {
+        if (Build.VERSION.SDK_INT > 19) {
+            d.b.o.a.b bVar = sNativeCrashHandler;
+            if (bVar != null) {
+                bVar.i(str, i, i2);
+                return;
             }
+            return;
+        }
+        if (DEBUG) {
+            Log.d(TAG, "uncaughtNativeCrash");
+        }
+        d.b.o.a.b bVar2 = sNativeCrashHandler;
+        if (bVar2 != null) {
+            bVar2.i(str, i, i2);
         }
     }
 }

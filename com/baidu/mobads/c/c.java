@@ -6,24 +6,26 @@ import android.widget.ImageView;
 import com.baidu.mobads.openad.interfaces.download.IOAdDownloader;
 import java.util.Observable;
 import java.util.Observer;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class c implements Observer {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ String f2363a;
-    final /* synthetic */ ImageView b;
-    final /* synthetic */ a c;
+    public final /* synthetic */ String f8175a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    /* renamed from: b  reason: collision with root package name */
+    public final /* synthetic */ ImageView f8176b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public final /* synthetic */ a f8177c;
+
     public c(a aVar, String str, ImageView imageView) {
-        this.c = aVar;
-        this.f2363a = str;
-        this.b = imageView;
+        this.f8177c = aVar;
+        this.f8175a = str;
+        this.f8176b = imageView;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:4:0x000a, code lost:
-        r0 = r4.c.a(com.baidu.mobads.c.a.b(r4.f2363a), r4.b, false);
+        r3 = r2.f8177c.a(com.baidu.mobads.c.a.b(r2.f8175a), r2.f8176b, false);
      */
     @Override // java.util.Observer
     /*
@@ -32,10 +34,11 @@ public class c implements Observer {
     public void update(Observable observable, Object obj) {
         Bitmap a2;
         Handler handler;
-        if (((IOAdDownloader) observable).getState() == IOAdDownloader.DownloadStatus.COMPLETED && a2 != null) {
-            handler = a.b;
-            handler.post(new d(this, a2));
-            this.c.a(this.f2363a, a2);
+        if (((IOAdDownloader) observable).getState() != IOAdDownloader.DownloadStatus.COMPLETED || a2 == null) {
+            return;
         }
+        handler = a.f8169b;
+        handler.post(new d(this, a2));
+        this.f8177c.a(this.f8175a, a2);
     }
 }

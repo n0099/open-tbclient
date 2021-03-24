@@ -8,203 +8,250 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.widget.ListView.TypeAdapter;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.ala.AlaLiveInfoCoreData;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
-import com.baidu.tbadk.core.data.av;
+import com.baidu.tbadk.core.data.MetaData;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.bf;
+import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tbadk.core.util.tbselector.TBSelector;
+import com.baidu.tbadk.core.util.tbselector.selector.DrawableSelector;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.NEGFeedBack.NEGFeedBackView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.view.DynamicUserLikeButton;
+import d.b.b.e.p.l;
+import d.b.h0.r.f0.q.c;
+import d.b.h0.r.q.v0;
+import d.b.i0.c2.h.e;
+import d.b.i0.c2.k.e.w;
 import java.util.ArrayList;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class PbImageAlaRecommendVH extends TypeAdapter.ViewHolder implements View.OnClickListener {
-    private com.baidu.tbadk.core.view.userLike.c alS;
-    public int aln;
-    private TextView eIY;
-    private BdUniqueId kjW;
-    private TbImageView kjh;
-    private View kjm;
-    private TextView kyk;
-    private v lWo;
-    private View lWp;
-    private DynamicUserLikeButton lWq;
-    private TextView lWr;
-    private TextView lWs;
-    private View lWt;
-    private View lWu;
-    private NEGFeedBackView lWv;
-    private TbPageContext pageContext;
-    private com.baidu.tieba.pb.data.f pbData;
+
+    /* renamed from: e  reason: collision with root package name */
+    public int f19692e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public w f19693f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public TbPageContext f19694g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public View f19695h;
+    public TextView i;
+    public DynamicUserLikeButton j;
+    public TextView k;
+    public TbImageView l;
+    public TextView m;
+    public TextView n;
+    public View o;
+    public View p;
+    public View q;
+    public NEGFeedBackView r;
+    public c s;
+    public BdUniqueId t;
+    public e u;
+
+    /* loaded from: classes4.dex */
+    public class a implements NEGFeedBackView.b {
+        public a(PbImageAlaRecommendVH pbImageAlaRecommendVH) {
+        }
+
+        @Override // com.baidu.tieba.NEGFeedBack.NEGFeedBackView.b
+        public void onCheckedChanged(v0 v0Var, CompoundButton compoundButton, boolean z) {
+        }
+
+        @Override // com.baidu.tieba.NEGFeedBack.NEGFeedBackView.b
+        public void onNEGFeedbackConfirm(ArrayList<Integer> arrayList, String str, v0 v0Var) {
+        }
+
+        @Override // com.baidu.tieba.NEGFeedBack.NEGFeedBackView.b
+        public void onNEGFeedbackWindowShow(v0 v0Var) {
+            TiebaStatic.log(new StatisticItem("c13858").param("obj_type", 1));
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class b implements DynamicUserLikeButton.a {
+        public b() {
+        }
+
+        @Override // com.baidu.tieba.view.DynamicUserLikeButton.a
+        public void a(View view) {
+            if (PbImageAlaRecommendVH.this.u == null || PbImageAlaRecommendVH.this.u.l() == null || PbImageAlaRecommendVH.this.f19693f == null || PbImageAlaRecommendVH.this.f19693f.k == null) {
+                return;
+            }
+            TiebaStatic.log(new StatisticItem("c13718").param("fid", PbImageAlaRecommendVH.this.u.l().getId()).param("fname", PbImageAlaRecommendVH.this.u.l().getName()).param("uid", TbadkCoreApplication.getCurrentAccount()).param("tid", PbImageAlaRecommendVH.this.u.N()).param(TiebaStatic.Params.FRIEND_UID, PbImageAlaRecommendVH.this.f19693f.k != null ? PbImageAlaRecommendVH.this.f19693f.k.getUserId() : "").param("obj_type", !PbImageAlaRecommendVH.this.f19693f.k.getIsLike()));
+        }
+    }
 
     public PbImageAlaRecommendVH(View view, TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         super(view);
-        this.aln = 3;
-        this.pageContext = tbPageContext;
-        this.kjW = bdUniqueId;
-        if (view != null) {
-            this.kjm = view.findViewById(R.id.rootLayout);
-            this.lWp = view.findViewById(R.id.top_divider_line);
-            this.eIY = (TextView) view.findViewById(R.id.titleView);
-            this.lWq = (DynamicUserLikeButton) view.findViewById(R.id.followBtn);
-            this.lWr = (TextView) view.findViewById(R.id.alaStateView);
-            this.kjh = (TbImageView) view.findViewById(R.id.coverView);
-            this.kyk = (TextView) view.findViewById(R.id.descView);
-            this.lWs = (TextView) view.findViewById(R.id.hotView);
-            this.lWt = view.findViewById(R.id.hotPoint);
-            this.lWu = view.findViewById(R.id.bottomSpaceView);
-            this.lWq.setTextSize(R.dimen.tbds28);
-            this.kjh.setPlaceHolder(2);
-            this.kjh.setRadius(com.baidu.adp.lib.util.l.getDimens(view.getContext(), R.dimen.tbds10));
-            this.kjh.setConrers(15);
-        }
-    }
-
-    public void a(v vVar) {
-        onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-        if (vVar != null) {
-            this.lWo = vVar;
-            this.kjm.setOnClickListener(this);
-            this.kjh.startLoad(vVar.cover, 10, false);
-            if (vVar.liveStatus == 1 && vVar.liveId > 0) {
-                this.lWr.setVisibility(0);
-            } else {
-                this.lWr.setVisibility(8);
-            }
-            this.kyk.setText(vVar.description);
-            this.eIY.setText(String.format(this.eIY.getContext().getResources().getString(R.string.pb_ala_name), com.baidu.tbadk.core.util.au.getFixedText(vVar.userName, 7, true)));
-            this.lWs.setText(String.format(this.lWs.getContext().getResources().getString(R.string.pb_ala_audience_count), com.baidu.tbadk.core.util.au.numFormatOverWan(vVar.lWk)));
-            this.lWu.setVisibility(vVar.lWm ? 8 : 0);
-            b(vVar.lWn);
-            doA();
-        }
-    }
-
-    private void b(av avVar) {
-        if (this.pageContext != null) {
-            if (avVar == null) {
-                if (this.lWv != null) {
-                    this.lWv.setVisibility(8);
-                    return;
-                }
-                return;
-            }
-            if (this.lWv == null) {
-                int dimens = com.baidu.adp.lib.util.l.getDimens(this.pageContext.getPageActivity(), R.dimen.tbds44);
-                RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(com.baidu.adp.lib.util.l.getDimens(this.pageContext.getPageActivity(), R.dimen.tbds130), com.baidu.adp.lib.util.l.getDimens(this.pageContext.getPageActivity(), R.dimen.tbds86));
-                layoutParams.addRule(11);
-                layoutParams.addRule(8, R.id.coverView);
-                this.lWv = new NEGFeedBackView(this.pageContext);
-                this.lWv.setPadding(dimens, dimens, dimens, 0);
-                ((RelativeLayout) this.kjm.findViewById(R.id.contentLayout)).addView(this.lWv, layoutParams);
-                this.lWv.setEventCallback(new NEGFeedBackView.a() { // from class: com.baidu.tieba.pb.pb.main.PbImageAlaRecommendVH.1
-                    @Override // com.baidu.tieba.NEGFeedBack.NEGFeedBackView.a
-                    public void onNEGFeedbackWindowShow(av avVar2) {
-                        TiebaStatic.log(new com.baidu.tbadk.core.util.ar("c13858").aq("obj_type", 1));
-                    }
-
-                    @Override // com.baidu.tieba.NEGFeedBack.NEGFeedBackView.a
-                    public void onCheckedChanged(av avVar2, CompoundButton compoundButton, boolean z) {
-                    }
-
-                    @Override // com.baidu.tieba.NEGFeedBack.NEGFeedBackView.a
-                    public void onNEGFeedbackConfirm(ArrayList<Integer> arrayList, String str, av avVar2) {
-                    }
-                });
-            }
-            this.lWv.setVisibility(0);
-            this.lWv.setData(avVar);
-            this.lWv.onChangeSkinType();
-        }
-    }
-
-    private void onChangeSkinType(int i) {
-        if (this.aln != i) {
-            com.baidu.tbadk.core.util.ap.c(this.kjm, R.color.CAM_X0205, R.color.CAM_X0204, i);
-            com.baidu.tbadk.core.util.ap.setBackgroundColor(this.lWp, R.color.CAM_X0204);
-            com.baidu.tbadk.core.util.ap.setViewTextColor(this.kyk, R.color.CAM_X0105, 1, i);
-            com.baidu.tbadk.core.util.ap.setViewTextColor(this.eIY, R.color.CAM_X0105, 1, i);
-            com.baidu.tbadk.core.util.ap.setViewTextColor(this.lWs, R.color.CAM_X0109, 1, i);
-            com.baidu.tbadk.core.util.ap.setViewTextColor(this.lWr, R.color.CAM_X0101, 1, i);
-            if (this.lWv != null) {
-                this.lWv.onChangeSkinType();
-            }
-            this.lWt.setBackgroundDrawable(com.baidu.tbadk.core.util.ap.aL(com.baidu.adp.lib.util.l.getDimens(this.lWt.getContext(), R.dimen.tbds32), com.baidu.tbadk.core.util.ap.getColor(R.color.CAM_X0309)));
-            int dimens = com.baidu.adp.lib.util.l.getDimens(this.lWr.getContext(), R.dimen.tbds10);
-            com.baidu.tbadk.core.util.f.a.bty().oP(0).b("TL_BR", R.color.CAM_X0308, R.color.CAM_X0301).al(dimens).am(dimens).bv(this.lWr);
-            this.lWq.onChangeSkinType(i);
-        }
-        this.aln = i;
-    }
-
-    private void doA() {
-        if (this.lWo == null || this.lWo.eTa == null) {
-            this.lWq.setVisibility(8);
+        this.f19692e = 3;
+        this.f19694g = tbPageContext;
+        this.t = bdUniqueId;
+        if (view == null) {
             return;
         }
-        this.lWq.setVisibility(0);
-        if (this.alS == null) {
-            this.alS = new com.baidu.tbadk.core.view.userLike.c(this.pageContext, this.lWq);
-            this.alS.l(this.kjW);
+        this.o = view.findViewById(R.id.rootLayout);
+        this.f19695h = view.findViewById(R.id.top_divider_line);
+        this.i = (TextView) view.findViewById(R.id.titleView);
+        this.j = (DynamicUserLikeButton) view.findViewById(R.id.followBtn);
+        this.k = (TextView) view.findViewById(R.id.alaStateView);
+        this.l = (TbImageView) view.findViewById(R.id.coverView);
+        this.m = (TextView) view.findViewById(R.id.descView);
+        this.n = (TextView) view.findViewById(R.id.hotView);
+        this.p = view.findViewById(R.id.hotPoint);
+        this.q = view.findViewById(R.id.bottomSpaceView);
+        this.j.setTextSize(R.dimen.tbds28);
+        this.l.setPlaceHolder(2);
+        this.l.setRadius(l.g(view.getContext(), R.dimen.tbds10));
+        this.l.setConrers(15);
+    }
+
+    public void d(w wVar) {
+        g(TbadkCoreApplication.getInst().getSkinType());
+        if (wVar == null) {
+            return;
         }
-        this.alS.a(this.lWo.eTa);
-        this.lWq.setOnClickEvent(new DynamicUserLikeButton.a() { // from class: com.baidu.tieba.pb.pb.main.PbImageAlaRecommendVH.2
-            @Override // com.baidu.tieba.view.DynamicUserLikeButton.a
-            public void cO(View view) {
-                String str;
-                if (PbImageAlaRecommendVH.this.pbData != null && PbImageAlaRecommendVH.this.pbData.getForum() != null && PbImageAlaRecommendVH.this.lWo != null && PbImageAlaRecommendVH.this.lWo.eTa != null) {
-                    com.baidu.tbadk.core.util.ar dR = new com.baidu.tbadk.core.util.ar("c13718").dR("fid", PbImageAlaRecommendVH.this.pbData.getForum().getId()).dR("fname", PbImageAlaRecommendVH.this.pbData.getForum().getName()).dR("uid", TbadkCoreApplication.getCurrentAccount()).dR("tid", PbImageAlaRecommendVH.this.pbData.getThreadId());
-                    if (PbImageAlaRecommendVH.this.lWo.eTa != null) {
-                        str = PbImageAlaRecommendVH.this.lWo.eTa.getUserId();
-                    } else {
-                        str = "";
-                    }
-                    TiebaStatic.log(dR.dR("friend_uid", str).aq("obj_type", PbImageAlaRecommendVH.this.lWo.eTa.getIsLike() ? 0 : 1));
-                }
+        this.f19693f = wVar;
+        this.o.setOnClickListener(this);
+        this.l.W(wVar.f52855h, 10, false);
+        if (wVar.i == 1 && wVar.j > 0) {
+            this.k.setVisibility(0);
+        } else {
+            this.k.setVisibility(8);
+        }
+        this.m.setText(wVar.f52854g);
+        TextView textView = this.i;
+        textView.setText(String.format(textView.getContext().getResources().getString(R.string.pb_ala_name), StringHelper.getFixedText(wVar.f52852e, 7, true)));
+        TextView textView2 = this.n;
+        textView2.setText(String.format(textView2.getContext().getResources().getString(R.string.pb_ala_audience_count), StringHelper.numFormatOverWan(wVar.f52853f)));
+        this.q.setVisibility(wVar.r ? 8 : 0);
+        j(wVar.s);
+        k();
+    }
+
+    public final void e(w wVar) {
+        if (wVar == null || wVar.i != 1) {
+            return;
+        }
+        if (wVar.m) {
+            f(wVar.o, wVar.n);
+        } else if (wVar.j > 0) {
+            AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
+            alaLiveInfoCoreData.liveID = wVar.j;
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaLiveRoomActivityConfig(this.o.getContext(), alaLiveInfoCoreData, AlaLiveRoomActivityConfig.FROM_TYPE_ARTICLE_PB_RECOMMEND, null, false, "")));
+        }
+    }
+
+    public final void f(String str, String str2) {
+        UrlManager urlManager = UrlManager.getInstance();
+        TbPageContext<?> tbPageContext = this.f19694g;
+        urlManager.dealOneLink(tbPageContext, new String[]{"tiebachushou://liveroom?roomid=" + str + "&livetype=" + str2});
+    }
+
+    public final void g(int i) {
+        if (this.f19692e != i) {
+            SkinManager.setBackgroundSelector(this.o, R.color.CAM_X0205, R.color.CAM_X0204, i);
+            SkinManager.setBackgroundColor(this.f19695h, R.color.CAM_X0204);
+            SkinManager.setViewTextColor(this.m, R.color.CAM_X0105, 1, i);
+            SkinManager.setViewTextColor(this.i, R.color.CAM_X0105, 1, i);
+            SkinManager.setViewTextColor(this.n, R.color.CAM_X0109, 1, i);
+            SkinManager.setViewTextColor(this.k, R.color.CAM_X0101, 1, i);
+            NEGFeedBackView nEGFeedBackView = this.r;
+            if (nEGFeedBackView != null) {
+                nEGFeedBackView.q();
             }
-        });
+            View view = this.p;
+            view.setBackgroundDrawable(SkinManager.createShapeDrawableFromColor(l.g(view.getContext(), R.dimen.tbds32), SkinManager.getColor(R.color.CAM_X0309)));
+            float g2 = l.g(this.k.getContext(), R.dimen.tbds10);
+            TBSelector.makeDrawableSelector().setShape(0).gradientLinear(DrawableSelector.TL_BR, R.color.CAM_X0308, R.color.CAM_X0301).tlRadius(g2).brRadius(g2).into(this.k);
+            this.j.r(i);
+        }
+        this.f19692e = i;
+    }
+
+    public final void h(w wVar) {
+        e eVar = this.u;
+        if (eVar == null || eVar.l() == null) {
+            return;
+        }
+        StatisticItem param = new StatisticItem("c13709").param("fid", this.u.l().getId()).param("fname", this.u.l().getName()).param("uid", TbadkCoreApplication.getCurrentAccount()).param("tid", this.u.N());
+        MetaData metaData = wVar.k;
+        TiebaStatic.log(param.param("obj_param1", metaData != null ? metaData.getUserId() : ""));
+    }
+
+    public void i(e eVar) {
+        w wVar;
+        if (eVar == null || eVar.l() == null || (wVar = this.f19693f) == null || wVar.q) {
+            return;
+        }
+        this.u = eVar;
+        StatisticItem param = new StatisticItem("c13708").param("fid", eVar.l().getId()).param("fname", eVar.l().getName()).param("uid", TbadkCoreApplication.getCurrentAccount()).param("tid", eVar.N());
+        MetaData metaData = this.f19693f.k;
+        TiebaStatic.log(param.param("obj_param1", metaData != null ? metaData.getUserId() : ""));
+        this.f19693f.q = true;
+    }
+
+    public final void j(v0 v0Var) {
+        TbPageContext tbPageContext = this.f19694g;
+        if (tbPageContext == null) {
+            return;
+        }
+        if (v0Var == null) {
+            NEGFeedBackView nEGFeedBackView = this.r;
+            if (nEGFeedBackView != null) {
+                nEGFeedBackView.setVisibility(8);
+                return;
+            }
+            return;
+        }
+        if (this.r == null) {
+            int g2 = l.g(tbPageContext.getPageActivity(), R.dimen.tbds44);
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(l.g(this.f19694g.getPageActivity(), R.dimen.tbds130), l.g(this.f19694g.getPageActivity(), R.dimen.tbds86));
+            layoutParams.addRule(11);
+            layoutParams.addRule(8, R.id.coverView);
+            NEGFeedBackView nEGFeedBackView2 = new NEGFeedBackView(this.f19694g);
+            this.r = nEGFeedBackView2;
+            nEGFeedBackView2.setPadding(g2, g2, g2, 0);
+            ((RelativeLayout) this.o.findViewById(R.id.contentLayout)).addView(this.r, layoutParams);
+            this.r.setEventCallback(new a(this));
+        }
+        this.r.setVisibility(0);
+        this.r.setData(v0Var);
+        this.r.q();
+    }
+
+    public final void k() {
+        w wVar = this.f19693f;
+        if (wVar != null && wVar.k != null) {
+            this.j.setVisibility(0);
+            if (this.s == null) {
+                c cVar = new c(this.f19694g, this.j);
+                this.s = cVar;
+                cVar.l(this.t);
+            }
+            this.s.n(this.f19693f.k);
+            this.j.setOnClickEvent(new b());
+            return;
+        }
+        this.j.setVisibility(8);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         int id = view.getId();
-        if (this.lWo != null && id == R.id.rootLayout) {
-            b(this.lWo);
-            c(this.lWo);
-        }
-    }
-
-    private void b(v vVar) {
-        if (vVar != null && vVar.liveStatus == 1) {
-            if (vVar.isChushou) {
-                eI(vVar.thirdRoomId, vVar.thirdLiveType);
-            } else if (vVar.liveId > 0) {
-                AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
-                alaLiveInfoCoreData.liveID = vVar.liveId;
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaLiveRoomActivityConfig(this.kjm.getContext(), alaLiveInfoCoreData, AlaLiveRoomActivityConfig.FROM_TYPE_ARTICLE_PB_RECOMMEND, null, false, "")));
-            }
-        }
-    }
-
-    private void eI(String str, String str2) {
-        bf.bsY().b(this.pageContext, new String[]{"tiebachushou://liveroom?roomid=" + str + "&livetype=" + str2});
-    }
-
-    private void c(v vVar) {
-        if (this.pbData != null && this.pbData.getForum() != null) {
-            TiebaStatic.log(new com.baidu.tbadk.core.util.ar("c13709").dR("fid", this.pbData.getForum().getId()).dR("fname", this.pbData.getForum().getName()).dR("uid", TbadkCoreApplication.getCurrentAccount()).dR("tid", this.pbData.getThreadId()).dR("obj_param1", vVar.eTa != null ? vVar.eTa.getUserId() : ""));
-        }
-    }
-
-    public void i(com.baidu.tieba.pb.data.f fVar) {
-        if (fVar != null && fVar.getForum() != null && this.lWo != null && !this.lWo.lWl) {
-            this.pbData = fVar;
-            TiebaStatic.log(new com.baidu.tbadk.core.util.ar("c13708").dR("fid", fVar.getForum().getId()).dR("fname", fVar.getForum().getName()).dR("uid", TbadkCoreApplication.getCurrentAccount()).dR("tid", fVar.getThreadId()).dR("obj_param1", this.lWo.eTa != null ? this.lWo.eTa.getUserId() : ""));
-            this.lWo.lWl = true;
+        w wVar = this.f19693f;
+        if (wVar != null && id == R.id.rootLayout) {
+            e(wVar);
+            h(this.f19693f);
         }
     }
 }

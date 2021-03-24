@@ -13,25 +13,25 @@ import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class IMBindPushMsg extends Message {
-    private String mChannelId;
-    private boolean mChannelIdIsEmpty;
-    private Context mContext;
-    private String mDeviceId;
-    private String mPushAppId;
-    private int mReSendCount = 0;
-    private String mUserId;
+    public String mChannelId;
+    public boolean mChannelIdIsEmpty;
+    public Context mContext;
+    public String mDeviceId;
+    public String mPushAppId;
+    public int mReSendCount = 0;
+    public String mUserId;
 
     public IMBindPushMsg(Context context, String str, String str2, String str3) {
         this.mChannelIdIsEmpty = false;
         this.mContext = context;
         initCommonParameter(context);
         if (TextUtils.isEmpty(str)) {
-            str = "0";
-            str2 = "0";
-            str3 = "0";
             this.mChannelIdIsEmpty = true;
+            str = "0";
+            str2 = str;
+            str3 = str2;
         }
         this.mChannelId = str;
         this.mUserId = str2;
@@ -42,8 +42,8 @@ public class IMBindPushMsg extends Message {
     }
 
     public static IMBindPushMsg newInstance(Context context, Intent intent) {
-        if (intent.hasExtra("push_channel_id") && intent.hasExtra(Constants.EXTRA_PUSH_USER_ID) && intent.hasExtra(Constants.EXTRA_PUSH_APP_ID)) {
-            return new IMBindPushMsg(context, intent.getStringExtra("push_channel_id"), intent.getStringExtra(Constants.EXTRA_PUSH_USER_ID), intent.getStringExtra(Constants.EXTRA_PUSH_APP_ID));
+        if (intent.hasExtra(Constants.EXTRA_PUSH_CHANNEL_ID) && intent.hasExtra(Constants.EXTRA_PUSH_USER_ID) && intent.hasExtra(Constants.EXTRA_PUSH_APP_ID)) {
+            return new IMBindPushMsg(context, intent.getStringExtra(Constants.EXTRA_PUSH_CHANNEL_ID), intent.getStringExtra(Constants.EXTRA_PUSH_USER_ID), intent.getStringExtra(Constants.EXTRA_PUSH_APP_ID));
         }
         return null;
     }
@@ -56,13 +56,13 @@ public class IMBindPushMsg extends Message {
     }
 
     @Override // com.baidu.android.imsdk.request.Message
-    protected void buildBody() {
+    public void buildBody() {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("method", 90);
             jSONObject.put("appid", this.mAppid);
             jSONObject.put("uk", this.mUk);
-            jSONObject.put("device_id", this.mDeviceId);
+            jSONObject.put(Constants.KEY_DEVICE_ID, this.mDeviceId);
             jSONObject.put("push_channelid", this.mChannelId);
             jSONObject.put("push_uid", this.mUserId);
             jSONObject.put("push_appid", this.mPushAppId);
@@ -70,36 +70,38 @@ public class IMBindPushMsg extends Message {
             jSONObject2.put("rpc_retry_time", this.mReSendCount);
             jSONObject.put("rpc", jSONObject2.toString());
             this.mBody = jSONObject.toString();
-        } catch (JSONException e) {
-            LogUtils.e(getClass().getSimpleName(), "Exception ", e);
-            new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
+        } catch (JSONException e2) {
+            LogUtils.e(IMBindPushMsg.class.getSimpleName(), "Exception ", e2);
+            new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
         }
-    }
-
-    @Override // com.baidu.android.imsdk.request.Message
-    public void onMsgSending(Context context) {
-        Utility.updateBindPushCUIDStatus(this.mContext, 2);
     }
 
     @Override // com.baidu.android.imsdk.request.Message
     public void handleMessageResult(Context context, JSONObject jSONObject, int i, String str) {
         LogUtils.d("IMBindPushMsg", "bind > handleMessageResult errcode = " + i);
-        if (i != 0) {
-            if (i == 1004 || i == 1001) {
-                setNeedReSend(false);
-                LoginManager.getInstance(context).triggleLogoutListener(i, str);
-            } else if (this.mReSendCount >= 3) {
-                LogUtils.e(LogUtils.TAG, "try to bind push CUID failed 3 times. Cancel resend...errorCode=" + i);
+        if (i == 0) {
+            setNeedReSend(false);
+        } else if (i != 1004 && i != 1001) {
+            int i2 = this.mReSendCount;
+            if (i2 >= 3) {
+                String str2 = LogUtils.TAG;
+                LogUtils.e(str2, "try to bind push CUID failed 3 times. Cancel resend...errorCode=" + i);
                 setNeedReSend(false);
             } else {
-                this.mReSendCount++;
+                this.mReSendCount = i2 + 1;
                 setNeedReSend(true);
             }
         } else {
             setNeedReSend(false);
+            LoginManager.getInstance(context).triggleLogoutListener(i, str);
         }
         super.handleMessageResult(context, jSONObject, i, str);
         Utility.updateBindPushCUIDStatus(this.mContext, 1);
         BindStateManager.onRegisterNotifyResult(context, getListenerKey(), i, str, this.mChannelIdIsEmpty);
+    }
+
+    @Override // com.baidu.android.imsdk.request.Message
+    public void onMsgSending(Context context) {
+        Utility.updateBindPushCUIDStatus(this.mContext, 2);
     }
 }

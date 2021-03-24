@@ -7,58 +7,86 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-/* loaded from: classes2.dex */
+import d.b.h0.r.u.c;
+/* loaded from: classes4.dex */
 public class FrsForumToolDialogView extends LinearLayout {
-    private TextView iIV;
-    private TextView jSu;
-    private TbImageView jSv;
-    private TextView jlP;
+
+    /* renamed from: e  reason: collision with root package name */
+    public TextView f16724e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public TextView f16725f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public TbImageView f16726g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public TextView f16727h;
 
     public FrsForumToolDialogView(Context context) {
         super(context);
-        initUI(context);
+        a(context);
     }
 
-    public void setConfirmButtonListener(View.OnClickListener onClickListener) {
-        if (onClickListener != null) {
-            this.jlP.setOnClickListener(onClickListener);
-        }
+    public final void a(Context context) {
+        LayoutInflater.from(context).inflate(R.layout.frs_forum_tool_dialog, this);
+        this.f16726g = (TbImageView) findViewById(R.id.iv_image);
+        this.f16725f = (TextView) findViewById(R.id.tv_content);
+        this.f16724e = (TextView) findViewById(R.id.btn_cancle);
+        this.f16727h = (TextView) findViewById(R.id.btn_more);
+        this.f16724e.setText(R.string.cancel);
+        this.f16727h.setText(R.string.know_more);
+        this.f16726g.setPlaceHolder(3);
+        this.f16726g.setDrawCorner(true);
+        this.f16726g.setAutoChangeStyle(true);
+        this.f16726g.setConrers(3);
+        this.f16726g.setRadiusById(R.string.J_X06);
+        c a2 = c.a(this.f16725f);
+        a2.n(R.color.CAM_X0107);
+        a2.o(R.dimen.M_T_X001);
+        a2.r(R.dimen.T_X06);
+        c a3 = c.a(this.f16724e);
+        a3.n(R.color.CAM_X0105);
+        a3.h(R.string.J_X07);
+        a3.f(R.dimen.L_X02);
+        a3.r(R.dimen.T_X08);
+        a3.e(R.color.CAM_X0902);
+        a3.c(R.color.CAM_X0201);
+        c a4 = c.a(this.f16727h);
+        a4.n(R.color.CAM_X0302);
+        a4.h(R.string.J_X07);
+        a4.r(R.dimen.T_X08);
+        a4.f(R.dimen.L_X02);
+        a4.b(R.string.A_X07);
+        a4.e(R.color.CAM_X0302);
+        a4.c(R.color.CAM_X0201);
+        c a5 = c.a(this);
+        a5.h(R.string.J_X06);
+        a5.g(0);
+        a5.c(R.color.CAM_X0201);
     }
 
     public void setCancleButtonListener(View.OnClickListener onClickListener) {
         if (onClickListener != null) {
-            this.jSu.setOnClickListener(onClickListener);
+            this.f16724e.setOnClickListener(onClickListener);
         }
     }
 
-    private void initUI(Context context) {
-        LayoutInflater.from(context).inflate(R.layout.frs_forum_tool_dialog, this);
-        this.jSv = (TbImageView) findViewById(R.id.iv_image);
-        this.iIV = (TextView) findViewById(R.id.tv_content);
-        this.jSu = (TextView) findViewById(R.id.btn_cancle);
-        this.jlP = (TextView) findViewById(R.id.btn_more);
-        this.jSu.setText(R.string.cancel);
-        this.jlP.setText(R.string.know_more);
-        this.jSv.setPlaceHolder(3);
-        this.jSv.setDrawCorner(true);
-        this.jSv.setAutoChangeStyle(true);
-        this.jSv.setConrers(3);
-        this.jSv.setRadiusById(R.string.J_X06);
-        com.baidu.tbadk.core.elementsMaven.c.br(this.iIV).nZ(R.color.CAM_X0107).oc(R.dimen.M_T_X001).oa(R.dimen.T_X06);
-        com.baidu.tbadk.core.elementsMaven.c.br(this.jSu).nZ(R.color.CAM_X0105).oh(R.string.J_X07).ol(R.dimen.L_X02).oa(R.dimen.T_X08).ok(R.color.CAM_X0902).setBackGroundColor(R.color.CAM_X0201);
-        com.baidu.tbadk.core.elementsMaven.c.br(this.jlP).nZ(R.color.CAM_X0302).oh(R.string.J_X07).oa(R.dimen.T_X08).ol(R.dimen.L_X02).om(R.string.A_X07).ok(R.color.CAM_X0302).setBackGroundColor(R.color.CAM_X0201);
-        com.baidu.tbadk.core.elementsMaven.c.br(this).oh(R.string.J_X06).og(0).setBackGroundColor(R.color.CAM_X0201);
+    public void setConfirmButtonListener(View.OnClickListener onClickListener) {
+        if (onClickListener != null) {
+            this.f16727h.setOnClickListener(onClickListener);
+        }
     }
 
     public void setContent(String str) {
-        this.iIV.setText(str);
+        this.f16725f.setText(str);
     }
 
     public void setStartLoadUrl(int i, String str) {
-        if (i == 1 || i == 2) {
-            this.jSv.startLoad(str, 24, false);
+        if (i != 1 && i != 2) {
+            this.f16726g.W(str, 10, false);
         } else {
-            this.jSv.startLoad(str, 10, false);
+            this.f16726g.W(str, 24, false);
         }
     }
 }

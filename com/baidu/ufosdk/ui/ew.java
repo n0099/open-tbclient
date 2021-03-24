@@ -3,25 +3,22 @@ package com.baidu.ufosdk.ui;
 import android.view.View;
 import android.widget.RelativeLayout;
 import com.baidu.ufosdk.R;
-/* loaded from: classes7.dex */
-final class ew implements View.OnFocusChangeListener {
+/* loaded from: classes5.dex */
+public final class ew implements View.OnFocusChangeListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ RelativeLayout f3774a;
-    final /* synthetic */ ev b;
+    public final /* synthetic */ RelativeLayout f23249a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    /* renamed from: b  reason: collision with root package name */
+    public final /* synthetic */ ev f23250b;
+
     public ew(ev evVar, RelativeLayout relativeLayout) {
-        this.b = evVar;
-        this.f3774a = relativeLayout;
+        this.f23250b = evVar;
+        this.f23249a = relativeLayout;
     }
 
     @Override // android.view.View.OnFocusChangeListener
     public final void onFocusChange(View view, boolean z) {
-        if (z) {
-            this.f3774a.setBackgroundResource(R.drawable.dialog_edit_bg_selected);
-        } else {
-            this.f3774a.setBackgroundResource(R.drawable.dialog_checkbox_bg_normal);
-        }
+        this.f23249a.setBackgroundResource(z ? R.drawable.dialog_edit_bg_selected : R.drawable.dialog_checkbox_bg_normal);
     }
 }

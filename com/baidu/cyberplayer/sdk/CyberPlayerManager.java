@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 @Keep
-/* loaded from: classes4.dex */
+/* loaded from: classes.dex */
 public class CyberPlayerManager {
     public static final int CLARITY_MODE_AUTO = -1;
     public static final int COMMAND_ADD_STAGE_INFO = 1001;
@@ -151,6 +151,10 @@ public class CyberPlayerManager {
     public static final int SYSTEM_INFRA_KEY_VMSIZE_AVAILABLE = 4;
     public static final int SYSTEM_INFRA_KEY_VMSIZE_IN_SMAPS = 3;
     public static final int SYSTEM_INFRA_KEY_VMSIZE_SLICE = 5;
+    public static String VIDEO_FLOW_IS_PREFETCH = "video_flow_is_prefetch";
+    public static String VIDEO_FLOW_STAGE = "video_flow_stage";
+    public static String VIDEO_FLOW_URL = "video_flow_url";
+    public static String VIDEO_FLOW_VALUE = "video_flow_value";
     public static final int VIDEO_SCALING_MODE_NOT_SCALE = 6;
     public static final int VIDEO_SCALING_MODE_SCALE_16_TO_9 = 5;
     public static final int VIDEO_SCALING_MODE_SCALE_4_TO_3 = 4;
@@ -162,31 +166,41 @@ public class CyberPlayerManager {
     public static final int VIDEO_SCALING_MODE_SCALE_TO_FILL_WITH_CROP_TOP = 9;
     public static final int VIDEO_SCALING_MODE_SCALE_TO_FIT = 1;
     public static final int VIDEO_SCALING_MODE_SCALE_TO_FIT_WITH_CROPPING = 2;
-    private static Context e;
-    private static String f;
-    private static int g;
-    private static String h;
-    private static Class<?> i;
 
     /* renamed from: a  reason: collision with root package name */
-    private static boolean f1382a = false;
-    private static OnDeleteListener b = null;
-    private static OnVideoFlowListener c = null;
-    private static final Object d = new Object();
-    public static String VIDEO_FLOW_URL = "video_flow_url";
-    public static String VIDEO_FLOW_STAGE = "video_flow_stage";
-    public static String VIDEO_FLOW_VALUE = "video_flow_value";
-    public static String VIDEO_FLOW_IS_PREFETCH = "video_flow_is_prefetch";
-    private static Map<String, String> j = new HashMap();
+    public static boolean f4800a = false;
+
+    /* renamed from: b  reason: collision with root package name */
+    public static OnDeleteListener f4801b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public static OnVideoFlowListener f4802c;
+
+    /* renamed from: e  reason: collision with root package name */
+    public static Context f4804e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public static String f4805f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public static int f4806g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public static String f4807h;
+    public static Class<?> i;
+
+    /* renamed from: d  reason: collision with root package name */
+    public static final Object f4803d = new Object();
+    public static Map<String, String> j = new HashMap();
 
     @Keep
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public interface HttpDNS {
         List<String> getIpList(String str);
     }
 
     @Keep
-    /* loaded from: classes4.dex */
+    /* loaded from: classes.dex */
     public interface InstallListener {
         void onInstallError(int i, int i2, String str);
 
@@ -196,66 +210,66 @@ public class CyberPlayerManager {
     }
 
     @Keep
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public interface OnBufferingUpdateListener {
         void onBufferingUpdate(int i);
     }
 
     @Keep
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public interface OnCompletionListener {
         void onCompletion();
     }
 
     @Keep
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public interface OnDeleteListener {
         void onDeleteComplete(int i, long j);
     }
 
     @Keep
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public interface OnErrorListener {
         boolean onError(int i, int i2, Object obj);
     }
 
     @Keep
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public interface OnInfoListener {
         boolean onInfo(int i, int i2, Object obj);
     }
 
     @Keep
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public interface OnMediaSourceChangedListener {
         boolean onMediaSourceChanged(int i, int i2, Object obj);
     }
 
     @Keep
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public interface OnPreparedListener {
         void onPrepared();
     }
 
     @Keep
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public interface OnSeekCompleteListener {
         void onSeekComplete();
     }
 
     @Keep
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public interface OnVideoFlowListener {
         void onRecordFlow(HashMap<String, String> hashMap);
     }
 
     @Keep
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public interface OnVideoSizeChangedListener {
         void onVideoSizeChanged(int i, int i2, int i3, int i4);
     }
 
-    private static void a(Map<String, String> map) {
+    public static void a(Map<String, String> map) {
         if (map != null) {
             String str = map.get(INSTALL_OPT_ENABLE_SF_SWITCH);
             if (TextUtils.isEmpty(str)) {
@@ -266,7 +280,7 @@ public class CyberPlayerManager {
                     CyberLog.i("CyberPlayerManager", "parserGlobalInstallOptions isSpringFestivalEnable TRUE !! ");
                     c.a().a(true);
                 }
-            } catch (Exception e2) {
+            } catch (Exception unused) {
             }
         }
     }
@@ -286,29 +300,29 @@ public class CyberPlayerManager {
     }
 
     public static void deleteVideoCache(OnDeleteListener onDeleteListener) {
-        if (f1382a) {
+        if (f4800a) {
             if (onDeleteListener != null) {
                 onDeleteListener.onDeleteComplete(-2, 0L);
                 return;
             }
             return;
         }
-        f1382a = true;
-        b = onDeleteListener;
+        f4800a = true;
+        f4801b = onDeleteListener;
         CyberTaskExcutor.getInstance().executeSingleThread(new Runnable() { // from class: com.baidu.cyberplayer.sdk.CyberPlayerManager.1
             @Override // java.lang.Runnable
             public void run() {
-                synchronized (CyberPlayerManager.d) {
-                    long a2 = n.a((Boolean) true);
-                    if (CyberPlayerManager.b != null) {
+                synchronized (CyberPlayerManager.f4803d) {
+                    long a2 = n.a(Boolean.TRUE);
+                    if (CyberPlayerManager.f4801b != null) {
                         if (a2 < 0) {
-                            CyberPlayerManager.b.onDeleteComplete((int) a2, 0L);
+                            CyberPlayerManager.f4801b.onDeleteComplete((int) a2, 0L);
                         } else {
-                            CyberPlayerManager.b.onDeleteComplete(0, a2);
+                            CyberPlayerManager.f4801b.onDeleteComplete(0, a2);
                         }
                     }
-                    boolean unused = CyberPlayerManager.f1382a = false;
-                    OnDeleteListener unused2 = CyberPlayerManager.b = null;
+                    boolean unused = CyberPlayerManager.f4800a = false;
+                    OnDeleteListener unused2 = CyberPlayerManager.f4801b = null;
                 }
             }
         });
@@ -319,15 +333,15 @@ public class CyberPlayerManager {
     }
 
     public static String getAppID() {
-        return h;
+        return f4807h;
     }
 
     public static Context getApplicationContext() {
-        return e;
+        return f4804e;
     }
 
     public static String getClientID() {
-        return f;
+        return f4805f;
     }
 
     public static String getCoreVersion() {
@@ -344,7 +358,7 @@ public class CyberPlayerManager {
     }
 
     public static int getInstallType() {
-        return g;
+        return f4806g;
     }
 
     public static int getNetworkStatus() {
@@ -386,28 +400,32 @@ public class CyberPlayerManager {
 
     public static synchronized void install(Context context, String str, String str2, int i2, Class<?> cls, Map<String, String> map, InstallListener installListener) throws Exception {
         synchronized (CyberPlayerManager.class) {
-            if (context == null) {
-                throw new NullPointerException("context is null");
+            try {
+                if (context == null) {
+                    throw new NullPointerException("context is null");
+                }
+                if (TextUtils.isEmpty(str)) {
+                    throw new NullPointerException("clienID is null");
+                }
+                f4804e = context.getApplicationContext();
+                f4805f = str;
+                f4806g |= i2;
+                i = cls;
+                f4807h = context.getPackageName();
+                DpSessionDatasUploader.getInstance().a(f4804e);
+                if (map != null) {
+                    j.putAll(map);
+                    a(map);
+                }
+                com.baidu.cyberplayer.sdk.loader.b.a().a(str2, i2, map, installListener);
+            } catch (Throwable th) {
+                throw th;
             }
-            if (TextUtils.isEmpty(str)) {
-                throw new NullPointerException("clienID is null");
-            }
-            e = context.getApplicationContext();
-            f = str;
-            g |= i2;
-            i = cls;
-            h = context.getPackageName();
-            DpSessionDatasUploader.getInstance().a(e);
-            if (map != null) {
-                j.putAll(map);
-                a(map);
-            }
-            com.baidu.cyberplayer.sdk.loader.b.a().a(str2, i2, map, installListener);
         }
     }
 
     public static boolean isCoreLoaded() {
-        return isCoreLoaded(g);
+        return isCoreLoaded(f4806g);
     }
 
     public static boolean isCoreLoaded(int i2) {
@@ -423,7 +441,10 @@ public class CyberPlayerManager {
     }
 
     public static void preconnect(String str, String str2, String str3, int i2, HttpDNS httpDNS, String str4) {
-        d.a(str, str2, str3, 1, 0, i2, httpDNS, str4 == null ? "" : str4);
+        if (str4 == null) {
+            str4 = "";
+        }
+        d.a(str, str2, str3, 1, 0, i2, httpDNS, str4);
     }
 
     public static void prefetch(String str, String str2, String str3, int i2, int i3, HttpDNS httpDNS) {
@@ -431,7 +452,10 @@ public class CyberPlayerManager {
     }
 
     public static void prefetch(String str, String str2, String str3, int i2, int i3, HttpDNS httpDNS, String str4) {
-        d.a(str, str2, str3, 0, i2, i3, httpDNS, str4 == null ? "" : str4);
+        if (str4 == null) {
+            str4 = "";
+        }
+        d.a(str, str2, str3, 0, i2, i3, httpDNS, str4);
     }
 
     public static void prefetch(String str, String str2, String str3, int i2, HttpDNS httpDNS) {
@@ -439,11 +463,14 @@ public class CyberPlayerManager {
     }
 
     public static void prefetch(String str, String str2, String str3, int i2, HttpDNS httpDNS, String str4) {
-        d.a(str, str2, str3, 0, 0, i2, httpDNS, str4 == null ? "" : str4);
+        if (str4 == null) {
+            str4 = "";
+        }
+        d.a(str, str2, str3, 0, 0, i2, httpDNS, str4);
     }
 
     public static void setCollectVideoFlow(OnVideoFlowListener onVideoFlowListener) {
-        c = onVideoFlowListener;
+        f4802c = onVideoFlowListener;
     }
 
     public static void stopPrefetch(String str) {
@@ -451,8 +478,9 @@ public class CyberPlayerManager {
     }
 
     public static void videoFlowCallback(HashMap<String, String> hashMap) {
-        if (c != null) {
-            c.onRecordFlow(hashMap);
+        OnVideoFlowListener onVideoFlowListener = f4802c;
+        if (onVideoFlowListener != null) {
+            onVideoFlowListener.onRecordFlow(hashMap);
         }
     }
 }

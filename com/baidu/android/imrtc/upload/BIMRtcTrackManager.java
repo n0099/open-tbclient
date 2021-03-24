@@ -6,22 +6,14 @@ import com.baidu.android.imrtc.utils.TaskManager;
 import com.baidu.android.imsdk.upload.action.IMPushUploadManager;
 import com.baidu.android.imsdk.upload.action.IMPushUploadResponseListener;
 import com.baidu.android.imsdk.utils.RequsetNetworkUtils;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class BIMRtcTrackManager {
     public static final String TAG = "BIMRtcTrackManager";
 
-    public static void uploadRtcActionData(final Context context) {
-        if (context != null && RequsetNetworkUtils.isConnected(context)) {
-            TaskManager.getInstance().submitForNetWork(new Runnable() { // from class: com.baidu.android.imrtc.upload.BIMRtcTrackManager.1
-                @Override // java.lang.Runnable
-                public void run() {
-                    BIMRtcTrackManager.requestRtcUpload(context);
-                }
-            });
-        }
+    public static void clearRtcTrack(Context context, BIMRtcPbGenerator bIMRtcPbGenerator) {
+        bIMRtcPbGenerator.clearRtcActions(context);
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     public static void requestRtcUpload(final Context context) {
         final BIMRtcPbGenerator bIMRtcPbGenerator = new BIMRtcPbGenerator();
         byte[] generateRtcClient = bIMRtcPbGenerator.generateRtcClient(context);
@@ -40,8 +32,15 @@ public class BIMRtcTrackManager {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public static void clearRtcTrack(Context context, BIMRtcPbGenerator bIMRtcPbGenerator) {
-        bIMRtcPbGenerator.clearRtcActions(context);
+    public static void uploadRtcActionData(final Context context) {
+        if (context == null || !RequsetNetworkUtils.isConnected(context)) {
+            return;
+        }
+        TaskManager.getInstance().submitForNetWork(new Runnable() { // from class: com.baidu.android.imrtc.upload.BIMRtcTrackManager.1
+            @Override // java.lang.Runnable
+            public void run() {
+                BIMRtcTrackManager.requestRtcUpload(context);
+            }
+        });
     }
 }

@@ -4,31 +4,35 @@ import androidx.annotation.NonNull;
 import java.io.Serializable;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class WebCardVideoPositionHandler implements com.kwad.sdk.core.webview.a.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private final com.kwad.sdk.core.webview.a f6327a;
-    private VideoPosition b = new VideoPosition();
-    private a c;
+    public final com.kwad.sdk.core.webview.a f34305a;
 
-    /* loaded from: classes3.dex */
+    /* renamed from: b  reason: collision with root package name */
+    public VideoPosition f34306b = new VideoPosition();
+
+    /* renamed from: c  reason: collision with root package name */
+    public a f34307c;
+
+    /* loaded from: classes6.dex */
     public static final class VideoPosition extends com.kwad.sdk.core.response.a.a implements Serializable {
-        private static final long serialVersionUID = -3445790097441569428L;
+        public static final long serialVersionUID = -3445790097441569428L;
         public double heightWidthRation;
         public double leftMarginRation;
         public double topMarginRation;
         public double widthRation;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public interface a {
         void a(VideoPosition videoPosition);
     }
 
     public WebCardVideoPositionHandler(com.kwad.sdk.core.webview.a aVar, a aVar2) {
-        this.f6327a = aVar;
-        this.c = aVar2;
+        this.f34305a = aVar;
+        this.f34307c = aVar2;
     }
 
     @Override // com.kwad.sdk.core.webview.a.a
@@ -40,12 +44,12 @@ public class WebCardVideoPositionHandler implements com.kwad.sdk.core.webview.a.
     @Override // com.kwad.sdk.core.webview.a.a
     public void a(String str, @NonNull com.kwad.sdk.core.webview.a.c cVar) {
         try {
-            this.b.parseJson(new JSONObject(str));
-            if (this.c != null) {
-                this.c.a(this.b);
+            this.f34306b.parseJson(new JSONObject(str));
+            if (this.f34307c != null) {
+                this.f34307c.a(this.f34306b);
             }
-        } catch (JSONException e) {
-            e.printStackTrace();
+        } catch (JSONException e2) {
+            e2.printStackTrace();
         }
         cVar.a(null);
     }

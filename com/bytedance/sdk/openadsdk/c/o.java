@@ -2,13 +2,13 @@ package com.bytedance.sdk.openadsdk.c;
 
 import com.bytedance.sdk.openadsdk.c.g;
 import com.bytedance.sdk.openadsdk.core.q;
-import com.bytedance.sdk.openadsdk.g.c.c;
+import com.bytedance.sdk.openadsdk.h.c.c;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class o extends g<c.a> {
-    private q<a> m;
+    public q<a> m;
 
     public o(String str, String str2, e eVar, q qVar, g.b bVar, g.a aVar) {
         super(str, str2, eVar, qVar, bVar, aVar);
@@ -28,10 +28,10 @@ public class o extends g<c.a> {
         try {
             JSONArray jSONArray = new JSONArray();
             for (c.a aVar : list) {
-                jSONArray.put(aVar.b);
+                jSONArray.put(aVar.f29433b);
             }
             jSONObject.put("stats_list", jSONArray);
-        } catch (Exception e) {
+        } catch (Exception unused) {
         }
         return this.m.a(jSONObject);
     }

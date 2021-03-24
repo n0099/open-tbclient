@@ -1,7 +1,7 @@
 package com.baidu.minivideo.plugin.capture.bean;
 
 import java.util.ArrayList;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public class MusicCategoryBean {
     public ArrayList<MusicBaseBean> list;
     public int mCategory = 2;

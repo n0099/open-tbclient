@@ -18,42 +18,223 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.WebPManager;
-import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.widget.RankStarView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tbadk.widget.richText.TbRichTextEvaluateItemInfo;
 import com.baidu.tieba.R;
+import d.b.b.e.p.l;
+import d.b.h0.r.f0.o.b;
 import java.util.List;
 import tbclient.Item;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class ItemCardView extends RelativeLayout {
-    private static final int fif = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds146);
-    private static final int fig = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds146);
-    private static final int fih = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds234);
-    private static final int fii = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds156);
-    private static final int fij = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds146);
-    private static final int fik = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds195);
-    private static final int fil = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds21);
-    private static final int fim = com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds32);
-    private TbImageView fhU;
-    private RankStarView fhV;
-    private TextView fhW;
-    private TextView fhX;
-    private TextView fhY;
-    private ImageView fhZ;
-    private ImageView fia;
-    private int fib;
-    private int fic;
-    private String fie;
-    private Path mPath;
-    private RectF mRect;
-    private TextView mTitleView;
+    public static final int s = l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds146);
+    public static final int t = l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds146);
+    public static final int u = l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds234);
+    public static final int v = l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds156);
+    public static final int w = l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds146);
+    public static final int x = l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds195);
+    public static final int y = l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds21);
+    public static final int z = l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds32);
+
+    /* renamed from: e  reason: collision with root package name */
+    public TbImageView f13377e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public TextView f13378f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public RankStarView f13379g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public TextView f13380h;
+    public TextView i;
+    public TextView j;
+    public TextView k;
+    public ImageView l;
+    public ImageView m;
+    public Path n;
+    public RectF o;
+    public int p;
+    public int q;
+    public String r;
 
     public ItemCardView(Context context) {
         this(context, null);
+    }
+
+    private void setTag(List<String> list) {
+        if (list != null && !list.isEmpty()) {
+            this.k.setVisibility(0);
+            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
+            for (int i = 0; i < list.size(); i++) {
+                spannableStringBuilder.append((CharSequence) list.get(i));
+                if (i != list.size() - 1) {
+                    SpannableStringBuilder spannableStringBuilder2 = new SpannableStringBuilder(" ");
+                    spannableStringBuilder2.setSpan(new b(z), 0, spannableStringBuilder2.length(), 33);
+                    spannableStringBuilder.append((CharSequence) spannableStringBuilder2);
+                }
+            }
+            this.k.setText(spannableStringBuilder, TextView.BufferType.SPANNABLE);
+            return;
+        }
+        this.k.setVisibility(8);
+    }
+
+    public final void a(Context context) {
+        LayoutInflater.from(context).inflate(R.layout.item_card_view_layout, (ViewGroup) this, true);
+        this.f13377e = (TbImageView) findViewById(R.id.item_image);
+        this.f13378f = (TextView) findViewById(R.id.item_title);
+        this.f13379g = (RankStarView) findViewById(R.id.item_star);
+        this.f13380h = (TextView) findViewById(R.id.item_score);
+        this.i = (TextView) findViewById(R.id.tieba_score_tag);
+        this.j = (TextView) findViewById(R.id.item_des);
+        this.k = (TextView) findViewById(R.id.item_tag);
+        this.l = (ImageView) findViewById(R.id.bt_del);
+        this.m = (ImageView) findViewById(R.id.img_right);
+        this.f13377e.setDrawCorner(true);
+        this.f13377e.setConrers(15);
+        this.f13377e.setRadiusById(R.string.J_X04);
+        this.f13377e.setPlaceHolder(1);
+        this.f13377e.setDrawBorder(true);
+        this.f13379g.setStarSpacing(l.g(context, R.dimen.tbds10));
+        b();
+    }
+
+    public void b() {
+        SkinManager.setBackgroundColor(this, this.p);
+        SkinManager.setViewTextColor(this.f13378f, R.color.CAM_X0107, 1);
+        SkinManager.setViewTextColor(this.f13380h, R.color.CAM_X0109, 1);
+        SkinManager.setViewTextColor(this.i, R.color.CAM_X0109, 1);
+        SkinManager.setViewTextColor(this.k, R.color.CAM_X0109, 1);
+        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.l, R.drawable.icon_pure_search_empty16_svg, R.color.CAM_X0111, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+        WebPManager.setPureDrawable(this.m, R.drawable.icon_pb_right_n, R.color.CAM_X0111, WebPManager.ResourceStateType.NORMAL_PRESS);
+        this.f13377e.setBorderWidth(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds1));
+        this.f13377e.setBorderColor(SkinManager.getColor(R.color.CAM_X0401));
+        this.f13379g.f();
+        this.f13379g.invalidate();
+        this.f13377e.setPlaceHolder(1);
+    }
+
+    public void c() {
+        this.l.setVisibility(0);
+    }
+
+    public final void d() {
+        if (this.q == 1) {
+            this.f13378f.setTextSize(0, l.g(getContext(), R.dimen.T_X07));
+            this.j.setTextSize(0, l.g(getContext(), R.dimen.tbds31));
+            this.k.setTextSize(0, l.g(getContext(), R.dimen.T_X09));
+            ((LinearLayout.LayoutParams) this.f13379g.getLayoutParams()).height = l.g(getContext(), R.dimen.tbds32);
+            this.f13379g.setStarSpacing(l.g(getContext(), R.dimen.tbds3));
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.k.getLayoutParams();
+            layoutParams.topMargin = l.g(getContext(), R.dimen.tbds5);
+            this.k.setLayoutParams(layoutParams);
+        }
+    }
+
+    @Override // android.view.View
+    public void draw(Canvas canvas) {
+        int measuredWidth = getMeasuredWidth();
+        int measuredHeight = getMeasuredHeight();
+        this.n.reset();
+        this.o.set(0.0f, 0.0f, measuredWidth, measuredHeight);
+        Path path = this.n;
+        RectF rectF = this.o;
+        int i = y;
+        path.addRoundRect(rectF, i, i, Path.Direction.CW);
+        canvas.clipPath(this.n);
+        super.draw(canvas);
+    }
+
+    public TbImageView getItemImageView() {
+        return this.f13377e;
+    }
+
+    public RankStarView getStarView() {
+        return this.f13379g;
+    }
+
+    public TextView getTagView() {
+        return this.k;
+    }
+
+    public TextView getTitleView() {
+        return this.f13378f;
+    }
+
+    public void setBackGroundColor(int i) {
+        this.p = i;
+        b();
+    }
+
+    public void setData(TbRichTextEvaluateItemInfo tbRichTextEvaluateItemInfo, int i) {
+        if (!TextUtils.isEmpty(this.r + tbRichTextEvaluateItemInfo.getTitle())) {
+            SpannableString spannableString = new SpannableString(tbRichTextEvaluateItemInfo.getTitle());
+            UtilHelper.setSpan(spannableString, tbRichTextEvaluateItemInfo.getTitle(), this.r, new ForegroundColorSpan(getResources().getColor(R.color.CAM_X0301)));
+            this.f13378f.setText(spannableString);
+        } else {
+            this.f13378f.setText(tbRichTextEvaluateItemInfo.getTitle());
+        }
+        this.f13377e.W(tbRichTextEvaluateItemInfo.getIconUrl(), i, false);
+        if (tbRichTextEvaluateItemInfo.getStar() >= 0 && tbRichTextEvaluateItemInfo.getStar() <= 5) {
+            this.f13379g.setStarCount(tbRichTextEvaluateItemInfo.getStar());
+        } else {
+            this.f13379g.setStarCount(0.0f);
+        }
+        if (tbRichTextEvaluateItemInfo.getScore() > 0.0d && tbRichTextEvaluateItemInfo.getScore() <= 10.0d) {
+            this.f13380h.setText(tbRichTextEvaluateItemInfo.getScore() + "");
+            this.i.setText(R.string.tieba_score);
+        } else {
+            this.f13380h.setText(R.string.no_evaluate_now);
+            this.i.setText(R.string.no_tieba_score);
+        }
+        setTag(tbRichTextEvaluateItemInfo.getTags());
+        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f13377e.getLayoutParams();
+        if (this.q == 1) {
+            if (tbRichTextEvaluateItemInfo.getIconSize() == 1.0d) {
+                layoutParams.width = s;
+                layoutParams.height = t;
+            } else if (tbRichTextEvaluateItemInfo.getIconSize() < 1.0d) {
+                layoutParams.width = u;
+                layoutParams.height = v;
+            } else {
+                layoutParams.width = w;
+                layoutParams.height = x;
+            }
+            layoutParams.width -= l.g(getContext(), R.dimen.tbds5);
+            layoutParams.height -= l.g(getContext(), R.dimen.tbds5);
+        } else if (tbRichTextEvaluateItemInfo.getIconSize() == 1.0d) {
+            layoutParams.width = s;
+            layoutParams.height = t;
+        } else if (tbRichTextEvaluateItemInfo.getIconSize() == 0.67d) {
+            layoutParams.width = u;
+            layoutParams.height = v;
+        } else {
+            layoutParams.width = w;
+            layoutParams.height = x;
+        }
+        ViewGroup.LayoutParams layoutParams2 = getLayoutParams();
+        layoutParams2.height = layoutParams.height + l.g(getContext(), R.dimen.tbds42);
+        this.f13377e.setLayoutParams(layoutParams);
+        setLayoutParams(layoutParams2);
+    }
+
+    public void setHighLightText(String str) {
+        this.r = str;
+    }
+
+    public void setOnCloseListener(View.OnClickListener onClickListener) {
+        this.l.setOnClickListener(onClickListener);
+    }
+
+    public void setSizeStyle(int i) {
+        this.q = i;
+        d();
     }
 
     public ItemCardView(Context context, AttributeSet attributeSet) {
@@ -62,235 +243,75 @@ public class ItemCardView extends RelativeLayout {
 
     public ItemCardView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.fib = R.color.CAM_X0206;
-        this.fic = 0;
-        this.mPath = new Path();
-        this.mRect = new RectF();
-        initUI(context);
-    }
-
-    private void initUI(Context context) {
-        LayoutInflater.from(context).inflate(R.layout.item_card_view_layout, (ViewGroup) this, true);
-        this.fhU = (TbImageView) findViewById(R.id.item_image);
-        this.mTitleView = (TextView) findViewById(R.id.item_title);
-        this.fhV = (RankStarView) findViewById(R.id.item_star);
-        this.fhW = (TextView) findViewById(R.id.item_score);
-        this.fhX = (TextView) findViewById(R.id.item_des);
-        this.fhY = (TextView) findViewById(R.id.item_tag);
-        this.fhZ = (ImageView) findViewById(R.id.bt_del);
-        this.fia = (ImageView) findViewById(R.id.img_right);
-        this.fhU.setDrawCorner(true);
-        this.fhU.setConrers(15);
-        this.fhU.setRadiusById(R.string.J_X04);
-        this.fhU.setPlaceHolder(1);
-        this.fhU.setDrawBorder(true);
-        this.fhV.setStarSpacing(com.baidu.adp.lib.util.l.getDimens(context, R.dimen.tbds10));
-        onChangeSkinType();
-    }
-
-    private void btW() {
-        if (this.fic == 1) {
-            this.mTitleView.setTextSize(0, com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.T_X07));
-            this.fhX.setTextSize(0, com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds31));
-            this.fhY.setTextSize(0, com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.T_X09));
-            ((LinearLayout.LayoutParams) this.fhV.getLayoutParams()).height = com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds32);
-            this.fhV.setStarSpacing(com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds3));
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.fhY.getLayoutParams();
-            layoutParams.topMargin = com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds5);
-            this.fhY.setLayoutParams(layoutParams);
-        }
-    }
-
-    public void setData(TbRichTextEvaluateItemInfo tbRichTextEvaluateItemInfo, int i) {
-        if (!TextUtils.isEmpty(this.fie + tbRichTextEvaluateItemInfo.getTitle())) {
-            SpannableString spannableString = new SpannableString(tbRichTextEvaluateItemInfo.getTitle());
-            UtilHelper.setSpan(spannableString, tbRichTextEvaluateItemInfo.getTitle(), this.fie, new ForegroundColorSpan(getResources().getColor(R.color.CAM_X0301)));
-            this.mTitleView.setText(spannableString);
-        } else {
-            this.mTitleView.setText(tbRichTextEvaluateItemInfo.getTitle());
-        }
-        this.fhU.startLoad(tbRichTextEvaluateItemInfo.getIconUrl(), i, false);
-        if (tbRichTextEvaluateItemInfo.getStar() >= 0 && tbRichTextEvaluateItemInfo.getStar() <= 5) {
-            this.fhV.setStarCount(tbRichTextEvaluateItemInfo.getStar());
-        } else {
-            this.fhV.setStarCount(0.0f);
-        }
-        if (tbRichTextEvaluateItemInfo.getScore() > 0.0d && tbRichTextEvaluateItemInfo.getScore() <= 10.0d) {
-            this.fhW.setText(tbRichTextEvaluateItemInfo.getScore() + "");
-        } else {
-            this.fhW.setText(R.string.no_evaluate_now);
-        }
-        setTag(tbRichTextEvaluateItemInfo.getTags());
-        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.fhU.getLayoutParams();
-        if (this.fic == 1) {
-            if (tbRichTextEvaluateItemInfo.getIconSize() == 1.0d) {
-                layoutParams.width = fif;
-                layoutParams.height = fig;
-            } else if (tbRichTextEvaluateItemInfo.getIconSize() < 1.0d) {
-                layoutParams.width = fih;
-                layoutParams.height = fii;
-            } else {
-                layoutParams.width = fij;
-                layoutParams.height = fik;
-            }
-            layoutParams.width -= com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds5);
-            layoutParams.height -= com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds5);
-        } else if (tbRichTextEvaluateItemInfo.getIconSize() == 1.0d) {
-            layoutParams.width = fif;
-            layoutParams.height = fig;
-        } else if (tbRichTextEvaluateItemInfo.getIconSize() == 0.67d) {
-            layoutParams.width = fih;
-            layoutParams.height = fii;
-        } else {
-            layoutParams.width = fij;
-            layoutParams.height = fik;
-        }
-        ViewGroup.LayoutParams layoutParams2 = getLayoutParams();
-        layoutParams2.height = layoutParams.height + com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds42);
-        this.fhU.setLayoutParams(layoutParams);
-        setLayoutParams(layoutParams2);
+        this.p = R.color.CAM_X0206;
+        this.q = 0;
+        this.n = new Path();
+        this.o = new RectF();
+        a(context);
     }
 
     public void setData(Item item, int i) {
-        if (!TextUtils.isEmpty(item.item_name + this.fie)) {
-            UtilHelper.setSpan(new SpannableString(item.item_name), item.item_name, this.fie, new ForegroundColorSpan(Color.parseColor("#0AC3BC")));
+        if (!TextUtils.isEmpty(item.item_name + this.r)) {
+            UtilHelper.setSpan(new SpannableString(item.item_name), item.item_name, this.r, new ForegroundColorSpan(Color.parseColor("#0AC3BC")));
         }
-        this.mTitleView.setText(item.item_name);
-        this.fhU.startLoad(item.icon_url, i, false);
+        this.f13378f.setText(item.item_name);
+        this.f13377e.W(item.icon_url, i, false);
         if (item.star.intValue() >= 0 && item.star.intValue() <= 5) {
-            this.fhV.setStarCount(item.star.intValue());
+            this.f13379g.setStarCount(item.star.intValue());
         } else {
-            this.fhV.setStarCount(0.0f);
+            this.f13379g.setStarCount(0.0f);
         }
         if (item.score.doubleValue() > 0.0d && item.score.doubleValue() <= 10.0d) {
-            this.fhW.setText(item.score + "");
+            this.f13380h.setText(item.score + "");
+            this.i.setText(R.string.tieba_score);
         } else {
-            this.fhW.setText(R.string.no_evaluate_now);
+            this.f13380h.setText(R.string.no_evaluate_now);
+            this.f13380h.setText(R.string.no_tieba_score);
         }
         setTag(item.tags);
-        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.fhU.getLayoutParams();
-        if (this.fic == 1) {
+        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f13377e.getLayoutParams();
+        if (this.q == 1) {
             if (item.icon_size.doubleValue() == 1.0d) {
-                layoutParams.width = fif;
-                layoutParams.height = fig;
+                layoutParams.width = s;
+                layoutParams.height = t;
             } else if (item.icon_size.doubleValue() < 1.0d) {
-                layoutParams.width = fih;
-                layoutParams.height = fii;
+                layoutParams.width = u;
+                layoutParams.height = v;
             } else {
-                layoutParams.width = fij;
-                layoutParams.height = fik;
+                layoutParams.width = w;
+                layoutParams.height = x;
             }
-            layoutParams.width -= com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds2);
-            layoutParams.height -= com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds2);
+            layoutParams.width -= l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds2);
+            layoutParams.height -= l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds2);
         } else if (item.icon_size.doubleValue() == 1.0d) {
-            layoutParams.width = fif;
-            layoutParams.height = fig;
+            layoutParams.width = s;
+            layoutParams.height = t;
         } else if (item.icon_size.doubleValue() == 0.67d) {
-            layoutParams.width = fih;
-            layoutParams.height = fii;
+            layoutParams.width = u;
+            layoutParams.height = v;
         } else {
-            layoutParams.width = fij;
-            layoutParams.height = fik;
+            layoutParams.width = w;
+            layoutParams.height = x;
         }
         if (item.icon_size.doubleValue() == 1.0d) {
-            if (this.fic == 0) {
-                layoutParams.width = fif;
-                layoutParams.height = fig;
-            } else if (this.fic == 1) {
-                layoutParams.width = fif - com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds2);
-                layoutParams.height = fig - com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds2);
+            int i2 = this.q;
+            if (i2 == 0) {
+                layoutParams.width = s;
+                layoutParams.height = t;
+            } else if (i2 == 1) {
+                layoutParams.width = s - l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds2);
+                layoutParams.height = t - l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds2);
             }
         } else if (item.icon_size.doubleValue() == 0.67d) {
-            layoutParams.width = fih;
-            layoutParams.height = fii;
+            layoutParams.width = u;
+            layoutParams.height = v;
         } else {
-            layoutParams.width = fij;
-            layoutParams.height = fik;
+            layoutParams.width = w;
+            layoutParams.height = x;
         }
         ViewGroup.LayoutParams layoutParams2 = getLayoutParams();
-        layoutParams2.height = layoutParams.height + com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds42);
-        this.fhU.setLayoutParams(layoutParams);
+        layoutParams2.height = layoutParams.height + l.g(getContext(), R.dimen.tbds42);
+        this.f13377e.setLayoutParams(layoutParams);
         setLayoutParams(layoutParams2);
-    }
-
-    private void setTag(List<String> list) {
-        if (list == null || list.isEmpty()) {
-            this.fhY.setVisibility(8);
-            return;
-        }
-        this.fhY.setVisibility(0);
-        SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-        for (int i = 0; i < list.size(); i++) {
-            spannableStringBuilder.append((CharSequence) list.get(i));
-            if (i != list.size() - 1) {
-                SpannableStringBuilder spannableStringBuilder2 = new SpannableStringBuilder(" ");
-                spannableStringBuilder2.setSpan(new com.baidu.tbadk.core.view.a.b(fim), 0, spannableStringBuilder2.length(), 33);
-                spannableStringBuilder.append((CharSequence) spannableStringBuilder2);
-            }
-        }
-        this.fhY.setText(spannableStringBuilder, TextView.BufferType.SPANNABLE);
-    }
-
-    @Override // android.view.View
-    public void draw(Canvas canvas) {
-        int measuredWidth = getMeasuredWidth();
-        int measuredHeight = getMeasuredHeight();
-        this.mPath.reset();
-        this.mRect.set(0.0f, 0.0f, measuredWidth, measuredHeight);
-        this.mPath.addRoundRect(this.mRect, fil, fil, Path.Direction.CW);
-        canvas.clipPath(this.mPath);
-        super.draw(canvas);
-    }
-
-    public void onChangeSkinType() {
-        ap.setBackgroundColor(this, this.fib);
-        ap.setViewTextColor(this.mTitleView, R.color.CAM_X0107, 1);
-        ap.setViewTextColor(this.fhW, R.color.CAM_X0109, 1);
-        ap.setViewTextColor(this.fhY, R.color.CAM_X0109, 1);
-        SvgManager.bsU().a(this.fhZ, R.drawable.icon_pure_search_empty16_svg, R.color.CAM_X0111, SvgManager.SvgResourceStateType.NORMAL_PRESS);
-        WebPManager.a(this.fia, R.drawable.icon_pb_right_n, R.color.CAM_X0111, WebPManager.ResourceStateType.NORMAL_PRESS);
-        this.fhU.setBorderWidth(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds1));
-        this.fhU.setBorderColor(ap.getColor(R.color.CAM_X0401));
-        this.fhV.bvc();
-        this.fhV.invalidate();
-        this.fhU.setPlaceHolder(1);
-    }
-
-    public void setBackGroundColor(int i) {
-        this.fib = i;
-        onChangeSkinType();
-    }
-
-    public RankStarView getStarView() {
-        return this.fhV;
-    }
-
-    public TbImageView getItemImageView() {
-        return this.fhU;
-    }
-
-    public TextView getTitleView() {
-        return this.mTitleView;
-    }
-
-    public TextView getTagView() {
-        return this.fhY;
-    }
-
-    public void btX() {
-        this.fhZ.setVisibility(0);
-    }
-
-    public void setOnCloseListener(View.OnClickListener onClickListener) {
-        this.fhZ.setOnClickListener(onClickListener);
-    }
-
-    public void setHighLightText(String str) {
-        this.fie = str;
-    }
-
-    public void setSizeStyle(int i) {
-        this.fic = i;
-        btW();
     }
 }

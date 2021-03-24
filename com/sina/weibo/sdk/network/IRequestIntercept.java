@@ -2,7 +2,7 @@ package com.sina.weibo.sdk.network;
 
 import android.os.Bundle;
 import com.sina.weibo.sdk.network.exception.InterceptException;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public interface IRequestIntercept {
     boolean doIntercept(IRequestParam iRequestParam, Bundle bundle) throws InterceptException;
 

@@ -5,63 +5,61 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    protected static final Comparator<byte[]> f2689a = new c();
-    private List<byte[]> b = new LinkedList();
-    private List<byte[]> c = new ArrayList(64);
-    private int d = 0;
-    private final int e;
+    public static final Comparator<byte[]> f9318a = new c();
+
+    /* renamed from: b  reason: collision with root package name */
+    public List<byte[]> f9319b = new LinkedList();
+
+    /* renamed from: c  reason: collision with root package name */
+    public List<byte[]> f9320c = new ArrayList(64);
+
+    /* renamed from: d  reason: collision with root package name */
+    public int f9321d = 0;
+
+    /* renamed from: e  reason: collision with root package name */
+    public final int f9322e;
 
     public b(int i) {
-        this.e = i;
+        this.f9322e = i;
     }
 
     public synchronized byte[] a(int i) {
-        byte[] bArr;
-        int i2 = 0;
-        while (true) {
-            int i3 = i2;
-            if (i3 < this.c.size()) {
-                bArr = this.c.get(i3);
-                if (bArr.length < i) {
-                    i2 = i3 + 1;
-                } else {
-                    this.d -= bArr.length;
-                    this.c.remove(i3);
-                    this.b.remove(bArr);
-                    break;
-                }
-            } else {
-                bArr = new byte[i];
-                break;
+        for (int i2 = 0; i2 < this.f9320c.size(); i2++) {
+            byte[] bArr = this.f9320c.get(i2);
+            if (bArr.length >= i) {
+                this.f9321d -= bArr.length;
+                this.f9320c.remove(i2);
+                this.f9319b.remove(bArr);
+                return bArr;
             }
         }
-        return bArr;
+        return new byte[i];
     }
 
     public synchronized void a(byte[] bArr) {
         if (bArr != null) {
-            if (bArr.length <= this.e) {
-                this.b.add(bArr);
-                int binarySearch = Collections.binarySearch(this.c, bArr, f2689a);
+            if (bArr.length <= this.f9322e) {
+                this.f9319b.add(bArr);
+                int binarySearch = Collections.binarySearch(this.f9320c, bArr, f9318a);
                 if (binarySearch < 0) {
                     binarySearch = (-binarySearch) - 1;
                 }
-                this.c.add(binarySearch, bArr);
-                this.d += bArr.length;
+                this.f9320c.add(binarySearch, bArr);
+                this.f9321d += bArr.length;
                 a();
             }
         }
     }
 
     private synchronized void a() {
-        while (this.d > this.e) {
-            byte[] remove = this.b.remove(0);
-            this.c.remove(remove);
-            this.d -= remove.length;
+        while (this.f9321d > this.f9322e) {
+            byte[] remove = this.f9319b.remove(0);
+            this.f9320c.remove(remove);
+            this.f9321d -= remove.length;
         }
     }
 }

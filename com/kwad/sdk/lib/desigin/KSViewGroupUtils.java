@@ -8,21 +8,17 @@ import android.view.ViewGroup;
 import android.view.ViewParent;
 import androidx.annotation.Keep;
 @Keep
-/* loaded from: classes3.dex */
-class KSViewGroupUtils {
-    private static final ThreadLocal<Matrix> sMatrix = new ThreadLocal<>();
-    private static final ThreadLocal<RectF> sRectF = new ThreadLocal<>();
+/* loaded from: classes6.dex */
+public class KSViewGroupUtils {
+    public static final ThreadLocal<Matrix> sMatrix = new ThreadLocal<>();
+    public static final ThreadLocal<RectF> sRectF = new ThreadLocal<>();
 
-    KSViewGroupUtils() {
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
     public static void getDescendantRect(ViewGroup viewGroup, View view, Rect rect) {
         rect.set(0, 0, view.getWidth(), view.getHeight());
         offsetDescendantRect(viewGroup, view, rect);
     }
 
-    private static void offsetDescendantMatrix(ViewParent viewParent, View view, Matrix matrix) {
+    public static void offsetDescendantMatrix(ViewParent viewParent, View view, Matrix matrix) {
         ViewParent parent = view.getParent();
         if ((parent instanceof View) && parent != viewParent) {
             View view2 = (View) parent;
@@ -36,16 +32,13 @@ class KSViewGroupUtils {
         matrix.preConcat(view.getMatrix());
     }
 
-    static void offsetDescendantRect(ViewGroup viewGroup, View view, Rect rect) {
-        Matrix matrix;
-        Matrix matrix2 = sMatrix.get();
-        if (matrix2 == null) {
-            Matrix matrix3 = new Matrix();
-            sMatrix.set(matrix3);
-            matrix = matrix3;
+    public static void offsetDescendantRect(ViewGroup viewGroup, View view, Rect rect) {
+        Matrix matrix = sMatrix.get();
+        if (matrix == null) {
+            matrix = new Matrix();
+            sMatrix.set(matrix);
         } else {
-            matrix2.reset();
-            matrix = matrix2;
+            matrix.reset();
         }
         offsetDescendantMatrix(viewGroup, view, matrix);
         RectF rectF = sRectF.get();

@@ -4,120 +4,121 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.widget.ListView.n;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
-import com.baidu.tbadk.core.data.cb;
-import com.baidu.tieba.InjectPlugin.a.e;
-import com.baidu.tieba.recapp.q;
+import d.b.b.j.e.n;
+import d.b.h0.r.q.a2;
+import d.b.i0.e.e.c;
+import d.b.i0.e.e.d;
+import d.b.i0.e.e.e;
+import d.b.i0.e.f.b;
+import d.b.i0.r2.q;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class FrsFeedAdStatic {
-    static {
-        MessageManager.getInstance().registerListener(new a());
-    }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public static List<c> bN(List<n> list) {
-        ArrayList arrayList = new ArrayList();
-        for (n nVar : list) {
-            c cVar = new c();
-            if (nVar instanceof cb) {
-                cb cbVar = (cb) nVar;
-                if (cbVar.bnN() == 1) {
-                    cVar.setThreadType(1);
-                } else if (cbVar.bnN() == 0) {
-                    cVar.setThreadType(2);
-                } else {
-                    cVar.setThreadType(4);
-                }
-                cVar.aE(nVar);
-            } else if (nVar instanceof b) {
-                cVar.setThreadType(3);
-                cVar.sN(((b) nVar).bJA());
-                cVar.aE(((b) nVar).bJz());
-            } else {
-                cVar.setThreadType(4);
-                cVar.aE(nVar);
-            }
-            arrayList.add(cVar);
-        }
-        return arrayList;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public static List<n> bO(List<c> list) {
-        if (list == null || list.isEmpty()) {
-            return null;
-        }
-        ArrayList arrayList = new ArrayList();
-        for (c cVar : list) {
-            if (cVar.getThreadType() == 3) {
-                b bVar = new b();
-                bVar.aE(cVar.bJz());
-                bVar.sN(cVar.bJA());
-                arrayList.add(bVar);
-            } else if (cVar.bJz() instanceof n) {
-                arrayList.add((n) cVar.bJz());
-            }
-        }
-        return arrayList;
-    }
-
-    /* loaded from: classes7.dex */
-    static final class a extends CustomMessageListener {
+    /* loaded from: classes4.dex */
+    public static final class a extends CustomMessageListener {
         public a() {
-            super(CmdConfigCustom.CMD_FRS_FEED_AD_PLUGIN_OPERATE);
+            super(2016515);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            com.baidu.tieba.InjectPlugin.b.b bVar;
-            com.baidu.tieba.InjectPlugin.a.b bJG;
-            if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof com.baidu.tieba.InjectPlugin.b.b) && (bJG = (bVar = (com.baidu.tieba.InjectPlugin.b.b) customResponsedMessage.getData()).bJG()) != null && (bJG instanceof q)) {
-                q qVar = (q) bJG;
-                com.baidu.tieba.InjectPlugin.a.a sO = bJG.sO(1);
-                if (sO == null) {
-                    com.baidu.tieba.InjectPlugin.a.d sP = e.bJF().sP(1);
-                    if (sP != null) {
-                        sO = sP.bJE();
-                        bJG.a(1, sO);
-                        sO.init(new com.baidu.tieba.InjectPlugin.a.c(qVar));
-                    } else {
-                        return;
-                    }
+            b bVar;
+            d.b.i0.e.e.b c2;
+            if (customResponsedMessage == null || !(customResponsedMessage.getData() instanceof b) || (c2 = (bVar = (b) customResponsedMessage.getData()).c()) == null || !(c2 instanceof q)) {
+                return;
+            }
+            q qVar = (q) c2;
+            d.b.i0.e.e.a injectPlugin = c2.getInjectPlugin(1);
+            if (injectPlugin == null) {
+                d a2 = e.b().a(1);
+                if (a2 == null) {
+                    return;
                 }
-                com.baidu.tieba.InjectPlugin.a.a aVar = sO;
-                if (aVar instanceof d) {
-                    d dVar = (d) aVar;
-                    if (bVar.bJH() == 1) {
-                        List list = (List) bVar.tr();
-                        b.bM(dVar.bJC());
-                        for (BdUniqueId bdUniqueId : b.bJB()) {
-                            com.baidu.tieba.InjectPlugin.FrsFeedAd.a aVar2 = new com.baidu.tieba.InjectPlugin.FrsFeedAd.a(qVar, bdUniqueId);
-                            aVar2.setPageContext(qVar.getTbPageContext());
-                            list.add(aVar2);
-                        }
-                    } else if (bVar.bJH() == 2) {
-                        dVar.bP(bVar.bJK());
-                    } else if (bVar.bJH() == 3) {
-                        List<n> threadList = bVar.getThreadList();
-                        List<c> bN = FrsFeedAdStatic.bN(threadList);
-                        if (bVar.bJM()) {
-                            dVar.a(bN, FrsFeedAdStatic.bN(bVar.bJL()), bVar.bJN(), bVar.bJO());
-                        } else {
-                            dVar.d(bN, bVar.bJO());
-                        }
-                        threadList.clear();
-                        threadList.addAll(FrsFeedAdStatic.bO(bN));
-                    } else if (bVar.bJH() == 4) {
-                        dVar.changeSkinType(bVar.getSkinType());
-                    } else if (bVar.bJH() == 5) {
-                        dVar.a(FrsFeedAdStatic.bN(bVar.getThreadList()), bVar.getForumId(), bVar.bJQ(), bVar.bJR(), bVar.bJS(), bVar.bJP(), bVar.getPageNum());
+                injectPlugin = a2.a();
+                c2.setInjectPlugin(1, injectPlugin);
+                injectPlugin.n(new c(qVar));
+            }
+            if (injectPlugin instanceof d.b.i0.e.b.d) {
+                d.b.i0.e.b.d dVar = (d.b.i0.e.b.d) injectPlugin;
+                if (bVar.a() == 1) {
+                    List list = (List) bVar.f();
+                    d.b.i0.e.b.b.e(dVar.e());
+                    for (BdUniqueId bdUniqueId : d.b.i0.e.b.b.f()) {
+                        d.b.i0.e.b.a aVar = new d.b.i0.e.b.a(qVar, bdUniqueId);
+                        aVar.h0(qVar.q());
+                        list.add(aVar);
                     }
+                } else if (bVar.a() == 2) {
+                    dVar.i(bVar.d());
+                } else if (bVar.a() == 3) {
+                    List<n> n = bVar.n();
+                    List<d.b.i0.e.b.c> d2 = FrsFeedAdStatic.d(n);
+                    if (bVar.p()) {
+                        dVar.m(d2, FrsFeedAdStatic.d(bVar.k()), bVar.o(), bVar.e());
+                    } else {
+                        dVar.f(d2, bVar.e());
+                    }
+                    n.clear();
+                    n.addAll(FrsFeedAdStatic.c(d2));
+                } else if (bVar.a() == 4) {
+                    dVar.a(bVar.m());
+                } else if (bVar.a() == 5) {
+                    dVar.h(FrsFeedAdStatic.d(bVar.n()), bVar.h(), bVar.g(), bVar.l(), bVar.i(), bVar.q(), bVar.j());
                 }
             }
         }
+    }
+
+    static {
+        MessageManager.getInstance().registerListener(new a());
+    }
+
+    public static List<n> c(List<d.b.i0.e.b.c> list) {
+        if (list == null || list.isEmpty()) {
+            return null;
+        }
+        ArrayList arrayList = new ArrayList();
+        for (d.b.i0.e.b.c cVar : list) {
+            if (cVar.c() == 3) {
+                d.b.i0.e.b.b bVar = new d.b.i0.e.b.b();
+                bVar.k(cVar.a());
+                bVar.l(cVar.b());
+                arrayList.add(bVar);
+            } else if (cVar.a() instanceof n) {
+                arrayList.add((n) cVar.a());
+            }
+        }
+        return arrayList;
+    }
+
+    public static List<d.b.i0.e.b.c> d(List<n> list) {
+        ArrayList arrayList = new ArrayList();
+        for (n nVar : list) {
+            d.b.i0.e.b.c cVar = new d.b.i0.e.b.c();
+            if (nVar instanceof a2) {
+                a2 a2Var = (a2) nVar;
+                if (a2Var.x0() == 1) {
+                    cVar.f(1);
+                } else if (a2Var.x0() == 0) {
+                    cVar.f(2);
+                } else {
+                    cVar.f(4);
+                }
+                cVar.d(nVar);
+            } else if (nVar instanceof d.b.i0.e.b.b) {
+                cVar.f(3);
+                d.b.i0.e.b.b bVar = (d.b.i0.e.b.b) nVar;
+                cVar.e(bVar.g());
+                cVar.d(bVar.a());
+            } else {
+                cVar.f(4);
+                cVar.d(nVar);
+            }
+            arrayList.add(cVar);
+        }
+        return arrayList;
     }
 }

@@ -1,28 +1,30 @@
 package com.xiaomi.mipush.sdk;
 
-import android.content.Context;
-import android.content.Intent;
-/* loaded from: classes5.dex */
-final class aa implements Runnable {
+import com.xiaomi.mipush.sdk.MiTinyDataClient;
+import java.util.concurrent.ScheduledFuture;
+/* loaded from: classes7.dex */
+public class aa implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ Context f8205a;
+    public final /* synthetic */ MiTinyDataClient.a.C0520a f40148a;
 
-    /* renamed from: a  reason: collision with other field name */
-    final /* synthetic */ Intent f38a;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public aa(Context context, Intent intent) {
-        this.f8205a = context;
-        this.f38a = intent;
+    public aa(MiTinyDataClient.a.C0520a c0520a) {
+        this.f40148a = c0520a;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        try {
-            this.f8205a.startService(this.f38a);
-        } catch (Exception e) {
-            com.xiaomi.channel.commonutils.logger.b.m58a(e.getMessage());
+        ScheduledFuture scheduledFuture;
+        ScheduledFuture scheduledFuture2;
+        if (this.f40148a.f51a.size() != 0) {
+            this.f40148a.b();
+            return;
+        }
+        scheduledFuture = this.f40148a.f52a;
+        if (scheduledFuture != null) {
+            scheduledFuture2 = this.f40148a.f52a;
+            scheduledFuture2.cancel(false);
+            this.f40148a.f52a = null;
         }
     }
 }

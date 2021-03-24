@@ -5,7 +5,7 @@ import android.os.Parcelable;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.utils.LogUtils;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class InterActiveMsg extends NormalMsg {
     public static final Parcelable.Creator<InterActiveMsg> CREATOR = new Parcelable.Creator<InterActiveMsg>() { // from class: com.baidu.android.imsdk.chatmessage.messages.InterActiveMsg.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -23,25 +23,25 @@ public class InterActiveMsg extends NormalMsg {
         }
     };
     public static final String TAG = "InterActiveMsg";
-    private int mTemplate;
+    public int mTemplate;
 
     public InterActiveMsg(Parcel parcel) {
         super(parcel);
         this.mTemplate = parcel.readInt();
     }
 
-    public InterActiveMsg() {
-        setMsgType(24);
-    }
-
     @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg
-    protected boolean parseJsonString() {
+    public String getRecommendDescription() {
         try {
-            this.mTemplate = new JSONObject(getJsonContent()).optInt("template");
-            return true;
-        } catch (Exception e) {
-            LogUtils.e(TAG, "parseJsonString JSONException", e);
-            return false;
+            JSONObject optJSONObject = new JSONObject(getJsonContent()).optJSONObject("text");
+            if (optJSONObject != null) {
+                String optString = optJSONObject.optString("level2");
+                return TextUtils.isEmpty(optString) ? optJSONObject.optString("level1") : optString;
+            }
+            return "";
+        } catch (Exception e2) {
+            LogUtils.e(TAG, "getRecommendDescription JSONException", e2);
+            return "";
         }
     }
 
@@ -49,26 +49,31 @@ public class InterActiveMsg extends NormalMsg {
         return this.mTemplate;
     }
 
-    public void setTemplate(int i) {
-        this.mTemplate = i;
+    @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg
+    public boolean parseCommon() {
+        LogUtils.d(TAG, "parseCommon");
+        return true;
     }
 
     @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg
-    public String getRecommendDescription() {
+    public boolean parseExt() {
+        LogUtils.d(TAG, "parseExt");
+        return true;
+    }
+
+    @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg
+    public boolean parseJsonString() {
         try {
-            JSONObject optJSONObject = new JSONObject(getJsonContent()).optJSONObject("text");
-            if (optJSONObject == null) {
-                return "";
-            }
-            String optString = optJSONObject.optString("level2");
-            if (TextUtils.isEmpty(optString)) {
-                return optJSONObject.optString("level1");
-            }
-            return optString;
-        } catch (Exception e) {
-            LogUtils.e(TAG, "getRecommendDescription JSONException", e);
-            return "";
+            this.mTemplate = new JSONObject(getJsonContent()).optInt("template");
+            return true;
+        } catch (Exception e2) {
+            LogUtils.e(TAG, "parseJsonString JSONException", e2);
+            return false;
         }
+    }
+
+    public void setTemplate(int i) {
+        this.mTemplate = i;
     }
 
     @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg, android.os.Parcelable
@@ -77,15 +82,7 @@ public class InterActiveMsg extends NormalMsg {
         parcel.writeInt(this.mTemplate);
     }
 
-    @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg
-    protected boolean parseExt() {
-        LogUtils.d(TAG, "parseExt");
-        return true;
-    }
-
-    @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg
-    protected boolean parseCommon() {
-        LogUtils.d(TAG, "parseCommon");
-        return true;
+    public InterActiveMsg() {
+        setMsgType(24);
     }
 }

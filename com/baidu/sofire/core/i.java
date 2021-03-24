@@ -1,11 +1,11 @@
 package com.baidu.sofire.core;
 
 import android.content.Context;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class i {
     public static void a(Context context) {
         try {
-            com.baidu.sofire.c.a a2 = com.baidu.sofire.c.a.a(context);
+            com.baidu.sofire.a.a a2 = com.baidu.sofire.a.a.a(context);
             c a3 = c.a(context);
             com.baidu.sofire.b.a();
             for (ApkInfo apkInfo : a2.a()) {
@@ -13,8 +13,8 @@ public final class i {
                     a3.a(apkInfo.packageName);
                 }
             }
-        } catch (Throwable th) {
-            com.baidu.sofire.i.e.a();
+        } catch (Throwable unused) {
+            com.baidu.sofire.g.d.a();
         }
     }
 }

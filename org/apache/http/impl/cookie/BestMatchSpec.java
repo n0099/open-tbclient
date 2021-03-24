@@ -7,28 +7,9 @@ import org.apache.http.cookie.CookieOrigin;
 import org.apache.http.cookie.CookieSpec;
 import org.apache.http.cookie.MalformedCookieException;
 @Deprecated
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class BestMatchSpec implements CookieSpec {
     public BestMatchSpec(String[] strArr, boolean z) {
-        throw new RuntimeException("Stub!");
-    }
-
-    public BestMatchSpec() {
-        throw new RuntimeException("Stub!");
-    }
-
-    @Override // org.apache.http.cookie.CookieSpec
-    public List<Cookie> parse(Header header, CookieOrigin cookieOrigin) throws MalformedCookieException {
-        throw new RuntimeException("Stub!");
-    }
-
-    @Override // org.apache.http.cookie.CookieSpec
-    public void validate(Cookie cookie, CookieOrigin cookieOrigin) throws MalformedCookieException {
-        throw new RuntimeException("Stub!");
-    }
-
-    @Override // org.apache.http.cookie.CookieSpec
-    public boolean match(Cookie cookie, CookieOrigin cookieOrigin) {
         throw new RuntimeException("Stub!");
     }
 
@@ -44,6 +25,25 @@ public class BestMatchSpec implements CookieSpec {
 
     @Override // org.apache.http.cookie.CookieSpec
     public Header getVersionHeader() {
+        throw new RuntimeException("Stub!");
+    }
+
+    @Override // org.apache.http.cookie.CookieSpec
+    public boolean match(Cookie cookie, CookieOrigin cookieOrigin) {
+        throw new RuntimeException("Stub!");
+    }
+
+    @Override // org.apache.http.cookie.CookieSpec
+    public List<Cookie> parse(Header header, CookieOrigin cookieOrigin) throws MalformedCookieException {
+        throw new RuntimeException("Stub!");
+    }
+
+    @Override // org.apache.http.cookie.CookieSpec
+    public void validate(Cookie cookie, CookieOrigin cookieOrigin) throws MalformedCookieException {
+        throw new RuntimeException("Stub!");
+    }
+
+    public BestMatchSpec() {
         throw new RuntimeException("Stub!");
     }
 }

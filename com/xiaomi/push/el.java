@@ -1,64 +1,92 @@
 package com.xiaomi.push;
 
-import android.net.Uri;
+import android.content.Context;
+import android.content.Intent;
 import android.text.TextUtils;
-import android.util.Base64;
-import androidx.exifinterface.media.ExifInterface;
-import com.baidu.ar.pose.PoseAR;
-import com.baidu.live.adp.lib.stats.BdStatsConstant;
-import java.util.HashMap;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes5.dex */
+import com.qq.e.comm.constants.ErrorCode;
+import com.xiaomi.clientreport.data.EventClientReport;
+import com.xiaomi.clientreport.data.PerfClientReport;
+import com.xiaomi.clientreport.manager.ClientReportClient;
+import com.xiaomi.mipush.sdk.MiPushMessage;
+/* loaded from: classes7.dex */
 public class el {
-    public static Uri a(String str, String str2) {
-        return Uri.parse("content://" + str).buildUpon().appendPath(str2).build();
+
+    /* renamed from: a  reason: collision with root package name */
+    public static volatile el f40444a;
+
+    /* renamed from: a  reason: collision with other field name */
+    public Context f318a;
+
+    public el(Context context) {
+        this.f318a = context;
     }
 
-    public static String a(String str) {
-        return Base64.encodeToString(bf.m168a(str), 2);
-    }
-
-    public static String a(HashMap<String, String> hashMap) {
-        if (hashMap == null) {
-            return "";
-        }
-        JSONObject jSONObject = new JSONObject();
-        try {
-            for (String str : hashMap.keySet()) {
-                jSONObject.put(str, hashMap.get(str));
-            }
-        } catch (JSONException e) {
-            com.xiaomi.channel.commonutils.logger.b.a(e);
-        }
-        return jSONObject.toString();
-    }
-
-    public static String b(String str) {
-        return bf.a(Base64.decode(str, 2));
-    }
-
-    public static String b(HashMap<String, String> hashMap) {
-        HashMap hashMap2 = new HashMap();
-        if (hashMap != null) {
-            hashMap2.put(PoseAR.MDL_START_POSE_FUN_EVENT_TYPE_KEY, hashMap.get(PoseAR.MDL_START_POSE_FUN_EVENT_TYPE_KEY) + "");
-            hashMap2.put("description", hashMap.get("description") + "");
-            String str = hashMap.get("awake_info");
-            if (!TextUtils.isEmpty(str)) {
-                try {
-                    JSONObject jSONObject = new JSONObject(str);
-                    hashMap2.put("__planId__", String.valueOf(jSONObject.opt("__planId__")));
-                    hashMap2.put("flow_id", String.valueOf(jSONObject.opt("flow_id")));
-                    hashMap2.put("jobkey", String.valueOf(jSONObject.opt("jobkey")));
-                    hashMap2.put("msg_id", String.valueOf(jSONObject.opt("msg_id")));
-                    hashMap2.put(ExifInterface.GPS_MEASUREMENT_IN_PROGRESS, String.valueOf(jSONObject.opt("awake_app")));
-                    hashMap2.put("B", String.valueOf(jSONObject.opt("awakened_app")));
-                    hashMap2.put(BdStatsConstant.StatsKey.TYPE, String.valueOf(jSONObject.opt("awake_type")));
-                } catch (JSONException e) {
-                    com.xiaomi.channel.commonutils.logger.b.a(e);
+    public static el a(Context context) {
+        if (f40444a == null) {
+            synchronized (el.class) {
+                if (f40444a == null) {
+                    f40444a = new el(context);
                 }
             }
         }
-        return a(hashMap2);
+        return f40444a;
+    }
+
+    private void a(com.xiaomi.clientreport.data.a aVar) {
+        if (aVar instanceof PerfClientReport) {
+            ClientReportClient.reportPerf(this.f318a, (PerfClientReport) aVar);
+        } else if (aVar instanceof EventClientReport) {
+            ClientReportClient.reportEvent(this.f318a, (EventClientReport) aVar);
+        }
+    }
+
+    public void a(String str, int i, long j, long j2) {
+        if (i < 0 || j2 < 0 || j <= 0) {
+            return;
+        }
+        PerfClientReport a2 = ek.a(this.f318a, i, j, j2);
+        a2.setAppPackageName(str);
+        a2.setSdkVersion("3_8_5");
+        a(a2);
+    }
+
+    public void a(String str, Intent intent, int i, String str2) {
+        if (intent == null) {
+            return;
+        }
+        a(str, ek.m267a(intent.getIntExtra("eventMessageType", -1)), intent.getStringExtra(MiPushMessage.KEY_MESSAGE_ID), i, System.currentTimeMillis(), str2);
+    }
+
+    public void a(String str, Intent intent, String str2) {
+        if (intent == null) {
+            return;
+        }
+        a(str, ek.m267a(intent.getIntExtra("eventMessageType", -1)), intent.getStringExtra(MiPushMessage.KEY_MESSAGE_ID), ErrorCode.SERVER_JSON_PARSE_ERROR, System.currentTimeMillis(), str2);
+    }
+
+    public void a(String str, String str2, String str3, int i, long j, String str4) {
+        if (TextUtils.isEmpty(str2) || TextUtils.isEmpty(str3)) {
+            return;
+        }
+        EventClientReport a2 = ek.a(this.f318a, str2, str3, i, j, str4);
+        a2.setAppPackageName(str);
+        a2.setSdkVersion("3_8_5");
+        a(a2);
+    }
+
+    public void a(String str, String str2, String str3, int i, String str4) {
+        a(str, str2, str3, i, System.currentTimeMillis(), str4);
+    }
+
+    public void a(String str, String str2, String str3, String str4) {
+        a(str, str2, str3, ErrorCode.VIDEO_DOWNLOAD_FAIL, System.currentTimeMillis(), str4);
+    }
+
+    public void b(String str, String str2, String str3, String str4) {
+        a(str, str2, str3, ErrorCode.SERVER_JSON_PARSE_ERROR, System.currentTimeMillis(), str4);
+    }
+
+    public void c(String str, String str2, String str3, String str4) {
+        a(str, str2, str3, 4002, System.currentTimeMillis(), str4);
     }
 }

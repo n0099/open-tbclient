@@ -4,14 +4,18 @@ import android.content.Intent;
 import android.os.Bundle;
 import com.sina.weibo.sdk.constant.WBConstants;
 import com.sina.weibo.sdk.utils.LogUtil;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class WbShareResultActivity extends BaseActivity {
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.sina.weibo.sdk.share.BaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
+        Intent intent;
         super.onCreate(bundle);
         LogUtil.i("Share", "startShareResultActivity");
-        Intent intent = getIntent();
+        try {
+            intent = getIntent();
+        } catch (Exception e2) {
+            e2.printStackTrace();
+        }
         if (intent.getIntExtra(WBConstants.SHARE_START_FLAG, -1) == 0) {
             finish();
             return;

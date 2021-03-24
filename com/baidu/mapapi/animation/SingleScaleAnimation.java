@@ -2,25 +2,30 @@ package com.baidu.mapapi.animation;
 
 import android.view.animation.Interpolator;
 import com.baidu.mapapi.animation.Animation;
+import com.baidu.mapsdkplatform.comapi.a.c;
 import com.baidu.mapsdkplatform.comapi.a.j;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class SingleScaleAnimation extends Animation {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public enum ScaleType {
         SCALE_X,
         SCALE_Y
     }
 
     public SingleScaleAnimation(ScaleType scaleType, float... fArr) {
+        j jVar;
         if (fArr == null || fArr.length == 0) {
             throw new NullPointerException("the scales is null");
         }
         if (scaleType == ScaleType.SCALE_X) {
-            this.bdAnimation = new j(1, fArr);
-        } else if (scaleType == ScaleType.SCALE_Y) {
-            this.bdAnimation = new j(2, fArr);
+            jVar = new j(1, fArr);
+        } else if (scaleType != ScaleType.SCALE_Y) {
+            return;
+        } else {
+            jVar = new j(2, fArr);
         }
+        this.bdAnimation = jVar;
     }
 
     @Override // com.baidu.mapapi.animation.Animation
@@ -48,10 +53,17 @@ public class SingleScaleAnimation extends Animation {
     }
 
     public void setRepeatMode(Animation.RepeatMode repeatMode) {
+        c cVar;
+        int i;
         if (repeatMode == Animation.RepeatMode.RESTART) {
-            this.bdAnimation.a(1);
-        } else if (repeatMode == Animation.RepeatMode.REVERSE) {
-            this.bdAnimation.a(2);
+            cVar = this.bdAnimation;
+            i = 1;
+        } else if (repeatMode != Animation.RepeatMode.REVERSE) {
+            return;
+        } else {
+            cVar = this.bdAnimation;
+            i = 2;
         }
+        cVar.a(i);
     }
 }

@@ -8,38 +8,42 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class c implements com.kwai.filedownloader.a.b {
 
     /* renamed from: a  reason: collision with root package name */
-    protected URLConnection f7170a;
+    public URLConnection f36847a;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private Proxy f7171a;
-        private Integer b;
-        private Integer c;
+        public Proxy f36848a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public Integer f36849b;
+
+        /* renamed from: c  reason: collision with root package name */
+        public Integer f36850c;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class b implements c.b {
 
         /* renamed from: a  reason: collision with root package name */
-        private final a f7172a;
+        public final a f36851a;
 
         public b() {
             this(null);
         }
 
         public b(a aVar) {
-            this.f7172a = aVar;
+            this.f36851a = aVar;
         }
 
         @Override // com.kwai.filedownloader.f.c.b
         public com.kwai.filedownloader.a.b a(String str) {
-            return new c(str, this.f7172a);
+            return new c(str, this.f36851a);
         }
     }
 
@@ -48,34 +52,30 @@ public class c implements com.kwai.filedownloader.a.b {
     }
 
     public c(URL url, a aVar) {
-        if (aVar == null || aVar.f7171a == null) {
-            this.f7170a = url.openConnection();
-        } else {
-            this.f7170a = url.openConnection(aVar.f7171a);
-        }
+        this.f36847a = (aVar == null || aVar.f36848a == null) ? url.openConnection() : url.openConnection(aVar.f36848a);
         if (aVar != null) {
-            if (aVar.b != null) {
-                this.f7170a.setReadTimeout(aVar.b.intValue());
+            if (aVar.f36849b != null) {
+                this.f36847a.setReadTimeout(aVar.f36849b.intValue());
             }
-            if (aVar.c != null) {
-                this.f7170a.setConnectTimeout(aVar.c.intValue());
+            if (aVar.f36850c != null) {
+                this.f36847a.setConnectTimeout(aVar.f36850c.intValue());
             }
         }
     }
 
     @Override // com.kwai.filedownloader.a.b
     public InputStream a() {
-        return com.kwad.sdk.core.h.b.a().b(this.f7170a.getInputStream());
+        return com.kwad.sdk.core.h.b.a().b(this.f36847a.getInputStream());
     }
 
     @Override // com.kwai.filedownloader.a.b
     public String a(String str) {
-        return this.f7170a.getHeaderField(str);
+        return this.f36847a.getHeaderField(str);
     }
 
     @Override // com.kwai.filedownloader.a.b
     public void a(String str, String str2) {
-        this.f7170a.addRequestProperty(str, str2);
+        this.f36847a.addRequestProperty(str, str2);
     }
 
     @Override // com.kwai.filedownloader.a.b
@@ -85,23 +85,24 @@ public class c implements com.kwai.filedownloader.a.b {
 
     @Override // com.kwai.filedownloader.a.b
     public Map<String, List<String>> b() {
-        return this.f7170a.getRequestProperties();
+        return this.f36847a.getRequestProperties();
     }
 
     @Override // com.kwai.filedownloader.a.b
     public Map<String, List<String>> c() {
-        return this.f7170a.getHeaderFields();
+        return this.f36847a.getHeaderFields();
     }
 
     @Override // com.kwai.filedownloader.a.b
     public void d() {
-        this.f7170a.connect();
+        this.f36847a.connect();
     }
 
     @Override // com.kwai.filedownloader.a.b
     public int e() {
-        if (this.f7170a instanceof HttpURLConnection) {
-            return ((HttpURLConnection) this.f7170a).getResponseCode();
+        URLConnection uRLConnection = this.f36847a;
+        if (uRLConnection instanceof HttpURLConnection) {
+            return ((HttpURLConnection) uRLConnection).getResponseCode();
         }
         return 0;
     }

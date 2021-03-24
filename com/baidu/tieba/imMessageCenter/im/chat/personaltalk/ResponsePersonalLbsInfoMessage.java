@@ -1,45 +1,52 @@
 package com.baidu.tieba.imMessageCenter.im.chat.personaltalk;
 
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
 import com.squareup.wire.Wire;
+import d.b.h0.s.f.b;
+import protobuf.SetLocation.DataRes;
+import protobuf.SetLocation.LbsInfo;
 import protobuf.SetLocation.SetLocationResIdl;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class ResponsePersonalLbsInfoMessage extends TbSocketReponsedMessage {
-    private com.baidu.tbadk.coreExtra.relationship.b lbsInfo;
+    public b lbsInfo;
 
     public ResponsePersonalLbsInfoMessage() {
-        super(CmdConfigSocket.CMD_PERSONAL_CHAT_LBS_INFO);
+        super(205101);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.message.a
-    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
-        int i2;
-        long j = 0;
-        SetLocationResIdl setLocationResIdl = (SetLocationResIdl) new Wire(new Class[0]).parseFrom(bArr, SetLocationResIdl.class);
-        String str = "";
-        if (setLocationResIdl != null && setLocationResIdl.data != null) {
-            if (setLocationResIdl.data.location != null) {
-                str = setLocationResIdl.data.location.distance;
-                if (setLocationResIdl.data.location.time != null && setLocationResIdl.data.location.time.longValue() > 0) {
-                    j = setLocationResIdl.data.location.time.longValue();
-                }
-                if (setLocationResIdl.data.location.isHide != null && setLocationResIdl.data.location.isHide.intValue() >= 0) {
-                    i2 = setLocationResIdl.data.location.isHide.intValue();
-                    this.lbsInfo = new com.baidu.tbadk.coreExtra.relationship.b(str, j, i2);
-                }
-            }
-            i2 = -1;
-            this.lbsInfo = new com.baidu.tbadk.coreExtra.relationship.b(str, j, i2);
-        }
-    }
-
-    public com.baidu.tbadk.coreExtra.relationship.b getLbsInfo() {
+    public b getLbsInfo() {
         return this.lbsInfo;
     }
 
-    public void setLbsInfo(com.baidu.tbadk.coreExtra.relationship.b bVar) {
+    public void setLbsInfo(b bVar) {
         this.lbsInfo = bVar;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tbadk.message.websockt.TbSocketReponsedMessage, com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
+    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
+        DataRes dataRes;
+        String str;
+        SetLocationResIdl setLocationResIdl = (SetLocationResIdl) new Wire(new Class[0]).parseFrom(bArr, SetLocationResIdl.class);
+        if (setLocationResIdl == null || (dataRes = setLocationResIdl.data) == null) {
+            return;
+        }
+        LbsInfo lbsInfo = dataRes.location;
+        long j = 0;
+        int i2 = -1;
+        if (lbsInfo != null) {
+            str = lbsInfo.distance;
+            Long l = lbsInfo.time;
+            if (l != null && l.longValue() > 0) {
+                j = setLocationResIdl.data.location.time.longValue();
+            }
+            Integer num = setLocationResIdl.data.location.isHide;
+            if (num != null && num.intValue() >= 0) {
+                i2 = setLocationResIdl.data.location.isHide.intValue();
+            }
+        } else {
+            str = "";
+        }
+        this.lbsInfo = new b(str, j, i2);
     }
 }

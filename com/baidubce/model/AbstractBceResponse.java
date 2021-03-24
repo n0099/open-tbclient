@@ -1,9 +1,9 @@
 package com.baidubce.model;
 
 import com.baidubce.BceResponseMetadata;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class AbstractBceResponse {
-    protected BceResponseMetadata metadata = new BceResponseMetadata();
+    public BceResponseMetadata metadata = new BceResponseMetadata();
 
     public BceResponseMetadata getMetadata() {
         return this.metadata;

@@ -18,13 +18,17 @@ import com.kwad.sdk.core.report.e;
 import com.kwad.sdk.utils.ao;
 import com.kwad.sdk.utils.d;
 import java.io.Serializable;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class a extends IFragmentActivityProxy implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    private FeedSlideParam f6517a;
-    private ImageView b;
-    private g c;
+    public FeedSlideParam f34897a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public ImageView f34898b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public g f34899c;
 
     public static void a(KsFragment ksFragment, FeedSlideParam feedSlideParam) {
         if (ksFragment == null || feedSlideParam == null) {
@@ -38,55 +42,59 @@ public class a extends IFragmentActivityProxy implements View.OnClickListener {
     private boolean a() {
         Serializable serializableExtra = getIntent().getSerializableExtra("KEY_FEED_SLIDE_PARAM");
         if (serializableExtra instanceof FeedSlideParam) {
-            this.f6517a = (FeedSlideParam) serializableExtra;
+            this.f34897a = (FeedSlideParam) serializableExtra;
         }
-        return (this.f6517a == null || this.f6517a.mEntryScene == 0) ? false : true;
+        FeedSlideParam feedSlideParam = this.f34897a;
+        return (feedSlideParam == null || feedSlideParam.mEntryScene == 0) ? false : true;
     }
 
     private void b() {
-        this.b = (ImageView) findViewById(R.id.ksad_back_btn);
+        this.f34898b = (ImageView) findViewById(R.id.ksad_back_btn);
         if (d.a(getActivity())) {
-            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.b.getLayoutParams();
+            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.f34898b.getLayoutParams();
             marginLayoutParams.topMargin = ao.a((Context) getActivity());
-            this.b.setLayoutParams(marginLayoutParams);
+            this.f34898b.setLayoutParams(marginLayoutParams);
         }
-        this.b.setOnClickListener(this);
+        this.f34898b.setOnClickListener(this);
     }
 
     private void c() {
-        this.c = g.a(new KsScene.Builder(this.f6517a.mEntryScene).build());
-        this.c.getArguments().putSerializable("KEY_FEED_SLIDE_PARAM", this.f6517a);
-        getSupportFragmentManager().beginTransaction().replace(R.id.ksad_fragment_container, this.c).commitAllowingStateLoss();
+        g a2 = g.a(new KsScene.Builder(this.f34897a.mEntryScene).build());
+        this.f34899c = a2;
+        a2.getArguments().putSerializable("KEY_FEED_SLIDE_PARAM", this.f34897a);
+        getSupportFragmentManager().beginTransaction().replace(R.id.ksad_fragment_container, this.f34899c).commitAllowingStateLoss();
     }
 
     private void d() {
-        SlidePlayViewPager c;
-        if (getActivity() == null || this.c == null || (c = this.c.c()) == null) {
+        g gVar;
+        SlidePlayViewPager c2;
+        if (getActivity() == null || (gVar = this.f34899c) == null || (c2 = gVar.c()) == null) {
             return;
         }
-        com.kwad.sdk.feed.a.a.a().b(c.getData());
-        com.kwad.sdk.feed.a.a.a().a(c.getRealPosition());
+        com.kwad.sdk.feed.a.a.a().b(c2.getData());
+        com.kwad.sdk.feed.a.a.a().a(c2.getRealPosition());
     }
 
     @Override // com.kwad.sdk.api.proxy.IActivityProxy
     public void onBackPressed() {
-        if (this.c == null || !this.c.b()) {
+        g gVar = this.f34899c;
+        if (gVar == null || !gVar.b()) {
             super.onBackPressed();
             d();
-            if (this.c != null) {
-                e.d(this.c.d());
+            g gVar2 = this.f34899c;
+            if (gVar2 != null) {
+                e.d(gVar2.d());
             }
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.b == view) {
+        if (this.f34898b == view) {
             onBackPressed();
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.api.proxy.IActivityProxy
     public void onCreate(@Nullable Bundle bundle) {
         super.onCreate(bundle);
@@ -99,7 +107,6 @@ public class a extends IFragmentActivityProxy implements View.OnClickListener {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.api.proxy.IActivityProxy
     public void onDestroy() {
         super.onDestroy();

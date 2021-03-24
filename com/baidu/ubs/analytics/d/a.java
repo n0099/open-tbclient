@@ -1,42 +1,54 @@
 package com.baidu.ubs.analytics.d;
 
 import android.os.Environment;
-/* loaded from: classes14.dex */
+import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
+/* loaded from: classes5.dex */
 public final class a {
-    private static final String oWU = Environment.getExternalStorageDirectory().getPath();
-    static final String oWV = oWU + "/baidu/ab/crash/";
-    static final String oWW = oWU + "/baidu/ab/sdklog/";
-    public static final String aS = oWU + "/baidu/ab/sdkupdata/" + eiF() + "/";
-    private static int aqm = EnumC0961a.aV;
+
+    /* renamed from: a  reason: collision with root package name */
+    public static final String f22884a = Environment.getExternalStorageDirectory().getPath();
+
+    /* renamed from: b  reason: collision with root package name */
+    public static final String f22885b = f22884a + "/baidu/ab/crash/";
+
+    /* renamed from: c  reason: collision with root package name */
+    public static final String f22886c = f22884a + "/baidu/ab/sdklog/";
+
+    /* renamed from: d  reason: collision with root package name */
+    public static int f22887d = EnumC0234a.aV;
 
     /* JADX WARN: $VALUES field not found */
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* renamed from: com.baidu.ubs.analytics.d.a$a  reason: collision with other inner class name */
-    /* loaded from: classes14.dex */
-    public static final class EnumC0961a {
+    /* loaded from: classes5.dex */
+    public static final class EnumC0234a {
         public static final int aV = 1;
         public static final int aW = 2;
-        private static final /* synthetic */ int[] aX = {aV, aW};
+        public static final /* synthetic */ int[] aX = {1, 2};
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static boolean eiE() {
-        return aqm == EnumC0961a.aV;
+    static {
+        r0 = f22884a + "/baidu/ab/sdkupdata/" + b() + "/";
     }
 
-    public static String u() {
-        return "0.4.0";
+    public static boolean a() {
+        return f22887d == EnumC0234a.aV;
     }
 
-    private static int eiF() {
+    public static int b() {
         try {
-            String[] split = "0.4.0".split("\\.");
+            String[] split = "0.4.0".split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
             if (split.length > 2) {
-                return (Integer.parseInt(split[1]) * 10) + (Integer.parseInt(split[0]) * 100);
+                return (Integer.parseInt(split[0]) * 100) + (Integer.parseInt(split[1]) * 10);
             }
-        } catch (Exception e) {
-            e.printStackTrace();
+            return 20;
+        } catch (Exception e2) {
+            e2.printStackTrace();
+            return 20;
         }
-        return 20;
+    }
+
+    public static String c() {
+        return "0.4.0";
     }
 }

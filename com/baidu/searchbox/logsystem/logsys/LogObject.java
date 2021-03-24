@@ -4,20 +4,20 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.searchbox.logsystem.util.LLog;
 import java.io.File;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class LogObject extends LogBaseObject {
-    private String mCrashTAG;
+    public String mCrashTAG;
     @Nullable
-    private String mLogBasicData;
+    public String mLogBasicData;
     @Nullable
-    private File mLogBasicDataFile;
-    private boolean mLogBasicDataOverflow = false;
+    public File mLogBasicDataFile;
+    public boolean mLogBasicDataOverflow = false;
     @Nullable
-    private LogExtra mLogExtra;
+    public LogExtra mLogExtra;
     @Nullable
-    private File mLogExtraPathNameKeeper;
+    public File mLogExtraPathNameKeeper;
     @NonNull
-    private String mProcessName;
+    public String mProcessName;
 
     public LogObject(@NonNull LogType logType, @NonNull String str, @Nullable String str2, @Nullable File file, @Nullable File file2, @Nullable LogExtra logExtra, @NonNull String str3) {
         this.mProcessName = null;
@@ -41,43 +41,43 @@ public class LogObject extends LogBaseObject {
         this.mCrashTAG = str3;
     }
 
-    public String getProcessName() {
-        return this.mProcessName;
+    public String getCrashTAG() {
+        return this.mCrashTAG;
     }
 
     public String getLogBasicData() {
         return this.mLogBasicData;
     }
 
-    public void setLogBasicData(@NonNull String str) {
-        this.mLogBasicData = str;
-    }
-
     public File getLogBasicDataFile() {
         return this.mLogBasicDataFile;
-    }
-
-    public void setLogBasicDataFile(@NonNull File file) {
-        this.mLogBasicDataFile = file;
-    }
-
-    public File getLogExtraPathNameKeeper() {
-        return this.mLogExtraPathNameKeeper;
     }
 
     public boolean getLogBasicDataOverflow() {
         return this.mLogBasicDataOverflow;
     }
 
-    public void setLogBasicDataOverflow(boolean z) {
-        this.mLogBasicDataOverflow = z;
-    }
-
     public LogExtra getLogExtra() {
         return this.mLogExtra;
     }
 
-    public String getCrashTAG() {
-        return this.mCrashTAG;
+    public File getLogExtraPathNameKeeper() {
+        return this.mLogExtraPathNameKeeper;
+    }
+
+    public String getProcessName() {
+        return this.mProcessName;
+    }
+
+    public void setLogBasicData(@NonNull String str) {
+        this.mLogBasicData = str;
+    }
+
+    public void setLogBasicDataFile(@NonNull File file) {
+        this.mLogBasicDataFile = file;
+    }
+
+    public void setLogBasicDataOverflow(boolean z) {
+        this.mLogBasicDataOverflow = z;
     }
 }

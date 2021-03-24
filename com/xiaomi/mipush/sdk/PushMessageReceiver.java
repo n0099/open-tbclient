@@ -4,8 +4,8 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import com.xiaomi.mipush.sdk.MessageHandleService;
-import com.xiaomi.push.fb;
-/* loaded from: classes5.dex */
+import com.xiaomi.push.el;
+/* loaded from: classes7.dex */
 public abstract class PushMessageReceiver extends BroadcastReceiver {
     public void onCommandResult(Context context, MiPushCommandMessage miPushCommandMessage) {
     }
@@ -22,12 +22,12 @@ public abstract class PushMessageReceiver extends BroadcastReceiver {
         try {
             int intExtra = intent.getIntExtra("eventMessageType", -1);
             if (intExtra == 2000) {
-                fb.a(context.getApplicationContext()).a(context.getPackageName(), intent, 2003, (String) null);
+                el.a(context.getApplicationContext()).a(context.getPackageName(), intent, 2003, (String) null);
             } else if (intExtra == 6000) {
-                fb.a(context.getApplicationContext()).a(context.getPackageName(), intent, 6005, (String) null);
+                el.a(context.getApplicationContext()).a(context.getPackageName(), intent, 6005, (String) null);
             }
-        } catch (Exception e) {
-            com.xiaomi.channel.commonutils.logger.b.a(e);
+        } catch (Exception e2) {
+            com.xiaomi.channel.commonutils.logger.b.a(e2);
         }
     }
 

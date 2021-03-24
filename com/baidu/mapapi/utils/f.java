@@ -1,19 +1,18 @@
 package com.baidu.mapapi.utils;
 
 import android.content.Context;
-import com.baidu.android.imsdk.internal.IMConnection;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public final class f implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ Context f2166a;
-    final /* synthetic */ int b;
+    public final /* synthetic */ Context f7401a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    /* renamed from: b  reason: collision with root package name */
+    public final /* synthetic */ int f7402b;
+
     public f(Context context, int i) {
-        this.f2166a = context;
-        this.b = i;
+        this.f7401a = context;
+        this.f7402b = i;
     }
 
     @Override // java.lang.Runnable
@@ -21,9 +20,9 @@ public final class f implements Runnable {
         Thread thread;
         long currentTimeMillis = System.currentTimeMillis();
         do {
-            if (System.currentTimeMillis() - currentTimeMillis > IMConnection.RETRY_DELAY_TIMES) {
-                b.a(this.f2166a);
-                b.a(this.b, this.f2166a);
+            if (System.currentTimeMillis() - currentTimeMillis > 3000) {
+                b.a(this.f7401a);
+                b.a(this.f7402b, this.f7401a);
             }
             thread = b.v;
         } while (!thread.isInterrupted());

@@ -1,11 +1,10 @@
 package com.baidu.tieba.im.message;
 
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class MemoryNotifyUpdataGroupMessage extends CustomResponsedMessage<ImMessageCenterPojo> {
     public MemoryNotifyUpdataGroupMessage(ImMessageCenterPojo imMessageCenterPojo) {
-        super(CmdConfigCustom.MEMORY_NOTIFY_UPDATA_GROUP, imMessageCenterPojo);
+        super(2016013, imMessageCenterPojo);
     }
 }

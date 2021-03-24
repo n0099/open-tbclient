@@ -6,33 +6,18 @@ import java.util.AbstractList;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.RandomAccess;
-/* loaded from: classes4.dex */
-final class MutableOnWriteList<T> extends AbstractList<T> implements Serializable, RandomAccess {
-    private final List<T> immutableList;
-    List<T> mutableList;
+/* loaded from: classes6.dex */
+public final class MutableOnWriteList<T> extends AbstractList<T> implements RandomAccess, Serializable {
+    public final List<T> immutableList;
+    public List<T> mutableList;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public MutableOnWriteList(List<T> list) {
         this.immutableList = list;
         this.mutableList = list;
     }
 
-    @Override // java.util.AbstractList, java.util.List
-    public T get(int i) {
-        return this.mutableList.get(i);
-    }
-
-    @Override // java.util.AbstractCollection, java.util.Collection, java.util.List
-    public int size() {
-        return this.mutableList.size();
-    }
-
-    @Override // java.util.AbstractList, java.util.List
-    public T set(int i, T t) {
-        if (this.mutableList == this.immutableList) {
-            this.mutableList = new ArrayList(this.immutableList);
-        }
-        return this.mutableList.set(i, t);
+    private Object writeReplace() throws ObjectStreamException {
+        return new ArrayList(this.mutableList);
     }
 
     @Override // java.util.AbstractList, java.util.List
@@ -44,6 +29,11 @@ final class MutableOnWriteList<T> extends AbstractList<T> implements Serializabl
     }
 
     @Override // java.util.AbstractList, java.util.List
+    public T get(int i) {
+        return this.mutableList.get(i);
+    }
+
+    @Override // java.util.AbstractList, java.util.List
     public T remove(int i) {
         if (this.mutableList == this.immutableList) {
             this.mutableList = new ArrayList(this.immutableList);
@@ -51,7 +41,16 @@ final class MutableOnWriteList<T> extends AbstractList<T> implements Serializabl
         return this.mutableList.remove(i);
     }
 
-    private Object writeReplace() throws ObjectStreamException {
-        return new ArrayList(this.mutableList);
+    @Override // java.util.AbstractList, java.util.List
+    public T set(int i, T t) {
+        if (this.mutableList == this.immutableList) {
+            this.mutableList = new ArrayList(this.immutableList);
+        }
+        return this.mutableList.set(i, t);
+    }
+
+    @Override // java.util.AbstractCollection, java.util.Collection, java.util.List
+    public int size() {
+        return this.mutableList.size();
     }
 }

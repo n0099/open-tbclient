@@ -1,15 +1,10 @@
 package com.baidu.searchbox.logsystem.basic.upload;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class R {
-    private R() {
-    }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class string {
-        public static final int activity_not_found = 0x7f0f0076;
-        public static final int app_name = 0x7f0f04b7;
-
-        private string() {
-        }
+        public static final int activity_not_found = 0x7f0f008f;
+        public static final int app_name = 0x7f0f02af;
     }
 }

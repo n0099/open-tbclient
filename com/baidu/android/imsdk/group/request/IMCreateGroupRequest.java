@@ -24,16 +24,16 @@ import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class IMCreateGroupRequest extends GroupBaseHttpRequest {
-    private static final String TAG = IMCreateGroupRequest.class.getSimpleName();
-    private ArrayList<String> mAddingList;
-    private long mAppid;
-    private String mKey;
-    private String mName;
+    public static final String TAG = "IMCreateGroupRequest";
+    public ArrayList<String> mAddingList;
+    public long mAppid;
+    public String mKey;
+    public String mName;
 
-    /* loaded from: classes3.dex */
-    class Mytask extends TaskManager.Task {
+    /* loaded from: classes2.dex */
+    public class Mytask extends TaskManager.Task {
         public Mytask(String str, String str2) {
             super(str, str2);
         }
@@ -41,24 +41,20 @@ public class IMCreateGroupRequest extends GroupBaseHttpRequest {
         @Override // com.baidu.android.imsdk.task.TaskManager.Task, java.lang.Runnable
         public void run() {
             int i;
-            long j;
             String str;
+            long j;
             long j2 = 0;
             try {
                 JSONObject jSONObject = new JSONObject(this.mJson);
-                int i2 = jSONObject.getInt("error_code");
+                i = jSONObject.getInt("error_code");
                 str = jSONObject.optString("error_msg", "");
-                if (i2 == 0 && jSONObject.has("response_params")) {
-                    j2 = jSONObject.getJSONObject("response_params").optLong("group_id", -1L);
-                }
-                j = j2;
-                i = i2;
-            } catch (JSONException e) {
-                LogUtils.e(LogUtils.TAG, "IMCreateGroupRequest JSONException", e);
+                j = (i == 0 && jSONObject.has("response_params")) ? jSONObject.getJSONObject("response_params").optLong("group_id", -1L) : 0L;
+            } catch (JSONException e2) {
+                LogUtils.e(LogUtils.TAG, "IMCreateGroupRequest JSONException", e2);
                 i = 1010;
-                new IMTrack.CrashBuilder(IMCreateGroupRequest.this.mContext).exception(Log.getStackTraceString(e)).build();
-                j = 0;
+                new IMTrack.CrashBuilder(IMCreateGroupRequest.this.mContext).exception(Log.getStackTraceString(e2)).build();
                 str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
+                j = 0;
             }
             if (i == 0) {
                 if (IMCreateGroupRequest.this.mAddingList != null && IMCreateGroupRequest.this.mAddingList.size() > 0) {
@@ -82,15 +78,15 @@ public class IMCreateGroupRequest extends GroupBaseHttpRequest {
                     GroupInfoDAOImpl.activeGroupState(IMCreateGroupRequest.this.mContext, String.valueOf(j));
                 }
                 ArrayList arrayList2 = new ArrayList();
-                long j3 = 0;
                 try {
-                    j3 = Long.valueOf(AccountManagerImpl.getInstance(IMCreateGroupRequest.this.mContext).getUid()).longValue();
-                } catch (Exception e2) {
-                    LogUtils.e(IMCreateGroupRequest.TAG, e2.getMessage());
-                    new IMTrack.CrashBuilder(IMCreateGroupRequest.this.mContext).exception(Log.getStackTraceString(e2)).build();
+                    j2 = Long.valueOf(AccountManagerImpl.getInstance(IMCreateGroupRequest.this.mContext).getUid()).longValue();
+                } catch (Exception e3) {
+                    LogUtils.e(IMCreateGroupRequest.TAG, e3.getMessage());
+                    new IMTrack.CrashBuilder(IMCreateGroupRequest.this.mContext).exception(Log.getStackTraceString(e3)).build();
                 }
-                arrayList2.add(new GroupMember(String.valueOf(j), AccountManagerImpl.getInstance(IMCreateGroupRequest.this.mContext).getUK(), "", j3, 1, System.currentTimeMillis() / 1000));
-                LogUtils.d(IMCreateGroupRequest.TAG, "addMemberToGroup  " + GroupInfoDAOImpl.addMemberToGroup(IMCreateGroupRequest.this.mContext, String.valueOf(j), arrayList2));
+                arrayList2.add(new GroupMember(String.valueOf(j), AccountManagerImpl.getInstance(IMCreateGroupRequest.this.mContext).getUK(), "", j2, 1, System.currentTimeMillis() / 1000));
+                long addMemberToGroup = GroupInfoDAOImpl.addMemberToGroup(IMCreateGroupRequest.this.mContext, String.valueOf(j), arrayList2);
+                LogUtils.d(IMCreateGroupRequest.TAG, "addMemberToGroup  " + addMemberToGroup);
                 return;
             }
             IMListener removeListener = ListenerManager.getInstance().removeListener(IMCreateGroupRequest.this.mKey);
@@ -114,50 +110,57 @@ public class IMCreateGroupRequest extends GroupBaseHttpRequest {
         this.mAddingList = arrayList;
     }
 
+    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
+    public String getContentType() {
+        return "application/x-www-form-urlencoded";
+    }
+
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
     public byte[] getRequestParameter() throws NoSuchAlgorithmException {
         String bduss = IMConfigInternal.getInstance().getIMConfig(this.mContext).getBduss(this.mContext);
         long currentTimeMillis = System.currentTimeMillis() / 1000;
         StringBuilder sb = new StringBuilder();
         sb.append("method=create");
-        sb.append("&appid=").append(this.mAppid);
-        sb.append("&timestamp=").append(currentTimeMillis);
-        sb.append("&type=").append(this.mType);
+        sb.append("&appid=");
+        sb.append(this.mAppid);
+        sb.append("&timestamp=");
+        sb.append(currentTimeMillis);
+        sb.append("&type=");
+        sb.append(this.mType);
         if (this.mName != null) {
             try {
-                sb.append("&group_name=").append(URLEncoder.encode(this.mName, "utf-8"));
-            } catch (UnsupportedEncodingException e) {
-                LogUtils.e(TAG, "Exception ", e);
-                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
+                sb.append("&group_name=");
+                sb.append(URLEncoder.encode(this.mName, "utf-8"));
+            } catch (UnsupportedEncodingException e2) {
+                LogUtils.e(TAG, "Exception ", e2);
+                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
             }
         }
-        sb.append("&sign=").append(getMd5("" + currentTimeMillis + bduss + this.mAppid));
+        sb.append("&sign=");
+        sb.append(getMd5("" + currentTimeMillis + bduss + this.mAppid));
         return sb.toString().getBytes();
-    }
-
-    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
-    public String getContentType() {
-        return "application/x-www-form-urlencoded";
-    }
-
-    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
-    public boolean shouldAbort() {
-        return false;
-    }
-
-    @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
-    public void onSuccess(int i, byte[] bArr) {
-        String str = new String(bArr);
-        LogUtils.d(TAG, "json is " + str);
-        TaskManager.getInstance(this.mContext).submitForNetWork(new Mytask(this.mKey, str));
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
     public void onFailure(int i, byte[] bArr, Throwable th) {
         Pair<Integer, String> transErrorCode = transErrorCode(i, bArr, th);
         IMListener removeListener = ListenerManager.getInstance().removeListener(this.mKey);
-        if (removeListener != null && (removeListener instanceof BIMValueCallBack)) {
-            ((BIMValueCallBack) removeListener).onResult(((Integer) transErrorCode.first).intValue(), (String) transErrorCode.second, new CreateResultInfo());
+        if (removeListener == null || !(removeListener instanceof BIMValueCallBack)) {
+            return;
         }
+        ((BIMValueCallBack) removeListener).onResult(((Integer) transErrorCode.first).intValue(), (String) transErrorCode.second, new CreateResultInfo());
+    }
+
+    @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
+    public void onSuccess(int i, byte[] bArr) {
+        String str = new String(bArr);
+        String str2 = TAG;
+        LogUtils.d(str2, "json is " + str);
+        TaskManager.getInstance(this.mContext).submitForNetWork(new Mytask(this.mKey, str));
+    }
+
+    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
+    public boolean shouldAbort() {
+        return false;
     }
 }

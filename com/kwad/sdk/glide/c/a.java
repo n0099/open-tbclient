@@ -4,51 +4,52 @@ import androidx.annotation.NonNull;
 import java.util.Collections;
 import java.util.Set;
 import java.util.WeakHashMap;
-/* loaded from: classes3.dex */
-class a implements h {
+/* loaded from: classes6.dex */
+public class a implements h {
 
     /* renamed from: a  reason: collision with root package name */
-    private final Set<i> f6586a = Collections.newSetFromMap(new WeakHashMap());
-    private boolean b;
-    private boolean c;
+    public final Set<i> f35095a = Collections.newSetFromMap(new WeakHashMap());
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    /* renamed from: b  reason: collision with root package name */
+    public boolean f35096b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public boolean f35097c;
+
     public void a() {
-        this.b = true;
-        for (i iVar : com.kwad.sdk.glide.g.k.a(this.f6586a)) {
+        this.f35096b = true;
+        for (i iVar : com.kwad.sdk.glide.g.k.a(this.f35095a)) {
             iVar.c();
         }
     }
 
     @Override // com.kwad.sdk.glide.c.h
     public void a(@NonNull i iVar) {
-        this.f6586a.add(iVar);
-        if (this.c) {
+        this.f35095a.add(iVar);
+        if (this.f35097c) {
             iVar.e();
-        } else if (this.b) {
+        } else if (this.f35096b) {
             iVar.c();
         } else {
             iVar.d();
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public void b() {
-        this.b = false;
-        for (i iVar : com.kwad.sdk.glide.g.k.a(this.f6586a)) {
+        this.f35096b = false;
+        for (i iVar : com.kwad.sdk.glide.g.k.a(this.f35095a)) {
             iVar.d();
         }
     }
 
     @Override // com.kwad.sdk.glide.c.h
     public void b(@NonNull i iVar) {
-        this.f6586a.remove(iVar);
+        this.f35095a.remove(iVar);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public void c() {
-        this.c = true;
-        for (i iVar : com.kwad.sdk.glide.g.k.a(this.f6586a)) {
+        this.f35097c = true;
+        for (i iVar : com.kwad.sdk.glide.g.k.a(this.f35095a)) {
             iVar.e();
         }
     }

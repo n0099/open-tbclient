@@ -3,7 +3,6 @@ package com.baidu.platform.base;
 import android.os.Handler;
 import android.os.Looper;
 import android.util.Log;
-import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import com.baidu.mapapi.http.AsyncHttpClient;
 import com.baidu.mapapi.http.HttpClient;
 import com.baidu.mapapi.search.core.SearchResult;
@@ -13,15 +12,23 @@ import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public abstract class a {
-    private AsyncHttpClient b = new AsyncHttpClient();
-    private Handler c = new Handler(Looper.getMainLooper());
+
+    /* renamed from: b  reason: collision with root package name */
+    public AsyncHttpClient f9808b = new AsyncHttpClient();
+
+    /* renamed from: c  reason: collision with root package name */
+    public Handler f9809c = new Handler(Looper.getMainLooper());
 
     /* renamed from: a  reason: collision with root package name */
-    protected final Lock f2863a = new ReentrantLock();
-    private boolean d = true;
-    private DistrictResult e = null;
+    public final Lock f9807a = new ReentrantLock();
+
+    /* renamed from: d  reason: collision with root package name */
+    public boolean f9810d = true;
+
+    /* renamed from: e  reason: collision with root package name */
+    public DistrictResult f9811e = null;
 
     private void a(AsyncHttpClient asyncHttpClient, HttpClient.ProtoResultCallback protoResultCallback, SearchResult searchResult) {
         asyncHttpClient.get(new com.baidu.platform.core.a.c(((DistrictResult) searchResult).getCityName()).a(), protoResultCallback);
@@ -33,7 +40,7 @@ public abstract class a {
     }
 
     private void a(SearchResult searchResult, Object obj, d dVar) {
-        this.c.post(new c(this, dVar, searchResult, obj));
+        this.f9809c.post(new c(this, dVar, searchResult, obj));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -57,23 +64,29 @@ public abstract class a {
         } else if (!(dVar instanceof com.baidu.platform.core.a.b)) {
             a(a2, obj, dVar);
         } else {
-            if (this.e != null) {
-                ((DistrictResult) a2).setCityCode(this.e.getCityCode());
-                ((DistrictResult) a2).setCenterPt(this.e.getCenterPt());
+            DistrictResult districtResult = this.f9811e;
+            if (districtResult != null) {
+                DistrictResult districtResult2 = (DistrictResult) a2;
+                districtResult2.setCityCode(districtResult.getCityCode());
+                districtResult2.setCenterPt(this.f9811e.getCenterPt());
             }
             a(a2, obj, dVar);
-            this.d = true;
-            this.e = null;
+            this.f9810d = true;
+            this.f9811e = null;
             ((com.baidu.platform.core.a.b) dVar).a(false);
         }
     }
 
     private boolean a(d dVar, SearchResult searchResult) {
-        if ((dVar instanceof com.baidu.platform.core.a.b) && SearchResult.ERRORNO.RESULT_NOT_FOUND == ((DistrictResult) searchResult).error && ((DistrictResult) searchResult).getCityName() != null && this.d) {
-            this.d = false;
-            this.e = (DistrictResult) searchResult;
-            ((com.baidu.platform.core.a.b) dVar).a(true);
-            return true;
+        if (dVar instanceof com.baidu.platform.core.a.b) {
+            DistrictResult districtResult = (DistrictResult) searchResult;
+            if (SearchResult.ERRORNO.RESULT_NOT_FOUND == districtResult.error && districtResult.getCityName() != null && this.f9810d) {
+                this.f9810d = false;
+                this.f9811e = districtResult;
+                ((com.baidu.platform.core.a.b) dVar).a(true);
+                return true;
+            }
+            return false;
         }
         return false;
     }
@@ -86,32 +99,33 @@ public abstract class a {
                 return false;
             }
             return true;
-        } catch (JSONException e) {
+        } catch (JSONException unused) {
             Log.e("BaseSearch", "Create JSONObject failed");
             return false;
         }
     }
 
     private int c(String str) {
-        int i = 10204;
         if (str != null && !str.equals("")) {
             try {
                 JSONObject jSONObject = new JSONObject(str);
                 if (jSONObject.has("status")) {
-                    i = jSONObject.getInt("status");
-                } else if (jSONObject.has("status_sp")) {
-                    i = jSONObject.getInt("status_sp");
-                } else if (jSONObject.has("result")) {
-                    i = jSONObject.optJSONObject("result").optInt(BdStatsConstant.StatsType.ERROR);
+                    return jSONObject.getInt("status");
                 }
-            } catch (JSONException e) {
+                if (jSONObject.has("status_sp")) {
+                    return jSONObject.getInt("status_sp");
+                }
+                if (jSONObject.has("result")) {
+                    return jSONObject.optJSONObject("result").optInt("error");
+                }
+                return 10204;
+            } catch (JSONException unused) {
                 Log.e("BaseSearch", "Create JSONObject failed when get response result status");
             }
         }
-        return i;
+        return 10204;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     public boolean a(e eVar, Object obj, d dVar) {
         if (dVar == null) {
             Log.e(a.class.getSimpleName(), "The SearchParser is null, must be applied.");
@@ -119,7 +133,7 @@ public abstract class a {
         }
         String a2 = eVar.a();
         if (a2 != null) {
-            this.b.get(a2, new b(this, dVar, obj));
+            this.f9808b.get(a2, new b(this, dVar, obj));
             return true;
         }
         Log.e("BaseSearch", "The sendurl is: " + a2);

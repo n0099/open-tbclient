@@ -14,14 +14,14 @@ import com.kwad.sdk.utils.ae;
 import com.kwad.sdk.utils.ah;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class d implements com.kwad.sdk.plugin.b {
     private void a(@NonNull List<com.kwad.sdk.core.response.model.b> list) {
         if (com.kwad.sdk.core.config.c.m()) {
             ArrayList arrayList = new ArrayList();
             for (com.kwad.sdk.core.response.model.b bVar : list) {
-                if (bVar != null && bVar.c) {
-                    arrayList.add(new KsScene.Builder(bVar.f6256a).build());
+                if (bVar != null && bVar.f34074c) {
+                    arrayList.add(new KsScene.Builder(bVar.f34072a).build());
                 }
             }
             com.kwad.sdk.contentalliance.home.b.a(arrayList);
@@ -30,13 +30,13 @@ public class d implements com.kwad.sdk.plugin.b {
 
     private void b(final Context context) {
         com.kwad.sdk.core.d.a.b("ContentPluginImpl", "初次获取Gid: initGId");
-        com.yxcorp.kuaishou.addfp.a.eJk().a(context, true, new com.yxcorp.kuaishou.addfp.b() { // from class: com.kwad.sdk.contentalliance.d.1
-            @Override // com.yxcorp.kuaishou.addfp.b
+        d.q.a.a.b.c().g(context, true, new d.q.a.a.d() { // from class: com.kwad.sdk.contentalliance.d.1
+            @Override // d.q.a.a.d
             public void a(int i, String str) {
                 com.kwad.sdk.core.d.a.d("ContentPluginImpl", "初次获取Gid: initGId onFailed errorCode:" + i + "errorMessage :" + str);
             }
 
-            @Override // com.yxcorp.kuaishou.addfp.b
+            @Override // d.q.a.a.d
             public void a(String str, String str2) {
                 com.kwad.sdk.core.b.e.a(context, str2);
                 d.this.a(context, str);
@@ -79,7 +79,7 @@ public class d implements com.kwad.sdk.plugin.b {
         }
         ae.d(context, str);
         try {
-            com.yxcorp.kuaishou.addfp.a.eJk().a(context, str);
+            d.q.a.a.b.c().k(context, str);
         } catch (Throwable th) {
             com.kwad.sdk.core.d.a.d("ContentPluginImpl", "ContentPluginImpl KWEGIDDFP setEGid error : " + th);
         }
@@ -87,9 +87,9 @@ public class d implements com.kwad.sdk.plugin.b {
 
     @Override // com.kwad.sdk.plugin.b
     public void a(@NonNull SdkConfigData sdkConfigData) {
-        List<com.kwad.sdk.core.response.model.b> b = c.a.aa.b();
-        if (b != null) {
-            a(b);
+        List<com.kwad.sdk.core.response.model.b> b2 = c.a.aa.b();
+        if (b2 != null) {
+            a(b2);
         }
         if (com.kwad.sdk.core.config.c.L()) {
             c();

@@ -1,5 +1,10 @@
 package com.baidu.sapi2.callback.a;
-/* loaded from: classes3.dex */
+
+import com.baidu.sapi2.share.ShareStorage;
+import java.util.List;
+/* loaded from: classes2.dex */
 public interface b {
-    void a(String str, String str2);
+    void a(List<ShareStorage.StorageModel> list);
+
+    void onFailure();
 }

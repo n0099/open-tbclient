@@ -1,5 +1,5 @@
 package com.baidu.searchbox.afx;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class Debug {
     public static final boolean DEBUG = false;
 }

@@ -42,6 +42,7 @@ import com.bumptech.glide.load.model.DataUrlLoader;
 import com.bumptech.glide.load.model.FileLoader;
 import com.bumptech.glide.load.model.GlideUrl;
 import com.bumptech.glide.load.model.MediaStoreFileLoader;
+import com.bumptech.glide.load.model.ModelLoaderFactory;
 import com.bumptech.glide.load.model.ResourceLoader;
 import com.bumptech.glide.load.model.StreamEncoder;
 import com.bumptech.glide.load.model.StringLoader;
@@ -102,200 +103,37 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class Glide implements ComponentCallbacks2 {
-    private static final String DEFAULT_DISK_CACHE_DIR = "image_manager_disk_cache";
-    private static final String TAG = "Glide";
-    private static volatile Glide glide;
-    private static volatile boolean isInitializing;
-    private final ArrayPool arrayPool;
-    private final BitmapPool bitmapPool;
+    public static final String DEFAULT_DISK_CACHE_DIR = "image_manager_disk_cache";
+    public static final String TAG = "Glide";
+    public static volatile Glide glide;
+    public static volatile boolean isInitializing;
+    public final ArrayPool arrayPool;
+    public final BitmapPool bitmapPool;
     @Nullable
     @GuardedBy("this")
-    private BitmapPreFiller bitmapPreFiller;
-    private final ConnectivityMonitorFactory connectivityMonitorFactory;
-    private final RequestOptionsFactory defaultRequestOptionsFactory;
-    private final Engine engine;
-    private final GlideContext glideContext;
-    private final MemoryCache memoryCache;
-    private final Registry registry;
-    private final RequestManagerRetriever requestManagerRetriever;
-    private final List<RequestManager> managers = new ArrayList();
-    private MemoryCategory memoryCategory = MemoryCategory.NORMAL;
+    public BitmapPreFiller bitmapPreFiller;
+    public final ConnectivityMonitorFactory connectivityMonitorFactory;
+    public final RequestOptionsFactory defaultRequestOptionsFactory;
+    public final Engine engine;
+    public final GlideContext glideContext;
+    public final MemoryCache memoryCache;
+    public final Registry registry;
+    public final RequestManagerRetriever requestManagerRetriever;
+    public final List<RequestManager> managers = new ArrayList();
+    public MemoryCategory memoryCategory = MemoryCategory.NORMAL;
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public interface RequestOptionsFactory {
         @NonNull
         RequestOptions build();
     }
 
-    @Nullable
-    public static File getPhotoCacheDir(@NonNull Context context) {
-        return getPhotoCacheDir(context, "image_manager_disk_cache");
-    }
-
-    @Nullable
-    public static File getPhotoCacheDir(@NonNull Context context, @NonNull String str) {
-        File cacheDir = context.getCacheDir();
-        if (cacheDir != null) {
-            File file = new File(cacheDir, str);
-            if (file.mkdirs() || (file.exists() && file.isDirectory())) {
-                return file;
-            }
-            return null;
-        } else if (Log.isLoggable(TAG, 6)) {
-            Log.e(TAG, "default disk cache dir is null");
-            return null;
-        } else {
-            return null;
-        }
-    }
-
-    @NonNull
-    public static Glide get(@NonNull Context context) {
-        if (glide == null) {
-            GeneratedAppGlideModule annotationGeneratedGlideModules = getAnnotationGeneratedGlideModules(context.getApplicationContext());
-            synchronized (Glide.class) {
-                if (glide == null) {
-                    checkAndInitializeGlide(context, annotationGeneratedGlideModules);
-                }
-            }
-        }
-        return glide;
-    }
-
-    @GuardedBy("Glide.class")
-    private static void checkAndInitializeGlide(@NonNull Context context, @Nullable GeneratedAppGlideModule generatedAppGlideModule) {
-        if (isInitializing) {
-            throw new IllegalStateException("You cannot call Glide.get() in registerComponents(), use the provided Glide instance instead");
-        }
-        isInitializing = true;
-        initializeGlide(context, generatedAppGlideModule);
-        isInitializing = false;
-    }
-
-    @VisibleForTesting
-    @Deprecated
-    public static synchronized void init(Glide glide2) {
-        synchronized (Glide.class) {
-            if (glide != null) {
-                tearDown();
-            }
-            glide = glide2;
-        }
-    }
-
-    @VisibleForTesting
-    public static void init(@NonNull Context context, @NonNull GlideBuilder glideBuilder) {
-        GeneratedAppGlideModule annotationGeneratedGlideModules = getAnnotationGeneratedGlideModules(context);
-        synchronized (Glide.class) {
-            if (glide != null) {
-                tearDown();
-            }
-            initializeGlide(context, glideBuilder, annotationGeneratedGlideModules);
-        }
-    }
-
-    @VisibleForTesting
-    public static synchronized void tearDown() {
-        synchronized (Glide.class) {
-            if (glide != null) {
-                glide.getContext().getApplicationContext().unregisterComponentCallbacks(glide);
-                glide.engine.shutdown();
-            }
-            glide = null;
-        }
-    }
-
-    @GuardedBy("Glide.class")
-    private static void initializeGlide(@NonNull Context context, @Nullable GeneratedAppGlideModule generatedAppGlideModule) {
-        initializeGlide(context, new GlideBuilder(), generatedAppGlideModule);
-    }
-
-    @GuardedBy("Glide.class")
-    private static void initializeGlide(@NonNull Context context, @NonNull GlideBuilder glideBuilder, @Nullable GeneratedAppGlideModule generatedAppGlideModule) {
-        RequestManagerRetriever.RequestManagerFactory requestManagerFactory;
-        Context applicationContext = context.getApplicationContext();
-        List<GlideModule> parse = (generatedAppGlideModule == null || generatedAppGlideModule.isManifestParsingEnabled()) ? new ManifestParser(applicationContext).parse() : Collections.emptyList();
-        if (generatedAppGlideModule != null && !generatedAppGlideModule.getExcludedModuleClasses().isEmpty()) {
-            Set<Class<?>> excludedModuleClasses = generatedAppGlideModule.getExcludedModuleClasses();
-            Iterator<GlideModule> it = parse.iterator();
-            while (it.hasNext()) {
-                GlideModule next = it.next();
-                if (excludedModuleClasses.contains(next.getClass())) {
-                    if (Log.isLoggable(TAG, 3)) {
-                        Log.d(TAG, "AppGlideModule excludes manifest GlideModule: " + next);
-                    }
-                    it.remove();
-                }
-            }
-        }
-        if (Log.isLoggable(TAG, 3)) {
-            Iterator<GlideModule> it2 = parse.iterator();
-            while (it2.hasNext()) {
-                Log.d(TAG, "Discovered GlideModule from manifest: " + it2.next().getClass());
-            }
-        }
-        if (generatedAppGlideModule != null) {
-            requestManagerFactory = generatedAppGlideModule.getRequestManagerFactory();
-        } else {
-            requestManagerFactory = null;
-        }
-        glideBuilder.setRequestManagerFactory(requestManagerFactory);
-        for (GlideModule glideModule : parse) {
-            glideModule.applyOptions(applicationContext, glideBuilder);
-        }
-        if (generatedAppGlideModule != null) {
-            generatedAppGlideModule.applyOptions(applicationContext, glideBuilder);
-        }
-        Glide build = glideBuilder.build(applicationContext);
-        for (GlideModule glideModule2 : parse) {
-            try {
-                glideModule2.registerComponents(applicationContext, build, build.registry);
-            } catch (AbstractMethodError e) {
-                throw new IllegalStateException("Attempting to register a Glide v3 module. If you see this, you or one of your dependencies may be including Glide v3 even though you're using Glide v4. You'll need to find and remove (or update) the offending dependency. The v3 module name is: " + glideModule2.getClass().getName(), e);
-            }
-        }
-        if (generatedAppGlideModule != null) {
-            generatedAppGlideModule.registerComponents(applicationContext, build, build.registry);
-        }
-        applicationContext.registerComponentCallbacks(build);
-        glide = build;
-    }
-
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [339=4] */
-    @Nullable
-    private static GeneratedAppGlideModule getAnnotationGeneratedGlideModules(Context context) {
-        try {
-            return (GeneratedAppGlideModule) Class.forName("com.bumptech.glide.GeneratedAppGlideModuleImpl").getDeclaredConstructor(Context.class).newInstance(context.getApplicationContext());
-        } catch (ClassNotFoundException e) {
-            if (Log.isLoggable(TAG, 5)) {
-                Log.w(TAG, "Failed to find GeneratedAppGlideModule. You should include an annotationProcessor compile dependency on com.github.bumptech.glide:compiler in your application and a @GlideModule annotated AppGlideModule implementation or LibraryGlideModules will be silently ignored");
-            }
-            return null;
-        } catch (IllegalAccessException e2) {
-            throwIncorrectGlideModule(e2);
-            return null;
-        } catch (InstantiationException e3) {
-            throwIncorrectGlideModule(e3);
-            return null;
-        } catch (NoSuchMethodException e4) {
-            throwIncorrectGlideModule(e4);
-            return null;
-        } catch (InvocationTargetException e5) {
-            throwIncorrectGlideModule(e5);
-            return null;
-        }
-    }
-
-    private static void throwIncorrectGlideModule(Exception exc) {
-        throw new IllegalStateException("GeneratedAppGlideModuleImpl is implemented incorrectly. If you've manually implemented this class, remove your implementation. The Annotation processor will generate a correct implementation.", exc);
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
     public Glide(@NonNull Context context, @NonNull Engine engine, @NonNull MemoryCache memoryCache, @NonNull BitmapPool bitmapPool, @NonNull ArrayPool arrayPool, @NonNull RequestManagerRetriever requestManagerRetriever, @NonNull ConnectivityMonitorFactory connectivityMonitorFactory, int i, @NonNull RequestOptionsFactory requestOptionsFactory, @NonNull Map<Class<?>, TransitionOptions<?, ?>> map, @NonNull List<RequestListener<Object>> list, boolean z, boolean z2) {
         ResourceDecoder byteBufferBitmapDecoder;
         ResourceDecoder streamBitmapDecoder;
+        Object obj;
         this.engine = engine;
         this.bitmapPool = bitmapPool;
         this.arrayPool = arrayPool;
@@ -304,8 +142,9 @@ public class Glide implements ComponentCallbacks2 {
         this.connectivityMonitorFactory = connectivityMonitorFactory;
         this.defaultRequestOptionsFactory = requestOptionsFactory;
         Resources resources = context.getResources();
-        this.registry = new Registry();
-        this.registry.register(new DefaultImageHeaderParser());
+        Registry registry = new Registry();
+        this.registry = registry;
+        registry.register(new DefaultImageHeaderParser());
         if (Build.VERSION.SDK_INT >= 27) {
             this.registry.register(new ExifInterfaceImageHeaderParser());
         }
@@ -331,9 +170,13 @@ public class Glide implements ComponentCallbacks2 {
         ContentResolver contentResolver = context.getContentResolver();
         this.registry.append(ByteBuffer.class, new ByteBufferEncoder()).append(InputStream.class, new StreamEncoder(arrayPool)).append(Registry.BUCKET_BITMAP, ByteBuffer.class, Bitmap.class, byteBufferBitmapDecoder).append(Registry.BUCKET_BITMAP, InputStream.class, Bitmap.class, streamBitmapDecoder);
         if (ParcelFileDescriptorRewinder.isSupported()) {
+            obj = GifDecoder.class;
             this.registry.append(Registry.BUCKET_BITMAP, ParcelFileDescriptor.class, Bitmap.class, new ParcelFileDescriptorBitmapDecoder(downsampler));
+        } else {
+            obj = GifDecoder.class;
         }
-        this.registry.append(Registry.BUCKET_BITMAP, ParcelFileDescriptor.class, Bitmap.class, parcel).append(Registry.BUCKET_BITMAP, AssetFileDescriptor.class, Bitmap.class, VideoDecoder.asset(bitmapPool)).append(Bitmap.class, Bitmap.class, UnitModelLoader.Factory.getInstance()).append(Registry.BUCKET_BITMAP, Bitmap.class, Bitmap.class, new UnitBitmapDecoder()).append(Bitmap.class, (ResourceEncoder) bitmapEncoder).append(Registry.BUCKET_BITMAP_DRAWABLE, ByteBuffer.class, BitmapDrawable.class, new BitmapDrawableDecoder(resources, byteBufferBitmapDecoder)).append(Registry.BUCKET_BITMAP_DRAWABLE, InputStream.class, BitmapDrawable.class, new BitmapDrawableDecoder(resources, streamBitmapDecoder)).append(Registry.BUCKET_BITMAP_DRAWABLE, ParcelFileDescriptor.class, BitmapDrawable.class, new BitmapDrawableDecoder(resources, parcel)).append(BitmapDrawable.class, (ResourceEncoder) new BitmapDrawableEncoder(bitmapPool, bitmapEncoder)).append(Registry.BUCKET_GIF, InputStream.class, GifDrawable.class, new StreamGifDecoder(imageHeaderParsers, byteBufferGifDecoder, arrayPool)).append(Registry.BUCKET_GIF, ByteBuffer.class, GifDrawable.class, byteBufferGifDecoder).append(GifDrawable.class, (ResourceEncoder) new GifDrawableEncoder()).append(GifDecoder.class, GifDecoder.class, UnitModelLoader.Factory.getInstance()).append(Registry.BUCKET_BITMAP, GifDecoder.class, Bitmap.class, new GifFrameResourceDecoder(bitmapPool)).append(Uri.class, Drawable.class, resourceDrawableDecoder).append(Uri.class, Bitmap.class, new ResourceBitmapDecoder(resourceDrawableDecoder, bitmapPool)).register(new ByteBufferRewinder.Factory()).append(File.class, ByteBuffer.class, new ByteBufferFileLoader.Factory()).append(File.class, InputStream.class, new FileLoader.StreamFactory()).append(File.class, File.class, new FileDecoder()).append(File.class, ParcelFileDescriptor.class, new FileLoader.FileDescriptorFactory()).append(File.class, File.class, UnitModelLoader.Factory.getInstance()).register(new InputStreamRewinder.Factory(arrayPool));
+        Object obj2 = obj;
+        this.registry.append(Registry.BUCKET_BITMAP, ParcelFileDescriptor.class, Bitmap.class, parcel).append(Registry.BUCKET_BITMAP, AssetFileDescriptor.class, Bitmap.class, VideoDecoder.asset(bitmapPool)).append(Bitmap.class, Bitmap.class, UnitModelLoader.Factory.getInstance()).append(Registry.BUCKET_BITMAP, Bitmap.class, Bitmap.class, new UnitBitmapDecoder()).append(Bitmap.class, (ResourceEncoder) bitmapEncoder).append(Registry.BUCKET_BITMAP_DRAWABLE, ByteBuffer.class, BitmapDrawable.class, new BitmapDrawableDecoder(resources, byteBufferBitmapDecoder)).append(Registry.BUCKET_BITMAP_DRAWABLE, InputStream.class, BitmapDrawable.class, new BitmapDrawableDecoder(resources, streamBitmapDecoder)).append(Registry.BUCKET_BITMAP_DRAWABLE, ParcelFileDescriptor.class, BitmapDrawable.class, new BitmapDrawableDecoder(resources, parcel)).append(BitmapDrawable.class, (ResourceEncoder) new BitmapDrawableEncoder(bitmapPool, bitmapEncoder)).append(Registry.BUCKET_GIF, InputStream.class, GifDrawable.class, new StreamGifDecoder(imageHeaderParsers, byteBufferGifDecoder, arrayPool)).append(Registry.BUCKET_GIF, ByteBuffer.class, GifDrawable.class, byteBufferGifDecoder).append(GifDrawable.class, (ResourceEncoder) new GifDrawableEncoder()).append((Class) obj2, (Class) obj2, (ModelLoaderFactory) UnitModelLoader.Factory.getInstance()).append(Registry.BUCKET_BITMAP, obj2, Bitmap.class, new GifFrameResourceDecoder(bitmapPool)).append(Uri.class, Drawable.class, resourceDrawableDecoder).append(Uri.class, Bitmap.class, new ResourceBitmapDecoder(resourceDrawableDecoder, bitmapPool)).register(new ByteBufferRewinder.Factory()).append(File.class, ByteBuffer.class, new ByteBufferFileLoader.Factory()).append(File.class, InputStream.class, new FileLoader.StreamFactory()).append(File.class, File.class, new FileDecoder()).append(File.class, ParcelFileDescriptor.class, new FileLoader.FileDescriptorFactory()).append(File.class, File.class, UnitModelLoader.Factory.getInstance()).register(new InputStreamRewinder.Factory(arrayPool));
         if (ParcelFileDescriptorRewinder.isSupported()) {
             this.registry.register(new ParcelFileDescriptorRewinder.Factory());
         }
@@ -351,37 +194,104 @@ public class Glide implements ComponentCallbacks2 {
         this.glideContext = new GlideContext(context, arrayPool, this.registry, new ImageViewTargetFactory(), requestOptionsFactory, map, list, engine, z, i);
     }
 
-    @NonNull
-    public BitmapPool getBitmapPool() {
-        return this.bitmapPool;
-    }
-
-    @NonNull
-    public ArrayPool getArrayPool() {
-        return this.arrayPool;
-    }
-
-    @NonNull
-    public Context getContext() {
-        return this.glideContext.getBaseContext();
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ConnectivityMonitorFactory getConnectivityMonitorFactory() {
-        return this.connectivityMonitorFactory;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    @NonNull
-    public GlideContext getGlideContext() {
-        return this.glideContext;
-    }
-
-    public synchronized void preFillBitmapPool(@NonNull PreFillType.Builder... builderArr) {
-        if (this.bitmapPreFiller == null) {
-            this.bitmapPreFiller = new BitmapPreFiller(this.memoryCache, this.bitmapPool, (DecodeFormat) this.defaultRequestOptionsFactory.build().getOptions().get(Downsampler.DECODE_FORMAT));
+    @GuardedBy("Glide.class")
+    public static void checkAndInitializeGlide(@NonNull Context context, @Nullable GeneratedAppGlideModule generatedAppGlideModule) {
+        if (!isInitializing) {
+            isInitializing = true;
+            initializeGlide(context, generatedAppGlideModule);
+            isInitializing = false;
+            return;
         }
-        this.bitmapPreFiller.preFill(builderArr);
+        throw new IllegalStateException("You cannot call Glide.get() in registerComponents(), use the provided Glide instance instead");
+    }
+
+    @NonNull
+    public static Glide get(@NonNull Context context) {
+        if (glide == null) {
+            GeneratedAppGlideModule annotationGeneratedGlideModules = getAnnotationGeneratedGlideModules(context.getApplicationContext());
+            synchronized (Glide.class) {
+                if (glide == null) {
+                    checkAndInitializeGlide(context, annotationGeneratedGlideModules);
+                }
+            }
+        }
+        return glide;
+    }
+
+    @Nullable
+    public static GeneratedAppGlideModule getAnnotationGeneratedGlideModules(Context context) {
+        try {
+            return (GeneratedAppGlideModule) Class.forName("com.bumptech.glide.GeneratedAppGlideModuleImpl").getDeclaredConstructor(Context.class).newInstance(context.getApplicationContext());
+        } catch (ClassNotFoundException unused) {
+            if (Log.isLoggable("Glide", 5)) {
+                Log.w("Glide", "Failed to find GeneratedAppGlideModule. You should include an annotationProcessor compile dependency on com.github.bumptech.glide:compiler in your application and a @GlideModule annotated AppGlideModule implementation or LibraryGlideModules will be silently ignored");
+            }
+            return null;
+        } catch (IllegalAccessException e2) {
+            throwIncorrectGlideModule(e2);
+            return null;
+        } catch (InstantiationException e3) {
+            throwIncorrectGlideModule(e3);
+            return null;
+        } catch (NoSuchMethodException e4) {
+            throwIncorrectGlideModule(e4);
+            return null;
+        } catch (InvocationTargetException e5) {
+            throwIncorrectGlideModule(e5);
+            return null;
+        }
+    }
+
+    @Nullable
+    public static File getPhotoCacheDir(@NonNull Context context) {
+        return getPhotoCacheDir(context, "image_manager_disk_cache");
+    }
+
+    @NonNull
+    public static RequestManagerRetriever getRetriever(@Nullable Context context) {
+        Preconditions.checkNotNull(context, "You cannot start a load on a not yet attached View or a Fragment where getActivity() returns null (which usually occurs when getActivity() is called before the Fragment is attached or after the Fragment is destroyed).");
+        return get(context).getRequestManagerRetriever();
+    }
+
+    @VisibleForTesting
+    @Deprecated
+    public static synchronized void init(Glide glide2) {
+        synchronized (Glide.class) {
+            if (glide != null) {
+                tearDown();
+            }
+            glide = glide2;
+        }
+    }
+
+    @GuardedBy("Glide.class")
+    public static void initializeGlide(@NonNull Context context, @Nullable GeneratedAppGlideModule generatedAppGlideModule) {
+        initializeGlide(context, new GlideBuilder(), generatedAppGlideModule);
+    }
+
+    @VisibleForTesting
+    public static synchronized void tearDown() {
+        synchronized (Glide.class) {
+            if (glide != null) {
+                glide.getContext().getApplicationContext().unregisterComponentCallbacks(glide);
+                glide.engine.shutdown();
+            }
+            glide = null;
+        }
+    }
+
+    public static void throwIncorrectGlideModule(Exception exc) {
+        throw new IllegalStateException("GeneratedAppGlideModuleImpl is implemented incorrectly. If you've manually implemented this class, remove your implementation. The Annotation processor will generate a correct implementation.", exc);
+    }
+
+    @NonNull
+    public static RequestManager with(@NonNull Context context) {
+        return getRetriever(context).get(context);
+    }
+
+    public void clearDiskCache() {
+        Util.assertBackgroundThread();
+        this.engine.clearDiskCache();
     }
 
     public void clearMemory() {
@@ -391,24 +301,80 @@ public class Glide implements ComponentCallbacks2 {
         this.arrayPool.clearMemory();
     }
 
-    public void trimMemory(int i) {
-        Util.assertMainThread();
-        for (RequestManager requestManager : this.managers) {
-            requestManager.onTrimMemory(i);
-        }
-        this.memoryCache.trimMemory(i);
-        this.bitmapPool.trimMemory(i);
-        this.arrayPool.trimMemory(i);
+    @NonNull
+    public ArrayPool getArrayPool() {
+        return this.arrayPool;
     }
 
-    public void clearDiskCache() {
-        Util.assertBackgroundThread();
-        this.engine.clearDiskCache();
+    @NonNull
+    public BitmapPool getBitmapPool() {
+        return this.bitmapPool;
+    }
+
+    public ConnectivityMonitorFactory getConnectivityMonitorFactory() {
+        return this.connectivityMonitorFactory;
+    }
+
+    @NonNull
+    public Context getContext() {
+        return this.glideContext.getBaseContext();
+    }
+
+    @NonNull
+    public GlideContext getGlideContext() {
+        return this.glideContext;
+    }
+
+    @NonNull
+    public Registry getRegistry() {
+        return this.registry;
     }
 
     @NonNull
     public RequestManagerRetriever getRequestManagerRetriever() {
         return this.requestManagerRetriever;
+    }
+
+    @Override // android.content.ComponentCallbacks
+    public void onConfigurationChanged(Configuration configuration) {
+    }
+
+    @Override // android.content.ComponentCallbacks
+    public void onLowMemory() {
+        clearMemory();
+    }
+
+    @Override // android.content.ComponentCallbacks2
+    public void onTrimMemory(int i) {
+        trimMemory(i);
+    }
+
+    public synchronized void preFillBitmapPool(@NonNull PreFillType.Builder... builderArr) {
+        if (this.bitmapPreFiller == null) {
+            this.bitmapPreFiller = new BitmapPreFiller(this.memoryCache, this.bitmapPool, (DecodeFormat) this.defaultRequestOptionsFactory.build().getOptions().get(Downsampler.DECODE_FORMAT));
+        }
+        this.bitmapPreFiller.preFill(builderArr);
+    }
+
+    public void registerRequestManager(RequestManager requestManager) {
+        synchronized (this.managers) {
+            if (!this.managers.contains(requestManager)) {
+                this.managers.add(requestManager);
+            } else {
+                throw new IllegalStateException("Cannot register already registered manager");
+            }
+        }
+    }
+
+    public boolean removeFromManagers(@NonNull Target<?> target) {
+        synchronized (this.managers) {
+            for (RequestManager requestManager : this.managers) {
+                if (requestManager.untrack(target)) {
+                    return true;
+                }
+            }
+            return false;
+        }
     }
 
     @NonNull
@@ -421,15 +387,88 @@ public class Glide implements ComponentCallbacks2 {
         return memoryCategory2;
     }
 
-    @NonNull
-    private static RequestManagerRetriever getRetriever(@Nullable Context context) {
-        Preconditions.checkNotNull(context, "You cannot start a load on a not yet attached View or a Fragment where getActivity() returns null (which usually occurs when getActivity() is called before the Fragment is attached or after the Fragment is destroyed).");
-        return get(context).getRequestManagerRetriever();
+    public void trimMemory(int i) {
+        Util.assertMainThread();
+        for (RequestManager requestManager : this.managers) {
+            requestManager.onTrimMemory(i);
+        }
+        this.memoryCache.trimMemory(i);
+        this.bitmapPool.trimMemory(i);
+        this.arrayPool.trimMemory(i);
     }
 
-    @NonNull
-    public static RequestManager with(@NonNull Context context) {
-        return getRetriever(context).get(context);
+    public void unregisterRequestManager(RequestManager requestManager) {
+        synchronized (this.managers) {
+            if (this.managers.contains(requestManager)) {
+                this.managers.remove(requestManager);
+            } else {
+                throw new IllegalStateException("Cannot unregister not yet registered manager");
+            }
+        }
+    }
+
+    @Nullable
+    public static File getPhotoCacheDir(@NonNull Context context, @NonNull String str) {
+        File cacheDir = context.getCacheDir();
+        if (cacheDir != null) {
+            File file = new File(cacheDir, str);
+            if (file.mkdirs() || (file.exists() && file.isDirectory())) {
+                return file;
+            }
+            return null;
+        }
+        if (Log.isLoggable("Glide", 6)) {
+            Log.e("Glide", "default disk cache dir is null");
+        }
+        return null;
+    }
+
+    @GuardedBy("Glide.class")
+    public static void initializeGlide(@NonNull Context context, @NonNull GlideBuilder glideBuilder, @Nullable GeneratedAppGlideModule generatedAppGlideModule) {
+        Context applicationContext = context.getApplicationContext();
+        List<GlideModule> emptyList = Collections.emptyList();
+        if (generatedAppGlideModule == null || generatedAppGlideModule.isManifestParsingEnabled()) {
+            emptyList = new ManifestParser(applicationContext).parse();
+        }
+        if (generatedAppGlideModule != null && !generatedAppGlideModule.getExcludedModuleClasses().isEmpty()) {
+            Set<Class<?>> excludedModuleClasses = generatedAppGlideModule.getExcludedModuleClasses();
+            Iterator<GlideModule> it = emptyList.iterator();
+            while (it.hasNext()) {
+                GlideModule next = it.next();
+                if (excludedModuleClasses.contains(next.getClass())) {
+                    if (Log.isLoggable("Glide", 3)) {
+                        Log.d("Glide", "AppGlideModule excludes manifest GlideModule: " + next);
+                    }
+                    it.remove();
+                }
+            }
+        }
+        if (Log.isLoggable("Glide", 3)) {
+            Iterator<GlideModule> it2 = emptyList.iterator();
+            while (it2.hasNext()) {
+                Log.d("Glide", "Discovered GlideModule from manifest: " + it2.next().getClass());
+            }
+        }
+        glideBuilder.setRequestManagerFactory(generatedAppGlideModule != null ? generatedAppGlideModule.getRequestManagerFactory() : null);
+        for (GlideModule glideModule : emptyList) {
+            glideModule.applyOptions(applicationContext, glideBuilder);
+        }
+        if (generatedAppGlideModule != null) {
+            generatedAppGlideModule.applyOptions(applicationContext, glideBuilder);
+        }
+        Glide build = glideBuilder.build(applicationContext);
+        for (GlideModule glideModule2 : emptyList) {
+            try {
+                glideModule2.registerComponents(applicationContext, build, build.registry);
+            } catch (AbstractMethodError e2) {
+                throw new IllegalStateException("Attempting to register a Glide v3 module. If you see this, you or one of your dependencies may be including Glide v3 even though you're using Glide v4. You'll need to find and remove (or update) the offending dependency. The v3 module name is: " + glideModule2.getClass().getName(), e2);
+            }
+        }
+        if (generatedAppGlideModule != null) {
+            generatedAppGlideModule.registerComponents(applicationContext, build, build.registry);
+        }
+        applicationContext.registerComponentCallbacks(build);
+        glide = build;
     }
 
     @NonNull
@@ -447,6 +486,17 @@ public class Glide implements ComponentCallbacks2 {
         return getRetriever(fragment.getContext()).get(fragment);
     }
 
+    @VisibleForTesting
+    public static void init(@NonNull Context context, @NonNull GlideBuilder glideBuilder) {
+        GeneratedAppGlideModule annotationGeneratedGlideModules = getAnnotationGeneratedGlideModules(context);
+        synchronized (Glide.class) {
+            if (glide != null) {
+                tearDown();
+            }
+            initializeGlide(context, glideBuilder, annotationGeneratedGlideModules);
+        }
+    }
+
     @NonNull
     @Deprecated
     public static RequestManager with(@NonNull android.app.Fragment fragment) {
@@ -456,56 +506,5 @@ public class Glide implements ComponentCallbacks2 {
     @NonNull
     public static RequestManager with(@NonNull View view) {
         return getRetriever(view.getContext()).get(view);
-    }
-
-    @NonNull
-    public Registry getRegistry() {
-        return this.registry;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean removeFromManagers(@NonNull Target<?> target) {
-        synchronized (this.managers) {
-            for (RequestManager requestManager : this.managers) {
-                if (requestManager.untrack(target)) {
-                    return true;
-                }
-            }
-            return false;
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void registerRequestManager(RequestManager requestManager) {
-        synchronized (this.managers) {
-            if (this.managers.contains(requestManager)) {
-                throw new IllegalStateException("Cannot register already registered manager");
-            }
-            this.managers.add(requestManager);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void unregisterRequestManager(RequestManager requestManager) {
-        synchronized (this.managers) {
-            if (!this.managers.contains(requestManager)) {
-                throw new IllegalStateException("Cannot unregister not yet registered manager");
-            }
-            this.managers.remove(requestManager);
-        }
-    }
-
-    @Override // android.content.ComponentCallbacks2
-    public void onTrimMemory(int i) {
-        trimMemory(i);
-    }
-
-    @Override // android.content.ComponentCallbacks
-    public void onConfigurationChanged(Configuration configuration) {
-    }
-
-    @Override // android.content.ComponentCallbacks
-    public void onLowMemory() {
-        clearMemory();
     }
 }

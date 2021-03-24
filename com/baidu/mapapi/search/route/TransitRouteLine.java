@@ -10,22 +10,34 @@ import com.baidu.mapapi.search.core.RouteStep;
 import com.baidu.mapapi.search.core.TaxiInfo;
 import com.baidu.mapapi.search.core.VehicleInfo;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public final class TransitRouteLine extends RouteLine<TransitStep> implements Parcelable {
     public static final Parcelable.Creator<TransitRouteLine> CREATOR = new o();
-    private TaxiInfo b;
 
-    /* loaded from: classes4.dex */
+    /* renamed from: b  reason: collision with root package name */
+    public TaxiInfo f7313b;
+
+    /* loaded from: classes2.dex */
     public static class TransitStep extends RouteStep implements Parcelable {
         public static final Parcelable.Creator<TransitStep> CREATOR = new p();
-        private VehicleInfo d;
-        private RouteNode e;
-        private RouteNode f;
-        private TransitRouteStepType g;
-        private String h;
-        private String i;
 
-        /* loaded from: classes4.dex */
+        /* renamed from: d  reason: collision with root package name */
+        public VehicleInfo f7314d;
+
+        /* renamed from: e  reason: collision with root package name */
+        public RouteNode f7315e;
+
+        /* renamed from: f  reason: collision with root package name */
+        public RouteNode f7316f;
+
+        /* renamed from: g  reason: collision with root package name */
+        public TransitRouteStepType f7317g;
+
+        /* renamed from: h  reason: collision with root package name */
+        public String f7318h;
+        public String i;
+
+        /* loaded from: classes2.dex */
         public enum TransitRouteStepType {
             BUSLINE,
             SUBWAY,
@@ -35,15 +47,14 @@ public final class TransitRouteLine extends RouteLine<TransitStep> implements Pa
         public TransitStep() {
         }
 
-        /* JADX INFO: Access modifiers changed from: protected */
         public TransitStep(Parcel parcel) {
             super(parcel);
-            this.d = (VehicleInfo) parcel.readParcelable(VehicleInfo.class.getClassLoader());
-            this.e = (RouteNode) parcel.readParcelable(RouteNode.class.getClassLoader());
-            this.f = (RouteNode) parcel.readParcelable(RouteNode.class.getClassLoader());
+            this.f7314d = (VehicleInfo) parcel.readParcelable(VehicleInfo.class.getClassLoader());
+            this.f7315e = (RouteNode) parcel.readParcelable(RouteNode.class.getClassLoader());
+            this.f7316f = (RouteNode) parcel.readParcelable(RouteNode.class.getClassLoader());
             int readInt = parcel.readInt();
-            this.g = readInt == -1 ? null : TransitRouteStepType.values()[readInt];
-            this.h = parcel.readString();
+            this.f7317g = readInt == -1 ? null : TransitRouteStepType.values()[readInt];
+            this.f7318h = parcel.readString();
             this.i = parcel.readString();
         }
 
@@ -53,23 +64,23 @@ public final class TransitRouteLine extends RouteLine<TransitStep> implements Pa
         }
 
         public RouteNode getEntrance() {
-            return this.e;
+            return this.f7315e;
         }
 
         public RouteNode getExit() {
-            return this.f;
+            return this.f7316f;
         }
 
         public String getInstructions() {
-            return this.h;
+            return this.f7318h;
         }
 
         public TransitRouteStepType getStepType() {
-            return this.g;
+            return this.f7317g;
         }
 
         public VehicleInfo getVehicleInfo() {
-            return this.d;
+            return this.f7314d;
         }
 
         @Override // com.baidu.mapapi.search.core.RouteStep
@@ -81,15 +92,15 @@ public final class TransitRouteLine extends RouteLine<TransitStep> implements Pa
         }
 
         public void setEntrace(RouteNode routeNode) {
-            this.e = routeNode;
+            this.f7315e = routeNode;
         }
 
         public void setExit(RouteNode routeNode) {
-            this.f = routeNode;
+            this.f7316f = routeNode;
         }
 
         public void setInstructions(String str) {
-            this.h = str;
+            this.f7318h = str;
         }
 
         public void setPathString(String str) {
@@ -97,21 +108,22 @@ public final class TransitRouteLine extends RouteLine<TransitStep> implements Pa
         }
 
         public void setStepType(TransitRouteStepType transitRouteStepType) {
-            this.g = transitRouteStepType;
+            this.f7317g = transitRouteStepType;
         }
 
         public void setVehicleInfo(VehicleInfo vehicleInfo) {
-            this.d = vehicleInfo;
+            this.f7314d = vehicleInfo;
         }
 
         @Override // com.baidu.mapapi.search.core.RouteStep, android.os.Parcelable
         public void writeToParcel(Parcel parcel, int i) {
             super.writeToParcel(parcel, i);
-            parcel.writeParcelable(this.d, 1);
-            parcel.writeParcelable(this.e, 1);
-            parcel.writeParcelable(this.f, 1);
-            parcel.writeInt(this.g == null ? -1 : this.g.ordinal());
-            parcel.writeString(this.h);
+            parcel.writeParcelable(this.f7314d, 1);
+            parcel.writeParcelable(this.f7315e, 1);
+            parcel.writeParcelable(this.f7316f, 1);
+            TransitRouteStepType transitRouteStepType = this.f7317g;
+            parcel.writeInt(transitRouteStepType == null ? -1 : transitRouteStepType.ordinal());
+            parcel.writeString(this.f7318h);
             parcel.writeString(this.i);
         }
     }
@@ -119,10 +131,9 @@ public final class TransitRouteLine extends RouteLine<TransitStep> implements Pa
     public TransitRouteLine() {
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     public TransitRouteLine(Parcel parcel) {
         super(parcel);
-        this.b = (TaxiInfo) parcel.readParcelable(TaxiInfo.class.getClassLoader());
+        this.f7313b = (TaxiInfo) parcel.readParcelable(TaxiInfo.class.getClassLoader());
     }
 
     @Override // com.baidu.mapapi.search.core.RouteLine, android.os.Parcelable
@@ -132,17 +143,17 @@ public final class TransitRouteLine extends RouteLine<TransitStep> implements Pa
 
     @Deprecated
     public TaxiInfo getTaxitInfo() {
-        return this.b;
+        return this.f7313b;
     }
 
     public void setTaxitInfo(TaxiInfo taxiInfo) {
-        this.b = taxiInfo;
+        this.f7313b = taxiInfo;
     }
 
     @Override // com.baidu.mapapi.search.core.RouteLine, android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
         super.setType(RouteLine.TYPE.TRANSITSTEP);
         super.writeToParcel(parcel, i);
-        parcel.writeParcelable(this.b, 1);
+        parcel.writeParcelable(this.f7313b, 1);
     }
 }

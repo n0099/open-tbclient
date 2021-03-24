@@ -1,19 +1,19 @@
 package com.baidu.tieba.frs.game.strategy.message;
 
 import com.baidu.adp.framework.message.NetMessage;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
-import com.baidu.tbadk.util.v;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import d.b.h0.z0.w;
 import tbclient.GameForumGuideTab.DataReq;
 import tbclient.GameForumGuideTab.GameForumGuideTabReqIdl;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class FrsGameStrategyRequestMessage extends NetMessage {
-    private long mFid;
-    private int mLabelId;
-    private int mPn;
-    private int mTabId;
+    public long mFid;
+    public int mLabelId;
+    public int mPn;
+    public int mTabId;
 
     public FrsGameStrategyRequestMessage(long j, int i, int i2, int i3) {
-        super(1003362, CmdConfigSocket.CMD_FRS_GAME_STRATEGY);
+        super(CmdConfigHttp.CMD_FRS_GAME_STRATEGY, 309478);
         this.mPn = 0;
         this.mFid = j;
         this.mPn = i;
@@ -22,7 +22,7 @@ public class FrsGameStrategyRequestMessage extends NetMessage {
     }
 
     @Override // com.baidu.adp.framework.message.NetMessage
-    protected Object encode(boolean z) {
+    public Object encode(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
         builder.forum_id = Long.valueOf(this.mFid);
         builder.need_tab_stuct = Integer.valueOf((this.mTabId == 0 && this.mLabelId == 0) ? 1 : 0);
@@ -30,7 +30,7 @@ public class FrsGameStrategyRequestMessage extends NetMessage {
         builder.sub_label_id = Integer.valueOf(this.mLabelId);
         builder.pn = Integer.valueOf(this.mPn);
         if (z) {
-            v.b(builder, true);
+            w.a(builder, true);
         }
         GameForumGuideTabReqIdl.Builder builder2 = new GameForumGuideTabReqIdl.Builder();
         builder2.data = builder.build(false);

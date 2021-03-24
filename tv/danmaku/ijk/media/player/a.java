@@ -2,43 +2,57 @@ package tv.danmaku.ijk.media.player;
 
 import tv.danmaku.ijk.media.player.b;
 import tv.danmaku.ijk.media.player.misc.IMediaDataSource;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public abstract class a implements b {
 
     /* renamed from: a  reason: collision with root package name */
-    private b.f f8985a;
-    private b.InterfaceC1311b b;
-    private b.a c;
-    private b.g d;
-    private b.i e;
-    private b.c f;
-    private b.d g;
-    private b.h h;
-    private b.e i;
+    public b.f f68670a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public b.InterfaceC1897b f68671b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public b.a f68672c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public b.g f68673d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public b.i f68674e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public b.c f68675f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public b.d f68676g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public b.h f68677h;
+    public b.e i;
 
     public void a() {
-        this.f8985a = null;
-        this.c = null;
-        this.b = null;
-        this.d = null;
-        this.e = null;
-        this.f = null;
-        this.g = null;
-        this.h = null;
+        this.f68670a = null;
+        this.f68672c = null;
+        this.f68671b = null;
+        this.f68673d = null;
+        this.f68674e = null;
+        this.f68675f = null;
+        this.f68676g = null;
+        this.f68677h = null;
         this.i = null;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     public final void a(int i) {
-        if (this.c != null) {
-            this.c.a(this, i);
+        b.a aVar = this.f68672c;
+        if (aVar != null) {
+            aVar.a(this, i);
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     public final void a(int i, int i2, int i3, int i4) {
-        if (this.e != null) {
-            this.e.a(this, i, i2, i3, i4);
+        b.i iVar = this.f68674e;
+        if (iVar != null) {
+            iVar.a(this, i, i2, i3, i4);
         }
     }
 
@@ -46,19 +60,19 @@ public abstract class a implements b {
     }
 
     public final void a(b.a aVar) {
-        this.c = aVar;
+        this.f68672c = aVar;
     }
 
-    public final void a(b.InterfaceC1311b interfaceC1311b) {
-        this.b = interfaceC1311b;
+    public final void a(b.InterfaceC1897b interfaceC1897b) {
+        this.f68671b = interfaceC1897b;
     }
 
     public final void a(b.c cVar) {
-        this.f = cVar;
+        this.f68675f = cVar;
     }
 
     public final void a(b.d dVar) {
-        this.g = dVar;
+        this.f68676g = dVar;
     }
 
     public final void a(b.e eVar) {
@@ -66,57 +80,57 @@ public abstract class a implements b {
     }
 
     public final void a(b.f fVar) {
-        this.f8985a = fVar;
+        this.f68670a = fVar;
     }
 
     public final void a(b.g gVar) {
-        this.d = gVar;
+        this.f68673d = gVar;
     }
 
     public final void a(b.i iVar) {
-        this.e = iVar;
+        this.f68674e = iVar;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     public final void a(c cVar) {
-        if (this.h != null) {
-            this.h.a(this, cVar);
+        b.h hVar = this.f68677h;
+        if (hVar != null) {
+            hVar.a(this, cVar);
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     public final boolean a(int i, int i2, Object obj) {
-        return this.f != null && this.f.a(this, i, i2, obj);
+        b.c cVar = this.f68675f;
+        return cVar != null && cVar.a(this, i, i2, obj);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     public final void b() {
-        if (this.f8985a != null) {
-            this.f8985a.a(this);
+        b.f fVar = this.f68670a;
+        if (fVar != null) {
+            fVar.a(this);
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     public final boolean b(int i, int i2, Object obj) {
-        return this.g != null && this.g.b(this, i, i2, obj);
+        b.d dVar = this.f68676g;
+        return dVar != null && dVar.b(this, i, i2, obj);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     public final void c() {
-        if (this.b != null) {
-            this.b.b(this);
+        b.InterfaceC1897b interfaceC1897b = this.f68671b;
+        if (interfaceC1897b != null) {
+            interfaceC1897b.b(this);
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     public final boolean c(int i, int i2, Object obj) {
-        return this.i != null && this.i.c(this, i, i2, obj);
+        b.e eVar = this.i;
+        return eVar != null && eVar.c(this, i, i2, obj);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     public final void d() {
-        if (this.d != null) {
-            this.d.c(this);
+        b.g gVar = this.f68673d;
+        if (gVar != null) {
+            gVar.c(this);
         }
     }
 

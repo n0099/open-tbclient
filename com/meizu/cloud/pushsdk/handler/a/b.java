@@ -6,7 +6,7 @@ import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.meizu.cloud.pushsdk.handler.MessageV3;
 import com.meizu.cloud.pushsdk.handler.MzPushMessage;
 import com.meizu.cloud.pushsdk.notification.MPushMessage;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class b extends c {
     public b(Context context, com.meizu.cloud.pushsdk.handler.a aVar) {
         super(context, aVar);
@@ -18,7 +18,6 @@ public class b extends c {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
     /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.meizu.cloud.pushsdk.handler.a.c, com.meizu.cloud.pushsdk.handler.a.a
     public void a(MessageV3 messageV3, com.meizu.cloud.pushsdk.notification.c cVar) {
@@ -30,12 +29,11 @@ public class b extends c {
 
     @Override // com.meizu.cloud.pushsdk.handler.a.c, com.meizu.cloud.pushsdk.handler.c
     public boolean a(Intent intent) {
-        com.meizu.cloud.a.a.i("AbstractMessageHandler", "start MessageV2Handler match");
+        d.j.a.a.a.d("AbstractMessageHandler", "start MessageV2Handler match");
         return a(0, g(intent)) && PushConstants.MZ_PUSH_ON_MESSAGE_ACTION.equals(intent.getAction()) && PushConstants.MZ_PUSH_MESSAGE_METHOD_ACTION_NOTIFICATION_SHOW.equals(i(intent));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.meizu.cloud.pushsdk.handler.a.c, com.meizu.cloud.pushsdk.handler.a.a
     /* renamed from: d */
     public void b(MessageV3 messageV3) {
@@ -43,7 +41,6 @@ public class b extends c {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.meizu.cloud.pushsdk.handler.a.c, com.meizu.cloud.pushsdk.handler.a.a
     /* renamed from: e */
     public void c(MessageV3 messageV3) {
@@ -51,7 +48,6 @@ public class b extends c {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.meizu.cloud.pushsdk.handler.a.c, com.meizu.cloud.pushsdk.handler.a.a
     /* renamed from: j */
     public MessageV3 c(Intent intent) {

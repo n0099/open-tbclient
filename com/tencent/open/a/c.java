@@ -1,19 +1,32 @@
 package com.tencent.open.a;
 
-import com.baidu.live.adp.lib.stats.BdStatsConstant;
 import java.io.File;
-/* loaded from: classes14.dex */
+/* loaded from: classes7.dex */
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f7952a = 62;
-    public static int b = 60;
-    public static String c = "OpenSDK.Client.File.Tracer";
-    public static String d = "Tencent" + File.separator + "msflogs" + File.separator + "com" + File.separator + "tencent" + File.separator + "mobileqq" + File.separator;
-    public static String e = BdStatsConstant.StatsFile.LOG_FILE_SUFFIX;
-    public static long f = 8388608;
-    public static int g = 262144;
-    public static int h = 1024;
+    public static int f39199a = 62;
+
+    /* renamed from: b  reason: collision with root package name */
+    public static int f39200b = 60;
+
+    /* renamed from: c  reason: collision with root package name */
+    public static String f39201c = "OpenSDK.Client.File.Tracer";
+
+    /* renamed from: d  reason: collision with root package name */
+    public static String f39202d = "Tencent" + File.separator + "msflogs" + File.separator + "com" + File.separator + "tencent" + File.separator + "mobileqq" + File.separator;
+
+    /* renamed from: e  reason: collision with root package name */
+    public static String f39203e = ".log";
+
+    /* renamed from: f  reason: collision with root package name */
+    public static long f39204f = 8388608;
+
+    /* renamed from: g  reason: collision with root package name */
+    public static int f39205g = 262144;
+
+    /* renamed from: h  reason: collision with root package name */
+    public static int f39206h = 1024;
     public static int i = 10000;
     public static String j = "debug.file.blockcount";
     public static String k = "debug.file.keepperiod";

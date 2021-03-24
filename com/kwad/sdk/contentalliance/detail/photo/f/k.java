@@ -5,57 +5,63 @@ import com.kwad.sdk.R;
 import com.kwad.sdk.contentalliance.detail.photo.d.e;
 import com.kwad.sdk.contentalliance.home.viewpager.SlidePlayViewPager;
 import com.kwad.sdk.utils.p;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class k extends a<e> {
-    private SlidePlayViewPager d;
-    private com.kwad.sdk.contentalliance.detail.photo.d.e e;
+
+    /* renamed from: d  reason: collision with root package name */
+    public SlidePlayViewPager f32386d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public com.kwad.sdk.contentalliance.detail.photo.d.e f32387e;
 
     private void h() {
-        if (this.e != null) {
-            this.e.dismiss();
+        com.kwad.sdk.contentalliance.detail.photo.d.e eVar = this.f32387e;
+        if (eVar != null) {
+            eVar.dismiss();
         }
-        if (this.d != null) {
-            this.d.a(true, 2);
+        SlidePlayViewPager slidePlayViewPager = this.f32386d;
+        if (slidePlayViewPager != null) {
+            slidePlayViewPager.a(true, 2);
         }
     }
 
     private void p() {
-        com.kwad.sdk.contentalliance.detail.photo.d.d dVar = new com.kwad.sdk.contentalliance.detail.photo.d.d(this.f5594a.j, this.f5594a.i);
-        if (this.e == null || !this.e.isShowing()) {
-            this.e = new com.kwad.sdk.contentalliance.detail.photo.d.e(o(), dVar);
-            this.e.a(new e.a() { // from class: com.kwad.sdk.contentalliance.detail.photo.f.k.1
+        com.kwad.sdk.contentalliance.detail.c cVar = ((com.kwad.sdk.contentalliance.detail.b) this).f32132a;
+        com.kwad.sdk.contentalliance.detail.photo.d.d dVar = new com.kwad.sdk.contentalliance.detail.photo.d.d(cVar.j, cVar.i);
+        com.kwad.sdk.contentalliance.detail.photo.d.e eVar = this.f32387e;
+        if (eVar == null || !eVar.isShowing()) {
+            com.kwad.sdk.contentalliance.detail.photo.d.e eVar2 = new com.kwad.sdk.contentalliance.detail.photo.d.e(o(), dVar);
+            this.f32387e = eVar2;
+            eVar2.a(new e.a() { // from class: com.kwad.sdk.contentalliance.detail.photo.f.k.1
                 @Override // com.kwad.sdk.contentalliance.detail.photo.d.e.a
                 public void a() {
-                    k.this.f5594a.n = true;
-                    k.this.d.a(false, 3);
+                    ((com.kwad.sdk.contentalliance.detail.b) k.this).f32132a.n = true;
+                    k.this.f32386d.a(false, 3);
                 }
 
                 @Override // com.kwad.sdk.contentalliance.detail.photo.d.e.a
                 public void b() {
-                    k.this.f5594a.n = false;
-                    k.this.d.a(true, 3);
+                    ((com.kwad.sdk.contentalliance.detail.b) k.this).f32132a.n = false;
+                    k.this.f32386d.a(true, 3);
                 }
             });
-            this.e.show();
+            this.f32387e.show();
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.contentalliance.detail.photo.f.a, com.kwad.sdk.contentalliance.detail.b, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        ((e) this.b).setOnClickListener(this);
-        this.d = this.f5594a.l;
+        ((e) ((a) this).f32358b).setOnClickListener(this);
+        this.f32386d = ((com.kwad.sdk.contentalliance.detail.b) this).f32132a.l;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.mvp.Presenter
     public void b_() {
         super.b_();
         h();
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.mvp.Presenter
     public void d() {
         super.d();
@@ -71,11 +77,11 @@ public class k extends a<e> {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (com.kwad.sdk.core.response.b.c.c(this.f5594a.j)) {
+        if (com.kwad.sdk.core.response.b.c.c(((com.kwad.sdk.contentalliance.detail.b) this).f32132a.j)) {
             p.a(view.getContext(), view.getContext().getString(R.string.ksad_ad_function_disable));
         } else {
             p();
         }
-        com.kwad.sdk.core.report.e.c(this.f5594a.j);
+        com.kwad.sdk.core.report.e.c(((com.kwad.sdk.contentalliance.detail.b) this).f32132a.j);
     }
 }

@@ -7,20 +7,22 @@ import android.content.pm.ResolveInfo;
 import android.os.Bundle;
 import android.view.Window;
 import android.view.WindowManager;
+import com.baidu.wallet.paysdk.beans.PayBeanFactory;
 import com.vivo.push.util.p;
 import com.vivo.push.util.z;
 import java.util.List;
-/* loaded from: classes14.dex */
+/* loaded from: classes7.dex */
 public class LinkProxyActivity extends Activity {
-    /* JADX WARN: Removed duplicated region for block: B:37:0x00e3 A[Catch: Exception -> 0x00e7, TRY_LEAVE, TryCatch #2 {Exception -> 0x00e7, blocks: (B:25:0x00b7, B:27:0x00bd, B:29:0x00cc, B:31:0x00d2, B:33:0x00da, B:42:0x00f5, B:44:0x00fd, B:46:0x0101, B:37:0x00e3, B:50:0x010b), top: B:57:0x00b7 }] */
-    /* JADX WARN: Removed duplicated region for block: B:50:0x010b A[Catch: Exception -> 0x00e7, TRY_LEAVE, TryCatch #2 {Exception -> 0x00e7, blocks: (B:25:0x00b7, B:27:0x00bd, B:29:0x00cc, B:31:0x00d2, B:33:0x00da, B:42:0x00f5, B:44:0x00fd, B:46:0x0101, B:37:0x00e3, B:50:0x010b), top: B:57:0x00b7 }] */
+    /* JADX WARN: Removed duplicated region for block: B:45:0x00d2 A[Catch: Exception -> 0x00e8, TryCatch #2 {Exception -> 0x00e8, blocks: (B:25:0x0095, B:27:0x009b, B:29:0x00a7, B:31:0x00ad, B:33:0x00b5, B:36:0x00bc, B:38:0x00c4, B:40:0x00c8, B:45:0x00d2, B:46:0x00d6), top: B:57:0x0095 }] */
+    /* JADX WARN: Removed duplicated region for block: B:46:0x00d6 A[Catch: Exception -> 0x00e8, TRY_LEAVE, TryCatch #2 {Exception -> 0x00e8, blocks: (B:25:0x0095, B:27:0x009b, B:29:0x00a7, B:31:0x00ad, B:33:0x00b5, B:36:0x00bc, B:38:0x00c4, B:40:0x00c8, B:45:0x00d2, B:46:0x00d6), top: B:57:0x0095 }] */
     @Override // android.app.Activity
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    protected void onCreate(Bundle bundle) {
-        boolean z;
+    public void onCreate(Bundle bundle) {
         PackageManager packageManager;
+        List<ResolveInfo> queryIntentServices;
+        ResolveInfo resolveInfo;
         super.onCreate(bundle);
         Intent intent = getIntent();
         if (intent == null) {
@@ -28,6 +30,7 @@ public class LinkProxyActivity extends Activity {
             finish();
             return;
         }
+        boolean z = true;
         try {
             Window window = getWindow();
             window.setGravity(8388659);
@@ -56,23 +59,14 @@ public class LinkProxyActivity extends Activity {
                         z.a(this, intent2);
                     }
                 }
-            } catch (Exception e) {
-                p.a("LinkProxyActivity", e.toString(), e);
+            } catch (Exception e2) {
+                p.a("LinkProxyActivity", e2.toString(), e2);
             }
         } else {
             try {
                 if (intent.getExtras() != null) {
                     Intent intent3 = (Intent) intent.getExtras().get("previous_intent");
-                    if (intent3 != null && (packageManager = getPackageManager()) != null) {
-                        List<ResolveInfo> queryIntentServices = packageManager.queryIntentServices(intent3, 576);
-                        if (queryIntentServices == null || queryIntentServices.isEmpty()) {
-                            z = false;
-                        } else {
-                            ResolveInfo resolveInfo = queryIntentServices.get(0);
-                            if (resolveInfo != null && resolveInfo.serviceInfo != null && resolveInfo.serviceInfo.exported) {
-                                z = true;
-                            }
-                        }
+                    if (intent3 != null && (packageManager = getPackageManager()) != null && (queryIntentServices = packageManager.queryIntentServices(intent3, PayBeanFactory.BEAN_ID_SAVE_SWITCH_PAYFREE)) != null && !queryIntentServices.isEmpty() && (resolveInfo = queryIntentServices.get(0)) != null && resolveInfo.serviceInfo != null && resolveInfo.serviceInfo.exported) {
                         if (!z) {
                             startService(intent3);
                         } else {
@@ -83,15 +77,15 @@ public class LinkProxyActivity extends Activity {
                     if (!z) {
                     }
                 }
-            } catch (Exception e2) {
-                p.a("LinkProxyActivity", e2.toString(), e2);
+            } catch (Exception e3) {
+                p.a("LinkProxyActivity", e3.toString(), e3);
             }
         }
         finish();
     }
 
     @Override // android.app.Activity
-    protected void onDestroy() {
+    public void onDestroy() {
         super.onDestroy();
         p.d("LinkProxyActivity", hashCode() + " onDestory " + getPackageName());
     }

@@ -5,56 +5,65 @@ import android.net.Uri;
 import android.webkit.WebView;
 import com.baidu.mobads.interfaces.event.IXAdEvent;
 import com.baidu.mobads.openad.interfaces.event.IOAdEventListener;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class BaiduHybridAdManager {
-    private com.baidu.mobads.production.c.a c;
-    private WebView d;
-    private BaiduHybridAdViewListener b = new d(this);
-    private boolean e = false;
+
+    /* renamed from: c  reason: collision with root package name */
+    public com.baidu.mobads.production.c.a f8116c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public WebView f8117d;
+
+    /* renamed from: b  reason: collision with root package name */
+    public BaiduHybridAdViewListener f8115b = new d(this);
+
+    /* renamed from: e  reason: collision with root package name */
+    public boolean f8118e = false;
 
     /* renamed from: a  reason: collision with root package name */
-    IOAdEventListener f2345a = new e(this);
-
-    public void setBaiduHybridAdViewListener(BaiduHybridAdViewListener baiduHybridAdViewListener) {
-        this.b = baiduHybridAdViewListener;
-    }
+    public IOAdEventListener f8114a = new e(this);
 
     public void injectJavaScriptBridge(WebView webView) {
-        if (!this.e) {
-            this.d = webView;
-            this.c = new com.baidu.mobads.production.c.a(this.d);
-            this.c.addEventListener(IXAdEvent.AD_LOADED, this.f2345a);
-            this.c.addEventListener(IXAdEvent.AD_ERROR, this.f2345a);
-            this.c.addEventListener(IXAdEvent.AD_STARTED, this.f2345a);
-            this.c.addEventListener("AdUserClick", this.f2345a);
-            this.c.addEventListener(IXAdEvent.AD_USER_CLOSE, this.f2345a);
-            this.c.request();
+        if (this.f8118e) {
+            return;
         }
+        this.f8117d = webView;
+        com.baidu.mobads.production.c.a aVar = new com.baidu.mobads.production.c.a(this.f8117d);
+        this.f8116c = aVar;
+        aVar.addEventListener(IXAdEvent.AD_LOADED, this.f8114a);
+        this.f8116c.addEventListener(IXAdEvent.AD_ERROR, this.f8114a);
+        this.f8116c.addEventListener(IXAdEvent.AD_STARTED, this.f8114a);
+        this.f8116c.addEventListener("AdUserClick", this.f8114a);
+        this.f8116c.addEventListener(IXAdEvent.AD_USER_CLOSE, this.f8114a);
+        this.f8116c.request();
     }
 
     public void onPageStarted(WebView webView, String str, Bitmap bitmap) {
-        this.e = false;
-    }
-
-    public boolean shouldOverrideUrlLoading(WebView webView, String str) {
-        Uri parse;
-        if (!this.e && this.c != null) {
-            this.c.a(webView, str);
-        }
-        try {
-            parse = Uri.parse(str);
-        } catch (Exception e) {
-            System.err.println(e);
-        }
-        if (!"mobadssdk".equals(parse.getScheme())) {
-            if (!"mobads".equals(parse.getScheme())) {
-                return false;
-            }
-        }
-        return true;
+        this.f8118e = false;
     }
 
     public void onReceivedError(WebView webView, int i, String str, String str2) {
-        this.e = true;
+        this.f8118e = true;
+    }
+
+    public void setBaiduHybridAdViewListener(BaiduHybridAdViewListener baiduHybridAdViewListener) {
+        this.f8115b = baiduHybridAdViewListener;
+    }
+
+    public boolean shouldOverrideUrlLoading(WebView webView, String str) {
+        com.baidu.mobads.production.c.a aVar;
+        if (!this.f8118e && (aVar = this.f8116c) != null) {
+            aVar.a(webView, str);
+        }
+        try {
+            Uri parse = Uri.parse(str);
+            if ("mobadssdk".equals(parse.getScheme())) {
+                return true;
+            }
+            return "mobads".equals(parse.getScheme());
+        } catch (Exception e2) {
+            System.err.println(e2);
+            return false;
+        }
     }
 }

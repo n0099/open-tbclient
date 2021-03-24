@@ -9,73 +9,43 @@ import androidx.annotation.Nullable;
 import java.io.ByteArrayOutputStream;
 /* loaded from: classes6.dex */
 public class f {
-    /*  JADX ERROR: JadxRuntimeException in pass: BlockProcessor
-        jadx.core.utils.exceptions.JadxRuntimeException: Found unreachable blocks
-        	at jadx.core.dex.visitors.blocks.DominatorTree.sortBlocks(DominatorTree.java:35)
-        	at jadx.core.dex.visitors.blocks.DominatorTree.compute(DominatorTree.java:25)
-        	at jadx.core.dex.visitors.blocks.BlockProcessor.computeDominators(BlockProcessor.java:202)
-        	at jadx.core.dex.visitors.blocks.BlockProcessor.processBlocksTree(BlockProcessor.java:45)
-        	at jadx.core.dex.visitors.blocks.BlockProcessor.visit(BlockProcessor.java:39)
-        */
-    @androidx.annotation.Nullable
-    public static java.lang.String a(android.graphics.Bitmap r4) {
-        /*
-            r0 = 0
-            if (r4 != 0) goto L4
-        L3:
-            return r0
-        L4:
-            java.io.ByteArrayOutputStream r1 = new java.io.ByteArrayOutputStream     // Catch: java.lang.Throwable -> L2a
-            r1.<init>()     // Catch: java.lang.Throwable -> L2a
-            android.graphics.Bitmap$CompressFormat r2 = android.graphics.Bitmap.CompressFormat.PNG     // Catch: java.lang.Throwable -> L49
-            r3 = 100
-            r4.compress(r2, r3, r1)     // Catch: java.lang.Throwable -> L49
-            r1.flush()     // Catch: java.lang.Throwable -> L49
-            r1.close()     // Catch: java.lang.Throwable -> L49
-            byte[] r2 = r1.toByteArray()     // Catch: java.lang.Throwable -> L49
-            r3 = 0
-            java.lang.String r0 = android.util.Base64.encodeToString(r2, r3)     // Catch: java.lang.Throwable -> L49
-            if (r1 == 0) goto L3
-            r1.flush()     // Catch: java.lang.Throwable -> L28
-            r1.close()     // Catch: java.lang.Throwable -> L28
-            goto L3
-        L28:
-            r1 = move-exception
-            goto L3
-        L2a:
-            r1 = move-exception
-            r1 = r0
-        L2c:
-            if (r1 == 0) goto L3
-            r1.flush()     // Catch: java.lang.Throwable -> L35
-            r1.close()     // Catch: java.lang.Throwable -> L35
-            goto L3
-        L35:
-            r1 = move-exception
-            goto L3
-        L37:
-            r1 = move-exception
-            r2 = r1
-            r3 = r0
-        L3a:
-            if (r3 == 0) goto L42
-            r3.flush()     // Catch: java.lang.Throwable -> L43
-            r3.close()     // Catch: java.lang.Throwable -> L43
-        L42:
-            throw r2
-        L43:
-            r0 = move-exception
-            goto L42
-        L45:
-            r0 = move-exception
-            r2 = r0
-            r3 = r1
-            goto L3a
-        L49:
-            r2 = move-exception
-            goto L2c
-        */
-        throw new UnsupportedOperationException("Method not decompiled: com.bytedance.sdk.openadsdk.utils.f.a(android.graphics.Bitmap):java.lang.String");
+    /* JADX WARN: Code restructure failed: missing block: B:10:0x0027, code lost:
+        if (r1 == null) goto L15;
+     */
+    @Nullable
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static String a(Bitmap bitmap) {
+        ByteArrayOutputStream byteArrayOutputStream;
+        String str = null;
+        if (bitmap == null) {
+            return null;
+        }
+        try {
+            byteArrayOutputStream = new ByteArrayOutputStream();
+            try {
+                bitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
+                byteArrayOutputStream.flush();
+                byteArrayOutputStream.close();
+                str = Base64.encodeToString(byteArrayOutputStream.toByteArray(), 0);
+            } catch (Throwable unused) {
+            }
+        } catch (Throwable unused2) {
+            byteArrayOutputStream = null;
+        }
+        try {
+            byteArrayOutputStream.flush();
+            byteArrayOutputStream.close();
+        } catch (Throwable unused3) {
+            return str;
+        }
+    }
+
+    public static byte[] b(Bitmap bitmap) {
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream(bitmap.getByteCount());
+        bitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
+        return byteArrayOutputStream.toByteArray();
     }
 
     @Nullable
@@ -86,36 +56,30 @@ public class f {
         try {
             byte[] decode = Base64.decode(str, 0);
             return BitmapFactory.decodeByteArray(decode, 0, decode.length);
-        } catch (Throwable th) {
+        } catch (Throwable unused) {
             return null;
         }
-    }
-
-    public static byte[] b(Bitmap bitmap) {
-        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream(bitmap.getByteCount());
-        bitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
-        return byteArrayOutputStream.toByteArray();
     }
 
     public static Bitmap a(Bitmap bitmap, int i, int i2) {
         if (bitmap == null) {
             return null;
         }
-        if (i > 0 && i2 > 0) {
-            try {
-                int width = bitmap.getWidth();
-                int height = bitmap.getHeight();
-                if (i < width && i2 < height) {
-                    Matrix matrix = new Matrix();
-                    matrix.postScale(i / width, i2 / height);
-                    return Bitmap.createBitmap(bitmap, 0, 0, width, height, matrix, true);
-                }
-                return bitmap;
-            } catch (Throwable th) {
-                u.a(th.getMessage());
-                return null;
-            }
+        if (i <= 0 || i2 <= 0) {
+            return bitmap;
         }
-        return bitmap;
+        try {
+            int width = bitmap.getWidth();
+            int height = bitmap.getHeight();
+            if (i < width && i2 < height) {
+                Matrix matrix = new Matrix();
+                matrix.postScale(i / width, i2 / height);
+                return Bitmap.createBitmap(bitmap, 0, 0, width, height, matrix, true);
+            }
+            return bitmap;
+        } catch (Throwable th) {
+            u.a(th.getMessage());
+            return null;
+        }
     }
 }

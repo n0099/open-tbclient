@@ -5,9 +5,9 @@ import com.kwad.sdk.core.b.e;
 import com.kwad.sdk.core.network.BaseResultData;
 import com.kwad.sdk.utils.o;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class BatchReportResult extends BaseResultData implements com.kwad.sdk.core.b {
-    private long interval;
+    public long interval;
 
     public String getErrorMsg() {
         return this.errorMsg;

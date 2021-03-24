@@ -1,8 +1,15 @@
 package kotlin.text;
 
+import java.util.Map;
+import kotlin.Lazy;
+import kotlin.LazyKt__LazyJVMKt;
+import kotlin.Metadata;
+import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.PropertyReference1Impl;
-@kotlin.e
-/* loaded from: classes14.dex */
+import kotlin.jvm.internal.Reflection;
+import kotlin.reflect.KProperty;
+@Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0010\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\b\n\u0002\b\u001c\b\u0086\u0001\u0018\u0000 \t2\u00020\u0001:\u0001\tB\u0011\b\u0002\u0012\u0006\u0010\u0003\u001a\u00020\u0002¢\u0006\u0004\b\u0007\u0010\bR\u0019\u0010\u0003\u001a\u00020\u00028\u0006@\u0006¢\u0006\f\n\u0004\b\u0003\u0010\u0004\u001a\u0004\b\u0005\u0010\u0006j\u0002\b\nj\u0002\b\u000bj\u0002\b\fj\u0002\b\rj\u0002\b\u000ej\u0002\b\u000fj\u0002\b\u0010j\u0002\b\u0011j\u0002\b\u0012j\u0002\b\u0013j\u0002\b\u0014j\u0002\b\u0015j\u0002\b\u0016j\u0002\b\u0017j\u0002\b\u0018j\u0002\b\u0019j\u0002\b\u001aj\u0002\b\u001bj\u0002\b\u001cj\u0002\b\u001d¨\u0006\u001e"}, d2 = {"Lkotlin/text/CharDirectionality;", "Ljava/lang/Enum;", "", "value", "I", "getValue", "()I", "<init>", "(Ljava/lang/String;II)V", "Companion", "UNDEFINED", "LEFT_TO_RIGHT", "RIGHT_TO_LEFT", "RIGHT_TO_LEFT_ARABIC", "EUROPEAN_NUMBER", "EUROPEAN_NUMBER_SEPARATOR", "EUROPEAN_NUMBER_TERMINATOR", "ARABIC_NUMBER", "COMMON_NUMBER_SEPARATOR", "NONSPACING_MARK", "BOUNDARY_NEUTRAL", "PARAGRAPH_SEPARATOR", "SEGMENT_SEPARATOR", "WHITESPACE", "OTHER_NEUTRALS", "LEFT_TO_RIGHT_EMBEDDING", "LEFT_TO_RIGHT_OVERRIDE", "RIGHT_TO_LEFT_EMBEDDING", "RIGHT_TO_LEFT_OVERRIDE", "POP_DIRECTIONAL_FORMAT", "kotlin-stdlib"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+/* loaded from: classes7.dex */
 public enum CharDirectionality {
     UNDEFINED(-1),
     LEFT_TO_RIGHT(0),
@@ -25,9 +32,37 @@ public enum CharDirectionality {
     RIGHT_TO_LEFT_OVERRIDE(17),
     POP_DIRECTIONAL_FORMAT(18);
     
-    private final int value;
-    public static final a Companion = new a(null);
-    private static final kotlin.c directionalityMap$delegate = kotlin.d.b(CharDirectionality$Companion$directionalityMap$2.INSTANCE);
+    public final int value;
+    public static final Companion Companion = new Companion(null);
+    public static final Lazy directionalityMap$delegate = LazyKt__LazyJVMKt.lazy(CharDirectionality$Companion$directionalityMap$2.INSTANCE);
+
+    @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u001a\n\u0002\u0018\u0002\n\u0002\u0010\b\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010$\n\u0002\b\b\b\u0086\u0003\u0018\u0000B\t\b\u0002¢\u0006\u0004\b\f\u0010\rJ\u0015\u0010\u0004\u001a\u00020\u00032\u0006\u0010\u0002\u001a\u00020\u0001¢\u0006\u0004\b\u0004\u0010\u0005R)\u0010\u000b\u001a\u000e\u0012\u0004\u0012\u00020\u0001\u0012\u0004\u0012\u00020\u00030\u00068B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\b\u0007\u0010\b\u001a\u0004\b\t\u0010\n¨\u0006\u000e"}, d2 = {"Lkotlin/text/CharDirectionality$Companion;", "", "directionality", "Lkotlin/text/CharDirectionality;", "valueOf", "(I)Lkotlin/text/CharDirectionality;", "", "directionalityMap$delegate", "Lkotlin/Lazy;", "getDirectionalityMap", "()Ljava/util/Map;", "directionalityMap", "<init>", "()V", "kotlin-stdlib"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+    /* loaded from: classes7.dex */
+    public static final class Companion {
+        public static final /* synthetic */ KProperty[] $$delegatedProperties = {Reflection.property1(new PropertyReference1Impl(Reflection.getOrCreateKotlinClass(Companion.class), "directionalityMap", "getDirectionalityMap()Ljava/util/Map;"))};
+
+        public Companion() {
+        }
+
+        private final Map<Integer, CharDirectionality> getDirectionalityMap() {
+            Lazy lazy = CharDirectionality.directionalityMap$delegate;
+            Companion companion = CharDirectionality.Companion;
+            KProperty kProperty = $$delegatedProperties[0];
+            return (Map) lazy.getValue();
+        }
+
+        public final CharDirectionality valueOf(int i) {
+            CharDirectionality charDirectionality = getDirectionalityMap().get(Integer.valueOf(i));
+            if (charDirectionality != null) {
+                return charDirectionality;
+            }
+            throw new IllegalArgumentException("Directionality #" + i + " is not defined.");
+        }
+
+        public /* synthetic */ Companion(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
+    }
 
     CharDirectionality(int i) {
         this.value = i;
@@ -35,18 +70,5 @@ public enum CharDirectionality {
 
     public final int getValue() {
         return this.value;
-    }
-
-    @kotlin.e
-    /* loaded from: classes14.dex */
-    public static final class a {
-        static final /* synthetic */ kotlin.reflect.j[] $$delegatedProperties = {kotlin.jvm.internal.s.a(new PropertyReference1Impl(kotlin.jvm.internal.s.G(a.class), "directionalityMap", "getDirectionalityMap()Ljava/util/Map;"))};
-
-        private a() {
-        }
-
-        public /* synthetic */ a(kotlin.jvm.internal.o oVar) {
-            this();
-        }
     }
 }

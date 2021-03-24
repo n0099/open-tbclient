@@ -4,6 +4,7 @@ import android.os.Build;
 import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.core.util.Pools;
+import com.baidu.android.common.others.lang.StringUtil;
 import com.bumptech.glide.GlideContext;
 import com.bumptech.glide.Priority;
 import com.bumptech.glide.Registry;
@@ -26,43 +27,99 @@ import com.bumptech.glide.util.pool.StateVerifier;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes14.dex */
-class DecodeJob<R> implements DataFetcherGenerator.FetcherReadyCallback, FactoryPools.Poolable, Comparable<DecodeJob<?>>, Runnable {
-    private static final String TAG = "DecodeJob";
-    private Callback<R> callback;
-    private Key currentAttemptingKey;
-    private Object currentData;
-    private DataSource currentDataSource;
-    private DataFetcher<?> currentFetcher;
-    private volatile DataFetcherGenerator currentGenerator;
-    private Key currentSourceKey;
-    private Thread currentThread;
-    private final DiskCacheProvider diskCacheProvider;
-    private DiskCacheStrategy diskCacheStrategy;
-    private GlideContext glideContext;
-    private int height;
-    private volatile boolean isCallbackNotified;
-    private volatile boolean isCancelled;
-    private EngineKey loadKey;
-    private Object model;
-    private boolean onlyRetrieveFromCache;
-    private Options options;
-    private int order;
-    private final Pools.Pool<DecodeJob<?>> pool;
-    private Priority priority;
-    private RunReason runReason;
-    private Key signature;
-    private Stage stage;
-    private long startFetchTime;
-    private int width;
-    private final DecodeHelper<R> decodeHelper = new DecodeHelper<>();
-    private final List<Throwable> throwables = new ArrayList();
-    private final StateVerifier stateVerifier = StateVerifier.newInstance();
-    private final DeferredEncodeManager<?> deferredEncodeManager = new DeferredEncodeManager<>();
-    private final ReleaseManager releaseManager = new ReleaseManager();
+/* loaded from: classes5.dex */
+public class DecodeJob<R> implements DataFetcherGenerator.FetcherReadyCallback, Runnable, Comparable<DecodeJob<?>>, FactoryPools.Poolable {
+    public static final String TAG = "DecodeJob";
+    public Callback<R> callback;
+    public Key currentAttemptingKey;
+    public Object currentData;
+    public DataSource currentDataSource;
+    public DataFetcher<?> currentFetcher;
+    public volatile DataFetcherGenerator currentGenerator;
+    public Key currentSourceKey;
+    public Thread currentThread;
+    public final DiskCacheProvider diskCacheProvider;
+    public DiskCacheStrategy diskCacheStrategy;
+    public GlideContext glideContext;
+    public int height;
+    public volatile boolean isCallbackNotified;
+    public volatile boolean isCancelled;
+    public EngineKey loadKey;
+    public Object model;
+    public boolean onlyRetrieveFromCache;
+    public Options options;
+    public int order;
+    public final Pools.Pool<DecodeJob<?>> pool;
+    public Priority priority;
+    public RunReason runReason;
+    public Key signature;
+    public Stage stage;
+    public long startFetchTime;
+    public int width;
+    public final DecodeHelper<R> decodeHelper = new DecodeHelper<>();
+    public final List<Throwable> throwables = new ArrayList();
+    public final StateVerifier stateVerifier = StateVerifier.newInstance();
+    public final DeferredEncodeManager<?> deferredEncodeManager = new DeferredEncodeManager<>();
+    public final ReleaseManager releaseManager = new ReleaseManager();
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes14.dex */
+    /* renamed from: com.bumptech.glide.load.engine.DecodeJob$1  reason: invalid class name */
+    /* loaded from: classes5.dex */
+    public static /* synthetic */ class AnonymousClass1 {
+        public static final /* synthetic */ int[] $SwitchMap$com$bumptech$glide$load$EncodeStrategy;
+        public static final /* synthetic */ int[] $SwitchMap$com$bumptech$glide$load$engine$DecodeJob$RunReason;
+        public static final /* synthetic */ int[] $SwitchMap$com$bumptech$glide$load$engine$DecodeJob$Stage;
+
+        static {
+            int[] iArr = new int[EncodeStrategy.values().length];
+            $SwitchMap$com$bumptech$glide$load$EncodeStrategy = iArr;
+            try {
+                iArr[EncodeStrategy.SOURCE.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
+            }
+            try {
+                $SwitchMap$com$bumptech$glide$load$EncodeStrategy[EncodeStrategy.TRANSFORMED.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
+            }
+            int[] iArr2 = new int[Stage.values().length];
+            $SwitchMap$com$bumptech$glide$load$engine$DecodeJob$Stage = iArr2;
+            try {
+                iArr2[Stage.RESOURCE_CACHE.ordinal()] = 1;
+            } catch (NoSuchFieldError unused3) {
+            }
+            try {
+                $SwitchMap$com$bumptech$glide$load$engine$DecodeJob$Stage[Stage.DATA_CACHE.ordinal()] = 2;
+            } catch (NoSuchFieldError unused4) {
+            }
+            try {
+                $SwitchMap$com$bumptech$glide$load$engine$DecodeJob$Stage[Stage.SOURCE.ordinal()] = 3;
+            } catch (NoSuchFieldError unused5) {
+            }
+            try {
+                $SwitchMap$com$bumptech$glide$load$engine$DecodeJob$Stage[Stage.FINISHED.ordinal()] = 4;
+            } catch (NoSuchFieldError unused6) {
+            }
+            try {
+                $SwitchMap$com$bumptech$glide$load$engine$DecodeJob$Stage[Stage.INITIALIZE.ordinal()] = 5;
+            } catch (NoSuchFieldError unused7) {
+            }
+            int[] iArr3 = new int[RunReason.values().length];
+            $SwitchMap$com$bumptech$glide$load$engine$DecodeJob$RunReason = iArr3;
+            try {
+                iArr3[RunReason.INITIALIZE.ordinal()] = 1;
+            } catch (NoSuchFieldError unused8) {
+            }
+            try {
+                $SwitchMap$com$bumptech$glide$load$engine$DecodeJob$RunReason[RunReason.SWITCH_TO_SOURCE_SERVICE.ordinal()] = 2;
+            } catch (NoSuchFieldError unused9) {
+            }
+            try {
+                $SwitchMap$com$bumptech$glide$load$engine$DecodeJob$RunReason[RunReason.DECODE_DATA.ordinal()] = 3;
+            } catch (NoSuchFieldError unused10) {
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
     public interface Callback<R> {
         void onLoadFailed(GlideException glideException);
 
@@ -71,22 +128,102 @@ class DecodeJob<R> implements DataFetcherGenerator.FetcherReadyCallback, Factory
         void reschedule(DecodeJob<?> decodeJob);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
+    public final class DecodeCallback<Z> implements DecodePath.DecodeCallback<Z> {
+        public final DataSource dataSource;
+
+        public DecodeCallback(DataSource dataSource) {
+            this.dataSource = dataSource;
+        }
+
+        @Override // com.bumptech.glide.load.engine.DecodePath.DecodeCallback
+        @NonNull
+        public Resource<Z> onResourceDecoded(@NonNull Resource<Z> resource) {
+            return DecodeJob.this.onResourceDecoded(this.dataSource, resource);
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static class DeferredEncodeManager<Z> {
+        public ResourceEncoder<Z> encoder;
+        public Key key;
+        public LockedResource<Z> toEncode;
+
+        public void clear() {
+            this.key = null;
+            this.encoder = null;
+            this.toEncode = null;
+        }
+
+        public void encode(DiskCacheProvider diskCacheProvider, Options options) {
+            GlideTrace.beginSection("DecodeJob.encode");
+            try {
+                diskCacheProvider.getDiskCache().put(this.key, new DataCacheWriter(this.encoder, this.toEncode, options));
+            } finally {
+                this.toEncode.unlock();
+                GlideTrace.endSection();
+            }
+        }
+
+        public boolean hasResourceToEncode() {
+            return this.toEncode != null;
+        }
+
+        /* JADX DEBUG: Multi-variable search result rejected for r2v0, resolved type: com.bumptech.glide.load.ResourceEncoder<X> */
+        /* JADX DEBUG: Multi-variable search result rejected for r3v0, resolved type: com.bumptech.glide.load.engine.LockedResource<X> */
+        /* JADX WARN: Multi-variable type inference failed */
+        public <X> void init(Key key, ResourceEncoder<X> resourceEncoder, LockedResource<X> lockedResource) {
+            this.key = key;
+            this.encoder = resourceEncoder;
+            this.toEncode = lockedResource;
+        }
+    }
+
+    /* loaded from: classes5.dex */
     public interface DiskCacheProvider {
         DiskCache getDiskCache();
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
+    public static class ReleaseManager {
+        public boolean isEncodeComplete;
+        public boolean isFailed;
+        public boolean isReleased;
+
+        private boolean isComplete(boolean z) {
+            return (this.isFailed || z || this.isEncodeComplete) && this.isReleased;
+        }
+
+        public synchronized boolean onEncodeComplete() {
+            this.isEncodeComplete = true;
+            return isComplete(false);
+        }
+
+        public synchronized boolean onFailed() {
+            this.isFailed = true;
+            return isComplete(false);
+        }
+
+        public synchronized boolean release(boolean z) {
+            this.isReleased = true;
+            return isComplete(z);
+        }
+
+        public synchronized void reset() {
+            this.isEncodeComplete = false;
+            this.isReleased = false;
+            this.isFailed = false;
+        }
+    }
+
+    /* loaded from: classes5.dex */
     public enum RunReason {
         INITIALIZE,
         SWITCH_TO_SOURCE_SERVICE,
         DECODE_DATA
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes14.dex */
+    /* loaded from: classes5.dex */
     public enum Stage {
         INITIALIZE,
         RESOURCE_CACHE,
@@ -96,42 +233,151 @@ class DecodeJob<R> implements DataFetcherGenerator.FetcherReadyCallback, Factory
         FINISHED
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public DecodeJob(DiskCacheProvider diskCacheProvider, Pools.Pool<DecodeJob<?>> pool) {
         this.diskCacheProvider = diskCacheProvider;
         this.pool = pool;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public DecodeJob<R> init(GlideContext glideContext, Object obj, EngineKey engineKey, Key key, int i, int i2, Class<?> cls, Class<R> cls2, Priority priority, DiskCacheStrategy diskCacheStrategy, Map<Class<?>, Transformation<?>> map, boolean z, boolean z2, boolean z3, Options options, Callback<R> callback, int i3) {
-        this.decodeHelper.init(glideContext, obj, key, i, i2, diskCacheStrategy, cls, cls2, priority, options, map, z, z2, this.diskCacheProvider);
-        this.glideContext = glideContext;
-        this.signature = key;
-        this.priority = priority;
-        this.loadKey = engineKey;
-        this.width = i;
-        this.height = i2;
-        this.diskCacheStrategy = diskCacheStrategy;
-        this.onlyRetrieveFromCache = z3;
-        this.options = options;
-        this.callback = callback;
-        this.order = i3;
-        this.runReason = RunReason.INITIALIZE;
-        this.model = obj;
-        return this;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean willDecodeFromCache() {
-        Stage nextStage = getNextStage(Stage.INITIALIZE);
-        return nextStage == Stage.RESOURCE_CACHE || nextStage == Stage.DATA_CACHE;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void release(boolean z) {
-        if (this.releaseManager.release(z)) {
-            releaseInternal();
+    private <Data> Resource<R> decodeFromData(DataFetcher<?> dataFetcher, Data data, DataSource dataSource) throws GlideException {
+        if (data == null) {
+            return null;
         }
+        try {
+            long logTime = LogTime.getLogTime();
+            Resource<R> decodeFromFetcher = decodeFromFetcher(data, dataSource);
+            if (Log.isLoggable(TAG, 2)) {
+                logWithTimeAndKey("Decoded result " + decodeFromFetcher, logTime);
+            }
+            return decodeFromFetcher;
+        } finally {
+            dataFetcher.cleanup();
+        }
+    }
+
+    /* JADX DEBUG: Type inference failed for r0v1. Raw type applied. Possible types: com.bumptech.glide.load.engine.LoadPath<Data, ?, R>, com.bumptech.glide.load.engine.LoadPath<Data, ResourceType, R> */
+    private <Data> Resource<R> decodeFromFetcher(Data data, DataSource dataSource) throws GlideException {
+        return runLoadPath(data, dataSource, (LoadPath<Data, ?, R>) this.decodeHelper.getLoadPath(data.getClass()));
+    }
+
+    private void decodeFromRetrievedData() {
+        if (Log.isLoggable(TAG, 2)) {
+            long j = this.startFetchTime;
+            logWithTimeAndKey("Retrieved data", j, "data: " + this.currentData + ", cache key: " + this.currentSourceKey + ", fetcher: " + this.currentFetcher);
+        }
+        Resource<R> resource = null;
+        try {
+            resource = decodeFromData(this.currentFetcher, this.currentData, this.currentDataSource);
+        } catch (GlideException e2) {
+            e2.setLoggingDetails(this.currentAttemptingKey, this.currentDataSource);
+            this.throwables.add(e2);
+        }
+        if (resource != null) {
+            notifyEncodeAndRelease(resource, this.currentDataSource);
+        } else {
+            runGenerators();
+        }
+    }
+
+    private DataFetcherGenerator getNextGenerator() {
+        int i = AnonymousClass1.$SwitchMap$com$bumptech$glide$load$engine$DecodeJob$Stage[this.stage.ordinal()];
+        if (i != 1) {
+            if (i != 2) {
+                if (i != 3) {
+                    if (i == 4) {
+                        return null;
+                    }
+                    throw new IllegalStateException("Unrecognized stage: " + this.stage);
+                }
+                return new SourceGenerator(this.decodeHelper, this);
+            }
+            return new DataCacheGenerator(this.decodeHelper, this);
+        }
+        return new ResourceCacheGenerator(this.decodeHelper, this);
+    }
+
+    private Stage getNextStage(Stage stage) {
+        int i = AnonymousClass1.$SwitchMap$com$bumptech$glide$load$engine$DecodeJob$Stage[stage.ordinal()];
+        if (i == 1) {
+            if (this.diskCacheStrategy.decodeCachedData()) {
+                return Stage.DATA_CACHE;
+            }
+            return getNextStage(Stage.DATA_CACHE);
+        } else if (i == 2) {
+            return this.onlyRetrieveFromCache ? Stage.FINISHED : Stage.SOURCE;
+        } else if (i == 3 || i == 4) {
+            return Stage.FINISHED;
+        } else {
+            if (i == 5) {
+                if (this.diskCacheStrategy.decodeCachedResource()) {
+                    return Stage.RESOURCE_CACHE;
+                }
+                return getNextStage(Stage.RESOURCE_CACHE);
+            }
+            throw new IllegalArgumentException("Unrecognized stage: " + stage);
+        }
+    }
+
+    @NonNull
+    private Options getOptionsWithHardwareConfig(DataSource dataSource) {
+        Options options = this.options;
+        if (Build.VERSION.SDK_INT < 26) {
+            return options;
+        }
+        boolean z = dataSource == DataSource.RESOURCE_DISK_CACHE || this.decodeHelper.isScaleOnlyOrNoTransform();
+        Boolean bool = (Boolean) options.get(Downsampler.ALLOW_HARDWARE_CONFIG);
+        if (bool == null || (bool.booleanValue() && !z)) {
+            Options options2 = new Options();
+            options2.putAll(this.options);
+            options2.set(Downsampler.ALLOW_HARDWARE_CONFIG, Boolean.valueOf(z));
+            return options2;
+        }
+        return options;
+    }
+
+    private int getPriority() {
+        return this.priority.ordinal();
+    }
+
+    private void logWithTimeAndKey(String str, long j) {
+        logWithTimeAndKey(str, j, null);
+    }
+
+    private void notifyComplete(Resource<R> resource, DataSource dataSource) {
+        setNotifiedOrThrow();
+        this.callback.onResourceReady(resource, dataSource);
+    }
+
+    /* JADX DEBUG: Multi-variable search result rejected for r0v1, resolved type: com.bumptech.glide.load.engine.LockedResource */
+    /* JADX DEBUG: Multi-variable search result rejected for r0v2, resolved type: com.bumptech.glide.load.engine.LockedResource */
+    /* JADX DEBUG: Multi-variable search result rejected for r0v3, resolved type: com.bumptech.glide.load.engine.LockedResource */
+    /* JADX WARN: Multi-variable type inference failed */
+    private void notifyEncodeAndRelease(Resource<R> resource, DataSource dataSource) {
+        if (resource instanceof Initializable) {
+            ((Initializable) resource).initialize();
+        }
+        LockedResource lockedResource = 0;
+        if (this.deferredEncodeManager.hasResourceToEncode()) {
+            resource = LockedResource.obtain(resource);
+            lockedResource = resource;
+        }
+        notifyComplete(resource, dataSource);
+        this.stage = Stage.ENCODE;
+        try {
+            if (this.deferredEncodeManager.hasResourceToEncode()) {
+                this.deferredEncodeManager.encode(this.diskCacheProvider, this.options);
+            }
+            onEncodeComplete();
+        } finally {
+            if (lockedResource != 0) {
+                lockedResource.unlock();
+            }
+        }
+    }
+
+    private void notifyFailed() {
+        setNotifiedOrThrow();
+        this.callback.onLoadFailed(new GlideException("Failed to load resource", new ArrayList(this.throwables)));
+        onLoadFailed();
     }
 
     private void onEncodeComplete() {
@@ -171,88 +417,6 @@ class DecodeJob<R> implements DataFetcherGenerator.FetcherReadyCallback, Factory
         this.pool.release(this);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // java.lang.Comparable
-    public int compareTo(@NonNull DecodeJob<?> decodeJob) {
-        int priority = getPriority() - decodeJob.getPriority();
-        if (priority == 0) {
-            return this.order - decodeJob.order;
-        }
-        return priority;
-    }
-
-    private int getPriority() {
-        return this.priority.ordinal();
-    }
-
-    public void cancel() {
-        this.isCancelled = true;
-        DataFetcherGenerator dataFetcherGenerator = this.currentGenerator;
-        if (dataFetcherGenerator != null) {
-            dataFetcherGenerator.cancel();
-        }
-    }
-
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE, INVOKE, INVOKE] complete} */
-    @Override // java.lang.Runnable
-    public void run() {
-        GlideTrace.beginSectionFormat("DecodeJob#run(model=%s)", this.model);
-        DataFetcher<?> dataFetcher = this.currentFetcher;
-        try {
-            try {
-                if (this.isCancelled) {
-                    notifyFailed();
-                    return;
-                }
-                runWrapped();
-                if (dataFetcher != null) {
-                    dataFetcher.cleanup();
-                }
-                GlideTrace.endSection();
-            } catch (CallbackException e) {
-                throw e;
-            }
-        } finally {
-            if (dataFetcher != null) {
-                dataFetcher.cleanup();
-            }
-            GlideTrace.endSection();
-        }
-    }
-
-    private void runWrapped() {
-        switch (this.runReason) {
-            case INITIALIZE:
-                this.stage = getNextStage(Stage.INITIALIZE);
-                this.currentGenerator = getNextGenerator();
-                runGenerators();
-                return;
-            case SWITCH_TO_SOURCE_SERVICE:
-                runGenerators();
-                return;
-            case DECODE_DATA:
-                decodeFromRetrievedData();
-                return;
-            default:
-                throw new IllegalStateException("Unrecognized run reason: " + this.runReason);
-        }
-    }
-
-    private DataFetcherGenerator getNextGenerator() {
-        switch (this.stage) {
-            case RESOURCE_CACHE:
-                return new ResourceCacheGenerator(this.decodeHelper, this);
-            case DATA_CACHE:
-                return new DataCacheGenerator(this.decodeHelper, this);
-            case SOURCE:
-                return new SourceGenerator(this.decodeHelper, this);
-            case FINISHED:
-                return null;
-            default:
-                throw new IllegalStateException("Unrecognized stage: " + this.stage);
-        }
-    }
-
     private void runGenerators() {
         this.currentThread = Thread.currentThread();
         this.startFetchTime = LogTime.getLogTime();
@@ -270,51 +434,90 @@ class DecodeJob<R> implements DataFetcherGenerator.FetcherReadyCallback, Factory
         }
     }
 
-    private void notifyFailed() {
-        setNotifiedOrThrow();
-        this.callback.onLoadFailed(new GlideException("Failed to load resource", new ArrayList(this.throwables)));
-        onLoadFailed();
+    private <Data, ResourceType> Resource<R> runLoadPath(Data data, DataSource dataSource, LoadPath<Data, ResourceType, R> loadPath) throws GlideException {
+        Options optionsWithHardwareConfig = getOptionsWithHardwareConfig(dataSource);
+        DataRewinder<Data> rewinder = this.glideContext.getRegistry().getRewinder(data);
+        try {
+            return loadPath.load(rewinder, optionsWithHardwareConfig, this.width, this.height, new DecodeCallback(dataSource));
+        } finally {
+            rewinder.cleanup();
+        }
     }
 
-    private void notifyComplete(Resource<R> resource, DataSource dataSource) {
-        setNotifiedOrThrow();
-        this.callback.onResourceReady(resource, dataSource);
+    private void runWrapped() {
+        int i = AnonymousClass1.$SwitchMap$com$bumptech$glide$load$engine$DecodeJob$RunReason[this.runReason.ordinal()];
+        if (i == 1) {
+            this.stage = getNextStage(Stage.INITIALIZE);
+            this.currentGenerator = getNextGenerator();
+            runGenerators();
+        } else if (i == 2) {
+            runGenerators();
+        } else if (i == 3) {
+            decodeFromRetrievedData();
+        } else {
+            throw new IllegalStateException("Unrecognized run reason: " + this.runReason);
+        }
     }
 
     private void setNotifiedOrThrow() {
+        Throwable th;
         this.stateVerifier.throwIfRecycled();
         if (this.isCallbackNotified) {
-            throw new IllegalStateException("Already notified", this.throwables.isEmpty() ? null : this.throwables.get(this.throwables.size() - 1));
+            if (this.throwables.isEmpty()) {
+                th = null;
+            } else {
+                List<Throwable> list = this.throwables;
+                th = list.get(list.size() - 1);
+            }
+            throw new IllegalStateException("Already notified", th);
         }
         this.isCallbackNotified = true;
     }
 
-    private Stage getNextStage(Stage stage) {
-        switch (stage) {
-            case RESOURCE_CACHE:
-                if (this.diskCacheStrategy.decodeCachedData()) {
-                    return Stage.DATA_CACHE;
-                }
-                return getNextStage(Stage.DATA_CACHE);
-            case DATA_CACHE:
-                return this.onlyRetrieveFromCache ? Stage.FINISHED : Stage.SOURCE;
-            case SOURCE:
-            case FINISHED:
-                return Stage.FINISHED;
-            case INITIALIZE:
-                if (this.diskCacheStrategy.decodeCachedResource()) {
-                    return Stage.RESOURCE_CACHE;
-                }
-                return getNextStage(Stage.RESOURCE_CACHE);
-            default:
-                throw new IllegalArgumentException("Unrecognized stage: " + stage);
+    public void cancel() {
+        this.isCancelled = true;
+        DataFetcherGenerator dataFetcherGenerator = this.currentGenerator;
+        if (dataFetcherGenerator != null) {
+            dataFetcherGenerator.cancel();
         }
     }
 
+    @Override // com.bumptech.glide.util.pool.FactoryPools.Poolable
+    @NonNull
+    public StateVerifier getVerifier() {
+        return this.stateVerifier;
+    }
+
+    public DecodeJob<R> init(GlideContext glideContext, Object obj, EngineKey engineKey, Key key, int i, int i2, Class<?> cls, Class<R> cls2, Priority priority, DiskCacheStrategy diskCacheStrategy, Map<Class<?>, Transformation<?>> map, boolean z, boolean z2, boolean z3, Options options, Callback<R> callback, int i3) {
+        this.decodeHelper.init(glideContext, obj, key, i, i2, diskCacheStrategy, cls, cls2, priority, options, map, z, z2, this.diskCacheProvider);
+        this.glideContext = glideContext;
+        this.signature = key;
+        this.priority = priority;
+        this.loadKey = engineKey;
+        this.width = i;
+        this.height = i2;
+        this.diskCacheStrategy = diskCacheStrategy;
+        this.onlyRetrieveFromCache = z3;
+        this.options = options;
+        this.callback = callback;
+        this.order = i3;
+        this.runReason = RunReason.INITIALIZE;
+        this.model = obj;
+        return this;
+    }
+
     @Override // com.bumptech.glide.load.engine.DataFetcherGenerator.FetcherReadyCallback
-    public void reschedule() {
-        this.runReason = RunReason.SWITCH_TO_SOURCE_SERVICE;
-        this.callback.reschedule(this);
+    public void onDataFetcherFailed(Key key, Exception exc, DataFetcher<?> dataFetcher, DataSource dataSource) {
+        dataFetcher.cleanup();
+        GlideException glideException = new GlideException("Fetching data failed", exc);
+        glideException.setLoggingDetails(key, dataSource, dataFetcher.getDataClass());
+        this.throwables.add(glideException);
+        if (Thread.currentThread() != this.currentThread) {
+            this.runReason = RunReason.SWITCH_TO_SOURCE_SERVICE;
+            this.callback.reschedule(this);
+            return;
+        }
+        runGenerators();
     }
 
     @Override // com.bumptech.glide.load.engine.DataFetcherGenerator.FetcherReadyCallback
@@ -337,138 +540,18 @@ class DecodeJob<R> implements DataFetcherGenerator.FetcherReadyCallback, Factory
         }
     }
 
-    @Override // com.bumptech.glide.load.engine.DataFetcherGenerator.FetcherReadyCallback
-    public void onDataFetcherFailed(Key key, Exception exc, DataFetcher<?> dataFetcher, DataSource dataSource) {
-        dataFetcher.cleanup();
-        GlideException glideException = new GlideException("Fetching data failed", exc);
-        glideException.setLoggingDetails(key, dataSource, dataFetcher.getDataClass());
-        this.throwables.add(glideException);
-        if (Thread.currentThread() != this.currentThread) {
-            this.runReason = RunReason.SWITCH_TO_SOURCE_SERVICE;
-            this.callback.reschedule(this);
-            return;
-        }
-        runGenerators();
-    }
-
-    private void decodeFromRetrievedData() {
-        Resource<R> resource;
-        if (Log.isLoggable(TAG, 2)) {
-            logWithTimeAndKey("Retrieved data", this.startFetchTime, "data: " + this.currentData + ", cache key: " + this.currentSourceKey + ", fetcher: " + this.currentFetcher);
-        }
-        try {
-            resource = decodeFromData(this.currentFetcher, this.currentData, this.currentDataSource);
-        } catch (GlideException e) {
-            e.setLoggingDetails(this.currentAttemptingKey, this.currentDataSource);
-            this.throwables.add(e);
-            resource = null;
-        }
-        if (resource != null) {
-            notifyEncodeAndRelease(resource, this.currentDataSource);
-        } else {
-            runGenerators();
-        }
-    }
-
-    private void notifyEncodeAndRelease(Resource<R> resource, DataSource dataSource) {
-        if (resource instanceof Initializable) {
-            ((Initializable) resource).initialize();
-        }
-        LockedResource lockedResource = null;
-        if (this.deferredEncodeManager.hasResourceToEncode()) {
-            LockedResource obtain = LockedResource.obtain(resource);
-            lockedResource = obtain;
-            resource = obtain;
-        }
-        notifyComplete(resource, dataSource);
-        this.stage = Stage.ENCODE;
-        try {
-            if (this.deferredEncodeManager.hasResourceToEncode()) {
-                this.deferredEncodeManager.encode(this.diskCacheProvider, this.options);
-            }
-            onEncodeComplete();
-        } finally {
-            if (lockedResource != null) {
-                lockedResource.unlock();
-            }
-        }
-    }
-
-    private <Data> Resource<R> decodeFromData(DataFetcher<?> dataFetcher, Data data, DataSource dataSource) throws GlideException {
-        if (data != null) {
-            try {
-                long logTime = LogTime.getLogTime();
-                Resource<R> decodeFromFetcher = decodeFromFetcher(data, dataSource);
-                if (Log.isLoggable(TAG, 2)) {
-                    logWithTimeAndKey("Decoded result " + decodeFromFetcher, logTime);
-                }
-                return decodeFromFetcher;
-            } finally {
-                dataFetcher.cleanup();
-            }
-        }
-        return null;
-    }
-
-    /* JADX DEBUG: Type inference failed for r0v1. Raw type applied. Possible types: com.bumptech.glide.load.engine.LoadPath<Data, ?, R>, com.bumptech.glide.load.engine.LoadPath<Data, ResourceType, R> */
-    private <Data> Resource<R> decodeFromFetcher(Data data, DataSource dataSource) throws GlideException {
-        return runLoadPath(data, dataSource, (LoadPath<Data, ?, R>) this.decodeHelper.getLoadPath(data.getClass()));
-    }
-
     @NonNull
-    private Options getOptionsWithHardwareConfig(DataSource dataSource) {
-        Options options = this.options;
-        if (Build.VERSION.SDK_INT < 26) {
-            return options;
-        }
-        boolean z = dataSource == DataSource.RESOURCE_DISK_CACHE || this.decodeHelper.isScaleOnlyOrNoTransform();
-        Boolean bool = (Boolean) options.get(Downsampler.ALLOW_HARDWARE_CONFIG);
-        if (bool == null || (bool.booleanValue() && !z)) {
-            Options options2 = new Options();
-            options2.putAll(this.options);
-            options2.set(Downsampler.ALLOW_HARDWARE_CONFIG, Boolean.valueOf(z));
-            return options2;
-        }
-        return options;
-    }
-
-    private <Data, ResourceType> Resource<R> runLoadPath(Data data, DataSource dataSource, LoadPath<Data, ResourceType, R> loadPath) throws GlideException {
-        Options optionsWithHardwareConfig = getOptionsWithHardwareConfig(dataSource);
-        DataRewinder<Data> rewinder = this.glideContext.getRegistry().getRewinder(data);
-        try {
-            return loadPath.load(rewinder, optionsWithHardwareConfig, this.width, this.height, new DecodeCallback(dataSource));
-        } finally {
-            rewinder.cleanup();
-        }
-    }
-
-    private void logWithTimeAndKey(String str, long j) {
-        logWithTimeAndKey(str, j, null);
-    }
-
-    private void logWithTimeAndKey(String str, long j, String str2) {
-        Log.v(TAG, str + " in " + LogTime.getElapsedMillis(j) + ", load key: " + this.loadKey + (str2 != null ? ", " + str2 : "") + ", thread: " + Thread.currentThread().getName());
-    }
-
-    @Override // com.bumptech.glide.util.pool.FactoryPools.Poolable
-    @NonNull
-    public StateVerifier getVerifier() {
-        return this.stateVerifier;
-    }
-
-    /* JADX DEBUG: Type inference failed for r10v0. Raw type applied. Possible types: com.bumptech.glide.load.ResourceEncoder<X> */
-    /* JADX WARN: Multi-variable type inference failed */
-    @NonNull
-    <Z> Resource<Z> onResourceDecoded(DataSource dataSource, @NonNull Resource<Z> resource) {
+    public <Z> Resource<Z> onResourceDecoded(DataSource dataSource, @NonNull Resource<Z> resource) {
         Resource<Z> resource2;
         Transformation<Z> transformation;
         EncodeStrategy encodeStrategy;
-        ResourceEncoder resourceEncoder;
-        Key resourceCacheKey;
+        Key dataCacheKey;
         Class<?> cls = resource.get().getClass();
+        ResourceEncoder<Z> resourceEncoder = null;
         if (dataSource != DataSource.RESOURCE_DISK_CACHE) {
-            transformation = this.decodeHelper.getTransformation(cls);
-            resource2 = transformation.transform(this.glideContext, resource, this.width, this.height);
+            Transformation<Z> transformation2 = this.decodeHelper.getTransformation(cls);
+            transformation = transformation2;
+            resource2 = transformation2.transform(this.glideContext, resource, this.width, this.height);
         } else {
             resource2 = resource;
             transformation = null;
@@ -477,123 +560,96 @@ class DecodeJob<R> implements DataFetcherGenerator.FetcherReadyCallback, Factory
             resource.recycle();
         }
         if (this.decodeHelper.isResourceEncoderAvailable(resource2)) {
-            ResourceEncoder resultEncoder = this.decodeHelper.getResultEncoder(resource2);
-            encodeStrategy = resultEncoder.getEncodeStrategy(this.options);
-            resourceEncoder = resultEncoder;
+            resourceEncoder = this.decodeHelper.getResultEncoder(resource2);
+            encodeStrategy = resourceEncoder.getEncodeStrategy(this.options);
         } else {
             encodeStrategy = EncodeStrategy.NONE;
-            resourceEncoder = null;
         }
+        ResourceEncoder resourceEncoder2 = resourceEncoder;
         if (this.diskCacheStrategy.isResourceCacheable(!this.decodeHelper.isSourceKey(this.currentSourceKey), dataSource, encodeStrategy)) {
-            if (resourceEncoder == null) {
-                throw new Registry.NoResultEncoderAvailableException(resource2.get().getClass());
-            }
-            switch (encodeStrategy) {
-                case SOURCE:
-                    resourceCacheKey = new DataCacheKey(this.currentSourceKey, this.signature);
-                    break;
-                case TRANSFORMED:
-                    resourceCacheKey = new ResourceCacheKey(this.decodeHelper.getArrayPool(), this.currentSourceKey, this.signature, this.width, this.height, transformation, cls, this.options);
-                    break;
-                default:
+            if (resourceEncoder2 != null) {
+                int i = AnonymousClass1.$SwitchMap$com$bumptech$glide$load$EncodeStrategy[encodeStrategy.ordinal()];
+                if (i == 1) {
+                    dataCacheKey = new DataCacheKey(this.currentSourceKey, this.signature);
+                } else if (i == 2) {
+                    dataCacheKey = new ResourceCacheKey(this.decodeHelper.getArrayPool(), this.currentSourceKey, this.signature, this.width, this.height, transformation, cls, this.options);
+                } else {
                     throw new IllegalArgumentException("Unknown strategy: " + encodeStrategy);
+                }
+                LockedResource obtain = LockedResource.obtain(resource2);
+                this.deferredEncodeManager.init(dataCacheKey, resourceEncoder2, obtain);
+                return obtain;
             }
-            LockedResource obtain = LockedResource.obtain(resource2);
-            this.deferredEncodeManager.init(resourceCacheKey, resourceEncoder, obtain);
-            return obtain;
+            throw new Registry.NoResultEncoderAvailableException(resource2.get().getClass());
         }
         return resource2;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes14.dex */
-    public final class DecodeCallback<Z> implements DecodePath.DecodeCallback<Z> {
-        private final DataSource dataSource;
-
-        DecodeCallback(DataSource dataSource) {
-            this.dataSource = dataSource;
-        }
-
-        @Override // com.bumptech.glide.load.engine.DecodePath.DecodeCallback
-        @NonNull
-        public Resource<Z> onResourceDecoded(@NonNull Resource<Z> resource) {
-            return DecodeJob.this.onResourceDecoded(this.dataSource, resource);
+    public void release(boolean z) {
+        if (this.releaseManager.release(z)) {
+            releaseInternal();
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes14.dex */
-    public static class ReleaseManager {
-        private boolean isEncodeComplete;
-        private boolean isFailed;
-        private boolean isReleased;
-
-        ReleaseManager() {
-        }
-
-        synchronized boolean release(boolean z) {
-            this.isReleased = true;
-            return isComplete(z);
-        }
-
-        synchronized boolean onEncodeComplete() {
-            this.isEncodeComplete = true;
-            return isComplete(false);
-        }
-
-        synchronized boolean onFailed() {
-            this.isFailed = true;
-            return isComplete(false);
-        }
-
-        synchronized void reset() {
-            this.isEncodeComplete = false;
-            this.isReleased = false;
-            this.isFailed = false;
-        }
-
-        private boolean isComplete(boolean z) {
-            return (this.isFailed || z || this.isEncodeComplete) && this.isReleased;
-        }
+    @Override // com.bumptech.glide.load.engine.DataFetcherGenerator.FetcherReadyCallback
+    public void reschedule() {
+        this.runReason = RunReason.SWITCH_TO_SOURCE_SERVICE;
+        this.callback.reschedule(this);
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes14.dex */
-    public static class DeferredEncodeManager<Z> {
-        private ResourceEncoder<Z> encoder;
-        private Key key;
-        private LockedResource<Z> toEncode;
-
-        DeferredEncodeManager() {
-        }
-
-        /* JADX DEBUG: Multi-variable search result rejected for r2v0, resolved type: com.bumptech.glide.load.ResourceEncoder<X> */
-        /* JADX DEBUG: Multi-variable search result rejected for r3v0, resolved type: com.bumptech.glide.load.engine.LockedResource<X> */
-        /* JADX WARN: Multi-variable type inference failed */
-        <X> void init(Key key, ResourceEncoder<X> resourceEncoder, LockedResource<X> lockedResource) {
-            this.key = key;
-            this.encoder = resourceEncoder;
-            this.toEncode = lockedResource;
-        }
-
-        void encode(DiskCacheProvider diskCacheProvider, Options options) {
-            GlideTrace.beginSection("DecodeJob.encode");
+    @Override // java.lang.Runnable
+    public void run() {
+        GlideTrace.beginSectionFormat("DecodeJob#run(model=%s)", this.model);
+        DataFetcher<?> dataFetcher = this.currentFetcher;
+        try {
             try {
-                diskCacheProvider.getDiskCache().put(this.key, new DataCacheWriter(this.encoder, this.toEncode, options));
-            } finally {
-                this.toEncode.unlock();
+                if (this.isCancelled) {
+                    notifyFailed();
+                    if (dataFetcher != null) {
+                        dataFetcher.cleanup();
+                    }
+                    GlideTrace.endSection();
+                    return;
+                }
+                runWrapped();
+                if (dataFetcher != null) {
+                    dataFetcher.cleanup();
+                }
                 GlideTrace.endSection();
+            } catch (CallbackException e2) {
+                throw e2;
             }
         }
+    }
 
-        boolean hasResourceToEncode() {
-            return this.toEncode != null;
-        }
+    public boolean willDecodeFromCache() {
+        Stage nextStage = getNextStage(Stage.INITIALIZE);
+        return nextStage == Stage.RESOURCE_CACHE || nextStage == Stage.DATA_CACHE;
+    }
 
-        void clear() {
-            this.key = null;
-            this.encoder = null;
-            this.toEncode = null;
+    private void logWithTimeAndKey(String str, long j, String str2) {
+        String str3;
+        StringBuilder sb = new StringBuilder();
+        sb.append(str);
+        sb.append(" in ");
+        sb.append(LogTime.getElapsedMillis(j));
+        sb.append(", load key: ");
+        sb.append(this.loadKey);
+        if (str2 != null) {
+            str3 = StringUtil.ARRAY_ELEMENT_SEPARATOR + str2;
+        } else {
+            str3 = "";
         }
+        sb.append(str3);
+        sb.append(", thread: ");
+        sb.append(Thread.currentThread().getName());
+        Log.v(TAG, sb.toString());
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // java.lang.Comparable
+    public int compareTo(@NonNull DecodeJob<?> decodeJob) {
+        int priority = getPriority() - decodeJob.getPriority();
+        return priority == 0 ? this.order - decodeJob.order : priority;
     }
 }

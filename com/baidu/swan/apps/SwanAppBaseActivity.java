@@ -6,74 +6,81 @@ import android.view.ViewGroup;
 import android.view.Window;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import com.baidu.swan.apps.ab.c;
-import com.baidu.swan.apps.ao.ak;
 import com.baidu.swan.support.v4.app.FragmentActivity;
-/* loaded from: classes8.dex */
+import d.b.g0.a.i2.k0;
+import d.b.g0.a.k;
+import d.b.g0.a.k1.c;
+import d.b.g0.a.n1.c.a;
+import d.b.g0.a.x1.b;
+/* loaded from: classes3.dex */
 public class SwanAppBaseActivity extends FragmentActivity {
-    private static final boolean DEBUG = b.DEBUG;
-    private com.baidu.swan.apps.ai.b cDH = null;
-    private com.baidu.swan.apps.ab.c cDI;
+    public static final boolean DEBUG = k.f45050a;
+    public static final String TAG = "SwanAppBaseActivity";
+    public c mPermissionHandler;
+    public b mSkinDecorator = null;
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // android.app.Activity
-    public void onPostCreate(Bundle bundle) {
-        super.onPostCreate(bundle);
-        boolean ail = com.baidu.swan.apps.t.a.axv().ail();
-        com.baidu.swan.apps.u.a.a.i(Boolean.valueOf(ail));
-        l(ail, false);
+    public b getSkinDecorator() {
+        return this.mSkinDecorator;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.swan.support.v4.app.FragmentActivity, com.baidu.swan.support.v4.app.f, android.app.Activity
+    @Override // com.baidu.swan.support.v4.app.FragmentActivity, d.b.g0.m.a.a.f, android.app.Activity
     public void onCreate(@Nullable Bundle bundle) {
-        int releaseFixedOrientation = ak.releaseFixedOrientation(this);
+        int V = k0.V(this);
         super.onCreate(bundle);
-        ak.fixedOrientation(this, releaseFixedOrientation);
+        k0.h(this, V);
     }
 
-    public void l(boolean z, boolean z2) {
+    public void onNightModeCoverChanged(boolean z, boolean z2) {
         Window window = getWindow();
         if (window == null) {
             if (DEBUG) {
-                Log.e("SwanAppBaseActivity", "activity or window is null");
+                Log.e(TAG, "activity or window is null");
                 return;
             }
             return;
         }
-        if (this.cDH == null) {
-            this.cDH = new com.baidu.swan.apps.ai.b();
+        if (this.mSkinDecorator == null) {
+            this.mSkinDecorator = new b();
         }
         ViewGroup viewGroup = (ViewGroup) window.getDecorView();
         if (z) {
-            this.cDH.H(viewGroup);
+            this.mSkinDecorator.a(viewGroup);
         } else {
-            this.cDH.I(viewGroup);
+            this.mSkinDecorator.b(viewGroup);
         }
         if (z2) {
-            com.baidu.swan.apps.process.messaging.a.aFC().a(new com.baidu.swan.apps.process.messaging.c(5).gF(true));
+            a e2 = a.e();
+            d.b.g0.a.n1.c.c cVar = new d.b.g0.a.n1.c.c(5);
+            cVar.f(true);
+            e2.h(cVar);
         }
     }
 
-    public com.baidu.swan.apps.ai.b agm() {
-        return this.cDH;
+    @Override // android.app.Activity
+    public void onPostCreate(Bundle bundle) {
+        super.onPostCreate(bundle);
+        boolean a2 = d.b.g0.a.w0.a.z().a();
+        d.b.g0.a.y0.c.a.e(Boolean.valueOf(a2));
+        onNightModeCoverChanged(a2, false);
     }
 
-    public void a(int i, @NonNull String[] strArr, c.a aVar) {
-        this.cDI = com.baidu.swan.apps.ab.c.aEO();
-        this.cDI.a(this, i, strArr, aVar);
-    }
-
-    @Override // com.baidu.swan.support.v4.app.FragmentActivity, android.app.Activity, com.baidu.swan.support.v4.app.a.InterfaceC0546a
+    @Override // com.baidu.swan.support.v4.app.FragmentActivity, android.app.Activity, d.b.g0.m.a.a.a.b
     public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
-        if (this.cDI != null) {
-            this.cDI.b(this, i, strArr, iArr);
+        c cVar = this.mPermissionHandler;
+        if (cVar != null) {
+            cVar.c(this, i, strArr, iArr);
         } else {
-            b(i, strArr, iArr);
+            superOnRequestPermissionsResult(i, strArr, iArr);
         }
     }
 
-    public void b(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
+    public void requestPermissionsExt(int i, @NonNull String[] strArr, c.a aVar) {
+        c b2 = c.b();
+        this.mPermissionHandler = b2;
+        b2.d(this, i, strArr, aVar);
+    }
+
+    public void superOnRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
         super.onRequestPermissionsResult(i, strArr, iArr);
     }
 }

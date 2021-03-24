@@ -9,14 +9,14 @@ import com.kwad.sdk.api.proxy.IFragmentActivityProxy;
 import com.kwad.sdk.api.proxy.app.BaseFragmentActivity;
 import com.kwad.sdk.utils.d;
 import java.io.Serializable;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class a extends IFragmentActivityProxy {
 
     /* renamed from: a  reason: collision with root package name */
-    private ProfileHomeParam f5844a;
+    public ProfileHomeParam f32853a;
 
     private void a() {
-        getSupportFragmentManager().beginTransaction().replace(R.id.ksad_fragment_container, c.a(this.f5844a)).commitAllowingStateLoss();
+        getSupportFragmentManager().beginTransaction().replace(R.id.ksad_fragment_container, c.a(this.f32853a)).commitAllowingStateLoss();
     }
 
     public static void a(Context context, ProfileHomeParam profileHomeParam) {
@@ -33,12 +33,11 @@ public class a extends IFragmentActivityProxy {
     private boolean b() {
         Serializable serializableExtra = getIntent().getSerializableExtra("KEY_PROFILE_HOME_PARAM");
         if (serializableExtra instanceof ProfileHomeParam) {
-            this.f5844a = (ProfileHomeParam) serializableExtra;
+            this.f32853a = (ProfileHomeParam) serializableExtra;
         }
-        return this.f5844a != null;
+        return this.f32853a != null;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.api.proxy.IActivityProxy
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);

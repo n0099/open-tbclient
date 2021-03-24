@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.atomData;
 import android.content.Context;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class AddLinkActivityConfig extends IntentConfig {
     public static final String BUBBLE_NEW_LINK_CONTENT = "bubble_new_link_content";
     public static final String IS_SHOW_FIND_NEW_LINK_BUBBLE = "is_show_find_new_link_bubble";

@@ -10,7 +10,7 @@ import com.kwad.sdk.api.core.fragment.KsFragment;
 import com.kwad.sdk.api.loader.Wrapper;
 @KsAdSdkDynamicApi
 @Keep
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public abstract class AbstrackKsSplashScreenAd implements KsSplashScreenAd {
     @Override // com.kwad.sdk.api.KsSplashScreenAd
     @NonNull
@@ -23,7 +23,7 @@ public abstract class AbstrackKsSplashScreenAd implements KsSplashScreenAd {
     @NonNull
     @KsAdSdkDynamicApi
     @Keep
-    protected abstract KsFragment getFragment2(KsSplashScreenAd.SplashScreenAdInteractionListener splashScreenAdInteractionListener);
+    public abstract KsFragment getFragment2(KsSplashScreenAd.SplashScreenAdInteractionListener splashScreenAdInteractionListener);
 
     @Override // com.kwad.sdk.api.KsSplashScreenAd
     @NonNull

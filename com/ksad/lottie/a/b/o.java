@@ -4,125 +4,146 @@ import android.graphics.Matrix;
 import android.graphics.PointF;
 import androidx.annotation.Nullable;
 import com.ksad.lottie.a.b.a;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class o {
 
     /* renamed from: a  reason: collision with root package name */
-    private final Matrix f5324a = new Matrix();
-    private final a<PointF, PointF> b;
-    private final a<?, PointF> c;
-    private final a<com.ksad.lottie.e.d, com.ksad.lottie.e.d> d;
-    private final a<Float, Float> e;
-    private final a<Integer, Integer> f;
+    public final Matrix f31308a = new Matrix();
+
+    /* renamed from: b  reason: collision with root package name */
+    public final a<PointF, PointF> f31309b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public final a<?, PointF> f31310c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public final a<com.ksad.lottie.e.d, com.ksad.lottie.e.d> f31311d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public final a<Float, Float> f31312e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public final a<Integer, Integer> f31313f;
     @Nullable
-    private final a<?, Float> g;
+
+    /* renamed from: g  reason: collision with root package name */
+    public final a<?, Float> f31314g;
     @Nullable
-    private final a<?, Float> h;
+
+    /* renamed from: h  reason: collision with root package name */
+    public final a<?, Float> f31315h;
 
     public o(com.ksad.lottie.model.a.l lVar) {
-        this.b = lVar.a().a();
-        this.c = lVar.b().a();
-        this.d = lVar.c().a();
-        this.e = lVar.d().a();
-        this.f = lVar.e().a();
+        this.f31309b = lVar.a().a();
+        this.f31310c = lVar.b().a();
+        this.f31311d = lVar.c().a();
+        this.f31312e = lVar.d().a();
+        this.f31313f = lVar.e().a();
         if (lVar.f() != null) {
-            this.g = lVar.f().a();
+            this.f31314g = lVar.f().a();
         } else {
-            this.g = null;
+            this.f31314g = null;
         }
         if (lVar.g() != null) {
-            this.h = lVar.g().a();
+            this.f31315h = lVar.g().a();
         } else {
-            this.h = null;
+            this.f31315h = null;
         }
     }
 
     public a<?, Integer> a() {
-        return this.f;
+        return this.f31313f;
     }
 
-    public void a(float f) {
-        this.b.a(f);
-        this.c.a(f);
-        this.d.a(f);
-        this.e.a(f);
-        this.f.a(f);
-        if (this.g != null) {
-            this.g.a(f);
+    public void a(float f2) {
+        this.f31309b.a(f2);
+        this.f31310c.a(f2);
+        this.f31311d.a(f2);
+        this.f31312e.a(f2);
+        this.f31313f.a(f2);
+        a<?, Float> aVar = this.f31314g;
+        if (aVar != null) {
+            aVar.a(f2);
         }
-        if (this.h != null) {
-            this.h.a(f);
+        a<?, Float> aVar2 = this.f31315h;
+        if (aVar2 != null) {
+            aVar2.a(f2);
         }
     }
 
-    public void a(a.InterfaceC1084a interfaceC1084a) {
-        this.b.a(interfaceC1084a);
-        this.c.a(interfaceC1084a);
-        this.d.a(interfaceC1084a);
-        this.e.a(interfaceC1084a);
-        this.f.a(interfaceC1084a);
-        if (this.g != null) {
-            this.g.a(interfaceC1084a);
+    public void a(a.InterfaceC0351a interfaceC0351a) {
+        this.f31309b.a(interfaceC0351a);
+        this.f31310c.a(interfaceC0351a);
+        this.f31311d.a(interfaceC0351a);
+        this.f31312e.a(interfaceC0351a);
+        this.f31313f.a(interfaceC0351a);
+        a<?, Float> aVar = this.f31314g;
+        if (aVar != null) {
+            aVar.a(interfaceC0351a);
         }
-        if (this.h != null) {
-            this.h.a(interfaceC1084a);
+        a<?, Float> aVar2 = this.f31315h;
+        if (aVar2 != null) {
+            aVar2.a(interfaceC0351a);
         }
     }
 
     public void a(com.ksad.lottie.model.layer.a aVar) {
-        aVar.a(this.b);
-        aVar.a(this.c);
-        aVar.a(this.d);
-        aVar.a(this.e);
-        aVar.a(this.f);
-        if (this.g != null) {
-            aVar.a(this.g);
+        aVar.a(this.f31309b);
+        aVar.a(this.f31310c);
+        aVar.a(this.f31311d);
+        aVar.a(this.f31312e);
+        aVar.a(this.f31313f);
+        a<?, Float> aVar2 = this.f31314g;
+        if (aVar2 != null) {
+            aVar.a(aVar2);
         }
-        if (this.h != null) {
-            aVar.a(this.h);
+        a<?, Float> aVar3 = this.f31315h;
+        if (aVar3 != null) {
+            aVar.a(aVar3);
         }
     }
 
-    public Matrix b(float f) {
-        PointF e = this.c.e();
-        PointF e2 = this.b.e();
-        com.ksad.lottie.e.d e3 = this.d.e();
-        float floatValue = this.e.e().floatValue();
-        this.f5324a.reset();
-        this.f5324a.preTranslate(e.x * f, e.y * f);
-        this.f5324a.preScale((float) Math.pow(e3.a(), f), (float) Math.pow(e3.b(), f));
-        this.f5324a.preRotate(floatValue * f, e2.x, e2.y);
-        return this.f5324a;
+    public Matrix b(float f2) {
+        PointF e2 = this.f31310c.e();
+        PointF e3 = this.f31309b.e();
+        com.ksad.lottie.e.d e4 = this.f31311d.e();
+        float floatValue = this.f31312e.e().floatValue();
+        this.f31308a.reset();
+        this.f31308a.preTranslate(e2.x * f2, e2.y * f2);
+        double d2 = f2;
+        this.f31308a.preScale((float) Math.pow(e4.a(), d2), (float) Math.pow(e4.b(), d2));
+        this.f31308a.preRotate(floatValue * f2, e3.x, e3.y);
+        return this.f31308a;
     }
 
     @Nullable
     public a<?, Float> b() {
-        return this.g;
+        return this.f31314g;
     }
 
     @Nullable
     public a<?, Float> c() {
-        return this.h;
+        return this.f31315h;
     }
 
     public Matrix d() {
-        this.f5324a.reset();
-        PointF e = this.c.e();
-        if (e.x != 0.0f || e.y != 0.0f) {
-            this.f5324a.preTranslate(e.x, e.y);
+        this.f31308a.reset();
+        PointF e2 = this.f31310c.e();
+        if (e2.x != 0.0f || e2.y != 0.0f) {
+            this.f31308a.preTranslate(e2.x, e2.y);
         }
-        float floatValue = this.e.e().floatValue();
+        float floatValue = this.f31312e.e().floatValue();
         if (floatValue != 0.0f) {
-            this.f5324a.preRotate(floatValue);
+            this.f31308a.preRotate(floatValue);
         }
-        com.ksad.lottie.e.d e2 = this.d.e();
-        if (e2.a() != 1.0f || e2.b() != 1.0f) {
-            this.f5324a.preScale(e2.a(), e2.b());
+        com.ksad.lottie.e.d e3 = this.f31311d.e();
+        if (e3.a() != 1.0f || e3.b() != 1.0f) {
+            this.f31308a.preScale(e3.a(), e3.b());
         }
-        PointF e3 = this.b.e();
-        if (e3.x != 0.0f || e3.y != 0.0f) {
-            this.f5324a.preTranslate(-e3.x, -e3.y);
+        PointF e4 = this.f31309b.e();
+        if (e4.x != 0.0f || e4.y != 0.0f) {
+            this.f31308a.preTranslate(-e4.x, -e4.y);
         }
-        return this.f5324a;
+        return this.f31308a;
     }
 }

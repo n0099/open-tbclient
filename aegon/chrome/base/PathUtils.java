@@ -12,15 +12,14 @@ import java.util.ArrayList;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.FutureTask;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public abstract class PathUtils {
-    public static final /* synthetic */ boolean $assertionsDisabled = !PathUtils.class.desiredAssertionStatus();
+    public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static String sCacheSubDirectory;
     public static String sDataDirectorySuffix;
     public static FutureTask<String[]> sDirPathFetchTask;
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static class Holder {
         public static final String[] DIRECTORY_PATHS = PathUtils.access$000();
     }
@@ -41,28 +40,20 @@ public abstract class PathUtils {
         new AtomicBoolean();
     }
 
-    /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
     public static /* synthetic */ String[] access$000() {
+        String[] strArr = null;
         try {
             if (sDirPathFetchTask.cancel(false)) {
                 StrictModeContext allowDiskWrites = StrictModeContext.allowDiskWrites();
-                try {
-                    String[] privateDataDirectorySuffixInternal = setPrivateDataDirectorySuffixInternal();
-                    $closeResource(null, allowDiskWrites);
-                    return privateDataDirectorySuffixInternal;
-                } catch (Throwable th) {
-                    try {
-                        throw th;
-                    } catch (Throwable th2) {
-                        $closeResource(th, allowDiskWrites);
-                        throw th2;
-                    }
-                }
+                String[] privateDataDirectorySuffixInternal = setPrivateDataDirectorySuffixInternal();
+                $closeResource(null, allowDiskWrites);
+                strArr = privateDataDirectorySuffixInternal;
+            } else {
+                strArr = sDirPathFetchTask.get();
             }
-            return sDirPathFetchTask.get();
-        } catch (InterruptedException | ExecutionException e) {
-            return null;
+        } catch (InterruptedException | ExecutionException unused) {
         }
+        return strArr;
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[THROW, INVOKE, MOVE_EXCEPTION, THROW, THROW, INVOKE, MOVE_EXCEPTION] complete} */
@@ -91,18 +82,12 @@ public abstract class PathUtils {
 
     @CalledByNative
     public static String getCacheDirectory() {
-        if ($assertionsDisabled || sDirPathFetchTask != null) {
-            return getDirectoryPath(2);
-        }
-        throw new AssertionError("setDataDirectorySuffix must be called first.");
+        return getDirectoryPath(2);
     }
 
     @CalledByNative
     public static String getDataDirectory() {
-        if ($assertionsDisabled || sDirPathFetchTask != null) {
-            return getDirectoryPath(0);
-        }
-        throw new AssertionError("setDataDirectorySuffix must be called first.");
+        return getDirectoryPath(0);
     }
 
     public static String getDirectoryPath(int i) {
@@ -112,16 +97,15 @@ public abstract class PathUtils {
     /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
     @CalledByNative
     public static String getDownloadsDirectory() {
-        String path;
         StrictModeContext allowDiskReads = StrictModeContext.allowDiskReads();
         try {
             if (BuildInfo.isAtLeastQ()) {
-                path = getAllPrivateDownloadsDirectories()[0];
+                String str = getAllPrivateDownloadsDirectories()[0];
                 $closeResource(null, allowDiskReads);
-            } else {
-                path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).getPath();
-                $closeResource(null, allowDiskReads);
+                return str;
             }
+            String path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).getPath();
+            $closeResource(null, allowDiskReads);
             return path;
         } catch (Throwable th) {
             try {
@@ -147,10 +131,7 @@ public abstract class PathUtils {
 
     @CalledByNative
     public static String getThumbnailCacheDirectory() {
-        if ($assertionsDisabled || sDirPathFetchTask != null) {
-            return getDirectoryPath(1);
-        }
-        throw new AssertionError("setDataDirectorySuffix must be called first.");
+        return getDirectoryPath(1);
     }
 
     public static String[] setPrivateDataDirectorySuffixInternal() {
@@ -161,8 +142,8 @@ public abstract class PathUtils {
         if (Build.VERSION.SDK_INT >= 21) {
             try {
                 Os.chmod(str, 448);
-            } catch (Exception e) {
-                Log.e("PathUtils", "Failed to set permissions for path \"" + str + "\"", new Object[0]);
+            } catch (Exception unused) {
+                Log.e(com.baidu.android.util.io.PathUtils.TAG, "Failed to set permissions for path \"" + str + "\"", new Object[0]);
             }
         }
         strArr[1] = context.getDir("textures", 0).getPath();

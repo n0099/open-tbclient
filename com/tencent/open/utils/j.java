@@ -12,16 +12,12 @@ import android.location.LocationManager;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
-import android.net.http.Headers;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
-import com.baidu.minivideo.plugin.capture.utils.EncryptUtils;
-import com.baidu.sapi2.utils.SapiUtils;
-import com.baidu.webkit.internal.ETAG;
 import com.tencent.connect.common.Constants;
 import java.io.File;
 import java.io.UnsupportedEncodingException;
@@ -36,58 +32,72 @@ import java.security.NoSuchAlgorithmException;
 import java.util.Enumeration;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes14.dex */
+/* loaded from: classes7.dex */
 public class j {
-    private static String f;
 
     /* renamed from: a  reason: collision with root package name */
-    private static String f7996a = "";
-    private static String b = "";
-    private static String c = "";
-    private static String d = "";
-    private static int e = -1;
-    private static String g = "0123456789ABCDEF";
+    public static String f39327a = "";
+
+    /* renamed from: b  reason: collision with root package name */
+    public static String f39328b = "";
+
+    /* renamed from: c  reason: collision with root package name */
+    public static String f39329c = "";
+
+    /* renamed from: d  reason: collision with root package name */
+    public static String f39330d = "";
+
+    /* renamed from: e  reason: collision with root package name */
+    public static int f39331e = -1;
+
+    /* renamed from: f  reason: collision with root package name */
+    public static String f39332f = null;
+
+    /* renamed from: g  reason: collision with root package name */
+    public static String f39333g = "0123456789ABCDEF";
+
+    /* loaded from: classes7.dex */
+    public static class a {
+
+        /* renamed from: a  reason: collision with root package name */
+        public String f39334a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public long f39335b;
+
+        /* renamed from: c  reason: collision with root package name */
+        public long f39336c;
+
+        public a(String str, int i) {
+            this.f39334a = str;
+            this.f39335b = i;
+            if (str != null) {
+                this.f39336c = str.length();
+            }
+        }
+    }
+
+    public static char a(int i) {
+        int i2 = i & 15;
+        return (char) (i2 < 10 ? i2 + 48 : (i2 - 10) + 97);
+    }
 
     public static Bundle a(String str) {
         Bundle bundle = new Bundle();
         if (str != null) {
             try {
-                for (String str2 : str.split(ETAG.ITEM_SEPARATOR)) {
+                for (String str2 : str.split("&")) {
                     String[] split = str2.split("=");
                     if (split.length == 2) {
                         bundle.putString(URLDecoder.decode(split[0]), URLDecoder.decode(split[1]));
                     }
                 }
                 return bundle;
-            } catch (Exception e2) {
+            } catch (Exception unused) {
                 return null;
             }
         }
         return bundle;
-    }
-
-    public static JSONObject a(JSONObject jSONObject, String str) {
-        if (jSONObject == null) {
-            jSONObject = new JSONObject();
-        }
-        if (str != null) {
-            for (String str2 : str.split(ETAG.ITEM_SEPARATOR)) {
-                String[] split = str2.split("=");
-                if (split.length == 2) {
-                    try {
-                        split[0] = URLDecoder.decode(split[0]);
-                        split[1] = URLDecoder.decode(split[1]);
-                    } catch (Exception e2) {
-                    }
-                    try {
-                        jSONObject.put(split[0], split[1]);
-                    } catch (JSONException e3) {
-                        com.tencent.open.a.f.e("openSDK_LOG.Util", "decodeUrlToJson has exception: " + e3.getMessage());
-                    }
-                }
-            }
-        }
-        return jSONObject;
     }
 
     public static Bundle b(String str) {
@@ -96,7 +106,7 @@ public class j {
             Bundle a2 = a(url.getQuery());
             a2.putAll(a(url.getRef()));
             return a2;
-        } catch (MalformedURLException e2) {
+        } catch (MalformedURLException unused) {
             return new Bundle();
         }
     }
@@ -107,25 +117,8 @@ public class j {
             JSONObject a2 = a((JSONObject) null, url.getQuery());
             a(a2, url.getRef());
             return a2;
-        } catch (MalformedURLException e2) {
+        } catch (MalformedURLException unused) {
             return new JSONObject();
-        }
-    }
-
-    /* loaded from: classes14.dex */
-    public static class a {
-
-        /* renamed from: a  reason: collision with root package name */
-        public String f7997a;
-        public long b;
-        public long c;
-
-        public a(String str, int i) {
-            this.f7997a = str;
-            this.b = i;
-            if (this.f7997a != null) {
-                this.c = this.f7997a.length();
-            }
         }
     }
 
@@ -145,108 +138,165 @@ public class j {
         return new JSONObject(str);
     }
 
-    public static String a() {
-        try {
-            Enumeration<NetworkInterface> networkInterfaces = NetworkInterface.getNetworkInterfaces();
-            while (networkInterfaces != null && networkInterfaces.hasMoreElements()) {
-                Enumeration<InetAddress> inetAddresses = networkInterfaces.nextElement().getInetAddresses();
-                while (inetAddresses.hasMoreElements()) {
-                    InetAddress nextElement = inetAddresses.nextElement();
-                    if (!nextElement.isLoopbackAddress()) {
-                        return nextElement.getHostAddress().toString();
-                    }
-                }
-            }
-        } catch (SocketException e2) {
-            com.tencent.open.a.f.a("openSDK_LOG.Util", "getUserIp SocketException ", e2);
-        }
-        return "";
-    }
-
     public static boolean e(String str) {
         return str == null || str.length() == 0;
     }
 
-    private static boolean f(Context context) {
+    public static boolean f(Context context) {
         Signature[] signatureArr;
         try {
             PackageInfo packageInfo = context.getPackageManager().getPackageInfo("com.tencent.mtt", 64);
             String str = packageInfo.versionName;
-            if (h.a(str, "4.3") < 0 || str.startsWith("4.4") || (signatureArr = packageInfo.signatures) == null) {
-                return false;
+            if (h.a(str, "4.3") >= 0 && !str.startsWith("4.4") && (signatureArr = packageInfo.signatures) != null) {
+                try {
+                    MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+                    messageDigest.update(signatureArr[0].toByteArray());
+                    String a2 = a(messageDigest.digest());
+                    messageDigest.reset();
+                    if (a2.equals("d8391a394d4a179e6fe7bdb8a301258b")) {
+                        return true;
+                    }
+                } catch (NoSuchAlgorithmException e2) {
+                    com.tencent.open.a.f.e("openSDK_LOG.Util", "isQQBrowerAvailable has exception: " + e2.getMessage());
+                }
             }
-            try {
-                MessageDigest messageDigest = MessageDigest.getInstance(EncryptUtils.ENCRYPT_MD5);
-                messageDigest.update(signatureArr[0].toByteArray());
-                String a2 = a(messageDigest.digest());
-                messageDigest.reset();
-                return a2.equals("d8391a394d4a179e6fe7bdb8a301258b");
-            } catch (NoSuchAlgorithmException e2) {
-                com.tencent.open.a.f.e("openSDK_LOG.Util", "isQQBrowerAvailable has exception: " + e2.getMessage());
-                return false;
-            }
-        } catch (PackageManager.NameNotFoundException e3) {
+        } catch (PackageManager.NameNotFoundException unused) {
+        }
+        return false;
+    }
+
+    public static final boolean g(String str) {
+        if (str == null) {
             return false;
         }
+        return str.startsWith("http://") || str.startsWith("https://");
     }
 
-    public static boolean a(Context context, String str) {
-        boolean z;
+    public static boolean h(String str) {
+        return str != null && new File(str).exists();
+    }
+
+    public static byte[] i(String str) {
         try {
-            z = f(context);
-            try {
-                if (z) {
-                    a(context, "com.tencent.mtt", "com.tencent.mtt.MainActivity", str);
-                } else {
-                    a(context, "com.android.browser", "com.android.browser.BrowserActivity", str);
-                }
-            } catch (Exception e2) {
-                if (z) {
-                    try {
-                        a(context, "com.android.browser", "com.android.browser.BrowserActivity", str);
-                    } catch (Exception e3) {
-                        try {
-                            a(context, "com.google.android.browser", "com.android.browser.BrowserActivity", str);
-                        } catch (Exception e4) {
-                            try {
-                                a(context, "com.android.chrome", "com.google.android.apps.chrome.Main", str);
-                            } catch (Exception e5) {
-                                return false;
-                            }
-                        }
-                    }
-                } else {
-                    try {
-                        a(context, "com.google.android.browser", "com.android.browser.BrowserActivity", str);
-                    } catch (Exception e6) {
-                        try {
-                            a(context, "com.android.chrome", "com.google.android.apps.chrome.Main", str);
-                        } catch (Exception e7) {
-                            return false;
-                        }
-                    }
-                }
-                return true;
-            }
-        } catch (Exception e8) {
+            return str.getBytes("UTF-8");
+        } catch (UnsupportedEncodingException unused) {
+            return null;
+        }
+    }
+
+    public static String e(Context context, String str) {
+        if (context == null) {
+            return "";
+        }
+        String d2 = d(context, str);
+        f39329c = d2;
+        return d2;
+    }
+
+    public static boolean g(Context context, String str) {
+        boolean z = !d(context) || h.a(context, Constants.PACKAGE_QQ_PAD) == null;
+        if (z && h.a(context, Constants.PACKAGE_TIM) != null) {
             z = false;
         }
-        return true;
+        if (z) {
+            return h.c(context, str) < 0;
+        }
+        return z;
     }
 
-    private static void a(Context context, String str, String str2, String str3) {
-        Intent intent = new Intent();
-        intent.setComponent(new ComponentName(str, str2));
-        intent.setAction("android.intent.action.VIEW");
-        intent.addFlags(1073741824);
-        intent.addFlags(268435456);
-        intent.setData(Uri.parse(str3));
-        context.startActivity(intent);
+    public static boolean e(Context context) {
+        return h.c(context, "5.9.5") >= 0 || h.a(context, Constants.PACKAGE_TIM) != null;
+    }
+
+    public static boolean b() {
+        return (Environment.getExternalStorageState().equals("mounted") ? Environment.getExternalStorageDirectory() : null) != null;
+    }
+
+    public static String c(Context context) {
+        Location lastKnownLocation;
+        if (context == null) {
+            return "";
+        }
+        try {
+            LocationManager locationManager = (LocationManager) context.getSystemService("location");
+            Criteria criteria = new Criteria();
+            criteria.setCostAllowed(false);
+            criteria.setAccuracy(2);
+            String bestProvider = locationManager.getBestProvider(criteria, true);
+            if (bestProvider == null || (lastKnownLocation = locationManager.getLastKnownLocation(bestProvider)) == null) {
+                return "";
+            }
+            String str = lastKnownLocation.getLatitude() + "*" + lastKnownLocation.getLongitude();
+            f39332f = str;
+            return str;
+        } catch (Exception e2) {
+            com.tencent.open.a.f.b("openSDK_LOG.Util", "getLocation>>>", e2);
+        }
+        return "";
+    }
+
+    public static JSONObject a(JSONObject jSONObject, String str) {
+        if (jSONObject == null) {
+            jSONObject = new JSONObject();
+        }
+        if (str != null) {
+            for (String str2 : str.split("&")) {
+                String[] split = str2.split("=");
+                if (split.length == 2) {
+                    try {
+                        split[0] = URLDecoder.decode(split[0]);
+                        split[1] = URLDecoder.decode(split[1]);
+                    } catch (Exception unused) {
+                    }
+                    try {
+                        jSONObject.put(split[0], split[1]);
+                    } catch (JSONException e2) {
+                        com.tencent.open.a.f.e("openSDK_LOG.Util", "decodeUrlToJson has exception: " + e2.getMessage());
+                    }
+                }
+            }
+        }
+        return jSONObject;
+    }
+
+    public static boolean b(Context context) {
+        ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
+        if (connectivityManager == null) {
+            return true;
+        }
+        NetworkInfo[] allNetworkInfo = connectivityManager.getAllNetworkInfo();
+        if (allNetworkInfo != null) {
+            for (NetworkInfo networkInfo : allNetworkInfo) {
+                if (networkInfo.isConnectedOrConnecting()) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    public static String d(Context context, String str) {
+        if (context == null) {
+            return "";
+        }
+        b(context, str);
+        return f39327a;
+    }
+
+    public static boolean d(Context context) {
+        double d2;
+        try {
+            DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
+            d2 = Math.sqrt(Math.pow(displayMetrics.widthPixels / displayMetrics.xdpi, 2.0d) + Math.pow(displayMetrics.heightPixels / displayMetrics.ydpi, 2.0d));
+        } catch (Throwable unused) {
+            d2 = 0.0d;
+        }
+        return d2 > 6.5d;
     }
 
     public static String f(String str) {
         try {
-            MessageDigest messageDigest = MessageDigest.getInstance(EncryptUtils.ENCRYPT_MD5);
+            MessageDigest messageDigest = MessageDigest.getInstance("MD5");
             messageDigest.update(i(str));
             byte[] digest = messageDigest.digest();
             if (digest != null) {
@@ -264,20 +314,117 @@ public class j {
         }
     }
 
-    private static char a(int i) {
-        int i2 = i & 15;
-        if (i2 < 10) {
-            return (char) (i2 + 48);
+    public static void b(Context context, String str) {
+        if (context == null) {
+            return;
         }
-        return (char) ((i2 - 10) + 97);
+        try {
+            PackageInfo packageInfo = context.getPackageManager().getPackageInfo(str, 0);
+            String str2 = packageInfo.versionName;
+            f39328b = str2;
+            f39327a = str2.substring(0, str2.lastIndexOf(46));
+            f39330d = f39328b.substring(f39328b.lastIndexOf(46) + 1, f39328b.length());
+            f39331e = packageInfo.versionCode;
+        } catch (PackageManager.NameNotFoundException e2) {
+            com.tencent.open.a.f.e("openSDK_LOG.Util", "getPackageInfo has exception: " + e2.getMessage());
+        } catch (Exception e3) {
+            com.tencent.open.a.f.e("openSDK_LOG.Util", "getPackageInfo has exception: " + e3.getMessage());
+        }
     }
 
-    public static boolean b() {
-        File file = null;
-        if (Environment.getExternalStorageState().equals("mounted")) {
-            file = Environment.getExternalStorageDirectory();
+    public static String a() {
+        try {
+            Enumeration<NetworkInterface> networkInterfaces = NetworkInterface.getNetworkInterfaces();
+            while (networkInterfaces != null && networkInterfaces.hasMoreElements()) {
+                Enumeration<InetAddress> inetAddresses = networkInterfaces.nextElement().getInetAddresses();
+                while (inetAddresses.hasMoreElements()) {
+                    InetAddress nextElement = inetAddresses.nextElement();
+                    if (!nextElement.isLoopbackAddress()) {
+                        return nextElement.getHostAddress().toString();
+                    }
+                }
+            }
+            return "";
+        } catch (SocketException e2) {
+            com.tencent.open.a.f.a("openSDK_LOG.Util", "getUserIp SocketException ", e2);
+            return "";
         }
-        return file != null;
+    }
+
+    public static String c(Context context, String str) {
+        if (context == null) {
+            return "";
+        }
+        b(context, str);
+        return f39328b;
+    }
+
+    public static boolean f(Context context, String str) {
+        boolean z = !d(context) || h.a(context, Constants.PACKAGE_QQ_PAD) == null;
+        if (z && h.a(context, Constants.PACKAGE_TIM) != null) {
+            z = false;
+        }
+        if (z) {
+            return h.c(context, str) < 0;
+        }
+        return z;
+    }
+
+    public static boolean a(Context context, String str) {
+        boolean z;
+        try {
+            z = f(context);
+        } catch (Exception unused) {
+            z = false;
+        }
+        try {
+            if (z) {
+                a(context, "com.tencent.mtt", "com.tencent.mtt.MainActivity", str);
+            } else {
+                a(context, "com.android.browser", "com.android.browser.BrowserActivity", str);
+            }
+            return true;
+        } catch (Exception unused2) {
+            if (z) {
+                try {
+                    try {
+                        try {
+                            a(context, "com.android.browser", "com.android.browser.BrowserActivity", str);
+                            return true;
+                        } catch (Exception unused3) {
+                            return false;
+                        }
+                    } catch (Exception unused4) {
+                        a(context, "com.android.chrome", "com.google.android.apps.chrome.Main", str);
+                        return true;
+                    }
+                } catch (Exception unused5) {
+                    a(context, "com.google.android.browser", "com.android.browser.BrowserActivity", str);
+                    return true;
+                }
+            }
+            try {
+                try {
+                    a(context, "com.google.android.browser", "com.android.browser.BrowserActivity", str);
+                    return true;
+                } catch (Exception unused6) {
+                    return false;
+                }
+            } catch (Exception unused7) {
+                a(context, "com.android.chrome", "com.google.android.apps.chrome.Main", str);
+                return true;
+            }
+        }
+    }
+
+    public static void a(Context context, String str, String str2, String str3) {
+        Intent intent = new Intent();
+        intent.setComponent(new ComponentName(str, str2));
+        intent.setAction("android.intent.action.VIEW");
+        intent.addFlags(1073741824);
+        intent.addFlags(268435456);
+        intent.setData(Uri.parse(str3));
+        context.startActivity(intent);
     }
 
     public static String a(byte[] bArr) {
@@ -303,47 +450,7 @@ public class j {
         return applicationLabel.toString();
     }
 
-    public static final boolean g(String str) {
-        if (str == null) {
-            return false;
-        }
-        return str.startsWith("http://") || str.startsWith(SapiUtils.COOKIE_HTTPS_URL_PREFIX);
-    }
-
-    public static boolean h(String str) {
-        File file;
-        return (str == null || (file = new File(str)) == null || !file.exists()) ? false : true;
-    }
-
-    /* JADX WARN: Code restructure failed: missing block: B:15:0x0032, code lost:
-        r0 = r4.substring(0, r0);
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:17:0x003b, code lost:
-        if (android.text.TextUtils.isEmpty(r7) != false) goto L24;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:18:0x003d, code lost:
-        r0 = r0 + r7;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:23:0x0057, code lost:
-        com.tencent.open.a.f.e("openSDK_LOG.Util", "Util.subString has exception: " + r1.getMessage());
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:24:0x0076, code lost:
-        r1 = e;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:25:0x0077, code lost:
-        r4 = r0;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:34:?, code lost:
-        return r0;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:35:?, code lost:
-        return r4;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
     public static final String a(String str, int i, String str2, String str3) {
-        int i2 = 0;
         if (TextUtils.isEmpty(str)) {
             return "";
         }
@@ -354,40 +461,25 @@ public class j {
             if (str.getBytes(str2).length <= i) {
                 return str;
             }
+            int i2 = 0;
             int i3 = 0;
-            while (true) {
-                int i4 = i2;
-                if (i3 < str.length()) {
-                    int length = str.substring(i3, i3 + 1).getBytes(str2).length;
-                    if (i4 + length > i) {
-                        break;
+            while (i2 < str.length()) {
+                int i4 = i2 + 1;
+                i3 += str.substring(i2, i4).getBytes(str2).length;
+                if (i3 > i) {
+                    String substring = str.substring(0, i2);
+                    if (TextUtils.isEmpty(str3)) {
+                        return substring;
                     }
-                    i2 = length + i4;
-                    i3++;
-                } else {
-                    return str;
+                    return substring + str3;
                 }
+                i2 = i4;
             }
+            return str;
         } catch (Exception e2) {
-            Exception e3 = e2;
+            com.tencent.open.a.f.e("openSDK_LOG.Util", "Util.subString has exception: " + e2.getMessage());
+            return str;
         }
-    }
-
-    public static boolean b(Context context) {
-        ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
-        if (connectivityManager == null) {
-            return true;
-        }
-        NetworkInfo[] allNetworkInfo = connectivityManager.getAllNetworkInfo();
-        if (allNetworkInfo != null) {
-            for (NetworkInfo networkInfo : allNetworkInfo) {
-                if (networkInfo.isConnectedOrConnecting()) {
-                    return true;
-                }
-            }
-            return false;
-        }
-        return false;
     }
 
     public static Bundle a(String str, String str2, String str3, String str4, String str5, String str6) {
@@ -400,7 +492,7 @@ public class j {
         bundle.putString("report_type", str2);
         bundle.putString("act_type", str3);
         bundle.putString("via", str4);
-        bundle.putString("app_id", str5);
+        bundle.putString(com.xiaomi.mipush.sdk.Constants.APP_ID, str5);
         bundle.putString("result", str6);
         bundle.putString("type", str7);
         bundle.putString(DpStatConstants.KEY_LOGIN_STATUS, str8);
@@ -413,7 +505,7 @@ public class j {
 
     public static Bundle a(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9) {
         Bundle bundle = new Bundle();
-        bundle.putString("platform", "1");
+        bundle.putString(Constants.PARAM_PLATFORM, "1");
         bundle.putString("result", str);
         bundle.putString("code", str2);
         bundle.putString("tmcost", str3);
@@ -433,111 +525,10 @@ public class j {
         return bundle;
     }
 
-    public static String c(Context context) {
-        Location lastKnownLocation;
-        if (context == null) {
-            return "";
-        }
-        try {
-            LocationManager locationManager = (LocationManager) context.getSystemService(Headers.LOCATION);
-            Criteria criteria = new Criteria();
-            criteria.setCostAllowed(false);
-            criteria.setAccuracy(2);
-            String bestProvider = locationManager.getBestProvider(criteria, true);
-            if (bestProvider != null && (lastKnownLocation = locationManager.getLastKnownLocation(bestProvider)) != null) {
-                f = lastKnownLocation.getLatitude() + "*" + lastKnownLocation.getLongitude();
-                return f;
-            }
-            return "";
-        } catch (Exception e2) {
-            com.tencent.open.a.f.b("openSDK_LOG.Util", "getLocation>>>", e2);
-        }
-        return "";
-    }
-
-    public static void b(Context context, String str) {
-        if (context != null) {
-            try {
-                PackageInfo packageInfo = context.getPackageManager().getPackageInfo(str, 0);
-                b = packageInfo.versionName;
-                f7996a = b.substring(0, b.lastIndexOf(46));
-                d = b.substring(b.lastIndexOf(46) + 1, b.length());
-                e = packageInfo.versionCode;
-            } catch (PackageManager.NameNotFoundException e2) {
-                com.tencent.open.a.f.e("openSDK_LOG.Util", "getPackageInfo has exception: " + e2.getMessage());
-            } catch (Exception e3) {
-                com.tencent.open.a.f.e("openSDK_LOG.Util", "getPackageInfo has exception: " + e3.getMessage());
-            }
-        }
-    }
-
-    public static String c(Context context, String str) {
-        if (context == null) {
-            return "";
-        }
-        b(context, str);
-        return b;
-    }
-
-    public static String d(Context context, String str) {
-        if (context == null) {
-            return "";
-        }
-        b(context, str);
-        return f7996a;
-    }
-
-    public static String e(Context context, String str) {
-        if (context == null) {
-            return "";
-        }
-        c = d(context, str);
-        return c;
-    }
-
-    public static byte[] i(String str) {
-        try {
-            return str.getBytes("UTF-8");
-        } catch (UnsupportedEncodingException e2) {
-            return null;
-        }
-    }
-
-    public static boolean d(Context context) {
-        double d2 = 0.0d;
-        try {
-            DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
-            float f2 = displayMetrics.widthPixels / displayMetrics.xdpi;
-            d2 = Math.sqrt(Math.pow(displayMetrics.heightPixels / displayMetrics.ydpi, 2.0d) + Math.pow(f2, 2.0d));
-        } catch (Throwable th) {
-        }
-        return d2 > 6.5d;
-    }
-
-    public static boolean f(Context context, String str) {
-        boolean z = !d(context) || h.a(context, Constants.PACKAGE_QQ_PAD) == null;
-        if (z && h.a(context, Constants.PACKAGE_TIM) != null) {
-            z = false;
-        }
-        return z ? h.c(context, str) < 0 : z;
-    }
-
-    public static boolean g(Context context, String str) {
-        boolean z = !d(context) || h.a(context, Constants.PACKAGE_QQ_PAD) == null;
-        if (z && h.a(context, Constants.PACKAGE_TIM) != null) {
-            z = false;
-        }
-        return z ? h.c(context, str) < 0 : z;
-    }
-
     public static boolean a(Context context, boolean z) {
         if (!d(context) || h.a(context, Constants.PACKAGE_QQ_PAD) == null) {
             return !z ? h.c(context, "4.1") >= 0 || h.a(context, Constants.PACKAGE_TIM) != null : h.c(context, "4.1") >= 0 || h.a(context, Constants.PACKAGE_TIM) != null;
         }
         return true;
-    }
-
-    public static boolean e(Context context) {
-        return h.c(context, "5.9.5") >= 0 || h.a(context, Constants.PACKAGE_TIM) != null;
     }
 }

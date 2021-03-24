@@ -5,12 +5,12 @@ import android.content.pm.PackageInfo;
 import android.net.Uri;
 import android.os.Build;
 import android.text.TextUtils;
+import com.android.internal.http.multipart.Part;
 import com.baidu.browser.core.INoProGuard;
-import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
-import com.baidu.webkit.internal.ETAG;
 import com.baidu.webkit.internal.blink.WebKitVersionBlink;
 import com.baidu.webkit.sdk.Log;
 import com.baidu.webkit.sdk.WebKitFactory;
+import com.facebook.imagepipeline.memory.BitmapPoolType;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.InputStream;
@@ -18,53 +18,50 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.Stack;
 import org.json.JSONObject;
-/* loaded from: classes14.dex */
+/* loaded from: classes2.dex */
 public final class BdZeusUtil implements INoProGuard {
-    private static final String ARCH_ARM = "armv";
-    private static final int ARCH_ARM_INT = 7;
-    private static final String DEFAULT_TNNUMBER = "1200a";
+    public static final String ARCH_ARM = "armv";
+    public static final int ARCH_ARM_INT = 7;
+    public static final String DEFAULT_TNNUMBER = "1200a";
     public static final String KERNEL_PATH = "/baidu/flyflow/";
-    private static final String OS_ARCH = "os.arch";
-    private static final String TIME_SEPERATOR = "-";
-    protected static final String URL_KEY_APP_FROM = "from";
-    protected static final String URL_KEY_APP_VERSION = "appversion";
-    protected static final String URL_KEY_BLINK_VER = "zeus_ver";
-    protected static final String URL_KEY_CUID = "cuid";
-    protected static final String URL_KEY_MACHINE = "dev";
-    protected static final String URL_KEY_SDK_APP = "app";
-    protected static final String URL_KEY_ZEUS_SDK = "sdk";
-    private static final int sTotalEmulatorCheckReasons = 6;
-    private static boolean sZeusSupportedLoaded;
-    private static final String TAG = BdZeusUtil.class.getSimpleName();
-    private static boolean sZeusSupported = true;
+    public static final String OS_ARCH = "os.arch";
+    public static final String TAG = "BdZeusUtil";
+    public static final String TIME_SEPERATOR = "-";
+    public static final String URL_KEY_APP_FROM = "from";
+    public static final String URL_KEY_APP_VERSION = "appversion";
+    public static final String URL_KEY_BLINK_VER = "zeus_ver";
+    public static final String URL_KEY_CUID = "cuid";
+    public static final String URL_KEY_MACHINE = "dev";
+    public static final String URL_KEY_SDK_APP = "app";
+    public static final String URL_KEY_ZEUS_SDK = "sdk";
+    public static final int sTotalEmulatorCheckReasons = 6;
+    public static boolean sZeusSupported = true;
+    public static boolean sZeusSupportedLoaded;
 
-    private BdZeusUtil() {
-    }
-
-    private static void appendUrlParam(StringBuilder sb, String str, String str2) {
+    public static void appendUrlParam(StringBuilder sb, String str, String str2) {
         if (sb == null || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             return;
         }
         sb.append(str);
         sb.append("=");
         sb.append(str2);
-        sb.append(ETAG.ITEM_SEPARATOR);
+        sb.append("&");
     }
 
     public static String checkEmulator() {
         return "unKnown";
     }
 
-    private static String dealWithEmulatorResult(float f, List<Integer> list) {
-        float f2 = 100.0f * (f / 6.0f);
+    public static String dealWithEmulatorResult(float f2, List<Integer> list) {
+        float f3 = (f2 / 6.0f) * 100.0f;
         try {
             JSONObject jSONObject = new JSONObject();
-            jSONObject.put("result", f > 0.0f ? "true" : "false");
-            jSONObject.put("probability", f2 + "%");
+            jSONObject.put("result", f2 > 0.0f ? "true" : "false");
+            jSONObject.put("probability", f3 + "%");
             jSONObject.put("hitreasons", list);
             return jSONObject.toString();
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (Exception e2) {
+            e2.printStackTrace();
             return "unKnown";
         }
     }
@@ -73,7 +70,8 @@ public final class BdZeusUtil implements INoProGuard {
         if (context == null || context.getApplicationContext() == null) {
             return;
         }
-        File file = new File(context.getApplicationContext().getDatabasePath("dummy").getParent() + "/webviewCookiesChromium.db");
+        String parent = context.getApplicationContext().getDatabasePath(BitmapPoolType.DUMMY).getParent();
+        File file = new File(parent + "/webviewCookiesChromium.db");
         if (!file.exists() || file.delete()) {
             return;
         }
@@ -104,7 +102,7 @@ public final class BdZeusUtil implements INoProGuard {
                         return false;
                     }
                 }
-            } catch (Exception e) {
+            } catch (Exception unused) {
                 Log.e(TAG, "Delete zeus file error.");
                 return false;
             }
@@ -133,122 +131,122 @@ public final class BdZeusUtil implements INoProGuard {
         return calendar.get(1) + "-" + (calendar.get(2) + 1) + "-" + calendar.get(5) + " " + calendar.get(11) + ":" + calendar.get(12) + ":" + calendar.get(13);
     }
 
-    private static String getDeviceInfo() {
+    public static String getDeviceInfo() {
         String str = Build.MODEL;
         String str2 = Build.VERSION.RELEASE;
         int i = Build.VERSION.SDK_INT;
         String str3 = Build.MANUFACTURER;
         StringBuffer stringBuffer = new StringBuffer();
-        stringBuffer.append(str.replace(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS, "-"));
-        stringBuffer.append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
+        stringBuffer.append(str.replace("_", "-"));
+        stringBuffer.append("_");
         stringBuffer.append(str2);
-        stringBuffer.append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
+        stringBuffer.append("_");
         stringBuffer.append(i);
-        stringBuffer.append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
-        stringBuffer.append(str3.replace(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS, "-"));
+        stringBuffer.append("_");
+        stringBuffer.append(str3.replace("_", "-"));
         return stringBuffer.toString().replace(" ", "-");
     }
 
-    private static PackageInfo getPackageInfo(Context context) {
+    public static PackageInfo getPackageInfo(Context context) {
         try {
             return context.getPackageManager().getPackageInfo(context.getPackageName(), 16384);
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (Exception e2) {
+            e2.printStackTrace();
             return null;
         }
     }
 
     public static String getTnNumbersFromApk(Context context) {
         ByteArrayOutputStream byteArrayOutputStream;
+        Throwable th;
         InputStream inputStream;
-        ByteArrayOutputStream byteArrayOutputStream2;
+        ByteArrayOutputStream byteArrayOutputStream2 = null;
         try {
             inputStream = context.getResources().openRawResource(context.getResources().getIdentifier("tnconfig", "raw", context.getPackageName()));
             try {
                 byteArrayOutputStream = new ByteArrayOutputStream();
-                try {
-                    byte[] bArr = new byte[1024];
-                    while (true) {
-                        int read = inputStream.read(bArr);
-                        if (read == -1) {
-                            break;
-                        }
-                        byteArrayOutputStream.write(bArr, 0, read);
-                    }
-                    String trim = new String(byteArrayOutputStream.toByteArray()).trim();
-                    try {
-                        byteArrayOutputStream.close();
-                    } catch (Exception e) {
-                    }
-                    if (inputStream != null) {
-                        try {
-                            inputStream.close();
-                            return trim;
-                        } catch (Exception e2) {
-                            return trim;
-                        }
-                    }
-                    return trim;
-                } catch (Exception e3) {
-                    byteArrayOutputStream2 = byteArrayOutputStream;
-                    if (byteArrayOutputStream2 != null) {
-                        try {
-                            byteArrayOutputStream2.close();
-                        } catch (Exception e4) {
-                        }
-                    }
-                    if (inputStream != null) {
-                        try {
-                            inputStream.close();
-                        } catch (Exception e5) {
-                        }
-                    }
-                    return DEFAULT_TNNUMBER;
-                } catch (Throwable th) {
-                    th = th;
-                    if (byteArrayOutputStream != null) {
-                        try {
-                            byteArrayOutputStream.close();
-                        } catch (Exception e6) {
-                        }
-                    }
-                    if (inputStream != null) {
-                        try {
-                            inputStream.close();
-                        } catch (Exception e7) {
-                        }
-                    }
-                    throw th;
-                }
-            } catch (Exception e8) {
-                byteArrayOutputStream2 = null;
+            } catch (Exception unused) {
             } catch (Throwable th2) {
-                th = th2;
                 byteArrayOutputStream = null;
+                th = th2;
             }
-        } catch (Exception e9) {
-            byteArrayOutputStream2 = null;
+        } catch (Exception unused2) {
             inputStream = null;
         } catch (Throwable th3) {
-            th = th3;
             byteArrayOutputStream = null;
+            th = th3;
             inputStream = null;
+        }
+        try {
+            byte[] bArr = new byte[1024];
+            while (true) {
+                int read = inputStream.read(bArr);
+                if (read == -1) {
+                    break;
+                }
+                byteArrayOutputStream.write(bArr, 0, read);
+            }
+            String trim = new String(byteArrayOutputStream.toByteArray()).trim();
+            try {
+                byteArrayOutputStream.close();
+            } catch (Exception unused3) {
+            }
+            if (inputStream != null) {
+                try {
+                    inputStream.close();
+                } catch (Exception unused4) {
+                }
+            }
+            return trim;
+        } catch (Exception unused5) {
+            byteArrayOutputStream2 = byteArrayOutputStream;
+            if (byteArrayOutputStream2 != null) {
+                try {
+                    byteArrayOutputStream2.close();
+                } catch (Exception unused6) {
+                }
+            }
+            if (inputStream != null) {
+                try {
+                    inputStream.close();
+                    return DEFAULT_TNNUMBER;
+                } catch (Exception unused7) {
+                    return DEFAULT_TNNUMBER;
+                }
+            }
+            return DEFAULT_TNNUMBER;
+        } catch (Throwable th4) {
+            th = th4;
+            if (byteArrayOutputStream != null) {
+                try {
+                    byteArrayOutputStream.close();
+                } catch (Exception unused8) {
+                }
+            }
+            if (inputStream != null) {
+                try {
+                    inputStream.close();
+                } catch (Exception unused9) {
+                }
+            }
+            throw th;
         }
     }
 
     public static boolean guessIsMobileSiteByUrl(String str) {
-        if (str != null && str.length() > 0) {
-            Uri parse = Uri.parse(str);
-            String host = parse.getHost();
-            if (host != null && host.length() > 0 && (host.startsWith("m.") || host.startsWith("3g.") || host.startsWith("wap.") || host.startsWith("waps.") || host.startsWith("mobile.") || host.indexOf(".m.") != -1 || host.indexOf(".3g.") != -1 || host.indexOf(".wap.") != -1 || host.indexOf(".waps.") != -1 || host.indexOf(".mobile.") != -1)) {
-                return true;
-            }
-            String path = parse.getPath();
-            if (path != null && path.length() > 0 && (path.indexOf("/mobile/") != -1 || path.indexOf("/wap/") != -1 || path.indexOf("/3g/") != -1)) {
-                return true;
-            }
+        if (str == null || str.length() <= 0) {
+            return false;
         }
-        return false;
+        Uri parse = Uri.parse(str);
+        String host = parse.getHost();
+        if (host == null || host.length() <= 0 || (!host.startsWith("m.") && !host.startsWith("3g.") && !host.startsWith("wap.") && !host.startsWith("waps.") && !host.startsWith("mobile.") && host.indexOf(".m.") == -1 && host.indexOf(".3g.") == -1 && host.indexOf(".wap.") == -1 && host.indexOf(".waps.") == -1 && host.indexOf(".mobile.") == -1)) {
+            String path = parse.getPath();
+            if (path == null || path.length() <= 0) {
+                return false;
+            }
+            return (path.indexOf("/mobile/") == -1 && path.indexOf("/wap/") == -1 && path.indexOf("/3g/") == -1) ? false : true;
+        }
+        return true;
     }
 
     public static boolean isWebkitLoaded() {
@@ -267,7 +265,8 @@ public final class BdZeusUtil implements INoProGuard {
     }
 
     public static void printKernellog(String str) {
-        Log.i(TAG, "printKernelLog: " + formatdetailTime(System.currentTimeMillis()) + " " + str + "\r\n");
+        String str2 = TAG;
+        Log.i(str2, "printKernelLog: " + formatdetailTime(System.currentTimeMillis()) + " " + str + Part.CRLF);
     }
 
     public static String processUrl(String str, Context context) {
@@ -280,7 +279,7 @@ public final class BdZeusUtil implements INoProGuard {
         Log.w("sdk in=" + zeusVersionByUpdate);
         Log.w("sdk out=" + sdkVersionName);
         appendUrlParam(sb, "zeus_ver", zeusVersionByUpdate);
-        sb.append(ETAG.ITEM_SEPARATOR);
+        sb.append("&");
         if (!TextUtils.isEmpty(sdkVersionName)) {
             appendUrlParam(sb, "sdk", sdkVersionName);
         }

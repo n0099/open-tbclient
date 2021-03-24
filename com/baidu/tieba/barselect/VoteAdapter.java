@@ -3,67 +3,78 @@ package com.baidu.tieba.barselect;
 import android.view.ViewGroup;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.barselect.data.d;
-import com.baidu.tieba.barselect.data.f;
 import com.baidu.tieba.barselect.view.VoteCandidateCard;
+import d.b.i0.v.b.d;
+import d.b.i0.v.b.f;
+import d.b.i0.v.e.a;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class VoteAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
-    private List<d> isc;
-    private int isd = -1;
-    private TbPageContext mPageContext;
-    private f mVoteData;
+
+    /* renamed from: a  reason: collision with root package name */
+    public TbPageContext f15132a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public f f15133b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public List<d> f15134c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public int f15135d = -1;
 
     public VoteAdapter(TbPageContext tbPageContext) {
-        this.mPageContext = tbPageContext;
-    }
-
-    public void a(f fVar) {
-        this.mVoteData = fVar;
-        if (fVar != null) {
-            this.isc = fVar.crA();
-        }
-        this.isd = -1;
-        notifyDataSetChanged();
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    /* renamed from: y */
-    public VoteViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
-        VoteCandidateCard voteCandidateCard = new VoteCandidateCard(this.mPageContext.getPageActivity());
-        voteCandidateCard.setVoteAdaPter(this);
-        return new VoteViewHolder(voteCandidateCard);
-    }
-
-    @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    public void onBindViewHolder(RecyclerView.ViewHolder viewHolder, int i) {
-        if (viewHolder instanceof VoteViewHolder) {
-            ((VoteViewHolder) viewHolder).setData(i, this.mVoteData);
-        }
+        this.f15132a = tbPageContext;
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public int getItemCount() {
-        if (this.isc != null) {
-            return this.isc.size();
+        List<d> list = this.f15134c;
+        if (list != null) {
+            return list.size();
         }
         return 0;
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public int getItemViewType(int i) {
-        if (this.isc == null || this.isc.size() <= i || this.isc.get(i).getRank() != 1 || i != 0) {
+        List<d> list = this.f15134c;
+        if (list == null || list.size() <= i || this.f15134c.get(i).i() != 1 || i != 0) {
             return 0;
         }
-        return com.baidu.tieba.barselect.a.a.ive;
+        return a.f61956c;
     }
 
-    public int crl() {
-        return this.isd;
+    public int m() {
+        return this.f15135d;
     }
 
-    public void wL(int i) {
-        this.isd = i;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // androidx.recyclerview.widget.RecyclerView.Adapter
+    /* renamed from: n */
+    public VoteViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
+        VoteCandidateCard voteCandidateCard = new VoteCandidateCard(this.f15132a.getPageActivity());
+        voteCandidateCard.setVoteAdaPter(this);
+        return new VoteViewHolder(voteCandidateCard);
+    }
+
+    public void o(int i) {
+        this.f15135d = i;
+    }
+
+    @Override // androidx.recyclerview.widget.RecyclerView.Adapter
+    public void onBindViewHolder(RecyclerView.ViewHolder viewHolder, int i) {
+        if (viewHolder instanceof VoteViewHolder) {
+            ((VoteViewHolder) viewHolder).a(i, this.f15133b);
+        }
+    }
+
+    public void p(f fVar) {
+        this.f15133b = fVar;
+        if (fVar != null) {
+            this.f15134c = fVar.b();
+        }
+        this.f15135d = -1;
+        notifyDataSetChanged();
     }
 }

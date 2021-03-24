@@ -6,97 +6,119 @@ import android.os.Handler;
 import android.os.Looper;
 import android.util.AttributeSet;
 import android.widget.ImageView;
-import com.baidu.searchbox.v8engine.util.TimeUtils;
-import com.win.opensdk.bw;
-import com.win.opensdk.bz;
-import com.win.opensdk.cc;
-import com.win.opensdk.ci;
-import com.win.opensdk.cm;
-import com.win.opensdk.cq;
-import com.win.opensdk.ct;
-import com.win.opensdk.cw;
-/* loaded from: classes14.dex */
+import com.win.opensdk.Z;
+import com.win.opensdk.a0;
+import com.win.opensdk.b0;
+import com.win.opensdk.d0;
+import com.win.opensdk.e0;
+import com.win.opensdk.f0;
+import com.win.opensdk.g0;
+import com.win.opensdk.h0;
+/* loaded from: classes7.dex */
 public class GifImageView extends ImageView implements Runnable {
-    public Bitmap b;
-    public final Handler c;
-    public boolean d;
-    public boolean e;
-    public boolean f;
-    public Thread g;
-    public long h;
+
+    /* renamed from: a  reason: collision with root package name */
+    public Z f39946a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public Bitmap f39947b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public final Handler f39948c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public boolean f39949d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public boolean f39950e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public boolean f39951f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public Thread f39952g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public long f39953h;
     public final Runnable i;
     public final Runnable j;
-    public bw qlH;
 
     public GifImageView(Context context) {
         super(context);
-        this.c = new Handler(Looper.getMainLooper());
-        this.h = -1L;
-        this.i = new ci(this);
-        this.j = new cm(this);
+        this.f39948c = new Handler(Looper.getMainLooper());
+        this.f39953h = -1L;
+        this.i = new d0(this);
+        this.j = new e0(this);
     }
 
     public GifImageView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.c = new Handler(Looper.getMainLooper());
-        this.h = -1L;
-        this.i = new ci(this);
-        this.j = new cm(this);
+        this.f39948c = new Handler(Looper.getMainLooper());
+        this.f39953h = -1L;
+        this.i = new d0(this);
+        this.j = new e0(this);
     }
 
     public void a() {
-        this.d = false;
-        this.e = false;
-        this.f = true;
+        this.f39949d = false;
+        this.f39950e = false;
+        this.f39951f = true;
         d();
-        this.c.post(this.j);
+        this.f39948c.post(this.j);
     }
 
     public void a(int i) {
-        bw bwVar = this.qlH;
-        if (bwVar.n != i && bwVar.a(i - 1) && !this.d) {
-            this.e = true;
-            c();
+        Z z = this.f39946a;
+        if (z.n == i || !z.a(i - 1) || this.f39949d) {
+            return;
         }
+        this.f39950e = true;
+        c();
+    }
+
+    public void b() {
+        this.f39949d = true;
+        c();
     }
 
     public final void c() {
-        if ((this.d || this.e) && this.qlH != null && this.g == null) {
-            this.g = new Thread(this);
-            this.g.start();
+        if ((this.f39949d || this.f39950e) && this.f39946a != null && this.f39952g == null) {
+            Thread thread = new Thread(this);
+            this.f39952g = thread;
+            thread.start();
         }
     }
 
     public void d() {
-        this.d = false;
-        Thread thread = this.g;
+        this.f39949d = false;
+        Thread thread = this.f39952g;
         if (thread != null) {
             thread.interrupt();
-            this.g = null;
+            this.f39952g = null;
         }
     }
 
     public int getFrameCount() {
-        return this.qlH.qlm.c;
+        return this.f39946a.p.f39880c;
     }
 
     public long getFramesDisplayDuration() {
-        return this.h;
+        return this.f39953h;
     }
 
     public int getGifHeight() {
-        return this.qlH.qlm.g;
+        return this.f39946a.p.f39884g;
     }
 
     public int getGifWidth() {
-        return this.qlH.qlm.f;
+        return this.f39946a.p.f39883f;
     }
 
-    public ct getOnAnimationStop() {
+    public g0 getOnAnimationStop() {
         return null;
     }
 
-    public cw getOnFrameAvailable() {
+    public h0 getOnFrameAvailable() {
         return null;
     }
 
@@ -106,97 +128,108 @@ public class GifImageView extends ImageView implements Runnable {
         a();
     }
 
-    public void setBytes(byte[] bArr) {
-        this.qlH = new bw();
-        try {
-            this.qlH.a(bArr);
-            if (this.d) {
-                c();
-            } else {
-                a(0);
-            }
-        } catch (Exception e) {
-            this.qlH = null;
-        }
-    }
-
-    public void setFramesDisplayDuration(long j) {
-        this.h = j;
-    }
-
-    public void setOnAnimationStart(cq cqVar) {
-    }
-
-    public void setOnAnimationStop(ct ctVar) {
-    }
-
-    public void setOnFrameAvailable(cw cwVar) {
-    }
-
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [5=4] */
-    /* JADX WARN: Can't wrap try/catch for region: R(10:13|(4:56|(1:58)|59|(7:63|16|17|18|19|20|(1:46)(6:23|24|(1:42)(1:(1:41)(1:30))|31|(3:33|(1:35)(1:37)|36)|38)))|15|16|17|18|19|20|(1:45)(1:47)|46) */
-    /* JADX WARN: Code restructure failed: missing block: B:51:0x00a7, code lost:
-        r2 = 0;
+    /* JADX WARN: Can't wrap try/catch for region: R(11:12|(4:14|(1:16)|17|(8:21|22|23|24|26|27|28|(1:54)(7:31|32|(4:(1:39)|40|(3:42|(1:44)(1:46)|45)|47)|50|40|(0)|47)))|59|22|23|24|26|27|28|(1:53)(1:55)|54) */
+    /* JADX WARN: Code restructure failed: missing block: B:24:0x0058, code lost:
+        r7 = 0;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:55:0x00ac, code lost:
-        r2 = 0;
-     */
+    /* JADX WARN: Removed duplicated region for block: B:40:0x0084 A[Catch: InterruptedException -> 0x0092, TryCatch #0 {InterruptedException -> 0x0092, blocks: (B:29:0x0062, B:31:0x006a, B:36:0x0073, B:38:0x007f, B:40:0x0084, B:42:0x008a, B:44:0x008e, B:43:0x008d), top: B:56:0x0062 }] */
     @Override // java.lang.Runnable
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public void run() {
-        boolean z;
-        cc ccVar;
+        Z z;
+        b0 b0Var;
         int i;
+        int i2;
+        int i3;
         do {
-            if (!this.d && !this.e) {
+            if (!this.f39949d && !this.f39950e) {
                 break;
             }
-            bw bwVar = this.qlH;
-            int i2 = bwVar.qlm.c;
-            if (i2 > 0) {
-                if (bwVar.n == i2 - 1) {
-                    bwVar.o++;
+            Z z2 = this.f39946a;
+            int i4 = z2.p.f39880c;
+            int i5 = -1;
+            boolean z3 = true;
+            if (i4 > 0) {
+                if (z2.n == i4 - 1) {
+                    z2.o++;
                 }
-                int i3 = bwVar.qlm.m;
-                if (i3 == -1 || bwVar.o <= i3) {
-                    bwVar.n = (bwVar.n + 1) % bwVar.qlm.c;
-                    z = true;
+                int i6 = z2.p.m;
+                if (i6 == -1 || z2.o <= i6) {
+                    z2.n = (z2.n + 1) % z2.p.f39880c;
                     long nanoTime = System.nanoTime();
-                    this.b = this.qlH.b();
-                    long j = (System.nanoTime() - nanoTime) / TimeUtils.NANOS_PER_MS;
-                    this.c.post(this.i);
-                    this.e = false;
-                    if (this.d || !z) {
-                        this.d = false;
+                    this.f39947b = this.f39946a.b();
+                    long j = (System.nanoTime() - nanoTime) / 1000000;
+                    this.f39948c.post(this.i);
+                    this.f39950e = false;
+                    if (this.f39949d || !z3) {
+                        this.f39949d = false;
                         break;
                     }
                     try {
-                        bw bwVar2 = this.qlH;
-                        int i4 = bwVar2.qlm.c;
-                        int i5 = (int) (((i4 <= 0 || (i = bwVar2.n) < 0) ? 0 : (i < 0 || i >= i4) ? -1 : ((bz) ccVar.e.get(i)).i) - j);
-                        if (i5 > 0) {
-                            Thread.sleep(this.h > 0 ? this.h : i5);
+                        z = this.f39946a;
+                        b0Var = z.p;
+                        i = b0Var.f39880c;
+                    } catch (InterruptedException unused) {
+                    }
+                    if (i > 0 && (i3 = z.n) >= 0) {
+                        if (i3 >= 0 && i3 < i) {
+                            i5 = ((a0) b0Var.f39882e.get(i3)).i;
                         }
-                    } catch (InterruptedException e) {
+                        i2 = (int) (i5 - j);
+                        if (i2 > 0) {
+                            Thread.sleep(this.f39953h > 0 ? this.f39953h : i2);
+                        }
+                    }
+                    i5 = 0;
+                    i2 = (int) (i5 - j);
+                    if (i2 > 0) {
                     }
                 }
             }
-            z = false;
+            z3 = false;
             long nanoTime2 = System.nanoTime();
-            this.b = this.qlH.b();
-            long j2 = (System.nanoTime() - nanoTime2) / TimeUtils.NANOS_PER_MS;
-            this.c.post(this.i);
-            this.e = false;
-            if (this.d) {
+            this.f39947b = this.f39946a.b();
+            long j2 = (System.nanoTime() - nanoTime2) / 1000000;
+            this.f39948c.post(this.i);
+            this.f39950e = false;
+            if (this.f39949d) {
             }
-            this.d = false;
+            this.f39949d = false;
             break;
-        } while (this.d);
-        if (this.f) {
-            this.c.post(this.j);
+        } while (this.f39949d);
+        if (this.f39951f) {
+            this.f39948c.post(this.j);
         }
-        this.g = null;
+        this.f39952g = null;
+    }
+
+    public void setBytes(byte[] bArr) {
+        Z z = new Z();
+        this.f39946a = z;
+        try {
+            z.a(bArr);
+            if (this.f39949d) {
+                c();
+            } else {
+                a(0);
+            }
+        } catch (Exception unused) {
+            this.f39946a = null;
+        }
+    }
+
+    public void setFramesDisplayDuration(long j) {
+        this.f39953h = j;
+    }
+
+    public void setOnAnimationStart(f0 f0Var) {
+    }
+
+    public void setOnAnimationStop(g0 g0Var) {
+    }
+
+    public void setOnFrameAvailable(h0 h0Var) {
     }
 }

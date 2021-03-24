@@ -1,49 +1,56 @@
 package com.kwad.sdk.core.d;
 
 import android.util.Log;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class a {
-    private static String b = "[KSAdSDK_3.3.9]";
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f6021a = true;
-    private static boolean c = false;
+    public static boolean f33457a = true;
 
-    private static String a() {
-        return b;
+    /* renamed from: b  reason: collision with root package name */
+    public static String f33458b = "[KSAdSDK_3.3.9]";
+
+    /* renamed from: c  reason: collision with root package name */
+    public static boolean f33459c = false;
+
+    public static String a() {
+        return f33458b;
     }
 
     public static void a(String str, String str2) {
     }
 
     public static void a(String str, String str2, Throwable th) {
-        if (f6021a) {
+        if (f33457a) {
             Log.e(str, str2, th);
         }
     }
 
     public static void a(String str, boolean z) {
-        b = "[" + str + "]";
-        f6021a = z;
+        f33458b = "[" + str + "]";
+        f33457a = z;
     }
 
     public static void a(Throwable th) {
-        if (f6021a && th != null) {
+        if (f33457a && th != null) {
             th.printStackTrace();
         }
-        if (com.kwad.sdk.a.b.booleanValue()) {
+        if (com.kwad.sdk.a.f31642b.booleanValue()) {
             throw new RuntimeException(th);
         }
     }
 
-    private static String b() {
-        if (c) {
-            int i = -1;
-            String str = "unknown";
+    public static String b() {
+        String str;
+        int i;
+        if (f33459c) {
             StackTraceElement[] stackTrace = new Throwable().getStackTrace();
             if (stackTrace.length > 3) {
                 str = stackTrace[3].getFileName();
                 i = stackTrace[3].getLineNumber();
+            } else {
+                str = "unknown";
+                i = -1;
             }
             return "(" + str + ':' + i + ')';
         }
@@ -51,31 +58,31 @@ public class a {
     }
 
     public static void b(String str, String str2) {
-        if (f6021a) {
+        if (f33457a) {
             Log.i(a(), e(str, str2));
         }
     }
 
     public static void b(Throwable th) {
-        if (!f6021a || th == null) {
+        if (!f33457a || th == null) {
             return;
         }
         th.printStackTrace();
     }
 
     public static void c(String str, String str2) {
-        if (f6021a) {
+        if (f33457a) {
             Log.w(a(), e(str, str2));
         }
     }
 
     public static void d(String str, String str2) {
-        if (f6021a) {
+        if (f33457a) {
             Log.e(a(), e(str, str2));
         }
     }
 
-    private static String e(String str, String str2) {
+    public static String e(String str, String str2) {
         return "[" + str + "]: " + str2 + " " + b();
     }
 }

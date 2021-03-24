@@ -3,9 +3,8 @@ package com.qq.e.comm.util;
 import android.content.Context;
 import android.content.res.Resources;
 import android.text.TextUtils;
-import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import java.lang.reflect.Field;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class ResourceUtil {
     public static int getColorId(Context context, String str) {
         Resources resources;
@@ -57,12 +56,12 @@ public class ResourceUtil {
 
     public static int getStyleableFieldId(Context context, String str, String str2) {
         Class<?>[] classes;
-        String str3 = str + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + str2;
+        Field[] fields;
+        String str3 = str + "_" + str2;
         try {
             for (Class<?> cls : Class.forName(context.getPackageName() + ".R").getClasses()) {
                 if (cls.getSimpleName().equals("styleable")) {
-                    Field[] fields = cls.getFields();
-                    for (Field field : fields) {
+                    for (Field field : cls.getFields()) {
                         if (field.getName().equals(str3)) {
                             return ((Integer) field.get(null)).intValue();
                         }

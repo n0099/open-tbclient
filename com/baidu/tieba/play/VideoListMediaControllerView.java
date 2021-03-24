@@ -4,10 +4,15 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
 import com.baidu.tieba.R;
-/* loaded from: classes.dex */
+/* loaded from: classes5.dex */
 public class VideoListMediaControllerView extends VideoControllerView {
     public VideoListMediaControllerView(Context context) {
         super(context);
+    }
+
+    @Override // com.baidu.tieba.play.VideoControllerView
+    public View l(Context context) {
+        return View.inflate(context, R.layout.video_list_video_controller, null);
     }
 
     public VideoListMediaControllerView(Context context, AttributeSet attributeSet) {
@@ -16,10 +21,5 @@ public class VideoListMediaControllerView extends VideoControllerView {
 
     public VideoListMediaControllerView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-    }
-
-    @Override // com.baidu.tieba.play.VideoControllerView
-    protected View fD(Context context) {
-        return View.inflate(context, R.layout.video_list_video_controller, null);
     }
 }

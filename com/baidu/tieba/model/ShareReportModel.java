@@ -1,26 +1,23 @@
 package com.baidu.tieba.model;
 
 import com.baidu.adp.base.BdBaseModel;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.model.message.ShareReportHttpResponseMessage;
 import com.baidu.tieba.model.message.ShareReportNetMessage;
 import com.baidu.tieba.model.message.ShareReportSocketResponseMessage;
-/* loaded from: classes.dex */
+import d.b.b.e.m.b;
+import d.b.i0.c3.d0.a;
+/* loaded from: classes3.dex */
 public class ShareReportModel extends BdBaseModel {
     public ShareReportModel(TbPageContext tbPageContext) {
         super(tbPageContext);
-        cOI();
-    }
-
-    private void cOI() {
-        com.baidu.tieba.tbadkCore.a.a.a(CmdConfigSocket.CMD_SHARE_REPORT, ShareReportSocketResponseMessage.class, false, false);
-        com.baidu.tieba.tbadkCore.a.a.a(CmdConfigSocket.CMD_SHARE_REPORT, 1003363, TbConfig.URL_SHARE_REPORT, ShareReportHttpResponseMessage.class, false, false, false, false);
+        s();
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
-    protected boolean LoadData() {
+    public boolean LoadData() {
         return false;
     }
 
@@ -29,10 +26,15 @@ public class ShareReportModel extends BdBaseModel {
         return false;
     }
 
-    public void u(String str, String str2, int i) {
+    public final void s() {
+        a.h(309480, ShareReportSocketResponseMessage.class, false, false);
+        a.c(309480, CmdConfigHttp.CMD_SHARE_REPORT, TbConfig.URL_SHARE_REPORT, ShareReportHttpResponseMessage.class, false, false, false, false);
+    }
+
+    public void t(String str, String str2, int i) {
         ShareReportNetMessage shareReportNetMessage = new ShareReportNetMessage();
-        shareReportNetMessage.setFid(com.baidu.adp.lib.f.b.toLong(str, 0L));
-        shareReportNetMessage.setTid(com.baidu.adp.lib.f.b.toLong(str2, 0L));
+        shareReportNetMessage.setFid(b.f(str, 0L));
+        shareReportNetMessage.setTid(b.f(str2, 0L));
         shareReportNetMessage.setFrom(i);
         sendMessage(shareReportNetMessage);
     }

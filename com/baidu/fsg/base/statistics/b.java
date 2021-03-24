@@ -1,16 +1,30 @@
 package com.baidu.fsg.base.statistics;
-/* loaded from: classes5.dex */
-class b {
+/* loaded from: classes2.dex */
+public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f1527a = "wallet_stastics";
-    public static final int b = 204800;
-    public static final int c = 51200;
-    public static final int d = 200;
-    public static final long e = 604800000;
-    public static final long f = 86400000;
-    public static final String g = "publish_data";
-    public static final String h = "sign";
+    public static final String f5268a = "wallet_stastics";
+
+    /* renamed from: b  reason: collision with root package name */
+    public static final int f5269b = 204800;
+
+    /* renamed from: c  reason: collision with root package name */
+    public static final int f5270c = 51200;
+
+    /* renamed from: d  reason: collision with root package name */
+    public static final int f5271d = 200;
+
+    /* renamed from: e  reason: collision with root package name */
+    public static final long f5272e = 604800000;
+
+    /* renamed from: f  reason: collision with root package name */
+    public static final long f5273f = 86400000;
+
+    /* renamed from: g  reason: collision with root package name */
+    public static final String f5274g = "publish_data";
+
+    /* renamed from: h  reason: collision with root package name */
+    public static final String f5275h = "sign";
     public static final String i = "mk";
     public static final String j = "array";
     public static final String k = "exception";
@@ -19,7 +33,4 @@ class b {
     public static final String n = "QmFpZHVfRlNHX1JJTV9TREtfQ3Jhc2hfbG9nX1BhdGg=.json";
     public static final String o = "crash_log";
     public static final String p = "normal_log";
-
-    b() {
-    }
 }

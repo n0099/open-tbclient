@@ -1,19 +1,11 @@
 package com.baidu.tbadk.mvc.model;
 
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.mvc.b.h;
-import com.baidu.tbadk.mvc.b.j;
-import com.baidu.tbadk.mvc.message.MvcProtobufHttpResponsedMessage;
-import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
 import com.baidu.tbadk.mvc.model.NetModel;
-/* loaded from: classes.dex */
-public abstract class NetAutoModel<T extends h, D extends j, ActivityType> extends NetModel<T, D, ActivityType> {
-    @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected abstract Class<? extends MvcProtobufHttpResponsedMessage> acV();
-
-    @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected abstract Class<? extends MvcSocketResponsedMessage> acX();
-
+import d.b.h0.g0.b.g;
+import d.b.h0.g0.b.h;
+/* loaded from: classes3.dex */
+public abstract class NetAutoModel<T extends g, D extends h, ActivityType> extends NetModel<T, D, ActivityType> {
     public NetAutoModel(TbPageContext<ActivityType> tbPageContext, T t) {
         super(tbPageContext, t, NetModel.NetModelType.TYPE_AUTO);
     }

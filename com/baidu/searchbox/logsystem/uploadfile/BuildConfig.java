@@ -1,5 +1,5 @@
 package com.baidu.searchbox.logsystem.uploadfile;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public final class BuildConfig {
     public static final String APPLICATION_ID = "com.baidu.searchbox.logsystem.uploadfile";
     public static final String BUILD_TYPE = "release";

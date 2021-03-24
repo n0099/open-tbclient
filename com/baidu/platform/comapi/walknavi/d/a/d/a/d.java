@@ -1,26 +1,26 @@
 package com.baidu.platform.comapi.walknavi.d.a.d.a;
 
 import com.baidu.platform.comapi.walknavi.d.a.d.a.c;
-/* loaded from: classes4.dex */
-final class d implements c.b {
+/* loaded from: classes2.dex */
+public final class d implements c.b {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ c.InterfaceC0290c f2920a;
+    public final /* synthetic */ c.InterfaceC0122c f9967a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public d(c.InterfaceC0290c interfaceC0290c) {
-        this.f2920a = interfaceC0290c;
+    public d(c.InterfaceC0122c interfaceC0122c) {
+        this.f9967a = interfaceC0122c;
+    }
+
+    @Override // com.baidu.platform.comapi.walknavi.d.a.d.a.c.InterfaceC0122c
+    public void a(long j, long j2) {
+        c.InterfaceC0122c interfaceC0122c = this.f9967a;
+        if (interfaceC0122c != null) {
+            interfaceC0122c.a(j, j2);
+        }
     }
 
     @Override // com.baidu.platform.comapi.walknavi.d.a.d.a.c.a
     public boolean a() {
         return false;
-    }
-
-    @Override // com.baidu.platform.comapi.walknavi.d.a.d.a.c.InterfaceC0290c
-    public void a(long j, long j2) {
-        if (this.f2920a != null) {
-            this.f2920a.a(j, j2);
-        }
     }
 }

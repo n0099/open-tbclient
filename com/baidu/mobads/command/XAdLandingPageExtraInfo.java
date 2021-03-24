@@ -7,7 +7,7 @@ import com.baidu.mobads.interfaces.IXAdInstanceInfo;
 import com.baidu.mobads.interfaces.utils.IXAdSystemUtils;
 import com.baidu.mobads.utils.XAdSDKFoundationFacade;
 import com.baidu.mobads.utils.h;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class XAdLandingPageExtraInfo extends XAdCommandExtraInfo {
     public static final Parcelable.Creator<XAdLandingPageExtraInfo> CREATOR = new c();
     public int e75;
@@ -20,9 +20,34 @@ public class XAdLandingPageExtraInfo extends XAdCommandExtraInfo {
     public String prodType;
     public String title;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public /* synthetic */ XAdLandingPageExtraInfo(Parcel parcel, c cVar) {
         this(parcel);
+    }
+
+    @Override // com.baidu.mobads.command.XAdCommandExtraInfo, android.os.Parcelable
+    public void writeToParcel(Parcel parcel, int i) {
+        h commonUtils = XAdSDKFoundationFacade.getInstance().getCommonUtils();
+        IXAdSystemUtils systemUtils = XAdSDKFoundationFacade.getInstance().getSystemUtils();
+        super.writeToParcel(parcel, i);
+        parcel.writeString(this.url);
+        parcel.writeByte(this.isFullScreen ? (byte) 1 : (byte) 0);
+        parcel.writeInt(this.orientation);
+        parcel.writeInt(this.e75);
+        parcel.writeInt(this.from);
+        parcel.writeString(this.adid);
+        parcel.writeString(this.qk);
+        parcel.writeString(this.packageNameOfPubliser);
+        parcel.writeString(this.appsid);
+        parcel.writeString(this.appsec);
+        parcel.writeInt(1);
+        parcel.writeString(this.mProdType);
+        parcel.writeString(commonUtils.b());
+        parcel.writeString(systemUtils.getEncodedSN(XAdSDKFoundationFacade.getInstance().getApplicationContext()));
+        String str = TextUtils.isEmpty(this.title) ? "" : this.title;
+        this.title = str;
+        parcel.writeString(str);
+        parcel.writeString(this.lpShoubaiStyle);
+        parcel.writeString(this.lpMurl);
     }
 
     public XAdLandingPageExtraInfo(String str, IXAdInstanceInfo iXAdInstanceInfo) {
@@ -34,7 +59,7 @@ public class XAdLandingPageExtraInfo extends XAdCommandExtraInfo {
         this.os = 1;
     }
 
-    private XAdLandingPageExtraInfo(Parcel parcel) {
+    public XAdLandingPageExtraInfo(Parcel parcel) {
         super(parcel);
         this.isFullScreen = false;
         this.orientation = 1;
@@ -58,30 +83,5 @@ public class XAdLandingPageExtraInfo extends XAdCommandExtraInfo {
         this.title = parcel.readString();
         this.lpShoubaiStyle = parcel.readString();
         this.lpMurl = parcel.readString();
-    }
-
-    @Override // com.baidu.mobads.command.XAdCommandExtraInfo, android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
-        h commonUtils = XAdSDKFoundationFacade.getInstance().getCommonUtils();
-        IXAdSystemUtils systemUtils = XAdSDKFoundationFacade.getInstance().getSystemUtils();
-        super.writeToParcel(parcel, i);
-        parcel.writeString(this.url);
-        parcel.writeByte((byte) (this.isFullScreen ? 1 : 0));
-        parcel.writeInt(this.orientation);
-        parcel.writeInt(this.e75);
-        parcel.writeInt(this.from);
-        parcel.writeString(this.adid);
-        parcel.writeString(this.qk);
-        parcel.writeString(this.packageNameOfPubliser);
-        parcel.writeString(this.appsid);
-        parcel.writeString(this.appsec);
-        parcel.writeInt(1);
-        parcel.writeString(this.mProdType);
-        parcel.writeString(commonUtils.b());
-        parcel.writeString(systemUtils.getEncodedSN(XAdSDKFoundationFacade.getInstance().getApplicationContext()));
-        this.title = TextUtils.isEmpty(this.title) ? "" : this.title;
-        parcel.writeString(this.title);
-        parcel.writeString(this.lpShoubaiStyle);
-        parcel.writeString(this.lpMurl);
     }
 }

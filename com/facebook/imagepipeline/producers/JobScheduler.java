@@ -1,41 +1,94 @@
 package com.facebook.imagepipeline.producers;
 
 import android.os.SystemClock;
+import com.facebook.common.internal.VisibleForTesting;
+import com.facebook.imagepipeline.image.EncodedImage;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 import javax.annotation.concurrent.GuardedBy;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class JobScheduler {
-    private final Executor mExecutor;
-    private final a pOG;
-    private final int pOJ;
-    private final Runnable pOH = new Runnable() { // from class: com.facebook.imagepipeline.producers.JobScheduler.1
+    public static final String QUEUE_TIME_KEY = "queueTime";
+    public final Executor mExecutor;
+    public final JobRunnable mJobRunnable;
+    public final int mMinimumJobIntervalMs;
+    public final Runnable mDoJobRunnable = new Runnable() { // from class: com.facebook.imagepipeline.producers.JobScheduler.1
         @Override // java.lang.Runnable
         public void run() {
-            JobScheduler.this.ezT();
+            JobScheduler.this.doJob();
         }
     };
-    private final Runnable pOI = new Runnable() { // from class: com.facebook.imagepipeline.producers.JobScheduler.2
+    public final Runnable mSubmitJobRunnable = new Runnable() { // from class: com.facebook.imagepipeline.producers.JobScheduler.2
         @Override // java.lang.Runnable
         public void run() {
-            JobScheduler.this.ezS();
+            JobScheduler.this.submitJob();
         }
     };
+    @VisibleForTesting
     @GuardedBy("this")
-    com.facebook.imagepipeline.f.e mEncodedImage = null;
+    public EncodedImage mEncodedImage = null;
+    @VisibleForTesting
     @GuardedBy("this")
-    int mStatus = 0;
+    public int mStatus = 0;
+    @VisibleForTesting
     @GuardedBy("this")
-    JobState pOK = JobState.IDLE;
+    public JobState mJobState = JobState.IDLE;
+    @VisibleForTesting
     @GuardedBy("this")
-    long pOL = 0;
+    public long mJobSubmitTime = 0;
+    @VisibleForTesting
     @GuardedBy("this")
-    long pOM = 0;
+    public long mJobStartTime = 0;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* renamed from: com.facebook.imagepipeline.producers.JobScheduler$3  reason: invalid class name */
+    /* loaded from: classes6.dex */
+    public static /* synthetic */ class AnonymousClass3 {
+        public static final /* synthetic */ int[] $SwitchMap$com$facebook$imagepipeline$producers$JobScheduler$JobState;
+
+        static {
+            int[] iArr = new int[JobState.values().length];
+            $SwitchMap$com$facebook$imagepipeline$producers$JobScheduler$JobState = iArr;
+            try {
+                iArr[JobState.IDLE.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
+            }
+            try {
+                $SwitchMap$com$facebook$imagepipeline$producers$JobScheduler$JobState[JobState.QUEUED.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
+            }
+            try {
+                $SwitchMap$com$facebook$imagepipeline$producers$JobScheduler$JobState[JobState.RUNNING.ordinal()] = 3;
+            } catch (NoSuchFieldError unused3) {
+            }
+            try {
+                $SwitchMap$com$facebook$imagepipeline$producers$JobScheduler$JobState[JobState.RUNNING_AND_PENDING.ordinal()] = 4;
+            } catch (NoSuchFieldError unused4) {
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public interface JobRunnable {
+        void run(EncodedImage encodedImage, int i);
+    }
+
+    @VisibleForTesting
+    /* loaded from: classes6.dex */
+    public static class JobStartExecutorSupplier {
+        public static ScheduledExecutorService sJobStarterExecutor;
+
+        public static ScheduledExecutorService get() {
+            if (sJobStarterExecutor == null) {
+                sJobStarterExecutor = Executors.newSingleThreadScheduledExecutor();
+            }
+            return sJobStarterExecutor;
+        }
+    }
+
+    @VisibleForTesting
+    /* loaded from: classes6.dex */
     public enum JobState {
         IDLE,
         QUEUED,
@@ -43,73 +96,107 @@ public class JobScheduler {
         RUNNING_AND_PENDING
     }
 
-    /* loaded from: classes5.dex */
-    public interface a {
-        void d(com.facebook.imagepipeline.f.e eVar, int i);
+    public JobScheduler(Executor executor, JobRunnable jobRunnable, int i) {
+        this.mExecutor = executor;
+        this.mJobRunnable = jobRunnable;
+        this.mMinimumJobIntervalMs = i;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
-    public static class b {
-        private static ScheduledExecutorService pOP;
-
-        static ScheduledExecutorService ezW() {
-            if (pOP == null) {
-                pOP = Executors.newSingleThreadScheduledExecutor();
+    /* JADX INFO: Access modifiers changed from: private */
+    public void doJob() {
+        EncodedImage encodedImage;
+        int i;
+        long uptimeMillis = SystemClock.uptimeMillis();
+        synchronized (this) {
+            encodedImage = this.mEncodedImage;
+            i = this.mStatus;
+            this.mEncodedImage = null;
+            this.mStatus = 0;
+            this.mJobState = JobState.RUNNING;
+            this.mJobStartTime = uptimeMillis;
+        }
+        try {
+            if (shouldProcess(encodedImage, i)) {
+                this.mJobRunnable.run(encodedImage, i);
             }
-            return pOP;
+        } finally {
+            EncodedImage.closeSafely(encodedImage);
+            onJobFinished();
         }
     }
 
-    public JobScheduler(Executor executor, a aVar, int i) {
-        this.mExecutor = executor;
-        this.pOG = aVar;
-        this.pOJ = i;
+    private void enqueueJob(long j) {
+        if (j > 0) {
+            JobStartExecutorSupplier.get().schedule(this.mSubmitJobRunnable, j, TimeUnit.MILLISECONDS);
+        } else {
+            this.mSubmitJobRunnable.run();
+        }
     }
 
-    public void ezQ() {
-        com.facebook.imagepipeline.f.e eVar;
+    private void onJobFinished() {
+        long j;
+        boolean z;
+        long uptimeMillis = SystemClock.uptimeMillis();
         synchronized (this) {
-            eVar = this.mEncodedImage;
+            if (this.mJobState == JobState.RUNNING_AND_PENDING) {
+                j = Math.max(this.mJobStartTime + this.mMinimumJobIntervalMs, uptimeMillis);
+                z = true;
+                this.mJobSubmitTime = uptimeMillis;
+                this.mJobState = JobState.QUEUED;
+            } else {
+                this.mJobState = JobState.IDLE;
+                j = 0;
+                z = false;
+            }
+        }
+        if (z) {
+            enqueueJob(j - uptimeMillis);
+        }
+    }
+
+    public static boolean shouldProcess(EncodedImage encodedImage, int i) {
+        return BaseConsumer.isLast(i) || BaseConsumer.statusHasFlag(i, 4) || EncodedImage.isValid(encodedImage);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void submitJob() {
+        this.mExecutor.execute(this.mDoJobRunnable);
+    }
+
+    public void clearJob() {
+        EncodedImage encodedImage;
+        synchronized (this) {
+            encodedImage = this.mEncodedImage;
             this.mEncodedImage = null;
             this.mStatus = 0;
         }
-        com.facebook.imagepipeline.f.e.e(eVar);
+        EncodedImage.closeSafely(encodedImage);
     }
 
-    public boolean e(com.facebook.imagepipeline.f.e eVar, int i) {
-        com.facebook.imagepipeline.f.e eVar2;
-        if (!f(eVar, i)) {
-            return false;
-        }
-        synchronized (this) {
-            eVar2 = this.mEncodedImage;
-            this.mEncodedImage = com.facebook.imagepipeline.f.e.b(eVar);
-            this.mStatus = i;
-        }
-        com.facebook.imagepipeline.f.e.e(eVar2);
-        return true;
+    public synchronized long getQueuedTime() {
+        return this.mJobStartTime - this.mJobSubmitTime;
     }
 
-    public boolean ezR() {
-        boolean z = false;
+    public boolean scheduleJob() {
+        long max;
         long uptimeMillis = SystemClock.uptimeMillis();
-        long j = 0;
         synchronized (this) {
-            if (f(this.mEncodedImage, this.mStatus)) {
-                switch (this.pOK) {
-                    case IDLE:
-                        j = Math.max(this.pOM + this.pOJ, uptimeMillis);
-                        this.pOL = uptimeMillis;
-                        this.pOK = JobState.QUEUED;
-                        z = true;
-                        break;
-                    case RUNNING:
-                        this.pOK = JobState.RUNNING_AND_PENDING;
-                        break;
+            boolean z = false;
+            if (shouldProcess(this.mEncodedImage, this.mStatus)) {
+                int i = AnonymousClass3.$SwitchMap$com$facebook$imagepipeline$producers$JobScheduler$JobState[this.mJobState.ordinal()];
+                if (i != 1) {
+                    if (i == 3) {
+                        this.mJobState = JobState.RUNNING_AND_PENDING;
+                    }
+                    max = 0;
+                } else {
+                    max = Math.max(this.mJobStartTime + this.mMinimumJobIntervalMs, uptimeMillis);
+                    this.mJobSubmitTime = uptimeMillis;
+                    this.mJobState = JobState.QUEUED;
+                    z = true;
                 }
                 if (z) {
-                    iP(j - uptimeMillis);
+                    enqueueJob(max - uptimeMillis);
                 }
                 return true;
             }
@@ -117,66 +204,17 @@ public class JobScheduler {
         }
     }
 
-    private void iP(long j) {
-        if (j > 0) {
-            b.ezW().schedule(this.pOI, j, TimeUnit.MILLISECONDS);
-        } else {
-            this.pOI.run();
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void ezS() {
-        this.mExecutor.execute(this.pOH);
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void ezT() {
-        com.facebook.imagepipeline.f.e eVar;
-        int i;
-        long uptimeMillis = SystemClock.uptimeMillis();
-        synchronized (this) {
-            eVar = this.mEncodedImage;
-            i = this.mStatus;
-            this.mEncodedImage = null;
-            this.mStatus = 0;
-            this.pOK = JobState.RUNNING;
-            this.pOM = uptimeMillis;
-        }
-        try {
-            if (f(eVar, i)) {
-                this.pOG.d(eVar, i);
+    public boolean updateJob(EncodedImage encodedImage, int i) {
+        EncodedImage encodedImage2;
+        if (shouldProcess(encodedImage, i)) {
+            synchronized (this) {
+                encodedImage2 = this.mEncodedImage;
+                this.mEncodedImage = EncodedImage.cloneOrNull(encodedImage);
+                this.mStatus = i;
             }
-        } finally {
-            com.facebook.imagepipeline.f.e.e(eVar);
-            ezU();
+            EncodedImage.closeSafely(encodedImage2);
+            return true;
         }
-    }
-
-    private void ezU() {
-        long uptimeMillis = SystemClock.uptimeMillis();
-        long j = 0;
-        boolean z = false;
-        synchronized (this) {
-            if (this.pOK == JobState.RUNNING_AND_PENDING) {
-                j = Math.max(this.pOM + this.pOJ, uptimeMillis);
-                z = true;
-                this.pOL = uptimeMillis;
-                this.pOK = JobState.QUEUED;
-            } else {
-                this.pOK = JobState.IDLE;
-            }
-        }
-        if (z) {
-            iP(j - uptimeMillis);
-        }
-    }
-
-    private static boolean f(com.facebook.imagepipeline.f.e eVar, int i) {
-        return com.facebook.imagepipeline.producers.b.Qo(i) || com.facebook.imagepipeline.producers.b.ed(i, 4) || com.facebook.imagepipeline.f.e.f(eVar);
-    }
-
-    public synchronized long ezV() {
-        return this.pOM - this.pOL;
+        return false;
     }
 }

@@ -2,7 +2,7 @@ package com.qq.e.comm.pi;
 
 import android.content.Context;
 import com.qq.e.ads.dfa.GDTApk;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public interface DFA {
     void loadGDTApk();
 

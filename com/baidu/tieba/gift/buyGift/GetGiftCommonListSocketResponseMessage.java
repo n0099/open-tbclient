@@ -1,15 +1,14 @@
 package com.baidu.tieba.gift.buyGift;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.squareup.wire.Wire;
 import tbclient.GetGiftCommonList.GetGiftCommonListResIdl;
-/* loaded from: classes8.dex */
+/* loaded from: classes4.dex */
 public class GetGiftCommonListSocketResponseMessage extends SocketResponsedMessage {
-    private GiftCommonList giftCommonList;
+    public GiftCommonList giftCommonList;
 
     public GetGiftCommonListSocketResponseMessage() {
-        super(CmdConfigSocket.CMD_GET_GIFT_LIST);
+        super(308001);
     }
 
     public GiftCommonList getGiftInfo() {
@@ -17,9 +16,10 @@ public class GetGiftCommonListSocketResponseMessage extends SocketResponsedMessa
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.message.a
+    @Override // com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
     public void decodeInBackGround(int i, byte[] bArr) throws Exception {
-        this.giftCommonList = new GiftCommonList();
-        this.giftCommonList.parseProto((GetGiftCommonListResIdl) new Wire(new Class[0]).parseFrom(bArr, GetGiftCommonListResIdl.class));
+        GiftCommonList giftCommonList = new GiftCommonList();
+        this.giftCommonList = giftCommonList;
+        giftCommonList.parseProto((GetGiftCommonListResIdl) new Wire(new Class[0]).parseFrom(bArr, GetGiftCommonListResIdl.class));
     }
 }

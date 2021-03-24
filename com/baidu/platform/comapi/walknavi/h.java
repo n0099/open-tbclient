@@ -3,20 +3,27 @@ package com.baidu.platform.comapi.walknavi;
 import android.os.Handler;
 import android.os.Looper;
 import android.util.Log;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class h implements WalkNaviModeSwitchListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ int f3020a;
-    final /* synthetic */ boolean b;
-    final /* synthetic */ b c;
+    public final /* synthetic */ int f10148a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    /* renamed from: b  reason: collision with root package name */
+    public final /* synthetic */ boolean f10149b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public final /* synthetic */ b f10150c;
+
     public h(b bVar, int i, boolean z) {
-        this.c = bVar;
-        this.f3020a = i;
-        this.b = z;
+        this.f10150c = bVar;
+        this.f10148a = i;
+        this.f10149b = z;
+    }
+
+    @Override // com.baidu.platform.comapi.walknavi.WalkNaviModeSwitchListener
+    public void onFailed() {
+        Log.d("ContentValues", "onWalkNaviModeChange onFailed");
     }
 
     @Override // com.baidu.platform.comapi.walknavi.WalkNaviModeSwitchListener
@@ -24,13 +31,13 @@ public class h implements WalkNaviModeSwitchListener {
         com.baidu.platform.comapi.wnplatform.n.a aVar;
         com.baidu.platform.comapi.wnplatform.n.a aVar2;
         com.baidu.platform.comapi.wnplatform.n.a aVar3;
-        this.c.P = this.f3020a;
-        aVar = this.c.p;
+        this.f10150c.P = this.f10148a;
+        aVar = this.f10150c.p;
         if (aVar != null) {
-            aVar2 = this.c.p;
+            aVar2 = this.f10150c.p;
             if (aVar2 instanceof com.baidu.platform.comapi.walknavi.g.a) {
-                aVar3 = this.c.p;
-                ((com.baidu.platform.comapi.walknavi.g.a) aVar3).a(this.f3020a, this.b);
+                aVar3 = this.f10150c.p;
+                ((com.baidu.platform.comapi.walknavi.g.a) aVar3).a(this.f10148a, this.f10149b);
             }
         }
         if (com.baidu.platform.comapi.wnplatform.a.a().b()) {
@@ -38,10 +45,5 @@ public class h implements WalkNaviModeSwitchListener {
         } else if (com.baidu.platform.comapi.wnplatform.a.a().c()) {
             new Handler(Looper.myLooper()).postDelayed(new i(this), 100L);
         }
-    }
-
-    @Override // com.baidu.platform.comapi.walknavi.WalkNaviModeSwitchListener
-    public void onFailed() {
-        Log.d("ContentValues", "onWalkNaviModeChange onFailed");
     }
 }

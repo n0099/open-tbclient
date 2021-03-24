@@ -9,14 +9,14 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.util.HashMap;
 import org.json.JSONObject;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class BdLogNetRequest implements INetListener {
-    private static final int TIMEOUT = 30000;
-    d mCallback;
-    private ByteArrayOutputStream mData;
-    private boolean mIsConfig;
+    public static final int TIMEOUT = 30000;
+    public d mCallback;
+    public ByteArrayOutputStream mData;
+    public boolean mIsConfig;
 
-    BdLogNetRequest(d dVar, boolean z) {
+    public BdLogNetRequest(d dVar, boolean z) {
         this.mIsConfig = z;
         this.mCallback = dVar;
     }
@@ -49,8 +49,8 @@ public class BdLogNetRequest implements INetListener {
             bdNetTask.setHeaders(hashMap);
             bdNetTask.setContent(com.baidu.webkit.internal.d.b(com.baidu.webkit.internal.d.c(bytes)));
             bdNet.start(bdNetTask, false);
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (Exception e2) {
+            e2.printStackTrace();
             dVar.a(null);
         }
     }

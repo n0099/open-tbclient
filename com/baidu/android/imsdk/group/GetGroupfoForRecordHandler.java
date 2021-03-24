@@ -11,7 +11,7 @@ import com.baidu.android.imsdk.shield.ShieldAndTopManager;
 import com.baidu.android.imsdk.shield.model.GetShieldAndTopResult;
 import com.baidu.android.imsdk.utils.LogUtils;
 import java.util.ArrayList;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class GetGroupfoForRecordHandler extends GetChatObjectInfoForRecordHandler {
     public GetGroupfoForRecordHandler(Context context) {
         super(context);
@@ -61,10 +61,11 @@ public class GetGroupfoForRecordHandler extends GetChatObjectInfoForRecordHandle
 
     @Override // com.baidu.android.imsdk.GetChatObjectInfoForRecordHandler
     public void updateChatRecord(ChatObject chatObject, int i, int i2, Object obj) {
-        if (obj != null && (obj instanceof GroupInfo)) {
-            LogUtils.d("GetGroupfoForRecordHandler", "RECORDSESSION updatechatrecord " + obj.toString());
-            GroupInfo groupInfo = (GroupInfo) obj;
-            updateChatRecord(chatObject, groupInfo.getGroupName(), groupInfo.getType() == 2 ? 4 : i, "", 0, "", "", 0, groupInfo.getMarkTop(), groupInfo.getMarkTopTime(), 0, 0L, "", "", "");
+        if (obj == null || !(obj instanceof GroupInfo)) {
+            return;
         }
+        LogUtils.d("GetGroupfoForRecordHandler", "RECORDSESSION updatechatrecord " + obj.toString());
+        GroupInfo groupInfo = (GroupInfo) obj;
+        updateChatRecord(chatObject, groupInfo.getGroupName(), groupInfo.getType() == 2 ? 4 : i, "", 0, "", "", 0, groupInfo.getMarkTop(), groupInfo.getMarkTopTime(), 0, 0L, "", "", "");
     }
 }

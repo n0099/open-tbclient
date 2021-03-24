@@ -7,18 +7,89 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
-import com.baidu.tbadk.core.view.commonBtn.c;
 import com.baidu.tieba.R;
-/* loaded from: classes7.dex */
+import d.b.h0.r.f0.m.c;
+/* loaded from: classes5.dex */
 public class CustomPrivacyDialogView extends LinearLayout {
-    private EMTextView okf;
-    private TBSpecificationBtn okg;
-    private TBSpecificationBtn okh;
+
+    /* renamed from: e  reason: collision with root package name */
+    public EMTextView f22358e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public TBSpecificationBtn f22359f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public TBSpecificationBtn f22360g;
 
     public CustomPrivacyDialogView(Context context) {
         this(context, null);
+    }
+
+    public final void a(Context context) {
+        ViewGroup.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
+        setOrientation(1);
+        setGravity(1);
+        setLayoutParams(layoutParams);
+        GradientDrawable gradientDrawable = new GradientDrawable();
+        gradientDrawable.setCornerRadius(getResources().getDimension(R.dimen.tbds31));
+        gradientDrawable.setColor(SkinManager.getColor(R.color.CAM_X0211));
+        setBackgroundDrawable(gradientDrawable);
+        LinearLayout.inflate(context, R.layout.custom_privacy_dialog_view, this);
+        this.f22358e = (EMTextView) findViewById(R.id.privacy_message);
+        this.f22359f = (TBSpecificationBtn) findViewById(R.id.custom_privacy_dialog_cancel_button);
+        this.f22360g = (TBSpecificationBtn) findViewById(R.id.custom_privacy_dialog_confirm_button);
+        this.f22359f.setTextSize(R.dimen.tbds34);
+        c cVar = new c();
+        cVar.q(R.color.CAM_X0105);
+        this.f22359f.setConfig(cVar);
+        this.f22360g.setTextSize(R.dimen.tbds34);
+        c cVar2 = new c();
+        cVar2.o(R.color.CAM_X0302);
+        this.f22360g.setConfig(cVar2);
+    }
+
+    public void setMessageTextViewColor(int i) {
+        EMTextView eMTextView = this.f22358e;
+        if (eMTextView != null) {
+            eMTextView.setTextColor(i);
+        }
+    }
+
+    public void setMessageTextViewMessage(String str) {
+        EMTextView eMTextView = this.f22358e;
+        if (eMTextView != null) {
+            eMTextView.setText(str);
+        }
+    }
+
+    public void setPrivacyDialogCancelButtonListener(View.OnClickListener onClickListener) {
+        TBSpecificationBtn tBSpecificationBtn = this.f22359f;
+        if (tBSpecificationBtn != null) {
+            tBSpecificationBtn.setOnClickListener(onClickListener);
+        }
+    }
+
+    public void setPrivacyDialogCancelButtonText(String str) {
+        TBSpecificationBtn tBSpecificationBtn = this.f22359f;
+        if (tBSpecificationBtn != null) {
+            tBSpecificationBtn.setText(str);
+        }
+    }
+
+    public void setPrivacyDialogConfirmButtonListener(View.OnClickListener onClickListener) {
+        TBSpecificationBtn tBSpecificationBtn = this.f22360g;
+        if (tBSpecificationBtn != null) {
+            tBSpecificationBtn.setOnClickListener(onClickListener);
+        }
+    }
+
+    public void setPrivacyDialogConfirmButtonText(String str) {
+        TBSpecificationBtn tBSpecificationBtn = this.f22360g;
+        if (tBSpecificationBtn != null) {
+            tBSpecificationBtn.setText(str);
+        }
     }
 
     public CustomPrivacyDialogView(Context context, AttributeSet attributeSet) {
@@ -27,65 +98,6 @@ public class CustomPrivacyDialogView extends LinearLayout {
 
     public CustomPrivacyDialogView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        initView(context);
-    }
-
-    private void initView(Context context) {
-        ViewGroup.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
-        setOrientation(1);
-        setGravity(1);
-        setLayoutParams(layoutParams);
-        GradientDrawable gradientDrawable = new GradientDrawable();
-        gradientDrawable.setCornerRadius(getResources().getDimension(R.dimen.tbds31));
-        gradientDrawable.setColor(ap.getColor(R.color.CAM_X0211));
-        setBackgroundDrawable(gradientDrawable);
-        inflate(context, R.layout.custom_privacy_dialog_view, this);
-        this.okf = (EMTextView) findViewById(R.id.privacy_message);
-        this.okg = (TBSpecificationBtn) findViewById(R.id.custom_privacy_dialog_cancel_button);
-        this.okh = (TBSpecificationBtn) findViewById(R.id.custom_privacy_dialog_confirm_button);
-        this.okg.setTextSize(R.dimen.tbds34);
-        c cVar = new c();
-        cVar.pU(R.color.CAM_X0105);
-        this.okg.setConfig(cVar);
-        this.okh.setTextSize(R.dimen.tbds34);
-        c cVar2 = new c();
-        cVar2.pS(R.color.CAM_X0302);
-        this.okh.setConfig(cVar2);
-    }
-
-    public void setMessageTextViewColor(int i) {
-        if (this.okf != null) {
-            this.okf.setTextColor(i);
-        }
-    }
-
-    public void setMessageTextViewMessage(String str) {
-        if (this.okf != null) {
-            this.okf.setText(str);
-        }
-    }
-
-    public void setPrivacyDialogCancelButtonListener(View.OnClickListener onClickListener) {
-        if (this.okg != null) {
-            this.okg.setOnClickListener(onClickListener);
-        }
-    }
-
-    public void setPrivacyDialogConfirmButtonListener(View.OnClickListener onClickListener) {
-        if (this.okh != null) {
-            this.okh.setOnClickListener(onClickListener);
-        }
-    }
-
-    public void setPrivacyDialogCancelButtonText(String str) {
-        if (this.okg != null) {
-            this.okg.setText(str);
-        }
-    }
-
-    public void setPrivacyDialogConfirmButtonText(String str) {
-        if (this.okh != null) {
-            this.okh.setText(str);
-        }
+        a(context);
     }
 }

@@ -6,16 +6,16 @@ import com.bytedance.sdk.openadsdk.preload.a.w;
 import java.io.IOException;
 import java.text.DateFormat;
 import java.text.ParseException;
+import java.text.ParsePosition;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
 /* loaded from: classes6.dex */
 public final class c extends v<Date> {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final w f4958a = new w() { // from class: com.bytedance.sdk.openadsdk.preload.a.b.a.c.1
+    public static final w f29910a = new w() { // from class: com.bytedance.sdk.openadsdk.preload.a.b.a.c.1
         @Override // com.bytedance.sdk.openadsdk.preload.a.w
         public <T> v<T> a(com.bytedance.sdk.openadsdk.preload.a.f fVar, com.bytedance.sdk.openadsdk.preload.a.c.a<T> aVar) {
             if (aVar.a() == Date.class) {
@@ -24,15 +24,19 @@ public final class c extends v<Date> {
             return null;
         }
     };
-    private final List<DateFormat> b = new ArrayList();
+
+    /* renamed from: b  reason: collision with root package name */
+    public final List<DateFormat> f29911b;
 
     public c() {
-        this.b.add(DateFormat.getDateTimeInstance(2, 2, Locale.US));
+        ArrayList arrayList = new ArrayList();
+        this.f29911b = arrayList;
+        arrayList.add(DateFormat.getDateTimeInstance(2, 2, Locale.US));
         if (!Locale.getDefault().equals(Locale.US)) {
-            this.b.add(DateFormat.getDateTimeInstance(2, 2));
+            this.f29911b.add(DateFormat.getDateTimeInstance(2, 2));
         }
         if (com.bytedance.sdk.openadsdk.preload.a.b.e.b()) {
-            this.b.add(com.bytedance.sdk.openadsdk.preload.a.b.j.a(2, 2));
+            this.f29911b.add(com.bytedance.sdk.openadsdk.preload.a.b.j.a(2, 2));
         }
     }
 
@@ -47,31 +51,18 @@ public final class c extends v<Date> {
         return a(aVar.h());
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:10:0x0019, code lost:
-        r0 = com.bytedance.sdk.openadsdk.preload.a.b.a.a.a.a(r3, new java.text.ParsePosition(0));
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
     private synchronized Date a(String str) {
-        Date a2;
-        Iterator<DateFormat> it = this.b.iterator();
-        while (true) {
-            if (it.hasNext()) {
-                try {
-                    a2 = it.next().parse(str);
-                    break;
-                } catch (ParseException e) {
-                }
-            } else {
-                try {
-                    break;
-                } catch (ParseException e2) {
-                    throw new t(str, e2);
-                }
+        for (DateFormat dateFormat : this.f29911b) {
+            try {
+                return dateFormat.parse(str);
+            } catch (ParseException unused) {
             }
         }
-        return a2;
+        try {
+            return com.bytedance.sdk.openadsdk.preload.a.b.a.a.a.a(str, new ParsePosition(0));
+        } catch (ParseException e2) {
+            throw new t(str, e2);
+        }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -80,7 +71,7 @@ public final class c extends v<Date> {
         if (date == null) {
             cVar.f();
         } else {
-            cVar.b(this.b.get(0).format(date));
+            cVar.b(this.f29911b.get(0).format(date));
         }
     }
 }

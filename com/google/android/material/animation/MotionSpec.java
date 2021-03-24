@@ -13,34 +13,18 @@ import androidx.annotation.StyleableRes;
 import androidx.collection.SimpleArrayMap;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes14.dex */
+/* loaded from: classes6.dex */
 public class MotionSpec {
-    private static final String TAG = "MotionSpec";
-    private final SimpleArrayMap<String, MotionTiming> timings = new SimpleArrayMap<>();
+    public static final String TAG = "MotionSpec";
+    public final SimpleArrayMap<String, MotionTiming> timings = new SimpleArrayMap<>();
 
-    public boolean hasTiming(String str) {
-        return this.timings.get(str) != null;
-    }
-
-    public MotionTiming getTiming(String str) {
-        if (!hasTiming(str)) {
-            throw new IllegalArgumentException();
+    public static void addTimingFromAnimator(MotionSpec motionSpec, Animator animator) {
+        if (animator instanceof ObjectAnimator) {
+            ObjectAnimator objectAnimator = (ObjectAnimator) animator;
+            motionSpec.setTiming(objectAnimator.getPropertyName(), MotionTiming.createFromAnimator(objectAnimator));
+            return;
         }
-        return this.timings.get(str);
-    }
-
-    public void setTiming(String str, @Nullable MotionTiming motionTiming) {
-        this.timings.put(str, motionTiming);
-    }
-
-    public long getTotalDuration() {
-        long j = 0;
-        int size = this.timings.size();
-        for (int i = 0; i < size; i++) {
-            MotionTiming valueAt = this.timings.valueAt(i);
-            j = Math.max(j, valueAt.getDelay() + valueAt.getDuration());
-        }
-        return j;
+        throw new IllegalArgumentException("Animator must be an ObjectAnimator: " + animator);
     }
 
     @Nullable
@@ -54,26 +38,24 @@ public class MotionSpec {
 
     @Nullable
     public static MotionSpec createFromResource(Context context, @AnimatorRes int i) {
-        MotionSpec motionSpec;
         try {
             Animator loadAnimator = AnimatorInflater.loadAnimator(context, i);
             if (loadAnimator instanceof AnimatorSet) {
-                motionSpec = createSpecFromAnimators(((AnimatorSet) loadAnimator).getChildAnimations());
-            } else if (loadAnimator != null) {
+                return createSpecFromAnimators(((AnimatorSet) loadAnimator).getChildAnimations());
+            }
+            if (loadAnimator != null) {
                 ArrayList arrayList = new ArrayList();
                 arrayList.add(loadAnimator);
-                motionSpec = createSpecFromAnimators(arrayList);
-            } else {
-                motionSpec = null;
+                return createSpecFromAnimators(arrayList);
             }
-            return motionSpec;
-        } catch (Exception e) {
-            Log.w(TAG, "Can't load animation resource ID #0x" + Integer.toHexString(i), e);
+            return null;
+        } catch (Exception e2) {
+            Log.w(TAG, "Can't load animation resource ID #0x" + Integer.toHexString(i), e2);
             return null;
         }
     }
 
-    private static MotionSpec createSpecFromAnimators(List<Animator> list) {
+    public static MotionSpec createSpecFromAnimators(List<Animator> list) {
         MotionSpec motionSpec = new MotionSpec();
         int size = list.size();
         for (int i = 0; i < size; i++) {
@@ -82,30 +64,46 @@ public class MotionSpec {
         return motionSpec;
     }
 
-    private static void addTimingFromAnimator(MotionSpec motionSpec, Animator animator) {
-        if (animator instanceof ObjectAnimator) {
-            ObjectAnimator objectAnimator = (ObjectAnimator) animator;
-            motionSpec.setTiming(objectAnimator.getPropertyName(), MotionTiming.createFromAnimator(objectAnimator));
-            return;
-        }
-        throw new IllegalArgumentException("Animator must be an ObjectAnimator: " + animator);
-    }
-
     public boolean equals(Object obj) {
         if (this == obj) {
             return true;
         }
-        if (obj == null || getClass() != obj.getClass()) {
+        if (obj == null || MotionSpec.class != obj.getClass()) {
             return false;
         }
         return this.timings.equals(((MotionSpec) obj).timings);
+    }
+
+    public MotionTiming getTiming(String str) {
+        if (hasTiming(str)) {
+            return this.timings.get(str);
+        }
+        throw new IllegalArgumentException();
+    }
+
+    public long getTotalDuration() {
+        int size = this.timings.size();
+        long j = 0;
+        for (int i = 0; i < size; i++) {
+            MotionTiming valueAt = this.timings.valueAt(i);
+            j = Math.max(j, valueAt.getDelay() + valueAt.getDuration());
+        }
+        return j;
+    }
+
+    public boolean hasTiming(String str) {
+        return this.timings.get(str) != null;
     }
 
     public int hashCode() {
         return this.timings.hashCode();
     }
 
+    public void setTiming(String str, @Nullable MotionTiming motionTiming) {
+        this.timings.put(str, motionTiming);
+    }
+
     public String toString() {
-        return '\n' + getClass().getName() + '{' + Integer.toHexString(System.identityHashCode(this)) + " timings: " + this.timings + "}\n";
+        return '\n' + MotionSpec.class.getName() + '{' + Integer.toHexString(System.identityHashCode(this)) + " timings: " + this.timings + "}\n";
     }
 }

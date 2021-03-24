@@ -2,21 +2,41 @@ package protobuf;
 
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public final class GroupInfo extends Message {
+    public static final Integer DEFAULT_ACTIVEDAY;
     public static final String DEFAULT_ALBUM = "";
+    public static final Long DEFAULT_AUTHORID;
+    public static final Integer DEFAULT_AUTHORISMEIZHI;
     public static final String DEFAULT_AUTHORNAME = "";
     public static final String DEFAULT_AUTHORNAMESHOW = "";
     public static final String DEFAULT_AUTHORPORTRAIT = "";
     public static final String DEFAULT_BUSINESS = "";
+    public static final Integer DEFAULT_CREATETIME;
+    public static final Integer DEFAULT_DISTANCE;
+    public static final Integer DEFAULT_FLAG;
     public static final String DEFAULT_FORUMNAME = "";
     public static final String DEFAULT_FORUMSHOWNAME = "";
+    public static final Integer DEFAULT_GRADE;
+    public static final Integer DEFAULT_GROUPTYPE;
     public static final String DEFAULT_INTRO = "";
+    public static final Integer DEFAULT_ISGROUPMANAGER;
+    public static final Integer DEFAULT_ISHIDEPOSITION;
+    public static final Integer DEFAULT_ISMEMBERGROUP;
+    public static final Integer DEFAULT_ISNEWLYCREATE;
+    public static final Integer DEFAULT_ISRECENTLYREPLY;
+    public static final Long DEFAULT_LASTMSGID;
+    public static final Integer DEFAULT_LASTMSGTIME;
+    public static final Double DEFAULT_LAT;
+    public static final Double DEFAULT_LNG;
+    public static final Integer DEFAULT_MAXMEMBERNUM;
+    public static final Integer DEFAULT_MEMBERNUM;
     public static final String DEFAULT_NAME = "";
     public static final String DEFAULT_NICKNAME = "";
     public static final String DEFAULT_NOTICE = "";
     public static final String DEFAULT_PORTRAIT = "";
     public static final String DEFAULT_POSITION = "";
+    public static final Integer DEFAULT_STATUS;
     @ProtoField(tag = 27, type = Message.Datatype.INT32)
     public final Integer activeDay;
     @ProtoField(tag = 11, type = Message.Datatype.STRING)
@@ -89,246 +109,8 @@ public final class GroupInfo extends Message {
     public final Integer status;
     public static final Long DEFAULT_GROUPID = 0L;
     public static final Integer DEFAULT_FORUMID = 0;
-    public static final Double DEFAULT_LNG = Double.valueOf(0.0d);
-    public static final Double DEFAULT_LAT = Double.valueOf(0.0d);
-    public static final Integer DEFAULT_STATUS = 0;
-    public static final Integer DEFAULT_FLAG = 0;
-    public static final Long DEFAULT_AUTHORID = 0L;
-    public static final Integer DEFAULT_CREATETIME = 0;
-    public static final Integer DEFAULT_MAXMEMBERNUM = 0;
-    public static final Integer DEFAULT_MEMBERNUM = 0;
-    public static final Integer DEFAULT_GROUPTYPE = 0;
-    public static final Long DEFAULT_LASTMSGID = 0L;
-    public static final Integer DEFAULT_GRADE = 0;
-    public static final Integer DEFAULT_DISTANCE = 0;
-    public static final Integer DEFAULT_ISHIDEPOSITION = 0;
-    public static final Integer DEFAULT_ACTIVEDAY = 0;
-    public static final Integer DEFAULT_ISGROUPMANAGER = 0;
-    public static final Integer DEFAULT_AUTHORISMEIZHI = 0;
-    public static final Integer DEFAULT_LASTMSGTIME = 0;
-    public static final Integer DEFAULT_ISNEWLYCREATE = 0;
-    public static final Integer DEFAULT_ISRECENTLYREPLY = 0;
-    public static final Integer DEFAULT_ISMEMBERGROUP = 0;
 
-    private GroupInfo(Builder builder, boolean z) {
-        super(builder);
-        if (z) {
-            if (builder.groupId == null) {
-                this.groupId = DEFAULT_GROUPID;
-            } else {
-                this.groupId = builder.groupId;
-            }
-            if (builder.forumId == null) {
-                this.forumId = DEFAULT_FORUMID;
-            } else {
-                this.forumId = builder.forumId;
-            }
-            if (builder.name == null) {
-                this.name = "";
-            } else {
-                this.name = builder.name;
-            }
-            if (builder.intro == null) {
-                this.intro = "";
-            } else {
-                this.intro = builder.intro;
-            }
-            if (builder.portrait == null) {
-                this.portrait = "";
-            } else {
-                this.portrait = builder.portrait;
-            }
-            if (builder.position == null) {
-                this.position = "";
-            } else {
-                this.position = builder.position;
-            }
-            if (builder.business == null) {
-                this.business = "";
-            } else {
-                this.business = builder.business;
-            }
-            if (builder.lng == null) {
-                this.lng = DEFAULT_LNG;
-            } else {
-                this.lng = builder.lng;
-            }
-            if (builder.lat == null) {
-                this.lat = DEFAULT_LAT;
-            } else {
-                this.lat = builder.lat;
-            }
-            if (builder.notice == null) {
-                this.notice = "";
-            } else {
-                this.notice = builder.notice;
-            }
-            if (builder.album == null) {
-                this.album = "";
-            } else {
-                this.album = builder.album;
-            }
-            if (builder.status == null) {
-                this.status = DEFAULT_STATUS;
-            } else {
-                this.status = builder.status;
-            }
-            if (builder.flag == null) {
-                this.flag = DEFAULT_FLAG;
-            } else {
-                this.flag = builder.flag;
-            }
-            if (builder.authorId == null) {
-                this.authorId = DEFAULT_AUTHORID;
-            } else {
-                this.authorId = builder.authorId;
-            }
-            if (builder.authorName == null) {
-                this.authorName = "";
-            } else {
-                this.authorName = builder.authorName;
-            }
-            if (builder.authorPortrait == null) {
-                this.authorPortrait = "";
-            } else {
-                this.authorPortrait = builder.authorPortrait;
-            }
-            if (builder.createTime == null) {
-                this.createTime = DEFAULT_CREATETIME;
-            } else {
-                this.createTime = builder.createTime;
-            }
-            if (builder.maxMemberNum == null) {
-                this.maxMemberNum = DEFAULT_MAXMEMBERNUM;
-            } else {
-                this.maxMemberNum = builder.maxMemberNum;
-            }
-            if (builder.memberNum == null) {
-                this.memberNum = DEFAULT_MEMBERNUM;
-            } else {
-                this.memberNum = builder.memberNum;
-            }
-            if (builder.groupType == null) {
-                this.groupType = DEFAULT_GROUPTYPE;
-            } else {
-                this.groupType = builder.groupType;
-            }
-            if (builder.lastMsgId == null) {
-                this.lastMsgId = DEFAULT_LASTMSGID;
-            } else {
-                this.lastMsgId = builder.lastMsgId;
-            }
-            if (builder.grade == null) {
-                this.grade = DEFAULT_GRADE;
-            } else {
-                this.grade = builder.grade;
-            }
-            if (builder.distance == null) {
-                this.distance = DEFAULT_DISTANCE;
-            } else {
-                this.distance = builder.distance;
-            }
-            if (builder.isHidePosition == null) {
-                this.isHidePosition = DEFAULT_ISHIDEPOSITION;
-            } else {
-                this.isHidePosition = builder.isHidePosition;
-            }
-            if (builder.forumName == null) {
-                this.forumName = "";
-            } else {
-                this.forumName = builder.forumName;
-            }
-            if (builder.nickName == null) {
-                this.nickName = "";
-            } else {
-                this.nickName = builder.nickName;
-            }
-            if (builder.activeDay == null) {
-                this.activeDay = DEFAULT_ACTIVEDAY;
-            } else {
-                this.activeDay = builder.activeDay;
-            }
-            if (builder.isGroupManager == null) {
-                this.isGroupManager = DEFAULT_ISGROUPMANAGER;
-            } else {
-                this.isGroupManager = builder.isGroupManager;
-            }
-            if (builder.authorIsMeizhi == null) {
-                this.authorIsMeizhi = DEFAULT_AUTHORISMEIZHI;
-            } else {
-                this.authorIsMeizhi = builder.authorIsMeizhi;
-            }
-            if (builder.lastMsgTime == null) {
-                this.lastMsgTime = DEFAULT_LASTMSGTIME;
-            } else {
-                this.lastMsgTime = builder.lastMsgTime;
-            }
-            if (builder.forumShowName == null) {
-                this.forumShowName = "";
-            } else {
-                this.forumShowName = builder.forumShowName;
-            }
-            if (builder.isNewlyCreate == null) {
-                this.isNewlyCreate = DEFAULT_ISNEWLYCREATE;
-            } else {
-                this.isNewlyCreate = builder.isNewlyCreate;
-            }
-            if (builder.isRecentlyReply == null) {
-                this.isRecentlyReply = DEFAULT_ISRECENTLYREPLY;
-            } else {
-                this.isRecentlyReply = builder.isRecentlyReply;
-            }
-            if (builder.isMemberGroup == null) {
-                this.isMemberGroup = DEFAULT_ISMEMBERGROUP;
-            } else {
-                this.isMemberGroup = builder.isMemberGroup;
-            }
-            if (builder.authorNameShow == null) {
-                this.authorNameShow = "";
-                return;
-            } else {
-                this.authorNameShow = builder.authorNameShow;
-                return;
-            }
-        }
-        this.groupId = builder.groupId;
-        this.forumId = builder.forumId;
-        this.name = builder.name;
-        this.intro = builder.intro;
-        this.portrait = builder.portrait;
-        this.position = builder.position;
-        this.business = builder.business;
-        this.lng = builder.lng;
-        this.lat = builder.lat;
-        this.notice = builder.notice;
-        this.album = builder.album;
-        this.status = builder.status;
-        this.flag = builder.flag;
-        this.authorId = builder.authorId;
-        this.authorName = builder.authorName;
-        this.authorPortrait = builder.authorPortrait;
-        this.createTime = builder.createTime;
-        this.maxMemberNum = builder.maxMemberNum;
-        this.memberNum = builder.memberNum;
-        this.groupType = builder.groupType;
-        this.lastMsgId = builder.lastMsgId;
-        this.grade = builder.grade;
-        this.distance = builder.distance;
-        this.isHidePosition = builder.isHidePosition;
-        this.forumName = builder.forumName;
-        this.nickName = builder.nickName;
-        this.activeDay = builder.activeDay;
-        this.isGroupManager = builder.isGroupManager;
-        this.authorIsMeizhi = builder.authorIsMeizhi;
-        this.lastMsgTime = builder.lastMsgTime;
-        this.forumShowName = builder.forumShowName;
-        this.isNewlyCreate = builder.isNewlyCreate;
-        this.isRecentlyReply = builder.isRecentlyReply;
-        this.isMemberGroup = builder.isMemberGroup;
-        this.authorNameShow = builder.authorNameShow;
-    }
-
-    /* loaded from: classes2.dex */
+    /* loaded from: classes7.dex */
     public static final class Builder extends Message.Builder<GroupInfo> {
         public Integer activeDay;
         public String album;
@@ -371,43 +153,44 @@ public final class GroupInfo extends Message {
 
         public Builder(GroupInfo groupInfo) {
             super(groupInfo);
-            if (groupInfo != null) {
-                this.groupId = groupInfo.groupId;
-                this.forumId = groupInfo.forumId;
-                this.name = groupInfo.name;
-                this.intro = groupInfo.intro;
-                this.portrait = groupInfo.portrait;
-                this.position = groupInfo.position;
-                this.business = groupInfo.business;
-                this.lng = groupInfo.lng;
-                this.lat = groupInfo.lat;
-                this.notice = groupInfo.notice;
-                this.album = groupInfo.album;
-                this.status = groupInfo.status;
-                this.flag = groupInfo.flag;
-                this.authorId = groupInfo.authorId;
-                this.authorName = groupInfo.authorName;
-                this.authorPortrait = groupInfo.authorPortrait;
-                this.createTime = groupInfo.createTime;
-                this.maxMemberNum = groupInfo.maxMemberNum;
-                this.memberNum = groupInfo.memberNum;
-                this.groupType = groupInfo.groupType;
-                this.lastMsgId = groupInfo.lastMsgId;
-                this.grade = groupInfo.grade;
-                this.distance = groupInfo.distance;
-                this.isHidePosition = groupInfo.isHidePosition;
-                this.forumName = groupInfo.forumName;
-                this.nickName = groupInfo.nickName;
-                this.activeDay = groupInfo.activeDay;
-                this.isGroupManager = groupInfo.isGroupManager;
-                this.authorIsMeizhi = groupInfo.authorIsMeizhi;
-                this.lastMsgTime = groupInfo.lastMsgTime;
-                this.forumShowName = groupInfo.forumShowName;
-                this.isNewlyCreate = groupInfo.isNewlyCreate;
-                this.isRecentlyReply = groupInfo.isRecentlyReply;
-                this.isMemberGroup = groupInfo.isMemberGroup;
-                this.authorNameShow = groupInfo.authorNameShow;
+            if (groupInfo == null) {
+                return;
             }
+            this.groupId = groupInfo.groupId;
+            this.forumId = groupInfo.forumId;
+            this.name = groupInfo.name;
+            this.intro = groupInfo.intro;
+            this.portrait = groupInfo.portrait;
+            this.position = groupInfo.position;
+            this.business = groupInfo.business;
+            this.lng = groupInfo.lng;
+            this.lat = groupInfo.lat;
+            this.notice = groupInfo.notice;
+            this.album = groupInfo.album;
+            this.status = groupInfo.status;
+            this.flag = groupInfo.flag;
+            this.authorId = groupInfo.authorId;
+            this.authorName = groupInfo.authorName;
+            this.authorPortrait = groupInfo.authorPortrait;
+            this.createTime = groupInfo.createTime;
+            this.maxMemberNum = groupInfo.maxMemberNum;
+            this.memberNum = groupInfo.memberNum;
+            this.groupType = groupInfo.groupType;
+            this.lastMsgId = groupInfo.lastMsgId;
+            this.grade = groupInfo.grade;
+            this.distance = groupInfo.distance;
+            this.isHidePosition = groupInfo.isHidePosition;
+            this.forumName = groupInfo.forumName;
+            this.nickName = groupInfo.nickName;
+            this.activeDay = groupInfo.activeDay;
+            this.isGroupManager = groupInfo.isGroupManager;
+            this.authorIsMeizhi = groupInfo.authorIsMeizhi;
+            this.lastMsgTime = groupInfo.lastMsgTime;
+            this.forumShowName = groupInfo.forumShowName;
+            this.isNewlyCreate = groupInfo.isNewlyCreate;
+            this.isRecentlyReply = groupInfo.isRecentlyReply;
+            this.isMemberGroup = groupInfo.isMemberGroup;
+            this.authorNameShow = groupInfo.authorNameShow;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -415,5 +198,282 @@ public final class GroupInfo extends Message {
         public GroupInfo build(boolean z) {
             return new GroupInfo(this, z);
         }
+    }
+
+    static {
+        Double valueOf = Double.valueOf(0.0d);
+        DEFAULT_LNG = valueOf;
+        DEFAULT_LAT = valueOf;
+        DEFAULT_STATUS = 0;
+        DEFAULT_FLAG = 0;
+        DEFAULT_AUTHORID = 0L;
+        DEFAULT_CREATETIME = 0;
+        DEFAULT_MAXMEMBERNUM = 0;
+        DEFAULT_MEMBERNUM = 0;
+        DEFAULT_GROUPTYPE = 0;
+        DEFAULT_LASTMSGID = 0L;
+        DEFAULT_GRADE = 0;
+        DEFAULT_DISTANCE = 0;
+        DEFAULT_ISHIDEPOSITION = 0;
+        DEFAULT_ACTIVEDAY = 0;
+        DEFAULT_ISGROUPMANAGER = 0;
+        DEFAULT_AUTHORISMEIZHI = 0;
+        DEFAULT_LASTMSGTIME = 0;
+        DEFAULT_ISNEWLYCREATE = 0;
+        DEFAULT_ISRECENTLYREPLY = 0;
+        DEFAULT_ISMEMBERGROUP = 0;
+    }
+
+    public GroupInfo(Builder builder, boolean z) {
+        super(builder);
+        if (z) {
+            Long l = builder.groupId;
+            if (l == null) {
+                this.groupId = DEFAULT_GROUPID;
+            } else {
+                this.groupId = l;
+            }
+            Integer num = builder.forumId;
+            if (num == null) {
+                this.forumId = DEFAULT_FORUMID;
+            } else {
+                this.forumId = num;
+            }
+            String str = builder.name;
+            if (str == null) {
+                this.name = "";
+            } else {
+                this.name = str;
+            }
+            String str2 = builder.intro;
+            if (str2 == null) {
+                this.intro = "";
+            } else {
+                this.intro = str2;
+            }
+            String str3 = builder.portrait;
+            if (str3 == null) {
+                this.portrait = "";
+            } else {
+                this.portrait = str3;
+            }
+            String str4 = builder.position;
+            if (str4 == null) {
+                this.position = "";
+            } else {
+                this.position = str4;
+            }
+            String str5 = builder.business;
+            if (str5 == null) {
+                this.business = "";
+            } else {
+                this.business = str5;
+            }
+            Double d2 = builder.lng;
+            if (d2 == null) {
+                this.lng = DEFAULT_LNG;
+            } else {
+                this.lng = d2;
+            }
+            Double d3 = builder.lat;
+            if (d3 == null) {
+                this.lat = DEFAULT_LAT;
+            } else {
+                this.lat = d3;
+            }
+            String str6 = builder.notice;
+            if (str6 == null) {
+                this.notice = "";
+            } else {
+                this.notice = str6;
+            }
+            String str7 = builder.album;
+            if (str7 == null) {
+                this.album = "";
+            } else {
+                this.album = str7;
+            }
+            Integer num2 = builder.status;
+            if (num2 == null) {
+                this.status = DEFAULT_STATUS;
+            } else {
+                this.status = num2;
+            }
+            Integer num3 = builder.flag;
+            if (num3 == null) {
+                this.flag = DEFAULT_FLAG;
+            } else {
+                this.flag = num3;
+            }
+            Long l2 = builder.authorId;
+            if (l2 == null) {
+                this.authorId = DEFAULT_AUTHORID;
+            } else {
+                this.authorId = l2;
+            }
+            String str8 = builder.authorName;
+            if (str8 == null) {
+                this.authorName = "";
+            } else {
+                this.authorName = str8;
+            }
+            String str9 = builder.authorPortrait;
+            if (str9 == null) {
+                this.authorPortrait = "";
+            } else {
+                this.authorPortrait = str9;
+            }
+            Integer num4 = builder.createTime;
+            if (num4 == null) {
+                this.createTime = DEFAULT_CREATETIME;
+            } else {
+                this.createTime = num4;
+            }
+            Integer num5 = builder.maxMemberNum;
+            if (num5 == null) {
+                this.maxMemberNum = DEFAULT_MAXMEMBERNUM;
+            } else {
+                this.maxMemberNum = num5;
+            }
+            Integer num6 = builder.memberNum;
+            if (num6 == null) {
+                this.memberNum = DEFAULT_MEMBERNUM;
+            } else {
+                this.memberNum = num6;
+            }
+            Integer num7 = builder.groupType;
+            if (num7 == null) {
+                this.groupType = DEFAULT_GROUPTYPE;
+            } else {
+                this.groupType = num7;
+            }
+            Long l3 = builder.lastMsgId;
+            if (l3 == null) {
+                this.lastMsgId = DEFAULT_LASTMSGID;
+            } else {
+                this.lastMsgId = l3;
+            }
+            Integer num8 = builder.grade;
+            if (num8 == null) {
+                this.grade = DEFAULT_GRADE;
+            } else {
+                this.grade = num8;
+            }
+            Integer num9 = builder.distance;
+            if (num9 == null) {
+                this.distance = DEFAULT_DISTANCE;
+            } else {
+                this.distance = num9;
+            }
+            Integer num10 = builder.isHidePosition;
+            if (num10 == null) {
+                this.isHidePosition = DEFAULT_ISHIDEPOSITION;
+            } else {
+                this.isHidePosition = num10;
+            }
+            String str10 = builder.forumName;
+            if (str10 == null) {
+                this.forumName = "";
+            } else {
+                this.forumName = str10;
+            }
+            String str11 = builder.nickName;
+            if (str11 == null) {
+                this.nickName = "";
+            } else {
+                this.nickName = str11;
+            }
+            Integer num11 = builder.activeDay;
+            if (num11 == null) {
+                this.activeDay = DEFAULT_ACTIVEDAY;
+            } else {
+                this.activeDay = num11;
+            }
+            Integer num12 = builder.isGroupManager;
+            if (num12 == null) {
+                this.isGroupManager = DEFAULT_ISGROUPMANAGER;
+            } else {
+                this.isGroupManager = num12;
+            }
+            Integer num13 = builder.authorIsMeizhi;
+            if (num13 == null) {
+                this.authorIsMeizhi = DEFAULT_AUTHORISMEIZHI;
+            } else {
+                this.authorIsMeizhi = num13;
+            }
+            Integer num14 = builder.lastMsgTime;
+            if (num14 == null) {
+                this.lastMsgTime = DEFAULT_LASTMSGTIME;
+            } else {
+                this.lastMsgTime = num14;
+            }
+            String str12 = builder.forumShowName;
+            if (str12 == null) {
+                this.forumShowName = "";
+            } else {
+                this.forumShowName = str12;
+            }
+            Integer num15 = builder.isNewlyCreate;
+            if (num15 == null) {
+                this.isNewlyCreate = DEFAULT_ISNEWLYCREATE;
+            } else {
+                this.isNewlyCreate = num15;
+            }
+            Integer num16 = builder.isRecentlyReply;
+            if (num16 == null) {
+                this.isRecentlyReply = DEFAULT_ISRECENTLYREPLY;
+            } else {
+                this.isRecentlyReply = num16;
+            }
+            Integer num17 = builder.isMemberGroup;
+            if (num17 == null) {
+                this.isMemberGroup = DEFAULT_ISMEMBERGROUP;
+            } else {
+                this.isMemberGroup = num17;
+            }
+            String str13 = builder.authorNameShow;
+            if (str13 == null) {
+                this.authorNameShow = "";
+                return;
+            } else {
+                this.authorNameShow = str13;
+                return;
+            }
+        }
+        this.groupId = builder.groupId;
+        this.forumId = builder.forumId;
+        this.name = builder.name;
+        this.intro = builder.intro;
+        this.portrait = builder.portrait;
+        this.position = builder.position;
+        this.business = builder.business;
+        this.lng = builder.lng;
+        this.lat = builder.lat;
+        this.notice = builder.notice;
+        this.album = builder.album;
+        this.status = builder.status;
+        this.flag = builder.flag;
+        this.authorId = builder.authorId;
+        this.authorName = builder.authorName;
+        this.authorPortrait = builder.authorPortrait;
+        this.createTime = builder.createTime;
+        this.maxMemberNum = builder.maxMemberNum;
+        this.memberNum = builder.memberNum;
+        this.groupType = builder.groupType;
+        this.lastMsgId = builder.lastMsgId;
+        this.grade = builder.grade;
+        this.distance = builder.distance;
+        this.isHidePosition = builder.isHidePosition;
+        this.forumName = builder.forumName;
+        this.nickName = builder.nickName;
+        this.activeDay = builder.activeDay;
+        this.isGroupManager = builder.isGroupManager;
+        this.authorIsMeizhi = builder.authorIsMeizhi;
+        this.lastMsgTime = builder.lastMsgTime;
+        this.forumShowName = builder.forumShowName;
+        this.isNewlyCreate = builder.isNewlyCreate;
+        this.isRecentlyReply = builder.isRecentlyReply;
+        this.isMemberGroup = builder.isMemberGroup;
+        this.authorNameShow = builder.authorNameShow;
     }
 }

@@ -18,7 +18,6 @@ import android.view.TextureView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
-import com.baidu.ar.arplay.core.message.ARPMessageType;
 import com.bytedance.sdk.openadsdk.core.d.l;
 import com.bytedance.sdk.openadsdk.core.p;
 import com.bytedance.sdk.openadsdk.core.video.nativevideo.b;
@@ -27,10 +26,10 @@ import com.bytedance.sdk.openadsdk.core.video.nativevideo.d;
 import com.bytedance.sdk.openadsdk.core.video.nativevideo.e;
 import com.bytedance.sdk.openadsdk.core.video.nativevideo.h;
 import com.bytedance.sdk.openadsdk.core.widget.h;
-import com.bytedance.sdk.openadsdk.utils.ac;
-import com.bytedance.sdk.openadsdk.utils.aj;
+import com.bytedance.sdk.openadsdk.utils.ad;
 import com.bytedance.sdk.openadsdk.utils.ak;
 import com.bytedance.sdk.openadsdk.utils.al;
+import com.bytedance.sdk.openadsdk.utils.am;
 import com.bytedance.sdk.openadsdk.utils.u;
 import com.bytedance.sdk.openadsdk.utils.x;
 import java.lang.ref.WeakReference;
@@ -40,48 +39,60 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import okhttp3.internal.http.StatusLine;
-import org.apache.http.HttpHost;
 /* loaded from: classes6.dex */
-public abstract class a implements c, d, al.a {
-    private WeakReference<e> D;
-    private int E;
-    private long L;
-    private int N;
+public abstract class a implements c, d, am.a {
+    public WeakReference<e> D;
+    public int E;
+    public long L;
+    public int N;
 
     /* renamed from: a  reason: collision with root package name */
-    public final WeakReference<Context> f4526a;
-    public final l b;
-    public long c;
+    public final WeakReference<Context> f28650a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public final l f28651b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public long f28652c;
     public long i;
-    private h j;
-    private final ViewGroup k;
-    private com.bytedance.sdk.openadsdk.core.video.d.d o;
-    private c.a p;
-    private ArrayList<Runnable> s;
-    private boolean t;
-    private final boolean u;
-    private final al l = new al(this);
-    private long m = 0;
-    private long n = 0;
-    private long q = 0;
-    private long r = 0;
-    private boolean v = false;
-    private boolean w = false;
-    private boolean x = true;
-    private boolean y = false;
-    private long z = 0;
-    private boolean A = false;
-    private boolean B = false;
-    private boolean C = false;
-    protected Map<String, Object> d = null;
-    protected long e = 0;
-    protected long f = 0;
-    protected boolean g = false;
-    protected boolean h = false;
-    private boolean F = false;
-    private boolean G = true;
-    private final Runnable H = new Runnable() { // from class: com.bytedance.sdk.openadsdk.core.video.c.a.2
+    public h j;
+    public final ViewGroup k;
+    public com.bytedance.sdk.openadsdk.core.video.d.d o;
+    public c.a p;
+    public ArrayList<Runnable> s;
+    public boolean t;
+    public final boolean u;
+    public final am l = new am(this);
+    public long m = 0;
+    public long n = 0;
+    public long q = 0;
+    public long r = 0;
+    public boolean v = false;
+    public boolean w = false;
+    public boolean x = true;
+    public boolean y = false;
+    public long z = 0;
+    public boolean A = false;
+    public boolean B = false;
+    public boolean C = false;
+
+    /* renamed from: d  reason: collision with root package name */
+    public Map<String, Object> f28653d = null;
+
+    /* renamed from: e  reason: collision with root package name */
+    public long f28654e = 0;
+
+    /* renamed from: f  reason: collision with root package name */
+    public long f28655f = 0;
+
+    /* renamed from: g  reason: collision with root package name */
+    public boolean f28656g = false;
+
+    /* renamed from: h  reason: collision with root package name */
+    public boolean f28657h = false;
+    public boolean F = false;
+    public boolean G = true;
+    public final Runnable H = new Runnable() { // from class: com.bytedance.sdk.openadsdk.core.video.c.a.2
         @Override // java.lang.Runnable
         public void run() {
             if (a.this.o != null) {
@@ -89,7 +100,7 @@ public abstract class a implements c, d, al.a {
             }
         }
     };
-    private final Runnable I = new Runnable() { // from class: com.bytedance.sdk.openadsdk.core.video.c.a.3
+    public final Runnable I = new Runnable() { // from class: com.bytedance.sdk.openadsdk.core.video.c.a.3
         @Override // java.lang.Runnable
         public void run() {
             if (a.this.p != null) {
@@ -97,20 +108,21 @@ public abstract class a implements c, d, al.a {
             }
         }
     };
-    private final Runnable J = new Runnable() { // from class: com.bytedance.sdk.openadsdk.core.video.c.a.4
+    public final Runnable J = new Runnable() { // from class: com.bytedance.sdk.openadsdk.core.video.c.a.4
         @Override // java.lang.Runnable
         public void run() {
             if (a.this.o != null) {
-                if (a.this.c <= 0) {
-                    a.this.o.e();
+                a aVar = a.this;
+                if (aVar.f28652c <= 0) {
+                    aVar.o.e();
                 }
                 a.this.o.f();
             }
             a.this.l.postDelayed(this, 200L);
         }
     };
-    private boolean K = false;
-    private final BroadcastReceiver M = new BroadcastReceiver() { // from class: com.bytedance.sdk.openadsdk.core.video.c.a.5
+    public boolean K = false;
+    public final BroadcastReceiver M = new BroadcastReceiver() { // from class: com.bytedance.sdk.openadsdk.core.video.c.a.5
         @Override // android.content.BroadcastReceiver
         public void onReceive(Context context, Intent intent) {
             String action = intent.getAction();
@@ -121,235 +133,54 @@ public abstract class a implements c, d, al.a {
             }
         }
     };
-    private boolean O = false;
+    public boolean O = false;
 
-    protected abstract int a();
+    /* renamed from: com.bytedance.sdk.openadsdk.core.video.c.a$6  reason: invalid class name */
+    /* loaded from: classes6.dex */
+    public static /* synthetic */ class AnonymousClass6 {
 
-    protected abstract void a(int i, int i2);
+        /* renamed from: a  reason: collision with root package name */
+        public static final /* synthetic */ int[] f28663a;
 
-    protected abstract void b();
-
-    protected abstract void c();
-
-    protected abstract void d();
-
-    protected abstract void e();
-
-    protected abstract void f();
-
-    @SuppressLint({"InflateParams"})
-    private void a(Context context) {
-        EnumSet noneOf = EnumSet.noneOf(b.a.class);
-        noneOf.add(b.a.hideCloseBtn);
-        noneOf.add(b.a.hideBackBtn);
-        this.j = new h(context.getApplicationContext(), LayoutInflater.from(context.getApplicationContext()).inflate(ac.f(context, "tt_video_play_layout_for_live"), (ViewGroup) null, false), true, noneOf, this.b, this);
-        this.j.a(this);
+        static {
+            int[] iArr = new int[h.a.values().length];
+            f28663a = iArr;
+            try {
+                iArr[h.a.PAUSE_VIDEO.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
+            }
+            try {
+                f28663a[h.a.RELEASE_VIDEO.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
+            }
+            try {
+                f28663a[h.a.START_VIDEO.ordinal()] = 3;
+            } catch (NoSuchFieldError unused3) {
+            }
+        }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     public a(Context context, ViewGroup viewGroup, l lVar) {
         this.N = 1;
         this.N = x.c(context);
         this.k = viewGroup;
-        this.f4526a = new WeakReference<>(context);
-        this.b = lVar;
+        this.f28650a = new WeakReference<>(context);
+        this.f28651b = lVar;
         a(context);
-        this.E = aj.d(this.b.aj());
+        this.E = ak.d(this.f28651b.ap());
         this.u = Build.VERSION.SDK_INT >= 17;
     }
 
-    @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.c
-    public boolean a(String str, String str2, int i, int i2, List<String> list, String str3, long j, boolean z) {
-        u.b("BaseVideoController", "video local url " + str);
-        if (TextUtils.isEmpty(str)) {
-            u.f("BaseVideoController", "No video info");
-            return false;
-        }
-        this.g = !str.startsWith(HttpHost.DEFAULT_SCHEME_NAME);
-        this.y = z;
-        if (j > 0) {
-            this.q = j;
-            this.r = this.r > this.q ? this.r : this.q;
-        }
-        if (this.j != null) {
-            this.j.e();
-            this.j.d();
-            this.j.c(i, i2);
-            this.j.c(this.k);
-        }
-        if (this.o == null) {
-            this.o = new com.bytedance.sdk.openadsdk.core.video.d.d(this.l);
-        }
-        this.n = 0L;
-        try {
-            a(str);
-            return true;
-        } catch (Exception e) {
-            return false;
-        }
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.c
-    public com.bytedance.sdk.openadsdk.core.video.d.d u() {
-        return this.o;
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.c
-    public h v() {
-        return this.j;
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.c
-    public long n() {
-        return this.q;
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.c
-    public void a(long j) {
-        this.q = j;
-        this.r = this.r > this.q ? this.r : this.q;
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.c
-    public void b(boolean z) {
-        this.x = z;
-        this.j.c(z);
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.c
-    public boolean t() {
-        return this.A;
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.c
-    public void b(long j) {
-        this.z = j;
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.c
-    public long s() {
-        return this.c;
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.c
-    public void c(long j) {
-        this.c = j;
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.c
-    public long o() {
-        if (u() == null) {
-            return 0L;
-        }
-        return u().n();
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.c
-    public long p() {
-        if (this.o == null) {
-            return 0L;
-        }
-        return this.o.o() + this.z;
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.c
-    public void c(boolean z) {
-        this.y = z;
-        if (this.o != null) {
-            this.o.b(z);
-        }
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.c
-    public long q() {
-        if (this.o == null) {
-            return 0L;
-        }
-        return this.o.p() + this.z;
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.c
-    public boolean w() {
-        return this.C;
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.c
-    public void d(boolean z) {
-        this.C = z;
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.c
-    public void e(boolean z) {
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.c
-    public boolean x() {
-        return this.F;
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.c
-    public void f(boolean z) {
-        this.G = z;
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.c
-    public int r() {
-        return com.bytedance.sdk.openadsdk.core.video.e.a.a(this.r, this.c);
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.c
-    public void a(Map<String, Object> map) {
-        this.d = map;
-    }
-
-    private void a(String str) throws Exception {
-        if (this.o != null) {
-            com.bytedance.sdk.openadsdk.core.video.b.a aVar = new com.bytedance.sdk.openadsdk.core.video.b.a();
-            aVar.f4525a = str;
-            if (this.b != null) {
-                if (this.b.R() != null) {
-                    aVar.d = this.b.R().l();
-                }
-                aVar.b = String.valueOf(aj.d(this.b.aj()));
-            }
-            aVar.c = 1;
-            this.o.a(aVar);
-        }
-        this.m = System.currentTimeMillis();
-        if (!TextUtils.isEmpty(str)) {
-            this.j.d(8);
-            this.j.d(0);
-            a(new Runnable() { // from class: com.bytedance.sdk.openadsdk.core.video.c.a.1
-                @Override // java.lang.Runnable
-                public void run() {
-                    a.this.m = System.currentTimeMillis();
-                    a.this.j.c(0);
-                    if (a.this.o == null || a.this.q != 0) {
-                        if (a.this.o != null) {
-                            a.this.o.a(true, a.this.q, a.this.y ? false : true);
-                        }
-                    } else {
-                        a.this.o.a(true, 0L, a.this.y ? false : true);
-                    }
-                    if (a.this.l != null) {
-                        a.this.l.postDelayed(a.this.H, 100L);
-                    }
-                    a.this.E();
-                }
-            });
-        }
-    }
-
     private void D() {
-        int i = 5;
+        int H;
         int a2 = a();
-        if (a2 == 2 || a2 == 1) {
-            i = p.h().H() * 1000;
-        } else if (a2 == 3) {
-            i = p.h().f(String.valueOf(this.E));
+        if (a2 != 2 && a2 != 1) {
+            H = a2 == 3 ? p.h().f(String.valueOf(this.E)) : 5;
+        } else {
+            H = p.h().H() * 1000;
         }
         this.l.removeCallbacks(this.I);
-        this.l.postDelayed(this.I, i);
+        this.l.postDelayed(this.I, H);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -362,305 +193,83 @@ public abstract class a implements c, d, al.a {
         this.l.removeCallbacks(this.J);
     }
 
-    @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.c
-    public void a(e eVar) {
-        this.D = new WeakReference<>(eVar);
-    }
-
-    private void b(int i) {
-        if (G() && this.j != null) {
-            this.l.removeCallbacks(this.I);
-            this.j.w();
-            this.n = System.currentTimeMillis() - this.m;
-            if (this.p != null) {
-                this.p.a(this.n, com.bytedance.sdk.openadsdk.core.video.e.a.a(this.q, this.c));
-            }
-            if (aj.d(this.b)) {
-                this.j.a(this.b, this.f4526a, true);
-            }
-            if (!this.w) {
-                b();
-                this.w = true;
-                a(this.c, this.c);
-                long j = this.c;
-                this.q = j;
-                this.r = j;
-            }
-            this.C = true;
-        }
-    }
-
     private boolean G() {
-        return (this.f4526a == null || this.f4526a.get() == null) ? false : true;
-    }
-
-    private void a(Runnable runnable) {
-        if (runnable != null) {
-            if (this.j.k() && this.t) {
-                runnable.run();
-            } else {
-                b(runnable);
-            }
-        }
-    }
-
-    private void b(Runnable runnable) {
-        if (this.s == null) {
-            this.s = new ArrayList<>();
-        }
-        this.s.add(runnable);
+        WeakReference<Context> weakReference = this.f28650a;
+        return (weakReference == null || weakReference.get() == null) ? false : true;
     }
 
     private void H() {
-        if (this.s != null && !this.s.isEmpty()) {
-            Iterator it = new ArrayList(this.s).iterator();
-            while (it.hasNext()) {
-                ((Runnable) it.next()).run();
-            }
-            this.s.clear();
+        ArrayList<Runnable> arrayList = this.s;
+        if (arrayList == null || arrayList.isEmpty()) {
+            return;
         }
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.c
-    public void a(c.a aVar) {
-        this.p = aVar;
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.c
-    public void a(c.InterfaceC1024c interfaceC1024c) {
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.c
-    public void h() {
-        this.i = p();
-        if (this.o != null) {
-            this.o.b();
+        Iterator it = new ArrayList(this.s).iterator();
+        while (it.hasNext()) {
+            ((Runnable) it.next()).run();
         }
-        if (!this.w && this.v) {
-            c();
-        }
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.c
-    public void i() {
-        if (this.o != null) {
-            this.o.b();
-        }
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.c
-    public void k() {
-        if (this.j != null) {
-            this.j.e();
-            this.j.q();
-            this.j.u();
-        }
-        if (this.o != null) {
-            this.o.a(false, this.q, !this.y);
-            E();
-        }
-        if (!this.w && this.v) {
-            d();
-        }
-    }
-
-    public void y() {
-        if (!this.w && this.v) {
-            d();
-        }
-    }
-
-    public void d(long j) {
-        this.q = j;
-        this.r = this.r > this.q ? this.r : this.q;
-        if (this.j != null) {
-            this.j.e();
-        }
-        if (this.o != null) {
-            this.o.a(true, this.q, !this.y);
-            E();
-        }
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.c
-    public void l() {
-        if (this.o != null) {
-            this.o.c();
-            this.o = null;
-        }
-        if (this.j != null) {
-            this.j.g();
-        }
-        if (this.l != null) {
-            this.l.removeCallbacks(this.I);
-            this.l.removeCallbacks(this.H);
-            this.l.removeCallbacksAndMessages(null);
-            F();
-        }
-        this.p = null;
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.c
-    public void a(boolean z) {
-        l();
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.c
-    public void m() {
-        l();
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.utils.al.a
-    public void a(Message message) {
-        if (this.j != null && message != null && this.f4526a != null && this.f4526a.get() != null) {
-            switch (message.what) {
-                case 108:
-                    if ((message.obj instanceof Long) && ((Long) message.obj).longValue() > 0) {
-                        this.c = ((Long) message.obj).longValue();
-                        return;
-                    }
-                    return;
-                case 109:
-                    if (message.obj instanceof Long) {
-                        this.q = ((Long) message.obj).longValue();
-                        this.r = this.r > this.q ? this.r : this.q;
-                        a(this.q, this.c);
-                        return;
-                    }
-                    return;
-                case 302:
-                    b(message.what);
-                    return;
-                case 303:
-                    a(message.arg1, message.arg2);
-                    this.l.removeCallbacks(this.I);
-                    if (this.j != null) {
-                        this.j.w();
-                    }
-                    if (this.p != null) {
-                        this.p.b(this.n, com.bytedance.sdk.openadsdk.core.video.e.a.a(this.q, this.c));
-                        return;
-                    }
-                    return;
-                case 304:
-                    int i = message.arg1;
-                    if (this.j != null) {
-                        if (i == 3 || i == 702) {
-                            this.j.w();
-                            this.l.removeCallbacks(this.I);
-                            this.F = false;
-                        } else if (i == 701) {
-                            this.j.t();
-                            D();
-                            this.F = true;
-                        }
-                    }
-                    if (this.u && i == 3 && !this.v) {
-                        this.f = SystemClock.elapsedRealtime() - this.e;
-                        e();
-                        this.v = true;
-                        this.h = true;
-                        return;
-                    }
-                    return;
-                case 305:
-                    if (this.l != null) {
-                        this.l.removeCallbacks(this.I);
-                    }
-                    if (!this.u && !this.v) {
-                        this.f = SystemClock.elapsedRealtime() - this.e;
-                        f();
-                        this.v = true;
-                    }
-                    if (this.j != null) {
-                        this.j.w();
-                        return;
-                    }
-                    return;
-                case ARPMessageType.MSG_TYPE_IMU_MIRROR_DATA /* 306 */:
-                    this.l.removeCallbacks(this.I);
-                    if (this.j != null) {
-                        this.j.w();
-                        return;
-                    }
-                    return;
-                case StatusLine.HTTP_PERM_REDIRECT /* 308 */:
-                    a(StatusLine.HTTP_PERM_REDIRECT, 0);
-                    return;
-                case 311:
-                    if (this.b != null && this.b.l() == 0) {
-                        K();
-                        return;
-                    } else {
-                        J();
-                        return;
-                    }
-                case 314:
-                    this.e = SystemClock.elapsedRealtime();
-                    return;
-                default:
-                    return;
-            }
-        }
+        this.s.clear();
     }
 
     private boolean I() throws Throwable {
-        return this.f4526a == null || this.f4526a.get() == null || L() == null || this.o == null || this.o.a() == null || this.b == null || this.b.M() != null || this.b.n() == 1;
+        com.bytedance.sdk.openadsdk.core.video.d.d dVar;
+        l lVar;
+        WeakReference<Context> weakReference = this.f28650a;
+        return weakReference == null || weakReference.get() == null || L() == null || (dVar = this.o) == null || dVar.a() == null || (lVar = this.f28651b) == null || lVar.S() != null || this.f28651b.n() == 1;
     }
 
+    /* JADX WARN: Removed duplicated region for block: B:35:0x0120 A[Catch: all -> 0x018b, TryCatch #0 {all -> 0x018b, blocks: (B:3:0x0004, B:6:0x0025, B:10:0x0047, B:14:0x005d, B:20:0x0077, B:26:0x00f0, B:33:0x0104, B:35:0x0120, B:37:0x013f, B:39:0x0151, B:41:0x0159, B:45:0x0174, B:47:0x017c, B:42:0x0163, B:44:0x016b, B:48:0x0185, B:31:0x00fe, B:18:0x006c), top: B:53:0x0004 }] */
+    /* JADX WARN: Removed duplicated region for block: B:36:0x013d  */
+    /* JADX WARN: Removed duplicated region for block: B:39:0x0151 A[Catch: all -> 0x018b, TryCatch #0 {all -> 0x018b, blocks: (B:3:0x0004, B:6:0x0025, B:10:0x0047, B:14:0x005d, B:20:0x0077, B:26:0x00f0, B:33:0x0104, B:35:0x0120, B:37:0x013f, B:39:0x0151, B:41:0x0159, B:45:0x0174, B:47:0x017c, B:42:0x0163, B:44:0x016b, B:48:0x0185, B:31:0x00fe, B:18:0x006c), top: B:53:0x0004 }] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     private void J() {
-        float f;
-        boolean z = true;
         try {
-            u.c("changeVideoSize", "changeVideoSize start.......mMaterialMeta.getAdSlot()=" + this.b.p());
-            if (!I()) {
-                u.c("changeVideoSize", "changeVideoSize start check condition complete ... go ..");
-                int[] b = ak.b(p.a());
-                MediaPlayer a2 = this.o.a();
-                boolean z2 = this.b.ak() == 15;
-                float f2 = b[0];
-                float f3 = b[1];
-                float videoWidth = a2.getVideoWidth();
-                float videoHeight = a2.getVideoHeight();
-                if (z2) {
-                    if (videoWidth > videoHeight) {
-                        u.b("changeVideoSize", "横转竖屏单独适配.....");
-                        a(f2, f3, videoWidth, videoHeight, true);
-                        return;
-                    }
-                } else if (videoWidth < videoHeight) {
-                    u.b("changeVideoSize", "竖屏转横单独适配.....");
-                    a(f2, f3, videoWidth, videoHeight, false);
+            u.c("changeVideoSize", "changeVideoSize start.......mMaterialMeta.getAdSlot()=" + this.f28651b.p());
+            if (I()) {
+                return;
+            }
+            u.c("changeVideoSize", "changeVideoSize start check condition complete ... go ..");
+            int[] b2 = al.b(p.a());
+            MediaPlayer a2 = this.o.a();
+            boolean z = false;
+            boolean z2 = this.f28651b.aq() == 15;
+            float f2 = b2[0];
+            float f3 = b2[1];
+            float videoWidth = a2.getVideoWidth();
+            float videoHeight = a2.getVideoHeight();
+            if (z2) {
+                if (videoWidth > videoHeight) {
+                    u.b("changeVideoSize", "横转竖屏单独适配.....");
+                    a(f2, f3, videoWidth, videoHeight, true);
                     return;
                 }
-                float f4 = videoWidth / videoHeight;
-                float f5 = f2 / f3;
-                u.b("changeVideoSize", "screenHeight=" + f3 + ",screenWidth=" + f2);
-                u.b("changeVideoSize", "videoHeight=" + videoHeight + ",videoWidth=" + videoWidth);
-                u.b("changeVideoSize", "视频宽高比,videoScale=" + f4 + ",屏幕宽高比.screenScale=" + f5 + ",VERTICAL_SCALE(9:16)=0.5625,HORIZONTAL_SCALE(16:9) =1.7777778");
-                if (z2) {
-                    if (f5 < 0.5625f && f4 == 0.5625f) {
-                        videoWidth = (9.0f * f3) / 16.0f;
-                        f = f3;
-                    }
-                    f = videoHeight;
-                    z = false;
-                } else {
-                    if (f5 > 1.7777778f && f4 == 1.7777778f) {
-                        f = (9.0f * f2) / 16.0f;
-                        videoWidth = f2;
-                    }
-                    f = videoHeight;
-                    z = false;
+            } else if (videoWidth < videoHeight) {
+                u.b("changeVideoSize", "竖屏转横单独适配.....");
+                a(f2, f3, videoWidth, videoHeight, false);
+                return;
+            }
+            float f4 = videoWidth / videoHeight;
+            float f5 = f2 / f3;
+            u.b("changeVideoSize", "screenHeight=" + f3 + ",screenWidth=" + f2);
+            u.b("changeVideoSize", "videoHeight=" + videoHeight + ",videoWidth=" + videoWidth);
+            u.b("changeVideoSize", "视频宽高比,videoScale=" + f4 + ",屏幕宽高比.screenScale=" + f5 + ",VERTICAL_SCALE(9:16)=0.5625,HORIZONTAL_SCALE(16:9) =1.7777778");
+            if (z2) {
+                if (f5 < 0.5625f && f4 == 0.5625f) {
+                    videoWidth = (9.0f * f3) / 16.0f;
+                    videoHeight = f3;
+                    z = true;
                 }
-                u.c("changeVideoSize", "适配后宽高：videoHeight=" + f + ",videoWidth=" + videoWidth);
+                u.c("changeVideoSize", "适配后宽高：videoHeight=" + videoHeight + ",videoWidth=" + videoWidth);
                 if (z) {
-                    f3 = f;
-                    f2 = videoWidth;
-                } else {
                     u.c("changeVideoSize", " 屏幕比例和视频比例相同，以及其他情况都按照屏幕宽高播放，videoHeight=" + f3 + "，videoWidth=" + f2);
+                } else {
+                    f2 = videoWidth;
+                    f3 = videoHeight;
                 }
-                RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams((int) f2, (int) f3);
+                int i = (int) f2;
+                int i2 = (int) f3;
+                RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(i, i2);
                 layoutParams.addRule(13);
                 if (L() != null) {
                     if (L() instanceof TextureView) {
@@ -670,26 +279,41 @@ public abstract class a implements c, d, al.a {
                     }
                     ViewGroup.LayoutParams layoutParams2 = this.k.getLayoutParams();
                     if (layoutParams2 != null) {
-                        layoutParams2.height = (int) f3;
-                        layoutParams2.width = (int) f2;
+                        layoutParams2.height = i2;
+                        layoutParams2.width = i;
                         this.k.setLayoutParams(layoutParams2);
                     }
                 }
                 u.b("changeVideoSize", "changeVideoSize .... complete ... end !!!");
             }
+            if (f5 > 1.7777778f && f4 == 1.7777778f) {
+                videoHeight = (9.0f * f2) / 16.0f;
+                videoWidth = f2;
+                z = true;
+            }
+            u.c("changeVideoSize", "适配后宽高：videoHeight=" + videoHeight + ",videoWidth=" + videoWidth);
+            if (z) {
+            }
+            int i3 = (int) f2;
+            int i22 = (int) f3;
+            RelativeLayout.LayoutParams layoutParams3 = new RelativeLayout.LayoutParams(i3, i22);
+            layoutParams3.addRule(13);
+            if (L() != null) {
+            }
+            u.b("changeVideoSize", "changeVideoSize .... complete ... end !!!");
         } catch (Throwable th) {
             u.c("changeVideoSize", "changeSize error", th);
         }
     }
 
     private void K() {
-        int[] b;
+        int[] b2;
         try {
-            if (this.f4526a != null && this.f4526a.get() != null && L() != null && this.o != null && this.o.a() != null && this.b != null) {
-                boolean z = this.b.ak() == 15;
-                float f = ak.b(p.a())[1];
+            if (this.f28650a != null && this.f28650a.get() != null && L() != null && this.o != null && this.o.a() != null && this.f28651b != null) {
+                boolean z = this.f28651b.aq() == 15;
+                float f2 = al.b(p.a())[1];
                 MediaPlayer a2 = this.o.a();
-                a(b[0], f, a2.getVideoWidth(), a2.getVideoHeight(), z);
+                a(b2[0], f2, a2.getVideoWidth(), a2.getVideoHeight(), z);
                 u.b("changeVideoSize", "changeSize=end");
             }
         } catch (Throwable th) {
@@ -697,32 +321,742 @@ public abstract class a implements c, d, al.a {
         }
     }
 
-    private void a(float f, float f2, float f3, float f4, boolean z) {
-        RelativeLayout.LayoutParams layoutParams;
-        try {
-            u.b("changeVideoSize", "screenWidth=" + f + ",screenHeight=" + f2);
-            u.b("changeVideoSize", "videoHeight=" + f4 + ",videoWidth=" + f3);
-            if (f3 <= 0.0f || f4 <= 0.0f) {
-                f3 = this.b.R().c();
-                f4 = this.b.R().b();
+    private com.bytedance.sdk.openadsdk.core.video.renderview.b L() {
+        com.bytedance.sdk.openadsdk.core.video.nativevideo.h hVar;
+        WeakReference<Context> weakReference = this.f28650a;
+        if (weakReference == null || weakReference.get() == null || (hVar = this.j) == null) {
+            return null;
+        }
+        return hVar.o();
+    }
+
+    private void M() {
+        com.bytedance.sdk.openadsdk.core.video.nativevideo.h hVar = this.j;
+        if (hVar != null) {
+            hVar.c(0);
+            this.j.a(false, false);
+            this.j.b(false);
+            this.j.b();
+            this.j.d();
+        }
+    }
+
+    public boolean A() {
+        com.bytedance.sdk.openadsdk.core.video.d.d dVar = this.o;
+        return dVar != null && dVar.g();
+    }
+
+    public Map<String, Object> B() {
+        HashMap hashMap = new HashMap();
+        Map<String, Object> map = this.f28653d;
+        if (map != null) {
+            for (Map.Entry<String, Object> entry : map.entrySet()) {
+                hashMap.put(entry.getKey(), entry.getValue());
             }
-            if (f4 > 0.0f && f3 > 0.0f) {
-                if (z) {
-                    if (f3 >= f4) {
-                        u.b("changeVideoSize", "竖屏模式下按视频宽度计算放大倍数值");
-                        RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams((int) f, (int) ((f4 * f) / f3));
-                        layoutParams2.addRule(13);
-                        layoutParams = layoutParams2;
-                    } else {
+        }
+        Map<String, Object> a2 = ak.a(this.f28655f, this.f28651b, u());
+        if (a2 != null) {
+            for (Map.Entry<String, Object> entry2 : a2.entrySet()) {
+                hashMap.put(entry2.getKey(), entry2.getValue());
+            }
+        }
+        return hashMap;
+    }
+
+    public Map<String, Object> C() {
+        HashMap hashMap = new HashMap();
+        Map<String, Object> a2 = ak.a(this.f28651b, o(), u());
+        if (a2 != null) {
+            for (Map.Entry<String, Object> entry : a2.entrySet()) {
+                hashMap.put(entry.getKey(), entry.getValue());
+            }
+        }
+        Map<String, Object> map = this.f28653d;
+        if (map != null) {
+            for (Map.Entry<String, Object> entry2 : map.entrySet()) {
+                hashMap.put(entry2.getKey(), entry2.getValue());
+            }
+        }
+        return hashMap;
+    }
+
+    public abstract int a();
+
+    public abstract void a(int i, int i2);
+
+    @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.a
+    public void a(com.bytedance.sdk.openadsdk.core.video.nativevideo.b bVar, SurfaceHolder surfaceHolder, int i, int i2, int i3) {
+    }
+
+    public void a(com.bytedance.sdk.openadsdk.core.video.nativevideo.b bVar, View view, boolean z) {
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.c
+    public void a(c.InterfaceC0312c interfaceC0312c) {
+    }
+
+    public abstract void b();
+
+    public abstract void c();
+
+    public abstract void d();
+
+    public abstract void e();
+
+    @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.c
+    public void e(boolean z) {
+    }
+
+    public abstract void f();
+
+    @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.a
+    public void f(com.bytedance.sdk.openadsdk.core.video.nativevideo.b bVar, View view) {
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.c
+    public void i() {
+        com.bytedance.sdk.openadsdk.core.video.d.d dVar = this.o;
+        if (dVar != null) {
+            dVar.b();
+        }
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.c
+    public void j() {
+        com.bytedance.sdk.openadsdk.core.video.d.d dVar = this.o;
+        if (dVar != null) {
+            dVar.d();
+        }
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.c
+    public void k() {
+        com.bytedance.sdk.openadsdk.core.video.nativevideo.h hVar = this.j;
+        if (hVar != null) {
+            hVar.e();
+            this.j.q();
+            this.j.u();
+        }
+        com.bytedance.sdk.openadsdk.core.video.d.d dVar = this.o;
+        if (dVar != null) {
+            dVar.a(false, this.q, !this.y);
+            E();
+        }
+        if (this.w || !this.v) {
+            return;
+        }
+        d();
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.c
+    public void l() {
+        com.bytedance.sdk.openadsdk.core.video.d.d dVar = this.o;
+        if (dVar != null) {
+            dVar.c();
+            this.o = null;
+        }
+        com.bytedance.sdk.openadsdk.core.video.nativevideo.h hVar = this.j;
+        if (hVar != null) {
+            hVar.g();
+        }
+        am amVar = this.l;
+        if (amVar != null) {
+            amVar.removeCallbacks(this.I);
+            this.l.removeCallbacks(this.H);
+            this.l.removeCallbacksAndMessages(null);
+            F();
+        }
+        this.p = null;
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.c
+    public void m() {
+        l();
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.c
+    public long n() {
+        return this.q;
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.c
+    public long o() {
+        if (u() == null) {
+            return 0L;
+        }
+        return u().n();
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.c
+    public long p() {
+        com.bytedance.sdk.openadsdk.core.video.d.d dVar = this.o;
+        if (dVar == null) {
+            return 0L;
+        }
+        return dVar.o() + this.z;
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.c
+    public long q() {
+        com.bytedance.sdk.openadsdk.core.video.d.d dVar = this.o;
+        if (dVar == null) {
+            return 0L;
+        }
+        return dVar.p() + this.z;
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.c
+    public int r() {
+        return com.bytedance.sdk.openadsdk.core.video.e.a.a(this.r, this.f28652c);
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.c
+    public long s() {
+        return this.f28652c;
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.c
+    public boolean t() {
+        return this.A;
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.c
+    public com.bytedance.sdk.openadsdk.core.video.d.d u() {
+        return this.o;
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.c
+    public com.bytedance.sdk.openadsdk.core.video.nativevideo.h v() {
+        return this.j;
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.c
+    public boolean w() {
+        return this.C;
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.c
+    public boolean x() {
+        return this.F;
+    }
+
+    public void y() {
+        if (this.w || !this.v) {
+            return;
+        }
+        d();
+    }
+
+    public boolean z() {
+        return this.o.l();
+    }
+
+    private void g(boolean z) {
+        this.K = z;
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.c
+    public void b(boolean z) {
+        this.x = z;
+        this.j.c(z);
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.c
+    public void c(long j) {
+        this.f28652c = j;
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.c
+    public void d(boolean z) {
+        this.C = z;
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.a
+    public void e(com.bytedance.sdk.openadsdk.core.video.nativevideo.b bVar, View view) {
+        a(bVar, view, false);
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.c
+    public void f(boolean z) {
+        this.G = z;
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.c
+    public void h() {
+        this.i = p();
+        com.bytedance.sdk.openadsdk.core.video.d.d dVar = this.o;
+        if (dVar != null) {
+            dVar.b();
+        }
+        if (this.w || !this.v) {
+            return;
+        }
+        c();
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.c
+    public void c(boolean z) {
+        this.y = z;
+        com.bytedance.sdk.openadsdk.core.video.d.d dVar = this.o;
+        if (dVar != null) {
+            dVar.b(z);
+        }
+    }
+
+    public void d(long j) {
+        this.q = j;
+        long j2 = this.r;
+        if (j2 > j) {
+            j = j2;
+        }
+        this.r = j;
+        com.bytedance.sdk.openadsdk.core.video.nativevideo.h hVar = this.j;
+        if (hVar != null) {
+            hVar.e();
+        }
+        com.bytedance.sdk.openadsdk.core.video.d.d dVar = this.o;
+        if (dVar != null) {
+            dVar.a(true, this.q, !this.y);
+            E();
+        }
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.a
+    public void g() {
+        com.bytedance.sdk.openadsdk.core.video.nativevideo.h hVar = this.j;
+        if (hVar != null) {
+            hVar.b();
+            this.j.e();
+        }
+        com.bytedance.sdk.openadsdk.core.video.nativevideo.h hVar2 = this.j;
+        if (hVar2 != null) {
+            hVar2.u();
+        }
+        d(-1L);
+        com.bytedance.sdk.openadsdk.core.video.d.d dVar = this.o;
+        if (dVar != null) {
+            dVar.m();
+        }
+    }
+
+    @SuppressLint({"InflateParams"})
+    private void a(Context context) {
+        EnumSet noneOf = EnumSet.noneOf(b.a.class);
+        noneOf.add(b.a.hideCloseBtn);
+        noneOf.add(b.a.hideBackBtn);
+        com.bytedance.sdk.openadsdk.core.video.nativevideo.h hVar = new com.bytedance.sdk.openadsdk.core.video.nativevideo.h(context.getApplicationContext(), LayoutInflater.from(context.getApplicationContext()).inflate(ad.f(context, "tt_video_play_layout_for_live"), (ViewGroup) null, false), true, noneOf, this.f28651b, this);
+        this.j = hVar;
+        hVar.a(this);
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.c
+    public void b(long j) {
+        this.z = j;
+    }
+
+    private void b(int i) {
+        if (G() && this.j != null) {
+            this.l.removeCallbacks(this.I);
+            this.j.w();
+            long currentTimeMillis = System.currentTimeMillis() - this.m;
+            this.n = currentTimeMillis;
+            c.a aVar = this.p;
+            if (aVar != null) {
+                aVar.a(currentTimeMillis, com.bytedance.sdk.openadsdk.core.video.e.a.a(this.q, this.f28652c));
+            }
+            if (ak.d(this.f28651b)) {
+                this.j.a(this.f28651b, this.f28650a, true);
+            }
+            if (!this.w) {
+                b();
+                this.w = true;
+                long j = this.f28652c;
+                a(j, j);
+                long j2 = this.f28652c;
+                this.q = j2;
+                this.r = j2;
+            }
+            this.C = true;
+        }
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.a
+    public void c(com.bytedance.sdk.openadsdk.core.video.nativevideo.b bVar, View view) {
+        com.bytedance.sdk.openadsdk.core.video.nativevideo.h hVar = this.j;
+        if (hVar != null) {
+            hVar.g();
+        }
+        a(true);
+    }
+
+    private boolean c(int i) {
+        return this.j.b(i);
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.a
+    public void d(com.bytedance.sdk.openadsdk.core.video.nativevideo.b bVar, View view) {
+        if (this.K) {
+            g(false);
+            com.bytedance.sdk.openadsdk.core.video.nativevideo.h hVar = this.j;
+            if (hVar != null) {
+                hVar.b(this.k);
+            }
+            a(1);
+            return;
+        }
+        a(true);
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.c
+    public boolean a(String str, String str2, int i, int i2, List<String> list, String str3, long j, boolean z) {
+        u.b("BaseVideoController", "video local url " + str);
+        if (TextUtils.isEmpty(str)) {
+            u.f("BaseVideoController", "No video info");
+            return false;
+        }
+        this.f28656g = !str.startsWith("http");
+        this.y = z;
+        if (j > 0) {
+            this.q = j;
+            long j2 = this.r;
+            if (j2 > j) {
+                j = j2;
+            }
+            this.r = j;
+        }
+        com.bytedance.sdk.openadsdk.core.video.nativevideo.h hVar = this.j;
+        if (hVar != null) {
+            hVar.e();
+            this.j.d();
+            this.j.c(i, i2);
+            this.j.c(this.k);
+        }
+        if (this.o == null) {
+            this.o = new com.bytedance.sdk.openadsdk.core.video.d.d(this.l);
+        }
+        this.n = 0L;
+        try {
+            a(str);
+            return true;
+        } catch (Exception unused) {
+            return false;
+        }
+    }
+
+    private boolean d(int i) {
+        l lVar;
+        int c2 = x.c(p.a());
+        if (c2 != 4 && c2 != 0) {
+            h();
+            this.A = true;
+            this.B = false;
+            com.bytedance.sdk.openadsdk.core.video.nativevideo.h hVar = this.j;
+            if (hVar != null && (lVar = this.f28651b) != null) {
+                return hVar.a(i, lVar.X(), true);
+            }
+        } else if (c2 == 4) {
+            this.A = false;
+            com.bytedance.sdk.openadsdk.core.video.nativevideo.h hVar2 = this.j;
+            if (hVar2 != null) {
+                hVar2.q();
+            }
+        }
+        return true;
+    }
+
+    private void b(Runnable runnable) {
+        if (this.s == null) {
+            this.s = new ArrayList<>();
+        }
+        this.s.add(runnable);
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.a
+    public void b(com.bytedance.sdk.openadsdk.core.video.nativevideo.b bVar, int i) {
+        if (this.o != null) {
+            F();
+        }
+        com.bytedance.sdk.openadsdk.core.video.nativevideo.h hVar = this.j;
+        if (hVar != null) {
+            hVar.c();
+        }
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.a
+    public void b(com.bytedance.sdk.openadsdk.core.video.nativevideo.b bVar, View view) {
+        b(bVar, view, false, false);
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.c
+    public void a(long j) {
+        this.q = j;
+        long j2 = this.r;
+        if (j2 > j) {
+            j = j2;
+        }
+        this.r = j;
+    }
+
+    public void b(com.bytedance.sdk.openadsdk.core.video.nativevideo.b bVar, View view, boolean z, boolean z2) {
+        if (G()) {
+            g(!this.K);
+            if (!(this.f28650a.get() instanceof Activity)) {
+                u.b("BaseVideoController", "context is not activity, not support this function.");
+                return;
+            }
+            if (this.K) {
+                a(z ? 8 : 0);
+                com.bytedance.sdk.openadsdk.core.video.nativevideo.h hVar = this.j;
+                if (hVar != null) {
+                    hVar.a(this.k);
+                    this.j.b(false);
+                }
+            } else {
+                a(1);
+                com.bytedance.sdk.openadsdk.core.video.nativevideo.h hVar2 = this.j;
+                if (hVar2 != null) {
+                    hVar2.b(this.k);
+                    this.j.b(false);
+                }
+            }
+            WeakReference<e> weakReference = this.D;
+            e eVar = weakReference != null ? weakReference.get() : null;
+            if (eVar != null) {
+                eVar.a(this.K);
+            }
+        }
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.c
+    public void a(Map<String, Object> map) {
+        this.f28653d = map;
+    }
+
+    private void a(String str) throws Exception {
+        if (this.o != null) {
+            com.bytedance.sdk.openadsdk.core.video.b.a aVar = new com.bytedance.sdk.openadsdk.core.video.b.a();
+            aVar.f28646a = str;
+            l lVar = this.f28651b;
+            if (lVar != null) {
+                if (lVar.X() != null) {
+                    aVar.f28649d = this.f28651b.X().l();
+                }
+                aVar.f28647b = String.valueOf(ak.d(this.f28651b.ap()));
+            }
+            aVar.f28648c = 1;
+            this.o.a(aVar);
+        }
+        this.m = System.currentTimeMillis();
+        if (TextUtils.isEmpty(str)) {
+            return;
+        }
+        this.j.d(8);
+        this.j.d(0);
+        a(new Runnable() { // from class: com.bytedance.sdk.openadsdk.core.video.c.a.1
+            @Override // java.lang.Runnable
+            public void run() {
+                a.this.m = System.currentTimeMillis();
+                a.this.j.c(0);
+                if (a.this.o == null || a.this.q != 0) {
+                    if (a.this.o != null) {
+                        a.this.o.a(true, a.this.q, !a.this.y);
+                    }
+                } else {
+                    a.this.o.a(true, 0L, !a.this.y);
+                }
+                if (a.this.l != null) {
+                    a.this.l.postDelayed(a.this.H, 100L);
+                }
+                a.this.E();
+            }
+        });
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.a
+    public void b(com.bytedance.sdk.openadsdk.core.video.nativevideo.b bVar, SurfaceHolder surfaceHolder) {
+        this.t = false;
+        com.bytedance.sdk.openadsdk.core.video.d.d dVar = this.o;
+        if (dVar != null) {
+            dVar.a(false);
+        }
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.c
+    public void a(e eVar) {
+        this.D = new WeakReference<>(eVar);
+    }
+
+    private void a(Runnable runnable) {
+        if (runnable == null) {
+            return;
+        }
+        if (this.j.k() && this.t) {
+            runnable.run();
+        } else {
+            b(runnable);
+        }
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.a
+    public void b(com.bytedance.sdk.openadsdk.core.video.nativevideo.b bVar, SurfaceTexture surfaceTexture) {
+        this.t = false;
+        com.bytedance.sdk.openadsdk.core.video.d.d dVar = this.o;
+        if (dVar != null) {
+            dVar.a(false);
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void b(Context context) {
+        int c2;
+        if (G() && this.N != (c2 = x.c(context))) {
+            if (!this.B) {
+                d(2);
+            }
+            this.N = c2;
+        }
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.c
+    public void a(c.a aVar) {
+        this.p = aVar;
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.c
+    public void a(boolean z) {
+        l();
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.utils.am.a
+    public void a(Message message) {
+        WeakReference<Context> weakReference;
+        if (this.j == null || message == null || (weakReference = this.f28650a) == null || weakReference.get() == null) {
+            return;
+        }
+        int i = message.what;
+        if (i == 108) {
+            Object obj = message.obj;
+            if (!(obj instanceof Long) || ((Long) obj).longValue() <= 0) {
+                return;
+            }
+            this.f28652c = ((Long) message.obj).longValue();
+        } else if (i == 109) {
+            Object obj2 = message.obj;
+            if (obj2 instanceof Long) {
+                long longValue = ((Long) obj2).longValue();
+                this.q = longValue;
+                long j = this.r;
+                if (j > longValue) {
+                    longValue = j;
+                }
+                this.r = longValue;
+                a(this.q, this.f28652c);
+            }
+        } else if (i == 308) {
+            a(308, 0);
+        } else if (i == 311) {
+            l lVar = this.f28651b;
+            if (lVar != null && lVar.l() == 0) {
+                K();
+            } else {
+                J();
+            }
+        } else if (i != 314) {
+            switch (i) {
+                case 302:
+                    b(i);
+                    return;
+                case 303:
+                    a(message.arg1, message.arg2);
+                    this.l.removeCallbacks(this.I);
+                    com.bytedance.sdk.openadsdk.core.video.nativevideo.h hVar = this.j;
+                    if (hVar != null) {
+                        hVar.w();
+                    }
+                    c.a aVar = this.p;
+                    if (aVar != null) {
+                        aVar.b(this.n, com.bytedance.sdk.openadsdk.core.video.e.a.a(this.q, this.f28652c));
                         return;
                     }
-                } else if (f3 <= f4) {
-                    u.b("changeVideoSize", "横屏模式下按视频高度计算放大倍数值");
-                    RelativeLayout.LayoutParams layoutParams3 = new RelativeLayout.LayoutParams((int) ((f3 * f2) / f4), (int) f2);
-                    layoutParams3.addRule(13);
-                    layoutParams = layoutParams3;
-                } else {
                     return;
+                case 304:
+                    int i2 = message.arg1;
+                    com.bytedance.sdk.openadsdk.core.video.nativevideo.h hVar2 = this.j;
+                    if (hVar2 != null) {
+                        if (i2 == 3 || i2 == 702) {
+                            this.j.w();
+                            this.l.removeCallbacks(this.I);
+                            this.F = false;
+                        } else if (i2 == 701) {
+                            hVar2.t();
+                            D();
+                            this.F = true;
+                        }
+                    }
+                    if (this.u && i2 == 3 && !this.v) {
+                        this.f28655f = SystemClock.elapsedRealtime() - this.f28654e;
+                        e();
+                        this.v = true;
+                        this.f28657h = true;
+                        return;
+                    }
+                    return;
+                case 305:
+                    am amVar = this.l;
+                    if (amVar != null) {
+                        amVar.removeCallbacks(this.I);
+                    }
+                    if (!this.u && !this.v) {
+                        this.f28655f = SystemClock.elapsedRealtime() - this.f28654e;
+                        f();
+                        this.v = true;
+                    }
+                    com.bytedance.sdk.openadsdk.core.video.nativevideo.h hVar3 = this.j;
+                    if (hVar3 != null) {
+                        hVar3.w();
+                        return;
+                    }
+                    return;
+                case 306:
+                    this.l.removeCallbacks(this.I);
+                    com.bytedance.sdk.openadsdk.core.video.nativevideo.h hVar4 = this.j;
+                    if (hVar4 != null) {
+                        hVar4.w();
+                        return;
+                    }
+                    return;
+                default:
+                    return;
+            }
+        } else {
+            this.f28654e = SystemClock.elapsedRealtime();
+        }
+    }
+
+    private void a(float f2, float f3, float f4, float f5, boolean z) {
+        RelativeLayout.LayoutParams layoutParams;
+        try {
+            u.b("changeVideoSize", "screenWidth=" + f2 + ",screenHeight=" + f3);
+            u.b("changeVideoSize", "videoHeight=" + f5 + ",videoWidth=" + f4);
+            if (f4 <= 0.0f || f5 <= 0.0f) {
+                f4 = this.f28651b.X().c();
+                f5 = this.f28651b.X().b();
+            }
+            if (f5 > 0.0f && f4 > 0.0f) {
+                if (z) {
+                    if (f4 < f5) {
+                        return;
+                    }
+                    u.b("changeVideoSize", "竖屏模式下按视频宽度计算放大倍数值");
+                    layoutParams = new RelativeLayout.LayoutParams((int) f2, (int) ((f5 * f2) / f4));
+                    layoutParams.addRule(13);
+                } else if (f4 > f5) {
+                    return;
+                } else {
+                    u.b("changeVideoSize", "横屏模式下按视频高度计算放大倍数值");
+                    RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams((int) ((f4 * f3) / f5), (int) f3);
+                    layoutParams2.addRule(13);
+                    layoutParams = layoutParams2;
                 }
                 if (L() != null) {
                     if (L() instanceof TextureView) {
@@ -739,64 +1073,60 @@ public abstract class a implements c, d, al.a {
 
     @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.a
     public void a(com.bytedance.sdk.openadsdk.core.video.nativevideo.b bVar, View view) {
-        if (this.o != null && G()) {
-            if (this.o.g()) {
-                h();
-                this.j.b(true, false);
-                this.j.c();
-            } else if (!this.o.i()) {
-                if (this.j != null) {
-                    this.j.c(this.k);
-                }
-                d(this.q);
-                if (this.j != null) {
-                    this.j.b(false, false);
-                }
-            } else {
-                k();
-                if (this.j != null) {
-                    this.j.b(false, false);
-                }
+        if (this.o == null || !G()) {
+            return;
+        }
+        if (this.o.g()) {
+            h();
+            this.j.b(true, false);
+            this.j.c();
+        } else if (!this.o.i()) {
+            com.bytedance.sdk.openadsdk.core.video.nativevideo.h hVar = this.j;
+            if (hVar != null) {
+                hVar.c(this.k);
+            }
+            d(this.q);
+            com.bytedance.sdk.openadsdk.core.video.nativevideo.h hVar2 = this.j;
+            if (hVar2 != null) {
+                hVar2.b(false, false);
+            }
+        } else {
+            k();
+            com.bytedance.sdk.openadsdk.core.video.nativevideo.h hVar3 = this.j;
+            if (hVar3 != null) {
+                hVar3.b(false, false);
             }
         }
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.a
     public void a(com.bytedance.sdk.openadsdk.core.video.nativevideo.b bVar, int i) {
-        if (this.o != null) {
-            E();
-            a(this.L, c(i));
+        if (this.o == null) {
+            return;
         }
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.a
-    public void b(com.bytedance.sdk.openadsdk.core.video.nativevideo.b bVar, int i) {
-        if (this.o != null) {
-            F();
-        }
-        if (this.j != null) {
-            this.j.c();
-        }
+        E();
+        a(this.L, c(i));
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.a
     public void a(com.bytedance.sdk.openadsdk.core.video.nativevideo.b bVar, int i, boolean z) {
         if (G()) {
-            long l = (((float) (i * this.c)) * 1.0f) / ac.l(this.f4526a.get(), "tt_video_progress_max");
-            if (this.c > 0) {
+            long l = (((float) (i * this.f28652c)) * 1.0f) / ad.l(this.f28650a.get(), "tt_video_progress_max");
+            if (this.f28652c > 0) {
                 this.L = (int) l;
             } else {
                 this.L = 0L;
             }
-            if (this.j != null) {
-                this.j.a(this.L);
+            com.bytedance.sdk.openadsdk.core.video.nativevideo.h hVar = this.j;
+            if (hVar != null) {
+                hVar.a(this.L);
             }
         }
     }
 
     private void a(long j, long j2) {
         this.q = j;
-        this.c = j2;
+        this.f28652c = j2;
         this.j.a(j, j2);
         this.j.a(com.bytedance.sdk.openadsdk.core.video.e.a.a(j, j2));
         try {
@@ -808,47 +1138,15 @@ public abstract class a implements c, d, al.a {
         }
     }
 
-    @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.a
-    public void b(com.bytedance.sdk.openadsdk.core.video.nativevideo.b bVar, View view) {
-        b(bVar, view, false, false);
-    }
-
-    public void b(com.bytedance.sdk.openadsdk.core.video.nativevideo.b bVar, View view, boolean z, boolean z2) {
-        if (G()) {
-            g(!this.K);
-            if (!(this.f4526a.get() instanceof Activity)) {
-                u.b("BaseVideoController", "context is not activity, not support this function.");
-                return;
-            }
-            if (this.K) {
-                a(z ? 8 : 0);
-                if (this.j != null) {
-                    this.j.a(this.k);
-                    this.j.b(false);
-                }
-            } else {
-                a(1);
-                if (this.j != null) {
-                    this.j.b(this.k);
-                    this.j.b(false);
-                }
-            }
-            e eVar = this.D != null ? this.D.get() : null;
-            if (eVar != null) {
-                eVar.a(this.K);
-            }
-        }
-    }
-
     public void a(int i) {
         if (G()) {
             boolean z = i == 0 || i == 8;
-            Context context = this.f4526a.get();
+            Context context = this.f28650a.get();
             if (context instanceof Activity) {
                 Activity activity = (Activity) context;
                 try {
                     activity.setRequestedOrientation(i);
-                } catch (Throwable th) {
+                } catch (Throwable unused) {
                 }
                 if (!z) {
                     activity.getWindow().setFlags(1024, 1024);
@@ -860,14 +1158,6 @@ public abstract class a implements c, d, al.a {
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.a
-    public void c(com.bytedance.sdk.openadsdk.core.video.nativevideo.b bVar, View view) {
-        if (this.j != null) {
-            this.j.g();
-        }
-        a(true);
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.a
     public void a(com.bytedance.sdk.openadsdk.core.video.nativevideo.b bVar, View view, boolean z, boolean z2) {
         if (this.x) {
             h();
@@ -876,7 +1166,8 @@ public abstract class a implements c, d, al.a {
             this.j.b(!A(), false);
             this.j.a(z2, true, false);
         }
-        if (this.o != null && this.o.g()) {
+        com.bytedance.sdk.openadsdk.core.video.d.d dVar = this.o;
+        if (dVar != null && dVar.g()) {
             this.j.c();
             this.j.b();
             return;
@@ -885,221 +1176,55 @@ public abstract class a implements c, d, al.a {
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.a
-    public void d(com.bytedance.sdk.openadsdk.core.video.nativevideo.b bVar, View view) {
-        if (this.K) {
-            g(false);
-            if (this.j != null) {
-                this.j.b(this.k);
-            }
-            a(1);
-            return;
-        }
-        a(true);
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.a
-    public void e(com.bytedance.sdk.openadsdk.core.video.nativevideo.b bVar, View view) {
-        a(bVar, view, false);
-    }
-
-    public void a(com.bytedance.sdk.openadsdk.core.video.nativevideo.b bVar, View view, boolean z) {
-    }
-
-    private void g(boolean z) {
-        this.K = z;
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.a
-    public void f(com.bytedance.sdk.openadsdk.core.video.nativevideo.b bVar, View view) {
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.a
     public void a(com.bytedance.sdk.openadsdk.core.video.nativevideo.b bVar, SurfaceHolder surfaceHolder) {
         this.t = true;
-        if (this.o != null) {
-            if (this.o != null) {
-                this.o.a(true);
-            }
-            this.o.a(surfaceHolder);
-            H();
+        com.bytedance.sdk.openadsdk.core.video.d.d dVar = this.o;
+        if (dVar == null) {
+            return;
         }
-    }
-
-    private com.bytedance.sdk.openadsdk.core.video.renderview.b L() {
-        if (this.f4526a == null || this.f4526a.get() == null || this.j == null) {
-            return null;
+        if (dVar != null) {
+            dVar.a(true);
         }
-        return this.j.o();
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.a
-    public void a(com.bytedance.sdk.openadsdk.core.video.nativevideo.b bVar, SurfaceHolder surfaceHolder, int i, int i2, int i3) {
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.a
-    public void b(com.bytedance.sdk.openadsdk.core.video.nativevideo.b bVar, SurfaceHolder surfaceHolder) {
-        this.t = false;
-        if (this.o != null) {
-            this.o.a(false);
-        }
+        this.o.a(surfaceHolder);
+        H();
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.a
     public void a(com.bytedance.sdk.openadsdk.core.video.nativevideo.b bVar, SurfaceTexture surfaceTexture) {
         this.t = true;
-        if (this.o != null) {
-            if (this.o != null) {
-                this.o.a(true);
-            }
-            this.o.a(surfaceTexture);
-            H();
+        com.bytedance.sdk.openadsdk.core.video.d.d dVar = this.o;
+        if (dVar == null) {
+            return;
         }
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.a
-    public void b(com.bytedance.sdk.openadsdk.core.video.nativevideo.b bVar, SurfaceTexture surfaceTexture) {
-        this.t = false;
-        if (this.o != null) {
-            this.o.a(false);
+        if (dVar != null) {
+            dVar.a(true);
         }
-    }
-
-    public boolean z() {
-        return this.o.l();
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.a
-    public void g() {
-        if (this.j != null) {
-            this.j.b();
-            this.j.e();
-        }
-        if (this.j != null) {
-            this.j.u();
-        }
-        d(-1L);
-        if (this.o != null) {
-            this.o.m();
-        }
-    }
-
-    public boolean A() {
-        return this.o != null && this.o.g();
+        this.o.a(surfaceTexture);
+        H();
     }
 
     private void a(long j, boolean z) {
-        if (this.o != null) {
-            if (z) {
-                M();
-            }
-            this.o.a(j);
+        if (this.o == null) {
+            return;
         }
-    }
-
-    private boolean c(int i) {
-        return this.j.b(i);
-    }
-
-    private void M() {
-        if (this.j != null) {
-            this.j.c(0);
-            this.j.a(false, false);
-            this.j.b(false);
-            this.j.b();
-            this.j.d();
+        if (z) {
+            M();
         }
+        this.o.a(j);
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.d
     public void a(h.a aVar, String str) {
-        switch (aVar) {
-            case PAUSE_VIDEO:
-                h();
-                return;
-            case RELEASE_VIDEO:
-                a(true);
-                return;
-            case START_VIDEO:
-                k();
-                this.A = false;
-                this.B = true;
-                return;
-            default:
-                return;
-        }
-    }
-
-    private boolean d(int i) {
-        int c = x.c(p.a());
-        if (c != 4 && c != 0) {
+        int i = AnonymousClass6.f28663a[aVar.ordinal()];
+        if (i == 1) {
             h();
-            this.A = true;
-            this.B = false;
-            if (this.j == null || this.b == null) {
-                return true;
-            }
-            return this.j.a(i, this.b.R(), true);
-        } else if (c == 4) {
-            this.A = false;
-            if (this.j != null) {
-                this.j.q();
-                return true;
-            }
-            return true;
+        } else if (i == 2) {
+            a(true);
+        } else if (i != 3) {
         } else {
-            return true;
+            k();
+            this.A = false;
+            this.B = true;
         }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void b(Context context) {
-        int c;
-        if (G() && this.N != (c = x.c(context))) {
-            if (!this.B) {
-                d(2);
-            }
-            this.N = c;
-        }
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.c
-    public void j() {
-        if (this.o != null) {
-            this.o.d();
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public Map<String, Object> B() {
-        HashMap hashMap = new HashMap();
-        if (this.d != null) {
-            for (Map.Entry<String, Object> entry : this.d.entrySet()) {
-                hashMap.put(entry.getKey(), entry.getValue());
-            }
-        }
-        Map<String, Object> a2 = aj.a(this.f, this.b, u());
-        if (a2 != null) {
-            for (Map.Entry<String, Object> entry2 : a2.entrySet()) {
-                hashMap.put(entry2.getKey(), entry2.getValue());
-            }
-        }
-        return hashMap;
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public Map<String, Object> C() {
-        HashMap hashMap = new HashMap();
-        Map<String, Object> a2 = aj.a(this.b, o(), u());
-        if (a2 != null) {
-            for (Map.Entry<String, Object> entry : a2.entrySet()) {
-                hashMap.put(entry.getKey(), entry.getValue());
-            }
-        }
-        if (this.d != null) {
-            for (Map.Entry<String, Object> entry2 : this.d.entrySet()) {
-                hashMap.put(entry2.getKey(), entry2.getValue());
-            }
-        }
-        return hashMap;
     }
 }

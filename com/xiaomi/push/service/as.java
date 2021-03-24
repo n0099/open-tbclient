@@ -1,29 +1,44 @@
 package com.xiaomi.push.service;
 
-import com.xiaomi.push.service.XMPushService;
-import com.xiaomi.push.service.ap;
-/* loaded from: classes5.dex */
-class as extends XMPushService.i {
+import com.xiaomi.push.hl;
+import com.xiaomi.push.hm;
+/* loaded from: classes7.dex */
+public /* synthetic */ class as {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ap.b.c f8528a;
+    public static final /* synthetic */ int[] f40955a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public as(ap.b.c cVar, int i) {
-        super(i);
-        this.f8528a = cVar;
-    }
+    /* renamed from: b  reason: collision with root package name */
+    public static final /* synthetic */ int[] f40956b;
 
-    @Override // com.xiaomi.push.service.XMPushService.i
-    public String a() {
-        return "check peer job";
-    }
-
-    @Override // com.xiaomi.push.service.XMPushService.i
-    public void a() {
-        if (ap.a().a(this.f8528a.f866a.g, this.f8528a.f866a.f862b).f853a == null) {
-            ap.b.this.f855a.a(this.f8528a.f866a.g, this.f8528a.f866a.f862b, 2, null, null);
+    static {
+        int[] iArr = new int[hm.values().length];
+        f40956b = iArr;
+        try {
+            iArr[hm.INT.ordinal()] = 1;
+        } catch (NoSuchFieldError unused) {
+        }
+        try {
+            f40956b[hm.LONG.ordinal()] = 2;
+        } catch (NoSuchFieldError unused2) {
+        }
+        try {
+            f40956b[hm.STRING.ordinal()] = 3;
+        } catch (NoSuchFieldError unused3) {
+        }
+        try {
+            f40956b[hm.BOOLEAN.ordinal()] = 4;
+        } catch (NoSuchFieldError unused4) {
+        }
+        int[] iArr2 = new int[hl.values().length];
+        f40955a = iArr2;
+        try {
+            iArr2[hl.MISC_CONFIG.ordinal()] = 1;
+        } catch (NoSuchFieldError unused5) {
+        }
+        try {
+            f40955a[hl.PLUGIN_CONFIG.ordinal()] = 2;
+        } catch (NoSuchFieldError unused6) {
         }
     }
 }

@@ -4,30 +4,28 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 import java.util.Hashtable;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class i extends Handler {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ LBSAuthManager f1881a;
+    public final /* synthetic */ LBSAuthManager f6336a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public i(LBSAuthManager lBSAuthManager, Looper looper) {
         super(looper);
-        this.f1881a = lBSAuthManager;
+        this.f6336a = lBSAuthManager;
     }
 
     @Override // android.os.Handler
     public void handleMessage(Message message) {
         Hashtable hashtable;
-        if (a.f1874a) {
+        if (a.f6321a) {
             a.a("handleMessage !!");
         }
         String string = message.getData().getString("listenerKey");
-        hashtable = LBSAuthManager.f;
+        hashtable = LBSAuthManager.f6316f;
         LBSAuthManagerListener lBSAuthManagerListener = (LBSAuthManagerListener) hashtable.get(string);
-        if (a.f1874a) {
+        if (a.f6321a) {
             a.a("handleMessage listener = " + lBSAuthManagerListener);
         }
         if (lBSAuthManagerListener != null) {

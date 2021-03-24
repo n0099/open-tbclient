@@ -7,17 +7,21 @@ import org.apache.http.client.CredentialsProvider;
 import org.apache.http.cookie.CookieSpecRegistry;
 import org.apache.http.protocol.HttpContext;
 @Deprecated
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class ClientContextConfigurer implements ClientContext {
     public ClientContextConfigurer(HttpContext httpContext) {
         throw new RuntimeException("Stub!");
     }
 
-    public void setCookieSpecRegistry(CookieSpecRegistry cookieSpecRegistry) {
+    public void setAuthSchemePref(List<String> list) {
         throw new RuntimeException("Stub!");
     }
 
     public void setAuthSchemeRegistry(AuthSchemeRegistry authSchemeRegistry) {
+        throw new RuntimeException("Stub!");
+    }
+
+    public void setCookieSpecRegistry(CookieSpecRegistry cookieSpecRegistry) {
         throw new RuntimeException("Stub!");
     }
 
@@ -26,10 +30,6 @@ public class ClientContextConfigurer implements ClientContext {
     }
 
     public void setCredentialsProvider(CredentialsProvider credentialsProvider) {
-        throw new RuntimeException("Stub!");
-    }
-
-    public void setAuthSchemePref(List<String> list) {
         throw new RuntimeException("Stub!");
     }
 }

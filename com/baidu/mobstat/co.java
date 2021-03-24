@@ -2,30 +2,32 @@ package com.baidu.mobstat;
 
 import com.baidu.mobstat.cq;
 import java.nio.ByteBuffer;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class co extends cr implements cn {
 
     /* renamed from: a  reason: collision with root package name */
-    static final ByteBuffer f2658a = ByteBuffer.allocate(0);
-    private int f;
-    private String g;
+    public static final ByteBuffer f9176a = ByteBuffer.allocate(0);
+
+    /* renamed from: f  reason: collision with root package name */
+    public int f9177f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public String f9178g;
 
     public co() {
         super(cq.a.CLOSING);
         a(true);
     }
 
-    public co(int i, String str) throws ch {
-        super(cq.a.CLOSING);
-        a(true);
-        a(i, str);
-    }
-
     private void a(int i, String str) throws ch {
-        String str2 = str == null ? "" : str;
+        String str2 = "";
+        if (str == null) {
+            str = "";
+        }
         if (i == 1015) {
-            str2 = "";
             i = 1005;
+        } else {
+            str2 = str;
         }
         if (i == 1005) {
             if (str2.length() > 0) {
@@ -47,54 +49,69 @@ public class co extends cr implements cn {
     }
 
     private void g() throws ci {
-        this.f = 1005;
-        ByteBuffer c = super.c();
-        c.mark();
-        if (c.remaining() >= 2) {
+        this.f9177f = 1005;
+        ByteBuffer c2 = super.c();
+        c2.mark();
+        if (c2.remaining() >= 2) {
             ByteBuffer allocate = ByteBuffer.allocate(4);
             allocate.position(2);
-            allocate.putShort(c.getShort());
+            allocate.putShort(c2.getShort());
             allocate.position(0);
-            this.f = allocate.getInt();
-            if (this.f == 1006 || this.f == 1015 || this.f == 1005 || this.f > 4999 || this.f < 1000 || this.f == 1004) {
-                throw new ci("closecode must not be sent over the wire: " + this.f);
+            int i = allocate.getInt();
+            this.f9177f = i;
+            if (i == 1006 || i == 1015 || i == 1005 || i > 4999 || i < 1000 || i == 1004) {
+                throw new ci("closecode must not be sent over the wire: " + this.f9177f);
             }
         }
-        c.reset();
-    }
-
-    @Override // com.baidu.mobstat.cn
-    public int a() {
-        return this.f;
+        c2.reset();
     }
 
     private void h() throws ch {
-        if (this.f == 1005) {
-            this.g = dc.a(super.c());
+        if (this.f9177f == 1005) {
+            this.f9178g = dc.a(super.c());
             return;
         }
-        ByteBuffer c = super.c();
-        int position = c.position();
+        ByteBuffer c2 = super.c();
+        int position = c2.position();
         try {
             try {
-                c.position(c.position() + 2);
-                this.g = dc.a(c);
-            } catch (IllegalArgumentException e) {
-                throw new ci(e);
+                c2.position(c2.position() + 2);
+                this.f9178g = dc.a(c2);
+            } catch (IllegalArgumentException e2) {
+                throw new ci(e2);
             }
         } finally {
-            c.position(position);
+            c2.position(position);
         }
     }
 
     @Override // com.baidu.mobstat.cn
     public String b() {
-        return this.g;
+        return this.f9178g;
+    }
+
+    @Override // com.baidu.mobstat.cr, com.baidu.mobstat.cq
+    public ByteBuffer c() {
+        if (this.f9177f == 1005) {
+            return f9176a;
+        }
+        return super.c();
     }
 
     @Override // com.baidu.mobstat.cr
     public String toString() {
-        return super.toString() + "code: " + this.f;
+        return super.toString() + "code: " + this.f9177f;
+    }
+
+    public co(int i, String str) throws ch {
+        super(cq.a.CLOSING);
+        a(true);
+        a(i, str);
+    }
+
+    @Override // com.baidu.mobstat.cn
+    public int a() {
+        return this.f9177f;
     }
 
     @Override // com.baidu.mobstat.cr, com.baidu.mobstat.cp
@@ -102,10 +119,5 @@ public class co extends cr implements cn {
         super.a(byteBuffer);
         g();
         h();
-    }
-
-    @Override // com.baidu.mobstat.cr, com.baidu.mobstat.cq
-    public ByteBuffer c() {
-        return this.f == 1005 ? f2658a : super.c();
     }
 }

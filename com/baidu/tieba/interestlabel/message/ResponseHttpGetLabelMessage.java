@@ -1,29 +1,32 @@
 package com.baidu.tieba.interestlabel.message;
 
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.baidu.tieba.interestlabel.b.b;
 import com.squareup.wire.Wire;
+import d.b.i0.g1.b.b;
 import tbclient.GetTagList.GetTagListResIdl;
-/* loaded from: classes7.dex */
+/* loaded from: classes4.dex */
 public class ResponseHttpGetLabelMessage extends TbHttpResponsedMessage {
     public ResponseHttpGetLabelMessage() {
-        super(1003333);
+        super(CmdConfigHttp.CMD_GET_INTEREST_LABEL_LIST);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tbadk.message.http.TbHttpResponsedMessage, com.baidu.adp.framework.message.a
+    @Override // com.baidu.tbadk.message.http.TbHttpResponsedMessage, com.baidu.adp.framework.message.HttpResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
     public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         GetTagListResIdl getTagListResIdl = (GetTagListResIdl) new Wire(new Class[0]).parseFrom(bArr, GetTagListResIdl.class);
-        if (getTagListResIdl != null) {
-            setError(getTagListResIdl.error.errorno.intValue());
-            setErrorString(getTagListResIdl.error.usermsg);
-            if (getError() == 0) {
-                RequestGetLabelMessage requestGetLabelMessage = getOrginalMessage().getExtra() instanceof RequestGetLabelMessage ? (RequestGetLabelMessage) getOrginalMessage().getExtra() : null;
-                b labelDataSet = requestGetLabelMessage != null ? requestGetLabelMessage.getLabelDataSet() : null;
-                if (labelDataSet != null) {
-                    labelDataSet.a(getTagListResIdl.data);
-                }
-            }
+        if (getTagListResIdl == null) {
+            return;
+        }
+        setError(getTagListResIdl.error.errorno.intValue());
+        setErrorString(getTagListResIdl.error.usermsg);
+        if (getError() != 0) {
+            return;
+        }
+        RequestGetLabelMessage requestGetLabelMessage = getOrginalMessage().getExtra() instanceof RequestGetLabelMessage ? (RequestGetLabelMessage) getOrginalMessage().getExtra() : null;
+        b labelDataSet = requestGetLabelMessage != null ? requestGetLabelMessage.getLabelDataSet() : null;
+        if (labelDataSet != null) {
+            labelDataSet.d(getTagListResIdl.data);
         }
     }
 }

@@ -5,14 +5,29 @@ import android.content.Context;
 import android.util.AttributeSet;
 import androidx.annotation.NonNull;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.ae;
+import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.tieba.ad.download.DownloadCacheKey;
-import com.baidu.tieba.ad.download.d;
 import com.baidu.tieba.ad.webview.BaseAdWebView;
-/* loaded from: classes.dex */
+import d.b.i0.a;
+import d.b.i0.o.c.d;
+/* loaded from: classes4.dex */
 public class TBAdWebView extends BaseAdWebView {
     public TBAdWebView(Context context) {
         super(context);
+    }
+
+    @Override // com.baidu.tieba.ad.webview.BaseAdWebView
+    public void b(@NonNull DownloadCacheKey downloadCacheKey, boolean z) {
+        if (!a.e().f() && !PermissionUtil.checkWriteExternalStorage(getContext())) {
+            PermissionUtil.requestWriteExternalStorage((Activity) getContext(), 0);
+        } else {
+            d.c().l(downloadCacheKey, null);
+        }
+    }
+
+    @Override // com.baidu.tieba.ad.webview.BaseAdWebView
+    public String getUserAgent() {
+        return getSettings().getUserAgentString() + " tieba/" + TbConfig.getVersion();
     }
 
     public TBAdWebView(Context context, AttributeSet attributeSet) {
@@ -21,19 +36,5 @@ public class TBAdWebView extends BaseAdWebView {
 
     public TBAdWebView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-    }
-
-    @Override // com.baidu.tieba.ad.webview.BaseAdWebView
-    protected String getUserAgent() {
-        return getSettings().getUserAgentString() + " tieba/" + TbConfig.getVersion();
-    }
-
-    @Override // com.baidu.tieba.ad.webview.BaseAdWebView
-    protected void a(@NonNull DownloadCacheKey downloadCacheKey, boolean z) {
-        if (!com.baidu.tieba.a.bJk().bJs() && !ae.checkWriteExternalStorage(getContext())) {
-            ae.requestWriteExternalStorage((Activity) getContext(), 0);
-        } else {
-            d.bLC().c(downloadCacheKey, null);
-        }
     }
 }

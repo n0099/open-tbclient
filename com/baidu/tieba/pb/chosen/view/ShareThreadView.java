@@ -6,83 +6,95 @@ import android.view.LayoutInflater;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.baidu.adp.lib.util.k;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-/* loaded from: classes7.dex */
+import d.b.b.e.p.k;
+/* loaded from: classes4.dex */
 public final class ShareThreadView extends LinearLayout {
-    private TbImageView fIH;
-    private EditText jTj;
-    private TextView kAm;
-    private LinearLayout mRootView;
-    private TextView title;
 
-    public EditText getChatMsgView() {
-        return this.jTj;
-    }
+    /* renamed from: e  reason: collision with root package name */
+    public LinearLayout f19486e;
 
-    public void aP(String str, boolean z) {
-        if (this.fIH != null) {
-            this.fIH.startLoad(str, z ? 17 : 18, false);
-        }
-    }
+    /* renamed from: f  reason: collision with root package name */
+    public EditText f19487f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public TbImageView f19488g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public TextView f19489h;
+    public TextView i;
 
     public ShareThreadView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        initUI(context);
+        b(context);
     }
 
-    public ShareThreadView(Context context) {
-        super(context);
-        initUI(context);
+    public void a() {
+        this.f19486e.setFocusable(true);
+        this.f19486e.setFocusableInTouchMode(true);
+        this.f19486e.requestFocus();
     }
 
-    private void initUI(Context context) {
+    public final void b(Context context) {
         LayoutInflater.from(context).inflate(R.layout.thread_to_group_share_view, this);
         setOrientation(1);
-        this.mRootView = (LinearLayout) findViewById(R.id.share_content);
-        this.title = (TextView) findViewById(R.id.share_title_view);
-        ap.setViewTextColor(this.title, R.color.CAM_X0105, 1);
-        this.jTj = (EditText) findViewById(R.id.chat_msg);
-        this.fIH = (TbImageView) findViewById(R.id.chat_group_img);
-        this.kAm = (TextView) findViewById(R.id.chat_group_desc);
-        ap.setViewTextColor(this.jTj, R.color.CAM_X0105, 2);
-        ap.setViewTextColor(this.kAm, R.color.CAM_X0106, 1);
-        this.jTj.setHintTextColor(ap.getColor(R.color.CAM_X0110));
-        this.jTj.setPadding(context.getResources().getDimensionPixelSize(R.dimen.ds20), 0, 0, 0);
-        cNu();
+        this.f19486e = (LinearLayout) findViewById(R.id.share_content);
+        TextView textView = (TextView) findViewById(R.id.share_title_view);
+        this.i = textView;
+        SkinManager.setViewTextColor(textView, R.color.CAM_X0105, 1);
+        this.f19487f = (EditText) findViewById(R.id.chat_msg);
+        this.f19488g = (TbImageView) findViewById(R.id.chat_group_img);
+        this.f19489h = (TextView) findViewById(R.id.chat_group_desc);
+        SkinManager.setViewTextColor(this.f19487f, R.color.CAM_X0105, 2);
+        SkinManager.setViewTextColor(this.f19489h, R.color.CAM_X0106, 1);
+        this.f19487f.setHintTextColor(SkinManager.getColor(R.color.CAM_X0110));
+        this.f19487f.setPadding(context.getResources().getDimensionPixelSize(R.dimen.ds20), 0, 0, 0);
+        a();
     }
 
-    public void cNu() {
-        this.mRootView.setFocusable(true);
-        this.mRootView.setFocusableInTouchMode(true);
-        this.mRootView.requestFocus();
-    }
-
-    public void setDesc(String str) {
-        if (this.kAm != null) {
-            this.kAm.setText(str);
+    public void c(String str, boolean z) {
+        TbImageView tbImageView = this.f19488g;
+        if (tbImageView != null) {
+            tbImageView.W(str, z ? 17 : 18, false);
         }
     }
 
-    public void setTitle(String str) {
-        if (this.title != null) {
-            this.title.setText(str);
-        }
+    public EditText getChatMsgView() {
+        return this.f19487f;
     }
 
     public String getLeaveMsg() {
-        if (this.jTj != null) {
-            return k.charSequence2String(this.jTj.getText(), null);
+        EditText editText = this.f19487f;
+        if (editText != null) {
+            return k.charSequence2String(editText.getText(), null);
         }
         return null;
     }
 
+    public void setDesc(String str) {
+        TextView textView = this.f19489h;
+        if (textView != null) {
+            textView.setText(str);
+        }
+    }
+
+    public void setTitle(String str) {
+        TextView textView = this.i;
+        if (textView != null) {
+            textView.setText(str);
+        }
+    }
+
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.widget.LinearLayout, android.view.ViewGroup
     public LinearLayout.LayoutParams generateDefaultLayoutParams() {
         return new LinearLayout.LayoutParams(-1, -2);
+    }
+
+    public ShareThreadView(Context context) {
+        super(context);
+        b(context);
     }
 }

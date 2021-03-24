@@ -14,192 +14,242 @@ import android.webkit.WebViewClient;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
-import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
-/* loaded from: classes.dex */
+import d.b.b.e.p.l;
+/* loaded from: classes5.dex */
 public class EBusinessProtocolView extends Dialog {
-    private Context mContext;
-    private View mRootView;
-    private int mSkinType;
-    private String mTitle;
-    private TextView nZB;
-    private WebView nZC;
-    private TBSpecificationBtn nZD;
-    private TBSpecificationBtn nZE;
-    private TextView nZF;
-    private TBSpecificationBtn nZG;
-    private boolean nZH;
-    private CharSequence nZI;
-    private String nZJ;
-    private final WindowType nZK;
-    private a nZL;
-    private WebViewClient webViewClient;
 
-    /* loaded from: classes.dex */
+    /* renamed from: e  reason: collision with root package name */
+    public Context f22051e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public View f22052f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public TextView f22053g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public WebView f22054h;
+    public TBSpecificationBtn i;
+    public TBSpecificationBtn j;
+    public TextView k;
+    public TBSpecificationBtn l;
+    public boolean m;
+    public String n;
+    public CharSequence o;
+    public String p;
+    public final WindowType q;
+    public int r;
+    public f s;
+    public WebViewClient t;
+
+    /* loaded from: classes5.dex */
     public enum WindowType {
         TIP,
         PROTOCOL
     }
 
-    /* loaded from: classes.dex */
-    public interface a {
-        void zn(boolean z);
+    /* loaded from: classes5.dex */
+    public class a extends WebViewClient {
+        public a() {
+        }
+
+        @Override // android.webkit.WebViewClient
+        public void onPageFinished(WebView webView, String str) {
+            String str2 = "javascript:setContentTextColor(" + EBusinessProtocolView.this.r + SmallTailInfo.EMOTION_SUFFIX;
+            if (EBusinessProtocolView.this.f22054h != null) {
+                EBusinessProtocolView.this.f22054h.loadUrl(str2);
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class b implements View.OnClickListener {
+        public b() {
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            EBusinessProtocolView.this.m = true;
+            if (EBusinessProtocolView.this.s != null) {
+                EBusinessProtocolView.this.s.a(EBusinessProtocolView.this.m);
+            }
+            EBusinessProtocolView.this.dismiss();
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class c implements View.OnClickListener {
+        public c() {
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            EBusinessProtocolView.this.m = false;
+            if (EBusinessProtocolView.this.s != null) {
+                EBusinessProtocolView.this.s.a(EBusinessProtocolView.this.m);
+            }
+            EBusinessProtocolView.this.dismiss();
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class d implements View.OnClickListener {
+        public d() {
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            EBusinessProtocolView.this.dismiss();
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static /* synthetic */ class e {
+
+        /* renamed from: a  reason: collision with root package name */
+        public static final /* synthetic */ int[] f22059a;
+
+        static {
+            int[] iArr = new int[WindowType.values().length];
+            f22059a = iArr;
+            try {
+                iArr[WindowType.TIP.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
+            }
+            try {
+                f22059a[WindowType.PROTOCOL.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public interface f {
+        void a(boolean z);
     }
 
     public EBusinessProtocolView(@NonNull Context context, WindowType windowType) {
         super(context, R.style.e_business_protocol_dialog);
-        this.nZH = false;
-        this.mSkinType = 0;
-        this.webViewClient = new WebViewClient() { // from class: com.baidu.tieba.view.EBusinessProtocolView.1
-            @Override // android.webkit.WebViewClient
-            public void onPageFinished(WebView webView, String str) {
-                String str2 = "javascript:setContentTextColor(" + EBusinessProtocolView.this.mSkinType + ")";
-                if (EBusinessProtocolView.this.nZC != null) {
-                    EBusinessProtocolView.this.nZC.loadUrl(str2);
-                }
-            }
-        };
-        this.mContext = context;
-        this.nZK = windowType;
+        this.m = false;
+        this.r = 0;
+        this.t = new a();
+        this.f22051e = context;
+        this.q = windowType;
         WindowManager.LayoutParams attributes = getWindow().getAttributes();
         attributes.width = -1;
         attributes.height = -2;
         getWindow().setAttributes(attributes);
-        this.mRootView = LayoutInflater.from(getContext()).inflate(R.layout.e_business_protocol_dialog, (ViewGroup) null);
+        this.f22052f = LayoutInflater.from(getContext()).inflate(R.layout.e_business_protocol_dialog, (ViewGroup) null);
     }
 
-    @Override // android.app.Dialog
-    protected void onCreate(Bundle bundle) {
-        super.onCreate(bundle);
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -1);
-        layoutParams.width = this.mContext.getResources().getDisplayMetrics().widthPixels - l.getDimens(this.mContext, R.dimen.tbds90);
-        layoutParams.height = l.getDimens(this.mContext, R.dimen.tbds879);
-        setContentView(this.mRootView, layoutParams);
-        setCanceledOnTouchOutside(true);
-        initView();
-        onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
+    public final void f() {
+        this.j.setOnClickListener(new b());
+        this.i.setOnClickListener(new c());
+        this.l.setOnClickListener(new d());
     }
 
-    public void onChangeSkinType(int i) {
-        La(i);
-        this.mSkinType = i;
-        ap.setViewTextColor(this.nZB, R.color.CAM_X0105);
-        ap.setBackgroundColor(this.nZC, R.color.CAM_X0211);
-        ap.setViewTextColor(this.nZD, R.color.CAM_X0108);
-        ap.setViewTextColor(this.nZE, R.color.CAM_X0303);
-        ap.setViewTextColor(this.nZF, R.color.CAM_X0105);
+    public final void g() {
+        this.f22053g = (TextView) this.f22052f.findViewById(R.id.protocol_title);
+        this.f22054h = (WebView) this.f22052f.findViewById(R.id.protocol_content);
+        this.j = (TBSpecificationBtn) this.f22052f.findViewById(R.id.agree_protocol);
+        this.i = (TBSpecificationBtn) this.f22052f.findViewById(R.id.cancel_protocol);
+        this.k = (TextView) this.f22052f.findViewById(R.id.tip_content);
+        this.l = (TBSpecificationBtn) findViewById(R.id.tip_known);
+        h();
+        f();
     }
 
-    public void a(a aVar) {
-        this.nZL = aVar;
-    }
-
-    public void setTitle(String str) {
-        this.mTitle = str;
-    }
-
-    public void v(CharSequence charSequence) {
-        this.nZI = charSequence;
-    }
-
-    public void Vh(String str) {
-        this.nZJ = str;
-    }
-
-    private void initView() {
-        this.nZB = (TextView) this.mRootView.findViewById(R.id.protocol_title);
-        this.nZC = (WebView) this.mRootView.findViewById(R.id.protocol_content);
-        this.nZE = (TBSpecificationBtn) this.mRootView.findViewById(R.id.agree_protocol);
-        this.nZD = (TBSpecificationBtn) this.mRootView.findViewById(R.id.cancel_protocol);
-        this.nZF = (TextView) this.mRootView.findViewById(R.id.tip_content);
-        this.nZG = (TBSpecificationBtn) findViewById(R.id.tip_known);
-        dWi();
-        initListener();
-    }
-
-    private void dWi() {
-        this.nZB.setText(this.mTitle);
-        switch (this.nZK) {
-            case TIP:
-                this.nZF.setVisibility(0);
-                this.nZG.setVisibility(0);
-                setCanceledOnTouchOutside(true);
-                this.nZF.setText(this.nZI);
-                this.nZG.setText(this.mContext.getResources().getString(R.string.tip_known));
-                com.baidu.tbadk.core.view.commonBtn.c cVar = new com.baidu.tbadk.core.view.commonBtn.c();
-                cVar.pS(R.color.CAM_X0302);
-                this.nZG.setTextSize(R.dimen.T_X08);
-                this.nZG.setConfig(cVar);
-                return;
-            case PROTOCOL:
-                dWj();
-                this.nZC.setVisibility(0);
-                this.nZE.setVisibility(0);
-                this.nZD.setVisibility(0);
-                this.nZC.loadUrl(this.nZJ);
-                com.baidu.tbadk.core.view.commonBtn.c cVar2 = new com.baidu.tbadk.core.view.commonBtn.c();
-                cVar2.pS(R.color.CAM_X0107);
-                this.nZD.setConfig(cVar2);
-                this.nZD.setTextSize(R.dimen.tbds42);
-                this.nZD.setText(this.mContext.getResources().getString(R.string.protocol_cancel));
-                this.nZE.setTextSize(R.dimen.tbds42);
-                com.baidu.tbadk.core.view.commonBtn.c cVar3 = new com.baidu.tbadk.core.view.commonBtn.c();
-                cVar3.pS(R.color.CAM_X0302);
-                this.nZE.setConfig(cVar3);
-                this.nZE.setTextSize(R.dimen.tbds42);
-                this.nZE.setText(this.mContext.getResources().getString(R.string.protocol_agree));
-                return;
-            default:
-                return;
+    public final void h() {
+        this.f22053g.setText(this.n);
+        int i = e.f22059a[this.q.ordinal()];
+        if (i == 1) {
+            this.k.setVisibility(0);
+            this.l.setVisibility(0);
+            setCanceledOnTouchOutside(true);
+            this.k.setText(this.o);
+            this.l.setText(this.f22051e.getResources().getString(R.string.tip_known));
+            d.b.h0.r.f0.m.c cVar = new d.b.h0.r.f0.m.c();
+            cVar.o(R.color.CAM_X0302);
+            this.l.setTextSize(R.dimen.T_X08);
+            this.l.setConfig(cVar);
+        } else if (i != 2) {
+        } else {
+            n();
+            this.f22054h.setVisibility(0);
+            this.j.setVisibility(0);
+            this.i.setVisibility(0);
+            this.f22054h.loadUrl(this.p);
+            d.b.h0.r.f0.m.c cVar2 = new d.b.h0.r.f0.m.c();
+            cVar2.o(R.color.CAM_X0107);
+            this.i.setConfig(cVar2);
+            this.i.setTextSize(R.dimen.tbds42);
+            this.i.setText(this.f22051e.getResources().getString(R.string.protocol_cancel));
+            this.j.setTextSize(R.dimen.tbds42);
+            d.b.h0.r.f0.m.c cVar3 = new d.b.h0.r.f0.m.c();
+            cVar3.o(R.color.CAM_X0302);
+            this.j.setConfig(cVar3);
+            this.j.setTextSize(R.dimen.tbds42);
+            this.j.setText(this.f22051e.getResources().getString(R.string.protocol_agree));
         }
     }
 
-    private void La(int i) {
+    public void i(String str) {
+        this.p = str;
+    }
+
+    public void j(int i) {
+        l(i);
+        this.r = i;
+        SkinManager.setViewTextColor(this.f22053g, R.color.CAM_X0105);
+        SkinManager.setBackgroundColor(this.f22054h, R.color.CAM_X0211);
+        SkinManager.setViewTextColor(this.i, R.color.CAM_X0108);
+        SkinManager.setViewTextColor(this.j, R.color.CAM_X0303);
+        SkinManager.setViewTextColor(this.k, R.color.CAM_X0105);
+    }
+
+    public void k(CharSequence charSequence) {
+        this.o = charSequence;
+    }
+
+    public final void l(int i) {
         int dimensionPixelSize = getContext().getResources().getDimensionPixelSize(R.dimen.tbds30);
         GradientDrawable gradientDrawable = new GradientDrawable();
         gradientDrawable.setCornerRadius(dimensionPixelSize);
-        gradientDrawable.setColor(ap.getColor(i, R.color.CAM_X0211));
-        this.mRootView.setBackgroundDrawable(gradientDrawable);
+        gradientDrawable.setColor(SkinManager.getColor(i, R.color.CAM_X0211));
+        this.f22052f.setBackgroundDrawable(gradientDrawable);
     }
 
-    private void dWj() {
-        WebSettings settings = this.nZC.getSettings();
+    public void m(f fVar) {
+        this.s = fVar;
+    }
+
+    public final void n() {
+        WebSettings settings = this.f22054h.getSettings();
         settings.setUseWideViewPort(true);
         settings.setLoadWithOverviewMode(true);
         settings.setJavaScriptEnabled(true);
-        this.nZC.setWebViewClient(this.webViewClient);
+        this.f22054h.setWebViewClient(this.t);
         settings.setTextZoom(115);
     }
 
-    private void initListener() {
-        this.nZE.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.view.EBusinessProtocolView.2
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
-                EBusinessProtocolView.this.nZH = true;
-                if (EBusinessProtocolView.this.nZL != null) {
-                    EBusinessProtocolView.this.nZL.zn(EBusinessProtocolView.this.nZH);
-                }
-                EBusinessProtocolView.this.dismiss();
-            }
-        });
-        this.nZD.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.view.EBusinessProtocolView.3
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
-                EBusinessProtocolView.this.nZH = false;
-                if (EBusinessProtocolView.this.nZL != null) {
-                    EBusinessProtocolView.this.nZL.zn(EBusinessProtocolView.this.nZH);
-                }
-                EBusinessProtocolView.this.dismiss();
-            }
-        });
-        this.nZG.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.view.EBusinessProtocolView.4
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
-                EBusinessProtocolView.this.dismiss();
-            }
-        });
+    public void o(String str) {
+        this.n = str;
+    }
+
+    @Override // android.app.Dialog
+    public void onCreate(Bundle bundle) {
+        super.onCreate(bundle);
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -1);
+        layoutParams.width = this.f22051e.getResources().getDisplayMetrics().widthPixels - l.g(this.f22051e, R.dimen.tbds90);
+        layoutParams.height = l.g(this.f22051e, R.dimen.tbds879);
+        setContentView(this.f22052f, layoutParams);
+        setCanceledOnTouchOutside(true);
+        g();
+        j(TbadkCoreApplication.getInst().getSkinType());
     }
 }

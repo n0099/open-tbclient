@@ -2,23 +2,39 @@ package com.bumptech.glide.request.transition;
 
 import android.graphics.drawable.Drawable;
 import com.bumptech.glide.load.DataSource;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class DrawableCrossFadeFactory implements TransitionFactory<Drawable> {
-    private final int duration;
-    private final boolean isCrossFadeEnabled;
-    private DrawableCrossFadeTransition resourceTransition;
+    public final int duration;
+    public final boolean isCrossFadeEnabled;
+    public DrawableCrossFadeTransition resourceTransition;
 
-    protected DrawableCrossFadeFactory(int i, boolean z) {
-        this.duration = i;
-        this.isCrossFadeEnabled = z;
+    /* loaded from: classes5.dex */
+    public static class Builder {
+        public static final int DEFAULT_DURATION_MS = 300;
+        public final int durationMillis;
+        public boolean isCrossFadeEnabled;
+
+        public Builder() {
+            this(300);
+        }
+
+        public DrawableCrossFadeFactory build() {
+            return new DrawableCrossFadeFactory(this.durationMillis, this.isCrossFadeEnabled);
+        }
+
+        public Builder setCrossFadeEnabled(boolean z) {
+            this.isCrossFadeEnabled = z;
+            return this;
+        }
+
+        public Builder(int i) {
+            this.durationMillis = i;
+        }
     }
 
-    @Override // com.bumptech.glide.request.transition.TransitionFactory
-    public Transition<Drawable> build(DataSource dataSource, boolean z) {
-        if (dataSource == DataSource.MEMORY_CACHE) {
-            return NoTransition.get();
-        }
-        return getResourceTransition();
+    public DrawableCrossFadeFactory(int i, boolean z) {
+        this.duration = i;
+        this.isCrossFadeEnabled = z;
     }
 
     private Transition<Drawable> getResourceTransition() {
@@ -28,27 +44,11 @@ public class DrawableCrossFadeFactory implements TransitionFactory<Drawable> {
         return this.resourceTransition;
     }
 
-    /* loaded from: classes14.dex */
-    public static class Builder {
-        private static final int DEFAULT_DURATION_MS = 300;
-        private final int durationMillis;
-        private boolean isCrossFadeEnabled;
-
-        public Builder() {
-            this(300);
+    @Override // com.bumptech.glide.request.transition.TransitionFactory
+    public Transition<Drawable> build(DataSource dataSource, boolean z) {
+        if (dataSource == DataSource.MEMORY_CACHE) {
+            return NoTransition.get();
         }
-
-        public Builder(int i) {
-            this.durationMillis = i;
-        }
-
-        public Builder setCrossFadeEnabled(boolean z) {
-            this.isCrossFadeEnabled = z;
-            return this;
-        }
-
-        public DrawableCrossFadeFactory build() {
-            return new DrawableCrossFadeFactory(this.durationMillis, this.isCrossFadeEnabled);
-        }
+        return getResourceTransition();
     }
 }

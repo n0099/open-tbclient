@@ -7,23 +7,14 @@ import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.alibaba.fastjson.util.IOUtils;
 import org.springframework.data.redis.serializer.RedisSerializer;
 import org.springframework.data.redis.serializer.SerializationException;
-/* loaded from: classes4.dex */
+/* loaded from: classes.dex */
 public class GenericFastJsonRedisSerializer implements RedisSerializer<Object> {
-    private static final ParserConfig defaultRedisConfig = new ParserConfig();
+    public static final ParserConfig defaultRedisConfig;
 
     static {
-        defaultRedisConfig.setAutoTypeSupport(true);
-    }
-
-    public byte[] serialize(Object obj) throws SerializationException {
-        if (obj == null) {
-            return new byte[0];
-        }
-        try {
-            return JSON.toJSONBytes(obj, SerializerFeature.WriteClassName);
-        } catch (Exception e) {
-            throw new SerializationException("Could not serialize: " + e.getMessage(), e);
-        }
+        ParserConfig parserConfig = new ParserConfig();
+        defaultRedisConfig = parserConfig;
+        parserConfig.setAutoTypeSupport(true);
     }
 
     public Object deserialize(byte[] bArr) throws SerializationException {
@@ -32,8 +23,19 @@ public class GenericFastJsonRedisSerializer implements RedisSerializer<Object> {
         }
         try {
             return JSON.parseObject(new String(bArr, IOUtils.UTF8), Object.class, defaultRedisConfig, new Feature[0]);
-        } catch (Exception e) {
-            throw new SerializationException("Could not deserialize: " + e.getMessage(), e);
+        } catch (Exception e2) {
+            throw new SerializationException("Could not deserialize: " + e2.getMessage(), e2);
+        }
+    }
+
+    public byte[] serialize(Object obj) throws SerializationException {
+        if (obj == null) {
+            return new byte[0];
+        }
+        try {
+            return JSON.toJSONBytes(obj, SerializerFeature.WriteClassName);
+        } catch (Exception e2) {
+            throw new SerializationException("Could not serialize: " + e2.getMessage(), e2);
         }
     }
 }

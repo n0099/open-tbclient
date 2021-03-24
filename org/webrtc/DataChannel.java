@@ -1,12 +1,12 @@
 package org.webrtc;
 
 import java.nio.ByteBuffer;
-/* loaded from: classes9.dex */
+/* loaded from: classes7.dex */
 public class DataChannel {
-    private long nativeDataChannel;
-    private long nativeObserver;
+    public long nativeDataChannel;
+    public long nativeObserver;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes7.dex */
     public static class Buffer {
         public final boolean binary;
         public final ByteBuffer data;
@@ -18,7 +18,7 @@ public class DataChannel {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes7.dex */
     public static class Init {
         public boolean negotiated;
         public boolean ordered = true;
@@ -28,37 +28,37 @@ public class DataChannel {
         public int id = -1;
 
         @CalledByNative("Init")
-        int getId() {
+        public int getId() {
             return this.id;
         }
 
         @CalledByNative("Init")
-        int getMaxRetransmitTimeMs() {
+        public int getMaxRetransmitTimeMs() {
             return this.maxRetransmitTimeMs;
         }
 
         @CalledByNative("Init")
-        int getMaxRetransmits() {
+        public int getMaxRetransmits() {
             return this.maxRetransmits;
         }
 
         @CalledByNative("Init")
-        boolean getNegotiated() {
+        public boolean getNegotiated() {
             return this.negotiated;
         }
 
         @CalledByNative("Init")
-        boolean getOrdered() {
+        public boolean getOrdered() {
             return this.ordered;
         }
 
         @CalledByNative("Init")
-        String getProtocol() {
+        public String getProtocol() {
             return this.protocol;
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes7.dex */
     public interface Observer {
         @CalledByNative("Observer")
         void onBufferedAmountChange(long j);
@@ -70,7 +70,7 @@ public class DataChannel {
         void onStateChange();
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes7.dex */
     public enum State {
         CONNECTING,
         OPEN,
@@ -78,7 +78,7 @@ public class DataChannel {
         CLOSED;
 
         @CalledByNative("State")
-        static State fromNativeIndex(int i) {
+        public static State fromNativeIndex(int i) {
             return values()[i];
         }
     }
@@ -127,7 +127,7 @@ public class DataChannel {
     }
 
     @CalledByNative
-    long getNativeDataChannel() {
+    public long getNativeDataChannel() {
         return this.nativeDataChannel;
     }
 
@@ -143,8 +143,9 @@ public class DataChannel {
 
     public void registerObserver(Observer observer) {
         checkDataChannelExists();
-        if (this.nativeObserver != 0) {
-            nativeUnregisterObserver(this.nativeObserver);
+        long j = this.nativeObserver;
+        if (j != 0) {
+            nativeUnregisterObserver(j);
         }
         this.nativeObserver = nativeRegisterObserver(observer);
     }

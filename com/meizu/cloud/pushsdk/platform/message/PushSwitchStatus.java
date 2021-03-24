@@ -1,13 +1,12 @@
 package com.meizu.cloud.pushsdk.platform.message;
 
-import com.meizu.cloud.pushsdk.constants.PushConstants;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class PushSwitchStatus extends BasicPushStatus {
-    private String pushId;
-    private boolean switchNotificationMessage;
-    private boolean switchThroughMessage;
+    public String pushId;
+    public boolean switchNotificationMessage;
+    public boolean switchThroughMessage;
 
     public PushSwitchStatus() {
     }
@@ -30,8 +29,8 @@ public class PushSwitchStatus extends BasicPushStatus {
 
     @Override // com.meizu.cloud.pushsdk.platform.message.BasicPushStatus
     public void parseValueData(JSONObject jSONObject) throws JSONException {
-        if (!jSONObject.isNull(PushConstants.KEY_PUSH_ID)) {
-            setPushId(jSONObject.getString(PushConstants.KEY_PUSH_ID));
+        if (!jSONObject.isNull("pushId")) {
+            setPushId(jSONObject.getString("pushId"));
         }
         if (!jSONObject.isNull("barTypeSwitch")) {
             setSwitchNotificationMessage(jSONObject.getInt("barTypeSwitch") == 1);

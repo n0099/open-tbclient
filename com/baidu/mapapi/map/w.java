@@ -8,16 +8,14 @@ import android.widget.TextView;
 import com.baidu.mapapi.model.inner.GeoPoint;
 import com.baidu.mapsdkplatform.comapi.map.ab;
 import javax.microedition.khronos.opengles.GL10;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class w implements com.baidu.mapsdkplatform.comapi.map.l {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ WearMapView f2082a;
+    public final /* synthetic */ WearMapView f7104a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public w(WearMapView wearMapView) {
-        this.f2082a = wearMapView;
+        this.f7104a = wearMapView;
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.map.l
@@ -25,36 +23,47 @@ public class w implements com.baidu.mapsdkplatform.comapi.map.l {
         com.baidu.mapsdkplatform.comapi.map.j jVar;
         com.baidu.mapsdkplatform.comapi.map.j jVar2;
         com.baidu.mapsdkplatform.comapi.map.j jVar3;
-        float f;
+        float f2;
         SparseArray sparseArray;
         com.baidu.mapsdkplatform.comapi.map.j jVar4;
         ImageView imageView;
+        String format;
         TextView textView;
         TextView textView2;
-        jVar = this.f2082a.e;
+        jVar = this.f7104a.f7053e;
         if (jVar != null) {
-            jVar2 = this.f2082a.e;
+            jVar2 = this.f7104a.f7053e;
             if (jVar2.a() == null) {
                 return;
             }
-            jVar3 = this.f2082a.e;
-            float f2 = jVar3.a().E().f2214a;
-            f = this.f2082a.z;
-            if (f != f2) {
+            jVar3 = this.f7104a.f7053e;
+            float f3 = jVar3.a().E().f7569a;
+            f2 = this.f7104a.z;
+            if (f2 != f3) {
                 sparseArray = WearMapView.w;
-                int intValue = ((Integer) sparseArray.get((int) f2)).intValue();
-                jVar4 = this.f2082a.e;
-                int i = (int) (intValue / jVar4.a().E().m);
-                imageView = this.f2082a.q;
-                imageView.setPadding(i / 2, 0, i / 2, 0);
-                String format = intValue >= 1000 ? String.format(" %d公里 ", Integer.valueOf(intValue / 1000)) : String.format(" %d米 ", Integer.valueOf(intValue));
-                textView = this.f2082a.o;
+                int intValue = ((Integer) sparseArray.get((int) f3)).intValue();
+                double d2 = intValue;
+                jVar4 = this.f7104a.f7053e;
+                double d3 = jVar4.a().E().m;
+                Double.isNaN(d2);
+                imageView = this.f7104a.q;
+                int i = ((int) (d2 / d3)) / 2;
+                imageView.setPadding(i, 0, i, 0);
+                Object[] objArr = new Object[1];
+                if (intValue >= 1000) {
+                    objArr[0] = Integer.valueOf(intValue / 1000);
+                    format = String.format(" %d公里 ", objArr);
+                } else {
+                    objArr[0] = Integer.valueOf(intValue);
+                    format = String.format(" %d米 ", objArr);
+                }
+                textView = this.f7104a.o;
                 textView.setText(format);
-                textView2 = this.f2082a.p;
+                textView2 = this.f7104a.p;
                 textView2.setText(format);
-                this.f2082a.z = f2;
+                this.f7104a.z = f3;
             }
-            this.f2082a.requestLayout();
+            this.f7104a.requestLayout();
         }
     }
 

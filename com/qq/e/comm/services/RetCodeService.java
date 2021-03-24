@@ -10,128 +10,146 @@ import java.net.InetAddress;
 import java.net.URLEncoder;
 import java.net.UnknownHostException;
 import java.util.Random;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class RetCodeService {
 
     /* renamed from: a  reason: collision with root package name */
-    private final String f7588a;
-    private final String b;
-    private final Random c;
+    public final String f38371a;
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* renamed from: b  reason: collision with root package name */
+    public final String f38372b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public final Random f38373c;
+
+    /* loaded from: classes6.dex */
     public static class Holder {
 
         /* renamed from: a  reason: collision with root package name */
-        static final RetCodeService f7589a = new RetCodeService((byte) 0);
-
-        private Holder() {
-        }
+        public static final RetCodeService f38374a = new RetCodeService((byte) 0);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class RetCodeInfo {
 
         /* renamed from: a  reason: collision with root package name */
-        final String f7590a;
-        final String b;
-        final String c;
-        final int d;
-        final int e;
-        final int f;
-        final int g;
-        final int h;
+        public final String f38375a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public final String f38376b;
+
+        /* renamed from: c  reason: collision with root package name */
+        public final String f38377c;
+
+        /* renamed from: d  reason: collision with root package name */
+        public final int f38378d;
+
+        /* renamed from: e  reason: collision with root package name */
+        public final int f38379e;
+
+        /* renamed from: f  reason: collision with root package name */
+        public final int f38380f;
+
+        /* renamed from: g  reason: collision with root package name */
+        public final int f38381g;
+
+        /* renamed from: h  reason: collision with root package name */
+        public final int f38382h;
 
         public RetCodeInfo(String str, String str2, String str3, int i, int i2, int i3, int i4, int i5) {
-            this.f7590a = str;
-            this.b = str2;
-            this.c = str3;
-            this.d = i;
-            this.e = i2;
-            this.f = i3;
-            this.g = i4;
-            this.h = i5;
+            this.f38375a = str;
+            this.f38376b = str2;
+            this.f38377c = str3;
+            this.f38378d = i;
+            this.f38379e = i2;
+            this.f38380f = i3;
+            this.f38381g = i4;
+            this.f38382h = i5;
         }
 
         public String toString() {
-            return "RetCodeInfo [host=" + this.f7590a + ", commandid=" + this.b + ", releaseversion=" + this.c + ", resultcode=" + this.d + ", tmcost=" + this.e + ", reqsize=" + this.f + ", rspsize=" + this.g + "]";
+            return "RetCodeInfo [host=" + this.f38375a + ", commandid=" + this.f38376b + ", releaseversion=" + this.f38377c + ", resultcode=" + this.f38378d + ", tmcost=" + this.f38379e + ", reqsize=" + this.f38380f + ", rspsize=" + this.f38381g + "]";
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class SendTask implements Runnable {
 
         /* renamed from: a  reason: collision with root package name */
-        private RetCodeInfo f7591a;
-        private int b = 100;
+        public RetCodeInfo f38383a;
 
-        SendTask(RetCodeInfo retCodeInfo, int i) {
-            this.f7591a = retCodeInfo;
+        /* renamed from: b  reason: collision with root package name */
+        public int f38384b = 100;
+
+        public SendTask(RetCodeInfo retCodeInfo, int i) {
+            this.f38383a = retCodeInfo;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            RetCodeService.a(RetCodeService.this, this.f7591a, this.b);
+            RetCodeService.a(RetCodeService.this, this.f38383a, this.f38384b);
         }
     }
 
-    private RetCodeService() {
-        this.f7588a = "1000162";
-        this.b = "http://wspeed.qq.com/w.cgi";
-        this.c = new Random(System.currentTimeMillis());
+    public RetCodeService() {
+        this.f38371a = "1000162";
+        this.f38372b = "http://wspeed.qq.com/w.cgi";
+        this.f38373c = new Random(System.currentTimeMillis());
     }
 
-    /* synthetic */ RetCodeService(byte b) {
+    public /* synthetic */ RetCodeService(byte b2) {
         this();
     }
 
-    private static String a(String str) {
+    public static String a(String str) {
         try {
             return InetAddress.getByName(str).getHostAddress();
-        } catch (UnknownHostException e) {
+        } catch (UnknownHostException unused) {
             return "0.0.0.0";
         }
     }
 
-    static /* synthetic */ void a(RetCodeService retCodeService, RetCodeInfo retCodeInfo, int i) {
+    public static /* synthetic */ void a(RetCodeService retCodeService, RetCodeInfo retCodeInfo, int i) {
         if (retCodeService.a(i)) {
             PlainRequest plainRequest = new PlainRequest("http://wspeed.qq.com/w.cgi", Request.Method.GET, (byte[]) null);
             plainRequest.addQuery("appid", "1000162");
-            plainRequest.addQuery("resultcode", String.valueOf(retCodeInfo.d));
+            plainRequest.addQuery("resultcode", String.valueOf(retCodeInfo.f38378d));
             plainRequest.addQuery("sdkversion", SDKStatus.getSDKVersion());
             plainRequest.addQuery("touin", "");
-            plainRequest.addQuery("tmcost", String.valueOf(retCodeInfo.e));
-            plainRequest.addQuery("reqsize", String.valueOf(retCodeInfo.f));
-            plainRequest.addQuery("rspsize", String.valueOf(retCodeInfo.g));
+            plainRequest.addQuery("tmcost", String.valueOf(retCodeInfo.f38379e));
+            plainRequest.addQuery("reqsize", String.valueOf(retCodeInfo.f38380f));
+            plainRequest.addQuery("rspsize", String.valueOf(retCodeInfo.f38381g));
             plainRequest.addQuery("frequency", String.valueOf(i));
             try {
-                plainRequest.addQuery("commandid", URLEncoder.encode(retCodeInfo.b, "utf-8"));
-                plainRequest.addQuery("releaseversion", URLEncoder.encode(retCodeInfo.c, "utf-8"));
-                plainRequest.addQuery("serverip", URLEncoder.encode(a(retCodeInfo.f7590a), "utf-8"));
+                plainRequest.addQuery("commandid", URLEncoder.encode(retCodeInfo.f38376b, "utf-8"));
+                plainRequest.addQuery("releaseversion", URLEncoder.encode(retCodeInfo.f38377c, "utf-8"));
+                plainRequest.addQuery("serverip", URLEncoder.encode(a(retCodeInfo.f38375a), "utf-8"));
                 NetworkClientImpl.getInstance().submit(plainRequest, NetworkClient.Priority.Low);
-            } catch (UnsupportedEncodingException e) {
-                e.printStackTrace();
+            } catch (UnsupportedEncodingException e2) {
+                e2.printStackTrace();
             }
         }
         if (retCodeService.a(i)) {
             PlainRequest plainRequest2 = new PlainRequest("http://c.isdspeed.qq.com/code.cgi", Request.Method.GET, (byte[]) null);
-            plainRequest2.addQuery("domain", retCodeInfo.f7590a);
-            plainRequest2.addQuery("cgi", retCodeInfo.b);
-            plainRequest2.addQuery("type", String.valueOf(retCodeInfo.h));
-            plainRequest2.addQuery("code", String.valueOf(retCodeInfo.d));
-            plainRequest2.addQuery("time", String.valueOf(retCodeInfo.e));
+            plainRequest2.addQuery("domain", retCodeInfo.f38375a);
+            plainRequest2.addQuery("cgi", retCodeInfo.f38376b);
+            plainRequest2.addQuery("type", String.valueOf(retCodeInfo.f38382h));
+            plainRequest2.addQuery("code", String.valueOf(retCodeInfo.f38378d));
+            plainRequest2.addQuery("time", String.valueOf(retCodeInfo.f38379e));
             plainRequest2.addQuery("rate", String.valueOf(i));
             NetworkClientImpl.getInstance().submit(plainRequest2, NetworkClient.Priority.Low);
         }
     }
 
     private boolean a(int i) {
-        return this.c.nextDouble() < 1.0d / ((double) i);
+        double nextDouble = this.f38373c.nextDouble();
+        double d2 = i;
+        Double.isNaN(d2);
+        return nextDouble < 1.0d / d2;
     }
 
     public static RetCodeService getInstance() {
-        return Holder.f7589a;
+        return Holder.f38374a;
     }
 
     public void send(RetCodeInfo retCodeInfo) {

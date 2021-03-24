@@ -4,15 +4,40 @@ import androidx.annotation.NonNull;
 import java.io.FilterInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public class MarkEnforcingInputStream extends FilterInputStream {
-    private static final int END_OF_STREAM = -1;
-    private static final int UNSET = Integer.MIN_VALUE;
-    private int availableBytes;
+    public static final int END_OF_STREAM = -1;
+    public static final int UNSET = Integer.MIN_VALUE;
+    public int availableBytes;
 
     public MarkEnforcingInputStream(@NonNull InputStream inputStream) {
         super(inputStream);
         this.availableBytes = Integer.MIN_VALUE;
+    }
+
+    private long getBytesToRead(long j) {
+        int i = this.availableBytes;
+        if (i == 0) {
+            return -1L;
+        }
+        return (i == Integer.MIN_VALUE || j <= ((long) i)) ? j : i;
+    }
+
+    private void updateAvailableBytesAfterRead(long j) {
+        int i = this.availableBytes;
+        if (i == Integer.MIN_VALUE || j == -1) {
+            return;
+        }
+        this.availableBytes = (int) (i - j);
+    }
+
+    @Override // java.io.FilterInputStream, java.io.InputStream
+    public int available() throws IOException {
+        int i = this.availableBytes;
+        if (i == Integer.MIN_VALUE) {
+            return super.available();
+        }
+        return Math.min(i, super.available());
     }
 
     @Override // java.io.FilterInputStream, java.io.InputStream
@@ -28,17 +53,6 @@ public class MarkEnforcingInputStream extends FilterInputStream {
         }
         int read = super.read();
         updateAvailableBytesAfterRead(1L);
-        return read;
-    }
-
-    @Override // java.io.FilterInputStream, java.io.InputStream
-    public int read(@NonNull byte[] bArr, int i, int i2) throws IOException {
-        int bytesToRead = (int) getBytesToRead(i2);
-        if (bytesToRead == -1) {
-            return -1;
-        }
-        int read = super.read(bArr, i, bytesToRead);
-        updateAvailableBytesAfterRead(read);
         return read;
     }
 
@@ -60,26 +74,13 @@ public class MarkEnforcingInputStream extends FilterInputStream {
     }
 
     @Override // java.io.FilterInputStream, java.io.InputStream
-    public int available() throws IOException {
-        if (this.availableBytes == Integer.MIN_VALUE) {
-            return super.available();
+    public int read(@NonNull byte[] bArr, int i, int i2) throws IOException {
+        int bytesToRead = (int) getBytesToRead(i2);
+        if (bytesToRead == -1) {
+            return -1;
         }
-        return Math.min(this.availableBytes, super.available());
-    }
-
-    private long getBytesToRead(long j) {
-        if (this.availableBytes == 0) {
-            return -1L;
-        }
-        if (this.availableBytes != Integer.MIN_VALUE && j > this.availableBytes) {
-            return this.availableBytes;
-        }
-        return j;
-    }
-
-    private void updateAvailableBytesAfterRead(long j) {
-        if (this.availableBytes != Integer.MIN_VALUE && j != -1) {
-            this.availableBytes = (int) (this.availableBytes - j);
-        }
+        int read = super.read(bArr, i, bytesToRead);
+        updateAvailableBytesAfterRead(read);
+        return read;
     }
 }

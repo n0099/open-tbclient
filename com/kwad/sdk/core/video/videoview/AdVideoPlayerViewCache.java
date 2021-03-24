@@ -2,28 +2,28 @@ package com.kwad.sdk.core.video.videoview;
 
 import java.lang.ref.WeakReference;
 import java.util.HashMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class AdVideoPlayerViewCache {
 
     /* renamed from: a  reason: collision with root package name */
-    private HashMap<String, WeakReference<b>> f6271a;
+    public HashMap<String, WeakReference<b>> f34127a;
 
-    /* loaded from: classes3.dex */
-    private enum Holder {
+    /* loaded from: classes6.dex */
+    public enum Holder {
         INSTANCE;
         
-        private AdVideoPlayerViewCache mInstance = new AdVideoPlayerViewCache();
+        public AdVideoPlayerViewCache mInstance = new AdVideoPlayerViewCache();
 
         Holder() {
         }
 
-        AdVideoPlayerViewCache getInstance() {
+        public AdVideoPlayerViewCache getInstance() {
             return this.mInstance;
         }
     }
 
-    private AdVideoPlayerViewCache() {
-        this.f6271a = new HashMap<>(1);
+    public AdVideoPlayerViewCache() {
+        this.f34127a = new HashMap<>(1);
     }
 
     public static AdVideoPlayerViewCache a() {
@@ -31,22 +31,21 @@ public class AdVideoPlayerViewCache {
     }
 
     public void a(String str) {
-        this.f6271a.remove(str);
+        this.f34127a.remove(str);
     }
 
     public void a(String str, b bVar) {
-        this.f6271a.put(str, new WeakReference<>(bVar));
+        this.f34127a.put(str, new WeakReference<>(bVar));
     }
 
     public b b(String str) {
-        WeakReference<b> weakReference = this.f6271a.get(str);
+        WeakReference<b> weakReference = this.f34127a.get(str);
         if (weakReference != null) {
             b bVar = weakReference.get();
             if (bVar != null) {
                 return bVar;
             }
-            this.f6271a.remove(str);
-            return null;
+            this.f34127a.remove(str);
         }
         return null;
     }

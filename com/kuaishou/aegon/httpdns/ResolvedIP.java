@@ -3,7 +3,7 @@ package com.kuaishou.aegon.httpdns;
 import androidx.annotation.Keep;
 import androidx.annotation.NonNull;
 @Keep
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class ResolvedIP implements Comparable<ResolvedIP> {
     public final long mExpiredDate;
     public final String mHost;
@@ -37,8 +37,6 @@ public class ResolvedIP implements Comparable<ResolvedIP> {
     }
 
     public String toString() {
-        StringBuilder sb = new StringBuilder("{\n");
-        sb.append("\thost = ").append(this.mHost).append("\n").append("\tip = ").append(this.mIP).append("\n").append("\ttype = ").append(this.mResolver).append("\n").append("\trtt = ").append(this.mRtt).append("\n").append("\tttl = ").append(this.mTtl).append("\n").append("\texpired = ").append(this.mExpiredDate).append("\n}\n");
-        return sb.toString();
+        return "{\n\thost = " + this.mHost + "\n\tip = " + this.mIP + "\n\ttype = " + this.mResolver + "\n\trtt = " + this.mRtt + "\n\tttl = " + this.mTtl + "\n\texpired = " + this.mExpiredDate + "\n}\n";
     }
 }

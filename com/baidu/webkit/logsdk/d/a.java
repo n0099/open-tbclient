@@ -1,11 +1,11 @@
 package com.baidu.webkit.logsdk.d;
-/* loaded from: classes14.dex */
+/* loaded from: classes5.dex */
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f3857a;
+    public static final int f27010a;
 
     static {
-        f3857a = com.baidu.webkit.logsdk.a.f3843a ? 3 : 20;
+        f27010a = com.baidu.webkit.logsdk.a.f26955a ? 3 : 20;
     }
 }

@@ -6,20 +6,11 @@ import org.apache.http.cookie.Cookie;
 import org.apache.http.cookie.CookieOrigin;
 import org.apache.http.cookie.MalformedCookieException;
 @Deprecated
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class NetscapeDraftSpec extends CookieSpecBase {
-    protected static final String EXPIRES_PATTERN = "EEE, dd-MMM-yyyy HH:mm:ss z";
+    public static final String EXPIRES_PATTERN = "EEE, dd-MMM-yyyy HH:mm:ss z";
 
     public NetscapeDraftSpec(String[] strArr) {
-        throw new RuntimeException("Stub!");
-    }
-
-    public NetscapeDraftSpec() {
-        throw new RuntimeException("Stub!");
-    }
-
-    @Override // org.apache.http.cookie.CookieSpec
-    public List<Cookie> parse(Header header, CookieOrigin cookieOrigin) throws MalformedCookieException {
         throw new RuntimeException("Stub!");
     }
 
@@ -35,6 +26,15 @@ public class NetscapeDraftSpec extends CookieSpecBase {
 
     @Override // org.apache.http.cookie.CookieSpec
     public Header getVersionHeader() {
+        throw new RuntimeException("Stub!");
+    }
+
+    @Override // org.apache.http.cookie.CookieSpec
+    public List<Cookie> parse(Header header, CookieOrigin cookieOrigin) throws MalformedCookieException {
+        throw new RuntimeException("Stub!");
+    }
+
+    public NetscapeDraftSpec() {
         throw new RuntimeException("Stub!");
     }
 }

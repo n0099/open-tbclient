@@ -2,16 +2,18 @@ package com.baidu.adp.lib.featureSwitch;
 
 import android.content.SharedPreferences;
 import com.baidu.adp.base.BdBaseApplication;
+import d.b.b.e.f.b;
+import d.b.b.e.f.c;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class SwitchManager {
-    private static SwitchManager sSwitchManager = null;
-    private HashMap<String, Integer> mBaseSwitchs = null;
-    private HashMap<String, c> mSwitchs;
+    public static SwitchManager sSwitchManager;
+    public HashMap<String, Integer> mBaseSwitchs = null;
+    public HashMap<String, c> mSwitchs;
 
-    private SwitchManager() {
+    public SwitchManager() {
         this.mSwitchs = null;
         this.mSwitchs = new HashMap<>();
     }
@@ -28,75 +30,78 @@ public class SwitchManager {
     }
 
     public void addSwitchData(b bVar) {
-        if (bVar != null && !this.mSwitchs.containsKey(bVar.getName())) {
-            this.mSwitchs.put(bVar.getName(), new c(bVar));
+        if (bVar == null || this.mSwitchs.containsKey(bVar.e())) {
+            return;
         }
+        this.mSwitchs.put(bVar.e(), new c(bVar));
     }
 
-    public b removeSwitchData(String str) {
-        c remove = this.mSwitchs.remove(str);
-        if (remove != null) {
-            return remove.lC();
+    public void clear() {
+        if (this.mSwitchs == null) {
+            return;
         }
-        return null;
+        SharedPreferences.Editor edit = BdBaseApplication.getInst().getApp().getSharedPreferences("adp_feature_switch", 0).edit();
+        for (c cVar : this.mSwitchs.values()) {
+            if (cVar != null) {
+                cVar.i(0);
+                edit.putInt(cVar.d() + c.f41730d, 0);
+                edit.putInt(cVar.d() + c.f41731e, cVar.c());
+            }
+        }
+        edit.commit();
     }
 
     public void crash(String str) {
         Iterator<c> it = this.mSwitchs.values().iterator();
-        while (it.hasNext() && !it.next().bI(str)) {
+        while (it.hasNext() && !it.next().a(str)) {
         }
-    }
-
-    public boolean turn(String str, int i) {
-        c cVar;
-        if (i >= 0 && (cVar = this.mSwitchs.get(str)) != null) {
-            return cVar.ai(i);
-        }
-        return false;
     }
 
     public int findType(String str) {
         c cVar = this.mSwitchs.get(str);
         if (cVar != null) {
-            return cVar.getType();
+            return cVar.e();
         }
         return -1;
     }
 
-    public void clear() {
-        if (this.mSwitchs != null) {
-            SharedPreferences.Editor edit = BdBaseApplication.getInst().getApp().getSharedPreferences("adp_feature_switch", 0).edit();
-            for (c cVar : this.mSwitchs.values()) {
-                if (cVar != null) {
-                    cVar.al(0);
-                    edit.putInt(cVar.getName() + c.MP, 0);
-                    edit.putInt(cVar.getName() + c.MQ, cVar.getDefaultType());
-                }
-            }
-            edit.commit();
+    public HashMap<String, Integer> getBaseSwitchs() {
+        return this.mBaseSwitchs;
+    }
+
+    public void refreshSwitchManager(HashMap<String, Integer> hashMap) {
+        this.mBaseSwitchs = hashMap;
+        if (hashMap == null || hashMap.size() <= 0) {
+            return;
+        }
+        for (Map.Entry<String, Integer> entry : hashMap.entrySet()) {
+            turn(entry.getKey(), entry.getValue().intValue());
         }
     }
 
     public void registerSwitch(Class<?> cls) {
         try {
             cls.newInstance();
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        } catch (InstantiationException e2) {
+        } catch (IllegalAccessException e2) {
             e2.printStackTrace();
+        } catch (InstantiationException e3) {
+            e3.printStackTrace();
         }
     }
 
-    public void refreshSwitchManager(HashMap<String, Integer> hashMap) {
-        this.mBaseSwitchs = hashMap;
-        if (hashMap != null && hashMap.size() > 0) {
-            for (Map.Entry<String, Integer> entry : hashMap.entrySet()) {
-                turn(entry.getKey(), entry.getValue().intValue());
-            }
+    public b removeSwitchData(String str) {
+        c remove = this.mSwitchs.remove(str);
+        if (remove != null) {
+            return remove.b();
         }
+        return null;
     }
 
-    public HashMap<String, Integer> getBaseSwitchs() {
-        return this.mBaseSwitchs;
+    public boolean turn(String str, int i) {
+        c cVar;
+        if (i >= 0 && (cVar = this.mSwitchs.get(str)) != null) {
+            return cVar.j(i);
+        }
+        return false;
     }
 }

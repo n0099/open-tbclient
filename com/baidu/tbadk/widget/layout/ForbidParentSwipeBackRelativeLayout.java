@@ -6,18 +6,10 @@ import android.view.MotionEvent;
 import android.widget.RelativeLayout;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.BaseFragmentActivity;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class ForbidParentSwipeBackRelativeLayout extends RelativeLayout {
     public ForbidParentSwipeBackRelativeLayout(Context context) {
         super(context);
-    }
-
-    public ForbidParentSwipeBackRelativeLayout(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-    }
-
-    public ForbidParentSwipeBackRelativeLayout(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -30,5 +22,13 @@ public class ForbidParentSwipeBackRelativeLayout extends RelativeLayout {
             }
         }
         return super.dispatchTouchEvent(motionEvent);
+    }
+
+    public ForbidParentSwipeBackRelativeLayout(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+    }
+
+    public ForbidParentSwipeBackRelativeLayout(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
     }
 }

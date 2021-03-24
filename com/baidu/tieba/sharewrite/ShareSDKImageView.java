@@ -4,13 +4,22 @@ import android.content.Context;
 import android.util.AttributeSet;
 import com.baidu.tbadk.widget.TbClipImageView;
 import com.baidu.tieba.R;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class ShareSDKImageView extends TbClipImageView {
-    private int mDefaultBgId;
-    private int mDefaultId;
+    public int x0;
+    public int y0;
 
     public ShareSDKImageView(Context context) {
         this(context, null, 0);
+    }
+
+    public final void G() {
+        setDrawerType(1);
+        setGifIconSupport(false);
+        setDrawBorder(false);
+        setIsRound(false);
+        setDefaultResource(this.x0);
+        setDefaultBgResource(this.y0);
     }
 
     public ShareSDKImageView(Context context, AttributeSet attributeSet) {
@@ -19,17 +28,8 @@ public class ShareSDKImageView extends TbClipImageView {
 
     public ShareSDKImageView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.mDefaultId = R.drawable.pic_share_link;
-        this.mDefaultBgId = R.color.CAM_X0110;
-        init();
-    }
-
-    private void init() {
-        setDrawerType(1);
-        setGifIconSupport(false);
-        setDrawBorder(false);
-        setIsRound(false);
-        setDefaultResource(this.mDefaultId);
-        setDefaultBgResource(this.mDefaultBgId);
+        this.x0 = R.drawable.pic_share_link;
+        this.y0 = R.color.CAM_X0110;
+        G();
     }
 }

@@ -1,61 +1,59 @@
 package com.sdk.mobile.b;
 
 import android.content.Context;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
+import com.baidu.sapi2.result.OneKeyLoginOptResult;
+import com.sdk.base.framework.f.g.g;
 import org.json.JSONObject;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class b implements com.sdk.base.framework.b.a<T> {
 
     /* renamed from: a  reason: collision with root package name */
-    private /* synthetic */ int f7665a;
-    private /* synthetic */ a b;
+    public /* synthetic */ int f38597a;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    /* renamed from: b  reason: collision with root package name */
+    public /* synthetic */ a f38598b;
+
     public b(a aVar, int i) {
-        this.b = aVar;
-        this.f7665a = i;
+        this.f38598b = aVar;
+        this.f38597a = i;
     }
 
     @Override // com.sdk.base.framework.b.a
     public final void a(int i, int i2, String str) {
-        this.b.a(i, i2, str);
+        this.f38598b.a(i, i2, str);
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r10v0, resolved type: T */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:18:0x0055 */
     /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r12v0, types: [T, java.lang.Object] */
+    /* JADX WARN: Type inference failed for: r12v1 */
+    /* JADX WARN: Type inference failed for: r12v2, types: [java.lang.Object, java.lang.String] */
+    /* JADX WARN: Type inference failed for: r12v3, types: [java.lang.String] */
     @Override // com.sdk.base.framework.b.a
     public final void a(int i, String str, int i2, T t, String str2) {
         Context context;
-        String str3;
         Context context2;
         Context context3;
-        context = this.b.d;
-        com.sdk.base.framework.f.j.b.b(context);
+        context = this.f38598b.f38579d;
+        com.sdk.base.framework.f.i.b.b(context);
         if (i == 0) {
-            context2 = this.b.d;
-            com.sdk.base.framework.a.a.a.a(context2, this.f7665a, com.sdk.base.framework.a.a.a.a(t, str2));
+            context2 = this.f38598b.f38579d;
+            com.sdk.base.framework.a.a.a.a(context2, this.f38597a, com.sdk.base.framework.a.a.a.a(t, str2), g.f38553a.a());
             try {
-                context3 = this.b.d;
-                str3 = com.sdk.base.framework.f.l.a.a(context3, String.valueOf(t));
-                try {
-                    if (str3 == null) {
-                        this.b.a(1, "SDK解密异常", CmdConfigSocket.CMD_PB_PAGE, str3, str2);
-                        return;
-                    }
-                    JSONObject jSONObject = new JSONObject(String.valueOf(str3));
-                    if (this.f7665a == 1) {
-                        jSONObject.remove("fakeMobile");
-                        str3 = jSONObject.toString();
-                    }
-                } catch (Exception e) {
+                context3 = this.f38598b.f38579d;
+                t = com.sdk.base.framework.f.k.a.a(context3, String.valueOf((Object) t));
+                if (t == 0) {
+                    this.f38598b.a(1, "SDK解密异常", 302001, t, str2);
+                    return;
                 }
-            } catch (Exception e2) {
-                str3 = t;
+                JSONObject jSONObject = new JSONObject(String.valueOf((Object) t));
+                if (this.f38597a == 1) {
+                    jSONObject.remove(OneKeyLoginOptResult.OptResultFields.SECURITY_PHONE);
+                    t = jSONObject.toString();
+                }
+            } catch (Exception unused) {
             }
-        } else {
-            str3 = t;
         }
-        this.b.a(i, str, i2, str3, str2);
+        this.f38598b.a(i, str, i2, t, str2);
     }
 }

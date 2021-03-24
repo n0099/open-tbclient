@@ -9,43 +9,178 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.baidu.adp.lib.util.l;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.recapp.lego.model.AdCard;
-/* loaded from: classes7.dex */
+import d.b.b.e.p.l;
+/* loaded from: classes5.dex */
 public class LoopADView extends LinearLayout {
-    private Context mContext;
-    private a mXv;
-    private int mXw;
-    private int mXx;
-    private AdCard.d[] mXy;
-    private int mXz;
-    private Resources resources;
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes7.dex */
+    /* renamed from: e  reason: collision with root package name */
+    public Context f20777e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public a f20778f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public int f20779g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public int f20780h;
+    public Resources i;
+    public AdCard.d[] j;
+    public int k;
+
+    /* loaded from: classes5.dex */
     public enum ItemType {
         WITH_BOTTOM_TITLE,
         WITHOUT_BOTTOM_TITLE
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public interface a {
-        String RN(String str);
+        void a(TbImageView tbImageView, AdCard.b bVar);
 
-        void b(TbImageView tbImageView, AdCard.b bVar);
+        String b(String str);
 
         void reset();
     }
 
-    public void setBussinessType(int i) {
-        this.mXz = i;
-    }
-
     public LoopADView(Context context) {
         this(context, null);
+    }
+
+    public final void a(float f2, float f3, int i) {
+        float dimension;
+        float f4 = f2 / f3;
+        int i2 = this.k;
+        if (i2 != 1 && i2 != 2) {
+            dimension = i2 == 4 ? this.i.getDimension(R.dimen.ds40) + this.i.getDimension(R.dimen.ds60) + this.i.getDimension(R.dimen.ds16) : 0.0f;
+        } else {
+            dimension = this.i.getDimension(R.dimen.ds40);
+        }
+        int dimension2 = (int) (((int) ((l.p(this.f20777e)[0] - dimension) - ((int) this.i.getDimension(R.dimen.ds4)))) * 0.75f);
+        this.f20779g = dimension2;
+        this.f20780h = (int) (dimension2 / f4);
+    }
+
+    public void b() {
+        int childCount = getChildCount();
+        for (int i = 0; i < childCount; i++) {
+            View childAt = getChildAt(i);
+            if (childAt != null) {
+                SkinManager.setViewTextColor((TextView) childAt.findViewById(R.id.loop_text_view), R.color.CAM_X0105, 1);
+            }
+        }
+    }
+
+    public final void c(View view, AdCard.d dVar, int i, ItemType itemType) {
+        if (view == null || dVar == null) {
+            return;
+        }
+        TbImageView tbImageView = (TbImageView) view.findViewById(R.id.loop_image_view);
+        TextView textView = (TextView) view.findViewById(R.id.loop_text_view);
+        g(tbImageView, this.f20779g, this.f20780h);
+        g(view, this.f20779g, -2);
+        a aVar = this.f20778f;
+        if (aVar != null) {
+            aVar.a(tbImageView, dVar.f20708c);
+        }
+        tbImageView.W(dVar.f20706a, i, false);
+        if (itemType == ItemType.WITHOUT_BOTTOM_TITLE) {
+            textView.setText("");
+            textView.setVisibility(8);
+        } else if (itemType == ItemType.WITH_BOTTOM_TITLE) {
+            textView.setVisibility(0);
+            a aVar2 = this.f20778f;
+            if (aVar2 != null) {
+                textView.setText(aVar2.b(dVar.f20709d));
+            }
+        }
+    }
+
+    public final void d(AdCard.d[] dVarArr, int i) {
+        ItemType itemType;
+        if (e(dVarArr)) {
+            itemType = ItemType.WITH_BOTTOM_TITLE;
+        } else {
+            itemType = ItemType.WITHOUT_BOTTOM_TITLE;
+        }
+        try {
+            boolean z = false;
+            for (AdCard.d dVar : dVarArr) {
+                View inflate = LayoutInflater.from(this.f20777e).inflate(R.layout.loop_ad_item, (ViewGroup) null);
+                if (inflate == null) {
+                    return;
+                }
+                if (!z) {
+                    inflate.setPadding(0, 0, 0, 0);
+                    z = true;
+                }
+                c(inflate, dVar, i, itemType);
+                addView(inflate);
+            }
+        } catch (Exception e2) {
+            e2.printStackTrace();
+        }
+    }
+
+    public final boolean e(AdCard.d[] dVarArr) {
+        for (AdCard.d dVar : dVarArr) {
+            if (TextUtils.isEmpty(dVar.f20709d)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public final void f() {
+        removeAllViews();
+    }
+
+    public final void g(View view, int i, int i2) {
+        ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
+        if (layoutParams != null) {
+            layoutParams.width = i;
+            layoutParams.height = i2;
+            return;
+        }
+        view.setLayoutParams(new LinearLayout.LayoutParams(i, i2));
+    }
+
+    public void h(AdCard.d[] dVarArr, int i, int i2, int i3, int i4) {
+        float dimension;
+        if (dVarArr == null || dVarArr.length <= 0 || i3 > i2 || dVarArr == this.j) {
+            return;
+        }
+        this.j = dVarArr;
+        if (i2 == 0 || i3 == 0) {
+            int i5 = this.k;
+            if (i5 == 2 || i5 == 1) {
+                i2 = (int) this.i.getDimension(R.dimen.ds570);
+                dimension = this.i.getDimension(R.dimen.ds302);
+            } else if (i5 == 4) {
+                i2 = (int) this.i.getDimension(R.dimen.ds500);
+                dimension = this.i.getDimension(R.dimen.ds265);
+            }
+            i3 = (int) dimension;
+        }
+        a(i2, i3, i4);
+        a aVar = this.f20778f;
+        if (aVar != null) {
+            aVar.reset();
+        }
+        f();
+        d(dVarArr, i);
+    }
+
+    public void setBussinessType(int i) {
+        this.k = i;
+    }
+
+    public void setOnClickCallbackListener(a aVar) {
+        this.f20778f = aVar;
     }
 
     public LoopADView(Context context, AttributeSet attributeSet) {
@@ -54,136 +189,18 @@ public class LoopADView extends LinearLayout {
 
     public LoopADView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.mContext = null;
-        this.mXv = null;
-        this.mXw = 0;
-        this.mXx = 0;
-        this.resources = null;
-        this.mXy = null;
-        this.mContext = context.getApplicationContext();
-        this.resources = this.mContext.getResources();
+        this.f20777e = null;
+        this.f20778f = null;
+        this.f20779g = 0;
+        this.f20780h = 0;
+        this.i = null;
+        this.j = null;
+        Context applicationContext = context.getApplicationContext();
+        this.f20777e = applicationContext;
+        this.i = applicationContext.getResources();
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -1);
         layoutParams.gravity = 17;
         setLayoutParams(layoutParams);
         setOrientation(0);
-    }
-
-    public void a(AdCard.d[] dVarArr, int i, int i2, int i3, int i4) {
-        if (dVarArr != null && dVarArr.length > 0 && i3 <= i2 && dVarArr != this.mXy) {
-            this.mXy = dVarArr;
-            if (i2 == 0 || i3 == 0) {
-                if (this.mXz == 2 || this.mXz == 1) {
-                    i2 = (int) this.resources.getDimension(R.dimen.ds570);
-                    i3 = (int) this.resources.getDimension(R.dimen.ds302);
-                } else if (this.mXz == 4) {
-                    i2 = (int) this.resources.getDimension(R.dimen.ds500);
-                    i3 = (int) this.resources.getDimension(R.dimen.ds265);
-                }
-            }
-            c(i2, i3, i4);
-            if (this.mXv != null) {
-                this.mXv.reset();
-            }
-            reset();
-            a(dVarArr, i);
-        }
-    }
-
-    private void c(float f, float f2, int i) {
-        float f3 = f / f2;
-        float f4 = 0.0f;
-        if (this.mXz == 1 || this.mXz == 2) {
-            f4 = this.resources.getDimension(R.dimen.ds40);
-        } else if (this.mXz == 4) {
-            f4 = this.resources.getDimension(R.dimen.ds40) + this.resources.getDimension(R.dimen.ds60) + this.resources.getDimension(R.dimen.ds16);
-        }
-        this.mXw = (int) (((int) ((l.getScreenDimensions(this.mContext)[0] - f4) - ((int) this.resources.getDimension(R.dimen.ds4)))) * 0.75f);
-        this.mXx = (int) (this.mXw / f3);
-    }
-
-    private void a(AdCard.d[] dVarArr, int i) {
-        ItemType itemType;
-        if (a(dVarArr)) {
-            itemType = ItemType.WITH_BOTTOM_TITLE;
-        } else {
-            itemType = ItemType.WITHOUT_BOTTOM_TITLE;
-        }
-        try {
-            boolean z = false;
-            for (AdCard.d dVar : dVarArr) {
-                View inflate = LayoutInflater.from(this.mContext).inflate(R.layout.loop_ad_item, (ViewGroup) null);
-                if (inflate != null) {
-                    if (!z) {
-                        inflate.setPadding(0, 0, 0, 0);
-                        z = true;
-                    }
-                    a(inflate, dVar, i, itemType);
-                    addView(inflate);
-                } else {
-                    return;
-                }
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    private void a(View view, AdCard.d dVar, int i, ItemType itemType) {
-        if (view != null && dVar != null) {
-            TbImageView tbImageView = (TbImageView) view.findViewById(R.id.loop_image_view);
-            TextView textView = (TextView) view.findViewById(R.id.loop_text_view);
-            r(tbImageView, this.mXw, this.mXx);
-            r(view, this.mXw, -2);
-            if (this.mXv != null) {
-                this.mXv.b(tbImageView, dVar.mVw);
-            }
-            tbImageView.startLoad(dVar.pic, i, false);
-            if (itemType == ItemType.WITHOUT_BOTTOM_TITLE) {
-                textView.setText("");
-                textView.setVisibility(8);
-            } else if (itemType == ItemType.WITH_BOTTOM_TITLE) {
-                textView.setVisibility(0);
-                if (this.mXv != null) {
-                    textView.setText(this.mXv.RN(dVar.title));
-                }
-            }
-        }
-    }
-
-    private boolean a(AdCard.d[] dVarArr) {
-        for (AdCard.d dVar : dVarArr) {
-            if (TextUtils.isEmpty(dVar.title)) {
-                return false;
-            }
-        }
-        return true;
-    }
-
-    public void bur() {
-        int childCount = getChildCount();
-        for (int i = 0; i < childCount; i++) {
-            View childAt = getChildAt(i);
-            if (childAt != null) {
-                ap.setViewTextColor((TextView) childAt.findViewById(R.id.loop_text_view), R.color.CAM_X0105, 1);
-            }
-        }
-    }
-
-    public void setOnClickCallbackListener(a aVar) {
-        this.mXv = aVar;
-    }
-
-    private void reset() {
-        removeAllViews();
-    }
-
-    private void r(View view, int i, int i2) {
-        ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
-        if (layoutParams != null) {
-            layoutParams.width = i;
-            layoutParams.height = i2;
-            return;
-        }
-        view.setLayoutParams(new LinearLayout.LayoutParams(i, i2));
     }
 }

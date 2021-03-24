@@ -24,49 +24,170 @@ import io.flutter.embedding.engine.systemchannels.TextInputChannel;
 import io.flutter.plugin.platform.PlatformViewsController;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes14.dex */
+/* loaded from: classes7.dex */
 public class FlutterEngine {
-    private static final String TAG = "FlutterEngine";
+    public static final String TAG = "FlutterEngine";
     @NonNull
-    private final AccessibilityChannel accessibilityChannel;
+    public final AccessibilityChannel accessibilityChannel;
     @NonNull
-    private final DartExecutor dartExecutor;
+    public final DartExecutor dartExecutor;
     @NonNull
-    private final EngineLifecycleListener engineLifecycleListener;
+    public final EngineLifecycleListener engineLifecycleListener;
     @NonNull
-    private final Set<EngineLifecycleListener> engineLifecycleListeners;
+    public final Set<EngineLifecycleListener> engineLifecycleListeners;
     @NonNull
-    private final FlutterJNI flutterJNI;
+    public final FlutterJNI flutterJNI;
     @NonNull
-    private final KeyEventChannel keyEventChannel;
+    public final KeyEventChannel keyEventChannel;
     @NonNull
-    private final LifecycleChannel lifecycleChannel;
+    public final LifecycleChannel lifecycleChannel;
     @NonNull
-    private final LocalizationChannel localizationChannel;
+    public final LocalizationChannel localizationChannel;
     @NonNull
-    private final NavigationChannel navigationChannel;
+    public final NavigationChannel navigationChannel;
     @NonNull
-    private final PlatformChannel platformChannel;
+    public final PlatformChannel platformChannel;
     @NonNull
-    private final PlatformViewsController platformViewsController;
+    public final PlatformViewsController platformViewsController;
     @NonNull
-    private final FlutterEnginePluginRegistry pluginRegistry;
+    public final FlutterEnginePluginRegistry pluginRegistry;
     @NonNull
-    private final FlutterRenderer renderer;
+    public final FlutterRenderer renderer;
     @NonNull
-    private final SettingsChannel settingsChannel;
+    public final SettingsChannel settingsChannel;
     @NonNull
-    private final SystemChannel systemChannel;
+    public final SystemChannel systemChannel;
     @NonNull
-    private final TextInputChannel textInputChannel;
+    public final TextInputChannel textInputChannel;
 
-    /* loaded from: classes14.dex */
+    /* loaded from: classes7.dex */
     public interface EngineLifecycleListener {
         void onPreEngineRestart();
     }
 
     public FlutterEngine(@NonNull Context context) {
         this(context, null);
+    }
+
+    private void attachToJni() {
+        Log.v(TAG, "Attaching to JNI.");
+        this.flutterJNI.attachToNative(false);
+        if (!isAttachedToJni()) {
+            throw new RuntimeException("FlutterEngine failed to attach to its native Object reference.");
+        }
+    }
+
+    private boolean isAttachedToJni() {
+        return this.flutterJNI.isAttached();
+    }
+
+    private void registerPlugins() {
+        try {
+            Class.forName("io.flutter.plugins.GeneratedPluginRegistrant").getDeclaredMethod("registerWith", FlutterEngine.class).invoke(null, this);
+        } catch (Exception unused) {
+            Log.w(TAG, "Tried to automatically register plugins with FlutterEngine (" + this + ") but could not find and invoke the GeneratedPluginRegistrant.");
+        }
+    }
+
+    public void addEngineLifecycleListener(@NonNull EngineLifecycleListener engineLifecycleListener) {
+        this.engineLifecycleListeners.add(engineLifecycleListener);
+    }
+
+    public void destroy() {
+        Log.v(TAG, "Destroying.");
+        this.pluginRegistry.destroy();
+        this.dartExecutor.onDetachedFromJNI();
+        this.flutterJNI.removeEngineLifecycleListener(this.engineLifecycleListener);
+        this.flutterJNI.detachFromNativeAndReleaseResources();
+    }
+
+    @NonNull
+    public AccessibilityChannel getAccessibilityChannel() {
+        return this.accessibilityChannel;
+    }
+
+    @NonNull
+    public ActivityControlSurface getActivityControlSurface() {
+        return this.pluginRegistry;
+    }
+
+    @NonNull
+    public BroadcastReceiverControlSurface getBroadcastReceiverControlSurface() {
+        return this.pluginRegistry;
+    }
+
+    @NonNull
+    public ContentProviderControlSurface getContentProviderControlSurface() {
+        return this.pluginRegistry;
+    }
+
+    @NonNull
+    public DartExecutor getDartExecutor() {
+        return this.dartExecutor;
+    }
+
+    @NonNull
+    public KeyEventChannel getKeyEventChannel() {
+        return this.keyEventChannel;
+    }
+
+    @NonNull
+    public LifecycleChannel getLifecycleChannel() {
+        return this.lifecycleChannel;
+    }
+
+    @NonNull
+    public LocalizationChannel getLocalizationChannel() {
+        return this.localizationChannel;
+    }
+
+    @NonNull
+    public NavigationChannel getNavigationChannel() {
+        return this.navigationChannel;
+    }
+
+    @NonNull
+    public PlatformChannel getPlatformChannel() {
+        return this.platformChannel;
+    }
+
+    @NonNull
+    public PlatformViewsController getPlatformViewsController() {
+        return this.platformViewsController;
+    }
+
+    @NonNull
+    public PluginRegistry getPlugins() {
+        return this.pluginRegistry;
+    }
+
+    @NonNull
+    public FlutterRenderer getRenderer() {
+        return this.renderer;
+    }
+
+    @NonNull
+    public ServiceControlSurface getServiceControlSurface() {
+        return this.pluginRegistry;
+    }
+
+    @NonNull
+    public SettingsChannel getSettingsChannel() {
+        return this.settingsChannel;
+    }
+
+    @NonNull
+    public SystemChannel getSystemChannel() {
+        return this.systemChannel;
+    }
+
+    @NonNull
+    public TextInputChannel getTextInputChannel() {
+        return this.textInputChannel;
+    }
+
+    public void removeEngineLifecycleListener(@NonNull EngineLifecycleListener engineLifecycleListener) {
+        this.engineLifecycleListeners.remove(engineLifecycleListener);
     }
 
     public FlutterEngine(@NonNull Context context, @Nullable String[] strArr) {
@@ -102,8 +223,9 @@ public class FlutterEngine {
         flutterLoader.ensureInitializationComplete(context, strArr);
         flutterJNI.addEngineLifecycleListener(this.engineLifecycleListener);
         attachToJni();
-        this.dartExecutor = new DartExecutor(flutterJNI, context.getAssets());
-        this.dartExecutor.onAttachedToJNI();
+        DartExecutor dartExecutor = new DartExecutor(flutterJNI, context.getAssets());
+        this.dartExecutor = dartExecutor;
+        dartExecutor.onAttachedToJNI();
         this.renderer = new FlutterRenderer(flutterJNI);
         this.accessibilityChannel = new AccessibilityChannel(this.dartExecutor, flutterJNI);
         this.keyEventChannel = new KeyEventChannel(this.dartExecutor);
@@ -119,126 +241,5 @@ public class FlutterEngine {
         if (z) {
             registerPlugins();
         }
-    }
-
-    private void attachToJni() {
-        Log.v(TAG, "Attaching to JNI.");
-        this.flutterJNI.attachToNative(false);
-        if (!isAttachedToJni()) {
-            throw new RuntimeException("FlutterEngine failed to attach to its native Object reference.");
-        }
-    }
-
-    private boolean isAttachedToJni() {
-        return this.flutterJNI.isAttached();
-    }
-
-    private void registerPlugins() {
-        try {
-            Class.forName("io.flutter.plugins.GeneratedPluginRegistrant").getDeclaredMethod("registerWith", FlutterEngine.class).invoke(null, this);
-        } catch (Exception e) {
-            Log.w(TAG, "Tried to automatically register plugins with FlutterEngine (" + this + ") but could not find and invoke the GeneratedPluginRegistrant.");
-        }
-    }
-
-    public void destroy() {
-        Log.v(TAG, "Destroying.");
-        this.pluginRegistry.destroy();
-        this.dartExecutor.onDetachedFromJNI();
-        this.flutterJNI.removeEngineLifecycleListener(this.engineLifecycleListener);
-        this.flutterJNI.detachFromNativeAndReleaseResources();
-    }
-
-    public void addEngineLifecycleListener(@NonNull EngineLifecycleListener engineLifecycleListener) {
-        this.engineLifecycleListeners.add(engineLifecycleListener);
-    }
-
-    public void removeEngineLifecycleListener(@NonNull EngineLifecycleListener engineLifecycleListener) {
-        this.engineLifecycleListeners.remove(engineLifecycleListener);
-    }
-
-    @NonNull
-    public DartExecutor getDartExecutor() {
-        return this.dartExecutor;
-    }
-
-    @NonNull
-    public FlutterRenderer getRenderer() {
-        return this.renderer;
-    }
-
-    @NonNull
-    public AccessibilityChannel getAccessibilityChannel() {
-        return this.accessibilityChannel;
-    }
-
-    @NonNull
-    public KeyEventChannel getKeyEventChannel() {
-        return this.keyEventChannel;
-    }
-
-    @NonNull
-    public LifecycleChannel getLifecycleChannel() {
-        return this.lifecycleChannel;
-    }
-
-    @NonNull
-    public LocalizationChannel getLocalizationChannel() {
-        return this.localizationChannel;
-    }
-
-    @NonNull
-    public NavigationChannel getNavigationChannel() {
-        return this.navigationChannel;
-    }
-
-    @NonNull
-    public PlatformChannel getPlatformChannel() {
-        return this.platformChannel;
-    }
-
-    @NonNull
-    public SettingsChannel getSettingsChannel() {
-        return this.settingsChannel;
-    }
-
-    @NonNull
-    public SystemChannel getSystemChannel() {
-        return this.systemChannel;
-    }
-
-    @NonNull
-    public TextInputChannel getTextInputChannel() {
-        return this.textInputChannel;
-    }
-
-    @NonNull
-    public PluginRegistry getPlugins() {
-        return this.pluginRegistry;
-    }
-
-    @NonNull
-    public PlatformViewsController getPlatformViewsController() {
-        return this.platformViewsController;
-    }
-
-    @NonNull
-    public ActivityControlSurface getActivityControlSurface() {
-        return this.pluginRegistry;
-    }
-
-    @NonNull
-    public ServiceControlSurface getServiceControlSurface() {
-        return this.pluginRegistry;
-    }
-
-    @NonNull
-    public BroadcastReceiverControlSurface getBroadcastReceiverControlSurface() {
-        return this.pluginRegistry;
-    }
-
-    @NonNull
-    public ContentProviderControlSurface getContentProviderControlSurface() {
-        return this.pluginRegistry;
     }
 }

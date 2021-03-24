@@ -6,17 +6,16 @@ import com.baidu.searchbox.elasticthread.scheduler.ElasticTaskScheduler;
 import com.baidu.searchbox.elasticthread.statistic.Recordable;
 import com.baidu.searchbox.elasticthread.task.ElasticTask;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public abstract class BaseDredgeExecutorCell extends BaseExecutorCell {
-    protected static final long KEEP_ALIVE_TIME_OPEN = 5000;
-    protected static final long KEEP_ALIVE_TIME_SHUTDOWN = 100;
-    protected boolean isOpen;
-    private long lastOpenTime;
-    private long lastShutdownTime;
-    private int openCountInRecordLifeCycle;
-    private long openTimeInRecordLifeCycle;
+    public static final long KEEP_ALIVE_TIME_OPEN = 5000;
+    public static final long KEEP_ALIVE_TIME_SHUTDOWN = 100;
+    public boolean isOpen;
+    public long lastOpenTime;
+    public long lastShutdownTime;
+    public int openCountInRecordLifeCycle;
+    public long openTimeInRecordLifeCycle;
 
-    /* JADX INFO: Access modifiers changed from: protected */
     public BaseDredgeExecutorCell(int i) {
         super(i);
         this.lastOpenTime = 0L;
@@ -25,12 +24,46 @@ public abstract class BaseDredgeExecutorCell extends BaseExecutorCell {
     }
 
     @Override // com.baidu.searchbox.elasticthread.executor.BaseExecutorCell
-    protected boolean available() {
+    public boolean available() {
         return this.isOpen && getWorkingThreadNum() < this.maxThreadNum;
+    }
+
+    public int getOpenCountInRecordLifeCycle() {
+        return this.openCountInRecordLifeCycle;
+    }
+
+    public long getOpenTimeInRecordLifeCycle() {
+        return this.openTimeInRecordLifeCycle;
     }
 
     public boolean isOpen() {
         return this.isOpen;
+    }
+
+    @Override // com.baidu.searchbox.elasticthread.executor.BaseExecutorCell, com.baidu.searchbox.elasticthread.statistic.Recordable
+    public void onRecordBegin() {
+        super.onRecordBegin();
+        this.openCountInRecordLifeCycle = 0;
+        this.openTimeInRecordLifeCycle = 0L;
+        if (this.isOpen) {
+            this.openTimeInRecordLifeCycle = 0 + 1;
+        }
+    }
+
+    @Override // com.baidu.searchbox.elasticthread.executor.BaseExecutorCell, com.baidu.searchbox.elasticthread.statistic.Recordable
+    public void onRecordEnd() {
+        super.onRecordEnd();
+        if (this.isOpen) {
+            this.openTimeInRecordLifeCycle += SystemClock.elapsedRealtime() - Math.max(this.recordBeginTime, this.lastOpenTime);
+        }
+    }
+
+    @Override // com.baidu.searchbox.elasticthread.executor.BaseExecutorCell
+    public void onTaskEnd(ElasticTask elasticTask) {
+        super.onTaskEnd(elasticTask);
+        if (this.isOpen) {
+            ElasticTaskScheduler.getInstance().postConcurrentSchedule();
+        }
     }
 
     public void open() {
@@ -52,45 +85,11 @@ public abstract class BaseDredgeExecutorCell extends BaseExecutorCell {
             return;
         }
         this.isOpen = false;
-        this.lastShutdownTime = SystemClock.elapsedRealtime();
+        long elapsedRealtime = SystemClock.elapsedRealtime();
+        this.lastShutdownTime = elapsedRealtime;
         if (this.mRecordStatus == Recordable.RecordStatus.RECORDING) {
-            this.openTimeInRecordLifeCycle += this.lastShutdownTime - Math.max(this.recordBeginTime, this.lastOpenTime);
+            this.openTimeInRecordLifeCycle += elapsedRealtime - Math.max(this.recordBeginTime, this.lastOpenTime);
         }
-        this.mExecutor.setKeepAliveTime(KEEP_ALIVE_TIME_SHUTDOWN, TimeUnit.MILLISECONDS);
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.searchbox.elasticthread.executor.BaseExecutorCell
-    public void onTaskEnd(ElasticTask elasticTask) {
-        super.onTaskEnd(elasticTask);
-        if (this.isOpen) {
-            ElasticTaskScheduler.getInstance().postConcurrentSchedule();
-        }
-    }
-
-    @Override // com.baidu.searchbox.elasticthread.executor.BaseExecutorCell, com.baidu.searchbox.elasticthread.statistic.Recordable
-    public void onRecordBegin() {
-        super.onRecordBegin();
-        this.openCountInRecordLifeCycle = 0;
-        this.openTimeInRecordLifeCycle = 0L;
-        if (this.isOpen) {
-            this.openTimeInRecordLifeCycle++;
-        }
-    }
-
-    @Override // com.baidu.searchbox.elasticthread.executor.BaseExecutorCell, com.baidu.searchbox.elasticthread.statistic.Recordable
-    public void onRecordEnd() {
-        super.onRecordEnd();
-        if (this.isOpen) {
-            this.openTimeInRecordLifeCycle += SystemClock.elapsedRealtime() - Math.max(this.recordBeginTime, this.lastOpenTime);
-        }
-    }
-
-    public int getOpenCountInRecordLifeCycle() {
-        return this.openCountInRecordLifeCycle;
-    }
-
-    public long getOpenTimeInRecordLifeCycle() {
-        return this.openTimeInRecordLifeCycle;
+        this.mExecutor.setKeepAliveTime(100L, TimeUnit.MILLISECONDS);
     }
 }

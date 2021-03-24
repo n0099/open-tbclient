@@ -6,12 +6,12 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 @Target({ElementType.METHOD})
 @Retention(RetentionPolicy.SOURCE)
-/* loaded from: classes4.dex */
+/* loaded from: classes.dex */
 public @interface InspectableProperty {
 
     @Target({ElementType.TYPE})
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes4.dex */
+    /* loaded from: classes.dex */
     public @interface EnumEntry {
         String name();
 
@@ -20,7 +20,7 @@ public @interface InspectableProperty {
 
     @Target({ElementType.TYPE})
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes4.dex */
+    /* loaded from: classes.dex */
     public @interface FlagEntry {
         int mask() default 0;
 
@@ -29,7 +29,7 @@ public @interface InspectableProperty {
         int target();
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes.dex */
     public enum ValueType {
         NONE,
         INFERRED,

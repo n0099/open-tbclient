@@ -7,33 +7,38 @@ import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import java.io.File;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static Context f6371a;
-    private static String b;
+    public static Context f34412a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public static String f34413b;
 
     public static File a() {
-        File file = !TextUtils.isEmpty(b) ? new File(b) : new File(a(f6371a), "kwad_ex");
+        File file = !TextUtils.isEmpty(f34413b) ? new File(f34413b) : new File(a(f34412a), "kwad_ex");
         if (!file.exists()) {
             file.mkdir();
         }
         return file;
     }
 
-    private static File a(Context context) {
+    public static File a(Context context) {
         File dataDir = Build.VERSION.SDK_INT >= 24 ? context.getDataDir() : null;
         if (dataDir == null) {
             File file = new File(Environment.getDataDirectory().getPath() + "/data/" + context.getPackageName());
-            return !file.exists() ? new File("/data/data/" + context.getPackageName()) : file;
+            if (file.exists()) {
+                return file;
+            }
+            return new File("/data/data/" + context.getPackageName());
         }
         return dataDir;
     }
 
     public static void a(@NonNull Context context, @Nullable String str) {
-        f6371a = context;
-        b = str;
+        f34412a = context;
+        f34413b = str;
     }
 
     public static File b() {

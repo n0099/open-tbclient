@@ -6,24 +6,41 @@ import android.util.AttributeSet;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import com.baidu.fsg.base.utils.LogUtil;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public class CameraSurfaceView extends SurfaceView implements SurfaceHolder.Callback {
 
     /* renamed from: a  reason: collision with root package name */
-    SurfaceHolder f1760a;
-    private b b;
+    public SurfaceHolder f5950a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public b f5951b;
 
     public CameraSurfaceView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f1760a = getHolder();
-        this.f1760a.setFormat(-2);
-        this.f1760a.setSizeFromLayout();
-        this.f1760a.setType(3);
-        this.f1760a.addCallback(this);
+        SurfaceHolder holder = getHolder();
+        this.f5950a = holder;
+        holder.setFormat(-2);
+        this.f5950a.setSizeFromLayout();
+        this.f5950a.setType(3);
+        this.f5950a.addCallback(this);
     }
 
     public void setCameraInterface(b bVar) {
-        this.b = bVar;
+        this.f5951b = bVar;
+    }
+
+    public void startPreview() {
+        if (getContext() instanceof Activity) {
+            this.f5951b.a((Activity) getContext(), this.f5950a);
+        }
+    }
+
+    @Override // android.view.SurfaceHolder.Callback
+    public void surfaceChanged(SurfaceHolder surfaceHolder, int i, int i2, int i3) {
+        LogUtil.d("surfaceChanged被调用了");
+        if (getContext() instanceof Activity) {
+            this.f5951b.a((Activity) getContext(), this.f5950a);
+        }
     }
 
     @Override // android.view.SurfaceHolder.Callback
@@ -31,22 +48,8 @@ public class CameraSurfaceView extends SurfaceView implements SurfaceHolder.Call
     }
 
     @Override // android.view.SurfaceHolder.Callback
-    public void surfaceChanged(SurfaceHolder surfaceHolder, int i, int i2, int i3) {
-        LogUtil.d("surfaceChanged被调用了");
-        if (getContext() instanceof Activity) {
-            this.b.a((Activity) getContext(), this.f1760a);
-        }
-    }
-
-    @Override // android.view.SurfaceHolder.Callback
     public void surfaceDestroyed(SurfaceHolder surfaceHolder) {
         LogUtil.d("surfaceDestroyed被调用了");
-        this.b.d();
-    }
-
-    public void startPreview() {
-        if (getContext() instanceof Activity) {
-            this.b.a((Activity) getContext(), this.f1760a);
-        }
+        this.f5951b.d();
     }
 }

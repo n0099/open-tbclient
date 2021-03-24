@@ -1,7 +1,7 @@
 package org.java_websocket.exceptions;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class LimitExedeedException extends InvalidDataException {
-    private static final long serialVersionUID = 6908339749836826785L;
+    public static final long serialVersionUID = 6908339749836826785L;
 
     public LimitExedeedException() {
         super(1009);

@@ -1,15 +1,14 @@
 package com.baidu.tieba.im.message;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.live.tbadk.core.frameworkdata.CmdConfigSocket;
 import com.squareup.wire.Wire;
 import protobuf.AddGroupUsers.AddGroupUsersResIdl;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class ResponseAddGroupUserMessage extends SocketResponsedMessage {
-    private long groupId;
+    public long groupId;
 
     public ResponseAddGroupUserMessage() {
-        super(CmdConfigSocket.CMD_ADD_GROUP_USER);
+        super(103111);
     }
 
     public long getGroupId() {
@@ -17,13 +16,14 @@ public class ResponseAddGroupUserMessage extends SocketResponsedMessage {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.message.a
+    @Override // com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
     public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         AddGroupUsersResIdl addGroupUsersResIdl = (AddGroupUsersResIdl) new Wire(new Class[0]).parseFrom(bArr, AddGroupUsersResIdl.class);
         setError(addGroupUsersResIdl.error.errorno.intValue());
         setErrorString(addGroupUsersResIdl.error.usermsg);
-        if (getError() == 0) {
-            this.groupId = addGroupUsersResIdl.data.groupId.longValue();
+        if (getError() != 0) {
+            return;
         }
+        this.groupId = addGroupUsersResIdl.data.groupId.longValue();
     }
 }

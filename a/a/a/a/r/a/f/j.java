@@ -1,7 +1,7 @@
 package a.a.a.a.r.a.f;
 
-import a.a.a.a.a.e;
-import a.a.a.a.c.o;
+import a.a.a.a.s.e;
+import a.a.a.a.u.o;
 import android.app.Activity;
 import android.content.Context;
 import android.view.View;
@@ -11,32 +11,34 @@ import com.kwad.sdk.api.KsAdSDK;
 import com.kwad.sdk.api.KsLoadManager;
 import com.kwad.sdk.api.KsScene;
 import com.kwad.sdk.api.KsSplashScreenAd;
-/* loaded from: classes4.dex */
-public class j extends a.a.a.a.c<KsSplashScreenAd> {
+/* loaded from: classes.dex */
+public class j extends a.a.a.a.b<KsSplashScreenAd> {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes.dex */
     public class a implements KsLoadManager.SplashScreenAdListener {
-        public final /* synthetic */ FunAdSlot zR;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ FunAdSlot f1261a;
 
         public a(FunAdSlot funAdSlot) {
-            this.zR = funAdSlot;
+            this.f1261a = funAdSlot;
         }
 
         @Override // com.kwad.sdk.api.KsLoadManager.SplashScreenAdListener
         public void onError(int i, String str) {
             a.a.a.a.v.d.b("KSSplashAd onError code: " + i + ", message: " + str, new Object[0]);
-            j.this.zk.a(Integer.valueOf(i));
+            j.this.f1010g.a(Integer.valueOf(i));
             j.this.b(i, str);
         }
 
         @Override // com.kwad.sdk.api.KsLoadManager.SplashScreenAdListener
         public void onSplashScreenAdLoad(KsSplashScreenAd ksSplashScreenAd) {
             a.a.a.a.v.d.b("KSSplashAd onSplashScreenAdLoad", new Object[0]);
-            j.this.zk.b();
+            j.this.f1010g.b();
             j jVar = j.this;
             jVar.a((j) ksSplashScreenAd);
             jVar.h();
-            j.this.zm.b(ksSplashScreenAd, this.zR.getSid());
+            j.this.k.b(ksSplashScreenAd, this.f1261a.getSid());
         }
     }
 
@@ -44,32 +46,32 @@ public class j extends a.a.a.a.c<KsSplashScreenAd> {
         super(aVar);
     }
 
-    @Override // a.a.a.a.c
-    public a.a.a.a.c.a a(e.a aVar) {
+    @Override // a.a.a.a.b
+    public a.a.a.a.u.a a(e.a aVar) {
         return new o(aVar);
     }
 
-    @Override // a.a.a.a.c
-    public void a(Context context, FunAdSlot funAdSlot) {
-        KsScene build = new KsScene.Builder(Long.parseLong(this.zl.c)).build();
-        this.zk.a(funAdSlot, this.zl);
-        KsAdSDK.getLoadManager().loadSplashScreenAd(build, new a(funAdSlot));
-        g();
-    }
-
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, android.view.ViewGroup, java.lang.String, java.lang.Object] */
-    @Override // a.a.a.a.c
+    @Override // a.a.a.a.b
     public boolean a(Activity activity, ViewGroup viewGroup, String str, KsSplashScreenAd ksSplashScreenAd) {
         KsSplashScreenAd ksSplashScreenAd2 = ksSplashScreenAd;
         View view = ksSplashScreenAd2.getView(activity, new k(this, ksSplashScreenAd2, str));
-        this.zk.g();
+        this.f1010g.g();
         viewGroup.removeAllViews();
         viewGroup.addView(view);
         return true;
     }
 
+    @Override // a.a.a.a.b
+    public void b(Context context, FunAdSlot funAdSlot) {
+        KsScene build = new KsScene.Builder(Long.parseLong(this.f1011h.f1334c)).build();
+        this.f1010g.a(funAdSlot, this.f1011h);
+        KsAdSDK.getLoadManager().loadSplashScreenAd(build, new a(funAdSlot));
+        g();
+    }
+
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-    @Override // a.a.a.a.c
+    @Override // a.a.a.a.b
     public void b(KsSplashScreenAd ksSplashScreenAd) {
     }
 }

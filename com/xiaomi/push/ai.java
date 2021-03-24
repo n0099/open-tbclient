@@ -2,83 +2,82 @@ package com.xiaomi.push;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.util.SparseArray;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class ai {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile ai f8252a;
+    public static volatile ai f40223a;
 
     /* renamed from: a  reason: collision with other field name */
-    private SharedPreferences f94a;
+    public SharedPreferences f103a;
 
     /* renamed from: a  reason: collision with other field name */
-    private ScheduledThreadPoolExecutor f97a = new ScheduledThreadPoolExecutor(1);
+    public ScheduledThreadPoolExecutor f106a = new ScheduledThreadPoolExecutor(1);
 
     /* renamed from: a  reason: collision with other field name */
-    private SparseArray<ScheduledFuture> f95a = new SparseArray<>();
+    public Map<String, ScheduledFuture> f105a = new HashMap();
 
     /* renamed from: a  reason: collision with other field name */
-    private Object f96a = new Object();
+    public Object f104a = new Object();
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static abstract class a implements Runnable {
         /* renamed from: a */
-        public abstract int mo170a();
+        public abstract String mo165a();
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class b implements Runnable {
 
         /* renamed from: a  reason: collision with root package name */
-        a f8253a;
+        public a f40224a;
 
         public b(a aVar) {
-            this.f8253a = aVar;
+            this.f40224a = aVar;
         }
 
-        /* JADX INFO: Access modifiers changed from: package-private */
         public void a() {
         }
 
-        void b() {
+        public void b() {
         }
 
         @Override // java.lang.Runnable
         public void run() {
             a();
-            this.f8253a.run();
+            this.f40224a.run();
             b();
         }
     }
 
-    private ai(Context context) {
-        this.f94a = context.getSharedPreferences("mipush_extra", 0);
+    public ai(Context context) {
+        this.f103a = context.getSharedPreferences("mipush_extra", 0);
     }
 
     public static ai a(Context context) {
-        if (f8252a == null) {
+        if (f40223a == null) {
             synchronized (ai.class) {
-                if (f8252a == null) {
-                    f8252a = new ai(context);
+                if (f40223a == null) {
+                    f40223a = new ai(context);
                 }
             }
         }
-        return f8252a;
+        return f40223a;
     }
 
-    private static String a(int i) {
-        return "last_job_time" + i;
+    public static String a(String str) {
+        return "last_job_time" + str;
     }
 
     private ScheduledFuture a(a aVar) {
         ScheduledFuture scheduledFuture;
-        synchronized (this.f96a) {
-            scheduledFuture = this.f95a.get(aVar.mo170a());
+        synchronized (this.f104a) {
+            scheduledFuture = this.f105a.get(aVar.mo165a());
         }
         return scheduledFuture;
     }
@@ -88,23 +87,11 @@ public class ai {
     }
 
     public void a(Runnable runnable, int i) {
-        this.f97a.schedule(runnable, i, TimeUnit.SECONDS);
+        this.f106a.schedule(runnable, i, TimeUnit.SECONDS);
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m132a(int i) {
-        synchronized (this.f96a) {
-            ScheduledFuture scheduledFuture = this.f95a.get(i);
-            if (scheduledFuture == null) {
-                return false;
-            }
-            this.f95a.remove(i);
-            return scheduledFuture.cancel(false);
-        }
-    }
-
-    /* renamed from: a  reason: collision with other method in class */
-    public boolean m133a(a aVar) {
+    public boolean m123a(a aVar) {
         return b(aVar, 0);
     }
 
@@ -113,33 +100,52 @@ public class ai {
     }
 
     public boolean a(a aVar, int i, int i2) {
+        return a(aVar, i, i2, false);
+    }
+
+    public boolean a(a aVar, int i, int i2, boolean z) {
         if (aVar == null || a(aVar) != null) {
             return false;
         }
-        String a2 = a(aVar.mo170a());
-        aj ajVar = new aj(this, aVar, a2);
-        long abs = Math.abs(System.currentTimeMillis() - this.f94a.getLong(a2, 0L)) / 1000;
-        if (abs < i - i2) {
-            i2 = (int) (i - abs);
+        String a2 = a(aVar.mo165a());
+        aj ajVar = new aj(this, aVar, z, a2);
+        if (!z) {
+            long abs = Math.abs(System.currentTimeMillis() - this.f103a.getLong(a2, 0L)) / 1000;
+            if (abs < i - i2) {
+                i2 = (int) (i - abs);
+            }
         }
         try {
-            ScheduledFuture<?> scheduleAtFixedRate = this.f97a.scheduleAtFixedRate(ajVar, i2, i, TimeUnit.SECONDS);
-            synchronized (this.f96a) {
-                this.f95a.put(aVar.mo170a(), scheduleAtFixedRate);
+            ScheduledFuture<?> scheduleAtFixedRate = this.f106a.scheduleAtFixedRate(ajVar, i2, i, TimeUnit.SECONDS);
+            synchronized (this.f104a) {
+                this.f105a.put(aVar.mo165a(), scheduleAtFixedRate);
             }
-        } catch (Exception e) {
-            com.xiaomi.channel.commonutils.logger.b.a(e);
+            return true;
+        } catch (Exception e2) {
+            com.xiaomi.channel.commonutils.logger.b.a(e2);
+            return true;
         }
-        return true;
+    }
+
+    /* renamed from: a  reason: collision with other method in class */
+    public boolean m124a(String str) {
+        synchronized (this.f104a) {
+            ScheduledFuture scheduledFuture = this.f105a.get(str);
+            if (scheduledFuture == null) {
+                return false;
+            }
+            this.f105a.remove(str);
+            return scheduledFuture.cancel(false);
+        }
     }
 
     public boolean b(a aVar, int i) {
         if (aVar == null || a(aVar) != null) {
             return false;
         }
-        ScheduledFuture<?> schedule = this.f97a.schedule(new ak(this, aVar), i, TimeUnit.SECONDS);
-        synchronized (this.f96a) {
-            this.f95a.put(aVar.mo170a(), schedule);
+        ScheduledFuture<?> schedule = this.f106a.schedule(new ak(this, aVar), i, TimeUnit.SECONDS);
+        synchronized (this.f104a) {
+            this.f105a.put(aVar.mo165a(), schedule);
         }
         return true;
     }

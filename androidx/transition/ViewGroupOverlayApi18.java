@@ -7,11 +7,10 @@ import android.view.ViewGroupOverlay;
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 @RequiresApi(18)
-/* loaded from: classes5.dex */
-class ViewGroupOverlayApi18 implements ViewGroupOverlayImpl {
-    private final ViewGroupOverlay mViewGroupOverlay;
+/* loaded from: classes.dex */
+public class ViewGroupOverlayApi18 implements ViewGroupOverlayImpl {
+    public final ViewGroupOverlay mViewGroupOverlay;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     public ViewGroupOverlayApi18(@NonNull ViewGroup viewGroup) {
         this.mViewGroupOverlay = viewGroup.getOverlay();
     }

@@ -7,7 +7,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-/* loaded from: classes14.dex */
+/* loaded from: classes7.dex */
 public class FlutterShellArgs {
     public static final String ARG_CACHE_SKSL = "--cache-sksl";
     public static final String ARG_DART_FLAGS = "--dart-flags";
@@ -38,7 +38,11 @@ public class FlutterShellArgs {
     public static final String ARG_USE_TEST_FONTS = "--use-test-fonts";
     public static final String ARG_VERBOSE_LOGGING = "--verbose-logging";
     @NonNull
-    private Set<String> args;
+    public Set<String> args;
+
+    public FlutterShellArgs(@NonNull String[] strArr) {
+        this.args = new HashSet(Arrays.asList(strArr));
+    }
 
     @NonNull
     public static FlutterShellArgs fromIntent(@NonNull Intent intent) {
@@ -89,18 +93,6 @@ public class FlutterShellArgs {
         return new FlutterShellArgs(arrayList);
     }
 
-    public FlutterShellArgs(@NonNull String[] strArr) {
-        this.args = new HashSet(Arrays.asList(strArr));
-    }
-
-    public FlutterShellArgs(@NonNull List<String> list) {
-        this.args = new HashSet(list);
-    }
-
-    public FlutterShellArgs(@NonNull Set<String> set) {
-        this.args = new HashSet(set);
-    }
-
     public void add(@NonNull String str) {
         this.args.add(str);
     }
@@ -112,5 +104,13 @@ public class FlutterShellArgs {
     @NonNull
     public String[] toArray() {
         return (String[]) this.args.toArray(new String[this.args.size()]);
+    }
+
+    public FlutterShellArgs(@NonNull List<String> list) {
+        this.args = new HashSet(list);
+    }
+
+    public FlutterShellArgs(@NonNull Set<String> set) {
+        this.args = new HashSet(set);
     }
 }

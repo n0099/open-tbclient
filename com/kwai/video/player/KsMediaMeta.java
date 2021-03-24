@@ -2,11 +2,11 @@ package com.kwai.video.player;
 
 import android.os.Bundle;
 import android.text.TextUtils;
-import com.baidu.searchbox.v8engine.util.TimeUtils;
+import com.baidu.rtc.SdpPrefer;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Locale;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class KsMediaMeta {
     public static final long AV_CH_BACK_CENTER = 256;
     public static final long AV_CH_BACK_LEFT = 16;
@@ -114,7 +114,7 @@ public class KsMediaMeta {
     public int mHttpConnectTime = 0;
     public int mHttpFirstDataTime = 0;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class KSYStreamMeta {
         public long mBitrate;
         public long mChannelLayout;
@@ -140,11 +140,13 @@ public class KsMediaMeta {
         }
 
         public String getBitrateInline() {
-            return this.mBitrate <= 0 ? "N/A" : this.mBitrate < 1000 ? String.format(Locale.US, "%d bit/s", Long.valueOf(this.mBitrate)) : String.format(Locale.US, "%d kb/s", Long.valueOf(this.mBitrate / 1000));
+            long j = this.mBitrate;
+            return j <= 0 ? "N/A" : j < 1000 ? String.format(Locale.US, "%d bit/s", Long.valueOf(j)) : String.format(Locale.US, "%d kb/s", Long.valueOf(j / 1000));
         }
 
         public String getChannelLayoutInline() {
-            return this.mChannelLayout <= 0 ? "N/A" : this.mChannelLayout == 4 ? "mono" : this.mChannelLayout == 3 ? "stereo" : String.format(Locale.US, "%x", Long.valueOf(this.mChannelLayout));
+            long j = this.mChannelLayout;
+            return j <= 0 ? "N/A" : j == 4 ? "mono" : j == 3 ? SdpPrefer.AUDIO_STEREO : String.format(Locale.US, "%x", Long.valueOf(j));
         }
 
         public String getCodecLongNameInline() {
@@ -156,7 +158,9 @@ public class KsMediaMeta {
         }
 
         public String getFpsInline() {
-            return (this.mFpsNum <= 0 || this.mFpsDen <= 0) ? "N/A" : String.valueOf(this.mFpsNum / this.mFpsDen);
+            int i;
+            int i2 = this.mFpsNum;
+            return (i2 <= 0 || (i = this.mFpsDen) <= 0) ? "N/A" : String.valueOf(i2 / i);
         }
 
         public int getInt(String str) {
@@ -170,7 +174,7 @@ public class KsMediaMeta {
             }
             try {
                 return Integer.parseInt(string);
-            } catch (NumberFormatException e) {
+            } catch (NumberFormatException unused) {
                 return i;
             }
         }
@@ -186,17 +190,19 @@ public class KsMediaMeta {
             }
             try {
                 return Long.parseLong(string);
-            } catch (NumberFormatException e) {
+            } catch (NumberFormatException unused) {
                 return j;
             }
         }
 
         public String getResolutionInline() {
-            return (this.mWidth <= 0 || this.mHeight <= 0) ? "N/A" : (this.mSarNum <= 0 || this.mSarDen <= 0) ? String.format(Locale.US, "%d x %d", Integer.valueOf(this.mWidth), Integer.valueOf(this.mHeight)) : String.format(Locale.US, "%d x %d [SAR %d:%d]", Integer.valueOf(this.mWidth), Integer.valueOf(this.mHeight), Integer.valueOf(this.mSarNum), Integer.valueOf(this.mSarDen));
+            int i = this.mWidth;
+            return (i <= 0 || this.mHeight <= 0) ? "N/A" : (this.mSarNum <= 0 || this.mSarDen <= 0) ? String.format(Locale.US, "%d x %d", Integer.valueOf(this.mWidth), Integer.valueOf(this.mHeight)) : String.format(Locale.US, "%d x %d [SAR %d:%d]", Integer.valueOf(i), Integer.valueOf(this.mHeight), Integer.valueOf(this.mSarNum), Integer.valueOf(this.mSarDen));
         }
 
         public String getSampleRateInline() {
-            return this.mSampleRate <= 0 ? "N/A" : String.format(Locale.US, "%d Hz", Integer.valueOf(this.mSampleRate));
+            int i = this.mSampleRate;
+            return i <= 0 ? "N/A" : String.format(Locale.US, "%d Hz", Integer.valueOf(i));
         }
 
         public String getString(String str) {
@@ -214,8 +220,9 @@ public class KsMediaMeta {
         ksMediaMeta.mDurationUS = ksMediaMeta.getLong(KSM_KEY_DURATION_US);
         ksMediaMeta.mStartUS = ksMediaMeta.getLong(KSM_KEY_START_US);
         ksMediaMeta.mBitrate = ksMediaMeta.getLong(KSM_KEY_BITRATE);
-        int i = ksMediaMeta.getInt("video", -1);
-        int i2 = ksMediaMeta.getInt("audio", -1);
+        int i = -1;
+        int i2 = ksMediaMeta.getInt("video", -1);
+        int i3 = ksMediaMeta.getInt("audio", -1);
         ksMediaMeta.mFormat = ksMediaMeta.getString(KSM_KEY_HTTP_X_CACHE);
         ksMediaMeta.mHttpRedirect = ksMediaMeta.getString(KSM_KEY_HTTP_REDIRECT);
         ksMediaMeta.mHttpContentRange = ksMediaMeta.getString(KSM_KEY_HTTP_CONTENT_RANGE);
@@ -230,7 +237,7 @@ public class KsMediaMeta {
             if (ksMediaMeta.getString(KSM_KEY_HTTP_FIRST_DATA_TIME) != null) {
                 ksMediaMeta.mHttpFirstDataTime = new Double(ksMediaMeta.getString(KSM_KEY_HTTP_FIRST_DATA_TIME)).intValue();
             }
-        } catch (NumberFormatException e) {
+        } catch (NumberFormatException unused) {
             ksMediaMeta.mHttpConnectTime = 0;
             ksMediaMeta.mHttpFirstDataTime = 0;
         }
@@ -239,12 +246,11 @@ public class KsMediaMeta {
             return ksMediaMeta;
         }
         Iterator<Bundle> it = parcelableArrayList.iterator();
-        int i3 = -1;
         while (it.hasNext()) {
             Bundle next = it.next();
-            i3++;
+            i++;
             if (next != null) {
-                KSYStreamMeta kSYStreamMeta = new KSYStreamMeta(i3);
+                KSYStreamMeta kSYStreamMeta = new KSYStreamMeta(i);
                 kSYStreamMeta.mMeta = next;
                 kSYStreamMeta.mType = kSYStreamMeta.getString("type");
                 kSYStreamMeta.mLanguage = kSYStreamMeta.getString(KSM_KEY_LANGUAGE);
@@ -262,13 +268,13 @@ public class KsMediaMeta {
                         kSYStreamMeta.mTbrDen = kSYStreamMeta.getInt(KSM_KEY_TBR_DEN);
                         kSYStreamMeta.mSarNum = kSYStreamMeta.getInt(KSM_KEY_SAR_NUM);
                         kSYStreamMeta.mSarDen = kSYStreamMeta.getInt(KSM_KEY_SAR_DEN);
-                        if (i == i3) {
+                        if (i2 == i) {
                             ksMediaMeta.mVideoStream = kSYStreamMeta;
                         }
                     } else if (kSYStreamMeta.mType.equalsIgnoreCase("audio")) {
                         kSYStreamMeta.mSampleRate = kSYStreamMeta.getInt(KSM_KEY_SAMPLE_RATE);
                         kSYStreamMeta.mChannelLayout = kSYStreamMeta.getLong(KSM_KEY_CHANNEL_LAYOUT);
-                        if (i2 == i3) {
+                        if (i3 == i) {
                             ksMediaMeta.mAudioStream = kSYStreamMeta;
                         }
                     }
@@ -280,7 +286,7 @@ public class KsMediaMeta {
     }
 
     public String getDurationInline() {
-        long j = (this.mDurationUS + 5000) / TimeUtils.NANOS_PER_MS;
+        long j = (this.mDurationUS + 5000) / 1000000;
         long j2 = j / 60;
         return String.format(Locale.US, "%02d:%02d:%02d", Long.valueOf(j2 / 60), Long.valueOf(j2 % 60), Long.valueOf(j % 60));
     }
@@ -296,7 +302,7 @@ public class KsMediaMeta {
         }
         try {
             return Integer.parseInt(string);
-        } catch (NumberFormatException e) {
+        } catch (NumberFormatException unused) {
             return i;
         }
     }
@@ -312,7 +318,7 @@ public class KsMediaMeta {
         }
         try {
             return Long.parseLong(string);
-        } catch (NumberFormatException e) {
+        } catch (NumberFormatException unused) {
             return j;
         }
     }
